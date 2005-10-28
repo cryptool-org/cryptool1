@@ -99,6 +99,9 @@ protected:
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
+	afx_msg void OnEntropy();
+	afx_msg void OnHistogram();
+	afx_msg void OnTotxt();
 };
 
 #ifndef _DEBUG  // debug version in HexEditCtrlView.cpp

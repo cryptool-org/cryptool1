@@ -55,8 +55,12 @@ statement from your version.
 /////////////////////////////////////////////////////////////////////////////
 #include "stdafx.h"
 #include "CrypToolApp.h"
+#include "CryptDoc.h"
+#include "FileTools.h"
+#include "cryptography.h"
 #include "HexEditCtrlDoc.h"
 #include "HexEditCtrlView.h"
+#include ".\hexeditctrlview.h"
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -84,6 +88,9 @@ BEGIN_MESSAGE_MAP(CHexEditCtrlView, CHexEditBaseView)
 	ON_COMMAND(ID_EDIT_SELECT_ALL, OnEditSelectAll)
 	ON_COMMAND(ID_GOTO_VATER, OnGotoVater)
 	//}}AFX_MSG_MAP
+	ON_COMMAND(ID_ENTROPY, OnEntropy)
+	ON_COMMAND(ID_HISTOGRAM, OnHistogram)
+	ON_COMMAND(ID_TOTXT, OnTotxt)
 END_MESSAGE_MAP()
 
 
@@ -157,4 +164,44 @@ void CHexEditCtrlView::OnGotoVater()
 		((CMDIFrameWnd*)theApp.m_pMainWnd)->
 			MDIActivate(((CAppDocument*)GetDocument())->CWndVaterFenster);
 	}
+}
+
+void CHexEditCtrlView::OnEntropy()
+{
+	CCryptDoc *pDoc = GetDocument();
+	pDoc->UpdateContent();
+	EntropyBin(pDoc->ContentName, pDoc->GetTitle());	
+}
+
+void CHexEditCtrlView::OnHistogram()
+{
+	CCryptDoc *pDoc = GetDocument();
+	pDoc->UpdateContent();
+    HistogramBin(pDoc->ContentName, pDoc->GetTitle());	
+}
+
+void CHexEditCtrlView::OnTotxt()
+{
+ 	CAppDocument *NewDoc;
+ 	char outfile[128];
+ 	BOOL Modified;
+ 	WINDOWPLACEMENT place;
+	CCryptDoc *pDoc = GetDocument();
+ 	 
+ 	GetTmpName(outfile,"cry",".txt");
+ 	
+ 	CWnd* CWnd_hilf = ((CMDIFrameWnd*)theApp.m_pMainWnd)->MDIGetActive();
+ 	CWnd_hilf->GetWindowPlacement( &place );
+	Modified = pDoc->IsModified();
+	pDoc->OnSaveDocument(outfile);
+ 
+ 	NewDoc = theApp.OpenDocumentFileNoMRU(outfile,pDoc->csSchluessel);
+ 	CWnd_hilf = ((CMDIFrameWnd*)theApp.m_pMainWnd)->MDIGetActive();
+ 	CWnd_hilf->SetWindowPlacement( &place );
+ 	remove(outfile);
+ 	NewDoc->SetTitle(pDoc->GetTitle());
+ 	NewDoc->CWndVaterFenster = pDoc->CWndVaterFenster;
+ 	NewDoc->hWndVaterFenster = pDoc->hWndVaterFenster;
+ 	NewDoc->SetModifiedFlag(Modified);
+ 	pDoc->OnCloseDocument();
 }

@@ -67,9 +67,10 @@ CDlgHashDemo::CDlgHashDemo(CWnd* pParent /*=NULL*/)
 	m_Auswahl_HW = 0;
 	m_strOrigHash = _T("");
 	m_strNewHash = _T("");
-	m_strTitel = _T("");
-	m_strHashDiffRE = _T("");
+//	m_strTitel = _T("");
 	//}}AFX_DATA_INIT
+	
+	m_strHashDiffRE = _T("");
 }
 
 
@@ -78,14 +79,14 @@ void CDlgHashDemo::DoDataExchange(CDataExchange* pDX)
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgHashDemo)
 	DDX_Control(pDX, IDC_EDIT_TEXT, m_ctrlText);
-	DDX_Control(pDX, IDC_RICHEDIT_HASHDIFF, m_ctrlHashDiff);
 	DDX_Control(pDX, IDC_EDIT_ORIGHASH, m_ctrlOrigHash);
 	DDX_Control(pDX, IDC_EDIT_AKTHASH, m_ctrlNewHash);
 	DDX_Radio(pDX, IDC_RADIO_DEC, m_rb_DarstHW);
 	DDX_Radio(pDX, IDC_RADIO_MD2, m_Auswahl_HW);
 	DDX_Text(pDX, IDC_EDIT_ORIGHASH, m_strOrigHash);
 	DDX_Text(pDX, IDC_EDIT_AKTHASH, m_strNewHash);
-	DDX_Text(pDX, IDC_STATIC_TITEL, m_strTitel);
+	DDX_Control(pDX, IDC_RICHEDIT_HASHDIFF, m_ctrlHashDiff);
+//	DDX_Text(pDX, IDC_STATIC_TITEL, m_strTitel);
 	//}}AFX_DATA_MAP
 }
 

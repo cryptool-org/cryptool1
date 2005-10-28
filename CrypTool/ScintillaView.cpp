@@ -19,6 +19,8 @@
 #endif
 //#include "ScintillaDlg.h"
 #include "scintilla.h"
+#include ".\scintillaview.h"
+#include "FileTools.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -95,6 +97,7 @@ BEGIN_MESSAGE_MAP(CScintillaView, CCrypToolView)
 	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, CView::OnFilePrintPreview)
+	ON_COMMAND(ID_TOHEX, OnTohex)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////
@@ -536,4 +539,36 @@ void CScintillaView::OnViewFontCourier10()
 void CScintillaView::OnViewFontCourier12()
 {
 	setFixedFont(12, "Courier");
+}
+
+void CScintillaView::OnTohex()
+{
+	CAppDocument *NewDoc;
+	char outfile[128];
+	BOOL Modified;
+	WINDOWPLACEMENT place;
+
+	CCryptDoc *pDoc = GetDocument();
+
+	GetTmpName(outfile,"cry",".hex");
+	CWnd* CWnd_hilf = ((CMDIFrameWnd*)theApp.m_pMainWnd)->MDIGetActive();
+	CWnd_hilf->GetWindowPlacement( &place );
+
+	Modified = pDoc->IsModified();
+	pDoc->OnSaveDocument(outfile);
+	CString key = pDoc->csSchluessel;
+
+	// NewDoc = (CAppDocument*)theApp.OpenDocumentFile(outfile);
+	NewDoc = theApp.OpenDocumentFileNoMRU(outfile, key /* pDoc->csSchluessel */);
+	NewDoc->SetModifiedFlag(Modified);
+	NewDoc->SetTitle(pDoc->GetTitle());
+	NewDoc->CWndVaterFenster = pDoc->CWndVaterFenster;
+	NewDoc->hWndVaterFenster = pDoc->hWndVaterFenster;
+
+	CWnd_hilf = ((CMDIFrameWnd*)theApp.m_pMainWnd)->MDIGetActive();
+	pDoc->OnCloseDocument();
+	CWnd_hilf->SetWindowPlacement( &place );
+	remove(outfile);
+
+	CWnd *tmp = this->GetFocus();
 }

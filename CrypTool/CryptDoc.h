@@ -58,7 +58,6 @@ class CCryptDoc : public CAppDocument
 {
 
 protected:
-	char ContentName[CRYPTOOL_PATH_LENGTH];
 	virtual BOOL present(const char *in, char *out);
 	// PRESENTATION_NAME char PresentationName[128];
 	CCryptDoc();           // protected constructor used by dynamic creation
@@ -66,9 +65,11 @@ protected:
 
 // Attributes
 public:
+	char ContentName[CRYPTOOL_PATH_LENGTH];
 
 // Operations
 public:
+	virtual BOOL UpdateContent( void );
 
 // Overrides
 	// ClassWizard generated virtual function overrides
@@ -157,7 +158,6 @@ protected:
 	afx_msg void OnAnalyseAesRijndael();
 	afx_msg void OnAnalyseAesSerpent();
 	afx_msg void OnAnalyseAesTwofish();
-	afx_msg void OnToHex();
 	afx_msg void OnVitanyAnalyse();
 	afx_msg void OnPeriod();
 	afx_msg void OnHomophoneHex();
@@ -181,7 +181,6 @@ protected:
 	afx_msg void OnSignaturAttack();
 	afx_msg void OnEinzelverfahrenSidechannelattackOnHybridencryption();
 	afx_msg void OnFileProperties();
-	afx_msg void OnToTxt();
 	afx_msg void OnMessageauthenticationcode();
 	afx_msg void OnEncryptAdfgvx();
 	afx_msg void OnAnalyseSymmclassicAdfgvx();
@@ -195,7 +194,8 @@ protected:
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
-	virtual BOOL UpdateContent( void );
+
+
 };
 
 

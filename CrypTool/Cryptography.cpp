@@ -3374,7 +3374,8 @@ void Hashdemo(const char *infile,const char *OldTitle)
 	HashDlg.SetHash(hashMD2,hashMD5,hashSHA1);
 	//Übergabe von Referenzen auf die drei Hashwerte der Originaldatei
 
-	
+
+	AfxInitRichEdit(); // GRRMPF
 	HashDlg.DoModal();
 	// Die Instanz der Klasse (Der Dialog) wird modal aufgerufen
 

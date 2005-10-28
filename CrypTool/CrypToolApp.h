@@ -191,6 +191,7 @@ public:
 	
 private:
 	virtual int ExitInstance();
+	void execAnimalVisualization(int animalPathID, int animalFileID, int animalExecutableID, int animalLocaleID);
 };
 
 class CMainFrame : public CMDIFrameWnd

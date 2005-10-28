@@ -209,7 +209,6 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CAppDocument)
 	ON_COMMAND(ID_ANALYSE_AES_RIJNDAEL, OnAnalyseAesRijndael)
 	ON_COMMAND(ID_ANALYSE_AES_SERPENT, OnAnalyseAesSerpent)
 	ON_COMMAND(ID_ANALYSE_AES_TWOFISH, OnAnalyseAesTwofish)
-	ON_COMMAND(ID_TOHEX, OnToHex) 
 	ON_COMMAND(ID_ANALYSE_VITANY, OnVitanyAnalyse)
 	ON_COMMAND(ID_ANALYSE_PERIOD, OnPeriod)
 	ON_COMMAND(ID_HOMOPHONE_HEX, OnHomophoneHex)
@@ -233,7 +232,6 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CAppDocument)
 	ON_COMMAND(ID_SIGNATUR_ATTACK, OnSignaturAttack)
 	ON_COMMAND(ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION, OnEinzelverfahrenSidechannelattackOnHybridencryption)
 	ON_COMMAND(ID_FILEPROPERTIES, OnFileProperties)
-	ON_COMMAND(ID_TOTXT, OnToTxt)
 	ON_COMMAND(ID_GENERATE_MACS, OnMessageauthenticationcode)
 	ON_COMMAND(ID_ENCRYPT_ADFGVX, OnEncryptAdfgvx)
 	ON_COMMAND(ID_ANALYSE_SYMMCLASSIC_ADFGVX, OnAnalyseSymmclassicAdfgvx)
@@ -1263,6 +1261,7 @@ void CCryptDoc::OnAnalyseAesTwofish()
     AfxBeginThread( AESBrute, ((void *) para) );
 }
 
+#if 0
 void CCryptDoc::OnToHex() 
 {
 	CAppDocument *NewDoc;
@@ -1286,6 +1285,7 @@ void CCryptDoc::OnToHex()
 	NewDoc->SetModifiedFlag(Modified);
 	OnCloseDocument();
 }
+
 
 void CCryptDoc::OnToTxt() 
  {
@@ -1311,6 +1311,7 @@ void CCryptDoc::OnToTxt()
  	NewDoc->SetModifiedFlag(Modified);
  	OnCloseDocument();
 }
+#endif
 
 void CCryptDoc::OnPlayfairBin()
 {

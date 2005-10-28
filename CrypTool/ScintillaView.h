@@ -109,6 +109,8 @@ protected:
 	afx_msg void OnUpdateInsert(CCmdUI* pCmdUI);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnTohex();
 };
 
 #ifndef _DEBUG  // Testversion in ScintillaView.cpp
