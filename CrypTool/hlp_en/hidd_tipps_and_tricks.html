@@ -16,7 +16,7 @@
 
 <h3><P><A NAME="hidd_tipps_and_tricks"></A><B>Starting page: An Introduction to CrypTool</B></P></h3>
 
-CrypTool is a comprehensive eLearning program about cryptography and cryptanalsysis.
+CrypTool is a comprehensive eLearning program about cryptography and cryptanalysis.
 
 <p><br>
 	<a href="#whatiscryptool">What is CrypTool?</a><p>
@@ -24,8 +24,8 @@ CrypTool is a comprehensive eLearning program about cryptography and cryptanalsy
 	<a href="#demo">Interactive Demonstrations / Visualizations</a><p>
 	<a href="#onlinehelp">Online Help, Documentation and Tutorials</a><p>
 	<a href="#organization">Organizational</a><p>
-        <A href="#licence_terms">Terms of the licence</a>
-	<a href="#opensource">Release of the Source Code</a>
+        <A href="#licence_terms">Terms of the licence</a><p>
+	<a href="#opensource">Release of the Source Code</a><p>
 <p>
 
 <TABLE cols=2 width="0*">
@@ -63,9 +63,17 @@ CrypTool is <B>completely</B> available in <B>English and German</B>. CrypTool h
 
 <P>A summary of all the <!--ZZZPOPUP--><A href="verschlverfahren.html"><B>encryption algorithms</B></A> available in CrypTool is contained on the help page for the <A href="menu_crypt.html">Crypt/Decrypt</A> menu.</P>
 
+A summary of all the encryption algorithms implemented in CrypTool is available in the online help of the program for the "Crypt" menu (more details about the online help see below).</p>
+
+<p>If you encrypt a document the result will be shown in a new sub-window: The title of the resulting window contains both the name of the original document and the encryption key used. The usage of keys is supported by two special icons: Clicking the icon "Show key" <img
+src="images/keycopy.png"> allows you to copy the used key from a resulting window into an internal storage. If you then encrypt another document with the same encryption method the icon "Insert key" <img
+src="images/keypaste.png"> is active within the key entry dialog box. This is helpful, especially with more complex keys.</p>
+
 <P>Automatic analysis tools for obtaining the <!--ZZZPOPUP--><A href="schluessel.html">key</A>, starting from a knowledge of the encrypted document and any additional information (the unencrypted document or the language of the document), are provided for the classical encryption algorithms. For additional information on automatic analysis, request online help for the <A href="menu_analyze.html">Analysis</A> menu and choose the encryption algorithm to be analysed there.</P>
 
 <P>To support your own analysis of documents, CrypTool can display a <!--ZZZPOPUP--><A href="histogramm.html">histogram</A> of the document, determine the statistics for any <A href="hid_analyse_ngram.html">N-grams</A> and calculate <!--ZZZPOPUP--><A href="entropie.html">entropy</A> and <!--ZZZPOPUP--><A href="autokorrelation.html">autocorrelation</A>.</P>
+
+<p>The encryption function within the menu <A href="menu_crypt.html"><B>Crypt/Decrypt</B></A> are implemented in a way that they can called and performed efficiently. On the other hand the functon in the menu <A href="menu_related_methods.html"><B>Indiv. Procedures</B></A> are implemented in a way that they can be performed step by step and interactively. Here the eLearning aspect is the main focus.</p>
 
 <P>In the menu <A href="menu_related_methods.html"><B>Indiv. Procedures</B></A> single different methods and protocols are offered:</P>
 
@@ -91,13 +99,13 @@ CrypTool is <B>completely</B> available in <B>English and German</B>. CrypTool h
 
 <P>The authors of CrypTool did not implement cryptographic functionality, where very good free programs were available in the Internet: so the Enigma cipher and dictionary attacks against password files (see John-the-Ripper, http://www.openwall.com/john/) are not part of CrypTool yet.</P>
 
-<P><B><a name="#rsa">The RSA Cryptosystem</a></B></P>
+<br><P><B><a name="#rsa">The RSA Cryptosystem</a></B></P>
 
 <P>The RSA cryptosystem (see menu Indiv. Procedures \ RSA Cryptosystem \ <A href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">RSA demonstration</A>) is covered comprehensively and implemented for different codings. The RSA key is generated from prime numbers created by the user. Key generation, encryption and decryption can be followed step-by-step.</P>
 
 <P>Factorisation of numbers is also an important application for cryptography. Simple RSA cryptosystems can be easily cracked using the factorisation algorithms presented in CrypTool. Thus, you get an idea of the minimum length of keys necessary for secure systems.</P>
 
-<P><B><a name="demo">Interactive Demonstrations / Visualizations</a></B></P>
+<br><P><B><a name="demo">Interactive Demonstrations / Visualizations</a></B></P>
 <p>This interactive demonstrations (visualizations) are helpful for raising a deeper understanding of the following topics: 
 <ul>
 <li>creating an electronic signature (menu Digital Signatures/PKI \ Sign Message) </li>
@@ -115,21 +123,19 @@ CrypTool is <B>completely</B> available in <B>English and German</B>. CrypTool h
 </ul>
 </p>
 
-<P><B><a href="#onlinehelp">Online help, documentation and tutorials</a></B></P>
+<p><P><B><a name="#onlinehelp">Online Help, Documentation and Tutorials</a></B></P>
 
 <P>During the development of CrypTool, much care has been taken to ensure that context sensitive help is available at any point by pressing the <B>F1</B> key. You can get a fast overview, if you open a file and move through the menu items: Just click <b>F1</b> to see details about any menu item.</P>
-
-<P>The <A href="hid_hilfe_szenarien.html">examples</A> (tutorials) provided with the online help will make it easy for you to get up to speed.</P>
 
 <p>The extensive online help 
 <ul>
 <li>explains all basic cryptographic terms. </li>
 <li>contains a short <A href="literatur.html">list of references.</A></li>
 <li>provides a historic overview of the development of cryptography within the <A href="menu_zeittafel.html">time-table.</A></li>
-<li>contains examples (tutorials) making it easy for you to get up to speed.</li>
+<li>contains <A href="hid_hilfe_szenarien.html">examples</A> (tutorials) making it easy for you to get up to speed.</li>
 </ul></p>
 
-<P>Beside the online help, CrypTool provides additional documentation: </P>
+<P>Besides the online help, CrypTool provides additional documentation: </P>
 
 <UL>
 
@@ -157,7 +163,7 @@ CrypTool is <B>completely</B> available in <B>English and German</B>. CrypTool h
 
 </UL>
 
-<P><B><a href="#organization">Organizational</a></B></P>
+<br><P><B><a name="#organization">Organizational</a></B></P>
 
 <P>CrypTool was developed jointly by companies and universities to provide an adequate teaching aid and for the end user awareness programme aimed at raising the IT security awareness of staff and helping them to gain a deeper understanding of the concept of security. </P>
 
@@ -167,13 +173,13 @@ CrypTool is <B>completely</B> available in <B>English and German</B>. CrypTool h
 
 <P>The enclosed Secude library is restricted through the ticket file to a key length of 768 bits for the asymmetric algorithms and smart card support is disabled. If you have a Secude library licence you will also be able to use longer key lengths with the asymmetric methods with the aid of your ticket file. </P>
 
-<P>In order to demonstrate the RSA cryptosystem and to factorise integers CrypTool uses the long integer arithmetic of the Miracl library (version 4.4.3) from Shamus Software Ltd. (http://indigo.ie/~mscott/). We restricted the integer bit length up to 1024.</P>
+<P>In order to demonstrate the RSA cryptosystem and to factorise integers CrypTool uses the long integer arithmetic of the Miracl library (version 4.4.3) from Shamus Software Ltd. (<a href="http://indigo.ie/~mscott/">http://indigo.ie/~mscott/</a>). We restricted the integer bit length up to 1024.</P>
 
-<P>In order to demonstrate the hash-collisions (using the birthday paradox) the OpenSLL library libeay32.dll is used.</P>
+<P>In order to demonstrate the hash-collisions (using the birthday paradox) the library libeay32.dll from OpenSSL (<a href="http://www.openssl.org/">http://www.openssl.org/</a>) is used.</P>
 
-<P>Please note the <a ref="#licence_terms">terms of license</a> and the <A href="gewaehrleistung.html">information regarding non liability for any damage arising from the use of CrypTool</A>.</P>
+<P>Please note the <a href="#licence_terms">terms of license</a> and the <A href="gewaehrleistung.html">information regarding non-liability for any damage arising from the use of CrypTool</A>.</P>
 
-<P><A NAME="licence_terms"></A><B>Terms of the licence</B></P>
+<br><P><A NAME="licence_terms"></A><B>Terms of the licence</B></P>
 
 <P>The binary version of the CrypTool product is provided free of charge to every user for training and test purposes and for the purpose of familiarisation with cryptographic methods. </P>
 
@@ -189,16 +195,14 @@ licenses, please contact MediaCrypt AG at www.mediacrypt.com, directly.</p>
 
 <P>Use of Secude library outside of the CrypTool program requires a licence (see www.secude.com). There are already newer versions of the Secude library available than the one used within CrypTool (e.g. one which is certified to be signature law compliant).</P>
 
-<P><B><a href="#opensource">Release of the source code</a></B></P>
+<br><P><B><a name="#opensource">Release of the source code</a></B></P>
 
-<P>The sponsors of this product, Deutsche Bank AG, Secude IT Security GmbH and the universities of Darmstadt and Siegen make the source code of the CrypTool program (but not of the include library libraries and not of the ANIMAL system) available free of charge for training purposes on the Internet. </P>
+<P>The sponsors of this product, Deutsche Bank AG, Secude IT Security GmbH and the universities of Darmstadt and Siegen make the source code of the CrypTool application program (but not of the included libraries and not of the Animal system) available free of charge for training purposes on the Internet. </P>
 
-<p> The <em>source code</em> of the CrypTool product is distributed under the
+<p>The <em>source code</em> of the CrypTool product is distributed under the
 terms of the GNU (GNU General Public License, <a
 href="http://www.gnu.org/">www.gnu.org</a>) as published by the Free Software
-Foundation. This does not apply for the libraries from Secude GmbH and Shamus
-Software Ltd. It is only permitted to use these two libraries in conjunction
-with CrypTool.</p>
+Foundation. This does not apply to the libraries SECUDE (Secude IT Security GmbH) and MIRACL (Shamus Software Ltd.). Use of these libraries distributed with CrypTool is allowed only in conjuction with CrypTool.</p>
 
 <p>CrypTool is hosted by the "IT Security" department of the University of Darmstadt, headed by Professor Claudia Eckert.</p>
 
@@ -211,17 +215,6 @@ with CrypTool.</p>
 <li>	all new versions are maintained consistently both in English and German.
 </ul>
 </p>
-<UL>
-
-<LI>that the source code remains consistent,</LI>
-
-<LI>that competent contact persons are available should they be needed by other developers,</LI>
-
-<LI>that the names of the present authors and sponsors are retained in program and source code as in CrypTool release 1.3.05 and </LI>
-
-<LI>that all new versions are maintained consistently both in English and German.</LI>
-
-</UL>
 
 <p><b><i>Bernhard Esslinger -- Copyright &copy; 1998 - 2005 Deutsche Bank AG</i></b></p>
 
