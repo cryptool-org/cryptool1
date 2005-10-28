@@ -63,8 +63,6 @@ CrypTool is <B>completely</B> available in <B>English and German</B>. CrypTool h
 
 <P>A summary of all the <!--ZZZPOPUP--><A href="verschlverfahren.html"><B>encryption algorithms</B></A> available in CrypTool is contained on the help page for the <A href="menu_crypt.html">Crypt/Decrypt</A> menu.</P>
 
-A summary of all the encryption algorithms implemented in CrypTool is available in the online help of the program for the "Crypt" menu (more details about the online help see below).</p>
-
 <p>If you encrypt a document the result will be shown in a new sub-window: The title of the resulting window contains both the name of the original document and the encryption key used. The usage of keys is supported by two special icons: Clicking the icon "Show key" <img
 src="images/keycopy.png"> allows you to copy the used key from a resulting window into an internal storage. If you then encrypt another document with the same encryption method the icon "Insert key" <img
 src="images/keypaste.png"> is active within the key entry dialog box. This is helpful, especially with more complex keys.</p>
@@ -73,12 +71,13 @@ src="images/keypaste.png"> is active within the key entry dialog box. This is he
 
 <P>To support your own analysis of documents, CrypTool can display a <!--ZZZPOPUP--><A href="histogramm.html">histogram</A> of the document, determine the statistics for any <A href="hid_analyse_ngram.html">N-grams</A> and calculate <!--ZZZPOPUP--><A href="entropie.html">entropy</A> and <!--ZZZPOPUP--><A href="autokorrelation.html">autocorrelation</A>.</P>
 
-<p>The encryption function within the menu <A href="menu_crypt.html"><B>Crypt/Decrypt</B></A> are implemented in a way that they can called and performed efficiently. On the other hand the functon in the menu <A href="menu_related_methods.html"><B>Indiv. Procedures</B></A> are implemented in a way that they can be performed step by step and interactively. Here the eLearning aspect is the main focus.</p>
+<p>The encryption functions within the menu <A href="menu_crypt.html">Crypt/Decrypt</A> are implemented in a way that they can be called and performed efficiently. <br>
+On the other hand the functon in the menu <A href="menu_related_methods.html">Indiv. Procedures</A> are implemented in a way that they can be performed step by step and interactively. Here the eLearning aspect is the main focus.</p>
 
-<P>In the menu <A href="menu_related_methods.html"><B>Indiv. Procedures</B></A> single different methods and protocols are offered:</P>
+<P>In the menu <A href="menu_related_methods.html">Indiv. Procedures</A> single different methods and protocols are offered:</P>
 
 <UL>
-	<LI>calculate <!--ZZZPOPUP--><A href="hashwert.html">hash values</A> (see menu <B>Indiv. Procedures \ <A href="menu_individualprocedures_hashprocedures.html">Hash</A></B>) and show their sensitivity.</LI>
+	<LI>calculate <!--ZZZPOPUP--><A href="hashwert.html">hash values</A> (see menu Indiv. Procedures \ <A href="menu_individualprocedures_hashprocedures.html">Hash</A>) and show their sensitivity.</LI>
 	<LI>create <A href="hid_generate_macs.html">Message Authentication Codes (MACs).</A></LI>
 	<LI>find out, how strong keys can be generated according the <A href="hid_einzelverfahren_schluesselgenerieren.html">PKCS#5</A> standard from passwords.</LI>
 	<LI><A href="hid_zip.html">compress</A> and <A href="hid_unzip.html">decompress</A> documents. This enables the study of file compression prior to the actual encryption of a given document.</LI>
@@ -97,7 +96,7 @@ src="images/keypaste.png"> is active within the key entry dialog box. This is he
 
 <p>Within CrypTool the modern algorithms are implemented according to international standards.</p>
 
-<P>The authors of CrypTool did not implement cryptographic functionality, where very good free programs were available in the Internet: so the Enigma cipher and dictionary attacks against password files (see John-the-Ripper, http://www.openwall.com/john/) are not part of CrypTool yet.</P>
+<P>The authors of CrypTool did not implement cryptographic functionality, where very good free programs were available in the Internet: So the Enigma cipher and dictionary attacks against password files (see John-the-Ripper, http://www.openwall.com/john/) are not part of CrypTool yet.</P>
 
 <br><P><B><a name="#rsa">The RSA Cryptosystem</a></B></P>
 
@@ -106,24 +105,24 @@ src="images/keypaste.png"> is active within the key entry dialog box. This is he
 <P>Factorisation of numbers is also an important application for cryptography. Simple RSA cryptosystems can be easily cracked using the factorisation algorithms presented in CrypTool. Thus, you get an idea of the minimum length of keys necessary for secure systems.</P>
 
 <br><P><B><a name="demo">Interactive Demonstrations / Visualizations</a></B></P>
-<p>This interactive demonstrations (visualizations) are helpful for raising a deeper understanding of the following topics: 
+<p>This interactive demonstrations (<A href="visualizations.html">visualizations</a>) are helpful for raising a deeper understanding of the following topics: 
 <ul>
-<li>creating an electronic signature (menu Digital Signatures/PKI \ Sign Message) </li>
-<li>processing hybrid encryption (menu Crypt \ Hybrid \ RSA-AES Encryption) </li>
+<li>creating an <A href="hid_einzelverfahren_sign_doc.html">electronic signature.</a></li>
+<li>processing <A href="hid_verentschlsseln_hybridverfahren_hybridverschlsselung.html">hybrid encryption.</a></li>
 <li>how changes to a document change the hash value
 	<ul>
-	<li>sensitivity of hash algorithms (menu Indiv. Procedures \ Hash \ Hash Demonstration). </li>
-	<li>generation of hash value collisions (birthday paradox) (menu Analysis \ Hash \ Attack on the Hash Value of the Digital Signature). </li>
-	<li>processing the Diffie-Hellman key exchange (menu Indiv. Procedures \ Protocols \ Diffie-Hellman Demonstration). </li>
+	<li><A href="hid_einzelverfahren_hashwerte_hashdemo.html">sensitivity of hash algorithms.</a></li>
+	<li>generation of <A href="hid_signatur_attack.html">hash value collisions</a> (birthday paradox). </li>
+	<li>processing the <A href="hid_einzelverfahren_diffiehellmandemo.html">Diffie-Hellman key exchange.</a>. </li>
 	</ul>
 </li>
-<li>side-channel attacks (menu Analysis \ Asymmetric Encryption \ Side-Channel Attack on "Textbook RSA").</li>
-<li>authentication protocols (menu Indiv. Procedures \ Protocols \ Networkauthentication).</li>
-<li>shared secrets (menu Indiv. Procedures \ Secret-Sharing Demonstration).</li>
+<li><A href="hid_einzelverfahren_sidechannelattack_on_hybridencryption.html">side-channel attacks.</a></li>
+<li><A href="hid_cr_overview.html">authentication protocols.</a></li>
+<li><A href="hid_indiv_crt_secretsharing.html">shared secrets.</a></li>
 </ul>
 </p>
 
-<p><P><B><a name="#onlinehelp">Online Help, Documentation and Tutorials</a></B></P>
+<br><p><P><B><a name="#onlinehelp">Online Help, Documentation and Tutorials</a></B></P>
 
 <P>During the development of CrypTool, much care has been taken to ensure that context sensitive help is available at any point by pressing the <B>F1</B> key. You can get a fast overview, if you open a file and move through the menu items: Just click <b>F1</b> to see details about any menu item.</P>
 
@@ -200,7 +199,7 @@ licenses, please contact MediaCrypt AG at www.mediacrypt.com, directly.</p>
 <P>The sponsors of this product, Deutsche Bank AG, Secude IT Security GmbH and the universities of Darmstadt and Siegen make the source code of the CrypTool application program (but not of the included libraries and not of the Animal system) available free of charge for training purposes on the Internet. </P>
 
 <p>The <em>source code</em> of the CrypTool product is distributed under the
-terms of the GNU (GNU General Public License, <a
+terms of the GPL (GNU General Public License, <a
 href="http://www.gnu.org/">www.gnu.org</a>) as published by the Free Software
 Foundation. This does not apply to the libraries SECUDE (Secude IT Security GmbH) and MIRACL (Shamus Software Ltd.). Use of these libraries distributed with CrypTool is allowed only in conjuction with CrypTool.</p>
 
