@@ -593,7 +593,7 @@ END
 IDD_AUTHORS DIALOGEX 0, 0, 284, 289
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Über CrypTool"
-FONT 8, "MS Sans Serif", 0, 0, 0x0
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,112,267,50,14
     CTEXT           "Personen, die zu CrypTool beitrugen",IDC_STATIC,7,6,270,
@@ -2386,37 +2386,37 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hash-Demo"
 FONT 8, "MS Sans Serif"
 BEGIN
-    GROUPBOX        "Auswahl der Hashfunktion",IDC_STATIC,16,10,95,62
     CONTROL         "MD&2",IDC_RADIO_MD2,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,33,25,31,10
     CONTROL         "MD&5",IDC_RADIO_MD5,"Button",BS_AUTORADIOBUTTON,33,41,
                     31,10
     CONTROL         "SHA-&1",IDC_RADIO_SHA1,"Button",BS_AUTORADIOBUTTON,33,
                     57,34,10
-    GROUPBOX        "Darstellung der Hashwerte",IDC_STATIC,217,9,93,63
     CONTROL         "&dezimal",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,232,41,39,10
     CONTROL         "&hexadezimal",IDC_RADIO_HEX,"Button",BS_AUTORADIOBUTTON,
                     232,26,55,10
     CONTROL         "bi&när",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,232,
                     58,31,10
-    LTEXT           "Aktuelle Datei (diese Kopie der Originaldatei können Sie hier ändern)",
-                    IDC_STATIC,16,85,294,8,NOT WS_GROUP
     EDITTEXT        IDC_EDIT_TEXT,16,97,294,113,ES_MULTILINE | ES_WANTRETURN | 
                     WS_VSCROLL
-    LTEXT           "Hashwert der Originaldatei",IDC_STATIC_TITEL,16,219,194,
-                    8
     EDITTEXT        IDC_EDIT_ORIGHASH,16,229,294,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    LTEXT           "Hashwert der aktuellen Datei",IDC_STATIC,16,252,92,8
     EDITTEXT        IDC_EDIT_AKTHASH,16,262,294,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    LTEXT           "Unterschied zwischen dem Hashwert der Orignal- und dem Hashwert der aktuellen Datei",
-                    IDC_STATIC,16,284,285,8
-    PUSHBUTTON      "Dialog &beenden",IDCANCEL,251,366,59,14
     CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",TCS_RAGGEDRIGHT | 
                     TCS_FOCUSONBUTTONDOWN | TCS_MULTISELECT | WS_BORDER | 
                     WS_TABSTOP,16,296,294,64
+    PUSHBUTTON      "Dialog &beenden",IDCANCEL,251,366,59,14
+    GROUPBOX        "Auswahl der Hashfunktion",IDC_STATIC,16,10,95,62
+    GROUPBOX        "Darstellung der Hashwerte",IDC_STATIC,217,9,93,63
+    LTEXT           "Aktuelle Datei (diese Kopie der Originaldatei können Sie hier ändern)",
+                    IDC_STATIC,16,85,294,8,NOT WS_GROUP
+    LTEXT           "Hashwert der Originaldatei",IDC_STATIC_TITEL,16,219,194,
+                    8
+    LTEXT           "Hashwert der aktuellen Datei",IDC_STATIC,16,252,92,8
+    LTEXT           "Unterschied zwischen dem Hashwert der Orignal- und dem Hashwert der aktuellen Datei",
+                    IDC_STATIC,16,284,285,8
 END
 
 IDD_KEY_PERMUTATION_INFO DIALOGEX 0, 0, 317, 194
@@ -2442,7 +2442,7 @@ END
 IDD_STARTOPTIONS DIALOGEX 0, 0, 276, 94
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Startoptionen"
-FONT 8, "MS Sans Serif", 0, 0, 0x0
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,12,64,50,18
     PUSHBUTTON      "&Abbrechen",IDCANCEL,215,64,50,18
@@ -2758,10 +2758,10 @@ BEGIN
     GROUPBOX        "Damit ist das Ziel erreicht",IDC_STATIC,7,184,410,68
 END
 
-IDD_OPTIONS_FURTHEROPTIONS DIALOGEX 0, 0, 291, 156
+IDD_OPTIONS_FURTHEROPTIONS DIALOG  0, 0, 291, 156
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Weitere Optionen"
-FONT 8, "MS Sans Serif", 0, 0, 0x0
+FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,135,50,14
     PUSHBUTTON      "&Abbrechen",IDCANCEL,234,135,50,14
@@ -4757,7 +4757,7 @@ BEGIN
         POPUP "S&chriftart"
         BEGIN
             MENUITEM "Arial 8",                     33314
-            MENUITEM "Arial 10",                    33313
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
             MENUITEM "Arial 12",                    33312
             MENUITEM "Courier 8",                   33316
             MENUITEM "Courier 10",                  33309
@@ -5127,7 +5127,7 @@ BEGIN
         POPUP "S&chriftart"
         BEGIN
             MENUITEM "Arial 8",                     33314
-            MENUITEM "Arial 10",                    33313
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
             MENUITEM "Arial 12",                    33312
             MENUITEM "Courier 8",                   33316
             MENUITEM "Courier 10",                  33309
@@ -5469,7 +5469,7 @@ BEGIN
         POPUP "S&chriftart"
         BEGIN
             MENUITEM "Arial 8",                     33314
-            MENUITEM "Arial 10",                    33313
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
             MENUITEM "Arial 12",                    33312
             MENUITEM "Courier 8",                   33316
             MENUITEM "Courier 10",                  33309
@@ -5840,7 +5840,7 @@ BEGIN
         POPUP "S&chriftart"
         BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
-            MENUITEM "Arial 10",                    33313
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
 
@@ -6216,7 +6216,7 @@ BEGIN
         POPUP "S&chriftart"
         BEGIN
             MENUITEM "Arial 8",                     33314
-            MENUITEM "Arial 10",                    33313
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
             MENUITEM "Arial 12",                    33312
             MENUITEM "Courier 8",                   33316
             MENUITEM "Courier 10",                  33309
@@ -13443,14 +13443,15 @@ BEGIN
                             "Sie haben nur einen Schlüssel eingegeben!\nDer MAC wird daher nur aus der Nachricht \nund einem Schlüssel berechnet."
     IDS_STRING_MAC_Double   "Sie haben keinen Schlüssel eingegeben!\nDer innere Hashwert entspricht daher dem Hashwert\nder Datei, der MAC dem Hashwert dieses Wertes."
     IDS_ERROPEN_ANIM        "Die Animationsdatei kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob das Animationstool Animal mit den nötigen Animationsdateien installiert wurde."
-    IDS_ANIMAL_PATH         ".\\animal"
-    IDS_ANIMAL_EXECUTABLE   "animal.exe"
-    IDS_ANIMAL_FILE_CAESAR  "locale=de_DE .\\anims\\caesar_de.aml"
-    IDS_ANIMAL_FILE_VIGENERE "locale=de_DE .\\anims\\vigenere_de.aml"
-    IDS_ANIMAL_FILE_NIHILIST "locale=de_DE .\\anims\\nihilist_de.aml"
-    IDS_ANIMAL_FILE_DES     "locale=de_DE .\\anims\\des_de.aml"
+    IDS_ANIMAL_PATH         "animal\\"
+    IDS_ANIMAL_EXECUTABLE   "animal.bat"
+    IDS_ANIMAL_FILE_CAESAR  "anims\\caesar_de.aml"
+    IDS_ANIMAL_FILE_VIGENERE ".\\anims\\vigenere_de.aml"
+    IDS_ANIMAL_FILE_NIHILIST ".\\anims\\nihilist_de.aml"
+    IDS_ANIMAL_FILE_DES     ".\\anims\\des_de.aml"
     IDS_SCA_HYBRIDENCRYPTEDFILE_DEFAULT_PSEFILE 
                             "letterFromAliceToBob-ENCRYPTED-de.hex"
+    IDS_ANIMAL_FILE_LOCALE  "locale=de_DE"
 END
 
 STRINGTABLE 
@@ -14322,7 +14323,7 @@ END
 IDD_AUTHORS DIALOGEX 0, 0, 291, 290
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About CrypTool"
-FONT 8, "MS Sans Serif", 0, 0, 0x0
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,119,267,50,15
     CTEXT           "Persons Contributing to CrypTool",IDC_STATIC,7,6,277,11,
@@ -16188,7 +16189,7 @@ END
 IDD_STARTOPTIONS DIALOGEX 0, 0, 277, 91
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Starting Options"
-FONT 8, "MS Sans Serif", 0, 0, 0x0
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,12,61,50,18
     PUSHBUTTON      "&Cancel",IDCANCEL,215,61,50,18
@@ -18379,7 +18380,7 @@ BEGIN
         POPUP "&Font"
         BEGIN
             MENUITEM "Arial 8",                     33314
-            MENUITEM "Arial 10",                    33313
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
             MENUITEM "Arial 12",                    33312
             MENUITEM "Courier 8",                   33316
             MENUITEM "Courier 10",                  33309
@@ -18742,7 +18743,7 @@ BEGIN
         POPUP "&Font"
         BEGIN
             MENUITEM "Arial 8",                     33314
-            MENUITEM "Arial 10",                    33313
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
             MENUITEM "Arial 12",                    33312
             MENUITEM "Courier 8",                   33316
             MENUITEM "Courier 10",                  33309
@@ -19078,7 +19079,7 @@ BEGIN
         POPUP "&Font"
         BEGIN
             MENUITEM "Arial 8",                     33314
-            MENUITEM "Arial 10",                    33313
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
             MENUITEM "Arial 12",                    33312
             MENUITEM "Courier 8",                   33316
             MENUITEM "Courier 10",                  33309
@@ -19442,7 +19443,7 @@ BEGIN
         POPUP "&Font"
         BEGIN
             MENUITEM "Arial 8",                     33314
-            MENUITEM "Arial 10",                    33313
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
             MENUITEM "Arial 12",                    33312
             MENUITEM "Courier 8",                   33316
             MENUITEM "Courier 10",                  33309
@@ -19809,7 +19810,7 @@ BEGIN
         POPUP "&Font"
         BEGIN
             MENUITEM "Arial 8",                     33314
-            MENUITEM "Arial 10",                    33313
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
             MENUITEM "Arial 12",                    33312
             MENUITEM "Courier 8",                   33316
             MENUITEM "Courier 10",                  33309
@@ -27287,14 +27288,15 @@ BEGIN
                             "You did only enter one key!\nConsequently, the MAC will be determined by your message \nand one key only."
     IDS_STRING_MAC_Double   "You did not enter a key!\nThe inner hash value therefore corresponds to the hash value\nof the message, the MAC to this values' hash value."
     IDS_ERROPEN_ANIM        "The Animation-Tool 'Animal' could not be found. Please check whether all necessary files were installed with CrypTool."
-    IDS_ANIMAL_PATH         ".\\animal"
-    IDS_ANIMAL_EXECUTABLE   "animal.exe"
-    IDS_ANIMAL_FILE_CAESAR  ".\\anims\\caesar_eng.aml"
-    IDS_ANIMAL_FILE_VIGENERE ".\\anims\\vigenere_eng.aml"
-    IDS_ANIMAL_FILE_NIHILIST ".\\anims\\nihilist_eng.aml"
-    IDS_ANIMAL_FILE_DES     ".\\anims\\des_eng.aml"
+    IDS_ANIMAL_PATH         "animal\\"
+    IDS_ANIMAL_EXECUTABLE   "animal.bat"
+    IDS_ANIMAL_FILE_CAESAR  "anims\\caesar_eng.aml"
+    IDS_ANIMAL_FILE_VIGENERE "anims\\vigenere_eng.aml"
+    IDS_ANIMAL_FILE_NIHILIST "anims\\nihilist_eng.aml"
+    IDS_ANIMAL_FILE_DES     "anims\\des_eng.aml"
     IDS_SCA_HYBRIDENCRYPTEDFILE_DEFAULT_PSEFILE 
                             "letterFromAliceToBob-ENCRYPTED-en.hex"
+    IDS_ANIMAL_FILE_LOCALE  "locale=de_DE"
 END
 
 STRINGTABLE 

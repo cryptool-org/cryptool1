@@ -1044,74 +1044,45 @@ void CCrypToolApp::OnRsaBloemermay()
 }
 // #endif
 
-
-
-void CCrypToolApp::OnAnimalCaesar() 
+void CCrypToolApp::execAnimalVisualization(int animalPathID, int animalFileID, int animalExecutableID, int animalLocaleID)
 {
-	CString animalPath, animalFile, animalExecutable;
-	LoadString(AfxGetInstanceHandle(),IDS_ANIMAL_PATH,pc_str,STR_LAENGE_STRING_TABLE);
-	animalPath = pc_str;
-	LoadString(AfxGetInstanceHandle(),IDS_ANIMAL_EXECUTABLE,pc_str,STR_LAENGE_STRING_TABLE);
+	CString animalPath, animalFile, animalExecutable, animalLocale;
+	LoadString(AfxGetInstanceHandle(),animalPathID,pc_str,STR_LAENGE_STRING_TABLE);
+	animalPath = CString(Pfad) + CString(pc_str);
+	LoadString(AfxGetInstanceHandle(),animalExecutableID,pc_str,STR_LAENGE_STRING_TABLE);
 	animalExecutable = pc_str;
-	LoadString(AfxGetInstanceHandle(),IDS_ANIMAL_FILE_CAESAR,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(),animalFileID,pc_str,STR_LAENGE_STRING_TABLE);
 	animalFile = pc_str;
+	LoadString(AfxGetInstanceHandle(),animalLocaleID,pc_str,STR_LAENGE_STRING_TABLE);
+	animalLocale = pc_str;
+
+	animalFile = CString("\"") + /* animalLocale + CString(" ") + */ animalPath + animalFile +CString("\"");
 
 
 	HINSTANCE hInst=ShellExecute(NULL,NULL,animalExecutable,animalFile, animalPath, SW_SHOW); 
 
 	if ( reinterpret_cast<int>(hInst) <= 32 )
-	Message(IDS_ERROPEN_ANIM, MB_ICONSTOP);
+		Message(IDS_ERROPEN_ANIM, MB_ICONSTOP);
+}
+
+void CCrypToolApp::OnAnimalCaesar() 
+{
+	execAnimalVisualization(IDS_ANIMAL_PATH, IDS_ANIMAL_FILE_CAESAR, IDS_ANIMAL_EXECUTABLE, IDS_ANIMAL_FILE_LOCALE);
 }
 
 void CCrypToolApp::OnAnimalVigenere() 
 {
-	CString animalPath, animalFile, animalExecutable;
-	LoadString(AfxGetInstanceHandle(),IDS_ANIMAL_PATH,pc_str,STR_LAENGE_STRING_TABLE);
-	animalPath = pc_str;
-	LoadString(AfxGetInstanceHandle(),IDS_ANIMAL_EXECUTABLE,pc_str,STR_LAENGE_STRING_TABLE);
-	animalExecutable = pc_str;
-	LoadString(AfxGetInstanceHandle(),IDS_ANIMAL_FILE_VIGENERE,pc_str,STR_LAENGE_STRING_TABLE);
-	animalFile = pc_str;
-
-
-	HINSTANCE hInst=ShellExecute(NULL,NULL,animalExecutable,animalFile, animalPath, SW_SHOW); 
-
-	if ( reinterpret_cast<int>(hInst) <= 32 )
-	Message(IDS_ERROPEN_ANIM, MB_ICONSTOP);
+	execAnimalVisualization(IDS_ANIMAL_PATH, IDS_ANIMAL_FILE_VIGENERE, IDS_ANIMAL_EXECUTABLE, IDS_ANIMAL_FILE_LOCALE);
 }
 
 void CCrypToolApp::OnAnimalNihilist() 
 {
-	CString animalPath, animalFile, animalExecutable;
-	LoadString(AfxGetInstanceHandle(),IDS_ANIMAL_PATH,pc_str,STR_LAENGE_STRING_TABLE);
-	animalPath = pc_str;
-	LoadString(AfxGetInstanceHandle(),IDS_ANIMAL_EXECUTABLE,pc_str,STR_LAENGE_STRING_TABLE);
-	animalExecutable = pc_str;
-	LoadString(AfxGetInstanceHandle(),IDS_ANIMAL_FILE_NIHILIST,pc_str,STR_LAENGE_STRING_TABLE);
-	animalFile = pc_str;
-
-
-	HINSTANCE hInst=ShellExecute(NULL,NULL,animalExecutable,animalFile, animalPath, SW_SHOW); 
-
-	if ( reinterpret_cast<int>(hInst) <= 32 )
-	Message(IDS_ERROPEN_ANIM, MB_ICONSTOP);
+	execAnimalVisualization(IDS_ANIMAL_PATH, IDS_ANIMAL_FILE_NIHILIST, IDS_ANIMAL_EXECUTABLE, IDS_ANIMAL_FILE_LOCALE);
 }
 
 void CCrypToolApp::OnAnimalDes() 
 {
-	CString animalPath, animalFile, animalExecutable;
-	LoadString(AfxGetInstanceHandle(),IDS_ANIMAL_PATH,pc_str,STR_LAENGE_STRING_TABLE);
-	animalPath = pc_str;
-	LoadString(AfxGetInstanceHandle(),IDS_ANIMAL_EXECUTABLE,pc_str,STR_LAENGE_STRING_TABLE);
-	animalExecutable = pc_str;
-	LoadString(AfxGetInstanceHandle(),IDS_ANIMAL_FILE_DES,pc_str,STR_LAENGE_STRING_TABLE);
-	animalFile = pc_str;
-
-
-	HINSTANCE hInst=ShellExecute(NULL,NULL,animalExecutable,animalFile, animalPath, SW_SHOW); 
-
-	if ( reinterpret_cast<int>(hInst) <= 32 )
-	Message(IDS_ERROPEN_ANIM, MB_ICONSTOP);
+	execAnimalVisualization(IDS_ANIMAL_PATH, IDS_ANIMAL_FILE_DES, IDS_ANIMAL_EXECUTABLE, IDS_ANIMAL_FILE_LOCALE);
 }
 
 void CCrypToolApp::OnIndivCrtPlanet() 
