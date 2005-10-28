@@ -6,11 +6,64 @@
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="RSA">
+	<PARAM NAME="Keyword" VALUE="Gitter">
+	<PARAM NAME="Keyword" VALUE="Angriff">
+</OBJECT>
+
 <BODY>
 
 <h3>Faktorisieren mit teilweise bekanntem p (Menü <A href="menu_related_methods.html">Einzelverfahren</A> \ RSA-Kryptosystem \ Gitterbasierte Angriffe auf RSA)</h3>
 
-<P>TODO</P>
+<p>Mit dem Angriff &quot;Faktorisierung bei teilweise bekanntem p&quot; ist es 
+  m&ouml;glich, einen <A href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">RSA</A>-Modulus 
+  <font face="Times New Roman, Times, serif"><strong>N</strong></font> zu faktorisieren, 
+  wenn ein Teil eines der beiden Faktoren <font face="Times New Roman, Times, serif"><strong>p</strong></font> 
+  oder<strong> <font face="Times New Roman, Times, serif"><strong>q</strong></font> 
+  </strong>bekannt ist. </p>
+<p>Dazu wird dieses Problem in eine Nullstellensuche umgeformt und mit dem Verfahren 
+  der <a href="menu_individualprocedures_rsacryptosystem_latticebasedattacks.html">Gitterreduktion</a> gel&ouml;st.</p>
+<p>Wir nehmen im folgenden ohne Beschr&auml;nkung der Allgemeinheit an, dass ein 
+  Teil von <font face="Times New Roman, Times, serif"><strong>p</strong></font> 
+  bekannt ist. Wir nennen<font face="Times New Roman, Times, serif"><strong> P</strong></font> 
+  die Zahl, die <font face="Times New Roman, Times, serif"><strong>p</strong></font> 
+  in den niederwertigsten Bits entspricht. F&uuml;r die h&ouml;chstwertigen Bits 
+  ist das Verfahren sehr &auml;hnlich. Voraussetzung f&uuml;r den Angriff ist, 
+  dass der bekannte Teil <font face="Times New Roman, Times, serif"><strong>P</strong></font> 
+  <font face="Times New Roman, Times, serif"><strong></strong></font> gro&szlig; 
+  genug ist. Das Polynom
+<div align="center" style="margin-top:5px ; margin-bottom: 5px"> <font face="Times New Roman, Times, serif"><strong>f(x) 
+  = (P + x) mod p </strong></font></div>
+hat in <font face="Times New Roman, Times, serif"><strong>x<sub>0</sub>= p-P</strong></font> 
+eine Nullstelle, die mit dem Verfahren der <a href="menu_individualprocedures_rsacryptosystem_latticebasedattacks.html">Gitterreduktion</a> 
+gefunden werden kann. 
+<p> Wenn <font face="Times New Roman, Times, serif"><strong>N</strong></font> 
+  eine Zahl mit <font face="Times New Roman, Times, serif"><strong>n</strong></font> 
+  Bit L&auml;nge ist, dann werden mindestens <font face="Times New Roman, Times, serif"><strong>(n/4)+1</strong></font> 
+  Bit von <font face="Times New Roman, Times, serif"><strong>p</strong></font> 
+  ben&ouml;tigt, um den Angriff erfolgreich durchzuf&uuml;hren. </p>
+<p>Dan Boneh, Glenn Durfee und Nick Howgrave-Graham stellten in [BDHG99] unter 
+  anderem dieses Verfahren vor. In [Dur02] wird neben dem hier geschilderten auch 
+  die Faktorisierung bei bekannten h&ouml;chstwertigen Bits gezeigt.</p>
+<h4>Quellen:</h4>
+<div ></div>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr> 
+    <td width="51" height="1" align="left" valign="top">[BDHG99]</td>
+    <td width="688" align="left" valign="top"><div align="justify"> Boneh, Dan 
+        ; Durfee, Glenn ; Howgrave-Graham, Nick: Factoring N = p<sup>r </sup>q 
+        for Large r. In: <em>Advances in Cryptology - Crypto’99, Lecture Notes 
+        in Computer Science Bd. 1666</em>, Springer Verlag, 1999, S. 326–337</div></td>
+  </tr>
+  <tr> 
+    <td align="left" valign="top">[Dur02]</td>
+    <td align="left" valign="top"><div align="justify"> Durfee, Glenn: Public 
+        Key Cryptanalysis Using Algebraic and Lattice Methods,<br>
+        Stanford University, Diss., 2002</div></td>
+  </tr>
+</table>
 
 </BODY>
 </HTML>

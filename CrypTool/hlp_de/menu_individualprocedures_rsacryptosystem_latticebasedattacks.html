@@ -6,6 +6,13 @@
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="RSA">
+	<PARAM NAME="Keyword" VALUE="Gitter">
+	<PARAM NAME="Keyword" VALUE="Angriff">
+</OBJECT>
+
 <OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" >
 	<PARAM NAME="ALink Name" VALUE="Einzelverfahren_RSAKryptosystem_GitterbasierteAngriffeaufRSA">
 </OBJECT>
@@ -34,6 +41,87 @@
 </TR>
 
 </TABLE>
+
+<p><BR>
+  Allen hier vorgestellten gitterbasierten Angriffen liegt ein &auml;hnlicher 
+  Ansatz zu Grunde: Zun&auml;chst wird das Problem, RSA zu brechen in die Suche 
+  nach Nullstellen eines Polynoms modulo einer ganzen Zahl (meist N) umgeformt. 
+  Eine solche Nullstelle zu finden ist ein schwieriges Problem. <br>
+  <br>
+  Um die Nullstellen zu berechnen werden zu dem urspr&uuml;nglichen Polynom noch 
+  eine Reihe weiterer Polynome aufgestellt, von denen bekannt ist, dass sie die 
+  selbe Nullstelle besitzen. Aus den Koeffizienten dieser Polynome wird eine Gitterbasis 
+  aufgestellt. Diese wird mit dann z.B. mit dem LLL-Algorithmus reduziert, um 
+  einen kurzen Vektor zu finden.<br>
+  <br>
+  Aus dem gefundenen kurzen Vektor wird wieder ein Polynom aufgestellt. Man kann 
+  zeigen, dass wenn der gefundene Vektor kurz genug ist, das aufgestellte Polynom 
+  die gesuchte Nullstelle nicht nur modulo N sondern &uuml;ber allen Zahlen besitzt. 
+</p>
+<h4>Beispiel: </h4>
+<table width="100%" border="0" cellspacing="5" cellpadding="0">
+  <tr>
+    <td><img src="images/lattice.gif" width="286" height="209" align="left"></td>
+    <td style="font:11pt">Das Polynom <font face="Times New Roman, Times, serif"><strong>q<sub>1</sub>(x) 
+      = 3x+1</strong></font> hat eine Nullstelle <font face="Times New Roman, Times, serif"><strong>x<sub>0</sub> 
+      modulo 7</strong></font>. Es sei bekannt, dass das Polynom <font face="Times New Roman, Times, serif"><strong>q<sub>2</sub>(x) 
+      = 4x-1</strong></font> die gleiche Nullstelle <font face="Times New Roman, Times, serif"><strong>x<sub>0</sub></strong></font><sub> 
+      </sub><font face="Times New Roman, Times, serif"><strong>modulo 7</strong></font> 
+      besitzt. Aus den Polynomen werden nun die Vektoren <font face="Times New Roman, Times, serif"><strong>b<sub>1</sub>=[3 
+      1]</strong></font> und <font face="Times New Roman, Times, serif"><strong>b<sub>2</sub>=[4 
+      -1]</strong></font> aufgestellt. Alle ganzzahligen Linearkombinationen dieser 
+      Vektoren stellen Punkte in einem Gitter dar. Die Abbildung links zeigt einen 
+      Ausschnitt dieses Gitters. Jeder Gitterpunkt kann wiederum als Polynom interpretiert 
+      werden, das ebenfalls die gesuchte Nullstelle besitzt. Ein kurzer Vektor 
+      des Gitters ist <font face="Times New Roman, Times, serif"><strong>b<sub>3</sub>=[1 
+      -2]</strong></font> aus dem das Polynom <font face="Times New Roman, Times, serif"><strong>h(x) 
+      = x-2</strong></font> gebildet wird. Dieses Polynom hat in <font face="Times New Roman, Times, serif"><strong>x<sub>0</sub>=2</strong></font> 
+      eine Nullstelle sowohl &uuml;ber den ganzen Zahlen als auch &uuml;ber den 
+      ganzen Zahlen <font face="Times New Roman, Times, serif"><strong>modulo 
+      7</strong></font>. Man erkennt, dass <font face="Times New Roman, Times, serif"><strong>x<sub>0</sub>=2</strong></font> 
+      auch Nullstelle der Polynome <font face="Times New Roman, Times, serif"><strong>q<sub>1</sub>(x)</strong></font> 
+      und <font face="Times New Roman, Times, serif"><strong>q<sub>2</sub>(x)</strong></font> 
+      <font face="Times New Roman, Times, serif"><strong>modulo 7</strong></font> 
+      ist. <br> <span class="indent">(<font face="Times New Roman, Times, serif"><strong>3x<sub>0</sub>+1=7, 
+      7</strong></font> <font face="Times New Roman, Times, serif"><strong>modulo</strong></font> 
+      <font face="Times New Roman, Times, serif"><strong>7 = 0</strong></font>)</span></td>
+  </tr>
+</table>
+<h4><br>
+  Bemerkung:</h4>
+<p>Erstmals vorgestellt 1988 von Johan H&aring;stad [H&aring;s88] wurde das Verfahren 
+  1996 weiterentwickelt von Don Coppersmith [Cop96a, Cop96b]. Nick Howgrave-Graham 
+  [HG97] zeigte 1997 einen verst&auml;ndlicheren Ansatz. </p>
+<h4>Quellen:</h4>
+<div ></div>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td width="1" height="1" align="left" valign="top">[Cop96a] </td>
+    <td align="left" valign="top"><div align="justify">Coppersmith, Don: <em>Finding 
+        a Small Root of a Bivariate Integer Equation;</em> Factoring with High 
+        Bits Known. In: <em>Advances in Cryptology – EUROCRYPT ’96, Lecture Notes 
+        in Computer Science 1070</em> (1996), S. 178–189</div></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">[Cop96b]</td>
+    <td align="left" valign="top"><div align="justify">Coppersmith, Don: Finding 
+        a Small Root of a Univariate Modular Equation. In: <em>Advances in Cryptology 
+        – EUROCRYPT ’96, Lecture Notes in Computer Science 1070 </em>(1996), S. 
+        155–165</div></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">[H&aring;s88]</td>
+    <td align="left" valign="top"><div align="justify">H&aring;stad, Johan: Solving 
+        simultaneous modular equations of low degree. In: <em>SIAM Journal of 
+        Computing 17</em> (1988), S. 336–341</div></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">[HG97] </td>
+    <td align="left" valign="top"><div align="justify">Howgrave-Graham, Nick: 
+        Finding Small Roots of Univariate Modular Equations Revisited. In: <em>Cryptography 
+        and coding, Lecture Notes in Computer Science 1355</em> (1997), S. 131–142</div></td>
+  </tr>
+</table>
 
 </BODY>
 </HTML>

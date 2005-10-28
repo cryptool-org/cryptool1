@@ -6,11 +6,122 @@
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="RSA">
+	<PARAM NAME="Keyword" VALUE="Gitter">
+	<PARAM NAME="Keyword" VALUE="Angriff">
+</OBJECT>
+
 <BODY>
 
 <h3>Angriff auf kleine geheime Schlüssel (Menü <A href="menu_related_methods.html">Einzelverfahren</A> \ RSA-Kryptosystem \ Gitterbasierte Angriffe auf RSA)</h3>
 
-<P>TODO</P>
+Der Angriff auf kleine geheime Schl&uuml;ssel erm&ouml;glicht es, einen <A href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">RSA</A>-Modulus 
+<font face="Times New Roman, Times, serif"> <strong>N </strong> </font> effizient 
+zu faktorisieren, wenn der &ouml;ffentliche Schl&uuml;ssel <font face="Times New Roman, Times, serif"> 
+<strong>e </strong> </font> bekannt ist und der geheime Schl&uuml;ssel <font face="Times New Roman, Times, serif"> 
+<strong>d </strong> </font> zu klein gew&auml;hlt wurde. 
+<p>Dazu wird diese Aufgabe in eine Nullstellensuche umgeformt und mit dem Verfahren 
+  der Gitterreduktion gel&ouml;st. Ausgangspunkt f&uuml;r diesen Angriff stellt 
+  die folgende elementare Gleichung des RSA-Kryptosystems dar:
+<div align="center" 
+	style="margin-top:5px; 
+	margin-bottom:5px"><font face="Times New Roman, Times, serif"> <strong>e &middot; 
+  d &equiv; 1 mod &Phi;(N) </strong> </font> </div>
+
+  Es existiert also ein<font face="Times New Roman, Times, serif"> <strong> k 
+</strong> </font> f&uuml;r das 
+<div align="center" 
+	style="margin-top:5px; 
+	margin-bottom:5px"><font face="Times New Roman, Times, serif">
+	<strong>ed + k &Phi;(N) = 1
+	</strong>
+</font> 
+</div>
+  
+&uuml;ber Z gilt. Dabei ist<font face="Times New Roman, Times, serif"><strong> 
+&Phi;(N) </strong> </font> bekanntlich <font face="Times New Roman, Times, serif"> 
+<strong>(p-1)(q-1) = pq-p-q+1 = N -(p+q)+1 </strong> </font> .<br>
+Durch Einsetzen erh&auml;lt man schlie&szlig;lich: 
+<div align="center" 
+	style="margin-top:5px; 
+	margin-bottom:5px"><font face="Times New Roman, Times, serif"> <strong>e &middot; 
+  d + k(N + 1 - (p + q)) = 1 </strong> </font> </div>
+Setzt man nun <font face="Times New Roman, Times, serif"> <strong>s := -(p + q) 
+</strong> </font> und <font face="Times New Roman, Times, serif"> <strong>A := 
+N + 1 </strong> </font> und reduziert beide Seiten <font face="Times New Roman, Times, serif"> 
+<strong>modulo e </strong> </font> , so<br>
+ergibt sich: 
+<div align="center" 
+	style="margin-top:5px; 
+	margin-bottom:5px"><font face="Times New Roman, Times, serif"> <strong>k(A 
+  + s) &equiv; 1<font face="Times New Roman, Times, serif"><strong> </strong></font> 
+  mod e </strong> </font> </div>
+<br>
+Diese Gleichung wird nun mit dem Verfahren der <a href="menu_individualprocedures_rsacryptosystem_latticebasedattacks.html">Gitterreduktion</a> 
+gel&ouml;st.<br>
+<br>
+Die Gr&ouml;&szlig;e von <font face="Times New Roman, Times, serif"> <strong>d 
+</strong> </font> wird im folgenden immer in Abh&auml;ngigkeit von <font face="Times New Roman, Times, serif"> 
+<strong>N </strong> </font> angegeben. Dazu wird eine Variable <font face="Times New Roman, Times, serif"> 
+<strong>delta </strong> </font> eingef&uuml;hrt, so dass folgende Gleichung gilt: 
+<font face="Times New Roman, Times, serif"> </font> 
+<div align="center" 
+	style="margin-top:5px; 
+	margin-bottom:5px"><font face="Times New Roman, Times, serif"> <strong>d=N<sup>delta 
+  </sup></strong> </font> </div>
+
+  Der Angriff funktioniert theoretisch bis zu einem <font face="Times New Roman, Times, serif"> 
+<strong>delta </strong> </font> der Gr&ouml;&szlig;e 0,292. Das hei&szlig;t, dass 
+<font face="Times New Roman, Times, serif"> <strong>N </strong> </font> nach heutigem 
+Kenntnisstand faktorisiert werden kann, wenn <font face="Times New Roman, Times, serif"> 
+<strong>d </strong> </font> kleiner ist als <font face="Times New Roman, Times, serif"> 
+<strong>N<sup>0,292</sup></strong></font>.<br>
+Ziel der Forschung ist es, diese Einschr&auml;nkung zu verringern, so dass die 
+Faktorisierung auch klappt, wenn <font face="Times New Roman, Times, serif"> <strong>delta 
+</strong> </font> gr&ouml;&szlig;er als 0,290 ist und damit der geheime Schl&uuml;ssel 
+auch gr&ouml;&szlig;er sein kann. <br>
+<br>
+In [BD00] zeigten Boneh und Durfee erstmals Angriffe auf geheime Exponenten <font face="Times New Roman, Times, serif"><strong>d 
+&gt; N<sup>&frac14; </sup></strong></font> mittels Gitterbasenreduktion. Sie konnten 
+die Anwendbarkeit ihres Verfahrens bis zu einer Gr&ouml;&szlig;e von <font face="Times New Roman, Times, serif"><strong>N<sup>0,292 
+</sup></strong></font> nachweisen. Dabei zeigten sie zun&auml;chst die G&uuml;ltigkeit 
+f&uuml;r <font face="Times New Roman, Times, serif"><strong>d &lt; N<sup>0,284 
+</sup></strong></font> und verbessern anschlie&szlig;end diese Grenze durch Modifikation 
+der Gitterbasis.<br>
+In dieser Anwendung wird das Verfahren von Bl&ouml;mer und May [BM01, May03] verwendet, 
+welches auf dem von Boneh und Durfee basiert. Allerdings wird dabei eine andere 
+Strategie zur Modifikation der Gitterbasis verwendet. Dadurch wird die Grenze 
+f&uuml;r <font face="Times New Roman, Times, serif"><strong>d </strong></font> 
+zwar lediglich auf <font face="Times New Roman, Times, serif"><strong>N<sup>0,290</sup></strong></font> 
+<sup> </sup>erweitert, aber durch die kleinere zu reduzierende Basis k&ouml;nnen 
+praktisch h&ouml;here Werte erreicht werden. <br>
+<br>
+<h4>Quellen:</h4>
+<div ></div>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr> 
+    <td width="1" height="1" align="left" valign="top">[BD00]</td>
+    <td align="left" valign="top"><div align="justify"> Boneh, Dan ; Durfee, Glenn: 
+        Cryptanalysis of RSA with private key d less than N0.292. In: <em>IEEE 
+        Transactions on Information Theory Bd. 46</em>, 2000. – ISSN 0018–9448, 
+        S. 1339–1349</div></td>
+  </tr>
+  <tr> 
+    <td align="left" valign="top">[BM01]</td>
+    <td align="left" valign="top"><div align="justify"> Bl&ouml;mer, Johannes 
+        ;May, Alexander: Low Secret Exponent RSA Revisited. In: <em>Cryptography 
+        and Lattice Conference (CaLC 2001), Lecture Notes in Computer Science 
+        Bd. 2146</em>, Springer Verlag, 2001, S. 4–19</div></td>
+  </tr>
+  <tr> 
+    <td align="left" valign="top">[May03] </td>
+    <td align="left" valign="top"><div align="justify">May, Alexander: New RSA 
+        Vulnerabilities Using Lattice Reduction Methods,<br>
+        Universit&auml;t Paderborn, Diss., 2003</div></td>
+  </tr>
+</table>
 
 </BODY>
 </HTML>

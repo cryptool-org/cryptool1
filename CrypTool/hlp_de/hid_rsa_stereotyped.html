@@ -6,11 +6,65 @@
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="RSA">
+	<PARAM NAME="Keyword" VALUE="Gitter">
+	<PARAM NAME="Keyword" VALUE="Angriff">
+</OBJECT>
+
 <BODY>
 
 <h3>Angriff auf stereotype Nachrichten (Menü <A href="menu_related_methods.html">Einzelverfahren</A> \ RSA-Kryptosystem \ Gitterbasierte Angriffe auf RSA)</h3>
 
-<P>TODO</P>
+Der Gitterangriff auf stereotype RSA-Nachrichten erm&ouml;glicht es, eine dem 
+<A href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">RSA-Kryptosystem</A> 
+verschl&uuml;sselte Nachricht zu entschl&uuml;sseln. Stereotyp bedeutet in diesem 
+Fall, dass die verschl&uuml;sselte Nachricht einem festen dem Angreifer bekannten 
+Schema entspricht und sich nur ein kleiner Teil unbekannt ist.<br>
+<br>
+Eine weitere Voraussetzung f&uuml;r diesen Angriff ist, dass zur Verschl&uuml;sselung 
+der Nachricht ein kleiner &ouml;ffentlicher Schl&uuml;ssel <font face="Times New Roman, Times, serif"><strong>e</strong></font> 
+(z.B. 3) verwendet wurde.<br>
+Der Angriff kann also zum Beispiel dann durchgef&uuml;hrt werden, wenn stets eine 
+ann&auml;hernd gleiche Nachricht versendet wird, in der sich nur ein kleiner Teil 
+&auml;ndert. (z.B. das Datum, ein Passwort oder eine PIN) 
+<p>Die Grundidee hinter diesem Angriff besteht darin, die Suche nach dem unbekannten 
+  Teil der Nachricht in eine Nullstellensuche umzuformen. Dazu betrachtet man 
+  die Verschl&uuml;sselungsfunktion des RSA Verfahrens:
+  <div align="center"><font face="Times New Roman, Times, serif"><strong>m<sup>e</sup> = c (mod N)</strong></font> 
+  </div>
+  Hier bezeichnet <font face="Times New Roman, Times, serif"><strong>m</strong></font> 
+  den Klartext der Nachricht und <font face="Times New Roman, Times, serif"><strong>c</strong></font> 
+  den Chiffretext. <font face="Times New Roman, Times, serif"><strong>N</strong></font> 
+  ist der RSA-Modulus, <font face="Times New Roman, Times, serif"><strong>e</strong></font> 
+  der &ouml;ffentliche Schl&uuml;ssel. Wenn man nun <font face="Times New Roman, Times, serif"><strong>m</strong></font> 
+  zerlegt in einen bekannten Teil<strong> <font face="Times New Roman, Times, serif"><strong>m<sub>b</sub></strong></font> 
+  </strong> und den unbekannten Teil<font face="Times New Roman, Times, serif"><strong> 
+  <strong>x</strong></strong></font> , dann l&auml;sst sich die obige Formel umschreiben 
+  zu:<div align="center">
+  <font face="Times New Roman, Times, serif"><strong>(m<sub>b</sub> + x)<sup>e</sup> 
+  - c = 0 (mod N) </strong></font></div>
+  
+<p>In dieser Gleichung ist <strong>x</strong> die einzige Unbekannte. Die Nullstelle 
+  <strong><font face="Times New Roman, Times, serif"><strong>x<sub>0</sub></strong></font> 
+  </strong> stellt nun den unbekannten Teil der Nachricht dar. Sie wird bei diesem 
+  Angriff unter Zuhilfenahme der <a href="menu_individualprocedures_rsacryptosystem_latticebasedattacks.html">Gitterbasenreduktion</a> 
+  gesucht.</p> </p>
+<p>Coppersmith stellte 1996 in [Cop96b] diesen Angriff als Anwendung des von ihm 
+  entwickelten Verfahrens zur Nullstellensuche vor.<br>
+</p>
+<h4>Quellen:</h4>
+<div ></div>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr> 
+    <td align="left" valign="top">[Cop96b]</td>
+    <td align="left" valign="top"><div align="justify">Coppersmith, Don: Finding 
+        a Small Root of a Univariate Modular Equation. In: <em>Advances in Cryptology 
+        – EUROCRYPT ’96, Lecture Notes in Computer Science 1070 </em>(1996), S. 
+        155–165</div></td>
+  </tr>
+</table>
 
 </BODY>
 </HTML>
