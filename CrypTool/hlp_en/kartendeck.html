@@ -2,66 +2,68 @@
 <HTML>
 <HEAD>
 <meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
-<Title>Solitaire-Kartendeck</Title>
+<Title>Solitaire card deck</Title>
 </HEAD>
 <BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
-	<PARAM NAME="Keyword" VALUE="Kartenspiel">
-	<PARAM NAME="Keyword" VALUE="Kartendeck">
-	<PARAM NAME="Keyword" VALUE="Solitaire Analyse">
-	<PARAM NAME="Keyword" VALUE="Solitaire-Verschlüsselungsverfahren">
+	<PARAM NAME="Keyword" VALUE="card game">
+	<PARAM NAME="Keyword" VALUE="deck">
+	<PARAM NAME="Keyword" VALUE="Solitaire-analysis">
+	<PARAM NAME="Keyword" VALUE="Solitaire-encryption">
 </OBJECT>
 
 
-<H3><P><B>Kartendeck (Deck)</B></P></H3>
+<H3><P><B>Card deck (deck)</B></P></H3>
 
-<P>Das Kartendeck bzw. Deck ist ein Kartenspiel mit einer bestimmten Anzahl Karten und eventuellen Modifikationen wie zus&auml;tzlichen Jokern oder Markierungen.<br><br>
-<a href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire</a> benutzt standardm&auml;&szlig;ig ein Bridge-Kartenspiel mit 52 Karten und zwei zus&auml;tzlichen Jokern. Die Joker m&uuml;ssen unterschieden werden k&ouml;nnen in Joker A und Joker B.<br><br>
-Jede der 54 Karten bei <a href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire</a> entspricht einem Zahlenwert(Kartenwert):<br>
+<P>The card deck (deck) is a card game with a defined number of cards and possible modifications with added jokers or added marks.<br><br>
+<a href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire</a> uses in general a bridge suit with 52 cards plus two added jokers. The jokers have to be differenciated each other (joker A and joker B).<br><br>
+Each of the 54 cards at <a href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire</a> represents a value (card value):<br>
 
 <br>
-Kreuz Ass = 1<br>
-Kreuz 2   = 2<br>
-Kreuz 3   = 3<br>
-Kreuz 4   = 4<br>
-Kreuz 5   = 5<br>
-Kreuz 6   = 6<br>
-Kreuz 7   = 7<br>
-Kreuz 8   = 8<br>
-Kreuz 9       = 9<br>
-Kreuz 10      = 10<br>
-Kreuz Bube    = 11<br>
-Kreuz Dame    = 12<br>
-Kreuz K&ouml;nig = 13<br><br>
-Karo Ass = 14<br>
-Karo 2  = 15<br>
-Karo 3  = 16<br>
+Club ace = 1<br>
+Club 2   = 2<br>
+Club 3   = 3<br>
+Club 4   = 4<br>
+Club 5   = 5<br>
+Club 6   = 6<br>
+Club 7   = 7<br>
+Club 8   = 8<br>
+Club 9       = 9<br>
+Club 10      = 10<br>
+Club jack    = 11<br>
+Club queen    = 12<br>
+Club king = 13<br><br>
+Diamond ace = 14<br>
+Diamond 2  = 15<br>
+Diamond 3  = 16<br>
 ...<br>
-Karo K&ouml;nig = 26<br><br>
-Herz Ass = 27<br>
-Herz 2  = 28<br>
-Herz 3  = 29<br>
+Diamond king = 26<br><br>
+Heart ace = 27<br>
+Heart 2  = 28<br>
+Heart 3  = 29<br>
 ...<br>
-Herz K&ouml;nig = 39<br><br>
-Pik Ass = 40<br>
-Pik 2  = 41<br>
-Pik 3  = 42<br>
+Heart king = 39<br><br>
+Spade ace = 40<br>
+Spade 2 = 41<br>
+Spade 3  = 42<br>
 ...<br>
-Pik K&ouml;nig = 52<br><br>
+Spade king = 52<br><br>
 Joker A = 53<br>
 Joker B = 53 <br><br>
-Die Joker m&uuml;ssen wegen Schritt 1 und 2 des <a href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire-Algorithmus</a> zu unterscheiden sein.<br>
-Sollten weniger als 54 Karten benutzt werden, m&uuml;ssen die Kartenwerte angepasst werden. Die Joker A und B d&uuml;rfen nicht fehlen und nehmen einen Kartenwert an, der sich aus Kartenanzahl-1 ergibt (bei 54 Karten, ist der Kartenwert beider Joker 54-1 = 53).<br> Das Minimum an Karten ist auf drei beschr&auml;nkt, da ein Deck, das nur aus den beiden Jokern besteht, keine Schl&uuml;sselzeichen erzeugen kann. 
+
+Because of step 1 and step 2 of the <a href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire algorithm</a>, the jokers have to differenciate each other.<br>
+If less than 54 cards are in use, the card values have to be adapted. Joker A and B may not be missing and get the card value, which results in number of cards minus one (for 54 cards, the card value of both jokers is 54 minus one (53)).<br> The minimum of the number of cards is three, because a card deck which consists only of two jokers cannot generate a keystream letter. 
 </P>
 
-<H4><P><B>Initialdeck</B></P></H4>
-<p>Das Initialdeck stellt beim <a href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire-Algorithmus</a> das (schon gemischte) Ausgangskartenspiel dar. Es repr&auml;sentiert den Zustand des Kartenspiels, bevor der Algorithmus zur Schl&uuml;sselstromerzeugung das erste Mal angewendet wird. Das Initialdeck wird von beiden Agenten (Sender und Empf&auml;nger) ben&ouml;tigt, um einen &uuml;bereinstimmenden <a href="schluessel.html">Schl&uuml;sselstrom</a> zu erzeugen.</p>
+<H4><P><B>Initial deck</B></P></H4>
 
-<H4><P><B>Ausgangsdeck</B></P></H4>
-<p>Das Ausgangsdeck stellt beim <a href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire-Algorithmus</a> das Ausgangskartenspiel dar. Es repräsentiert den Zustand des Kartenspiels, direkt nachdem der Algorithmus zur Schlüsselstromerzeugung das letzte Mal angewendet wurde (also nach dem Erzeugen des letzten Schlüsselstromzeichens).<br>
-Das Ausgangsdeck wird normalerweise von Sender und Empfänger nach der Erzeugung des <a href="schluessel.html">Schl&uuml;sselstroms</a> "vernichtet" (neu gemischt). Hier kann das Ausgangsdeck gespeichert werden, weil die implementierte <a href="HID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE.html">Solitaire-Kryptoanalyse</a> sowohl den Ciphertext als auch das Ausgangsdeck benötigt.</p>
+<p>The initial deck at the <a href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire algorithm</a> represents the (already shuffled) beginning order of cards. It represents the state of the card deck before the algorithm to generate the keystream is used the first time. The initial deck is needed of both agents (sender and receiver), to generate an equal <a href="schluessel.html">keystream</a>.</p>
+
+<H4><P><B>Final deck</B></P></H4>
+
+<p>The final deck represents at the <a href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire algorithm</a> the ending order of cards. It represents the state of the card deck directly after generating the last keystream letter.<br>
+Usually the final deck  is "deleted" (new shuffle) by the sender and the receiver after the generation of the <a href="schluessel.html">keystream</a>. This final deck can be saved, because the implemented <a  href="HID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE.html">Solitaire cryptanalysis</a> needs the ciphertext as well as the final deck.</p>
 
 </BODY>
 </HTML>
-
