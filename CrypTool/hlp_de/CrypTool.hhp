@@ -467,12 +467,11 @@ hidd_solitaire.html
 hidd_Solitaire_Analyse.html
 kartendeck.html
 nullrunde.html
-HID_SYMCLASSIC_SOLITAIRE.html
-HID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE.html
 hid_view_whitespace.html
 hid_view_endofline.html
 hid_view_linewrap.html
-
+hid_symclassic_solitaire.html
+hid_analyse_symmclassic_ciphertextoly_solitaire.html
 
 [ALIAS]
 #include CrypTool_Alias.h
