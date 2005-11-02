@@ -1423,11 +1423,6 @@
 		<param name="Local" value="hidd_bruteforce.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Key store">
-		<param name="Name" value="The internal key store">
-		<param name="Local" value="keystore.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Known Plaintext attack">
 		<param name="Name" value="Known Plaintext attack">
 		<param name="Local" value="knownplaintextangriff.html">
@@ -1516,11 +1511,6 @@
 		<param name="Local" value="menu_options.html">
 		<param name="Name" value="Menues and sub menues of CrypTool">
 		<param name="Local" value="menu_structure.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Menu Digital Signatures">
-		<param name="Name" value="The Digital Signatures Menu">
-		<param name="Local" value="menu_sign.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Methods">
@@ -2039,15 +2029,6 @@
 		<param name="Name" value="Secret RSA key">
 		<param name="Name" value="Secret RSA key">
 		<param name="Local" value="rsa_demo_private_key.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Secude">
-		<param name="Name" value="Secude">
-		<param name="Local" value="add_secude.html">
-		<param name="Name" value="Secude IT Security GmbH">
-		<param name="Local" value="secude.html">
-		<param name="Name" value="Secude random generator">
-		<param name="Local" value="hidd_randomparameter_secude.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Security">
