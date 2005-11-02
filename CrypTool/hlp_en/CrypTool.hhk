@@ -1478,41 +1478,6 @@
 		<param name="Local" value="hid_crypt_hash_md5.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Menu">
-		<param name="Name" value="The File menu">
-		<param name="Local" value="menu_file.html">
-		<param name="Name" value="The Edit menu">
-		<param name="Local" value="menu_edit.html">
-		<param name="Name" value="The View menu">
-		<param name="Local" value="menu_view.html">
-		<param name="Name" value="The Window menu">
-		<param name="Local" value="menu_window.html">
-		<param name="Name" value="The Help menu">
-		<param name="Local" value="menu_help.html">
-		<param name="Name" value="The Crypt Menu">
-		<param name="Local" value="menu_crypt.html">
-		<param name="Name" value="The Digital Signatures Menu">
-		<param name="Local" value="menu_sign.html">
-		<param name="Name" value="Individual procedures Menu">
-		<param name="Local" value="menu_related_methods.html">
-		<param name="Name" value="The RSA Demonstration submenu">
-		<param name="Local" value="menu_tutorial_for_small_numbers.html">
-		<param name="Name" value="The Hash submenu">
-		<param name="Local" value="menu_hash.html">
-		<param name="Name" value="The Compress Submenu">
-		<param name="Local" value="menu_compress.html">
-		<param name="Name" value="The Analysis Menu">
-		<param name="Local" value="menu_analyze.html">
-		<param name="Name" value="Menu options in the Random tests submenu">
-		<param name="Local" value="menu_analyserandomtest.html">
-		<param name="Name" value="The Key management Menu">
-		<param name="Local" value="menu_key.html">
-		<param name="Name" value="The Options Menu">
-		<param name="Local" value="menu_options.html">
-		<param name="Name" value="Menues and sub menues of CrypTool">
-		<param name="Local" value="menu_structure.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Methods">
 		<param name="Name" value="Cryptographic mechanisms">
 		<param name="Local" value="crypto_methods.html">
