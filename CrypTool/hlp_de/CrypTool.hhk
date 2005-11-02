@@ -1842,11 +1842,6 @@
 		<param name="Local" value="hidd_show_parameter_key_ec.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Schl&uuml;sselspeicher">
-		<param name="Name" value="Der interne Schlüsselspeicher">
-		<param name="Local" value="keystore.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Schl&uuml;sselvereinbarung">
 		<param name="Name" value="Schlüsselverwaltung / Schlüsselvereinbarung / Schlüsselverwaltung">
 		<param name="Local" value="keyexchange.html">
@@ -1867,15 +1862,6 @@
 		<param name="Name" value="Screenshot">
 		<param name="Name" value="CrypTool Bildschirmfoto">
 		<param name="Local" value="cryptoolfoto.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Secude">
-		<param name="Name" value="Secude">
-		<param name="Local" value="add_secude.html">
-		<param name="Name" value="Secude IT Security GmbH">
-		<param name="Local" value="secude.html">
-		<param name="Name" value="Secude Pseudozufallsgenerator">
-		<param name="Local" value="hidd_randomparameter_secude.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Seitenkanalangriff auf das Hybridverschl&uuml;sselungsprotokoll">
