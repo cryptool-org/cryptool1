@@ -1,3 +1,4 @@
+#include "afxwin.h"
 #if !defined(AFX_DLGMONSUBST_H__3570C2DB_B992_412D_BAAD_AC0520646674__INCLUDED_)
 #define AFX_DLGMONSUBST_H__3570C2DB_B992_412D_BAAD_AC0520646674__INCLUDED_
 
@@ -19,6 +20,7 @@ class CDlgMonSubst : public CDialog
 
 public:
 	CDlgMonSubst(CWnd* pParent = NULL);   // Standardkonstruktor
+	~CDlgMonSubst();
 	int   m_cryptDirection;
 	char key[27];
 // Dialogfelddaten
@@ -27,6 +29,7 @@ public:
 	CEdit	m_CtrlTo;
 	CEdit	m_CtrlFrom;
 	CEdit	m_CtrlKey;
+	CButton m_RadioChooseKeyVariant;
 	//}}AFX_DATA
 
 
@@ -51,6 +54,9 @@ protected:
 	DECLARE_MESSAGE_MAP()
 private:
 	void ComputeSubstKeyMapping();
+public:
+	afx_msg void OnBnClickedRadioSubstClassical();
+	afx_msg void OnBnClickedRadioAddBash();
 };
 
 //{{AFX_INSERT_LOCATION}}

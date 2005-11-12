@@ -5,6 +5,7 @@
 #include "cryptoolapp.h"
 #include "DlgMonSubst.h"
 #include "KeyRepository.h"
+#include ".\dlgmonsubst.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -23,6 +24,11 @@ CDlgMonSubst::CDlgMonSubst(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
+CDlgMonSubst::~CDlgMonSubst()
+{
+	m_font.DeleteObject();
+}
+
 
 void CDlgMonSubst::DoDataExchange(CDataExchange* pDX)
 {
@@ -31,6 +37,7 @@ void CDlgMonSubst::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_TO, m_CtrlTo);
 	DDX_Control(pDX, IDC_FROM, m_CtrlFrom);
 	DDX_Control(pDX, IDC_KEY, m_CtrlKey);
+	DDX_Control(pDX, IDC_RADIO1, m_RadioChooseKeyVariant);
 	//}}AFX_DATA_MAP
 }
 
@@ -40,7 +47,9 @@ BEGIN_MESSAGE_MAP(CDlgMonSubst, CDialog)
 	ON_EN_CHANGE(IDC_KEY, OnChangeKey)
 	ON_BN_CLICKED(IDC_PASTE_KEY, OnPasteKey)
 	ON_BN_CLICKED(ID_ENCRYPT, OnEncrypt)
-	ON_BN_CLICKED(ID_DECRYPT, OnDecrypt)
+	ON_BN_CLICKED(ID_DECRYPT, OnDecrypt)	
+	ON_BN_CLICKED(IDC_RADIO1, OnBnClickedRadioSubstClassical)
+	ON_BN_CLICKED(IDC_RADIO2, OnBnClickedRadioAddBash)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -65,12 +74,12 @@ BOOL CDlgMonSubst::OnInitDialog()
 		m_Paste.EnableWindow(FALSE);
 	}
 
+	CheckRadioButton(IDC_RADIO1, IDC_RADIO2, IDC_RADIO1); UpdateData();
 
-	m_font.CreatePointFont(100,"Courier New");
+	VERIFY(m_font.CreatePointFont(100,"Courier New"));
 	m_CtrlFrom.SetFont(&m_font);
 	m_CtrlTo.SetFont(&m_font);
 	m_CtrlKey.SetFont(&m_font);
-	
 	m_CtrlFrom.SetWindowText("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 	m_CtrlTo.SetWindowText  ("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 	m_CtrlKey.SetWindowText ("");
@@ -81,6 +90,9 @@ BOOL CDlgMonSubst::OnInitDialog()
 
 void CDlgMonSubst::OnChangeKey() 
 {
+	static int BUSY = 0;  // FIXME
+	if (BUSY) return;
+	BUSY++;
 	CString s_Key;
 	int cStart, cEnd;
 	m_CtrlKey.GetSel(cStart, cEnd);
@@ -93,10 +105,11 @@ void CDlgMonSubst::OnChangeKey()
 			if (i<cEnd)   cEnd--;
 			s_Key.Delete(i--);
 		}
-	m_CtrlKey.SetWindowText(s_Key);
+	m_CtrlKey.SetWindowText(s_Key); // FIXME: Without the BUSY-Flag SetWindowText MAY call recursively OnChangeKey (as obtained by B.E.)
 	m_CtrlKey.SetSel(cStart, cEnd);
 
 	ComputeSubstKeyMapping();
+	BUSY--;
 }
 
 void CDlgMonSubst::ComputeSubstKeyMapping()
@@ -109,7 +122,7 @@ void CDlgMonSubst::ComputeSubstKeyMapping()
 	Danach werden alle Buchstaben, die nicht im Schlüsselwort vorkommen in
 	umgekehrter Reihenfolge den restlichen Buchstaben des Alphabetes zugeordnet.	*/
 
-	char key[26+1];
+//	char key[26+1];
 	key[26] = '\0';
 
 	bool schonda[26];//Ist der i-te Buchstabe bereits im Schlüsselwort aufgetreten??
@@ -171,4 +184,20 @@ void CDlgMonSubst::OnDecrypt()
 	m_cryptDirection = 0;
 	m_CtrlTo.GetWindowText(key, 27); key[26] = 0;
 	OnOK();
+}
+
+void CDlgMonSubst::OnBnClickedRadioSubstClassical()
+{
+	// TODO: Add your control notification handler code here
+	m_CtrlKey.SetReadOnly(0);
+}
+
+void CDlgMonSubst::OnBnClickedRadioAddBash()
+{
+	// TODO: Add your control notification handler code here
+	CString tmpStr = "";
+	for (char ch='Z'; ch>='A'; ch--)
+		tmpStr += ch;
+	m_CtrlKey.SetWindowText(tmpStr);
+	m_CtrlKey.SetReadOnly();
 }
