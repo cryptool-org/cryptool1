@@ -40,8 +40,10 @@ public:
 
 // Operationen
 public:
+	unsigned char ComponentFromIndex(int i, UINT nbits, UINT shift);
+	void CreateRGBPalette();
 	COpenGLDoc* GetDocument();
-	int Init(HDC hdc);
+	int Init();
 
 // Überschreibungen
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
@@ -71,8 +73,11 @@ protected:
 	afx_msg void OnSize(UINT nType, int cx, int cy);
 	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
 	afx_msg void OnPopupOpenglShowBox();
+	afx_msg void OnDestroy();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+public:
+	BOOL bSetupPixelFormat(void);
 };
 
 #ifndef _DEBUG  // debug version in cubeview.cpp

@@ -9,12 +9,64 @@
 #include "OpenGL.h"
 #include <gl/gl.h>
 #include <gl/glu.h>
+#include ".\openglview.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
 static char THIS_FILE[] = __FILE__;
 #endif
+
+// DONT KNOW WHAT IAM DOING
+
+unsigned char threeto8[8] =
+{
+	0, 0111>>1, 0222>>1, 0333>>1, 0444>>1, 0555>>1, 0666>>1, 0377
+};
+
+unsigned char twoto8[4] =
+{
+	0, 0x55, 0xaa, 0xff
+};
+
+unsigned char oneto8[2] =
+{
+	0, 255
+};
+
+static int defaultOverride[13] =
+{
+	0, 3, 24, 27, 64, 67, 88, 173, 181, 236, 247, 164, 91
+};
+
+static PALETTEENTRY defaultPalEntry[20] =
+{
+	{ 0,   0,   0,    0 },
+	{ 0x80,0,   0,    0 },
+	{ 0,   0x80,0,    0 },
+	{ 0x80,0x80,0,    0 },
+	{ 0,   0,   0x80, 0 },
+	{ 0x80,0,   0x80, 0 },
+	{ 0,   0x80,0x80, 0 },
+	{ 0xC0,0xC0,0xC0, 0 },
+
+	{ 192, 220, 192,  0 },
+	{ 166, 202, 240,  0 },
+	{ 255, 251, 240,  0 },
+	{ 160, 160, 164,  0 },
+
+	{ 0x80,0x80,0x80, 0 },
+	{ 0xFF,0,   0,    0 },
+	{ 0,   0xFF,0,    0 },
+	{ 0xFF,0xFF,0,    0 },
+	{ 0,   0,   0xFF, 0 },
+	{ 0xFF,0,   0xFF, 0 },
+	{ 0,   0xFF,0xFF, 0 },
+	{ 0xFF,0xFF,0xFF, 0 }
+};
+
+// DONT KNOW WHAT IAM DOING
+
 
 /////////////////////////////////////////////////////////////////////////////
 // COpenGLView
@@ -24,6 +76,8 @@ IMPLEMENT_DYNCREATE(COpenGLView, CView)
 COpenGLView::COpenGLView()
 {
 	m_pVolumeRenderer = NULL;
+	m_pDC = NULL;
+	m_pOldPalette = NULL;
 }
 
 COpenGLView::~COpenGLView()
@@ -40,6 +94,7 @@ BEGIN_MESSAGE_MAP(COpenGLView, CView)
 	ON_WM_SIZE()
 	ON_WM_CONTEXTMENU()
 	ON_COMMAND(ID_POPUP_OPENGL_SHOW_BOX, OnPopupOpenglShowBox)
+	ON_WM_DESTROY()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -54,8 +109,7 @@ void COpenGLView::OnDraw(CDC* pDC)
 		return;
 	busy = TRUE;
 
-	CPaintDC dc(this); // device context for painting
-    if(wglMakeCurrent(dc.m_hDC, m_hOpenGLContext))
+	if ( wglMakeCurrent(m_pDC->GetSafeHdc(), m_hOpenGLContext))
 	{
 		glDrawBuffer(GL_BACK); 
 
@@ -68,14 +122,11 @@ void COpenGLView::OnDraw(CDC* pDC)
 		glClearColor(0.0f,0.0f,0.0f,1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-
 		m_pVolumeRenderer->renderScene();
 
 		glFinish();
-		if (FALSE == SwapBuffers(dc.m_hDC)) {
-			AfxMessageBox(_T("ERROR: unable to swap buffers!"));
-		}
-    } 
+		SwapBuffers(wglGetCurrentDC());
+	}
 	busy = FALSE;
 }
 
@@ -101,62 +152,33 @@ int COpenGLView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
 	if (CView::OnCreate(lpCreateStruct) == -1)
 		return -1;
-	HDC hdc = ::GetDC(this->m_hWnd);
 
-	Init(hdc);
-
-	::ReleaseDC(m_hWnd, hdc);
+	Init();
 
 	return 0;
 }
 
-int COpenGLView::Init(HDC hdc)
+int COpenGLView::Init()
 {
-	PIXELFORMATDESCRIPTOR pfd = { 
-	    sizeof(PIXELFORMATDESCRIPTOR),    // size of this pfd 
-	    1,                                // version number 
-	    PFD_DRAW_TO_WINDOW |              // support window 
-	    PFD_SUPPORT_OPENGL |              // support OpenGL 
-	    PFD_DOUBLEBUFFER,                 // double buffered 
-	    PFD_TYPE_RGBA,                    // RGBA type 
-	    24,                               // 24-bit color depth 
-	    0, 0, 0, 0, 0, 0,                 // color bits ignored 
-	    0,                                // CHANGED FROM 8 to 0 no alpha buffer 
-	    0,                                // shift bit ignored 
-	    0,                                // no accumulation buffer 
-	    0, 0, 0, 0,                       // accum bits ignored 
-	    32,                               // 32-bit z-buffer     
-	    0,                                // no stencil buffer 
-	    0,                                // no auxiliary buffer 
-	    PFD_MAIN_PLANE,                   // main layer 
-	    0,                                // reserved 
-	    0, 0, 0                           // layer masks ignored 
-	}; 
-
+	PIXELFORMATDESCRIPTOR pfd;
+	int		n;
 	
-	int  iPixelFormat; 
- 
-	// get the device context's best, available pixel format match 
-	if((iPixelFormat = ChoosePixelFormat(hdc, &pfd)) == 0)
-	{
-		// MessageBox(NULL, "ChoosePixelFormat Failed", NULL, MB_OK);
+	m_pDC = new CClientDC(this);
+	ASSERT(m_pDC != NULL);
+
+	if (!bSetupPixelFormat())
 		return 0;
-	}
-	 
-	// make that match the device context's current pixel format 
-	if(SetPixelFormat(hdc, iPixelFormat, &pfd) == FALSE)
-	{
-		// MessageBox(NULL, "SetPixelFormat Failed", NULL, MB_OK);
-		return 0;
-	}
+
+	n = ::GetPixelFormat(m_pDC->GetSafeHdc());
+	::DescribePixelFormat(m_pDC->GetSafeHdc(), n, sizeof(pfd), &pfd);
+
+	CreateRGBPalette(); // DONT KNOW WHAT IAM DOING
 
     // Createan  OpenGL rendering context
-	m_hOpenGLContext = wglCreateContext(hdc);
-	if(m_hOpenGLContext == NULL)
-	{
-		// AfxMessageBox(_T("ERROR: creating OpenGL context failed"));
-		return false;
-	}
+	m_hOpenGLContext = wglCreateContext(m_pDC->GetSafeHdc());
+	ASSERT(m_hOpenGLContext != NULL);
+	wglMakeCurrent(m_pDC->GetSafeHdc(), m_hOpenGLContext);
+	glEnable(GL_DEPTH_TEST);
 
 	return 1;
 }
@@ -194,6 +216,7 @@ void COpenGLView::OnLButtonUp(UINT nFlags, CPoint point)
 
 BOOL COpenGLView::PreCreateWindow(CREATESTRUCT& cs) 
 {
+	cs.style |= WS_CLIPSIBLINGS | WS_CLIPCHILDREN;
 	if( !CView::PreCreateWindow(cs) )
 		return FALSE;
 	cs.dwExStyle &= ~WS_EX_CLIENTEDGE;
@@ -220,10 +243,7 @@ void COpenGLView::OnInitialUpdate()
 	
 	// TODO: Speziellen Code hier einfügen und/oder Basisklasse aufrufen
 	COpenGLDoc *pDoc = GetDocument();
-
-
 	m_pVolumeRenderer = new CCrypToolVolRen(this);
-
 
 	if ( m_pVolumeRenderer )
 	{
@@ -275,4 +295,140 @@ void COpenGLView::OnPopupOpenglShowBox()
 		else
 			m_pVolumeRenderer->displayBoundingBox(true);
 	}
+}
+
+// DONT KNOW WHAT IAM DOING
+
+void COpenGLView::CreateRGBPalette()
+{
+	PIXELFORMATDESCRIPTOR pfd;
+	LOGPALETTE *pPal;
+	int n, i;
+	n = ::GetPixelFormat(m_pDC->GetSafeHdc());
+	::DescribePixelFormat(m_pDC->GetSafeHdc(), n, sizeof(pfd), &pfd);
+
+	if (pfd.dwFlags & PFD_NEED_PALETTE)
+	{
+		n = 1 << pfd.cColorBits;
+		pPal = (PLOGPALETTE) new char[sizeof(LOGPALETTE) + n * sizeof(PALETTEENTRY)];
+
+		ASSERT(pPal != NULL);
+
+		pPal->palVersion = 0x300;
+		pPal->palNumEntries = n;
+		for (i=0; i<n; i++)
+		{
+			pPal->palPalEntry[i].peRed =
+					ComponentFromIndex(i, pfd.cRedBits, pfd.cRedShift);
+			pPal->palPalEntry[i].peGreen =
+					ComponentFromIndex(i, pfd.cGreenBits, pfd.cGreenShift);
+			pPal->palPalEntry[i].peBlue =
+					ComponentFromIndex(i, pfd.cBlueBits, pfd.cBlueShift);
+			pPal->palPalEntry[i].peFlags = 0;
+		}
+
+		/* fix up the palette to include the default GDI palette */
+		if ((pfd.cColorBits == 8)                           &&
+			(pfd.cRedBits   == 3) && (pfd.cRedShift   == 0) &&
+			(pfd.cGreenBits == 3) && (pfd.cGreenShift == 3) &&
+			(pfd.cBlueBits  == 2) && (pfd.cBlueShift  == 6)
+		   )
+		{
+			for (i = 1 ; i <= 12 ; i++)
+				pPal->palPalEntry[defaultOverride[i]] = defaultPalEntry[i];
+		}
+
+		m_cPalette.CreatePalette(pPal);
+		delete pPal;
+
+		m_pOldPalette = m_pDC->SelectPalette(&m_cPalette, FALSE);
+		m_pDC->RealizePalette();
+	}
+}
+
+unsigned char COpenGLView::ComponentFromIndex(int i, UINT nbits, UINT shift)
+{
+	unsigned char val;
+
+	val = (unsigned char) (i >> shift);
+	switch (nbits)
+	{
+
+	case 1:
+		val &= 0x1;
+		return oneto8[val];
+	case 2:
+		val &= 0x3;
+		return twoto8[val];
+	case 3:
+		val &= 0x7;
+		return threeto8[val];
+
+	default:
+		return 0;
+	}
+}
+
+// DONT KNOW WHAT IAM DOING
+
+void COpenGLView::OnDestroy() 
+{
+	HGLRC   hrc;
+	hrc = ::wglGetCurrentContext();
+
+	::wglMakeCurrent(NULL,  NULL);
+
+	if (hrc)
+		::wglDeleteContext(hrc);
+
+	if (m_pOldPalette)
+		m_pDC->SelectPalette(m_pOldPalette, FALSE);
+
+	if (m_pDC)
+		delete m_pDC;
+
+	CView::OnDestroy();
+	
+	// TODO: Code für die Behandlungsroutine für Nachrichten hier einfügen
+	
+}
+
+BOOL COpenGLView::bSetupPixelFormat(void)
+{
+	static PIXELFORMATDESCRIPTOR pfd =
+	{
+		sizeof(PIXELFORMATDESCRIPTOR),  // size of this pfd
+		1,                              // version number
+		PFD_DRAW_TO_WINDOW |            // support window
+		  PFD_SUPPORT_OPENGL |          // support OpenGL
+		  PFD_DOUBLEBUFFER,             // double buffered
+		PFD_TYPE_RGBA,                  // RGBA type
+		24,                             // 24-bit color depth
+		0, 0, 0, 0, 0, 0,               // color bits ignored
+		0,                              // no alpha buffer
+		0,                              // shift bit ignored
+		0,                              // no accumulation buffer
+		0, 0, 0, 0,                     // accum bits ignored
+		32,                             // 32-bit z-buffer
+		0,                              // no stencil buffer
+		0,                              // no auxiliary buffer
+		PFD_MAIN_PLANE,                 // main layer
+		0,                              // reserved
+		0, 0, 0                         // layer masks ignored
+	};
+	int pixelformat;
+
+	if ( (pixelformat = ChoosePixelFormat(m_pDC->GetSafeHdc(), &pfd)) == 0 )
+	{
+		MessageBox("ChoosePixelFormat failed");
+		return FALSE;
+	}
+
+	if (SetPixelFormat(m_pDC->GetSafeHdc(), pixelformat, &pfd) == FALSE)
+	{
+		MessageBox("SetPixelFormat failed");
+		return FALSE;
+	}
+
+	return TRUE;
 }

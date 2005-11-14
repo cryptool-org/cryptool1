@@ -106,6 +106,7 @@ statement from your version.
 #include "RSABloemerMayDlg.h"
 #include "RSAStereotypedMSGDlg.h"
 #include "RSAFactorHintDlg.h"
+#include ".\cryptoolapp.h"
 // #endif
 
 
@@ -357,12 +358,14 @@ BOOL CCrypToolApp::InitInstance()
 	m_pMainWnd = new CMainFrame;
 	m_MainWnd = m_pMainWnd;
 	((CFrameWnd*)m_pMainWnd)->LoadFrame(IDR_MAINFRAME);
-	m_pMainWnd->ShowWindow(m_nCmdShow);
 
 	// enable file manager drag/drop and DDE Execute open
 	m_pMainWnd->DragAcceptFiles();
-	EnableShellOpen();
-	RegisterShellFileTypes(TRUE);
+	// EnableShellOpen();  // EVIL !!!
+	// RegisterShellFileTypes(TRUE); // EVIL !!!
+
+	m_pMainWnd->ShowWindow(m_nCmdShow);
+	m_pMainWnd->UpdateWindow();
 
 	// Parse command line for standard shell commands, DDE, file open
 	CCommandLineInfo cmdInfo;
@@ -370,8 +373,12 @@ BOOL CCrypToolApp::InitInstance()
 	ParseCommandLine(cmdInfo);
 
 	// Dispatch commands specified on the command line
+
 	if (!ProcessShellCommand(cmdInfo))
+	{
 		return FALSE;
+	}
+
 
 	// Am Anfang ist noch kein Fenster geöffnet, die Hilfe soll mit "Wie Sie starten geöffnet werden"
 	//::WinHelp(0, AfxGetApp()->m_pszHelpFilePath, HELP_COMMAND, (DWORD)"JumpId(starten)");
@@ -413,7 +420,7 @@ BOOL CCrypToolApp::InitInstance()
 	HlpTmp += pc_str;
 	m_pszHelpFilePath=_tcsdup(HlpTmp);
 
-	
+
 	// Tipps & Tricks anzeigen
 	CDlgTipsAndTricks Tipps;
 	Tipps.m_DoNotShowThisAgain = GetProfileInt("Settings","NoTipps",FALSE);
@@ -434,6 +441,19 @@ BOOL CCrypToolApp::InitInstance()
 		WriteProfileInt("Settings", "NoTipps", Tipps.m_DoNotShowThisAgain);
 	}
 
+#if 0
+	if (m_lpCmdLine[0] != '\0')
+	{
+		MessageBox(NULL, m_lpCmdLine, "m_lpCmdLine", MB_ICONWARNING|MB_OK);
+		FILE *f;
+		if ( f = fopen(m_lpCmdLine, "r") )
+		{
+			fclose(f);
+			OpenDocumentFileNoMRU(m_lpCmdLine, "", SCHLUESSEL_LINEAR);
+		}
+	}
+	else 
+#endif
 	if(1 == GetProfileInt("Settings", "SampleTextFile", 1))
 	{
 		FILE *f;
@@ -451,6 +471,7 @@ BOOL CCrypToolApp::InitInstance()
 	
 	// Enable RichEdit Windows...
 	AfxEnableControlContainer();
+
 	return TRUE;
 }
 
@@ -660,7 +681,6 @@ int CCrypToolApp::ExitInstance()
 	if (ScintillaLib) FreeLibrary(ScintillaLib);
 	return CWinApp::ExitInstance();
 //	m_pRecentFileList->WriteList();
-	return CWinApp::ExitInstance();
 }
 
 void CCrypToolApp::OnUpdateNeedSecudeTicket(CCmdUI* pCmdUI) 
@@ -1101,4 +1121,14 @@ void CCrypToolApp::OnIndivCrtSecretsharing()
 {
 	CDlgCrtSecretSharing dialg;
 	dialg.DoModal();
+}
+
+BOOL CCrypToolApp::OnDDECommand(LPTSTR lpszCommand)
+{
+	// TODO: Add your specialized code here and/or call the base class
+	if ( CWinApp::OnDDECommand(lpszCommand) )
+		return TRUE;
+
+	// AfxMessageBox ("MUST BE FIXED !!");
+	return FALSE;
 }

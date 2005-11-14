@@ -192,6 +192,8 @@ public:
 private:
 	virtual int ExitInstance();
 	void execAnimalVisualization(int animalPathID, int animalFileID, int animalExecutableID, int animalLocaleID);
+public:
+	virtual BOOL OnDDECommand(LPTSTR lpszCommand);
 };
 
 class CMainFrame : public CMDIFrameWnd
