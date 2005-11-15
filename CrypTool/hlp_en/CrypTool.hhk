@@ -810,69 +810,6 @@
 		<param name="Local" value="hid_verentschlsseln_hybridverfahren_hybridverschlsselung.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Encryption algorithm">
-		<param name="Name" value="RSA Encryption">
-		<param name="Local" value="hid_crypt_rsaenc.html">
-		<param name="Name" value="The Caesar encryption algorithm">
-		<param name="Local" value="hid_caesar_asc.html">
-		<param name="Name" value="The Vigenère encryption algorithm">
-		<param name="Local" value="hid_vigenere_asc.html">
-		<param name="Name" value="The Hill encryption algorithm">
-		<param name="Local" value="hid_hill.html">
-		<param name="Name" value="Monoalphabetic substitution">
-		<param name="Local" value="hid_cryptmono.html">
-		<param name="Name" value="Homophonic substitution">
-		<param name="Local" value="hid_homophone_asc.html">
-		<param name="Name" value="Byte Addition">
-		<param name="Local" value="hid_add_bin.html">
-		<param name="Name" value="Binary Exclusive-OR">
-		<param name="Local" value="hid_xor_bin.html">
-		<param name="Name" value="The Playfair encryption algorithm">
-		<param name="Local" value="hid_playfair_bin.html">
-		<param name="Name" value="Permutation (scrambling)">
-		<param name="Local" value="hid_permutation_asc.html">
-		<param name="Name" value="The Vernam encryption algorithm">
-		<param name="Local" value="hid_vernam_bin.html">
-		<param name="Name" value="The IDEA encryption algorithm">
-		<param name="Local" value="hid_crypt_idea.html">
-		<param name="Name" value="The RC2 encryption algorithm">
-		<param name="Local" value="hid_crypt_rc2.html">
-		<param name="Name" value="The RC4 encryption algorithm">
-		<param name="Local" value="hid_crypt_rc4.html">
-		<param name="Name" value="The DES (ECB) encryption algorithm">
-		<param name="Local" value="hid_crypt_des_desecb.html">
-		<param name="Name" value="The DES (CBC) encryption algorithm">
-		<param name="Local" value="hid_crypt_des_descbc.html">
-		<param name="Name" value="The Triple-DES (ECB) encryption algorithm">
-		<param name="Local" value="hid_crypt_3des_ecb.html">
-		<param name="Name" value="The Triple-DES (CBC) encryption algorithm">
-		<param name="Local" value="hid_crypt_3des_cbc.html">
-		<param name="Name" value="The MARS encryption algorithm (AES candidate)">
-		<param name="Local" value="hid_crypt_aes_mars.html">
-		<param name="Name" value="The RC6 encryption algorithm (AES candidate)">
-		<param name="Local" value="hid_crypt_aes_rc6.html">
-		<param name="Name" value="The Rijndael encryption algorithm (AES)">
-		<param name="Local" value="hid_crypt_aes_rijndael.html">
-		<param name="Name" value="The Serpent encryption algorithm (AES candidate)">
-		<param name="Local" value="hid_crypt_aes_serpent.html">
-		<param name="Name" value="The Twofish encryption algorithm (AES candidate)">
-		<param name="Local" value="hid_crypt_aes_twofish.html">
-		<param name="Name" value="Encryption algorithm">
-		<param name="Local" value="verschlverfahren.html">
-		<param name="Name" value="Digital Signatures">
-		<param name="Local" value="add_digital_signatures.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Encryption using binary addition">
-		<param name="Name" value="Example illustrating encryption using binary addition">
-		<param name="Local" value="szenarien_addition.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Encryption using binary exclusive-OR">
-		<param name="Name" value="Example illustrating encryption using binary Exclusive-OR">
-		<param name="Local" value="szenarien_xor.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ENIGMA">
 		<param name="Name" value="Literature">
 		<param name="Local" value="literatur.html">
@@ -1979,11 +1916,6 @@
 		<param name="Name" value="Salt">
 		<param name="Name" value="Dialogue Key Generation from Password">
 		<param name="Local" value="hid_einzelverfahren_schluesselgenerieren.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Scenario">
-		<param name="Name" value="Example illustrating encryption using binary addition">
-		<param name="Local" value="szenarien_addition.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Screenshot">
