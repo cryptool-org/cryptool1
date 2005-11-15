@@ -780,21 +780,6 @@
 		<param name="Local" value="entropie.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Entschl&uuml;sseln">
-		<param name="Name" value="Menü Ver-/Entschlüsseln">
-		<param name="Local" value="menu_crypt.html">
-		<param name="Name" value="RSA-Entschlüsselung">
-		<param name="Local" value="hid_crypt_rsadec.html">
-		<param name="Name" value="Dialog RSA-Entschlüsselung">
-		<param name="Local" value="hidd_rsa_decryption.html">
-		<param name="Name" value="Entschlüsselung">
-		<param name="Local" value="entschluesselung.html">
-		<param name="Name" value="RSA-Entschlüsselung">
-		<param name="Local" value="rsa_demo_decryption.html">
-		<param name="Name" value="Hybridentschlüsselung">
-		<param name="Local" value="hid_verentschlsseln_hybridverfahren_hybridentschlsselung.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Erstellen">
 		<param name="Name" value="Dialog Signatur einer Nachricht erstellen">
 		<param name="Local" value="hidd_signature.html">
@@ -2065,38 +2050,6 @@
 		<param name="Local" value="ecbmodus.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Szenarien">
-		<param name="Name" value="Wie Sie Szenarien durchspielen">
-		<param name="Local" value="hid_hilfe_szenarien.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Szenario">
-		<param name="Name" value="Szenario für das Caesar Verschlüsselungsverfahren">
-		<param name="Local" value="szenarien_caesar.html">
-		<param name="Name" value="Szenario für das Vigenère Verschlüsselungsverfahren">
-		<param name="Local" value="szenarien_vigenere.html">
-		<param name="Name" value="Szenario für das Hill Verschlüsselungsverfahren">
-		<param name="Local" value="szenarien_hill.html">
-		<param name="Name" value="Szenario für die Verschlüsselung durch monoalphabetische Substitution">
-		<param name="Local" value="szenarien_monosubst.html">
-		<param name="Name" value="Szenario für die Verschlüsselung durch binäre Addition">
-		<param name="Local" value="szenarien_addition.html">
-		<param name="Name" value="Szenario für die Verschlüsselung durch binäres exklusives Oder">
-		<param name="Local" value="szenarien_xor.html">
-		<param name="Name" value="Szenario für das Vernam-Verschlüsselungsverfahren">
-		<param name="Local" value="szenarien_vernam.html">
-		<param name="Name" value="Szenario für das Playfair-Verschlüsselungsverfahren">
-		<param name="Local" value="szenarien_playfair.html">
-		<param name="Name" value="Szenario für das RSA-Verfahren zur Verschlüsselung">
-		<param name="Local" value="szenarien_rsa_verschluesselung.html">
-		<param name="Name" value="Szenario für das RSA-Verfahren zur Signaturerstellung">
-		<param name="Local" value="szenarien_rsa_signatur.html">
-		<param name="Name" value="Szenario für das Triple DES-Verschlüsselungsverfahren im CBC-Modus">
-		<param name="Local" value="szenarien_tripledescbc.html">
-		<param name="Name" value="Szenario für das RSA-Kryptosystem">
-		<param name="Local" value="szenarien_rsa_demo.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Testbatterie">
 		<param name="Name" value="Dialog FIPS-PUB-140-1 Testbatterie">
 		<param name="Local" value="hidd_fips_pub_140_1.html">
@@ -2253,101 +2206,9 @@
 		<param name="Local" value="szenarien_vernam.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Verschl&uuml;sseln">
-		<param name="Name" value="Menü Ver-/Entschlüsseln">
-		<param name="Local" value="menu_crypt.html">
-		<param name="Name" value="Caesar-Verschlüsselungsverfahren">
-		<param name="Local" value="hid_caesar_asc.html">
-		<param name="Name" value="Vigenère-Verschlüsselungsverfahren">
-		<param name="Local" value="hid_vigenere_asc.html">
-		<param name="Name" value="Hill-Verschlüsselungsverfahren">
-		<param name="Local" value="hid_hill.html">
-		<param name="Name" value="Monoalphabetische Substitution">
-		<param name="Local" value="hid_cryptmono.html">
-		<param name="Name" value="Homophone Substitution">
-		<param name="Local" value="hid_homophone_asc.html">
-		<param name="Name" value="Dialog Homophone Substitution">
-		<param name="Local" value="hidd_key_homophone.html">
-		<param name="Name" value="Binäres exklusives Oder">
-		<param name="Local" value="hid_xor_bin.html">
-		<param name="Name" value="Byteweise Addition">
-		<param name="Local" value="hid_add_bin.html">
-		<param name="Name" value="Playfair-Verschlüsselungsverfahren">
-		<param name="Local" value="hid_playfair_bin.html">
-		<param name="Name" value="Permutation (Verwürfelung)">
-		<param name="Local" value="hid_permutation_asc.html">
-		<param name="Name" value="Vernam-Verschlüsselungsverfahren">
-		<param name="Local" value="hid_vernam_bin.html">
-		<param name="Name" value="RSA-Verschlüsselung">
-		<param name="Local" value="hid_crypt_rsaenc.html">
-		<param name="Name" value="IDEA-Verschlüsselungsverfahren">
-		<param name="Local" value="hid_crypt_idea.html">
-		<param name="Name" value="RC2-Verschlüsselungsverfahren">
-		<param name="Local" value="hid_crypt_rc2.html">
-		<param name="Name" value="RC4-Verschlüsselungsverfahren">
-		<param name="Local" value="hid_crypt_rc4.html">
-		<param name="Name" value="DES (ECB)-Verschlüsselungsverfahren">
-		<param name="Local" value="hid_crypt_des_desecb.html">
-		<param name="Name" value="DES (CBC)-Verschlüsselungsverfahren">
-		<param name="Local" value="hid_crypt_des_descbc.html">
-		<param name="Name" value="Triple DES (ECB)-Verschlüsselungsverfahren">
-		<param name="Local" value="hid_crypt_3des_ecb.html">
-		<param name="Name" value="Triple DES (CBC)-Verschlüsselungsverfahren">
-		<param name="Local" value="hid_crypt_3des_cbc.html">
-		<param name="Name" value="CBC-Modus">
-		<param name="Local" value="cbcmodus.html">
-		<param name="Name" value="ECB-Modus">
-		<param name="Local" value="ecbmodus.html">
-		<param name="Name" value="MARS-Verschlüsselungsverfahren (AES-Kandidat)">
-		<param name="Local" value="hid_crypt_aes_mars.html">
-		<param name="Name" value="RC6-Verschlüsselungsverfahren (AES-Kandidat)">
-		<param name="Local" value="hid_crypt_aes_rc6.html">
-		<param name="Name" value="Rijndael-Verschlüsselungsverfahren (AES)">
-		<param name="Local" value="hid_crypt_aes_rijndael.html">
-		<param name="Name" value="Serpent-Verschlüsselungsverfahren (AES-Kandidat)">
-		<param name="Local" value="hid_crypt_aes_serpent.html">
-		<param name="Name" value="Twofish-Verschlüsselungsverfahren (AES-Kandidat)">
-		<param name="Local" value="hid_crypt_aes_twofish.html">
-		<param name="Name" value="Dialog Schlüsseleingabe">
-		<param name="Local" value="hidd_key.html">
-		<param name="Name" value="Dialog Schlüsseleingabe für Hill-Verschlüsselungsverfahren">
-		<param name="Local" value="hidd_key_hill5x5.html">
-		<param name="Name" value="Dialog Schlüsseleingabe für Playfair-Verschlüsselungsverfahren">
-		<param name="Local" value="hidd_key_playfair.html">
-		<param name="Name" value="Dialog Schlüsseleingabe für monoalphabetische Substitution">
-		<param name="Local" value="hidd_key_substitution.html">
-		<param name="Name" value="Verschlüsselungsverfahren">
-		<param name="Local" value="verschlverfahren.html">
-		<param name="Name" value="Verschlüsselung">
-		<param name="Local" value="verschluesselung.html">
-		<param name="Name" value="RSA-Verschlüsselung in Blöcken">
-		<param name="Local" value="rsa_demo_sections.html">
-		<param name="Name" value="Öffentliche Parameter zur RSA-Verschlüsselung und RSA-Signaturverifikation">
-		<param name="Local" value="public_rsa_parameter.html">
-		<param name="Name" value="RSA-Verschlüsselung von Nachrichten">
-		<param name="Local" value="rsa_demo_encryption.html">
-		<param name="Name" value="Hybridverschlüsselung">
-		<param name="Local" value="hid_verentschlsseln_hybridverfahren_hybridverschlsselung.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Verschl&uuml;sselung">
 		<param name="Name" value="Szenario für das RSA-Verfahren zur Verschlüsselung">
 		<param name="Local" value="szenarien_rsa_verschluesselung.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Verschl&uuml;sselung durch bin&auml;re Addition">
-		<param name="Name" value="Szenario für die Verschlüsselung durch binäre Addition">
-		<param name="Local" value="szenarien_addition.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Verschl&uuml;sselung durch bin&auml;res exklusives Oder">
-		<param name="Name" value="Szenario für die Verschlüsselung durch binäres exklusives Oder">
-		<param name="Local" value="szenarien_xor.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Verschl&uuml;sselung durch monoalphabetische Substitution">
-		<param name="Name" value="Szenario für die Verschlüsselung durch monoalphabetische Substitution">
-		<param name="Local" value="szenarien_monosubst.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Versionsnummer">
