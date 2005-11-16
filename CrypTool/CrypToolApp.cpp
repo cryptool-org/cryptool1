@@ -813,6 +813,7 @@ void CCrypToolApp::WinHelpInternal( DWORD_PTR dwData, UINT nCmd)
 		cmd[sizeof(cmd)-1] = '\0';
 
 		
+#if 0
 		// creating the path to the help
 		CString html_help_path = CString(m_pszHelpFilePath) + CString(">MainWindow");
 		
@@ -822,12 +823,13 @@ void CCrypToolApp::WinHelpInternal( DWORD_PTR dwData, UINT nCmd)
 				html_help_path,
 				HH_DISPLAY_TOPIC,
 				NULL) ;
-		
 		// Error in case help is not found 
 		LoadString(AfxGetInstanceHandle(),IDS_HELP_ERROR,pc_str,STR_LAENGE_STRING_TABLE);
 		CString help_error_message = CString (pc_str) + CString(m_pszHelpFilePath);
 		if (hwnd == NULL) AfxMessageBox(help_error_message, MB_ICONINFORMATION, 0);
-		
+#endif
+
+		HtmlHelp(NULL, HH_DISPLAY_TOPIC);
 		
 		LoadString(AfxGetInstanceHandle(),IDS_ALINK_ERROR_MESSAGE,pc_str,STR_LAENGE_STRING_TABLE);
 		LoadString(AfxGetInstanceHandle(),IDS_ALINK_ERROR_MESSAGE_TITLE,pc_str1,STR_LAENGE_STRING_TABLE);
@@ -842,12 +844,17 @@ void CCrypToolApp::WinHelpInternal( DWORD_PTR dwData, UINT nCmd)
 		link.pszWindow =    NULL;
 		link.fIndexOnFail = FALSE ;
 
+#if 0
 		// looking up the Alink
 		::HtmlHelp(
+			    // AfxGetMainWindow(),
 				hWndAktivesFenster, /* GetDesktopWindow(), We Consider the global handle is the better choice ? */
 				m_pszHelpFilePath,				
 				HH_ALINK_LOOKUP,
 				(DWORD) &link) ;
+#endif
+		HtmlHelp((DWORD) &link, HH_ALINK_LOOKUP);
+
 	} else
 	{	
 		// creating the path to the help
@@ -857,23 +864,28 @@ void CCrypToolApp::WinHelpInternal( DWORD_PTR dwData, UINT nCmd)
 		HWND hwnd;
 		switch (nCmd)
 		{
-			case HELP_CONTEXT:	hwnd = ::HtmlHelp(
-										hWndAktivesFenster, /* GetDesktopWindow(), We Consider the global handle is the better choice ? */					
+			case HELP_CONTEXT:	/* hwnd = ::HtmlHelp(
+										AfxGetMainWnd()->m_hWnd,
+										// hWndAktivesFenster, // GetDesktopWindow(), We Consider the global handle is the better choice ? 					
 										html_help_path,										
 										HH_HELP_CONTEXT,
-										dwData) ;
+										dwData) ; */
+										HtmlHelp(dwData, HH_HELP_CONTEXT);
 			break;
-			case HELP_FINDER:	hwnd = ::HtmlHelp(
+			case HELP_FINDER:	HtmlHelp(NULL, HH_DISPLAY_TOPIC);
+#if 0
+				hwnd = ::HtmlHelp(
 										hWndAktivesFenster, /* GetDesktopWindow(), We Consider the global handle is the better choice ? */				
 										html_help_path,										
 										HH_DISPLAY_TOPIC,
 										NULL) ;			
+#endif
 			break;	
 		}
 		// Error in case help is not found
 		LoadString(AfxGetInstanceHandle(),IDS_HELP_ERROR,pc_str,STR_LAENGE_STRING_TABLE);
 		CString help_error_message = CString (pc_str) + CString(m_pszHelpFilePath);
-		if (hwnd == NULL) AfxMessageBox(help_error_message, MB_ICONINFORMATION, 0);
+		// if (hwnd == NULL) AfxMessageBox(help_error_message, MB_ICONINFORMATION, 0);
 	}	
 
 }
@@ -926,27 +938,34 @@ void CCrypToolApp::OnOptionsStartoptions()
 void CCrypToolApp::OnHilfeIndex() 
 {
 	// Hilfe-Index zu CrypTool aufrufen
+#if 0
 	CString html_help_path = CString(m_pszHelpFilePath) + CString(">MainWindow");
 	::HtmlHelp(
 				hWndAktivesFenster, /* GetDesktopWindow(), We Consider the global handle is the better choice ? */
 				html_help_path,
 				HH_HELP_CONTEXT,
 				ID_HILFE_INDEX+0x10000) ;
+#endif
+	HtmlHelp(ID_HILFE_INDEX+0x10000, HH_HELP_CONTEXT);
 }
 
 void CCrypToolApp::OnHilfeStartseite() 
 {
 	// Startseite der Online-Hilfe aufrufen
+#if 0
 	CString html_help_path = CString(m_pszHelpFilePath) + CString(">MainWindow");
 	::HtmlHelp(
 				hWndAktivesFenster, /* GetDesktopWindow(), We Consider the global handle is the better choice ? */
 				html_help_path,
 				HH_HELP_CONTEXT,
 				ID_WIE_SIE_STARTEN+0x10000) ;
+#endif
+	HtmlHelp(ID_WIE_SIE_STARTEN+0x10000, HH_HELP_CONTEXT);
 }
 
 void CCrypToolApp::OnHilfeSzenarien() 
 {
+#if 0
 	// Startseite der Online-Hilfe aufrufen
 	CString html_help_path = CString(m_pszHelpFilePath) + CString(">MainWindow");
 	::HtmlHelp(
@@ -954,6 +973,8 @@ void CCrypToolApp::OnHilfeSzenarien()
 				html_help_path,
 				HH_HELP_CONTEXT,
 				ID_HILFE_SZENARIEN+0x10000) ;
+#endif
+	HtmlHelp(ID_HILFE_SZENARIEN+0x10000, HH_HELP_CONTEXT);
 }
 
 void CCrypToolApp::OnSignaturAttack() 
