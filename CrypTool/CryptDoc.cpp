@@ -1543,8 +1543,8 @@ void CCryptDoc::OnAnalyseZufallstestsFipspub1401()
 	file.Open(ContentName, CFile::modeRead);
 	if(file.GetLength() < 2500) 
 	{
-		Message(IDS_STRING_TEST_FIPS_KLEINE_DATEI_2, MB_ICONINFORMATION,
-			    (int)file.GetLength(), ContentName, true);
+		Message(IDS_STRING_TEST_FIPS_KLEINE_DATEI_2, MB_ICONEXCLAMATION,
+			    (int)file.GetLength(), true);
 		file.Close();
 	}
 	else
@@ -1552,7 +1552,7 @@ void CCryptDoc::OnAnalyseZufallstestsFipspub1401()
 		if (file.GetLength() > 2500)
 		{
 			Message(IDS_STRING_TEST_FIPS_KLEINE_DATEI, MB_ICONINFORMATION, 
-				    (int)file.GetLength(), ContentName, true);
+				    (int)file.GetLength(), true);
 		}
 		file.Close();
 		CDlgFIPSTest140_1 FIPS;

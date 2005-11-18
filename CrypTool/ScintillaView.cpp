@@ -98,6 +98,12 @@ BEGIN_MESSAGE_MAP(CScintillaView, CCrypToolView)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, CView::OnFilePrintPreview)
 	ON_COMMAND(ID_TOHEX, OnTohex)
+	ON_UPDATE_COMMAND_UI(ID_ZEICHENFORMAT_ARIAL08, OnUpdateZeichenformatArial08)
+	ON_UPDATE_COMMAND_UI(ID_ZEICHENFORMAT_ARIAL10, OnUpdateZeichenformatArial10)
+	ON_UPDATE_COMMAND_UI(ID_ZEICHENFORMAT_ARIAL12, OnUpdateZeichenformatArial12)
+	ON_UPDATE_COMMAND_UI(ID_ZEICHENFORMAT_COURIER08, OnUpdateZeichenformatCourier08)
+	ON_UPDATE_COMMAND_UI(ID_ZEICHENFORMAT_COURIER10, OnUpdateZeichenformatCourier10)
+	ON_UPDATE_COMMAND_UI(ID_ZEICHENFORMAT_COURIER12, OnUpdateZeichenformatCourier12)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////
@@ -228,7 +234,7 @@ void CScintillaView::OnInitialUpdate()
 	m_wndScintilla.Init();
 
 	// Schriftgrösse in Scintilla-Fenster per Default auf "Arial 10" setzen
-	setFixedFont(10, "Arial");
+	setTextFont(10, "Arial");
 
 	//m_wndScintilla.LoadFile(strTitle);
 	this->SetFocus();
@@ -500,8 +506,11 @@ void CScintillaView::OnUpdateViewWhitespace(CCmdUI* pCmdUI)
 		pCmdUI->SetCheck(pActiveWindow->SendMessage(SCI_GETVIEWWS));
 }
 
-void CScintillaView::setFixedFont(int size, const char* fontClass)
+void CScintillaView::setTextFont(int size, const char* fontClass)
 {
+	fontSize = size;
+	strcpy(fontFace, fontClass);
+
 	CWnd *pActiveWindow = this->GetTopWindow();
 	if(pActiveWindow)
 	{
@@ -513,32 +522,32 @@ void CScintillaView::setFixedFont(int size, const char* fontClass)
 
 void CScintillaView::OnViewFontArial08()
 {
-	setFixedFont(8, "Arial");
+	setTextFont(8, "Arial");
 }
 
 void CScintillaView::OnViewFontArial10()
 {
-	setFixedFont(10, "Arial");
+	setTextFont(10, "Arial");
 }
 
 void CScintillaView::OnViewFontArial12()
 {
-	setFixedFont(12, "Arial");
+	setTextFont(12, "Arial");
 }
 
 void CScintillaView::OnViewFontCourier08()
 {
-	setFixedFont(8, "Courier");
+	setTextFont(8, "Courier");
 }
 
 void CScintillaView::OnViewFontCourier10()
 {
-	setFixedFont(10, "Courier");
+	setTextFont(10, "Courier");
 }
 
 void CScintillaView::OnViewFontCourier12()
 {
-	setFixedFont(12, "Courier");
+	setTextFont(12, "Courier");
 }
 
 void CScintillaView::OnTohex()
@@ -571,4 +580,58 @@ void CScintillaView::OnTohex()
 	remove(outfile);
 
 	CWnd *tmp = this->GetFocus();
+}
+
+BOOL CScintillaView::checkFontStyle(int size, const char* FaceName)
+{
+	return (size == fontSize && !strcmp(fontFace, FaceName));
+}
+
+void CScintillaView::OnUpdateZeichenformatArial08(CCmdUI *pCmdUI)
+{
+	if (checkFontStyle(8, "Arial"))
+		pCmdUI->SetCheck(1);
+	else 
+		pCmdUI->SetCheck(0);
+}
+
+void CScintillaView::OnUpdateZeichenformatArial10(CCmdUI *pCmdUI)
+{
+	if (checkFontStyle(10, "Arial"))
+		pCmdUI->SetCheck(1);
+	else 
+		pCmdUI->SetCheck(0);
+}
+
+void CScintillaView::OnUpdateZeichenformatArial12(CCmdUI *pCmdUI)
+{
+	if (checkFontStyle(12, "Arial"))
+		pCmdUI->SetCheck(1);
+	else 
+		pCmdUI->SetCheck(0);
+}
+
+void CScintillaView::OnUpdateZeichenformatCourier08(CCmdUI *pCmdUI)
+{
+	if (checkFontStyle(8, "Courier"))
+		pCmdUI->SetCheck(1);
+	else 
+		pCmdUI->SetCheck(0);
+}
+
+void CScintillaView::OnUpdateZeichenformatCourier10(CCmdUI *pCmdUI)
+{
+	if (checkFontStyle(10, "Courier"))
+		pCmdUI->SetCheck(1);
+	else 
+		pCmdUI->SetCheck(0);
+}
+
+
+void CScintillaView::OnUpdateZeichenformatCourier12(CCmdUI *pCmdUI)
+{
+	if (checkFontStyle(12, ""))
+		pCmdUI->SetCheck(1);
+	else 
+		pCmdUI->SetCheck(0);
 }

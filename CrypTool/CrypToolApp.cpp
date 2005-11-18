@@ -1097,7 +1097,7 @@ void CCrypToolApp::execAnimalVisualization(int animalPathID, int animalFileID, i
 	LoadString(AfxGetInstanceHandle(),animalLocaleID,pc_str,STR_LAENGE_STRING_TABLE);
 	animalLocale = pc_str;
 
-	animalFile = CString("\"") + /* animalLocale + CString(" ") + */ animalPath + animalFile +CString("\"");
+	animalFile = animalLocale + CString(" ") + CString("\"") + animalPath + animalFile +CString("\"");
 
 
 	HINSTANCE hInst=ShellExecute(NULL,NULL,animalExecutable,animalFile, animalPath, SW_SHOW); 

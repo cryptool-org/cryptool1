@@ -394,7 +394,7 @@ BEGIN
     EDITTEXT        IDC_EDIT2,202,248,15,12,ES_AUTOHSCROLL
     PUSHBUTTON      "&Abbrechen",IDCANCEL,202,276,63,17
     GROUPBOX        "Formatierungsoptionen",IDC_STATIC,8,5,257,29
-    GROUPBOX        "Alphabetoptionen",IDC_STATIC,8,93,257,91
+    GROUPBOX        "Alphabet für Texte definieren",IDC_STATIC,8,93,257,91
     LTEXT           "Zu verwendendes Alphabet:",IDC_TEXTOPTIONS_ALPHABET,20,
                     152,189,8
     GROUPBOX        "Referenzdatei für statistische Anwendungen",IDC_STATIC,
@@ -592,7 +592,7 @@ END
 
 IDD_AUTHORS DIALOGEX 0, 0, 284, 289
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Über CrypTool"
+CAPTION "Über CrypTool: Mitwirkende"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,112,267,50,14
@@ -613,11 +613,11 @@ BEGIN
     GROUPBOX        " Review und Feedback",IDC_STATIC,7,220,270,42,BS_CENTER
     LTEXT           "Martin Bartosch\nLars Dülfer\nThomas Gauweiler\nJan Hofmann\nMatthias Kraft\nMatej Matejicek\nRoger Oyono\nMark Santiago\nChristian Tobias\nThilo Zieschang",
                     IDC_STATIC,18,122,84,83
-    LTEXT           "Jan Blumenstein\nKlaus Esslinger\nPeter Gruber\nJens Liebehenschel\nMichael Linden\nChristian Mletzko\nMarkus Ruhs\nMatthias Schneider\nMyriam Zeuner-Guerrier",
-                    IDC_STATIC,102,122,84,75
+    LTEXT           "Jan Blumenstein\nKlaus Esslinger\nPeter Gruber\nJens Liebehenschel\nMichael Linden\nChristian Mletzko\nMarkus Ruhs\nMatthias Schneisder\nMyriam Zeuner-Gurrier\nHendrik Lennarz",
+                    IDC_STATIC,102,122,84,84
     LTEXT           "Ariane Büger\nKarsten Schaar",IDC_STATIC,18,231,84,26
-    LTEXT           "Richard Christensen\nBartol Filipovic\nJörg Hambamer\nDennis Laupichler\nFlorian Marchal\nLowell Montgomery\nDaniel Saffran\nChristine Stötzel\nThomas Thiele",
-                    IDC_STATIC,186,122,85,75
+    LTEXT           "Richard Christensen\nBartol Filipovic\nJörg Hambamer\nDennis Laupichler\nFlorian Marchal\nLowell Montgomery\nDaniel Saffran\nChristine Stötzel\nThomas Thiele\nAndre Beunink",
+                    IDC_STATIC,186,122,85,86
     LTEXT           "Matthias Büger\nWolfgang Scondo\n...und viele andere.",
                     IDC_STATIC,102,231,84,26
     LTEXT           "Wolfgang Patzewitz\nGary Tagg",IDC_STATIC,186,231,85,26
@@ -1438,10 +1438,10 @@ BEGIN
                     NOT WS_TABSTOP
 END
 
-IDD_RSA_DEMO DIALOG  0, 0, 391, 399
+IDD_RSA_DEMO DIALOGEX 0, 0, 391, 399
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Das RSA-Kryptosystem"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "Primzahlen &generieren...",IDC_BUTTON_PZ_GENERIEREN,285,
                     85,87,18
@@ -1484,17 +1484,17 @@ BEGIN
     LTEXT           "RSA-Modul N",IDC_STATIC,19,136,52,8
     LTEXT           "phi(N) = (p-1)(q-1)",IDC_STATIC,19,153,55,8
     LTEXT           "Öffentlicher Schlüssel e",IDC_STATIC,19,173,75,8
-    LTEXT           "Geheimer Schlüssel    d",IDC_STATIC,19,191,73,8
+    LTEXT           "Geheimer Schlüssel d",IDC_STATIC,19,191,73,8
     LTEXT           "(öffentlich)",IDC_STATIC,285,137,34,8
     LTEXT           "(geheim)",IDC_STATIC,285,155,30,8
     LTEXT           "Eingabe als",IDC_STATIC,19,227,39,8
-    EDITTEXT        IDC_HEADER1,19,241,353,10,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_HEADER1,19,241,353,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER | NOT WS_TABSTOP
-    EDITTEXT        IDC_HEADER4,19,272,353,10,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_HEADER4,19,272,353,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER | NOT WS_TABSTOP
-    EDITTEXT        IDC_HEADER2,19,302,353,10,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_HEADER2,19,302,353,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER | NOT WS_TABSTOP
-    EDITTEXT        IDC_HEADER3,19,334,353,10,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_HEADER3,19,334,353,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER | NOT WS_TABSTOP
     LTEXT           "Sie können mit Hilfe der Faktorisierung versuchen, den öffentlichen RSA-Modul N in seine Primfaktoren p und q zu faktorisieren.",
                     IDC_RSA_MODE_FACTORISATION,19,85,257,30,NOT WS_VISIBLE
@@ -4759,7 +4759,7 @@ BEGIN
         MENUITEM "Zeilen&ende",                 ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "Zeilen&umbruch",              ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE, GRAYED
-        POPUP "S&chriftart"
+        POPUP "S&chriftart", GRAYED
         BEGIN
             MENUITEM "Arial 8",                     33314
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
@@ -5129,7 +5129,7 @@ BEGIN
         MENUITEM "Zeilen&ende",                 ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "Zeilen&umbruch",              ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE, GRAYED
-        POPUP "S&chriftart"
+        POPUP "S&chriftart", GRAYED
         BEGIN
             MENUITEM "Arial 8",                     33314
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
@@ -5471,7 +5471,7 @@ BEGIN
         MENUITEM "Zeilen&ende",                 ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "Zeilen&umbruch",              ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE, GRAYED
-        POPUP "S&chriftart"
+        POPUP "S&chriftart", GRAYED
         BEGIN
             MENUITEM "Arial 8",                     33314
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
@@ -6218,7 +6218,7 @@ BEGIN
         MENUITEM "Zeilen&ende",                 ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "Zeilen&umbruch",              ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE, GRAYED
-        POPUP "S&chriftart"
+        POPUP "S&chriftart", GRAYED
         BEGIN
             MENUITEM "Arial 8",                     33314
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
@@ -12727,9 +12727,9 @@ BEGIN
     IDS_STRING_CAPTATION_FIPS_PUB "FIPS-PUB-140-1 Testbatterie von %s"
     IDS_STRING_TESTS_FIPS_ENTROPIE "Entropie: %lf bit/Zeichen"
     IDS_STRING_TEST_FIPS_KLEINE_DATEI 
-                            "Für die FIPS-PUB-140-1 Testbatterie muss die Datei genau 2500 Byte groß sein.\nDa die Datei %s größer ist (%i Bytes)\nwerden nach OK nur die ersten 2500 Byte der gesamten Datei getestet."
+                            "Die FIPS-PUB-140-1 Testbatterie analysiert nach Spezifikation genau 2500 Bytes.\nDa die zu dem ausgewählten Fenster gehörende Datei größer (%i Bytes) ist,\nwerden nach OK nur die ersten 2500 Byte der gesamten Datei getestet."
     IDS_STRING_TEST_FIPS_KLEINE_DATEI_2 
-                            "Die FIPS-PUB-140-1 Testbatterie kann nicht ausgeführt werden,\nda die Batterie nur für genau 2500 Bytes (= 20000 Bits) spezifiziert ist.\nIhre Datei %s enthält nur %i Bytes."
+                            "Die FIPS-PUB-140-1 Testbatterie analysiert nach Spezifikation genau 2500 Bytes.\nDie zu dem ausgewählten Fenster gehörende Datei ist nur %i Bytes groß.\nDer Test kann deshalb nicht ausgeführt werden!"
     IDS_STRING_TESTS_FALSCHE_OFFSET 
                             "Offset + Testlänge muss <= Dateilänge oder\nTestlänge muss nicht gleich Null sein !"
     IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE 
@@ -13464,7 +13464,7 @@ BEGIN
     IDS_ANIMAL_FILE_DES     ".\\anims\\des_de.aml"
     IDS_SCA_HYBRIDENCRYPTEDFILE_DEFAULT_PSEFILE 
                             "letterFromAliceToBob-ENCRYPTED-de.hex"
-    IDS_ANIMAL_FILE_LOCALE  "locale=de_DE"
+    IDS_ANIMAL_FILE_LOCALE  """locale=de_DE"" ""animation/animal-ascii-compressed"""
 END
 
 STRINGTABLE 
@@ -14140,7 +14140,7 @@ BEGIN
                     WS_TABSTOP,20,136,49,10
     PUSHBUTTON      "&Cancel",IDCANCEL,202,275,55,17
     GROUPBOX        "Formatting options",IDC_STATIC,8,5,256,27
-    GROUPBOX        "Alphabet options",IDC_STATIC,8,93,256,90
+    GROUPBOX        "",IDC_STATIC,8,93,256,90
     LTEXT           "Alphabet to use:",IDC_TEXTOPTIONS_ALPHABET,20,151,226,8
     GROUPBOX        "Reference file for statistical applications",IDC_STATIC,
                     8,189,256,39
@@ -14335,7 +14335,7 @@ END
 
 IDD_AUTHORS DIALOGEX 0, 0, 291, 290
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "About CrypTool"
+CAPTION "About CrypTool: Contributors"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,119,267,50,15
@@ -14357,12 +14357,12 @@ BEGIN
     LTEXT           "Matthias Büger\nWolfgang Scondo\n...and many others.",
                     IDC_STATIC,102,232,84,26
     LTEXT           "Wolfgang Patzewitz\nGary Tagg",IDC_STATIC,186,232,85,26
-    LTEXT           "Martin Bartosch\nLars Dürfler\nThomas Gauweiler\nJan Hofmann\nMatthias Kraft\nMatej Matejicek\nRoger Oyono\nMark Santiago\nChristian Tobias\nThilo Zieschang",
+    LTEXT           "Martin Bartosch\nLars Dülfer\nThomas Gauweiler\nJan Hofmann\nMatthias Kraft\nMatej Matejicek\nRoger Oyono\nMark Santiago\nChristian Tobias\nThilo Zieschang",
                     IDC_STATIC,18,122,84,81
-    LTEXT           "Jan Blumenstein\nKlaus Esslinger\nPeter Gruber\nJens Liebehenschel\nMichael Linden\nChristian Mletzko\nMarkus Ruhs\nMatthias Schneider\nMyriam Zeuner-Guerrier",
-                    IDC_STATIC,102,122,84,75
-    LTEXT           "Richard Christensen\nBartol Filipovic\nJörg Hambamer\nDennis Laupichler\nFlorian Marchal\nLowell Montgomery\nDaniel Saffran\nChristine Stötzel\nThomas Thiele",
-                    IDC_STATIC,186,122,85,75
+    LTEXT           "Jan Blumenstein\nKlaus Esslinger\nPeter Gruber\nJens Liebehenschel\nMichael Linden\nChristian Mletzko\nMarkus Ruhs\nMatthias Schneider\nMyriam Zeuner-Guerrier\nHendrik Lennarz",
+                    IDC_STATIC,102,122,84,82
+    LTEXT           "Richard Christensen\nBartol Filipovic\nJörg Hambamer\nDennis Laupichler\nFlorian Marchal\nLowell Montgomery\nDaniel Saffran\nChristine Stötzel\nThomas Thiele\nAndre Beunink",
+                    IDC_STATIC,186,122,85,82
 END
 
 IDD_SHOW_PUBLICKEY_EC DIALOG  0, 0, 399, 287
@@ -18396,7 +18396,7 @@ BEGIN
         MENUITEM "&End of line",                ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "Line &wrap",                  ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
-        POPUP "&Font"
+        POPUP "&Font", GRAYED
         BEGIN
             MENUITEM "Arial 8",                     33314
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
@@ -18759,7 +18759,7 @@ BEGIN
         MENUITEM "&End of line",                ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "Line &wrap",                  ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
-        POPUP "&Font"
+        POPUP "&Font", GRAYED
         BEGIN
             MENUITEM "Arial 8",                     33314
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
@@ -19095,7 +19095,7 @@ BEGIN
         MENUITEM "&End of line",                ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "Line &wrap",                  ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
-        POPUP "&Font"
+        POPUP "&Font", GRAYED
         BEGIN
             MENUITEM "Arial 8",                     33314
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
@@ -19826,7 +19826,7 @@ BEGIN
         MENUITEM "&End of line",                ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "Line &wrap",                  ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
-        POPUP "&Font"
+        POPUP "&Font", GRAYED
         BEGIN
             MENUITEM "Arial 8",                     33314
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
@@ -26591,9 +26591,9 @@ BEGIN
     IDS_STRING_CAPTATION_FIPS_PUB "FIPS-PUB-140-1 test battery of %s"
     IDS_STRING_TESTS_FIPS_ENTROPIE "Entropy: %lf bit/character"
     IDS_STRING_TEST_FIPS_KLEINE_DATEI 
-                            "The FIPS-PUB-140-1 test battery is specified for exactly 2.500 Bytes.\nThe analyzed file %s has the length %i bytes.\nTherefore only the first 2.500 Bytes will be tested."
+                            "The FIPS-PUB-140-1 test battery is specified for exactly 2.500 Bytes.\nThe actual selected file has the length %i bytes.\nTherefore only the first 2.500 Bytes will be tested."
     IDS_STRING_TEST_FIPS_KLEINE_DATEI_2 
-                            "The FIPS-PUB-140-1 test battery cold not be exeuted:\nThis test battery is specified for random data of exactly 2.500 bytes (= 20.000 bits).\nYour input file %s has the length of only %i bytes."
+                            "The FIPS-PUB-140-1 test battery is specified for exactly 2.500 Bytes.\nThe actual selected file has the length %i bytes.\nTherefore the test cannot be performed."
     IDS_STRING_TESTS_FALSCHE_OFFSET 
                             "Offset + test length must be smaller than the file size !"
     IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE 
@@ -27315,7 +27315,7 @@ BEGIN
     IDS_ANIMAL_FILE_DES     "anims\\des_eng.aml"
     IDS_SCA_HYBRIDENCRYPTEDFILE_DEFAULT_PSEFILE 
                             "letterFromAliceToBob-ENCRYPTED-en.hex"
-    IDS_ANIMAL_FILE_LOCALE  "locale=de_DE"
+    IDS_ANIMAL_FILE_LOCALE  """locale=en_EN"" ""animation/animal-ascii-compressed"""
 END
 
 STRINGTABLE 

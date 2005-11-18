@@ -91,8 +91,8 @@ Global
 		{3259C909-87A3-4DF2-9C47-F71417DCC0CB}.Release_aes_de.Build.0 = Release_aes_de|Win32
 		{3259C909-87A3-4DF2-9C47-F71417DCC0CB}.Release_aes_en.ActiveCfg = Release_aes_en|Win32
 		{3259C909-87A3-4DF2-9C47-F71417DCC0CB}.Release_aes_en.Build.0 = Release_aes_en|Win32
-		{3259C909-87A3-4DF2-9C47-F71417DCC0CB}.Release_de.ActiveCfg = Release_aes_en|Win32
-		{3259C909-87A3-4DF2-9C47-F71417DCC0CB}.Release_de.Build.0 = Release_aes_en|Win32
+		{3259C909-87A3-4DF2-9C47-F71417DCC0CB}.Release_de.ActiveCfg = Release_aes_de|Win32
+		{3259C909-87A3-4DF2-9C47-F71417DCC0CB}.Release_de.Build.0 = Release_aes_de|Win32
 		{3259C909-87A3-4DF2-9C47-F71417DCC0CB}.Release_en.ActiveCfg = Release_aes_en|Win32
 		{3259C909-87A3-4DF2-9C47-F71417DCC0CB}.Release_en.Build.0 = Release_aes_en|Win32
 		{69DC472B-0478-4027-B331-B85CF457392E}.Debug.ActiveCfg = Debug|Win32

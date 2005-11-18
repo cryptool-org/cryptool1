@@ -23,6 +23,8 @@
 //
 class CScintillaView : public CCrypToolView
 {
+	int fontSize;
+	char fontFace[128];
 protected: // Nur aus Serialisierung erzeugen
 // @access protected constructor - destructor
 // @cmember empty Constructor
@@ -87,7 +89,8 @@ public:
 #endif
 
 protected:
-	void setFixedFont(int size, const char* fontClass);
+	void setTextFont(int size, const char* fontClass);
+	BOOL checkFontStyle(int size, const char* FaceName);
 
 // Generierte Message-Map-Funktionen
 protected:
@@ -111,6 +114,12 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnTohex();
+	afx_msg void OnUpdateZeichenformatArial08(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateZeichenformatArial10(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateZeichenformatArial12(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateZeichenformatCourier08(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateZeichenformatCourier10(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateZeichenformatCourier12(CCmdUI *pCmdUI);
 };
 
 #ifndef _DEBUG  // Testversion in ScintillaView.cpp
