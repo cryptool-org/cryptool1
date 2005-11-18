@@ -630,7 +630,7 @@ void CScintillaView::OnUpdateZeichenformatCourier10(CCmdUI *pCmdUI)
 
 void CScintillaView::OnUpdateZeichenformatCourier12(CCmdUI *pCmdUI)
 {
-	if (checkFontStyle(12, ""))
+	if (checkFontStyle(12, "Courier"))
 		pCmdUI->SetCheck(1);
 	else 
 		pCmdUI->SetCheck(0);

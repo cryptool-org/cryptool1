@@ -11624,7 +11624,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.00 beta 9"
+    IDR_MAINFRAME           "CrypTool 1.4.00 beta 10"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Dateien (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII-Dateien (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -15949,10 +15949,10 @@ BEGIN
                     NOT WS_BORDER
 END
 
-IDD_SIGNATURE_DEMO DIALOG  0, 0, 496, 428
+IDD_SIGNATURE_DEMO DIALOGEX 0, 0, 496, 428
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Signature generation"
-FONT 8, "MS Sans Serif"
+CAPTION "Step by step signature generation"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     CONTROL         "OPENDOC_R_",IDC_SELECT_DOCUMENT,"Button",BS_OWNERDRAW | 
                     BS_BITMAP | WS_TABSTOP,17,15,50,28
@@ -25524,7 +25524,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.00 beta 9"
+    IDR_MAINFRAME           "CrypTool 1.4.00 beta 10"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText files (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\n\n\nASCII files (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -27309,10 +27309,10 @@ BEGIN
     IDS_ERROPEN_ANIM        "The Animation-Tool 'Animal' could not be found. Please check whether all necessary files were installed with CrypTool."
     IDS_ANIMAL_PATH         "animal\\"
     IDS_ANIMAL_EXECUTABLE   "animal.bat"
-    IDS_ANIMAL_FILE_CAESAR  "anims\\caesar_eng.aml"
-    IDS_ANIMAL_FILE_VIGENERE "anims\\vigenere_eng.aml"
-    IDS_ANIMAL_FILE_NIHILIST "anims\\nihilist_eng.aml"
-    IDS_ANIMAL_FILE_DES     "anims\\des_eng.aml"
+    IDS_ANIMAL_FILE_CAESAR  "anims\\caesar_en.aml"
+    IDS_ANIMAL_FILE_VIGENERE "anims\\vigenere_en.aml"
+    IDS_ANIMAL_FILE_NIHILIST "anims\\nihilist_en.aml"
+    IDS_ANIMAL_FILE_DES     "anims\\des_en.aml"
     IDS_SCA_HYBRIDENCRYPTEDFILE_DEFAULT_PSEFILE 
                             "letterFromAliceToBob-ENCRYPTED-en.hex"
     IDS_ANIMAL_FILE_LOCALE  """locale=en_EN"" ""animation/animal-ascii-compressed"""
