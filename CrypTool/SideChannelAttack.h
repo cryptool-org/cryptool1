@@ -306,11 +306,11 @@ public:
 	// ab und erlangt Informationen über die von Alice versandte Nachricht
 	void interceptHybridEncryptedFile(HybridEncryptedFileInfo&);	
 	// hat der Angreifer schon eine Challenge angefangen?
-	bool hasInterceptedHybridEncryptedFile() { return isHybridEncryptedFileIntercepted; };
+	bool hasInterceptedHybridEncryptedFile() const { return isHybridEncryptedFileIntercepted; };
 	// gibt den abgefangenen und verschlüsselten Session Key zurück
-	OctetString *getInterceptedSessionKey() { return &originalHybEncFileInfo.sessionKeyEncrypted; };
+	OctetString getInterceptedSessionKey() const { return originalHybEncFileInfo.sessionKeyEncrypted; };
 	// in welchem Schritt des Angriffs befinden wir uns?
-	int getCurrentStep() { return currentStep; };
+	int getCurrentStep() const { return currentStep; };
 	// der Angreifer berechnet eine (nächste) Challenge
 	// aufgrund der bisher ermittelten Werten
 	HybridEncryptedFileInfo nextHybridEncryptedFile();
@@ -318,15 +318,15 @@ public:
 	// Antwort aus und fährt mit seinem Angriff fort
 	void processServerResponse(bool);	
 	// ist der Algorithmus zu Ende durchgeführt?
-	bool isDone() { return bIsAttackDone; };
+	bool isDone() const { return bIsAttackDone; };
 	// gibt den berechneten Session Key zurück
-	std::string getComputedSecret() { return secret; };
+	std::string getComputedSecret() const { return secret; };
 	// Zeiger auf modifizierte Challenge (0-indiziert)
-	OctetString *getModifiedChallenge(int);
+	OctetString getModifiedChallenge(int) const;
 	// wie viele modifizierte Session Keys gibt es?
-	int getNumberOfModifications() { return numberOfModifications; };
+	int getNumberOfModifications() const { return numberOfModifications; };
 	// wie viele anfragen wurden vom server positiv beantowrtet?
-	int getNumberOfPositiveResponses();
+	int getNumberOfPositiveResponses() const;
 	// Funktionen, die den Angreifer auf einen bestimmten Zustand (ZURÜCK)setzen
 	void cancelRSAParameters();
 	void cancelInterception();

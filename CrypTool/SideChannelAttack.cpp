@@ -431,12 +431,12 @@ void SCA_Attacker::attackIsDone(std::string s)
 	this->bIsAttackDone = true;
 }
 
-OctetString *SCA_Attacker::getModifiedChallenge(int index)
+OctetString SCA_Attacker::getModifiedChallenge(int index) const
 {
 	if(index > numberOfModifications) 
 		throw SCA_Error(E_SCA_INTERNAL_ERROR);
 
-	return &formerlyModifiedSessionKeys[index];
+	return formerlyModifiedSessionKeys[index];
 }
 
 // Der Angreifer fängt die Original-Challenge von Alice an Bob ab und
@@ -627,7 +627,7 @@ void SCA_Attacker::processServerResponse(bool response)
 	}
 }
 
-int SCA_Attacker::getNumberOfPositiveResponses()
+int SCA_Attacker::getNumberOfPositiveResponses() const
 {
 	int successful = 0;
 
@@ -1355,7 +1355,7 @@ void generateSCAReport(SCA_Client *_alice, SCA_Server *_bob, SCA_Attacker *_trud
 	LoadString(AfxGetInstanceHandle(), IDS_SCA_REPORT_TRUDYINTERCEPTEDMESSAGE, pc_str, STR_LAENGE_STRING_TABLE);
 	strcat(protocolString, pc_str);
 	// Ausgabe des abgefangenen, verschlüsselten Session Keys
-	convertOctetStringToHexString( _trudy->getInterceptedSessionKey(), temp);
+	convertOctetStringToHexString( &_trudy->getInterceptedSessionKey(), temp);
 	strcat(protocolString, temp);
 
 	// *** ATTACK CYCLE ***

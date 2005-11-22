@@ -120,7 +120,7 @@ void CDlgSideChannelAttackVisualizationHETrudy::updateDisplay()
 	m_ControlTasks.ResetContent();
 		
 	// AKTUELLEN Zeiger auf entsprechendes SCA-Objekt holen
-	SCA_Attacker *trudy = ((CDlgSideChannelAttackVisualizationHE*)parent)->getSCAAttacker();
+	const SCA_Attacker *trudy = ((CDlgSideChannelAttackVisualizationHE*)parent)->getSCAAttacker();
 
 	// *** TASK-TABELLE MIT INFOS FÜLLEN ***
 	if(trudy->hasInterceptedHybridEncryptedFile())
@@ -195,7 +195,7 @@ void CDlgSideChannelAttackVisualizationHETrudy::updateDisplay()
 	// alle vorher vorhandenen Informationen löschen
 	m_ListModifiedSessionKeys.DeleteAllItems();
 	// Tabelle mit Informationen füllen...
-	OctetString *o;
+	OctetString o;
 	char hexstring[SCA_MAX_LENGTH_OCTETSTRING+1];
 
 	for(int i=0; i<trudy->getNumberOfModifications(); i++)
@@ -203,7 +203,7 @@ void CDlgSideChannelAttackVisualizationHETrudy::updateDisplay()
 		// Informationen holen
 		o = trudy->getModifiedChallenge(i);
 		// Hexstring ermitteln
-		convertOctetStringToHexString(o, hexstring);
+		convertOctetStringToHexString(&o, hexstring);
 		// Zeile füllen
 		m_ListModifiedSessionKeys.InsertItem(i, hexstring);
 	}
@@ -211,9 +211,9 @@ void CDlgSideChannelAttackVisualizationHETrudy::updateDisplay()
 	// *** VERSCHLÜSSELTER SESSION KEY (ORIGINAL) ***
 	if(trudy->hasInterceptedHybridEncryptedFile())
 	{
-		OctetString *o = trudy->getInterceptedSessionKey();
+		o = trudy->getInterceptedSessionKey();
 		char hexout[SCA_MAX_LENGTH_OCTETSTRING+1];
-		convertOctetStringToHexString(o, hexout);
+		convertOctetStringToHexString(&o, hexout);
 
 		this->m_InterceptedEncryptedSessionKey = hexout;
 
