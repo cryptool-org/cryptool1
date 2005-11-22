@@ -4,6 +4,7 @@
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Dialog Erzeugung eines asymmetrischen Schlüsselpaares</TITLE>
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+<script language="JScript" src="helper.js"></script>
 </HEAD>
 
 <!-- multiple keywords for CrypTool HTML help index -->
@@ -40,13 +41,13 @@
 	<LI>Wahl des <B>Verfahrens</B>:<BR>
 Bei RSA- und DSA-Schlüsseln muss dabei die <!--ZZZPOPUP--><A href="schluessellaenge.html">Länge des Schlüssels</A> (in Bit) spezifiziert werden. Der <B>RSA-</B>Modul n (n ist das Produkt aus zwei ungefähr gleich großen Primzahlen) muss mindestens 301 Bit und darf höchstens 768 Bit lang sein (Besitzer einer Vollversion der Secude-Bibliothek können bis zu 2047 Bit lange RSA-Moduln benutzen). Jede von Ihnen eingegebene ganze Zahl dazwischen ist gültig und wird akzeptiert. Die Bitlängen 512, 768 und 1024 sind schon vorgegeben und können mit der Maus ausgewählt werden. <BR>
 Die <A href="dsa.html">DSA</A>-Primzahl p - durch die im wesentlichen der DSA-Schlüssel bestimmt wird - wird durch Auswahl bestimmt (keine direkte Eingabe möglich). Es stehen bis zu neun Zahlen für die Bitlänge von p zur Auswahl. <BR>
-Für <B>Elliptische Kurven</B> stehen sieben Kurven zur Verfügung. Die Kurven werden durch sogenannte Parameter Identifier (auch Kurven Identifier genannt) ausgewählt. Jeder Parameter-Identifier hat die Form primeXXXvY, dabei steht XXX für die Bitlänge der Primzahl p (die Elliptische Kurve ist über Z[p] definiert, siehe auch <A href="script-de.pdf">Skript</A> Elliptische Kurven, Abschnitt Elliptische Kurven in der Kryptographie) und Y unterscheidet verschiedene Kurven für die p gleiche Bitlänge hat.<BR><BR></LI>
+Für <B>Elliptische Kurven</B> stehen sieben Kurven zur Verfügung. Die Kurven werden durch sogenannte Parameter Identifier (auch Kurven Identifier genannt) ausgewählt. Jeder Parameter-Identifier hat die Form primeXXXvY, dabei steht XXX für die Bitlänge der Primzahl p (die Elliptische Kurve ist über Z[p] definiert, siehe auch <A class="filelink" onclick="parser('script-de.pdf')">Skript</A> Elliptische Kurven, Abschnitt Elliptische Kurven in der Kryptographie) und Y unterscheidet verschiedene Kurven für die p gleiche Bitlänge hat.<BR><BR></LI>
 
 	<LI><B>Benutzerdaten</B>:<BR>
 Es gibt Eingabefelder für benutzerrelevante Daten, mit denen es möglich ist, die verschiedenen <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> zu unterscheiden. Es müssen auf jeden Fall Einträge in die Felder <B>Name</B>, <B>Vorname</B>, <B>PIN-Code</B> und <B>PIN-Verifikation</B> (Wiederholung des PIN-Codes) eingegeben werden. Die <B>Schlüsselkennung</B> ist optional und dient nur dazu, dass Sie unter Ihrem eigenen Namen mehrere Schlüssel anlegen können. Bei der Eingabe des Namens, Vornamens und der Schlüsselkennung dürfen keine Sonderzeichen (zum Beispiel: \ / : * ? " &lt; &gt; | ) benutzt werden, ansonsten gibt <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> einen entsprechenden Hinweis.<BR><BR></LI>
 
 	<LI><B>Domainparameter</B>:<BR>
-In dem Feld Anzeige der <B>Domain-Parameter</B> werden die Parameter des aktuell gewählten Kurven-Identifiers angezeigt. Was Domain-Parameter sind, ist im <A href="script-de.pdf">Skript</A> Elliptische Kurven, Abschnitt Elliptische Kurven in der Kryptographie, nachzulesen.<BR><BR></LI>
+In dem Feld Anzeige der <B>Domain-Parameter</B> werden die Parameter des aktuell gewählten Kurven-Identifiers angezeigt. Was Domain-Parameter sind, ist im <A class="filelink" onclick="parser('script-de.pdf')">Skript</A> Elliptische Kurven, Abschnitt Elliptische Kurven in der Kryptographie, nachzulesen.<BR><BR></LI>
 
 	<LI><B>Zahlensystem</B>:<B><BR>
 </B>In dem Feld Wahl des Zahlensystems wird die Zahlenbasis für die Anzeige Domain-Parameter bestimmt. Zur Auswahl stehen: Oktalsystem, Dezimalsystem und das Hexadezimalsystem (siehe <A href="ascii.html">ASCII-Tabelle</A>).<BR><BR></LI>
