@@ -4,6 +4,7 @@
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Dialogue Generation of asymmetric key pair</TITLE>
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+<script language="JScript" src="helper.js"></script>
 </HEAD>
 
 <BODY>
@@ -33,13 +34,13 @@
 
 <UL>
 	<LI>Choice of <B>algorithm</B>:<BR>
-For RSA and DSA keys, the <!--ZZZPOPUP--><A href="schluessellaenge.html">length of the key</A> must be specified (in bits). The <B>RSA</B> modulus n (n is the product of two approximately equal-sized prime numbers) must be between 301 and 768 bits long (owners of a full version of Secude library can use RSA moduli up to 2047 bits long). Every integer in between is valid and is accepted if entered. Bit lengths 512, 768 and 1024 are already pre-defined and can be selected with the mouse. The <B>DSA</B> prime number p - through which essentially the DSA key is determined - has to be chosen from one of the options available (no direct input is possible). There are 9 possible settings for the bit length of p. For <B>elliptic curves</B>, seven options are provided. The curves are selected by choosing among a set of "parameter identifiers" (also known as "curve identifiers"). Every parameter identifier is of the form primeXXXvY, where XXX stands for the bit length of prime number p and Y distinguishes different curves for which p has the same bit length. (The elliptic curve is defined through Z[p]. See also Elliptic Curves <A href="script-en.pdf">script</A>, section entitled Elliptic Curves in Cryptography.) <BR><BR></LI>
+For RSA and DSA keys, the <!--ZZZPOPUP--><A href="schluessellaenge.html">length of the key</A> must be specified (in bits). The <B>RSA</B> modulus n (n is the product of two approximately equal-sized prime numbers) must be between 301 and 768 bits long (owners of a full version of Secude library can use RSA moduli up to 2047 bits long). Every integer in between is valid and is accepted if entered. Bit lengths 512, 768 and 1024 are already pre-defined and can be selected with the mouse. The <B>DSA</B> prime number p - through which essentially the DSA key is determined - has to be chosen from one of the options available (no direct input is possible). There are 9 possible settings for the bit length of p. For <B>elliptic curves</B>, seven options are provided. The curves are selected by choosing among a set of "parameter identifiers" (also known as "curve identifiers"). Every parameter identifier is of the form primeXXXvY, where XXX stands for the bit length of prime number p and Y distinguishes different curves for which p has the same bit length. (The elliptic curve is defined through Z[p]. See also Elliptic Curves <A class="filelink" onclick="parser('script-en.pdf')">script</A>, section entitled Elliptic Curves in Cryptography.) <BR><BR></LI>
 
 	<LI><B>User information</B>:<BR>
 There are fields in which to enter user-relevant data by means of which it is possible to distinguish the different <!--ZZZPOPUP--><A href="schluessel.html">keys</A>. Entries in the fields <B>Last</B> <B>name</B>, <B>First name</B>, <B>PIN</B> and <B>PIN verification</B> are mandatory. An entry in <B>Key identifier</B> is optional and enables you to create several keys under your own name. When entering the last name, first name and key identifier, no special characters (for example, \ / : * ? " &lt; &gt; | ) may be used; if they are, an appropriate error message will be displayed.<BR><BR></LI>
 
 	<LI><B>Domain parameters</B>:<BR>
-In the <B>Domain Parameter</B> box at the bottom of the window, the parameters for the currently selected curve identifier are displayed. The Elliptic Curves <A href="script-en.pdf">script</A>, section entitled Elliptic Curves in Cryptography, explains what is meant by domain parameters.<BR><BR></LI>
+In the <B>Domain Parameter</B> box at the bottom of the window, the parameters for the currently selected curve identifier are displayed. The Elliptic Curves <A class="filelink" onclick="parser('script-en.pdf')">script</A>, section entitled Elliptic Curves in Cryptography, explains what is meant by domain parameters.<BR><BR></LI>
 
 	<LI><B>Base for presentation of numbers:<BR>
 </B>The choices available are octal, decimal and hexadecimal (see <A href="ascii.html">ASCII Table</A>).<BR><BR></LI>
