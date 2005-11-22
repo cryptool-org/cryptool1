@@ -813,24 +813,9 @@ void CCrypToolApp::WinHelpInternal( DWORD_PTR dwData, UINT nCmd)
 		cmd[sizeof(cmd)-1] = '\0';
 
 		
-#if 0
-		// creating the path to the help
-		CString html_help_path = CString(m_pszHelpFilePath) + CString(">MainWindow");
-		
-		// to ensure that the help window is created before an Alink is looked up, this command is called 
-		HWND hwnd = ::HtmlHelp(
-				hWndAktivesFenster, /* GetDesktopWindow(), We Consider the global handle is the better choice ? */
-				html_help_path,
-				HH_DISPLAY_TOPIC,
-				NULL) ;
-		// Error in case help is not found 
-		LoadString(AfxGetInstanceHandle(),IDS_HELP_ERROR,pc_str,STR_LAENGE_STRING_TABLE);
-		CString help_error_message = CString (pc_str) + CString(m_pszHelpFilePath);
-		if (hwnd == NULL) AfxMessageBox(help_error_message, MB_ICONINFORMATION, 0);
-#endif
+		callHtmlHelp(HH_DISPLAY_TOPIC, NULL);
 
-		HtmlHelp(NULL, HH_DISPLAY_TOPIC);
-		
+
 		LoadString(AfxGetInstanceHandle(),IDS_ALINK_ERROR_MESSAGE,pc_str,STR_LAENGE_STRING_TABLE);
 		LoadString(AfxGetInstanceHandle(),IDS_ALINK_ERROR_MESSAGE_TITLE,pc_str1,STR_LAENGE_STRING_TABLE);
 
@@ -844,16 +829,8 @@ void CCrypToolApp::WinHelpInternal( DWORD_PTR dwData, UINT nCmd)
 		link.pszWindow =    NULL;
 		link.fIndexOnFail = FALSE ;
 
-#if 0
-		// looking up the Alink
-		::HtmlHelp(
-			    // AfxGetMainWindow(),
-				hWndAktivesFenster, /* GetDesktopWindow(), We Consider the global handle is the better choice ? */
-				m_pszHelpFilePath,				
-				HH_ALINK_LOOKUP,
-				(DWORD) &link) ;
-#endif
-		HtmlHelp((DWORD) &link, HH_ALINK_LOOKUP);
+		callHtmlHelp(HH_ALINK_LOOKUP, (DWORD) &link);
+
 
 	} else
 	{	
@@ -864,22 +841,11 @@ void CCrypToolApp::WinHelpInternal( DWORD_PTR dwData, UINT nCmd)
 		HWND hwnd;
 		switch (nCmd)
 		{
-			case HELP_CONTEXT:	/* hwnd = ::HtmlHelp(
-										AfxGetMainWnd()->m_hWnd,
-										// hWndAktivesFenster, // GetDesktopWindow(), We Consider the global handle is the better choice ? 					
-										html_help_path,										
-										HH_HELP_CONTEXT,
-										dwData) ; */
-										HtmlHelp(dwData, HH_HELP_CONTEXT);
+			case HELP_CONTEXT:	
+				callHtmlHelp(HH_HELP_CONTEXT, dwData);
 			break;
-			case HELP_FINDER:	HtmlHelp(NULL, HH_DISPLAY_TOPIC);
-#if 0
-				hwnd = ::HtmlHelp(
-										hWndAktivesFenster, /* GetDesktopWindow(), We Consider the global handle is the better choice ? */				
-										html_help_path,										
-										HH_DISPLAY_TOPIC,
-										NULL) ;			
-#endif
+			case HELP_FINDER:
+				callHtmlHelp(HH_DISPLAY_TOPIC, NULL);
 			break;	
 		}
 		// Error in case help is not found
@@ -937,44 +903,17 @@ void CCrypToolApp::OnOptionsStartoptions()
 
 void CCrypToolApp::OnHilfeIndex() 
 {
-	// Hilfe-Index zu CrypTool aufrufen
-#if 0
-	CString html_help_path = CString(m_pszHelpFilePath) + CString(">MainWindow");
-	::HtmlHelp(
-				hWndAktivesFenster, /* GetDesktopWindow(), We Consider the global handle is the better choice ? */
-				html_help_path,
-				HH_HELP_CONTEXT,
-				ID_HILFE_INDEX+0x10000) ;
-#endif
-	HtmlHelp(ID_HILFE_INDEX+0x10000, HH_HELP_CONTEXT);
+	callHtmlHelp(HH_HELP_CONTEXT, ID_HILFE_INDEX+0x10000);
 }
 
 void CCrypToolApp::OnHilfeStartseite() 
 {
-	// Startseite der Online-Hilfe aufrufen
-#if 0
-	CString html_help_path = CString(m_pszHelpFilePath) + CString(">MainWindow");
-	::HtmlHelp(
-				hWndAktivesFenster, /* GetDesktopWindow(), We Consider the global handle is the better choice ? */
-				html_help_path,
-				HH_HELP_CONTEXT,
-				ID_WIE_SIE_STARTEN+0x10000) ;
-#endif
-	HtmlHelp(ID_WIE_SIE_STARTEN+0x10000, HH_HELP_CONTEXT);
+	callHtmlHelp(HH_HELP_CONTEXT, ID_WIE_SIE_STARTEN+0x10000);
 }
 
 void CCrypToolApp::OnHilfeSzenarien() 
 {
-#if 0
-	// Startseite der Online-Hilfe aufrufen
-	CString html_help_path = CString(m_pszHelpFilePath) + CString(">MainWindow");
-	::HtmlHelp(
-				hWndAktivesFenster, /* GetDesktopWindow(), We Consider the global handle is the better choice ? */
-				html_help_path,
-				HH_HELP_CONTEXT,
-				ID_HILFE_SZENARIEN+0x10000) ;
-#endif
-	HtmlHelp(ID_HILFE_SZENARIEN+0x10000, HH_HELP_CONTEXT);
+	callHtmlHelp(HH_HELP_CONTEXT, ID_HILFE_SZENARIEN+0x10000);
 }
 
 void CCrypToolApp::OnSignaturAttack() 
@@ -1152,4 +1091,26 @@ BOOL CCrypToolApp::OnDDECommand(LPTSTR lpszCommand)
 
 	// AfxMessageBox ("MUST BE FIXED !!");
 	return FALSE;
+}
+
+
+void CCrypToolApp::callHtmlHelp(UINT uCommand, DWORD dwData)
+{
+#if !defined(_MSC_VER) || _MSC_VER <= 1200 // HTML Help for VC++ 6.0
+// creating the path to the help
+		CString html_help_path = CString(m_pszHelpFilePath) + CString(">MainWindow");
+		
+		// to ensure that the help window is created before an Alink is looked up, this command is called 
+		HWND hwnd = ::HtmlHelp(
+				AfxGetMainWnd()->m_hWnd, /* GetDesktopWindow(), We Consider the global handle is the better choice ? */
+				html_help_path,
+				uCommand,
+				dwData) ;
+		// Error in case help is not found 
+		LoadString(AfxGetInstanceHandle(),IDS_HELP_ERROR,pc_str,STR_LAENGE_STRING_TABLE);
+		CString help_error_message = CString (pc_str) + CString(m_pszHelpFilePath);
+		if (hwnd == NULL) AfxMessageBox(help_error_message, MB_ICONINFORMATION, 0);
+#else
+		HtmlHelp(dwData, uCommand);
+#endif
 }

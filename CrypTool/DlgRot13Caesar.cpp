@@ -185,6 +185,7 @@ BOOL CDlgRot13Caesar::OnInitDialog()
 	m_to_control.SetFont(&m_font);
 	VERIFY(m_paste.AutoLoad(IDC_PASTE_KEY,this));
 	this->OnCaesarRad();
+	this->SetCryptButtons(FALSE);
 	return TRUE;
 }
 

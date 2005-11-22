@@ -190,6 +190,7 @@ public:
 	#endif
 	
 private:
+	void callHtmlHelp(UINT uCommand, DWORD dwData);
 	virtual int ExitInstance();
 	void execAnimalVisualization(int animalPathID, int animalFileID, int animalExecutableID, int animalLocaleID);
 public:
