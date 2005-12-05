@@ -10,11 +10,15 @@
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Starting page: An Introduction to CrypTool">
+			<param name="Local" value="hidd_tipps_and_tricks.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="How to work through the examples">
 			<param name="Local" value="hid_hilfe_szenarien.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="How to use CrypTool Help">
+			<param name="Name" value="How to use the CrypTool online help">
 			<param name="Local" value="hilfeueberhilfe.html">
 			</OBJECT>
 	</UL>
@@ -27,7 +31,7 @@
 			<param name="Local" value="menu_crypt.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="The Hash of a file">
+			<param name="Name" value="The hash value of a document">
 			<param name="Local" value="menu_individualprocedures_hashprocedures.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
@@ -35,15 +39,15 @@
 			<param name="Local" value="menu_individualprocedures_compress.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="The Analyse Menu">
+			<param name="Name" value="The Analyse menu">
 			<param name="Local" value="menu_analyze.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Obtaining information about the actual file">
+			<param name="Name" value="Obtaining information about the actual document">
 			<param name="Local" value="menu_analyze.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="CrypTool Help Index">
+			<param name="Name" value="The CrypTool help index">
 			<param name="Local" value="main_index.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
@@ -81,7 +85,7 @@
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Change Cryptool options">
+		<param name="Name" value="Change CrypTool options">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">

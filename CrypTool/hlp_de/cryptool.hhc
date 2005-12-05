@@ -10,6 +10,10 @@
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Startseite: Der Einstieg in CrypTool">
+			<param name="Local" value="hidd_tipps_and_tricks.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="Wie Sie Szenarien durchspielen.">
 			<param name="Local" value="hid_hilfe_szenarien.html">
 			</OBJECT>
