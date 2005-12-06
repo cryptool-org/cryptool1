@@ -73,6 +73,7 @@ class CHexEditCtrlView : public CHexEditBaseView
 {
 public:
 	CHexEditCtrlDoc* GetDocument();
+	virtual BOOL OnCommand( WPARAM wParam, LPARAM lParam );
 
 protected: 
 	CHexEditCtrlView();

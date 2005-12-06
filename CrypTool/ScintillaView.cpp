@@ -413,6 +413,12 @@ BOOL CScintillaView::OnNotify(
          }
          break;
          case SCN_MODIFIED:
+//			 {
+//				this->GetDocument()->SetModifiedFlag();
+//				/* FIXME 
+//
+//				*/
+//			 }
          break;
          case SCN_MACRORECORD:
          break;
@@ -434,11 +440,22 @@ BOOL CScintillaView::OnNotify(
          break;
          case SCN_DWELLEND:
          break;
+
       }
       return TRUE; // we processed the message
    }
    return CWnd::OnNotify(wParam, lParam, pResult);
 }
+
+BOOL CScintillaView::OnCommand( WPARAM wParam, LPARAM lParam )
+{
+    if (HIWORD(wParam)==SCEN_CHANGE)
+    {
+        this->GetDocument()->SetModifiedFlag();
+    }
+    return CWnd::OnCommand( wParam, lParam );
+}
+
 /////////////////////////////////////
 // @mfunc menu handler - save current document - let the control do the work
 // @rvalue void | not used
@@ -635,3 +652,5 @@ void CScintillaView::OnUpdateZeichenformatCourier12(CCmdUI *pCmdUI)
 	else 
 		pCmdUI->SetCheck(0);
 }
+
+

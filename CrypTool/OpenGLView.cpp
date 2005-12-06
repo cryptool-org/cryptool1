@@ -5,6 +5,7 @@
 #include "OpenGLView.h"
 #include "OpenGLDoc.h"
 #include "CrypToolVolRen.h"
+#include "3DVisOpt.h"
 
 #include "OpenGL.h"
 #include <gl/gl.h>
@@ -95,6 +96,7 @@ BEGIN_MESSAGE_MAP(COpenGLView, CView)
 	ON_WM_CONTEXTMENU()
 	ON_COMMAND(ID_POPUP_OPENGL_SHOW_BOX, OnPopupOpenglShowBox)
 	ON_WM_DESTROY()
+	ON_COMMAND(ID_POPUP_OPENGL_EIGENSCHAFTEN, OnPopupOpenglEigenschaften)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -282,7 +284,6 @@ void COpenGLView::OnContextMenu(CWnd* pWnd, CPoint point)
             point.x, point.y,
             AfxGetMainWnd()); // Verwenden Sie das Hauptfenster für die Befehle
       }
-	
 }
 
 void COpenGLView::OnPopupOpenglShowBox() 
@@ -431,4 +432,16 @@ BOOL COpenGLView::bSetupPixelFormat(void)
 	}
 
 	return TRUE;
+}
+
+void COpenGLView::OnPopupOpenglEigenschaften() 
+{
+	C3DVisOpt Dlg;
+
+	COpenGLDoc *pDoc = GetDocument();
+	if ( IDOK == Dlg.DoModal() )
+	{
+		pDoc->volume->setDensity(Dlg.resolution);
+		m_pVolumeRenderer->setVolume(pDoc->nResolution, pDoc->dVoxelSize, pDoc->volume->getVolume());
+	}
 }

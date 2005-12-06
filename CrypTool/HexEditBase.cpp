@@ -2068,3 +2068,12 @@ BOOL CHexEditBaseView::OnEraseBkgnd(CDC*)
 { // don't erase background: avoids flickering
 	return TRUE;
 }
+
+//DEL BOOL CHexEditBaseView::OnCommand( WPARAM wParam, LPARAM lParam )
+//DEL {
+//DEL     if (HIWORD(wParam)==HEN_CHANGE)
+//DEL     {
+//DEL         this->GetDocument()->SetModifiedFlag();
+//DEL     }
+//DEL     return CWnd::OnCommand( wParam, lParam );
+//DEL }

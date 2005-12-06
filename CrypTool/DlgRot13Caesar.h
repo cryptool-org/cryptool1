@@ -36,12 +36,8 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgRot13Caesar)
 	enum { IDD = IDD_ROT13_CAESAR };
-	CStatic	m_text0_control;
-	CStatic	m_text3_control;
 	CEdit	m_to_control;
 	CEdit	m_from_control;
-	CStatic	m_text2_control;
-	CStatic	m_text1_control;
 	CButton	m_EncryptionButton;
 	CButton	m_DecryptionButton;
 	CStatic	m_dist_control;

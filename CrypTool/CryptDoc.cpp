@@ -1747,7 +1747,10 @@ void CCryptDoc::OnEinzelverfahrenSidechannelattackOnHybridencryption()
 
 void CCryptDoc::OnFileProperties() 
 {
+	UpdateContent();
+	
 	CDlgFileProperties DlgFileProperties;
+	DlgFileProperties.copyFileInfos( ContentName, GetTitle());
 	DlgFileProperties.DoModal();
 }
 

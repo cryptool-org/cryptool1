@@ -74,6 +74,7 @@ protected:
 	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
 	afx_msg void OnPopupOpenglShowBox();
 	afx_msg void OnDestroy();
+	afx_msg void OnPopupOpenglEigenschaften();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 public:

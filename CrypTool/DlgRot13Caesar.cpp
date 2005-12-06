@@ -39,12 +39,8 @@ void CDlgRot13Caesar::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgRot13Caesar)
-	DDX_Control(pDX, IDC_TEXT0, m_text0_control);
-	DDX_Control(pDX, IDC_TEXT3, m_text3_control);
 	DDX_Control(pDX, IDC_TO, m_to_control);
 	DDX_Control(pDX, IDC_FROM, m_from_control);
-	DDX_Control(pDX, IDC_TEXT2, m_text2_control);
-	DDX_Control(pDX, IDC_TEXT1, m_text1_control);
 	DDX_Control(pDX, ID_ENCRYPT, m_EncryptionButton);
 	DDX_Control(pDX, ID_DECRYPT, m_DecryptionButton);
 	DDX_Control(pDX, IDC_DIST, m_dist_control);
@@ -266,12 +262,6 @@ void CDlgRot13Caesar::UpdateFromTo(BOOL show)
 		CString to = m_source;
 		int ii, jj, length = m_source.GetLength();
 		
-		m_from_control.ShowWindow(SW_SHOW);
-		m_to_control.ShowWindow(SW_SHOW);
-		m_text0_control.SetWindowText("Verschiebung um");
-		m_text1_control.SetWindowText("Das Alphabet wird abgebildet");
-		m_text2_control.SetWindowText("von:");
-		m_text3_control.SetWindowText("auf:");
 		m_from = this->FinalizeOutput(m_source);
 		for (ii = 0; ii < length; ii ++)
 		{
@@ -282,14 +272,8 @@ void CDlgRot13Caesar::UpdateFromTo(BOOL show)
 	}
 	else 
 	{
-		m_text0_control.SetWindowText("");
-		m_text1_control.SetWindowText("");
-		m_text2_control.SetWindowText("");
-		m_text3_control.SetWindowText("");
-		m_from = _T("");
-		m_to = _T("");
-		m_from_control.ShowWindow(SW_HIDE);
-		m_to_control.ShowWindow(SW_HIDE);
+		m_from = m_source; // _T("");
+		m_to   = m_source; //  _T("");
 	}
 }
 

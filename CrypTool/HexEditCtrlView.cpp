@@ -205,3 +205,12 @@ void CHexEditCtrlView::OnTotxt()
  	NewDoc->SetModifiedFlag(Modified);
  	pDoc->OnCloseDocument();
 }
+
+BOOL CHexEditCtrlView::OnCommand( WPARAM wParam, LPARAM lParam )
+{
+    if (HIWORD(wParam)==HEN_CHANGE)
+    {
+        this->GetDocument()->SetModifiedFlag();
+    }
+    return CWnd::OnCommand( wParam, lParam );
+}

@@ -278,3 +278,4 @@ void CCrypToolView::OnBeginPrinting(CDC *pDC, CPrintInfo *pInfo)
 	pDC->SetWindowExt(size);
 	CView::OnBeginPrinting( pDC, pInfo);
 }
+

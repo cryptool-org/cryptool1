@@ -37,6 +37,7 @@ public:
 	CScintillaDoc* GetDocument();
 // @cmember process notification from scintilla control
    virtual BOOL OnNotify( WPARAM wParam, LPARAM lParam, LRESULT* pResult );
+   virtual BOOL OnCommand( WPARAM wParam, LPARAM lParam );
 // @cmember save document
    virtual BOOL Save(LPCSTR szPath);
 // @cmember get the edit control pointer
