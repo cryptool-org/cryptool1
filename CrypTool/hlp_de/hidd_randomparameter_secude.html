@@ -2,7 +2,7 @@
 <HTML>
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Secude Pseudozufallsgenerator</TITLE>
+<TITLE>Secude-Pseudozufallsgenerator</TITLE>
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
@@ -17,7 +17,13 @@
 
 <h3><P><A NAME="hidd_randomparameter_secude"></A><B>Der Secude Pseudozufallsgenerator</B></P></h3>
 
-<P>Dieser Zufallszahlengenerator benutzt die Funktion <CODE>rndm</CODE> aus dem Secude-SDK, um Zufallsdaten zu erzeugen. Die Funktion wird mehrfach aufgerufen und zwar für jedes zu erzeugende Bit einmal.</P>
+<P>Dieser Zufallsgenerator benutzt die Funktion <CODE>rndm</CODE> aus dem Secude-SDK, um Zufallsdaten zu erzeugen. Die Funktion wird mehrfach aufgerufen und zwar für jedes zu erzeugende Bit einmal.</P>
+
+<p><b>Bemerkung</b>:</p>
+
+<p>Der Secude-Pseudozufallsgenerator wird eingesetzt sowohl bei der Erzeugung neuer Schlüsselpaare, der Erzeugung von Sessionkeys oder wenn Sie explizit sagen, dass Sie mit dem Secude-Pseudozufallsgenerator Zufallsdaten erzeugen wollen.
+Beim ersten Aufruf des Secude-Pseudozufallsgenerators wird die Entropie für den Seed-Wert (ein zufälliger Startwert) "gesammelt": Das Sammeln geschieht mit Hilfe Ihrer Tastatureingaben und Mausbewegungen.
+D.h. Sie sehen die Maske des Entropie-Sammlers nur einmal pro Aufruf von CrypTool.</p>
 
 </BODY>
 </HTML>
