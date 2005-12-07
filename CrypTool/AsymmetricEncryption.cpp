@@ -1686,11 +1686,13 @@ void Verify(char* infile, const char *OldTitle)
 			dataToHexDump( Signatur.signature.bits, (Signatur.signature.nbits+7)/8, RSASigDemo.m_edit_RSA_input); 
 			RSASigDemo.CheckRSASignature = true;
 			RSASigDemo.message = &message;
-			if(RSASigDemo.DoModal()==2) return;
-			// vorher:
-			// RSASigDemo.DoModal();  // also einfach ohne Prüfung, ob SCHLIESSEN gedrückt wurde
-		}
+			// if(RSASigDemo.DoModal()==2) return;
 
+
+			// vorher:
+			RSASigDemo.DoModal();  // also einfach ohne Prüfung, ob SCHLIESSEN gedrückt wurde
+		}
+		
 		// Verifikation starten
 		
 		verifStart = clock();

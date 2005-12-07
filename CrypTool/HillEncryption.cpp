@@ -674,12 +674,12 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 				if ( modul > 100 )				
 				{
 					sprintf(num, "%03i", i_act_example[j]);
-					sprintf(num2, "%03i", (*enc_mat)(i,j));					
+					sprintf(num2, "%03i", (*enc_mat)(j,i));					
 				}
 				else 
 				{
 					sprintf(num, "%02i", i_act_example[j]);
-					sprintf(num2, "%02i", (*enc_mat)(i,j));
+					sprintf(num2, "%02i", (*enc_mat)(j,i));
 				}
 				MatOut = MatOut + CString(num) + '*' + CString(num2) + ' ';
 				if ( j < dim-1 ) MatOut = MatOut + '+' + ' ';
@@ -777,12 +777,12 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 				if ( modul > 100 )				
 				{
 					sprintf(num, "%03i", i_act_example[j]);
-					sprintf(num2, "%03i", (*dec_mat)(i,j));					
+					sprintf(num2, "%03i", (*dec_mat)(j,i));					
 				}
 				else 
 				{
 					sprintf(num, "%02i", i_act_example[j]);
-					sprintf(num2, "%02i", (*dec_mat)(i,j));
+					sprintf(num2, "%02i", (*dec_mat)(j,i));
 				}
 				MatOut = MatOut + CString(num) + '*' + CString(num2) + ' ';
 				if ( j < dim-1 ) MatOut = MatOut + '+' + ' ';

@@ -1,5 +1,5 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Developer Studio generated include file.
+// Microsoft Visual C++ generated include file.
 // Used by CrypTool.rc
 //
 #define IDCANCEL2                       3
@@ -1619,6 +1619,7 @@
 #define IDS_STRING_ASYMKEY_COULD_NOT_EXTRACT_SIGNATURE 36758
 #define IDS_STRING_ASYMKEY_SELECT_HASH_METHOD 36764
 #define IDS_FLOATING_FREQUENCY          36765
+#define IDS_STRING_ASYMKEY_ERR_ON_VERIFIKATION_TITLE 36766
 #define IDS_STRING_ASYMKEY_SIGNATURE_OF3 36770
 #define IDS_STRING_STANDARD_REF_TEXT    36771
 #define IDS_STRING_MSG_GERMAN           36772
@@ -2316,6 +2317,7 @@
 #define IDS_SOLITAIRE_MESSAGE_9         38046
 #define IDS_SOLITAIRE_MESSAGE_10        38047
 #define IDS_SOLITAIRE_MESSAGE_11        38048
+#define IDS_TITLE_3D_VISUALISATION      38049
 #define IDS_DH_LOG_1                    61889
 #define IDS_DH_LOG_2                    61890
 #define IDS_DH_LOG_3                    61891

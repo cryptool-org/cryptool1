@@ -231,7 +231,9 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CAppDocument)
 	ON_COMMAND(ID_SIGATTMODIFICDEMO, OnSigattmodificdemo)
 	ON_COMMAND(ID_SIGNATUR_ATTACK, OnSignaturAttack)
 	ON_COMMAND(ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION, OnEinzelverfahrenSidechannelattackOnHybridencryption)
+#if 0
 	ON_COMMAND(ID_FILEPROPERTIES, OnFileProperties)
+#endif
 	ON_COMMAND(ID_GENERATE_MACS, OnMessageauthenticationcode)
 	ON_COMMAND(ID_ENCRYPT_ADFGVX, OnEncryptAdfgvx)
 	ON_COMMAND(ID_ANALYSE_SYMMCLASSIC_ADFGVX, OnAnalyseSymmclassicAdfgvx)
@@ -1844,14 +1846,18 @@ void CCryptDoc::OnAnalysisRandom3dVisualization()
 
 	CFile f;
 
-	char name[1024];
+	char name[1024], title[1024];
 	GetTmpName(name,"cry",".ogl");
 	f.Open(name, CFile::modeCreate | CFile::modeWrite );
 	f.Write("OPENGL\n", 7);
 	f.Write(ContentName, strlen(ContentName));
 	f.Close();
 
-    theApp.ThreadOpenDocumentFileNoMRU(name,GetTitle());
+	
+
+	LoadString(AfxGetInstanceHandle(), IDS_TITLE_3D_VISUALISATION, pc_str, STR_LAENGE_STRING_TABLE);
+	sprintf(title, pc_str, GetTitle());
+    theApp.ThreadOpenDocumentFileNoMRU(name,title);
 }
 
 
