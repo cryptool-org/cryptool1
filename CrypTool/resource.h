@@ -823,6 +823,7 @@
 #define IDC_RENDER_SHIFT_0              1566
 #define IDC_SLIDER1                     1566
 #define IDCANCELATTACK                  1567
+#define IDC_MESSAGE_ROT13               1567
 #define IDC_RADIONUMBER                 1568
 #define IDC_CANCELATTACK                1569
 #define IDC_RADIOHEX                    1570
@@ -2318,6 +2319,7 @@
 #define IDS_SOLITAIRE_MESSAGE_10        38047
 #define IDS_SOLITAIRE_MESSAGE_11        38048
 #define IDS_TITLE_3D_VISUALISATION      38049
+#define IDS_ROT13_INFO_NEGATIVE         38050
 #define IDS_DH_LOG_1                    61889
 #define IDS_DH_LOG_2                    61890
 #define IDS_DH_LOG_3                    61891
@@ -2441,7 +2443,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        818
 #define _APS_NEXT_COMMAND_VALUE         33317
-#define _APS_NEXT_CONTROL_VALUE         1567
+#define _APS_NEXT_CONTROL_VALUE         1568
 #define _APS_NEXT_SYMED_VALUE           107
 #endif
 #endif

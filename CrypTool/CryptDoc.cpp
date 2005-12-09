@@ -1824,11 +1824,11 @@ void CCryptDoc::OnRot13caesarAsc()
 		return;
 	}
 
-	if (Dlg.Display()!=IDOK)
+	if (Dlg.DoModal()!=IDOK)
 	{
 		return;
 	}
-	Rot13CaesarAscFinish(text, ContentName, Dlg.GetData(), Dlg.m_Decrypt, GetTitle(), Dlg.m_type);	
+	// Rot13CaesarAscFinish(text, ContentName, Dlg.GetData(), Dlg.m_Decrypt, GetTitle(), Dlg.m_type);	
 }
 
 

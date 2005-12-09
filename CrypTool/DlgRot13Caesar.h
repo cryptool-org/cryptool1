@@ -13,6 +13,7 @@
 //
 
 #include "KeyRepository.h"
+#include "afxwin.h"
 #define MAX_VIGENERE	1024
 #define MAX_DISPLAY		40
 #define MAX_EXTRA		3
@@ -23,29 +24,20 @@
 class CDlgRot13Caesar : public CDialog
 {
 	CBitmapButton m_paste;
-	CBitmapButton m_down;
 // Konstruktion
 public:
-	UINT m_type;
-	char strTitle[KEYDATA_HASHSTRING_LENGTH];
 	CDlgRot13Caesar(CWnd* pParent = NULL);   // Standardkonstruktor
 	long m_Decrypt;
-	virtual int	Display();
-	virtual char *	GetData( void );
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgRot13Caesar)
 	enum { IDD = IDD_ROT13_CAESAR };
-	CEdit	m_to_control;
-	CEdit	m_from_control;
-	CButton	m_EncryptionButton;
-	CButton	m_DecryptionButton;
-	CStatic	m_dist_control;
-	CEdit	m_key_control;
-	CString	m_key;
-	int		m_radio;
-	CString	m_from;
-	CString	m_to;
+	CEdit	m_CtrlTo;
+	CEdit	m_CtrlFrom;
+	CEdit	m_CtrlKey;
+	CEdit   m_dist_control;
+	CButton m_EncryptionButton;
+	CButton m_DecryptionButton;
 	//}}AFX_DATA
 
 
@@ -71,16 +63,13 @@ protected:
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 
-	char s_alternativeWindowText[127];
 private:
-	CString GetRot13Key();
-	CString FinalizeOutput(CString);
-	void UpdateFromTo(BOOL show);
-	void SetCryptButtons(BOOL force);
-	void UpdateDist();
 	CFont m_font;
-	CString m_source;
 	int m_dist;
+public:
+	CButton m_CtrlRadioRot13;
+	CEdit m_CtrlMessageRot13;
+	CEdit m_CtrlShowAlSize;
 };
 
 //{{AFX_INSERT_LOCATION}}

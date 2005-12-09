@@ -58,10 +58,10 @@ BEGIN
     LTEXT           "Kurvenstärke  (1, ..., 10) :",IDC_STATIC,21,31,84,10
 END
 
-IDD_KEY_HILL5X5 DIALOG  0, 0, 217, 223
+IDD_KEY_HILL5X5 DIALOGEX 0, 0, 217, 223
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Schlüsseleingabe Hill"
-FONT 8, "MS Sans Serif"
+CAPTION "Schlüsseleingabe: Hill"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT11,20,21,11,12
     EDITTEXT        IDC_EDIT12,40,21,11,12
@@ -613,7 +613,7 @@ BEGIN
     GROUPBOX        " Review und Feedback",IDC_STATIC,7,220,270,42,BS_CENTER
     LTEXT           "Martin Bartosch\nLars Dülfer\nThomas Gauweiler\nJan Hofmann\nMatthias Kraft\nMatej Matejicek\nRoger Oyono\nMark Santiago\nChristian Tobias\nThilo Zieschang",
                     IDC_STATIC,18,122,84,83
-    LTEXT           "Jan Blumenstein\nKlaus Esslinger\nPeter Gruber\nJens Liebehenschel\nMichael Linden\nChristian Mletzko\nMarkus Ruhs\nMatthias Schneisder\nMyriam Zeuner-Gurrier\nHendrik Lennarz",
+    LTEXT           "Jan Blumenstein\nKlaus Esslinger\nPeter Gruber\nJens Liebehenschel\nMichael Linden\nChristian Mletzko\nMarkus Ruhs\nMatthias Schneider\nMyriam Zeuner-Gurrier\nHendrik Lennarz",
                     IDC_STATIC,102,122,84,84
     LTEXT           "Ariane Büger\nKarsten Schaar",IDC_STATIC,18,231,84,26
     LTEXT           "Richard Christensen\nBartol Filipovic\nJörg Hambamer\nDennis Laupichler\nFlorian Marchal\nLowell Montgomery\nDaniel Saffran\nChristine Stötzel\nThomas Thiele\nAndre Beunink",
@@ -820,10 +820,10 @@ BEGIN
     EDITTEXT        IDC_EDIT1010,211,235,11,12,ES_READONLY
 END
 
-IDD_KEY_HILL_10X10 DIALOG  0, 0, 329, 309
+IDD_KEY_HILL_10X10 DIALOGEX 0, 0, 329, 309
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Schlüsseleingabe Hill"
-FONT 8, "MS Sans Serif"
+CAPTION "Schlüsseleingabe: Hill"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT11,23,27,11,12
     EDITTEXT        IDC_EDIT12,43,27,11,12
@@ -1289,10 +1289,10 @@ BEGIN
                     WS_TABSTOP,15,186,115,17
 END
 
-IDD_KEY_PLAYFAIR DIALOG  0, 0, 237, 262
+IDD_KEY_PLAYFAIR DIALOGEX 0, 0, 237, 262
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Schlüsseleingabe Playfair"
-FONT 8, "MS Sans Serif"
+CAPTION "Schlüsseleingabe: Playfair"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_KEYENTER,24,75,171,12,ES_AUTOHSCROLL
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
@@ -1488,13 +1488,13 @@ BEGIN
     LTEXT           "(öffentlich)",IDC_STATIC,285,137,34,8
     LTEXT           "(geheim)",IDC_STATIC,285,155,30,8
     LTEXT           "Eingabe als",IDC_STATIC,19,227,39,8
-    EDITTEXT        IDC_HEADER1,19,241,353,12,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_HEADER1,19,241,353,10,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER | NOT WS_TABSTOP
-    EDITTEXT        IDC_HEADER4,19,272,353,12,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_HEADER4,19,272,353,10,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER | NOT WS_TABSTOP
-    EDITTEXT        IDC_HEADER2,19,302,353,12,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_HEADER2,19,302,353,10,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER | NOT WS_TABSTOP
-    EDITTEXT        IDC_HEADER3,19,334,353,12,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_HEADER3,19,334,353,10,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER | NOT WS_TABSTOP
     LTEXT           "Sie können mit Hilfe der Faktorisierung versuchen, den öffentlichen RSA-Modul N in seine Primfaktoren p und q zu faktorisieren.",
                     IDC_RSA_MODE_FACTORISATION,19,85,257,30,NOT WS_VISIBLE
@@ -1878,10 +1878,10 @@ BEGIN
                     -1,7,37,310,8
 END
 
-IDD_KEY_PERMUTATION DIALOG  0, 0, 280, 338
+IDD_KEY_PERMUTATION DIALOGEX 0, 0, 280, 338
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Doppelwürfel-Verschlüsselung: Permutationsschlüssel-Eingabe "
-FONT 8, "MS Sans Serif"
+CAPTION "Schlüsseleingabe: Permutation / Transposition"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT1,23,39,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,23,161,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
@@ -1918,14 +1918,14 @@ BEGIN
                     165,304,22,20
     EDITTEXT        IDC_EDIT3,23,68,234,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
                     WS_DISABLED
-    GROUPBOX        "1. Permutation",IDC_STATIC,12,12,256,108
+    GROUPBOX        "1. Permutation (einfach)",IDC_STATIC,12,12,256,108
     LTEXT           "Schlüssel (Buchstaben oder durch Kommas separierte Zahlen)",
                     IDC_STATIC,23,29,205,8
     LTEXT           "Permutation, wenn der Schlüssel als Buchstabenfolge eingegeben wurde",
                     IDC_STATIC,23,58,245,8
     EDITTEXT        IDC_EDIT4,23,190,234,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
                     WS_DISABLED
-    GROUPBOX        "2. Permutation",IDC_STATIC,12,132,256,111
+    GROUPBOX        "2. Permutation (doppelt)",IDC_STATIC,12,132,256,111
     LTEXT           "Schlüssel (Buchstaben oder durch Kommas separierte Zahlen)",
                     IDC_STATIC,23,151,205,8
     LTEXT           "Permutation, wenn der Schlüssel als Buchstabenfolge eingegeben wurde",
@@ -3514,30 +3514,30 @@ BEGIN
     CTEXT           "Static",IDC_ABOUTBOX_CRYPTOOL,1,139,241,11
     CTEXT           "entwickelt.\nCrypTool ist auch ein Demonstrationsprogramm für\nKryptographie und Mitarbeiter-Awareness.",
                     IDC_STATIC,1,155,241,24
-    CTEXT           "CrypTool nutzt folgende Bibliotheken:",IDC_STATIC,0,189,
+    CTEXT           "CrypTool nutzt folgende Bibliotheken:",IDC_STATIC,0,188,
                     241,8
-    CTEXT           "Kontakt:",IDC_STATIC,0,272,241,10
+    CTEXT           "Kontakt:",IDC_STATIC,0,267,241,10
     CTEXT           "Copyright (C) 1998-2005 Deutsche Bank AG\nFrankfurt am Main, Germany",
                     IDC_STATIC,0,339,242,17
     LTEXT           "esslinger@fb5.uni-siegen.de\nbesslinger@web.de\njoerg-cornelius.schneider@db.com\nhenrik.koy@db.com\ncryptool-list@sec.informatik.tu-darmstadt.de",
-                    IDC_STATIC,63,281,152,42
+                    IDC_STATIC,63,276,152,42
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT | SS_SUNKEN | 
                     WS_BORDER,10,37,222,79
     CTEXT           "CrypTool ist ein kostenloses und umfangreiches Lernprogramm\nzu klassischer und moderner Kryptographie/Kryptoanalyse.\n\nGemeinsam mit den Sponsoren",
                     IDC_STATIC,1,3,241,33
     LTEXT           "Internet: http://www.cryptool.de",IDC_STATIC,63,323,175,
                     8
-    CTEXT           "MIRACL",IDC_EDIT_MIRACL,1,220,240,8,SS_CENTERIMAGE,
+    CTEXT           "MIRACL",IDC_EDIT_MIRACL,1,219,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
-    CTEXT           "SECUDE1",IDC_EDIT_SECUDE1,1,201,240,8,SS_CENTERIMAGE,
+    CTEXT           "SECUDE1",IDC_EDIT_SECUDE1,1,200,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
-    CTEXT           "OPENSSL",IDC_EDIT_OPENSSL,1,231,240,8,SS_CENTERIMAGE,
+    CTEXT           "OPENSSL",IDC_EDIT_OPENSSL,1,230,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
-    CTEXT           "NTL",IDC_EDIT_NTL,1,241,240,8,SS_CENTERIMAGE,
+    CTEXT           "NTL",IDC_EDIT_NTL,1,240,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
-    CTEXT           "SCINTILLA",IDC_EDIT_SCINTILLA,1,251,240,8,
+    CTEXT           "SCINTILLA",IDC_EDIT_SCINTILLA,1,250,240,8,
                     SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "SECUDE2",IDC_EDIT_SECUDE2,1,209,240,8,SS_CENTERIMAGE,
+    CTEXT           "SECUDE2",IDC_EDIT_SECUDE2,1,208,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
 END
 
@@ -3591,11 +3591,11 @@ BEGIN
     GROUPBOX        "",IDC_STATIC,6,7,310,61
 END
 
-IDD_ADFGVX DIALOG  0, 0, 265, 402
+IDD_ADFGVX DIALOGEX 0, 0, 265, 402
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "ADFGVX Chiffre: Schlüsseleingabe"
-FONT 8, "MS Shell Dlg"
+CAPTION "Schlüsseleingabe: ADFGVX Chiffre"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_M00,40,42,12,12,ES_CENTER | ES_UPPERCASE | 
                     ES_AUTOHSCROLL
@@ -4329,19 +4329,15 @@ END
 
 IDD_ROT13_CAESAR DIALOGEX 0, 0, 315, 207
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Caesar / ROT-13 Schlüsseleingabe"
+CAPTION "Schlüsseleingabe: Caesar / ROT-13"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    EDITTEXT        IDC_KEY,135,33,19,14,ES_AUTOHSCROLL
-    CONTROL         "Caesar",IDC_CAESAR_RAD,"Button",BS_AUTORADIOBUTTON,25,
-                    27,38,10
-    CONTROL         "ROT-13",IDC_ROT13_RAD,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,25,45,41,10
+    EDITTEXT        IDC_KEY,118,33,19,14,ES_AUTOHSCROLL
     CONTROL         "Paste",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,
-                    169,32,22,20
-    DEFPUSHBUTTON   "&Verschlüsseln",ID_ENCRYPT,57,176,58,19
-    PUSHBUTTON      "&Entschlüsseln",ID_DECRYPT,130,176,57,19
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,203,176,57,19
+                    147,33,22,20
+    DEFPUSHBUTTON   "&Verschlüsseln",ID_ENCRYPT,25,176,58,19
+    PUSHBUTTON      "&Entschlüsseln",ID_DECRYPT,94,176,57,19
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,245,176,57,19
     EDITTEXT        IDC_FROM,46,122,245,14,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_TO,46,143,245,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "",IDC_DIST,85,89,8,8
@@ -4349,10 +4345,17 @@ BEGIN
     GROUPBOX        "Informationen zur Verschlüsselung",IDC_STATIC,14,72,288,
                     94
     LTEXT           "Verschiebung um",IDC_TEXT0,25,89,58,8
-    LTEXT           "Das Alphabet wird abgebildet",IDC_TEXT1,25,107,93,8
     LTEXT           "von:",IDC_TEXT2,25,124,15,8
     LTEXT           "auf:",IDC_TEXT3,25,145,13,8
-    LTEXT           "Schlüssel",IDC_STATIC,91,36,34,8
+    LTEXT           "Schlüssel:",IDC_STATIC,80,36,34,8
+    CONTROL         "Caesar",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,25,28,38,10
+    CONTROL         "Rot-13",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,25,44,37,
+                    10
+    EDITTEXT        IDC_MESSAGE_ROT13,179,23,112,35,ES_MULTILINE | 
+                    ES_READONLY | NOT WS_BORDER
+    EDITTEXT        IDC_EDIT1,25,105,184,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS DIALOG  0, 0, 275, 190
@@ -4452,7 +4455,7 @@ END
 
 IDD_KEY_MONSUBST DIALOGEX 0, 0, 309, 207
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Schlüsseleingabe Monoalphabetische Substitution / Atbash"
+CAPTION "Schlüsseleingabe: Monoalphabetische Substitution / Atbash"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_KEY,66,64,189,14,ES_AUTOHSCROLL
@@ -11413,7 +11416,11 @@ BEGIN
 
     IDD_ROT13_CAESAR, DIALOG
     BEGIN
+        VERTGUIDE, 25
+        VERTGUIDE, 291
         VERTGUIDE, 302
+        HORZGUIDE, 115
+        HORZGUIDE, 195
     END
 
     IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS, DIALOG
@@ -11575,7 +11582,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    ID_APP_ABOUT            "Zeigt Programminformationen (Sponsoren, Autoren, Kontakte, Urheberrechte...) zu CrypTool an"
+    ID_APP_ABOUT            "Zeigt Programminformationen (Sponsoren, Autoren, Kontakte, Urheberrechte...) zu CrypTool an\nÜber CrypTool"
     ID_APP_EXIT             "Beendet die Anwendung mit Nachfrage, ob die geöffneten Dateien gespeichert werden sollen"
     ID_HELP_INDEX           "Zeigt Inhalt der Hilfe an"
     ID_HELP_FINDER          "Öffnet die Online-Hilfe mit allen Hilfethemen zu CrypTool"
@@ -11715,7 +11722,7 @@ BEGIN
     IDS_STRING_FLOATING_FREQ "Gleitende Häufigkeit"
     IDS_STRING_FLOATING_FREQ_FINISHED "Gleitende Häufigkeit erledigt: %d%%"
     ID_FLOATING             "Gleitende Häufigkeit des Dokumentes berechnen"
-    ID_SHOW_KEY             "Zeigt den Schlüssel an, der von CrypTool für die Verschlüsselung dieses Dokuments benutzt wurde"
+    ID_SHOW_KEY             "Zeigt den Schlüssel an, der von CrypTool für die Verschlüsselung dieses Dokuments benutzt wurde\nSchlüssel anzeigen"
     ID_GOTO_VATER           "Wechselt zum übergeordneten Fenster\nÜbergeordnetes Fenster"
     IDS_STRING_ASSURE_DEL_ASYM_KEY 
                             "Sind Sie sicher das die zu dem Schlüsselbezeichner\n'%1'\ngehörenden Schlüsseldateien GELÖSCHT werden sollen?\n\nDrücken Sie OK um den Vorgang fortzusetzen."
@@ -11899,7 +11906,7 @@ BEGIN
     IDS_STRING_VIGENERE     "Vigenère"
     IDS_STRING_XOR          "XOR"
     IDS_STRING_ADD          "ADD"
-    IDS_STRING_VERNAM_KEYFILE "Vernam-Schlüsseldatei für <%s>"
+    IDS_STRING_VERNAM_KEYFILE "Auswahl der Vernam-Schlüsseldatei für <%s>"
     IDS_STRING_VERNAM_ENCRYPTION_OF 
                             "Vernam-Verschlüsselung von <%%s> und <%s>"
     IDS_STRING_HILL         "Hill"
@@ -12365,10 +12372,10 @@ BEGIN
     IDS_STRING_KEY_INPUT_CAESAR "Caesar Schlüsseleingabe"
     IDS_STRING_KEY_INPUT_LENGTH 
                             "Geben Sie den Schlüssel ein. Der Schlüssel ist genau  %d Zeichen lang!"
-    IDS_STRING_KEY_INPUT_VIGENERE "Vigenère Schlüsseleingabe"
+    IDS_STRING_KEY_INPUT_VIGENERE "Schlüsseleingabe: Vigenère"
     IDS_STRING_COLUMN_FREQUENCY "Häufigkeit"
-    IDS_STRING_KEY_INPUT_XOR "XOR Schlüsseleingabe"
-    IDS_STRING_KEY_INPUT_ADD "ADD Schlüsseleingabe"
+    IDS_STRING_KEY_INPUT_XOR "Schlüsseleingabe: XOR"
+    IDS_STRING_KEY_INPUT_ADD "Schlüsseleingabe: ADD"
     IDS_STRING_RSA_TUTORIAL_INPUT 
                             "Eingabe der zu ver- oder entschlüsselnden Nachricht als Text oder als Hex-Dump."
 END
@@ -13661,7 +13668,7 @@ BEGIN
     IDS_BAD_KEY             "Mindestens ein Zeichen des in die Zwischenablage kopierten Schlüssels\nist nicht im aktuell eingestellten Alphabet enthalten, der Schlüssel\nkann daher nicht verwendet werden!"
     IDS_ROT13_CAESAR_BAD_KEY 
                             "Der in die Zwischenablage kopierte Schlüssel ist nicht im\naktuell eingestellten Alphabet enthalten und kann daher\nnicht verwendet werden!"
-    IDS_ROT13_CAESAR_CASE   "ROT-13 kann nur für eine gerade Anzahl von Elementen im Alphabet\nangewendet werden!"
+    IDS_ROT13_CAESAR_CASE   "Das Alphabet (%d Zeichen) wird abgebildet"
     IDS_STRING_ROT13        "ROT 13"
     ID_ROT13CAESAR_ASC      "Caesar- / ROT-13-Verschlüsselung"
     IDS_SCA_HYBRIDENCRYPTION_BY_USER 
@@ -13697,6 +13704,7 @@ STRINGTABLE
 BEGIN
     IDS_SOLITAIRE_MESSAGE_11 "Möchten Sie Joker A vorne einsortieren?"
     IDS_TITLE_3D_VISUALISATION "3-D-Visualisierung: %s"
+    IDS_ROT13_INFO_NEGATIVE "Die Rot-13-Verschlüsselung wurde deaktiviert, weil das Alphabet keine gerade Anzahl von Zeichen hat!"
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -14095,7 +14103,7 @@ BEGIN
     CTEXT           "CrypTool uses the following libraries:",IDC_STATIC,1,
                     186,241,8
     CTEXT           "Contact:",IDC_STATIC,0,269,241,10
-    LTEXT           "esslinger@fb5.uni-siegen.de\nbesslinger@web.de /\nesslinger@fb5.uni-siegen.de\nhenrik.koy@db.com\njoerg-cornelius.schneider@db.com\n\ncryptool-list@sec.informatik.tu-darmstadt.de",
+    LTEXT           "esslinger@fb5.uni-siegen.de\nbesslinger@web.de\nhenrik.koy@db.com\njoerg-cornelius.schneider@db.com\ncryptool-list@sec.informatik.tu-darmstadt.de",
                     IDC_STATIC,67,282,145,40
     CTEXT           "Copyright (C) 1998-2005 Deutsche Bank AG\nFrankfurt am Main, Germany",
                     IDC_STATIC,0,343,242,17
@@ -15603,10 +15611,10 @@ BEGIN
                     -1,7,39,310,10
 END
 
-IDD_KEY_PERMUTATION DIALOG  0, 0, 280, 324
+IDD_KEY_PERMUTATION DIALOGEX 0, 0, 280, 324
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Double Column Transposition: Permutation Key Input"
-FONT 8, "MS Sans Serif"
+CAPTION "Key Entry: Permutation / Transposition"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT1,23,39,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,23,161,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
@@ -15643,14 +15651,14 @@ BEGIN
                     162,295,22,20
     EDITTEXT        IDC_EDIT3,23,68,234,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
                     WS_DISABLED
-    GROUPBOX        "1. Permutation",IDC_STATIC,12,13,256,108
+    GROUPBOX        "1. Permutation (simple)",IDC_STATIC,12,13,256,108
     LTEXT           "Key (via letters or via comma seperated numbers)",
                     IDC_STATIC,23,29,234,8
     LTEXT           "Presentation as permutation if key is given in letters",
                     IDC_STATIC,23,59,234,8
     EDITTEXT        IDC_EDIT4,23,190,234,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
                     WS_DISABLED
-    GROUPBOX        "2. Permutation",IDC_STATIC,12,134,256,109
+    GROUPBOX        "2. Permutation (double)",IDC_STATIC,12,134,256,109
     LTEXT           "Key (via letters or via comma seperated numbers)",
                     IDC_STATIC,23,151,234,8
     LTEXT           "Presentation as permutation if key is given in letters",
@@ -17247,11 +17255,11 @@ BEGIN
     GROUPBOX        "",IDC_STATIC,7,7,309,52
 END
 
-IDD_ADFGVX DIALOG  0, 0, 266, 411
+IDD_ADFGVX DIALOGEX 0, 0, 266, 411
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "ADFGVX Cipher: Key input"
-FONT 8, "MS Shell Dlg"
+CAPTION "Key Input: ADFGVX Cipher"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_M00,40,42,12,12,ES_CENTER | ES_UPPERCASE | 
                     ES_AUTOHSCROLL
@@ -18002,29 +18010,32 @@ END
 
 IDD_ROT13_CAESAR DIALOGEX 0, 0, 315, 207
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Caesar / ROT-13 Key Input"
+CAPTION "Key Entry: Caesar / ROT-13"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    EDITTEXT        IDC_KEY,135,33,19,14,ES_AUTOHSCROLL
-    CONTROL         "Caesar",IDC_CAESAR_RAD,"Button",BS_AUTORADIOBUTTON,25,
-                    27,38,10
-    CONTROL         "ROT-13",IDC_ROT13_RAD,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,25,45,41,10
+    EDITTEXT        IDC_KEY,106,33,19,14,ES_AUTOHSCROLL
     CONTROL         "Paste",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,
-                    169,32,22,20
-    DEFPUSHBUTTON   "&Encrypt",ID_ENCRYPT,57,176,58,19
-    PUSHBUTTON      "&Decrypt",ID_DECRYPT,130,176,57,19
-    PUSHBUTTON      "&Abort",IDCANCEL,203,176,57,19
-    GROUPBOX        "Select variant",IDC_STATIC,14,12,288,51
+                    137,33,22,20
+    DEFPUSHBUTTON   "&Encrypt",ID_ENCRYPT,14,176,58,19
+    PUSHBUTTON      "&Decrypt",ID_DECRYPT,85,176,57,19
+    PUSHBUTTON      "Cancel",IDCANCEL,245,176,57,19
+    GROUPBOX        "Select variant",IDC_STATIC,14,13,288,51
     GROUPBOX        "Information for Encryption",IDC_STATIC,14,72,288,94
     LTEXT           "Schift of",IDC_TEXT0,25,89,58,8
-    LTEXT           "Mapping of the alphabet",IDC_TEXT1,25,107,93,8
     LTEXT           "from:",IDC_TEXT2,25,124,15,8
     LTEXT           "to:",IDC_TEXT3,25,145,13,8
     EDITTEXT        IDC_FROM,46,122,245,14,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_TO,46,143,245,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "",IDC_DIST,85,89,8,8
-    LTEXT           "Key",IDC_STATIC,113,36,19,8
+    LTEXT           "Key",IDC_STATIC,84,36,19,8
+    CONTROL         "Caesar",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,25,28,38,10
+    CONTROL         "Rot-13",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,25,44,37,
+                    10
+    EDITTEXT        IDC_MESSAGE_ROT13,172,19,114,35,ES_MULTILINE | 
+                    ES_READONLY | NOT WS_BORDER
+    EDITTEXT        IDC_EDIT1,25,105,184,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS DIALOG  0, 0, 275, 190
@@ -25342,7 +25353,11 @@ BEGIN
 
     IDD_ROT13_CAESAR, DIALOG
     BEGIN
+        VERTGUIDE, 14
+        VERTGUIDE, 25
         VERTGUIDE, 302
+        HORZGUIDE, 115
+        HORZGUIDE, 195
     END
 
     IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS, DIALOG
@@ -25486,7 +25501,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    ID_APP_ABOUT            "Displays program information about CrypTool (sponsors, authors, contacts, copyright, ...)"
+    ID_APP_ABOUT            "Displays program information about CrypTool (sponsors, authors, contacts, copyright, ...)\nAbout CrypTool"
     ID_APP_EXIT             "Exits the application after asking whether the opened files should be saved"
     ID_HELP_INDEX           "Shows the content of the online Help"
     ID_HELP_FINDER          "Opens the online help with all the help topics"
@@ -25625,7 +25640,7 @@ BEGIN
     IDS_STRING_FLOATING_FREQ "Floating frequency"
     IDS_STRING_FLOATING_FREQ_FINISHED "Floating frequency completed: %d%%."
     ID_FLOATING             "Calculates the floating frequency of the document"
-    ID_SHOW_KEY             "Shows the key used by CrypTool when encrypting this document"
+    ID_SHOW_KEY             "Shows the key used by CrypTool when encrypting this document\nShow key"
     ID_GOTO_VATER           "Takes you to the parent window\nParent Window"
     IDS_STRING_ASSURE_DEL_ASYM_KEY 
                             "Are you sure that you wish the key files relating to key identifier\n'%1'\nto be DELETED?\n\nClick on OK to continue with the operation."
@@ -25806,7 +25821,7 @@ BEGIN
     IDS_STRING_VIGENERE     "Vigenère"
     IDS_STRING_XOR          "XOR"
     IDS_STRING_ADD          "ADD"
-    IDS_STRING_VERNAM_KEYFILE "Vernam key file for <%s>"
+    IDS_STRING_VERNAM_KEYFILE "Selection of the Vernam key file for <%s>"
     IDS_STRING_VERNAM_ENCRYPTION_OF "Vernam encryption of <%%s> and <%s>"
     IDS_STRING_HILL         "Hill"
     IDS_STRING_ENTROPY_OF   "The current alphabet\n- contains %d characters,\n- resulting in a maximum entropy of %.3f bit/char.\nThe document being analysed\n- contains %d distinct characters,\n- its entropy amounts to %.3f bit/char."
@@ -27521,7 +27536,7 @@ BEGIN
     IDS_BAD_KEY             "At least one character of the key stored in the clipboard\nis not part of the actual alphabet, this key is\ncurrently not usable (you may change the alphabet options accordingly)!"
     IDS_ROT13_CAESAR_BAD_KEY 
                             "The key stored in the clipboard is not part of the actual alphabet\nthus the key is currently not usable!"
-    IDS_ROT13_CAESAR_CASE   "ROT-13 is only usable if the number of characters of the current alphabet is even!"
+    IDS_ROT13_CAESAR_CASE   "Mapping of the Alphabet (%d characters)"
     IDS_STRING_ROT13        "ROT 13"
     ID_ROT13CAESAR_ASC      "Caesar- / ROT-13 encryption"
     IDS_SCA_HYBRIDENCRYPTION_BY_USER 
@@ -27557,6 +27572,7 @@ STRINGTABLE
 BEGIN
     IDS_SOLITAIRE_MESSAGE_11 "Do you want to put Joker A to the front?"
     IDS_TITLE_3D_VISUALISATION "3-D Visualisisation: %s"
+    IDS_ROT13_INFO_NEGATIVE "Rot-13 encryption is deactivated because the alphabet does not consist of an even number of letters!"
 END
 
 #endif    // Englisch (GB) resources
