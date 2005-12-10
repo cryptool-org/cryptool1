@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -13705,14 +13705,15 @@ BEGIN
     IDS_SOLITAIRE_MESSAGE_11 "Möchten Sie Joker A vorne einsortieren?"
     IDS_TITLE_3D_VISUALISATION "3-D-Visualisierung: %s"
     IDS_ROT13_INFO_NEGATIVE "Die Rot-13-Verschlüsselung wurde deaktiviert, weil das Alphabet keine gerade Anzahl von Zeichen hat!"
+    IDS_CRYPT_ROT13         "ROT 13"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -18020,8 +18021,8 @@ BEGIN
     PUSHBUTTON      "&Decrypt",ID_DECRYPT,85,176,57,19
     PUSHBUTTON      "Cancel",IDCANCEL,245,176,57,19
     GROUPBOX        "Select variant",IDC_STATIC,14,13,288,51
-    GROUPBOX        "Information for Encryption",IDC_STATIC,14,72,288,94
-    LTEXT           "Schift of",IDC_TEXT0,25,89,58,8
+    GROUPBOX        "Information for encryption",IDC_STATIC,14,72,288,94
+    LTEXT           "Shift of",IDC_TEXT0,25,89,58,8
     LTEXT           "from:",IDC_TEXT2,25,124,15,8
     LTEXT           "to:",IDC_TEXT3,25,145,13,8
     EDITTEXT        IDC_FROM,46,122,245,14,ES_AUTOHSCROLL | ES_READONLY
@@ -18032,7 +18033,7 @@ BEGIN
                     WS_GROUP,25,28,38,10
     CONTROL         "Rot-13",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,25,44,37,
                     10
-    EDITTEXT        IDC_MESSAGE_ROT13,172,19,114,35,ES_MULTILINE | 
+    EDITTEXT        IDC_MESSAGE_ROT13,172,24,114,30,ES_MULTILINE | 
                     ES_READONLY | NOT WS_BORDER
     EDITTEXT        IDC_EDIT1,25,105,184,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
@@ -27536,7 +27537,7 @@ BEGIN
     IDS_BAD_KEY             "At least one character of the key stored in the clipboard\nis not part of the actual alphabet, this key is\ncurrently not usable (you may change the alphabet options accordingly)!"
     IDS_ROT13_CAESAR_BAD_KEY 
                             "The key stored in the clipboard is not part of the actual alphabet\nthus the key is currently not usable!"
-    IDS_ROT13_CAESAR_CASE   "Mapping of the Alphabet (%d characters)"
+    IDS_ROT13_CAESAR_CASE   "Mapping of the alphabet (%d characters)"
     IDS_STRING_ROT13        "ROT 13"
     ID_ROT13CAESAR_ASC      "Caesar- / ROT-13 encryption"
     IDS_SCA_HYBRIDENCRYPTION_BY_USER 
@@ -27573,9 +27574,10 @@ BEGIN
     IDS_SOLITAIRE_MESSAGE_11 "Do you want to put Joker A to the front?"
     IDS_TITLE_3D_VISUALISATION "3-D Visualisisation: %s"
     IDS_ROT13_INFO_NEGATIVE "Rot-13 encryption is deactivated because the alphabet does not consist of an even number of letters!"
+    IDS_CRYPT_ROT13         "ROT 13"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

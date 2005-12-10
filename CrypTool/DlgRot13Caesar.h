@@ -28,8 +28,10 @@ class CDlgRot13Caesar : public CDialog
 public:
 	CDlgRot13Caesar(CWnd* pParent = NULL);   // Standardkonstruktor
 	long m_Decrypt;
+	UINT m_type;   // PUBLIC PARAMETER {IDS_STRING_ROT13, IDS_STRING_CAESAR }
+	CString m_key; // THE KEY!
 
-// Dialogfelddaten
+	// Dialogfelddaten
 	//{{AFX_DATA(CDlgRot13Caesar)
 	enum { IDD = IDD_ROT13_CAESAR };
 	CEdit	m_CtrlTo;
@@ -66,6 +68,7 @@ protected:
 private:
 	CFont m_font;
 	int m_dist;
+	char CheckPasteKeyVariant(int SID);
 public:
 	CButton m_CtrlRadioRot13;
 	CEdit m_CtrlMessageRot13;

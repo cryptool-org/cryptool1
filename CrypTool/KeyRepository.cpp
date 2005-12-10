@@ -86,6 +86,7 @@ const int CryptMethods[] =  {
 		IDS_ANALYSIS_SUBSTITUTION,
 		IDS_CRYPT_ADFGVX,
 		IDS_CRYPT_SOLITAIRE,
+		IDS_CRYPT_ROT13,
 		0
 };
 

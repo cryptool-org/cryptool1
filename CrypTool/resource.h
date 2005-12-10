@@ -2320,6 +2320,7 @@
 #define IDS_SOLITAIRE_MESSAGE_11        38048
 #define IDS_TITLE_3D_VISUALISATION      38049
 #define IDS_ROT13_INFO_NEGATIVE         38050
+#define IDS_CRYPT_ROT13                 38051
 #define IDS_DH_LOG_1                    61889
 #define IDS_DH_LOG_2                    61890
 #define IDS_DH_LOG_3                    61891

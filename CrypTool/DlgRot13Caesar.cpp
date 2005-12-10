@@ -20,6 +20,7 @@ CDlgRot13Caesar::CDlgRot13Caesar(CWnd* pParent /*=NULL*/)
 {
 	//{{AFX_DATA_INIT(CDlgRot13Caesar)
 	//}}AFX_DATA_INIT
+	m_type = IDS_STRING_CAESAR;
 }
 
 
@@ -58,17 +59,7 @@ BOOL CDlgRot13Caesar::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-// Paste Button
 	VERIFY(m_paste.AutoLoad(IDC_PASTE_KEY,this));
-	if ( IsKeyEmpty( pc_str ))
-	{
-		m_paste.EnableWindow(TRUE);
-	}
-	else
-	{
-		m_paste.EnableWindow(FALSE);
-	}
-
 	VERIFY(m_font.CreatePointFont(100,"Courier New"));
 	m_CtrlFrom.SetFont(&m_font);
 	m_CtrlTo.SetFont(&m_font);
@@ -77,8 +68,6 @@ BOOL CDlgRot13Caesar::OnInitDialog()
 	m_CtrlFrom.SetWindowText(theApp.TextOptions.m_alphabet);
 	m_CtrlTo.SetWindowText  ("");
 	m_CtrlKey.SetWindowText ("");
-
-	
 
 	int length = theApp.TextOptions.m_alphabet.GetLength();
 	if ( (length % 2) )
@@ -96,6 +85,8 @@ BOOL CDlgRot13Caesar::OnInitDialog()
 	CheckRadioButton(IDC_RADIO1, IDC_RADIO2, IDC_RADIO1); 
 	UpdateData();
 
+	OnCaesarRad();
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
@@ -106,11 +97,19 @@ void CDlgRot13Caesar::OnRot13Rad()
 	CString Rot13Key = theApp.TextOptions.m_alphabet.GetAt(theApp.TextOptions.m_alphabet.GetLength() / 2);
 	m_CtrlKey.SetWindowText(Rot13Key);
 	m_CtrlKey.EnableWindow(FALSE);
+	m_type = IDS_STRING_ROT13;
+	m_paste.EnableWindow(FALSE);
 }
 
 void CDlgRot13Caesar::OnCaesarRad()
 {
+	if ( CheckPasteKeyVariant(IDS_CRYPT_CAESAR) || CheckPasteKeyVariant(IDS_CRYPT_ROT13) )
+		m_paste.EnableWindow(TRUE);
+	else
+		m_paste.EnableWindow(FALSE);
+
 	m_CtrlKey.EnableWindow();
+	m_type = IDS_STRING_CAESAR;
 }
 
 void CDlgRot13Caesar::OnUpdateKey()
@@ -122,7 +121,6 @@ void CDlgRot13Caesar::OnUpdateKey()
 
 	BOOL validKey_flag = FALSE;
 	int cStart, cEnd;
-	CString m_key;
 
 	m_CtrlKey.GetSel(cStart, cEnd);
 
@@ -177,24 +175,31 @@ void CDlgRot13Caesar::OnUpdateKey()
 	BUSY--;
 }
 
+char CDlgRot13Caesar::CheckPasteKeyVariant(int SID)
+{
+	CString cs;
+	char ch_key = '\0';
+	LoadString(AfxGetInstanceHandle(),SID,pc_str,STR_LAENGE_STRING_TABLE);
 
+	if ( PasteKey(pc_str,cs) )
+		if (0 <= theApp.TextOptions.m_alphabet.Find(cs))
+			ch_key = cs.GetBuffer()[0];
+	return ch_key;
+}
 
 void CDlgRot13Caesar::OnPasteKey() 
 {
-	CString cs, hilf;
-	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_CAESAR,pc_str,STR_LAENGE_STRING_TABLE);
+	char ch_key[2]; ch_key[1] = '\0';
+	ch_key[0] = CheckPasteKeyVariant(IDS_CRYPT_CAESAR);
+	if ( !ch_key[0] )
+		ch_key[0] = CheckPasteKeyVariant(IDS_CRYPT_ROT13);
 
-	if ( PasteKey(pc_str,cs) )
+	if ( ch_key[0] )
+		m_CtrlKey.SetWindowText(ch_key);
+	else
 	{
-		if (theApp.TextOptions.m_alphabet.Find(cs))
-		{
-			m_CtrlKey.SetWindowText(cs);
-		}
-		else
-		{
-			LoadString(AfxGetInstanceHandle(),IDS_ROT13_CAESAR_BAD_KEY,pc_str,255);
-			AfxMessageBox(pc_str,MB_ICONEXCLAMATION);
-		}
+		LoadString(AfxGetInstanceHandle(),IDS_ROT13_CAESAR_BAD_KEY,pc_str,255);
+		AfxMessageBox(pc_str,MB_ICONEXCLAMATION);
 	}
 }
 
