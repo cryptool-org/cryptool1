@@ -56,7 +56,6 @@ dh-verfahren.html
 dialog_frequency.html
 dialog_poker.html
 dialog_serial.html
-diffie_hellman.html
 diffie-hellman-beispiel.html
 dokument.html
 dsa.html
@@ -478,6 +477,7 @@ hid_view_linewrap.html
 hid_symclassic_solitaire.html
 hid_analyse_symmclassic_ciphertextoly_solitaire.html
 menu_view_font.html
+sidechannelattacks.html
 
 [ALIAS]
 #include CrypTool_Alias.h
