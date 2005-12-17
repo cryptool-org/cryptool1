@@ -6,13 +6,14 @@
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
-<BODY>
-
+<!-- multiple keywords for CrypTool HTML help index -->
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Szenario">
 </OBJECT>
 
-<H3><A NAME="hid_cr_sz_mutualauthentication"></A>Wechselseitige Authentifikation</H3>
+<BODY>
+
+<H3>Wechselseitige Authentifikation</H3>
 
 <P>Dieses Szenario basiert auch auf dem Challenge-Response-Verfahren mit asymmetrischer Verschlüsselung. Diesmal wird es allerdings in beide Richtungen gleichzeitig angewendet. D.h. der Server schickt eine Challenge an den Client, die dieser signiert und mitsamt einer eigenen Challenge an den Server zurückschickt. Nun kann der Server durch den öffentlichen Schlüssel des Clients prüfen, dass die Response nur vom Client stammen kann, da nur dieser den zur Signatur nötigen privaten Schlüssel besitzt. Um auch seine eigene Identität zu beweisen, signiert der Server die Challenge des Clients mit seinem eigenen privaten Schlüssel und schickt dies als seine Response zurück. Jetzt kann im Gegenzug auch der Client mit Hilfe des öffentlichen Schlüssels des Servers prüfen, dass diese Response nur vom Server stammen kann. Somit können sich beide sicher sein, mit wem sie kommunizieren und darauf aufbauend z.B. einen sicheren (verschlüsselten) Kanal etablieren, indem sie einen Session-Key asymmetrisch verschlüsselt austauschen. </P>
 
