@@ -1,25 +1,28 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
-	<HEAD>
-		<TITLE>Run-Test</TITLE>
-		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
-	</HEAD>
-	<BODY>
-		<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
-			<PARAM NAME="Keyword" VALUE="Zufallstest">
-			<PARAM NAME="Keyword" VALUE="Run-Test">
-			<PARAM NAME="Keyword" VALUE="Analyse">
-		</OBJECT>
-		<h3><P><A NAME="hid_analyse_zufallstests_runs"></A>Run-Test (Menü <A href="menu_analyze.html">
-					Analyse</A> \ Zufallsanalyse)</P>
-		</h3>
-		<P>Mit dem klassischen Run-Test untersucht man monoton steigend bzw. fallende 
+<HEAD>
+<TITLE>Runs-Test</TITLE>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Zufallstest">
+	<PARAM NAME="Keyword" VALUE="Runs-Test">
+	<PARAM NAME="Keyword" VALUE="Analyse">
+</OBJECT>
+
+<BODY>
+
+<h3>Runs-Test (Menü <A href="menu_analyze.html">Analyse</A> \ Zufallsanalyse)</h3>
+
+		<P>Mit dem klassischen Runs-Test untersucht man monoton steigend bzw. fallende 
 			Teilsequenzen einer Zahlenfolge. Unter einem "Run - up" der Länge k versteht 
 			man eine Teilfolge X_i; ... ; X_(i + k – 1) mit X_(i + r) &lt;= X_(i + r + 1) 
 			für alle r, 0 &lt;= r &lt;= k - 1. Analog werden "Run-downs" der Länge k 
 			definiert. Schlechte Generatoren erzeugen tendenziell zu lange Runs.</P>
-		<P>Der Run Test vergleicht nun die beobachteten Häufigkeiten unterschiedlicher Run 
+		<P>Der Runs Test vergleicht nun die beobachteten Häufigkeiten unterschiedlicher Run 
 			- Längen mit den erwarteten Häufigkeiten. Für die erwartete Häufigkeit eines 
 			Run - up' s der Länge k in einer Folge der Länge n gilt:</P>
 		<div style="TEXT-ALIGN:center">
@@ -42,7 +45,7 @@
 		</div>
 		<P>Im Falle der Überprüfung von binären Folgen vereinfacht sich die Betrachtung der 
 			Runs – up / Runs - Down auf die Länge der zu beobachtenden <!--ZZZPOPUP--><A href="block_lueck.html">Lücken 
-				und Blöcke</A>. Der Zweck des Run-Tests - angewendet auf Binärfolgen - ist 
+				und Blöcke</A>. Der Zweck des Runs-Tests - angewendet auf Binärfolgen - ist 
 			es, zu bestimmen, ob die Anzahl der binären Runs verschiedener Längen in der 
 			Folge s sich wie bei einer echten Zufallsfolge verhält.</P>
 		<P>Die in einer n-Bit Zufallsfolge erwartete Anzahl an <!--ZZZPOPUP--><A href="block_lueck.html">Lücken</A>
@@ -61,16 +64,16 @@
 		</div>
 		<P>wobei X4 annähernd einer <A href="chi_2_verteilung.html">chi^2- Verteilung</A> mit 
 			2k - 2 Freiheitsgraden gehorcht.</P>
-		<P><B>Ein Run-Test-Beispiel:</B></P>
+		<P><B>Ein Runs-Test-Beispiel:</B></P>
 		<P>Im folgenden werden beispielhaft an der kurzen Binärfolge</P>
 		<PRE><CODE>s =
 00010111 01101101 01111101 11110011 00101111 
 00001111 10100100 11001111 11000011 11010001
 11010001 00101110 11010100 11000011 01010001
 11010110 00110010 10001111 00000111 01000111</CODE></PRE>
-		<P>mit der Länge n = 160 (20 Byte) klassischen Run-Test durchgeführt. Das 
+		<P>mit der Länge n = 160 (20 Byte) klassischen Runs-Test durchgeführt. Das 
 			Signifikanzniveau wird mit ‘alpha‚ = 0:05 festgelegt.</P>
-		<P>Durch absolute(s) = 160 gilt in unserem konkreten Run-Test für s: k = 3. Die 
+		<P>Durch absolute(s) = 160 gilt in unserem konkreten Runs-Test für s: k = 3. Die 
 			erwartete Anzahl von Runs der Länge i = 1, 2, 3 in einer 160 - Bit Folge 
 			beträgt e_i = (160 – i + 3) / 2 ^ (i + 2), 1 &lt;= i &lt;= 3.</P>
 		<div class="indent">
@@ -118,7 +121,7 @@
 			</TABLE>
 			<BR>
 		</div>
-		<P>Bestimmen wir nun die Prüfgröße für den Run-Test:</P>
+		<P>Bestimmen wir nun die Prüfgröße für den Runs-Test:</P>
 		<div class="indent">
 			<TABLE cols="2" width="0*" class="pad20">
 				<TR VALIGN="top">
@@ -142,7 +145,7 @@
 		</div>
 		<P>Für ein Signifikanzniveau von ‘alpha‚ = 0:05 gibt bei 2 * 3 - 2 = 4 
 			Freiheitsgraden einen kritischen Bereich über 9.488 an. Mit X4 = 2.0596 &lt;= 
-			9.488 besteht die Folge <I>s</I> den Run-Test.</P>
+			9.488 besteht die Folge <I>s</I> den Runs-Test.</P>
 		<P><B>Literatur</B>:</P>
 		<P>Christian Schiestl, <I>Pseudozufallszahlen in der Kryptographie</I>, Klagenfurt, 
 			1999.</P>
