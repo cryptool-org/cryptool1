@@ -241,9 +241,9 @@ void CCrypToolVolRen::setOrigin(int nX, int nY) {
 	m_bInitialized = false;
 }
 
-void CCrypToolVolRen::setSize(int nWidth, int nHeight) {
+void CCrypToolVolRen::setSize(int nWidth, int nHeight, BOOL f_Force) {
 	
-	if ((nWidth == m_nWidth) && (nHeight == m_nHeight)) return;
+	if ((nWidth == m_nWidth) && (nHeight == m_nHeight) && !f_Force) return;
 
 	m_nWidth = nWidth;
 	m_nHeight = nHeight;

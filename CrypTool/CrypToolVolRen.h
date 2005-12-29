@@ -38,7 +38,7 @@ public:
 	virtual void renderScene();
 	virtual void viewAll();
 	virtual void setOrigin(int nX, int nY);
-	virtual void setSize(int nWidth, int nHeight);
+	virtual void setSize(int nWidth, int nHeight, BOOL f_Force = FALSE);
 
 	virtual bool OnLButtonDown(UINT nFlags, CPoint point);
 	virtual bool OnLButtonUp(UINT nFlags, CPoint point);

@@ -156,6 +156,14 @@ SOURCE=.\res\3dcheck.bmp
 # End Source File
 # Begin Source File
 
+SOURCE=.\3DVisOpt.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\3DVisOpt.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\95check.bmp
 # End Source File
 # Begin Source File

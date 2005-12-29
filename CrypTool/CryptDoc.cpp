@@ -55,6 +55,7 @@ statement from your version.
 #include <fstream>
 #include "FileTools.h"
 #include "CryptDoc.h"
+#include "CrypToolTools.h"
 
 #include "DlgShowKeyHill5x5.h"
 #include "DlgShowKeyHill10x10.h"
@@ -90,7 +91,7 @@ statement from your version.
 #include "DlgShowKey.h"
 #include "DlgSolitaire.h"
 #include "DlgSolitaireAnalyse.h"
-
+#include "base64.h"
 
 
 
@@ -231,9 +232,7 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CAppDocument)
 	ON_COMMAND(ID_SIGATTMODIFICDEMO, OnSigattmodificdemo)
 	ON_COMMAND(ID_SIGNATUR_ATTACK, OnSignaturAttack)
 	ON_COMMAND(ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION, OnEinzelverfahrenSidechannelattackOnHybridencryption)
-#if 0
 	ON_COMMAND(ID_FILEPROPERTIES, OnFileProperties)
-#endif
 	ON_COMMAND(ID_GENERATE_MACS, OnMessageauthenticationcode)
 	ON_COMMAND(ID_ENCRYPT_ADFGVX, OnEncryptAdfgvx)
 	ON_COMMAND(ID_ANALYSE_SYMMCLASSIC_ADFGVX, OnAnalyseSymmclassicAdfgvx)
@@ -274,6 +273,8 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CAppDocument)
 	ON_COMMAND(ID_CIPHERTEXT_ONLY_SUBSTITUTION, OnCiphertextOnlySubstitution)
 	ON_COMMAND(ID_ROT13CAESAR_ASC, OnRot13caesarAsc)
 	ON_COMMAND(ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, OnAnalyseSymmclassicCiphertextolySolitaire)
+	ON_COMMAND(ID_INDIVPROCEDURES_BASE64_ENCODE, OnIndivproceduresBase64Encode)
+	ON_COMMAND(ID_INDIVPROCEDURES_BASE64_DECODE, OnIndivproceduresBase64Decode)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -1540,21 +1541,25 @@ void CCryptDoc::OnAnalyseZufallstestsPokertest()
 void CCryptDoc::OnAnalyseZufallstestsFipspub1401() 
 {
 	CStdioFile file;
+	char *str_size_fmt;
+
 	SHOW_HOUR_GLASS
 	UpdateContent();
 	file.Open(ContentName, CFile::modeRead);
 	if(file.GetLength() < 2500) 
 	{
-		Message(IDS_STRING_TEST_FIPS_KLEINE_DATEI_2, MB_ICONEXCLAMATION,
-			    (int)file.GetLength(), true);
+		str_size_fmt = itoa_fmt((unsigned long)file.GetLength());
+		Message(IDS_STRING_TEST_FIPS_KLEINE_DATEI_2, MB_ICONEXCLAMATION, str_size_fmt);
+		delete []str_size_fmt;
 		file.Close();
 	}
 	else
 	{
 		if (file.GetLength() > 2500)
 		{
-			Message(IDS_STRING_TEST_FIPS_KLEINE_DATEI, MB_ICONINFORMATION, 
-				    (int)file.GetLength(), true);
+			str_size_fmt = itoa_fmt((unsigned long)file.GetLength());
+			Message(IDS_STRING_TEST_FIPS_KLEINE_DATEI, MB_ICONINFORMATION, str_size_fmt);
+			delete []str_size_fmt;
 		}
 		file.Close();
 		CDlgFIPSTest140_1 FIPS;
@@ -1750,9 +1755,18 @@ void CCryptDoc::OnEinzelverfahrenSidechannelattackOnHybridencryption()
 void CCryptDoc::OnFileProperties() 
 {
 	UpdateContent();
-	
+
+	CString strView;
+	this->GetDocTemplate()->GetDocString(strView, CDocTemplate::filterName);
+
 	CDlgFileProperties DlgFileProperties;
-	DlgFileProperties.copyFileInfos( ContentName, GetTitle());
+	CString fName;
+	fName = this->GetPathName();
+	DlgFileProperties.copyFileInfos( ContentName, fName, 
+									((CAppDocument*)this)->GetTitle(),
+									((CAppDocument*)this)->csSchluessel, 
+									((CAppDocument*)this)->iSchluesselTyp,
+									strView);
 	DlgFileProperties.DoModal();
 }
 
@@ -1945,4 +1959,16 @@ void CCryptDoc::OnAnalyseSymmclassicCiphertextolySolitaire()
 	UpdateContent();
 	CDlgSolitaireAnalyse mySolAnal(ContentName, GetTitle(), NULL);
 	mySolAnal.DoModal();
+}
+
+void CCryptDoc::OnIndivproceduresBase64Encode()
+{
+    UpdateContent();
+    dobase64enc(ContentName, GetTitle());
+}
+
+void CCryptDoc::OnIndivproceduresBase64Decode()
+{
+    UpdateContent();
+    dobase64dec(ContentName, GetTitle());
 }

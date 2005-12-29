@@ -22,6 +22,7 @@ CDlgMonSubst::CDlgMonSubst(CWnd* pParent /*=NULL*/)
 {
 	//{{AFX_DATA_INIT(CDlgMonSubst)
 	//}}AFX_DATA_INIT
+	f_FillAscendingOrder = TRUE;
 }
 
 CDlgMonSubst::~CDlgMonSubst()
@@ -48,8 +49,9 @@ BEGIN_MESSAGE_MAP(CDlgMonSubst, CDialog)
 	ON_BN_CLICKED(IDC_PASTE_KEY, OnPasteKey)
 	ON_BN_CLICKED(ID_ENCRYPT, OnEncrypt)
 	ON_BN_CLICKED(ID_DECRYPT, OnDecrypt)	
-	ON_BN_CLICKED(IDC_RADIO1, OnBnClickedRadioSubstClassical)
+	ON_BN_CLICKED(IDC_RADIO1, OnBnClickedRadioSubstFillAscendingOrder)
 	ON_BN_CLICKED(IDC_RADIO2, OnBnClickedRadioAddBash)
+	ON_BN_CLICKED(IDC_RADIO3, OnBnClickedRadioSubstFillDescendingOrder)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -146,11 +148,15 @@ void CDlgMonSubst::ComputeSubstKeyMapping()
 	}
 	
 	//Die verbleibenden Schlüsselbuchstaben vergeben
-	for (i=25; i>=0; i--){
-		if (schonda[i]==FALSE){
-			key[Nummer]=i+65;
-			Nummer++;
-		}
+	if (f_FillAscendingOrder)
+	{
+		for (i=0; i<=25; i++) 
+			if (schonda[i]==FALSE) key[Nummer++]=i+65;
+	}
+	else
+	{
+		for (i=25; i>=0; i--) 
+			if (schonda[i]==FALSE) key[Nummer++]=i+65;
 	}
 	m_CtrlTo.SetWindowText(key);
 
@@ -186,11 +192,22 @@ void CDlgMonSubst::OnDecrypt()
 	OnOK();
 }
 
-void CDlgMonSubst::OnBnClickedRadioSubstClassical()
+void CDlgMonSubst::OnBnClickedRadioSubstFillAscendingOrder()
 {
 	// TODO: Add your control notification handler code here
+	f_FillAscendingOrder = TRUE;
 	m_CtrlKey.SetReadOnly(0);
+	ComputeSubstKeyMapping();
 }
+
+void CDlgMonSubst::OnBnClickedRadioSubstFillDescendingOrder()
+{
+	// TODO: Add your control notification handler code here
+	f_FillAscendingOrder = FALSE;
+	m_CtrlKey.SetReadOnly(0);
+	ComputeSubstKeyMapping();
+}
+
 
 void CDlgMonSubst::OnBnClickedRadioAddBash()
 {
@@ -201,3 +218,4 @@ void CDlgMonSubst::OnBnClickedRadioAddBash()
 	m_CtrlKey.SetWindowText(tmpStr);
 	m_CtrlKey.SetReadOnly();
 }
+

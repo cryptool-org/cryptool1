@@ -97,6 +97,8 @@ BEGIN_MESSAGE_MAP(COpenGLView, CView)
 	ON_COMMAND(ID_POPUP_OPENGL_SHOW_BOX, OnPopupOpenglShowBox)
 	ON_WM_DESTROY()
 	ON_COMMAND(ID_POPUP_OPENGL_EIGENSCHAFTEN, OnPopupOpenglEigenschaften)
+	ON_WM_RBUTTONDOWN()
+	ON_WM_RBUTTONUP()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -436,12 +438,64 @@ BOOL COpenGLView::bSetupPixelFormat(void)
 
 void COpenGLView::OnPopupOpenglEigenschaften() 
 {
-	C3DVisOpt Dlg;
+	// INITIALISATIONS Dlg.Memberfunction/variable
+	COpenGLDoc* pDoc = GetDocument();
 
-	COpenGLDoc *pDoc = GetDocument();
+	int currentResolution = pDoc->getResolution();
+	int currentDensity    = pDoc->getDensity();
+	int currentShift      = pDoc->getShift();
+	int currentWordLen    = pDoc->getWordLen();
+
+	C3DVisOpt Dlg(NULL, currentResolution, currentDensity, currentShift, currentWordLen);
+
+	
 	if ( IDOK == Dlg.DoModal() )
 	{
-		pDoc->volume->setDensity(Dlg.resolution);
-		m_pVolumeRenderer->setVolume(pDoc->nResolution, pDoc->dVoxelSize, pDoc->volume->getVolume());
+		if ((currentResolution != Dlg.resolution) ||
+			(currentDensity != Dlg.density) || 
+			(currentShift != Dlg.shift) ||
+			(currentWordLen != Dlg.wordsize)) {
+
+			// change rendering settings
+			pDoc->setResolution(Dlg.resolution);
+			pDoc->setDensity(Dlg.density);
+			pDoc->setShift(Dlg.shift);
+			pDoc->setWordLen(Dlg.wordsize);
+
+			// recompute cube data
+			pDoc->createVolumeData();
+
+			if ( pDoc->volume )
+				m_pVolumeRenderer->setVolume(pDoc->nResolution, pDoc->dVoxelSize, pDoc->volume->getVolume());
+
+			// redraw
+			RECT l_rect;
+			this->GetWindowRect(&l_rect);
+			m_pVolumeRenderer->setSize(l_rect.right-l_rect.left, l_rect.bottom -l_rect.top, TRUE);
+
+			this->OnDraw(NULL);
+	
+		}
+		
 	}
+}
+
+void COpenGLView::OnRButtonDown(UINT nFlags, CPoint point) 
+{
+	// TODO: Code für die Behandlungsroutine für Nachrichten hier einfügen und/oder Standard aufrufen
+	if (NULL != m_pVolumeRenderer) {
+		m_pVolumeRenderer->OnRButtonDown(nFlags,point);
+	}
+		
+	CView::OnRButtonDown(nFlags, point);
+}
+
+void COpenGLView::OnRButtonUp(UINT nFlags, CPoint point) 
+{
+	// TODO: Code für die Behandlungsroutine für Nachrichten hier einfügen und/oder Standard aufrufen
+	if (NULL != m_pVolumeRenderer) {
+		m_pVolumeRenderer->OnRButtonUp(nFlags,point);
+	}
+	
+	CView::OnRButtonUp(nFlags, point);
 }

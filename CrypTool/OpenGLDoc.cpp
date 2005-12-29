@@ -19,8 +19,25 @@ IMPLEMENT_DYNCREATE(COpenGLDoc, CDocument)
 
 COpenGLDoc::COpenGLDoc()
 {
-//	m_pVolumeRenderer = NULL;
 	volume = NULL;
+	this->setResolution(128);
+	this->setDensity(127);
+	this->setShift(50);
+	this->setVoxelSize(1);
+	this->setWordLen(4);
+	strcpy(sFile, "");
+
+}
+
+COpenGLDoc::COpenGLDoc(int arg_resolution, int arg_density, int arg_shift, int arg_wordlen)
+{
+	volume = NULL;
+	this->setResolution(arg_resolution);
+	this->setDensity(arg_density);
+	this->setShift(arg_shift);
+	this->setVoxelSize(1);
+	this->setWordLen(arg_wordlen);
+	strcpy(sFile, "");
 }
 
 BOOL COpenGLDoc::OnNewDocument()
@@ -32,6 +49,8 @@ BOOL COpenGLDoc::OnNewDocument()
 
 COpenGLDoc::~COpenGLDoc()
 {
+	if (volume != NULL)
+		delete volume;
 }
 
 
@@ -69,52 +88,119 @@ void COpenGLDoc::Serialize(CArchive& ar)
 	{
 		// ZU ERLEDIGEN: Code zum Laden hier einfügen
 
-		if ( volume == NULL ) {
-			nResolution[0] = 128;
-			nResolution[1] = 128;
-			nResolution[2] = 128;
-			dVoxelSize[0] = 1;
-			dVoxelSize[1] = 1;
-			dVoxelSize[2] = 1;
-			wordlen = 4;
-			unsigned int numVals = nResolution[0] * nResolution[1] * nResolution[2];
-
-			if (volume != NULL)
-				delete volume;
-			volume = new StreamToVolume (nResolution[0], nResolution[1], nResolution[2]);
-
-			if (volume->getVolume() != NULL) 
+		char name[1024];
+		strcpy(name, ar.m_strFileName);
+		ifstream f;
+		f.open(name);
+		if (!f.is_open())
+		{
+			// FIXME Error
+		}
+		else
+		{
+			char sMagic[128];
+			f.getline(sMagic, 128);
+			f.getline(sFile, 1024);
+			if ( strncmp(sMagic,"OPENGL", 6) )
 			{
-				char name[1024];
-				strcpy(name, ar.m_strFileName);
-				ifstream f;
-				f.open(name);
-				if (!f.is_open())
-				{
-					// FIXME Error
-				}
-				else
-				{
-					char sMagic[128];
-					char sFile[1024];
-					f.getline(sMagic, 128);
-					f.getline(sFile, 1024);
-
-					if ( strncmp(sMagic,"OPENGL", 6) )
-					{
-						// FIXME: ERROR
-					}
-					else
-					{
-						volume->setWordLen(wordlen);
-						volume->analyzeFile(sFile);
-					}
-				}
+				// FIXME: ERROR
+			}
+			else
+			{
+				this->createVolumeData();
 			}
 		}
-
 	}
 }
 
+
+
+void COpenGLDoc::setResolution(int arg)
+{
+	resolution = arg;
+	nResolution[0] = resolution;
+	nResolution[1] = resolution;
+	nResolution[2] = resolution;
+}
+
+void COpenGLDoc::setShift(int arg)
+{
+	shift = arg;
+}
+
+void COpenGLDoc::setDensity(int arg)
+{
+	density = arg;
+}
+
+void COpenGLDoc::setVoxelSize(double arg)
+{
+	voxelsize = arg;
+	dVoxelSize[0] = voxelsize;
+	dVoxelSize[1] = voxelsize;
+	dVoxelSize[2] = voxelsize;
+}
+
+
+void COpenGLDoc::setWordLen(int arg)
+{
+	wordlen = arg;
+}
+
+
+int COpenGLDoc::getResolution()
+{
+	return resolution;
+}
+
+int COpenGLDoc::getDensity()
+{
+	return density;
+}
+
+int COpenGLDoc::getShift()
+{
+	return shift;
+}
+
+
+double COpenGLDoc::getVoxelSize()
+{
+	return voxelsize;
+}
+
+int COpenGLDoc::getWordLen()
+{
+	return wordlen;
+}
+
+
 /////////////////////////////////////////////////////////////////////////////
 // Befehle COpenGLDoc 
+
+// analyze file (prepare volume data for renderer)
+bool COpenGLDoc::createVolumeData()
+{
+	if (strcmp(sFile, "") == 0) {
+		// no file set yet
+		return false;
+	}
+
+
+	unsigned int numVals = resolution * resolution * resolution;
+
+	if (volume != NULL)
+		delete volume;
+	volume = new StreamToVolume (resolution, resolution, resolution);
+
+	int shiftpixels = (resolution * shift) / 100;
+	if (shiftpixels < 0) shiftpixels = 0;
+	if (shiftpixels > resolution) shiftpixels = resolution;
+
+	volume->setWordLen(wordlen);
+	volume->setDensity(density);
+	volume->setShift(shiftpixels, shiftpixels, shiftpixels);
+	volume->analyzeFile(sFile);
+
+	return true;
+}

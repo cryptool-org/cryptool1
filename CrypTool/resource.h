@@ -1174,6 +1174,16 @@
 #define IDC_BUTTON66                    1866
 #define IDC_BUTTON67                    1867
 #define IDC_BUTTON68                    1868
+#define IDC_SLIDER_RESOLUTION           1869
+#define IDC_SLIDER_DENSITY              1870
+#define IDC_SLIDER_SHIFT                1871
+#define IDC_RADIO_WORDSIZE_1            1872
+#define IDC_RADIO_WORDSIZE_2            1873
+#define IDC_RADIO_WORDSIZE_4            1874
+#define IDC_EDIT_RESOLUTION             1875
+#define IDC_EDIT_DENSITY                1876
+#define IDC_EDIT_SHIFT                  1877
+#define IDC_BUTTON_RESET                1878
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -1526,6 +1536,8 @@
 #define ID_ZEICHENFORMAT_ARIAL12        33312
 #define ID_ZEICHENFORMAT_ARIAL08        33314
 #define ID_ZEICHENFORMAT_COURIER08      33316
+#define ID_INDIVPROCEDURES_BASE64_ENCODE 33319
+#define ID_INDIVPROCEDURES_BASE64_DECODE 33320
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -2321,6 +2333,15 @@
 #define IDS_TITLE_3D_VISUALISATION      38049
 #define IDS_ROT13_INFO_NEGATIVE         38050
 #define IDS_CRYPT_ROT13                 38051
+#define IDS_FILENAME_NOT_YET            38052
+#define IDS_STRING_PT                   38053
+#define IDS_BASE64_DECODE_ILLEGAL_CHARACTER 38054
+#define IDS_BASE64_FILE_OPEN_ERROR      38055
+#define IDS_BASE64_FILE_WRITE_ERROR     38056
+#define IDS_BASE64_DECODE_PREMATURE_END 38057
+#define IDS_BASE64_DECODE_MISSING_CHARS 38058
+#define IDS_STRING_MSG_BASE64DEC_OF     38059
+#define IDS_STRING_MSG_BASE64ENC_OF     38060
 #define IDS_DH_LOG_1                    61889
 #define IDS_DH_LOG_2                    61890
 #define IDS_DH_LOG_3                    61891
@@ -2443,8 +2464,8 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        818
-#define _APS_NEXT_COMMAND_VALUE         33317
-#define _APS_NEXT_CONTROL_VALUE         1568
+#define _APS_NEXT_COMMAND_VALUE         33321
+#define _APS_NEXT_CONTROL_VALUE         1879
 #define _APS_NEXT_SYMED_VALUE           107
 #endif
 #endif

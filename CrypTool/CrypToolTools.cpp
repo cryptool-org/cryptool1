@@ -50,6 +50,7 @@ statement from your version.
 #include "CrypToolTools.h"
 #include "DialogeMessage.h"
 #include "MakeNewName.h"
+#include <stdlib.h>
 
 BOOL CheckAlphabet( int minSize )
 {
@@ -105,3 +106,35 @@ void OpenNewDoc( const char *outfile, const char* keyStr, const char* OldTitle, 
 	    NewDoc->SetTitle(title);
 	}
 }
+
+char* itoa_fmt(unsigned long ul_num)
+{
+	unsigned long str_length, str_ptr;
+	char * str, c_pt;
+
+	// pre-compute the length of the output string
+	str_length = (!ul_num) ? 2 : (unsigned long)floor(log((double)ul_num)/log(10.0))+2;
+	str_length += (str_length-2)/3;
+	str = new char [str_length];
+
+	str_ptr = str_length-1;
+	
+	// write num blocks
+	do {
+		str_ptr = (str_ptr >= 3) ? str_ptr-3 : 0;
+		itoa((int)(ul_num % 1000), str + str_ptr, 10);
+		ul_num /= 1000;
+		if (str_ptr) str_ptr--;
+	} while (ul_num);
+
+	// write 'dots'
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_PT,pc_str,STR_LAENGE_STRING_TABLE);
+	c_pt = pc_str[0];
+	do {
+		str_ptr += strlen(str+str_ptr);
+		if ( str_ptr < str_length -1 ) str[str_ptr] = c_pt;
+	} while ( str_ptr < str_length-1 );
+
+	return str;
+}
+

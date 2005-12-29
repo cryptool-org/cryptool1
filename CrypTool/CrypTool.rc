@@ -61,7 +61,7 @@ END
 IDD_KEY_HILL5X5 DIALOGEX 0, 0, 217, 223
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe: Hill"
-FONT 8, "MS Sans Serif", 0, 0, 0x0
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT11,20,21,11,12
     EDITTEXT        IDC_EDIT12,40,21,11,12
@@ -823,7 +823,7 @@ END
 IDD_KEY_HILL_10X10 DIALOGEX 0, 0, 329, 309
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe: Hill"
-FONT 8, "MS Sans Serif", 0, 0, 0x0
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT11,23,27,11,12
     EDITTEXT        IDC_EDIT12,43,27,11,12
@@ -975,7 +975,7 @@ END
 IDD_SIGNATURE DIALOGEX 0, 0, 388, 377
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Signatur einer Nachricht erstellen"
-FONT 8, "MS Sans Serif", 0, 0, 0x0
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Signieren",IDOK,11,347,93,20
     CONTROL         "List2",IDC_LIST2,"SysListView32",LVS_REPORT | 
@@ -1292,7 +1292,7 @@ END
 IDD_KEY_PLAYFAIR DIALOGEX 0, 0, 237, 262
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe: Playfair"
-FONT 8, "MS Sans Serif", 0, 0, 0x0
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_KEYENTER,24,75,171,12,ES_AUTOHSCROLL
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
@@ -1881,7 +1881,7 @@ END
 IDD_KEY_PERMUTATION DIALOGEX 0, 0, 280, 338
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe: Permutation / Transposition"
-FONT 8, "MS Sans Serif", 0, 0, 0x0
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT1,23,39,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,23,161,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
@@ -3481,22 +3481,39 @@ BEGIN
                     ES_READONLY
 END
 
-IDD_FILE_PROPERTIES DIALOG  0, 0, 298, 108
+IDD_FILE_PROPERTIES DIALOGEX 0, 0, 322, 172
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Dateieigenschaften"
-FONT 8, "MS Sans Serif"
+CAPTION "Dokument-Eigenschaften"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Zurück",IDOK,225,80,66,21
-    GROUPBOX        "Informationen",IDC_STATIC,7,7,284,65
-    RTEXT           "Dateiname/Titel:",IDC_STATIC,13,21,64,9
-    RTEXT           "Größe:",IDC_STATIC,13,38,64,9
-    RTEXT           "Typ:",IDC_STATIC,13,54,64,9
-    EDITTEXT        IDC_EDIT1,82,19,201,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT2,82,35,201,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT132,82,51,201,12,ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "Schlüssel anzeigen",IDC_BUTTON1,7,80,78,21
-    PUSHBUTTON      "Übergeordnetes Fenster anzeigen",IDC_BUTTON2,93,80,111,
-                    21
+    DEFPUSHBUTTON   "Schließen",IDOK,249,143,66,22
+    GROUPBOX        "Informationen",IDC_STATIC,7,7,308,85
+    RTEXT           "Dokument-Name:",IDC_STATIC,13,31,71,9
+    RTEXT           "Dokument-Größe:",IDC_STATIC,13,58,71,10
+    RTEXT           "Dokument-Typ:",IDC_STATIC,13,44,71,10
+    EDITTEXT        IDC_EDIT1,90,72,218,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    EDITTEXT        IDC_EDIT2,90,58,44,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
+                    WS_BORDER,WS_EX_RIGHT
+    EDITTEXT        IDC_EDIT132,90,44,104,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    CONTROL         "Paste",IDC_BUTTON1,"Button",BS_OWNERDRAW | WS_TABSTOP,7,
+                    143,28,22
+    LTEXT           "Bytes",IDC_STATIC,140,58,18,10
+    LTEXT           "Temporäre Datei:",IDC_STATIC,13,72,71,8,0,WS_EX_RIGHT
+    EDITTEXT        IDC_EDIT3,90,31,218,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    EDITTEXT        IDC_EDIT4,90,18,218,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    LTEXT           "Fenster-Titel:",IDC_STATIC,13,18,71,8,0,WS_EX_RIGHT
+    GROUPBOX        "Pfade",IDC_STATIC,7,96,308,40
+    EDITTEXT        IDC_EDIT5,90,106,218,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    EDITTEXT        IDC_EDIT6,90,121,218,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    LTEXT           "für temporäre Dateien:",IDC_STATIC,13,121,71,9,0,
+                    WS_EX_RIGHT
+    LTEXT           "für Dokumente:",IDC_STATIC,13,106,71,9,0,WS_EX_RIGHT
 END
 
 IDD_ABOUT DIALOGEX 34, 22, 242, 390
@@ -3591,11 +3608,11 @@ BEGIN
     GROUPBOX        "",IDC_STATIC,6,7,310,61
 END
 
-IDD_ADFGVX DIALOGEX 0, 0, 265, 402
+IDD_ADFGVX DIALOG  0, 0, 265, 402
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Schlüsseleingabe: ADFGVX Chiffre"
-FONT 8, "MS Shell Dlg", 0, 0, 0x0
+CAPTION "Schlüsseleingabe: ADFGVX"
+FONT 8, "MS Shell Dlg"
 BEGIN
     EDITTEXT        IDC_M00,40,42,12,12,ES_CENTER | ES_UPPERCASE | 
                     ES_AUTOHSCROLL
@@ -4327,16 +4344,16 @@ BEGIN
                     169,10
 END
 
-IDD_ROT13_CAESAR DIALOGEX 0, 0, 315, 207
+IDD_ROT13_CAESAR DIALOG  0, 0, 315, 207
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe: Caesar / ROT-13"
-FONT 8, "MS Sans Serif", 0, 0, 0x0
+FONT 8, "MS Sans Serif"
 BEGIN
     EDITTEXT        IDC_KEY,118,33,19,14,ES_AUTOHSCROLL
     CONTROL         "Paste",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,
                     147,33,22,20
-    DEFPUSHBUTTON   "&Verschlüsseln",ID_ENCRYPT,25,176,58,19
-    PUSHBUTTON      "&Entschlüsseln",ID_DECRYPT,94,176,57,19
+    DEFPUSHBUTTON   "&Verschlüsseln",ID_ENCRYPT,14,176,58,19
+    PUSHBUTTON      "&Entschlüsseln",ID_DECRYPT,83,176,57,19
     PUSHBUTTON      "&Abbrechen",IDCANCEL,245,176,57,19
     EDITTEXT        IDC_FROM,46,122,245,14,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_TO,46,143,245,14,ES_AUTOHSCROLL | ES_READONLY
@@ -4453,31 +4470,33 @@ BEGIN
     LTEXT           "Momentan ist kein Dokument geöffnet.",-1,7,7,261,8
 END
 
-IDD_KEY_MONSUBST DIALOGEX 0, 0, 309, 207
+IDD_KEY_MONSUBST DIALOGEX 0, 0, 309, 233
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe: Monoalphabetische Substitution / Atbash"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    EDITTEXT        IDC_KEY,66,64,189,14,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&Verschlüsseln",ID_ENCRYPT,21,177,58,23
-    PUSHBUTTON      "&Entschlüsseln",ID_DECRYPT,89,177,57,23
+    EDITTEXT        IDC_KEY,66,88,189,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&Verschlüsseln",ID_ENCRYPT,14,201,58,23
+    PUSHBUTTON      "&Entschlüsseln",ID_DECRYPT,87,201,57,23
     CONTROL         "Paste",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,
-                    271,64,22,20
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,245,177,57,23
-    EDITTEXT        IDC_FROM,48,124,245,14,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_TO,48,145,245,14,ES_AUTOHSCROLL | ES_READONLY
-    GROUPBOX        "Variante auswählen",IDC_STATIC,14,9,288,37
-    LTEXT           "Schlüssel",IDC_STATIC,21,67,36,11
-    GROUPBOX        "Informationen zur Verschlüsselung",IDC_STATIC,14,93,288,
-                    75
-    LTEXT           "auf:",IDC_TEXT3,21,147,13,8
-    LTEXT           "Das Alphabet wird abgebildet",IDC_TEXT1,21,109,93,8
-    LTEXT           "von:",IDC_TEXT2,21,126,15,8
-    GROUPBOX        "Schlüsseleingabe",IDC_STATIC,14,49,288,40
-    CONTROL         "Klassische Substitution",IDC_RADIO1,"Button",
-                    BS_AUTORADIOBUTTON,21,25,88,10
-    CONTROL         "Atbash",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,125,25,
-                    100,10
+                    271,88,22,20
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,245,201,57,23
+    EDITTEXT        IDC_FROM,48,148,245,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_TO,48,169,245,14,ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Variante auswählen",IDC_STATIC,14,9,288,56
+    LTEXT           "Schlüssel",IDC_STATIC,21,91,36,11
+    GROUPBOX        "Informationen zur Verschlüsselung",IDC_STATIC,14,117,
+                    288,75
+    LTEXT           "auf:",IDC_TEXT3,21,171,13,8
+    LTEXT           "Das Alphabet wird abgebildet",IDC_TEXT1,21,133,93,8
+    LTEXT           "von:",IDC_TEXT2,21,150,15,8
+    CONTROL         "Schlüsseleingabe: Restliche Zeichen aufsteigend füllen",
+                    IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,21,25,190,10
+    CONTROL         "Schlüsseleingabe: Restliche Zeichen absteigend füllen",
+                    IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,21,38,188,10
+    CONTROL         "Atbash (die Verschlüsselung nutzt einen fixen Schlüssel)",
+                    IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,21,51,225,10
+    GROUPBOX        "Schlüsseleingabe",IDC_STATIC,14,73,288,40
 END
 
 IDD_VISUALIZE_PHASE_SPACE DIALOG  0, 0, 388, 273
@@ -4708,15 +4727,37 @@ BEGIN
                     IDC_STATIC,227,85,148,31
 END
 
-IDD_SET_VISOPT DIALOG  0, 0, 225, 119
+IDD_SET_VISOPT DIALOGEX 0, 0, 231, 134
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "3D-Visualisierung - Optionen"
-FONT 8, "MS Sans Serif"
+CAPTION "3-D-Visualisierung - Optionen"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,41,96,50,16
-    PUSHBUTTON      "Abbrechen",IDCANCEL,147,96,50,16
-    CONTROL         "Slider1",IDC_SLIDER1,"msctls_trackbar32",TBS_BOTH | 
-                    TBS_NOTICKS | WS_TABSTOP,23,70,179,15
+    DEFPUSHBUTTON   "OK",IDOK,112,112,50,15
+    PUSHBUTTON      "Abbrechen",IDCANCEL,174,112,50,15
+    CONTROL         "Slider1",IDC_SLIDER_RESOLUTION,"msctls_trackbar32",
+                    TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,108,6,116,15
+    LTEXT           "Auflösung",IDC_STATIC,7,7,49,15
+    CONTROL         "Slider2",IDC_SLIDER_DENSITY,"msctls_trackbar32",
+                    TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,108,23,116,19
+    LTEXT           "Dichte",IDC_STATIC,7,27,49,13
+    CONTROL         "Slider3",IDC_SLIDER_SHIFT,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,108,40,116,18
+    LTEXT           "Verschiebung",IDC_STATIC,7,43,55,15
+    LTEXT           "Wortlänge",IDC_STATIC,7,64,73,19
+    GROUPBOX        "Byte",IDC_STATIC,108,58,116,30
+    CONTROL         "1",IDC_RADIO_WORDSIZE_1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,117,71,20,10
+    CONTROL         "2",IDC_RADIO_WORDSIZE_2,"Button",BS_AUTORADIOBUTTON,142,
+                    71,20,10
+    CONTROL         "4",IDC_RADIO_WORDSIZE_4,"Button",BS_AUTORADIOBUTTON,171,
+                    71,20,10
+    EDITTEXT        IDC_EDIT_RESOLUTION,62,7,30,15,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_DENSITY,62,22,30,18,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_SHIFT,62,40,30,18,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "%",IDC_STATIC,92,40,16,18
+    PUSHBUTTON      "Reset",IDC_BUTTON_RESET,7,112,48,15
 END
 
 
@@ -4801,9 +4842,9 @@ BEGIN
             MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN, GRAYED
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
-            MENUITEM "Per&mutation...",             ID_PERMUTATION_ASC
+            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
             , GRAYED
-            MENUITEM "Solitaire",                   ID_SYMCLASSIC_SOLITAIRE
+            MENUITEM "Solitaire...",                ID_SYMCLASSIC_SOLITAIRE
             , GRAYED
         END
         POPUP "Symmetrisch (&modern)"
@@ -4934,11 +4975,15 @@ BEGIN
             MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
         END
         MENUITEM SEPARATOR
-        POPUP "C&odierungen"
+        POPUP "K&odierungen"
         BEGIN
-            MENUITEM "Base64 codieren/decodieren",  ID_CODE_BASE64, GRAYED
-            MENUITEM "UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
-            MENUITEM "ASN.&1-Decodieren einer Datei...", 
+            POPUP "Base64 Kodierung/Dekodierung", GRAYED
+            BEGIN
+                MENUITEM "Base64 kodieren",             33319
+                MENUITEM "Base64 dekodieren",           33320
+            END
+            MENUITEM "UU-Kodierung/UU-Dekodierung", ID_CODE_UU, GRAYED
+            MENUITEM "ASN.&1-Dekodieren einer Datei...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
         END
@@ -5171,8 +5216,8 @@ BEGIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
-            MENUITEM "Per&mutation...",             ID_PERMUTATION_ASC
-            MENUITEM "Solitaire",                   ID_SYMCLASSIC_SOLITAIRE
+            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
+            MENUITEM "Solitaire...",                ID_SYMCLASSIC_SOLITAIRE
             , GRAYED
         END
         POPUP "Symmetrisch (&modern)"
@@ -5289,11 +5334,15 @@ BEGIN
             MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
         END
         MENUITEM SEPARATOR
-        POPUP "C&odierungen"
+        POPUP "K&odierungen"
         BEGIN
-            MENUITEM "Base64 codieren/decodieren",  ID_CODE_BASE64
-            MENUITEM "UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
-            MENUITEM "ASN.&1-Decodieren einer Datei...", 
+            POPUP "Base64 Kodierung/Dekodierung"
+            BEGIN
+                MENUITEM "Base64 kodieren",             33319
+                MENUITEM "Base64 dekodieren",           33320
+            END
+            MENUITEM "UU-Kodierung/UU-Dekodierung", ID_CODE_UU, GRAYED
+            MENUITEM "ASN.&1-Dekodieren einer Datei...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
         END
@@ -5514,9 +5563,9 @@ BEGIN
             MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN, GRAYED
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
-            MENUITEM "Per&mutation...",             ID_PERMUTATION_ASC
+            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
             , GRAYED
-            MENUITEM "Solitaire",                   ID_SYMCLASSIC_SOLITAIRE
+            MENUITEM "Solitaire...",                ID_SYMCLASSIC_SOLITAIRE
             , GRAYED
         END
         POPUP "Symmetrisch (&modern)"
@@ -5647,11 +5696,15 @@ BEGIN
             MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
         END
         MENUITEM SEPARATOR
-        POPUP "C&odierungen"
+        POPUP "K&odierungen"
         BEGIN
-            MENUITEM "Base64 codieren/decodieren",  ID_CODE_BASE64, GRAYED
-            MENUITEM "UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
-            MENUITEM "ASN.&1-Decodieren einer Datei...", 
+            POPUP "Base64 Kodierung/Dekodierung", GRAYED
+            BEGIN
+                MENUITEM "Base64 kodieren",             33319
+                MENUITEM "Base64 dekodieren",           33320
+            END
+            MENUITEM "UU-Kodierung/UU-Dekodierung", ID_CODE_UU, GRAYED
+            MENUITEM "ASN.&1-Dekodieren einer Datei...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
         END
@@ -5886,8 +5939,8 @@ BEGIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
-            MENUITEM "Per&mutation...",             ID_PERMUTATION_ASC
-            MENUITEM "Solitaire",                   ID_SYMCLASSIC_SOLITAIRE
+            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
+            MENUITEM "Solitaire...",                ID_SYMCLASSIC_SOLITAIRE
         END
         POPUP "Symmetrisch (&modern)"
         BEGIN
@@ -6003,11 +6056,17 @@ BEGIN
             MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
         END
         MENUITEM SEPARATOR
-        POPUP "C&odierungen"
+        POPUP "K&odierungen"
         BEGIN
-            MENUITEM "Base64 codieren/decodieren",  ID_CODE_BASE64
-            MENUITEM "UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
-            MENUITEM "ASN.&1-Decodieren einer Datei...", 
+            POPUP "Base64 Kodierung/Dekodierung"
+            BEGIN
+                MENUITEM "Base64 kodieren",             ID_INDIVPROCEDURES_BASE64_ENCODE
+
+                MENUITEM "Base64 dekodieren",           ID_INDIVPROCEDURES_BASE64_DECODE
+
+            END
+            MENUITEM "UU-Kodierung/UU-Dekodierung", ID_CODE_UU, GRAYED
+            MENUITEM "ASN.&1-Dekodieren einer Datei...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
         END
@@ -6250,6 +6309,7 @@ BEGIN
         POPUP "Symmetrisch (&klassisch)", GRAYED
         BEGIN
             MENUITEM "Caesar / &Rot-13...",         ID_ROT13CAESAR_ASC
+            , GRAYED
             MENUITEM "&Vigenère...",                ID_VIGENERE_ASC, GRAYED
             MENUITEM "H&ill...",                    ID_HILL, GRAYED
             MENUITEM "&Substitution / Atbash...",   ID_CryptMono, GRAYED
@@ -6260,9 +6320,9 @@ BEGIN
             MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN, GRAYED
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
-            MENUITEM "Per&mutation...",             ID_PERMUTATION_ASC
+            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
             , GRAYED
-            MENUITEM "Solitaire",                   ID_SYMCLASSIC_SOLITAIRE
+            MENUITEM "Solitaire...",                ID_SYMCLASSIC_SOLITAIRE
             , GRAYED
         END
         POPUP "Symmetrisch (&modern)"
@@ -6393,11 +6453,15 @@ BEGIN
             MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
         END
         MENUITEM SEPARATOR
-        POPUP "C&odierungen"
+        POPUP "K&odierungen"
         BEGIN
-            MENUITEM "Base64 codieren/decodieren",  ID_CODE_BASE64, GRAYED
-            MENUITEM "UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
-            MENUITEM "ASN.&1-Decodieren einer Datei...", 
+            POPUP "Base64 Kodierung/Dekodierung", GRAYED
+            BEGIN
+                MENUITEM "Base64 kodieren",             33319
+                MENUITEM "Base64 dekodieren",           33320
+            END
+            MENUITEM "UU-Kodierung/UU-Dekodierung", ID_CODE_UU, GRAYED
+            MENUITEM "ASN.&1-Dekodieren einer Datei...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
         END
@@ -11381,17 +11445,13 @@ BEGIN
     IDD_FILE_PROPERTIES, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 291
+        RIGHTMARGIN, 315
         VERTGUIDE, 13
-        VERTGUIDE, 77
-        VERTGUIDE, 82
-        VERTGUIDE, 283
+        VERTGUIDE, 84
+        VERTGUIDE, 90
+        VERTGUIDE, 308
         TOPMARGIN, 7
-        BOTTOMMARGIN, 101
-        HORZGUIDE, 30
-        HORZGUIDE, 47
-        HORZGUIDE, 63
-        HORZGUIDE, 80
+        BOTTOMMARGIN, 165
     END
 
     IDD_ABOUT, DIALOG
@@ -11416,6 +11476,7 @@ BEGIN
 
     IDD_ROT13_CAESAR, DIALOG
     BEGIN
+        VERTGUIDE, 14
         VERTGUIDE, 25
         VERTGUIDE, 291
         VERTGUIDE, 302
@@ -11658,15 +11719,15 @@ END
 STRINGTABLE 
 BEGIN
     IDR_MAINFRAME           "CrypTool 1.4.00 beta 10"
-    IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Dateien (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
-    IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
-    IDR_ASCTYPE             "\n\n\nASCII-Dateien (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
-    IDR_PLOTTYPE            "\n\n\nPLOT Dateien (*.plt)\n.plt\n\nPlot File Type\nPLOTT\nPlot Files\n"
+    IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Datei (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
+    IDR_HEXTYPE             "\nUnbenannt\n\nBinäre Datei (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
+    IDR_ASCTYPE             "\nUnbenannt\n\nASCII-Datei (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
+    IDR_PLOTTYPE            "\nUnbenannt\n\nPlot Datei (*.plt)\n.plt\n\nPlot File Type\nPLOTT\nPlot Files\n"
 END
 
 STRINGTABLE 
 BEGIN
-    IDR_OPENGLTYPE          "\n\n\nOpenGL Dateien (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nOpenGL Files\n"
+    IDR_OPENGLTYPE          "\nUnbenannt\n\nOpenGL Datei (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nOpenGL Files\n"
 END
 
 STRINGTABLE 
@@ -11775,7 +11836,7 @@ BEGIN
     ID_CRYPT_KeyGen         "Erzeugen eines Schlüsselpaares für verschiedene asymmetrische Verfahren"
     ID_CRYPT_RsaEnc         "Verschlüsselt Datei mit RSA-Algorithmus"
     ID_CRYPT_RsaDec         "Entschlüsselt eine mit dem RSA-Algorithmus verschlüsselte  Datei"
-    ID_CryptMono            "Verschlüsseln durch Substitution"
+    ID_CryptMono            "Verschlüsseln durch monoalphabetische Substitution (Atbash ist ein Sonderfall mit festem Schlüssel)"
     ID_CRYPT_SIGN           "Aktives Dokument signieren"
 END
 
@@ -12366,16 +12427,16 @@ BEGIN
     IDS_STRING_CHOOSE_REF_FILENAME "Wähle Referenzdatei"
     IDS_STRING_MSG_CMP_CIPHER_REFERENCE 
                             "Vergleiche Chiffretext mit der Referenzdatei %s."
-    IDS_STRING_KEYINPUT_AES_CANDIDATE "%s-Schlüsseleingabe (AES-Kandidat)"
-    IDS_STRING_KEYINPUT_SYMMETRIC "%s-Schlüsseleingabe"
-    IDS_STRING_KEYINPUT_AES_RIJNDAEL "Rijndael-Schlüsseleingabe (AES)"
-    IDS_STRING_KEY_INPUT_CAESAR "Caesar Schlüsseleingabe"
+    IDS_STRING_KEYINPUT_AES_CANDIDATE "Schlüsseleingabe: %s (AES-Kandidat)"
+    IDS_STRING_KEYINPUT_SYMMETRIC "Schlüsseleingabe: %s"
+    IDS_STRING_KEYINPUT_AES_RIJNDAEL "Schlüsseleingabe: Rijndael (AES)"
+    IDS_STRING_KEY_INPUT_CAESAR "Schlüsseleingabe: Caesar"
     IDS_STRING_KEY_INPUT_LENGTH 
                             "Geben Sie den Schlüssel ein. Der Schlüssel ist genau  %d Zeichen lang!"
     IDS_STRING_KEY_INPUT_VIGENERE "Schlüsseleingabe: Vigenère"
     IDS_STRING_COLUMN_FREQUENCY "Häufigkeit"
-    IDS_STRING_KEY_INPUT_XOR "Schlüsseleingabe: XOR"
-    IDS_STRING_KEY_INPUT_ADD "Schlüsseleingabe: ADD"
+    IDS_STRING_KEY_INPUT_XOR "Schlüsseleingabe: Byteweises XOR"
+    IDS_STRING_KEY_INPUT_ADD "Schlüsseleingabe: Byteweise Addition (ADD)"
     IDS_STRING_RSA_TUTORIAL_INPUT 
                             "Eingabe der zu ver- oder entschlüsselnden Nachricht als Text oder als Hex-Dump."
 END
@@ -12762,9 +12823,9 @@ BEGIN
     IDS_STRING_CAPTATION_FIPS_PUB "FIPS-PUB-140-1 Testbatterie von %s"
     IDS_STRING_TESTS_FIPS_ENTROPIE "Entropie: %lf bit/Zeichen"
     IDS_STRING_TEST_FIPS_KLEINE_DATEI 
-                            "Die FIPS-PUB-140-1 Testbatterie analysiert nach Spezifikation genau 2500 Bytes.\nDa die zu dem ausgewählten Fenster gehörende Datei größer (%i Bytes) ist,\nwerden nach OK nur die ersten 2500 Byte der gesamten Datei getestet."
+                            "Die FIPS-PUB-140-1 Testbatterie analysiert nach Spezifikation genau 2.500 Bytes.\nDa die zu dem ausgewählten Fenster gehörende Datei größer (%s Bytes) ist,\nwerden nach OK nur die ersten 2.500 Byte der gesamten Datei getestet."
     IDS_STRING_TEST_FIPS_KLEINE_DATEI_2 
-                            "Die FIPS-PUB-140-1 Testbatterie analysiert nach Spezifikation genau 2500 Bytes.\nDie zu dem ausgewählten Fenster gehörende Datei ist nur %i Bytes groß.\nDer Test kann deshalb nicht ausgeführt werden!"
+                            "Die FIPS-PUB-140-1 Testbatterie analysiert nach Spezifikation genau 2.500 Bytes.\nDie zu dem ausgewählten Fenster gehörende Datei ist nur %s Bytes groß.\nDer Test kann deshalb nicht ausgeführt werden!"
     IDS_STRING_TESTS_FALSCHE_OFFSET 
                             "Offset + Testlänge muss <= Dateilänge oder\nTestlänge muss nicht gleich Null sein !"
     IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE 
@@ -12915,7 +12976,7 @@ BEGIN
                             "Das Chiffrat enthält auch ungültige Zeichen. Diese sind ausmaskiert."
     IDS_STRING_PLAYFAIR_WARNMSG003 
                             "Der Buchstabe 'J' und die Ziffern '0'-'9' dürfen bei einer 5x5 Matrix nicht verwendet werden. Verwenden Sie ggf. eine 6x6 Matrix."
-    IDS_NGRAMLIST_TOLONG    "Die Anzahl der Tabelleneinträge ist auf 5000 Zeilen beschränkt!\nBitte geben Sie eine Zahl zwischen 1 und 5000 ein."
+    IDS_NGRAMLIST_TOLONG    "Die Anzahl der Tabelleneinträge ist auf 5.000 Zeilen beschränkt!\nBitte geben Sie eine Zahl zwischen 1 und 5.000 ein."
     IDS_STRING_ERROR_NO_NUMBER_STREAM 
                             "Die Eingabe ist keine Folge von Zahlen zur Basis %i. \nBitte korrigieren Sie die Eingabe oder verschlüsseln sie die Eingabe als Text."
     IDS_STRING_WARN_BEFOR_SKIPWS 
@@ -13478,7 +13539,7 @@ BEGIN
                             "Veranschaulicht das Secret-Sharing-Verfahren mittels CRT (Analogie zum Öffnen eines Tresors mit 3 beliebigen von 5 ausgegebenen Schlüsseln)"
     ID_HELP_ANIMAL_CAESAR   "Das Animationsprogramm ANIMAL demonstriert den Ablauf der Caesar-Verschlüsselung"
     ID_ADFGVX               "Halbautomatische Analyse der Substitutions-Verschlüsselung"
-    ID_ADFGVX_MANUAL        "Solitaire Verschlüsselung"
+    ID_ADFGVX_MANUAL        "Solitaire-Verschlüsselung"
     ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE 
                             "Halbautomatische Analyse der Solitaire-Verschlüsselung"
 END
@@ -13687,7 +13748,7 @@ BEGIN
     IDS_SOLITAIRE_Art_nachVorgabe "Nach Vorgabe"
     IDS_SOLITAIRE_Art_Initialdeckladen "Initialdeck laden"
     IDS_SOLITAIRE_Art_Abschlussdeckladen "Abschlussdeck laden"
-    IDS_SOLITAIRE_MESSAGE_1 "Die Eingabe muss mindestens ein Zeichen und höchstens 15000 Zeichen enthalten."
+    IDS_SOLITAIRE_MESSAGE_1 "Die Eingabe muss mindestens ein Zeichen und höchstens 15.000 Zeichen enthalten."
     IDS_SOLITAIRE_MESSAGE_2 "Solitaire benötigt mindestens 3 Karten"
     IDS_SOLITAIRE_MESSAGE_3 "Alle Schlüsselzeichen erzeugt."
     IDS_SOLITAIRE_MESSAGE_4 "Deck initialisiert."
@@ -13706,6 +13767,18 @@ BEGIN
     IDS_TITLE_3D_VISUALISATION "3-D-Visualisierung: %s"
     IDS_ROT13_INFO_NEGATIVE "Die Rot-13-Verschlüsselung wurde deaktiviert, weil das Alphabet keine gerade Anzahl von Zeichen hat!"
     IDS_CRYPT_ROT13         "ROT 13"
+    IDS_FILENAME_NOT_YET    "Neue Datei (noch nicht gesichert)"
+    IDS_STRING_PT           "."
+    IDS_BASE64_DECODE_ILLEGAL_CHARACTER 
+                            "Es wurde ein illegales Zeichen gefunden. Stelle: %u Zeichen: %s \nDie Dekodierung wird an dieser Stelle abgebrochen!"
+    IDS_BASE64_FILE_OPEN_ERROR "Fehler beim Öffnen der Datei: <%s>"
+    IDS_BASE64_FILE_WRITE_ERROR "Fehler beim schreiben in die Datei: %s"
+    IDS_BASE64_DECODE_PREMATURE_END 
+                            "Es wurde ein ""="" gefunden vor Ende des Textes.Stelle:%u \nDie Dekodierung wurde abgebrochen!"
+    IDS_BASE64_DECODE_MISSING_CHARS 
+                            "Fehlerhafter Base64 Code.Keine eindeutige Dekodierung der letzten Zeichen möglich!"
+    IDS_STRING_MSG_BASE64DEC_OF "Base64 Dekodierung von <%s>"
+    IDS_STRING_MSG_BASE64ENC_OF "Base64 Codierung von <%s>"
 END
 
 #endif    // German (Germany) resources
@@ -13726,21 +13799,39 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
 // Dialog
 //
 
-IDD_FILE_PROPERTIES DIALOG  0, 0, 298, 108
+IDD_FILE_PROPERTIES DIALOGEX 0, 0, 322, 158
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "File Properties"
-FONT 8, "MS Sans Serif"
+CAPTION "Document Properties"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Back",IDOK,225,80,66,21
-    GROUPBOX        "Information",IDC_STATIC,7,7,284,65
-    RTEXT           "Filename/Title:",IDC_STATIC,13,21,64,9
-    RTEXT           "Size:",IDC_STATIC,13,38,64,9
-    RTEXT           "Type:",IDC_STATIC,13,54,64,9
-    EDITTEXT        IDC_EDIT1,82,19,201,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,82,35,201,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT132,82,51,201,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "Show Key",IDC_BUTTON1,7,80,78,21
-    PUSHBUTTON      "Go to Parent Window",IDC_BUTTON2,93,80,89,21
+    DEFPUSHBUTTON   "Close",IDOK,249,129,66,22
+    GROUPBOX        "Information",IDC_STATIC,7,7,308,73
+    RTEXT           "Document name:",IDC_STATIC,13,29,66,9
+    RTEXT           "Document size:",IDC_STATIC,13,54,65,10
+    RTEXT           "Document type:",IDC_STATIC,13,41,66,10
+    EDITTEXT        IDC_EDIT1,85,66,223,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    EDITTEXT        IDC_EDIT2,85,54,41,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
+                    WS_BORDER,WS_EX_RIGHT
+    EDITTEXT        IDC_EDIT132,85,41,111,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    CONTROL         "Paste",IDC_BUTTON1,"Button",BS_OWNERDRAW | WS_TABSTOP,7,
+                    129,25,22
+    LTEXT           "bytes",IDC_STATIC,133,54,18,10
+    LTEXT           "Temporary file:",IDC_STATIC,13,66,66,8,0,WS_EX_RIGHT
+    EDITTEXT        IDC_EDIT3,85,29,223,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    EDITTEXT        IDC_EDIT4,85,18,223,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    LTEXT           "Window title:",IDC_STATIC,13,18,66,8,0,WS_EX_RIGHT
+    GROUPBOX        "Paths",IDC_STATIC,7,85,308,38
+    EDITTEXT        IDC_EDIT5,85,95,223,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    EDITTEXT        IDC_EDIT6,85,109,223,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    LTEXT           "for the temporary file:",IDC_STATIC,13,109,66,9,0,
+                    WS_EX_RIGHT
+    LTEXT           "for the document:",IDC_STATIC,13,95,66,9,0,WS_EX_RIGHT
 END
 
 IDD_DIFFIEHELLMANVISUALIZATION DIALOG  0, 0, 525, 345
@@ -15615,7 +15706,7 @@ END
 IDD_KEY_PERMUTATION DIALOGEX 0, 0, 280, 324
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Key Entry: Permutation / Transposition"
-FONT 8, "MS Sans Serif", 0, 0, 0x0
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT1,23,39,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,23,161,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
@@ -17256,11 +17347,11 @@ BEGIN
     GROUPBOX        "",IDC_STATIC,7,7,309,52
 END
 
-IDD_ADFGVX DIALOGEX 0, 0, 266, 411
+IDD_ADFGVX DIALOG  0, 0, 266, 411
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Key Input: ADFGVX Cipher"
-FONT 8, "MS Shell Dlg", 0, 0, 0x0
+CAPTION "Key Input: ADFGVX"
+FONT 8, "MS Shell Dlg"
 BEGIN
     EDITTEXT        IDC_M00,40,42,12,12,ES_CENTER | ES_UPPERCASE | 
                     ES_AUTOHSCROLL
@@ -18012,7 +18103,7 @@ END
 IDD_ROT13_CAESAR DIALOGEX 0, 0, 315, 207
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Key Entry: Caesar / ROT-13"
-FONT 8, "MS Sans Serif", 0, 0, 0x0
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_KEY,106,33,19,14,ES_AUTOHSCROLL
     CONTROL         "Paste",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,
@@ -18126,32 +18217,34 @@ BEGIN
     LTEXT           "Please choose one of the options above.",-1,7,105,261,8
 END
 
-IDD_KEY_MONSUBST DIALOGEX 0, 0, 309, 206
+IDD_KEY_MONSUBST DIALOGEX 0, 0, 309, 233
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Key Entry: Monoalphabetic Substitution / Atbash"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    EDITTEXT        IDC_KEY,66,65,189,14,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "Encrypt",ID_ENCRYPT,14,176,58,22
-    PUSHBUTTON      "Decrypt",ID_DECRYPT,79,176,57,22
+    EDITTEXT        IDC_KEY,66,91,189,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Encrypt",ID_ENCRYPT,14,202,58,22
+    PUSHBUTTON      "Decrypt",ID_DECRYPT,79,202,57,22
     CONTROL         "Paste",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,
-                    271,65,22,20
-    PUSHBUTTON      "Cancel",IDCANCEL,245,176,57,22
-    EDITTEXT        IDC_FROM,48,123,245,14,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_TO,48,144,245,14,ES_AUTOHSCROLL | ES_READONLY
-    GROUPBOX        "Key Input",IDC_STATIC,14,50,288,37
-    LTEXT           "Key",IDC_STATIC,21,68,36,11
+                    271,91,22,20
+    PUSHBUTTON      "Cancel",IDCANCEL,245,202,57,22
+    EDITTEXT        IDC_FROM,48,149,245,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_TO,48,170,245,14,ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Key Input",IDC_STATIC,14,76,288,37
+    LTEXT           "Key",IDC_STATIC,21,94,36,11
     GROUPBOX        "Information on the substitution encryption",IDC_STATIC,
-                    14,94,288,74
-    LTEXT           "to:",IDC_TEXT3,21,146,9,8
-    LTEXT           "The alphabet will be mapped ",IDC_TEXT1,21,108,94,8
-    LTEXT           "from:",IDC_TEXT2,21,125,16,8
+                    14,120,288,74
+    LTEXT           "The alphabet will be mapped ",IDC_TEXT1,21,134,94,8
+    LTEXT           "from:",IDC_TEXT2,21,151,16,8
+    LTEXT           "to:",IDC_TEXT3,21,172,9,8
     GROUPBOX        "Choose variant of the monoalphabetic substitution",
-                    IDC_STATIC,14,9,288,37
-    CONTROL         "Classical substitution",IDC_RADIO1,"Button",
-                    BS_AUTORADIOBUTTON,21,25,81,10
-    CONTROL         "Atbash",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,125,25,
-                    100,10
+                    IDC_STATIC,14,9,288,60
+    CONTROL         "Key entry: Remaining characters are filled in ascending order",
+                    IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,21,25,206,10
+    CONTROL         "Key entry: Remaining characters ere filled in descending order",
+                    IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,21,38,210,10
+    CONTROL         "Atbash (the encryption is using a fixed key)",
+                    IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,21,51,229,10
 END
 
 IDD_VISUALIZE_PHASE_SPACE DIALOG  0, 0, 388, 273
@@ -18384,6 +18477,39 @@ BEGIN
                     IDC_STATIC,227,85,148,31
 END
 
+IDD_SET_VISOPT DIALOGEX 0, 0, 231, 134
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "3-D Visualisation - Options"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,112,112,50,15
+    PUSHBUTTON      "Cancel",IDCANCEL,174,112,50,15
+    CONTROL         "Slider1",IDC_SLIDER_RESOLUTION,"msctls_trackbar32",
+                    TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,108,6,116,15
+    LTEXT           "Resolution",IDC_STATIC,7,7,49,15
+    CONTROL         "Slider2",IDC_SLIDER_DENSITY,"msctls_trackbar32",
+                    TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,108,23,116,19
+    LTEXT           "Density",IDC_STATIC,7,27,49,13
+    CONTROL         "Slider3",IDC_SLIDER_SHIFT,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,108,40,116,18
+    LTEXT           "Shift",IDC_STATIC,7,43,55,15
+    LTEXT           "Word length",IDC_STATIC,7,64,73,19
+    GROUPBOX        "Byte",IDC_STATIC,108,58,116,30
+    CONTROL         "1",IDC_RADIO_WORDSIZE_1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,117,71,20,10
+    CONTROL         "2",IDC_RADIO_WORDSIZE_2,"Button",BS_AUTORADIOBUTTON,142,
+                    71,20,10
+    CONTROL         "4",IDC_RADIO_WORDSIZE_4,"Button",BS_AUTORADIOBUTTON,171,
+                    71,20,10
+    EDITTEXT        IDC_EDIT_RESOLUTION,62,7,30,15,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_DENSITY,62,22,30,18,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_SHIFT,62,40,30,18,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "%",IDC_STATIC,92,40,16,18
+    PUSHBUTTON      "Reset",IDC_BUTTON_RESET,7,112,48,15
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -18466,9 +18592,9 @@ BEGIN
             MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN, GRAYED
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
-            MENUITEM "Per&mutation...",             ID_PERMUTATION_ASC
+            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
             , GRAYED
-            MENUITEM "Solitaire",                   ID_SYMCLASSIC_SOLITAIRE
+            MENUITEM "Solitaire...",                ID_SYMCLASSIC_SOLITAIRE
             , GRAYED
         END
         POPUP "Symmetric (&modern)"
@@ -18597,7 +18723,11 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "Codes"
         BEGIN
-            MENUITEM "Base64 Encode/Decode",        ID_CODE_BASE64, GRAYED
+            POPUP "Base64 Encode/Decode", GRAYED
+            BEGIN
+                MENUITEM "Base64 Encode",               33319
+                MENUITEM "Base64 Decode",               33320
+            END
             MENUITEM "UU-Encode/Decode",            ID_CODE_UU, GRAYED
             MENUITEM "Decode ASN.&1 Code of a File...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
@@ -18830,9 +18960,8 @@ BEGIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
-            MENUITEM "Per&mutation...",             ID_PERMUTATION_ASC
-            , GRAYED
-            MENUITEM "Solitaire",                   ID_SYMCLASSIC_SOLITAIRE
+            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
+            MENUITEM "Solitaire...",                ID_SYMCLASSIC_SOLITAIRE
             , GRAYED
         END
         POPUP "Symmetric (&modern)"
@@ -18947,7 +19076,11 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "Codes"
         BEGIN
-            MENUITEM "Base64 Encode/Decode",        ID_CODE_BASE64, GRAYED
+            POPUP "Base64 Encode/Decode"
+            BEGIN
+                MENUITEM "Base64 Encode",               33319
+                MENUITEM "Base64 Decode",               33320
+            END
             MENUITEM "UU-Encode/Decode",            ID_CODE_UU, GRAYED
             MENUITEM "Decode ASN.&1 Code of a File...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
@@ -19166,9 +19299,9 @@ BEGIN
             MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN, GRAYED
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
-            MENUITEM "Per&mutation...",             ID_PERMUTATION_ASC
+            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
             , GRAYED
-            MENUITEM "Solitaire",                   ID_SYMCLASSIC_SOLITAIRE
+            MENUITEM "Solitaire...",                ID_SYMCLASSIC_SOLITAIRE
             , GRAYED
         END
         POPUP "Symmetric (&modern)"
@@ -19297,7 +19430,11 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "Codes"
         BEGIN
-            MENUITEM "Base64 Encode/Decode",        ID_CODE_BASE64, GRAYED
+            POPUP "Base64 Encode/Decode", GRAYED
+            BEGIN
+                MENUITEM "Base64 Encode",               33319
+                MENUITEM "Base64 Decode",               33320
+            END
             MENUITEM "UU-Encode/Decode",            ID_CODE_UU, GRAYED
             MENUITEM "Decode ASN.&1 Code of a File...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
@@ -19528,8 +19665,8 @@ BEGIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
-            MENUITEM "Per&mutation...",             ID_PERMUTATION_ASC
-            MENUITEM "Solitaire",                   ID_SYMCLASSIC_SOLITAIRE
+            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
+            MENUITEM "Solitaire...",                ID_SYMCLASSIC_SOLITAIRE
         END
         POPUP "Symmetric (&modern)"
         BEGIN
@@ -19643,7 +19780,11 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "Codes"
         BEGIN
-            MENUITEM "Base64 Encode/Decode",        ID_CODE_BASE64, GRAYED
+            POPUP "Base64 Encode/Decode"
+            BEGIN
+                MENUITEM "Base64 Encode",               33319
+                MENUITEM "Base64 Decode",               33320
+            END
             MENUITEM "UU-Encode/Decode",            ID_CODE_UU, GRAYED
             MENUITEM "Decode ASN.&1 Code of a File...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
@@ -19897,9 +20038,9 @@ BEGIN
             MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN, GRAYED
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
-            MENUITEM "Per&mutation...",             ID_PERMUTATION_ASC
+            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
             , GRAYED
-            MENUITEM "Solitaire",                   ID_SYMCLASSIC_SOLITAIRE
+            MENUITEM "Solitaire...",                ID_SYMCLASSIC_SOLITAIRE
             , GRAYED
         END
         POPUP "Symmetric (&modern)"
@@ -20028,7 +20169,11 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "Codes"
         BEGIN
-            MENUITEM "Base64 Encode/Decode",        ID_CODE_BASE64, GRAYED
+            POPUP "Base64 Encode/Decode", GRAYED
+            BEGIN
+                MENUITEM "Base64 Encode",               33319
+                MENUITEM "Base64 Decode",               33320
+            END
             MENUITEM "UU-Encode/Decode",            ID_CODE_UU, GRAYED
             MENUITEM "Decode ASN.&1 Code of a File...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
@@ -24813,17 +24958,13 @@ BEGIN
     IDD_FILE_PROPERTIES, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 291
+        RIGHTMARGIN, 315
         VERTGUIDE, 13
-        VERTGUIDE, 77
-        VERTGUIDE, 82
-        VERTGUIDE, 283
+        VERTGUIDE, 79
+        VERTGUIDE, 85
+        VERTGUIDE, 308
         TOPMARGIN, 7
-        BOTTOMMARGIN, 101
-        HORZGUIDE, 30
-        HORZGUIDE, 47
-        HORZGUIDE, 63
-        HORZGUIDE, 80
+        BOTTOMMARGIN, 151
     END
 
     IDD_KEY_HILL5X5, DIALOG
@@ -25406,6 +25547,20 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 143
     END
+
+    IDD_KEY_MONSUBST, DIALOG
+    BEGIN
+        VERTGUIDE, 21
+    END
+
+    IDD_SET_VISOPT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 218
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 112
+        HORZGUIDE, 96
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -25578,15 +25733,15 @@ END
 STRINGTABLE 
 BEGIN
     IDR_MAINFRAME           "CrypTool 1.4.00 beta 10"
-    IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText files (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
-    IDR_HEXTYPE             "\n\n\n\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
-    IDR_ASCTYPE             "\n\n\nASCII files (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
-    IDR_PLOTTYPE            "\n\n\nPLOT files (*.plt)\n.plt\n\nPlot File Type\nPLOT\nPlot Files\n"
+    IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
+    IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
+    IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
+    IDR_PLOTTYPE            "\nUnnamed\n\nPLOT file (*.plt)\n.plt\n\nPlot File Type\nPLOT\nPlot Files\n"
 END
 
 STRINGTABLE 
 BEGIN
-    IDR_OPENGLTYPE          "\n\n\nOpenGL files (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nOpenGL Files\n"
+    IDR_OPENGLTYPE          "\nUnnamed\n\nOpenGL file (*.ogl)\n.plt\n\nOpenGL File Type\nOPENGL\nOpenGL Files\n"
 END
 
 STRINGTABLE 
@@ -25694,7 +25849,7 @@ BEGIN
     ID_CRYPT_KeyGen         "Generate (or import from PKCS#12) a key pair for different asymmetric algorithms"
     ID_CRYPT_RsaEnc         "Encrypts a file using the RSA algorithm"
     ID_CRYPT_RsaDec         "Decrypts a file encrypted with the RSA algorithm"
-    ID_CryptMono            "Encryption through substitution"
+    ID_CryptMono            "Encryption through mono alphabetic substitution (Atbash is a special case with fixed key)"
     ID_CRYPT_SIGN           "Sign active document"
 END
 
@@ -26232,29 +26387,28 @@ BEGIN
                             "The file to be analysed must be at least 4 bytes large!"
     IDS_STRING_PA_NO        "No."
     IDS_HILLEXAMPLE_CODE_ALPHABET 
-                            "HILL-Ver-/Entschlüsselung\n\nDas aktuell im Menü ""Optionen / Textoptionen"" gewählte Alphabet und dessen Kodierung in Zahlen lautet:"
+                            "HILL encryption / decryption\n\nThe current selected alphabet (see Menu: Options / Textoptions) and its encoding into numbers are:"
 END
 
 STRINGTABLE 
 BEGIN
     IDS_HILLEXAMPLE_ENCRYPTIONMATRIX 
-                            "\nHill-Verschlüsselung:\n\nDie gewählte Hill-Matrix zum Verschlüsseln ist:"
+                            "\nHill encryption:\n\nThe selected Hill matrix for encryption is:"
     IDS_HILLEXAMPLE_DECRYPTION_MATRIX 
-                            "\nHill-Entschlüsselung:\n\nDie gewählte inverse Hill-Matrix zum Entschlüsseln ist:"
-    IDS_HILLEXAMPLE_ENCODED_MATRIX "Diese Matrix kodiert in Zahlen:"
-    IDS_HILLEXAMPLE_HLENCRYPT 
-                            "Beispiel: Verschlüsselung des Klartextes: ""%s"":"
-    IDS_HILLEXAMPLE_HLDECRYPT 
-                            "Beispiel: Entschlüsselung des Chiffretextes: ""%s"":"
-    IDS_HILLEXAMPLE_ENCODED_PLAINTEXT "Klartext-Vektor K kodiert in Zahlen:"
+                            "\nHill decryption:\n\nThe selected inverse Hill matrix for decryption is:"
+    IDS_HILLEXAMPLE_ENCODED_MATRIX "This matrix encoded into numbers:"
+    IDS_HILLEXAMPLE_HLENCRYPT "Example: Encryption of the plaintext: ""%s"":"
+    IDS_HILLEXAMPLE_HLDECRYPT "Example: Decryption of the ciphertext: ""%s"":"
+    IDS_HILLEXAMPLE_ENCODED_PLAINTEXT 
+                            "Plaintext vector K encoded into numbers:"
     IDS_HILLEXAMPLE_ENCODED_CIPHERTEXT 
-                            "Chiffretext-Vektor C kodiert in Zahlen:"
+                            "Ciphertext vector C encoded into numbers:"
     IDS_HILLEXAMPLE_ENCRYPTION 
-                            "Berechnung der Hill-Chiffrierung durch das Vektor-Matrizenprodukt K[n]*H[n]:"
+                            "Computation of the Hill cipher by the matrix vector multiplication  K[n]*H[n]:"
     IDS_HILLEXAMPLE_DECRYPTION 
-                            "Berechnung der Hill-Dechiffrierung durch das Vektor-Matrizenprodukt C[n]*D[n]:"
-    IDS_HILLEXAMPLE_RESULT_ENCRYPTION "Der Hill-Chiffretext lautet: ""%s""."
-    IDS_HILLEXAMPLE_RESULT_DECRYPTION "Der Hill-Klartext lautet: ""%s""."
+                            "Computation of the Hill decryption by the vector matrix multiplication C[n]*D[n]:"
+    IDS_HILLEXAMPLE_RESULT_ENCRYPTION "The Hill ciphertext is: ""%s""."
+    IDS_HILLEXAMPLE_RESULT_DECRYPTION "The Hill plaintext is: ""%s""."
     IDS_STRING_RAND_DATA_PARAM 
                             "Random data generated with the %s generator - length %i bytes"
     IDS_RSA_MKPZ_PLAINTEXT  "Plaintext"
@@ -26274,8 +26428,8 @@ BEGIN
                             "Enter the key. The key is exactly %d characters long!"
     IDS_STRING_KEY_INPUT_VIGENERE "Key Entry: Vigenère"
     IDS_STRING_COLUMN_FREQUENCY "Frequency"
-    IDS_STRING_KEY_INPUT_XOR "Key Entry: XOR"
-    IDS_STRING_KEY_INPUT_ADD "Key Entry: ADD"
+    IDS_STRING_KEY_INPUT_XOR "Key Entry: byte by byte XOR"
+    IDS_STRING_KEY_INPUT_ADD "Key Entry: byte by byte addition (ADD)"
     IDS_STRING_RSA_TUTORIAL_INPUT 
                             "Enter the message for encryption or decryption either as text or as hex dump."
 END
@@ -26640,15 +26794,15 @@ BEGIN
     IDS_STRING_CAPTATION_FREQUENCY_TEST "Frequency test of %s"
     IDS_STRING_TESTS_EMPFHAELUNG_FREQ_TEST 
                             "For frequency test it is recommended to examine at least 1250 bytes."
-    IDS_STRING_TEST_KLEINE_DATEI "The file size must be at least 16 Bytes !"
+    IDS_STRING_TEST_KLEINE_DATEI "The file size must be at least 16 bytes !"
     IDS_STRING_CAPTATION_RUNS_TESTS "Runs Tests of %s"
     IDS_STRING_CAPTATION_POKER_TEST "Poker Test of %s"
     IDS_STRING_CAPTATION_FIPS_PUB "FIPS-PUB-140-1 test battery of %s"
     IDS_STRING_TESTS_FIPS_ENTROPIE "Entropy: %lf bit/character"
     IDS_STRING_TEST_FIPS_KLEINE_DATEI 
-                            "The FIPS-PUB-140-1 test battery is specified for exactly 2.500 bytes.\nBecause the currently selected document (%i bytes) is bigger,\nCrypTool will test only the first 2.500 Bytes of the whole document."
+                            "The FIPS-PUB-140-1 test battery is specified for exactly 2,500 bytes.\nBecause the currently selected document (%s bytes) is bigger,\nCrypTool will test only the first 2,500 bytes of the whole document."
     IDS_STRING_TEST_FIPS_KLEINE_DATEI_2 
-                            "The FIPS-PUB-140-1 test battery is specified for exactly 2.500 Bytes.\nThe actual selected file has the length %i bytes.\nTherefore the test cannot be performed."
+                            "The FIPS-PUB-140-1 test battery is specified for exactly 2,500 bytes.\nThe currently selected file has a length of only %s bytes.\nTherefore the test cannot be performed."
     IDS_STRING_TESTS_FALSCHE_OFFSET 
                             "Offset + test length must be smaller than the file size !"
     IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE 
@@ -26798,7 +26952,7 @@ BEGIN
                             "The ciphertext does contain characters which do not belong to the Playfair alphabet. These characters are replaced by the wildcard "" . ""."
     IDS_STRING_PLAYFAIR_WARNMSG003 
                             "The letter 'J' and the digits '0', .., '9' does not belong t a 5 x 5 Playfair matrix alphabet.\nYou may continue the analysis on a 6 x 6 Playfair matrix."
-    IDS_NGRAMLIST_TOLONG    "The number of Rows is bounded by 5000!\nPlease enter a number between 1 and 5000."
+    IDS_NGRAMLIST_TOLONG    "The number of Rows is bounded by 5,000!\nPlease enter a number between 1 and 5,000."
     IDS_STRING_ERROR_NO_NUMBER_STREAM 
                             "Your input is not a sequence of number with basis %i. \nPlease correct your input or encrypt the input as text."
     IDS_STRING_WARN_BEFOR_SKIPWS 
@@ -27556,7 +27710,7 @@ BEGIN
     IDS_SOLITAIRE_Art_nachVorgabe "nach Vorgabe"
     IDS_SOLITAIRE_Art_Initialdeckladen "load initial deck"
     IDS_SOLITAIRE_Art_Abschlussdeckladen "load finaldeck"
-    IDS_SOLITAIRE_MESSAGE_1 "Please enter between 1 and 15000 characters."
+    IDS_SOLITAIRE_MESSAGE_1 "Please enter between 1 and 15,000 characters."
     IDS_SOLITAIRE_MESSAGE_2 "Solitaire needs at least 3 cards."
     IDS_SOLITAIRE_MESSAGE_3 "All keystream-letters produced"
     IDS_SOLITAIRE_MESSAGE_4 "Deck initialized."
@@ -27572,9 +27726,21 @@ END
 STRINGTABLE 
 BEGIN
     IDS_SOLITAIRE_MESSAGE_11 "Do you want to put Joker A to the front?"
-    IDS_TITLE_3D_VISUALISATION "3-D Visualisisation: %s"
+    IDS_TITLE_3D_VISUALISATION "3-D Visualisation: %s"
     IDS_ROT13_INFO_NEGATIVE "Rot-13 encryption is deactivated because the alphabet does not consist of an even number of letters!"
     IDS_CRYPT_ROT13         "ROT 13"
+    IDS_FILENAME_NOT_YET    "New file (not yet stored)"
+    IDS_STRING_PT           ","
+    IDS_BASE64_DECODE_ILLEGAL_CHARACTER 
+                            "An illegal char in input occured. location: %u char: %s\nDecoding aborted."
+    IDS_BASE64_FILE_OPEN_ERROR "Error while opening %s!"
+    IDS_BASE64_FILE_WRITE_ERROR "Error while writing to %s!"
+    IDS_BASE64_DECODE_PREMATURE_END 
+                            "Base64 termination char '=' was encountered too early.Location:%u. Decoding aborted!"
+    IDS_BASE64_DECODE_MISSING_CHARS 
+                            "Bade base64 block.No clear decoding of the last chars possible!"
+    IDS_STRING_MSG_BASE64DEC_OF "Base64 decoding of <%s>"
+    IDS_STRING_MSG_BASE64ENC_OF "Base64 encoding of <%s>"
 END
 
 #endif    // English (U.K.) resources

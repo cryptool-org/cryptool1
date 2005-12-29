@@ -20,18 +20,26 @@ class COpenGLDoc : public CAppDocument
 {
 protected:
 	COpenGLDoc();           // Dynamische Erstellung verwendet geschützten Konstruktor
+	COpenGLDoc(int arg_resolution, int arg_density, int arg_shift, int arg_wordlen);
+
 	DECLARE_DYNCREATE(COpenGLDoc)
 
 // Attribute
-public:
-
+private:
 // Operationen
+	int				 resolution;
+	int				 density;
+	double			 voxelsize;
+	int				 wordlen;
+	int				 shift;
+	char             sFile[1024];
+
 public:
-	unsigned char   *m_pCharBuffer;
-	StreamToVolume  *volume;
+//	unsigned char   *m_pCharBuffer;
 	int				 nResolution[3];
 	double			 dVoxelSize[3];
-	int				 wordlen;
+
+	StreamToVolume  *volume;
 
 // Überschreibungen
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
@@ -49,6 +57,19 @@ public:
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
+	virtual void setResolution(int arg);
+	virtual void setDensity(int arg);
+	virtual void setShift(int arg);
+	virtual void setVoxelSize(double arg);
+	virtual void setWordLen(int arg);
+
+	virtual int getResolution();
+	virtual int getDensity();
+	virtual int getShift();
+	virtual double getVoxelSize();
+	virtual int getWordLen();
+
+	virtual bool createVolumeData();
 
 	// Generierte Nachrichtenzuordnungsfunktionen
 protected:

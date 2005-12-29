@@ -12,20 +12,27 @@
 
 class CDlgFileProperties : public CDialog
 {
-// Konstruktion
+	CString m_key;
+	int     m_keyType;
+//	CBitmapButton m_paste;
+	CBitmapButton m_showKey;
+
+	// Konstruktion
 public:
-	CString m_title;
-	void copyFileInfos(CString contentName, CString title);
+	void copyFileInfos(CString contentName, CString fName, CString title, 
+		CString key, int keyType, CString strView);
 	CDlgFileProperties(CWnd* pParent = NULL);   // Standardkonstruktor
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgFileProperties)
 	enum { IDD = IDD_FILE_PROPERTIES };
-	CButton	m_ShowKey;
-	CButton	m_ShowFatherWindow;
-	CString	m_filename;
+	CString	m_tmpFilename;
 	CString	m_fileType;
 	CString	m_fileSize;
+	CString	m_strTitle;
+	CString	m_strFilePath;
+	CString	m_strPathTemp;
+	CString	m_fileName;
 	//}}AFX_DATA
 
 
@@ -41,7 +48,6 @@ protected:
 
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgFileProperties)
-	afx_msg void OnShowFather();
 	afx_msg void OnShowKey();
 	virtual BOOL OnInitDialog();
 	//}}AFX_MSG

@@ -62,23 +62,24 @@ public:
 	virtual void OnDraw(CDC* pDC);  // überladen zum Zeichnen dieser Ansicht
 	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
 	virtual void OnInitialUpdate();
-	protected:
-	virtual BOOL OnPreparePrinting(CPrintInfo* pInfo);
-	virtual void OnBeginPrinting(CDC* pDC, CPrintInfo* pInfo);
-	virtual void OnEndPrinting(CDC* pDC, CPrintInfo* pInfo);
-
-	afx_msg void OnViewEndOfLine();
-	afx_msg void OnUpdateViewEndOfLine(CCmdUI* pCmdUI);
-	afx_msg void OnViewLineWrap();
-	afx_msg void OnUpdateViewLineWrap(CCmdUI* pCmdUI);
-	afx_msg void OnViewWhitespace();
-	afx_msg void OnUpdateViewWhitespace(CCmdUI* pCmdUI);
 	afx_msg void OnViewFontArial08();
 	afx_msg void OnViewFontArial10();
 	afx_msg void OnViewFontArial12();
 	afx_msg void OnViewFontCourier08();
 	afx_msg void OnViewFontCourier10();
 	afx_msg void OnViewFontCourier12();
+
+	protected:
+	virtual BOOL OnPreparePrinting(CPrintInfo* pInfo);
+	virtual void OnBeginPrinting(CDC* pDC, CPrintInfo* pInfo);
+	virtual void OnEndPrinting(CDC* pDC, CPrintInfo* pInfo);
+	afx_msg void OnViewEndOfLine();
+	afx_msg void OnUpdateViewEndOfLine(CCmdUI* pCmdUI);
+	afx_msg void OnViewLineWrap();
+	afx_msg void OnUpdateViewLineWrap(CCmdUI* pCmdUI);
+	afx_msg void OnViewWhitespace();
+	afx_msg void OnUpdateViewWhitespace(CCmdUI* pCmdUI);
+
 	//}}AFX_VIRTUAL
 
 // Implementierung

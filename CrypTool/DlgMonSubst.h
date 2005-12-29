@@ -17,6 +17,8 @@ class CDlgMonSubst : public CDialog
 	CBitmapButton m_Paste;
 	CFont m_font;
 
+	BOOL f_FillAscendingOrder;
+
 
 public:
 	CDlgMonSubst(CWnd* pParent = NULL);   // Standardkonstruktor
@@ -55,8 +57,9 @@ protected:
 private:
 	void ComputeSubstKeyMapping();
 public:
-	afx_msg void OnBnClickedRadioSubstClassical();
+	afx_msg void OnBnClickedRadioSubstFillAscendingOrder();
 	afx_msg void OnBnClickedRadioAddBash();
+	afx_msg void OnBnClickedRadioSubstFillDescendingOrder();
 };
 
 //{{AFX_INSERT_LOCATION}}

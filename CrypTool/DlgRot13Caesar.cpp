@@ -78,8 +78,8 @@ BOOL CDlgRot13Caesar::OnInitDialog()
 	}
 
 	LoadString(AfxGetInstanceHandle(),IDS_ROT13_CAESAR_CASE,pc_str,STR_LAENGE_STRING_TABLE);
-	CString l_str("");
-	l_str.AppendFormat(pc_str, length);
+	char l_str[1024];
+	sprintf(l_str, pc_str, length);
 	m_CtrlShowAlSize.SetWindowText(l_str);
 
 	CheckRadioButton(IDC_RADIO1, IDC_RADIO2, IDC_RADIO1); 
@@ -145,11 +145,12 @@ void CDlgRot13Caesar::OnUpdateKey()
 				m_dist_control.SetWindowText(target);
 
 				// Output the encryption mapping
-				CString to = _T("");
+				char to[1024];
 				for (int ii = 0; ii < alphabet.GetLength(); ii ++)
 				{
-					to.AppendChar( alphabet.GetAt((ii+m_dist) % alphabet.GetLength()) );
+					to[ii] = alphabet.GetAt((ii+m_dist) % alphabet.GetLength());
 				}
+				to[ii] = '\0';
 				m_CtrlTo.SetWindowText(to);
 
 				// 
@@ -183,7 +184,7 @@ char CDlgRot13Caesar::CheckPasteKeyVariant(int SID)
 
 	if ( PasteKey(pc_str,cs) )
 		if (0 <= theApp.TextOptions.m_alphabet.Find(cs))
-			ch_key = cs.GetBuffer()[0];
+			ch_key = cs.GetBuffer(cs.GetLength())[0];
 	return ch_key;
 }
 

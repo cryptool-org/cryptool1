@@ -14,12 +14,28 @@ class C3DVisOpt : public CDialog
 {
 // Konstruktion
 public:
-	unsigned short resolution;
-	C3DVisOpt(CWnd* pParent = NULL);   // Standardkonstruktor
+	unsigned short resolution, default_resolution;
+	unsigned short density,    default_density;
+	unsigned short shift,      default_shift;
+	unsigned short wordsize,   default_wordsize;
+
+	//C3DVisOpt(CWnd* pParent = NULL);   // Standardkonstruktor
+	C3DVisOpt(CWnd* pParent, 
+		unsigned short arg_res, 
+		unsigned short arg_dens, 
+		unsigned short arg_shift, 
+		unsigned short arg_wordsize);
 
 // Dialogfelddaten
 	//{{AFX_DATA(C3DVisOpt)
 	enum { IDD = IDD_SET_VISOPT };
+	CButton	m_ButtonReset;
+	CEdit	m_editShift;
+	CEdit	m_editResolution;
+	CEdit	m_editDensity;
+	CButton	m_CtrlButtonWordSize;
+	CSliderCtrl	m_CtrlSliderShift;
+	CSliderCtrl	m_CtrlSliderDensity;
 	CSliderCtrl	m_CtrlSliderResolution;
 	//}}AFX_DATA
 
@@ -33,10 +49,19 @@ public:
 
 // Implementierung
 protected:
+	void updateControls(void);
+	void resetToDefaults(void);
 
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(C3DVisOpt)
 	virtual BOOL OnInitDialog();
+	afx_msg void OnReleasedcaptureSliderResolution(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnReleasedcaptureSliderDensity(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnReleasedcaptureSliderShift(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnRadioWordsize1();
+	afx_msg void OnRadioWordsize2();
+	afx_msg void OnRadioWordsize4();
+	afx_msg void OnButtonReset();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
