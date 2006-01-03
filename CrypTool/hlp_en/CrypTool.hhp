@@ -64,7 +64,6 @@ ellipkurven.html
 entropie.html
 entschluesselung.html
 gewaehrleistung.html
-gleichm.html
 gleichver.html
 hashfunktion.html
 hashwert.html
@@ -404,13 +403,10 @@ hid_einzelverfahren_sidechannelattack_on_hybridencryption.html
 hidd_mac.html
 hid_messageauthenticationcode.html
 authentizitaet.html
-hid_einzelverfahren_crt_transformation_dialog.html
-hid_einzelverfahren_crt_astronomy_dialog.html
+hidd_crt_transformation.html
+hidd_crt_astronomy.html
 hid_einzelverfahren_crt_definition.html
-hid_einzelverfahren_crt_secretsharing.html
-hid_einzelverfahren_crt_secretsharing_dialog.html
-hid_einzelverfahren_crt_transformation.html
-hid_einzelverfahren_crt_astronomy.html
+hidd_crt_secretsharing.html
 keystore.html
 menu_individualprocedures_visualizationwithanimal.html
 menu_analysis_asymmetric.html
