@@ -2,21 +2,21 @@
 <HTML>
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Dialogue key range</TITLE>
+<TITLE>Dialog key range</TITLE>
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
 <BODY>
 
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
-	<PARAM NAME="Keyword" VALUE="Dialogue">
+	<PARAM NAME="Keyword" VALUE="Dialog">
 	<PARAM NAME="Keyword" VALUE="Key range">
 	<PARAM NAME="Keyword" VALUE="Brute-force analysis">
 </OBJECT>
 
-<h3><P><A NAME="hidd_bruteforce"></A><B>Dialogue Brute-force Analysis (Enter Key Range)</B></P></h3>
+<h3><P><A NAME="hidd_bruteforce"></A><B>Dialog Brute-force Analysis (Enter Key Range)</B></P></h3>
 
-<P>This dialogue is used to enter the key space to be searched through for <!--ZZZPOPUP--><A href="schluessel.html">keys</A> in a <!--ZZZPOPUP--><A href="bruteforce.html">Brute-force attack</A> on the following <!--ZZZPOPUP--><A href="verschlverfahren.html">encryption algorithms</A>:</P>
+<P>This dialog is used to enter the key space to be searched through for <!--ZZZPOPUP--><A href="schluessel.html">keys</A> in a <!--ZZZPOPUP--><A href="bruteforce.html">Brute-force attack</A> on the following <!--ZZZPOPUP--><A href="verschlverfahren.html">encryption algorithms</A>:</P>
 
 <P><A href="hid_analyse_idea.html">IDEA</A></P>
 
@@ -48,7 +48,7 @@
 
 <P>For unknown positions one simply enters a *. Thus, if you enter "<B>10 ** 23 00 ... 00</B>" a total of  (2^4)*(2^4) = 256 keys will be searched through. These are "10 00 23 00 ... 00", "10 10 23 00 ... 00", "10 20 23 00 ... 00",... "10 F0 23 00 ... 00"... "10 FF 23 00 ... 00".  Five unknown positions mean, that maximal 2^(4*5) = 1,048,576 keys have to be searched through.</P>
 
-<P>The running time is mainly influenced by the number of unknown positions. Each unknown position increases the running time by the factor 16. The running time also varies for the different encryption algorithms and key lengths. It also depends on the number of document bytes that are used in the entropy test, see dialogue <A href="hidd_options_analysis.html">Analysis Options</A> for details.</P>
+<P>The running time is mainly influenced by the number of unknown positions. Each unknown position increases the running time by the factor 16. The running time also varies for the different encryption algorithms and key lengths. It also depends on the number of document bytes that are used in the entropy test, see dialog <A href="hidd_options_analysis.html">Analysis Options</A> for details.</P>
 
 <P><U>Remark 1</U>:</P>
 
@@ -58,7 +58,7 @@
 
 <P>Having the possibility to enter any number of stars (this enables you to search through the whole key space) does not mean that CrypTool can be used as a hacker tool.</P>
 
-<P>As you see in the following dialogue, this only gives the user an impression, how huge time intervals are necessary (e.g. 10^27 years for a whole 128 bit key), if the key length is big enough and the method works well.</P>
+<P>As you see in the following dialog, this only gives the user an impression, how huge time intervals are necessary (e.g. 10^27 years for a whole 128 bit key), if the key length is big enough and the method works well.</P>
 
 </BODY>
 </HTML>

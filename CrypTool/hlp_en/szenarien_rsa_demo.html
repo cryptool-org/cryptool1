@@ -45,11 +45,11 @@
 
 <P>For the RSA key, first of all we need two different <U>prime numbers</U>, p and q. You can enter two prime numbers into the fields <B>Prime number p</B> and <B>Prime number q</B>, or you can generate two random prime numbers, p and q.</P>
 
-<P>As an example we wish to generate a random 256-bit RSA key. To this end, click on the <B>Generate prime numbers…</B> button. Similarly to menu selection <B>Indiv. Procedures \ RSA Demonstration \ <A href="hid_einzelverfahren_tutorial_primzahlengenerieren.html">Generate Prime Numbers…</A></B>, a dialogue box opens in which to generate prime numbers p and q. For prime number p, choose 2^127+2^126 as the <B>lower limit</B> and 2^128 as the <B>upper limit</B>, and activate the radio button, ”<B>Both value ranges are equal</B>”. When you click on <B>Generate prime numbers</B>, two prime numbers p and q of bit length between 127.5 and 128 are generated. When p and q are multiplied together, the result is RSA modulus N of bit length greater than 2*127.5 = 255, i.e. a 256-bit <!--ZZZPOPUP--><A href="rsa_demo_key_generation.html">RSA key</A>.</P>
+<P>As an example we wish to generate a random 256-bit RSA key. To this end, click on the <B>Generate prime numbers…</B> button. Similarly to menu selection <B>Indiv. Procedures \ RSA Demonstration \ <A href="hid_einzelverfahren_tutorial_primzahlengenerieren.html">Generate Prime Numbers…</A></B>, a dialog box opens in which to generate prime numbers p and q. For prime number p, choose 2^127+2^126 as the <B>lower limit</B> and 2^128 as the <B>upper limit</B>, and activate the radio button, ”<B>Both value ranges are equal</B>”. When you click on <B>Generate prime numbers</B>, two prime numbers p and q of bit length between 127.5 and 128 are generated. When p and q are multiplied together, the result is RSA modulus N of bit length greater than 2*127.5 = 255, i.e. a 256-bit <!--ZZZPOPUP--><A href="rsa_demo_key_generation.html">RSA key</A>.</P>
 
 <P><IMG SRC="images/rsaszenariopzgenerieren.gif" ALT="rsaszenariopzgenerieren.gif" BORDER=0></P>
 
-<P>You can generate prime numbers as often as you like. If you click on the <B>Copy primes to clipboard</B> pushbutton, prime numbers p and q are passed to the RSA dialogue. At the same time RSA modulus N is calculated, also the Euler phi function phi(N). </P>
+<P>You can generate prime numbers as often as you like. If you click on the <B>Copy primes to clipboard</B> pushbutton, prime numbers p and q are passed to the RSA dialog. At the same time RSA modulus N is calculated, also the Euler phi function phi(N). </P>
 
 <P>The next step is to determine the <!--ZZZPOPUP--><A href="rsa_demo_public_key.html">public RSA key</A> e, a number that is coprime to phi(N). Sometimes it is not easy to find such a number. For this reason we offer a small tip: the number e = 2^16+1 = 65537 (= 10000000000000001 binary) is in practice always coprime to phi(N).</P>
 
@@ -183,7 +183,7 @@
 <P>With knowledge of the prime factors p = 173 and q = 181 and the public key <I>e </I>= 4913, you are now in a position to decrypt the ciphertext:</P>
 
 <OL type=a>
-	<LI>Open the next dialogue box via menu selection <B>Indiv. Procedures \ RSA Demonstration \ RSA Cryptosystem</B>:<BR><BR></LI>
+	<LI>Open the next dialog box via menu selection <B>Indiv. Procedures \ RSA Demonstration \ RSA Cryptosystem</B>:<BR><BR></LI>
 
 	<LI>Enter the prime factors identified, p = 173 and q = 181, and public key <I>e </I>= 4913.<BR><BR></LI>
 
@@ -265,7 +265,7 @@ With knowledge of the prime factors p = 145295143558111 and q = 440334654777631 
 
 <OL type="a">
 
-<LI>Open the next dialogue box via menu selection Indiv. Procedures \ RSA Demonstration \ RSA Cryptosystem:<BR><BR></LI>
+<LI>Open the next dialog box via menu selection Indiv. Procedures \ RSA Demonstration \ RSA Cryptosystem:<BR><BR></LI>
 
 <LI>Enter the prime factors identified, p = 145295143558111 and q = 440334654777631, and public key e = 17579.<BR><BR></LI>
 
