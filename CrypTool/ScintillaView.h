@@ -62,24 +62,23 @@ public:
 	virtual void OnDraw(CDC* pDC);  // überladen zum Zeichnen dieser Ansicht
 	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
 	virtual void OnInitialUpdate();
-	afx_msg void OnViewFontArial08();
-	afx_msg void OnViewFontArial10();
-	afx_msg void OnViewFontArial12();
-	afx_msg void OnViewFontCourier08();
-	afx_msg void OnViewFontCourier10();
-	afx_msg void OnViewFontCourier12();
+	virtual void OnViewFontArial08();
+	virtual void OnViewFontArial10();
+	virtual void OnViewFontArial12();
+	virtual void OnViewFontCourier08();
+	virtual void OnViewFontCourier10();
+	virtual void OnViewFontCourier12();
 
 	protected:
 	virtual BOOL OnPreparePrinting(CPrintInfo* pInfo);
 	virtual void OnBeginPrinting(CDC* pDC, CPrintInfo* pInfo);
 	virtual void OnEndPrinting(CDC* pDC, CPrintInfo* pInfo);
-	afx_msg void OnViewEndOfLine();
-	afx_msg void OnUpdateViewEndOfLine(CCmdUI* pCmdUI);
-	afx_msg void OnViewLineWrap();
-	afx_msg void OnUpdateViewLineWrap(CCmdUI* pCmdUI);
-	afx_msg void OnViewWhitespace();
-	afx_msg void OnUpdateViewWhitespace(CCmdUI* pCmdUI);
-
+	virtual void OnViewEndOfLine();
+	virtual void OnUpdateViewEndOfLine(CCmdUI* pCmdUI);
+	virtual void OnViewLineWrap();
+	virtual void OnUpdateViewLineWrap(CCmdUI* pCmdUI);
+	virtual void OnViewWhitespace();
+	virtual void OnUpdateViewWhitespace(CCmdUI* pCmdUI);
 	//}}AFX_VIRTUAL
 
 // Implementierung
@@ -112,6 +111,7 @@ protected:
 	afx_msg void OnUpdateEditRedo(CCmdUI* pCmdUI);
 	afx_msg void OnEditSelectAll();
 	afx_msg void OnUpdateInsert(CCmdUI* pCmdUI);
+	afx_msg void OnEditFind();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 public:

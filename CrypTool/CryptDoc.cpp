@@ -54,6 +54,7 @@ statement from your version.
 #include "CrypToolApp.h"
 #include <fstream>
 #include "FileTools.h"
+#include "base64.h"
 #include "CryptDoc.h"
 #include "CrypToolTools.h"
 
@@ -91,7 +92,7 @@ statement from your version.
 #include "DlgShowKey.h"
 #include "DlgSolitaire.h"
 #include "DlgSolitaireAnalyse.h"
-#include "base64.h"
+
 
 
 

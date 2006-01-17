@@ -70,7 +70,7 @@ BOOL CDlgRot13Caesar::OnInitDialog()
 	m_CtrlKey.SetWindowText ("");
 
 	int length = theApp.TextOptions.m_alphabet.GetLength();
-	if ( (length % 2) )
+	if ( length % 2 )
 	{
 		m_CtrlRadioRot13.EnableWindow(FALSE);
 		LoadString(AfxGetInstanceHandle(),IDS_ROT13_INFO_NEGATIVE,pc_str,STR_LAENGE_STRING_TABLE);
@@ -94,7 +94,7 @@ BOOL CDlgRot13Caesar::OnInitDialog()
 
 void CDlgRot13Caesar::OnRot13Rad()
 {
-	CString Rot13Key = theApp.TextOptions.m_alphabet.GetAt(theApp.TextOptions.m_alphabet.GetLength() / 2);
+	CString Rot13Key = theApp.TextOptions.m_alphabet.GetAt(theApp.TextOptions.m_alphabet.GetLength() / 2 -1);
 	m_CtrlKey.SetWindowText(Rot13Key);
 	m_CtrlKey.EnableWindow(FALSE);
 	m_type = IDS_STRING_ROT13;

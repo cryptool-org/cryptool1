@@ -60,8 +60,10 @@ statement from your version.
 
 
 #ifndef _HLIB_Base64EncDec_H_
-#define _HLIB_Base64EncDec_H_ 1
+#define _HLIB_Base64EncDec_H_
+
 #define __attribute__(x)
+
 // ERROR CODES
 #define B64_CODE_NOERROR 0
 #define B64_DECODE_PREMATURE_END -1
@@ -71,6 +73,7 @@ statement from your version.
 #define B64_FILE_WRITE_ERROR -5
 
 // #include <hlib/prototypes.h>
+
 
 
 #ifdef __cplusplus
@@ -109,9 +112,10 @@ typedef signed int ssize_t;
  *  >=0 -> number of bytes in output
  *   -4 -> output buffer too small 
  */
-extern __w64 int Base64Encode(
-	const char *_in,size_t inlen,
-	char *_out,size_t outlen,int lwidth/*=0*/,ssize_t *outfill);
+
+extern ssize_t Base64Encode(
+	const char *_in, size_t inlen,
+	char *_out, size_t outlen, int lwidth,ssize_t *outfill);
 
 /* ---DECODE---
  * Reads in the base64 encoded string passed in _in of size inlen and 
@@ -153,4 +157,5 @@ void base64error(std::string text,char errchar,ssize_t errcode, ssize_t position
 
 
 #endif   /* _HLIB_Base64EncDec_H_ */
+
 

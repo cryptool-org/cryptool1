@@ -1,5 +1,5 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Visual C++ generated include file.
+// Microsoft Developer Studio generated include file.
 // Used by CrypTool.rc
 //
 #define IDCANCEL2                       3
@@ -218,6 +218,7 @@
 #define IDR_GIF9                        817
 #define IDD_SET_VISOPT                  817
 #define IDR_GIF10                       818
+#define IDD_FIND_TEXT                   818
 #define IDR_GIF11                       819
 #define IDR_GIF12                       820
 #define IDD_DIALOG2                     821
@@ -2463,7 +2464,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        818
+#define _APS_NEXT_RESOURCE_VALUE        819
 #define _APS_NEXT_COMMAND_VALUE         33321
 #define _APS_NEXT_CONTROL_VALUE         1879
 #define _APS_NEXT_SYMED_VALUE           107

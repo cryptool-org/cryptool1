@@ -2768,6 +2768,14 @@ SOURCE=.\DlgFileProperties.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DlgFindText.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgFindText.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DlgFurtherOptions.cpp
 # End Source File
 # Begin Source File

@@ -21,6 +21,8 @@
 #include "scintilla.h"
 #include ".\scintillaview.h"
 #include "FileTools.h"
+// Suchen und ersetzen
+#include "DlgFindText.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -77,21 +79,19 @@ BEGIN_MESSAGE_MAP(CScintillaView, CCrypToolView)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_REDO, OnUpdateEditRedo)
 	ON_COMMAND(ID_EDIT_SELECT_ALL, OnEditSelectAll)
 	ON_UPDATE_COMMAND_UI(ID_INDICATOR_OVR, OnUpdateInsert)
-
 	ON_COMMAND(ID_VIEW_ENDOFLINE, OnViewEndOfLine)
 	ON_UPDATE_COMMAND_UI(ID_VIEW_ENDOFLINE, OnUpdateViewEndOfLine)
 	ON_COMMAND(ID_VIEW_LINEWRAP, OnViewLineWrap)
 	ON_UPDATE_COMMAND_UI(ID_VIEW_LINEWRAP, OnUpdateViewLineWrap)
 	ON_COMMAND(ID_VIEW_WHITESPACE, OnViewWhitespace)
 	ON_UPDATE_COMMAND_UI(ID_VIEW_WHITESPACE, OnUpdateViewWhitespace)
-
 	ON_COMMAND(ID_ZEICHENFORMAT_ARIAL08, OnViewFontArial08)
 	ON_COMMAND(ID_ZEICHENFORMAT_ARIAL10, OnViewFontArial10)
 	ON_COMMAND(ID_ZEICHENFORMAT_ARIAL12, OnViewFontArial12)
 	ON_COMMAND(ID_ZEICHENFORMAT_COURIER08, OnViewFontCourier08)
 	ON_COMMAND(ID_ZEICHENFORMAT_COURIER10, OnViewFontCourier10)
 	ON_COMMAND(ID_ZEICHENFORMAT_COURIER12, OnViewFontCourier12)
-
+	ON_COMMAND(ID_EDIT_FIND, OnEditFind)
 	//}}AFX_MSG_MAP
 	// Standard-Druckbefehle
 	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
@@ -654,3 +654,30 @@ void CScintillaView::OnUpdateZeichenformatCourier12(CCmdUI *pCmdUI)
 }
 
 
+
+void CScintillaView::OnEditFind() 
+{
+	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
+	CDlgFindText dlg;
+	if ( IDOK == dlg.DoModal() )
+	{
+
+		CWnd *pActiveWindow = this->GetTopWindow();
+		if(pActiveWindow)
+		{
+			TextToFind ttf;
+
+			long lPos = pActiveWindow->SendMessage(SCI_GETCURRENTPOS);
+			ttf.chrg.cpMin = lPos +1;
+			ttf.chrg.cpMax = pActiveWindow->SendMessage(SCI_GETLENGTH, 0, 0);
+			ttf.lpstrText = dlg.str_ttf;
+
+			lPos = pActiveWindow->SendMessage(SCI_FINDTEXT, 0, reinterpret_cast<LPARAM>(&ttf));
+			if (lPos >= 0)
+			{
+				pActiveWindow->SendMessage(SCI_GOTOPOS, lPos);
+			}
+		}
+	}
+
+}
