@@ -99,7 +99,7 @@ LINK32=link.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /MT /W3 /GX /O2 /I ".." /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR /YX /FD /c
-# ADD CPP /nologo /MT /W3 /GX /O2 /I "..\libNTL\include" /I ".." /I ".\\" /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /I "..\ChallengeResponse" /I "C:\Program files\HTML Help Workshop\include" /I "..\scintilla\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR /YX /FD /c
+# ADD CPP /nologo /MT /W3 /GX /O2 /I "..\openSSL" /I "..\libNTL\include" /I ".." /I ".\\" /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /I "..\ChallengeResponse" /I "C:\Programme\HTML Help Workshop\include" /I "..\scintilla\include" /I "..\libVolRen" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR /YX /FD /c
 # ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
 # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
 # ADD BASE RSC /l 0x809 /d "NDEBUG"
@@ -110,7 +110,7 @@ BSC32=bscmake.exe
 LINK32=link.exe
 # ADD BASE LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
 # SUBTRACT BASE LINK32 /map
-# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib ..\OpenSSL\libeay32.lib "C:\Program Files\HTML Help Workshop\lib\htmlhelp.lib" ..\libNTL\Release\libNTL.lib /nologo /subsystem:windows /profile /debug /machine:I386 /nodefaultlib:"libc" /libpath:"C:\Program Files\HTML Help Workshop\lib"
+# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib ..\OpenSSL\libeay32.lib "C:\Programme\HTML Help Workshop\lib\htmlhelp.lib" ..\libNTL\Release\libNTL.lib opengl32.lib /nologo /subsystem:windows /profile /debug /machine:I386 /nodefaultlib:"libc" /libpath:"C:\Program Files\HTML Help Workshop\lib"
 # SUBTRACT LINK32 /map
 
 !ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
@@ -128,7 +128,7 @@ LINK32=link.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /MT /W3 /GX /O2 /I ".." /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR /YX /FD /c
-# ADD CPP /nologo /MT /W3 /GX /O2 /I "..\libNTL\include" /I ".." /I ".\\" /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /I "..\ChallengeResponse" /I "C:\Program files\HTML Help Workshop\include" /I "..\scintilla\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR /YX /FD /c
+# ADD CPP /nologo /MT /W3 /GX /O2 /I "..\openSSL" /I "..\libNTL\include" /I ".." /I ".\\" /I "..\Secude" /I "..\Libec\include" /I "..\libmiracl\include" /I "..\ChallengeResponse" /I "C:\Programme\HTML Help Workshop\include" /I "..\scintilla\include" /I "..\libVolRen" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /FR /YX /FD /c
 # ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
 # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
 # ADD BASE RSC /l 0x407 /d "NDEBUG" /d "AFX_RESOURCE_DLL" /d "AFX_TARG_DEU"
@@ -139,7 +139,7 @@ BSC32=bscmake.exe
 LINK32=link.exe
 # ADD BASE LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc"
 # SUBTRACT BASE LINK32 /map
-# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib ..\OpenSSL\libeay32.lib "C:\Program Files\HTML Help Workshop\lib\htmlhelp.lib" ..\libNTL\Release\libNTL.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc" /libpath:"C:\Programme\HTML Help Workshop\lib"
+# ADD LINK32 ..\LibAnalyse\Release\LibAnalyse.lib ..\Libec\Lib\EcBibV2.lib ..\libmiracl\Release\LibMiracl.lib ..\OpenSSL\libeay32.lib "C:\Programme\HTML Help Workshop\lib\htmlhelp.lib" ..\libNTL\Release\libNTL.lib opengl32.lib /nologo /subsystem:windows /debug /machine:I386 /nodefaultlib:"libc" /libpath:"C:\Programme\HTML Help Workshop\lib"
 # SUBTRACT LINK32 /map
 
 !ENDIF 
@@ -346,6 +346,18 @@ SOURCE=".\res\backward-grey.bmp"
 # Begin Source File
 
 SOURCE=.\res\backward.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\base64.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\base64.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\base64error.cpp
 # End Source File
 # Begin Source File
 
