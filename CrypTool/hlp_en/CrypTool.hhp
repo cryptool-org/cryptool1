@@ -475,6 +475,7 @@ menu_view_font.html
 sidechannelattacks.html
 hidd_file_properties.html
 animal.html
+hidd_hmac.html
 
 [ALIAS]
 #include CrypTool_Alias.h
