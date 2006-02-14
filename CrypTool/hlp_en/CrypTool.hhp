@@ -303,7 +303,6 @@ klartext.html
 knownplaintextangriff.html
 literatur.html
 main_index.html
-menu_analyserandomtest.html
 menu_analyze.html
 menu_crypt.html
 menu_edit.html
@@ -319,7 +318,7 @@ modulo.html
 nist.html
 norm_vert.html
 nsa.html
-offst.html
+offset.html
 pattern_suche.html
 periodenlänge.html
 pgp.html
@@ -361,6 +360,7 @@ szenarien_monosubst.html
 szenarien_playfair.html
 szenarien_rsa_demo.html
 szenarien_rsa_signatur.html
+szenarien_rsa_verschluesselung.html
 szenarien_tripledescbc.html
 szenarien_vernam.html
 szenarien_vigenere.html
@@ -400,7 +400,6 @@ hidd_sidechannelattackvisualization_he_preparations.html
 hidd_sidechannelattackvisualization_he_psepinprompt.html
 hidd_sidechannelattackvisualization_he_report.html
 hid_einzelverfahren_sidechannelattack_on_hybridencryption.html
-hidd_mac.html
 authentizitaet.html
 hidd_crt_transformation.html
 hidd_crt_astronomy.html
