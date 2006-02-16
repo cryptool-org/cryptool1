@@ -55,7 +55,21 @@ void MakeNewName(char *dest, unsigned int len, const char *format, const char *o
     if(strlen(format)+strlen(old)<(size_t)len)
         sprintf(dest,format,old);
     else
-        sprintf(dest,format,"...");
+	{
+		int lenRemain = (size_t)len - (strlen(format) +4);
+		if (lenRemain > 0)
+		{
+			char *tmp_str;
+			tmp_str = new char[lenRemain+4];
+			memcpy(tmp_str, old, lenRemain);
+			memcpy(tmp_str+lenRemain, "...", 3);
+			tmp_str[lenRemain+3] = '\0';
+			sprintf(dest, format, tmp_str);
+			delete []tmp_str;
+		}
+		else
+			sprintf(dest,format,"...");
+	}
 }
 
 void MakeNewName2(char *dest, int len, const char *format, const char *old, const char *alg)
@@ -63,7 +77,21 @@ void MakeNewName2(char *dest, int len, const char *format, const char *old, cons
     if(strlen(format)+strlen(old)+strlen(alg)<(size_t)len)
         sprintf(dest,format,alg,old);
     else
-        sprintf(dest,format,alg,"...");
+	{
+		int lenRemain = (size_t)len - (strlen(format) + strlen(alg) +4);
+		if (lenRemain > 0)
+		{
+			char *tmp_str;
+			tmp_str = new char[lenRemain+4];
+			memcpy(tmp_str, old, lenRemain);
+			memcpy(tmp_str+lenRemain, "...", 3);
+			tmp_str[lenRemain+3] = '\0';
+			sprintf(dest, format, alg, tmp_str);
+			delete []tmp_str;
+		}
+		else
+			sprintf(dest,format,alg,"...");
+	}
 }
 
 void MakeNewName3(char *dest, unsigned int len, const char *format, const char *alg, const char *old, const char *key)
@@ -71,9 +99,37 @@ void MakeNewName3(char *dest, unsigned int len, const char *format, const char *
     if(strlen(format)+strlen(alg)+strlen(old)+strlen(key)<(size_t)len)
         sprintf(dest,format,alg,old,key);
     else {
-	    if(strlen(format)+strlen(alg)+3+strlen(key)<(size_t)len)
-	        sprintf(dest,format,alg,"...",key);
+	    if(strlen(format)+strlen(alg)+3+strlen(old)<(size_t)len)
+		{
+			int lenRemain = (size_t)len - (strlen(format) + strlen(alg) +strlen(old) +4);
+			if (lenRemain > 0)
+			{
+				char *tmp_str;
+				tmp_str = new char[lenRemain+4];
+				memcpy(tmp_str, key, lenRemain);
+				memcpy(tmp_str+lenRemain, "...", 3);
+				tmp_str[lenRemain+3] = '\0';
+				sprintf(dest, format, alg, old, tmp_str);
+				delete []tmp_str;
+			}
+			else
+				sprintf(dest,format,alg,"...",key);
+		}
 		else
-	        sprintf(dest,format,alg,"...","...");
+		{
+			int lenRemain = (size_t)len - (strlen(format) + strlen(alg) +3 +4);
+			if (lenRemain > 0)
+			{
+				char *tmp_str;
+				tmp_str = new char[lenRemain+4];
+				memcpy(tmp_str, old, lenRemain);
+				memcpy(tmp_str+lenRemain, "...", 3);
+				tmp_str[lenRemain+3] = '\0';
+				sprintf(dest, format, alg, tmp_str, "...");
+				delete []tmp_str;
+			}
+			else
+				sprintf(dest,format,alg,"...","...");
+		}
 	}
 }

@@ -590,10 +590,10 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_AUTHORS DIALOGEX 0, 0, 284, 289
+IDD_AUTHORS DIALOG DISCARDABLE  0, 0, 284, 289
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Über CrypTool: Mitwirkende"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,112,267,50,14
     CTEXT           "Personen, die zu CrypTool beitrugen",IDC_STATIC,7,6,270,
@@ -615,7 +615,8 @@ BEGIN
                     IDC_STATIC,18,122,84,83
     LTEXT           "Jan Blumenstein\nKlaus Esslinger\nPeter Gruber\nJens Liebehenschel\nMichael Linden\nChristian Mletzko\nMarkus Ruhs\nMatthias Schneider\nMyriam Zeuner-Gurrier\nHendrik Lennarz",
                     IDC_STATIC,102,122,84,84
-    LTEXT           "Ariane Büger\nKarsten Schaar",IDC_STATIC,18,231,84,26
+    LTEXT           "Ariane Büger\nKarsten Schaar\nSibylle Müller",
+                    IDC_STATIC,18,231,84,26
     LTEXT           "Richard Christensen\nBartol Filipovic\nJörg Hambamer\nDennis Laupichler\nFlorian Marchal\nLowell Montgomery\nDaniel Saffran\nChristine Stötzel\nThomas Thiele\nAndre Beunink",
                     IDC_STATIC,186,122,85,86
     LTEXT           "Matthias Büger\nWolfgang Scondo\n...und viele andere.",
@@ -1877,10 +1878,10 @@ BEGIN
                     -1,7,37,310,8
 END
 
-IDD_KEY_PERMUTATION DIALOGEX 0, 0, 280, 338
+IDD_KEY_PERMUTATION DIALOG DISCARDABLE  0, 0, 280, 338
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe: Permutation / Transposition"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     EDITTEXT        IDC_EDIT1,23,39,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,23,161,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
@@ -1917,14 +1918,16 @@ BEGIN
                     165,304,22,20
     EDITTEXT        IDC_EDIT3,23,68,234,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
                     WS_DISABLED
-    GROUPBOX        "1. Permutation (einfach)",IDC_STATIC,12,12,256,108
+    GROUPBOX        "1. Permutation (einfache Zeilentransposition)",
+                    IDC_STATIC,12,12,256,108
     LTEXT           "Schlüssel (Buchstaben oder durch Kommas separierte Zahlen)",
                     IDC_STATIC,23,29,205,8
     LTEXT           "Permutation, wenn der Schlüssel als Buchstabenfolge eingegeben wurde",
                     IDC_STATIC,23,58,245,8
     EDITTEXT        IDC_EDIT4,23,190,234,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
                     WS_DISABLED
-    GROUPBOX        "2. Permutation (doppelt)",IDC_STATIC,12,132,256,111
+    GROUPBOX        "2. Permutation (doppelte Zeilentransposition)",
+                    IDC_STATIC,12,132,256,111
     LTEXT           "Schlüssel (Buchstaben oder durch Kommas separierte Zahlen)",
                     IDC_STATIC,23,151,205,8
     LTEXT           "Permutation, wenn der Schlüssel als Buchstabenfolge eingegeben wurde",
@@ -2135,10 +2138,10 @@ BEGIN
     RTEXT           "Verifikation:",-1,15,157,37,12
 END
 
-IDD_SIGNATURE_DEMO DIALOG DISCARDABLE  0, 0, 495, 423
+IDD_SIGNATURE_DEMO DIALOGEX 0, 0, 496, 428
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schrittweise Signaturerzeugung"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     CONTROL         "OPENDOC_R_",IDC_SELECT_DOCUMENT,"Button",BS_OWNERDRAW | 
                     BS_BITMAP | WS_TABSTOP,17,15,50,28
@@ -2380,42 +2383,38 @@ BEGIN
     CTEXT           "Static",IDC_ENTROPY_INFO,7,34,195,23
 END
 
-IDD_HASH_DEMO DIALOG DISCARDABLE  0, 0, 328, 388
+IDD_HASH_DEMO DIALOG DISCARDABLE  0, 0, 328, 356
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hash-Demo"
 FONT 8, "MS Sans Serif"
 BEGIN
-    CONTROL         "MD&2",IDC_RADIO_MD2,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,33,25,31,10
-    CONTROL         "MD&5",IDC_RADIO_MD5,"Button",BS_AUTORADIOBUTTON,33,41,
-                    31,10
-    CONTROL         "SHA-&1",IDC_RADIO_SHA1,"Button",BS_AUTORADIOBUTTON,33,
-                    57,34,10
     CONTROL         "&dezimal",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,232,41,39,10
+                    WS_GROUP,226,26,39,10
     CONTROL         "&hexadezimal",IDC_RADIO_HEX,"Button",BS_AUTORADIOBUTTON,
-                    232,26,55,10
-    CONTROL         "bi&när",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,232,
-                    58,31,10
-    EDITTEXT        IDC_EDIT_TEXT,16,97,294,113,ES_MULTILINE | ES_WANTRETURN | 
+                    159,26,55,10
+    CONTROL         "bi&när",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,268,
+                    26,31,10
+    EDITTEXT        IDC_EDIT_TEXT,16,65,294,113,ES_MULTILINE | ES_WANTRETURN | 
                     WS_VSCROLL
-    EDITTEXT        IDC_EDIT_ORIGHASH,16,229,294,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDIT_ORIGHASH,16,197,294,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDIT_AKTHASH,16,262,294,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDIT_AKTHASH,16,230,294,14,ES_AUTOHSCROLL | 
                     ES_READONLY
     CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",ES_MULTILINE | 
                     ES_READONLY | ES_WANTRETURN | WS_BORDER | WS_TABSTOP,16,
-                    296,294,64
-    PUSHBUTTON      "Dialog &beenden",IDCANCEL,251,366,59,14
-    GROUPBOX        "Auswahl der Hashfunktion",IDC_STATIC,16,10,95,62
-    GROUPBOX        "Darstellung der Hashwerte",IDC_STATIC,217,9,93,63
+                    264,294,64
+    PUSHBUTTON      "Dialog &beenden",IDCANCEL,251,334,59,14
+    GROUPBOX        "Auswahl der Hashfunktion",IDC_STATIC,16,6,118,42
+    GROUPBOX        "Darstellung der Hashwerte",IDC_STATIC,145,7,164,41
     LTEXT           "Aktuelle Datei (diese Kopie der Originaldatei können Sie hier ändern)",
-                    IDC_STATIC,16,85,294,8,NOT WS_GROUP
-    LTEXT           "Hashwert der Originaldatei",IDC_STATIC_TITEL,16,219,194,
+                    IDC_STATIC,16,53,294,8,NOT WS_GROUP
+    LTEXT           "Hashwert der Originaldatei",IDC_STATIC_TITEL,16,187,194,
                     8
-    LTEXT           "Hashwert der aktuellen Datei",IDC_STATIC,16,252,92,8
+    LTEXT           "Hashwert der aktuellen Datei",IDC_STATIC,16,220,92,8
     LTEXT           "Unterschied zwischen dem Hashwert der Orignal- und dem Hashwert der aktuellen Datei",
-                    IDC_STATIC,16,284,285,8
+                    IDC_STATIC,16,252,285,8
+    COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,27,24,88,61,
+                    CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
 END
 
 IDD_KEY_PERMUTATION_INFO DIALOGEX 0, 0, 317, 194
@@ -3416,7 +3415,7 @@ BEGIN
                     32,10
     CONTROL         "höchstwertige Bits bekannt",IDC_RADIOMSB,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,14,155,101,10
-    CONTROL         "niederstwertige Bits bekannt",IDC_RADIOLSB,"Button",
+    CONTROL         "niederwertigste Bits bekannt",IDC_RADIOLSB,"Button",
                     BS_AUTORADIOBUTTON,14,177,105,10
     EDITTEXT        IDC_EDITB,313,153,44,14,ES_AUTOHSCROLL | ES_READONLY | 
                     ES_NUMBER | WS_GROUP
@@ -3486,19 +3485,19 @@ CAPTION "Dokument-Eigenschaften"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Schließen",IDOK,249,143,66,22
-    GROUPBOX        "Informationen",IDC_STATIC,7,7,308,85
+    GROUPBOX        "Informationen zum aktuell ausgewählten Dokument",
+                    IDC_STATIC,7,7,308,85
     RTEXT           "Dokument-Name:",IDC_STATIC,13,31,71,9
     RTEXT           "Dokument-Größe:",IDC_STATIC,13,58,71,10
     RTEXT           "Dokument-Typ:",IDC_STATIC,13,44,71,10
     EDITTEXT        IDC_EDIT1,90,72,218,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     EDITTEXT        IDC_EDIT2,90,58,44,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
-                    WS_BORDER,WS_EX_RIGHT
+                    WS_BORDER
     EDITTEXT        IDC_EDIT132,90,44,104,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     CONTROL         "Paste",IDC_BUTTON1,"Button",BS_OWNERDRAW | WS_TABSTOP,7,
                     143,28,22
-    LTEXT           "Bytes",IDC_STATIC,140,58,18,10
     LTEXT           "Temporäre Datei:",IDC_STATIC,13,72,71,8,0,WS_EX_RIGHT
     EDITTEXT        IDC_EDIT3,90,31,218,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
@@ -4338,10 +4337,10 @@ BEGIN
                     169,10
 END
 
-IDD_ROT13_CAESAR DIALOG DISCARDABLE  0, 0, 315, 207
+IDD_ROT13_CAESAR DIALOGEX 0, 0, 315, 207
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe: Caesar / ROT-13"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_KEY,118,33,19,14,ES_AUTOHSCROLL
     CONTROL         "Paste",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,
@@ -4525,105 +4524,105 @@ BEGIN
                     121,35,18
 END
 
-IDD_SOLITAIRE DIALOG DISCARDABLE  0, 0, 622, 335
+IDD_SOLITAIRE DIALOG DISCARDABLE  0, 0, 623, 327
 STYLE DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Solitaire"
+CAPTION "Erzeugung des Solitaire-Schlüsselstroms"
 FONT 8, "MS Shell Dlg"
 BEGIN
-    COMBOBOX        IDC_Kartenanzahl,12,24,30,204,CBS_DROPDOWNLIST | 
+    COMBOBOX        IDC_Kartenanzahl,17,24,30,204,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    GROUPBOX        "1. Kartenanzahl wählen",IDC_STATIC,1,6,204,42
-    LTEXT           "Klassisch: 54 Karten",IDC_STATIC,54,24,66,8
-    COMBOBOX        IDC_COMBO2,12,72,90,72,CBS_DROPDOWNLIST | WS_VSCROLL | 
+    GROUPBOX        "1. Kartenanzahl wählen",IDC_STATIC,6,6,204,42
+    LTEXT           "Klassisch: 54 Karten",IDC_STATIC,59,24,66,8
+    COMBOBOX        IDC_COMBO2,17,72,90,72,CBS_DROPDOWNLIST | WS_VSCROLL | 
                     WS_TABSTOP
-    EDITTEXT        IDC_EDIT1,18,174,552,14,ES_AUTOHSCROLL | ES_READONLY
-    GROUPBOX        "Deckausgabe",IDC_STATIC,1,150,612,84
-    EDITTEXT        IDC_EDIT2,18,210,551,14,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT3,18,252,551,30,ES_MULTILINE | ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDIT1,23,174,552,14,ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Deckausgabe",IDC_STATIC,6,150,612,84
+    EDITTEXT        IDC_EDIT2,23,210,551,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT3,23,252,551,30,ES_MULTILINE | ES_AUTOHSCROLL | 
                     ES_READONLY
-    GROUPBOX        "2. Art des Initialschlüssels wählen",IDC_STATIC,1,54,
+    GROUPBOX        "2. Art des Initialschlüssels wählen",IDC_STATIC,6,54,
                     204,48
-    GROUPBOX        "2a. Passworteingabe",IDC_STATIC,216,55,216,47
-    EDITTEXT        IDC_EDIT4,222,72,132,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Initialisieren",IDC_BUTTON1,366,72,50,14
-    GROUPBOX        "Schlüsselausgabe",IDC_STATIC,1,240,612,54
-    LTEXT           "Initialdeck:",IDC_STATIC,24,162,36,8
-    LTEXT           "Abschlussdeck:",IDC_STATIC,24,198,50,8
-    GROUPBOX        "3. Auswahl Schlüsselerzeugung",IDC_STATIC,1,108,204,40
-    GROUPBOX        "3a. Einzelschritte",IDC_STATIC,216,108,216,40
-    GROUPBOX        "2b. Initialdeck vorgeben",IDC_STATIC,438,6,175,144
-    PUSHBUTTON      "automatisch",IDC_BUTTON2,36,126,50,14
-    PUSHBUTTON      "manuell",IDC_BUTTON3,114,126,50,14
-    PUSHBUTTON      "Schritt 1",IDC_BUTTON4,222,126,36,14,WS_DISABLED
-    PUSHBUTTON      "Schritt 2",IDC_BUTTON5,264,126,36,14,WS_DISABLED
-    PUSHBUTTON      "Schritt 3",IDC_BUTTON6,306,126,36,14,WS_DISABLED
-    PUSHBUTTON      "Schritt 4",IDC_BUTTON7,348,126,36,14,WS_DISABLED
-    PUSHBUTTON      "Schritt 5",IDC_BUTTON8,390,126,36,14,WS_DISABLED
-    PUSHBUTTON      "2",IDC_BUTTON10,462,36,18,14
-    PUSHBUTTON      "3",IDC_BUTTON11,480,36,18,14
-    PUSHBUTTON      "4",IDC_BUTTON12,498,36,18,14
-    PUSHBUTTON      "5",IDC_BUTTON13,516,36,18,14
-    PUSHBUTTON      "6",IDC_BUTTON14,534,36,18,14
-    PUSHBUTTON      "7",IDC_BUTTON15,552,36,18,14
-    PUSHBUTTON      "8",IDC_BUTTON16,570,36,18,14
-    PUSHBUTTON      "9",IDC_BUTTON17,588,36,18,14
-    PUSHBUTTON      "10",IDC_BUTTON18,444,54,18,14
-    PUSHBUTTON      "11",IDC_BUTTON19,462,54,18,14
-    PUSHBUTTON      "12",IDC_BUTTON20,480,54,18,14
-    PUSHBUTTON      "13",IDC_BUTTON21,498,54,18,14
-    PUSHBUTTON      "14",IDC_BUTTON22,516,54,18,14
-    PUSHBUTTON      "15",IDC_BUTTON23,534,54,18,14
-    PUSHBUTTON      "16",IDC_BUTTON24,552,54,18,14
-    PUSHBUTTON      "17",IDC_BUTTON25,570,54,18,14
-    PUSHBUTTON      "18",IDC_BUTTON26,588,54,18,14
-    PUSHBUTTON      "19",IDC_BUTTON27,444,72,18,14
-    PUSHBUTTON      "20",IDC_BUTTON28,462,72,18,14
-    PUSHBUTTON      "21",IDC_BUTTON29,480,72,18,14
-    PUSHBUTTON      "22",IDC_BUTTON30,498,72,18,14
-    PUSHBUTTON      "23",IDC_BUTTON31,516,72,18,14
-    PUSHBUTTON      "24",IDC_BUTTON32,534,72,18,14
-    PUSHBUTTON      "25",IDC_BUTTON33,552,72,18,14
-    PUSHBUTTON      "26",IDC_BUTTON34,570,72,18,14
-    PUSHBUTTON      "27",IDC_BUTTON35,588,72,18,14
-    PUSHBUTTON      "28",IDC_BUTTON36,444,90,18,14
-    PUSHBUTTON      "29",IDC_BUTTON37,462,90,18,14
-    PUSHBUTTON      "30",IDC_BUTTON38,480,90,18,14
-    PUSHBUTTON      "31",IDC_BUTTON39,498,90,18,14
-    PUSHBUTTON      "32",IDC_BUTTON40,516,90,18,14
-    PUSHBUTTON      "33",IDC_BUTTON41,534,90,18,14
-    PUSHBUTTON      "34",IDC_BUTTON42,552,90,18,14
-    PUSHBUTTON      "35",IDC_BUTTON43,570,90,18,14
-    PUSHBUTTON      "36",IDC_BUTTON44,588,90,18,14
-    PUSHBUTTON      "37",IDC_BUTTON45,444,108,18,14
-    PUSHBUTTON      "38",IDC_BUTTON46,462,108,18,14
-    PUSHBUTTON      "39",IDC_BUTTON47,480,108,18,14
-    PUSHBUTTON      "40",IDC_BUTTON48,498,108,18,14
-    PUSHBUTTON      "41",IDC_BUTTON49,516,108,18,14
-    PUSHBUTTON      "42",IDC_BUTTON50,534,108,18,14
-    PUSHBUTTON      "43",IDC_BUTTON51,552,108,18,14
-    PUSHBUTTON      "44",IDC_BUTTON52,570,108,18,14
-    PUSHBUTTON      "45",IDC_BUTTON53,588,108,18,14
-    PUSHBUTTON      "46",IDC_BUTTON54,444,126,18,14
-    PUSHBUTTON      "47",IDC_BUTTON55,462,126,18,14
-    PUSHBUTTON      "48",IDC_BUTTON56,480,126,18,14
-    PUSHBUTTON      "49",IDC_BUTTON57,498,126,18,14
-    PUSHBUTTON      "50",IDC_BUTTON58,516,126,18,14
-    PUSHBUTTON      "51",IDC_BUTTON59,534,126,18,14
-    PUSHBUTTON      "52",IDC_BUTTON60,552,126,18,14
-    PUSHBUTTON      "53",IDC_BUTTON61,570,126,18,14
-    PUSHBUTTON      "54",IDC_BUTTON62,588,126,18,14
-    PUSHBUTTON      "1",IDC_BUTTON9,444,36,18,14
-    PUSHBUTTON      "Reset",IDC_BUTTON63,555,16,50,14
-    PUSHBUTTON      "Speichern",IDC_BUTTON64,571,173,35,14,WS_DISABLED
-    PUSHBUTTON      "Speichern",IDC_BUTTON65,571,210,35,14,WS_DISABLED
-    PUSHBUTTON      "Verschlüsseln",IDC_BUTTON66,24,300,102,14,WS_DISABLED
-    PUSHBUTTON      "Abbrechen",IDC_BUTTON67,258,300,102,14
-    PUSHBUTTON      "Entschlüsseln",IDC_BUTTON68,138,300,102,14,WS_DISABLED
-    GROUPBOX        "Beschreibung",IDC_STATIC,216,6,214,46
+    GROUPBOX        "2a. Passworteingabe",IDC_STATIC,221,55,216,47
+    EDITTEXT        IDC_EDIT4,227,72,132,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Initialisieren",IDC_BUTTON1,371,72,50,14
+    GROUPBOX        "Schlüsselausgabe",IDC_STATIC,6,240,612,54
+    LTEXT           "Initialdeck:",IDC_STATIC,29,162,36,8
+    LTEXT           "Abschlussdeck:",IDC_STATIC,29,198,50,8
+    GROUPBOX        "3. Auswahl Schlüsselerzeugung",IDC_STATIC,6,108,204,40
+    GROUPBOX        "3a. Einzelschritte",IDC_STATIC,221,108,216,40
+    GROUPBOX        "2b. Initialdeck vorgeben",IDC_STATIC,443,6,175,144
+    PUSHBUTTON      "automatisch",IDC_BUTTON2,41,126,50,14
+    PUSHBUTTON      "manuell",IDC_BUTTON3,119,126,50,14
+    PUSHBUTTON      "Schritt 1",IDC_BUTTON4,227,126,36,14,WS_DISABLED
+    PUSHBUTTON      "Schritt 2",IDC_BUTTON5,269,126,36,14,WS_DISABLED
+    PUSHBUTTON      "Schritt 3",IDC_BUTTON6,311,126,36,14,WS_DISABLED
+    PUSHBUTTON      "Schritt 4",IDC_BUTTON7,353,126,36,14,WS_DISABLED
+    PUSHBUTTON      "Schritt 5",IDC_BUTTON8,395,126,36,14,WS_DISABLED
+    PUSHBUTTON      "2",IDC_BUTTON10,467,36,18,14
+    PUSHBUTTON      "3",IDC_BUTTON11,485,36,18,14
+    PUSHBUTTON      "4",IDC_BUTTON12,503,36,18,14
+    PUSHBUTTON      "5",IDC_BUTTON13,521,36,18,14
+    PUSHBUTTON      "6",IDC_BUTTON14,539,36,18,14
+    PUSHBUTTON      "7",IDC_BUTTON15,557,36,18,14
+    PUSHBUTTON      "8",IDC_BUTTON16,575,36,18,14
+    PUSHBUTTON      "9",IDC_BUTTON17,593,36,18,14
+    PUSHBUTTON      "10",IDC_BUTTON18,449,54,18,14
+    PUSHBUTTON      "11",IDC_BUTTON19,467,54,18,14
+    PUSHBUTTON      "12",IDC_BUTTON20,485,54,18,14
+    PUSHBUTTON      "13",IDC_BUTTON21,503,54,18,14
+    PUSHBUTTON      "14",IDC_BUTTON22,521,54,18,14
+    PUSHBUTTON      "15",IDC_BUTTON23,539,54,18,14
+    PUSHBUTTON      "16",IDC_BUTTON24,557,54,18,14
+    PUSHBUTTON      "17",IDC_BUTTON25,575,54,18,14
+    PUSHBUTTON      "18",IDC_BUTTON26,593,54,18,14
+    PUSHBUTTON      "19",IDC_BUTTON27,449,72,18,14
+    PUSHBUTTON      "20",IDC_BUTTON28,467,72,18,14
+    PUSHBUTTON      "21",IDC_BUTTON29,485,72,18,14
+    PUSHBUTTON      "22",IDC_BUTTON30,503,72,18,14
+    PUSHBUTTON      "23",IDC_BUTTON31,521,72,18,14
+    PUSHBUTTON      "24",IDC_BUTTON32,539,72,18,14
+    PUSHBUTTON      "25",IDC_BUTTON33,557,72,18,14
+    PUSHBUTTON      "26",IDC_BUTTON34,575,72,18,14
+    PUSHBUTTON      "27",IDC_BUTTON35,593,72,18,14
+    PUSHBUTTON      "28",IDC_BUTTON36,449,90,18,14
+    PUSHBUTTON      "29",IDC_BUTTON37,467,90,18,14
+    PUSHBUTTON      "30",IDC_BUTTON38,485,90,18,14
+    PUSHBUTTON      "31",IDC_BUTTON39,503,90,18,14
+    PUSHBUTTON      "32",IDC_BUTTON40,521,90,18,14
+    PUSHBUTTON      "33",IDC_BUTTON41,539,90,18,14
+    PUSHBUTTON      "34",IDC_BUTTON42,557,90,18,14
+    PUSHBUTTON      "35",IDC_BUTTON43,575,90,18,14
+    PUSHBUTTON      "36",IDC_BUTTON44,593,90,18,14
+    PUSHBUTTON      "37",IDC_BUTTON45,449,108,18,14
+    PUSHBUTTON      "38",IDC_BUTTON46,467,108,18,14
+    PUSHBUTTON      "39",IDC_BUTTON47,485,108,18,14
+    PUSHBUTTON      "40",IDC_BUTTON48,503,108,18,14
+    PUSHBUTTON      "41",IDC_BUTTON49,521,108,18,14
+    PUSHBUTTON      "42",IDC_BUTTON50,539,108,18,14
+    PUSHBUTTON      "43",IDC_BUTTON51,557,108,18,14
+    PUSHBUTTON      "44",IDC_BUTTON52,575,108,18,14
+    PUSHBUTTON      "45",IDC_BUTTON53,593,108,18,14
+    PUSHBUTTON      "46",IDC_BUTTON54,449,126,18,14
+    PUSHBUTTON      "47",IDC_BUTTON55,467,126,18,14
+    PUSHBUTTON      "48",IDC_BUTTON56,485,126,18,14
+    PUSHBUTTON      "49",IDC_BUTTON57,503,126,18,14
+    PUSHBUTTON      "50",IDC_BUTTON58,521,126,18,14
+    PUSHBUTTON      "51",IDC_BUTTON59,539,126,18,14
+    PUSHBUTTON      "52",IDC_BUTTON60,557,126,18,14
+    PUSHBUTTON      "53",IDC_BUTTON61,575,126,18,14
+    PUSHBUTTON      "54",IDC_BUTTON62,593,126,18,14
+    PUSHBUTTON      "1",IDC_BUTTON9,449,36,18,14
+    PUSHBUTTON      "Reset",IDC_BUTTON63,568,16,50,14
+    PUSHBUTTON      "Speichern",IDC_BUTTON64,576,173,35,14,WS_DISABLED
+    PUSHBUTTON      "Speichern",IDC_BUTTON65,576,210,35,14,WS_DISABLED
+    PUSHBUTTON      "Verschlüsseln",IDC_BUTTON66,6,301,102,19,WS_DISABLED
+    PUSHBUTTON      "Abbrechen",IDC_BUTTON67,516,301,102,19
+    PUSHBUTTON      "Entschlüsseln",IDC_BUTTON68,124,301,102,19,WS_DISABLED
+    GROUPBOX        "Beschreibung",IDC_STATIC,221,6,214,46
     LTEXT           "Dieser Dialog erzeugt einen Schlüsselstrom mit dem Solitaire-Algorithmus. Anschließend kann ein Klartext verschlüsselt bzw. ein Geheimtext entschlüsselt werden.",
-                    IDC_STATIC,228,18,192,24
+                    IDC_STATIC,233,18,192,24
     CONTROL         "Paste",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,
-                    419,302,23,15
+                    256,305,23,15
 END
 
 IDD_SOLITAIRE_ANALYSE DIALOG DISCARDABLE  0, 0, 620, 351
@@ -4722,7 +4721,7 @@ END
 IDD_SET_VISOPT DIALOGEX 0, 0, 231, 134
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "3-D-Visualisierung - Optionen"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,112,112,50,15
     PUSHBUTTON      "Abbrechen",IDCANCEL,174,112,50,15
@@ -11284,6 +11283,12 @@ BEGIN
         BOTTOMMARGIN, 273
     END
 
+    IDD_HASH_DEMO, DIALOG
+    BEGIN
+        VERTGUIDE, 16
+        HORZGUIDE, 68
+    END
+
     IDD_STARTOPTIONS, DIALOG
     BEGIN
         LEFTMARGIN, 12
@@ -11544,6 +11549,14 @@ BEGIN
         VERTGUIDE, 21
         VERTGUIDE, 302
         HORZGUIDE, 35
+    END
+
+    IDD_SOLITAIRE, DIALOG
+    BEGIN
+        VERTGUIDE, 6
+        VERTGUIDE, 618
+        HORZGUIDE, 301
+        HORZGUIDE, 320
     END
 
     IDD_SET_VISOPT, DIALOG
@@ -12461,7 +12474,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_STRING_Hashdemo_orighash "Hashwert der Originaldatei '%s'"
+    IDS_STRING_Hashdemo_orighash "Hash-Demo: %s-Hash für "
     IDS_STRING_REFERENCE_FILE "Referenzdatei"
     IDS_STRING_TESTS_ERGEBNIS_INFO 
                             "Maximaler Testwert: %lf\nTestergebnis: %lf\n"
@@ -13797,6 +13810,16 @@ BEGIN
                             "Fehlerhafter Base64 Code.Keine eindeutige Dekodierung der letzten Zeichen möglich!"
     IDS_STRING_MSG_BASE64DEC_OF "Base64 Dekodierung von <%s>"
     IDS_STRING_MSG_BASE64ENC_OF "Base64 Codierung von <%s>"
+    IDS_BYTES               "Bytes"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TITLE_DLG_RSAENCRYPTION 
+                            "Auswahl eines Schlüssels zur RSA-Verschlüsselung von <%s>"
+    IDS_TITLE_DLG_SOLITAIRE "Erzeugung eines Solitaire-Schlüsselstroms für <%s>"
+    IDS_TITLE_DLG_RSADECRYPTION 
+                            "Auswahl eines Schlüssels zur RSA-Entschlüsselung von <%s>"
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -13823,19 +13846,19 @@ CAPTION "Document Properties"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Close",IDOK,249,129,66,22
-    GROUPBOX        "Information",IDC_STATIC,7,7,308,73
+    GROUPBOX        "Information about the actually selected document",
+                    IDC_STATIC,7,7,308,73
     RTEXT           "Document name:",IDC_STATIC,13,29,66,9
     RTEXT           "Document size:",IDC_STATIC,13,54,65,10
     RTEXT           "Document type:",IDC_STATIC,13,41,66,10
     EDITTEXT        IDC_EDIT1,85,66,223,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     EDITTEXT        IDC_EDIT2,85,54,41,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
-                    WS_BORDER,WS_EX_RIGHT
+                    WS_BORDER
     EDITTEXT        IDC_EDIT132,85,41,111,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     CONTROL         "Paste",IDC_BUTTON1,"Button",BS_OWNERDRAW | WS_TABSTOP,7,
                     129,25,22
-    LTEXT           "bytes",IDC_STATIC,133,54,18,10
     LTEXT           "Temporary file:",IDC_STATIC,13,66,66,8,0,WS_EX_RIGHT
     EDITTEXT        IDC_EDIT3,85,29,223,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
@@ -13945,10 +13968,10 @@ BEGIN
     LTEXT           "Curve width   (1-10) :",IDC_STATIC,21,31,84,10
 END
 
-IDD_KEY_HILL5X5 DIALOG DISCARDABLE  0, 0, 217, 223
+IDD_KEY_HILL5X5 DIALOGEX 0, 0, 217, 223
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Key Entry: Hill"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT11,20,21,11,12
     EDITTEXT        IDC_EDIT12,40,21,11,12
@@ -14482,10 +14505,10 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_AUTHORS DIALOGEX 0, 0, 291, 290
+IDD_AUTHORS DIALOG DISCARDABLE  0, 0, 291, 290
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About CrypTool: Contributors"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,119,267,50,15
     CTEXT           "Persons Contributing to CrypTool",IDC_STATIC,7,6,277,11,
@@ -14502,7 +14525,8 @@ BEGIN
     GROUPBOX        " Implementation, Documentation, Translation ",
                     IDC_STATIC,7,110,277,100,BS_CENTER
     GROUPBOX        " Review and Feedback",IDC_STATIC,7,218,277,43,BS_CENTER
-    LTEXT           "Ariane Büger\nKarsten Schaar",IDC_STATIC,18,232,84,26
+    LTEXT           "Ariane Büger\nKarsten Schaar\nSibylle Müller",
+                    IDC_STATIC,18,232,84,26
     LTEXT           "Matthias Büger\nWolfgang Scondo\n...and many others.",
                     IDC_STATIC,102,232,84,26
     LTEXT           "Wolfgang Patzewitz\nGary Tagg",IDC_STATIC,186,232,85,26
@@ -14711,10 +14735,10 @@ BEGIN
     EDITTEXT        IDC_EDIT1010,211,235,11,12,ES_READONLY
 END
 
-IDD_KEY_HILL_10X10 DIALOG DISCARDABLE  0, 0, 329, 311
+IDD_KEY_HILL_10X10 DIALOGEX 0, 0, 329, 311
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Key Entry: Hill"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT11,23,24,11,12
     EDITTEXT        IDC_EDIT12,43,24,11,12
@@ -14863,10 +14887,10 @@ BEGIN
     EDITTEXT        IDC_EDIT1,10,25,257,24,ES_MULTILINE | ES_READONLY
 END
 
-IDD_SIGNATURE DIALOG DISCARDABLE  0, 0, 388, 377
+IDD_SIGNATURE DIALOGEX 0, 0, 388, 377
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Sign a Message"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Sign",IDOK,11,347,93,20
     CONTROL         "List2",IDC_LIST2,"SysListView32",LVS_REPORT | 
@@ -15177,10 +15201,10 @@ BEGIN
                     WS_TABSTOP,16,188,105,16
 END
 
-IDD_KEY_PLAYFAIR DIALOG DISCARDABLE  0, 0, 237, 262
+IDD_KEY_PLAYFAIR DIALOGEX 0, 0, 237, 262
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Key Entry: Playfair"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_KEYENTER,24,75,165,12,ES_AUTOHSCROLL
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
@@ -15720,10 +15744,10 @@ BEGIN
                     -1,7,39,310,10
 END
 
-IDD_KEY_PERMUTATION DIALOGEX 0, 0, 280, 324
+IDD_KEY_PERMUTATION DIALOG DISCARDABLE  0, 0, 280, 324
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Key Entry: Permutation / Transposition"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+FONT 8, "MS Sans Serif"
 BEGIN
     EDITTEXT        IDC_EDIT1,23,39,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,23,161,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
@@ -15760,14 +15784,16 @@ BEGIN
                     162,295,22,20
     EDITTEXT        IDC_EDIT3,23,68,234,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
                     WS_DISABLED
-    GROUPBOX        "1. Permutation (simple)",IDC_STATIC,12,13,256,108
+    GROUPBOX        "1. Permutation (simple column transposition)",
+                    IDC_STATIC,12,13,256,108
     LTEXT           "Key (via letters or via comma seperated numbers)",
                     IDC_STATIC,23,29,234,8
     LTEXT           "Presentation as permutation if key is given in letters",
                     IDC_STATIC,23,59,234,8
     EDITTEXT        IDC_EDIT4,23,190,234,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
                     WS_DISABLED
-    GROUPBOX        "2. Permutation (double)",IDC_STATIC,12,134,256,109
+    GROUPBOX        "2. Permutation (double column transposition)",
+                    IDC_STATIC,12,134,256,109
     LTEXT           "Key (via letters or via comma seperated numbers)",
                     IDC_STATIC,23,151,234,8
     LTEXT           "Presentation as permutation if key is given in letters",
@@ -16244,42 +16270,38 @@ BEGIN
     PUSHBUTTON      "&Show certificate",IDC_SHOW_CERTIFICATE,233,227,72,18
 END
 
-IDD_HASH_DEMO DIALOG DISCARDABLE  0, 0, 328, 388
+IDD_HASH_DEMO DIALOG DISCARDABLE  0, 0, 328, 366
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hash Demonstration"
 FONT 8, "MS Sans Serif"
 BEGIN
-    GROUPBOX        "Selection of hash function",IDC_STATIC,16,10,95,62
-    CONTROL         "MD&2",IDC_RADIO_MD2,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,33,25,31,10
-    CONTROL         "MD&5",IDC_RADIO_MD5,"Button",BS_AUTORADIOBUTTON,33,41,
-                    31,10
-    CONTROL         "SHA-&1",IDC_RADIO_SHA1,"Button",BS_AUTORADIOBUTTON,33,
-                    57,34,10
-    GROUPBOX        "Base of hash values",IDC_STATIC,217,9,93,63
+    GROUPBOX        "Selection of hash function",IDC_STATIC,16,7,100,41
+    GROUPBOX        "Base of hash values",IDC_STATIC,126,7,184,41
     CONTROL         "&decimal",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,232,41,40,10
+                    WS_GROUP,222,30,40,10
     CONTROL         "&hexadecimal",IDC_RADIO_HEX,"Button",BS_AUTORADIOBUTTON,
-                    232,26,55,10
-    CONTROL         "&binary",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,232,
-                    58,31,10
+                    154,30,55,10
+    CONTROL         "&binary",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,271,
+                    30,31,10
     LTEXT           "Actual file (this copy of the original file can be modified here)",
-                    IDC_STATIC,16,85,294,8,NOT WS_GROUP
-    EDITTEXT        IDC_EDIT_TEXT,16,97,294,113,ES_MULTILINE | ES_WANTRETURN | 
+                    IDC_STATIC,16,61,294,8,NOT WS_GROUP
+    EDITTEXT        IDC_EDIT_TEXT,16,73,294,113,ES_MULTILINE | ES_WANTRETURN | 
                     WS_VSCROLL
     LTEXT           "Hash value of the original file",IDC_STATIC_TITEL,16,
-                    219,194,8
-    EDITTEXT        IDC_EDIT_ORIGHASH,16,229,294,14,ES_AUTOHSCROLL | 
+                    195,194,8
+    EDITTEXT        IDC_EDIT_ORIGHASH,16,205,294,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    LTEXT           "Hash value of the actual file",IDC_STATIC,16,252,89,8
-    EDITTEXT        IDC_EDIT_AKTHASH,16,262,294,14,ES_AUTOHSCROLL | 
+    LTEXT           "Hash value of the actual file",IDC_STATIC,16,228,89,8
+    EDITTEXT        IDC_EDIT_AKTHASH,16,238,294,14,ES_AUTOHSCROLL | 
                     ES_READONLY
     LTEXT           "Difference between hash values of the original and actual file",
-                    IDC_STATIC,16,284,252,8
-    PUSHBUTTON      "E&xit",IDCANCEL,251,366,59,14
+                    IDC_STATIC,16,260,252,8
+    PUSHBUTTON      "E&xit",IDCANCEL,251,342,59,14
     CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",ES_MULTILINE | 
                     ES_READONLY | ES_WANTRETURN | WS_BORDER | WS_TABSTOP,16,
-                    296,294,64
+                    272,294,64
+    COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,23,27,88,61,
+                    CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
 END
 
 IDD_HYBRID_ENCRYPTION_DEMO DIALOG DISCARDABLE  0, 0, 555, 429
@@ -18291,106 +18313,106 @@ BEGIN
                     121,35,18
 END
 
-IDD_SOLITAIRE DIALOG DISCARDABLE  0, 0, 622, 335
+IDD_SOLITAIRE DIALOG DISCARDABLE  0, 0, 625, 329
 STYLE DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Solitaire"
+CAPTION "Generation of the Solitaire key stream"
 FONT 8, "MS Shell Dlg"
 BEGIN
-    COMBOBOX        IDC_Kartenanzahl,12,24,30,204,CBS_DROPDOWNLIST | 
+    COMBOBOX        IDC_Kartenanzahl,18,24,30,204,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    GROUPBOX        "1. Choose number of cards",IDC_STATIC,1,6,204,42
-    LTEXT           "Classic: 54 cards",IDC_STATIC,54,24,66,8
-    COMBOBOX        IDC_COMBO2,12,72,90,72,CBS_DROPDOWNLIST | WS_VSCROLL | 
+    GROUPBOX        "1. Choose number of cards",IDC_STATIC,7,6,204,42
+    LTEXT           "Classic: 54 cards",IDC_STATIC,60,24,66,8
+    COMBOBOX        IDC_COMBO2,18,72,90,72,CBS_DROPDOWNLIST | WS_VSCROLL | 
                     WS_TABSTOP
-    EDITTEXT        IDC_EDIT1,18,174,552,14,ES_AUTOHSCROLL | ES_READONLY
-    GROUPBOX        "Deck output",IDC_STATIC,1,150,612,84
-    EDITTEXT        IDC_EDIT2,18,210,551,14,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT3,18,252,551,30,ES_MULTILINE | ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDIT1,16,174,552,14,ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Deck output",IDC_STATIC,7,150,612,84
+    EDITTEXT        IDC_EDIT2,16,210,551,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT3,16,252,551,30,ES_MULTILINE | ES_AUTOHSCROLL | 
                     ES_READONLY
-    GROUPBOX        "2. Choose type of initial key",IDC_STATIC,1,54,204,48
-    GROUPBOX        "Enter password",IDC_STATIC,216,55,216,47
-    EDITTEXT        IDC_EDIT4,222,72,132,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Init password",IDC_BUTTON1,366,72,50,14
-    GROUPBOX        "keystream output:",IDC_STATIC,1,240,612,54
-    LTEXT           "Initial deck:",IDC_STATIC,24,162,38,8
-    LTEXT           "final deck:",IDC_STATIC,24,198,34,8
-    GROUPBOX        "3. Choose type of key generation",IDC_STATIC,1,108,204,
+    GROUPBOX        "2. Choose type of initial key",IDC_STATIC,7,54,204,48
+    GROUPBOX        "Enter password",IDC_STATIC,222,55,216,47
+    EDITTEXT        IDC_EDIT4,228,72,132,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Initialize",IDC_BUTTON1,372,72,50,14
+    GROUPBOX        "Keystream output",IDC_STATIC,7,240,612,54
+    LTEXT           "Initial deck:",IDC_STATIC,16,162,38,8
+    LTEXT           "Final deck:",IDC_STATIC,16,198,36,8
+    GROUPBOX        "3. Choose type of key generation",IDC_STATIC,7,108,204,
                     40
-    GROUPBOX        "3a. manual steps",IDC_STATIC,216,108,216,40
-    GROUPBOX        "2b. Enter initial key by yourself",IDC_STATIC,438,6,175,
+    GROUPBOX        "3a. Manual steps",IDC_STATIC,222,108,216,40
+    GROUPBOX        "2b. Enter initial key by yourself",IDC_STATIC,444,6,175,
                     144
-    PUSHBUTTON      "automatical",IDC_BUTTON2,36,126,50,14
-    PUSHBUTTON      "manual",IDC_BUTTON3,114,126,50,14
-    PUSHBUTTON      "Step 1",IDC_BUTTON4,222,126,36,14,WS_DISABLED
-    PUSHBUTTON      "Step 2",IDC_BUTTON5,264,126,36,14,WS_DISABLED
-    PUSHBUTTON      "Step 3",IDC_BUTTON6,306,126,36,14,WS_DISABLED
-    PUSHBUTTON      "Step 4",IDC_BUTTON7,348,126,36,14,WS_DISABLED
-    PUSHBUTTON      "Step 5",IDC_BUTTON8,390,126,36,14,WS_DISABLED
-    PUSHBUTTON      "2",IDC_BUTTON10,462,36,18,14
-    PUSHBUTTON      "3",IDC_BUTTON11,480,36,18,14
-    PUSHBUTTON      "4",IDC_BUTTON12,498,36,18,14
-    PUSHBUTTON      "5",IDC_BUTTON13,516,36,18,14
-    PUSHBUTTON      "6",IDC_BUTTON14,534,36,18,14
-    PUSHBUTTON      "7",IDC_BUTTON15,552,36,18,14
-    PUSHBUTTON      "8",IDC_BUTTON16,570,36,18,14
-    PUSHBUTTON      "9",IDC_BUTTON17,588,36,18,14
-    PUSHBUTTON      "10",IDC_BUTTON18,444,54,18,14
-    PUSHBUTTON      "11",IDC_BUTTON19,462,54,18,14
-    PUSHBUTTON      "12",IDC_BUTTON20,480,54,18,14
-    PUSHBUTTON      "13",IDC_BUTTON21,498,54,18,14
-    PUSHBUTTON      "14",IDC_BUTTON22,516,54,18,14
-    PUSHBUTTON      "15",IDC_BUTTON23,534,54,18,14
-    PUSHBUTTON      "16",IDC_BUTTON24,552,54,18,14
-    PUSHBUTTON      "17",IDC_BUTTON25,570,54,18,14
-    PUSHBUTTON      "18",IDC_BUTTON26,588,54,18,14
-    PUSHBUTTON      "19",IDC_BUTTON27,444,72,18,14
-    PUSHBUTTON      "20",IDC_BUTTON28,462,72,18,14
-    PUSHBUTTON      "21",IDC_BUTTON29,480,72,18,14
-    PUSHBUTTON      "22",IDC_BUTTON30,498,72,18,14
-    PUSHBUTTON      "23",IDC_BUTTON31,516,72,18,14
-    PUSHBUTTON      "24",IDC_BUTTON32,534,72,18,14
-    PUSHBUTTON      "25",IDC_BUTTON33,552,72,18,14
-    PUSHBUTTON      "26",IDC_BUTTON34,570,72,18,14
-    PUSHBUTTON      "27",IDC_BUTTON35,588,72,18,14
-    PUSHBUTTON      "28",IDC_BUTTON36,444,90,18,14
-    PUSHBUTTON      "29",IDC_BUTTON37,462,90,18,14
-    PUSHBUTTON      "30",IDC_BUTTON38,480,90,18,14
-    PUSHBUTTON      "31",IDC_BUTTON39,498,90,18,14
-    PUSHBUTTON      "32",IDC_BUTTON40,516,90,18,14
-    PUSHBUTTON      "33",IDC_BUTTON41,534,90,18,14
-    PUSHBUTTON      "34",IDC_BUTTON42,552,90,18,14
-    PUSHBUTTON      "35",IDC_BUTTON43,570,90,18,14
-    PUSHBUTTON      "36",IDC_BUTTON44,588,90,18,14
-    PUSHBUTTON      "37",IDC_BUTTON45,444,108,18,14
-    PUSHBUTTON      "38",IDC_BUTTON46,462,108,18,14
-    PUSHBUTTON      "39",IDC_BUTTON47,480,108,18,14
-    PUSHBUTTON      "40",IDC_BUTTON48,498,108,18,14
-    PUSHBUTTON      "41",IDC_BUTTON49,516,108,18,14
-    PUSHBUTTON      "42",IDC_BUTTON50,534,108,18,14
-    PUSHBUTTON      "43",IDC_BUTTON51,552,108,18,14
-    PUSHBUTTON      "44",IDC_BUTTON52,570,108,18,14
-    PUSHBUTTON      "45",IDC_BUTTON53,588,108,18,14
-    PUSHBUTTON      "46",IDC_BUTTON54,444,126,18,14
-    PUSHBUTTON      "47",IDC_BUTTON55,462,126,18,14
-    PUSHBUTTON      "48",IDC_BUTTON56,480,126,18,14
-    PUSHBUTTON      "49",IDC_BUTTON57,498,126,18,14
-    PUSHBUTTON      "50",IDC_BUTTON58,516,126,18,14
-    PUSHBUTTON      "51",IDC_BUTTON59,534,126,18,14
-    PUSHBUTTON      "52",IDC_BUTTON60,552,126,18,14
-    PUSHBUTTON      "53",IDC_BUTTON61,570,126,18,14
-    PUSHBUTTON      "54",IDC_BUTTON62,588,126,18,14
-    PUSHBUTTON      "1",IDC_BUTTON9,444,36,18,14
-    PUSHBUTTON      "Reset",IDC_BUTTON63,555,16,50,14
-    PUSHBUTTON      "Save",IDC_BUTTON64,571,173,35,14,WS_DISABLED
-    PUSHBUTTON      "Save",IDC_BUTTON65,571,210,35,14,WS_DISABLED
-    PUSHBUTTON      "Encrypt",IDC_BUTTON66,24,300,102,14,WS_DISABLED
-    PUSHBUTTON      "Cancel",IDC_BUTTON67,258,300,102,14
-    PUSHBUTTON      "Decrypt",IDC_BUTTON68,138,300,102,14,WS_DISABLED
-    GROUPBOX        "Description",IDC_STATIC,216,6,214,46
-    LTEXT           "This dialogue generates a keystream with the SOLITAIRE-algorithm.\nAfter that entered messages can be encrypted or decrypted .",
-                    IDC_STATIC,226,15,192,32
+    PUSHBUTTON      "automatical",IDC_BUTTON2,42,126,50,14
+    PUSHBUTTON      "manual",IDC_BUTTON3,120,126,50,14
+    PUSHBUTTON      "Step 1",IDC_BUTTON4,228,126,36,14,WS_DISABLED
+    PUSHBUTTON      "Step 2",IDC_BUTTON5,270,126,36,14,WS_DISABLED
+    PUSHBUTTON      "Step 3",IDC_BUTTON6,312,126,36,14,WS_DISABLED
+    PUSHBUTTON      "Step 4",IDC_BUTTON7,354,126,36,14,WS_DISABLED
+    PUSHBUTTON      "Step 5",IDC_BUTTON8,396,126,36,14,WS_DISABLED
+    PUSHBUTTON      "2",IDC_BUTTON10,468,36,18,14
+    PUSHBUTTON      "3",IDC_BUTTON11,486,36,18,14
+    PUSHBUTTON      "4",IDC_BUTTON12,504,36,18,14
+    PUSHBUTTON      "5",IDC_BUTTON13,522,36,18,14
+    PUSHBUTTON      "6",IDC_BUTTON14,540,36,18,14
+    PUSHBUTTON      "7",IDC_BUTTON15,558,36,18,14
+    PUSHBUTTON      "8",IDC_BUTTON16,576,36,18,14
+    PUSHBUTTON      "9",IDC_BUTTON17,594,36,18,14
+    PUSHBUTTON      "10",IDC_BUTTON18,450,54,18,14
+    PUSHBUTTON      "11",IDC_BUTTON19,468,54,18,14
+    PUSHBUTTON      "12",IDC_BUTTON20,486,54,18,14
+    PUSHBUTTON      "13",IDC_BUTTON21,504,54,18,14
+    PUSHBUTTON      "14",IDC_BUTTON22,522,54,18,14
+    PUSHBUTTON      "15",IDC_BUTTON23,540,54,18,14
+    PUSHBUTTON      "16",IDC_BUTTON24,558,54,18,14
+    PUSHBUTTON      "17",IDC_BUTTON25,576,54,18,14
+    PUSHBUTTON      "18",IDC_BUTTON26,594,54,18,14
+    PUSHBUTTON      "19",IDC_BUTTON27,450,72,18,14
+    PUSHBUTTON      "20",IDC_BUTTON28,468,72,18,14
+    PUSHBUTTON      "21",IDC_BUTTON29,486,72,18,14
+    PUSHBUTTON      "22",IDC_BUTTON30,504,72,18,14
+    PUSHBUTTON      "23",IDC_BUTTON31,522,72,18,14
+    PUSHBUTTON      "24",IDC_BUTTON32,540,72,18,14
+    PUSHBUTTON      "25",IDC_BUTTON33,558,72,18,14
+    PUSHBUTTON      "26",IDC_BUTTON34,576,72,18,14
+    PUSHBUTTON      "27",IDC_BUTTON35,594,72,18,14
+    PUSHBUTTON      "28",IDC_BUTTON36,450,90,18,14
+    PUSHBUTTON      "29",IDC_BUTTON37,468,90,18,14
+    PUSHBUTTON      "30",IDC_BUTTON38,486,90,18,14
+    PUSHBUTTON      "31",IDC_BUTTON39,504,90,18,14
+    PUSHBUTTON      "32",IDC_BUTTON40,522,90,18,14
+    PUSHBUTTON      "33",IDC_BUTTON41,540,90,18,14
+    PUSHBUTTON      "34",IDC_BUTTON42,558,90,18,14
+    PUSHBUTTON      "35",IDC_BUTTON43,576,90,18,14
+    PUSHBUTTON      "36",IDC_BUTTON44,594,90,18,14
+    PUSHBUTTON      "37",IDC_BUTTON45,450,108,18,14
+    PUSHBUTTON      "38",IDC_BUTTON46,468,108,18,14
+    PUSHBUTTON      "39",IDC_BUTTON47,486,108,18,14
+    PUSHBUTTON      "40",IDC_BUTTON48,504,108,18,14
+    PUSHBUTTON      "41",IDC_BUTTON49,522,108,18,14
+    PUSHBUTTON      "42",IDC_BUTTON50,540,108,18,14
+    PUSHBUTTON      "43",IDC_BUTTON51,558,108,18,14
+    PUSHBUTTON      "44",IDC_BUTTON52,576,108,18,14
+    PUSHBUTTON      "45",IDC_BUTTON53,594,108,18,14
+    PUSHBUTTON      "46",IDC_BUTTON54,450,126,18,14
+    PUSHBUTTON      "47",IDC_BUTTON55,468,126,18,14
+    PUSHBUTTON      "48",IDC_BUTTON56,486,126,18,14
+    PUSHBUTTON      "49",IDC_BUTTON57,504,126,18,14
+    PUSHBUTTON      "50",IDC_BUTTON58,522,126,18,14
+    PUSHBUTTON      "51",IDC_BUTTON59,540,126,18,14
+    PUSHBUTTON      "52",IDC_BUTTON60,558,126,18,14
+    PUSHBUTTON      "53",IDC_BUTTON61,576,126,18,14
+    PUSHBUTTON      "54",IDC_BUTTON62,594,126,18,14
+    PUSHBUTTON      "1",IDC_BUTTON9,450,36,18,14
+    PUSHBUTTON      "Reset",IDC_BUTTON63,561,16,50,14
+    PUSHBUTTON      "Save",IDC_BUTTON64,577,173,35,14,WS_DISABLED
+    PUSHBUTTON      "Save",IDC_BUTTON65,577,210,35,14,WS_DISABLED
+    PUSHBUTTON      "Encrypt",IDC_BUTTON66,7,304,102,18,WS_DISABLED
+    PUSHBUTTON      "Cancel",IDC_BUTTON67,517,304,102,18
+    PUSHBUTTON      "Decrypt",IDC_BUTTON68,121,304,102,18,WS_DISABLED
+    GROUPBOX        "Description",IDC_STATIC,222,6,214,46
+    LTEXT           "This dialogue generates a keystream with the Solitaire- algorithm. The key stream is used to encrypt or decrypt the given message.",
+                    IDC_STATIC,232,15,192,32
     CONTROL         "Paste",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,
-                    419,302,23,15
+                    241,307,23,15
 END
 
 IDD_SOLITAIRE_ANALYSE DIALOG DISCARDABLE  0, 0, 620, 351
@@ -18490,7 +18512,7 @@ END
 IDD_SET_VISOPT DIALOGEX 0, 0, 231, 134
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "3-D Visualisation - Options"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,112,112,50,15
     PUSHBUTTON      "Cancel",IDCANCEL,174,112,50,15
@@ -18518,6 +18540,19 @@ BEGIN
     EDITTEXT        IDC_EDIT_SHIFT,62,40,30,18,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "%",IDC_STATIC,92,40,16,18
     PUSHBUTTON      "Reset",IDC_BUTTON_RESET,7,112,48,15
+END
+
+IDD_FIND_TEXT DIALOG DISCARDABLE  0, 0, 278, 89
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Search"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,157,64,50,18
+    PUSHBUTTON      "Cancel",IDCANCEL,221,64,50,18
+    GROUPBOX        "Enter search text",IDC_STATIC,7,7,264,51
+    EDITTEXT        IDC_EDIT1,15,21,248,13,ES_AUTOHSCROLL
+    CONTROL         "Groß Kleinschreibung beachten",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,16,41,117,9
 END
 
 
@@ -25274,6 +25309,8 @@ BEGIN
     BEGIN
         VERTGUIDE, 16
         VERTGUIDE, 310
+        HORZGUIDE, 48
+        HORZGUIDE, 64
     END
 
     IDD_HYBRID_ENCRYPTION_DEMO, DIALOG
@@ -25564,6 +25601,15 @@ BEGIN
     IDD_KEY_MONSUBST, DIALOG
     BEGIN
         VERTGUIDE, 21
+    END
+
+    IDD_SOLITAIRE, DIALOG
+    BEGIN
+        VERTGUIDE, 7
+        VERTGUIDE, 546
+        VERTGUIDE, 619
+        HORZGUIDE, 304
+        HORZGUIDE, 322
     END
 
     IDD_SET_VISOPT, DIALOG
@@ -26449,7 +26495,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_STRING_Hashdemo_orighash "Hash value of the original file '%s'"
+    IDS_STRING_Hashdemo_orighash "Hash demo: %s Hash of "
     IDS_STRING_REFERENCE_FILE "Reference file"
     IDS_STRING_TESTS_ERGEBNIS_INFO 
                             "Maximal test value: %lf\ntest result: %lf\n"
@@ -27754,6 +27800,16 @@ BEGIN
                             "Bade base64 block.No clear decoding of the last chars possible!"
     IDS_STRING_MSG_BASE64DEC_OF "Base64 decoding of <%s>"
     IDS_STRING_MSG_BASE64ENC_OF "Base64 encoding of <%s>"
+    IDS_BYTES               "bytes"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TITLE_DLG_RSAENCRYPTION 
+                            "Selection of a key for RSA encryption of <%s>"
+    IDS_TITLE_DLG_SOLITAIRE "Generation of a Solitaire key strem for <%s>"
+    IDS_TITLE_DLG_RSADECRYPTION 
+                            "Selection of a key for RSA decryption of <%s>"
 END
 
 #endif    // Englisch (GB) resources

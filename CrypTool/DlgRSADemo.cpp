@@ -449,8 +449,7 @@ int load(CString &Src, const char *pattern, CString *Dest)
 //    Dialog übertragen.
 
 int CDlgRSADemo::CheckRSAParameter()
-{
-	UpdateData();	
+{	UpdateData();	
 	int ret;
 	if ( KeyStatusPublicKeyOnly() )
 	{ // Öffentliche RSA-Parameter ...
@@ -881,8 +880,8 @@ BOOL CDlgRSADemo::PreCheckNumExpression( CEdit &editCtrl, CString &editStr, cons
 			i++;
 		}
 	}
-	editCtrl.SetSel(sels, sele);
 	UpdateData(FALSE);
+	editCtrl.SetSel(sels, sele);
 	return ( res == editStr );
 }
 

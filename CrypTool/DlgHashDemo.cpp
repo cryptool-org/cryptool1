@@ -55,6 +55,14 @@ statement from your version.
 static char THIS_FILE[] = __FILE__;
 #endif
 
+
+#define STR_MD2 "MD2"
+#define STR_MD4 "MD4"
+#define STR_MD5 "MD5"
+#define STR_SHA "SHA"
+#define STR_SHA1 "SHA-1"
+#define STR_RIPEMD160 "RIPEMD-160"
+
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgHashDemo 
 
@@ -64,44 +72,42 @@ CDlgHashDemo::CDlgHashDemo(CWnd* pParent /*=NULL*/)
 {
 	//{{AFX_DATA_INIT(CDlgHashDemo)
 	m_rb_DarstHW = 1;
-	m_Auswahl_HW = 0;
 	m_strOrigHash = _T("");
 	m_strNewHash = _T("");
-//	m_strTitel = _T("");
 	//}}AFX_DATA_INIT
-	
+
+	m_dataOrig.octets = 0;
 	m_strHashDiffRE = _T("");
+	m_strTitle = _T("");
 }
 
+CDlgHashDemo::~CDlgHashDemo()
+{
+	if (m_dataOrig.octets)
+		delete []m_dataOrig.octets;
+}
 
 void CDlgHashDemo::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgHashDemo)
+	DDX_Control(pDX, IDC_COMBO_SELECT_HASH_FUNCTION, m_comboCtrlSelectHashFunction);
 	DDX_Control(pDX, IDC_EDIT_TEXT, m_ctrlText);
-	DDX_Control(pDX, IDC_EDIT_ORIGHASH, m_ctrlOrigHash);
-	DDX_Control(pDX, IDC_EDIT_AKTHASH, m_ctrlNewHash);
+	DDX_Control(pDX, IDC_RICHEDIT_HASHDIFF, m_ctrlHashDiff);
 	DDX_Radio(pDX, IDC_RADIO_DEC, m_rb_DarstHW);
-	DDX_Radio(pDX, IDC_RADIO_MD2, m_Auswahl_HW);
 	DDX_Text(pDX, IDC_EDIT_ORIGHASH, m_strOrigHash);
 	DDX_Text(pDX, IDC_EDIT_AKTHASH, m_strNewHash);
-	DDX_Control(pDX, IDC_RICHEDIT_HASHDIFF, m_ctrlHashDiff);
-//	DDX_Text(pDX, IDC_STATIC_TITEL, m_strTitel);
 	//}}AFX_DATA_MAP
 }
 
 
 BEGIN_MESSAGE_MAP(CDlgHashDemo, CDialog)
 	//{{AFX_MSG_MAP(CDlgHashDemo)
-	ON_BN_CLICKED(IDC_RADIO_MD2, OnRadioMd2)
-	ON_BN_CLICKED(IDC_RADIO_MD5, OnRadioMd5)
-	ON_BN_CLICKED(IDC_RADIO_SHA1, OnRadioSha1)
 	ON_BN_CLICKED(IDC_RADIO_BIN, OnRadioBin)
 	ON_BN_CLICKED(IDC_RADIO_DEC, OnRadioDec)
 	ON_BN_CLICKED(IDC_RADIO_HEX, OnRadioHex)
 	ON_EN_CHANGE(IDC_EDIT_TEXT, OnChangeEditText)
-	ON_WM_KEYDOWN()
-	ON_WM_PAINT()
+	ON_CBN_SELENDOK(IDC_COMBO_SELECT_HASH_FUNCTION, OnSelendokComboSelectHashFunction)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -136,329 +142,46 @@ BOOL CDlgHashDemo::OnInitDialog()
 	SetWindowText((LPCTSTR)title);
 	// Der Text in der Titelleiste von Hashdemo wird gesetzt
 
+	
+	m_comboCtrlSelectHashFunction.AddString(STR_MD2);
+	m_comboCtrlSelectHashFunction.AddString(STR_MD4);
+	m_comboCtrlSelectHashFunction.AddString(STR_MD5);
+	m_comboCtrlSelectHashFunction.AddString(STR_SHA);
+	m_comboCtrlSelectHashFunction.AddString(STR_SHA1);
+	m_comboCtrlSelectHashFunction.AddString(STR_RIPEMD160);
+
+	m_comboCtrlSelectHashFunction.SelectString(-1, STR_MD2);
+
 	m_ctrlText.SetWindowText(m_strText);
-	OnChangeEditText();
-	
-	
+	OnSelendokComboSelectHashFunction();	
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
 
-void CDlgHashDemo::SetHash(OctetString &hashMD2,OctetString &hashMD5,OctetString &hashSHA1)
-{
-	m_hashMD2=hashMD2;
-	m_hashMD5=hashMD5;
-	m_hashSHA1=hashSHA1;
-	//die Hashwerte der Originaldatei werden in m_hashxxx (in der Klasse Hash Demo) gespeichert
-
-	showHashHex( m_hashMD2 );
-	//Beim Aufruf des Dialogs soll der Hashwert MD2 hexadezimal angezeigt werden
-
-	SetNewHash(hashMD2,hashMD5,hashSHA1);
-	//der aktuellen Hashwerte sind beim Aufruf gleich denen der Originaldatei 
-	//und im Speicher gehalten,so daß bei der Betätigung der Radiobuttons nicht der 
-	//Hashwert jedes Mal neu berechnet werden muß
-	showNewHashHex(m_newHashMD2);
-	//der aktuelle Hashwert der Funktion MD2 wird gesetzt
-
-	SetHashDiff(m_hashMD2,m_newHashMD2);
-	//die Differenz der beiden Hashwerte wird gesetzt
-}
-
-void CDlgHashDemo::SetNewHash(OctetString &hashMD2,OctetString &hashMD5,OctetString &hashSHA1)
-{
-	m_newHashMD2=hashMD2;
-	m_newHashMD5=hashMD5;
-	m_newHashSHA1=hashSHA1;
-	//Initialisieren der Membervariablen der aktuellen Hashwerte 
-
-	switch(m_Auswahl_HW)
-	{
-	case 2:
-			switch(m_rb_DarstHW)
-		   {
-			case 1:showNewHashHex(m_newHashSHA1);
-				   break;
-			case 0:showNewHashDec(m_newHashSHA1);
-				   break;
-			case 2:showNewHashBin(m_newHashSHA1);
-				   break;
-		   }
-		   showDiffNewHashBin(m_newHashSHA1);
-           break;
-	case 1:
-			switch(m_rb_DarstHW)
-		   {
-			case 1:showNewHashHex(m_newHashMD5);
-				break;
-			case 0:showNewHashDec(m_newHashMD5);
-				break;
-			case 2:showNewHashBin(m_newHashMD5);
-				break;
-		   }
-           showDiffNewHashBin(m_newHashMD5);
-	       break;
-	case 0:
-			switch(m_rb_DarstHW)
-		   {
-			case 1:showNewHashHex(m_newHashMD2);
-				break;
-			case 0:showNewHashDec(m_newHashMD2);
-				break;
-			case 2:showNewHashBin(m_newHashMD2);
-				break;
-		   }
-		   showDiffNewHashBin(m_newHashMD2);
-	}
-}
-
-
-void CDlgHashDemo::OnRadioMd2() 
-{
-	OnChangeEditText();
-	hashTextWithMd2();
-	UpdateData(false);
-}
-
-void CDlgHashDemo::hashTextWithMd2()
-{
-	UpdateData(true);
-	
-	CString title;
-	title.LoadString(IDS_HASH_DEMO_TITLE_MD2);
-	SetWindowText((LPCTSTR)title);
-
-	m_strOrigHash = "";
-
-	if(m_rb_DarstHW==0)
-	{
-		OnRadioDec();
-	}
-	else if (m_rb_DarstHW==1)
-	{
-		OnRadioHex();
-	}
-	else
-	{
-		OnRadioBin();
-	}
-
-	showDiffOrigHashBin(m_hashMD2);
-	SetHashDiff(m_hashMD2,m_newHashMD2);
-
-	UpdateData(false);
-	
-}
-
-
-void CDlgHashDemo::OnRadioMd5() 
-{
-	OnChangeEditText();
-	hashTextWithMd5();
-	UpdateData(false);
-}
-
-void CDlgHashDemo::hashTextWithMd5()
-{
-	UpdateData(true);
-
-	CString title;
-	title.LoadString(IDS_HASH_DEMO_TITLE_MD5);
-	SetWindowText((LPCTSTR)title);
-	
-	if(m_rb_DarstHW==0)
-	{
-		OnRadioDec();
-	}
-	else if (m_rb_DarstHW==1)
-	{
-		OnRadioHex();
-	}
-	else
-	{
-		OnRadioBin();
-	}
-
-	showDiffOrigHashBin(m_hashMD5);
-	SetHashDiff(m_hashMD5,m_newHashMD5);
-
-	UpdateData(false);
-}
-
-
-void CDlgHashDemo::OnRadioSha1() 
-{
-	OnChangeEditText();
-	UpdateData(true);
-	hashTextWithSha1();
-	UpdateData(false);
-}
-
-void CDlgHashDemo::hashTextWithSha1()
-{
-	CString title;
-	title.LoadString(IDS_HASH_DEMO_TITLE_SHA1);
-	SetWindowText(title);
-
-	if(m_rb_DarstHW==0)
-	{
-		OnRadioDec();
-	}
-	else if (m_rb_DarstHW==1)
-	{
-		OnRadioHex();
-	}
-	else
-	{
-		OnRadioBin();
-	}
-
-	showDiffOrigHashBin(m_hashSHA1);
-	showDiffNewHashBin(m_hashSHA1);
-
-	SetHashDiff(m_hashSHA1,m_newHashSHA1);
-}
 
 void CDlgHashDemo::OnRadioHex() 
 {
 	UpdateData(true);
-    switch (m_Auswahl_HW) 
-	{	
-		case 0: showHashHex(m_hashMD2);
-				showNewHashHex(m_newHashMD2);
-			break;
-		case 1: showHashHex(m_hashMD5);
-				showNewHashHex(m_newHashMD5);
-			break;
-		case 2: showHashHex(m_hashSHA1);
-				showNewHashHex(m_newHashSHA1);
-			break;
-	}
-	UpdateData(false);
+	showHashHex(m_hash);
+	showNewHashHex(m_newHash);
+ 	UpdateData(false);
 }
-
-
-
-void CDlgHashDemo::showHashHex(OctetString &hash)
-{
-	m_strOrigHash="";
-
-	for (unsigned int i=0; i<hash.noctets; i++)
-		{
-			unsigned char x = hash.octets[i];
-			char c1, c2;
-			if (( x % 16 ) < 10 ) c2 = '0' + (x % 16); else c2 = 'A' + (x % 16) -10;
-			x /= 16;
-			if ( x < 10 ) c1 = '0' + x; else c1 = 'A' + x -10; 
-			m_strOrigHash += c1;
-			m_strOrigHash += c2;
-			if (i < hash.noctets+1) m_strOrigHash += ' ';
-		}
-
-}
-
 
 void CDlgHashDemo::OnRadioDec() 
 {
 	UpdateData(true);
-	switch (m_Auswahl_HW) 
-	{	
-		case 0: showHashDec(m_hashMD2);
-				showNewHashDec(m_newHashMD2);
-			break;
-		case 1: showHashDec(m_hashMD5);
-				showNewHashDec(m_newHashMD5);
-			break;
-		case 2: showHashDec(m_hashSHA1);
-				showNewHashDec(m_newHashSHA1);
-			break;
-	}
-	UpdateData(false);
+	showHashDec(m_hash);
+	showNewHashDec(m_newHash);
+ 	UpdateData(false);
 }
-
-
-void CDlgHashDemo::showHashDec(OctetString &hash)
-{
-
-	m_strOrigHash="";
-	for (unsigned int i=0; i<hash.noctets; i++)
-		{
-			unsigned char x = hash.octets[i];
-			char c1, c2,c3;
-			c3 = '0' + (x % 10);
-			x /= 10;
-			c2 = '0' + (x % 10);
-			x /= 10;
-			c1 = '0' + x;
-			m_strOrigHash += c1;
-			m_strOrigHash += c2;
-			m_strOrigHash += c3;
-			if (i < hash.noctets+1) m_strOrigHash += ' ';
-		}
-
-}
-
 
 void CDlgHashDemo::OnRadioBin() 
 {
 	UpdateData(true);
-	switch (m_Auswahl_HW) 
-	{	
-		case 0: showHashBin(m_hashMD2);
-				showNewHashBin(m_newHashMD2);
-
-			break;
-		case 1: showHashBin(m_hashMD5);
-				showNewHashBin(m_newHashMD5);
-
-			break;
-		case 2: showHashBin(m_hashSHA1);
-				showNewHashBin(m_newHashSHA1);
-
-			break;
-	}
+	showHashBin(m_hash);
+	showNewHashBin(m_newHash);
 	UpdateData(false);
-	
 }
-
-void CDlgHashDemo::showHashBin(OctetString &hash)
-{
-	CString txt1="#";
-	m_strOrigHash="";
-	for (unsigned int i=0; i<hash.noctets; i++)
-		{
-			unsigned char x = hash.octets[i];
-			char c1, c2,c3,c4,c5,c6,c7,c8;
-			c8 = '0' + (x % 2);
-			x /= 2;
-			c7 = '0' + (x % 2);
-			x /= 2;
-			c6 = '0' + (x % 2);
-			x /= 2;
-			c5 = '0' + (x % 2);
-			x /= 2;
-			c4 = '0' + (x % 2);
-			x /= 2;
-			c3 = '0' + (x % 2);
-			x /= 2;
-			c2 = '0' + (x % 2);
-			x /= 2;
-			c1 = '0' + x;
-			m_strOrigHash += c1;
-			m_strOrigHash += c2;
-			m_strOrigHash += c3;
-			m_strOrigHash += c4;
-			m_strOrigHash += c5;
-			m_strOrigHash += c6;
-			m_strOrigHash += c7;
-			m_strOrigHash += c8;
-			m_strOrigHash += txt1;
-			//if (i < hash.noctets+1) m_strOrigHash += ' ';
-		}
-
-}
-
-
 
 
 void CDlgHashDemo::OnChangeEditText() 
@@ -467,42 +190,27 @@ void CDlgHashDemo::OnChangeEditText()
 	/***************************************************
 	MAX_LAENGE als extern deklarieren!!!!
 	***************************************************/
-	long MAX_LAENGE_STRTEXT=16000;
     //m_strNewHash
+
 	CString text;
 	m_ctrlText.GetWindowText(text);
-	m_Messg=new OctetString;
 
+	OctetString *m_Messg;
+	m_Messg=new OctetString;
 	m_Messg->octets = (LPTSTR)(LPCTSTR)text;
 	int strlaenge = text.GetLength();
 	m_Messg->noctets = strlaenge;
 
-	/*************************************
-	bearbeiten
-	*************************************/
-	
-	m_sndHashMD2.noctets=0;
-	m_sndHashMD5.noctets=0;
-	m_sndHashSHA1.noctets=0;
-	
-	theApp.SecudeLib.sec_hash_all(m_Messg,&m_sndHashMD2,theApp.SecudeLib.md2_aid,NULL);
-	theApp.SecudeLib.sec_hash_all(m_Messg,&m_sndHashMD5,theApp.SecudeLib.md5_aid,NULL);
-	theApp.SecudeLib.sec_hash_all(m_Messg,&m_sndHashSHA1,theApp.SecudeLib.sha1_aid,NULL);
 
-	SetNewHash(m_sndHashMD2,m_sndHashMD5,m_sndHashSHA1);
-	
-	if(m_Auswahl_HW==0)
-	{
-		SetHashDiff(m_hashMD2,m_newHashMD2);
+	ComputeHash(m_Messg, &m_newHash);
+
+	switch (m_rb_DarstHW) {
+		case 1: showNewHashHex(m_newHash); break;
+		case 0: showNewHashDec(m_newHash); break;
+		case 2: showNewHashBin(m_newHash); break;
 	}
-	else if(m_Auswahl_HW==1)
-	{
-		SetHashDiff(m_hashMD5,m_newHashMD5);
-	}
-	else
-	{
-		SetHashDiff(m_hashSHA1,m_newHashSHA1);
-	}
+
+	SetHashDiff( m_hash, m_newHash );
 
 	delete m_Messg;
 	UpdateData(false);	
@@ -513,189 +221,71 @@ void CDlgHashDemo::OnChangeEditText()
 
 /*************************************************************************************************************/
 
+void CDlgHashDemo::showHashHex(OctetString &hash)
+{
+	m_strOrigHash ="";
+	for (unsigned int i=0; i<hash.noctets; i++)
+		getNextBlock(m_strOrigHash, hash.octets[i], 16, (i < hash.noctets+1) ? ' ' : '\0');
+}
+
+
+void CDlgHashDemo::showHashDec(OctetString &hash)
+{
+	m_strOrigHash ="";
+	for (unsigned int i=0; i<hash.noctets; i++)
+		getNextBlock(m_strOrigHash, hash.octets[i], 10, (i < hash.noctets+1) ? ' ' : '\0');
+}
+
+void CDlgHashDemo::showHashBin(OctetString &hash)
+{
+	m_strOrigHash ="";
+	for (unsigned int i=0; i<hash.noctets; i++)
+		getNextBlock(m_strOrigHash, hash.octets[i], 2, (i < hash.noctets+1) ? '#' : '\0');
+}
+
 void CDlgHashDemo::showNewHashHex(OctetString &hash)
 {
-		m_strNewHash="";
-
+	m_strNewHash ="";
 	for (unsigned int i=0; i<hash.noctets; i++)
-		{
-			unsigned char x = hash.octets[i];
-			char c1, c2;
-			if (( x % 16 ) < 10 ) c2 = '0' + (x % 16); else c2 = 'A' + (x % 16) -10;
-			x /= 16;
-			if ( x < 10 ) c1 = '0' + x; else c1 = 'A' + x -10; 
-			m_strNewHash += c1;
-			m_strNewHash += c2;
-			if (i < hash.noctets+1) m_strNewHash += ' ';
-		}
+		getNextBlock(m_strNewHash, hash.octets[i], 16, (i < hash.noctets+1) ? ' ' : '\0');
 }
 
 void CDlgHashDemo::showNewHashDec(OctetString &hash)
 {
-
-	m_strNewHash="";
+	m_strNewHash ="";
 	for (unsigned int i=0; i<hash.noctets; i++)
-		{
-			unsigned char x = hash.octets[i];
-			char c1, c2,c3;
-			c3 = '0' + (x % 10);
-			x /= 10;
-			c2 = '0' + (x % 10);
-			x /= 10;
-			c1 = '0' + x;
-			m_strNewHash += c1;
-			m_strNewHash += c2;
-			m_strNewHash += c3;
-			if (i < hash.noctets+1) m_strNewHash += ' ';
-		}
-
+		getNextBlock(m_strNewHash, hash.octets[i], 10, (i < hash.noctets+1) ? ' ' : '\0');
 }
+
 void CDlgHashDemo::showNewHashBin(OctetString &hash)
-{	CString txt="#";
+{
+	
 	m_strNewHash="";
 	for (unsigned int i=0; i<hash.noctets; i++)
-		{
-			unsigned char x = hash.octets[i];
-			char c1, c2,c3,c4,c5,c6,c7,c8;
-			c8 = '0' + (x % 2);
-			x /= 2;
-			c7 = '0' + (x % 2);
-			x /= 2;
-			c6 = '0' + (x % 2);
-			x /= 2;
-			c5 = '0' + (x % 2);
-			x /= 2;
-			c4 = '0' + (x % 2);
-			x /= 2;
-			c3 = '0' + (x % 2);
-			x /= 2;
-			c2 = '0' + (x % 2);
-			x /= 2;
-			c1 = '0' + x;
-			m_strNewHash += c1;
-			m_strNewHash += c2;
-			m_strNewHash += c3;
-			m_strNewHash += c4;
-			m_strNewHash += c5;
-			m_strNewHash += c6;
-			m_strNewHash += c7;
-			m_strNewHash += c8;
-			m_strNewHash += txt;
-			//if (i < hash.noctets+1) m_strNewHash += ' ';
-		}
+		getNextBlock(m_strNewHash, hash.octets[i], 2, '#');	
 }
-
-
-
-void CDlgHashDemo::SetTitle(char *titel)
-{
-
-}
-
-
-void CDlgHashDemo::OnPaint() 
-{
-	CPaintDC dc(this); // device context for painting
-	
-	/*////////////////////////////////////////////////7
-	CClientDC dc(this);
-	BITMAP bm;
-	m_bmp1.GetObject(sizeof(bm),&bm);
-	CDC SpeicherDC;
-	SpeicherDC.CreateCompatibleDC(&dc);
-	SpeicherDC.SelectObject(&m_bmp1);
-	CRect rect;
-	GetClientRect(&rect);
-	dc.SetStretchBltMode(HALFTONE);
-	dc.StretchBlt(0,0,rect.right,rect.bottom,&SpeicherDC,0,0,bm.bmWidth,bm.bmHeight,SRCCOPY);
-	/////////////////////////////////////////////////////
-	CDialog::OnPaint();	
-	// Kein Aufruf von CDialog::OnPaint() für Zeichnungsnachrichten*/
-	
-}
-
 
 void CDlgHashDemo::showDiffOrigHashBin(OctetString &hash)
 {
-	
 	m_strOrigHashBin="";
-	CString txt2="#";
 	for (unsigned int i=0; i<hash.noctets; i++)
-		{
-			unsigned char x = hash.octets[i];
-			char c1, c2,c3,c4,c5,c6,c7,c8;
-			c8 = '0' + (x % 2);
-			x /= 2;
-			c7 = '0' + (x % 2);
-			x /= 2;
-			c6 = '0' + (x % 2);
-			x /= 2;
-			c5 = '0' + (x % 2);
-			x /= 2;
-			c4 = '0' + (x % 2);
-			x /= 2;
-			c3 = '0' + (x % 2);
-			x /= 2;
-			c2 = '0' + (x % 2);
-			x /= 2;
-			c1 = '0' + x;
-			m_strOrigHashBin += c1;
-			m_strOrigHashBin += c2;
-			m_strOrigHashBin += c3;
-			m_strOrigHashBin += c4;
-			m_strOrigHashBin += c5;
-			m_strOrigHashBin += c6;
-			m_strOrigHashBin += c7;
-			m_strOrigHashBin += c8;
-			m_strOrigHashBin += txt2;
-			//if (i < hash.noctets+1) m_strOrigHash += ' ';
-		}
-		
-
+		getNextBlock(m_strOrigHashBin, hash.octets[i], 2, '#');
 }
 
 void CDlgHashDemo::showDiffNewHashBin(OctetString &hash)
 {
-		m_strNewHashBin="";
-		CString txt3="#";
+	m_strNewHashBin="";
 	for (unsigned int i=0; i<hash.noctets; i++)
-		{
-			unsigned char x = hash.octets[i];
-			char c1, c2,c3,c4,c5,c6,c7,c8;
-			c8 = '0' + (x % 2);
-			x /= 2;
-			c7 = '0' + (x % 2);
-			x /= 2;
-			c6 = '0' + (x % 2);
-			x /= 2;
-			c5 = '0' + (x % 2);
-			x /= 2;
-			c4 = '0' + (x % 2);
-			x /= 2;
-			c3 = '0' + (x % 2);
-			x /= 2;
-			c2 = '0' + (x % 2);
-			x /= 2;
-			c1 = '0' + x;
-			m_strNewHashBin += c1;
-			m_strNewHashBin += c2;
-			m_strNewHashBin += c3;
-			m_strNewHashBin += c4;
-			m_strNewHashBin += c5;
-			m_strNewHashBin += c6;
-			m_strNewHashBin += c7;
-			m_strNewHashBin += c8;
-			m_strNewHashBin += txt3;
-			//if (i < hash.noctets+1) m_strOrigHash += ' ';
-		}
+		getNextBlock(m_strNewHashBin, hash.octets[i], 2, '#');
 }
+
 
 void CDlgHashDemo::SetHashDiff(OctetString &hash1, OctetString &hash2)
 {
-	
 
 	showDiffNewHashBin(hash2);
 	showDiffOrigHashBin(hash1);
+
 	m_strHashDiffRE="";
 	int iLaengeDerHW;
 	iLaengeDerHW=m_strNewHashBin.GetLength();
@@ -841,3 +431,92 @@ void CDlgHashDemo::SetRed()
 	// richEd is the rich edit control
 	m_ctrlHashDiff.StreamIn(SF_RTF | SFF_SELECTION, es);
 }
+
+
+void CDlgHashDemo::getNextBlock(CString &dispByte, unsigned short inByte, unsigned short numberBase, char seperator)
+{
+	char digit[8];
+	unsigned short n = 255, modulo;
+	int i;
+	for (i=0; n>0; i++)
+	{
+		n/=numberBase;
+		modulo = inByte % numberBase;
+		inByte /= numberBase;
+		digit[i] = (modulo >= 10) ? modulo-10 + 'A' : modulo + '0';
+	}
+	while (i>0)	dispByte += digit[--i];
+	if (seperator) dispByte += seperator;
+}
+
+
+unsigned long CDlgHashDemo::loadData( const char *infile, const char *title, unsigned long filesize, unsigned long max_filesize )
+{
+
+	m_strTitle = title;
+
+	m_dataOrig.noctets = filesize;
+	m_dataOrig.octets = new char [filesize+1];
+
+	CFile f( infile, CFile::modeRead );
+	f.Read( (void *)m_dataOrig.octets, filesize );
+	f.Close();
+	m_dataOrig.octets[filesize] = '\0';
+	m_strText = CString((char*)m_dataOrig.octets);
+
+	return (unsigned long)m_strText.GetLength();
+}
+
+void CDlgHashDemo::OnSelendokComboSelectHashFunction() 
+{
+	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+	ComputeHash(&m_dataOrig, &m_hash);
+	UpdateData(true);
+	switch (m_rb_DarstHW) {
+		case 1: showHashHex(m_hash); break;
+		case 0: showHashDec(m_hash); break;
+		case 2: showHashBin(m_hash); break;
+	}
+	UpdateData(false);
+	OnChangeEditText();
+	
+	char strSelectedHash[21];
+	m_comboCtrlSelectHashFunction.GetWindowText(strSelectedHash, 20);
+	CString title;
+	title.Format(IDS_STRING_Hashdemo_orighash,strSelectedHash);
+	title += m_strTitle;
+	this->SetWindowText(title);
+}
+
+void CDlgHashDemo::ComputeHash(OctetString *data, OctetString *hashValue)
+{
+	char strSelectedHash[21];
+	m_comboCtrlSelectHashFunction.GetWindowText(strSelectedHash, 20);
+	hashValue->noctets = 0;
+
+	if (!strcmp(strSelectedHash, STR_MD2) )
+	{
+		theApp.SecudeLib.sec_hash_all(data,hashValue,theApp.SecudeLib.md2_aid,NULL);
+	}
+	if (!strcmp(strSelectedHash, STR_MD4) )
+	{
+		theApp.SecudeLib.sec_hash_all(data,hashValue,theApp.SecudeLib.md4_aid,NULL);
+	}
+	if (!strcmp(strSelectedHash, STR_MD5) )
+	{
+		theApp.SecudeLib.sec_hash_all(data,hashValue,theApp.SecudeLib.md5_aid,NULL);
+	}
+	if (!strcmp(strSelectedHash, STR_SHA) )
+	{
+		theApp.SecudeLib.sec_hash_all(data,hashValue,theApp.SecudeLib.md4_aid,NULL);
+	}
+	if (!strcmp(strSelectedHash, STR_SHA1) )
+	{
+		theApp.SecudeLib.sec_hash_all(data,hashValue,theApp.SecudeLib.sha1_aid,NULL);
+	}
+	if (!strcmp(strSelectedHash, STR_RIPEMD160) )
+	{
+		theApp.SecudeLib.sec_hash_all(data,hashValue,theApp.SecudeLib.ripemd160_aid,NULL);
+	}
+}
+

@@ -51,6 +51,8 @@ statement from your version.
 // Hashdemo.h : Header-Datei
 //
 
+#define MAX_LAENGE_STRTEXT 16000
+
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgHashDemo 
 
@@ -58,79 +60,67 @@ class CDlgHashDemo : public CDialog
 {
 // Konstruktion
 	CString	m_strHashDiffRE;
-
-public:
-	void SetRed();
-	void SetHashDiff(OctetString &hash1,OctetString &hash2);
-	void showDiffNewHashBin(OctetString &hash);
-	void showDiffOrigHashBin(OctetString &hash);
 	CString m_strNewHashBin;
 	CString m_strOrigHashBin;
-	void SetTitle(char* titel);
-	void showNewHashHex(OctetString &hash);
-	void showNewHashDec(OctetString &hash);
-	void showNewHashBin(OctetString &hash);
-	OctetString m_newHashMD2,m_newHashMD5,m_newHashSHA1;
-	void SetNewHash(OctetString &hashMD2,OctetString &hashMD5,OctetString &hashSHA1);
-	OctetString * m_Messg;
-	OctetString m_sndHashSHA1;
-	OctetString m_sndHashMD5;
-	OctetString m_sndHashMD2;
-	OctetString m_hashMD2,m_hashMD5, m_hashSHA1;
-	OctetString *msg;
-	CString m_strText; // initial content of m_ctrlText;
-	void SetHash(OctetString &hashMD2,OctetString &hashMD5,OctetString &hashSHA1);
+	CString m_strTitle;
+	OctetString m_hash, m_newHash; 
+	OctetString m_dataOrig; 
+	CString m_strText; // initial content of m_ctrlText;  
+
+public:
+	unsigned long loadData( const char *infile, const char *title, unsigned long filesize, unsigned long max_filesize = MAX_LAENGE_STRTEXT );
 	CDlgHashDemo(CWnd* pParent = NULL);   // Standardkonstruktor
+    ~CDlgHashDemo();
+
+protected:
+// Überschreibungen
+	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
+	//{{AFX_VIRTUAL(CDlgHashDemo)
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV-Unterstützung
+	//}}AFX_VIRTUAL
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgHashDemo)
 	enum { IDD = IDD_HASH_DEMO };
+	CComboBox	m_comboCtrlSelectHashFunction;
 	CEdit	m_ctrlText;
 	CRichEditCtrl	m_ctrlHashDiff;
-	CEdit	m_ctrlOrigHash;
-	CEdit	m_ctrlNewHash;
-	CFont m_font;
+	CFont   m_font;
 	int		m_rb_DarstHW;
-	int		m_Auswahl_HW;
 	CString	m_strOrigHash; // display original hash in hex
 	CString	m_strNewHash;
-	CString m_strHash;
-	CString	m_strTitel;
-	CString	m_strDiffHash;
 	//}}AFX_DATA
 	
 
-
-// Überschreibungen
-	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
-	//{{AFX_VIRTUAL(CDlgHashDemo)
-	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV-Unterstützung
-	//}}AFX_VIRTUAL
-
 // Implementierung
 private:
+	void SetRed();
+	void SetHashDiff(OctetString &hash1,OctetString &hash2);
+	void showDiffNewHashBin(OctetString &hash);
+	void showDiffOrigHashBin(OctetString &hash);
+	void ComputeHash(OctetString *data, OctetString *hashValue);
+
+	void getNextBlock(CString &dispByte, unsigned short inByte, unsigned short numberBase, char seperator = '\0');
 	void showHashBin(OctetString &hash);
 	void showHashHex(OctetString &hash);
 	void showHashDec(OctetString &hash);
-	void hashTextWithSha1();
-	void hashTextWithMd5();
-	void hashTextWithMd2();
-	//char title[256];
-protected:
+	void showNewHashHex(OctetString &hash);
+	void showNewHashDec(OctetString &hash);
+	void showNewHashBin(OctetString &hash);
+	
 
+protected:
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgHashDemo)
 	virtual BOOL OnInitDialog();
-	afx_msg void OnRadioMd2();
-	afx_msg void OnRadioMd5();
-	afx_msg void OnRadioSha1();
 	afx_msg void OnRadioBin();
 	afx_msg void OnRadioDec();
 	afx_msg void OnRadioHex();
 	afx_msg void OnChangeEditText();
-	afx_msg void OnPaint();
+	afx_msg void OnSelendokComboSelectHashFunction();
 	//}}AFX_MSG
+
+
 	DECLARE_MESSAGE_MAP()
 };
 

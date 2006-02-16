@@ -1185,6 +1185,7 @@
 #define IDC_EDIT_DENSITY                1876
 #define IDC_EDIT_SHIFT                  1877
 #define IDC_BUTTON_RESET                1878
+#define IDC_COMBO_SELECT_HASH_FUNCTION  1880
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -1523,6 +1524,9 @@
 #define ID_SYMCLASSIC_SOLITAIRE         33294
 #define ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE 33295
 #define ID_POPUP_OPENGL_EIGENSCHAFTEN   33296
+#define IDS_TITLE_DLG_RSAENCRYPTION     33296
+#define IDS_TITLE_DLG_SOLITAIRE         33297
+#define IDS_TITLE_DLG_RSADECRYPTION     33298
 #define ID_POPUP_OPENGL_SHOW_BOX        33299
 #define ID_VIEW_ENDOFLINE               33300
 #define ID_VIEW_LINEWRAP                33301
@@ -2343,6 +2347,7 @@
 #define IDS_BASE64_DECODE_MISSING_CHARS 38058
 #define IDS_STRING_MSG_BASE64DEC_OF     38059
 #define IDS_STRING_MSG_BASE64ENC_OF     38060
+#define IDS_BYTES                       38061
 #define IDS_DH_LOG_1                    61889
 #define IDS_DH_LOG_2                    61890
 #define IDS_DH_LOG_3                    61891
@@ -2464,9 +2469,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        819
+#define _APS_NEXT_RESOURCE_VALUE        823
 #define _APS_NEXT_COMMAND_VALUE         33321
-#define _APS_NEXT_CONTROL_VALUE         1879
+#define _APS_NEXT_CONTROL_VALUE         1882
 #define _APS_NEXT_SYMED_VALUE           107
 #endif
 #endif

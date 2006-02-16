@@ -212,6 +212,7 @@ void RsaEnc(char* infile, const char *OldTitle){
 	
 	// Dialogbox zur Auswahl des zu benutzenden (öffentlichen) Schlüssels anzeigen
 	CDlgRSAEncryption RsaDialog1;
+	RsaDialog1.oldTitle = OldTitle;
 	
 	if(RsaDialog1.DoModal()==IDOK){
 		// Initialisierung der Variablen

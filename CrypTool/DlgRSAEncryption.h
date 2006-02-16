@@ -76,6 +76,7 @@ public:
 	CString KeyInfo;
 
 	CString UserKeyId; //roger???
+	CString oldTitle;
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgRSAEncryption)

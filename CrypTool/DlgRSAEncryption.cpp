@@ -141,6 +141,11 @@ BOOL CDlgRSAEncryption::OnInitDialog()
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_KEY_ID,pc_str,STR_LAENGE_STRING_TABLE);
 	m_listview.InsertColumn( 5, pc_str, LVCFMT_LEFT, colWidth-20 , 5); // Interne ID-Nr.
 
+	CString tmpStr;
+	tmpStr.Format(IDS_TITLE_DLG_RSAENCRYPTION, oldTitle);
+	this->SetWindowText(tmpStr);
+
+
 	sortBy = BY_NAME; // default Einstellung: sortiere Liste nach Namen
 	// Initialisiere die Schlüsselliste mit allen verfügbaren RSA Schlüsseln
 	nKeylistType = RSA_KEY;

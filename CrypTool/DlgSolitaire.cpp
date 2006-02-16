@@ -142,6 +142,9 @@ BOOL CDlgSolitaire::OnInitDialog()
 		m_Paste.EnableWindow(FALSE);
 	}
 
+	CString tmpStr;
+	tmpStr.Format(IDS_TITLE_DLG_SOLITAIRE, oldTitle);
+	this->SetWindowText(tmpStr);
 
 	return TRUE;  // Geben Sie TRUE zurück, außer ein Steuerelement soll den Fokus erhalten
 }

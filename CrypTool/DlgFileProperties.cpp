@@ -7,6 +7,7 @@
 #include "DlgShowKey.h"
 #include "DlgShowKeyHill10x10.h"
 #include "DlgShowKeyHill5x5.h"
+#include "CrypToolTools.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -123,12 +124,16 @@ void CDlgFileProperties::copyFileInfos(CString contentName,
 									   CString fName, CString title,
 									   CString key, int keyType, CString strView)
 {
-	char str[20];
+	
 
 	CFile file;
 	file.Open(contentName, CFile::modeRead );
-	_i64toa(file.GetLength(), str, 10);
-	m_fileSize = str;
+	{
+		char *str = itoa_fmt (file.GetLength());
+		LoadString(AfxGetInstanceHandle(),IDS_BYTES,pc_str,STR_LAENGE_STRING_TABLE);
+		m_fileSize.Format("%s %s", str, pc_str);
+		delete []str;
+	}
 	m_strTitle = title;
 
 	char drive[_MAX_DRIVE];

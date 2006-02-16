@@ -82,6 +82,8 @@ if ( Precheck() ) { dlg.ExitSchedule(m_Ordinal); return true;}
 
 double approxLog2(Big &N)
 {
+	if ( N <= 0 )  // FIXME
+		return bits(N);
 	int b = bits(N);
 	Big num = N;
 	Big dom = 1;
@@ -732,6 +734,7 @@ void evaluate::eval_power(Big &oldn, Big &n, char op)
 	if (op) {
 		if ( n    == 0 ) { n = 1; return; }
 		if ( oldn == 0 ) { n = 0; return; }
+		if (n < 0) throw eval_err( EVAL_ERR_POW );
 		int i_n = toint(n);
 		double d = approxLog2(oldn);
 		if ( (int)floor(d*i_n) > MAX_BIT_LENGTH ) throw eval_err( EVAL_ERR_POW );
@@ -828,7 +831,8 @@ LOOP:
     	do
 		op=*s++;
 		while (op==' ');
-    		if (op==0 || op==')' || op==']' || op=='}')
+ 
+		if (op==0 || op==')' || op==']' || op=='}')
 		{
 			eval_power (oldn[2],n,oldop[2]);
 			eval_product (oldn[1],n,oldop[1]);

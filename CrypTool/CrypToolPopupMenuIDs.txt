@@ -85,6 +85,7 @@ ENGLISH Window # &Window
 ENGLISH IndivProcedures_RSACryptosystem_LatticeBasedAttacksonRSA # &Indiv. Procedures|&RSA Cryptosystem|Lattice Based Attacks on RSA
 ENGLISH PopUp # PopUp
 ENGLISH View_Font # &View|&Font
+ENGLISH IndivProcedures_Codes_Base64EncodeDecode # &Indiv. Procedures|Codes|Base64 Encode/Decode
 GERMAN	Analyse	# A&nalyse
 GERMAN Bearbeiten # &Bearbeiten
 GERMAN Datei # &Datei
@@ -110,7 +111,6 @@ GERMAN DigitaleSignaturenPKI_PKI # Digitale Signaturen/&PKI|PKI
 GERMAN Einzelverfahren_Hashverfahren # &Einzelverfahren|&Hashverfahren
 GERMAN Einzelverfahren_RSAKryptosystem # &Einzelverfahren|&RSA-Kryptosystem
 GERMAN Einzelverfahren_AnwendungendesChinesischenRestsatzes # &Einzelverfahren|Anwendungen des Chinesischen Restsatzes
-GERMAN Einzelverfahren_Codierungen # &Einzelverfahren|C&odierungen
 GERMAN Einzelverfahren_RSAKryptosystem_GitterbasierteAngriffeaufRSA # &Einzelverfahren|&RSA-Kryptosystem|Gitterbasierte Angriffe auf RSA
 GERMAN Einzelverfahren_VisualisierungvonAlgorithmenmitANIMAL # &Einzelverfahren|Visualisierung von Algorithmen mit ANIMAL
 GERMAN VerEntschlsseln_Hybrid # &Ver-/Entschlüsseln|&Hybrid
@@ -124,4 +124,5 @@ GERMAN Ansicht # &Ansicht
 GERMAN Fenster # &Fenster
 GERMAN Ansicht_Schriftart # &Ansicht|S&chriftart
 GERMAN PopUp # PopUp
-
+GERMAN Einzelverfahren_Kodierungen # &Einzelverfahren|K&odierungen
+GERMAN Einzelverfahren_Kodierungen_Base64KodierungDekodierung # &Einzelverfahren|K&odierungen|Base64 Kodierung/Dekodierung
