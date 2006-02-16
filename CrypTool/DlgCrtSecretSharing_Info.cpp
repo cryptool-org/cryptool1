@@ -93,3 +93,15 @@ void DlgCrtSecretSharing_Info::OnBnClickedOk()
 	
 	CDialog::OnOK();
 }
+
+BOOL DlgCrtSecretSharing_Info::OnInitDialog()
+{
+	if(theApp.GetProfileInt("Settings", "CRT_IntroDialogue", 1))
+		this->m_checkNoInfo = 1;
+	else
+		this->m_checkNoInfo = 0;
+
+	UpdateData(false);
+
+	return TRUE;
+}

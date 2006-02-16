@@ -174,13 +174,12 @@ BOOL CDlgCrtSecretSharing::OnInitDialog()
 			}
 			HIDE_HOUR_GLASS			// deaktiviert die Sanduhr
 
-
 			// Intro-Screen anzeigen (falls nicht in INI-Datei deaktiviert)
 			if(theApp.GetProfileInt("Settings", "CRT_IntroDialogue", 1))
 			{
-			DlgCrtSecretSharing_Info* newdialog= new DlgCrtSecretSharing_Info();
-			newdialog->DoModal();
-			this->m_noInfo=newdialog->m_checkNoInfo;
+				DlgCrtSecretSharing_Info* newdialog= new DlgCrtSecretSharing_Info();
+				newdialog->DoModal();
+				this->m_noInfo=newdialog->m_checkNoInfo;
 			}
 			UpdateData(false);
 
@@ -1059,7 +1058,7 @@ void CDlgCrtSecretSharing::OnBnClickedSecretsharingAlgo()
 {
 	UpdateData(true);
 	// In CrypTool.INI ablegen, ob der Intro-Dialogue beim nächsten Start wieder aufgerufen werden soll
-	this->m_noInfo ? theApp.WriteProfileInt("Settings", "CRT_IntroDialogue", 1) : theApp.WriteProfileInt("Settings", "DH_IntroDialogue", 0);
+	this->m_noInfo ? theApp.WriteProfileInt("Settings", "CRT_IntroDialogue", 1) : theApp.WriteProfileInt("Settings", "CRT_IntroDialogue", 0);
 	
 	OnOK();
 }
