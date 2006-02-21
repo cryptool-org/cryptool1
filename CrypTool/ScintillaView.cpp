@@ -667,7 +667,7 @@ void CScintillaView::OnEditFind()
 		{
 			TextToFind ttf;
 			long lPos = pActiveWindow->SendMessage(SCI_GETCURRENTPOS);
-			ttf.chrg.cpMin = lPos +1;
+			ttf.chrg.cpMin = lPos;
 			ttf.chrg.cpMax = pActiveWindow->SendMessage(SCI_GETLENGTH, 0, 0);
 			ttf.lpstrText = (char*)(LPCTSTR)(dlg.textFind);
 
