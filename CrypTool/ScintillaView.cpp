@@ -22,7 +22,7 @@
 #include ".\scintillaview.h"
 #include "FileTools.h"
 // Suchen und ersetzen
-#include "DlgFindText.h"
+#include "DlgFindAndReplace.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -657,27 +657,59 @@ void CScintillaView::OnUpdateZeichenformatCourier12(CCmdUI *pCmdUI)
 
 void CScintillaView::OnEditFind() 
 {
-	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
-	CDlgFindText dlg;
-	if ( IDOK == dlg.DoModal() )
-	{
+	CDlgFindAndReplace dlg;
+	int result = dlg.DoModal();
 
+	if(result == IDC_BUTTON_FIND || result == IDC_BUTTON_REPLACE || result == IDC_BUTTON_REPLACE_ALL)
+	{
 		CWnd *pActiveWindow = this->GetTopWindow();
 		if(pActiveWindow)
 		{
 			TextToFind ttf;
-
 			long lPos = pActiveWindow->SendMessage(SCI_GETCURRENTPOS);
 			ttf.chrg.cpMin = lPos +1;
 			ttf.chrg.cpMax = pActiveWindow->SendMessage(SCI_GETLENGTH, 0, 0);
-			ttf.lpstrText = dlg.str_ttf;
+			ttf.lpstrText = (char*)(LPCTSTR)(dlg.textFind);
 
-			lPos = pActiveWindow->SendMessage(SCI_FINDTEXT, 0, reinterpret_cast<LPARAM>(&ttf));
-			if (lPos >= 0)
+			// bestimme Suchflags berücksichtigen...
+			int searchflags = 0;
+			// Berücksichtigung von Gross-/Kleinschreibung
+			if(dlg.checkCaseSensitive) searchflags = SCFIND_MATCHCASE;
+			// Berücksichtigung regulärer Ausdrücke
+			if(dlg.checkRegularExpressions) searchflags = SCFIND_REGEXP;
+
+			// [1] Benutzer möchte einen bestimmten Text FINDEN...
+			if(result == IDC_BUTTON_FIND)
 			{
-				pActiveWindow->SendMessage(SCI_GOTOPOS, lPos);
+				lPos = pActiveWindow->SendMessage(SCI_FINDTEXT, searchflags, reinterpret_cast<LPARAM>(&ttf));
+				// ggf. den gefundenen Text markieren
+				if(lPos >= 0) pActiveWindow->SendMessage(SCI_SETSEL, lPos, lPos+strlen(ttf.lpstrText));
+				return;
+			}
+
+			// [2] Benutzer möchte einen bestimmten Text ERSETZEN...
+			if(result == IDC_BUTTON_REPLACE)
+			{
+				lPos = pActiveWindow->SendMessage(SCI_FINDTEXT, searchflags, reinterpret_cast<LPARAM>(&ttf));
+				// ggf. den gefundenen Text markieren...
+				if(lPos >= 0) pActiveWindow->SendMessage(SCI_SETSEL, lPos, lPos+strlen(ttf.lpstrText));
+				// ...und durch den neuen Text ersetzen
+				pActiveWindow->SendMessage(SCI_REPLACESEL, 0, reinterpret_cast<LPARAM>((char*)(LPCTSTR)(dlg.textReplace)));
+				return;
+			}
+			// [3] Benutzer möchte einen bestimmten Text AN ALLEN STELLEN ERSETZEN...
+			if(result == IDC_BUTTON_REPLACE_ALL)
+			{
+				while(1)
+				{
+					// ggf. den gefundenen Text an jeder Stelle ersetzen
+					lPos = pActiveWindow->SendMessage(SCI_FINDTEXT, searchflags, reinterpret_cast<LPARAM>(&ttf));
+					if(lPos < 0) break;
+					pActiveWindow->SendMessage(SCI_SETSEL, lPos, lPos+strlen(ttf.lpstrText));
+					pActiveWindow->SendMessage(SCI_REPLACESEL, 0, reinterpret_cast<LPARAM>((char*)(LPCTSTR)(dlg.textReplace)));
+				}
+				return;
 			}
 		}
 	}
-
 }

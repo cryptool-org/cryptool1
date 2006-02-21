@@ -1,5 +1,5 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Developer Studio generated include file.
+// Microsoft Visual C++ generated include file.
 // Used by CrypTool.rc
 //
 #define IDCANCEL2                       3
@@ -218,12 +218,12 @@
 #define IDR_GIF9                        817
 #define IDD_SET_VISOPT                  817
 #define IDR_GIF10                       818
-#define IDD_FIND_TEXT                   818
 #define IDR_GIF11                       819
 #define IDR_GIF12                       820
 #define IDD_DIALOG2                     821
 #define IDD_CRT_SECRETSHARING_OPTIONS   821
 #define IDD_CRT_SECRETSHARING_FACTS     822
+#define IDD_FIND_AND_REPLACE            823
 #define IDR_GIF13                       825
 #define IDR_GIF14                       827
 #define IDR_GIF15                       828
@@ -1186,6 +1186,14 @@
 #define IDC_EDIT_SHIFT                  1877
 #define IDC_BUTTON_RESET                1878
 #define IDC_COMBO_SELECT_HASH_FUNCTION  1880
+#define IDC_COMBO_FIND                  1882
+#define IDC_COMBO_REPLACE               1883
+#define IDC_BUTTON_FIND                 1884
+#define IDC_BUTTON_REPLACE              1885
+#define IDC_BUTTON_REPLACE_ALL          1886
+#define IDC_CHECK_CASE_SENSITIVE        1887
+#define IDC_CHECK_FIND_BACKWARDS        1888
+#define IDC_CHECK_REGULAR_EXPRESSIONS   1889
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -2469,9 +2477,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        823
+#define _APS_NEXT_RESOURCE_VALUE        824
 #define _APS_NEXT_COMMAND_VALUE         33321
-#define _APS_NEXT_CONTROL_VALUE         1882
+#define _APS_NEXT_CONTROL_VALUE         1888
 #define _APS_NEXT_SYMED_VALUE           107
 #endif
 #endif
