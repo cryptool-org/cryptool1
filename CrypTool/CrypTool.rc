@@ -4782,9 +4782,9 @@ BEGIN
                     WS_TABSTOP,7,69,118,10
     CONTROL         "Suchrichtung umkehren",IDC_CHECK_FIND_BACKWARDS,"Button",
                     BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,7,83,91,10
-    CONTROL         "Reguläre Ausdrücke beachten",
+    CONTROL         "Reguläre Ausdrücke im Suchfeld erlauben",
                     IDC_CHECK_REGULAR_EXPRESSIONS,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,97,112,10
+                    WS_TABSTOP,7,97,148,10
 END
 
 
