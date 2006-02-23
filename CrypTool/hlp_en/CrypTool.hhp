@@ -442,7 +442,6 @@ hid_help_animal_caesar.html
 hid_help_animal_des.html
 hid_help_animal_nihilist.html
 hid_code_uu.html
-hid_code_base64.html
 hid_mass_pattern_search.html
 hid_rsa_stereotyped.html
 hid_rsa_bloemermay.html
@@ -474,6 +473,9 @@ sidechannelattacks.html
 hidd_file_properties.html
 animal.html
 hidd_hmac.html
+hid_encode_base64.html
+hid_decode_base64.html
+menu_individualprocedures_codes_base64.html
 
 [ALIAS]
 #include CrypTool_Alias.h
