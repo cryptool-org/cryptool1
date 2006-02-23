@@ -28,9 +28,9 @@
 
 <P>Bei der Demonstration für das RSA-Kryptosystem können Sie Texte mit dem <A href="ascii.html">ASCII</A>-Zeichensatz verschlüsseln oder ein eigenes Alphabet vorgeben. Dazu wählen Sie den entsprechenden Radiobutton und bestimmen das Alphabet im darunter liegenden Eingabefeld. </P>
 
-<P>Bei der RSA-Ver/Entschlüsselung werden einzelne Buchstaben zunächst in Zahlen kodiert.</P>
+<P>Bei der RSA-Ver/Entschlüsselung werden einzelne Buchstaben zunächst in Zahlen codiert.</P>
 
-<P>Die Kodierung des vordefinierten Alphabets "&lt;Leerzeichen&gt;ABCDEFGHIJKLMNOPQRSTUVWXYZ":</P>
+<P>Die Codierung des vordefinierten Alphabets "&lt;Leerzeichen&gt;ABCDEFGHIJKLMNOPQRSTUVWXYZ":</P>
 
 <TABLE cols=3 width="0*" class="pad20">
 
@@ -65,17 +65,17 @@
 </TR>
 </TABLE><BR>
 
-<P>Nehmen Sie das Leerzeichen raus, wird A mit 0 kodiert</P>
+<P>Nehmen Sie das Leerzeichen raus, wird A mit 0 codiert</P>
 
 <P><B>RSA-Variante:</B></P>
 
 <P>Wählen Sie zwischen der eigentlichen RSA-Verschlüsselung und dem in dem Artikel "<A href="rsa_demo_variant.html">Dialog der Schwestern</A>" beschriebenen Verfahren (siehe c't 25/99).</P>
 
-<P><B>Blocklänge und Kodieren der Nachricht in Zahlen:</B></P>
+<P><B>Blocklänge und Codieren der Nachricht in Zahlen:</B></P>
 
 <P>Abhängig von der Bitlänge des RSA-Moduls N und den gewählten Textoptionen können Sie bei der RSA-Verschlüsselung die Blocklänge bestimmen. Die maximal mögliche Blocklänge wird Ihnen angezeigt. </P>
 
-<P>Wenn Sie das Alphabet selber festgelegt haben, und die gewählte Blocklänge k größer als die 1 ist, werden nach der Kodierung der Buchstaben in Zahlen jeweils k dieser Zahlen in einer größeren Zahl kodiert. Die Kodierung kann <B>b-adisch</B> (wobei b die Anzahl der Buchstaben im Alphabet ist) oder zur <B>Zahlenbasis</B> erfolgen. Mögliche Zahlenbasen sind dezimal, binär, oktal und hexadezimal. Die Zahlenbasis kann weiter unten im Dialog eingestellt werden und ist auch für die Anzeige relevant.</P>
+<P>Wenn Sie das Alphabet selber festgelegt haben, und die gewählte Blocklänge k größer als die 1 ist, werden nach der Codierung der Buchstaben in Zahlen jeweils k dieser Zahlen in einer größeren Zahl codiert. Die Codierung kann <B>b-adisch</B> (wobei b die Anzahl der Buchstaben im Alphabet ist) oder zur <B>Zahlenbasis</B> erfolgen. Mögliche Zahlenbasen sind dezimal, binär, oktal und hexadezimal. Die Zahlenbasis kann weiter unten im Dialog eingestellt werden und ist auch für die Anzeige relevant.</P>
 
 <P><B>Beispiel</B>: Die Nachricht "ATTACK AT DAWN", zerlegt in Blöcke der Länge 2 ergibt: </P>
 
@@ -85,7 +85,7 @@
 
 </div>
 
-<P>Die Kodierung der Einzelbuchstaben der Nachricht in Zahlen (&lt;Blank&gt; = 0, A = 1, ..., Z = 26) ergibt erst mal: </P>
+<P>Die Codierung der Einzelbuchstaben der Nachricht in Zahlen (&lt;Blank&gt; = 0, A = 1, ..., Z = 26) ergibt erst mal: </P>
 
 <div class="indent">
 
@@ -93,38 +93,38 @@
 
 </div>
 
-<P>Wie man aus den Zahlen eines Blockes eine neue Zahl generiert, wird durch die beiden Kodierungsmethoden b-adisch und Basissystem festgelegt:</P>
+<P>Wie man aus den Zahlen eines Blockes eine neue Zahl generiert, wird durch die beiden Codierungsmethoden b-adisch und Basissystem festgelegt:</P>
 
 <OL>
 
-	<LI> Kodierung der Zahlenblöcke der Länge k = 2 nach der b-adischen Formel (jeder Block besteht aus zwei Buchstaben):</P>
+	<LI> Codierung der Zahlenblöcke der Länge k = 2 nach der b-adischen Formel (jeder Block besteht aus zwei Buchstaben):</P>
 
 <div class="indent">
 
-<P>&lt;Buchstabe1&gt;*27^1 + &lt;Buchstabe2&gt;   liefert die Kodierung:</P>
+<P>&lt;Buchstabe1&gt;*27^1 + &lt;Buchstabe2&gt;   liefert die Codierung:</P>
 
 <P>047 # 541 # 081 # 047 # 004 # 050 # 378</P>
 
-<P>Diese Kodierung ist optimal (in dem Sinn, dass der Wertebereich möglichst klein bleibt).</P><BR></LI>
+<P>Diese Codierung ist optimal (in dem Sinn, dass der Wertebereich möglichst klein bleibt).</P><BR></LI>
 
 </div>
 
-	<LI> Kodierung der Zahlenblöcke der Länge k = 2 nach der Basissystem-Formel (Basis 10^k = 100):</P>
+	<LI> Codierung der Zahlenblöcke der Länge k = 2 nach der Basissystem-Formel (Basis 10^k = 100):</P>
 
 <div class="indent">
 
-<P>&lt;Buchstabe1&gt;*100^1 + &lt;Buchstabe2&gt;   liefert die Kodierung</P>
+<P>&lt;Buchstabe1&gt;*100^1 + &lt;Buchstabe2&gt;   liefert die Codierung</P>
 
 <P>0120 # 2001 # 0300 # 0120 # 0004 # 0123 # 1400</P>
 
-<P>Bei dieser Kodierung können Sie die Kodierung der Einzelbuchstaben direkt ablesen.</P><BR></LI>
+<P>Bei dieser Codierung können Sie die Codierung der Einzelbuchstaben direkt ablesen.</P><BR></LI>
 </div>
 
 </OL>
 
 <P><B>Bemerkung:</B></P>
 
-<P>Wenn die Blocklänge 1 ist (weil der RSA-Modul zu klein ist), liefern beide Kodierungsmethoden dieselben Werte.</P>
+<P>Wenn die Blocklänge 1 ist (weil der RSA-Modul zu klein ist), liefern beide Codierungsmethoden dieselben Werte.</P>
 
 </BODY>
 </HTML>
