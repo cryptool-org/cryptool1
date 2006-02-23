@@ -124,5 +124,5 @@ GERMAN Ansicht # &Ansicht
 GERMAN Fenster # &Fenster
 GERMAN Ansicht_Schriftart # &Ansicht|S&chriftart
 GERMAN PopUp # PopUp
-GERMAN Einzelverfahren_Kodierungen # &Einzelverfahren|K&odierungen
-GERMAN Einzelverfahren_Kodierungen_Base64KodierungDekodierung # &Einzelverfahren|K&odierungen|Base64 Kodierung/Dekodierung
+GERMAN Einzelverfahren_Codierungen # &Einzelverfahren|C&odierungen
+GERMAN Einzelverfahren_Codierungen_Base64CodierungDecodierung # &Einzelverfahren|C&odierungen|Base64 Codierung/Decodierung

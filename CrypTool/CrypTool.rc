@@ -1517,7 +1517,7 @@ BEGIN
                     63,9
     CONTROL         "Formatierungen mit",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,296,15,82,8
-    CONTROL         "Umlaute kodieren",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | 
+    CONTROL         "Umlaute codieren",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,296,32,71,10
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,14,63,368,198
@@ -1847,7 +1847,7 @@ BEGIN
     GROUPBOX        "Alphabetoptionen",IDC_STATIC,7,5,277,65
     LTEXT           "Bearbeiten",IDC_EDIT_ANZAHL_ZEICHEN,122,24,132,11
     GROUPBOX        "RSA-Variante ",IDC_STATIC,7,76,277,31
-    GROUPBOX        "Methode, wie ein Block als Zahl kodiert wird",
+    GROUPBOX        "Methode, wie ein Block als Zahl codiert wird",
                     IDC_STATIC,7,113,277,30
     LTEXT           "Blocklänge in Zeichen:",IDC_STATIC,18,192,74,8
     EDITTEXT        IDC_EDIT3,127,192,149,12,ES_AUTOHSCROLL | ES_READONLY | 
@@ -1856,7 +1856,7 @@ BEGIN
     LTEXT           "Die Zahlen der RSA-Ver-/Entschlüsselung werden in dem folgenden Zahlensystem dargestellt.",
                     IDC_STATIC,19,226,233,18
     GROUPBOX        "Blocklänge",IDC_STATIC,7,149,277,59
-    LTEXT           "Die Anzahl der Zeichen, die pro RSA-Operation verschlüsselt werden.\r\nDie maximale Anzahl ist abhängig von der Bitlänge des RSA-Moduls N, der Anzahl der Zeichen im Alphabet und der Kodierungsmethode der Nachricht.",
+    LTEXT           "Die Anzahl der Zeichen, die pro RSA-Operation verschlüsselt werden.\r\nDie maximale Anzahl ist abhängig von der Bitlänge des RSA-Moduls N, der Anzahl der Zeichen im Alphabet und der Codierungsmethode der Nachricht.",
                     IDC_STATIC,18,161,258,25
 END
 
@@ -5002,15 +5002,15 @@ BEGIN
             MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
         END
         MENUITEM SEPARATOR
-        POPUP "K&odierungen"
+        POPUP "C&odierungen"
         BEGIN
-            POPUP "Base64 Kodierung/Dekodierung", GRAYED
+            POPUP "Base64 Codierung/Decodierung", GRAYED
             BEGIN
-                MENUITEM "Base64 kodieren",             33319
-                MENUITEM "Base64 dekodieren",           33320
+                MENUITEM "Base64 codieren",             ID_ENCODE_BASE64
+                MENUITEM "Base64 decodieren",           ID_DECODE_BASE64
             END
-            MENUITEM "UU-Kodierung/UU-Dekodierung", ID_CODE_UU, GRAYED
-            MENUITEM "ASN.&1-Dekodieren einer Datei...", 
+            MENUITEM "UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
+            MENUITEM "ASN.&1-Decodieren einer Datei...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
         END
@@ -5361,15 +5361,15 @@ BEGIN
             MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
         END
         MENUITEM SEPARATOR
-        POPUP "K&odierungen"
+        POPUP "C&odierungen"
         BEGIN
-            POPUP "Base64 Kodierung/Dekodierung"
+            POPUP "Base64 Codierung/Decodierung"
             BEGIN
-                MENUITEM "Base64 kodieren",             33319
-                MENUITEM "Base64 dekodieren",           33320
+                MENUITEM "Base64 codieren",             ID_ENCODE_BASE64
+                MENUITEM "Base64 decodieren",           ID_DECODE_BASE64
             END
-            MENUITEM "UU-Kodierung/UU-Dekodierung", ID_CODE_UU, GRAYED
-            MENUITEM "ASN.&1-Dekodieren einer Datei...", 
+            MENUITEM "UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
+            MENUITEM "ASN.&1-Decodieren einer Datei...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
         END
@@ -5723,15 +5723,15 @@ BEGIN
             MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
         END
         MENUITEM SEPARATOR
-        POPUP "K&odierungen"
+        POPUP "C&odierungen"
         BEGIN
-            POPUP "Base64 Kodierung/Dekodierung", GRAYED
+            POPUP "Base64 Codierung/Decodierung", GRAYED
             BEGIN
-                MENUITEM "Base64 kodieren",             33319
-                MENUITEM "Base64 dekodieren",           33320
+                MENUITEM "Base64 codieren",             ID_ENCODE_BASE64
+                MENUITEM "Base64 decodieren",           ID_DECODE_BASE64
             END
-            MENUITEM "UU-Kodierung/UU-Dekodierung", ID_CODE_UU, GRAYED
-            MENUITEM "ASN.&1-Dekodieren einer Datei...", 
+            MENUITEM "UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
+            MENUITEM "ASN.&1-Decodieren einer Datei...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
         END
@@ -6083,17 +6083,15 @@ BEGIN
             MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
         END
         MENUITEM SEPARATOR
-        POPUP "K&odierungen"
+        POPUP "C&odierungen"
         BEGIN
-            POPUP "Base64 Kodierung/Dekodierung"
+            POPUP "Base64 Codierung/Decodierung"
             BEGIN
-                MENUITEM "Base64 kodieren",             ID_INDIVPROCEDURES_BASE64_ENCODE
-
-                MENUITEM "Base64 dekodieren",           ID_INDIVPROCEDURES_BASE64_DECODE
-
+                MENUITEM "Base64 codieren",             ID_ENCODE_BASE64
+                MENUITEM "Base64 decodieren",           ID_DECODE_BASE64
             END
-            MENUITEM "UU-Kodierung/UU-Dekodierung", ID_CODE_UU, GRAYED
-            MENUITEM "ASN.&1-Dekodieren einer Datei...", 
+            MENUITEM "UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
+            MENUITEM "ASN.&1-Decodieren einer Datei...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
         END
@@ -6480,15 +6478,15 @@ BEGIN
             MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
         END
         MENUITEM SEPARATOR
-        POPUP "K&odierungen"
+        POPUP "C&odierungen"
         BEGIN
-            POPUP "Base64 Kodierung/Dekodierung", GRAYED
+            POPUP "Base64 Codierung/Decodierung", GRAYED
             BEGIN
-                MENUITEM "Base64 kodieren",             33319
-                MENUITEM "Base64 dekodieren",           33320
+                MENUITEM "Base64 codieren",             33319
+                MENUITEM "Base64 decodieren",           33320
             END
-            MENUITEM "UU-Kodierung/UU-Dekodierung", ID_CODE_UU, GRAYED
-            MENUITEM "ASN.&1-Dekodieren einer Datei...", 
+            MENUITEM "UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
+            MENUITEM "ASN.&1-Decodieren einer Datei...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
         END
@@ -12449,7 +12447,7 @@ BEGIN
                             "Die zu analysierende Datei muss mindestens 4 Bytes groß sein!"
     IDS_STRING_PA_NO        "Nr."
     IDS_HILLEXAMPLE_CODE_ALPHABET 
-                            "Hill-Ver-/Entschlüsselung\n\nDas aktuell im Menü ""Optionen / Textoptionen"" gewählte Alphabet und dessen Kodierung in Zahlen lautet:"
+                            "Hill-Ver-/Entschlüsselung\n\nDas aktuell im Menü ""Optionen / Textoptionen"" gewählte Alphabet und dessen Codierung in Zahlen lautet:"
 END
 
 STRINGTABLE 
@@ -12458,14 +12456,14 @@ BEGIN
                             "\nHill-Verschlüsselung:\n\nDie gewählte Hill-Matrix zum Verschlüsseln ist:"
     IDS_HILLEXAMPLE_DECRYPTION_MATRIX 
                             "\nHill-Entschlüsselung:\n\nDie gewählte inverse Hill-Matrix zum Entschlüsseln ist:"
-    IDS_HILLEXAMPLE_ENCODED_MATRIX "Diese Matrix kodiert in Zahlen:"
+    IDS_HILLEXAMPLE_ENCODED_MATRIX "Diese Matrix codiert in Zahlen:"
     IDS_HILLEXAMPLE_HLENCRYPT 
                             "Beispiel: Verschlüsselung des Klartextes: ""%s"":"
     IDS_HILLEXAMPLE_HLDECRYPT 
                             "Beispiel: Entschlüsselung des Chiffretextes: ""%s"":"
-    IDS_HILLEXAMPLE_ENCODED_PLAINTEXT "Klartext-Vektor K kodiert in Zahlen:"
+    IDS_HILLEXAMPLE_ENCODED_PLAINTEXT "Klartext-Vektor K codiert in Zahlen:"
     IDS_HILLEXAMPLE_ENCODED_CIPHERTEXT 
-                            "Chiffretext-Vektor C kodiert in Zahlen:"
+                            "Chiffretext-Vektor C codiert in Zahlen:"
     IDS_HILLEXAMPLE_ENCRYPTION 
                             "Berechnung der Hill-Chiffrierung durch das Vektor-Matrixprodukt K[n]*H[n] (der Vektor K[n] ist ein Zeilenvektor):"
     IDS_HILLEXAMPLE_DECRYPTION 
@@ -12980,9 +12978,9 @@ BEGIN
     IDS_CRYPT_PRIMES        "Zwei Primzahlen p und q"
     IDS_CRYPT_RSADEMO_PARAMETER "RSA-Demo: Geheime Parameter"
     IDS_CRYPT_RSADEMO_MSG_ENCRYPTION_NOTEXT 
-                            "Die verschlüsselte Nachricht kann nicht in eine Textnachricht dekodiert werden !"
+                            "Die verschlüsselte Nachricht kann nicht in eine Textnachricht decodiert werden !"
     IDS_CRYPT_RSADEMO_MSG_DECRYPTION_NOTEXT 
-                            "Die entschlüsselte Nachricht kann nicht in eine Textnachricht dekodiert werden ! "
+                            "Die entschlüsselte Nachricht kann nicht in eine Textnachricht decodiert werden ! "
     IDS_DETFACTORISATION_HLNUMBER "Faktorisierte Zahl"
     IDS_DETFACTORISATION_HLFACTOR "Faktor %i"
     IDS_DETFACTORISATION_HLMETHOD "Methode"
@@ -13122,7 +13120,7 @@ BEGIN
     IDS_STRING_INCOMPATIBLE_CERT 
                             "In der PKCS#12-Datei ist kein CrypTool-Zertifikat. Die Daten können nicht importiert werden."
     IDS_STRING_CERT_DECODING_ERROR 
-                            "Das Zertifikat konnte nicht korrekt dekodiert werden."
+                            "Das Zertifikat konnte nicht korrekt decodiert werden."
     IDS_RAND_PROGRESS       "Zufallsdaten zu %d %% erzeugt."
     IDS_RAND_GEN_PARAM      "%s Zufallsgenerator"
     IDS_STRING_BIG_NUMBER   "Die Demonstration unterstützt nur positive ganze Zahlen der Bitlänge kleiner 1024. Das sind Zahlen mit höchstens 308 Dezimalstellen."
@@ -13826,14 +13824,14 @@ BEGIN
     IDS_FILENAME_NOT_YET    "Neue Datei (noch nicht gesichert)"
     IDS_STRING_PT           "."
     IDS_BASE64_DECODE_ILLEGAL_CHARACTER 
-                            "Es wurde ein illegales Zeichen gefunden. Stelle: %u Zeichen: %s \nDie Dekodierung wird an dieser Stelle abgebrochen!"
+                            "Es wurde ein illegales Zeichen gefunden. Stelle: %u Zeichen: %s \nDie Decodierung wird an dieser Stelle abgebrochen!"
     IDS_BASE64_FILE_OPEN_ERROR "Fehler beim Öffnen der Datei: <%s>"
     IDS_BASE64_FILE_WRITE_ERROR "Fehler beim schreiben in die Datei: %s"
     IDS_BASE64_DECODE_PREMATURE_END 
-                            "Es wurde ein ""="" gefunden vor Ende des Textes.Stelle:%u \nDie Dekodierung wurde abgebrochen!"
+                            "Es wurde ein ""="" gefunden vor Ende des Textes.Stelle:%u \nDie Decodierung wurde abgebrochen!"
     IDS_BASE64_DECODE_MISSING_CHARS 
-                            "Fehlerhafter Base64 Code.Keine eindeutige Dekodierung der letzten Zeichen möglich!"
-    IDS_STRING_MSG_BASE64DEC_OF "Base64 Dekodierung von <%s>"
+                            "Fehlerhafter Base64 Code.Keine eindeutige Decodierung der letzten Zeichen möglich!"
+    IDS_STRING_MSG_BASE64DEC_OF "Base64 Decodierung von <%s>"
     IDS_STRING_MSG_BASE64ENC_OF "Base64 Codierung von <%s>"
     IDS_BYTES               "Bytes"
 END
@@ -18815,8 +18813,8 @@ BEGIN
         BEGIN
             POPUP "Base64 Encode/Decode", GRAYED
             BEGIN
-                MENUITEM "Base64 Encode",               33319
-                MENUITEM "Base64 Decode",               33320
+                MENUITEM "Base64 Encode",               ID_ENCODE_BASE64
+                MENUITEM "Base64 Decode",               ID_DECODE_BASE64
             END
             MENUITEM "UU-Encode/Decode",            ID_CODE_UU, GRAYED
             MENUITEM "Decode ASN.&1 Code of a File...", 
@@ -19168,8 +19166,8 @@ BEGIN
         BEGIN
             POPUP "Base64 Encode/Decode"
             BEGIN
-                MENUITEM "Base64 Encode",               33319
-                MENUITEM "Base64 Decode",               33320
+                MENUITEM "Base64 Encode",               ID_ENCODE_BASE64
+                MENUITEM "Base64 Decode",               ID_DECODE_BASE64
             END
             MENUITEM "UU-Encode/Decode",            ID_CODE_UU, GRAYED
             MENUITEM "Decode ASN.&1 Code of a File...", 
@@ -19522,8 +19520,8 @@ BEGIN
         BEGIN
             POPUP "Base64 Encode/Decode", GRAYED
             BEGIN
-                MENUITEM "Base64 Encode",               33319
-                MENUITEM "Base64 Decode",               33320
+                MENUITEM "Base64 Encode",               ID_ENCODE_BASE64
+                MENUITEM "Base64 Decode",               ID_DECODE_BASE64
             END
             MENUITEM "UU-Encode/Decode",            ID_CODE_UU, GRAYED
             MENUITEM "Decode ASN.&1 Code of a File...", 
@@ -19872,8 +19870,8 @@ BEGIN
         BEGIN
             POPUP "Base64 Encode/Decode"
             BEGIN
-                MENUITEM "Base64 Encode",               33319
-                MENUITEM "Base64 Decode",               33320
+                MENUITEM "Base64 Encode",               ID_ENCODE_BASE64
+                MENUITEM "Base64 Decode",               ID_DECODE_BASE64
             END
             MENUITEM "UU-Encode/Decode",            ID_CODE_UU, GRAYED
             MENUITEM "Decode ASN.&1 Code of a File...", 
