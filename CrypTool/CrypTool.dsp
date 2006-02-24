@@ -2768,11 +2768,11 @@ SOURCE=.\DlgFileProperties.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgFindText.cpp
+SOURCE=.\DlgFindAndReplace.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\DlgFindText.h
+SOURCE=.\DlgFindAndReplace.h
 # End Source File
 # Begin Source File
 
