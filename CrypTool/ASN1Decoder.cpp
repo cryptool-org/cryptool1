@@ -121,8 +121,6 @@ void ASN1Decoder::StoreASN1Dump(std::string filename) throw (ASN1Error)
 
 // Diese Funktion extrahiert, sofern eine korrekte PIN vorliegt oder keine PIN nötig ist, aus einer
 // PSE-Datei das Zertifikat und speichert dieses auf der Festplatte
-// Parameter:			Den Pfad zur Datei und die PIN, die zum Öffnen nötig ist
-// Rückgabewert:		true für eine erfolgreiche Speicherung
 void ASN1Decoder::StoreCertDump(std::string filename, std::string pin) throw (ASN1Error)
 {
 	PSE PseHandle = ((CCrypToolApp*)AfxGetApp())->SecudeLib.af_open( (char*)Filename.c_str(), CaPseVerzeichnis, (char*)pin.c_str() , NULL);
