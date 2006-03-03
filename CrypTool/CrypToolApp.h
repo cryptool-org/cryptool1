@@ -74,6 +74,7 @@ statement from your version.
 #include "AppDocument.h"
 #include "SecudeLib.h"	// Hinzugefügt von ClassView
 #include "DlgSignatureDemo.h"
+#include "DlgFindAndReplace.h"
 
 // globale Variablen fuer Zugriff auf Stringtable
 // Definiert in CrypTool.cpp
@@ -174,6 +175,7 @@ public:
 //	CCritSec OpenLock;
 	CDlgShowProgress fs;
 	CDlgOptionsAnalysis Options;
+	CDlgFindAndReplace findAndReplaceDialog;
 	plot_opt_dlg PlotOptions;
 	CAppDocument * OpenDocumentFileNoMRU(const char *name, CString Key = "", int KeyType = SCHLUESSEL_LINEAR);
 	BOOL WriteProfileDouble( LPCTSTR lpszSection, LPCTSTR lpszEntry, double Value );

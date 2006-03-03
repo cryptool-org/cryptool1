@@ -60,6 +60,7 @@ CDlgFindAndReplace::CDlgFindAndReplace(CWnd* pParent /*=NULL*/)
 	, checkCaseSensitive(FALSE)
 	, checkFindBackwards(FALSE)
 	, checkRegularExpressions(FALSE)
+	, created(FALSE)
 {
 }
 
@@ -94,7 +95,8 @@ void CDlgFindAndReplace::OnBnClickedButtonFind()
 	UpdateData(true);
 	// store find term
 	addFindTerm(textFind);
-	EndDialog(IDC_BUTTON_FIND);
+
+	// TODO: **FIND**
 }
 
 void CDlgFindAndReplace::OnBnClickedButtonReplace()
@@ -103,7 +105,8 @@ void CDlgFindAndReplace::OnBnClickedButtonReplace()
 	// store find and replace terms
 	addFindTerm(textFind);
 	addReplaceTerm(textReplace);
-	EndDialog(IDC_BUTTON_REPLACE);
+
+	// TODO: **FIND AND REPLACE**
 }
 
 void CDlgFindAndReplace::OnBnClickedButtonReplaceAll()
@@ -112,7 +115,8 @@ void CDlgFindAndReplace::OnBnClickedButtonReplaceAll()
 	// store find and replace terms
 	addFindTerm(textFind);
 	addReplaceTerm(textReplace);
-	EndDialog(IDC_BUTTON_REPLACE_ALL);
+
+	// TODO: **FIND AND REPLACE ALL**
 }
 
 // add FIND term to vector (no doubled entries)
@@ -139,6 +143,17 @@ BOOL CDlgFindAndReplace::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
+	insertOldFindAndReplaceTerms();
+
+	return TRUE;
+}
+
+void CDlgFindAndReplace::insertOldFindAndReplaceTerms()
+{
+	// remove former entries in both boxes
+	comboBoxControlFind.ResetContent();
+	comboBoxControlReplace.ResetContent();
+
 	// insert former FIND terms into combo box...
 	for(unsigned int i=0; i<termsFind.size(); i++)
 		comboBoxControlFind.InsertString(-1, termsFind[i]);
@@ -150,6 +165,22 @@ BOOL CDlgFindAndReplace::OnInitDialog()
 	if(termsFind.size() > 0) comboBoxControlFind.SelectString(-1, termsFind[termsFind.size()-1]);
     // select the last REPLACE term in the combo box
 	if(termsReplace.size() > 0) comboBoxControlReplace.SelectString(-1, termsReplace[termsReplace.size()-1]);
+}
 
-	return TRUE;
+void CDlgFindAndReplace::show()
+{
+	if(!created)
+	{
+		Create(IDD_FIND_AND_REPLACE);
+		created = true;
+	}
+
+	insertOldFindAndReplaceTerms();
+
+	ShowWindow(SW_SHOW);
+}
+
+void CDlgFindAndReplace::OnCancel() 
+{
+	ShowWindow(SW_HIDE);
 }

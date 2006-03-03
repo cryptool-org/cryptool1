@@ -657,6 +657,15 @@ void CScintillaView::OnUpdateZeichenformatCourier12(CCmdUI *pCmdUI)
 
 void CScintillaView::OnEditFind() 
 {
+	// make the find and replace dialog visible
+	theApp.findAndReplaceDialog.show();
+
+	/*********************************************************************************************
+	FLOMAR, 03/03/2006
+	CAUTION!!!!! This is the OLD WAY the find and replace mechanism worked (as of February 2006).
+	This code will remain here until the NEW WAY (one modeless dialog for ALL text windows) works.
+	**********************************************************************************************
+
 	CDlgFindAndReplace dlg;
 	int result = dlg.DoModal();
 
@@ -712,4 +721,5 @@ void CScintillaView::OnEditFind()
 			}
 		}
 	}
+	*/
 }

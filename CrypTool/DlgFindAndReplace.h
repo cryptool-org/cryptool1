@@ -91,6 +91,18 @@ private:
 	void addFindTerm(CString);
 	// add REPLACE term to vector (no doubled entries)
 	void addReplaceTerm(CString);
+
+	// insert old FIND and REPLACE terms in combo boxes
+	void insertOldFindAndReplaceTerms();
+
+	// has dialog window already been created? (MODELESS dialog!)
+	bool created;
+	// overridden OnCancel (MODELESS dialog!)
+	virtual void OnCancel();
+
+public:
+	// bring dialog window to foreground (make it visible)
+	void show();
 };
 
 #endif
