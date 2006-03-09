@@ -47,6 +47,11 @@ statement from your version.
 #include "CrypToolApp.h"
 #include "DlgFindAndReplace.h"
 
+#include "CrypToolView.h"
+#include "ScintillaWnd.h"
+#include "ScintillaDoc.h"
+#include "ScintillaView.h"
+
 // global vector for previously used FIND terms
 std::vector<CString> termsFind;
 // global vector for previously used REPLACE terms
@@ -95,8 +100,9 @@ void CDlgFindAndReplace::OnBnClickedButtonFind()
 	UpdateData(true);
 	// store find term
 	addFindTerm(textFind);
-
-	// TODO: **FIND**
+	// find text
+	CScintillaView *pScintillaView = (CScintillaView*)(CCrypToolView*)(CWnd*)(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow());
+	if(pScintillaView) pScintillaView->find();
 }
 
 void CDlgFindAndReplace::OnBnClickedButtonReplace()
@@ -105,8 +111,9 @@ void CDlgFindAndReplace::OnBnClickedButtonReplace()
 	// store find and replace terms
 	addFindTerm(textFind);
 	addReplaceTerm(textReplace);
-
-	// TODO: **FIND AND REPLACE**
+	// find and replace text
+	CScintillaView *pScintillaView = (CScintillaView*)(CCrypToolView*)(CWnd*)(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow());
+	if(pScintillaView) pScintillaView->findAndReplace();
 }
 
 void CDlgFindAndReplace::OnBnClickedButtonReplaceAll()
@@ -115,8 +122,9 @@ void CDlgFindAndReplace::OnBnClickedButtonReplaceAll()
 	// store find and replace terms
 	addFindTerm(textFind);
 	addReplaceTerm(textReplace);
-
-	// TODO: **FIND AND REPLACE ALL**
+	// find and replace all text
+	CScintillaView *pScintillaView = (CScintillaView*)(CCrypToolView*)(CWnd*)(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow());
+	if(pScintillaView) pScintillaView->findAndReplaceAll();
 }
 
 // add FIND term to vector (no doubled entries)

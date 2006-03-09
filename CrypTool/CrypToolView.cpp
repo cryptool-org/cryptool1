@@ -279,3 +279,17 @@ void CCrypToolView::OnBeginPrinting(CDC *pDC, CPrintInfo *pInfo)
 	CView::OnBeginPrinting( pDC, pInfo);
 }
 
+void CCrypToolView::find()
+{
+	// do nothing here...
+}
+
+void CCrypToolView::findAndReplace()
+{
+	// do nothing here...
+}
+
+void CCrypToolView::findAndReplaceAll()
+{
+	// do nothing here...
+}

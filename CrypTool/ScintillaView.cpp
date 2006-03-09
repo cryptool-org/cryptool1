@@ -654,72 +654,95 @@ void CScintillaView::OnUpdateZeichenformatCourier12(CCmdUI *pCmdUI)
 }
 
 
+void CScintillaView::find()
+{
+	TextToFind ttf;
+	// Zeiger auf "das eigentliche" Scintilla-Fenster
+	CWnd *pWindow = this->GetTopWindow()->GetTopWindow();
+	if(!pWindow) return;
+
+	long lPos = pWindow->SendMessage(SCI_GETCURRENTPOS);
+	ttf.chrg.cpMin = lPos;
+	ttf.chrg.cpMax = pWindow->SendMessage(SCI_GETLENGTH, 0, 0);
+	ttf.lpstrText = (char*)(LPCTSTR)(theApp.findAndReplaceDialog.textFind);
+
+	// bestimme Suchflags berücksichtigen...
+	int searchflags = 0;
+	// Berücksichtigung von Gross-/Kleinschreibung
+	if(theApp.findAndReplaceDialog.checkCaseSensitive) searchflags = SCFIND_MATCHCASE;
+	// Berücksichtigung regulärer Ausdrücke
+	if(theApp.findAndReplaceDialog.checkRegularExpressions) searchflags = SCFIND_REGEXP;
+
+	// [1] Benutzer möchte einen bestimmten Text FINDEN...
+	lPos = pWindow->SendMessage(SCI_FINDTEXT, searchflags, reinterpret_cast<LPARAM>(&ttf));
+	// ggf. den gefundenen Text markieren
+	if(lPos >= 0)
+	{
+		pWindow->SendMessage(SCI_SETSEL, lPos, lPos+strlen(ttf.lpstrText));
+	}
+}
+
+void CScintillaView::findAndReplace()
+{
+	TextToFind ttf;
+	// Zeiger auf "das eigentliche" Scintilla-Fenster
+	CWnd *pWindow = this->GetTopWindow()->GetTopWindow();
+	if(!pWindow) return;
+
+	long lPos = pWindow->SendMessage(SCI_GETCURRENTPOS);
+	ttf.chrg.cpMin = lPos;
+	ttf.chrg.cpMax = pWindow->SendMessage(SCI_GETLENGTH, 0, 0);
+	ttf.lpstrText = (char*)(LPCTSTR)(theApp.findAndReplaceDialog.textFind);
+
+	// bestimme Suchflags berücksichtigen...
+	int searchflags = 0;
+	// Berücksichtigung von Gross-/Kleinschreibung
+	if(theApp.findAndReplaceDialog.checkCaseSensitive) searchflags = SCFIND_MATCHCASE;
+	// Berücksichtigung regulärer Ausdrücke
+	if(theApp.findAndReplaceDialog.checkRegularExpressions) searchflags = SCFIND_REGEXP;
+
+	// [2] Benutzer möchte einen bestimmten Text ERSETZEN...
+	lPos = pWindow->SendMessage(SCI_FINDTEXT, searchflags, reinterpret_cast<LPARAM>(&ttf));
+	// ggf. den gefundenen Text markieren und durch den neuen Text ersetzen
+	if(lPos >= 0)
+	{
+		pWindow->SendMessage(SCI_SETSEL, lPos, lPos+strlen(ttf.lpstrText));
+		pWindow->SendMessage(SCI_REPLACESEL, 0, reinterpret_cast<LPARAM>((char*)(LPCTSTR)(theApp.findAndReplaceDialog.textReplace)));
+	}
+}
+
+void CScintillaView::findAndReplaceAll()
+{
+	TextToFind ttf;
+	// Zeiger auf "das eigentliche" Scintilla-Fenster
+	CWnd *pWindow = this->GetTopWindow()->GetTopWindow();
+	if(!pWindow) return;
+
+	long lPos = pWindow->SendMessage(SCI_GETCURRENTPOS);
+	ttf.chrg.cpMin = lPos;
+	ttf.chrg.cpMax = pWindow->SendMessage(SCI_GETLENGTH, 0, 0);
+	ttf.lpstrText = (char*)(LPCTSTR)(theApp.findAndReplaceDialog.textFind);
+
+	// bestimme Suchflags berücksichtigen...
+	int searchflags = 0;
+	// Berücksichtigung von Gross-/Kleinschreibung
+	if(theApp.findAndReplaceDialog.checkCaseSensitive) searchflags = SCFIND_MATCHCASE;
+	// Berücksichtigung regulärer Ausdrücke
+	if(theApp.findAndReplaceDialog.checkRegularExpressions) searchflags = SCFIND_REGEXP;
+
+	// [3] Benutzer möchte einen bestimmten Text AN ALLEN STELLEN ERSETZEN...
+	while(1)
+	{
+		// ggf. den gefundenen Text an jeder Stelle ersetzen
+		lPos = pWindow->SendMessage(SCI_FINDTEXT, searchflags, reinterpret_cast<LPARAM>(&ttf));
+		if(lPos < 0) break;
+		pWindow->SendMessage(SCI_SETSEL, lPos, lPos+strlen(ttf.lpstrText));
+		pWindow->SendMessage(SCI_REPLACESEL, 0, reinterpret_cast<LPARAM>((char*)(LPCTSTR)(theApp.findAndReplaceDialog.textReplace)));
+	}
+}
 
 void CScintillaView::OnEditFind() 
 {
 	// make the find and replace dialog visible
 	theApp.findAndReplaceDialog.show();
-
-	/*********************************************************************************************
-	FLOMAR, 03/03/2006
-	CAUTION!!!!! This is the OLD WAY the find and replace mechanism worked (as of February 2006).
-	This code will remain here until the NEW WAY (one modeless dialog for ALL text windows) works.
-	**********************************************************************************************
-
-	CDlgFindAndReplace dlg;
-	int result = dlg.DoModal();
-
-	if(result == IDC_BUTTON_FIND || result == IDC_BUTTON_REPLACE || result == IDC_BUTTON_REPLACE_ALL)
-	{
-		CWnd *pActiveWindow = this->GetTopWindow();
-		if(pActiveWindow)
-		{
-			TextToFind ttf;
-			long lPos = pActiveWindow->SendMessage(SCI_GETCURRENTPOS);
-			ttf.chrg.cpMin = lPos;
-			ttf.chrg.cpMax = pActiveWindow->SendMessage(SCI_GETLENGTH, 0, 0);
-			ttf.lpstrText = (char*)(LPCTSTR)(dlg.textFind);
-
-			// bestimme Suchflags berücksichtigen...
-			int searchflags = 0;
-			// Berücksichtigung von Gross-/Kleinschreibung
-			if(dlg.checkCaseSensitive) searchflags = SCFIND_MATCHCASE;
-			// Berücksichtigung regulärer Ausdrücke
-			if(dlg.checkRegularExpressions) searchflags = SCFIND_REGEXP;
-
-			// [1] Benutzer möchte einen bestimmten Text FINDEN...
-			if(result == IDC_BUTTON_FIND)
-			{
-				lPos = pActiveWindow->SendMessage(SCI_FINDTEXT, searchflags, reinterpret_cast<LPARAM>(&ttf));
-				// ggf. den gefundenen Text markieren
-				if(lPos >= 0) pActiveWindow->SendMessage(SCI_SETSEL, lPos, lPos+strlen(ttf.lpstrText));
-				return;
-			}
-
-			// [2] Benutzer möchte einen bestimmten Text ERSETZEN...
-			if(result == IDC_BUTTON_REPLACE)
-			{
-				lPos = pActiveWindow->SendMessage(SCI_FINDTEXT, searchflags, reinterpret_cast<LPARAM>(&ttf));
-				// ggf. den gefundenen Text markieren...
-				if(lPos >= 0) pActiveWindow->SendMessage(SCI_SETSEL, lPos, lPos+strlen(ttf.lpstrText));
-				// ...und durch den neuen Text ersetzen
-				pActiveWindow->SendMessage(SCI_REPLACESEL, 0, reinterpret_cast<LPARAM>((char*)(LPCTSTR)(dlg.textReplace)));
-				return;
-			}
-			// [3] Benutzer möchte einen bestimmten Text AN ALLEN STELLEN ERSETZEN...
-			if(result == IDC_BUTTON_REPLACE_ALL)
-			{
-				while(1)
-				{
-					// ggf. den gefundenen Text an jeder Stelle ersetzen
-					lPos = pActiveWindow->SendMessage(SCI_FINDTEXT, searchflags, reinterpret_cast<LPARAM>(&ttf));
-					if(lPos < 0) break;
-					pActiveWindow->SendMessage(SCI_SETSEL, lPos, lPos+strlen(ttf.lpstrText));
-					pActiveWindow->SendMessage(SCI_REPLACESEL, 0, reinterpret_cast<LPARAM>((char*)(LPCTSTR)(dlg.textReplace)));
-				}
-				return;
-			}
-		}
-	}
-	*/
 }

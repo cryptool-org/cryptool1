@@ -91,6 +91,12 @@ protected:
 #endif
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+
+public:
+	// flomar
+	void find();
+	void findAndReplace();
+	void findAndReplaceAll();
 };
 
 /////////////////////////////////////////////////////////////////////////////
