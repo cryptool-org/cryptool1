@@ -1,4 +1,4 @@
-// RSAFactorHintDlg.cpp : Implementierungsdatei
+// RSAFactorHintDlg.cpp : Implementierungsdatei 
 //
 
 #include "stdafx.h"
@@ -515,13 +515,13 @@ void CRSAFactorHintDlg::OnRadiochoice()
 	m_GuessP=to_ZZ(0);
 	updateNP();
 	if(b){//user values
-		m_bitsOfN=0;
+		SetDlgItemText(IDC_EDITBITSOFN,"200");
 		SetDlgItemText(IDC_EDITBITSOFP,"");
 		SetDlgItemText(IDC_EDITB,"");
 	}else{
-		m_bitsOfN=200;
+		SetDlgItemText(IDC_EDITBITSOFN,"200");
 		SetDlgItemText(IDC_EDITBITSOFP,"100");
-		SetDlgItemText(IDC_EDITB,"");
+		SetDlgItemText(IDC_EDITB,"80");
 	}
 	UpdateData(false);
 	updateDim();
@@ -591,6 +591,8 @@ void CRSAFactorHintDlg::OnRadiolsb()
 
 void CRSAFactorHintDlg::OnButtondefault() 
 {
+	SetDlgItemText(IDC_EDITBITSOFN,"200");
+	SetDlgItemText(IDC_EDITBITSOFP,"100");
 	SetDlgItemText(IDC_EDITB, "80");
 }
 

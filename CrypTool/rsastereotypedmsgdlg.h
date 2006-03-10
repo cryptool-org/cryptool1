@@ -96,6 +96,7 @@ private:
 	ZZ GetDlgItemZZ(int ID, int base);
 	void CheckEncryptButton();
 	void updatePreview();
+	void UpdateSliders();
 	CWinThread* pThread;
 };
 

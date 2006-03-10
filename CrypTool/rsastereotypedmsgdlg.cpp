@@ -1,4 +1,4 @@
-// RSAStereotypedMSGDlg.cpp : Implementierungsdatei
+// RSAStereotypedMSGDlg.cpp : Implementierungsdatei 
 //
 
 #include "stdafx.h"
@@ -25,7 +25,7 @@ CRSAStereotypedMSGDlg::CRSAStereotypedMSGDlg(CWnd* pParent /*=NULL*/)
 	m_h = 4;
 	m_N = _T("");
 	m_e = _T("");
-	m_choice = 1;
+	m_choice = 0;
 	//}}AFX_DATA_INIT
 	// Beachten Sie, dass LoadIcon unter Win32 keinen nachfolgenden DestroyIcon-Aufruf benötigt
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -89,7 +89,7 @@ BOOL CRSAStereotypedMSGDlg::OnInitDialog()
 	//  wenn das Hauptfenster der Anwendung kein Dialogfeld ist
 	SetIcon(m_hIcon, TRUE);			// Großes Symbol verwenden
 	SetIcon(m_hIcon, FALSE);		// Kleines Symbol verwenden
-	OnRadiochoice();
+	//OnRadiochoice();
 	// ZU ERLEDIGEN: Hier zusätzliche Initialisierung einfügen
 	return TRUE;  // Geben Sie TRUE zurück, außer ein Steuerelement soll den Fokus erhalten
 }
@@ -135,10 +135,7 @@ HCURSOR CRSAStereotypedMSGDlg::OnQueryDragIcon()
 // adjusted and the preview must be updated.
 void CRSAStereotypedMSGDlg::OnChangeEditplain() 
 {
-	CString tmp;
-	GetDlgItemText(IDC_EDITPLAIN, tmp);
-	m_spinLengthControl.SetRange(0,32000);
-	m_spinPosControl.SetRange(0,tmp.GetLength());
+
 	updatePreview();
 	checkParameters();
 }
@@ -151,12 +148,15 @@ void CRSAStereotypedMSGDlg::updatePreview()
 {
 	
 	// Get the source information,...
-	CString tmp;
+	bool b=m_choice==0;
+	CString tmp;	
 	GetDlgItemText(IDC_EDITPLAIN, tmp);
+	int pos=GetDlgItemInt(IDC_EDITPOS);
+	int length=GetDlgItemInt(IDC_EDITLENGTH);
+	
+
 	CString preview;
-	int pos, length;
-	pos=GetDlgItemInt(IDC_EDITPOS);
-	length=GetDlgItemInt(IDC_EDITLENGTH);
+
 	// ...cut it apart at the right position...
 	CString left=tmp.Left(pos);
 	CString right=tmp.Right(tmp.GetLength()-pos);
@@ -181,11 +181,76 @@ void CRSAStereotypedMSGDlg::updatePreview()
 
 void CRSAStereotypedMSGDlg::OnChangeEditlength() 
 {
-	updatePreview();	
+	
+	CString tmp;
+
+	bool b=m_choice==0;
+
+	GetDlgItemText(IDC_EDITPLAIN, tmp);
+
+	int pos, length;
+	pos=GetDlgItemInt(IDC_EDITPOS);
+	length=GetDlgItemInt(IDC_EDITLENGTH);
+	
+	if(!b){
+		CString fullPlainText;
+		GetDlgItemText(IDC_EDITPLAINFULL, fullPlainText);
+		int fullLenght = fullPlainText.GetLength();
+		int maxLength = fullLenght;
+
+		if(maxLength<length){
+			length=maxLength;
+			SetDlgItemInt(IDC_EDITLENGTH,length);
+		}
+
+		int maxPos=fullLenght-length;
+
+		if(maxPos<pos){
+			pos=maxPos;
+			SetDlgItemInt(IDC_EDITPOS,pos);
+		}
+
+
+	fullPlainText.Delete(pos, length);
+	SetDlgItemText(IDC_EDITPLAIN, fullPlainText);
+	}
+
+	updatePreview();
 }
 
 void CRSAStereotypedMSGDlg::OnChangeEditpos() 
 {
+	CString tmp;
+
+	bool b=m_choice==0;
+
+	GetDlgItemText(IDC_EDITPLAIN, tmp);
+
+	int pos, length;
+	pos=GetDlgItemInt(IDC_EDITPOS);
+	length=GetDlgItemInt(IDC_EDITLENGTH);
+	
+	if(!b){
+		CString fullPlainText;
+		GetDlgItemText(IDC_EDITPLAINFULL, fullPlainText);
+		int fullLenght = fullPlainText.GetLength();
+		int maxPos=fullLenght;
+
+		if(maxPos<pos){
+			pos=maxPos;
+			SetDlgItemInt(IDC_EDITPOS,pos);
+		}
+
+		int maxLength = fullLenght-pos;
+
+		if(maxLength<length){
+			length=maxLength;
+			SetDlgItemInt(IDC_EDITLENGTH,length);
+		}
+
+		fullPlainText.Delete(pos, length);
+		SetDlgItemText(IDC_EDITPLAIN, fullPlainText);
+	}
 	updatePreview();
 }
 
@@ -532,41 +597,28 @@ void CRSAStereotypedMSGDlg::OnRadiochoice()
 	((CEdit*)GetDlgItem(IDC_EDITCIPHER))->SetReadOnly(!b);
 	((CEdit*)GetDlgItem(IDC_EDITPLAIN))->SetReadOnly(!b);
 	((CEdit*)GetDlgItem(IDC_EDITPLAINFULL))->SetReadOnly(b);
-	((CEdit*)GetDlgItem(IDC_EDITPOS))->SetReadOnly(!b);
-	((CEdit*)GetDlgItem(IDC_EDITLENGTH))->SetReadOnly(!b);
 
 	SetDlgItemText(IDC_EDITCIPHER,"");
 	SetDlgItemText(IDC_EDITPLAIN,"");
 	SetDlgItemText(IDC_EDITPLAINFULL,"");
+	SetDlgItemText(IDC_EDITPLAINLENGTH, "");
+	
+	
 	SetDlgItemText(IDC_EDITPOS,"");
 	SetDlgItemText(IDC_EDITLENGTH,"");
-	SetDlgItemText(IDC_EDITN,"");
-
-	if(b){
-		SetDlgItemText(IDC_EDITBITSOFN,"0");
-		SetDlgItemText(IDC_EDITE,"");
-	}else{
-		SetDlgItemText(IDC_EDITBITSOFN,"1024");
-		SetDlgItemText(IDC_EDITE,"3");
-	}
-
-	GetDlgItem(IDC_SPINLENGTH)->ShowWindow(b);
-	GetDlgItem(IDC_SPINPOS)->ShowWindow(b);
 	GetDlgItem(IDC_BUTTONENCRYPT)->ShowWindow(!b);
 	GetDlgItem(IDC_BUTTONDELETE)->ShowWindow(!b);
-	GetDlgItem(IDC_STATICPLAIN0)->ShowWindow(b);
-	GetDlgItem(IDC_STATICPLAIN1)->ShowWindow(!b);
-	GetDlgItem(IDC_STATICPOS0)->ShowWindow(b);
-	GetDlgItem(IDC_STATICPOS1)->ShowWindow(!b);
+	GetDlgItem(IDC_STATIC_ENTER_KNOWN)->ShowWindow(b);
+	GetDlgItem(IDC_STATIC_SHOW_KNOWN)->ShowWindow(!b);
+	GetDlgItem(IDC_STATIC_ENTER_POS)->ShowWindow(b);
+	GetDlgItem(IDC_STATIC_HIGHLIGHT_POS)->ShowWindow(!b);
 	GetDlgItem(IDC_EDITPLAINLENGTH)->ShowWindow(!b);
 	GetDlgItem(IDC_PTLENGTH)->ShowWindow(!b);
-	GetDlgItem(IDC_EDITBITSOFN)->ShowWindow(!b);
-	GetDlgItem(IDC_STATIC5)->ShowWindow(!b);
-	GetDlgItem(IDC_RANDOM)->ShowWindow(!b);
-	GetDlgItem(IDC_STATIC6)->ShowWindow(!b);
-
+	GetDlgItem(IDC_STATIC_PLAINTEXT)->ShowWindow(!b);
+	GetDlgItem(IDC_EDITPLAINFULL)->ShowWindow(!b);
+	GetDlgItem(IDC_BUTTONENCRYPT)->ShowWindow(!b);
 	
-
+	UpdateSliders();
 }
 
 void CRSAStereotypedMSGDlg::OnButtondelete() 
@@ -598,6 +650,51 @@ void CRSAStereotypedMSGDlg::OnButtondelete()
 	}
 }
 
+
+void CRSAStereotypedMSGDlg::UpdateSliders(){
+	
+	CString tmp;
+
+	bool b=m_choice==0;
+
+	GetDlgItemText(IDC_EDITPLAIN, tmp);
+
+	int pos, length;
+	pos=GetDlgItemInt(IDC_EDITPOS);
+	length=GetDlgItemInt(IDC_EDITLENGTH);
+	
+	if(!b){
+		CString fullPlainText;
+		GetDlgItemText(IDC_EDITPLAINFULL, fullPlainText);
+		int fullLenght = fullPlainText.GetLength();
+		int maxPos=fullLenght;
+		int maxLength = fullLenght;
+
+		if(maxPos<pos){
+			pos=maxPos;
+			SetDlgItemInt(IDC_EDITPOS,pos);
+		}
+
+		if(maxLength<length){
+			length=maxLength;
+			SetDlgItemInt(IDC_EDITLENGTH,length);
+		}
+
+		(( CSpinButtonCtrl* )GetDlgItem( IDC_SPINPOS ))->SetRange(0,maxPos);
+		(( CSpinButtonCtrl* )GetDlgItem( IDC_SPINLENGTH ))->SetRange(0,maxLength);
+		
+		//fullPlainText.Delete(pos, length);
+		//SetDlgItemText(IDC_EDITPLAIN, fullPlainText);
+
+	}else{
+		int knownlenght=tmp.GetLength();
+
+		m_spinLengthControl.SetRange32(0,32000);
+		m_spinPosControl.SetRange32(0,knownlenght);
+	}
+
+}
+
 void CRSAStereotypedMSGDlg::OnChangeEditplainfull() 
 {
 	ZZ plain=GetDlgItemZZ(IDC_EDITPLAINFULL,256);
@@ -614,12 +711,8 @@ void CRSAStereotypedMSGDlg::OnChangeEditplainfull()
 	chars.Format("%d(%s)",tmp.GetLength(),toString(MaxChars,10,0));
 	SetDlgItemText(IDC_EDITPLAINLENGTH,chars);
 	SetDlgItemText(IDC_EDITCIPHER,"");
-	SetDlgItemText(IDC_EDITPLAIN,"");
-	SetDlgItemText(IDC_EDITPOS,"");
-	SetDlgItemText(IDC_EDITLENGTH,"");
-	
-
-
+	UpdateSliders();
+	updatePreview();
 }
 
 void CRSAStereotypedMSGDlg::OnKillfocusEdite() 
