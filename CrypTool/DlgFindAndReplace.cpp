@@ -100,9 +100,13 @@ void CDlgFindAndReplace::OnBnClickedButtonFind()
 	UpdateData(true);
 	// store find term
 	addFindTerm(textFind);
+
+	// CAUTION: The following part DOES NOT WORK for hexadecimal format; it's a temporary workaround
+
 	// find text
 	CScintillaView *pScintillaView = (CScintillaView*)(CCrypToolView*)(CWnd*)(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow());
 	if(pScintillaView) pScintillaView->find();
+
 	// update find and replace terms
 	insertOldFindAndReplaceTerms();
 }
@@ -113,9 +117,13 @@ void CDlgFindAndReplace::OnBnClickedButtonReplace()
 	// store find and replace terms
 	addFindTerm(textFind);
 	addReplaceTerm(textReplace);
+
+	// CAUTION: The following part DOES NOT WORK for hexadecimal format; it's a temporary workaround
+
 	// find and replace text
 	CScintillaView *pScintillaView = (CScintillaView*)(CCrypToolView*)(CWnd*)(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow());
 	if(pScintillaView) pScintillaView->findAndReplace();
+
 	// update find and replace terms
 	insertOldFindAndReplaceTerms();
 }
@@ -126,9 +134,13 @@ void CDlgFindAndReplace::OnBnClickedButtonReplaceAll()
 	// store find and replace terms
 	addFindTerm(textFind);
 	addReplaceTerm(textReplace);
+
+	// CAUTION: The following part DOES NOT WORK for hexadecimal format; it's a temporary workaround
+
 	// find and replace all text
 	CScintillaView *pScintillaView = (CScintillaView*)(CCrypToolView*)(CWnd*)(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow());
 	if(pScintillaView) pScintillaView->findAndReplaceAll();
+
 	// update find and replace terms
 	insertOldFindAndReplaceTerms();
 }
