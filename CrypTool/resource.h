@@ -225,6 +225,7 @@
 #define IDD_CRT_SECRETSHARING_FACTS     822
 #define IDD_FIND_AND_REPLACE            823
 #define IDR_GIF13                       825
+#define IDS_DH_VISUALIZATION_TOOLTIPKEY 825
 #define IDR_GIF14                       827
 #define IDR_GIF15                       828
 #define IDD_CRT_SECRETSHARING_LOG       830
@@ -2482,7 +2483,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        824
+#define _APS_NEXT_RESOURCE_VALUE        826
 #define _APS_NEXT_COMMAND_VALUE         33324
 #define _APS_NEXT_CONTROL_VALUE         1888
 #define _APS_NEXT_SYMED_VALUE           107

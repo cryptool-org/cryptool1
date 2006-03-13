@@ -103,6 +103,8 @@ void CDlgFindAndReplace::OnBnClickedButtonFind()
 	// find text
 	CScintillaView *pScintillaView = (CScintillaView*)(CCrypToolView*)(CWnd*)(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow());
 	if(pScintillaView) pScintillaView->find();
+	// update find and replace terms
+	insertOldFindAndReplaceTerms();
 }
 
 void CDlgFindAndReplace::OnBnClickedButtonReplace()
@@ -114,6 +116,8 @@ void CDlgFindAndReplace::OnBnClickedButtonReplace()
 	// find and replace text
 	CScintillaView *pScintillaView = (CScintillaView*)(CCrypToolView*)(CWnd*)(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow());
 	if(pScintillaView) pScintillaView->findAndReplace();
+	// update find and replace terms
+	insertOldFindAndReplaceTerms();
 }
 
 void CDlgFindAndReplace::OnBnClickedButtonReplaceAll()
@@ -125,6 +129,8 @@ void CDlgFindAndReplace::OnBnClickedButtonReplaceAll()
 	// find and replace all text
 	CScintillaView *pScintillaView = (CScintillaView*)(CCrypToolView*)(CWnd*)(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow());
 	if(pScintillaView) pScintillaView->findAndReplaceAll();
+	// update find and replace terms
+	insertOldFindAndReplaceTerms();
 }
 
 // add FIND term to vector (no doubled entries)

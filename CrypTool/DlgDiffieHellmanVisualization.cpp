@@ -510,10 +510,24 @@ BOOL CDlgDiffieHellmanVisualization::OnInitDialog()
 	// Statische GIF-Anim einblenden
 	this->ShowStaticGIF(IDR_GIF3);
 
+	// ToolTip kreieren und aktivieren (vgl. auch PreTranslateMessage)
+	pToolTipKey = new CToolTipCtrl;
+	pToolTipKey->Create(this);
+	pToolTipKey->AddTool(GetDlgItem(IDC_KEY), IDS_DH_VISUALIZATION_TOOLTIPKEY);
+	pToolTipKey->Activate(TRUE);
+	
 	UpdateData(false);
 
 	return FALSE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
+}
+
+BOOL CDlgDiffieHellmanVisualization::PreTranslateMessage(MSG* pMsg)
+{
+	// diese Zeile ist notwendig, damit die Tooltips funktionieren (warum auch immer)
+	if(pToolTipKey) pToolTipKey->RelayEvent(pMsg);
+
+    return CDialog::PreTranslateMessage(pMsg);
 }
 
 

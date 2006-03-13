@@ -13878,6 +13878,12 @@ BEGIN
                             "Auswahl eines Schlüssels zur RSA-Entschlüsselung von <%s>"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_DH_VISUALIZATION_TOOLTIPKEY 
+                            "Anzeige des ausgehandelten geheimen Schlüssels und Abspeichern der Logdatei."
+END
+
 #endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -27903,6 +27909,12 @@ BEGIN
     IDS_TITLE_DLG_SOLITAIRE "Generation of a Solitaire key strem for <%s>"
     IDS_TITLE_DLG_RSADECRYPTION 
                             "Selection of a key for RSA decryption of <%s>"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_DH_VISUALIZATION_TOOLTIPKEY 
+                            "Show a dialog with the negotiated secret key and to store log file."
 END
 
 #endif    // English (U.K.) resources

@@ -106,6 +106,9 @@ private:
 	bool m_bAnimatedGIFLoaded;
 	bool m_bStaticGIFLoaded;
 
+	// ToolTip-Control für Schlüsselanzeige
+	CToolTipCtrl *pToolTipKey;
+
 public:
 
 	// Für die GIF-Animation(en) im Dialog
@@ -133,6 +136,7 @@ protected:
 	afx_msg void OnKey();
 	afx_msg void OnPaint();
 	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 
