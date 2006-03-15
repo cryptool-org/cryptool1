@@ -87,6 +87,7 @@ BEGIN_MESSAGE_MAP(CHexEditCtrlView, CHexEditBaseView)
 	ON_COMMAND(ID_EDIT_PASTE, OnEditPaste)
 	ON_COMMAND(ID_EDIT_SELECT_ALL, OnEditSelectAll)
 	ON_COMMAND(ID_GOTO_VATER, OnGotoVater)
+	ON_COMMAND(ID_EDIT_FIND, OnEditFind)
 	//}}AFX_MSG_MAP
 	ON_COMMAND(ID_ENTROPY, OnEntropy)
 	ON_COMMAND(ID_HISTOGRAM, OnHistogram)
@@ -213,4 +214,10 @@ BOOL CHexEditCtrlView::OnCommand( WPARAM wParam, LPARAM lParam )
         this->GetDocument()->SetModifiedFlag();
     }
     return CWnd::OnCommand( wParam, lParam );
+}
+
+void CHexEditCtrlView::OnEditFind() 
+{
+	// make the find and replace dialog visible
+	theApp.findAndReplaceDialog.show();
 }

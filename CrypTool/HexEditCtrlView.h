@@ -91,6 +91,7 @@ protected:
 	afx_msg void OnEditPaste();
 	afx_msg void OnEditSelectAll();
 	afx_msg void OnGotoVater();
+	afx_msg void OnEditFind();
 	//}}AFX_MSG
 
 	DECLARE_DYNCREATE(CHexEditCtrlView)

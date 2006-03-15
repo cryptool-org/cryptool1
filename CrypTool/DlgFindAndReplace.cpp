@@ -51,6 +51,7 @@ statement from your version.
 #include "ScintillaWnd.h"
 #include "ScintillaDoc.h"
 #include "ScintillaView.h"
+#include "HexEditCtrlView.h"
 
 // global vector for previously used FIND terms
 std::vector<CString> termsFind;
@@ -100,12 +101,50 @@ void CDlgFindAndReplace::OnBnClickedButtonFind()
 	UpdateData(true);
 	// store find term
 	addFindTerm(textFind);
+	
+	// get run time class information of current window (CScintillaView or CHexEditCtrlView)
+	CRuntimeClass *pRunTimeClassText = RUNTIME_CLASS(CScintillaView);
+	CRuntimeClass *pRunTimeClassHex = RUNTIME_CLASS(CHexEditCtrlView);
 
-	// CAUTION: The following part DOES NOT WORK for hexadecimal format; it's a temporary workaround
+	if(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->IsKindOf(pRunTimeClassText))
+	{
+		// *******************
+		// *** TEXT FORMAT ***
+		// *******************
 
-	// find text
-	CScintillaView *pScintillaView = (CScintillaView*)(CCrypToolView*)(CWnd*)(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow());
-	if(pScintillaView) pScintillaView->find();
+		TextToFind ttf;
+		// pointer to the actual Scintilla window (CScintillaWnd)
+		CWnd *pWindow = theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->GetTopWindow();
+		if(!pWindow) return;
+
+		long lPos = pWindow->SendMessage(SCI_GETCURRENTPOS);
+		ttf.chrg.cpMin = lPos;
+		ttf.chrg.cpMax = pWindow->SendMessage(SCI_GETLENGTH, 0, 0);
+		ttf.lpstrText = (char*)(LPCTSTR)(theApp.findAndReplaceDialog.textFind);
+
+		// determine search flags
+		int searchflags = 0;
+		if(theApp.findAndReplaceDialog.checkCaseSensitive) searchflags = SCFIND_MATCHCASE;
+		if(theApp.findAndReplaceDialog.checkRegularExpressions) searchflags = SCFIND_REGEXP;
+
+		// find and mark the desired text
+		lPos = pWindow->SendMessage(SCI_FINDTEXT, searchflags, reinterpret_cast<LPARAM>(&ttf));
+		if(lPos >= 0)
+		{
+			pWindow->SendMessage(SCI_SETSEL, lPos, lPos+strlen(ttf.lpstrText));
+		}
+	}
+	else if(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->IsKindOf(pRunTimeClassHex))
+	{
+		// ******************
+		// *** HEX FORMAT ***
+		// ******************
+		
+		// TODO...
+		LoadString(AfxGetInstanceHandle(), IDS_FINDANDREPLACE_HEXNOTIMPLEMENTED, pc_str, STR_LAENGE_STRING_TABLE);
+        MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
+		return;
+	} 
 
 	// update find and replace terms
 	insertOldFindAndReplaceTerms();
@@ -118,11 +157,50 @@ void CDlgFindAndReplace::OnBnClickedButtonReplace()
 	addFindTerm(textFind);
 	addReplaceTerm(textReplace);
 
-	// CAUTION: The following part DOES NOT WORK for hexadecimal format; it's a temporary workaround
+	// get run time class information of current window (CScintillaView or CHexEditCtrlView)
+	CRuntimeClass *pRunTimeClassText = RUNTIME_CLASS(CScintillaView);
+	CRuntimeClass *pRunTimeClassHex = RUNTIME_CLASS(CHexEditCtrlView);
 
-	// find and replace text
-	CScintillaView *pScintillaView = (CScintillaView*)(CCrypToolView*)(CWnd*)(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow());
-	if(pScintillaView) pScintillaView->findAndReplace();
+	if(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->IsKindOf(pRunTimeClassText))
+	{
+		// *******************
+		// *** TEXT FORMAT ***
+		// *******************
+
+		TextToFind ttf;
+		// pointer to the actual Scintilla window (CScintillaWnd)
+		CWnd *pWindow = theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->GetTopWindow();
+		if(!pWindow) return;
+
+		long lPos = pWindow->SendMessage(SCI_GETCURRENTPOS);
+		ttf.chrg.cpMin = lPos;
+		ttf.chrg.cpMax = pWindow->SendMessage(SCI_GETLENGTH, 0, 0);
+		ttf.lpstrText = (char*)(LPCTSTR)(theApp.findAndReplaceDialog.textFind);
+
+		// determine search flags
+		int searchflags = 0;
+		if(theApp.findAndReplaceDialog.checkCaseSensitive) searchflags = SCFIND_MATCHCASE;
+		if(theApp.findAndReplaceDialog.checkRegularExpressions) searchflags = SCFIND_REGEXP;
+
+		/// find and replace the desired text
+		lPos = pWindow->SendMessage(SCI_FINDTEXT, searchflags, reinterpret_cast<LPARAM>(&ttf));
+		if(lPos >= 0)
+		{
+			pWindow->SendMessage(SCI_SETSEL, lPos, lPos+strlen(ttf.lpstrText));
+			pWindow->SendMessage(SCI_REPLACESEL, 0, reinterpret_cast<LPARAM>((char*)(LPCTSTR)(theApp.findAndReplaceDialog.textReplace)));
+		}
+	}
+	else if(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->IsKindOf(pRunTimeClassHex))
+	{
+		// ******************
+		// *** HEX FORMAT ***
+		// ******************
+		
+		// TODO...
+		LoadString(AfxGetInstanceHandle(), IDS_FINDANDREPLACE_HEXNOTIMPLEMENTED, pc_str, STR_LAENGE_STRING_TABLE);
+        MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
+		return;
+	}
 
 	// update find and replace terms
 	insertOldFindAndReplaceTerms();
@@ -135,11 +213,52 @@ void CDlgFindAndReplace::OnBnClickedButtonReplaceAll()
 	addFindTerm(textFind);
 	addReplaceTerm(textReplace);
 
-	// CAUTION: The following part DOES NOT WORK for hexadecimal format; it's a temporary workaround
+	// get run time class information of current window (CScintillaView or CHexEditCtrlView)
+	CRuntimeClass *pRunTimeClassText = RUNTIME_CLASS(CScintillaView);
+	CRuntimeClass *pRunTimeClassHex = RUNTIME_CLASS(CHexEditCtrlView);
 
-	// find and replace all text
-	CScintillaView *pScintillaView = (CScintillaView*)(CCrypToolView*)(CWnd*)(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow());
-	if(pScintillaView) pScintillaView->findAndReplaceAll();
+	if(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->IsKindOf(pRunTimeClassText))
+	{
+		// *******************
+		// *** TEXT FORMAT ***
+		// *******************
+
+		TextToFind ttf;
+		// pointer to the actual Scintilla window (CScintillaWnd)
+		CWnd *pWindow = theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->GetTopWindow();
+		if(!pWindow) return;
+
+		long lPos = pWindow->SendMessage(SCI_GETCURRENTPOS);
+		ttf.chrg.cpMin = lPos;
+		ttf.chrg.cpMax = pWindow->SendMessage(SCI_GETLENGTH, 0, 0);
+		ttf.lpstrText = (char*)(LPCTSTR)(theApp.findAndReplaceDialog.textFind);
+
+		// determine search flags
+		int searchflags = 0;
+		if(theApp.findAndReplaceDialog.checkCaseSensitive) searchflags = SCFIND_MATCHCASE;
+		if(theApp.findAndReplaceDialog.checkRegularExpressions) searchflags = SCFIND_REGEXP;
+
+		// find and replace the desired text on all occurances
+		while(1)
+		{
+			// ggf. den gefundenen Text an jeder Stelle ersetzen
+			lPos = pWindow->SendMessage(SCI_FINDTEXT, searchflags, reinterpret_cast<LPARAM>(&ttf));
+			if(lPos < 0) break;
+			pWindow->SendMessage(SCI_SETSEL, lPos, lPos+strlen(ttf.lpstrText));
+			pWindow->SendMessage(SCI_REPLACESEL, 0, reinterpret_cast<LPARAM>((char*)(LPCTSTR)(theApp.findAndReplaceDialog.textReplace)));
+		}
+	}
+	else if(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->IsKindOf(pRunTimeClassHex))
+	{
+		// ******************
+		// *** HEX FORMAT ***
+		// ******************
+		
+		// TODO...
+		LoadString(AfxGetInstanceHandle(), IDS_FINDANDREPLACE_HEXNOTIMPLEMENTED, pc_str, STR_LAENGE_STRING_TABLE);
+        MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
+		return;
+	}
 
 	// update find and replace terms
 	insertOldFindAndReplaceTerms();

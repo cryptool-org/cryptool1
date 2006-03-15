@@ -2,6 +2,7 @@
 // Microsoft Visual C++ generated include file.
 // Used by CrypTool.rc
 //
+#define IDS_FINDANDREPLACE_HEXNOTIMPLEMENTED 1
 #define IDCANCEL2                       3
 #define IDCANCEL3                       4
 #define IDCANCEL4                       5

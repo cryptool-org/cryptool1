@@ -122,12 +122,6 @@ public:
 	afx_msg void OnUpdateZeichenformatCourier08(CCmdUI *pCmdUI);
 	afx_msg void OnUpdateZeichenformatCourier10(CCmdUI *pCmdUI);
 	afx_msg void OnUpdateZeichenformatCourier12(CCmdUI *pCmdUI);
-
-public:
-	// flomar
-	void find();
-	void findAndReplace();
-	void findAndReplaceAll();
 };
 
 #ifndef _DEBUG  // Testversion in ScintillaView.cpp
