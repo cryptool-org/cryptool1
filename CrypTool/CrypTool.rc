@@ -13889,6 +13889,10 @@ STRINGTABLE
 BEGIN
     IDS_FINDANDREPLACE_HEXNOTIMPLEMENTED 
                             "TODO: Funktionalität für HEX-Modus noch nicht implementiert!"
+    IDS_FINDANDREPLACE_TEXTNOTFOUND 
+                            "Der gewünschte Text wurde nicht gefunden!"
+    IDS_FINDANDREPLACE_TEXTOCCURANCESREPLACED 
+                            "Der gewünschte Text wurde %d mal ersetzt."
 END
 
 #endif    // German (Germany) resources
@@ -17245,7 +17249,7 @@ BEGIN
     LTEXT           "Presentation of the cipher:",IDC_STATIC,269,226,87,8
 END
 
-IDD_RSABLOEMERMAY DIALOGEX  0, 0, 491, 436
+IDD_RSABLOEMERMAY DIALOGEX 0, 0, 491, 436
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Attack on small secret exponents"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
@@ -27960,6 +27964,9 @@ STRINGTABLE
 BEGIN
     IDS_FINDANDREPLACE_HEXNOTIMPLEMENTED 
                             "TODO: Functionality not yet implemented for HEX mode!"
+    IDS_FINDANDREPLACE_TEXTNOTFOUND "The desired text was not found!"
+    IDS_FINDANDREPLACE_TEXTOCCURANCESREPLACED 
+                            "The desired text was replaced %d times."
 END
 
 #endif    // English (U.K.) resources

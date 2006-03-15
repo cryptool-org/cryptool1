@@ -3,7 +3,9 @@
 // Used by CrypTool.rc
 //
 #define IDS_FINDANDREPLACE_HEXNOTIMPLEMENTED 1
+#define IDS_FINDANDREPLACE_TEXTNOTFOUND 2
 #define IDCANCEL2                       3
+#define IDS_FINDANDREPLACE_TEXTOCCURANCESREPLACED 3
 #define IDCANCEL3                       4
 #define IDCANCEL4                       5
 #define IDCANCEL5                       6

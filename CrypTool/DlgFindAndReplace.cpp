@@ -133,6 +133,12 @@ void CDlgFindAndReplace::OnBnClickedButtonFind()
 		{
 			pWindow->SendMessage(SCI_SETSEL, lPos, lPos+strlen(ttf.lpstrText));
 		}
+		else
+		{
+			LoadString(AfxGetInstanceHandle(), IDS_FINDANDREPLACE_TEXTNOTFOUND, pc_str, STR_LAENGE_STRING_TABLE);
+			MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
+			return;
+		}
 	}
 	else if(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->IsKindOf(pRunTimeClassHex))
 	{
@@ -189,6 +195,12 @@ void CDlgFindAndReplace::OnBnClickedButtonReplace()
 			pWindow->SendMessage(SCI_SETSEL, lPos, lPos+strlen(ttf.lpstrText));
 			pWindow->SendMessage(SCI_REPLACESEL, 0, reinterpret_cast<LPARAM>((char*)(LPCTSTR)(theApp.findAndReplaceDialog.textReplace)));
 		}
+		else
+		{
+			LoadString(AfxGetInstanceHandle(), IDS_FINDANDREPLACE_TEXTNOTFOUND, pc_str, STR_LAENGE_STRING_TABLE);
+			MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
+			return;
+		}
 	}
 	else if(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->IsKindOf(pRunTimeClassHex))
 	{
@@ -239,13 +251,30 @@ void CDlgFindAndReplace::OnBnClickedButtonReplaceAll()
 		if(theApp.findAndReplaceDialog.checkRegularExpressions) searchflags = SCFIND_REGEXP;
 
 		// find and replace the desired text on all occurances
+		int findcounter = 0;
 		while(1)
 		{
 			// ggf. den gefundenen Text an jeder Stelle ersetzen
 			lPos = pWindow->SendMessage(SCI_FINDTEXT, searchflags, reinterpret_cast<LPARAM>(&ttf));
 			if(lPos < 0) break;
+			findcounter++;
 			pWindow->SendMessage(SCI_SETSEL, lPos, lPos+strlen(ttf.lpstrText));
 			pWindow->SendMessage(SCI_REPLACESEL, 0, reinterpret_cast<LPARAM>((char*)(LPCTSTR)(theApp.findAndReplaceDialog.textReplace)));
+		}
+		// how often was the desired text replaced?
+		if(!findcounter)
+		{
+			LoadString(AfxGetInstanceHandle(), IDS_FINDANDREPLACE_TEXTNOTFOUND, pc_str, STR_LAENGE_STRING_TABLE);
+			MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
+			return;
+		}
+		else
+		{
+            LoadString(AfxGetInstanceHandle(), IDS_FINDANDREPLACE_TEXTOCCURANCESREPLACED, pc_str, STR_LAENGE_STRING_TABLE);
+			char temp[STR_LAENGE_STRING_TABLE+20];
+			sprintf(temp, pc_str, findcounter);
+			MessageBox(temp, "CrypTool", MB_ICONINFORMATION);
+			return;
 		}
 	}
 	else if(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->IsKindOf(pRunTimeClassHex))
