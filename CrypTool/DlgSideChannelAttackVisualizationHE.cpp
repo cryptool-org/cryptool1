@@ -803,12 +803,9 @@ void CDlgSideChannelAttackVisualizationHE::OnReport()
 		generateSCAReport(scaClient, scaServer, scaAttacker, filename);
 		CAppDocument *NewDoc = theApp.OpenDocumentFileNoMRU(filename);
 
-		if(this->m_bShowInfoDialogues)
-		{
-			// Message-Box über erfolgreichen Verlauf der Logtexterzeugung einblenden
-			LoadString(AfxGetInstanceHandle(), IDS_SCA_REPORTGENERATED, pc_str, STR_LAENGE_STRING_TABLE);
-			MessageBox(pc_str, "CrypTool");
-		}
+		// Message-Box über erfolgreichen Verlauf der Logtexterzeugung einblenden
+		LoadString(AfxGetInstanceHandle(), IDS_SCA_REPORTGENERATED, pc_str, STR_LAENGE_STRING_TABLE);
+		MessageBox(pc_str, "CrypTool");
 		
 		// Anzeige aktualisieren
 		updateGUI(5);

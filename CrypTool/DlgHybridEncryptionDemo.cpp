@@ -344,6 +344,47 @@ void CDlgHybridEncryptionDemo::OnButtonShowSymKey()
 
 void CDlgHybridEncryptionDemo::OnButtonEncDocumentSym() 
 {
+	// *** SCA-SPECIFIC BEGIN ***
+	// für den Seitenkanalangriff: testen, ob die ausgewählte Datei
+	// das Schlüsselwort enthält, anhand dessen Bob erkennt, ob die Nachricht
+	// wirklich von Alice kommt; wenn nicht, dann dem Benutzer anbieten,
+	// das Schlüsselwort an die Datei anzufügen
+	if(this->isSCABehaviourActivated)
+	{
+		// hole Schlüsselwort
+		CString keyword = theApp.GetProfileString("Settings", "SCA_Keyword", "Alice");
+		bool keywordFound = false;
+
+		const int bufsize = 1024;
+		char buf[bufsize];
+		std::ifstream infile(this->m_strPathSelDoc);
+		while(infile.getline(buf, bufsize))
+		{
+			// Schlüsselwort enthalten?
+			if(CString(buf) == keyword)
+				keywordFound = true;
+		}
+		infile.close();
+
+		if(!keywordFound)
+		{
+			// Schlüsselwort NICHT enthalten! Benutzer informieren und fragen...
+			LoadString(AfxGetInstanceHandle(),IDS_SCA_KEYWORDPROBLEM,pc_str,STR_LAENGE_STRING_TABLE);
+			char temp[STR_LAENGE_STRING_TABLE+1];
+			memset(temp, 0, STR_LAENGE_STRING_TABLE+1);
+			sprintf(temp, pc_str, keyword);
+
+			if(AfxMessageBox(temp, MB_YESNO) == IDYES)
+			{
+				// Schlüsselwort anfügen
+				std::ofstream outfile(this->m_strPathSelDoc, ios::app);
+				outfile.write(keyword, keyword.GetLength());
+				outfile.close();
+			}
+		}
+	}
+	// *** SCA-SPECIFIC END ***
+
 	if(inactive==m_ButtonStatus[5])	
 	{
 		Message(IDS_STRING_HYB_ENC_DOC_SYM, MB_ICONEXCLAMATION);

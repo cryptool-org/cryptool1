@@ -1,5 +1,5 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Visual C++ generated include file.
+// Microsoft Developer Studio generated include file.
 // Used by CrypTool.rc
 //
 #define IDS_FINDANDREPLACE_HEXNOTIMPLEMENTED 1
@@ -2481,6 +2481,7 @@
 #define IDS_ANIMAL_FILE_DES             62010
 #define IDS_SCA_HYBRIDENCRYPTEDFILE_DEFAULT_PSEFILE 62011
 #define IDS_ANIMAL_FILE_LOCALE          62012
+#define IDS_SCA_KEYWORDPROBLEM          62013
 
 // Next default values for new objects
 // 
