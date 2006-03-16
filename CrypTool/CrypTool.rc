@@ -3593,7 +3593,7 @@ BEGIN
                     "Button",BS_AUTORADIOBUTTON,132,122,147,10
     CONTROL         "H(k, H(k, m)): doppeltes Hashing",IDC_RADIO10,"Button",
                     BS_AUTORADIOBUTTON,132,140,140,10
-    CONTROL         "H(k, m, k'): zwei Schlüssel",IDC_RADIO11,"Button",
+    CONTROL         "H(k, m, k'): zwei verschiedene Schlüssel",IDC_RADIO11,"Button",
                     BS_AUTORADIOBUTTON,132,158,98,10
     EDITTEXT        IDC_EDIT_KEY,6,212,310,12,ES_AUTOHSCROLL | ES_WANTRETURN
     EDITTEXT        IDC_EDIT_KEY2,6,241,310,12,ES_AUTOHSCROLL | WS_DISABLED
