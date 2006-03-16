@@ -13399,7 +13399,7 @@ BEGIN
     ID_RSA_FACTORHINT       "Angriff auf RSA mit Gitterreduktionsverfahren, sofern ein Teil eines der beiden Primfaktoren von N bekannt ist"
     ID_RSA_STEREOTYPED      "Angriff auf RSA mit Gitterreduktionsverfahren, sofern ein Teil des ursprünglichen Klartextes einer abgefangenen Nachricht bekannt und e klein ist"
     ID_RSA_BLOEMERMAY       "Angriff auf RSA mit Gitterreduktionsverfahren, sofern d im Verhältnis zu N zu klein gewählt ist"
-    ID_FILEPROPERTIES       "Dateieigenschaften anzeigen... "
+    ID_FILEPROPERTIES       "Dateieigenschaften anzeigen"
     ID_ENCRYPT_ADFGVX       "ADFGVX-Verschlüsselung"
     ID_GENERATE_MACS        "Erzeugt verschiedene Message Authentication Codes (MACs)"
     ID_MASS_PATTERN_SEARCH  "Sucht vorgegebene Muster in einem Dokument"
@@ -13877,6 +13877,9 @@ BEGIN
     IDS_TITLE_DLG_SOLITAIRE "Erzeugung eines Solitaire-Schlüsselstroms für <%s>"
     IDS_TITLE_DLG_RSADECRYPTION 
                             "Auswahl eines Schlüssels zur RSA-Entschlüsselung von <%s>"
+    ID_VIEW_ENDOFLINE       "Ein- oder Ausschalten besonderer Zeichen anstelle von Zeilenenden"
+    ID_VIEW_LINEWRAP        "Ein- oder Ausschalten besonderer Zeichen anstelle von Zeilenumbrüchen"
+    ID_VIEW_WHITESPACE      "Ein- oder Ausschalten besonderer Zeichen anstelle von Leerzeichen"
 END
 
 STRINGTABLE 
@@ -13893,6 +13896,12 @@ BEGIN
                             "Der gewünschte Text wurde nicht gefunden!"
     IDS_FINDANDREPLACE_TEXTOCCURANCESREPLACED 
                             "Der gewünschte Text wurde %d mal ersetzt."
+END
+
+STRINGTABLE 
+BEGIN
+    ID_DECODE_BASE64        "Decodieren des aktiven Dokuments mittles Base64"
+    ID_ENCODE_BASE64        "Codieren des aktiven Dokuments mittels Base64"
 END
 
 #endif    // German (Germany) resources
@@ -27952,6 +27961,9 @@ BEGIN
     IDS_TITLE_DLG_SOLITAIRE "Generation of a Solitaire key strem for <%s>"
     IDS_TITLE_DLG_RSADECRYPTION 
                             "Selection of a key for RSA decryption of <%s>"
+    ID_VIEW_ENDOFLINE       "Activating and Deactivating the display of end of lines as special characters"
+    ID_VIEW_LINEWRAP        "Activating and Deactivating the display of line wraps as special characters"
+    ID_VIEW_WHITESPACE      "Activating and Deactivating the display of whitespaces as special characters"
 END
 
 STRINGTABLE 
@@ -27967,6 +27979,12 @@ BEGIN
     IDS_FINDANDREPLACE_TEXTNOTFOUND "The desired text was not found!"
     IDS_FINDANDREPLACE_TEXTOCCURANCESREPLACED 
                             "The desired text was replaced %d times."
+END
+
+STRINGTABLE 
+BEGIN
+    ID_DECODE_BASE64        "Decoding the active document using Base64"
+    ID_ENCODE_BASE64        "Encoding the active document using Base64"
 END
 
 #endif    // English (U.K.) resources
