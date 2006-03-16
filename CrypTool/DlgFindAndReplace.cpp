@@ -120,6 +120,9 @@ void CDlgFindAndReplace::OnBnClickedButtonFind()
 		CWnd *pWindow = theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->GetTopWindow();
 		if(!pWindow) return;
 
+		// show hour glass in case any operations needs a lot of time (i.e. huge files)
+		SHOW_HOUR_GLASS
+
 		long lPos = pWindow->SendMessage(SCI_GETCURRENTPOS);
 		ttf.chrg.cpMin = lPos;
 		ttf.chrg.cpMax = pWindow->SendMessage(SCI_GETLENGTH, 0, 0);
@@ -135,9 +138,15 @@ void CDlgFindAndReplace::OnBnClickedButtonFind()
 		if(lPos >= 0)
 		{
 			pWindow->SendMessage(SCI_SETSEL, lPos, lPos+strlen(ttf.lpstrText));
+
+			// hide hour glass
+			HIDE_HOUR_GLASS
 		}
 		else
 		{
+			// hide hour glass
+			HIDE_HOUR_GLASS
+
 			LoadString(AfxGetInstanceHandle(), IDS_FINDANDREPLACE_TEXTNOTFOUND, pc_str, STR_LAENGE_STRING_TABLE);
 			MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
 			return;
@@ -184,6 +193,9 @@ void CDlgFindAndReplace::OnBnClickedButtonReplace()
 		CWnd *pWindow = theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->GetTopWindow();
 		if(!pWindow) return;
 
+		// show hour glass in case any operations needs a lot of time (i.e. huge files)
+		SHOW_HOUR_GLASS
+
 		long lPos = pWindow->SendMessage(SCI_GETCURRENTPOS);
 		ttf.chrg.cpMin = lPos;
 		ttf.chrg.cpMax = pWindow->SendMessage(SCI_GETLENGTH, 0, 0);
@@ -200,9 +212,15 @@ void CDlgFindAndReplace::OnBnClickedButtonReplace()
 		{
 			pWindow->SendMessage(SCI_SETSEL, lPos, lPos+strlen(ttf.lpstrText));
 			pWindow->SendMessage(SCI_REPLACESEL, 0, reinterpret_cast<LPARAM>((char*)(LPCTSTR)(theApp.findAndReplaceDialog.textReplace)));
+
+			// hide hour glass
+			HIDE_HOUR_GLASS
 		}
 		else
 		{
+			// hide hour glass
+			HIDE_HOUR_GLASS
+
 			LoadString(AfxGetInstanceHandle(), IDS_FINDANDREPLACE_TEXTNOTFOUND, pc_str, STR_LAENGE_STRING_TABLE);
 			MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
 			return;
@@ -249,6 +267,9 @@ void CDlgFindAndReplace::OnBnClickedButtonReplaceAll()
 		CWnd *pWindow = theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->GetTopWindow();
 		if(!pWindow) return;
 
+		// show hour glass in case any operations needs a lot of time (i.e. huge files)
+		SHOW_HOUR_GLASS
+
 		long lPos = pWindow->SendMessage(SCI_GETCURRENTPOS);
 		ttf.chrg.cpMin = lPos;
 		ttf.chrg.cpMax = pWindow->SendMessage(SCI_GETLENGTH, 0, 0);
@@ -270,6 +291,10 @@ void CDlgFindAndReplace::OnBnClickedButtonReplaceAll()
 			pWindow->SendMessage(SCI_SETSEL, lPos, lPos+strlen(ttf.lpstrText));
 			pWindow->SendMessage(SCI_REPLACESEL, 0, reinterpret_cast<LPARAM>((char*)(LPCTSTR)(theApp.findAndReplaceDialog.textReplace)));
 		}
+
+		// hide hour glass
+		HIDE_HOUR_GLASS
+
 		// how often was the desired text replaced?
 		if(!findcounter)
 		{
