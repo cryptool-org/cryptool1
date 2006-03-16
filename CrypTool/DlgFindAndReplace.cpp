@@ -106,6 +106,9 @@ void CDlgFindAndReplace::OnBnClickedButtonFind()
 	CRuntimeClass *pRunTimeClassText = RUNTIME_CLASS(CScintillaView);
 	CRuntimeClass *pRunTimeClassHex = RUNTIME_CLASS(CHexEditCtrlView);
 
+	// do nothing if there's no window opened (prevent segmentation faults)
+	if(!theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()) return;
+
 	if(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->IsKindOf(pRunTimeClassText))
 	{
 		// *******************
@@ -166,6 +169,9 @@ void CDlgFindAndReplace::OnBnClickedButtonReplace()
 	// get run time class information of current window (CScintillaView or CHexEditCtrlView)
 	CRuntimeClass *pRunTimeClassText = RUNTIME_CLASS(CScintillaView);
 	CRuntimeClass *pRunTimeClassHex = RUNTIME_CLASS(CHexEditCtrlView);
+
+	// do nothing if there's no window opened (prevent segmentation faults)
+	if(!theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()) return;
 
 	if(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->IsKindOf(pRunTimeClassText))
 	{
@@ -228,6 +234,9 @@ void CDlgFindAndReplace::OnBnClickedButtonReplaceAll()
 	// get run time class information of current window (CScintillaView or CHexEditCtrlView)
 	CRuntimeClass *pRunTimeClassText = RUNTIME_CLASS(CScintillaView);
 	CRuntimeClass *pRunTimeClassHex = RUNTIME_CLASS(CHexEditCtrlView);
+
+	// do nothing if there's no window opened (prevent segmentation faults)
+	if(!theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()) return;
 
 	if(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->IsKindOf(pRunTimeClassText))
 	{
