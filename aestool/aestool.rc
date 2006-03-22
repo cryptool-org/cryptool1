@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -79,17 +79,17 @@ CAPTION "Info über AES-Tool"
 FONT 8, "MS Sans Serif"
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
-    LTEXT           "AES-Tool Version 2.0",IDC_STATIC,40,10,119,8,
+    LTEXT           "AES-Tool Version 2.2",IDC_STATIC,40,10,119,8,
                     SS_NOPREFIX
-    LTEXT           "Copyright (C) 2002",IDC_STATIC,40,25,119,8
+    LTEXT           "Copyright (C) 2006",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
 END
 
 IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 205
 STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
-CAPTION "AES-Tool"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+CAPTION "AES-Tool 2.2"
+FONT 8, "MS Sans Serif"
 BEGIN
     EDITTEXT        IDC_EDIT_KEY,28,59,266,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_SRC,28,107,174,12,ES_AUTOHSCROLL,
@@ -126,12 +126,12 @@ BEGIN
                     IDC_STATIC,7,52,197,40
 END
 
-IDD_HELP DIALOG DISCARDABLE  0, 0, 470, 282
+IDD_HELP DIALOG DISCARDABLE  0, 0, 470, 318
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Hilfe zu AES-Tool"
+CAPTION "Hilfe zu AES-Tool 2.2"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,209,261,50,14
+    DEFPUSHBUTTON   "OK",IDOK,209,297,50,14
     LTEXT           "AES-Tool ist ein Verschlüsselungsprogramm, mit dessen Hilfe Dateien mit dem symmetrischen Rijndael-Algorithmus (= AES) verschlüsselt werden können.",
                     IDC_STATIC,12,8,446,16
     LTEXT           "Das Programm kann auf drei verschiedene Arten aufgerufen werden:",
@@ -169,10 +169,12 @@ BEGIN
                     IDC_STATIC,24,201,434,16
     LTEXT           "und in einer Datei abzulegen (nachdem der korrekte Schlüssel eingegeben worden ist).",
                     IDC_STATIC,79,126,274,8
-    LTEXT           "angegeben werden. Wenn alle Parameter auf der Kommandozeile angegeben werden, ist keine weitere Interaktion nötig (sinnvoll für Batchläufe). Ansonsten öffnet sich ein Fenster, in das die restlichen Parameter interaktiv eingegeben werden können.",
+    LTEXT           "angegeben werden. Wenn alle Parameter auf der Kommandozeile angegeben werden, ist keine weitere Interaktion nötig (dies ist sinnvoll für Batchläufe). Ansonsten öffnet sich ein Fenster, in das die restlichen Parameter interaktiv eingegeben werden können.",
                     IDC_STATIC,24,165,434,17
     LTEXT           "Der Erfolg der Operation kann am Exitcode abgelesen werden: 0: alles OK; 1: Ein Fehler ist aufgetreten, Fehlermeldung auf stderr.",
                     IDC_STATIC,24,218,407,8
+    LTEXT           "Aufgrund von Beschränkungen durch das Betriebssystem ist die Größe von verschlüsselten Dateien  (einschließlich Header) auf 4 GB beschränkt.",
+                    IDC_STATIC,12,258,446,21
 END
 
 
@@ -183,8 +185,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 2,0,0,0
- PRODUCTVERSION 2,0,0,0
+ FILEVERSION 2,2,0,0
+ PRODUCTVERSION 2,2,0,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -202,14 +204,14 @@ BEGIN
             VALUE "Comments", "\0"
             VALUE "CompanyName", "\0"
             VALUE "FileDescription", "AES-Tool\0"
-            VALUE "FileVersion", "2.0\0"
+            VALUE "FileVersion", "2.2\0"
             VALUE "InternalName", "aestool\0"
             VALUE "LegalCopyright", "Copyright (C) 2002 Deutsche Bank AG\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "aestool.exe\0"
             VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "Anwendung AES-Tool\0"
-            VALUE "ProductVersion", "2.0\0"
+            VALUE "ProductVersion", "2.2\0"
             VALUE "SpecialBuild", "\0"
         END
     END
@@ -269,7 +271,7 @@ BEGIN
         VERTGUIDE, 72
         VERTGUIDE, 80
         TOPMARGIN, 13
-        BOTTOMMARGIN, 275
+        BOTTOMMARGIN, 311
         HORZGUIDE, 29
         HORZGUIDE, 41
         HORZGUIDE, 50
@@ -315,16 +317,16 @@ BEGIN
     IDS_STRING_CORRUPT      "Diese verschlüsselte Datei ist beschädigt."
     IDS_STRING_INVALID_KEY  "Ungültiges Zeichen im Schlüssel. Erlaubt sind: 0-9,a-f,A-F"
     IDS_STRING_KEY_TOO_LONG "Der angegebene Schlüssel ist zu lang. Die maximale Länge für AES Schlüssel beträgt 256 Bit (= 32 Byte = 64 Hexadezimalziffern)."
-    IDS_STRING_AESTOOL      "AES-Tool"
-    IDS_STRING_AESTOOL_FILE "AES-Tool [%s]"
+    IDS_STRING_AESTOOL      "AES-Tool 2.2"
+    IDS_STRING_AESTOOL_FILE "AES-Tool 2.2 [%s]"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -388,8 +390,8 @@ END
 IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 206
 STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
-CAPTION "AES-Tool"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
+CAPTION "AES-Tool 2.2"
+FONT 8, "MS Sans Serif"
 BEGIN
     EDITTEXT        IDC_EDIT_KEY,28,59,266,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_SRC,28,107,174,12,ES_AUTOHSCROLL,
@@ -413,12 +415,12 @@ BEGIN
     GROUPBOX        "Output format",IDC_STATIC,17,142,287,29
 END
 
-IDD_HELP DIALOG DISCARDABLE  0, 0, 470, 253
+IDD_HELP DIALOG DISCARDABLE  0, 0, 470, 289
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Help for AES-Tool"
+CAPTION "Help for AES-Tool 2.2"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,209,232,50,14
+    DEFPUSHBUTTON   "OK",IDOK,209,268,50,14
     LTEXT           "AES-Tool is an encryption program that can be used to encrypt files using the symmetric Rijndael algorithm (= AES).",
                     IDC_STATIC,12,9,446,10
     LTEXT           "The program can be invoked in three different ways:",
@@ -443,7 +445,7 @@ BEGIN
                     159,396,10
     LTEXT           "AESTool -i <Input file> -o <Output file> -k <Key>",
                     IDC_STATIC,62,169,396,10
-    LTEXT           "The third possibility for program invocation is the self extracting archive. The input file name here is being preset by the self extracting archive.",
+    LTEXT           "The third possibility for program invocation is the self extracting archive. The input file name here is being pre-set by the self extracting archive.",
                     IDC_STATIC,24,210,434,15
     LTEXT           "With a normal start by clicking the icon, all necessary parameters can be entered into a dialogue box.",
                     IDC_STATIC,24,33,434,9
@@ -460,6 +462,8 @@ BEGIN
                     IDC_STATIC,24,196,391,8
     LTEXT           "The output file's extension determines the encryption format: .EXE: self extracting archive, others: ordinary encrypted file.",
                     IDC_STATIC,24,188,434,9
+    LTEXT           "Due to operating system's limitation the size of encrypted files (including header and self extractor) is limited to 4 GB.",
+                    IDC_STATIC,12,238,446,10
 END
 
 IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
@@ -468,9 +472,9 @@ CAPTION "Information about AES-Tool"
 FONT 8, "MS Sans Serif"
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
-    LTEXT           "AES-Tool Version 2.0",IDC_STATIC,40,10,119,8,
+    LTEXT           "AES-Tool Version 2.2",IDC_STATIC,40,10,119,8,
                     SS_NOPREFIX
-    LTEXT           "Copyright (C) 2002",IDC_STATIC,40,25,119,8
+    LTEXT           "Copyright (C) 2006",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
 END
 
@@ -482,8 +486,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 2,0,0,0
- PRODUCTVERSION 2,0,0,0
+ FILEVERSION 2,1,0,0
+ PRODUCTVERSION 2,1,0,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -501,14 +505,14 @@ BEGIN
             VALUE "Comments", "\0"
             VALUE "CompanyName", "\0"
             VALUE "FileDescription", "AES-Tool\0"
-            VALUE "FileVersion", "2.0\0"
+            VALUE "FileVersion", "2.1\0"
             VALUE "InternalName", "aestool\0"
             VALUE "LegalCopyright", "Copyright (C) 2002 Deutsche Bank AG\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "aestool.exe\0"
             VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "Application AES-Tool\0"
-            VALUE "ProductVersion", "2.0\0"
+            VALUE "ProductVersion", "2.1\0"
             VALUE "SpecialBuild", "\0"
         END
     END
@@ -561,7 +565,7 @@ BEGIN
         VERTGUIDE, 69
         VERTGUIDE, 268
         TOPMARGIN, 12
-        BOTTOMMARGIN, 246
+        BOTTOMMARGIN, 282
         HORZGUIDE, 22
         HORZGUIDE, 33
         HORZGUIDE, 42
@@ -774,11 +778,11 @@ BEGIN
     IDS_STRING_CORRUPT      "This encrypted file is corrupt."
     IDS_STRING_INVALID_KEY  "Invalid character in key. Please use only 0-9,a-f,A-F."
     IDS_STRING_KEY_TOO_LONG "Key too long. Maximum AES key length is 256 bits (= 32 bytes = 64 hexadecimal digits)."
-    IDS_STRING_AESTOOL      "AES-Tool"
-    IDS_STRING_AESTOOL_FILE "AES-Tool [%s]"
+    IDS_STRING_AESTOOL      "AES-Tool 2.2"
+    IDS_STRING_AESTOOL_FILE "AES-Tool 2.2 [%s]"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

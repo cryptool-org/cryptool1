@@ -107,8 +107,8 @@ protected:
 	bool m_encrypted; // fields below are valid if this is set to true
 	long m_magic; // magic value indicating file format
 	unsigned char m_iv[16]; // initialisation vector
-	unsigned long m_datalen; // length of the encrypted data
-	unsigned long m_infoblocklen;
+	long m_datalen; // length of the encrypted data
+	long m_infoblocklen;
 	unsigned char *m_infoblockdata;
 public:
 	SrcInfo() : m_exists(0), m_infoblockdata(0) { }
@@ -118,7 +118,7 @@ public:
 	CString getName() const { return m_name; }
 	bool exists() const { return m_exists; }
 	bool isEncrypted() const { return m_exists && m_encrypted; }
-	long getLength() const { ASSERT(m_exists); return m_len; }
+	unsigned long getLength() const { ASSERT(m_exists); return m_len; }
 	const void *getIV() const { ASSERT(isEncrypted()); return m_iv; }
 	long getDataLength() const { ASSERT(isEncrypted()); return m_datalen; }
 	const void *getInfoBlockData() const { ASSERT(isEncrypted()); return m_infoblockdata; }

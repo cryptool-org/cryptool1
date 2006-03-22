@@ -110,7 +110,6 @@ typedef struct {
 
 /*  The structure for cipher information */
 typedef struct {  /* changed order of the components */
-      BYTE  mode;            /* MODE_ECB, MODE_CBC, or MODE_CFB1 */
       BYTE  IV[MAX_IV_SIZE]; /* A possible Initialization Vector for 
       					ciphering */
       /*  Add any algorithm specific parameters needed here  */
@@ -127,13 +126,13 @@ typedef struct {  /* changed order of the components */
  */
 int makeKeyRijndael(keyInstanceRijndael *key, BYTE direction, int keyLen, char *keyMaterial);
 
-int cipherInitRijndael(cipherInstanceRijndael *cipher, BYTE mode, char *IV);
+int cipherInitRijndael(cipherInstanceRijndael *cipher, char *IV);
 
 int blockEncryptRijndael(cipherInstanceRijndael *cipher, keyInstanceRijndael *key, BYTE *input, 
-			int inputLen, BYTE *outBuffer);
+			unsigned int inputLen, BYTE *outBuffer);
 
 int blockDecryptRijndael(cipherInstanceRijndael *cipher, keyInstanceRijndael *key, BYTE *input,
-			int inputLen, BYTE *outBuffer);
+			unsigned int inputLen, BYTE *outBuffer);
 int cipherUpdateRounds(cipherInstanceRijndael *cipher, keyInstanceRijndael *key, BYTE *input, 
                         int inputLen, BYTE *outBuffer, int Rounds);
 

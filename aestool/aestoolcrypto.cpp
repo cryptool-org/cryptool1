@@ -50,8 +50,9 @@ statement from your version.
 #include <time.h> // time
 #include "rijndael-api-fst.h"
 
+#define BUFFSIZE (4096 * 1024)
 
-void aescbc(const void *key,int keylen,const void *iv,char direction,const void *datain, long datalen, void *dataout)
+void aescbc(const void *key,int keylen,const void *iv,char direction,const void *datain, unsigned long datalen, void *dataout)
 // all len(ths) in bytes, direction: DIR_DECRYPT or DIR_ENCRYPT
 // datain and dataout may be identical for encryption
 {
@@ -79,13 +80,13 @@ void aescbc(const void *key,int keylen,const void *iv,char direction,const void 
 	keyInstanceRijndael keyin;
 	cipherInstanceRijndael cipher;
 	VERIFY(makeKeyRijndael(&keyin,direction,keylen*8,keyhex));
-	VERIFY(cipherInitRijndael(&cipher,MODE_CBC,ivhex));
-	long ret;
+	VERIFY(cipherInitRijndael(&cipher,ivhex));
+	unsigned long ret;
 	if (direction == DIR_DECRYPT)
-		ret = blockDecryptRijndael(&cipher, &keyin, (unsigned char *)datain, datalen*8, (unsigned char *)dataout);
+		ret = blockDecryptRijndael(&cipher, &keyin, (unsigned char *)datain, datalen, (unsigned char *)dataout);
 	else
-		ret = blockEncryptRijndael(&cipher, &keyin, (unsigned char *)datain, datalen*8, (unsigned char *)dataout);
-	VERIFY(ret == datalen*8);
+		ret = blockEncryptRijndael(&cipher, &keyin, (unsigned char *)datain, datalen, (unsigned char *)dataout);
+	VERIFY(ret == datalen);
 }
 
 void AesGetErrorMessage(CFileException &e,CString &errormsg)
@@ -98,16 +99,17 @@ bool AesToolDecrypt(const void *key,int keylen,const SrcInfo &srcinfo,
 					LPCSTR dstname,CString &errormsg)
 // return value: 1: OK, 0: Error
 {
-	char *buffer1 = 0, *buffer2 = 0;
+	unsigned char *buffer1 = 0, *buffer2 = 0;
+	unsigned long bufflen, ResData;
 	bool dstfilecreated = false;
 	try {
 		long i;
 
-		long DataLen = srcinfo.getDataLength();
-		buffer1 = (char *) malloc(DataLen);
-		buffer2 = (char *) malloc(DataLen);
+		unsigned long DataLen = ResData = srcinfo.getDataLength();
+		bufflen = BUFFSIZE;
+		buffer2 = (unsigned char *) malloc(bufflen+32);
+		buffer1 = buffer2+32;
 		if (buffer1 == 0 || buffer2 == 0) {
-			if (buffer1) free(buffer1);
 			if (buffer2) free(buffer2);
 			errormsg.LoadString(IDS_STRING_NOMEMORY);
 			return 0;
@@ -116,46 +118,73 @@ bool AesToolDecrypt(const void *key,int keylen,const SrcInfo &srcinfo,
 		// Load Sourcedata
 		unsigned mode = CFile::modeRead | CFile::typeBinary | CFile::shareDenyNone;
 		CFile SrcFile(srcinfo.getName(), mode);
-		
-		long datadistance2end = // not including the IV befor data
+
+		// prepare key
+		char keyhex[2*256/8+1];
+		char ivhex[2*256/8+1];
+
+		int keylen0 = keylen;
+		if(keylen0 <= 16) 
+			keylen = 16;
+		else if(keylen0 <= 24) 
+			keylen = 24;
+		else 
+			keylen = 32;
+
+		unsigned char * p = (unsigned char*)key;
+		for(i=0; i < keylen; i++)
+			sprintf(keyhex+2*i,"%02.2X", i < keylen0 ? p[i] : 0);
+	
+		p = (unsigned char *) srcinfo.getIV();
+		for(i=0; i < AESIVLEN; i++)
+			sprintf(ivhex+2*i,"%02.2X", p[i]);
+
+		keyInstanceRijndael keyin;
+		cipherInstanceRijndael cipher;
+		VERIFY(makeKeyRijndael(&keyin,DIR_DECRYPT,keylen*8,keyhex));
+		VERIFY(cipherInitRijndael(&cipher,ivhex));
+
+		long datadistance2end = // not including the IV before data
 			TAILLEN + AESIVLEN + srcinfo.getDataLength() + srcinfo.getInfoBlockLength();
-		SrcFile.Seek(-datadistance2end, CFile::end);
-		SrcFile.Read(buffer1, DataLen);
-		SrcFile.Close();
+		SrcFile.Seek(srcinfo.getLength()-datadistance2end, CFile::begin);
 
-		// decrypt
-
-		aescbc(key,keylen,srcinfo.getIV(),DIR_DECRYPT,buffer1,DataLen,buffer2);
-
-		// remove padding
-		// remove trailing 0's
-		for(i=DataLen-1;i>0 && buffer2[i]==0;i--);
-		// check trailing 1
-		if(buffer2[i]!=1) { // display error
-			errormsg.LoadString(IDS_STRING_KEYERROR);
-			if (buffer1) free(buffer1);
-			if (buffer2) free(buffer2);
-			return 0;
-		}
-		DataLen = i;
-
-		// store data
+		// Prepare Outfile
 		mode = CFile::modeCreate | CFile::modeWrite | CFile::typeBinary | CFile::shareDenyWrite;
 		CFile OutFile(dstname, mode);
 		dstfilecreated = true;
-		
-		if(DataLen > 0)
-			OutFile.Write(buffer2, DataLen);
+
+		// load Sourcedata
+		while((i = SrcFile.ReadHuge(buffer1, min(bufflen,ResData))) > 0) {
+
+			ResData -= i;
+			// decrypt data
+			long ret = blockDecryptRijndael(&cipher, &keyin, buffer1, i, buffer2);
+			VERIFY(ret == i);
+
+			if(ResData == 0) {
+				// remove padding
+				// remove trailing 0's
+				for(i--;i>0 && buffer2[i]==0;i--);
+				// check trailing 1
+				if(buffer2[i]!=1) { // display error
+					errormsg.LoadString(IDS_STRING_KEYERROR);
+					if (buffer2) free(buffer2);
+					return 0;
+				}
+			}
+			// store data
+			OutFile.WriteHuge(buffer2, i);
+		}
+
+		SrcFile.Close();
 
 	} catch (CFileException *e) {
 		AesGetErrorMessage(*e,errormsg);
 		if (dstfilecreated) DeleteFile(dstname);
-		if (buffer1) free (buffer1);
 		if (buffer2) free (buffer2);
 		e->Delete();
 		return 0;
 	}
-	if (buffer1) free (buffer1);
 	if (buffer2) free (buffer2);
 	return 1;
 }
@@ -171,19 +200,19 @@ bool AesToolEncrypt(const void *key,int keylen,const SrcInfo &srcinfo,
 	CString Message;
 	CFile EXEFile;
 	CFileException e;
-	char *buffer = 0;
+	unsigned char *buffer = 0;
 	int bufflen;
 	int i;
 	bool dstfilecreated = false;
+	unsigned long ResData;
 	
 	try {
 		unsigned mode = CFile::modeRead | CFile::typeBinary | CFile::shareDenyNone;
 		CFile SrcFile(srcinfo.getName(), mode);
 
-		ASSERT(SrcFile.GetLength() < ULONG_MAX);
-		unsigned long DataLen = (unsigned long)SrcFile.GetLength();
-		bufflen = max(DataLen+16, 4096);
-		buffer = (char *) malloc(bufflen);
+		unsigned long DataLen = ResData = SrcFile.GetLength();
+		bufflen = BUFFSIZE;
+		buffer = (unsigned char *) malloc(bufflen+16);
 		if (!buffer) {
 			errormsg.Format(IDS_STRING_NOMEMORY);
 			return 0;
@@ -203,14 +232,10 @@ bool AesToolEncrypt(const void *key,int keylen,const SrcInfo &srcinfo,
 		dstfilecreated = true;
 
 		if(exename) { // copy EXE-File first
-			while((i = EXEFile.Read(buffer, bufflen)) > 0)
-				OutFile.Write(buffer,i);
+			while((i = EXEFile.ReadHuge(buffer, bufflen)) > 0)
+				OutFile.WriteHuge(buffer,i);
 			EXEFile.Close();
 		}
-		// load Sourcedata
-		SrcFile.Read(buffer, DataLen);
-		SrcFile.Close();
-
 		// generate random IV
 		srand((unsigned)time(0));
 		for (i = 0; i < sizeof(iv); i++) 
@@ -218,17 +243,50 @@ bool AesToolEncrypt(const void *key,int keylen,const SrcInfo &srcinfo,
 		// output IV
 		OutFile.Write(iv,sizeof(iv));
 
-		// insert padding
-		buffer[DataLen]=1;
-		for(i=DataLen+1;i<bufflen;i++) buffer[i]=0;
-		DataLen = (DataLen+16) & ~15;
+		// prepare key
+		char keyhex[2*256/8+1];
+		char ivhex[2*256/8+1];
 
-		// encrypt data
-		aescbc(key,keylen,iv,DIR_ENCRYPT,buffer,DataLen,buffer);
+		int keylen0 = keylen;
+		if(keylen0 <= 16) 
+			keylen = 16;
+		else if(keylen0 <= 24) 
+			keylen = 24;
+		else 
+			keylen = 32;
 
-		// store data
-		OutFile.Write(buffer, DataLen);
-		free (buffer); buffer = 0;
+		unsigned char * p = (unsigned char*)key;
+		for(i=0; i < keylen; i++)
+			sprintf(keyhex+2*i,"%02.2X", i < keylen0 ? p[i] : 0);
+	
+		p = (unsigned char*)iv;
+		for(i=0; i < AESIVLEN; i++)
+			sprintf(ivhex+2*i,"%02.2X", p[i]);
+
+		keyInstanceRijndael keyin;
+		cipherInstanceRijndael cipher;
+		VERIFY(makeKeyRijndael(&keyin,DIR_ENCRYPT,keylen*8,keyhex));
+		VERIFY(cipherInitRijndael(&cipher,ivhex));
+
+		// load Sourcedata
+		DataLen = 0;
+		while((i = SrcFile.ReadHuge(buffer, bufflen)) > 0) {
+			ResData -= i;
+			if(ResData == 0) { // insert padding
+				buffer[i] = 1;
+				for(i++; i & 15; i++) buffer[i]=0;
+			}
+			// encrypt data
+			long ret = blockEncryptRijndael(&cipher, &keyin, buffer, i, buffer);
+			VERIFY(ret == i);
+			// store data
+			DataLen += i;
+			OutFile.WriteHuge(buffer, i);
+
+		}
+		SrcFile.Close();
+
+		free (buffer); buffer = NULL;
 
 		// output IV
 		OutFile.Write(iv,sizeof(iv));
@@ -273,8 +331,7 @@ SrcInfo::ReturnCode SrcInfo::setName(CString name)
 	m_exists = true;
 
 	m_encrypted = false;
-	ASSERT(file.GetLength() < ULONG_MAX);
-	m_len = (unsigned long)file.GetLength();
+	m_len = file.GetLength();
 	if (m_len < TAILLEN) 
 		return OK;
 	file.Seek(-TAILLEN, CFile::end);
@@ -287,7 +344,6 @@ SrcInfo::ReturnCode SrcInfo::setName(CString name)
 		return VERSION; 
 	}
 
-	ASSERT(2*AESIVLEN + m_infoblocklen + TAILLEN < ULONG_MAX - m_datalen);
 	unsigned long minlen = 2*AESIVLEN + m_datalen + m_infoblocklen + TAILLEN;
 	if (m_magic != FILE_MAGIC)
 		return OK;
@@ -301,7 +357,7 @@ SrcInfo::ReturnCode SrcInfo::setName(CString name)
 		m_exists = false;
 		return NOMEM;
 	}
-	file.Seek(-(long)(AESIVLEN + m_infoblocklen + TAILLEN), CFile::end);
+	file.Seek(-(AESIVLEN + m_infoblocklen + TAILLEN), CFile::end);
 	file.Read(m_iv,AESIVLEN);
 	file.Read(m_infoblockdata,m_infoblocklen);
 	return OK;
