@@ -58,7 +58,7 @@ void GetNewDocTitle(const char* keyStr, const char* OldTitle,
 void OpenNewDoc    (const char *outfile, const char* keyStr, const char* OldTitle, 
 					int IDS_STRING_ID, BOOL Decrypt = FALSE, int KeyType = SCHLUESSEL_LINEAR );
 
-char * itoa_fmt (unsigned long ul_num);
+char* itoa_fmt(int i_num, char *c_buffer = NULL, int i_base = 10 );
 
 #endif
 
