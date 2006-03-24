@@ -154,8 +154,13 @@ bool AesToolDecrypt(const void *key,int keylen,const SrcInfo &srcinfo,
 		dstfilecreated = true;
 
 		// load Sourcedata
-		while((i = SrcFile.ReadHuge(buffer1, min(bufflen,ResData))) > 0) {
-
+		#if !defined(_MSC_VER) || _MSC_VER <= 1200  
+		// ReadHuge is needed for VC++ 6.0
+		while((i = SrcFile.ReadHuge(buffer1, min(bufflen,ResData))) > 0) 
+		#else
+		while((i = SrcFile.Read(buffer1, min(bufflen,ResData))) > 0) 
+		#endif
+		{
 			ResData -= i;
 			// decrypt data
 			long ret = blockDecryptRijndael(&cipher, &keyin, buffer1, i, buffer2);
@@ -173,7 +178,12 @@ bool AesToolDecrypt(const void *key,int keylen,const SrcInfo &srcinfo,
 				}
 			}
 			// store data
+			#if !defined(_MSC_VER) || _MSC_VER <= 1200  
+			// WriteHuge is needed for VC++ 6.0
 			OutFile.WriteHuge(buffer2, i);
+			#else
+			OutFile.Write(buffer2, i);
+			#endif
 		}
 
 		SrcFile.Close();
@@ -232,8 +242,15 @@ bool AesToolEncrypt(const void *key,int keylen,const SrcInfo &srcinfo,
 		dstfilecreated = true;
 
 		if(exename) { // copy EXE-File first
+		
+			#if !defined(_MSC_VER) || _MSC_VER <= 1200  
+			// ReadHuge is needed for VC++ 6.0
 			while((i = EXEFile.ReadHuge(buffer, bufflen)) > 0)
 				OutFile.WriteHuge(buffer,i);
+			#else
+			while((i = EXEFile.Read(buffer, bufflen)) > 0)
+				OutFile.Write(buffer,i);
+			#endif
 			EXEFile.Close();
 		}
 		// generate random IV
@@ -270,7 +287,13 @@ bool AesToolEncrypt(const void *key,int keylen,const SrcInfo &srcinfo,
 
 		// load Sourcedata
 		DataLen = 0;
+
+		#if !defined(_MSC_VER) || _MSC_VER <= 1200  
+		// ReadHuge is needed for VC++ 6.0
 		while((i = SrcFile.ReadHuge(buffer, bufflen)) > 0) {
+		#else
+		while((i = SrcFile.Read(buffer, bufflen)) > 0) {
+		#endif
 			ResData -= i;
 			if(ResData == 0) { // insert padding
 				buffer[i] = 1;
@@ -281,8 +304,13 @@ bool AesToolEncrypt(const void *key,int keylen,const SrcInfo &srcinfo,
 			VERIFY(ret == i);
 			// store data
 			DataLen += i;
-			OutFile.WriteHuge(buffer, i);
 
+			#if !defined(_MSC_VER) || _MSC_VER <= 1200  
+			// WriteHuge is needed for VC++ 6.0
+			OutFile.WriteHuge(buffer, i);
+			#else
+			OutFile.Write(buffer, i);
+			#endif
 		}
 		SrcFile.Close();
 
