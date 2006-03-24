@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Hinweise zur Durchführung des Seitenkanalangriffs</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Seitenkanalangriff">
+	<PARAM NAME="Keyword" VALUE="Demonstration">
+</OBJECT>
+
+<BODY>
+
+<h3>Hinweise zur Durchführung des Seitenkanalangriffs</h3>
+
+<P>Es gibt drei Möglichkeiten, den Seitenkanalangriff auf das Hybridverschlüsselungsprotokoll auf einfache Weise durchzuführen.</P>
+
+<P><U>Möglichkeit A</U>:</P>
+
+<P>Man öffnet die im CrypTool-Paket enthaltene (unverschlüsselte) Datei "letterFromAliceToBob-DECRYPTED-de.txt" und beginnt mit dem Seitenkanalangriff. Nach dem Dialog "Vorbereitungen durchführen" wählt man dann die Option "Sie hybridverschlüsseln das geöffnete Dokument".</P>
+
+<P><U>Möglichkeit B</U>:</P>
+
+<P>Man öffnet die im CrypTool-Paket enthaltene (hybridverschlüsselte) Datei "letterFromAliceToBob-ENCRYPTED-de.hex" und beginnt mit dem Seitenkanalangriff. Nach dem Dialog "Vorbereitungen durchführen" wählt man dann die Option "Sie verwenden das geöffnete Dokument".</P>
+
+<P><U>Möglichkeit C</U>:</P>
+
+<P>Unabhängig davon, welches Dokuemnt beim Start des Seitenkanalangriffs geöffnet war, hat man nach dem Dialog "Vorbereitungen durchführen" stets die Möglichkeit, über die Option "Sie verwenden ein in CrypTool integriertes Dokument..." den Seitenkanalangriff ohne weitere Eingriffe durchzuführen. Das Programm verwendet dann "im Hintergrund" die richtige Datei (die hybridverschlüsselete Datei "letterFromAliceToBob-ENCRYPTED-de.hex" aus Option B).</P>
+
+<P><B>Bemerkung 1</B>:</P>
+
+<P>In jedem Fall ist die PIN für Bobs privaten Schlüssel <B>1234</B>.</P>
+
+<P><B>Bemerkung 2</B>:</P>
+
+<P>Damit der Seitenkanalangriff funktionieren kann, muss Bob erkennen können, ob er eine empfangene Nachricht korrekt entschlüsselt hat.</P>
+
+<P>Derzeit wird jede nachricht als korrekt erkannt, die den String "Alice" enthält -- dies bezeichnen wir als "Schlüsselwort". Man könnte es auch so implementieren, dass die Entropie der Nachricht unterhalb einer bestimmten Grenze liegen muss.</P>
+
+<P>Das zu prüfende Schlüsselwort lässt sich über den CrypTool-Dialog "Optionen \ Weitere Optionen" beliebig ändern.</P>
+
+<P><B>Bitte beachten</B>: Wenn das Schlüsselwort geändert wird, funktionieren die Möglichkeiten B und C (siehe oben) natürlich nicht mehr! in diesen Fällen würde das hartcodierte Schlüsselwort ("Alice") nicht erkannt.</P>
+
+</BODY>
+</HTML>

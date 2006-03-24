@@ -88,17 +88,16 @@
 			based on a <B>number system </B>(possible number systems are decimal, binary, 
 			octal and hexadecimal; the number system can be defined in the same dialog 
 			below the block length and this setting is also used for display).</P>
-		<P><B>Example</B>: If the message "ATTACK AT DAWN" is broken down into blocks of 
+		<P><B>Example</B>: In this case the alphabet consists of 27 characters (&lt;Blank&gt; = 0, A = 1, ..., Z = 26). If the message "ATTACK AT DAWN" is broken down into blocks of 
 			length 2, we obtain the following blocks:
 		</P>
 		<div class="indent">
 			<P>AT # TA # CK # &lt;Blank&gt;A # T&lt;Blank&gt; # DA # WN</P>
 		</div>
-		<P>Numeric coding of the letters in the message (&lt;Blank&gt; = 0, A = 1, ..., Z = 
-			26):
+		<P>Numeric coding of the letters in the message:
 		</P>
 		<div class="indent">
-			<P>01 # 20 # 20 # 01 # 03 # 00 # 01 # 20 # 00 # 04 # 01 # 23 # 14 # 00</P>
+			<P>01 20 # 20 01 # 03 00 # 01 20 # 00 04 # 01 23 # 14 00</P>
 		</div>
 		<P>How to generate a new number from the single numbers of a block is determined by 
 			the two coding methods "b-adic" and "basic system".</P>

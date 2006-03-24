@@ -77,7 +77,7 @@
 
 <P>Wenn Sie das Alphabet selber festgelegt haben, und die gewählte Blocklänge k größer als die 1 ist, werden nach der Codierung der Buchstaben in Zahlen jeweils k dieser Zahlen in einer größeren Zahl codiert. Die Codierung kann <B>b-adisch</B> (wobei b die Anzahl der Buchstaben im Alphabet ist) oder zur <B>Zahlenbasis</B> erfolgen. Mögliche Zahlenbasen sind dezimal, binär, oktal und hexadezimal. Die Zahlenbasis kann weiter unten im Dialog eingestellt werden und ist auch für die Anzeige relevant.</P>
 
-<P><B>Beispiel</B>: Die Nachricht "ATTACK AT DAWN", zerlegt in Blöcke der Länge 2 ergibt: </P>
+<P><B>Beispiel</B>: In unserem Fall hat das Alphabet 27 Zeichen und die Zeichen (&lt;Blank&gt; = 0, A = 1, ..., Z = 26) haben die Zahlenwerte von 0 bis 26. Die Nachricht "ATTACK AT DAWN", zerlegt in Blöcke der Länge 2, ergibt:</P>
 
 <div class="indent">
 
@@ -85,11 +85,11 @@
 
 </div>
 
-<P>Die Codierung der Einzelbuchstaben der Nachricht in Zahlen (&lt;Blank&gt; = 0, A = 1, ..., Z = 26) ergibt erst mal: </P>
+<P>Die Codierung der Einzelbuchstaben der Nachricht in Zahlen ergibt erst mal: </P>
 
 <div class="indent">
 
-<P>01 20 20 01 03 00 01 20 00 04 01 23 14 00</P>
+<P>01 20 # 20 01 # 03 00 # 01 20 # 00 04 # 01 23 # 14 00</P>
 
 </div>
 
