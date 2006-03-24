@@ -129,7 +129,7 @@ void CDlgFileProperties::copyFileInfos(CString contentName,
 	CFile file;
 	file.Open(contentName, CFile::modeRead );
 	{
-		char *str = itoa_fmt (file.GetLength());
+		char *str = itoa_fmt ((int)file.GetLength());
 		LoadString(AfxGetInstanceHandle(),IDS_BYTES,pc_str,STR_LAENGE_STRING_TABLE);
 		m_fileSize.Format("%s %s", str, pc_str);
 		delete []str;

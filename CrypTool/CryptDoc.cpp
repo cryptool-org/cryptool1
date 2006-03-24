@@ -1549,7 +1549,7 @@ void CCryptDoc::OnAnalyseZufallstestsFipspub1401()
 	file.Open(ContentName, CFile::modeRead);
 	if(file.GetLength() < 2500) 
 	{
-		str_size_fmt = itoa_fmt((unsigned long)file.GetLength());
+		str_size_fmt = itoa_fmt(file.GetLength());
 		Message(IDS_STRING_TEST_FIPS_KLEINE_DATEI_2, MB_ICONEXCLAMATION, str_size_fmt);
 		delete []str_size_fmt;
 		file.Close();

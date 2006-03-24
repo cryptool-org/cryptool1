@@ -1,4 +1,4 @@
-/*********************************************************************
+/********************************************************************* 
 
 Copyright (C) Deutsche Bank AG 1998-2003, Frankfurt am Main
 Copyright (C) Universität Siegen und Darmstadt
