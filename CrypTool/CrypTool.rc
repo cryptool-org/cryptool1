@@ -3209,10 +3209,10 @@ BEGIN
                     BS_CENTER
 END
 
-IDD_RSASTEREOTYPED DIALOG  0, 0, 517, 443
+IDD_RSASTEREOTYPED DIALOGEX 0, 0, 517, 449
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Angriff auf stereotype Nachrichten"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     CONTROL         "Chiffrat und ein Teil des Klartextes sind bekannt.",
                     IDC_RADIOCHOICE,"Button",BS_AUTORADIOBUTTON | 
@@ -3220,10 +3220,10 @@ BEGIN
     CONTROL         "Chiffrat erzeugen, indem ein vollständiger Klartext verschlüsselt wird.",
                     IDC_RADIOCHOICE2,"Button",BS_AUTORADIOBUTTON | 
                     BS_MULTILINE,12,159,231,10
-    EDITTEXT        IDC_EDITN,28,93,398,14,ES_AUTOHSCROLL | WS_GROUP
-    EDITTEXT        IDC_EDITE,460,93,39,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDITBITSOFN,115,69,33,14,ES_AUTOHSCROLL | ES_NUMBER
-    PUSHBUTTON      "Modul erzeugen",IDC_RANDOM,165,68,61,14
+    EDITTEXT        IDC_EDITN,28,96,398,14,ES_AUTOHSCROLL | WS_GROUP
+    EDITTEXT        IDC_EDITE,460,96,39,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITBITSOFN,115,72,33,14,ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "Modul erzeugen",IDC_RANDOM,165,71,61,14
     EDITTEXT        IDC_EDITPLAINFULL,13,183,242,35,ES_MULTILINE | 
                     ES_READONLY | ES_WANTRETURN | NOT WS_VISIBLE | 
                     WS_VSCROLL
@@ -3235,69 +3235,69 @@ BEGIN
                     WS_GROUP | WS_TABSTOP,369,227,39,10
     CONTROL         "Hexadezimal",IDC_RADIOHEX,"Button",BS_AUTORADIOBUTTON | 
                     WS_TABSTOP,415,227,56,10
-    EDITTEXT        IDC_EDITPOS,303,297,39,14,ES_AUTOHSCROLL | ES_NUMBER | 
+    EDITTEXT        IDC_EDITPOS,296,300,39,14,ES_AUTOHSCROLL | ES_NUMBER | 
                     WS_GROUP
     CONTROL         "Spin1",IDC_SPINPOS,"msctls_updown32",UDS_SETBUDDYINT | 
-                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,336,297,
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,333,300,
                     11,14
-    EDITTEXT        IDC_EDITLENGTH,392,297,39,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDITLENGTH,385,300,39,14,ES_AUTOHSCROLL | ES_NUMBER
     CONTROL         "Spin2",IDC_SPINLENGTH,"msctls_updown32",UDS_SETBUDDYINT | 
-                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,425,297,
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,422,300,
                     11,14
-    EDITTEXT        IDC_EDITPREVIEW,48,320,204,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITPREVIEW,48,323,204,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    PUSHBUTTON      "Beschneiden",IDC_BUTTONDELETE,448,297,51,14,NOT 
+    PUSHBUTTON      "Beschneiden",IDC_BUTTONDELETE,448,300,51,14,NOT 
                     WS_VISIBLE
-    PUSHBUTTON      "Starten",IDC_BUTTONSTART,379,360,52,14,WS_DISABLED
-    PUSHBUTTON      "Abbrechen",IDC_BUTTONCANCELATTACK,450,360,49,14,
+    PUSHBUTTON      "Starten",IDC_BUTTONSTART,379,366,52,14,WS_DISABLED
+    PUSHBUTTON      "Abbrechen",IDC_BUTTONCANCELATTACK,450,366,49,14,
                     WS_DISABLED
-    EDITTEXT        IDC_EDITH,94,379,30,14,ES_AUTOHSCROLL | ES_NUMBER
-    EDITTEXT        IDC_EDITPOSLENGTH,381,320,31,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITH,94,385,30,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDITPOSLENGTH,399,323,31,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDITSOLUTION,379,397,120,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITSOLUTION,379,403,120,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    DEFPUSHBUTTON   "Dialog schließen",IDOK,441,424,57,14
+    DEFPUSHBUTTON   "Dialog schließen",IDOK,441,430,57,14
     GROUPBOX        "Schritt 1: Öffentlichen Schlüssel (N,e) eingeben oder zufällig erzeugen",
-                    IDC_STATIC,7,52,503,70
-    LTEXT           "N:",IDC_STATIC,18,95,8,8
-    LTEXT           "e:",IDC_STATIC,451,95,8,8
+                    IDC_STATIC,7,55,503,70
+    LTEXT           "N:",IDC_STATIC,18,98,8,8
+    LTEXT           "e:",IDC_STATIC,451,98,8,8
     GROUPBOX        "Schritt 2: Klartext und Chiffretext vorgeben",
                     IDC_STATIC,7,132,504,112
-    GROUPBOX        "Schritt 4: Angriffsparameter vorgeben",IDC_STATIC,7,347,
+    GROUPBOX        "Schritt 4: Angriffsparameter vorgeben",IDC_STATIC,7,353,
                     187,71
-    LTEXT           "Position:",IDC_STATIC,271,300,28,8
-    LTEXT           "Länge:",IDC_STATIC,364,300,23,8
-    LTEXT           "h:",IDC_STATIC,13,382,8,8
-    LTEXT           "Max. Länge des unbekannten Teils:",IDC_STATIC,265,322,
-                    114,8
-    LTEXT           "Vorschau:",IDC_STATIC,13,321,33,8
-    GROUPBOX        "Beschreibung",IDC_STATIC,9,7,501,41
+    LTEXT           "Position:",IDC_STATIC,264,303,28,8
+    LTEXT           "Länge:",IDC_STATIC,357,303,23,8
+    LTEXT           "h:",IDC_STATIC,13,388,8,8
+    LTEXT           "Maximale Länge des unbekannten Teils:",IDC_STATIC,263,
+                    325,128,8
+    LTEXT           "Vorschau:",IDC_STATIC,13,324,33,8
+    GROUPBOX        "Beschreibung",IDC_STATIC,7,7,503,41
     LTEXT           "Wenn ein Angreifer eine mit RSA verschlüsselte Nachricht abfängt und den größten Teil des zugehörigen Klartextes kennt, kann er mit diesem Angriff den unbekannten Teil finden -- sofern der öffentliche Exponent e sehr klein ist (z.B. 3).",
                     IDC_STATIC,13,18,494,17
-    GROUPBOX        "Schritt 5: Angriff starten",IDC_STATIC,201,347,310,71
-    LTEXT           "Gitterdimension:",IDC_STATIC,13,400,51,8
-    EDITTEXT        IDC_EDITDIM,94,398,30,14,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDITLATTICETIME,262,360,66,14,ES_AUTOHSCROLL | 
+    GROUPBOX        "Schritt 5: Angriff starten",IDC_STATIC,201,353,310,71
+    LTEXT           "Gitterdimension:",IDC_STATIC,13,406,51,8
+    EDITTEXT        IDC_EDITDIM,94,404,30,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDITLATTICETIME,262,366,66,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDITREDUCETIME,262,379,66,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITREDUCETIME,262,385,66,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDITOVERALLTIME,262,397,66,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITOVERALLTIME,262,403,66,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    LTEXT           "Gitter erzeugen:",IDC_STATIC,207,363,51,8
-    LTEXT           "Gitter reduzieren:",IDC_STATIC,208,382,54,8
-    LTEXT           "Gesamtzeit:",IDC_STATIC,208,400,38,8
-    LTEXT           "Reduktionen:",IDC_STATIC,332,382,44,8
-    EDITTEXT        IDC_EDITREDUCTIONS,379,379,65,14,ES_AUTOHSCROLL | 
+    LTEXT           "Gitter erzeugen:",IDC_STATIC,207,369,51,8
+    LTEXT           "Gitter reduzieren:",IDC_STATIC,208,388,54,8
+    LTEXT           "Gesamtzeit:",IDC_STATIC,208,406,38,8
+    LTEXT           "Reduktionen:",IDC_STATIC,332,388,44,8
+    EDITTEXT        IDC_EDITREDUCTIONS,379,385,65,14,ES_AUTOHSCROLL | 
                     ES_READONLY
     LTEXT           "Der Parameter h bestimmt die Dimension des Gitters und die mögliche Länge des unbekannten Teils.",
-                    IDC_STATIC,12,360,179,19
-    LTEXT           "Lösung:",IDC_STATIC,332,400,26,8
-    PUSHBUTTON      "Logdatei ausgeben",IDC_BUTTONLOG,278,424,66,14
-    LTEXT           "Gewünschte Bitlänge von N:",IDC_STATIC5,18,71,93,8
-    EDITTEXT        IDC_EDITPLAIN,11,270,242,42,ES_MULTILINE | ES_WANTRETURN | 
+                    IDC_STATIC,12,366,179,19
+    LTEXT           "Lösung:",IDC_STATIC,332,406,26,8
+    PUSHBUTTON      "Logdatei ausgeben",IDC_BUTTONLOG,278,430,66,14
+    LTEXT           "Gewünschte Bitlänge von N:",IDC_STATIC5,18,74,93,8
+    EDITTEXT        IDC_EDITPLAIN,11,273,242,42,ES_MULTILINE | ES_WANTRETURN | 
                     WS_VSCROLL
     GROUPBOX        "Schritt 3: Den dem Angreifer bekannten Teil des Klartextes eingeben",
-                    IDC_STATIC,7,249,504,93
+                    IDC_STATIC,7,252,504,93
     LTEXT           "Länge des Klartextes (max.):",IDC_PTLENGTH,104,227,91,8,
                     NOT WS_VISIBLE
     EDITTEXT        IDC_EDITPLAINLENGTH,201,224,54,14,ES_AUTOHSCROLL | NOT 
@@ -3308,99 +3308,96 @@ BEGIN
                     WS_VISIBLE
     LTEXT           "Chiffretext",IDC_STATIC,263,171,84,8
     LTEXT           "Geben sie hier den Teil des Klartextes ein, der dem Angreifer bekannt ist.",
-                    IDC_STATIC_ENTER_KNOWN,13,261,230,8
+                    IDC_STATIC_ENTER_KNOWN,13,264,230,8
     LTEXT           "Hier werden die Einstellungen zur Anfangsposition und Länge des unbekannten Teils gemacht. Geben Sie diese über die Eingabefelder ein oder markieren Sie sie einen Teil des Klartextes aus Schritt 2 mit der Maus und klicken ""Beschneiden"".",
-                    IDC_STATIC_ENTER_POS,263,259,236,31,NOT WS_VISIBLE
+                    IDC_STATIC_ENTER_POS,263,262,236,31,NOT WS_VISIBLE
     LTEXT           "Hier werden die Einstellungen zur Anfangsposition und Länge des unbekannten Teils gemacht. Geben Sie diese über die Eingabefelder ein.",
-                    IDC_STATIC_HIGHLIGHT_POS,263,259,239,37
+                    IDC_STATIC_HIGHLIGHT_POS,263,262,239,37
     LTEXT           "Hier wird der Teil des Klartextes angezeigt, der dem Angreifer bekannt ist.",
-                    IDC_STATIC_SHOW_KNOWN,13,259,239,10,NOT WS_VISIBLE
+                    IDC_STATIC_SHOW_KNOWN,13,262,239,10,NOT WS_VISIBLE
     LTEXT           "Darstellung des Chiffretextes:",IDC_STATIC,267,227,92,8
 END
 
-IDD_RSABLOEMERMAY DIALOGEX 0, 0, 491, 441
+IDD_RSABLOEMERMAY DIALOGEX 0, 0, 491, 457
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Angriff auf kleine geheime Exponenten"
+CAPTION "Angriff auf kleine geheime Exponenten (nach Blömer / May)"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    CONTROL         "Geben Sie selbst einen öffentlichen Schlüssel (N,e) ein. Schätzen Sie die Größe von d mittels delta ab oder geben Sie d direkt ein. ",
+    CONTROL         "Um Beispiele aus der Literatur auszuprobieren, geben Sie zunächst den öffentlichen Schlüssel (N,e) ein. Danach geben Sie einen geschätzten Wert für delta ein. Alternativ können Sie d direkt eingeben, woraus delta berechnet wird.",
                     IDC_RADIOCHOICE,"Button",BS_AUTORADIOBUTTON | 
-                    BS_MULTILINE | WS_GROUP,14,39,465,13
-    CONTROL         "Lassen Sie sich ein zufälliges Besipiel erzeugen, indem Sie die Größe von delta und die Bitlänge von N vorgeben. Durch Klicken auf ""Beispielschlüssel erzeugen"" werden die Schlüssel erzeugt.",
+                    BS_MULTILINE | WS_GROUP,14,36,455,17
+    CONTROL         "Um sich ein Beispiel erzeugen zu lassen, geben Sie delta und die Bitlänge von N an.\nDurch Klicken auf ""Beispielschlüssel erzeugen"" werden die Schlüssel erzeugt.",
                     IDC_RADIOCHOICE2,"Button",BS_AUTORADIOBUTTON | 
-                    BS_MULTILINE,14,53,465,17
-    EDITTEXT        IDC_EDITBITSOFN,79,106,43,14,ES_AUTOHSCROLL | 
+                    BS_MULTILINE,14,56,465,17
+    EDITTEXT        IDC_EDITBITSOFN,68,110,54,14,ES_AUTOHSCROLL | 
                     ES_READONLY | ES_NUMBER | WS_GROUP
-    EDITTEXT        IDC_EDITDELTA,151,106,40,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Default-Steuerparameter setzen",IDC_BUTTONDEFAULT,240,
-                    106,109,14,WS_DISABLED
-    EDITTEXT        IDC_EDITN,25,146,220,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDITE,25,164,220,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDITD,25,182,220,14,ES_AUTOHSCROLL | ES_NUMBER
-    PUSHBUTTON      "Beispielschlüssel erzeugen",IDC_RANDOM,380,106,99,14,
-                    WS_DISABLED
-    EDITTEXT        IDC_EDITM,79,217,43,14,ES_AUTOHSCROLL | ES_NUMBER
-    EDITTEXT        IDC_EDITT,79,237,43,14,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDITLATTICEDIM,79,256,43,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITDELTA,151,110,45,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Standard-Schlüsselparameter setzen",IDC_BUTTONDEFAULT,
+                    244,110,122,14,WS_DISABLED
+    EDITTEXT        IDC_EDITN,25,141,341,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITE,25,159,341,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITD,25,177,341,14,ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "Zufälligen RSA-Schlüssel erzeugen",IDC_RANDOM,378,154,
+                    94,24,BS_MULTILINE | WS_DISABLED
+    EDITTEXT        IDC_EDITM,79,224,43,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDITT,79,244,43,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDITLATTICEDIM,79,263,43,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDITMAXDELTA,79,275,43,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITMAXDELTA,79,282,43,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDITLATTICETIME,79,311,43,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITLATTICETIME,79,322,43,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDITREDUCETIME,79,328,43,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITREDUCETIME,79,339,43,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDITRESULTANTTIME,79,346,43,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITRESULTANTTIME,79,357,43,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDITOVERALLTIME,79,365,43,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITOVERALLTIME,79,376,43,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDITREDUCTIONS,177,328,49,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITREDUCTIONS,190,339,49,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDITRESULTANT,177,346,49,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITRESULTANT,190,357,49,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    PUSHBUTTON      "Starten",IDC_BUTTONSTART,415,311,64,14,WS_DISABLED
-    PUSHBUTTON      "Abbrechen",IDC_CANCELATTACK,415,346,64,14,WS_DISABLED
-    EDITTEXT        IDC_EDITP,29,391,194,14,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDITQ,285,391,194,14,ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "Logdatei ausgeben",IDC_BUTTONLOG2,305,418,66,14
-    PUSHBUTTON      "Dialog schließen",IDC_BUTTON1,427,418,57,14
-    LTEXT           "N:",IDC_STATIC,14,146,8,8
-    LTEXT           "e:",IDC_STATIC,14,164,8,8
-    LTEXT           "delta:",IDC_STATIC,124,109,21,8
-    GROUPBOX        "Schritt 1: Schlüsselparameter uns Schlüssel eingeben",
-                    IDC_STATIC,7,92,477,34
+    PUSHBUTTON      "Starten",IDC_BUTTONSTART,408,322,64,14,WS_DISABLED
+    PUSHBUTTON      "Abbrechen",IDC_CANCELATTACK,408,358,64,14,WS_DISABLED
+    EDITTEXT        IDC_EDITP,25,407,218,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDITQ,262,407,210,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Logdatei ausgeben",IDC_BUTTONLOG2,305,438,66,14
+    PUSHBUTTON      "Dialog schließen",IDC_BUTTON1,415,438,57,14
+    LTEXT           "N:",IDC_STATIC,14,141,8,8
+    LTEXT           "e:",IDC_STATIC,14,159,8,8
+    LTEXT           "delta:",IDC_STATIC,132,112,17,8
+    GROUPBOX        "Schritt 1: Schlüsselparameter und Schlüssel eingeben",
+                    IDC_STATIC,7,96,477,106
     GROUPBOX        "Schritt 2: Angriffsparameter für das Gitterreduktionsverfahren eingeben",
-                    IDC_STATIC,7,206,477,88
-    LTEXT           "Maximales delta:",IDC_STATIC,14,275,55,9
-    LTEXT           "m:",IDC_STATIC,14,217,8,8
-    LTEXT           "t:",IDC_STATIC,14,237,8,8
-    LTEXT           "Bitlänge von N:",IDC_STATIC,14,109,50,8
-    LTEXT           "Bestimmt die Größe des zu reduzierenden Gitters und die maximale Größe von delta. Sollte mindestens den Wert 4 haben.",
-                    IDC_STATIC,128,217,329,19
+                    IDC_STATIC,7,210,477,93
+    LTEXT           "Maximales delta:",IDC_STATIC,14,283,60,9,0,WS_EX_RIGHT
+    LTEXT           "m:",IDC_STATIC,14,225,60,8,0,WS_EX_RIGHT
+    LTEXT           "t:",IDC_STATIC,14,246,60,8,0,WS_EX_RIGHT
+    LTEXT           "Bitlänge von N:",IDC_STATIC,14,113,50,8
+    LTEXT           "Bestimmt die Größe des zu reduzierenden Gitters und die maximale Größe von delta.\nSollte mindestens den Wert 4 haben.",
+                    IDC_STATIC,128,223,329,19
     LTEXT           "Wird abhängig von m optimal bestimmt. ",IDC_STATIC,128,
-                    237,168,8
+                    246,168,8
     LTEXT           "Maximale Größe von delta für große N (N>1000 Bit).",
-                    IDC_STATIC,128,275,296,11
-    LTEXT           "Gitterdimension:",IDC_STATIC,14,256,55,8
+                    IDC_STATIC,128,283,296,11
+    LTEXT           "Gitterdimension:",IDC_STATIC,14,264,60,8,0,WS_EX_RIGHT
     LTEXT           "Größe des zu reduzierenden Gitters. Bestimmt maßgeblich die Laufzeit.",
-                    IDC_STATIC,128,256,238,8
-    GROUPBOX        "Beschreibung",IDC_STATIC,7,7,477,81
-    LTEXT           "Mit diesem Angriff ist es möglich, den RSA Modulus N zu faktorisieren, wenn der geheime Schlüssel d im Vergleich zu N zu klein gewählt wurde. Die Größe von d wird dabei mit delta=log(d)/log(N) bezeichnet. Der Angriff funktioniert für delta<0,290.",
-                    IDC_STATIC,14,17,439,18
-    GROUPBOX        "Angriff",IDC_STATIC,7,299,477,112
-    LTEXT           "Erzeuge Gitter:",IDC_STATIC,14,311,65,8
-    LTEXT           "Reduziere Gitter:",IDC_STATIC,14,328,65,8
-    LTEXT           "Reduktionen:",IDC_STATIC,128,328,48,8
-    LTEXT           "Bilde Resultante:",IDC_STATIC,14,346,65,8
-    LTEXT           "Resultanten:",IDC_STATIC,128,346,39,8
-    LTEXT           "Gesamtzeit:",IDC_STATIC,14,365,65,8
-    LTEXT           "Faktorisierung:",IDC_STATIC,14,372,60,8
-    LTEXT           "p:",IDC_STATIC,15,391,8,8
-    LTEXT           "q:",IDC_STATIC,271,391,11,8
-    GROUPBOX        "Schlüssel",IDC_STATIC,7,131,477,70
-    LTEXT           "d:",IDC_STATIC,14,185,8,8
-    LTEXT           "Geben Sie hier den öffentlichen Schlüssel (N,e) ein. Sie können optional auch d eingeben, um sich delta berechnen zu lassen.",
-                    IDC_STATIC,258,146,221,33
-    LTEXT           " Danach klicken Sie auf ""Starten"".",IDC_STATIC,14,74,
+                    IDC_STATIC,128,265,238,8
+    GROUPBOX        "Beschreibung",IDC_STATIC,7,7,477,84
+    LTEXT           "Mit diesem Angriff ist es möglich, den RSA-Modul N zu faktorisieren, wenn der geheime Schlüssel d im Vergleich zu N zu klein gewählt wurde. Die Zahl delta=log(d)/log(N) bezeichnet man als ""Größe von d"". Der Angriff funktioniert für delta < 0,290.",
+                    IDC_STATIC,14,17,451,18
+    GROUPBOX        "Schritt 3: Angriff starten",IDC_STATIC,7,310,477,123
+    LTEXT           "Erzeuge Gitter:",IDC_STATIC,14,324,60,8,0,WS_EX_RIGHT
+    LTEXT           "Reduziere Gitter:",IDC_STATIC,14,340,60,8,0,WS_EX_RIGHT
+    LTEXT           "Reduktionen:",IDC_STATIC,141,340,45,8,0,WS_EX_RIGHT
+    LTEXT           "Bilde Resultante:",IDC_STATIC,14,358,60,8,0,WS_EX_RIGHT
+    LTEXT           "Resultanten:",IDC_STATIC,141,359,45,8,0,WS_EX_RIGHT
+    LTEXT           "Gesamtzeit:",IDC_STATIC,14,378,60,8,0,WS_EX_RIGHT
+    LTEXT           "Gefundene Faktorisierung:",IDC_STATIC,14,397,116,8
+    LTEXT           "p:",IDC_STATIC,15,408,8,8
+    LTEXT           "q:",IDC_STATIC,252,408,8,8
+    LTEXT           "d:",IDC_STATIC,14,180,8,8
+    LTEXT           " Danach klicken Sie auf ""Starten"".",IDC_STATIC,14,77,
                     175,8
 END
 
@@ -3476,7 +3473,7 @@ BEGIN
     LTEXT           "Gitter erzeugen:",IDC_STATIC,14,294,70,8
     LTEXT           "Gitter reduzieren:",IDC_STATIC,14,311,70,8
     LTEXT           "Gesamtzeit:",IDC_STATIC,14,343,75,10
-    LTEXT           "Gefundene Lösung:",IDC_STATIC,14,357,83,8
+    LTEXT           "Gefundene Lösung:",IDC_STATIC,14,362,83,8
     LTEXT           "Gitterdimension:",IDC_STATIC,205,311,78,8
     LTEXT           "Benötigte Bits (n/4+1):",IDC_STATIC,205,294,77,8
     LTEXT           "Reduktionen:",IDC_STATIC,14,327,75,10
@@ -11489,12 +11486,27 @@ BEGIN
     IDD_RSASTEREOTYPED, DIALOG
     BEGIN
         RIGHTMARGIN, 511
+        VERTGUIDE, 7
         VERTGUIDE, 12
         VERTGUIDE, 379
         VERTGUIDE, 499
         VERTGUIDE, 510
         HORZGUIDE, 107
         HORZGUIDE, 334
+    END
+
+    IDD_RSABLOEMERMAY, DIALOG
+    BEGIN
+        VERTGUIDE, 7
+        VERTGUIDE, 14
+        VERTGUIDE, 74
+        VERTGUIDE, 173
+        VERTGUIDE, 366
+        VERTGUIDE, 472
+        VERTGUIDE, 479
+        VERTGUIDE, 484
+        HORZGUIDE, 124
+        HORZGUIDE, 433
     END
 
     IDD_RSAFACTORHINT, DIALOG
@@ -17161,50 +17173,50 @@ BEGIN
                     113,8
 END
 
-IDD_RSASTEREOTYPED DIALOG  0, 0, 521, 450
+IDD_RSASTEREOTYPED DIALOGEX 0, 0, 521, 450
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Attack on stereotyped messages"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    EDITTEXT        IDC_EDITN,25,104,395,14,ES_AUTOHSCROLL | WS_GROUP
-    EDITTEXT        IDC_EDITE,447,104,57,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDITBITSOFN,91,79,45,14,ES_AUTOHSCROLL | ES_NUMBER
-    PUSHBUTTON      "Create modulus",IDC_RANDOM,157,79,71,14
-    PUSHBUTTON      "Start",IDC_BUTTONSTART,377,360,52,14,WS_DISABLED
-    PUSHBUTTON      "Abort",IDC_BUTTONCANCELATTACK,457,360,47,14,WS_DISABLED
-    EDITTEXT        IDC_EDITH,96,380,30,14,ES_AUTOHSCROLL | ES_NUMBER
-    EDITTEXT        IDC_EDITSOLUTION,377,398,127,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITN,25,102,395,14,ES_AUTOHSCROLL | WS_GROUP
+    EDITTEXT        IDC_EDITE,447,102,57,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITBITSOFN,91,77,45,14,ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "Create modulus",IDC_RANDOM,157,77,71,14
+    PUSHBUTTON      "Start",IDC_BUTTONSTART,377,364,52,14,WS_DISABLED
+    PUSHBUTTON      "Abort",IDC_BUTTONCANCELATTACK,457,364,47,14,WS_DISABLED
+    EDITTEXT        IDC_EDITH,96,384,30,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDITSOLUTION,377,402,127,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    DEFPUSHBUTTON   "Close dialog",IDOK,453,427,51,14
+    DEFPUSHBUTTON   "Close dialog",IDOK,453,431,51,14
     GROUPBOX        "Step 1: Enter the Public key (N,e) or generate by a random experiment",
-                    IDC_STATIC,9,60,504,68
-    LTEXT           "N:",IDC_STATIC,15,106,8,8
-    LTEXT           "e:",IDC_STATIC,437,106,8,8
-    GROUPBOX        "Step 4. Set attack-parameters",IDC_STATIC,9,348,187,71
-    LTEXT           "h:",IDC_STATIC,15,383,8,8
+                    IDC_STATIC,9,58,504,68
+    LTEXT           "N:",IDC_STATIC,15,104,8,8
+    LTEXT           "e:",IDC_STATIC,437,104,8,8
+    GROUPBOX        "Step 4. Set attack-parameters",IDC_STATIC,9,352,187,71
+    LTEXT           "h:",IDC_STATIC,15,387,8,8
     GROUPBOX        "Description",IDC_STATIC,8,7,505,44
     LTEXT           "If a RSA-encrypted message is intercepted and the major part of the plaintext belonging to it is known, this attack allows to find the remaining part of the plaintext, provided the public exponent e is small (e.g. 3).",
                     IDC_STATIC,14,18,494,16
-    GROUPBOX        "Step 5. Perform the attack",IDC_STATIC,203,348,310,71
-    LTEXT           "Lattice-dimension:",IDC_STATIC,15,401,58,8
-    EDITTEXT        IDC_EDITDIM,96,399,30,14,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDITLATTICETIME,264,361,66,14,ES_AUTOHSCROLL | 
+    GROUPBOX        "Step 5. Perform the attack",IDC_STATIC,203,352,310,71
+    LTEXT           "Lattice-dimension:",IDC_STATIC,15,405,58,8
+    EDITTEXT        IDC_EDITDIM,96,403,30,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDITLATTICETIME,264,365,66,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDITREDUCETIME,264,380,66,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITREDUCETIME,264,384,66,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDITOVERALLTIME,264,398,66,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITOVERALLTIME,264,402,66,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    LTEXT           "Building lattice:",IDC_STATIC,209,364,48,8
-    LTEXT           "Reducing lattice:",IDC_STATIC,210,383,54,8
-    LTEXT           "Overall time:",IDC_STATIC,209,401,40,8
-    LTEXT           "Reductions:",IDC_STATIC,336,383,39,8
-    EDITTEXT        IDC_EDITREDUCTIONS,377,380,66,14,ES_AUTOHSCROLL | 
+    LTEXT           "Building lattice:",IDC_STATIC,209,368,48,8
+    LTEXT           "Reducing lattice:",IDC_STATIC,210,387,54,8
+    LTEXT           "Overall time:",IDC_STATIC,209,405,40,8
+    LTEXT           "Reductions:",IDC_STATIC,336,387,39,8
+    EDITTEXT        IDC_EDITREDUCTIONS,377,384,66,14,ES_AUTOHSCROLL | 
                     ES_READONLY
     LTEXT           "The parameter h determines the Dimension of the Lattice and the maximal possible length of the unknown part.",
-                    IDC_STATIC,15,358,179,19
-    LTEXT           "Solution:",IDC_STATIC,336,401,28,8
-    PUSHBUTTON      "Show logfile",IDC_BUTTONLOG,292,427,66,14
-    LTEXT           "Desired bitlength of N:",IDC_STATIC5,16,82,72,8
+                    IDC_STATIC,15,362,179,19
+    LTEXT           "Solution:",IDC_STATIC,336,405,28,8
+    PUSHBUTTON      "Show logfile",IDC_BUTTONLOG,292,431,66,14
+    LTEXT           "Desired bitlength of N:",IDC_STATIC5,16,80,72,8
     LTEXT           "Start by providing the public key (enterit or let it be generated).",
                     IDC_STATIC,14,38,196,8
     CONTROL         "The ciphertext and a part of the plaintext are known.",
@@ -17224,31 +17236,31 @@ BEGIN
                     WS_GROUP | WS_TABSTOP,364,226,39,10
     CONTROL         "Hexadecimal",IDC_RADIOHEX,"Button",BS_AUTORADIOBUTTON | 
                     WS_TABSTOP,414,226,57,10
-    EDITTEXT        IDC_EDITPOS,309,298,39,14,ES_AUTOHSCROLL | ES_NUMBER | 
+    EDITTEXT        IDC_EDITPOS,309,300,39,14,ES_AUTOHSCROLL | ES_NUMBER | 
                     WS_GROUP
     CONTROL         "Spin1",IDC_SPINPOS,"msctls_updown32",UDS_SETBUDDYINT | 
-                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,342,298,
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,342,300,
                     11,14
-    EDITTEXT        IDC_EDITLENGTH,403,298,39,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDITLENGTH,403,300,39,14,ES_AUTOHSCROLL | ES_NUMBER
     CONTROL         "Spin2",IDC_SPINLENGTH,"msctls_updown32",UDS_SETBUDDYINT | 
-                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,436,298,
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,436,300,
                     11,14
-    EDITTEXT        IDC_EDITPREVIEW,50,321,204,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITPREVIEW,50,323,204,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    PUSHBUTTON      "Cut",IDC_BUTTONDELETE,455,298,49,14,NOT WS_VISIBLE
-    EDITTEXT        IDC_EDITPOSLENGTH,383,321,31,14,ES_AUTOHSCROLL | 
+    PUSHBUTTON      "Cut",IDC_BUTTONDELETE,455,300,49,14,NOT WS_VISIBLE
+    EDITTEXT        IDC_EDITPOSLENGTH,383,323,31,14,ES_AUTOHSCROLL | 
                     ES_READONLY
     GROUPBOX        "Step 2: Preset plaintext and ciphertext",IDC_STATIC,9,
                     133,504,112
-    LTEXT           "Position:",IDC_STATIC,273,300,28,12
-    LTEXT           "Length:",IDC_STATIC,373,300,25,12
-    LTEXT           "Max. length of the unknown part:",IDC_STATIC,273,323,
+    LTEXT           "Position:",IDC_STATIC,273,302,28,12
+    LTEXT           "Length:",IDC_STATIC,373,302,25,12
+    LTEXT           "Max. length of the unknown part:",IDC_STATIC,273,325,
                     105,12
-    LTEXT           "Preview:",IDC_STATIC,15,323,28,12
-    EDITTEXT        IDC_EDITPLAIN,13,277,242,35,ES_MULTILINE | ES_WANTRETURN | 
+    LTEXT           "Preview:",IDC_STATIC,15,325,28,12
+    EDITTEXT        IDC_EDITPLAIN,13,279,242,35,ES_MULTILINE | ES_WANTRETURN | 
                     WS_VSCROLL
     GROUPBOX        "Step 3: Part of the plaintext known to the attacker",
-                    IDC_STATIC,9,250,504,93
+                    IDC_STATIC,9,252,504,93
     LTEXT           "Lenght of plaintext (max. possible):",IDC_PTLENGTH,86,
                     227,111,8,NOT WS_VISIBLE
     EDITTEXT        IDC_EDITPLAINLENGTH,203,224,54,14,ES_AUTOHSCROLL | NOT 
@@ -17257,108 +17269,114 @@ BEGIN
                     WS_VISIBLE
     LTEXT           "Ciphertext",IDC_STATIC,265,173,84,8
     LTEXT           "Enter the part of the plaintext known to the attacker.",
-                    IDC_STATIC_ENTER_KNOWN,15,261,165,10
+                    IDC_STATIC_ENTER_KNOWN,15,263,165,10
     LTEXT           "Here settings cencerning the offset and length of the unknown are made.",
-                    IDC_STATIC_ENTER_POS,265,261,236,26,NOT WS_VISIBLE
+                    IDC_STATIC_ENTER_POS,265,263,236,26,NOT WS_VISIBLE
     LTEXT           "Here settings cencerning the offset and length of the unknown are made. Enter them in the textboxes or highlight a part of the plaintext from step 2 and click ""Cut"".",
-                    IDC_STATIC_HIGHLIGHT_POS,265,261,239,37
+                    IDC_STATIC_HIGHLIGHT_POS,265,263,239,37
     LTEXT           "This is the part of the plaintext known to the attacker.",
-                    IDC_STATIC_SHOW_KNOWN,15,261,241,10,NOT WS_VISIBLE
+                    IDC_STATIC_SHOW_KNOWN,15,263,241,10,NOT WS_VISIBLE
     LTEXT           "Presentation of the cipher:",IDC_STATIC,269,226,87,8
 END
 
-IDD_RSABLOEMERMAY DIALOGEX 0, 0, 491, 436
+IDD_RSABLOEMERMAY DIALOGEX 0, 0, 491, 451
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Attack on small secret exponents"
+CAPTION "Attack on small secret exponents (according to Bloemer / May)"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    CONTROL         "Enter a public key (N,e) yourself. Estimate the size of d choosing a delta or enter d directly.",
+    CONTROL         "In order to apply examples from the literature, first enter the public key (N,e). \nAfterwards enter the estimated value of delta. Alternatively you can enter d directly which is used to calculate delta.",
                     IDC_RADIOCHOICE,"Button",BS_AUTORADIOBUTTON | 
-                    BS_MULTILINE | WS_GROUP,14,38,465,10
-    CONTROL         "Let this program create a random example after your predefined the value for delta and the bitlength of N. By clicking ""Generate random key"" the keys are generated.",
+                    BS_MULTILINE | WS_GROUP,14,36,465,17
+    CONTROL         "In order to generate a random example enter the desired parameters delta and bitlength of N.\nBy clicking ""Generate random key"" the keys are generated.",
                     IDC_RADIOCHOICE2,"Button",BS_AUTORADIOBUTTON | 
-                    BS_MULTILINE,14,49,465,17
-    EDITTEXT        IDC_EDITBITSOFN,71,103,48,14,ES_AUTOHSCROLL | 
+                    BS_MULTILINE,14,54,465,17
+    EDITTEXT        IDC_EDITBITSOFN,62,114,57,14,ES_AUTOHSCROLL | 
                     ES_READONLY | ES_NUMBER | WS_GROUP
-    EDITTEXT        IDC_EDITDELTA,155,103,40,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Set default parameters",IDC_BUTTONDEFAULT,240,103,104,
-                    14,WS_DISABLED
-    EDITTEXT        IDC_EDITN,25,143,220,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDITE,25,161,220,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDITD,25,179,220,14,ES_AUTOHSCROLL | ES_NUMBER
-    PUSHBUTTON      "Generate random key",IDC_RANDOM,388,103,91,14,
-                    WS_DISABLED
-    EDITTEXT        IDC_EDITM,82,214,54,14,ES_AUTOHSCROLL | ES_NUMBER
-    EDITTEXT        IDC_EDITT,82,234,54,14,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDITLATTICEDIM,82,253,54,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITDELTA,155,114,40,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Set default key parameters",IDC_BUTTONDEFAULT,273,114,
+                    104,14,WS_DISABLED
+    EDITTEXT        IDC_EDITN,25,137,352,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITE,25,155,352,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITD,25,173,352,14,ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "Generate random\nRSA key",IDC_RANDOM,392,145,78,29,
+                    BS_MULTILINE | WS_DISABLED
+    EDITTEXT        IDC_EDITM,92,213,52,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDITT,92,233,52,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDITLATTICEDIM,92,251,52,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDITMAXDELTA,82,272,54,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITMAXDELTA,92,269,52,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDITLATTICETIME,82,309,54,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITLATTICETIME,90,318,54,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDITREDUCETIME,82,326,54,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITREDUCETIME,90,335,54,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDITRESULTANTTIME,82,344,54,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITRESULTANTTIME,90,353,54,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDITOVERALLTIME,82,363,54,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITOVERALLTIME,90,372,54,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDITREDUCTIONS,195,326,40,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITREDUCTIONS,214,335,51,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDITRESULTANT,195,344,40,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITRESULTANT,214,353,51,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    PUSHBUTTON      "Start",IDC_BUTTONSTART,415,309,64,14,WS_DISABLED
-    PUSHBUTTON      "Cancel",IDC_CANCELATTACK,415,344,64,14,WS_DISABLED
-    EDITTEXT        IDC_EDITP,25,389,194,14,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDITQ,285,389,194,14,ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "Show Logfile",IDC_BUTTONLOG2,305,416,66,14
-    PUSHBUTTON      "Close dialog",IDC_BUTTON1,427,416,57,14
-    LTEXT           "N:",IDC_STATIC,14,143,8,8
-    LTEXT           "e:",IDC_STATIC,14,161,8,8
-    LTEXT           "delta:",IDC_STATIC,133,106,21,8
-    GROUPBOX        "Key-Parameters",IDC_STATIC,7,89,477,34
-    GROUPBOX        "Parameters for the attack",IDC_STATIC,7,203,477,88
-    LTEXT           "Maximal delta:",IDC_STATIC,14,272,55,9
-    LTEXT           "m:",IDC_STATIC,14,214,8,8
-    LTEXT           "t:",IDC_STATIC,14,234,8,8
-    LTEXT           "Bitlength of N:",IDC_STATIC,14,106,46,8
+    PUSHBUTTON      "Start",IDC_BUTTONSTART,406,318,64,14,WS_DISABLED
+    PUSHBUTTON      "Cancel",IDC_CANCELATTACK,406,345,64,14,WS_DISABLED
+    EDITTEXT        IDC_EDITP,25,403,222,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDITQ,267,403,203,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Show Logfile",IDC_BUTTONLOG2,297,432,66,14
+    PUSHBUTTON      "Close dialog",IDC_BUTTON1,413,432,57,14
+    LTEXT           "N:",IDC_STATIC,14,139,8,8
+    LTEXT           "e:",IDC_STATIC,14,156,8,8
+    LTEXT           "delta:",IDC_STATIC,133,115,21,8
+    GROUPBOX        "Step 1: Enter key parameters and key",IDC_STATIC,7,98,
+                    477,98
+    GROUPBOX        "Step 2: Enter attack parameters for the lattice base reduction",
+                    IDC_STATIC,7,203,477,93
+    LTEXT           "Maximal delta:",IDC_STATIC,25,271,59,9,0,WS_EX_RIGHT
+    LTEXT           "m:",IDC_STATIC,25,214,59,8,0,WS_EX_RIGHT
+    LTEXT           "t:",IDC_STATIC,25,235,59,8,0,WS_EX_RIGHT
+    LTEXT           "Bitlength of N:",IDC_STATIC,14,117,46,8
     LTEXT           "Determines the size of the lattice to reduce and the maximal size of delta. Should be at least 4.",
-                    IDC_STATIC,146,214,329,19
+                    IDC_STATIC,154,215,316,19
     LTEXT           "Is optimaly calculated as a function of m.",IDC_STATIC,
-                    146,234,168,8
+                    154,236,168,8
     LTEXT           "Maximal size of delta for big N (N>1000 Bit).",
-                    IDC_STATIC,146,272,296,11
-    LTEXT           "Lattice-dimension:",IDC_STATIC,14,253,60,8
+                    IDC_STATIC,154,271,139,11
+    LTEXT           "Lattice dimension:",IDC_STATIC,24,253,60,8,0,
+                    WS_EX_RIGHT
     LTEXT           "Size of the lattice to reduce. Has major impact on the runtime.",
-                    IDC_STATIC,146,253,238,8
-    GROUPBOX        "Description",IDC_STATIC,7,7,477,77
-    LTEXT           "This attack allows to factor a RSA-Modulus N, given the secret key d is chosen too small compared to N. The size of d is in this context called delta=log(d)/log(N). The attack is mountable for delta<0.290.",
-                    IDC_STATIC,14,17,439,18
-    GROUPBOX        "Attack",IDC_STATIC,7,297,477,112
-    LTEXT           "Building lattice:",IDC_STATIC,14,309,65,8
-    LTEXT           "Reducing lattice:",IDC_STATIC,14,326,65,8
-    LTEXT           "Reductions:",IDC_STATIC,146,326,48,8
-    LTEXT           "Calculating resultant:",IDC_STATIC,14,344,65,8
-    LTEXT           "Resultants:",IDC_STATIC,146,344,39,8
-    LTEXT           "Overall time:",IDC_STATIC,14,363,65,8
-    LTEXT           "Factorization:",IDC_STATIC,14,376,60,8
-    LTEXT           "p:",IDC_STATIC,15,389,8,8
-    LTEXT           "q:",IDC_STATIC,271,389,11,8
-    GROUPBOX        "Keys",IDC_STATIC,7,128,477,70
-    LTEXT           "d:",IDC_STATIC,14,182,8,8
-    LTEXT           "Enter the public key (N,e) here. As an option you may want to enter d to let delta be calculated for you.",
-                    IDC_STATIC,258,143,221,33
-    LTEXT           "Then click ""start"".",IDC_STATIC,16,69,58,8
+                    IDC_STATIC,154,254,238,8
+    GROUPBOX        "Description",IDC_STATIC,7,7,477,84
+    LTEXT           "This attack allows to factor an RSA modulus N, in case the secret key d is chosen too small compared to N.\nThe number delta=log(d)/log(N) is called ""size of d"". The attack is feasible for delta < 0.290.",
+                    IDC_STATIC,15,17,455,18
+    GROUPBOX        "Step 3: Start attack",IDC_STATIC,7,303,477,123
+    LTEXT           "Building lattice:",IDC_STATIC,19,319,65,8,0,WS_EX_RIGHT
+    LTEXT           "Reducing lattice:",IDC_STATIC,22,336,62,8,0,WS_EX_RIGHT
+    LTEXT           "Reductions:",IDC_STATIC,154,336,54,8,0,WS_EX_RIGHT
+    LTEXT           "Calculating resultant:",IDC_STATIC,16,355,68,8,0,
+                    WS_EX_RIGHT
+    LTEXT           "Resultants:",IDC_STATIC,154,354,54,8,0,WS_EX_RIGHT
+    LTEXT           "Overall time:",IDC_STATIC,16,372,68,8,0,WS_EX_RIGHT
+    LTEXT           "Found factorization:",IDC_STATIC,15,392,76,8
+    LTEXT           "p:",IDC_STATIC,15,404,8,8
+    LTEXT           "q:",IDC_STATIC,257,405,8,8
+    LTEXT           "d:",IDC_STATIC,14,176,8,8
+    LTEXT           "Then click ""Start"".",IDC_STATIC,14,78,70,8
+    EDITTEXT        IDC_EDITMAXDELTA2,92,269,52,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Maximal delta:",IDC_STATIC,25,271,59,9,0,WS_EX_RIGHT
+    LTEXT           "Maximal size of delta for big N (N>1000 Bit).",
+                    IDC_STATIC,154,271,294,11
 END
 
-IDD_RSAFACTORHINT DIALOGEX 0, 0, 427, 426
+IDD_RSAFACTORHINT DIALOGEX 0, 0, 427, 430
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Factoring knowing a fraction of p"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    CONTROL         "In order to apply examples from the literature, you can enter the required parameter by yourself:\nthe value of N, the bitlength of p and the value of P.",
+    CONTROL         "In order to apply examples from the literature, you can enter the required parameters by yourself:\nthe value of N, the bitlength of p and the value of P.",
                     IDC_RADIOCHOICE,"Button",BS_AUTORADIOBUTTON | 
                     BS_MULTILINE | WS_GROUP,15,45,398,16
-    CONTROL         "In order to generate an example enter the projected bitlength of N, p and P.\nAfter this click an ""Generate example"".  You can find tipps for appropriate parameter in the online help.",
+    CONTROL         "In order to generate on example enter the desired bitlengths of N, p and P.\nAfterwards click on ""Generate example"".  You can find tipps for appropriate parameters in the online help.",
                     IDC_RADIOCHOICE2,"Button",BS_AUTORADIOBUTTON | 
                     BS_MULTILINE,15,62,398,16
     EDITTEXT        IDC_EDITN,31,116,250,14,ES_MULTILINE | ES_AUTOHSCROLL | 
@@ -17368,75 +17386,75 @@ BEGIN
     EDITTEXT        IDC_EDITBITSOFN,365,109,48,14,ES_AUTOHSCROLL | 
                     ES_READONLY | ES_NUMBER
     CONTROL         "Decimal",IDC_RADIONUMBER,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP | WS_TABSTOP,13,251,41,10
+                    WS_GROUP | WS_TABSTOP,13,252,41,10
     CONTROL         "Hexadecimal",IDC_RADIOHEX,"Button",BS_AUTORADIOBUTTON | 
-                    WS_TABSTOP,96,251,57,10
+                    WS_TABSTOP,96,252,57,10
     CONTROL         "Binary",IDC_RADIOBIN,"Button",BS_AUTORADIOBUTTON,182,
-                    250,35,10
+                    251,35,10
     CONTROL         "most significant bits",IDC_RADIOMSB,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,14,167,77,10
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,14,170,77,10
     CONTROL         "least significant bits",IDC_RADIOLSB,"Button",
-                    BS_AUTORADIOBUTTON,96,167,77,10
+                    BS_AUTORADIOBUTTON,96,170,77,10
     EDITTEXT        IDC_EDITB,365,168,48,14,ES_AUTOHSCROLL | ES_READONLY | 
                     ES_NUMBER | WS_GROUP
-    PUSHBUTTON      "Set default parameters",IDC_BUTTONDEFAULT,262,249,83,14,
+    PUSHBUTTON      "Set default parameters",IDC_BUTTONDEFAULT,262,250,83,14,
                     WS_DISABLED
-    PUSHBUTTON      "Generate example",IDC_R,350,249,63,14,WS_DISABLED
+    PUSHBUTTON      "Generate example",IDC_R,350,250,63,14,WS_DISABLED
     EDITTEXT        IDC_EDITP_RIGHT,31,210,382,14,ES_RIGHT | ES_AUTOHSCROLL | 
                     ES_READONLY | NOT WS_VISIBLE
     EDITTEXT        IDC_EDITGUESSP_RIGHT,31,189,382,14,ES_AUTOHSCROLL | NOT 
                     WS_VISIBLE,WS_EX_RIGHT
-    EDITTEXT        IDC_EDITLATTICETIME,84,284,117,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITLATTICETIME,84,288,117,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDITREDUCETIME,84,301,117,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITREDUCETIME,84,305,117,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDITREDUCTIONS,84,318,117,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITREDUCTIONS,84,322,117,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDITOVERALLTIME,84,334,117,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITOVERALLTIME,84,338,117,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDITNEEDED,278,284,67,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITNEEDED,278,288,67,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDITDIM,278,302,67,14,ES_AUTOHSCROLL | ES_READONLY
-    DEFPUSHBUTTON   "Start",IDSTART,365,284,48,14
-    PUSHBUTTON      "Cancel",IDCANCELATTACK,365,301,48,14,WS_DISABLED
-    EDITTEXT        IDC_EDITFACTORP,28,371,180,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITDIM,278,306,67,14,ES_AUTOHSCROLL | ES_READONLY
+    DEFPUSHBUTTON   "Start",IDSTART,365,288,48,14
+    PUSHBUTTON      "Cancel",IDCANCELATTACK,365,305,48,14,WS_DISABLED
+    EDITTEXT        IDC_EDITFACTORP,28,375,180,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDITFACTORQ,235,371,178,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDITFACTORQ,235,375,178,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    PUSHBUTTON      "Show Logfile",IDC_BUTTONLOG,272,402,66,16
-    PUSHBUTTON      "Close Dialog",IDC_BUTTONCLOSE,362,402,57,16
+    PUSHBUTTON      "Show Logfile",IDC_BUTTONLOG,272,406,66,16
+    PUSHBUTTON      "Close Dialog",IDC_BUTTONCLOSE,362,406,57,16
     LTEXT           "N:",IDC_STATIC,18,118,8,8
     LTEXT           "P:",IDC_STATIC,13,192,14,8
-    LTEXT           "Number of matching bits of p and P.\r\nEquals the bitlength of P. (z.B. 80):",
-                    IDC_STATIC,245,166,117,21
-    LTEXT           "p:",IDC_STATIC,17,374,8,8
-    LTEXT           "q:",IDC_STATIC,218,374,8,8
-    GROUPBOX        "Desired Bitlengths",IDC_STATIC,304,100,115,46
-    LTEXT           "This attack alows to factor an RSA-Modulus N, if a part of one of its factors p and q is known (we assume here, that a part of p is known). Let P the known fraction of p.",
+    LTEXT           "Bitlength of P:",IDC_STATIC,312,171,46,8,0,WS_EX_RIGHT
+    LTEXT           "p:",IDC_STATIC,17,378,8,8
+    LTEXT           "q:",IDC_STATIC,218,378,8,8
+    GROUPBOX        "Desired bitlengths",IDC_STATIC,304,100,115,46
+    LTEXT           "This attack alows to factor an RSA-Modulus N, if a part of one of its factors p and q is known (we assume here, that a part of p is known). Let P be the known fraction of p.",
                     IDC_STATIC,15,15,398,18
     GROUPBOX        "Step 1: Enter public key",IDC_STATIC,7,100,288,46
     RTEXT           "Bitlength of N:",IDC_STATIC,310,112,48,8
-    GROUPBOX        "Numerical base",IDC_STATIC,8,239,216,32,WS_GROUP
-    GROUPBOX        "Step 3: Start attack",IDC_STATIC,8,276,411,118
-    LTEXT           "Building lattice:",IDC_STATIC,17,287,61,8
-    LTEXT           "Reducing lattice:",IDC_STATIC,17,304,61,8
-    LTEXT           "Overall time:",IDC_STATIC,17,336,61,10
-    LTEXT           "Found solution:",IDC_STATIC,17,360,83,8
-    LTEXT           "Lattice-Dimension:",IDC_STATIC,208,304,70,8
-    LTEXT           "Needed bits (n/4+1):",IDC_STATIC,207,287,67,8
-    LTEXT           "Reductions:",IDC_STATIC,17,320,61,10
+    GROUPBOX        "Numerical base",IDC_STATIC,8,240,216,32,WS_GROUP
+    GROUPBOX        "Step 3: Start attack",IDC_STATIC,8,280,411,118
+    LTEXT           "Building lattice:",IDC_STATIC,17,291,61,8
+    LTEXT           "Reducing lattice:",IDC_STATIC,17,308,61,8
+    LTEXT           "Overall time:",IDC_STATIC,17,340,61,10
+    LTEXT           "Found solution:",IDC_STATIC,17,364,83,8
+    LTEXT           "Lattice-Dimension:",IDC_STATIC,208,308,70,8
+    LTEXT           "Needed bits (n/4+1):",IDC_STATIC,207,291,67,8
+    LTEXT           "Reductions:",IDC_STATIC,17,324,61,10
     RTEXT           "Bitlength of p:",IDC_STATIC,310,129,48,8
-    LTEXT           "Therefeore we call P the number that matches the known fraction bits of p (at the beginning or at the end).",
+    LTEXT           "Therefore P is the number that consists of the known fraction bits of p (at the beginning or at the end).",
                     IDC_STATIC,15,34,377,8
     GROUPBOX        "Step 2: Enter P (known part of the prime number p)",
-                    IDC_STATIC,8,150,411,83
+                    IDC_STATIC,8,153,411,80
     LTEXT           "p:",IDC_STATIC,14,213,8,8
     EDITTEXT        IDC_EDITGUESSP_LEFT,31,189,382,14,ES_MULTILINE | 
                     ES_AUTOHSCROLL
     EDITTEXT        IDC_EDITP_LEFT,31,210,382,14,ES_AUTOHSCROLL | 
                     ES_READONLY
     GROUPBOX        "Description",IDC_STATIC,7,4,412,90
-    LTEXT           "Then click ""Start"".",IDC_STATIC,15,81,178,9
+    LTEXT           "To perform the attack click ""Start"".",IDC_STATIC,15,
+                    83,178,9
 END
 
 IDD_HMAC DIALOG  0, 0, 323, 418
@@ -25648,6 +25666,22 @@ BEGIN
         HORZGUIDE, 118
         HORZGUIDE, 312
         HORZGUIDE, 335
+    END
+
+    IDD_RSABLOEMERMAY, DIALOG
+    BEGIN
+        VERTGUIDE, 7
+        VERTGUIDE, 25
+        VERTGUIDE, 84
+        VERTGUIDE, 92
+        VERTGUIDE, 144
+        VERTGUIDE, 154
+        VERTGUIDE, 208
+        VERTGUIDE, 214
+        VERTGUIDE, 265
+        VERTGUIDE, 377
+        VERTGUIDE, 470
+        VERTGUIDE, 484
     END
 
     IDD_RSAFACTORHINT, DIALOG

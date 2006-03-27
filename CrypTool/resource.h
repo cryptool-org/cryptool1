@@ -802,6 +802,7 @@
 #define IDC_EDITFACTORP                 1556
 #define IDC_TRUDYFRAME                  1556
 #define IDC_RENDER_DENSITY_31           1556
+#define IDC_EDITMAXDELTA2               1556
 #define IDC_EDITT                       1557
 #define IDC_ATTACKPROGRESSLABEL         1557
 #define IDC_RENDER_DENSITY_63           1557
