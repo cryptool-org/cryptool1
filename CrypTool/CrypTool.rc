@@ -3877,10 +3877,33 @@ BEGIN
     PUSHBUTTON      "Matrix leeren",IDC_RESET_MATRIX,135,178,100,14
     PUSHBUTTON      "Aktuelle Lösung anzeigen",IDC_RESUBSTITUTE,135,197,100,
                     14
-    PUSHBUTTON      "Schlüssel einfügen",IDC_INSERT_KEY,15,314,98,16
+    CONTROL         "Paste",IDC_INSERT_KEY,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,15,314,36,16
     COMBOBOX        IDC_PASSWORD_BOX,125,26,121,97,CBS_DROPDOWN | 
                     CBS_NOINTEGRALHEIGHT | CBS_UPPERCASE | WS_VSCROLL | 
                     WS_TABSTOP
+END
+
+IDD_ADFGVX_INTRO DIALOGEX 0, 0, 265, 209
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Einführung in die Analyse von ADFGVX-Nachrichten"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,208,188,50,14
+    LTEXT           "Ein ADFGVX-Chiffrat wird in 2 Stufen erstellt: Stufe 1 führt eine Polybius-Substitution durch, Stufe 2 wendet auf das Ergebnis eine Spalten-Transposition (Permutation) an. Die Ciphertext-only-Analyse eines ADFGVX-Chiffrats geht diese Schritte umgekehrt an.",
+                    IDC_STATIC,7,7,251,35
+    CONTROL         "Diesen Dialog in Zukunft nicht mehr anzeigen",
+                    IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,190,
+                    159,10
+    LTEXT           "Wenn Sie in der Gruppierung ""Stufe 2: Transposition"" auf ""Analysieren"" drücken, wird für die zweite Stufe eine mögliche Passwort-Permutation gesucht (bei jedem Drücken wird versucht, ein weiteres gültiges",
+                    IDC_STATIC,7,46,251,26
+    LTEXT           "Danach können Sie in der Gruppierung ""Stufe 1: Substitution"" weitere Einträge von Hand in die die Substitutionsmatrix eintragen. Das entsprechende Zwischenergebnis wird in dem Feld ""Aktuelle Lösung"" angezeigt.",
+                    IDC_STATIC,8,100,251,25
+    LTEXT           "Passwort zu finden) und die sich daraus schon zwingend ergebenden Zuordnungen werden in der Substitutionsmatrix eingetragen. Der erste Analyseschritt (Transpositionsanalyse) funktioniert also automatisch.",
+                    IDC_STATIC,7,70,251,26
+    LTEXT           "Die gefundenen Transpositionspasswörter und die jeweilige Substitutionsmatrix werden im Dropdownfeld gespeichert. Die Speicherung der Passwörter erfolgt automatisch, die Matrix wird durch Klick auf den Knopf ""Aktuelle Lösung anzeigen"" hinzugefügt.",
+                    IDC_STATIC,8,129,251,39
 END
 
 IDD_CRT_ASTRONOMY DIALOGEX 0, 0, 506, 322
@@ -13699,6 +13722,30 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_SOLITAIRE_MESSAGE_11 "Möchten Sie Joker A vorne einsortieren?"
+    IDS_TITLE_3D_VISUALISATION "3-D-Visualisierung: %s"
+    IDS_ROT13_INFO_NEGATIVE "Die Rot-13-Verschlüsselung wurde deaktiviert, weil das Alphabet keine gerade Anzahl von Zeichen hat!"
+    IDS_CRYPT_ROT13         "ROT 13"
+    IDS_FILENAME_NOT_YET    "Neue Datei (noch nicht gesichert)"
+    IDS_STRING_PT           "."
+    IDS_BASE64_DECODE_ILLEGAL_CHARACTER 
+                            "Es wurde ein illegales Zeichen gefunden. Stelle: %u Zeichen: %s \nDie Decodierung wird an dieser Stelle abgebrochen!"
+    IDS_BASE64_FILE_OPEN_ERROR "Fehler beim Öffnen der Datei: <%s>"
+    IDS_BASE64_FILE_WRITE_ERROR "Fehler beim schreiben in die Datei: %s"
+    IDS_BASE64_DECODE_PREMATURE_END 
+                            "Es wurde ein ""="" gefunden vor Ende des Textes.Stelle:%u \nDie Decodierung wurde abgebrochen!"
+    IDS_BASE64_DECODE_MISSING_CHARS 
+                            "Fehlerhafter Base64 Code.Keine eindeutige Decodierung der letzten Zeichen möglich!"
+    IDS_STRING_MSG_BASE64DEC_OF "Base64 Decodierung von <%s>"
+    IDS_STRING_MSG_BASE64ENC_OF "Base64 Codierung von <%s>"
+    IDS_BYTES               "Bytes"
+    IDS_STRING_ADFGVX_NEWPWD "Das neue Passwort lautet:\n\n"
+    IDS_STRING_ADFGVX_RESTART_LENGTH 
+                            "\n\nBitte starten Sie den Vorgang erneut und passen Sie\ngegebenenfalls die Blocklängen an die neue Passwortlänge an!"
+END
+
+STRINGTABLE 
+BEGIN
     IDS_CRT_ASTRONOMY_PLANET8 "Neptun"
     IDS_CRT_ASTRONOMY_PLANET9 "Pluto"
     IDS_CRT_ASTRONOMY_BRUTEFORCE 
@@ -13864,27 +13911,6 @@ BEGIN
     IDS_SOLITAIRE_MESSAGE_8 "Joker A hinten einsortiert."
     IDS_SOLITAIRE_MESSAGE_9 "Möchten Sie Joker B vorne einsortieren?"
     IDS_SOLITAIRE_MESSAGE_10 "Joker einsortieren"
-END
-
-STRINGTABLE 
-BEGIN
-    IDS_SOLITAIRE_MESSAGE_11 "Möchten Sie Joker A vorne einsortieren?"
-    IDS_TITLE_3D_VISUALISATION "3-D-Visualisierung: %s"
-    IDS_ROT13_INFO_NEGATIVE "Die Rot-13-Verschlüsselung wurde deaktiviert, weil das Alphabet keine gerade Anzahl von Zeichen hat!"
-    IDS_CRYPT_ROT13         "ROT 13"
-    IDS_FILENAME_NOT_YET    "Neue Datei (noch nicht gesichert)"
-    IDS_STRING_PT           "."
-    IDS_BASE64_DECODE_ILLEGAL_CHARACTER 
-                            "Es wurde ein illegales Zeichen gefunden. Stelle: %u Zeichen: %s \nDie Decodierung wird an dieser Stelle abgebrochen!"
-    IDS_BASE64_FILE_OPEN_ERROR "Fehler beim Öffnen der Datei: <%s>"
-    IDS_BASE64_FILE_WRITE_ERROR "Fehler beim schreiben in die Datei: %s"
-    IDS_BASE64_DECODE_PREMATURE_END 
-                            "Es wurde ein ""="" gefunden vor Ende des Textes.Stelle:%u \nDie Decodierung wurde abgebrochen!"
-    IDS_BASE64_DECODE_MISSING_CHARS 
-                            "Fehlerhafter Base64 Code.Keine eindeutige Decodierung der letzten Zeichen möglich!"
-    IDS_STRING_MSG_BASE64DEC_OF "Base64 Decodierung von <%s>"
-    IDS_STRING_MSG_BASE64ENC_OF "Base64 Codierung von <%s>"
-    IDS_BYTES               "Bytes"
 END
 
 STRINGTABLE 
@@ -17760,6 +17786,27 @@ BEGIN
     LTEXT           "Column sequence",IDC_STATIC_NUMBEREDPASSWORD,125,44,57,
                     8
     PUSHBUTTON      "Erase matrix entries",IDC_RESET_MATRIX,135,185,100,14
+END
+
+IDD_ADFGVX_INTRO DIALOGEX 0, 0, 265, 209
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Introduction to analysing ADFGVX messages"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,208,188,50,14
+    LTEXT           "The creation of an ADFGVX message is a two-step process: stage 1 ...s a polybius substitution, stage 2 transforms the result by column transposition (permutation). A ciphertext-only analysis of an ADFGVX message reverses those steps.",
+                    IDC_STATIC,7,7,251,35
+    CONTROL         "Do not show this dialog again",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,190,109,10
+    LTEXT           "By clicking the button ""Analyse"" in the grouping ""Stage 2: transposition"", the search for a potential transposition password is started (each click of the button continues the search for the next valid password) and the five most",
+                    IDC_STATIC,7,44,251,26
+    LTEXT           "When a transposition password is found, the analysisis continues in the grouping ""Stage1: substitution"". Now you can enter further characters into the substitution matrix manually. The result of the analysis is shown in the field ""Current solution"".",
+                    IDC_STATIC,8,91,251,35
+    LTEXT           "common letters that were used to validate the password are entered into the substitution matrix. Thus, the first step of the analysis runs automatically.",
+                    IDC_STATIC,7,68,251,19
+    LTEXT           "The valid transposition passwords and the correspondent substitution matrixes are stored in the drop down box. Passwords are stored automatically, the matrix is added by clicking the button ""Update current solution"".",
+                    IDC_STATIC,8,130,251,39
 END
 
 IDC_WECHSELSEITIG_RADIO DIALOGEX 34, 22, 242, 346
@@ -27810,6 +27857,30 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_SOLITAIRE_MESSAGE_11 "Do you want to put Joker A to the front?"
+    IDS_TITLE_3D_VISUALISATION "3-D Visualisation: %s"
+    IDS_ROT13_INFO_NEGATIVE "Rot-13 encryption is deactivated because the alphabet does not consist of an even number of letters!"
+    IDS_CRYPT_ROT13         "ROT 13"
+    IDS_FILENAME_NOT_YET    "New file (not yet stored)"
+    IDS_STRING_PT           ","
+    IDS_BASE64_DECODE_ILLEGAL_CHARACTER 
+                            "An illegal char in input occured. location: %u char: %s\nDecoding aborted."
+    IDS_BASE64_FILE_OPEN_ERROR "Error while opening %s!"
+    IDS_BASE64_FILE_WRITE_ERROR "Error while writing to %s!"
+    IDS_BASE64_DECODE_PREMATURE_END 
+                            "Base64 termination char '=' was encountered too early.Location:%u. Decoding aborted!"
+    IDS_BASE64_DECODE_MISSING_CHARS 
+                            "Bade base64 block.No clear decoding of the last chars possible!"
+    IDS_STRING_MSG_BASE64DEC_OF "Base64 decoding of <%s>"
+    IDS_STRING_MSG_BASE64ENC_OF "Base64 encoding of <%s>"
+    IDS_BYTES               "bytes"
+    IDS_STRING_ADFGVX_NEWPWD "\n\nThe new password is:\n\n"
+    IDS_STRING_ADFGVX_RESTART_LENGTH 
+                            "\n\nPlease restart the process and adjust the\nblock length values to the new password length if necessary!"
+END
+
+STRINGTABLE 
+BEGIN
     IDS_CRT_ASTRONOMY_PLANET8 "Neptune"
     IDS_CRT_ASTRONOMY_PLANET9 "Pluto"
     IDS_CRT_ASTRONOMY_BRUTEFORCE 
@@ -27974,27 +28045,6 @@ BEGIN
     IDS_SOLITAIRE_MESSAGE_8 "Joker A put in back."
     IDS_SOLITAIRE_MESSAGE_9 "Do you want to put Joker B to the front?"
     IDS_SOLITAIRE_MESSAGE_10 "Putting Jokers"
-END
-
-STRINGTABLE 
-BEGIN
-    IDS_SOLITAIRE_MESSAGE_11 "Do you want to put Joker A to the front?"
-    IDS_TITLE_3D_VISUALISATION "3-D Visualisation: %s"
-    IDS_ROT13_INFO_NEGATIVE "Rot-13 encryption is deactivated because the alphabet does not consist of an even number of letters!"
-    IDS_CRYPT_ROT13         "ROT 13"
-    IDS_FILENAME_NOT_YET    "New file (not yet stored)"
-    IDS_STRING_PT           ","
-    IDS_BASE64_DECODE_ILLEGAL_CHARACTER 
-                            "An illegal char in input occured. location: %u char: %s\nDecoding aborted."
-    IDS_BASE64_FILE_OPEN_ERROR "Error while opening %s!"
-    IDS_BASE64_FILE_WRITE_ERROR "Error while writing to %s!"
-    IDS_BASE64_DECODE_PREMATURE_END 
-                            "Base64 termination char '=' was encountered too early.Location:%u. Decoding aborted!"
-    IDS_BASE64_DECODE_MISSING_CHARS 
-                            "Bade base64 block.No clear decoding of the last chars possible!"
-    IDS_STRING_MSG_BASE64DEC_OF "Base64 decoding of <%s>"
-    IDS_STRING_MSG_BASE64ENC_OF "Base64 encoding of <%s>"
-    IDS_BYTES               "bytes"
 END
 
 STRINGTABLE 

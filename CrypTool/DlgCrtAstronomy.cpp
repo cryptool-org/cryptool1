@@ -175,6 +175,7 @@ BEGIN_MESSAGE_MAP(CDlgCrtAstronomy, CDialog)
 	ON_BN_CLICKED(IDC_CRT_ASTRONOMY_CHECKNEPTUN, OnBnClickedCrtAstronomyCheckneptun)
 	ON_BN_CLICKED(IDC_CRT_ASTRONOMY_CHECKPLUTO, OnBnClickedCrtAstronomyCheckpluto)
 	ON_BN_CLICKED(IDC_CRT_ASTRONOMY_BUTTONRESET2, OnBnClickedCrtAstronomyButtonreset2)
+	ON_STN_CLICKED(IDC_Image, OnStnClickedImage)
 END_MESSAGE_MAP()
 
 
@@ -595,4 +596,9 @@ void CDlgCrtAstronomy::OnBnClickedCrtAstronomyCheckpluto()
 	if (m_pluto) {m_m8="90491";m_a8="0";} else {m_m8="";m_a8="";}
 	UpdateData(false);
 	testdata();
+}
+
+void CDlgCrtAstronomy::OnStnClickedImage()
+{
+	// TODO: Add your control notification handler code here
 }

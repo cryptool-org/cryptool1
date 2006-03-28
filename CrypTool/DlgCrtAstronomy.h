@@ -143,4 +143,5 @@ public:
 	bool testeteilerfremd();
 	Big ChinRest (int anzahl,Big a[],Big m[]);
 	Big suczessive(int anzahl,Big a[],Big m[]);
+	afx_msg void OnStnClickedImage();
 };

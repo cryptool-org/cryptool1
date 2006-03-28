@@ -50,6 +50,7 @@ statement from your version.
 #include "CrypToolApp.h"
 #include "DlgAdfgvxManual.h"
 #include ".\dlgadfgvxmanual.h"
+#include "DlgAdfgvxIntro.h"
 #include "FileTools.h"
 #include "CrypToolTools.h"
 #include "KeyRepository.h"
@@ -70,6 +71,8 @@ CDlgAdfgvxManual::CDlgAdfgvxManual(char* infile, CString oldTitle, CWnd* pParent
 	, numberedPassword(_T(""))
 	, analysed(false)
 	, iGotOne(false)
+	, subKey(_T(""))
+	, infoChecked(FALSE)
 {
 
 	//{{AFX_DATA_INIT(CDlgAdfgvxManual)
@@ -92,6 +95,7 @@ CDlgAdfgvxManual::CDlgAdfgvxManual(char* infile, CString oldTitle, CWnd* pParent
 BOOL CDlgAdfgvxManual::OnInitDialog()
 {	
 	CDialog::OnInitDialog();
+	VERIFY(c_insertKey.AutoLoad(IDC_INSERT_KEY, this));
 	
 	this->validCipherText=this->cipher->readCiphertext(this->infile);
 	if ((validCipherText==4)|(validCipherText==5))
@@ -100,21 +104,34 @@ BOOL CDlgAdfgvxManual::OnInitDialog()
 		MessageBox(pc_str);
 		this->OnCancel();
 	}
-	
-	//if clipboard has key from adfgvx-typ, enable paste button
-	
-	if (IsKeyEmpty("ADFGVX Chiffre"))
-		this->GetDlgItem(IDC_INSERT_KEY)->EnableWindow(true);
-
 	else
-		this->GetDlgItem(IDC_INSERT_KEY)->EnableWindow(false);
-	
-	for (int i =0;i<50;i++)
-		this->pwdList[i]="";
+	{
+		if(theApp.GetProfileInt("Settings","ADFGVX_IntroDialogue",1))
+		{
+			DlgAdfgvxIntro intro = new DlgAdfgvxIntro();
+			intro.DoModal();
+		}
+		
+		if(theApp.GetProfileInt("Settings","ADFGVX_IntroDialogue",1))
+			infoChecked=true;
+		else
+			infoChecked=false;
+		UpdateData(false);
+		//if clipboard has key from adfgvx-typ, enable paste button
+		if (IsKeyEmpty("ADFGVX Chiffre"))
+			c_insertKey.EnableWindow(true);
+		else
+			c_insertKey.EnableWindow(false);
+		
+		for (int i =0;i<50;i++)
+			this->pwdList[i]="";
+		
+		UpdateData(false);
 
-	buttonResub.EnableWindow(false);
-	buttonResetMatrix.EnableWindow(false);
-
+		buttonResub.EnableWindow(false);
+		buttonResetMatrix.EnableWindow(false);
+		buttonOutput.EnableWindow(false);
+	}
 	return TRUE;
 }
 
@@ -209,6 +226,8 @@ void CDlgAdfgvxManual::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_RESUBSTITUTE, buttonResub);
 	DDX_Control(pDX, IDC_RESET_MATRIX, buttonResetMatrix);
 	//}}AFX_DATA_INIT
+	//DDX_Control(pDX, IDC_CHECK_SHOW_INF, checkShowInfo);
+	DDX_Control(pDX, IDOK, buttonOutput);
 }
 
 
@@ -257,7 +276,6 @@ BEGIN_MESSAGE_MAP(CDlgAdfgvxManual, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_FORCE, OnBnClickedButtonForce)
 	ON_BN_CLICKED(IDC_RESET_MATRIX, OnBnClickedResetMatrix)
 	ON_BN_CLICKED(IDC_RESUBSTITUTE, OnBnClickedResubstitute)
-	ON_BN_CLICKED(IDC_INSERT_KEY, OnBnClickedInsertKey)
 	ON_CBN_EDITCHANGE(IDC_PASSWORD_BOX, OnCbnEditchangePasswordBox)
 	ON_CBN_SELCHANGE(IDC_PASSWORD_BOX, OnCbnSelchangePasswordBox)
 	//}}AFX_MSG_MAP
@@ -276,65 +294,92 @@ END_MESSAGE_MAP()
 void CDlgAdfgvxManual::OnBnClickedButtonForce()
 {
 	UpdateData(true);
-	//validate the transposition-password
-	int validPassword=cipher->CheckPassword(minLength, maxLength, password);
-	//in contrast to the transposition-analysis, the password-field must not be empty!
-	if (password.GetLength()<1)
-		validPassword=6;
 
-	//passwordLength<1
-	if (validPassword==6)
+	//test if the password is included in the password list
+	counter = -1;
+	//check the pwdList whether the pwd is already contained
+	for(int i=0;i<50;i++)
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_6,pc_str,STR_LAENGE_STRING_TABLE);
-		MessageBox(pc_str);
+		if(pwdList[i].Mid(36)==password)
+			counter = i;
+	}
+	if(counter==-1)//password is new and must be tested
+	{
+		//validate the transposition-password
+		int validPassword=cipher->CheckPassword(minLength, maxLength, password);
+		//in contrast to the transposition-analysis, the password-field must not be empty!
+		if (password.GetLength()<1)
+			validPassword=6;
+
+		//passwordLength<1
+		if (validPassword==6)
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_6,pc_str,STR_LAENGE_STRING_TABLE);
+			MessageBox(pc_str);
+		}
+
+		//invalid characters: remove, then recheck the password & start again
+		if (validPassword==4)
+		{
+			CString oldPassword=password;
+			password=cipher->CleansePassword(validPassword, password);
+			minLength=password.GetLength()-1;
+			maxLength=minLength;
+			UpdateData(false);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_4,pc_str,STR_LAENGE_STRING_TABLE);
+			CString message=(CString)pc_str+(CString)(password);
+			MessageBox(message);
+			OnBnClickedButtonForce();
+		}	
+
+
+
+		//redundant characters: redundant characters are removed, minLength/maxLength is adjusted; recheck
+		if (validPassword==7)
+		{
+			CString oldPassword=password;
+			password=cipher->CleansePassword(validPassword, password);
+			minLength=password.GetLength()-1;
+			maxLength=minLength;
+			UpdateData(false);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_7,pc_str,STR_LAENGE_STRING_TABLE);
+			CString message=(CString)pc_str+(CString)(password);
+			MessageBox(message);
+			OnBnClickedButtonForce();
+		}
+
+		//password ok
+		if (validPassword==0)
+		{
+			
+			cipher->ForcePassword(password);
+			cipher->resubstitution();
+			plaintext = cipher->plaintext.c_str();
+			//fill the edit-control fields with the current substitution matrix
+			for(int row=0;row<6;row++)
+				for (int col=0;col<6;col++)
+					this->matrix[row][col]=cipher->getMatrix(row,col);
+			
+			PwdEnqueue(password);
+		}
 	}
 
-	//invalid characters: remove, then recheck the password & start again
-	if (validPassword==4)
+	else //password exists
 	{
-		CString oldPassword=password;
-		password=cipher->CleansePassword(validPassword, password);
-		minLength=password.GetLength()-1;
-		maxLength=minLength;
-		UpdateData(false);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_4,pc_str,STR_LAENGE_STRING_TABLE);
-		CString message=(CString)pc_str+(CString)(password);
-		MessageBox(message);
-		OnBnClickedButtonForce();
-	}	
-
-
-
-	//redundant characters: redundant characters are removed, minLength/maxLength is adjusted; recheck
-	if (validPassword==7)
-	{
-		CString oldPassword=password;
-		password=cipher->CleansePassword(validPassword, password);
-		minLength=password.GetLength()-1;
-		maxLength=minLength;
-		UpdateData(false);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_7,pc_str,STR_LAENGE_STRING_TABLE);
-		CString message=(CString)pc_str+(CString)(password);
-		MessageBox(message);
-		OnBnClickedButtonForce();
-	}
-
-	//password ok
-	if (validPassword==0)
-	{
-		PwdEnqueue(password);
-		cipher->ForcePassword(password);
-		cipher->resubstitution();
-		plaintext = cipher->plaintext.c_str();
-		//fill the edit-control fields with the current substitution matrix
+		//fill the substitution matrix
+		int i=0;
 		for(int row=0;row<6;row++)
 			for (int col=0;col<6;col++)
-				this->matrix[row][col]=cipher->getMatrix(row,col);
+			{
+				this->matrix[row][col]=pwdList[pwdListBox.GetCurSel()][i];
+				i++;
+			}
 	}
-
 	analysed=true;
 	buttonResub.EnableWindow(true);
 	buttonResetMatrix.EnableWindow(true);
+
+	Resubstitute();
 	UpdateRemChars();
 	UpdateData(false);
 	CDialog::NextDlgCtrl();
@@ -349,6 +394,7 @@ void CDlgAdfgvxManual::OnBnClickedNextPermutation()
 	analysed=false;
 	buttonResub.EnableWindow(false);
 	buttonResetMatrix.EnableWindow(false);
+	buttonOutput.EnableWindow(false);
 
 	//validate the transposition-password
 	int validPassword=cipher->CheckPassword(minLength, maxLength, password);
@@ -411,6 +457,7 @@ void CDlgAdfgvxManual::OnBnClickedNextPermutation()
 		buttonResub.EnableWindow(true);
 		buttonResetMatrix.EnableWindow(true);
 		this->GetDlgItem(IDC_BUTTON_FORCE)->EnableWindow(true);
+		Resubstitute();
 	}
 	else
 		this->GetDlgItem(IDC_BUTTON_FORCE)->EnableWindow(false);
@@ -479,7 +526,7 @@ void CDlgAdfgvxManual::Permutate()
 //function to check if the input is a valid character & if there are double characters in the matrix
 CString CDlgAdfgvxManual::CheckInput(CString oldEntry, CString input)
 {
-	int counter=0;
+	counter=0;
 	if(input==' '|| input=='*' || input.GetLength()==0)
 		return "*";
 	if (('A'<=input&&input<='z')|('0'<=input&&input<='9'))
@@ -574,6 +621,10 @@ void CDlgAdfgvxManual::Resubstitute()
 		cipher->repermutation(password);
 		cipher->resubstitution();
 		plaintext = cipher->plaintext.c_str();
+		if(plaintext.GetLength()>0)
+			buttonOutput.EnableWindow(true);
+		else
+			buttonOutput.EnableWindow(false);
 	}
 	UpdateData(false);
 }
@@ -686,13 +737,21 @@ void CDlgAdfgvxManual::OnCbnEditchangePasswordBox()
 	analysed=false;
 	buttonResub.EnableWindow(false);
 	buttonResetMatrix.EnableWindow(false);
-	
+
 	if (password.GetLength() >0)
 	{
 		this->GetDlgItem(IDC_BUTTON_FORCE)->EnableWindow(true);
 		if(maxLength<password.GetLength())
 			maxLength=(password.GetLength()-1);
 		minLength=(password.GetLength()-1);
+
+		/*counter = -1;
+		//check the pwdList whether the pwd is already contained
+		for(int i=0;i<50;i++)
+		{
+			if(pwdList[i].Mid(36)==password)
+				counter = i;
+		}*/
 
 	}
 	else		
@@ -702,11 +761,26 @@ void CDlgAdfgvxManual::OnCbnEditchangePasswordBox()
 	//display the order of the columns
 	this->numberedPassword=cipher->LettersToNumbers(password);
 	
-	//clear the substitution matrix & reset the current solution
-	for (int row=0;row<6;row++)
+	//##################
+	//KICKED OUT BECAUSE OF SUBKEY!!!
+	//clear the substitution matrix & reset the current solution 
+	/*for (int row=0;row<6;row++)
 		for(int col=0;col<6;col++)
 			this->matrix[row][col] = '*';
-	plaintext="";
+	plaintext="";*/
+	//###################
+
+	
+
+	/*if(counter !=-1)//existing password
+		//fill the substitution matrix
+		for(int row=0;row<6;row++)
+			for (int col=0;col<6;col++)
+			{
+				this->matrix[row][col]=pwdList[pwdListBox.GetCurSel()][counter];
+				counter++;
+			}
+	UpdateRemChars();*/
 
 	UpdateData(FALSE);
 }
@@ -716,7 +790,7 @@ void CDlgAdfgvxManual::OnCbnSelchangePasswordBox()
 	//warum zum geier wird das passwort nicht automatisch vom inhalt der box überschrieben?
 	//dataexchange läuft, aber nix passiert
 	//beim zweiten aufruf wird das passwort des ersten aufrufs gesetzt, hängt also immer 1 hinterher.
-	//password=pwdListBox.GetEditSel();
+
 	CDlgAdfgvxManual::OnCbnEditchangePasswordBox();
 }
 
@@ -735,9 +809,34 @@ void CDlgAdfgvxManual::OnBnClickedResetMatrix()
 	}
 }
 
+void CDlgAdfgvxManual::OnBnClickedStdMatrix()
+{
+	LoadString (AfxGetInstanceHandle(), IDS_STRING_ADFGVX_MATRIX_RESET, pc_str, STR_LAENGE_STRING_TABLE);
+
+	if (AfxMessageBox (pc_str,MB_YESNO)==IDYES)
+	{
+		char zv[6][6]={'A','B','C','D','E','F',
+					'G','H','I','J','K','L',
+					'M','N','O','P','Q','R',
+					'S','T','U','V','W','X',
+					'Y','Z','0','1','2','3',
+					'4','5','6','7','8','9'};
+
+		for(int row=0;row<6;row++)
+			for (int col=0;col<6;col++)
+				this->matrix[row][col]=zv[row][col];
+		
+		UpdateRemChars();
+		Resubstitute();
+		PwdEnqueue(password);
+	}
+}
+
 void CDlgAdfgvxManual::OnBnClickedResubstitute()
 {
 	Resubstitute();
+	//enqueue password: update the subKey
+	PwdEnqueue(password);
 }
 
 void CDlgAdfgvxManual::OnBnClickedInsertKey()
@@ -779,38 +878,55 @@ void CDlgAdfgvxManual::OnBnClickedInsertKey()
 //function that adds newly found or user-defined passwords to a queue
 void CDlgAdfgvxManual::PwdEnqueue(CString pwd)
 {
+	//pwdList-structure: 0-35 substitution, 36-x transposition
+
+	//read the current substitution matrix and write it to CString subKey
+	subKey="";
+	for(int row=0;row<6;row++)
+			for (int col=0;col<6;col++)
+				subKey.Append(matrix[row][col]);
+
+	//check the pwdList whether the pwd is already contained, if so, update the subKey
 	bool newPwd=true;
 	for(int i=0;i<50;i++)
-		if(pwdList[i]==pwd)
+		if(pwdList[i].Mid(36)==pwd)
+		{
+			pwdList[i]=subKey+pwd;
 			newPwd=false;
+		}
+
+	//new pwd: reorganise the combobox
 	if(newPwd)
 	{
 		pwdListBox.ResetContent();
-		//the list is not really necessary, later versions might store the substitution key though
+
 		for(int i=49;i>0;i--)
 		{	
 			if(this->pwdList[i-1]!="")
 			{
 				this->pwdList[i]=pwdList[i-1];
-				pwdListBox.InsertString(0,pwdList[i]);
+				pwdListBox.InsertString(0,pwdList[i].Mid(36));
 			}
 		}
-		this->pwdList[0]=pwd;
+		this->pwdList[0]=subKey+pwd;
 
-		pwdListBox.InsertString(0,pwdList[0]);
-		pwdListBox.SelectString(0,pwdList[0]);
+		pwdListBox.InsertString(0,pwdList[0].Mid(36));
+		pwdListBox.SelectString(0,pwdList[0].Mid(36));
 		
 		UpdateData(false);
 	}
 	
 }	
+
+
 // thread starting function still to come
+/*
 static UINT StaticThread(LPVOID param)
 {
 	((CDlgAdfgvxManual*)param)->Permutate();
 	return 0;
 }
-
+*/
 
 
 
@@ -1575,9 +1691,4 @@ void CDlgAdfgvxManual::OnEnChangeM55()
 
 
 //***************************************************
-
-
-
-
-
 

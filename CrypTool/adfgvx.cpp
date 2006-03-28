@@ -564,7 +564,7 @@ void adfgvx::repermutation (const char* pass) {
 //main encryption function
 int adfgvx::encrypt(const char* ifile, const char* ofile, const char* pass, int blockSizeStage2, bool newLineStage2, int blockSizeStage1, bool newLineStage1, const char* stage1) {
 	
-	//craziest bug ever: if the plaintext begins with 'A' or 'D', the ciphertext not empty
+	//craziest bug ever: if the plaintext begins with 'A' or 'D', the ciphertext initially is not empty
 	this->ciphertext="";
 	//check password length
 	if (strlen(pass) == 0) return 1;

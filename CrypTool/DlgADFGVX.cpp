@@ -70,6 +70,8 @@ CDlgADFGVX::CDlgADFGVX(char* infile, CString oldTitle, CWnd* pParent /*=NULL*/)
 	, newLineStage2(FALSE)
 	, newLineStage1(TRUE)
 	, restart(false)
+	,pwdInvalid(false)
+	,pwdDouble(false)
 
 {
 	this->infile = infile;
@@ -161,6 +163,7 @@ void CDlgADFGVX::DoDataExchange(CDataExchange* pDX)
 	DDV_MaxChars(pDX, matrix[5][4], 1);
 	DDX_Text(pDX, IDC_M55, matrix[5][5]);
 	DDV_MaxChars(pDX, matrix[5][5], 1);
+	// DDX_Control(pDX, IDC_BUTTON_INSERT_KEY, buttonInsertKey);
 	DDX_Check(pDX, IDC_CHECK_OUTPUT, printStage1);
 	DDX_Text(pDX, IDC_EDIT_BLOCKSIZE_STAGE2, blockSizeStage2);
 	//DDV_MinMaxInt(pDX, blockSizeStage2, 0, 26);
@@ -170,13 +173,13 @@ void CDlgADFGVX::DoDataExchange(CDataExchange* pDX)
 
 	DDX_Check(pDX, IDC_CHECK_NEWLINE_STAGE2, newLineStage2);
 	DDX_Check(pDX, IDC_CHECK_NEWLINE_STAGE1, newLineStage1);
-	DDX_Control(pDX, IDC_CHECK_BLOCK_STAGE2, boxBlockOutput2);
-	DDX_Control(pDX, IDC_CHECK_BLOCK_STAGE1, boxBlockOutput1);
-	DDX_Control(pDX, IDC_CHECK_OUTPUT, boxOutput1);
+	DDX_Check(pDX, IDC_CHECK_BLOCK_STAGE2, boxBlockOutput2);
+	DDX_Check(pDX, IDC_CHECK_BLOCK_STAGE1, boxBlockOutput1);
+	DDX_Check(pDX, IDC_CHECK_OUTPUT, boxOutput1);
 	DDX_Control(pDX, IDC_EDIT_BLOCKSIZE_STAGE2, editBlockLength2);
 	DDX_Control(pDX, IDC_EDIT_BLOCKSIZE_STAGE1, editBlockLength1);
-	DDX_Control(pDX, IDC_CHECK_NEWLINE_STAGE2, boxNewLine2);
-	DDX_Control(pDX, IDC_CHECK_NEWLINE_STAGE1, boxNewLine1);
+	DDX_Check(pDX, IDC_CHECK_NEWLINE_STAGE2, boxNewLine2);
+	DDX_Check(pDX, IDC_CHECK_NEWLINE_STAGE1, boxNewLine1);
 }
 
 BEGIN_MESSAGE_MAP(CDlgADFGVX, CDialog)
@@ -232,6 +235,8 @@ END_MESSAGE_MAP()
 BOOL CDlgADFGVX::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
+	VERIFY(buttonInsertKey.AutoLoad(IDC_BUTTON_INSERT_KEY,this));
+
 	this->GetDlgItem(IDC_BUTTON_ENCRYPT)->EnableWindow(false);
 	this->GetDlgItem(IDC_BUTTON_DECRYPT)->EnableWindow(false);
 
@@ -240,10 +245,8 @@ BOOL CDlgADFGVX::OnInitDialog()
 
 	//if clipboard has key from adfgvx-typ, enable paste button
 	
-	VERIFY(buttonInsertKey.AutoLoad(IDC_BUTTON_INSERT_KEY,this));
 	if (IsKeyEmpty("ADFGVX Chiffre"))
 		this->buttonInsertKey.EnableWindow(TRUE);
-
 	else
 		this->buttonInsertKey.EnableWindow(FALSE);
 
@@ -290,9 +293,10 @@ void CDlgADFGVX::OnBnClickedButtonEncrypt()
 			CString oldPassword=password;
 			password=cipher->CleansePassword(validPassword, password);
 			UpdateData(false);
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_4,pc_str,STR_LAENGE_STRING_TABLE);
-			CString message=(CString)pc_str+(CString)(password);
-			MessageBox(message);
+			//LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_4,pc_str,STR_LAENGE_STRING_TABLE);
+			//CString message=(CString)pc_str+(CString)(password);
+			//MessageBox(message);
+			pwdInvalid=true;
 			restart=true;
 			OnEnChangeTextfieldPassword();
 
@@ -305,9 +309,10 @@ void CDlgADFGVX::OnBnClickedButtonEncrypt()
 			CString oldPassword=password;
 			password=cipher->CleansePassword(validPassword, password);
 			UpdateData(false);
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_7,pc_str,STR_LAENGE_STRING_TABLE);
-			CString message=(CString)pc_str+(CString)(password);
-			MessageBox(message);
+			//LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_7,pc_str,STR_LAENGE_STRING_TABLE);
+			//CString message=(CString)pc_str+(CString)(password);
+			//MessageBox(message);
+			pwdDouble=true;
 			restart=true;
 			OnEnChangeTextfieldPassword();
 
@@ -318,10 +323,29 @@ void CDlgADFGVX::OnBnClickedButtonEncrypt()
 		{
 			if(restart)
 			{
-				LoadString (AfxGetInstanceHandle(), IDS_STRING_ADFGVX_RESTART, pc_str, STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);
+				CString message;
+				if(pwdInvalid)
+				{
+					LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_4,pc_str,STR_LAENGE_STRING_TABLE);
+					message.Append(pc_str);
+				}
+				if(pwdDouble)
+				{
+					LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_7,pc_str,STR_LAENGE_STRING_TABLE);
+					message.Append(pc_str);
+				}
+				LoadString (AfxGetInstanceHandle(), IDS_STRING_ADFGVX_NEWPWD, pc_str, STR_LAENGE_STRING_TABLE);
+				message.Append(pc_str);
+				message.Append(password);
+				if(boxBlockOutput1|boxBlockOutput2)
+					LoadString (AfxGetInstanceHandle(), IDS_STRING_ADFGVX_RESTART_LENGTH, pc_str, STR_LAENGE_STRING_TABLE);
+				else
+					LoadString (AfxGetInstanceHandle(), IDS_STRING_ADFGVX_RESTART, pc_str, STR_LAENGE_STRING_TABLE);
+				message.Append(pc_str);
+				MessageBox(message);
 				restart=false;
-
+				pwdInvalid=false;
+				pwdDouble=false;
 			}
 			else
                 Encrypt();
@@ -492,16 +516,18 @@ void CDlgADFGVX::OnBnClickedMatrixStandard()
 void CDlgADFGVX::OnBnClickedCheckOutputStage1()
 {
 	UpdateData(true);
-	if(boxOutput1.GetCheck()==BST_CHECKED)
+	if(boxOutput1==true)
 	{
-		boxBlockOutput1.EnableWindow(true);
+		GetDlgItem(IDC_CHECK_BLOCK_STAGE1)->EnableWindow(true);
 		printStage1=true;
 	}
 
 	else
 	{
-		boxBlockOutput1.EnableWindow(false);
-		printStage1=false;
+		boxBlockOutput1=false;
+		GetDlgItem(IDC_CHECK_BLOCK_STAGE1)->EnableWindow(false);
+		UpdateData(false);
+		OnBnClickedCheckBlockStage1();
 	}
 }
 void CDlgADFGVX::OnBnClickedCancel()
@@ -984,9 +1010,9 @@ void CDlgADFGVX::Decrypt()
 		*/
 		
 		//if the block.output-box for the stage ist unchecked, set the block length to zero
-		if(boxBlockOutput2.GetCheck()==BST_UNCHECKED)
+		if(boxBlockOutput2==false)
 			blockSizeStage2=0;
-		if(boxBlockOutput1.GetCheck()==BST_UNCHECKED)
+		if(boxBlockOutput1==false)
 			blockSizeStage1=0;
 
 		int rtn = cipher->decrypt(this->infile, outfile, password, blockSizeStage2, newLineStage2, blockSizeStage1, newLineStage1, stage1);
@@ -1058,9 +1084,9 @@ void CDlgADFGVX::Encrypt()
 			}
 
 		//if the block.output-box for the stage ist unchecked, set the block length to zero
-		if(boxBlockOutput2.GetCheck()==BST_UNCHECKED)
+		if(boxBlockOutput2==false)
 			blockSizeStage2=0;
-		if(boxBlockOutput1.GetCheck()==BST_UNCHECKED)
+		if(boxBlockOutput1==false)
 			blockSizeStage1=0;
 
 		//execute encryption function 
@@ -1262,16 +1288,16 @@ void CDlgADFGVX::OnBnClickedErasematrix()
 void CDlgADFGVX::OnBnClickedCheckBlockStage2()
 {
 	UpdateData(true);
-	if(boxBlockOutput2.GetCheck()==BST_CHECKED)
+	if(boxBlockOutput2==true)
 	{
 		editBlockLength2.EnableWindow(true);
-		boxNewLine2.EnableWindow(true);
+		GetDlgItem(IDC_CHECK_NEWLINE_STAGE2)->EnableWindow(true);
 	}
 	else
 	{
 		editBlockLength2.EnableWindow(false);
-		boxNewLine2.SetCheck(0);
-		boxNewLine2.EnableWindow(false);
+		boxNewLine2=false;
+		GetDlgItem(IDC_CHECK_NEWLINE_STAGE2)->EnableWindow(false);
 		blockSizeStage2=5;	
 	}
 	UpdateData(false);
@@ -1280,18 +1306,18 @@ void CDlgADFGVX::OnBnClickedCheckBlockStage2()
 void CDlgADFGVX::OnBnClickedCheckBlockStage1()
 {
 	UpdateData(true);
-	if(boxBlockOutput1.GetCheck()==BST_CHECKED)
+	if(boxBlockOutput1==true)
 	{
 		editBlockLength1.EnableWindow(true);
-		boxNewLine1.EnableWindow(true);
+		GetDlgItem(IDC_CHECK_NEWLINE_STAGE1)->EnableWindow(true);
 		blockSizeStage1=password.GetLength();
 	}
 	else
 	{
 		editBlockLength1.EnableWindow(false);
-		boxNewLine1.SetCheck(0);
-		boxNewLine1.EnableWindow(false);		
+		GetDlgItem(IDC_CHECK_NEWLINE_STAGE1)->EnableWindow(false);
 		blockSizeStage1=2;
+		boxNewLine1=false;
 	}
 	UpdateData(false);
 }

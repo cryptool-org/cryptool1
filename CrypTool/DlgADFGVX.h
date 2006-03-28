@@ -78,9 +78,11 @@ private:
 	//variables used in handler methods
 	char* infile;
 	CString oldTitle;
+	bool pwdInvalid;
+	bool pwdDouble;
 	
 	basic_string <char>::iterator strIterTyp;
-	CBitmapButton m_Paste;
+
 
 	//Dialogfelddaten
 	enum { IDD = IDD_ADFGVX };
@@ -136,15 +138,16 @@ private:
 	CString CDlgADFGVX::CheckInput(CString oldEntry, CString input);
 	void CDlgADFGVX::CheckProgress();
 	CString numberedPassword;
-	CButton boxBlockOutput2;
-	CButton boxBlockOutput1;
-	CButton boxOutput1;
+	BOOL boxBlockOutput2;
+	BOOL boxBlockOutput1;
+	BOOL boxOutput1;
 	CEdit editBlockLength2;
 	CEdit editBlockLength1;
-	CButton boxNewLine2;
-	CButton boxNewLine1;
+	BOOL boxNewLine2;
+	BOOL boxNewLine1;
 
 public:
 	CDlgADFGVX(char* infile, CString oldTitle, CWnd* pParent = NULL);   // Standardkonstruktor
 	virtual ~CDlgADFGVX();
+
 };

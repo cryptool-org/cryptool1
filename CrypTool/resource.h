@@ -1,5 +1,5 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Developer Studio generated include file.
+// Microsoft Visual C++ generated include file.
 // Used by CrypTool.rc
 //
 #define IDS_FINDANDREPLACE_HEXNOTIMPLEMENTED 1
@@ -229,6 +229,7 @@
 #define IDD_FIND_AND_REPLACE            823
 #define IDR_GIF13                       825
 #define IDS_DH_VISUALIZATION_TOOLTIPKEY 825
+#define IDD_ADFGVX_INTRO                826
 #define IDR_GIF14                       827
 #define IDR_GIF15                       828
 #define IDD_CRT_SECRETSHARING_LOG       830
@@ -2366,6 +2367,8 @@
 #define IDS_STRING_MSG_BASE64DEC_OF     38059
 #define IDS_STRING_MSG_BASE64ENC_OF     38060
 #define IDS_BYTES                       38061
+#define IDS_STRING_ADFGVX_NEWPWD        38062
+#define IDS_STRING_ADFGVX_RESTART_LENGTH 38063
 #define IDS_DH_LOG_1                    61889
 #define IDS_DH_LOG_2                    61890
 #define IDS_DH_LOG_3                    61891
@@ -2488,7 +2491,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        826
+#define _APS_NEXT_RESOURCE_VALUE        827
 #define _APS_NEXT_COMMAND_VALUE         33324
 #define _APS_NEXT_CONTROL_VALUE         1888
 #define _APS_NEXT_SYMED_VALUE           107

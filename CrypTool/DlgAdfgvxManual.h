@@ -151,13 +151,26 @@ private:
 	CString password;
 	CButton buttonResub;
 	CButton buttonResetMatrix;
+	CBitmapButton c_insertKey;
 	bool iGotOne;
+	CString subKey;
+	int counter;
 
 public:
 	friend static CDlgAdfgvxManual::UINT StaticThread(LPVOID param);
 	BOOL CDlgAdfgvxManual::OnInitDialog();
 	void CDlgAdfgvxManual::Permutate();
 	
+private:
+public:
+	afx_msg void OnBnClickedStdMatrix();
+/*private:
+	CButton checkShowInfo;*/
+public:
+
+private:
+	CButton buttonOutput;
+	BOOL infoChecked;
 };
 
 //{{AFX_INSERT_LOCATION}}
