@@ -7,11 +7,17 @@
 #define IDCANCEL2                       3
 #define IDS_FINDANDREPLACE_TEXTOCCURANCESREPLACED 3
 #define IDCANCEL3                       4
+#define IDS_HASHDEMO_STRING_MD2         4
 #define IDCANCEL4                       5
+#define IDS_HASHDEMO_STRING_MD4         5
 #define IDCANCEL5                       6
+#define IDS_HASHDEMO_STRING_MD5         6
 #define IDCANCEL6                       7
+#define IDS_HASHDEMO_STRING_SHA         7
 #define IDC_PSE_IMPORT                  8
+#define IDS_HASHDEMO_STRING_SHA1        8
 #define IDC_COPY                        9
+#define IDS_HASHDEMO_STRING_RIPEMD160   9
 #define IDC_MANUAL                      10
 #define IDC_EDIT53                      53
 #define IDC_EDIT69                      54

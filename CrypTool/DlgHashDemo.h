@@ -67,6 +67,14 @@ class CDlgHashDemo : public CDialog
 	OctetString m_dataOrig; 
 	CString m_strText; // initial content of m_ctrlText;  
 
+	// Texte für Auswahl der Hashfunktionen
+	CString m_strHashFunctionMD2;
+	CString m_strHashFunctionMD4;
+	CString m_strHashFunctionMD5;
+	CString m_strHashFunctionSHA;
+	CString m_strHashFunctionSHA1;
+	CString m_strHashFunctionRIPEMD160;
+
 public:
 	unsigned long loadData( const char *infile, const char *title, unsigned long filesize, unsigned long max_filesize = MAX_LAENGE_STRTEXT );
 	CDlgHashDemo(CWnd* pParent = NULL);   // Standardkonstruktor

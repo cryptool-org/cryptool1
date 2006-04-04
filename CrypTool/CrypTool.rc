@@ -13939,6 +13939,12 @@ BEGIN
                             "Der gewünschte Text wurde nicht gefunden!"
     IDS_FINDANDREPLACE_TEXTOCCURANCESREPLACED 
                             "Der gewünschte Text wurde %d mal ersetzt."
+    IDS_HASHDEMO_STRING_MD2 "MD2 (128 Bit)"
+    IDS_HASHDEMO_STRING_MD4 "MD4 (128 Bit)"
+    IDS_HASHDEMO_STRING_MD5 "MD5 (128 Bit)"
+    IDS_HASHDEMO_STRING_SHA "SHA (160 Bit)"
+    IDS_HASHDEMO_STRING_SHA1 "SHA-1 (160 Bit)"
+    IDS_HASHDEMO_STRING_RIPEMD160 "RIPEMD-160 (160 Bit)"
 END
 
 STRINGTABLE 
@@ -28072,6 +28078,12 @@ BEGIN
     IDS_FINDANDREPLACE_TEXTNOTFOUND "The desired text was not found!"
     IDS_FINDANDREPLACE_TEXTOCCURANCESREPLACED 
                             "The desired text was replaced %d times."
+    IDS_HASHDEMO_STRING_MD2 "MD2 (128 bits)"
+    IDS_HASHDEMO_STRING_MD4 "MD4 (128 bits)"
+    IDS_HASHDEMO_STRING_MD5 "MD5 (128 bits)"
+    IDS_HASHDEMO_STRING_SHA "SHA (160 bits)"
+    IDS_HASHDEMO_STRING_SHA1 "SHA-1 (160 bits)"
+    IDS_HASHDEMO_STRING_RIPEMD160 "RIPEMD-160 (160 bits)"
 END
 
 STRINGTABLE 

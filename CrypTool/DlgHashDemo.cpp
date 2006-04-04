@@ -56,13 +56,6 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 
-#define STR_MD2 "MD2"
-#define STR_MD4 "MD4"
-#define STR_MD5 "MD5"
-#define STR_SHA "SHA"
-#define STR_SHA1 "SHA-1"
-#define STR_RIPEMD160 "RIPEMD-160"
-
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgHashDemo 
 
@@ -142,15 +135,22 @@ BOOL CDlgHashDemo::OnInitDialog()
 	SetWindowText((LPCTSTR)title);
 	// Der Text in der Titelleiste von Hashdemo wird gesetzt
 
-	
-	m_comboCtrlSelectHashFunction.AddString(STR_MD2);
-	m_comboCtrlSelectHashFunction.AddString(STR_MD4);
-	m_comboCtrlSelectHashFunction.AddString(STR_MD5);
-	m_comboCtrlSelectHashFunction.AddString(STR_SHA);
-	m_comboCtrlSelectHashFunction.AddString(STR_SHA1);
-	m_comboCtrlSelectHashFunction.AddString(STR_RIPEMD160);
+	// Texte für Auswahl der Hashfunktion werden aus Ressourcen geholt
+	m_strHashFunctionMD2.LoadString(IDS_HASHDEMO_STRING_MD2);
+	m_strHashFunctionMD4.LoadString(IDS_HASHDEMO_STRING_MD4);
+	m_strHashFunctionMD5.LoadString(IDS_HASHDEMO_STRING_MD5);
+	m_strHashFunctionSHA.LoadString(IDS_HASHDEMO_STRING_SHA);
+	m_strHashFunctionSHA1.LoadString(IDS_HASHDEMO_STRING_SHA1);
+	m_strHashFunctionRIPEMD160.LoadString(IDS_HASHDEMO_STRING_RIPEMD160);
+	// Die Combobox für die Auswahl der Hashfunktion wird gesetzt
+	m_comboCtrlSelectHashFunction.AddString(m_strHashFunctionMD2);
+	m_comboCtrlSelectHashFunction.AddString(m_strHashFunctionMD4);
+	m_comboCtrlSelectHashFunction.AddString(m_strHashFunctionMD5);
+	m_comboCtrlSelectHashFunction.AddString(m_strHashFunctionSHA);
+	m_comboCtrlSelectHashFunction.AddString(m_strHashFunctionSHA1);
+	m_comboCtrlSelectHashFunction.AddString(m_strHashFunctionRIPEMD160);
 
-	m_comboCtrlSelectHashFunction.SelectString(-1, STR_MD2);
+	m_comboCtrlSelectHashFunction.SelectString(-1, m_strHashFunctionMD2);
 
 	m_ctrlText.SetWindowText(m_strText);
 	OnSelendokComboSelectHashFunction();	
@@ -490,31 +490,31 @@ void CDlgHashDemo::OnSelendokComboSelectHashFunction()
 
 void CDlgHashDemo::ComputeHash(OctetString *data, OctetString *hashValue)
 {
-	char strSelectedHash[21];
-	m_comboCtrlSelectHashFunction.GetWindowText(strSelectedHash, 20);
+	char strSelectedHash[256+1];
+	m_comboCtrlSelectHashFunction.GetWindowText(strSelectedHash, 256);
 	hashValue->noctets = 0;
 
-	if (!strcmp(strSelectedHash, STR_MD2) )
+	if (!strcmp(strSelectedHash, m_strHashFunctionMD2) )
 	{
 		theApp.SecudeLib.sec_hash_all(data,hashValue,theApp.SecudeLib.md2_aid,NULL);
 	}
-	if (!strcmp(strSelectedHash, STR_MD4) )
+	if (!strcmp(strSelectedHash, m_strHashFunctionMD4) )
 	{
 		theApp.SecudeLib.sec_hash_all(data,hashValue,theApp.SecudeLib.md4_aid,NULL);
 	}
-	if (!strcmp(strSelectedHash, STR_MD5) )
+	if (!strcmp(strSelectedHash, m_strHashFunctionMD5) )
 	{
 		theApp.SecudeLib.sec_hash_all(data,hashValue,theApp.SecudeLib.md5_aid,NULL);
 	}
-	if (!strcmp(strSelectedHash, STR_SHA) )
+	if (!strcmp(strSelectedHash, m_strHashFunctionSHA) )
 	{
 		theApp.SecudeLib.sec_hash_all(data,hashValue,theApp.SecudeLib.md4_aid,NULL);
 	}
-	if (!strcmp(strSelectedHash, STR_SHA1) )
+	if (!strcmp(strSelectedHash, m_strHashFunctionSHA1) )
 	{
 		theApp.SecudeLib.sec_hash_all(data,hashValue,theApp.SecudeLib.sha1_aid,NULL);
 	}
-	if (!strcmp(strSelectedHash, STR_RIPEMD160) )
+	if (!strcmp(strSelectedHash, m_strHashFunctionRIPEMD160) )
 	{
 		theApp.SecudeLib.sec_hash_all(data,hashValue,theApp.SecudeLib.ripemd160_aid,NULL);
 	}
