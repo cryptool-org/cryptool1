@@ -238,6 +238,18 @@ void CScintillaView::OnInitialUpdate()
 
 	//m_wndScintilla.LoadFile(strTitle);
 	this->SetFocus();
+
+	// Florian Marchal, 04.04.2006
+	// ACHTUNG: Sicherstellen, dass verschiedene EOLs (End of Line) unter Windows
+	// "korrekt" verarbeitet werden, d.h. sowohl Mac- (/r) als auch Unix-EOLs (/n)
+	// werden in Windows-EOLs (/r/n) konvertiert! Weiterhin werden Enter-Eingaben
+	// des Benutzers nun als "/r/n" gedeutet und nicht nur als "/n".
+	CWnd *pActiveWindow = this->GetTopWindow();
+	if(pActiveWindow)
+	{
+		pActiveWindow->SendMessage(SCI_CONVERTEOLS, 0);
+		pActiveWindow->SendMessage(SCI_SETEOLMODE, 0);
+	}
 }
 
 
