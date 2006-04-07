@@ -129,6 +129,7 @@ BEGIN_MESSAGE_MAP(CHexEditBase, CWnd)
 	ON_WM_KEYDOWN()
 	ON_WM_MOUSEWHEEL()
 	ON_WM_CONTEXTMENU()
+	ON_COMMAND(ID_EDIT_CUT, OnEditCut)
 	ON_COMMAND(ID_EDIT_COPY, OnEditCopy)
 	ON_COMMAND(ID_EDIT_PASTE, OnEditPaste)
 	ON_COMMAND(ID_EDIT_SELECT_ALL, OnEditSelectAll)
@@ -141,6 +142,7 @@ CHexEditBase::CHexEditBase() :
 	m_bDeleteData(true),
 	m_pData(NULL), 
 	m_nLength(0), 
+	m_nCapacity(0), 
 	m_nAdrSize(8), 
 	m_nBytesPerRow(16), 
 	m_nCurCaretWidth(0),
@@ -179,6 +181,7 @@ CHexEditBase::CHexEditBase() :
 	m_nMouseRepCounter(0),
 	m_bIsMouseRepActive(false),
 	m_cDragRect(0,0,0,0),
+	m_cContextCut("Cut"),
 	m_cContextCopy("Copy"),
 	m_cContextPaste("Paste")
 
@@ -197,6 +200,11 @@ CHexEditBase::CHexEditBase() :
 	ASSERT(m_nBinDataClipboardFormat != 0);
 
 	// try to load strings from the resources
+#ifdef IDS_CONTROL_CUT
+	if(!m_cContextCut.LoadString(IDS_CONTROL_CUT)) {
+		cString = _T("Cut");
+	}
+#endif
 #ifdef IDS_CONTROL_COPY
 	if(!m_cContextCopy.LoadString(IDS_CONTROL_COPY)) {
 		cString = _T("Copy");
@@ -393,7 +401,7 @@ void CHexEditBase::CalculatePaintingDetails(CDC& cDC)
 		m_tPaintDetails.nBytesPerRow = m_nBytesPerRow;
 	}
 	if(!(GetStyle() & ES_MULTILINE)) {
-		m_tPaintDetails.nBytesPerRow = m_nLength;
+		m_tPaintDetails.nBytesPerRow = GetDataSize1();
 	}
 	if(m_tPaintDetails.nBytesPerRow == 0) {
 		m_tPaintDetails.nBytesPerRow = 1;
@@ -424,7 +432,7 @@ void CHexEditBase::CalculatePaintingDetails(CDC& cDC)
 	// calculate scrollranges	
 	// Y-Bar
 	UINT nTotalLines;
-	nTotalLines = (m_nLength + m_tPaintDetails.nBytesPerRow-1)/m_tPaintDetails.nBytesPerRow;
+	nTotalLines = (GetDataSize1() + m_tPaintDetails.nBytesPerRow-1)/m_tPaintDetails.nBytesPerRow;
 	if(nTotalLines > m_tPaintDetails.nFullVisibleLines) {
 		m_nScrollRangeY = nTotalLines - m_tPaintDetails.nFullVisibleLines;
 	} else {
@@ -450,10 +458,6 @@ void CHexEditBase::PaintAddresses(CDC& cDC)
 {
 	ASSERT(m_tPaintDetails.nBytesPerRow > 0);
 
-	if((m_nLength < 1) || (m_pData == NULL)) {
-		return;
-	}
-
 	UINT nAdr;
 	UINT nEndAdr;
 	CString cAdrFormatString;
@@ -474,8 +478,8 @@ void CHexEditBase::PaintAddresses(CDC& cDC)
 	// start & end-address
 	nAdr = m_nScrollPostionY * m_tPaintDetails.nBytesPerRow;
 	nEndAdr = nAdr + m_tPaintDetails.nVisibleLines*m_tPaintDetails.nBytesPerRow;
-	if(nEndAdr >= m_nLength) {
-		nEndAdr = m_nLength-1;
+	if(nEndAdr >= GetDataSize1()) {
+		nEndAdr = GetDataSize1()-1;
 	}
 
 	//  paint
@@ -494,7 +498,7 @@ UINT CHexEditBase::CreateHighlightingPolygons(const CRect& cHexRect,
 {
 	ASSERT(pPoints != NULL);
 	ASSERT(nBegin <= nEnd);
-	ASSERT(m_nLength < 0x7ffff000); // to make sure we don't have an overflow
+	ASSERT(m_nLength < MAXHEXEDITLENGTH); // to make sure we don't have an overflow
 	ASSERT(nBegin < m_nLength);
 	ASSERT(nEnd < m_nLength);
 	ASSERT(m_tPaintDetails.nBytesPerRow > 0);
@@ -649,8 +653,8 @@ void CHexEditBase::PaintHexData(CDC& cDC)
 	// start & end-address (& pointers)
 	nAdr = m_nScrollPostionY * m_tPaintDetails.nBytesPerRow;
 	nEndAdr = nAdr + m_tPaintDetails.nVisibleLines*m_tPaintDetails.nBytesPerRow;
-	if(nEndAdr >= m_nLength) {
-		nEndAdr = m_nLength-1;
+	if(nEndAdr >= GetDataSize()) {
+		nEndAdr = GetDataSize()-1;
 	}
 	pDataPtr = m_pData + nAdr;
 	pEndDataPtr = m_pData + nEndAdr;
@@ -941,10 +945,8 @@ void CHexEditBase::SetScrollbarRanges()
 
 void CHexEditBase::OnSetFocus(CWnd*) 
 {	
-	if(m_pData != NULL) {
-		SetEditCaretPos(m_nCurrentAddress, m_bHighBits);
-		Invalidate();
-	}
+	SetEditCaretPos(m_nCurrentAddress, m_bHighBits);
+	Invalidate();
 }
 
 void CHexEditBase::OnKillFocus(CWnd* pNewWnd) 
@@ -1016,8 +1018,8 @@ void CHexEditBase::GetAddressFromPoint(const CPoint& cPt, UINT& nAddress, bool& 
 	UINT nColumn = nCharColumn / 3;
 	bHighBits = nCharColumn % 3 == 0;
 	nAddress = nColumn + (nRow + m_nScrollPostionY) * m_tPaintDetails.nBytesPerRow;
-	if(nAddress >= m_nLength) {
-		nAddress = m_nLength - 1;
+	if(nAddress >= GetDataSize1()) {
+		nAddress = GetDataSize1() - 1;
 		bHighBits = false;
 	}
 }
@@ -1109,9 +1111,6 @@ void CHexEditBase::SetEditCaretPos(UINT nOffset, bool bHighBits)
 	m_nCurrentAddress = nOffset;
 	m_bHighBits = bHighBits;
 		
-	if((m_pData == NULL) || (m_nLength == NULL) ) {
-		return;
-	}	
 	if(m_bRecalc) {
 		CalculatePaintingDetails(CClientDC(this));
 	}
@@ -1202,9 +1201,6 @@ BOOL CHexEditBase::OnEraseBkgnd(CDC*)
 void CHexEditBase::OnLButtonDown(UINT, CPoint point) 
 {
 	SetFocus();
-	if(m_pData == NULL) {
-		return;
-	}
 	GetAddressFromPoint(point, m_nCurrentAddress, m_bHighBits);
 	SetEditCaretPos(m_nCurrentAddress, m_bHighBits);
 	int iDragCX = GetSystemMetrics(SM_CXDRAG);
@@ -1295,9 +1291,6 @@ void CHexEditBase::OnMouseMove(UINT nFlags, CPoint point)
 
 void CHexEditBase::OnTimer(UINT nTimerID)
 {
-	if( (m_pData == NULL) || (m_nLength < 1) ) {
-		return;
-	}
 
 	if(m_bIsMouseRepActive && (nTimerID == MOUSEREP_TIMER_TID) ) {
 		if(m_nMouseRepCounter > 0) {
@@ -1318,10 +1311,6 @@ void CHexEditBase::OnTimer(UINT nTimerID)
 
 void CHexEditBase::StartMouseRepeat(const CPoint& cPoint, int iDelta, WORD nSpeed)
 {
-	if( (m_pData == NULL) || (m_nLength < 1) ) {
-		return;
-	}
-
 	m_cMouseRepPoint = cPoint;
 	m_nMouseRepSpeed = nSpeed;
 	m_iMouseRepDelta = iDelta;
@@ -1342,9 +1331,9 @@ void CHexEditBase::StopMouseRepeat()
 
 bool CHexEditBase::OnEditInput(WORD nInput)
 {
-	ASSERT(m_nCurrentAddress < m_nLength);
+	ASSERT(m_nCurrentAddress < GetDataSize1());
 
-	if( (nInput > 255) || (m_pData == NULL) || m_bReadOnly) {
+	if( (nInput > 255) || m_bReadOnly) {
 		return false;
 	}
 	
@@ -1356,6 +1345,26 @@ bool CHexEditBase::OnEditInput(WORD nInput)
 		nValue = nKey - (BYTE)'0';
 	}
 	if(nValue != 255) {
+		if (m_nCurrentAddress >= m_nLength) {
+			// allocate storage for new byte
+			ASSERT(m_nCurrentAddress == m_nLength);
+			if (m_nCurrentAddress >= m_nCapacity) { 
+				// increase capacity
+				UINT cap = m_nCapacity + 1 + m_nCapacity/CAPACICTYINCDIVISOR;
+				if (cap > MAXHEXEDITLENGTH || cap <= m_nCapacity)
+					return false;
+				BYTE *data = new BYTE[cap];
+				if (!data)
+					return false;
+				if (m_pData)
+					memcpy(data,m_pData,m_nLength);
+				m_nCapacity = cap;
+				if (m_bDeleteData) 
+					delete []m_pData;
+				m_pData = data;
+			}
+			m_pData[m_nLength++] = 0;
+		}
 		if(m_bHighBits) {
 			nValue <<= 4;
 			m_pData[m_nCurrentAddress] &= 0x0f;
@@ -1434,6 +1443,9 @@ BOOL CHexEditBase::PreTranslateMessage(MSG* pMsg)
 	if(pMsg->message == WM_KEYDOWN) {
 		if(GetKeyState(VK_CONTROL) & 0x80000000) {
 			switch(pMsg->wParam) {			
+			case 'X': // ctrl + x: cut
+				OnEditCut();
+				return TRUE;
 			case 'C': // ctrl + c: copy
 				OnEditCopy();
 				return TRUE;
@@ -1498,9 +1510,9 @@ void CHexEditBase::MoveCurrentAddress(int iDeltaAdr, bool bHighBits)
 	}
 	if(iDeltaAdr > 0) {
 		// go down
-		if(nAddress + iDeltaAdr >= m_nLength) {
+		if(nAddress + iDeltaAdr >= GetDataSize1()) {
 			// we reached the end
-			nAddress = m_nLength - 1;
+			nAddress = GetDataSize1() - 1;
 			bHighBits = false;
 		} else {
 			nAddress += iDeltaAdr;
@@ -1613,6 +1625,9 @@ void CHexEditBase::OnContextMenu(CWnd*, CPoint cPoint)
 		return;
 	}
 
+	// menue-item: cut
+	cMenu.AppendMenu(IsSelection() ? MF_STRING : MF_GRAYED|MF_DISABLED|MF_STRING, ID_EDIT_CUT, (LPCSTR)m_cContextCut);
+	
 	// menue-item: copy
 	cMenu.AppendMenu(IsSelection() ? MF_STRING : MF_GRAYED|MF_DISABLED|MF_STRING, ID_EDIT_COPY, (LPCSTR)m_cContextCopy);
 	
@@ -1628,108 +1643,160 @@ void CHexEditBase::OnContextMenu(CWnd*, CPoint cPoint)
 
 void CHexEditBase::OnEditCopy() 
 {
-	if( (m_nSelectionBegin != NOSECTION_VAL) && (m_nSelectionEnd != NOSECTION_VAL) ) {
-		ASSERT(m_nSelectionEnd >= m_nSelectionBegin);
+	OnEditCopyCut(false);
+}
 
-		BYTE *pData = m_pData + m_nSelectionBegin;
-		BYTE *pDataEnd = m_pData + m_nSelectionEnd;
-		CString cStr;
+void CHexEditBase::OnEditCut() 
+{
+	OnEditCopyCut(true);
+}
+void CHexEditBase::OnEditCopyCut(bool cut) 
+{
+	if( (m_nSelectionBegin == NOSECTION_VAL) || (m_nSelectionEnd == NOSECTION_VAL) )
+		return;
+	if (m_nLength == 0 || m_nSelectionBegin >= m_nLength)
+		return;
+	if (m_bReadOnly && cut)
+		return;
+	ASSERT(m_nSelectionEnd >= m_nSelectionBegin);
+	ASSERT(m_nSelectionEnd <= m_nLength);
 
-		COleDataSource *pSource = new COleDataSource;
-		char* pBuf = new char[m_tPaintDetails.nBytesPerRow*3+2];
-		try {
-			memset(pBuf, ' ', m_tPaintDetails.nBytesPerRow*3);
-			UINT nColumn = m_nSelectionBegin%m_tPaintDetails.nBytesPerRow;
-			if(pDataEnd - pData <= m_tPaintDetails.nBytesPerRow) {
-				nColumn = 0;
-			}
-			UINT nAdr = m_nSelectionBegin;
-			while(pData <= pDataEnd ) {			
-				CString cStr2;
-				//cStr2.Format(_T("%0*X: "), (int)m_nAdrSize,  nAdr);
-				for(; nColumn<m_tPaintDetails.nBytesPerRow && pData <= pDataEnd; ++nColumn, ++pData, ++nAdr) {
-					pBuf[nColumn*3] = tabHexCharacters[*pData>>4];
-					pBuf[nColumn*3+1] = tabHexCharacters[*pData&0xf];
-				}
-				pBuf[(nColumn-1)*3+2] = '\0';
-				cStr += cStr2;
-				cStr += pBuf;
-				cStr += _T("\n");
-				nColumn = 0;
-			}
+	UINT nLength = m_nSelectionEnd - m_nSelectionBegin + 1;
+	if (m_nSelectionEnd == m_nLength)
+		nLength--;
+	BYTE *pData = m_pData + m_nSelectionBegin;
+	BYTE *pDataEnd = pData + nLength - 1;
+	CString cStr;
 
-			EmptyClipboard();
-			UINT nLength = m_nSelectionEnd - m_nSelectionBegin + 1;
-			HGLOBAL	hMemb = ::GlobalAlloc(GMEM_MOVEABLE|GMEM_DDESHARE|GMEM_ZEROINIT, nLength+sizeof(UINT));
-			HGLOBAL	hMema = ::GlobalAlloc(GMEM_MOVEABLE|GMEM_DDESHARE|GMEM_ZEROINIT, cStr.GetLength() + 1);
-
-			if( (hMema == NULL) || (hMemb == NULL)) {
-				return;
-			}
-
-			// copy binary
-			UINT *pData = (UINT*)::GlobalLock(hMemb);
-			*pData = nLength;
-			memcpy(&pData[1], m_pData+m_nSelectionBegin, nLength);
-			::GlobalUnlock(hMemb);
-
-			// copy ascii
-			char *pPtr = (char*)::GlobalLock(hMema);
-			memcpy(pPtr, (LPCSTR)cStr, cStr.GetLength());
-			::GlobalUnlock(hMema);
-
-			OpenClipboard();
-			SetClipboardData((CLIPFORMAT)m_nBinDataClipboardFormat, hMemb);
-			SetClipboardData((CF_TEXT), hMema);
-			CloseClipboard();
-		} 
-		catch(...) 
-		{
-			delete pSource;
-			delete []pBuf;
-			throw;
+	COleDataSource *pSource = new COleDataSource;
+	char* pBuf = new char[m_tPaintDetails.nBytesPerRow*3+2];
+	try {
+		memset(pBuf, ' ', m_tPaintDetails.nBytesPerRow*3);
+		UINT nColumn = m_nSelectionBegin%m_tPaintDetails.nBytesPerRow;
+		if(pDataEnd - pData <= (INT)m_tPaintDetails.nBytesPerRow) {
+			nColumn = 0;
 		}
+		UINT nAdr = m_nSelectionBegin;
+		while(pData <= pDataEnd ) {			
+			CString cStr2;
+			//cStr2.Format(_T("%0*X: "), (int)m_nAdrSize,  nAdr);
+			for(; nColumn<m_tPaintDetails.nBytesPerRow && pData <= pDataEnd; ++nColumn, ++pData, ++nAdr) {
+				pBuf[nColumn*3] = tabHexCharacters[*pData>>4];
+				pBuf[nColumn*3+1] = tabHexCharacters[*pData&0xf];
+			}
+			pBuf[(nColumn-1)*3+2] = '\0';
+			cStr += cStr2;
+			cStr += pBuf;
+			cStr += _T("\n");
+			nColumn = 0;
+		}
+
+		EmptyClipboard();
+		HGLOBAL	hMemb = ::GlobalAlloc(GMEM_MOVEABLE|GMEM_DDESHARE|GMEM_ZEROINIT, nLength+sizeof(UINT));
+		HGLOBAL	hMema = ::GlobalAlloc(GMEM_MOVEABLE|GMEM_DDESHARE|GMEM_ZEROINIT, cStr.GetLength() + 1);
+
+		if( (hMema == NULL) || (hMemb == NULL)) {
+			return;
+		}
+
+		// copy binary
+		UINT *pData = (UINT*)::GlobalLock(hMemb);
+		*pData = nLength;
+		memcpy(&pData[1], m_pData+m_nSelectionBegin, nLength);
+		if (cut && m_nSelectionBegin + nLength < m_nLength) {
+			memmove(m_pData + m_nSelectionBegin, 
+					m_pData + m_nSelectionBegin + nLength,
+					m_nLength - (m_nSelectionBegin + nLength));
+		}
+		if (cut && nLength != 0) {
+			m_nLength -= nLength;
+			SetEditCaretPos(m_nSelectionBegin,true);
+			m_nSelectingBeg = NOSECTION_VAL;
+			m_nSelectionBegin = NOSECTION_VAL;
+			m_nSelectingEnd = NOSECTION_VAL;
+			m_nSelectionEnd = NOSECTION_VAL;
+			NotifyParent(HEN_CHANGE);
+			Invalidate();
+		}
+		::GlobalUnlock(hMemb);
+
+		// copy ascii
+		char *pPtr = (char*)::GlobalLock(hMema);
+		memcpy(pPtr, (LPCSTR)cStr, cStr.GetLength());
+		::GlobalUnlock(hMema);
+
+		OpenClipboard();
+		SetClipboardData((CLIPFORMAT)m_nBinDataClipboardFormat, hMemb);
+		SetClipboardData((CF_TEXT), hMema);
+		CloseClipboard();
+	} 
+	catch(...) 
+	{
+		delete pSource;
 		delete []pBuf;
+		throw;
 	}
+	delete []pBuf;
 }
 
 void CHexEditBase::OnEditPaste() 
 {
-	ASSERT(m_nCurrentAddress < m_nLength);
 
-	if(m_bReadOnly || (m_pData == NULL)) {
+	if(m_bReadOnly)
 		return;
-	}
 	
 	COleDataObject cSource;
 	if(!cSource.AttachClipboard()) {
 		TRACE("CHexEditBase::OnEditPaste: ERROR: AttachClipboard failed\n");
 		return;
 	}
-	if(cSource.IsDataAvailable((CLIPFORMAT)m_nBinDataClipboardFormat)) {
-		// okay, data available
-		HGLOBAL hData = cSource.GetGlobalData((CLIPFORMAT)m_nBinDataClipboardFormat);
-		if(hData == NULL) {
-			TRACE("CHexEditBase::OnEditPaste: ERROR: GetGlobalData failed\n");
+	if(!cSource.IsDataAvailable((CLIPFORMAT)m_nBinDataClipboardFormat))
+		return;
+	// okay, data available
+	HGLOBAL hData = cSource.GetGlobalData((CLIPFORMAT)m_nBinDataClipboardFormat);
+	if(hData == NULL) {
+		TRACE("CHexEditBase::OnEditPaste: ERROR: GetGlobalData failed\n");
+		return;
+	}		
+	UINT nPasteAdr = m_nCurrentAddress;
+	UINT nReplaceLength = 0;
+	if(IsSelection()) {
+		nPasteAdr = m_nSelectionBegin;
+		nReplaceLength = m_nSelectionEnd - m_nSelectionBegin + 1;
+		if (m_nSelectionEnd >= m_nLength)
+			nReplaceLength--;
+	}
+	UINT *pData = (UINT*)::GlobalLock(hData);
+	UINT nLength = *pData;
+	BYTE *pTarget = m_pData;
+	UINT nTargetLength = m_nLength - nReplaceLength + nLength;
+	if (nTargetLength > m_nCapacity) {
+		pTarget = new BYTE[nTargetLength];
+		if (!pTarget) {
+			::GlobalUnlock(hData);
 			return;
-		}		
-		UINT nPasteAdr = m_nCurrentAddress;
-		if(IsSelection()) {
-			nPasteAdr = m_nSelectionBegin;
 		}
-		UINT *pData = (UINT*)::GlobalLock(hData);
-		UINT nLength = *pData;
-		if( (nPasteAdr + nLength >= m_nLength) || (nLength >= m_nLength) ) {
-			nLength = m_nLength - nPasteAdr;
-		}
-		memcpy(m_pData+nPasteAdr, &pData[1], nLength);
-		::GlobalUnlock(hData);
-		SetSelection(nPasteAdr, nPasteAdr+nLength-1, true, false);
-		SetEditCaretPos(nPasteAdr+nLength-1, false);
-		Invalidate();
-		if(nLength>0) {
-			NotifyParent(HEN_CHANGE);
-		}
+		if (nPasteAdr > 0) 
+			memcpy(pTarget,m_pData,nPasteAdr); // data before selection
+	}
+	if (m_nLength - (nPasteAdr + nReplaceLength) > 0)
+		memmove(pTarget  + nPasteAdr + nLength, 
+				m_pData  + nPasteAdr + nReplaceLength, 
+				m_nLength - (nPasteAdr + nReplaceLength)); // move data behind paste area to target position
+	memcpy(pTarget+nPasteAdr, &pData[1], nLength);
+	::GlobalUnlock(hData);
+	if (pTarget != m_pData) {
+		if (m_bDeleteData)
+			delete []m_pData;
+		m_pData = pTarget;
+		m_nCapacity = nTargetLength;
+	}
+	m_nLength = nTargetLength;
+	SetSelection(nPasteAdr, nPasteAdr+nLength-1, true, false);
+	SetEditCaretPos(nPasteAdr+nLength-1, false);
+	Invalidate();
+	if(nLength>0) {
+		NotifyParent(HEN_CHANGE);
 	}
 }
 
@@ -1740,44 +1807,8 @@ void CHexEditBase::OnEditSelectAll()
 	}
 }
 
-void CHexEditBase::SetData(const BYTE *pData, UINT nLen, bool bUpdate)
+void CHexEditBase::ReInitialize()
 {
-	ASSERT(pData != NULL || nLen == 0);
-	ASSERT(nLen > 0 || pData == NULL);
-	ASSERT(nLen < 0x7ffff000); // about what we can manage without overflow
-
-	m_nSelectingBeg = NOSECTION_VAL;
-	m_nSelectingEnd = NOSECTION_VAL;
-	m_nSelectionBegin = NOSECTION_VAL;
-	m_nSelectionEnd = NOSECTION_VAL;
-	m_nHighlightedBegin = NOSECTION_VAL;
-	m_nHighlightedEnd = NOSECTION_VAL;
-	if(m_bDeleteData) {
-		delete []m_pData;
-	}
-	if(pData != NULL) {
-		m_bDeleteData = true;
-		m_nLength = nLen;
-		m_pData = new BYTE[nLen];
-		memcpy(m_pData, pData, nLen);
-	} else {
-		m_bDeleteData = false;
-		m_nLength = 0;
-		m_pData = NULL;
-	}
-	m_bRecalc = true;
-	if(bUpdate && ::IsWindow(m_hWnd)) {
-		Invalidate();
-	}
-	SetEditCaretPos(0, true);
-}
-
-void CHexEditBase::SetDirectDataPtr(BYTE *pData, UINT nLen, bool bUpdate)
-{
-	ASSERT(pData != NULL || nLen == 0);
-	ASSERT(nLen > 0 || pData == NULL);
-	ASSERT(nLen < 0x7ffff000); // about what we can manage without overflow
-
 	m_nSelectingBeg = NOSECTION_VAL;
 	m_nSelectingEnd = NOSECTION_VAL;
 	m_nSelectionBegin = NOSECTION_VAL;
@@ -1788,9 +1819,49 @@ void CHexEditBase::SetDirectDataPtr(BYTE *pData, UINT nLen, bool bUpdate)
 		delete []m_pData;
 	}
 	m_bDeleteData = false;
+	m_bRecalc = true;
+}
+
+bool CHexEditBase::Allocate(UINT nLen)
+{
+	ASSERT(nLen < MAXHEXEDITLENGTH); // about what we can manage without overflow
+	ASSERT(m_pData == NULL); // call ReInitialize before Allocate
+	if (nLen)
+		m_pData = new BYTE[nLen];
+	m_nLength = m_nCapacity = m_pData ? nLen : 0;
+	m_bDeleteData = true;
+	return m_pData != NULL;
+}
+
+void CHexEditBase::SetData(const BYTE *pData, UINT nLen, bool bUpdate)
+{
+	ASSERT(pData != NULL || nLen == 0);
+	ASSERT(nLen > 0 || pData == NULL);
+
+	ReInitialize();
+	if (Allocate(nLen)) {
+		if(pData != NULL)
+			memcpy(m_pData, pData, nLen);
+	} else { // Allocate failed
+		m_nLength = 0;
+		m_nCapacity = 0;
+		// TODO inform user
+	}
+	if(bUpdate && ::IsWindow(m_hWnd)) {
+		Invalidate();
+	}
+	SetEditCaretPos(0, true);
+}
+
+void CHexEditBase::SetDirectDataPtr(BYTE *pData, UINT nLen, bool bUpdate)
+{
+	ASSERT(pData != NULL || nLen == 0);
+	ASSERT(nLen > 0 || pData == NULL);
+
+	ReInitialize();
 	m_nLength = nLen;
 	m_pData = pData;
-	m_bRecalc = true;
+
 	if(bUpdate && ::IsWindow(m_hWnd)) {
 		Invalidate();
 	}
@@ -1804,6 +1875,27 @@ UINT CHexEditBase::GetData(BYTE *pByte, UINT nLength)
 		return m_nLength;
 	} else {
 		return 0;
+	}
+}
+void CHexEditBase::Serialize(CArchive& ar)
+{
+	CFile *pFile = ar.GetFile();
+	ASSERT(pFile != NULL);
+
+	if (ar.IsStoring()) {
+		pFile->Write(m_pData, m_nLength);
+	} else {
+		ReInitialize();
+		if (Allocate(ar.GetFile()->GetLength())) {
+			ASSERT(m_nLength < MAXHEXEDITLENGTH);
+			pFile->Read(m_pData, m_nLength);
+		} else { // Alllocate failed
+			m_nLength = 0;
+			// TODO inform user
+		}
+		if(::IsWindow(m_hWnd))
+			Invalidate();
+		SetEditCaretPos(0, true);
 	}
 }
 

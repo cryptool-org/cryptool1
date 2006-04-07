@@ -63,6 +63,11 @@ statement from your version.
 // notification codes
 #define HEN_CHANGE					EN_CHANGE	//the same as the EDIT (CEdit)
 
+// data length that can be handled
+#define MAXHEXEDITLENGTH 0x7ffff000
+
+// increase capacity by 1 + m_nCapacity/CAPACICTYINCDIVISOR when a character is appended/inserted
+#define CAPACICTYINCDIVISOR 8
 
 /////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
@@ -97,6 +102,7 @@ public:
 	bool IsSelection() const;
 	bool IsHighlighted() const;
 	UINT GetDataSize() const { return m_nLength; }
+	UINT GetDataSize1() const { return m_nLength + 1; } // for all caret related operations assume add one byte for appending data
 	virtual void SetReadonly(bool bReadOnly, bool bUpdate = true);
 	BOOL Create(LPCTSTR lpszWindowName, DWORD dwStyle, const RECT& rect, CWnd* pParentWnd, UINT nID, CCreateContext* pContext = NULL);
 	BOOL CreateEx(DWORD dwExStyle, LPCTSTR lpszWindowName, DWORD dwStyle, int x, int y, int nWidth, int nHeight, HWND hwndParent, HMENU nIDorHMenu, LPVOID lpParam = NULL);
@@ -105,8 +111,10 @@ public:
 	static LRESULT CALLBACK WndProc(HWND hWnd, UINT nMsg, WPARAM wParam, LPARAM lParam);
 	void SetContextCopyStr(const CString& cStr) { m_cContextCopy = cStr; }
 	void SetContextPasteStr(const CString& cStr) { m_cContextPaste = cStr; }
+	void Serialize(CArchive& ar);
 
 	// quick and dirty: to access copy/paste functions from outside
+	void callOnEditCut() { OnEditCut(); };
 	void callOnEditCopy() { OnEditCopy(); };
 	void callOnEditPaste() { OnEditPaste(); };
 	void callOnEditSelectAll() { OnEditSelectAll(); };
@@ -141,6 +149,7 @@ protected:
 	UINT m_nCurrentAddress;
 	UINT m_nCurCaretHeight; 
 	UINT m_nLength;
+	UINT m_nCapacity;
 	UINT m_nScrollPostionY;	
 	UINT m_nScrollRangeY;
 	UINT m_nScrollPostionX;	
@@ -172,6 +181,7 @@ protected:
 	COLORREF m_tSelectedNoFocusBkgCol;
 	COLORREF m_tSelectedFousTxtCol;
 	COLORREF m_tSelectedFousBkgCol;	
+	CString m_cContextCut;
 	CString m_cContextCopy;
 	CString m_cContextPaste;	
 	CFont m_cFont;	
@@ -205,6 +215,9 @@ protected:
 	void GetAddressFromPoint(const CPoint& cPt, UINT& nAddress, bool& bHighByte);
 	UINT CreateHighlightingPolygons(const CRect& cHexRect, 
 		UINT nBegin, UINT nEnd, POINT *pPoints);
+	void ReInitialize();
+	bool Allocate(UINT nLen);
+	void OnEditCopyCut(bool cut);
 
 	//{{AFX_VIRTUAL(CHexEditBase)
 	virtual BOOL Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName, DWORD dwStyle, const RECT& rect, CWnd* pParentWnd, UINT nID, CCreateContext* pContext = NULL);
@@ -235,6 +248,7 @@ protected:
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 	afx_msg void OnLButtonUp(UINT, CPoint);
 	afx_msg void OnKeyDown(UINT nChar, UINT, UINT);
+	afx_msg void OnEditCut();
 	afx_msg void OnEditCopy();
 	afx_msg void OnEditPaste();
 	afx_msg void OnEditSelectAll();

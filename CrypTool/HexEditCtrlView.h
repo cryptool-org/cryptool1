@@ -82,11 +82,11 @@ protected:
 	//{{AFX_VIRTUAL(CHexEditCtrlView)
 	public:
 	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
-	virtual void OnInitialUpdate();
 	//}}AFX_VIRTUAL
 
 	//{{AFX_MSG(CHexEditCtrlView)
 	afx_msg void OnHexEditChanged();
+	afx_msg void OnEditCut();
 	afx_msg void OnEditCopy();
 	afx_msg void OnEditPaste();
 	afx_msg void OnEditSelectAll();

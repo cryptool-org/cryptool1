@@ -57,6 +57,7 @@ statement from your version.
 #include "CrypToolApp.h"
 #include "FileTools.h"
 #include "HexEditCtrlDoc.h"
+#include "HexEditCtrlView.h"
 
 
 
@@ -110,19 +111,9 @@ BOOL CHexEditCtrlDoc::OnNewDocument()
 
 void CHexEditCtrlDoc::Serialize(CArchive& ar)
 {
-	CFile *pFile = ar.GetFile();
-	ASSERT(pFile != NULL);
-
-	if (ar.IsStoring()) {
-		pFile->Write(m_pData, m_nSize);
-	} else {
-		delete []m_pData;
-		m_nSize = (int)ar.GetFile()->GetLength();
-		ASSERT(m_nSize < 0x7ffff0000);
-		m_pData = new BYTE[m_nSize];
-		ASSERT(m_pData != NULL);
-		pFile->Read(m_pData, m_nSize);
-	}
+	POSITION p = GetFirstViewPosition();
+	CHexEditCtrlView *view = (CHexEditCtrlView*)GetNextView(p);
+	view->GetHexEditCtrl().Serialize(ar);
 }
 
 #ifdef _DEBUG
@@ -139,7 +130,6 @@ void CHexEditCtrlDoc::Dump(CDumpContext& dc) const
 
 void CHexEditCtrlDoc::OnTotxt() 
 {
-	// TODO...
 	CAppDocument *NewDoc;
  	char outfile[128];
  	BOOL Modified;

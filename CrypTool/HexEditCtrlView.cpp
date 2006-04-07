@@ -83,6 +83,7 @@ IMPLEMENT_DYNCREATE(CHexEditCtrlView, CHexEditBaseView)
 
 BEGIN_MESSAGE_MAP(CHexEditCtrlView, CHexEditBaseView)
 	//{{AFX_MSG_MAP(CHexEditCtrlView)
+	ON_COMMAND(ID_EDIT_CUT, OnEditCut)
 	ON_COMMAND(ID_EDIT_COPY, OnEditCopy)
 	ON_COMMAND(ID_EDIT_PASTE, OnEditPaste)
 	ON_COMMAND(ID_EDIT_SELECT_ALL, OnEditSelectAll)
@@ -112,12 +113,6 @@ BOOL CHexEditCtrlView::PreCreateWindow(CREATESTRUCT& cs)
 	return CHexEditBaseView::PreCreateWindow(cs);
 }
 
-void CHexEditCtrlView::OnInitialUpdate() 
-{
-	CHexEditBaseView::OnInitialUpdate();
-	CHexEditCtrlDoc* pDoc = (CHexEditCtrlDoc*)GetDocument();
-	GetHexEditCtrl().SetDirectDataPtr(pDoc->GetData(), pDoc->GetDataSize());	
-}
 
 void CHexEditCtrlView::OnHexEditChanged()
 {
@@ -142,6 +137,11 @@ CHexEditCtrlDoc* CHexEditCtrlView::GetDocument()
 }
 #endif //_DEBUG
 
+
+void CHexEditCtrlView::OnEditCut() 
+{
+	GetHexEditCtrl().callOnEditCut();
+}
 
 void CHexEditCtrlView::OnEditCopy() 
 {
