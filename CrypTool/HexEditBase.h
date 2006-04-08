@@ -167,6 +167,7 @@ protected:
 	bool m_bAddressIsWide;
 	bool m_bShowCategory;
 	bool m_bReadOnly;
+	bool m_bInsert;
 	COLORREF m_tAdrBkgCol;
 	COLORREF m_tAdrTxtCol;
 	COLORREF m_tAsciiBkgCol;
@@ -217,7 +218,8 @@ protected:
 		UINT nBegin, UINT nEnd, POINT *pPoints);
 	void ReInitialize();
 	bool Allocate(UINT nLen);
-	void OnEditCopyCut(bool cut);
+	void OnEditCopyCutDelete(bool cutdel,bool clipboard);
+	void OnDelete(WPARAM wParam);
 
 	//{{AFX_VIRTUAL(CHexEditBase)
 	virtual BOOL Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName, DWORD dwStyle, const RECT& rect, CWnd* pParentWnd, UINT nID, CCreateContext* pContext = NULL);

@@ -150,6 +150,7 @@ CHexEditBase::CHexEditBase() :
 	m_bHasCaret(false), 
 	m_bHighBits(true),
 	m_bReadOnly(false), 
+	m_bInsert(false),
 	m_nHighlightedBegin(NOSECTION_VAL), 
 	m_nHighlightedEnd(NOSECTION_VAL),
 	m_nSelectingBeg(NOSECTION_VAL),
@@ -1154,7 +1155,7 @@ void CHexEditBase::SetEditCaretPos(UINT nOffset, bool bHighBits)
 		nCarretWidth = m_tPaintDetails.cPaintingRect.right + 2 - cCarretPoint.x;
 	}
 
-	CreateEditCaret(nCarretHeight-1, nCarretWidth);
+	CreateEditCaret(nCarretHeight-1, m_bInsert ? 1 : nCarretWidth);
 	SetCaretPos(cCarretPoint);
 	ShowCaret();
 }
@@ -1345,10 +1346,10 @@ bool CHexEditBase::OnEditInput(WORD nInput)
 		nValue = nKey - (BYTE)'0';
 	}
 	if(nValue != 255) {
-		if (m_nCurrentAddress >= m_nLength) {
-			// allocate storage for new byte
-			ASSERT(m_nCurrentAddress == m_nLength);
-			if (m_nCurrentAddress >= m_nCapacity) { 
+		ASSERT(m_nCurrentAddress <= m_nLength);
+		if (m_nCurrentAddress >= m_nLength || (m_bInsert && m_bHighBits)) {
+			// ensure storage is available for new byte
+			if (m_nLength >= m_nCapacity) { 
 				// increase capacity
 				UINT cap = m_nCapacity + 1 + m_nCapacity/CAPACICTYINCDIVISOR;
 				if (cap > MAXHEXEDITLENGTH || cap <= m_nCapacity)
@@ -1356,14 +1357,27 @@ bool CHexEditBase::OnEditInput(WORD nInput)
 				BYTE *data = new BYTE[cap];
 				if (!data)
 					return false;
-				if (m_pData)
-					memcpy(data,m_pData,m_nLength);
+				if (m_pData) {
+					if (m_nCurrentAddress > 0)
+						memcpy(data, m_pData, m_nCurrentAddress);
+					if (m_nCurrentAddress < m_nLength)
+						memcpy(data    + m_nCurrentAddress + 1, 
+							   m_pData + m_nCurrentAddress, 
+							   m_nLength - m_nCurrentAddress);
+				}
 				m_nCapacity = cap;
 				if (m_bDeleteData) 
 					delete []m_pData;
 				m_pData = data;
+			} else {
+				// no capacity increase necessary
+				if (m_nCurrentAddress < m_nLength)
+					memmove(m_pData + m_nCurrentAddress + 1, 
+							m_pData + m_nCurrentAddress, 
+							m_nLength - m_nCurrentAddress);
 			}
-			m_pData[m_nLength++] = 0;
+			m_pData[m_nCurrentAddress] = 0;
+			m_nLength++;
 		}
 		if(m_bHighBits) {
 			nValue <<= 4;
@@ -1422,19 +1436,34 @@ LRESULT CHexEditBase::OnWMGetFont(WPARAM wParam, LPARAM lParam)
 	lParam = 0;
 	return (LRESULT)((HFONT)m_cFont);
 }
+void CHexEditBase::OnDelete(WPARAM wParam)
+{
+	if (m_bReadOnly || m_nLength == 0)
+		return;
+	if (IsSelection()) {
+		OnEditCopyCutDelete(true,false);
+	} else {
+		if (wParam == VK_BACK) {
+			if (m_nCurrentAddress == 0)
+				return;
+			m_nCurrentAddress--;
+		}
+		if (m_nCurrentAddress == m_nLength)
+			return;
+		if (m_nLength - (m_nCurrentAddress + 1) > 0)
+			memmove(m_pData + m_nCurrentAddress, m_pData + m_nCurrentAddress + 1, m_nLength - (m_nCurrentAddress + 1));
+		m_nLength--;
+		MoveCurrentAddress(0, true);
+		NotifyParent(HEN_CHANGE);
+		Invalidate();
+	}
+}
 
 LRESULT CHexEditBase::OnWMChar(WPARAM wParam, LPARAM)
 {
 
-	if(wParam == 0x08) {			
-		//example: backspace-processing, (if once needed)
-		//OnEditBackspace(); 
-		//return 0;
-	} /* other special processing here (insert: "else if() {}" ) */ else {
-		if(OnEditInput((WORD)wParam)) {
-			return 0;
-		}
-	}
+	if(OnEditInput((WORD)wParam))
+		return 0;
 	return 1;
 }
 
@@ -1581,10 +1610,13 @@ void CHexEditBase::OnKeyDown(UINT nChar, UINT, UINT)
 		MoveCurrentAddress(0x7ffffff, false);
 		break;
 	case VK_INSERT:
-		// not suported yet
+		m_bInsert = !m_bInsert;
+		SetEditCaretPos(m_nCurrentAddress, m_bHighBits);
+		Invalidate();
 		break;
 	case VK_DELETE:
-		// not suported yet
+	case VK_BACK:
+		OnDelete(nChar);
 		break;
 	case VK_RETURN:
 		// not suported yet
@@ -1643,20 +1675,20 @@ void CHexEditBase::OnContextMenu(CWnd*, CPoint cPoint)
 
 void CHexEditBase::OnEditCopy() 
 {
-	OnEditCopyCut(false);
+	OnEditCopyCutDelete(false,true);
 }
 
 void CHexEditBase::OnEditCut() 
 {
-	OnEditCopyCut(true);
+	OnEditCopyCutDelete(true,true);
 }
-void CHexEditBase::OnEditCopyCut(bool cut) 
+void CHexEditBase::OnEditCopyCutDelete(bool cutdel,bool clipboard) 
 {
 	if( (m_nSelectionBegin == NOSECTION_VAL) || (m_nSelectionEnd == NOSECTION_VAL) )
 		return;
 	if (m_nLength == 0 || m_nSelectionBegin >= m_nLength)
 		return;
-	if (m_bReadOnly && cut)
+	if (m_bReadOnly && cutdel)
 		return;
 	ASSERT(m_nSelectionEnd >= m_nSelectionBegin);
 	ASSERT(m_nSelectionEnd <= m_nLength);
@@ -1664,79 +1696,88 @@ void CHexEditBase::OnEditCopyCut(bool cut)
 	UINT nLength = m_nSelectionEnd - m_nSelectionBegin + 1;
 	if (m_nSelectionEnd == m_nLength)
 		nLength--;
-	BYTE *pData = m_pData + m_nSelectionBegin;
-	BYTE *pDataEnd = pData + nLength - 1;
-	CString cStr;
 
-	COleDataSource *pSource = new COleDataSource;
-	char* pBuf = new char[m_tPaintDetails.nBytesPerRow*3+2];
-	try {
-		memset(pBuf, ' ', m_tPaintDetails.nBytesPerRow*3);
-		UINT nColumn = m_nSelectionBegin%m_tPaintDetails.nBytesPerRow;
-		if(pDataEnd - pData <= (INT)m_tPaintDetails.nBytesPerRow) {
-			nColumn = 0;
-		}
-		UINT nAdr = m_nSelectionBegin;
-		while(pData <= pDataEnd ) {			
-			CString cStr2;
-			//cStr2.Format(_T("%0*X: "), (int)m_nAdrSize,  nAdr);
-			for(; nColumn<m_tPaintDetails.nBytesPerRow && pData <= pDataEnd; ++nColumn, ++pData, ++nAdr) {
-				pBuf[nColumn*3] = tabHexCharacters[*pData>>4];
-				pBuf[nColumn*3+1] = tabHexCharacters[*pData&0xf];
+	if (clipboard) {
+		BYTE *pData = m_pData + m_nSelectionBegin;
+		BYTE *pDataEnd = pData + nLength - 1;
+		CString cStr;
+		COleDataSource *pSource = new COleDataSource;
+		char* pBuf = new char[m_tPaintDetails.nBytesPerRow*3+2];
+		try {
+#ifdef COPYTEXT
+			memset(pBuf, ' ', m_tPaintDetails.nBytesPerRow*3);
+			UINT nColumn = m_nSelectionBegin%m_tPaintDetails.nBytesPerRow;
+			if(pDataEnd - pData <= (INT)m_tPaintDetails.nBytesPerRow) {
+				nColumn = 0;
 			}
-			pBuf[(nColumn-1)*3+2] = '\0';
-			cStr += cStr2;
-			cStr += pBuf;
-			cStr += _T("\n");
-			nColumn = 0;
+			UINT nAdr = m_nSelectionBegin;
+			while(pData <= pDataEnd ) {			
+				CString cStr2;
+				//cStr2.Format(_T("%0*X: "), (int)m_nAdrSize,  nAdr);
+				for(; nColumn<m_tPaintDetails.nBytesPerRow && pData <= pDataEnd; ++nColumn, ++pData, ++nAdr) {
+					pBuf[nColumn*3] = tabHexCharacters[*pData>>4];
+					pBuf[nColumn*3+1] = tabHexCharacters[*pData&0xf];
+				}
+				pBuf[(nColumn-1)*3+2] = '\0';
+				cStr += cStr2;
+				cStr += pBuf;
+				cStr += _T("\n");
+				nColumn = 0;
+			}
+#endif
+			EmptyClipboard();
+			HGLOBAL	hMemb = ::GlobalAlloc(GMEM_MOVEABLE|GMEM_DDESHARE|GMEM_ZEROINIT, nLength+sizeof(UINT));
+			if(hMemb == NULL)
+				return;
+#ifdef COPYTEXT
+			HGLOBAL	hMema = ::GlobalAlloc(GMEM_MOVEABLE|GMEM_DDESHARE|GMEM_ZEROINIT, cStr.GetLength() + 1);
+			if(hMema == NULL)
+				return;
+#endif
+
+			// copy binary
+			UINT *pData = (UINT*)::GlobalLock(hMemb);
+			*pData = nLength;
+			memcpy(&pData[1], m_pData+m_nSelectionBegin, nLength);
+			::GlobalUnlock(hMemb);
+
+#ifdef COPYTEXT
+			// copy ascii
+			char *pPtr = (char*)::GlobalLock(hMema);
+			memcpy(pPtr, (LPCSTR)cStr, cStr.GetLength());
+			::GlobalUnlock(hMema);
+#endif
+
+			OpenClipboard();
+			SetClipboardData((CLIPFORMAT)m_nBinDataClipboardFormat, hMemb);
+#ifdef COPYTEXT
+			SetClipboardData((CF_TEXT), hMema);
+#endif
+			CloseClipboard();
+		} 
+		catch(...) 
+		{
+			delete pSource;
+			delete []pBuf;
+			throw;
 		}
-
-		EmptyClipboard();
-		HGLOBAL	hMemb = ::GlobalAlloc(GMEM_MOVEABLE|GMEM_DDESHARE|GMEM_ZEROINIT, nLength+sizeof(UINT));
-		HGLOBAL	hMema = ::GlobalAlloc(GMEM_MOVEABLE|GMEM_DDESHARE|GMEM_ZEROINIT, cStr.GetLength() + 1);
-
-		if( (hMema == NULL) || (hMemb == NULL)) {
-			return;
-		}
-
-		// copy binary
-		UINT *pData = (UINT*)::GlobalLock(hMemb);
-		*pData = nLength;
-		memcpy(&pData[1], m_pData+m_nSelectionBegin, nLength);
-		if (cut && m_nSelectionBegin + nLength < m_nLength) {
-			memmove(m_pData + m_nSelectionBegin, 
-					m_pData + m_nSelectionBegin + nLength,
-					m_nLength - (m_nSelectionBegin + nLength));
-		}
-		if (cut && nLength != 0) {
-			m_nLength -= nLength;
-			SetEditCaretPos(m_nSelectionBegin,true);
-			m_nSelectingBeg = NOSECTION_VAL;
-			m_nSelectionBegin = NOSECTION_VAL;
-			m_nSelectingEnd = NOSECTION_VAL;
-			m_nSelectionEnd = NOSECTION_VAL;
-			NotifyParent(HEN_CHANGE);
-			Invalidate();
-		}
-		::GlobalUnlock(hMemb);
-
-		// copy ascii
-		char *pPtr = (char*)::GlobalLock(hMema);
-		memcpy(pPtr, (LPCSTR)cStr, cStr.GetLength());
-		::GlobalUnlock(hMema);
-
-		OpenClipboard();
-		SetClipboardData((CLIPFORMAT)m_nBinDataClipboardFormat, hMemb);
-		SetClipboardData((CF_TEXT), hMema);
-		CloseClipboard();
-	} 
-	catch(...) 
-	{
-		delete pSource;
 		delete []pBuf;
-		throw;
+	} // if (selection)
+	if (cutdel && m_nSelectionBegin + nLength < m_nLength) {
+		memmove(m_pData + m_nSelectionBegin, 
+				m_pData + m_nSelectionBegin + nLength,
+				m_nLength - (m_nSelectionBegin + nLength));
 	}
-	delete []pBuf;
+	if (cutdel && nLength != 0) {
+		m_nLength -= nLength;
+		SetEditCaretPos(m_nSelectionBegin,true);
+		m_nSelectingBeg = NOSECTION_VAL;
+		m_nSelectionBegin = NOSECTION_VAL;
+		m_nSelectingEnd = NOSECTION_VAL;
+		m_nSelectionEnd = NOSECTION_VAL;
+		NotifyParent(HEN_CHANGE);
+		Invalidate();
+	}
 }
 
 void CHexEditBase::OnEditPaste() 
