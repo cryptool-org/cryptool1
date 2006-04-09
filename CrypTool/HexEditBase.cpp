@@ -52,7 +52,7 @@ statement from your version.
 #include <memory>
 #include <afxole.h>
 #include "HexEditBase.h"
-//#include "resource.h"
+#include "resource.h"
 #include "stdafx.h"
 
 
@@ -132,6 +132,7 @@ BEGIN_MESSAGE_MAP(CHexEditBase, CWnd)
 	ON_COMMAND(ID_EDIT_CUT, OnEditCut)
 	ON_COMMAND(ID_EDIT_COPY, OnEditCopy)
 	ON_COMMAND(ID_EDIT_PASTE, OnEditPaste)
+	ON_COMMAND(ID_EDIT_CLEAR, OnEditClear)
 	ON_COMMAND(ID_EDIT_SELECT_ALL, OnEditSelectAll)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
@@ -202,19 +203,13 @@ CHexEditBase::CHexEditBase() :
 
 	// try to load strings from the resources
 #ifdef IDS_CONTROL_CUT
-	if(!m_cContextCut.LoadString(IDS_CONTROL_CUT)) {
-		cString = _T("Cut");
-	}
+	m_cContextCut.LoadString(IDS_CONTROL_CUT);
 #endif
 #ifdef IDS_CONTROL_COPY
-	if(!m_cContextCopy.LoadString(IDS_CONTROL_COPY)) {
-		cString = _T("Copy");
-	}
+	m_cContextCopy.LoadString(IDS_CONTROL_COPY);
 #endif
 #ifdef IDS_CONTROL_PASTE
-	if(!m_cContextPaste.LoadString(IDS_CONTROL_PASTE)) {
-		cString = _T("Paste");
-	}
+	m_cContextPaste.LoadString(IDS_CONTROL_PASTE);
 #endif
 
 	// register windows-class
@@ -1841,6 +1836,10 @@ void CHexEditBase::OnEditPaste()
 	}
 }
 
+void CHexEditBase::OnEditClear() 
+{
+	OnDelete(VK_DELETE);
+}
 void CHexEditBase::OnEditSelectAll() 
 {
 	if(m_nLength > 0) {

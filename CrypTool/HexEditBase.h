@@ -114,9 +114,10 @@ public:
 	void Serialize(CArchive& ar);
 
 	// quick and dirty: to access copy/paste functions from outside
-	void callOnEditCut() { OnEditCut(); };
-	void callOnEditCopy() { OnEditCopy(); };
-	void callOnEditPaste() { OnEditPaste(); };
+	void callOnEditCut() { OnEditCut(); }
+	void callOnEditCopy() { OnEditCopy(); }
+	void callOnEditPaste() { OnEditPaste(); }
+	void callOnEditClear() { OnEditClear(); }
 	void callOnEditSelectAll() { OnEditSelectAll(); };
 
 protected:
@@ -253,6 +254,7 @@ protected:
 	afx_msg void OnEditCut();
 	afx_msg void OnEditCopy();
 	afx_msg void OnEditPaste();
+	afx_msg void OnEditClear();
 	afx_msg void OnEditSelectAll();
 	//}}AFX_MSG
 	DECLARE_DYNCREATE(CHexEditBase)

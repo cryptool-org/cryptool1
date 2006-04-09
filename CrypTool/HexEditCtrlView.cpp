@@ -86,6 +86,7 @@ BEGIN_MESSAGE_MAP(CHexEditCtrlView, CHexEditBaseView)
 	ON_COMMAND(ID_EDIT_CUT, OnEditCut)
 	ON_COMMAND(ID_EDIT_COPY, OnEditCopy)
 	ON_COMMAND(ID_EDIT_PASTE, OnEditPaste)
+	ON_COMMAND(ID_EDIT_CLEAR, OnEditClear)
 	ON_COMMAND(ID_EDIT_SELECT_ALL, OnEditSelectAll)
 	ON_COMMAND(ID_GOTO_VATER, OnGotoVater)
 	ON_COMMAND(ID_EDIT_FIND, OnEditFind)
@@ -151,6 +152,11 @@ void CHexEditCtrlView::OnEditCopy()
 void CHexEditCtrlView::OnEditPaste() 
 {
 	GetHexEditCtrl().callOnEditPaste();
+}
+
+void CHexEditCtrlView::OnEditClear() 
+{
+	GetHexEditCtrl().callOnEditClear();
 }
 
 void CHexEditCtrlView::OnEditSelectAll() 

@@ -89,6 +89,7 @@ protected:
 	afx_msg void OnEditCut();
 	afx_msg void OnEditCopy();
 	afx_msg void OnEditPaste();
+	afx_msg void OnEditClear();
 	afx_msg void OnEditSelectAll();
 	afx_msg void OnGotoVater();
 	afx_msg void OnEditFind();
