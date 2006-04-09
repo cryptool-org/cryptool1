@@ -13920,9 +13920,12 @@ BEGIN
     IDS_TITLE_DLG_SOLITAIRE "Erzeugung eines Solitaire-Schlüsselstroms für <%s>"
     IDS_TITLE_DLG_RSADECRYPTION 
                             "Auswahl eines Schlüssels zur RSA-Entschlüsselung von <%s>"
+    IDS_CONTROL_CUT         "Ausschneiden"
     ID_VIEW_ENDOFLINE       "Ein- oder Ausschalten besonderer Zeichen anstelle von Zeilenenden"
     ID_VIEW_LINEWRAP        "Ein- oder Ausschalten besonderer Zeichen anstelle von Zeilenumbrüchen"
     ID_VIEW_WHITESPACE      "Ein- oder Ausschalten besonderer Zeichen anstelle von Leerzeichen"
+    IDS_CONTROL_COPY        "Kopieren"
+    IDS_CONTROL_PASTE       "Einfügen"
 END
 
 STRINGTABLE 
@@ -28060,9 +28063,12 @@ BEGIN
     IDS_TITLE_DLG_SOLITAIRE "Generation of a Solitaire key strem for <%s>"
     IDS_TITLE_DLG_RSADECRYPTION 
                             "Selection of a key for RSA decryption of <%s>"
+    IDS_CONTROL_CUT         "Cut"
     ID_VIEW_ENDOFLINE       "Activating and Deactivating the display of end of lines as special characters"
     ID_VIEW_LINEWRAP        "Activating and Deactivating the display of line wraps as special characters"
     ID_VIEW_WHITESPACE      "Activating and Deactivating the display of whitespaces as special characters"
+    IDS_CONTROL_COPY        "Copy"
+    IDS_CONTROL_PASTE       "Paste"
 END
 
 STRINGTABLE 

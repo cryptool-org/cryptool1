@@ -1553,10 +1553,13 @@
 #define IDS_TITLE_DLG_SOLITAIRE         33297
 #define IDS_TITLE_DLG_RSADECRYPTION     33298
 #define ID_POPUP_OPENGL_SHOW_BOX        33299
+#define IDS_CONTROL_CUT                 33299
 #define ID_VIEW_ENDOFLINE               33300
 #define ID_VIEW_LINEWRAP                33301
 #define ID_VIEW_WHITESPACE              33302
 #define ID_ANSICHT_TEXTGR               33303
+#define IDS_CONTROL_COPY                33303
+#define IDS_CONTROL_PASTE               33304
 #define ID_TEXTGR_12                    33305
 #define ID_TEXTGR_14                    33306
 #define ID_TEXTGR_18                    33307
