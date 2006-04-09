@@ -608,7 +608,7 @@ void CScintillaView::OnTohex()
 	CWnd_hilf->SetWindowPlacement( &place );
 	remove(outfile);
 
-	CWnd *tmp = this->GetFocus();
+	CWnd_hilf->SetFocus();
 }
 
 BOOL CScintillaView::checkFontStyle(int size, const char* FaceName)
