@@ -1,30 +1,43 @@
-CrypTool 1.3.06 Beta 4  (2005-04-27)
+CrypTool 1.3.06 Beta 11  (Jan 2006)
 ~~~~~~~~~~~~~~~
 
-Readme for building CrypTool from the current C++ sources. 
+
+Readme for developers
+
+
+Content:
+========
+A) How to build CrypTool from the current C++ sources?
+
+B) What do deliver back, if one makes enhancements to CrypTool?
+
+
+
+
+A) Readme for developers who want to build CrypTool from the current C++ sources.
+=================================================================================
 
 Remarks: 
 - The current release version 1.3.05 was built with Visual C++ 6.0.
-- The current beta can also be compiled with VS.net 2003, but certain
-  runtime errors will appear yet.
-- Compared to the release version 1.3.05 the current beta contains the following additions:
+- The current beta can also be compiled with VS.net 2003.
+- Compared to the release version 1.3.05 the current beta contains several additions like:
     - Online help files in HTML format instead in Winhelp format
     - Demo of side-channel attack
     - Demo of challenge response and client-server authentication
-    - and a lot more (see Roadmap entry in left frame at www.cryptool.org).
+    - and a lot more (see roadmap entry in left frame at www.cryptool.org).
 
 
 
 1. Files you need
    ~~~~~~~~~~~~~~
-readme-source.txt 			This Readme
-CrypTool\source\ ...			Directory tree with the source code for building CrypTool.
-					File can be downloaded via Internet.
+readme-source.txt 	This readme
+CrypTool\source\ ...	Directory tree with the source code for building CrypTool.
+			File can be downloaded via Internet.
 
 
 2. Tools you need
    ~~~~~~~~~~~~~~
-For building you need:
+For building CrypTool completely you need:
 - A Microsoft C++ Compiler:
     - Visual Studion C++ 6.0 
     or
@@ -44,7 +57,7 @@ cannot be used as compiler for CrypTool because it is not complete enough to do 
 3. The programs (CrypTool.exe and AES-Tool.exe)
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Remark:
-The following paragraphs always contain the menu items in German and Englisch.
+The following paragraphs always tell the German and English names of the menu items.
 
 The project files, which can be opened with MS-Visual C, are located at
 - Visual Studio 6: ..\CrypTool\CrypTool.dsw 
@@ -72,12 +85,12 @@ Einstellungen[Settings] (project settings only for CrypTool, not for AES-Tool)
   path to htmlhelp.h here
 
 Building CrypTool and AES-Tool:
-At Menü:[Menu:] Erstellen[Build] -> Aktive Konfiguration festlegen[choose configuration] 
+At Menü[Menu] Erstellen[Build] -> Aktive Konfiguration festlegen[choose configuration] 
 the following configurations are defined:
 - CrypTool Win32 (Debug) 
-- CrypTool Win32 Release_{de|en}	// depending on the favoured language (German or English)
+- CrypTool Win32 Release_{de|en}     // depending on the favoured language (German or English)
 - aestool Win32 (Debug)	
-- aestool Win32 Release_aes_{de|en}	// depending on the favoured language (German or English)
+- aestool Win32 Release_aes_{de|en}  // depending on the favoured language (German or English)
 
 Online help:
 Files of the online help can be found at
@@ -160,7 +173,7 @@ a) CrypTool has for each menu item a longer text string explaining it. This text
    fill the field for the text in the status bar.
     
 
-b) Usage of the icons "Show key" ("Schlssel anzeigen") and "Insert key" ("Schlüssel einfügen"):
+b) Usage of the icons "Show key" ("Schlüssel anzeigen") and "Insert key" ("Schlüssel einfügen"):
    After encrypting a document, you can click on the "Show key" icon within the
    icon bar (below the menu bar). Then the used key for this method is shown and
    can be copied to an internal, method-specific key-clipboard.
@@ -219,7 +232,7 @@ e) If you implement a method please make sure that your method reflects the opti
    If the options within the options dialogs (like the alphabet used, the way to deal with
    formats, ...) are not enough, you also can make enhancements within the options dialogs.
 
-f) When developing new code, try to separate different fuctioalities: so please act
+f) When developing new code, try to separate different functionalities: so please act
    according to the MVC-principle (model-view-controller).
 
 
@@ -233,7 +246,7 @@ f) When developing new code, try to separate different fuctioalities: so please 
 - If you come to a problem do not hesitate to paste a mail to the CrypTool mailings list
   (see www.cryptool.org).
 
-- There exit two additional presentation about how to compile CrypTool and how to add own
+- There exist two additional presentations about how to compile CrypTool and how to add own
   methods (one is for users of VC++ 6.0; one for users of VC++ 7.x). 
   The most important recommendations are:
   - First develop your program as a pure console application to make your functionality clear.
@@ -241,4 +254,151 @@ f) When developing new code, try to separate different fuctioalities: so please 
   Acting in this way means to have 2 separated steps: this helps to clearly divide up the
   crypto functionality and the application/presentation layer.
   
+
+
+
+
+
+B) What to do deliver back, if enhancements to CrypTool are finished?
+=====================================================================
+
+This describes, what the CrypTool developer team expects, if 
+someone develops new features and starts to work with a copy
+of a CrypTool version.
+Here we describe, what is the best way, to deliver the results
+of one's project back to the CrypTool mainstream source code.
+
+
+English:
+========
+
+E1. Information about your project
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  - Name of the project/feature, 
+  - Date of last source-change, 
+  - Your contact data, 
+  - Version number, 
+  - Other contributing persons, 
+  - Description/goal of your project
+  - ... 
+
+
+E2. Implementation details
+   ~~~~~~~~~~~~~~~~~~~~~~~
+E2.1. Resources
+    - Which menues are used to get to your project
+    - Do you work on HEX or ASCII
+    - Name of the MENÜ-IDs
+    - Name of the dialog IDDs
+    - New bitmaps used?
+    - ...
+
+E2.2. Files 
+    - Which existing files are changed?
+      (which functions/global variables are new, most likely with line numbers or as diff)
+       am besten mit Zeilenangaben)
+    - Which new files created?
+
+E2.3. Hints about implementation
+    - Compiler version?
+    - Which DLLs / libs (plus versions number) are used?
+    - Which additional programs are used?
+    - Do you need a Java runtime environment (which version)?
+    - Important implementation details
+    - Restrictions of your project
+    - Test data.
+
+E3. Usage / Online Help
+   ~~~~~~~~~~~~~~~~~~~~
+   - Which pages of the online help have been changed?
+   - Which pages of the online help have been created newly?
+   - Additional hints for usage/usability 
+     (e.g. whether programs are called via links within the online help)
+   - ...
+
+E4. TODO/Further enhancements
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+   - open issues (not yet implemented, but reasonable)
+   - Possibilities for enhancement
+   - ...
+
+E5. What do we expect to get back?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+If your project is in a status, that it can be integrated
+into the CT release version, please send us
+a) one zip file with the following content:
+- all files changed or created within your project
+- Your project file (content see above B-E-1 till B-E-4)
+- Your seminar workout, thesis or other documentation
+- eventually other relevant files
+b) another zip file with:
+- all sources (your whole project directory, in order we can build the executable too)
+- your last executable (release and debug version).
+
+
+
+German:
+=======
+
+G1. Informationen zu Ihrem Projekt
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  - Name des Projektes, 
+  - Datum der Erstellung, 
+  - Kontaktdaten, 
+  - Version, 
+  - beteiligte Personen, 
+  - Zweck des Projektes
+  - ... 
+
+
+G2. Implementierungsdetails
+   ~~~~~~~~~~~~~~~~~~~~~~~
+G2.1. Ressourcen
+    - Über welches Menü erfolgt der Einstieg?
+    - Arbeiten Sie mit HEX oder ASCII?
+    - Name der MENÜ-IDs
+    - Name der Dialog IDDs
+    - neue Bitmaps
+    - ...
+
+G2.2. Dateien 
+    - Welche bestehende Dateien wurden geändert?
+      (welche Funktionen/globale Variablen sind hinzu gekommen, am besten mit Zeilenangaben oder per diff)
+    - Welche neuen Dateien wurden erstellt?
+
+G2.3. Hinweise zur Implementierung
+    - Compilerversion?
+    - Welche DLLs / Libs (plus Versionsnummer) werden genutzt?
+    - Werden zusätzliche Programme eingebunden?
+    - Wird die Java runtime environment benötigt (welche Version)?
+    - Wichtige Implementierungsdetails?
+    - Grenzen/Limits Ihres Projekts?
+    - Testdaten.
+
+G3. Bedienung / Online Hilfe
+   ~~~~~~~~~~~~~~~~~~~~~~~~
+   - Welche Seiten der Online-Hilfe wurden geändert?
+   - Welche Seiten zur Online-Hilfe wurden neu erstellt?
+   - zusätzliche Hinweise zur Bedienung/Nutzung 
+     (z.B. werden über Links in der Online-Hilfe Programme aufgerufen)
+   - ...
+
+G4. TODO/Ausblick
+   ~~~~~~~~~~~~~
+   - offene Punkte (noch nicht implementiert, aber sinnvoll)
+   - Erweiterungsmöglichkeiten
+   - ...
+
+G5. Was soll zurückgeschickt werden?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Wenn Ihr Projekt in einem Status ist, dass es in die 
+CT-Releaseversion integriert werden kann/soll, senden Sie uns bitte:
+a) eine Zip-Datei mit folgendem Inhalt:
+- alle im CrypTool-Projekt neuen / geänderten Dateien
+- Ihre Projektdatei (Inhalt siehe oben Punkte B-G-1 bis B-G-4)
+- die Seminar-/Diplomarbeit und evtl. weitere Doku
+- ggf. weitere relevante Dateien
+b) eine weitere Zip-Datei mit:
+- allen Sourcen (Ihr ganzes Projekt-Verzeichnis, damit auch wir daraus das Executable bauen können)
+- Ihr letztes Executable (Release- und Debug-Version).
 
