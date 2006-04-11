@@ -134,3 +134,71 @@ char* itoa_fmt(int i_num, char *c_buffer, int i_base )
 	return c_buffer;
 }
 
+unsigned long CT_OPEN_REGISTRY_SETTINGS	(unsigned long MODE_ACCESS)
+{
+	return theApp.localRegistry.Open(HKEY_CURRENT_USER, "Software\\CrypTool\\Settings", MODE_ACCESS);
+}
+
+void CT_CLOSE_REGISTRY()
+{
+	theApp.localRegistry.Close();
+}
+
+BOOL CT_READ_REGISTRY			(unsigned long &value, const char *ID)
+{
+	unsigned long u_value;
+	// 
+	if (ERROR_SUCCESS != theApp.localRegistry.QueryValue(u_value, ID))
+		return FALSE;
+	value = u_value;
+	return TRUE;
+}
+
+BOOL CT_READ_REGISTRY			(char *value, const char *ID, unsigned long &length)
+{
+	if (ERROR_SUCCESS != theApp.localRegistry.QueryValue(value, ID, &length))
+		return FALSE;
+
+	return TRUE;
+}
+
+BOOL CT_READ_REGISTRY_DEFAULT	(unsigned long &value, const char *ID, const unsigned long default_value)
+{
+	unsigned long u_value;
+	// 
+	if (ERROR_SUCCESS != theApp.localRegistry.QueryValue(u_value, ID))
+	{
+		u_value = (unsigned long)default_value;
+		if (ERROR_SUCCESS != theApp.localRegistry.SetValue(u_value, ID))
+			return FALSE;
+	}	
+	value = u_value;
+	return TRUE;	
+}
+
+BOOL CT_READ_REGISTRY_DEFAULT	(char *value, const char *ID, const char *default_value, unsigned long &length)
+{
+	if (ERROR_SUCCESS != theApp.localRegistry.QueryValue(value, ID, &length))
+	{
+		strncpy(value, default_value, length-1);
+		value[length-1]='\0';
+		if (ERROR_SUCCESS != theApp.localRegistry.SetValue(value, ID))
+			return FALSE;
+	}	
+	return TRUE;	
+}
+
+BOOL CT_WRITE_REGISTRY			(const unsigned long value, const char *ID)
+{
+	if (ERROR_SUCCESS != theApp.localRegistry.SetValue(value, ID))
+		return FALSE;
+	return TRUE;
+}
+
+
+BOOL CT_WRITE_REGISTRY			(const char *value,	const char *ID)
+{
+	if (ERROR_SUCCESS != theApp.localRegistry.SetValue(value, ID))
+		return FALSE;
+	return TRUE;
+}

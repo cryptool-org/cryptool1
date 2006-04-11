@@ -107,6 +107,7 @@ statement from your version.
 #include "RSAStereotypedMSGDlg.h"
 #include "RSAFactorHintDlg.h"
 #include ".\cryptoolapp.h"
+#include "CrypToolTools.h"
 // #endif
 
 
@@ -421,40 +422,53 @@ BOOL CCrypToolApp::InitInstance()
 	m_pszHelpFilePath=_tcsdup(HlpTmp);
 
 
-	// Tipps & Tricks anzeigen
-	CDlgTipsAndTricks Tipps;
-	Tipps.m_DoNotShowThisAgain = GetProfileInt("Settings","NoTipps",FALSE);
+///////////////// LOCAL REGISTRY SETTINGS
 
-	CString TopicStr = _T("Settings");
-	CString ItemStr =  _T("SignatureAttackHarmlessFile");
-	if (GetProfileInt(TopicStr,ItemStr,1))
-	{  // fixme !!!
-		LoadString(AfxGetInstanceHandle(),IDS_SIGATT_HARMLESS,pc_str,STR_LAENGE_STRING_TABLE);
-		WriteProfileString("Settings", "SignatureAttackHarmlessFile", CString(Pfad)+CString(pc_str) );
-		LoadString(AfxGetInstanceHandle(),IDS_SIGATT_DANGEROUS,pc_str,STR_LAENGE_STRING_TABLE);
-		WriteProfileString("Settings", "SignatureAttackDangerousFile", CString(Pfad)+CString(pc_str) );
-	}
-	
-	if(FALSE == Tipps.m_DoNotShowThisAgain)
+	if (ERROR_FILE_NOT_FOUND == CT_OPEN_REGISTRY_SETTINGS	(KEY_READ))
 	{
-		Tipps.DoModal();
-		WriteProfileInt("Settings", "NoTipps", Tipps.m_DoNotShowThisAgain);
+		HKEY hKey;
+		RegCreateKeyEx(HKEY_CURRENT_USER,"Software\\CrypTool\\Settings", 0, NULL, REG_OPTION_NON_VOLATILE,
+			KEY_ALL_ACCESS | KEY_WRITE | KEY_READ, NULL, &hKey, NULL);
+		CT_OPEN_REGISTRY_SETTINGS(KEY_WRITE);
+		CT_CLOSE_REGISTRY();
 	}
 
-#if 0
-	if (m_lpCmdLine[0] != '\0')
+	CDlgTipsAndTricks Tipps; 
+	unsigned long u_doNotshowAgain    = (unsigned long)FALSE;
+	unsigned long flagOpenSampleFile  = (unsigned long)TRUE;
+	unsigned long flagSignatureAttack = (unsigned long)FALSE;
+
+	if (ERROR_SUCCESS == CT_OPEN_REGISTRY_SETTINGS	(KEY_ALL_ACCESS))
 	{
-		MessageBox(NULL, m_lpCmdLine, "m_lpCmdLine", MB_ICONWARNING|MB_OK);
-		FILE *f;
-		if ( f = fopen(m_lpCmdLine, "r") )
+		if ( CT_READ_REGISTRY_DEFAULT(u_doNotshowAgain, "NoTipps", u_doNotshowAgain) )
+			Tipps.m_DoNotShowThisAgain = u_doNotshowAgain;
+		CT_READ_REGISTRY_DEFAULT(flagOpenSampleFile, "SampleTextFile", flagOpenSampleFile);
+		if (!CT_READ_REGISTRY(flagSignatureAttack, "flagSignatureAttack"))
 		{
-			fclose(f);
-			OpenDocumentFileNoMRU(m_lpCmdLine, "", SCHLUESSEL_LINEAR);
+			CT_WRITE_REGISTRY(flagSignatureAttack, "flagSignatureAttack");
+			LoadString(AfxGetInstanceHandle(),IDS_SIGATT_HARMLESS,pc_str,STR_LAENGE_STRING_TABLE);
+			CT_WRITE_REGISTRY(CString(Pfad)+CString(pc_str), "SignatureAttackHarmlessFile" );
+			LoadString(AfxGetInstanceHandle(),IDS_SIGATT_DANGEROUS,pc_str,STR_LAENGE_STRING_TABLE);
+			CT_WRITE_REGISTRY(CString(Pfad)+CString(pc_str), "SignatureAttackDangerousFile" );
 		}
+
+		if (FALSE == Tipps.m_DoNotShowThisAgain)
+		{
+			Tipps.DoModal();
+			CT_WRITE_REGISTRY(Tipps.m_DoNotShowThisAgain, "NoTipps");
+		}
+
+		CT_CLOSE_REGISTRY();
 	}
-	else 
-#endif
-	if(1 == GetProfileInt("Settings", "SampleTextFile", 1))
+	else
+	{
+		// FIXME
+	}
+
+
+///////////////// LOCAL REGISTRY SETTINGS
+	// OPEN SAMPLE FILE
+	if(flagOpenSampleFile)
 	{
 		FILE *f;
 		CString filename = Pfad, help;
@@ -466,9 +480,8 @@ BOOL CCrypToolApp::InitInstance()
 			fclose(f);
 			OpenDocumentFileNoMRU(filename, "", SCHLUESSEL_LINEAR);
 		}
-		WriteProfileInt("Settings", "SampleTextFile", 1);
 	}
-	
+
 	// Enable RichEdit Windows...
 	AfxEnableControlContainer();
 
@@ -572,13 +585,6 @@ CAppDocument * CCrypToolApp::OpenDocumentFileNoMRU(const char *name, CString Key
 
     MRU_Flag = oldflag;
     return doc;
-}
-
-BOOL CCrypToolApp::WriteProfileDouble( LPCTSTR lpszSection, LPCTSTR lpszEntry, double Value )
-{
-	char line[128];
-	sprintf(line,"%g",Value);
-	return WriteProfileString(lpszSection, lpszEntry, line);
 }
 
 void CCrypToolApp::OnOptionsAnalysis() 

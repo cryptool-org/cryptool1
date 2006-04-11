@@ -323,25 +323,27 @@ void CDlgADFGVX::OnBnClickedButtonEncrypt()
 		{
 			if(restart)
 			{
-				CString message;
+				CString message="";
 				if(pwdInvalid)
 				{
 					LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_4,pc_str,STR_LAENGE_STRING_TABLE);
-					message.Append(pc_str);
+					message += CString(pc_str); // message.Append(pc_str);
 				}
 				if(pwdDouble)
 				{
+					if(pwdInvalid)
+						message += CString("\n"); // message.Append("\n");
 					LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_7,pc_str,STR_LAENGE_STRING_TABLE);
-					message.Append(pc_str);
+					message += CString(pc_str); // message.Append(pc_str);
 				}
 				LoadString (AfxGetInstanceHandle(), IDS_STRING_ADFGVX_NEWPWD, pc_str, STR_LAENGE_STRING_TABLE);
-				message.Append(pc_str);
-				message.Append(password);
+				message += CString(pc_str); // message.Append(pc_str);
+				message += CString(password); // message.Append(password);
 				if(boxBlockOutput1|boxBlockOutput2)
 					LoadString (AfxGetInstanceHandle(), IDS_STRING_ADFGVX_RESTART_LENGTH, pc_str, STR_LAENGE_STRING_TABLE);
 				else
 					LoadString (AfxGetInstanceHandle(), IDS_STRING_ADFGVX_RESTART, pc_str, STR_LAENGE_STRING_TABLE);
-				message.Append(pc_str);
+				message += CString(pc_str); // message.Append(pc_str);
 				MessageBox(message);
 				restart=false;
 				pwdInvalid=false;
@@ -1054,7 +1056,7 @@ void CDlgADFGVX::Decrypt()
 		else if (rtn == 5){
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_5,pc_str,STR_LAENGE_STRING_TABLE);
 			MessageBox(pc_str);
-		}
+		} 
 		*/
 		//if anything else happens
 		else

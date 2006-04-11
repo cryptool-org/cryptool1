@@ -5,6 +5,7 @@
 #include "CrypToolApp.h"
 #include "DlgAdfgvxIntro.h"
 #include ".\dlgadfgvxintro.h"
+#include "CrypToolTools.h"
 
 
 // DlgAdfgvxIntro-Dialogfeld
@@ -38,8 +39,14 @@ void DlgAdfgvxIntro::OnBnClickedCheck1()
 {
 	UpdateData(true);
 
-	if (noIntro==true)
-		theApp.WriteProfileInt("Settings","ADFGVX_IntroDialogue",0);
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
+	{
+		CT_WRITE_REGISTRY(unsigned long(noIntro), "ADFGVX_IntroDialogue");
+		CT_CLOSE_REGISTRY();
+	}
 	else
-		theApp.WriteProfileInt("Settings","ADFGVX_IntroDialogue",1);
+	{
+		// FIXME
+	}
+	UpdateData(false);
 }

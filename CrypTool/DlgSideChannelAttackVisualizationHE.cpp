@@ -48,6 +48,7 @@ statement from your version.
 #include "stdafx.h"
 #include "CrypToolApp.h"
 #include "DlgSideChannelAttackVisualizationHE.h"
+#include "CrypToolTools.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -63,6 +64,7 @@ extern char* CaPseVerzeichnis, *PseVerzeichnis;
 #include "AsymmetricEncryption.h"
 #include "s_ecconv.h"
 #include "FileTools.h"
+#include "CrypToolTools.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgSideChannelAttackVisualizationHE 
@@ -184,20 +186,32 @@ BOOL CDlgSideChannelAttackVisualizationHE::OnInitDialog()
 		// Fortschrittsanzeige für den Angriff initialisieren
 		// Obergrenze: [signifikante Bits] + 2
 		// DEFAULT-WERT: 128 Bit
-		int significantBits = theApp.GetProfileInt("Settings", "HybridEncryptionSCASignificantBits", 128);
-		if(!significantBits) throw SCA_Error(E_SCA_INTERNAL_ERROR);
-		m_ControlAttackProgress.SetRange(0,significantBits+2);
-		m_ControlAttackProgress.SetStep(1);
-		m_ControlAttackProgress.SetPos(0);
+
+
+		if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
+		{
+			unsigned long u_significantBits = 128;
+			CT_READ_REGISTRY_DEFAULT(u_significantBits, "HybridEncryptionSCASignificantBits", u_significantBits);
+			if(!u_significantBits) throw SCA_Error(E_SCA_INTERNAL_ERROR);
+			m_ControlAttackProgress.SetRange(0,u_significantBits+2);
+			m_ControlAttackProgress.SetStep(1);
+			m_ControlAttackProgress.SetPos(0);
+
+			unsigned long u_flag_bShowInfoDialogues = (unsigned long)TRUE;
+			CT_READ_REGISTRY_DEFAULT(u_flag_bShowInfoDialogues, "HybridEncryptionSCASignificantBits", u_flag_bShowInfoDialogues);
+			this->m_bShowInfoDialogues = u_flag_bShowInfoDialogues;
+
+			CT_CLOSE_REGISTRY();
+		}
+		else
+		{
+			// FIXME
+		}
 
 		// Buttons für Angriffssteuerung ausblenden
 		cancelAttackCycle();
 
 		// Informationsdialoge anzeigen? (schnellere Bedienung bei Bedarf)
-		if(theApp.GetProfileInt("Settings", "SCA_InfoDialogues", 1))
-		{
-			this->m_bShowInfoDialogues = true;
-		}
 
 		// Farben für Textfelder etc. festlegen
 		this->m_greycolor=0x00C0C0C0; // RGB(0x00C0C0C0/*198,195,198*/);	// Standard-Grau
@@ -1154,5 +1168,14 @@ void CDlgSideChannelAttackVisualizationHE::OnCheckDisablehelp()
 {
 	UpdateData(true);
 
-	this->m_bShowInfoDialogues ? theApp.WriteProfileInt("Settings", "SCA_InfoDialogues", 1) : theApp.WriteProfileInt("Settings", "SCA_InfoDialogues", 0);	
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
+	{
+		CT_WRITE_REGISTRY(unsigned long(this->m_bShowInfoDialogues), "SCA_InfoDialogues");
+		CT_CLOSE_REGISTRY();
+	}
+	else
+	{
+		// FIXME
+	}
+
 }

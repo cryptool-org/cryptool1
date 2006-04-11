@@ -60,6 +60,15 @@ void OpenNewDoc    (const char *outfile, const char* keyStr, const char* OldTitl
 
 char* itoa_fmt(int i_num, char *c_buffer = NULL, int i_base = 10 );
 
+unsigned long CT_OPEN_REGISTRY_SETTINGS	(unsigned long MODE_ACCESS);
+void CT_CLOSE_REGISTRY();
+BOOL CT_READ_REGISTRY			(unsigned long &value,		const char *ID);
+BOOL CT_READ_REGISTRY			(char *value,		const char *ID,		unsigned long &length);
+BOOL CT_READ_REGISTRY_DEFAULT	(unsigned long &value,		const char *ID, const unsigned long default_value);
+BOOL CT_READ_REGISTRY_DEFAULT	(char *value,				const char *ID, const char *default_value,	unsigned long &length);
+BOOL CT_WRITE_REGISTRY			(const unsigned long value, const char *ID);
+BOOL CT_WRITE_REGISTRY			(const char *value,			const char *ID);
+
 #endif
 
 

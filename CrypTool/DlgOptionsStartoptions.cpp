@@ -49,6 +49,7 @@ statement from your version.
 #include "CrypToolApp.h"
 
 #include "DlgOptionsStartoptions.h"
+#include "CrypToolTools.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -93,11 +94,23 @@ BOOL CDlgOptionsStartoptions::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	
-	UpdateData(true);
-	m_how_to_start = !int(theApp.GetProfileInt("Settings", "NoTipps", FALSE));
-	m_sample_text_file = int(theApp.GetProfileInt("Settings", "SampleTextFile", FALSE));	
-	UpdateData(false);
-	// TODO: Zusätzliche Initialisierung hier einfügen
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_READ ) == ERROR_SUCCESS )
+	{
+		unsigned long u_how_to_start = 1, u_flagSampleTextFile = 0;
+		CT_READ_REGISTRY_DEFAULT(u_how_to_start, "NoTipps", u_how_to_start);
+		CT_READ_REGISTRY_DEFAULT(u_flagSampleTextFile, "SampleTextFile", u_flagSampleTextFile);
+
+		UpdateData(true);
+		m_how_to_start = (u_how_to_start) ? 0 : 1;
+		m_sample_text_file = u_flagSampleTextFile;	
+		UpdateData(false);
+
+		CT_CLOSE_REGISTRY();
+	}
+	else
+	{
+		// FIXME
+	}
 	
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
@@ -106,9 +119,17 @@ BOOL CDlgOptionsStartoptions::OnInitDialog()
 void CDlgOptionsStartoptions::OnOK() 
 {
 	UpdateData(true);
-	theApp.WriteProfileInt("Settings","NoTipps", int(!m_how_to_start));
-	theApp.WriteProfileInt("Settings","SampleTextFile", int(m_sample_text_file));
-	UpdateData(false);
-	
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
+	{
+		CT_WRITE_REGISTRY(unsigned long(!m_how_to_start), "NoTipps");
+		CT_WRITE_REGISTRY(unsigned long(m_sample_text_file), "SampleTextFile");
+
+		CT_CLOSE_REGISTRY();
+	}
+	else
+	{
+		// FIXME
+	}
+
 	CDialog::OnOK();
 }

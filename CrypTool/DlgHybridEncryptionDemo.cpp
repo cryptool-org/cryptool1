@@ -351,8 +351,28 @@ void CDlgHybridEncryptionDemo::OnButtonEncDocumentSym()
 	// das Schlüsselwort an die Datei anzufügen
 	if(this->isSCABehaviourActivated)
 	{
+		CString keyword;
 		// hole Schlüsselwort
-		CString keyword = theApp.GetProfileString("Settings", "SCA_Keyword", "Alice");
+		if ( theApp.localRegistry.Open(HKEY_CURRENT_USER, "Software\\CrypTool\\Settings",KEY_READ) == ERROR_SUCCESS )
+		{
+			unsigned long	u_length = 1024;
+			char			c_SCA_keyWord[1025];
+
+
+			// Wie lautet das Schlüsselwort für den Seitenkanalangriff? (Default: Alice)
+			if (ERROR_SUCCESS == theApp.localRegistry.QueryValue(c_SCA_keyWord, "SCA_Keyword", &u_length) )			
+				keyword = c_SCA_keyWord;
+			else
+				keyword = "Alice";
+			UpdateData(FALSE);
+			theApp.localRegistry.Close();
+
+		}
+		else
+		{
+			// FIXME
+		}
+
 		bool keywordFound = false;
 
 		const int bufsize = 1024;

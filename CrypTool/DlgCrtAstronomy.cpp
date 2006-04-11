@@ -127,10 +127,10 @@ void CDlgCrtAstronomy::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_CRT_ASTRONOMY_CHECKURANUS, m_uranus);
 	DDX_Check(pDX, IDC_CRT_ASTRONOMY_CHECKNEPTUN, m_neptun);
 	DDX_Check(pDX, IDC_CRT_ASTRONOMY_CHECKPLUTO, m_pluto);
+	DDX_Control(pDX, IDC_GIF_CRT_ASTRONOMY, m_Picture);
 	DDX_Text(pDX, IDC_CRT_ASTRONOMY_EDITREPEAT, m_M);
 	DDX_Text(pDX, IDC_CRT_ASTRONOMY_EDITAMERCURY, m_merkurtag);
 	DDX_Text(pDX, IDC_CRT_ASTRONOMY_EDITAEARTH, m_erdetag);
-	DDX_Control(pDX, IDC_Image, m_Picture);
 	DDX_Control(pDX, IDC_CRT_ASTRONOMY_EDITM0, m_control_m0);
 	DDX_Control(pDX, IDC_CRT_ASTRONOMY_EDITM1, m_control_m1);
 	DDX_Control(pDX, IDC_CRT_ASTRONOMY_EDITM2, m_control_m2);
@@ -181,16 +181,22 @@ END_MESSAGE_MAP()
 
 // CDlgCrtAstronomy-Meldungshandler
 BOOL CDlgCrtAstronomy::OnInitDialog()
-{	SHOW_HOUR_GLASS				// aktiviert die Sanduhr (statt des Mauszeigers)
+{
+	SHOW_HOUR_GLASS
 	CDialog::OnInitDialog();
 
+	this->m_Picture.UnLoad();
+	this->m_Picture.Load(MAKEINTRESOURCE(IDR_CRT_ASTRONOMY), _T("GIF"));
+	this->m_Picture.Stop();
+	this->m_Picture.Draw();
+
 	// Animation laden und Hintergrundfarbe schwarz setzen
-	if (m_Picture.Load(MAKEINTRESOURCE(IDR_GIF4),_T("GIF")))
-	{m_Picture.SetBkColor(RGB(0,0,0));
-    m_Picture.Draw();
-	}
-	HIDE_HOUR_GLASS			// deaktiviert die Sanduhr
-return TRUE;  // Geben Sie TRUE zurück, außer ein Steuerelement soll den Fokus erhalten
+	// if (m_Picture.Load(MAKEINTRESOURCE(IDR_GIF4),_T("GIF")))
+	// {m_Picture.SetBkColor(RGB(0,0,0));
+    // m_Picture.Draw();
+	// }
+	HIDE_HOUR_GLASS // deaktiviert die Sanduhr
+	return TRUE;  // Geben Sie TRUE zurück, außer ein Steuerelement soll den Fokus erhalten
 }
 
 //** Funktion testet, ob alle Moduln paarweise teilerfremd sind **/

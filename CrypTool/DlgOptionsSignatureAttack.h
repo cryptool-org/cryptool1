@@ -51,8 +51,8 @@ statement from your version.
 // DlgOptionsSignatureAttack.h : Header-Datei
 //
 
-#define _OPT_SIG_ATT_STANDARD_BITLENGTH	"16"
-
+// #define _OPT_SIG_ATT_STANDARD_BITLENGTH	"16"
+#define _OPT_SIG_ATT_STANDARD_BITLENGTH	16
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgOptionsSignatureAttack 
 

@@ -155,22 +155,14 @@ private:
 	bool iGotOne;
 	CString subKey;
 	int counter;
+	CButton buttonOutput;
+	afx_msg void OnBnClickedMatrixStandard();
 
 public:
 	friend static CDlgAdfgvxManual::UINT StaticThread(LPVOID param);
 	BOOL CDlgAdfgvxManual::OnInitDialog();
 	void CDlgAdfgvxManual::Permutate();
-	
-private:
-public:
-	afx_msg void OnBnClickedStdMatrix();
-/*private:
-	CButton checkShowInfo;*/
-public:
 
-private:
-	CButton buttonOutput;
-	BOOL infoChecked;
 };
 
 //{{AFX_INSERT_LOCATION}}

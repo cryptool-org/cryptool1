@@ -48,6 +48,7 @@ statement from your version.
 #include "stdafx.h"
 #include "CrypToolApp.h"
 #include "DlgSideChannelAttackVisualizationHETrudy.h"
+#include "CrypToolTools.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -73,8 +74,18 @@ CDlgSideChannelAttackVisualizationHETrudy::CDlgSideChannelAttackVisualizationHET
 
 	// die signifikante Bitzahl ermitteln
 	// DEFAULT-WERT: 128 Bit
-	significantBits = theApp.GetProfileInt("Settings", "HybridEncryptionSCASignificantBits", 128);
-	if(!significantBits) throw SCA_Error(E_SCA_INTERNAL_ERROR);
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
+	{
+		unsigned long u_significantBits = 128;
+		CT_READ_REGISTRY_DEFAULT(u_significantBits, "HybridEncryptionSCASignificantBits", u_significantBits);
+		significantBits = u_significantBits;
+		if(!significantBits) throw SCA_Error(E_SCA_INTERNAL_ERROR);
+		CT_CLOSE_REGISTRY();
+	}
+	else
+	{
+		// FIXME
+	}
 }
 
 

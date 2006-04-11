@@ -75,6 +75,7 @@ statement from your version.
 #include "SecudeLib.h"	// Hinzugefügt von ClassView
 #include "DlgSignatureDemo.h"
 #include "DlgFindAndReplace.h"
+#include <atlbase.h>   // Registry
 
 // globale Variablen fuer Zugriff auf Stringtable
 // Definiert in CrypTool.cpp
@@ -178,7 +179,6 @@ public:
 	CDlgFindAndReplace findAndReplaceDialog;
 	plot_opt_dlg PlotOptions;
 	CAppDocument * OpenDocumentFileNoMRU(const char *name, CString Key = "", int KeyType = SCHLUESSEL_LINEAR);
-	BOOL WriteProfileDouble( LPCTSTR lpszSection, LPCTSTR lpszEntry, double Value );
 	BOOL MRU_Flag;
 	CWnd *m_MainWnd;
 	virtual void AddToRecentFileList(LPCTSTR lpszPathName);
@@ -190,6 +190,8 @@ public:
 	#else										// HTML Help for VC++ .NET
 	virtual void WinHelpInternal( DWORD_PTR dwData, UINT nCmd = HELP_CONTEXT ); // overridden to handle F1 on menus with sub menus
 	#endif
+
+	CRegKey localRegistry;
 	
 private:
 	void callHtmlHelp(UINT uCommand, DWORD dwData);

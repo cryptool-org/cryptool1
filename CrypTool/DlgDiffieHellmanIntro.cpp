@@ -85,12 +85,3 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // Behandlungsroutinen für Nachrichten CDlgDiffieHellmanIntro 
 
-void CDlgDiffieHellmanIntro::OnOK() 
-{
-	UpdateData(true);
-	
-	// In CrypTool.INI ablegen, ob der Intro-Dialogue beim nächsten Start wieder aufgerufen werden soll
-	this->m_Check_NoShow ? theApp.WriteProfileInt("Settings", "DH_IntroDialogue", 0) : theApp.WriteProfileInt("Settings", "DH_IntroDialogue", 1);
-	
-	CDialog::OnOK();
-}

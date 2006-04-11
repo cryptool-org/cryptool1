@@ -53,6 +53,7 @@ statement from your version.
 #include "DlgOptionsSignatureAttack.h"
 #include "DlgStatisticsSignatureAttack.h"
 #include "FileTools.h"
+#include "CrypToolTools.h"
 #if !defined(_MSC_VER) || _MSC_VER <= 1200
 #include <iostream.h>
 #include <fstream.h>
@@ -142,412 +143,470 @@ void CDlgSignatureAttack::OnBrowseFake()
 
 void CDlgSignatureAttack::OnCompute() 
 {
-	int SigAttTestMode = theApp.GetProfileInt("Settings", "SignatureAttackTestMode", 0);
-
-	if (SigAttTestMode)
+	unsigned long u_SigAttTestMode = (unsigned long)FALSE;
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_READ ) == ERROR_SUCCESS )
 	{
-		SHOW_HOUR_GLASS
+		CT_READ_REGISTRY_DEFAULT(u_SigAttTestMode, "SignatureAttackTestMode", u_SigAttTestMode);
+		CT_CLOSE_REGISTRY();
 
-		bool DocFiles = false;
-		char FilePath[256], *HarmlessText, *DangerousText;
-		CString LogPath;
-		CWinThread *CWThread;
-		FILE *SigAttTest;
-		ifstream ifstr_Harmless, ifstr_Dangerous;
-		int HarmlessDocLength, DangerousDocLength;
-		MSG FloydMessage;
-		ofstream ofstr_Harmless, ofstr_Dangerous;
-		struct stat stat_object;
-		time_t StartTime;
-		UINT MessageID;
-
-
-		int l_SignificantBitLengthMIN = theApp.GetProfileInt("SigAttTest", "SignificantBitLengthMIN", 0);
-		int l_SignificantBitLengthMAX = theApp.GetProfileInt("SigAttTest", "SignificantBitLengthMAX", 0);
-		int l_SignificantBitLengthJump = theApp.GetProfileInt("SigAttTest", "SignificantBitLengthJump", 1);
-		int l_HashAlgorithmIDMIN = theApp.GetProfileInt("SigAttTest", "HashAlgorithmIDMIN", 0);
-		int l_HashAlgorithmIDMAX = theApp.GetProfileInt("SigAttTest", "HashAlgorithmIDMAX", 0);
-		int l_Attempts = theApp.GetProfileInt("SigAttTest", "Attempts", 0);
-		int l_AttemptsMAX = theApp.GetProfileInt("SigAttTest", "AttemptsMAX", -1);
-
-		int SignificantBitLengthCounter, HashAlgorithmsCounter, AttemptsCounter, TotalAttemptsCounter = 0;
-
-		LogPath = theApp.GetProfileString("SigAttTest", "LogPath", "C:\\");
-		time(&StartTime);
-
-		for (SignificantBitLengthCounter = l_SignificantBitLengthMIN; SignificantBitLengthCounter <= l_SignificantBitLengthMAX; 
-			SignificantBitLengthCounter += l_SignificantBitLengthJump)
+		if (u_SigAttTestMode)
 		{
-			theApp.WriteProfileInt("Settings", "SignatureAttackSignificantBitLength", SignificantBitLengthCounter);
+			SHOW_HOUR_GLASS
 
-			for (HashAlgorithmsCounter = l_HashAlgorithmIDMIN; HashAlgorithmsCounter <= l_HashAlgorithmIDMAX;
-				HashAlgorithmsCounter ++)
+			bool DocFiles = false;
+			char FilePath[256], *HarmlessText, *DangerousText;
+			CString LogPath;
+			CWinThread *CWThread;
+			FILE *SigAttTest;
+			ifstream ifstr_Harmless, ifstr_Dangerous;
+			int HarmlessDocLength, DangerousDocLength;
+			MSG FloydMessage;
+			ofstream ofstr_Harmless, ofstr_Dangerous;
+			struct stat stat_object;
+			time_t StartTime;
+			UINT MessageID;
+
+
+			CT_OPEN_REGISTRY_SETTINGS( KEY_READ );
+			unsigned long l_SignificantBitLengthMIN = 0;
+			CT_READ_REGISTRY_DEFAULT(l_SignificantBitLengthMIN, "SignificantBitLengthMIN", l_SignificantBitLengthMIN);
+			unsigned long l_SignificantBitLengthMAX = 0;
+			CT_READ_REGISTRY_DEFAULT(l_SignificantBitLengthMAX, "SignificantBitLengthMAX", l_SignificantBitLengthMAX);
+			unsigned long l_SignificantBitLengthJump = 1;
+			CT_READ_REGISTRY_DEFAULT(l_SignificantBitLengthJump, "SignificantBitLengthJump", l_SignificantBitLengthJump);
+			unsigned long l_HashAlgorithmIDMIN = 0; 
+			CT_READ_REGISTRY_DEFAULT(l_HashAlgorithmIDMIN, "HashAlgorithmIDMIN", l_HashAlgorithmIDMIN);
+			unsigned long l_HashAlgorithmIDMAX = 0;
+			CT_READ_REGISTRY_DEFAULT(l_HashAlgorithmIDMAX, "HashAlgorithmIDMAX", l_HashAlgorithmIDMAX);
+			unsigned long l_Attempts = 0;
+			CT_READ_REGISTRY_DEFAULT(l_Attempts, "Attempts", l_Attempts);
+			unsigned long l_AttemptsMAX = ULONG_MAX;
+			CT_READ_REGISTRY_DEFAULT(l_AttemptsMAX, "AttemptsMAX", l_AttemptsMAX);
+			unsigned long SignificantBitLengthCounter, HashAlgorithmsCounter, AttemptsCounter, TotalAttemptsCounter = 0;
+			char s_logPath[1025] = "C:\\";
+			unsigned long max_strLength = 1024;
+			CT_READ_REGISTRY_DEFAULT(s_logPath, "LogPath", s_logPath, max_strLength);
+			LogPath = s_logPath;
+			CT_CLOSE_REGISTRY();
+
+			time(&StartTime);
+
+			for (SignificantBitLengthCounter = l_SignificantBitLengthMIN; SignificantBitLengthCounter <= l_SignificantBitLengthMAX; 
+				SignificantBitLengthCounter += l_SignificantBitLengthJump)
 			{
-				theApp.WriteProfileInt("Settings", "SignatureAttackHashAlgorithmID", HashAlgorithmsCounter);
 
-				for (AttemptsCounter = 0; AttemptsCounter < l_Attempts; AttemptsCounter ++)
+				CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE );
+				CT_WRITE_REGISTRY(SignificantBitLengthCounter, "SignatureAttackSignificantBitLength");
+				CT_CLOSE_REGISTRY();
+
+				for (HashAlgorithmsCounter = l_HashAlgorithmIDMIN; HashAlgorithmsCounter <= l_HashAlgorithmIDMAX;
+					HashAlgorithmsCounter ++)
 				{
-					if (TotalAttemptsCounter == l_AttemptsMAX)
+					CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE );
+					CT_WRITE_REGISTRY(HashAlgorithmsCounter, "SignatureAttackHashAlgorithmID");
+					CT_CLOSE_REGISTRY();
+
+					for (AttemptsCounter = 0; AttemptsCounter < l_Attempts; AttemptsCounter ++)
 					{
-						return;
-					}
-					TotalAttemptsCounter ++;
-
-					m_file_harmless = theApp.GetProfileString("SigAttTest", "HarmlessDocument", NULL);
-					m_file_dangerous = theApp.GetProfileString("SigAttTest", "DangerousDocument", NULL);
-
-	#ifdef _SIG_ATT_PRE_RPE_MODIFY
-
-					if ( SigAttTestMode ) // Für Statistische Unabhängigkeit, vor jedem Versuch Pre(Pre)Modifizieren
-					{
-						ifstr_Harmless.open(m_file_harmless, ios::in | ios::binary);
-						stat((const char *) m_file_harmless, & stat_object);
-						if (0 == stat_object.st_size)
-						{
-							GenerateMessageText(15);
-							return;
-						}
-						HarmlessDocLength = stat_object.st_size;
-						HarmlessText = new char[HarmlessDocLength];
-						ifstr_Harmless.read(HarmlessText, HarmlessDocLength);
-						ifstr_Harmless.close();
-						ofstr_Harmless.open(m_file_harmless, ios::out | ios::binary);
-						HarmlessText[HarmlessDocLength-1] = AttemptsCounter + 32;
-						ofstr_Harmless.write(HarmlessText, HarmlessDocLength);
-						ofstr_Harmless.close();
-
-
-						ifstr_Dangerous.open(m_file_dangerous, ios::in | ios::binary);
-						stat((const char *) m_file_dangerous, & stat_object);
-						if (0 == stat_object.st_size)
-						{
-							GenerateMessageText(15);
-							return;
-						}
-						DangerousDocLength = stat_object.st_size;
-						DangerousText = new char[DangerousDocLength];
-						ifstr_Dangerous.read(DangerousText, DangerousDocLength);
-						ifstr_Dangerous.close();
-						ofstr_Dangerous.open(m_file_dangerous, ios::out | ios::binary);
-						DangerousText[DangerousDocLength-1] = AttemptsCounter + 32;
-						ofstr_Dangerous.write(DangerousText, DangerousDocLength);
-						ofstr_Dangerous.close();
-					}
-	#endif
-
-					OptionsForSignatureAttack OFSA(m_file_harmless, m_file_dangerous, SigAttTestMode);
-					if (0 != OFSA.GetErrorcode())
-					{
-						return;
-					}
-
-					if (false == DocFiles)
-					{
-						DocFiles = true;
-
-						ifstr_Harmless.open(m_file_harmless, ios::in | ios::binary);
-						ifstr_Dangerous.open(m_file_dangerous, ios::in | ios::binary);
-						_snprintf(FilePath, sizeof(FilePath) - 1, "%s%d%s", LogPath, StartTime, _SIG_ATT_HARMLESS);
-						ofstr_Harmless.open(FilePath, ios::out | ios::binary);
-						_snprintf(FilePath, sizeof(FilePath) - 1, "%s%d%s", LogPath, StartTime, _SIG_ATT_DANGEROUS);
-						ofstr_Dangerous.open(FilePath, ios::out | ios::binary);
-						if (!ifstr_Harmless || !ifstr_Dangerous || !ofstr_Harmless || !ofstr_Dangerous)
+						if (TotalAttemptsCounter == l_AttemptsMAX)
 						{
 							return;
 						}
+						TotalAttemptsCounter ++;
 
-						stat((const char *) m_file_harmless, & stat_object);
-						if (0 == stat_object.st_size)
+						char tmpStr[1025]; unsigned long tmpStrLength = 1024;
+						CT_OPEN_REGISTRY_SETTINGS( KEY_READ );
+						CT_READ_REGISTRY(tmpStr, "HarmlessDocument", tmpStrLength);
+						m_file_harmless = tmpStr;
+						CT_READ_REGISTRY(tmpStr, "DangerousDocument", tmpStrLength);
+						m_file_dangerous = tmpStr;
+						CT_CLOSE_REGISTRY();
+
+
+		#ifdef _SIG_ATT_PRE_RPE_MODIFY
+
+						if ( u_SigAttTestMode ) // Für Statistische Unabhängigkeit, vor jedem Versuch Pre(Pre)Modifizieren
 						{
-							GenerateMessageText(15);
-							return;
-						}
-						HarmlessDocLength = stat_object.st_size;
-						HarmlessText = new char[HarmlessDocLength];					
-
-						stat((const char *) m_file_dangerous, & stat_object);
-						if (0 == stat_object.st_size)
-						{
-							GenerateMessageText(15);
-							return;
-						}
-						DangerousDocLength = stat_object.st_size;
-						DangerousText = new char[DangerousDocLength];
-
-						ifstr_Harmless.read(HarmlessText, HarmlessDocLength);
-						ofstr_Harmless.write(HarmlessText, HarmlessDocLength);
-
-						ifstr_Harmless.close();
-						ofstr_Harmless.close();
-
-						ifstr_Dangerous.read(DangerousText, DangerousDocLength);
-						ofstr_Dangerous.write(DangerousText, DangerousDocLength);
-						ifstr_Dangerous.close();
-						ofstr_Dangerous.close();
-
-						delete []HarmlessText;
-						delete []DangerousText;
-						
-						_snprintf(FilePath, sizeof(FilePath) - 1, "%s%d%s", LogPath, StartTime, _SIG_ATT_HEADER);
-						SigAttTest = fopen(FilePath, "w+");
-						if (NULL == SigAttTest)
-						{
-							return;
-						}
-
-						fprintf(SigAttTest, "Birthday Attack on Digital Signatures -- Configuration\n\nThe File CrypTool.ini has set up the following Configuration:\n\n");
-						fprintf(SigAttTest, "SignificantBitLengthMIN=%d\n"
-								"SignificantBitLengthMAX=%d\n"
-								"SignificantBitLengthJump=%d\n"
-								"HashAlgorithmIDMIN=%d\n"
-								"HashAlgorithmIDMAX=%d\n"
-								"Attempts=%d\n"
-								"HarmlessDocument=%s\n"
-								"DangerousDocument=%s\n"
-								"LogPath=%s\n", 
-							l_SignificantBitLengthMIN , l_SignificantBitLengthMAX, l_SignificantBitLengthJump,
-						   l_HashAlgorithmIDMIN, l_HashAlgorithmIDMAX, l_Attempts,
-						   m_file_harmless, m_file_dangerous, LogPath);
-
-
-
-
-						fprintf(SigAttTest,
-							"\n\nInternal Information\n\nModificationMethod=%d\nHarmlessFile=%s%d%s\nHarmlessFileLength=%d\nDangerousFile=%s%d%s\nDangerousFileLength=%d",
-							theApp.GetProfileInt("Settings", "SignatureAttackModificationMethod", 0),
-							LogPath, StartTime, _SIG_ATT_HARMLESS, HarmlessDocLength,
-							LogPath, StartTime,	_SIG_ATT_DANGEROUS, DangerousDocLength);
-
-	#ifdef _SIG_ATT_SPEED_INCREMENT
-
-						fprintf(SigAttTest, "\nModifyOriginalDocumentBeforeRun=1");
-
-	#endif
-
-	#ifndef _SIG_ATT_SPEED_INCREMENT
-
-						fprintf(SigAttTest, "\nModifyOriginalDocumentBeforeRun=0");
-
-	#endif
-
-	#ifdef _SIG_ATT_MODIFYING_OPTIMIZER
-
-						fprintf(SigAttTest, "\nSpeedOptimizer=1");
-
-	#endif
-
-	#ifndef _SIG_ATT_MODIFYING_OPTIMIZER
-
-						fprintf(SigAttTest, "\nSpeedOptimizer=0");
-
-	#endif
-
-	#ifdef _SIG_ATT_ALWAYS_INIT_HASH
-
-						fprintf(SigAttTest, "\nAlwaysInitHash=1");
-
-	#endif
-
-	#ifndef _SIG_ATT_ALWAYS_INIT_HASH
-
-						fprintf(SigAttTest, "\nAlwaysInitHash=0");
-
-	#endif
-
-						fprintf(SigAttTest, "\nComments=%s", theApp.GetProfileString("SigAttTest", "Comments", ""));
-						fclose(SigAttTest);
-
-						_snprintf(FilePath, sizeof(FilePath) - 1, "%s%d%s", LogPath, StartTime, _SIG_ATT_LOG);
-						SigAttTest = fopen(FilePath, "w+");
-						if (NULL == SigAttTest)
-						{
-							return;
-						}
-					}
-
-					// Beginn - Versuchsreihe ohne Fortschrittsanzeige
-					/*SignatureAttack *S_A = new SignatureAttack(&OFSA, SigAttTest, TotalAttemptsCounter);
-					S_A->Do_Floyd();*/
-					// Ende - Versuchsreihe ohne Fortschrittsanzeige
-
-					// Beginn - Versuchsreihe mit Fortschrittsanzeige
-					MessageID = RegisterWindowMessage("Floyd_Terminated");
-
-					SignatureAttack *S_A = new SignatureAttackMFC(&OFSA, SigAttTest, TotalAttemptsCounter,
-						this->m_hWnd, MessageID);
-					CWThread = AfxBeginThread(SignatureAttackMFC::StaticThreadFunction, (void *)S_A);
-					
-					while (1)
-					{
-						if (PeekMessage(&FloydMessage, NULL, 0, 0, PM_NOREMOVE))
-						{
-							GetMessage(&FloydMessage, NULL, 0, 0);
-							if (MessageID == FloydMessage.message)
+							ifstr_Harmless.open(m_file_harmless, ios::in | ios::binary);
+							stat((const char *) m_file_harmless, & stat_object);
+							if (0 == stat_object.st_size)
 							{
-								break;	// nur wenn der Floyd-Algorithmus beendet wurde, Schleife verlassen - 
-							}			// andere Messages werden ignoriert
+								GenerateMessageText(15);
+								return;
+							}
+							HarmlessDocLength = stat_object.st_size;
+							HarmlessText = new char[HarmlessDocLength];
+							ifstr_Harmless.read(HarmlessText, HarmlessDocLength);
+							ifstr_Harmless.close();
+							ofstr_Harmless.open(m_file_harmless, ios::out | ios::binary);
+							HarmlessText[HarmlessDocLength-1] = AttemptsCounter + 32;
+							ofstr_Harmless.write(HarmlessText, HarmlessDocLength);
+							ofstr_Harmless.close();
 
-							TranslateMessage(&FloydMessage); 
-							DispatchMessage(&FloydMessage);
+
+							ifstr_Dangerous.open(m_file_dangerous, ios::in | ios::binary);
+							stat((const char *) m_file_dangerous, & stat_object);
+							if (0 == stat_object.st_size)
+							{
+								GenerateMessageText(15);
+								return;
+							}
+							DangerousDocLength = stat_object.st_size;
+							DangerousText = new char[DangerousDocLength];
+							ifstr_Dangerous.read(DangerousText, DangerousDocLength);
+							ifstr_Dangerous.close();
+							ofstr_Dangerous.open(m_file_dangerous, ios::out | ios::binary);
+							DangerousText[DangerousDocLength-1] = AttemptsCounter + 32;
+							ofstr_Dangerous.write(DangerousText, DangerousDocLength);
+							ofstr_Dangerous.close();
+						}
+		#endif
+
+						OptionsForSignatureAttack OFSA(m_file_harmless, m_file_dangerous, u_SigAttTestMode);
+						if (0 != OFSA.GetErrorcode())
+						{
+							return;
 						}
 
-						else WaitMessage();
-					}
-					// Ende - Versuchsreihe mit Fortschrittsanzeige
+						if (false == DocFiles)
+						{
+							DocFiles = true;
 
-					if (_SIG_ATT_FLOYD_CANCELED == S_A->GetResults()->GetFloydResult())
-					{
-						delete S_A;				// Versuchsreihe vom Benutzer abgebrochen !
+							ifstr_Harmless.open(m_file_harmless, ios::in | ios::binary);
+							ifstr_Dangerous.open(m_file_dangerous, ios::in | ios::binary);
+							_snprintf(FilePath, sizeof(FilePath) - 1, "%s%d%s", LogPath, StartTime, _SIG_ATT_HARMLESS);
+							ofstr_Harmless.open(FilePath, ios::out | ios::binary);
+							_snprintf(FilePath, sizeof(FilePath) - 1, "%s%d%s", LogPath, StartTime, _SIG_ATT_DANGEROUS);
+							ofstr_Dangerous.open(FilePath, ios::out | ios::binary);
+							if (!ifstr_Harmless || !ifstr_Dangerous || !ofstr_Harmless || !ofstr_Dangerous)
+							{
+								return;
+							}
+
+							stat((const char *) m_file_harmless, & stat_object);
+							if (0 == stat_object.st_size)
+							{
+								GenerateMessageText(15);
+								return;
+							}
+							HarmlessDocLength = stat_object.st_size;
+							HarmlessText = new char[HarmlessDocLength];					
+
+							stat((const char *) m_file_dangerous, & stat_object);
+							if (0 == stat_object.st_size)
+							{
+								GenerateMessageText(15);
+								return;
+							}
+							DangerousDocLength = stat_object.st_size;
+							DangerousText = new char[DangerousDocLength];
+
+							ifstr_Harmless.read(HarmlessText, HarmlessDocLength);
+							ofstr_Harmless.write(HarmlessText, HarmlessDocLength);
+
+							ifstr_Harmless.close();
+							ofstr_Harmless.close();
+
+							ifstr_Dangerous.read(DangerousText, DangerousDocLength);
+							ofstr_Dangerous.write(DangerousText, DangerousDocLength);
+							ifstr_Dangerous.close();
+							ofstr_Dangerous.close();
+
+							delete []HarmlessText;
+							delete []DangerousText;
+							
+							_snprintf(FilePath, sizeof(FilePath) - 1, "%s%d%s", LogPath, StartTime, _SIG_ATT_HEADER);
+							SigAttTest = fopen(FilePath, "w+");
+							if (NULL == SigAttTest)
+							{
+								return;
+							}
+
+							fprintf(SigAttTest, "Birthday Attack on Digital Signatures -- Configuration\n\nThe File CrypTool.ini has set up the following Configuration:\n\n");
+							fprintf(SigAttTest, "SignificantBitLengthMIN=%d\n"
+									"SignificantBitLengthMAX=%d\n"
+									"SignificantBitLengthJump=%d\n"
+									"HashAlgorithmIDMIN=%d\n"
+									"HashAlgorithmIDMAX=%d\n"
+									"Attempts=%d\n"
+									"HarmlessDocument=%s\n"
+									"DangerousDocument=%s\n"
+									"LogPath=%s\n", 
+								l_SignificantBitLengthMIN , l_SignificantBitLengthMAX, l_SignificantBitLengthJump,
+							   l_HashAlgorithmIDMIN, l_HashAlgorithmIDMAX, l_Attempts,
+							   m_file_harmless, m_file_dangerous, LogPath);
+
+
+
+							unsigned long u_SignatureAttackModificationMethod = 0;
+							CT_OPEN_REGISTRY_SETTINGS( KEY_READ );
+							CT_READ_REGISTRY_DEFAULT(u_SignatureAttackModificationMethod, "SignatureAttackModificationMethod", u_SignatureAttackModificationMethod);
+							fprintf(SigAttTest,
+								"\n\nInternal Information\n\nModificationMethod=%d\nHarmlessFile=%s%d%s\nHarmlessFileLength=%d\nDangerousFile=%s%d%s\nDangerousFileLength=%d",
+								u_SignatureAttackModificationMethod,
+								LogPath, StartTime, _SIG_ATT_HARMLESS, HarmlessDocLength,
+								LogPath, StartTime,	_SIG_ATT_DANGEROUS, DangerousDocLength);
+
+		#ifdef _SIG_ATT_SPEED_INCREMENT
+
+							fprintf(SigAttTest, "\nModifyOriginalDocumentBeforeRun=1");
+
+		#endif
+
+		#ifndef _SIG_ATT_SPEED_INCREMENT
+
+							fprintf(SigAttTest, "\nModifyOriginalDocumentBeforeRun=0");
+
+		#endif
+
+		#ifdef _SIG_ATT_MODIFYING_OPTIMIZER
+
+							fprintf(SigAttTest, "\nSpeedOptimizer=1");
+
+		#endif
+
+		#ifndef _SIG_ATT_MODIFYING_OPTIMIZER
+
+							fprintf(SigAttTest, "\nSpeedOptimizer=0");
+
+		#endif
+
+		#ifdef _SIG_ATT_ALWAYS_INIT_HASH
+
+							fprintf(SigAttTest, "\nAlwaysInitHash=1");
+
+		#endif
+
+		#ifndef _SIG_ATT_ALWAYS_INIT_HASH
+
+							fprintf(SigAttTest, "\nAlwaysInitHash=0");
+
+		#endif
+
+							strcpy(tmpStr, "");
+							max_strLength = 1024;
+							CT_READ_REGISTRY(tmpStr, "Comments", max_strLength);
+							CT_CLOSE_REGISTRY();
+							
+
+							fprintf(SigAttTest, "\nComments=%s", tmpStr);
+							fclose(SigAttTest);
+
+							_snprintf(FilePath, sizeof(FilePath) - 1, "%s%d%s", LogPath, StartTime, _SIG_ATT_LOG);
+							SigAttTest = fopen(FilePath, "w+");
+							if (NULL == SigAttTest)
+							{
+								return;
+							}
+						}
+
+						// Beginn - Versuchsreihe ohne Fortschrittsanzeige
+						/*SignatureAttack *S_A = new SignatureAttack(&OFSA, SigAttTest, TotalAttemptsCounter);
+						S_A->Do_Floyd();*/
+						// Ende - Versuchsreihe ohne Fortschrittsanzeige
+
+						// Beginn - Versuchsreihe mit Fortschrittsanzeige
+						MessageID = RegisterWindowMessage("Floyd_Terminated");
+
+						SignatureAttack *S_A = new SignatureAttackMFC(&OFSA, SigAttTest, TotalAttemptsCounter,
+							this->m_hWnd, MessageID);
+						CWThread = AfxBeginThread(SignatureAttackMFC::StaticThreadFunction, (void *)S_A);
+						
+						while (1)
+						{
+							if (PeekMessage(&FloydMessage, NULL, 0, 0, PM_NOREMOVE))
+							{
+								GetMessage(&FloydMessage, NULL, 0, 0);
+								if (MessageID == FloydMessage.message)
+								{
+									break;	// nur wenn der Floyd-Algorithmus beendet wurde, Schleife verlassen - 
+								}			// andere Messages werden ignoriert
+
+								TranslateMessage(&FloydMessage); 
+								DispatchMessage(&FloydMessage);
+							}
+
+							else WaitMessage();
+						}
+						// Ende - Versuchsreihe mit Fortschrittsanzeige
+
+						if (_SIG_ATT_FLOYD_CANCELED == S_A->GetResults()->GetFloydResult())
+						{
+							delete S_A;				// Versuchsreihe vom Benutzer abgebrochen !
+							fflush(SigAttTest);
+							GenerateMessageText(_SIG_ATT_TEST_SERIES_STOPPED, MB_ICONINFORMATION);
+							return;
+						}
+
+						delete S_A;
 						fflush(SigAttTest);
-						GenerateMessageText(_SIG_ATT_TEST_SERIES_STOPPED, MB_ICONINFORMATION);
-						return;
 					}
-
-					delete S_A;
-					fflush(SigAttTest);
 				}
 			}
-		}
-		fclose(SigAttTest);
-		HIDE_HOUR_GLASS
-	}
-
-	else
-	{
-		CAppDocument *NewHarmlessDocument, *NewDangerousDocument;
-		char *hashasci, hashhex [128], outfile[1024], doctitle[1024];
-		CString crypT, msg;
-		int Errorcode, ii, SignificantBitLength, strlen = 0;
-		ofstream ModifiedHarmlessFile, ModifiedDangerousFile;
-
-		crypT.Format(IDS_STRING_SIG_ATT_CRYPTOOL);
-
-		OptionsForSignatureAttack OFSA(m_file_harmless, m_file_dangerous, SigAttTestMode);
-		if (0 != OFSA.GetErrorcode())
-		{
-			GenerateMessageText(OFSA.GetErrorcode());
-			return;
+			fclose(SigAttTest);
+			HIDE_HOUR_GLASS
 		}
 
-		// Beginn - Angriff ohne Fortschrittsanzeige
-		/*SignatureAttack *S_A = new SignatureAttack(&OFSA);
-		SHOW_HOUR_GLASS
-		S_A->Do_Floyd();
-		HIDE_HOUR_GLASS*/
-		// Ende - Angriff ohne Fortschrittsanzeige
-
-		// Beginn - Angriff mit Fortschrittsanzeige
-		CWinThread *CWThread;
-		MSG FloydMessage;
-		UINT MessageID;
-
-		MessageID = RegisterWindowMessage("Floyd_Terminated");
-
-		SignatureAttack *S_A = new SignatureAttackMFC(&OFSA, NULL, 0, this->m_hWnd, MessageID);
-		CWThread = AfxBeginThread(SignatureAttackMFC::StaticThreadFunction, (void *)S_A);
-		
-		while (1)
+		else
 		{
-			if (PeekMessage(&FloydMessage, NULL, 0, 0, PM_NOREMOVE))
+			CAppDocument *NewHarmlessDocument, *NewDangerousDocument;
+			char *hashasci, hashhex [128], outfile[1024], doctitle[1024];
+			CString crypT, msg;
+			int Errorcode, ii, SignificantBitLength, strlen = 0;
+			ofstream ModifiedHarmlessFile, ModifiedDangerousFile;
+
+			crypT.Format(IDS_STRING_SIG_ATT_CRYPTOOL);
+
+			OptionsForSignatureAttack OFSA(m_file_harmless, m_file_dangerous, u_SigAttTestMode);
+			if (0 != OFSA.GetErrorcode())
 			{
-				GetMessage(&FloydMessage, NULL, 0, 0);
-				if (MessageID == FloydMessage.message)
-				{
-					break;	// nur wenn der Floyd-Algorithmus beendet wurde, Schleife verlassen - andere Messages werden
-				}			// ignoriert
-
-				TranslateMessage(&FloydMessage); 
-				DispatchMessage(&FloydMessage);
+				GenerateMessageText(OFSA.GetErrorcode());
+				return;
 			}
 
-			else WaitMessage();
-		}
-		// Ende - Angriff mit Fortschrittsanzeige
+			// Beginn - Angriff ohne Fortschrittsanzeige
+			/*SignatureAttack *S_A = new SignatureAttack(&OFSA);
+			SHOW_HOUR_GLASS
+			S_A->Do_Floyd();
+			HIDE_HOUR_GLASS*/
+			// Ende - Angriff ohne Fortschrittsanzeige
 
-		Errorcode = S_A->GetResults()->GetFloydResult();
-		if (_SIG_ATT_DOCUMENTS_FOUND != Errorcode)
-		{
-			delete S_A;
+			// Beginn - Angriff mit Fortschrittsanzeige
+			CWinThread *CWThread;
+			MSG FloydMessage;
+			UINT MessageID;
+
+			MessageID = RegisterWindowMessage("Floyd_Terminated");
+
+			SignatureAttack *S_A = new SignatureAttackMFC(&OFSA, NULL, 0, this->m_hWnd, MessageID);
+			CWThread = AfxBeginThread(SignatureAttackMFC::StaticThreadFunction, (void *)S_A);
+			
+			while (1)
+			{
+				if (PeekMessage(&FloydMessage, NULL, 0, 0, PM_NOREMOVE))
+				{
+					GetMessage(&FloydMessage, NULL, 0, 0);
+					if (MessageID == FloydMessage.message)
+					{
+						break;	// nur wenn der Floyd-Algorithmus beendet wurde, Schleife verlassen - andere Messages werden
+					}			// ignoriert
+
+					TranslateMessage(&FloydMessage); 
+					DispatchMessage(&FloydMessage);
+				}
+
+				else WaitMessage();
+			}
+			// Ende - Angriff mit Fortschrittsanzeige
+
+			Errorcode = S_A->GetResults()->GetFloydResult();
+			if (_SIG_ATT_DOCUMENTS_FOUND != Errorcode)
+			{
+				delete S_A;
+				GenerateMessageText(Errorcode, MB_ICONINFORMATION);
+				return;
+			}
+
 			GenerateMessageText(Errorcode, MB_ICONINFORMATION);
-			return;
-		}
+			SHOW_HOUR_GLASS
 
-		GenerateMessageText(Errorcode, MB_ICONINFORMATION);
-		SHOW_HOUR_GLASS
+			GetTmpName(outfile,"cry",".tmp");
+			ModifiedHarmlessFile.open(outfile, ios::out | ios::binary);
+			if (!ModifiedHarmlessFile)
+			{
+				HIDE_HOUR_GLASS
+				GenerateMessageText(IDS_STRING_FILE_NOT_OPEN);
+				return;
+			}
+			ModifiedHarmlessFile.write(OFSA.GetHarmlessDocument()->GetDocumentData(),
+				OFSA.GetHarmlessDocument()->GetDocumentLength());
+			ModifiedHarmlessFile.close();
+			NewHarmlessDocument = theApp.OpenDocumentFileNoMRU(outfile);
 
-		GetTmpName(outfile,"cry",".tmp");
-		ModifiedHarmlessFile.open(outfile, ios::out | ios::binary);
-		if (!ModifiedHarmlessFile)
-		{
+			// Dokumenttitel für Vorlage erstellen:
+			msg.Format(IDS_STRING_SIG_ATT_DOCUMENT_TITLE_HARMLESS);
+
+			hashasci = S_A->GetResults()->GetMatchingHashBytes();
+			SignificantBitLength = OFSA.GetSignificantBitLength();
+			for (ii = 0; ii < SignificantBitLength / 8; ii ++)
+			{
+				strlen += _snprintf(hashhex + strlen, 3, "%2.2X ", (unsigned char) hashasci[ii]);
+			}
+
+			if (0 != SignificantBitLength % 8)
+			{
+				strlen += _snprintf(hashhex + strlen, 4, "... ");
+			}
+					hashhex[strlen - 1] = '\0';
+
+			_snprintf(doctitle, sizeof(doctitle) - 1, "%s%s, <%s>",
+				msg, OFSA.GetHashOp()->GetHashAlgorithmName(), hashhex);
+			NewHarmlessDocument->SetTitle(doctitle);
+
+			GetTmpName(outfile,"cry",".tmp");
+			ModifiedDangerousFile.open(outfile, ios::out | ios::binary);
+			if (!ModifiedDangerousFile)
+			{
+				HIDE_HOUR_GLASS
+				GenerateMessageText(IDS_STRING_FILE_NOT_OPEN);
+				return;
+			}
+			ModifiedDangerousFile.write(OFSA.GetDangerousDocument()->GetDocumentData(),
+				OFSA.GetDangerousDocument()->GetDocumentLength());
+			ModifiedDangerousFile.close();
+			NewDangerousDocument = theApp.OpenDocumentFileNoMRU(outfile);
+			
+			// Dokumenttitel für 2. Dokument erstellen:
+			msg.Format(IDS_STRING_SIG_ATT_DOCUMENT_TITLE_DANGEROUS);
+			_snprintf(doctitle, sizeof(doctitle) - 1, "%s%s, <%s>",
+				msg, OFSA.GetHashOp()->GetHashAlgorithmName(), hashhex);
+			NewDangerousDocument->SetTitle(doctitle);
+			
 			HIDE_HOUR_GLASS
-			GenerateMessageText(IDS_STRING_FILE_NOT_OPEN);
-			return;
-		}
-		ModifiedHarmlessFile.write(OFSA.GetHarmlessDocument()->GetDocumentData(),
-			OFSA.GetHarmlessDocument()->GetDocumentLength());
-		ModifiedHarmlessFile.close();
-		NewHarmlessDocument = theApp.OpenDocumentFileNoMRU(outfile);
+			
+			CDlgStatisticsSignatureAttack DlgSSA;
+			DlgSSA.SetData(S_A->GetResults(),
+				OFSA.GetHarmlessDocument()->GetModifiedBytes(), OFSA.GetDangerousDocument()->GetModifiedBytes());
+			DlgSSA.DoModal();
+			if (true == DlgSSA.GetPrintStatistics())
+			{
+				DlgSSA.PrintStatistics();
+			}
 
-		// Dokumenttitel für Vorlage erstellen:
-		msg.Format(IDS_STRING_SIG_ATT_DOCUMENT_TITLE_HARMLESS);
-
-		hashasci = S_A->GetResults()->GetMatchingHashBytes();
-		SignificantBitLength = OFSA.GetSignificantBitLength();
-		for (ii = 0; ii < SignificantBitLength / 8; ii ++)
-		{
-			strlen += _snprintf(hashhex + strlen, 3, "%2.2X ", (unsigned char) hashasci[ii]);
+			delete S_A;
 		}
 
-		if (0 != SignificantBitLength % 8)
-		{
-			strlen += _snprintf(hashhex + strlen, 4, "... ");
-		}
-				hashhex[strlen - 1] = '\0';
-
-		_snprintf(doctitle, sizeof(doctitle) - 1, "%s%s, <%s>",
-			msg, OFSA.GetHashOp()->GetHashAlgorithmName(), hashhex);
-		NewHarmlessDocument->SetTitle(doctitle);
-
-		GetTmpName(outfile,"cry",".tmp");
-		ModifiedDangerousFile.open(outfile, ios::out | ios::binary);
-		if (!ModifiedDangerousFile)
-		{
-			HIDE_HOUR_GLASS
-			GenerateMessageText(IDS_STRING_FILE_NOT_OPEN);
-			return;
-		}
-		ModifiedDangerousFile.write(OFSA.GetDangerousDocument()->GetDocumentData(),
-			OFSA.GetDangerousDocument()->GetDocumentLength());
-		ModifiedDangerousFile.close();
-		NewDangerousDocument = theApp.OpenDocumentFileNoMRU(outfile);
-		
-		// Dokumenttitel für 2. Dokument erstellen:
-		msg.Format(IDS_STRING_SIG_ATT_DOCUMENT_TITLE_DANGEROUS);
-		_snprintf(doctitle, sizeof(doctitle) - 1, "%s%s, <%s>",
-			msg, OFSA.GetHashOp()->GetHashAlgorithmName(), hashhex);
-		NewDangerousDocument->SetTitle(doctitle);
-		
-		HIDE_HOUR_GLASS
-		
-		CDlgStatisticsSignatureAttack DlgSSA;
-		DlgSSA.SetData(S_A->GetResults(),
-			OFSA.GetHarmlessDocument()->GetModifiedBytes(), OFSA.GetDangerousDocument()->GetModifiedBytes());
-		DlgSSA.DoModal();
-		if (true == DlgSSA.GetPrintStatistics())
-		{
-			DlgSSA.PrintStatistics();
-		}
-
-		delete S_A;
+		CT_CLOSE_REGISTRY();
 	}
+	else
+	{
+		// FIXME
+	}
+
 }
 
 BOOL CDlgSignatureAttack::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
 	
-	m_file_harmless = theApp.GetProfileString("Settings", "SignatureAttackHarmlessFile", "");
-	m_file_dangerous = theApp.GetProfileString("Settings", "SignatureAttackDangerousFile", "");
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
+	{
+		char tmpStr[1025] = "";
+		unsigned long max_StrLength = 1024;
+		CT_READ_REGISTRY_DEFAULT(tmpStr, "SignatureAttackHarmlessFile", tmpStr, max_StrLength);
+		m_file_harmless = tmpStr;
+
+		strcpy(tmpStr, "");
+		max_StrLength = 1024;
+		CT_READ_REGISTRY_DEFAULT(tmpStr, "SignatureAttackDangerousFile", tmpStr, max_StrLength);
+		m_file_dangerous = tmpStr;
+
+		CT_CLOSE_REGISTRY();
+	}
+	else
+	{
+		// FIXME
+	}
 
 	UpdateData(FALSE);
 
@@ -634,7 +693,19 @@ void CDlgSignatureAttack::GenerateMessageText(int Errorcode, UINT MessageBoxStyl
 
 void CDlgSignatureAttack::OnCancel() 
 {
-	theApp.WriteProfileString("Settings", "SignatureAttackHarmlessFile", m_file_harmless);
-	theApp.WriteProfileString("Settings", "SignatureAttackDangerousFile", m_file_dangerous);
+
+	
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
+	{
+		CT_WRITE_REGISTRY(m_file_harmless, "SignatureAttackHarmlessFile");
+		CT_WRITE_REGISTRY(m_file_dangerous, "SignatureAttackDangerousFile");
+
+		CT_CLOSE_REGISTRY();
+	}
+	else
+	{
+		// FIXME
+	}
+
 	CDialog::OnCancel();
 }

@@ -48,6 +48,7 @@ statement from your version.
 #include "stdafx.h"
 #include "CrypToolApp.h"
 #include "DlgFurtherOptions.h"
+#include "CrypToolTools.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -90,17 +91,29 @@ END_MESSAGE_MAP()
 BOOL CDlgFurtherOptions::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
-	
-	// Einstellungen aus .ini-Datei holen
 
-	// Soll Intro-Screen angezeigt werden?
-	if(theApp.GetProfileInt("Settings", "DH_IntroDialogue", 1))
-		this->m_ShowIntroDialogue = true;
-	// Wie lautet das Schlüsselwort für den Seitenkanalangriff? (Default: Alice)
-	this->m_SCAKeyword = theApp.GetProfileString("Settings", "SCA_Keyword", "Alice");
-	
-	UpdateData(false);
-	
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_READ ) == ERROR_SUCCESS )
+	{
+
+		unsigned long u_Intro = (unsigned long)TRUE;
+		unsigned long u_length = 1024;
+		char c_SCA_keyWord[1025] = "Alice";
+		
+		CT_READ_REGISTRY(u_Intro, "DH_IntroDialogue");
+		CT_READ_REGISTRY(c_SCA_keyWord, "SCA_Keyword", u_length);
+
+		UpdateData();
+		m_ShowIntroDialogue = u_Intro;
+		m_SCAKeyword = c_SCA_keyWord;
+		UpdateData(FALSE);
+
+		CT_CLOSE_REGISTRY();
+	}
+	else
+	{
+		// FIXME
+	}
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
@@ -109,14 +122,24 @@ BOOL CDlgFurtherOptions::OnInitDialog()
 void CDlgFurtherOptions::OnOK() 
 {
 	UpdateData(true);
-	
-	// Einstellungen in .ini-Datei schreiben
 
-	// Diffie-Hellman-Intro-Dialog
-	this->m_ShowIntroDialogue ? theApp.WriteProfileInt("Settings", "DH_IntroDialogue", 1) : theApp.WriteProfileInt("Settings", "DH_IntroDialogue", 0);
-	// SCA-Keyword (nur schreiben, wenn nicht leer! Ansonsten Default: Alice)
-	if(this->m_SCAKeyword != "") theApp.WriteProfileString("Settings", "SCA_Keyword", this->m_SCAKeyword);
-	else theApp.WriteProfileString("Settings", "SCA_Keyword", "Alice");
+
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
+	{
+
+		CT_WRITE_REGISTRY((unsigned long)m_ShowIntroDialogue, "DH_IntroDialogue");
+		if (m_SCAKeyword == "") 
+			m_SCAKeyword = CString("Alice");	
+		CT_WRITE_REGISTRY(m_SCAKeyword, "SCA_Keyword");
+		CT_CLOSE_REGISTRY();
+	}
+	else
+	{
+		// FIXME
+	}
+
+
+	UpdateData(FALSE);
 	
 	CDialog::OnOK();
 }

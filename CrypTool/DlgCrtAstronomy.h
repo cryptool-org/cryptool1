@@ -45,8 +45,11 @@ statement from your version.
 
 #pragma once
 
-#include "PictureExLoop.h"	
 #include "afxwin.h"
+
+// für animierte GIFs
+#include "PictureEx.h"
+
 // CDlgCrtAstronomy-Dialogfeld
 
 class CDlgCrtAstronomy : public CDialog
@@ -65,7 +68,8 @@ protected:
 	virtual BOOL OnInitDialog();
 	DECLARE_MESSAGE_MAP()
 public:
-	CPictureExLoop m_Picture;
+	// CPictureExLoop m_Picture;
+	CPictureEx m_Picture;
 	CString m_a0;
 	CString m_a1;
 	CString m_a2;

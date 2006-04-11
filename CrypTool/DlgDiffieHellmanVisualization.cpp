@@ -53,18 +53,13 @@ statement from your version.
 #include "DlgDiffieHellmanCreateSharedKey.h"
 #include "DlgDiffieHellmanExchangeSharedKeys.h"
 #include "DlgDiffieHellmanGenerateFinalKey.h"
-
 #include "DlgDiffieHellmanSecretInput.h"
-
 #include "DlgDiffieHellmanIntro.h"
-
 #include "DlgDiffieHellmanSetPublicParameters.h"
-
 #include "DlgDiffieHellmanKeyInformation.h"
-
 #include "DiffieHellmanButtonControl.h"
-
 #include "DlgDiffieHellmanFinalInfo.h"
+#include "CrypToolTools.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -486,18 +481,32 @@ BOOL CDlgDiffieHellmanVisualization::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// Intro-Screen anzeigen (falls nicht in INI-Datei deaktiviert)
-	if(theApp.GetProfileInt("Settings", "DH_IntroDialogue", 1))
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
 	{
-		CDlgDiffieHellmanIntro dlg;
-		dlg.DoModal();
+		unsigned long u_noInfo = FALSE;
+		CT_READ_REGISTRY(u_noInfo, "DH_IntroDialogue");
+		if ( u_noInfo )
+		{
+			CDlgDiffieHellmanIntro dlg;
+			dlg.m_Check_NoShow = u_noInfo;
+			dlg.DoModal();			
+			u_noInfo=dlg.m_Check_NoShow;
+		}
+		CT_WRITE_REGISTRY(u_noInfo, "DH_IntroDialogue" );
+
+		unsigned long u_showInfoDialogues = TRUE;
+		CT_READ_REGISTRY_DEFAULT(u_showInfoDialogues, "DH_InfoDialogues", u_showInfoDialogues);
+		UpdateData();
+		m_bShowInfoDialogues = u_showInfoDialogues;
+		UpdateData(false);		
+
+		CT_CLOSE_REGISTRY();
+	}
+	else
+	{
+		// FIXME
 	}
 
-	// Sollen die Hilfe-Dialoge angezeigt werden? (Abspeicherung ebenfalls in ini)
-	if(theApp.GetProfileInt("Settings", "DH_InfoDialogues", 1))
-	{
-		this->m_bShowInfoDialogues = true;
-	}
 
 	this->pButtonControl = new DiffieHellmanBitmapButtonControl(this);
 
@@ -696,7 +705,15 @@ void CDlgDiffieHellmanVisualization::OnCheckDisablehelp()
 {
 	UpdateData(true);
 
-	this->m_bShowInfoDialogues ? theApp.WriteProfileInt("Settings", "DH_InfoDialogues", 1) : theApp.WriteProfileInt("Settings", "DH_InfoDialogues", 0);
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
+	{
+		CT_WRITE_REGISTRY((unsigned long)m_bShowInfoDialogues, "DH_InfoDialogues" );
+		CT_CLOSE_REGISTRY();
+	}
+	else
+	{
+		// FIXME
+	}	
 }
 
 // Der User verlangt nach weiteren Informationen zum Session Key. Also wird der entsprechende

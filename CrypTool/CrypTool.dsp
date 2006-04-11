@@ -2077,6 +2077,10 @@ SOURCE=.\res\CRT_7key.gif
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\crt_astr.bin
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\CRT_blank.gif
 # End Source File
 # Begin Source File
@@ -2089,7 +2093,15 @@ SOURCE=.\res\CRT_wrong.gif
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\CRT\CrtAstronomy.gif
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\CrtAstronomy.gif
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\CRT\CrtKgrz.bmp
 # End Source File
 # Begin Source File
 
@@ -2409,6 +2421,14 @@ SOURCE=.\DlgADFGVX.cpp
 # Begin Source File
 
 SOURCE=.\DlgADFGVX.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgAdfgvxIntro.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DlgAdfgvxIntro.h
 # End Source File
 # Begin Source File
 
@@ -6307,6 +6327,14 @@ SOURCE=.\SignatureAttackMFC.cpp
 # Begin Source File
 
 SOURCE=.\SignatureAttackMFC.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\SizingDialog.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\SizingDialog.h
 # End Source File
 # Begin Source File
 

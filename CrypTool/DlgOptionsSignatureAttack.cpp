@@ -49,6 +49,7 @@ statement from your version.
 #include "CrypToolApp.h"
 #include "DlgOptionsSignatureAttack.h"
 #include "HashingOperations.h"
+#include "CrypToolTools.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -117,29 +118,56 @@ BOOL CDlgOptionsSignatureAttack::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	m_hashalgorithm = theApp.GetProfileInt("Settings", "SignatureAttackHashAlgorithmID", 0);
-	if (m_hashalgorithm < 0 || m_hashalgorithm > 5)
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
 	{
-		m_hashalgorithm = 0;
+		unsigned long u_hashalgorithm_ID = 0;
+		CT_READ_REGISTRY_DEFAULT(u_hashalgorithm_ID, "SignatureAttackHashAlgorithmID", u_hashalgorithm_ID);
+		if (u_hashalgorithm_ID < 0 || u_hashalgorithm_ID > 5) 
+		{
+			u_hashalgorithm_ID = 0;
+			CT_WRITE_REGISTRY(u_hashalgorithm_ID, "SignatureAttackHashAlgorithmID");
+		}
+		m_hashalgorithm = u_hashalgorithm_ID;
+
+		unsigned long u_bitLength = _OPT_SIG_ATT_STANDARD_BITLENGTH;
+		CT_READ_REGISTRY_DEFAULT(u_bitLength, "SignatureAttackSignificantBitLength", u_bitLength);
+		m_bitlength = CString(_itoa(u_bitLength, NULL, 10));
+
+		unsigned long u_mod_method = 0;
+		CT_READ_REGISTRY_DEFAULT(u_mod_method, "SignatureAttackModificationMethod", u_mod_method);
+		if (u_mod_method < 0 || u_mod_method > 1) 
+		{
+			u_mod_method = 0;
+			CT_WRITE_REGISTRY(u_mod_method, "SignatureAttackModificationMethod");
+		}
+		m_mod_method = u_mod_method;
+
+		unsigned long u_check1 = 1;
+		CT_READ_REGISTRY_DEFAULT(u_check1, "SignatureAttackCheck1", u_check1);
+		m_control_check1.SetCheck((int)u_check1);
+
+		unsigned long u_check3 = 1;
+		CT_READ_REGISTRY_DEFAULT(u_check3, "SignatureAttackCheck3", u_check3);
+		m_control_check3.SetCheck((int)u_check3);
+
+		unsigned long u_att_method = 0;
+		CT_READ_REGISTRY_DEFAULT(u_att_method, "SignatureAttackAttMethod", u_att_method);
+		if (u_att_method < 0 || u_att_method > 1) 
+		{
+			u_att_method = 0;
+			CT_WRITE_REGISTRY(u_att_method, "SignatureAttackAttMethod");
+		}
+		m_att_method = u_att_method;
+
+		CT_CLOSE_REGISTRY();
 	}
+	else
+	{
+		// FIXME
+	}
+
+
 	SetTextBitlengthRange();
-
-	m_bitlength = theApp.GetProfileString("Settings", "SignatureAttackSignificantBitLength", _OPT_SIG_ATT_STANDARD_BITLENGTH);
-	
-	m_mod_method = theApp.GetProfileInt("Settings", "SignatureAttackModificationMethod", 0);
-	if (m_mod_method < 0 || m_mod_method > 1)
-	{
-		m_mod_method = 0;
-	}
-
-	m_control_check1.SetCheck(theApp.GetProfileInt("Settings", "SignatureAttackCheck1", 1));
-	m_control_check3.SetCheck(theApp.GetProfileInt("Settings", "SignatureAttackCheck3", 1));
-
-	m_att_method = theApp.GetProfileInt("Settings", "SignatureAttackAttMethod", 0);
-	if (m_att_method < 0 || m_att_method > 1)
-	{
-		m_att_method = 0;
-	}
 
 	if (0 == m_mod_method)
 	{
@@ -251,12 +279,21 @@ void CDlgOptionsSignatureAttack::OnOK()
 		return;
 	}
 
-	theApp.WriteProfileInt("Settings", "SignatureAttackHashAlgorithmID", m_hashalgorithm);	
-	theApp.WriteProfileString("Settings", "SignatureAttackSignificantBitLength", m_bitlength);
-	theApp.WriteProfileInt("Settings", "SignatureAttackModificationMethod", m_mod_method);
-	theApp.WriteProfileInt("Settings", "SignatureAttackCheck1", m_control_check1.GetCheck());
-	theApp.WriteProfileInt("Settings", "SignatureAttackCheck3", m_control_check3.GetCheck());
-	theApp.WriteProfileInt("Settings", "SignatureAttackAttMethod", m_att_method);
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
+	{
+		CT_WRITE_REGISTRY((unsigned long)m_hashalgorithm, "SignatureAttackHashAlgorithmID");
+		unsigned long u_bitlength = (unsigned long)atoi(m_bitlength);
+		CT_WRITE_REGISTRY(u_bitlength, "SignatureAttackSignificantBitLength");
+		CT_WRITE_REGISTRY((unsigned long)m_mod_method, "SignatureAttackModificationMethod");
+		CT_WRITE_REGISTRY((unsigned long)m_control_check1.GetCheck(), "SignatureAttackCheck1");
+		CT_WRITE_REGISTRY((unsigned long)m_control_check3.GetCheck(), "SignatureAttackCheck3");
+		CT_WRITE_REGISTRY((unsigned long)m_att_method, "SignatureAttackAttMethod");
+		CT_CLOSE_REGISTRY();
+	}
+	else
+	{
+		// FIXME
+	}	
 
 	CDialog::OnOK();
 }

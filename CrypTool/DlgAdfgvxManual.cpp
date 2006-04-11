@@ -72,7 +72,6 @@ CDlgAdfgvxManual::CDlgAdfgvxManual(char* infile, CString oldTitle, CWnd* pParent
 	, analysed(false)
 	, iGotOne(false)
 	, subKey(_T(""))
-	, infoChecked(FALSE)
 {
 
 	//{{AFX_DATA_INIT(CDlgAdfgvxManual)
@@ -106,16 +105,24 @@ BOOL CDlgAdfgvxManual::OnInitDialog()
 	}
 	else
 	{
-		if(theApp.GetProfileInt("Settings","ADFGVX_IntroDialogue",1))
+		unsigned long noIntro = FALSE;
+
+		if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
+		{
+			CT_READ_REGISTRY_DEFAULT(noIntro, "ADFGVX_IntroDialogue", noIntro);
+			CT_CLOSE_REGISTRY();
+		}
+		else
+		{
+			// FIXME
+		}
+
+		if(!noIntro)
 		{
 			DlgAdfgvxIntro intro = new DlgAdfgvxIntro();
 			intro.DoModal();
 		}
 		
-		if(theApp.GetProfileInt("Settings","ADFGVX_IntroDialogue",1))
-			infoChecked=true;
-		else
-			infoChecked=false;
 		UpdateData(false);
 		//if clipboard has key from adfgvx-typ, enable paste button
 		if (IsKeyEmpty("ADFGVX Chiffre"))
@@ -279,6 +286,7 @@ BEGIN_MESSAGE_MAP(CDlgAdfgvxManual, CDialog)
 	ON_CBN_EDITCHANGE(IDC_PASSWORD_BOX, OnCbnEditchangePasswordBox)
 	ON_CBN_SELCHANGE(IDC_PASSWORD_BOX, OnCbnSelchangePasswordBox)
 	//}}AFX_MSG_MAP
+	ON_BN_CLICKED(IDC_MATRIX_STANDARD, OnBnClickedMatrixStandard)
 END_MESSAGE_MAP()
 
 
@@ -287,7 +295,7 @@ END_MESSAGE_MAP()
 
 /* klicking this button forces the usage of the password filled into the password field
 *	this overcomes the problem that a user-defined password would not be permitted
-*	if the analysis-function considers it "not worthy"
+*	if the analysis-function considers it "not worthy" 
 */
 //force using the password, even if the adfgvx-goodenough considers it "not worthy";
 //can be necessary with short ciphertexts
@@ -809,7 +817,7 @@ void CDlgAdfgvxManual::OnBnClickedResetMatrix()
 	}
 }
 
-void CDlgAdfgvxManual::OnBnClickedStdMatrix()
+void CDlgAdfgvxManual::OnBnClickedMatrixStandard()
 {
 	LoadString (AfxGetInstanceHandle(), IDS_STRING_ADFGVX_MATRIX_RESET, pc_str, STR_LAENGE_STRING_TABLE);
 
@@ -884,7 +892,7 @@ void CDlgAdfgvxManual::PwdEnqueue(CString pwd)
 	subKey="";
 	for(int row=0;row<6;row++)
 			for (int col=0;col<6;col++)
-				subKey.Append(matrix[row][col]);
+				subKey += CString(matrix[row][col]); // subKey.Append(matrix[row][col]);
 
 	//check the pwdList whether the pwd is already contained, if so, update the subKey
 	bool newPwd=true;
@@ -1691,4 +1699,6 @@ void CDlgAdfgvxManual::OnEnChangeM55()
 
 
 //***************************************************
+
+
 
