@@ -1,5 +1,5 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Visual C++ generated include file.
+// Microsoft Developer Studio generated include file.
 // Used by CrypTool.rc
 //
 #define IDS_FINDANDREPLACE_HEXNOTIMPLEMENTED 1
@@ -239,12 +239,19 @@
 #define IDR_GIF14                       827
 #define IDR_GIF15                       828
 #define IDD_CRT_SECRETSHARING_LOG       830
+#define IDB_CRT_KONGR                   830
 #define IDD_CRT_SECRETSHARING_INFO      831
 #define IDD_OPTIONS_SUBSTITUTION_AUTO_ANALYSIS 832
+#define IDR_CRT_ASTRONOMY               832
 #define IDD_AUTO_SUBSTITUTION_ANLYSIS   833
+#define IDB_CRT_CR_RIGHT                833
 #define IDD_AUTO_SUBSTITUTION_ANALYSIS_ALGORITHM_CHOICE 834
+#define IDB_CRT_CR_LEFT                 834
 #define IDD_ROT13_CAESAR                835
+#define IDB_CRT_BASIS                   835
 #define IDR_HTML_DLGSOLITAIRE           836
+#define IDB_CRT_DOWN_F                  836
+#define IDB_CRT_DOWN_FSTR               837
 #define IDC_EDIT133                     1015
 #define IDC_EDIT1                       1016
 #define IDC_EDIT2                       1017
@@ -1205,12 +1212,26 @@
 #define IDC_BUTTON_REPLACE_ALL          1886
 #define IDC_CHECK_CASE_SENSITIVE        1887
 #define IDC_CHECK_FIND_BACKWARDS        1888
+#define IDC_GIF_CRT_ASTRONOMY           1888
 #define IDC_CHECK_REGULAR_EXPRESSIONS   1889
 #define IDC_STATIC_PLAINTEXT            1890
 #define IDC_STATIC_ENTER_KNOWN          1891
 #define IDC_STATIC_ENTER_POS            1892
 #define IDC_STATIC_HIGHLIGHT_POS        1893
 #define IDC_STATIC_SHOW_KNOWN           1894
+#define IDC_CRT_SECRETSHARINGEDIT15     1895
+#define IDC_CRT_SECRETSHARINGEDIT15b    1896
+#define IDC_CRT_SECRETSHARINGEDIT9b     1897
+#define IDC_CRT_SECRETSHARINGEDIT9c     1898
+#define IDC_CRT_SECRETSHARINGEDIT21     1899
+#define IDC_CRT_SECRETSHARINGEDIT22     1900
+#define IDC_CRT_SecretSharing_Log_Save  1901
+#define IDC_CRT_SECRETSHARING_OPT_T1    1902
+#define IDC_CRT_SECRETSHARING_OPT_T2    1903
+#define IDC_CRT_SECRETSHARING_OPT_T21   1904
+#define IDC_CRT_Radio_AUT               1905
+#define IDC_CRT_RADIO_MAN               1906
+#define IDC_CRT_Calculation             1907
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -1553,7 +1574,6 @@
 #define IDS_TITLE_DLG_SOLITAIRE         33297
 #define IDS_TITLE_DLG_RSADECRYPTION     33298
 #define ID_POPUP_OPENGL_SHOW_BOX        33299
-#define IDS_CONTROL_CUT                 33299
 #define ID_VIEW_ENDOFLINE               33300
 #define ID_VIEW_LINEWRAP                33301
 #define ID_VIEW_WHITESPACE              33302
@@ -1571,6 +1591,7 @@
 #define ID_ZEICHENFORMAT_COURIER08      33316
 #define ID_DECODE_BASE64                33322
 #define ID_ENCODE_BASE64                33323
+#define IDS_CONTROL_CUT                 33324
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -2378,6 +2399,16 @@
 #define IDS_BYTES                       38061
 #define IDS_STRING_ADFGVX_NEWPWD        38062
 #define IDS_STRING_ADFGVX_RESTART_LENGTH 38063
+#define IDS_CRT_SECRETSHARING_REK9      38075
+#define IDS_CRT_SECRETSHARING_REK10     38076
+#define IDS_CRT_SECRETSHARING_REK11     38077
+#define IDS_CRT_SECRETSHARING_REK12     38078
+#define IDS_CRT_SECRETSHARING_MAN1      38079
+#define IDS_CRT_SECRETSHARING_MAN2      38080
+#define IDS_CRT_SECRETSHARING_MAN3      38081
+#define IDS_CRT_SECRETSHARING_FACTS3    38082
+#define IDS_CRT_SECRETSHARING_LOGTITLE  38083
+#define IDS_CRT_SECRETSHARING_LOGWRITTEN 38084
 #define IDS_DH_LOG_1                    61889
 #define IDS_DH_LOG_2                    61890
 #define IDS_DH_LOG_3                    61891
@@ -2500,9 +2531,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        827
+#define _APS_NEXT_RESOURCE_VALUE        838
 #define _APS_NEXT_COMMAND_VALUE         33324
-#define _APS_NEXT_CONTROL_VALUE         1888
+#define _APS_NEXT_CONTROL_VALUE         1889
 #define _APS_NEXT_SYMED_VALUE           107
 #endif
 #endif
