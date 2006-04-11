@@ -52,6 +52,7 @@ statement from your version.
 #include "OptionsForSignatureAttack.h"
 #include "ErrorcodesForSignatureAttack.h"
 #include "HashingOperations.h"
+#include "CrypToolTools.h"
 
 #ifdef _DEBUG
 #undef THIS_FILE
@@ -70,9 +71,23 @@ void OptionsForSignatureAttack::SetData(const char *HarmlessFile, const char *Da
 	int ii, AttMethod, Blanks, DoubledBlanks, HarmlessDocumentLength, DangerousDocumentLength, ModifyingMethod;
 	struct stat stat_object;
 
+
 	m_Errorcode = _SIG_ATT_OK;
 	m_IsDataFreed = false;
-	m_HashOp = new HashingOperations(theApp.GetProfileInt("Settings", "SignatureAttackHashAlgorithmID", 0));
+
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
+	{
+
+		unsigned long u_SignatureAttackHashAlgorithmID = (unsigned long)FALSE;
+		CT_READ_REGISTRY_DEFAULT(u_SignatureAttackHashAlgorithmID, "SignatureAttackHashAlgorithmID", u_SignatureAttackHashAlgorithmID);
+		m_HashOp = new HashingOperations(u_SignatureAttackHashAlgorithmID);
+		CT_CLOSE_REGISTRY();
+	}
+	else
+	{
+		// FIXME
+	}
+
 	if (0 != m_HashOp->GetErrorcode())
 	{
 		m_Errorcode = _SIG_ATT_BAD_HASH_ALGORITHM;
@@ -127,12 +142,38 @@ void OptionsForSignatureAttack::SetData(const char *HarmlessFile, const char *Da
 	}
 	ifstr_Dangerous.close();
 
-	m_HashAlgorithmBitLength = m_HashOp->GetHashAlgorithmBitLength();
-	m_SignificantBitLength = theApp.GetProfileInt("Settings", "SignatureAttackSignificantBitLength", 8);
-	ModifyingMethod = theApp.GetProfileInt("Settings", "SignatureAttackModificationMethod", 0);
-	Blanks = theApp.GetProfileInt("Settings", "SignatureAttackCheck1", 0);
-	DoubledBlanks = theApp.GetProfileInt("Settings", "SignatureAttackCheck3", 1);
-	AttMethod = theApp.GetProfileInt("Settings", "SignatureAttackAttMethod", 0);
+
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
+	{
+		m_HashAlgorithmBitLength = m_HashOp->GetHashAlgorithmBitLength();
+
+		unsigned long u_SignificantBitLength = 8;
+		CT_READ_REGISTRY_DEFAULT(u_SignificantBitLength, "SignatureAttackSignificantBitLength", u_SignificantBitLength);
+		m_SignificantBitLength = u_SignificantBitLength;
+
+		unsigned long u_ModifyingMethod = 0;
+		CT_READ_REGISTRY_DEFAULT(u_ModifyingMethod, "SignatureAttackModificationMethod", u_ModifyingMethod);
+		ModifyingMethod = u_ModifyingMethod;
+
+		unsigned long u_Blanks = 0;
+		CT_READ_REGISTRY_DEFAULT(u_Blanks, "SignatureAttackCheck1", u_Blanks);
+		Blanks = u_Blanks;
+
+		unsigned long u_DoubledBlanks = 1;
+		CT_READ_REGISTRY_DEFAULT(u_DoubledBlanks, "SignatureAttackCheck3", u_DoubledBlanks);
+		DoubledBlanks = u_DoubledBlanks;
+
+		unsigned long u_AttMethod = 1;
+		CT_READ_REGISTRY_DEFAULT(u_AttMethod, "SignatureAttackAttMethod", u_AttMethod);
+		AttMethod = u_AttMethod;
+
+		CT_CLOSE_REGISTRY();
+	}
+	else
+	{
+		// FIXME
+	}
+
 
 	if (m_SignificantBitLength > m_HashAlgorithmBitLength)
 	{

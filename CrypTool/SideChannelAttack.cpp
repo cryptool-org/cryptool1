@@ -113,7 +113,20 @@ SCA_Server::SCA_Server()
 {
 	// Einstellung aus .ini-Datei holen (Signifikante Bitlänge!!!)
 	// Default-Wert: 128 Bit
-	significantBits = theApp.GetProfileInt("Settings", "HybridEncryptionSCASignificantBits", 128);
+
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
+	{
+		unsigned long u_significantBits = 128;
+
+		CT_READ_REGISTRY_DEFAULT(u_significantBits, "HybridEncryptionSCASignificantBits", u_significantBits);
+		significantBits = u_significantBits;
+
+		CT_CLOSE_REGISTRY();
+	}
+	else
+	{
+		// FIXME
+	}
 	if(!significantBits) throw SCA_Error(E_SCA_INTERNAL_ERROR);
 
 	// Speicher reservieren
@@ -244,10 +257,18 @@ bool SCA_Server::wasDecryptionSuccessful(OctetString *decryptedCipherText)
 	memcpy(temp, decryptedCipherText->octets, decryptedCipherText->noctets);
 	memcpy(temp + decryptedCipherText->noctets, "\0", 1);
 	std::string strTemp = temp;
-	char keyword[STR_LAENGE_STRING_TABLE+1];
-	CString kw = theApp.GetProfileString("Settings", "SCA_Keyword", "Alice");
-	memcpy(keyword, (char*)(LPCTSTR)(kw), kw.GetLength());
-	memcpy(keyword + kw.GetLength(), "\0", 1);
+
+	char keyword[STR_LAENGE_STRING_TABLE+1] = "Alice";
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
+	{
+		unsigned long u_keyword_maxLength = STR_LAENGE_STRING_TABLE;
+		CT_READ_REGISTRY_DEFAULT(keyword, "SCA_Keyword", keyword, u_keyword_maxLength);
+		CT_CLOSE_REGISTRY();
+	}
+	else
+	{
+		// FIXME
+	}
 
 	if(strTemp.find(keyword) != -1)
 		return true;
@@ -365,7 +386,20 @@ SCA_Attacker::SCA_Attacker()
 {
 	// Einstellung aus .ini-Datei holen (Signifikante Bitlänge!!!)
 	// Default-Wert: 128 Bit
-	significantBits = theApp.GetProfileInt("Settings", "HybridEncryptionSCASignificantBits", 128);
+
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
+	{
+		unsigned long u_significantBits = 128;
+
+		CT_READ_REGISTRY_DEFAULT(u_significantBits, "HybridEncryptionSCASignificantBits", u_significantBits);
+		significantBits = u_significantBits;
+
+		CT_CLOSE_REGISTRY();
+	}
+	else
+	{
+		// FIXME
+	}
 	if(!significantBits) throw SCA_Error(E_SCA_INTERNAL_ERROR);
 	
 	// Speicher reservieren
