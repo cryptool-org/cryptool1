@@ -1,11 +1,14 @@
-/*****************************************
- *
- * SECUDE Sicherheitstechnologie
- * Informationssysteme GmbH, Darmstadt
- *
- * (C) Copyright SECUDE GmbH,  1997 - 2001
- *
- ******************************************/
+/*###*****************************************
+ *###
+ *### SECUDE IT Security GmbH
+ *###
+ *### Copyright (c) 2004-2006
+ *###
+ *### File ./include/secude/platform/plathpux.h
+ *###
+ *### global functions:
+ *###
+ *###*****************************************/
 
 /*
  * Platform specific header for HP HP-UX
@@ -22,6 +25,7 @@
 #define SEC_TARGET_CPU_HPPA 1
 
 #include <sys/types.h>
+#ifndef __ia64
 #ifndef __INTTYPES_INCLUDED
 #include <model.h>
 typedef u_int8 uint8_t;
@@ -31,4 +35,6 @@ typedef int8 int8_t;
 typedef int16 int16_t;
 typedef int32 int32_t;
 #endif
+#endif
+
 

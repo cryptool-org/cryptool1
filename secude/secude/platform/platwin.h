@@ -1,11 +1,14 @@
-/*****************************************
- *
- * SECUDE Sicherheitstechnologie
- * Informationssysteme GmbH, Darmstadt
- *
- * (C) Copyright SECUDE GmbH,  1997 - 2001
- *
- ******************************************/
+/*###*****************************************
+ *###
+ *### SECUDE IT Security GmbH
+ *###
+ *### Copyright (c) 2004-2006
+ *###
+ *### File ./include/secude/platform/platwin.h
+ *###
+ *### global functions:
+ *###
+ *###*****************************************/
 
 /*
  * Platform specific header for Microsoft Windows NT, Visual Studio
@@ -21,7 +24,7 @@
 #define SEC_TARGET_API_WIN32 1
 #define SEC_TARGET_CPU_X86 1
 
-#if !defined(_M_IX86)
+#if !defined(_M_IX86) && !defined(_M_IA64)
 #  error "architecture not supported"
 #endif
 

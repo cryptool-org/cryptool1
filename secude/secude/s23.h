@@ -8,8 +8,8 @@
  * In the process of integrating the security technology of SECUDE into the		*
  * SSL protocol, the original implementation by Eric Young was completely		*
  * rewritten, restructured and complemented by new features.					*
- * SECUDE is registered trademark of SECUDE GmbH.								*
- * Copyright (C) 1997 - 2001 SECUDE GmbH										*
+ * SECUDE is registered trademark of SECUDE IT Security GmbH.								*
+ * Copyright (c) 2004										*
  * All rights reserved.															*
  *																				*
  *																				*

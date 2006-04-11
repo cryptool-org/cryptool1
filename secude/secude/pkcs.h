@@ -1,11 +1,14 @@
-/*****************************************
- *
- * SECUDE Sicherheitstechnologie
- * Informationssysteme GmbH, Darmstadt
- *
- * (C) Copyright SECUDE GmbH,  1997 - 2001
- *
- ******************************************/
+/*###*****************************************
+ *###
+ *### SECUDE IT Security GmbH
+ *###
+ *### Copyright (c) 2004-2006
+ *###
+ *### File ./include/secude/pkcs.h
+ *###
+ *### global functions:
+ *###
+ *###*****************************************/
 
 /*-----------------------------------------------------------------------*/
 /*  INCLUDE FILE  pkcs.h  (PKCS Standard)                                */
@@ -59,6 +62,7 @@ typedef struct ExtendedCertificateInfo 			ExtendedCertificateInfo;
 typedef struct IssuerAndSerialNumber 			IssuerAndSerialNumber;
 typedef struct ContentInfo 				ContentInfo;
 typedef struct SignerInfo 				SignerInfo;
+typedef struct P7VerifyResult           P7VerifyResult;
 /***** Typedef SignerInfos *****/
 /** Set of %SignerInfo's.
   * @ingroup header_pkcs7
@@ -342,6 +346,27 @@ struct ContentInfo {
         int     contentchoice;*/
 };
 
+/***** Enumerator eP7CheckStatus *****/
+/** @ingroup header_pkcs7
+  */
+typedef enum e_P7CheckStatus {
+    e_P7CheckInternalError = -1
+   ,e_P7CheckNotExecuted = 0
+   ,e_P7CheckOk
+   ,e_P7CheckFailed
+} e_P7CheckStatus;
+
+/***** Structure P7VerifyResult *****/
+/** @ingroup header_pkcs7
+  */
+struct P7VerifyResult {
+    int     type; /* unused */
+    e_P7CheckStatus e_checkMatchOfHashes;
+    e_P7CheckStatus e_checkSignature;
+    e_P7CheckStatus e_checkUserCert;
+    e_P7CheckStatus e_checkCACert;
+};
+
 
 /***** Structure SignerInfo *****/
 /** @ingroup header_pkcs7
@@ -549,8 +574,8 @@ struct AttributeTypeTable {
         ObjId	*at_oid;
         e_function * av_enc;
         d_function * av_dec;
-	void	(*av_free)();
-	char*	(*av_sprint)();
+	void	(*av_free) SEC_PROTOTYPE_1(void *, arg);
+	char*	(*av_sprint) SEC_PROTOTYPE_2(char *, string, void *, arg);
 	char	at_prt_flag;
 };
 

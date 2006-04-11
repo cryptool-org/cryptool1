@@ -8,8 +8,8 @@
  * In the process of integrating the security technology of SECUDE into the		*
  * SSL protocol, the original implementation by Eric Young was completely		*
  * rewritten, restructured and complemented by new features.					*
- * SECUDE is registered trademark of SECUDE GmbH.								*
- * Copyright (C) 1997 - 2001 SECUDE GmbH										*
+ * SECUDE is registered trademark of SECUDE IT Security GmbH.								*
+ * Copyright (c) 2004										*
  * All rights reserved.															*
  *																				*
  *																				*
@@ -126,12 +126,15 @@ typedef struct SSL_CTX*				H_SSL_CTX;
 /* this is the list of default cipher suites for every new SSL_CTX; you can use the alias		*
  * "DEFAULT" to use the SSL_DEFAULT_CIPHER_SUITES with the SSL_CTX_set_default_cipher_suites and	*
  * SSL_set_cipher_suites functions - but only at the beginning of your cipher_suites parameter	*/
+
+/*
 #ifdef RSA_INSTALLED
-#define SSL_DEFAULT_CIPHER_SUITES				"!aNULL:eRC4+aRSA:HIGH:MEDIUM:LOW:EXPORT:+EXPORT"
+#define SSL_DEFAULT_CIPHER_SUITES_				"!aNULL:eRC4+aRSA:HIGH:MEDIUM:LOW:EXPORT:+EXPORT"
 #else
 #define SSL_DEFAULT_CIPHER_SUITES				"HIGH:MEDIUM:LOW:aNULL+kDHE+e3DES:aNULL+kDHE+eRC4:aNULL+kDHE+eDES:+EXPORT"
 #endif
-
+*/
+#define SSL_DEFAULT_CIPHER_SUITES (char*) SSL_API_get_default_cipher_suites()
 /* boolean constants */
 #define SSL_FALSE								0
 #define SSL_TRUE								1
@@ -301,6 +304,7 @@ typedef struct SSL_CTX*				H_SSL_CTX;
 #define SSL_OP_SESSION_RESUMPTION_ONLY			0x00000800L
 #define SSL_OP_SINGLE_DEFAULT_DHE_USE			0x00000100L
 #define SSL_OP_SSLEAY_080_CLIENT_DH_BUG			0x00000200L
+#define SSL_OP_SKIP_EXPIRED_CERTS_IN_FCPATH		0x00001000L
 
 /* location constants passed as the second parameter to the handshake_callback */
 /***** #Define SSL_CB_LOOP *****/
@@ -384,6 +388,14 @@ typedef struct SSL_CTX*				H_SSL_CTX;
 #define SSL_ERROR_SSL							6
 #define SSL_ERROR_UNKNOWN						7
 
+/* constant for the default value of maximum message sizes
+ that are to be accepted for incoming messages */
+#if defined(MSDOS) && !defined(WIN32)
+#define SSL_MAX_CERT_LIST_DEFAULT 1024*30 /* 30k max cert list :-) */
+#else
+#define SSL_MAX_CERT_LIST_DEFAULT 1024*100 /* 100k max cert list :-) */
+#endif
+
 
 /*------------------------------ the functions ------------------------------*/
 
@@ -399,6 +411,7 @@ int	SEC_API_CALLING_CONV SSL_API_log();
 int	SEC_API_CALLING_CONV SSL_API_print_error(H_BIO hBio , int last_error_only);
 int	SEC_API_CALLING_CONV SSL_API_set_logfile(char* logfile);
 int SEC_API_CALLING_CONV SSL_API_startup(void);
+const char * SEC_API_CALLING_CONV SSL_API_get_default_cipher_suites();
 
 /* SSL handling */
 int	SEC_API_CALLING_CONV SSL_accept(H_SSL hSsl);

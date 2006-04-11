@@ -1,11 +1,14 @@
-/*****************************************
- *
- * SECUDE Sicherheitstechnologie
- * Informationssysteme GmbH, Darmstadt
- *
- * (C) Copyright SECUDE GmbH,  1997 - 2001
- *
- ******************************************/
+/*###*****************************************
+ *###
+ *### SECUDE IT Security GmbH
+ *###
+ *### Copyright (c) 2004-2006
+ *###
+ *### File ./include/secude/secure.h
+ *###
+ *### global functions:
+ *###
+ *###*****************************************/
 
 /*-----------------------------------------------------------------------*/
 /* INCLUDE FILE  secure.h                                                */
@@ -106,6 +109,10 @@ typedef struct {
     PINType   pintype;      /* identification for the PIN object                              */
 /** identification for the PIN object as printable string */
     char *    pinname;      /* identification for the PIN object as printable string          */
+
+/** the minimum / maximum number of digits the PIN must have */
+    int       min_pin_len;      /* new in 7.4.56, should be backward compatible as it is attached to the end */
+    int       max_pin_len;      /* new in 7.4.56, should be backward compatible as it is attached to the end */
     
 } CB_DATA_PIN;
  

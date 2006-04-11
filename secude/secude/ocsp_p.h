@@ -1,11 +1,14 @@
-/*****************************************
- *
- * SECUDE Sicherheitstechnologie
- * Informationssysteme GmbH, Darmstadt
- *
- * (C) Copyright SECUDE GmbH,  1997 - 2001
- *
- ******************************************/
+/*###*****************************************
+ *###
+ *### SECUDE IT Security GmbH
+ *###
+ *### Copyright (c) 2004-2006
+ *###
+ *### File ./include/secude/ocsp_p.h
+ *###
+ *### global functions:
+ *###
+ *###*****************************************/
 
 #ifndef OCSP_P_H_
 #define OCSP_P_H_
@@ -15,7 +18,7 @@
 #endif
 
 
-#include <secude/f_macros.h>
+#include "secude/f_macros.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -95,6 +98,24 @@ RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV ocsp_restore_OCSPResponse SEC_PRO
 RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV ocsp_decode_OCSPResponse SEC_PROTOTYPE_2(
 	struct OCSPQuery *, query,
 	OctetString *, response);
+
+OCSPResponse SEC_GLOBAL_FUNC_PREFIX * SEC_API_CALLING_CONV
+d_OCSPResponse SEC_PROTOTYPE_1(
+    OctetString *, asn1_string);
+
+void SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV aux_free_OCSPResponse SEC_PROTOTYPE_1(OCSPResponse **, pp);
+
+char SEC_GLOBAL_FUNC_PREFIX * SEC_API_CALLING_CONV
+aux_sprint_OCSPResponse SEC_PROTOTYPE_2(
+    char *, string,
+    OCSPResponse *, response);
+
+char SEC_GLOBAL_FUNC_PREFIX * SEC_API_CALLING_CONV 
+ocsp_sprint_OCSPResponse SEC_PROTOTYPE_2(
+    char *, sz,
+    OCSPQuery *, p_query);
+
+extern ObjId SEC_GLOBAL_FUNC_PREFIX * SEC_GLOBAL_VAR_PREFIX OCSP_Response_OID;
 
 OctetString SEC_GLOBAL_FUNC_PREFIX * SEC_API_CALLING_CONV ocsp_encode_OCSPResponse SEC_PROTOTYPE_1(
 	const struct OCSPQuery *, query);
@@ -292,6 +313,16 @@ void SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV ocsp_set_TraceFunc SEC_PROTOTYP
 	OCSPTraceFunc *, traceFunc,
 	void *, traceFuncContext,
 	OCSPTraceLevel, traceLevel);
+
+#ifdef AUTHORITY_CHECKER_INTERFACE
+RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV ocsp_set_ResponderVerifier SEC_PROTOTYPE_2(
+	struct OCSPQuery *, query,
+	ResponderVerifier *, pVerifier);
+
+RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV ocsp_set_ResponderAuthorityChecker SEC_PROTOTYPE_2(
+	struct OCSPQuery *, query,
+	ResponderAuthorityChecker *, pAuthorizer);
+#endif /* AUTHORITY_CHECKER_INTERFACE */
 
 Certificate SEC_GLOBAL_FUNC_PREFIX * SEC_API_CALLING_CONV ocsp_get_singleResponderCert SEC_PROTOTYPE_1(
 	const struct SingleOCSPQuery *, singlequery);

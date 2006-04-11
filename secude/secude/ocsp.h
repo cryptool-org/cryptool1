@@ -1,11 +1,14 @@
-/*****************************************
- *
- * SECUDE Sicherheitstechnologie
- * Informationssysteme GmbH, Darmstadt
- *
- * (C) Copyright SECUDE GmbH,  1997 - 2001
- *
- ******************************************/
+/*###*****************************************
+ *###
+ *### SECUDE IT Security GmbH
+ *###
+ *### Copyright (c) 2004-2006
+ *###
+ *### File ./include/secude/ocsp.h
+ *###
+ *### global functions:
+ *###
+ *###*****************************************/
 
 #ifndef OCSP_H_
 #define OCSP_H_
@@ -79,7 +82,9 @@ enum OCSPQueryStatus {
 /** The response is signed by the key trustedKey (in OCSPVerifyOptions).\  */
 	OCSPQtrustedKey, /* response signed by trusted key */
 /** The signature of the response was not checked.\  */
-	OCSPQsigIgnored /* response signature ignored */
+	OCSPQsigIgnored, /* response signature ignored */
+/** The response is signed by a key that was certified by the trusted responder CA trustedKey (in OCSPVerifyOptions).\  */
+	OCSPQtrustedCAKey /* response signed using key certified by trusted responder CA */
 };
 #ifndef DOXYGEN_EXCLUDE
 typedef enum OCSPQueryStatus OCSPQueryStatus;
@@ -230,6 +235,8 @@ typedef SEC_CALLBACK(void, OCSPTraceFunc) SEC_PROTOTYPE_3(
 	const char *, msg,
 	void *, context
 );
+
+typedef struct OCSPResponse OCSPResponse;
 
 /***** Enumeration OCSPTraceLevel *****/
 /** @ingroup header_ocsp
@@ -390,6 +397,9 @@ typedef enum OCSPQueryFlag {
 	ocsp_query_ignoreSignature = 0x4F516973UL
 } OCSPQueryFlag;
 
+/***** Typedef OCSPQuery *****/
+/** @ingroup header_ocsp
+  */
 typedef struct OCSPQuery OCSPQuery;
 
 typedef struct SingleOCSPQuery SingleOCSPQuery;
@@ -399,6 +409,50 @@ typedef struct OCSPResponseCache OCSPResponseCache;
 typedef struct OCSPReply OCSPReply;
 
 #define OCSP_DEFAULT_HASHALG sha1_aid
+
+#ifdef AUTHORITY_CHECKER_INTERFACE
+/* Interface types for application specific responder certificate verification
+   and responder authorization check
+*/
+/*::Don't care about this section, it is still under construction.*/
+typedef struct VerifierFunctions VerifierFunctions;
+typedef struct ResponderVerifier
+{
+    const VerifierFunctions* fn;
+} ResponderVerifier;
+
+typedef struct AuthorityCheckerFunctions AuthorityCheckerFunctions;
+typedef struct ResponderAuthorityChecker
+{
+    const AuthorityCheckerFunctions* fn;
+} ResponderAuthorityChecker;
+
+/* Typedefs for authority checker methods */
+typedef RC FP_CheckResponderAuthority
+(
+ Certificate * pResponderSigningCert
+ , Certificates * pResponderCerts
+ , Boolean * bResponderIsAuthorized
+ );
+
+/* By calling this method, the default ResponderAuthorityChecker demands to know, if standard conform
+   OCSP responders are accepted as well. If true is returned, standard conform OCSP responders are 
+   accepted even if they do not meet the requirements of the proprietary ResponderAuthorityChecker.
+   If false is returned, any responder that does not meet these requirements is disapproved.
+ */
+typedef RC FP_AcceptPKIXScheme
+(
+ Certificate * pResponderSigningCert
+ , Certificates * pResponderCerts
+ );
+
+struct AuthorityCheckerFunctions
+{
+    FP_CheckResponderAuthority * fp_CheckResponderAuthority;
+    FP_AcceptPKIXScheme        * fp_AcceptPKIXScheme;
+};
+
+#endif /* AUTHORITY_CHECKER_INTERFACE */
 
 #ifdef __cplusplus
 } /* extern C */

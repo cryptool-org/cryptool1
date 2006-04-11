@@ -1,11 +1,14 @@
-/*****************************************
- *
- * SECUDE Sicherheitstechnologie
- * Informationssysteme GmbH, Darmstadt
- *
- * (C) Copyright SECUDE GmbH,  1997 - 2001
- *
- ******************************************/
+/*###*****************************************
+ *###
+ *### SECUDE IT Security GmbH
+ *###
+ *### Copyright (c) 2004-2006
+ *###
+ *### File ./include/secude/af_p.h
+ *###
+ *### global functions:
+ *###
+ *###*****************************************/
 
 #if !defined(SECUDE_AF_INCLUDE) || !SECUDE_AF_INCLUDE
 #error do not include this file, include <secude/af.h>
@@ -31,6 +34,7 @@ char SEC_GLOBAL_FUNC_PREFIX * SEC_API_CALLING_CONV aux_get_notafter_of_Certifica
 char SEC_GLOBAL_FUNC_PREFIX * SEC_API_CALLING_CONV aux_get_notbefore_of_Certificate SEC_PROTOTYPE_1(Certificate     * ,cert);
 
 
+RC SEC_API_CALLING_CONV af_int_set_crl_options(PSE pse, char *config_node);
 
 int SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV sap_secin SEC_PROTOTYPE_2(
 	int , cnt,
@@ -214,14 +218,16 @@ RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV unload_ldap_library SEC_PROTOTYPE
 	PSE, pse_handle
 );
 #endif*/
+RC  SEC_API_CALLING_CONV sec_ldap_insert_entry_in_url (                 
+    char *  url,   DName *  entry, char **newurl
+    );
+RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV ldap_get_url SEC_PROTOTYPE_4(
+    PSE   , pse_handle,
+    char *,  name,
+    DName *,  entry,
+    SET_OF_CRL **,   obj
+    );
 
-#if defined(X509v3) && defined(X500) && defined(X500_USE_LDAP)
-RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV ldap_URL_get SEC_PROTOTYPE_3(
-        PSE   , pse_handle,
-        char *, name,
-        SET_OF_CRL **, CRLset
-);
-#endif
 
 #endif
 
@@ -536,6 +542,18 @@ void SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV aux_free_VerificationResult SEC
 	
 	VerificationResult	**	, verres
 
+);
+
+RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV aux_free2_OcspResults SEC_PROTOTYPE_1(
+	OcspCheckResults	*	, p_results
+);
+
+void SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV aux_free_OcspHdl SEC_PROTOTYPE_1(
+	H_OCSP_CHECK*	, p_h_rev_check
+);
+
+void SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV aux_free2_OcspHdl SEC_PROTOTYPE_1(
+	H_OCSP_CHECK	, h_rev_check
 );
 
 void SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV aux_free2_Validity SEC_PROTOTYPE_1(
@@ -1509,6 +1527,104 @@ RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV af_verify_Certificates_with_CRLs 
         Boolean		  	, call_af_verify
 );
 
+RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV af_set_RevocationCheckOptions SEC_PROTOTYPE_18(
+    H_OCSP_CHECK, h_rev_check,
+    KeyInfo          *,  pCAKeyInfo,
+    SET_OF_CRL*, p_CRLs,
+    eRevocationCheckType, RevocationCheckType,
+    e_ocsp_auth_scheme, ocsp_auth_scheme,
+    Boolean           ,  b_ocsp_query_acceptCRLSign,
+    Boolean           ,  b_ocsp_query_requireCertHash,
+    Boolean           ,  b_ocsp_query_requireNonce,
+    Boolean           ,  b_ocsp_query_sendCertHash,
+    Boolean           ,  b_ocsp_query_signRequest,
+    char             *,  szResponderUri,
+    Boolean           ,  b_retrieveResponse,
+    unsigned int      ,  nTimeoutFullMilliSecds,
+    char *            ,  szProxyUrl,
+    char *            ,  szProxyUser,
+    char *            ,  szProxyPassword,
+    OctetString      *,  pSavedResponse,
+    UTCTime          *,  pTime
+);
+
+RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV af_ocsp_set_PCAListCB SEC_PROTOTYPE_2(
+H_OCSP_CHECK    , h_ocsp_check,
+PCAList_IF *   ,  p_if
+);
+
+RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV af_set_OCSP_Trace_Function SEC_PROTOTYPE_3(
+    H_OCSP_CHECK       ,  h_rev_check,
+    OCSPTraceFunc    *,  fpOCSPTraceFunction,
+    void             *,  OCSPTraceContext
+);
+
+RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV af_set_OCSPResponse_Base64 SEC_PROTOTYPE_2(
+    H_OCSP_CHECK       ,  h_rev_check,
+    const char *       ,  szResponse
+);
+
+RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV af_set_OCSP_Trace_Level SEC_PROTOTYPE_2(
+    H_OCSP_CHECK       ,  h_rev_check,
+    OCSPTraceLevel    ,  OCSPTraceLevel
+);
+
+RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV af_verify_set_OCSP_options SEC_PROTOTYPE_2(
+    void *        , verify_ctx,
+    H_OCSP_CHECK , h_rev_check
+);
+
+/* creates bare Ocsp handle without reading settings from anywhere */
+RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV af_create_OcspHdl SEC_PROTOTYPE_1(
+    H_OCSP_CHECK*  , p_h_rev_check
+);
+
+RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV af_verify_Certificates_with_OCSP SEC_PROTOTYPE_6(
+    PSE ,  pse_handle,
+    Certificates	 *	 , or_cert,
+    UTCTime		 *	     , p_time,
+    PKRoot		 *	     , pkroot,
+    Boolean              , call_af_verify,
+    H_OCSP_CHECK , h_rev_check
+);
+
+RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV af_check_OCSP SEC_PROTOTYPE_4(
+ PSE, pse
+, Certificates *, or_cert
+, UTCTime      *, p_time
+, H_OCSP_CHECK, h_rev_check
+);
+
+/************************************************************************/
+/* Accessors to H_OCSP_CHECK                                                                     */
+/************************************************************************/
+eRevocationCheckType
+SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV GetRevocationCheckType SEC_PROTOTYPE_1(
+ H_OCSP_CHECK, h
+);
+
+const OcspCheckResults 
+SEC_GLOBAL_FUNC_PREFIX * SEC_API_CALLING_CONV GetOcspResults SEC_PROTOTYPE_1(
+ H_OCSP_CHECK, h
+);
+
+RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV af_get_SingleOcspQuery SEC_PROTOTYPE_2(
+ H_OCSP_CHECK, h,
+ const SingleOCSPQuery **, pp
+);
+
+RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV af_OCSPRespIsFresh SEC_PROTOTYPE_2(
+ H_OCSP_CHECK, h,
+ Boolean*, p_bRes
+);
+
+typedef const char * const_char_p;
+
+RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV  af_get_OCSPResponseDumpPath SEC_PROTOTYPE_2(
+ H_OCSP_CHECK, h
+ , const_char_p *, szPath
+);
+
 /*
  Search if the certificate is on the CRL.
  If found, entry is set to the appropriate entry (NO COPY OF THE MEMORY, DONT FREE IT) and
@@ -1847,6 +1963,13 @@ RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV af_afdb_delete_Certificate SEC_PR
 
 );
 
+RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV af_afdb_enter_CRL_ARL SEC_PROTOTYPE_3(
+	
+	CRL	 *	, crl,
+	char *  , type,
+	DName * , issuer
+
+);
 RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV af_afdb_enter_CRL SEC_PROTOTYPE_1(
 	
 	CRL	 *	, crl
@@ -4478,6 +4601,12 @@ char SEC_GLOBAL_FUNC_PREFIX * SEC_API_CALLING_CONV  aux_sprint_error SEC_PROTOTY
 	int	  	, verbose
 
 );
+
+/*
+AZ 20041105120500Z: There is no such aux_free_GeneralTime. However, it is mentioned in the documentation
+of d_GeneralTime.
+*/
+#define aux_free_GeneralTime(arg) aux_free_UTCTime(arg)
 
 void SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV aux_free_UTCTime SEC_PROTOTYPE_1(
         UTCTime	**  , p
@@ -7243,6 +7372,85 @@ SEQUENCE_OF_OctetString SEC_GLOBAL_FUNC_PREFIX * SEC_API_CALLING_CONV d_SEQUENCE
 	OctetString	 *	, asn1_string
 );
 
+#define decode_QCStatements(i, f, e, r) ASN1d_gen_List(i, f, e, r)
+#define encode_QCStatements(i, g, f) ASN1e_gen_List(i, g, f)
+extern ASN1info_type SEC_GLOBAL_FUNC_PREFIX SEC_GLOBAL_VAR_PREFIX ASN1info_QCStatements;
+OctetString SEC_GLOBAL_FUNC_PREFIX * SEC_API_CALLING_CONV e_QCStatements SEC_PROTOTYPE_1(
+    QCStatements	 *	, p
+    );
+QCStatements SEC_GLOBAL_FUNC_PREFIX * SEC_API_CALLING_CONV d_QCStatements SEC_PROTOTYPE_1(
+    OctetString	 *	, asn1_string
+    );
+extern ASN1info_type SEC_GLOBAL_FUNC_PREFIX SEC_GLOBAL_VAR_PREFIX ASN1info_QSStatement;
+OctetString SEC_GLOBAL_FUNC_PREFIX * SEC_API_CALLING_CONV e_QSStatement SEC_PROTOTYPE_1(
+    QSStatement	 *	, p
+    );
+QSStatement SEC_GLOBAL_FUNC_PREFIX * SEC_API_CALLING_CONV d_QSStatement SEC_PROTOTYPE_1(
+    OctetString	 *	, asn1_string
+    );
+void SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV aux_free2_QSStatement SEC_PROTOTYPE_1(
+    QSStatement	*	, str
+    );
+void SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV aux_free_QSStatement SEC_PROTOTYPE_1(
+    QSStatement **	, str
+    );
+
+void SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV aux_free2_QCStatements SEC_PROTOTYPE_1(
+    QCStatements	*	, set
+    );
+void SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV aux_free_QCStatements SEC_PROTOTYPE_1(
+    QCStatements **	, str
+    );
+
+void SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV aux_free2_Iso4217CurrencyCode SEC_PROTOTYPE_1(
+    Iso4217CurrencyCode	*	, set
+    );
+void SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV aux_free_Iso4217CurrencyCode SEC_PROTOTYPE_1(
+    Iso4217CurrencyCode **	, str
+    );
+extern ASN1info_type SEC_GLOBAL_FUNC_PREFIX SEC_GLOBAL_VAR_PREFIX ASN1info_Iso4217CurrencyCode;
+OctetString SEC_GLOBAL_FUNC_PREFIX * SEC_API_CALLING_CONV e_Iso4217CurrencyCode SEC_PROTOTYPE_1(
+    Iso4217CurrencyCode	 *	, p
+    );
+Iso4217CurrencyCode SEC_GLOBAL_FUNC_PREFIX * SEC_API_CALLING_CONV d_Iso4217CurrencyCode SEC_PROTOTYPE_1(
+    OctetString	 *	, asn1_string
+    );
+
+void SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV aux_free2_MonetaryValue SEC_PROTOTYPE_1(
+    MonetaryValue	*	, set
+    );
+void SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV aux_free_MonetaryValue SEC_PROTOTYPE_1(
+    MonetaryValue **	, str
+    );
+extern ASN1info_type SEC_GLOBAL_FUNC_PREFIX SEC_GLOBAL_VAR_PREFIX ASN1info_MonetaryValue;
+OctetString SEC_GLOBAL_FUNC_PREFIX * SEC_API_CALLING_CONV e_MonetaryValue SEC_PROTOTYPE_1(
+    MonetaryValue	 *	, p
+    );
+MonetaryValue SEC_GLOBAL_FUNC_PREFIX * SEC_API_CALLING_CONV d_MonetaryValue SEC_PROTOTYPE_1(
+    OctetString	 *	, asn1_string
+    );
+
+void SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV aux_free2_SemanticsInformation SEC_PROTOTYPE_1(
+    SemanticsInformation	*	, set
+    );
+void SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV aux_free_SemanticsInformation SEC_PROTOTYPE_1(
+    SemanticsInformation **	, str
+    );
+extern ASN1info_type SEC_GLOBAL_FUNC_PREFIX SEC_GLOBAL_VAR_PREFIX ASN1info_SemanticsInformation;
+OctetString SEC_GLOBAL_FUNC_PREFIX * SEC_API_CALLING_CONV e_SemanticsInformation SEC_PROTOTYPE_1(
+    SemanticsInformation	 *	, p
+    );
+SemanticsInformation SEC_GLOBAL_FUNC_PREFIX * SEC_API_CALLING_CONV d_SemanticsInformation SEC_PROTOTYPE_1(
+    OctetString	 *	, asn1_string
+    );
+
+char SEC_GLOBAL_FUNC_PREFIX * SEC_API_CALLING_CONV aux_sprint_oid_and_value SEC_PROTOTYPE_4(
+    char     *              , string,
+    ObjId *  , oid,
+    OctetString *  , value,
+    Boolean * , critical
+    );
+
 KeyBits SEC_GLOBAL_FUNC_PREFIX * SEC_API_CALLING_CONV aux_convert_RSAPrivateKey_to_KeyBits SEC_PROTOTYPE_2(
 	RSAPrivateKey	*	, rsapvk,
 	int					, inherit_memory_from_pvk
@@ -7287,6 +7495,21 @@ RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV aux_encode_sse_PSE SEC_PROTOTYPE_
 );
 int SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV aux_extract_Certificates SEC_PROTOTYPE_3( OctetString * , cont, SET_OF_Certificate **, certs, OctetString **,dec);
 
+/* creates Ocsp handle and fills it with options read from input profile handles */
+RC  SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV af_create_H_OCSP_CHECK SEC_PROTOTYPE_4(
+    H_OCSP_CHECK*, p_h,
+    Certificate *, p_cert,
+    char *, szApplicationNode,
+    char *, szLogModuleName
+);
+
+/* Helper function for testing if a certificate belongs to certain (sub-) CA. */
+extern RC testnames SEC_PROTOTYPE_2(
+	Certificate *, p_cert,
+	char ***, pcertnames);
+extern RC testname SEC_PROTOTYPE_2(
+	const char *, name,
+	const char *, teststr_c);
 
 #ifdef __cplusplus
 } /* extern C */

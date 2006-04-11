@@ -1,11 +1,14 @@
-/******************************************
- *
- * SECUDE Sicherheitstechnologie
- * Informationssysteme GmbH, Darmstadt
- *
- * (C) Copyright SECUDE GmbH,  1997 - 2001
- *
- *******************************************/
+/*###*****************************************
+ *###
+ *### SECUDE IT Security GmbH
+ *###
+ *### Copyright (c) 2004-2006
+ *###
+ *### File ./include/cmp.h
+ *###
+ *### global functions:
+ *###
+ *###*****************************************/
 
 #ifndef SEC_OLDSTYLE_INCLUDE
 #define SEC_OLDSTYLE_INCLUDE 1

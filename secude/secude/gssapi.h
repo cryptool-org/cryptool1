@@ -1,11 +1,14 @@
-/*****************************************
- *
- * SECUDE Sicherheitstechnologie
- * Informationssysteme GmbH, Darmstadt
- *
- * (C) Copyright SECUDE GmbH,  1997 - 2001
- *
- ******************************************/
+/*###*****************************************
+ *###
+ *### SECUDE IT Security GmbH
+ *###
+ *### Copyright (c) 2004-2006
+ *###
+ *### File ./include/secude/gssapi.h
+ *###
+ *### global functions:
+ *###
+ *###*****************************************/
 
 
 #ifndef GSSAPI_H_
@@ -333,6 +336,9 @@ typedef struct gss_channel_bindings_struct *gss_channel_bindings_t;
   * @ingroup header_gss
   */
 #define GSS_C_QOP_DEFAULT 0
+#define GSS_C_QOP_AES256 6
+#define GSS_C_QOP_AES192 5
+#define GSS_C_QOP_AES128 4
 #define GSS_C_QOP_DES 3
 #define GSS_C_QOP_DES3 2
 #define GSS_C_QOP_IDEA 1

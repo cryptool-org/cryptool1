@@ -1,11 +1,14 @@
-/*****************************************
- *
- * SECUDE Sicherheitstechnologie
- * Informationssysteme GmbH, Darmstadt
- *
- * (C) Copyright SECUDE GmbH,  1997 - 2001
- *
- ******************************************/
+/*###*****************************************
+ *###
+ *### SECUDE IT Security GmbH
+ *###
+ *### Copyright (c) 2004-2006
+ *###
+ *### File ./include/secude/x509v3.h
+ *###
+ *### global functions:
+ *###
+ *###*****************************************/
 
 #ifndef X509V3_H_
 #define X509V3_H_
@@ -1252,6 +1255,42 @@ typedef enum { UnknownExtension_n = -1,  /**< <TT>=-1</TT> */
         /** <TT>= NONSTANDARD_EXTENSION + 1 */
 	       AuthInfoAccess_n = NONSTANDARD_EXTENSION + 1
 } Extension_number;
+
+
+/* Here comes some structures for nonSupported extensions */
+
+/* QCStatement */
+typedef struct 
+{
+    /* choice of (use numeric if alphabetic == NULL */
+    char *alphabetic;
+    int numeric;
+} Iso4217CurrencyCode;
+
+typedef struct 
+{
+    Iso4217CurrencyCode *currency;
+    int amount;
+    int exponent;
+} MonetaryValue;
+
+typedef struct 
+{
+    ObjId *semanticsIdentifier; /* optional */
+    GeneralNames *nameRegistrationAuthorities; /* optional */
+} SemanticsInformation;
+
+typedef struct 
+{
+    ObjId *statementId; 
+    OctetString *statementInfo; /* DERcode, optional */
+} QSStatement;
+
+typedef SEQUENCE_OF(QSStatement) QCStatements;
+
+
+
+
 
 #ifdef __cplusplus
 } /* extern C */

@@ -1,11 +1,14 @@
-/*****************************************
- *
- * SECUDE Sicherheitstechnologie
- * Informationssysteme GmbH, Darmstadt
- *
- * (C) Copyright SECUDE GmbH,  1997 - 2001
- *
- ******************************************/
+/*###*****************************************
+ *###
+ *### SECUDE IT Security GmbH
+ *###
+ *### Copyright (c) 2004-2006
+ *###
+ *### File ./include/secude/platform/platsini.h
+ *###
+ *### global functions:
+ *###
+ *###*****************************************/
 
 /*
  * Platform specific header for Fujitsu-Siemens Reliant UNIX aka Sinix

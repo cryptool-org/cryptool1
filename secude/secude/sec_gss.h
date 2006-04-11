@@ -1,11 +1,14 @@
-/*****************************************
- *
- * SECUDE Sicherheitstechnologie
- * Informationssysteme GmbH, Darmstadt
- *
- * (C) Copyright SECUDE GmbH,  1997 - 2001
- *
- ******************************************/
+/*###*****************************************
+ *###
+ *### SECUDE IT Security GmbH
+ *###
+ *### Copyright (c) 2004-2006
+ *###
+ *### File ./include/secude/sec_gss.h
+ *###
+ *### global functions:
+ *###
+ *###*****************************************/
 
 
 #ifndef SEC_GSS_H_
@@ -81,6 +84,8 @@ struct SECGSSCTX {
   OctetString      *mech_type;
   Cred			*cred;
   
+  ObjId            *own_key_oid;
+  KeyInfo          *own_key;
   KeyInfo          *recp_key;
   void    	   *pse;
 #ifdef SPKM_INSTALLED
@@ -395,6 +400,16 @@ E_PROTOTYPE(GSS,SECGSSCTX)
 ASN1_en_de_PROTO(SECGSSCTX)
 extern ASN1info_type SEC_GLOBAL_FUNC_PREFIX SEC_GLOBAL_VAR_PREFIX ASN1info_SECGSSCTX;
 
+RC gss_init(OM_uint32 *maj, OM_uint32 *min);
+#define INITGSS {OM_uint32 maj;if(gss_init(&maj, minor_status) < 0) return(maj);}
+
+extern RC gss_verify_Certificates
+(
+ PSE pse
+ , Certificates * p_certs
+ , UTCTime * szTime
+ , PKRoot * pRoot
+ );
 
 #endif /* SEC_GSS_H_ */
 

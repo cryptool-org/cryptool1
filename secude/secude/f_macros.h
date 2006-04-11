@@ -1,11 +1,14 @@
-/*****************************************
- *
- * SECUDE Sicherheitstechnologie
- * Informationssysteme GmbH, Darmstadt
- *
- * (C) Copyright SECUDE GmbH,  1997 - 2001
- *
- ******************************************/
+/*###*****************************************
+ *###
+ *### SECUDE IT Security GmbH
+ *###
+ *### Copyright (c) 2004-2006
+ *###
+ *### File ./include/secude/f_macros.h
+ *###
+ *### global functions:
+ *###
+ *###*****************************************/
 
 #ifndef FUNCTION_MACROS_H_
 #define FUNCTION_MACROS_H_
@@ -113,8 +116,12 @@
 	(ta a,tb b,tc c,td d,te e,tf f,tg g,th h,ti i,tj j,tk k,tl l,tm m,tn n,to o)
 #define SEC_PROTOTYPE_16(ta,a,tb,b,tc,c,td,d,te,e,tf,f,tg,g,th,h,ti,i,tj,j,tk,k,tl,l,tm,m,tn,n,to,o,tp,p) \
 	(ta a,tb b,tc c,td d,te e,tf f,tg g,th h,ti i,tj j,tk k,tl l,tm m,tn n,to o,tp p)
+#define SEC_PROTOTYPE_17(ta,a,tb,b,tc,c,td,d,te,e,tf,f,tg,g,th,h,ti,i,tj,j,tk,k,tl,l,tm,m,tn,n,to,o,tp,p,tq,q) \
+	(ta a,tb b,tc c,td d,te e,tf f,tg g,th h,ti i,tj j,tk k,tl l,tm m,tn n,to o,tp p,tq q)
+#define SEC_PROTOTYPE_18(ta,a,tb,b,tc,c,td,d,te,e,tf,f,tg,g,th,h,ti,i,tj,j,tk,k,tl,l,tm,m,tn,n,to,o,tp,p,tq,q,tr,r) \
+	(ta a,tb b,tc c,td d,te e,tf f,tg g,th h,ti i,tj j,tk k,tl l,tm m,tn n,to o,tp p,tq q, tr r)
 #define SEC_DECLARATION_0() \
-	()
+	(void)
 #define SEC_DECLARATION_1(ta,a) \
 	(ta a)
 #define SEC_DECLARATION_2(ta,a,tb,b) \
@@ -147,6 +154,13 @@
 	(ta a,tb b,tc c,td d,te e,tf f,tg g,th h,ti i,tj j,tk k,tl l,tm m,tn n,to o)
 #define SEC_DECLARATION_16(ta,a,tb,b,tc,c,td,d,te,e,tf,f,tg,g,th,h,ti,i,tj,j,tk,k,tl,l,tm,m,tn,n,to,o,tp,p) \
 	(ta a,tb b,tc c,td d,te e,tf f,tg g,th h,ti i,tj j,tk k,tl l,tm m,tn n,to o,tp p)
+#define SEC_DECLARATION_17(ta,a,tb,b,tc,c,td,d,te,e,tf,f,tg,g,th,h,ti,i,tj,j,tk,k,tl,l,tm,m,tn,n,to,o,tp,p,tq,q) \
+	(ta a,tb b,tc c,td d,te e,tf f,tg g,th h,ti i,tj j,tk k,tl l,tm m,tn n,to o,tp p, tq q)
+#define SEC_DECLARATION_18(ta,a,tb,b,tc,c,td,d,te,e,tf,f,tg,g,th,h,ti,i,tj,j,tk,k,tl,l,tm,m,tn,n,to,o,tp,p,tq,q, tr, r) \
+	(ta a,tb b,tc c,td d,te e,tf f,tg g,th h,ti i,tj j,tk k,tl l,tm m,tn n,to o,tp p, tq q, tr r)
+#define SEC_DECLARATION_20(ta,a,tb,b,tc,c,td,d,te,e,tf,f,tg,g,th,h,ti,i,tj,j,tk,k,tl,l,tm,m,tn,n,to,o,tp,p,tq,q,\
+    tr, r, ts, s, tt, t) \
+	(ta a,tb b,tc c,td d,te e,tf f,tg g,th h,ti i,tj j,tk k,tl l,tm m,tn n,to o,tp p, tq q, tr r, ts s, tt t)
 	
 	
 #else
@@ -169,6 +183,8 @@
 #define SEC_PROTOTYPE_14(ta,a,tb,b,tc,c,td,d,te,e,tf,f,tg,g,th,h,ti,i,tj,j,tk,k,tl,l,tm,m,tn,n) ()
 #define SEC_PROTOTYPE_15(ta,a,tb,b,tc,c,td,d,te,e,tf,f,tg,g,th,h,ti,i,tj,j,tk,k,tl,l,tm,m,tn,n,to,o) ()
 #define SEC_PROTOTYPE_16(ta,a,tb,b,tc,c,td,d,te,e,tf,f,tg,g,th,h,ti,i,tj,j,tk,k,tl,l,tm,m,tn,n,to,o,tp,p) ()
+#define SEC_PROTOTYPE_17(ta,a,tb,b,tc,c,td,d,te,e,tf,f,tg,g,th,h,ti,i,tj,j,tk,k,tl,l,tm,m,tn,n,to,o,tp,p,tq,q) ()
+#define SEC_PROTOTYPE_18(ta,a,tb,b,tc,c,td,d,te,e,tf,f,tg,g,th,h,ti,i,tj,j,tk,k,tl,l,tm,m,tn,n,to,o,tp,p,tq,q,tr,r) ()
 #define SEC_DECLARATION_0() \
 	()
 #define SEC_DECLARATION_1(ta,a) \
@@ -339,6 +355,45 @@
 	tn n; \
 	to o; \
 	tp p;
+#define SEC_DECLARATION_17(ta,a,tb,b,tc,c,td,d,te,e,tf,f,tg,g,th,h,ti,i,tj,j,tk,k,tl,l,tm,m,tn,n,to,o,tp,p,tq,q) \
+	(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q) \
+	ta a; \
+	tb b; \
+	tc c; \
+	td d; \
+	te e; \
+	tf f; \
+	tg g; \
+	th h; \
+	ti i; \
+	tj j; \
+	tk k; \
+	tl l; \
+	tm m; \
+	tn n; \
+	to o; \
+	tp p; \
+	tq q;
+#define SEC_DECLARATION_18(ta,a,tb,b,tc,c,td,d,te,e,tf,f,tg,g,th,h,ti,i,tj,j,tk,k,tl,l,tm,m,tn,n,to,o,tp,p,tq,q,tr,r) \
+	(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r) \
+	ta a; \
+	tb b; \
+	tc c; \
+	td d; \
+	te e; \
+	tf f; \
+	tg g; \
+	th h; \
+	ti i; \
+	tj j; \
+	tk k; \
+	tl l; \
+	tm m; \
+	tn n; \
+	to o; \
+	tp p; \
+	tq q; \
+	tr r;
 
 	
 #endif /* __STDC__ */

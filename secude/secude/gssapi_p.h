@@ -1,11 +1,14 @@
-/*****************************************
- *
- * SECUDE Sicherheitstechnologie
- * Informationssysteme GmbH, Darmstadt
- *
- * (C) Copyright SECUDE GmbH,  1997 - 2001
- *
- ******************************************/
+/*###*****************************************
+ *###
+ *### SECUDE IT Security GmbH
+ *###
+ *### Copyright (c) 2004-2006
+ *###
+ *### File ./include/secude/gssapi_p.h
+ *###
+ *### global functions:
+ *###
+ *###*****************************************/
 
 #if !defined(SECUDE_GSS_INCLUDE) || !SECUDE_GSS_INCLUDE
 #error do not include this file, include <secude/gssapi.h>

@@ -1,4 +1,14 @@
-/* This file contains the new (af2) error codes. If you want to add an error or other text,
+/*###*****************************************
+ *###
+ *### SECUDE IT Security GmbH
+ *###
+ *### Copyright (c) 2004-2006
+ *###
+ *### File ./include/secude/error.h
+ *###
+ *### global functions:
+ *###
+ *###*****************************************//* This file contains the new (af2) error codes. If you want to add an error or other text,
 this is the only file you have to change.  */
 
 /************************************************************/

@@ -1,14 +1,17 @@
-/* cmp_p.h */
+/*###*****************************************
+ *###
+ *### SECUDE IT Security GmbH
+ *###
+ *### Copyright (c) 2004-2006
+ *###
+ *### File ./include/secude/cmp_p.h
+ *###
+ *### global functions:
+ *###
+ *###*****************************************//* cmp_p.h */
 /* external */
 
-/*****************************************
- *
- * SECUDE Sicherheitstechnologie
- * Informationssysteme GmbH, Darmstadt
- *
- * (C) Copyright SECUDE GmbH,  1997 - 2001
- *
- ******************************************/
+
 
 /*
  * function headers

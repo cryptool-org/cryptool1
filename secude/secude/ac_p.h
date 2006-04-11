@@ -1,4 +1,14 @@
-
+/*###*****************************************
+ *###
+ *### SECUDE IT Security GmbH
+ *###
+ *### Copyright (c) 2004-2006
+ *###
+ *### File ./include/secude/ac_p.h
+ *###
+ *### global functions:
+ *###
+ *###*****************************************/
 #ifndef _SECUDE_AC_H
 #define _SECUDE_AC_H
 

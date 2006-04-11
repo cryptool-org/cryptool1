@@ -1,15 +1,3 @@
-/*****************************************
- *
- * SECUDE Sicherheitstechnologie
- * Informationssysteme GmbH, Darmstadt
- *
- * (C) Copyright SECUDE GmbH,  2000 - 2001
- *
- ******************************************/
-
-/*
- * Platform specific header for Apple MacOS X, Apple gcc
- */
 
 #if !defined(SECUDE_CONF_INCLUDE) || !SECUDE_CONF_INCLUDE
 #error do not include this file, include <secude/sec_conf.h>

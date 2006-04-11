@@ -1,11 +1,14 @@
-/*****************************************
- *
- * SECUDE Sicherheitstechnologie
- * Informationssysteme GmbH, Darmstadt
- *
- * (C) Copyright SECUDE GmbH,  1997 - 2001
- *
- ******************************************/
+/*###*****************************************
+ *###
+ *### SECUDE IT Security GmbH
+ *###
+ *### Copyright (c) 2004-2006
+ *###
+ *### File ./include/secude/asn1.h
+ *###
+ *### global functions:
+ *###
+ *###*****************************************/
 
 
 #ifndef ASN1_H_
@@ -265,7 +268,7 @@ typedef struct ASN1info_type {
     sec_byte tagcl;
     unsigned int tagnum;
     char *name;
-    free_function * free; /* this is used in case of decode error */
+    free_function * free_fn; /* this is used in case of decode error */
 } ASN1info_type;
 
 #define NOTOK (-1)

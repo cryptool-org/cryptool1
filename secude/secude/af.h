@@ -1,11 +1,14 @@
-/*****************************************
- *
- * SECUDE Sicherheitstechnologie
- * Informationssysteme GmbH, Darmstadt
- *
- * (C) Copyright SECUDE GmbH,  1997 - 2001
- *
- ******************************************/
+/*###*****************************************
+ *###
+ *### SECUDE IT Security GmbH
+ *###
+ *### Copyright (c) 2004-2006
+ *###
+ *### File ./include/secude/af.h
+ *###
+ *### global functions:
+ *###
+ *###*****************************************/
 
 /*-----------------------------------------------------------------------*/
 /*  INCLUDE FILE  af.h  (Authentication Framework Interface)             */
@@ -619,7 +622,7 @@ struct CRLWithCertificates {
   * @ingroup header_af
   */
 struct VerificationResult {
-/** linked list of verification steps */
+/** NULL terminated array of verification steps */
         VerificationStep     ** verifstep;
 /** verification finished with trusted key
   * found in %PKList, %FCPath, %PCAList, %PKRoot
@@ -669,7 +672,7 @@ struct VerificationResult {
 struct VerificationStep {
 
         /*
-         * version mechanism was introduces late...
+         * version mechanism was introduced late...
          *
          * everything before the "version" field is "version 0" :-)
          */
@@ -1823,7 +1826,7 @@ typedef AF_ctx *PSE;
 typedef void *AF_HANDLE;
 
 
-#define CRED_GSS "GSS"
+#define CRED_GSS NULL
 #define CRED_OPTIONS_LIFETIME "LIFETIME="
 #define CRED_OPTIONS_DIRACCESS "DIRACCESS="
 #define CRED_OPTIONS_CRLCHECK "CRLCHECK="
@@ -1865,6 +1868,107 @@ typedef struct RDNalias RDNalias;
   */
 typedef SET_OF(RDNalias) SET_OF_RDNalias;
 
+/***** Enumeration eRevocationCheckType *****/
+/** Used within OcspCheck
+  * @ingroup header_af
+  */
+enum eRevocationCheckType
+{
+    e_NotAvailableYet = 0 /** no settings have been evaluated yet for the given certificate(s) */
+    , e_NoRevocationCheck /** There is no revocation check to be performed */
+    , e_CheckCRL          /** CRL checking is to be done for the given user certificate */
+    , e_CheckOCSP         /** OCSP checking is to be done for the given user certificate */
+};
+/***** Typedef eRevocationCheckType *****/
+/** @ingroup header_af
+  */
+typedef enum eRevocationCheckType eRevocationCheckType;
+
+/***** Enumeration e_ocsp_auth_scheme *****/
+/** Used within @ref OcspCheck.
+  * @sa af_set_RevocationCheckOptions
+  * @ingroup header_af
+  */
+enum e_ocsp_auth_scheme
+{
+    ocsp_auth_RFC = 0     /* default authorization scheme according to RFC 2560 */
+    , ocsp_auth_ISIS_MTT  /* ISIS-MTT like authorization: In order to ensure SigG conformity,
+                             the responder must have a certificate issued by a RegTP root.
+                             We check, if the issuer is self signed and trusted. Its the responsibility of the 
+                             user-application to ensure that only RegTP certs were installed as trust anchors */
+};
+
+/***** Typedef eRevocationCheckType *****/
+/** @ingroup header_af
+  */
+typedef enum e_ocsp_auth_scheme e_ocsp_auth_scheme;
+
+#include <secude/ocsp.h>
+#include <secude/urlref.h>
+
+/***** Typedef OcspCheck *****/
+/** This is a handle to any information/context 
+  * about the revocation checking process
+  * of a given certificate.
+  * 
+  * @ingroup header_af
+  */
+typedef struct OcspCheck OcspCheck;
+
+/***** Typedef H_OCSP_CHECK *****/
+/** This is a handle to any information/context 
+  * about the revocation checking process
+  * of a given certificate.
+  * 
+  * @ingroup header_af
+  */
+typedef OcspCheck * H_OCSP_CHECK;
+
+#include <secude/ocsp.h>
+
+/***** Structure OcspCheckResults *****/
+/** This is a handle to any information/context 
+  * about the revocation checking process
+  * of a given certificate.
+  * 
+  * @ingroup header_af
+  */
+struct OcspCheckResults;
+struct OcspCheckResults
+{
+    /** Gives a summary of 
+      * the entire revocation check.
+      * TRUE means that the certificate was not revoked and the CRL DP or OCSP reponder
+      * is authorized to give information about the queried certificate.
+      */
+    Boolean                  m_bCertOK;
+
+    /** More detailed information about the OCSP check.
+      */
+    OCSPQueryCertStatusInfo  mQueryCertStatus;
+    /** If certificate of the revocation check authority (i.e. OCSP responder or CRL DP)
+      * was verified, results can be found here.
+      */
+    VerificationResult     * m_p_responder_verif_res;
+    /** If certificate of the revocation check authority (i.e. OCSP responder or CRL DP)
+      * was checked for revocation itself, results can be found here.
+      */
+    struct OcspCheckResults * m_pCheckOfAuthortity;
+                                        /* Contains the result of a revocation check of the certificate of the authority itself.
+                                        (e.g. CRL check of OCSP responder */
+
+    OCSPQuery              * m_p_query; /* OCSP Query handle. If not NULL,
+                                       an OCSP query was launched and the handle gives access to
+                                       certificate status, certificate of responder etc.
+                                        */
+};
+typedef struct OcspCheckResults OcspCheckResults;
+
+typedef struct PCAList_IF PCAList_IF;
+struct PCAList_IF
+{
+    RC (*m_if)(PCAList_IF*, const Certificate*, const PKList **);
+};
 
 #define SECUDE_AF_INCLUDE 1
 #include <secude/af_p.h>

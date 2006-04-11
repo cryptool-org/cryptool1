@@ -8,8 +8,8 @@
  * In the process of integrating the security technology of SECUDE into the		*
  * SSL protocol, the original implementation by Eric Young was completely		*
  * rewritten, restructured and complemented by new features.					*
- * SECUDE is registered trademark of SECUDE GmbH.								*
- * Copyright (C) 1997 - 2001 SECUDE GmbH										*
+ * SECUDE is registered trademark of SECUDE IT Security GmbH.								*
+ * Copyright (c) 2004										*
  * All rights reserved.															*
  *																				*
  *																				*
@@ -291,6 +291,14 @@ int	SEC_API_CALLING_CONV BIO_ep_set_ep(H_BIO hBio , EndpointRef ep , int close_m
 int	SEC_API_CALLING_CONV BIO_ep_should_retry(OTResult last_io , int* true_false);
 #endif  /* defined(SEC_OPEN_TRANSPORT) && SEC_OPEN_TRANSPORT */
 
+
+/*------------------------------ helper functions for message timing in socket (for testing only) ------------------------------*/
+
+#ifdef SSL_TST_ATT
+int SEC_API_CALLING_CONV BIO_socket_get_last_read_timer_start(H_BIO bio, LARGE_INTEGER * p_lInt);
+int SEC_API_CALLING_CONV BIO_socket_start_read_timer(H_BIO b);
+int SEC_API_CALLING_CONV BIO_socket_reset_read_timer(H_BIO b);
+#endif
 
 /*------------------------------ the error codes ------------------------------*/
 

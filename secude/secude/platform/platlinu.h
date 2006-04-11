@@ -1,11 +1,14 @@
-/*****************************************
- *
- * SECUDE Sicherheitstechnologie
- * Informationssysteme GmbH, Darmstadt
- *
- * (C) Copyright SECUDE GmbH,  1997 - 2001
- *
- ******************************************/
+/*###*****************************************
+ *###
+ *### SECUDE IT Security GmbH
+ *###
+ *### Copyright (c) 2004-2006
+ *###
+ *### File ./include/secude/platform/platlinu.h
+ *###
+ *### global functions:
+ *###
+ *###*****************************************/
 
 /*
  * Platform specific header for FSF GNU/Linux, GNU gcc
@@ -28,6 +31,8 @@
 # define SEC_TARGET_CPU_OS390 1
 #elif defined(__ia64__)
 # define SEC_TARGET_CPU_IA64 1
+#elif defined(__x86_64__)
+# define SEC_TARGET_CPU_AMD64 1
 #else
 # error "architecture not supported"
 #endif
@@ -36,7 +41,7 @@
 # error "compiler not supported"
 #endif
 
-#if __GNUC_MINOR__ > 8 /* This is stupid: egcs is libc6, else libc5. Find a better way! */
+#if __GNUC__ >= 3 || __GNUC_MINOR__ > 8 /* This is stupid: egcs is libc6, else libc5. Find a better way! */
 
 #define _BSD_SOURCE 1
 

@@ -1,11 +1,14 @@
-/*****************************************
- *
- * SECUDE Sicherheitstechnologie
- * Informationssysteme GmbH, Darmstadt
- *
- * (C) Copyright SECUDE GmbH,  1997 - 2001
- *
- ******************************************/
+/*###*****************************************
+ *###
+ *### SECUDE IT Security GmbH
+ *###
+ *### Copyright (c) 2004-2006
+ *###
+ *### File ./include/secude/pkcs_p.h
+ *###
+ *### global functions:
+ *###
+ *###*****************************************/
 
 /*-----------------------------------------------------------------------*/
 /*  FILE  pkcs_p.h          VERSION 1.0   01.01.1995 BY Liu     */
@@ -1163,6 +1166,15 @@ RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV pkcs_verify_ContentInfo SEC_PROTO
 	SignerInfo 	*   , signerInfo,
 	Certificate	*   , cert,
 	HashInput	*   , hash_input
+);
+
+RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV pkcs_verify_ContentInfoExt SEC_PROTOTYPE_6( 
+	PSE		             , pse_handle, 
+	ContentInfo	   *     , in_continfo,
+	SignerInfo 	   *     , signerInfo,
+	Certificate	   *     , cert,
+	HashInput	   *     , hash_input,
+    P7VerifyResult *     , p_verify_result
 );
 
 RecipientInfo SEC_GLOBAL_FUNC_PREFIX * SEC_API_CALLING_CONV pkcs_get_encryptedKey SEC_PROTOTYPE_2(

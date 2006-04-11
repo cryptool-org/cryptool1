@@ -1,11 +1,14 @@
-/*****************************************
- *
- * SECUDE Sicherheitstechnologie
- * Informationssysteme GmbH, Darmstadt
- *
- * (C) Copyright SECUDE GmbH,  1997 - 2001
- *
- ******************************************/
+/*###*****************************************
+ *###
+ *### SECUDE IT Security GmbH
+ *###
+ *### Copyright (c) 2004-2006
+ *###
+ *### File ./include/secude/arithmet.h
+ *###
+ *### global functions:
+ *###
+ *###*****************************************/
 
 /*------------------------------------------------------------+-----*/
 /*                                                            ! GMD */
@@ -596,8 +599,10 @@ struct IDEA_CTX {
 
 #define cadd	arithmetic_cadd
 #define dmult	arithmetic_dmult
+#ifndef __cplusplus
+/* xor is an operator in C++ ! */
 #define xor	arithmetic_xor
-
+#endif
 
 #define normalize(N)	{ L_NUMBER zero = 0; sub(N,&zero,N); }
 /*      define _trans macro inline expanded */
@@ -621,4 +626,5 @@ enum { DH_ENC_ALG_IDEA = 0, DH_ENC_ALG_DES_CBC, DH_ENC_ALG_DES_CBC3, DH_ENC_ALG_
 #endif /* __cplusplus */
 
 #endif /* _ARITHMETIC_ */
+
 

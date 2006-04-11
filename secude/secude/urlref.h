@@ -1,11 +1,14 @@
-/*****************************************
- *
- * SECUDE Sicherheitstechnologie
- * Informationssysteme GmbH, Darmstadt
- *
- * (C) Copyright SECUDE GmbH,  1997 - 2001
- *
- ******************************************/
+/*###*****************************************
+ *###
+ *### SECUDE IT Security GmbH
+ *###
+ *### Copyright (c) 2004-2006
+ *###
+ *### File ./include/secude/urlref.h
+ *###
+ *### global functions:
+ *###
+ *###*****************************************/
 
 #ifndef URLREF_H_
 #define URLREF_H_
@@ -194,9 +197,9 @@ struct url_OCSPQueryContext {
     unsigned long magic;
 /** The url of a proxy if there is no direct connection to the OCSP responder. */
     const char *proxyurl;
-/** The username if the proxy requires authetication. */
+/** The username if the proxy requires authentication. */
     const char *user;
-/** The password if the proxy requires authetication. */
+/** The password if the proxy requires authentication. */
     const char *pass;
 #if defined(SSL_INSTALLED) && SSL_INSTALLED
     H_SSL ssl;

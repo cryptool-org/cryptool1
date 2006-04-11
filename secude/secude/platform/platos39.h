@@ -1,11 +1,14 @@
-/*****************************************
- *
- * SECUDE Sicherheitstechnologie
- * Informationssysteme GmbH, Darmstadt
- *
- * (C) Copyright SECUDE GmbH,  1997 - 2001
- *
- ******************************************/
+/*###*****************************************
+ *###
+ *### SECUDE IT Security GmbH
+ *###
+ *### Copyright (c) 2004-2006
+ *###
+ *### File ./include/secude/platform/platos39.h
+ *###
+ *### global functions:
+ *###
+ *###*****************************************/
 
 /*
  * Platform specific header for OS/390
@@ -26,9 +29,16 @@
 #endif
 #include <rapi.h>
 #include <dirent.h>
+#ifdef OS390_08
+typedef unsigned short uint16_t;
+#else
 typedef char int8_t;
 #include <inttypes.h>
+#endif
 
 #define FPRINTF SEC_FPRINTF
 #define PRINTF SEC_PRINTF
 #define NO_X500 1
+#define USE_ANSI_C
+#define USE_STDARG
+

@@ -1,11 +1,3 @@
-/*************************************
- *                                    *
- *   SECUDE  Sicherheitstechnologie   *
- * Informationssysteme GmbH, Darmstadt *
- *                                    *
- *  (C) Copyright SECUDE GmbH,  2001  *
- *                                    *
-  *************************************/
 
 #ifndef SENF_P_H_
 #define SENF_P_H_

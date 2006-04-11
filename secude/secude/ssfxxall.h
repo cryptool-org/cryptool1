@@ -79,6 +79,20 @@ extern "C" {
 #define SSF_API_DECODE_FAILED         12 /*could not decode input  */  
 #define SSF_API_UNKNOWN_SECTK_ERROR   13 /*unknown sec.toolk. error*/
 
+/* 14 ist bereits im ABAP vergeben und in Nachrichtenklasse 1S dokumentiert */
+
+#define SSF_API_SECTK_NO_LICENSE      15 /* SecTK license (ticket) */
+					 /* is missing or invalid  */
+#define SSF_API_SECTK_NO_ENVELOPE     16 /* this is a SAPCRYPTOLIB */
+					 /* without SSF Envelope() */
+					 /* and SSF Develope()     */
+#define SSF_API_CANT_WRITE_FILE       81 /* File could not be opened for writing 
+                                            e.g.logfile for SsfVerify
+                                          */
+#define SSF_API_KEYUSAGE_SIGN         82 /* Could not use PAB for signing
+                                            as key usage was not properly set.
+                                          */
+
 /* SSF Aux Function Return Codes -------------------------------------*/
 
 #define SSF_AUX_OK                    0 /* function ended successfully*/ 
@@ -105,6 +119,21 @@ extern "C" {
 #define SSF_API_RECIPIENT_NOT_OK  27 /* operation not ok f. recip. */  
 #define SSF_API_UNDEFINED_RESULT  28 /* initial value on input     */
 
+#define SSF_API_REVOCATION_CERTIFICATE_REVOKED       31 /* OCSPSingleResponse::status == revoked */
+#define SSF_API_REVOCATION_OCSP_RESPONSE_MISSING     32 /* There is no OCSP response, as the responder was unreachable.
+                                                           This may happen as a result of network problems, a shutdown proxy,
+                                                           a busy responder that replied with status TryAgainLater or InternalError, a mispelled
+                                                           responder URI etc.
+                                                        */
+#define SSF_API_REVOCATION_OCSP_REQUEST_REJECTED     33 /* OCSP request failed.
+                                                           The responder was present but did not produce a valid BasicResponse.
+                                                           This status may result from client
+                                                           or server errors as
+                                                           well as an invalid
+                                                           response signature.
+                                                         */
+#define SSF_API_REVOCATION_CERTIFICATE_UNKNOWN       34 /* OCSPSingleResponse::status == revoked */
+
 
 /**********************************************************************/
 /*                                                                    */
@@ -122,16 +151,12 @@ extern "C" {
 	typedef char	SAP_B7;
 	typedef char	SAP_RAW;
 
-	#ifdef SAP_BOOL_ENUM
-		typedef enum { FALSE = 0, TRUE = 1 } SAP_BOOL;
-	#else
-		typedef unsigned char SAP_BOOL;
-		#ifndef FALSE
-			#define FALSE  0
-		#endif
-		#ifndef TRUE
-			#define TRUE  1
-		#endif
+	typedef unsigned char SAP_BOOL;
+	#ifndef FALSE
+		#define FALSE  0
+	#endif
+	#ifndef TRUE
+		#define TRUE  1
 	#endif
 
 #endif /* SAP_UINT_MAX */

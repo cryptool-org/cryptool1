@@ -1,11 +1,14 @@
-/*****************************************
- *
- * SECUDE Sicherheitstechnologie
- * Informationssysteme GmbH, Darmstadt
- *
- * (C) Copyright SECUDE GmbH,  1997 - 2001
- *
- ******************************************/
+/*###*****************************************
+ *###
+ *### SECUDE IT Security GmbH
+ *###
+ *### Copyright (c) 2004-2006
+ *###
+ *### File ./include/secude/sec_glob.h
+ *###
+ *### global functions:
+ *###
+ *###*****************************************/
 
 /*-----------------------------------------------------------------------*/
 /* INCLUDE FILE  sec_global.h                                            */
@@ -295,6 +298,16 @@ enum {
 #define EPKCROSS       113
 #define EREVOKE        114
 #define EAVAILABLE     115
+#define EUNKNOWN       116
+#define EOCSPNORESPONSE       117
+#define EOCSPUNAUTHORIZED     118
+#define EOCSPAGED             119
+#define EOCSPUNSUPPORTED      120
+#define EOCSPILLEGAL          121
+#define EOCSPMISMATCH         122
+
+#define ECANNOTOPENPSE        130
+
 #define ESCARD         214
 #define ESCT         215
 #define EDEVLOCK       216
@@ -371,6 +384,9 @@ enum {
 #define ESCPSENOTEXISTING  	0x2004	
 #define ESCA	       		0x2005	
 #define ESWPIN	       		0x2006	
+#ifdef ECONFIG
+#undef ECONFIG
+#endif
 #define ECONFIG        		0x2007	
 #define ESCNOTSUPP     		0x2008	
 #define ESCPINLOCK     		0x2009	
@@ -497,6 +513,11 @@ enum {
 #define ENOETC			0x4A03
 #define ENOPSEDIR		0x4A04
 #define EINSTALLPL		0x4A05
+
+#define EGSSAUTHTEMPNOTALLOWED 0x4B01
+#define EGSSAUTHENCNOTALLOWED 0x4B02
+#define EGSSTEMPCERTINVALID 0x4B03
+#define EGSSTEMPCERTCHECK   0x4B04
 
 #define EACNOMAGIC          0x4D01
 #define EACNOSECDIR         0x4D02
@@ -1382,31 +1403,6 @@ typedef enum {
 /* random number generator callback type */
 typedef RC  	 SEC_API_CALLING_CONV Rand_CB     	        SEC_PROTOTYPE_3( char * , buf, int , size,  RND_TYPES , type);
 
-/* strong random number generator */
-RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV sec_random_cb_strong SEC_PROTOTYPE_3(
-	char	*	, buf,
-	int	  	, nchars,
-	RND_TYPES	, type
-);
-/* medium random number generator (DEFAULT) */
-RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV sec_random_cb_medium SEC_PROTOTYPE_3(
-	char	*	, buf,
-	int	  	, nchars,
-	RND_TYPES	, type
-);
-/* weak random number generator */
-RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV sec_random_cb_weak SEC_PROTOTYPE_3(
-	char	*	, buf,
-	int	  	, nchars,
-	RND_TYPES	, type
-);
-RC SEC_GLOBAL_FUNC_PREFIX  SEC_API_CALLING_CONV userandommaster SEC_PROTOTYPE_3(
-	char	*	, buf,
-	int	  	, nchars,
-	RND_TYPES	, type
-);
-int SEC_GLOBAL_FUNC_PREFIX  SEC_GLOBAL_VAR_PREFIX  initrandommaster SEC_PROTOTYPE_0();
-int SEC_GLOBAL_FUNC_PREFIX  SEC_GLOBAL_VAR_PREFIX  endrandommaster SEC_PROTOTYPE_0();
 
 /* main random number function */
 void SEC_GLOBAL_FUNC_PREFIX * SEC_API_CALLING_CONV sec_random SEC_PROTOTYPE_3(

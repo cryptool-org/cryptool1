@@ -1,11 +1,14 @@
-/*****************************************
- *
- * SECUDE Sicherheitstechnologie
- * Informationssysteme GmbH, Darmstadt
- *
- * (C) Copyright SECUDE GmbH,  1997 - 2001
- *
- ******************************************/
+/*###*****************************************
+ *###
+ *### SECUDE IT Security GmbH
+ *###
+ *### Copyright (c) 2004-2006
+ *###
+ *### File ./include/secude/crypt_p.h
+ *###
+ *### global functions:
+ *###
+ *###*****************************************/
 
 #if !defined(SECUDE_CRYPT_INCLUDE) || !SECUDE_CRYPT_INCLUDE
 #error do not include this file, include <secude/crypt.h>
@@ -730,8 +733,8 @@ void SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV lntoctets SEC_PROTOTYPE_3(
 
 );
 
+#ifndef __cplusplus
 void SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV xor SEC_PROTOTYPE_3(
-	
 	L_NUMBER_ARRAY	,  	op1,
 	
 	L_NUMBER_ARRAY	,  	op2,
@@ -739,6 +742,8 @@ void SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV xor SEC_PROTOTYPE_3(
 	L_NUMBER_ARRAY	,  	erg
 
 );
+#endif
+
 
 void SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV mult SEC_PROTOTYPE_3(
 	
@@ -2447,22 +2452,26 @@ sec_int4 SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV idea_decrypt_all SEC_PROTOT
 
 /* from idea/idea.c : */  
  
-void SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV Idea_ExpandUserKey SEC_PROTOTYPE_2(
+typedef void SEC_API_CALLING_CONV FP_Idea_ExpandUserKey SEC_PROTOTYPE_2(
 	  char *, userKey_string, 
 	  Idea_Key , key);
+extern FP_Idea_ExpandUserKey *fp_Idea_ExpandUserKey;
 
-void SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV Idea_InvertKey SEC_PROTOTYPE_2(
+typedef void SEC_API_CALLING_CONV FP_Idea_InvertKey SEC_PROTOTYPE_2(
 	  Idea_Key , key, 
 	  Idea_Key , invKey);
+extern FP_Idea_InvertKey *fp_Idea_InvertKey;
 
-void SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV Idea_Crypt SEC_PROTOTYPE_2(
+typedef void SEC_API_CALLING_CONV FP_Idea_Crypt SEC_PROTOTYPE_2(
 	  unsigned char * , data,
 	  Idea_Key , key);
+extern FP_Idea_Crypt *fp_Idea_Crypt;
 
-void SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV Idea_Crypt2 SEC_PROTOTYPE_3(
+typedef void SEC_API_CALLING_CONV FP_Idea_Crypt2 SEC_PROTOTYPE_3(
 	  unsigned char	 * , dataIn,
 	  unsigned char	 * , dataOut,
 	  Idea_Key , key);
+extern FP_Idea_Crypt2 *fp_Idea_Crypt2;
 
 /* from ? : */
 
@@ -2595,7 +2604,12 @@ sec_int4 SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV rsa_encrypt_all SEC_PROTOTY
 	KeyBits		 *	, key
 
 );
- 
+
+void SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV rsa_context_free SEC_PROTOTYPE_1(
+
+        void **        , ctx
+
+);
 
 sec_int4 SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV rsa_decrypt_init SEC_PROTOTYPE_2(
 	
@@ -3142,11 +3156,22 @@ RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV SECUDE_HasValidTicket20  SEC_PROT
 	char ** , userid         /* you get back the id of the ticket */
 );
 
+RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV SECUDE_IsValidApplicationTicket20  SEC_PROTOTYPE_6(
+    char * , ticket,         /* ticket string to check */
+	char ** , rcIdOrError,   /* here you get back the error string */
+	char * ,application,     /* the name of the application to check */
+	char * ,versionstring,   /* the release of the applications to check */
+	int * ,restriction,      /* you get back 0 for full, 1 for light version */
+	char ** , userid         /* you get back the id of the ticket */
+);
+
 /*
  * call this function from SECUDE APIs (locking of SECUDE is done)
  */
 int SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV secude_license_check SEC_PROTOTYPE_0();
 
+RC SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV SECUDE_CheckApplicationTicket SEC_PROTOTYPE_3(
+    char *,name, char *,application, char **,error);
 
 /* DO NOT CALL THIS FUNCTION ANYMORE!!!!
  * obsolete secude_check_license() is replaced by SECUDE_HasValidTicket()
@@ -3689,4 +3714,5 @@ void SEC_GLOBAL_FUNC_PREFIX SEC_API_CALLING_CONV crypt_dec_block_aes SEC_PROTOTY
 #ifdef __cplusplus
 } /* extern C */
 #endif /* __cplusplus */
+
 
