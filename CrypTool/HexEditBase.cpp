@@ -1373,6 +1373,7 @@ bool CHexEditBase::OnEditInput(WORD nInput)
 			}
 			m_pData[m_nCurrentAddress] = 0;
 			m_nLength++;
+			m_bRecalc = true;
 		}
 		if(m_bHighBits) {
 			nValue <<= 4;
