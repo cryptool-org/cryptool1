@@ -303,7 +303,7 @@ void CDlgOptionsSignatureAttack::OnResetToDefault()
 	UpdateData(TRUE);
 
 	m_hashalgorithm = 0;
-	m_bitlength = _OPT_SIG_ATT_STANDARD_BITLENGTH;
+	m_bitlength = itoa(_OPT_SIG_ATT_STANDARD_BITLENGTH, NULL, 10);
 	m_mod_method = 0;
 	m_control_check1.SetCheck(1);
 	m_control_check1.EnableWindow(TRUE);

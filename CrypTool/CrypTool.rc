@@ -17304,12 +17304,12 @@ IDB_SCA_BUTTON10_R_F    BITMAP  MOVEABLE PURE   "res\\SCABitmaps_en\\bmps\\Butto
 IDB_SCA_BUTTON10_R_U    BITMAP  MOVEABLE PURE   "res\\SCABitmaps_en\\bmps\\Button10_R_U.bmp"
 IDB_SCA_BUTTON10_G_D    BITMAP  MOVEABLE PURE   "res\\SCABitmaps_en\\bmps\\Button10_G_D.bmp"
 IDB_SCA_MAINBACKGROUND  BITMAP  MOVEABLE PURE   "res\\SCABitmaps_en\\bmps\\MainBackground.bmp"
-IDB_CRT_KONGR           BITMAP  DISCARDABLE     "res\\crt_kong.bmp"
-IDB_CRT_CR_RIGHT        BITMAP  DISCARDABLE     "res\\crt_cr_r.bmp"
-IDB_CRT_CR_LEFT         BITMAP  DISCARDABLE     "res\\crt_cr_l.bmp"
-IDB_CRT_BASIS           BITMAP  DISCARDABLE     "res\\crt_basi.bmp"
-IDB_CRT_DOWN_F          BITMAP  DISCARDABLE     "res\\crt_down.bmp"
-IDB_CRT_DOWN_FSTR       BITMAP  DISCARDABLE     "res\\bmp00004.bmp"
+IDB_CRT_KONGR           BITMAP  DISCARDABLE     "res\\CRT\\crtkgrz.bmp"
+IDB_CRT_CR_RIGHT        BITMAP  DISCARDABLE     "res\\CRT\\crtleft.bmp"
+IDB_CRT_CR_LEFT         BITMAP  DISCARDABLE     "res\\CRT\\crtright.bmp"
+IDB_CRT_BASIS           BITMAP  DISCARDABLE     "res\\CRT\\crtbasis.bmp"
+IDB_CRT_DOWN_F          BITMAP  DISCARDABLE     "res\\CRT\\crtdownf.bmp"
+IDB_CRT_DOWN_FSTR       BITMAP  DISCARDABLE     "res\\CRT\\crtdownfstr.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -17340,7 +17340,7 @@ IDR_SCA_ABARROWFAILURE  GIF     MOVEABLE PURE   "res\\SCABitmaps_en\\gifs\\sca_a
 IDR_SCA_ABARROWSUCCESS  GIF     MOVEABLE PURE   "res\\SCABitmaps_en\\gifs\\sca_ab_arrow_success.gif"
 IDR_SCA_LIGHTS_RED      GIF     MOVEABLE PURE   "res\\SCABitmaps_en\\gifs\\sca_lights_red.gif"
 IDR_SCA_ABARROWTRANSMISSION_TRUDYBOB GIF     MOVEABLE PURE   "res\\SCABitmaps_en\\gifs\\sca_ab_arrow_transmission_trudybob.gif"
-IDR_CRT_ASTRONOMY       GIF     DISCARDABLE     "res\\crt_astr.bin"
+IDR_CRT_ASTRONOMY       GIF     DISCARDABLE     "res\\crtastronomy.gif"
 
 /////////////////////////////////////////////////////////////////////////////
 //
