@@ -1,0 +1,13 @@
+APF generator.images.APFGenerator
+BMP generator.images.BMPGenerator
+CUR generator.images.CURGenerator
+ICO generator.images.ICOGenerator
+JPG generator.images.JPGGenerator
+PCX generator.images.PCXGenerator
+PICT generator.images.PICTGenerator
+PNG generator.images.PNGGenerator
+PSD generator.images.PSDGenerator
+RAS generator.images.RASGenerator
+TGA generator.images.TGAGenerator
+XBM generator.images.XBMGenerator
+XPM generator.images.XPMGenerator
