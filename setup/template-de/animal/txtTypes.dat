@@ -1,0 +1,4 @@
+ASCII generator.text.ASCIIGenerator
+HTML generator.text.HTMLGenerator
+LATEX generator.text.LaTeXGenerator
+RTF generator.text.RTFGenerator

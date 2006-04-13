@@ -1,0 +1,6 @@
+animation/animal-ascii-compressed animal.exchange.AnimalASCIIImporter
+animation/animal-ascii animal.exchange.AnimalASCIIImporter
+animation/animalscript-compressed animal.exchange.AnimalScriptImporter
+animation/animalscript animal.exchange.AnimalScriptImporter
+animation/animal-binary animal.exchange.AnimalBinaryImporter
+animation/animal-binary-compressed animal.exchange.AnimalBinaryImporter

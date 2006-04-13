@@ -1,0 +1,413 @@
+<animalScriptFile>:
+  <fileHeader> { <command> \n}
+
+<fileHeader>:
+  %Animal <double> [<nat>*<nat>] [\n <titleInfo>]
+  [\n <authorInfo>]
+
+<titleInfo>:
+  title "title as a string"
+
+<authorInfo>:
+  author "author name including EMail address"
+
+<command>:
+  <objectPrimitives> | <operations>
+  | '{' | '}' | <languageSupport> | <extensionCommand>
+
+<objectPrimitives>:
+  <arcTypes> | <array> | <arrayMarker> | <codeTypes>
+  | <listelement> | <point> | <polygonTypes>
+  | <polyline> | <text>
+
+<operations>:
+  <arrayOp> | <clone> | <colorChangeTypes> | <delay>
+  | <echo> | <label> | <link> | <location>
+  | <merge> | <move> | <rotate> | <showTypes>
+  | <swap>
+
+<arcTypes>:
+  <arc> | <circleSeg> | <ellipse> | <circle>
+
+<arc>:
+  <arcName> "ID" <nodeDefinition>
+    radius <nodeDefinition> [angle <int>] 
+    [starts <int>] [clockwise | counterclockwise] 
+    [color <color>] [depth <nat>]
+    [<closedOptions> [<fillOptions>] | <arrowOptions>]
+    [<displayOptions>]
+
+<arcName>:
+  arc | ellipseseg | ellipsesegment
+
+<circleSeg>:
+  <circleSegName> "ID" <nodeDefinition>
+    radius <int> [angle <int>] [starts <int>] 
+    [clockwise | counterclockwise] 
+    [color <color>] [depth <nat>] 
+    [<closedOptions> [<fillOptions>] | <arrowOptions>]
+    [<displayOptions>]
+
+<circleSegName>:
+  circleseg | circlesegment
+
+<ellipse>:
+  ellipse "ID" <nodeDefinition> radius <nodeDefinition> 
+    [color <color>] [depth <int>] 
+    [<fillOptions>] [<displayOptions>]
+
+<circle>:
+  circle "ID" <nodeDefinition> radius <int>
+    [color <color>] [depth <nat>]
+    [<fillOptions>] [<displayOptions>]
+
+<array>:
+  <arrayKey> "arrayID" [at] <nodeDefinition>
+    [color <color>] [fillColor <color>]
+    [elementColor <color>] [elemHighlight <color>]
+    [cellHighlight <color>] [horizontal | vertical]
+    length <nat+> { <intText> } [depth <nat>]
+    [<timeOffset>] [cascaded [within <nat+> ticks | ms ]]
+    <font>
+
+<arrayKey>:
+  array | field
+
+<arrayMarker>:
+  <markKey> "indexID" on "arrayID" atIndex <nat>
+    [label <intText>] [color <color>] 
+    [depth <nat>] <font> [<displayOptions>]
+
+<markKey>:
+  arrayMarker | arrayPointer | arrayIndex
+
+<codeTypes>:
+  <codeGroup> | <codeLine> | <codeElem>
+
+<codeGroup>:
+  codegroup "groupID" [at] <nodeDefinition>
+    [color <color>] [highlightColor <color>]
+    [contextColor <color>] <font>
+    [depth <nat>] [<timeOffset>]
+
+<codeLine>:
+  addCodeLine "code" [name "ID"] to "codeGroupID" 
+    [indentation <nat>] [<timeOffset>]
+
+<codeElem>:
+  addCodeElem "code" [name "ID"] to "codeGroupID"
+    [row <nat>] [indentation <nat>] [<timeOffset>]
+
+<listelement>:
+  listelement "ID" <nodeDefinition> [text <intText>] 
+    pointers <nat> [position <pointerPos>]
+    [ { <ptrLocation> } ] [prev "prevID"]
+    [color <color>] [boxFillColor <color>]
+    [pointerAreaColor <color>]
+    [pointerAreaFillColor <color>]
+    [textColor <color>] [depth <nat>] 
+    [<displayOptions>]
+
+<pointerPos>:
+  top | left | right | bottom | none
+
+<ptrLocation>:
+  ptr<nat> <nodeDefinition> | ptr<nat> to "targetID"
+
+<point>:
+  point "pointID" <nodeDefinition> [color <color>]
+     [depth <nat>] [<displayOptions>]
+
+<polygonTypes>:
+  <square> | <rect> | <triangle> | <polygon>
+
+<square>:
+  square "ID" <nodeDefinition> <nat+>
+     [color <color>] [depth <nat>] 
+     [<fillOptions>] [<displayOptions>]
+
+<rect>:
+  <absoluteRectangle> | <relativeRectangle>
+
+<absoluteRectangle>:
+  rectangle "ID" <nodeDefinition> <nodeDefinition>
+     [color <color>] [depth <nat>] 
+     [<fillOptions>] [<displayOptions>]
+
+<relativeRectangle>:
+  <relRectName> "ID" <nodeDefinition> <nodeDefinition>
+     [color <color>] [depth <nat>] 
+     [<fillOptions>] [<displayOptions>]
+
+<relRectName>:
+  relrect | relrectangle
+
+<triangle>:
+  triangle "ID" <nodeDefinition> <nodeDefinition>
+     <nodeDefinition> [color <color>] [depth depthVal] 
+     [<fillOptions>] [<displayOptions>]
+
+<polygon>:
+  polygon "ID" <nodeDefinition> <nodeDefinition>
+     { <nodeDefinition> } [color <color>]
+     [depth <nat>] [<fillOptions>]
+     [<displayOptions>]
+
+<polyline>:
+  <lineTag> "lineID" <nodeDefinition> { <nodeDefinition> }
+    [color <color>] [depth <nat>]
+    [<arrowOptions>] [<displayOptions>]
+
+<lineTag>:
+  polyline | line
+
+<text>:
+  text "ID" <intText> [at] <nodeDefinition>
+    [centered | right] [color <color>] [depth <nat>]
+    <font> [boxed] [<displayOptions>]
+
+<arrayOp>:
+  <arrayPut> | <arraySwap> | <moveArrayMarker>
+  | <highlightArrayCell> | <highlightArrayElem>
+
+<arrayPut>:
+  arrayPut "value" on "arrayID" position <nat>
+    [<timing>]
+
+<arraySwap>:
+  arraySwap on "arrayName" position <nat> with <nat>
+    [<timing>]
+
+<moveArrayMarker>:
+  <moveMarkerKeyword> "markerID" to 
+    [position <nat> | arrayEnd | outside] [<timing>]
+
+<moveMarkerKeyword>:
+  moveArrayIndex | moveArrayMarker | moveArrayPointer
+  | moveIndex | moveMarker | movePointer
+  | jumpArrayIndex | jumpArrayMarker | jumpArrayPointer
+  | jumpIndex | jumpMarker | jumpPointer
+
+<highlightArrayCell>:
+  <hlACellKeyword> on "arrayID" <aHighlightRange>
+  <timing>
+
+<hlACellKeyword>:
+  highlightArrayCell | unhighlightArrayCell
+
+<aHighlightRange>:
+  position <nat> | [from <nat>] [to <nat>]
+
+<hilightArrayElem>:
+  <hlAElemKeyword> on "arrayID" <aHighlightRange>
+  <timing>
+
+<hlAElemKeyword>:
+  highlightArrayElem | unhighlightArrayElem
+
+<clone>: 
+  clone "originalID" as "cloneID" [at] <nodeDefinition>
+    [<displayOptions>]
+
+<colorChangeTypes>:
+  <colorChange> | <codeColorChange>
+
+<colorChange>:
+  color <oids> [type <colorType>] <color> [<timing>]
+
+<colorType>:
+  "color" | "fillColor" | "textColor" | "colorSetting"
+
+<codeColorChange>: 
+  <codeColorType> on "baseCodeGroup" line <nat>
+      [row <nat>] [context | region] [<timing>]
+
+<codeColorType>:
+  highlightCode | unhighlightCode
+
+<delay>:
+  delay <nat> [ms]
+
+<echo>:
+  echo location: <nodeDefinition>
+  | echo <boundsKeyword>: { <oids> }
+  | echo text: "text"
+  | echo value: { "ID" }
+  | echo ids: { <oids> }
+  | echo visible
+  | echo rule: "keyword"
+  | echo unquotedText
+
+<boundsKeyword>:
+  boundingBox | bounds
+
+<label>:
+  label "labelEntry"
+
+<link>:
+  setLink "elemID" [link <nat>] to "targetID" [<timing>]
+  | setLink "elemID" [link <nat>] <nodeDefinition> [<timing>]
+  | clearLink "elemID" [link <nat>] [<timing>]
+
+<location>:
+  <locationKeyword> "locationID" [at] <nodeDefinition>
+
+<locationKeyword>:
+  location | defineLocation | defLocation
+
+<merge>:
+  <mergeKeyWord> "targetID" { "ID" }
+
+<mergeKeyWord>:
+  group | merge | set | ungroup | remove
+
+<move>:
+  <moveVia> | <moveAlong> | <moveTo>
+
+<moveKeyword>:
+  move | translate
+
+<moveVia>:
+  <moveKeyword> <oids> [<corner>] [<methodSpec>] 
+   via "oid" [<timing>] 
+
+<moveAlong>:
+  <moveAlongPolyline> | <moveAlongArc>
+
+<moveAlongPolyline>:
+  <moveKeyword> <oids> [<corner>] [<methodSpec>]
+     along <lineTag> <nodeDefinition> { <nodeDefinition> }
+     [<timing>] 
+
+<moveAlongArc>:
+  <moveAlongArcType> | <moveAlongCircleType>
+
+<moveAlongArcType>:
+  <moveKeyword> <oids> [<corner>] [<methodSpec>]
+    along <arcType> <nodeDefinition> <int> <int>
+     <int> <int> [<timing>] 
+
+<moveAlongCircleType>:
+  <moveKeyword> <oids> [<corner>] [<methodSpec>]
+    along <circleType> <nodeDefinition> <int> <int>
+    <int> [<timing>] 
+
+<moveTo>:
+  <moveKeyword> <oids> [cornerDef] [<methodSpec>]
+   to <nodeDefinition> [<timing>] 
+
+<methodSpec>:
+  type "typeName"
+
+<corner>:
+  corner <direction>
+
+<arcType>:
+  <arcName> | ellipse
+
+<circleType>:
+  circle | <circleSegName>
+
+<rotate>:
+  rotate <oids> around "id" [degrees <int>] [<timing>]
+ | rotate <oids> center <nodeDefinition> [degrees <int>]
+   [<timing>]
+
+<showTypes>:
+  <simpleShow> | <codeHide> | <selectiveHide>
+
+<simpleShow>:
+  <showMode> <oids> [<timing>]
+
+<codeHide>:
+  hideCode "codeID" [<timeOffset>]
+
+<selectiveHide>:
+  hideAll [<timing>]
+  | hideAllBut { <oids> } [<timing>]
+
+<showMode>:
+  show | hide
+
+<swap>:
+  <swapKeyword> "oid1" "oid2" 
+
+<swapKeyword>:
+  swap | exchange
+
+<languageSupport>:
+  supports { "languageKey" }
+  [\n <resourceKey> "fileNameWithoutExtension"]
+
+<resourceKey>:
+  resource | bundle | resourceBundle
+
+<intText>:
+  "text" | key: "textResourceKey" | ( { key: "text" } )
+
+<color>:
+  black | blue | blue2 | blue3 | blue4 | brown2
+  | brown3 | brown4 | cyan | cyan2 | cyan3 | cyan4 
+  | dark Gray | gold | green | green2 | green3 
+  | green4 | light Gray| light_blue | magenta 
+  | magenta2 | magenta3 | magenta4 | orange | pink
+  | pink2 | pink3 | pink4 | red | red2 | red3
+  | red4 | white | yellow | (<nat>, <nat>, <nat>)
+
+<displayOptions>:
+  hidden | <timeOffset>
+
+<timeOffset>:
+  after <nat> [ticks | ms]
+
+<timing>:
+  [<timeOffset>] [within <nat> [ticks | ms]]
+
+<fontName>:
+  Serif | SansSerif | Monospaced
+
+<nodeDefinition>:
+  (<int>, <int>) | <offset> | move (<int>, <int>)
+
+<offset>:
+  offset (<int>, <int>) from "referenceID" node <nat+>
+| offset (<int>, <int>) from "referenceID" <direction>
+| offset (<int>, <int>) from "locationID"
+| offset (<int>, <int>) from "referenceID" 
+    baseline [start | end]
+
+<direction>:
+  NW | N | NE | W | C | E | SW | S | SE
+  | Northwest | North | Northeast | West
+  | Middle | Center | East | Southwest
+  | South | Southeast
+
+<arrowOptions>:
+  [fwArrow] [bwArrow]
+
+<closedOptions>:
+  closed
+
+<fillOptions>:
+ filled [fillColor <color>]
+
+<font>:
+  [font <fontNames>] [size fontSize] [bold] [italic]
+
+<oids>:
+  { "targetOID" }
+
+<nat>:
+  0 | 1 | ... | 
+
+<int>:
+  <nat> | -<nat> | ( <double> <operator> <double>)
+  | "objectID" <objectPosition>
+
+<operator>:
+  + | - | * | :
+
+<objectPosition>:
+  x | y | width | height
+
+<extensionCommand>:

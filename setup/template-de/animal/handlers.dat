@@ -1,0 +1,8 @@
+animalscript.core.BaseAdminParser
+animalscript.core.BaseAnimatorParser
+animalscript.core.BaseObjectParser
+animalscript.extensions.ArraySupport
+animalscript.extensions.CodeSupport
+animalscript.extensions.MethodInvocationSupport
+animalscript.extensions.ExternalActionSupport
+animalscript.extensions.EmbeddedFileSupport
