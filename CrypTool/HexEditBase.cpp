@@ -1766,6 +1766,7 @@ void CHexEditBase::OnEditCopyCutDelete(bool cutdel,bool clipboard)
 	}
 	if (cutdel && nLength != 0) {
 		m_nLength -= nLength;
+		m_bRecalc = true;
 		SetEditCaretPos(m_nSelectionBegin,true);
 		m_nSelectingBeg = NOSECTION_VAL;
 		m_nSelectionBegin = NOSECTION_VAL;
@@ -1828,7 +1829,10 @@ void CHexEditBase::OnEditPaste()
 		m_pData = pTarget;
 		m_nCapacity = nTargetLength;
 	}
-	m_nLength = nTargetLength;
+	if (m_nLength != nTargetLength) {
+		m_bRecalc = true;
+		m_nLength = nTargetLength;
+	}
 	SetSelection(nPasteAdr, nPasteAdr+nLength-1, true, false);
 	SetEditCaretPos(nPasteAdr+nLength-1, false);
 	Invalidate();
