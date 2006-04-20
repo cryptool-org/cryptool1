@@ -4829,7 +4829,7 @@ BEGIN
         MENUITEM "&Speichern\tStrg+S",          ID_FILE_SAVE
         MENUITEM "Speichern &als...",           ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "Dokument-Eigenschaften...",   ID_FILEPROPERTIES, GRAYED
+        MENUITEM "Dokument-&Eigenschaften...",   ID_FILEPROPERTIES, GRAYED
         MENUITEM "&Drucken...\tStrg+P",         ID_FILE_PRINT
         MENUITEM "D&rucker einstellen...",      ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -4897,7 +4897,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
             , GRAYED
-            MENUITEM "Solitaire...",                ID_SYMCLASSIC_SOLITAIRE
+            MENUITEM "Soli&taire...",                ID_SYMCLASSIC_SOLITAIRE
             , GRAYED
         END
         POPUP "Symmetrisch (&modern)"
@@ -4944,7 +4944,7 @@ BEGIN
     END
     POPUP "Digitale Signaturen/&PKI"
     BEGIN
-        POPUP "PKI"
+        POPUP "&PKI"
         BEGIN
             MENUITEM "Schlüssel &erzeugen/importieren ...", ID_CRYPT_KeyGen
             MENUITEM "Schlüssel &anzeigen/exportieren ...", 
@@ -4993,13 +4993,13 @@ BEGIN
             MENUITEM "&Signaturdemo (Signaturerzeugung)...", 
                                                     ID_EINZELVERFAHREN_SIGN_DOC
 
-            POPUP "Gitterbasierte Angriffe auf RSA"
+            POPUP "&Gitterbasierte Angriffe auf RSA"
             BEGIN
-                MENUITEM "Faktorisieren mit teilweise bekanntem p...", 
+                MENUITEM "Faktorisieren mit &teilweise bekanntem p...", 
                                                         ID_RSA_FACTORHINT
-                MENUITEM "Angriff auf stereotype Nachrichten...", 
+                MENUITEM "Angriff auf &stereotype Nachrichten...", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Angriff auf kleine geheime Schlüssel...", 
+                MENUITEM "Angriff auf &kleine geheime Schlüssel...", 
                                                         ID_RSA_BLOEMERMAY
             END
         END
@@ -5010,32 +5010,32 @@ BEGIN
             MENUITEM "&Authentisierungsverfahren im Netz...", 
                                                     ID_CHALLENGE_RESPONSE
         END
-        POPUP "Anwendungen des Chinesischen Restsatzes"
+        POPUP "Anwendungen des &Chinesischen Restsatzes"
         BEGIN
-            MENUITEM "Astronomie und Planetenbewegung...", 
+            MENUITEM "&Astronomie und Planetenbewegung...", 
                                                     ID_INDIV_CRT_PLANET
-            MENUITEM "Modulare Hin- und Rücktransformation...", 
+            MENUITEM "&Modulare Hin- und Rücktransformation...", 
                                                     ID_INDIV_CRT_DEMO
-            MENUITEM "Secret Sharing mittels CRT...", 
+            MENUITEM "&Secret Sharing mittels CRT...", 
                                                     ID_INDIV_CRT_SECRETSHARING
 
         END
-        POPUP "Visualisierung von Algorithmen mit ANIMAL"
+        POPUP "&Visualisierung von Algorithmen mit ANIMAL"
         BEGIN
-            MENUITEM "Caesar...",                   ID_HELP_ANIMAL_CAESAR
-            MENUITEM "Vigenère...",                 ID_HELP_ANIMAL_VIGENERE
-            MENUITEM "Nihilist...",                 ID_HELP_ANIMAL_NIHILIST
-            MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
+            MENUITEM "&Caesar...",                   ID_HELP_ANIMAL_CAESAR
+            MENUITEM "&Vigenère...",                 ID_HELP_ANIMAL_VIGENERE
+            MENUITEM "&Nihilist...",                 ID_HELP_ANIMAL_NIHILIST
+            MENUITEM "&DES...",                      ID_HELP_ANIMAL_DES
         END
         MENUITEM SEPARATOR
         POPUP "C&odierungen"
         BEGIN
-            POPUP "Base64 Codierung/Decodierung", GRAYED
+            POPUP "&Base64 Codierung/Decodierung", GRAYED
             BEGIN
-                MENUITEM "Base64 codieren",             ID_ENCODE_BASE64
-                MENUITEM "Base64 decodieren",           ID_DECODE_BASE64
+                MENUITEM "Base64 &codieren",             ID_ENCODE_BASE64
+                MENUITEM "Base64 &decodieren",           ID_DECODE_BASE64
             END
-            MENUITEM "UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
+            MENUITEM "&UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
             MENUITEM "ASN.&1-Decodieren einer Datei...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
@@ -5059,7 +5059,7 @@ BEGIN
             MENUITEM "&Autokorrelation",            ID_AUTO, GRAYED
             MENUITEM "&Periode",                    ID_ANALYSE_PERIOD
             , GRAYED
-            MENUITEM "Massenmustersuche...",        ID_MASS_PATTERN_SEARCH
+            MENUITEM "&Massenmustersuche...",        ID_MASS_PATTERN_SEARCH
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -5071,11 +5071,11 @@ BEGIN
                 , GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 , GRAYED
-                MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "&ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 , GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 , GRAYED
-                MENUITEM "Solitaire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "Soli&taire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 , GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO, GRAYED
@@ -5091,7 +5091,7 @@ BEGIN
                 , GRAYED
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
                 , GRAYED
-                MENUITEM "Solitaire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "Soli&taire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 , GRAYED
             END
         END
@@ -5125,13 +5125,13 @@ BEGIN
             MENUITEM "&Faktorisieren einer Zahl...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            POPUP "Gitterbasierte Angriffe auf RSA"
+            POPUP "&Gitterbasierte Angriffe auf RSA"
             BEGIN
-                MENUITEM "Faktorisieren mit teilweise bekanntem p...", 
+                MENUITEM "Faktorisieren mit &teilweise bekanntem p...", 
                                                         ID_RSA_FACTORHINT
-                MENUITEM "Angriff auf stereotype Nachrichten...", 
+                MENUITEM "Angriff auf &stereotype Nachrichten...", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Angriff auf kleine geheime Schlüssel...", 
+                MENUITEM "Angriff auf &kleine geheime Schlüssel...", 
                                                         ID_RSA_BLOEMERMAY
             END
             MENUITEM "S&eitenkanalangriff auf ""Textbook-RSA""...", 
@@ -5160,7 +5160,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
             , GRAYED
-            MENUITEM "3-D Visualisierung...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "&3-D Visualisierung...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
             , GRAYED
         END
     END
@@ -5203,7 +5203,7 @@ BEGIN
         MENUITEM "&Speichern\tStrg+S",          ID_FILE_SAVE
         MENUITEM "Speichern &als...",           ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "Dokument-Eigenschaften...",   ID_FILEPROPERTIES, GRAYED
+        MENUITEM "Dokument-&Eigenschaften...",   ID_FILEPROPERTIES, GRAYED
         MENUITEM "&Drucken...\tStrg+P",         ID_FILE_PRINT
         MENUITEM "D&rucker einstellen...",      ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -5270,7 +5270,7 @@ BEGIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
-            MENUITEM "Solitaire...",                ID_SYMCLASSIC_SOLITAIRE
+            MENUITEM "Soli&taire...",                ID_SYMCLASSIC_SOLITAIRE
             , GRAYED
         END
         POPUP "Symmetrisch (&modern)"
@@ -5309,7 +5309,7 @@ BEGIN
     END
     POPUP "Digitale Signaturen/&PKI"
     BEGIN
-        POPUP "PKI"
+        POPUP "&PKI"
         BEGIN
             MENUITEM "Schlüssel &erzeugen/importieren ...", ID_CRYPT_KeyGen
             MENUITEM "Schlüssel &anzeigen/exportieren ...", 
@@ -5352,13 +5352,13 @@ BEGIN
             MENUITEM "&Signaturdemo (Signaturerzeugung)...", 
                                                     ID_EINZELVERFAHREN_SIGN_DOC
 
-            POPUP "Gitterbasierte Angriffe auf RSA"
+            POPUP "&Gitterbasierte Angriffe auf RSA"
             BEGIN
-                MENUITEM "Faktorisieren mit teilweise bekanntem p...", 
+                MENUITEM "Faktorisieren mit &teilweise bekanntem p...", 
                                                         ID_RSA_FACTORHINT
-                MENUITEM "Angriff auf stereotype Nachrichten...", 
+                MENUITEM "Angriff auf &stereotype Nachrichten...", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Angriff auf kleine geheime Schlüssel...", 
+                MENUITEM "Angriff auf &kleine geheime Schlüssel...", 
                                                         ID_RSA_BLOEMERMAY
             END
         END
@@ -5369,32 +5369,32 @@ BEGIN
             MENUITEM "&Authentisierungsverfahren im Netz...", 
                                                     ID_CHALLENGE_RESPONSE
         END
-        POPUP "Anwendungen des Chinesischen Restsatzes"
+        POPUP "Anwendungen des &Chinesischen Restsatzes"
         BEGIN
-            MENUITEM "Astronomie und Planetenbewegung...", 
+            MENUITEM "&Astronomie und Planetenbewegung...", 
                                                     ID_INDIV_CRT_PLANET
-            MENUITEM "Modulare Hin- und Rücktransformation...", 
+            MENUITEM "&Modulare Hin- und Rücktransformation...", 
                                                     ID_INDIV_CRT_DEMO
-            MENUITEM "Secret Sharing mittels CRT...", 
+            MENUITEM "&Secret Sharing mittels CRT...", 
                                                     ID_INDIV_CRT_SECRETSHARING
 
         END
-        POPUP "Visualisierung von Algorithmen mit ANIMAL"
+        POPUP "&Visualisierung von Algorithmen mit ANIMAL"
         BEGIN
-            MENUITEM "Caesar...",                   ID_HELP_ANIMAL_CAESAR
-            MENUITEM "Vigenère...",                 ID_HELP_ANIMAL_VIGENERE
-            MENUITEM "Nihilist...",                 ID_HELP_ANIMAL_NIHILIST
-            MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
+            MENUITEM "&Caesar...",                   ID_HELP_ANIMAL_CAESAR
+            MENUITEM "&Vigenère...",                 ID_HELP_ANIMAL_VIGENERE
+            MENUITEM "&Nihilist...",                 ID_HELP_ANIMAL_NIHILIST
+            MENUITEM "&DES...",                      ID_HELP_ANIMAL_DES
         END
         MENUITEM SEPARATOR
         POPUP "C&odierungen"
         BEGIN
-            POPUP "Base64 Codierung/Decodierung"
+            POPUP "&Base64 Codierung/Decodierung"
             BEGIN
-                MENUITEM "Base64 codieren",             ID_ENCODE_BASE64
-                MENUITEM "Base64 decodieren",           ID_DECODE_BASE64
+                MENUITEM "Base64 &codieren",             ID_ENCODE_BASE64
+                MENUITEM "Base64 &decodieren",           ID_DECODE_BASE64
             END
-            MENUITEM "UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
+            MENUITEM "&UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
             MENUITEM "ASN.&1-Decodieren einer Datei...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
@@ -5417,7 +5417,7 @@ BEGIN
             MENUITEM "&N-Gramm...",                 ID_ANALYSE_NGRAM
             MENUITEM "&Autokorrelation",            ID_AUTO
             MENUITEM "&Periode",                    ID_ANALYSE_PERIOD
-            MENUITEM "Massenmustersuche...",        ID_MASS_PATTERN_SEARCH
+            MENUITEM "&Massenmustersuche...",        ID_MASS_PATTERN_SEARCH
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -5428,11 +5428,11 @@ BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 , GRAYED
-                MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "&ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 , GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 , GRAYED
-                MENUITEM "Solitaire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "Soli&taire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 , GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO
@@ -5447,7 +5447,7 @@ BEGIN
                 MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
                 , GRAYED
-                MENUITEM "Solitaire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "Soli&taire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 , GRAYED
             END
         END
@@ -5472,13 +5472,13 @@ BEGIN
             MENUITEM "&Faktorisieren einer Zahl...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            POPUP "Gitterbasierte Angriffe auf RSA"
+            POPUP "&Gitterbasierte Angriffe auf RSA"
             BEGIN
-                MENUITEM "Faktorisieren mit teilweise bekanntem p...", 
+                MENUITEM "Faktorisieren mit &teilweise bekanntem p...", 
                                                         ID_RSA_FACTORHINT
-                MENUITEM "Angriff auf stereotype Nachrichten...", 
+                MENUITEM "Angriff auf &stereotype Nachrichten...", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Angriff auf kleine geheime Schlüssel...", 
+                MENUITEM "Angriff auf &kleine geheime Schlüssel...", 
                                                         ID_RSA_BLOEMERMAY
             END
             MENUITEM "S&eitenkanalangriff auf ""Textbook-RSA""...", 
@@ -5506,7 +5506,7 @@ BEGIN
 
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
-            MENUITEM "3-D Visualisierung...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "&3-D Visualisierung...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
 
         END
     END
@@ -5549,7 +5549,7 @@ BEGIN
         MENUITEM "&Speichern\tStrg+S",          ID_FILE_SAVE, GRAYED
         MENUITEM "Speichern &als...",           ID_FILE_SAVE_AS, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Dokument-Eigenschaften...",   ID_FILEPROPERTIES, GRAYED
+        MENUITEM "Dokument-&Eigenschaften...",  ID_FILEPROPERTIES, GRAYED
         MENUITEM "&Drucken...\tStrg+P",         ID_FILE_PRINT, GRAYED
         MENUITEM "D&rucker einstellen...",      ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -5618,7 +5618,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
             , GRAYED
-            MENUITEM "Solitaire...",                ID_SYMCLASSIC_SOLITAIRE
+            MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
             , GRAYED
         END
         POPUP "Symmetrisch (&modern)"
@@ -5665,7 +5665,7 @@ BEGIN
     END
     POPUP "Digitale Signaturen/&PKI"
     BEGIN
-        POPUP "PKI"
+        POPUP "&PKI"
         BEGIN
             MENUITEM "Schlüssel &erzeugen/importieren ...", ID_CRYPT_KeyGen
             MENUITEM "Schlüssel &anzeigen/exportieren ...", 
@@ -5714,13 +5714,13 @@ BEGIN
             MENUITEM "&Signaturdemo (Signaturerzeugung)...", 
                                                     ID_EINZELVERFAHREN_SIGN_DOC
 
-            POPUP "Gitterbasierte Angriffe auf RSA"
+            POPUP "&Gitterbasierte Angriffe auf RSA"
             BEGIN
-                MENUITEM "Faktorisieren mit teilweise bekanntem p...", 
+                MENUITEM "Faktorisieren mit &teilweise bekanntem p...", 
                                                         ID_RSA_FACTORHINT
-                MENUITEM "Angriff auf stereotype Nachrichten...", 
+                MENUITEM "Angriff auf &stereotype Nachrichten...", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Angriff auf kleine geheime Schlüssel...", 
+                MENUITEM "Angriff auf &kleine geheime Schlüssel...", 
                                                         ID_RSA_BLOEMERMAY
             END
         END
@@ -5731,32 +5731,32 @@ BEGIN
             MENUITEM "&Authentisierungsverfahren im Netz...", 
                                                     ID_CHALLENGE_RESPONSE
         END
-        POPUP "Anwendungen des Chinesischen Restsatzes"
+        POPUP "Anwendungen des &Chinesischen Restsatzes"
         BEGIN
-            MENUITEM "Astronomie und Planetenbewegung...", 
+            MENUITEM "&Astronomie und Planetenbewegung...", 
                                                     ID_INDIV_CRT_PLANET
-            MENUITEM "Modulare Hin- und Rücktransformation...", 
+            MENUITEM "&Modulare Hin- und Rücktransformation...", 
                                                     ID_INDIV_CRT_DEMO
-            MENUITEM "Secret Sharing mittels CRT...", 
+            MENUITEM "&Secret Sharing mittels CRT...", 
                                                     ID_INDIV_CRT_SECRETSHARING
 
         END
-        POPUP "Visualisierung von Algorithmen mit ANIMAL"
+        POPUP "&Visualisierung von Algorithmen mit ANIMAL"
         BEGIN
-            MENUITEM "Caesar...",                   ID_HELP_ANIMAL_CAESAR
-            MENUITEM "Vigenère...",                 ID_HELP_ANIMAL_VIGENERE
-            MENUITEM "Nihilist...",                 ID_HELP_ANIMAL_NIHILIST
-            MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
+            MENUITEM "&Caesar...",                  ID_HELP_ANIMAL_CAESAR
+            MENUITEM "&Vigenère...",                ID_HELP_ANIMAL_VIGENERE
+            MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
+            MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
         END
         MENUITEM SEPARATOR
         POPUP "C&odierungen"
         BEGIN
-            POPUP "Base64 Codierung/Decodierung", GRAYED
+            POPUP "&Base64 Codierung/Decodierung", GRAYED
             BEGIN
-                MENUITEM "Base64 codieren",             ID_ENCODE_BASE64
-                MENUITEM "Base64 decodieren",           ID_DECODE_BASE64
+                MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64
+                MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
             END
-            MENUITEM "UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
+            MENUITEM "&UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
             MENUITEM "ASN.&1-Decodieren einer Datei...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
@@ -5780,7 +5780,7 @@ BEGIN
             MENUITEM "&Autokorrelation",            ID_AUTO, GRAYED
             MENUITEM "&Periode",                    ID_ANALYSE_PERIOD
             , GRAYED
-            MENUITEM "Massenmustersuche...",        ID_MASS_PATTERN_SEARCH
+            MENUITEM "&Massenmustersuche...",       ID_MASS_PATTERN_SEARCH
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -5792,11 +5792,11 @@ BEGIN
                 , GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 , GRAYED
-                MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 , GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 , GRAYED
-                MENUITEM "Solitaire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 , GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO, GRAYED
@@ -5812,7 +5812,7 @@ BEGIN
                 , GRAYED
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
                 , GRAYED
-                MENUITEM "Solitaire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "Soli&taire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 , GRAYED
             END
         END
@@ -5846,13 +5846,13 @@ BEGIN
             MENUITEM "&Faktorisieren einer Zahl...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            POPUP "Gitterbasierte Angriffe auf RSA"
+            POPUP "&Gitterbasierte Angriffe auf RSA"
             BEGIN
-                MENUITEM "Faktorisieren mit teilweise bekanntem p...", 
+                MENUITEM "Faktorisieren mit &teilweise bekanntem p...", 
                                                         ID_RSA_FACTORHINT
-                MENUITEM "Angriff auf stereotype Nachrichten...", 
+                MENUITEM "Angriff auf &stereotype Nachrichten...", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Angriff auf kleine geheime Schlüssel...", 
+                MENUITEM "Angriff auf &kleine geheime Schlüssel...", 
                                                         ID_RSA_BLOEMERMAY
             END
             MENUITEM "S&eitenkanalangriff auf ""Textbook-RSA""...", 
@@ -5881,7 +5881,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
             , GRAYED
-            MENUITEM "3-D Visualisierung...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "&3-D Visualisierung...",      ID_ANALYSIS_RANDOM_3D_VISUALIZATION
             , GRAYED
         END
     END
@@ -5924,7 +5924,7 @@ BEGIN
         MENUITEM "&Speichern\tStrg+S",          ID_FILE_SAVE
         MENUITEM "Speichern &als...",           ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "Dokument-Eigenschaften...",   ID_FILEPROPERTIES, GRAYED
+        MENUITEM "Dokument-&Eigenschaften...",   ID_FILEPROPERTIES, GRAYED
         MENUITEM "&Drucken...\tStrg+P",         ID_FILE_PRINT
         MENUITEM "D&rucker einstellen...",      ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -5993,7 +5993,7 @@ BEGIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
-            MENUITEM "Solitaire...",                ID_SYMCLASSIC_SOLITAIRE
+            MENUITEM "Soli&taire...",                ID_SYMCLASSIC_SOLITAIRE
         END
         POPUP "Symmetrisch (&modern)"
         BEGIN
@@ -6031,7 +6031,7 @@ BEGIN
     END
     POPUP "Digitale Signaturen/&PKI"
     BEGIN
-        POPUP "PKI"
+        POPUP "&PKI"
         BEGIN
             MENUITEM "Schlüssel &erzeugen/importieren ...", ID_CRYPT_KeyGen
             MENUITEM "Schlüssel &anzeigen/exportieren ...", 
@@ -6074,13 +6074,13 @@ BEGIN
             MENUITEM "&Signaturdemo (Signaturerzeugung)...", 
                                                     ID_EINZELVERFAHREN_SIGN_DOC
 
-            POPUP "Gitterbasierte Angriffe auf RSA"
+            POPUP "&Gitterbasierte Angriffe auf RSA"
             BEGIN
-                MENUITEM "Faktorisieren mit teilweise bekanntem p...", 
+                MENUITEM "Faktorisieren mit &teilweise bekanntem p...", 
                                                         ID_RSA_FACTORHINT
-                MENUITEM "Angriff auf stereotype Nachrichten...", 
+                MENUITEM "Angriff auf &stereotype Nachrichten...", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Angriff auf kleine geheime Schlüssel...", 
+                MENUITEM "Angriff auf &kleine geheime Schlüssel...", 
                                                         ID_RSA_BLOEMERMAY
             END
         END
@@ -6091,32 +6091,32 @@ BEGIN
             MENUITEM "&Authentisierungsverfahren im Netz...", 
                                                     ID_CHALLENGE_RESPONSE
         END
-        POPUP "Anwendungen des Chinesischen Restsatzes"
+        POPUP "Anwendungen des &Chinesischen Restsatzes"
         BEGIN
-            MENUITEM "Astronomie und Planetenbewegung...", 
+            MENUITEM "&Astronomie und Planetenbewegung...", 
                                                     ID_INDIV_CRT_PLANET
-            MENUITEM "Modulare Hin- und Rücktransformation...", 
+            MENUITEM "&Modulare Hin- und Rücktransformation...", 
                                                     ID_INDIV_CRT_DEMO
-            MENUITEM "Secret Sharing mittels CRT...", 
+            MENUITEM "&Secret Sharing mittels CRT...", 
                                                     ID_INDIV_CRT_SECRETSHARING
 
         END
-        POPUP "Visualisierung von Algorithmen mit ANIMAL"
+        POPUP "&Visualisierung von Algorithmen mit ANIMAL"
         BEGIN
-            MENUITEM "Caesar...",                   ID_HELP_ANIMAL_CAESAR
-            MENUITEM "Vigenère...",                 ID_HELP_ANIMAL_VIGENERE
-            MENUITEM "Nihilist...",                 ID_HELP_ANIMAL_NIHILIST
-            MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
+            MENUITEM "&Caesar...",                   ID_HELP_ANIMAL_CAESAR
+            MENUITEM "&Vigenère...",                 ID_HELP_ANIMAL_VIGENERE
+            MENUITEM "&Nihilist...",                 ID_HELP_ANIMAL_NIHILIST
+            MENUITEM "&DES...",                      ID_HELP_ANIMAL_DES
         END
         MENUITEM SEPARATOR
         POPUP "C&odierungen"
         BEGIN
-            POPUP "Base64 Codierung/Decodierung"
+            POPUP "&Base64 Codierung/Decodierung"
             BEGIN
-                MENUITEM "Base64 codieren",             ID_ENCODE_BASE64
-                MENUITEM "Base64 decodieren",           ID_DECODE_BASE64
+                MENUITEM "Base64 &codieren",             ID_ENCODE_BASE64
+                MENUITEM "Base64 &decodieren",           ID_DECODE_BASE64
             END
-            MENUITEM "UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
+            MENUITEM "&UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
             MENUITEM "ASN.&1-Decodieren einer Datei...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
@@ -6139,7 +6139,7 @@ BEGIN
             MENUITEM "&N-Gramm...",                 ID_ANALYSE_NGRAM
             MENUITEM "&Autokorrelation",            ID_AUTO
             MENUITEM "&Periode",                    ID_ANALYSE_PERIOD
-            MENUITEM "Massenmustersuche...",        ID_MASS_PATTERN_SEARCH
+            MENUITEM "&Massenmustersuche...",        ID_MASS_PATTERN_SEARCH
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -6149,11 +6149,11 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "&ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
 
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
 
-                MENUITEM "Solitaire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "Soli&taire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
 
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO
@@ -6167,7 +6167,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
-                MENUITEM "Solitaire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "Soli&taire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
 
             END
         END
@@ -6201,13 +6201,13 @@ BEGIN
             MENUITEM "&Faktorisieren einer Zahl...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            POPUP "Gitterbasierte Angriffe auf RSA"
+            POPUP "&Gitterbasierte Angriffe auf RSA"
             BEGIN
-                MENUITEM "Faktorisieren mit teilweise bekanntem p...", 
+                MENUITEM "Faktorisieren mit &teilweise bekanntem p...", 
                                                         ID_RSA_FACTORHINT
-                MENUITEM "Angriff auf stereotype Nachrichten...", 
+                MENUITEM "Angriff auf &stereotype Nachrichten...", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Angriff auf kleine geheime Schlüssel...", 
+                MENUITEM "Angriff auf &kleine geheime Schlüssel...", 
                                                         ID_RSA_BLOEMERMAY
             END
             MENUITEM "S&eitenkanalangriff auf ""Textbook-RSA""...", 
@@ -6235,7 +6235,7 @@ BEGIN
 
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
-            MENUITEM "3-D Visualisierung...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "&3-D Visualisierung...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
 
         END
     END
@@ -6304,7 +6304,7 @@ BEGIN
         MENUITEM "&Speichern\tStrg+S",          ID_FILE_SAVE
         MENUITEM "Speichern &als...",           ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "Dokument-Eigenschaften...",   ID_FILEPROPERTIES, GRAYED
+        MENUITEM "Dokument-&Eigenschaften...",   ID_FILEPROPERTIES, GRAYED
         MENUITEM "&Drucken...\tStrg+P",         ID_FILE_PRINT
         MENUITEM "D&rucker einstellen...",      ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -6373,7 +6373,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
             , GRAYED
-            MENUITEM "Solitaire...",                ID_SYMCLASSIC_SOLITAIRE
+            MENUITEM "Soli&taire...",                ID_SYMCLASSIC_SOLITAIRE
             , GRAYED
         END
         POPUP "Symmetrisch (&modern)"
@@ -6420,7 +6420,7 @@ BEGIN
     END
     POPUP "Digitale Signaturen/&PKI"
     BEGIN
-        POPUP "PKI"
+        POPUP "&PKI"
         BEGIN
             MENUITEM "Schlüssel &erzeugen/importieren ...", ID_CRYPT_KeyGen
             MENUITEM "Schlüssel &anzeigen/exportieren ...", 
@@ -6469,13 +6469,13 @@ BEGIN
             MENUITEM "&Signaturdemo (Signaturerzeugung)...", 
                                                     ID_EINZELVERFAHREN_SIGN_DOC
 
-            POPUP "Gitterbasierte Angriffe auf RSA"
+            POPUP "&Gitterbasierte Angriffe auf RSA"
             BEGIN
-                MENUITEM "Faktorisieren mit teilweise bekanntem p...", 
+                MENUITEM "Faktorisieren mit &teilweise bekanntem p...", 
                                                         ID_RSA_FACTORHINT
-                MENUITEM "Angriff auf stereotype Nachrichten...", 
+                MENUITEM "Angriff auf &stereotype Nachrichten...", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Angriff auf kleine geheime Schlüssel...", 
+                MENUITEM "Angriff auf &kleine geheime Schlüssel...", 
                                                         ID_RSA_BLOEMERMAY
             END
         END
@@ -6486,30 +6486,30 @@ BEGIN
             MENUITEM "&Authentisierungsverfahren im Netz...", 
                                                     ID_CHALLENGE_RESPONSE
         END
-        POPUP "Anwendungen des Chinesischen Restsatzes"
+        POPUP "Anwendungen des &Chinesischen Restsatzes"
         BEGIN
-            MENUITEM "Astronomie und Planetenbewegung...", 
+            MENUITEM "&Astronomie und Planetenbewegung...", 
                                                     ID_INDIV_CRT_PLANET
-            MENUITEM "Modulare Hin- und Rücktransformation...", 
+            MENUITEM "&Modulare Hin- und Rücktransformation...", 
                                                     ID_INDIV_CRT_DEMO
-            MENUITEM "Secret Sharing mittels CRT...", 
+            MENUITEM "&Secret Sharing mittels CRT...", 
                                                     ID_INDIV_CRT_SECRETSHARING
 
         END
-        POPUP "Visualisierung von Algorithmen mit ANIMAL"
+        POPUP "&Visualisierung von Algorithmen mit ANIMAL"
         BEGIN
-            MENUITEM "Caesar...",                   ID_HELP_ANIMAL_CAESAR
-            MENUITEM "Vigenère...",                 ID_HELP_ANIMAL_VIGENERE
-            MENUITEM "Nihilist...",                 ID_HELP_ANIMAL_NIHILIST
-            MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
+            MENUITEM "&Caesar...",                   ID_HELP_ANIMAL_CAESAR
+            MENUITEM "&Vigenère...",                 ID_HELP_ANIMAL_VIGENERE
+            MENUITEM "&Nihilist...",                 ID_HELP_ANIMAL_NIHILIST
+            MENUITEM "&DES...",                      ID_HELP_ANIMAL_DES
         END
         MENUITEM SEPARATOR
         POPUP "C&odierungen"
         BEGIN
-            POPUP "Base64 Codierung/Decodierung", GRAYED
+            POPUP "&Base64 Codierung/Decodierung", GRAYED
             BEGIN
-                MENUITEM "Base64 codieren",             33319
-                MENUITEM "Base64 decodieren",           33320
+                MENUITEM "Base64 &codieren",             33319
+                MENUITEM "Base64 &decodieren",           33320
             END
             MENUITEM "UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
             MENUITEM "ASN.&1-Decodieren einer Datei...", 
@@ -6535,7 +6535,7 @@ BEGIN
             MENUITEM "&Autokorrelation",            ID_AUTO, GRAYED
             MENUITEM "&Periode",                    ID_ANALYSE_PERIOD
             , GRAYED
-            MENUITEM "Massenmustersuche...",        ID_MASS_PATTERN_SEARCH
+            MENUITEM "&Massenmustersuche...",        ID_MASS_PATTERN_SEARCH
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -6547,11 +6547,11 @@ BEGIN
                 , GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 , GRAYED
-                MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "&ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 , GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 , GRAYED
-                MENUITEM "Solitaire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "Soli&taire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 , GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO, GRAYED
@@ -6567,7 +6567,7 @@ BEGIN
                 , GRAYED
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
                 , GRAYED
-                MENUITEM "Solitaire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "Soli&taire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 , GRAYED
             END
         END
@@ -6601,13 +6601,13 @@ BEGIN
             MENUITEM "&Faktorisieren einer Zahl...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            POPUP "Gitterbasierte Angriffe auf RSA"
+            POPUP "&Gitterbasierte Angriffe auf RSA"
             BEGIN
-                MENUITEM "Faktorisieren mit teilweise bekanntem p...", 
+                MENUITEM "Faktorisieren mit &teilweise bekanntem p...", 
                                                         ID_RSA_FACTORHINT
-                MENUITEM "Angriff auf stereotype Nachrichten...", 
+                MENUITEM "Angriff auf &stereotype Nachrichten...", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Angriff auf kleine geheime Schlüssel...", 
+                MENUITEM "Angriff auf &kleine geheime Schlüssel...", 
                                                         ID_RSA_BLOEMERMAY
             END
             MENUITEM "S&eitenkanalangriff auf ""Textbook-RSA""...", 
@@ -6636,7 +6636,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
             , GRAYED
-            MENUITEM "3-D Visualisierung...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "&3-D Visualisierung...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
             , GRAYED
         END
     END
@@ -15139,9 +15139,9 @@ BEGIN
         MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
         MENUITEM "Save &as...",                 ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "Document Properties...",      ID_FILEPROPERTIES
+        MENUITEM "&Document Properties...",      ID_FILEPROPERTIES
         MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
-        MENUITEM "&Print Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
         MENUITEM "Recent Files",                ID_FILE_MRU_FILE1
         MENUITEM SEPARATOR
@@ -15151,7 +15151,7 @@ BEGIN
     BEGIN
         MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "C&ut\tCtrl+X",                ID_EDIT_CUT, GRAYED
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT, GRAYED
         MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY, GRAYED
         MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE, GRAYED
         MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR, GRAYED
@@ -15176,7 +15176,7 @@ BEGIN
         MENUITEM "&Bar Chart",                  ID_PLOTBAR
         MENUITEM SEPARATOR
         MENUITEM "&End of line",                ID_VIEW_ENDOFLINE, GRAYED
-        MENUITEM "Line &wrap",                  ID_VIEW_LINEWRAP, GRAYED
+        MENUITEM "Line w&rap",                  ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Font", GRAYED
         BEGIN
@@ -15207,7 +15207,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
             , GRAYED
-            MENUITEM "Solitaire...",                ID_SYMCLASSIC_SOLITAIRE
+            MENUITEM "Soli&taire...",                ID_SYMCLASSIC_SOLITAIRE
             , GRAYED
         END
         POPUP "Symmetric (&modern)"
@@ -15254,7 +15254,7 @@ BEGIN
     END
     POPUP "Digital Signatures/&PKI"
     BEGIN
-        POPUP "PKI"
+        POPUP "&PKI"
         BEGIN
             MENUITEM "&Key Generation/Import...",   ID_CRYPT_KeyGen
             MENUITEM "&Key Display/Export...",      ID_SHOW_ALL_EC_KEYS
@@ -15302,46 +15302,46 @@ BEGIN
             MENUITEM "&Signature Demonstration (Signature Generation)...", 
                                                     ID_EINZELVERFAHREN_SIGN_DOC
 
-            POPUP "Lattice Based Attacks on RSA"
+            POPUP "&Lattice Based Attacks on RSA"
             BEGIN
-                MENUITEM "Factoring with a Hint...",    ID_RSA_FACTORHINT
-                MENUITEM "Attack on Stereotyped Messages...", 
+                MENUITEM "&Factoring with a Hint...",    ID_RSA_FACTORHINT
+                MENUITEM "&Attack on Stereotyped Messages...", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Attack on Small Secret Keys...", ID_RSA_BLOEMERMAY
+                MENUITEM "Attack on &Small Secret Keys...", ID_RSA_BLOEMERMAY
             END
         END
-        POPUP "Protocols"
+        POPUP "&Protocols"
         BEGIN
             MENUITEM "&Diffie-Hellman Demonstration...", 
                                                     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
             MENUITEM "Network &Authentication...",  ID_CHALLENGE_RESPONSE
         END
-        POPUP "Chinese Remainder Theorem Applications"
+        POPUP "Chinese Remainder &Theorem Applications"
         BEGIN
-            MENUITEM "Astronomy and Planetary Motion...", 
+            MENUITEM "&Astronomy and Planetary Motion...", 
                                                     ID_INDIV_CRT_PLANET
-            MENUITEM "Modular Foreward and Backward Transformation...", 
+            MENUITEM "&Modular Foreward and Backward Transformation...", 
                                                     ID_INDIV_CRT_DEMO
-            MENUITEM "Secret Sharing by CRT...",    ID_INDIV_CRT_SECRETSHARING
+            MENUITEM "&Secret Sharing by CRT...",   ID_INDIV_CRT_SECRETSHARING
 
         END
-        POPUP "Visualization of Algorithms using ANIMAL"
+        POPUP "&Visualization of Algorithms using ANIMAL"
         BEGIN
-            MENUITEM "Caesar...",                   ID_HELP_ANIMAL_CAESAR
-            MENUITEM "Vigenère...",                 ID_HELP_ANIMAL_VIGENERE
-            MENUITEM "Nihilist...",                 ID_HELP_ANIMAL_NIHILIST
-            MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
+            MENUITEM "&Caesar...",                   ID_HELP_ANIMAL_CAESAR
+            MENUITEM "&Vigenère...",                 ID_HELP_ANIMAL_VIGENERE
+            MENUITEM "&Nihilist...",                 ID_HELP_ANIMAL_NIHILIST
+            MENUITEM "&DES...",                      ID_HELP_ANIMAL_DES
         END
         MENUITEM SEPARATOR
-        POPUP "Codes"
+        POPUP "C&odes"
         BEGIN
-            POPUP "Base64 Encode/Decode", GRAYED
+            POPUP "&Base64 Encode/Decode", GRAYED
             BEGIN
-                MENUITEM "Base64 Encode",               ID_ENCODE_BASE64
-                MENUITEM "Base64 Decode",               ID_DECODE_BASE64
+                MENUITEM "Base64 &Encode",               ID_ENCODE_BASE64
+                MENUITEM "Base64 &Decode",               ID_DECODE_BASE64
             END
-            MENUITEM "UU-Encode/Decode",            ID_CODE_UU, GRAYED
+            MENUITEM "&UU-Encode/Decode",            ID_CODE_UU, GRAYED
             MENUITEM "Decode ASN.&1 Code of a File...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
@@ -15365,7 +15365,7 @@ BEGIN
             MENUITEM "&Autocorrelation",            ID_AUTO, GRAYED
             MENUITEM "&Periodicity",                ID_ANALYSE_PERIOD
             , GRAYED
-            MENUITEM "Mass Pattern Search...",      ID_MASS_PATTERN_SEARCH
+            MENUITEM "&Mass Pattern Search...",      ID_MASS_PATTERN_SEARCH
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -15377,11 +15377,11 @@ BEGIN
                 , GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 , GRAYED
-                MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "&ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 , GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 , GRAYED
-                MENUITEM "Solitaire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "Soli&taire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 , GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO, GRAYED
@@ -15397,7 +15397,7 @@ BEGIN
                 , GRAYED
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
                 , GRAYED
-                MENUITEM "Solitaire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "Soli&taire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 , GRAYED
             END
         END
@@ -15431,12 +15431,12 @@ BEGIN
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            POPUP "Lattice Based Attacks on RSA"
+            POPUP "&Lattice Based Attacks on RSA"
             BEGIN
-                MENUITEM "Factoring with a Hint...",    ID_RSA_FACTORHINT
-                MENUITEM "Attack on Stereotyped Messages...", 
+                MENUITEM "&Factoring with a Hint...",    ID_RSA_FACTORHINT
+                MENUITEM "&Attack on Stereotyped Messages...", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Attack on Small Secret Keys...", ID_RSA_BLOEMERMAY
+                MENUITEM "Attack on &Small Secret Keys...", ID_RSA_BLOEMERMAY
             END
             MENUITEM "&Side-Channel Attack on ""Textbook RSA""...", 
                                                     ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
@@ -15463,7 +15463,7 @@ BEGIN
 
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
-            MENUITEM "3-D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "&3-D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
             , GRAYED
         END
     END
@@ -15506,9 +15506,9 @@ BEGIN
         MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
         MENUITEM "Save &as...",                 ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "Document Properties...",      ID_FILEPROPERTIES
+        MENUITEM "&Document Properties...",      ID_FILEPROPERTIES
         MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
-        MENUITEM "&Print Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
         MENUITEM "Recent Files",                ID_FILE_MRU_FILE1
         MENUITEM SEPARATOR
@@ -15518,7 +15518,7 @@ BEGIN
     BEGIN
         MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
         MENUITEM SEPARATOR
-        MENUITEM "C&ut\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
         MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
         MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
         MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR
@@ -15543,7 +15543,7 @@ BEGIN
         MENUITEM "&Bar Chart",                  ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&End of line",                ID_VIEW_ENDOFLINE, GRAYED
-        MENUITEM "Line &wrap",                  ID_VIEW_LINEWRAP, GRAYED
+        MENUITEM "Line w&rap",                  ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Font", GRAYED
         BEGIN
@@ -15574,7 +15574,7 @@ BEGIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
-            MENUITEM "Solitaire...",                ID_SYMCLASSIC_SOLITAIRE
+            MENUITEM "Soli&taire...",                ID_SYMCLASSIC_SOLITAIRE
             , GRAYED
         END
         POPUP "Symmetric (&modern)"
@@ -15613,7 +15613,7 @@ BEGIN
     END
     POPUP "Digital Signatures/&PKI"
     BEGIN
-        POPUP "PKI"
+        POPUP "&PKI"
         BEGIN
             MENUITEM "&Key Generation/Import...",   ID_CRYPT_KeyGen
             MENUITEM "&Key Display/Export...",      ID_SHOW_ALL_EC_KEYS
@@ -15655,46 +15655,46 @@ BEGIN
             MENUITEM "&Signature Demonstration (Signature Generation)...", 
                                                     ID_EINZELVERFAHREN_SIGN_DOC
 
-            POPUP "Lattice Based Attacks on RSA"
+            POPUP "&Lattice Based Attacks on RSA"
             BEGIN
-                MENUITEM "Factoring with a Hint...",    ID_RSA_FACTORHINT
-                MENUITEM "Attack on Stereotyped Messages...", 
+                MENUITEM "&Factoring with a Hint...",    ID_RSA_FACTORHINT
+                MENUITEM "&Attack on Stereotyped Messages...", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Attack on Small Secret Keys...", ID_RSA_BLOEMERMAY
+                MENUITEM "Attack on &Small Secret Keys...", ID_RSA_BLOEMERMAY
             END
         END
-        POPUP "Protocols"
+        POPUP "&Protocols"
         BEGIN
             MENUITEM "&Diffie-Hellman Demonstration...", 
                                                     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
             MENUITEM "Network &Authentication...",  ID_CHALLENGE_RESPONSE
         END
-        POPUP "Chinese Remainder Theorem Applications"
+        POPUP "Chinese Remainder &Theorem Applications"
         BEGIN
-            MENUITEM "Astronomy and Planetary Motion...", 
+            MENUITEM "&Astronomy and Planetary Motion...", 
                                                     ID_INDIV_CRT_PLANET
-            MENUITEM "Modular Foreward and Backward Transformation...", 
+            MENUITEM "&Modular Foreward and Backward Transformation...", 
                                                     ID_INDIV_CRT_DEMO
-            MENUITEM "Secret Sharing by CRT...",    ID_INDIV_CRT_SECRETSHARING
+            MENUITEM "&Secret Sharing by CRT...",   ID_INDIV_CRT_SECRETSHARING
 
         END
-        POPUP "Visualization of Algorithms using ANIMAL"
+        POPUP "&Visualization of Algorithms using ANIMAL"
         BEGIN
-            MENUITEM "Caesar...",                   ID_HELP_ANIMAL_CAESAR
-            MENUITEM "Vigenère...",                 ID_HELP_ANIMAL_VIGENERE
-            MENUITEM "Nihilist...",                 ID_HELP_ANIMAL_NIHILIST
-            MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
+            MENUITEM "&Caesar...",                   ID_HELP_ANIMAL_CAESAR
+            MENUITEM "&Vigenère...",                 ID_HELP_ANIMAL_VIGENERE
+            MENUITEM "&Nihilist...",                 ID_HELP_ANIMAL_NIHILIST
+            MENUITEM "&DES...",                      ID_HELP_ANIMAL_DES
         END
         MENUITEM SEPARATOR
-        POPUP "Codes"
+        POPUP "C&odes"
         BEGIN
-            POPUP "Base64 Encode/Decode"
+            POPUP "&Base64 Encode/Decode"
             BEGIN
-                MENUITEM "Base64 Encode",               ID_ENCODE_BASE64
-                MENUITEM "Base64 Decode",               ID_DECODE_BASE64
+                MENUITEM "Base64 &Encode",               ID_ENCODE_BASE64
+                MENUITEM "Base64 &Decode",               ID_DECODE_BASE64
             END
-            MENUITEM "UU-Encode/Decode",            ID_CODE_UU, GRAYED
+            MENUITEM "&UU-Encode/Decode",            ID_CODE_UU, GRAYED
             MENUITEM "Decode ASN.&1 Code of a File...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
@@ -15717,7 +15717,7 @@ BEGIN
             MENUITEM "&N-Gram...",                  ID_ANALYSE_NGRAM
             MENUITEM "&Autocorrelation",            ID_AUTO
             MENUITEM "&Periodicity",                ID_ANALYSE_PERIOD
-            MENUITEM "Mass Pattern Search...",      ID_MASS_PATTERN_SEARCH
+            MENUITEM "&Mass Pattern Search...",      ID_MASS_PATTERN_SEARCH
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -15727,11 +15727,11 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "&ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 , GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 , GRAYED
-                MENUITEM "Solitaire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "Soli&taire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 , GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO
@@ -15770,12 +15770,12 @@ BEGIN
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            POPUP "Lattice Based Attacks on RSA"
+            POPUP "&Lattice Based Attacks on RSA"
             BEGIN
-                MENUITEM "Factoring with a Hint...",    ID_RSA_FACTORHINT
-                MENUITEM "Attack on Stereotyped Messages...", 
+                MENUITEM "&Factoring with a Hint...",    ID_RSA_FACTORHINT
+                MENUITEM "&Attack on Stereotyped Messages...", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Attack on Small Secret Keys...", ID_RSA_BLOEMERMAY
+                MENUITEM "Attack on &Small Secret Keys...", ID_RSA_BLOEMERMAY
             END
             MENUITEM "&Side-Channel Attack on ""Textbook RSA""...", 
                                                     ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
@@ -15802,7 +15802,7 @@ BEGIN
 
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
-            MENUITEM "3-D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "&3-D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
 
         END
     END
@@ -15845,9 +15845,9 @@ BEGIN
         MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE, GRAYED
         MENUITEM "Save &as...",                 ID_FILE_SAVE_AS, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Document Properties...",      ID_FILEPROPERTIES
+        MENUITEM "&Document Properties...",     ID_FILEPROPERTIES
         MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT, GRAYED
-        MENUITEM "&Print Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
         MENUITEM "Recent Files",                ID_FILE_MRU_FILE1
         MENUITEM SEPARATOR
@@ -15857,7 +15857,7 @@ BEGIN
     BEGIN
         MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "C&ut\tCtrl+X",                ID_EDIT_CUT, GRAYED
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT, GRAYED
         MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY, GRAYED
         MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE, GRAYED
         MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR, GRAYED
@@ -15882,7 +15882,7 @@ BEGIN
         MENUITEM "&Bar Chart",                  ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&End of line",                ID_VIEW_ENDOFLINE, GRAYED
-        MENUITEM "Line &wrap",                  ID_VIEW_LINEWRAP, GRAYED
+        MENUITEM "Line w&rap",                  ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Font", GRAYED
         BEGIN
@@ -15914,7 +15914,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
             , GRAYED
-            MENUITEM "Solitaire...",                ID_SYMCLASSIC_SOLITAIRE
+            MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
             , GRAYED
         END
         POPUP "Symmetric (&modern)"
@@ -15961,7 +15961,7 @@ BEGIN
     END
     POPUP "Digital Signatures/&PKI"
     BEGIN
-        POPUP "PKI"
+        POPUP "&PKI"
         BEGIN
             MENUITEM "&Key Generation/Import...",   ID_CRYPT_KeyGen
             MENUITEM "&Key Display/Export...",      ID_SHOW_ALL_EC_KEYS
@@ -16009,46 +16009,47 @@ BEGIN
             MENUITEM "&Signature Demonstration (Signature Generation)...", 
                                                     ID_EINZELVERFAHREN_SIGN_DOC
 
-            POPUP "Lattice Based Attacks on RSA"
+            POPUP "&Lattice Based Attacks on RSA"
             BEGIN
-                MENUITEM "Factoring with a Hint...",    ID_RSA_FACTORHINT
-                MENUITEM "Attack on Stereotyped Messages...", 
+                MENUITEM "&Factoring with a Hint...",   ID_RSA_FACTORHINT
+                MENUITEM "&Attack on Stereotyped Messages...", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Attack on Small Secret Keys...", ID_RSA_BLOEMERMAY
+                MENUITEM "Attack on &Small Secret Keys...", 
+                                                        ID_RSA_BLOEMERMAY
             END
         END
-        POPUP "Protocols"
+        POPUP "&Protocols"
         BEGIN
             MENUITEM "&Diffie-Hellman Demonstration...", 
                                                     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
             MENUITEM "Network &Authentication...",  ID_CHALLENGE_RESPONSE
         END
-        POPUP "Chinese Remainder Theorem Applications"
+        POPUP "Chinese Remainder &Theorem Applications"
         BEGIN
-            MENUITEM "Astronomy and Planetary Motion...", 
+            MENUITEM "&Astronomy and Planetary Motion...", 
                                                     ID_INDIV_CRT_PLANET
-            MENUITEM "Modular Foreward and Backward Transformation...", 
+            MENUITEM "&Modular Foreward and Backward Transformation...", 
                                                     ID_INDIV_CRT_DEMO
-            MENUITEM "Secret Sharing by CRT...",    ID_INDIV_CRT_SECRETSHARING
+            MENUITEM "&Secret Sharing by CRT...",   ID_INDIV_CRT_SECRETSHARING
 
         END
-        POPUP "Visualization of Algorithms using ANIMAL"
+        POPUP "&Visualization of Algorithms using ANIMAL"
         BEGIN
-            MENUITEM "Caesar...",                   ID_HELP_ANIMAL_CAESAR
-            MENUITEM "Vigenère...",                 ID_HELP_ANIMAL_VIGENERE
-            MENUITEM "Nihilist...",                 ID_HELP_ANIMAL_NIHILIST
-            MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
+            MENUITEM "&Caesar...",                  ID_HELP_ANIMAL_CAESAR
+            MENUITEM "&Vigenère...",                ID_HELP_ANIMAL_VIGENERE
+            MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
+            MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
         END
         MENUITEM SEPARATOR
-        POPUP "Codes"
+        POPUP "C&odes"
         BEGIN
-            POPUP "Base64 Encode/Decode", GRAYED
+            POPUP "&Base64 Encode/Decode", GRAYED
             BEGIN
-                MENUITEM "Base64 Encode",               ID_ENCODE_BASE64
-                MENUITEM "Base64 Decode",               ID_DECODE_BASE64
+                MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64
+                MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
             END
-            MENUITEM "UU-Encode/Decode",            ID_CODE_UU, GRAYED
+            MENUITEM "&UU-Encode/Decode",           ID_CODE_UU, GRAYED
             MENUITEM "Decode ASN.&1 Code of a File...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
@@ -16072,7 +16073,7 @@ BEGIN
             MENUITEM "&Autocorrelation",            ID_AUTO, GRAYED
             MENUITEM "&Periodicity",                ID_ANALYSE_PERIOD
             , GRAYED
-            MENUITEM "Mass Pattern Search...",      ID_MASS_PATTERN_SEARCH
+            MENUITEM "&Mass Pattern Search...",     ID_MASS_PATTERN_SEARCH
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -16084,11 +16085,11 @@ BEGIN
                 , GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 , GRAYED
-                MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 , GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 , GRAYED
-                MENUITEM "Solitaire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 , GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO, GRAYED
@@ -16104,7 +16105,7 @@ BEGIN
                 , GRAYED
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
                 , GRAYED
-                MENUITEM "Solitaire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "Soli&taire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 , GRAYED
             END
         END
@@ -16138,12 +16139,13 @@ BEGIN
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            POPUP "Lattice Based Attacks on RSA"
+            POPUP "&Lattice Based Attacks on RSA"
             BEGIN
-                MENUITEM "Factoring with a Hint...",    ID_RSA_FACTORHINT
-                MENUITEM "Attack on Stereotyped Messages...", 
+                MENUITEM "&Factoring with a Hint...",   ID_RSA_FACTORHINT
+                MENUITEM "&Attack on Stereotyped Messages...", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Attack on Small Secret Keys...", ID_RSA_BLOEMERMAY
+                MENUITEM "Attack on &Small Secret Keys...", 
+                                                        ID_RSA_BLOEMERMAY
             END
             MENUITEM "&Side-Channel Attack on ""Textbook RSA""...", 
                                                     ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
@@ -16170,7 +16172,7 @@ BEGIN
 
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
-            MENUITEM "3-D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "&3-D Visualization...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
             , GRAYED
         END
     END
@@ -16213,9 +16215,9 @@ BEGIN
         MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
         MENUITEM "Save &as...",                 ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "Document Properties...",      ID_FILEPROPERTIES
+        MENUITEM "&Document Properties...",      ID_FILEPROPERTIES
         MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
-        MENUITEM "&Print Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
         MENUITEM "Recent Files",                ID_FILE_MRU_FILE1
         MENUITEM SEPARATOR
@@ -16225,7 +16227,7 @@ BEGIN
     BEGIN
         MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
         MENUITEM SEPARATOR
-        MENUITEM "C&ut\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
         MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
         MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
         MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR
@@ -16250,7 +16252,7 @@ BEGIN
         MENUITEM "&Bar Chart",                  ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&End of line",                ID_VIEW_ENDOFLINE
-        MENUITEM "Line &wrap",                  ID_VIEW_LINEWRAP
+        MENUITEM "Line w&rap",                  ID_VIEW_LINEWRAP
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE
         POPUP "&Font"
         BEGIN
@@ -16279,7 +16281,7 @@ BEGIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
-            MENUITEM "Solitaire...",                ID_SYMCLASSIC_SOLITAIRE
+            MENUITEM "Soli&taire...",                ID_SYMCLASSIC_SOLITAIRE
         END
         POPUP "Symmetric (&modern)"
         BEGIN
@@ -16317,7 +16319,7 @@ BEGIN
     END
     POPUP "Digital Signatures/&PKI"
     BEGIN
-        POPUP "PKI"
+        POPUP "&PKI"
         BEGIN
             MENUITEM "&Key Generation/Import...",   ID_CRYPT_KeyGen
             MENUITEM "&Key Display/Export...",      ID_SHOW_ALL_EC_KEYS
@@ -16359,46 +16361,46 @@ BEGIN
             MENUITEM "&Signature Demonstration (Signature Generation)...", 
                                                     ID_EINZELVERFAHREN_SIGN_DOC
 
-            POPUP "Lattice Based Attacks on RSA"
+            POPUP "&Lattice Based Attacks on RSA"
             BEGIN
-                MENUITEM "Factoring with a Hint...",    ID_RSA_FACTORHINT
-                MENUITEM "Attack on Stereotyped Messages...", 
+                MENUITEM "&Factoring with a Hint...",    ID_RSA_FACTORHINT
+                MENUITEM "&Attack on Stereotyped Messages...", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Attack on Small Secret Keys...", ID_RSA_BLOEMERMAY
+                MENUITEM "Attack on &Small Secret Keys...", ID_RSA_BLOEMERMAY
             END
         END
-        POPUP "Protocols"
+        POPUP "&Protocols"
         BEGIN
             MENUITEM "&Diffie-Hellman Demonstration...", 
                                                     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
             MENUITEM "Network &Authentication...",  ID_CHALLENGE_RESPONSE
         END
-        POPUP "Chinese Remainder Theorem Applications"
+        POPUP "Chinese Remainder &Theorem Applications"
         BEGIN
-            MENUITEM "Astronomy and Planetary Motion...", 
+            MENUITEM "&Astronomy and Planetary Motion...", 
                                                     ID_INDIV_CRT_PLANET
-            MENUITEM "Modular Foreward and Backward Transformation...", 
+            MENUITEM "&Modular Foreward and Backward Transformation...", 
                                                     ID_INDIV_CRT_DEMO
-            MENUITEM "Secret Sharing by CRT...",    ID_INDIV_CRT_SECRETSHARING
+            MENUITEM "&Secret Sharing by CRT...",   ID_INDIV_CRT_SECRETSHARING
 
         END
-        POPUP "Visualization of Algorithms using ANIMAL"
+        POPUP "&Visualization of Algorithms using ANIMAL"
         BEGIN
-            MENUITEM "Caesar...",                   ID_HELP_ANIMAL_CAESAR
-            MENUITEM "Vigenère...",                 ID_HELP_ANIMAL_VIGENERE
-            MENUITEM "Nihilist...",                 ID_HELP_ANIMAL_NIHILIST
-            MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
+            MENUITEM "&Caesar...",                   ID_HELP_ANIMAL_CAESAR
+            MENUITEM "&Vigenère...",                 ID_HELP_ANIMAL_VIGENERE
+            MENUITEM "&Nihilist...",                 ID_HELP_ANIMAL_NIHILIST
+            MENUITEM "&DES...",                      ID_HELP_ANIMAL_DES
         END
         MENUITEM SEPARATOR
-        POPUP "Codes"
+        POPUP "C&odes"
         BEGIN
-            POPUP "Base64 Encode/Decode"
+            POPUP "&Base64 Encode/Decode"
             BEGIN
-                MENUITEM "Base64 Encode",               ID_ENCODE_BASE64
-                MENUITEM "Base64 Decode",               ID_DECODE_BASE64
+                MENUITEM "Base64 &Encode",               ID_ENCODE_BASE64
+                MENUITEM "Base64 &Decode",               ID_DECODE_BASE64
             END
-            MENUITEM "UU-Encode/Decode",            ID_CODE_UU, GRAYED
+            MENUITEM "&UU-Encode/Decode",            ID_CODE_UU, GRAYED
             MENUITEM "Decode ASN.&1 Code of a File...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
@@ -16421,7 +16423,7 @@ BEGIN
             MENUITEM "&N-Gram...",                  ID_ANALYSE_NGRAM
             MENUITEM "&Autocorrelation",            ID_AUTO
             MENUITEM "&Periodicity",                ID_ANALYSE_PERIOD
-            MENUITEM "Mass Pattern Search...",      ID_MASS_PATTERN_SEARCH
+            MENUITEM "&Mass Pattern Search...",      ID_MASS_PATTERN_SEARCH
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -16431,11 +16433,11 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "&ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
 
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
 
-                MENUITEM "Solitaire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "Soli&taire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
 
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO
@@ -16449,7 +16451,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
-                MENUITEM "Solitaire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "Soli&taire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
 
             END
         END
@@ -16483,12 +16485,12 @@ BEGIN
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            POPUP "Lattice Based Attacks on RSA"
+            POPUP "&Lattice Based Attacks on RSA"
             BEGIN
-                MENUITEM "Factoring with a Hint...",    ID_RSA_FACTORHINT
-                MENUITEM "Attack on Stereotyped Messages...", 
+                MENUITEM "&Factoring with a Hint...",    ID_RSA_FACTORHINT
+                MENUITEM "&Attack on Stereotyped Messages...", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Attack on Small Secret Keys...", ID_RSA_BLOEMERMAY
+                MENUITEM "Attack on &Small Secret Keys...", ID_RSA_BLOEMERMAY
             END
             MENUITEM "&Side-Channel Attack on ""Textbook RSA""...", 
                                                     ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
@@ -16515,7 +16517,7 @@ BEGIN
 
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
-            MENUITEM "3-D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "&3-D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
 
         END
     END
@@ -16584,9 +16586,9 @@ BEGIN
         MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
         MENUITEM "Save &as...",                 ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "Document Properties...",      ID_FILEPROPERTIES
+        MENUITEM "&Document Properties...",      ID_FILEPROPERTIES
         MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
-        MENUITEM "&Print Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
         MENUITEM "Recent Files",                ID_FILE_MRU_FILE1
         MENUITEM SEPARATOR
@@ -16596,7 +16598,7 @@ BEGIN
     BEGIN
         MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "C&ut\tCtrl+X",                ID_EDIT_CUT, GRAYED
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT, GRAYED
         MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY, GRAYED
         MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE, GRAYED
         MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR, GRAYED
@@ -16621,7 +16623,7 @@ BEGIN
         MENUITEM "&Bar Chart",                  ID_PLOTBAR
         MENUITEM SEPARATOR
         MENUITEM "&End of line",                ID_VIEW_ENDOFLINE, GRAYED
-        MENUITEM "Line &wrap",                  ID_VIEW_LINEWRAP, GRAYED
+        MENUITEM "Line w&rap",                  ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Font", GRAYED
         BEGIN
@@ -16653,7 +16655,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
             , GRAYED
-            MENUITEM "Solitaire...",                ID_SYMCLASSIC_SOLITAIRE
+            MENUITEM "Soli&taire...",                ID_SYMCLASSIC_SOLITAIRE
             , GRAYED
         END
         POPUP "Symmetric (&modern)"
@@ -16700,7 +16702,7 @@ BEGIN
     END
     POPUP "Digital Signatures/&PKI"
     BEGIN
-        POPUP "PKI"
+        POPUP "&PKI"
         BEGIN
             MENUITEM "&Key Generation/Import...",   ID_CRYPT_KeyGen
             MENUITEM "&Key Display/Export...",      ID_SHOW_ALL_EC_KEYS
@@ -16748,46 +16750,46 @@ BEGIN
             MENUITEM "&Signature Demonstration (Signature Generation)...", 
                                                     ID_EINZELVERFAHREN_SIGN_DOC
 
-            POPUP "Lattice Based Attacks on RSA"
+            POPUP "&Lattice Based Attacks on RSA"
             BEGIN
-                MENUITEM "Factoring with a Hint...",    ID_RSA_FACTORHINT
-                MENUITEM "Attack on Stereotyped Messages...", 
+                MENUITEM "&Factoring with a Hint...",    ID_RSA_FACTORHINT
+                MENUITEM "&Attack on Stereotyped Messages...", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Attack on Small Secret Keys...", ID_RSA_BLOEMERMAY
+                MENUITEM "Attack on &Small Secret Keys...", ID_RSA_BLOEMERMAY
             END
         END
-        POPUP "Protocols"
+        POPUP "&Protocols"
         BEGIN
             MENUITEM "&Diffie-Hellman Demonstration...", 
                                                     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
             MENUITEM "Network &Authentication...",  ID_CHALLENGE_RESPONSE
         END
-        POPUP "Chinese Remainder Theorem Applications"
+        POPUP "Chinese Remainder &Theorem Applications"
         BEGIN
-            MENUITEM "Astronomy and Planetary Motion...", 
+            MENUITEM "&Astronomy and Planetary Motion...", 
                                                     ID_INDIV_CRT_PLANET
-            MENUITEM "Modular Foreward and Backward Transformation...", 
+            MENUITEM "&Modular Foreward and Backward Transformation...", 
                                                     ID_INDIV_CRT_DEMO
-            MENUITEM "Secret Sharing by CRT...",    ID_INDIV_CRT_SECRETSHARING
+            MENUITEM "&Secret Sharing by CRT...",   ID_INDIV_CRT_SECRETSHARING
 
         END
-        POPUP "Visualization of Algorithms using ANIMAL"
+        POPUP "&Visualization of Algorithms using ANIMAL"
         BEGIN
-            MENUITEM "Caesar...",                   ID_HELP_ANIMAL_CAESAR
-            MENUITEM "Vigenère...",                 ID_HELP_ANIMAL_VIGENERE
-            MENUITEM "Nihilist...",                 ID_HELP_ANIMAL_NIHILIST
-            MENUITEM "DES...",                      ID_HELP_ANIMAL_DES
+            MENUITEM "&Caesar...",                   ID_HELP_ANIMAL_CAESAR
+            MENUITEM "&Vigenère...",                 ID_HELP_ANIMAL_VIGENERE
+            MENUITEM "&Nihilist...",                 ID_HELP_ANIMAL_NIHILIST
+            MENUITEM "&DES...",                      ID_HELP_ANIMAL_DES
         END
         MENUITEM SEPARATOR
-        POPUP "Codes"
+        POPUP "C&odes"
         BEGIN
-            POPUP "Base64 Encode/Decode", GRAYED
+            POPUP "&Base64 Encode/Decode", GRAYED
             BEGIN
-                MENUITEM "Base64 Encode",               33319
-                MENUITEM "Base64 Decode",               33320
+                MENUITEM "Base64 &Encode",               33319
+                MENUITEM "Base64 &Decode",               33320
             END
-            MENUITEM "UU-Encode/Decode",            ID_CODE_UU, GRAYED
+            MENUITEM "&UU-Encode/Decode",            ID_CODE_UU, GRAYED
             MENUITEM "Decode ASN.&1 Code of a File...", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
@@ -16811,7 +16813,7 @@ BEGIN
             MENUITEM "&Autocorrelation",            ID_AUTO, GRAYED
             MENUITEM "&Periodicity",                ID_ANALYSE_PERIOD
             , GRAYED
-            MENUITEM "Mass Pattern Search...",      ID_MASS_PATTERN_SEARCH
+            MENUITEM "&Mass Pattern Search...",      ID_MASS_PATTERN_SEARCH
             , GRAYED
         END
         MENUITEM SEPARATOR
@@ -16823,11 +16825,11 @@ BEGIN
                 , GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 , GRAYED
-                MENUITEM "ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "&ADFGVX...",                   ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 , GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 , GRAYED
-                MENUITEM "Solitaire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "Soli&taire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 , GRAYED
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO, GRAYED
@@ -16843,7 +16845,7 @@ BEGIN
                 , GRAYED
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
                 , GRAYED
-                MENUITEM "Solitaire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "Soli&taire",                   ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 , GRAYED
             END
         END
@@ -16877,12 +16879,12 @@ BEGIN
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            POPUP "Lattice Based Attacks on RSA"
+            POPUP "&Lattice Based Attacks on RSA"
             BEGIN
-                MENUITEM "Factoring with a Hint...",    ID_RSA_FACTORHINT
-                MENUITEM "Attack on Stereotyped Messages...", 
+                MENUITEM "&Factoring with a Hint...",    ID_RSA_FACTORHINT
+                MENUITEM "&Attack on Stereotyped Messages...", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Attack on Small Secret Keys...", ID_RSA_BLOEMERMAY
+                MENUITEM "Attack on &Small Secret Keys...", ID_RSA_BLOEMERMAY
             END
             MENUITEM "&Side-Channel Attack on ""Textbook RSA""...", 
                                                     ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
@@ -16909,7 +16911,7 @@ BEGIN
 
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
-            MENUITEM "3-D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "&3-D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
             , GRAYED
         END
     END

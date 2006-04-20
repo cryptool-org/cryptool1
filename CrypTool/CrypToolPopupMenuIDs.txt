@@ -60,7 +60,7 @@ ENGLISH Options # &Options
 ENGLISH	Analysis	# &Analysis
 ENGLISH Analysis_AnalyseRandomness # &Analysis|&Analyse Randomness
 ENGLISH Analysis_AsymmetricEncryption # &Analysis|&Asymmetric Encryption
-ENGLISH Analysis_AsymmetricEncryption_LatticeBasedAttacksonRSA # &Analysis|&Asymmetric Encryption|Lattice Based Attacks on RSA
+ENGLISH Analysis_AsymmetricEncryption_LatticeBasedAttacksonRSA # &Analysis|&Asymmetric Encryption|&Lattice Based Attacks on RSA
 ENGLISH Analysis_Hash # &Analysis|&Hash
 ENGLISH Analysis_ToolsforAnalysis # &Analysis|&Tools for Analysis
 ENGLISH Analysis_SymmetricEncryptionclassic # &Analysis|Symmetric Encryption (classic)
@@ -74,18 +74,18 @@ ENGLISH CryptDecrypt_Symmetricclassic # &Crypt/Decrypt|Symmetric (&classic)
 ENGLISH CryptDecrypt_Symmetricmodern # &Crypt/Decrypt|Symmetric (&modern)
 ENGLISH CryptDecrypt_Hybrid # &Crypt/Decrypt|&Hybrid
 ENGLISH DigitalSignaturesPKI # Digital Signatures/&PKI
-ENGLISH DigitalSignaturesPKI_PKI # Digital Signatures/&PKI|PKI
-ENGLISH IndivProcedures_Codes # &Indiv. Procedures|Codes
-ENGLISH IndivProcedures_Protocols # &Indiv. Procedures|Protocols
+ENGLISH DigitalSignaturesPKI_PKI # Digital Signatures/&PKI|&PKI
+ENGLISH IndivProcedures_Codes # &Indiv. Procedures|C&odes
+ENGLISH IndivProcedures_Protocols # &Indiv. Procedures|&Protocols
 ENGLISH IndivProcedures_RSACryptosystem # &Indiv. Procedures|&RSA Cryptosystem
-ENGLISH IndivProcedures_ChineseRemainderTheoremApplications # &Indiv. Procedures|Chinese Remainder Theorem Applications
-ENGLISH IndivProcedures_VisualizationofAlgorithmsusingANIMAL # &Indiv. Procedures|Visualization of Algorithms using ANIMAL
+ENGLISH IndivProcedures_ChineseRemainderTheoremApplications # &Indiv. Procedures|Chinese Remainder &Theorem Applications
+ENGLISH IndivProcedures_VisualizationofAlgorithmsusingANIMAL # &Indiv. Procedures|&Visualization of Algorithms using ANIMAL
 ENGLISH View # &View
 ENGLISH Window # &Window
-ENGLISH IndivProcedures_RSACryptosystem_LatticeBasedAttacksonRSA # &Indiv. Procedures|&RSA Cryptosystem|Lattice Based Attacks on RSA
+ENGLISH IndivProcedures_RSACryptosystem_LatticeBasedAttacksonRSA # &Indiv. Procedures|&RSA Cryptosystem|&Lattice Based Attacks on RSA
 ENGLISH PopUp # PopUp
 ENGLISH View_Font # &View|&Font
-ENGLISH IndivProcedures_Codes_Base64EncodeDecode # &Indiv. Procedures|Codes|Base64 Encode/Decode
+ENGLISH IndivProcedures_Codes_Base64EncodeDecode # &Indiv. Procedures|C&odes|&Base64 Encode/Decode
 GERMAN	Analyse	# A&nalyse
 GERMAN Bearbeiten # &Bearbeiten
 GERMAN Datei # &Datei
@@ -97,7 +97,7 @@ GERMAN Optionen # &Optionen
 GERMAN VerEntschlsseln # &Ver-/Entschlüsseln
 GERMAN VerEntschlsseln_Asymmetrisch # &Ver-/Entschlüsseln|&Asymmetrisch
 GERMAN Analyse_AsymmetrischeVerfahren # A&nalyse|&Asymmetrische Verfahren
-GERMAN Analyse_AsymmetrischeVerfahren_GitterbasierteAngriffeaufRSA # A&nalyse|&Asymmetrische Verfahren|Gitterbasierte Angriffe auf RSA
+GERMAN Analyse_AsymmetrischeVerfahren_GitterbasierteAngriffeaufRSA # A&nalyse|&Asymmetrische Verfahren|&Gitterbasierte Angriffe auf RSA
 GERMAN Analyse_Hashverfahren # A&nalyse|&Hashverfahren
 GERMAN Analyse_SymmetrischeVerschlsselungklassisch # A&nalyse|Symmetrische Verschlüsselung (&klassisch)
 GERMAN Analyse_SymmetrischeVerschlsselungklassisch_Ciphertextonly # A&nalyse|Symmetrische Verschlüsselung (&klassisch)|&Ciphertext only
@@ -107,12 +107,12 @@ GERMAN Analyse_SymmetrischeVerschlsselungmodern # A&nalyse|Symmetrische Verschlü
 GERMAN Analyse_WerkzeugezurAnalyse # A&nalyse|&Werkzeuge zur Analyse
 GERMAN Analyse_Zufallsanalyse # A&nalyse|&Zufallsanalyse
 GERMAN DigitaleSignaturenPKI # Digitale Signaturen/&PKI
-GERMAN DigitaleSignaturenPKI_PKI # Digitale Signaturen/&PKI|PKI
+GERMAN DigitaleSignaturenPKI_PKI # Digitale Signaturen/&PKI|&PKI
 GERMAN Einzelverfahren_Hashverfahren # &Einzelverfahren|&Hashverfahren
 GERMAN Einzelverfahren_RSAKryptosystem # &Einzelverfahren|&RSA-Kryptosystem
-GERMAN Einzelverfahren_AnwendungendesChinesischenRestsatzes # &Einzelverfahren|Anwendungen des Chinesischen Restsatzes
-GERMAN Einzelverfahren_RSAKryptosystem_GitterbasierteAngriffeaufRSA # &Einzelverfahren|&RSA-Kryptosystem|Gitterbasierte Angriffe auf RSA
-GERMAN Einzelverfahren_VisualisierungvonAlgorithmenmitANIMAL # &Einzelverfahren|Visualisierung von Algorithmen mit ANIMAL
+GERMAN Einzelverfahren_AnwendungendesChinesischenRestsatzes # &Einzelverfahren|Anwendungen des &Chinesischen Restsatzes
+GERMAN Einzelverfahren_RSAKryptosystem_GitterbasierteAngriffeaufRSA # &Einzelverfahren|&RSA-Kryptosystem|&Gitterbasierte Angriffe auf RSA
+GERMAN Einzelverfahren_VisualisierungvonAlgorithmenmitANIMAL # &Einzelverfahren|&Visualisierung von Algorithmen mit ANIMAL
 GERMAN VerEntschlsseln_Hybrid # &Ver-/Entschlüsseln|&Hybrid
 GERMAN VerEntschlsseln_Symmetrischklassisch # &Ver-/Entschlüsseln|Symmetrisch (&klassisch)
 GERMAN VerEntschlsseln_Symmetrischmodern # &Ver-/Entschlüsseln|Symmetrisch (&modern)
@@ -125,4 +125,4 @@ GERMAN Fenster # &Fenster
 GERMAN Ansicht_Schriftart # &Ansicht|S&chriftart
 GERMAN PopUp # PopUp
 GERMAN Einzelverfahren_Codierungen # &Einzelverfahren|C&odierungen
-GERMAN Einzelverfahren_Codierungen_Base64CodierungDecodierung # &Einzelverfahren|C&odierungen|Base64 Codierung/Decodierung
+GERMAN Einzelverfahren_Codierungen_Base64CodierungDecodierung # &Einzelverfahren|C&odierungen|&Base64 Codierung/Decodierung
