@@ -381,7 +381,7 @@ void CDlgHybridEncryptionDemo::OnButtonEncDocumentSym()
 		while(infile.getline(buf, bufsize))
 		{
 			// Schlüsselwort enthalten?
-			if(CString(buf) == keyword)
+			if(CString(buf).Find(keyword) != -1)
 				keywordFound = true;
 		}
 		infile.close();
