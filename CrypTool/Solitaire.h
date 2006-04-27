@@ -47,7 +47,9 @@
 		void schritt4();
 		char schritt5();
 		char schritt5ohneJokerAusgabe();
+#if 0
 		int  nullrunde();
+#endif
 		bool pruefenullrunde();
 		void schritt1revers();
 		bool schritt1reversabfrage();
@@ -65,10 +67,10 @@
 		void schritt4revers();
 		void analysevorne();
 		void analysehinten();
-		void inideckspeichern();
-		void abschlussdeckspeichern();
-		void inideckladen();
-		void abschlussdeckladen();
+		bool inideckspeichern(LPCSTR file);
+		bool abschlussdeckspeichern(LPCSTR file);
+		bool inideckladen(LPCSTR file);
+		bool abschlussdeckladen(LPCSTR file);
 		void passwortinzahlen(CString pw);
 		void pass2deck(int laenge);
 		void schritt5fuerpasswort(int count);
@@ -79,8 +81,15 @@
 		void writeCiphertext(const char* ofile);
 		void writeplaintext(const char* ofile);
 		void entschluesseln(CString ciphertext);
-		void keyspeichern();
-		void keyladen();
+		bool keyspeichern(LPCSTR file);
+		bool keyladen(LPCSTR file);
 
 
 	};
+
+void fehlermelden(UINT titleid,UINT msgid,LPCSTR file);
+CString tempdir(LPCSTR file);
+
+#define INIDECKFILE "SolitaireInideck.txt"
+#define FINALDECKFILE "SolitaireAbschlussdeck.txt"
+#define KEYFILE "SolitaireKey.txt"

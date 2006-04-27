@@ -28,7 +28,7 @@ protected:
 public:
 	int kartenanzahl;
 	int vorgaben;
-	CString deckart;
+	int deckart;
 	CString gefundenesDeck;
 	
 	void enablebut(bool art);

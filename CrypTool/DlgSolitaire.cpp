@@ -18,7 +18,7 @@ CDlgSolitaire::CDlgSolitaire(char* infile, CString oldTitle,CWnd* pParent /*=NUL
 	: CDialog(CDlgSolitaire::IDD, pParent)
 	, kartenanzahl(54)
 	, InitialDeck(_T(""))
-	, InitialArt(_T("Aufsteigend"))
+	, InitialArt(0)
 	, m_passwort1(_T(""))
 	, endDeck(_T(""))
 	, key_edit(_T(""))
@@ -42,7 +42,7 @@ void CDlgSolitaire::DoDataExchange(CDataExchange* pDX)
 	DDX_CBIndex(pDX, IDC_Kartenanzahl, kartenanzahl);
 
 	DDX_Text(pDX, IDC_EDIT1, InitialDeck);
-	DDX_CBString(pDX, IDC_COMBO2, InitialArt);
+	DDX_CBIndex(pDX, IDC_COMBO2, InitialArt);
 	DDX_Control(pDX, IDC_BUTTON9, vorgabe1);
 	DDX_Control(pDX, IDC_BUTTON10, vorgabe2);
 	DDX_Control(pDX, IDC_BUTTON11, vorgabe3);
@@ -325,7 +325,7 @@ void CDlgSolitaire::OnCbnSelchangeKartenanzahl()
 		 if (myD) delete myD; // FIXME
 		 myD = new Deck(kartenanzahl);
 		 InitialDeck = myD->getDeck();	
-		 InitialArt = "aufsteigend";
+		 InitialArt = 0;
 		 if(kartenanzahl<26)
 	{
 		m_passwort.EnableWindow(false);
@@ -341,7 +341,7 @@ void CDlgSolitaire::OnCbnSelchangeKartenanzahl()
 		//hier wird der Klartext noch einmal gelesen, da ein neues Deck erstellt wurde
 		myD->readPlaintext(infile);
 		InitialDeck = myD->getDeck();	
-		InitialArt = "aufsteigend";
+		InitialArt = 0;
 		if(kartenanzahl<26)
 		{
 			m_passwort.EnableWindow(false);
@@ -353,14 +353,8 @@ void CDlgSolitaire::OnCbnSelchangeKartenanzahl()
 }
 
 
-void CDlgSolitaire::SetDeckSelectioMethod(CString &method)
+void CDlgSolitaire::SetDeckSelectioMethod(int method)
 {
-	// Hilfsvariablen zum Einlesen aus der Stringtabelle
-	char pc_str2[STR_LAENGE_STRING_TABLE];
-	char pc_str3[STR_LAENGE_STRING_TABLE];
-	char pc_str4[STR_LAENGE_STRING_TABLE];
-	char pc_str5[STR_LAENGE_STRING_TABLE];
-	/////////
 	initdrei();
 	endDeck="";
 	key_edit="";
@@ -372,39 +366,29 @@ void CDlgSolitaire::SetDeckSelectioMethod(CString &method)
 	m_passwort.EnableWindow(true);
 	m_passwort_button.EnableWindow(true);
 
-	//Strings Laden zur Abfrage der InitArt
-	LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_Art_gemischt,pc_str,STR_LAENGE_STRING_TABLE);
-	LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_Art_absteigend,pc_str1,STR_LAENGE_STRING_TABLE);
-	LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_Art_aufsteigend,pc_str2,STR_LAENGE_STRING_TABLE);
-	LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_Art_nachVorgabe,pc_str3,STR_LAENGE_STRING_TABLE);
-	LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_Art_Initialdeckladen,pc_str4,STR_LAENGE_STRING_TABLE);
-	LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_Art_Abschlussdeckladen,pc_str5,STR_LAENGE_STRING_TABLE);
-	
-	//gemischtes Deck
-	if(method==pc_str)
-	{
-		
-		myD->mischen();
-		InitialDeck = myD->getDeck();
-		enableVorgabe(false);
-	}
-	// absteigend sortiertes Deck
-	else if (method==pc_str1)
-	{
-		
-		myD->absteigend();
-		InitialDeck = myD->getDeck();
-		enableVorgabe(false);
-	}
 	// aufsteigend sortiertes Deck
-	else if (method==pc_str2)
+	if (method==0)
 	{
 		myD->aufsteigend();
 		InitialDeck = myD->getDeck();
 		enableVorgabe(false);
 	}
+	// absteigend sortiertes Deck
+	else if (method==1)
+	{
+		myD->absteigend();
+		InitialDeck = myD->getDeck();
+		enableVorgabe(false);
+	}
+	//gemischtes Deck
+	else if(method==2)
+	{
+		myD->mischen();
+		InitialDeck = myD->getDeck();
+		enableVorgabe(false);
+	}
 	// nach Vorgabe initialisiertes Deck
-	else if (method==pc_str3)
+	else if (method==3)
 	{
 		zaehler=0;
 		vorgabe="";
@@ -415,18 +399,26 @@ void CDlgSolitaire::SetDeckSelectioMethod(CString &method)
 		m_auto_button.EnableWindow(false);
 	}
 	// Initialdeck aus Datei lesen
-	else if (method==pc_str4)
+	else if (method==4)
 	{
-		myD->inideckladen();
+		CString file = tempdir(INIDECKFILE);
+		if (!myD->inideckladen(file)) {
+			fehlermelden(IDS_STRING_ERROR,IDS_CT_FILE_OPEN_ERROR,file);
+			return;
+		}
 		kartenanzahl=myD->anzahl;
 		InitialDeck= myD->getDeck();
 		enableVorgabe(false);
 				
 	}
 	// Abschlussdeck aus Datei lesen
-	else if (method==pc_str5)
+	else if (method==5)
 	{
-		myD->abschlussdeckladen();
+		CString file = tempdir(FINALDECKFILE);
+		if (myD->abschlussdeckladen(file)) {
+			fehlermelden(IDS_STRING_ERROR,IDS_CT_FILE_OPEN_ERROR,file);
+			return;
+		}
 		kartenanzahl=myD->anzahl;
 		InitialDeck= myD->getDeck();
 		enableVorgabe(false);				
@@ -2128,12 +2120,16 @@ void CDlgSolitaire::OnBnClickedButton1()
 
 void CDlgSolitaire::OnBnClickedButton64()
 {
-	myD->inideckspeichern();
+	CString file = tempdir(INIDECKFILE);
+	if (!myD->inideckspeichern(file))
+		fehlermelden(IDS_STRING_ERROR,IDS_CT_FILE_OPEN_ERROR,file);
 }
 
 void CDlgSolitaire::OnBnClickedButton65()
 {
-	myD->abschlussdeckspeichern();
+	CString file = tempdir(FINALDECKFILE);
+	if (!myD->abschlussdeckspeichern(file))
+		fehlermelden(IDS_STRING_ERROR,IDS_CT_FILE_OPEN_ERROR,file);
 }
 
 
@@ -2144,21 +2140,17 @@ void CDlgSolitaire::OnBnClickedButton67()
 }
 
 
-// ENCRYPT
-void CDlgSolitaire::OnBnClickedButton66()
+CString CDlgSolitaire::FormatKey()
 {
-	char outfile[256];
 	int i;
-	myD->verschluesseln(myD->plaintext);
-	GetTmpName(outfile,"cry",".txt");	
-	myD->writeCiphertext(outfile);
-	// OpenNewDoc(outfile,myD->getKey(),this->oldTitle,IDS_CRYPT_SOLITAIRE,false,1);
-
-	char tmpStr[12];
-	CString sKey = _T("");
+	CString sKey;
+	sKey.Format(NUMBER_OF_CARDS "%d;" SORT_METHOD "%d;" MANUAL "X;",myD->anzahl,InitialArt);
+#if 0
 	sKey +=   CString(NUMBER_OF_CARDS) + CString(_itoa(myD->anzahl, tmpStr, 10)) + CString(";")
 		    + CString(SORT_METHOD)  + InitialArt + CString(";") 
 			+ CString(MANUAL) + CString("X;");   // FIXME
+#endif
+	char tmpStr[12];
 	sKey += CString(INITIAL_DECK);
 	for (i=0; i<myD->anzahl; i++)
 	{
@@ -2173,6 +2165,18 @@ void CDlgSolitaire::OnBnClickedButton66()
 		sKey += CString(_itoa(myD->deck[i], tmpStr, 10));
 		if (i<myD->anzahl-1) sKey += CString(",");
 	}
+	return sKey;
+}
+// ENCRYPT
+void CDlgSolitaire::OnBnClickedButton66()
+{
+	char outfile[256];
+	myD->verschluesseln(myD->plaintext);
+	GetTmpName(outfile,"cry",".txt");	
+	myD->writeCiphertext(outfile);
+	// OpenNewDoc(outfile,myD->getKey(),this->oldTitle,IDS_CRYPT_SOLITAIRE,false,1);
+
+	CString sKey = FormatKey();
 	OpenNewDoc(outfile,sKey,this->oldTitle,IDS_CRYPT_SOLITAIRE,false,1);
 
 	this->EndDialog(1);	
@@ -2182,32 +2186,13 @@ void CDlgSolitaire::OnBnClickedButton66()
 void CDlgSolitaire::OnBnClickedButton68()
 {
 	char outfile[256];
-	int i;
 
 	myD->keyUmrechnen();
 	myD->entschluesseln(myD->plaintext);
 	GetTmpName(outfile,"cry",".txt");	
 	myD->writeplaintext(outfile);	
 	// OpenNewDoc(outfile,myD->getKey(),this->oldTitle,IDS_CRYPT_SOLITAIRE,true,1);
-	char tmpStr[12];
-	CString sKey = _T("");
-	sKey +=   CString(NUMBER_OF_CARDS) + CString(_itoa(myD->anzahl, tmpStr, 10)) + CString(";")
-		    + CString(SORT_METHOD)  + InitialArt + CString(";") 
-			+ CString(MANUAL) + CString("X;");  // FIXME
-	sKey += CString(INITIAL_DECK);
-	for (i=0; i<myD->anzahl; i++)
-	{
-		sKey += CString(_itoa(myD->tempini[i], tmpStr, 10));
-		if (i<myD->anzahl-1) sKey += CString(",");
-	}
-	sKey += CString(";");
-
-	sKey += CString(MAPPED_DECK);
-	for (i=0; i<myD->anzahl; i++)
-	{
-		sKey += CString(_itoa(myD->deck[i], tmpStr, 10));
-		if (i<myD->anzahl-1) sKey += CString(",");
-	}
+	CString sKey = FormatKey();
 	OpenNewDoc(outfile,sKey,this->oldTitle,IDS_CRYPT_SOLITAIRE,false,1);
 
 	this->EndDialog(1);
@@ -2243,8 +2228,7 @@ void CDlgSolitaire::OnPasteKey()
 		if (0 <= ndx)
 		{
 			buffer.Delete(0, strlen(SORT_METHOD)+ndx);
-			ndx = buffer.Find(";");
-			InitialArt = buffer.Mid(0,ndx);
+			InitialArt = atoi(buffer);
 			SetDeckSelectioMethod(InitialArt);
 		}
 		else

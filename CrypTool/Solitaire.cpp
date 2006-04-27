@@ -1,5 +1,7 @@
 
 #include "Solitaire.h"
+#include "resource.h"
+
 
 
 
@@ -371,6 +373,7 @@ char Deck::schritt5()
 		else return false;
 
 	}
+#if 0
 	int Deck::nullrunde()
 	{
 			char d = deck[0];
@@ -385,7 +388,7 @@ char Deck::schritt5()
 			
 
 	}
-
+#endif
 
 void Deck::schritt1revers()  
 	{	
@@ -448,6 +451,8 @@ bool Deck::schritt1reversabfrage()
 			}
 			
 		}
+		// not reached
+		exit(1); // to remove a compiler warning
 	}
 
 	void Deck::vorneeinordnena()
@@ -621,7 +626,8 @@ bool Deck::schritt2reversabfrage()
 			}
 					
 		}
-		
+		// not reached
+		exit(1); // to remove a compiler warning
 	}
 
 void Deck::vorneeinordnenb()
@@ -813,20 +819,24 @@ void Deck::schritt4revers()
 		}
 
 	}
-	void Deck::inideckspeichern()
+	bool Deck::inideckspeichern(LPCSTR file)
 	{
 		FILE * pFile;
-		pFile=fopen("SolitaireInideck.txt","w+");
-			// erste Zeile in Textdatei gibt die Kartenanzahl wieder
-			fprintf( pFile, "%d", anzahl);	
+		pFile=fopen(file,"w+");
+		if (!pFile)
+			return false;
+
+		// erste Zeile in Textdatei gibt die Kartenanzahl wieder
+		fprintf( pFile, "%d", anzahl);	
+		fprintf( pFile, "%s", "\n");
+			
+		for (char c=0;c<anzahl;c++)
+		{	
+			fprintf( pFile, "%d", tempini[c]);
 			fprintf( pFile, "%s", "\n");
-				
-			for (char c=0;c<anzahl;c++)
-			{	
-				fprintf( pFile, "%d", tempini[c]);
-				fprintf( pFile, "%s", "\n");
-			}
+		}
 		fclose (pFile);
+		return true;
 	}
 	void Deck::deck2tempini()
 	{
@@ -859,28 +869,59 @@ void Deck::schritt4revers()
 		
 	}
 
-	void Deck::abschlussdeckspeichern()
+	bool Deck::abschlussdeckspeichern(LPCSTR file)
 	{
 		FILE * pFile;
-		pFile=fopen("SolitaireAbschlussdeck.txt","w+");
-			// erste Zeile in Textdatei gibt die Kartenanzahl wieder
-			fprintf( pFile, "%d", anzahl);	
+		pFile=fopen(file,"w+");
+		if (!pFile)
+			return false;
+		// erste Zeile in Textdatei gibt die Kartenanzahl wieder
+		fprintf( pFile, "%d", anzahl);	
+		fprintf( pFile, "%s", "\n");
+		for (char c=0;c<anzahl;c++)
+		{	
+			fprintf( pFile, "%d", deck[c]);
 			fprintf( pFile, "%s", "\n");
-			for (char c=0;c<anzahl;c++)
-			{	
-				fprintf( pFile, "%d", deck[c]);
-				fprintf( pFile, "%s", "\n");
-			}
+		}
 		fclose (pFile);
+		return true;
 	}
 
-	void Deck::inideckladen()
+	bool Deck::inideckladen(LPCSTR file)
 	{
 		int load[54];
 		int i;
 		
 		FILE * loadFile;
-		loadFile = fopen( "SolitaireInideck.txt", "r+" );
+		loadFile = fopen( file, "r+" );
+		if (!loadFile)
+			return false;
+		rewind (loadFile);
+		
+		fscanf(loadFile, "%d\n", &anzahl);
+
+		for ( i=0;i<anzahl;i++)
+		{
+		fscanf(loadFile, "%d\n", &load[i]);
+		
+		}
+		//memcpy(deck,(char)load,54);
+		for( i=0;i<54; i++)
+		{
+			deck[i]=(char)load[i];
+		}
+		return true;
+	}
+
+bool Deck::abschlussdeckladen(LPCSTR file)
+	{
+		int load[54];
+		int i;
+		
+		FILE * loadFile;
+		loadFile = fopen( file, "r+" );
+		if (!loadFile)
+			return false;
 		
 		rewind (loadFile);
 		
@@ -896,32 +937,7 @@ void Deck::schritt4revers()
 		{
 			deck[i]=(char)load[i];
 		}
-		
-	}
-
-void Deck::abschlussdeckladen()
-	{
-		int load[54];
-		int i;
-		
-		FILE * loadFile;
-		loadFile = fopen( "SolitaireAbschlussdeck.txt", "r+" );
-		
-		rewind (loadFile);
-		
-		fscanf(loadFile, "%d\n", &anzahl);
-
-		for ( i=0;i<anzahl;i++)
-		{
-		fscanf(loadFile, "%d\n", &load[i]);
-		
-		}
-		//memcpy(deck,(char)load,54);
-		for( i=0;i<54; i++)
-		{
-			deck[i]=(char)load[i];
-		}
-		
+		return true;
 	}
 
 
@@ -1120,100 +1136,18 @@ void Deck::verschluesseln(CString plaintext)
 		
 	}
 	
-	
-	
-	
 	int Deck::umwandelninzahl(char k)
 	{
-	  switch ( k )
-		{
-         case 'A': return 1;
-         case 'a': return 1;
-         case 'B': return 2;
-         case 'b': return 2;
-		 case 'C': return 3;
-         case 'c': return 3;
-		 case 'D': return 4;
-         case 'd': return 4;
-		 case 'E': return 5;
-         case 'e': return 5;
-		 case 'F': return 6;
-         case 'f': return 6;
-		 case 'G': return 7;
-         case 'g': return 7;
-		 case 'H': return 8;
-         case 'h': return 8;
-		 case 'I': return 9;
-         case 'i': return 9;
-		 case 'J': return 10;
-         case 'j': return 10;
-         case 'K': return 11;
-         case 'k': return 11;
-         case 'L': return 12;
-         case 'l': return 12;
-		 case 'M': return 13;
-         case 'm': return 13;
-		 case 'N': return 14;
-         case 'n': return 14;
-		 case 'O': return 15;
-         case 'o': return 15;
-		 case 'P': return 16;
-         case 'p': return 16;
-		 case 'Q': return 17;
-         case 'q': return 17;
-		 case 'R': return 18;
-         case 'r': return 18;
-		 case 'S': return 19;
-         case 's': return 19;
-		 case 'T': return 20;
-         case 't': return 20;   
-		 case 'U': return 21;
-		 case 'u': return 21;
-         case 'V': return 22;
-		 case 'v': return 22;
-         case 'W': return 23;
-		 case 'w': return 23;
-         case 'X': return 24;
-		 case 'x': return 24;
-         case 'Y': return 25;
-		 case 'y': return 25;
-         case 'Z': return 26;
-		 case 'z': return 26;
-		 default: return 0;
-		}
+		k = toupper(k);
+		if ('A' <= k && k <= 'Z')
+			return k - 'A' + 1;
+		return 0;
 	}
 
 	char Deck::umwandelninbuch(int k)
 	{
-	  switch ( k )
-		{
-         case 1: return 'A';
-         case 2: return 'B';
-         case 3: return 'C';
-         case 4: return 'D';
-		 case 5: return 'E';
-         case 6: return 'F';
-		 case 7: return 'G';
-         case 8: return 'H';
-		 case 9: return 'I';
-         case 10: return 'J';
-		 case 11: return 'K';
-         case 12: return 'L';
-		 case 13: return 'M';
-         case 14: return 'N';
-		 case 15: return 'O';
-         case 16: return 'P';
-		 case 17: return 'Q';
-         case 18: return 'R';
-		 case 19: return 'S';
-         case 20: return 'T';
-         case 21: return 'U';
-         case 22: return 'V';
-         case 23: return 'W';
-         case 24: return 'X';
-		 case 25: return 'Y';
-         case 26: return 'Z';
-		 }
+		ASSERT(1 <= k && k <= 26);
+		return 'A' + k - 1;
 	}
 //function to read inputfile into string plaintext
 void Deck::readPlaintext(const char* ifile) 
@@ -1340,12 +1274,12 @@ void Deck::entschluesseln(CString ciphertext)
 }
 
 
-	void Deck::keyspeichern()
+	bool Deck::keyspeichern(LPCSTR file)
 	{
 		FILE * pFile;
-		pFile=fopen("SolitaireKey.txt","w+");
-	
-
+		pFile=fopen(file,"w+");
+		if (!pFile)
+			return false;
 				
 		for (char c=0;c<plaintext.GetLength();c++)
 			{	
@@ -1353,16 +1287,18 @@ void Deck::entschluesseln(CString ciphertext)
 				fprintf( pFile, "%s", "\n");
 			}
 		fclose (pFile);
-
+		return true;
 	}
 
-	void Deck::keyladen()
+	bool Deck::keyladen(LPCSTR file)
 	{
 		int load[15000];
 		int i;
 		
 		FILE * loadFile;
-		loadFile = fopen( "SolitaireKey.txt", "r+" );
+		loadFile = fopen( file, "r+" );
+		if (!loadFile)
+			return false;
 		
 		rewind (loadFile);
 		
@@ -1376,6 +1312,29 @@ void Deck::entschluesseln(CString ciphertext)
 		{
 			key[i]=(char)load[i];
 		}
+		return true;
 	}
 				
-
+void fehlermelden(UINT titleid,UINT msgid,LPCSTR file)
+{
+	LPVOID lpMsgBuf;
+	::FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
+			NULL, GetLastError(), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPTSTR) &lpMsgBuf,0,NULL);
+	CString title,msg;
+	title.Format(titleid);
+	msg.Format(msgid,file,lpMsgBuf);
+	MessageBox(NULL,(LPCTSTR)msg,(LPCTSTR)title,MB_ICONWARNING|MB_OK);
+	LocalFree( lpMsgBuf );
+}
+CString tempdir(LPCSTR file)
+{
+    char *temp;
+    temp = getenv("TEMP");
+    if(!temp)
+        temp = getenv("TMP");
+    if(!temp)
+        temp = ".";
+	if (!file || !*file)
+		return CString(temp);
+	return CString(temp) + CString('\\') + CString(file);
+}

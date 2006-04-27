@@ -4,7 +4,6 @@
 #include "stdafx.h"
 #include "CrypToolApp.h"
 #include "DlgSolitaireAnalyse.h"
-#include ".\dlgsolitaireanalyse.h"
 #include "FileTools.h"
 #include "CrypToolTools.h"
 
@@ -15,7 +14,7 @@ IMPLEMENT_DYNAMIC(CDlgSolitaireAnalyse, CDialog)
 CDlgSolitaireAnalyse::CDlgSolitaireAnalyse(char* infile, CString oldTitle,CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgSolitaireAnalyse::IDD, pParent)
 	, kartenanzahl(54)
-	, deckart(_T("nach Vorgabe"))
+	, deckart(0)
 	, gefundenesDeck(_T(""))
 	, vorgaben(0)
 	, zwischendeck(_T(""))
@@ -42,7 +41,7 @@ void CDlgSolitaireAnalyse::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	DDX_CBIndex(pDX, IDC_Kartenanzahl, kartenanzahl);
-	DDX_CBString(pDX, IDC_COMBO2, deckart);
+	DDX_CBIndex(pDX, IDC_COMBO2, deckart);
 	DDX_Text(pDX, IDC_EDIT1, gefundenesDeck);
 	DDX_Control(pDX, IDC_BUTTON9, but1);
 	DDX_Control(pDX, IDC_BUTTON10, but2);
@@ -202,7 +201,7 @@ void CDlgSolitaireAnalyse::OnCbnSelchangeKartenanzahl()
 	UpdateData(true);
 	enablebut(true);
 	vorgabesetzen();
-	deckart="nach Vorgabe";
+	deckart=0;
 	gefundenesDeck="";
 	Initialdeck="";
 	zwischendeck="";
@@ -234,9 +233,8 @@ void CDlgSolitaireAnalyse::OnCbnSelchangeCombo2()
 	UpdateData(true);
 	zaehler=0;
 
-	LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_ANALYSE_VOR,pc_str,STR_LAENGE_STRING_TABLE);
-	LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_ANALYSE_LOAD,pc_str1,STR_LAENGE_STRING_TABLE);
-	if (deckart==pc_str)
+	// Vorgabe
+	if (deckart==0)
 	{
 		zaehler=0;
 		//vorgabe="";
@@ -254,10 +252,14 @@ void CDlgSolitaireAnalyse::OnCbnSelchangeCombo2()
 		zwischendeck="";
 			
 	}
-	
-	else if(deckart==pc_str1)
+	// Finales Deck Laden
+	else if(deckart==1)
 	{
-		myD->abschlussdeckladen();
+		CString file = tempdir(FINALDECKFILE);
+		if (!myD->abschlussdeckladen(file)) {
+			fehlermelden(IDS_STRING_ERROR,IDS_CT_FILE_OPEN_ERROR,file);
+			return;
+		}
 		kartenanzahl=myD->anzahl;
 		gefundenesDeck=myD->getDeck();
 		zwischendeck=gefundenesDeck;

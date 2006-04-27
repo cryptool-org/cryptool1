@@ -17,7 +17,8 @@ class CDlgSolitaire : public CDialog
 {
 	DECLARE_DYNAMIC(CDlgSolitaire)
 
-	void SetDeckSelectioMethod(CString &method);
+	void SetDeckSelectioMethod(int method);
+	CString CDlgSolitaire::FormatKey();
 public:
 	CDlgSolitaire(char* infile, CString oldTitle,CWnd* pParent = NULL);   // Standardkonstruktor
 	virtual ~CDlgSolitaire();
@@ -45,7 +46,7 @@ public:
 	afx_msg void OnCbnSelchangeKartenanzahl();
 	afx_msg void OnCbnSelchangeCombo2();
 	CString InitialDeck;
-	CString InitialArt;
+	int InitialArt;
 	afx_msg void OnBnClickedButton6();
 	afx_msg void OnBnClickedButton61();
 	afx_msg void OnBnClickedButton9();
