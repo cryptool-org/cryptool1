@@ -47,9 +47,16 @@
 		void schritt4();
 		char schritt5();
 		char schritt5ohneJokerAusgabe();
-#if 0
+
 		int  nullrunde();
-#endif
+		void abschlussdeckladen();
+		void abschlussdeckspeichern();
+		void inideckladen();
+		void inideckspeichern();
+		void keyladen();
+		void keyspeichern();
+
+
 		bool pruefenullrunde();
 		void schritt1revers();
 		bool schritt1reversabfrage();
