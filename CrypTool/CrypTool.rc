@@ -5047,6 +5047,11 @@ BEGIN
             MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
+        MENUITEM SEPARATOR
+        POPUP "&Spiele"
+        BEGIN
+            MENUITEM "&Zahlenhai",                  33326
+        END
     END
     POPUP "A&nalyse"
     BEGIN
@@ -5405,6 +5410,11 @@ BEGIN
             MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
+        MENUITEM SEPARATOR
+        POPUP "&Spiele"
+        BEGIN
+            MENUITEM "&Zahlenhai",                  33326
+        END
     END
     POPUP "A&nalyse"
     BEGIN
@@ -5766,6 +5776,11 @@ BEGIN
             MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
+        MENUITEM SEPARATOR
+        POPUP "&Spiele"
+        BEGIN
+            MENUITEM "&Zahlenhai",                  ID_NUMBERSHARK
+        END
     END
     POPUP "A&nalyse"
     BEGIN
@@ -6125,6 +6140,11 @@ BEGIN
             MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
+        MENUITEM SEPARATOR
+        POPUP "&Spiele"
+        BEGIN
+            MENUITEM "&Zahlenhai",                  33326
+        END
     END
     POPUP "A&nalyse"
     BEGIN
@@ -6519,6 +6539,11 @@ BEGIN
             MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
+        MENUITEM SEPARATOR
+        POPUP "&Spiele"
+        BEGIN
+            MENUITEM "&Zahlenhai",                  33326
+        END
     END
     POPUP "A&nalyse"
     BEGIN
@@ -15349,6 +15374,11 @@ BEGIN
             MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
+        MENUITEM SEPARATOR
+        POPUP "&Games"
+        BEGIN
+            MENUITEM "&Number Shark",               33328
+        END
     END
     POPUP "&Analysis"
     BEGIN
@@ -15703,6 +15733,11 @@ BEGIN
             MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
+        MENUITEM SEPARATOR
+        POPUP "&Games"
+        BEGIN
+            MENUITEM "&Number Shark",               33328
+        END
     END
     POPUP "&Analysis"
     BEGIN
@@ -16058,6 +16093,11 @@ BEGIN
             MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
+        MENUITEM SEPARATOR
+        POPUP "&Games"
+        BEGIN
+            MENUITEM "&Number Shark",               ID_GAMES_NUMBERSHARK
+        END
     END
     POPUP "&Analysis"
     BEGIN
@@ -16409,6 +16449,11 @@ BEGIN
             MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
+        MENUITEM SEPARATOR
+        POPUP "&Games"
+        BEGIN
+            MENUITEM "&Number Shark",               33328
+        END
     END
     POPUP "&Analysis"
     BEGIN
@@ -16799,6 +16844,11 @@ BEGIN
             MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
         END
         MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
+        MENUITEM SEPARATOR
+        POPUP "&Games"
+        BEGIN
+            MENUITEM "&Number Shark",               33328
+        END
     END
     POPUP "&Analysis"
     BEGIN

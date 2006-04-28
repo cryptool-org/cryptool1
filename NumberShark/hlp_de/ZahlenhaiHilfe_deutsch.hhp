@@ -1,0 +1,22 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=ZahlenhaiHilfe_deutsch.chm
+Contents file=Zahlenhai_Contents.hhc
+Default Font=Arial,10,0
+Default topic=Zahlenhai_Tutorial.html
+Display compile progress=No
+Index file=Zahlenhai_Index.hhk
+Language=0x407 Deutsch (Deutschland)
+Title=Zahlenhai Hilfe
+
+
+[FILES]
+Zahlenhai_Tutorial.html
+Zahlenhai.html
+Zahlenhai_Challenge.html
+Zahlenhai_Entstehung.html
+Zahlenhai_Lizenz.html
+Echte_Teiler.html
+
+[INFOTYPES]
+

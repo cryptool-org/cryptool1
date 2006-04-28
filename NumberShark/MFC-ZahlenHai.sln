@@ -1,0 +1,33 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFC-ZahlenHai", "MFC-ZahlenHai.vcproj", "{67EF14F1-A4D3-4DCE-9356-333CDC1C0E43}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Debug_de = Debug_de
+		Debug_en = Debug_en
+		Release = Release
+		Release_de = Release_de
+		Release_en = Release_en
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{67EF14F1-A4D3-4DCE-9356-333CDC1C0E43}.Debug.ActiveCfg = Debug|Win32
+		{67EF14F1-A4D3-4DCE-9356-333CDC1C0E43}.Debug.Build.0 = Debug|Win32
+		{67EF14F1-A4D3-4DCE-9356-333CDC1C0E43}.Debug_de.ActiveCfg = Debug_de|Win32
+		{67EF14F1-A4D3-4DCE-9356-333CDC1C0E43}.Debug_de.Build.0 = Debug_de|Win32
+		{67EF14F1-A4D3-4DCE-9356-333CDC1C0E43}.Debug_en.ActiveCfg = Debug_en|Win32
+		{67EF14F1-A4D3-4DCE-9356-333CDC1C0E43}.Debug_en.Build.0 = Debug_en|Win32
+		{67EF14F1-A4D3-4DCE-9356-333CDC1C0E43}.Release.ActiveCfg = Release|Win32
+		{67EF14F1-A4D3-4DCE-9356-333CDC1C0E43}.Release.Build.0 = Release|Win32
+		{67EF14F1-A4D3-4DCE-9356-333CDC1C0E43}.Release_de.ActiveCfg = Release_de|Win32
+		{67EF14F1-A4D3-4DCE-9356-333CDC1C0E43}.Release_de.Build.0 = Release_de|Win32
+		{67EF14F1-A4D3-4DCE-9356-333CDC1C0E43}.Release_en.ActiveCfg = Release_en|Win32
+		{67EF14F1-A4D3-4DCE-9356-333CDC1C0E43}.Release_en.Build.0 = Release_en|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

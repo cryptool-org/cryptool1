@@ -1,0 +1,22 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=NumberSharkHelp_english.chm
+Contents file=NumberShark contents.hhc
+Default Font=,8,0
+Default topic=NumberShark_Tutorial.html
+Display compile progress=No
+Index file=NumberShark index.hhk
+Language=0x809 Englisch (Groﬂbritannien)
+Title=Number Shark Help
+
+
+[FILES]
+Real_Factors.html
+NumberShark_Challenge.html
+NumberShark_Development.html
+NumberShark_License.html
+NumberShark_Manual.html
+NumberShark_Tutorial.html
+
+[INFOTYPES]
+

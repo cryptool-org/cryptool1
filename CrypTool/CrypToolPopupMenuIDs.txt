@@ -86,6 +86,7 @@ ENGLISH IndivProcedures_RSACryptosystem_LatticeBasedAttacksonRSA # &Indiv. Proce
 ENGLISH PopUp # PopUp
 ENGLISH View_Font # &View|&Font
 ENGLISH IndivProcedures_Codes_Base64EncodeDecode # &Indiv. Procedures|C&odes|&Base64 Encode/Decode
+ENGLISH IndivProcedures_Games # &Indiv. Procedures|&Games
 GERMAN	Analyse	# A&nalyse
 GERMAN Bearbeiten # &Bearbeiten
 GERMAN Datei # &Datei
@@ -126,3 +127,5 @@ GERMAN Ansicht_Schriftart # &Ansicht|S&chriftart
 GERMAN PopUp # PopUp
 GERMAN Einzelverfahren_Codierungen # &Einzelverfahren|C&odierungen
 GERMAN Einzelverfahren_Codierungen_Base64CodierungDecodierung # &Einzelverfahren|C&odierungen|&Base64 Codierung/Decodierung
+GERMAN Einzelverfahren_Spiele # &Einzelverfahren|&Spiele
+

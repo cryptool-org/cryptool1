@@ -252,7 +252,6 @@
 #define IDR_HTML_DLGSOLITAIRE           836
 #define IDB_CRT_DOWN_F                  836
 #define IDB_CRT_DOWN_FSTR               837
-#define IDS_CT_FILE_OPEN_ERROR          840
 #define IDC_EDIT133                     1015
 #define IDC_EDIT1                       1016
 #define IDC_EDIT2                       1017
@@ -1593,6 +1592,10 @@
 #define ID_DECODE_BASE64                33322
 #define ID_ENCODE_BASE64                33323
 #define IDS_CONTROL_CUT                 33324
+#define ID_EINZELVERFAHREN_SPIELE       33324
+#define ID_NUMBERSHARK                  33326
+#define ID_INDIV_GAMES                  33327
+#define ID_GAMES_NUMBERSHARK            33328
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -2532,8 +2535,8 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        839
-#define _APS_NEXT_COMMAND_VALUE         33324
+#define _APS_NEXT_RESOURCE_VALUE        838
+#define _APS_NEXT_COMMAND_VALUE         33329
 #define _APS_NEXT_CONTROL_VALUE         1889
 #define _APS_NEXT_SYMED_VALUE           107
 #endif

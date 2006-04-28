@@ -187,6 +187,8 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SIGN, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN, OnUpdateNeedSecudeTicket)
 	ON_COMMAND(ID_INDIV_CRT_SECRETSHARING, OnIndivCrtSecretsharing)
+	ON_COMMAND(ID_NUMBERSHARK, OnNumberShark)
+	ON_UPDATE_COMMAND_UI(ID_NUMBERSHARK, OnUpdateNumberShark)
 	//}}AFX_MSG_MAP
 
 	//ON_COMMAND(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnVerentschlsselnHybridverfahrenHybridverschlsselung)
@@ -404,7 +406,6 @@ BOOL CCrypToolApp::InitInstance()
 #undef DoOneData
 
 	// nach AES-Selfextractor suchen
-
 	n = SearchPath(NULL,"AESTool.exe", NULL, 1023, buffer, &p);
 	if(n>0) {
 		m_Selfextract_EXE = (char *) malloc(n+2);
@@ -412,6 +413,17 @@ BOOL CCrypToolApp::InitInstance()
 	}
 	else
 		m_Selfextract_EXE = NULL;
+
+
+	// nach Zahlenhai suchen
+	n = SearchPath(NULL,"MFC-ZahlenHai.exe", NULL, 1023, buffer, &p);
+	if(n>0) {
+		m_NumberShark_Selfextract_EXE = (char *) malloc(n+2);
+		strcpy(m_NumberShark_Selfextract_EXE, buffer);
+	}
+	else
+		m_NumberShark_Selfextract_EXE = NULL;
+
 
 	// korrektes Helpfile laden
 	CString HlpTmp;
@@ -684,6 +696,7 @@ int CCrypToolApp::ExitInstance()
 	if(Pfad) free(Pfad);
 	if(PseVerzeichnis) free(PseVerzeichnis);
 	if(m_Selfextract_EXE) free(m_Selfextract_EXE);
+	if(m_NumberShark_Selfextract_EXE) free(m_NumberShark_Selfextract_EXE);
 	if (ScintillaLib) FreeLibrary(ScintillaLib);
 	return CWinApp::ExitInstance();
 //	m_pRecentFileList->WriteList();
@@ -1087,6 +1100,21 @@ void CCrypToolApp::OnIndivCrtSecretsharing()
 {
 	CDlgCrtSecretSharing dialg;
 	dialg.DoModal();
+}
+
+void CCrypToolApp::OnNumberShark() 
+{
+	// zahlenhai aufrufen
+	_spawnl(_P_NOWAIT, theApp.m_NumberShark_Selfextract_EXE, theApp.m_NumberShark_Selfextract_EXE, NULL);
+
+}
+
+void CCrypToolApp::OnUpdateNumberShark(CCmdUI* pCmdUI) 
+{
+	if(theApp.m_NumberShark_Selfextract_EXE)
+		pCmdUI->Enable(TRUE);
+	else
+		pCmdUI->Enable(FALSE);
 }
 
 BOOL CCrypToolApp::OnDDECommand(LPTSTR lpszCommand)

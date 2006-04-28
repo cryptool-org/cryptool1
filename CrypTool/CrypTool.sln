@@ -15,6 +15,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aestool", "..\aestool\aesto
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NumberShark", "..\NumberShark\MFC-ZahlenHai.vcproj", "{3259C909-87A3-4DF2-9C47-F71417DCC0CB}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrypTool", "CrypTool.vcproj", "{69DC472B-0478-4027-B331-B85CF457392E}"
 	ProjectSection(ProjectDependencies) = postProject
 		{D11F006A-BAEF-43B8-8EF6-FED5021E17F2} = {D11F006A-BAEF-43B8-8EF6-FED5021E17F2}
