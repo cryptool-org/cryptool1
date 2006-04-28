@@ -1880,10 +1880,10 @@ BEGIN
                     -1,7,37,310,8
 END
 
-IDD_KEY_PERMUTATION DIALOG  0, 0, 280, 338
+IDD_KEY_PERMUTATION DIALOGEX 0, 0, 280, 338
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe: Permutation / Transposition"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT1,23,39,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,23,161,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
@@ -1920,7 +1920,7 @@ BEGIN
                     165,304,22,20
     EDITTEXT        IDC_EDIT3,23,68,234,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
                     WS_DISABLED
-    GROUPBOX        "1. Permutation (einfache Zeilentransposition)",
+    GROUPBOX        "1. Permutation (einfache Spaltentransposition)",
                     IDC_STATIC,12,12,256,108
     LTEXT           "Schlüssel (Buchstaben oder durch Kommas separierte Zahlen)",
                     IDC_STATIC,23,29,205,8
@@ -12253,10 +12253,10 @@ BEGIN
                     -1,7,39,310,10
 END
 
-IDD_KEY_PERMUTATION DIALOG  0, 0, 280, 324
+IDD_KEY_PERMUTATION DIALOGEX 0, 0, 280, 324
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Key Entry: Permutation / Transposition"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT1,23,39,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,23,161,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
@@ -12293,7 +12293,7 @@ BEGIN
                     162,295,22,20
     EDITTEXT        IDC_EDIT3,23,68,234,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
                     WS_DISABLED
-    GROUPBOX        "1. Permutation (simple column transposition)",
+    GROUPBOX        "1st Permutation (simple column transposition)",
                     IDC_STATIC,12,13,256,108
     LTEXT           "Key (via letters or via comma seperated numbers)",
                     IDC_STATIC,23,29,234,8
@@ -12301,7 +12301,7 @@ BEGIN
                     IDC_STATIC,23,59,234,8
     EDITTEXT        IDC_EDIT4,23,190,234,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
                     WS_DISABLED
-    GROUPBOX        "2. Permutation (double column transposition)",
+    GROUPBOX        "2nd Permutation (double column transposition)",
                     IDC_STATIC,12,134,256,109
     LTEXT           "Key (via letters or via comma seperated numbers)",
                     IDC_STATIC,23,151,234,8
