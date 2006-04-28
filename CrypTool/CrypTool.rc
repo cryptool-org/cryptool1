@@ -613,12 +613,12 @@ BEGIN
     GROUPBOX        " Review und Feedback",IDC_STATIC,7,220,270,42,BS_CENTER
     LTEXT           "Martin Bartosch\nLars Dülfer\nThomas Gauweiler\nJan Hofmann\nMatthias Kraft\nMatej Matejicek\nRoger Oyono\nMark Santiago\nChristian Tobias\nThilo Zieschang\nChristof Rezk Salama",
                     IDC_STATIC,18,122,84,88
-    LTEXT           "Jan Blumenstein\nKlaus Esslinger\nPeter Gruber\nJens Liebehenschel\nMichael Linden\nChristian Mletzko\nMarkus Ruhs\nMatthias Schneider\nMyriam Zeuner-Gurrier\nHendrik Lennarz",
-                    IDC_STATIC,102,122,84,84
+    LTEXT           "Jan Blumenstein\nKlaus Esslinger\nPeter Gruber\nJens Liebehenschel\nMichael Linden\nChristian Mletzko\nMarkus Ruhs\nMatthias Schneider\nMyriam Zeuner-Gurrier\nHendrik Lennarz\nSebastian Przybylski",
+                    IDC_STATIC,102,122,84,90
     LTEXT           "Ariane Büger\nKarsten Schaar\nSibylle Müller",
                     IDC_STATIC,18,231,84,26
-    LTEXT           "Richard Christensen\nBartol Filipovic\nJörg Hambamer\nDennis Laupichler\nFlorian Marchal\nLowell Montgomery\nDaniel Saffran\nChristine Stötzel\nThomas Thiele\nAndre Beunink",
-                    IDC_STATIC,186,122,85,86
+    LTEXT           "Richard Christensen\nBartol Filipovic\nJörg Hambamer\nDennis Laupichler\nFlorian Marchal\nLowell Montgomery\nDaniel Saffran\nChristine Stötzel\nThomas Thiele\nAndre Beunink\nElmar Kubitz",
+                    IDC_STATIC,186,122,85,91
     LTEXT           "Matthias Büger\nWolfgang Scondo\n...und viele andere.",
                     IDC_STATIC,102,231,84,26
     LTEXT           "Wolfgang Patzewitz\nGary Tagg\n",IDC_STATIC,186,231,85,
@@ -1928,7 +1928,7 @@ BEGIN
                     IDC_STATIC,23,58,245,8
     EDITTEXT        IDC_EDIT4,23,190,234,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
                     WS_DISABLED
-    GROUPBOX        "2. Permutation (doppelte Zeilentransposition)",
+    GROUPBOX        "2. Permutation (doppelte Spaltentransposition)",
                     IDC_STATIC,12,132,256,111
     LTEXT           "Schlüssel (Buchstaben oder durch Kommas separierte Zahlen)",
                     IDC_STATIC,23,151,205,8
@@ -4558,11 +4558,11 @@ BEGIN
                     121,35,18
 END
 
-IDD_SOLITAIRE DIALOGEX 0, 0, 623, 327
+IDD_SOLITAIRE DIALOG  0, 0, 623, 327
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Erzeugung des Solitaire-Schlüsselstroms"
-FONT 8, "MS Shell Dlg", 0, 0, 0x0
+FONT 8, "MS Shell Dlg"
 BEGIN
     COMBOBOX        IDC_Kartenanzahl,17,24,30,204,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
@@ -4577,11 +4577,10 @@ BEGIN
                     ES_READONLY
     GROUPBOX        "2. Art des Initialschlüssels wählen",IDC_STATIC,6,54,
                     204,48
-    GROUPBOX        "2a. Passworteingabe (optional zur Erzeugung des Initialdecks)",
-                    IDC_STATIC,221,55,216,47
+    GROUPBOX        "2a. Passworteingabe",IDC_STATIC,221,55,216,47
     EDITTEXT        IDC_EDIT4,227,72,132,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Initialisieren",IDC_BUTTON1,371,72,50,14
-    GROUPBOX        "Schlüsselstrom-Ausgabe",IDC_STATIC,6,240,612,54
+    GROUPBOX        "Schlüsselausgabe",IDC_STATIC,6,240,612,54
     LTEXT           "Initialdeck:",IDC_STATIC,29,162,36,8
     LTEXT           "Abschlussdeck:",IDC_STATIC,29,198,50,8
     GROUPBOX        "3. Auswahl Schlüsselerzeugung",IDC_STATIC,6,108,204,40
@@ -4661,11 +4660,11 @@ BEGIN
                     256,305,23,15
 END
 
-IDD_SOLITAIRE_ANALYSE DIALOGEX 0, 0, 620, 351
+IDD_SOLITAIRE_ANALYSE DIALOG  0, 0, 620, 351
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Solitaire Analyse"
-FONT 8, "MS Shell Dlg", 0, 0, 0x0
+FONT 8, "MS Shell Dlg"
 BEGIN
     DEFPUSHBUTTON   "Entschlüsseln",IDOK,11,330,68,14,WS_DISABLED
     PUSHBUTTON      "Abbrechen",IDCANCEL,101,330,50,14
@@ -5183,7 +5182,6 @@ BEGIN
     POPUP "&Hilfe"
     BEGIN
         MENUITEM "&Startseite",                 ID_HILFE_STARTSEITE
-        MENUITEM "&Inhalt",                     ID_HELP_FINDER
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&zenarien (Tutorials)",      ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
@@ -5529,7 +5527,6 @@ BEGIN
     POPUP "&Hilfe"
     BEGIN
         MENUITEM "&Startseite",                 ID_HILFE_STARTSEITE
-        MENUITEM "&Inhalt",                     ID_HELP_FINDER
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&zenarien (Tutorials)",      ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
@@ -5904,7 +5901,6 @@ BEGIN
     POPUP "&Hilfe"
     BEGIN
         MENUITEM "&Startseite",                 ID_HILFE_STARTSEITE
-        MENUITEM "&Inhalt",                     ID_HELP_FINDER
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&zenarien (Tutorials)",      ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
@@ -6258,7 +6254,6 @@ BEGIN
     POPUP "&Hilfe"
     BEGIN
         MENUITEM "&Startseite",                 ID_HILFE_STARTSEITE
-        MENUITEM "&Inhalt",                     ID_HELP_FINDER
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&zenarien (Tutorials)",      ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
@@ -6659,7 +6654,6 @@ BEGIN
     POPUP "&Hilfe"
     BEGIN
         MENUITEM "&Startseite",                 ID_HILFE_STARTSEITE
-        MENUITEM "&Inhalt",                     ID_HELP_FINDER
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&zenarien (Tutorials)",      ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
@@ -7541,8 +7535,17 @@ BEGIN
 0x3335, "\000" 
     IDC_Kartenanzahl, 0x403, 3, 0
 0x3435, "\000" 
+    IDC_COMBO2, 0x403, 12, 0
+0x7541, 0x7366, 0x6574, 0x6769, 0x6e65, 0x0064, 
+    IDC_COMBO2, 0x403, 11, 0
+0x6241, 0x7473, 0x6965, 0x6567, 0x646e, "\000" 
+    IDC_COMBO2, 0x403, 9, 0
+0x6547, 0x696d, 0x6373, 0x7468, "\000" 
     IDC_COMBO2, 0x403, 13, 0
 0x614e, 0x6863, 0x5620, 0x726f, 0x6167, 0x6562, "\000" 
+    IDC_COMBO2, 0x403, 18, 0
+0x6e49, 0x7469, 0x6169, 0x646c, 0x6365, 0x206b, 0x616c, 0x6564, 0x006e, 
+
     IDC_COMBO2, 0x403, 20, 0
 0x6241, 0x6373, 0x6c68, 0x7375, 0x6473, 0x6365, 0x206b, 0x616c, 0x6564, 
 0x006e, 
@@ -8122,7 +8125,6 @@ BEGIN
     ID_APP_ABOUT            "Zeigt Programminformationen (Sponsoren, Autoren, Kontakte, Urheberrechte...) zu CrypTool an\nÜber CrypTool"
     ID_APP_EXIT             "Beendet die Anwendung mit Nachfrage, ob die geöffneten Dateien gespeichert werden sollen"
     ID_HELP_INDEX           "Zeigt Inhalt der Hilfe an"
-    ID_HELP_FINDER          "Öffnet die Online-Hilfe mit allen Hilfethemen zu CrypTool"
     ID_HELP_USING           "Gibt Hinweise wie die Hilfe zu benutzen ist"
     ID_CONTEXT_HELP         "Hilfe zu den Symbolen, Menüs und Fenstern\nHilfe"
     ID_HELP                 "Hilfe für den gewählten Task oder die gewählte Aktion"
@@ -10263,10 +10265,18 @@ BEGIN
                             "Wollen Sie die Hybridverschlüsselung selbst durchführen?"
     IDS_SCA_ERROR_CERTINFOEXTRACTION 
                             "Fehler! Das Öffnen folgender Datei ist nicht möglich:\n%s"
+    IDS_SOLITAIRE_ANALYSE_VOR "nach Vorgabe"
+    IDS_SOLITAIRE_ANALYSE_LOAD "Abschlussdeck laden"
+    IDS_SOLITAIRE_Art_gemischt "Gemischt"
 END
 
 STRINGTABLE 
 BEGIN
+    IDS_SOLITAIRE_Art_aufsteigend "Aufsteigend"
+    IDS_SOLITAIRE_Art_absteigend "Absteigend"
+    IDS_SOLITAIRE_Art_nachVorgabe "Nach Vorgabe"
+    IDS_SOLITAIRE_Art_Initialdeckladen "Initialdeck laden"
+    IDS_SOLITAIRE_Art_Abschlussdeckladen "Abschlussdeck laden"
     IDS_SOLITAIRE_MESSAGE_1 "Die Eingabe muss mindestens ein Zeichen und höchstens 15.000 Zeichen enthalten."
     IDS_SOLITAIRE_MESSAGE_2 "Solitaire benötigt mindestens 3 Karten"
     IDS_SOLITAIRE_MESSAGE_3 "Alle Schlüsselzeichen erzeugt."
@@ -10321,11 +10331,6 @@ BEGIN
     IDS_HASHDEMO_STRING_SHA "SHA (160 Bit)"
     IDS_HASHDEMO_STRING_SHA1 "SHA-1 (160 Bit)"
     IDS_HASHDEMO_STRING_RIPEMD160 "RIPEMD-160 (160 Bit)"
-END
-
-STRINGTABLE 
-BEGIN
-    IDS_CT_FILE_OPEN_ERROR  "Fehler beim Öffnen von Datei\n%s:\n%s"
 END
 
 #endif    // German (Germany) resources
@@ -11040,10 +11045,10 @@ BEGIN
                     IDC_STATIC,186,237,85,26
     LTEXT           "Martin Bartosch\nLars Dülfer\nThomas Gauweiler\nJan Hofmann\nMatthias Kraft\nMatej Matejicek\nRoger Oyono\nMark Santiago\nChristian Tobias\nThilo Zieschang\nChristof Rezk Salama",
                     IDC_STATIC,18,122,84,88
-    LTEXT           "Jan Blumenstein\nKlaus Esslinger\nPeter Gruber\nJens Liebehenschel\nMichael Linden\nChristian Mletzko\nMarkus Ruhs\nMatthias Schneider\nMyriam Zeuner-Guerrier\nHendrik Lennarz",
-                    IDC_STATIC,102,122,84,82
-    LTEXT           "Richard Christensen\nBartol Filipovic\nJörg Hambamer\nDennis Laupichler\nFlorian Marchal\nLowell Montgomery\nDaniel Saffran\nChristine Stötzel\nThomas Thiele\nAndre Beunink",
-                    IDC_STATIC,186,122,85,82
+    LTEXT           "Jan Blumenstein\nKlaus Esslinger\nPeter Gruber\nJens Liebehenschel\nMichael Linden\nChristian Mletzko\nMarkus Ruhs\nMatthias Schneider\nMyriam Zeuner-Guerrier\nHendrik Lennarz\nSebastian Przybylski",
+                    IDC_STATIC,102,122,84,88
+    LTEXT           "Richard Christensen\nBartol Filipovic\nJörg Hambamer\nDennis Laupichler\nFlorian Marchal\nLowell Montgomery\nDaniel Saffran\nChristine Stötzel\nThomas Thiele\nAndre Beunink\nElmar Kubitz",
+                    IDC_STATIC,186,122,85,89
 END
 
 IDD_SHOW_PUBLICKEY_EC DIALOG  0, 0, 399, 287
@@ -14858,11 +14863,11 @@ BEGIN
                     121,35,18
 END
 
-IDD_SOLITAIRE DIALOGEX 0, 0, 625, 329
+IDD_SOLITAIRE DIALOG  0, 0, 625, 329
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Generation of the Solitaire key stream"
-FONT 8, "MS Shell Dlg", 0, 0, 0x0
+FONT 8, "MS Shell Dlg"
 BEGIN
     COMBOBOX        IDC_Kartenanzahl,18,24,30,204,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
@@ -14876,8 +14881,7 @@ BEGIN
     EDITTEXT        IDC_EDIT3,16,252,551,30,ES_MULTILINE | ES_AUTOHSCROLL | 
                     ES_READONLY
     GROUPBOX        "2. Choose type of initial key",IDC_STATIC,7,54,204,48
-    GROUPBOX        "2a. Enter password (optional to generate initial deck)",
-                    IDC_STATIC,222,55,216,47
+    GROUPBOX        "Enter password",IDC_STATIC,222,55,216,47
     EDITTEXT        IDC_EDIT4,228,72,132,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Initialize",IDC_BUTTON1,372,72,50,14
     GROUPBOX        "Keystream output",IDC_STATIC,7,240,612,54
@@ -14886,8 +14890,8 @@ BEGIN
     GROUPBOX        "3. Choose type of key generation",IDC_STATIC,7,108,204,
                     40
     GROUPBOX        "3a. Manual steps",IDC_STATIC,222,108,216,40
-    GROUPBOX        "2b. Enter initial deck by yourself",IDC_STATIC,444,6,
-                    175,144
+    GROUPBOX        "2b. Enter initial key by yourself",IDC_STATIC,444,6,175,
+                    144
     PUSHBUTTON      "automatical",IDC_BUTTON2,42,126,50,14
     PUSHBUTTON      "manual",IDC_BUTTON3,120,126,50,14
     PUSHBUTTON      "Step 1",IDC_BUTTON4,228,126,36,14,WS_DISABLED
@@ -14956,17 +14960,17 @@ BEGIN
     PUSHBUTTON      "Cancel",IDC_BUTTON67,517,304,102,18
     PUSHBUTTON      "Decrypt",IDC_BUTTON68,121,304,102,18,WS_DISABLED
     GROUPBOX        "Description",IDC_STATIC,222,6,214,46
-    LTEXT           "This dialogue generates a keystream with the Solitaire algorithm. The key stream is used to encrypt or decrypt the given message.",
+    LTEXT           "This dialogue generates a keystream with the Solitaire- algorithm. The key stream is used to encrypt or decrypt the given message.",
                     IDC_STATIC,232,15,192,32
     CONTROL         "Paste",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,
                     241,307,23,15
 END
 
-IDD_SOLITAIRE_ANALYSE DIALOGEX 0, 0, 620, 351
+IDD_SOLITAIRE_ANALYSE DIALOG  0, 0, 620, 351
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Solitaire Analyse"
-FONT 8, "MS Shell Dlg", 0, 0, 0x0
+FONT 8, "MS Shell Dlg"
 BEGIN
     DEFPUSHBUTTON   "Decrypt",IDOK,11,330,68,14,WS_DISABLED
     PUSHBUTTON      "Cancel",IDCANCEL,101,330,50,14
@@ -15478,7 +15482,6 @@ BEGIN
     POPUP "&Help"
     BEGIN
         MENUITEM "&Starting Page",              ID_HILFE_STARTSEITE
-        MENUITEM "&Topics",                     ID_HELP_FINDER
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&cenarios (Tutorials)",      ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
@@ -15819,7 +15822,6 @@ BEGIN
     POPUP "&Help"
     BEGIN
         MENUITEM "&Starting Page",              ID_HILFE_STARTSEITE
-        MENUITEM "&Topics",                     ID_HELP_FINDER
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&cenarios (Tutorials)",      ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
@@ -16189,7 +16191,6 @@ BEGIN
     POPUP "&Help"
     BEGIN
         MENUITEM "&Starting Page",              ID_HILFE_STARTSEITE
-        MENUITEM "&Topics",                     ID_HELP_FINDER
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&cenarios (Tutorials)",      ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
@@ -16536,7 +16537,6 @@ BEGIN
     POPUP "&Help"
     BEGIN
         MENUITEM "&Starting Page",              ID_HILFE_STARTSEITE
-        MENUITEM "&Topics",                     ID_HELP_FINDER
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&cenarios (Tutorials)",      ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
@@ -16932,7 +16932,6 @@ BEGIN
     POPUP "&Help"
     BEGIN
         MENUITEM "&Starting Page",              ID_HILFE_STARTSEITE
-        MENUITEM "&Topics",                     ID_HELP_FINDER
         MENUITEM "Inde&x",                      ID_HILFE_INDEX
         MENUITEM "S&cenarios (Tutorials)",      ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
@@ -17695,21 +17694,20 @@ BEGIN
 0x3335, "\000" 
     IDC_Kartenanzahl, 0x403, 3, 0
 0x3435, "\000" 
-    IDC_COMBO2, 0x403, 10, 0
-0x7361, 0x6563, 0x646e, 0x6e69, 0x0067, 
+    IDC_COMBO2, 0x403, 12, 0
+0x7541, 0x7366, 0x6574, 0x6769, 0x6e65, 0x0064, 
     IDC_COMBO2, 0x403, 11, 0
-0x6564, 0x6373, 0x6e65, 0x6964, 0x676e, "\000" 
+0x6241, 0x7473, 0x6965, 0x6567, 0x646e, "\000" 
+    IDC_COMBO2, 0x403, 9, 0
+0x6547, 0x696d, 0x6373, 0x7468, "\000" 
+    IDC_COMBO2, 0x403, 13, 0
+0x614e, 0x6863, 0x5620, 0x726f, 0x6167, 0x6562, "\000" 
     IDC_COMBO2, 0x403, 18, 0
-0x6172, 0x646e, 0x6d6f, 0x796c, 0x7320, 0x7568, 0x6666, 0x656c, 0x0064, 
+0x6e49, 0x7469, 0x6169, 0x646c, 0x6365, 0x206b, 0x616c, 0x6564, 0x006e, 
 
-    IDC_COMBO2, 0x403, 11, 0
-0x7361, 0x6520, 0x746e, 0x7265, 0x6465, "\000" 
-    IDC_COMBO2, 0x403, 24, 0
-0x6f6c, 0x6461, 0x7320, 0x7661, 0x6465, 0x6920, 0x696e, 0x6974, 0x6c61, 
-0x6420, 0x6365, 0x006b, 
-    IDC_COMBO2, 0x403, 22, 0
-0x6f6c, 0x6461, 0x7320, 0x7661, 0x6465, 0x6620, 0x6e69, 0x6c61, 0x6420, 
-0x6365, 0x006b, 
+    IDC_COMBO2, 0x403, 20, 0
+0x6241, 0x6373, 0x6c68, 0x7375, 0x6473, 0x6365, 0x206b, 0x616c, 0x6564, 
+0x006e, 
     0
 END
 
@@ -17825,11 +17823,6 @@ BEGIN
 0x3335, "\000" 
     IDC_Kartenanzahl, 0x403, 3, 0
 0x3435, "\000" 
-    IDC_COMBO2, 0x403, 11, 0
-0x7361, 0x6520, 0x746e, 0x7265, 0x6465, "\000" 
-    IDC_COMBO2, 0x403, 22, 0
-0x6f6c, 0x6461, 0x7320, 0x7661, 0x6465, 0x6620, 0x6e69, 0x6c61, 0x6420, 
-0x6365, 0x006b, 
     0
 END
 
@@ -18723,7 +18716,6 @@ BEGIN
     ID_APP_ABOUT            "Displays program information about CrypTool (sponsors, authors, contacts, copyright, ...)\nAbout CrypTool"
     ID_APP_EXIT             "Exits the application after asking whether the opened files should be saved"
     ID_HELP_INDEX           "Shows the content of the online Help"
-    ID_HELP_FINDER          "Opens the online help with all the help topics"
     ID_HELP_USING           "Give hints, how to use the online Help"
     ID_CONTEXT_HELP         "Help on the icons, menus and online\nHelp"
     ID_HELP                 "Help on the selected task or the selected action"
@@ -20811,10 +20803,18 @@ BEGIN
                             "Do you want to execute the hybrid encryption on your own?"
     IDS_SCA_ERROR_CERTINFOEXTRACTION 
                             "Error! The following file cannot be opened:\n%s"
+    IDS_SOLITAIRE_ANALYSE_VOR "byself"
+    IDS_SOLITAIRE_ANALYSE_LOAD "load Finaldeck"
+    IDS_SOLITAIRE_Art_gemischt "gemischt"
 END
 
 STRINGTABLE 
 BEGIN
+    IDS_SOLITAIRE_Art_aufsteigend "aufsteigend"
+    IDS_SOLITAIRE_Art_absteigend "absteigend"
+    IDS_SOLITAIRE_Art_nachVorgabe "nach Vorgabe"
+    IDS_SOLITAIRE_Art_Initialdeckladen "load initial deck"
+    IDS_SOLITAIRE_Art_Abschlussdeckladen "load finaldeck"
     IDS_SOLITAIRE_MESSAGE_1 "Please enter between 1 and 15,000 characters."
     IDS_SOLITAIRE_MESSAGE_2 "Solitaire needs at least 3 cards."
     IDS_SOLITAIRE_MESSAGE_3 "All keystream-letters produced"
@@ -20868,11 +20868,6 @@ BEGIN
     IDS_HASHDEMO_STRING_SHA "SHA (160 bits)"
     IDS_HASHDEMO_STRING_SHA1 "SHA-1 (160 bits)"
     IDS_HASHDEMO_STRING_RIPEMD160 "RIPEMD-160 (160 bits)"
-END
-
-STRINGTABLE 
-BEGIN
-    IDS_CT_FILE_OPEN_ERROR  "Error opening file\n%s:\n%s"
 END
 
 #endif    // English (U.K.) resources
