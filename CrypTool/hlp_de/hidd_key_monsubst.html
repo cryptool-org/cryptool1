@@ -7,13 +7,34 @@
 </HEAD>
 
 <!-- multiple keywords for CrypTool HTML help index -->
-<!-- ... -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Dialog">
+	<PARAM NAME="Keyword" VALUE="Substitution">
+</OBJECT>
 
 <BODY>
 
 <h3>Dialog Schlüsseleingabe: Monoalphabetische Substitution / Atbash</h3>
 
-<P>TODO</P>
+<P>In diesem Dialog wird der Schlüssel für die monoalphabetische Substitution eingegeben. Sie erreichen den Dialog über den Menüeintrag <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Symmetrisch (klassisch).</P>
+
+<P>Bei der Eingabe des Schlüssels sind folgende Punkte zu beachten:</P>
+
+<UL>
+<LI>Das Eingabefeld akzeptiert nur die 26 Buchstaben. Alle anderen Eingaben werden automatisch zurückgewiesen, das heißt nicht angezeigt.</LI>
+<LI>Es wird nicht zwischen Groß- und Kleinschreibung unterschieden, das heißt Kleinbuchstaben werden in Großbuchstaben umgewandelt.</LI>
+</UL>
+
+<P>Es gibt zwei Möglichkeiten, den Schlüssel einzugeben:</P>
+
+<UL>
+<LI>Sie können die gewünschte Permutation (eine Anordnung aller 26 Alphabetzeichen) direkt eingeben. In diesem Fall ist ein 26 Zeichen langer Text einzugeben. Das A wird dann auf den ersten Buchstaben des eingegebenen Textes abgebildet, das B auf den zweiten, und so fort. Hierbei ist zu beachten, dass im eingegebenen Text keine Buchstaben doppelt vorkommen.</LI>
+<LI>Sie können aber auch ein Schlüsselwort eingeben, aus dem die Permutation abgeleitet wird. Ein Beispiel für diesen Fall: Es ist das Schlüsselwort "EISENBAHN" eingegeben. Die resultierende Permutation ermittelt sich daraus wie folgt: Das A wird auf den ersten Buchstaben (in diesem Falle das E abgebildet). Entsprechend wird das B auf I und das C auf S abgebildet. Da der vierte Buchstabe des Schlüsselwortes, das E, schon einmal aufgetaucht ist, wird es übersprungen (man erinnere sich daran, dass keine zwei (verschiedenen) Buchstaben auf den gleichen Buchstaben abgebildet werden dürfen). Das geht so lange weiter, bis alle Buchstaben des Schlüsselwortes abgearbeitet sind, das heißt es wird D auf N, E auf B, F auf A und G auf H abgebildet. Alle restlichen Buchstaben (H bis Z) werden auf die noch nicht benutzten Buchstaben in umgekehrter Reihenfolge abgebildet, das heißt H auf Z, I auf Y, ..., Z auf C.</LI>
+</UL>
+
+<P>Falls Sie das Dokument mit dem eingegebenen Schlüssel verschlüsseln wollen, klicken Sie den Knopf Verschlüsseln. Zum entschlüsseln wählen Sie den Knopf Entschlüsseln.</P>
+
+<P>Die Formatierung (Beibehalten der Leerzeichen, Sonderzeichen und Groß- und Kleinschreibung) der Ausgabe des ver- bzw. entschlüsselten Dokuments kann im Dialog Textoptionen eingestellt werden.</P>
 
 </BODY>
 </HTML>
