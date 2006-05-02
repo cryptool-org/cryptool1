@@ -1,31 +1,23 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
-<HEAD>
-<TITLE>Fenster für hexadezimale Ein-/Ausgaben</TITLE>
-<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
-</HEAD>
-
-<!-- multiple keywords for CrypTool HTML help index -->
-<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
-	<PARAM NAME="Keyword" VALUE="Fenster">
-	<PARAM NAME="Keyword" VALUE="Hexadezimale Ein-/Ausgaben">
-</OBJECT>
-
-<BODY>
-
-<h3>Fenster für hexadezimale Ein-/Ausgaben</h3>
-
+	<HEAD>
+		<TITLE>Fenster für hexadezimale Ein-/Ausgaben</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	</HEAD>
+	<!-- multiple keywords for CrypTool HTML help index -->
+	<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+		VIEWASTEXT ID="Object1">
+		<PARAM NAME="Keyword" VALUE="Fenster">
+		<PARAM NAME="Keyword" VALUE="Hexadezimale Ein-/Ausgaben">
+	</OBJECT>
+	<BODY>
+		<h3>Fenster für hexadezimale Ein-/Ausgaben</h3>
 		<P>Symbol des Menüs: <IMG SRC="images/cthex.gif" ALT="cthex.gif" BORDER="0"></P>
-		<P>Mit diesem Fenstertyp werden <A href="dokument.html">Dokumente</A> angezeigt, 
-			die wenigstens ein nicht-anzeigbares Sonderzeichen enthalten.</P>
-		<P>In diesem Typ von Dokumenten sind die Bearbeitungsmöglichkeiten (siehe Menü<A href="menu_edit.html">
-				<B>Bearbeiten</B></A>) etwas eingeschränkt: Die Länge des Textes muss 
-			erhalten bleiben. Zeichen können daher überschrieben werden, nicht jedoch 
-			entfernt oder eingefügt; somit funktioniert der Befehl <A href="hid_edit_cut.html">Ausschneiden</A>
-			nicht. Die Befehle <A href="hid_edit_copy.html">Kopieren</A> und <A href="hid_edit_paste.html">
-				Einfügen</A> sind möglich, es ist jedoch zu beachten, dass <A href="hid_edit_paste.html">
-				Einfügen</A> Zeichen überschreibt und nicht nach hinten verschiebt.</P>
+		<P>Mit diesem Fenstertyp werden <A href="dokument.html">Dokumente</A> in 
+			Hexadezimaldarstellung angezeigt. Dokumente können auch leer sein.</P>
+		<P>Die Bearbeitungsmöglichkeiten (siehe Menü<A href="menu_edit.html"> <B>Bearbeiten</B></A>) 
+			erlauben, Zeichen zu überschreiben, zu entfernen und einzufügen.</P>
 		<P><U>Das Fenster für hexadezimale Ein-/Ausgaben ist wie folgt aufgebaut:</U></P>
 		<P>In der ersten Spalte befindet sich eine fortlaufende hexadezimale Nummerierung 
 			der Position der in den anderen beiden Spalten angezeigten Zeichen.</P>
@@ -37,13 +29,12 @@
 		<P>Wenn der hexadezimale Wert eines Zeichens geändert wird, erfolgt eine Anpassung 
 			der Darstellung des ASCII-Zeichens und umgekehrt.</P>
 		<P><IMG SRC="images/fenster_hex.gif" ALT="fenster_hex.gif" BORDER="0"></P>
-		<P><!--ZZZPOPUP--><A href="dokument.html">Dokumente</A> ohne Sonderzeichen werden in einem 
-		<A href="hidr_texttype.html">Fenster für Text Ein-/Ausgaben</A> angezeigt.
+		<P><!--ZZZPOPUP--><A href="dokument.html">Dokumente</A> ohne Sonderzeichen werden 
+			normalerweise in einem <A href="hidr_texttype.html">Fenster für Text Ein-/Ausgaben</A> angezeigt.
 		</P>
 		<P>Die Darstellung in einem <A href="hidr_texttype.html">Fenster für Text-Ein-/Ausgaben</A>
-			kann durch den Menüeintrag <A href="menu_view.html">Ansicht</a> \ <a href="hid_totxt.html">Als Text anzeigen</A>
-			erzwungen werden (Achtung: Dabei gehen alle Zeichen, die hinter dem ersten 
-			ASCII-Zeichen 'NULL' [= Text-Formatzeichen für das Dateiende] stehen, 
-			verloren).</P>
+			kann durch den Menüeintrag <A href="menu_view.html">Ansicht</A> \ <a href="hid_totxt.html">
+				Als Text anzeigen</a> erzwungen werden (Ein ASCII-Zeichen 'NULL' [= Text-Formatzeichen für das 
+			Dateiende] wird als 'NUL' angezeigt).</P>
 	</BODY>
 </HTML>
