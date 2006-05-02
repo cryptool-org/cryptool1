@@ -130,7 +130,7 @@ statement from your version.
 	DoOneFn(DName SEC_GLOBAL_FUNC_PREFIX *,SEC_API_CALLING_CONV,af_pse_get_Name,SEC_PROTOTYPE_1(PSE,pse_handle))\
 	DoOneFn(char SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV,aux_DName2Attr,SEC_PROTOTYPE_2(DName*,dname,char*,attr_key))\
 	DoOneFn(SerialNumber SEC_GLOBAL_FUNC_PREFIX *,SEC_API_CALLING_CONV,af_pse_get_SerialNumber,SEC_PROTOTYPE_1(PSE,pse_handle))\
-	DoOneFn(Certificates SEC_GLOBAL_FUNC_PREFIX *,SEC_API_CALLING_CONV,af_pse_get_Certificates,SEC_PROTOTYPE_3(PSE,pse_handle,KeyType,type,DName,name))\
+	DoOneFn(Certificates SEC_GLOBAL_FUNC_PREFIX *,SEC_API_CALLING_CONV,af_pse_get_Certificates,SEC_PROTOTYPE_3(PSE,pse_handle,KeyType,type,DName*,name))\
 	DoOneFn(CrlSet SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV,af_pse_get_CrlSet,SEC_PROTOTYPE_1(PSE,pse_handle))\
 	DoOneFn(PSEToc SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV, d_PSEToc, SEC_PROTOTYPE_1(OctetString*, asn1_string))\
 	DoOneFn(int SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, af_decrypt_all, SEC_PROTOTYPE_4(PSE, pse_handle, BitString*, inbits, OctetString*, outoctets, Key*, key))\

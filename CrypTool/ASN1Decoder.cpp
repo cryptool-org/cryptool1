@@ -66,8 +66,10 @@ ASN1Decoder::ASN1Decoder(std::string f) throw (ASN1Error)
 	if( encoded == NULL && ((CCrypToolApp*)AfxGetApp())->SecudeLib.LASTERROR == EFILENOTEXISTING) throw ASN1Error(E_FILE_NOT_EXISTING);
 	if( encoded == NULL ) throw ASN1Error(E_IO_ERROR);
 	// Dokumentinhalt nach Möglichkeit decodieren (als dump)
-	ASN1Dump = theApp.SecudeLib.sdumpasn( encoded, 0, 0 );
+	char * decoded = theApp.SecudeLib.sdumpasn( encoded, 0, 0 );
+	ASN1Dump = decoded;
 	// Speicher freigeben
+	theApp.SecudeLib.aux_free_String(&decoded);
 	theApp.SecudeLib.aux_free_OctetString(&encoded);
 }
 
@@ -126,10 +128,8 @@ void ASN1Decoder::StoreCertDump(std::string filename, std::string pin) throw (AS
 	PSE PseHandle = ((CCrypToolApp*)AfxGetApp())->SecudeLib.af_open( (char*)Filename.c_str(), CaPseVerzeichnis, (char*)pin.c_str() , NULL);
 
 	if(PseHandle == NULL) throw ASN1Error(E_CERT_WRONG_PIN);
-	// Namen auf NULL setzen, da wir von vornherein nicht wissen, um wessen Zertifikat es sich handelt,
-	// und das entsprechende Zertifikat extrahieren
-	DName name; name.element_IF_2=NULL;
-	Certificates *zertifikate = ((CCrypToolApp*)AfxGetApp())->SecudeLib.af_pse_get_Certificates(PseHandle, ENCRYPTION, name);
+	
+	Certificates *zertifikate = ((CCrypToolApp*)AfxGetApp())->SecudeLib.af_pse_get_Certificates(PseHandle, ENCRYPTION, NULL);
 	Certificate *zertifikat = zertifikate->usercertificate;
 	char *ausgabe = ((CCrypToolApp*)AfxGetApp())->SecudeLib.aux_sprint_Certificate(PseHandle, NULL, zertifikat);
 	ofstream outfile;
@@ -138,6 +138,7 @@ void ASN1Decoder::StoreCertDump(std::string filename, std::string pin) throw (AS
 	outfile << ausgabe;
 	outfile.close();
 	// Speicher freigeben
+	theApp.SecudeLib.aux_free_String(&ausgabe);
 	theApp.SecudeLib.aux_free_Certificates(&zertifikate);
 }
 
