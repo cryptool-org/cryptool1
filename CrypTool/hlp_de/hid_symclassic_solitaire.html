@@ -40,7 +40,7 @@ Der <a href="klartext.html">Klartext</a> wird zunächst in Gruppen mit jeweils fü
 
 <p>Da es sich bei Solitaire um ein symmetrisches Verschlüsselungsverfahren handelt, benutzt man sowohl zum Entschlüsseln als auch zum Verschlüsseln einen identischen <a href="schluessel.html">Schlüssel</a> bzw. Schlüsselstrom. </p>
 
-<p>Zur Entschlüsselung wird auch der <a href="chiffretext.html">Geheimtext</a>  in Gruppen zu fünf Buchstaben (wie oben beim Klartext) aufgeteilt. Anschließend wird der Buchstabenstrom in einen Zahlenstrom umgewandelt. Zum Abschluss subtrahiert man <a href="modulo.html">modulo</a>  26 die Schlüsselstromzahlen von den Chiffretextzahlen. Der sich ergebende Zahlenstrom muss nur noch in einen Buchstabenstrom konvertiert werden und der <a href="klartext.html">Klartext</a>  ist entschlüsselt.  </p>
+<p>Zur Entschlüsselung wird auch der <a href="chiffretext.html">Geheimtext</a>  in Gruppen zu fünf Buchstaben (wie oben beim Klartext) aufgeteilt. Anschließend wird der Buchstabenstrom in einen Zahlenstrom umgewandelt. Zum Abschluss subtrahiert man <a href="modulo.html">modulo</a>  26 die Schlüsselstromzahlen von den Chiffretextzahlen. Der sich ergebende Zahlenstrom muss nur noch in einen Buchstabenstrom konvertiert werden, um den <a href="klartext.html">Klartext</a>  zu erhalten.  </p>
 <p><b>Bemerkung:</b><br>
 Es empfiehlt sich, dass der Empfänger immer ein Ersatz-Initialdeck dabei hat, denn bei der Schlüsselstromerzeugung ändert er das Initialdeck. Macht er dabei einen Fehler, ist er nicht mehr in der Lage ist, neu aufzusetzen. Und somit kann er die Nachricht nicht mehr entschlüsseln.
 
@@ -54,32 +54,34 @@ Es empfiehlt sich, dass der Empfänger immer ein Ersatz-Initialdeck dabei hat, de
 
 <p>Um das <a href="kartendeck.html">Kartenspiel</a> zu initialisieren (also um das Initialdeck zu erzeugen), werden von Schneier drei verschiedene Möglichkeiten beschrieben:</p>
 <p>1. Karten-Mischen:<br>
-Beim Mischen ist darauf zu achten, dass das Spiel nicht neu ist (da es sich dann schlecht mischen lässt) und dass die Karten ausreichend lang gemischt werden. Das zufällig gemischte <a href="kartendeck.html">Kartenspiel</a> dient nun als Schlüssel.  Der Empfänger braucht ein weiteres Kartenspiel, das genauso sortiert ist. Somit hat man einen Schlüssel für den Empfänger und einen für den Absender. </p>
+Beim Mischen ist darauf zu achten, dass das Spiel nicht neu ist (da es sich dann schlecht mischen lässt) und dass die Karten ausreichend lang gemischt werden. Das zufällig gemischte <a href="kartendeck.html">Kartenspiel</a> dient nun als Schlüssel.  Der Empfänger braucht ein weiteres Kartenspiel, das genauso sortiert ist. </p>
 <p>
 2. Bridge-Reihenfolge:<br>
-Bei diesem Verfahren benutzen Empfänger und Sender ein vorher bestimmtes Medium, welches abgebildete Bridgekartenspiele zeigt, wie z.B. die Tageszeitung auf der Rätselseite oder  in einem ganz bestimmten Bridgebuch auf einer ganz bestimmten Seite. Die Kartenspiele werden nach diesem Schlüssel sortiert und anschließend wird der Algorithmus angewendet.
+Bei diesem Verfahren benutzen Empfänger und Sender ein vorher bestimmtes Medium, welches abgebildete Bridgekartenspiele zeigt, wie z.B. die Tageszeitung auf der Rätselseite oder  in einem ganz bestimmten Bridgebuch auf einer ganz bestimmten Seite. Die Kartenspiele werden nach diesem Bridge-Diagramm sortiert. Außerdem muss man vereinbaren, wie die Joker einsortiert werden.
 </p>
 <p>
 3. Passwort:<br>
-Hierbei wird vorher durch Sender und Empfänger ein Passwort festgelegt. Das <a href="kartendeck.html">Kartenspiel</a> ist in eine bestimmte Ausgangslage zu sortieren z.B. nach Kartenwert von 1-52, Joker A und Joker B. Jetzt wird der Solitaire-Algorithmus auf das Kartenspiel angewendet. Allerdings wird nicht der Schritt 5 durchgeführt sondern anstelle dessen wird Schritt 4 wiederholt. Hier benutzt man den Zählwert des Buchstabens des Passworts anstatt den Wert der letzten Karte. Beachte dabei, dass die oberen Karten direkt über die unterste Karte eingefügt werden. Dieser Vorgang wird für jeden Buchstaben des Passwortes wiederholt. Um eine gewisse Sicherheit zu gewähren, empfiehlt Schneier ein Passwort von mindestens 80 Buchstaben, was zu einem zusätzlichen hohen Zeitaufwand führt.</p>
+Sender und Empfänger nutzen ein Passwort, um das Initialdeck zu sortieren. Das <a href="kartendeck.html">Kartenspiel</a> ist in eine bestimmte Ausgangslage zu sortieren z.B. nach Kartenwert von 1-52, Joker A und Joker B. Jetzt wird der Solitaire-Algorithmus auf das Kartenspiel angewendet. Allerdings wird nicht der Schritt 5 durchgeführt sondern anstelle dessen wird Schritt 4 wiederholt. Hier benutzt man den Zählwert des Buchstabens des Passworts anstatt den Wert der letzten Karte. Beachte dabei, dass die oberen Karten direkt über die unterste Karte eingefügt werden. Dieser Vorgang wird für jeden Buchstaben des Passwortes wiederholt. Um eine gewisse Sicherheit zu gewähren, empfiehlt Schneier ein Passwort von mindestens 80 Buchstaben, was zu einem zusätzlichen hohen Zeitaufwand führt.</p>
 <p>
 Sender und Empfänger benötigen dann ein Bridgespiel, das exakt in derselben Weise gemischt vorliegt. Daraus wird dann auf beiden Seiten der Schlüsselstrom generiert. Es gibt 54! (54 Fakultät ist ca. 2*10^71) verschiedene Möglichkeiten, in welcher Reihenfolge die Karten nach dem Mischen angeordnet sein können.
 </p>
 
 <p><U><STRONG><a href="hidd_solitaire.html">Schlüsselstromerzeugung</a></STRONG></U></p>
 
-<p>Der Algorithmus funktioniert wie folgt:<br> Man nehme das <a href="kartendeck.html">Kartenspiel</a> mit den Bildern nach oben in die Hand und ordne die Karten in der Reihenfolge, die durch den initialen Schlüssel (siehe Initiale Schlüsselerzeugung) vorgegeben wurde.Anschließend werden die folgenden fünf Schritte nacheinander so oft durchgeführt, wie der Klartext Zeichen besitzt.</p>
+<p>Dies ist der eigentliche Algorithmus:<br> Man nehme das <a href="kartendeck.html">Kartenspiel</a> mit den Bildern nach oben in die Hand. Anschließend werden die folgenden fünf Schritte nacheinander so oft durchgeführt, wie der Klartext Zeichen besitzt.</p>
 </p><U>Schritt 1:</U><p>
 Finde Joker A und sortiere ihn eine Karte nach unten wieder ein. Sollte der Joker die letzte Karte sein, dann sortiere ihn unter die oberste Karte wieder ein. 
 </p><U>Schritt 2:</U><p>
-Finde den Joker B und sortiere ihn zwei Karten nach unten wieder ein. Sollte der Joker die letzte Karte sein, dann sortiere ihn unter die zwei obersten Karten wieder ein. Sollte der Joker die vorletzte Karte sein, so sortiere ihn unter die oberste Karte wieder ein. (Nimm einfach an, das Kartenspiel sei eine Schleife).
+Finde den Joker B und sortiere ihn zwei Karten nach unten wieder ein. Sollte der Joker die letzte Karte sein, dann sortiere ihn unter die zwei obersten Karten wieder ein. Sollte der Joker die vorletzte Karte sein, so sortiere ihn unter die oberste Karte wieder ein. Nimm einfach an, das Kartenspiel sei eine Schleife.
 </p><U>Schritt 3:</U><p>
 Jetzt folgt ein dreigeteiltes Abheben, d.h. vertausche die Karten vor dem ersten Joker mit denen nach dem zweiten Joker. Hierbei spielt es keine Rolle, ob der erste Joker A oder B ist. Mit erstem Joker ist einfach der gemeint, der am nächsten an der obersten Karte liegt bzw. die oberste Karte ist. Die Joker werden nicht mitvertauscht. Sollte einer der Abschnitte keine Karten enthalten, so nimm einfach an das er leer sei und bewege ihn trotzdem. 
 </p><U>Schritt 4:</U></p>
 Führe ein Zählabheben wie folgt durch:<br>
-Bestimme den Wert u (u ist der Kartenwert und kann Werte von 1-53 annehmen) der untersten Karte, und zähle von der obersten Karte u einzelne Karten nach unten. Hebe nach der Karte, bis zu der gezählt wurde, ab und lasse die unterste Karte zuunterst.
+Bestimme den Wert u der untersten Karte (u ist der Kartenwert und kann Werte von 1-53 annehmen), und zähle von der obersten Karte dann u einzelne Karten nach unten. Hebe nach der Karte, bis zu der gezählt wurde, ab und lasse die unterste Karte zuunterst.
 </p><U>Schritt 5:</U></p>
-Zähle von oben so viele Karten ab wie der Wert der obersten Karte (zähle die oberste Karte als 1). Die Karte unter derjenigen, bis zu der gezählt wurde entspricht dem gesuchten Kartenwert. Findest du einen Joker so schreibe nichts auf (im Folgenden <a href="nullrunde.html">Nullrunde</a> genannt), sondern beginne erneut bei Schritt 1. Der Wert (zwischen 1 und 52) der gefundenen Karte ergibt modulo 26 ein Schlüsselstromzeichen. Wenn noch nicht genügend Zeichen erzeugt wurden beginne erneut mit 1.
+Finde die Ausgabekarte: <br>
+Zähle von oben so viele Karten ab wie der Wert der obersten Karte (zähle die oberste Karte als 1). Die Karte unter derjenigen, bis zu der gezählt wurde entspricht dem gesuchten Kartenwert. Sie wird nicht entfernt. Findest du einen Joker so schreibe nichts auf (im Folgenden <a href="nullrunde.html">Nullrunde</a> genannt), sondern beginne erneut bei Schritt 1.<br> 
+Der Wert (zwischen 1 und 52) der gefundenen Karte ergibt modulo 26 ein Schlüsselstromzeichen. Wenn noch nicht genügend Zeichen erzeugt wurden beginne erneut mit 1.
 
 
 <p>Mit <a href="cryptool.html">CrypTool</a> ist es möglich,<br>
