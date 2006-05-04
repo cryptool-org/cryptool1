@@ -252,6 +252,7 @@
 #define IDR_HTML_DLGSOLITAIRE           836
 #define IDB_CRT_DOWN_F                  836
 #define IDB_CRT_DOWN_FSTR               837
+#define IDS_CT_FILE_OPEN_ERROR          840
 #define IDC_EDIT133                     1015
 #define IDC_EDIT1                       1016
 #define IDC_EDIT2                       1017
