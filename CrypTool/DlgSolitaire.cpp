@@ -415,7 +415,7 @@ void CDlgSolitaire::SetDeckSelectioMethod(int method)
 	else if (method==5)
 	{
 		CString file = tempdir(FINALDECKFILE);
-		if (myD->abschlussdeckladen(file)) {
+		if (!myD->abschlussdeckladen(file)) {
 			fehlermelden(IDS_STRING_ERROR,IDS_CT_FILE_OPEN_ERROR,file);
 			return;
 		}
