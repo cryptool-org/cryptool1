@@ -910,7 +910,6 @@ void Deck::schritt4revers()
 		{
 			deck[i]=(char)load[i];
 		}
-		fclose(loadFile);
 		return true;
 	}
 
@@ -938,7 +937,6 @@ bool Deck::abschlussdeckladen(LPCSTR file)
 		{
 			deck[i]=(char)load[i];
 		}
-		fclose(loadFile);
 		return true;
 	}
 
@@ -1314,7 +1312,6 @@ void Deck::entschluesseln(CString ciphertext)
 		{
 			key[i]=(char)load[i];
 		}
-		fclose(loadFile);
 		return true;
 	}
 				
