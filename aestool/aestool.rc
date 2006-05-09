@@ -1,4 +1,4 @@
-//Microsoft Developer Studio generated resource script.
+// Microsoft Visual C++ generated resource script.
 //
 #include "resource.h"
 
@@ -27,18 +27,18 @@ LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
 // TEXTINCLUDE
 //
 
-1 TEXTINCLUDE DISCARDABLE 
+1 TEXTINCLUDE 
 BEGIN
     "resource.h\0"
 END
 
-2 TEXTINCLUDE DISCARDABLE 
+2 TEXTINCLUDE 
 BEGIN
     "#include ""afxres.h""\r\n"
     "\0"
 END
 
-3 TEXTINCLUDE DISCARDABLE 
+3 TEXTINCLUDE 
 BEGIN
     "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
     "#define _AFX_NO_OLE_RESOURCES\r\n"
@@ -66,30 +66,32 @@ END
 
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
-IDR_MAINFRAME           ICON    DISCARDABLE     "res\\aestool.ico"
+IDR_MAINFRAME           ICON                    "res\\aestool.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // Dialog
 //
 
-IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Info über AES-Tool"
-FONT 8, "MS Sans Serif"
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Info über das AES-Tool"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
     LTEXT           "AES-Tool Version 2.2",IDC_STATIC,40,10,119,8,
                     SS_NOPREFIX
-    LTEXT           "Copyright (C) 2006",IDC_STATIC,40,25,119,8
+    LTEXT           "Copyright (C) CrypTool-Projekt 2006",IDC_STATIC,40,25,
+                    119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
 END
 
 IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 205
-STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "AES-Tool 2.2"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT_KEY,28,59,266,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_SRC,28,107,174,12,ES_AUTOHSCROLL,
@@ -113,8 +115,8 @@ BEGIN
     GROUPBOX        "Ausgabeformat",IDC_STATIC,15,142,290,29
 END
 
-IDD_SPLASH DIALOG DISCARDABLE  0, 0, 211, 122
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+IDD_SPLASH DIALOG  0, 0, 211, 122
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Warnung"
 FONT 8, "MS Sans Serif"
 BEGIN
@@ -126,8 +128,8 @@ BEGIN
                     IDC_STATIC,7,52,197,40
 END
 
-IDD_HELP DIALOG DISCARDABLE  0, 0, 470, 318
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+IDD_HELP DIALOG  0, 0, 470, 318
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hilfe zu AES-Tool 2.2"
 FONT 8, "MS Sans Serif"
 BEGIN
@@ -178,7 +180,6 @@ BEGIN
 END
 
 
-#ifndef _MAC
 /////////////////////////////////////////////////////////////////////////////
 //
 // Version
@@ -201,18 +202,13 @@ BEGIN
     BEGIN
         BLOCK "040704b0"
         BEGIN
-            VALUE "Comments", "\0"
-            VALUE "CompanyName", "\0"
-            VALUE "FileDescription", "AES-Tool\0"
-            VALUE "FileVersion", "2.2\0"
-            VALUE "InternalName", "aestool\0"
-            VALUE "LegalCopyright", "Copyright (C) 2002 Deutsche Bank AG\0"
-            VALUE "LegalTrademarks", "\0"
-            VALUE "OriginalFilename", "aestool.exe\0"
-            VALUE "PrivateBuild", "\0"
-            VALUE "ProductName", "Anwendung AES-Tool\0"
-            VALUE "ProductVersion", "2.2\0"
-            VALUE "SpecialBuild", "\0"
+            VALUE "FileDescription", "AES-Tool"
+            VALUE "FileVersion", "2.2"
+            VALUE "InternalName", "aestool"
+            VALUE "LegalCopyright", "Copyright (C) 2002 Deutsche Bank AG"
+            VALUE "OriginalFilename", "aestool.exe"
+            VALUE "ProductName", "Anwendung AES-Tool"
+            VALUE "ProductVersion", "2.2"
         END
     END
     BLOCK "VarFileInfo"
@@ -221,8 +217,6 @@ BEGIN
     END
 END
 
-#endif    // !_MAC
-
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -230,7 +224,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO DISCARDABLE 
+GUIDELINES DESIGNINFO 
 BEGIN
     IDD_ABOUTBOX, DIALOG
     BEGIN
@@ -295,7 +289,7 @@ END
 // String Table
 //
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE 
 BEGIN
     IDS_ABOUTBOX            "Inf&o über AES-Tool..."
     IDS_STRING_DECRYPT      "Entschlüsseln einer Datei"
@@ -310,7 +304,7 @@ BEGIN
     IDS_STRING_KEYERROR     "Falscher Schlüssel oder Datei beschädigt."
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE 
 BEGIN
     IDS_STRING_ENCERROR     "Fehler beim Verschlüsseln: %s"
     IDS_STRING_VERSION      "Diese Datei wurde mit einer älteren Version von AES-Tool verschlüsselt.\nBitte verwenden sie diese auch zum Entschlüsseln."
@@ -340,7 +334,7 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
 // TEXTINCLUDE
 //
 
-1 TEXTINCLUDE DISCARDABLE 
+1 TEXTINCLUDE 
 BEGIN
     "< Cannot change standard MFC resources! >\0"
 END
@@ -355,15 +349,16 @@ END
 
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
-IDR_MAINFRAME           ICON    DISCARDABLE     "res\\aestool.ico"
+IDR_MAINFRAME           ICON                    "res\\aestool.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // Dialog
 //
 
-AFX_IDD_NEWTYPEDLG DIALOG DISCARDABLE  9, 26, 183, 70
-STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_CAPTION | WS_SYSMENU
+AFX_IDD_NEWTYPEDLG DIALOG  9, 26, 183, 70
+STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
 CAPTION "New"
 FONT 8, "MS Shell Dlg"
 BEGIN
@@ -374,8 +369,8 @@ BEGIN
     PUSHBUTTON      "&Help",ID_HELP,137,43,40,14
 END
 
-IDD_SPLASH DIALOG DISCARDABLE  0, 0, 211, 122
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+IDD_SPLASH DIALOG  0, 0, 211, 122
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Warning"
 FONT 8, "MS Sans Serif"
 BEGIN
@@ -388,10 +383,11 @@ BEGIN
 END
 
 IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 206
-STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "AES-Tool 2.2"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT_KEY,28,59,266,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_SRC,28,107,174,12,ES_AUTOHSCROLL,
@@ -415,8 +411,8 @@ BEGIN
     GROUPBOX        "Output format",IDC_STATIC,17,142,287,29
 END
 
-IDD_HELP DIALOG DISCARDABLE  0, 0, 470, 289
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+IDD_HELP DIALOG  0, 0, 470, 289
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Help for AES-Tool 2.2"
 FONT 8, "MS Sans Serif"
 BEGIN
@@ -466,20 +462,20 @@ BEGIN
                     IDC_STATIC,12,238,446,10
 END
 
-IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Information about AES-Tool"
-FONT 8, "MS Sans Serif"
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Information about the AES Tool"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
     LTEXT           "AES-Tool Version 2.2",IDC_STATIC,40,10,119,8,
                     SS_NOPREFIX
-    LTEXT           "Copyright (C) 2006",IDC_STATIC,40,25,119,8
+    LTEXT           "Copyright (C) CrypTool Project 2006",IDC_STATIC,40,25,
+                    119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
 END
 
 
-#ifndef _MAC
 /////////////////////////////////////////////////////////////////////////////
 //
 // Version
@@ -502,18 +498,13 @@ BEGIN
     BEGIN
         BLOCK "080904b0"
         BEGIN
-            VALUE "Comments", "\0"
-            VALUE "CompanyName", "\0"
-            VALUE "FileDescription", "AES-Tool\0"
-            VALUE "FileVersion", "2.1\0"
-            VALUE "InternalName", "aestool\0"
-            VALUE "LegalCopyright", "Copyright (C) 2002 Deutsche Bank AG\0"
-            VALUE "LegalTrademarks", "\0"
-            VALUE "OriginalFilename", "aestool.exe\0"
-            VALUE "PrivateBuild", "\0"
-            VALUE "ProductName", "Application AES-Tool\0"
-            VALUE "ProductVersion", "2.1\0"
-            VALUE "SpecialBuild", "\0"
+            VALUE "FileDescription", "AES-Tool"
+            VALUE "FileVersion", "2.1"
+            VALUE "InternalName", "aestool"
+            VALUE "LegalCopyright", "Copyright (C) 2002 Deutsche Bank AG"
+            VALUE "OriginalFilename", "aestool.exe"
+            VALUE "ProductName", "Application AES-Tool"
+            VALUE "ProductVersion", "2.1"
         END
     END
     BLOCK "VarFileInfo"
@@ -522,8 +513,6 @@ BEGIN
     END
 END
 
-#endif    // !_MAC
-
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -531,7 +520,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO DISCARDABLE 
+GUIDELINES DESIGNINFO 
 BEGIN
     IDD_SPLASH, DIALOG
     BEGIN
@@ -597,34 +586,34 @@ END
 // Cursor
 //
 
-AFX_IDC_CONTEXTHELP     CURSOR  DISCARDABLE     "res\\help.cur"
-AFX_IDC_SMALLARROWS     CURSOR  DISCARDABLE     "res\\sarrows.cur"
-AFX_IDC_HSPLITBAR       CURSOR  DISCARDABLE     "res\\splith.cur"
-AFX_IDC_VSPLITBAR       CURSOR  DISCARDABLE     "res\\splitv.cur"
-AFX_IDC_NODROPCRSR      CURSOR  DISCARDABLE     "res\\nodrop.cur"
-AFX_IDC_TRACKNWSE       CURSOR  DISCARDABLE     "res\\trcknwse.cur"
-AFX_IDC_TRACKNESW       CURSOR  DISCARDABLE     "res\\trcknesw.cur"
-AFX_IDC_TRACKNS         CURSOR  DISCARDABLE     "res\\trckns.cur"
-AFX_IDC_TRACKWE         CURSOR  DISCARDABLE     "res\\trckwe.cur"
-AFX_IDC_TRACK4WAY       CURSOR  DISCARDABLE     "res\\trck4way.cur"
-AFX_IDC_MOVE4WAY        CURSOR  DISCARDABLE     "res\\move4way.cur"
+AFX_IDC_CONTEXTHELP     CURSOR                  "res\\help.cur"
+AFX_IDC_SMALLARROWS     CURSOR                  "res\\sarrows.cur"
+AFX_IDC_HSPLITBAR       CURSOR                  "res\\splith.cur"
+AFX_IDC_VSPLITBAR       CURSOR                  "res\\splitv.cur"
+AFX_IDC_NODROPCRSR      CURSOR                  "res\\nodrop.cur"
+AFX_IDC_TRACKNWSE       CURSOR                  "res\\trcknwse.cur"
+AFX_IDC_TRACKNESW       CURSOR                  "res\\trcknesw.cur"
+AFX_IDC_TRACKNS         CURSOR                  "res\\trckns.cur"
+AFX_IDC_TRACKWE         CURSOR                  "res\\trckwe.cur"
+AFX_IDC_TRACK4WAY       CURSOR                  "res\\trck4way.cur"
+AFX_IDC_MOVE4WAY        CURSOR                  "res\\move4way.cur"
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // Bitmap
 //
 
-26567                   BITMAP  MOVEABLE PURE   "res\\3dcheck.bmp"
-AFX_IDB_MINIFRAME_MENU  BITMAP  DISCARDABLE     "res\\minifwnd.bmp"
-AFX_IDB_CHECKLISTBOX_NT BITMAP  DISCARDABLE     "res\\ntcheck.bmp"
-AFX_IDB_CHECKLISTBOX_95 BITMAP  DISCARDABLE     "res\\95check.bmp"
+26567                   BITMAP                  "res\\3dcheck.bmp"
+AFX_IDB_MINIFRAME_MENU  BITMAP                  "res\\minifwnd.bmp"
+AFX_IDB_CHECKLISTBOX_NT BITMAP                  "res\\ntcheck.bmp"
+AFX_IDB_CHECKLISTBOX_95 BITMAP                  "res\\95check.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // String Table
 //
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE 
 BEGIN
     AFX_IDS_OPENFILE        "Open"
     AFX_IDS_SAVEFILE        "Save As"
@@ -633,12 +622,12 @@ BEGIN
     AFX_IDS_UNNAMED_FILE    "an unnamed file"
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE 
 BEGIN
     AFX_IDS_HIDE            "&Hide"
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE 
 BEGIN
     AFX_IDP_NO_ERROR_AVAILABLE "No error message is available."
     AFX_IDS_NOT_SUPPORTED_EXCEPTION "An unsupported operation was attempted."
@@ -647,7 +636,7 @@ BEGIN
     AFX_IDS_USER_EXCEPTION  "An unknown error has occurred."
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE 
 BEGIN
     AFX_IDP_INVALID_FILENAME "Invalid filename."
     AFX_IDP_FAILED_TO_OPEN_DOC "Failed to open document."
@@ -666,7 +655,7 @@ BEGIN
     AFX_IDP_DLL_BAD_VERSION "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE 
 BEGIN
     AFX_IDS_NOT_DOCOBJECT   "The file is not supported by a Document Object server."
     AFX_IDP_FAILED_TO_NOTIFY 
@@ -675,7 +664,7 @@ BEGIN
     AFX_IDP_SET_NOT_SUPPORTED "Unable to write read-only property."
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE 
 BEGIN
     AFX_IDP_FAILED_INVALID_FORMAT "Unexpected file format."
     AFX_IDP_FAILED_INVALID_PATH 
@@ -691,7 +680,7 @@ BEGIN
                             "An unexpected error occurred while writing %1."
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE 
 BEGIN
     AFX_IDP_PARSE_INT       "Please enter an integer."
     AFX_IDP_PARSE_REAL      "Please enter a number."
@@ -705,13 +694,13 @@ BEGIN
     AFX_IDP_PARSE_CURRENCY  "Please enter a currency."
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE 
 BEGIN
     AFX_IDS_PASTELINKEDTYPE "Linked %s"
     AFX_IDS_UNKNOWNTYPE     "Unknown Type"
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE 
 BEGIN
     AFX_IDP_FILE_NONE       "No error occurred."
     AFX_IDP_FILE_GENERIC    "An unknown error occurred while accessing %1."
@@ -732,7 +721,7 @@ BEGIN
     AFX_IDP_FILE_EOF        "An attempt was made to access %1 past its end."
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE 
 BEGIN
     AFX_IDP_ARCH_NONE       "No error occurred."
     AFX_IDP_ARCH_GENERIC    "An unknown error occurred while accessing %1."
@@ -744,19 +733,19 @@ BEGIN
     AFX_IDP_ARCH_BADSCHEMA  "%1 contains an incorrect schema."
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE 
 BEGIN
     AFX_IDP_FAILED_MAPI_LOAD "Unable to load mail system support."
     AFX_IDP_INVALID_MAPI_DLL "Mail system DLL is invalid."
     AFX_IDP_FAILED_MAPI_SEND "Send Mail failed to send message."
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE 
 BEGIN
     AFX_IDS_OCC_SCALEUNITS_PIXELS "pixels"
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE 
 BEGIN
     IDS_ABOUTBOX            "Inf&ormation about AES-Tool..."
     IDS_STRING_DECRYPT      "Decrypt a file"
@@ -771,7 +760,7 @@ BEGIN
     IDS_STRING_KEYERROR     "Wrong key or file corrupt."
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE 
 BEGIN
     IDS_STRING_ENCERROR     "File encryption error: %s"
     IDS_STRING_VERSION      "This file has been encrypted with an older version of AES-Tool. \nPlease use the same version for decrypting."
