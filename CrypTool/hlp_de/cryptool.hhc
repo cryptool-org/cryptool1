@@ -14,11 +14,11 @@
 			<param name="Local" value="hidd_tipps_and_tricks.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Wie Sie Szenarien durchspielen.">
+			<param name="Name" value="Wie Sie Szenarien durchspielen">
 			<param name="Local" value="hid_hilfe_szenarien.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Wie Sie Hilfe &uuml;ber diese Hilfe erhalten.">
+			<param name="Name" value="Wie Sie Hilfe &uuml;ber diese Hilfe erhalten">
 			<param name="Local" value="hilfeueberhilfe.html">
 			</OBJECT>
 	</UL>
@@ -27,27 +27,31 @@
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Dokument ver- oder entschl&uuml;sseln.">
+			<param name="Name" value="Dokument ver- oder entschl&uuml;sseln">
 			<param name="Local" value="menu_crypt.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Hashwert eines Dokuments berechnen.">
+			<param name="Name" value="Hashwert eines Dokuments berechnen">
 			<param name="Local" value="menu_individualprocedures_hashprocedures.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Dokument komprimieren oder entkomprimieren.">
+			<param name="Name" value="Dokument komprimieren oder entkomprimieren">
 			<param name="Local" value="menu_individualprocedures_compress.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Automatische Analyse durchf&uuml;hren.">
+			<param name="Name" value="Dokumente analysieren">
 			<param name="Local" value="menu_analyze.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Informationen &uuml;ber das aktuelle Dokument berechnen.">
-			<param name="Local" value="menu_analyze.html">
+			<param name="Name" value="Informationen &uuml;ber das aktuelle Dokument anzeigen">
+			<param name="Local" value="hid_fileproperties.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Hilfe-Index anzeigen.">
+			<param name="Name" value="Protokolle, Codierungen und vieles mehr">
+			<param name="Local" value="menu_related_methods.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Hilfe-Index anzeigen">
 			<param name="Local" value="main_index.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
@@ -60,27 +64,27 @@
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Neues Dokument erstellen.">
+			<param name="Name" value="Neues Dokument erstellen">
 			<param name="Local" value="hid_file_new.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Bestehendes Dokument &ouml;ffnen.">
+			<param name="Name" value="Bestehendes Dokument &ouml;ffnen">
 			<param name="Local" value="hid_file_open.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Dokument bearbeiten.">
+			<param name="Name" value="Dokument bearbeiten">
 			<param name="Local" value="hidr_texttype.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Dokument speichern.">
+			<param name="Name" value="Dokument speichern">
 			<param name="Local" value="hid_file_save.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Dokument unter anderem Namen speichern.">
+			<param name="Name" value="Dokument unter anderem Namen speichern">
 			<param name="Local" value="hid_file_save_as.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Dokument schlie&szlig;en.">
+			<param name="Name" value="Dokument schlie&szlig;en">
 			<param name="Local" value="hid_file_close.html">
 			</OBJECT>
 	</UL>
@@ -89,11 +93,11 @@
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Voreinstellungen von CrypTool einstellen.">
+			<param name="Name" value="Voreinstellungen von CrypTool einstellen">
 			<param name="Local" value="menu_options.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Symbol- oder Statusleiste ein- oder ausschalten.">
+			<param name="Name" value="Symbol- oder Statusleiste ein- oder ausschalten">
 			<param name="Local" value="menu_view.html">
 			</OBJECT>
 	</UL>

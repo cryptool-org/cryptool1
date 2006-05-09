@@ -27,7 +27,7 @@
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="File encryption">
+			<param name="Name" value="Document encryption">
 			<param name="Local" value="menu_crypt.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
@@ -35,16 +35,20 @@
 			<param name="Local" value="menu_individualprocedures_hashprocedures.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="File compression">
+			<param name="Name" value="Document compression">
 			<param name="Local" value="menu_individualprocedures_compress.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="The Analyse menu">
+			<param name="Name" value="Analyzing documents">
 			<param name="Local" value="menu_analyze.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="Obtaining information about the actual document">
-			<param name="Local" value="menu_analyze.html">
+			<param name="Local" value="hid_fileproperties.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Protocols, codes and much more">
+			<param name="Local" value="menu_related_methods.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="The CrypTool help index">
