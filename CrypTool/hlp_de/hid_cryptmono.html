@@ -15,15 +15,15 @@
 
 <BODY>
 
-<h3>Monoalphabetische Substitution (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Symmetrisch (klassisch))</h3>
+<h3>Monoalphabetische Substitution / Atbash (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Symmetrisch (klassisch))</h3>
 
-		<P>Bei dem Substitutions-<!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A>
+		<P>Bei diesem Substitutions-<!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A>
 			handelt es sich um eine monoalphabetische homophone Buchstabensubstitution, das 
 			heißt jeder Buchstabe des <!--ZZZPOPUP--><A href="klartext.html">Klartextes</A> 
 			wird durch einen anderen Buchstaben des Alphabets ersetzt. Dabei werden gleiche 
 			Buchstaben im Klartext auch immer durch den gleichen Buchstaben ersetzt und 
 			keine zwei (verschiedenen) Buchstaben werden durch den gleichen Buchstaben 
-			ersetzt.</P>
+			ersetzt, d.h. das Alphabet wird durch eine Permutation des Alphabets ersetzt.</P>
 		<P>Der Unterschied zum <A href="hid_rot13caesar_asc.html">Caesar-Verschlüsselungsverfahren</A>
 			besteht darin, dass die Buchstaben nicht in einer bestimmten Reihenfolge 
 			einander zugeordnet werden, sondern durcheinandergemischt werden können. Dies 
@@ -31,8 +31,8 @@
 			bemerkbar: Gibt es beim Caesar-Verschlüsselungsverfahren 26 mögliche Schlüssel, 
 			so hat man bei dieser Art von Ersetzung bereits 26! = 26 * 25 * ... * 2 * 1 = 
 			403.291.461.126.605.635.584.000.000 (ca. 4*10^26) mögliche Schlüssel.</P>
-		<P>Die Eingabe des Schlüssels erfolgt im Dialog <A href="hidd_key_substitution.html">Schlüssel 
-				monoalphabetische Substitution</A>.</P>
+		<P>Die Eingabe des Schlüssels erfolgt im Dialog <A href="hidd_key_monsubst.html">Schlüssel 
+				monoalphabetische Substitution / Atbash</A>.</P>
 		<P>Ein <A href="szenarien_monosubst.html">Beispiel</A> zur <!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselung</A>
 			mittels monoalphabetischer Substitution befindet sich im Kapitel <A href="hid_hilfe_szenarien.html">
 				Szenarien</A>.</P>
@@ -40,5 +40,7 @@
 			gebrochen werden (siehe <A href="hid_analyze_subst.html">automatische Analyse für 
 				monoalphabetische Substitution</A>). Ein <A href="szenarien_monosubst.html">Beispiel</A>
 			dazu befindet sich im Kapitel Szenarien.</P>
+			
+		<P>Atbash ist der Sonderfall einer monoalphabetischen Substitution mit festem Schlüssel: Dabei wird der erste Buchstabe des Alphabets durch den letzten Buchstaben ersetzt, der zweite durch den vorletzten usw. Atbash ist ebenso wie ROT13 und XOR ein involutorisches Verfahren, d.h. wenn man das Chiffrat demselben Vorgang unterwirft, erhält man wieder den Klartext.</P>
 	</BODY>
 </HTML>

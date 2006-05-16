@@ -31,7 +31,6 @@ afx_hidd_printdlg.html
 afx_hidd_printsetup.html
 afx_hidd_replace.html
 afx_hidp_default.html
-afx_hidw_preview_bar.html
 afx_hidw_status_bar.html
 afx_hidw_toolbar.html
 angriffe.html
@@ -147,7 +146,6 @@ hid_file_mru_file1.html
 hid_file_new.html
 hid_file_open.html
 hid_file_print.html
-hid_file_print_preview.html
 hid_file_print_setup.html
 hid_file_save.html
 hid_file_save_as.html
@@ -372,7 +370,6 @@ verschl_deuba.html
 verschluesselung.html
 verschlverfahren.html
 visualizations.html
-add_digital_signatures.html
 man_in_the_middle.html
 hid_cr_sol_crasymmetric.html
 hid_cr_sol_crsymmetric.html

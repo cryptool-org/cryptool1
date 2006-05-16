@@ -19,7 +19,6 @@ MainWindow="Hilfe zu CrypTool 1.4.00 beta 10","cryptool.hhc","CrypTool.hhk","hid
 
 [FILES]
 helper.js
-add_digital_signatures.html
 visualizations.html
 verschlverfahren.html
 verschluesselung.html
@@ -255,7 +254,6 @@ hid_floating.html
 hid_file_save_as.html
 hid_file_save.html
 hid_file_print_setup.html
-hid_file_print_preview.html
 hid_file_print.html
 hid_file_open.html
 hid_file_new.html
@@ -373,7 +371,6 @@ ascii.html
 angriffe.html
 afx_hidw_toolbar.html
 afx_hidw_status_bar.html
-afx_hidw_preview_bar.html
 afx_hidp_default.html
 afx_hidd_replace.html
 afx_hidd_printsetup.html
