@@ -416,7 +416,9 @@ BOOL CCrypToolApp::InitInstance()
 
 
 	// nach Zahlenhai suchen
-	n = SearchPath(NULL,"MFC-ZahlenHai.exe", NULL, 1023, buffer, &p);
+	CString numberSharkExe;
+	numberSharkExe.LoadString(IDS_NUMBERSHARK_EXE);
+	n = SearchPath(NULL,numberSharkExe, NULL, 1023, buffer, &p);
 	if(n>0) {
 		m_NumberShark_Selfextract_EXE = (char *) malloc(n+2);
 		strcpy(m_NumberShark_Selfextract_EXE, buffer);

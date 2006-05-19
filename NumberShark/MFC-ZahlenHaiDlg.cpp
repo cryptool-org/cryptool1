@@ -725,6 +725,14 @@ void CMFCZahlenHaiDlg::updateButtons()
 		titleVersion.LoadString(IDS_TITLE_VERSION);
 		this->SetWindowText(numberShark+sharkAgainst+optionen.playername+titleVersion);
 	}
+	else
+	{
+		CString numberShark="";
+		numberShark.LoadString(IDS_NUMBER_SHARK);
+		CString titleVersion="";
+		titleVersion.LoadString(IDS_TITLE_VERSION);
+        this->SetWindowText(numberShark+titleVersion);
+	}
 }
 
 //Anzeiger der Punktestände von Spieler und Hai werden aktualisiert

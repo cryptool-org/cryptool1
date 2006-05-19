@@ -19,6 +19,7 @@
 #define IDC_COPY                        9
 #define IDS_HASHDEMO_STRING_RIPEMD160   9
 #define IDC_MANUAL                      10
+#define IDS_NUMBERSHARK_EXE             10
 #define IDC_EDIT53                      53
 #define IDC_EDIT69                      54
 #define IDC_EDIT88                      55
