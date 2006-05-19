@@ -27,19 +27,20 @@
 #define MAX_ZAHLENHAI_BUTTON 30
 #define MIN_ZAHLENHAI_BUTTON 1
 #define MAX_ZAHLENHAI_NUMBERS 9999
-
+#define MAX_POINTS_CALC 22
 
 // CMFCZahlenHaiDlg Dialogfeld
 class CMFCZahlenHaiDlg : public CDialog
 {
-  EvoZahlenHai hai;
+  
   ZahlenHaiOptionen optionen;
   GameRules rules;
   CGameSummary summary;
   // Konstruktion
 public:
 	CMFCZahlenHaiDlg(CWnd* pParent = NULL);	// Standardkonstruktor
-
+    EvoZahlenHai hai;
+	~CMFCZahlenHaiDlg(void);
 // Dialogfelddaten
 	enum { IDD = IDD_MFCZAHLENHAI_DIALOG };
 
@@ -79,13 +80,13 @@ public:
 	CDigiStatic m_LedText;
 	CDigiStatic m_LedWinner;
 	CBitmap haiBild;
-	//CRichEditCtrl richEditIdea;
-	
+	CPropertySheet propSheet;
+	CPropertyPage propPage;
 
     //BUTTON 
-	CWBButton Spielregeln;
 	CWBButton arrayButtonControl[MAX_ZAHLENHAI_BUTTON];
-	CWBButton Spieloptionen;	
+	CWBButton undoButton;
+	CWBButton redoButton;
 
 	int numbers;
 	int pointsPlayer;
@@ -95,6 +96,8 @@ public:
 	int usablenumbersleft;
 	int winner();
 	int readRegistry();
+
+	int *undoRedo;
 		
 	void CSetList(int playerchoice);
 	void updateButtons();
@@ -106,6 +109,10 @@ public:
 	void addOn();
 	void readGameData();
 	void writeRegistry();
+	void execWinHelp();
+	void createUndoRedo();
+	void writeIntoUndo(int nButton);
+	//CString setSeperator(__int64 value);
 		
 	CString sumText;
 	CString startInfo;
@@ -123,5 +130,11 @@ public:
    	afx_msg void OnTcnSelchangeTab1(NMHDR *pNMHDR, LRESULT *pResult);
 	virtual void WinHelp(DWORD dwData, UINT nCmd = HELP_CONTEXT);
 
-	//char* itoa_fmt (unsigned long ul_num);
+	afx_msg void OnBnClickedButtonHelp();
+	afx_msg void OnBnClickedButtonFinish();
+	afx_msg void OnBnClickedButtonUndo();
+	
+	afx_msg void OnBnClickedButtonRedo();
+	
+	CButton buttonRules;
 };

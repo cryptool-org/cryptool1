@@ -110,15 +110,26 @@
 #define IDS_REST2                       182
 #define IDS_ISNOT_FACTOR                183
 #define IDS_ISNOT_FACOTR                183
+#define IDR_ACCELERATOR1                183
 #define IDS_RADIO_EDIT1                 184
 #define IDS_RADIO_EDIT2                 185
 #define IDS_TAB_HEADER1                 186
+#define IDD_DIALOG2                     186
 #define IDS_TAB_HEADER2                 187
+#define IDD_DIALOG3                     187
 #define IDS_TAB_HEADER3                 188
 #define IDS_TAB_RADIO1                  189
+#define IDB_BITMAP_UNDO                 189
 #define IDS_TAB_RADIO2                  190
 #define IDS_SEARCH1                     191
 #define IDS_SEARCH2                     192
+#define IDB_BITMAP_REDO                 192
+#define IDS_BUTTON_HELP                 193
+#define IDS_WARNING_SHORT               194
+#define IDS_MAX_POINTS_INFORMATION_NOVALUE 195
+#define IDS_TOOL_TIP_UNDO               196
+#define IDS_TOOL_TIP_REDO               197
+#define IDS_MAX_POINTS_NEW_2            198
 #define IDC_LIST2                       1001
 #define IDC_EDIT1                       1007
 #define IDC_BUTTON1                     1008
@@ -169,6 +180,7 @@
 #define IDC_BUTTON_REST                 1094
 #define IDC_CHECK1                      1101
 #define IDC_BUTTON4                     1102
+#define IDC_BUTTON_UNDO                 1102
 #define IDC_STATIC_LISTE                1103
 #define IDC_STATIC_BLOCK                1104
 #define IDC_STATIC_EINSTELLUNGEN        1105
@@ -203,6 +215,11 @@
 #define IDC_STATIC3                     1149
 #define IDC_STATIC5                     1150
 #define IDC_STATIC_MAXVALUE             1151
+#define IDC_BUTTON_FINISH               1152
+#define IDC_BUTTON_REDO                 1154
+#define IDC_GAME_IDEA                   1156
+#define IDC_DISCLAIMER_TEXT             1157
+#define IDC_INFO_TEXT                   1158
 #define ID_OPTIONEN_TOOLTIPSANZEIGEN    32771
 #define ID_OPTIONEN_MAXIMALPUNKTEZAHL   32772
 #define ID_OPTIONEN_MITHAIBEGINNEN      32773
@@ -210,14 +227,16 @@
 #define ID_DATEI_SPIELSPEICHERN         32775
 #define ID_DATEI_SPIELSPEICHERNUNTER    32776
 #define ID_DATEI_ENDE                   32777
+#define ID_GIVE_REST                    32780
+#define ID_OPEN_RULES                   32786
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        183
-#define _APS_NEXT_COMMAND_VALUE         32778
-#define _APS_NEXT_CONTROL_VALUE         1152
+#define _APS_NEXT_RESOURCE_VALUE        193
+#define _APS_NEXT_COMMAND_VALUE         32788
+#define _APS_NEXT_CONTROL_VALUE         1161
 #define _APS_NEXT_SYMED_VALUE           175
 #endif
 #endif

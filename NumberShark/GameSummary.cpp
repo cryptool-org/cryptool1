@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include "MFC-ZahlenHai.h"
+#include "EvoZahlenHai.h"
 #include "GameSummary.h"
 #include ".\gamesummary.h"
 
@@ -37,6 +38,7 @@ END_MESSAGE_MAP()
 
 
 // CGameSummary-Meldungshandler
+EvoZahlenHai hai;
 
 int maxPossiblePoints2[] = {0,2,3,7,9,15,17,21,30,40,44,50,52,66,81,89,93,111,113,124,144,166};
 int wert=0;
@@ -88,6 +90,11 @@ void CGameSummary::gameAnalyse()
 	cf.crTextColor = RGB(255, 0, 0);
 
 	CString result;
+
+	CString sepPointsPlayer=hai.setSeperator(pointsPlayer);
+	CString sepPointsComputer=hai.setSeperator(pointsComputer);
+	CString sepUpperLimit=hai.setSeperator(upperLimit);
+
 	//Spieler hat gewonnen
 	if(pointsPlayer > pointsComputer)
 	{
@@ -98,7 +105,7 @@ void CGameSummary::gameAnalyse()
 			//maxPossiblePoints Austauschen durch Wert aus dem 2D Array
 			if(pointsPlayer==maxPossiblePoints2[upperLimit-1])
 			{
-				result.Format(IDS_PLAYER_WINS_OPTIMAL, pointsPlayer, upperLimit, upperLimit);
+				result.Format(IDS_PLAYER_WINS_OPTIMAL, sepPointsPlayer, sepUpperLimit, sepUpperLimit);
 				playerHeadline.LoadString(IDS_PLAYER_WINS_HEADLINE);
 				//Änderung des Dialog Titels
 				this->SetWindowText(playerHeadline);
@@ -106,7 +113,7 @@ void CGameSummary::gameAnalyse()
 			}
 			else
 			{
-				result.Format(IDS_PLAYER_WINS, upperLimit, pointsPlayer, upperLimit, maxPossiblePoints2[upperLimit-1]);
+				result.Format(IDS_PLAYER_WINS, sepUpperLimit, sepPointsPlayer, sepUpperLimit, hai.setSeperator(maxPossiblePoints2[upperLimit-1]));
 				playerHeadline.LoadString(IDS_PLAYER_WINS_HEADLINE);
 				//Änderung des Dialog Titels
 				this->SetWindowText(playerHeadline);
@@ -118,7 +125,7 @@ void CGameSummary::gameAnalyse()
 		//Einfach Ausgabe ohne die maximale Punktezahl
 		else
 		{
-			result.Format(IDS_PLAYER_WINS_2, upperLimit, pointsPlayer);
+			result.Format(IDS_PLAYER_WINS_2, sepUpperLimit, sepPointsPlayer);
 			CString playerHeadline;
 			playerHeadline.LoadString(IDS_PLAYER_WINS_HEADLINE);
 			//Änderung des Dialog Titels
@@ -132,7 +139,7 @@ void CGameSummary::gameAnalyse()
         //Hai hat gewonnen
 		if(pointsPlayer < pointsComputer)
 		{
-			result.Format(IDS_COMPUTER_WINS, pointsComputer, pointsPlayer);
+			result.Format(IDS_COMPUTER_WINS, sepPointsComputer, sepPointsPlayer);
 			CString computerHeadline;
 			computerHeadline.LoadString(IDS_COMPUTER_WINS_HEADLINE);
 			//Änderung des Dialog Titels
@@ -142,7 +149,7 @@ void CGameSummary::gameAnalyse()
 		} else
 		{
 			//Unentschieden
-			result.Format(IDS_DRAW, pointsPlayer);
+			result.Format(IDS_DRAW, sepPointsPlayer);
 			CString drawHeadline;
 			drawHeadline.LoadString(IDS_DRAW_HEADLINE);
 			//Änderung des Dialog Titels

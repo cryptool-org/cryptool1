@@ -12,7 +12,7 @@
 <p>Hier findest Du das Original-Zahlenhai-Spiel:<br><a href="http://www.learn-line.nrw.de/angebote/neuemedien/medio/mathe/coalgebr/zahlhai/hai01.htm" target="_blank">http://www.learn-line.nrw.de/angebote/neuemedien/medio/mathe/coalgebr/zahlhai/hai01.htm</a><br>
 Das folgende Bild zeigt die ursprüngliche Fassung. Dieses Programm ist Freeware, aber nicht Open-Source.</p>
 
-<p><IMG SRC="Bilder-de/bmp/Zahlenhai_Spiel_Original_de.bmp" ALT="Zahlenhai_Spiel_Original_de.bmp" BORDER=0></p>
+<p><IMG SRC="Bilder-de/bmp/game_original_de.bmp" ALT="game_original_de.bmp" BORDER=0></p>
 
 <p>Herr Carl hat uns dankenswerterweise erlaubt, seine Idee und seinen Spielnamen für eine Neuimplementierung uneingeschränkt zu nutzen.</p>
 
@@ -24,13 +24,13 @@ Das folgende Bild zeigt die ursprüngliche Fassung. Dieses Programm ist Freeware,
 
 <p>Zuerst wurde das Verfahren des Zahlenhai-Spiels in C++ als Konsolenprogramm implementiert und später durch eine grafische Oberfläche ergänzt.</p>
 
-<p><IMG SRC="Bilder-de/bmp/Zahlenhai_Konsole_Spiel_de.bmp" ALT="Zahlenhai_Konsole_Spiel_de.bmp" BORDER=0></p>
+<p><IMG SRC="Bilder-de/bmp/console_de.bmp" ALT="console_de.bmp" BORDER=0></p>
 
 <p>Danach wurde das Programm stetig erweitert. <a name="Buttons">Die</a> erste Erweiterung bestand darin, das Spiel mit mehr als 50 Zahlen spielen zu können (50 Zahlen waren die Obergrenze in dem Spiel von Herrn Carl). Dafür wurde ein Reiter-Control verwendet, auf dem sich 30 Buttons befinden, die je nach ausgewähltem Reiter ihre Beschriftung und somit auch ihren Wert ändern.<br>
 Dadurch wurde die maximal mögliche Anzahl an Zahlen auf 9999 erhöht. Die Grenze ist im Quellcode so vorgegeben und ist bedingt durch die Größe der Buttons und der Reiter. Es wäre auch nicht sinnvoll, mit noch mehr Zahlen zu spielen, da man bei so einer Menge gleichzeitig sehr viele Teiler von sehr vielen Zahlen berücksichtigen muss und dadurch auch schnell den Übeblick über das Spiel verliert.<br>
 <!--Neben der Anzahl der Zahlen war auch die Darstellung der Spielverlaufstabelle und des gesamten Spieles ein Problem. -->Das Spielfenster und alle Inhalte darin haben eine feste Größe. Wir hätten gern das Fenster wenigstens in vertikaler Richtung  so größenveränderlich gemacht, dass sich die Spielverlaufstabelle entsprechend anpasst, leider bot uns der Layout-Manager im Ressourceneditor von Visual C++ 6.0 und Visual C++ 7.1 (Visual Studio 2003) keine Möglichkeit für das sogenannte "Andocken" von graphischen Elementen an die Dialogmasken. Nur die Spalten der Spielverlaufstabelle sind in ihrer Breite veränderbar, damit sich der Spieler wirklich alle Punkte, die der Zahlenhai erhalten hat, anschauen kann. Die Spalten passen sich aber nicht automatisch ihrem Inhalt an.(TODO: Dem Spieler eine Möglichkeit geben. die Spaltenbreite wieder in den Ausgangszustand zurück zusetzten).</p>
 
-<p><IMG SRC="Bilder-de/bmp/Zahlenhai_Spiel_9999Zahlen_de.bmp" ALT="Zahlenhai_Spiel_9999Zahlen_de.bmp" BORDER=0></p>
+<p><IMG SRC="Bilder-de/bmp/Dlg_limit_de.bmp" ALT="Dlg_limit_de.bmp" BORDER=0></p>
 
 <p><b><u>2. Maximal erreichbare Punktzahl ausgeben</u></b></p>
 
@@ -46,25 +46,24 @@ Dadurch wurde die maximal mögliche Anzahl an Zahlen auf 9999 erhöht. Die Grenze 
 </ul>
 </p>
 
-<p><IMG SRC="Bilder-de/bmp/Zahlenhai_Spiel_Maximale_Punkte_Ergebnis_Neu_de.bmp" ALT="Zahlenhai_Spiel_Maximale_Punkte_Ergebnis_Neu_de.bmp" BORDER=0></p><br>
+<p><IMG SRC="Bilder-de/bmp/Dlg_max_new_de.bmp" ALT="Dlg_max_new_de.bmp" BORDER=0></p><br>
 
 <p>Die maximal möglichen Punktzahlen sind für die Zahlenvorräte von 1 bis 22 schon im Programm abgelegt und müssen nicht noch einmal berechnet werden, sondern werden sofort ausgegeben.</p>
 
-<p><IMG SRC="Bilder-de/bmp/Zahlenhai_Spiel_Maximale_Punkte_Ergebnis_Vorhanden_de.bmp" ALT="Zahlenhai_Spiel_Maximale_Punkte_Ergebnis_Vorhanden_de.bmp" BORDER=0></p>
+<p><IMG SRC="Bilder-de/bmp/Dlg_max_old_de.bmp" ALT="Dlg_max_old_de.bmp" BORDER=0></p>
 
 <p>Außerdem kann sich der Spieler auch noch einen optimalen Weg (also die Folge der Zahlen, die zur maximalen Punktzahl führt) anzeigen lassen.</p>
 
-<p><IMG SRC="Bilder-de/bmp/Zahlenhai_Spiel_Maximale_Punkte_optimaler_Weg_de.bmp" ALT="Zahlenhai_Spiel_Maximale_Punkte_optimaler_Weg_de.bmp" BORDER=0></p>
+<p><IMG SRC="Bilder-de/bmp/Dlg_max_way_de.bmp" ALT="Dlg_max_way_de.bmp" BORDER=0></p>
 
 <p>Da die Berechnung für eine größere Anzahl an Zahlen sehr lange dauert, wird der Spieler vorher gefragt, ob diese Funktion wirklich ausgeführt werden soll.</p>
 
-<p><IMG SRC="Bilder-de/bmp/Zahlenhai_Spiel_Maximale_Punkte_Frage1_de.bmp" ALT="Zahlenhai_Spiel_Maximale_Frage1_de.bmp" BORDER=0>
-<IMG SRC="Bilder-de/bmp/Zahlenhai_Spiel_Maximale_Punkte_Frage2_de.bmp" ALT="Zahlenhai_Spiel_Maximale_Frage2_de.bmp" BORDER=0 hspace=50></p>
+<p><IMG SRC="Bilder-de/bmp/Dlg_max_warn_de.bmp" ALT="Dlg_max_warn_de.bmp" BORDER=0>
 
 <p><b><u>3. Durchführung und Wiederaufsetzten bei überlangen Berechnungen</u></b></p>
 <p>Da die Berechnung der maximal möglichen Punkte bei größeren Zahlen extrem lange dauert, musste ein Weg gefunden werden, um die Berechnung der Zahlen unterbrechen und zu einem späteren Zeitpunkt wieder fortsetzen zu können (z.B. weil der Strom ausfiel oder man den Rechner für andere Aufgaben brauchte). Dazu werden alle für die Berechnung benötigten Zwischenwerte in geringen Zeitabständen in einer Textdatei gespeichert. Die Datei "ZahlenHaiSuche[Anzahl der Zahlen].zha" wird in demselben Ordner gespeichert, in dem sich auch die Datei "Zahlenhai.exe" befindet, und lässt sich mit einem Texteditor öffnen und anschauen.</p> 
 
-<p><IMG SRC="Bilder-de/bmp/Zahlenhai_Spiel_Maximale_Punkte_Speicher_de.bmp" ALT="Zahlenhai_Spiel_Maximale_Punkte_Speicher_de.bmp" BORDER=0></p>
+<p><IMG SRC="Bilder-de/bmp/game_max_calc.bmp" ALT="game_max_calc.bmp" BORDER=0></p>
 
 <p>Wenn jetzt eine neue Berechnung der maximalen Punktzahl gestartet wird, schaut das Programm erst, ob schon eine Datei mit gespeicherten Werten existiert, liest diese ein und setzt dann die Suche an der eingelesenen Stelle fort.(TODO:Was für Werte gespeichert werden und wie dies funktioniert wird in der Hilfe noch genauer erklärt). Auch ohne Wissen darüber, was für Werte in der Datei gespeichert werden und wie die Brute-Force-Suche funktioniert, kannst Du, einen schnellen Rechner und viel Zeit vorausgesetzt, auch selbst neue Werte berechnen.</p>
 
@@ -92,7 +91,6 @@ Dadurch wurde die maximal mögliche Anzahl an Zahlen auf 9999 erhöht. Die Grenze 
 
 <p>Das Zahlenhai-Programm kann natürlich noch weiterentwickelt werden:
 <ul>
-	<li>Sinnvoll ist zum Beispiel eine Undo-Funktion, mit der man den letzten Zug rückgängig machen kann.</li>
 	<li>Eine große Aufgabe, die sich noch stellt, ist es, eine schnellere Möglichkeit zu finden, die maximal mögliche Punktezahl zu berechnen (siehe Challenge).</li>
 	<li>Außerdem gibt es viele Möglichkeiten, das Programm bunter und spielerischer aussehen zu lassen.</li>
 	<li>Eine Highscore-Tabelle anzeigen.</li>

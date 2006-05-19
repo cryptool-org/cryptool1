@@ -52,6 +52,7 @@ public:
 	int showButton;
 	int exitOptions;
 	int controlUpperLimit;
+	int calcUpperLimit;
 	int calculateMaxNew;
 	int showMax;
 	int optionenUpperLimit;
@@ -65,4 +66,8 @@ public:
 	
 	void drawStartTab();
 	void drawOptionsTab();
+	CString gameIdea;
+	CString disclaimerText;
+	CString infoText;
+	CRichEditCtrl richEditIdea;
 };

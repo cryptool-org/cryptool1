@@ -62,8 +62,10 @@ BOOL readSearchState(int &startTime, __int64 &numberOfRounds, int &StackPointer,
 	title += charUpperLimit;
 	buffer.LoadString(IDS_SEARCH2);
 	title +=buffer;
+	char Buffer[100];
 
-	BOOL openOk = file.Open(title,CFile::modeRead);
+	int openOk = file.Open(title,CFile::modeRead);
+	
 	//ASSERT(openOk);
 	if(openOk)
 	{
@@ -150,6 +152,22 @@ void writeSearchState(item *Stack, int StackPointer, int upperLimit, __int64 num
 void SucheNRek(EvoZahlenHai &Spiel, int startTime)
 {
 	item *Stack;
+    
+	CStdioFile file;
+	int openStatus;
+	openStatus=file.Open("Test",CFile::modeCreate | CFile::modeReadWrite);
+	if(openStatus==0)
+	{
+			LPVOID lpMsgBuf;
+		::FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
+				NULL, GetLastError(), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPTSTR) &lpMsgBuf,0,NULL);
+		CString title="Ein Fehler ist aufgetreten.";
+		MessageBox(NULL,(LPCTSTR)lpMsgBuf,(LPCTSTR)title,MB_ICONWARNING|MB_OK);
+		LocalFree( lpMsgBuf );
+		return;
+	}
+	file.Close();
+	unlink("Test");	
 
 	Stack = new item[Spiel.getUpperLimit()];
 	Stack[0].index = 1;
@@ -310,7 +328,7 @@ UINT maxPointsStatic(LPVOID param)
 	//}
 
 	Spiel.startRound(maxPrime(upperLimit));
-
+    
 	//Suche(Spiel);
 	SucheNRek(Spiel, startTime);
 

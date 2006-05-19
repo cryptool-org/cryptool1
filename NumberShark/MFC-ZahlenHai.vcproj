@@ -251,6 +251,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="htmlhelp.lib"
+				OutputFile="$(OutDir)/Number Shark.exe"
 				LinkIncremental="1"
 				IgnoreAllDefaultLibraries="FALSE"
 				GenerateDebugInformation="TRUE"
@@ -307,6 +308,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="htmlhelp.lib"
+				OutputFile="$(OutDir)/Zahlenhai.exe"
 				LinkIncremental="1"
 				GenerateDebugInformation="TRUE"
 				SubSystem="2"
@@ -379,6 +381,9 @@
 			</File>
 			<File
 				RelativePath=".\MFC-ZahlenHaiDlg.cpp">
+			</File>
+			<File
+				RelativePath=".\propPage1.cpp">
 			</File>
 			<File
 				RelativePath=".\stdafx.cpp">
@@ -470,6 +475,9 @@
 				RelativePath=".\MFC-ZahlenHaiDlg.h">
 			</File>
 			<File
+				RelativePath=".\propPage1.h">
+			</File>
+			<File
 				RelativePath=".\Resource.h">
 			</File>
 			<File
@@ -495,6 +503,24 @@
 			Name="Ressourcendateien"
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}">
+			<File
+				RelativePath=".\Bilder\backward-engl.bmp">
+			</File>
+			<File
+				RelativePath=".\Bilder\backward.bmp">
+			</File>
+			<File
+				RelativePath=".\Bilder\foreward-engl.bmp">
+			</File>
+			<File
+				RelativePath=".\Bilder\foreward.bmp">
+			</File>
+			<File
+				RelativePath=".\Bilder\hai01-engl.bmp">
+			</File>
+			<File
+				RelativePath=".\Bilder\hai01.bmp">
+			</File>
 			<File
 				RelativePath=".\Bilder\Hai04-vers5-engl.bmp">
 			</File>

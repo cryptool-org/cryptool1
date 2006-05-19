@@ -411,7 +411,7 @@ CString EvoZahlenHai::toString()
 	
 	return writeBuffer;
 }
-
+/*
 //Setzten der Tausenderpunkte
 char* EvoZahlenHai::itoa_fmt(unsigned long ul_num)
 {
@@ -443,29 +443,20 @@ char* EvoZahlenHai::itoa_fmt(unsigned long ul_num)
 	} while ( str_ptr < str_length-1 );
 
 	return str;
-}
-
-CString EvoZahlenHai::setSeperators(int seperateNumber)
+}*/
+CString EvoZahlenHai::setSeperator(__int64 value)
 {
-	char Buffer[100];
-	CString zahl=itoa(seperateNumber, Buffer, 10);
-	int laenge=zahl.GetLength();
-	
-	//fängt an der linken Seite des Strings an zu suchen und gibt das erste gefundene Zeichen wieder
-	//nicht 0 basiert
-	int stelle=zahl.Find(".", 0);
-
-	//beginnt bei an der linken Seite des Strings zu suchen und gibt das letzte gefundene Zeichen wieder
-	//nicht 0 basiert
-	int stelle2=zahl.ReverseFind('.');
-
-	for(int i=zahl.GetLength(); i>=1; i--)
-	{
-		if(i<zahl.GetLength() && !((zahl.GetLength()-i)%3))
-		{
-			zahl.Insert(i,".");
-		}
-	}
-
-	return zahl;
+	 CString valueStr="";
+	 CString seperator="";
+	 char Buffer[100];
+	 seperator.LoadString(IDS_STRING_PT);
+	 valueStr=_i64toa(value,Buffer,10);
+	 int length=valueStr.GetLength();
+	 for(int i=length-3; i>0;i=i-3)
+	 {
+		 if(length>3)
+			 valueStr.Insert(i,seperator);
+	 }
+	 
+	 return valueStr;
 }

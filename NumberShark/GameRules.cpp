@@ -50,5 +50,6 @@ void GameRules::OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinimized)
 	rules2.LoadString(IDS_RULES_2);
 	richEdit.SetWindowText(rules + rules2);
 	
+	
 	// TODO: Fügen Sie hier Ihren Meldungsbehandlungscode ein.
 }

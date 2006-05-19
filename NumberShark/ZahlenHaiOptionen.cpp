@@ -9,7 +9,7 @@
 #include "ZahlenHaiOptionen.h"
 #include ".\zahlenhaioptionen.h"
 
-//CMFCZahlenHaiDlg sharkMaxPoints;
+CMFCZahlenHaiDlg sharkMaxPoints;
 // ZahlenHaiOptionen-Dialogfeld
 
 IMPLEMENT_DYNAMIC(ZahlenHaiOptionen, CDialog)
@@ -24,6 +24,9 @@ ZahlenHaiOptionen::ZahlenHaiOptionen(CWnd* pParent /*=NULL*/)
 	, optionGameStart(_T(""))
 	, optionRemember(_T(""))
 	, optionenMaxP(_T(""))
+	, gameIdea(_T(""))
+	, disclaimerText(_T(""))
+	, infoText(_T(""))
 {
 }
 
@@ -54,6 +57,10 @@ void ZahlenHaiOptionen::DoDataExchange(CDataExchange* pDX)
 
 	DDX_Control(pDX, IDC_TAB1, dialogOptionsTab);
 	DDX_Control(pDX, IDC_STATIC_MAX_POINTS_TEXT, optionenButtonMax);
+	DDX_Text(pDX, IDC_GAME_IDEA, gameIdea);
+	DDX_Text(pDX, IDC_DISCLAIMER_TEXT, disclaimerText);
+	DDX_Text(pDX, IDC_INFO_TEXT, infoText);
+	DDX_Control(pDX, IDC_GAME_IDEA, richEditIdea);
 }
 
 
@@ -100,6 +107,34 @@ BOOL ZahlenHaiOptionen::OnInitDialog()
 	optionGameStart.Format(IDS_OPTIONS_SHOW_DIALOG);
 	optionRemember.Format(IDS_OPTIONS_SHOW_NUMBERS);
 	
+	gameIdea.Format(IDS_GAME_IDEA);
+	disclaimerText.Format(IDS_DISCLAIMER_TEXT);
+	infoText.Format(IDS_INFO_TEXT);
+	
+	//Formatierung des Textes im RichEdit Feld
+	CHARFORMAT cf;
+	cf.dwMask = CFM_STRIKEOUT|CFM_BOLD;
+	cf.dwEffects = CFE_BOLD;
+	CString language="";
+	language.LoadString(IDS_SPRACHE);
+	//CString ideaText="";
+	//ideaText.LoadString(IDS_GAME_IDEA);
+	//richEditIdea.SetWindowText(ideaText);
+	/*if(language=="DE")
+	{
+        richEditIdea.SetSel(1,12);
+		richEditIdea.SetWordCharFormat(cf);
+		richEditIdea.SetSel(54,65);
+		richEditIdea.SetWordCharFormat(cf);
+	}
+	else
+	{
+		richEditIdea.SetSel(0,18);
+		richEditIdea.SetWordCharFormat(cf);
+		richEditIdea.SetSel(54,65);
+		richEditIdea.SetWordCharFormat(cf);
+	}*/
+	
 	exitOptions=0;
 	((CEdit*)GetDlgItem(IDC_EDIT_NAME))->SetFocus();
 	if(showButton==0)
@@ -117,7 +152,8 @@ BOOL ZahlenHaiOptionen::OnInitDialog()
 		}
 
 	}
-	optionenMaxP.Format(IDS_OPTIONS_MAX_POINTS,optionenUpperLimit);
+	CString sepUpperLimit=sharkMaxPoints.hai.setSeperator(optionenUpperLimit);
+	optionenMaxP.Format(IDS_OPTIONS_MAX_POINTS,sepUpperLimit);
 	CDialog::OnInitDialog();
 	
 	if(showToolTips)
@@ -143,18 +179,26 @@ BOOL ZahlenHaiOptionen::OnInitDialog()
 	radioButtonText.LoadString(IDS_TAB_RADIO2);
 	radioButton2.SetWindowText(radioButtonText);
 
+	radioButton1.SetCheck(0);
+	radioButton2.SetCheck(0);
+	((CEdit*)GetDlgItem(IDC_BUTTON_MAX))->EnableWindow(false);
 	
 	if(controlUpperLimit==0)
 	{
 		radioButton1.EnableWindow(1);
 		radioButton2.EnableWindow(1);
+		radioButton2.SetCheck(1);
+		OnBnClickedRadioMax2();
+		((CEdit*)GetDlgItem(IDC_BUTTON_MAX))->EnableWindow(true);
 	}
 	else
 	{
 		if(controlUpperLimit==1)
 		{
 			radioButton1.EnableWindow(1);
+			radioButton1.SetCheck(1);
 			radioButton2.EnableWindow(0);
+			((CEdit*)GetDlgItem(IDC_BUTTON_MAX))->EnableWindow(true);
 		}
 		else
 		{
@@ -162,11 +206,7 @@ BOOL ZahlenHaiOptionen::OnInitDialog()
 			radioButton2.EnableWindow(0);
 		}
 	}
-	
-	((CEdit*)GetDlgItem(IDC_BUTTON_MAX))->EnableWindow(false);
-	radioButton1.SetCheck(0);
-	radioButton2.SetCheck(0);
-
+		
 	drawStartTab();
 
 	UpdateData(true);
@@ -234,11 +274,11 @@ void ZahlenHaiOptionen::drawStartTab()
 	DWORD dwExStyle= dialogOptionsTab.GetExtendedStyle();
 	dialogOptionsTab.SetExtendedStyle(dwExStyle | TCS_EX_FLATSEPARATORS);
 
+	
 	CString tabHeader="";
 	tabHeader.LoadString(IDS_TAB_HEADER1);
 	dialogOptionsTab.InsertItem(0,tabHeader);
 	
-
 
 	tabHeader="";
 	tabHeader.LoadString(IDS_TAB_HEADER2);
@@ -254,44 +294,52 @@ void ZahlenHaiOptionen::drawStartTab()
 void ZahlenHaiOptionen::drawOptionsTab()
 {
 	int tab = dialogOptionsTab.GetCurSel();
-	int seeOptionsTab1;
-	int seeOptionsTab2;
+	int seeOptionsStandard;
+	int seeOptionsMaximum;
+	int seeOptionsWelcome;
 
 	if(tab==0)
 	{
-		seeOptionsTab1=1;
-		seeOptionsTab2=0;
+		seeOptionsWelcome=1;
+		seeOptionsStandard=0;
+		seeOptionsMaximum=0;
 	}
 	else
 	{
 		if(tab==1)
 		{
-			seeOptionsTab1=0;
-			seeOptionsTab2=0;
+			seeOptionsWelcome=0;
+			seeOptionsStandard=1;
+			seeOptionsMaximum=0;
 		}
 		else
 		{
-			seeOptionsTab1=0;
-			seeOptionsTab2=1;
+			seeOptionsWelcome=0;
+			seeOptionsStandard=0;
+			seeOptionsMaximum=1;
 		}
 	}
 
-   	((CEdit*)GetDlgItem(IDC_CHECK1))->ShowWindow(seeOptionsTab1);
-	((CEdit*)GetDlgItem(IDC_CHECK2))->ShowWindow(seeOptionsTab1);
-	((CEdit*)GetDlgItem(IDC_CHECK3))->ShowWindow(seeOptionsTab1);
-	((CEdit*)GetDlgItem(IDC_STATIC1))->ShowWindow(seeOptionsTab1);
-	((CEdit*)GetDlgItem(IDC_STATIC2))->ShowWindow(seeOptionsTab1);
-	((CEdit*)GetDlgItem(IDC_STATIC3))->ShowWindow(seeOptionsTab1);
-	((CEdit*)GetDlgItem(IDC_STATIC4))->ShowWindow(seeOptionsTab1);
-	((CEdit*)GetDlgItem(IDC_STATIC5))->ShowWindow(seeOptionsTab1);
-	((CEdit*)GetDlgItem(IDC_EDIT_NAME))->ShowWindow(seeOptionsTab1);
-	((CEdit*)GetDlgItem(IDC_OPTION_TOOLTIP))->ShowWindow(seeOptionsTab1);
-	((CEdit*)GetDlgItem(IDC_OPTION_GAME_START))->ShowWindow(seeOptionsTab1);
-	((CEdit*)GetDlgItem(IDC_OPTION_REMEMBER))->ShowWindow(seeOptionsTab1);
+   	((CEdit*)GetDlgItem(IDC_CHECK1))->ShowWindow(seeOptionsStandard);
+	((CEdit*)GetDlgItem(IDC_CHECK2))->ShowWindow(seeOptionsStandard);
+	((CEdit*)GetDlgItem(IDC_CHECK3))->ShowWindow(seeOptionsStandard);
+	((CEdit*)GetDlgItem(IDC_STATIC1))->ShowWindow(seeOptionsStandard);
+	((CEdit*)GetDlgItem(IDC_STATIC2))->ShowWindow(seeOptionsStandard);
+	((CEdit*)GetDlgItem(IDC_STATIC3))->ShowWindow(seeOptionsStandard);
+	((CEdit*)GetDlgItem(IDC_STATIC4))->ShowWindow(seeOptionsStandard);
+	((CEdit*)GetDlgItem(IDC_STATIC5))->ShowWindow(seeOptionsStandard);
+	((CEdit*)GetDlgItem(IDC_EDIT_NAME))->ShowWindow(seeOptionsStandard);
+	((CEdit*)GetDlgItem(IDC_OPTION_TOOLTIP))->ShowWindow(seeOptionsStandard);
+	((CEdit*)GetDlgItem(IDC_OPTION_GAME_START))->ShowWindow(seeOptionsStandard);
+	((CEdit*)GetDlgItem(IDC_OPTION_REMEMBER))->ShowWindow(seeOptionsStandard);
 	
-	((CEdit*)GetDlgItem(IDC_STATIC_MAX_POINTS_TEXT))->ShowWindow(seeOptionsTab2);
-	((CEdit*)GetDlgItem(IDC_BUTTON_MAX))->ShowWindow(seeOptionsTab2);
-	((CEdit*)GetDlgItem(IDC_RADIO_MAX1))->ShowWindow(seeOptionsTab2);
-	((CEdit*)GetDlgItem(IDC_RADIO_MAX2))->ShowWindow(seeOptionsTab2);
-	((CEdit*)GetDlgItem(IDC_STATIC_MAXVALUE))->ShowWindow(seeOptionsTab2);
+	((CEdit*)GetDlgItem(IDC_STATIC_MAX_POINTS_TEXT))->ShowWindow(seeOptionsMaximum);
+	((CEdit*)GetDlgItem(IDC_BUTTON_MAX))->ShowWindow(seeOptionsMaximum);
+	((CEdit*)GetDlgItem(IDC_RADIO_MAX1))->ShowWindow(seeOptionsMaximum);
+	((CEdit*)GetDlgItem(IDC_RADIO_MAX2))->ShowWindow(seeOptionsMaximum);
+	((CEdit*)GetDlgItem(IDC_STATIC_MAXVALUE))->ShowWindow(seeOptionsMaximum);
+
+	((CEdit*)GetDlgItem(IDC_GAME_IDEA))->ShowWindow(seeOptionsWelcome);
+	((CEdit*)GetDlgItem(IDC_DISCLAIMER_TEXT))->ShowWindow(seeOptionsWelcome);
+	((CEdit*)GetDlgItem(IDC_INFO_TEXT))->ShowWindow(seeOptionsWelcome);
 }

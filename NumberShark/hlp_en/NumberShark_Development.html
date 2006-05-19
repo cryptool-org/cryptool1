@@ -12,7 +12,7 @@
 <p>You can find the original game here: <br><a href="http://www.learn-line.nrw.de/angebote/neuemedien/medio/mathe/coalgebr/zahlhai/hai01.htm" target="_blank">http://www.learn-line.nrw.de/angebote/neuemedien/medio/mathe/coalgebr/zahlhai/hai01.htm</a><br>
 The following picture shows the original version. This program is freeware, but not Open Source.</p>
 
-<p><IMG SRC="Bilder-de/bmp/Zahlenhai_Spiel_Original_de.bmp" ALT="Zahlenhai_Spiel_Original_de.bmp" BORDER=0></p>
+<p><IMG SRC="Pictures-en/bmp/game_original_en.bmp" ALT="game_original_en.bmp" BORDER=0></p>
 
 <p>Mr. Carl kindly allowed us to use his ideas and the name for a new version.</p>
 
@@ -24,13 +24,13 @@ The following picture shows the original version. This program is freeware, but 
 
 <p>At first the Number Shark procedure was implemented as a console program, later a graphical user interface was added.</p>
 
-<p><IMG SRC="Bilder-de/bmp/Zahlenhai_Konsole_Spiel_de.bmp" ALT="Zahlenhai_Konsole_Spiel_de.bmp" BORDER=0></p>
+<p><IMG SRC="Pictures-en/bmp/console_en.bmp" ALT="console_en.bmp" BORDER=0></p>
 
 <p>After that, the program was continually expanded. <a name="Buttons">The</a> first add-on was to give the player the possibility to play with more than 50 numbers (this was the maximum in the original game). In order to do this we created a tab control on which the 30 buttons are placed. These buttons change their value and label depending on which tab you choose.<br>
 Now you can play with maximum 9999 numbers. This border is set in the source code because the buttons are not wide enough for bigger numbers and it would make no sense to play with a higher number because it will get too difficult to know all numbers and all factors.<br>
 The game dialog and all windows have a fixed size. We would like to make the size of the dialog variable, but unfortunately the resources editors in Visual C++ 6.0 and Visual C++ 7.1 (Visual Studio 2003) don't give us the possibility of the so called "docking" of graphical elements onto the dialog windows. The width of the columns in the game progress list can be changed in their width, so that the player can see all points that the Number Shark was awarded in every round. If the new content is broader then the current column, the width will not be adjusted automatically.</p>
 
-<p><IMG SRC="Bilder-de/bmp/Zahlenhai_Spiel_9999Zahlen_de.bmp" ALT="Zahlenhai_Spiel_9999Zahlen_de.bmp" BORDER=0></p>
+<p><IMG SRC="Pictures-en/bmp/Dlg_limit_en.bmp" ALT=Dlg_limit_en.bmp" BORDER=0></p>
 
 <p><b><u>2. Maximum possible points</u></b></p>
 
@@ -46,25 +46,24 @@ The game dialog and all windows have a fixed size. We would like to make the siz
 </ul>
 </p>
 
-<p><IMG SRC="Bilder-de/bmp/Zahlenhai_Spiel_Maximale_Punkte_Ergebnis_Neu_de.bmp" ALT="Zahlenhai_Spiel_Maximale_Punkte_Ergebnis_Neu_de.bmp" BORDER=0></p><br>
+<p><IMG SRC="Pictures-en/bmp/Dlg_max_new_en.bmp" ALT="Dlg_max_new_en.bmp" BORDER=0></p><br>
 
 <p>The maximum possible points are already available for numbers from 1 to 22 and are saved in the program, so that they don’t need to be calculated again.</p>
 
-<p><IMG SRC="Bilder-de/bmp/Zahlenhai_Spiel_Maximale_Punkte_Ergebnis_Vorhanden_de.bmp" ALT="Zahlenhai_Spiel_Maximale_Punkte_Ergebnis_Vorhanden_de.bmp" BORDER=0></p>
+<p><IMG SRC="Pictures-en/bmp/Dlg_max_old_en.bmp" ALT="Dlg_max_old_en.bmp" BORDER=0></p>
 
 <p>And the program can show you one optimal way to achieve this score. (i.e. in which way you should take the numbers)</p>
 
-<p><IMG SRC="Bilder-de/bmp/Zahlenhai_Spiel_Maximale_Punkte_optimaler_Weg_de.bmp" ALT="Zahlenhai_Spiel_Maximale_Punkte_optimaler_Weg_de.bmp" BORDER=0></p>
+<p><IMG SRC="Pictures-en/bmp/Dlg_max_way_en.bmp" ALT="Dlg_max_way_en.bmp" BORDER=0></p>
 
 <p>Because this calculation takes a long time, the player is asked by the program before the calculation starts.</p>
 
-<p><IMG SRC="Bilder-de/bmp/Zahlenhai_Spiel_Maximale_Punkte_Frage1_de.bmp" ALT="Zahlenhai_Spiel_Maximale_Frage1_de.bmp" BORDER=0>
-<IMG SRC="Bilder-de/bmp/Zahlenhai_Spiel_Maximale_Punkte_Frage2_de.bmp" ALT="Zahlenhai_Spiel_Maximale_Frage2_de.bmp" BORDER=0 hspace=50></p>
+<p><IMG SRC="Pictures-en/bmp//Dlg_max_warn_en.bmp" ALT="/Dlg_max_warn_en.bmp" BORDER=0>
 
 <p><b><u>3. Stop and restart the calculation</u></b></p>
 <p>We had to find a way to stop and restart the calculation because the PC may have to be used for other work or may have a power breakdown. To make sure this, intermediate results are saved in a document in short time intervals. The file "NumberSharkSearch[amount of numbers] is created in the same folder as the Number Shark executable and can be opened with a normal text editor. </p> 
 
-<p><IMG SRC="Bilder-de/bmp/Zahlenhai_Spiel_Maximale_Punkte_Speicher_de.bmp" ALT="Zahlenhai_Spiel_Maximale_Punkte_Speicher_de.bmp" BORDER=0></p>
+<p><IMG SRC="Pictures-en/bmp/game_max_calc.bmp" ALT="game_max_calc.bmp" BORDER=0></p>
 
 <p>When you start a new calculation the program first looks if an intermediate result for this number already exists. If yes, then the calculation starts at the same position where the former one stopped. Even without any knowledge of how this or the calculation works, you can, if you have a fast PC and a lot of time, calculate new values on your own.</p>
 
@@ -93,7 +92,6 @@ The game dialog and all windows have a fixed size. We would like to make the siz
 
 <p>Of course the program is not completed yet. Some ideas are:
 <ul>
-	<li>It would make sense to create an undo function which you can use to redo your last steps.</li>
 	<li>Another big task is to make the algorithm for the maximum possible points faster (see challenge).</li>
 	<li>And there are many ways to make the game look more like a game for kids.</li>
 	<li>Show a high score list for all users.</li>

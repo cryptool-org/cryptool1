@@ -1,4 +1,4 @@
 // Microsoft Visual C++ generated Help ID include file.
 // Used by MFC-ZahlenHai.rc
 //
-#define HIDC_OPTION_START               0x808a046c    // IDD_DIALOG1 [Englisch (GB)]
+#define HIDC_BUTTON_REDO                0x80660482    // IDD_MFCZAHLENHAI_DIALOG
