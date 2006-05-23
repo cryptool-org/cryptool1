@@ -475,6 +475,7 @@ hid_decode_base64.html
 menu_individualprocedures_codes_base64.html
 hidd_key_monsubst.html
 sidechannelattackvisualization_usage.html
+cryptology.html
 
 [ALIAS]
 #include CrypTool_Alias.h
