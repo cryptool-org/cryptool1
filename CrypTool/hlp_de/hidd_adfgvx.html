@@ -20,9 +20,9 @@
 			In diesem Dialogfenster wird der Schlüssel für das <!--ZZZPOPUP--><A href="hid_encrypt_adfgvx.html">ADFGVX-Verfahren</A>
 			eingegeben.<br>
 			<br>
-			Da es sich bei ADFGVX um eine zweistufige Kaskade handelt, besteht der 
-			Schlüssel aus zwei Teilen: dem Substitutionsschlüssel und dem 
-			Transpositionsschlüssel (auch Transpositionspasswort genannt). Dementsprechend 
+			Bei ADFGVX handelt es sich um eine zweistufige Kaskade: Verschlüsselung des Klartextes erst mit einer Substitution, danach Verschlüsselung des Zwischenergebnisses mit einer Transposition. Deshalb besteht der 
+			Schlüssel aus zwei Teilen: dem Substitutions- und dem 
+			Transpositionsschlüssel (auch Transpositionspasswort genannt).<br>Dementsprechend 
 			ist der Schlüsseldialog in zwei Abschnitte unterteilt.</FONT></p>
 		<p><font face="Arial"> <img border="0" src="images/adfgvx_key.gif" width="401" height="648"></font></p>
 		<p><font face="Arial"><b>Stufe 1: Substitution</b><br>
@@ -30,12 +30,12 @@
 				In die <b>Substitutionsmatrix</b> werden alle Buchstaben 'A' bis 'Z' und 
 			die Ziffern '0' bis '9' eingetragen, andere Eingaben werden nicht zugelassen. 
 			Bei der erneuten Eingabe bereits verwendeter Zeichen wird eine Dialogbox 
-			angezeigt, es besteht die Möglichkeit, das Zeichen an die neue Position in der 
+			angezeigt: Es besteht die Möglichkeit, das Zeichen an die neue Position in der 
 			Matrix zu verschieben oder die alte Position beizubehalten.</p>
 		<P>Der Knopf <b>Standardmatrix</b> füllt die Substitutionsmatrix alphabetisch und 
 			numerisch geordnet, der Knopf <b>Zufallsmatrix</b> füllt die Matrix mit einem 
 			gültigen Zufallsmuster. Durch einen Klick auf <b>Matrix leeren</b> kann nach 
-			Bestätigung einer Warnmeldung die Substitutionsmatrix geleert werden. Dies ist 
+			Bestätigung einer Warnmeldung die Substitutionsmatrix geleert werden. Der Knopf <b>Zeichenkette eingeben</b> ermöglicht es, in einem weiteren Dialog den Substitutionsschlüssel als 36 Zeichen lange Kette anzugeben. Dies ist 
 			nützlich, wenn ein konkretes Beispiel aus der Literatur oder anderen Quellen 
 			eingegeben werden soll.<br>
 			<br>
@@ -52,7 +52,7 @@
 			darauffolgende Eingabefeld für die <STRONG>Blocklänge</STRONG> besteht die 
 			Möglichkeit, den Chiffretext in Gruppen von 1 bis 26 Zeichen anzeigen zu 
 			lassen. Der Standardwert "5" erklärt sich aus dem ursprünglichen Einsatz des 
-			Verfahrens zur Verschlüsselung von Morse-Funksprüchen im Ersten Weltkrieg, die 
+			Verfahrens zur Verschlüsselung von Morse-Funksprüchen im Ersten Weltkrieg: Die 
 			Morsezeichen wurden in Fünfergruppen gesendet.<br>
 			Die Checkbox <b>Zusätzlicher Zeilenumbruch nach jedem Block</b> bewirkt, dass 
 			nach jeder Gruppe eine neue Zeile begonnen wird.<br>
@@ -62,8 +62,8 @@
 			wird. Auch hier kann die Ausgabe in Blöcken gruppiert werden. Standardmäßig 
 			wird die Blocklänge auf die aktuelle Passwortlänge eingestellt.<br>
 			<br>
-			Um die ADFGVX-Bigramme vor der Transposition deutlich zu machen, bietet sich 
-			eine Gruppierung der Stufe 1 in Buchstabenpaare an. Wenn Sie die 
+			Um die ADFGVX-Bigramme <i>vor</i> der Transposition deutlich zu machen, bietet sich 
+			eine Gruppierung der Stufe 1 in Buchstabenpaare an.<br>Wenn Sie die 
 			Spaltentransposition nachvollziehen wollen, sollten Sie die Blocklängen beider 
 			Stufen auf die Passwortlänge einstellen und in Stufe 2 den Zeilenumbruch 
 			aktivieren. Sie werden feststellen, dass der Text der Stufe 1, spaltenweise von 
@@ -75,7 +75,7 @@
 			Ist der zugrunde liegende Text bereits ein ADFGVX-Chiffrat, wird auch der Knopf <b>Entschlüsseln</b>
 			aktiviert, und Sie können den Text dechiffrieren.</P>
 		<P>Die <B>Schlüsselikone</B> fügt einen in den Schlüsselspeicher kopierten 
-			ADFGVX-Schlüssel ein (falls der Knopf blass ist, steht noch kein gültiger 
-			Schlüssel zur Verfügung).</FONT></P>
+			ADFGVX-Schlüssel ein (falls der Knopf blass ist, ist noch kein gültiger 
+			Schlüssel im CrypTool-internen Schlüsselspeicher für ADFGVX eingetragen).</FONT></P>
 	</BODY>
 </HTML>

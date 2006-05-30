@@ -976,7 +976,7 @@ END
 
 IDD_SIGNATURE DIALOGEX 0, 0, 388, 377
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Signatur einer Nachricht erstellen"
+CAPTION "Signatur eines Dokuments erstellen"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Signieren",IDOK,11,347,93,20
@@ -11417,7 +11417,7 @@ END
 
 IDD_SIGNATURE DIALOGEX 0, 0, 388, 377
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Sign a Message"
+CAPTION "Sign a Document"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Sign",IDOK,11,347,93,20
@@ -15270,7 +15270,7 @@ BEGIN
             MENUITEM "&Key Generation/Import...",   ID_CRYPT_KeyGen
             MENUITEM "&Key Display/Export...",      ID_SHOW_ALL_EC_KEYS
         END
-        MENUITEM "&Sign Message...",            ID_CRYPT_SIGN, GRAYED
+        MENUITEM "&Sign Document...",            ID_CRYPT_SIGN, GRAYED
         MENUITEM "&Verify Signature...",        ID_CRYPT_VERIFY, GRAYED
         MENUITEM "&Extract Signature",          ID_CRYPT_EXTRACT, GRAYED
         MENUITEM "&Signature Demonstration (Signature Generation)...", 
@@ -15635,7 +15635,7 @@ BEGIN
             MENUITEM "&Key Generation/Import...",   ID_CRYPT_KeyGen
             MENUITEM "&Key Display/Export...",      ID_SHOW_ALL_EC_KEYS
         END
-        MENUITEM "&Sign Message...",            ID_CRYPT_SIGN
+        MENUITEM "&Sign Document...",            ID_CRYPT_SIGN
         MENUITEM "&Verify Signature...",        ID_CRYPT_VERIFY
         MENUITEM "&Extract Signature",          ID_CRYPT_EXTRACT
         MENUITEM "&Signature Demonstration (Signature Generation)...", 
@@ -15989,7 +15989,7 @@ BEGIN
             MENUITEM "&Key Generation/Import...",   ID_CRYPT_KeyGen
             MENUITEM "&Key Display/Export...",      ID_SHOW_ALL_EC_KEYS
         END
-        MENUITEM "&Sign Message...",            ID_CRYPT_SIGN, GRAYED
+        MENUITEM "&Sign Document...",            ID_CRYPT_SIGN, GRAYED
         MENUITEM "&Verify Signature...",        ID_CRYPT_VERIFY, GRAYED
         MENUITEM "&Extract Signature",          ID_CRYPT_EXTRACT, GRAYED
         MENUITEM "&Signature Demonstration (Signature Generation)...", 
@@ -16351,7 +16351,7 @@ BEGIN
             MENUITEM "&Key Generation/Import...",   ID_CRYPT_KeyGen
             MENUITEM "&Key Display/Export...",      ID_SHOW_ALL_EC_KEYS
         END
-        MENUITEM "&Sign Message...",            ID_CRYPT_SIGN
+        MENUITEM "&Sign Document...",            ID_CRYPT_SIGN
         MENUITEM "&Verify Signature...",        ID_CRYPT_VERIFY
         MENUITEM "&Extract Signature",          ID_CRYPT_EXTRACT
         MENUITEM "&Signature Demonstration (Signature Generation)...", 
@@ -16740,7 +16740,7 @@ BEGIN
             MENUITEM "&Key Generation/Import...",   ID_CRYPT_KeyGen
             MENUITEM "&Key Display/Export...",      ID_SHOW_ALL_EC_KEYS
         END
-        MENUITEM "&Sign Message...",            ID_CRYPT_SIGN, GRAYED
+        MENUITEM "&Sign Document...",            ID_CRYPT_SIGN, GRAYED
         MENUITEM "&Verify Signature...",        ID_CRYPT_VERIFY, GRAYED
         MENUITEM "&Extract Signature",          ID_CRYPT_EXTRACT, GRAYED
         MENUITEM "&Signature Demonstration (Signature Generation)...", 
