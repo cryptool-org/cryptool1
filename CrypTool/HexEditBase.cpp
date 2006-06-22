@@ -755,7 +755,7 @@ void CHexEditBase::PaintHexData(CDC& cDC)
 
 void CHexEditBase::PaintAsciiData(CDC& cDC)
 {
-	ASSERT(m_tPaintDetails.nBytesPerRow > 0);
+ASSERT(m_tPaintDetails.nBytesPerRow > 0);
 	ASSERT(m_tPaintDetails.nBytesPerRow < 512);
 
 	if((m_nLength < 1) || (m_pData == NULL)) {
@@ -770,6 +770,21 @@ void CHexEditBase::PaintAsciiData(CDC& cDC)
 	CBrush cBkgBrush;
 	BYTE *pDataPtr;
 	BYTE *pDataPtrEnd;
+
+	UINT nSelectionCount = 0;
+	POINT pHighlightPolygon[MAX_HIGHLIGHT_POLYPOINTS];
+	CBrush *pOldBrush = NULL;
+	CPen *pOldPen;
+	BYTE *pHighlightedPtrBegin;
+	BYTE *pHighlightedPtrEnd;
+	BYTE *pSelectionPtrBegin;
+	BYTE *pSelectionPtrEnd;
+	BYTE *pEndDataPtr;
+	BYTE *pEndLineDataPtr;
+	char *pSelectionBufPtrBegin;
+	char *pSelectionBufPtrEnd;
+	char *pHighlightedBufPtrBegin;
+	char *pHighlightedBufPtrEnd;
 	
 	memset(pBuf, '\0', m_tPaintDetails.nBytesPerRow+1);
 
@@ -780,6 +795,40 @@ void CHexEditBase::PaintAsciiData(CDC& cDC)
 	cDC.FillRect(cAsciiRect, &cBkgBrush);
 	cAsciiRect.bottom = cAsciiRect.top + m_tPaintDetails.nLineHeight;
 
+	//highlighting section
+	if((m_nHighlightedBegin != NOSECTION_VAL) && (m_nHighlightedEnd != NOSECTION_VAL)){
+		nSelectionCount = CreateHighlightingPolygons(cAsciiRect,m_nHighlightedBegin,m_nHighlightedEnd,pHighlightPolygon);
+		CBrush cBrush(m_tHighlightBkgCol);
+		CPen cPen(PS_SOLID,1,m_tHighlightFrameCol);
+		pOldBrush = cDC.SelectObject(&cBrush);
+		pOldPen = cDC.SelectObject(&cPen);
+		cDC.Polygon(pHighlightPolygon,nSelectionCount);
+		if(pOldBrush != NULL){
+			cDC.SelectObject(pOldBrush);
+		}
+		if(pOldPen != NULL){
+			cDC.SelectObject(pOldPen);
+		}
+		pHighlightedPtrBegin = m_pData + m_nHighlightedBegin;
+		pHighlightedPtrEnd = m_pData + m_nHighlightedEnd;
+	}
+	else{
+		pHighlightedPtrBegin = m_pData + m_nHighlightedBegin;
+		pHighlightedPtrEnd = m_pData + m_nHighlightedEnd;
+	}
+	// selection (pointers)
+	if( (m_nSelectionBegin != NOSECTION_VAL) && (m_nSelectionEnd != NOSECTION_VAL) ) {
+		pSelectionPtrBegin = m_pData + m_nSelectionBegin;
+		pSelectionPtrEnd = m_pData + m_nSelectionEnd;
+	} else {
+		pSelectionPtrBegin = NULL;
+		pSelectionPtrEnd = NULL;
+	}
+	//highlighting section
+
+
+
+
 	// start & end-address
 	nAdr = m_nScrollPostionY * m_tPaintDetails.nBytesPerRow;
 	nEndAdr = nAdr + m_tPaintDetails.nVisibleLines*m_tPaintDetails.nBytesPerRow;
@@ -788,8 +837,13 @@ void CHexEditBase::PaintAsciiData(CDC& cDC)
 	}
 	pDataPtr = m_pData + nAdr;
 
+	pEndDataPtr = m_pData + nEndAdr;  //pEndDataPtr = m_pData + nEndAdr;
+	if((m_nHighlightedBegin != NOSECTION_VAL) && (m_nHighlightedEnd != NOSECTION_VAL)){
+	}
+
+
 	//  paint
-	cDC.SetBkMode(OPAQUE);
+	cDC.SetBkMode(TRANSPARENT);
 	cDC.SetTextColor(m_tAsciiTxtCol);
 	cDC.SetBkColor(m_tAsciiBkgCol);
 	for(; nAdr<=nEndAdr; nAdr+=m_tPaintDetails.nBytesPerRow) {
@@ -797,13 +851,99 @@ void CHexEditBase::PaintAsciiData(CDC& cDC)
 		if(pDataPtrEnd > m_pData + nEndAdr) {
 			pDataPtrEnd = m_pData + nEndAdr+1;
 		}
+
+		pSelectionBufPtrBegin = NULL;
+		pSelectionBufPtrEnd = NULL;
+		pHighlightedBufPtrBegin = NULL;
+		pHighlightedBufPtrEnd = NULL;
+		if( (pDataPtr >= pSelectionPtrBegin) && (pDataPtr <= pSelectionPtrEnd) ) {
+			pSelectionBufPtrBegin = pBuf;
+		}
+		if( (pDataPtr >= pHighlightedPtrBegin) && (pDataPtr <= pHighlightedPtrEnd) ) {
+			pHighlightedBufPtrBegin = pBuf;
+		}
+
 		for(pBufPtr=pBuf; pDataPtr<pDataPtrEnd; ++pDataPtr, ++pBufPtr) {
+
+			if(pDataPtr == pSelectionPtrBegin) {
+				pSelectionBufPtrBegin = pBufPtr;
+			}
+			if(pDataPtr == pSelectionPtrEnd) {
+				if(pSelectionBufPtrBegin == NULL) {
+					pSelectionBufPtrBegin = pBuf;
+				}
+				pSelectionBufPtrEnd = pBufPtr + 1;
+			}
+			if(pDataPtr == pHighlightedPtrBegin) {
+				pHighlightedBufPtrBegin = pBufPtr;
+			}
+			if(pDataPtr == pHighlightedPtrEnd) {
+				if(pHighlightedBufPtrBegin == NULL) {
+					pHighlightedBufPtrBegin = pBuf;
+				}
+				pHighlightedBufPtrEnd = pBufPtr + 1;
+			}
+
 			*pBufPtr = isprint(*pDataPtr) ? (char)*pDataPtr : '.';
 		}
 		*pBufPtr = '\0';
+
+		// set end-pointers
+		if(pHighlightedBufPtrEnd == NULL) {
+			pHighlightedBufPtrEnd = pBufPtr;
+		}
+		if(pSelectionBufPtrEnd == NULL) {
+			pSelectionBufPtrEnd = pBufPtr;
+		}
+
+		cDC.SetTextColor(m_tAsciiTxtCol); 
 		cDC.DrawText(pBuf, (LPRECT)cAsciiRect, DT_LEFT|DT_TOP|DT_SINGLELINE|DT_NOPREFIX);
+
+
+		 //highlighted section now
+		if(pHighlightedBufPtrBegin != NULL) {
+			CRect cRect(cAsciiRect);
+			cRect.left += (pHighlightedBufPtrBegin-pBuf) * m_tPaintDetails.nCharacterWidth;
+			*pHighlightedBufPtrEnd = '\0'; // set "end-mark"
+			cDC.SetTextColor(m_tHighlightTxtCol);
+			cDC.SetBkColor(m_tHighlightBkgCol);
+			cDC.DrawText(pHighlightedBufPtrBegin, (LPRECT)cRect, DT_LEFT|DT_TOP|DT_SINGLELINE|DT_NOPREFIX);
+			*pHighlightedBufPtrEnd = ' '; // restore the buffer
+		}
+		
+		//// selection
+		if(pSelectionBufPtrBegin != NULL) {
+			bool bHasFocus = GetFocus() == this;
+			if(bHasFocus || (GetStyle() & ES_MULTILINE)) { // todo: flag für show selection always
+				CRect cRect(cAsciiRect);
+				cRect.left += (pSelectionBufPtrBegin-pBuf) * m_tPaintDetails.nCharacterWidth;
+				cRect.right -= (pBuf + m_tPaintDetails.nBytesPerRow - pSelectionBufPtrEnd)*m_tPaintDetails.nCharacterWidth;
+				CRect cSelectionRect(cRect);
+				cSelectionRect.InflateRect(0, -1, +1, 0);
+				cDC.FillRect(cSelectionRect, &CBrush(bHasFocus ? m_tSelectedFousBkgCol : m_tSelectedNoFocusBkgCol));
+				*pSelectionBufPtrEnd = '\0'; // set "end-mark"
+				cDC.SetTextColor(bHasFocus ? m_tSelectedFousTxtCol : m_tSelectedNoFocusTxtCol);
+				cDC.SetBkColor(m_tHighlightBkgCol);
+				cDC.DrawText(pSelectionBufPtrBegin, (LPRECT)cRect, DT_LEFT|DT_TOP|DT_SINGLELINE|DT_NOPREFIX);
+				*pSelectionBufPtrEnd = ' '; // restore the buffer
+			}
+		}
+
 		cAsciiRect.OffsetRect(0, m_tPaintDetails.nLineHeight);
 	}
+
+	if( (m_nHighlightedBegin != NOSECTION_VAL) && (m_nHighlightedEnd != NOSECTION_VAL) ) {
+		CPen cPen(PS_SOLID, 1, m_tHighlightFrameCol);
+		pOldPen = cDC.SelectObject(&cPen);
+		cDC.Polyline(pHighlightPolygon, nSelectionCount);
+		if(pOldBrush != NULL) {
+			cDC.SelectObject(pOldBrush);
+		}
+		if(pOldPen != NULL) {
+			cDC.SelectObject(pOldPen);
+		}
+	}
+
 }
 
 void CHexEditBase::OnPaint() 
@@ -990,6 +1130,7 @@ void CHexEditBase::MoveScrollPostionX(int iDelta, bool bUpdate)
 
 void CHexEditBase::GetAddressFromPoint(const CPoint& cPt, UINT& nAddress, bool& bHighBits)
 {	
+	bool bAscii = false;
 	CPoint cPoint(cPt);
 	cPoint.x += m_nScrollPostionX;
 	cPoint.y -= m_tPaintDetails.cPaintingRect.top;
@@ -1003,19 +1144,31 @@ void CHexEditBase::GetAddressFromPoint(const CPoint& cPt, UINT& nAddress, bool& 
 	} else if(cPoint.y > (int)(m_tPaintDetails.nVisibleLines*m_tPaintDetails.nLineHeight)) {
 		cPoint.y = m_tPaintDetails.nVisibleLines*m_tPaintDetails.nLineHeight;
 	}
-	if((int)cPoint.x < (int)m_tPaintDetails.nHexPos) {
+
+	if((int)cPoint.x < (int)m_tPaintDetails.nHexPos){
 		cPoint.x = m_tPaintDetails.nHexPos;
-	} else if(cPoint.x > (int)(m_tPaintDetails.nHexPos + m_tPaintDetails.nHexLen - DATA_ASCII_SPACE)) {
-		cPoint.x = m_tPaintDetails.nHexPos + m_tPaintDetails.nHexLen - DATA_ASCII_SPACE;
 	}
-	cPoint.x -= m_tPaintDetails.nHexPos;
+
+	if((int)cPoint.x > (int)(m_tPaintDetails.nAsciiPos)){
+		cPoint.x -= m_tPaintDetails.nAsciiPos;
+		bAscii = true;
+	}
+	else
+		cPoint.x -= m_tPaintDetails.nHexPos;
+
 	UINT nRow = cPoint.y / m_tPaintDetails.nLineHeight;
-	UINT nCharColumn  = cPoint.x / m_tPaintDetails.nCharacterWidth;
-	UINT nColumn = nCharColumn / 3;
+	UINT nCharColumn  = cPoint.x / m_tPaintDetails.nCharacterWidth ;
+	UINT nColumn;
+	
+	if(bAscii)
+		nColumn = nCharColumn;
+	else
+		nColumn = nCharColumn / 3;
+
 	bHighBits = nCharColumn % 3 == 0;
 	nAddress = nColumn + (nRow + m_nScrollPostionY) * m_tPaintDetails.nBytesPerRow;
-	if(nAddress >= GetDataSize1()) {
-		nAddress = GetDataSize1() - 1;
+	if(nAddress >= m_nLength) {
+		nAddress = m_nLength - 1;
 		bHighBits = false;
 	}
 }
@@ -1102,11 +1255,14 @@ void CHexEditBase::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar*)
 
 void CHexEditBase::SetEditCaretPos(UINT nOffset, bool bHighBits)
 {	
-	ASSERT(::IsWindow(m_hWnd));
+ASSERT(::IsWindow(m_hWnd));
 	
 	m_nCurrentAddress = nOffset;
 	m_bHighBits = bHighBits;
 		
+	if((m_pData == NULL) || (m_nLength == NULL) ) {
+		return;
+	}	
 	if(m_bRecalc) {
 		CalculatePaintingDetails(CClientDC(this));
 	}
@@ -1132,10 +1288,12 @@ void CHexEditBase::SetEditCaretPos(UINT nOffset, bool bHighBits)
 	} else {
 		nCarretHeight = m_tPaintDetails.nLineHeight;
 	}
+
 	CPoint cCarretPoint(m_tPaintDetails.cPaintingRect.left 
 		- m_nScrollPostionX + m_tPaintDetails.nHexPos 
 		+ (nColumn * 3 + (bHighBits ? 0 : 1)) * m_tPaintDetails.nCharacterWidth,
 		m_tPaintDetails.cPaintingRect.top + 1 + nRow * m_tPaintDetails.nLineHeight);
+	
 	if( (cCarretPoint.x + (short)m_tPaintDetails.nCharacterWidth <= m_tPaintDetails.cPaintingRect.left-2 ) 
 		|| (cCarretPoint.x > m_tPaintDetails.cPaintingRect.right) ) {
 		// we can't see it
@@ -1150,7 +1308,7 @@ void CHexEditBase::SetEditCaretPos(UINT nOffset, bool bHighBits)
 		nCarretWidth = m_tPaintDetails.cPaintingRect.right + 2 - cCarretPoint.x;
 	}
 
-	CreateEditCaret(nCarretHeight-1, m_bInsert ? 1 : nCarretWidth);
+	CreateEditCaret(nCarretHeight-1, nCarretWidth);
 	SetCaretPos(cCarretPoint);
 	ShowCaret();
 }
@@ -1197,8 +1355,11 @@ BOOL CHexEditBase::OnEraseBkgnd(CDC*)
 void CHexEditBase::OnLButtonDown(UINT, CPoint point) 
 {
 	SetFocus();
+	
 	GetAddressFromPoint(point, m_nCurrentAddress, m_bHighBits);
 	SetEditCaretPos(m_nCurrentAddress, m_bHighBits);
+
+		
 	int iDragCX = GetSystemMetrics(SM_CXDRAG);
 	int iDragCY = GetSystemMetrics(SM_CYDRAG);
 	m_cDragRect = CRect(point.x - (iDragCX>>1), point.y - (iDragCY>>1),
@@ -1833,8 +1994,9 @@ void CHexEditBase::OnEditPaste()
 		m_bRecalc = true;
 		m_nLength = nTargetLength;
 	}
-	SetSelection(nPasteAdr, nPasteAdr+nLength-1, true, false);
-	SetEditCaretPos(nPasteAdr+nLength-1, false);
+	//Comment for working multiple Paste
+	//SetSelection(nPasteAdr, nPasteAdr+nLength-1, true, false);
+	//SetEditCaretPos(nPasteAdr+nLength-1, false);
 	Invalidate();
 	if(nLength>0) {
 		NotifyParent(HEN_CHANGE);
