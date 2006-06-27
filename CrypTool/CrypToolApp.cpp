@@ -101,6 +101,7 @@ statement from your version.
 #include "DlgCrtAstronomy.h"
 #include "DlgCrtTransformation.h"
 #include "DlgCrtSecretSharing.h"
+#include "DlgSecretSharingSetup.h"
 
 // #if !defined(_MSC_VER) || _MSC_VER <= 1200
 #include "RSABloemerMayDlg.h"
@@ -168,17 +169,18 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_COMMAND(ID_SCRIPT, OnScript)
 	ON_COMMAND(ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION, OnEinzelverfahrenSidechannelattackOnHybridencryption)
 	ON_COMMAND(ID_CHALLENGE_RESPONSE, OnChallengeResponse)
-// #if !defined(_MSC_VER) || _MSC_VER <= 1200  
 	ON_COMMAND(ID_RSA_FACTORHINT, OnRsaFactorhint)
 	ON_COMMAND(ID_RSA_STEREOTYPED, OnRsaStereotyped)
 	ON_COMMAND(ID_RSA_BLOEMERMAY, OnRsaBloemermay)
-// #endif
 	ON_COMMAND(ID_HELP_ANIMAL_CAESAR, OnAnimalCaesar)
 	ON_COMMAND(ID_HELP_ANIMAL_VIGENERE, OnAnimalVigenere)
 	ON_COMMAND(ID_HELP_ANIMAL_NIHILIST, OnAnimalNihilist)
 	ON_COMMAND(ID_HELP_ANIMAL_DES, OnAnimalDes)
 	ON_COMMAND(ID_INDIV_CRT_PLANET, OnIndivCrtPlanet)
 	ON_COMMAND(ID_INDIV_CRT_DEMO, OnIndivCrtDemo)
+	ON_COMMAND(ID_INDIV_CRT_SECRETSHARING, OnIndivCrtSecretsharing)
+	ON_COMMAND(ID_NUMBERSHARK, OnNumberShark)
+	ON_UPDATE_COMMAND_UI(ID_NUMBERSHARK, OnUpdateNumberShark)
 	ON_UPDATE_COMMAND_UI(ID_SHOW_ALL_EC_KEYS, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_KeyGen, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnUpdateNeedSecudeTicket)
@@ -186,9 +188,7 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_UPDATE_COMMAND_UI(ID_HASH_OFAFILE, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SIGN, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN, OnUpdateNeedSecudeTicket)
-	ON_COMMAND(ID_INDIV_CRT_SECRETSHARING, OnIndivCrtSecretsharing)
-	ON_COMMAND(ID_NUMBERSHARK, OnNumberShark)
-	ON_UPDATE_COMMAND_UI(ID_NUMBERSHARK, OnUpdateNumberShark)
+	ON_COMMAND(ID_INDIVIDUAL_PROCEDURES_SECRETSHARING, OnIndividualProceduresSecretsharing)
 	//}}AFX_MSG_MAP
 
 	//ON_COMMAND(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnVerentschlsselnHybridverfahrenHybridverschlsselung)
@@ -1149,4 +1149,11 @@ void CCrypToolApp::callHtmlHelp(UINT uCommand, DWORD dwData)
 #else
 		HtmlHelp(dwData, uCommand);
 #endif
+}
+
+void CCrypToolApp::OnIndividualProceduresSecretsharing() 
+{
+	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
+	CDlgSecretSharingSetup demoSetup;
+	demoSetup.DoModal();
 }

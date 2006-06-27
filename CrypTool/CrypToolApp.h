@@ -142,12 +142,9 @@ class CCrypToolApp : public CWinApp
 	afx_msg void OnScript();
 	afx_msg void OnEinzelverfahrenSidechannelattackOnHybridencryption();
 	afx_msg void OnChallengeResponse();
-// #if !defined(_MSC_VER) || _MSC_VER <= 1200  
-
 	afx_msg void OnRsaFactorhint();
 	afx_msg void OnRsaStereotyped();
 	afx_msg void OnRsaBloemermay();
-// #endif
 	afx_msg void OnAnimalCaesar();
 	afx_msg void OnAnimalVigenere();
 	afx_msg void OnAnimalNihilist();
@@ -157,6 +154,7 @@ class CCrypToolApp : public CWinApp
 	afx_msg void OnIndivCrtSecretsharing();
 	afx_msg void OnNumberShark();
 	afx_msg void OnUpdateNumberShark(CCmdUI* pCmdUI);
+	afx_msg void OnIndividualProceduresSecretsharing();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 public:

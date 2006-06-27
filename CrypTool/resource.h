@@ -1,5 +1,5 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Visual C++ generated include file.
+// Microsoft Developer Studio generated include file.
 // Used by CrypTool.rc
 //
 #define IDS_FINDANDREPLACE_HEXNOTIMPLEMENTED 1
@@ -253,7 +253,12 @@
 #define IDR_HTML_DLGSOLITAIRE           836
 #define IDB_CRT_DOWN_F                  836
 #define IDB_CRT_DOWN_FSTR               837
-#define IDS_CT_FILE_OPEN_ERROR          840
+#define IDS_CT_FILE_OPEN_ERROR          838
+#define IDD_SECRETSHARING_INTRO         839
+#define IDD_SECRETSHARING_OPTIONS       840
+#define IDD_SECRETSHARING_SETUP         841
+#define IDD_SECRETSHARING_PARAMETER     842
+#define IDD_SECRETSHARING_REVEAL        843
 #define IDC_EDIT133                     1015
 #define IDC_EDIT1                       1016
 #define IDC_EDIT2                       1017
@@ -1234,6 +1239,36 @@
 #define IDC_CRT_Radio_AUT               1905
 #define IDC_CRT_RADIO_MAN               1906
 #define IDC_CRT_Calculation             1907
+#define IDC_EDIT_PARTICIPANTS           1909
+#define IDC_EDIT_THRESHOLD              1910
+#define IDC_BUTTON_EXAMPLE              1911
+#define IDC_BUTTON_OPT                  1912
+#define IDC_BUTTON_CHANGE               1913
+#define IDC_EDIT_POLYNOM                1914
+#define IDC_EDIT_MOD                    1915
+#define IDC_BUTTON_UPDATE               1916
+#define IDC_LIST_SHARES                 1917
+#define IDC_CHECK_SHOWINTRO             1918
+#define IDC_STATIC_PARAMETER            1919
+#define IDC_STATIC_PARTICIPANTS         1920
+#define IDC_STATIC_THRESHOLD            1921
+#define IDC_STATIC_POLYNOM              1922
+#define IDC_STATIC_MOD                  1923
+#define IDC_CHECK_HIDEINTRO             1924
+#define IDC_LIST_PARTICIPANT            1925
+#define IDC_EDIT_SECRET                 1926
+#define IDC_BUTTON_LOG                  1927
+#define IDC_EDIT_LIMIT                  1928
+#define IDC_EDIT_PRIME                  1929
+#define IDB_GENERATENEW                 1930
+#define IDC_EDIT_MYPRIME                1931
+#define IDC_EDIT_MYCOEFF                1932
+#define IDC_EDIT_K                      1933
+#define IDC_EDIT_N                      1934
+#define IDC_EDIT_T                      1935
+#define IDC_LIST_PARTICIPANTS           1936
+#define IDC_STATIC_SECRET               1937
+#define IDC_CHECK_SHOWAGAIN             1938
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -1598,6 +1633,7 @@
 #define ID_NUMBERSHARK                  33326
 #define ID_INDIV_GAMES                  33327
 #define ID_GAMES_NUMBERSHARK            33328
+#define ID_INDIVIDUAL_PROCEDURES_SECRETSHARING 33329
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -2415,6 +2451,31 @@
 #define IDS_CRT_SECRETSHARING_FACTS3    38082
 #define IDS_CRT_SECRETSHARING_LOGTITLE  38083
 #define IDS_CRT_SECRETSHARING_LOGWRITTEN 38084
+#define ID_EINZELVERFAHREN_SECRETSHARINGDEMO 38085
+#define IDS_STRING_MEMBER               38086
+#define IDS_STRING_VALUESS              38087
+#define IDS_STRING_SECRETSHARING_EMPTY  38088
+#define IDS_STRING_SECRETSHARING_THRESHOLD 38089
+#define IDS_STRING_SECRETSHARING_PARTICIPANTS 38090
+#define IDS_STRING_SECRETSHARING_LESS   38091
+#define IDS_STRING_LOGSS_1              38092
+#define IDS_STRING_LOGSS_2A             38093
+#define IDS_STRING_LOGSS_4              38094
+#define IDS_STRING_LOGSS_5              38095
+#define IDS_STRING_LOGSS_6              38096
+#define IDS_STRING_LOGSS_7              38097
+#define IDS_STRING_LOGSS_8              38098
+#define IDS_STRING_SECRETSHARING_SMALLPRIME 38099
+#define IDS_STRING_LOGSS_2B             38100
+#define IDS_STRING_LOGSS_3A             38101
+#define IDS_STRING_LOGSS_3B             38102
+#define IDS_STRING_SECRETSHARING_NOPRIME 38103
+#define IDS_STRING_SECRETSHARING_PRIMELESS 38104
+#define IDS_STRING_SECRETSHARING_EXCEEDSLIMIT 38105
+#define IDS_STRING_SECRETSHARING_MORECOEFF 38106
+#define IDS_STRING_SECRETSHARING_BIGCOEFF 38107
+#define IDS_STRING_SECRETSHARING_NOINPUT 38108
+#define IDS_STRING_SHARE                38109
 #define IDS_DH_LOG_1                    61889
 #define IDS_DH_LOG_2                    61890
 #define IDS_DH_LOG_3                    61891
@@ -2538,7 +2599,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        838
-#define _APS_NEXT_COMMAND_VALUE         33329
+#define _APS_NEXT_COMMAND_VALUE         33330
 #define _APS_NEXT_CONTROL_VALUE         1889
 #define _APS_NEXT_SYMED_VALUE           107
 #endif
