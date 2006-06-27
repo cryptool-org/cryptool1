@@ -120,6 +120,7 @@ BOOL CDlgOptionsSignatureAttack::OnInitDialog()
 
 	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
 	{
+		char strBuffer[20];
 		unsigned long u_hashalgorithm_ID = 0;
 		CT_READ_REGISTRY_DEFAULT(u_hashalgorithm_ID, "SignatureAttackHashAlgorithmID", u_hashalgorithm_ID);
 		if (u_hashalgorithm_ID < 0 || u_hashalgorithm_ID > 5) 
@@ -131,7 +132,8 @@ BOOL CDlgOptionsSignatureAttack::OnInitDialog()
 
 		unsigned long u_bitLength = _OPT_SIG_ATT_STANDARD_BITLENGTH;
 		CT_READ_REGISTRY_DEFAULT(u_bitLength, "SignatureAttackSignificantBitLength", u_bitLength);
-		m_bitlength = CString(_itoa(u_bitLength, NULL, 10));
+		_itoa(u_bitLength, strBuffer, 10);
+		m_bitlength = strBuffer;
 
 		unsigned long u_mod_method = 0;
 		CT_READ_REGISTRY_DEFAULT(u_mod_method, "SignatureAttackModificationMethod", u_mod_method);
@@ -302,8 +304,10 @@ void CDlgOptionsSignatureAttack::OnResetToDefault()
 {
 	UpdateData(TRUE);
 
-	m_hashalgorithm = 0;
-	m_bitlength = itoa(_OPT_SIG_ATT_STANDARD_BITLENGTH, NULL, 10);
+	char strBuffer[20];
+	m_hashalgorithm = 0; 
+	_itoa(_OPT_SIG_ATT_STANDARD_BITLENGTH, strBuffer, 10);
+	m_bitlength = strBuffer;
 	m_mod_method = 0;
 	m_control_check1.SetCheck(1);
 	m_control_check1.EnableWindow(TRUE);
