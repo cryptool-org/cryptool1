@@ -200,6 +200,7 @@ private:
 	void execAnimalVisualization(int animalPathID, int animalFileID, int animalExecutableID, int animalLocaleID);
 public:
 	virtual BOOL OnDDECommand(LPTSTR lpszCommand);
+	afx_msg void OnPrimenumberTest();
 };
 
 class CMainFrame : public CMDIFrameWnd

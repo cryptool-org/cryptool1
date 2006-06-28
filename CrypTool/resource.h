@@ -1,5 +1,5 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Developer Studio generated include file.
+// Microsoft Visual C++ generated include file.
 // Used by CrypTool.rc
 //
 #define IDS_FINDANDREPLACE_HEXNOTIMPLEMENTED 1
@@ -1658,6 +1658,7 @@
 #define ID_INDIV_GAMES                  33327
 #define ID_GAMES_NUMBERSHARK            33328
 #define ID_INDIVIDUAL_PROCEDURES_SECRETSHARING 33329
+#define ID_RSA_PRIMZAHLTEST             33330
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -2629,7 +2630,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        845
-#define _APS_NEXT_COMMAND_VALUE         33330
+#define _APS_NEXT_COMMAND_VALUE         33332
 #define _APS_NEXT_CONTROL_VALUE         1889
 #define _APS_NEXT_SYMED_VALUE           107
 #endif

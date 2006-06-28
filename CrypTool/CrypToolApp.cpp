@@ -102,6 +102,7 @@ statement from your version.
 #include "DlgCrtTransformation.h"
 #include "DlgCrtSecretSharing.h"
 #include "DlgSecretSharingSetup.h"
+#include "DlgPrimeTest.h"
 
 // #if !defined(_MSC_VER) || _MSC_VER <= 1200
 #include "RSABloemerMayDlg.h"
@@ -203,6 +204,7 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_COMMAND(ID_DEFAULT_HELP, CWinApp::OnHelpFinder)
 
 // ENDE
+ON_COMMAND(ID_PRIMENUMBER_TEST, OnPrimenumberTest)
 END_MESSAGE_MAP()
 
 BOOL CCrypToolApp::InitInstance()
@@ -1156,4 +1158,11 @@ void CCrypToolApp::OnIndividualProceduresSecretsharing()
 	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
 	CDlgSecretSharingSetup demoSetup;
 	demoSetup.DoModal();
+}
+
+void CCrypToolApp::OnPrimenumberTest()
+{
+	// TODO: Fügen Sie hier Ihren Befehlsbehandlungscode ein.
+	CDlgPrimeTest dialg;
+	dialg.DoModal();
 }
