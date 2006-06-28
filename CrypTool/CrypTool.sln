@@ -15,12 +15,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aestool", "..\aestool\aesto
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NumberShark", "..\NumberShark\MFC-ZahlenHai.vcproj", "{3259C909-87A3-4DF2-9C47-F71417DCC0CB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFC-ZahlenHai", "..\NumberShark\MFC-ZahlenHai.vcproj", "{3259C909-87A3-4DF2-9C47-F71417DCC0CB}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrypTool", "CrypTool.vcproj", "{69DC472B-0478-4027-B331-B85CF457392E}"
 	ProjectSection(ProjectDependencies) = postProject
+		{18E87C14-7876-411D-A281-BC03C19D72AC} = {18E87C14-7876-411D-A281-BC03C19D72AC}
 		{D11F006A-BAEF-43B8-8EF6-FED5021E17F2} = {D11F006A-BAEF-43B8-8EF6-FED5021E17F2}
 		{B835E875-5E34-46B9-B507-D0462C92D87A} = {B835E875-5E34-46B9-B507-D0462C92D87A}
 		{5EAE4FD1-DCD7-4CE8-A988-1700249BBF04} = {5EAE4FD1-DCD7-4CE8-A988-1700249BBF04}
@@ -38,6 +39,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hlp_en", "hlp_en\hlp_en.vcp
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libNTL", "..\libNTL\libNTL.vcproj", "{D11F006A-BAEF-43B8-8EF6-FED5021E17F2}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gmp", "..\libgmp\gmp.vcproj", "{18E87C14-7876-411D-A281-BC03C19D72AC}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
@@ -99,6 +104,18 @@ Global
 		{3259C909-87A3-4DF2-9C47-F71417DCC0CB}.Release_de.Build.0 = Release_aes_de|Win32
 		{3259C909-87A3-4DF2-9C47-F71417DCC0CB}.Release_en.ActiveCfg = Release_aes_en|Win32
 		{3259C909-87A3-4DF2-9C47-F71417DCC0CB}.Release_en.Build.0 = Release_aes_en|Win32
+		{3259C909-87A3-4DF2-9C47-F71417DCC0CB}.Debug.ActiveCfg = Debug|Win32
+		{3259C909-87A3-4DF2-9C47-F71417DCC0CB}.Debug.Build.0 = Debug|Win32
+		{3259C909-87A3-4DF2-9C47-F71417DCC0CB}.Release.ActiveCfg = Release|Win32
+		{3259C909-87A3-4DF2-9C47-F71417DCC0CB}.Release.Build.0 = Release|Win32
+		{3259C909-87A3-4DF2-9C47-F71417DCC0CB}.Release_aes_de.ActiveCfg = Release_aes_de|Win32
+		{3259C909-87A3-4DF2-9C47-F71417DCC0CB}.Release_aes_de.Build.0 = Release_aes_de|Win32
+		{3259C909-87A3-4DF2-9C47-F71417DCC0CB}.Release_aes_en.ActiveCfg = Release_aes_en|Win32
+		{3259C909-87A3-4DF2-9C47-F71417DCC0CB}.Release_aes_en.Build.0 = Release_aes_en|Win32
+		{3259C909-87A3-4DF2-9C47-F71417DCC0CB}.Release_de.ActiveCfg = Release_aes_de|Win32
+		{3259C909-87A3-4DF2-9C47-F71417DCC0CB}.Release_de.Build.0 = Release_aes_de|Win32
+		{3259C909-87A3-4DF2-9C47-F71417DCC0CB}.Release_en.ActiveCfg = Release_aes_en|Win32
+		{3259C909-87A3-4DF2-9C47-F71417DCC0CB}.Release_en.Build.0 = Release_aes_en|Win32
 		{69DC472B-0478-4027-B331-B85CF457392E}.Debug.ActiveCfg = Debug|Win32
 		{69DC472B-0478-4027-B331-B85CF457392E}.Debug.Build.0 = Debug|Win32
 		{69DC472B-0478-4027-B331-B85CF457392E}.Release.ActiveCfg = Release|Win32
@@ -147,6 +164,18 @@ Global
 		{D11F006A-BAEF-43B8-8EF6-FED5021E17F2}.Release_de.Build.0 = Release|Win32
 		{D11F006A-BAEF-43B8-8EF6-FED5021E17F2}.Release_en.ActiveCfg = Release|Win32
 		{D11F006A-BAEF-43B8-8EF6-FED5021E17F2}.Release_en.Build.0 = Release|Win32
+		{18E87C14-7876-411D-A281-BC03C19D72AC}.Debug.ActiveCfg = Debug|Win32
+		{18E87C14-7876-411D-A281-BC03C19D72AC}.Debug.Build.0 = Debug|Win32
+		{18E87C14-7876-411D-A281-BC03C19D72AC}.Release.ActiveCfg = Release|Win32
+		{18E87C14-7876-411D-A281-BC03C19D72AC}.Release.Build.0 = Release|Win32
+		{18E87C14-7876-411D-A281-BC03C19D72AC}.Release_aes_de.ActiveCfg = Release|Win32
+		{18E87C14-7876-411D-A281-BC03C19D72AC}.Release_aes_de.Build.0 = Release|Win32
+		{18E87C14-7876-411D-A281-BC03C19D72AC}.Release_aes_en.ActiveCfg = Release|Win32
+		{18E87C14-7876-411D-A281-BC03C19D72AC}.Release_aes_en.Build.0 = Release|Win32
+		{18E87C14-7876-411D-A281-BC03C19D72AC}.Release_de.ActiveCfg = Release|Win32
+		{18E87C14-7876-411D-A281-BC03C19D72AC}.Release_de.Build.0 = Release|Win32
+		{18E87C14-7876-411D-A281-BC03C19D72AC}.Release_en.ActiveCfg = Release|Win32
+		{18E87C14-7876-411D-A281-BC03C19D72AC}.Release_en.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection
