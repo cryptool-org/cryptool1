@@ -780,7 +780,6 @@ ASSERT(m_tPaintDetails.nBytesPerRow > 0);
 	BYTE *pSelectionPtrBegin;
 	BYTE *pSelectionPtrEnd;
 	BYTE *pEndDataPtr;
-	BYTE *pEndLineDataPtr;
 	char *pSelectionBufPtrBegin;
 	char *pSelectionBufPtrEnd;
 	char *pHighlightedBufPtrBegin;
@@ -1167,8 +1166,8 @@ void CHexEditBase::GetAddressFromPoint(const CPoint& cPt, UINT& nAddress, bool& 
 
 	bHighBits = nCharColumn % 3 == 0;
 	nAddress = nColumn + (nRow + m_nScrollPostionY) * m_tPaintDetails.nBytesPerRow;
-	if(nAddress >= m_nLength) {
-		nAddress = m_nLength - 1;
+	if(nAddress >= GetDataSize1()) {
+		nAddress = GetDataSize1() - 1;
 		bHighBits = false;
 	}
 }
@@ -1967,6 +1966,10 @@ void CHexEditBase::OnEditPaste()
 	}
 	UINT *pData = (UINT*)::GlobalLock(hData);
 	UINT nLength = *pData;
+	if (nLength == 0) {
+		::GlobalUnlock(hData);
+		return;
+	}
 	BYTE *pTarget = m_pData;
 	UINT nTargetLength = m_nLength - nReplaceLength + nLength;
 	if (nTargetLength > m_nCapacity) {
@@ -1994,13 +1997,12 @@ void CHexEditBase::OnEditPaste()
 		m_bRecalc = true;
 		m_nLength = nTargetLength;
 	}
-	//Comment for working multiple Paste
-	//SetSelection(nPasteAdr, nPasteAdr+nLength-1, true, false);
-	//SetEditCaretPos(nPasteAdr+nLength-1, false);
+	m_bRecalc = true;
+	MakeVisible(nPasteAdr+nLength, nPasteAdr+nLength, true);
+	SetSelection(NOSECTION_VAL, NOSECTION_VAL, true, false);
+	SetEditCaretPos(nPasteAdr+nLength, true);
+	NotifyParent(HEN_CHANGE);
 	Invalidate();
-	if(nLength>0) {
-		NotifyParent(HEN_CHANGE);
-	}
 }
 
 void CHexEditBase::OnEditClear() 
