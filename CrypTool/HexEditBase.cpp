@@ -1308,7 +1308,7 @@ ASSERT(::IsWindow(m_hWnd));
 		nCarretWidth = m_tPaintDetails.cPaintingRect.right + 2 - cCarretPoint.x;
 	}
 
-	CreateEditCaret(nCarretHeight-1, nCarretWidth);
+	CreateEditCaret(nCarretHeight-1, m_bInsert ? 1 : nCarretWidth);
 	SetCaretPos(cCarretPoint);
 	ShowCaret();
 }
