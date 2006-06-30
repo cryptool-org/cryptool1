@@ -94,6 +94,9 @@ adfgvx::adfgvx () {
 		for(int col=0;col<6;col++)
 			this->compMatrix[row*6+col][0] = codeMatrix[row][col];
 	this->lastPasswordFound = "";
+
+	this->subChars[0]=0;
+	this->subChars[1]=0;
 }
 
 int adfgvx::valueOf (char ch) {
@@ -201,20 +204,24 @@ int adfgvx::checkMatrix()
 }
 
 //function to substitute characters with permMatrix
-char* adfgvx::substitute(char input) {
+char* adfgvx::substitute(char input)//, char* subChar) //FIXED?
+{
 
 	//characters for the substitution
 	char character[6] = {'A','D','F','G','V','X'};
-	char* retarr = new char[2];
 
 	//this search could be optimized by using an additional index array
 	int i,j;
 	for (i=0; i<6; i++) {
 		for (j=0; j<6; j++) {
 			if (input == this->codeMatrix[i][j]) {
-				retarr[0] = character[i];
-				retarr[1] = character[j];
-				return retarr;
+				//retarr[0] = character[i];
+				//retarr[1] = character[j];
+				
+				this->subChars[0] = character[i];//FIXED?
+				this->subChars[1] = character[j];//FIXED?
+				//return retarr;
+				return subChars;
 			}
 		}
 	}
@@ -261,11 +268,11 @@ void adfgvx::readPlaintext(const char* ifile) {
 	{
 		switch (ch)
 		{
-			case 'Ä': ;
+			//case 'Ä': ;
 			case 'ä': {ststr << "AE"; break;}
-			case 'Ö': ;
+			//case 'Ö': ;
 			case 'ö': { ststr << "OE"; break; }
-			case 'Ü': ;
+			//case 'Ü': ;
 			case 'ü': { ststr << "UE"; break; }
 			case 'ß': { ststr << "SS"; break; }
 			default: ststr << ch;
@@ -374,8 +381,8 @@ void adfgvx::writeCiphertext(const char* ofile, int blockSizeStage2, bool newLin
 }
 
 //function to do step one (substitution) of adfgvx 
-void adfgvx::substitution(const char* pass) {
-	
+void adfgvx::substitution(const char* pass) 
+{	
 	//initialize list and iterator 
 	int i=0;
 
@@ -393,26 +400,30 @@ void adfgvx::substitution(const char* pass) {
 	this->permMatrixIterator = permMatrix.begin();
 
 	//reading character by character from the input stream
-	char ch;
-	char* subChars = new char[2];
-	
+
 	for (i = 0; i < plaintext.length(); i++)
 	{
-		ch = plaintext[i];
-		subChars = substitute(toupper(plaintext[i]));
-		//only characters, that can be substituted via the matrix, are encoded
-		if (subChars!=0)
+		//substitute characters from A to z and 0 to 9 only
+		if( ( ( 'A' <= plaintext[i] ) && ( 'z' >= plaintext[i] ) ) 
+			|| ( ( '0' <= plaintext[i] ) && ( '9' >= plaintext[i] ) ) )
 		{
-			//insert substituted characters into permutation matrix
-			if (permMatrixIterator == permMatrix.end()) permMatrixIterator = permMatrix.begin();
-			permMatrixIterator->column.push_back(subChars[0]);
-			permMatrixIterator++;
-			if (permMatrixIterator == permMatrix.end()) permMatrixIterator = permMatrix.begin();
-			permMatrixIterator->column.push_back(subChars[1]);
-			permMatrixIterator++;
-			//store substitution for eventual separate output
-			this->stage1String += subChars[0];
-			this->stage1String += subChars[1];
+			substitute(toupper(plaintext[i]));
+			//only characters, that can be substituted via the matrix, are encoded
+			if (subChars!=0)
+			{
+				//insert substituted characters into permutation matrix
+				if (permMatrixIterator == permMatrix.end()) 
+					permMatrixIterator = permMatrix.begin();
+				permMatrixIterator->column.push_back(subChars[0]);
+				permMatrixIterator++;
+				if (permMatrixIterator == permMatrix.end()) 
+					permMatrixIterator = permMatrix.begin();
+				permMatrixIterator->column.push_back(subChars[1]);
+				permMatrixIterator++;
+				//store substitution for eventual separate output
+				this->stage1String += subChars[0];
+				this->stage1String += subChars[1];		
+			}
 		}
 	}
 }
@@ -427,7 +438,7 @@ void adfgvx::writeStage1(const char* stage1, int blockSizeStage1, bool newLineSt
 	{
 		output.put(this->stage1String[i]);
 		
-		if ((i+1)%blockSizeStage1==0)
+		if (blockSizeStage1!=0&&(i+1)%blockSizeStage1==0)
 			if(newLineStage1)
 			{
 				output.put('\n');
@@ -460,7 +471,6 @@ void adfgvx::resubstitution() {
 	//read two characters row by row and write them resubstituted to string plaintext
 	for (int i=0; i<chars/2; i++) 
 	{
-		//bugged
 		if (permMatrixIterator == permMatrix.end())
 		{
 			permMatrixIterator = permMatrix.begin();
@@ -469,7 +479,6 @@ void adfgvx::resubstitution() {
 		bigram[0] = permMatrixIterator->column[row];
 		permMatrixIterator++;
 
-		//bugged
 		if (permMatrixIterator == permMatrix.end())
 		{
 			permMatrixIterator = permMatrix.begin();
@@ -517,8 +526,11 @@ void adfgvx::repermutation (const char* pass) {
 	//calculate rows of permutation matrix
 	int rows = chars / strlen(pass);
 	
+	//number of overall columns
+	int cols=strlen(pass);
+
 	//calculate number of columns, with one more character than the other rows
-	int extracols = chars % rows;
+	int extracols = chars % cols;
 
 	//initialize permMatrix
 	permMatrix.clear();
@@ -530,7 +542,8 @@ void adfgvx::repermutation (const char* pass) {
 		pmlistelem element;
 		pmvector column;
 		element.passCharacter = pass[i];
-		element.position = strlen(pass) - strlen(strchr(pass, pass[i]));
+		//element.position = strlen(pass) - strlen(strchr(pass, pass[i]));
+		element.position = i;
 		element.column = column;
 		permMatrix.push_back(element);
 		i++;
@@ -558,11 +571,17 @@ void adfgvx::repermutation (const char* pass) {
 
 	//permutate permMatrix in original order
 	std::sort(permMatrix.begin(), permMatrix.end(), numberSort);
+	//debugging only
+	//CString reperm;
+	//for (int i=0; i<permMatrix.size;i++)
+	//	reperm.Append(permMatrix.at(i));
+
+	//cout << reperm;
 }
 
 
 //main encryption function
-int adfgvx::encrypt(const char* ifile, const char* ofile, const char* pass, int blockSizeStage2, bool newLineStage2, int blockSizeStage1, bool newLineStage1, const char* stage1) {
+int adfgvx::encrypt(const char* ifile, const char* ofile, const char* pass, int blockSizeStage2, bool newLineStage2, bool printStage1, int blockSizeStage1, bool newLineStage1, const char* stage1) {
 	
 	//craziest bug ever: if the plaintext begins with 'A' or 'D', the ciphertext initially is not empty
 	this->ciphertext="";
@@ -575,7 +594,8 @@ int adfgvx::encrypt(const char* ifile, const char* ofile, const char* pass, int 
 
 	this->readPlaintext(ifile);
 	this->substitution(pass);
-	if(blockSizeStage1>0)
+	if(printStage1)
+	//if(blockSizeStage1>0)
 		this->writeStage1(stage1, blockSizeStage1, newLineStage1);
 	this->permutation();
 	this->writeCiphertext(ofile, blockSizeStage2, newLineStage2);
@@ -586,7 +606,7 @@ int adfgvx::encrypt(const char* ifile, const char* ofile, const char* pass, int 
 
 
 //main decryption function
-int adfgvx::decrypt(const char* ifile, const char* ofile, const char* pass, int blockSizeStage2, bool newLineStage2, int blockSizeStage1, bool newLineStage1, const char* stage1) {
+int adfgvx::decrypt(const char* ifile, const char* ofile, const char* pass, int blockSizeStage2, bool newLineStage2, bool printStage1, int blockSizeStage1, bool newLineStage1, const char* stage1) {
 	
 	//initialize return value with zero (no error)
 	int check = 0;
@@ -608,7 +628,7 @@ int adfgvx::decrypt(const char* ifile, const char* ofile, const char* pass, int 
 	//re-substitute charactes in permMatrix and write to string plaintext
 	this->resubstitution();
 	
-	if(blockSizeStage1>0)
+	if(printStage1>0)
 		this->writeStage1(stage1, blockSizeStage1, newLineStage1);
 
 	//write string plaintext to outfile
@@ -829,3 +849,33 @@ CString adfgvx::LettersToNumbers(CString password)
 	
 	return numberedPassword;
 }
+
+int adfgvx::CheckStringBox(CString input)
+{
+	CString temp="";
+	// !=36 Zeichen? =>1
+	if(input.GetLength()!=36)
+		return 1;
+
+	for (int i=0;i<input.GetLength();i++)	
+	{
+		temp=input.GetAt(i);
+		
+		//invalid characters? =>2
+		if(('A'<=temp&&temp<='z') || ('0'<=temp&&temp<='9'));
+		else
+			return 2;
+
+		//redundant characters? =>3
+		for(int j=i+1;j<input.GetLength();j++)
+			if(input.GetAt(j)==temp)
+				return 3;
+		
+		
+	}
+	
+	//pwd ok =>0
+	return 0;
+}
+
+	

@@ -20,6 +20,9 @@
 #define IDS_HASHDEMO_STRING_RIPEMD160   9
 #define IDC_MANUAL                      10
 #define IDS_NUMBERSHARK_EXE             10
+#define IDS_STRING_ADFGVX_STRINGLENGTH  11
+#define IDS_STRING_ADFGVX_STRINGINVALID 12
+#define IDS_STRING_ADFGVX_STRINGREDUNDANT 13
 #define IDC_EDIT53                      53
 #define IDC_EDIT69                      54
 #define IDC_EDIT88                      55
@@ -238,6 +241,7 @@
 #define IDS_DH_VISUALIZATION_TOOLTIPKEY 825
 #define IDD_ADFGVX_INTRO                826
 #define IDR_GIF14                       827
+#define IDD_ADFGVX_STRINGBOX            827
 #define IDR_GIF15                       828
 #define IDD_CRT_SECRETSHARING_LOG       830
 #define IDB_CRT_KONGR                   830
@@ -1293,6 +1297,7 @@
 #define IDC_STATIC_PRIM_RES             1958
 #define IDC_STATIC_PRIM_RES2            1959
 #define ID_PRIMENUMBER_TEST             1960
+#define IDC_BUTTON_STRINGBOX            1961
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010

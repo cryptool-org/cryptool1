@@ -50,6 +50,7 @@ statement from your version.
 #include "CrypToolApp.h"
 #include "DlgADFGVX.h"
 #include ".\dlgadfgvx.h"
+#include "DlgAdfgvxStringBox.h"
 #include "adfgvx.h"
 #include "FileTools.h"
 #include "CrypToolTools.h"
@@ -230,6 +231,7 @@ BEGIN_MESSAGE_MAP(CDlgADFGVX, CDialog)
 	ON_BN_CLICKED(IDC_ERASEMATRIX, OnBnClickedErasematrix)
 	ON_BN_CLICKED(IDC_CHECK_BLOCK_STAGE2, OnBnClickedCheckBlockStage2)
 	ON_BN_CLICKED(IDC_CHECK_BLOCK_STAGE1, OnBnClickedCheckBlockStage1)
+	ON_BN_CLICKED(IDC_BUTTON_STRINGBOX, OnBnClickedButtonStringbox)
 END_MESSAGE_MAP()
 
 BOOL CDlgADFGVX::OnInitDialog() 
@@ -327,23 +329,23 @@ void CDlgADFGVX::OnBnClickedButtonEncrypt()
 				if(pwdInvalid)
 				{
 					LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_4,pc_str,STR_LAENGE_STRING_TABLE);
-					message += CString(pc_str); // message.Append(pc_str);
+					message.Append(pc_str);
 				}
 				if(pwdDouble)
 				{
 					if(pwdInvalid)
-						message += CString("\n"); // message.Append("\n");
+						message.Append("\n");
 					LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_7,pc_str,STR_LAENGE_STRING_TABLE);
-					message += CString(pc_str); // message.Append(pc_str);
+					message.Append(pc_str);
 				}
 				LoadString (AfxGetInstanceHandle(), IDS_STRING_ADFGVX_NEWPWD, pc_str, STR_LAENGE_STRING_TABLE);
-				message += CString(pc_str); // message.Append(pc_str);
-				message += CString(password); // message.Append(password);
+				message.Append(pc_str);
+				message.Append(password);
 				if(boxBlockOutput1|boxBlockOutput2)
 					LoadString (AfxGetInstanceHandle(), IDS_STRING_ADFGVX_RESTART_LENGTH, pc_str, STR_LAENGE_STRING_TABLE);
 				else
 					LoadString (AfxGetInstanceHandle(), IDS_STRING_ADFGVX_RESTART, pc_str, STR_LAENGE_STRING_TABLE);
-				message += CString(pc_str); // message.Append(pc_str);
+				message.Append(pc_str);
 				MessageBox(message);
 				restart=false;
 				pwdInvalid=false;
@@ -518,7 +520,7 @@ void CDlgADFGVX::OnBnClickedMatrixStandard()
 void CDlgADFGVX::OnBnClickedCheckOutputStage1()
 {
 	UpdateData(true);
-	if(boxOutput1==true)
+	if(boxOutput1==TRUE)
 	{
 		GetDlgItem(IDC_CHECK_BLOCK_STAGE1)->EnableWindow(true);
 		printStage1=true;
@@ -1017,12 +1019,12 @@ void CDlgADFGVX::Decrypt()
 		if(boxBlockOutput1==false)
 			blockSizeStage1=0;
 
-		int rtn = cipher->decrypt(this->infile, outfile, password, blockSizeStage2, newLineStage2, blockSizeStage1, newLineStage1, stage1);
+		int rtn = cipher->decrypt(this->infile, outfile, password, blockSizeStage2, newLineStage2, printStage1, blockSizeStage1, newLineStage1, stage1);
 		//if no error occured
 		if (rtn == 0)
 		{
 			OpenNewDoc(outfile,pwdString,this->oldTitle,IDS_CRYPT_ADFGVX,true,1);
-			if(printStage1&&blockSizeStage1>0)
+			if(printStage1)//&&blockSizeStage1>0)
 				OpenNewDoc(stage1,pwdString,this->oldTitle,IDS_CRYPT_ADFGVX_STAGE_1,false,1);
 			this->EndDialog(1);
 		}
@@ -1056,7 +1058,7 @@ void CDlgADFGVX::Decrypt()
 		else if (rtn == 5){
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_5,pc_str,STR_LAENGE_STRING_TABLE);
 			MessageBox(pc_str);
-		} 
+		}
 		*/
 		//if anything else happens
 		else
@@ -1092,13 +1094,13 @@ void CDlgADFGVX::Encrypt()
 			blockSizeStage1=0;
 
 		//execute encryption function 
-		int rtn = cipher->encrypt(this->infile, outfile, password, blockSizeStage2, newLineStage2, blockSizeStage1, newLineStage1, stage1);
+		int rtn = cipher->encrypt(this->infile, outfile, password, blockSizeStage2, newLineStage2, printStage1, blockSizeStage1, newLineStage1, stage1);
 		//handle error or show result
 
 		//encrypt and exit dialog
 		if (rtn == 0)
 		{
-			if(printStage1&&blockSizeStage1>0)	
+			if(printStage1)//&&blockSizeStage1>0)	
 				OpenNewDoc(stage1,pwdString,this->oldTitle,IDS_CRYPT_ADFGVX_STAGE_1,false,1);
 
 			OpenNewDoc(outfile,pwdString,this->oldTitle,IDS_CRYPT_ADFGVX,false,1);
@@ -1290,7 +1292,7 @@ void CDlgADFGVX::OnBnClickedErasematrix()
 void CDlgADFGVX::OnBnClickedCheckBlockStage2()
 {
 	UpdateData(true);
-	if(boxBlockOutput2==true)
+	if(boxBlockOutput2==TRUE)
 	{
 		editBlockLength2.EnableWindow(true);
 		GetDlgItem(IDC_CHECK_NEWLINE_STAGE2)->EnableWindow(true);
@@ -1308,7 +1310,7 @@ void CDlgADFGVX::OnBnClickedCheckBlockStage2()
 void CDlgADFGVX::OnBnClickedCheckBlockStage1()
 {
 	UpdateData(true);
-	if(boxBlockOutput1==true)
+	if(boxBlockOutput1==TRUE)
 	{
 		editBlockLength1.EnableWindow(true);
 		GetDlgItem(IDC_CHECK_NEWLINE_STAGE1)->EnableWindow(true);
@@ -1322,4 +1324,58 @@ void CDlgADFGVX::OnBnClickedCheckBlockStage1()
 		boxNewLine1=false;
 	}
 	UpdateData(false);
+}
+
+void CDlgADFGVX::OnBnClickedButtonStringbox()
+{
+	
+	DlgAdfgvxStringBox stringbox= new DlgAdfgvxStringBox();
+	stringbox.DoModal();
+
+	CString pwd=stringbox.GetInput();
+	int result=0;
+	if (pwd.GetLength()>0)
+	{
+		result=cipher->CheckStringBox(pwd);
+				
+		switch(result)
+		{
+			//wrong string length
+			case 1: 
+				{
+					LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_STRINGLENGTH,pc_str,STR_LAENGE_STRING_TABLE);
+					MessageBox(pc_str);
+					break;
+				}
+			//invalid characters contained
+			case 2:	
+				{
+					LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_STRINGINVALID,pc_str,STR_LAENGE_STRING_TABLE);
+					MessageBox(pc_str);
+					break;
+				}
+			//redundant characters
+			case 3: 
+				{
+					LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_STRINGREDUNDANT,pc_str,STR_LAENGE_STRING_TABLE);
+					MessageBox(pc_str);
+					break;
+				}
+			case 0: 
+				{
+					int counter=0;
+					for(int row=0;row<6;row++)
+						for (int col=0;col<6;col++)
+							this->matrix[row][col]=pwd.GetAt(counter++);
+					break;
+				}
+		}
+		delete stringbox;
+	}
+
+	//synchronize data with textfields
+	UpdateData(false);
+
+	//check whether en- or decryption is possible
+	CheckProgress();
 }

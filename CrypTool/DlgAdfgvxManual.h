@@ -151,6 +151,8 @@ private:
 	CString password;
 	CButton buttonResub;
 	CButton buttonResetMatrix;
+	CButton buttonStringBox;
+	CButton buttonStdMatrix;
 	CBitmapButton c_insertKey;
 	bool iGotOne;
 	CString subKey;
@@ -162,6 +164,8 @@ public:
 	friend static CDlgAdfgvxManual::UINT StaticThread(LPVOID param);
 	BOOL CDlgAdfgvxManual::OnInitDialog();
 	void CDlgAdfgvxManual::Permutate();
+
+	afx_msg void OnBnClickedButtonStringbox();
 
 };
 

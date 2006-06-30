@@ -87,6 +87,7 @@ class adfgvx {
 private:
 	char codeMatrix[6][6];
 	char compMatrix[36][2];
+	char subChars[2];
 	pmlist permMatrix;
 	pmlist::iterator permMatrixIterator;
 	int adfgvx::valueOf (char ch);
@@ -100,8 +101,8 @@ public:
 
 	adfgvx();
 
-	int encrypt(const char* ifile, const char* ofile, const char* pass, int blockSizeStage2, bool newLineStage2, int blockSizeStage1, bool newLineStage1, const char* stage1);
-	int decrypt(const char* ifile, const char* ofile, const char* pass, int blockSizeStage2, bool newLineStage2, int blockSizeStage1, bool newLineStage1, const char* stage1);
+	int encrypt(const char* ifile, const char* ofile, const char* pass, int blockSizeStage2, bool newLineStage2, bool printStage1, int blockSizeStage1, bool newLineStage1, const char* stage1);
+	int decrypt(const char* ifile, const char* ofile, const char* pass, int blockSizeStage2, bool newLineStage2, bool printStage1, int blockSizeStage1, bool newLineStage1, const char* stage1);
 
 	friend bool alphaSort (pmlistelem l1, pmlistelem l2);
 	friend bool numberSort (pmlistelem l1, pmlistelem l2);
@@ -139,6 +140,7 @@ public:
 	int adfgvx::CheckPassword(int minLength, int maxLength, CString password);
 	CString adfgvx::CleansePassword(int errorCode, CString password);
 	CString adfgvx::LettersToNumbers(CString password);
+	int adfgvx::CheckStringBox(CString input);
 };
 
 bool alphaSort  (pmlistelem l1, pmlistelem l2);

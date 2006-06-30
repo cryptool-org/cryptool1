@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -3752,6 +3752,8 @@ BEGIN
     CONTROL         "Ausgabetext duch Blanks trennen",IDC_CHECK_BLOCK_STAGE1,
                     "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,27,
                     332,124,10
+    PUSHBUTTON      "Zeichenkette eingeben",IDC_BUTTON_STRINGBOX,186,133,53,
+                    19,BS_MULTILINE
 END
 
 IDD_ADFGVX_MANUAL DIALOGEX 0, 0, 262, 337
@@ -5016,6 +5018,18 @@ BEGIN
                     IDC_PRIMETEST_RUNNING_LABEL1,7,18,173,8
     CTEXT           "... bitte warten ...",IDC_PRIMETEST_RUNNING_LABEL2,7,37,
                     173,8
+END
+
+IDD_ADFGVX_STRINGBOX DIALOGEX 0, 0, 178, 44
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Substitutionspasswort"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,69,23,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,121,23,50,14
+    EDITTEXT        IDC_EDIT1,7,7,164,13,ES_UPPERCASE | ES_AUTOHSCROLL | 
+                    ES_WANTRETURN
 END
 
 
@@ -8257,6 +8271,14 @@ BEGIN
         HORZGUIDE, 55
         HORZGUIDE, 69
     END
+
+    IDD_ADFGVX_STRINGBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 171
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 37
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -10572,6 +10594,12 @@ BEGIN
     IDS_HASHDEMO_STRING_SHA1 "SHA-1 (160 Bit)"
     IDS_HASHDEMO_STRING_RIPEMD160 "RIPEMD-160 (160 Bit)"
     IDS_NUMBERSHARK_EXE     "Zahlenhai.exe"
+    IDS_STRING_ADFGVX_STRINGLENGTH 
+                            "In der Eingabe sind nicht alle Buchstaben\n'A' bis 'Z' und alle Ziffern '0' bis '9' enthalten."
+    IDS_STRING_ADFGVX_STRINGINVALID 
+                            "Die Eingabe enthält ungültige Zeichen.\nBitte nur Buchstaben von 'A' bis 'Z' (ohne Umlaute)\nund die Ziffern '0' bis '9' eingeben."
+    IDS_STRING_ADFGVX_STRINGREDUNDANT 
+                            "Die Eingabe enthält doppelte Zeichen.\nAlle Buchstaben 'A' bis 'Z' und Ziffern '0' bis '9'\nmüssen genau einmal enthalten sein."
 END
 
 STRINGTABLE 
@@ -10621,12 +10649,12 @@ BEGIN
     IDS_STRING_PRIMETEST_RESULT_CANCEL "Test abgebrochen!"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -14338,6 +14366,8 @@ BEGIN
     CONTROL         "Seperate output text by blanks",IDC_CHECK_BLOCK_STAGE1,
                     "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,27,
                     337,124,10
+    PUSHBUTTON      "Enter string",IDC_BUTTON_STRINGBOX,192,134,53,19,
+                    BS_MULTILINE
 END
 
 IDD_ADFGVX_MANUAL DIALOGEX 0, 0, 269, 337
@@ -15608,6 +15638,18 @@ BEGIN
                     IDC_PRIMETEST_RUNNING_LABEL1,7,18,173,8
     CTEXT           "... please wait ...",IDC_PRIMETEST_RUNNING_LABEL2,7,37,
                     173,8
+END
+
+IDD_ADFGVX_STRINGBOX DIALOGEX 0, 0, 179, 44
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Substitution password"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,68,23,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,122,23,50,14
+    EDITTEXT        IDC_EDIT1,7,7,165,13,ES_UPPERCASE | ES_AUTOHSCROLL | 
+                    ES_WANTRETURN
 END
 
 
@@ -19150,6 +19192,14 @@ BEGIN
         HORZGUIDE, 55
         HORZGUIDE, 69
     END
+
+    IDD_ADFGVX_STRINGBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 172
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 37
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -21410,6 +21460,12 @@ BEGIN
     IDS_HASHDEMO_STRING_SHA1 "SHA-1 (160 bits)"
     IDS_HASHDEMO_STRING_RIPEMD160 "RIPEMD-160 (160 bits)"
     IDS_NUMBERSHARK_EXE     "Number Shark.exe"
+    IDS_STRING_ADFGVX_STRINGLENGTH 
+                            "The input does not contain all the letters\n'A' to 'Z' and all ciphers '0' to '9'."
+    IDS_STRING_ADFGVX_STRINGINVALID 
+                            "The input contains invalid characters.\nValid characters are the letters 'A' to 'Z' and\the ciphers '0' to '9'."
+    IDS_STRING_ADFGVX_STRINGREDUNDANT 
+                            "The input contains redundant characters.\nAll letters 'A' to 'Z' and ciphers '0' to '9'\nmust be included exactly once"
 END
 
 STRINGTABLE 
@@ -21458,7 +21514,7 @@ BEGIN
     ID_PRIMENUMBER_TEST     "Tests if a number is prime"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

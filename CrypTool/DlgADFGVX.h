@@ -150,4 +150,5 @@ public:
 	CDlgADFGVX(char* infile, CString oldTitle, CWnd* pParent = NULL);   // Standardkonstruktor
 	virtual ~CDlgADFGVX();
 
+	afx_msg void OnBnClickedButtonStringbox();
 };
