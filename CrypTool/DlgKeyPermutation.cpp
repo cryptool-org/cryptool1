@@ -53,6 +53,7 @@ statement from your version.
 
 #include "KeyRepository.h"
 #include "DialogeMessage.h"
+#include ".\dlgkeypermutation.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -153,14 +154,17 @@ void CDlgKeyPermutation::OnDecrypt()
 	}
 	m_Dec = 1;
 
-	LoadString(AfxGetInstanceHandle(),IDS_PARAM_PERMUTATION,pc_str,STR_LAENGE_STRING_TABLE);
-	CString Primes = CString(PARAM_TOKEN)
-		+ char((int)m_Invert + '0') + ' '
-		+ char(m_P1InSeq + '0') + ' ' + char(m_P1Perm + '0') + ' ' + char(m_P1OutSeq + '0')	+ ' '
-		+ char(m_P2InSeq + '0') + ' ' + char(m_P2Perm + '0') + ' ' + char(m_P2OutSeq + '0');
-	CopyKey ( pc_str, Primes );
+	if ( IDOK == ShowPermutations() )
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_PARAM_PERMUTATION,pc_str,STR_LAENGE_STRING_TABLE);
+		CString Primes = CString(PARAM_TOKEN)
+			+ char((int)m_Invert + '0') + ' '
+			+ char(m_P1InSeq + '0') + ' ' + char(m_P1Perm + '0') + ' ' + char(m_P1OutSeq + '0')	+ ' '
+			+ char(m_P2InSeq + '0') + ' ' + char(m_P2Perm + '0') + ' ' + char(m_P2OutSeq + '0');
+		CopyKey ( pc_str, Primes );
 
-	OnOK();
+		OnOK();
+	}
 }
 
 void CDlgKeyPermutation::OnEncrypt() 
@@ -199,14 +203,17 @@ void CDlgKeyPermutation::OnEncrypt()
 	}
 	m_Dec = 0;
 
-	LoadString(AfxGetInstanceHandle(),IDS_PARAM_PERMUTATION,pc_str,STR_LAENGE_STRING_TABLE);
-	CString Primes = CString(PARAM_TOKEN)
-		+ char((int)m_Invert + '0') + ' '
-		+ char(m_P1InSeq + '0') + ' ' + char(m_P1Perm + '0') + ' ' + char(m_P1OutSeq + '0') + ' '
-		+ char(m_P2InSeq + '0') + ' ' + char(m_P2Perm + '0') + ' ' + char(m_P2OutSeq + '0');
-	CopyKey ( pc_str, Primes );
+	if ( IDOK == ShowPermutations() )
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_PARAM_PERMUTATION,pc_str,STR_LAENGE_STRING_TABLE);
+		CString Primes = CString(PARAM_TOKEN)
+			+ char((int)m_Invert + '0') + ' '
+			+ char(m_P1InSeq + '0') + ' ' + char(m_P1Perm + '0') + ' ' + char(m_P1OutSeq + '0') + ' '
+			+ char(m_P2InSeq + '0') + ' ' + char(m_P2Perm + '0') + ' ' + char(m_P2OutSeq + '0');
+		CopyKey ( pc_str, Primes );
 
-	OnOK();
+		OnOK();
+	}
 }
 
 
@@ -526,4 +533,60 @@ int CDlgKeyPermutation::MakePermInt(CString *Pin, int p[], int pinv[])
 	}
 
 	return plen;
+}
+
+int CDlgKeyPermutation::ShowPermutations()
+{
+	CDlgKeyPermutationInfo KPI;
+
+	CString Titel;
+	char Field[128];
+
+	if(!m_Invert&&! m_Dec)
+	{
+		Titel.LoadString(IDS_PERMUTATION_ENCRYPT);
+	}
+	if( m_Invert&&! m_Dec)
+	{
+		Titel.LoadString(IDS_PERMUTATION_ENCRYPT_INV);
+	}
+	if(! m_Invert&& m_Dec)
+	{
+		Titel.LoadString(IDS_PERMUTATION_DECRYPT);
+	}
+	if( m_Invert&& m_Dec)
+	{
+		Titel.LoadString(IDS_PERMUTATION_DECRYPT_INV);
+	}
+	KPI.m_dialogue_title = Titel;
+
+	Titel.Empty();
+	if( m_Dec)
+	{
+		Titel.LoadString(IDS_PERMUTATION_CLEAR);
+	}
+	else
+	{
+		Titel.LoadString(IDS_PERMUTATION_CIPHER);
+	}
+	KPI.m_button_title = Titel;
+
+	if( PrintPerm(Field,  m_P1,  m_P1len))
+	{
+		KPI.m_Permutation1 = Field;
+	}
+	if( PrintPerm(Field,  m_P1inv,  m_P1len))
+	{
+		KPI.m_Inverse1 = Field;
+	}
+	if( PrintPerm(Field,  m_P2,  m_P2len))
+	{
+		KPI.m_Permutation2 = Field;
+	}
+	if( PrintPerm(Field,  m_P2inv,  m_P2len))
+	{
+		KPI.m_Inverse2 = Field;
+	}
+
+	return KPI.DoModal();
 }

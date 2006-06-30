@@ -249,7 +249,9 @@ void CScintillaView::OnInitialUpdate()
 	{
 		pActiveWindow->SendMessage(SCI_CONVERTEOLS, 0);
 		pActiveWindow->SendMessage(SCI_SETEOLMODE, 0);
+		pActiveWindow->SendMessage(SCI_SETVIEWEOL, 0);
 	}
+	// Anzeigen von Zeilenenden für Scintilla-Fenster ein-/ausschalten
 }
 
 
