@@ -247,11 +247,13 @@ void CDlgManualSubstAnalysis::OnButton1()
 	CString Ausgabe="";
 	for (int i=0 ; ((i<Laenge)&&(i<5000)); i++){
 		if (text[i]!=26){
+			int ord = (int)text[i];
+			char chr = (char)ord;
 			if (Eingabe[text[i]]!=42){
 				Ausgabe+=(char)(Eingabe[text[i]]);
 			}
 			else {
-				(CString) Ausgabe+=(char)((char)text[i]+97);
+				Ausgabe+=(char)((char)text[i]+97);
 			}
 		}
 		else {
