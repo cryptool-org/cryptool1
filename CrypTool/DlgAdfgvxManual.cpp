@@ -235,13 +235,12 @@ void CDlgAdfgvxManual::DoDataExchange(CDataExchange* pDX)
 	DDX_Text (pDX, IDC_PASSWORD_BOX, password);
 	DDX_Control(pDX, IDC_RESUBSTITUTE, buttonResub);
 	DDX_Control(pDX, IDC_RESET_MATRIX, buttonResetMatrix);
-	//}}AFX_DATA_INIT
-	//DDX_Control(pDX, IDC_CHECK_SHOW_INF, checkShowInfo);
 	DDX_Control(pDX, IDOK, buttonOutput);
 	DDX_Control(pDX, IDC_BUTTON_STRINGBOX, buttonStringBox);
 	DDX_Control(pDX, IDC_MATRIX_STANDARD, buttonStdMatrix);
+	//}}AFX_DATA_INIT
+	//DDX_Control(pDX, IDC_CHECK_SHOW_INF, checkShowInfo);
 }
-
 
 BEGIN_MESSAGE_MAP(CDlgAdfgvxManual, CDialog)
 	//{{AFX_MSG_MAP(CDlgAdfgvxManual)

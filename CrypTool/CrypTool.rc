@@ -3618,11 +3618,11 @@ BEGIN
     GROUPBOX        "",IDC_STATIC,6,7,310,61
 END
 
-IDD_ADFGVX DIALOG  0, 0, 265, 402
+IDD_ADFGVX DIALOGEX 0, 0, 265, 402
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Schlüsseleingabe: ADFGVX"
-FONT 8, "MS Shell Dlg"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_M00,40,42,12,12,ES_CENTER | ES_UPPERCASE | 
                     ES_AUTOHSCROLL
@@ -3696,8 +3696,8 @@ BEGIN
                     ES_AUTOHSCROLL
     EDITTEXT        IDC_M55,100,102,12,12,ES_CENTER | ES_UPPERCASE | 
                     ES_AUTOHSCROLL
-    PUSHBUTTON      "Standardmatrix",IDC_MATRIX_STANDARD,22,134,66,18
-    PUSHBUTTON      "Zufallsmatrix",IDC_MATRIX_SHUFFLE,100,134,66,18
+    PUSHBUTTON      "Standardmatrix",IDC_MATRIX_STANDARD,13,133,53,19
+    PUSHBUTTON      "Zufallsmatrix",IDC_MATRIX_SHUFFLE,70,133,53,19
     CONTROL         "Paste",IDC_BUTTON_INSERT_KEY,"Button",BS_OWNERDRAW | 
                     WS_TABSTOP,217,241,22,18
     EDITTEXT        IDC_TEXTFIELD_PASSWORD,22,187,219,12,ES_UPPERCASE | 
@@ -3742,7 +3742,7 @@ BEGIN
     CONTROL         "Zusätzlicher Zeilenumbruch nach jedem Block",
                     IDC_CHECK_NEWLINE_STAGE1,"Button",BS_AUTOCHECKBOX | 
                     WS_DISABLED | WS_TABSTOP,27,347,159,10
-    PUSHBUTTON      "Matrix leeren",IDC_ERASEMATRIX,175,134,66,18
+    PUSHBUTTON      "Matrix leeren",IDC_ERASEMATRIX,128,133,53,19
     GROUPBOX        "Endergebnis: Ciphertext nach Stufe 2",
                     IDC_BOX_OUT_STAGE2,22,271,219,36
     CONTROL         "Ausgabetext duch Blanks trennen",IDC_CHECK_BLOCK_STAGE2,
@@ -3756,7 +3756,7 @@ BEGIN
                     19,BS_MULTILINE
 END
 
-IDD_ADFGVX_MANUAL DIALOGEX 0, 0, 262, 337
+IDD_ADFGVX_MANUAL DIALOGEX 0, 0, 262, 350
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | 
     WS_CAPTION | WS_SYSMENU
 CAPTION "Halbautomatische Analyse von ADFGVX"
@@ -3840,8 +3840,8 @@ BEGIN
                     ES_AUTOHSCROLL
     EDITTEXT        IDC_M55,94,192,12,12,ES_CENTER | ES_UPPERCASE | 
                     ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "Ausgabe",IDOK,125,314,58,16
-    PUSHBUTTON      "Abbrechen",IDCANCEL,188,314,58,16
+    DEFPUSHBUTTON   "Ausgabe",IDOK,125,328,58,16
+    PUSHBUTTON      "Abbrechen",IDCANCEL,188,328,58,16
     LTEXT           "Aktuelles Passwort",IDC_CURRENT_P,125,15,61,8
     EDITTEXT        IDC_EDIT_REMAINING_SOL,125,119,121,14,ES_CENTER | 
                     ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
@@ -3860,12 +3860,12 @@ BEGIN
     CTEXT           "V",IDC_STATIC,22,180,11,10
     CTEXT           "X",IDC_STATIC,22,192,11,10
     GROUPBOX        "Substitutionsmatrix",IDC_STATIC,16,108,102,108
-    EDITTEXT        IDC_EDIT_POSSIBLE_PLAINTEXT,6,238,249,68,ES_MULTILINE | 
+    EDITTEXT        IDC_EDIT_POSSIBLE_PLAINTEXT,6,252,249,68,ES_MULTILINE | 
                     ES_READONLY | WS_VSCROLL | NOT WS_TABSTOP
     GROUPBOX        "Passwortlänge",IDC_STATIC,15,18,98,41
-    GROUPBOX        "Stufe 1: Substitution",IDC_STATIC,6,98,249,126
+    GROUPBOX        "Stufe 1: Substitution",IDC_STATIC,6,98,249,141
     GROUPBOX        "Stufe 2: Transposition",IDC_STATIC,6,7,249,89
-    LTEXT           "Aktuelle Lösung",IDC_STATIC,6,227,51,8
+    LTEXT           "Aktuelle Lösung",IDC_STATIC,6,241,51,8
     EDITTEXT        IDC_EDIT_REMCHARS,125,144,121,20,ES_CENTER | 
                     ES_MULTILINE | ES_READONLY | NOT WS_TABSTOP
     LTEXT           "Noch nicht zugewiesene Zeichen",IDC_STATIC_REMCHARS,125,
@@ -3877,14 +3877,16 @@ BEGIN
     LTEXT           "Reihenfolge der Spalten",IDC_STATIC_NUMBEREDPASSWORD,
                     125,44,78,8
     PUSHBUTTON      "Matrix leeren",IDC_RESET_MATRIX,135,168,100,14
-    PUSHBUTTON      "Aktuelle Lösung anzeigen",IDC_RESUBSTITUTE,135,203,100,
+    PUSHBUTTON      "Aktuelle Lösung anzeigen",IDC_RESUBSTITUTE,135,220,100,
                     14
     CONTROL         "Paste",IDC_INSERT_KEY,"Button",BS_OWNERDRAW | 
-                    WS_TABSTOP,15,314,36,16
+                    WS_TABSTOP,15,328,36,16
     COMBOBOX        IDC_PASSWORD_BOX,125,26,121,97,CBS_DROPDOWN | 
                     CBS_NOINTEGRALHEIGHT | CBS_UPPERCASE | WS_VSCROLL | 
                     WS_TABSTOP
     PUSHBUTTON      "Standardmatrix",IDC_MATRIX_STANDARD,135,186,100,14
+    PUSHBUTTON      "Zeichenkette eingeben",IDC_BUTTON_STRINGBOX,135,203,100,
+                    14,BS_MULTILINE
 END
 
 IDD_ADFGVX_INTRO DIALOGEX 0, 0, 265, 209
@@ -10322,7 +10324,8 @@ BEGIN
                             "Bitte starten Sie den Vorgang erneut\nund passen Sie gegebenenfalls die Blocklängen an!"
     IDS_CRYPT_ADFGVX        "ADFGVX"
     IDS_CRYPT_ADFGVX_STAGE_1 "ADFGVX-Stufe 1"
-    IDS_STRING_ADFGVX_MATRIX_RESET "TBD"
+    IDS_STRING_ADFGVX_MATRIX_RESET 
+                            "Alle bisherigen Einträge der Substitutionsmatrix werden gelöscht!\nFortfahren?"
 END
 
 STRINGTABLE 
@@ -14232,11 +14235,11 @@ BEGIN
     GROUPBOX        "",IDC_STATIC,7,7,309,52
 END
 
-IDD_ADFGVX DIALOG  0, 0, 266, 411
+IDD_ADFGVX DIALOGEX 0, 0, 266, 411
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Key Input: ADFGVX"
-FONT 8, "MS Shell Dlg"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_M00,40,42,12,12,ES_CENTER | ES_UPPERCASE | 
                     ES_AUTOHSCROLL
@@ -14310,9 +14313,11 @@ BEGIN
                     ES_AUTOHSCROLL
     EDITTEXT        IDC_M55,100,102,12,12,ES_CENTER | ES_UPPERCASE | 
                     ES_AUTOHSCROLL
-    PUSHBUTTON      "Standard matrix",IDC_MATRIX_STANDARD,22,134,66,18
-    PUSHBUTTON      "Random matrix",IDC_MATRIX_SHUFFLE,100,134,66,18
-    PUSHBUTTON      "Matrix leeren",IDC_ERASEMATRIX,175,134,66,18
+    PUSHBUTTON      "Standard matrix",IDC_MATRIX_STANDARD,16,134,53,19,
+                    BS_MULTILINE
+    PUSHBUTTON      "Random matrix",IDC_MATRIX_SHUFFLE,75,134,53,19,
+                    BS_MULTILINE
+    PUSHBUTTON      "Erase matrix",IDC_ERASEMATRIX,133,134,53,19
     CONTROL         "Paste",IDC_BUTTON_INSERT_KEY,"Button",BS_OWNERDRAW | 
                     WS_TABSTOP,224,244,20,18
     EDITTEXT        IDC_TEXTFIELD_PASSWORD,22,189,222,12,ES_UPPERCASE | 
@@ -14370,7 +14375,7 @@ BEGIN
                     BS_MULTILINE
 END
 
-IDD_ADFGVX_MANUAL DIALOGEX 0, 0, 269, 337
+IDD_ADFGVX_MANUAL DIALOGEX 0, 0, 269, 351
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | 
     WS_CAPTION | WS_SYSMENU
 CAPTION "Semiautomatic Analysis of the ADFGVX cipher"
@@ -14454,8 +14459,8 @@ BEGIN
                     ES_AUTOHSCROLL
     EDITTEXT        IDC_M55,94,192,12,12,ES_CENTER | ES_UPPERCASE | 
                     ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "Output",IDOK,125,314,58,16
-    PUSHBUTTON      "Cancel",IDCANCEL,188,314,58,16
+    DEFPUSHBUTTON   "Output",IDOK,125,330,58,16
+    PUSHBUTTON      "Cancel",IDCANCEL,188,330,58,16
     LTEXT           "Current password",IDC_CURRENT_P,125,15,58,8
     EDITTEXT        IDC_EDIT_REMAINING_SOL,125,119,121,14,ES_AUTOHSCROLL | 
                     ES_READONLY | NOT WS_TABSTOP
@@ -14474,12 +14479,12 @@ BEGIN
     CTEXT           "V",IDC_STATIC,22,180,11,10
     CTEXT           "X",IDC_STATIC,22,192,11,10
     GROUPBOX        "Substitution matrix",IDC_STATIC,16,108,102,108
-    EDITTEXT        IDC_EDIT_POSSIBLE_PLAINTEXT,7,238,254,68,ES_MULTILINE | 
+    EDITTEXT        IDC_EDIT_POSSIBLE_PLAINTEXT,7,254,254,68,ES_MULTILINE | 
                     ES_READONLY | WS_VSCROLL | NOT WS_TABSTOP
     GROUPBOX        "Password length",IDC_STATIC,15,18,98,41
-    GROUPBOX        "Step 1: Substitution",IDC_STATIC,7,98,254,126
+    GROUPBOX        "Step 1: Substitution",IDC_STATIC,7,98,254,142
     GROUPBOX        "Step 2: Transposition",IDC_STATIC,7,7,254,89
-    LTEXT           "Current solution",IDC_STATIC,7,227,52,8
+    LTEXT           "Current solution",IDC_STATIC,7,243,52,8
     EDITTEXT        IDC_EDIT_REMCHARS,125,144,121,20,ES_MULTILINE | 
                     ES_READONLY | NOT WS_TABSTOP
     LTEXT           "Not yet assigned characters",IDC_STATIC_REMCHARS,125,
@@ -14492,7 +14497,9 @@ BEGIN
                     8
     PUSHBUTTON      "Erase matrix entries",IDC_RESET_MATRIX,135,168,100,14
     PUSHBUTTON      "Standard matrix",IDC_MATRIX_STANDARD,135,185,100,14
-    PUSHBUTTON      "Show current solution",IDC_RESUBSTITUTE,135,203,100,14
+    PUSHBUTTON      "Show current solution",IDC_RESUBSTITUTE,135,221,100,14
+    PUSHBUTTON      "Enter String",IDC_BUTTON_STRINGBOX,135,203,100,14,
+                    BS_MULTILINE
 END
 
 IDD_ADFGVX_INTRO DIALOGEX 0, 0, 265, 209
@@ -21191,7 +21198,8 @@ BEGIN
                             "Please restart the process\nand adjust the block length values if necessary!"
     IDS_CRYPT_ADFGVX        "ADFGVX"
     IDS_CRYPT_ADFGVX_STAGE_1 "ADFGVX stage 1"
-    IDS_STRING_ADFGVX_MATRIX_RESET "TBD"
+    IDS_STRING_ADFGVX_MATRIX_RESET 
+                            "All current entries in the substitution matrix will be erased!\nContinue?"
 END
 
 STRINGTABLE 
