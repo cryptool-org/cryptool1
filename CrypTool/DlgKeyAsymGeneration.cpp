@@ -55,6 +55,7 @@ statement from your version.
 #include "stdafx.h"
 #include <io.h>
 #include "CrypToolApp.h"
+#include "CrypToolTools.h"
 #include "DlgKeyAsymGeneration.h"
 
 #include "secure.h"	// Header-File für das SECUDE-Toolkit
@@ -1134,7 +1135,9 @@ void CDlgKeyAsymGeneration::CreateAsymKeys()
 	sprintf(pc_str1, pc_str, UserKeyId);
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_KEY_GENERATION_TIME,pc_str,STR_LAENGE_STRING_TABLE);
 	char temp[256];
-	sprintf(temp, pc_str, duration);
+	char strDuration[20];
+	double_fmt( duration, strDuration, 2 );
+	sprintf(temp, pc_str, strDuration);
 	AfxMessageBox (((CString)pc_str1)+((CString)"\n\n")+temp,MB_ICONINFORMATION);
 }
 
