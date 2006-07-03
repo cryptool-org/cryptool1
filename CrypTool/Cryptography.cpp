@@ -1528,12 +1528,12 @@ void Mono(const char *infile, const char *OldTitle){
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
 			else
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_SUBSTITUTION,pc_str,STR_LAENGE_STRING_TABLE);
+			// LoadString(AfxGetInstanceHandle(),IDS_STRING_SUBSTITUTION,pc_str,STR_LAENGE_STRING_TABLE);
 			// Der eingegebene Schluessel ist zur Ausgabe in der Titelzeile nicht geeignet,
 			// da bei der Analyse nur die Permutation gefunden werden kann, 
 			// nicht jedoch das Schlüsselwort. 
 			// Wegen der Konsistenz wird hier nur die Permutation ausgegeben 
-			MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,dlgMono.key);
+			MakeNewName3(title,sizeof(title),pc_str1, dlgMono.typeOfEncryption ,OldTitle,dlgMono.key);
 			NewDoc->SetTitle(title);
 		}
 	}
