@@ -51,6 +51,7 @@ statement from your version.
 #include "TimeCalculation.h"
 #include "ErrorcodesForSignatureAttack.h"
 #include "FileTools.h"
+#include "CrypToolTools.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -112,8 +113,10 @@ BOOL CDlgStatisticsSignatureAttack::OnInitDialog()
 
 #ifndef _SIG_ATT_HASH_ONLY
 
+	char strDuration[20];
+	double_fmt( ExpectedTC.GetSeconds(), strDuration, 2 );
 	m_ExpectedTime.Format(IDS_STRING_SIG_ATT_STA_TIME, ExpectedTC.GetYears(),
-		ExpectedTC.GetDays(), ExpectedTC.GetHours(), ExpectedTC.GetMinutes(), ExpectedTC.GetSeconds());
+		ExpectedTC.GetDays(), ExpectedTC.GetHours(), ExpectedTC.GetMinutes(), strDuration);
 
 #endif
 
@@ -149,8 +152,9 @@ BOOL CDlgStatisticsSignatureAttack::OnInitDialog()
 		m_control_ListOfRuns.SetItemText(jj, 3, string);
 	}
 
+	double_fmt( EffectiveTC.GetSeconds(), strDuration, 2 );
 	m_EffectiveTime.Format(IDS_STRING_SIG_ATT_STA_TIME, EffectiveTC.GetYears(),
-		EffectiveTC.GetDays(), EffectiveTC.GetHours(), EffectiveTC.GetMinutes(), EffectiveTC.GetSeconds());
+		EffectiveTC.GetDays(), EffectiveTC.GetHours(), EffectiveTC.GetMinutes(), strDuration);
 
 	_snprintf(string, sizeof(string) - 1, "%I64i", m_ResSigAtt->GetTotalSteps());
 	m_TotalSteps = string;
@@ -205,8 +209,11 @@ void CDlgStatisticsSignatureAttack::PrintStatistics()
 	strlen += _snprintf(doctext + strlen, sizeof(doctext) - 1, "\n%s\n\n", msg);
 
 	msg.Format(IDS_STRING_SIG_ATT_STA_CALCTIME);
+
+	char strDuration[20];
+	double_fmt( ExpectedTC.GetSeconds(), strDuration, 2 );
 	Time.Format(IDS_STRING_SIG_ATT_STA_TIME, ExpectedTC.GetYears(),
-		ExpectedTC.GetDays(), ExpectedTC.GetHours(), ExpectedTC.GetMinutes(), ExpectedTC.GetSeconds());
+		ExpectedTC.GetDays(), ExpectedTC.GetHours(), ExpectedTC.GetMinutes(), strDuration);
 	strlen += _snprintf(doctext + strlen, sizeof(doctext) - 1, "%s:  %s\n", msg, Time);
 	msg.Format(IDS_STRING_SIG_ATT_STA_STEPS);
 	strlen += _snprintf(doctext + strlen, sizeof(doctext) - 1, "%s:  %I64i\n\n\n\n",
@@ -215,8 +222,9 @@ void CDlgStatisticsSignatureAttack::PrintStatistics()
 	msg.Format(IDS_STRING_SIG_ATT_STA_EFFEXPENSE);
 	strlen += _snprintf(doctext + strlen, sizeof(doctext) - 1, "%s\n\n", msg);
 	msg.Format(IDS_STRING_SIG_ATT_STA_CALCTIME);
+	double_fmt( EffectiveTC.GetSeconds(), strDuration, 2 );
 	Time.Format(IDS_STRING_SIG_ATT_STA_TIME, EffectiveTC.GetYears(),
-		EffectiveTC.GetDays(), EffectiveTC.GetHours(), EffectiveTC.GetMinutes(), EffectiveTC.GetSeconds());
+		EffectiveTC.GetDays(), EffectiveTC.GetHours(), EffectiveTC.GetMinutes(), strDuration);
 	strlen += _snprintf(doctext + strlen, sizeof(doctext) - 1, "%s:  %s\n", msg, Time);
 	msg.Format(IDS_STRING_SIG_ATT_STA_STEPS);
 	strlen += _snprintf(doctext + strlen, sizeof(doctext) - 1, "%s:  %I64i\n",
