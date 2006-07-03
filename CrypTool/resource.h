@@ -2512,6 +2512,8 @@
 #define IDS_STRING_PRIMETEST_RESULT_ERROR 38113
 #define IDS_STRING_PRIMETEST_RESULT_PROBABLEPRIME 38114
 #define IDS_STRING_PRIMETEST_RESULT_CANCEL 38115
+#define IDS_STRING_COMMA                38116
+#define IDS_CRYPT_ATBASH                38117
 #define IDS_DH_LOG_1                    61889
 #define IDS_DH_LOG_2                    61890
 #define IDS_DH_LOG_3                    61891
