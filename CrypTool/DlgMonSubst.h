@@ -25,6 +25,7 @@ public:
 	~CDlgMonSubst();
 	int   m_cryptDirection;
 	char key[27];
+	CString typeOfEncryption;
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgMonSubst)
 	enum { IDD = IDD_KEY_MONSUBST };
