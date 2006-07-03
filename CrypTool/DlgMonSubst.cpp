@@ -63,11 +63,10 @@ BOOL CDlgMonSubst::OnInitDialog()
 	CDialog::OnInitDialog();
 
 // Paste Button
-	CString Title;
 	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_SUBSTITUTION,pc_str,STR_LAENGE_STRING_TABLE);
-	Title = pc_str;
+	typeOfEncryption = pc_str;
 	VERIFY(m_Paste.AutoLoad(IDC_PASTE_KEY,this));
-	if ( IsKeyEmpty( Title ))
+	if ( IsKeyEmpty( typeOfEncryption ))
 	{
 		m_Paste.EnableWindow(TRUE);
 	}
@@ -195,6 +194,17 @@ void CDlgMonSubst::OnDecrypt()
 void CDlgMonSubst::OnBnClickedRadioSubstFillAscendingOrder()
 {
 	// TODO: Add your control notification handler code here
+	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_SUBSTITUTION,pc_str,STR_LAENGE_STRING_TABLE);
+	typeOfEncryption = pc_str;
+
+	if ( IsKeyEmpty( typeOfEncryption ))
+	{
+		m_Paste.EnableWindow(TRUE);
+	}
+	else
+	{
+		m_Paste.EnableWindow(FALSE);
+	}
 	f_FillAscendingOrder = TRUE;
 	m_CtrlKey.SetReadOnly(0);
 	ComputeSubstKeyMapping();
@@ -203,6 +213,18 @@ void CDlgMonSubst::OnBnClickedRadioSubstFillAscendingOrder()
 void CDlgMonSubst::OnBnClickedRadioSubstFillDescendingOrder()
 {
 	// TODO: Add your control notification handler code here
+	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_SUBSTITUTION,pc_str,STR_LAENGE_STRING_TABLE);
+	typeOfEncryption = pc_str;
+
+	if ( IsKeyEmpty( typeOfEncryption ))
+	{
+		m_Paste.EnableWindow(TRUE);
+	}
+	else
+	{
+		m_Paste.EnableWindow(FALSE);
+	}
+
 	f_FillAscendingOrder = FALSE;
 	m_CtrlKey.SetReadOnly(0);
 	ComputeSubstKeyMapping();
@@ -212,6 +234,10 @@ void CDlgMonSubst::OnBnClickedRadioSubstFillDescendingOrder()
 void CDlgMonSubst::OnBnClickedRadioAddBash()
 {
 	// TODO: Add your control notification handler code here
+	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_ATBASH,pc_str,STR_LAENGE_STRING_TABLE);
+	typeOfEncryption = pc_str;
+	m_Paste.EnableWindow(FALSE); // Note: PasteKey makes here no sense 
+
 	CString tmpStr = "";
 	for (char ch='Z'; ch>='A'; ch--)
 		tmpStr += ch;
