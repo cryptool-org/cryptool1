@@ -134,6 +134,35 @@ char* itoa_fmt(int i_num, char *c_buffer, int i_base )
 	return c_buffer;
 }
 
+char* double_fmt(double d_num, char *c_buffer, int prec )
+{
+	char c_tmp[60];
+	if (abs(d_num) > (double)INT_MAX)
+	{
+		sprintf(c_tmp, "%f", d_num);
+	}
+	else
+	{
+		int i_num = (int)floor(d_num);
+		itoa_fmt(i_num, c_tmp);
+		if (prec > 9) prec = 9;
+		char strPrec[10];
+		d_num = abs(d_num);
+		d_num = d_num - floor(d_num) +1.0;
+		i_num = (int)(d_num*pow(10.0, prec));
+		itoa(i_num, strPrec, 10);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_COMMA,pc_str,STR_LAENGE_STRING_TABLE);
+        strPrec[0] = pc_str[0];
+		strcat(c_tmp, strPrec);
+	}
+
+	if ( !c_buffer ) c_buffer = new char[strlen(c_tmp)];
+	strcpy(c_buffer, c_tmp);
+
+	return c_buffer;
+}
+
+
 unsigned long CT_OPEN_REGISTRY_SETTINGS	(unsigned long MODE_ACCESS)
 {
 	return theApp.localRegistry.Open(HKEY_CURRENT_USER, "Software\\CrypTool\\Settings", MODE_ACCESS);
