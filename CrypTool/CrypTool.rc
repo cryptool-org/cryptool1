@@ -238,7 +238,7 @@ BEGIN
                     170,285,61,12
     COMBOBOX        IDC_COMBO1,141,38,63,60,CBS_DROPDOWN | WS_VSCROLL | 
                     WS_TABSTOP
-    COMBOBOX        IDC_COMBO2,141,73,63,94,CBS_DROPDOWNLIST | WS_VSCROLL | 
+    COMBOBOX        IDC_COMBO2,141,73,63,94,CBS_DROPDOWN | WS_VSCROLL | 
                     WS_TABSTOP
     COMBOBOX        IDC_COMBO3,141,112,63,76,CBS_DROPDOWNLIST | WS_VSCROLL | 
                     WS_TABSTOP
@@ -7381,13 +7381,11 @@ BEGIN
     IDC_COMBO2, 0x403, 4, 0
 0x3135, 0x0032, 
     IDC_COMBO2, 0x403, 4, 0
-0x3735, 0x0036, 
-    IDC_COMBO2, 0x403, 4, 0
-0x3436, 0x0030, 
-    IDC_COMBO2, 0x403, 4, 0
-0x3037, 0x0034, 
-    IDC_COMBO2, 0x403, 4, 0
 0x3637, 0x0038, 
+    IDC_COMBO2, 0x403, 5, 0
+0x3031, 0x3432, "\000" 
+    IDC_COMBO2, 0x403, 5, 0
+0x3032, 0x3834, "\000" 
     0
 END
 
@@ -8588,7 +8586,7 @@ BEGIN
     IDS_STRING_ASYMKEY_ERR_PIN_PINVERIFICATION_NOTMATCH 
                             "PIN und PIN-Verifikation stimmen nicht überein.\nBitte nochmal eingeben."
     IDS_STRING_ASYMKEY_ERR_WRONG_RSAMODUL_BITLENGTH 
-                            "Für die Bitlänge L des RSA-Moduls muss gelten:\n\n\t%d < L < %d.\n\nBitte nochmal eingeben."
+                            "Für die Bitlänge L des RSA-Moduls muss gelten:\n\n\t%d < L < %d.\n\nBitte die Bitlänge nochmal eingeben."
     IDS_STRING_ASYMKEY_ERR_NONVALID_INPUT "Eingabe nicht korrekt"
     IDS_STRING_ASYMKEY_ERR_COLLIDES_WITH_INPUT 
                             "\nkollidiert mit der Eingabe: "
@@ -9099,7 +9097,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_RANGE_DSA_BITLENGTH 
-                            "Für die Bitlänge L der DSA-Primzahl muss gelten:\n\n\t L < %d.\n\nBitte nochmal eingeben."
+                            "Für die Bitlänge L der DSA-Primzahl muss gelten:\n\n%d <  L < %d und L teilbar durch 64.\n\nBitte die Bitlänge nochmal eingeben."
     IDS_STRING_MODUL        "Modul"
     IDS_STRING_EXPONENT     "Exponent"
     IDS_STRING_DSA_SHOW_PUBLIC_PARAMETER 
@@ -10984,7 +10982,7 @@ BEGIN
                     BS_AUTORADIOBUTTON,20,98,103,10
     COMBOBOX        IDC_COMBO1,141,38,63,60,CBS_DROPDOWN | WS_VSCROLL | 
                     WS_TABSTOP
-    COMBOBOX        IDC_COMBO2,141,73,63,94,CBS_DROPDOWNLIST | WS_VSCROLL | 
+    COMBOBOX        IDC_COMBO2,141,73,63,94,CBS_DROPDOWN | WS_VSCROLL | 
                     WS_TABSTOP
     COMBOBOX        IDC_COMBO3,141,112,63,76,CBS_DROPDOWNLIST | WS_VSCROLL | 
                     WS_TABSTOP
@@ -17990,21 +17988,11 @@ BEGIN
     IDC_COMBO2, 0x403, 4, 0
 0x3135, 0x0032, 
     IDC_COMBO2, 0x403, 4, 0
-0x3735, 0x0036, 
-    IDC_COMBO2, 0x403, 4, 0
-0x3436, 0x0030, 
-    IDC_COMBO2, 0x403, 4, 0
-0x3037, 0x0034, 
-    IDC_COMBO2, 0x403, 4, 0
 0x3637, 0x0038, 
-    IDC_COMBO2, 0x403, 4, 0
-0x3338, 0x0032, 
-    IDC_COMBO2, 0x403, 4, 0
-0x3938, 0x0036, 
-    IDC_COMBO2, 0x403, 4, 0
-0x3639, 0x0030, 
     IDC_COMBO2, 0x403, 5, 0
 0x3031, 0x3432, "\000" 
+    IDC_COMBO2, 0x403, 5, 0
+0x3032, 0x3834, "\000" 
     0
 END
 
@@ -19522,7 +19510,7 @@ BEGIN
     IDS_STRING_ASYMKEY_ERR_PIN_PINVERIFICATION_NOTMATCH 
                             "PIN and PIN confirmation do not agree.\\Please enter again."
     IDS_STRING_ASYMKEY_ERR_WRONG_RSAMODUL_BITLENGTH 
-                            "For bit length L of the RSA modulus the following must be true:\n\n\t%d < L < %d.\n\nPlease enter again."
+                            "For bit length L of the RSA modulus the following must be true:\n\n\t%d < L < %d.\n\nPlease re-enter the bit length."
     IDS_STRING_ASYMKEY_ERR_NONVALID_INPUT "Input not correct."
     IDS_STRING_ASYMKEY_ERR_COLLIDES_WITH_INPUT "\nclashes with the input "
     IDS_STRING_HISTOGRAM_XLABEL "x label"
@@ -20017,7 +20005,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_RANGE_DSA_BITLENGTH 
-                            "For bit length L of the DSA prime number the following must be true:\n\n\t L < %d.\n\nPlease enter again."
+                            "For bit length L of the DSA prime number the following must be true:\n\n%d < L < %d and L divisible by 64.\n\nPlease re-enter the bit length."
     IDS_STRING_MODUL        "Modulus"
     IDS_STRING_EXPONENT     "Exponent"
     IDS_STRING_DSA_SHOW_PUBLIC_PARAMETER "Show public parameters of %s"

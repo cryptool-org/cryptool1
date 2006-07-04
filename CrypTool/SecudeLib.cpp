@@ -142,7 +142,7 @@ int CSecudeLib::OpenSecudeLib()
 		Status = 2;
 	}
 	if((MaxBits=light_version())==0)
-		MaxBits=2048;
+		MaxBits=MAX_ASYM_KEYSIZE;
 	return Status;
 }
 

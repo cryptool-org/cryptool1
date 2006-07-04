@@ -322,10 +322,11 @@ void CDlgKeyAsymGeneration::OnOK()
 		return;
 	}
 
-	if (m_dsa_combo.IsWindowEnabled() && dsa_prime>MAX_RSA_MODULSIZE)
+	if (m_dsa_combo.IsWindowEnabled() && 
+		((dsa_prime<MIN_RSA_MODULSIZE) || (dsa_prime>MAX_RSA_MODULSIZE) || (dsa_prime % 64 != 0)))
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_RANGE_DSA_BITLENGTH,pc_str1,STR_LAENGE_STRING_TABLE);
-		sprintf(pc_str, pc_str1, MAX_RSA_MODULSIZE+1);
+		sprintf(pc_str, pc_str1, MIN_RSA_MODULSIZE-1,MAX_RSA_MODULSIZE+1);
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_NONVALID_INPUT,pc_str1,STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str,pc_str1,MB_ICONWARNING|MB_OK);
 		m_dsa_combo.SetFocus();
@@ -368,12 +369,13 @@ BOOL CDlgKeyAsymGeneration::OnInitDialog()
 
 	CParseIniFile::CStringList ecIDlist;
 
-	CString default_rsa_modulsize = "512"; // Default: RSA with 512 Bits
-	CString default_dsa_primesize = "512"; // Default: DSA with 512 Bits
+	CString default_rsa_modulsize = "1024"; // Default: RSA with 1024 Bits
+	CString default_dsa_primesize = "1024"; // Default: DSA with 1024 Bits
 
 	int combolist_stringindex;
 
-	m_rsa_combo.LimitText(4); // User can insert at most 4 characters
+	m_rsa_combo.LimitText(5); // User can insert at most 5 characters
+	m_dsa_combo.LimitText(5); // User can insert at most 5 characters
 
 	// SELECT default key size from the (preinitialized) combolist entries
 	m_rsa_combo.SelectString(-1, default_rsa_modulsize);
@@ -916,21 +918,31 @@ void CDlgKeyAsymGeneration::CreateAsymKeys()
 			if (ki&&m_ShowKeypair == TRUE)
 			{
 				class CDlgShowKeyParameter showparam;
-
+				int maxoctets = ki->part1.noctets > ki->part2.noctets ? ki->part1.noctets : ki->part2.noctets;
+				int hexreplen = sizeof("0x") + maxoctets * 2;
+				char *hexrep = new char[hexreplen];
+				if (hexrep == 0) {
+					remove(string3);
+					delete string2;
+					delete string4;
+					HIDE_HOUR_GLASS
+					return;
+				}
 				mlen=ki->part1.noctets;
 				buf=(unsigned char *)ki->part1.octets;
-				sprintf(pc_str,"0x");
+				sprintf(hexrep,"0x");
 				for (i=0;i<mlen;i++)
-					sprintf(pc_str+2+(2*i),"%02X",buf[i]);
-				string_to_ln(pc_str,temp);
+					sprintf(hexrep+2+(2*i),"%02X",buf[i]);
+				string_to_ln(hexrep,temp);
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_MODUL,pc_str,STR_LAENGE_STRING_TABLE);
 				showparam.addentry(pc_str,temp);
 				elen=ki->part2.noctets;
 				buf=(unsigned char *)ki->part2.octets;
-				sprintf(pc_str,"0x");
+				sprintf(hexrep,"0x");
 				for (i=0;i<elen;i++)
-					sprintf(pc_str+2+(2*i),"%02X",buf[i]);
-				string_to_ln(pc_str,temp);
+					sprintf(hexrep+2+(2*i),"%02X",buf[i]);
+				string_to_ln(hexrep,temp);
+				delete[] hexrep;
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_EXPONENT,pc_str,STR_LAENGE_STRING_TABLE);
 				showparam.addentry(pc_str,temp);
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_DSA_SHOW_PUBLIC_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
