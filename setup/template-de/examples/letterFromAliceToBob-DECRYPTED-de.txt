@@ -1,0 +1,12 @@
+Hallo Bob,
+
+das ist eine vertrauliche Email!
+
+Niemand außer Dir kann diese Email lesen, denn ich habe sie hybridverschlüsselt!
+
+
+--
+Viele Grüße
+
+Alice
+
