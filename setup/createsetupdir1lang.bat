@@ -1,52 +1,47 @@
 @echo off
-rem create and populate setup-%lang% directory 
+echo Create and populate setup-%lang% directory ...
 if not exist template\nul goto errortemplate
 if x%1==xde goto ok
 if x%1==xen goto ok
 
-echo error: invalid or no argument
-echo usage: setup1lang de  or  setup1lang en
+echo Error: invalid or no argument
+echo Usage: setup1lang de  or  setup1lang en
 goto end
 
 :ok 
 set lang=%1
 
 if exist setup-%lang%\nul rmdir /q/s setup-%lang%
+echo Copying template ...
 xcopy /s/q template\*.* setup-%lang%\
+echo Copying template-%lang% ...
 xcopy /s/q template-%lang%\*.* setup-%lang%\
+echo Copying ..\release_%lang%\*.exe ...
 copy ..\release_%lang%\*.exe setup-%lang%
+echo Copying ..\release_%lang%\CrypTool-%lang%.chm ...
 copy ..\release_%lang%\CrypTool-%lang%.chm setup-%lang%
+echo Copying ..\script\%lang%\script-%lang%.pdf  ...
 copy ..\script\%lang%\script-%lang%.pdf setup-%lang%
+echo Copying ..\dialoguesisters\%lang%\*.pdf setup-%lang%  ...
 copy ..\dialoguesisters\%lang%\*.pdf setup-%lang%
+echo Copying ..\OpenSSL\libeay32.dll setup-%lang% ...
 copy ..\OpenSSL\libeay32.dll setup-%lang%
 
 cd setup-%lang%
-rmdir /s/q CVS
-rmdir /s/q examples\CVS
-rmdir /s/q pse\CVS
-rmdir /s/q pse\pseca\CVS
-rmdir /s/q reference\CVS
 
 set sum=md5sum
-%sum% * 2>nul  | perl -pe "$_ = '' if m{ReadMe-...txt}" >..\%sum%-%lang%.txt 
-%sum% examples\* 2>nul | perl -pe "s{\\\\}{\\}g;s{^\\}{}" >>..\%sum%-%lang%.txt
-%sum% pse\pseca\* 2>nul | perl -pe "s{\\\\}{\\}g;s{^\\}{}" >>..\%sum%-%lang%.txt
-%sum% reference\* 2>nul | perl -pe "s{\\\\}{\\}g;s{^\\}{}" >>..\%sum%-%lang%.txt
-perl -i.bak -p ..\subst.pl XXX%sum%XXX ..\%sum%-%lang%.txt ReadMe-%lang%.txt
-del ReadMe-%lang%.txt.bak >nul
-del ..\%sum%-%lang%.txt >nul
+echo Creating %sum%.txt ...
+%sum% * examples/* pse/pseca/* reference/* 2>nul >..\%sum%.txt 
 
 set sum=sha1sum
-%sum% * 2>nul  | perl -pe "$_ = '' if m{ReadMe-...txt}" >..\%sum%-%lang%.txt 
-%sum% examples/* 2>nul | perl -pe "s{/}{\\}g" >>..\%sum%-%lang%.txt
-%sum% pse/pseca/* 2>nul | perl -pe "s{/}{\\}g" >>..\%sum%-%lang%.txt
-%sum% reference/* 2>nul | perl -pe "s{/}{\\}g" >>..\%sum%-%lang%.txt
-perl -i.bak -p ..\subst.pl XXX%sum%XXX ..\%sum%-%lang%.txt ReadMe-%lang%.txt
-del ReadMe-%lang%.txt.bak >nul
-del ..\%sum%-%lang%.txt >nul
+echo Creating %sum%.txt ...
+%sum% * examples/* pse/pseca/* reference/* 2>nul >..\%sum%.txt 
 
+move ..\md5sum.txt .
+move ..\sha1sum.txt .
 cd ..
 
+echo.
 
 goto end
 
