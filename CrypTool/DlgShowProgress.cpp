@@ -302,9 +302,7 @@ void CDlgShowProgress::Display()
 	theApp.m_MainWnd->PostMessage(WM_TIMER,44,NULL); /* oeffnet das Fenster modal im Hauptthread */
 	while(!m_displayed) Sleep(10); /* wartet bis das Fenster existiert */
 	startClock();
-
 } 
-
 
 CProgressRunnable::CProgressRunnable()
 {
@@ -328,5 +326,4 @@ static UINT threadProcHelper(LPVOID param)
 CWinThread* CProgressRunnable::startthread()
 {
 	return AfxBeginThread(threadProcHelper,this);
-
 }

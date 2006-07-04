@@ -214,10 +214,10 @@ BEGIN
     EDITTEXT        IDC_EDIT55,109,131,11,12,ES_READONLY
 END
 
-IDD_KEYASYM_GENERATION DIALOG  0, 0, 420, 338
+IDD_KEYASYM_GENERATION DIALOGEX 0, 0, 420, 338
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Erzeugung eines asymmetrischen Schlüsselpaares"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT1,306,48,90,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,306,66,90,12,ES_AUTOHSCROLL
@@ -3491,39 +3491,40 @@ BEGIN
                     IDC_STATIC,16,85,172,8
 END
 
-IDD_FILE_PROPERTIES DIALOGEX 0, 0, 322, 172
+IDD_FILE_PROPERTIES DIALOGEX 0, 0, 377, 173
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Dokument-Eigenschaften"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Schließen",IDOK,249,143,66,22
+    DEFPUSHBUTTON   "Schließen",IDOK,304,144,66,22
     GROUPBOX        "Informationen zum aktuell ausgewählten Dokument",
-                    IDC_STATIC,7,7,308,85
-    RTEXT           "Dokument-Name:",IDC_STATIC,13,31,71,9
-    RTEXT           "Dokument-Größe:",IDC_STATIC,13,58,71,10
-    RTEXT           "Dokument-Typ:",IDC_STATIC,13,44,71,10
-    EDITTEXT        IDC_EDIT1,90,72,218,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    IDC_STATIC,7,7,363,85
+    RTEXT           "Name der Datei",IDC_STATIC,13,31,89,9
+    RTEXT           "Dokument-Größe:",IDC_STATIC,13,58,89,10
+    RTEXT           "Dokument-Typ:",IDC_STATIC,13,44,89,10
+    EDITTEXT        IDC_EDIT1,109,72,253,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_EDIT2,90,58,218,12,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_EDIT2,109,58,253,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_EDIT132,90,44,218,12,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_EDIT132,109,44,253,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    CONTROL         "Paste",IDC_BUTTON1,"Button",BS_OWNERDRAW | WS_TABSTOP,7,
-                    143,28,22
-    LTEXT           "Temporäre Datei:",IDC_STATIC,13,72,71,8,0,WS_EX_RIGHT
-    EDITTEXT        IDC_EDIT3,90,31,218,12,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
-    EDITTEXT        IDC_EDIT4,90,18,218,12,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
-    LTEXT           "Fenster-Titel:",IDC_STATIC,13,18,71,8,0,WS_EX_RIGHT
-    GROUPBOX        "Pfad",IDC_STATIC,7,96,308,40
-    EDITTEXT        IDC_EDIT5,90,106,218,12,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
-    EDITTEXT        IDC_EDIT6,90,121,218,12,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
-    LTEXT           "für temporäre Dateien:",IDC_STATIC,13,121,71,9,0,
+    CONTROL         "KEY",IDC_BUTTON1,"Button",BS_OWNERDRAW | WS_TABSTOP,7,
+                    144,28,22
+    LTEXT           "Name der temporären Datei:",IDC_STATIC,13,72,89,8,0,
                     WS_EX_RIGHT
-    LTEXT           "für Dokumente:",IDC_STATIC,13,106,71,9,0,WS_EX_RIGHT
+    EDITTEXT        IDC_EDIT3,109,31,253,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    EDITTEXT        IDC_EDIT4,109,18,253,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    LTEXT           "Fenster-Titel:",IDC_STATIC,13,18,89,8,0,WS_EX_RIGHT
+    GROUPBOX        "Pfad",IDC_STATIC,7,96,363,40
+    EDITTEXT        IDC_EDIT5,109,106,253,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    EDITTEXT        IDC_EDIT6,109,121,253,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    LTEXT           "für temporäre Dateien:",IDC_STATIC,13,121,89,9,0,
+                    WS_EX_RIGHT
+    LTEXT           "für Dokumente:",IDC_STATIC,13,106,89,9,0,WS_EX_RIGHT
 END
 
 IDD_ABOUT DIALOGEX 34, 22, 242, 399
@@ -5251,7 +5252,7 @@ BEGIN
         MENUITEM "&Secret-Sharing-Demo...",     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
         MENUITEM SEPARATOR
-        POPUP "C&odierungen"
+        POPUP "C&odierungen", GRAYED
         BEGIN
             POPUP "&Base64 Codierung/Decodierung", GRAYED
             BEGIN
@@ -5259,9 +5260,9 @@ BEGIN
                 MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
             END
             MENUITEM "&UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
-            MENUITEM "ASN.&1-Decodieren einer Datei...", 
+            MENUITEM "ASN.&1-Decodieren eines Dokuments", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
-
+            , GRAYED
         END
         MENUITEM SEPARATOR
         POPUP "&Komprimieren", GRAYED
@@ -5624,7 +5625,7 @@ BEGIN
                 MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
             END
             MENUITEM "&UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
-            MENUITEM "ASN.&1-Decodieren einer Datei...", 
+            MENUITEM "ASN.&1-Decodieren eines Dokuments", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
         END
@@ -5985,7 +5986,7 @@ BEGIN
 
         MENUITEM "Primzahl&test...",            ID_PRIMENUMBER_TEST
         MENUITEM SEPARATOR
-        POPUP "C&odierungen"
+        POPUP "C&odierungen", GRAYED
         BEGIN
             POPUP "&Base64 Codierung/Decodierung", GRAYED
             BEGIN
@@ -5993,9 +5994,9 @@ BEGIN
                 MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
             END
             MENUITEM "&UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
-            MENUITEM "ASN.&1-Decodieren einer Datei...", 
+            MENUITEM "ASN.&1-Decodieren eines Dokuments", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
-
+            , GRAYED
         END
         MENUITEM SEPARATOR
         POPUP "&Komprimieren", GRAYED
@@ -6359,7 +6360,7 @@ BEGIN
                 MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
             END
             MENUITEM "&UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
-            MENUITEM "ASN.&1-Decodieren einer Datei...", 
+            MENUITEM "ASN.&1-Decodieren eines Dokuments", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
         END
@@ -6752,7 +6753,7 @@ BEGIN
         MENUITEM "&Secret-Sharing-Demo...",     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
         MENUITEM SEPARATOR
-        POPUP "C&odierungen"
+        POPUP "C&odierungen", GRAYED
         BEGIN
             POPUP "&Base64 Codierung/Decodierung", GRAYED
             BEGIN
@@ -6760,9 +6761,9 @@ BEGIN
                 MENUITEM "Base64 &decodieren",          33320
             END
             MENUITEM "UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
-            MENUITEM "ASN.&1-Decodieren einer Datei...", 
+            MENUITEM "ASN.&1-Decodieren eines Dokuments", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
-
+            , GRAYED
         END
         MENUITEM SEPARATOR
         POPUP "&Komprimieren", GRAYED
@@ -6987,6 +6988,10 @@ PASTEX                  BITMAP                  "res\\bitmap6.bmp"
 PASTEF                  BITMAP                  "res\\bmp00001.bmp"
 PASTETEST               BITMAP                  "res\\bmp00002.bmp"
 IDB_BITMAP5             BITMAP                  "res\\DerEinstiegInCrypTool_de.bmp"
+KEYU                    BITMAP                  "res\\KEYU.bmp"
+KEYD                    BITMAP                  "res\\KEYD.bmp"
+KEYX                    BITMAP                  "res\\KEYX.bmp"
+KEYF                    BITMAP                  "res\\KEYF.bmp"
 IDB_BITMAP_ARROW        BITMAP                  "res\\bitmap7.bmp"
 IDB_BITMAP_ARRDOWN      BITMAP                  "res\\bmp00006.bmp"
 IDB_BITMAP_ARR_DOWN     BITMAP                  "res\\PfeilUnten.bmp"
@@ -7369,6 +7374,10 @@ BEGIN
 0x3135, 0x0032, 
     IDC_COMBO1, 0x403, 4, 0
 0x3637, 0x0038, 
+    IDC_COMBO1, 0x403, 5, 0
+0x3031, 0x3432, "\000" 
+    IDC_COMBO1, 0x403, 5, 0
+0x3032, 0x3834, "\000" 
     IDC_COMBO2, 0x403, 4, 0
 0x3135, 0x0032, 
     IDC_COMBO2, 0x403, 4, 0
@@ -8143,13 +8152,13 @@ BEGIN
     IDD_FILE_PROPERTIES, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 315
+        RIGHTMARGIN, 370
         VERTGUIDE, 13
-        VERTGUIDE, 84
-        VERTGUIDE, 90
-        VERTGUIDE, 308
+        VERTGUIDE, 102
+        VERTGUIDE, 109
+        VERTGUIDE, 362
         TOPMARGIN, 7
-        BOTTOMMARGIN, 165
+        BOTTOMMARGIN, 166
     END
 
     IDD_ABOUT, DIALOG
@@ -9689,9 +9698,9 @@ BEGIN
     IDS_STRING_RSADEMO_P_NOT_PRIME "Die Eingabe für p ist keine Primzahl !"
     IDS_STRING_RSADEMO_Q_NOT_PRIME "Die Eingabe für q ist keine Primzahl !"
     IDS_STRING_RSADEMO_MODUL_KLEIN 
-                            "Die Anzahl der Zeichen im Alphabet (hier %i Buchstaben) muss kleiner als der RSA-Modul (hier N= %s) sein.\nBitte ändern Sie  in ""Optionen für Alphabet und Zahlensystem..."" das Alphabet oder wählen Sie größere Primzahlen."
+                            "Die Anzahl der Zeichen im Alphabet (hier %i Buchstaben) muss kleiner oder gleich der Größe des RSA-Moduls (hier N = %s) sein.\nBitte ändern Sie  in ""Optionen für Alphabet und Zahlensystem..."" das Alphabet oder wählen Sie größere Primzahlen."
     IDS_STRING_ERR_ONBLOCKLENGTH_NULL 
-                            "Bitte ändern Sie das Alphabet, so dass die Anzahl der Zeichen im Alphabet (hier %i) kleiner als der RSA-Modul (hier N = %s) ist."
+                            "Bitte ändern Sie das Alphabet, so dass die Anzahl der Zeichen im Alphabet (hier %i) kleiner oder gleich der Größe des RSA-Moduls (hier N = %s) ist."
     IDS_STRING_ERR_ONBLOCKLENGTH_1 "Bitte setzen Sie die Blocklänge auf 1."
     IDS_STRING_ERR_PRIME_ARE_EQUAL 
                             "Die Primzahlen p und q müssen verschieden sein!"
@@ -9926,7 +9935,7 @@ BEGIN
     IDS_RSADEMO_NOT         "nicht "
     IDS_ANALYSIS_SUBSTITUTION "Substitution analysis"
     IDS_RSADEMO_NUMBERS_BIGGER_THAN_N 
-                            "Mindestens eine Zahl der Eingabe ist größer als der RSA-Modul N\n(die RSA-Exponentiation ist für Zahlen größer als N nicht eindeutig)!\n\nBitte überprüfen Sie die Eingabe."
+                            "Mindestens eine Zahl der Eingabe ist größer oder gleich als die Größe des RSA-Moduls N\n(die RSA-Exponentiation ist für Zahlen größer oder gleich N nicht eindeutig)!\n\nBitte überprüfen Sie die Eingabe."
     IDS_NORSAKEY_AVAILABLE  "Es steht kein RSA-Schlüssel zur Verfügung!\nSie können sich im folgenden Dialog einen neuen erzeugen."
 END
 
@@ -10008,6 +10017,7 @@ BEGIN
     IDS_SCRIPTPATH          "%sScript-de.pdf"
     IDS_ERROPEN_SCRIPT      "Das Skript konnte nicht geöffnet werden!\nBitte überprüfen Sie:\nob sich die Datei ""Script-de.pdf"" im gleichen Pfad wie das Programm ""CrypTool.exe"" befindet und\nob Sie den Acrobat Reader installiert haben (www.adobe.com)."
     IDS_OPENHASHOFAFILE     "Hashwert einer Datei"
+    IDS_PROGESS_COMPUTE_DIGEST "%s-Hashwert berechnen"
 END
 
 STRINGTABLE 
@@ -10045,7 +10055,7 @@ BEGIN
     ID_RSA_FACTORHINT       "Angriff auf RSA mit Gitterreduktionsverfahren, sofern ein Teil eines der beiden Primfaktoren von N bekannt ist"
     ID_RSA_STEREOTYPED      "Angriff auf RSA mit Gitterreduktionsverfahren, sofern ein Teil des Klartextes einer Nachricht bekannt und e klein ist"
     ID_RSA_BLOEMERMAY       "Angriff auf RSA mit Gitterreduktionsverfahren, sofern d im Verhältnis zu N zu klein gewählt ist"
-    ID_FILEPROPERTIES       "Dateieigenschaften anzeigen"
+    ID_FILEPROPERTIES       "Zeigt die Eigenschaften das aktuellen Dokuments an."
     ID_ENCRYPT_ADFGVX       "ADFGVX-Verschlüsselung"
     ID_GENERATE_MACS        "Erzeugt verschiedene Message Authentication Codes (MACs)"
     ID_MASS_PATTERN_SEARCH  "Sucht vorgegebene Muster in einem Dokument"
@@ -10672,39 +10682,40 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
 // Dialog
 //
 
-IDD_FILE_PROPERTIES DIALOGEX 0, 0, 322, 158
+IDD_FILE_PROPERTIES DIALOGEX 0, 0, 362, 159
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Document Properties"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Close",IDOK,249,129,66,22
+    DEFPUSHBUTTON   "Close",IDOK,289,130,66,22
     GROUPBOX        "Information about the actually selected document",
-                    IDC_STATIC,7,7,308,73
-    RTEXT           "Document name:",IDC_STATIC,13,29,66,9
-    RTEXT           "Document size:",IDC_STATIC,13,54,65,10
-    RTEXT           "Document type:",IDC_STATIC,13,41,66,10
-    EDITTEXT        IDC_EDIT1,85,66,223,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    IDC_STATIC,7,7,348,73
+    RTEXT           "Name of the file:",IDC_STATIC,13,29,84,9
+    RTEXT           "Document size:",IDC_STATIC,13,54,84,10
+    RTEXT           "Document type:",IDC_STATIC,13,41,84,10
+    EDITTEXT        IDC_EDIT1,103,66,245,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_EDIT2,85,54,223,12,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_EDIT2,103,54,245,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_EDIT132,85,41,223,12,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_EDIT132,103,41,245,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    CONTROL         "Paste",IDC_BUTTON1,"Button",BS_OWNERDRAW | WS_TABSTOP,7,
-                    129,25,22
-    LTEXT           "Temporary file:",IDC_STATIC,13,66,66,8,0,WS_EX_RIGHT
-    EDITTEXT        IDC_EDIT3,85,29,223,12,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
-    EDITTEXT        IDC_EDIT4,85,18,223,12,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
-    LTEXT           "Window title:",IDC_STATIC,13,18,66,8,0,WS_EX_RIGHT
-    GROUPBOX        "Path",IDC_STATIC,7,85,308,38
-    EDITTEXT        IDC_EDIT5,85,95,223,12,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
-    EDITTEXT        IDC_EDIT6,85,109,223,12,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
-    LTEXT           "for the temporary file:",IDC_STATIC,13,109,66,9,0,
+    CONTROL         "KEY",IDC_BUTTON1,"Button",BS_OWNERDRAW | WS_TABSTOP,7,
+                    130,25,22
+    LTEXT           "Name of the temporary file:",IDC_STATIC,13,66,84,8,0,
                     WS_EX_RIGHT
-    LTEXT           "for the document:",IDC_STATIC,13,95,66,9,0,WS_EX_RIGHT
+    EDITTEXT        IDC_EDIT3,103,29,245,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    EDITTEXT        IDC_EDIT4,103,18,245,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    LTEXT           "Window title:",IDC_STATIC,13,18,84,8,0,WS_EX_RIGHT
+    GROUPBOX        "Path",IDC_STATIC,7,85,348,38
+    EDITTEXT        IDC_EDIT5,103,95,245,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    EDITTEXT        IDC_EDIT6,103,109,245,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    LTEXT           "for the temporary file:",IDC_STATIC,13,109,84,9,0,
+                    WS_EX_RIGHT
+    LTEXT           "for the document:",IDC_STATIC,13,95,84,9,0,WS_EX_RIGHT
 END
 
 IDD_DIFFIEHELLMANVISUALIZATION DIALOG  0, 0, 525, 345
@@ -10954,10 +10965,10 @@ BEGIN
     EDITTEXT        IDC_EDIT55,109,131,11,12,ES_READONLY
 END
 
-IDD_KEYASYM_GENERATION DIALOG  0, 0, 419, 338
+IDD_KEYASYM_GENERATION DIALOGEX 0, 0, 419, 338
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Generation of Asymmetric Key Pair"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT1,306,48,75,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,306,66,75,12,ES_AUTOHSCROLL
@@ -14846,13 +14857,13 @@ BEGIN
                     IDC_STATIC,8,3,284,51
 END
 
-IDD_CRT_TRANSFORMATION DIALOG  0, 0, 557, 428
+IDD_CRT_TRANSFORMATION DIALOGEX 0, 0, 557, 428
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | 
     WS_CAPTION | WS_SYSMENU
 CAPTION 
 "Visualization of the transformation from number notation into the modular representation with the CRT"
 
-FONT 8, "MS Shell Dlg"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_CRT_TRANSFORMATION_EDITA0,43,96,232,14,ES_NUMBER
     EDITTEXT        IDC_CRT_TRANSFORMATION_EDITA1,43,112,232,14,ES_NUMBER
@@ -14917,9 +14928,9 @@ BEGIN
     EDITTEXT        IDC_CRT_TRANSFORMATION_EDITANZAHL,266,160,10,14,
                     ES_NUMBER
     GROUPBOX        "",IDC_STATIC,6,3,545,37
-    LTEXT           "This dialogue is supposed to help you understand the transformation based on the Chinese Remainder Theorem (CRT) of the number notation into the modular",
+    LTEXT           "This dialog is supposed to show the transformation of the integer number notation into the set of the according modular number representation - based on",
                     IDC_STATIC,15,11,526,10
-    LTEXT           "representation. After selecting the mathematical operation, entering the numbers A and B and entering the modules, you can click on 'Solve' to start the visualization.",
+    LTEXT           "the Chinese Remainder Theorem (CRT).  After selecting the mathematical operation, entering the numbers A and B and entering the modules, you can click on 'Solve' to start the visualization.",
                     IDC_STATIC,15,19,506,18
     LTEXT           "Range of values for prime numbers within this closed interval:",
                     IDC_GENERATEAUTOM1,17,163,198,8
@@ -15823,7 +15834,7 @@ BEGIN
             MENUITEM "Hash Value of a File...",     ID_HASH_OFAFILE
             MENUITEM "Hash &Demonstration...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
             , GRAYED
-            MENUITEM "&Key Generation from Password...", 
+            MENUITEM "&Key Generation from Password (PKCS#5)...", 
                                                     ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
             MENUITEM "&Generation of MACs...",      ID_GENERATE_MACS, GRAYED
@@ -15875,7 +15886,7 @@ BEGIN
         MENUITEM "&Secret-Sharing-Demo...",     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
         MENUITEM SEPARATOR
-        POPUP "C&odes"
+        POPUP "C&odes", GRAYED
         BEGIN
             POPUP "&Base64 Encode/Decode", GRAYED
             BEGIN
@@ -15883,9 +15894,9 @@ BEGIN
                 MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
             END
             MENUITEM "&UU-Encode/Decode",           ID_CODE_UU, GRAYED
-            MENUITEM "Decode ASN.&1 Code of a File...", 
+            MENUITEM "Decode ASN.&1 Code of a Document", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
-
+            , GRAYED
         END
         MENUITEM SEPARATOR
         POPUP "&Compress", GRAYED
@@ -16184,7 +16195,7 @@ BEGIN
             MENUITEM "Hash Value of a File...",     ID_HASH_OFAFILE
             MENUITEM "Hash &Demonstration...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
 
-            MENUITEM "&Key Generation from Password...", 
+            MENUITEM "&Key Generation from Password (PKCS#5)...", 
                                                     ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
             MENUITEM "&Generation of MACs...",      ID_GENERATE_MACS, GRAYED
@@ -16244,7 +16255,7 @@ BEGIN
                 MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
             END
             MENUITEM "&UU-Encode/Decode",           ID_CODE_UU, GRAYED
-            MENUITEM "Decode ASN.&1 Code of a File...", 
+            MENUITEM "Decode ASN.&1 Code of a Document", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
         END
@@ -16546,7 +16557,7 @@ BEGIN
             MENUITEM "Hash Value of a File...",     ID_HASH_OFAFILE
             MENUITEM "Hash &Demonstration...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
             , GRAYED
-            MENUITEM "&Key Generation from Password...", 
+            MENUITEM "&Key Generation from Password (PKCS#5)...", 
                                                     ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
             MENUITEM "&Generation of MACs...",      ID_GENERATE_MACS, GRAYED
@@ -16598,7 +16609,7 @@ BEGIN
         MENUITEM "&Secret-Sharing-Demo...",     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
         MENUITEM SEPARATOR
-        POPUP "C&odes"
+        POPUP "C&odes", GRAYED
         BEGIN
             POPUP "&Base64 Encode/Decode", GRAYED
             BEGIN
@@ -16606,9 +16617,9 @@ BEGIN
                 MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
             END
             MENUITEM "&UU-Encode/Decode",           ID_CODE_UU, GRAYED
-            MENUITEM "Decode ASN.&1 Code of a File...", 
+            MENUITEM "Decode ASN.&1 Code of a Document", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
-
+            , GRAYED
         END
         MENUITEM SEPARATOR
         POPUP "&Compress", GRAYED
@@ -16904,7 +16915,7 @@ BEGIN
             MENUITEM "Hash Value of a File...",     ID_HASH_OFAFILE
             MENUITEM "Hash &Demonstration...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
 
-            MENUITEM "&Key Generation from Password...", 
+            MENUITEM "&Key Generation from Password (PKCS#5)...", 
                                                     ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
             MENUITEM "&Generation of MACs...",      ID_GENERATE_MACS
@@ -16964,7 +16975,7 @@ BEGIN
                 MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
             END
             MENUITEM "&UU-Encode/Decode",           ID_CODE_UU, GRAYED
-            MENUITEM "Decode ASN.&1 Code of a File...", 
+            MENUITEM "Decode ASN.&1 Code of a Document", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
         END
@@ -17301,7 +17312,7 @@ BEGIN
             MENUITEM "Hash Value of a File...",     ID_HASH_OFAFILE
             MENUITEM "Hash &Demonstration...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
             , GRAYED
-            MENUITEM "&Key Generation from Password...", 
+            MENUITEM "&Key Generation from Password (PKCS#5)...", 
                                                     ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
             MENUITEM "&Generation of MACs...",      ID_GENERATE_MACS, GRAYED
@@ -17353,7 +17364,7 @@ BEGIN
         MENUITEM "&Secret-Sharing-Demo...",     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
         MENUITEM SEPARATOR
-        POPUP "C&odes"
+        POPUP "C&odes", GRAYED
         BEGIN
             POPUP "&Base64 Encode/Decode", GRAYED
             BEGIN
@@ -17361,9 +17372,9 @@ BEGIN
                 MENUITEM "Base64 &Decode",              33320
             END
             MENUITEM "&UU-Encode/Decode",           ID_CODE_UU, GRAYED
-            MENUITEM "Decode ASN.&1 Code of a File...", 
+            MENUITEM "Decode ASN.&1 Code of a Document", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
-
+            , GRAYED
         END
         MENUITEM SEPARATOR
         POPUP "&Compress", GRAYED
@@ -17585,6 +17596,10 @@ PASTED                  BITMAP                  "res\\EditPastebmp.bmp"
 PASTEX                  BITMAP                  "res\\bitmap6.bmp"
 PASTEF                  BITMAP                  "res\\bmp00001.bmp"
 PASTETEST               BITMAP                  "res\\bmp00002.bmp"
+KEYU                    BITMAP                  "res\\KEYU.bmp"
+KEYD                    BITMAP                  "res\\KEYD.bmp"
+KEYX                    BITMAP                  "res\\KEYX.bmp"
+KEYF                    BITMAP                  "res\\KEYF.bmp"
 IDB_BITMAP5             BITMAP                  "res\\DerEinstiegInCrypTool.bmp"
 IDB_BITMAP_ARROW        BITMAP                  "res\\bitmap7.bmp"
 IDB_BITMAP_ARRDOWN      BITMAP                  "res\\bmp00006.bmp"
@@ -17970,6 +17985,8 @@ BEGIN
 0x3637, 0x0038, 
     IDC_COMBO1, 0x403, 5, 0
 0x3031, 0x3432, "\000" 
+    IDC_COMBO1, 0x403, 5, 0
+0x3032, 0x3834, "\000" 
     IDC_COMBO2, 0x403, 4, 0
 0x3135, 0x0032, 
     IDC_COMBO2, 0x403, 4, 0
@@ -18513,13 +18530,13 @@ BEGIN
     IDD_FILE_PROPERTIES, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 315
+        RIGHTMARGIN, 355
         VERTGUIDE, 13
-        VERTGUIDE, 79
-        VERTGUIDE, 85
-        VERTGUIDE, 308
+        VERTGUIDE, 97
+        VERTGUIDE, 103
+        VERTGUIDE, 348
         TOPMARGIN, 7
-        BOTTOMMARGIN, 151
+        BOTTOMMARGIN, 152
     END
 
     IDD_KEY_HILL5X5, DIALOG
@@ -20579,7 +20596,7 @@ BEGIN
     IDS_STRING_RSADEMO_P_NOT_PRIME "The input for p is not a prime number !"
     IDS_STRING_RSADEMO_Q_NOT_PRIME "The input for q is not a prime number !"
     IDS_STRING_RSADEMO_MODUL_KLEIN 
-                            "The number of characters in the alphabet (here %i letters) must be smaller than the RSA Modul (here N= %s).\nPlease modify the alphabet in ""options for alphabet and number-system..."" or chooses larger prime nunmbers."
+                            "The number of characters in the alphabet (here %i letters) must be smaller or equal to the size of the RSA Modul (here N = %s).\nPlease modify the alphabet in ""options for alphabet and number-system..."" or chooses larger prime nunmbers."
     IDS_STRING_ERR_ONBLOCKLENGTH_NULL 
                             "Please modify the alphabet, in a way that the number of characters in the alphabet (here %i) is less or equal to the size of the RSA-modul (here N = %s)."
     IDS_STRING_ERR_ONBLOCKLENGTH_1 "Please change the block length to 1."
@@ -20614,7 +20631,7 @@ BEGIN
     IDS_STRING_FMT_DAYS     " %4i days, %02.2i:%02.2i:%02.2i hours."
     IDS_STRING_FMT_SEC      " %2i,%03.3i seconds."
     IDS_STRING_RSADEMO_MODUL_KLEIN_NUM 
-                            "The RSA encryption of numbers into text is incorrect, since the number of characters in the alphabet (here %i) is larger than the RSA Modul (here N=%s).\nPlease modify the alphabet in ""options for alphabet and number-system..."" or chooses larger prime nunmbers."
+                            "The RSA encryption of numbers into text is incorrect, since the number of characters in the alphabet (here %i) is larger than the size of the RSA Modul (here N=%s).\nPlease modify the alphabet in ""options for alphabet and number-system..."" or chooses larger prime nunmbers."
     IDS_CRYPT_RSADEMO_HEADER_ENTERPRIME "Prime number entry"
     IDS_CRYPT_RSADEMO_HEADER_GENERATEPRIMES "Generate prime numbers..."
     IDS_CRYPT_RSADEMO_HEADER_FACTORISERSAMODUL "Factorisation attack"
@@ -20770,7 +20787,7 @@ BEGIN
     IDS_RSADEMO_NOT         "not "
     IDS_ANALYSIS_SUBSTITUTION "Substitution analysis"
     IDS_RSADEMO_NUMBERS_BIGGER_THAN_N 
-                            "At least one number of the input is bigger than the RSA modulus N\n(the RSA exponentation is for a number bigger than N not invertible)!\n\nPlease correct your input."
+                            "At least one number of the input is greater or equal the size of the RSA modulus N\n(the RSA exponentation is for a number greater or equal than N not invertible)!\n\nPlease correct your input."
     IDS_NORSAKEY_AVAILABLE  "There is no RSA key available!\nYou can generate your own within the following dialogue."
 END
 
@@ -20802,6 +20819,7 @@ BEGIN
     IDS_SCRIPTPATH          "%sScript-en.pdf"
     IDS_ERROPEN_SCRIPT      "The script file could not be opened!\nPlease check\nif the file ""Script-en.pdf"" is in the same directory as ""CrypTool.exe"" and\nif the Acrobat reader is installed (www.adobe.com)."
     IDS_OPENHASHOFAFILE     "Hash of a file"
+    IDS_PROGESS_COMPUTE_DIGEST "Calculating %s hashvalue"
 END
 
 STRINGTABLE 

@@ -508,7 +508,7 @@ void CDlgHashDemo::ComputeHash(OctetString *data, OctetString *hashValue)
 	}
 	if (!strcmp(strSelectedHash, m_strHashFunctionSHA) )
 	{
-		theApp.SecudeLib.sec_hash_all(data,hashValue,theApp.SecudeLib.md4_aid,NULL);
+		theApp.SecudeLib.sec_hash_all(data,hashValue,theApp.SecudeLib.sha_aid,NULL);
 	}
 	if (!strcmp(strSelectedHash, m_strHashFunctionSHA1) )
 	{

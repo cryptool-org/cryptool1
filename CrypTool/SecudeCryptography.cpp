@@ -276,6 +276,7 @@ protected:
 	6 steht für RIPEMD160
 */
 
+
 void hash (char* infile, const char *OldTitle, int alg)
 {
 	CHashRunnable *runnable = new CHashRunnable(infile,OldTitle,alg);
@@ -325,6 +326,13 @@ UINT CHashRunnable::run()
 			AlgTitel="RIPEMD-160";
 			break;
 	}
+
+
+	LoadString(AfxGetInstanceHandle(), IDS_PROGESS_COMPUTE_DIGEST, pc_str, STR_LAENGE_STRING_TABLE);
+	char progressTitel[128];
+	sprintf(progressTitel, pc_str, AlgTitel);
+	theApp.fs.SetWindowText(progressTitel);
+
 	FILE *in = fopen(infile,"rb");
 	ASSERT(in);
 	m_pos = 0;
@@ -346,7 +354,7 @@ UINT CHashRunnable::run()
 	rc = theApp.SecudeLib.sec_hash_end(&context,&hashostr);
 	ASSERT(rc == 0);
 	bool canceledbyuser = canceled();
-	//theApp.fs.cancel();
+	theApp.fs.cancel();
 	CDlgShowHash HashDlg;
 	HashDlg.SetHash( hashostr, OldTitle, AlgTitel );
 	if ( !canceledbyuser && IDOK == HashDlg.DoModal() )

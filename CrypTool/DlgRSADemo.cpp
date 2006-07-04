@@ -683,7 +683,7 @@ void CDlgRSADemo::OnButtonUpdateRSAParameter()
 	if ( KeyStatusModulNValid() ) 
 	{
 		if ( DlgOptions->m_BlockLength!=0 && !( m_edit_N.GetLength() <= 3 && 
-					                DlgOptions->Anzahl_Zeichen>=atoi(m_edit_N.GetBuffer(0))) )
+					                DlgOptions->Anzahl_Zeichen>atoi(m_edit_N.GetBuffer(0))) )
 		{ // Save Actual Primes
 			LoadString(AfxGetInstanceHandle(),IDS_CRYPT_RSADEMO_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
 			CString Primes = m_edit_p + ";" + m_edit_q + ";"+m_edit_e;

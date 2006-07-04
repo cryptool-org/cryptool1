@@ -170,7 +170,7 @@ int CKeyFromPasswordPKCS5::password_based_key_deriv_funct(CString Passwort, CStr
 			case 1://MD5
 				theApp.SecudeLib.sec_hash_all(&help3,&hash,theApp.SecudeLib.md5_aid,NULL);
 				if (atoi(zaehler)<=1) break;
-				for (k=0; k<=atoi(zaehler);k++)
+				for (k=0; k<=atoi(zaehler)-2;k++)
 				{
 					theApp.SecudeLib.sec_hash_all(&hash,&hash,theApp.SecudeLib.md5_aid,NULL);	
 				}
@@ -178,7 +178,7 @@ int CKeyFromPasswordPKCS5::password_based_key_deriv_funct(CString Passwort, CStr
 			case 2://SHA-1
 				theApp.SecudeLib.sec_hash_all(&help3,&hash,theApp.SecudeLib.sha1_aid,NULL);
 				if (atoi(zaehler)<=1) break;
-				for (k=0; k<=atoi(zaehler);k++)
+				for (k=0; k<=atoi(zaehler)-2;k++)
 				{
 					theApp.SecudeLib.sec_hash_all(&hash,&hash,theApp.SecudeLib.sha1_aid,NULL);	
 				}			

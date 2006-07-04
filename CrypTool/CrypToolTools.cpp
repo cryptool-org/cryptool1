@@ -120,8 +120,9 @@ char* itoa_fmt(int i_num, char *c_buffer, int i_base )
 	if ( !c_buffer) 
 		c_buffer = new char[i_buffer_length];
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_PT,pc_str,STR_LAENGE_STRING_TABLE);
-	char c_pt = pc_str[0];
+	char strPT[128];
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_PT,strPT,STR_LAENGE_STRING_TABLE);
+	char c_pt = strPT[0];
 
 	int i,j = 0;
 	for (i = 0; i<l; )
@@ -151,8 +152,9 @@ char* double_fmt(double d_num, char *c_buffer, int prec )
 		d_num = d_num - floor(d_num) +1.0;
 		i_num = (int)(d_num*pow(10.0, prec));
 		itoa(i_num, strPrec, 10);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_COMMA,pc_str,STR_LAENGE_STRING_TABLE);
-        strPrec[0] = pc_str[0];
+		char commaStr[128];
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_COMMA,commaStr,STR_LAENGE_STRING_TABLE);
+        strPrec[0] = commaStr[0];
 		strcat(c_tmp, strPrec);
 	}
 
