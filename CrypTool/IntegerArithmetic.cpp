@@ -59,7 +59,7 @@ static char THIS_FILE[]=__FILE__;
 #define new DEBUG_NEW
 #endif
 
-static Miracl g_precision=50;
+static Miracl g_precision=MAX_BIT_LENGTH/32;
 
 #ifndef MULTITHREAD
 extern CDlgProgressFactorisation dlg;
@@ -2954,7 +2954,7 @@ long InverseCongruenceGenerator::randBit()
 CTutorialFactorisationBase::CTutorialFactorisationBase()
 {
 	m_old_mip = get_mip();
-	mirsys(50,0);
+	mirsys(MAX_BIT_LENGTH/32,0);
 	mip = get_mip();
 	set_mip(m_old_mip);
 }

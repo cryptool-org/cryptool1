@@ -63,7 +63,9 @@ extern volatile long ExitFactorisationCode;
 
 
 #define MAX_8BIT_LENGTH 256
-#define MAX_BIT_LENGTH  1024
+
+// MAX_BIT_LENGTH must be a multiple of 32
+#define MAX_BIT_LENGTH  16384
 
 #define EVAL_ERR_POW_NEGATIVE 7
 #define EVAL_ERR_OPERATOR_INVALID 6
