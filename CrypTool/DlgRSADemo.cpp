@@ -1385,8 +1385,8 @@ BOOL CDlgRSADemo::CheckIfNumberStream()
 
 bool CDlgRSADemo::CheckIfSignature()
 {
-	char buffer[1024];
-	int size = decode(m_edit_RSA_step_1, buffer, 0, GetBase(), 0, NULL);
+	char buffer[MAX_BIT_LENGTH+1];
+	int size = decode(m_edit_RSA_step_1, buffer, sizeof(buffer), 0, GetBase(), 0, NULL);
 	int i, flag = 0;
 
 	OctetString hash;
@@ -1828,7 +1828,7 @@ BOOL CDlgRSADemo::ReSegmentation( int mode )
 	CString hexDump1 = "";
  	CString hexDump2 = "";
 	// *************  Hier noch richtige groesse finden ....
-	char _tmp2[512]; 
+	char _tmp2[MAX_BIT_LENGTH+1]; // FIXME
 
 	while (i1 < m_edit_RSA_step_1.GetLength() && (m_edit_RSA_step_1[i1] == ' ' || m_edit_RSA_step_1[i1] == '#') ) i1++;
 	while ( i1 < m_edit_RSA_step_1.GetLength() )
@@ -1842,17 +1842,17 @@ BOOL CDlgRSADemo::ReSegmentation( int mode )
 		tmp1 = m_edit_RSA_step_1.Mid(i1, i2-i1);
 		switch ( mode & 15 ) {
 			case MODE_ASCII: 
-				if ( !(blockSize ==  decode( tmp1, _tmp2, blockSize, baseNumbers, (DlgOptions->m_codingMethod == 1), NULL )) )
+				if ( !(blockSize ==  decode( tmp1, _tmp2, sizeof(_tmp2), blockSize, baseNumbers, (DlgOptions->m_codingMethod == 1), NULL )) )
 					flag = FALSE;
 				break;
 			case MODE_ALPHABET:
-				if ( !(blockSize ==  decode( tmp1, _tmp2, blockSize, baseNumbers, 
+				if ( !(blockSize ==  decode( tmp1, _tmp2, sizeof(_tmp2), blockSize, baseNumbers, 
 					                         (DlgOptions->m_codingMethod == 1), DlgOptions->m_alphabet )) )
 					flag = FALSE;
 				break;
 			case MODE_DLG_OF_SISTERS:
 				ModRepr ( tmp1, DlgOptions->m_alphabet.GetLength()+1, baseNumbers, -1 ); 
-				if ( !(blockSize ==  decode( tmp1, _tmp2, blockSize, baseNumbers, FALSE, DlgOptions->m_alphabet )) )
+				if ( !(blockSize ==  decode( tmp1, _tmp2, sizeof(_tmp2), blockSize, baseNumbers, FALSE, DlgOptions->m_alphabet )) )
 					flag = FALSE;
 				break;
 		}

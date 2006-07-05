@@ -62,8 +62,6 @@ extern volatile long ExitFactorisationCode;
 #include "ChrTools.h"
 
 
-#define MAX_8BIT_LENGTH 256
-
 // MAX_BIT_LENGTH must be a multiple of 32
 #define MAX_BIT_LENGTH  16384
 
@@ -136,11 +134,11 @@ BOOL IsHexDump( CString &CStr );
 BOOL CStringFormulaToBig(CString &CStrNumber, Big &t);
 int  StringToBig( const char* StrNumber, Big &t, int base );
 int  CStringToBig( CString &CStrNumber, Big &t, int base );
-int  decode( const char *StrNumber, char *data, int blockLength, int numberBase, BOOL basisSystem, const char *CPlayfairAlphabet );
-int  decode( CString &CStringNumber, char *data, int blockLength, int numberBase, BOOL BasisSystem, const char *CPlayfairAlphabet );
-void encode( const char *data, char *numStr, int blockLength, int numberBase, BOOL basisSystem, const char *CPlayfairAlphabet );
+int  decode( const char *StrNumber, char *data, size_t datalen, int blockLength, int numberBase, BOOL basisSystem, const char *CPlayfairAlphabet );
+int  decode( CString &CStringNumber, char *data, size_t datalen, int blockLength, int numberBase, BOOL BasisSystem, const char *CPlayfairAlphabet );
+void encode( const char *data, char *numStr, size_t numStrLen, int blockLength, int numberBase, BOOL basisSystem, const char *CPlayfairAlphabet );
 void encode( const char *data, CString &numCStr, int blockLength, int numberBase, BOOL basisSystem, const char *CPlayfairAlphabet );
-void BigToString (const Big &t, char *   NumStr,  int base = BASE_DEC, size_t OutLength = 0);
+void BigToString (const Big &t, char *   NumStr, size_t NumStrLen,  int base = BASE_DEC, size_t OutLength = 0);
 void BigToCString(const Big &t, CString &NumCStr, int base = BASE_DEC, size_t OutLength = 0);
 void RandRepr( CString &StrNum,         int Modul, int numberBase, int randInterval = 20, int ofs = 0 ); 
 void RandRepr( CString &StrNum, CString StrModul, int numberBase, int randInterval = 20, int ofs = 0 );

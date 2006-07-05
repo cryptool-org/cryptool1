@@ -171,6 +171,8 @@ BOOL CheckFormula(CString &Formula, int base, CString &UpnFormula, int &ndx)
 	f_formula = UpnFormula = _T("");
 	while (ndx < Formula.GetLength())
 	{
+		if (stack_i + 2 >= sizeof(stack))
+			return FALSE;
 		if ( Formula[ndx] == ' ' || Formula[ndx] == '\t' ) ndx++;
 		else 
 		{
@@ -514,7 +516,7 @@ int CStringToBig( CString &CStrNumber, Big &t, int base )
 // Dekodierung die Variable blockLength nötig.
 // 
 
-int decode( const char *StrNumber, char *data, int blockLength, int numberBase, BOOL basisSystem, const char *CPlayfairAlphabet )
+int decode( const char *StrNumber, char *data, size_t datalen, int blockLength, int numberBase, BOOL basisSystem, const char *CPlayfairAlphabet )
 {
 	Big t;
 	miracl *mip = &g_precision;
@@ -522,7 +524,7 @@ int decode( const char *StrNumber, char *data, int blockLength, int numberBase, 
 	mip->IOBASE = numberBase;
 	StringToBig( StrNumber, t, numberBase);
 
-	char tmp[MAX_8BIT_LENGTH];
+	char tmp[MAX_BIT_LENGTH/8];
 	int i, modul, digits, alphabetLength;
 	alphabetLength = ( CPlayfairAlphabet == NULL ) ? 256 : strlen(CPlayfairAlphabet);
     digits = (int)ceil(log((double)alphabetLength)/log((double)numberBase));
@@ -537,19 +539,20 @@ int decode( const char *StrNumber, char *data, int blockLength, int numberBase, 
 	{
  	   	char ch = (CPlayfairAlphabet == NULL) ? (t % modul) % alphabetLength : CPlayfairAlphabet[(t % modul) % alphabetLength];
 	   	t = t / modul;
-       	tmp[MAX_8BIT_LENGTH-(i+1)] = ch;
+       	tmp[sizeof(tmp)-(i+1)] = ch;
 	}
-	for (int j=MAX_8BIT_LENGTH-i; j<MAX_8BIT_LENGTH; j++ )
+	ASSERT(i + 1 < datalen);
+	for (int j=sizeof(tmp)-i; j<sizeof(tmp); j++ )
 	{
-	    data[j-(MAX_8BIT_LENGTH-i)] = tmp[j];
+	    data[j-(sizeof(tmp)-i)] = tmp[j];
 	}
-    data[j-(MAX_8BIT_LENGTH-i)] = '\0';
+    data[j-(sizeof(tmp)-i)] = '\0';
 	return i;
 }
 
-int decode( CString &CStringNumber, char *data, int blockLength, int numberBase, BOOL BasisSystem, const char *CPlayfairAlphabet )
+int decode( CString &CStringNumber, char *data, size_t datalen, int blockLength, int numberBase, BOOL BasisSystem, const char *CPlayfairAlphabet )
 {
-    return decode(CStringNumber.GetBuffer(CStringNumber.GetLength()+1), data, blockLength, numberBase, BasisSystem, CPlayfairAlphabet );
+    return decode(CStringNumber.GetBuffer(CStringNumber.GetLength()+1), data, datalen, blockLength, numberBase, BasisSystem, CPlayfairAlphabet );
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -557,25 +560,29 @@ int decode( CString &CStringNumber, char *data, int blockLength, int numberBase,
 // Die Ausgabe wird mit Nullen bis zur Länge OutLength aufgefüllt
 // 
 
-void BigToString(const Big&t, char *NumStr, int base, size_t OutLength)
+void BigToString(const Big&t, char *NumStr, size_t NumStrLen, int base, size_t OutLength)
 {
 	miracl *mip = &g_precision;
 	int oldBase = mip->IOBASE;
 	mip->IOBASE = base;
-	char tmpStr[MAX_BIT_LENGTH];
+	if (mip->IOBSIZ < MAX_BIT_LENGTH + 1)
+		set_io_buffer_size(MAX_BIT_LENGTH + 1);
+	char tmpStr[MAX_BIT_LENGTH + 1];
 	tmpStr << t;
 	size_t i;
 	size_t diff;
-    	diff = ( OutLength > strlen(tmpStr) ) ? OutLength - strlen(tmpStr) : 0;
-    	if (diff > 0) for(i=0; i<diff; i++) NumStr[i] = '0';
-    	strcpy(NumStr+diff, tmpStr);
+	size_t tmpStrLen = strlen(tmpStr);
+    diff = ( OutLength > tmpStrLen ) ? OutLength - strlen(tmpStr) : 0;
+	ASSERT(tmpStrLen+diff+1 < NumStrLen);
+    if (diff > 0) for(i=0; i<diff; i++) NumStr[i] = '0';
+    strcpy(NumStr+diff, tmpStr);
 	mip->IOBASE = oldBase;
 }
 
 void BigToCString(const Big &t, CString &NumCStr, int base, size_t OutLength )
 {
-    char tmpStr[MAX_BIT_LENGTH];
-    BigToString( t, tmpStr, base, OutLength );
+    char tmpStr[MAX_BIT_LENGTH + 1];
+    BigToString( t, tmpStr, sizeof(tmpStr), base, OutLength );
     NumCStr = tmpStr;
 }
 
@@ -595,7 +602,7 @@ void BaseRepr( CString &StrNum, int baseFrom, int baseTo)
 // CPlayfairAlphabet in eine Zahlenfolge ("Zahl_1 # Zahl_2 # ... # Zahl_n"). 
 // Die Eingabe wird dabei Zunächst in Segmenten der Länge blockLength aufgeteilt.
 
-void encode( const char *data, char *numStr, int blockLength, int numberBase, 
+void encode( const char *data, char *numStr, size_t numStrLen, int blockLength, int numberBase, 
 			 BOOL basisSystem, const char *CPlayfairAlphabet )
 {
 	Big tmp = 0;
@@ -628,17 +635,15 @@ void encode( const char *data, char *numStr, int blockLength, int numberBase,
     	tmp *=modul;
        	tmp += j;
    	}
-	BigToString( tmp, numStr, numberBase, outLength );
+	BigToString( tmp, numStr, numStrLen, numberBase, outLength );
 }
 
 void encode( const char *data, CString &numCStr, int blockLength, int numberBase, 
 			 BOOL basisSystem, const char *CPlayfairAlphabet )
 {
-    char *tmp;
-    tmp = new char[MAX_BIT_LENGTH];
-    encode ( data, tmp, blockLength, numberBase, basisSystem, CPlayfairAlphabet );
+    char tmp[MAX_BIT_LENGTH + 1];
+    encode ( data, tmp, sizeof(tmp), blockLength, numberBase, basisSystem, CPlayfairAlphabet );
     numCStr = tmp;
-    delete []tmp;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -2956,6 +2961,7 @@ CTutorialFactorisationBase::CTutorialFactorisationBase()
 	m_old_mip = get_mip();
 	mirsys(MAX_BIT_LENGTH/32,0);
 	mip = get_mip();
+	set_io_buffer_size(MAX_BIT_LENGTH + 1);
 	set_mip(m_old_mip);
 }
 
