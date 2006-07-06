@@ -356,23 +356,24 @@ void CDlgKeyAsym::OnShowPubParamButton()
 		int mlen = ki->part1.noctets;
 		unsigned char* buf = (unsigned char*) ki->part1.octets;
 		L_NUMBER temp[MAXLGTH];
-		sprintf(pc_str,"0x");
+		char temphex[sizeof("0x") + (MAXKEYLENGTH+3)/4];
+		sprintf(temphex,"0x");
 		for (int i=0;i<mlen;i++)
 		{
-			sprintf(pc_str+2+(2*i),"%02X",buf[i]);	
+			sprintf(temphex+2+(2*i),"%02X",buf[i]);	
 		}
-		string_to_ln(pc_str,temp);
+		string_to_ln(temphex,temp);
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_MODUL,pc_str,STR_LAENGE_STRING_TABLE);
 		dlg.addentry(pc_str,temp);
 
 		int mlen2 = ki->part2.noctets;
 		unsigned char* buf2 = (unsigned char*) ki->part2.octets;
-		sprintf(pc_str,"0x");
+		sprintf(temphex,"0x");
 		for (i=0;i<mlen2;i++)
 		{
-			sprintf(pc_str+2+(2*i),"%02X",buf2[i]);
+			sprintf(temphex+2+(2*i),"%02X",buf2[i]);
 		}
-		string_to_ln(pc_str,temp);
+		string_to_ln(temphex,temp);
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_EXPONENT,pc_str,STR_LAENGE_STRING_TABLE);
 		dlg.addentry(pc_str,temp);
 		

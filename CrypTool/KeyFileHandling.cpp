@@ -584,7 +584,7 @@ CString CKeyFile::CreateFilename2
 
 CString CKeyFile::CreateDistName(CString Name, CString Firstname, CString CreatTime)
 {
-	return (CString)"CN="+Firstname + ((CString)" ") + Name + ((CString)" [") + CreatTime + ((CString)"], " + CString(DN_SUFFIX));
+	return (CString)"CN="+Firstname + ((CString)" ") + Name + ((CString)" [") + CreatTime + ((CString)"], ") + CString(DN_SUFFIX);
 }
 
 
