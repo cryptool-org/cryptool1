@@ -9858,7 +9858,6 @@ BEGIN
     IDS_CREATE_USER_KEY_ID3 "[%s][%s][%s-%i][%i]"
     IDS_CREATE_PSE          "%s/%s.pse"
     IDS_BIT                 "%i bit"
-    IDS_CREATE_DISNAME      "CN=%s %s [%i], L=Frankfurt, O=DB, C=DE"
 END
 
 STRINGTABLE 
@@ -20727,7 +20726,6 @@ BEGIN
     IDS_CREATE_USER_KEY_ID3 "[%s][%s][%s-%i][%i]"
     IDS_CREATE_PSE          "%s/%s.pse"
     IDS_BIT                 "%i bit"
-    IDS_CREATE_DISNAME      "CN=%s %s [%i], L=Frankfurt, O=DB, C=DE"
 END
 
 STRINGTABLE 

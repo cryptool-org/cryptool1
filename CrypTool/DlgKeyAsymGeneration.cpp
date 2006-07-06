@@ -735,7 +735,8 @@ void CDlgKeyAsymGeneration::CreateAsymKeys()
 	{
 		// Generate RSA key pair
 		use_secude_api = TRUE;
-		Algorithmus = theApp.SecudeLib.md5WithRsaEncryption_aid;
+		/* Algorithmus = theApp.SecudeLib.md5WithRsaEncryption_aid; */
+		Algorithmus = theApp.SecudeLib.sha1WithRSASignature_aid;
 		keyinfo.alg = theApp.SecudeLib.rsa_aid;
 		keyinfo.key_size = rsa_modul; // used keysize as int
 		verfahren = RSA_KEYFILE_IDSTRING;
@@ -1051,7 +1052,7 @@ void CDlgKeyAsymGeneration::CreateAsymKeys()
 		// Übergabe des Prototyp-Zertifikates an die CA, die den enthaltenen Schlüssel
 		// zertifiziert
 		Certificate *Zert2;
-		Zert2=theApp.SecudeLib.af_certify(PseHandle2, Zert, NULL, theApp.SecudeLib.md5WithRsaEncryption_aid, NULL);
+		Zert2=theApp.SecudeLib.af_certify(PseHandle2, Zert, NULL, theApp.SecudeLib.sha1WithRSASignature_aid /* theApp.SecudeLib.md5WithRsaEncryption_aid*/, NULL);
 		if (Zert2==NULL)
 		{
 			// Fehler bei der Zertifizierung
@@ -1311,7 +1312,7 @@ void CDlgKeyAsymGeneration::OnButtonP12import()
 		char *issuer_name = theApp.SecudeLib.aux_DName2Name(cert->tbs->issuer);
 		if (issuer_name)
 		{
-			if (strcmp(issuer_name, "CN=CA, L=Frankfurt, O=DB, C=DE") == 0)
+			if (strstr(issuer_name, DN_SUFFIX))
 			{
 				// this is a CrypTool certificate, try to extract the relevant data
 

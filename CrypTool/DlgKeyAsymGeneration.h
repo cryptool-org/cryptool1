@@ -66,7 +66,8 @@ statement from your version.
 #define MAX_RSA_MODULSIZE theApp.SecudeLib.MaxBits
 #define MIN_RSA_MODULSIZE 301
 
-#define PSEUDO_MASTER_CA_PINNR "1111"
+#define PSEUDO_MASTER_CA_PINNR "3.14159265358979323844"
+#define DN_SUFFIX "DC=cryptool, DC=org"
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgKeyAsymGeneration 

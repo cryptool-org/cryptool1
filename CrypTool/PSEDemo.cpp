@@ -253,7 +253,7 @@ BOOL CPSEDemo::CreatePSE()
 
 	// Prototyp Zertifikat erzeugen
 	Certificate* Cert;
-	Cert=theApp.SecudeLib.af_create_Certificate(m_hPSE, &keyinfo, theApp.SecudeLib.md5WithRsaEncryption_aid/*m_HashAlgId*/, "SKnew", m_DName, &osSerial, NULL, NULL, TRUE, NULL);
+	Cert=theApp.SecudeLib.af_create_Certificate(m_hPSE, &keyinfo, theApp.SecudeLib.sha1WithRSASignature_aid /* theApp.SecudeLib.md5WithRsaEncryption_aid m_HashAlgId*/, "SKnew", m_DName, &osSerial, NULL, NULL, TRUE, NULL);
 	if (!Cert)
 	{
 		// Fehler bei der Zertifikatserzeugung
@@ -299,7 +299,7 @@ BOOL CPSEDemo::CreatePSE()
 
 	// Übergabe des Prototyp-Zertifikates an die CA, die den enthaltenen Schlüssel zertifiziert
 	Certificate *Cert_CA;
-	Cert_CA=theApp.SecudeLib.af_certify(hPSE_CA, Cert, NULL, theApp.SecudeLib.md5WithRsaEncryption_aid, NULL);
+	Cert_CA=theApp.SecudeLib.af_certify(hPSE_CA, Cert, NULL, theApp.SecudeLib.sha1WithRSASignature_aid /* theApp.SecudeLib.md5WithRsaEncryption_aid */, NULL);
 	if (Cert_CA==NULL)
 	{
 		// Fehler bei der Zertifizierung
@@ -471,7 +471,7 @@ CString CPSEDemo::CreateDisName(const CString& sName, const CString& sFirstName,
 	Name.TrimRight();
 	FirstName.TrimLeft();
 	FirstName.TrimRight();
-	sDisName.Format(IDS_CREATE_DISNAME, FirstName, Name, lTime);
+	sDisName.Format("CN=%s %s [%i], %s", FirstName, Name, lTime, DN_SUFFIX);
 	return sDisName;
 }
 

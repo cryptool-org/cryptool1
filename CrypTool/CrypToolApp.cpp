@@ -296,7 +296,7 @@ BOOL CCrypToolApp::InitInstance()
 	
 	CString PseV, CaPseD, CaPseV;
 	PseV  =Pfad2+"PSE";
-	CaPseD=Pfad2+"PSE/PSECA/pseca";
+	CaPseD=Pfad2+"PSE/PSECA/capse.cse";
 	CaPseV=Pfad2+"PSE/PSECA";
 		
 	LPTSTR help2 = new TCHAR[CaPseD.GetLength()+1];
