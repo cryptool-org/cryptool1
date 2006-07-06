@@ -1,10 +1,10 @@
-#              ################################################### 
-#             #####                                           #####
-#             ####       SECUDE X.509v3 Extension Profile      ####
-#             ####                                             ####
-#             ####       © GMD 1997                            ####
-#             #####                                           #####
-#              ################################################### 
+#              ######################################################## 
+#             #####                                                #####
+#             ####       SECUDE X.509v3 Cert Extension Profile      ####
+#             ####                                                  ####
+#             ####       © 1997-2000 SECUDE GmbH                    ####
+#             #####                                                #####
+#              ######################################################## 
 
 #
 # Uncomment and edit needed lines.
@@ -15,14 +15,37 @@
 #    (the default values are format examples)
 #
 
+#
+# For some settings the special value "AUTO" exists. It can be combined
+# with the critical flags, where appropriate.
+#
+# For those settings there is also the special value "NONE", which
+# suppresses the addition of the related extension, even if no
+# __NO_DEFAULT_EXTS__ is provided.
+#
 
-#--- Key Identifier are strings, but they are calculated automatically if not given
-#AuthorityKeyId                     11:22:33:44
-#SubjectKeyId                       aa:bb:cc:dd
+#--- Key Identifier are octet strings
+#AuthorityKeyId                     11223344
+#SubjectKeyId                       aabbccdd
+#
+#AuthorityKeyId                     AUTO
+#===> AUTO: taken from issuer certificate's SubjectKeyId (or issuer/serial, if no SubjectKeyId present)
+#===> AUTO/NOFALLBACK: taken from issuer certificate's SubjectKeyId, error if missing
+#AuthorityKeyId-IssuerSerial        AUTO
+#===> AUTO: issuer and serial number of the CA's certificate
+#
+#SubjectKeyId                       AUTO
+#===> AUTO: SHA-1 hash over the subject's public key
+#SubjectKeyId-ShortHash             AUTO
+#===> AUTO: KeyId is "0100" + 60 rightmost bits of SHA-1 hash
 
 
 #--- Basic constraints is either USER or CA
-#BasicConstraints                   USER / CA
+#BasicConstraints                   USER
+#BasicConstraints                   CA[,<path-length>]
+#
+#BasicConstraints                   AUTO
+#===> AUTO: set CA-Flag according to the cert to be certified
 
 
 #--- Alternative Names and Distribution Points are URIs
@@ -32,6 +55,8 @@
 #SubjectAltName-directoryName       C=DE
 #SubjectAltName-iPAddress           127.0.0.1
 #SubjectAltName-registeredID        1.4.16.256.65536
+#--- OtherName may contain any type of name identified by the OID 'type-id' and the ASN.1 type of the extension value.
+#SubjectAltName-other::=type-id     TYPE=<type>  	value
 
 #IssuerAltName-rfc822Name           ca@domain
 #IssuerAltName-uRI                  http://www.domain
@@ -39,6 +64,11 @@
 #IssuerAltName-directoryName        C=DE
 #IssuerAltName-iPAddress            127.0.0.1
 #IssuerAltName-registeredID         1.4.16.256.65536
+#--- OtherName may contain any type of name identified by the OID 'type-id' and the ASN.1 type of the extension value.
+#IssuerAltName-other::=type-id      TYPE=<type>  	value
+#
+#IssuerAltName                      AUTO
+#===> AUTO: include the SubjectAltNames of the CA's certificate
 
 #DistrPoint-uRI                     http://www.domain
 #DistrPoint-uRI                     ftp://ftp.domain
@@ -47,7 +77,15 @@
 
 
 #--- Policy Identifier is a string
-#PolicyIdentifier                   [critical] Your-policy
+#PolicyIdentifier                   [critical] Your-policy-OID[,Qualifier-OID,Qualifier-DER[,...]]
+#
+#  example:                         1.0.0.1,1.3.6.1.5.5.7.2.1,160E687474703A2F2F7777772F637073
+#  where  1.0.0.1            is Your-policy OID
+#  and    1.3.6.1.5.5.7.2.1  is PKIX-CPS qualifier OID
+#  and    160E...7073        is the DER encoded string "http://www/cps"
+#
+#PolicyIdentifier                   AUTO
+#===> AUTO: add the policies from the CA's certificate
 
 
 #--- Key usage flags are either TRUE or FALSE
@@ -60,9 +98,20 @@
 #KeyUsage-cRLSign                   TRUE / FALSE
 #KeyUsage-encipherOnly              TRUE / FALSE
 #KeyUsage-decipherOnly              TRUE / FALSE
+#
+#KeyUsage                           AUTO
+#===> AUTO: set the maximal set of flags sensible for the given key
 
+#--- Extended key usage, e.g. id-pkix-kp-time-Stamping
 #ExtKeyUsage            	     [critical] 1.3.6.1.5.5.7.3.8
 
+#--- Authority Information Access
+#consists of the access method described via the OID '{x.y.z}' and the access location (rfc822Name, uRI or directoryName)
+#	id-ad-ocsp 	{1.3.6.1.5.5.7.48.1} is defined in RFC2459
+#	id-ad-caIssuers {1.3.6.1.5.5.7.48.2} is defined in RFC2459
+#AuthorityInfoAccess::={1.3.6.1.5.5.7.48.1}-location-rfc822Name	   ca@domain
+#AuthorityInfoAccess::={1.3.6.1.5.5.7.48.1}-location-uRI   	   http://www.domain
+#AuthorityInfoAccess::={1.3.6.1.5.5.7.48.1}-location-directoryName  C=DE
 
 #
 #    Standard extensions end here
