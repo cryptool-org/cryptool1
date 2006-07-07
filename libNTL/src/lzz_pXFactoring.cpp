@@ -83,7 +83,7 @@ void NullSpace(long& r, vec_long& D, vec_vec_zz_p& M, long verbose)
    long p = zz_p::modulus();
    double pinv = zz_p::ModulusInverse();
    long T1, T2;
-   double T1pinv;
+   mulmod_precon_t T1pinv;
 
    r = 0;
 
@@ -117,7 +117,7 @@ void NullSpace(long& r, vec_long& D, vec_vec_zz_p& M, long verbose)
             t1 = M[i][k];
 
             T1 = rep(t1);
-            T1pinv = ((double) T1)*pinv;
+            T1pinv = PrepMulModPrecon(T1, p, pinv); // ((double) T1)*pinv;
 
             x = M[i].elts() + (k+1);
             y = M[l].elts() + (k+1);
@@ -125,7 +125,7 @@ void NullSpace(long& r, vec_long& D, vec_vec_zz_p& M, long verbose)
             for (j = k+1; j < n; j++, x++, y++) {
                // *x = *x + (*y)*t1
 
-               T2 = MulMod2(rep(*y), T1, p, T1pinv);
+               T2 = MulModPrecon(rep(*y), T1, p, T1pinv);
                T2 = AddMod(T2, rep(*x), p);
                (*x).LoopHole() = T2;
             }
