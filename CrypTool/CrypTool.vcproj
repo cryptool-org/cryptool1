@@ -9990,7 +9990,7 @@ xcopy /s/y &quot;$(InputDir)..&quot; &quot;$(OutDir)\pse\&quot;"
 				<Tool
 					Name="VCCustomBuildTool"
 					Description="copying template DLLs to $(OutDir)"
-					CommandLine="xcopy /y &quot;$(InputDir)*.dll&quot; &quot;$(OutDir)&quot;"
+					CommandLine="xcopy /y &quot;$(InputDir)*.dll&quot; &quot;$(InputDir)*.ini&quot; &quot;$(InputDir)*.xml&quot; &quot;$(InputDir)ticket&quot; &quot;$(OutDir)&quot;"
 					Outputs="$(OutDir)\$(InputFileName)"/>
 			</FileConfiguration>
 		</File>
