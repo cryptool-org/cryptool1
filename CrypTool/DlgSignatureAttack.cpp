@@ -673,13 +673,23 @@ void CDlgSignatureAttack::BrowseDocument(CString & DocType)
 void CDlgSignatureAttack::GenerateMessageText(int Errorcode, UINT MessageBoxStyle)
 {
 	CString msg;
-	
+
 	switch (Errorcode)
 	{
 		case _SIG_ATT_BAD_HARMLESS_FILE:		msg.LoadString(IDS_STRING_SIG_ATT_BAD_HARMLESS_FILE); break;
 		case _SIG_ATT_BAD_DANGEROUS_FILE:		msg.LoadString(IDS_STRING_SIG_ATT_BAD_DANGEROUS_FILE); break;
 		case _SIG_ATT_BAD_HASH_ALGORITHM:		msg.LoadString(IDS_STRING_SIG_ATT_BAD_HASH_ALGORITHM); break;
-		case _SIG_ATT_DOCUMENTS_FOUND:			msg.LoadString(IDS_STRING_SIG_ATT_DOCUMENTS_FOUND); break;
+		case _SIG_ATT_DOCUMENTS_FOUND:			
+			{
+				unsigned long u_bitLength = _OPT_SIG_ATT_STANDARD_BITLENGTH;
+				if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
+				{
+					CT_READ_REGISTRY_DEFAULT(u_bitLength, "SignatureAttackSignificantBitLength", u_bitLength);
+					CT_CLOSE_REGISTRY();
+				}
+				msg.FormatMessage(IDS_STRING_SIG_ATT_DOCUMENTS_FOUND, u_bitLength); 
+			}
+			break;
 		case _SIG_ATT_NO_DOCUMENTS_FOUND:		msg.LoadString(IDS_STRING_SIG_ATT_NO_DOCUMENTS_FOUND); break;
 		case _SIG_ATT_BAD_MODIFIABILITY:		msg.LoadString(IDS_STRING_SIG_ATT_BAD_MODIFIABILITY); break;
 		case _SIG_ATT_FLOYD_CANCELED:			msg.LoadString(IDS_STRING_SIG_ATT_FLOYD_CANCELED); break;

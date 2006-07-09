@@ -902,7 +902,6 @@ void CCryptDoc::OnCryptExtract()
 void CCryptDoc::OnAnalyzeSubst() 
 {
     UpdateContent();
-
 	// Überprüfung, ob Eingabedatei mindestens ein Zeichen enthält. 
 	CFile datei(ContentName, CFile::modeRead);
 	bool laenge_groesser_0 = FALSE;
@@ -920,21 +919,8 @@ void CCryptDoc::OnAnalyzeSubst()
 		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 1);
 		return;
 	}
-
-
-	CryptPar *para;
-
-	para = (CryptPar *) malloc(sizeof(CryptPar));
     UpdateContent();
-	memset(para,0,sizeof(CryptPar));
-	para->infile = ContentName;
-	para->OldTitle = GetTitle();
-	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
-	theApp.OpenBGFlag = 1;
-    AfxBeginThread( AnaSubst, ((void *) para) );
-
-//	UpdateContent();
-//	AnaSubst(ContentName, GetTitle());	
+	AnalyseMonoManual(ContentName, GetTitle());	
 }
 
 void CAscDoc::OnAuto() 

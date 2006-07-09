@@ -4520,7 +4520,8 @@ BEGIN
     GROUPBOX        "Informationen zur Verschlüsselung",IDC_STATIC,14,117,
                     288,75
     LTEXT           "auf:",IDC_TEXT3,21,171,13,8
-    LTEXT           "Das Alphabet wird abgebildet",IDC_TEXT1,21,133,93,8
+    LTEXT           "Das Alphabet (26 Zeichen) wird abgebildet",IDC_TEXT1,21,
+                    133,135,8
     LTEXT           "von:",IDC_TEXT2,21,150,15,8
     CONTROL         "Schlüsseleingabe: Restliche Zeichen aufsteigend füllen",
                     IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,21,25,190,10
@@ -5100,7 +5101,8 @@ BEGIN
             MENUITEM "Courier 12",                  33310
         END
         MENUITEM SEPARATOR
-        MENUITEM "BOX",                         33299, GRAYED
+        MENUITEM "BOX (Würfelkanten zeigen)",   ID_POPUP_OPENGL_SHOW_BOX
+        , GRAYED
     END
     POPUP "&Ver-/Entschlüsseln"
     BEGIN
@@ -5274,7 +5276,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
         BEGIN
-            MENUITEM "&Der Zahlenhai",              33326
+            MENUITEM "&Der Zahlenhai",              ID_NUMBERSHARK
         END
     END
     POPUP "A&nalyse"
@@ -5480,7 +5482,8 @@ BEGIN
             MENUITEM "Courier 12",                  33310
         END
         MENUITEM SEPARATOR
-        MENUITEM "BOX",                         33299, GRAYED
+        MENUITEM "BOX (Würfelkanten zeigen)",   ID_POPUP_OPENGL_SHOW_BOX
+        , GRAYED
     END
     POPUP "&Ver-/Entschlüsseln"
     BEGIN
@@ -5639,7 +5642,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
         BEGIN
-            MENUITEM "&Der Zahlenhai",              33326
+            MENUITEM "&Der Zahlenhai",              ID_NUMBERSHARK
         END
     END
     POPUP "A&nalyse"
@@ -5832,7 +5835,8 @@ BEGIN
             MENUITEM "Courier 12",                  33310
         END
         MENUITEM SEPARATOR
-        MENUITEM "BOX",                         33299, GRAYED
+        MENUITEM "BOX (Würfelkanten zeigen)",   ID_POPUP_OPENGL_SHOW_BOX
+        , GRAYED
     END
     POPUP "&Ver-/Entschlüsseln"
     BEGIN
@@ -6217,7 +6221,8 @@ BEGIN
 
         END
         MENUITEM SEPARATOR
-        MENUITEM "BOX",                         33299, GRAYED
+        MENUITEM "BOX (Würfelkanten zeigen)",   ID_POPUP_OPENGL_SHOW_BOX
+        , GRAYED
     END
     POPUP "&Ver-/Entschlüsseln"
     BEGIN
@@ -6374,7 +6379,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
         BEGIN
-            MENUITEM "&Der Zahlenhai",              33326
+            MENUITEM "&Der Zahlenhai",              ID_NUMBERSHARK
         END
     END
     POPUP "A&nalyse"
@@ -6600,7 +6605,8 @@ BEGIN
             MENUITEM "Courier 12",                  33310
         END
         MENUITEM SEPARATOR
-        MENUITEM "BOX",                         ID_POPUP_OPENGL_SHOW_BOX
+        MENUITEM "BOX (Würfelkanten zeigen)",   ID_POPUP_OPENGL_SHOW_BOX
+        , GRAYED
     END
     POPUP "&Ver-/Entschlüsseln"
     BEGIN
@@ -6775,7 +6781,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
         BEGIN
-            MENUITEM "&Der Zahlenhai",              33326
+            MENUITEM "&Der Zahlenhai",              ID_NUMBERSHARK
         END
     END
     POPUP "A&nalyse"
@@ -6928,7 +6934,8 @@ BEGIN
     BEGIN
         MENUITEM "Eigenschaften...",            ID_POPUP_OPENGL_EIGENSCHAFTEN
 
-        MENUITEM "Box",                         ID_POPUP_OPENGL_SHOW_BOX
+        MENUITEM "BOX (Würfelkanten zeigen)",   ID_POPUP_OPENGL_SHOW_BOX
+        , GRAYED
     END
 END
 
@@ -8367,7 +8374,7 @@ BEGIN
     IDS_STRING_ASYMKEY_MSG_SELECT_PSE "Bitte wählen Sie eine PSE."
     IDS_STRING_ASYMKEY_MSG_ENTER_PIN "Bitte geben Sie den PIN-Code ein."
     IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE 
-                            "Fehler beim Öffnen der CA-PSE\n(Fehlermeldung: ""%s"")\n\nBitte überprüfen Sie\n- dass der Verzeichnisbaum \\pse\\pseca im CrypTool heimatverzeichnis existiert \n- und dass alle Dateien unter diesen Verzeichnissen nicht schreibgeschützt sind. \nGegebenenfalls müssen Sie CrypTool neu installieren."
+                            "Fehler beim Öffnen der CA-PSE\n(Fehlermeldung: ""%s"")\n\nBitte überprüfen Sie\n- dass der Verzeichnisbaum \\pse\\pseca im CrypTool-Verzeichnis existiert \n- und dass alle Dateien unter diesen Verzeichnissen nicht schreibgeschützt sind. \nGegebenenfalls müssen Sie CrypTool neu installieren."
     IDS_STRING_ASYMKEY_ERR_ON_LOAD_CERTIFICATE 
                             "Fehler beim Holen des Zertifikates.\nBitte CrypTool neu installieren.\nInterne Fehlermeldung:\n%s"
     IDS_STRING_ASYMKEY_MSG_SELECT_SIGNATUREORIGINATOR 
@@ -8712,7 +8719,6 @@ BEGIN
     IDS_STRING_VERNAM_ENCRYPTION_OF 
                             "Vernam-Verschlüsselung von <%%s> und <%s>"
     IDS_STRING_HILL         "Hill"
-    IDS_STRING_ENTROPY_OF   "Das eingestellte Alphabet\n- enthält %d Zeichen,\n- die maximale Entropie dafür beträgt  %.3f Bit/Zeichen.\nDas analysierte Dokument\n- enthält %d verschiedene Zeichen,\n- seine Entropie beträgt  %.3f Bit/Zeichen."
     IDS_STRING_AUTOCORRELATION "Autokorrelation"
     IDS_STRING_AUTOCORRELATION_OF "Autokorrelation von <%s>"
     IDS_STRING_MSG_MATCHING_CHARACTERS "Anzahl der übereinstimmenden Zeichen"
@@ -9562,7 +9568,7 @@ BEGIN
     IDS_STRING_CAPTATION_RUNS_TESTS "Runs-Tests von %s"
     IDS_STRING_CAPTATION_POKER_TEST "Poker-Test von %s"
     IDS_STRING_CAPTATION_FIPS_PUB "FIPS-PUB-140-1 Testbatterie von %s"
-    IDS_STRING_TESTS_FIPS_ENTROPIE "Entropie: %lf bit/Zeichen"
+    IDS_STRING_TESTS_FIPS_ENTROPIE "Entropie: %s bit/Zeichen"
     IDS_STRING_TEST_FIPS_KLEINE_DATEI 
                             "Die FIPS-PUB-140-1 Testbatterie analysiert nach Spezifikation genau 2.500 Bytes.\nDa die zu dem ausgewählten Fenster gehörende Datei größer (%s Bytes) ist,\nwerden nach OK nur die ersten 2.500 Byte der gesamten Datei getestet."
     IDS_STRING_TEST_FIPS_KLEINE_DATEI_2 
@@ -9641,7 +9647,7 @@ BEGIN
                             "Die Eingabe wurde als Folge von Zahlen erkannt!\n\nWollen Sie die Eingabe als Folge von Zahlen betrachten [ja/nein]?"
     IDS_ENTROPY_ALPHABET_INFO 
                             "Das analysierte Dokument enthält %i der %i Zeichen des eingestellten Alphabets."
-    IDS_ENTROPY_INFO        "Seine Entropie beträgt %2.2f\n(maximal mögliche Entropie %2.2f)."
+    IDS_ENTROPY_INFO        "Seine Entropie beträgt %s\n(maximal mögliche Entropie %s)."
     IDS_BINARY_ENTROPY_ALPHABET_INFO 
                             "Das analysierte Dokument enthält %i unterschiedliche Bytes von %i möglichen."
     IDS_BINARY_ENTROPY_ALPHABET_MAX_INFO 
@@ -9767,7 +9773,7 @@ BEGIN
     IDS_STRING_SIG_ATT_BAD_BITLENGTH 
                             "Für den eingestellten Hash-Algorithmus muss die signifikante Bitlänge zwischen 1 und %d liegen."
     IDS_STRING_SIG_ATT_DOCUMENTS_FOUND 
-                            "Der Angriff war erfolgreich: ein Nachrichtenpaar\nmit gleichem Hashwert wurde gefunden."
+                            "Der Angriff war erfolgreich: Es wurden zwei\nNachrichten gefunden, deren Hashwert innerhalb der ersten %i Bits identisch ist."
     IDS_STRING_SIG_ATT_RUN_NUMBER "Run Nr."
     IDS_STRING_SIG_ATT_NO_DOCUMENTS_FOUND 
                             "Der Angriff schlug fehl: Es konnte kein Nachrichtenpaar gefunden werden."
@@ -10569,18 +10575,28 @@ BEGIN
     IDS_TITLE_DLG_SOLITAIRE "Erzeugung eines Solitaire-Schlüsselstroms für <%s>"
     IDS_TITLE_DLG_RSADECRYPTION 
                             "Auswahl eines Schlüssels zur RSA-Entschlüsselung von <%s>"
+    ID_POPUP_OPENGL_SHOW_BOX 
+                            "Zeige Würfelkanten in der OpenGL Visualisierung."
     ID_VIEW_ENDOFLINE       "Ein- oder Ausschalten besonderer Zeichen anstelle von Zeilenenden"
     ID_VIEW_LINEWRAP        "Ein- oder Ausschalten besonderer Zeichen anstelle von Zeilenumbrüchen"
     ID_VIEW_WHITESPACE      "Ein- oder Ausschalten besonderer Zeichen anstelle von Leerzeichen"
     IDS_CONTROL_COPY        "Kopieren"
     IDS_CONTROL_PASTE       "Einfügen"
+    33309                   "Darstellung der Zeichen in Courier 10 Punkte-Schrift (feste Zeichenlänge)."
+    33310                   "Darstellung der Zeichen in Courier 12 Punkte-Schrift (feste Zeichenlänge)."
+    ID_ZEICHENFORMAT_ARIAL10 
+                            "Darstellung der Zeichen in Arial 10 Punkte-Schrift."
 END
 
 STRINGTABLE 
 BEGIN
+    33312                   "Darstellung der Zeichen in Arial 12 Punkte-Schrift."
+    33314                   "Darstellung der Zeichen in Arial 8 Punkte-Schrift."
+    33316                   "Darstellung der Zeichen in Courier 8 Punkte-Schrift (feste Zeichenlänge)."
     ID_DECODE_BASE64        "Decodieren des aktiven Dokuments mittles Base64"
     ID_ENCODE_BASE64        "Codieren des aktiven Dokuments mittels Base64"
     IDS_CONTROL_CUT         "Ausschneiden"
+    ID_NUMBERSHARK          "Trainiert den Umgang mit Teilern und Primzahlen."
 END
 
 STRINGTABLE 
@@ -15153,7 +15169,8 @@ BEGIN
     LTEXT           "Key",IDC_STATIC,21,94,36,11
     GROUPBOX        "Information on the substitution encryption",IDC_STATIC,
                     14,120,288,74
-    LTEXT           "The alphabet will be mapped ",IDC_TEXT1,21,134,94,8
+    LTEXT           "The alphabet (26  characters) will be mapped ",
+                    IDC_TEXT1,21,134,145,8
     LTEXT           "from:",IDC_TEXT2,21,151,16,8
     LTEXT           "to:",IDC_TEXT3,21,172,9,8
     GROUPBOX        "Choose variant of the monoalphabetic substitution",
@@ -15733,7 +15750,9 @@ BEGIN
             MENUITEM "Courier 10",                  33309
             MENUITEM "Courier 12",                  33310
         END
-        MENUITEM "BOX",                         33299, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "Show Box (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
+        , GRAYED
     END
     POPUP "&Crypt/Decrypt"
     BEGIN
@@ -15905,7 +15924,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
         BEGIN
-            MENUITEM "&Number Shark",               33328
+            MENUITEM "&Number Shark",               ID_NUMBERSHARK
         END
     END
     POPUP "&Analysis"
@@ -16109,7 +16128,8 @@ BEGIN
             MENUITEM "Courier 12",                  33310
         END
         MENUITEM SEPARATOR
-        MENUITEM "BOX",                         33299, GRAYED
+        MENUITEM "Show Box (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
+        , GRAYED
     END
     POPUP "&Crypt/Decrypt"
     BEGIN
@@ -16266,7 +16286,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
         BEGIN
-            MENUITEM "&Number Shark",               33328
+            MENUITEM "&Number Shark",               ID_NUMBERSHARK
         END
     END
     POPUP "&Analysis"
@@ -16456,7 +16476,8 @@ BEGIN
             MENUITEM "Courier 12",                  33310
         END
         MENUITEM SEPARATOR
-        MENUITEM "BOX",                         33299, GRAYED
+        MENUITEM "Show Box (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
+        , GRAYED
     END
     POPUP "&Crypt/Decrypt"
     BEGIN
@@ -16628,7 +16649,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
         BEGIN
-            MENUITEM "&Number Shark",               ID_GAMES_NUMBERSHARK
+            MENUITEM "&Number Shark",               ID_NUMBERSHARK
         END
     END
     POPUP "&Analysis"
@@ -16832,7 +16853,8 @@ BEGIN
             MENUITEM "Courier 12",                  33310
         END
         MENUITEM SEPARATOR
-        MENUITEM "BOX",                         33299, GRAYED
+        MENUITEM "Show Box (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
+        , GRAYED
     END
     POPUP "&Crypt/Decrypt"
     BEGIN
@@ -16986,7 +17008,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
         BEGIN
-            MENUITEM "&Number Shark",               33328
+            MENUITEM "&Number Shark",               ID_NUMBERSHARK
         END
     END
     POPUP "&Analysis"
@@ -17211,7 +17233,8 @@ BEGIN
             MENUITEM "Courier 12",                  33310
         END
         MENUITEM SEPARATOR
-        MENUITEM "BOX",                         33299
+        MENUITEM "Show Box (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
+        , GRAYED
     END
     POPUP "&Crypt/Decrypt"
     BEGIN
@@ -17383,7 +17406,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
         BEGIN
-            MENUITEM "&Number Shark",               33328
+            MENUITEM "&Number Shark",               ID_NUMBERSHARK
         END
     END
     POPUP "&Analysis"
@@ -17534,7 +17557,8 @@ BEGIN
     BEGIN
         MENUITEM "Properties...",               ID_POPUP_OPENGL_EIGENSCHAFTEN
 
-        MENUITEM "Box",                         ID_POPUP_OPENGL_SHOW_BOX
+        MENUITEM "Show Box (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
+        , GRAYED
     END
 END
 
@@ -19631,7 +19655,6 @@ BEGIN
     IDS_STRING_VERNAM_KEYFILE "Selection of the Vernam key file for <%s>"
     IDS_STRING_VERNAM_ENCRYPTION_OF "Vernam encryption of <%%s> and <%s>"
     IDS_STRING_HILL         "Hill"
-    IDS_STRING_ENTROPY_OF   "The current alphabet\n- contains %d characters,\n- resulting in a maximum entropy of %.3f bit/char.\nThe document being analysed\n- contains %d distinct characters,\n- its entropy amounts to %.3f bit/char."
     IDS_STRING_AUTOCORRELATION "Autocorrelation"
     IDS_STRING_AUTOCORRELATION_OF "Autocorrelation of <%s>"
     IDS_STRING_MSG_MATCHING_CHARACTERS "Number of characters that agree"
@@ -20449,7 +20472,7 @@ BEGIN
     IDS_STRING_CAPTATION_RUNS_TESTS "Runs Tests of %s"
     IDS_STRING_CAPTATION_POKER_TEST "Poker Test of %s"
     IDS_STRING_CAPTATION_FIPS_PUB "FIPS-PUB-140-1 test battery of %s"
-    IDS_STRING_TESTS_FIPS_ENTROPIE "Entropy: %lf bit/character"
+    IDS_STRING_TESTS_FIPS_ENTROPIE "Entropy: %s bit/character"
     IDS_STRING_TEST_FIPS_KLEINE_DATEI 
                             "The FIPS-PUB-140-1 test battery is specified for exactly 2,500 bytes.\nBecause the currently selected document (%s bytes) is bigger,\nCrypTool will test only the first 2,500 bytes of the whole document."
     IDS_STRING_TEST_FIPS_KLEINE_DATEI_2 
@@ -20528,7 +20551,7 @@ BEGIN
                             "The input looks like a sequence of numbers!\n\nDo you wish to consider it as a sequence of numbers [yes/no]?"
     IDS_ENTROPY_ALPHABET_INFO 
                             "This document contains %i different characters compared to the %i characters of the selected alphabet."
-    IDS_ENTROPY_INFO        "The entropy of the document is %2.2f\n(maximum possible entropy %2.2f)."
+    IDS_ENTROPY_INFO        "The entropy of the document is %s\n(maximum possible entropy %s)."
     IDS_BINARY_ENTROPY_ALPHABET_INFO 
                             "This document contains %i different byte values (there are %i different byte values)."
     IDS_BINARY_ENTROPY_ALPHABET_MAX_INFO 
@@ -20868,7 +20891,7 @@ BEGIN
     IDS_STRING_SIG_ATT_BAD_BITLENGTH 
                             "The chosen hash algorithm requires a significant bit length between the borders 1 and %d."
     IDS_STRING_SIG_ATT_DOCUMENTS_FOUND 
-                            "The attack was successful: two different messages were found which translate to the same hash value."
+                            "The attack was successful: two different messages were found where the message hash is equal for the first %i bits."
     IDS_STRING_SIG_ATT_RUN_NUMBER "Run No."
     IDS_STRING_SIG_ATT_NO_DOCUMENTS_FOUND 
                             "The attack failed: no pair of messages could be found."
@@ -21440,18 +21463,26 @@ BEGIN
     IDS_TITLE_DLG_SOLITAIRE "Generation of a Solitaire key strem for <%s>"
     IDS_TITLE_DLG_RSADECRYPTION 
                             "Selection of a key for RSA decryption of <%s>"
+    ID_POPUP_OPENGL_SHOW_BOX "Show the cube edges in OpenGL visualization"
     ID_VIEW_ENDOFLINE       "Activating and Deactivating the display of end of lines as special characters"
     ID_VIEW_LINEWRAP        "Activating and Deactivating the display of line wraps as special characters"
     ID_VIEW_WHITESPACE      "Activating and Deactivating the display of whitespaces as special characters"
     IDS_CONTROL_COPY        "Copy"
     IDS_CONTROL_PASTE       "Paste"
+    33309                   "Text representation using Courier 10 dots font - fixed font length."
+    33310                   "Text representation using Courier 12 dots font - fixed font length."
+    ID_ZEICHENFORMAT_ARIAL10 "Text representation using Arial 10 dots font."
 END
 
 STRINGTABLE 
 BEGIN
+    33312                   "Text representation using Arial 12 dots font."
+    33314                   "Text representation using Arial 8 dots font."
+    33316                   "Text representation using Courier 8 dots font - fixed font length."
     ID_DECODE_BASE64        "Decoding the active document using Base64"
     ID_ENCODE_BASE64        "Encoding the active document using Base64"
     IDS_CONTROL_CUT         "Cut"
+    ID_NUMBERSHARK          "Practices the usage of dividers and primes"
 END
 
 STRINGTABLE 
@@ -21512,6 +21543,7 @@ END
 
 STRINGTABLE 
 BEGIN
+    ID_GAMES_NUMBERSHARK    "Practices the usage of dividers and primes."
     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING 
                             "Visualizes the Shamir (t, n)-Threshold-Scheme"
 END

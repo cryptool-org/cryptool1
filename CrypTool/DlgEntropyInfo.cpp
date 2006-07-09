@@ -48,6 +48,7 @@ statement from your version.
 #include "stdafx.h"
 #include "CrypToolApp.h"
 #include "DlgEntropyInfo.h"
+#include "CrypToolTools.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -120,7 +121,10 @@ BOOL CDlgEntropyInfo::OnInitDialog()
 		
 	}
 	
-	m_entropy_info.Format(IDS_ENTROPY_INFO,d_entropy, d_maxEntropy);
+	char str_d_entropy[20], str_d_maxEntropy[20];
+	double_fmt(d_entropy, str_d_entropy, 2);
+	double_fmt(d_maxEntropy, str_d_maxEntropy, 2);
+	m_entropy_info.Format(IDS_ENTROPY_INFO,str_d_entropy, str_d_maxEntropy);
 	UpdateData(FALSE);
 
 	return TRUE;  // return TRUE unless you set the focus to a control

@@ -96,6 +96,7 @@ UINT  FloatingEntropy(PVOID p);
 void HistogramASCII(const char *infile, const char *OldTitle);	
 void HistogramBin(const char *infile, const char *OldTitle);	
 void Hill(const char *infile, const char *OldTitle);
+int AnalyseMonoManual(const char *infile, const char *OldTitle);
 void Mono(const char *infile, const char *OldTitle);
 UINT  AnaSubst(PVOID p);	
 void AESCrypt (char* infile, const char *OldTitle, int AlgId, bool Enc_Or_Dec = NULL, char * NewFileName = NULL, char* NewFileKey = NULL);

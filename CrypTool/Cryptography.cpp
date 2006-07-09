@@ -142,7 +142,7 @@ void SetDialogTitle( CDlgKeyHex &Dialog, int IDS_STRING_ID )
 /*MKraft: hier Kaskaden-bool übergeben*/
 void CaesarAsc(const char *infile, const char *OldTitle)
 {
-    char outfile[128];
+    char outfile[1024];
     CDlgKey KeyDialog(-1);
 	SymbolArray text(AppConv);
 
@@ -178,7 +178,7 @@ void CaesarAsc(const char *infile, const char *OldTitle)
 
 void VigenereAsc(const char *infile, const char *OldTitle)
 {
-    char outfile[128];
+    char outfile[1024];
     CDlgKey KeyDialog(MAX_VIGENERE);
 	SymbolArray text(AppConv);
 
@@ -211,7 +211,7 @@ void VigenereAsc(const char *infile, const char *OldTitle)
 
 void XorBin(const char *infile, const char *OldTitle)
 {
-    char outfile[128], *buffer;
+    char outfile[1024], *buffer;
     CDlgKeyHex KeyDialog(MAX_VIGENERE);
 	SymbolArray text(IdConv);
 	
@@ -240,7 +240,7 @@ void XorBin(const char *infile, const char *OldTitle)
 
 void AddBin(const char *infile, const char *OldTitle)
 {
-    char outfile[128], *buffer;
+    char outfile[1024], *buffer;
     CDlgKeyHex KeyDialog(MAX_VIGENERE);
 	SymbolArray text(IdConv);
 	
@@ -1409,6 +1409,154 @@ void HistogramBin(const char *infile, const char *OldTitle)
 }
 
 
+int AnalyseMonoManual(const char *infile, const char *OldTitle)
+{
+	char *common[135];
+	int Grenze;
+	//Eingabedatei=infile;
+	int vore[26], nache[26], anfang[26], ende[26],i,j;
+	for (i=0; i<26; i++){
+		nache[i]=0;
+		vore[i]=0;
+	}
+
+	// Umlaute und Zeilenumbrueche umwandeln
+	char outfile2[1024];
+	GetTmpName(outfile2,"cry",".txt");
+	FILE *stream, *stream2;
+		
+	int ch;
+	if( (stream = fopen( infile, "rt" )) == NULL )
+		exit( 0 );
+	if( (stream2 = fopen( outfile2, "wt" )) == NULL )
+		exit( 0 );
+
+	while ( feof( stream ) == 0 )
+	{
+		ch = fgetc( stream );
+		switch(ch) {
+		case (-1):
+			break;
+		case ('\n'):					// Zeilenumbruch
+			fwrite (" \n", 1, 2, stream2);
+			break;
+		case (252):
+			fwrite ("ue", 1, 2, stream2);
+			break;
+		case (220):
+			fwrite ("Ue", 1, 2, stream2);
+			break;
+		case (246):
+			fwrite ("oe", 1, 2, stream2);
+			break;
+		case (214):
+			fwrite ("Oe", 1, 2, stream2);
+			break;
+		case (228):
+			fwrite ("ae", 1, 2, stream2);
+			break;
+		case (196):
+			fwrite ("Ae", 1, 2, stream2);
+			break;
+		case ('ß'):
+			fwrite ("ss", 1, 2, stream2);
+			break;
+		default:
+			fputc (ch, stream2);
+			break;
+		}
+	}
+	fclose (stream);
+	fclose (stream2);
+	
+	Eingabedatei=outfile2;
+	SymbolArray text(AlphaSpaceConv);
+	text.Read(outfile2);
+	int Laenge=text.GetSize(); // Länge des eingelesenen Textes
+	int Leerzeichen;		// Position des nächsten Leerzeichens
+	int Start=0;			// Merkt sich, wo das letzte Leerezichen gefunden wurde
+	char *current=(char*) malloc (50);
+
+	// Initialisieurng vom Permu und MaxPermu
+	// Permu speichert die gerade untersuchte Substitution und MaxPermu die Substitution,
+	// die bisher das beste Ergebnis brachte.
+	int *Permu[26];//,*MaxPermu[26];
+	//int *Permu[26];
+	for (i=0; i<26; i++){
+		Permu[i]=(int*)malloc(sizeof(int));
+		*Permu[i]=-1;
+		MaxPermu[i]=(int*)malloc(sizeof(int));
+		*MaxPermu[i]=-1;
+	}
+
+	/* Manuelle Bearbeitung des Textes:
+	   Das Nachbearbeitungsfenster wird aufgerufen. Im oberen Teil des Fensters werden
+	   jedoch noch keine Zuordnungen vorgenommen (alles mit '*' initialisiert).
+	   Der Benutzer kann Zuordnungen eingeben. Die daraus resultierende aktuelle
+	   Substitution wird benutzt, um den zu bearbeitenden Ciphertext zu entschlüsseln.
+	   Das Resultat wird im unteren Texfenster dargestellt.				*/
+
+	CDlgManualSubstAnalysis Dialogbox;
+	if (Dialogbox.DoModal()==IDOK){
+		// Entschlüsseln und Ausgabe des Textes
+		char outfile[1024], title[1024];
+		GetTmpName(outfile,"cry",".txt");
+
+		Laenge=text.GetSize();
+
+		LPTSTR string = new TCHAR[Laenge + 1];
+		int len;
+
+		for (len=i=0 ; i<Laenge; i++){
+			if (text[i]!=26){
+				if (*MaxPermu[text[i]]!=-1){
+					string[len++]=(char)(*MaxPermu[text[i]]);
+				}
+				else {
+					string[len++]=(char)text[i]+'a';}
+			}
+		}
+		string[len]=0;
+
+		char *Ausgabe2=string;
+		// Kopieren von char *Ausgabe2 in die Datei <outfile> (mit Hilfe der Secude Funktionen)
+		OctetString help;
+		help.noctets=strlen(Ausgabe2);
+		help.octets=Ausgabe2;
+		theApp.SecudeLib.aux_OctetString2file(&help,outfile,2);
+		delete string;
+
+		ForceReformat(outfile2, outfile, TRUE);
+
+		// Berechnung der (Teil-)Permutation zur Anzeige im Titel
+		char schluessel[27];
+		for (i=0; i<26;i++)
+		{
+			schluessel[i] = '*';
+		}
+		for (i=0; i<26;i++)
+		{
+			if (*MaxPermu[i] != -1)
+			{
+				schluessel[(*MaxPermu[i])-'A'] = i+'A';
+			}
+		}
+		schluessel[26]='\0';
+
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_POSSIBLE_PLAINTEXT_OF,pc_str,STR_LAENGE_STRING_TABLE);
+		MakeNewName2(title,sizeof(title),pc_str,schluessel,OldTitle);
+		theApp.ThreadOpenDocumentFileNoMRU(outfile, title, schluessel);
+		remove(outfile2);	
+	}
+	// Den allokierten Speicherplatz von current, Permu und MaxPermu freigeben
+	free (current);
+	for (i=0; i<26; i++){
+		free (Permu[i]);
+		free (MaxPermu[i]);
+	}
+	return 0;
+}
+
 
 /* Funktion zur monoalphabetischen Ver- und Entschlüsselung			*/
 void Mono(const char *infile, const char *OldTitle){
@@ -1658,7 +1806,7 @@ UINT AnaSubst(PVOID p) {
 	}
 
 	// Umlaute und Zeilenumbrueche umwandeln
-	char outfile2[128];
+	char outfile2[1024];
 	GetTmpName(outfile2,"cry",".txt");
 	FILE *stream, *stream2;
 		
@@ -1751,7 +1899,7 @@ UINT AnaSubst(PVOID p) {
 		CDlgManualSubstAnalysis Dialogbox;
 		if (Dialogbox.DoModal()==IDOK){
 			// Entschlüsseln und Ausgabe des Textes
-			char outfile[128], title[128];
+			char outfile[1024], title[1024];
 			GetTmpName(outfile,"cry",".txt");
 
 			Laenge=text.GetSize();
@@ -2391,7 +2539,7 @@ UINT AnaSubst(PVOID p) {
 
 
 	// Entschlüsseln und Ausgabe des Textes
-	char outfile[128], title[128];
+	char outfile[1024], title[1024];
 	GetTmpName(outfile,"cry",".txt");
 
 	Laenge=text.GetSize();
@@ -2611,7 +2759,7 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 	
 	char inbuffer[buffsize+3];
 	CDlgKeyHomophone DH;
-	DH.DeactivateDecryptionButton = TRUE;
+	// DH.DeactivateDecryptionButton = TRUE;
 	for (int i=0; ; i++ ) {
 		DH.c_SourceFile[i] = infile[i];
 		if (infile[i] == 0) break;
@@ -2633,7 +2781,7 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 // Routine zur Homophonen Verschlüsselung
 	char outbuffer[17000];
 	long outbuffsize;
-	char outfile[128],title[128];
+	char outfile[1024],title[1024];
 	int value;
 	GetTmpName(outfile,"cry",".hex");
 	ofstream out(outfile, ios::binary | ios::out );
@@ -2717,6 +2865,33 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 		if ( residuum ) 
 			out << residuum; 
 	}
+	else								// Entschlüsselung
+	{
+		DH.HB.Make_dec_table();
+
+		while(in.gcount())
+		{
+			outbuffsize=0;
+			for (int i=0;i<in.gcount();)
+			{
+				value = 0;
+				unsigned char offsetResiduumPrev = offsetResiduum;
+				for ( int j=0; offsetResiduum < bitLength; )
+				{
+					p_value[j] = inbuffer[i];
+					i++; j++; offsetResiduum += 8;
+				}
+				value = (value << offsetResiduumPrev) + residuum;
+				int val = value % (1 << bitLength);
+				outbuffer[outbuffsize]=DH.HB.Decrypt( val );
+				outbuffsize++;
+				offsetResiduum -= bitLength;
+				residuum = value >> bitLength;
+			}
+			out.write(outbuffer,outbuffsize);
+			in.read((char *)inbuffer,buffsize);
+		}
+	}
 
 	in.close();
  	out.close();
@@ -2777,7 +2952,7 @@ void HomophoneHex(const char *infile, const char *OldTitle)
 // Routine zur Homophonen Verschlüsselung
 	char outbuffer[4096];
 	long outbuffsize;
-	char outfile[128],title[128];
+	char outfile[1024],title[1024];
 	int value;
 	GetTmpName(outfile,"cry",".hex");
 	ofstream out(outfile, ios::binary | ios::out );
@@ -3055,7 +3230,7 @@ void DoInvPerm(char *dest, char *src, int len, int *p, int plen, int Zin, int Zo
 
 void PermutationAsc(const char *infile, const char *OldTitle)
 {
-    char outfile[128], key[128], title[128];
+    char outfile[1024], key[1024], title[1024];
 	CFile datei(infile, CFile::modeRead);
 	bool laenge_groesser_0 = FALSE;
 	char c;
@@ -3354,7 +3529,7 @@ BOOL Rot13CaesarAsc(SymbolArray & text, const char *infile)
 
 void Rot13CaesarAscFinish(SymbolArray & text, const char * infile, char * sKey, BOOL bDecrypt, const char *OldTitle, UINT type)
 {
-	char outfile[128];
+	char outfile[1024];
 	SymbolArray Key(AppConv);
 	Key.ReadString(sKey);
 	Key += 1;

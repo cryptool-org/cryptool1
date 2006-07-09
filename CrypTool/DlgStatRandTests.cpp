@@ -47,6 +47,7 @@ statement from your version.
 
 #include "stdafx.h"
 #include "CrypToolApp.h"
+#include "CrypToolTools.h"
 #include "DlgStatRandTests.h"
 #include "RandomTest.h"
 #include "ParseIniFile2.h"
@@ -711,7 +712,10 @@ void CDlgFIPSTest140_1::OnBatterietest()
 	UpdateData(TRUE);
 	char tmpStr[128];
 	LoadString(AfxGetInstanceHandle(), IDS_STRING_TESTS_FIPS_ENTROPIE, pc_str, STR_LAENGE_STRING_TABLE);
-	sprintf(tmpStr, pc_str, EntropyBin_mod(infile, oldTitle));
+
+	char str_entropyBin[20];
+	double_fmt(EntropyBin_mod(infile, oldTitle), str_entropyBin, 3);
+	sprintf(tmpStr, pc_str, str_entropyBin);
 	m_Entropie_Static = tmpStr;
 	UpdateData(FALSE);
 
