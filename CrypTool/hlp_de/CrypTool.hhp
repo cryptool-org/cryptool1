@@ -477,6 +477,11 @@ menu_individualprocedures_codes_base64.html
 hidd_key_monsubst.html
 sidechannelattackvisualization_usage.html
 cryptology.html
+hidr_opengltype.html
+hidd_set_visopt.html
+hid_popup_opengl_eigenschaften.html
+hid_popup_opengl_show_box.html
+hidd_options_substitution_auto_analysis.html
 
 [ALIAS]
 #include CrypTool_Alias.h
