@@ -41,9 +41,9 @@ foreach (<RC>) {
 		$lang = $1 ;
 	}
 
-	if (m{^\s*(\w+)\s+(DIALOG|BITMAP|ICON)\s+}) {
+	if (m{^\s*(\w+)\s+(DIALOG|DIALOGEX|BITMAP|ICON)\s+}) {
 		$id{$lang}{$1} = $lno;
-		$indialog = $1 if $2 eq 'DIALOG';
+		$indialog = $1 if $2 eq 'DIALOG' || $2 eq 'DIALOGEX';
 		next;
 	}
 	if ($indialog) {
