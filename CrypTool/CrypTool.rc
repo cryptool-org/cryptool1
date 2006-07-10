@@ -14549,41 +14549,6 @@ BEGIN
                     IDC_STATIC,8,130,251,39
 END
 
-IDC_WECHSELSEITIG_RADIO DIALOGEX 34, 22, 242, 346
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "About CrypTool"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
-BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,76,316,90,19,WS_GROUP
-    CTEXT           "and the universities \nTU Darmstadt, Universität Siegen and Universität Karlsruhe.",
-                    IDC_STATIC,0,152,242,17
-    CTEXT           "It is based on the security library",IDC_STATIC,1,200,
-                    241,8
-    EDITTEXT        IDC_EDIT1,0,211,240,12,ES_CENTER | ES_AUTOHSCROLL | 
-                    ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,
-                    WS_EX_TRANSPARENT
-    CTEXT           "Contact:",IDC_STATIC,0,225,241,10
-    LTEXT           "bernhard.esslinger@db.com /\nbesslinger@web.de\njoerg-cornelius.schneider@db.com\nhenrik.koy@db.com\ncryptool-list@sec.informatik.tu-darmstadt.de",
-                    IDC_STATIC,67,234,145,40
-    CTEXT           "Copyright (C) 1998-2003 Deutsche Bank AG\nFrankfurt am Main",
-                    IDC_STATIC,0,291,242,17
-    CTEXT           "has been developed in a joint effort of the sponsors",
-                    IDC_STATIC,1,21,241,8
-    CTEXT           "CrypTool is a demonstration and reference program\nfor creating employee awareness on the subject of cryptography.",
-                    IDC_STATIC,1,173,241,16
-    CTEXT           "Static",IDC_ABOUTBOX_CRYPTOOL,1,8,241,11
-    CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,41,36,105,37,
-                    WS_EX_TRANSPARENT
-    CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,40,68,143,37,
-                    WS_EX_TRANSPARENT
-    CONTROL         522,IDC_STATIC,"Static",SS_BITMAP,40,101,170,37,
-                    WS_EX_TRANSPARENT
-    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT | SS_SUNKEN | 
-                    WS_BORDER,10,32,222,116
-    LTEXT           "Internet: http://www.cryptool.org",IDC_STATIC,67,275,
-                    175,8
-END
-
 IDD_CRT_ASTRONOMY DIALOG  0, 0, 506, 322
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | 
     WS_CAPTION | WS_SYSMENU
