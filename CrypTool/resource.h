@@ -1227,6 +1227,7 @@
 #define IDC_CHECK_FIND_BACKWARDS        1888
 #define IDC_GIF_CRT_ASTRONOMY           1888
 #define IDC_CHECK_REGULAR_EXPRESSIONS   1889
+#define IDC_STATIC_PARAMETER21          1889
 #define IDC_STATIC_PLAINTEXT            1890
 #define IDC_STATIC_ENTER_KNOWN          1891
 #define IDC_STATIC_ENTER_POS            1892
@@ -1274,6 +1275,7 @@
 #define IDC_EDIT_T                      1935
 #define IDC_LIST_PARTICIPANTS           1936
 #define IDC_STATIC_SECRET               1937
+#define IDC_STATIC_PARAMETER2           1937
 #define IDC_CHECK_SHOWAGAIN             1938
 #define IDC_PRIMETEST_GROUPBOX_ALGO     1939
 #define IDC_PRIMETEST_GROUPBOX_TEXT     1940
@@ -1661,7 +1663,6 @@
 #define ID_EINZELVERFAHREN_SPIELE       33324
 #define ID_NUMBERSHARK                  33326
 #define ID_INDIV_GAMES                  33327
-#define ID_GAMES_NUMBERSHARK            33328
 #define ID_INDIVIDUAL_PROCEDURES_SECRETSHARING 33329
 #define ID_RSA_PRIMZAHLTEST             33330
 #define ID_ANALYSE_PERIOD               36500
@@ -2639,7 +2640,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        845
 #define _APS_NEXT_COMMAND_VALUE         33333
-#define _APS_NEXT_CONTROL_VALUE         1889
+#define _APS_NEXT_CONTROL_VALUE         1890
 #define _APS_NEXT_SYMED_VALUE           107
 #endif
 #endif

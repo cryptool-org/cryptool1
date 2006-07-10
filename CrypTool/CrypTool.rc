@@ -4868,7 +4868,7 @@ BEGIN
     LTEXT           "Bitte wählen Sie die Teilnehmer aus der Liste aus, die das Geheimnis wiederherstellen sollen. Zur Mehrfachauswahl halten sie einfach die Strg-Taste gedrückt und klicken den Eintrag mit Hilfe der Maus an.",
                     IDC_STATIC,7,353,357,19
     LTEXT           "Primzahl p",IDC_STATIC_MOD,12,214,33,8
-    GROUPBOX        "Parameter des Polynoms f(x) vom Grad t-1",IDC_STATIC,7,
+    GROUPBOX        "Parameter des Polynoms f(x) vom Grad t-1",IDC_STATIC_PARAMETER2,7,
                     166,357,65
     LTEXT           "Alle Operationen finden im diskreten Raum GF(p) statt.",
                     IDC_STATIC,13,179,171,8
@@ -8185,6 +8185,13 @@ BEGIN
         VERTGUIDE, 13
         VERTGUIDE, 239
         VERTGUIDE, 252
+    END
+
+    IDD_ADFGVX_MANUAL, DIALOG
+    BEGIN
+        VERTGUIDE, 15
+        HORZGUIDE, 328
+        HORZGUIDE, 344
     END
 
     IDD_CRT_ASTRONOMY, DIALOG
@@ -14119,8 +14126,6 @@ BEGIN
     LTEXT           "q:",IDC_STATIC,257,405,8,8
     LTEXT           "d:",IDC_STATIC,14,176,8,8
     LTEXT           "Then click ""Start"".",IDC_STATIC,14,78,70,8
-    EDITTEXT        IDC_EDITMAXDELTA2,92,269,52,14,ES_AUTOHSCROLL | 
-                    ES_READONLY
     LTEXT           "Maximal delta:",IDC_STATIC,25,271,59,9,0,WS_EX_RIGHT
     LTEXT           "Maximal size of delta for big N (N>1000 Bit).",
                     IDC_STATIC,154,271,294,11
@@ -14412,7 +14417,7 @@ BEGIN
     COMBOBOX        IDC_MAXLENGTH,70,42,33,240,CBS_DROPDOWNLIST | WS_VSCROLL | 
                     WS_TABSTOP,WS_EX_RIGHT
     PUSHBUTTON      "Apply",IDC_BUTTON_FORCE,125,74,58,16,WS_DISABLED
-    PUSHBUTTON      "Analyse",IDC_NEXT_PERMUTATION,188,73,58,16
+    PUSHBUTTON      "Analyse",IDC_NEXT_PERMUTATION,194,73,58,16
     EDITTEXT        IDC_M00,34,132,12,12,ES_CENTER | ES_UPPERCASE | 
                     ES_AUTOHSCROLL
     EDITTEXT        IDC_M01,46,132,12,12,ES_CENTER | ES_UPPERCASE | 
@@ -14486,9 +14491,9 @@ BEGIN
     EDITTEXT        IDC_M55,94,192,12,12,ES_CENTER | ES_UPPERCASE | 
                     ES_AUTOHSCROLL
     DEFPUSHBUTTON   "Output",IDOK,125,330,58,16
-    PUSHBUTTON      "Cancel",IDCANCEL,188,330,58,16
+    PUSHBUTTON      "Cancel",IDCANCEL,194,330,58,16
     LTEXT           "Current password",IDC_CURRENT_P,125,15,58,8
-    EDITTEXT        IDC_EDIT_REMAINING_SOL,125,119,121,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDIT_REMAINING_SOL,125,119,127,14,ES_AUTOHSCROLL | 
                     ES_READONLY | NOT WS_TABSTOP
     LTEXT           "Remaining possible solutions",IDC_STATIC_REMAINING_SOL,
                     125,110,91,8
@@ -14511,13 +14516,13 @@ BEGIN
     GROUPBOX        "Step 1: Substitution",IDC_STATIC,7,98,254,142
     GROUPBOX        "Step 2: Transposition",IDC_STATIC,7,7,254,89
     LTEXT           "Current solution",IDC_STATIC,7,243,52,8
-    EDITTEXT        IDC_EDIT_REMCHARS,125,144,121,20,ES_MULTILINE | 
+    EDITTEXT        IDC_EDIT_REMCHARS,125,144,127,20,ES_MULTILINE | 
                     ES_READONLY | NOT WS_TABSTOP
     LTEXT           "Not yet assigned characters",IDC_STATIC_REMCHARS,125,
                     136,91,8
     LTEXT           "minimal",IDC_STATIC,26,31,24,8
     LTEXT           "maximal",IDC_STATIC,74,31,26,8
-    EDITTEXT        IDC_TEXTFIELD_NUMBEREDPASSWORD,125,55,121,14,
+    EDITTEXT        IDC_TEXTFIELD_NUMBEREDPASSWORD,125,55,127,14,
                     ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Column sequence",IDC_STATIC_NUMBEREDPASSWORD,125,44,57,
                     8
@@ -14526,6 +14531,11 @@ BEGIN
     PUSHBUTTON      "Show current solution",IDC_RESUBSTITUTE,135,221,100,14
     PUSHBUTTON      "Enter String",IDC_BUTTON_STRINGBOX,135,203,100,14,
                     BS_MULTILINE
+    COMBOBOX        IDC_PASSWORD_BOX,125,26,127,97,CBS_DROPDOWN | 
+                    CBS_NOINTEGRALHEIGHT | CBS_UPPERCASE | WS_VSCROLL | 
+                    WS_TABSTOP
+    CONTROL         "Paste",IDC_INSERT_KEY,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,15,330,36,16
 END
 
 IDD_ADFGVX_INTRO DIALOGEX 0, 0, 265, 209
@@ -14676,10 +14686,10 @@ BEGIN
                     ES_NUMBER,WS_EX_RIGHT
     EDITTEXT        IDC_CRT_SECRETSHARINGEDIT9,12,170,143,15,ES_READONLY | 
                     ES_NUMBER,WS_EX_RIGHT
-    EDITTEXT        IDC_EDIT1,12,188,143,14,ES_AUTOHSCROLL | ES_READONLY,
-                    WS_EX_RIGHT
-    EDITTEXT        IDC_EDIT132,12,205,143,14,ES_AUTOHSCROLL | ES_READONLY,
-                    WS_EX_RIGHT
+    EDITTEXT        IDC_CRT_SECRETSHARINGEDIT9b,12,188,143,14,ES_AUTOHSCROLL | 
+                    ES_READONLY,WS_EX_RIGHT
+    EDITTEXT        IDC_CRT_SECRETSHARINGEDIT9c,12,205,143,14,ES_AUTOHSCROLL | 
+                    ES_READONLY,WS_EX_RIGHT
     CONTROL         "automatically",IDC_CRT_Radio_AUT,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,314,107,60,8
     DEFPUSHBUTTON   "&Calculate",IDC_SECRETSHARING_BUTTON1,317,155,50,15
@@ -14704,15 +14714,15 @@ BEGIN
     EDITTEXT        IDC_CRT_SECRETSHARINGEDIT20,48,325,143,15,ES_NUMBER | 
                     WS_DISABLED,WS_EX_RIGHT
     PUSHBUTTON      "+ / -",IDC_SECRETSHARING_ADD6,21,342,20,14,WS_DISABLED
-    EDITTEXT        IDC_EDIT5,48,342,143,14,ES_AUTOHSCROLL | WS_DISABLED,
-                    WS_EX_RIGHT
+    EDITTEXT        IDC_CRT_SECRETSHARINGEDIT21,48,342,143,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED,WS_EX_RIGHT
     PUSHBUTTON      "+ / -",IDC_SECRETSHARING_ADD7,21,360,20,14,WS_DISABLED
-    EDITTEXT        IDC_EDIT4,48,360,143,14,ES_AUTOHSCROLL | WS_DISABLED,
-                    WS_EX_RIGHT
+    EDITTEXT        IDC_CRT_SECRETSHARINGEDIT22,48,360,143,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED,WS_EX_RIGHT
     PUSHBUTTON      "Rebuild &secret",IDC_BUTTON1,253,360,59,15,WS_DISABLED
     CONTROL         "Show intro on next startup",IDC_CRT_SHOWDIALOG,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,10,387,102,10
-    PUSHBUTTON      "&Help",IDOK,75,401,50,15
+    PUSHBUTTON      "&Help",IDOK,75,403,50,15
     PUSHBUTTON      "&Log file",IDC_SECRETSHARING_LOG,170,402,50,14,
                     WS_DISABLED
     PUSHBUTTON      "&Exit",IDC_SECRETSHARING_ALGO,258,401,50,15
@@ -14726,10 +14736,10 @@ BEGIN
                     ES_READONLY | ES_NUMBER
     EDITTEXT        IDC_CRT_SECRETSHARINGEDIT14,162,170,143,15,ES_RIGHT | 
                     ES_READONLY | ES_NUMBER
-    EDITTEXT        IDC_EDIT2,162,188,143,14,ES_AUTOHSCROLL | ES_READONLY,
-                    WS_EX_RIGHT
-    EDITTEXT        IDC_EDIT133,162,205,143,14,ES_AUTOHSCROLL | ES_READONLY,
-                    WS_EX_RIGHT
+    EDITTEXT        IDC_CRT_SECRETSHARINGEDIT15,162,188,143,14,
+                    ES_AUTOHSCROLL | ES_READONLY,WS_EX_RIGHT
+    EDITTEXT        IDC_CRT_SECRETSHARINGEDIT15b,162,205,143,14,
+                    ES_AUTOHSCROLL | ES_READONLY,WS_EX_RIGHT
     CONTROL         "manually",IDC_CRT_RADIO_MAN,"Button",BS_AUTORADIOBUTTON,
                     314,120,62,9
     LTEXT           "Identifier (= Prime number)",IDC_STATIC,17,88,91,10
@@ -15493,10 +15503,10 @@ BEGIN
     PUSHBUTTON      "Cancel",IDCANCEL,7,402,86,14
     DEFPUSHBUTTON   "Reconstruction",IDOK,279,402,85,14,WS_DISABLED
     GROUPBOX        "Choose your secret and parameters to set up a scheme (whole numbers) ",
-                    IDC_STATIC_SECRET,7,64,357,71
+                    IDC_STATIC_PARAMETER,7,64,357,71
     LTEXT           "Secret S with S >= 0",IDC_STATIC,13,81,66,8
     GROUPBOX        "Parameters concerning the polynomial f(x) of degree t-1",
-                    IDC_STATIC_PARAMETER,7,164,357,72
+                    IDC_STATIC_PARAMETER2,7,164,357,72
     LTEXT           "Number of participants n  with n > 0",
                     IDC_STATIC_PARTICIPANTS,13,99,112,8
     LTEXT           "Threshold (minimum) t with t > 0",IDC_STATIC_THRESHOLD,
@@ -15547,7 +15557,7 @@ BEGIN
                     11,20,138,8
     EDITTEXT        IDC_EDIT_LIMIT,151,17,52,12,ES_AUTOHSCROLL
     LTEXT           "Upper Limit to p",IDC_STATIC,11,38,50,8
-    EDITTEXT        IDC_EDIT1,151,36,52,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_PRIME,151,36,52,12,ES_AUTOHSCROLL | ES_READONLY
 END
 
 IDD_SECRETSHARING_PARAMETER DIALOGEX 0, 0, 322, 220
@@ -15562,12 +15572,12 @@ BEGIN
                     IDC_STATIC,13,60,294,25
     LTEXT           "Eingabe einer geeigneten Primzahl",IDC_STATIC,14,83,110,
                     8
-    EDITTEXT        IDC_EDIT_PRIME,162,80,146,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MYPRIME,162,80,146,14,ES_AUTOHSCROLL
     LTEXT           "A polynomial f(x) of degree t-1 is constructed over GF(p): It is used to compute the participants' shares. By means of this polynomial and the generated shares, the secret can be reconstructed.",
                     IDC_STATIC,14,115,293,24
     LTEXT           "Enter t-1 coefficients (separated by commata; e.g. 3, 6, 19, if p>=19)",
                     IDC_STATIC,14,154,293,8
-    EDITTEXT        IDC_EDIT2,13,166,295,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MYCOEFF,13,166,295,14,ES_AUTOHSCROLL
     GROUPBOX        "Entering or changing polynomial parameters",IDC_STATIC,
                     7,47,308,141
     GROUPBOX        "Displaying secret and control parameters",IDC_STATIC,7,
@@ -19089,9 +19099,23 @@ BEGIN
         HORZGUIDE, 403
     END
 
+    IDD_ADFGVX_MANUAL, DIALOG
+    BEGIN
+        VERTGUIDE, 15
+        VERTGUIDE, 125
+        VERTGUIDE, 252
+        HORZGUIDE, 330
+        HORZGUIDE, 346
+    END
+
     IDD_CRT_ASTRONOMY, DIALOG
     BEGIN
         VERTGUIDE, 25
+    END
+
+    IDD_CRT_SECRETSHARING, DIALOG
+    BEGIN
+        TOPMARGIN, 3
     END
 
     IDD_CRT_TRANSFORMATION, DIALOG
@@ -21508,7 +21532,6 @@ END
 
 STRINGTABLE 
 BEGIN
-    ID_GAMES_NUMBERSHARK    "Practices the usage of dividers and primes."
     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING 
                             "Visualizes the Shamir (t, n)-Threshold-Scheme"
 END
