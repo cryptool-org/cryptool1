@@ -60,7 +60,7 @@ foreach (<RC>) {
 			$cont = $_;
 			next;
 		}
-		if (m{^\s*([a-zA-Z]+)\s+(\"[^\"]*\"\s*,\s*)?(-1|([a-zA-Z]\w*))\s*,}) {
+		if (m{^\s*([a-zA-Z]+)\s+(\"(?:[^\"]|\"\")*\"\s*,\s*)?(-1|([a-zA-Z]\w*))\s*,}) {
 			my $id = $3 eq '-1' ? IDC_STATIC : $3;
 			#next if $3 =~ m{^IDC_STATIC};
 			#next if $1 =~ m{EDITTEXT|CONTROL|DEFPUSHBUTTON|PUSHBUTTON|LTEXT|GROUPBOX|CTEXT|COMBOBOX|RTEXT|SCROLLBAR|LISTBOX};
