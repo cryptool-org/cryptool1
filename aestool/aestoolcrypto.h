@@ -103,11 +103,11 @@ class SrcInfo {
 protected:
 	CString m_name;
 	bool m_exists; // other fields are valid only if this is set true
-	unsigned long m_len; // length of the file
+	ULONGLONG m_len; // length of the file
 	bool m_encrypted; // fields below are valid if this is set to true
 	long m_magic; // magic value indicating file format
 	unsigned char m_iv[16]; // initialisation vector
-	long m_datalen; // length of the encrypted data
+	ULONGLONG m_datalen; // length of the encrypted data
 	long m_infoblocklen;
 	unsigned char *m_infoblockdata;
 public:
@@ -118,9 +118,9 @@ public:
 	CString getName() const { return m_name; }
 	bool exists() const { return m_exists; }
 	bool isEncrypted() const { return m_exists && m_encrypted; }
-	unsigned long getLength() const { ASSERT(m_exists); return m_len; }
+	ULONGLONG getLength() const { ASSERT(m_exists); return m_len; }
 	const void *getIV() const { ASSERT(isEncrypted()); return m_iv; }
-	long getDataLength() const { ASSERT(isEncrypted()); return m_datalen; }
+	ULONGLONG getDataLength() const { ASSERT(isEncrypted()); return m_datalen; }
 	const void *getInfoBlockData() const { ASSERT(isEncrypted()); return m_infoblockdata; }
 	const long getInfoBlockLength() const { ASSERT(isEncrypted()); return m_infoblocklen; }
 

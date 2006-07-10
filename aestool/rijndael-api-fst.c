@@ -123,9 +123,9 @@ int blockEncryptRijndael(cipherInstanceRijndael *cipher,
 		memcpy(cipher->IV,block,16); 
 #else
 		*((word32*)(cipher->IV)) = *((word32*)block);
-		*((word32*)(cipher->IV+4)) = *((word32*)block+4);
-		*((word32*)(cipher->IV+8)) = *((word32*)block+8);
-		*((word32*)(cipher->IV+12)) = *((word32*)block+12);
+		*((word32*)(cipher->IV+4)) = *((word32*)(block+4));
+		*((word32*)(cipher->IV+8)) = *((word32*)(block+8));
+		*((word32*)(cipher->IV+12)) = *((word32*)(block+12));
 #endif
 	
 	

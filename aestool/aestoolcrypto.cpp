@@ -50,7 +50,7 @@ statement from your version.
 #include <time.h> // time
 #include "rijndael-api-fst.h"
 
-#define BUFFSIZE (4096 * 1024)
+#define BUFFSIZE (40960 * 1024)
 
 void aescbc(const void *key,int keylen,const void *iv,char direction,const void *datain, unsigned long datalen, void *dataout)
 // all len(ths) in bytes, direction: DIR_DECRYPT or DIR_ENCRYPT
@@ -100,12 +100,13 @@ bool AesToolDecrypt(const void *key,int keylen,const SrcInfo &srcinfo,
 // return value: 1: OK, 0: Error
 {
 	unsigned char *buffer1 = 0, *buffer2 = 0;
-	unsigned long bufflen, ResData;
+	unsigned long bufflen;
+	ULONGLONG ResData;
 	bool dstfilecreated = false;
 	try {
 		long i;
 
-		unsigned long DataLen = ResData = srcinfo.getDataLength();
+		ULONGLONG DataLen = ResData = srcinfo.getDataLength();
 		bufflen = BUFFSIZE;
 		buffer2 = (unsigned char *) malloc(bufflen+32);
 		buffer1 = buffer2+32;
@@ -144,7 +145,7 @@ bool AesToolDecrypt(const void *key,int keylen,const SrcInfo &srcinfo,
 		VERIFY(makeKeyRijndael(&keyin,DIR_DECRYPT,keylen*8,keyhex));
 		VERIFY(cipherInitRijndael(&cipher,ivhex));
 
-		long datadistance2end = // not including the IV before data
+		ULONGLONG datadistance2end = // not including the IV before data
 			TAILLEN + AESIVLEN + srcinfo.getDataLength() + srcinfo.getInfoBlockLength();
 		SrcFile.Seek(srcinfo.getLength()-datadistance2end, CFile::begin);
 
@@ -154,13 +155,8 @@ bool AesToolDecrypt(const void *key,int keylen,const SrcInfo &srcinfo,
 		dstfilecreated = true;
 
 		// load Sourcedata
-		#if !defined(_MSC_VER) || _MSC_VER <= 1200  
-		// ReadHuge is needed for VC++ 6.0
-		while((i = SrcFile.ReadHuge(buffer1, min(bufflen,ResData))) > 0) 
-		#else
-		while((i = SrcFile.Read(buffer1, min(bufflen,ResData))) > 0) 
-		#endif
-		{
+		while((i = SrcFile.Read(buffer1, (UINT) (min(bufflen,ResData)))) > 0) {
+
 			ResData -= i;
 			// decrypt data
 			long ret = blockDecryptRijndael(&cipher, &keyin, buffer1, i, buffer2);
@@ -178,12 +174,7 @@ bool AesToolDecrypt(const void *key,int keylen,const SrcInfo &srcinfo,
 				}
 			}
 			// store data
-			#if !defined(_MSC_VER) || _MSC_VER <= 1200  
-			// WriteHuge is needed for VC++ 6.0
-			OutFile.WriteHuge(buffer2, i);
-			#else
 			OutFile.Write(buffer2, i);
-			#endif
 		}
 
 		SrcFile.Close();
@@ -214,13 +205,13 @@ bool AesToolEncrypt(const void *key,int keylen,const SrcInfo &srcinfo,
 	int bufflen;
 	int i;
 	bool dstfilecreated = false;
-	unsigned long ResData;
+	ULONGLONG ResData;
 	
 	try {
 		unsigned mode = CFile::modeRead | CFile::typeBinary | CFile::shareDenyNone;
 		CFile SrcFile(srcinfo.getName(), mode);
 
-		unsigned long DataLen = ResData = SrcFile.GetLength();
+		ULONGLONG DataLen = ResData = SrcFile.GetLength();
 		bufflen = BUFFSIZE;
 		buffer = (unsigned char *) malloc(bufflen+16);
 		if (!buffer) {
@@ -242,15 +233,8 @@ bool AesToolEncrypt(const void *key,int keylen,const SrcInfo &srcinfo,
 		dstfilecreated = true;
 
 		if(exename) { // copy EXE-File first
-		
-			#if !defined(_MSC_VER) || _MSC_VER <= 1200  
-			// ReadHuge is needed for VC++ 6.0
-			while((i = EXEFile.ReadHuge(buffer, bufflen)) > 0)
-				OutFile.WriteHuge(buffer,i);
-			#else
 			while((i = EXEFile.Read(buffer, bufflen)) > 0)
 				OutFile.Write(buffer,i);
-			#endif
 			EXEFile.Close();
 		}
 		// generate random IV
@@ -287,13 +271,7 @@ bool AesToolEncrypt(const void *key,int keylen,const SrcInfo &srcinfo,
 
 		// load Sourcedata
 		DataLen = 0;
-
-		#if !defined(_MSC_VER) || _MSC_VER <= 1200  
-		// ReadHuge is needed for VC++ 6.0
-		while((i = SrcFile.ReadHuge(buffer, bufflen)) > 0) {
-		#else
 		while((i = SrcFile.Read(buffer, bufflen)) > 0) {
-		#endif
 			ResData -= i;
 			if(ResData == 0) { // insert padding
 				buffer[i] = 1;
@@ -304,13 +282,8 @@ bool AesToolEncrypt(const void *key,int keylen,const SrcInfo &srcinfo,
 			VERIFY(ret == i);
 			// store data
 			DataLen += i;
-
-			#if !defined(_MSC_VER) || _MSC_VER <= 1200  
-			// WriteHuge is needed for VC++ 6.0
-			OutFile.WriteHuge(buffer, i);
-			#else
 			OutFile.Write(buffer, i);
-			#endif
+
 		}
 		SrcFile.Close();
 
@@ -363,7 +336,12 @@ SrcInfo::ReturnCode SrcInfo::setName(CString name)
 	if (m_len < TAILLEN) 
 		return OK;
 	file.Seek(-TAILLEN, CFile::end);
+	m_datalen = m_len;
 	file.Read(&m_datalen, sizeof(long));
+	if(m_datalen > m_len) {
+		m_datalen -= (1 << 31);
+		m_datalen -= (1 << 31);
+	}
 	file.Read(&m_infoblocklen, sizeof(long));
 	file.Read(&m_magic, sizeof(long));
 
@@ -372,13 +350,8 @@ SrcInfo::ReturnCode SrcInfo::setName(CString name)
 		return VERSION; 
 	}
 
-	unsigned long minlen = 2*AESIVLEN + m_datalen + m_infoblocklen + TAILLEN;
 	if (m_magic != FILE_MAGIC)
 		return OK;
-	if (minlen < 0 || m_len < minlen) {
-		m_exists = false;
-		return CORRUPT;
-	}
 	m_encrypted = true;
 	m_infoblockdata = new unsigned char[m_infoblocklen];
 	if (!m_infoblockdata) {
