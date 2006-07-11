@@ -251,7 +251,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="htmlhelp.lib"
-				OutputFile="$(OutDir)/Number Shark.exe"
+				OutputFile="../Release_en/Number Shark.exe"
 				LinkIncremental="1"
 				IgnoreAllDefaultLibraries="FALSE"
 				GenerateDebugInformation="TRUE"
@@ -308,7 +308,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="htmlhelp.lib"
-				OutputFile="$(OutDir)/Zahlenhai.exe"
+				OutputFile="../Release_de/Zahlenhai.exe"
 				LinkIncremental="1"
 				GenerateDebugInformation="TRUE"
 				SubSystem="2"
