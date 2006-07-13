@@ -142,7 +142,11 @@ int CSecudeLib::OpenSecudeLib()
 		Status = 2;
 	}
 	if((MaxBits=light_version())==0)
-		MaxBits=MAX_ASYM_KEYSIZE;
+		//MaxBits=MAX_ASYM_KEYSIZE; // the Secude definition of MAX_ASYM_KEYSIZE (16384) does not work:
+			// in CDlgKeyAsymGeneration::CreateAsymKeys the key generation works, but the generation of 
+			// the prototype certificate (af_create_Certificate) fails
+			// Workaround: reduce to 8K
+		MaxBits=8192;
 	return Status;
 }
 
