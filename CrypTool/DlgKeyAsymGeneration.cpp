@@ -993,7 +993,7 @@ void CDlgKeyAsymGeneration::CreateAsymKeys()
 
 		Certificate *Zert;
 		Zert=theApp.SecudeLib.af_create_Certificate (PseHandle, keyinfo.key, Algorithmus,"SKnew",
-			DisName, &SNummer, NULL, NULL, TRUE, NULL);
+			DisName, &SNummer, NULL, NULL, TRUE, NULL); // Fails in Secude 7.4.60C and older if keylength >8200bit
 		if (Zert==NULL)
 		{
 			// Fehler bei der Zertifikatserzeugung
