@@ -4868,8 +4868,8 @@ BEGIN
     LTEXT           "Bitte wählen Sie die Teilnehmer aus der Liste aus, die das Geheimnis wiederherstellen sollen. Zur Mehrfachauswahl halten sie einfach die Strg-Taste gedrückt und klicken den Eintrag mit Hilfe der Maus an.",
                     IDC_STATIC,7,353,357,19
     LTEXT           "Primzahl p",IDC_STATIC_MOD,12,214,33,8
-    GROUPBOX        "Parameter des Polynoms f(x) vom Grad t-1",IDC_STATIC_PARAMETER2,7,
-                    166,357,65
+    GROUPBOX        "Parameter des Polynoms f(x) vom Grad t-1",
+                    IDC_STATIC_PARAMETER2,7,166,357,65
     LTEXT           "Alle Operationen finden im diskreten Raum GF(p) statt.",
                     IDC_STATIC,13,179,171,8
 END
@@ -10332,16 +10332,14 @@ BEGIN
                             "Der Eingabetext hat eine ungerade Anzahl an Zeichen!"
     IDS_STRING_ADFGVX_ERROR_6 "Die Passwortlänge muss >0 sein!"
     IDS_STRING_ADFGVX_ERROR_7 
-                            "Die Reihenfolge der Buchstaben des\nTranspositionspasswortes ist nicht eindeutig.\nDoppelte Buchstaben wurden entfernt.\n\nDas neue Passwort lautet:\n\n"
+                            "Die Reihenfolge der Buchstaben des\nTranspositionspasswortes ist nicht eindeutig.\nDoppelte Buchstaben wurden entfernt."
     IDS_STRING_ADFGVX_ERROR_8 "Bitte zuerst Transposition analysieren!"
     IDS_STRING_ADFGVX_ERROR_9 
                             "Bei der Analyse des Transpositionsschrittes wurde keine gültige Permutation gefunden.\nDies kann zwei Gründe haben:\n\n1. Die Häufigkeitsverteilung der Buchstaben ist untypisch für deutsche oder englische Texte.\nDies tritt oft bei kurzen Nachrichten auf.\n\n2. Das verwendete Transpositionspasswort liegt nicht im Suchbereich der Analyse.\nSie sollten den Bereich der Passwortlänge verschieben."
     IDS_STRING_ADFGVX_ERROR_9B 
                             "Die Analyse hat die obere Grenze des Suchbereichs erreicht.\nEs wurden keine weiteren Passwörter gefunden.\n\nDie bereits entdeckten möglichen Transpositionspasswörter können in der Liste ausgewählt werden. "
-    IDS_STRING_ADFGVX_RESET_MATRIX 
-                            "Alle Einträge der Substitutionsmatrix werden gelöscht!\nFortfahren?"
     IDS_STRING_ADFGVX_RESTART 
-                            "Bitte starten Sie den Vorgang erneut\nund passen Sie gegebenenfalls die Blocklängen an!"
+                            "\n\nBitte starten Sie den Vorgang erneut und passen Sie\ngegebenenfalls die Blocklängen an die neue Passwortlänge an!"
     IDS_CRYPT_ADFGVX        "ADFGVX"
     IDS_CRYPT_ADFGVX_STAGE_1 "ADFGVX-Stufe 1"
     IDS_STRING_ADFGVX_MATRIX_RESET 
@@ -21197,23 +21195,21 @@ BEGIN
                             "The text to be analysed is no ADFGVX-ciphertext!"
     IDS_STRING_ADFGVX_ERROR_11 
                             "Invalid character! Please enter characters from 'A' to 'Z' and '0' to '9' only!"
-    IDS_STRING_ADFGVX_ERROR_2 "Matrix contains redundand characters!"
+    IDS_STRING_ADFGVX_ERROR_2 "Matrix contains redundant characters!"
     IDS_STRING_ADFGVX_ERROR_3 "Matrix contains invalid characters!"
     IDS_STRING_ADFGVX_ERROR_4 
                             "Invalid characters have been removed!\nOnly characters from 'A' to 'Z' are valid.\nThe new password is:\n\n"
     IDS_STRING_ADFGVX_ERROR_5 "The text has an odd number of characters!"
     IDS_STRING_ADFGVX_ERROR_6 "The length of the password must be >0!"
     IDS_STRING_ADFGVX_ERROR_7 
-                            "The sequence of the password's characters is not clearly defined.\nThe redundant characters in the password have been removed!\n\nThe new password is:\n\n"
+                            "The sequence of the password's characters is not clearly defined.\nThe redundant characters in the password have been removed!"
     IDS_STRING_ADFGVX_ERROR_8 "Please analyse transposition first!"
     IDS_STRING_ADFGVX_ERROR_9 
-                            "Bei der Analyse des Transpositionsschrittes wurde keine gültige Permutation gefunden.\nDies kann zwei Gründe haben:\n\n1. Die Häufigkeitsverteilung der Buchstaben ist untypisch für deutsche oder englische Texte.\nDies tritt oft bei kurzen Nachrichten auf.\n\n2. Das verwendete Transpositionspasswort liegt nicht im Suchbereich der Analyse.\nSie sollten den Suchbereich auf längere oder kürzere Passwörter verschieben."
+                            "No valid permutation was found while analysing the transposition phase.\n This may have two reasons:\n\n1. The relative frequency of the letters is atypical for the English or German language.\n this often occurs when analysing short messages.\n\n2. The transposition password is not within the boundaries of the analysis.\nYou should shift the boundaries of the possible password length."
     IDS_STRING_ADFGVX_ERROR_9B 
                             "The analysis has reached the upper boundary of the search area.\nNo further passwords have been found.\n\nYou can choose any detected possible transposition password from the dropdown list."
-    IDS_STRING_ADFGVX_RESET_MATRIX 
-                            "All entries of the substitution matrix will be erased!\nContinue?"
     IDS_STRING_ADFGVX_RESTART 
-                            "Please restart the process\nand adjust the block length values if necessary!"
+                            "\n\nPlease restart the process and adjust the\nblock length values to the new password length if necessary!"
     IDS_CRYPT_ADFGVX        "ADFGVX"
     IDS_CRYPT_ADFGVX_STAGE_1 "ADFGVX stage 1"
     IDS_STRING_ADFGVX_MATRIX_RESET 
@@ -21499,7 +21495,7 @@ BEGIN
     IDS_STRING_ADFGVX_STRINGINVALID 
                             "The input contains invalid characters.\nValid characters are the letters 'A' to 'Z' and\the ciphers '0' to '9'."
     IDS_STRING_ADFGVX_STRINGREDUNDANT 
-                            "The input contains redundant characters.\nAll letters 'A' to 'Z' and ciphers '0' to '9'\nmust be included exactly once"
+                            "The input contains redundant characters.\nAll letters 'A' to 'Z' and ciphers '0' to '9'\nmust be included exactly once."
 END
 
 STRINGTABLE 
