@@ -80,7 +80,10 @@ public:
 	//{{AFX_VIRTUAL(CAestoolApp)
 	public:
 	virtual BOOL InitInstance();
+	virtual void WinHelpInternal( DWORD_PTR dwData, UINT nCmd = HELP_CONTEXT ); // overridden to handle F1 on menus with sub menus
+#if 0 // not anymore supported
 	virtual void WinHelp(DWORD dwData, UINT nCmd = HELP_CONTEXT);
+#endif
 	//}}AFX_VIRTUAL
 
 // Implementierung

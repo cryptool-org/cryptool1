@@ -78,7 +78,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release_aes_de|Win32"
-			OutputDirectory=".\..\Release_aes_de"
+			OutputDirectory=".\..\Release_de"
 			IntermediateDirectory=".\..\Release_aes_de"
 			ConfigurationType="1"
 			UseOfMFC="1"
@@ -143,7 +143,7 @@
 		</Configuration>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory=".\Debug"
+			OutputDirectory="..\CrypTool\Debug"
 			IntermediateDirectory=".\Debug"
 			ConfigurationType="1"
 			UseOfMFC="1"
@@ -209,7 +209,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release_aes_en|Win32"
-			OutputDirectory=".\..\Release_aes_en"
+			OutputDirectory=".\..\Release_en"
 			IntermediateDirectory=".\..\Release_aes_en"
 			ConfigurationType="1"
 			UseOfMFC="1"

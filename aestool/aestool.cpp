@@ -206,12 +206,20 @@ BOOL CAestoolApp::InitInstance()
 }
 
 #pragma warning( disable : 4100 )
+#if 0 // MFC 6.0 is not anymore supported by cryptool
 void CAestoolApp::WinHelp(DWORD dwData, UINT nCmd) 
 {
 	CHelp hlp;
-
 	hlp.DoModal();
 }
+#endif
+void CAestoolApp::WinHelpInternal(DWORD dwData, UINT nCmd) 
+{
+	CHelp hlp;
+	hlp.DoModal();
+}
+
+
 
 void CAestoolApp::ScanCMDLine(char * cmd)
 {
