@@ -205,7 +205,9 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 
 // ENDE
 ON_COMMAND(ID_PRIMENUMBER_TEST, OnPrimenumberTest)
+ON_COMMAND(ID_AES_SELFEXTRACT, OnAesSelfextract)
 END_MESSAGE_MAP()
+
 
 BOOL CCrypToolApp::InitInstance()
 {
@@ -220,6 +222,7 @@ BOOL CCrypToolApp::InitInstance()
 	#else
 	EnableHtmlHelp( );
 	#endif
+
 
 	//Initialisierung der globalen Variablen
 	m_HexFormat = RegisterClipboardFormat("HexFormat");
@@ -1149,7 +1152,29 @@ void CCrypToolApp::callHtmlHelp(UINT uCommand, DWORD dwData)
 		CString help_error_message = CString (pc_str) + CString(m_pszHelpFilePath);
 		if (hwnd == NULL) AfxMessageBox(help_error_message, MB_ICONINFORMATION, 0);
 #else
-		HtmlHelp(dwData, uCommand);
+#if 0
+	HH_WINTYPE *phhwt = NULL;
+	CString html_help_path = CString(m_pszHelpFilePath) + CString(">MainWindow");
+	HWND hwnd = ::HtmlHelp(AfxGetMainWnd()->m_hWnd,html_help_path,HH_GET_WIN_TYPE,(DWORD)&phhwt);
+	if (phhwt) {
+		HH_WINTYPE hhwt;
+
+		// Copy the returned structure
+		// NOTE: DO NOT MODIFY THE RETURNED STRUCTURE!!
+		memcpy(&hhwt,phhwt,min(long(sizeof(hhwt)),long(phhwt->cbStruct)));
+
+		// Reset members to enable notification messages
+		hhwt.cbStruct = sizeof(hhwt);
+		hhwt.fsValidMembers = HHWIN_PARAM_PROPERTIES;
+		hhwt.fsWinProperties |= HHWIN_PROP_NODEF_EXSTYLES | HHWIN_PROP_NODEF_STYLES; //  | HHWIN_PROP_NOTITLEBAR;
+
+		// Set it
+		::HtmlHelp(NULL,NULL,HH_SET_WIN_TYPE,(DWORD)&hhwt);
+	}
+
+	// Display the return value
+#endif
+	HtmlHelp(dwData, uCommand);
 #endif
 }
 
@@ -1165,4 +1190,9 @@ void CCrypToolApp::OnPrimenumberTest()
 	// TODO: Fügen Sie hier Ihren Befehlsbehandlungscode ein.
 	CDlgPrimeTest dialg;
 	dialg.DoModal();
+}
+
+void CCrypToolApp::OnAesSelfextract()
+{
+	_spawnl(_P_NOWAIT, theApp.m_Selfextract_EXE, theApp.m_Selfextract_EXE, NULL, NULL);
 }

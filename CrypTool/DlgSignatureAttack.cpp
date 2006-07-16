@@ -687,7 +687,7 @@ void CDlgSignatureAttack::GenerateMessageText(int Errorcode, UINT MessageBoxStyl
 					CT_READ_REGISTRY_DEFAULT(u_bitLength, "SignatureAttackSignificantBitLength", u_bitLength);
 					CT_CLOSE_REGISTRY();
 				}
-				msg.FormatMessage(IDS_STRING_SIG_ATT_DOCUMENTS_FOUND, u_bitLength); 
+				msg.Format(IDS_STRING_SIG_ATT_DOCUMENTS_FOUND, u_bitLength); 
 			}
 			break;
 		case _SIG_ATT_NO_DOCUMENTS_FOUND:		msg.LoadString(IDS_STRING_SIG_ATT_NO_DOCUMENTS_FOUND); break;

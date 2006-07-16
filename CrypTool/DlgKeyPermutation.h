@@ -53,6 +53,7 @@ statement from your version.
 #include "AscEdit.h"
 #include "Cryptography.h"
 #include "DlgKeyPermutationInfo.h"
+#include "afxwin.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgKeyPermutation 
@@ -126,6 +127,7 @@ private:
 	// Required because of BACK-Button from CDlgKeyPermutationInfo !!!
 public:
 	int ShowPermutations();
+	CButton chk_showPermutations;
 };
 
 //{{AFX_INSERT_LOCATION}}

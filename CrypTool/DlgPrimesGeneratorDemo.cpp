@@ -187,7 +187,7 @@ BOOL CDlgPrimesGeneratorDemo::GetRandomPrime(CString &OutStr, GeneratePrimes &P)
 {
 	BOOL flag = FALSE;
 
-	for ( int i=1; i<=2000 && !flag; i++ )			 // 
+	for ( int i=1; i<=20000 && !flag; i++ )			 // 
 	{
 		P.RandP();
 				

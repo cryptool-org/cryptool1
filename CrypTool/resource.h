@@ -1217,6 +1217,7 @@
 #define IDC_EDIT_DENSITY                1876
 #define IDC_EDIT_SHIFT                  1877
 #define IDC_BUTTON_RESET                1878
+#define IDC_RADIO_WORDSIZE_3            1879
 #define IDC_COMBO_SELECT_HASH_FUNCTION  1880
 #define IDC_COMBO_FIND                  1882
 #define IDC_COMBO_REPLACE               1883

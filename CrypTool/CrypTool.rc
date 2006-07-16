@@ -1888,10 +1888,10 @@ BEGIN
     EDITTEXT        IDC_EDIT1,23,39,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,23,161,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
     CONTROL         "Jeweils die inverse Permutation anwenden",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,268,149,10
-    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,12,304,58,19,WS_DISABLED
-    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,88,304,57,19,WS_DISABLED
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,213,304,55,19
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,267,149,10
+    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,12,307,58,19,WS_DISABLED
+    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,88,307,57,19,WS_DISABLED
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,213,307,55,19
     CONTROL         "einlesen",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,76,88,48,8
     CONTROL         "einlesen",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,76,104,
@@ -1919,7 +1919,7 @@ BEGIN
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
                     165,304,22,20
     EDITTEXT        IDC_EDIT3,23,68,234,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
-                    WS_DISABLED
+                    ES_READONLY
     GROUPBOX        "1. Permutation (einfache Spaltentransposition)",
                     IDC_STATIC,12,12,256,108
     LTEXT           "Schlüssel (Buchstaben oder durch Kommas separierte Zahlen)",
@@ -1927,7 +1927,7 @@ BEGIN
     LTEXT           "Permutation, wenn der Schlüssel als Buchstabenfolge eingegeben wurde",
                     IDC_STATIC,23,58,245,8
     EDITTEXT        IDC_EDIT4,23,190,234,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
-                    WS_DISABLED
+                    ES_READONLY
     GROUPBOX        "2. Permutation (doppelte Spaltentransposition)",
                     IDC_STATIC,12,132,256,111
     LTEXT           "Schlüssel (Buchstaben oder durch Kommas separierte Zahlen)",
@@ -1938,7 +1938,10 @@ BEGIN
     RTEXT           "Spaltenweise",IDC_STATIC,23,104,47,8
     RTEXT           "Zeilenweise",IDC_STATIC,23,211,47,8
     RTEXT           "Spaltenweise",IDC_STATIC,23,227,47,8
-    GROUPBOX        "Optionen",IDC_STATIC,12,254,256,33
+    GROUPBOX        "Optionen",IDC_STATIC,12,254,256,43
+    CONTROL         "Zwischendialog mit der inversen Permutation anzeigen",
+                    IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,281,
+                    187,10
 END
 
 IDD_ICG_RANDOMPARAMETER DIALOG  0, 0, 294, 150
@@ -3540,7 +3543,7 @@ BEGIN
     CTEXT           "haben die Universitäten Siegen und Darmstadt",
                     IDC_STATIC,0,130,242,10
     CTEXT           "Static",IDC_ABOUTBOX_CRYPTOOL,1,148,241,11
-    CTEXT           "entwickelt.\nCrypTool wird zur Mitarbeiter-Awareness\nfür IT-Sicherheit eingesetzt.",
+    CTEXT           "entwickelt.\nCrypTool wird zur Ausbildung, in der Lehre und zur\nMitarbeiter-Awareness für IT-Sicherheit eingesetzt.",
                     IDC_STATIC,1,164,241,24
     CTEXT           "CrypTool nutzt folgende Bibliotheken:",IDC_STATIC,0,197,
                     241,8
@@ -3697,15 +3700,15 @@ BEGIN
                     ES_AUTOHSCROLL
     EDITTEXT        IDC_M55,100,102,12,12,ES_CENTER | ES_UPPERCASE | 
                     ES_AUTOHSCROLL
-    PUSHBUTTON      "Standardmatrix",IDC_MATRIX_STANDARD,13,133,53,19
-    PUSHBUTTON      "Zufallsmatrix",IDC_MATRIX_SHUFFLE,70,133,53,19
+    PUSHBUTTON      "Standardmatrix",IDC_MATRIX_STANDARD,17,133,53,19
+    PUSHBUTTON      "Zufallsmatrix",IDC_MATRIX_SHUFFLE,76,133,49,19
     CONTROL         "Paste",IDC_BUTTON_INSERT_KEY,"Button",BS_OWNERDRAW | 
-                    WS_TABSTOP,217,241,22,18
-    EDITTEXT        IDC_TEXTFIELD_PASSWORD,22,187,219,12,ES_UPPERCASE | 
+                    WS_TABSTOP,227,241,22,18
+    EDITTEXT        IDC_TEXTFIELD_PASSWORD,16,187,233,12,ES_UPPERCASE | 
                     ES_AUTOHSCROLL
-    PUSHBUTTON      "Verschlüsseln",IDC_BUTTON_ENCRYPT,22,377,66,18
-    PUSHBUTTON      "Entschlüsseln",IDC_BUTTON_DECRYPT,100,377,66,18
-    PUSHBUTTON      "Abbrechen",IDC_CANCEL,175,377,66,18
+    PUSHBUTTON      "Verschlüsseln",IDC_BUTTON_ENCRYPT,7,377,66,18
+    PUSHBUTTON      "Entschlüsseln",IDC_BUTTON_DECRYPT,80,377,66,18
+    PUSHBUTTON      "Abbrechen",IDC_CANCEL,192,377,66,18
     CTEXT           "A",IDC_STATIC,40,30,12,12
     CTEXT           "D",IDC_STATIC,52,30,11,10
     CTEXT           "F",IDC_STATIC,64,30,11,10
@@ -3718,42 +3721,43 @@ BEGIN
     CTEXT           "G",IDC_STATIC,28,78,11,10
     CTEXT           "V",IDC_STATIC,28,90,11,10
     CTEXT           "X",IDC_STATIC,28,102,11,10
-    GROUPBOX        "Substitutionsmatrix",IDC_STATIC,22,18,102,108
-    GROUPBOX        "Stufe 2: Transposition",IDC_STATIC,13,166,239,68
+    GROUPBOX        "Substitutionsmatrix",IDC_STATIC,16,18,111,108
+    GROUPBOX        "Stufe 2: Transposition",IDC_STATIC,7,166,251,68
     LTEXT           "Die Substitutionsmatrix ersetzt jeden Klartext- buchstaben durch ein Paar aus den Buchstaben A,D,F,G,V und X.\n\nDie Matrix muss jeden Buchstaben A-Z sowie jede Ziffer 0-9 genau einmal enthalten.",
-                    IDC_STATIC,135,30,90,90
-    GROUPBOX        "",IDC_STATIC,133,18,108,108
-    GROUPBOX        "Stufe 1: Substitution",IDC_STATIC,13,7,239,153
-    LTEXT           "Transpositionspasswort",IDC_STATIC,22,176,76,8
-    GROUPBOX        "Ausgabeoptionen",IDC_STATIC,13,259,239,112
+                    IDC_STATIC,149,30,90,90
+    GROUPBOX        "",IDC_STATIC,137,18,112,108
+    GROUPBOX        "Stufe 1: Substitution",IDC_STATIC,7,7,251,153
+    LTEXT           "Transpositionspasswort",IDC_STATIC,16,176,76,8
+    GROUPBOX        "Ausgabeoptionen",IDC_STATIC,7,259,251,112
     CONTROL         "Zwischenergebnis ausgeben",IDC_CHECK_OUTPUT,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,27,320,106,10
-    EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE2,215,279,21,14,ES_CENTER | 
+    EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE2,221,279,21,14,ES_CENTER | 
                     ES_AUTOHSCROLL | ES_NUMBER | WS_DISABLED
-    LTEXT           "Blocklänge (1-26):",IDC_STATIC,156,282,59,8
-    EDITTEXT        IDC_TEXTFIELD_NUMBERS,22,214,219,14,ES_AUTOHSCROLL | 
+    LTEXT           "Blocklänge (1-26):",IDC_STATIC,160,282,59,8
+    EDITTEXT        IDC_TEXTFIELD_NUMBERS,16,212,233,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    LTEXT           "Reihenfolge der Spalten",IDC_STATIC,22,203,78,8
-    EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE1,215,330,21,14,ES_CENTER | 
+    LTEXT           "Reihenfolge der Spalten",IDC_STATIC,16,203,78,8
+    EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE1,221,330,21,14,ES_CENTER | 
                     ES_AUTOHSCROLL | ES_NUMBER | WS_DISABLED
-    LTEXT           "Blocklänge (1-26):",IDC_STATIC,156,333,59,8
+    LTEXT           "Blocklänge (1-26):",IDC_STATIC,160,333,59,8
     CONTROL         "Zusätzlicher Zeilenumbruch nach jedem Block",
                     IDC_CHECK_NEWLINE_STAGE2,"Button",BS_AUTOCHECKBOX | 
                     WS_DISABLED | WS_TABSTOP,27,293,159,10
     CONTROL         "Zusätzlicher Zeilenumbruch nach jedem Block",
                     IDC_CHECK_NEWLINE_STAGE1,"Button",BS_AUTOCHECKBOX | 
                     WS_DISABLED | WS_TABSTOP,27,347,159,10
-    PUSHBUTTON      "Matrix leeren",IDC_ERASEMATRIX,128,133,53,19
+    PUSHBUTTON      "Matrix leeren",IDC_ERASEMATRIX,138,133,53,19
     GROUPBOX        "Endergebnis: Ciphertext nach Stufe 2",
-                    IDC_BOX_OUT_STAGE2,22,271,219,36
-    CONTROL         "Ausgabetext duch Blanks trennen",IDC_CHECK_BLOCK_STAGE2,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,281,124,10
+                    IDC_BOX_OUT_STAGE2,16,271,233,36
+    CONTROL         "Leerzeichen zwischen den Blöcken",
+                    IDC_CHECK_BLOCK_STAGE2,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,27,281,125,10
     GROUPBOX        "Zwischenergebnis: Ciphertext nach Stufe 1",IDC_STATIC,
-                    22,311,219,51
-    CONTROL         "Ausgabetext duch Blanks trennen",IDC_CHECK_BLOCK_STAGE1,
-                    "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,27,
-                    332,124,10
-    PUSHBUTTON      "Zeichenkette eingeben",IDC_BUTTON_STRINGBOX,186,133,53,
+                    16,311,233,51
+    CONTROL         "Leerzeichen zwischen den Blöcken",
+                    IDC_CHECK_BLOCK_STAGE1,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,27,332,125,10
+    PUSHBUTTON      "Zeichenkette eingeben",IDC_BUTTON_STRINGBOX,196,133,53,
                     19,BS_MULTILINE
 END
 
@@ -4761,37 +4765,39 @@ BEGIN
                     IDC_STATIC,227,85,148,31
 END
 
-IDD_SET_VISOPT DIALOGEX 0, 0, 231, 134
+IDD_SET_VISOPT DIALOGEX 0, 0, 231, 150
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "3-D-Visualisierung - Optionen"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,112,112,50,15
-    PUSHBUTTON      "Abbrechen",IDCANCEL,174,112,50,15
+    DEFPUSHBUTTON   "OK",IDOK,111,124,50,19
+    PUSHBUTTON      "Abbrechen",IDCANCEL,174,124,50,19
     CONTROL         "Slider1",IDC_SLIDER_RESOLUTION,"msctls_trackbar32",
-                    TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,108,6,116,15
-    LTEXT           "Auflösung",IDC_STATIC,7,7,49,15
+                    TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,111,18,105,14
+    RTEXT           "Auflösung:",IDC_STATIC,15,21,47,11
     CONTROL         "Slider2",IDC_SLIDER_DENSITY,"msctls_trackbar32",
-                    TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,108,23,116,19
-    LTEXT           "Dichte",IDC_STATIC,7,27,49,13
+                    TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,111,36,105,14
+    RTEXT           "Dichte:",IDC_STATIC,15,39,47,10
     CONTROL         "Slider3",IDC_SLIDER_SHIFT,"msctls_trackbar32",TBS_BOTH | 
-                    TBS_NOTICKS | WS_TABSTOP,108,40,116,18
-    LTEXT           "Verschiebung",IDC_STATIC,7,43,55,15
-    LTEXT           "Wortlänge",IDC_STATIC,7,64,73,19
-    GROUPBOX        "Byte",IDC_STATIC,108,58,116,30
+                    TBS_NOTICKS | WS_TABSTOP,111,56,105,14
+    RTEXT           "Verschiebung:",IDC_STATIC,15,59,47,11
+    LTEXT           "Wortlänge (in Bytes):",IDC_STATIC,35,97,73,10,0,
+                    WS_EX_RIGHT
+    GROUPBOX        "Analyseparameter",IDC_STATIC,7,84,217,31
     CONTROL         "1",IDC_RADIO_WORDSIZE_1,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,117,71,20,10
-    CONTROL         "2",IDC_RADIO_WORDSIZE_2,"Button",BS_AUTORADIOBUTTON,142,
-                    71,20,10
-    CONTROL         "4",IDC_RADIO_WORDSIZE_4,"Button",BS_AUTORADIOBUTTON,171,
-                    71,20,10
-    EDITTEXT        IDC_EDIT_RESOLUTION,62,7,30,15,ES_AUTOHSCROLL | 
+                    WS_GROUP,138,97,20,10
+    CONTROL         "2",IDC_RADIO_WORDSIZE_2,"Button",BS_AUTORADIOBUTTON,165,
+                    97,20,10
+    CONTROL         "4",IDC_RADIO_WORDSIZE_4,"Button",BS_AUTORADIOBUTTON,193,
+                    97,20,10
+    EDITTEXT        IDC_EDIT_RESOLUTION,68,19,28,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDIT_DENSITY,62,22,30,18,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDIT_DENSITY,68,38,28,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDIT_SHIFT,62,40,30,18,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "%",IDC_STATIC,92,40,16,18
-    PUSHBUTTON      "Reset",IDC_BUTTON_RESET,7,112,48,15
+    EDITTEXT        IDC_EDIT_SHIFT,68,57,28,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "%",IDC_STATIC,97,59,14,9
+    PUSHBUTTON      "Reset",IDC_BUTTON_RESET,7,124,48,19
+    GROUPBOX        "Visualisierungsparameter",IDC_STATIC,7,5,217,75
 END
 
 IDD_FIND_AND_REPLACE DIALOGEX 0, 0, 323, 121
@@ -5207,6 +5213,7 @@ BEGIN
         END
         POPUP "&RSA-Kryptosystem"
         BEGIN
+            MENUITEM "Primzahl&test...",            1960
             MENUITEM "&Primzahlen generieren...",   ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
             MENUITEM "&Faktorisieren einer Zahl...", 
@@ -5573,6 +5580,7 @@ BEGIN
         END
         POPUP "&RSA-Kryptosystem"
         BEGIN
+            MENUITEM "Primzahl&test...",            1960
             MENUITEM "&Primzahlen generieren...",   ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
             MENUITEM "&Faktorisieren einer Zahl...", 
@@ -5796,7 +5804,7 @@ BEGIN
     END
     POPUP "&Bearbeiten", GRAYED
     BEGIN
-        MENUITEM "&Rückgängig\tStrg+Z",         ID_EDIT_UNDO, GRAYED
+        MENUITEM "&Rückgängig\tStrg+Z",         ID_EDIT_UNDO
         MENUITEM SEPARATOR
         MENUITEM "&Ausschneiden\tStrg+X",       ID_EDIT_CUT, GRAYED
         MENUITEM "&Kopieren\tStrg+C",           ID_EDIT_COPY, GRAYED
@@ -5840,10 +5848,9 @@ BEGIN
     END
     POPUP "&Ver-/Entschlüsseln"
     BEGIN
-        POPUP "Symmetrisch (&klassisch)", GRAYED
+        POPUP "Symmetrisch (&klassisch)"
         BEGIN
             MENUITEM "Caesar / &Rot-13...",         ID_ROT13CAESAR_ASC
-            , GRAYED
             MENUITEM "&Vigenère...",                ID_VIGENERE_ASC, GRAYED
             MENUITEM "H&ill...",                    ID_HILL, GRAYED
             MENUITEM "&Substitution / Atbash...",   ID_CryptMono, GRAYED
@@ -5861,7 +5868,7 @@ BEGIN
         END
         POPUP "Symmetrisch (&modern)"
         BEGIN
-            MENUITEM "&IDEA...",                    ID_CRYPT_IDEA, GRAYED
+            MENUITEM "&IDEA...",                    ID_CRYPT_IDEA
             MENUITEM "RC&2...",                     ID_CRYPT_RC2, GRAYED
             MENUITEM "RC&4...",                     ID_CRYPT_RC4, GRAYED
             MENUITEM "&DES (ECB)...",               ID_CRYPT_DES_DESECB
@@ -5888,7 +5895,7 @@ BEGIN
         END
         POPUP "&Asymmetrisch"
         BEGIN
-            MENUITEM "RSA-&Verschlüsselung...",     ID_CRYPT_RsaEnc, GRAYED
+            MENUITEM "RSA-&Verschlüsselung...",     ID_CRYPT_RsaEnc
             MENUITEM "RSA-&Entschlüsselung...",     ID_CRYPT_RsaDec, GRAYED
             MENUITEM "RSA-&Demo...",                ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
@@ -5920,7 +5927,6 @@ BEGIN
         POPUP "&Hashverfahren"
         BEGIN
             MENUITEM "MD&2",                        ID_CRYPT_HASH_MD2
-            , GRAYED
             MENUITEM "MD&4",                        ID_CRYPT_HASH_MD4
             , GRAYED
             MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5
@@ -5942,6 +5948,7 @@ BEGIN
         END
         POPUP "&RSA-Kryptosystem"
         BEGIN
+            MENUITEM "Primzahl&test...",            ID_PRIMENUMBER_TEST
             MENUITEM "&Primzahlen generieren...",   ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
             MENUITEM "&Faktorisieren einer Zahl...", 
@@ -5988,11 +5995,10 @@ BEGIN
         END
         MENUITEM "&Secret-Sharing-Demo...",     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
-        MENUITEM "Primzahl&test...",            ID_PRIMENUMBER_TEST
         MENUITEM SEPARATOR
         POPUP "C&odierungen", GRAYED
         BEGIN
-            POPUP "&Base64 Codierung/Decodierung", GRAYED
+            POPUP "&Base64 Codierung/Decodierung"
             BEGIN
                 MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64
                 MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
@@ -6005,7 +6011,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "&Komprimieren", GRAYED
         BEGIN
-            MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP, GRAYED
+            MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
             MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
@@ -6017,9 +6023,9 @@ BEGIN
     END
     POPUP "A&nalyse"
     BEGIN
-        POPUP "&Werkzeuge zur Analyse", GRAYED
+        POPUP "&Werkzeuge zur Analyse"
         BEGIN
-            MENUITEM "&Entropie",                   ID_ENTROPY, GRAYED
+            MENUITEM "&Entropie",                   ID_ENTROPY
             MENUITEM "&Gleitende Häufigkeit",       ID_FLOATING, GRAYED
             MENUITEM "&Histogramm",                 ID_HISTOGRAM, GRAYED
             MENUITEM "&N-Gramm...",                 ID_ANALYSE_NGRAM, GRAYED
@@ -6032,10 +6038,9 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "Symmetrische Verschlüsselung (&klassisch)", GRAYED
         BEGIN
-            POPUP "&Ciphertext only", GRAYED
+            POPUP "&Ciphertext only"
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
-                , GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 , GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
@@ -6050,12 +6055,11 @@ BEGIN
             END
             POPUP "Known &Plaintext", GRAYED
             BEGIN
-                MENUITEM "H&ill...",                    ID_HILL_AUTO, GRAYED
+                MENUITEM "H&ill...",                    ID_HILL_AUTO
             END
             POPUP "&Manuelle Analyse", GRAYED
             BEGIN
                 MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
-                , GRAYED
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
                 , GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
@@ -6064,7 +6068,7 @@ BEGIN
         END
         POPUP "Symmetrische Verschlüsselung (&modern)", GRAYED
         BEGIN
-            MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA, GRAYED
+            MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA
             MENUITEM "RC&2...",                     ID_ANALYSE_RC2, GRAYED
             MENUITEM "RC&4...",                     ID_ANALYSE_RC4, GRAYED
             MENUITEM "&DES (ECB)...",               ID_ANALYSE_DESECB
@@ -6113,7 +6117,7 @@ BEGIN
         POPUP "&Zufallsanalyse", GRAYED
         BEGIN
             MENUITEM "&Frequency-Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
-            , GRAYED
+
             MENUITEM "&Poker-Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
             , GRAYED
             MENUITEM "&Runs-Test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
@@ -6141,7 +6145,7 @@ BEGIN
     END
     POPUP "&Fenster", GRAYED
     BEGIN
-        MENUITEM "&Überlappend anordnen",       ID_WINDOW_CASCADE, GRAYED
+        MENUITEM "&Überlappend anordnen",       ID_WINDOW_CASCADE
         MENUITEM "&Nichtüberlappend anordnen",  ID_WINDOW_TILE_HORZ, GRAYED
         MENUITEM "&Symbole anordnen",           ID_WINDOW_ARRANGE, GRAYED
         MENUITEM "&Alle schließen",             ID_WINDOW_CLOSE_ALL, GRAYED
@@ -6310,6 +6314,7 @@ BEGIN
         END
         POPUP "&RSA-Kryptosystem"
         BEGIN
+            MENUITEM "Primzahl&test...",            1960
             MENUITEM "&Primzahlen generieren...",   ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
             MENUITEM "&Faktorisieren einer Zahl...", 
@@ -6712,6 +6717,7 @@ BEGIN
         END
         POPUP "&RSA-Kryptosystem"
         BEGIN
+            MENUITEM "Primzahl&test...",            1960
             MENUITEM "&Primzahlen generieren...",   ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
             MENUITEM "&Faktorisieren einer Zahl...", 
@@ -7942,6 +7948,12 @@ BEGIN
         BOTTOMMARGIN, 273
     END
 
+    IDD_KEY_PERMUTATION, DIALOG
+    BEGIN
+        VERTGUIDE, 23
+        HORZGUIDE, 326
+    END
+
     IDD_HASH_DEMO, DIALOG
     BEGIN
         VERTGUIDE, 16
@@ -8182,9 +8194,18 @@ BEGIN
 
     IDD_ADFGVX, DIALOG
     BEGIN
-        VERTGUIDE, 13
-        VERTGUIDE, 239
-        VERTGUIDE, 252
+        VERTGUIDE, 7
+        VERTGUIDE, 16
+        VERTGUIDE, 125
+        VERTGUIDE, 138
+        VERTGUIDE, 160
+        VERTGUIDE, 242
+        VERTGUIDE, 249
+        VERTGUIDE, 258
+        HORZGUIDE, 133
+        HORZGUIDE, 152
+        HORZGUIDE, 377
+        HORZGUIDE, 395
     END
 
     IDD_ADFGVX_MANUAL, DIALOG
@@ -8274,10 +8295,16 @@ BEGIN
     IDD_SET_VISOPT, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 218
+        RIGHTMARGIN, 224
+        VERTGUIDE, 15
+        VERTGUIDE, 62
+        VERTGUIDE, 68
+        VERTGUIDE, 96
+        VERTGUIDE, 111
+        VERTGUIDE, 216
         TOPMARGIN, 7
-        BOTTOMMARGIN, 112
-        HORZGUIDE, 96
+        BOTTOMMARGIN, 143
+        HORZGUIDE, 115
     END
 
     IDD_FIND_AND_REPLACE, DIALOG
@@ -9780,7 +9807,7 @@ BEGIN
     IDS_STRING_SIG_ATT_BAD_BITLENGTH 
                             "Für den eingestellten Hash-Algorithmus muss die signifikante Bitlänge zwischen 1 und %d liegen."
     IDS_STRING_SIG_ATT_DOCUMENTS_FOUND 
-                            "Der Angriff war erfolgreich: Es wurden zwei\nNachrichten gefunden, deren Hashwert innerhalb der ersten %i Bits identisch ist."
+                            "Der Angriff war erfolgreich: Es wurden zwei\nNachrichten gefunden, deren Hashwert innerhalb der ersten %d Bits identisch ist."
     IDS_STRING_SIG_ATT_RUN_NUMBER "Run Nr."
     IDS_STRING_SIG_ATT_NO_DOCUMENTS_FOUND 
                             "Der Angriff schlug fehl: Es konnte kein Nachrichtenpaar gefunden werden."
@@ -9960,7 +9987,7 @@ BEGIN
     ID_HILFE_STARTSEITE     "Zeigt die Startseite der Online-Hilfe zu CrypTool an"
     ID_HILFE_INDEX          "Zeigt den Index der Schlüsselworte in der Online-Hilfe zu CrypTool an"
     ID_HILFE_SZENARIEN      "Zeigt die Übersichtsseite der Online-Hilfe für alle Szenarien in CrypTool an"
-    ID_EINZELVERFAHREN_ASN1DECODIEREN "Decodiert eine ASN.1-Datei"
+    ID_EINZELVERFAHREN_ASN1DECODIEREN "Decodiert ein ASN.1-codiertes Dokument"
     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO 
                             "Visualisierung des Diffie-Hellman-Schlüsselaustauschverfahrens"
     ID_SIGNATUR_ATTACK      "Führt über die Hashfunktion einen auf dem Geburtstagsparadoxon basierenden Angriff auf die digitale Signatur aus"
@@ -10587,18 +10614,23 @@ BEGIN
     ID_VIEW_WHITESPACE      "Ein- oder Ausschalten besonderer Zeichen anstelle von Leerzeichen"
     IDS_CONTROL_COPY        "Kopieren"
     IDS_CONTROL_PASTE       "Einfügen"
-    33309                   "Darstellung der Zeichen in Courier 10 Punkte-Schrift (feste Zeichenlänge)."
-    33310                   "Darstellung der Zeichen in Courier 12 Punkte-Schrift (feste Zeichenlänge)."
+    ID_ZEICHENFORMAT_COURIER10 
+                            "Darstellung der Zeichen in Courier 10 Punkte-Schrift (feste Zeichenlänge)"
+    ID_ZEICHENFORMAT_COURIER12 
+                            "Darstellung der Zeichen in Courier 12 Punkte-Schrift (feste Zeichenlänge)"
     ID_ZEICHENFORMAT_ARIAL10 
-                            "Darstellung der Zeichen in Arial 10 Punkte-Schrift."
+                            "Darstellung der Zeichen in Arial 10 Punkte-Schrift"
 END
 
 STRINGTABLE 
 BEGIN
-    33312                   "Darstellung der Zeichen in Arial 12 Punkte-Schrift."
-    33314                   "Darstellung der Zeichen in Arial 8 Punkte-Schrift."
-    33316                   "Darstellung der Zeichen in Courier 8 Punkte-Schrift (feste Zeichenlänge)."
-    ID_DECODE_BASE64        "Decodieren des aktiven Dokuments mittles Base64"
+    ID_ZEICHENFORMAT_ARIAL12 
+                            "Darstellung der Zeichen in Arial 12 Punkte-Schrift"
+    ID_ZEICHENFORMAT_ARIAL08 
+                            "Darstellung der Zeichen in Arial 8 Punkte-Schrift"
+    ID_ZEICHENFORMAT_COURIER08 
+                            "Darstellung der Zeichen in Courier 8 Punkte-Schrift (feste Zeichenlänge)"
+    ID_DECODE_BASE64        "Decodieren des aktiven Dokuments mittels Base64"
     ID_ENCODE_BASE64        "Codieren des aktiven Dokuments mittels Base64"
     IDS_CONTROL_CUT         "Ausschneiden"
     ID_NUMBERSHARK          "Trainiert den Umgang mit Teilern und Primzahlen."
@@ -11103,7 +11135,7 @@ BEGIN
                     IDC_STATIC,0,352,242,17
     CTEXT           "CrypTool is a free and comprehensive eLearning program about\nclassic and contemporary cryptography and cryptanalysis.\n\nIn a joint effort of the sponsors",
                     IDC_STATIC,1,10,241,32
-    CTEXT           "has been developed.\nCrypTool is used for employee awareness\nfor IT security.",
+    CTEXT           "has been developed.\nCrypTool is used for education and for\nemployee awareness for IT security.",
                     IDC_STATIC,1,161,241,24
     CTEXT           "Static",IDC_ABOUTBOX_CRYPTOOL,1,148,241,11
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,41,48,105,37,
@@ -12608,18 +12640,18 @@ BEGIN
                     -1,7,39,310,10
 END
 
-IDD_KEY_PERMUTATION DIALOGEX 0, 0, 280, 324
+IDD_KEY_PERMUTATION DIALOGEX 0, 0, 280, 338
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Key Entry: Permutation / Transposition"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_EDIT1,23,39,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,23,161,234,12,ES_UPPERCASE | ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&Encrypt",IDOK,11,295,58,19,WS_DISABLED
-    PUSHBUTTON      "&Decrypt",IDC_BUTTON1,86,295,57,19,WS_DISABLED
-    PUSHBUTTON      "&Cancel",IDCANCEL,213,295,55,19
+    DEFPUSHBUTTON   "&Encrypt",IDOK,11,310,58,19,WS_DISABLED
+    PUSHBUTTON      "&Decrypt",IDC_BUTTON1,86,310,57,19,WS_DISABLED
+    PUSHBUTTON      "&Cancel",IDCANCEL,213,310,55,19
     CONTROL         "Apply the respective inverse permutation",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,268,234,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,267,234,10
     CONTROL         "Input",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,94,86,44,10
     CONTROL         "Input",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,94,103,44,
@@ -12645,9 +12677,9 @@ BEGIN
     CONTROL         "Output",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,187,226,
                     47,10
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
-                    162,295,22,20
+                    162,307,22,20
     EDITTEXT        IDC_EDIT3,23,68,234,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
-                    WS_DISABLED
+                    ES_READONLY
     GROUPBOX        "1st Permutation (simple column transposition)",
                     IDC_STATIC,12,13,256,108
     LTEXT           "Key (via letters or via comma seperated numbers)",
@@ -12655,7 +12687,7 @@ BEGIN
     LTEXT           "Presentation as permutation if key is given in letters",
                     IDC_STATIC,23,59,234,8
     EDITTEXT        IDC_EDIT4,23,190,234,12,ES_UPPERCASE | ES_AUTOHSCROLL | 
-                    WS_DISABLED
+                    ES_READONLY
     GROUPBOX        "2nd Permutation (double column transposition)",
                     IDC_STATIC,12,134,256,109
     LTEXT           "Key (via letters or via comma seperated numbers)",
@@ -12666,7 +12698,10 @@ BEGIN
     RTEXT           "column by column:",IDC_STATIC,26,226,59,8
     RTEXT           "line by line:",IDC_STATIC,26,87,59,8
     RTEXT           "column by column:",IDC_STATIC,26,103,59,8
-    GROUPBOX        "Options",IDC_STATIC,12,254,256,33
+    GROUPBOX        "Options",IDC_STATIC,12,254,256,43
+    CONTROL         "Zwischendialog mit der inversen Permutation anzeigen",
+                    IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,281,
+                    187,10
 END
 
 IDD_ICG_RANDOMPARAMETER DIALOG  0, 0, 294, 150
@@ -14342,18 +14377,18 @@ BEGIN
                     ES_AUTOHSCROLL
     EDITTEXT        IDC_M55,100,102,12,12,ES_CENTER | ES_UPPERCASE | 
                     ES_AUTOHSCROLL
-    PUSHBUTTON      "Standard matrix",IDC_MATRIX_STANDARD,16,134,53,19,
+    PUSHBUTTON      "Standard matrix",IDC_MATRIX_STANDARD,17,134,53,19,
                     BS_MULTILINE
-    PUSHBUTTON      "Random matrix",IDC_MATRIX_SHUFFLE,75,134,53,19,
+    PUSHBUTTON      "Random matrix",IDC_MATRIX_SHUFFLE,74,134,53,19,
                     BS_MULTILINE
     PUSHBUTTON      "Erase matrix",IDC_ERASEMATRIX,133,134,53,19
     CONTROL         "Paste",IDC_BUTTON_INSERT_KEY,"Button",BS_OWNERDRAW | 
-                    WS_TABSTOP,224,244,20,18
-    EDITTEXT        IDC_TEXTFIELD_PASSWORD,22,189,222,12,ES_UPPERCASE | 
+                    WS_TABSTOP,219,244,20,18
+    EDITTEXT        IDC_TEXTFIELD_PASSWORD,17,189,232,12,ES_UPPERCASE | 
                     ES_AUTOHSCROLL
-    PUSHBUTTON      "Encrypt",IDC_BUTTON_ENCRYPT,18,385,66,18
-    PUSHBUTTON      "Decrypt",IDC_BUTTON_DECRYPT,96,385,66,18
-    PUSHBUTTON      "Cancel",IDC_CANCEL,174,385,66,18
+    PUSHBUTTON      "Encrypt",IDC_BUTTON_ENCRYPT,10,385,66,18
+    PUSHBUTTON      "Decrypt",IDC_BUTTON_DECRYPT,85,385,66,18
+    PUSHBUTTON      "Cancel",IDC_CANCEL,191,385,66,18
     CTEXT           "A",IDC_STATIC,40,30,12,12
     CTEXT           "D",IDC_STATIC,52,30,11,10
     CTEXT           "F",IDC_STATIC,64,30,11,10
@@ -14366,23 +14401,23 @@ BEGIN
     CTEXT           "G",IDC_STATIC,28,78,11,10
     CTEXT           "V",IDC_STATIC,28,90,11,10
     CTEXT           "X",IDC_STATIC,28,102,11,10
-    GROUPBOX        "Substitution matrix",IDC_STATIC,22,18,102,108
-    GROUPBOX        "Step 2: Transposition",IDC_STATIC,12,168,243,68
+    GROUPBOX        "Substitution matrix",IDC_STATIC,17,18,110,108
+    GROUPBOX        "Step 2: Transposition",IDC_STATIC,10,168,247,68
     LTEXT           "The substitution matrix replaces each plaintext letter by a pair of the letters A,D,F,G,V,X.\n\nThe matrix must contain each letter A-Z and each cipher 0-9 exactly once. ",
-                    IDC_STATIC,145,30,90,90
-    GROUPBOX        "",IDC_STATIC,137,18,108,108
-    GROUPBOX        "Step 1: Substitution",IDC_STATIC,12,7,243,153
-    LTEXT           "Transposition password",IDC_STATIC,22,178,76,8
-    EDITTEXT        IDC_TEXTFIELD_NUMBERS,22,216,222,14,ES_AUTOHSCROLL | 
+                    IDC_STATIC,148,30,90,90
+    GROUPBOX        "",IDC_STATIC,135,18,114,108
+    GROUPBOX        "Step 1: Substitution",IDC_STATIC,10,7,247,153
+    LTEXT           "Transposition password",IDC_STATIC,17,178,76,8
+    EDITTEXT        IDC_TEXTFIELD_NUMBERS,17,216,232,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    LTEXT           "Column sequence",IDC_STATIC,22,205,57,8
-    GROUPBOX        "Output options",IDC_STATIC,13,264,242,112
+    LTEXT           "Column sequence",IDC_STATIC,17,205,57,8
+    GROUPBOX        "Output options",IDC_STATIC,10,264,247,112
     CONTROL         "Print out intermediate result",IDC_CHECK_OUTPUT,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,27,325,106,10
-    EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE2,215,284,21,14,ES_CENTER | 
+    EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE2,218,284,21,14,ES_CENTER | 
                     ES_AUTOHSCROLL | ES_NUMBER | WS_DISABLED
-    LTEXT           "Block length (1-26):",IDC_STATIC,151,287,62,8
-    EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE1,215,335,21,14,ES_CENTER | 
+    LTEXT           "Block length (1-26):",IDC_STATIC,151,287,64,8
+    EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE1,218,335,21,14,ES_CENTER | 
                     ES_AUTOHSCROLL | ES_NUMBER | WS_DISABLED
     LTEXT           "Block length (1-26):",IDC_STATIC,151,338,63,8
     CONTROL         "New line after each block",IDC_CHECK_NEWLINE_STAGE2,
@@ -14391,16 +14426,17 @@ BEGIN
     CONTROL         "New line after each block",IDC_CHECK_NEWLINE_STAGE1,
                     "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,27,
                     352,159,10
-    GROUPBOX        "Result: Ciphertext after step 2",IDC_BOX_OUT_STAGE2,22,
-                    276,223,36
-    CONTROL         "Seperate output text by blanks",IDC_CHECK_BLOCK_STAGE2,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,286,124,10
+    GROUPBOX        "Result: Ciphertext after step 2",IDC_BOX_OUT_STAGE2,17,
+                    276,232,36
+    CONTROL         "Separate output blocks by blanks",
+                    IDC_CHECK_BLOCK_STAGE2,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,27,286,124,10
     GROUPBOX        "Intermediate result: Ciphertext after step 1",
-                    IDC_STATIC,22,316,223,51
-    CONTROL         "Seperate output text by blanks",IDC_CHECK_BLOCK_STAGE1,
-                    "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,27,
-                    337,124,10
-    PUSHBUTTON      "Enter string",IDC_BUTTON_STRINGBOX,192,134,53,19,
+                    IDC_STATIC,17,316,232,51
+    CONTROL         "Separate output blocks by blanks",
+                    IDC_CHECK_BLOCK_STAGE1,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,27,337,124,10
+    PUSHBUTTON      "Enter string",IDC_BUTTON_STRINGBOX,196,134,53,19,
                     BS_MULTILINE
 END
 
@@ -15387,37 +15423,39 @@ BEGIN
                     IDC_STATIC,227,85,148,31
 END
 
-IDD_SET_VISOPT DIALOGEX 0, 0, 231, 134
+IDD_SET_VISOPT DIALOGEX 0, 0, 230, 149
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "3-D Visualisation - Options"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,112,112,50,15
-    PUSHBUTTON      "Cancel",IDCANCEL,174,112,50,15
-    CONTROL         "Slider1",IDC_SLIDER_RESOLUTION,"msctls_trackbar32",
-                    TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,108,6,116,15
-    LTEXT           "Resolution",IDC_STATIC,7,7,49,15
-    CONTROL         "Slider2",IDC_SLIDER_DENSITY,"msctls_trackbar32",
-                    TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,108,23,116,19
-    LTEXT           "Density",IDC_STATIC,7,27,49,13
-    CONTROL         "Slider3",IDC_SLIDER_SHIFT,"msctls_trackbar32",TBS_BOTH | 
-                    TBS_NOTICKS | WS_TABSTOP,108,40,116,18
-    LTEXT           "Shift",IDC_STATIC,7,43,55,15
-    LTEXT           "Word length",IDC_STATIC,7,64,73,19
-    GROUPBOX        "Byte",IDC_STATIC,108,58,116,30
+    DEFPUSHBUTTON   "OK",IDOK,112,124,50,18
+    PUSHBUTTON      "Cancel",IDCANCEL,173,124,50,18
+    PUSHBUTTON      "Reset",IDC_BUTTON_RESET,7,124,48,18
+    CONTROL         "",IDC_SLIDER_RESOLUTION,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,111,18,106,14
+    RTEXT           "Resolution:",IDC_STATIC,15,21,47,11
+    CONTROL         "",IDC_SLIDER_DENSITY,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,111,36,106,14
+    RTEXT           "Density:",IDC_STATIC,15,40,47,8
+    CONTROL         "",IDC_SLIDER_SHIFT,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,111,56,106,14
+    RTEXT           "Shift:",IDC_STATIC,15,59,47,11
+    LTEXT           "Word length (in bytes):",IDC_STATIC,35,99,73,10,0,
+                    WS_EX_RIGHT
+    GROUPBOX        "Analysis parameter",IDC_STATIC,7,86,216,30
     CONTROL         "1",IDC_RADIO_WORDSIZE_1,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,117,71,20,10
-    CONTROL         "2",IDC_RADIO_WORDSIZE_2,"Button",BS_AUTORADIOBUTTON,142,
-                    71,20,10
-    CONTROL         "4",IDC_RADIO_WORDSIZE_4,"Button",BS_AUTORADIOBUTTON,171,
-                    71,20,10
-    EDITTEXT        IDC_EDIT_RESOLUTION,62,7,30,15,ES_AUTOHSCROLL | 
+                    WS_GROUP,138,99,20,10
+    CONTROL         "2",IDC_RADIO_WORDSIZE_2,"Button",BS_AUTORADIOBUTTON,167,
+                    99,20,10
+    CONTROL         "4",IDC_RADIO_WORDSIZE_4,"Button",BS_AUTORADIOBUTTON,195,
+                    99,20,10
+    EDITTEXT        IDC_EDIT_RESOLUTION,68,19,28,13,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDIT_DENSITY,62,22,30,18,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDIT_DENSITY,68,38,28,12,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDIT_SHIFT,62,40,30,18,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "%",IDC_STATIC,92,40,16,18
-    PUSHBUTTON      "Reset",IDC_BUTTON_RESET,7,112,48,15
+    EDITTEXT        IDC_EDIT_SHIFT,68,56,28,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "%",IDC_STATIC,98,58,10,9
+    GROUPBOX        "Visualization parameter",IDC_STATIC,7,5,216,75
 END
 
 IDD_FIND_AND_REPLACE DIALOGEX 0, 0, 323, 121
@@ -15830,6 +15868,7 @@ BEGIN
         END
         POPUP "&RSA Cryptosystem"
         BEGIN
+            MENUITEM "Prime Number &Test...",       1960
             MENUITEM "Generate &Prime Numbers...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
             MENUITEM "&RSA Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
@@ -16192,6 +16231,7 @@ BEGIN
         END
         POPUP "&RSA Cryptosystem"
         BEGIN
+            MENUITEM "Prime Number &Test...",       1960
             MENUITEM "Generate &Prime Numbers...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
             MENUITEM "&RSA Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
@@ -16555,6 +16595,7 @@ BEGIN
         END
         POPUP "&RSA Cryptosystem"
         BEGIN
+            MENUITEM "Prime Number &Test...",       1960
             MENUITEM "Generate &Prime Numbers...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
             MENUITEM "&RSA Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
@@ -16914,6 +16955,7 @@ BEGIN
         END
         POPUP "&RSA Cryptosystem"
         BEGIN
+            MENUITEM "Prime Number &Test...",       1960
             MENUITEM "Generate &Prime Numbers...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
             MENUITEM "&RSA Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
@@ -17312,6 +17354,7 @@ BEGIN
         END
         POPUP "&RSA Cryptosystem"
         BEGIN
+            MENUITEM "Prime Number &Test...",       1960
             MENUITEM "Generate &Prime Numbers...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
             MENUITEM "&RSA Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
@@ -18680,8 +18723,10 @@ BEGIN
         VERTGUIDE, 23
         VERTGUIDE, 257
         VERTGUIDE, 268
+        BOTTOMMARGIN, 324
         HORZGUIDE, 254
         HORZGUIDE, 273
+        HORZGUIDE, 329
     END
 
     IDD_ICG_RANDOMPARAMETER, DIALOG
@@ -19090,10 +19135,17 @@ BEGIN
 
     IDD_ADFGVX, DIALOG
     BEGIN
-        VERTGUIDE, 13
+        VERTGUIDE, 10
+        VERTGUIDE, 17
+        VERTGUIDE, 127
+        VERTGUIDE, 135
         VERTGUIDE, 151
-        VERTGUIDE, 245
-        VERTGUIDE, 255
+        VERTGUIDE, 239
+        VERTGUIDE, 249
+        VERTGUIDE, 257
+        HORZGUIDE, 134
+        HORZGUIDE, 153
+        HORZGUIDE, 349
         HORZGUIDE, 403
     END
 
@@ -19196,10 +19248,9 @@ BEGIN
     IDD_SET_VISOPT, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 218
+        RIGHTMARGIN, 223
         TOPMARGIN, 7
-        BOTTOMMARGIN, 112
-        HORZGUIDE, 96
+        BOTTOMMARGIN, 142
     END
 
     IDD_FIND_AND_REPLACE, DIALOG
@@ -19442,7 +19493,7 @@ STRINGTABLE
 BEGIN
     ID_CRYPT_VERIFY         "Verify signature on the active document"
     ID_CRYPT_EXTRACT        "Extract the actual signature from the output generated through ""Sign document"""
-    ID_ANALYZE_SUBST        "Manual analysis of a text encrypted using the substitution method"
+    ID_ANALYZE_SUBST        "Manual analysis of a document encrypted with the substitution algorithm"
     IDS_STRING_CUT_NULLS    "The Text contains an endeing section of Null characters. This section will be cut from the text. Proceed to show as text?"
     IDS_STRING_EC_ERROR_LOADING_KEYFILE 
                             "Error! File %s cannot be opened or does not exist.\nWithout this file it is not possible to display any key pairs for elliptic curves."
@@ -20798,7 +20849,7 @@ BEGIN
     ID_HILFE_STARTSEITE     "Shows the online help's starting page"
     ID_HILFE_INDEX          "Shows the online help index"
     ID_HILFE_SZENARIEN      "Show the overview page of the online help containing all scenarios within CrypTool"
-    ID_EINZELVERFAHREN_ASN1DECODIEREN "Decodes an ASN.1 encoded file"
+    ID_EINZELVERFAHREN_ASN1DECODIEREN "Decodes an ASN.1 encoded document"
     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO 
                             "Visualizes the Diffie-Hellman procedure"
     ID_SIGNATUR_ATTACK      "Performs an attack on the digital signature by creating two different documents with equal hash values (based on the birthday paradox)"
@@ -20878,7 +20929,7 @@ BEGIN
     IDS_STRING_SIG_ATT_BAD_BITLENGTH 
                             "The chosen hash algorithm requires a significant bit length between the borders 1 and %d."
     IDS_STRING_SIG_ATT_DOCUMENTS_FOUND 
-                            "The attack was successful: two different messages were found where the message hash is equal for the first %i bits."
+                            "The attack was successful: two different messages were found where the message hash is equal for the first %d bits."
     IDS_STRING_SIG_ATT_RUN_NUMBER "Run No."
     IDS_STRING_SIG_ATT_NO_DOCUMENTS_FOUND 
                             "The attack failed: no pair of messages could be found."
@@ -21163,7 +21214,7 @@ BEGIN
     ID_INDIV_CRT_SECRETSHARING 
                             "Illustrates the shared secret method using CRT (opening a vault with any 3 out of 5 key owners)"
     ID_HELP_ANIMAL_CAESAR   "The animation program ANIMAL demonstrates the data flow of the Caesar algorithm"
-    ID_ADFGVX               "ADFGVX encryption"
+    ID_ADFGVX               "Semi-automatic analysis of a document encrypted with the substitution algorithm"
     ID_ADFGVX_MANUAL        "Solitaire encryption"
     ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE 
                             "Semi automatic analysis of a document encrypted with the Solitaire algorithm"
@@ -21449,9 +21500,9 @@ BEGIN
     IDS_TITLE_DLG_RSADECRYPTION 
                             "Selection of a key for RSA decryption of <%s>"
     ID_POPUP_OPENGL_SHOW_BOX "Show the cube edges in OpenGL visualization"
-    ID_VIEW_ENDOFLINE       "Activating and Deactivating the display of end of lines as special characters"
-    ID_VIEW_LINEWRAP        "Activating and Deactivating the display of line wraps as special characters"
-    ID_VIEW_WHITESPACE      "Activating and Deactivating the display of whitespaces as special characters"
+    ID_VIEW_ENDOFLINE       "Toggle to show a special visible character as end of line"
+    ID_VIEW_LINEWRAP        "Toggle to show a special visible character as line wrap"
+    ID_VIEW_WHITESPACE      "Toggle to show a special visible character for further whitespaces"
     IDS_CONTROL_COPY        "Copy"
     IDS_CONTROL_PASTE       "Paste"
     33309                   "Text representation using Courier 10 dots font - fixed font length."

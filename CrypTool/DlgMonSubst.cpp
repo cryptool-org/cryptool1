@@ -66,16 +66,9 @@ BOOL CDlgMonSubst::OnInitDialog()
 	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_SUBSTITUTION,pc_str,STR_LAENGE_STRING_TABLE);
 	typeOfEncryption = pc_str;
 	VERIFY(m_Paste.AutoLoad(IDC_PASTE_KEY,this));
-	if ( IsKeyEmpty( typeOfEncryption ))
-	{
-		m_Paste.EnableWindow(TRUE);
-	}
-	else
-	{
-		m_Paste.EnableWindow(FALSE);
-	}
 
-	CheckRadioButton(IDC_RADIO1, IDC_RADIO2, IDC_RADIO1); UpdateData();
+	CheckRadioButton(IDC_RADIO1, IDC_RADIO3, IDC_RADIO1); UpdateData();
+	OnBnClickedRadioSubstFillAscendingOrder();
 
 	VERIFY(m_font.CreatePointFont(100,"Courier New"));
 	m_CtrlFrom.SetFont(&m_font);
@@ -164,15 +157,9 @@ void CDlgMonSubst::ComputeSubstKeyMapping()
 
 void CDlgMonSubst::OnPasteKey() 
 {
-//	UpdateData(TRUE);
-
 	CString m_text;
-	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_SUBSTITUTION,pc_str,STR_LAENGE_STRING_TABLE);
-	if ( PasteKey(pc_str,m_text) )
-	{
+	if ( CheckPasteKeyVariant(IDS_CRYPT_SUBSTITUTION, m_text) || CheckPasteKeyVariant(IDS_CRYPT_ATBASH, m_text) )
 		m_CtrlKey.SetWindowText(m_text);
-	}
-//	UpdateData(FALSE);	
 }
 
 void CDlgMonSubst::OnEncrypt() 
@@ -191,20 +178,25 @@ void CDlgMonSubst::OnDecrypt()
 	OnOK();
 }
 
+int CDlgMonSubst::CheckPasteKeyVariant(int SID, CString &keyStr)
+{
+	LoadString(AfxGetInstanceHandle(),SID,pc_str,STR_LAENGE_STRING_TABLE);
+	if ( PasteKey(pc_str,keyStr) )
+		return 1;
+	return 0;
+}
+
 void CDlgMonSubst::OnBnClickedRadioSubstFillAscendingOrder()
 {
 	// TODO: Add your control notification handler code here
 	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_SUBSTITUTION,pc_str,STR_LAENGE_STRING_TABLE);
 	typeOfEncryption = pc_str;
 
-	if ( IsKeyEmpty( typeOfEncryption ))
-	{
+	CString tmpStr;
+	if ( CheckPasteKeyVariant(IDS_CRYPT_SUBSTITUTION, tmpStr) || CheckPasteKeyVariant(IDS_CRYPT_ATBASH, tmpStr) )
 		m_Paste.EnableWindow(TRUE);
-	}
 	else
-	{
 		m_Paste.EnableWindow(FALSE);
-	}
 	f_FillAscendingOrder = TRUE;
 	m_CtrlKey.SetReadOnly(0);
 	ComputeSubstKeyMapping();
@@ -216,14 +208,11 @@ void CDlgMonSubst::OnBnClickedRadioSubstFillDescendingOrder()
 	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_SUBSTITUTION,pc_str,STR_LAENGE_STRING_TABLE);
 	typeOfEncryption = pc_str;
 
-	if ( IsKeyEmpty( typeOfEncryption ))
-	{
+	CString tmpStr;
+	if ( CheckPasteKeyVariant(IDS_CRYPT_SUBSTITUTION, tmpStr) || CheckPasteKeyVariant(IDS_CRYPT_ATBASH, tmpStr) )
 		m_Paste.EnableWindow(TRUE);
-	}
 	else
-	{
 		m_Paste.EnableWindow(FALSE);
-	}
 
 	f_FillAscendingOrder = FALSE;
 	m_CtrlKey.SetReadOnly(0);

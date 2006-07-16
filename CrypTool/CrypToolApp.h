@@ -201,6 +201,7 @@ private:
 public:
 	virtual BOOL OnDDECommand(LPTSTR lpszCommand);
 	afx_msg void OnPrimenumberTest();
+	afx_msg void OnAesSelfextract();
 };
 
 class CMainFrame : public CMDIFrameWnd

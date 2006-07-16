@@ -57,6 +57,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 private:
 	void ComputeSubstKeyMapping();
+	int  CheckPasteKeyVariant(int SID, CString &keyStr);
 public:
 	afx_msg void OnBnClickedRadioSubstFillAscendingOrder();
 	afx_msg void OnBnClickedRadioAddBash();

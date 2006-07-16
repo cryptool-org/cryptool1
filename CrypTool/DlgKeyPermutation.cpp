@@ -54,6 +54,7 @@ statement from your version.
 #include "KeyRepository.h"
 #include "DialogeMessage.h"
 #include ".\dlgkeypermutation.h"
+#include "CrypToolTools.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -103,6 +104,7 @@ void CDlgKeyPermutation::DoDataExchange(CDataExchange* pDX)
 	DDX_Radio(pDX, IDC_RADIO10, m_P1Perm);
 	DDX_Radio(pDX, IDC_RADIO12, m_P2Perm);
 	DDX_Check(pDX, IDC_CHECK1, m_Invert);
+	DDX_Control(pDX, IDC_CHECK2, chk_showPermutations);
 	//}}AFX_DATA_MAP
 }
 
@@ -154,7 +156,11 @@ void CDlgKeyPermutation::OnDecrypt()
 	}
 	m_Dec = 1;
 
-	if ( IDOK == ShowPermutations() )
+	bool doDecrypt = true;
+	if ( chk_showPermutations.GetCheck() && IDOK != ShowPermutations() )
+		doDecrypt = false;
+
+	if ( doDecrypt )
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_PARAM_PERMUTATION,pc_str,STR_LAENGE_STRING_TABLE);
 		CString Primes = CString(PARAM_TOKEN)
@@ -162,7 +168,11 @@ void CDlgKeyPermutation::OnDecrypt()
 			+ char(m_P1InSeq + '0') + ' ' + char(m_P1Perm + '0') + ' ' + char(m_P1OutSeq + '0')	+ ' '
 			+ char(m_P2InSeq + '0') + ' ' + char(m_P2Perm + '0') + ' ' + char(m_P2OutSeq + '0');
 		CopyKey ( pc_str, Primes );
-
+		if (ERROR_SUCCESS == CT_OPEN_REGISTRY_SETTINGS	(KEY_WRITE))
+		{
+			CT_WRITE_REGISTRY((unsigned long)chk_showPermutations.GetCheck(), "ShowPermutationKey");
+			CT_CLOSE_REGISTRY();
+		}
 		OnOK();
 	}
 }
@@ -203,7 +213,12 @@ void CDlgKeyPermutation::OnEncrypt()
 	}
 	m_Dec = 0;
 
-	if ( IDOK == ShowPermutations() )
+
+	bool doEncrypt = true;
+	if ( chk_showPermutations.GetCheck() && IDOK != ShowPermutations() )
+		doEncrypt = false;
+
+	if ( doEncrypt )
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_PARAM_PERMUTATION,pc_str,STR_LAENGE_STRING_TABLE);
 		CString Primes = CString(PARAM_TOKEN)
@@ -211,7 +226,11 @@ void CDlgKeyPermutation::OnEncrypt()
 			+ char(m_P1InSeq + '0') + ' ' + char(m_P1Perm + '0') + ' ' + char(m_P1OutSeq + '0') + ' '
 			+ char(m_P2InSeq + '0') + ' ' + char(m_P2Perm + '0') + ' ' + char(m_P2OutSeq + '0');
 		CopyKey ( pc_str, Primes );
-
+		if (ERROR_SUCCESS == CT_OPEN_REGISTRY_SETTINGS	(KEY_WRITE))
+		{
+			CT_WRITE_REGISTRY((unsigned long)chk_showPermutations.GetCheck(), "ShowPermutationKey");
+			CT_CLOSE_REGISTRY();
+		}
 		OnOK();
 	}
 }
@@ -352,6 +371,18 @@ BOOL CDlgKeyPermutation::OnInitDialog()
 	else
 	{
 		m_Paste.EnableWindow(FALSE);
+	}
+
+	if (ERROR_SUCCESS == CT_OPEN_REGISTRY_SETTINGS	(KEY_ALL_ACCESS))
+	{
+		unsigned long u_showPermutations = 1;
+		if ( CT_READ_REGISTRY_DEFAULT(u_showPermutations, "ShowPermutationKey", u_showPermutations) )
+			chk_showPermutations.SetCheck(int(u_showPermutations));
+		CT_CLOSE_REGISTRY();
+	}
+	else
+	{
+		// FIXME
 	}
 
 	return TRUE;  // return TRUE unless you set the focus to a control
