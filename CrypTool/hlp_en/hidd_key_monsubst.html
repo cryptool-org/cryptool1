@@ -17,7 +17,27 @@
 
 <h3>Dialog Key Entry: Monoalphabetic Substitution / Atbash</h3>
 
-<P>In this dialog you can enter the key for the <a href="hid_cryptmono.html">monoalphabetic substitution</a>. You can reach this dialog via the menu entry <A href="menu_crypt.html">Crypt/Decrypt</A> \ Symmetric (classic).</P>
+<P>You can reach this dialog via the menu entry <A href="menu_crypt.html">Crypt/Decrypt</A> \ <a href="menu_crypt_symmetricclassic.html">Symmetric(classic)</a> \ <a href="HID_CryptMono.html">Substitution/Atbash</a>.</P>
+
+<P>In this dialog you can enter the key for the monoalphabetic substitution.</P>
+
+<P>Please note the following:</P>
+
+<UL>
+<LI>The input box accepts the 26 letters only. Every other input is automatically discarded and thus not displayed.</LI>
+<LI>There is no differentiation between upper and lower case, that means lower case letters are converted to upper case.</LI>
+</UL>
+
+<P>There are two possibilities to enter the key:</P>
+
+<UL>
+<LI>You can enter the desired permutation (an order of all 26 letters of the alphabet) directly. In this case a text needs to be entered which is 26 characters long. The A is then mapped on the first character of the text, while the B is mapped on the second one (and so on). Please note that no characters are allowed to occur twice.</LI>
+<LI>Alternatively you can enter a keyword from which the permutation is derived. An example for this case: Given the keyword "EISENBAHN", the resulting permutation is determined as follows: The A is mapped on the first character (here: E). The characters B and C are mapped on the characters I and S respectively. The fourth character of the keyword (here: E) already appeared, thus it is skipped (no two or more characters may be mapped on the same character). This is done until all characters of the keyword are processed. The remaining characters (here: H to Z) are mapped on the characters that have not been used yet in reverse order.</LI>
+</UL>
+
+<P>If you want to encrypt the document with the entered key, click the Encrypt button. Use the Decrypt button to decrypt the document.</P>
+
+<P>The formatting (whitespaces, special characters as well as lower and upper case) of the output of the encrypted/decrypted document can be configured within the text options dialog.</P>
 
 </BODY>
 </HTML>
