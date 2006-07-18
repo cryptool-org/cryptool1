@@ -396,9 +396,9 @@ void CDlgKeyHomophone::LoadListBox()
 		{
 	// Insert CPlayfairLetter
 			if ( !m_BaseHomophones )
-				sprintf(string, "%2X", (unsigned short)i);
+				sprintf(string, "%X", (unsigned short)i);
 			else
-				sprintf(string, "%3d", (unsigned short)i);
+				sprintf(string, "%d", (unsigned short)i);
 
 			j=m_listview.InsertItem(i,string);
 
@@ -433,9 +433,9 @@ void CDlgKeyHomophone::LoadListBox()
 				number = HB.GetKey( m );
 				num[0] = '\0';
 				if ( !m_BaseHomophones )
-					sprintf(num,"%2X", number);
+					sprintf(num,"%X", number);
 				else
-					sprintf(num,"%3d", number);
+					sprintf(num,"%d", number);
 				strcat(string, num);
 				if(k<HB.GetEncryptionData1(i)-1) 
 					strcat(string, ", ");				
@@ -608,9 +608,9 @@ void CDlgKeyHomophone::OnDblclkSelect(NMHDR* pNMHDR, LRESULT* pResult)
 		int number = HB.GetKey( m );
 		num[0] = '\0';
 		if ( !m_BaseHomophones )
-			sprintf(num,"%2X", number);
+			sprintf(num,"%X", number);
 		else
-			sprintf(num,"%3d", number);
+			sprintf(num,"%d", number);
 		strcat(string, num);
 		if(k<m_EditNoOfHomophones-1) 
 			strcat(string, ", ");				
