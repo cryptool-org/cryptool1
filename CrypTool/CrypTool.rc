@@ -1503,35 +1503,34 @@ BEGIN
     PUSHBUTTON      "Button1",IDOK,204,377,37,15,NOT WS_VISIBLE
 END
 
-IDD_KEY_HOMOPHONE DIALOGEX 0, 0, 394, 386
+IDD_KEY_HOMOPHONE DIALOGEX 0, 0, 394, 402
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Schlüsseleingabe: Homophone Substitution"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,14,358,84,18
-    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,147,358,79,18
+    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,14,373,84,18
+    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,147,373,79,18
     EDITTEXT        IDC_EDIT1,67,15,25,12,ES_AUTOHSCROLL
     PUSHBUTTON      "A&ktualisieren",IDC_BUTTON3,109,15,53,12
     CONTROL         "&Hexadezimal",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,192,19,56,8
-    CONTROL         "&Dezimal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,192,31,
-                    63,9
+                    WS_GROUP,23,275,56,8
+    CONTROL         "&Dezimal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,87,275,
+                    63,8
     CONTROL         "Formatierungen mit",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,296,15,82,8
     CONTROL         "Umlaute codieren",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,296,32,71,10
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,14,63,368,198
-    PUSHBUTTON      "&Zufälligen Schlüssel erzeugen",IDC_ERZEUGEN,14,332,109,
+    PUSHBUTTON      "&Zufälligen Schlüssel erzeugen",IDC_ERZEUGEN,14,351,109,
                     17
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
-                    147,332,149,17
-    EDITTEXT        IDC_EDIT2,14,292,28,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT3,54,292,32,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_ROW,92,292,290,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT4,14,311,368,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    147,351,149,17
+    EDITTEXT        IDC_EDIT2,14,315,28,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT3,54,315,32,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_ROW,92,315,290,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT4,14,334,368,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,330,358,52,18
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,330,373,52,18
     GROUPBOX        "Gesamtzahl und Bitlänge der Homophonen",IDC_STATIC,14,4,
                     162,42
     LTEXT           "Gesamtzahl:",IDC_STATIC,27,17,40,8
@@ -1539,18 +1538,24 @@ BEGIN
     EDITTEXT        IDC_EDIT5,67,30,25,12,ES_RIGHT | ES_AUTOHSCROLL | 
                     ES_READONLY
     LTEXT           "Bit",IDC_STATIC,98,33,18,9
-    GROUPBOX        "Anzeige der Homophonen",IDC_STATIC,183,4,95,42
-    GROUPBOX        "Formatierungen",IDC_STATIC,285,4,97,42
+    GROUPBOX        "Anzeige der Homophonen",IDC_STATIC,14,264,368,24
+    GROUPBOX        "Verschlüsselungsoption",IDC_STATIC,185,4,197,42
     LTEXT           "verschlüsseln",IDC_STATIC,308,23,44,8
     EDITTEXT        IDC_EDIT6,328,46,40,12,ES_AUTOHSCROLL | NOT WS_VISIBLE | 
                     WS_DISABLED | NOT WS_BORDER,WS_EX_TRANSPARENT
     LTEXT           "Schlüsseltabelle für die Homophone Substitution:",
                     IDC_STATIC,14,52,192,8
     LTEXT           "Anzeige der Homophonen-Liste für einzelne Zeichen:",
-                    IDC_STATIC,14,270,172,9
-    LTEXT           "Zeichen:",IDC_STATIC,14,283,28,8
-    LTEXT           "Anzahl",IDC_STATIC,54,283,22,8
-    LTEXT           "Liste der Homophonen",IDC_STATIC,92,283,72,8
+                    IDC_STATIC,14,293,172,9
+    LTEXT           "Zeichen:",IDC_STATIC,14,306,28,8
+    LTEXT           "Anzahl",IDC_STATIC,54,306,22,8
+    LTEXT           "Liste der Homophonen",IDC_STATIC,92,306,72,8
+    CONTROL         "Text",IDC_RADIO_TEXT_INPUT,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,192,32,30,8
+    CONTROL         "Binäre Daten",IDC_RADIO_BINARY_INPUT,"Button",
+                    BS_AUTORADIOBUTTON,224,32,57,8
+    LTEXT           "Betrachte Eingabe-\nDokument als:",IDC_STATIC,192,14,
+                    100,15
 END
 
 IDD_EC_GENERATION DIALOG  0, 0, 404, 353
@@ -3530,12 +3535,12 @@ BEGIN
     LTEXT           "für Dokumente:",IDC_STATIC,13,106,89,9,0,WS_EX_RIGHT
 END
 
-IDD_ABOUT DIALOGEX 34, 22, 242, 399
+IDD_ABOUT DIALOGEX 34, 22, 242, 421
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Über CrypTool"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,70,371,90,19,WS_GROUP
+    DEFPUSHBUTTON   "OK",IDOK,70,393,90,19,WS_GROUP
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,41,50,105,37,
                     WS_EX_TRANSPARENT
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,40,82,143,37,
@@ -3547,16 +3552,16 @@ BEGIN
                     IDC_STATIC,1,164,241,24
     CTEXT           "CrypTool nutzt folgende Bibliotheken:",IDC_STATIC,0,197,
                     241,8
-    CTEXT           "Kontakt:",IDC_STATIC,0,276,241,10
+    CTEXT           "Kontakt:",IDC_STATIC,0,297,241,10
     CTEXT           "Copyright (C) 1998-2006 Deutsche Bank AG\nFrankfurt am Main, Germany",
-                    IDC_STATIC,0,348,242,17
+                    IDC_STATIC,0,369,242,17
     LTEXT           "esslinger@fb5.uni-siegen.de\nbesslinger@web.de\njoerg-cornelius.schneider@db.com\nhenrik.koy@db.com\ncryptool-list@sec.informatik.tu-darmstadt.de",
-                    IDC_STATIC,63,285,152,42
+                    IDC_STATIC,63,306,152,42
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT | SS_SUNKEN | 
                     WS_BORDER,10,46,222,79
     CTEXT           "CrypTool ist ein kostenloses und umfangreiches Lernprogramm\nzu klassischer und moderner Kryptographie/Kryptoanalyse.\n\nGemeinsam mit den Sponsoren",
                     IDC_STATIC,1,12,241,33
-    LTEXT           "Internet: http://www.cryptool.de",IDC_STATIC,63,332,175,
+    LTEXT           "Internet: http://www.cryptool.de",IDC_STATIC,63,353,175,
                     8
     CTEXT           "MIRACL",IDC_EDIT_MIRACL,1,228,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
@@ -3569,6 +3574,8 @@ BEGIN
     CTEXT           "SCINTILLA",IDC_EDIT_SCINTILLA,1,259,240,8,
                     SS_CENTERIMAGE,WS_EX_TRANSPARENT
     CTEXT           "SECUDE2",IDC_EDIT_SECUDE2,1,217,240,8,SS_CENTERIMAGE,
+                    WS_EX_TRANSPARENT
+    CTEXT           "GMP",IDC_EDIT_GMP,0,269,241,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
 END
 
@@ -5075,7 +5082,7 @@ BEGIN
         MENUITEM "Ein&fügen\tStrg+V",           ID_EDIT_PASTE, GRAYED
         MENUITEM "&Löschen\tEntf",              ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&Suchen...",                  ID_EDIT_FIND, GRAYED
+        MENUITEM "&Suchen/Erstezen...",         ID_EDIT_FIND, GRAYED
         MENUITEM "Suche &nächstes\tF3",         ID_EDIT_REPEAT, GRAYED
         MENUITEM "&Ersetzen...",                ID_EDIT_REPLACE, GRAYED
         MENUITEM SEPARATOR
@@ -5103,8 +5110,11 @@ BEGIN
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+
         END
         MENUITEM SEPARATOR
         MENUITEM "BOX (Würfelkanten zeigen)",   ID_POPUP_OPENGL_SHOW_BOX
@@ -5457,7 +5467,7 @@ BEGIN
         MENUITEM "Ein&fügen\tStrg+V",           ID_EDIT_PASTE
         MENUITEM "&Löschen\tEntf",              ID_EDIT_CLEAR
         MENUITEM SEPARATOR
-        MENUITEM "&Suchen...",                  ID_EDIT_FIND
+        MENUITEM "&Suchen/Erstezen...",         ID_EDIT_FIND, GRAYED
         MENUITEM "Suche &nächstes\tF3",         ID_EDIT_REPEAT
         MENUITEM "&Ersetzen...",                ID_EDIT_REPLACE
         MENUITEM SEPARATOR
@@ -5485,8 +5495,11 @@ BEGIN
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+
         END
         MENUITEM SEPARATOR
         MENUITEM "BOX (Würfelkanten zeigen)",   ID_POPUP_OPENGL_SHOW_BOX
@@ -5811,7 +5824,7 @@ BEGIN
         MENUITEM "Ein&fügen\tStrg+V",           ID_EDIT_PASTE, GRAYED
         MENUITEM "&Löschen\tEntf",              ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&Suchen...",                  ID_EDIT_FIND, GRAYED
+        MENUITEM "&Suchen/Erstezen...",         ID_EDIT_FIND, GRAYED
         MENUITEM "Suche &nächstes\tF3",         ID_EDIT_REPEAT, GRAYED
         MENUITEM "&Ersetzen...",                ID_EDIT_REPLACE, GRAYED
         MENUITEM SEPARATOR
@@ -5839,8 +5852,11 @@ BEGIN
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+
         END
         MENUITEM SEPARATOR
         MENUITEM "BOX (Würfelkanten zeigen)",   ID_POPUP_OPENGL_SHOW_BOX
@@ -6190,7 +6206,7 @@ BEGIN
         MENUITEM "Ein&fügen\tStrg+V",           ID_EDIT_PASTE
         MENUITEM "&Löschen\tEntf",              ID_EDIT_CLEAR
         MENUITEM SEPARATOR
-        MENUITEM "&Suchen...",                  ID_EDIT_FIND
+        MENUITEM "&Suchen/Erstezen...",         ID_EDIT_FIND
         MENUITEM "Suche &nächstes\tF3",         ID_EDIT_REPEAT
         MENUITEM "&Ersetzen...",                ID_EDIT_REPLACE
         MENUITEM SEPARATOR
@@ -6578,7 +6594,7 @@ BEGIN
         MENUITEM "Ein&fügen\tStrg+V",           ID_EDIT_PASTE, GRAYED
         MENUITEM "&Löschen\tEntf",              ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&Suchen...",                  ID_EDIT_FIND, GRAYED
+        MENUITEM "&Suchen/Erstezen...",         ID_EDIT_FIND, GRAYED
         MENUITEM "Suche &nächstes\tF3",         ID_EDIT_REPEAT, GRAYED
         MENUITEM "&Ersetzen...",                ID_EDIT_REPLACE, GRAYED
         MENUITEM SEPARATOR
@@ -6606,8 +6622,11 @@ BEGIN
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+
         END
         MENUITEM SEPARATOR
         MENUITEM "BOX (Würfelkanten zeigen)",   ID_POPUP_OPENGL_SHOW_BOX
@@ -7948,6 +7967,17 @@ BEGIN
         BOTTOMMARGIN, 273
     END
 
+    IDD_KEY_HOMOPHONE, DIALOG
+    BEGIN
+        VERTGUIDE, 14
+        VERTGUIDE, 192
+        VERTGUIDE, 382
+        HORZGUIDE, 40
+        HORZGUIDE, 283
+        HORZGUIDE, 368
+        HORZGUIDE, 391
+    END
+
     IDD_KEY_PERMUTATION, DIALOG
     BEGIN
         VERTGUIDE, 23
@@ -8181,7 +8211,7 @@ BEGIN
     IDD_ABOUT, DIALOG
     BEGIN
         VERTGUIDE, 63
-        BOTTOMMARGIN, 390
+        BOTTOMMARGIN, 412
     END
 
     IDD_HMAC, DIALOG
@@ -8680,8 +8710,6 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_STRING_ASYMKEY_ERR_ON_VERIFIKATION 
-                            "Fehlerhafte Eingabedaten !\nVerifikation nicht möglich !"
     IDS_STRING_ASYMKEY_ERR_ON_READING_SIGNATURE 
                             "Fehler beim Auslesen des Signatur- oder Hash-Verfahrens!\nVerifikation nicht möglich !"
     IDS_STRING_ASYMKEY_ERR_WRONG_SIGNATURE_FORMAT1 
@@ -9534,7 +9562,6 @@ END
 STRINGTABLE 
 BEGIN
     ID_ZUFALL_GENERATOREN   "Erzeugt mit unterschiedlichen Zufallsgeneratoren pseudo-zufällige Daten "
-    ID_HOMOPHONE_HEX        "Homophone Verschlüsselung"
     ID_PERMUTATION_ASC      "Verschlüsseln mit ein- oder zweifacher Permutation (Transposition, Doppelwürfel)"
     ID_ANALYSE_ZUFALLSTESTS_AUTOKORRELATION 
                             "Autokorrelation Test des Dokumentes durchführen"
@@ -9579,7 +9606,6 @@ BEGIN
     IDS_STRING_KF_ORD_DESCRIPTION 
                             "G hat die prime Ordnung r und den Kofaktor k (r*k sind die Anzahl der Punkte auf E):"
     IDS_STRING_EC_SEPERATOR " "
-    IDS_STRING_PERMUTATION  "Permutations"
     IDS_PARAM_PERMUTATION   "Parameter PERMUTATION"
     IDS_PARAM_PLAYFAIR      "Parameter PLAYFAIR"
     IDS_PARAM_HOMOPHONE     "Parameter HOMOPHONE"
@@ -9659,7 +9685,7 @@ BEGIN
     IDS_CRYPT_ADDITION      "ADD"
     IDS_CRYPT_XOR           "XOR"
     IDS_CRYPT_VERNAM        "Vernam"
-    IDS_CRYPT_PERMUTATION   "Permutations"
+    IDS_CRYPT_PERMUTATION   "Permutations-/Transpositions"
     IDS_CRYPT_IDEA          "IDEA"
     IDS_CRYPT_RC2           "RC2"
     IDS_CRYPT_RC4           "RC4"
@@ -9802,6 +9828,8 @@ BEGIN
                             "Die ""harmlose"" Datei konnte nicht geöffnet werden oder ist 0 Bytes groß !"
     IDS_DH_SECRET_EXCEEDS_PRIME 
                             "Das Geheimnis ist größer als der Primzahlmodul und wird deshalb verkürzt auf eine Zahl kleiner als diese Primzahl!"
+    IDS_ASN1_INVALID_CERTIFICATE_STRUCTURE 
+                            "Es konnte kein gültiges Nutzerzertifikat ausgelesen werden."
     IDS_STRING_SIG_ATT_NO_CHECK 
                             "Sie müssen mindestens eine Checkbox ankreuzen."
     IDS_STRING_SIG_ATT_BAD_BITLENGTH 
@@ -11118,21 +11146,21 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_ABOUT DIALOGEX 34, 22, 242, 399
+IDD_ABOUT DIALOGEX 34, 22, 242, 415
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About CrypTool"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,70,375,90,19,WS_GROUP
+    DEFPUSHBUTTON   "OK",IDOK,70,386,90,19,WS_GROUP
     CTEXT           "and the universities \nSiegen and Darmstadt",IDC_STATIC,
                     0,125,242,17
     CTEXT           "CrypTool uses the following libraries:",IDC_STATIC,1,
                     195,241,8
-    CTEXT           "Contact:",IDC_STATIC,0,278,241,10
+    CTEXT           "Contact:",IDC_STATIC,0,289,241,10
     LTEXT           "esslinger@fb5.uni-siegen.de\nbesslinger@web.de\nhenrik.koy@db.com\njoerg-cornelius.schneider@db.com\ncryptool-list@sec.informatik.tu-darmstadt.de",
-                    IDC_STATIC,67,291,145,40
+                    IDC_STATIC,67,302,145,40
     CTEXT           "Copyright (C) 1998-2006 Deutsche Bank AG\nFrankfurt am Main, Germany",
-                    IDC_STATIC,0,352,242,17
+                    IDC_STATIC,0,363,242,17
     CTEXT           "CrypTool is a free and comprehensive eLearning program about\nclassic and contemporary cryptography and cryptanalysis.\n\nIn a joint effort of the sponsors",
                     IDC_STATIC,1,10,241,32
     CTEXT           "has been developed.\nCrypTool is used for education and for\nemployee awareness for IT security.",
@@ -11144,7 +11172,7 @@ BEGIN
                     WS_EX_TRANSPARENT
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT | SS_SUNKEN | 
                     WS_BORDER,10,44,222,79
-    LTEXT           "Internet: http://www.cryptool.org",IDC_STATIC,67,337,
+    LTEXT           "Internet: http://www.cryptool.org",IDC_STATIC,67,348,
                     175,8
     CTEXT           "MIRACL",IDC_EDIT_MIRACL,1,228,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
@@ -11152,11 +11180,13 @@ BEGIN
                     WS_EX_TRANSPARENT
     CTEXT           "OPENSSL",IDC_EDIT_OPENSSL,1,239,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
-    CTEXT           "NTL",IDC_EDIT_NTL,1,250,240,8,SS_CENTERIMAGE,
+    CTEXT           "NTL",IDC_EDIT_NTL,1,249,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
-    CTEXT           "SCINTILLA",IDC_EDIT_SCINTILLA,1,261,240,8,
+    CTEXT           "SCINTILLA",IDC_EDIT_SCINTILLA,1,259,240,8,
                     SS_CENTERIMAGE,WS_EX_TRANSPARENT
     CTEXT           "SECUDE2",IDC_EDIT_SECUDE2,1,217,240,8,SS_CENTERIMAGE,
+                    WS_EX_TRANSPARENT
+    CTEXT           "GMP",IDC_EDIT_GMP,0,269,241,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
 END
 
@@ -12310,29 +12340,29 @@ BEGIN
     PUSHBUTTON      "Button1",IDOK,204,377,37,15,NOT WS_VISIBLE
 END
 
-IDD_KEY_HOMOPHONE DIALOGEX 0, 0, 394, 386
+IDD_KEY_HOMOPHONE DIALOGEX 0, 0, 394, 418
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Key Entry: Homophonic Substitution"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Encrypt",IDOK,14,358,84,18
-    PUSHBUTTON      "&Decrypt",IDC_BUTTON1,147,358,79,18
+    DEFPUSHBUTTON   "&Encrypt",IDOK,14,388,84,18
+    PUSHBUTTON      "&Decrypt",IDC_BUTTON1,147,388,79,18
     EDITTEXT        IDC_EDIT1,67,15,25,12,ES_AUTOHSCROLL
     PUSHBUTTON      "&Update",IDC_BUTTON3,109,15,53,12
     CONTROL         "&Hexadecimal",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,192,19,56,8
-    CONTROL         "&Decimal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,192,31,
-                    63,9
+                    WS_GROUP,25,280,56,8
+    CONTROL         "&Decimal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,97,280,
+                    63,8
     CONTROL         "Include formatting",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,296,17,72,8
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,14,63,368,198
-    PUSHBUTTON      "&Generate random key",IDC_ERZEUGEN,14,332,109,17
+    PUSHBUTTON      "&Generate random key",IDC_ERZEUGEN,14,363,109,17
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
-                    147,332,149,17
-    EDITTEXT        IDC_EDIT2,14,292,29,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT3,54,292,32,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_ROW,92,292,290,12,ES_AUTOHSCROLL | ES_READONLY
+                    147,363,149,17
+    EDITTEXT        IDC_EDIT2,14,327,29,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT3,54,327,32,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_ROW,92,327,290,12,ES_AUTOHSCROLL | ES_READONLY
     GROUPBOX        "Total count and bit length of the homophones",
                     IDC_STATIC,14,4,162,42
     LTEXT           "Total number:",IDC_STATIC,27,17,40,8
@@ -12340,23 +12370,28 @@ BEGIN
     EDITTEXT        IDC_EDIT5,67,30,25,12,ES_RIGHT | ES_AUTOHSCROLL | 
                     ES_READONLY
     LTEXT           "bits",IDC_STATIC,98,33,18,9
-    GROUPBOX        "Display of homophones",IDC_STATIC,183,4,95,42
-    GROUPBOX        "Formatting",IDC_STATIC,285,4,97,42
+    GROUPBOX        "Display of homophones",IDC_STATIC,14,268,368,27
+    GROUPBOX        "Encryption options",IDC_STATIC,184,4,198,42
     LTEXT           "with encryption",IDC_STATIC,308,27,54,8
     EDITTEXT        IDC_EDIT6,328,46,40,12,ES_AUTOHSCROLL | NOT WS_VISIBLE | 
                     WS_DISABLED | NOT WS_BORDER,WS_EX_TRANSPARENT
     LTEXT           "Key table for homophonic substitution",IDC_STATIC,14,52,
                     192,8
     LTEXT           "Show the list of homophones for individual characters:",
-                    IDC_STATIC,14,270,172,9
-    LTEXT           "Characters",IDC_STATIC,14,283,36,8
-    LTEXT           "Number",IDC_STATIC,54,283,30,8
-    LTEXT           "List of homophones",IDC_STATIC,92,283,72,8
-    EDITTEXT        IDC_EDIT4,14,311,368,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    IDC_STATIC,14,305,172,9
+    LTEXT           "Characters",IDC_STATIC,14,318,36,8
+    LTEXT           "Number",IDC_STATIC,54,318,30,8
+    LTEXT           "List of homophones",IDC_STATIC,92,318,72,8
+    EDITTEXT        IDC_EDIT4,14,346,368,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    PUSHBUTTON      "&Cancel",IDCANCEL,330,358,52,18
+    PUSHBUTTON      "&Cancel",IDCANCEL,330,388,52,18
     CONTROL         "",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | 
-                    WS_DISABLED,238,366,8,10
+                    WS_DISABLED,238,396,8,10
+    CONTROL         "Text",IDC_RADIO_TEXT_INPUT,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,192,32,30,8
+    CONTROL         "Binary data",IDC_RADIO_BINARY_INPUT,"Button",
+                    BS_AUTORADIOBUTTON,224,32,57,8
+    LTEXT           "Consider input document as",IDC_STATIC,192,18,100,11
 END
 
 IDD_EC_GENERATION DIALOG  0, 0, 404, 353
@@ -14728,7 +14763,7 @@ BEGIN
                     BS_AUTORADIOBUTTON | WS_GROUP,314,107,60,8
     DEFPUSHBUTTON   "&Calculate",IDC_SECRETSHARING_BUTTON1,317,155,50,15
     PUSHBUTTON      "&Options",IDC_BUTTON4,317,173,50,15
-    PUSHBUTTON      "Calc. &Steps",IDC_SECRETSHARING_FACTS,317,191,50,15,
+    PUSHBUTTON      "Calc. &steps",IDC_SECRETSHARING_FACTS,317,191,50,15,
                     WS_DISABLED
     PUSHBUTTON      "&Reset",IDC_SECRETSHARING_BUTTON2,317,208,50,15,
                     WS_DISABLED
@@ -14788,10 +14823,10 @@ BEGIN
     CONTROL         "",IDC_CRT_Anim,"Static",SS_BLACKRECT,198,255,174,101
     RTEXT           "6:",IDC_STATIC6,8,344,9,12,WS_DISABLED
     RTEXT           "7:",IDC_STATIC7,8,363,9,12,WS_DISABLED
-    LTEXT           "To generate and distribute the secret, button-click on 'calculate'. By button-clicking 'Options', you're able to vary the range of values which the identifiers are taken from and the number of parties, that are involved.",
+    LTEXT           "To generate and distribute the secret, click on 'Calculate' button. By clicking the button 'Options', you're able to vary the range of values which the identifiers are taken from and the number of parties, that are involved.",
                     IDC_STATIC,12,27,364,16
     GROUPBOX        "",IDC_STATIC,6,3,375,70
-    LTEXT           "After calculating, if you provide the minimum number of keys by clicking the +/- -Buttons in the lowest groupbox 'Reconstructing...', this program will try to rebuild the secret by clicking 'Rebuild secret'.",
+    LTEXT           "After calculating: If you provide the minimum number of keys by clicking the '+/-' buttons in the lowest groupbox 'Reconstructing...', this program will try to rebuild the secret by clicking 'Rebuild secret'.",
                     IDC_STATIC,12,43,362,25
     LTEXT           "Secret Sharing by CRT permits distributing a secret on n keys, so that the original secret can be reconstructed, if an arbitrary subset of k<=n key owners come together. ",
                     IDC_STATIC,12,11,360,16
@@ -15730,7 +15765,7 @@ BEGIN
         MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE, GRAYED
         MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&Find...",                    ID_EDIT_FIND, GRAYED
+        MENUITEM "&Find/Replace...",            ID_EDIT_FIND, GRAYED
         MENUITEM "Find &Next\tF3",              ID_EDIT_REPEAT, GRAYED
         MENUITEM "&Replace...",                 ID_EDIT_REPLACE, GRAYED
         MENUITEM SEPARATOR
@@ -15758,8 +15793,11 @@ BEGIN
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+
         END
         MENUITEM SEPARATOR
         MENUITEM "Show Box (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
@@ -16108,7 +16146,7 @@ BEGIN
         MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
         MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR
         MENUITEM SEPARATOR
-        MENUITEM "&Find...",                    ID_EDIT_FIND
+        MENUITEM "&Find/Replace...",            ID_EDIT_FIND, GRAYED
         MENUITEM "Find &Next\tF3",              ID_EDIT_REPEAT
         MENUITEM "&Replace...",                 ID_EDIT_REPLACE
         MENUITEM SEPARATOR
@@ -16136,8 +16174,11 @@ BEGIN
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+
         END
         MENUITEM SEPARATOR
         MENUITEM "Show Box (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
@@ -16459,7 +16500,7 @@ BEGIN
         MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE, GRAYED
         MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&Find...",                    ID_EDIT_FIND, GRAYED
+        MENUITEM "&Find/Replace...",            ID_EDIT_FIND, GRAYED
         MENUITEM "Find &Next\tF3",              ID_EDIT_REPEAT, GRAYED
         MENUITEM "&Replace...",                 ID_EDIT_REPLACE, GRAYED
         MENUITEM SEPARATOR
@@ -16487,8 +16528,11 @@ BEGIN
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+
         END
         MENUITEM SEPARATOR
         MENUITEM "Show Box (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
@@ -16837,7 +16881,7 @@ BEGIN
         MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
         MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR
         MENUITEM SEPARATOR
-        MENUITEM "&Find...",                    ID_EDIT_FIND
+        MENUITEM "&Find/Replace...",            ID_EDIT_FIND
         MENUITEM "Find &Next\tF3",              ID_EDIT_REPEAT
         MENUITEM "&Replace...",                 ID_EDIT_REPLACE
         MENUITEM SEPARATOR
@@ -16865,8 +16909,11 @@ BEGIN
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+
         END
         MENUITEM SEPARATOR
         MENUITEM "Show Box (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
@@ -17218,7 +17265,7 @@ BEGIN
         MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE, GRAYED
         MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&Find...",                    ID_EDIT_FIND, GRAYED
+        MENUITEM "&Find/Replace...",            ID_EDIT_FIND, GRAYED
         MENUITEM "Find &Next\tF3",              ID_EDIT_REPEAT, GRAYED
         MENUITEM "&Replace...",                 ID_EDIT_REPLACE, GRAYED
         MENUITEM SEPARATOR
@@ -17246,8 +17293,11 @@ BEGIN
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+
         END
         MENUITEM SEPARATOR
         MENUITEM "Show Box (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
@@ -18609,7 +18659,7 @@ BEGIN
         VERTGUIDE, 67
         VERTGUIDE, 76
         TOPMARGIN, 1
-        BOTTOMMARGIN, 396
+        BOTTOMMARGIN, 412
     END
 
     IDD_SHOW_PROGRESS, DIALOG
@@ -18690,9 +18740,11 @@ BEGIN
 
     IDD_KEY_HOMOPHONE, DIALOG
     BEGIN
+        VERTGUIDE, 14
         VERTGUIDE, 382
-        HORZGUIDE, 304
-        HORZGUIDE, 376
+        HORZGUIDE, 288
+        HORZGUIDE, 380
+        HORZGUIDE, 406
     END
 
     IDD_X2MODN_RANDOMPARAMETER, DIALOG
@@ -19625,8 +19677,6 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_STRING_ASYMKEY_ERR_ON_VERIFIKATION 
-                            "Incorrect input data!\nVerification not possible!"
     IDS_STRING_ASYMKEY_ERR_ON_READING_SIGNATURE 
                             "An error occurred during reading of the signature or hash algorithm!\nVerification not possible!"
     IDS_STRING_ASYMKEY_ERR_WRONG_SIGNATURE_FORMAT1 
@@ -20445,7 +20495,6 @@ END
 STRINGTABLE 
 BEGIN
     ID_ZUFALL_GENERATOREN   "Creates pseudorandom data with different random number generators"
-    ID_HOMOPHONE_HEX        "Homophonic encryption"
     ID_PERMUTATION_ASC      "Encryption using a single permutation or two concatenated permutations (single or double column transposition)"
     ID_ANALYSE_ZUFALLSTESTS_AUTOKORRELATION 
                             "Checks the random quality of the active document with the Autocorrelation test"
@@ -20490,7 +20539,6 @@ BEGIN
     IDS_STRING_KF_ORD_DESCRIPTION 
                             "G has the prime order r and the cofactor k (r*k is the number of points on E):"
     IDS_STRING_EC_SEPERATOR " "
-    IDS_STRING_PERMUTATION  "Permutation"
     IDS_PARAM_PERMUTATION   "Parameter PERMUTATION"
     IDS_PARAM_PLAYFAIR      "Parameter PLAYFAIR"
     IDS_PARAM_HOMOPHONE     "Parameter HOMOPHONE"
@@ -20569,7 +20617,7 @@ BEGIN
     IDS_CRYPT_ADDITION      "ADD"
     IDS_CRYPT_XOR           "XOR"
     IDS_CRYPT_VERNAM        "Vernam"
-    IDS_CRYPT_PERMUTATION   "Permutation"
+    IDS_CRYPT_PERMUTATION   "Permutation/Transposition"
     IDS_CRYPT_IDEA          "IDEA"
     IDS_CRYPT_RC2           "RC2"
     IDS_CRYPT_RC4           "RC4"
@@ -20926,6 +20974,8 @@ BEGIN
                             "The ""harmless"" file could not be openend or is of size 0 !"
     IDS_DH_SECRET_EXCEEDS_PRIME 
                             "The secret exceeds the prime modulus and therefor it is shortened to a number smaller than this prime!"
+    IDS_ASN1_INVALID_CERTIFICATE_STRUCTURE 
+                            "No valid user certificates could be read."
     IDS_STRING_SIG_ATT_NO_CHECK 
                             "You have to mark at least one of the ckeck boxes."
     IDS_STRING_SIG_ATT_BAD_BITLENGTH 
@@ -21348,7 +21398,7 @@ BEGIN
     IDS_CRT_SECRETSHARINGGROUPBOX2 
                             "Rebuilding the secret with a minimum of k = %d keys"
     IDS_CRT_SECRETSHARINGGROUPBOX3 
-                            "Choose those from these n = %d identifiers, whose keys shall be used to rebuilt the secret:"
+                            "Choose those from these n = %d identifiers, whose keys shall be used to rebuild the secret:"
     IDS_CRT_SECRETSHARINGHELP1 
                             "You have enterd %d as number of parties.\r\nPlease enter 2 as minimum for this parameter.\r\n"
     IDS_CRT_SECRETSHARINGHELP2 
@@ -21507,16 +21557,19 @@ BEGIN
     ID_VIEW_WHITESPACE      "Toggle to show a special visible character for further whitespaces"
     IDS_CONTROL_COPY        "Copy"
     IDS_CONTROL_PASTE       "Paste"
-    ID_ZEICHENFORMAT_COURIER10                   "Text representation using Courier 10 dots font - fixed font length."
-    ID_ZEICHENFORMAT_COURIER12                   "Text representation using Courier 12 dots font - fixed font length."
+    ID_ZEICHENFORMAT_COURIER10 
+                            "Text representation using Courier 10 dots font - fixed font length."
+    ID_ZEICHENFORMAT_COURIER12 
+                            "Text representation using Courier 12 dots font - fixed font length."
     ID_ZEICHENFORMAT_ARIAL10 "Text representation using Arial 10 dots font."
 END
 
 STRINGTABLE 
 BEGIN
-    ID_ZEICHENFORMAT_ARIAL12                   "Text representation using Arial 12 dots font."
-    ID_ZEICHENFORMAT_ARIAL08                   "Text representation using Arial 8 dots font."
-    ID_ZEICHENFORMAT_COURIER08                   "Text representation using Courier 8 dots font - fixed font length."
+    ID_ZEICHENFORMAT_ARIAL12 "Text representation using Arial 12 dots font."
+    ID_ZEICHENFORMAT_ARIAL08 "Text representation using Arial 8 dots font."
+    ID_ZEICHENFORMAT_COURIER08 
+                            "Text representation using Courier 8 dots font - fixed font length."
     ID_DECODE_BASE64        "Decoding the active document using Base64"
     ID_ENCODE_BASE64        "Encoding the active document using Base64"
     IDS_CONTROL_CUT         "Cut"

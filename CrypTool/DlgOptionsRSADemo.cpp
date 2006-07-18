@@ -335,7 +335,7 @@ void CDlgOptionsRSADemo::OnOK()
 }
 
 
-bool CDlgOptionsRSADemo::CompareModulAlphabetSize(CString N_str)
+bool CDlgOptionsRSADemo::CompareModulAlphabetSize(CString N_str) // FIXME in case of greater alphabet size or changed number base
 {
 	int int_RSA_Modul;
 	if    ( N_str.GetLength() > 3 ) int_RSA_Modul = 1000;

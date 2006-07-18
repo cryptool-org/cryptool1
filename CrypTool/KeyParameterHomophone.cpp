@@ -61,16 +61,16 @@ using namespace std;
 // Konstruktion/Destruktion
 //////////////////////////////////////////////////////////////////////
 
-void CKeyParameterHomophone::Init()
+void CKeyParameterHomophone::Init(int _keyType = HOM_ENC_TXT)
 {
 	int i;
-
 	for(i=0;i<range;i++)
 	{
 		count[i]=0;
 		freq[i]=-1.0;
 	}
 	total_count=0;
+	keyType = _keyType;
 }
 
 CKeyParameterHomophone::CKeyParameterHomophone()
@@ -83,37 +83,6 @@ CKeyParameterHomophone::~CKeyParameterHomophone()
 
 }
 
-void CKeyParameterHomophone::Analyse()
-
-// erstellt für die Referenzdatei das Histogramm
-
-{
-	char buffer[buffsize];
-	int i,value;
-
-	Init();
-
-	ifstream f(theApp.TextOptions.m_StrRefFile, ios::binary | ios::in );
-	f.read(buffer,buffsize);
-
-	while(f.gcount())
-	{
-		for(i=0;i<f.gcount();i++)
-		{
-			value=buffer[i];
-			if(0<=value&&value<range)
-			{
-				count[value]++;
-				total_count++;
-			}
-		}
-		f.read(buffer,buffsize);
-	}
-	f.close();
-	Correct_count_table();
-	Make_freq_table();
-	assert(true==Checksum());
-}
 
 void CKeyParameterHomophone::Make_freq_table()
 
@@ -142,28 +111,31 @@ void CKeyParameterHomophone::Correct_count_table()
 	bool char_in_alpha;
 	int i,j;
 
-	if(FALSE==theApp.TextOptions.m_Case)
+	if ( HOM_ENC_TXT == keyType )
 	{
-		for(i=65;i<=90;i++)
+		if(FALSE==theApp.TextOptions.m_Case)
 		{
-			count[i]+=count[i+32];
-			count[i+32]=0;
-		}
-	}
-	for(i=0;i<range;i++)
-	{
-		char_in_alpha=false;
-		for(j=0;j<theApp.TextOptions.m_alphabet.GetLength();j++)
-		{
-			if(theApp.TextOptions.m_alphabet.GetAt(j)==i)
+			for(i=65;i<=90;i++)
 			{
-				char_in_alpha=true;
+				count[i]+=count[i+32];
+				count[i+32]=0;
 			}
 		}
-		if(false==char_in_alpha)
+		for(i=0;i<range;i++)
 		{
-			total_count-=count[i];
-			count[i]=0;
+			char_in_alpha=false;
+			for(j=0;j<theApp.TextOptions.m_alphabet.GetLength();j++)
+			{
+				if((unsigned short)theApp.TextOptions.m_alphabet.GetAt(j)==i)
+				{
+					char_in_alpha=true;
+				}
+			}
+			if(false==char_in_alpha)
+			{
+				total_count-=count[i];
+				count[i]=0;
+			}
 		}
 	}
 }
@@ -187,7 +159,7 @@ bool CKeyParameterHomophone::Checksum()
 	return(false);
 }
 
-void CKeyParameterHomophone::Analyse(const char *f_toAnalyse)
+void CKeyParameterHomophone::Analyse(const char *f_toAnalyse, int _keyType)
 {
 	char buffer[buffsize];
 	int i,value;
@@ -195,13 +167,13 @@ void CKeyParameterHomophone::Analyse(const char *f_toAnalyse)
 	ifstream f(f_toAnalyse, ios::binary | ios::in );
 	f.read(buffer,buffsize);
 
-	Init();
+	Init(_keyType);
 
 	while(f.gcount())
 	{
 		for(i=0;i<f.gcount();i++)
 		{
-			value=buffer[i];
+			value=(unsigned char)buffer[i];
 			if(0<=value&&value<range)
 			{
 				count[value]++;
@@ -214,4 +186,37 @@ void CKeyParameterHomophone::Analyse(const char *f_toAnalyse)
 	Correct_count_table();
 	Make_freq_table();
 	assert(true==Checksum());
+}
+
+void CKeyParameterHomophone::Analyse(int _keyType)
+
+// erstellt für die Referenzdatei das Histogramm
+
+{
+	char buffer[buffsize];
+	int i,value;
+
+	Init(_keyType);
+
+	ifstream f(theApp.TextOptions.m_StrRefFile, ios::binary | ios::in );
+	f.read(buffer,buffsize);
+
+	while(f.gcount())
+	{
+		for(i=0;i<f.gcount();i++)
+		{
+			value=(unsigned char)buffer[i];
+			if(0<=value&&value<range)
+			{
+				count[value]++;
+				total_count++;
+			}
+		}
+		f.read(buffer,buffsize);
+	}
+	f.close();
+	Correct_count_table();
+	Make_freq_table();
+	assert(true==Checksum());
+
 }

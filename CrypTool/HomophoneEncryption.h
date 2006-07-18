@@ -50,11 +50,13 @@ statement from your version.
 #define AFX_HOMOPHONE_BER_H__C0728084_FD9D_11D4_80F2_000629C93170__INCLUDED_
 
 #include "zzgen.h"	// Hinzugefügt von der Klassenansicht
+#include "KeyParameterHomophone.h"
+
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
 
-#define range	256
+// #define range	256 See "KeyParameterHomophone.h"
 
 struct HomophoneData
 {
@@ -77,6 +79,7 @@ class CHomophoneEncryption
 	HomophoneData   data;
 	zzgen			zz;
 
+	int				keyType;
 	char			GetIndex( const int );
 	int				Get_random_number(int);
 	bool			Check_key();
@@ -107,7 +110,7 @@ public:
 					{	return (int)ceil( log( (double) data.SizeHomophoneKey )/log((double) base) ); }
 	void			Resize( const int Size )
 					{	data.Resize( Size ); }
-	void			Make_enc_table();
+	void			Make_enc_table(const int _keyType = HOM_ENC_TXT);
 	void			Make_dec_table();
 	void			load_enc_table(const char* keyStr);
 	void			Generate_key();

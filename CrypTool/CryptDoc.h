@@ -160,7 +160,6 @@ protected:
 	afx_msg void OnAnalyseAesTwofish();
 	afx_msg void OnVitanyAnalyse();
 	afx_msg void OnPeriod();
-	afx_msg void OnHomophoneHex();
 	afx_msg void OnHomophone();
     afx_msg void OnAnalyseNGram();
 	afx_msg void OnAnalyseNGramBin();

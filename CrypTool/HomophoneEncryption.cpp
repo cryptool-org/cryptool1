@@ -105,6 +105,7 @@ BOOL HomophoneData::Resize( const int Size )
 CHomophoneEncryption::CHomophoneEncryption()
 {
 	data.Init( range );
+	keyType = HOM_ENC_TXT;
 }
 
 CHomophoneEncryption::~CHomophoneEncryption()
@@ -113,19 +114,20 @@ CHomophoneEncryption::~CHomophoneEncryption()
 }
 //////////////////////////////////////////////////////////////////////
 
-void CHomophoneEncryption::Make_enc_table()	
+void CHomophoneEncryption::Make_enc_table(const int _keyType )	
 // ordnet jedem plaintext-Zeichen "seine" Anzahl an ciphertext-Zeichen zu und füllt enc_data,
 // so daß verschlüsselt werden kann
 {
+	keyType = _keyType;
 	int i,last=0;
 
-	for(i=1;i<range;i++)
+	for(i=0;i<range;i++)
 	{
-		if (-1 != theApp.TextOptions.m_alphabet.Find(char(i)) )
+		if ( HOM_ENC_TXT == keyType )
 		{
-			if(data.frequency[i]>0.0)
+			if ((i > 0) && (-1 != theApp.TextOptions.m_alphabet.Find(char(i))) )
 			{
-				data.encryptionData1[i]=int(floor(data.SizeHomophoneKey*data.frequency[i]));
+				data.encryptionData1[i]=max(int(floor(data.SizeHomophoneKey*data.frequency[i])), 0);
 				// Eingefügt 24. April 2001 -- Henrik Koy
 				if ( (0==data.encryptionData1[i]) )
 				{
@@ -133,15 +135,19 @@ void CHomophoneEncryption::Make_enc_table()
 					data.doNotRoundMe[i]=true;
 				}
 			}
-			else 
+			else
+			{
+				data.encryptionData1[i]=-1;
+			}
+		}
+		else 
+		{
+			data.encryptionData1[i]=max(int(floor(data.SizeHomophoneKey*data.frequency[i])), 0);
+			if ( (0==data.encryptionData1[i]) )
 			{
 				data.encryptionData1[i]=1;
 				data.doNotRoundMe[i]=true;
 			}
-		}
-		else
-		{
-			data.encryptionData1[i]=-1;
 		}
 	}
 
@@ -339,7 +345,7 @@ const char* CHomophoneEncryption::GetKeyStr()
 	int k, l, j = 0;
 	char hexStr[10];
 
-	sprintf(hexStr, "%X", data.SizeHomophoneKey);
+	sprintf(hexStr, "%2X", data.SizeHomophoneKey);
 	for ( k=0; hexStr[k]!=0; ) keyStr[j++] = hexStr[k++];
 	keyStr[j++] = '#';
 	keyStr[j++] = '#';
@@ -349,12 +355,12 @@ const char* CHomophoneEncryption::GetKeyStr()
 	{
 		if(data.encryptionData1[i]>0)
 		{
-			sprintf(hexStr, "%X", i);
+			sprintf(hexStr, "%2X", i);
 			for ( k=0; hexStr[k]!=0; ) keyStr[j++] = hexStr[k++];
 			keyStr[j++] = ':';
 			for ( l=0; l<data.encryptionData1[i]; l++)
 			{
-				sprintf(hexStr, "%X", data.key[data.encryptionData0[i]+l]);
+				sprintf(hexStr, "%2X", data.key[data.encryptionData0[i]+l]);
 				for ( k=0; hexStr[k]!=0; ) keyStr[j++] = hexStr[k++];
 				if (l+1<data.encryptionData1[i]) keyStr[j++] = ',';
 			}

@@ -816,6 +816,7 @@
 #define IDC_EDIT_OPENSSL                1550
 #define IDC_EDITBITSOFP                 1551
 #define IDC_KEYASYM_TEXTEC              1551
+#define IDC_EDIT_GMP                    1551
 #define IDC_EDITD                       1552
 #define IDBACK                          1552
 #define IDC_R                           1553
@@ -1230,7 +1231,9 @@
 #define IDC_CHECK_REGULAR_EXPRESSIONS   1889
 #define IDC_STATIC_PARAMETER21          1889
 #define IDC_STATIC_PLAINTEXT            1890
+#define IDC_RADIO_TEXT_INPUT            1890
 #define IDC_STATIC_ENTER_KNOWN          1891
+#define IDC_RADIO_BINARY_INPUT          1891
 #define IDC_STATIC_ENTER_POS            1892
 #define IDC_STATIC_HIGHLIGHT_POS        1893
 #define IDC_STATIC_SHOW_KNOWN           1894
@@ -1522,7 +1525,6 @@
 #define ID_ANALYSE_NGRAM                33134
 #define ID_ANALYSE_NGRAM_BIN            33135
 #define ID_ZUFALL_GENERATOREN           33136
-#define ID_HOMOPHONE_HEX                33137
 #define ID_PERMUTATION_ASC              33138
 #define ID_ANALYSE_ZUFALLSTESTS_AUTOKORRELATION 33141
 #define ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST 33142
@@ -1581,6 +1583,7 @@
 #define IDS_STRING_TIME_ELAPSED         33233
 #define IDS_DH_SECRET_EXCEEDS_PRIME     33233
 #define IDS_STRING_SIG_ATT_TIME_ELAPSED 33234
+#define IDS_ASN1_INVALID_CERTIFICATE_STRUCTURE 33234
 #define IDS_STRING_NO_CHECK             33235
 #define IDS_STRING_SIG_ATT_NO_CHECK     33236
 #define IDS_STRING_MAXBIT               33237
@@ -2086,7 +2089,6 @@
 #define IDS_STRING_KF_ORD               37173
 #define IDS_STRING_KF_ORD_DESCRIPTION   37174
 #define IDS_STRING_EC_SEPERATOR         37175
-#define IDS_STRING_PERMUTATION          37176
 #define IDS_PARAM_PERMUTATION           37177
 #define IDS_PARAM_PLAYFAIR              37178
 #define IDS_PARAM_HOMOPHONE             37179
@@ -2641,7 +2643,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        845
 #define _APS_NEXT_COMMAND_VALUE         33333
-#define _APS_NEXT_CONTROL_VALUE         1890
+#define _APS_NEXT_CONTROL_VALUE         1892
 #define _APS_NEXT_SYMED_VALUE           107
 #endif
 #endif

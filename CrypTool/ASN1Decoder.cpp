@@ -130,8 +130,12 @@ void ASN1Decoder::StoreCertDump(std::string filename, std::string pin) throw (AS
 	if(PseHandle == NULL) throw ASN1Error(E_CERT_WRONG_PIN);
 	
 	Certificates *zertifikate = ((CCrypToolApp*)AfxGetApp())->SecudeLib.af_pse_get_Certificates(PseHandle, ENCRYPTION, NULL);
+	if ( NULL == zertifikate) 
+		throw ASN1Error(E_NO_VALID_CERTIFICATE_STRUCTURE);
 	Certificate *zertifikat = zertifikate->usercertificate;
 	char *ausgabe = ((CCrypToolApp*)AfxGetApp())->SecudeLib.aux_sprint_Certificate(PseHandle, NULL, zertifikat);
+	if ( NULL == ausgabe ) 
+		throw ASN1Error(E_NO_VALID_CERTIFICATE_STRUCTURE);
 	ofstream outfile;
 	outfile.open(filename.c_str(), ios::out | ios::trunc);
 	if(!outfile) throw ASN1Error(E_IO_ERROR);

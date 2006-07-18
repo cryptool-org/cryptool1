@@ -55,23 +55,26 @@ statement from your version.
 
 #define range		256
 #define buffsize	4096
+#define HOM_ENC_BIN 1
+#define HOM_ENC_TXT 0
 
 class CKeyParameterHomophone  
 {
 public:
-	void Analyse( const char * f_toAnalyse );
+	void Analyse( const char * f_toAnalyse, int _keyType = HOM_ENC_TXT );
 	double freq[range];
 	long count[range];
-	void Analyse();
+	void Analyse(int _keyType = HOM_ENC_TXT);
 	CKeyParameterHomophone();
 	virtual ~CKeyParameterHomophone();
 
 private:
+	int  keyType;
 	bool Checksum();
 	void Correct_count_table();
 	void Make_freq_table();
 	long total_count;
-	void Init();
+	void Init(int _keyType);
 };
 
 #endif // !defined(AFX_TEXTANALYSE_H__83C7F3B3_0C82_11D5_8102_000629C93170__INCLUDED_)

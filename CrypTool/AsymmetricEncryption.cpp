@@ -1368,7 +1368,7 @@ void Verify(char* infile, const char *OldTitle)
 	else if ((fret != EC_SIGN) && (fret != RSA_OR_DSA_SIGN) && (fret != UNKNOWN_SIGN))
 	{
 		// Fehler beim auslesen der Daten (Formatierung der Daten nicht korrekt)
-		Message(IDS_STRING_ASYMKEY_ERR_ON_VERIFIKATION,MB_ICONSTOP);
+		Message(IDS_STRING_ASYMKEY_COULD_NOT_EXTRACT_SIGNATURE,MB_ICONSTOP);
 		if (Signatur.signature.bits) free(Signatur.signature.bits);
 		if (message.octets) free(message.octets);
 		return;

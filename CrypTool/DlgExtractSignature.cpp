@@ -219,14 +219,6 @@ BOOL CDlgExtractSignature::OnInitDialog()
 	else if ((SignatureType != EC_SIGN) && (SignatureType != RSA_OR_DSA_SIGN) &&\
 		(SignatureType != UNKNOWN_SIGN))
 	{
-		// Fehler beim auslesen der Daten (Formatierung der Daten nicht korrekt)
-
-		// TBD !!!
-		// char chTitle[128];
-		// LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ON_VERIFIKATION,pc_str,STR_LAENGE_STRING_TABLE);
-		// LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ON_VERIFIKATION_TITLE,chTitle,STR_LAENGE_STRING_TABLE);
-
-		// MessageBox( pc_str, chTitle , MB_ICONSTOP );
 		Message(IDS_STRING_ASYMKEY_COULD_NOT_EXTRACT_SIGNATURE,MB_ICONSTOP);
 		if (Signatur.signature.bits) free(Signatur.signature.bits);
 		if (message.octets) free(message.octets);

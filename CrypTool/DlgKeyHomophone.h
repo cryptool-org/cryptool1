@@ -47,6 +47,7 @@ statement from your version.
 
 #include "HomophoneEncryption.h"	// Hinzugefügt von der Klassenansicht
 #include "KeyParameterHomophone.h"	// Hinzugefügt von der Klassenansicht
+#include "afxwin.h"
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
@@ -75,7 +76,7 @@ public:
 	CDlgKeyHomophone(CWnd* pParent = NULL);   // Standardkonstruktor
 	CHomophoneEncryption HB;
 	CKeyParameterHomophone TA;
-	char c_SourceFile[128];
+	char c_SourceFile[1024];
 	CString m_AlphabetBackup;
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgKeyHomophone)
@@ -89,13 +90,15 @@ public:
 	CEdit       m_dummyCtrl;
 	CString	m_KeyCStr;
 	int		m_BaseHomophones;
+	int     m_InputType;
 	int		m_Bitlength;
 	int		m_NoOfHomophones;
 	int		m_EditNoOfHomophones;
 	CString	m_RowHomophonesList;
 	CString	m_HomophonesList;
-	BOOL	m_EncryptFormatCharacters;
-	BOOL	m_KodiereUmlaute;
+	CButton m_ctrlEncodeUmlauts;
+	int		m_encodeUmlauts;
+	CButton m_ctrlEncryptFormatCharacters;
 	//}}AFX_DATA
 	int m_crypt;
 
@@ -123,6 +126,8 @@ protected:
 	afx_msg void OnDblclkSelect(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnReturnSelect(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnSelectEncryptFormatCharacters();
+	afx_msg void OnBnClickedRadioTextInput();
+	afx_msg void OnBnClickedRadioBinaryInput();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:

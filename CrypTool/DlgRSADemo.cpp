@@ -1002,6 +1002,26 @@ void CDlgRSADemo::OnButtonOptions()
 		UpdateData(TRUE);
 		m_control_RSA_input.mode = DlgOptions->m_TextOptions;
 		UpdateData(FALSE);
+
+		SetStatusOptionsValid(DlgOptions->CompareModulAlphabetSize(m_edit_N));
+
+		if ( KeyStatusModulNValid() ) 
+		{
+			if ( KeyStatusOptionsValid() )
+			{ 
+				if ( m_edit_RSA_input.GetLength() > 0 )
+					SetStatusInputValid(TRUE);
+				m_control_RSA_input.SetFocus();
+				m_control_RSA_input.SetSel(100000, 100000);
+			}
+			else 
+			{
+				if ( !g_pre_dialogue )
+					Message(!m_EncryptTextOrNumbers? IDS_STRING_RSADEMO_MODUL_KLEIN: IDS_STRING_RSADEMO_MODUL_KLEIN_NUM, MB_ICONEXCLAMATION, 
+						DlgOptions->Anzahl_Zeichen, m_edit_N );
+			}	
+		}
+		RequestForInput(FALSE);
 	}	
 	else 
 	{

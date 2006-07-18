@@ -55,6 +55,7 @@ statement from your version.
 
 // für NTL Bibliothek
 #include "..\libNTL\include\NTL\version.h"
+#include "gmp.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -86,6 +87,7 @@ void CDlgAbout::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_SCINTILLA, strVersionScintilla);
 	DDX_Text(pDX, IDC_ABOUTBOX_CRYPTOOL, m_cryptoolTxt);
 	//}}AFX_DATA_MAP
+	DDX_Control(pDX, IDC_EDIT_GMP, CStatInformAboutGMP);
 }
 
 
@@ -188,5 +190,10 @@ void CDlgAbout::determineLibraryVersions()
 	// *** TODO *** eventuell Version aus ../scintilla/version.txt lesen
 	this->strVersionScintilla = "1.6.5";
 	this->strVersionScintilla.Insert(0, "Scintilla ");
+
+	// GMP (dynamisch)
+	CString StrGMPWindowText;
+	StrGMPWindowText.Format("GNU Multiple Precision Arithmetic Library Version %s", gmp_version);
+	this->CStatInformAboutGMP.SetWindowText(StrGMPWindowText);
 }
 

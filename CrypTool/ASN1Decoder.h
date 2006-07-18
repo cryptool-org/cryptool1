@@ -104,6 +104,7 @@ public:
 #define E_IO_ERROR										4
 #define E_CERT_WRONG_PIN								8
 #define E_FILE_NOT_EXISTING								16
+#define E_NO_VALID_CERTIFICATE_STRUCTURE				32
 
 #pragma warning ( pop )
 #endif

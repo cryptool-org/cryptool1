@@ -47,6 +47,7 @@ statement from your version.
 //////////////////////////////////////////////////////////////////
 #ifndef AFX_ABOUT_H__831C14C2_3834_11D3_8A66_0020351F15C0__INCLUDED_
 #define AFX_ABOUT_H__831C14C2_3834_11D3_8A66_0020351F15C0__INCLUDED_
+#include "afxwin.h"
 
 // About.h : Header-Datei
 //
@@ -99,6 +100,8 @@ protected:
 private:
 	// Funktion zur Ermittlung der verschiedenen Bibliotheksversionen
 	void determineLibraryVersions();
+public:
+	CStatic CStatInformAboutGMP;
 };
 
 //{{AFX_INSERT_LOCATION}}

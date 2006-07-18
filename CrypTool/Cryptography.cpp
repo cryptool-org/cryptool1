@@ -2800,7 +2800,7 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 			bool umlautFlag = FALSE;
 			for (int i=0;i<in.gcount(); )
 			{				
-				if ( DH.m_KodiereUmlaute && buff == 0 )
+				if ( DH.m_encodeUmlauts && buff == 0 )
 				{
 					switch ( (char)inbuffer[i] ) {
 					case 'ä': inbuffer[i] = 'a'; buff = 'e'; umlautFlag = true;
@@ -2918,6 +2918,8 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 
 // ======================================================================================
 
+
+#if 0
 void HomophoneHex(const char *infile, const char *OldTitle)
 {
 	CWaitCursor WCursor;
@@ -2964,6 +2966,8 @@ void HomophoneHex(const char *infile, const char *OldTitle)
 
 	if(true==DH.Get_crypt())			// Verschlüsselung
 	{
+
+
 		while(in.gcount())
 		{
 			outbuffsize=0;
@@ -3029,6 +3033,7 @@ void HomophoneHex(const char *infile, const char *OldTitle)
 
 	HIDE_HOUR_GLASS
 } // end Hompohone Hex
+#endif
 
 
 // =====================================================================================
@@ -3344,7 +3349,7 @@ void PermutationAsc(const char *infile, const char *OldTitle)
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
 			else
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_PERMUTATION,pc_str,STR_LAENGE_STRING_TABLE);
+			LoadString(AfxGetInstanceHandle(),IDS_CRYPT_PERMUTATION,pc_str,STR_LAENGE_STRING_TABLE);
 			MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,key);
 			NewDoc->SetTitle(title);
 		}

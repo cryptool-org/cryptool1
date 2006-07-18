@@ -213,7 +213,6 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CAppDocument)
 	ON_COMMAND(ID_ANALYSE_AES_TWOFISH, OnAnalyseAesTwofish)
 	ON_COMMAND(ID_ANALYSE_VITANY, OnVitanyAnalyse)
 	ON_COMMAND(ID_ANALYSE_PERIOD, OnPeriod)
-	ON_COMMAND(ID_HOMOPHONE_HEX, OnHomophoneHex)
 	ON_COMMAND(ID_HOMOPHONE_ASC, OnHomophone)
 	ON_COMMAND(ID_ANALYSE_NGRAM, OnAnalyseNGram)
 	ON_COMMAND(ID_ANALYSE_NGRAM_BIN, OnAnalyseNGramBin)
@@ -1375,12 +1374,6 @@ void CCryptDoc::OnHomophone()
     HomophoneAsc(ContentName, GetTitle());
 }
 
-void CCryptDoc::OnHomophoneHex()
-{
-    UpdateContent();
-    HomophoneHex(ContentName, GetTitle());
-}
-
 void CCryptDoc::OnAnalyseNGram()
 {
 	UpdateContent();
@@ -1680,6 +1673,13 @@ void CCryptDoc::OnEinzelverfahrenAsn1decodieren()
 		if(e.GetErrorCode() == E_INVALID_FILENAME)
 		{
 			LoadString(AfxGetInstanceHandle(), IDS_ASN1_INVALID_FILENAME, pc_str, STR_LAENGE_STRING_TABLE);
+			MessageBox(NULL, pc_str, "CrypTool", MB_ICONWARNING);
+			return;
+		}
+
+		if(e.GetErrorCode() == E_NO_VALID_CERTIFICATE_STRUCTURE)
+		{
+			LoadString(AfxGetInstanceHandle(), IDS_ASN1_INVALID_CERTIFICATE_STRUCTURE, pc_str, STR_LAENGE_STRING_TABLE);
 			MessageBox(NULL, pc_str, "CrypTool", MB_ICONWARNING);
 			return;
 		}
