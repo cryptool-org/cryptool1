@@ -5099,12 +5099,12 @@ BEGIN
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE, GRAYED
         POPUP "S&chriftart", GRAYED
         BEGIN
-            MENUITEM "Arial 8",                     33314
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
-            MENUITEM "Arial 12",                    33312
-            MENUITEM "Courier 8",                   33316
-            MENUITEM "Courier 10",                  33309
-            MENUITEM "Courier 12",                  33310
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
         END
         MENUITEM SEPARATOR
         MENUITEM "BOX (Würfelkanten zeigen)",   ID_POPUP_OPENGL_SHOW_BOX
@@ -5213,7 +5213,7 @@ BEGIN
         END
         POPUP "&RSA-Kryptosystem"
         BEGIN
-            MENUITEM "Primzahl&test...",            1960
+            MENUITEM "Primzahl&test...",            ID_PRIMENUMBER_TEST
             MENUITEM "&Primzahlen generieren...",   ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
             MENUITEM "&Faktorisieren einer Zahl...", 
@@ -5481,12 +5481,12 @@ BEGIN
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE, GRAYED
         POPUP "S&chriftart", GRAYED
         BEGIN
-            MENUITEM "Arial 8",                     33314
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
-            MENUITEM "Arial 12",                    33312
-            MENUITEM "Courier 8",                   33316
-            MENUITEM "Courier 10",                  33309
-            MENUITEM "Courier 12",                  33310
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
         END
         MENUITEM SEPARATOR
         MENUITEM "BOX (Würfelkanten zeigen)",   ID_POPUP_OPENGL_SHOW_BOX
@@ -5580,7 +5580,7 @@ BEGIN
         END
         POPUP "&RSA-Kryptosystem"
         BEGIN
-            MENUITEM "Primzahl&test...",            1960
+            MENUITEM "Primzahl&test...",            ID_PRIMENUMBER_TEST
             MENUITEM "&Primzahlen generieren...",   ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
             MENUITEM "&Faktorisieren einer Zahl...", 
@@ -5835,12 +5835,12 @@ BEGIN
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE, GRAYED
         POPUP "S&chriftart", GRAYED
         BEGIN
-            MENUITEM "Arial 8",                     33314
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
-            MENUITEM "Arial 12",                    33312
-            MENUITEM "Courier 8",                   33316
-            MENUITEM "Courier 10",                  33309
-            MENUITEM "Courier 12",                  33310
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
         END
         MENUITEM SEPARATOR
         MENUITEM "BOX (Würfelkanten zeigen)",   ID_POPUP_OPENGL_SHOW_BOX
@@ -6314,7 +6314,7 @@ BEGIN
         END
         POPUP "&RSA-Kryptosystem"
         BEGIN
-            MENUITEM "Primzahl&test...",            1960
+            MENUITEM "Primzahl&test...",            ID_PRIMENUMBER_TEST
             MENUITEM "&Primzahlen generieren...",   ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
             MENUITEM "&Faktorisieren einer Zahl...", 
@@ -6602,12 +6602,12 @@ BEGIN
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE, GRAYED
         POPUP "S&chriftart", GRAYED
         BEGIN
-            MENUITEM "Arial 8",                     33314
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
-            MENUITEM "Arial 12",                    33312
-            MENUITEM "Courier 8",                   33316
-            MENUITEM "Courier 10",                  33309
-            MENUITEM "Courier 12",                  33310
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
         END
         MENUITEM SEPARATOR
         MENUITEM "BOX (Würfelkanten zeigen)",   ID_POPUP_OPENGL_SHOW_BOX
@@ -6717,7 +6717,7 @@ BEGIN
         END
         POPUP "&RSA-Kryptosystem"
         BEGIN
-            MENUITEM "Primzahl&test...",            1960
+            MENUITEM "Primzahl&test...",            ID_PRIMENUMBER_TEST
             MENUITEM "&Primzahlen generieren...",   ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
             MENUITEM "&Faktorisieren einer Zahl...", 
@@ -6769,10 +6769,10 @@ BEGIN
         BEGIN
             POPUP "&Base64 Codierung/Decodierung", GRAYED
             BEGIN
-                MENUITEM "Base64 &codieren",            33319
-                MENUITEM "Base64 &decodieren",          33320
+                MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64
+                MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
             END
-            MENUITEM "UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
+            MENUITEM "&UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
             MENUITEM "ASN.&1-Decodieren eines Dokuments", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
             , GRAYED
@@ -15754,12 +15754,12 @@ BEGIN
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Font", GRAYED
         BEGIN
-            MENUITEM "Arial 8",                     33314
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
-            MENUITEM "Arial 12",                    33312
-            MENUITEM "Courier 8",                   33316
-            MENUITEM "Courier 10",                  33309
-            MENUITEM "Courier 12",                  33310
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
         END
         MENUITEM SEPARATOR
         MENUITEM "Show Box (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
@@ -15868,13 +15868,13 @@ BEGIN
         END
         POPUP "&RSA Cryptosystem"
         BEGIN
-            MENUITEM "Prime Number &Test...",       1960
+            MENUITEM "Prime Number &Test...",       ID_PRIMENUMBER_TEST
             MENUITEM "Generate &Prime Numbers...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
-
-            MENUITEM "&RSA Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+
+            MENUITEM "&RSA Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
             MENUITEM "&Signature Demonstration (Signature Generation)...", 
                                                     ID_EINZELVERFAHREN_SIGN_DOC
@@ -16132,12 +16132,12 @@ BEGIN
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Font", GRAYED
         BEGIN
-            MENUITEM "Arial 8",                     33314
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
-            MENUITEM "Arial 12",                    33312
-            MENUITEM "Courier 8",                   33316
-            MENUITEM "Courier 10",                  33309
-            MENUITEM "Courier 12",                  33310
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
         END
         MENUITEM SEPARATOR
         MENUITEM "Show Box (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
@@ -16231,13 +16231,13 @@ BEGIN
         END
         POPUP "&RSA Cryptosystem"
         BEGIN
-            MENUITEM "Prime Number &Test...",       1960
+            MENUITEM "Prime Number &Test...",       ID_PRIMENUMBER_TEST
             MENUITEM "Generate &Prime Numbers...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
-
-            MENUITEM "&RSA Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+
+            MENUITEM "&RSA Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
             MENUITEM "&Signature Demonstration (Signature Generation)...", 
                                                     ID_EINZELVERFAHREN_SIGN_DOC
@@ -16341,6 +16341,8 @@ BEGIN
                 MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
                 , GRAYED
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
+                , GRAYED
+                MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 , GRAYED
             END
         END
@@ -16481,12 +16483,12 @@ BEGIN
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Font", GRAYED
         BEGIN
-            MENUITEM "Arial 8",                     33314
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
-            MENUITEM "Arial 12",                    33312
-            MENUITEM "Courier 8",                   33316
-            MENUITEM "Courier 10",                  33309
-            MENUITEM "Courier 12",                  33310
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
         END
         MENUITEM SEPARATOR
         MENUITEM "Show Box (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
@@ -16595,13 +16597,13 @@ BEGIN
         END
         POPUP "&RSA Cryptosystem"
         BEGIN
-            MENUITEM "Prime Number &Test...",       1960
+            MENUITEM "Prime Number &Test...",       ID_PRIMENUMBER_TEST
             MENUITEM "Generate &Prime Numbers...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
-
-            MENUITEM "&RSA Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+
+            MENUITEM "&RSA Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
             MENUITEM "&Signature Demonstration (Signature Generation)...", 
                                                     ID_EINZELVERFAHREN_SIGN_DOC
@@ -16859,12 +16861,12 @@ BEGIN
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE
         POPUP "&Font"
         BEGIN
-            MENUITEM "Arial 8",                     33314
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
-            MENUITEM "Arial 12",                    33312
-            MENUITEM "Courier 8",                   33316
-            MENUITEM "Courier 10",                  33309
-            MENUITEM "Courier 12",                  33310
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
         END
         MENUITEM SEPARATOR
         MENUITEM "Show Box (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
@@ -16955,13 +16957,13 @@ BEGIN
         END
         POPUP "&RSA Cryptosystem"
         BEGIN
-            MENUITEM "Prime Number &Test...",       1960
+            MENUITEM "Prime Number &Test...",       ID_PRIMENUMBER_TEST
             MENUITEM "Generate &Prime Numbers...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
-
-            MENUITEM "&RSA Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+
+            MENUITEM "&RSA Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
             MENUITEM "&Signature Demonstration (Signature Generation)...", 
                                                     ID_EINZELVERFAHREN_SIGN_DOC
@@ -17240,12 +17242,12 @@ BEGIN
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Font", GRAYED
         BEGIN
-            MENUITEM "Arial 8",                     33314
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
-            MENUITEM "Arial 12",                    33312
-            MENUITEM "Courier 8",                   33316
-            MENUITEM "Courier 10",                  33309
-            MENUITEM "Courier 12",                  33310
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
         END
         MENUITEM SEPARATOR
         MENUITEM "Show Box (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
@@ -17354,13 +17356,13 @@ BEGIN
         END
         POPUP "&RSA Cryptosystem"
         BEGIN
-            MENUITEM "Prime Number &Test...",       1960
+            MENUITEM "Prime Number &Test...",       ID_PRIMENUMBER_TEST
             MENUITEM "Generate &Prime Numbers...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
-
-            MENUITEM "&RSA Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
             MENUITEM "&Factorisation of a Number...", 
                                                     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+
+            MENUITEM "&RSA Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
             MENUITEM "&Signature Demonstration (Signature Generation)...", 
                                                     ID_EINZELVERFAHREN_SIGN_DOC
@@ -17404,8 +17406,8 @@ BEGIN
         BEGIN
             POPUP "&Base64 Encode/Decode", GRAYED
             BEGIN
-                MENUITEM "Base64 &Encode",              33319
-                MENUITEM "Base64 &Decode",              33320
+                MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64
+                MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
             END
             MENUITEM "&UU-Encode/Decode",           ID_CODE_UU, GRAYED
             MENUITEM "Decode ASN.&1 Code of a Document", 
@@ -21505,16 +21507,16 @@ BEGIN
     ID_VIEW_WHITESPACE      "Toggle to show a special visible character for further whitespaces"
     IDS_CONTROL_COPY        "Copy"
     IDS_CONTROL_PASTE       "Paste"
-    33309                   "Text representation using Courier 10 dots font - fixed font length."
-    33310                   "Text representation using Courier 12 dots font - fixed font length."
+    ID_ZEICHENFORMAT_COURIER10                   "Text representation using Courier 10 dots font - fixed font length."
+    ID_ZEICHENFORMAT_COURIER12                   "Text representation using Courier 12 dots font - fixed font length."
     ID_ZEICHENFORMAT_ARIAL10 "Text representation using Arial 10 dots font."
 END
 
 STRINGTABLE 
 BEGIN
-    33312                   "Text representation using Arial 12 dots font."
-    33314                   "Text representation using Arial 8 dots font."
-    33316                   "Text representation using Courier 8 dots font - fixed font length."
+    ID_ZEICHENFORMAT_ARIAL12                   "Text representation using Arial 12 dots font."
+    ID_ZEICHENFORMAT_ARIAL08                   "Text representation using Arial 8 dots font."
+    ID_ZEICHENFORMAT_COURIER08                   "Text representation using Courier 8 dots font - fixed font length."
     ID_DECODE_BASE64        "Decoding the active document using Base64"
     ID_ENCODE_BASE64        "Encoding the active document using Base64"
     IDS_CONTROL_CUT         "Cut"
