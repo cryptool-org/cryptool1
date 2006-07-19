@@ -55,7 +55,28 @@ statement from your version.
 
 // für NTL Bibliothek
 #include "..\libNTL\include\NTL\version.h"
+// from openssl/crypto.h:
+#define SSLEAY_VERSION         0
+extern "C" const char *SSLeay_version(int type);
 #include "gmp.h"
+
+#define YEAR ((((__DATE__ [7] - '0') * 10 + (__DATE__ [8] - '0')) * 10 \
++ (__DATE__ [9] - '0')) * 10 + (__DATE__ [10] - '0'))
+
+#define MONTH (__DATE__ [2] == 'n' ? 0 \
+: __DATE__ [2] == 'b' ? 1 \
+: __DATE__ [2] == 'r' ? (__DATE__ [0] == 'M' ? 2 : 3) \
+: __DATE__ [2] == 'y' ? 4 \
+: __DATE__ [2] == 'n' ? 5 \
+: __DATE__ [2] == 'l' ? 6 \
+: __DATE__ [2] == 'g' ? 7 \
+: __DATE__ [2] == 'p' ? 8 \
+: __DATE__ [2] == 't' ? 9 \
+: __DATE__ [2] == 'v' ? 10 : 11)
+
+#define DAY ((__DATE__ [4] == ' ' ? 0 : __DATE__ [4] - '0') * 10 \
++ (__DATE__ [5] - '0'))
+
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -88,6 +109,7 @@ void CDlgAbout::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_ABOUTBOX_CRYPTOOL, m_cryptoolTxt);
 	//}}AFX_DATA_MAP
 	DDX_Control(pDX, IDC_EDIT_GMP, CStatInformAboutGMP);
+	DDX_Control(pDX, IDC_EDIT_BUILD_INFO, m_ctrlBuildInfo);
 }
 
 
@@ -115,6 +137,16 @@ BOOL CDlgAbout::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
+#if 0
+	CFont m_Font_small;
+	LOGFONT LogFont_small;
+	CFont *defaultFont_small = m_cryptoolTxt_ctrl.GetFont();
+	defaultFont_small->GetLogFont( &LogFont_small ); // Default Systemschrift ermitteln
+	LogFont_small.lfHeight = -8;
+	m_Font_small.CreateFontIndirect( &LogFont_small ); // Font initialisieren
+	m_ctrlBuildInfo.SetFont(&m_Font_small);
+#endif
+
 	CFont m_Font;
 	LOGFONT LogFont;
 	CFont *defaultFont = m_cryptoolTxt_ctrl.GetFont();
@@ -123,12 +155,23 @@ BOOL CDlgAbout::OnInitDialog()
 	m_Font.CreateFontIndirect( &LogFont ); // Font initialisieren
 	m_cryptoolTxt_ctrl.SetFont(&m_Font);
 
+
 	// hole Information zu CrypTool-Version
 	LoadString(AfxGetInstanceHandle(),IDR_MAINFRAME,pc_str,STR_LAENGE_STRING_TABLE);
 	m_cryptoolTxt = pc_str;
-	
+
+	// Buid-Info
+	CString buildDate;
+	buildDate.Format("%d-%02d-%02d",YEAR, MONTH + 1, DAY);
+	CString version;
+	version.Format("MSC %d.%02d",_MSC_VER/100,_MSC_VER%100);
+	CString StrBuildInfo;
+	StrBuildInfo.Format(IDS_BUILD_INFO, buildDate, version);
+	m_ctrlBuildInfo.SetWindowText(StrBuildInfo);
+
+
 	// hole Bibliotheksinformationen
-	this->determineLibraryVersions();
+	determineLibraryVersions();
 
 	// Anzeige aktualisieren
 	UpdateData(false);
@@ -172,18 +215,16 @@ void CDlgAbout::determineLibraryVersions()
 	// Miracl (statisch)
 	// *** TODO *** ???
 	this->strVersionMiracl = "4.4.3";
-	this->strVersionMiracl.Insert(0, "Miracl Library ");
+	this->strVersionMiracl.Insert(0, "Miracl ");
 
 
 	// OpenSSL (statisch)
 	// *** TODO *** fehlende Headerdatei ../OpenSSL/include/opensslv.h für Versionsanzeige
-	this->strVersionOpenSSL = "0.9.8";
-	this->strVersionOpenSSL.Insert(0, "OpenSSL Library ");
-
+	this->strVersionOpenSSL = SSLeay_version(SSLEAY_VERSION);
 
 	// NTL (statisch)
 	this->strVersionNTL = NTL_VERSION;
-	this->strVersionNTL.Insert(0, "NTL Library ");
+	this->strVersionNTL.Insert(0, "NTL ");
 
 
 	// Scintilla (statisch)
@@ -193,7 +234,8 @@ void CDlgAbout::determineLibraryVersions()
 
 	// GMP (dynamisch)
 	CString StrGMPWindowText;
-	StrGMPWindowText.Format("GNU Multiple Precision Arithmetic Library Version %s", gmp_version);
+	StrGMPWindowText.Format("GMP %s", gmp_version);
 	this->CStatInformAboutGMP.SetWindowText(StrGMPWindowText);
+
 }
 

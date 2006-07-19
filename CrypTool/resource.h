@@ -819,6 +819,7 @@
 #define IDC_EDIT_GMP                    1551
 #define IDC_EDITD                       1552
 #define IDBACK                          1552
+#define IDC_EDIT_BUILD_INFO             1552
 #define IDC_R                           1553
 #define IDC_CONTROLFRAME                1553
 #define IDC_EDITMAXDELTA                1554
@@ -2519,6 +2520,7 @@
 #define IDS_STRING_PRIMETEST_RESULT_CANCEL 38115
 #define IDS_STRING_COMMA                38116
 #define IDS_CRYPT_ATBASH                38117
+#define IDS_BUILD_INFO                  38118
 #define IDS_DH_LOG_1                    61889
 #define IDS_DH_LOG_2                    61890
 #define IDS_DH_LOG_3                    61891

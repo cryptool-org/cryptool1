@@ -3547,10 +3547,11 @@ BEGIN
                     WS_EX_TRANSPARENT
     CTEXT           "haben die Universitäten Siegen und Darmstadt",
                     IDC_STATIC,0,130,242,10
-    CTEXT           "Static",IDC_ABOUTBOX_CRYPTOOL,1,148,241,11
+    CTEXT           "CRYPTOOL RELEASE INFO",IDC_ABOUTBOX_CRYPTOOL,1,145,241,
+                    11
     CTEXT           "entwickelt.\nCrypTool wird zur Ausbildung, in der Lehre und zur\nMitarbeiter-Awareness für IT-Sicherheit eingesetzt.",
-                    IDC_STATIC,1,164,241,24
-    CTEXT           "CrypTool nutzt folgende Bibliotheken:",IDC_STATIC,0,197,
+                    IDC_STATIC,1,168,241,24
+    CTEXT           "CrypTool nutzt folgende Bibliotheken:",IDC_STATIC,0,211,
                     241,8
     CTEXT           "Kontakt:",IDC_STATIC,0,297,241,10
     CTEXT           "Copyright (C) 1998-2006 Deutsche Bank AG\nFrankfurt am Main, Germany",
@@ -3563,20 +3564,22 @@ BEGIN
                     IDC_STATIC,1,12,241,33
     LTEXT           "Internet: http://www.cryptool.de",IDC_STATIC,63,353,175,
                     8
-    CTEXT           "MIRACL",IDC_EDIT_MIRACL,1,228,240,8,SS_CENTERIMAGE,
+    CTEXT           "MIRACL",IDC_EDIT_MIRACL,1,242,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
-    CTEXT           "SECUDE1",IDC_EDIT_SECUDE1,1,209,240,8,SS_CENTERIMAGE,
+    CTEXT           "SECUDE1",IDC_EDIT_SECUDE1,1,223,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
-    CTEXT           "OPENSSL",IDC_EDIT_OPENSSL,1,239,240,8,SS_CENTERIMAGE,
+    CTEXT           "OPENSSL",IDC_EDIT_OPENSSL,1,253,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
-    CTEXT           "NTL",IDC_EDIT_NTL,1,249,240,8,SS_CENTERIMAGE,
+    CTEXT           "NTL",IDC_EDIT_NTL,1,263,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
-    CTEXT           "SCINTILLA",IDC_EDIT_SCINTILLA,1,259,240,8,
+    CTEXT           "SCINTILLA",IDC_EDIT_SCINTILLA,1,273,240,8,
                     SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "SECUDE2",IDC_EDIT_SECUDE2,1,217,240,8,SS_CENTERIMAGE,
+    CTEXT           "SECUDE2",IDC_EDIT_SECUDE2,1,231,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
-    CTEXT           "GMP",IDC_EDIT_GMP,0,269,241,8,SS_CENTERIMAGE,
+    CTEXT           "GMP",IDC_EDIT_GMP,0,283,241,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
+    CTEXT           "BUILD INFO",IDC_EDIT_BUILD_INFO,0,155,241,8,
+                    SS_CENTERIMAGE,WS_EX_TRANSPARENT
 END
 
 IDD_HMAC DIALOG  0, 0, 323, 425
@@ -10740,6 +10743,7 @@ BEGIN
     IDS_STRING_PRIMETEST_RESULT_CANCEL "Test abgebrochen!"
     IDS_STRING_COMMA        ","
     IDS_CRYPT_ATBASH        "Atbash"
+    IDS_BUILD_INFO          "(%s übersetzt mit %s)"
 END
 
 #endif    // German (Germany) resources
@@ -11146,48 +11150,51 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_ABOUT DIALOGEX 34, 22, 242, 415
+IDD_ABOUT DIALOGEX 34, 22, 242, 425
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About CrypTool"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,70,386,90,19,WS_GROUP
+    DEFPUSHBUTTON   "OK",IDOK,70,394,90,19,WS_GROUP
     CTEXT           "and the universities \nSiegen and Darmstadt",IDC_STATIC,
                     0,125,242,17
     CTEXT           "CrypTool uses the following libraries:",IDC_STATIC,1,
-                    195,241,8
-    CTEXT           "Contact:",IDC_STATIC,0,289,241,10
+                    209,241,8
+    CTEXT           "Contact:",IDC_STATIC,0,297,241,10
     LTEXT           "esslinger@fb5.uni-siegen.de\nbesslinger@web.de\nhenrik.koy@db.com\njoerg-cornelius.schneider@db.com\ncryptool-list@sec.informatik.tu-darmstadt.de",
-                    IDC_STATIC,67,302,145,40
+                    IDC_STATIC,67,310,145,40
     CTEXT           "Copyright (C) 1998-2006 Deutsche Bank AG\nFrankfurt am Main, Germany",
-                    IDC_STATIC,0,363,242,17
+                    IDC_STATIC,0,371,242,17
     CTEXT           "CrypTool is a free and comprehensive eLearning program about\nclassic and contemporary cryptography and cryptanalysis.\n\nIn a joint effort of the sponsors",
                     IDC_STATIC,1,10,241,32
     CTEXT           "has been developed.\nCrypTool is used for education and for\nemployee awareness for IT security.",
-                    IDC_STATIC,1,161,241,24
-    CTEXT           "Static",IDC_ABOUTBOX_CRYPTOOL,1,148,241,11
+                    IDC_STATIC,1,170,241,24
+    CTEXT           "CRYPTOOL RELEASE INFO",IDC_ABOUTBOX_CRYPTOOL,1,148,241,
+                    11
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,41,48,105,37,
                     WS_EX_TRANSPARENT
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,40,80,143,37,
                     WS_EX_TRANSPARENT
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT | SS_SUNKEN | 
                     WS_BORDER,10,44,222,79
-    LTEXT           "Internet: http://www.cryptool.org",IDC_STATIC,67,348,
+    LTEXT           "Internet: http://www.cryptool.org",IDC_STATIC,67,356,
                     175,8
-    CTEXT           "MIRACL",IDC_EDIT_MIRACL,1,228,240,8,SS_CENTERIMAGE,
+    CTEXT           "MIRACL",IDC_EDIT_MIRACL,1,242,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
-    CTEXT           "SECUDE1",IDC_EDIT_SECUDE1,1,209,240,8,SS_CENTERIMAGE,
+    CTEXT           "SECUDE1",IDC_EDIT_SECUDE1,1,223,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
-    CTEXT           "OPENSSL",IDC_EDIT_OPENSSL,1,239,240,8,SS_CENTERIMAGE,
+    CTEXT           "OPENSSL",IDC_EDIT_OPENSSL,1,253,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
-    CTEXT           "NTL",IDC_EDIT_NTL,1,249,240,8,SS_CENTERIMAGE,
+    CTEXT           "NTL",IDC_EDIT_NTL,1,263,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
-    CTEXT           "SCINTILLA",IDC_EDIT_SCINTILLA,1,259,240,8,
+    CTEXT           "SCINTILLA",IDC_EDIT_SCINTILLA,1,273,240,8,
                     SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "SECUDE2",IDC_EDIT_SECUDE2,1,217,240,8,SS_CENTERIMAGE,
+    CTEXT           "SECUDE2",IDC_EDIT_SECUDE2,1,231,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
-    CTEXT           "GMP",IDC_EDIT_GMP,0,269,241,8,SS_CENTERIMAGE,
+    CTEXT           "GMP",IDC_EDIT_GMP,0,283,241,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
+    CTEXT           "BUILD INFO",IDC_EDIT_BUILD_INFO,0,157,241,8,
+                    SS_CENTERIMAGE,WS_EX_TRANSPARENT
 END
 
 IDD_SHOW_PROGRESS DIALOG  0, 0, 187, 105
@@ -18659,7 +18666,7 @@ BEGIN
         VERTGUIDE, 67
         VERTGUIDE, 76
         TOPMARGIN, 1
-        BOTTOMMARGIN, 412
+        BOTTOMMARGIN, 422
     END
 
     IDD_SHOW_PROGRESS, DIALOG
@@ -21645,6 +21652,7 @@ BEGIN
     IDS_STRING_PRIMETEST_RESULT_CANCEL "Test canceled"
     IDS_STRING_COMMA        "."
     IDS_CRYPT_ATBASH        "Atbash"
+    IDS_BUILD_INFO          "(%s compiled with %s)"
 END
 
 STRINGTABLE 

@@ -102,6 +102,7 @@ private:
 	void determineLibraryVersions();
 public:
 	CStatic CStatInformAboutGMP;
+	CStatic m_ctrlBuildInfo;
 };
 
 //{{AFX_INSERT_LOCATION}}
