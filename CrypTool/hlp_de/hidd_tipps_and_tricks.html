@@ -29,7 +29,7 @@ CrypTool ist ein umfangreiches Lernprogramm zu den Themen Kryptographie und Kryp
 	<a href="#demo">Interaktive Demonstrationen / Visualisierungen</a><p>
 	<a href="#onlinehelp">Online-Hilfe, Dokumentation und Tutorials</a><p>
 	<a href="#organization">Organisatorisches</a><p>
-	<a href="#licence_terms">Lizenzbestimmungen / Haftungsausschluss</a><p>
+	<a href="#licence_terms">Lizenzbestimmungen / Haftungsausschluss / Copyright</a><p>
 	<a href="#opensource">Freigabe des Quellcodes</a>
 <p>
 
@@ -40,8 +40,8 @@ CrypTool ist ein umfangreiches Lernprogramm zu den Themen Kryptographie und Kryp
 Mit der Taste <B>F1</B> oder der <A href="hid_context_help.html">Kontexthilfe</A> per Maus können sie jederzeit Erläuterungen anfordern. <br>
 Kontext bezogene Hilfe gibt es
 <ul>
-<li> sowohl für einen markierten Eintrag in jedem Menü
-<li> als auch in jedem (Dialog-)Fenster
+<li> sowohl für jeden (End-)Eintrag in den Menüs.
+<li> als auch in jedem (Dialog-)Fenster.
 </ul>
 
 <P>Sofern Sie nicht mit der Benutzung der Windows-Online-Hilfe vertraut sind, klicken Sie auf <A href="hilfeueberhilfe.html">Hilfe zur CrypTool-Hilfe</A>.</P>
@@ -68,7 +68,10 @@ CrypTool ist <B>komplett</B> sowohl in<B> Deutsch</B> wie auch in <B>Englisch</B
 <li>modern: beispielsweise das <A href="hid_crypt_rsaenc.html">RSA-Verfahren,</A> das <A href="aes_gewinner.html">AES-Verfahren,</A> <A href="menu_crypt_hybrid.html">Hybridverschlüsselung</A> und auf <A href="menu_analysis_asymmetric_latticebasedattacks.html">Gitterreduktion</A> und <A href="ellipkurven.html">Elliptischen Kurven basierende Verfahren.</A></li>
 </UL>
 
-<P>Eine Übersicht über alle <!--ZZZPOPUP--><A href="verschlverfahren.html"><B>Verschlüsselungsverfahren</B></A> in CrypTool befindet sich auf der Hilfeseite zum Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> (weitere Details zur Online-Hilfe siehe unten).</P>
+<P>Eine Übersicht über alle <!--ZZZPOPUP--><A href="verschlverfahren.html"><B>Verschlüsselungsverfahren</B></A> in CrypTool befindet sich auf der Online-Hilfeseite zum Menü <A href="menu_crypt.html">Ver-/Entschlüsseln.</A></P>
+
+	<p>Viele Screenshots befinden sich in der beigelegten <a class="filelink" onclick="parser('CrypToolPresentation_1_4_00_de.pdf')">CrypTool-Präsentation.</a></p>
+
 
 <p>Wird ein Dokument verschlüsselt, so wird das Ergebnis ebenfalls wieder in
 ein Fenster geschrieben: Der Titel des Ergebnisfensters enthält den Namen des
@@ -114,11 +117,11 @@ Die weiteren Menüeinträge im Hauptmenü Einzelverfahren werden weiter unten besch
 <p>Welche Funktionen in den Menüs ausgewählt werden können, hängt vom Typ des aktiven Dokuments ab. Die <A href="menu_structure.html">Menüs und Untermenüs</A> von CrypTool werden dynamisch aufgebaut, abhängig davon, ob im Hauptfenster eine Datei geladen ist und ob die aktive Datei vom Typ Textdatei oder Binärdatei ist. Sie sehen immer alle Menüpunkte. Auswählbar sind aber nur die Menüpunkte, die zu dem aktuellen Dokumenttyp passen, der Rest ist ausgegraut. Z.B. ist der Eintrag "XOR" unter "Analyse \ Ciphertext only" nur auswählbar, wenn aktuell eine Binärdatei selektiert ist. Umgekehrt können Sie den Eintrag "Einzelverfahren \ Hashwerte \ Hash-Demo" nur auswählen, wenn eine Textdatei geladen ist.
 </p>
 
-<P>Einen Überblick über alle Menüeinträge innerhalb von CrypTool finden Sie im <A href="menu_structure.html">Menübaum</A>.</P>
+<P>Einen Überblick über alle Menüeinträge innerhalb von CrypTool finden Sie im <A href="menu_structure.html">Menübaum</A> (im Anhang A des <A class="filelink" onclick="parser('script-de.pdf')">Skripts</A>).</P>
 
 <P>In CrypTool wurden die meisten aktuellen Verfahren gemäß internationalen <A href="standards.html">Standards</A> implementiert.</P>
 
-<P>Die Autoren von CrypTool haben nicht versucht, kryptographische Funktionalität nachzubilden, für die es schon sehr gute freie Programme im Internet gibt: Deshalb sind das Enigma-Verfahren und Wörterbuch-Angriffe auf Passwortdateien (siehe John-the-Ripper, http://www.openwall.com/john/) nicht in CrypTool enthalten.</P>
+<P>Die Autoren von CrypTool haben nicht versucht, kryptographische Funktionalität nachzubilden, für die es schon sehr gute freie Programme im Internet gibt: Deshalb sind das Enigma-Verfahren und Wörterbuch-Angriffe auf Passwortdateien (siehe John-the-Ripper, <a href="http://www.openwall.com/john/">http://www.openwall.com/john/</a>) nicht in CrypTool enthalten.</P>
 
 <br><p><b><a name="rsa">Das RSA-Kryptosystem</a></b></p>
 
@@ -139,7 +142,7 @@ Die weiteren Menüeinträge im Hauptmenü Einzelverfahren werden weiter unten besch
 <li>	Ablauf des <A href="hid_einzelverfahren_diffiehellmandemo.html">Diffie-Hellman-Schlüsselaustauschverfahrens.</a> </li>
 <li>	<A href="hid_einzelverfahren_sidechannelattack_on_hybridencryption.html">Seitenkanalangriffe.</a> </li>
 <li>	<A href="hid_cr_overview.html">Authentisierungsprotokolle.</a></li>
-<li>	<A href="hid_indiv_crt_secretsharing.html">Shared Secret.</a></li>
+<li>	Shared Secret basierend auf dem <A href="hid_indiv_crt_secretsharing.html">Chinesischen Restsatz</a> und nach <A href="hid_individual_procedures_secretsharing.html">Shamir.</A></li>
 <li>	<a href="menu_individualprocedures_visualizationwithanimal.html">Veranschaulichen von Algorithmen</a> mithilfe der Animationssoftware ANIMAL.</li>
 <li>	<a href="hid_analysis_random_3d_visualization.html">3D-Visualisierung</a> von großen Mengen von Zufallszahlen.</li>
 </ul>
@@ -167,6 +170,7 @@ Daneben enthält diese Datei ausführliche Informationen zum Projekt selbst.</li>
 	<li>	zu Primzahlen.
 	<li>	zur elementaren Zahlentheorie mit vielen Beispielen.
 	<li>	zu aktuellen Ergebnissen der kryptoanalytischen Forschung.
+	<li>	außerdem befindet sich im Anhang eine Auflistung zu Filmen und Büchern, in denen Kryptgraphie explizit eine Rolle spielt.
 	</ul>
 </li>
 <li>	Die <A class="filelink" onclick="parser('CrypToolPresentation_1_4_00_de.pdf')">CrypTool-Präsentation</a> fasst auf über 80 Folien das Wichtigste zum CrypTool-Projekt und zu den Features von CrypTool zusammen.</li>
@@ -202,7 +206,7 @@ Daneben enthält diese Datei ausführliche Informationen zum Projekt selbst.</li>
 	<PARAM NAME="Keyword" VALUE="Lizenzbestimmungen">
 </OBJECT>
 
-<br><P><A NAME="licence_terms"></A><b>Lizenzbestimmungen / Haftungsausschluss</b></P>
+<br><P><A NAME="licence_terms"></A><b>Lizenzbestimmungen / Haftungsausschluss / Copyright</b></P>
 
 	<p>Die <em>Bin&auml;rfassung</em> des Produkts 'CrypTool' (CrypTool.exe und weitere im Paket enthaltene ausführbare Programme) wird jedem Nutzer kostenlos zu Ausbildungs- und Testzwecken 
 	und zum Kennenlernen von Kryptographiemethoden zur Verfügung gestellt. CrypTool kann so auch kommerziell genutzt werden, soweit nicht die unten stehenden Bedingungen verletzt werden;</p>
@@ -237,14 +241,13 @@ Daneben enthält diese Datei ausführliche Informationen zum Projekt selbst.</li>
 <P>Für die beigelegten 'Geschichten' "Der Dialog der Schwestern" und "Das Chinesische Labyrinth" gelten folgende Lizenzbestimmungen:
 Der Verfasser, als alleiniger Inhaber aller Rechte an dem Werk, räumt dem CrypTool-Maintainer das ausschließliche Vervielfältigungs- und Verbreitungsrecht ein. Die Geschichte darf nur zusammen mit dem CrypTool-Paket verbreitet werden.</P>
 
-<P>Die Verwendung der Secude-Bibliothek außerhalb von CrypTool ist lizenzpflichtig (<a href="http://www.secude.com/">www.secude.com</a>). Von der Secude-Bibliothek gibt es inzwischen bei der <a href="secude.html">Secude IT Security GmbH</a> neuere und weiterentwickeltere Versionen als die in CrypTool benutzte (z.B. eine Signaturgesetz-konforme).</P>
-
 <br><P><b><a name="opensource">Freigabe des Quellcodes</a></b></P>
 
         <p>
 	Der <em>Quellcode</em> des Produkts 'CrypTool' steht unter der GPL (GNU
-	General Public License, veröffentlicht von der Free Software
-	Foundation). Dies gilt nicht für den Quellcode der Bibliotheken SECUDE (Secude GmbH) und
+	General Public License, <a
+href="http://www.gnu.org/">www.gnu.org</a>), veröffentlicht von der Free Software
+	Foundation. Dies gilt nicht für den Quellcode der Bibliotheken SECUDE (Secude GmbH) und
 	MIRACL (Shamus Software Ltd), und nicht für das ANIMAL-System.  
 	</p>
 	
