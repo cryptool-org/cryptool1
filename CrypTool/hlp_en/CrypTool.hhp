@@ -14,7 +14,7 @@ Language=0x809 Englisch (Groﬂbritannien)
 Title=CrypTool Help
 
 [WINDOWS]
-MainWindow="Help for CrypTool 1.4.00 beta 12","cryptool.hhc","CrypTool.hhk","hidd_tipps_and_tricks.html","hidd_tipps_and_tricks.html",,,,,0x62520,,0x307e,[366,280,1049,778],,,,,,,0
+MainWindow="Help for CrypTool 1.4.00 beta 14","cryptool.hhc","CrypTool.hhk","hidd_tipps_and_tricks.html","hidd_tipps_and_tricks.html",,,,,0x62520,,0x307e,[366,280,1049,778],,,,,,,0
 
 
 [FILES]
@@ -482,6 +482,7 @@ hidd_set_visopt.html
 hid_popup_opengl_eigenschaften.html
 hid_popup_opengl_show_box.html
 hidd_options_substitution_auto_analysis.html
+cryptolibraries.html
 
 [ALIAS]
 #include CrypTool_Alias.h
