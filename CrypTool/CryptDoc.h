@@ -192,11 +192,15 @@ protected:
 	afx_msg void OnAnalyseSymmclassicCiphertextolySolitaire();
 	afx_msg void OnIndivproceduresBase64Encode();
 	afx_msg void OnIndivproceduresBase64Decode();
+
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
 
 
+public:
+	afx_msg void OnDecodeUu();
+	afx_msg void OnEncodeUu();
 };
 
 

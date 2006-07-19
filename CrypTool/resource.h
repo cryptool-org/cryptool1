@@ -23,6 +23,8 @@
 #define IDS_STRING_ADFGVX_STRINGLENGTH  11
 #define IDS_STRING_ADFGVX_STRINGINVALID 12
 #define IDS_STRING_ADFGVX_STRINGREDUNDANT 13
+#define IDS_STRING_MSG_UUENC_OF         14
+#define IDS_STRING15                    15
 #define IDC_EDIT53                      53
 #define IDC_EDIT69                      54
 #define IDC_EDIT88                      55
@@ -265,6 +267,16 @@
 #define IDD_SECRETSHARING_PARAMETER     842
 #define IDD_SECRETSHARING_REVEAL        843
 #define IDD_PRIME_TEST_RUNNING          844
+#define IDS_UU_FILE_WRITE_ERROR         845
+#define IDS_UU_DECODE_LB_DIFFERS_TOLONG 846
+#define IDS_UU_DECODE_LB_DIFFERS_TOSHORT 847
+#define IDS_UU_DECODE_MISSING_FN        848
+#define IDS_UU_DECODE_MISSING_END       849
+#define IDS_UU_DECODE_MISSING_BEGIN     850
+#define IDS_UU_DECODE_ILLEGAL_CHARACTER 851
+#define IDS_UU_DECODE_MISSING_CHAR      852
+#define IDS_UU_FILE_OPEN_ERROR          853
+#define IDS_STRING_MSG_UUDEC_OF         854
 #define IDC_EDIT133                     1015
 #define IDC_EDIT1                       1016
 #define IDC_EDIT2                       1017
@@ -1670,6 +1682,10 @@
 #define ID_INDIV_GAMES                  33327
 #define ID_INDIVIDUAL_PROCEDURES_SECRETSHARING 33329
 #define ID_RSA_PRIMZAHLTEST             33330
+#define ID_ENCODE_UU                    33335
+#define ID_DECODE_UU                    33336
+#define ID_UU_UUENCODE                  33337
+#define ID_UU_UUDECODE                  33338
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -1983,6 +1999,9 @@
 #define IDS_STRING_MSG_RSA_MODUL_TO_LARGE 37006
 #define IDS_ERRON_OPEN_REFERENCE_FILE   37007
 #define IDS_VITANY_ERR_FILESIZE         37008
+#define IDS_UU_DECODE_MISSING_NL_AFTER_END 37009
+#define IDS_UU_DECODE_MISSING_NL_BEFORE_END 37010
+#define IDS_STRING37010                 37010
 #define IDS_PLAYFAIR                    37053
 #define IDS_REL_MATCH                   37054
 #define IDS_STRING_DIAGRAM_VITANY       37055
@@ -2643,8 +2662,8 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        845
-#define _APS_NEXT_COMMAND_VALUE         33333
+#define _APS_NEXT_RESOURCE_VALUE        854
+#define _APS_NEXT_COMMAND_VALUE         33339
 #define _APS_NEXT_CONTROL_VALUE         1892
 #define _APS_NEXT_SYMED_VALUE           107
 #endif

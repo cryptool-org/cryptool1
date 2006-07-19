@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -5276,12 +5276,16 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "C&odierungen", GRAYED
         BEGIN
-            POPUP "&Base64 Codierung/Decodierung", GRAYED
+            POPUP "&Base64-Codierung/Base64-Decodierung", GRAYED
             BEGIN
                 MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64
                 MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
             END
-            MENUITEM "&UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
+            POPUP "&UU-Codierung/UU-Decodierung", GRAYED
+            BEGIN
+                MENUITEM "UUencode",                    ID_ENCODE_UU
+                MENUITEM "UUdecode",                    ID_DECODE_UU
+            END
             MENUITEM "ASN.&1-Decodieren eines Dokuments", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
             , GRAYED
@@ -5646,12 +5650,16 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "C&odierungen"
         BEGIN
-            POPUP "&Base64 Codierung/Decodierung"
+            POPUP "&Base64-Codierung/Base64-Decodierung"
             BEGIN
                 MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64
                 MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
             END
-            MENUITEM "&UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
+            POPUP "&UU-Codierung/UU-Decodierung"
+            BEGIN
+                MENUITEM "UUencode",                    ID_ENCODE_UU
+                MENUITEM "UUdecode",                    ID_DECODE_UU
+            END
             MENUITEM "ASN.&1-Decodieren eines Dokuments", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
@@ -6017,12 +6025,16 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "C&odierungen", GRAYED
         BEGIN
-            POPUP "&Base64 Codierung/Decodierung"
+            POPUP "&Base64-Codierung/Base64-Decodierung", GRAYED
             BEGIN
                 MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64
                 MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
             END
-            MENUITEM "&UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
+            POPUP "&UU-Codierung/UU-Decodierung", GRAYED
+            BEGIN
+                MENUITEM "UUencode",                    ID_ENCODE_UU
+                MENUITEM "UUdecode",                    ID_DECODE_UU
+            END
             MENUITEM "ASN.&1-Decodieren eines Dokuments", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
             , GRAYED
@@ -6383,12 +6395,16 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "C&odierungen"
         BEGIN
-            POPUP "&Base64 Codierung/Decodierung"
+            POPUP "&Base64-Codierung/Base64-Decodierung"
             BEGIN
                 MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64
                 MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
             END
-            MENUITEM "&UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
+            POPUP "&UU-Codierung/UU-Decodierung"
+            BEGIN
+                MENUITEM "UUencode",                    ID_ENCODE_UU
+                MENUITEM "UUdecode",                    ID_DECODE_UU
+            END
             MENUITEM "ASN.&1-Decodieren eines Dokuments", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
@@ -6789,12 +6805,16 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "C&odierungen", GRAYED
         BEGIN
-            POPUP "&Base64 Codierung/Decodierung", GRAYED
+            POPUP "&Base64-Codierung/Base64-Decodierung", GRAYED
             BEGIN
                 MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64
                 MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
             END
-            MENUITEM "&UU-Codierung/UU-Decodierung", ID_CODE_UU, GRAYED
+            POPUP "&UU-Codierung/UU-Decodierung", GRAYED
+            BEGIN
+                MENUITEM "UUencode",                    ID_ENCODE_UU
+                MENUITEM "UUdecode",                    ID_DECODE_UU
+            END
             MENUITEM "ASN.&1-Decodieren eines Dokuments", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
             , GRAYED
@@ -10010,6 +10030,10 @@ END
 STRINGTABLE 
 BEGIN
     IDS_VITANY_ERR_FILESIZE "Für die Vitany-Analyse muss die Eingabedatei mindestens 500 Bytes lang sein!"
+    IDS_UU_DECODE_MISSING_NL_AFTER_END 
+                            "Im Abschluss-Block fehlt ein Newline nach dem Schlüsselwort ""end"". Die Dekodierung ist möglicherweise fehlerhaft."
+    IDS_UU_DECODE_MISSING_NL_BEFORE_END 
+                            "Im Abschluss-Block fehlt ein Newline vor dem Schlüsselwort ""end"". Die Dekodierung ist möglicherweise fehlerhaft."
 END
 
 STRINGTABLE 
@@ -10373,7 +10397,7 @@ BEGIN
     IDS_SCA_HYBRIDENCRYPTEDFILE_DEFAULT_PSEFILE 
                             "letterFromAliceToBob-ENCRYPTED-de.hex"
     IDS_ANIMAL_FILE_LOCALE  """locale=de_DE"" ""animation/animal-ascii-compressed"""
-    IDS_SCA_KEYWORDPROBLEM  "Für einen reibungslosen Ablauf des Seitenkanalangriffs muss die zu verschlüsselnde Datei das Schlüsselwort ""%s"" enthalten.\nWollen Sie dieses Schlüsselwort an die Datei anfügen?"
+    IDS_SCA_KEYWORDPROBLEM  "UU-Dekodierung von <%s>"
 END
 
 STRINGTABLE 
@@ -10694,11 +10718,17 @@ BEGIN
                             "Die Eingabe enthält ungültige Zeichen.\nBitte nur Buchstaben von 'A' bis 'Z' (ohne Umlaute)\nund die Ziffern '0' bis '9' eingeben."
     IDS_STRING_ADFGVX_STRINGREDUNDANT 
                             "Die Eingabe enthält doppelte Zeichen.\nAlle Buchstaben 'A' bis 'Z' und Ziffern '0' bis '9'\nmüssen genau einmal enthalten sein."
+    IDS_STRING_MSG_UUENC_OF "UU-Codierung von <%s>"
 END
 
 STRINGTABLE 
 BEGIN
     IDS_CT_FILE_OPEN_ERROR  "Fehler beim Öffnen von Datei\n%s:\n%s"
+    IDS_UU_FILE_WRITE_ERROR "Fehler beim Schreiben in die Datei %s."
+    IDS_UU_DECODE_LB_DIFFERS_TOLONG 
+                            "Die aktuelle Zeile ist länger als die durch das Längenbyte angegebene Länge.\nZeile: %u\nDie Decodierung  wird an dieser Stelle abgebrochen und kann fehlerhaft sein."
+    IDS_UU_DECODE_LB_DIFFERS_TOSHORT 
+                            "Die aktuelle Zeile ist kürzer als die durch das Längenbyte angegebene Länge.\nZeile: %u\nDie Decodierung  wird an dieser Stelle abgebrochen und kann fehlerhaft sein."
 END
 
 STRINGTABLE 
@@ -10746,12 +10776,28 @@ BEGIN
     IDS_BUILD_INFO          "(%s übersetzt mit %s)"
 END
 
-#endif    // German (Germany) resources
+STRINGTABLE 
+BEGIN
+    IDS_UU_DECODE_MISSING_FN 
+                            "Es wurde kein Dateiname in der ersten Zeile gefunden. Es findet keine Dekodierung statt. "
+    IDS_UU_DECODE_MISSING_END 
+                            "Das Schlüsselwort ""end"" wurde nicht gefunden. Die Dekodierung ist möglicherweise fehlerhaft."
+    IDS_UU_DECODE_MISSING_BEGIN 
+                            "Das Schlüsselwort ""begin"" wurde nicht gefunden. Es findet keine Dekodierung statt."
+    IDS_UU_DECODE_ILLEGAL_CHARACTER 
+                            "Es wurde ein illegales Zeichen im UU-Eingabestrom gefunden.\nStelle: %u, Wert: %s \nDie Decodierung wird an dieser Stelle abgebrochen!"
+    IDS_UU_DECODE_MISSING_CHAR 
+                            "Fehlerhafter UU-Code. Kein vollständiger Block (nur 1 Byte statt 2 bis 4 Byte). Damit ist die Decodierung nicht mehr eindeutig."
+    IDS_UU_FILE_OPEN_ERROR  "Fehler beim Öffnen der Datei %s."
+    IDS_STRING_MSG_UUDEC_OF "UU-Dekodierung von <%s>"
+END
+
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -15966,7 +16012,11 @@ BEGIN
                 MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64
                 MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
             END
-            MENUITEM "&UU-Encode/Decode",           ID_CODE_UU, GRAYED
+            POPUP "&UUEncode/UUdecode", GRAYED
+            BEGIN
+                MENUITEM "UUencode",                    ID_ENCODE_UU
+                MENUITEM "UUdecode",                    ID_DECODE_UU
+            END
             MENUITEM "Decode ASN.&1 Code of a Document", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
             , GRAYED
@@ -16332,7 +16382,11 @@ BEGIN
                 MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64
                 MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
             END
-            MENUITEM "&UU-Encode/Decode",           ID_CODE_UU, GRAYED
+            POPUP "&UUEncode/UUdecode"
+            BEGIN
+                MENUITEM "UUencode",                    ID_ENCODE_UU
+                MENUITEM "UUdecode",                    ID_DECODE_UU
+            END
             MENUITEM "Decode ASN.&1 Code of a Document", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
@@ -16701,7 +16755,11 @@ BEGIN
                 MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64
                 MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
             END
-            MENUITEM "&UU-Encode/Decode",           ID_CODE_UU, GRAYED
+            POPUP "&UUEncode/UUdecode", GRAYED
+            BEGIN
+                MENUITEM "UUencode",                    ID_ENCODE_UU
+                MENUITEM "UUdecode",                    ID_DECODE_UU
+            END
             MENUITEM "Decode ASN.&1 Code of a Document", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
             , GRAYED
@@ -17064,7 +17122,11 @@ BEGIN
                 MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64
                 MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
             END
-            MENUITEM "&UU-Encode/Decode",           ID_CODE_UU, GRAYED
+            POPUP "&UUEncode/UUdecode"
+            BEGIN
+                MENUITEM "UUencode",                    ID_ENCODE_UU
+                MENUITEM "UUdecode",                    ID_DECODE_UU
+            END
             MENUITEM "Decode ASN.&1 Code of a Document", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
 
@@ -17466,7 +17528,11 @@ BEGIN
                 MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64
                 MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
             END
-            MENUITEM "&UU-Encode/Decode",           ID_CODE_UU, GRAYED
+            POPUP "&UUEncode/UUdecode", GRAYED
+            BEGIN
+                MENUITEM "UUencode",                    ID_ENCODE_UU
+                MENUITEM "UUdecode",                    ID_DECODE_UU
+            END
             MENUITEM "Decode ASN.&1 Code of a Document", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
             , GRAYED
@@ -20898,6 +20964,9 @@ END
 STRINGTABLE 
 BEGIN
     IDS_VITANY_ERR_FILESIZE "For Vitany analysis, the input file size must exceed 500 bytes!"
+    IDS_UU_DECODE_MISSING_NL_AFTER_END 
+                            "An newline is missing after the ""end"" statement. Decoding could be faulty"
+    IDS_UU_DECODE_MISSING_NL_BEFORE_END         "An newline is missing before the ""end"" statement. Decoding could be faulty"
 END
 
 STRINGTABLE 
@@ -21609,11 +21678,17 @@ BEGIN
                             "The input contains invalid characters.\nValid characters are the letters 'A' to 'Z' and\the ciphers '0' to '9'."
     IDS_STRING_ADFGVX_STRINGREDUNDANT 
                             "The input contains redundant characters.\nAll letters 'A' to 'Z' and ciphers '0' to '9'\nmust be included exactly once."
+    IDS_STRING_MSG_UUENC_OF "UU Encoding of <%s>"
 END
 
 STRINGTABLE 
 BEGIN
     IDS_CT_FILE_OPEN_ERROR  "Error opening file\n%s:\n%s"
+    IDS_UU_FILE_WRITE_ERROR "Error while writing to the file %s."
+    IDS_UU_DECODE_LB_DIFFERS_TOLONG 
+                            "Actual line is shorter than the length which is specified by the length byte.\nLine: %u\n The decoding has been aborted at this location and the decoding could be faulty."
+    IDS_UU_DECODE_LB_DIFFERS_TOSHORT 
+                            "Actual line is longer than the length which is specified by the length byte.\nLine: %u\n The decoding has been aborted at this location and the decoding could be faulty."
 END
 
 STRINGTABLE 
@@ -21660,7 +21735,23 @@ BEGIN
     ID_PRIMENUMBER_TEST     "Tests if a number is prime"
 END
 
-#endif    // English (U.K.) resources
+STRINGTABLE 
+BEGIN
+    IDS_UU_DECODE_MISSING_FN 
+                            "In the first line no filename was found. Decoding is not done."
+    IDS_UU_DECODE_MISSING_END 
+                            "No""end"" statement was found. Decoding is not done."
+    IDS_UU_DECODE_MISSING_BEGIN 
+                            "No""begin"" statement was found. Decoding is not done."
+    IDS_UU_DECODE_ILLEGAL_CHARACTER 
+                            "An illegal character occured in the UU input.\nLocation: %u, character: %s\nThe decoding has been aborted at this location."
+    IDS_UU_DECODE_MISSING_CHAR 
+                            "Bad UU code block. The  Block is not full (only 1 byte instead of 2 to 4 byte). No unique decoding is possible!"
+    IDS_UU_FILE_OPEN_ERROR  "Error while opening the file %s."
+    IDS_STRING_MSG_UUDEC_OF "UU Decoding of <%s>"
+END
+
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

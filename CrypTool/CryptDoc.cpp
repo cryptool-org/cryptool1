@@ -57,6 +57,7 @@ statement from your version.
 #include "base64.h"
 #include "CryptDoc.h"
 #include "CrypToolTools.h"
+#include "uucode.h"
 
 #include "DlgShowKeyHill5x5.h"
 #include "DlgShowKeyHill10x10.h"
@@ -92,6 +93,7 @@ statement from your version.
 #include "DlgShowKey.h"
 #include "DlgSolitaire.h"
 #include "DlgSolitaireAnalyse.h"
+#include ".\cryptdoc.h"
 
 
 
@@ -275,8 +277,11 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CAppDocument)
 	ON_COMMAND(ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, OnAnalyseSymmclassicCiphertextolySolitaire)
 	ON_COMMAND(ID_ENCODE_BASE64, OnIndivproceduresBase64Encode)
 	ON_COMMAND(ID_DECODE_BASE64, OnIndivproceduresBase64Decode)
+	ON_COMMAND(ID_ENCODE_UU, OnEncodeUu)
+	ON_COMMAND(ID_DECODE_UU, OnDecodeUu)
 	//}}AFX_MSG_MAP
-END_MESSAGE_MAP()
+
+	END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // CCryptDoc diagnostics
@@ -1960,4 +1965,19 @@ void CCryptDoc::OnIndivproceduresBase64Decode()
 {
     UpdateContent();
     dobase64dec(ContentName, GetTitle());
+}
+
+void CCryptDoc::OnEncodeUu()
+{
+    UpdateContent();
+	douuenc(ContentName, GetTitle());
+
+}
+
+void CCryptDoc::OnDecodeUu()
+{
+	
+    UpdateContent();
+	douudec(ContentName, GetTitle());
+
 }

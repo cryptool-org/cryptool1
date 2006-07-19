@@ -76,6 +76,7 @@ ENGLISH CryptDecrypt_Hybrid # &Crypt/Decrypt|&Hybrid
 ENGLISH DigitalSignaturesPKI # Digital Signatures/&PKI
 ENGLISH DigitalSignaturesPKI_PKI # Digital Signatures/&PKI|&PKI
 ENGLISH IndivProcedures_Codes # &Indiv. Procedures|C&odes
+ENGLISH IndivProcedures_Codes_UUEncodeUUdecode # &Indiv. Procedures|C&odes|&UUEncode/UUdecode
 ENGLISH IndivProcedures_Protocols # &Indiv. Procedures|&Protocols
 ENGLISH IndivProcedures_RSACryptosystem # &Indiv. Procedures|&RSA Cryptosystem
 ENGLISH IndivProcedures_ChineseRemainderTheoremApplications # &Indiv. Procedures|Chinese Remainder &Theorem Applications
@@ -126,6 +127,7 @@ GERMAN Fenster # &Fenster
 GERMAN Ansicht_Schriftart # &Ansicht|S&chriftart
 GERMAN PopUp # PopUp
 GERMAN Einzelverfahren_Codierungen # &Einzelverfahren|C&odierungen
-GERMAN Einzelverfahren_Codierungen_Base64CodierungDecodierung # &Einzelverfahren|C&odierungen|&Base64 Codierung/Decodierung
+GERMAN Einzelverfahren_Codierungen_Base64CodierungBase64Decodierung # &Einzelverfahren|C&odierungen|&Base64-Codierung/Base64-Decodierung
+GERMAN Einzelverfahren_Codierungen_UUCodierungUUDecodierung # &Einzelverfahren|C&odierungen|&UU-Codierung/UU-Decodierung
 GERMAN Einzelverfahren_Lernspiele # &Einzelverfahren|&Lernspiele
 
