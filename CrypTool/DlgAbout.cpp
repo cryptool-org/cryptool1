@@ -56,7 +56,7 @@ statement from your version.
 // für NTL Bibliothek
 #include "..\libNTL\include\NTL\version.h"
 namespace OPENSSL {
-#include "crypto.h" // clashes with secude.h, therefore:
+#include "crypto.h" // clashes with secude.h
 }
 #include "gmp.h"
 
