@@ -55,9 +55,9 @@ statement from your version.
 
 // für NTL Bibliothek
 #include "..\libNTL\include\NTL\version.h"
-// from openssl/crypto.h:
-#define SSLEAY_VERSION         0
-extern "C" const char *SSLeay_version(int type);
+namespace OPENSSL {
+#include "crypto.h" // clashes with secude.h, therefore:
+}
 #include "gmp.h"
 
 #define YEAR ((((__DATE__ [7] - '0') * 10 + (__DATE__ [8] - '0')) * 10 \
@@ -218,9 +218,8 @@ void CDlgAbout::determineLibraryVersions()
 	this->strVersionMiracl.Insert(0, "Miracl ");
 
 
-	// OpenSSL (statisch)
-	// *** TODO *** fehlende Headerdatei ../OpenSSL/include/opensslv.h für Versionsanzeige
-	this->strVersionOpenSSL = SSLeay_version(SSLEAY_VERSION);
+	// OpenSSL
+	this->strVersionOpenSSL = OPENSSL::SSLeay_version(SSLEAY_VERSION);
 
 	// NTL (statisch)
 	this->strVersionNTL = NTL_VERSION;
