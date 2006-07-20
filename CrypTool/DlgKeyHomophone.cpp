@@ -79,6 +79,7 @@ CDlgKeyHomophone::CDlgKeyHomophone(CWnd* pParent /*=NULL*/)
 	m_lastSelectedRow = -1;
 	DeactivateDecryptionButton = FALSE;
 	c_SourceFile[0] = '\0';
+	InputTypeIsChanged = FALSE;
 }
 
 void CDlgKeyHomophone::DoDataExchange(CDataExchange* pDX)
@@ -348,6 +349,8 @@ void CDlgKeyHomophone::OnLoadKey()
 	m_NoOfHomophones = HB.GetKeySize();
 	m_Bitlength = HB.LogKeySize( 2 );
 	m_listview.DeleteAllItems(); 
+	this->m_InputType = HB.GetKeyType();
+
 	LoadListBox();	
 	int Flag = 0;
 
@@ -485,7 +488,7 @@ void CDlgKeyHomophone::OnActualizeNoOfHomophones()
 		m_NoOfHomophones = upper_range;
 	}
 
-	if ( 1 /* m_NoOfHomophones != HB.GetKeySize() */ )
+	if ( m_NoOfHomophones != HB.GetKeySize() || InputTypeIsChanged )
 	{
 		SHOW_HOUR_GLASS
 		HB.Resize( m_NoOfHomophones );
@@ -497,6 +500,7 @@ void CDlgKeyHomophone::OnActualizeNoOfHomophones()
 		m_EditNoOfHomophones = 0;
 		m_RowHomophonesList = _T("");
 		m_HomophonesList = _T("");
+		InputTypeIsChanged = FALSE;
 
 		HIDE_HOUR_GLASS
 	}
@@ -688,16 +692,16 @@ void CDlgKeyHomophone::OnSelectEncryptFormatCharacters()
 
 void CDlgKeyHomophone::OnBnClickedRadioTextInput()
 {
-	if (m_InputType) 
-		OnActualizeNoOfHomophones();
+	if (m_InputType) InputTypeIsChanged = TRUE;
+	OnActualizeNoOfHomophones();
 	m_ctrlEncodeUmlauts.EnableWindow();
 	m_ctrlEncryptFormatCharacters.EnableWindow();
 }
 
 void CDlgKeyHomophone::OnBnClickedRadioBinaryInput()
 {
-	if (!m_InputType) 
-		OnActualizeNoOfHomophones();
+	if (!m_InputType) InputTypeIsChanged = TRUE;
+	OnActualizeNoOfHomophones();
 	m_ctrlEncodeUmlauts.EnableWindow(FALSE);
 	m_ctrlEncryptFormatCharacters.EnableWindow(FALSE);
 }

@@ -92,6 +92,8 @@ public:
 					CHomophoneEncryption();
 	virtual		   ~CHomophoneEncryption();
 
+	int				GetKeyType() 
+					{   return keyType; } 
 	void            SetFrequency( const int i, double freq )
 					{	data.frequency[i] = freq; }
 	int				GetEncryptionData1(const int i)

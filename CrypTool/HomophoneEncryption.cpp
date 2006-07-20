@@ -345,7 +345,7 @@ const char* CHomophoneEncryption::GetKeyStr()
 	int k, l, j = 0;
 	char hexStr[10];
 
-	sprintf(hexStr, "%X", data.SizeHomophoneKey);
+	sprintf(hexStr, "%X %X", data.SizeHomophoneKey, GetKeyType());
 	for ( k=0; hexStr[k]!=0; ) keyStr[j++] = hexStr[k++];
 	keyStr[j++] = '#';
 	keyStr[j++] = '#';
@@ -381,7 +381,7 @@ void CHomophoneEncryption::load_enc_table(const char *keyStr)
 	
 // == Die Groesse des Schluessels laden ....
 	Index = 0;
-	while (keyStr[j] != '#') {
+	while (keyStr[j] != ' ') {
 		Index *= 16;
 		if ( keyStr[j] >= '0' && keyStr[j] <= '9' ) Index += keyStr[j]-'0';
 		else
@@ -395,6 +395,15 @@ void CHomophoneEncryption::load_enc_table(const char *keyStr)
 	}
 	if ( LoadError ) 
 		return;
+
+	while (keyStr[j] == ' ') j++;
+	if		(keyStr[j] == '0') keyType = 0;
+	else if (keyStr[j] == '1') keyType = 1;
+	else {
+		LoadError = true;
+		return;
+	}
+	j++;
 	
 	if ( Index != data.SizeHomophoneKey )
 		Resize( Index );

@@ -133,6 +133,7 @@ protected:
 private:
 	CBitmapButton m_Paste;
 	void Init_ListBox();
+	BOOL InputTypeIsChanged;
 };
 
 //{{AFX_INSERT_LOCATION}}
