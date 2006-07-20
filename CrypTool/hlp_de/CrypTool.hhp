@@ -483,6 +483,10 @@ hid_popup_opengl_eigenschaften.html
 hid_popup_opengl_show_box.html
 hidd_options_substitution_auto_analysis.html
 cryptolibraries.html
+hid_primenumber_test.html
+hidd_prime_test.html
+pse.html
+
 
 [ALIAS]
 #include CrypTool_Alias.h
