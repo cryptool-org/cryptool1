@@ -43,25 +43,32 @@ numerically. Some of them have also been implemented in CrypTool.
 <p>
 In addition to numerical approaches, structures in random number sequences
 can also be visualized graphically. CrypTool implements an algorithm that
-is called phase space visualization which was first implemented by Dan
+is called <b>phase space visualization</b> which was first implemented by Dan
 Kaminsky of <a href="http://www.doxpara.com/" target="_new">DoxPara</a> in his
-program phentropy.
+program <em>Phentropy</em> (Part of the 
+<a href="http://www.doxpara.com/read.php/code/paketto.html" target="_new">
+Paketto Keiretsu</a> Toolkit).
 </p>
 <h2>Phase space visualization, control and options</h2>
 <p>
 Random number 3D analysis always applies to the CrypTool windows that
 was active during invocation of 3D visualization. Once all input data
 has been processed as described below, the resulting 3D cube is rendered
-in a CrypTool window. The cube can be manipulated freely by dragging it
-with the mouse (left mouse button plus drag). It is also possible to scale
-(shift, right button plus drag) and pan it (right mouse button plus drag).
+in a CrypTool window. The cube can be manipulated freely by 
+<ul>
+  <li>dragging it with the mouse (left mouse button plus drag),</li>
+  <li>scaling it (shift, right button plus drag) and</li>
+  <li>panning it (right mouse button plus drag).</li>
+</ul>
 </p>
 <p>
 Right click in the render window opens the display preference menu.
-<em>Box</em> toggles the cube's bounding box 
 </p>
 <p>
-The <em>Preferences</em> menu allows to modify the display options that
+1. <em>Box</em> toggles the cube's bounding box 
+</p>
+<p>
+2. The <em>Preferences</em> menu allows to modify the display options that
 are applied to the render window after closing the preference window:
 <dl>
   <dt><b>Resolution</b></dt>
@@ -70,13 +77,27 @@ are applied to the render window after closing the preference window:
     pixels in the cube. Higher resolutions yield a more detailed view of
     the rendered data, but also demand more memory and CPU power. Reduce
     this value if your computer cannot generate a smooth animation.<br/>
-    The computed X-, Y- and Z-Coordinates in the phase space are scaled
+    The computed X-, Y- and Z-coordinates in the phase space are scaled
     to match the logical resolution set here. This means that usually
-    a number of coordinates in phase space are projected into one single
+    a number of coordinates in the phase space are projected into one single
     logical pixel.<br/>
     The <em>physical resolution</em> of the cube is solely dependent on
     the window size that can be changed by dragging the window border.
   </dd>
+  <dt><b>Density</b></dt>
+  <dd>The displayed density influences brightness of the pixels set in
+    the rendered cube. Once a coordinate has been determined the brightness
+    of this particular pixel is increased by the density value.
+    Once the maximum brightness of 255 is reached the brightness is
+    sustained.
+    A low density value results in darker but also more detailed 
+    visualization.<br/>
+    When using a densitiy of 127 half the total brightness of a pixel
+    is reached on first occurrance of this coordinate. The (almost)
+    maximum brightness of 254 will already be achieved on the second
+    occurrance of this coordinate.
+  </dd>
+  </dt>
   <dt><b>Shift</b></dt>
   <dd>
     All coordinates are subject to a shift operation (relative to the 
@@ -86,7 +107,7 @@ are applied to the render window after closing the preference window:
   </dd>
   <dt><b>Word size</b></dt>
   <dd>
-    The input sequence is interpreted as a stream of words of 1, 2 or
+    The input sequence can be interpreted as a stream of words of 1, 2 or
     4 byte length. The word size is completely arbitrary as seen from the
     analysis perspective, but it influences the results of phase space
     analysis and its visualization. The correct choice for a distinct
@@ -105,12 +126,12 @@ Phase space visualization in CrypTool works as follows:<br/>
 Within the word sequence the difference between two adjacent words is
 computed and interpreted as a coordinate in 3D space:
 </p>
-<img src="images/phasenraum1.png"/>
+<img src="images/phasespace1.gif"/>
 <p>
 In this example the word length is 1, hence the difference between individual
 adjacent bytes of the input sequence is computed directly.
 The difference computation is done modulo the word co-domain, i. e. 256
-for word size 1, 65536 for word size 2 and 4294967296 for word size 4.
+for word size 1, 65.536 for word size 2 and 4.294.967.296 for word size 4.
 </p>
 <p>
 Three adjacent difference values are now interpreted as X-, Y- and 
@@ -127,17 +148,17 @@ as a word in
 <a href="http://en.wikipedia.org/wiki/Little_endian">Little-Endian format</a>
 that is used for the usual difference calculation:
 </p>
-<img src="images/phasenraum2.gif"/>
+<img src="images/phasespace2.gif"/>
 <p>
 The resulting pixel has the coordinates (7080, 48609, 62001).
 </p>
 <h3>Interpretation of rendering results</h3>
 <p>
 Phase space visualization is capable of showing structure in data sequences.
-A stream of true random data generates a uniform foglike filling of the 
+A stream of true random data generates a uniform fog-like filling of the 
 rendered cube.:
 </p>
-<img src="images/sc01-1.gif"/>
+<img src="images/sc01-1.png"/>
 <p>
 If dots, clusters, lines or planes can be made out this is an indication
 for an inner structure of the input data.
@@ -149,7 +170,7 @@ or text files. In most data formats characteristic patterns can be
 recognized. The following screenshot shows the phase space of a Windows
 system DLL in which planes and lines can be seen:
 </p>
-<img src="images/sc06-1.gif"/>
+<img src="images/sc06-1.png"/>
 <p>
 If a document contains many similar values (e. g. null bytes in program
 data), a high number of computed differences is close to zero, resulting
@@ -164,7 +185,7 @@ made out much easier this way.
 <p>
 If structures can be recognized within a phase space visualization,
 it is certain that no true random numbers are the source of the analysis.
-However this is not true vice-versa: a uniform foglike filling of the cube
+However this is not true vice-versa: uniform fog-like filling of the cube
 cannot be taken as an indication for cryptographic secure random numbers!
 </p>
 </BODY>

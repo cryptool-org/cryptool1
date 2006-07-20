@@ -39,14 +39,17 @@ auch wenn der Kryptoalgorithmus an sich selbst sicher ist.
 </p>
 <p>
 Für die Bewertung der Qualität von Zufallszahlen gibt es viele verschiedene
-Kriterien und Tests, die in der Regel die zu Zahlenfolgen numerisch
+Kriterien und Tests, die in der Regel die Zahlenfolgen numerisch
 analysieren und von denen einige auch in CrypTool implementiert sind.
 </p>
 <p>
 Neben rein numerischen Methoden können Strukturen in Zahlenfolgen auch
 grafisch dargestellt werden. CrypTool implementiert dazu die sogenannte
-Phasenraumvisualisierung, die von Dan Kaminsky von 
-<a href="http://www.doxpara.com/" target="_new">DoxPara</a> in dem Programm phentropy
+<b>Phasenraumvisualisierung</b>, die zuerst von Dan Kaminsky von 
+<a href="http://www.doxpara.com/" target="_new">DoxPara</a> in dem 
+Programm <em>Phentropy</em> (Teil des 
+<a href="http://www.doxpara.com/read.php/code/paketto.html" target="_new">
+Paketto Keiretsu</a> Toolkits)
 umgesetzt wurde.
 </p>
 <h2>Phasenraumvisualisierung, Steuerung und Optionen</h2>
@@ -56,18 +59,23 @@ der Auslösung der 3D-Visualisierung aktiv war.
 Nachdem alle Werte der Eingabedaten wie weiter unten beschrieben 
 in 3D-Koordinaten übertragen wurden, wird der resultierende Kubus 
 in einem eigenen
-CrypTool-Fenster angezeigt. Der Kubus läßt sich beliebig drehen (linke Maustaste
-und Mausbewegung) sowie 
-skalieren (Shift, rechte Maustaste und Mausbewegung) und 
-verschieben (rechte Maustaste und Mausbewegung).
+CrypTool-Fenster angezeigt. Der Kubus lässt sich 
+<ul>
+  <li>drehen (linke Maustaste und Mausbewegung),</li>
+  <li>skalieren (Shift, rechte Maustaste und Mausbewegung) und</li>
+  <li>verschieben (rechte Maustaste und Mausbewegung).</li>
+</ul>
 </p>
 <p>
-Mit einem Rechtsklick in dem Fenster lassen sich die Anzeigeoptionen
-verändern. <em>Box</em> schaltet die sogenannte Bounding-Box, also den
+Mit einem Rechtsklick in dem Fenster erhalten Sie ein Eigenschaftenfenster,
+in dem Sie die Anzeigeoptionen verändern können.
+</p>
+<p>
+1. <em>Box</em> schaltet die sogenannte Bounding-Box, also den
 begrenzenden Rahmen um den Kubus ein und aus.
 </p>
 <p>
-Unter <em>Eigenschaften</em> lassen sich die oben genannten Anzeigeoptionen
+2. Unter <em>Eigenschaften</em> lassen sich die Anzeigeoptionen
 einstellen, die sich nach Schließen des Eigenschaftenfensters auf die
 3D-Anzeige auswirken:
 <dl>
@@ -80,7 +88,7 @@ einstellen, die sich nach Schließen des Eigenschaftenfensters auf die
     eine höhere Grafikleistung. Reduzieren Sie diesen Wert, falls Ihr
     Computer keine flüssige Grafikdarstellung zeigt.<br/>
     Die berechneten X-, Y- und Z- Koordinaten im Phasenraum werden 
-    so skaliert, daß ihr
+    so skaliert, dass ihr
     Maximalwert dem hier eingestellten Wert entspricht. Es werden also
     in der Regel mehrere Koordinaten im Phasenraum in einen logischen Bildpunkt
     abgebildet.<br/>
@@ -105,7 +113,7 @@ einstellen, die sich nach Schließen des Eigenschaftenfensters auf die
   <dd>
     Alle berechneten Koordinaten werden vor der Anzeige um den 
     eingestellten Wert (bezogen auf die logische Auflösung) verschoben.
-    Das bedeutet, daß z. B. bei einem Verschiebungswert von 50 % der
+    Das bedeutet, dass z. B. bei einem Verschiebungswert von 50 % der
     Koordinatenursprung im Zentrum des Würfels liegt.
   </dd>
   <dt><b>Wortlänge</b></dt>
@@ -113,12 +121,13 @@ einstellen, die sich nach Schließen des Eigenschaftenfensters auf die
     Die zu analysierende Zahlenfolge wird als Aneinanderreihung 
     von Worten der Länge 1, 2 oder 4 Byte interpretiert. Die Wortlänge 
     ist für die Analyse selbst
-    völlig willkürlich, beeinflußt aber die Ergebnisse der Phasenraumanalyse
+    völlig willkürlich, beeinflusst aber die Ergebnisse der Phasenraumanalyse
     und deren räumliche Darstellung.
     Die Wahl der richtigen Wortlänge bei der Analyse einer bestimmten
     Eingabedatei hängt von der Art der zu verarbeitenden Daten ab: 
-    Audiodaten im WAV-Format arbeiten beispielsweise mit Wortlängen von 
-    2 Byte, Programmdaten von 32 Bit-Prozessoren mit 4 Byte Wortlänge.
+    Audiodaten im WAV-Format lassen sich beispielsweise am besten
+    mit Wortlängen von 2 Byte, Programmdaten von 32 Bit-Prozessoren 
+    mit 4 Byte Wortlänge visualisieren.
   </dd>
 </dl>
 
@@ -126,7 +135,7 @@ einstellen, die sich nach Schließen des Eigenschaftenfensters auf die
 
 <h2>Phasenraumvisualisierung</h2>
 <p>
-Die Phasenraumvisualisierung in CrypTool arbeitet folgenderweise:<br/>
+Die Phasenraumvisualisierung in CrypTool arbeitet folgendermaßen:<br/>
 </p>
 <h3>Koordinatenermittlung</h3>
 <p>
@@ -138,7 +147,7 @@ dreidimensionalen Raum interpretiert:</p>
 In diesem Beispiel beträgt die Wortlänge 1, es wird also die Differenz
 zwischen benachbarten Einzelbytes der Eingangszahlenfolge berechnet.
 Die Differenzbildung erfolgt modulo des Wertebereiches eines Wortes,
-also 256 by Wortlänge 1, 65536 bei Wortlänge 2 und 4294967296 bei
+also 256 bei Wortlänge 1, 65.536 bei Wortlänge 2 und 4.294.967.296 bei
 Wortlänge 4.
 </p>
 <p>
@@ -169,7 +178,7 @@ nebelartige Füllung des Kubus:
 <img src="images/sc01-1.gif"/>
 <p>
 Lassen sich jedoch Punkte, Haufen, Linien
-oder Ebenen erkennen, so ist dies ein Beleg dafür, daß die Eingabedaten
+oder Ebenen erkennen, so ist dies ein Beleg dafür, dass die Eingabedaten
 eine innere Struktur haben.
 </p>
 <p>
@@ -182,13 +191,13 @@ zu erkennen sind.
 </p>
 <img src="images/sc06-1.gif"/>
 <p>
-Sind in einem Dokument viele gleichartige Werte (z. B. Nullbytes
+Enthält ein Dokument viele gleichartige Werte (z. B. Nullbytes
 in Programmdateien), so ist eine hohe Zahl der ermittelten Differenzen ebenfalls
 Null, was in einer oder mehreren Null-Komponenten der ermittelten Koordinaten
 resultiert. Ohne Verschiebung der angezeigten Koordinaten würde also eine
 Häufung in einer Ecke des Kubus auffallen (um den Nullpunkt der drei Achsen
 herum). Aus diesem Grund ist in den meisten Fällen eine Verschiebung der
-angezeigten Koordinaten um die Hälfte des Maximalwertes sinnvoll: die
+angezeigten Koordinaten um die Hälfte des Maximalwertes sinnvoll: Die
 Häufungen um die 0 wandern damit in die Mitte des Kubus und formen auf diese
 Weise oft markante geometrische Figuren, die sich so viel besser erkennen
 lassen.
@@ -199,6 +208,14 @@ Sind in einer Phasenraumvisualisierung deutliche Strukturen erkennbar,
 so liegt mit Sicherheit keine wirkliche Zufallsverteilung vor. 
 Der Umkehrschluß ist jedoch nicht gültig: eine gleichmäßige Füllung des
 Raumes läßt nicht auf kryptographisch sichere Zufallszahlen schließen!
+</p>
+<h3>Rendering-Engine</h3>
+<p>
+Um die Phasenraumanalyse dreidimensional darstellen zu können, verwendet
+CrypTool die eine leicht angepaßte Version der OpenGL-basierten 
+3D-Rendering-Engine <em>VolRen</em> aus dem
+<a href="http://openqvis.sourceforge.net">OpenQVis-Projekt</a>.
+
 </p>
 </BODY>
 </HTML>
