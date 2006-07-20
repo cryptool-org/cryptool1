@@ -506,7 +506,7 @@ void douudec(const char *infile, const char *OldTitle)
     CAppDocument *NewDoc;
 
     GetTmpName(outfile,"cry",".txt");
-	ssize_t rv;
+	ssize_t rv = 0;
 	int count;
 	char buffer[STREAM_IN_BLOCKLENGTH_DEC];
 	char ob[STREAM_OUT_BLOCKLENGTH_DEC];
