@@ -9876,7 +9876,7 @@ BEGIN
     IDS_STRING_SIG_ATT_BAD_HASH_ALGORITHM 
                             "Es trat ein Fehler beim Anwenden der Hash-Funktion auf !"
     IDS_STRING_SIG_ATT_BAD_MODIFIABILITY 
-                            "Mindestens eine Nachricht enthält weniger modifizierbare Stellen, als signifikante bits in den Optionen eingestellt wurden."
+                            "Mindestens eine Nachricht enthält weniger modifizierbare Stellen als signifikante Bits in den Optionen eingestellt wurden."
     IDS_STRING_SIG_ATT_FLOYD_CANCELED 
                             "Die Nachrichtenpaarsuche wurde abgebrochen."
     IDS_STRING_SIG_ATT_FLOYD_RUNNING "Ein Nachrichtenpaar wird gesucht ..."

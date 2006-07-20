@@ -16,9 +16,11 @@
 
 <h3>Dialog Optionen für den Geburtstagsangriff auf die digitale Signatur</h3>
 
-<P>Zunächst kann eine von sechs verschiedenen <!--ZZZPOPUP--><A href="hashfunktion.html">Hashverfahren</A> ausgewählt werden, auf die der Angriff angewandt werden soll. Es stehen die 128-Bit-Hashfunktionen MD2, MD4 und MD5 sowie die 160-Bit-Hashfunktionen SHA, SHA-1 und RIPEMD-160 zur Verfügung.</P>
+<p>Sie erreichen diesen Dialog, wenn Sie im Dialog <a href="HIDD_SIGNATURE_ATTACK.html">Angriff auf den Hashwert der digitalen Signatur</a> die Schaltfläche <b>Optionen</b> klicken.</p>
 
-<P>Von großer Bedeutung für die durchschnittliche Dauer der Nachrichtenpaarsuche ist die <B>Signifikante Bitlänge</B>: mit ihr legt man fest, wie viele der ersten Bits zweier Hashwerte übereinstimmen müssen, damit der Angriff als erfolgreich angesehen wird. Der Wertebereich für die signifikante Bitlänge ist 1 &lt;= x &lt;= n, wobei n die Bitlänge des eingestellten Hashverfahrens ist.</P>
+<P>In der ersten Gruppierung kann eine von sechs verschiedenen <!--ZZZPOPUP--><A href="hashfunktion.html">Hashverfahren</A> ausgewählt werden, auf die der Angriff angewandt werden soll. Es stehen die 128-Bit-Hashfunktionen MD2, MD4 und MD5 sowie die 160-Bit-Hashfunktionen SHA, SHA-1 und RIPEMD-160 zur Verfügung.</P>
+
+<P>Von großer Bedeutung für die durchschnittliche Dauer der Nachrichtenpaarsuche ist die <B>Signifikante Bitlänge</B>: Mit ihr legt man fest, wie viele der ersten Bits zweier Hashwerte übereinstimmen müssen, damit der Angriff als erfolgreich angesehen wird. Der Wertebereich für die signifikante Bitlänge ist 1 &lt;= x &lt;= n, wobei n die Bitlänge des eingestellten Hashverfahrens ist.</P>
 
 <P><IMG SRC="images/ads_options.gif" ALT="ads_options.gif" BORDER=0></P>
 
@@ -49,6 +51,8 @@
 </TABLE><BR>
 
 <P>Mit <B>Übernehmen</B> wird die aktuelle Konfiguration in der Datei CrypTool.INI gespeichert und bei allen zukünftigen Angriffen verwendet, außerdem kehrt man zum <A href="hidd_signature_attack.html">Dialog Angriff auf den Hashwert der digitalen Signatur</A> zurück.</P>
+
+<P><b>Bemerkung:</b> Wenn sie in der ersten Gruppierung des Optionsdialogs die Signifikante Bitlänge so wählen, dass die Funktion zum "Langläufer" wird (z.B. n > 40), erscheint ein Dialog mit einer <a href="hidd_show_progress.html">Fortschrittsanzeige</a>.</P>
 
 </BODY>
 </HTML>
