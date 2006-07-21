@@ -12,7 +12,7 @@
 <p>Hier findest Du das Original-Zahlenhai-Spiel:<br><a href="http://www.learn-line.nrw.de/angebote/neuemedien/medio/mathe/coalgebr/zahlhai/hai01.htm" target="_blank">http://www.learn-line.nrw.de/angebote/neuemedien/medio/mathe/coalgebr/zahlhai/hai01.htm</a><br>
 Das folgende Bild zeigt die urspr&uuml;ngliche Fassung. Dieses Programm ist Freeware, aber nicht Open-Source.</p>
 
-<p><IMG SRC="Pictures_de/game_original_de.bmp" ALT="game_original_de.bmp" BORDER=0></p>
+<p><IMG SRC="Pictures_de/game_original_de.png" ALT="game_original_de.png" BORDER=0></p>
 
 <p>Herr Carl hat uns dankenswerterweise erlaubt, seine Idee und seinen Spielnamen f&uuml;r eine Neuimplementierung uneingeschr&auml;nkt zu nutzen.</p>
 
@@ -24,14 +24,14 @@ Das folgende Bild zeigt die urspr&uuml;ngliche Fassung. Dieses Programm ist Free
 
 <p>Zuerst wurde das Verfahren des Zahlenhai-Spiels in C++ als "Konsolenprogramm" implementiert (Konsolenprogramm machen nur eine  Textein- und Ausgabe. Sie werden von der Kommandozeile gestartet - unter Windows ist das Kommandozeilenfenster sehr versteckt: siehe Start \ Alle Programme \ Zubeh&ouml;r \ Eingabeaufforderung).</p>
 
-<p><IMG SRC="Pictures_de/console_de.bmp" ALT="console_de.bmp" BORDER=0></p>
+<p><IMG SRC="Pictures_de/console_de.png" ALT="console_de.png" BORDER=0></p>
 
 <p>Erst als die Logik des Algorithmus korrekt implementiert war, wurde mit der grafischen Oberfl&auml;che begonnen.<br>
 Danach wurde das Programm stetig erweitert: <a name="Buttons">Die</a> erste Erweiterung bestand darin, das Spiel mit mehr als 50 Zahlen spielen zu k&ouml;nnen (50 Zahlen waren die Obergrenze in dem Spiel von Herrn Carl). Daf&uuml;r wurde ein Reiter-Control verwendet, auf dem sich 30 Buttons befinden, die je nach ausgew&auml;hltem Reiter ihre Beschriftung und somit auch ihren Wert &auml;ndern.<br>
 Dadurch wurde die maximal m&ouml;gliche Anzahl an Zahlen auf 9999 erh&ouml;ht. Die Grenze ist im Quellcode so vorgegeben und ist bedingt durch die Gr&ouml;&szlig;e der Buttons und der Reiter. Es w&auml;re auch nicht sinnvoll, mit noch mehr Zahlen zu spielen, da man bei so einer Menge gleichzeitig sehr viele Teiler von sehr vielen Zahlen ber&uuml;cksichtigen muss und dadurch auch schnell den &Uuml;berblick &uuml;ber das Spiel verliert.</p>
 <p>Das Spielfenster und alle Teile darin haben eine feste Gr&ouml;&szlig;e. Wir h&auml;tten gern das Fenster wenigstens in vertikaler Richtung  so gr&ouml;&szlig;enver&auml;nderlich gemacht, dass sich die Spielverlaufstabelle entsprechend anpasst, leider bot uns der Layout-Manager im Ressourceneditor von Visual C++ 6.0 und Visual C++ 7.1 (Visual Studio 2003) keine M&ouml;glichkeit f&uuml;r das sogenannte "Andocken" von graphischen Elementen an die Dialogmasken. Nur die Spalten der Spielverlaufstabelle sind in ihrer Breite ver&auml;nderbar, damit sich der Spieler wirklich alle Punkte, die der Zahlenhai erhalten hat, anschauen kann. Die Spalten passen sich aber nicht automatisch ihrem Inhalt an.</p>
 
-<p><IMG SRC="Pictures_de/Dlg_limit_de.bmp" ALT="Dlg_limit_de.bmp" BORDER=0></p>
+<p><IMG SRC="Pictures_de/Dlg_limit_de.png" ALT="Dlg_limit_de.png" BORDER=0></p>
 
 <p><b><u>2. Maximal erreichbare Punktzahl ausgeben</u></b></p>
 
@@ -47,24 +47,24 @@ Dadurch wurde die maximal m&ouml;gliche Anzahl an Zahlen auf 9999 erh&ouml;ht. D
 </ul>
 </p>
 
-<p><IMG SRC="Pictures_de/Dlg_max_value_de.bmp" ALT="Dlg_max_new_de.bmp" BORDER=0></p><br>
+<p><IMG SRC="Pictures_de/Dlg_max_value_de.png" ALT="Dlg_max_new_de.png" BORDER=0></p><br>
 
 <p>Die maximal m&ouml;glichen Punktzahlen sind f&uuml;r die Zahlenvorr&auml;te von 1 bis 22 schon in der Datei "GameData.txt" abgelegt und m&uuml;ssen nicht noch einmal berechnet werden, sondern werden sofort ausgegeben.</p>
 
-<p><IMG SRC="Pictures_de/Dlg_max_old_de.bmp" ALT="Dlg_max_old_de.bmp" BORDER=0></p>
+<p><IMG SRC="Pictures_de/Dlg_max_old_de.png" ALT="Dlg_max_old_de.png" BORDER=0></p>
 
 <p>Au&szlig;erdem kann sich der Spieler auch noch einen optimalen Weg (also die Folge der Zahlen, die zur maximalen Punktzahl f&uuml;hrt) anzeigen lassen.</p>
 
-<p><IMG SRC="Pictures_de/Dlg_max_way_de.bmp" ALT="Dlg_max_way_de.bmp" BORDER=0></p>
+<p><IMG SRC="Pictures_de/Dlg_max_way_de.png" ALT="Dlg_max_way_de.png" BORDER=0></p>
 
 <p>Da die Berechnung f&uuml;r eine gr&ouml;&szlig;ere Anzahl an Zahlen sehr lange dauert, wird der Spieler vorher gefragt, ob diese Funktion wirklich ausgef&uuml;hrt werden soll.</p>
 
-<p><IMG SRC="Pictures_de/Dlg_max_warn_de.bmp" ALT="Dlg_max_warn_de.bmp" BORDER=0>
+<p><IMG SRC="Pictures_de/Dlg_max_warn_de.png" ALT="Dlg_max_warn_de.png" BORDER=0>
 
 <p><b><u>3. Durchf&uuml;hrung und Wiederaufsetzten bei &uuml;berlangen Berechnungen</u></b></p>
 <p>Da die Berechnung der maximal m&ouml;glichen Punkte bei gr&ouml;&szlig;eren Zahlen extrem lange dauert, musste ein Weg gefunden werden, um die Berechnung der Zahlen unterbrechen und zu einem sp&auml;teren Zeitpunkt wieder fortsetzen zu k&ouml;nnen (z.B. weil der Strom ausfiel oder man den Rechner f&uuml;r andere Aufgaben brauchte). Dazu werden alle f&uuml;r die Berechnung ben&ouml;tigten Zwischenwerte in geringen Zeitabst&auml;nden in einer Textdatei gespeichert. Die Datei "ZahlenHaiSuche[Anzahl der Zahlen].zha" wird in demselben Ordner gespeichert, in dem sich auch die Datei "Zahlenhai.exe" befindet, Sie l&auml;sst sich mit einem Texteditor &ouml;ffnen und anschauen.</p> 
 
-<p><IMG SRC="Pictures_de/game_max_calc.bmp" ALT="game_max_calc.bmp" BORDER=0></p>
+<p><IMG SRC="Pictures_de/game_max_calc.png" ALT="game_max_calc.png" BORDER=0></p>
 
 <p>Wenn jetzt eine neue Berechnung der maximalen Punktzahl gestartet wird, schaut das Programm erst, ob schon eine Datei mit gespeicherten Werten existiert, liest diese ein und setzt dann die Suche an der eingelesenen Stelle fort. Auch ohne Wissen dar&uuml;ber, was f&uuml;r Werte in der Datei gespeichert werden und wie die Brute-force-Suche funktioniert, kannst Du, einen schnellen Rechner und viel Zeit vorausgesetzt, auch selbst neue Werte berechnen.</p>
 
@@ -75,7 +75,7 @@ Dadurch wurde die maximal m&ouml;gliche Anzahl an Zahlen auf 9999 erh&ouml;ht. D
 <p>a) Auswahl der Zahlen im Muschelfeld</p>
 <p>Um die Benutzerfreundlichkeit in dem Programm zu erh&ouml;hen, wurde auch noch eine reine Tastatursteuerung implementiert, die es dem Benutzer erm&ouml;glich, sich mit den Pfeiltasten (links, rechts, hoch, runter) frei auf den mit Zahlen beschrifteten Muscheln, sowie den dazugeh&ouml;rigen Reitern, zu bewegen. Vor der Implementierung der Steuerung konnte man sich nur mit den Pfeiltasten links und rechts, sowie der Tabulator-Taste, durch das Programm navigieren. Ausw&auml;hlen kann man die Zahlen dann mit der Enter- oder der Leertaste.</p>
 <p>b) R&uuml;ckg&auml;ngig machen und wieder Vorw&auml;rts-Gehen mit den Undo und Redo Buttons</p>
-<p>Im Zahlenhai kannst du auch &uuml;ber den <b>R&uuml;ckw&auml;rts</b> Button (Undo) <IMG SRC="Pictures_de/Dlg_main_undo.bmp" ALT="Dlg_main_undo.bmp" BORDER=0> bereits gespielte Spielz&uuml;ge r&uuml;ckg&aum;ngig machen um Dich f&uuml;r eine andere Zahl zu entscheiden. Mit dem <b>Vorw&auml;rts</b> Button (Redo) <IMG SRC="Pictures_de/Dlg_main_redo.bmp" ALT="Dlg_main_redo.bmp" BORDER=0> kannst Du Deine zur&uuml;ck gegangenen Spielz&uuml;ge auch wieder Vorw&auml;rts gehen solange du keine &Auml;nderungen im Spielverlauf vorgenommen hast.</p>
+<p>Im Zahlenhai kannst du auch &uuml;ber den <b>R&uuml;ckw&auml;rts</b> Button (Undo) <IMG SRC="Pictures_de/Dlg_main_undo.png" ALT="Dlg_main_undo.png" BORDER=0> bereits gespielte Spielz&uuml;ge r&uuml;ckg&aum;ngig machen um Dich f&uuml;r eine andere Zahl zu entscheiden. Mit dem <b>Vorw&auml;rts</b> Button (Redo) <IMG SRC="Pictures_de/Dlg_main_redo.png" ALT="Dlg_main_redo.png" BORDER=0> kannst Du Deine zur&uuml;ck gegangenen Spielz&uuml;ge auch wieder Vorw&auml;rts gehen solange du keine &Auml;nderungen im Spielverlauf vorgenommen hast.</p>
 
 <p><b><u>5. Tests</u></b></p>
 
