@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<OBJECT type="text/site properties">
+	<param name="ImageType" value="Folder">
+</OBJECT>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Bedienung des Spiels">
+		<param name="Local" value="Zahlenhai.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Tutorial zum Spiel">
+		<param name="Local" value="Zahlenhai_Tutorial.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Entstehung des Spiels">
+		<param name="Local" value="Zahlenhai_Entstehung.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Echte Teiler">
+		<param name="Local" value="Echte_Teiler.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Challenge / Herausforderung">
+		<param name="Local" value="Zahlenhai_Challenge.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Lizenzbestimmung / Haftungsausschluss">
+		<param name="Local" value="Zahlenhai_Lizenz.html">
+		</OBJECT>
+</UL>
+</BODY></HTML>

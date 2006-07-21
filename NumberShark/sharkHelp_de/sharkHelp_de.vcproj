@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="7.10"
+	Name="sharkHelp_de"
+	ProjectGUID="{13F98398-B0A6-4F32-82D9-9C4F24A0C07A}"
+	Keyword="Win32Proj">
+	<Platforms>
+		<Platform
+			Name="Win32"/>
+	</Platforms>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="Debug"
+			IntermediateDirectory="Debug"
+			ConfigurationType="0"
+			CharacterSet="2">
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot;"
+				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a"/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="Release"
+			IntermediateDirectory="Release"
+			ConfigurationType="0"
+			CharacterSet="2">
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot;"
+				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a"/>
+		</Configuration>
+		<Configuration
+			Name="Debug_de|Win32"
+			OutputDirectory="$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="0"
+			CharacterSet="2">
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot;"
+				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a"
+				Output="NumberShark_de.chm"/>
+		</Configuration>
+		<Configuration
+			Name="Release_de|Win32"
+			OutputDirectory="$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="0"
+			CharacterSet="2">
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot;"
+				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a"
+				Output="NumberShark_de.chm"/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Files>
+		<File
+			RelativePath=".\hlp_de.mak">
+		</File>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>

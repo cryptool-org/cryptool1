@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="7.10"
+	Name="sharkHelp_en"
+	ProjectGUID="{068B2C5B-4AA8-459C-B0B9-0B0EE768B793}"
+	Keyword="Win32Proj">
+	<Platforms>
+		<Platform
+			Name="Win32"/>
+	</Platforms>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="Debug"
+			IntermediateDirectory="Debug"
+			ConfigurationType="0"
+			CharacterSet="2">
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot;"
+				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a"
+				Output="NumberShark_en.chm"/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="Release"
+			IntermediateDirectory="Release"
+			ConfigurationType="0"
+			CharacterSet="2">
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot;"
+				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a"/>
+		</Configuration>
+		<Configuration
+			Name="Debug_en|Win32"
+			OutputDirectory="$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="0"
+			CharacterSet="2">
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot;"
+				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a"
+				Output="NumberShark_en.chm"/>
+		</Configuration>
+		<Configuration
+			Name="Release_en|Win32"
+			OutputDirectory="$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="0"
+			CharacterSet="2">
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot;"
+				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a"
+				Output="NumberShark_en.chm"/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Files>
+		<File
+			RelativePath=".\hlp_en.mak">
+			<FileConfiguration
+				Name="Debug|Win32">
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release|Win32">
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug_en|Win32">
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_en|Win32">
+			</FileConfiguration>
+		</File>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>

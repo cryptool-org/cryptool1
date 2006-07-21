@@ -1,0 +1,22 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=NumberShark_de.chm
+Contents file=NumberShark.hhc
+Default topic=Zahlenhai_Tutorial.html
+Display compile progress=No
+Index file=NumberShark.hhk
+Language=0x407 Deutsch (Deutschland)
+Title=NumberSharkHelp_de
+
+
+[FILES]
+Zahlenhai_Tutorial.html
+Echte_Teiler.html
+Primzahlen.html
+Zahlenhai.html
+Zahlenhai_Challenge.html
+Zahlenhai_Entstehung.html
+Zahlenhai_Lizenz.html
+
+[INFOTYPES]
+
