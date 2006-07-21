@@ -36,7 +36,6 @@
 #define IDS_BUTTON_REST                 125
 #define IDS_EDIT4                       126
 #define IDS_MAX_POINTS_HEADLINE         127
-#define IDR_MAINFRAME                   128
 #define IDS_DRAW_HEADLINE               128
 #define IDS_COMPUTER_WINS_HEADLINE      129
 #define IDS_PLAYER_WINS_HEADLINE        130
@@ -129,7 +128,15 @@
 #define IDS_MAX_POINTS_INFORMATION_NOVALUE 195
 #define IDS_TOOL_TIP_UNDO               196
 #define IDS_TOOL_TIP_REDO               197
+#define IDR_MAINFRAME1                  197
 #define IDS_MAX_POINTS_NEW_2            198
+#define IDB_BITMAP9                     199
+#define IDS_SHELL_GROUB_BOX             199
+#define IDS_SHELL_GROUP_BOX             199
+#define IDB_BITMAP10                    200
+#define IDS_NORMAL_GROUP_BOX            200
+#define IDR_MAINFRAME                   205
+#define IDC_CURSOR1                     207
 #define IDC_LIST2                       1001
 #define IDC_EDIT1                       1007
 #define IDC_BUTTON1                     1008
@@ -220,6 +227,7 @@
 #define IDC_GAME_IDEA                   1156
 #define IDC_DISCLAIMER_TEXT             1157
 #define IDC_INFO_TEXT                   1158
+#define IDC_BUTTON_SWITCH_STYLE         1167
 #define ID_OPTIONEN_TOOLTIPSANZEIGEN    32771
 #define ID_OPTIONEN_MAXIMALPUNKTEZAHL   32772
 #define ID_OPTIONEN_MITHAIBEGINNEN      32773
@@ -234,9 +242,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        193
+#define _APS_NEXT_RESOURCE_VALUE        208
 #define _APS_NEXT_COMMAND_VALUE         32788
-#define _APS_NEXT_CONTROL_VALUE         1161
+#define _APS_NEXT_CONTROL_VALUE         1168
 #define _APS_NEXT_SYMED_VALUE           175
 #endif
 #endif

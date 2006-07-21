@@ -59,15 +59,6 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 //
-// Icon
-//
-
-// Icon with lowest ID value placed first to ensure application icon
-// remains consistent on all systems.
-IDR_MAINFRAME           ICON                    "res\\MFC-ZahlenHai.ico"
-
-/////////////////////////////////////////////////////////////////////////////
-//
 // Dialog
 //
 
@@ -77,8 +68,8 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION |
 CAPTION "Info über den Zahlenhai"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
-    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
-    LTEXT           "MFC-ZahlenHai Version 1.0",IDC_STATIC,40,10,119,8,
+    ICON            128,IDC_STATIC,11,17,20,20
+    LTEXT           "ZahlenHai Version 1.0 Beta 14",IDC_STATIC,40,10,119,8,
                     SS_NOPREFIX
     LTEXT           "Copyright (C) 2006",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
@@ -171,10 +162,9 @@ BEGIN
     GROUPBOX        "Einstellungen für ein neues Spiel",
                     IDC_STATIC_EINSTELLUNGEN,4,318,382,54,0,
                     WS_EX_TRANSPARENT
-    GROUPBOX        "Muschelfeld  (blau bedeutet: frei wählbar;  rot bedeutet: schon vergeben)",
-                    IDC_STATIC_BLOCK,4,174,382,139
+    GROUPBOX        "",IDC_STATIC_BLOCK,4,174,382,139
     LTEXT           "",IDC_STATIC_SUM,11,354,371,17,NOT WS_VISIBLE
-    GROUPBOX        "Spielverlaufstabelle  [ In der Tabelle sind die Primzahlen markiert: ""(prim)"" ]",
+    GROUPBOX        "Spielverlaufstabelle  [ In der Tabelle sind die Primzahlen mit ""(prim)"" markiert]",
                     IDC_STATIC_LISTE,4,6,381,161
     CONTROL         "",IDC_LIST2,"SysListView32",LVS_REPORT | LVS_SINGLESEL | 
                     WS_BORDER | WS_TABSTOP,4,21,381,148,WS_EX_TRANSPARENT | 
@@ -185,6 +175,8 @@ BEGIN
     LTEXT           "",IDC_START_INFO,184,328,194,27,NOT WS_VISIBLE
     GROUPBOX        "",IDC_STATIC,392,6,71,366
     PUSHBUTTON      "&Fertig",IDC_BUTTON_FINISH,376,367,6,6,NOT WS_VISIBLE
+    PUSHBUTTON      "&Change style",IDC_BUTTON_SWITCH_STYLE,398,114,59,14,
+                    NOT WS_VISIBLE
 END
 
 IDD_DIALOG1 DIALOGEX 0, 0, 282, 274
@@ -237,18 +229,20 @@ BEGIN
                     WS_EX_TRANSPARENT
 END
 
-IDD_GAME_SUMMARY DIALOGEX 0, 0, 349, 145
+IDD_GAME_SUMMARY DIALOGEX 0, 0, 356, 161
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Dialog"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Zurück zum Spiel",IDOK,145,124,62,14
+    DEFPUSHBUTTON   "Zurück zum Spiel",IDOK,145,66,62,14
     CONTROL         "",IDC_RICHEDIT21,"RichEdit20A",ES_MULTILINE | 
-                    ES_AUTOHSCROLL,7,12,335,52,WS_EX_TRANSPARENT
+                    ES_AUTOHSCROLL,7,12,341,52,WS_EX_TRANSPARENT
     CONTROL         "",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,
-                    6,70,335,22
-    CONTROL         "",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,6,102,335,10
+                    9,97,331,22
+    CONTROL         "",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,9,129,331,10
+    GROUPBOX        "Ergebnis als Spielzusammenfassung speichern?",
+                    IDC_STATIC,6,86,342,65
 END
 
 IDD_DIALOG2 DIALOGEX 0, 0, 388, 233
@@ -294,12 +288,12 @@ BEGIN
         BLOCK "040704e4"
         BEGIN
             VALUE "CompanyName", "Deutsche Bank"
-            VALUE "Copyright (C) 2006", "TODO: (c) <Firmenname>. Alle Rechte vorbehalten."
-            VALUE "FileDescription", "TODO: <Dateibeschreibung>"
+            VALUE "Copyright (C) 2006", "(C) CrypTool-Projekt 2006"
+            VALUE "FileDescription", "Der ""Zahlenhai"" ist ein Lernspiel, das das Verständnis für Teiler und Primzahlen verbessern soll."
             VALUE "FileVersion", "1.0.0.0"
             VALUE "InternalName", "ZahlenHai.exe"
             VALUE "OriginalFilename", "ZahlenHai.exe"
-            VALUE "ProductName", "TODO: <Product name>"
+            VALUE "ProductName", "Zahlenhai"
             VALUE "ProductVersion", "1.0.0.0"
         END
     END
@@ -387,10 +381,12 @@ BEGIN
     IDD_GAME_SUMMARY, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 342
+        RIGHTMARGIN, 348
         VERTGUIDE, 7
+        VERTGUIDE, 17
+        VERTGUIDE, 348
         TOPMARGIN, 7
-        BOTTOMMARGIN, 138
+        BOTTOMMARGIN, 154
     END
 
     IDD_DIALOG2, DIALOG
@@ -422,6 +418,24 @@ IDB_BITMAP8             BITMAP                  "Bilder\\Hai04-vers5.bmp"
 IDB_BITMAP_UNDO         BITMAP                  "Bilder\\backward.bmp"
 IDB_BITMAP2             BITMAP                  "Bilder\\hai01.bmp"
 IDB_BITMAP_REDO         BITMAP                  "Bilder\\foreward.bmp"
+IDB_BITMAP9             BITMAP                  "Bilder\\shark.bmp"
+IDB_BITMAP3             BITMAP                  "Bilder\\HaiAnAngel.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "Bilder\\Zahlenhai.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_CURSOR1             CURSOR                  "bilder\\cursor1.cur"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -433,14 +447,14 @@ BEGIN
     IDS_ABOUTBOX            "&Info über den Zahlenhai..."
     IDS_RULES               "Beschreibung:\r\n - Im Zahlenhai-Spiel entscheidet man sich zu Beginn für die Größe des Muschelfeldes, also mit wie viel Zahlen man spielen möchte.\r\n    Diese Größe des Muschelfeldes bezeichnen wir mit ""n"" und nennen sie die ""Anzahl der auswählbaren Zahlen"". Der Zahlenvorrat beginnt bei 1\r\n    und geht bis zu der Zahl, die Du als Größe für das Muschelfeld ausgewählt hast (vorgeschlagen ist zu Beginn die Zahl 20).\r\n    Danach werden alle Zahlen aus dem Zahlenvorrat nach den Regeln, die Du weiter unten findest, zwischen Dir und dem Computer (""Zahlenhai"") aufgeteilt.\r\n - Standardmäßig sind beim Start des Spiels 20 Zahlen in dem Muschelfeld eingestellt. Du kannst als Gesamtzahl n jede Zahl von 1 bis 9999 wählen.\r\n\r\nZiel:\r\n - Dein Ziel ist es, dass die Summe Deiner Zahlen größer ist als die Summe aller Zahlen, die der Zahlenhai gefressen hat.\r\n\r\nRegeln:\r\n - Du hast immer den ersten Zug, d.h. Du beginnst die erste Runde.\r\n - In der ersten Runde kannst Du Dir eine beliebige Zahl aus dem Zahlenvorrat auswählen\r\n   (der Zahlenvorrat umfasst n Zahlen und wird im Muschelfeld angezeigt).\r\n - Immer bekommt der Zahlenhai von der ausgewählten Zahl alle echten Teiler, sofern diese noch nicht ausgewählt wurden\r\n   (6 ist zum Beispiel teilbar durch 1,2,3,6. Die echten Teiler sind 1,2,3).\r\n - In allen darauf folgenden Runden kannst Du nur Zahlen wählen, die Du vorher noch nicht gewählt hast und die\r\n    noch nicht vom Zahlenhai gefressen wurden (also nur die blauen Muscheln).\r\n - ABER: Der Zahlenhai darf nie leer ausgehen!\r\n - Wählst Du eine Zahl, deren Teiler alle schon verteilt wurden, so bekommt der Zahlenhai die gewählte Zahl\r\n    und Du erhältst 0 Punkte in dieser Runde.\r\n\r\n"
     IDS_PLAYER_WINS         "Glückwunsch, Du hast gegen den Zahlenhai gewonnen!\r\nWenn Du eine größere Herausforderung suchst, dann nimm eine höhere Zahl als %s.\r\n\r\nDu hast %s Punkte erreicht. Maximal wären bei %s Zahlen %s Punkte möglich gewesen.\r\n\r\n"
-    IDS_VERSION_INFO        "Zahlenhai Version 1.0 Beta 13"
+    IDS_VERSION_INFO        "Zahlenhai Version 1.0 Beta 14"
     IDS_COMPUTER_WINS       "Diesmal hat der Zahlenhai gewonnen! :,-(  \r\n\r\nEr hat Dich mit %s Punkten zu %s Punkten geschlagen.\r\n\r\nLos! Versuch es gleich nochmal!\r\n\r\n"
     IDS_DRAW                "Unentschieden!?!\r\n\r\nDas kommt nur sehr selten vor!\r\nDu und der Zahlenhai haben jeweils %s Punkte.\r\n\r\n"
     IDS_MAX_POINTS_NEW      "Um bei %s Zahlen die maximal mögliche Punktezahl von %s Punkten zu berechnen,\r\nhat das Programm %s Sekunden benötigt und musste dabei %s Knoten durchlaufen.\r\n\r\nDie höchste Primzahl ist %s. Mit dieser Zahl musst Du das Spiel beginnen, um die maximal mögliche Punktzahl \r\nerreichen zu können.\r\n\r\nDie höchste Punktzahl kannst Du unter anderem mit folgender\r\nZugfolge (Weg) erreichen: %s .\r\n\r\nBitte sende Deine neu berechneten Werte an esslinger@fb5.uni-siegen.de , damit wir diese in das Spiel einbinden können."
     IDS_MAX_POINTS_INFORMATION 
                             "Bei %s Zahlen ist die maximal erreichbare Punktzahl %s.\r\n\r\nWir können Dir hier die maximale Punktzahl sofort anzeigen, da wir diesen Wert schon vorberechnet    \r\nund im Programm abgelegt haben.\r\n\r\nTipp:\r\nDie höchste Primzahl bei %s Zahlen ist %s. Mit dieser Zahl musst Du das Spiel beginnen, um die maximal mögliche     \r\nPunktzahl zu erreichen.\r\n\r\nWillst Du einen optimalen Weg wissen, der zu diesem Ergebnis führt?\r\n"
     IDS_QUESTION            "\r\nSoll das Programm die maximal mögliche Punktezahl berechnen?\r\n"
-    IDS_WARNING             "%s Zahlen - das kann dauern...\r\n\r\nFalls Du für %s Zahlen ein Ergebnis herausbekommst, würden wir uns freuen\r\nwenn Du uns dieses zusendest.\r\n\r\nSoll die Berechnung jetzt wirklich durchgeführt werden?\r\n"
+    IDS_WARNING             "%s Zahlen - das kann dauern...\r\n\r\nFür 20 Zahlen hat ein 3GHz Rechner knapp 8 Stunden am Stück gerechnet.\r\nBei 22 Zahlen dauerte das schon ca. 9Tage. Und bei 30 Zahlen sind es wahrscheinlich Wochen oder Monate.\r\n\r\nFalls Du für %s Zahlen ein Ergebnis herausbekommst, würden wir uns freuen\r\nwenn Du uns dieses zusendest.\r\n\r\nSoll die Berechnung jetzt wirklich durchgeführt werden?\r\n"
     IDS_INVALID_INPUT       "Keine Zahlen kleiner 1 oder größer %s eingeben!"
 END
 
@@ -479,7 +493,7 @@ BEGIN
     IDS_LOGFILE_HEADLINE    "\r\n\r\nDiese Datei zeigt die einzelnen Spielzüge des Spiels, und welche Punktezahl sich daraus für\r\nDich und den Zahlenhai ergeben haben.\r\nDie Tabelle enthält die gleichen Infos wie die Spielverlaufstabelle im Spielfenster.\r\n\r\n"
     IDS_TOOL_TIP_TEXT       "%s\nÜbrige Teiler: %s\n%s "
     IDS_LOGFILE_MAXPOINTS   "\r\nMaximal mögliche Punkte für Dich:   "
-    IDS_GAME_IDEA           "Grips-Spiel: Für ein oder mehrere Spieler ab 10 Jahre.\r\nSpielzeit: Für 20 Zahlen benötigt man nicht länger als 3 Minuten,\r\nbei 9.999 Zahlen kann man aber schon über ein Jahr brauchen."
+    IDS_GAME_IDEA           "Grips-Spiel: Für ein oder mehrere Spieler ab 10 Jahre.\r\n\r\nSpielzeit: Für 20 Zahlen benötigt man nicht länger als 3 Minuten,\r\nbei 9.999 Zahlen kann man aber schon über ein Jahr brauchen."
     IDS_PRIME               "(prim)"
     IDS_LOGFILE_LOCATION    "\r\nEine Zusammenfassung des Spiels wurde unter dem Namen %s \r\nin den Ordner %s geschrieben. "
 END
@@ -491,7 +505,7 @@ BEGIN
     IDS_PLAYER_WINS_OPTIMAL "GLÜCKWUNSCH, Du hast gegen den Hai gewonnen!\r\n\r\nMit %s Punkten hast Du sogar die maximale Punktezahl bei %s Zahlen erreicht.\r\nWenn Du eine größere Herausforderung suchst,\r\ndann nimm eine höhere Zahl als %s.\r\n\r\n"
     IDS_SUM_TEXT            "Bei %s Zahlen werden insgesamt %s Punkte an den Zahlenhai und an Dich vergeben. "
     IDS_LOGFILE_NUMBERS     "\r\n\r\nZahlenvorrat:                 "
-    IDS_RULES_2             "Hilfen und weitere Hinweise stehen in der Online-Hilfe. Diese kannst Du an jeder Stelle im Zahlenhai-Spiel mit der F1-Taste öffnen.\r\n\r\nDie Online-Hilfe enthält eine ausführliche Bedienungsanleitung, einen konkreten kommentierten Spielverlauf (Probespiel), Informationen zur Entstehung des Spiels\r\nsowie eine Herausforderung an Euch, mit der Ihr uns helfen könnt, dieses Spiel zu verbessern.\r\n"
+    IDS_RULES_2             "Während des Spielens kannst Du mit der Tastenkombination SHIFT+ALT+C die Muscheln auf den Buttons sichtbar und unsichtbar machen.\r\n\r\nHilfen und weitere Hinweise stehen in der Online-Hilfe. Diese kannst Du an jeder Stelle im Zahlenhai-Spiel mit der F1-Taste öffnen.\r\n\r\nDie Online-Hilfe enthält eine ausführliche Bedienungsanleitung, einen konkreten kommentierten Spielverlauf (Probespiel), Informationen zur Entstehung des Spiels\r\nsowie eine Herausforderung an Euch, mit der Ihr uns helfen könnt, dieses Spiel zu verbessern.\r\n"
     IDS_MAX_POINTS_INFORMATION2 
                             "Bei %s Zahlen ist die maximal erreichbare Punktzahl %s.\r\n\r\nWir konnten Dir hier die maximale Punktzahl sofort anzeigen, da wir diesen Wert schon vorberechnet   \r\nund im Programm abgelegt haben.\r\n\r\nEin optimaler Weg lautet: %s.\r\n"
     IDS_DISCLAIMER_TEXT     "Bitte beachten Sie die Lizenzbestimmungen und die Informationen zum \r\nHaftungsausschluss für eventuelle Schäden durch das Zahlenhai-Programm.\r\n(C) CrypTool-Projekt 2006"
@@ -501,8 +515,8 @@ BEGIN
     IDS_REG_TRUE            "true"
     IDS_SHARK_AGAINST       " gegen "
     IDS_GAME_DATA           "GameData.txt"
-    IDS_HELP_FILE           "\\hlp_de\\ZahlenhaiHilfe_deutsch.chm::/Zahlenhai.html"
-    IDS_TITLE_VERSION       " - Version 1.0 - Beta 13 "
+    IDS_HELP_FILE           "\\NumberShark\\sharkHelp_de\\NumberShark_de.chm::/Zahlenhai.html"
+    IDS_TITLE_VERSION       " - Version 1.0 - Beta 14"
 END
 
 STRINGTABLE 
@@ -536,8 +550,8 @@ BEGIN
     IDS_HAI_PUNKTE2         "Hai Punkte"
     IDS_REST2               "Rest Zahlen"
     IDS_ISNOT_FACOTR        "Ist kein Teiler einer Zahl."
-    IDS_RADIO_EDIT1         "Zusammenfassung des Spiels als ""%s"" im Ordner\r\n""%s"" speichern."
-    IDS_RADIO_EDIT2         "Zusammenfassung nicht speichern."
+    IDS_RADIO_EDIT1         "Ja, ""%s"" im Ordner\r\n""%s"" speichern."
+    IDS_RADIO_EDIT2         "Nein"
     IDS_TAB_HEADER1         "Willkommen"
     IDS_TAB_HEADER2         "Standard"
     IDS_TAB_HEADER3         "Maximalwerte"
@@ -556,6 +570,8 @@ BEGIN
     IDS_TOOL_TIP_UNDO       "Undo/Backward:\nÜber den ""Rückwärts-"" Knopf kannst Du deine letzten Züge rückgängig machen\nund einen neuen Weg ausprobieren, um die höchste Punktzahl zu erreichen."
     IDS_TOOL_TIP_REDO       "Redo/Foreward:\nÜber den ""Vorwärts"" Knopf kannst Du deine rückgängig gemachten Züge solange wieder vorwärts gehen,\nsolange du keine Änderung im Spielverlauf vornimmst."
     IDS_MAX_POINTS_NEW_2    "Um bei %s Zahlen die maximal mögliche Punktezahl von %s Punkten zu berechnen,\r\nhat das Programm %s Sekunden benötigt und musste dabei %s Knoten durchlaufen.\r\n\r\nDie höchste Primzahl ist %s. Mit dieser Zahl musst Du das Spiel beginnen, um die maximal mögliche Punktzahl \r\nerreichen zu können.\r\n\r\nDie höchste Punktzahl kannst Du unter anderem mit folgender\r\nZugfolge (Weg) erreichen: %s .\r\n\r\n"
+    IDS_SHELL_GROUB_BOX     "Muschelfeld  (blau bedeutet: frei wählbar;  rot bedeutet: schon vergeben)"
+    IDS_NORMAL_GROUP_BOX    "Muschelfeld"
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -573,15 +589,6 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
 
 /////////////////////////////////////////////////////////////////////////////
 //
-// Icon
-//
-
-// Icon with lowest ID value placed first to ensure application icon
-// remains consistent on all systems.
-IDR_MAINFRAME           ICON                    "res\\idr_main.ico"
-
-/////////////////////////////////////////////////////////////////////////////
-//
 // Dialog
 //
 
@@ -591,37 +598,38 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION |
 CAPTION "Information about the Number Shark"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
-    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
-    LTEXT           "Number Shark Version 1.0 Beta 11",IDC_STATIC,40,10,119,
+    ICON            128,IDC_STATIC,11,17,20,20
+    LTEXT           "Number Shark Version 1.0 Beta 14",IDC_STATIC,40,10,119,
                     8,SS_NOPREFIX
     LTEXT           "Copyright (C) 2006",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
 END
 
-IDD_GAME_RULES DIALOGEX 0, 0, 506, 222
+IDD_GAME_RULES DIALOGEX 0, 0, 525, 249
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Game rules  / game description"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Back",IDOK,220,199,50,14
+    DEFPUSHBUTTON   "Back",IDOK,220,226,50,14
     CONTROL         "",IDC_RICHEDIT21,"RichEdit20A",ES_MULTILINE | 
-                    ES_AUTOHSCROLL | ES_READONLY,16,7,483,206,
+                    ES_AUTOHSCROLL | ES_READONLY,7,7,511,233,
                     WS_EX_TRANSPARENT
 END
 
-IDD_GAME_SUMMARY DIALOGEX 0, 0, 349, 145
+IDD_GAME_SUMMARY DIALOGEX 0, 0, 358, 158
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Dialog"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Back to the game",IDOK,145,124,62,14
+    DEFPUSHBUTTON   "Back to the game",IDOK,145,68,62,14
     CONTROL         "",IDC_RICHEDIT21,"RichEdit20A",ES_MULTILINE | 
-                    ES_AUTOHSCROLL,7,12,335,51,WS_EX_TRANSPARENT
+                    ES_AUTOHSCROLL,7,12,344,51,WS_EX_TRANSPARENT
     CONTROL         "",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,
-                    6,70,335,22
-    CONTROL         "",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,6,102,335,10
+                    11,102,335,22
+    CONTROL         "",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,11,133,335,10
+    GROUPBOX        "Save the result as summary?",IDC_STATIC,7,89,344,61
 END
 
 IDD_DIALOG1 DIALOGEX 0, 0, 282, 274
@@ -658,14 +666,14 @@ BEGIN
     LTEXT           "",IDC_DISCLAIMER_TEXT,14,144,257,35
     LTEXT           "",IDC_INFO_TEXT,14,110,257,31
     CONTROL         "",IDC_GAME_IDEA,"RichEdit20A",ES_MULTILINE | 
-                    ES_AUTOHSCROLL | ES_READONLY,14,69,257,30,
+                    ES_AUTOHSCROLL | ES_READONLY,14,69,257,35,
                     WS_EX_TRANSPARENT
 END
 
 IDD_MFCZAHLENHAI_DIALOG DIALOGEX 0, 0, 467, 379
 STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | 
     WS_CAPTION | WS_SYSMENU
-EXSTYLE WS_EX_CLIENTEDGE | WS_EX_APPWINDOW
+EXSTYLE WS_EX_APPWINDOW
 CAPTION "Number Shark"
 FONT 8, "Microsoft Sans Serif", 0, 0, 0x1
 BEGIN
@@ -746,13 +754,12 @@ BEGIN
                     WS_TABSTOP,434,246,19,15,WS_EX_TRANSPARENT
     PUSHBUTTON      "&New game",IDC_BUTTON_STARTNEW,398,316,59,22,
                     BS_MULTILINE
-    PUSHBUTTON      "&Exit",ID_BUTTON_END,398,345,59,22,BS_CENTER | 
+    PUSHBUTTON      "E&xit",ID_BUTTON_END,398,345,59,22,BS_CENTER | 
                     BS_MULTILINE
     LTEXT           "Number stack from 1 to:",IDC_STATIC,12,335,86,11
     GROUPBOX        "Settings for a new game",IDC_STATIC_EINSTELLUNGEN,4,318,
                     382,54,0,WS_EX_TRANSPARENT
-    GROUPBOX        "Shell square  (blue: free to choose;  red: already used)",
-                    IDC_STATIC_BLOCK,4,174,382,139
+    GROUPBOX        "",IDC_STATIC_BLOCK,4,174,382,139
     LTEXT           "",IDC_STATIC_SUM,11,356,371,17,NOT WS_VISIBLE
     GROUPBOX        "Course of the game -  [""prime"" marks a prime number]",
                     IDC_STATIC_LISTE,4,6,381,161
@@ -765,6 +772,47 @@ BEGIN
     LTEXT           "",IDC_START_INFO,197,328,181,27,NOT WS_VISIBLE
     GROUPBOX        "",IDC_STATIC,392,6,71,366
     PUSHBUTTON      "&Finish",IDC_BUTTON_FINISH,375,367,10,6,NOT WS_VISIBLE
+    PUSHBUTTON      "&Change style",IDC_BUTTON_SWITCH_STYLE,398,108,59,14,
+                    NOT WS_VISIBLE
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 0,9,0,0
+ PRODUCTVERSION 0,9,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040704e4"
+        BEGIN
+            VALUE "CompanyName", "Deutsche Bank"
+            VALUE "Copyright (C) 2006", " (C) CrypTool-Project 2006"
+            VALUE "FileDescription", "Number Shark is an educational game to improve the knowledge of factors and prime numbers."
+            VALUE "FileVersion", "1.0.0.0"
+            VALUE "InternalName", "NumberShark.exe"
+            VALUE "OriginalFilename", "NumberShark.exe"
+            VALUE "ProductName", "NumberShark"
+            VALUE "ProductVersion", "1.0.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x407, 1252
+    END
 END
 
 
@@ -787,17 +835,17 @@ BEGIN
     IDD_GAME_RULES, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 499
+        RIGHTMARGIN, 518
         TOPMARGIN, 7
-        BOTTOMMARGIN, 213
+        BOTTOMMARGIN, 240
     END
 
     IDD_GAME_SUMMARY, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 342
+        RIGHTMARGIN, 351
         TOPMARGIN, 7
-        BOTTOMMARGIN, 138
+        BOTTOMMARGIN, 151
     END
 
     IDD_DIALOG1, DIALOG
@@ -827,6 +875,7 @@ BEGIN
         VERTGUIDE, 382
         VERTGUIDE, 385
         VERTGUIDE, 398
+        VERTGUIDE, 457
         VERTGUIDE, 463
         TOPMARGIN, 6
         BOTTOMMARGIN, 373
@@ -854,6 +903,17 @@ IDB_BITMAP8             BITMAP                  "Bilder\\Hai04-vers5-engl.bmp"
 IDB_BITMAP_UNDO         BITMAP                  "bilder\\backward-engl.bmp"
 IDB_BITMAP2             BITMAP                  "Bilder\\hai01-engl.bmp"
 IDB_BITMAP_REDO         BITMAP                  "bilder\\foreward-engl.bmp"
+IDB_BITMAP9             BITMAP                  "Bilder\\shark-engl.bmp"
+IDB_BITMAP3             BITMAP                  "Bilder\\HaiAnAngel-engl.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "Bilder\\NumberShark.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -875,16 +935,16 @@ END
 STRINGTABLE 
 BEGIN
     IDS_ABOUTBOX            "&Information about the Number Shark"
-    IDS_RULES               "Description:\r\n - At the beginning of the game you choose a number n > 0 (n = quantity of all selectable numbers in the mussel stock).\r\n   After that all numbers from 1 to n will be assigned to either you or to the Number Shark.\r\n - By default there are 20 numbers in the mussel stock. As a total number n you can choose any number from 1 to 9999.\r\n\r\n Goal of the game:\r\n - It is your goal to achieve a higher score than the Number Shark's sum of points.\r\n\r\n  Rules:\r\n - You always have the first turn, i.e. you are starting the first round.\r\n - In the first round you can choose any of the n numbers from the mussel stock/shell.\r\n - The Number Shark gets every available real factor of the number selected by you, if they have not been chosen yet\r\n   (6 for example is divisible by 1, 2, 3 and 6. The real factors are 1, 2 and 3).\r\n - In all subsequent rounds you can only choose numbers which have not been chosen by you, or were eaten by the Number Shark in\r\n   previous rounds (i.e. only the blue shells).\r\n - BUT: The Number Shark may never miss out!\r\n - If you choose a number which has no more factors, then the Number Shark gets your chosen number\r\n   and you get 0 points in this round.\r\n\r\n"
-    IDS_PLAYER_WINS         "Congratulation, you have won against the Number Shark! If you are looking for a bigger challenge, then try a higher number than %s. \r\n\r\nYou achieved %s points. The highest possible score with %s numbers would have been %s.\r\n\r\n"
-    IDS_VERSION_INFO        "Number Shark Version 1.0 Beta 13"
+    IDS_RULES               "Description:\r\n - At the beginning of the Number Shark game you choose the size of the shell square, this is the amount of numbers you want to play with.\r\n    We name the size of the shell square with ""n"" and call it the ""count of selectable numbers"". The pool of numbers starts with 1\r\n    and ends with the number which you have chosen for the size of the shell square (we suggest the number 20 for the beginning).\r\n    After that all numbers from the shell square will be given to either you or the computer (""Number Shark"").\r\n    You can read the rules of how the numbers are divided below in the text.\r\n - By default, there are 20 numbers in the shell square. As total number you can select every number from 1 to 9999 for n.\r\n\r\nGoal of the game:\r\n - It is your goal to achieve a higher score than the sum of the numbers that were eaten by the Number Shark.\r\n\r\nRules:\r\n - You always have the first turn, i.e. you are starting the first round.\r\n - In this round you can choose any of the n numbers from the shell square.\r - The Number Shark gets every available real factor of the number selected by you, if they have not been chosen yet\r\n    (6 for example is divisible by 1, 2, 3 and 6. The real factors are 1, 2 and 3).\r\n - In all subsequent rounds you can only choose numbers which have not been chosen by you,\r\n    or were eaten by the Number Shark in previous rounds (i.e. only the blue shells).\r\n - BUT: The Number Shark may never miss out!\r\n - If you choose a number which has no more factors, then the Number Shark gets your chosen number and you get 0 points in this round.\r\n\r\n"
+    IDS_PLAYER_WINS         "Congratulation, you have won against the Number Shark!\r\n\r\n If you are looking for a bigger challenge, then try a higher number than %s. \r\n\r\nYou achieved %s points. The highest possible score with %s numbers would have been %s.\r\n\r\n"
+    IDS_VERSION_INFO        "Number Shark Version 1.0 Beta 14"
     IDS_COMPUTER_WINS       "This time the Number Shark won :,-(   \r\n\r\n It has beaten you with %s to %s points.\r\n\r\n Go -- Try again!\r\n\r\n"
     IDS_DRAW                "Draw!?!\r\n\r\nThis happens only very seldom!\r\nYou and the Number Shark have %s points each.\r\n\r\n"
     IDS_MAX_POINTS_NEW      "To calculate for %s numbers the highest score of %s points\r\nthe program needed %s seconds. It had to pass through %s knots.\r\nThe highest prime number here is %s. You should start the game with this prime to be able to reach the maximum score.\r\n\r\nTo achieve the highest score, you can choose the numbers in this order: %s\r\n\r\nPlease send your new calculated values to esslinger@fb5.uni-siegen.de so that we can itegrate them into the game."
     IDS_MAX_POINTS_INFORMATION 
                             "The highest attainable score at %s numbers is %s.\r\n\r\nWe can show you the highest possible score, because this value has already been calculated and is stored in the program.\r\n\r\nHint:\r\nThe highest prime with %s numbers is %s. You have to start the game with this prime to be able to reach the maximum score.\r\n\r\nDo you want to see an optimal way to achieve this score?\r\n"
     IDS_QUESTION            "\r\nDo you want the program to calculate the highest possible score?\r\n"
-    IDS_WARNING             "%s numbers... This will take a long time.\r\n\r\nIf you get some new results for %s numbers, we would appreciate it if you could send them to us.\r\n\r\nDo you really want the calculation to be performed now?\r\n"
+    IDS_WARNING             "%s numbers... This will take a long time.\r\n\r\nFor 20 numbers, a 3GHz PC had to calculate about 9 hours.\r\nFor 20 numbers the calculation took about 9 days. And we think for 30 numbers it will take weeks or months.\r\n\r\nIf you get some new results for %s numbers, we would appreciate it if you could send them to us.\r\n\r\nDo you really want the calculation to be performed now?\r\n"
     IDS_INVALID_INPUT       "Do not enter any number smaller than 1 or bigger than %s!"
 END
 
@@ -896,7 +956,7 @@ BEGIN
     IDS_SPIELER_PUNKTE      "Your\npoints"
     IDS_HAI_PUNKTE          "Number Shark's\npoints"
     IDS_REST                "Remaining\nnumbers"
-    IDS_PLAYER_WINS_2       "Congratulation, you have won against the Number Shark! If you are looking for a bigger challenge, then try a higher number than %s. \r\n\r\nYou achieved %s points.\r\n\r\n"
+    IDS_PLAYER_WINS_2       "Congratulation, you have won against the Number Shark!\r\n\r\nIf you are looking for a bigger challenge, then try a higher number than %s. \r\n\r\nYou achieved %s points.\r\n\r\n"
     IDS_BUTTON_STARTNEW     "Start a new game."
     IDS_BUTTON_END          "Finish the game."
     IDS_BUTTON_RULES        "Read the rules."
@@ -923,7 +983,7 @@ BEGIN
     IDS_LOGFILE_HEADLINE    "\r\n\r\nThis file shows you every single move from the games played and the score of each player.\r\nThe chart contains the same information as the ""course of the game"" chart in the game dialog.\r\n\r\n"
     IDS_TOOL_TIP_TEXT       "%s\nThis time he would eat: %s\n%s"
     IDS_LOGFILE_MAXPOINTS   "\r\nHighest possible score for you:"
-    IDS_GAME_IDEA           "It's a savvy game for one or more players from age 10.\r\nPlay time: You shouldn't need more than 3 minutes for 20 numbers,\r\nbut 9,999 numbers might take you more than a year."
+    IDS_GAME_IDEA           "It's a savvy game for one or more players from age 10.\r\n\r\nPlay time: You shouldn't need more than 3 minutes for 20 numbers,\r\nbut 9,999 numbers might take you more than a year."
     IDS_PRIME               "(prime)"
     IDS_LOGFILE_LOCATION    "\r\nThe summary of the game has been saved as %s to this folder: %s\r\n\r\n"
 END
@@ -932,10 +992,10 @@ STRINGTABLE
 BEGIN
     IDS_TOOL_TIP_TEXT_NO_FACTORS "%s\nNo more factors left!\n%s"
     IDS_FILE_NAME           "Summary.txt"
-    IDS_PLAYER_WINS_OPTIMAL "Congratulation, you have won against the Number Shark!\r\n\r\nWith %s points you even achieved the highest possible score with %s numbers. If you are looking for a bigger challenge, then try a higher number than %s.\r\n\r\n"
+    IDS_PLAYER_WINS_OPTIMAL "Congratulation, you have won against the Number Shark!\r\n\r\nWith %s points you even achieved the highest possible score with %s numbers.\r\nIf you are looking for a bigger challenge, then try a higher number than %s.\r\n\r\n"
     IDS_SUM_TEXT            "With %s numbers: %s points can be assigned in total to you and to the Number Shark."
     IDS_LOGFILE_NUMBERS     "\r\n\r\nNumber pool:                 "
-    IDS_RULES_2             "You can get additional help and information by pressing the F1 button.\r\n\r\nThe online help contains a operation manual, a commented sample game course, some information about how the game was developed,\r\nand a challenge for you, which gives you the chance to help us improve the game.\r\n"
+    IDS_RULES_2             "While playing the game you can make the shells on the buttons visible and invisible by pressing SHIFT+ALT+C on your keyboard.\r\n\r\nYou can get additional help and information by pressing the F1 button.\r\n\r\nThe online help contains a operation manual, a commented sample game course, some information about how the game was developed,\r\nand a challenge for you, which gives you the chance to help us improve the game.\r\n"
     IDS_MAX_POINTS_INFORMATION2 
                             "For %s numbers, the highest attainable score is %s.\r\n\r\nWe can show you the highest possible score, because this value has already been calculated and is stored in the program.\r\n\r\nOne way to achieve the highest possible score is: %s. \r\n"
     IDS_DISCLAIMER_TEXT     "Please note the terms of licence and the information regarding non \r\nliability for any damage arising from the use of the Number Shark program.\r\n(C) CrypTool Project 2006"
@@ -945,8 +1005,8 @@ BEGIN
     IDS_REG_TRUE            "true"
     IDS_SHARK_AGAINST       " against "
     IDS_GAME_DATA           "GameData.txt"
-    IDS_HELP_FILE           "\\hlp_en\\NumberSharkHelp_english.chm::/NumberShark_Tutorial.html"
-    IDS_TITLE_VERSION       " - Version 1.0 - Beta 13 "
+    IDS_HELP_FILE           "\\NumberShark\\sharkHelp_en\\NumberShark_en.chm::/NumberShark_Manual.html"
+    IDS_TITLE_VERSION       " - Version 1.0 - Beta 14 "
 END
 
 STRINGTABLE 
@@ -959,11 +1019,11 @@ BEGIN
                             "Remember the last total number of the number stack for the next program start."
     IDS_OPTIONS_MAX_POINTS  "Here you can calculate the maximum possible value for a number stack of %s numbers. But this will take a while.\r\n\r\nInstead we can show you at once the values already being precalculated."
     IDS_STRING_PT           ","
-    IDS_MAX_POINTS_OLD      "To calculate for %d numbers the highest score of %d points\r\nthe program needed %d seconds. It had to pass through %I64d knots.\r\nThe highest prime number here is %d. You should start the game with this prime to be able to reach the maximum score.\r\n\r\nTo achieve the highest score, you can choose the numbers in this way: %s\r\n\r\n"
+    IDS_MAX_POINTS_OLD      "To calculate for %d numbers the highest score of %d points\r\nthe program needed %d seconds. It had to pass through %I64d knots.\r\nThe highest prime number here is %d. You should start the game with this prime to be able to reach the maximum score.\r\n\r\nTo achieve the highest score you can choose the numbers\r\nin this way: %s\r\n\r\n"
     IDS_TOOL_TIP_NUMBER     "Number: %s"
     IDS_TOOL_TIP_ISFACTOR   "Is a factor of: %s"
     IDS_START_INFO          "Now you can choose one of the shells to start with the game"
-    IDS_LOG_LEAD            "\r\nLead:"
+    IDS_LOG_LEAD            "\r\nYour lead:"
     IDS_LOG_BEHIND          "\r\nBehind:                      "
     IDS_SPRACHE             "EN"
     IDS_LED_WIN             "You have won!"
@@ -980,8 +1040,8 @@ BEGIN
     IDS_HAI_PUNKTE2         "Number Shark's points"
     IDS_REST2               "Remaining numbers"
     IDS_ISNOT_FACTOR        "Does not divide any other number."
-    IDS_RADIO_EDIT1         "Save a summary of the game as %s in the folder %s "
-    IDS_RADIO_EDIT2         "Don't save a summary of the game."
+    IDS_RADIO_EDIT1         "Yes as %s in the folder %s. "
+    IDS_RADIO_EDIT2         "No"
     IDS_TAB_HEADER1         "Welcome"
     IDS_TAB_HEADER2         "Standard"
     IDS_TAB_HEADER3         "Maximum values"
@@ -999,7 +1059,9 @@ BEGIN
                             "Unfortunately the file %s could not be loaded. The file must be locatet in the same folder like the Number Shark game."
     IDS_TOOL_TIP_UNDO       "coming soon"
     IDS_TOOL_TIP_REDO       "coming soon"
-    IDS_MAX_POINTS_NEW_2    "To calculate for %s numbers the highest score of %s points\r\nthe program needed %s seconds. It had to pass through %s knots.\r\nThe highest prime number here is %s. You should start the game with this prime to be able to reach the maximum score.\r\n\r\nTo achieve the highest score, you can choose the numbers in this order: %s\r\n\r\n"
+    IDS_MAX_POINTS_NEW_2    "To calculate for %s numbers the highest score of %s points\r\nthe program needed %s seconds. It had to pass through %s knots.\r\nThe highest prime number here is %s. You should start the game with this prime to be able to reach the maximum score.\r\n\r\nTo achieve the highest score, you can choose the numbers\r\nin this order: %s\r\n\r\n"
+    IDS_SHELL_GROUP_BOX     "Shell square  (blue means: free to choose;  red means: already used)"
+    IDS_NORMAL_GROUP_BOX    "Shell square"
 END
 
 #endif    // Englisch (GB) resources

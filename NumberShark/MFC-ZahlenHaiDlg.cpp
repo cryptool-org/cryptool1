@@ -68,6 +68,7 @@ CString toolTipSetting="";
 CString exePath = GetCommandLine();
 int showWinner=0;
 int checkList=0;
+int newGameCount=0;
 
 CAboutDlg::CAboutDlg() : CDialog(CAboutDlg::IDD)
 {
@@ -90,6 +91,7 @@ CMFCZahlenHaiDlg::CMFCZahlenHaiDlg(CWnd* pParent /*=NULL*/)
 	, sumOfAllNumbers(0)
 	, startInfo(_T(""))
 	, undoRedo(0)
+	, shellBoxText(_T(""))
 {
 	numbers = 20;
 }
@@ -149,6 +151,8 @@ void CMFCZahlenHaiDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_BUTTON_UNDO, undoButton);
 	DDX_Control(pDX, IDC_BUTTON_REDO, redoButton);
 	DDX_Control(pDX, ID_BUTTON_RULES, buttonRules);
+	DDX_Control(pDX, IDC_STATIC_BLOCK, muschelfeld);
+	DDX_Text(pDX, IDC_STATIC_BLOCK, shellBoxText);
 }
 
 BEGIN_MESSAGE_MAP(CMFCZahlenHaiDlg, CDialog)
@@ -170,6 +174,9 @@ BEGIN_MESSAGE_MAP(CMFCZahlenHaiDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_FINISH, OnBnClickedButtonFinish)
 	ON_BN_CLICKED(IDC_BUTTON_UNDO, OnBnClickedButtonUndo)
 	ON_BN_CLICKED(IDC_BUTTON_REDO, OnBnClickedButtonRedo)
+	//ON_BN_CLICKED(IDC_BUTTON_ERASE, OnBnClickedButtonErase)
+	ON_BN_CLICKED(IDC_BUTTON_SWITCH_STYLE, OnBnClickedButtonSwitchStyle)
+	ON_WM_MOUSEMOVE()
 END_MESSAGE_MAP()
 
 // CMFCZahlenHaiDlg Meldungshandler
@@ -179,6 +186,7 @@ END_MESSAGE_MAP()
 BOOL CMFCZahlenHaiDlg::OnInitDialog()
 {
 	//Default Language des Betriebssystems herausfinden
+	
 	readGameData();
 	startInfo.Format(IDS_START_INFO);
 
@@ -187,13 +195,20 @@ BOOL CMFCZahlenHaiDlg::OnInitDialog()
 	int regUpperLimit=readRegistry();
 
 	//TTS_BALLOON verwandelt einen normalen ToolTip in einen abgerundeten ToolTip
-	//TTS_BALLOON ist nicht in der MSDN Hilfe enthalten
 	toolTip.Create(this, TTS_NOPREFIX | TTS_BALLOON | TTS_ALWAYSTIP);
 	toolTipNumbers.Create(this,TTS_NOPREFIX | TTS_BALLOON | TTS_ALWAYSTIP);
 
 	//Anzeige Dauer
 	toolTip.SendMessage(TTM_SETDELAYTIME, TTDT_AUTOPOP, SHRT_MAX);
 	toolTipNumbers.SendMessage(TTM_SETDELAYTIME, TTDT_AUTOPOP, SHRT_MAX);
+
+	haiBild.LoadBitmap(IDB_BITMAP2);
+	haiBild2.LoadBitmap(IDB_BITMAP8);
+	haiBild3.LoadBitmap(IDB_BITMAP9);
+	haiBild4.LoadBitmap(IDB_BITMAP3);
+	
+
+	shellBoxText.LoadString(IDS_SHELL_GROUP_BOX);
 
 	//Breite der ToolTips wird festgelegt.
 	//Die Anagbe der Breite ist notwendig um mit \n im ToolTip einen
@@ -207,8 +222,7 @@ BOOL CMFCZahlenHaiDlg::OnInitDialog()
 	toolTipNumbers.SetTipTextColor(RGB(0,0,0));
 	toolTipNumbers.SetTipBkColor(RGB(213,227,241));
 	CDialog::OnInitDialog();
-	
-	
+		
 	// Hinzufügen des Menübefehls "Info..." zum Systemmenü.
 	// IDM_ABOUTBOX muss sich im Bereich der Systembefehle befinden.
 	ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
@@ -244,6 +258,8 @@ BOOL CMFCZahlenHaiDlg::OnInitDialog()
 	//150 = Schriftgröße (wie bei Word) mal 10 - eine größere Schrift passt nicht auf die Muscheln
 	CClientDC dc(this);
 	fontButton.CreatePointFont(145, "Arial", &dc);
+	fontNormalButton.CreatePointFont(155, "Arial", &dc);
+
 
 	//LOGFONT logFont;
 	//logFont.lfUnderline = TRUE;
@@ -258,13 +274,14 @@ BOOL CMFCZahlenHaiDlg::OnInitDialog()
 	
 	updatePoints();
 	updateButtons();
-	
+
 	updateTab();
 	updateToolTips();
 	 
 	CSetList(-1);
 	ListControl.ShowWindow(0);
 	
+	haiListe.SetBitmap(haiBild);
 	haiListe.ShowWindow(1);
 	((CEdit*)GetDlgItem(IDC_STATIC_LISTE))->ShowWindow(false);
 	
@@ -280,19 +297,14 @@ BOOL CMFCZahlenHaiDlg::OnInitDialog()
 	((CEdit*)GetDlgItem(IDC_BUTTON_REST))->EnableWindow(false);
 	((CEdit*)GetDlgItem(IDC_START_INFO))->ShowWindow(1);
 	((CEdit*)GetDlgItem(IDC_STATIC_SUM))->ShowWindow(true);
-	
-	/*
-	Spielregeln.LoadBitmaps(IDB_BITMAP2,5,0,0,0,0);
-	Spielregeln.SetFontColor(RGB(133,75,130));
-	Spieloptionen.LoadBitmaps(IDB_BITMAP3,5,0,0,0,0);
-	Spieloptionen.SetFontColor(RGB(255,255,255));
-    */
 
 	//LoadBitmap(Bitmap ID,state of the Button, size...)
 	//state of the Button: 1-Normal, 2-Select, 3-Disable, 4-Focus,5-...
 	undoButton.LoadBitmaps(IDB_BITMAP_UNDO,4,0,0,0,0);
 	redoButton.LoadBitmaps(IDB_BITMAP_REDO,4,0,0,0,0);
-	    
+	
+	
+
     return TRUE;  // Geben Sie TRUE zurück, außer ein Steuerelement soll den Fokus erhalten
 }
 BOOL CMFCZahlenHaiDlg::PreTranslateMessage(MSG *pMsg)
@@ -536,12 +548,16 @@ void CMFCZahlenHaiDlg::updateButtons()
 		
 		if(number <= upperLimit)
 		{
-			//Alle Buttons sollen auswählbar sein.Alle auf PLAYER oder COMPUTER gesetzten sollen ausgegraut sein
 			arrayButtonControl[i].EnableWindow(numbersTemp[number] == FREE);
-			arrayButtonControl[i].LoadBitmaps(IDB_BITMAP1,5,0,0,0,0);
-//			
-			arrayButtonControl[i].SetTextFont(fontButton);
-            arrayButtonControl[i].SetFontColor(RGB(255,255,0));
+			if(arrayButtonControl[i].GetButtonStyle()==BS_OWNERDRAW)
+			{
+				//Alle Buttons sollen auswählbar sein.Alle auf PLAYER oder COMPUTER gesetzten sollen ausgegraut sein
+				
+				arrayButtonControl[i].LoadBitmaps(IDB_BITMAP1,5,0,0,0,0);
+	//			
+				arrayButtonControl[i].SetTextFont(fontButton);
+				arrayButtonControl[i].SetFontColor(RGB(255,255,0));
+			}
 					
 			stringBeschriftung=itoa(number, Buffer, 10);
 		    arrayButtonControl[i].SetWindowText(stringBeschriftung);
@@ -811,6 +827,7 @@ void CMFCZahlenHaiDlg::updateToolTips()
 //angezeigten Buttons gelöscht
 void CMFCZahlenHaiDlg::OnBnClickedButtonStartnew()
 {
+
 	// START NEW
 	// Wenn der Spieler der Button "Neues Spiel" drückt werden alle Punktestände gelöscht und die Einstellungen vom vorhergehenden Spiel bleiben erhalten
 	showWinner=0;
@@ -830,6 +847,44 @@ void CMFCZahlenHaiDlg::OnBnClickedButtonStartnew()
 	ListControl.ShowWindow(0);
 	((CEdit*)GetDlgItem(IDC_STATIC_LISTE))->ShowWindow(0);
 
+	newGameCount++;
+
+	//int zufall = rand()%4;
+	//zufall+=1;
+	
+	switch(newGameCount)
+	{
+		case 1:haiListe.SetBitmap(haiBild2);break;
+		case 2:haiListe.SetBitmap(haiBild3);break;
+		case 3:haiListe.SetBitmap(haiBild4);break;
+		case 4:haiListe.SetBitmap(haiBild);newGameCount=0;break;
+    }
+
+	/*
+	if(newGameCount%4==0)
+	{
+        haiListe.SetBitmap(haiBild4); 
+	}
+	else
+	{
+		if(newGameCount%3==0)
+		{
+			haiListe.SetBitmap(haiBild3);
+		}
+		else
+		{
+			if(newGameCount%2==0)
+			{
+				haiListe.SetBitmap(haiBild2);
+			}
+			else
+			{
+				haiListe.SetBitmap(haiBild);
+			}
+		}
+	}
+	*/
+	
 	haiListe.ShowWindow(1);
 
 	((CEdit*)GetDlgItem(IDC_STATIC_SUM))->ShowWindow(1);
@@ -1896,13 +1951,23 @@ void CMFCZahlenHaiDlg::execWinHelp()
 	CString exePathHelp=exePath;
 	CString helpFile="";
 	helpFile.LoadString(IDS_HELP_FILE);
-	exePathHelp.Delete(0,1);
+	//exePathHelp.Delete(0,1);
 		
 	int pos = exePathHelp.ReverseFind( '\\');
-	exePathHelp = exePathHelp.Mid(0, pos+1);
+	exePathHelp = exePathHelp.Mid(0, pos);
+	pos = exePathHelp.ReverseFind( '\\');
+	exePathHelp = exePathHelp.Mid(0, pos);
+	/*pos = exePathHelp.ReverseFind( '\\');
+	exePathHelp = exePathHelp.Mid(0, pos);*/
+
 	exePathHelp+=helpFile;
+
+	//exePathHelp.Insert(0,"C");
+	//AfxMessageBox(exePathHelp,MB_OK,MB_ICONINFORMATION);
+
 	//HH_DISPLAY_TOPIC durch HH_HELP_CONTEXT austauschen
 	::HtmlHelp(this->m_hWnd, exePathHelp,HH_DISPLAY_TOPIC, NULL);
+
 }
 void CMFCZahlenHaiDlg::OnBnClickedButtonFinish()
 {
@@ -1978,8 +2043,49 @@ void CMFCZahlenHaiDlg::OnBnClickedButtonRedo()
 
 	updatePoints();
 	updateButtons();
-
 	
 	if(undoRedo[hai.getCurrentRound()]==0)
 		((CEdit*)GetDlgItem(IDC_BUTTON_REDO))->EnableWindow(false);
+}
+
+void CMFCZahlenHaiDlg::OnBnClickedButtonErase()
+{
+
+}
+void CMFCZahlenHaiDlg::OnBnClickedButtonSwitchStyle()
+{
+	if(arrayButtonControl[1].GetButtonStyle()!=BS_OWNERDRAW)
+	{
+		for(int i=0; i<MAX_ZAHLENHAI_BUTTON; i++)
+        arrayButtonControl[i].SetButtonStyle(BS_OWNERDRAW);
+
+		shellBoxText.LoadString(IDS_SHELL_GROUP_BOX);
+		CString shellGroupBox="";
+		shellGroupBox.LoadString(IDS_SHELL_GROUP_BOX);
+		muschelfeld.SetWindowText(shellGroupBox);
+	
+		updateButtons();	
+	}
+	else
+	{	
+		for(int i=0; i<MAX_ZAHLENHAI_BUTTON; i++)
+		{
+			arrayButtonControl[i].SetButtonStyle(BS_CENTER);
+			arrayButtonControl[i].SetFont(&fontNormalButton,1);
+		}
+
+		shellBoxText.LoadString(IDS_NORMAL_GROUP_BOX);
+		CString shellGroupBox="";
+		shellGroupBox.LoadString(IDS_NORMAL_GROUP_BOX);
+		muschelfeld.SetWindowText(shellGroupBox);
+	}
+
+	//fontNormalButton.DeleteObject();
+}
+
+void CMFCZahlenHaiDlg::OnMouseMove(UINT nFlags, CPoint point)
+{
+	// TODO: Fügen Sie hier Ihren Meldungsbehandlungscode ein, und/oder benutzen Sie den Standard.
+
+	CDialog::OnMouseMove(nFlags, point);
 }

@@ -75,11 +75,15 @@ public:
 	CRegKey regKey;
 	CFont font;
 	CFont fontButton; // TODO 
+	CFont fontNormalButton;
 	CHeaderCtrlEx header;
 	CStatic haiListe;
 	CDigiStatic m_LedText;
 	CDigiStatic m_LedWinner;
 	CBitmap haiBild;
+	CBitmap haiBild2;
+	CBitmap haiBild3;
+	CBitmap haiBild4;
 	CPropertySheet propSheet;
 	CPropertyPage propPage;
 
@@ -137,4 +141,10 @@ public:
 	afx_msg void OnBnClickedButtonRedo();
 	
 	CButton buttonRules;
+	CStatic muschelfeld;
+	CString shellBoxText;
+	afx_msg void OnBnClickedButtonErase();
+
+	afx_msg void OnBnClickedButtonSwitchStyle();
+	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 };

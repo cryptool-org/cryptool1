@@ -7,91 +7,99 @@
 </HEAD>
 <BODY>
 <h3><P><A NAME="tutorial"></A><B>Zahlenhai-Tutorial am Beispiel eines Zahlenvorrats von 20 Zahlen</B></P></h3>
-<p>"Zahlenhai" ist ein Lernspiel, das das Verständnis für Teiler und Primzahlen verbessern soll. Es ist einfach für kleinere Zahlenvorräte (Zahlenmengen). Und es ist eine echte Herausforderung für größere Zahlenmengen.</p>
+<p>"Zahlenhai" ist ein Lernspiel, das das Verst&auml;ndnis f&uuml;r Teiler und Primzahlen verbessern soll.</p>
+<p>Zu Beginn wird im Muschelfeld eine bestimmt Menge an Zahlen (z.B. die Zahlen von 1-20) bereitgestellt.</p>
+<p>Es ist einfach f&uuml;r kleinere Zahlenvorr&auml;te. Und es ist eine echte Herausforderung f&uuml;r gr&ouml;&szlig;ere Zahlenvorr&auml;te.</p>
+
 <p><h4><u>1. Die Spielidee</u></h4></p>
 <p>Die Spielidee des Zahlenhais besteht darin, von den auswählbaren Zahlen im Zahlenvorrat möglichst viele für sich zu gewinnen, so dass deren Summe größer ist als die des Zahlenhais und möglichst maximal.<br>Wählt der Spieler eine Zahl, bekommt der Zahlenhai alle <a href="Echte_Teiler.html">echten Teiler</a> davon. Dies geht so lange, bis alle Zahlen gewählt oder gefressen sind.</p>
 <p>In diesem Tutorial-Teil der Online-Hilfe wird der Spielverlauf anhand eines konkreten Spiels mit 20 Zahlen verdeutlicht.</p>
 
 <p><h4><u>2. Optionen am Beginn eines neuen Spiels</u></h4></p>
 
-<P><IMG SRC="Bilder-de/bmp/Dlg_options2_de.bmp" ALT="Dlg_options2_de.bmp" BORDER=0></p>
-<!--Der Name in dem Bild soll "Thomas" sein-->
+<p>Zur Begr&uuml;&szlig;ung erscheint beim Programmstart das Spieloptionen-Fenster mit dem Reiter "<b>Willkommen</b>" im Vordergrund.
+<P><IMG SRC="Pictures_de/Dlg_options1_de.bmp" ALT="Dlg_options1_de.bmp" BORDER=0></p>
+
 <p>Zu Beginn erscheinen die Spieloptionen: Darin kannst Du
 <ul>
 	<li>Deinen Namen eingeben,</li>
-	<li>die ToolTips für die Zahlen im Zahlenvorrat an- oder ausschalten,</li>
-	<li>angeben, ob der Spieloptionen-Dialog <u>vor</u> dem nächsten Programmstart wieder angezeigt werden soll oder nicht, und</li>
-	<li>Dir aussuchen, ob sich das Programm die Anzahl des Zahlenvorrates für den nächsten Programmstart merken soll oder nicht. Wenn diese Einstellung nicht gesetzt ist, ist bei jedem Programmstart die 20 als Anzahl auswählbarer Zahlen eingestellt.</li>
+	<li>die ToolTips f&uuml;r die Zahlen im Zahlenvorrat an- oder ausschalten,</li>
+	<li>angeben, ob der Spieloptionen-Dialog <u>vor</u> dem n&auml;chsten Programmstart wieder angezeigt werden soll oder nicht, und</li>
+	<li>Dir aussuchen, ob sich das Programm die Anzahl des Zahlenvorrates f&uuml;r den n&auml;chsten Programmstart merken soll oder nicht. Wenn diese Einstellung nicht gesetzt ist, ist bei jedem Programmstart die 20 als Anzahl ausw&auml;hlbarer Zahlen eingestellt.</li>
 </ul>
-Du kannst in den Spieloptionen auch ohne jede Eingabe einfach die Enter Taste drücken oder auf <b>"Zum Spiel"</b><!--Hervorheben--> klicken.</p>
+Du kannst in den Spieloptionen auch ohne jede Eingabe einfach die Enter-Taste dr&uuml;cken oder auf <b>"Zum Spiel"</b> klicken.</p>
+
+<P><IMG SRC="Pictures_de/Dlg_options2_de.bmp" ALT="Dlg_options2_de.bmp" BORDER=0></p>
 
 <p><h4><u>3. Der erste Zug</u></h4></p>
 
-<P><IMG SRC="Bilder-de/bmp/Dlg_main_de.bmp" ALT="Dlg_main_de.bmp" BORDER=0></p>
+<P><IMG SRC="Pictures_de/Dlg_main_de.bmp" ALT="Dlg_main_de.bmp" BORDER=0></p>
 
-<p>Beim ersten Start des Spieles ist immer 20 als Anzahl aller zu Beginn auswählbaren Zahlen (Zahlenvorrat) eingetragen. Dies wurde auch als Einstellung für das Tutorial beibehalten.</p>
+<p>Beim ersten Start des Spieles ist immer 20 als Anzahl aller zu Beginn ausw&auml;hlbaren Zahlen (Zahlenvorrat) eingetragen. Dies wurde auch als Einstellung f&uuml;r das Tutorial beibehalten.</p>
 
-<p>Da der Zahlenhai alle verfügbaren <a href="Echte_Teiler.html">echten Teiler</a> der gewählten Zahl erhält (bzw. auch die gewählte Zahl selbst, wenn alle ihre echten Teiler nicht mehr verfügbar sind), solltest Du darauf achten, dass der Zahlenhai meist nur eine einzige Zahl bekommt.<br>
-Um ein optimales Ergebnis zu erzielen, solltest Du in der ersten Runde die höchste Primzahl auswählen, da diese nur "1" und sich selbst als Teiler hat. In unserem Beispiel wäre die höchste Primzahl im Zahlenvorrat die "19".<br>
+<p>Da der Zahlenhai alle verf&uuml;gbaren <a href="Echte_Teiler.html">echten Teiler</a> der gew&auml;hlten Zahl erh&auml;lt (bzw. auch die gew&auml;hlte Zahl selbst, wenn alle ihre echten Teiler nicht mehr verf&uuml;gbar sind), solltest Du darauf achten, dass der Zahlenhai meist nur eine einzige Zahl bekommt.<br>
+Um ein optimales Ergebnis zu erzielen, solltest Du in der ersten Runde die h&ouml;chste Primzahl ausw&auml;hlen, da diese nur "1" und sich selbst als Teiler hat. In unserem Beispiel w&auml;re die h&ouml;chste Primzahl im Zahlenvorrat die "19".<br>
 Da die "1" Teiler aller Zahlen ist, ist sie immer nach der ersten Runde weg.<br>
-Wird eine Zahl von Dir ausgewählt oder vom Zahlenhai gefressen, ist sie nicht mehr verfügbar und wird im Zahlenvorrat rot gefärbt und damit deaktiviert.</p>
+Wird eine Zahl von Dir ausgew&auml;hlt oder vom Zahlenhai gefressen, ist sie nicht mehr verf&uuml;gbar und wird im Zahlenvorrat rot gef&auml;rbt und damit deaktiviert.</p>
 
-<P><IMG SRC="Bilder-de/bmp/Dlg_game_19_de.bmp" ALT="Dlg_game_19_de.bmp" BORDER=0></p>
+<P><IMG SRC="Pictures_de/Dlg_game_19_de.bmp" ALT="Dlg_game_19_de.bmp" BORDER=0></p>
 
-<p>Wenn während des Spielverlaufes auswählbare Zahlen übrig bleiben, die dem Spieler keine Punkte mehr einbringen können (das passiert, wenn die Zahlen keine freien, echten Teiler mehr haben und auch nicht selbst Teiler einer anderen, noch freien Zahl sind) wird der Button <b>"Haifutter"</b> aktiv. Dieser gibt dem Spieler die Möglichkeit, sofort all diese Zahlen aus dem Spiel herauszunehmen (und dem Hai zum Fressen vorzuwerfen). Es empfiehlt sich, wann immer der Button "Haifutter" erscheint, diesen zu drücken. Man gewinnt dadurch Übersicht, welche auswählbaren Zahlen man noch drücken kann, um sie auch für sich zu gewinnen.</p>
-<!--Bild der Spielverlaufstabelle nachdem der Button Haifutter gedrückt wurde-->
-<p><h4><u>4. Weitere Züge</u></h4></p>
-<p>Nach dem ersten Zug wird die Entscheidung komplizierter. Du solltest versuchen, die Zahlen so zu wählen, dass der Zahlenhai immer nur einen Teiler bekommt. Manchmal geht dies aber nicht, da die "2" ebenfalls ein Teiler vieler Zahlen ist. Also solltest Du zumindest versuchen, dem Zahlenhai so wenig wie möglich Teiler zu geben. Dabei musst Du aber auch beachten, dass Du nicht zu kleine Zahlen wählst, die zwar vielleicht nur einen Teiler haben, aber wiederum selbst Teiler einer größeren Zahl sein können. Für den zweiten Zug empfiehlt es sich daher, die Zahl "10" (=2*5) oder "14" (=2*7) zu wählen. In unserem Beispiel haben wir die "10" gewählt.</p>
+<p>Wenn w&auml;hrend des Spielverlaufes ausw&auml;hlbare Zahlen &uuml;brig bleiben, die dem Spieler keine Punkte mehr einbringen k&ouml;nnen (das passiert, wenn die Zahlen keine freien, echten Teiler mehr haben und auch nicht selbst Teiler einer anderen, noch freien Zahl sind) wird der Button <b>"Haifutter"</b> aktiv. Dieser gibt dem Spieler die M&ouml;glichkeit, sofort all diese Zahlen aus dem Spiel herauszunehmen (und dem Hai zum Fressen vorzuwerfen). Es empfiehlt sich, wann immer der Button "Haifutter" erscheint, diesen zu dr&uuml;cken. Man gewinnt dadurch &Uuml;bersicht, welche ausw&auml;hlbaren Zahlen man noch dr&uuml;cken kann, um sie auch f&uuml;r sich zu gewinnen.<br>TODO: Bild der Spielverlaufstabelle nachdem der Button "Haifutter gedr&uuml;ckt wurde. Dadurch muss sich der Text "Das Ende des Spiels..." &auml;ndern.</p>
 
-<P><IMG SRC="Bilder-de/bmp/Dlg_game_10_de.bmp" ALT="Dlg_game_10_de.bmp" BORDER=0></p>
+<p><h4><u>4. Weitere Z&uuml;ge</u></h4></p>
+<p>Nach dem ersten Zug wird die Entscheidung komplizierter. Du solltest versuchen, die Zahlen so zu w&auml;hlen, dass der Zahlenhai immer nur einen Teiler bekommt. Manchmal geht dies aber nicht, da die "2" ebenfalls ein Teiler vieler Zahlen ist. Also solltest Du zumindest versuchen, dem Zahlenhai so wenig wie m&ouml;glich Teiler zu geben. Dabei musst Du aber auch beachten, dass Du nicht zu kleine Zahlen w&auml;hlst, die zwar vielleicht nur einen Teiler haben, aber wiederum selbst Teiler einer gr&ouml;&szlig;eren Zahl sein k&ouml;nnen. F&uuml;r den zweiten Zug empfiehlt es sich daher, die Zahl "10" (=2*5) oder "14" (=2*7) zu w&auml;hlen. In unserem Beispiel haben wir die "10" gew&auml;hlt.</p>
 
-<p>Da beim vorhergehenden Zug die "10" gewählt wurde, hat jetzt die "14" nur noch die "7" als Teiler und bietet sich daher als nächste Wahl an.</p>
+<P><IMG SRC="Pictures_de/Dlg_game_10_de.bmp" ALT="Dlg_game_10_de.bmp" BORDER=0></p>
 
-<P><IMG SRC="Bilder-de/bmp/Dlg_game_14_de.bmp" ALT="Dlg_game_14_de.bmp" BORDER=0></p>
+<p>Da beim vorhergehenden Zug die "10" gew&auml;hlt wurde, hat jetzt die "14" nur noch die "7" als Teiler und bietet sich daher als n&auml;chste Wahl an.</p>
 
-<p>In den nächsten zwei Zügen kann man die "15" und die "20" wählen, da beide auch nur noch einen freien Teiler (3 bzw. 4) haben.</p>
+<P><IMG SRC="Pictures_de/Dlg_game_14_de.bmp" ALT="Dlg_game_14_de.bmp" BORDER=0></p>
 
-<p><IMG SRC="Bilder-de/bmp/Dlg_game_15_de.bmp" ALT="Dlg_game_15_de.bmp" BORDER=0></p>
+<p>In den n&auml;chsten zwei Z&uuml;gen kann man gut die "15" und die "20" w&auml;hlen, da beide nur noch einen freien Teiler (3 bzw. 4) haben.</p>
 
-<p>Jetzt sind nur noch drei Zahlen übrig, die noch Teiler haben: die "12", "16" und "18".</p>
+<p><IMG SRC="Pictures_de/Dlg_game_15_de.bmp" ALT="Dlg_game_15_de.bmp" BORDER=0></p>
 
-<p><IMG SRC="Bilder-de/bmp/Dlg_game_20_de.bmp" ALT="Dlg_game_20_de.bmp" BORDER=0></p>
+<p>Jetzt sind nur noch drei Zahlen &uuml;brig, die noch freie Teiler haben: die "12", "16" und "18".</p>
 
-<p>Es empfiehlt sich, die "12" vor der "18" zu wählen, da beide die "6" als freien Teiler haben, die "12" aber nur noch die "6", dagegen hat die "18" zusätzlich aber noch die "9". Würde man also zuerst die "18" wählen, kann man im späteren Spielverlauf die "12" nicht mehr nehmen und verschenkt somit Punkte an den Zahlenhai.</p>
-<p>Ob Du nun die "12" vor der "16" wählst oder anders herum, spielt keine Rolle.</p>
+<p><IMG SRC="Pictures_de/Dlg_game_20_de.bmp" ALT="Dlg_game_20_de.bmp" BORDER=0></p>
 
-<p><IMG SRC="Bilder-de/bmp/Dlg_game_16_de.bmp" ALT="Dlg_game_16_de.bmp" BORDER=0></p>
+<p>Von den 3 Zahlen kann man zumindest f&uuml;r "12" und "18" eine klare Reihenfolge festlegen.</p>
+<p>Es empfiehlt sich, die "12" vor der "18" zu w&auml;hlen Beide haben die "6" als freien Teiler -- die "12" hat aber nur noch die "6", dagegen hat die "18" zus&auml;tzlich aber noch die "9". W&uuml;rde man also zuerst die "18" w&auml;hlen, kann man im sp&auml;teren Spielverlauf die "12" nicht mehr nehmen und verschenkt somit Punkte an den Zahlenhai.</p>
+<p>Ob Du nun die "12" vor der "16" w&auml;hlst oder anders herum, spielt keine Rolle.</p>
 
-<p>Als letzte Zahl ist jetzt nur noch die "18" übrig.</p>
+<p><IMG SRC="Pictures_de/Dlg_game_16_de.bmp" ALT="Dlg_game_16_de.bmp" BORDER=0></p>
 
-<p><IMG SRC="Bilder-de/bmp/Dlg_game_18_de.bmp" ALT="Dlg_game_18_de.bmp" BORDER=0></p>
+<p>Als letzte Zahl mit freien Teilern ist jetzt nur noch die "18" &uuml;brig.</p>
 
-<p><a name="Uebrige">Wenn</a> Du den Button <b>"Haifutter"</b> schon nach der ersten Zahl gedrückt hast, dann ist das Spiel jetzt schon zu Ende. Falls Du das nicht getan hast sind jetzt noch die Zahlen "11", "13" und "17" übrig. Jetzt hast Du die Wahl ob du jede der restlichen Muscheln einzeln anklicken möchstest, oder ob Du jetzt den <b>"Haifutter"</b> Button drückst. Punkte kannst du für diese drei Zahlen nicht mehr erhalten.</p>
+<p><IMG SRC="Pictures_de/Dlg_game_18_de.bmp" ALT="Dlg_game_18_de.bmp" BORDER=0></p>
 
-<p><IMG SRC="Bilder-de/bmp/Dlg_game_food_de.bmp" ALT="Dlg_game_food_de.bmp" BORDER=0></p>
+<p><a name="Uebrige">Wenn</a> Du den Button <b>"Haifutter"</b> schon nach der ersten Zahl gedr&uuml;ckt hast, dann ist das Spiel jetzt schon zu Ende. Falls Du das nicht getan hast, sind jetzt noch die Zahlen "11", "13" und "17" &uuml;brig. Jetzt hast Du die Wahl, ob du jede der restlichen Muscheln einzeln anklicken m&ouml;chtest, oder ob Du jetzt den <b>"Haifutter"</b>-Button dr&uuml;ckst. Punkte kannst Du f&uuml;r diese drei Zahlen nicht mehr erhalten.</p>
+
+<p><IMG SRC="Pictures_de/Dlg_game_food_de.bmp" ALT="Dlg_game_food_de.bmp" BORDER=0></p>
 
 <p>Jetzt sind alle Zahlen verteilt und das Spiel ist zu Ende.</p>
 
-<p><IMG SRC="Bilder-de/bmp/Dlg_win_max_de.bmp" ALT="Dlg_win_max_de.bmp" BORDER=0></p>
+<p><IMG SRC="Pictures_de/Dlg_win_max_de.bmp" ALT="Dlg_win_max_de.bmp" BORDER=0></p>
 
-<p>Das Programm schreibt nach Spielende immer eine Zusammenfassung des Spiels in eine Datei. Die Datei wird in dem Ordner abgespeichert, in dem sich auch die Datei "Zahlenhai.exe"(TODO: momentan noch MFC-Zahlenhai.exe) befindet. Schreibt man bei einem neuen Spiel eine neue Zusammenfassung mit den selben Daten, wird eine alte mit gleichem Namen überschrieben. Die Datei erhält ihren Namen nach folgendem Muster: [gewählter Zahlenvorrat]_[erreichte Punktzahl]_[Name des Spielers]_Zusammenfassung.txt</p>
+<p>Das Programm kann nach Spielende eine Zusammenfassung des Spiels in eine Datei schreien. Die Datei wird in dem Ordner abgespeichert, in dem sich auch die Datei "Zahlenhai.exe" befindet.<br>
+Schreibt man bei einem neuen Spiel eine neue Zusammenfassung mit denselben Daten, wird eine alte mit gleichem Namen &uuml;berschrieben. Die Datei erh&auml;lt ihren Namen nach folgendem Muster: [gew&auml;hlter Zahlenvorrat]_[erreichte Punktzahl]_[Name des Spielers]_Zusammenfassung.txt</p>
 
-<p><a name="Zusammenfassung">Die</a> Zusammenfassung enthält:
+<p><a name="Zusammenfassung">Die</a> Zusammenfassung enth&auml;lt:
 <ul>
 	<li>das Datum und die Uhrzeit, an der die Datei erstellt wurde,</li>
 	<li>den Spielernamen, falls dieser eingegeben wurde,</li>
-	<li>den gewählten Zahlenvorrat,</li>
+	<li>den gew&auml;hlten Zahlenvorrat,</li>
 	<li>die komplette Spielverlaufstabelle,</li>
 	<li>die erreichte Gesamtpunktzahl des Spielers und des Zahlenhais,</li>
-	<li>die benötigten Züge,</li>
-	<li>die maximal erreichbare Punktzahl, falls diese für den eingegebenen Zahlenvorrat schon berechnet wurde</li></p>
+	<li>die ben&ouml;tigten Z&uuml;ge,</li>
+	<li>die maximal erreichbare Punktzahl, falls diese f&uuml;r den eingegebenen Zahlenvorrat schon berechnet wurde.</li></p>
 </ul>
-<p><IMG SRC="Bilder-de/bmp/Dlg_summary_de.bmp" ALT="Dlg_summary_de.bmp" BORDER=0></p>
+<p><IMG SRC="Pictures_de/Dlg_summary_de.bmp" ALT="Dlg_summary_de.bmp" BORDER=0></p>
 
 <p>Im Spieldialog kannst Du jederzeit ein neues Spiel starten.<br>
-Dabei wird der Inhalt der Spielverlaufstabelle gelöscht und alle Zahlen werden als wählbar angezeigt. Die Anzahl der zu verteilenden Zahlen ändert sich nur, wenn Du im Feld "Anzahl aller Zahlen" eine andere Zahl einträgst und den Button "OK" oder die Enter-Taste drückst.</p>
+Dabei wird der Inhalt der Spielverlaufstabelle gel&ouml;scht und alle Zahlen werden als w&auml;hlbar angezeigt. Die Anzahl der zu verteilenden Zahlen &auml;ndert sich nur, wenn Du im Feld "Anzahl aller Zahlen" eine andere Zahl eintr&auml;gst und den Button "<b>OK</b>" oder die Enter-Taste dr&uuml;ckst.</p>
 
 
-<p>Aus rechtlichen Gründen müssen wir explizit auf die <a href="Zahlenhai_Lizenz.html">Lizenzbestimmungen / Haftungsausschluss</a> hinweisen.</p
+<p>Aus rechtlichen Gr&uuml;nden m&uuml;ssen wir explizit auf die <a href="Zahlenhai_Lizenz.html">Lizenzbestimmungen / Haftungsausschluss</a> hinweisen.</p>
 </BODY>
 </HTML>

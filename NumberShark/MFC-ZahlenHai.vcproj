@@ -34,6 +34,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="htmlhelp.lib"
+				OutputFile="../CrypTool/Debug/Zahlenhai.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="&quot;C:\program files\html help workshop\lib&quot;"
 				GenerateDebugInformation="TRUE"
@@ -510,6 +511,9 @@
 				RelativePath=".\Bilder\backward.bmp">
 			</File>
 			<File
+				RelativePath=".\Bilder\cursor1.cur">
+			</File>
+			<File
 				RelativePath=".\Bilder\foreward-engl.bmp">
 			</File>
 			<File
@@ -528,10 +532,10 @@
 				RelativePath=".\Bilder\Hai04-vers5.bmp">
 			</File>
 			<File
-				RelativePath=".\res\idr_main.ico">
+				RelativePath=".\Bilder\HaiAnAngel-engl.bmp">
 			</File>
 			<File
-				RelativePath=".\res\MFC-ZahlenHai.ico">
+				RelativePath=".\Bilder\HaiAnAngel.bmp">
 			</File>
 			<File
 				RelativePath=".\MFC-ZahlenHai.rc">
@@ -544,6 +548,24 @@
 			</File>
 			<File
 				RelativePath=".\Bilder\muschel-zweifarbig-5.jpg">
+			</File>
+			<File
+				RelativePath=".\Bilder\NumberShark.ico">
+			</File>
+			<File
+				RelativePath=".\res\NumberShark.ico">
+			</File>
+			<File
+				RelativePath=".\Bilder\shark-engl.bmp">
+			</File>
+			<File
+				RelativePath=".\Bilder\shark.bmp">
+			</File>
+			<File
+				RelativePath=".\res\Zahlenhai.ico">
+			</File>
+			<File
+				RelativePath=".\Bilder\Zahlenhai.ico">
 			</File>
 		</Filter>
 		<File
