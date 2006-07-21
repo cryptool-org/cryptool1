@@ -78,5 +78,7 @@ private:
 	bool primeFlag, coeffFlag;
 
 	SecretSharingLog *logFile;	
+public:
+	afx_msg void OnNMClickListShares(NMHDR *pNMHDR, LRESULT *pResult);
 };
 

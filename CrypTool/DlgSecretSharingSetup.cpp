@@ -80,6 +80,7 @@ BEGIN_MESSAGE_MAP(CDlgSecretSharingSetup, CDialog)
 	ON_BN_CLICKED(IDC_CHECK_SHOWINTRO, OnButtonClickedCheckShowintro)
 	ON_BN_CLICKED(IDC_BUTTON_EXAMPLE, OnButtonExample)
 	//}}AFX_MSG_MAP	
+	ON_NOTIFY(NM_CLICK, IDC_LIST_SHARES, OnNMClickListShares)
 END_MESSAGE_MAP()
 
 BOOL CDlgSecretSharingSetup::OnInitDialog()
@@ -107,13 +108,14 @@ BOOL CDlgSecretSharingSetup::OnInitDialog()
 	partyLimit = "30";
 	primeLimit = "10000";
 	int colWidth = 150;  //Spaltenbreite in Pixel
-	m_list_shares.SetExtendedStyle( LVS_EX_FULLROWSELECT );
+    m_list_shares.SetExtendedStyle( LVS_EX_CHECKBOXES | LVS_EX_FULLROWSELECT );
+	m_list_shares.InsertColumn( 0,"", LVCFMT_LEFT,20,0);
 	LoadString(AfxGetInstanceHandle(), IDS_STRING_MEMBER, pc_str, STR_LAENGE_STRING_TABLE);
-	m_list_shares.InsertColumn( 0, pc_str, LVCFMT_LEFT, colWidth, 0);
-	LoadString(AfxGetInstanceHandle(), IDS_STRING_VALUESS, pc_str, STR_LAENGE_STRING_TABLE);
 	m_list_shares.InsertColumn( 1, pc_str, LVCFMT_LEFT, colWidth, 1);
-	LoadString(AfxGetInstanceHandle(), IDS_STRING_SHARE, pc_str, STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(), IDS_STRING_VALUESS, pc_str, STR_LAENGE_STRING_TABLE);
 	m_list_shares.InsertColumn( 2, pc_str, LVCFMT_LEFT, colWidth, 2);
+	LoadString(AfxGetInstanceHandle(), IDS_STRING_SHARE, pc_str, STR_LAENGE_STRING_TABLE);
+	m_list_shares.InsertColumn( 3, pc_str, LVCFMT_LEFT, colWidth, 3);
 	return TRUE;  
 }
 
@@ -219,15 +221,18 @@ void CDlgSecretSharingSetup::OnButtonUpdate()
 	for (int row = 0; row < n; row++)
 	{
 		CString number;
-		CString entry = "Teilnehmer ";
-		number.Format("%d", row+1);
+		CString entry = "";
+		entry.LoadString(IDS_STRING_MEMBER);
+		entry+=" ";
+		number.Format("%d", row);
 		entry += number;
-		m_list_shares.InsertItem(row, entry);
+		m_list_shares.InsertItem(row, "");
 		shares[row] = CalculateShare(coeff, parameter[row]);
 		BigToCString(shares[row], result, 10);
 		pubValue.Format("%d", parameter[row]);
-		m_list_shares.SetItemText(row, 1, pubValue);
-		m_list_shares.SetItemText(row, 2, result);
+		m_list_shares.SetItemText(row, 0+1, entry);
+		m_list_shares.SetItemText(row, 1+1, pubValue);
+		m_list_shares.SetItemText(row, 2+1, result);
 	}
 	m_ctrl_ButtonOK.EnableWindow(true);
 	m_ctrl_ButtonUpdate.EnableWindow(false);
@@ -253,7 +258,8 @@ void CDlgSecretSharingSetup::OnButtonOk()
 	//welche Teilnehmer wurden ausgewählt?
 	for (i=0; i<j; i++)
 	{
-		if (m_list_shares.GetItemState(i, LVIS_SELECTED))
+		//if (m_list_shares.GetItemState(i, LVIS_SELECTED))
+		if (m_list_shares.GetCheck(i))
 		{
 			numberSelected++;
 			isSelected[i]=true;
@@ -562,4 +568,33 @@ void CDlgSecretSharingSetup::OnButtonExample()
 	m_threshold = "4";
 	m_ctrl_ButtonPolynom.EnableWindow(true);
 	UpdateData(false);
+}
+
+void CDlgSecretSharingSetup::OnNMClickListShares(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMITEMACTIVATE testItem = (LPNMITEMACTIVATE) pNMHDR;
+	int item = testItem->iItem;
+	int subitem = testItem->iSubItem;
+	//ListControl.SetItemState(item, LVIS_SELECTED, LVIS_SELECTED );
+	
+	if(subitem > 0)
+	{
+		if (m_list_shares.GetItemState(item, LVIS_SELECTED))
+		{
+			m_list_shares.SetItemState(item, LVIS_SELECTED, LVIS_SELECTED );
+			if(m_list_shares.GetCheck(item))
+			{
+				m_list_shares.SetCheck(item,0);
+			}
+			else
+                m_list_shares.SetCheck(item,1);
+
+			m_list_shares.SetSelectionMark(item);
+		}
+		else
+		{
+			m_list_shares.SetCheck(item,0);
+		}
+	}
+	*pResult = 0;
 }
