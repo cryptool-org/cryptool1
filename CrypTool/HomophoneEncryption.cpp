@@ -292,7 +292,7 @@ bool CHomophoneEncryption::Check_key()
 int CHomophoneEncryption::Encrypt(int value)
 // liefert zu dem ASCII-Wert eines plaintext-Zeichens (value) zufällig ein ciphertext-Zeichen zurück
 {
-	if (FALSE == theApp.TextOptions.m_Case && (value >= 'a' && value<='z'))	
+	if ((HOM_ENC_TXT == keyType) && (FALSE == theApp.TextOptions.m_Case && (value >= 'a' && value<='z')) )	
 	{
 		value += 'A'-'a';
 	}

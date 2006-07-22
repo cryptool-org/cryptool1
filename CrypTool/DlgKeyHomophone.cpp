@@ -170,7 +170,7 @@ void CDlgKeyHomophone::OnDecrypt()
 		sprintf(tmpStr, "%i", m_NoOfHomophones );
 		CString Primes = CString("PARAMETER: ") + char(m_BaseHomophones + '0') + ' ' + char(m_ctrlEncryptFormatCharacters.GetCheck() + '0') +
 			' ' + char(m_ctrlEncodeUmlauts.GetCheck() + '0') + 
-			' ' + char(m_InputType) + ' ' + CString( tmpStr );
+			' ' + char(m_InputType + '0') + ' ' + CString( tmpStr );
 		CopyKey ( pc_str, Primes );
 	}
 	OnOK();
@@ -349,7 +349,7 @@ void CDlgKeyHomophone::OnLoadKey()
 	m_NoOfHomophones = HB.GetKeySize();
 	m_Bitlength = HB.LogKeySize( 2 );
 	m_listview.DeleteAllItems(); 
-	this->m_InputType = HB.GetKeyType();
+	m_InputType = HB.GetKeyType();
 
 	LoadListBox();	
 	int Flag = 0;
@@ -371,7 +371,7 @@ void CDlgKeyHomophone::OnLoadKey()
 		}
 	}
 	if ( Flag & 1 ) m_ctrlEncryptFormatCharacters.SetCheck(1);
-	if ( Flag & 2 || newAlphabet.GetLength() != theApp.TextOptions.m_alphabet.GetLength() ) {
+	if ( (HOM_ENC_TXT == m_InputType) && (Flag & 2 || newAlphabet.GetLength() != theApp.TextOptions.m_alphabet.GetLength()) ) {
 		Message( IDS_MSG_HOMOPHONE_CHANGE_OF_ALPHABET, MB_ICONINFORMATION,
 			 theApp.TextOptions.m_alphabet, newAlphabet );
 		theApp.TextOptions.m_alphabet = newAlphabet;

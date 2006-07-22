@@ -2799,42 +2799,49 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 			char buff = 0;
 			bool umlautFlag = FALSE;
 			for (int i=0;i<in.gcount(); )
-			{				
-				if ( DH.m_encodeUmlauts && buff == 0 )
+			{		
+				if ( DH.HB.GetKeyType() == HOM_ENC_TXT )
 				{
-					switch ( (char)inbuffer[i] ) {
-					case 'ä': inbuffer[i] = 'a'; buff = 'e'; umlautFlag = true;
-						break;
-					case 'ö': inbuffer[i] = 'o'; buff = 'e'; umlautFlag = true;
-						break;
-					case 'ü': inbuffer[i] = 'u'; buff = 'e'; umlautFlag = true;
-						break;
-					case 'ß': inbuffer[i] = 's'; buff = 's'; umlautFlag = true;
-						break;
-					case 'Ä': inbuffer[i] = 'A'; buff = 'e'; umlautFlag = true;
-						break;
-					case 'Ö': inbuffer[i] = 'O'; buff = 'e'; umlautFlag = true;
-						break;
-					case 'Ü': inbuffer[i] = 'U'; buff = 'e'; umlautFlag = true;
-						break;
-					}					
-					value=DH.HB.Encrypt((unsigned char)inbuffer[i]);					
-				}
+					if ( DH.m_encodeUmlauts && buff == 0 )
+					{
+						switch ( (char)inbuffer[i] ) {
+						case 'ä': inbuffer[i] = 'a'; buff = 'e'; umlautFlag = true;
+							break;
+						case 'ö': inbuffer[i] = 'o'; buff = 'e'; umlautFlag = true;
+							break;
+						case 'ü': inbuffer[i] = 'u'; buff = 'e'; umlautFlag = true;
+							break;
+						case 'ß': inbuffer[i] = 's'; buff = 's'; umlautFlag = true;
+							break;
+						case 'Ä': inbuffer[i] = 'A'; buff = 'e'; umlautFlag = true;
+							break;
+						case 'Ö': inbuffer[i] = 'O'; buff = 'e'; umlautFlag = true;
+							break;
+						case 'Ü': inbuffer[i] = 'U'; buff = 'e'; umlautFlag = true;
+							break;
+						}					
+						value=DH.HB.Encrypt((unsigned char)inbuffer[i]);					
+					}
 
-				if ( !buff )
-				{	
-					value=DH.HB.Encrypt((unsigned char)inbuffer[i]);
-					i++;
-				}
-				else if ( umlautFlag ) 
-				{
-					umlautFlag = false;
+					if ( !buff )
+					{	
+						value=DH.HB.Encrypt((unsigned char)inbuffer[i]);
+						i++;
+					}
+					else if ( umlautFlag ) 
+					{
+						umlautFlag = false;
+					}
+					else
+					{
+						value=DH.HB.Encrypt((unsigned char)buff);
+						buff = 0;
+						i++;
+					}
 				}
 				else
 				{
-					value=DH.HB.Encrypt((unsigned char)buff);
-					buff = 0;
-					i++;
+					value = DH.HB.Encrypt((unsigned char)inbuffer[i++]);
 				}
 
 				if ( value >= 0 )
@@ -2868,25 +2875,29 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 	else								// Entschlüsselung
 	{
 		DH.HB.Make_dec_table();
+		value = 0;
+		unsigned char offsetResiduumPrev;
+		int j = 0;
 
 		while(in.gcount())
 		{
 			outbuffsize=0;
 			for (int i=0;i<in.gcount();)
 			{
-				value = 0;
-				unsigned char offsetResiduumPrev = offsetResiduum;
-				for ( int j=0; offsetResiduum < bitLength; )
+				p_value[j] = inbuffer[i];
+				i++; j++; offsetResiduum += 8;
+				while ( offsetResiduum >= bitLength )
 				{
-					p_value[j] = inbuffer[i];
-					i++; j++; offsetResiduum += 8;
+					value = (value << offsetResiduumPrev) + residuum;
+					int val = value % (1 << bitLength);
+					outbuffer[outbuffsize]=DH.HB.Decrypt( val );
+					outbuffsize++;
+					offsetResiduum -= bitLength;
+					residuum = value >> bitLength;
+
+					value = j = 0;
+					offsetResiduumPrev = offsetResiduum;
 				}
-				value = (value << offsetResiduumPrev) + residuum;
-				int val = value % (1 << bitLength);
-				outbuffer[outbuffsize]=DH.HB.Decrypt( val );
-				outbuffsize++;
-				offsetResiduum -= bitLength;
-				residuum = value >> bitLength;
 			}
 			out.write(outbuffer,outbuffsize);
 			in.read((char *)inbuffer,buffsize);
