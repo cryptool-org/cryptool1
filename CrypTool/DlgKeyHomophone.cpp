@@ -253,7 +253,6 @@ BOOL CDlgKeyHomophone::OnInitDialog()
 			}
 		}
 
-
 		if ( m_NoOfHomophones != HB.GetKeySize() )
 		{
 			HB.Resize( m_NoOfHomophones );
@@ -290,6 +289,17 @@ BOOL CDlgKeyHomophone::OnInitDialog()
 		m_ButtonDecryption.EnableWindow(FALSE);
 
 	VERIFY(m_Paste.AutoLoad(IDC_BUTTON2,this));
+
+	if ( m_InputType == HOM_ENC_TXT )
+	{
+		m_ctrlEncodeUmlauts.EnableWindow();
+		m_ctrlEncryptFormatCharacters.EnableWindow();
+	}
+	else
+	{
+		m_ctrlEncodeUmlauts.EnableWindow(FALSE);
+		m_ctrlEncryptFormatCharacters.EnableWindow(FALSE);
+	}
 
 	if ( IsKeyEmpty( "Homophone" ))
 	{
@@ -370,11 +380,22 @@ void CDlgKeyHomophone::OnLoadKey()
 			}
 		}
 	}
-	if ( Flag & 1 ) m_ctrlEncryptFormatCharacters.SetCheck(1);
+	if ( (HOM_ENC_TXT == m_InputType) && (Flag & 1) ) m_ctrlEncryptFormatCharacters.SetCheck(1);
 	if ( (HOM_ENC_TXT == m_InputType) && (Flag & 2 || newAlphabet.GetLength() != theApp.TextOptions.m_alphabet.GetLength()) ) {
 		Message( IDS_MSG_HOMOPHONE_CHANGE_OF_ALPHABET, MB_ICONINFORMATION,
 			 theApp.TextOptions.m_alphabet, newAlphabet );
 		theApp.TextOptions.m_alphabet = newAlphabet;
+	}
+
+	if ( m_InputType == HOM_ENC_TXT )
+	{
+		m_ctrlEncodeUmlauts.EnableWindow();
+		m_ctrlEncryptFormatCharacters.EnableWindow();
+	}
+	else
+	{
+		m_ctrlEncodeUmlauts.EnableWindow(FALSE);
+		m_ctrlEncryptFormatCharacters.EnableWindow(FALSE);
 	}
 
 

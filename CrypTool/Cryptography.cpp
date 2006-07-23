@@ -2876,7 +2876,7 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 	{
 		DH.HB.Make_dec_table();
 		value = 0;
-		unsigned char offsetResiduumPrev;
+		unsigned char offsetResiduumPrev = 0;
 		int j = 0;
 
 		while(in.gcount())

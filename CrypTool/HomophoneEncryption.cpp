@@ -341,7 +341,7 @@ char CHomophoneEncryption::GetIndex(const int value)
 
 const char* CHomophoneEncryption::GetKeyStr()
 {
-	char *keyStr = new char[data.SizeHomophoneKey*(3+LogKeySize(16)*2)+80]; 
+	char *keyStr = new char[data.SizeHomophoneKey*(3+LogKeySize(16)*2)+80 + range*6]; 
 	int k, l, j = 0;
 	char hexStr[10];
 
@@ -418,7 +418,7 @@ void CHomophoneEncryption::load_enc_table(const char *keyStr)
 			else
 				if ( keyStr[j] >= 'A' && keyStr[j] <= 'F' ) Index += keyStr[j]-'A'+10;
 				else { LoadError= true; break; }
-			if (Index>data.SizeHomophoneKey) 
+			if (Index>range || Index<0) 
 			{ 
 				LoadError=true; 
 				break; 
@@ -430,6 +430,7 @@ void CHomophoneEncryption::load_enc_table(const char *keyStr)
 		if (LoadError) break;
 		j++;
 		data.encryptionData0[Index]=Cnt;
+
 		l = 0;
 		while (1) {
 			k = 0;
@@ -452,6 +453,7 @@ void CHomophoneEncryption::load_enc_table(const char *keyStr)
 			j++;
 		}
 		data.encryptionData1[Index] = l;
+		data.frequency[Index] = (double)l/data.SizeHomophoneKey; // CHECKME
 		if (LoadError) break;
 	}
 }
