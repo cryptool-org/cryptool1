@@ -38,16 +38,16 @@
 
 <P>If changes are allowed at both documents instead of keeping one document fixed, then one needs to calculate the hash values of a <B>dramatically</B> less number of changed documents to find 2 documents with the same hash value.</P>
 
-<P>If the initial document isn‚t allowed to change and one uses a 128-bit hash function, then you need to calculate <!--ZZZFORMEL--> 2<SUP>127</SUP> hash values of changed documents to achieve a probability of 50% to find another document with the same hash value <!--ZZZFORMEL--> (2<SUP>127 </SUP> 1,7 * 10<SUP>38</SUP>).</P>
+<P>If the initial document isn't allowed to be changed and one uses a 128-bit hash function, then you need to calculate <!--ZZZFORMEL--> 2<SUP>127</SUP> hash values of changed documents to achieve a probability of 50% to find another document with the same hash value <!--ZZZFORMEL--> (2<SUP>127 </SUP> ~ 1,7 * 10<SUP>38</SUP>).</P>
 
-<P>The birthday attack allows you to break 128-bit hash functions after <!--ZZZFORMEL--> 2<SUP>64</SUP> calculations: the changes are made at both documents – analogous to the 2<SUP>nd</SUP> example above it is equal, which hash value (birthday) is found. It is only important that they are equal <!--ZZZFORMEL--> (2<SUP>64 </SUP> 1,8 * 10<SUP>19</SUP>).</P>
+<P>The birthday attack allows you to break 128-bit hash functions after <!--ZZZFORMEL--> 2<SUP>64</SUP> calculations: The changes are made at both documents – analogous to the 2<SUP>nd</SUP> example above it doesn't matter, which hash value (birthday) is found. It is only important that they are equal <!--ZZZFORMEL--> (2<SUP>64 </SUP> ~ 1,8 * 10<SUP>19</SUP>).</P>
 
 <P>Because an effort of  <!--ZZZFORMEL--> 2<SUP>64</SUP>  calculations is possible using a big number of computers working in parallel, 128-bit hash functions are no more considered to be secure for strong cryptography.</P>
 
 <P>You find further online help here: </P>
 
 <UL>
-	<LI>Help to the menu <B>Indiv. Procedures / <A href="hid_signatur_attack.html">Attack on the Hash Value of the Digital Signature</A></B></LI>
+	<LI>Help to the menu <B>Analysis \ Hash \ <A href="hid_signatur_attack.html">Attack on the Hash Value of the Digital Signature</A></B></LI>
 
 	<LI>Help to the dialog <A href="hidd_signature_attack.html"><B>Attack on the Hash Value of the Digital Signature</B></A>.</LI>
 </UL>
