@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -4342,7 +4342,7 @@ BEGIN
                     IDC_STATIC,30,171,265,19
 END
 
-IDD_AUTO_SUBSTITUTION_ANLYSIS DIALOG  0, 0, 394, 321
+IDD_AUTO_SUBSTITUTION_ANALYSIS DIALOG  0, 0, 394, 321
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Automatische Substitutionsanalyse"
 FONT 8, "MS Sans Serif"
@@ -5085,9 +5085,8 @@ BEGIN
         MENUITEM "Ein&fügen\tStrg+V",           ID_EDIT_PASTE, GRAYED
         MENUITEM "&Löschen\tEntf",              ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&Suchen/Erstezen...",         ID_EDIT_FIND, GRAYED
+        MENUITEM "&Suchen/Ersetzen...",         ID_EDIT_FIND, GRAYED
         MENUITEM "Suche &nächstes\tF3",         ID_EDIT_REPEAT, GRAYED
-        MENUITEM "&Ersetzen...",                ID_EDIT_REPLACE, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Alles &markieren\tStrg+A",    ID_EDIT_SELECT_ALL, GRAYED
         MENUITEM SEPARATOR
@@ -5120,7 +5119,7 @@ BEGIN
 
         END
         MENUITEM SEPARATOR
-        MENUITEM "BOX (Würfelkanten zeigen)",   ID_POPUP_OPENGL_SHOW_BOX
+        MENUITEM "Box (Würfelkanten zeigen)",   ID_POPUP_OPENGL_SHOW_BOX
         , GRAYED
     END
     POPUP "&Ver-/Entschlüsseln"
@@ -5283,8 +5282,8 @@ BEGIN
             END
             POPUP "&UU-Codierung/UU-Decodierung", GRAYED
             BEGIN
-                MENUITEM "UUencode",                    ID_ENCODE_UU
-                MENUITEM "UUdecode",                    ID_DECODE_UU
+                MENUITEM "UU &codieren",                ID_ENCODE_UU
+                MENUITEM "UU &decodieren",              ID_DECODE_UU
             END
             MENUITEM "ASN.&1-Decodieren eines Dokuments", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
@@ -5415,8 +5414,8 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
             , GRAYED
-            MENUITEM "&3-D Visualisierung...",      ID_ANALYSIS_RANDOM_3D_VISUALIZATION
-            , GRAYED
+            MENUITEM "&3D-Visualisierung...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+
         END
     END
     POPUP "&Optionen"
@@ -5474,9 +5473,8 @@ BEGIN
         MENUITEM "Ein&fügen\tStrg+V",           ID_EDIT_PASTE
         MENUITEM "&Löschen\tEntf",              ID_EDIT_CLEAR
         MENUITEM SEPARATOR
-        MENUITEM "&Suchen/Erstezen...",         ID_EDIT_FIND, GRAYED
+        MENUITEM "&Suchen/Ersetzen...",         ID_EDIT_FIND, GRAYED
         MENUITEM "Suche &nächstes\tF3",         ID_EDIT_REPEAT
-        MENUITEM "&Ersetzen...",                ID_EDIT_REPLACE
         MENUITEM SEPARATOR
         MENUITEM "Alles &markieren\tStrg+A",    ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
@@ -5509,7 +5507,7 @@ BEGIN
 
         END
         MENUITEM SEPARATOR
-        MENUITEM "BOX (Würfelkanten zeigen)",   ID_POPUP_OPENGL_SHOW_BOX
+        MENUITEM "Box (Würfelkanten zeigen)",   ID_POPUP_OPENGL_SHOW_BOX
         , GRAYED
     END
     POPUP "&Ver-/Entschlüsseln"
@@ -5655,10 +5653,10 @@ BEGIN
                 MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64
                 MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
             END
-            POPUP "&UU-Codierung/UU-Decodierung"
+            POPUP "&UU-Codierung/UU-Decodierung", GRAYED
             BEGIN
-                MENUITEM "UUencode",                    ID_ENCODE_UU
-                MENUITEM "UUdecode",                    ID_DECODE_UU
+                MENUITEM "UU &codieren",                ID_ENCODE_UU
+                MENUITEM "UU &decodieren",              ID_DECODE_UU
             END
             MENUITEM "ASN.&1-Decodieren eines Dokuments", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
@@ -5776,7 +5774,7 @@ BEGIN
 
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
-            MENUITEM "&3-D Visualisierung...",      ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "&3D-Visualisierung...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
 
         END
     END
@@ -5835,9 +5833,8 @@ BEGIN
         MENUITEM "Ein&fügen\tStrg+V",           ID_EDIT_PASTE, GRAYED
         MENUITEM "&Löschen\tEntf",              ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&Suchen/Erstezen...",         ID_EDIT_FIND, GRAYED
+        MENUITEM "&Suchen/Ersetzen...",         ID_EDIT_FIND, GRAYED
         MENUITEM "Suche &nächstes\tF3",         ID_EDIT_REPEAT, GRAYED
-        MENUITEM "&Ersetzen...",                ID_EDIT_REPLACE, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Alles &markieren\tStrg+A",    ID_EDIT_SELECT_ALL, GRAYED
         MENUITEM SEPARATOR
@@ -5870,7 +5867,7 @@ BEGIN
 
         END
         MENUITEM SEPARATOR
-        MENUITEM "BOX (Würfelkanten zeigen)",   ID_POPUP_OPENGL_SHOW_BOX
+        MENUITEM "Box (Würfelkanten zeigen)",   ID_POPUP_OPENGL_SHOW_BOX
         , GRAYED
     END
     POPUP "&Ver-/Entschlüsseln"
@@ -6032,8 +6029,8 @@ BEGIN
             END
             POPUP "&UU-Codierung/UU-Decodierung", GRAYED
             BEGIN
-                MENUITEM "UUencode",                    ID_ENCODE_UU
-                MENUITEM "UUdecode",                    ID_DECODE_UU
+                MENUITEM "UU &codieren",                ID_ENCODE_UU
+                MENUITEM "UU &decodieren",              ID_DECODE_UU
             END
             MENUITEM "ASN.&1-Decodieren eines Dokuments", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
@@ -6162,8 +6159,8 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
             , GRAYED
-            MENUITEM "&3-D Visualisierung...",      ID_ANALYSIS_RANDOM_3D_VISUALIZATION
-            , GRAYED
+            MENUITEM "&3D-Visualisierung...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+
         END
     END
     POPUP "&Optionen"
@@ -6221,9 +6218,8 @@ BEGIN
         MENUITEM "Ein&fügen\tStrg+V",           ID_EDIT_PASTE
         MENUITEM "&Löschen\tEntf",              ID_EDIT_CLEAR
         MENUITEM SEPARATOR
-        MENUITEM "&Suchen/Erstezen...",         ID_EDIT_FIND
+        MENUITEM "&Suchen/Ersetzen...",         ID_EDIT_FIND, GRAYED
         MENUITEM "Suche &nächstes\tF3",         ID_EDIT_REPEAT
-        MENUITEM "&Ersetzen...",                ID_EDIT_REPLACE
         MENUITEM SEPARATOR
         MENUITEM "Alles &markieren\tStrg+A",    ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
@@ -6256,7 +6252,7 @@ BEGIN
 
         END
         MENUITEM SEPARATOR
-        MENUITEM "BOX (Würfelkanten zeigen)",   ID_POPUP_OPENGL_SHOW_BOX
+        MENUITEM "Box (Würfelkanten zeigen)",   ID_POPUP_OPENGL_SHOW_BOX
         , GRAYED
     END
     POPUP "&Ver-/Entschlüsseln"
@@ -6400,10 +6396,10 @@ BEGIN
                 MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64
                 MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
             END
-            POPUP "&UU-Codierung/UU-Decodierung"
+            POPUP "&UU-Codierung/UU-Decodierung", GRAYED
             BEGIN
-                MENUITEM "UUencode",                    ID_ENCODE_UU
-                MENUITEM "UUdecode",                    ID_DECODE_UU
+                MENUITEM "UU &codieren",                ID_ENCODE_UU
+                MENUITEM "UU &decodieren",              ID_DECODE_UU
             END
             MENUITEM "ASN.&1-Decodieren eines Dokuments", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
@@ -6528,7 +6524,7 @@ BEGIN
 
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
-            MENUITEM "&3-D Visualisierung...",      ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "&3D-Visualisierung...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
 
         END
     END
@@ -6613,9 +6609,8 @@ BEGIN
         MENUITEM "Ein&fügen\tStrg+V",           ID_EDIT_PASTE, GRAYED
         MENUITEM "&Löschen\tEntf",              ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&Suchen/Erstezen...",         ID_EDIT_FIND, GRAYED
+        MENUITEM "&Suchen/Ersetzen...",         ID_EDIT_FIND, GRAYED
         MENUITEM "Suche &nächstes\tF3",         ID_EDIT_REPEAT, GRAYED
-        MENUITEM "&Ersetzen...",                ID_EDIT_REPLACE, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Alles &markieren\tStrg+A",    ID_EDIT_SELECT_ALL, GRAYED
         MENUITEM SEPARATOR
@@ -6648,7 +6643,7 @@ BEGIN
 
         END
         MENUITEM SEPARATOR
-        MENUITEM "BOX (Würfelkanten zeigen)",   ID_POPUP_OPENGL_SHOW_BOX
+        MENUITEM "Box (Würfelkanten zeigen)",   ID_POPUP_OPENGL_SHOW_BOX
         , GRAYED
     END
     POPUP "&Ver-/Entschlüsseln"
@@ -6812,8 +6807,8 @@ BEGIN
             END
             POPUP "&UU-Codierung/UU-Decodierung", GRAYED
             BEGIN
-                MENUITEM "UUencode",                    ID_ENCODE_UU
-                MENUITEM "UUdecode",                    ID_DECODE_UU
+                MENUITEM "UU &codieren",                ID_ENCODE_UU
+                MENUITEM "UU &decodieren",              ID_DECODE_UU
             END
             MENUITEM "ASN.&1-Decodieren eines Dokuments", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
@@ -6944,8 +6939,8 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
             , GRAYED
-            MENUITEM "&3-D Visualisierung...",      ID_ANALYSIS_RANDOM_3D_VISUALIZATION
-            , GRAYED
+            MENUITEM "&3D-Visualisierung...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+
         END
     END
     POPUP "&Optionen"
@@ -10663,7 +10658,7 @@ BEGIN
     IDS_TITLE_DLG_RSADECRYPTION 
                             "Auswahl eines Schlüssels zur RSA-Entschlüsselung von <%s>"
     ID_POPUP_OPENGL_SHOW_BOX 
-                            "Zeige Würfelkanten in der OpenGL Visualisierung."
+                            "Anzeige von Würfelkanten in der OpenGL-Visualisierung."
     ID_VIEW_ENDOFLINE       "Ein- oder Ausschalten besonderer Zeichen anstelle von Zeilenenden"
     ID_VIEW_LINEWRAP        "Ein- oder Ausschalten besonderer Zeichen anstelle von Zeilenumbrüchen"
     ID_VIEW_WHITESPACE      "Ein- oder Ausschalten besonderer Zeichen anstelle von Leerzeichen"
@@ -10792,12 +10787,12 @@ BEGIN
     IDS_STRING_MSG_UUDEC_OF "UU-Dekodierung von <%s>"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -15086,7 +15081,7 @@ BEGIN
                     IDC_STATIC,30,188,265,21
 END
 
-IDD_AUTO_SUBSTITUTION_ANLYSIS DIALOG  0, 0, 394, 321
+IDD_AUTO_SUBSTITUTION_ANALYSIS DIALOG  0, 0, 394, 321
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Automatic substitution analysis"
 FONT 8, "MS Sans Serif"
@@ -15820,7 +15815,6 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Find/Replace...",            ID_EDIT_FIND, GRAYED
         MENUITEM "Find &Next\tF3",              ID_EDIT_REPEAT, GRAYED
-        MENUITEM "&Replace...",                 ID_EDIT_REPLACE, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECT_ALL, GRAYED
         MENUITEM SEPARATOR
@@ -16002,7 +15996,8 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
         END
-        MENUITEM "&Secret-Sharing-Demo...",     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
+        MENUITEM "&Secret Sharing Demonstration...", 
+                                                ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
         MENUITEM SEPARATOR
         POPUP "C&odes", GRAYED
@@ -16012,10 +16007,10 @@ BEGIN
                 MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64
                 MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
             END
-            POPUP "&UUEncode/UUdecode", GRAYED
+            POPUP "&UU Encode/Decode"
             BEGIN
-                MENUITEM "UUencode",                    ID_ENCODE_UU
-                MENUITEM "UUdecode",                    ID_DECODE_UU
+                MENUITEM "UU &Encode",                  ID_ENCODE_UU
+                MENUITEM "UU &Decode",                  ID_DECODE_UU
             END
             MENUITEM "Decode ASN.&1 Code of a Document", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
@@ -16205,7 +16200,6 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Find/Replace...",            ID_EDIT_FIND, GRAYED
         MENUITEM "Find &Next\tF3",              ID_EDIT_REPEAT
-        MENUITEM "&Replace...",                 ID_EDIT_REPLACE
         MENUITEM SEPARATOR
         MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
@@ -16372,7 +16366,8 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
         END
-        MENUITEM "&Secret-Sharing-Demo...",     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
+        MENUITEM "&Secret Sharing Demonstration...", 
+                                                ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
         MENUITEM SEPARATOR
         POPUP "C&odes"
@@ -16382,10 +16377,10 @@ BEGIN
                 MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64
                 MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
             END
-            POPUP "&UUEncode/UUdecode"
+            POPUP "&UU Encode/Decode"
             BEGIN
-                MENUITEM "UUencode",                    ID_ENCODE_UU
-                MENUITEM "UUdecode",                    ID_DECODE_UU
+                MENUITEM "UU &Encode",                  ID_ENCODE_UU
+                MENUITEM "UU &Decode",                  ID_DECODE_UU
             END
             MENUITEM "Decode ASN.&1 Code of a Document", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
@@ -16563,7 +16558,6 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Find/Replace...",            ID_EDIT_FIND, GRAYED
         MENUITEM "Find &Next\tF3",              ID_EDIT_REPEAT, GRAYED
-        MENUITEM "&Replace...",                 ID_EDIT_REPLACE, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECT_ALL, GRAYED
         MENUITEM SEPARATOR
@@ -16745,7 +16739,8 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
         END
-        MENUITEM "&Secret-Sharing-Demo...",     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
+        MENUITEM "&Secret Sharing Demonstration...", 
+                                                ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
         MENUITEM SEPARATOR
         POPUP "C&odes", GRAYED
@@ -16755,10 +16750,10 @@ BEGIN
                 MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64
                 MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
             END
-            POPUP "&UUEncode/UUdecode", GRAYED
+            POPUP "&UU Encode/Decode"
             BEGIN
-                MENUITEM "UUencode",                    ID_ENCODE_UU
-                MENUITEM "UUdecode",                    ID_DECODE_UU
+                MENUITEM "UU &Encode",                  ID_ENCODE_UU
+                MENUITEM "UU &Decode",                  ID_DECODE_UU
             END
             MENUITEM "Decode ASN.&1 Code of a Document", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
@@ -16948,7 +16943,6 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Find/Replace...",            ID_EDIT_FIND
         MENUITEM "Find &Next\tF3",              ID_EDIT_REPEAT
-        MENUITEM "&Replace...",                 ID_EDIT_REPLACE
         MENUITEM SEPARATOR
         MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
@@ -17112,7 +17106,8 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
         END
-        MENUITEM "&Secret-Sharing-Demo...",     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
+        MENUITEM "&Secret Sharing Demonstration...", 
+                                                ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
         MENUITEM SEPARATOR
         POPUP "C&odes"
@@ -17122,10 +17117,10 @@ BEGIN
                 MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64
                 MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
             END
-            POPUP "&UUEncode/UUdecode"
+            POPUP "&UU Encode/Decode"
             BEGIN
-                MENUITEM "UUencode",                    ID_ENCODE_UU
-                MENUITEM "UUdecode",                    ID_DECODE_UU
+                MENUITEM "UU &Encode",                  ID_ENCODE_UU
+                MENUITEM "UU &Decode",                  ID_DECODE_UU
             END
             MENUITEM "Decode ASN.&1 Code of a Document", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
@@ -17336,7 +17331,6 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Find/Replace...",            ID_EDIT_FIND, GRAYED
         MENUITEM "Find &Next\tF3",              ID_EDIT_REPEAT, GRAYED
-        MENUITEM "&Replace...",                 ID_EDIT_REPLACE, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECT_ALL, GRAYED
         MENUITEM SEPARATOR
@@ -17518,7 +17512,8 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
         END
-        MENUITEM "&Secret-Sharing-Demo...",     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
+        MENUITEM "&Secret Sharing Demonstration...", 
+                                                ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
         MENUITEM SEPARATOR
         POPUP "C&odes", GRAYED
@@ -17528,10 +17523,10 @@ BEGIN
                 MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64
                 MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
             END
-            POPUP "&UUEncode/UUdecode", GRAYED
+            POPUP "&UU Encode/Decode"
             BEGIN
-                MENUITEM "UUencode",                    ID_ENCODE_UU
-                MENUITEM "UUdecode",                    ID_DECODE_UU
+                MENUITEM "UU &Encode",                  ID_ENCODE_UU
+                MENUITEM "UU &Decode",                  ID_DECODE_UU
             END
             MENUITEM "Decode ASN.&1 Code of a Document", 
                                                     ID_EINZELVERFAHREN_ASN1DECODIEREN
@@ -20966,7 +20961,8 @@ BEGIN
     IDS_VITANY_ERR_FILESIZE "For Vitany analysis, the input file size must exceed 500 bytes!"
     IDS_UU_DECODE_MISSING_NL_AFTER_END 
                             "An newline is missing after the ""end"" statement. Decoding could be faulty"
-    IDS_UU_DECODE_MISSING_NL_BEFORE_END         "An newline is missing before the ""end"" statement. Decoding could be faulty"
+    IDS_UU_DECODE_MISSING_NL_BEFORE_END 
+                            "An newline is missing before the ""end"" statement. Decoding could be faulty"
 END
 
 STRINGTABLE 
@@ -21751,7 +21747,7 @@ BEGIN
     IDS_STRING_MSG_UUDEC_OF "UU Decoding of <%s>"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

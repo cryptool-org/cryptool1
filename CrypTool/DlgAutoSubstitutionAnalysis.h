@@ -78,7 +78,7 @@ public:
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgAutoSubstitutionAnalysis)
-	enum { IDD = IDD_AUTO_SUBSTITUTION_ANLYSIS };
+	enum { IDD = IDD_AUTO_SUBSTITUTION_ANALYSIS };
 	//}}AFX_DATA
 
 

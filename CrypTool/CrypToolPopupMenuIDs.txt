@@ -76,8 +76,10 @@ ENGLISH CryptDecrypt_Hybrid # &Crypt/Decrypt|&Hybrid
 ENGLISH DigitalSignaturesPKI # Digital Signatures/&PKI
 ENGLISH DigitalSignaturesPKI_PKI # Digital Signatures/&PKI|&PKI
 ENGLISH IndivProcedures_Codes # &Indiv. Procedures|C&odes
-ENGLISH IndivProcedures_Codes_UUEncodeUUdecode # &Indiv. Procedures|C&odes|&UUEncode/UUdecode
+ENGLISH IndivProcedures_Codes_Base64EncodeDecode # &Indiv. Procedures|C&odes|&Base64 Encode/Decode
+ENGLISH IndivProcedures_Codes_UUEncodeDecode # &Indiv. Procedures|C&odes|&UU Encode/Decode
 ENGLISH IndivProcedures_Protocols # &Indiv. Procedures|&Protocols
+ENGLISH IndivProcedures_EducationalGames # &Indiv. Procedures|&Educational Games
 ENGLISH IndivProcedures_RSACryptosystem # &Indiv. Procedures|&RSA Cryptosystem
 ENGLISH IndivProcedures_ChineseRemainderTheoremApplications # &Indiv. Procedures|Chinese Remainder &Theorem Applications
 ENGLISH IndivProcedures_VisualizationofAlgorithmsusingANIMAL # &Indiv. Procedures|&Visualization of Algorithms using ANIMAL
@@ -86,7 +88,6 @@ ENGLISH Window # &Window
 ENGLISH IndivProcedures_RSACryptosystem_LatticeBasedAttacksonRSA # &Indiv. Procedures|&RSA Cryptosystem|&Lattice Based Attacks on RSA
 ENGLISH PopUp # PopUp
 ENGLISH View_Font # &View|&Font
-ENGLISH IndivProcedures_Codes_Base64EncodeDecode # &Indiv. Procedures|C&odes|&Base64 Encode/Decode
 ENGLISH IndivProcedures_EducationalGames # &Indiv. Procedures|&Educational Games
 GERMAN	Analyse	# A&nalyse
 GERMAN Bearbeiten # &Bearbeiten
@@ -94,6 +95,7 @@ GERMAN Datei # &Datei
 GERMAN Einzelverfahren # &Einzelverfahren
 GERMAN Einzelverfahren_Komprimieren # &Einzelverfahren|&Komprimieren
 GERMAN Einzelverfahren_Protokolle # &Einzelverfahren|&Protokolle
+GERMAN Einzelverfahren_Lernspiele # &Einzelverfahren|&Lernspiele
 GERMAN Hilfe # &Hilfe
 GERMAN Optionen # &Optionen
 GERMAN VerEntschlsseln # &Ver-/Entschlüsseln
@@ -129,5 +131,3 @@ GERMAN PopUp # PopUp
 GERMAN Einzelverfahren_Codierungen # &Einzelverfahren|C&odierungen
 GERMAN Einzelverfahren_Codierungen_Base64CodierungBase64Decodierung # &Einzelverfahren|C&odierungen|&Base64-Codierung/Base64-Decodierung
 GERMAN Einzelverfahren_Codierungen_UUCodierungUUDecodierung # &Einzelverfahren|C&odierungen|&UU-Codierung/UU-Decodierung
-GERMAN Einzelverfahren_Lernspiele # &Einzelverfahren|&Lernspiele
-

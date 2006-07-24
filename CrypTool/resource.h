@@ -277,6 +277,7 @@
 #define IDS_UU_DECODE_MISSING_CHAR      852
 #define IDS_UU_FILE_OPEN_ERROR          853
 #define IDS_STRING_MSG_UUDEC_OF         854
+#define IDD_AUTO_SUBSTITUTION_ANALYSIS  854
 #define IDC_EDIT133                     1015
 #define IDC_EDIT1                       1016
 #define IDC_EDIT2                       1017
@@ -2662,7 +2663,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        854
+#define _APS_NEXT_RESOURCE_VALUE        855
 #define _APS_NEXT_COMMAND_VALUE         33339
 #define _APS_NEXT_CONTROL_VALUE         1892
 #define _APS_NEXT_SYMED_VALUE           107

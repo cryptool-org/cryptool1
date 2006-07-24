@@ -271,7 +271,6 @@ hid_einzelverfahren_diffiehellmandemo.html
 hid_einzelverfahren_asn1decodieren.html
 hid_edit_undo.html
 hid_edit_select_all.html
-hid_edit_replace.html
 hid_edit_paste.html
 hid_edit_find_next.html
 hid_edit_find.html
@@ -439,7 +438,6 @@ hid_help_animal_vigenere.html
 hid_help_animal_caesar.html
 hid_help_animal_des.html
 hid_help_animal_nihilist.html
-hid_code_uu.html
 hid_mass_pattern_search.html
 hid_analysis_random_3d_visualization.html
 hid_analyse_symmclassic_adfgvx.html
@@ -473,7 +471,10 @@ hidd_file_properties.html
 animal.html
 hid_encode_base64.html
 hid_decode_base64.html
+hid_encode_uu.html
+hid_decode_uu.html
 menu_individualprocedures_codes_base64.html
+menu_individualprocedures_codes_uu.html
 hidd_key_monsubst.html
 sidechannelattackvisualization_usage.html
 cryptology.html
@@ -486,6 +487,10 @@ cryptolibraries.html
 hid_primenumber_test.html
 hidd_prime_test.html
 pse.html
+hid_individual_procedures_secretsharing.html
+menu_educational_games.html
+hid_numbershark.html
+hidd_auto_substitution_analysis.html
 
 
 [ALIAS]
