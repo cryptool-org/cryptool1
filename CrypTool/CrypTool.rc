@@ -590,7 +590,7 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_AUTHORS DIALOGEX 0, 0, 284, 289
+IDD_AUTHORS DIALOGEX 0, 0, 284, 303
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Über CrypTool: Mitwirkende"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
@@ -619,10 +619,10 @@ BEGIN
                     IDC_STATIC,18,231,84,26
     LTEXT           "Richard Christensen\nBartol Filipovic\nJörg Hambamer\nDennis Laupichler\nFlorian Marchal\nLowell Montgomery\nDaniel Saffran\nChristine Stötzel\nThomas Thiele\nAndre Beunink\nElmar Kubitz",
                     IDC_STATIC,186,122,85,91
-    LTEXT           "Matthias Büger\nWolfgang Scondo\n...und viele andere.",
+    LTEXT           "Matthias Büger\nWolfgang Scondo\nGerhard Kramarz",
                     IDC_STATIC,102,231,84,26
-    LTEXT           "Wolfgang Patzewitz\nGary Tagg\n",IDC_STATIC,186,231,85,
-                    26
+    LTEXT           "Wolfgang Patzewitz\nGary Tagg\n...und viele andere.",
+                    IDC_STATIC,186,231,85,26
 END
 
 IDD_SHOW_PUBLICKEY_EC DIALOG  0, 0, 399, 287
@@ -7007,12 +7007,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Deutsche Bank AG"
             VALUE "FileDescription", "www.cryptool.de"
-            VALUE "FileVersion", "1.4.00 beta 10"
+            VALUE "FileVersion", "1.4.00 beta 14"
             VALUE "InternalName", "CrypTool"
-            VALUE "LegalCopyright", "Copyright © 1999-2005"
+            VALUE "LegalCopyright", "Copyright © 1999-2006"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "1.4.00-beta08"
+            VALUE "ProductVersion", "1.4.00-beta14"
         END
     END
     BLOCK "VarFileInfo"
@@ -7982,7 +7982,7 @@ BEGIN
 
     IDD_AUTHORS, DIALOG
     BEGIN
-        BOTTOMMARGIN, 273
+        BOTTOMMARGIN, 287
     END
 
     IDD_KEY_HOMOPHONE, DIALOG
@@ -8548,7 +8548,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.00 beta 13"
+    IDR_MAINFRAME           "CrypTool 1.4.00 beta 14"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Datei (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnbenannt\n\nBinäre Datei (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnbenannt\n\nASCII-Datei (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -10099,8 +10099,8 @@ BEGIN
                             "Geben Sie den Schlüssel mit Hexadezimalzeichen (0..9, A..F) ein.\nSchlüssellänge genau %d Hexadezimalzeichen (= %d Bytes)."
     IDS_READMEPATH          "%sReadMe-de.txt"
     IDS_ERR_ONOPENREADME    "Die Readme-Datei konnte nicht geöffnet werden!\nBitte überprüfen Sie, ob die Datei ""Readme-de.txt"" sich im gleichen Pfad wie das Programm ""CrypTool.exe"" befindet."
-    IDS_SIGATT_HARMLESS     "Original.txt"
-    IDS_SIGATT_DANGEROUS    "Faelschung.txt"
+    IDS_SIGATT_HARMLESS     "examples\\Original.txt"
+    IDS_SIGATT_DANGEROUS    "examples\\Faelschung.txt"
     IDS_SCRIPTPATH          "%sScript-de.pdf"
     IDS_ERROPEN_SCRIPT      "Das Skript konnte nicht geöffnet werden!\nBitte überprüfen Sie:\nob sich die Datei ""Script-de.pdf"" im gleichen Pfad wie das Programm ""CrypTool.exe"" befindet und\nob Sie den Acrobat Reader installiert haben (www.adobe.com)."
     IDS_OPENHASHOFAFILE     "Hashwert einer Datei"
@@ -11499,8 +11499,8 @@ BEGIN
     GROUPBOX        " Review and Feedback",IDC_STATIC,7,223,277,43,BS_CENTER
     LTEXT           "Ariane Büger\nKarsten Schaar\nSibylle Müller",
                     IDC_STATIC,18,237,84,26
-    LTEXT           "Matthias Büger\nWolfgang Scondo\n",IDC_STATIC,102,237,
-                    84,26
+    LTEXT           "Matthias Büger\nWolfgang Scondo\nGerhard Kramarz",
+                    IDC_STATIC,102,237,84,26
     LTEXT           "Wolfgang Patzewitz\nGary Tagg\n...and many others.",
                     IDC_STATIC,186,237,85,26
     LTEXT           "Martin Bartosch\nLars Dülfer\nThomas Gauweiler\nJan Hofmann\nMatthias Kraft\nMatej Matejicek\nRoger Oyono\nMark Santiago\nChristian Tobias\nThilo Zieschang\nChristof Rezk Salama",
@@ -17723,12 +17723,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Deutsche Bank AG"
             VALUE "FileDescription", "www.cryptool.com"
-            VALUE "FileVersion", "1.4.00 beta 10"
+            VALUE "FileVersion", "1.4.00 beta 14"
             VALUE "InternalName", "CrypTool"
-            VALUE "LegalCopyright", "Copyright © 1999-2005"
+            VALUE "LegalCopyright", "Copyright © 1999-2006"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "1.4.00-beta08"
+            VALUE "ProductVersion", "1.4.00-beta14"
         END
     END
     BLOCK "VarFileInfo"
@@ -19567,7 +19567,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.00 beta 13"
+    IDR_MAINFRAME           "CrypTool 1.4.00 beta 14"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -20983,8 +20983,8 @@ BEGIN
                             "Enter the key using hex characters (0..9, A..F).\nKey length exactly  %d hex characters (= %d bytes)."
     IDS_READMEPATH          "%sReadMe-en.txt"
     IDS_ERR_ONOPENREADME    "The readme file could not be opened!\nPlease check if the file ""Readme-en.txt"" is in the same directory as ""CrypTool.exe""."
-    IDS_SIGATT_HARMLESS     "Original.txt"
-    IDS_SIGATT_DANGEROUS    "Fake.txt"
+    IDS_SIGATT_HARMLESS     "examples\\Original.txt"
+    IDS_SIGATT_DANGEROUS    "examples\\Fake.txt"
     IDS_SCRIPTPATH          "%sScript-en.pdf"
     IDS_ERROPEN_SCRIPT      "The script file could not be opened!\nPlease check\nif the file ""Script-en.pdf"" is in the same directory as ""CrypTool.exe"" and\nif the Acrobat reader is installed (www.adobe.com)."
     IDS_OPENHASHOFAFILE     "Hash of a file"
