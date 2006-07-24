@@ -747,8 +747,7 @@ void CScintillaWnd::Init()
 // set the backgroundcolor of brace highlights
    SendMessage(SCI_STYLESETBACK, STYLE_BRACELIGHT, RGB(0,255,0));
 // set end of line mode to CRLF
-   SendMessage(SCI_CONVERTEOLS, 2, 0);
-   SendMessage(SCI_SETEOLMODE, 2, 0);
+   SendMessage(SCI_SETEOLMODE, 0, 0);
    SendMessage(SCI_SETVIEWEOL, TRUE, 0);
 // set markersymbol for marker type 0 - bookmark
    SendMessage(SCI_MARKERDEFINE, 0, SC_MARK_CIRCLE);
