@@ -1,0 +1,154 @@
+#              ####################################################### 
+#             #####                                               #####
+#             ####       SECUDE X.509v2 CRL Extension Profile      ####
+#             ####                                                 ####
+#             ####       © 1997-2000 SECUDE GmbH                   ####
+#             #####                                               #####
+#              ####################################################### 
+
+#
+# Uncomment and edit needed lines.
+#
+
+#---------------------------------------------------------------------------
+# List of all valid custom block names
+# The names "CRL" and "CRLEntry" are standard names and should not be changed!
+# The other names are labels for the common cases of revocation reasons, these are
+# more or less examples and might be changed (beware: they are used matched against
+# the input of psemaint revoke [TODO]).
+#
+block-names=CRL, CRLEntry, keyCompromise, caCompromise, affiliationChanged, superseded, cessationOfOperation, certificateHold, removeFromCRL, hold-none, hold-callissuer, hold-reject
+
+
+#
+# Attention: be aware, that all extensions added before the named block (especially
+# before "CRL" and "CRLEntry") are global in the sense, that they will be added
+# to a CRL *and* to each of its CRLEntries. This is normally not intended...
+#
+
+
+#
+# For some settings the special value "AUTO" exists. It can be combined
+# with the critical flags, where appropriate.
+#
+# For those settings there is also the special value "NONE", which
+# suppresses the addition of the related extension, even if no
+# __NO_DEFAULT_EXTS__ is provided.
+#
+
+
+#---------------------------------------------------------------------------
+#    Standard CRL extensions
+
+block=CRL
+
+
+#--- Key Identifier are octet strings
+#AuthorityKeyId                     11223344
+#
+#AuthorityKeyId                     AUTO
+#===> AUTO: taken from issuer certificate's SubjectKeyId (or issuer/serial, if no SubjectKeyId present)
+#===> AUTO/NOFALLBACK: taken from issuer certificate's SubjectKeyId, error if missing
+#AuthorityKeyId-IssuerSerial        AUTO
+#===> AUTO: issuer and serial number of the CA's certificate
+
+
+#--- Alternative Names and Distribution Points are URIs
+#IssuerAltName-rfc822Name           ca@domain
+#IssuerAltName-uRI                  http://www.domain
+#IssuerAltName-dNSName              host.domain
+#IssuerAltName-directoryName        C=DE
+#IssuerAltName-iPAddress            127.0.0.1
+#IssuerAltName-registeredID         1.4.16.256.65536
+#--- OtherName may contain any type of name identified by the OID 'type-id' and the ASN.1 type of the extension value.
+#IssuerAltName-other::=type-id      TYPE=<type>  	value
+#
+#IssuerAltName                      AUTO
+#===> AUTO: include the SubjectAltNames of the CA's certificate
+
+#DistrPoint-uRI                     http://www.domain
+#DistrPoint-uRI                     ftp://ftp.domain
+#DistrPoint-uRI                     ldap://C=DE
+#DistrPoint-uRI                     mailto:ca@domain
+
+#--- onlyUserCerts and onlyCACerts are flags in the IssuingDistributionPoint extension
+#DistrPoint-onlyUserCerts           TRUE / FALSE
+#DistrPoint-onlyCACerts             TRUE / FALSE
+#--- onlySomeReasons is a BitString. Only the named bits are set. Use any non-empty subset of the given names.
+#DistrPoint-onlySomeReasons         unused,keyCompromise,caCompromise,affiliationChanged,superseded,cessationOfOperation,certificateHold
+
+
+#
+#    Standard CRL extensions end here
+#---------------------------------------------------------------------------
+
+
+#---------------------------------------------------------------------------
+#    Standard CRLEntry extensions
+#
+
+block=CRLEntry
+
+
+#--- InvalidityDate is a string with Generalized Time
+#InvalidityDate                     20001208135200Z
+
+#--- ReasonCode is one of several keywords. These are used below (in named blocks)
+#ReasonCode                         <name-of-reason>
+
+#--- HoldInstruction is an object identifier, either a named one or in number form
+#HoldInstruction                    1.2.3.4.5.6
+
+
+block=keyCompromise
+ReasonCode                          keyCompromise
+
+block=caCompromise
+ReasonCode                          caCompromise
+
+block=affiliationChanged
+ReasonCode                          affiliationChanged
+
+block=superseded
+ReasonCode                          superseded
+
+block=cessationOfOperation
+ReasonCode                          cessationOfOperation
+
+block=certificateHold
+ReasonCode                          certificateHold
+
+#block=removeFromCRL
+#ReasonCode                         removeFromCRL
+
+block=hold-none
+ReasonCode                          certificateHold
+HoldInstruction                     2.2.840.10040.2.1
+
+block=hold-callissuer
+ReasonCode                          certificateHold
+HoldInstruction                     2.2.840.10040.2.2
+
+block=hold-reject
+ReasonCode                          certificateHold
+HoldInstruction                     2.2.840.10040.2.3
+
+
+#
+#    Standard CRLEntry extensions end here
+#---------------------------------------------------------------------------
+
+
+#---------------------------------------------------------------------------
+#    Private extensions
+#
+
+
+#--- Sample
+#block=CRLSample
+#1.2.3.4                            TYPE=OCTETSTRING ENCODING=HEX    0123456789ABCDEF
+
+
+#
+#    Private extensions end here
+#---------------------------------------------------------------------------

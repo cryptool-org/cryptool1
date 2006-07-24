@@ -55,7 +55,7 @@
 				Name="VCNMakeTool"
 				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot;"
 				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a"
-				Output="NumberShark_en.chm"/>
+				Output="..\..\Release_en\NumberShark_en.chm"/>
 		</Configuration>
 	</Configurations>
 	<References>
@@ -63,18 +63,6 @@
 	<Files>
 		<File
 			RelativePath=".\hlp_en.mak">
-			<FileConfiguration
-				Name="Debug|Win32">
-			</FileConfiguration>
-			<FileConfiguration
-				Name="Release|Win32">
-			</FileConfiguration>
-			<FileConfiguration
-				Name="Debug_en|Win32">
-			</FileConfiguration>
-			<FileConfiguration
-				Name="Release_en|Win32">
-			</FileConfiguration>
 		</File>
 	</Files>
 	<Globals>

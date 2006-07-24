@@ -1,0 +1,42 @@
+07/06/06 10:51:16 : INIT
+07/06/06 10:51:22 : CERTIFICATE ISSUED FOR <CN=CrypTool CA 2, DC=cryptool, DC=org>
+                    Validity Thu Jul 06 02:00:00 2006 - Mon Jul 06 02:00:00 2026
+                    SerialNo: 00
+07/06/06 10:51:23 : CRL ISSUED BY <CN=CrypTool CA 2, DC=cryptool, DC=org>:
+ ---------------- Revocation List ------------------
+SignatureAid:             Algorithm sha1WithRsaEncryption (OID 1.2.840.113549.1.1.5), NULL
+IssuerName:               CN=CrypTool CA 2, DC=cryptool, DC=org
+Last Update:  Thu Jul 06 10:51:22 2006 (060706085122Z)
+Next Update:  Fri Jul 06 10:51:22 2007 (070706085122Z)
+
+ --- Revocation List extensions: ---
+AuthorityKeyIdentifier:
+    Key Identifier:     3782 C50A 082E 0D82 D041 5BF9 4234 F1CB D414 E13A 
+CRLNumber    : 01
+
+
+ --- No Revoked Certificates: ---
+
+
+IssuerAid:                Algorithm sha1WithRsaEncryption (OID 1.2.840.113549.1.1.5), NULL
+Signature:                
+      0  7FD91FE4 7EDEB8E9  0936BAD3 1AB153BD
+     10  BDD799F5 10BFA6B2  60A9C318 A9D10F4B
+     20  CFE53783 91B87149  BF7E37C1 8964400D
+     30  DC453BB6 EB9B9511  BFFB9299 2766D049
+     40  99E622D1 BBBC3E1D  12E08A31 13260468
+     50  0BF75B89 031AC454  012E63A5 AEE86FEE
+     60  E39D704D B4A100C8  E61EA0DA B9F38347
+     70  BD89CEB3 32F89A3A  31C2753F 4FEBF0BE
+     80  C8E20A84 67BD1C78  9A0F172C 16555C26
+     90  9A78F61A 91495D38  F19448A3 09227CE7
+     A0  6D1B6233 F5239E47  710E7131 A1FCCB23
+     B0  C44286AC C740309E  C5179666 CF412211
+     C0  D0FB566C AFA3E5F3  626C6A4F 88923404
+     D0  EB4F2ACA 9E8C575B  A21F8454 DB88BFDC
+     E0  EBE1DE7F 2A1163D3  581C4C19 8F5BD775
+     F0  278879EE CEB06303  92459E6C 07B04CB1
+
+07/06/06 11:51:40 : SIGN CERTIFICATE ISSUED FOR <CN=Bob SideChannelAttack [1152179494], DC=cryptool, DC=org>
+                    Validity Thu Jul 06 11:51:40 2006 - Fri Jul 06 11:51:40 2007
+                    SerialNo: 01

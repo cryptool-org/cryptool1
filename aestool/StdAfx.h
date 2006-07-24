@@ -55,8 +55,6 @@ statement from your version.
 #endif // _MSC_VER > 1000
 
 #define VC_EXTRALEAN		// Selten verwendete Teile der Windows-Header nicht einbinden
-// 0x500 = Win2k
-#define WINVER 0x400
 
 #include <afxwin.h>         // MFC-Kern- und -Standardkomponenten
 #include <afxext.h>         // MFC-Erweiterungen

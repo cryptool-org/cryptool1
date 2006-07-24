@@ -1,0 +1,26 @@
+What is CrypTool?
+
+CrypTool is a freeware program which enables you to apply and analyse 
+cryptographic mechanisms.
+CrypTool contains an exhaustive online help, which can be understood 
+without deep knowledge in cryptography, therefore no user manual on how 
+to use CrypTool is provided.CrypTool is completely available in English 
+and German.CrypTool has implemented almost all state-of-the-art crypto 
+functions and allows you to learn about and use, modern and classic 
+cryptography.
+
+The methods available include both classic methods (e.g. the Caesar 
+encryption algorithm) and modern cryptosystems (for example, the RSA 
+and AES algorithms, as well as algorithms based on elliptic curves). 
+A summary of all the encryption algorithmsverschlverfahren available 
+in CrypTool is contained on the help page for the Crypt menu.
+
+Automatic analysis tools for obtaining the key, starting from a 
+knowledge of the encrypted document and any additional information 
+(the unencrypted document or language of the document), are provided 
+for the classic encryption algorithms. For additional information on 
+automatic analysis, go to the help screen for the Analysis menu and 
+choose the encryption algorithm to be analysed there.
+To support your own analysis of documents, CrypTool can display a 
+histogram of the document, calculate the statistics for any N-grams and 
+the entropy and autocorrelation.

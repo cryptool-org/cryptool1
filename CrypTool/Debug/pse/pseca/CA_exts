@@ -1,0 +1,188 @@
+#              ######################################################## 
+#             #####                                                #####
+#             ####       SECUDE X.509v3 Cert Extension Profile      ####
+#             ####                                                  ####
+#             ####       © 1997-2000 SECUDE GmbH                    ####
+#             #####                                                #####
+#              ######################################################## 
+
+#
+# Uncomment and edit needed lines.
+#
+
+#---------------------------------------------------------------------------
+#    Standard extensions (no label needed)
+#    (the default values are format examples)
+#
+
+#
+# For some settings the special value "AUTO" exists. It can be combined
+# with the critical flags, where appropriate.
+#
+# For those settings there is also the special value "NONE", which
+# suppresses the addition of the related extension, even if no
+# __NO_DEFAULT_EXTS__ is provided.
+#
+
+#--- Key Identifier are octet strings
+#AuthorityKeyId                     11223344
+#SubjectKeyId                       aabbccdd
+#
+#AuthorityKeyId                     AUTO
+#===> AUTO: taken from issuer certificate's SubjectKeyId (or issuer/serial, if no SubjectKeyId present)
+#===> AUTO/NOFALLBACK: taken from issuer certificate's SubjectKeyId, error if missing
+#AuthorityKeyId-IssuerSerial        AUTO
+#===> AUTO: issuer and serial number of the CA's certificate
+#
+#SubjectKeyId                       AUTO
+#===> AUTO: SHA-1 hash over the subject's public key
+#SubjectKeyId-ShortHash             AUTO
+#===> AUTO: KeyId is "0100" + 60 rightmost bits of SHA-1 hash
+
+
+#--- Basic constraints is either USER or CA
+#BasicConstraints                   USER
+#BasicConstraints                   CA[,<path-length>]
+#
+#BasicConstraints                   AUTO
+#===> AUTO: set CA-Flag according to the cert to be certified
+
+
+#--- Alternative Names and Distribution Points are URIs
+#SubjectAltName-rfc822Name          subject@domain
+#SubjectAltName-uRI                 http://www.domain
+#SubjectAltName-dNSName             host.domain
+#SubjectAltName-directoryName       C=DE
+#SubjectAltName-iPAddress           127.0.0.1
+#SubjectAltName-registeredID        1.4.16.256.65536
+#--- OtherName may contain any type of name identified by the OID 'type-id' and the ASN.1 type of the extension value.
+#SubjectAltName-other::=type-id     TYPE=<type>  	value
+
+#IssuerAltName-rfc822Name           ca@domain
+#IssuerAltName-uRI                  http://www.domain
+#IssuerAltName-dNSName              host.domain
+#IssuerAltName-directoryName        C=DE
+#IssuerAltName-iPAddress            127.0.0.1
+#IssuerAltName-registeredID         1.4.16.256.65536
+#--- OtherName may contain any type of name identified by the OID 'type-id' and the ASN.1 type of the extension value.
+#IssuerAltName-other::=type-id      TYPE=<type>  	value
+#
+#IssuerAltName                      AUTO
+#===> AUTO: include the SubjectAltNames of the CA's certificate
+
+#DistrPoint-uRI                     http://www.domain
+#DistrPoint-uRI                     ftp://ftp.domain
+#DistrPoint-uRI                     ldap://C=DE
+#DistrPoint-uRI                     mailto:ca@domain
+
+
+#--- Policy Identifier is a string
+#PolicyIdentifier                   [critical] Your-policy-OID[,Qualifier-OID,Qualifier-DER[,...]]
+#
+#  example:                         1.0.0.1,1.3.6.1.5.5.7.2.1,160E687474703A2F2F7777772F637073
+#  where  1.0.0.1            is Your-policy OID
+#  and    1.3.6.1.5.5.7.2.1  is PKIX-CPS qualifier OID
+#  and    160E...7073        is the DER encoded string "http://www/cps"
+#
+#PolicyIdentifier                   AUTO
+#===> AUTO: add the policies from the CA's certificate
+
+
+#--- Key usage flags are either TRUE or FALSE
+#KeyUsage-digitalSignature          TRUE / FALSE
+#KeyUsage-nonRepudiation            TRUE / FALSE
+#KeyUsage-keyEncipherment           TRUE / FALSE
+#KeyUsage-dataEncipherment          TRUE / FALSE
+#KeyUsage-keyAgreement              TRUE / FALSE
+#KeyUsage-keyCertSign               TRUE / FALSE
+#KeyUsage-cRLSign                   TRUE / FALSE
+#KeyUsage-encipherOnly              TRUE / FALSE
+#KeyUsage-decipherOnly              TRUE / FALSE
+#
+#KeyUsage                           AUTO
+#===> AUTO: set the maximal set of flags sensible for the given key
+
+#--- Extended key usage, e.g. id-pkix-kp-time-Stamping
+#ExtKeyUsage            	     [critical] 1.3.6.1.5.5.7.3.8
+
+#--- Authority Information Access
+#consists of the access method described via the OID '{x.y.z}' and the access location (rfc822Name, uRI or directoryName)
+#	id-ad-ocsp 	{1.3.6.1.5.5.7.48.1} is defined in RFC2459
+#	id-ad-caIssuers {1.3.6.1.5.5.7.48.2} is defined in RFC2459
+#AuthorityInfoAccess::={1.3.6.1.5.5.7.48.1}-location-rfc822Name	   ca@domain
+#AuthorityInfoAccess::={1.3.6.1.5.5.7.48.1}-location-uRI   	   http://www.domain
+#AuthorityInfoAccess::={1.3.6.1.5.5.7.48.1}-location-directoryName  C=DE
+
+#
+#    Standard extensions end here
+#---------------------------------------------------------------------------
+
+#---------------------------------------------------------------------------
+#    All identifiers of following extension blocks
+#
+
+#--- list of all valid custom block names
+block-names=NetscapeCa, NetscapeNonCa, NetscapeSslCa, NetscapeSslServer, NetscapeSslClient, NetscapeSmimeCa, NetscapeSmime, NetscapeObjectSigningCa, NetscapeObjectSigning
+
+
+#---------------------------------------------------------------------------
+#    Private extensions
+#
+
+#--- Certificates for Netscape SSL CA + Server & Client / S/MIME CA and User / Object Signing CA and Object Signer (and compatible vendors)
+#--- Do not change these values (unless the drafts change). But you may add new combinations for multi purpose instances by ORing values.
+
+
+block=NetscapeCa, NetscapeNonCa, NetscapeSslCa, NetscapeSslServer, NetscapeSslClient, NetscapeObjectSigningCa, NetscapeObjectSigning
+
+
+#--- Netscape certificate comment is a string
+netscape-comment                    TYPE=IA5STRING "NOT AUTHENTICATED"
+
+
+#--- Netscape CA for SSL, S/MIME, and Object Signing
+block=NetscapeCa
+BasicConstraints                    CA
+
+#--- Netscape Client for SSL and S/MIME (not for Object Signing)
+block=NetscapeNonCa
+BasicConstraints                    USER
+
+
+#--- the following bit strings are coded LOW BIT LEFT: '80' means 'bit0 is set'
+
+
+#--- Netscape SSL CA
+block=NetscapeSslCa
+netscape-cert-type                  TYPE=BITSTRING ENCODING=HEX 	04
+
+#--- Netscape SSL Server
+block=NetscapeSslServer
+netscape-cert-type                  TYPE=BITSTRING ENCODING=HEX 	40
+
+#--- Netscape SSL Client
+block=NetscapeSslClient
+netscape-cert-type                  TYPE=BITSTRING ENCODING=HEX 	80
+
+
+#--- Netscape S/MIME CA
+block=NetscapeSmimeCa
+netscape-cert-type                  TYPE=BITSTRING ENCODING=HEX 	02
+
+#--- Netscape S/MIME User
+block=NetscapeSmime
+netscape-cert-type                  TYPE=BITSTRING ENCODING=HEX 	20
+
+
+#--- Netscape Object Signing CA
+block=NetscapeObjectSigningCa
+netscape-cert-type                  TYPE=BITSTRING ENCODING=HEX 	01
+
+#--- Netscape Object Signing
+block=NetscapeObjectSigning
+netscape-cert-type                  TYPE=BITSTRING ENCODING=HEX 	10
+
+
+#
+#    Private extensions end here
+#---------------------------------------------------------------------------

@@ -36,7 +36,7 @@
 				Name="VCNMakeTool"
 				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot;"
 				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a"
-				Output="CrypTool-en.chm"/>
+				Output="..\..\Release_en\CrypTool-en.chm"/>
 		</Configuration>
 	</Configurations>
 	<References>

@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.00, March 2006 - draft
+    CrypTool, Version 1.4.00 for Win32, July 2006
     (c) Deutsche Bank AG, Frankfurt/Main
     (c) University of Siegen and Darmstadt
     (c) 1998-2006
@@ -151,11 +151,13 @@ CrypTool is a demonstration primarily used for training purposes:
   teaching employees awareness of the importance of IT security.
 
 - Most of the cryptographic basic algorithms used are taken from:
-  - the industry-proven Secude library (version SDK 7.4.60)
+  - the industry-proven Secude library (version SDK 7.4.60C)
     (www.secude.com),
   - the Miracl library (version 4.4.3) (http://indigo.ie/~mscott/),
-  - the OpenSSL library (version 0.9.8) and
-  - the number theory library NTL of Victor Shoup (version 5.4).
+  - the OpenSSL library (version 0.9.8),
+  - the NTL number theory library of Victor Shoup (version 5.4) and
+  - the GMP library for arbitrary precision arithmetic (version 4.2.1)
+    (http://www.swox.com/gmp/).
 
   In this way, CrypTool is also an outstanding reference
   implementation.
@@ -200,10 +202,10 @@ b) The educational game "Number Shark" (by the CrypTool project)
    This game helps pupils to get acquainted with divisors and prime
    factors.
 c) The animation program ANIMAL (see http://www.animal.ahrgr.de)
-   This program is maintained by Dr. Rosssling at the University of
-   Darmstadt. It allows to specify and model the single steps of 
-   algorithms or the components of data structures with as much detail
-   as desired, and run these steps forwards, backwards, or 
+   This program is maintained by Dr. Roessling at the Technical
+   University of Darmstadt. It allows to specify and model the single
+   steps of algorithms or the components of data structures with as
+   much detail as desired, and run these steps forwards, backwards, or 
    automatically). Animations can be created with the Animal system 
    using a GUI, a script language or a Java API.
 
@@ -228,7 +230,8 @@ them in their free time as well (some are listed in the dialog
 box you get after double clicking the "About" dialog box).
 We are extremely grateful to them.
 
-Sponsors are e.g. Deutsche Bank AG and the University of Darmstadt.
+Sponsors are e.g. Deutsche Bank AG and the Technical University
+of Darmstadt.
 
 Dr. Carsten Elsner allowed us to include both his stories.
 The author owns all rights at these stories. The maintainer of
@@ -254,7 +257,7 @@ Also we want to thank the open source developers, who delivered code
 CrypTool got an academic home as planned:
 From October 2002 the chair "Security in Information Technology", 
 faculty computer science from Mrs. Prof. Dr. Claudia Eckert at the
-technical university of Darmstadt, Germany hosts the English and 
+Technical University of Darmstadt, Germany hosts the English and 
 German web page of CrypTool and the CVS system for the program sources.
 
 The CrypTool developer group around Bernhard Esslinger keeps to be
@@ -284,8 +287,9 @@ CrypTool is a demonstration primarily for training and awareness
 purposes, which is intended to be used at once without any previous
 configuration work.
 
-As said above the development goal of CrypTool was not to be used
-productively for encryption or as a Certification Authority (CA).
+Therefore the development goal of CrypTool was not to be used
+productively for encryption or as a Certification Authority (CA) --
+despite the functions are correctly implemented in CrypTool.
 
 For instance - contrary to productive CA applications - the CA key pair
 is contained directly within the software (source and binary) and
@@ -293,20 +297,22 @@ it is protected with a very simple PIN for the CA-PSE (personal
 security environment).
 
 The root key of the CA built in CrypTool 1.4.00 has a length of 2048
-bit and it is valid for 10 years (March 1st, 2006 - March 1st, 2016).
+bit and it is valid for 20 years (July 6th, 2006 - July 6th, 2026).
+Certificates issued with the root key of older CrypTool version 
+(1.3.05 and older) cannot be imported in version 1.4.00.
 
 Please notice when creating user certificates with CrypTool, that each
 CrypTool program contains a root CA with the same key pair. 
 This means that everybody (!), who uses CrypTool, can sign user 
 certificates with this built-in CA.
 
-Professional PKI software like the OpenXPKI, the Secude CA or the
-Microsoft CA additionally manage the whole certificate life-cycle and
-offer CRL handling, take care for unique serial numbers and use
+Professional PKI software like the OpenXPKI, Entrust, the Secude CA or
+the Microsoft CA additionally manage the whole certificate life-cycle
+and offer CRL handling, take care for unique serial numbers and use
 defined registration processes.
 
-Nevertheless all the algorithms implemented are according to 
-international standards and are working as "well" as in productive 
+Nevertheless all the algorithms implemented in CrypTool are according
+to international standards and are working as "well" as in productive 
 applications.
 
 
@@ -320,17 +326,18 @@ Since version 1.4.00 CrypTool doesn't need administrator access
 rights - neither for the installation nor for the usage. Persistent
 data is written only into the CrypTool directory, into the Windows 
 directory for temporary files (TEMP directory) or into the user 
-specific part of the Windows registry (see chapter 3).
+specific part of the Windows registry (Details see chapter 3).
 
-Remark: Where the TEMP directory of Windows is, can be seen or
-adjusted under Windows XP via "System --> System properties 
+Remark: Where the TEMP directory of Windows is, can be seen by
+entering %TEMP% in the Windows Explorer. The value can also be seen
+and adjusted under Windows XP via "System --> System properties 
 --> Tab Enhanced --> Environment variables".
 
 CrypTool also works basically under FreeBSD/Linux with Wine
 (with reservations on functionality and stability).
 See appendix 11.1.
 
-To port CrypTool to Linux or rewrite it with Java or prepare it for
+To port CrypTool to Linux or redesign it with Java or prepare it for
 Windows Vista/Avalon are future goals (see chapter 6).
 
 
@@ -398,8 +405,7 @@ unfortunately not under Win9x).
 - In order to demonstrate the RSA cryptosystem and to factorize
   integers CrypTool uses the long integer arithmetic of the Miracl
   library from Shamus Software Ltd. We restricted the integer bit
-  length up to 1024.
-  It is planned to get rid of this limitation in a later version.
+  length up to 8192.
 
 - From binary files "only" the first almost 2 GB can be loaded into
   the hex editor (< 0x7ffff000 = 2.147.479.552 Bytes).
@@ -415,16 +421,18 @@ unfortunately not under Win9x).
   special analysis -- to the maximal length.
 
 - Hash values of external files, which are not loaded into the internal
-  editor, can be calculated for files of any size. xxxxxxxxxxxxxxx
+  editor, can be calculated for files of any size. 
 
 - With the AES-Tool you can encrypt and archive files with a
-  maximum size of 4 GB.
+  maximum size of 4 GB (as long as compilied with VS2003).
 
   Please keep in mind, that the output of the stand-alone AES-Tool
   is not identical with the output you get within CrypTool, using
   the menu item sequence "Crypt/Decrypt \ Symmetric (modern) \ 
   Rijndael (AES)"  (even if you create a file with has the extension
-  "aes"). xxxxxxxx Grund angeben xxxxxxxxxxx
+  "aes"). CrypTool itself currently uses a fixed IV (0), which is
+  not stored. AES-Tool uses a random IV, which is appended together 
+  with the file name to the end of the encrypted data.
 
 
 2.7. Using certificates created with older CrypTool versions
@@ -482,12 +490,29 @@ reinstall CrypTool in order to use the certificate based methods.
 In multi-user systems like Windows XP the administrator has full
 access to the whole file system; the other users are normally
 restricted.
-If a normal user installs CrypTool he needs writing access for the 
-directory in which CrypTool should be installed (e.g. for 
-"C:\Program Files"), if the sub-directory "CrypTool" does not already
-exist; or for the directory "C:\Program Files\CrypTool", if this 
-already exists. If he does not have these rights, the installation 
-program stops.
+
+If a normal user installs CrypTool he needs write access for the 
+directory in which CrypTool should be installed:
+- e.g. for the directory %ProgramFiles% (normally C:\Program Files),
+  if the sub-directory "CrypTool" does not already exist; or
+- for the directory  %ProgramFiles%\CrypTool (C:\Program Files\CrypTool),
+  if this already exists.
+If he does not have these rights, the installation program stops.
+
+Therefore as a normal user without admin access rights, you should specify
+as target directory a so called "local directory" (instead of "C:\Programme").
+"Local" and accessible for any user could be e.g.: %ALLUSERSPROFILE%
+(The default of the English Windows XP is: 
+"C:\Documents and Settings\All Users").
+
+If you install CrypTool without administrator rights and you also have no
+write access to %ALLUSERSPROFILE%\Start Menu, then the CrypTool specific
+entries are missing in the start menu of WXP ("Start \ All Programms").
+But every user can add these entires manually.
+
+Remark: In the same way as with %TEMP%, you can see, where these directories
+are on your disk by entering in the Windows Explorer %ALLUSERSPROFILE% or
+%userprofile%.
 
 
 3.3. De-installation of CrypTool
@@ -684,7 +709,7 @@ cry*.* ........... CrypTool writes temporary files to the \temp
                    hex -> hexadecimal (binary) content
                    org -> xxxxxxxxxx
                    plt -> diagram output (histogram, autocorrelation)
-                   tmp ->
+                   tmp -> xxxxxxxxxx
                    txt -> text file
                    ogl -> OpenGL description.
 
@@ -806,22 +831,27 @@ a) Developer-relevant changes (more technically oriented):
 - Details about compilation, Linking and about a consistent development
   can be found in the sources in the file "readme-source".
 
-- The sources now can be compiled not only with Microsoft VC++ v6.0
-  but also with the development environment Visual Studio 2003 
-  (VC++ v7.1).
+- The sources now can be compiled with Microsoft development 
+  environment Visual Studio 2003 (VC++ v7.1).
+  The support of VC++ v6.0 was stopped (besides some incompatibilities
+  between the compilers the main problem was, that the GMP library
+  could not be compiled with it).
 
-  It is planned to port the sources to VS2005 (VC++ v8.0).
-  After that support of VC++ v6.0 probably will be discontinued.
+  There is already a source branch in our Subversion system, which can
+  be compiled with VS2005 (VC++ v8.0). This will be officially 
+  supported after 1.4.00.
 
 - After so far including the libraries from Secude and Miracl,
-  now also the libraries of OpenSSL and NTL are used.
+  now also the libraries of OpenSSL, NTL and GMP are used.
 
 - The old editors for text and binary data have been replaced by
-  open-source editors with better functionality: So loading is faster
-  and bigger files can be loaded.
+  open-source editors with better functionality and their code was
+  at some places enhanced: So loading is faster and bigger files can
+  be loaded.
 
   Hex editor / Hex control / HexView:
   Link: http://www.codeguru.com/Cpp/controls/controls/article.php/c5287
+  -> Added: Insertion, simultaneous marking of chars in hex and ASCII.
 
   Text editor:
   Link: http://scintilla.sourceforge.net/ScintillaDownload.html
@@ -834,8 +864,9 @@ a) Developer-relevant changes (more technically oriented):
   So "Courier 10" e.g. is good, to have a look at the output of the
   ADFGVX cipher.
 
-  Search and Replace has been enhanced and now works for both text
-  and hexadecimal editors. xxxxxxxxxxxxxxx
+  Search and Replace in the text editor has been enhanced with regular
+  expressions. In the hexadecimal editor only simple search is available.
+  xxxxxxxxxxx
 
 - The menu structure is arranged more clearly and contains more
   entries.
@@ -857,7 +888,7 @@ a) Developer-relevant changes (more technically oriented):
 
 - With the ANIMAL software system workflows can be visualized:
   - Link: http://www.animal.ahrgr.de
-  - Further examples / repository: 
+  - Further examples within the ANIMAL repository: 
     http://www.animal.ahrgr.de/animations.php3?tool=Animal&lang=en
 
 
@@ -866,12 +897,14 @@ b) Changes within the user documentation:
 - The Online help is improved and enhanced.
 
 - Within the script: minor bug-fixes, new chapter about paper&pencil
-  methods, and updates.
+  methods, information about movies and fiction, where cryptography
+  is used, and many updates.
 
 - Another fantasy story by Dr. Carsten Elsner: Within "The Chinese
   Labyrinth" Marco Polo has to solve number theoretic problems.
 
-- Updated presentation.
+- Updated and enhanced presentation (almost 90 pages now).
+
 
 
 c) New functionality:
@@ -952,6 +985,17 @@ c) New functionality:
   also allows to gather entropy by mouse moves and keyboard entries.
   This is the default now, because it shows, that you need a random
   source in order to get good random data.
+
+- The AES-Tool now can encrypt and decrypt files till 5 GB (the old
+  limit was 256 MB).
+
+- The Shared Secret method from Shamir has been implemented with
+  many options.
+
+- You can generate asymmetric keys (for RSA and DSA) now with a bit
+  length till 8192 bits (CT 1.3.05 supported only 1024 bit).
+
+- Another prime number test was added: the deterministic method AKS.
 
 - Integration of an educational game for pupils, which helps them to
   get an easy understanding of divisors and primes ("The Number Shark").
@@ -1041,15 +1085,10 @@ c) New functionality:
 
 - Usage of CrypTool as a demonstrator for XML signatures.
 
-- Implementation of prime number tests.
-
-- Enable the usage of integers > 2^1024 for number theoretic or 
-  asymmetric functions.
-
 - Visualize the password quality with a password quality meter.
 
-- Build a command line version of the AES-Tool for other operating
-  systems.
+- Build a command line version of the AES-Tool (also for other
+  operating systems).
 
 
 6.2. Functionality: Analysis
@@ -1066,7 +1105,7 @@ c) New functionality:
 
 - Analysis to be newly implemented for:
    * homophone encryption
-   * permutations
+   * permutations/transpositions
    * Playfair encryption
       - pure C sources from Gunnar-Andresson are available. 
 
@@ -1129,8 +1168,8 @@ c) New functionality:
      -----------------------------
 - Summary of all display modules in a logical class tree.
 
-- Offer a view for any text file to show them in any given
-  fixed block length: e.g. xxx xxx xxx  or  xxxxx xxxxx xxxxx ...
+- Offer a view for any text file to show them in any given fixed
+  block length: e.g. formats xxx xxx xxx  or  xxxxx xxxxx xxxxx ...
 
 - Rearrange the source to facilitate a separation of cryptographic
   functions from the user interface (make ports and debugging easier).
@@ -1143,8 +1182,7 @@ c) New functionality:
   format for the internal key storage.
 
 - Libraries:
-   - Support further libraries (Gnu, LiDIA, FLINT/C, Wei Dai's
-     Crypto++, ...)
+   - Support further libraries (LiDIA, FLINT/C, Wei Dai's Crypto++, ...)
 
 - Extend existing limitations of the N-Gram analysis concerning
   the file size (evtl. give user feedback, that a high amount of time
@@ -1236,7 +1274,8 @@ c) New functionality:
 6.6. Porting to Linux, Java and VS2005/WPF
      -------------------------------------
 - Porting to Linux using GCC 4.x and Qt 4.x.
-   - The libraries from Secude, Miracl, NTL and OpenSSL are available.
+   - The libraries from Secude, Miracl, NTL, OpenSSL and GMP are
+     available.
    - Divide the complete task in meaningful parts:
        - graphical user interface: This is the main task.
        - functionality implemented in pure C/C++: ok
@@ -1252,14 +1291,12 @@ c) New functionality:
      subversion for source code version management).
 
 - Porting to Windows Vista using Visual Studio 2005 and .NET.
-  Maybe usage of the new GUI API Windows Presentation Foundation (WPF)
+  Usage of the new GUI API Windows Presentation Foundation (WPF)
   to create multi media GUIs.
    - Usage of the .NET framework (no MFC any more).
    - Usage of VS2005 (no longer VS2003 and no more VC++6.0),
      if the whole project can be built with the free-of-charge
      express edition for C++.
-   - A concrete evaluation will take place after the release of version
-     1.4.00.
 
 
 
@@ -1271,6 +1308,8 @@ c) New functionality:
 
 - Offer all kind of transpositions and superpositions for the
   content of text windows in an easy-to-use dialogue window.
+
+- Pattern matching dialogs.
 
 - Create a test suite with examples and solutions, in order to
   automate testing and to make sure, that program changes do not
@@ -1325,7 +1364,7 @@ Remarks about the versions:
 If you have any problems or find any errors, please send a
 description of the problem by e-mail to
 - joerg-cornelius.schneider@db.com   or
-- esslinger@fb5.uni-siegen.de / besslinger@web.de   or
+- esslinger@fb5.uni-siegen.de        or
 - the mailing list: cryptool-list@sec.informatik.tu-darmstadt.de
 
 We would be very grateful for suggestions of any kind regarding
@@ -1340,7 +1379,6 @@ CrypTool.
    -----------------
 - joerg-cornelius.schneider@db.com
 - esslinger@fb5.uni-siegen.de
-- besslinger@web.de
 - henrik.koy@db.com
 - cryptool-list@sec.informatik.tu-darmstadt.de
 
@@ -1514,18 +1552,21 @@ Available with complete source code are:
 
 
 The only other programs known to us, which usefully combine
-cryptography and cryptanalysis (under a graphical user interface), but
-where the source code is probably not public, are:
+cryptography and cryptanalysis (under a graphical user interface),
+but where the source code is probably not public, are:
 
 - CAP from Dr. Richard Spillman
-  The current version 4 was released in November(?) 2002 for download.
+  The current version 4.1 was released in 2004 for download.
+  This software exists in English only.
+  From the programs we know, CAP and CrypTool have the most
+  exhaustive functions for cryptanalysis.
   http://www.cs.plu.edu/courses/privacy/index.htm
 
 - CryptAid from David Lovelock
   (development probably stopped already in 1997)
   http://archives.math.utk.edu/software/msdos/miscellaneous/cryptaid/.html
 
-- the Visual Basic program "Cryptological Mathematics" from 
+- The Visual Basic program "Cryptological Mathematics" from 
   Prof. R.E. Lewand (vivid presentation of some number theoretic 
   functions, functions for encryption and encryption; no functions
   for cryptanalysis; software to accompany his book; probably from the
@@ -1536,6 +1577,11 @@ where the source code is probably not public, are:
   (single statistical functions and classical encryption methods;
   available since December 2002)
   http://phoenix.goucher.edu/~jtrafton/Crypto.
+
+- Wilhelm M. Plotz' Java application "CipherClerk"
+  (encryption and decryption with many classic algorithms;
+  last update in 2003)
+  http://members.aon.at/cipherclerk/
 
 - CryptoBench - GUI around Wei Dai's Crypto++ library
   Compact and clearly arranged GUI implemented around Wei Dai's 
@@ -1592,7 +1638,7 @@ CrypTool was honored with the following awards (see web page):
 
 11.1. Hints for using CrypTool on Linux with Wine
       -------------------------------------------
-These hints are based on tests with Wine 2001-11-29.
+These hints are based on tests with Wine 0.9.9.
 
 We do not recommend to use CrypTool under Wine, because too many things
 there only work partly. A full featured CrypTool version for Linux can
