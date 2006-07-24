@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -515,7 +515,7 @@ BEGIN
     IDS_REG_TRUE            "true"
     IDS_SHARK_AGAINST       " gegen "
     IDS_GAME_DATA           "GameData.txt"
-    IDS_HELP_FILE           "\\NumberShark\\sharkHelp_de\\NumberShark_de.chm::/Zahlenhai.html"
+    IDS_HELP_FILE           "NumberShark_de.chm::/Zahlenhai.html"
     IDS_TITLE_VERSION       " - Version 1.0 - Beta 14"
 END
 
@@ -574,12 +574,12 @@ BEGIN
     IDS_NORMAL_GROUP_BOX    "Muschelfeld"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -1005,7 +1005,7 @@ BEGIN
     IDS_REG_TRUE            "true"
     IDS_SHARK_AGAINST       " against "
     IDS_GAME_DATA           "GameData.txt"
-    IDS_HELP_FILE           "\\NumberShark\\sharkHelp_en\\NumberShark_en.chm::/NumberShark_Manual.html"
+    IDS_HELP_FILE           "NumberShark_en.chm::/NumberShark_Manual.html"
     IDS_TITLE_VERSION       " - Version 1.0 - Beta 14 "
 END
 
@@ -1064,7 +1064,7 @@ BEGIN
     IDS_NORMAL_GROUP_BOX    "Shell square"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

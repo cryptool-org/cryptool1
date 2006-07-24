@@ -1953,13 +1953,11 @@ void CMFCZahlenHaiDlg::execWinHelp()
 	helpFile.LoadString(IDS_HELP_FILE);
 	//exePathHelp.Delete(0,1);
 		
-	int pos = exePathHelp.ReverseFind( '\\');
-	exePathHelp = exePathHelp.Mid(0, pos);
-	pos = exePathHelp.ReverseFind( '\\');
-	exePathHelp = exePathHelp.Mid(0, pos);
-	/*pos = exePathHelp.ReverseFind( '\\');
-	exePathHelp = exePathHelp.Mid(0, pos);*/
-
+	int pos = exePathHelp.ReverseFind( '\\'); // FIXME --> Thomas
+	exePathHelp = exePathHelp.Mid(0, pos+1);  // FIxme ...
+	int pos1 = exePathHelp.Find("\"");		// FIXME --> Thomas
+	if (!pos1) exePathHelp.Delete(0);
+	
 	exePathHelp+=helpFile;
 
 	//exePathHelp.Insert(0,"C");
