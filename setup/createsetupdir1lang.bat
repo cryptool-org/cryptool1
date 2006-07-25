@@ -24,18 +24,16 @@ echo Copying ..\script\%lang%\script-%lang%.pdf  ...
 copy ..\script\%lang%\script-%lang%.pdf setup-%lang%
 echo Copying ..\dialoguesisters\%lang%\*.pdf setup-%lang%  ...
 copy ..\dialoguesisters\%lang%\*.pdf setup-%lang%
-echo Copying ..\OpenSSL\libeay32.dll setup-%lang% ...
-copy ..\OpenSSL\libeay32.dll setup-%lang%
 
 cd setup-%lang%
 
 set sum=md5sum
 echo Creating %sum%.txt ...
-%sum% * examples/* pse/pseca/* reference/* 2>nul >..\%sum%.txt 
+perl ..\finddigest.pl %sum% . >..\%sum%.txt 
 
 set sum=sha1sum
 echo Creating %sum%.txt ...
-%sum% * examples/* pse/pseca/* reference/* 2>nul >..\%sum%.txt 
+perl ..\finddigest.pl %sum% . >..\%sum%.txt 
 
 move ..\md5sum.txt .
 move ..\sha1sum.txt .
