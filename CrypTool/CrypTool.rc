@@ -5270,7 +5270,7 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
         END
-        MENUITEM "&Secret-Sharing-Demo...",     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
+        MENUITEM "&Secret-Sharing-Demo (nach Shamir)...",     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
         MENUITEM SEPARATOR
         POPUP "C&odierungen", GRAYED
@@ -5643,7 +5643,7 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
         END
-        MENUITEM "&Secret-Sharing-Demo...",     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
+        MENUITEM "&Secret-Sharing-Demo (nach Shamir)...",     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
         MENUITEM SEPARATOR
         POPUP "C&odierungen"
@@ -6017,7 +6017,7 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
         END
-        MENUITEM "&Secret-Sharing-Demo...",     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
+        MENUITEM "&Secret-Sharing-Demo (nach Shamir)...",     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
         MENUITEM SEPARATOR
         POPUP "C&odierungen", GRAYED
@@ -6386,7 +6386,7 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
         END
-        MENUITEM "&Secret-Sharing-Demo...",     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
+        MENUITEM "&Secret-Sharing-Demo (nach Shamir)...",     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
         MENUITEM SEPARATOR
         POPUP "C&odierungen"
@@ -6795,7 +6795,7 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
         END
-        MENUITEM "&Secret-Sharing-Demo...",     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
+        MENUITEM "&Secret-Sharing-Demo (nach Shamir)...",     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
         MENUITEM SEPARATOR
         POPUP "C&odierungen", GRAYED
@@ -15831,8 +15831,8 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR
         MENUITEM SEPARATOR
-        MENUITEM "&End of line",                ID_VIEW_ENDOFLINE, GRAYED
-        MENUITEM "Line w&rap",                  ID_VIEW_LINEWRAP, GRAYED
+        MENUITEM "&End of Line",                ID_VIEW_ENDOFLINE, GRAYED
+        MENUITEM "Line W&rap",                  ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Font", GRAYED
         BEGIN
@@ -15902,7 +15902,7 @@ BEGIN
         BEGIN
             MENUITEM "RSA &Encryption...",          ID_CRYPT_RsaEnc, GRAYED
             MENUITEM "RSA &Decryption...",          ID_CRYPT_RsaDec, GRAYED
-            MENUITEM "RSA-&Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
+            MENUITEM "RSA &Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
         END
         POPUP "&Hybrid"
@@ -15996,7 +15996,7 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
         END
-        MENUITEM "&Secret Sharing Demonstration...", 
+        MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
         MENUITEM SEPARATOR
@@ -16216,8 +16216,8 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&End of line",                ID_VIEW_ENDOFLINE, GRAYED
-        MENUITEM "Line w&rap",                  ID_VIEW_LINEWRAP, GRAYED
+        MENUITEM "&End of Line",                ID_VIEW_ENDOFLINE, GRAYED
+        MENUITEM "Line W&rap",                  ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Font", GRAYED
         BEGIN
@@ -16278,7 +16278,7 @@ BEGIN
         BEGIN
             MENUITEM "RSA &Encryption...",          ID_CRYPT_RsaEnc
             MENUITEM "RSA &Decryption...",          ID_CRYPT_RsaDec
-            MENUITEM "RSA-&Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
+            MENUITEM "RSA &Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
         END
         POPUP "&Hybrid"
@@ -16366,7 +16366,7 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
         END
-        MENUITEM "&Secret Sharing Demonstration...", 
+        MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
         MENUITEM SEPARATOR
@@ -16574,8 +16574,8 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&End of line",                ID_VIEW_ENDOFLINE, GRAYED
-        MENUITEM "Line w&rap",                  ID_VIEW_LINEWRAP, GRAYED
+        MENUITEM "&End of Line",                ID_VIEW_ENDOFLINE, GRAYED
+        MENUITEM "Line W&rap",                  ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Font", GRAYED
         BEGIN
@@ -16645,7 +16645,7 @@ BEGIN
         BEGIN
             MENUITEM "RSA &Encryption...",          ID_CRYPT_RsaEnc, GRAYED
             MENUITEM "RSA &Decryption...",          ID_CRYPT_RsaDec, GRAYED
-            MENUITEM "RSA-&Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
+            MENUITEM "RSA &Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
         END
         POPUP "&Hybrid"
@@ -16739,7 +16739,7 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
         END
-        MENUITEM "&Secret Sharing Demonstration...", 
+        MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
         MENUITEM SEPARATOR
@@ -16959,8 +16959,8 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&End of line",                ID_VIEW_ENDOFLINE
-        MENUITEM "Line w&rap",                  ID_VIEW_LINEWRAP
+        MENUITEM "&End of Line",                ID_VIEW_ENDOFLINE
+        MENUITEM "Line W&rap",                  ID_VIEW_LINEWRAP
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE
         POPUP "&Font"
         BEGIN
@@ -17018,7 +17018,7 @@ BEGIN
         BEGIN
             MENUITEM "RSA &Encryption...",          ID_CRYPT_RsaEnc
             MENUITEM "RSA &Decryption...",          ID_CRYPT_RsaDec
-            MENUITEM "RSA-&Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
+            MENUITEM "RSA &Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
         END
         POPUP "&Hybrid"
@@ -17106,7 +17106,7 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
         END
-        MENUITEM "&Secret Sharing Demonstration...", 
+        MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
         MENUITEM SEPARATOR
@@ -17347,8 +17347,8 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR
         MENUITEM SEPARATOR
-        MENUITEM "&End of line",                ID_VIEW_ENDOFLINE, GRAYED
-        MENUITEM "Line w&rap",                  ID_VIEW_LINEWRAP, GRAYED
+        MENUITEM "&End of Line",                ID_VIEW_ENDOFLINE, GRAYED
+        MENUITEM "Line W&rap",                  ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Font", GRAYED
         BEGIN
@@ -17418,7 +17418,7 @@ BEGIN
         BEGIN
             MENUITEM "RSA &Encryption...",          ID_CRYPT_RsaEnc, GRAYED
             MENUITEM "RSA &Decryption...",          ID_CRYPT_RsaDec, GRAYED
-            MENUITEM "RSA-&Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
+            MENUITEM "RSA &Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
         END
         POPUP "&Hybrid"
@@ -17512,7 +17512,7 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
         END
-        MENUITEM "&Secret Sharing Demonstration...", 
+        MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
         MENUITEM SEPARATOR
