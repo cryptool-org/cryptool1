@@ -491,6 +491,8 @@ hid_individual_procedures_secretsharing.html
 menu_educational_games.html
 hid_numbershark.html
 hidd_auto_substitution_analysis.html
+hid_sidechannel_overview.html
+
 
 [ALIAS]
 #include CrypTool_Alias.h

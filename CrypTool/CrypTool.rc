@@ -4777,7 +4777,7 @@ END
 
 IDD_SET_VISOPT DIALOGEX 0, 0, 231, 150
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "3-D-Visualisierung - Optionen"
+CAPTION "3D-Visualisierung - Optionen"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,111,124,50,19
@@ -10390,9 +10390,9 @@ BEGIN
     IDS_ANIMAL_FILE_NIHILIST ".\\anims\\nihilist_de.aml"
     IDS_ANIMAL_FILE_DES     ".\\anims\\des_de.aml"
     IDS_SCA_HYBRIDENCRYPTEDFILE_DEFAULT_PSEFILE 
-                            "letterFromAliceToBob-ENCRYPTED-de.hex"
+                            "examples/letterFromAliceToBob-ENCRYPTED-de.hex"
     IDS_ANIMAL_FILE_LOCALE  """locale=de_DE"" ""animation/animal-ascii-compressed"""
-    IDS_SCA_KEYWORDPROBLEM  "UU-Dekodierung von <%s>"
+    IDS_SCA_KEYWORDPROBLEM  "Für einen reibungslosen Ablauf des Seitenkanalangriffs muss das geöffnete Dokument das Schlüsselwort ""%s"" enthalten.\nWollen Sie dieses Schlüsselwort an die Datei anfügen?"
 END
 
 STRINGTABLE 
@@ -15508,7 +15508,7 @@ END
 
 IDD_SET_VISOPT DIALOGEX 0, 0, 230, 149
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "3-D Visualisation - Options"
+CAPTION "3D Visualization - Options"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,112,124,50,18
@@ -16139,8 +16139,8 @@ BEGIN
 
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
-            MENUITEM "&3-D Visualization...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
-            , GRAYED
+            MENUITEM "&3D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+
         END
     END
     POPUP "&Options"
@@ -16497,7 +16497,7 @@ BEGIN
 
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
-            MENUITEM "&3-D Visualization...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "&3D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
 
         END
     END
@@ -16882,8 +16882,8 @@ BEGIN
 
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
-            MENUITEM "&3-D Visualization...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
-            , GRAYED
+            MENUITEM "&3D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+
         END
     END
     POPUP "&Options"
@@ -17183,7 +17183,7 @@ BEGIN
         END
         POPUP "Symmetric Encryption (modern)", GRAYED
         BEGIN
-            MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA, GRAYED
+            MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA
             MENUITEM "RC&2...",                     ID_ANALYSE_RC2, GRAYED
             MENUITEM "RC&4...",                     ID_ANALYSE_RC4, GRAYED
             MENUITEM "&DES (ECB)...",               ID_ANALYSE_DESECB
@@ -17244,7 +17244,7 @@ BEGIN
 
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
-            MENUITEM "&3-D Visualization...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "&3D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
 
         END
     END
@@ -17655,8 +17655,8 @@ BEGIN
 
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
-            MENUITEM "&3-D Visualization...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
-            , GRAYED
+            MENUITEM "&3D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+
         END
     END
     POPUP "&Options"
@@ -21332,7 +21332,7 @@ BEGIN
     ID_HELP_ANIMAL_VIGENERE "The animation program ANIMAL demonstrates the data flow of the Vigenère algorithm"
     ID_HELP_ANIMAL_NIHILIST "The animation program ANIMAL demonstrates the data flow of the Nihilist algorithm"
     ID_ANALYSIS_RANDOM_3D_VISUALIZATION 
-                            "Shows a 3-D visualization of random data"
+                            "Shows a 3D visualization of random data"
     ID_INDIV_CRT_PLANET     "Solves a system of at most 9 linear modular equations applied to the planets of our solar system"
     ID_INDIV_CRT_DEMO       "Shows how calculations can be done with the remainders instead of the original numbers"
     ID_INDIV_CRT_SECRETSHARING 

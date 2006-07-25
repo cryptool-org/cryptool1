@@ -18,12 +18,16 @@
 
 		<P>Für die <A href="hid_xor_bin.html">Verschlüsselung mit dem exklusiven Oder</A> steht 
 			ein <A href="angriffe.html">Angriff</A> (<!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">Ciphertext-only-Angriff</A>) 
-			in Form einer Analyse zur Verfügung, mit deren Hilfe bei längeren <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> <!--ZZZPOPUP--><A href="dokument.html">Dokumenten</A>
+			zur Verfügung, mit dessen Hilfe bei längeren <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> <!--ZZZPOPUP--><A href="dokument.html">Dokumenten</A>
 			eventuell der Schlüssel und somit auch der <!--ZZZPOPUP--><A href="klartext.html">Klartext</A>
 			ermittelt werden kann.</P>
 		<P>Die Analyse operiert in zwei Schritten:</P>
-		<P>Ermittlung der verwendeten <!--ZZZPOPUP--><A href="schluessellaenge.html">Schlüssellänge</A></P>
-		<P>Ermittlung des eingesetzten Schlüssels</P>
+		
+		<ol>
+		<li><P>Ermittlung der verwendeten <!--ZZZPOPUP--><A href="schluessellaenge.html">Schlüssellänge</A></P></li>
+		<li><P>Ermittlung des eingesetzten Schlüssels</P></li>
+		</ol>
+		
 		<P>Die Schlüssellänge wird über die <!--ZZZPOPUP--><A href="autokorrelation.html">Autokorrelation</A>
 			berechnet. Da bei den meisten Dokumenten nicht alle Zeichen gleich häufig sind, 
 			ergibt sich der Effekt, dass die Wahrscheinlichkeit, dass zwei Zeichen gleich 
@@ -32,7 +36,7 @@
 			Kamm-Formation, bei der die einzelnen Zinken genau den Abstand der 
 			Schlüssellänge haben. Sollte die automatische Erkennung der Schlüssellänge ein 
 			falsches Ergebnis liefern, so besteht die Möglichkeit, die Schlüssellänge 
-			manuell festzulegen.</P>
+			<B>manuell</B> festzulegen.</P>
 		<P>Nach der Schlüssellänge wird der eigentlich verwendete Schlüssel ermittelt. 
 			Hierzu wird für jedes Zeichen des Schlüssels eine Häufigkeitsanalyse (siehe <!--ZZZPOPUP--><A href="histogramm.html">Histogramm</A>) 
 			durchgeführt. Dabei geht <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> davon 
@@ -47,7 +51,7 @@
 			Zwischenergebnisse mit <B>Abbrechen</B> anstelle von <B>OK</B> bestätigt, so 
 			erfolgt danach keine weitere Anzeige dieser Fenster oder untergeordneter 
 			Fenster. (Für eine genauere Erklärung, siehe <A href="hid_vigenere_auto.html">automatischen 
-				Analyse des Vigenère Verschlüsselungsverfahrens</A>)</P>
+				Analyse des Vigenère-Verschlüsselungsverfahrens</A>)</P>
 		<P>Es kann durchaus passieren, dass ein oder mehrere Teile des Schlüssels nicht 
 			korrekt ermittelt werden konnten.</P>
 		<P>Im Kapitel <A href="hid_hilfe_szenarien.html">Szenarien</A> befindet sich ein <A href="szenarien_xor.html">

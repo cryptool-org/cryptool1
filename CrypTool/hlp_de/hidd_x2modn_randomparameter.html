@@ -17,27 +17,27 @@
 
 <h3>Dialog Der "X-Quadrat modulo N" Generator</h3>
 
-<P>Der X-Quadrat modulo N (X^2 mod N)-Generator ist ein Algorithmus zur Erzeugung einer Folge von scheinbar zufälligen ganzen Zahlen (X_[i]) gemäß der rekursiven Rechenvorschrift:</P>
+<P>Der X-Quadrat modulo N (X^2 mod N)-Generator ist ein Algorithmus zur Erzeugung einer Folge von scheinbar zufälligen ganzen Zahlen (X[i]) gemäß der rekursiven Rechenvorschrift:</P>
 
 <div class="indent">
 
-<P>X_[0] := Geheimer Saatwert, wobei X_[0]*X_[0] &gt; N</P>
+<P>X[0] := Geheimer Saatwert, mit X[0]*X[0] &gt; N</P>
 
-<P>X_[i+1] := X_[i]*X_[i]  (mod N)   für i = 0, 1, 2, 3, ...</P>
+<P>X[i+1] := X[i]*X[i]  (mod N)   für i = 0, 1, 2, 3, ...</P>
 
 </div>
 
-<P>wobei X_[i] ganze Zahlen aus dem Wertebereich 0,1,2, ..., N-1 sind. </P>
+<P>wobei X[i] ganze Zahlen aus dem Wertebereich 0,1,2, ..., N-1 sind. </P>
 
-<P>Wir betrachten in CrypTool nur "Münzwürfe" (der Münzwurf "Kopf" wird auf die 0 und der Münzwurf "Zahl" wird auf die 1 abgebildet). Beim X^2 mod N-Generator bilden wir deshalb den Münzwurf 0 durch das Ereignis [X_[i] = 0 (mod 2)] und der Münzwurf 1 durch das Ereignis [X_[i] = 1 (mod 2)] ab. Die Folge der Münzwürfe wird als Binärdatei (eine Folge von 8 Münzwürfen ergibt ein zufälliges ASCII-Zeichen) abgespeichert.</P>
+<P>Wir betrachten in CrypTool nur "Münzwürfe" (der Münzwurf "Kopf" wird auf die 0 und der Münzwurf "Zahl" wird auf die 1 abgebildet). Beim X^2 mod N-Generator bilden wir deshalb den Münzwurf 0 durch das Ereignis [X[i] = 0 (mod 2)] und der Münzwurf 1 durch das Ereignis [X[i] = 1 (mod 2)] ab. Die Folge der Münzwürfe wird als Binärdatei (eine Folge von 8 Münzwürfen ergibt ein zufälliges ASCII-Zeichen) abgespeichert.</P>
 
 <P>Einziger Parameter beim X^2 mod N-Generator ist der Modul N. </P>
 
-<P>Nachdem Sie im Dialog <A href="menu_related_methods.html">Einzelverfahren</A> \ <A href="hid_zufall_generatoren.html">Zufallsdaten erzeugen</A> den Radiobutton "X^2 (mod N) Zufallsgenerator" gewählt haben, können sie unter "<B>Generatorspezifische Parameter wählen</B>" die Parameter festlegen:</P>
+<P>Nachdem Sie im Dialog <A href="menu_related_methods.html">Einzelverfahren</A> \ <A href="hid_zufall_generatoren.html">Zufallsdaten erzeugen</A> den Radiobutton <B>"X^2 (mod N) Zufallsgenerator"</B> gewählt haben, können sie unter "<B>Generatorspezifische Parameter wählen</B>" die Parameter festlegen:</P>
 
 <P><IMG SRC="images/x2modnoptions.gif" ALT="x2modnoptions.gif" BORDER=0></P>
 
-<P>Beachten Sie, dass die Qualität des X^2 mod N-Generators entscheidend von der Wahl des Parameters N abhängt. Kennt man die Primfaktorzerlegung des Moduls N, dann ist es möglich die Quadratwurzel modulo N von X_[i+1] berechnen und man kann den Zufallsgenerator knacken. Deshalb benutzt man oft für den Modul N große RSA-Module, bei denen die Primfaktorzerlegung N = p * q nur mit Kenntnis von N praktisch nicht bestimmbar ist. Voreingestellter Parameter ist ein RSA-Modul N = p*q mit der Eigenschaft, dass p und q Blum-Zahlen sind. Solche X^2 mod N-Generatoren heißen "Blum-Blum-Shub"-Generatoren.</P>
+<P>Beachten Sie, dass die Qualität des X^2 mod N-Generators entscheidend von der Wahl des Parameters N abhängt. Kennt man die Primfaktorzerlegung des Moduls N, dann ist es möglich die Quadratwurzel modulo N von X[i+1] berechnen und man kann den Zufallsgenerator knacken. Deshalb benutzt man oft für den Modul N große RSA-Module, bei denen die Primfaktorzerlegung N = p * q nur mit Kenntnis von N praktisch nicht bestimmbar ist. Voreingestellter Parameter ist ein RSA-Modul N = p*q mit der Eigenschaft, dass p und q Blum-Zahlen sind. Solche X^2 mod N-Generatoren heißen "Blum-Blum-Shub"-Generatoren.</P>
 
 <P>Die Qualität der von dem Zufallsgenerator erzeugten Ausgabe können Sie mit Hilfe der in CrypTool implementierten Zufallstests, der Periodenanalyse, der Komprimierbarkeit sowie der Vitany-Analyse überprüfen.</P>
 

@@ -21,21 +21,21 @@
 
 <P>The application of the <A href="hid_crypt_sign.html">RSA method</A> to signatures is illustrated with a binary <!--ZZZPOPUP--><A href="dokument.html">document</A>.</P>
 
-<P>First of all it is necessary (as for <!--ZZZPOPUP--><A href="verschluesselung.html">encryption</A> and <!--ZZZPOPUP--><A href="entschluesselung.html">decryption</A> using the <A href="hid_crypt_rsaenc.html">RSA encryption algorithm</A>) to generate an asymmetric <!--ZZZPOPUP--><A href="schluesselpaar.html">key pair</A>. Select the menu <A href="menu_digitalsignaturespki.html">Digital Signatures/PKI</A> \ <a href="menu_digitalsignaturespkipki.html">PKI</a> \ <A href="hid_crypt_keygen.html">Key Generation/Import</A>, and the following dialog box opens.</P>
+<P>First of all it is necessary (as for <!--ZZZPOPUP--><A href="verschluesselung.html">encryption</A> and <!--ZZZPOPUP--><A href="entschluesselung.html">decryption</A> using the <A href="hid_crypt_rsaenc.html">RSA encryption algorithm</A>) to generate an asymmetric <!--ZZZPOPUP--><A href="schluesselpaar.html">key pair</A>. Select the menu <A href="menu_digitalsignaturespki.html">Digital Signatures/PKI</A> \ <a href="menu_digitalsignaturespkipki.html">PKI</a> \ <A href="hid_crypt_keygen.html">Key Generation/Import</A>, and the following dialog opens.</P>
 
 <P><IMG SRC="images/szenariorsa_sig1.gif" ALT="szenariorsa_sig1.gif" BORDER=0></P>
 
-<P>The name we enter is <CODE>Joe Smith</CODE>, the optional key identifier is <CODE>Joes key </CODE>and the PIN (twice) is <CODE>CrypTool</CODE>. The length of the modulus is to be <CODE>512</CODE> bits. Press the <B>RETURN</B> key or else click on the <B>OK</B> button, and generation of the <!--ZZZPOPUP--><A href="schluesselpaar.html">key pair</A> will be initiated.</P>
+<P>The name we enter is <CODE>Joe Smith</CODE>, the optional key identifier is <CODE>Joes key </CODE>and the PIN (twice) is <CODE>CrypTool</CODE>. The length of the modulus is <CODE>512</CODE> bits. Press the <B>RETURN</B> key or else click on the <B>Generate new key pair</B> button, and generation of the <!--ZZZPOPUP--><A href="schluesselpaar.html">key pair</A> will be started.</P>
 
-<P>In the next window the public RSA parameters appear: the modulus composed of two prime numbers and the public exponent (public key).</P>
+<P>In the next window the public RSA parameters (public key) appear: the modulus composed of two prime numbers and the public exponent.</P>
 
 <P><IMG SRC="images/szenariorsa-sigparam.gif" ALT="szenariorsa-sigparam.gif" BORDER=0></P>
 
-<P>Click on <B>OK</B> once more, and the name under which the key pair has been saved in the database and the time which elapsed during creation of the key pair are displayed.</P>
+<P>Click on <B>Apply key</B>, and the name under which the key pair has been saved in the database and the time which elapsed during creation of the key pair are displayed.</P>
 
 <P><IMG SRC="images/szenariorsa_sig2.gif" ALT="szenariorsa_sig2.gif" BORDER=0></P>
 
-<P>When this dialog box is closed, the <A href="hidd_keyasym_generation.html">Generation of asymmetric key pair</A> dialog box must also be closed by clicking on <B>Cancel</B>.</P>
+<P>When this dialog is closed, the <A href="hidd_keyasym_generation.html">Generation of asymmetric key pair</A> dialog must also be closed by clicking on <B>Cancel</B>.</P>
 
 <P>Before we <!--ZZZPOPUP--><A href="signatur.html">sign</A> a <!--ZZZPOPUP--><A href="dokument.html">document</A> we want to display the certificate for the <!--ZZZPOPUP--><A href="schluesselpaar.html">key pair</A> that has been generated. We therefore select <A href="menu_digitalsignaturespki.html">Digital Signatures/PKI</A> \ <a href="menu_digitalsignaturespkipki.html">PKI</a> \ <A href="hid_show_all_ec_keys.html">Key Display/Export</A>, following which the <A href="hidd_key_asym.html">Available asymmetric key pairs</A> dialog box appears, with the key pair previously generated highlighted.</P>
 
