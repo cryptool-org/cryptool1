@@ -116,13 +116,10 @@ public:
 	void execWinHelp();
 	void createUndoRedo();
 	void writeIntoUndo(int nButton);
-	//CString setSeperator(__int64 value);
 		
 	CString sumText;
 	CString startInfo;
 	CString gameIdea;
-	//CString disclaimerText;
-	//CString infoText;
 	CString startNumberSetting;
 		
 	afx_msg void OnBnClickedButtonStartnew();
@@ -143,7 +140,6 @@ public:
 	CButton buttonRules;
 	CStatic muschelfeld;
 	CString shellBoxText;
-	afx_msg void OnBnClickedButtonErase();
 
 	afx_msg void OnBnClickedButtonSwitchStyle();
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);

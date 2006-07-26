@@ -198,6 +198,7 @@ BOOL ZahlenHaiOptionen::OnInitDialog()
 			radioButton1.EnableWindow(1);
 			radioButton1.SetCheck(1);
 			radioButton2.EnableWindow(0);
+			calculateMaxNew=1;
 			((CEdit*)GetDlgItem(IDC_BUTTON_MAX))->EnableWindow(true);
 		}
 		else

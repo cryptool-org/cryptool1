@@ -16,6 +16,8 @@ int globalPoints;
 int maxEndPoints;
 int endTime;
 
+int doSearch;
+
 EvoZahlenHai optimalesSpiel;
 
 CString bestWay;
@@ -62,7 +64,7 @@ BOOL readSearchState(int &startTime, __int64 &numberOfRounds, int &StackPointer,
 	title += charUpperLimit;
 	buffer.LoadString(IDS_SEARCH2);
 	title +=buffer;
-	char Buffer[100];
+	//char Buffer[100];
 
 	int openOk = file.Open(title,CFile::modeRead);
 	
@@ -140,13 +142,24 @@ void writeSearchState(item *Stack, int StackPointer, int upperLimit, __int64 num
 	buffer.LoadString(IDS_SEARCH2);
 	title +=buffer;
 
-	BOOL openOk = file.Open(title, CFile::modeCreate | CFile::modeWrite);
-	ASSERT(openOk);
+	int openOk = file.Open(title, CFile::modeCreate | CFile::modeWrite);
+	if(openOk!=0)
+	{
+		ASSERT(openOk);
 
-	file.WriteString(writeSearchValue(numberOfRounds, StackPointer, startTime));
-	writeStack(Stack, StackPointer,file);
+		file.WriteString(writeSearchValue(numberOfRounds, StackPointer, startTime));
+		writeStack(Stack, StackPointer,file);
 
-	file.Close();
+		file.Close();
+	}
+	/*else
+	{
+		// keine Schreibrechte
+		CString message="";
+		message.LoadString(IDS_NO_SEARCH);
+		AfxMessageBox(message,IDOK,MB_ICONINFORMATION);
+	}*/
+	
 }
 
 void SucheNRek(EvoZahlenHai &Spiel, int startTime)
@@ -156,18 +169,50 @@ void SucheNRek(EvoZahlenHai &Spiel, int startTime)
 	CStdioFile file;
 	int openStatus;
 	openStatus=file.Open("Test",CFile::modeCreate | CFile::modeReadWrite);
+	doSearch=1;
 	if(openStatus==0)
 	{
-			LPVOID lpMsgBuf;
+		/*	LPVOID lpMsgBuf;
 		::FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
 				NULL, GetLastError(), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPTSTR) &lpMsgBuf,0,NULL);
 		CString title="Ein Fehler ist aufgetreten.";
 		MessageBox(NULL,(LPCTSTR)lpMsgBuf,(LPCTSTR)title,MB_ICONWARNING|MB_OK);
-		LocalFree( lpMsgBuf );
-		return;
+		LocalFree( lpMsgBuf );*/
+
+		//Ermitteln des Verzeichnisses in dem sich die Zahlenhai.exe befindet
+		CString sharkExe = GetCommandLine();
+		int pos = sharkExe.ReverseFind( '\\'); // FIXME --> Thomas
+		sharkExe = sharkExe.Mid(0, pos+1);
+
+		//Erstellen der Fehlermeldung wenn keine Schreibrechte vorhanden sind
+		char charUpperLimit[6];
+		CString title;
+		title.Empty();
+		CString buffer="";
+		buffer.LoadString(IDS_SEARCH1);
+		itoa(Spiel.getUpperLimit(), charUpperLimit, 10);
+		title +=buffer;
+		title += charUpperLimit;
+		buffer.LoadString(IDS_SEARCH2);
+		title +=buffer;
+		CString message="";
+		//message.LoadString(IDS_NO_SEARCH);
+		message.Format(IDS_NO_SEARCH,title,sharkExe);
+
+		int answer = AfxMessageBox(message,IDOK,MB_ICONINFORMATION);
+		if(answer==IDCANCEL)
+		{
+			doSearch=0;
+			return;
+		}
+		doSearch=1;
 	}
-	file.Close();
-	unlink("Test");	
+	else
+	{
+		file.Close();
+		unlink("Test");	
+		doSearch=1;
+	}
 
 	Stack = new item[Spiel.getUpperLimit()];
 	Stack[0].index = 1;
@@ -183,7 +228,6 @@ void SucheNRek(EvoZahlenHai &Spiel, int startTime)
 	 }
 	
 	 writeSearchState(Stack, StackPointer, upperLimit, numberOfRounds, startTime);
-	 // writeSearchState(Stack, StackPointer, upperLimit, numberOfRounds, startTime);
 
 	do {
 
@@ -279,7 +323,6 @@ int maxPoints(int upperLimit)
 	Spiel.init(upperLimit);
 	numberOfRounds=0;
 	ContinueSearchFromFile = false;
-	//}
 
 	Spiel.startRound(maxPrime(upperLimit));
 
@@ -307,6 +350,9 @@ int maxPoints(int upperLimit)
 		if(i < n)
 			bestWay += " , ";
 	}
+
+	if(doSearch==0)
+		maxEndPoints = -1;
 
 	return maxEndPoints;
 }
@@ -355,6 +401,8 @@ UINT maxPointsStatic(LPVOID param)
 	}
 
 	globalPoints = maxEndPoints;
+	if(doSearch==0)
+		maxEndPoints = -1;
 	return maxEndPoints;
 }
 

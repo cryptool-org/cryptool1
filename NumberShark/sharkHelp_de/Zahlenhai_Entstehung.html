@@ -74,8 +74,8 @@ Dadurch wurde die maximal m&ouml;gliche Anzahl an Zahlen auf 9999 erh&ouml;ht. D
 
 <p>a) Auswahl der Zahlen im Muschelfeld</p>
 <p>Um die Benutzerfreundlichkeit in dem Programm zu erh&ouml;hen, wurde auch noch eine reine Tastatursteuerung implementiert, die es dem Benutzer erm&ouml;glich, sich mit den Pfeiltasten (links, rechts, hoch, runter) frei auf den mit Zahlen beschrifteten Muscheln, sowie den dazugeh&ouml;rigen Reitern, zu bewegen. Vor der Implementierung der Steuerung konnte man sich nur mit den Pfeiltasten links und rechts, sowie der Tabulator-Taste, durch das Programm navigieren. Ausw&auml;hlen kann man die Zahlen dann mit der Enter- oder der Leertaste.</p>
-<p>b) R&uuml;ckg&auml;ngig machen und wieder Vorw&auml;rts-Gehen mit den Undo und Redo Buttons</p>
-<p>Im Zahlenhai kannst du auch &uuml;ber den <b>R&uuml;ckw&auml;rts</b> Button (Undo) <IMG SRC="Pictures_de/Dlg_main_undo.png" ALT="Dlg_main_undo.png" BORDER=0> bereits gespielte Spielz&uuml;ge r&uuml;ckg&aum;ngig machen um Dich f&uuml;r eine andere Zahl zu entscheiden. Mit dem <b>Vorw&auml;rts</b> Button (Redo) <IMG SRC="Pictures_de/Dlg_main_redo.png" ALT="Dlg_main_redo.png" BORDER=0> kannst Du Deine zur&uuml;ck gegangenen Spielz&uuml;ge auch wieder Vorw&auml;rts gehen solange du keine &Auml;nderungen im Spielverlauf vorgenommen hast.</p>
+<p>b) R&uuml;ckg&auml;ngig machen und wieder Vorw&auml;rts-Gehen mit den Undo- und Redo-Buttons</p>
+<p>Im Zahlenhai kannst Du auch &uuml;ber den <b>R&uuml;ckw&auml;rts</b>-Button (Undo) <IMG SRC="Pictures_de/Dlg_main_undo.png" ALT="Dlg_main_undo.png" BORDER=0> bereits gespielte Spielz&uuml;ge r&uuml;ckg&auml;ngig machen, um Dich f&uuml;r eine andere Zahl zu entscheiden. Mit dem <b>Vorw&auml;rts</b>-Button (Redo) <IMG SRC="Pictures_de/Dlg_main_redo.png" ALT="Dlg_main_redo.png" BORDER=0> kannst Du Deine zur&uuml;ck genommenen Spielz&uuml;ge auch wieder vorw&auml;rts gehen solange Du keine &Auml;nderungen im Spielverlauf vorgenommen hast.</p>
 
 <p><b><u>5. Tests</u></b></p>
 
@@ -84,7 +84,7 @@ Dadurch wurde die maximal m&ouml;gliche Anzahl an Zahlen auf 9999 erh&ouml;ht. D
 <p><b><u>6. Optische Gestaltung</u></b></p>
 
 <p>Damit das Programm mehr wie ein Spiel und weniger wie eine normale B&uuml;roanwendung aussieht, musste auch die optische Aufmachung des Spieles verbessert werden. Der erste Schritt zu einer besseren optischen Gestaltung war die Ver&auml;nderung der Buttons f&uuml;r den Zahlenvorrat. Daf&uuml;r wurde das Bild einer Muschel ver&auml;ndert und den verschiedenen Zust&auml;nden eines Buttons, also "gedr&uuml;ckt", "deaktiviert" oder "Focus", zugewiesen. Die Buttons an sich wurden transparent gemacht, so dass es so aussieht als w&auml;ren die R&auml;nder der Muschel auch der Rand des Buttons.</p>
-<p>Du kannst die Muscheln jederzeit w&auml;hrend des Spieles sichtbar und unsichtbar machen. Daf&uuml;r brauchst Du nur die Tastenkombination <b>SHIFT+ALT+C</b> auf Deiner Tastatur dr&uuml;cken dann verschwinden die Muscheln bzw. tauchen wieder auf.</p>
+<p>Du kannst die Muscheln jederzeit w&auml;hrend des Spieles durch einfache Buttons ersetzten: Die Zahlen auf den einfachen Buttons sind (für manche Menschen) besser lesbar. Daf&uuml;r brauchst Du nur die Tastenkombination <b>SHIFT+ALT+C</b> auf Deiner Tastatur dr&uuml;cken.</p>
 <p>Im n&auml;chsten Schritt wurde ein Haifisch-Bild in das Spielfenster eingef&uuml;gt und die normalen rechteckigen ToolTips wurden durch abgerundete Fenster, sogenannte Balloon-Tips, ersetzt.</p>
 <p>Nachdem die Bilder ausgew&auml;hlt waren, wurde die Schriftfarbe an die Farbe der Bilder angepasst. Zus&auml;tzlich wurde die Spielverlaufstabelle in den Farben der Muscheln eingef&auml;rbt.</p>
 <p>Um den Dialog noch mehr wie ein Spiel aussehen zu lassen wurde ein Dialogfeld, das aussieht wie eine LED-Anzeige, hinzugef&uuml;gt: W&auml;hrend des Spiels zeigt dieses gro&szlig;, den Punktestand an.</p>
@@ -98,6 +98,7 @@ Dadurch wurde die maximal m&ouml;gliche Anzahl an Zahlen auf 9999 erh&ouml;ht. D
 <ol type =1>
 	<li>Eine gro&szlig;e Aufgabe, die sich noch stellt, ist es, eine schnellere M&ouml;glichkeit zu finden, die maximal m&ouml;gliche Punktezahl zu berechnen (siehe Challenge).</li>
 	<li>Au&szlig;erdem gibt es viele M&ouml;glichkeiten, das Programm bunter und spielerischer aussehen zu lassen.</li>
+	<li>Wenn sich der Mauszeiger über einer noch auswählbaren Muschel befindet, also einer blauen, dann soll sich er sich zum Beispiel in eine Hand verwandeln.</li>
 	<li>Eine animierte Muschel schluckt die Zahlen, wenn sie an den Zahlenhai gehen.</li>
 	<li>Eine Farbauswahlpalette, &auml;hnlich MS Paint, in die Optionen integrieren (Reiter Farbe).</li>
 	<li>Sliderbox zur Auswahl der Zahlenvorratsgr&ouml;&szlig;e</li>
@@ -114,7 +115,7 @@ Dadurch wurde die maximal m&ouml;gliche Anzahl an Zahlen auf 9999 erh&ouml;ht. D
 		<li>man aus der Datei *.zha die besten, bisher gefundenen Werte auslesen k&ouml;nnen.</li>
 	</ol>
 	</li>
-	<li>Zwischen-/Spielstand speichern und wieder aufsetzten</li>
+	<li>Zwischen-/Spielstand speichern und wieder aufsetzten.</li>
 </ol>
 </p>
 

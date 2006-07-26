@@ -135,6 +135,8 @@
 #define IDS_SHELL_GROUP_BOX             199
 #define IDB_BITMAP10                    200
 #define IDS_NORMAL_GROUP_BOX            200
+#define IDS_NO_SEARCH                   201
+#define IDS_NO_SUMMARY                  202
 #define IDR_MAINFRAME                   205
 #define IDC_CURSOR1                     207
 #define IDC_LIST2                       1001

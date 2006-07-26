@@ -174,7 +174,6 @@ BEGIN_MESSAGE_MAP(CMFCZahlenHaiDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_FINISH, OnBnClickedButtonFinish)
 	ON_BN_CLICKED(IDC_BUTTON_UNDO, OnBnClickedButtonUndo)
 	ON_BN_CLICKED(IDC_BUTTON_REDO, OnBnClickedButtonRedo)
-	//ON_BN_CLICKED(IDC_BUTTON_ERASE, OnBnClickedButtonErase)
 	ON_BN_CLICKED(IDC_BUTTON_SWITCH_STYLE, OnBnClickedButtonSwitchStyle)
 	ON_WM_MOUSEMOVE()
 END_MESSAGE_MAP()
@@ -841,16 +840,10 @@ void CMFCZahlenHaiDlg::OnBnClickedButtonStartnew()
 	// Liste löschen bei Klick auf "Neues Spiel"
 	ListControl.DeleteAllItems();  
 	
-	//m_LedWinner.DeleteTempMap();
-	//m_LedWinner.ShowWindow(0);
-	
 	ListControl.ShowWindow(0);
 	((CEdit*)GetDlgItem(IDC_STATIC_LISTE))->ShowWindow(0);
 
 	newGameCount++;
-
-	//int zufall = rand()%4;
-	//zufall+=1;
 	
 	switch(newGameCount)
 	{
@@ -859,31 +852,6 @@ void CMFCZahlenHaiDlg::OnBnClickedButtonStartnew()
 		case 3:haiListe.SetBitmap(haiBild4);break;
 		case 4:haiListe.SetBitmap(haiBild);newGameCount=0;break;
     }
-
-	/*
-	if(newGameCount%4==0)
-	{
-        haiListe.SetBitmap(haiBild4); 
-	}
-	else
-	{
-		if(newGameCount%3==0)
-		{
-			haiListe.SetBitmap(haiBild3);
-		}
-		else
-		{
-			if(newGameCount%2==0)
-			{
-				haiListe.SetBitmap(haiBild2);
-			}
-			else
-			{
-				haiListe.SetBitmap(haiBild);
-			}
-		}
-	}
-	*/
 	
 	haiListe.ShowWindow(1);
 
@@ -999,14 +967,11 @@ void CMFCZahlenHaiDlg::OnBnClickedButtonRest()
 	bool found=false;
 	int *numbersTemp = hai.getNumbers();
 	int upperLimit=hai.getUpperLimit();
-	int nButton=0;
-	bool foundTab=false;
-	int currTab=0;
 		
 	for(int i= upperLimit; i > upperLimit/2; i--)
 	{
 		found=false;
-		bool foundTab=false;
+		//foundTab=false;
 		for(int j=1; j<=i/2 && found==false && numbersTemp[i]==FREE; j++)
 		{
 			if(numbersTemp[j]==FREE)
@@ -1120,7 +1085,17 @@ void CMFCZahlenHaiDlg::writeLogFile()
 	
     if(openStatus==0)
 	{
-		MessageBox("Die Datei kann nicht geschrieben werden!","Kein Schreibzugriff!",MB_OK);
+		//Ermitteln des Verzeichnisses in dem sich die Zahlenhai.exe befindet
+		CString sharkExe = GetCommandLine();
+		int pos = sharkExe.ReverseFind( '\\'); // FIXME --> Thomas
+		sharkExe = sharkExe.Mid(0, pos+1);
+
+		//Erstellen der Fehlermeldung wenn keine Schreibrechte vorhanden sind
+		CString message="";
+		//message.LoadString(IDS_NO_SUMMARY);
+		message.Format(IDS_NO_SUMMARY,filename,sharkExe);
+
+		AfxMessageBox(message,IDOK,MB_ICONINFORMATION);
 		return;
 	}
 
@@ -1133,9 +1108,7 @@ void CMFCZahlenHaiDlg::writeLogFile()
 	file.WriteString(LogText+optionen.playername);
 	LogText.LoadString(IDS_LOGFILE_NUMBERS);
 	file.WriteString(LogText+upperLimitNumbers);
-	
-	//((CEdit*)GetDlgItem(IDC_BUTTON_REST))->EnableWindow(false);
-	
+
 	//CStrings für die Überschriften der einzelnen Spalten
 	CString Zug;
 	CString Spieler;
@@ -1285,7 +1258,7 @@ int CMFCZahlenHaiDlg::winner()
 
 	char Buffer[1000];
 	int pointsPlayer = hai.getPointsPlayer();
-	int pointsComputer = hai.getPointsComputer();
+//	int pointsComputer = hai.getPointsComputer();
 
 	((CEdit*)GetDlgItem(IDC_BUTTON_REST))->EnableWindow(false);
 	//Um den Pfad der Zusammenfassung angeben zu können wird der Pfad der Exe Datei gespeichert und um den Namen der Exe Datei 
@@ -1401,20 +1374,24 @@ void CMFCZahlenHaiDlg::addOn()
 {
 	int tempUpperLimit = hai.getUpperLimit();
 	int maxPts = maxPoints(tempUpperLimit);
-	
-	CString result;
-  	CString headline;
-	
-	headline.LoadString(IDS_MAX_POINTS_HEADLINE);
 
-	CString sepTempUpperLimit = hai.setSeperator(tempUpperLimit);
-	CString sepMaxPts = hai.setSeperator(maxPts);
-	if(tempUpperLimit <= MAX_POINTS_CALC)
-        result.Format(IDS_MAX_POINTS_NEW_2, sepTempUpperLimit, sepMaxPts, hai.setSeperator(getTime()), hai.setSeperator(getNumberOfRounds()), hai.setSeperator(maxPrime(tempUpperLimit)), bestWay);	
-	else
-		result.Format(IDS_MAX_POINTS_NEW, sepTempUpperLimit, sepMaxPts, hai.setSeperator(getTime()), hai.setSeperator(getNumberOfRounds()), hai.setSeperator(maxPrime(tempUpperLimit)), bestWay);
+	if(maxPts != -1)
+	{
 	
-	MessageBox(result,headline, MB_ICONINFORMATION);
+		CString result;
+  		CString headline;
+		
+		headline.LoadString(IDS_MAX_POINTS_HEADLINE);
+
+		CString sepTempUpperLimit = hai.setSeperator(tempUpperLimit);
+		CString sepMaxPts = hai.setSeperator(maxPts);
+		if(tempUpperLimit <= MAX_POINTS_CALC)
+			result.Format(IDS_MAX_POINTS_NEW_2, sepTempUpperLimit, sepMaxPts, hai.setSeperator(getTime()), hai.setSeperator(getNumberOfRounds()), hai.setSeperator(maxPrime(tempUpperLimit)), bestWay);	
+		else
+			result.Format(IDS_MAX_POINTS_NEW, sepTempUpperLimit, sepMaxPts, hai.setSeperator(getTime()), hai.setSeperator(getNumberOfRounds()), hai.setSeperator(maxPrime(tempUpperLimit)), bestWay);
+		
+		MessageBox(result,headline, MB_ICONINFORMATION);
+	}
 
 /*
 	// flomar
@@ -1951,7 +1928,6 @@ void CMFCZahlenHaiDlg::execWinHelp()
 	CString exePathHelp=exePath;
 	CString helpFile="";
 	helpFile.LoadString(IDS_HELP_FILE);
-	//exePathHelp.Delete(0,1);
 		
 	int pos = exePathHelp.ReverseFind( '\\'); // FIXME --> Thomas
 	exePathHelp = exePathHelp.Mid(0, pos+1);  // FIxme ...
@@ -1959,9 +1935,6 @@ void CMFCZahlenHaiDlg::execWinHelp()
 	if (!pos1) exePathHelp.Delete(0);
 	
 	exePathHelp+=helpFile;
-
-	//exePathHelp.Insert(0,"C");
-	//AfxMessageBox(exePathHelp,MB_OK,MB_ICONINFORMATION);
 
 	//HH_DISPLAY_TOPIC durch HH_HELP_CONTEXT austauschen
 	::HtmlHelp(this->m_hWnd, exePathHelp,HH_DISPLAY_TOPIC, NULL);
@@ -1981,7 +1954,7 @@ void CMFCZahlenHaiDlg::OnBnClickedButtonFinish()
 	for(int i=1; i<=upperLimit; i++)
 	{
 		if(numbersTemp[i]==FREE)
-			numbersTemp[i]==COMPUTER;
+			numbersTemp[i]=COMPUTER;
 
 		hai.startRound(i);
 		CSetList(i);
@@ -2046,10 +2019,6 @@ void CMFCZahlenHaiDlg::OnBnClickedButtonRedo()
 		((CEdit*)GetDlgItem(IDC_BUTTON_REDO))->EnableWindow(false);
 }
 
-void CMFCZahlenHaiDlg::OnBnClickedButtonErase()
-{
-
-}
 void CMFCZahlenHaiDlg::OnBnClickedButtonSwitchStyle()
 {
 	if(arrayButtonControl[1].GetButtonStyle()!=BS_OWNERDRAW)
@@ -2077,8 +2046,6 @@ void CMFCZahlenHaiDlg::OnBnClickedButtonSwitchStyle()
 		shellGroupBox.LoadString(IDS_NORMAL_GROUP_BOX);
 		muschelfeld.SetWindowText(shellGroupBox);
 	}
-
-	//fontNormalButton.DeleteObject();
 }
 
 void CMFCZahlenHaiDlg::OnMouseMove(UINT nFlags, CPoint point)
