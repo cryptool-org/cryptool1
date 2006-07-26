@@ -130,15 +130,17 @@ void CDlgFindAndReplace::OnBnClickedButtonFind()
 
 		// determine search flags
 		int searchflags = 0;
-		if(theApp.findAndReplaceDialog.checkCaseSensitive) searchflags = SCFIND_MATCHCASE;
-		if(theApp.findAndReplaceDialog.checkRegularExpressions) searchflags = SCFIND_REGEXP;
+		if(theApp.findAndReplaceDialog.checkCaseSensitive) searchflags |= SCFIND_MATCHCASE;
+		if(theApp.findAndReplaceDialog.checkRegularExpressions) searchflags |= SCFIND_REGEXP;
 
 		// find and mark the desired text
 		lPos = pWindow->SendMessage(SCI_FINDTEXT, searchflags, reinterpret_cast<LPARAM>(&ttf));
 		if(lPos >= 0)
 		{
-			pWindow->SendMessage(SCI_SETSEL, lPos, lPos+strlen(ttf.lpstrText));
-
+			pWindow->SetFocus();
+			pWindow->SendMessage(SCI_GOTOPOS, lPos, 0);
+			// pWindow->SendMessage(SCI_SETSEL, lPos, lPos+strlen(ttf.lpstrText));
+			pWindow->SendMessage(SCI_SETSEL, ttf.chrgText.cpMin, ttf.chrgText.cpMax);
 			// hide hour glass
 			HIDE_HOUR_GLASS
 		}
@@ -203,16 +205,31 @@ void CDlgFindAndReplace::OnBnClickedButtonReplace()
 
 		// determine search flags
 		int searchflags = 0;
-		if(theApp.findAndReplaceDialog.checkCaseSensitive) searchflags = SCFIND_MATCHCASE;
-		if(theApp.findAndReplaceDialog.checkRegularExpressions) searchflags = SCFIND_REGEXP;
+		if(theApp.findAndReplaceDialog.checkCaseSensitive) searchflags |= SCFIND_MATCHCASE;
+		if(theApp.findAndReplaceDialog.checkRegularExpressions) searchflags |= SCFIND_REGEXP;
 
 		/// find and replace the desired text
-		lPos = pWindow->SendMessage(SCI_FINDTEXT, searchflags, reinterpret_cast<LPARAM>(&ttf));
+		lPos = pWindow->SendMessage(SCI_FINDTEXT, searchflags, reinterpret_cast<LPARAM>(&ttf));lPos = pWindow->SendMessage(SCI_FINDTEXT, searchflags, reinterpret_cast<LPARAM>(&ttf));
 		if(lPos >= 0)
 		{
-			pWindow->SendMessage(SCI_SETSEL, lPos, lPos+strlen(ttf.lpstrText));
-			pWindow->SendMessage(SCI_REPLACESEL, 0, reinterpret_cast<LPARAM>((char*)(LPCTSTR)(theApp.findAndReplaceDialog.textReplace)));
+			pWindow->SetFocus();
+			pWindow->SendMessage(SCI_GOTOPOS, lPos, 0);
+			// pWindow->SendMessage(SCI_SETSEL, lPos, lPos+strlen(ttf.lpstrText));
+			pWindow->SendMessage(SCI_SETSEL, ttf.chrgText.cpMin, ttf.chrgText.cpMax);
 
+			if ( NULL != (char*)(LPCTSTR)(theApp.findAndReplaceDialog.textReplace) ) 
+			{
+				pWindow->SendMessage(SCI_TARGETFROMSELECTION, 0, 0);
+				if (searchflags & SCFIND_REGEXP)
+					pWindow->SendMessage(SCI_REPLACETARGETRE, strlen((char*)(LPCTSTR)(theApp.findAndReplaceDialog.textReplace)), 
+								(long)(char*)(LPCTSTR)(theApp.findAndReplaceDialog.textReplace));
+				else
+					pWindow->SendMessage(SCI_REPLACETARGET, strlen((char*)(LPCTSTR)(theApp.findAndReplaceDialog.textReplace)), 
+								(long)(char*)(LPCTSTR)(theApp.findAndReplaceDialog.textReplace));
+				lPos = pWindow->SendMessage(SCI_FINDTEXT, searchflags, reinterpret_cast<LPARAM>(&ttf));
+			}
+
+			// pWindow->SendMessage(SCI_REPLACESEL, 0, reinterpret_cast<LPARAM>((char*)(LPCTSTR)(theApp.findAndReplaceDialog.textReplace)));
 			// hide hour glass
 			HIDE_HOUR_GLASS
 		}
@@ -277,8 +294,8 @@ void CDlgFindAndReplace::OnBnClickedButtonReplaceAll()
 
 		// determine search flags
 		int searchflags = 0;
-		if(theApp.findAndReplaceDialog.checkCaseSensitive) searchflags = SCFIND_MATCHCASE;
-		if(theApp.findAndReplaceDialog.checkRegularExpressions) searchflags = SCFIND_REGEXP;
+		if(theApp.findAndReplaceDialog.checkCaseSensitive) searchflags |= SCFIND_MATCHCASE;
+		if(theApp.findAndReplaceDialog.checkRegularExpressions) searchflags |= SCFIND_REGEXP;
 
 		// find and replace the desired text on all occurances
 		int findcounter = 0;
