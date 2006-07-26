@@ -58,7 +58,7 @@ BEGIN
     LTEXT           "Kurvenstärke  (1, ..., 10) :",IDC_STATIC,21,31,84,10
 END
 
-IDD_KEY_HILL5X5 DIALOGEX 0, 0, 217, 223
+IDD_KEY_HILL5X5 DIALOGEX 0, 0, 217, 207
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe: Hill"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
@@ -88,10 +88,10 @@ BEGIN
     EDITTEXT        IDC_EDIT53,60,101,11,12
     EDITTEXT        IDC_EDIT54,80,101,11,12
     EDITTEXT        IDC_EDIT55,100,101,11,12
-    GROUPBOX        "Hill-Schlüsselmatrix",IDC_STATIC,7,8,117,164
-    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,7,193,63,19
-    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON5,83,193,60,19
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,156,193,53,19
+    GROUPBOX        "Hill-Schlüsselmatrix",IDC_STATIC,7,8,117,142
+    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,7,178,63,19
+    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON5,83,178,60,19
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,156,178,53,19
     CONTROL         "&1 x 1",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,154,23,31,10
     CONTROL         "&2 x 2",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,154,43,
@@ -106,12 +106,11 @@ BEGIN
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
                     98,122,22,20
     PUSHBUTTON      "&Größerer Schlüssel",IDC_BUTTON4,135,121,70,18
-    GROUPBOX        "Dimension",IDC_STATIC,131,8,78,164
+    GROUPBOX        "Dimension",IDC_STATIC,131,8,78,142
     EDITTEXT        IDC_EDIT1,188,7,19,15,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
-    PUSHBUTTON      "Schlüssel &kopieren",IDC_BUTTON1,20,146,73,18
     CONTROL         "Details der Hill-Schlüsselmatrix ausgeben",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,179,174,9
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,161,174,9
 END
 
 IDD_OPTIONS_ANALYSIS DIALOG  0, 0, 306, 271
@@ -958,7 +957,6 @@ BEGIN
     PUSHBUTTON      "K&leinerer Schlüssel",IDC_BUTTON4,241,227,73,18
     EDITTEXT        IDC_EDIT1,253,7,19,15,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
-    PUSHBUTTON      "Schlüssel &kopieren",IDC_BUTTON1,109,227,70,18
     CONTROL         "Details der Hill-Schlüsselmatrix ausgeben",IDC_CHECK1,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,22,262,174,9
 END
@@ -5108,25 +5106,29 @@ BEGIN
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE, GRAYED
         POPUP "S&chriftart"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
-
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
-
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
-
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
+            , GRAYED
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
+            , GRAYED
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            , GRAYED
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            , GRAYED
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            , GRAYED
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            , GRAYED
         END
         MENUITEM SEPARATOR
-        MENUITEM "Box (Würfelkanten zeigen)",   ID_POPUP_OPENGL_SHOW_BOX
+        MENUITEM "B&ox (Würfelkanten zeigen)",  ID_POPUP_OPENGL_SHOW_BOX
         , GRAYED
     END
     POPUP "&Ver-/Entschlüsseln"
     BEGIN
         POPUP "Symmetrisch (&klassisch)"
         BEGIN
-            MENUITEM "Caesar / &Rot-13...",         ID_ROT13CAESAR_ASC, GRAYED
+            MENUITEM "Caesar / &Rot-13...",         ID_ROT13CAESAR_ASC
+            , GRAYED
             MENUITEM "&Vigenère...",                ID_VIGENERE_ASC, GRAYED
             MENUITEM "H&ill...",                    ID_HILL, GRAYED
             MENUITEM "&Substitution / Atbash...",   ID_CryptMono, GRAYED
@@ -5278,8 +5280,10 @@ BEGIN
         BEGIN
             POPUP "&Base64-Codierung/Base64-Decodierung"
             BEGIN
-                MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64, GRAYED
-                MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64, GRAYED
+                MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64
+                , GRAYED
+                MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
+                , GRAYED
             END
             POPUP "&UU-Codierung/UU-Decodierung"
             BEGIN
@@ -5495,18 +5499,21 @@ BEGIN
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE, GRAYED
         POPUP "S&chriftart"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
-
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
-
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
-
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
+            , GRAYED
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
+            , GRAYED
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            , GRAYED
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            , GRAYED
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            , GRAYED
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            , GRAYED
         END
         MENUITEM SEPARATOR
-        MENUITEM "Box (Würfelkanten zeigen)",   ID_POPUP_OPENGL_SHOW_BOX
+        MENUITEM "B&ox (Würfelkanten zeigen)",  ID_POPUP_OPENGL_SHOW_BOX
         , GRAYED
     END
     POPUP "&Ver-/Entschlüsseln"
@@ -5692,8 +5699,11 @@ BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
+
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
+
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO
                 MENUITEM "&XOR",                        ID_XOR_AUTO
@@ -5707,6 +5717,7 @@ BEGIN
                 MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+
             END
         END
         POPUP "Symmetrische Verschlüsselung (&modern)"
@@ -5846,25 +5857,29 @@ BEGIN
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE, GRAYED
         POPUP "S&chriftart"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
-
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
-
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
-
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
+            , GRAYED
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
+            , GRAYED
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            , GRAYED
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            , GRAYED
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            , GRAYED
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            , GRAYED
         END
         MENUITEM SEPARATOR
-        MENUITEM "Box (Würfelkanten zeigen)",   ID_POPUP_OPENGL_SHOW_BOX
+        MENUITEM "B&ox (Würfelkanten zeigen)",  ID_POPUP_OPENGL_SHOW_BOX
         , GRAYED
     END
     POPUP "&Ver-/Entschlüsseln"
     BEGIN
         POPUP "Symmetrisch (&klassisch)"
         BEGIN
-            MENUITEM "Caesar / &Rot-13...",         ID_ROT13CAESAR_ASC, GRAYED
+            MENUITEM "Caesar / &Rot-13...",         ID_ROT13CAESAR_ASC
+            , GRAYED
             MENUITEM "&Vigenère...",                ID_VIGENERE_ASC, GRAYED
             MENUITEM "H&ill...",                    ID_HILL, GRAYED
             MENUITEM "&Substitution / Atbash...",   ID_CryptMono, GRAYED
@@ -6016,8 +6031,10 @@ BEGIN
         BEGIN
             POPUP "&Base64-Codierung/Base64-Decodierung"
             BEGIN
-                MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64, GRAYED
-                MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64, GRAYED
+                MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64
+                , GRAYED
+                MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
+                , GRAYED
             END
             POPUP "&UU-Codierung/UU-Decodierung"
             BEGIN
@@ -6078,7 +6095,8 @@ BEGIN
             END
             POPUP "&Manuelle Analyse"
             BEGIN
-                MENUITEM "&Substitution...",            ID_ANALYZE_SUBST, GRAYED
+                MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
+                , GRAYED
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
                 , GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
@@ -6152,7 +6170,6 @@ BEGIN
             , GRAYED
             MENUITEM "&3D-Visualisierung...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
             , GRAYED
-
         END
     END
     POPUP "&Optionen"
@@ -6244,7 +6261,7 @@ BEGIN
 
         END
         MENUITEM SEPARATOR
-        MENUITEM "Box (Würfelkanten zeigen)",   ID_POPUP_OPENGL_SHOW_BOX
+        MENUITEM "B&ox (Würfelkanten zeigen)",  ID_POPUP_OPENGL_SHOW_BOX
         , GRAYED
     END
     POPUP "&Ver-/Entschlüsseln"
@@ -6295,6 +6312,7 @@ BEGIN
             MENUITEM "RSA-AES-&Verschlüsselung...", ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
 
             MENUITEM "RSA-AES-&Entschlüsselung...", ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
+
         END
     END
     POPUP "Digitale Signaturen/&PKI"
@@ -6613,18 +6631,21 @@ BEGIN
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE, GRAYED
         POPUP "S&chriftart"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
-
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
-
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
-
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
+            , GRAYED
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
+            , GRAYED
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            , GRAYED
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            , GRAYED
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            , GRAYED
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            , GRAYED
         END
         MENUITEM SEPARATOR
-        MENUITEM "Box (Würfelkanten zeigen)",   ID_POPUP_OPENGL_SHOW_BOX
+        MENUITEM "B&ox (Würfelkanten zeigen)",  ID_POPUP_OPENGL_SHOW_BOX
     END
     POPUP "&Ver-/Entschlüsseln"
     BEGIN
@@ -6783,8 +6804,10 @@ BEGIN
         BEGIN
             POPUP "&Base64-Codierung/Base64-Decodierung"
             BEGIN
-                MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64, GRAYED
-                MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64, GRAYED
+                MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64
+                , GRAYED
+                MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
+                , GRAYED
             END
             POPUP "&UU-Codierung/UU-Decodierung"
             BEGIN
@@ -7936,6 +7959,13 @@ END
 #ifdef APSTUDIO_INVOKED
 GUIDELINES DESIGNINFO 
 BEGIN
+    IDD_KEY_HILL5X5, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 197
+        HORZGUIDE, 8
+        HORZGUIDE, 150
+    END
+
     IDD_OPTIONS_ANALYSIS, DIALOG
     BEGIN
         VERTGUIDE, 13
@@ -10913,7 +10943,7 @@ BEGIN
     LTEXT           "Curve width   (1-10) :",IDC_STATIC,21,31,84,10
 END
 
-IDD_KEY_HILL5X5 DIALOGEX 0, 0, 217, 223
+IDD_KEY_HILL5X5 DIALOGEX 0, 0, 217, 206
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Key Entry: Hill"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
@@ -10943,11 +10973,11 @@ BEGIN
     EDITTEXT        IDC_EDIT53,60,101,11,12
     EDITTEXT        IDC_EDIT54,80,101,11,12
     EDITTEXT        IDC_EDIT55,100,101,11,12
-    DEFPUSHBUTTON   "&Encrypt",IDOK,7,195,63,19
-    PUSHBUTTON      "&Decrypt",IDC_BUTTON5,82,195,60,19
-    PUSHBUTTON      "&Cancel",IDCANCEL,151,195,58,19
-    GROUPBOX        "Hill key matrix",IDC_STATIC,7,8,118,164
-    GROUPBOX        "Size",IDC_STATIC,131,8,78,164
+    DEFPUSHBUTTON   "&Encrypt",IDOK,7,176,63,19
+    PUSHBUTTON      "&Decrypt",IDC_BUTTON5,82,176,60,19
+    PUSHBUTTON      "&Cancel",IDCANCEL,151,176,58,19
+    GROUPBOX        "Hill key matrix",IDC_STATIC,7,8,118,142
+    GROUPBOX        "Size",IDC_STATIC,131,8,78,142
     CONTROL         "&1 x 1",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,154,23,31,10
     CONTROL         "&2 x 2",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,154,43,
@@ -10964,9 +10994,8 @@ BEGIN
     PUSHBUTTON      "&Larger key",IDC_BUTTON4,141,121,59,18
     EDITTEXT        IDC_EDIT1,188,7,19,15,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
-    PUSHBUTTON      "&Copy key",IDC_BUTTON1,20,146,73,18
     CONTROL         "Output details of the Hill keymatrix",IDC_CHECK1,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,20,181,174,9
+                    BS_AUTOCHECKBOX | WS_TABSTOP,20,158,174,9
 END
 
 IDD_OPTIONS_ANALYSIS DIALOG  0, 0, 306, 271
@@ -11823,7 +11852,6 @@ BEGIN
     PUSHBUTTON      "&Shorter key",IDC_BUTTON4,241,224,73,18
     EDITTEXT        IDC_EDIT1,253,7,19,15,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
-    PUSHBUTTON      "&Copy key",IDC_BUTTON1,109,224,66,18
     CONTROL         "Output details of the Hill keymatrix",IDC_CHECK1,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,23,259,174,9
 END
@@ -12761,9 +12789,9 @@ BEGIN
     RTEXT           "line by line:",IDC_STATIC,26,87,59,8
     RTEXT           "column by column:",IDC_STATIC,26,103,59,8
     GROUPBOX        "Options",IDC_STATIC,12,254,256,43
-    CONTROL         "Zwischendialog mit der inversen Permutation anzeigen",
+    CONTROL         "Show intermediate dialog with the inverse permutation",
                     IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,281,
-                    187,10
+                    185,10
 END
 
 IDD_ICG_RANDOMPARAMETER DIALOG  0, 0, 294, 150
@@ -15806,7 +15834,7 @@ BEGIN
         MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
         MENUITEM "Show &as Text",               ID_TOTXT, GRAYED
-        MENUITEM "&As HexDump ",                ID_TOHEX, GRAYED
+        MENUITEM "As &HexDump ",                ID_TOHEX, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR
         MENUITEM SEPARATOR
@@ -15815,18 +15843,21 @@ BEGIN
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Font"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
-
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
-
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
-
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
+            , GRAYED
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
+            , GRAYED
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            , GRAYED
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            , GRAYED
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            , GRAYED
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            , GRAYED
         END
         MENUITEM SEPARATOR
-        MENUITEM "Show Box (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
+        MENUITEM "Show B&ox (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
         , GRAYED
     END
     POPUP "&Crypt/Decrypt"
@@ -15983,8 +16014,10 @@ BEGIN
         BEGIN
             POPUP "&Base64 Encode/Decode"
             BEGIN
-                MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64, GRAYED
-                MENUITEM "Base64 &Decode",              ID_DECODE_BASE64, GRAYED
+                MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64
+                , GRAYED
+                MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
+                , GRAYED
             END
             POPUP "&UU Encode/Decode"
             BEGIN
@@ -16102,22 +16135,23 @@ BEGIN
         END
         POPUP "&Analyse Randomness"
         BEGIN
-            MENUITEM "&Frequency Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, GRAYED
-
-            MENUITEM "&Poker Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
-
-            MENUITEM "&Runs Test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
-
-            MENUITEM "&Serial Test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
-
+            MENUITEM "&Frequency Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            , GRAYED
+            MENUITEM "&Poker Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
+            , GRAYED
+            MENUITEM "&Runs Test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
+            , GRAYED
+            MENUITEM "&Serial Test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
+            , GRAYED
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Test Battery", 
-                                                    ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
-
+                                                    ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
+            , GRAYED
             MENUITEM SEPARATOR
-            MENUITEM "&Vitany",                     ID_ANALYSE_VITANY, GRAYED
-            MENUITEM "&3D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION, GRAYED
-
+            MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
+            , GRAYED
+            MENUITEM "&3D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            , GRAYED
         END
     END
     POPUP "&Options"
@@ -16189,7 +16223,7 @@ BEGIN
         MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
         MENUITEM "Show &as Text",               ID_TOTXT
-        MENUITEM "&As HexDump ",                ID_TOHEX, GRAYED
+        MENUITEM "As &HexDump ",                ID_TOHEX, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
@@ -16198,18 +16232,21 @@ BEGIN
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Font"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
-
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
-
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
-
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
+            , GRAYED
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
+            , GRAYED
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            , GRAYED
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            , GRAYED
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            , GRAYED
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            , GRAYED
         END
         MENUITEM SEPARATOR
-        MENUITEM "Show Box (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
+        MENUITEM "Show B&ox (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
         , GRAYED
     END
     POPUP "&Crypt/Decrypt"
@@ -16392,8 +16429,11 @@ BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
+
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
+
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+
                 MENUITEM SEPARATOR
                 MENUITEM "A&ddition",                   ID_ADD_AUTO
                 MENUITEM "&XOR",                        ID_XOR_AUTO
@@ -16407,6 +16447,7 @@ BEGIN
                 MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+
             END
         END
         POPUP "Symmetric Encryption (modern)"
@@ -16536,7 +16577,7 @@ BEGIN
         MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
         MENUITEM "Show &as Text",               ID_TOTXT, GRAYED
-        MENUITEM "&As HexDump ",                ID_TOHEX, GRAYED
+        MENUITEM "As &HexDump ",                ID_TOHEX, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
@@ -16545,18 +16586,21 @@ BEGIN
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Font"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
-
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
-
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
-
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
+            , GRAYED
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
+            , GRAYED
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            , GRAYED
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            , GRAYED
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            , GRAYED
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            , GRAYED
         END
         MENUITEM SEPARATOR
-        MENUITEM "Show Box (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
+        MENUITEM "Show B&ox (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
         , GRAYED
     END
     POPUP "&Crypt/Decrypt"
@@ -16713,8 +16757,10 @@ BEGIN
         BEGIN
             POPUP "&Base64 Encode/Decode"
             BEGIN
-                MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64, GRAYED
-                MENUITEM "Base64 &Decode",              ID_DECODE_BASE64, GRAYED
+                MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64
+                , GRAYED
+                MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
+                , GRAYED
             END
             POPUP "&UU Encode/Decode"
             BEGIN
@@ -16832,22 +16878,23 @@ BEGIN
         END
         POPUP "&Analyse Randomness"
         BEGIN
-            MENUITEM "&Frequency Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, GRAYED
-
-            MENUITEM "&Poker Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
-
-            MENUITEM "&Runs Test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
-
-            MENUITEM "&Serial Test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
-
+            MENUITEM "&Frequency Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            , GRAYED
+            MENUITEM "&Poker Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
+            , GRAYED
+            MENUITEM "&Runs Test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
+            , GRAYED
+            MENUITEM "&Serial Test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
+            , GRAYED
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Test Battery", 
-                                                    ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
-
+                                                    ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
+            , GRAYED
             MENUITEM SEPARATOR
-            MENUITEM "&Vitany",                     ID_ANALYSE_VITANY, GRAYED
-            MENUITEM "&3D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION, GRAYED
-
+            MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
+            , GRAYED
+            MENUITEM "&3D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            , GRAYED
         END
     END
     POPUP "&Options"
@@ -16919,7 +16966,7 @@ BEGIN
         MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
         MENUITEM "Show &as Text",               ID_TOTXT, GRAYED
-        MENUITEM "&As HexDump ",                ID_TOHEX
+        MENUITEM "As &HexDump ",                ID_TOHEX
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
@@ -16939,7 +16986,7 @@ BEGIN
 
         END
         MENUITEM SEPARATOR
-        MENUITEM "Show Box (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
+        MENUITEM "Show B&ox (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
         , GRAYED
     END
     POPUP "&Crypt/Decrypt"
@@ -16990,6 +17037,7 @@ BEGIN
             MENUITEM "RSA-AES &Encryption...",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
 
             MENUITEM "RSA-AES &Decryption...",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
+
         END
     END
     POPUP "Digital Signatures/&PKI"
@@ -17295,7 +17343,7 @@ BEGIN
         MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
         MENUITEM "Show &as Text",               ID_TOTXT, GRAYED
-        MENUITEM "&As HexDump ",                ID_TOHEX, GRAYED
+        MENUITEM "As &HexDump ",                ID_TOHEX, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR
         MENUITEM SEPARATOR
@@ -17304,18 +17352,21 @@ BEGIN
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Font"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
-
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
-
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
-
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
+            , GRAYED
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
+            , GRAYED
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            , GRAYED
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            , GRAYED
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            , GRAYED
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            , GRAYED
         END
         MENUITEM SEPARATOR
-        MENUITEM "Show Box (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
+        MENUITEM "Show B&ox (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
     END
     POPUP "&Crypt/Decrypt"
     BEGIN
@@ -17471,8 +17522,10 @@ BEGIN
         BEGIN
             POPUP "&Base64 Encode/Decode"
             BEGIN
-                MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64, GRAYED
-                MENUITEM "Base64 &Decode",              ID_DECODE_BASE64, GRAYED
+                MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64
+                , GRAYED
+                MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
+                , GRAYED
             END
             POPUP "&UU Encode/Decode"
             BEGIN
@@ -17590,22 +17643,23 @@ BEGIN
         END
         POPUP "&Analyse Randomness"
         BEGIN
-            MENUITEM "&Frequency Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, GRAYED
-
-            MENUITEM "&Poker Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
-
-            MENUITEM "&Runs Test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
-
-            MENUITEM "&Serial Test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
-
+            MENUITEM "&Frequency Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            , GRAYED
+            MENUITEM "&Poker Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
+            , GRAYED
+            MENUITEM "&Runs Test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
+            , GRAYED
+            MENUITEM "&Serial Test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
+            , GRAYED
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Test Battery", 
-                                                    ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
-
+                                                    ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
+            , GRAYED
             MENUITEM SEPARATOR
-            MENUITEM "&Vitany",                     ID_ANALYSE_VITANY, GRAYED
-            MENUITEM "&3D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION, GRAYED
-
+            MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
+            , GRAYED
+            MENUITEM "&3D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            , GRAYED
         END
     END
     POPUP "&Options"
@@ -17642,7 +17696,7 @@ BEGIN
     BEGIN
         MENUITEM "Properties...",               ID_POPUP_OPENGL_EIGENSCHAFTEN
 
-        MENUITEM "Show Box (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
+        MENUITEM "Show B&ox (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
         , GRAYED
     END
 END
@@ -18638,8 +18692,10 @@ BEGIN
     IDD_KEY_HILL5X5, DIALOG
     BEGIN
         VERTGUIDE, 20
+        BOTTOMMARGIN, 195
+        HORZGUIDE, 8
         HORZGUIDE, 139
-        HORZGUIDE, 214
+        HORZGUIDE, 150
     END
 
     IDD_OPTIONS_ANALYSIS, DIALOG
