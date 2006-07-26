@@ -1,12 +1,12 @@
 [OPTIONS]
 Compatibility=1.1 or later
-Compiled file=NumberShark_en.chm
+Compiled file=NumberShark-en.chm
 Contents file=NumberShark.hhc
 Default topic=NumberShark_Manual.html
 Display compile progress=No
 Index file=NumberShark.hhk
 Language=0x809 Englisch (Groﬂbritannien)
-Title=NumberSharkHelp_en
+Title=Number Shark Help
 
 
 [FILES]

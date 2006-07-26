@@ -18,8 +18,9 @@
 			CharacterSet="2">
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot;"
-				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a"/>
+				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot; OUTDIR=$(OutDir)"
+				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a OUTDIR=$(OutDir)"
+				Output="NumberShark-de.chm"/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
@@ -29,8 +30,9 @@
 			CharacterSet="2">
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot;"
-				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a"/>
+				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot; OUTDIR=$(OutDir)"
+				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a OUTDIR=$(OutDir)"
+				Output="NumberShark-de.chm"/>
 		</Configuration>
 		<Configuration
 			Name="Debug_de|Win32"
@@ -40,21 +42,21 @@
 			CharacterSet="2">
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot;"
-				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a"
-				Output="NumberShark_de.chm"/>
+				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot; OUTDIR=$(OutDir)"
+				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a OUTDIR=$(OutDir)"
+				Output="NumberShark-de.chm"/>
 		</Configuration>
 		<Configuration
 			Name="Release_de|Win32"
-			OutputDirectory="$(ConfigurationName)"
+			OutputDirectory="..\$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="0"
 			CharacterSet="2">
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot;"
-				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a"
-				Output="NumberShark_de.chm"/>
+				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot; OUTDIR=$(OutDir)"
+				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a OUTDIR=$(OutDir)"
+				Output="NumberShark-de.chm"/>
 		</Configuration>
 	</Configurations>
 	<References>

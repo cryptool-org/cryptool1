@@ -1,12 +1,12 @@
 [OPTIONS]
 Compatibility=1.1 or later
-Compiled file=NumberShark_de.chm
+Compiled file=NumberShark-de.chm
 Contents file=NumberShark.hhc
 Default topic=Zahlenhai_Tutorial.html
 Display compile progress=No
 Index file=NumberShark.hhk
 Language=0x407 Deutsch (Deutschland)
-Title=NumberSharkHelp_de
+Title=Hilfe zum Zahlenhai
 
 
 [FILES]

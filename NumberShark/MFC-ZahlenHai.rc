@@ -515,7 +515,7 @@ BEGIN
     IDS_REG_TRUE            "true"
     IDS_SHARK_AGAINST       " gegen "
     IDS_GAME_DATA           "GameData.txt"
-    IDS_HELP_FILE           "NumberShark_de.chm::/Zahlenhai.html"
+    IDS_HELP_FILE           "NumberShark-de.chm::/Zahlenhai.html"
     IDS_TITLE_VERSION       " - Version 1.0 - Beta 14"
 END
 
@@ -1005,7 +1005,7 @@ BEGIN
     IDS_REG_TRUE            "true"
     IDS_SHARK_AGAINST       " against "
     IDS_GAME_DATA           "GameData.txt"
-    IDS_HELP_FILE           "NumberShark_en.chm::/NumberShark_Manual.html"
+    IDS_HELP_FILE           "NumberShark-en.chm::/NumberShark_Manual.html"
     IDS_TITLE_VERSION       " - Version 1.0 - Beta 14 "
 END
 

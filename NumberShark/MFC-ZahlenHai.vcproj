@@ -4,6 +4,7 @@
 	Version="7.10"
 	Name="MFC-ZahlenHai"
 	ProjectGUID="{67EF14F1-A4D3-4DCE-9356-333CDC1C0E43}"
+	RootNamespace="MFC-ZahlenHai"
 	Keyword="MFCProj">
 	<Platforms>
 		<Platform
@@ -12,7 +13,7 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="Debug"
+			OutputDirectory="$(ConfigurationName)"
 			IntermediateDirectory="Debug"
 			ConfigurationType="1"
 			UseOfMFC="1"
@@ -68,7 +69,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="Release"
+			OutputDirectory="..\$(ConfigurationName)"
 			IntermediateDirectory="Release"
 			ConfigurationType="1"
 			UseOfMFC="1"
@@ -231,7 +232,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release_en|Win32"
-			OutputDirectory="$(ConfigurationName)"
+			OutputDirectory="..\$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
 			UseOfMFC="1"
@@ -288,7 +289,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release_de|Win32"
-			OutputDirectory="$(ConfigurationName)"
+			OutputDirectory="..\$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
 			UseOfMFC="1"
@@ -562,10 +563,10 @@
 				RelativePath=".\Bilder\shark.bmp">
 			</File>
 			<File
-				RelativePath=".\res\Zahlenhai.ico">
+				RelativePath=".\Bilder\Zahlenhai.ico">
 			</File>
 			<File
-				RelativePath=".\Bilder\Zahlenhai.ico">
+				RelativePath=".\res\Zahlenhai.ico">
 			</File>
 		</Filter>
 		<File

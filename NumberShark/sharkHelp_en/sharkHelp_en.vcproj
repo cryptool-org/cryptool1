@@ -18,9 +18,9 @@
 			CharacterSet="2">
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot;"
-				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a"
-				Output="NumberShark_en.chm"/>
+				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot; OUTDIR=$(OutDir)"
+				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a OUTDIR=$(OutDir)"
+				Output="NumberShark-en.chm"/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
@@ -30,8 +30,9 @@
 			CharacterSet="2">
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot;"
-				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a"/>
+				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot; OUTDIR=$(OutDir)"
+				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a OUTDIR=$(OutDir)"
+				Output="NumberShark-en.chm"/>
 		</Configuration>
 		<Configuration
 			Name="Debug_en|Win32"
@@ -41,21 +42,21 @@
 			CharacterSet="2">
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot;"
-				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a"
-				Output="NumberShark_en.chm"/>
+				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot; OUTDIR=$(OutDir)"
+				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a OUTDIR=$(OutDir)"
+				Output="NumberShark-en.chm"/>
 		</Configuration>
 		<Configuration
 			Name="Release_en|Win32"
-			OutputDirectory="$(ConfigurationName)"
+			OutputDirectory="..\$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="0"
 			CharacterSet="2">
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot;"
-				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a"
-				Output="NumberShark_en.chm"/>
+				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot; OUTDIR=$(OutDir)"
+				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a OUTDIR=$(OutDir)"
+				Output="NumberShark-en.chm"/>
 		</Configuration>
 	</Configurations>
 	<References>
@@ -63,18 +64,6 @@
 	<Files>
 		<File
 			RelativePath=".\hlp_en.mak">
-			<FileConfiguration
-				Name="Debug|Win32">
-			</FileConfiguration>
-			<FileConfiguration
-				Name="Release|Win32">
-			</FileConfiguration>
-			<FileConfiguration
-				Name="Debug_en|Win32">
-			</FileConfiguration>
-			<FileConfiguration
-				Name="Release_en|Win32">
-			</FileConfiguration>
 		</File>
 	</Files>
 	<Globals>
