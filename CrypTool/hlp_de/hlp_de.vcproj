@@ -21,8 +21,8 @@
 			ATLMinimizesCRunTimeLibraryUsage="FALSE">
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot;"
-				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a"
+				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot; OUTDIR=$(OutDir)"
+				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a OUTDIR=$(OutDir)"
 				Output="CrypTool-de.chm"/>
 		</Configuration>
 		<Configuration
@@ -34,8 +34,8 @@
 			ATLMinimizesCRunTimeLibraryUsage="FALSE">
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot;"
-				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a"
+				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot; OUTDIR=$(OutDir)"
+				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a OUTDIR=$(OutDir)"
 				Output="CrypTool-de.chm"/>
 		</Configuration>
 	</Configurations>

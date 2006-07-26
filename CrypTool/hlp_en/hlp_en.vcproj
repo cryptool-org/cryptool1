@@ -4,6 +4,7 @@
 	Version="7.10"
 	Name="hlp_en"
 	ProjectGUID="{9CED13EA-5C57-4CF0-AE58-AB590D533AD8}"
+	RootNamespace="hlp_en"
 	SccProjectName=""
 	SccLocalPath=""
 	Keyword="MakeFileProj">
@@ -21,8 +22,8 @@
 			ATLMinimizesCRunTimeLibraryUsage="FALSE">
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot;"
-				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a"
+				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot; OUTDIR=$(OutDir)"
+				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a OUTDIR=$(OutDir)"
 				Output="CrypTool-en.chm"/>
 		</Configuration>
 		<Configuration
@@ -34,8 +35,8 @@
 			ATLMinimizesCRunTimeLibraryUsage="FALSE">
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot;"
-				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a"
+				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot; OUTDIR=$(OutDir)"
+				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a OUTDIR=$(OutDir)"
 				Output="CrypTool-en.chm"/>
 		</Configuration>
 	</Configurations>

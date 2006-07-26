@@ -49,7 +49,8 @@ start /wait hhc.exe %HLP%\CrypTool.hhp
 REM For some reason, HHC returns one on success.
 if not errorlevel 1 goto Error
 
-if exist %OUTDIR%\nul copy "%HLP%\CrypTool-%LANG%.chm" %OUTDIR% >nul
+echo copy "%HLP%\CrypTool-%LANG%.chm" %OUTDIR% 
+copy "%HLP%\CrypTool-%LANG%.chm" %OUTDIR% 
 
 goto done
 
