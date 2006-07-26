@@ -4,21 +4,42 @@
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Dialog Primzahltest</TITLE>
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+<script language="JScript" src="helper.js"></script>
 </HEAD>
 
 <!-- multiple keywords for CrypTool HTML help index -->
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
-	<PARAM NAME="Keyword" VALUE="Dialog (Übersicht aller Dialoge)">
-	<PARAM NAME="Keyword" VALUE="Primzahlen">
+    <PARAM NAME="Keyword" VALUE="Primzahlen">
+    <PARAM NAME="Keyword" VALUE="Dialog (Übersicht aller Dialoge)">
 </OBJECT>
 
 <BODY>
 
 <h3>Dialog Primzahltest</h3>
 
-<P>Sie können diesen Dialog über den Menüeintrag <a href="menu_related_methods.html">Einzelverfahren</a> \ <a href="menu_individualprocedures_rsacryptosystem.html">RSA-Kryptosystem</a> \ <a href="hid_primenumber_test.html">Primzahltest</a> aufrufen.</P>
+<P>Sie k&ouml;nnen diesen Dialog &uuml;ber das Men&uuml; <a href="menu_related_methods.html">Einzelverfahren</a> \ <a href="menu_individualprocedures_rsacryptosystem.html">RSA-Kryptosystem</a> \ <a href="hidd_prime_test.html">Primzahltest</a> aufrufen.</P>
 
-<P>TODO</P>
+<P>Primzahlen sind nat&uuml;rliche Zahlen gr&ouml;&szlig;er 1, die nur durch die 1 und durch sich selbst teilbar sind. Sie spielen in der Kryptographie eine wichtige Rolle. Im Dialog Primzahltest k&ouml;nnen Sie eine Zahl testen, ob diese eine Primzahl ist oder nicht:</P>
+
+<P><IMG SRC="images/DialogPrimzahltest1.gif" BORDER=0></P>
+
+<P>Duch bet&auml;tigen des Buttons <B>Zahl testen</B> wird gepr&uuml;ft ob die in der Eingabe "zu testende Zahl" enthaltene Zahl eine Primzahl ist oder nicht. In der Eingabe k&ouml;nnen direkt ganze Zahlen oder auch Terme eingegeben werden.</P>
+
+<P>In diesem Dialog k&ouml;nnen Sie zwischen den folgenden Algorithmen zum <a href="primzahltest.html">Primzahltest</a> w&auml;hlen:</P>
+
+<UL>
+        <LI>Miller-Rabin-Test,</LI>
+
+        <LI>Fermat-Test,</LI>
+
+        <LI>Solovay-Strassen-Test und</LI>
+
+        <LI>AKS-Test</LI>
+</UL>
+
+<P>&Uuml;ber den Button <B>Zahl aus Datei laden</B> haben Sie die M&ouml;glichkeit eine Zahl aus einer Textdatei einzulesen. Die Datei darf nur eine einzige Zahl beinhalten und dazu keinerlei Text. Leerzeichen oder Zeilenumbr&uuml;che innerhalb der Datei werden beim Einlesevorgang entfernt.</P>
+
+<P>Ausf&uuml;hrliche Informationen zum Thema Primzahlen finden Sie im <A class="filelink" onclick="parser('script-de.pdf')">Skript</A>.</P>
 
 </BODY>
 </HTML>

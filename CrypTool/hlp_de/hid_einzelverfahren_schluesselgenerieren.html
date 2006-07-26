@@ -21,31 +21,30 @@
 
 <h3><P>Dialog Schlüssel aus Passwort generieren</h3>
 
-<P>Dieser Dialog ist erreichbar über den Eintrag <a href="hid_einzelverfahren_schluesselgenerieren.html">Schlüssel aus Passwort generieren (PKCS#5)</a> im Menü <a href="menu_related_methods.html">Einzelverfahren</a> \ <a href="menu_individualprocedures_hashprocedures.html">Hashverfahren</a>.</P>
+<P>Dieser Dialog ist erreichbar über den Eintrag <a href="hid_einzelverfahren_schluesselgenerieren.html">Schlüssel aus Passwort generieren (PKCS #5)</a> im Menü <a href="menu_related_methods.html">Einzelverfahren</a> \ <a href="menu_individualprocedures_hashprocedures.html">Hashverfahren</a>.</P>
 
-<P>Selbst wenn eine kryptographische Anwendung sicher ist, so ist letztendlich die praxisrelevante Benutzersicherheit von einem geheimen Text - dem "Passwort" - abhängig. Das Passwort selbst ist in der Regel für solche Kryptosysteme nicht direkt anwendbar, sondern man berechnet aus dem Passwort einen Schlüssel. Im Dialog <B>Schlüssel aus Passwort generieren</B> kann man kryptographisch sichere Schlüssel aus Passwörtern produzieren. Die Implementierung richtet sich dabei nach dem <A href="standards.html">Standard</A> PKCS#5.</P>
+<P>Selbst wenn der kryptographische Teil sicher ist, so ist bei einer passwortbasierten Anwendung die praxisrelevante Benutzersicherheit von einem geheimen Text - dem "Passwort" - abhängig. Das Passwort selbst ist in der Regel für solche Kryptosysteme nicht direkt anwendbar, sondern man berechnet aus dem Passwort einen Schlüssel (Hexwert). Im Dialog <B>Schlüssel aus Passwort generieren</B> kann man kryptographisch sichere Schlüssel aus Passwörtern produzieren. Die Implementierung richtet sich dabei nach dem <A href="standards.html">Standard</A> PKCS #5.</P>
 
-<P>Der hergeleitete Schlüssel ist neben dem geheimen Passwort auch von anderen Parametern abhängig: dem Salz, der Hashfunktion und der Anzahl der Iterationen, für die jeweils die <!--ZZZPOPUP--><A href="hashfunktion.html">Hashfunktion</A> angewendet wird.</P>
+<P>Der hergeleitete Schlüssel ist neben dem geheimen Passwort auch von anderen Parametern abhängig: dem Salz, der Hashfunktion und der Anzahl der Iterationen, für die jeweils die <!--ZZZPOPUP--><A href="hashfunktion.html">Hashfunktion</A> angewendet wird:</P>
 
-<P>Der zusätzliche Initialisierungswert, das "Salz", bietet die Möglichkeit, dass aus ein und demselben Passwort unterschiedliche (abhängig von der Salz-Initialisierung) Schlüssel generiert werden.</P>
+<ul>
+<li><P>Der zusätzliche Initialisierungswert, das "Salz", bietet die Möglichkeit, dass aus ein und demselben Passwort unterschiedliche (abhängig von der Salz-Initialisierung) Schlüssel generiert werden.</P></li>
+<li><P>Mit Hilfe von Hashfunktionen wird aus dem Passwort und dem Salz ein sicherer Schlüssel berechnet.</P></li>
+</ul>
 
-<P>Mit Hilfe von Hashfunktionen wird aus dem Passwort und dem Salz ein sicherer Schlüssel berechnet.</P>
-
-<P>Sie können entsprechend dem PKCS#5-Standard zur Schlüsselerzeugung eine der folgenden Hashfunktionen wählen (die anderen von CrypTool angebotenen Funktionen sind (noch) nicht in den PKCS#5-Standard eingeflossen):</P>
+<P>Sie können entsprechend dem PKCS #5-Standard zur Schlüsselerzeugung eine der folgenden Hashfunktionen wählen (die anderen von CrypTool angebotenen Funktionen sind (noch) nicht in den PKCS#5-Standard eingeflossen):</P>
 
 <UL>
-
-	<LI> MD2  128 Bit = 16 Bytes Hashfunktion</LI>
-
-	<LI> MD5  128 Bit = 16 Bytes Hashfunktion</LI>
-
-	<LI> SHA-1  160 Bit = 20 Bytes Hashfunktion</LI>
-
+<LI> MD2 128 Bit = 16 Bytes Hashfunktion</LI>
+<LI> MD5 128 Bit = 16 Bytes Hashfunktion</LI>
+<LI> SHA-1 160 Bit = 20 Bytes Hashfunktion</LI>
 </UL>
 
-<P>Je nach dem, welche Hashfunktion Sie wählen, ist die Ausgabelänge des Schlüssels maximal 16 oder 20 Bytes.</P>
+<P>Je nach dem, welche Hashfunktion Sie wählen, ist die Ausgabelänge des Schlüssels 16 oder 20 Bytes lang (128 Bit oder 160 Bit).</P>
 
-<P>Um <!--ZZZPOPUP--><A href="textboock_attack.html">Wörterbuchangriffe</A> zu erschweren, werden Passwörter durch die wiederholte Anwendung der Hashfunktion berechnet. Die Anzahl der Hash-Iterationen erhöht erheblich den Aufwand für den Angriff. Mindestens eine und höchstens 10.000 Hash-Iterationen können ausgeführt werden. Empfohlen sind 1000 Hash-Iterationen.</P>
+<P>Das Passwort wird dann durch die wiederholte Anwendung der Hashfunktion berechnet. Die Anzahl der Hash-Iterationen erhöht erheblich den Aufwand für den Angriff. Mindestens eine und höchstens 10.000 Hash-Iterationen können ausgeführt werden. Empfohlen sind 1000 Hash-Iterationen.</P>
+
+<P>Salz-Werte und Iterationszähler sind im PKCS #5-Standard optionale Parameter: Um <!--ZZZPOPUP--><A href="textboock_attack.html">Wörterbuchangriffe</A> zu erschweren sind diese beiden Parameter unabdingbar.</P>
 
 <P>In dem nachfolgenden Beispiel erzeugt man aus dem (schlecht gewählten) Passwort<CODE> HUND</CODE> einen 8 Byte Schlüssel, der z.B. für die Verschlüsselung mit <!--ZZZPOPUP--><A href="hid_crypt_des_desecb.html">DES</A> benutzt werden kann (dafür kopiert man den erzeugten Schlüssel einfach in die Zwischenablage):</P>
 

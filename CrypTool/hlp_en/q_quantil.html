@@ -2,7 +2,7 @@
 <HTML>
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Alpha-Quantil</TITLE>
+<TITLE>Alpha Quantile</TITLE>
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
@@ -14,19 +14,23 @@
 
 <BODY>
 
-<h3>Alpha-Quantil</h3>
+<h3>Alpha Quantile</h3>
 
-<P>An alpha-quantile is a number Q, which separates the sorted parameter values that: </P>
+<P>A quantile of order alpha with 0 <= alpha <= 1 is a number Q, which separates the sorted parameter values such that: </P>
 
 <UL>
-	<LI>100*q % of the parameter values are smaller or equal Q </LI>
+	<LI>100*alpha % of the parameter values are smaller or equal Q </LI>
 
-	<LI>100*(1-q) % of the parameter values are greater Q.</LI>
+	<LI>100*(1-alpha) % of the parameter values are greater than Q.</LI>
 </UL>
 
 <P><B>Example:</B> </P>
 
-<P>The 25% quantile is the number where 25% of the parameter values are smaller or equal - and 75% of the parameter values are bigger than the stated number Q. </P>
+<P>The 25% quantile Q_.25 is the number where 25% of the parameter values are smaller or equal than Q - and 75% of the parameter values are bigger than the stated number Q. </P>
+
+<P>This statistical attribute is used e.g. with the <a href="norm_vert.html">normal distribution</a>.</P>
+
+<P>See: https://en.wikipedia.org/wiki/Quantile</P>
 
 </BODY>
 </HTML>

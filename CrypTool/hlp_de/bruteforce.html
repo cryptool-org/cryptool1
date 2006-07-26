@@ -16,7 +16,20 @@
 
 <h3><P><A NAME="bruteforce"></A><B>Brute-Force Angriff</B></P></h3>
 
-<P>Ein Brute-Force Angriff ist ein <A href="angriffe.html">Angriff</A>, bei dem alle möglichen <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> durchprobiert werden, um den Schlüssel zu finden, mit dem das <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselt</A> ist. Mit der <!--ZZZPOPUP--><A href="schluessellaenge.html">Länge des Schlüssels</A> steigt die benötigte Rechenzeit sehr stark an. Daher bietet <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> für relativ kurze Schlüssel die Möglichkeit, einen Brute-Force Angriff durchzuführen. Die Eingabe des zu durchsuchenden Schlüsselbereiches erfolgt über den Dialog <A href="hidd_bruteforce.html">Brute-Force Analyse</A>.</P>
+<P>Ein Brute-Force Angriff ist ein <A href="angriffe.html">Angriff</A>, bei dem alle möglichen <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> durchprobiert werden, um den Schlüssel zu finden, mit dem das <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselt</A> ist.</P>
+
+<P>Mit der <!--ZZZPOPUP--><A href="schluessellaenge.html">Länge des Schlüssels</A> steigt die benötigte Rechenzeit sehr stark an.</P>
+
+<P><!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> bietet die Möglichkeit, einen Brute-Force Angriff durchzuführen. Die Eingabe des zu durchsuchenden Schlüsselbereiches erfolgt über den Dialog <A href="hidd_bruteforce.html">Brute-Force Analyse</A>.</P>
+
+<P>Um moderene symmetrische Verfahren in angemessener Zeit erfolgreich angreifen zu können, müssen folgende Voraussetzungen erfüllt sein:</P>
+
+<P><B>a)</B> Das Dokument ist nicht zu kurz (ca. >= 128 Zeichen).</P>
+
+<P><B>b)</B> Die ersten 128 Zeichen am Anfang des Dokuments (Anzahl einstellbar im Dialog <a href="hidd_options_analysis.html">Analyseoptionen</a>) sind nicht zu gleichmäßig verteilt (siehe <a href="histogramm.html">Histogramm</a> und <a href="entropie.html">Entropie</a>). Dies trifft auf die meisten nicht-komprimierten Dokumente zu.</P>
+
+<P><B>c)</B> Der Schlüsselraum, der bei modernen symmetrischen Verfahren 2^128 und mehr Möglichkeiten umfasst, kann eingeschränkt werden. Wir treffen also die Annahme: Man kennt einen Teil des Schlüssel, z.B. weil der Angreifer seine Kenntnis von Teilen des Schlüssels erhielt oder weil der Zufallszahlengenerator (absichtlich) den Schlüsselraum nicht ausschöpft.</P>
+
 
 </BODY>
 </HTML>

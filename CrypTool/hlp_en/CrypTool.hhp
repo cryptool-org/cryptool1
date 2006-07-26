@@ -198,7 +198,6 @@ hid_window_all.html
 hid_window_arrange.html
 hid_window_cascade.html
 hid_window_close_all.html
-hid_window_new.html
 hid_window_split.html
 hid_window_tile.html
 hid_window_tile_horz.html
@@ -492,6 +491,7 @@ menu_educational_games.html
 hid_numbershark.html
 hidd_auto_substitution_analysis.html
 hid_sidechannel_overview.html
+copyright.html
 
 
 [ALIAS]

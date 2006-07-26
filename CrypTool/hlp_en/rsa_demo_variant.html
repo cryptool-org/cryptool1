@@ -18,11 +18,13 @@
 
 <h3>Dialog of the Sisters</h3>
 
-<P>In the story <A class="filelink" onclick="parser('DialogueSisters.pdf')">Dialog of the Sisters</A>, a simplified version of the RSA algorithm is presented. As the first step an RSA modulus N&gt;27 has to be generated from two prime numbers.</P>
+<P>In the story <A class="filelink" onclick="parser('DialogueSisters.pdf')">Dialog of the Sisters</A>, a simplified version of the RSA algorithm is presented.</P>
+
+<P>As the first step an RSA modulus N&gt;27 has to be generated from two prime numbers.</P>
 
 <P>Example: N = 13*7 = 91, for which the Euler phi function is phi(N) = 12*6 = 72. As public exponent, we choose e=5. This is used to calculate the secret key d=29. </P>
 
-<P>Once you have generated the RSA parameters, click <A href="hidd_options_rsa_demo.html"><B>Options for the alphabet and the number system</B></A> and then select the "Dialog of the Sisters" option, using the alphabet "ABCDEFGHIJKLMNOPQRSTUVWXYZ " (the final space is a part of the alphabet).</P>
+<P>Once you have generated the RSA parameters, click <A href="hidd_options_rsa_demo.html"><B>Options for alphabet and number system</B></A> and then select in the following dialog as RSA variant <B>Dialog of the Sisters</B> option. The alphabet "ABCDEFGHIJKLMNOPQRSTUVWXYZ " (the final space is a part of the alphabet) has to be specified.</P>
 
 <P>The letters "A, B, C ... Z" and the space " " are coded in numbers:</P>
 
@@ -113,9 +115,13 @@
 
 <P><IMG SRC="images/rsa_demo_7.gif" ALT="rsa_demo_7.gif" BORDER=0></P>
 
-<P><B>Remark:</B></P>
+<P><B>Remark 1</B>:</P>
 
 <P>You can see that the numbers of the ciphertext here are different from the numbers in the picture before - despite both cipher texts have been created  by the same key pair and despite both belong to the same cleartext. The reason is, that each ciphertext was created using different random values of r.</P>
+
+<P><B>Remark 2</B>:</P>
+
+<P>If you enter non-alphabet characters as input text (e.g. lower case characters are not part of the alphabet specified in the example above), they will not be encrypted.</P>
 
 </BODY>
 </HTML>

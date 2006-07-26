@@ -4,21 +4,87 @@
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Dialog Prime Number Test</TITLE>
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+<script language="JScript" src="helper.js"></script>
 </HEAD>
 
 <!-- multiple keywords for CrypTool HTML help index -->
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
-	<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
-	<PARAM NAME="Keyword" VALUE="Prime numbers">
+    <PARAM NAME="Keyword" VALUE="Prime numbers">
+    <PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
 </OBJECT>
 
 <BODY>
 
 <h3>Dialog Prime Number Test</h3>
 
-<P>You can access this dialog by choosing the menu entry <a href="menu_related_methods.html">Individual Procedures</a> \ <a href="menu_individualprocedures_rsacryptosystem.html">RSA Cryptosystem</a> \ <a href="hid_primenumber_test.html">Prime Number Test</a>.</P>
+<P>You can access this dialog throuh the menu <a href="menu_related_methods.html">Individual Procedures</a> \ <a href="menu_individualprocedures_rsacryptosystem.html">RSA Cryptosystem</a> \ <a href="hidd_prime_test.html">Prime Number Test</a>.</P>
 
-<P>TODO</P>
+<P>Prime numbers are natural numbers greater 1, that can only devided by 1 and by its own value. Prime numbers are very important in cryptography. In the dialog Prime Number Test you can test a number if it is a prime number or not:</P>
+
+<P><IMG SRC="images/DialogPrimzahltest1.gif" BORDER=0></P>
+
+<P>By clicking the button <B>Test number</B> the number in the input field "Number to test" will be tested if it is a prime number or not. There are integers and terms allowed in the input field.</P>
+
+<P>Currently the dialog supports only positiv numbers up to a bit-length smaller than 1024. This corresponds to a decimal numbers with a maximum of 308 digits.</P>
+
+<P>The following algorithms can be chosen to perform the <a href="primzahltest.html">prime number test</a>:</P>
+
+<UL>
+        <LI>Miller-Rabin Test,</LI>
+
+        <LI>Fermat Test,</LI>
+
+        <LI>Solovay-Strassen Test and</LI>
+
+        <LI>AKS Test</LI>
+</UL>
+
+<P>The table shows the durations in seconds of the different tests for various prime numbers. (The time measurements were made on a PC-system equipped with an Intel Pentium-4 processor of 2GHz.)</P>
+
+<table width="600" border="1">
+<tr align="center" >
+ <th>prime number</th>
+ <th>Miller-Rabin</th>
+ <th>Fermat Test</th>
+ <th>Solovay-Strassen</th>
+ <th>AKS method</th>
+</tr>
+<tr align="right" >
+ <td>7309</td>
+ <td>0,01s</td>
+ <td>0,01s</td>
+ <td>0,01s</td>
+ <td>1,192s</td>
+</tr>
+<tr align="right" >
+ <td>9004097</td>
+ <td>0,01s</td>
+ <td>0,01s</td>
+ <td>0,01s</td>
+ <td>16,293s</td>
+</tr>
+<tr align="right" >
+ <td>2^31-1</td>
+ <td>0,01s</td>
+ <td>0,01s</td>
+ <td>0,01s</td>
+ <td>106,261s</td>
+</tr>
+<tr align="right" >
+ <td>2^607-1</td>
+ <td>0,61s</td>
+ <td>0,61s</td>
+ <td>1,62s</td>
+ <td>k.A.</td>
+</tr>
+</table>
+<P>
+Table: Duration of the algorithms in seconds.
+</P>
+
+<P>Using the button <B>Load number from file</B> allows to load a number from a text file. The file has to contain one single number or term without any text. Spaces and line breaks will be automatically removed during import of the data.</P>
+
+<P>Comprehensive information about prime numbers can be found in the <A class="filelink" onclick="parser('script-en.pdf')">script</A>.</P>
 
 </BODY>
 </HTML>

@@ -5218,7 +5218,7 @@ BEGIN
             MENUITEM "&Hashwert einer Datei...",    ID_HASH_OFAFILE
             MENUITEM "Hash-&Demo...",               ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
             , GRAYED
-            MENUITEM "Schlüssel aus &Passwort generieren (PKCS#5)...", 
+            MENUITEM "Schlüssel aus &Passwort generieren (PKCS #5)...", 
                                                     ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
             MENUITEM "&Generieren von MACs...",     ID_GENERATE_MACS, GRAYED
@@ -5270,7 +5270,8 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
         END
-        MENUITEM "&Secret-Sharing-Demo (nach Shamir)...",     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
+        MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
+                                                ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
         MENUITEM SEPARATOR
         POPUP "C&odierungen", GRAYED
@@ -5591,7 +5592,7 @@ BEGIN
             MENUITEM "&Hashwert einer Datei...",    ID_HASH_OFAFILE
             MENUITEM "Hash-&Demo...",               ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
 
-            MENUITEM "Schlüssel aus &Passwort generieren (PKCS#5)...", 
+            MENUITEM "Schlüssel aus &Passwort generieren (PKCS #5)...", 
                                                     ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
             MENUITEM "&Generieren von MACs...",     ID_GENERATE_MACS, GRAYED
@@ -5643,7 +5644,8 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
         END
-        MENUITEM "&Secret-Sharing-Demo (nach Shamir)...",     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
+        MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
+                                                ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
         MENUITEM SEPARATOR
         POPUP "C&odierungen"
@@ -5965,7 +5967,7 @@ BEGIN
             MENUITEM "&Hashwert einer Datei...",    ID_HASH_OFAFILE
             MENUITEM "Hash-&Demo...",               ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
             , GRAYED
-            MENUITEM "Schlüssel aus &Passwort generieren (PKCS#5)...", 
+            MENUITEM "Schlüssel aus &Passwort generieren (PKCS #5)...", 
                                                     ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
             MENUITEM "&Generieren von MACs...",     ID_GENERATE_MACS, GRAYED
@@ -6017,7 +6019,8 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
         END
-        MENUITEM "&Secret-Sharing-Demo (nach Shamir)...",     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
+        MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
+                                                ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
         MENUITEM SEPARATOR
         POPUP "C&odierungen", GRAYED
@@ -6334,7 +6337,7 @@ BEGIN
             MENUITEM "&Hashwert einer Datei...",    ID_HASH_OFAFILE
             MENUITEM "Hash-&Demo...",               ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
 
-            MENUITEM "Schlüssel aus &Passwort generieren (PKCS#5)...", 
+            MENUITEM "Schlüssel aus &Passwort generieren (PKCS #5)...", 
                                                     ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
             MENUITEM "&Generieren von MACs...",     ID_GENERATE_MACS, GRAYED
@@ -6386,7 +6389,8 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
         END
-        MENUITEM "&Secret-Sharing-Demo (nach Shamir)...",     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
+        MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
+                                                ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
         MENUITEM SEPARATOR
         POPUP "C&odierungen"
@@ -6743,7 +6747,7 @@ BEGIN
             MENUITEM "&Hashwert einer Datei...",    ID_HASH_OFAFILE
             MENUITEM "Hash-&Demo...",               ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
             , GRAYED
-            MENUITEM "Schlüssel aus &Passwort generieren (PKCS#5)...", 
+            MENUITEM "Schlüssel aus &Passwort generieren (PKCS #5)...", 
                                                     ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
             MENUITEM "&Generieren von MACs...",     ID_GENERATE_MACS, GRAYED
@@ -6795,7 +6799,8 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
         END
-        MENUITEM "&Secret-Sharing-Demo (nach Shamir)...",     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
+        MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
+                                                ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
         MENUITEM SEPARATOR
         POPUP "C&odierungen", GRAYED
@@ -15946,7 +15951,7 @@ BEGIN
             MENUITEM "Hash Value of a File...",     ID_HASH_OFAFILE
             MENUITEM "Hash &Demonstration...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
             , GRAYED
-            MENUITEM "&Key Generation from Password (PKCS#5)...", 
+            MENUITEM "&Key Generation from Password (PKCS #5)...", 
                                                     ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
             MENUITEM "&Generation of MACs...",      ID_GENERATE_MACS, GRAYED
@@ -16316,7 +16321,7 @@ BEGIN
             MENUITEM "Hash Value of a File...",     ID_HASH_OFAFILE
             MENUITEM "Hash &Demonstration...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
 
-            MENUITEM "&Key Generation from Password (PKCS#5)...", 
+            MENUITEM "&Key Generation from Password (PKCS #5)...", 
                                                     ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
             MENUITEM "&Generation of MACs...",      ID_GENERATE_MACS, GRAYED
@@ -16689,7 +16694,7 @@ BEGIN
             MENUITEM "Hash Value of a File...",     ID_HASH_OFAFILE
             MENUITEM "Hash &Demonstration...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
             , GRAYED
-            MENUITEM "&Key Generation from Password (PKCS#5)...", 
+            MENUITEM "&Key Generation from Password (PKCS #5)...", 
                                                     ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
             MENUITEM "&Generation of MACs...",      ID_GENERATE_MACS, GRAYED
@@ -17056,7 +17061,7 @@ BEGIN
             MENUITEM "Hash Value of a File...",     ID_HASH_OFAFILE
             MENUITEM "Hash &Demonstration...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
 
-            MENUITEM "&Key Generation from Password (PKCS#5)...", 
+            MENUITEM "&Key Generation from Password (PKCS #5)...", 
                                                     ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
             MENUITEM "&Generation of MACs...",      ID_GENERATE_MACS
@@ -17462,7 +17467,7 @@ BEGIN
             MENUITEM "Hash Value of a File...",     ID_HASH_OFAFILE
             MENUITEM "Hash &Demonstration...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
             , GRAYED
-            MENUITEM "&Key Generation from Password (PKCS#5)...", 
+            MENUITEM "&Key Generation from Password (PKCS #5)...", 
                                                     ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
             MENUITEM "&Generation of MACs...",      ID_GENERATE_MACS, GRAYED

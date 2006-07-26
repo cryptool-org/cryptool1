@@ -2,7 +2,7 @@
 <HTML>
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Dialog AES (self extracting)</TITLE>
+<TITLE>Dialog AES (self extracting) / AES tool</TITLE>
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
@@ -19,11 +19,15 @@
 
 <h3>Dialog AES (self-extracting) (Menu <a href="menu_crypt.html">Crypt/Decrypt</a> \ Symmetric Encryption (modern))</h3>
 
-<P>Included in the package CrypTool is the separate encryption utility AES-Tool. Using this tool it is possible to convert documents into self-extracting archives. These archives are encrypted using the AES algorithm (Rijndael).</P>
+<P>Included in the package CrypTool is the separate encryption utility <B>AES-Tool</B>. Using this tool it is possible to convert documents into self-extracting archives. These archives are encrypted using the AES algorithm (Rijndael).</P>
 
-<P>If this option is selected the main window of AES-Tool is opened. Here the key can be entered in hexadecimal form and the output file can be specified. Two different formats can be selected: encrypted file and self-extracting archive. For an encrypted file the receiver also need AES-Tool. For a self-extracting archive the complete executable is included in the archive. This results in a significantly increased size of the archive.</P>
+<P>If this option is selected the main window of AES-Tool is opened.</P>
 
-<P>AES-Tool is used to exchange encrypted data with other users. It does not contain functions for key management. The keys have to be exchanged between the users on a secure channel.</P>
+<img src="images/aesscreenshot.gif" alt="aesscreenshot.gif">
+
+<P>Here the key can be entered in hexadecimal form and the output file can be specified. Two different formats can be selected: encrypted file and self-extracting archive. For an encrypted file the receiver also need AES-Tool. For a self-extracting archive the complete executable is included in the archive. This results in a significantly increased size of the archive.</P>
+
+<P>AES-Tool is used to exchange encrypted data with other users. It does not contain functions for <a href="schluessel.html">key</a> management. The keys have to be exchanged between the users on a secure channel.</P>
 
 <P>AES-Tool also can be used independently of CrypTool. AES-Tool is governed by <A href="hidd_tipps_and_tricks.html#licence_terms">the same terms of licence and the exclusion of any kind of liability</A> as the CrypTool package.</P>
 
@@ -42,6 +46,10 @@
 <P>The Rijndael <!--ZZZPOPUP--><A href="verschlverfahren.html">encryption algorithm</A> works with a block length of 128 bits, and a variable key length e.g. 128, 192 and 256 bits. The input key will be filled with hex-zero characters up to the next minimal key length of 128, 196 resp. 256 bits.</P>
 
 <P>Note that too short key lengths are considered as a security risk (see dialog <A href="hidd_key.html">Key Input</A>). </P>
+
+<P><B>Remark 4</B>:</P>
+
+<P>AES-Tool version 2.3 was successfully tested as standalone program with files up to 4 GB length.</P>
 
 </BODY>
 </HTML>
