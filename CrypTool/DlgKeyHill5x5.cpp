@@ -150,7 +150,6 @@ BEGIN_MESSAGE_MAP(CDlgKeyHill5x5, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON4, OnGroessereSchluessel)
 	ON_BN_CLICKED(IDC_BUTTON5, OnDecrypt)
 	ON_BN_CLICKED(IDC_BUTTON2, OnPasteKey)
-	ON_BN_CLICKED(IDC_BUTTON1, OnCopyKey)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -807,36 +806,6 @@ void CDlgKeyHill5x5::OnPasteKey()
 		}
 	}
 }
-
-
-void CDlgKeyHill5x5::OnCopyKey()
-{
-	CString cs, hilf;
-
-	for (int i=0; i<HILL_MAX_DIM; i++)
-	{
-		for (int j=0; j<HILL_MAX_DIM; j++)
-		{
-			m_pFelder[i][j]->GetWindowText(hilf);			
-			if (i < dim && j < dim)
-			{
-				cs += hilf;
-			}
-			else
-			{
-				cs += ' ';
-			}
-		}
-		if ( i+1 < HILL_MAX_DIM )
-		{
-			cs += '\n';
-		}
-	}
-    LoadString(AfxGetInstanceHandle(),IDS_CRYPT_HILL,pc_str,STR_LAENGE_STRING_TABLE);
-	CopyKey(pc_str, cs); 
-	m_Paste.EnableWindow(TRUE);
-}
-
 
 
 void CDlgKeyHill5x5::OnZufaelligerSchluessel() 
