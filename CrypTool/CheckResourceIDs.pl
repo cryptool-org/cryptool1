@@ -65,7 +65,7 @@ foreach (<RC>) {
 		$_ = $cont . $_;
 		$cont = '';
 	}
-	if (m{[,|]\s*$}) { # handle continuation lines
+	if (m{[,|]\s*$}) { # memorize continuation lines
 		chomp;
 		$cont = $_;
 		next;
