@@ -224,15 +224,15 @@ void CDlgSecretSharingSetup::OnButtonUpdate()
 		CString entry = "";
 		entry.LoadString(IDS_STRING_MEMBER);
 		entry+=" ";
-		number.Format("%d", row);
+		number.Format("%d", row+1);
 		entry += number;
 		m_list_shares.InsertItem(row, "");
 		shares[row] = CalculateShare(coeff, parameter[row]);
 		BigToCString(shares[row], result, 10);
 		pubValue.Format("%d", parameter[row]);
-		m_list_shares.SetItemText(row, 0+1, entry);
-		m_list_shares.SetItemText(row, 1+1, pubValue);
-		m_list_shares.SetItemText(row, 2+1, result);
+		m_list_shares.SetItemText(row, 1, entry);
+		m_list_shares.SetItemText(row, 2, pubValue);
+		m_list_shares.SetItemText(row, 3, result);
 	}
 	m_ctrl_ButtonOK.EnableWindow(true);
 	m_ctrl_ButtonUpdate.EnableWindow(false);

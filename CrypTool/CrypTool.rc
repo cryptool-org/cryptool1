@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -4880,7 +4880,7 @@ BEGIN
                     IDC_STATIC,7,30,357,26
     LTEXT           "Weitere Details erhalten Sie in der Online-Hilfe, indem Sie F1 drücken.",
                     IDC_STATIC,7,54,357,8
-    LTEXT           "Bitte wählen Sie die Teilnehmer aus der Liste aus, die das Geheimnis wiederherstellen sollen. Zur Mehrfachauswahl halten sie einfach die Strg-Taste gedrückt und klicken den Eintrag mit Hilfe der Maus an.",
+    LTEXT           "Bitte wählen Sie die Teilnehmer, die das Geheimnis wiederherstellen sollen, aus der Liste aus, indem Sie die entsprechenden Checkboxen ankreuzen.",
                     IDC_STATIC,7,353,357,19
     LTEXT           "Primzahl p",IDC_STATIC_MOD,12,214,33,8
     GROUPBOX        "Parameter des Polynoms f(x) vom Grad t-1",
@@ -10803,12 +10803,12 @@ BEGIN
     IDS_SCINTILLA_DEFAULT_PRINT_FOOTER "Seite %1"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -15654,7 +15654,7 @@ BEGIN
                     IDC_STATIC,7,23,357,16
     LTEXT           "For further details please check the CrypTool Online-Help by pressing F1.",
                     IDC_STATIC,7,47,357,8
-    LTEXT           "Please do select those participants which are to reconstruct the secret. To select several entries at a time, keep the Ctrl-Button pressed and use your mouse to mark your choice.",
+    LTEXT           "Please select these participants who are to reconstruct the secret, from the list above by checking the boxes.",
                     IDC_STATIC,7,357,357,19
     LTEXT           "Prime p",IDC_STATIC_MOD,11,218,24,8
     LTEXT           "All computations take place in the discrete space GF(p) ",
@@ -21766,7 +21766,7 @@ BEGIN
     IDS_SCINTILLA_DEFAULT_PRINT_FOOTER "Page %1"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
