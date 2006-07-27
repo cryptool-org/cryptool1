@@ -131,6 +131,9 @@ If a menu item has no meaning to you or you don't know exactly what
 to do within a dialog window, please press F1. If the according
 online help isn't satisfactory please give us feedback.
 
+You can find a 1-page overview over all menus in CrypTool (menu tree)
+within the included PDF script (appendix A1).
+
 We hope you enjoy learning about cryptography and trying out all the
 functionality within CrypTool.
 
@@ -151,13 +154,16 @@ CrypTool is a demonstration primarily used for training purposes:
   teaching employees awareness of the importance of IT security.
 
 - Most of the cryptographic basic algorithms used are taken from:
-  - the industry-proven Secude library (version SDK 7.4.60C)
-    (www.secude.com),
-  - the Miracl library (version 4.4.3) (http://indigo.ie/~mscott/),
-  - the OpenSSL library (version 0.9.8),
-  - the NTL number theory library of Victor Shoup (version 5.4) and
-  - the GMP library for arbitrary precision arithmetic (version 4.2.1)
+  - the industry-proven Secude library (http://www.secude.com/),
+  - the Miracl library (http://indigo.ie/~mscott/),
+  - the OpenSSL library (http://www.openssl.org/),
+  - the NTL number theory library of Victor Shoup
+    (http://www.shoup.net/ntl/) and
+  - the GMP library for arbitrary precision arithmetic
     (http://www.swox.com/gmp/).
+
+  The currently used version of the included libraries can be seen
+  within the "About CrypTool" dialog (see help menu).
 
   In this way, CrypTool is also an outstanding reference
   implementation.
@@ -242,8 +248,8 @@ was first published in the computer magazine c't, 25/1999. While
 c't published a slightly shortened version you here get the original
 version.
 
-The companies Secude Ltd. and Shamus Software Ltd. (see above)
-allowed us gratefully to use their cryptographic libraries.
+The companies Secude IT Security GmbH and Shamus Software Ltd. (see
+above) allowed us gratefully to use their cryptographic libraries.
 These libraries distributed with CrypTool are not allowed to be
 used in another context than CrypTool without contacting the
 mentioned companies and asking for their current terms of licence.
@@ -258,9 +264,10 @@ CrypTool got an academic home as planned:
 From October 2002 the chair "Security in Information Technology", 
 faculty computer science from Mrs. Prof. Dr. Claudia Eckert at the
 Technical University of Darmstadt, Germany hosts the English and 
-German web page of CrypTool and the CVS system for the program sources.
+German web page of CrypTool and the Subversion repository system
+for the program sources.
 
-The CrypTool developer group around Bernhard Esslinger keeps to be
+The CrypTool developer group around Bernhard Esslinger stay in being
 the maintainer: This means they take care about the source code, 
 they publish CrypTool as open source and freeware, and they
 co-ordinate the further development. Current steps of the roadmap
@@ -298,7 +305,7 @@ security environment).
 
 The root key of the CA built in CrypTool 1.4.00 has a length of 2048
 bit and it is valid for 20 years (July 6th, 2006 - July 6th, 2026).
-Certificates issued with the root key of older CrypTool version 
+Certificates issued with the root key of older CrypTool versions 
 (1.3.05 and older) cannot be imported in version 1.4.00.
 
 Please notice when creating user certificates with CrypTool, that each
@@ -307,8 +314,8 @@ This means that everybody (!), who uses CrypTool, can sign user
 certificates with this built-in CA.
 
 Professional PKI software like the OpenXPKI, Entrust, the Secude CA or
-the Microsoft CA additionally manage the whole certificate life-cycle
-and offer CRL handling, take care for unique serial numbers and use
+the Microsoft CA additionally manage the whole certificate life-cycle,
+offer CRL handling, take care for unique serial numbers and use
 defined registration processes.
 
 Nevertheless all the algorithms implemented in CrypTool are according
@@ -424,7 +431,7 @@ unfortunately not under Win9x).
   editor, can be calculated for files of any size. 
 
 - With the AES-Tool you can encrypt and archive files with a
-  maximum size of 4 GB (as long as compilied with VS2003).
+  maximum size of 4 GB (as long as compiled with VS2003).
 
   Please keep in mind, that the output of the stand-alone AES-Tool
   is not identical with the output you get within CrypTool, using
@@ -508,7 +515,7 @@ as target directory a so called "local directory" (instead of "C:\Programme").
 If you install CrypTool without administrator rights and you also have no
 write access to %ALLUSERSPROFILE%\Start Menu, then the CrypTool specific
 entries are missing in the start menu of WXP ("Start \ All Programms").
-But every user can add these entires manually.
+But every user can add these entries manually.
 
 Remark: In the same way as with %TEMP%, you can see, where these directories
 are on your disk by entering in the Windows Explorer %ALLUSERSPROFILE% or
@@ -553,22 +560,23 @@ The archives contain the following files:
 
 ReadMe-en.txt .... This brief instruction (English).
 ReadMe-de.txt .... This brief instruction (German).
+
 md5sum.txt ....... File which contains the MD5 hash values of all files
                    within the CrypTool package.
 sha1sum.txt ...... SHA-1 hash values of all these files.
 
-CrypTool.exe ..... The executable program.
+CrypTool.exe ..... The executable e-learning program (English and German).
 aestool.exe ...... A program which encrypts files into
                    self-extracting programs. To decrypt the files,
                    the correct password must be entered.
 CrypTool-en.chm .. HTML help archive containing the CrypTool online help
                    system in English.
-CrypTool-de.chm .. The German version of CrypTool-en.chm.
+CrypTool-de.chm .. The German version of "CrypTool-en.chm".
 
 EC-Param.ini ..... Initialisation file for public key procedures
                    based on elliptic curves.
 secude.dll ....... Library of cryptographic functions provided by
-                   Secude Ltd.
+                   Secude IT Security GmbH.
 ticket ........... License for the Secude library.
 libxml2.dll ...... Is used by the secude.dll.
 secidea.dll ...... Is used by the secude.dll for IDEA encryption.
@@ -582,12 +590,20 @@ TEST-Param.ini ... Initialisation file for random number tests.
 irunin.* ......... These files are necessary for installation and
                    de-installation.
 
+NumberShark.exe .. The executable program of the educational game "NumberShark".
+Zahlenhai.exe .... The German version of "NumberShark.exe".
+NumberShark_en.chm HTML help archive for tne NumberShark online help (English).
+NumberShark_de.chm The German version of "NumberShark_en.chm".
+GameData.txt ..... First high-scores for the NumberShark game.
+
 script-en.pdf .... A script on cryptography, prime numbers,
                    elementary number theory and the mathematics
                    behind certain algorithms.
 script-de.pdf .... The German version of script-en.pdf.
+
 CrypToolPresentation_1_4_00_en.pdf .. Slides presentation
 CrypToolPresentation_1_4_00_de.pdf .. German version of presentation.
+
 DialogueSisters.pdf ... Fantasy story by Dr. Elsner describing a
                         variant of the RSA cryptosystem.
 DialogSchwestern.pdf .. German version of DialogueSisters.pdf.
@@ -608,6 +624,7 @@ examples\ ........ This directory contains various sample files
 examples\CrypTool.bmp
         \CrypTool-en.txt
         \CrypTool-de.txt
+        \CrypTool.bmp
         \Playfair-enc-de.txt
         \Probetext-de.txt
         \psion-enc.hex
@@ -618,7 +635,7 @@ examples\CrypTool.bmp
                             demonstration.
         \Original.txt ..... German version of original.txt
         \fake.txt ......... "Dangerous" sample for the hash collision
-                            demostration.
+                            demonstration.
         \Faelschung.txt ... German version of fake.txt
         \letterFromAliceToBob-DECRYPTED-en.txt .. Sample files for the
         \letterFromAliceToBob-DECRYPTED-de.txt .. demonstration of the
@@ -644,7 +661,7 @@ references\deutsch.txt   // Extract from the German value-added tax law
 animal\ .......... This directory contains files, necessary for the
                    animation program ANIMAL.
 
-animal\Animal-2.0.3.jar
+animal\Animal-2.0.2.jar
       \animal.bat
       \animal.properties
       \AnimalResources
@@ -688,15 +705,15 @@ pse\ ............. This directory and its subdirectory pseca\ are
                    used to store (asymmetric) keys and
                    certificates that have been generated.
 
-pse\[Bob][SideChannelAttack][RSA-512][1126252192][PIN=1234].pse
+pse\[SideChannelAttack][Bob][RSA-512][1152179494][PIN=1234].pse
 
 pse\pseca\calog    These files are necessary for the administration of 
          \CA_exts  the key database:
          \cert.dir
          \cert.pag
+         \CRL_exts
          \crls.dir
          \crls.pag
-         \pseca
          \user.dir
          \user.pag
 
@@ -706,12 +723,12 @@ managed:
 cry*.* ........... CrypTool writes temporary files to the \temp
                    directory (file names begin with cry*.*).
                    There are the following file extensions:
-                   hex -> hexadecimal (binary) content
-                   org -> xxxxxxxxxx
-                   plt -> diagram output (histogram, autocorrelation)
-                   tmp -> xxxxxxxxxx
-                   txt -> text file
-                   ogl -> OpenGL description.
+                   txt -> text file view
+                   hex -> hexadecimal (binary) view
+                   plt -> diagram/plot view (histogram, autocorrelation)
+                   ogl -> OpenGL graphics view
+                   org -> copy of an original file after file open
+                   tmp -> temporary file for intermediate results
 
 
 
@@ -787,7 +804,7 @@ Here first of all the general properties of CrypTool:
 - Demonstration concerning number theory and the RSA cryptosystem:
   - Generate and test primes.
   - Factorize numbers (step-by-step) with different methods
-    (the different methods run in parallel threats).
+    (the different methods run in parallel threads).
   - Make the RSA cryptosystem understandable and use it:
      - Generate RSA keys (also with primes of your own choice).
      - Encrypt/decrypt with RSA.
@@ -813,8 +830,8 @@ Here first of all the general properties of CrypTool:
 - CrypTool is used world-wide in schools, universities, agencies and
   companies.
 
-You can get a good overview
-- at the attached powerpoint presentation
+You can get a good overview of what CrypTool offers
+- at the attached Powerpoint presentation
    (title: "Cryptography with CrypTool") and
 - at the web site of CrypTool 
    (use the item "CT Introduction" within the left frame).
@@ -828,7 +845,7 @@ a) Developer-relevant changes (more technically oriented):
 - The sources of CrypTool 1.4.00 can be downloaded also from the
   web page without registration.
 
-- Details about compilation, Linking and about a consistent development
+- Details about compilation, linking and about a consistent development
   can be found in the sources in the file "readme-source".
 
 - The sources now can be compiled with Microsoft development 
@@ -846,15 +863,15 @@ a) Developer-relevant changes (more technically oriented):
 
 - The old editors for text and binary data have been replaced by
   open-source editors with better functionality and their code was
-  at some places enhanced: So loading is faster and bigger files can
-  be loaded.
+  at some places enhanced: So loading is faster, the used storage
+  is smaller and bigger files can be loaded.
 
-  Hex editor / Hex control / HexView:
-  Link: http://www.codeguru.com/Cpp/controls/controls/article.php/c5287
-  -> Added: Insertion, simultaneous marking of chars in hex and ASCII.
+  * Hex editor / Hex control / HexView:
+    Link: http://www.codeguru.com/Cpp/controls/controls/article.php/c5287
+    -> Added: Insertion, simultaneous marking of chars in hex and ASCII.
 
-  Text editor:
-  Link: http://scintilla.sourceforge.net/ScintillaDownload.html
+  * Text editor:
+    Link: http://scintilla.sourceforge.net/ScintillaDownload.html
 
   Now you also can view files, which have non-printable characters,
   in text mode.
@@ -865,8 +882,8 @@ a) Developer-relevant changes (more technically oriented):
   ADFGVX cipher.
 
   Search and Replace in the text editor has been enhanced with regular
-  expressions. In the hexadecimal editor only simple search is available.
-  xxxxxxxxxxx
+  expressions.
+  In the hexadecimal editor currently no search is available.
 
 - The menu structure is arranged more clearly and contains more
   entries.
@@ -918,6 +935,8 @@ c) New functionality:
 
 - Implementation and analysis of ADFGVX as an example of a cascading
   cipher.
+  Here you also have the option to enter the password of the substitution
+  matrix as a string.
 
 - A improved analysis for mono-alphabetic substitution.
 
@@ -979,7 +998,7 @@ c) New functionality:
   Java API.
 
 - 3-D visualisation of big sets of random numbers with the rendering
-  engine from OpenQVis (Java, http://openqvis.sourceforge.net/).
+  engine from OpenQVis (http://openqvis.sourceforge.net/).
 
 - Addendum to the Secude cryptographic random number generator which now
   also allows to gather entropy by mouse moves and keyboard entries.
@@ -1009,10 +1028,10 @@ c) New functionality:
      -----------------------------------
 - Implement additional algorithms on each topic:
     * Encryption:
-       - Fleissner grille as classic procedure.
+       - Turning grille (Fleissner) as classic procedure.
        - Symmetric procedures:
          Camellia (RFC3713), RC5 and Gost (http://vipul.net/gost).
-       - Public key methods: McElice and Rabin.
+       - Public key methods: McEliece and Rabin.
        - Implementation of the NTRU encryption system.
        - Demonstration of visual cryptography.
     * Hashes:
@@ -1025,7 +1044,7 @@ c) New functionality:
        - Electronic Voting.
 
 - Offer fast selection between different encryption methods using a
-  dialog box instead of using menues (and making all parameters of these
+  dialog box instead of using menus (and making all parameters of these
   algorithms customizable).
 
 - Generate cryptographically strong elliptic curves and use these
@@ -1046,10 +1065,6 @@ c) New functionality:
    - enable to transpose the key matrix
    - allow not only letters but also integers as input for the 
      key matrix.
-
-- ADFGVX
-   - Easier way to fill given password ands key matrices into
-     the mask.
 
 - Because cryptographic structures and formats are often ASN.1
   encoded: Integration of an ASN.1 decoding tool.
@@ -1081,7 +1096,7 @@ c) New functionality:
     Idea: Open private key ring via a given password, analyse its 
     structure, get the private key (PGP sources are available) and 
     use this key, to decrypt PGP files with the algorithms implemented
-    in CrypTool. This shows, that PGP only uses standard algorithms.
+    in CrypTool. This shows, that PGP also only uses standard algorithms.
 
 - Usage of CrypTool as a demonstrator for XML signatures.
 
@@ -1111,7 +1126,7 @@ c) New functionality:
 
 - Analysis to be improved for:
    * mono-alphabetic substitution
-      - explicitely show mutually inverted digrams like "th"/"ht" and
+      - explicitly show mutually inverted digrams like "th"/"ht" and
         double-characters like "tt".
       - Show the characters which have been substituted not only 
         capitalized but also in red to enhance readability.
@@ -1288,7 +1303,7 @@ c) New functionality:
    - Plug-in based architecture.
    - Further developers for this project are very welcome
      (The current developers use a wiki for their communication and
-     subversion for source code version management).
+     Subversion for source code version management).
 
 - Porting to Windows Vista using Visual Studio 2005 and .NET.
   Usage of the new GUI API Windows Presentation Foundation (WPF)
@@ -1333,18 +1348,18 @@ c) New functionality:
 7. Brief history of the released main versions of CrypTool
    -------------------------------------------------------
 
-Version   Date		Size of Windows-Setup		Released by
-			English	    German
-1.0.01    Oct. 1999	 -		 1.3 MB	DB	DB
-1.1.01    May  2000	 -		 2.3 MB	DB	DB
-1.2.00    Aug. 2000	 -		 2.8 MB	DB	DB
-1.2.02    Dec. 2000	 -		 3.2 MB	DB	DB
-1.3.00    Jan. 2002	 4.7 MB		 4.9 MB	DB	DB
-1.3.02    June 2002	 6.4 MB		 6.9 MB	DB	DB
-1.3.03    Sep. 2002	 6.5 MB		 6.9 MB	DB	DB
-1.3.04    July 2003	 8.6 MB		 8,1 MB	DB	DB
-1.3.05    Aug. 2003	 8.6 MB		 8,1 MB	DB	DB
-1.4.00    xxx. 2006	14,0 MB		13,5 MB		DB  xxxxxxxxx
+Version   Date		Size of Windows Setup		Released by
+			English	    	German
+1.0.01    Oct. 1999	 -		 1.3 MB 	DB
+1.1.01    May  2000	 -		 2.3 MB		DB
+1.2.00    Aug. 2000	 -		 2.8 MB		DB
+1.2.02    Dec. 2000	 -		 3.2 MB		DB
+1.3.00    Jan. 2002	 4.7 MB		 4.9 MB		DB
+1.3.02    June 2002	 6.4 MB		 6.9 MB		DB
+1.3.03    Sep. 2002	 6.5 MB		 6.9 MB		DB
+1.3.04    July 2003	 8.6 MB		 8,1 MB		DB
+1.3.05    Aug. 2003	 8.6 MB		 8,1 MB		DB
+1.4.00    July 2006	18,2 MB		18,4 MB		DB
 
 Remarks about the versions:
 1.3.02    Many new functions compared to 1.3.00.
@@ -1353,19 +1368,18 @@ Remarks about the versions:
           analysis of Playfair, N-gram, RSA), and major documentation
           improvements and enhancements (online help, script).
 1.3.05    Some minor bug fixes.
-1.4.00-Beta10  Dec. 2005  First public beta of version 1.4.00.
-1.4.00-Beta12  Mar. 2006  Second public beta of version 1.4.00.
+1.4.00 Beta10  Dec. 2005  First public beta of version 1.4.00.
+1.4.00 Beta12  Mar. 2006  Second public beta of version 1.4.00.
+1.4.00 Beta14  July 2006  Third public beta of version 1.4.00.
 1.4.00    Many new functions compared to 1.3.05.
 
 
 
 8. Feedback on errors (bugs)
    -------------------------
-If you have any problems or find any errors, please send a
-description of the problem by e-mail to
-- joerg-cornelius.schneider@db.com   or
-- esslinger@fb5.uni-siegen.de        or
-- the mailing list: cryptool-list@sec.informatik.tu-darmstadt.de
+If you have any problems or find any errors, please do not hesitate to
+send a description of the problem by e-mail to one of the persons or
+to the mailing list (see chapter 9 below).
 
 We would be very grateful for suggestions of any kind regarding
 CrypTool and we'll be helpful whenever our time allows.
@@ -1586,7 +1600,7 @@ but where the source code is probably not public, are:
 - CryptoBench - GUI around Wei Dai's Crypto++ library
   Compact and clearly arranged GUI implemented around Wei Dai's 
   Crypto++ library (no cryptanalysis).
-  The current version 1.0.1 exists since 2004.
+  The current version 1.0.1 of the CryptoBench exists since 2004.
   Wei Dai's Crypto++ library is open source, the GUI of CryptoBench is 
   freeware, but not open source.
   http://www.addario.org/cryptobench/
@@ -1602,9 +1616,9 @@ merged new program. We are very keen about any co-operation!!
 
 10.4. Awards
       ------
-Generell ist es für uns die größte Auszeichnung, wenn CrypTool eingesetzt
-wird und in Schule, Lehre und Training Nutzen stiftet. Über die vielen
-positiven Rückmeldungen freuen wir uns natürlich sehr.
+In general the biggest award for us is, if CrypTool is broadly used in
+education and training. Additinally we are glad getting many positive
+feedback.
 
 CrypTool was honored with the following awards (see web page):
 
