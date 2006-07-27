@@ -465,11 +465,11 @@ BOOL CCrypToolApp::InitInstance()
 		if (!CT_READ_REGISTRY(flagSignatureAttack, "flagSignatureAttack"))
 		{
 			CT_WRITE_REGISTRY(flagSignatureAttack, "flagSignatureAttack");
-			LoadString(AfxGetInstanceHandle(),IDS_SIGATT_HARMLESS,pc_str,STR_LAENGE_STRING_TABLE);
-			CT_WRITE_REGISTRY(CString(Pfad)+CString(pc_str), "SignatureAttackHarmlessFile" );
-			LoadString(AfxGetInstanceHandle(),IDS_SIGATT_DANGEROUS,pc_str,STR_LAENGE_STRING_TABLE);
-			CT_WRITE_REGISTRY(CString(Pfad)+CString(pc_str), "SignatureAttackDangerousFile" );
 		}
+		LoadString(AfxGetInstanceHandle(),IDS_SIGATT_HARMLESS,pc_str,STR_LAENGE_STRING_TABLE);
+		CT_WRITE_REGISTRY(CString(Pfad)+CString(pc_str), "SignatureAttackHarmlessFile" );
+		LoadString(AfxGetInstanceHandle(),IDS_SIGATT_DANGEROUS,pc_str,STR_LAENGE_STRING_TABLE);
+		CT_WRITE_REGISTRY(CString(Pfad)+CString(pc_str), "SignatureAttackDangerousFile" );
 
 		if (FALSE == Tipps.m_DoNotShowThisAgain)
 		{
