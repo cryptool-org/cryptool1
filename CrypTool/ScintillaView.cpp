@@ -97,6 +97,7 @@ BEGIN_MESSAGE_MAP(CScintillaView, CCrypToolView)
 	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, CView::OnFilePrintPreview)
+	ON_COMMAND(ID_FILE_PAGE_SETUP, OnFilePageSetup)
 	ON_COMMAND(ID_TOHEX, OnTohex)
 	ON_UPDATE_COMMAND_UI(ID_ZEICHENFORMAT_ARIAL08, OnUpdateZeichenformatArial08)
 	ON_UPDATE_COMMAND_UI(ID_ZEICHENFORMAT_ARIAL10, OnUpdateZeichenformatArial10)
@@ -110,9 +111,22 @@ END_MESSAGE_MAP()
 // @mfunc constructor
 // @rvalue void | not used
 //
-CScintillaView::CScintillaView()
+CScintillaView::CScintillaView() : m_rMargin(0, 0, 0, 0),
+                                   m_bPrintHeader(FALSE), 
+                                   m_bPrintFooter(TRUE),
+								   m_bPersistMarginSettings(FALSE)
+
 {
+	m_bUsingMetric = UserWantsMetric();
 }
+
+BOOL CScintillaView::UserWantsMetric()
+{
+  TCHAR localeInfo[3];
+  GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IMEASURE, localeInfo, 3);
+  return (localeInfo[0] == _T('0')) ;
+}
+
 /////////////////////////////////////
 // @mfunc destructor
 // @rvalue void | not used
@@ -141,17 +155,307 @@ void CScintillaView::OnDraw(CDC* pDC)
 // @mfunc not handled
 // @rvalue void | not used
 //
+
+void CScintillaView::OnFilePageSetup() 
+{
+  //Display a standard page setup dialog
+	CPageSetupDialog dlg;
+
+  //Allow the margin settings to be tweaked
+  dlg.m_psd.Flags |= PSD_MARGINS;
+
+  //Are we using the metric or imperial system	
+  if (m_bUsingMetric)
+    dlg.m_psd.Flags |= PSD_INHUNDREDTHSOFMILLIMETERS;
+  else
+    dlg.m_psd.Flags |= PSD_INTHOUSANDTHSOFINCHES;
+
+  if (m_bPersistMarginSettings)
+    LoadMarginSettings();
+
+  //Set the current margin settings to the current value from m_rectMargin 
+  dlg.m_psd.rtMargin = m_rMargin;
+
+	//get the current device from the app
+	PRINTDLG pd;
+	pd.hDevNames = NULL;
+	pd.hDevMode = NULL;
+  CWinApp* pApp = AfxGetApp();
+	pApp->GetPrinterDeviceDefaults(&pd);
+	dlg.m_psd.hDevNames = pd.hDevNames;
+	dlg.m_psd.hDevMode = pd.hDevMode;
+
+	if (dlg.DoModal() == IDOK)
+	{
+    //Save the new margin value in to the member variable
+    m_rMargin = dlg.m_psd.rtMargin;
+
+    if (m_bPersistMarginSettings)
+      SaveMarginSettings();
+
+    //Update the printer settings
+		pApp->SelectPrinter(dlg.m_psd.hDevNames, dlg.m_psd.hDevMode);
+	}
+}
+
 BOOL CScintillaView::OnPreparePrinting(CPrintInfo* pInfo)
 {
-	return DoPreparePrinting(pInfo);
+	  //Determine if we should allow selection printing
+	CScintillaWnd* rCtrl = GetEditControl();
+
+
+	long nStartChar = rCtrl->GetSelectionStart();
+  long nEndChar = rCtrl->GetSelectionEnd();
+  if (nStartChar != nEndChar)
+  {
+    // Enable the Selection button
+    pInfo->m_pPD->m_pd.Flags &= ~PD_NOSELECTION;
+
+    // Check the Selection button
+    pInfo->m_pPD->m_pd.Flags |= PD_SELECTION;
+  }
+
+  //Let the base class do its thing
+  return DoPreparePrinting(pInfo);
 }
 
 /////////////////////////////////////
 // @mfunc not handled
 // @rvalue void | not used
 //
-void CScintillaView::OnBeginPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
+void CScintillaView::OnBeginPrinting(CDC* /*pDC*/, CPrintInfo* pInfo)
 {
+		ASSERT_VALID(this);
+
+  CScintillaWnd* rCtrl = GetEditControl();
+
+	//initialize page start vector
+	ASSERT(m_aPageStart.GetSize() == 0);
+	if (pInfo->m_pPD->PrintSelection())
+		m_aPageStart.Add(rCtrl->GetSelectionStart());
+	else {
+		m_aPageStart.Add(0);
+		UINT page = pInfo->GetFromPage();
+		if (pInfo->GetToPage() > page) 
+			page = pInfo->GetToPage();
+		pInfo->SetMaxPage(page);
+	}
+	ASSERT(m_aPageStart.GetSize() > 0);
+
+	ASSERT_VALID(this);
+}
+
+BOOL CScintillaView::PaginateTo(CDC* pDC, CPrintInfo* pInfo)
+{
+	ASSERT_VALID(this);
+	ASSERT_VALID(pDC);
+
+  CRect rectSave = pInfo->m_rectDraw;
+	UINT nPageSave = pInfo->m_nCurPage;
+	ASSERT(nPageSave > 1);
+	ASSERT(nPageSave >= static_cast<UINT>(m_aPageStart.GetSize()));
+	VERIFY(pDC->SaveDC() != 0);
+	pDC->IntersectClipRect(0, 0, 0, 0);
+	pInfo->m_nCurPage = m_aPageStart.GetSize();
+	while (pInfo->m_nCurPage < nPageSave)
+	{
+		ASSERT(pInfo->m_nCurPage == static_cast<UINT>(m_aPageStart.GetSize()));
+		OnPrepareDC(pDC, pInfo);
+		ASSERT(pInfo->m_bContinuePrinting);
+		pInfo->m_rectDraw.SetRect(0, 0,	pDC->GetDeviceCaps(HORZRES), pDC->GetDeviceCaps(VERTRES));
+		OnPrint(pDC, pInfo);
+		if (pInfo->m_nCurPage == static_cast<UINT>(m_aPageStart.GetSize()))
+			break;
+		++pInfo->m_nCurPage;
+	}
+	BOOL bResult = pInfo->m_nCurPage == nPageSave;
+	pDC->RestoreDC(-1);
+	pInfo->m_nCurPage = nPageSave;
+  pInfo->m_rectDraw = rectSave;
+	ASSERT_VALID(this);
+	return bResult;
+}
+
+void CScintillaView::OnPrepareDC(CDC* pDC, CPrintInfo* pInfo)
+{
+	//Validate our parameters
+	ASSERT_VALID(this);
+	ASSERT_VALID(pDC);
+	UNUSED(pDC); // unused in release builds
+	if (pInfo == NULL)
+		return;
+	if (pInfo->m_nCurPage <= pInfo->GetMaxPage())
+	{
+		if ((pInfo->m_nCurPage > static_cast<UINT>(m_aPageStart.GetSize())) &&	!PaginateTo(pDC, pInfo))
+		{
+			//can't paginate to that page, thus cannot print it.
+			pInfo->m_bContinuePrinting = FALSE;
+		}
+		ASSERT_VALID(this);
+	}
+	else
+	{
+			//Reached the max page to print
+			pInfo->m_bContinuePrinting = FALSE;
+	}
+}
+
+void CScintillaView::PrintHeader(CDC* pDC, CPrintInfo* /*pInfo*/, RangeToFormat& frPrint)
+{
+  //By Default we print "Document Name - Printed on Date" as well as a line separator below the text
+  //Derived classes are of course free to implement their own version of PrintHeader
+  CString sHeader;
+  AfxFormatString2(sHeader, IDS_SCINTILLA_DEFAULT_PRINT_HEADER, GetDocument()->GetTitle(), COleDateTime::GetCurrentTime().Format());
+
+  //Setup the DC
+  pDC->SetTextColor(RGB(0, 0, 0));
+  UINT nAlign = pDC->SetTextAlign(TA_LEFT | TA_TOP);
+
+  //Draw the header
+  CSize sizeText = pDC->GetTextExtent(sHeader);
+  int nHeaderDepth = 2*sizeText.cy;
+	CRect rLine(frPrint.rcPage.left, frPrint.rcPage.top, frPrint.rcPage.right, frPrint.rcPage.top + nHeaderDepth);
+  pDC->ExtTextOut(frPrint.rcPage.left, frPrint.rcPage.top + nHeaderDepth/3, 0, &rLine, sHeader, NULL);
+
+  //Draw a line underneath the text
+  pDC->MoveTo(frPrint.rcPage.left, frPrint.rcPage.top + nHeaderDepth - 5);
+  pDC->LineTo(frPrint.rcPage.right, frPrint.rcPage.top + nHeaderDepth - 5);
+
+  //Restore the DC
+  pDC->SetTextAlign(nAlign);
+
+  //Adjust the place where scintilla will draw the text
+  if (frPrint.rc.top < (frPrint.rcPage.top + nHeaderDepth))
+    frPrint.rc.top = frPrint.rcPage.top + nHeaderDepth;
+}
+
+void CScintillaView::PrintFooter(CDC* pDC, CPrintInfo* pInfo, RangeToFormat& frPrint)
+{
+  //By Default we print "Page X" as well as a line separator above the text
+  //Derived classes are of course free to implement their own version of PrintFooter
+  CString sPage;
+  sPage.Format(_T("%d"), pInfo->m_nCurPage);
+  CString sFooter;
+  AfxFormatString1(sFooter, IDS_SCINTILLA_DEFAULT_PRINT_FOOTER, sPage);
+
+  //Setup the DC
+  pDC->SetTextColor(RGB(0, 0, 0));
+  UINT nAlign = pDC->SetTextAlign(TA_LEFT | TA_TOP);
+  
+  //Draw the header
+  CSize sizeText = pDC->GetTextExtent(sFooter);
+  int nFooterDepth = 2*sizeText.cy;
+  CRect rLine(frPrint.rcPage.left, frPrint.rcPage.bottom - nFooterDepth, frPrint.rcPage.right, frPrint.rcPage.bottom);
+  pDC->ExtTextOut(frPrint.rcPage.left, frPrint.rcPage.bottom - nFooterDepth*2/3, 0, &rLine, sFooter, NULL);
+
+  //Draw a line above the text
+  pDC->MoveTo(frPrint.rcPage.left, frPrint.rcPage.bottom - nFooterDepth + 5);
+  pDC->LineTo(frPrint.rcPage.right, frPrint.rcPage.bottom - nFooterDepth + 5);
+
+  //Restore the DC
+  pDC->SetTextAlign(nAlign);
+
+  //Adjust the place where scintilla will draw the text
+  if (frPrint.rc.bottom > (frPrint.rcPage.bottom - nFooterDepth))
+    frPrint.rc.bottom = frPrint.rcPage.bottom - nFooterDepth;
+}
+
+long CScintillaView::PrintPage(CDC* pDC, CPrintInfo* pInfo, long nIndexStart, long nIndexStop)
+{
+	ASSERT_VALID(this);
+	ASSERT_VALID(pDC);
+
+	RangeToFormat rfPrint;
+	rfPrint.hdc = pDC->m_hDC;
+	rfPrint.hdcTarget = pDC->m_hAttribDC;
+
+	//Take into account the specified margins
+  CRect rMargins;
+	if ((m_rMargin.left) != 0 || (m_rMargin.right) != 0 || (m_rMargin.top) != 0 || (m_rMargin.bottom != 0)) 
+  {
+    //Get printer resolution
+    CPoint pDpi;
+    pDpi.x = pDC->GetDeviceCaps(LOGPIXELSX);  //Dpi in X direction
+    pDpi.y = pDC->GetDeviceCaps(LOGPIXELSY);  //Dpi in Y direction
+
+		//Convert the hundredths of millimeters or thousandths of inches margin values
+		//from the Page Setup dialog to device units.
+		int iScale = m_bUsingMetric ? 2540 : 1000;    //scale factor for margin scaling;
+		rMargins.left   = MulDiv(m_rMargin.left, pDpi.x, iScale);
+		rMargins.top    = MulDiv(m_rMargin.top, pDpi.y, iScale);
+		rMargins.right	= MulDiv(m_rMargin.right, pDpi.x, iScale);
+		rMargins.bottom	= MulDiv(m_rMargin.bottom, pDpi.y, iScale);
+	} 
+  else 
+		rMargins = m_rMargin;
+
+  //We take the page size from the pInfo member variable (decrement the right and
+  //bottom values by 1 to suit Scintilla)
+	rfPrint.rcPage.left = pInfo->m_rectDraw.left;
+	rfPrint.rcPage.top = pInfo->m_rectDraw.top;
+	rfPrint.rcPage.right = pInfo->m_rectDraw.right - 1;
+	rfPrint.rcPage.bottom = pInfo->m_rectDraw.bottom - 1;
+
+  //Fill in the area to print
+  rfPrint.rc.left = rfPrint.rcPage.left + rMargins.right;
+  rfPrint.rc.top = rfPrint.rcPage.top + rMargins.top;
+  rfPrint.rc.right = rfPrint.rcPage.right - rMargins.right;
+  rfPrint.rc.bottom = rfPrint.rcPage.bottom - rMargins.bottom;
+
+  //Fill in the text to print
+	rfPrint.chrg.cpMin = nIndexStart;
+	rfPrint.chrg.cpMax = nIndexStop;
+
+  //print the header (if requested to)
+  if (m_bPrintHeader)
+    PrintHeader(pDC, pInfo, rfPrint);
+
+  //print the footer (if requested to)
+  if (m_bPrintFooter)
+    PrintFooter(pDC, pInfo, rfPrint);
+
+  //Finally ask the control to print the text
+	return GetEditControl()->FormatRange(TRUE,&rfPrint);
+}
+void CScintillaView::OnPrint(CDC *pDC, CPrintInfo* pInfo)
+{
+	ASSERT_VALID(this);
+	ASSERT_VALID(pDC);
+	ASSERT(pInfo != NULL);
+	ASSERT(pInfo->m_bContinuePrinting);
+
+	UINT nPage = pInfo->m_nCurPage;
+	ASSERT(nPage <= (UINT) m_aPageStart.GetSize());
+	int nIndex = m_aPageStart[nPage-1];
+
+  //Determine where we should end the printing
+  int nEndPrint = 0;
+  if (pInfo->m_pPD->PrintSelection())
+	  nEndPrint = GetEditControl()->GetSelectionEnd();
+  else
+	  nEndPrint = GetEditControl()->GetTextLength();
+
+	//print as much as possible in the current page.
+	nIndex = PrintPage(pDC, pInfo, nIndex, nEndPrint);
+	if (nIndex >= nEndPrint)
+	{
+		TRACE0("End of Document\n");
+		pInfo->SetMaxPage(nPage);
+		//pInfo->SetMaxPage(0xffff);
+	} 
+
+	//update pagination information for page just printed
+	if (nPage == (UINT) m_aPageStart.GetSize())
+	{
+		if (nIndex < nEndPrint)
+			m_aPageStart.Add(nIndex);
+	}
+	else
+	{
+		ASSERT(nPage+1 <= static_cast<UINT>(m_aPageStart.GetSize()));
+		ASSERT(nIndex == m_aPageStart[nPage+1-1]);
+	}
+
 }
 /////////////////////////////////////
 // @mfunc not handled
@@ -159,6 +463,8 @@ void CScintillaView::OnBeginPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
 //
 void CScintillaView::OnEndPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
 {
+		ASSERT_VALID(this);
+	m_aPageStart.RemoveAll();
 }
 #ifdef _DEBUG
 void CScintillaView::AssertValid() const
@@ -665,4 +971,26 @@ void CScintillaView::OnEditFind()
 {
 	// make the find and replace dialog visible
 	theApp.findAndReplaceDialog.show();
+}
+
+void CScintillaView::LoadMarginSettings(const CString& sSection)
+{
+  //Get the margin values 
+  CWinApp* pApp = AfxGetApp();
+  ASSERT(pApp);
+	m_rMargin.left = pApp->GetProfileInt(sSection, _T("LeftMargin"), m_rMargin.left);
+	m_rMargin.right = pApp->GetProfileInt(sSection, _T("RightMargin"), m_rMargin.right);
+	m_rMargin.top = pApp->GetProfileInt(sSection, _T("TopMargin"), m_rMargin.top);
+	m_rMargin.bottom = pApp->GetProfileInt(sSection, _T("BottomMargin"), m_rMargin.bottom);
+}
+
+void CScintillaView::SaveMarginSettings(const CString& sSection)
+{
+  //Write out the margin values 
+  CWinApp* pApp = AfxGetApp();
+  ASSERT(pApp);
+	pApp->WriteProfileInt(sSection, _T("LeftMargin"), m_rMargin.left);
+	pApp->WriteProfileInt(sSection, _T("RightMargin"), m_rMargin.right);
+	pApp->WriteProfileInt(sSection, _T("TopMargin"), m_rMargin.top);
+	pApp->WriteProfileInt(sSection, _T("BottomMargin"), m_rMargin.bottom);
 }

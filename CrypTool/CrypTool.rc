@@ -10723,6 +10723,7 @@ BEGIN
     IDS_STRING_ADFGVX_STRINGREDUNDANT 
                             "Die Eingabe enthält doppelte Zeichen.\nAlle Buchstaben 'A' bis 'Z' und Ziffern '0' bis '9'\nmüssen genau einmal enthalten sein."
     IDS_STRING_MSG_UUENC_OF "UU-Codierung von <%s>"
+    IDS_SCINTILLA_DEFAULT_PRINT_HEADER "%1 - gedruckt am %2"
 END
 
 STRINGTABLE 
@@ -10794,6 +10795,11 @@ BEGIN
                             "Fehlerhafter UU-Code. Kein vollständiger Block (nur 1 Byte statt 2 bis 4 Byte). Damit ist die Decodierung nicht mehr eindeutig."
     IDS_UU_FILE_OPEN_ERROR  "Fehler beim Öffnen der Datei %s."
     IDS_STRING_MSG_UUDEC_OF "UU-Dekodierung von <%s>"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_SCINTILLA_DEFAULT_PRINT_FOOTER "Seite %1"
 END
 
 #endif    // German (Germany) resources
@@ -21680,6 +21686,7 @@ BEGIN
     IDS_STRING_ADFGVX_STRINGREDUNDANT 
                             "The input contains redundant characters.\nAll letters 'A' to 'Z' and ciphers '0' to '9'\nmust be included exactly once."
     IDS_STRING_MSG_UUENC_OF "UU Encoding of <%s>"
+    IDS_SCINTILLA_DEFAULT_PRINT_HEADER "%1 - Printed on %2"
 END
 
 STRINGTABLE 
@@ -21750,6 +21757,11 @@ BEGIN
                             "Bad UU code block. The  Block is not full (only 1 byte instead of 2 to 4 byte). No unique decoding is possible!"
     IDS_UU_FILE_OPEN_ERROR  "Error while opening the file %s."
     IDS_STRING_MSG_UUDEC_OF "UU Decoding of <%s>"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_SCINTILLA_DEFAULT_PRINT_FOOTER "Page %1"
 END
 
 #endif    // English (U.K.) resources

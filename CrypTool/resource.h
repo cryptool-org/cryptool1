@@ -25,6 +25,8 @@
 #define IDS_STRING_ADFGVX_STRINGREDUNDANT 13
 #define IDS_STRING_MSG_UUENC_OF         14
 #define IDS_STRING15                    15
+#define IDS_SCINTILLA_DEFAULT_PRINT_HEADER 15
+#define IDS_SCINTILLA_DEFAULT_PRINT_FOOTER 16
 #define IDC_EDIT53                      53
 #define IDC_EDIT69                      54
 #define IDC_EDIT88                      55

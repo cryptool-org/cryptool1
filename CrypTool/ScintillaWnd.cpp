@@ -573,6 +573,10 @@ long CScintillaWnd::GetCurrentPosition()
 {
    return SendMessage(SCI_GETCURRENTPOS, 0, 0);
 }
+long CScintillaWnd::FormatRange(BOOL draw,RangeToFormat* fr)
+{
+	return SendMessage(SCI_FORMATRANGE,static_cast<WPARAM>(draw),reinterpret_cast<LPARAM>(fr));
+}
 /////////////////////////////////////
 // @mfunc Return the current style at the caret
 // @rvalue int | the current style index (0...127)
@@ -591,6 +595,10 @@ int CScintillaWnd::GetCurrentFoldinglevel()
    long lLine = GetCurrentLine();
    int level = (SendMessage(SCI_GETFOLDLEVEL, lLine, 0)) & SC_FOLDLEVELNUMBERMASK;
    return level-1024;
+}
+int CScintillaWnd::GetTextLength()
+{
+	return SendMessage(SCI_GETTEXTLENGTH,0,0);	
 }
 /////////////////////////////////////
 // @mfunc set the fontname e.g. "Arial"

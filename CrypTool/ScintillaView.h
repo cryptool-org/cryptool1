@@ -11,6 +11,7 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
+#include <afxtempl.h>
 #include "scintillawnd.h"
 #include "CrypToolView.h"
 #ifdef SCFIND
@@ -35,6 +36,7 @@ public:
 // @access public function member
 // @cmember get document
 	CScintillaDoc* GetDocument();
+
 // @cmember process notification from scintilla control
    virtual BOOL OnNotify( WPARAM wParam, LPARAM lParam, LRESULT* pResult );
    virtual BOOL OnCommand( WPARAM wParam, LPARAM lParam );
@@ -47,6 +49,15 @@ protected:
 // @access protected data members
 // @cmember the scintilla window/view
 	CScintillaWnd     m_wndScintilla;
+	CArray<int, int> m_aPageStart;
+	CRect            m_rMargin;
+	BOOL             m_bUsingMetric;
+	BOOL             m_bPersistMarginSettings;           //Should we persist the margin settings for the Page Setup dialog
+	BOOL             m_bPrintHeader;                     //Should Headers be printed?
+	BOOL             m_bPrintFooter;                     //Should Footers be printed?	
+
+
+
 #ifdef SCFIND
 // @cmember a nonmodal dialog handle for finding text
    CFindDlg          m_dlgFind;
@@ -71,8 +82,14 @@ public:
 
 	protected:
 	virtual BOOL OnPreparePrinting(CPrintInfo* pInfo);
+	virtual BOOL PaginateTo(CDC* pDC, CPrintInfo* pInfo);
+	virtual void OnPrepareDC(CDC* pDC, CPrintInfo* pInfo);
+	virtual void PrintHeader(CDC* pDC, CPrintInfo* pInfo, RangeToFormat& frPrint);
+	virtual void PrintFooter(CDC* pDC, CPrintInfo* pInfo, RangeToFormat& frPrint);
 	virtual void OnBeginPrinting(CDC* pDC, CPrintInfo* pInfo);
 	virtual void OnEndPrinting(CDC* pDC, CPrintInfo* pInfo);
+	virtual void OnPrint(CDC* pDC, CPrintInfo* pInfo);
+	virtual long PrintPage(CDC* pDC, CPrintInfo* pInfo, long nIndexStart, long nIndexStop);
 	virtual void OnViewEndOfLine();
 	virtual void OnUpdateViewEndOfLine(CCmdUI* pCmdUI);
 	virtual void OnViewLineWrap();
@@ -80,6 +97,9 @@ public:
 	virtual void OnViewWhitespace();
 	virtual void OnUpdateViewWhitespace(CCmdUI* pCmdUI);
 	//}}AFX_VIRTUAL
+	static BOOL UserWantsMetric();
+	virtual void LoadMarginSettings(const CString& sSection = _T("PageSetup"));
+	virtual void SaveMarginSettings(const CString& sSection = _T("PageSetup"));
 
 // Implementierung
 public:
@@ -112,6 +132,7 @@ protected:
 	afx_msg void OnEditSelectAll();
 	afx_msg void OnUpdateInsert(CCmdUI* pCmdUI);
 	afx_msg void OnEditFind();
+	afx_msg void OnFilePageSetup();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 public:

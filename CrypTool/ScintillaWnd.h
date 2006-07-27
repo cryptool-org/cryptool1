@@ -9,8 +9,10 @@
 #ifndef __SCINTILLAWND_H__
 #define __SCINTILLAWND_H__
 
+#include "platform.h"
 #include "scintilla.h"
 #include "scilexer.h"
+
 ////////////////////////////////////
 // @class CScintillaWnd | Class of a GCL Scintilla syntax coloring edit control for MFC
 // @base public | CWnd
@@ -156,6 +158,8 @@ public:
    virtual CString GetSelectedText();
 // @cmember replace all in buffer or selection
    virtual int ReplaceAll(LPCSTR szFind, LPCSTR szReplace, BOOL bSelection = TRUE);
+   virtual long FormatRange(BOOL draw,RangeToFormat* fr);
+   virtual int GetTextLength();
 
 
 protected:
