@@ -3547,15 +3547,14 @@ BEGIN
                     IDC_STATIC,0,130,242,10
     CTEXT           "CRYPTOOL RELEASE INFO",IDC_ABOUTBOX_CRYPTOOL,1,145,241,
                     11
-    CTEXT           "entwickelt.\nCrypTool wird zur Ausbildung, in der Lehre und zur\nMitarbeiter-Awareness für IT-Sicherheit eingesetzt.",
-                    IDC_STATIC,1,168,241,24
+    CTEXT           "entwickelt.",IDC_STATIC,1,168,241,24
     CTEXT           "CrypTool nutzt folgende Bibliotheken:",IDC_STATIC,0,211,
                     241,8
-    CTEXT           "Kontakt:",IDC_STATIC,0,297,241,10
+    CTEXT           "Kontakt:",IDC_STATIC,0,302,241,10
     CTEXT           "Copyright (C) 1998-2006 Deutsche Bank AG\nFrankfurt am Main, Germany",
                     IDC_STATIC,0,369,242,17
-    LTEXT           "esslinger@fb5.uni-siegen.de\nbesslinger@web.de\njoerg-cornelius.schneider@db.com\nhenrik.koy@db.com\ncryptool-list@sec.informatik.tu-darmstadt.de",
-                    IDC_STATIC,63,306,152,42
+    LTEXT           "esslinger@fb5.uni-siegen.de\njoerg-cornelius.schneider@db.com\nhenrik.koy@db.com\ncryptool-list@sec.informatik.tu-darmstadt.de",
+                    IDC_STATIC,63,311,152,42
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT | SS_SUNKEN | 
                     WS_BORDER,10,46,222,79
     CTEXT           "CrypTool ist ein kostenloses und umfangreiches Lernprogramm\nzu klassischer und moderner Kryptographie/Kryptoanalyse.\n\nGemeinsam mit den Sponsoren",
@@ -3578,6 +3577,8 @@ BEGIN
                     WS_EX_TRANSPARENT
     CTEXT           "BUILD INFO",IDC_EDIT_BUILD_INFO,0,155,241,8,
                     SS_CENTERIMAGE,WS_EX_TRANSPARENT
+    CTEXT           "CrypTool wird zur Ausbildung, in der Lehre und zur\nMitarbeiter-Awareness für IT-Sicherheit eingesetzt.",
+                    IDC_STATIC,1,184,240,24
 END
 
 IDD_HMAC DIALOG  0, 0, 323, 425
@@ -11215,15 +11216,14 @@ BEGIN
                     0,125,242,17
     CTEXT           "CrypTool uses the following libraries:",IDC_STATIC,1,
                     209,241,8
-    CTEXT           "Contact:",IDC_STATIC,0,297,241,10
-    LTEXT           "esslinger@fb5.uni-siegen.de\nbesslinger@web.de\nhenrik.koy@db.com\njoerg-cornelius.schneider@db.com\ncryptool-list@sec.informatik.tu-darmstadt.de",
+    CTEXT           "Contact:",IDC_STATIC,0,302,241,10
+    LTEXT           "esslinger@fb5.uni-siegen.de\nhenrik.koy@db.com\njoerg-cornelius.schneider@db.com\ncryptool-list@sec.informatik.tu-darmstadt.de",
                     IDC_STATIC,67,310,145,40
     CTEXT           "Copyright (C) 1998-2006 Deutsche Bank AG\nFrankfurt am Main, Germany",
                     IDC_STATIC,0,371,242,17
     CTEXT           "CrypTool is a free and comprehensive eLearning program about\nclassic and contemporary cryptography and cryptanalysis.\n\nIn a joint effort of the sponsors",
                     IDC_STATIC,1,10,241,32
-    CTEXT           "has been developed.\nCrypTool is used for education and for\nemployee awareness for IT security.",
-                    IDC_STATIC,1,170,241,24
+    CTEXT           "has been developed.",IDC_STATIC,1,170,241,24
     CTEXT           "CRYPTOOL RELEASE INFO",IDC_ABOUTBOX_CRYPTOOL,1,148,241,
                     11
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,41,48,105,37,
@@ -11250,6 +11250,8 @@ BEGIN
                     WS_EX_TRANSPARENT
     CTEXT           "BUILD INFO",IDC_EDIT_BUILD_INFO,0,157,241,8,
                     SS_CENTERIMAGE,WS_EX_TRANSPARENT
+    CTEXT           "CrypTool is used for education and for\nemployee awareness for IT security.",
+                    IDC_STATIC,0,186,241,24
 END
 
 IDD_SHOW_PROGRESS DIALOG  0, 0, 187, 105
@@ -14884,11 +14886,11 @@ BEGIN
     CONTROL         "",IDC_CRT_Anim,"Static",SS_BLACKRECT,198,255,174,101
     RTEXT           "6:",IDC_STATIC6,8,344,9,12,WS_DISABLED
     RTEXT           "7:",IDC_STATIC7,8,363,9,12,WS_DISABLED
-    LTEXT           "To generate and distribute the secret, click on 'Calculate' button. By clicking the button 'Options', you're able to vary the range of values which the identifiers are taken from and the number of parties, that are involved.",
+    LTEXT           "To generate and distribute the secret, click on the 'Calculate' button. By clicking the button 'Options', you're able to vary the range of values which the identifiers are taken from and the number of parties, that are involved.",
                     IDC_STATIC,12,27,364,16
     GROUPBOX        "",IDC_STATIC,6,3,375,70
-    LTEXT           "After calculating: If you provide the minimum number of keys by clicking the '+/-' buttons in the lowest groupbox 'Reconstructing...', this program will try to rebuild the secret by clicking 'Rebuild secret'.",
-                    IDC_STATIC,12,43,362,25
+    LTEXT           "After calculating: If you provide the minimum number of keys by clicking the '+/-' buttons in the lowest groupbox', this program will try to rebuild the secret after clicking 'Rebuild secret'.",
+                    IDC_STATIC,12,51,362,16
     LTEXT           "Secret Sharing by CRT permits distributing a secret on n keys, so that the original secret can be reconstructed, if an arbitrary subset of k<=n key owners come together. ",
                     IDC_STATIC,12,11,360,16
     LTEXT           "DYNAMISCH",IDC_REKOHELP,11,242,361,11
