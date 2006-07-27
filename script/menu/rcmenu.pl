@@ -1,12 +1,18 @@
 #!/usr/bin/perl -w
 # vim: set ts=4 sw=4:
 
-package DG;
+use strict;
+use warnings;
+
+package DG; # Directed Graph
 
 use Data::Dumper;
 
 sub new {
-	bless { S => {}, P => {} };
+	bless { 
+		S => {}, # $g->{S}->{$a} = [successors of $a]
+		P => {}, # $g->{P}->{$a} = [predecessors of $a]
+	};
 }
 
 sub add {
@@ -91,7 +97,7 @@ sub maxdist {
 			push @work, $self->suc($n);
 			$tries = 0;
 		} else {
-			push @work, $n; # trie again later
+			push @work, $n; # try again later
 			#print "U $n\n";
 		}
 	}
@@ -119,13 +125,15 @@ die "ERROR: -d and -i options are mutually exclusive. Stopped" if ($opt_d && $op
 
 
 my %menushort = ( 
-	ASCTYPE => 'A', 
+	ASCTYPE => 'A',# removed 
 	HEXTYPE => 'H',
 	PLOTTYPE => 'P',
 	TEXTTYPE => 'T',
 	MAINFRAME => 'M',
+	OPENGLTYPE => 'O',
 	CONTEXT_MENU => 'C',
-	CONTEXT_MENU_PLOT => 'CP'
+	CONTEXT_MENU_PLOT => 'CP',
+	CONTEXT_MENU_OPENGL => 'CO',
 );
 my %t = ();
 my $clang;
@@ -133,16 +141,29 @@ my @cmenus;
 my $id_desc = ();
 my $in_stringtable = 0;
 my %menuid = ();
+my %menuidgrayed = ();
+my $lastmenuitem;
+my $cont;
 
 while (<>) {
-        s/\r//g;
-        # escape quoted " characters (Visual Studio writes them as "", we
-        # will use \" instead
-        s/\"\"/\\\"/g;
+	s/\r//g;
+	# escape quoted " characters (Visual Studio writes them as "", we
+	# will use \" instead
+	s/\"\"/\\\"/g;
+
+	if ($cont) { # handle memorized continuation lines
+		$_ = $cont . $_;
+		$cont = '';
+	}
+	if (m{[,|]\s*$}) { # memorize continuation lines
+		chomp;
+		$cont = $_;
+		next;
+	}
 
 	# store stringtable definitions
-        if ($in_stringtable) {
-	        next if (/^BEGIN/);
+	if ($in_stringtable) {
+		next if (/^BEGIN/);
 		if (/^END/) {
 		        $in_stringtable = 0;
 		        next;
@@ -168,25 +189,32 @@ while (<>) {
 		#print "L $clang\n";
 	} elsif (m{^IDR_(\w+) MENU}) {
 		@cmenus = ($menushort{$1} || $1);
-	} elsif (m{^\s*POPUP "(.*?)"}) {
+	} elsif (m{^\s*POPUP "(.*?)"(?:\s*,\s*(\w+))?}) {
 		my $mi = clean($1);
+		my $grayed = $2;
+		$lastmenuitem = $mi;
 		my $m = join('|',tail(@cmenus));
+		my $mmi = join('|',tail(@cmenus),$mi);
 		push @{$t{$clang}->{$cmenus[0]}->{$m}},$mi;
 		push @cmenus,$mi;
-		my $l = @cmenus;
+		$menuidgrayed{$clang}->{$cmenus[0]}->{$mmi} = 1 if $grayed;
+		#warn "$clang $cmenus[0] $mmi ",($grayed ? "GRAYED":"") if $mi =~ m{Bearbeiten};
+		#my $l = @cmenus;
 		#print "$l @cmenus\n";
-	} elsif (m{^\s*MENUITEM (?<!\\)"(.*?)(?<!\\)"(.*)}) {
-	        # This regex matches "..." quoted strings and honours \-escaped
-	        # " characters properly (negative look-behind)
-	        my $mi = clean($1);
+	} elsif (m{^\s*MENUITEM (?<!\\)"(.*?)(?<!\\)"\s*,\s*(\w+)(?:\s*,\s*(\w+))?}s) {
+		# This regex matches "..." quoted strings and honours \-escaped
+		# " characters properly (negative look-behind)
+		my $mi = clean($1); # menu item text
+		$lastmenuitem = $mi;
+		my $id = $2; # menu item id
+		my $grayed = $3;
+		#warn "$grayed [$_]\n" if $grayed;
 
-	        # un-escape escaped quotes
-	        $mi =~ s/\\\"/\"/g;
+		# un-escape escaped quotes
+		$mi =~ s/\\\"/\"/g;
 
-		# extract id
-		my $id = $2;
-		$id =~ s/^,\s*// if ($id); # clean leading junk
-		if (! $id) {
+		if (! $id) { 
+			die "MENUITEM id not found [$mi|$id|$_]";
 		    $id = <>; # extract id from next line
 		    chomp($id);
 		    $id =~ s/^\s*//;
@@ -195,20 +223,26 @@ while (<>) {
 		$id =~ s/,.*//;
 
 		my $m = join('|',tail(@cmenus));
+		my $mmi = join('|',tail(@cmenus),$mi);
 		push @{$t{$clang}->{$cmenus[0]}->{$m}}, $mi;
 
 		# record ID for this menu item
-		$menuid{$clang}->{"$m|$mi"} = $id;
+		$menuid{$clang}->{$mmi} = $id;
+		$menuidgrayed{$clang}->{$cmenus[0]}->{$mmi} = 1 if $grayed;
 
 		my $l = @cmenus;
 		#print STDERR "$l @cmenus $mi\n";
+	} elsif (m{^\s*,\s*GRAYED}) {
+		die "\$lastmenuitem not set" if !$lastmenuitem;
+		my $mmi = join('|',tail(@cmenus),$lastmenuitem);
+		$menuidgrayed{$clang}->{$cmenus[0]}->{$mmi} = 1;
+		#warn "$clang $cmenus[0] $mmi GRAYED CONT";
 	} elsif (m{^\s*END\s*$} && @cmenus) {
 		pop @cmenus;
 	} elsif (m{^\s*STRINGTABLE}) {
 	        $in_stringtable = 1;
 	}
 }
-
 
 my @line = (
 	'|---',
@@ -230,26 +264,14 @@ my %idlist = ();   # ID String replacement text for each menu item
 #print "<body><font size='6' face='Arial,Helvetica'>\n";
 print "<body><font size='-1' face='Arial,Helvetica'>\n";
 
-foreach $l ($opt_l) { #(keys %t) {
+foreach my $l ($opt_l) {
 	my $lt = $t{$l};
-	if (0) {
-	my $g = new DG;
-	$g->addlist($lt->{T}->{"Ver-/Entschlüsseln|Klassisch"});
-	$g->addlist($lt->{A}->{"Ver-/Entschlüsseln|Klassisch"});
-	$g->addlist($lt->{H}->{"Ver-/Entschlüsseln|Klassisch"});
-	$g->dump;
-	print join("\n",@{$t{GERMAN}->{T}->{"Ver-/Entschlüsseln|Klassisch"}}),"\n";
-	print "\n";
-	print join("\n",@{$t{GERMAN}->{H}->{"Ver-/Entschlüsseln|Klassisch"}}),"\n";
-	print "\nMAXDIST",join("\n",$g->maxdist(""));
-	last;
-	}
 	$g{$l} = {};
 	my $gt = $g{$l};
-	my @type = qw(M A T H P); #(qw(M A H P T)) 
-	foreach $m (@type) {
+	my @type = qw(M T H P O);
+	foreach my $m (@type) {
 		my $mt = $lt->{$m};
-		foreach $n (keys(%$mt)) {
+		foreach my $n (keys(%$mt)) {
 			#print "\n\n>>> $l $m $n\n";
 			#show($lt->{$m},"");
 			#print Dumper($mt->{$n});
@@ -258,11 +280,15 @@ foreach $l ($opt_l) { #(keys %t) {
 
 
 			$typelist{$l}->{$n} ||= "";
-			$typelist{$l}->{$n} .= $m unless $typelist{$l}->{$n} =~ m{$m};
+			#warn "$l $m $n $typelist{$l}->{$n}" if $n eq "Digitale Signaturen/PKI|PKI";
+			#die "$l $m $n $typelist{$l}->{$n} typelist duplette" if $typelist{$l}->{$n} =~ m{$m};
+			$typelist{$l}->{$n} .= $m if !$menuidgrayed{$l}->{$m}->{$n};
+			#warn "$l $m $n " . ($menuidgrayed{$l}->{$m}->{$n} ? 'GRAYED' : '') if $n =~ m{Bearbeiten};
 			foreach (@{$mt->{$n}}) {
-				my $sn = "$n|$_";
+				my $sn = $n ? "$n|$_" : $_;
 				$typelist{$l}->{$sn} ||= "";
-				$typelist{$l}->{$sn} .= $m unless $typelist{$l}->{$sn} =~ m{$m};
+				#warn "$l $m $sn $typelist{$l}->{$sn}" if $sn eq "Digitale Signaturen/PKI|PKI";
+				$typelist{$l}->{$sn} .= $m if !$menuidgrayed{$l}->{$m}->{$sn} && !$mt->{$sn}; # add active (not grayed) leave items (popups have already been processed)
 
 				# get status text (or id) for this entry
 				if (exists $menuid{$l}->{$sn}) {
@@ -277,7 +303,7 @@ foreach $l ($opt_l) { #(keys %t) {
 			}
 		}
 	}
-	foreach $n (keys(%$gt)) {
+	foreach my $n (keys(%$gt)) {
 		#print "\n\n> $l $n";
 		eval {
 			#$gt->{$n}->dump;
@@ -285,7 +311,6 @@ foreach $l ($opt_l) { #(keys %t) {
 			#print join("\n",@res);
 			shift @res; # remove ""
 			$mm{$l}->{$n} = [@res];
-			#$mm{$l}->{$n} = [map { "$_ [" . $typelist{$l}->{"$n|$_"} ."]" } @res];
 		};
 		if ($@) {
 			map { print "|$n:",join("\n",@{$lt->{$_}->{$n}}),"\n"; } @type;
@@ -293,41 +318,38 @@ foreach $l ($opt_l) { #(keys %t) {
 		}
 	}
 
-	if (0) {
-	show($mm{$l},$opt_d ? $typelist{$l} : {},"");
-	} else {
-		print "<table><tr valign='top'>\n" unless $opt_i;
-		foreach (@{$mm{$l}->{""}}) {
-		        my $tl = "";
-			my $list = {};
-			if ($opt_d) {
-			    $tl = "[$typelist{$l}->{$_}]";
-			    $list = $typelist{$l};
-			}
-			if ($opt_i) {
-			    $list = $idlist{$l};
-			}
-
-			print "<td nobreak>" unless $opt_i;
-			print"<b>$_</b>$tl<br>\n";
-			show($mm{$l}, $list,$_);
-			if (! $opt_i) {
-			    print "</td>\n";
-			} else {
-			    print "<br><br>\n";
-			}
+	print "<table><tr valign='top'>\n" unless $opt_i;
+	foreach (@{$mm{$l}->{""}}) {
+			my $tl = "";
+		my $list = {};
+		if ($opt_d) {
+			$tl = "[$typelist{$l}->{$_}]";
+			$list = $typelist{$l};
 		}
-		print "<td></tr></table>\n" unless $opt_i;
+		if ($opt_i) {
+			$list = $idlist{$l};
+		}
 
+		print "<td nobreak>" unless $opt_i;
+		print"<b>$_</b>$tl<br>\n";
+		show($mm{$l}, $list,$_);
+		if (! $opt_i) {
+			print "</td>\n";
+		} else {
+			print "<br><br>\n";
+		}
 	}
+	print "<td></tr></table>\n" unless $opt_i;
 }
+
+########################################################################
 
 sub show {
 	my $lt = shift;
 	my $tl = shift;
 	my $m = shift;
 	my $prefix = shift || '';
-	my $mi = $lt->{$m};
+	my $mi = $lt->{$m} or die "\$lt->{$m} not defined";
 	my $i;
 	for ($i = 0; $i < @$mi; $i++) {
 		my $s = $mi->[$i];
