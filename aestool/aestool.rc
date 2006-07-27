@@ -114,10 +114,10 @@ BEGIN
     GROUPBOX        "Ausgabeformat",IDC_STATIC,15,142,290,29
 END
 
-IDD_SPLASH DIALOG  0, 0, 211, 122
+IDD_SPLASH DIALOGEX 0, 0, 211, 122
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Warnung"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,47,101,50,14
     PUSHBUTTON      "Abbrechen",IDCANCEL,113,101,50,14
@@ -127,12 +127,12 @@ BEGIN
                     IDC_STATIC,7,52,197,40
 END
 
-IDD_HELP DIALOGEX 0, 0, 470, 318
+IDD_HELP DIALOGEX 0, 0, 470, 334
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hilfe zu AES-Tool"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,209,297,50,14
+    DEFPUSHBUTTON   "OK",IDOK,209,313,50,14
     LTEXT           "AES-Tool ist ein Verschlüsselungsprogramm, mit dessen Hilfe Dateien mit dem symmetrischen und lizenzfreien Rijndael-Algorithmus (= AES) verschlüsselt werden können.",
                     IDC_STATIC,12,8,446,16
     LTEXT           "Das Programm kann auf drei verschiedene Arten aufgerufen werden:",
@@ -176,6 +176,8 @@ BEGIN
                     IDC_STATIC,24,218,407,8
     LTEXT           "Aufgrund von Beschränkungen durch das Betriebssystem und die Entwicklungsumgebung ist die Größe von verschlüsselten Dateien  (einschließlich Header) auf 4 GB beschränkt.",
                     IDC_STATIC,12,258,446,21
+    LTEXT           "Bitte beachten Sie, dass Sie vor dem Aufruf von ausführbaren Archiven deren Herkunft prüfen sollten.\nEs ist empfehlenswert, Antiviren- und Betriebssystem-Software aktuell zu halten.",
+                    IDC_STATIC,12,286,446,18
 END
 
 
@@ -264,7 +266,7 @@ BEGIN
         VERTGUIDE, 72
         VERTGUIDE, 80
         TOPMARGIN, 13
-        BOTTOMMARGIN, 311
+        BOTTOMMARGIN, 327
         HORZGUIDE, 29
         HORZGUIDE, 41
         HORZGUIDE, 50
@@ -368,10 +370,10 @@ BEGIN
     PUSHBUTTON      "&Help",ID_HELP,137,43,40,14
 END
 
-IDD_SPLASH DIALOG  0, 0, 211, 122
+IDD_SPLASH DIALOGEX 0, 0, 211, 122
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Warning"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,47,101,50,14
     PUSHBUTTON      "Cancel",IDCANCEL,113,101,50,14
@@ -410,12 +412,12 @@ BEGIN
     GROUPBOX        "Output format",IDC_STATIC,17,142,287,29
 END
 
-IDD_HELP DIALOGEX 0, 0, 470, 289
+IDD_HELP DIALOGEX 0, 0, 470, 319
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Help for AES-Tool"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,209,268,50,14
+    DEFPUSHBUTTON   "OK",IDOK,209,298,50,14
     LTEXT           "AES-Tool is an encryption program that can be used to encrypt files using the symmetric and licence-free Rijndael algorithm (= AES).",
                     IDC_STATIC,12,9,446,10
     LTEXT           "The program can be invoked in three different ways:",
@@ -459,6 +461,8 @@ BEGIN
                     IDC_STATIC,24,188,434,9
     LTEXT           "Due to operating system's and development evironment's limitations the size of encrypted files (including header and self extractor) is limited to 4 GB.",
                     IDC_STATIC,12,238,446,16
+    LTEXT           "Please note to check the origin before calling self extracting archives.\nIt is recommendable to always keep antivirus and operating systems software up to date.",
+                    IDC_STATIC,12,268,446,18
 END
 
 IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
@@ -552,7 +556,7 @@ BEGIN
         VERTGUIDE, 69
         VERTGUIDE, 268
         TOPMARGIN, 12
-        BOTTOMMARGIN, 282
+        BOTTOMMARGIN, 312
         HORZGUIDE, 22
         HORZGUIDE, 33
         HORZGUIDE, 42
