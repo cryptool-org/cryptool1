@@ -8,14 +8,42 @@
 
 <!-- multiple keywords for CrypTool HTML help index -->
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
-	<PARAM NAME="Keyword" VALUE="TODO">
+	<PARAM NAME="Keyword" VALUE="Secret Sharing">
 </OBJECT>
 
 <BODY>
 
 <h3>(t, n)-Schwellenwertverfahren nach Shamir</h3>
 
-<P>TODO</P>
+<P>Das (t, n)-Schwellenwertverfahren wurde 1979 von Adi <FONT 
+style="BACKGROUND-COLOR: #316ac5" color=#ffffff>Shamir</FONT> erfunden. Diese 
+Form des <A href="hid_einzelverfahren_secretsharingdemo.html">Secret Sharing</A> 
+basiert auf Polynomen über endlichen Körpern.</P>
+<P>t sei dabei der Schwellenwert, also die Zahl der Shares, die für eine 
+erfolgreiche Rekonstruktion des Geheimnisses benötigt werden. n sei die Anzahl 
+der Teilnehmer und p sei eine Primzahl, die größer sein muss, als die 
+Teilnehmerzahl und das aufzuteilende Geheimnis, das mit K bezeichnet wird.</P>
+<P>Um ein <FONT style="BACKGROUND-COLOR: #316ac5" 
+color=#ffffff>Shamir</FONT>-Schema aufzusetzen, muss der Dealer folgende 
+Schritte ausführen:</P>
+<UL>
+<LI>Aus GF(p) wählt er n verschiedene Elemente. Jeder Teilnehmer erhält ein 
+dieser Zahlen als seinen öffentlichen Wert x. 
+<LI>Zusätzliche wählt der Dealer zufällig und geheim t-1 Elemente aus GF(p). 
+Dann erstellt er ein Polynom f(x). Das Geheimnis stellt den y-Achsenabschnitt 
+des Polynoms dar und die zufällig gewählten Elemente die Koeffizienten. So 
+ergibt sich ein Polynom vom Grad t-1 mit der Form f(x) = K + a1*x + a2*x^2 + ... 
++ at-1*x^t-1. 
+<LI>Zuletzt wertet der Dealer das Polynom an den Stellen x aus. Die Werte, die 
+sich daraus ergeben (es wird <A href="modulo.html">modulo</A> gerechnet), sind 
+die geheimen Shares der Teilnehmer. Jedem Teilnehmer wird sein Share y über 
+einen sicheren Kanal übermittelt. </LI></UL>
+<P>Um das Geheimnis wiederherzustellen, müssen sich mindesten t Teilnehmer 
+zusammenschließen. Dazu übermitteln sie ihre Shares dem Combiner. Da dieser 
+außer den Shares auch die öffentlichen Werte der Teilnehmer kennt, kann er mit 
+Hilfe einer Vereinfachung der LaGrange-Interpolationsformel das Geheimnis 
+berechen. Diese lautet:</P>
+<P><IMG alt=LaGrange.gif src="images/LaGrange.gif" border=0></P>
 
 </BODY>
 </HTML>
