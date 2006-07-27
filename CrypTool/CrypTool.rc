@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -1503,6 +1503,7 @@ END
 
 IDD_KEY_HOMOPHONE DIALOGEX 0, 0, 394, 402
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Schlüsseleingabe: Homophone Substitution"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Verschlüsseln",IDOK,14,373,84,18
@@ -8757,14 +8758,13 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_ASYMKEY_SIGNATURE_OF3 "Signatur von <%s>"
-    IDS_STRING_STANDARD_REF_TEXT "deutsch.txt"
+    IDS_STRING_STANDARD_REF_TEXT "reference\\deutsch.txt"
     IDS_STRING_MSG_GERMAN   "Deutsch"
     IDS_STRING_ANALYSE_CAESAR "Caesar-Analyse"
     IDS_STRING_CORRELATION  "Korrelation der Verteilungen <%s> und <%s>"
     IDS_STRING_SHIFT        "Verschiebung"
     IDS_STRING_TITLE_CORRELATION "Korrelation"
     IDS_STRING_ANALYSE_SUPERIMPOSITIONS "Analyse der Überlagerungen"
-    IDS_STRING_MSG_ENGLISH  "english.txt"
     IDS_STRING_MSG_KEY      "Schlüssel: <%c>"
     IDS_STRING_AUTOMATIC_CAESAR_ANALYSE_OF 
                             "Automatische Caesar-Analyse von <%s>, %s"
@@ -10803,12 +10803,12 @@ BEGIN
     IDS_SCINTILLA_DEFAULT_PRINT_FOOTER "Seite %1"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -19777,14 +19777,13 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_ASYMKEY_SIGNATURE_OF3 "Signature of <%s>"
-    IDS_STRING_STANDARD_REF_TEXT "english.txt"
+    IDS_STRING_STANDARD_REF_TEXT "reference\\english.txt"
     IDS_STRING_MSG_GERMAN   "Deutsch"
     IDS_STRING_ANALYSE_CAESAR "Caesar Analysis"
     IDS_STRING_CORRELATION  "Correlation of the distributions <%s> and <%s>"
     IDS_STRING_SHIFT        "Offset"
     IDS_STRING_TITLE_CORRELATION "Correlation"
     IDS_STRING_ANALYSE_SUPERIMPOSITIONS "Analysis of the superposition"
-    IDS_STRING_MSG_ENGLISH  "english.txt"
     IDS_STRING_MSG_KEY      "Key: <%c>"
     IDS_STRING_AUTOMATIC_CAESAR_ANALYSE_OF 
                             "Automatic Caesar Analysis of <%s>, key: <%s>"
@@ -20996,8 +20995,8 @@ BEGIN
                             "Enter the key using hex characters (0..9, A..F).\nKey length exactly  %d hex characters (= %d bytes)."
     IDS_READMEPATH          "%sReadMe-en.txt"
     IDS_ERR_ONOPENREADME    "The readme file could not be opened!\nPlease check if the file ""Readme-en.txt"" is in the same directory as ""CrypTool.exe""."
-    IDS_SIGATT_HARMLESS     "examples\\Original.txt"
-    IDS_SIGATT_DANGEROUS    "examples\\Fake.txt"
+    IDS_SIGATT_HARMLESS     "examples\\original.txt"
+    IDS_SIGATT_DANGEROUS    "examples\\fake.txt"
     IDS_SCRIPTPATH          "%sScript-en.pdf"
     IDS_ERROPEN_SCRIPT      "The script file could not be opened!\nPlease check\nif the file ""Script-en.pdf"" is in the same directory as ""CrypTool.exe"" and\nif the Acrobat reader is installed (www.adobe.com)."
     IDS_OPENHASHOFAFILE     "Hash of a file"
@@ -21766,7 +21765,7 @@ BEGIN
     IDS_SCINTILLA_DEFAULT_PRINT_FOOTER "Page %1"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
