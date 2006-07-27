@@ -107,7 +107,8 @@ void CDlgFindAndReplace::OnBnClickedButtonFind()
 	CRuntimeClass *pRunTimeClassHex = RUNTIME_CLASS(CHexEditCtrlView);
 
 	// do nothing if there's no window opened (prevent segmentation faults)
-	if(!theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()) return;
+	if(!theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()) 
+		return;
 
 	if(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->IsKindOf(pRunTimeClassText))
 	{
@@ -115,44 +116,15 @@ void CDlgFindAndReplace::OnBnClickedButtonFind()
 		// *** TEXT FORMAT ***
 		// *******************
 
-		TextToFind ttf;
 		// pointer to the actual Scintilla window (CScintillaWnd)
-		CWnd *pWindow = theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->GetTopWindow();
+		CScintillaWnd *pWindow = (CScintillaWnd*)theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->GetTopWindow();
 		if(!pWindow) return;
 
-		// show hour glass in case any operations needs a lot of time (i.e. huge files)
-		SHOW_HOUR_GLASS
-
-		long lPos = pWindow->SendMessage(SCI_GETCURRENTPOS);
-		ttf.chrg.cpMin = lPos;
-		ttf.chrg.cpMax = pWindow->SendMessage(SCI_GETLENGTH, 0, 0);
-		ttf.lpstrText = (char*)(LPCTSTR)(theApp.findAndReplaceDialog.textFind);
-
-		// determine search flags
 		int searchflags = 0;
 		if(theApp.findAndReplaceDialog.checkCaseSensitive) searchflags |= SCFIND_MATCHCASE;
 		if(theApp.findAndReplaceDialog.checkRegularExpressions) searchflags |= SCFIND_REGEXP;
-
-		// find and mark the desired text
-		lPos = pWindow->SendMessage(SCI_FINDTEXT, searchflags, reinterpret_cast<LPARAM>(&ttf));
-		if(lPos >= 0)
-		{
-			pWindow->SetFocus();
-			pWindow->SendMessage(SCI_GOTOPOS, lPos, 0);
-			// pWindow->SendMessage(SCI_SETSEL, lPos, lPos+strlen(ttf.lpstrText));
-			pWindow->SendMessage(SCI_SETSEL, ttf.chrgText.cpMin, ttf.chrgText.cpMax);
-			// hide hour glass
-			HIDE_HOUR_GLASS
-		}
-		else
-		{
-			// hide hour glass
-			HIDE_HOUR_GLASS
-
-			LoadString(AfxGetInstanceHandle(), IDS_FINDANDREPLACE_TEXTNOTFOUND, pc_str, STR_LAENGE_STRING_TABLE);
-			MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
-			return;
-		}
+		pWindow->SetSearchflags(searchflags);
+		pWindow->SearchForward(theApp.findAndReplaceDialog.textFind.GetBuffer());
 	}
 	else if(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->IsKindOf(pRunTimeClassHex))
 	{
@@ -189,56 +161,30 @@ void CDlgFindAndReplace::OnBnClickedButtonReplace()
 		// *******************
 		// *** TEXT FORMAT ***
 		// *******************
-
-		TextToFind ttf;
-		// pointer to the actual Scintilla window (CScintillaWnd)
-		CWnd *pWindow = theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->GetTopWindow();
+		CScintillaWnd *pWindow = (CScintillaWnd*)theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->GetTopWindow();
 		if(!pWindow) return;
 
-		// show hour glass in case any operations needs a lot of time (i.e. huge files)
-		SHOW_HOUR_GLASS
-
-		long lPos = pWindow->SendMessage(SCI_GETCURRENTPOS);
-		ttf.chrg.cpMin = lPos;
-		ttf.chrg.cpMax = pWindow->SendMessage(SCI_GETLENGTH, 0, 0);
-		ttf.lpstrText = (char*)(LPCTSTR)(theApp.findAndReplaceDialog.textFind);
-
-		// determine search flags
 		int searchflags = 0;
 		if(theApp.findAndReplaceDialog.checkCaseSensitive) searchflags |= SCFIND_MATCHCASE;
 		if(theApp.findAndReplaceDialog.checkRegularExpressions) searchflags |= SCFIND_REGEXP;
+		pWindow->SetSearchflags(searchflags);
 
-		/// find and replace the desired text
-		lPos = pWindow->SendMessage(SCI_FINDTEXT, searchflags, reinterpret_cast<LPARAM>(&ttf));lPos = pWindow->SendMessage(SCI_FINDTEXT, searchflags, reinterpret_cast<LPARAM>(&ttf));
-		if(lPos >= 0)
+		char *ttf = theApp.findAndReplaceDialog.textFind.GetBuffer();
+		long pStart = pWindow->GetSelectionStart();
+		long pEnd   = pWindow->GetSelectionEnd();
+
+		if ( pStart == pEnd && FALSE == pWindow->SearchForward(ttf) )
 		{
-			pWindow->SetFocus();
-			pWindow->SendMessage(SCI_GOTOPOS, lPos, 0);
-			// pWindow->SendMessage(SCI_SETSEL, lPos, lPos+strlen(ttf.lpstrText));
-			pWindow->SendMessage(SCI_SETSEL, ttf.chrgText.cpMin, ttf.chrgText.cpMax);
-
-			if ( NULL != (char*)(LPCTSTR)(theApp.findAndReplaceDialog.textReplace) ) 
-			{
-				pWindow->SendMessage(SCI_TARGETFROMSELECTION, 0, 0);
-				if (searchflags & SCFIND_REGEXP)
-					pWindow->SendMessage(SCI_REPLACETARGETRE, strlen((char*)(LPCTSTR)(theApp.findAndReplaceDialog.textReplace)), 
-								(long)(char*)(LPCTSTR)(theApp.findAndReplaceDialog.textReplace));
-				else
-					pWindow->SendMessage(SCI_REPLACETARGET, strlen((char*)(LPCTSTR)(theApp.findAndReplaceDialog.textReplace)), 
-								(long)(char*)(LPCTSTR)(theApp.findAndReplaceDialog.textReplace));
-				lPos = pWindow->SendMessage(SCI_FINDTEXT, searchflags, reinterpret_cast<LPARAM>(&ttf));
-			}
-
-			// pWindow->SendMessage(SCI_REPLACESEL, 0, reinterpret_cast<LPARAM>((char*)(LPCTSTR)(theApp.findAndReplaceDialog.textReplace)));
-			// hide hour glass
-			HIDE_HOUR_GLASS
-		}
-		else
-		{
-			// hide hour glass
-			HIDE_HOUR_GLASS
-
 			LoadString(AfxGetInstanceHandle(), IDS_FINDANDREPLACE_TEXTNOTFOUND, pc_str, STR_LAENGE_STRING_TABLE);
+			MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
+			return;
+		}
+
+		pWindow->ReplaceSearchedText(theApp.findAndReplaceDialog.textReplace.GetBuffer());
+
+		if ( FALSE == pWindow->SearchForward(ttf) )
+		{
+			LoadString(AfxGetInstanceHandle(), IDS_FINDANDREPLACE_TEXT_FINISHED, pc_str, STR_LAENGE_STRING_TABLE);
 			MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
 			return;
 		}
@@ -279,41 +225,20 @@ void CDlgFindAndReplace::OnBnClickedButtonReplaceAll()
 		// *** TEXT FORMAT ***
 		// *******************
 
-		TextToFind ttf;
-		// pointer to the actual Scintilla window (CScintillaWnd)
-		CWnd *pWindow = theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->GetTopWindow();
+		CScintillaWnd *pWindow = (CScintillaWnd*)theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->GetTopWindow();
 		if(!pWindow) return;
 
-		// show hour glass in case any operations needs a lot of time (i.e. huge files)
-		SHOW_HOUR_GLASS
+		char *ttf = theApp.findAndReplaceDialog.textFind.GetBuffer();
+		char *ttr = theApp.findAndReplaceDialog.textReplace.GetBuffer();
 
-		long lPos = pWindow->SendMessage(SCI_GETCURRENTPOS);
-		ttf.chrg.cpMin = lPos;
-		ttf.chrg.cpMax = pWindow->SendMessage(SCI_GETLENGTH, 0, 0);
-		ttf.lpstrText = (char*)(LPCTSTR)(theApp.findAndReplaceDialog.textFind);
-
-		// determine search flags
 		int searchflags = 0;
 		if(theApp.findAndReplaceDialog.checkCaseSensitive) searchflags |= SCFIND_MATCHCASE;
 		if(theApp.findAndReplaceDialog.checkRegularExpressions) searchflags |= SCFIND_REGEXP;
-
-		// find and replace the desired text on all occurances
-		int findcounter = 0;
-		while(1)
-		{
-			// ggf. den gefundenen Text an jeder Stelle ersetzen
-			lPos = pWindow->SendMessage(SCI_FINDTEXT, searchflags, reinterpret_cast<LPARAM>(&ttf));
-			if(lPos < 0) break;
-			findcounter++;
-			pWindow->SendMessage(SCI_SETSEL, lPos, lPos+strlen(ttf.lpstrText));
-			pWindow->SendMessage(SCI_REPLACESEL, 0, reinterpret_cast<LPARAM>((char*)(LPCTSTR)(theApp.findAndReplaceDialog.textReplace)));
-		}
-
-		// hide hour glass
-		HIDE_HOUR_GLASS
+		pWindow->SetSearchflags(searchflags);
+		int noCnt = pWindow->ReplaceAll(ttf, ttr, FALSE);
 
 		// how often was the desired text replaced?
-		if(!findcounter)
+		if(!noCnt)
 		{
 			LoadString(AfxGetInstanceHandle(), IDS_FINDANDREPLACE_TEXTNOTFOUND, pc_str, STR_LAENGE_STRING_TABLE);
 			MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
@@ -323,7 +248,7 @@ void CDlgFindAndReplace::OnBnClickedButtonReplaceAll()
 		{
             LoadString(AfxGetInstanceHandle(), IDS_FINDANDREPLACE_TEXTOCCURANCESREPLACED, pc_str, STR_LAENGE_STRING_TABLE);
 			char temp[STR_LAENGE_STRING_TABLE+20];
-			sprintf(temp, pc_str, findcounter);
+			sprintf(temp, pc_str, noCnt);
 			MessageBox(temp, "CrypTool", MB_ICONINFORMATION);
 			return;
 		}

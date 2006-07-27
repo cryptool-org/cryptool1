@@ -10693,6 +10693,8 @@ BEGIN
     ID_DECODE_BASE64        "Decodieren des aktiven Dokuments mittels Base64"
     ID_ENCODE_BASE64        "Codieren des aktiven Dokuments mittels Base64"
     IDS_CONTROL_CUT         "Ausschneiden"
+    IDS_FINDANDREPLACE_TEXT_FINISHED 
+                            "Alle Ersetzungen bis zum Dokumentende durchgeführt!"
     ID_NUMBERSHARK          "Trainiert den Umgang mit Teilern und Primzahlen."
 END
 
@@ -21657,6 +21659,8 @@ BEGIN
     ID_DECODE_BASE64        "Decoding the active document using Base64"
     ID_ENCODE_BASE64        "Encoding the active document using Base64"
     IDS_CONTROL_CUT         "Cut"
+    IDS_FINDANDREPLACE_TEXT_FINISHED 
+                            "All replacements to the end of the document performed!"
     ID_NUMBERSHARK          "Practices the usage of dividers and primes"
 END
 
