@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Vergleich von Base64- und UU-Codierung</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Codierungen">
+	<PARAM NAME="Keyword" VALUE="Base64-Codierung">
+</OBJECT>
+
+<BODY>
+
+<h3>Vergleich von Base64- und UU-Codierung</h3>
+
+<P>Die Codierung bei <a href="hid_encode_base64.html">Base64</a> und <a href="hid_encode_uu.html">UUencode</a> ist sehr ähnlich, was nachstehendes Schaubild zeigt:
+	<P><IMG SRC="images/Base64UUencodevgl.gif" ALT="Base64UUencodevgl3.gif" BORDER=0></p>
+	<br>
+	Durch die ähnliche Art der Codierung weisen die Codierungen auch gemeinsame Vor- und Nachteile auf:<br><br>
+	<table border="1" width="810" ID="Table1">
+	<tr>
+		<th width="50%" >Vorteile</th>
+	<th width="50%" >Nachteile</th>
+</tr>
+
+<tr>
+<td>
+	<ul type="disc">
+ 	<li>Beliebige Binärdaten können mit einem 6-bit Zeichensatz dargestellt werden:
+	<ul>
+			<li>Keine Probleme mit 7-bit Zeichensatzbeschränkungen.</li>
+			<li>Keine Probleme mit Zeilenlängenbeschränkungen  oder besonderen Steuerzeichen.</li>
+		</ul></li>
+		<li>Vergrößerung nur um ca. 33 % (anstelle von z.B. Kodierung  in Hexadezimalwerte = Vergrößerung um 100 %).</li>
+	</ul>
+
+	</td>
+		 
+	<td>
+	<ul type="disc">
+	<li>Keine Unterstützung für die Aufteilung von großen Dateien.</li>
+	<li>Vergrößerung der Dateien um ca. 33 % (im Vergleich zur Originaldatei).</li><br>
+	<u>Nur UUencode:</u>
+	<li>Keine EBCDIC Unterstützung.</li>
+	<li>Keine definierten Standards.</li>
+	
+	</ul>
+</td>
+  </tr>
+	  
+</table>
+<br>
+<p align=center><a href="hid_encode_base64.html">Zur Base64-Codierung</a></p>
+<p align=center><a href="hid_encode_uu.html">Zur UU-Codierung</a></p>
+
+
+</BODY>
+</HTML>
