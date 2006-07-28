@@ -202,14 +202,14 @@ BOOL CAestoolDlg::OnInitDialog()
 	EXEName.ReleaseBuffer();
 
 	m_SrcInfo.setName(EXEName);
-#if 0 // FIXME LATER Warning is moved: "NOTE" in Help Dialog
 	if (m_SrcInfo.isEncrypted()) {
 		m_CMD_inName = EXEName;
 		UpdateData(FALSE);
+#if 0 // FIXME LATER Warning is moved: "NOTE" in Help Dialog
 		CSplash dia;
 		if(IDCANCEL == dia.DoModal()) EndDialog( IDCANCEL );
-	}
 #endif
+	}
 	m_CEditSrc.SetWindowText(m_CMD_inName);
 	OnChangeSrc();
 
