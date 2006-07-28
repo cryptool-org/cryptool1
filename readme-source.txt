@@ -1,4 +1,4 @@
-CrypTool 1.3.06 Beta 11  (Jan 2006)
+CrypTool 1.4.00  (Jul 2006)
 ~~~~~~~~~~~~~~~
 
 
@@ -17,17 +17,6 @@ B) What do deliver back, if one makes enhancements to CrypTool?
 A) Readme for developers who want to build CrypTool from the current C++ sources.
 =================================================================================
 
-Remarks: 
-- The current release version 1.3.05 was built with Visual C++ 6.0.
-- The current beta can also be compiled with VS.net 2003.
-- Compared to the release version 1.3.05 the current beta contains several additions like:
-    - Online help files in HTML format instead in Winhelp format
-    - Demo of side-channel attack
-    - Demo of challenge response and client-server authentication
-    - and a lot more (see roadmap entry in left frame at www.cryptool.org).
-
-
-
 1. Files you need
    ~~~~~~~~~~~~~~
 readme-source.txt 	This readme
@@ -39,14 +28,10 @@ CrypTool\source\ ...	Directory tree with the source code for building CrypTool.
    ~~~~~~~~~~~~~~
 For building CrypTool completely you need:
 - A Microsoft C++ Compiler:
-    - Visual Studion C++ 6.0 
-    or
     - VS.net 2003
+    - Visual Studion C++ 6.0 is NOT supported any longer (and will not work)
+    - VS 2005 does not work without significant changes (will be supported in future)
 - Perl (>= Version 5.00)
-- HTML Help Workshop (please see 
-  http://msdn.microsoft.com/library/default.asp?url=/library/en-
-  us/htmlhelp/html/hwMicrosoftHTMLHelpDownloads.asp - 
-  please install both Htmlhelp.exe and Hhupd.exe)
 
 Remark:
 The free version of the Visual C++ Toolkit 2003 (http://msdn.microsoft.com/visualc/vctoolkit2003/)
@@ -60,29 +45,16 @@ Remark:
 The following paragraphs always tell the German and English names of the menu items.
 
 The project files, which can be opened with MS-Visual C, are located at
-- Visual Studio 6: ..\CrypTool\CrypTool.dsw 
-- VS.net 2003:     ..\CrypTool\CrypTool.sln 
+- VS.net 2003:     CrypTool\CrypTool.sln 
 To open the project file please double click it or 
 with MS-VC choose Datei[File] -> Arbeitsbereich öffnen[open project/solution].
 
-Before compiling you should notice to include Perl and HTML Help Workshop correctly:
+Before compiling you should make sure to include Perl correctly:
 Please adjust/check at:
 Menü[Menu] -> Extras[Tools] -> Optionen[Options]: 
 - At the choice box "Verzeichnisse Anzeigen für[Show directories for]" pick  
   "Ausführbare Dateien[Executable files]" 
-- Declare the path for Perl (preset is "C:\Programme\perl\bin\") and for
-  for HTML Help compiler (hhc.exe) (preset is "C:\Programme\HTML Help Workshop").
-
-Also add/readapt the following settings: Projekt[Project] -> 
-Einstellungen[Settings] (project settings only for CrypTool, not for AES-Tool)
-- tab: Linker -> Kategorie[Category]: Allgemein[General] -> at "Objekt-
-  /Bibliothek-Module[Object-/library-modules]" add htmlhelp.lib 
-- tab: Linker -> Kategorie[Category]: Eingabe[Input] -> "Zusätzlicher
-  Bibliothekpfad[additional library directories]": add your 
-  path to htmlhelp.lib 
-- tab: C/C++ -> Kategorie[Category] -> Präprozessor[Preprocessor] -> 
-  "Zusätzliche Include-Verzeichnisse[additional include directories]": add your
-  path to htmlhelp.h here
+- Declare the path for Perl (preset is "C:\Programme\perl\bin\")
 
 Building CrypTool and AES-Tool:
 At Menü[Menu] Erstellen[Build] -> Aktive Konfiguration festlegen[choose configuration] 
@@ -97,16 +69,6 @@ Files of the online help can be found at
 CrypTool\source\CrypTool\CrypTool\hlp_[de|en]
 Building the online help takes some time, but you can prevent that
 by adding a file called "makehelp.no" to the help directories. 
-
-Possible problem (only saw with C++ 6.0 standard edition):
-- Maybe the Microsoft library MFC was not compiled yet.
-  The according readme can be found at 
-  C:\Program Files\Microsoft Visual Studio\VC98\MFC\SRC or your similar directory.
-  Before compiling the MFC you have to call the batch file VCVARS32.BAT for setting the environment.
-  To compile the MFC call the following commands (according to the readme):
-  Debug Build:   $> NMAKE DEBUG=1 CODEVIEW=1 BROWSE=1
-  Release Build: $> NMAKE DEBUG=0
-
 
 
 4. Adding your own developments to CrypTool
@@ -172,8 +134,15 @@ a) CrypTool has for each menu item a longer text string explaining it. This text
    Within the properties dialog of a new menu item (within Visual Studio) please
    fill the field for the text in the status bar.
     
+b) Use consistent capitalization: 
+   - For menu entries (German), button texts, dialog titles and online help headings: 
+     Use the same capitalization as in a sentence: Capital first letter, the following words 
+     are only capitalized when required by the language (e.g. German nouns, english proper 
+     names etc.)
+   - For English menu entries:
+     Use the capitalization as in a english heading
 
-b) Usage of the icons "Show key" ("Schlüssel anzeigen") and "Insert key" ("Schlüssel einfügen"):
+c) Usage of the icons "Show key" ("Schlüssel anzeigen") and "Insert key" ("Schlüssel einfügen"):
    After encrypting a document, you can click on the "Show key" icon within the
    icon bar (below the menu bar). Then the used key for this method is shown and
    can be copied to an internal, method-specific key-clipboard.
@@ -185,12 +154,12 @@ b) Usage of the icons "Show key" ("Schlüssel anzeigen") and "Insert key" ("Schlü
    Please have a look at the source code, how it is implemented for other encryption
    methods.
 
-c) More complex methods which require several different input values like the
+d) More complex methods which require several different input values like the
    RSA crypto system or the Diffie-Hellman key exchange should offer at the end:
    - to show the achieved result in an extra dialog mask.
    - to create a log file.
 
-d) The online help for CrypTool is in HTML format. To build it, use your HTML editor
+e) The online help for CrypTool is in HTML format. To build it, use your HTML editor
    of choice.
 
    Help texts have to be exhaustive and easy to understand.
@@ -226,13 +195,13 @@ d) The online help for CrypTool is in HTML format. To build it, use your HTML ed
      - to offer a links to a scientific source for deeper information.
      - to describe the according RFC, PKCS, ... standard if there is any.
 
-e) If you implement a method please make sure that your method reflects the options
+f) If you implement a method please make sure that your method reflects the options
    within the menu "Optionen \ Textoptionen" [Options \ Text Options] and reacts
    properly to changes made there.
    If the options within the options dialogs (like the alphabet used, the way to deal with
    formats, ...) are not enough, you also can make enhancements within the options dialogs.
 
-f) When developing new code, try to separate different functionalities: so please act
+g) When developing new code, try to separate different functionalities: so please act
    according to the MVC-principle (model-view-controller).
 
 
@@ -246,8 +215,8 @@ f) When developing new code, try to separate different functionalities: so pleas
 - If you come to a problem do not hesitate to paste a mail to the CrypTool mailings list
   (see www.cryptool.org).
 
-- There exist two additional presentations about how to compile CrypTool and how to add own
-  methods (one is for users of VC++ 6.0; one for users of VC++ 7.x). 
+- There is a presentation about how to compile CrypTool and how to add own
+  methods (CrypTool-MFC-Kurs-VC7.ppt in the same directory as this file). 
   The most important recommendations are:
   - First develop your program as a pure console application to make your functionality clear.
   - Then integrate your program into CrypTool and design the GUI.
