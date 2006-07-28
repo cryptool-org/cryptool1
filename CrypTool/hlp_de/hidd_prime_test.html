@@ -23,9 +23,11 @@
 
 <P><IMG SRC="images/DialogPrimzahltest1.gif" BORDER=0></P>
 
-<P>Duch bet&auml;tigen des Buttons <B>Zahl testen</B> wird gepr&uuml;ft ob die in der Eingabe "zu testende Zahl" enthaltene Zahl eine Primzahl ist oder nicht. In der Eingabe k&ouml;nnen direkt ganze Zahlen oder auch Terme eingegeben werden.</P>
+<P>Duch Bet&auml;tigen des Buttons <B>Zahl testen</B> wird gepr&uuml;ft, ob die in dem Eingabefeld "Zu testende Zahl" enthaltene Zahl eine Primzahl ist oder nicht. In der Eingabe k&ouml;nnen direkt ganze Zahlen oder auch Terme eingegeben werden.</P>
 
-<P>In diesem Dialog k&ouml;nnen Sie zwischen den folgenden Algorithmen zum <a href="primzahltest.html">Primzahltest</a> w&auml;hlen:</P>
+<P>Gegenw&auml;rtig k&ouml;nnen im Dialog nur positive ganze Zahlen bis zu einer Bitl&auml;nge von 8192 eingegeben werden. Dies entspricht Dezimalzahlen bis 2466 Stellen.</P>
+
+<P>In diesem Dialog k&ouml;nnen Sie zwischen den folgenden Algorithmen zum Primzahltest w&auml;hlen:</P>
 
 <UL>
         <LI>Miller-Rabin-Test,</LI>
@@ -34,10 +36,54 @@
 
         <LI>Solovay-Strassen-Test und</LI>
 
-        <LI>AKS-Test</LI>
+        <LI>AKS-Test.</LI>
 </UL>
 
-<P>&Uuml;ber den Button <B>Zahl aus Datei laden</B> haben Sie die M&ouml;glichkeit eine Zahl aus einer Textdatei einzulesen. Die Datei darf nur eine einzige Zahl beinhalten und dazu keinerlei Text. Leerzeichen oder Zeilenumbr&uuml;che innerhalb der Datei werden beim Einlesevorgang entfernt.</P>
+<P>Die Tabelle zeigt, wie lange die verschiedenen Tests bei verschiedenen Primzahlen dauerten. Die Zeitmessungen wurden mit einem Intel Pentium-4 Prozessor, 2 GHz durchgef&uuml;hrt.</P>
+
+<table width="600" border="1">
+<tr align="center" >
+ <th>Primzahl</th>
+ <th>Miller-Rabin</th>
+ <th>Fermat</th>
+ <th>Solovay-Strassen</th>
+ <th>AKS-Verfahren</th>
+</tr>
+<tr align="right" >
+ <td>7309</td>
+ <td>0,01s</td>
+ <td>0,01s</td>
+ <td>0,01s</td>
+ <td>1,192s</td>
+</tr>
+<tr align="right" >
+ <td>9004097</td>
+ <td>0,01s</td>
+ <td>0,01s</td>
+ <td>0,01s</td>
+ <td>16,293s</td>
+</tr>
+<tr align="right" >
+ <td>2^31-1</td>
+ <td>0,01s</td>
+ <td>0,01s</td>
+ <td>0,01s</td>
+ <td>106,261s</td>
+</tr>
+<tr align="right" >
+ <td>2^607-1</td>
+ <td>0,61s</td>
+ <td>0,61s</td>
+ <td>1,62s</td>
+ <td>k.A.</td>
+</tr>
+</table>
+<P>
+Tabelle: Zeitdauer der Algorithmen in Sekunden.
+</P>
+
+
+<P>&Uuml;ber den Button <B>Zahl aus Datei laden</B> haben Sie die M&ouml;glichkeit, eine Zahl aus einer Textdatei einzulesen. Die Datei darf nur eine einzige Zahl beinhalten und dazu keinerlei Text. Leerzeichen oder Zeilenumbr&uuml;che innerhalb der Datei werden beim Einlesevorgang entfernt.</P>
 
 <P>Ausf&uuml;hrliche Informationen zum Thema Primzahlen finden Sie im <A class="filelink" onclick="parser('script-de.pdf')">Skript</A>.</P>
 
