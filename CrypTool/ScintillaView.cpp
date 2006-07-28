@@ -548,6 +548,8 @@ void CScintillaView::OnInitialUpdate()
 	CWnd *pActiveWindow = this->GetTopWindow();
 	if(pActiveWindow)
 	{
+		pActiveWindow->SendMessage(SCI_EMPTYUNDOBUFFER);  // FIXME -- right place to do this ?
+
 		// FIXME: this is also done in CScintillaWnd::Init - why?
 		pActiveWindow->SendMessage(SCI_SETEOLMODE, 0);
 		pActiveWindow->SendMessage(SCI_SETVIEWEOL, 0);
