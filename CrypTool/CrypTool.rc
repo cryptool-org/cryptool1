@@ -3576,10 +3576,10 @@ BEGIN
                     WS_EX_TRANSPARENT
     CTEXT           "GMP",IDC_EDIT_GMP,0,283,241,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
-    CTEXT           "BUILD INFO",IDC_EDIT_BUILD_INFO,0,155,241,8,
+    CTEXT           "BUILD INFO",IDC_EDIT_BUILD_INFO,0,156,241,8,
                     SS_CENTERIMAGE,WS_EX_TRANSPARENT
     CTEXT           "CrypTool wird zur Ausbildung, in der Lehre und zur\nMitarbeiter-Awareness für IT-Sicherheit eingesetzt.",
-                    IDC_STATIC,1,184,240,24
+                    IDC_STATIC,1,185,240,19
 END
 
 IDD_HMAC DIALOG  0, 0, 323, 425
@@ -7011,12 +7011,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Deutsche Bank AG"
             VALUE "FileDescription", "www.cryptool.de"
-            VALUE "FileVersion", "1.4.00 beta 14"
+            VALUE "FileVersion", "1.4.00"
             VALUE "InternalName", "CrypTool"
             VALUE "LegalCopyright", "Copyright © 1999-2006"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "1.4.00-beta14"
+            VALUE "ProductVersion", "1.4.00"
         END
     END
     BLOCK "VarFileInfo"
@@ -8559,7 +8559,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.00 beta 14"
+    IDR_MAINFRAME           "CrypTool 1.4.00"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Datei (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnbenannt\n\nBinäre Datei (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnbenannt\n\nASCII-Datei (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -11217,15 +11217,15 @@ BEGIN
     CTEXT           "and the universities \nSiegen and Darmstadt",IDC_STATIC,
                     0,125,242,17
     CTEXT           "CrypTool uses the following libraries:",IDC_STATIC,1,
-                    209,241,8
-    CTEXT           "Contact:",IDC_STATIC,0,302,241,10
+                    211,241,8
+    CTEXT           "Contact:",IDC_STATIC,0,304,241,10
     LTEXT           "esslinger@fb5.uni-siegen.de\nhenrik.koy@db.com\njoerg-cornelius.schneider@db.com\ncryptool-list@sec.informatik.tu-darmstadt.de",
-                    IDC_STATIC,67,310,145,40
+                    IDC_STATIC,67,312,145,40
     CTEXT           "Copyright (C) 1998-2006 Deutsche Bank AG\nFrankfurt am Main, Germany",
                     IDC_STATIC,0,371,242,17
     CTEXT           "CrypTool is a free and comprehensive eLearning program about\nclassic and contemporary cryptography and cryptanalysis.\n\nIn a joint effort of the sponsors",
                     IDC_STATIC,1,10,241,32
-    CTEXT           "has been developed.",IDC_STATIC,1,170,241,24
+    CTEXT           "has been developed.",IDC_STATIC,1,172,241,24
     CTEXT           "CRYPTOOL RELEASE INFO",IDC_ABOUTBOX_CRYPTOOL,1,148,241,
                     11
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,41,48,105,37,
@@ -11236,24 +11236,24 @@ BEGIN
                     WS_BORDER,10,44,222,79
     LTEXT           "Internet: http://www.cryptool.org",IDC_STATIC,67,356,
                     175,8
-    CTEXT           "MIRACL",IDC_EDIT_MIRACL,1,242,240,8,SS_CENTERIMAGE,
+    CTEXT           "MIRACL",IDC_EDIT_MIRACL,1,244,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
-    CTEXT           "SECUDE1",IDC_EDIT_SECUDE1,1,223,240,8,SS_CENTERIMAGE,
+    CTEXT           "SECUDE1",IDC_EDIT_SECUDE1,1,225,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
-    CTEXT           "OPENSSL",IDC_EDIT_OPENSSL,1,253,240,8,SS_CENTERIMAGE,
+    CTEXT           "OPENSSL",IDC_EDIT_OPENSSL,1,255,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
-    CTEXT           "NTL",IDC_EDIT_NTL,1,263,240,8,SS_CENTERIMAGE,
+    CTEXT           "NTL",IDC_EDIT_NTL,1,265,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
-    CTEXT           "SCINTILLA",IDC_EDIT_SCINTILLA,1,273,240,8,
+    CTEXT           "SCINTILLA",IDC_EDIT_SCINTILLA,1,275,240,8,
                     SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "SECUDE2",IDC_EDIT_SECUDE2,1,231,240,8,SS_CENTERIMAGE,
+    CTEXT           "SECUDE2",IDC_EDIT_SECUDE2,1,233,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
-    CTEXT           "GMP",IDC_EDIT_GMP,0,283,241,8,SS_CENTERIMAGE,
+    CTEXT           "GMP",IDC_EDIT_GMP,0,285,241,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
-    CTEXT           "BUILD INFO",IDC_EDIT_BUILD_INFO,0,157,241,8,
+    CTEXT           "BUILD INFO",IDC_EDIT_BUILD_INFO,0,159,241,8,
                     SS_CENTERIMAGE,WS_EX_TRANSPARENT
     CTEXT           "CrypTool is used for education and for\nemployee awareness for IT security.",
-                    IDC_STATIC,0,186,241,24
+                    IDC_STATIC,0,188,241,24
 END
 
 IDD_SHOW_PROGRESS DIALOG  0, 0, 187, 105
@@ -17735,13 +17735,13 @@ BEGIN
         BLOCK "040704b0"
         BEGIN
             VALUE "CompanyName", "Deutsche Bank AG"
-            VALUE "FileDescription", "www.cryptool.com"
-            VALUE "FileVersion", "1.4.00 beta 14"
+            VALUE "FileDescription", "www.cryptool.org"
+            VALUE "FileVersion", "1.4.00"
             VALUE "InternalName", "CrypTool"
             VALUE "LegalCopyright", "Copyright © 1999-2006"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "1.4.00-beta14"
+            VALUE "ProductVersion", "1.4.00"
         END
     END
     BLOCK "VarFileInfo"
@@ -19582,7 +19582,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.00 beta 14"
+    IDR_MAINFRAME           "CrypTool 1.4.00"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
