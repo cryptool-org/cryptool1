@@ -1563,8 +1563,9 @@ void CCryptDoc::OnAnalyseZufallstestsFipspub1401()
 void CCryptDoc::OnAesSelfextract() 
 {
     UpdateContent();
-	_spawnl(_P_NOWAIT, theApp.m_Selfextract_EXE, theApp.m_Selfextract_EXE,
-		ContentName, NULL);
+	CString str_m_Selfextract_EXE_Quoted = CString("\"") + CString(theApp.m_Selfextract_EXE) + CString("\"");
+	_spawnl(_P_NOWAIT, theApp.m_Selfextract_EXE, str_m_Selfextract_EXE_Quoted, ContentName, NULL); 
+	// FIXME: Interpret return value of _spawnl
 }
 
 

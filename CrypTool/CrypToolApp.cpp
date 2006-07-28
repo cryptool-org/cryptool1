@@ -1112,8 +1112,9 @@ void CCrypToolApp::OnIndivCrtSecretsharing()
 void CCrypToolApp::OnNumberShark() 
 {
 	// zahlenhai aufrufen
-	_spawnl(_P_NOWAIT, theApp.m_NumberShark_Selfextract_EXE, theApp.m_NumberShark_Selfextract_EXE, NULL);
-
+	CString str_m_NumberShark_Selfextract_EXE_Quoted = CString("\"") + CString(theApp.m_NumberShark_Selfextract_EXE) + CString("\"");
+	_spawnl(_P_NOWAIT, theApp.m_NumberShark_Selfextract_EXE, str_m_NumberShark_Selfextract_EXE_Quoted, NULL);
+	// FIXME: Interpret return value of _spawnl
 }
 
 void CCrypToolApp::OnUpdateNumberShark(CCmdUI* pCmdUI) 
@@ -1194,5 +1195,8 @@ void CCrypToolApp::OnPrimenumberTest()
 
 void CCrypToolApp::OnAesSelfextract()
 {
-	_spawnl(_P_NOWAIT, theApp.m_Selfextract_EXE, theApp.m_Selfextract_EXE, NULL, NULL);
+	CString str_m_Selfextract_EXE_Quoted = CString("\"") + CString(theApp.m_Selfextract_EXE) + CString("\"");
+//	int intptr_t = _spawnl(_P_NOWAIT, strmod, strmod, NULL, NULL);
+	int intptr_t = _spawnl(_P_NOWAIT, theApp.m_Selfextract_EXE, str_m_Selfextract_EXE_Quoted, NULL, NULL);
+	// FIXME: Interpret return value of _spawnl
 }
