@@ -66,7 +66,7 @@ Kontext bezogene Hilfe gibt es
 
 <P><!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> ist ein <B>Freeware</B>-Programm, mit dem Sie kryptographische Verfahren anwenden und analysieren können.  Die Bedienung folgt den typischen Standards von Windowsprogrammen. <br>
 Teil von CrypTool ist eine sehr umfangreiche <A href="main_index.html">Online-Hilfe</A>, die auch ohne tiefes Kryptowissen verstanden werden kann.<br>
-CrypTool ist <B>komplett</B> sowohl in<B> Deutsch</B> wie auch in <B>Englisch</B> vorhanden, enthält fast alle State-of-the-art-Kryptofunktionen und ermöglicht unter einer einheitlichen Benutzeroberfläche einen "spielerischen" Einstieg in die moderne und klassische <B>Kryptographie</B>.</P>
+CrypTool ist <B>komplett</B> sowohl in<B> Deutsch</B> wie auch in <B>Englisch</B> vorhanden, enthält fast alle State-of-the-art-Kryptofunktionen und ermöglicht unter einer einheitlichen Benutzeroberfläche einen "spielerischen" Einstieg in die <B>Kryptographie</B>.</P>
 
 <P>Es stehen sowohl klassische wie moderne Kryptoverfahren zur Verfügung:</P>
 
@@ -95,7 +95,7 @@ Nützlich ist dies vor allem bei komplexeren Schlüsseln.</p>
 
 <P>Zur Unterstützung der eigenen Analyse von Dokumenten kann CrypTool von einem Dokument das <!--ZZZPOPUP--><A href="histogramm.html">Histogramm</A> anzeigen, die Statistik beliebiger <A href="hid_analyse_ngram.html">N-Gramme</A> ermitteln und <!--ZZZPOPUP--><A href="entropie.html">Entropie</A> und <!--ZZZPOPUP--><A href="autokorrelation.html">Autokorrelation</A> berechnen.</P>
 
-<P>Die Verschlüsselungsfunktionen im Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> so implementiert sind, dass sie möglichst effizient aufgerufen und durchgeführt werden können. Dagegen wurden die Funktionen in dem Menü <A href="menu_related_methods.html">Einzelverfahren</A> eher schrittweise und interaktiv implementiert, so dass die E-Learning-Aspekte in den Vordergrund treten.</P>
+<P>Die Verschlüsselungsfunktionen im Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> sind so implementiert, dass sie möglichst effizient aufgerufen und durchgeführt werden können. Dagegen wurden die Funktionen in dem Menü <A href="menu_related_methods.html">Einzelverfahren</A> eher schrittweise und interaktiv implementiert, so dass die E-Learning-Aspekte in den Vordergrund treten.</P>
 
 <P>Im Menü <A href="menu_related_methods.html">Einzelverfahren</A> werden verschiedene Verfahren und Protokolle angeboten.</br>
 Beispielsweise: </P>
@@ -113,16 +113,16 @@ Beispielsweise: </P>
 
 	<LI>Anwendungen eines uralten Satzes der Zahlentheorie (<A href="menu_individualprocedures_chineseremaindertheorem.html">Chinesischer Restsatz</A>) ausprobieren (z.B. wann stehen die Planeten eines Sonnensystems genau hintereinander).</LI>
 
-	<LI>Einzelne Verschlüsselungsverfahren schrittweise vor- und zurück durchlaufen (mit <A href="menu_individualprocedures_visualizationwithanimal.html">ANIMAL</A>).</LI>
+	<LI>Einzelne Verschlüsselungsverfahren schrittweise vor- und zurück durchlaufen (mit der Animationssoftware <A href="menu_individualprocedures_visualizationwithanimal.html">ANIMAL</A>).</LI>
 
-	<LI>Verbreitete Codierungen wie <A href="hid_encode_base64.html">base64</A> und <A href="hid_code_uu.html">uuencode</A> anwenden.</LI>
+	<LI>Verbreitete Codierungen wie <A href="hid_encode_base64.html">base64</A> und <A href="hid_encode_uu.html">uuencode</A> anwenden.</LI>
 
 </UL>
 
 Die weiteren Menüeinträge im Hauptmenü Einzelverfahren werden weiter unten beschrieben (siehe <a href="#rsa">RSA-Kryptosystem</a> und <a href="#demo">Visualisierungen</a>).
 </p>
 
-<p>Welche Funktionen in den Menüs ausgewählt werden können, hängt vom Typ des aktiven Dokuments ab. Die <A href="menu_structure.html">Menüs und Untermenüs</A> von CrypTool werden dynamisch aufgebaut, abhängig davon, ob im Hauptfenster eine Datei geladen ist und ob die aktive Datei vom Typ Textdatei oder Binärdatei ist. Sie sehen immer alle Menüpunkte. Auswählbar sind aber nur die Menüpunkte, die zu dem aktuellen Dokumenttyp passen, der Rest ist ausgegraut. Z.B. ist der Eintrag "XOR" unter "Analyse \ Ciphertext only" nur auswählbar, wenn aktuell eine Binärdatei selektiert ist. Umgekehrt können Sie den Eintrag "Einzelverfahren \ Hashwerte \ Hash-Demo" nur auswählen, wenn eine Textdatei geladen ist.
+<p>Welche Funktionen in den <A href="menu_structure.html">Menüs</A> ausgewählt werden können, hängt vom Typ des aktiven Dokuments (Text, Binär oder Grafik) ab, und davon, ob über ein Dokument geöffnet ist. Sie sehen immer alle Menüpunkte. Auswählbar sind aber nur die Menüpunkte, die zu dem aktuellen Dokumenttyp passen, der Rest ist ausgegraut. 
 </p>
 
 <P>Einen Überblick über alle Menüeinträge innerhalb von CrypTool finden Sie im <A href="menu_structure.html">Menübaum</A> (im Anhang A des <A class="filelink" onclick="parser('script-de.pdf')">Skripts</A>).</P>
@@ -148,10 +148,9 @@ Die weiteren Menüeinträge im Hauptmenü Einzelverfahren werden weiter unten besch
 	<li> 	Erzeugung von <A href="hid_signatur_attack.html">Hashwert-Kollisionen</a> unter Anwendung des Geburtstagsparadoxons.</li>
 	</ul></li>
 <li>	Ablauf des <A href="hid_einzelverfahren_diffiehellmandemo.html">Diffie-Hellman-Schlüsselaustauschverfahrens.</a> </li>
-<li>	<A href="hid_einzelverfahren_sidechannelattack_on_hybridencryption.html">Seitenkanalangriffe.</a> </li>
+<li>	<A href="hid_einzelverfahren_sidechannelattack_on_hybridencryption.html">Seitenkanalangriff.</a> </li>
 <li>	<A href="hid_cr_overview.html">Authentisierungsprotokolle.</a></li>
 <li>	Shared Secret basierend auf dem <A href="hid_indiv_crt_secretsharing.html">Chinesischen Restsatz</a> und nach <A href="hid_individual_procedures_secretsharing.html">Shamir.</A></li>
-<li>	<a href="menu_individualprocedures_visualizationwithanimal.html">Veranschaulichen von Algorithmen</a> mithilfe der Animationssoftware ANIMAL.</li>
 <li>	<a href="hid_analysis_random_3d_visualization.html">3D-Visualisierung</a> von großen Mengen von Zufallszahlen.</li>
 </ul>
 Neben den interaktiven Demonstrationen enthält das CrypTool-Paket das Spiel "Der Zahlenhai", das Schülern den Umgang mit Teilern und Primfaktoren näher bringt.
@@ -178,7 +177,7 @@ Daneben enthält diese Datei ausführliche Informationen zum Projekt selbst.</li>
 	<li>	zu Primzahlen.
 	<li>	zur elementaren Zahlentheorie mit vielen Beispielen.
 	<li>	zu aktuellen Ergebnissen der kryptoanalytischen Forschung.
-	<li>	außerdem befindet sich im Anhang eine Auflistung zu Filmen und Büchern, in denen Kryptgraphie explizit eine Rolle spielt.
+	<li>	außerdem befindet sich im Anhang eine Auflistung zu Filmen und Büchern, in denen Kryptographie explizit eine Rolle spielt.
 	</ul>
 </li>
 <li>	Die <A class="filelink" onclick="parser('CrypToolPresentation_1_4_00_de.pdf')">CrypTool-Präsentation</a> fasst auf über 80 Folien das Wichtigste zum CrypTool-Projekt und zu den Features von CrypTool zusammen.</li>
@@ -202,9 +201,9 @@ Daneben enthält diese Datei ausführliche Informationen zum Projekt selbst.</li>
 
 <P>Zur Demonstration der Hash-Kollisionen (m.H. des Geburtstagsparadoxons) greift CrypTool auf die Bibliothek libeay32.dll von OpenSSL (<a href="http://www.openssl.org/">http://www.openssl.org/</a>) zurück.</P>
 
-<p>Zur Durchführung der Gitterbasenreduktion wird die NTL von Victor Shoup (<a href="http://shoup.net/ntl/">http://shoup.net/ntl/</a>) eingebunden.
+<p>Zur Durchführung der Gitterbasenreduktion wird die NTL-Bibliothek von Victor Shoup (<a href="http://shoup.net/ntl/">http://shoup.net/ntl/</a>) eingebunden.
 
-<p>Die <a href="http://www.swox.com/gmp/">GMP</a> Bibliothek wird für Primzahltests benutzt.</p>
+<p>Die GMP-Bibliothek (<a href="http://www.swox.com/gmp/">http://www.swox.com/gmp/</a>) wird für Primzahltests benutzt.</p>
 
 <p>Informationen zur weiteren Roadmap finden Sie auf der <a href="www.cryptool.de">CrypTool-Webseite</a>, in der <a class="filelink" onclick="parser('readme-de.txt')">Readme-Datei</a> und in der <A class="filelink" onclick="parser('CrypToolPresentation_1_4_00_de.pdf')">CrypTool-Präsentation</a>.
 
@@ -213,7 +212,7 @@ Daneben enthält diese Datei ausführliche Informationen zum Projekt selbst.</li>
 <br><P><A NAME="licence_terms"></A><b>Lizenzbestimmungen / Haftungsausschluss / Copyright</b></P>
 
 	<p>Die <em>Bin&auml;rfassung</em> des Produkts 'CrypTool' (CrypTool.exe und weitere im Paket enthaltene ausführbare Programme) wird jedem Nutzer kostenlos zu Ausbildungs- und Testzwecken 
-	und zum Kennenlernen von Kryptographiemethoden zur Verfügung gestellt. CrypTool kann so auch kommerziell genutzt werden, soweit nicht die unten stehenden Bedingungen verletzt werden;</p>
+	und zum Kennenlernen von Kryptographiemethoden zur Verfügung gestellt. CrypTool kann so auch kommerziell genutzt werden. In jedem Fall sind die folgenden Bedingungen einzuhalten:</p>
 
 	<ul>
 	<li>Die Verwendung des Produkts kann im Lande des Nutzers rechtlichen Einschr&auml;nkungen unterliegen, f&uuml;r deren Einhaltung ausschlie&szlig;lich 
@@ -243,7 +242,7 @@ Daneben enthält diese Datei ausführliche Informationen zum Projekt selbst.</li>
 
 
 <P>Für die beigelegten 'Geschichten' "Der Dialog der Schwestern" und "Das Chinesische Labyrinth" gelten folgende Lizenzbestimmungen:
-Der Verfasser, als alleiniger Inhaber aller Rechte an dem Werk, räumt dem CrypTool-Maintainer das ausschließliche Vervielfältigungs- und Verbreitungsrecht ein. Die Geschichte darf nur zusammen mit dem CrypTool-Paket verbreitet werden.</P>
+Der Verfasser, als alleiniger Inhaber aller Rechte an den Werken, räumt dem CrypTool-Maintainer das ausschließliche Vervielfältigungs- und Verbreitungsrecht ein. Die Geschichten dürfen nur zusammen mit dem CrypTool-Paket verbreitet werden.</P>
 
 <br><P><b><a name="opensource">Freigabe des Quellcodes</a></b></P>
 
