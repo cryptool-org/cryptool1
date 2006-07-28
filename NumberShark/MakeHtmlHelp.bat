@@ -19,8 +19,10 @@ start /wait hhc.exe %HLP%\NumberShark.hhp
 REM For some reason, HHC returns one on success.
 if not errorlevel 1 goto Error
 
+mkdir %OUTDIR% 2>nul
 echo copy "%HLP%\NumberShark-%LANG%.chm" %OUTDIR% 
 copy "%HLP%\NumberShark-%LANG%.chm" %OUTDIR% 
+if errorlevel 1 exit 1
 
 goto done
 
