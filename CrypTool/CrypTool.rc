@@ -10803,6 +10803,11 @@ END
 STRINGTABLE 
 BEGIN
     IDS_SCINTILLA_DEFAULT_PRINT_FOOTER "Seite %1"
+    IDS_CR_CLIENT           "   Client"
+    IDS_CR_ROUTER           "Router %d"
+    IDS_CR_SERVER           "Server %d"
+    IDS_CR_ATTACKER         "Angreifer"
+    IDS_CR_PASSWORD         "geheim"
 END
 
 #endif    // German (Germany) resources
@@ -21767,6 +21772,11 @@ END
 STRINGTABLE 
 BEGIN
     IDS_SCINTILLA_DEFAULT_PRINT_FOOTER "Page %1"
+    IDS_CR_CLIENT           "   Client"
+    IDS_CR_ROUTER           "Router %d"
+    IDS_CR_SERVER           "Server %d"
+    IDS_CR_ATTACKER         "Attacker"
+    IDS_CR_PASSWORD         "secret"
 END
 
 #endif    // English (U.K.) resources

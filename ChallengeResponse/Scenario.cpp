@@ -36,12 +36,12 @@ CScenario::CScenario()
 {
 	protocolRunning=FALSE;
 
-	client=(CString)"   Client";
-	router1=(CString)"Router 1";
-	router2=(CString)"Router 2";
-	server1=(CString)"Server 1";
-	server2=(CString)"Server 2";
-	attacker=(CString)"Angreifer";
+	client.Format(IDS_CR_CLIENT);
+	router1.Format(IDS_CR_ROUTER,1);
+	router2.Format(IDS_CR_ROUTER,2);
+	server1.Format(IDS_CR_SERVER,1);
+	server2.Format(IDS_CR_SERVER,2);
+	attacker.Format(IDS_CR_ATTACKER);
 	computers[0].setParameters(180,140,220,180,1,client,0,2,FALSE);
 	computers[1].setParameters(300,140,340,180,1,router1,0,-1,FALSE);
 	computers[2].setParameters(420,140,460,180,1,router2,0,-1,FALSE);
@@ -84,7 +84,7 @@ CScenario::CScenario()
 	dataCaption_ChallengeFromClient.LoadString(IDS_dataCaption_ChallengeFromClient);
 	dataCaption_ResponseToClient.LoadString(IDS_dataCaption_ResponseToClient);
 
-	dataValue_Passwort=(CString)"geheim";
+	dataValue_Passwort.Format(IDS_CR_PASSWORD);
 	dataValue_Einmalpasswort=(CString)"123456";
 	dataValue_Schluessel=(CString)"a3c2b1";
 	dataValue_geheimerSchluesselClient=(CString)"her7sj"; //gleicher Schlüssel für interne Verarbeitung

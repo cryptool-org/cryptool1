@@ -27,6 +27,11 @@
 #define IDS_STRING15                    15
 #define IDS_SCINTILLA_DEFAULT_PRINT_HEADER 15
 #define IDS_SCINTILLA_DEFAULT_PRINT_FOOTER 16
+#define IDS_CR_CLIENT                   17
+#define IDS_CR_ROUTER                   18
+#define IDS_CR_SERVER                   19
+#define IDS_CR_ATTACKER                 20
+#define IDS_CR_PASSWORD                 21
 #define IDC_EDIT53                      53
 #define IDC_EDIT69                      54
 #define IDC_EDIT88                      55
