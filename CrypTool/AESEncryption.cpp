@@ -172,12 +172,12 @@ void doaescrypt(int AlgId,char mode,int keylen,char *keybuffhex,unsigned char *b
 	3 steht für Rijndael
 	4 steht für Serpent
 	5 steht für Twofish */
-void AESCrypt (char* infile, const char *OldTitle, int AlgId, bool Enc_Or_Dec, char * NewFileName, char* NewFileKey)
+void AESCrypt (const char* infile, const char *OldTitle, int AlgId, bool Enc_Or_Dec, const char * NewFileName, const char* NewFileKey)
 {
 	
-    char outfile[CRYPTOOL_PATH_LENGTH], keybuffhex[200],title[200];
+	char outfile[CRYPTOOL_PATH_LENGTH], keybuffhex[256/4+1],title[200];
 	CString AlgTitle,Title;
-	unsigned char keybuffbin[33];
+	unsigned char keybuffbin[256/8];
 	unsigned char *borg, *bcip, *key;
 	char mode;
 	int keylen;
@@ -222,8 +222,10 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId, bool Enc_Or_Dec, c
 		key = (unsigned char *) KeyDialog.GetKeyBytes();
 		keylen = KeyDialog.GetKeyByteLength();
 
+		ASSERT(keylen <= sizeof keybuffbin);
 		for(i=0;i<keylen; i++) keybuffbin[i] = key[i];
-				
+		
+		ASSERT(2*keylen + 1 <= sizeof keybuffhex);
 		for(i=0; i<keylen; i++) 
 			sprintf(keybuffhex+2*i,"%02.2X",keybuffbin[i]);
 	}
@@ -231,9 +233,13 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId, bool Enc_Or_Dec, c
 	{
 		tag=1;
 		keylen=16;
-		strcpy(keybuffhex,NewFileKey);
-
+	// nur niederwertigsten 128 Bit (16 Byte = 32 Hex-Halb-Bytes) betrachten
+		int len = strlen(NewFileKey);
+		ASSERT(len >= keylen*2);
+		ASSERT(2*keylen + 1 <= sizeof keybuffhex);
+		strcpy(keybuffhex,NewFileKey + len - keylen*2);
 	}
+
 	borg = (unsigned char *) malloc(datalen+32);
 	bcip = (unsigned char *) malloc(datalen+64);
 	
@@ -280,13 +286,6 @@ void AESCrypt (char* infile, const char *OldTitle, int AlgId, bool Enc_Or_Dec, c
 	{
 		strcpy( outfile, NewFileName );
 	}
-	
-	// nur niederwertigsten 128 Bit (16 Byte = 32 Hex-Halb-Bytes) betrachten
-	int length = strlen(keybuffhex);
-	char *temp = new char[length];
-	memcpy(temp, keybuffhex + (length - 32), 32);
-	memcpy(keybuffhex, temp, 32);
-	memcpy(keybuffhex + 32, "\0", 1);
 	
 	doaescrypt(AlgId,mode,keylen,keybuffhex,borg,datalen,bcip);
 	
