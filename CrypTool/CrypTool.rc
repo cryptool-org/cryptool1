@@ -15198,12 +15198,12 @@ BEGIN
                     IDC_STATIC,7,71,253,16
 END
 
-IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_1 DIALOG  0, 0, 275, 190
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_1 DIALOGEX 0, 0, 275, 190
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
 CAPTION "Continue with side-channel attack"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    CONTROL         "You hybrid encrypt a document or",IDC_RADIO_CHOICE_1,
+    CONTROL         "You hybrid encrypt a document.",IDC_RADIO_CHOICE_1,
                     "Button",BS_AUTORADIOBUTTON | BS_LEFT | BS_TOP | 
                     WS_GROUP | WS_TABSTOP,25,40,243,10
     CONTROL         "You use a document integrated in CrypTool which was encrypted for an already existing user. Thus you skip the hybrid encryption process.",
@@ -15218,16 +15218,16 @@ BEGIN
     LTEXT           "At the moment no document is opened.",-1,7,7,261,8
 END
 
-IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_2 DIALOG  0, 0, 275, 190
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_2 DIALOGEX 0, 0, 275, 190
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
 CAPTION "Continue with side-channel attack"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    CONTROL         "You hybrid encrypt the opened document or",
+    CONTROL         "You hybrid encrypt the opened document.",
                     IDC_RADIO_CHOICE_1,"Button",BS_AUTORADIOBUTTON | BS_LEFT | 
                     BS_TOP | BS_MULTILINE | WS_GROUP | WS_TABSTOP,25,40,243,
                     10
-    CONTROL         "You hybrid encrypt another document or",
+    CONTROL         "You hybrid encrypt another document.",
                     IDC_RADIO_CHOICE_2,"Button",BS_AUTORADIOBUTTON | BS_LEFT | 
                     BS_TOP | BS_MULTILINE | WS_GROUP | WS_TABSTOP,25,55,243,
                     10
@@ -15243,15 +15243,15 @@ BEGIN
     LTEXT           "Please choose one of the options above.",-1,7,105,261,8
 END
 
-IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_3 DIALOG  0, 0, 275, 190
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_3 DIALOGEX 0, 0, 275, 190
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
 CAPTION "Continue with side-channel attack"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    CONTROL         "You use the opened document or",IDC_RADIO_CHOICE_1,
-                    "Button",BS_AUTORADIOBUTTON | BS_LEFT | BS_TOP | 
-                    BS_MULTILINE | WS_TABSTOP,25,40,243,10
-    CONTROL         "You hybrid encrypt another document or",
+    CONTROL         "You use the opened document.",IDC_RADIO_CHOICE_1,"Button",
+                    BS_AUTORADIOBUTTON | BS_LEFT | BS_TOP | BS_MULTILINE | 
+                    WS_TABSTOP,25,40,243,10
+    CONTROL         "You hybrid encrypt another document.",
                     IDC_RADIO_CHOICE_2,"Button",BS_AUTORADIOBUTTON | BS_LEFT | 
                     BS_TOP | BS_MULTILINE | WS_TABSTOP,25,55,243,10
     CONTROL         "You use a document integrated in CrypTool which was encrypted for an already exsiting user. Thus you skip the hybrid encryption process.",
@@ -21378,7 +21378,7 @@ BEGIN
     IDS_ANIMAL_FILE_NIHILIST "anims\\nihilist_en.aml"
     IDS_ANIMAL_FILE_DES     "anims\\des_en.aml"
     IDS_SCA_HYBRIDENCRYPTEDFILE_DEFAULT_PSEFILE 
-                            "letterFromAliceToBob-ENCRYPTED-en.hex"
+                            "examples/letterFromAliceToBob-ENCRYPTED-en.hex"
     IDS_ANIMAL_FILE_LOCALE  """locale=en_EN"" ""animation/animal-ascii-compressed"""
     IDS_SCA_KEYWORDPROBLEM  "For a smooth execution of the side-channel attack the opened document must contain the keyword ""%s"".\nDo you want to append this keyword to the document?"
 END
