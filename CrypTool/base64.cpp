@@ -107,10 +107,11 @@ ssize_t Base64Encode(
 		ai=((*state)>>16)&0x3U;
 		ci=((*state)>>18);
 	}
+
 	else
 	{  acc=0;  ai=0;  ci=0;  }
 	
-	for(;in<inend;in++)
+			for(;in<inend;in++)
 	{
 		acc<<=8;
 		acc|=(u_int32_t)(*in);
@@ -130,7 +131,7 @@ ssize_t Base64Encode(
 			}
 		}
 	}
-	
+
 	if(state && inlen)
 	{
 		/* save carry in state (ai=0,1,2) */
@@ -179,7 +180,7 @@ static const unsigned char *_base64_decode=(const unsigned char *)
 
 ssize_t Base64Decode(
 	const char *_in,size_t inlen,char *_out,size_t outlen
-	,u_int32_t *state /*=NULL*/,ssize_t *outfill,ssize_t *indec, BOOL lastBlock)
+	,u_int32_t *state /*=NULL*/,ssize_t *outfill,ssize_t *indec, BOOL lastBlock,int *chlb)
 {
 	unsigned char *ib=(unsigned char*)_in;
 	unsigned char *ib_end=ib+inlen;
@@ -189,8 +190,8 @@ ssize_t Base64Decode(
 	u_int32_t acc = state ? ((*state)&0xffffffU) : 0U;
 	int       ai  = state ? ((*state)>>24) : 0;
 	unsigned int zeichen=0;
-	CString result="";
-
+	//CString result="";
+	int count=0; //Zähler für Anzahl der "=".
 	BOOL illegal_eq = FALSE;
 
 
@@ -205,14 +206,20 @@ ssize_t Base64Decode(
 			return(B64_DECODE_ILLEGAL_CHARACTER);
 		}
 		dec=_base64_decode[(int)(*ib)];
-		if(dec<64)
+		if(dec<64 || dec==253)
 		{
+			if(dec==253) //Behandlung der "=" am Ende
+			{
+				dec=0;	//dec wird auf Null gesetzt, da beim Codieren die "=" aus (eigentlich nicht vorhandenen) 0-Bit Blöcken entstanden sind
+				count++; 
+			}
 			if (illegal_eq)
 			{
 				*indec=(char*)ib-_in;
 				*outfill = (char*)ob-_out;
 				return(B64_DECODE_ILLEGAL_CHARACTER);				
 			}
+			
 			acc=(acc<<6)|dec;
 			++ai;
 			if(ai==4)  /* got 4 chars */
@@ -222,29 +229,32 @@ ssize_t Base64Decode(
 				*(ob++)=(unsigned char)( acc      & 0xffU);
 				acc=0U;  ai=0;
 			}
+			*chlb=ai;
 		}
 		else switch(dec)
 		{
 			case 0xffU:  
 					*indec=(char*)ib-_in;
-					*outfill = (char*)ob-_out;
+					*outfill = ((char*)ob-_out)-count;
 					return(B64_DECODE_ILLEGAL_CHARACTER);
 					break;
 			case 0xfdU:
 					*indec=(char*)ib-_in;
+					//ai=ai+1;
 					if (!lastBlock)
 					{
-						*outfill = (char*)ob-_out;
+						*outfill = ((char*)ob-_out)-count;
 						return(B64_DECODE_PREMATURE_END);
 					}
 					else
 						illegal_eq = TRUE;
 					break;
-					// goto breakfor;
+					
 		}
 		
 	}
-	breakfor:;
+	
+	// TO DO: Ignorieren von überflüssigen "=" Zeichen, also mehr als zwei.
 	/* ai==4 not possible here. ai<4 here. */
 	
 	if(state && dec!=0xfdU)  /* state and no end char */
@@ -260,21 +270,25 @@ ssize_t Base64Decode(
 		switch(ai)
 		{
 			case 3:  /* got 3 chars */
-				if ( acc & 0x03 ) return (B64_DECODE_MISSING_CHAR); //FIXME ???
+				if ( acc & 0x03 ) return (B64_DECODE_MISSING_CHAR); 
 				*(ob++)=(unsigned char)((acc>>10) & 0xffU);
 				*(ob++)=(unsigned char)((acc>> 2) & 0xffU);
+				*outfill = ((char*)ob-_out)-count;
+				return (B64_DECODE_MISSING_CHAR);
 				break;
 			case 2:  /* got 2 chars */
-				if ( acc & 0x0f ) return (B64_DECODE_MISSING_CHAR);// FIXME ???
+				if ( acc & 0x0f ) return (B64_DECODE_MISSING_CHAR);
 				*(ob++)=(unsigned char)((acc>> 4) & 0xffU);
+				*outfill = ((char*)ob-_out)-count;
+				return (B64_DECODE_MISSING_CHAR);
 				break;
 			case 1: 
 				return (B64_DECODE_MISSING_CHAR);
-				break; //FIXME??
+				break; 
 				
 			}
 		}
-	*outfill = (char*)ob-_out;
+	*outfill = ((char*)ob-_out)-count; //Die beim Codieren angefügten "==" müssen als Zeichen wieder entfernt werden.-> -count.
 	return(B64_CODE_NOERROR);
 }
 
@@ -286,7 +300,7 @@ void dobase64enc(const char *infile, const char *OldTitle)
 
     GetTmpName(outfile,"cry",".tmp");
 
-	int lwidth=16; //gewünschte Zeilenlänge/4=lwidth
+	int lwidth=16; //(gewünschte Zeilenlänge/4)=lwidth
 	ssize_t rv;
 	int count;
 	char buffer[STREAM_IN_BLOCKLENGTH_ENC];
@@ -298,14 +312,14 @@ void dobase64enc(const char *infile, const char *OldTitle)
 	std::fstream filein(infile, std::ios_base::in|std::ios_base::binary);
 	if (!filein.is_open())
 	{
-		base64error( outfile,NULL,B64_FILE_OPEN_ERROR,NULL);
+		base64error( outfile,NULL,B64_FILE_OPEN_ERROR,NULL,NULL);
 		return;
 	}
 	std::fstream fileout(outfile, std::ios_base::out|std::ios_base::binary);
 	
 	if (!fileout.is_open())
 	{
-		base64error( outfile,NULL,B64_FILE_OPEN_ERROR,NULL);
+		base64error(outfile,NULL,B64_FILE_OPEN_ERROR,NULL,NULL);
 		return;
 	}																						
 
@@ -324,7 +338,7 @@ void dobase64enc(const char *infile, const char *OldTitle)
 			fileout.write(ob,outchars);
 			if (!fileout.good())
 			{
-				base64error(outfile,NULL,B64_FILE_WRITE_ERROR,NULL);		
+				base64error(outfile,NULL,B64_FILE_WRITE_ERROR,NULL,NULL);		
 				return;
 			}
 		}		
@@ -369,42 +383,40 @@ void dobase64dec(const char *infile, const char *OldTitle)
 	ssize_t outchars=0;
 	ssize_t inchars=0;
 	int zeichen=0;
-	
+	int ai=0;
+
 	std::fstream filein(infile, std::ios_base::in|std::ios_base::binary);
 	if (!filein.is_open())
 	{
-		base64error(infile,buffer[inchars],B64_FILE_OPEN_ERROR,inchars);
+		base64error(infile,NULL,B64_FILE_OPEN_ERROR,NULL,NULL);
 		return;
 	}
 	
 	std::fstream fileout(outfile, std::ios_base::out|std::ios_base::binary);
 	if (!fileout.is_open())
 	{
-		base64error( outfile,buffer[inchars],B64_FILE_OPEN_ERROR,inchars);
+		base64error( outfile,buffer[inchars],B64_FILE_OPEN_ERROR,inchars,NULL);
 		return;
 	}																							
 
 	do
 	{
-			
 		filein.read(buffer, STREAM_IN_BLOCKLENGTH_DEC);
 		count = filein.gcount();
+	
+		rv=Base64Decode(buffer,count,ob,STREAM_OUT_BLOCKLENGTH_DEC,&state, &outchars, &inchars, filein.eof(),&ai);
 			
-			
-		rv=Base64Decode(buffer,count,ob,STREAM_OUT_BLOCKLENGTH_DEC,&state, &outchars, &inchars, filein.eof());
-			
-
 		if(rv<0)
 		{
-			base64error( "",buffer[inchars],rv,inchars+zeichen);	
+			base64error( "",buffer[inchars],rv,inchars+zeichen, ai);	
 			count=0;
 		}
-		if(outchars>0)
+		if(outchars>0 && rv!=B64_DECODE_MISSING_CHAR)
 		{
 			fileout.write(ob,outchars);
 			if (!fileout.good())
 			{
-				base64error(outfile,NULL,B64_FILE_WRITE_ERROR,NULL);		
+				base64error(outfile,NULL,B64_FILE_WRITE_ERROR,NULL,NULL);		
 				return;
 			}
 		}

@@ -47,7 +47,7 @@ statement from your version.
 #include "base64.h"
 
 
-void base64error(std::string text, char errchar,ssize_t errcode, ssize_t position)
+void base64error(std::string text, char errchar,ssize_t errcode, ssize_t position, int chlb)
 {
 	char str[2]; 
 	str[0] = errchar; str[1] = '\0';
@@ -64,7 +64,7 @@ void base64error(std::string text, char errchar,ssize_t errcode, ssize_t positio
 			AfxMessageBox(result, MB_OK);
 			break;
 		case -3:
-			result.Format(IDS_BASE64_DECODE_MISSING_CHARS,text);
+			result.Format(IDS_BASE64_DECODE_MISSING_CHARS, chlb,text);
 			AfxMessageBox(result, MB_OK);
 			break;
 		case -4:		

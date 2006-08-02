@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -10448,7 +10448,7 @@ BEGIN
     IDS_BASE64_DECODE_PREMATURE_END 
                             "Es wurde ein ""="" gefunden vor Ende des Textes.Stelle:%u \nDie Decodierung wurde abgebrochen!"
     IDS_BASE64_DECODE_MISSING_CHARS 
-                            "Fehlerhafter Base64 Code.Keine eindeutige Decodierung der letzten Zeichen möglich!"
+                            "Fehlerhafter Base64-Code.Der letzte Block ist nicht vollständig (nur %u Byte statt 4 Byte). Damitist die Decodierung nicht mehr eindeutig."
     IDS_STRING_MSG_BASE64DEC_OF "Base64 Decodierung von <%s>"
     IDS_STRING_MSG_BASE64ENC_OF "Base64 Codierung von <%s>"
     IDS_BYTES               "Bytes"
@@ -10810,12 +10810,12 @@ BEGIN
     IDS_CR_PASSWORD         "geheim"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -21779,7 +21779,7 @@ BEGIN
     IDS_CR_PASSWORD         "secret"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

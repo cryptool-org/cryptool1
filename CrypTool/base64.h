@@ -60,10 +60,8 @@ statement from your version.
 
 
 #ifndef _HLIB_Base64EncDec_H_
-#define _HLIB_Base64EncDec_H_
-
+#define _HLIB_Base64EncDec_H_ 1
 #define __attribute__(x)
-
 // ERROR CODES
 #define B64_CODE_NOERROR 0
 #define B64_DECODE_PREMATURE_END -1
@@ -73,7 +71,6 @@ statement from your version.
 #define B64_FILE_WRITE_ERROR -5
 
 // #include <hlib/prototypes.h>
-
 
 
 #ifdef __cplusplus
@@ -109,13 +106,11 @@ typedef signed int ssize_t;
  *   set lwidth to values >2^14 (that is 2^14*4=65536 chars per line). 
  * 
  * Return value: 
- *  >=0 -> number of bytes in output
- *   -4 -> output buffer too small 
+ *    0 -> correct encoding
  */
-
-extern ssize_t Base64Encode(
-	const char *_in, size_t inlen,
-	char *_out, size_t outlen, int lwidth,ssize_t *outfill);
+extern __w64 int Base64Encode(
+	const char *_in,size_t inlen,
+	char *_out,size_t outlen,int lwidth/*=0*/,ssize_t *outfill);
 
 /* ---DECODE---
  * Reads in the base64 encoded string passed in _in of size inlen and 
@@ -134,15 +129,17 @@ extern ssize_t Base64Encode(
  *  better relay on the return values for error diagnosis.)
  * Return value: 
  *	  0 -> correct decoding
- *   -2 -> illegal char in input
- *   -3 -> premature end (only if state is NULL or base64 termination 
+ *   -1 -> premature end (only if state is NULL or base64 termination 
  *         char `=' is encountered too early)
- *   -4 -> output buffer too small 
+ *   -2 -> illegal char in input
+ *   -3 -> Bad base64 block.
+ *   -4 -> Error while opening file 
+ *   -5 -> Error while writing to file
  */
 extern ssize_t Base64Decode(
 	const char *_in,size_t inlen,
 	char *_out,size_t outlen,
-	u_int32_t *state /*=NULL*/,ssize_t *outfill,ssize_t *indec, BOOL lastBlock);
+	u_int32_t *state /*=NULL*/,ssize_t *outfill,ssize_t *indec, BOOL lastBlock,int *ai);
 
 #ifdef __cplusplus
 }
@@ -153,9 +150,8 @@ extern ssize_t Base64Decode(
 //////////////////////////////////////////////////////////////////
 void dobase64enc(const char *infile, const char *OldTitle);
 void dobase64dec(const char *infile, const char *OldTitle);
-void base64error(std::string text,char errchar,ssize_t errcode, ssize_t position);
+void base64error(std::string text,char errchar,ssize_t errcode, ssize_t position, int chlb);
 
 
 #endif   /* _HLIB_Base64EncDec_H_ */
-
 
