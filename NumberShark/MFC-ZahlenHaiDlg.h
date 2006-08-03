@@ -142,5 +142,4 @@ public:
 	CString shellBoxText;
 
 	afx_msg void OnBnClickedButtonSwitchStyle();
-	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 };

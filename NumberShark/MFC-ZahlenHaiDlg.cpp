@@ -65,7 +65,7 @@ const int xAchse=4;
 CString Optimal[yAchse][xAchse];
 CString optionenSetting="";
 CString toolTipSetting="";
-CString exePath = GetCommandLine();
+CString exePath = "";
 int showWinner=0;
 int checkList=0;
 int newGameCount=0;
@@ -175,7 +175,6 @@ BEGIN_MESSAGE_MAP(CMFCZahlenHaiDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_UNDO, OnBnClickedButtonUndo)
 	ON_BN_CLICKED(IDC_BUTTON_REDO, OnBnClickedButtonRedo)
 	ON_BN_CLICKED(IDC_BUTTON_SWITCH_STYLE, OnBnClickedButtonSwitchStyle)
-	ON_WM_MOUSEMOVE()
 END_MESSAGE_MAP()
 
 // CMFCZahlenHaiDlg Meldungshandler
@@ -221,7 +220,8 @@ BOOL CMFCZahlenHaiDlg::OnInitDialog()
 	toolTipNumbers.SetTipTextColor(RGB(0,0,0));
 	toolTipNumbers.SetTipBkColor(RGB(213,227,241));
 	CDialog::OnInitDialog();
-		
+	
+	exePath = GetCommandLine();
 	// Hinzufügen des Menübefehls "Info..." zum Systemmenü.
 	// IDM_ABOUTBOX muss sich im Bereich der Systembefehle befinden.
 	ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
@@ -910,7 +910,14 @@ void CMFCZahlenHaiDlg::OnBnClickedButtonOk()
 		CString input;
 		input.Format(IDS_INVALID_INPUT, hai.setSeperator(MAX_ZAHLENHAI_NUMBERS));
 		CString headline;
-		headline.LoadString(IDS_VALID_INPUT_HEADLINE);
+		if(numbers > MAX_ZAHLENHAI_NUMBERS)
+		{
+			headline.LoadString(IDS_VALID_INPUT_HEADLINE);
+		}
+		if(numbers < 1)
+		{
+			headline.LoadString(IDS_VALID_INPUT_HEADLINE_LOW);
+		}
 		MessageBox(input,headline ,MB_ICONWARNING);
 		return;
 	}
@@ -1413,11 +1420,15 @@ void CMFCZahlenHaiDlg::enterWasPressed()
         //Wenn in dem Edit Feld Enter gedrückt wird, wird die Zahl gleich ausgewählt
 		if(buttonID == IDC_EDIT1)
 		{
+			
 			//OK-Button wurde gedrückt
 			OnBnClickedButtonOk();
-			//Der Focus wird auf den Button mit der Zahl 1 gelegt
-			arrayButtonControl[0].SetFocus();
-			((CEdit*)GetDlgItem(IDC_EDIT1))->EnableWindow(false);
+			if(numbers >= 1 && numbers <= MAX_ZAHLENHAI_NUMBERS)
+			{
+				//Der Focus wird auf den Button mit der Zahl 1 gelegt
+				arrayButtonControl[0].SetFocus();
+				((CEdit*)GetDlgItem(IDC_EDIT1))->EnableWindow(false);
+			}
 		}
 		//Aktivierung der Enter Taste auf allen Buttons
 		else
@@ -2046,11 +2057,4 @@ void CMFCZahlenHaiDlg::OnBnClickedButtonSwitchStyle()
 		shellGroupBox.LoadString(IDS_NORMAL_GROUP_BOX);
 		muschelfeld.SetWindowText(shellGroupBox);
 	}
-}
-
-void CMFCZahlenHaiDlg::OnMouseMove(UINT nFlags, CPoint point)
-{
-	// TODO: Fügen Sie hier Ihren Meldungsbehandlungscode ein, und/oder benutzen Sie den Standard.
-
-	CDialog::OnMouseMove(nFlags, point);
 }

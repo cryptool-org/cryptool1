@@ -137,6 +137,8 @@
 #define IDS_NORMAL_GROUP_BOX            200
 #define IDS_NO_SEARCH                   201
 #define IDS_NO_SUMMARY                  202
+#define IDS_IDS_VALID_INPUT_HEADLINE_LOW 203
+#define IDS_VALID_INPUT_HEADLINE_LOW    203
 #define IDR_MAINFRAME                   205
 #define IDC_CURSOR1                     207
 #define IDC_LIST2                       1001

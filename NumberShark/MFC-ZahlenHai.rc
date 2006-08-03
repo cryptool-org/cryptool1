@@ -455,7 +455,7 @@ BEGIN
                             "Bei %s Zahlen ist die maximal erreichbare Punktzahl %s.\r\n\r\nWir können Dir hier die maximale Punktzahl sofort anzeigen, da wir diesen Wert schon vorberechnet    \r\nund im Programm abgelegt haben.\r\n\r\nTipp:\r\nDie höchste Primzahl bei %s Zahlen ist %s. Mit dieser Zahl musst Du das Spiel beginnen, um die maximal mögliche     \r\nPunktzahl zu erreichen.\r\n\r\nWillst Du einen optimalen Weg wissen, der zu diesem Ergebnis führt?\r\n"
     IDS_QUESTION            "\r\nSoll das Programm die maximal mögliche Punktezahl berechnen?\r\n"
     IDS_WARNING             "%s Zahlen - das kann dauern...\r\n\r\nFür 20 Zahlen hat ein 3 GHz Rechner knapp 8 Stunden am Stück gerechnet.\r\nBei 22 Zahlen dauerte das schon ca. 9 Tage. Und bei 30 Zahlen sind es wahrscheinlich Wochen oder Monate.\r\n\r\nFalls Du für %s Zahlen ein Ergebnis herausbekommst, würden wir uns freuen\r\nwenn Du uns dieses zusendest.\r\n\r\nSoll die Berechnung jetzt wirklich durchgeführt werden?\r\n"
-    IDS_INVALID_INPUT       "Keine Zahlen kleiner 1 oder größer %s eingeben!"
+    IDS_INVALID_INPUT       "Für den Zahlenhai können nur Zahlen\r\nzwischen 1 und %s eingegeben werden!"
 END
 
 STRINGTABLE 
@@ -574,6 +574,7 @@ BEGIN
     IDS_NORMAL_GROUP_BOX    "Muschelfeld"
     IDS_NO_SEARCH           "Die Datei ""%s"" konnte nicht erstellt werden, da Du wahrscheinlich nicht genügend Zugriffsrechte in dem Ordner\r\n""%s"" hast.\r\n\r\nDie Berechnung wird trotzdem gestartet, kann aber nach einer Unterbrechnung nicht wieder aufgesetzt werden."
     IDS_NO_SUMMARY          "Die Datei ""%s"" konnte nicht erstellt werden, da Du wahrscheinlich nicht genügend Zugriffsrechte in dem Ordner\r\n""%s"" hast.\r\n"
+    IDS_IDS_VALID_INPUT_HEADLINE_LOW "Die eingegebene Zahl ist zu klein!"
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -947,7 +948,7 @@ BEGIN
                             "The highest attainable score at %s numbers is %s.\r\n\r\nWe can show you the highest possible score, because this value has already been calculated and is stored in the program.\r\n\r\nHint:\r\nThe highest prime with %s numbers is %s. You have to start the game with this prime to be able to reach the maximum score.\r\n\r\nDo you want to see an optimal way to achieve this score?\r\n"
     IDS_QUESTION            "\r\nDo you want the program to calculate the highest possible score?\r\n"
     IDS_WARNING             "%s numbers... This will take a long time.\r\n\r\nFor 20 numbers, a 3 GHz PC had to calculate about 9 hours.\r\nFor 20 numbers the calculation took about 9 days. And we think for 30 numbers it will take weeks or months.\r\n\r\nIf you get some new results for %s numbers, we would appreciate it if you could send them to us.\r\n\r\nDo you really want the calculation to be performed now?\r\n"
-    IDS_INVALID_INPUT       "Do not enter any number smaller than 1 or bigger than %s!"
+    IDS_INVALID_INPUT       "In the Number Shark game you can/r/nplay with numbers between 1 and %s!"
 END
 
 STRINGTABLE 
@@ -1066,6 +1067,7 @@ BEGIN
     IDS_NORMAL_GROUP_BOX    "Shell square"
     IDS_NO_SEARCH           "The file ""%s"" could not be written. Probably you do not have enough rights in the folder\r\n""%s"".\r\n\r\nThe calculation will be started anyway, but can't be continued after a break. "
     IDS_NO_SUMMARY          "The file ""%s"" could not be written. Probably you do not have enough rights in the folder\r\n""%s"".\r\n"
+    IDS_VALID_INPUT_HEADLINE_LOW "The entered number is to low."
 END
 
 #endif    // Englisch (GB) resources
