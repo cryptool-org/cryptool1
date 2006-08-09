@@ -59,6 +59,7 @@ statement from your version.
 
 #include "assert.h"
 #include "PlayfairAnalysis.h"
+
 #include "CrypToolApp.h"
 #include <stdio.h>
 using namespace std;
@@ -1108,9 +1109,10 @@ char *CPlayfairAnalysis::CreatePassfromMatrix()
 			p[j++] = getCharOfMatrix (i/5,i%5);
 	}
 	p[j--]=0;
-	while (maxkeyval(p,j)+1==keyval(p[j])&&j>=0)
-		p[j--]=0;
+//	while (maxkeyval(p,j)+1==keyval(p[j])&&j>=0)
+//		p[j--]=0;
 	
+
 	strcpy(passphrase,p);
 	return passphrase;
 }
