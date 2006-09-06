@@ -1,91 +1,99 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
-<HEAD>
-<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Dialog Primzahltest</TITLE>
-<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
-<script language="JScript" src="helper.js"></script>
-</HEAD>
-
-<!-- multiple keywords for CrypTool HTML help index -->
-<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
-    <PARAM NAME="Keyword" VALUE="Primzahlen">
-    <PARAM NAME="Keyword" VALUE="Dialog (Übersicht aller Dialoge)">
-</OBJECT>
-
-<BODY>
-
-<h3>Dialog Primzahltest</h3>
-
-<P>Sie k&ouml;nnen diesen Dialog &uuml;ber das Men&uuml; <a href="menu_related_methods.html">Einzelverfahren</a> \ <a href="menu_individualprocedures_rsacryptosystem.html">RSA-Kryptosystem</a> \ <a href="hidd_prime_test.html">Primzahltest</a> aufrufen.</P>
-
-<P>Primzahlen sind nat&uuml;rliche Zahlen gr&ouml;&szlig;er 1, die nur durch die 1 und durch sich selbst teilbar sind. Sie spielen in der Kryptographie eine wichtige Rolle. Im Dialog Primzahltest k&ouml;nnen Sie eine Zahl testen, ob diese eine Primzahl ist oder nicht:</P>
-
-<P><IMG SRC="images/DialogPrimzahltest1.gif" BORDER=0></P>
-
-<P>Duch Bet&auml;tigen des Buttons <B>Zahl testen</B> wird gepr&uuml;ft, ob die in dem Eingabefeld "Zu testende Zahl" enthaltene Zahl eine Primzahl ist oder nicht. In der Eingabe k&ouml;nnen direkt ganze Zahlen oder auch Terme eingegeben werden.</P>
-
-<P>Gegenw&auml;rtig k&ouml;nnen im Dialog nur positive ganze Zahlen bis zu einer Bitl&auml;nge von 8192 eingegeben werden. Dies entspricht Dezimalzahlen bis 2466 Stellen.</P>
-
-<P>In diesem Dialog k&ouml;nnen Sie zwischen den folgenden Algorithmen zum Primzahltest w&auml;hlen:</P>
-
-<UL>
-        <LI>Miller-Rabin-Test,</LI>
-
-        <LI>Fermat-Test,</LI>
-
-        <LI>Solovay-Strassen-Test und</LI>
-
-        <LI>AKS-Test.</LI>
-</UL>
-
-<P>Die Tabelle zeigt, wie lange die verschiedenen Tests bei verschiedenen Primzahlen dauerten. Die Zeitmessungen wurden mit einem Intel Pentium-4 Prozessor, 2 GHz durchgef&uuml;hrt.</P>
-
-<table width="600" border="1">
-<tr align="center" >
- <th>Primzahl</th>
- <th>Miller-Rabin</th>
- <th>Fermat</th>
- <th>Solovay-Strassen</th>
- <th>AKS-Verfahren</th>
-</tr>
-<tr align="right" >
- <td>7309</td>
- <td>0,01s</td>
- <td>0,01s</td>
- <td>0,01s</td>
- <td>1,192s</td>
-</tr>
-<tr align="right" >
- <td>9004097</td>
- <td>0,01s</td>
- <td>0,01s</td>
- <td>0,01s</td>
- <td>16,293s</td>
-</tr>
-<tr align="right" >
- <td>2^31-1</td>
- <td>0,01s</td>
- <td>0,01s</td>
- <td>0,01s</td>
- <td>106,261s</td>
-</tr>
-<tr align="right" >
- <td>2^607-1</td>
- <td>0,61s</td>
- <td>0,61s</td>
- <td>1,62s</td>
- <td>k.A.</td>
-</tr>
-</table>
-<P>
-Tabelle: Zeitdauer der Algorithmen in Sekunden.
-</P>
-
-
-<P>&Uuml;ber den Button <B>Zahl aus Datei laden</B> haben Sie die M&ouml;glichkeit, eine Zahl aus einer Textdatei einzulesen. Die Datei darf nur eine einzige Zahl beinhalten und dazu keinerlei Text. Leerzeichen oder Zeilenumbr&uuml;che innerhalb der Datei werden beim Einlesevorgang entfernt.</P>
-
-<P>Ausf&uuml;hrliche Informationen zum Thema Primzahlen finden Sie im <A class="filelink" onclick="parser('script-de.pdf')">Skript</A>.</P>
-
-</BODY>
+	<HEAD>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<TITLE>Dialog Primzahltest</TITLE>
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+			<script language="JScript" src="helper.js"></script>
+	</HEAD>
+	<!-- multiple keywords for CrypTool HTML help index -->
+	<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+		VIEWASTEXT>
+		<PARAM NAME="Keyword" VALUE="Primzahlen">
+		<PARAM NAME="Keyword" VALUE="Dialog (Übersicht aller Dialoge)">
+	</OBJECT>
+	<BODY>
+		<h3>Dialog Primzahltest</h3>
+		<P>Sie k&ouml;nnen diesen Dialog &uuml;ber das Men&uuml; <a href="menu_related_methods.html">
+				Einzelverfahren</a> \ <a href="menu_individualprocedures_rsacryptosystem.html">RSA-Kryptosystem</a>
+			\ <a href="hidd_prime_test.html">Primzahltest</a> aufrufen.</P>
+		<P>Primzahlen sind nat&uuml;rliche Zahlen gr&ouml;&szlig;er 1, die nur durch die 1 
+			und durch sich selbst teilbar sind. Sie spielen in der Kryptographie eine 
+			wichtige Rolle. Im Dialog Primzahltest k&ouml;nnen Sie eine Zahl eingeben und 
+			testen, ob diese eine Primzahl ist oder nicht:</P>
+		<P><IMG SRC="images/DialogPrimzahltest1.gif" BORDER="0"></P>
+		<P>Duch Bet&auml;tigen des Buttons <B>Zahl testen</B> wird gepr&uuml;ft, ob die in 
+			dem Eingabefeld "Zu testende Zahl" enthaltene Zahl eine Primzahl ist oder 
+			nicht. In der Eingabe k&ouml;nnen direkt ganze Zahlen oder auch mathematische 
+			Ausdrücke (Terme) eingegeben werden.</P>
+		<P>Gegenw&auml;rtig k&ouml;nnen im Dialog nur positive ganze Zahlen bis zu einer 
+			Bitl&auml;nge von 8192 eingegeben werden. Dies entspricht Dezimalzahlen bis 
+			2466 Stellen.</P>
+		<P>In diesem Dialog k&ouml;nnen Sie zwischen den folgenden Algorithmen zum 
+			Primzahltest w&auml;hlen:</P>
+		<UL>
+			<LI>
+				Miller-Rabin-Test,</LI>
+			<LI>
+				Fermat-Test,</LI>
+			<LI>
+				Solovay-Strassen-Test und</LI>
+			<LI>
+				AKS-Test.</LI>
+		</UL>
+		<P>Die Tabelle zeigt, wie lange die verschiedenen Tests bei verschiedenen 
+			Primzahlen dauerten: Die Zeitmessungen wurden mit einem Intel Pentium-4 
+			Prozessor, 2 GHz durchgef&uuml;hrt.</P>
+		<table width="600" border="1">
+			<tr align="center">
+				<th>
+					Primzahl</th>
+				<th>
+					Miller-Rabin</th>
+				<th>
+					Fermat</th>
+				<th>
+					Solovay-Strassen</th>
+				<th>
+					AKS-Verfahren</th>
+			</tr>
+			<tr align="right">
+				<td>7309</td>
+				<td>0,01</td>
+				<td>0,01</td>
+				<td>0,01</td>
+				<td>1,192</td>
+			</tr>
+			<tr align="right">
+				<td>9004097</td>
+				<td>0,01</td>
+				<td>0,01</td>
+				<td>0,01</td>
+				<td>16,293</td>
+			</tr>
+			<tr align="right">
+				<td>2^31-1</td>
+				<td>0,01</td>
+				<td>0,01</td>
+				<td>0,01</td>
+				<td>106,261</td>
+			</tr>
+			<tr align="right">
+				<td>2^607-1</td>
+				<td>0,61</td>
+				<td>0,61</td>
+				<td>1,62</td>
+				<td>k.A.</td>
+			</tr>
+		</table>
+		<P>
+			Tabelle: Zeitdauer der Algorithmen in Sekunden.
+		</P>
+		<P>&Uuml;ber den Button <B>Zahl aus Datei laden</B> haben Sie die M&ouml;glichkeit, 
+			eine Zahl aus einer Textdatei einzulesen. Die Datei darf nur eine einzige Zahl 
+			oder einen Term beinhalten und dazu keinerlei Text. Leerzeichen oder 
+			Zeilenumbr&uuml;che innerhalb der Datei werden beim Einlesevorgang entfernt.</P>
+		<P>Ausf&uuml;hrliche Informationen zum Thema Primzahlen finden Sie im <A class="filelink" onclick="parser('script-de.pdf')">
+				Skript</A>.</P>
+	</BODY>
 </HTML>

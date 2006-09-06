@@ -1419,7 +1419,9 @@ void CCryptDoc::OnAnalyseZufallstestsFrequencytest()
 		CDlgFreqTest FREQT;
 		FREQT.SetCurrentTest( &test );
 		FREQT.init(ContentName, GetTitle());
-		sprintf(FREQT.tmpStr, "Frequency Test");
+		//sprintf(FREQT.tmpStr, "Frequency Test");
+		LoadString(AfxGetInstanceHandle(), IDS_STRING_TEST_FREQ, FREQT.tmpStr, STR_LAENGE_STRING_TABLE);
+		
 		LoadString(AfxGetInstanceHandle(), IDS_STRING_CAPTATION_FREQUENCY_TEST, pc_str, STR_LAENGE_STRING_TABLE);
 		char tmpstr[127];
 		sprintf(tmpstr, pc_str, GetTitle());
@@ -1450,8 +1452,8 @@ void CCryptDoc::OnAnalyseZufallstestsSerialtest()
 		CDlgFreqTest SERT;
 		SERT.SetCurrentTest( &test );
 		SERT.init(ContentName, GetTitle());
-		sprintf(SERT.tmpStr, "Serial Test");
-
+		//sprintf(SERT.tmpStr, "Serial Test");
+		LoadString(AfxGetInstanceHandle(), IDS_STRING_TEST_SERIAL,SERT.tmpStr, STR_LAENGE_STRING_TABLE);
 		LoadString(AfxGetInstanceHandle(), IDS_STRING_CAPTATION_SERIAL_TEST, pc_str, STR_LAENGE_STRING_TABLE);
 		char tmpstr[127];
 		sprintf(tmpstr, pc_str, GetTitle());
@@ -1509,8 +1511,8 @@ void CCryptDoc::OnAnalyseZufallstestsPokertest()
 		POKT.Set_Poker_Flag( TRUE );
 		POKT.SetCurrentTest( &test );
 		POKT.init(ContentName, GetTitle());
-		sprintf(POKT.tmpStr, "Poker Test");
-
+	//	sprintf(POKT.tmpStr, "Poker-Test");
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_TEST_POKER,POKT.tmpStr,STR_LAENGE_STRING_TABLE);
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_CAPTATION_POKER_TEST,pc_str,STR_LAENGE_STRING_TABLE);
 		char tmpStr[256];
 		sprintf( tmpStr, pc_str, GetTitle());

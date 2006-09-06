@@ -32,6 +32,12 @@
 #define IDS_CR_SERVER                   19
 #define IDS_CR_ATTACKER                 20
 #define IDS_CR_PASSWORD                 21
+#define IDS_STRING_TEST_POKER           22
+#define IDS_STRING_TEST_FREQ            24
+#define IDS_STRING_TEST_SERIAL          25
+#define IDS_STRING_TEST_RUNS_NICHT_BESTANDEN 26
+#define IDS_STRING_TEST_LONGRUN         27
+#define IDS_STRING_TEST_RUNS_BESTANDEN  28
 #define IDC_EDIT53                      53
 #define IDC_EDIT69                      54
 #define IDC_EDIT88                      55
@@ -285,6 +291,8 @@
 #define IDS_UU_FILE_OPEN_ERROR          853
 #define IDS_STRING_MSG_UUDEC_OF         854
 #define IDD_AUTO_SUBSTITUTION_ANALYSIS  854
+#define IDS_STRING_TEST_LONGRUN_BESTANDEN 855
+#define IDS_STRING_TEST_LONGRUN_NICHT_BESTANDEN 856
 #define IDC_EDIT133                     1015
 #define IDC_EDIT1                       1016
 #define IDC_EDIT2                       1017
@@ -2670,7 +2678,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        855
+#define _APS_NEXT_RESOURCE_VALUE        856
 #define _APS_NEXT_COMMAND_VALUE         33339
 #define _APS_NEXT_CONTROL_VALUE         1892
 #define _APS_NEXT_SYMED_VALUE           107

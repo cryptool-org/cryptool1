@@ -489,9 +489,9 @@ void CDlgHybridEncryptionDemo::OnButtonGetAsymKey()
 
 		CKeyFile KeyHandling;
 		CString caDB_entry_name = KeyHandling.CreateDistName(rsaDlg.Name, rsaDlg.Firstname, rsaDlg.CreatTime);
-		LPTSTR string1 = new TCHAR[caDB_entry_name.GetLength()+1];
-		_tcscpy(string1, caDB_entry_name);
-		char *Auswahl=string1; // Auswahl entspricht caDB_entry_name
+		//LPTSTR string1 = new TCHAR[caDB_entry_name.GetLength()+1];
+		//_tcscpy(string1, caDB_entry_name);
+		//char *Auswahl=string1; // Auswahl entspricht caDB_entry_name
 		PSE PseHandle;
 		PseHandle=theApp.SecudeLib.af_open(CaPseDatei, CaPseVerzeichnis, PSEUDO_MASTER_CA_PINNR, NULL);
 		if (PseHandle==NULL)
@@ -499,13 +499,13 @@ void CDlgHybridEncryptionDemo::OnButtonGetAsymKey()
 			// Fehler beim öffnen der CA-Datenbank
 			SetCondition(3,false);
 			Message(IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE, MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
-			delete string1;
+		//	delete string1;
 			return;
 		}
 		
 		//Routine für das Holen von Zertifikaten aus der CA-Datenbank
 		SET_OF_IssuedCertificate *Zert;
-		Zert=theApp.SecudeLib.af_cadb_get_user(PseHandle, Auswahl);
+		Zert=theApp.SecudeLib.af_cadb_get_user(PseHandle, (char *)LPCTSTR(caDB_entry_name)); // Cast discards 'const'
 		if (Zert==NULL)
 		{
 			// Fehler beim lesen des Zertifikats
@@ -516,7 +516,7 @@ void CDlgHybridEncryptionDemo::OnButtonGetAsymKey()
 			CString Fehler3=(CString)pc_str+(CString)Fehler2;
 			AfxMessageBox (Fehler3,MB_ICONSTOP);
 			// Freigeben von dynamisch angelegtem Speicher
-			delete string1;
+		//	delete string1;
 			theApp.SecudeLib.af_close(PseHandle);
 			return;
 		}
@@ -542,7 +542,7 @@ void CDlgHybridEncryptionDemo::RSAEncrypt()
 		in->octets=new char[symKeyByteLength];	
 		memcpy(in->octets,SymKey,symKeyByteLength);
 		in->noctets=symKeyByteLength;
-
+		
 		int max_RSA_keysize_in_octs = ((MAX_RSA_MODULSIZE+1)+7)/8; // siehe DlgAsymKeyCreat.h for MAX_RSA_MODULSIZE
 		int number_outbits_in_wc = in->noctets + in->noctets/37 + max_RSA_keysize_in_octs; // Blocksize ~ 37
 		
@@ -636,7 +636,7 @@ void CDlgHybridEncryptionDemo::RSAEncrypt()
 		int start = modulLengthInBytes - in->noctets;
 		memcpy(newIn.octets + start, in->octets, in->noctets);
 		newIn.noctets = modulLengthInBytes;
-		delete in->octets;
+		delete []in->octets;
 		in->octets = new char[modulLengthInBytes];
 		memcpy(in->octets, newIn.octets, newIn.noctets);
 		in->noctets = modulLengthInBytes;
@@ -662,7 +662,7 @@ void CDlgHybridEncryptionDemo::RSAEncrypt()
 			return;
 		}
 		delete []in->octets;
-		delete in;
+		delete []in;
 
 		// Ausgabe der verschlüsselten Daten
 
@@ -671,6 +671,7 @@ void CDlgHybridEncryptionDemo::RSAEncrypt()
 		theApp.SecudeLib.af_close (PseHandle);
 		theApp.SecudeLib.aux_free_SET_OF_IssuedCertificate (&Liste);
 		theApp.SecudeLib.aux_free_Certificate (&Zert);
+		free(out.bits);
 		delete string3;	
 	}
 }
@@ -730,7 +731,6 @@ void CDlgHybridEncryptionDemo::OnButtonShowAsymKey()
 	in->octets=new char[symKeyByteLength];	
 	memcpy(in->octets,SymKey,symKeyByteLength);
 	in->noctets=symKeyByteLength;
-
 	int max_RSA_keysize_in_octs = ((MAX_RSA_MODULSIZE+1)+7)/8; // siehe DlgAsymKeyCreat.h for MAX_RSA_MODULSIZE
 	int number_outbits_in_wc = in->noctets + in->noctets/37 + max_RSA_keysize_in_octs; // Blocksize ~ 37
 	
@@ -760,9 +760,10 @@ void CDlgHybridEncryptionDemo::OnButtonShowAsymKey()
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox (((CString)pc_str)+theApp.SecudeLib.LASTTEXT,MB_ICONSTOP);
 		// Freigeben von dynamisch angelegtem Speicher
+		
 		theApp.SecudeLib.aux_free_OctetString(&in);
 		free(out.bits);
-		delete string3;
+		delete[] string3;
 		return;
 	}
 	
@@ -1161,7 +1162,7 @@ CDlgHybridEncryptionDemo::~CDlgHybridEncryptionDemo()
 		theApp.SecudeLib.aux_free_OctetString(&PlainText);
 
 	// allokierten Speicher freigeben
-	if(SymKey) delete SymKey;
+	if(SymKey) delete [] SymKey;
 }
 
 bool CDlgHybridEncryptionDemo::DateiOeffnen(const CString &DateiPfadName)
@@ -1217,17 +1218,20 @@ void CDlgHybridEncryptionDemo::OnButtonDatenausgabe()
 	char helptext[100];
 	// Ausgabe Empfänger
 		// Umwandeln von CString nach char*
-	LPTSTR string_tmp1 = new TCHAR[UserKeyId.GetLength()+1];
-	_tcscpy(string_tmp1, UserKeyId);
-	char *UserKeyId_tmp=string_tmp1;
+	//LPTSTR string_tmp1 = new TCHAR[UserKeyId.GetLength()+1];
+	//_tcscpy(string_tmp1, UserKeyId);
+	//char *UserKeyId_tmp=string_tmp1;
+
 
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_RECIEVER,helptext,100);
 	Text.noctets=strlen(helptext);
 	Text.octets=helptext;
 	theApp.SecudeLib.aux_OctetString2file(&Text,outfile,2);
-	Text.noctets=strlen(UserKeyId_tmp);
-	Text.octets=UserKeyId_tmp;
+	Text.noctets=UserKeyId.GetLength();
+	Text.octets=(char *)LPCTSTR(UserKeyId); // Cast discards 'const'
 	theApp.SecudeLib.aux_OctetString2file(&Text,outfile,3);
+
+	//delete[] string_tmp1;
 	
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_LENGTH_ENC_KEY,helptext,100);
 	Text.noctets=strlen(helptext);
@@ -1247,6 +1251,8 @@ void CDlgHybridEncryptionDemo::OnButtonDatenausgabe()
 	theApp.SecudeLib.aux_OctetString2file(&Text,outfile,3);
 	theApp.SecudeLib.aux_OctetString2file(EncSymKey,outfile,3);
 	
+	theApp.SecudeLib.aux_free_OctetString(&EncSymKey);
+
 	// Ausgabe Symmetric method
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_SYM_METHOD,helptext,100);
 	Text.noctets=strlen(helptext);

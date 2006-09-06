@@ -121,6 +121,8 @@ protected:
 private:
 	BOOL poker_flag;
     char s_alternativeWindowText[127];
+public:
+	afx_msg void OnStnClickedInfoStatic();
 };
 
 

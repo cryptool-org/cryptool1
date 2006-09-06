@@ -1,22 +1,21 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
-<HEAD>
-<TITLE>Poker-Test</TITLE>
-<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
-</HEAD>
-
-<!-- multiple keywords for CrypTool HTML help index -->
-<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
-	<PARAM NAME="Keyword" VALUE="Poker-Test">
-	<PARAM NAME="Keyword" VALUE="Zufall">
-	<PARAM NAME="Keyword" VALUE="Analyse">
-</OBJECT>
-
-<BODY>
-
-<h3>Poker-Test (Menü <A href="menu_analyze.html">Analyse</A> \ Zufallsanalyse)</h3>
-
+	<HEAD>
+		<TITLE>Poker-Test</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	</HEAD>
+	<!-- multiple keywords for CrypTool HTML help index -->
+	<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+		VIEWASTEXT>
+		<PARAM NAME="Keyword" VALUE="Poker-Test">
+		<PARAM NAME="Keyword" VALUE="Zufall">
+		<PARAM NAME="Keyword" VALUE="Analyse">
+	</OBJECT>
+	<BODY>
+		<h3>Poker-Test (Menü <A href="menu_analyze.html">Analyse</A> \ Zufallsanalyse)</h3>
+		<p>Beim Aufruf dies Menüeintrags öffnet sich der <A href="dialog_poker.html">Dialog 
+				für den Poker-Test</A>.</p>
 		<P>Für den Poker-Test muss die zu untersuchende Teilfolge <I>s</I> der Länge n mit 
 			s_i Elementen aus dem Wertebereich [0; 1]; 0 &lt;= i &lt;= n - 1, durch
 		</P>
@@ -25,7 +24,7 @@
 			</P>
 		</div>
 		<P>in ganze Zahlen aus dem Bereich [0; d - 1] transformiert werden. Nun betrachtet 
-			man jeweils fünf ganzzahlige, aufeinanderfolgende, nicht – überlappende Zahlen 
+			man jeweils fünf ganzzahlige, aufeinanderfolgende, nicht-überlappende Zahlen 
 			aus u. Dabei treten - wie beim Pokerspiel - folgende Muster auf:</P>
 		<div class="indent">
 			<PRE><CODE>    Bust:            abcde
@@ -92,7 +91,7 @@
 11010001 00101110 11010100 11000011 01010001
 11010110 00110010 10001111 00000111 01000111</CODE></PRE>
 		<P>mit der Länge n = 160 (20 Byte) klassischen Poker-Test durchgeführt. Das <!--ZZZPOPUP--><A href="sign_niv.html">Signifikanzniveau</A>
-			wird mit ‘alpha‚ = 0.05 festgelegt.</P>
+			wird mit alpha = 0.05 festgelegt.</P>
 		<P>Wir wählen m = 3 (Tupelgröße). Die Analyse der k = 53 nicht-überlappenden Triple 
 			von s ergibt:</P>
 		<PRE><CODE>N[000] = 4    N[100] = 9
@@ -105,7 +104,7 @@ N[011] = 9    N[111] = 7</CODE></PRE>
 				6.925</P>
 		</div>
 		<P><A href="chi_2_verteilung.html">chi^2- Verteilung</A> Tabelle liefert uns bei 
-			einem <!--ZZZPOPUP--><A href="sign_niv.html">Signifikanzniveau</A> von ‘alpha‚ 
+			einem <!--ZZZPOPUP--><A href="sign_niv.html">Signifikanzniveau</A> von alpha 
 			= 0.05 bei einer <A href="chi_2_verteilung.html">chi^2- Verteilung</A> mit 2 ^ 
 			3 - 1 = 7 Freiheitsgraden einen Grenzwert von 14.07. Mit X3 = 6.925 &lt;= 14.07 
 			besteht die Folge <I>s</I> den Poker-Test.</P>

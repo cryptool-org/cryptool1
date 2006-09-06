@@ -244,7 +244,6 @@ BEGIN
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_EDITLABELS | WS_BORDER | WS_TABSTOP,
                     10,169,400,100
-    DEFPUSHBUTTON   "&Neues Schlüsselpaar erzeugen ...",IDOK,10,312,128,19
     PUSHBUTTON      "PKCS#12 &Import",IDC_BUTTON_P12IMPORT,154,312,86,19
     CONTROL         "Anzeigen des erzeugten Schlüsselpaares",IDC_CHECK1,
                     "Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,266,286,
@@ -270,6 +269,7 @@ BEGIN
     EDITTEXT        IDC_EDIT_LV,363,272,39,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_VISIBLE | NOT WS_BORDER
     LTEXT           "Name:",IDC_STATIC,240,50,46,8
+    DEFPUSHBUTTON   "&Neues Schlüsselpaar erzeugen ...",IDOK,10,312,128,19
 END
 
 IDD_RSA_ENCRYPTION DIALOG  0, 0, 392, 271
@@ -1971,16 +1971,16 @@ BEGIN
                     SS_NOTIFY
 END
 
-IDD_FRQ_TEST DIALOG  0, 0, 250, 178
+IDD_FRQ_TEST DIALOGEX 0, 0, 250, 178
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Frequency-Test"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     COMBOBOX        IDC_COMBO_ALPHA,101,18,45,44,CBS_DROPDOWNLIST | CBS_SORT | 
                     WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_TUPELCOMBO,206,18,27,60,CBS_DROPDOWNLIST | CBS_SORT | 
                     WS_VSCROLL | WS_TABSTOP
-    CONTROL         "Default Offset und Testlänge",IDC_CHECK1,"Button",
+    CONTROL         "Default-Offset und -Testlänge",IDC_CHECK1,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,15,39,106,11
     CONTROL         "Zufällige Blöcke aus der Datei verwenden",IDC_CHECK2,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,52,159,10
@@ -1989,7 +1989,7 @@ BEGIN
     PUSHBUTTON      "&Test durchführen",IDC_BUTTON_FREQTEST,8,152,79,19
     DEFPUSHBUTTON   "&Schließen",IDOK,164,152,79,19
     GROUPBOX        "Parameterwahl",IDC_STATIC,8,7,235,82
-    LTEXT           "Signifikanzniveau 'alpha':",IDC_STATIC,15,20,80,8
+    LTEXT           "Signifikanzniveau alpha:",IDC_STATIC,15,20,78,8
     LTEXT           "Tupelgrösse:",IDC_TUPEL_STATIC,159,20,42,8
     LTEXT           "Offset: ",IDC_STATIC,15,70,24,8
     LTEXT           "Testlänge:",IDC_STATIC,136,69,34,8
@@ -2002,38 +2002,38 @@ BEGIN
                     120,18,16
 END
 
-IDD_RUNS_TEST DIALOG  0, 0, 234, 295
+IDD_RUNS_TEST DIALOGEX 0, 0, 233, 307
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Runs-Test"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    PUSHBUTTON      "Tests durchführen",IDC_TESTBUTTON,8,270,67,18
+    PUSHBUTTON      "Tests durchführen",IDC_TESTBUTTON,8,276,67,18
     COMBOBOX        IDC_COMBO1,107,19,52,46,CBS_DROPDOWNLIST | CBS_SORT | 
                     WS_VSCROLL | WS_TABSTOP
-    CONTROL         "Default Run Test  Parameter",IDC_CHECK2,"Button",
+    CONTROL         "Default-Runs-Test-Parameter",IDC_CHECK2,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,18,39,104,10
     CONTROL         "Zufällige Blöcke aus der Datei verwenden",IDC_CHECK3,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,51,170,13
     EDITTEXT        IDC_EDIT2,53,70,54,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT5,53,89,54,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT4,162,70,55,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT6,76,144,63,12,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&Schließen",IDOK,143,270,83,18
-    GROUPBOX        "Runs Parameter",IDC_STATIC,8,7,218,104
-    LTEXT           "Signifikanzniveau 'alpha': ",IDC_STATIC,18,21,82,8
+    EDITTEXT        IDC_EDIT6,79,144,63,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&Schließen",IDOK,143,276,83,18
+    GROUPBOX        "Runs-Parameter",IDC_STATIC,8,7,218,104
+    LTEXT           "Signifikanzniveau alpha: ",IDC_STATIC,18,21,80,8
     LTEXT           "Offset:",IDC_STATIC,18,72,22,8
     LTEXT           "Testlänge:",IDC_STATIC,120,72,34,8
     LTEXT           "Runlänge:",IDC_STATIC,18,91,34,8
-    GROUPBOX        "Long Runs Parameter",IDC_STATIC,8,115,218,50
-    CONTROL         "Default Long Run Parameter",IDC_CHECK1,"Button",
+    GROUPBOX        "Long-Runs-Parameter",IDC_STATIC,8,115,218,50
+    CONTROL         "Default-Long-Runs-Parameter",IDC_CHECK1,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,18,127,110,10
-    LTEXT           "Long Run Länge:",IDC_STATIC,18,145,56,8
-    GROUPBOX        "Teststatus",IDC_STATIC,8,168,218,96
+    LTEXT           "Long-Runs-Länge:",IDC_STATIC,18,145,60,8
+    GROUPBOX        "Teststatus",IDC_STATIC,8,168,217,103
     LTEXT           "Static",IDC_INFO_STATIC_RUN,18,179,128,17
     LTEXT           "\nBitte auf die ""Tests durchführen""\ntaste drücken !!!",
                     IDC_RUN_ERGEBNIS,18,203,101,12
     LTEXT           "Static",IDC_INFO_STATIC_LONGRUN,18,220,128,16
-    LTEXT           "",IDC_LONGRUN_ERGEBNIS,18,244,101,12
+    LTEXT           "",IDC_LONGRUN_ERGEBNIS,18,244,101,21
     CONTROL         251,IDC_ERFOLGNICHT_RUN,"Static",SS_BITMAP,130,199,18,16
     CONTROL         251,IDC_ERFOLGNICHT_LONGRUN,"Static",SS_BITMAP,130,240,
                     18,16
@@ -8013,6 +8013,11 @@ BEGIN
         HORZGUIDE, 326
     END
 
+    IDD_RUNS_TEST, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 295
+    END
+
     IDD_HASH_DEMO, DIALOG
     BEGIN
         VERTGUIDE, 16
@@ -9598,7 +9603,7 @@ BEGIN
     ID_ANALYSE_ZUFALLSTESTS_POKERTEST 
                             "Führt den Poker-Test durch, um die Güte der Zufälligkeit der Daten im aktiven Dokument zu bewerten"
     ID_ANALYSE_ZUFALLSTESTS_RUNS 
-                            "Führt den Run and Long-Test durch, um die Güte der Zufälligkeit der Daten im aktiven Dokument zu bewerten"
+                            "Führt den Runs und Long-Runs-Test durch, um die Güte der Zufälligkeit der Daten im aktiven Dokument zu bewerten"
     ID_ANALYSE_ZUFALLSTESTS_SERIALTEST 
                             "Führt den Serial-Test durch, um die Güte der Zufälligkeit der Daten im aktiven Dokument zu bewerten"
     ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401 
@@ -9665,16 +9670,16 @@ BEGIN
                             "Offset + Testlänge muss <= Dateilänge oder\nTestlänge muss nicht gleich Null sein !"
     IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE 
                             "Der Paramater der maximalen Run-Länge ist zu groß gewählt !\nBitte wählen Sie die maximale Run-Länge aus dem Wertebereich [1..%i]."
-    IDS_STRING_TESTS_ERGEBNIS_BESTANDEN "%s bestanden !"
-    IDS_STRING_TESTS_ERGEBNIS_NICHT_BESTANDEN "%s nicht bestanden !"
-    IDS_STRING_TESTS_BATTERIE_BESTANDEN "Testbatterie bestanden !"
-    IDS_STRING_TESTS_BATTERIE_NICHT_BESTANDEN "Testbatterie nicht bestanden !"
-    IDS_STRING_TESTS_FALSCHE_OFFSET_DIALOG "Falsche Offset/Testlänge !"
+    IDS_STRING_TESTS_ERGEBNIS_BESTANDEN "%s bestanden!"
+    IDS_STRING_TESTS_ERGEBNIS_NICHT_BESTANDEN "%s nicht bestanden!"
+    IDS_STRING_TESTS_BATTERIE_BESTANDEN "Testbatterie bestanden!"
+    IDS_STRING_TESTS_BATTERIE_NICHT_BESTANDEN "Testbatterie nicht bestanden!"
+    IDS_STRING_TESTS_FALSCHE_OFFSET_DIALOG "Falsche Offset/Testlänge!"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE_DIALOG "Falsche Longrun-Länge !"
+    IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE_DIALOG "Falsche Longrun-Länge!"
     IDS_STRING_PKCS5_KEYGEN_ITERATIONS_EXCEEDED 
                             "Die maximale Anzahl der Hash-Iterationen ist beschränkt auf 10.000 Iterationen ! \nBitte wählen Sie unter 'Anzahl der Iterationen' eine kleinere Zahl."
     IDS_STRING_PKCS5_KEYGEN_ITERATIONS_NEGATIVE 
@@ -10798,6 +10803,8 @@ BEGIN
                             "Fehlerhafter UU-Code. Kein vollständiger Block (nur 1 Byte statt 2 bis 4 Byte). Damit ist die Decodierung nicht mehr eindeutig."
     IDS_UU_FILE_OPEN_ERROR  "Fehler beim Öffnen der Datei %s."
     IDS_STRING_MSG_UUDEC_OF "UU-Dekodierung von <%s>"
+    IDS_STRING_TEST_LONGRUN_BESTANDEN "Long-Runs-Test bestanden!"
+    IDS_STRING_TEST_LONGRUN_NICHT_BESTANDEN "Long-Runs-Test nicht bestanden!"
 END
 
 STRINGTABLE 
@@ -10808,6 +10815,11 @@ BEGIN
     IDS_CR_SERVER           "Server %d"
     IDS_CR_ATTACKER         "Angreifer"
     IDS_CR_PASSWORD         "geheim"
+    IDS_STRING_TEST_POKER   "Poker-Test"
+    IDS_STRING_TEST_FREQ    "Frequency-Test"
+    IDS_STRING_TEST_SERIAL  "Serial-Test"
+    IDS_STRING_TEST_RUNS_NICHT_BESTANDEN "Runs-Test nicht bestanden!"
+    IDS_STRING_TEST_RUNS_BESTANDEN "Runs-Test bestanden!"
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -12280,10 +12292,10 @@ BEGIN
     LTEXT           "bit",IDC_STATIC,87,82,8,8
 END
 
-IDD_SHOW_KEY_PARAMETER DIALOG  0, 0, 317, 156
+IDD_SHOW_KEY_PARAMETER DIALOGEX 0, 0, 317, 156
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Public Parameters"
-FONT 8, "MS Sans Serif"
+CAPTION "Public parameters"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&Apply",IDOK,12,126,72,17
     PUSHBUTTON      "&Back",IDCANCEL,255,126,50,17
@@ -12834,25 +12846,25 @@ BEGIN
                     BS_MULTILINE
 END
 
-IDD_FRQ_TEST DIALOG  0, 0, 250, 178
+IDD_FRQ_TEST DIALOGEX 0, 0, 250, 178
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Frequency Test"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     COMBOBOX        IDC_COMBO_ALPHA,101,18,45,44,CBS_DROPDOWNLIST | CBS_SORT | 
                     WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_TUPELCOMBO,206,18,27,60,CBS_DROPDOWNLIST | CBS_SORT | 
                     WS_VSCROLL | WS_TABSTOP
-    CONTROL         "Default offset and Test length",IDC_CHECK1,"Button",
+    CONTROL         "Default offset and test length",IDC_CHECK1,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,15,39,106,11
-    CONTROL         "Select randomized sections from file",IDC_CHECK2,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,15,52,159,10
+    CONTROL         "Use randomly chosen sections from file",IDC_CHECK2,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,52,159,10
     EDITTEXT        IDC_EDIT1,41,68,60,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,175,67,59,13,ES_AUTOHSCROLL
     PUSHBUTTON      "&Execute test",IDC_BUTTON_FREQTEST,8,152,79,18
     DEFPUSHBUTTON   "&Close",IDOK,163,152,79,19
     GROUPBOX        "Parameter options",IDC_STATIC,8,7,234,82
-    LTEXT           "Signifikance level 'alpha':",IDC_STATIC,15,20,80,8
+    LTEXT           "Significance level alpha:",IDC_STATIC,15,20,78,8
     LTEXT           "Tupel size",IDC_TUPEL_STATIC,159,20,33,8
     LTEXT           "Offset: ",IDC_STATIC,15,70,24,8
     LTEXT           "Test length",IDC_STATIC,136,69,36,8
@@ -12865,33 +12877,33 @@ BEGIN
                     119,18,16
 END
 
-IDD_RUNS_TEST DIALOG  0, 0, 234, 295
+IDD_RUNS_TEST DIALOGEX 0, 0, 236, 307
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Runs Test"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    PUSHBUTTON      "Execute tests",IDC_TESTBUTTON,8,270,67,18
+    PUSHBUTTON      "Execute tests",IDC_TESTBUTTON,8,275,67,18
     COMBOBOX        IDC_COMBO1,110,19,52,46,CBS_DROPDOWNLIST | CBS_SORT | 
                     WS_VSCROLL | WS_TABSTOP
-    CONTROL         "Default run test  parameter",IDC_CHECK2,"Button",
+    CONTROL         "Default run test parameter",IDC_CHECK2,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,18,39,104,10
-    CONTROL         "Select randomized sections from file",IDC_CHECK3,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,18,51,170,13
+    CONTROL         "Use randomly chosen sections from file",IDC_CHECK3,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,51,170,13
     EDITTEXT        IDC_EDIT2,58,70,54,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT5,58,89,54,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT4,161,70,55,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT6,81,144,63,12,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&Close",IDOK,143,270,83,18
+    EDITTEXT        IDC_EDIT6,87,144,63,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&Close",IDOK,143,275,83,18
     GROUPBOX        "Runs parameter",IDC_STATIC,8,7,218,104
-    LTEXT           "Significance level 'alpha': ",IDC_STATIC,18,21,82,8
+    LTEXT           "Significance level alpha: ",IDC_STATIC,18,21,80,8
     LTEXT           "Offset:",IDC_STATIC,18,72,22,8
     LTEXT           "Length:",IDC_STATIC,133,72,25,8
     LTEXT           "Run length:",IDC_STATIC,18,91,38,8
     GROUPBOX        "Long runs parameter",IDC_STATIC,8,115,218,50
-    CONTROL         "Default long run parameter",IDC_CHECK1,"Button",
+    CONTROL         "Default long runs parameter",IDC_CHECK1,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,18,127,110,10
     LTEXT           "Maximal run length:",IDC_STATIC,18,145,62,8
-    GROUPBOX        "Test status",IDC_STATIC,8,168,218,96
+    GROUPBOX        "Test status",IDC_STATIC,8,168,218,100
     LTEXT           "Static",IDC_INFO_STATIC_RUN,18,179,128,17
     LTEXT           "\nPlease select ""Execute tests""",IDC_RUN_ERGEBNIS,18,
                     203,101,12
@@ -12940,7 +12952,7 @@ CAPTION "How to Start"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Close",IDOK,195,189,50,14
-    CONTROL         "&Don't show this dialogue again",IDC_CHECK2,"Button",
+    CONTROL         "&Don't show this dialog again",IDC_CHECK2,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,8,190,114,13
     CONTROL         259,IDB_BITMAP5,"Static",SS_BITMAP | SS_REALSIZEIMAGE,8,
                     8,239,174,WS_EX_TRANSPARENT
@@ -14896,7 +14908,7 @@ BEGIN
     LTEXT           "To generate and distribute the secret, click on the 'Calculate' button. By clicking the button 'Options', you're able to vary the range of values which the identifiers are taken from and the number of parties, that are involved.",
                     IDC_STATIC,12,27,364,16
     GROUPBOX        "",IDC_STATIC,6,3,375,70
-    LTEXT           "After calculating: If you provide the minimum number of keys by clicking the '+/-' buttons in the lowest groupbox', this program will try to rebuild the secret after clicking 'Rebuild secret'.",
+    LTEXT           "After calculating: If you provide the minimum number of keys by clicking the '+/-' buttons in the lowest groupbox, this program will try to rebuild the secret after clicking 'Rebuild secret'.",
                     IDC_STATIC,12,51,362,16
     LTEXT           "Secret Sharing by CRT permits distributing a secret on n keys, so that the original secret can be reconstructed, if an arbitrary subset of k<=n key owners come together. ",
                     IDC_STATIC,12,11,360,16
@@ -15587,10 +15599,10 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,97,81,10
 END
 
-IDD_SECRETSHARING_INTRO DIALOG  0, 0, 281, 273
+IDD_SECRETSHARING_INTRO DIALOGEX 0, 0, 281, 273
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
-CAPTION "Einleitung Secret Sharing Demo"
-FONT 8, "MS Sans Serif"
+CAPTION "Introduction Secret Sharing Demonstration"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,113,252,50,14
     LTEXT           "Welcome to the visualization of the Shamir Secret-Sharing-Scheme !",
@@ -18889,10 +18901,12 @@ BEGIN
 
     IDD_RUNS_TEST, DIALOG
     BEGIN
+        RIGHTMARGIN, 234
         VERTGUIDE, 8
         VERTGUIDE, 54
         VERTGUIDE, 226
-        HORZGUIDE, 270
+        BOTTOMMARGIN, 295
+        HORZGUIDE, 275
         HORZGUIDE, 288
     END
 
@@ -19967,7 +19981,7 @@ BEGIN
     IDS_STRING_ADFGVX_CHAR_EXISTS_1A "The character '"
     IDS_STRING_ADFGVX_CHAR_EXISTS_1B "The character '"
     IDS_STRING_ADFGVX_CHAR_EXISTS_2 
-                            "' was already assigned. \nDo you want to retain the new entry? \nes: The old entry will be deleted.\n\nNo: Undo the changes."
+                            "' was already assigned. \nDo you want to retain the new entry? \nyes: The old entry will be deleted.\n\nNo: Undo the changes."
     IDS_STRING_ADFGVX_ERROR_1 "Please enter password!"
 END
 
@@ -20290,7 +20304,7 @@ BEGIN
     IDS_STRING_Hashdemo_orighash "Hash demo: %s Hash of "
     IDS_STRING_REFERENCE_FILE "Reference file"
     IDS_STRING_TESTS_ERGEBNIS_INFO 
-                            "Maximal test value: %lf\ntest result: %lf\n"
+                            "Maximal test value: %lf\nTest result: %lf\n"
     IDS_STRING_TESTS_ERGEBNIS_INFO_LONGRUN 
                             "Maximal test value: %d\nLongest Run: %d\n"
     IDS_STRING_ERR_TESTS_INIFILE_NOT_FOUND 
@@ -20656,16 +20670,16 @@ BEGIN
                             "Offset + test length must be smaller than the file size !"
     IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE 
                             "The selected paramater for the maxmial run length exceeds the  possible values !\nPlease select an integer between [1..%i]."
-    IDS_STRING_TESTS_ERGEBNIS_BESTANDEN "%s passed !"
-    IDS_STRING_TESTS_ERGEBNIS_NICHT_BESTANDEN "%s failed !"
-    IDS_STRING_TESTS_BATTERIE_BESTANDEN "Test battery passed !"
-    IDS_STRING_TESTS_BATTERIE_NICHT_BESTANDEN "Test battery failed !"
+    IDS_STRING_TESTS_ERGEBNIS_BESTANDEN "%s passed!"
+    IDS_STRING_TESTS_ERGEBNIS_NICHT_BESTANDEN "%s failed!"
+    IDS_STRING_TESTS_BATTERIE_BESTANDEN "Test battery passed!"
+    IDS_STRING_TESTS_BATTERIE_NICHT_BESTANDEN "Test battery failed!"
     IDS_STRING_TESTS_FALSCHE_OFFSET_DIALOG "Wrong offset or test length !"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE_DIALOG "Wrong Long Run length !"
+    IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE_DIALOG "Wrong long runs length !"
     IDS_STRING_PKCS5_KEYGEN_ITERATIONS_EXCEEDED 
                             "The maximum count of hash-iterations is limited to 10,000 ! \nPlease select for 'Number of iterations' a smaller number."
     IDS_STRING_PKCS5_KEYGEN_ITERATIONS_NEGATIVE 
@@ -21072,7 +21086,7 @@ BEGIN
     IDS_STRING_SIG_ATT_BAD_BITLENGTH 
                             "The chosen hash algorithm requires a significant bit length between the borders 1 and %d."
     IDS_STRING_SIG_ATT_DOCUMENTS_FOUND 
-                            "The attack was successful: two different messages were found where the message hash is equal for the first %d bits."
+                            "The attack was successful: Two different messages were found where the message hash is equal for the first %d bits."
     IDS_STRING_SIG_ATT_RUN_NUMBER "Run No."
     IDS_STRING_SIG_ATT_NO_DOCUMENTS_FOUND 
                             "The attack failed: no pair of messages could be found."
@@ -21106,7 +21120,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_DH_KEY_LOGTEXT_CREATED 
-                            "The log text of the procedure was successfully written into a main window of the CrypTool application."
+                            "The log text of the procedure was successfully written into the main window of the CrypTool application."
     IDS_SCA_HYBENCFILE_ALREADY_OPENED 
                             "The opened document ""%s"" is already hybrid encrypted for Bob.\nDo you want to use this document to execute the side-channel attack (you can choose another file by answering No)?"
     IDS_SCA_NO_KEYPAIRS_AVAILABLE 
@@ -21483,7 +21497,7 @@ BEGIN
     IDS_CRT_TRANSFORMATION_EQUALPRIMES 
                             "While generating prime numbers for %d moduli, some of these numbers arose doubly.\r\nTo apply the chinese remainder theorem, all these modules have to be different.\r\nPlease click 'Generate' again or increase the range of values for the prime numbers.\r\n"
     IDS_CRT_SECRETSHARINGTITLE 
-                            "Secret Sharing by CRT: reconstructing a secret with %d of %d keys"
+                            "Secret Sharing by CRT: Reconstructing a secret with %d of %d keys"
     IDS_CRT_SECRETSHARINGGROUPBOX1 
                             "Constructing and sharing the secret with n = %d parties"
     IDS_CRT_SECRETSHARINGGROUPBOX2 
@@ -21767,6 +21781,8 @@ BEGIN
                             "Bad UU code block. The  Block is not full (only 1 byte instead of 2 to 4 byte). No unique decoding is possible!"
     IDS_UU_FILE_OPEN_ERROR  "Error while opening the file %s."
     IDS_STRING_MSG_UUDEC_OF "UU Decoding of <%s>"
+    IDS_STRING_TEST_LONGRUN_BESTANDEN "Long runs test passed!"
+    IDS_STRING_TEST_LONGRUN_NICHT_BESTANDEN "Long runs test failed!"
 END
 
 STRINGTABLE 
@@ -21777,6 +21793,11 @@ BEGIN
     IDS_CR_SERVER           "Server %d"
     IDS_CR_ATTACKER         "Attacker"
     IDS_CR_PASSWORD         "secret"
+    IDS_STRING_TEST_POKER   "Poker test"
+    IDS_STRING_TEST_FREQ    "Frequency test"
+    IDS_STRING_TEST_SERIAL  "Serial test"
+    IDS_STRING_TEST_RUNS_NICHT_BESTANDEN "Runs test failed!"
+    IDS_STRING_TEST_RUNS_BESTANDEN "Runs test passed!"
 END
 
 #endif    // Englisch (GB) resources

@@ -1,67 +1,62 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
-<HEAD>
-<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
-<title>Gleitende Häufigkeit</title>
-<link rel="stylesheet" type="text/css" href="hid_floating_files/CrypTool_Help.css">
-</head>
-
-<!-- multiple keywords for CrypTool HTML help index -->
-<object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
-	<param name="Keyword" value="Analyse">
-	<param name="Keyword" value="Gleitende Häufigkeit">
-</object>
-
-<body>
-
-<h3>Gleitende Häufigkeit des Dokuments berechnen (Menü <a href="menu_analyze.html">Analyse</a> \ Werkzeuge zur Analyse)</h3>
-
-<p>Die gleitende Häufigkeit eines <!--ZZZPOPUP--><a href="dokument.html">Dokuments</a>
-ist eine Kennlinie für dessen lokalen Informationsgehalt an den
-einzelnen Stellen des Dokuments. Die gleitende Häufigkeit gibt an, wie
-viele unterschiedliche Zeichen sich in einem vorgegebenen Bereich von
-64 Zeichen Länge des Dokuments befinden.</p>
-
-<p><u>Verteilung der Zeichenhäufigkeit</u></p>
-
-<p>Die Funktion betrachtet jeweils 64 Zeichen lange Folgen des
-Textes im aktuellen Fenster und zählt, wie viele unterschiedliche
-Zeichen sich in diesem "Fenster" befinden. Danach wird das "Fenster" um
-ein Zeichen weiter geschoben und es wird erneut gezählt. Als Resultat
-erhält man einen Überblick über das Dokument, in dem verzeichnet ist,
-an welcher Stelle des Dokuments sich "viel tut" und an welcher Stelle
-des Dokuments sich "wenig tut". Ein Dokument der Länge n &gt; 64 Byte
-hat also n-63 solcher Kennzeichen in ihrer Kennlinie.</p>
-
-<p>Je nach der Struktur und dem Inhalt der Daten im aktuellen Fenster ergeben sich dabei unterschiedliche Bilder:</p>
-
-<ul>
-	<li>Bei <b>Bildern</b> (bmp-Dateien) sind übliche Werte im Bereich zwischen 5 und 20.</li>
-
-	<li>Bei <b>Text</b> kann man erwarten, dass die Werte etwa zwischen 18 und 30 schwanken.</li>
-
-	<li><b>Ausführbare Programme</b> haben im eigentlichen Programmteil Werte zwischen 30 und 40. Im Datenteil schwanken sie um 20.</li>
-
-	<li><a href="hid_zip.html">Komprimierte</a> <a href="datei.html">Dateien</a> und <!--ZZZPOPUP--><a href="verschluesselung.html">verschlüsselte</a> Daten bzw. <!--ZZZPOPUP--><a href="schluessel.html">Schlüssel</a> selbst haben Werte knapp unter dem Maximalwert 64.</li>
-</ul>
-
-<p><u>Interpretation der Kennlinie</u></p>
-
-<p>Die Kennlinie lässt weitgehende Rückschlüsse auf den Inhalt des
-Dokuments zu, da man einfach erkennt, ob es besondere Auffälligkeiten
-an bestimmten Stellen gibt. So lassen zum Beispiel "Ausreißer nach
-oben" in einer ausführbaren Datei darauf schließen, dass sich an dieser
-Stelle verschlüsselte Daten oder sogar kryptographische Schlüssel
-befinden. In Word-Dokumenten lässt sich feststellen, welcher Teil des
-Dokuments wirklich zur Speicherung von Texten eingesetzt wird und wo
-nur Verwaltungs- und Formatierungsdaten zu finden sind.</p>
-
-<p>In der Kryptographie wird der Mechanismus hauptsächlich zum
-Auffinden von Schlüsseln in großen Datenmengen eingesetzt. Ein Beispiel
-ist hier die Datei advapi32.dll, die sich im Verzeichnis System32 des
-Windows-Systems befindet. Sie enthält wahrscheinlich zwei
-kryptographische Schlüssel, deren Position einfach lokalisiert werden
-kann.</p>
-
-</body>
-</html>
+	<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=Windows-1252">
+		<title>Gleitende Häufigkeit</title>
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+			<script language="JScript" src="helper.js"></script>
+	</HEAD>
+	<!-- multiple keywords for CrypTool HTML help index -->
+	<object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+		VIEWASTEXT ID="Object1">
+		<param name="Keyword" value="Analyse">
+		<param name="Keyword" value="Gleitende Häufigkeit">
+	</object>
+	<body>
+		<h3>Gleitende Häufigkeit des Dokuments berechnen (Menü <a href="menu_analyze.html">Analyse</a>
+			\ Werkzeuge zur Analyse)</h3>
+		<p>Die gleitende Häufigkeit eines <!--ZZZPOPUP--><a href="dokument.html">Dokuments</a>
+			ist eine Kennlinie für dessen lokalen Informationsgehalt an den einzelnen 
+			Stellen des Dokuments. Die gleitende Häufigkeit gibt an, wie viele 
+			unterschiedliche Zeichen sich in einem vorgegebenen Bereich von 64 Zeichen 
+			Länge des Dokuments befinden.</p>
+		<p><u>Verteilung der Zeichenhäufigkeit</u></p>
+		<p>Die Funktion betrachtet jeweils 64 Zeichen lange Folgen des Textes im aktuellen 
+			Fenster und zählt, wie viele unterschiedliche Zeichen sich in diesem "Fenster" 
+			befinden. Danach wird das "Fenster" um ein Zeichen weiter geschoben und es wird 
+			erneut gezählt. Als Resultat erhält man einen Überblick über das Dokument, in 
+			dem verzeichnet ist, an welcher Stelle des Dokuments sich "viel tut" und an 
+			welcher Stelle des Dokuments sich "wenig tut". Ein Dokument der Länge n &gt; 64 
+			Byte hat also n-63 solcher Kennzeichen in ihrer Kennlinie.</p>
+		<p>Je nach der Struktur und dem Inhalt der Daten im aktuellen Fenster ergeben sich 
+			dabei unterschiedliche Bilder:</p>
+		<ul>
+			<li>
+				Bei <b>Bildern</b> (bmp-Dateien) sind übliche Werte im Bereich zwischen 5 und 
+				20.</li>
+			<li>
+				Bei <b>Text</b> kann man erwarten, dass die Werte etwa zwischen 18 und 30 
+				schwanken.</li>
+			<li>
+				<b>Ausführbare Programme</b> haben im eigentlichen Programmteil Werte zwischen 
+				30 und 40. Im Datenteil schwanken sie um 20.</li>
+			<li>
+				<a href="hid_zip.html">Komprimierte</a> <a href="datei.html">Dateien</a> und <!--ZZZPOPUP--><a href="verschluesselung.html">verschlüsselte</a>
+				Daten bzw. <!--ZZZPOPUP--><a href="schluessel.html">Schlüssel</a> selbst haben 
+				Werte knapp unter dem Maximalwert 64.</li>
+		</ul>
+		<p><u>Interpretation der Kennlinie</u></p>
+		<p>Die Kennlinie lässt weitgehende Rückschlüsse auf den Inhalt des Dokuments zu, da 
+			man einfach erkennt, ob es besondere Auffälligkeiten an bestimmten Stellen 
+			gibt. So lassen zum Beispiel "Ausreißer nach oben" in einer ausführbaren Datei 
+			darauf schließen, dass sich an dieser Stelle verschlüsselte Daten oder sogar 
+			kryptographische Schlüssel befinden. In Word-Dokumenten lässt sich feststellen, 
+			welcher Teil des Dokuments wirklich zur Speicherung von Texten eingesetzt wird 
+			und wo nur Verwaltungs- und Formatierungsdaten zu finden sind.</p>
+		<p>In der Kryptographie wird der Mechanismus hauptsächlich zum Auffinden von 
+			Schlüsseln in großen Datenmengen eingesetzt. Ein Beispiel ist hier die Datei 
+			advapi32.dll, die sich im Verzeichnis System32 des Windows-Systems befindet. 
+			Sie enthält wahrscheinlich zwei kryptographische Schlüssel, deren Position 
+			einfach lokalisiert werden kann.</p>
+	</body>
+</HTML>

@@ -17,6 +17,9 @@
 
 <h3>Runs Test (Menu <A href="menu_analyze.html">Analysis</A> \ Analyse Randomness)</h3>
 
+<p>Choosing this menu entry opens the dialog <a href="hidd_runs_test.html">Runs	Test</a></p>	
+			
+
 <P>The classic Runs Test is used to investigate monotonically rising and falling sub-sequences in a number sequence. A "run-up" of length k is understood to mean a sub-sequence X_i; ... ; X_(i + k – 1) with X_(i + r) &lt;= X_(i + r + 1) for all r, 0 &lt;= r &lt;= k - 1. "Run-downs" of length k are defined in similar fashion. Bad generators have a tendency to create runs that are too long.</P>
 
 <P>The Runs Test now compares the observed frequencies of different length of run with the expected frequencies. For the expected frequency of a run-up of length k in a sequence of length n, the following holds true:</P>
@@ -65,7 +68,7 @@
 11010001 00101110 11010100 11000011 01010001
 11010110 00110010 10001111 00000111 01000111</CODE></PRE>
 
-<P>of length n = 160 (20 bytes). The <!--ZZZPOPUP--><A href="sign_niv.html">significance level</A> <U>i</U>s set with ‘alpha‚ = 0.05.</P>
+<P>of length n = 160 (20 bytes). The <!--ZZZPOPUP--><A href="sign_niv.html">significance level</A> <U>i</U>s set with alpha = 0.05.</P>
 
 <P>With absolute(s) = 160, in our specific Runs Test for <I>s</I>, k=3. The expected number of runs of length i = 1, 2, 3 in a 160-bit sequence amounts to e_i = (160 – i + 3) / 2 ^ (i + 2), 1 &lt;= i &lt;= 3.</P>
 
@@ -130,7 +133,7 @@
 
 </div>
 
-<P>For a significance level of ‘alpha‚ = 0.05, at (2*3-2) = 4 degrees of freedom, there is the critical area above 9.488. With X4 = 2.0596 &lt;= 9.488, sequence <I>s</I> passes the Runs Test.</P>
+<P>For a significance level of alpha = 0.05, at (2*3-2) = 4 degrees of freedom, there is the critical area above 9.488. With X4 = 2.0596 &lt;= 9.488, sequence <I>s</I> passes the Runs Test.</P>
 
 <P>References: Christian Schiestl, <I>Pseudozufallszahlen in der Kryptographie</I>, in Klagenfurt, 1999.</P>
 
