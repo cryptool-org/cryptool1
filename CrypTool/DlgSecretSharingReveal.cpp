@@ -68,8 +68,9 @@ BOOL CDlgSecretSharingReveal::OnInitDialog()
 		if (isSel[i] == true)
 		{
 			CString number;
-			CString entry = "Teilnehmer ";
-			number.Format("%d", i+1);
+			CString entry = "";
+			entry.LoadString(IDS_STRING_MEMBER);
+			number.Format(" %d", i+1);
 			entry += number;
 			m_list_participants.InsertItem(i, entry);
 			BigToCString(sh[i], pubResult, 10);
