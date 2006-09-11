@@ -302,4 +302,3 @@ void CWBButton::SetFontColor( COLORREF color )
     m_pFnt->SetFontColor(color);
     UpdateWindow();
 }
-

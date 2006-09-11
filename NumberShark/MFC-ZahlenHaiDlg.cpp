@@ -6,6 +6,7 @@
 #include "MFC-ZahlenHai.h"
 #include "MFC-ZahlenHaiDlg.h"
 #include "math.h"
+#include <time.h>
 //#include "WinBase.h"
 
 #include <iostream>
@@ -59,10 +60,24 @@ listenHeader columnheader[NUM_COLUMNS]={
 //Array enhält die bereits berechneten maximalen Punktezahlen 
 //Das muss noch weg. Dafür soll die Anzahl der Zelen aus der Spieldaten.txt herausgelesen werden
 int maxPossiblePoints[] = {0,2,3,7,9,15,17,21,30,40,44,50,52,66,81,89,93,111,113,124,144,166};
+int timer=0;
+int sekunden=0;
+int minuten=0;
+int a=1;
+CString presTimer="";
+CString seperator="";
 
-const int yAchse=sizeof(maxPossiblePoints)/sizeof(int);
-const int xAchse=4;
-CString Optimal[yAchse][xAchse];
+const int yAchse = 100;
+const int xAchse = 4;
+
+//const int yAchse=sizeof(maxPossiblePoints)/sizeof(int);
+//const int xAchse=4;
+
+CString proofedOptimal[yAchse][xAchse];
+int proofed = 0;
+CString bestKnownOptimal[yAchse][xAchse];
+int bestKnown = 0;
+
 CString optionenSetting="";
 CString toolTipSetting="";
 CString exePath = "";
@@ -153,6 +168,7 @@ void CMFCZahlenHaiDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, ID_BUTTON_RULES, buttonRules);
 	DDX_Control(pDX, IDC_STATIC_BLOCK, muschelfeld);
 	DDX_Text(pDX, IDC_STATIC_BLOCK, shellBoxText);
+	DDX_Control(pDX, IDC_TIMER, controlTimer);
 }
 
 BEGIN_MESSAGE_MAP(CMFCZahlenHaiDlg, CDialog)
@@ -175,6 +191,11 @@ BEGIN_MESSAGE_MAP(CMFCZahlenHaiDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_UNDO, OnBnClickedButtonUndo)
 	ON_BN_CLICKED(IDC_BUTTON_REDO, OnBnClickedButtonRedo)
 	ON_BN_CLICKED(IDC_BUTTON_SWITCH_STYLE, OnBnClickedButtonSwitchStyle)
+	ON_WM_TIMER()
+	ON_WM_SETCURSOR()
+	ON_NOTIFY(LVN_COLUMNCLICK, IDC_LIST2, OnLvnColumnclickList2)
+	ON_BN_CLICKED(IDC_BUTTON_LOAD, OnBnClickedButtonLoad)
+	ON_BN_CLICKED(IDC_BUTTON_SAVE, OnBnClickedButtonSave)
 END_MESSAGE_MAP()
 
 // CMFCZahlenHaiDlg Meldungshandler
@@ -182,9 +203,7 @@ END_MESSAGE_MAP()
 
 
 BOOL CMFCZahlenHaiDlg::OnInitDialog()
-{
-	//Default Language des Betriebssystems herausfinden
-	
+{	
 	readGameData();
 	startInfo.Format(IDS_START_INFO);
 
@@ -207,6 +226,7 @@ BOOL CMFCZahlenHaiDlg::OnInitDialog()
 	
 
 	shellBoxText.LoadString(IDS_SHELL_GROUP_BOX);
+	seperator.LoadString(IDS_SEPERATOR);
 
 	//Breite der ToolTips wird festgelegt.
 	//Die Anagbe der Breite ist notwendig um mit \n im ToolTip einen
@@ -221,6 +241,9 @@ BOOL CMFCZahlenHaiDlg::OnInitDialog()
 	toolTipNumbers.SetTipBkColor(RGB(213,227,241));
 	CDialog::OnInitDialog();
 	
+	presTimer="00:00";
+	controlTimer.SetWindowText(presTimer);
+
 	exePath = GetCommandLine();
 	// Hinzufügen des Menübefehls "Info..." zum Systemmenü.
 	// IDM_ABOUTBOX muss sich im Bereich der Systembefehle befinden.
@@ -259,7 +282,7 @@ BOOL CMFCZahlenHaiDlg::OnInitDialog()
 	fontButton.CreatePointFont(145, "Arial", &dc);
 	fontNormalButton.CreatePointFont(155, "Arial", &dc);
 
-
+	arrayButtonControl[1].SetCursor(AfxGetApp()->LoadCursor(IDC_CURSOR1));
 	//LOGFONT logFont;
 	//logFont.lfUnderline = TRUE;
 	//logFont.lfHeight = 13;
@@ -270,7 +293,7 @@ BOOL CMFCZahlenHaiDlg::OnInitDialog()
 	CString titleVersion="";
 	titleVersion.LoadString(IDS_TITLE_VERSION);
 	this->SetWindowText(numberShark+titleVersion);
-	
+		
 	updatePoints();
 	updateButtons();
 
@@ -289,6 +312,7 @@ BOOL CMFCZahlenHaiDlg::OnInitDialog()
 	//m_LedWinner.SetBkColor(RGB(0,0,0));
 	//m_LedText.SetColor(RGB(200,220,245),RGB(255,255,0));
 	//m_LedWinner.SetColor(RGB(200,220,245),RGB(255,255,0));
+	//controlTimer.SetColor(RGB(213,221,213),RGB(255,0,0));
 
 	DWORD dwExStyle= tabControl.GetExtendedStyle();
 	tabControl.SetExtendedStyle(dwExStyle | TCS_EX_FLATSEPARATORS);
@@ -301,10 +325,8 @@ BOOL CMFCZahlenHaiDlg::OnInitDialog()
 	//state of the Button: 1-Normal, 2-Select, 3-Disable, 4-Focus,5-...
 	undoButton.LoadBitmaps(IDB_BITMAP_UNDO,4,0,0,0,0);
 	redoButton.LoadBitmaps(IDB_BITMAP_REDO,4,0,0,0,0);
-	
-	
 
-    return TRUE;  // Geben Sie TRUE zurück, außer ein Steuerelement soll den Fokus erhalten
+	return TRUE;  // Geben Sie TRUE zurück, außer ein Steuerelement soll den Fokus erhalten
 }
 BOOL CMFCZahlenHaiDlg::PreTranslateMessage(MSG *pMsg)
 {
@@ -721,7 +743,7 @@ void CMFCZahlenHaiDlg::updateButtons()
 	{
         if(winner())
 		{
-			writeLogFile();
+			writeLogFile();			
 		}
 		else
 		{
@@ -831,6 +853,7 @@ void CMFCZahlenHaiDlg::OnBnClickedButtonStartnew()
 	// Wenn der Spieler der Button "Neues Spiel" drückt werden alle Punktestände gelöscht und die Einstellungen vom vorhergehenden Spiel bleiben erhalten
 	showWinner=0;
 	checkList=0;
+//	save="";
 	hai.init(hai.getUpperLimit());
 	
 	updatePoints();
@@ -853,6 +876,15 @@ void CMFCZahlenHaiDlg::OnBnClickedButtonStartnew()
 		case 4:haiListe.SetBitmap(haiBild);newGameCount=0;break;
     }
 	
+	OnStopTimer();
+	sekunden=0;
+	minuten=0;
+	timer=0;
+	presTimer="00:00";
+	controlTimer.SetWindowText(presTimer);
+
+
+
 	haiListe.ShowWindow(1);
 
 	((CEdit*)GetDlgItem(IDC_STATIC_SUM))->ShowWindow(1);
@@ -878,18 +910,21 @@ void CMFCZahlenHaiDlg::OnBnClickedButtonStartnew()
 void CMFCZahlenHaiDlg::OnBnClickedButtonEnd()
 {
     // flomar
-/*	char str[1000];
+/*
+	char str[1000];
 	memset(str, 0, 1000);
 	itoa(globalPoints, str, 10);
 	CString c = "Punkte: ";
 	c += CString(str);
 	MessageBox(c, "Punkte", MB_ICONINFORMATION);
 	return;
-*/
+*/	
 	writeRegistry();
 
+	OnStopTimer();
 	// ENDE
 	OnCancel();
+
 }
 
 //Wenn der Spieler auf den Knopf "Regeln" drückt erscheint ein extra Fenster welches kurz die Regeln erklärt
@@ -933,10 +968,33 @@ void CMFCZahlenHaiDlg::OnBnClickedButtonOk()
 
     createUndoRedo();
 
-	((CEdit*)GetDlgItem(IDC_EDIT1))->SetReadOnly(true);	
+	OnStartTimer();
+
+    ((CEdit*)GetDlgItem(IDC_EDIT1))->SetReadOnly(true);	
 	((CEdit*)GetDlgItem(IDC_EDIT1))->EnableWindow(false);
 	((CEdit*)GetDlgItem(IDC_BUTTON_OK))->EnableWindow(false);
 }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////7
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//TIMER
+void CMFCZahlenHaiDlg::OnStartTimer() 
+{
+    timer = SetTimer(1, 1000, 0);
+}
+
+void CMFCZahlenHaiDlg::OnStopTimer() 
+{
+   KillTimer(timer);   
+}
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
 
 //Weiter Spieloptionen
 void CMFCZahlenHaiDlg::OnBnClickedButtonOption()
@@ -1006,7 +1064,10 @@ void CMFCZahlenHaiDlg::OnBnClickedButton(unsigned int nID)
 {
 	if(!checkList)
 	{
-       	ListControl.ShowWindow(1);
+       	if(timer==0)
+			OnStartTimer();
+		
+		ListControl.ShowWindow(1);
 		checkList=1;
 		haiListe.ShowWindow(0);
 		((CEdit*)GetDlgItem(IDC_STATIC_LISTE))->ShowWindow(1);
@@ -1032,12 +1093,15 @@ void CMFCZahlenHaiDlg::OnBnClickedButton(unsigned int nID)
     ((CEdit*)GetDlgItem(IDC_BUTTON_UNDO))->EnableWindow(true);
     writeIntoUndo(nButton);
 
+
     //Ab hier ist bekannt welche Zahl gewählt wurde -> nButton
 	//hai.startRound(nButton);
 	//CSetList(nButton);
 
 	updatePoints();
 	updateButtons();
+
+
 }
 
 void CMFCZahlenHaiDlg::writeIntoUndo(int nButton)
@@ -1058,9 +1122,9 @@ void CMFCZahlenHaiDlg::writeIntoUndo(int nButton)
 
 void CMFCZahlenHaiDlg::writeLogFile()
 {
-	CString logfileDate;
-	CString logfileName;
-	CString logfileNumbers;
+	//CString logfileDate;
+	//CString logfileName;
+	//CString logfileNumbers;
 	CString time;
 	CTime t = CTime::GetCurrentTime();
 	time = t.Format("%B %d, %Y, %H:%M");
@@ -1189,6 +1253,9 @@ void CMFCZahlenHaiDlg::writeLogFile()
 	//i durchläuft die Zeilen und j die jeweiligen Spalten 
 	//VC7 kann den Gültigkeitsbereich von i bei mehrfachen Konstrukten for(int i ...) korrekt
 	//    verarbeiten. Da VC6 dies nicht kann, wurde i hier nicht noch einmal deklariert.
+
+	CString allNumbers="";
+	//allNumbers = upperLimitNumbers + ": ";
 	for(i =0;i <ListControl.GetItemCount();i++)
 	{
 		CString line="\r\n";
@@ -1201,6 +1268,11 @@ void CMFCZahlenHaiDlg::writeLogFile()
 			line += tmpStr + " | ";
 			//Alle 50 Zeilen wird zur Orientierung eine zusätzliche Zeile eingefügt, welche die Header der Spalten wieder einfügt
 			int n=i%50;
+
+			if(j==1 && ListControl.GetItemText(i,j)!="0")
+				allNumbers+=ListControl.GetItemText(i,j)+" "+seperator+" ";
+			
+
 			if(i!=0 && n==0 && j==0 && ListControl.GetItemCount() > 50)
 				file.WriteString("\r\n\r\n"+head);
 		}
@@ -1209,6 +1281,16 @@ void CMFCZahlenHaiDlg::writeLogFile()
 	if(i>=60)
 		file.WriteString("\r\n\r\n"+head);
 	delete []n_max;
+
+	CString primeInfo="";
+	primeInfo.LoadString(IDS_PRIME_INFO);
+	allNumbers.Delete(allNumbers.GetLength()-2,2);
+	while(allNumbers.Find(primeInfo,0) >= 0)
+	{
+		int find = allNumbers.Find(primeInfo,0);
+		allNumbers.Delete(find,primeInfo.GetLength());
+	}
+	
 		
 	CString pointsPlayer = itoa(hai.getPointsPlayer(),Buffer,10);
 	CString pointsComputer = itoa(hai.getPointsComputer(),Buffer,10);
@@ -1223,6 +1305,8 @@ void CMFCZahlenHaiDlg::writeLogFile()
 	//Punkte und Rundenanzahl werden nach der Tabelle in die Zusammenfassung geschrieben		
 	LogText.LoadString(IDS_LOGFILE_POINTS_PLAYER);
 	file.WriteString(LogText+pointsPlayer);
+	LogText.LoadString(IDS_LOGFILE_PLAYER_NUMBERS);
+	file.WriteString(LogText+allNumbers);
 	LogText.LoadString(IDS_LOGFILE_POINTS_COMPUTER);
 	file.WriteString(LogText+pointsComputer);
 	LogText.LoadString(IDS_LOGFILE_ROUNDS);
@@ -1249,7 +1333,13 @@ void CMFCZahlenHaiDlg::writeLogFile()
 	{
      	CString logfileMaxPoints;
 		logfileMaxPoints.LoadString(IDS_LOGFILE_MAXPOINTS);
-		file.WriteString(logfileMaxPoints+ Optimal[upperLimit-1][2]);
+		if(upperLimit <= proofed)
+            file.WriteString(logfileMaxPoints+ proofedOptimal[upperLimit-1][2]);
+		else
+		{
+			if(upperLimit <= bestKnown)
+				file.WriteString(logfileMaxPoints+ bestKnownOptimal[upperLimit-1][2]);
+		}
 	}
 
 	file.Close();
@@ -1263,8 +1353,13 @@ int CMFCZahlenHaiDlg::winner()
 	if(!hai.gameFinished())
 		return 0;
 
+	OnStopTimer();
+	sekunden=0;
+	minuten=0;
+
 	char Buffer[1000];
 	int pointsPlayer = hai.getPointsPlayer();
+	int upperLimit = hai.getUpperLimit();
 //	int pointsComputer = hai.getPointsComputer();
 
 	((CEdit*)GetDlgItem(IDC_BUTTON_REST))->EnableWindow(false);
@@ -1291,7 +1386,7 @@ int CMFCZahlenHaiDlg::winner()
 	((CEdit*)GetDlgItem(IDC_EDIT1))->ShowWindow(0);
 	((CEdit*)GetDlgItem(IDC_BUTTON_OK))->ShowWindow(0);
 	((CEdit*)GetDlgItem(IDC_STATIC_EINSTELLUNGEN))->ShowWindow(0);
-	((CEdit*)GetDlgItem(IDC_BUTTON_UNDO))->EnableWindow(false);
+	//((CEdit*)GetDlgItem(IDC_BUTTON_UNDO))->EnableWindow(false);
 	((CEdit*)GetDlgItem(IDC_BUTTON_REDO))->EnableWindow(false);
 
 	//m_LedWinner.ShowWindow(1);
@@ -1317,7 +1412,15 @@ int CMFCZahlenHaiDlg::winner()
 			m_LedWinner.SetText(ledDraw);
 		}
 	}*/
-	summary.uebergeben(this->hai, exePathSummary, summaryName);
+	if(upperLimit <= proofed)
+        summary.uebergeben(this->hai, exePathSummary, summaryName,proofed,bestKnown,atoi(proofedOptimal[upperLimit-1][2]));
+	else
+	{
+		if(upperLimit <= bestKnown+proofed)
+			summary.uebergeben(this->hai, exePathSummary, summaryName,proofed,bestKnown,atoi(bestKnownOptimal[upperLimit-proofed-1][2]));
+		else
+			summary.uebergeben(this->hai, exePathSummary, summaryName,proofed,bestKnown,atoi(bestKnownOptimal[upperLimit-proofed-1][2]));
+	}
 	summary.DoModal();
 	
 	int writeFile=1;
@@ -1365,10 +1468,10 @@ void CMFCZahlenHaiDlg::addOnInformation()
 			//Gibt dem Spieler die Möglichkeit sich den optimalen Weg mit anzeigen zu lassen
 			if(r==IDYES)
 			{
-				if(Optimal[upperLimit-1][2]=="")
+				if(proofedOptimal[upperLimit-1][2]=="")
 					answer.Format(IDS_MAX_POINTS_INFORMATION_NOVALUE, fileName);
 				else
-					answer.Format(IDS_MAX_POINTS_INFORMATION2, sepUpperLimit, hai.setSeperator(atoi(Optimal[upperLimit-1][2])),Optimal[upperLimit-1][1]);
+					answer.Format(IDS_MAX_POINTS_INFORMATION2, sepUpperLimit, hai.setSeperator(atoi(proofedOptimal[upperLimit-1][2])),proofedOptimal[upperLimit-1][1]);
 				MessageBox(answer,headline, MB_ICONINFORMATION | MB_OK);
 			}
 		}
@@ -1379,10 +1482,24 @@ void CMFCZahlenHaiDlg::addOnInformation()
 //wird für die maxPoints benötigt
 void CMFCZahlenHaiDlg::addOn()
 {
-	int tempUpperLimit = hai.getUpperLimit();
-	int maxPts = maxPoints(tempUpperLimit);
+	/*int tempUpperLimit = hai.getUpperLimit();
+	int maxPts = maxPoints(tempUpperLimit);*/
 
-	if(maxPts != -1)
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Multithreading
+	int tempUpperLimit = hai.getUpperLimit();
+    int maxPts = 0;
+	//globalPoints = 0;
+	AfxBeginThread(maxPointsStatic, (LPVOID)(int)(tempUpperLimit),THREAD_PRIORITY_BELOW_NORMAL);
+	int r=AfxMessageBox("Soll die Berechnung unterbrochen werden?",MB_OK,MB_ICONQUESTION);
+	if(r==IDOK)
+		endSearch=-1;
+    
+	
+	//maxPts = globalPoints;
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	/*if(maxPts != -1)
 	{
 	
 		CString result;
@@ -1398,14 +1515,14 @@ void CMFCZahlenHaiDlg::addOn()
 			result.Format(IDS_MAX_POINTS_NEW, sepTempUpperLimit, sepMaxPts, hai.setSeperator(getTime()), hai.setSeperator(getNumberOfRounds()), hai.setSeperator(maxPrime(tempUpperLimit)), bestWay);
 		
 		MessageBox(result,headline, MB_ICONINFORMATION);
-	}
+	}*/
 
 /*
 	// flomar
 	int tempUpperLimit = hai.getUpperLimit();
     int maxPts = 0;
 	globalPoints = 0;
-	AfxBeginThread(maxPointsStatic, (LPVOID)(int)(tempUpperLimit));
+	AfxBeginThread(maxPointsStatic, (LPVOID)(int)(tempUpperLimit),THREAD_PRIORITY_NORMAL);
 */
 }
 
@@ -1759,25 +1876,37 @@ void CMFCZahlenHaiDlg::readGameData()
 
 	//Versuch die Datei "GameData.txt" zu öffnen
 	BOOL openOk = GameData.Open(fileName,CFile::modeRead);
+
 	//wenn sich die Datei öffnen lässt(also vorhanden ist)
 	if(openOk)
 	{
         int Stelle=0;
-		for(int i=0; i<yAchse; i++)
+		CString proofedZeile="";
+		GameData.ReadString(proofedZeile);
+		proofedZeile.Delete(0,8);
+		proofed = atoi(proofedZeile);
+		GameData.ReadString(Line);
+		for(int i=0; i<proofed; i++)
 	    {
 			int count = 0;
 			GameData.ReadString(Line);
 			while(count<4)
 			{
+				//Wenn die Zeile 1 ("proofed 22") oder die Zeile 26 ("best known") erreicht wird
+				//Bei Zeile 1 soll die Nummer ausgelesen werden und als yAchse-Wert der Elemente
+				//für das proofedOptimal Array verwendet werden
+
+				//Wenn die Zeile best known erreicht wird dann soll jeder folgende Wert in das Array
+				//bestKnownOptimal geschrieben werden
 				Stelle=Line.Find(":",Stelle);
 				if(Stelle > -1)
 				{
-					Optimal[i][count]=Line.Left(Stelle);
+					proofedOptimal[i][count]=Line.Left(Stelle);
 				}
 				else
 				{
 					Stelle=Line.Find("|",0);
-					Optimal[i][count]=Line.Left(Stelle);
+					proofedOptimal[i][count]=Line.Left(Stelle);
 					count = 4;
 				}
 				count++;
@@ -1785,7 +1914,51 @@ void CMFCZahlenHaiDlg::readGameData()
 				Stelle = 0;
 			}
 		}
+		
+		GameData.ReadString(Line);
+		
+		CString bestKnownZeile="";
+		GameData.ReadString(bestKnownZeile);
+		bestKnownZeile.Delete(0,11);
+		bestKnown = atoi(bestKnownZeile);
+		GameData.ReadString(Line);
+		bestKnown = bestKnown-proofed;
+
+		for(int i=0; i<bestKnown; i++)
+	    {
+			int count = 0;
+			GameData.ReadString(Line);
+			while(count<4)
+			{
+				//Wenn die Zeile 1 ("proofed 22") oder die Zeile 26 ("best known") erreicht wird
+				//Bei Zeile 1 soll die Nummer ausgelesen werden und als yAchse-Wert der Elemente
+				//für das proofedOptimal Array verwendet werden
+
+				//Wenn die Zeile best known erreicht wird dann soll jeder folgende Wert in das Array
+				//bestKnownOptimal geschrieben werden
+				Stelle=Line.Find(":",Stelle);
+				if(Stelle > -1)
+				{
+					bestKnownOptimal[i][count]=Line.Left(Stelle);
+				}
+				else
+				{
+					Stelle=Line.Find("|",0);
+					bestKnownOptimal[i][count]=Line.Left(Stelle);
+					count = 4;
+				}
+				count++;
+				Line.Delete(0,Stelle+1);
+				Stelle = 0;
+			}
+		}
+
 		GameData.Close();
+	}
+	else
+	{
+		proofed = sizeof(maxPossiblePoints)/sizeof(int);
+		bestKnown = 33;
 	}
 	
 }
@@ -1953,7 +2126,7 @@ void CMFCZahlenHaiDlg::execWinHelp()
 }
 void CMFCZahlenHaiDlg::OnBnClickedButtonFinish()
 {
-	//Diese Funktion soll hinter der Tastenkombination Strg+Shift+L liegen.
+	//Diese Funktion soll hinter der Tastenkombination Strg+Shift+F liegen.
 	//Der Zahlenhai soll alle anderen Zahlen bekommen-> allerdings nur als Test
 	
 	updatePoints();
@@ -1984,12 +2157,14 @@ void CMFCZahlenHaiDlg::createUndoRedo()
 
 	ASSERT(hai.getCurrentRound()==0);
 
-	undoRedo[0]=0;
+	for(int i=0; i< hai.getUpperLimit()+1; i++)
+        undoRedo[i]=0;
 }
 void CMFCZahlenHaiDlg::OnBnClickedButtonUndo()
 {
 	ASSERT(hai.getCurrentRound()!=0);
 	Invalidate(false);
+	showWinner=0;
     ListControl.DeleteItem(hai.getCurrentRound()-1);
 	int lastRound = hai.getCurrentRound()-1;
 
@@ -2056,5 +2231,211 @@ void CMFCZahlenHaiDlg::OnBnClickedButtonSwitchStyle()
 		CString shellGroupBox="";
 		shellGroupBox.LoadString(IDS_NORMAL_GROUP_BOX);
 		muschelfeld.SetWindowText(shellGroupBox);
+	}
+}
+void CMFCZahlenHaiDlg::OnTimer(UINT nIDEvent)
+{
+   char Buffer[100];
+   
+   sekunden++;
+   if(sekunden==60){ minuten++; sekunden=0;}
+   CString sek = itoa(sekunden,Buffer,10);
+   CString min = itoa(minuten,Buffer,10);
+
+   if(sek.GetLength()==1)
+   {
+	   sek.Insert(0,"0");
+   }
+   if(min.GetLength()==1)
+   {
+	   min.Insert(0,"0");
+   }
+
+   presTimer = min + ":" + sek;
+	
+   controlTimer.SetWindowText(presTimer);
+   CDialog::OnTimer(nIDEvent);
+}
+
+BOOL CMFCZahlenHaiDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
+{
+	// TODO: Fügen Sie hier Ihren Meldungsbehandlungscode ein, und/oder benutzen Sie den Standard.
+
+	return CDialog::OnSetCursor(pWnd, nHitTest, message);
+}
+
+void CMFCZahlenHaiDlg::OnLvnColumnclickList2(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
+	// TODO: Fügen Sie hier Ihren Kontrollbehandlungscode für die Benachrichtigung ein.
+		if(a==2)
+	{
+		ListControl.SetColumnWidth(0,39);
+		ListControl.SetColumnWidth(1,88);
+		ListControl.SetColumnWidth(2,189);
+		ListControl.SetColumnWidth(3,90);
+		ListControl.SetColumnWidth(4,90);
+		ListControl.SetColumnWidth(5,55);
+	}
+	else
+		a++;
+	*pResult = 0;
+}
+
+void CMFCZahlenHaiDlg::writeSaveGame()
+{
+	char Buffer[100];
+	CStdioFile saveGame;
+	CString filename="";
+	CString save="";
+	filename.LoadString(IDS_NUMBER_SHARK);
+	filename+=".save";
+
+	save+=itoa(hai.getUpperLimit(),Buffer,10);
+	save+=seperator;
+
+	for(int i=0; i< hai.getCurrentRound(); i++)
+	{
+		save+=itoa(undoRedo[i],Buffer,10);
+		save+=seperator;
+	}
+	
+	int openstatus;
+	openstatus=saveGame.Open(filename,CFile::modeCreate|CFile::modeWrite);
+	if(openstatus==0)
+		return;
+	
+	saveGame.WriteString(save);
+	saveGame.Close();
+}
+
+void CMFCZahlenHaiDlg::readSaveGame()
+{
+	bool stopLoading = false;
+	
+	CString seperator="";
+	seperator.LoadString(IDS_SEPERATOR);
+	
+	CStdioFile saveGame;
+	CString filename="";
+	filename.LoadString(IDS_NUMBER_SHARK);
+	filename+=".save";
+
+	CString loadFailure="";
+	loadFailure.Format(IDS_LOAD_FAILED,filename);
+
+	CString loadsave="";
+	int openstatus;
+	openstatus = saveGame.Open(filename,CFile::modeRead);
+	if(openstatus==0)
+		return;
+    
+	saveGame.ReadString(loadsave);
+	saveGame.Close();
+
+	CString buffer="";
+	int nmb=0;
+	int i=0;
+	int initNumber=0;
+	int *nmbArray;
+	
+	initNumber = atoi(loadsave.Mid(0, loadsave.Find(seperator,0)));
+
+	nmbArray = new int [initNumber];
+
+	loadsave.Delete(0,loadsave.Find(seperator,0)+1);
+
+	while(loadsave.Mid(0, loadsave.Find(seperator,0))!="")
+	{
+		buffer=loadsave.Mid(0, loadsave.Find(seperator,0));
+		
+		nmb = atoi(buffer);
+
+		if(nmb < 1 || nmb > 9999 || nmb > initNumber)
+		{
+			stopLoading=true;	
+			delete []nmbArray;
+			MessageBox(loadFailure,"", MB_OK);
+			return;
+		}
+		if(i<initNumber)
+		{
+			nmbArray[i]=nmb;
+		}
+		else
+		{
+			stopLoading=true;
+			delete []nmbArray;
+			MessageBox(loadFailure,"", MB_OK);
+			return;
+		}
+		
+		i++;		
+		loadsave.Delete(0,loadsave.Find(seperator,0)+1);
+	}
+
+	if(stopLoading==false)
+	{
+		OnBnClickedButtonStartnew();
+		
+		//ListControl.DeleteAllItems();
+		
+		hai.init(initNumber);
+		
+		for(int j=0; j<i; j++)
+		{
+			hai.startRound(nmbArray[j]);
+			CSetList(nmbArray[j]);
+			undoRedo[j]=nmbArray[j];
+		}
+				
+		((CEdit*)GetDlgItem(IDC_STATIC_LISTE))->ShowWindow(1);
+		((CEdit*)GetDlgItem(IDC_BUTTON_UNDO))->EnableWindow(true);
+		((CEdit*)GetDlgItem(IDC_START_INFO))->ShowWindow(0);
+		((CEdit*)GetDlgItem(IDC_STATIC_EINSTELLUNGEN))->ShowWindow(0);
+		
+		m_LedText.ShowWindow(1);
+		ListControl.ShowWindow(1);
+		haiListe.ShowWindow(0);
+		updatePoints();
+		
+		updateTab();
+		updateButtons();
+		Invalidate(false);
+	}
+
+	delete []nmbArray;
+}
+
+void CMFCZahlenHaiDlg::OnBnClickedButtonLoad()
+{
+	readSaveGame();
+}
+
+void CMFCZahlenHaiDlg::OnBnClickedButtonSave()
+{
+	writeSaveGame();
+}
+
+void CMFCZahlenHaiDlg::calculationResult(int maxEndPoints, int upperLimit)
+{
+	int tempUpperLimit = upperLimit;
+	int maxPts = maxEndPoints;
+	
+    if(maxPts != -1)
+	{	
+		CString result;
+  		CString headline;
+		
+		headline.LoadString(IDS_MAX_POINTS_HEADLINE);
+
+		CString sepTempUpperLimit = hai.setSeperator(tempUpperLimit);
+		CString sepMaxPts = hai.setSeperator(maxPts);
+		if(tempUpperLimit <= MAX_POINTS_CALC)
+			result.Format(IDS_MAX_POINTS_NEW_2, sepTempUpperLimit, sepMaxPts, hai.setSeperator(getTime()), hai.setSeperator(getNumberOfRounds()), hai.setSeperator(maxPrime(tempUpperLimit)), bestWay);	
+		else
+			result.Format(IDS_MAX_POINTS_NEW, sepTempUpperLimit, sepMaxPts, hai.setSeperator(getTime()), hai.setSeperator(getNumberOfRounds()), hai.setSeperator(maxPrime(tempUpperLimit)), bestWay);
+		
+		MessageBox(result,headline, MB_ICONINFORMATION);
 	}
 }

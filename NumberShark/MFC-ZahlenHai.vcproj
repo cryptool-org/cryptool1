@@ -512,9 +512,6 @@
 				RelativePath=".\Bilder\backward.bmp">
 			</File>
 			<File
-				RelativePath=".\Bilder\cursor1.cur">
-			</File>
-			<File
 				RelativePath=".\Bilder\foreward-engl.bmp">
 			</File>
 			<File
@@ -551,10 +548,10 @@
 				RelativePath=".\Bilder\muschel-zweifarbig-5.jpg">
 			</File>
 			<File
-				RelativePath=".\Bilder\NumberShark.ico">
+				RelativePath=".\res\NumberShark.ico">
 			</File>
 			<File
-				RelativePath=".\res\NumberShark.ico">
+				RelativePath=".\Bilder\NumberShark.ico">
 			</File>
 			<File
 				RelativePath=".\Bilder\shark-engl.bmp">

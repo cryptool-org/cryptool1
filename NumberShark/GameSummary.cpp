@@ -42,17 +42,23 @@ EvoZahlenHai hai;
 
 int maxPossiblePoints2[] = {0,2,3,7,9,15,17,21,30,40,44,50,52,66,81,89,93,111,113,124,144,166};
 int wert=0;
-int finishPointsPlayer, finishPointsComputer,finishUpperLimit;
+int finishPointsPlayer, finishPointsComputer,finishUpperLimit,finishProofed,finishBestKnown,finishBestValue;
 CString radioExePath="";
 CString radioSummaryName="";
 
-void CGameSummary::uebergeben(EvoZahlenHai &hai, CString exePath, CString summaryName)
+void CGameSummary::uebergeben(EvoZahlenHai &hai, CString exePath, CString summaryName, int proofed2, int bestKnown2, int bestValue)
 {
 	finishPointsPlayer= hai.getPointsPlayer();
 	finishPointsComputer=hai.getPointsComputer();
 	finishUpperLimit=hai.getUpperLimit();
 	radioExePath=exePath;
 	radioSummaryName=summaryName;
+	//22 wenn GameData.txt nicht vorhanden
+	finishProofed = proofed2;
+	//33 wenn GameData.txt nicht vorhanden
+	finishBestKnown = bestKnown2;
+	//0 wenn GameData.txt nicht vorhanden
+	finishBestValue = bestValue;
 }
 
 void CGameSummary::OnBnClickedOk()
@@ -94,18 +100,20 @@ void CGameSummary::gameAnalyse()
 	CString sepPointsPlayer=hai.setSeperator(pointsPlayer);
 	CString sepPointsComputer=hai.setSeperator(pointsComputer);
 	CString sepUpperLimit=hai.setSeperator(upperLimit);
+	CString sepBestValue=hai.setSeperator(finishBestValue);
 
 	//Spieler hat gewonnen
 	if(pointsPlayer > pointsComputer)
 	{
 		//Wenn die maximale Punktezahl für die gewählte Zahl schon mal berechnet wurde, wird die am Ende des Spiels mit angegeben
-		if(upperLimit <= sizeof(maxPossiblePoints2)/sizeof(int))
+		//if(upperLimit <= sizeof(maxPossiblePoints2)/sizeof(int))
+		if(upperLimit <= (finishBestKnown +finishProofed) && finishBestValue != 0)
 		{
 			CString playerHeadline;
-			//maxPossiblePoints Austauschen durch Wert aus dem 2D Array
-			if(pointsPlayer==maxPossiblePoints2[upperLimit-1])
+			//TODO:maxPossiblePoints Austauschen durch Wert aus dem 2D Array
+			if(pointsPlayer==finishBestValue)
 			{
-				result.Format(IDS_PLAYER_WINS_OPTIMAL, sepPointsPlayer, sepUpperLimit, sepUpperLimit);
+                result.Format(IDS_PLAYER_WINS_OPTIMAL, sepPointsPlayer, sepUpperLimit, sepUpperLimit);
 				playerHeadline.LoadString(IDS_PLAYER_WINS_HEADLINE);
 				//Änderung des Dialog Titels
 				this->SetWindowText(playerHeadline);
@@ -113,11 +121,26 @@ void CGameSummary::gameAnalyse()
 			}
 			else
 			{
-				result.Format(IDS_PLAYER_WINS, sepUpperLimit, sepPointsPlayer, sepUpperLimit, hai.setSeperator(maxPossiblePoints2[upperLimit-1]));
-				playerHeadline.LoadString(IDS_PLAYER_WINS_HEADLINE);
-				//Änderung des Dialog Titels
-				this->SetWindowText(playerHeadline);
-				gameFinished.SetWindowText(result);
+				
+				if(pointsPlayer > finishBestValue)
+				{
+					result.Format(IDS_PLAYER_WINS_OPTIMAL2, sepPointsPlayer, sepBestValue, sepUpperLimit);
+					playerHeadline.LoadString(IDS_PLAYER_WINS_HEADLINE);
+					//Änderung des Dialog Titels
+					this->SetWindowText(playerHeadline);
+					gameFinished.SetWindowText(result);
+				}
+				else
+				{
+					if(upperLimit <= finishProofed)
+                        result.Format(IDS_PLAYER_WINS, sepUpperLimit, sepPointsPlayer, sepUpperLimit, sepBestValue);
+					else
+						result.Format(IDS_PLAYER_WINS3, sepUpperLimit, sepPointsPlayer, sepUpperLimit, sepBestValue);
+					playerHeadline.LoadString(IDS_PLAYER_WINS_HEADLINE);
+					//Änderung des Dialog Titels
+					this->SetWindowText(playerHeadline);
+					gameFinished.SetWindowText(result);
+				}
 			}
 			
 			wert=1;
@@ -139,7 +162,10 @@ void CGameSummary::gameAnalyse()
         //Hai hat gewonnen
 		if(pointsPlayer < pointsComputer)
 		{
-			result.Format(IDS_COMPUTER_WINS, sepPointsComputer, sepPointsPlayer);
+			if(upperLimit == 1)
+				result.Format(IDS_NUMBER_ONE, sepPointsComputer, sepPointsPlayer);
+			else
+				result.Format(IDS_COMPUTER_WINS, sepPointsComputer, sepPointsPlayer);
 			CString computerHeadline;
 			computerHeadline.LoadString(IDS_COMPUTER_WINS_HEADLINE);
 			//Änderung des Dialog Titels

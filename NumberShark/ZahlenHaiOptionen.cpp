@@ -61,6 +61,7 @@ void ZahlenHaiOptionen::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_DISCLAIMER_TEXT, disclaimerText);
 	DDX_Text(pDX, IDC_INFO_TEXT, infoText);
 	DDX_Control(pDX, IDC_GAME_IDEA, richEditIdea);
+	DDX_Control(pDX, IDC_ACCELERATORS, accControl);
 }
 
 
@@ -207,6 +208,20 @@ BOOL ZahlenHaiOptionen::OnInitDialog()
 			radioButton2.EnableWindow(0);
 		}
 	}
+
+	CString accTabText="";
+	CString accTabTextBuffer="";
+	
+	accTabTextBuffer.LoadString(IDS_ACC_CHANGE);
+	accTabText+=accTabTextBuffer;
+
+	accTabTextBuffer.LoadString(IDS_ACC_LOAD);
+	accTabText+=accTabTextBuffer;
+
+	accTabTextBuffer.LoadString(IDS_ACC_SAVE);
+	accTabText+=accTabTextBuffer;
+
+	accControl.SetWindowText(accTabText);
 		
 	drawStartTab();
 
@@ -289,6 +304,10 @@ void ZahlenHaiOptionen::drawStartTab()
 	tabHeader.LoadString(IDS_TAB_HEADER3);
 	dialogOptionsTab.InsertItem(2,tabHeader);
 
+	tabHeader="";
+	tabHeader.LoadString(IDS_TAB_HEADER4);
+	dialogOptionsTab.InsertItem(3,tabHeader);
+
 	drawOptionsTab();
 }
 
@@ -298,12 +317,14 @@ void ZahlenHaiOptionen::drawOptionsTab()
 	int seeOptionsStandard;
 	int seeOptionsMaximum;
 	int seeOptionsWelcome;
+	int seeAccelerators;
 
 	if(tab==0)
 	{
 		seeOptionsWelcome=1;
 		seeOptionsStandard=0;
 		seeOptionsMaximum=0;
+		seeAccelerators=0;
 	}
 	else
 	{
@@ -312,12 +333,21 @@ void ZahlenHaiOptionen::drawOptionsTab()
 			seeOptionsWelcome=0;
 			seeOptionsStandard=1;
 			seeOptionsMaximum=0;
+			seeAccelerators=0;
 		}
-		else
+		if(tab==2)
 		{
 			seeOptionsWelcome=0;
 			seeOptionsStandard=0;
 			seeOptionsMaximum=1;
+			seeAccelerators=0;
+		}
+		if(tab==3)
+		{
+			seeOptionsWelcome=0;
+			seeOptionsStandard=0;
+			seeOptionsMaximum=0;
+			seeAccelerators=1;
 		}
 	}
 
@@ -343,4 +373,6 @@ void ZahlenHaiOptionen::drawOptionsTab()
 	((CEdit*)GetDlgItem(IDC_GAME_IDEA))->ShowWindow(seeOptionsWelcome);
 	((CEdit*)GetDlgItem(IDC_DISCLAIMER_TEXT))->ShowWindow(seeOptionsWelcome);
 	((CEdit*)GetDlgItem(IDC_INFO_TEXT))->ShowWindow(seeOptionsWelcome);
+	((CEdit*)GetDlgItem(IDC_ACCELERATORS))->ShowWindow(seeAccelerators);
+
 }

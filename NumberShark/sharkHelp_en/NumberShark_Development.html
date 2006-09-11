@@ -10,7 +10,7 @@
 
 <p>The idea for the Number Shark game comes from Mr. Lothar Carl, who created the original version of the game in Delphi. The Number Shark game is used to improve and to train the knowledge of factors and prime numbers in grades six to ten.</p>
 <p>You can find the original game here: <br><a href="http://www.learn-line.nrw.de/angebote/neuemedien/medio/mathe/coalgebr/zahlhai/hai01.htm" target="_blank">http://www.learn-line.nrw.de/angebote/neuemedien/medio/mathe/coalgebr/zahlhai/hai01.htm</a><br>
-The following picture shows the original version. This program is freeware, but not open source.</p>
+The following picture shows the original version. This program from Mr.Carl is freeware, but not open source.</p>
 
 <p><IMG SRC="Pictures_en/game_original_de.png" ALT="game_original_de.png" BORDER=0></p>
 
@@ -46,7 +46,13 @@ Now you can play with maximum 9999 numbers. This border is set in the source cod
 </ul>
 </p>
 
+<p>Because this calculation takes a long time, the player is asked by the program before the calculation starts.</p>
+
+<p><IMG SRC="Pictures_en/Dlg_max_warn_en.png" ALT="Dlg_max_warn_en.png" BORDER=0></p>
+
 <p><IMG SRC="Pictures_en/Dlg_max_value_en.png" ALT="Dlg_max_value_en.png" BORDER=0></p>
+
+<p><u><b>Note:</b></u></p>
 
 <p>The maximum possible points are already available for numbers from 1 to 22 and are saved in the file "GameData.txt", so that they don’t need to be calculated again.</p>
 
@@ -56,9 +62,6 @@ Now you can play with maximum 9999 numbers. This border is set in the source cod
 
 <p><IMG SRC="Pictures_en/Dlg_max_way_en.png" ALT="Dlg_max_way_en.png" BORDER=0></p>
 
-<p>Because this calculation takes a long time, the player is asked by the program before the calculation starts.</p>
-
-<p><IMG SRC="Pictures_en/Dlg_max_warn_en.png" ALT="Dlg_max_warn_en.png" BORDER=0>
 
 <p><b><u>3. Stop and restart the calculation</u></b></p>
 <p>We had to find a way to stop and restart the calculation because the PC may have to be used for other work or may have a power breakdown. To make sure this, intermediate results are saved in a document in short time intervals. The file "NumberSharkSearch[amount of numbers] is created in the same folder as the Number Shark executable and can be opened with a normal text editor. </p> 
@@ -86,7 +89,7 @@ The Number Shark game has a feature to undo <IMG SRC="Pictures_en/Dlg_main_undo.
 <p>Different pictures of a shark were added to the dialog, and everytime you press the "<b>New game</b>" Button the picture changes. Then the normal tool tips were replaced by so called balloon tips.</p>
 <p>Other visual changes are the different colors on the game progress list and a LED display which shows you the scores and the end results.</p>
 
-<p>The design of the buttons in the numbers stack, the LED displays and the coloured course of the game were realized with the help of source code examples from the users of the website <a href="http://www.codeproject.com" target="_blank">http://www.codeproject.com</a>. 
+<p>The design of the buttons in the numbers stack, the LED display and the coloured course of the game were realized with the help of source code examples from the users of the website <a href="http://www.codeproject.com" target="_blank">http://www.codeproject.com</a>. 
 
 <p>After the game dialog was finished we realized that the game was to big for smaller pc screens and resolutions. To solve this problem we decided to create a new, smaller, game dialog. In this dialog you can only see 20 button shells at one time and the game progress list was shortened.</p>
 
@@ -95,7 +98,7 @@ The Number Shark game has a feature to undo <IMG SRC="Pictures_en/Dlg_main_undo.
 
 <p>Of course the program is not completed yet. Some ideas are:
 <ol type=1>
-	<li>Another big task is to make the algorithm for the maximum possible points faster (see <a href="NumberShark_Challenge.html">challenge</a>).</li>
+	<li>Another big task is to make the algorithm for the maximum possible points and the best way to achieve them faster (see <a href="NumberShark_Challenge.html">challenge</a>).</li>
 	<li>And there are many ways to make the game look more like a game for kids.</li>
 	<li>If the mouse pointer moves over a shell that is still active, the blue ones, it should change it appearance to a hand for example.</li>
 	<li>The numbers disappear in the shells (shells need to be animated).</li>
@@ -111,10 +114,12 @@ The Number Shark game has a feature to undo <IMG SRC="Pictures_en/Dlg_main_undo.
 	<li>When you calculate new score for numbers &gt; 22 via brute-force it should be possible to
 	<ol type = "a">
 		<li>abort this task (multithreading)</li>
+		<li>play the game while a new value is calculated</li>
 		<li>read the already achieved values out of the *.zha file</li>
 	</ol>
 	</li>
-	<li> A save and load function would also be a good idea.</li>	 
+	<li>A save and load function would also be a good idea.</li>
+	<li>Port the Number Shark to Visual Studio 2005 and make the dialogs sizable (docking).</li>	
 </ol>
 </p>
 

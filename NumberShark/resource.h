@@ -139,8 +139,17 @@
 #define IDS_NO_SUMMARY                  202
 #define IDS_IDS_VALID_INPUT_HEADLINE_LOW 203
 #define IDS_VALID_INPUT_HEADLINE_LOW    203
+#define IDS_LOGFILE_PLAYER_NUMBERS      204
 #define IDR_MAINFRAME                   205
-#define IDC_CURSOR1                     207
+#define IDS_SEPERATOR                   205
+#define IDS_TAB_HEADER4                 206
+#define IDS_ACC_CHANGE                  207
+#define IDS_ACC_LOAD                    208
+#define IDS_ACC_SAVE                    209
+#define IDS_PLAYER_WINS_OPTIMAL2        210
+#define IDS_PLAYER_WINS3                211
+#define IDS_NUMBER_ONE                  212
+#define IDS_LOAD_FAILED                 213
 #define IDC_LIST2                       1001
 #define IDC_EDIT1                       1007
 #define IDC_BUTTON1                     1008
@@ -232,6 +241,10 @@
 #define IDC_DISCLAIMER_TEXT             1157
 #define IDC_INFO_TEXT                   1158
 #define IDC_BUTTON_SWITCH_STYLE         1167
+#define IDC_TIMER                       1168
+#define IDC_BUTTON_LOAD                 1170
+#define IDC_BUTTON_SAVE                 1171
+#define IDC_ACCELERATORS                1174
 #define ID_OPTIONEN_TOOLTIPSANZEIGEN    32771
 #define ID_OPTIONEN_MAXIMALPUNKTEZAHL   32772
 #define ID_OPTIONEN_MITHAIBEGINNEN      32773
@@ -246,9 +259,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        208
+#define _APS_NEXT_RESOURCE_VALUE        209
 #define _APS_NEXT_COMMAND_VALUE         32788
-#define _APS_NEXT_CONTROL_VALUE         1168
+#define _APS_NEXT_CONTROL_VALUE         1175
 #define _APS_NEXT_SYMED_VALUE           175
 #endif
 #endif

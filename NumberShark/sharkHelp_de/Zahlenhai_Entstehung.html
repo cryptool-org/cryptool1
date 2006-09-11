@@ -10,9 +10,14 @@
 
 <p>Die Idee zum Zahlenhai-Spiel stammt von Herrn Lothar Carl, der auch die urspr&uuml;ngliche Version in Delphi programmierte. Das Zahlenhai-Spiel dient zur Verbesserung und zum spielerischen Training der Kenntnisse &uuml;ber Teilbarkeiten und Primzahlen in den Klassen 6 bis 10.</p>
 <p>Hier findest Du das Original-Zahlenhai-Spiel:<br><a href="http://www.learn-line.nrw.de/angebote/neuemedien/medio/mathe/coalgebr/zahlhai/hai01.htm" target="_blank">http://www.learn-line.nrw.de/angebote/neuemedien/medio/mathe/coalgebr/zahlhai/hai01.htm</a><br>
-Das folgende Bild zeigt die urspr&uuml;ngliche Fassung. Dieses Programm ist Freeware, aber nicht Open-Source.</p>
+Das folgende Bild zeigt die urspr&uuml;ngliche Fassung. Das Programm ist von Herrn Carl Freeware, aber nicht Open-Source.</p>
 
-<p><IMG SRC="Pictures_de/game_original_de.png" ALT="game_original_de.png" BORDER=0></p>
+<table>
+
+		<td><p><IMG SRC="Pictures_de/game_original_de.png" ALT="game_original_de.png" BORDER=0></p></td>
+		<td>Auf der Seite von Herrn Carl sind auch die maximal erreichbaren Punktzahlen für den Spieler für Zahlenvorr&auml;te bis n=50. Das sind alleridngs erspielte Werte, wo sich die Ergebnisse nat&uuml;rlich noch &auml;ndern k&ouml;nnnen.<br>Die Seite <br><a href="http://www.research.att.com/~njas/sequences/?q=taxman&sort=0&fmt=0&language=english&go=Search" target="_blank">http://www.research.att.com/~njas/sequences/?q=taxman&sort=0&fmt=0&language=english&go=Search</a><br> enthält innerhalt der <b>ATT Interger Sequences</b> die Maximalwerte bis n=54 (die teilweise abweichen). Dort kann die Folge auch gleich grafisch angezeigt werden. Leider ist in beiden F&auml;llen weder eine Formel noch die zugeh&ouml;rige Folge der gew&auml;hlten Zahlen angegeben!</td>
+	
+</table>
 
 <p>Herr Carl hat uns dankenswerterweise erlaubt, seine Idee und seinen Spielnamen f&uuml;r eine Neuimplementierung uneingeschr&auml;nkt zu nutzen.</p>
 
@@ -22,7 +27,7 @@ Das folgende Bild zeigt die urspr&uuml;ngliche Fassung. Dieses Programm ist Free
 
 <p>Innerhalb der Ausbildung im 1. Lehrjahr zum Fachinformatiker wurde die Idee von Herrn Carl als Vorlage gew&auml;hlt, um Programmierkenntnisse in C++ zu vermitteln und diese Kenntnisse sp&auml;ter durch Erweiterungen des Programms zu vertiefen.</p>
 
-<p>Zuerst wurde das Verfahren des Zahlenhai-Spiels in C++ als "Konsolenprogramm" implementiert (Konsolenprogramm machen nur eine  Textein- und Ausgabe. Sie werden von der Kommandozeile gestartet - unter Windows ist das Kommandozeilenfenster sehr versteckt: siehe Start \ Alle Programme \ Zubeh&ouml;r \ Eingabeaufforderung).</p>
+<p>Zuerst wurde das Verfahren des Zahlenhai-Spiels in C++ als "Konsolenprogramme" implementiert (Konsolenprogramm machen nur eine  Textein- und Ausgabe. Sie werden von der Kommandozeile gestartet: Unter Windows ist das Kommandozeilenfenster sehr versteckt: siehe Start \ Alle Programme \ Zubeh&ouml;r \ Eingabeaufforderung).</p>
 
 <p><IMG SRC="Pictures_de/console_de.png" ALT="console_de.png" BORDER=0></p>
 
@@ -46,8 +51,13 @@ Dadurch wurde die maximal m&ouml;gliche Anzahl an Zahlen auf 9999 erh&ouml;ht. D
 	<li>die Zahlenfolge, die das Programm berechnete, um die maximal m&ouml;gliche Punktzahl zu erreichen.</li>
 </ul>
 </p>
+<p>Da die Berechnung f&uuml;r eine gr&ouml;&szlig;ere Anzahl an Zahlen sehr lange dauert, wird der Spieler vorher gefragt, ob diese Funktion wirklich ausgef&uuml;hrt werden soll.</p>
 
-<p><IMG SRC="Pictures_de/Dlg_max_value_de.png" ALT="Dlg_max_new_de.png" BORDER=0></p><br>
+<p><IMG SRC="Pictures_de/Dlg_max_warn_de.png" ALT="Dlg_max_warn_de.png" BORDER=0></p>
+
+<p><IMG SRC="Pictures_de/Dlg_max_value_de.png" ALT="Dlg_max_new_de.png" BORDER=0></p>
+
+<p><u><b>Bemerkung:</b></u></p>
 
 <p>Die maximal m&ouml;glichen Punktzahlen sind f&uuml;r die Zahlenvorr&auml;te von 1 bis 22 schon in der Datei "GameData.txt" abgelegt und m&uuml;ssen nicht noch einmal berechnet werden, sondern werden sofort ausgegeben.</p>
 
@@ -56,10 +66,6 @@ Dadurch wurde die maximal m&ouml;gliche Anzahl an Zahlen auf 9999 erh&ouml;ht. D
 <p>Au&szlig;erdem kann sich der Spieler auch noch einen optimalen Weg (also die Folge der Zahlen, die zur maximalen Punktzahl f&uuml;hrt) anzeigen lassen.</p>
 
 <p><IMG SRC="Pictures_de/Dlg_max_way_de.png" ALT="Dlg_max_way_de.png" BORDER=0></p>
-
-<p>Da die Berechnung f&uuml;r eine gr&ouml;&szlig;ere Anzahl an Zahlen sehr lange dauert, wird der Spieler vorher gefragt, ob diese Funktion wirklich ausgef&uuml;hrt werden soll.</p>
-
-<p><IMG SRC="Pictures_de/Dlg_max_warn_de.png" ALT="Dlg_max_warn_de.png" BORDER=0>
 
 <p><b><u>3. Durchf&uuml;hrung und Wiederaufsetzten bei &uuml;berlangen Berechnungen</u></b></p>
 <p>Da die Berechnung der maximal m&ouml;glichen Punkte bei gr&ouml;&szlig;eren Zahlen extrem lange dauert, musste ein Weg gefunden werden, um die Berechnung der Zahlen unterbrechen und zu einem sp&auml;teren Zeitpunkt wieder fortsetzen zu k&ouml;nnen (z.B. weil der Strom ausfiel oder man den Rechner f&uuml;r andere Aufgaben brauchte). Dazu werden alle f&uuml;r die Berechnung ben&ouml;tigten Zwischenwerte in geringen Zeitabst&auml;nden in einer Textdatei gespeichert. Die Datei "ZahlenHaiSuche[Anzahl der Zahlen].zha" wird in demselben Ordner gespeichert, in dem sich auch die Datei "Zahlenhai.exe" befindet, Sie l&auml;sst sich mit einem Texteditor &ouml;ffnen und anschauen.</p> 
@@ -75,7 +81,7 @@ Dadurch wurde die maximal m&ouml;gliche Anzahl an Zahlen auf 9999 erh&ouml;ht. D
 <p>a) Auswahl der Zahlen im Muschelfeld</p>
 <p>Um die Benutzerfreundlichkeit in dem Programm zu erh&ouml;hen, wurde auch noch eine reine Tastatursteuerung implementiert, die es dem Benutzer erm&ouml;glich, sich mit den Pfeiltasten (links, rechts, hoch, runter) frei auf den mit Zahlen beschrifteten Muscheln, sowie den dazugeh&ouml;rigen Reitern, zu bewegen. Vor der Implementierung der Steuerung konnte man sich nur mit den Pfeiltasten links und rechts, sowie der Tabulator-Taste, durch das Programm navigieren. Ausw&auml;hlen kann man die Zahlen dann mit der Enter- oder der Leertaste.</p>
 <p>b) R&uuml;ckg&auml;ngig machen und wieder Vorw&auml;rts-Gehen mit den Undo- und Redo-Buttons</p>
-<p>Im Zahlenhai kannst Du auch &uuml;ber den <b>R&uuml;ckw&auml;rts</b>-Button (Undo) <IMG SRC="Pictures_de/Dlg_main_undo.png" ALT="Dlg_main_undo.png" BORDER=0> bereits gespielte Spielz&uuml;ge r&uuml;ckg&auml;ngig machen, um Dich f&uuml;r eine andere Zahl zu entscheiden. Mit dem <b>Vorw&auml;rts</b>-Button (Redo) <IMG SRC="Pictures_de/Dlg_main_redo.png" ALT="Dlg_main_redo.png" BORDER=0> kannst Du Deine zur&uuml;ck genommenen Spielz&uuml;ge auch wieder vorw&auml;rts gehen solange Du keine &Auml;nderungen im Spielverlauf vorgenommen hast.</p>
+<p>Im Zahlenhai kannst Du auch &uuml;ber den <b>R&uuml;ckw&auml;rts</b>-Button (Undo) <IMG SRC="Pictures_de/Dlg_main_undo.png" ALT="Dlg_main_undo.png" BORDER=0> bereits gespielte Spielz&uuml;ge r&uuml;ckg&auml;ngig machen, um Dich f&uuml;r eine andere Zahl zu entscheiden. Mit dem <b>Vorw&auml;rts</b>-Button (Redo) <IMG SRC="Pictures_de/Dlg_main_redo.png" ALT="Dlg_main_redo.png" BORDER=0> kannst Du Deine zur&uuml;ck genommenen Spielz&uuml;ge auch wieder vorw&auml;rts gehen, solange Du keine &Auml;nderungen im Spielverlauf vorgenommen hast.</p>
 
 <p><b><u>5. Tests</u></b></p>
 
@@ -84,24 +90,24 @@ Dadurch wurde die maximal m&ouml;gliche Anzahl an Zahlen auf 9999 erh&ouml;ht. D
 <p><b><u>6. Optische Gestaltung</u></b></p>
 
 <p>Damit das Programm mehr wie ein Spiel und weniger wie eine normale B&uuml;roanwendung aussieht, musste auch die optische Aufmachung des Spieles verbessert werden. Der erste Schritt zu einer besseren optischen Gestaltung war die Ver&auml;nderung der Buttons f&uuml;r den Zahlenvorrat. Daf&uuml;r wurde das Bild einer Muschel ver&auml;ndert und den verschiedenen Zust&auml;nden eines Buttons, also "gedr&uuml;ckt", "deaktiviert" oder "Focus", zugewiesen. Die Buttons an sich wurden transparent gemacht, so dass es so aussieht als w&auml;ren die R&auml;nder der Muschel auch der Rand des Buttons.</p>
-<p>Du kannst die Muscheln jederzeit w&auml;hrend des Spieles durch einfache Buttons ersetzten: Die Zahlen auf den einfachen Buttons sind (für manche Menschen) besser lesbar. Daf&uuml;r brauchst Du nur die Tastenkombination <b>SHIFT+ALT+C</b> auf Deiner Tastatur dr&uuml;cken.</p>
+<p>Du kannst die Muscheln jederzeit w&auml;hrend des Spieles durch einfache Buttons ersetzen. Daf&uuml;r brauchst Du nur die Tastenkombination <b>SHIFT+ALT+C</b> auf Deiner Tastatur dr&uuml;cken. Die Zahlen auf den einfachen Buttons sind (für manche Menschen) besser lesbar.</p>
 <p>Im n&auml;chsten Schritt wurde ein Haifisch-Bild in das Spielfenster eingef&uuml;gt und die normalen rechteckigen ToolTips wurden durch abgerundete Fenster, sogenannte Balloon-Tips, ersetzt.</p>
 <p>Nachdem die Bilder ausgew&auml;hlt waren, wurde die Schriftfarbe an die Farbe der Bilder angepasst. Zus&auml;tzlich wurde die Spielverlaufstabelle in den Farben der Muscheln eingef&auml;rbt.</p>
-<p>Um den Dialog noch mehr wie ein Spiel aussehen zu lassen wurde ein Dialogfeld, das aussieht wie eine LED-Anzeige, hinzugef&uuml;gt: W&auml;hrend des Spiels zeigt dieses gro&szlig;, den Punktestand an.</p>
-<p>Da die Farbe sp&auml;ter noch eingestellt werden soll, musste auch der Optionen-Dialog angepasst werden. Optionen wurden in "Standard", "Farben" und "Maximalwerte" unterteilt und auf Reitern ausgelagert, so dass jede Optionen-Art f&uuml;r sich alleine steht. In dem Reiter "Farben" soll man sp&auml;ter noch die M&ouml;glichkeit haben, sich die Farben der Tabelle und die Schriftfarben, &auml;hnlich wie bei MS Paint, selber auszusuchen.<p>
+<p>Um den Dialog noch mehr wie ein Spiel aussehen zu lassen, wurde ein Dialogfeld, das aussieht wie eine LED-Anzeige, hinzugef&uuml;gt: W&auml;hrend des Spiels zeigt dieses gro&szlig; den Punktestand an.</p>
+<p>Die Optionen wurden in "Willkommen, "Standard" und "Maximalwerte" unterteilt und auf Reitern ausgelagert, so dass jede Optionen-Art f&uuml;r sich alleine steht. In dem Reiter "Farben" soll man sp&auml;ter noch die M&ouml;glichkeit haben, sich die Farben der Tabelle und die Schriftfarben, &auml;hnlich wie bei MS Paint, selber auszusuchen.<p>
 
-<p>Die Gestaltung der Buttons f&uuml;r den Zahlenvorrat, die LED-Anzeigen und die farbige Darstellung der Spielverlaufstabelle wurden mit Hilfe von Quellcodebeispielen von den Usern der Seite <a href="http://www.codeproject.com" target="_blank">http://www.codeproject.com</a> erstellt.</p> 
+<p>Die Gestaltung der Buttons f&uuml;r den Zahlenvorrat, die LED-Anzeige und die farbige Darstellung der Spielverlaufstabelle wurden mit Hilfe von Quellcodebeispielen von den Usern der Seite <a href="http://www.codeproject.com" target="_blank">http://www.codeproject.com</a> erstellt.</p> 
 
 <p><b><u>7. TODOs</u> - Wie man das Programm weiter verbessern kann.</b></p>
 
 <p>Das Zahlenhai-Programm kann nat&uuml;rlich noch weiterentwickelt werden. Vorschl&auml;ge f&uuml;r eine Version 2.0 sind:
 <ol type =1>
-	<li>Eine gro&szlig;e Aufgabe, die sich noch stellt, ist es, eine schnellere M&ouml;glichkeit zu finden, die maximal m&ouml;gliche Punktezahl zu berechnen (siehe Challenge).</li>
+	<li>Eine gro&szlig;e Aufgabe, die sich noch stellt, ist es, eine schnellere M&ouml;glichkeit zu finden, die maximal m&ouml;gliche Punktezahl und den Weg dahin zu berechnen (siehe Challenge).</li>
 	<li>Au&szlig;erdem gibt es viele M&ouml;glichkeiten, das Programm bunter und spielerischer aussehen zu lassen.</li>
 	<li>Wenn sich der Mauszeiger über einer noch auswählbaren Muschel befindet, also einer blauen, dann soll sich er sich zum Beispiel in eine Hand verwandeln.</li>
 	<li>Eine animierte Muschel schluckt die Zahlen, wenn sie an den Zahlenhai gehen.</li>
-	<li>Eine Farbauswahlpalette, &auml;hnlich MS Paint, in die Optionen integrieren (Reiter Farbe).</li>
-	<li>Sliderbox zur Auswahl der Zahlenvorratsgr&ouml;&szlig;e</li>
+	<li>Eine Farbauswahlpalette, &auml;hnlich MS Paint, in die Optionen integrieren (Optionen-Reiter Farbe).</li>
+	<li>Sliderbox zur Auswahl der Zahlenvorratsgr&ouml;&szlig;e.</li>
 	<li>Eine Highscore-Tabelle anzeigen.</li>
 	<li>Es soll m&ouml;glich sein, dass sich der Spieler aussuchen kann, wieviele Buttons er auf einmal im Tab-Control sehen m&ouml;chte (20, 30 oder 40).</li>
 	<li>Da sich die Spalten der Spielverlaufstabelle nicht automatisch ihrem Inhalt anpassen, sondern der Benutzer dies selber machen muss, soll es auch eine M&ouml;glichkeit f&uuml;r den Benutzer geben, die Spalten wieder auf ihre Ursprungsbreite zur&uuml;ck zu setzen</li>
@@ -112,10 +118,12 @@ Dadurch wurde die maximal m&ouml;gliche Anzahl an Zahlen auf 9999 erh&ouml;ht. D
 	<li>Wenn man Brute-force optimale Werte f&uuml;r n &gt; 22 berechnen l&auml;sst, sollte<br>
 	<ol type = "a">
 		<li>diese Task abzubrechen sein (Multithreading)</li>
+		<li>es möglich sein während der Berechnung weiterzuspielen</li>
 		<li>man aus der Datei *.zha die besten, bisher gefundenen Werte auslesen k&ouml;nnen.</li>
 	</ol>
 	</li>
 	<li>Zwischen-/Spielstand speichern und wieder aufsetzten.</li>
+	<li>Auf Visual Studio 2005 portieren und dann die Dialogbox in der Höhe größenveränderbar machen (andocken).</li>
 </ol>
 </p>
 
