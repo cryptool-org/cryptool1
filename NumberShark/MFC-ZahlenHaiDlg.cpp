@@ -282,7 +282,7 @@ BOOL CMFCZahlenHaiDlg::OnInitDialog()
 	fontButton.CreatePointFont(145, "Arial", &dc);
 	fontNormalButton.CreatePointFont(155, "Arial", &dc);
 
-	arrayButtonControl[1].SetCursor(AfxGetApp()->LoadCursor(IDC_CURSOR1));
+	//arrayButtonControl[1].SetCursor(AfxGetApp()->LoadCursor(IDC_CURSOR1));
 	//LOGFONT logFont;
 	//logFont.lfUnderline = TRUE;
 	//logFont.lfHeight = 13;
