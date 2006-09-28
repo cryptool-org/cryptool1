@@ -15724,8 +15724,7 @@ BEGIN
     DEFPUSHBUTTON   "Generate polynomial",IDB_GENERATENEW,125,199,74,14
     LTEXT           "All computations of a (t, n) Shamir scheme take place in a discrete space GF(p).\np is a prime that has to be larger than the secret S as well as the number of participants n.",
                     IDC_STATIC,13,60,294,25
-    LTEXT           "Eingabe einer geeigneten Primzahl",IDC_STATIC,14,83,110,
-                    8
+    LTEXT           "Enter a suitable prime",IDC_STATIC,14,83,70,8
     EDITTEXT        IDC_EDIT_MYPRIME,162,80,146,14,ES_AUTOHSCROLL
     LTEXT           "A polynomial f(x) of degree t-1 is constructed over GF(p): It is used to compute the participants' shares. By means of this polynomial and the generated shares, the secret can be reconstructed.",
                     IDC_STATIC,14,115,293,24
