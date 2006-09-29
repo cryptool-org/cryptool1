@@ -1,63 +1,118 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
-<HEAD>
-<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Die Bedienung des Challenge-Response-Moduls</TITLE>
-<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
-</HEAD>
-
-<!-- multiple keywords for CrypTool HTML help index -->
-<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
-	<PARAM NAME="Keyword" VALUE="Challenge-Response-Demo">
-</OBJECT>
-
-<BODY>
-
-<H3>Die Bedienung des Challenge-Response-Moduls</H3>
-
-<P>In diesem Hilfeabschnitt werden die verschiedenen Bedienungselemente des Challenge-Response-Moduls beschrieben:</P>
-
-<UL>
-	<LI>Mit F1 können Sie sich immer Szenario-spezifische Hilfe anzeigen lassen.<BR><BR></LI>
-
-	<LI>Am linken Rand befindet sich eine Reihe von Knöpfen, mit denen die verschiedenen Szenarien (z.B. „Passwort“) aufgerufen werden.<BR><BR></LI>
-
-	<LI>Darunter ist der Knopf zum „Beenden“ des Dialogs.<BR><BR></LI>
-
-	<LI>Auf der weißen Fläche werden die verschiedenen Szenarien angezeigt. Allen Szenarien liegt ein Netzwerk mit den folgenden Elementen zugrunde: 
-<UL type="disc">
-	<LI>Quadrate repräsentieren Rechner und ihre Benutzer. Router dienen in Netzwerken der Lenkung und Weiterleitung von Datenströmen. Server stellen Informationen oder Dienste zur Verfügung, die vom Client genutzt werden können.<BR></LI>
-
-	<LI>Linien sind die Verbindungen zwischen den einzelnen Netzwerkknoten.<BR></LI>
-
-	<LI>Alle blau dargestellten Elemente sind normale Teile des Netzwerks, rote Elemente gehören dem Angreifer oder stehen unter seiner Kontrolle.</LI>
-</UL>
-</LI>
-
-	<LI>Ganz rechts befinden sich Knöpfe zum Manipulieren der Rechner und der Verbindungen:
-<UL type="disc">
-<LI>Der „leere Knopf“ bedeutet keine Aktion auszuwählen<BR></LI>
-
-<LI>Mit „Verbinden“ und „Trennen“ können Sie den Status der Verbindungen beeinflussen. Wenn Sie auf „Verbinden“ und danach auf einen der Router klicken, wird eine (rote) Verbindung zwischen dem Angreifer und dem Router angelegt. Wenn Sie auf „Trennen“ und danach auf eine bestehende Verbindung klicken, werden rote Verbindungen gelöscht, blaue Verbindungen werden schwarz und unterbrochen angezeigt. Jeder der beiden Befehle kann durch den anderen aufgehoben werden.<BR></LI>
-
-	<LI>Mit „Rechner angreifen“ können Sie Rechner, mit denen Sie direkt oder über das Netzwerk verbunden sind, unter Ihre Kontrolle bringen, sofern sie nicht zu stark gesichert sind. Server 1 und der Client gelten als zu stark gesichert, Server 2 und die Router als angreifbar. Der jeweilige Rechner wird dann rot dargestellt und Sie bekommen eine Kopie aller Daten, die auf diesem Rechner gespeichert sind. Außerdem schicken ihnen angegriffene Rechner von jedem durchgehenden Datenpaket ebenfalls eine Kopie. <BR></LI>
-
-	<LI>Mit „Angriff auf Rechner beenden“ heben Sie den Angriff auf und der Rechner wird wieder blau dargestellt.</LI>
-</UL>
-</LI>
-
-	<LI>Links neben dem Client befindet sich der „Authentifizieren des Clients“-Knopf. Damit versucht der Client, sich beim Server zu authentifizieren, und das jeweilige Protokoll des Szenarios wird gestartet.<BR><BR></LI>
-
-	<LI>Beim Angreifer befindet sich der „Authentifizieren des Angreifers“-Knopf. Damit kann der Angreifer (Sie) das Protokoll von seinem Rechner aus initiieren und versuchen, vom Server als Client akzeptiert zu werden (d.h. der Angreifer gibt sich als Client aus). Das funktioniert natürlich nur, wenn vorher die nötigen Daten ausgespäht wurden. Darunter gibt es noch einen „Maskieren“-Knopf. Mit der richtigen Verbindungskonfiguration (die Sie natürlich erst herausfinden müssen) ist es damit möglich, sich gegenüber dem Client als Server und gegenüber dem Server als Client auszugeben (<A href="man_in_the_middle.html">Man-in-the-middle-Angriff</A>).<BR><BR></LI>
-
-	<LI>Unten rechts auf der weißen Fläche befindet sich der „Hilfe zum Szenario“-Knopf, mit dem Sie die Szenario-spezifischen Hilfeseiten (und von dort aus auch die Lösungen) aufrufen können.<BR><BR></LI>
-
-	<LI>Mit „Szenario zurücksetzen“ können Sie den ursprünglichen Zustand eines Szenarios wiederherstellen.<BR><BR></LI>
-
-	<LI>In der Anzeige unter der weißen Szenariofläche befindet sich jeweils eine kurze Erklärung zum Szenario und die Aufgabenstellung. Weitergehende Informationen bzw. genauere Erklärungen sind jeweils hier in der Hilfe zu finden.</LI>
-</UL>
-
-<P><IMG SRC="images/cr_usage.jpg" ALT="cr_usage.jpg" BORDER=0></P>
-
-</BODY>
+	<HEAD>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<TITLE>Die Bedienung der Challenge-Response-Demo</TITLE>
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	</HEAD>
+	<!-- multiple keywords for CrypTool HTML help index -->
+	<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+		VIEWASTEXT>
+		<PARAM NAME="Keyword" VALUE="Challenge-Response-Demo">
+	</OBJECT>
+	<BODY>
+		<H3>Die Bedienung der Challenge-Response-Demo</H3>
+		<p>Diesen Dialog erreichen Sie über das Menü <a href="menu_related_methods.html">Einzelverfahren</a>
+			\ <a href="menu_individualprocedures_protocols.html">Protokolle</a> \ <a href="hid_cr_overview.html">
+				Authentisierungsverfahren im Netz</a>.</p>
+		<P>In diesem Hilfeabschnitt werden die verschiedenen Bedienungselemente der 
+			Challenge-Response-Demo beschrieben:</P>
+		<UL>
+			<LI>
+				Mit F1 können Sie sich immer Szenario-spezifische Hilfe anzeigen lassen.<BR>
+				<BR>
+			</LI>
+			<LI>
+				Am linken Rand befindet sich eine Reihe von Knöpfen, mit denen die 
+				verschiedenen Szenarien (z.B. „Passwort“) aufgerufen werden.<BR>
+				<BR>
+			</LI>
+			<LI>
+				Darunter ist der Knopf zum „Beenden“ des Dialogs.<BR>
+				<BR>
+			</LI>
+			<LI>
+				Auf der weißen Fläche werden die verschiedenen Szenarien angezeigt. Allen 
+				Szenarien liegt ein Netzwerk mit den folgenden Elementen zugrunde:
+				<UL type="disc">
+					<LI>
+						Quadrate repräsentieren Rechner und ihre Benutzer. Router dienen in Netzwerken 
+						der Lenkung und Weiterleitung von Datenströmen. Server stellen Informationen 
+						oder Dienste zur Verfügung, die vom Client genutzt werden können.<BR>
+					</LI>
+					<LI>
+						Linien sind die Verbindungen zwischen den einzelnen Netzwerkknoten.<BR>
+					</LI>
+					<LI>
+						Alle blau dargestellten Elemente sind normale Teile des Netzwerks, rote 
+						Elemente gehören dem Angreifer oder stehen unter seiner Kontrolle.</LI>
+				</UL>
+				<br>
+			</LI>
+			<LI>
+				Ganz rechts befinden sich Knöpfe zum Manipulieren der Rechner und der 
+				Verbindungen:
+				<UL type="disc">
+					<LI>
+						Der „leere Knopf“ bedeutet keine Aktion auszuwählen<BR>
+					</LI>
+					<LI>
+						Mit „Verbinden“ und „Trennen“ können Sie den Status der Verbindungen 
+						beeinflussen. Wenn Sie auf „Verbinden“ und danach auf einen der Router klicken, 
+						wird eine (rote) Verbindung zwischen dem Angreifer und dem Router angelegt. 
+						Wenn Sie auf „Trennen“ und danach auf eine bestehende Verbindung klicken, 
+						werden rote Verbindungen gelöscht, blaue Verbindungen werden schwarz und 
+						unterbrochen angezeigt. Jeder der beiden Befehle kann durch den anderen 
+						aufgehoben werden.<BR>
+					</LI>
+					<LI>
+						Mit „Rechner angreifen“ können Sie Rechner, mit denen Sie direkt oder über das 
+						Netzwerk verbunden sind, unter Ihre Kontrolle bringen, sofern sie nicht zu 
+						stark gesichert sind. Server 1 und der Client gelten als zu stark gesichert, 
+						Server 2 und die Router als angreifbar. Der jeweilige Rechner wird dann rot 
+						dargestellt und Sie bekommen eine Kopie aller Daten, die auf diesem Rechner 
+						gespeichert sind. Außerdem schicken ihnen angegriffene Rechner von jedem 
+						durchgehenden Datenpaket ebenfalls eine Kopie.
+						<BR>
+					</LI>
+					<LI>
+						Mit „Angriff auf Rechner beenden“ heben Sie den Angriff auf und der Rechner 
+						wird wieder blau dargestellt.</LI>
+				</UL><br>
+			</LI>
+			<LI>
+				Links neben dem Client befindet sich der „Authentifizieren des Clients“-Knopf. 
+				Damit versucht der Client, sich beim Server zu authentifizieren, und das 
+				jeweilige Protokoll des Szenarios wird gestartet.<BR>
+				<BR>
+			</LI>
+			<LI>
+				Beim Angreifer befindet sich der „Authentifizieren des Angreifers“-Knopf. Damit 
+				kann der Angreifer (Sie) das Protokoll von seinem Rechner aus initiieren und 
+				versuchen, vom Server als Client akzeptiert zu werden (d.h. der Angreifer gibt 
+				sich als Client aus). Das funktioniert natürlich nur, wenn vorher die nötigen 
+				Daten ausgespäht wurden. Darunter gibt es noch einen „Maskieren“-Knopf. Mit der 
+				richtigen Verbindungskonfiguration (die Sie natürlich erst herausfinden müssen) 
+				ist es damit möglich, sich gegenüber dem Client als Server und gegenüber dem 
+				Server als Client auszugeben (<A href="man_in_the_middle.html">Man-in-the-middle-Angriff</A>).<BR>
+				<BR>
+			</LI>
+			<LI>
+				Unten rechts auf der weißen Fläche befindet sich der „Hilfe zum 
+				Szenario“-Knopf, mit dem Sie die Szenario-spezifischen Hilfeseiten (und von 
+				dort aus auch die Lösungen) aufrufen können.<BR>
+				<BR>
+			</LI>
+			<LI>
+				Mit „Szenario zurücksetzen“ können Sie den ursprünglichen Zustand eines 
+				Szenarios wiederherstellen.<BR>
+				<BR>
+			</LI>
+			<LI>
+				In der Anzeige unter der weißen Szenariofläche befindet sich jeweils eine kurze 
+				Erklärung zum Szenario und die Aufgabenstellung. Weitergehende Informationen 
+				bzw. genauere Erklärungen sind jeweils hier in der Hilfe zu finden.</LI>
+		</UL>
+		<P><IMG SRC="images/cr_usage.jpg" ALT="cr_usage.jpg" BORDER="0"></P>
+	</BODY>
 </HTML>

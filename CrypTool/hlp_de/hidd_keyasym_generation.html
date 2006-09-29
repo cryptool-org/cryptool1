@@ -1,66 +1,118 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
-<HEAD>
-<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Dialog Erzeugung eines asymmetrischen Schlüsselpaares</TITLE>
-<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
-<script language="JScript" src="helper.js"></script>
-</HEAD>
-
-<!-- multiple keywords for CrypTool HTML help index -->
-<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
-	<PARAM NAME="Keyword" VALUE="Dialog (Übersicht aller Dialoge)">
-	<PARAM NAME="Keyword" VALUE="Asymmetrisch">
-	<PARAM NAME="Keyword" VALUE="Schlüssel">
-	<PARAM NAME="Keyword" VALUE="Erzeugung eines asymmetrischen Schlüsselpaares">
-</OBJECT>
-
-<BODY>
-
-<h3>Dialog Erzeugung eines asymmetrischen Schlüsselpaares</h3>
-
-<P>Es wird über den Befehl <A href="hid_crypt_keygen.html">Schlüssel erzeugen</A> aus dem Menü <A href="menu_digitalsignaturespki.html">Digitale Signaturen/PKI</A> \ <A href="menu_digitalsignaturespkipki.html">PKI</A> geöffnet.</P>
-
-<P>Dieser Dialog dient der Eingabe von Parametern zur <A href="hid_crypt_keygen.html">Erzeugung eines asymmetrischen Schlüsselpaares</A>.</P>
-
-<P>Es lassen sich asymmetrische Schlüsselpaare für folgende Verfahren erzeugen: </P>
-
-<UL>
-	<LI><A href="hid_crypt_rsaenc.html">RSA</A></LI>
-
-	<LI><A href="dsa.html">DSA</A></LI>
-
-	<LI><A href="ellipkurven.html">Elliptische Kurven</A> basierte Verfahren</LI>
-</UL>
-
-<P><A href="ellipkurven.html">Elliptische Kurven</A> und DSA-<!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> können in <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> zur Zeit nur dazu benutzt werden, Nachrichten zu <!--ZZZPOPUP--><A href="signatur.html">signieren</A>. Für RSA-Schlüssel ist es mit CrypTool möglich, Daten zu signieren und zu <!--ZZZPOPUP--><A href="verschluesselung.html">ver-</A> bzw. <!--ZZZPOPUP--><A href="entschluesselung.html">entschlüsseln</A>.</P>
-
-<P>Der Dialog lässt sich in fünf Bereiche einteilen (die letzten drei Bereiche sind nur aktiv, wenn </P>
-
-<P><A href="ellipkurven.html">Elliptische Kurven</A>-Schlüssel erzeugt werden): </P>
-
-<UL>
-	<LI>Wahl des <B>Verfahrens</B>:<BR>
-Bei RSA- und DSA-Schlüsseln muss dabei die <!--ZZZPOPUP--><A href="schluessellaenge.html">Länge des Schlüssels</A> (in Bit) spezifiziert werden. Der <B>RSA-</B>Modul n (n ist das Produkt aus zwei ungefähr gleich großen Primzahlen) muss mindestens 301 Bit und darf höchstens 768 Bit lang sein (Besitzer einer Vollversion der Secude-Bibliothek können bis zu 2047 Bit lange RSA-Moduln benutzen). Jede von Ihnen eingegebene ganze Zahl dazwischen ist gültig und wird akzeptiert. Die Bitlängen 512, 768 und 1024 sind schon vorgegeben und können mit der Maus ausgewählt werden. <BR>
-Die <A href="dsa.html">DSA</A>-Primzahl p - durch die im wesentlichen der DSA-Schlüssel bestimmt wird - wird durch Auswahl bestimmt (keine direkte Eingabe möglich). Es stehen bis zu neun Zahlen für die Bitlänge von p zur Auswahl. <BR>
-Für <B>Elliptische Kurven</B> stehen sieben Kurven zur Verfügung. Die Kurven werden durch sogenannte Parameter Identifier (auch Kurven Identifier genannt) ausgewählt. Jeder Parameter-Identifier hat die Form primeXXXvY, dabei steht XXX für die Bitlänge der Primzahl p (die Elliptische Kurve ist über Z[p] definiert, siehe auch <A class="filelink" onclick="parser('script-de.pdf')">Skript</A> Elliptische Kurven, Abschnitt Elliptische Kurven in der Kryptographie) und Y unterscheidet verschiedene Kurven für die p gleiche Bitlänge hat.<BR><BR></LI>
-
-	<LI><B>Benutzerdaten</B>:<BR>
-Es gibt Eingabefelder für benutzerrelevante Daten, mit denen es möglich ist, die verschiedenen <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> zu unterscheiden. Es müssen auf jeden Fall Einträge in die Felder <B>Name</B>, <B>Vorname</B>, <B>PIN-Code</B> und <B>PIN-Verifikation</B> (Wiederholung des PIN-Codes) eingegeben werden. Die <B>Schlüsselkennung</B> ist optional und dient nur dazu, dass Sie unter Ihrem eigenen Namen mehrere Schlüssel anlegen können. Bei der Eingabe des Namens, Vornamens und der Schlüsselkennung dürfen keine Sonderzeichen (zum Beispiel: \ / : * ? " &lt; &gt; | ) benutzt werden, ansonsten gibt <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> einen entsprechenden Hinweis.<BR><BR></LI>
-
-	<LI><B>Domainparameter</B>:<BR>
-In dem Feld Anzeige der <B>Domain-Parameter</B> werden die Parameter des aktuell gewählten Kurven-Identifiers angezeigt. Was Domain-Parameter sind, ist im <A class="filelink" onclick="parser('script-de.pdf')">Skript</A> Elliptische Kurven, Abschnitt Elliptische Kurven in der Kryptographie, nachzulesen.<BR><BR></LI>
-
-	<LI><B>Zahlensystem</B>:<B><BR>
-</B>In dem Feld Wahl des Zahlensystems wird die Zahlenbasis für die Anzeige Domain-Parameter bestimmt. Zur Auswahl stehen: Oktalsystem, Dezimalsystem und das Hexadezimalsystem (siehe <A href="ascii.html">ASCII-Tabelle</A>).<BR><BR></LI>
-
-	<LI>Anzeigen des erzeugten <B>Schlüsselpaares</B>:<BR>
-Durch das Feld <B>Anzeigen des erzeugten Schlüsselpaares</B> können Sie entscheiden, ob Sie das erzeugte <!--ZZZPOPUP--><A href="schluesselpaar.html">Schlüsselpaar</A> für <A href="ellipkurven.html">Elliptische Kurven</A> sehen möchten oder nicht. Falls Sie es sich anzeigen lassen, wird ein neuer Dialog <A href="hidd_show_parameter_key_ec.html">Öffentlichen und geheimen Schlüssel für elliptische Kurven erzeugen</A> geöffnet. Dort können Sie solange verschiedene pseudozufällige Zahlen erzeugen lassen, bis Ihnen ein Schlüsselpaar "gefällt" und Sie dieses behalten möchten.</LI>
-</UL>
-
-<P>Jedes erzeugte Schlüsselpaar und eventuell weitere relevante Daten werden unter einem <!--ZZZPOPUP--><A href="schluesselbezeichner.html">Schlüssel-Bezeichner</A> gespeichert.</P>
-
-<P>Erzeugte RSA- und DSA-Schlüssel können im Dialog <A href="hidd_key_asym.html">Verfügbare asymmetrische Schlüsselpaare</A> als Datei im PKCS #12-Format exportiert werden. Umgekehrt können Sie zuvor exportierte PKCS #12-Dateien hier über den Button <B>PKCS #12 Import </B>wieder einlesen. Beachten Sie bitte die dort aufgeführten <A href="pkcs12_import_export.html">Einschränkungen zum PKCS #12-Import</A>.</P>
-
-</BODY>
+	<HEAD>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<TITLE>Dialog Erzeugung eines asymmetrischen Schlüsselpaares</TITLE>
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+			<script language="JScript" src="helper.js"></script>
+	</HEAD>
+	<!-- multiple keywords for CrypTool HTML help index -->
+	<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+		VIEWASTEXT>
+		<PARAM NAME="Keyword" VALUE="Dialog (Übersicht aller Dialoge)">
+		<PARAM NAME="Keyword" VALUE="Asymmetrisch">
+		<PARAM NAME="Keyword" VALUE="Schlüssel">
+		<PARAM NAME="Keyword" VALUE="Erzeugung eines asymmetrischen Schlüsselpaares">
+	</OBJECT>
+	<BODY>
+		<h3>Dialog Erzeugung eines asymmetrischen Schlüsselpaares</h3>
+		<P>Es wird über den Befehl <A href="hid_crypt_keygen.html">Schlüssel erzeugen</A> aus 
+			dem Menü <A href="menu_digitalsignaturespki.html">Digitale Signaturen/PKI</A> \ <A href="menu_digitalsignaturespkipki.html">
+				PKI</A> geöffnet.</P>
+		<P>Dieser Dialog dient der Eingabe von Parametern zur <A href="hid_crypt_keygen.html">Erzeugung 
+				eines asymmetrischen Schlüsselpaares</A>.</P>
+		<P>Es lassen sich asymmetrische Schlüsselpaare für folgende Verfahren erzeugen:
+		</P>
+		<UL>
+			<LI>
+				<A href="hid_crypt_rsaenc.html">RSA</A></LI>
+			<LI>
+				<A href="dsa.html">DSA</A></LI>
+			<LI>
+				<A href="ellipkurven.html">Elliptische Kurven</A> basierte Verfahren</LI>
+		</UL>
+		<P><A href="ellipkurven.html">Elliptische Kurven</A> und DSA-<!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A>
+			können in <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> zur Zeit nur dazu 
+			benutzt werden, Nachrichten zu <!--ZZZPOPUP--><A href="signatur.html">signieren</A>. 
+			Für RSA-Schlüssel ist es mit CrypTool möglich, Daten zu signieren und zu <!--ZZZPOPUP--><A href="verschluesselung.html">ver-</A>
+			bzw. <!--ZZZPOPUP--><A href="entschluesselung.html">entschlüsseln</A>.</P>
+		<P>Der Dialog lässt sich in fünf Bereiche einteilen (die letzten drei Bereiche sind 
+			nur aktiv, wenn <A href="ellipkurven.html">Elliptische Kurven</A>-Schlüssel 
+			erzeugt werden):
+		</P>
+		<UL>
+			<LI>
+				Wahl des <B>Verfahrens</B>:<BR>
+				Bei RSA- und DSA-Schlüsseln muss dabei die <!--ZZZPOPUP--><A href="schluessellaenge.html">Länge 
+					des Schlüssels</A> (in Bit) spezifiziert werden. Der <B>RSA-</B>Modul n (n 
+				ist das Produkt aus zwei ungefähr gleich großen Primzahlen) muss mindestens 301 
+				Bit und darf höchstens 768 Bit lang sein (Besitzer einer Vollversion der 
+				Secude-Bibliothek können bis zu 2047 Bit lange RSA-Moduln benutzen). Jede von 
+				Ihnen eingegebene ganze Zahl dazwischen ist gültig und wird akzeptiert. Die 
+				Bitlängen 512, 768 und 1024 sind schon vorgegeben und können mit der Maus 
+				ausgewählt werden.
+				<BR>
+				Die <A href="dsa.html">DSA</A>-Primzahl p - durch die im wesentlichen der 
+				DSA-Schlüssel bestimmt wird - wird durch Auswahl bestimmt (keine direkte 
+				Eingabe möglich). Es stehen bis zu neun Zahlen für die Bitlänge von p zur 
+				Auswahl.
+				<BR>
+				Für <B>Elliptische Kurven</B> stehen sieben Kurven zur Verfügung. Die Kurven 
+				werden durch sogenannte Parameter Identifier (auch Kurven Identifier genannt) 
+				ausgewählt. Jeder Parameter-Identifier hat die Form primeXXXvY, dabei steht XXX 
+				für die Bitlänge der Primzahl p (die Elliptische Kurve ist über Z[p] definiert, 
+				siehe auch <A class="filelink" onclick="parser('script-de.pdf')">Skript</A> Elliptische 
+				Kurven, Abschnitt Elliptische Kurven in der Kryptographie) und Y unterscheidet 
+				verschiedene Kurven für die p gleiche Bitlänge hat.<BR>
+				<BR>
+			</LI>
+			<LI>
+				<B>Benutzerdaten</B>:<BR>
+				Es gibt Eingabefelder für benutzerrelevante Daten, mit denen es möglich ist, 
+				die verschiedenen <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> zu 
+				unterscheiden. Es müssen auf jeden Fall Einträge in die Felder <B>Name</B>, <B>Vorname</B>,
+				<B>PIN-Code</B> und <B>PIN-Verifikation</B> (Wiederholung des PIN-Codes) 
+				eingegeben werden. Die <B>Schlüsselkennung</B> ist optional und dient nur dazu, 
+				dass Sie unter Ihrem eigenen Namen mehrere Schlüssel anlegen können. Bei der 
+				Eingabe des Namens, Vornamens und der Schlüsselkennung dürfen keine 
+				Sonderzeichen (zum Beispiel: \ / : * ? " &lt; &gt; | ) benutzt werden, 
+				ansonsten gibt <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> einen 
+				entsprechenden Hinweis.<BR>
+				<BR>
+			</LI>
+			<LI>
+				<B>Domainparameter</B>:<BR>
+				In dem Feld Anzeige der <B>Domain-Parameter</B> werden die Parameter des 
+				aktuell gewählten Kurven-Identifiers angezeigt. Was Domain-Parameter sind, ist 
+				im <A class="filelink" onclick="parser('script-de.pdf')">Skript</A> Elliptische 
+				Kurven, Abschnitt Elliptische Kurven in der Kryptographie, nachzulesen.<BR>
+				<BR>
+			</LI>
+			<LI>
+				<B>Zahlensystem</B>:<B><BR>
+				</B>In dem Feld Wahl des Zahlensystems wird die Zahlenbasis für die Anzeige 
+				Domain-Parameter bestimmt. Zur Auswahl stehen: Oktalsystem, Dezimalsystem und 
+				das Hexadezimalsystem (siehe <A href="ascii.html">ASCII-Tabelle</A>).<BR>
+				<BR>
+			</LI>
+			<LI>
+				Anzeigen des erzeugten <B>Schlüsselpaares</B>:<BR>
+				Durch das Feld <B>Anzeigen des erzeugten Schlüsselpaares</B> können Sie 
+				entscheiden, ob Sie das erzeugte <!--ZZZPOPUP--><A href="schluesselpaar.html">Schlüsselpaar</A>
+				für <A href="ellipkurven.html">Elliptische Kurven</A> sehen möchten oder nicht. 
+				Falls Sie es sich anzeigen lassen, wird ein neuer Dialog <A href="hidd_show_parameter_key_ec.html">
+					Öffentlichen und geheimen Schlüssel für elliptische Kurven erzeugen</A> geöffnet. 
+				Dort können Sie solange verschiedene pseudozufällige Zahlen erzeugen lassen, 
+				bis Ihnen ein Schlüsselpaar "gefällt" und Sie dieses behalten möchten.</LI>
+		</UL>
+		<P>Jedes erzeugte Schlüsselpaar und eventuell weitere relevante Daten werden unter 
+			einem <!--ZZZPOPUP--><A href="schluesselbezeichner.html">Schlüssel-Bezeichner</A>
+			gespeichert.</P>
+		<P>Erzeugte RSA- und DSA-Schlüssel können im Dialog <A href="hidd_key_asym.html">Verfügbare 
+				asymmetrische Schlüsselpaare</A> als Datei im PKCS #12-Format exportiert 
+			werden. Umgekehrt können Sie zuvor exportierte PKCS #12-Dateien hier über den 
+			Button <B>PKCS #12 Import </B>wieder einlesen. Beachten Sie bitte die dort 
+			aufgeführten <A href="pkcs12_import_export.html">Einschränkungen zum PKCS 
+				#12-Import</A>.</P>
+	</BODY>
 </HTML>
