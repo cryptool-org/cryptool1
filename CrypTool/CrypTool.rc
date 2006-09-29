@@ -2392,40 +2392,43 @@ BEGIN
     CTEXT           "Static",IDC_ENTROPY_INFO,7,34,195,23
 END
 
-IDD_HASH_DEMO DIALOGEX 0, 0, 328, 401
+IDD_HASH_DEMO DIALOGEX 0, 0, 328, 414
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hash-Demo"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     CONTROL         "&dezimal",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,226,68,39,10
+                    WS_GROUP,226,76,39,10
     CONTROL         "&hexadezimal",IDC_RADIO_HEX,"Button",BS_AUTORADIOBUTTON,
-                    159,68,55,10
+                    159,76,55,10
     CONTROL         "bi&när",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,268,
-                    68,31,10
-    EDITTEXT        IDC_EDIT_TEXT,16,107,294,113,ES_MULTILINE | 
+                    76,31,10
+    EDITTEXT        IDC_EDIT_TEXT,16,115,294,113,ES_MULTILINE | 
                     ES_WANTRETURN | WS_VSCROLL
-    EDITTEXT        IDC_EDIT_ORIGHASH,16,239,294,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDIT_ORIGHASH,16,247,294,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    EDITTEXT        IDC_EDIT_AKTHASH,16,272,294,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDIT_AKTHASH,16,280,294,14,ES_AUTOHSCROLL | 
                     ES_READONLY
     CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",TCS_RAGGEDRIGHT | 
                     TCS_FOCUSONBUTTONDOWN | TCS_MULTISELECT | WS_BORDER | 
-                    WS_TABSTOP,16,306,294,64
-    PUSHBUTTON      "Dialog &beenden",IDCANCEL,251,376,59,14
-    GROUPBOX        "Auswahl der Hashfunktion",IDC_STATIC,16,48,118,42
-    GROUPBOX        "Darstellung der Hashwerte",IDC_STATIC,145,49,164,41
+                    WS_TABSTOP,16,314,294,64
+    PUSHBUTTON      "Dialog &beenden",IDCANCEL,251,384,59,14
+    GROUPBOX        "Auswahl der Hashfunktion",IDC_STATIC,16,57,118,41
+    GROUPBOX        "Darstellung der Hashwerte",IDC_STATIC,145,57,164,41
     LTEXT           "Aktuelles Dokument (diese Kopie der Originaldatei können Sie hier ändern)",
-                    IDC_STATIC,16,95,294,8,NOT WS_GROUP
-    LTEXT           "Hashwert der Originaldatei",IDC_STATIC_TITEL,16,229,194,
+                    IDC_STATIC,16,103,294,8,NOT WS_GROUP
+    LTEXT           "Hashwert der Originaldatei",IDC_STATIC_TITEL,16,237,194,
                     8
-    LTEXT           "Hashwert der aktuellen Datei",IDC_STATIC,16,262,92,8
+    LTEXT           "Hashwert der aktuellen Datei",IDC_STATIC,16,270,92,8
     LTEXT           "Unterschied zwischen dem Hashwert der Orignal- und dem Hashwert der aktuellen Datei",
-                    IDC_STATIC,16,294,285,8
-    COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,27,66,88,61,
+                    IDC_STATIC,16,302,285,8
+    COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,27,74,88,61,
                     CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Wählen Sie ein Hashverfahren aus und editieren Sie dann unten die Kopie der Originaldatei (Textfeld ""Aktuelles Dokument"").\nGanz unten sehen Sie, wie viele Bits sich im Hashwert ändern, wenn Sie das Dokument editieren.",
-                    IDC_STATIC,16,7,294,34
+                    IDC_STATIC,28,12,280,34
+    GROUPBOX        "Beschreibung",IDC_STATIC,16,2,294,49
+    RTEXT           "-",IDC_STATIC,17,28,8,8,0,WS_EX_TRANSPARENT
+    RTEXT           "-",IDC_STATIC,17,12,8,8
 END
 
 IDD_KEY_PERMUTATION_INFO DIALOGEX 0, 0, 317, 194
@@ -8022,7 +8025,7 @@ BEGIN
     BEGIN
         VERTGUIDE, 16
         VERTGUIDE, 310
-        BOTTOMMARGIN, 356
+        BOTTOMMARGIN, 369
     END
 
     IDD_STARTOPTIONS, DIALOG
@@ -9998,7 +10001,7 @@ BEGIN
     IDS_STRING_Hashdemo_KeineWerteGefunden 
                             "Die Eingabe muss mindestens 1 Zeichen enthalten!"
     IDS_STRING_Hashdemo_DateilaengeZuLang 
-                            "Die Dateigrösse ist in dieser Demonstration auf %d Bytes begrenzt.\nDer Rest der Datei wird ignoriert."
+                            "Die Dateigröße ist in dieser Demonstration auf %d Bytes begrenzt.\nDer Rest der Datei wird ignoriert."
     IDS_BITLENGTH           "Länge in Bit:           %i\r\n"
     IDS_CONTENT_CERT        "Zertifikat des Signierers (wird der Signatur zur Prüfung beigefügt)"
     IDS_CONTENT_SIGN        " %s-Signatur von <%s>"
@@ -13291,14 +13294,14 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hash Demonstration"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    GROUPBOX        "Selection of hash function",IDC_STATIC,16,43,100,41
-    GROUPBOX        "Base of hash values",IDC_STATIC,126,43,184,41
+    GROUPBOX        "Selection of hash function",IDC_STATIC,16,47,100,41
+    GROUPBOX        "Base of hash values",IDC_STATIC,126,47,184,41
     CONTROL         "&decimal",IDC_RADIO_DEC,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,222,66,40,10
+                    WS_GROUP,222,70,40,10
     CONTROL         "&hexadecimal",IDC_RADIO_HEX,"Button",BS_AUTORADIOBUTTON,
-                    154,66,55,10
+                    154,70,55,10
     CONTROL         "&binary",IDC_RADIO_BIN,"Button",BS_AUTORADIOBUTTON,271,
-                    66,31,10
+                    70,31,10
     LTEXT           "Actual document (this copy of the original file can be modified here)",
                     IDC_STATIC,16,97,294,8,NOT WS_GROUP
     EDITTEXT        IDC_EDIT_TEXT,16,109,294,113,ES_MULTILINE | 
@@ -13310,16 +13313,19 @@ BEGIN
     LTEXT           "Hash value of the actual file",IDC_STATIC,16,264,89,8
     EDITTEXT        IDC_EDIT_AKTHASH,16,274,294,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    LTEXT           "Difference between hash values of the original and actual file",
+    LTEXT           "Difference between the hash values of the original and of the actual file",
                     IDC_STATIC,16,296,252,8
     PUSHBUTTON      "E&xit",IDCANCEL,251,378,59,14
     CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",TCS_RAGGEDRIGHT | 
                     TCS_FOCUSONBUTTONDOWN | TCS_MULTISELECT | WS_BORDER | 
                     WS_TABSTOP,16,308,294,64
-    COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,23,63,88,61,
+    COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,23,67,88,61,
                     CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Choose a hash function and then change the copy of the original file (see field ""Actual document"").\nBelow you can see how many bits of the hash value change when you edit.",
-                    IDC_STATIC,16,7,294,24
+                    IDC_STATIC,31,12,294,24
+    GROUPBOX        "Description",IDC_STATIC,16,2,294,40
+    RTEXT           "-",IDC_STATIC,19,28,8,8,0,WS_EX_TRANSPARENT
+    RTEXT           "-",IDC_STATIC,19,12,8,8
 END
 
 IDD_HYBRID_ENCRYPTION_DEMO DIALOG  0, 0, 555, 429
@@ -19019,6 +19025,7 @@ BEGIN
         VERTGUIDE, 16
         VERTGUIDE, 310
         BOTTOMMARGIN, 366
+        HORZGUIDE, 53
     END
 
     IDD_HYBRID_ENCRYPTION_DEMO, DIALOG
@@ -20301,7 +20308,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_STRING_Hashdemo_orighash "Hash demo: %s Hash of "
+    IDS_STRING_Hashdemo_orighash "Hash Demonstration: %s Hash of "
     IDS_STRING_REFERENCE_FILE "Reference file"
     IDS_STRING_TESTS_ERGEBNIS_INFO 
                             "Maximal test value: %lf\nTest result: %lf\n"
