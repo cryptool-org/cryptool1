@@ -88,6 +88,8 @@ protected:
 	//{{AFX_MSG(CDlgOptionsAnalysis)
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+public:
+	int i_alphabetOptions;
 };
 
 //{{AFX_INSERT_LOCATION}}

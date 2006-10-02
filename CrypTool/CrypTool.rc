@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -113,13 +113,13 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,161,174,9
 END
 
-IDD_OPTIONS_ANALYSIS DIALOG  0, 0, 306, 271
+IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 298
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Analyseoptionen"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "&Übernehmen",IDOK,13,242,65,18
-    PUSHBUTTON      "Abbrechen",IDCANCEL,228,242,66,18
+    DEFPUSHBUTTON   "&Übernehmen",IDOK,13,271,65,18
+    PUSHBUTTON      "Abbrechen",IDCANCEL,228,271,66,18
     CONTROL         "Ermittelter Schlüssel",IDC_CHECK1,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,27,50,76,10
     CONTROL         "Korrelation",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | 
@@ -137,15 +137,22 @@ BEGIN
     GROUPBOX        "Caesar",IDC_STATIC,20,33,120,109
     GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,147,33,140,109
     GROUPBOX        "Optionen für Brute-Force Angriffe",IDC_STATIC,13,155,
-                    281,74
-    LTEXT           "Anzahl Bytes für den Entropietest:",IDC_STATIC,29,196,
+                    281,110
+    LTEXT           "Anzahl Bytes für den Entropietest:",IDC_STATIC,29,193,
                     109,8
-    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,139,193,30,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,139,190,30,14,ES_AUTOHSCROLL | 
                     ES_NUMBER
     GROUPBOX        "Umfang der Ausgabe bei der automatischen Analyse",
                     IDC_STATIC,13,15,281,132
     GROUPBOX        "IDEA, RC2, RC4, DES, Triple DES, Mars, RC6, Rijndael (AES), Serpent, Twofish",
-                    IDC_STATIC,20,173,267,50
+                    IDC_STATIC,20,173,267,84
+    LTEXT           "Alphabetoptionen:",IDC_STATIC,29,209,118,8
+    CONTROL         "Alle 256 Zeichen",IDC_RADIO1,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,29,221,245,10
+    CONTROL         "Druckbare Zeichen (ASCII 32 - 256)",IDC_RADIO2,"Button",
+                    BS_AUTORADIOBUTTON,29,232,245,10
+    CONTROL         "Zeichensatz, wie in Menü: Optionen -->Textoptionen definiert",
+                    IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,29,242,245,11
 END
 
 IDD_HILL_ANALYSIS DIALOG  0, 0, 301, 221
@@ -7975,9 +7982,13 @@ BEGIN
     BEGIN
         VERTGUIDE, 13
         VERTGUIDE, 20
+        VERTGUIDE, 29
         VERTGUIDE, 147
+        VERTGUIDE, 274
         VERTGUIDE, 287
         VERTGUIDE, 294
+        BOTTOMMARGIN, 271
+        HORZGUIDE, 289
     END
 
     IDD_SHOW_PROGRESS, DIALOG
@@ -8567,7 +8578,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.00"
+    IDR_MAINFRAME           "CrypTool 1.4.01 beta - 01"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Datei (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnbenannt\n\nBinäre Datei (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnbenannt\n\nASCII-Datei (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -10825,12 +10836,12 @@ BEGIN
     IDS_STRING_TEST_RUNS_BESTANDEN "Runs-Test bestanden!"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -11027,13 +11038,13 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,20,158,174,9
 END
 
-IDD_OPTIONS_ANALYSIS DIALOG  0, 0, 306, 271
+IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 306
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Analysis Options"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "&Apply",IDOK,13,243,65,18
-    PUSHBUTTON      "&Cancel",IDCANCEL,227,243,66,18
+    DEFPUSHBUTTON   "&Apply",IDOK,13,278,65,18
+    PUSHBUTTON      "&Cancel",IDCANCEL,227,278,66,18
     CONTROL         "Derived key",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,27,55,76,10
     CONTROL         "Correlation",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | 
@@ -11053,13 +11064,20 @@ BEGIN
     GROUPBOX        "Output options for automatic analysis",IDC_STATIC,13,16,
                     280,132
     GROUPBOX        "Options for brute-force attacks",IDC_STATIC,13,155,280,
-                    75
+                    114
     LTEXT           "Number of bytes for the entropy test:",IDC_STATIC,28,
-                    196,118,8
-    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,150,193,30,14,ES_AUTOHSCROLL | 
+                    190,118,8
+    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,150,187,30,14,ES_AUTOHSCROLL | 
                     ES_NUMBER
     GROUPBOX        "IDEA, RC2, RC4, DES, Triple DES, Mars, RC6, Rijndael (AES), Serpent, Twofish",
-                    IDC_STATIC,20,173,266,50
+                    IDC_STATIC,20,173,266,88
+    LTEXT           "Alphabet options:",IDC_STATIC,29,209,118,8
+    CONTROL         "All 256 characters",IDC_RADIO1,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,29,221,245,10
+    CONTROL         "Printable characters (ascii 32 - 256)",IDC_RADIO2,
+                    "Button",BS_AUTORADIOBUTTON,29,232,245,10
+    CONTROL         "Charcters as defined in menu: Options -->Textoptions",
+                    IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,29,242,245,11
 END
 
 IDD_HILL_ANALYSIS DIALOG  0, 0, 301, 221
@@ -18738,10 +18756,10 @@ BEGIN
         VERTGUIDE, 20
         VERTGUIDE, 150
         VERTGUIDE, 286
-        BOTTOMMARGIN, 261
+        BOTTOMMARGIN, 296
         HORZGUIDE, 87
         HORZGUIDE, 110
-        HORZGUIDE, 207
+        HORZGUIDE, 201
     END
 
     IDD_SHOW_KEY_HILL5x5, DIALOG
@@ -19608,7 +19626,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.00"
+    IDR_MAINFRAME           "CrypTool 1.4.01 - beta 01 "
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -21807,7 +21825,7 @@ BEGIN
     IDS_STRING_TEST_RUNS_BESTANDEN "Runs test passed!"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

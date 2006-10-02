@@ -107,12 +107,27 @@ UINT Brute(PVOID p)
 	int i, l, lorg, r, AlgId, pos,lenght;
 	int distr[256],keybits;
 	double entr, emax, f;
+
+	// Include Alphabet options from DlgOptionsAnalysis
+	int alphaSet[256];
+	for (i=0; i<256; i++)
+	{
+		switch ( theApp.Options.i_alphabetOptions ) {
+			case 0: alphaSet[i] = 1;
+				break;
+			case 1: alphaSet[i] = ( i >= 32 ) ? 1 : 0;
+				break;
+			case 2: alphaSet[i] = ( 0 <= theApp.TextOptions.m_alphabet.Find((char)i) ) ? 1 : 0;
+				break;
+		}
+	}
+
 	double *xlogx = new double[windowlen + 1];
 	if (!xlogx) return 0;
 	xlogx[0] = 0.0;
 	for (i = 1; i <= windowlen; i++) 
 		xlogx[i] = (f = i) * log(f);
-	
+
 	CryptPar *par;
 	par = (CryptPar *) p;
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
@@ -297,8 +312,20 @@ UINT Brute(PVOID p)
 			theApp.SecudeLib.aux_free(err);
 		}
 
+		// Include Alphabet options from DlgOptionsAnalysis
+		BOOL decryptionResult_invalid = FALSE;
+		if ( theApp.Options.i_alphabetOptions )
+		{
+			for (i=0; i<l; i++)
+				if (!alphaSet[(int)out.octets[i]])
+				{
+					decryptionResult_invalid = TRUE;
+					break;
+				}
+		}
+
 		// else                 // Falls kein Fehler Entropie berechenen
-		if ( !decryptionError ) {
+		if ( !decryptionError && !decryptionResult_invalid ) {
 			memset(distr,0,sizeof(distr));
 			for(i=0;i<l;i++) distr[(unsigned char) out.octets[i]]++;
 			for(entr = i = 0; i<256; i++)
