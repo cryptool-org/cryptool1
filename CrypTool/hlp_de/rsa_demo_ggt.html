@@ -1,49 +1,47 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
-<HEAD>
-<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Relativ prim</TITLE>
-<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
-</HEAD>
-
-<!-- multiple keywords for CrypTool HTML help index -->
-<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
-	<PARAM NAME="Keyword" VALUE="GGT">
-	<PARAM NAME="Keyword" VALUE="Eulersche phi-Funktion">
-	<PARAM NAME="Keyword" VALUE="Relativ prim">
-</OBJECT>
-
-<BODY>
-
-<h3>e ist relativ prim zu phi(N)</h3>
-
-<P>Man sagt, e ist relativ prim zu phi(N), wenn e und phi(N) teilerfremd sind, also keinen gemeinsamen Teiler (außer der Zahl 1) besitzen. Diese Bedingung ist Voraussetzung, dass die Zahl e ein multiplikatives Inverses d modulo phi(N) besitzt:</P>
-
-<P>Seien a und m natürliche Zahlen und ggT(a,m) der größte gemeinsame Teiler von a und m. Es gilt der folgende Satz:</P>
-
-<div class="indent">
-
-<P><B>Für alle a und m existieren ganze Zahlen x,y so dass gilt: ggT(a,m) = x*a + y*m</B>.</P>
-
-</div>
-
-<P>Der erweiterte Euklidischen Algorithmus berechnet diese Zahlen x und y. Wenn ggT(e,phi(N)) = 1 dann folgt daraus</P>
-
-<div class="indent">
-
-<P>x*e + phi(N)*y = 1,</P>
-
-</div>
-
-<P>und wenn die Gleichung modulo phi(N) berechnet wird</P>
-
-<div class="indent">
-
-<P>x*e = 1 - phi(N)*y = 1  (mod phi(N)).</P>
-
-</div>
-
-<P>Die Zahl x ist also die zu e multiplikativ inverse Zahl modulo phi(N). Bei der RSA-Schlüsselerzeugung berechnet der erweiterte Euklidsche Algorithmus den geheimen Exponenten d = x zur RSA-Entschlüsselung.</P>
-
-</BODY>
+	<HEAD>
+		<TITLE>e ist relativ prim zu phi(N)</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+			<script language="JScript" src="helper.js"></script>
+		<!-- multiple keywords for CrypTool HTML help index -->
+	</HEAD>
+	<BODY>
+		<OBJECT id="Object1" type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+			VIEWASTEXT>
+			<PARAM NAME="Keyword" VALUE="GGT">
+		</OBJECT>
+		<h3>e ist relativ prim zu phi(N)</h3>
+		<p>Dies ist eine wichtige Bedingung für den öffentlichen Schlüssel beim 
+			RSA-Verfahren.</p>
+		<P>Man sagt, e ist relativ prim zu phi(N), wenn e und phi(N) teilerfremd sind, also 
+			keinen gemeinsamen Teiler (außer der Zahl 1) besitzen. Diese Bedingung ist 
+			Voraussetzung, dass die Zahl e ein multiplikatives Inverses d modulo phi(N) 
+			besitzt:</P>
+		<P>Seien a und m natürliche Zahlen und ggT(a,m) der größte gemeinsame Teiler von a 
+			und m. Es gilt der folgende Satz:</P>
+		<div class="indent">
+			<P><B>Für alle a und m existieren ganze Zahlen x,y so dass gilt: ggT(a,m) = x*a + y*m</B>.</P>
+		</div>
+		<P>Der erweiterte Euklidsche Algorithmus berechnet diese Zahlen x und y. Wenn 
+			ggT(e,phi(N)) = 1 dann folgt daraus</P>
+		<div class="indent">
+			<P>x*e + phi(N)*y = 1,</P>
+		</div>
+		<P>und wenn die Gleichung modulo phi(N) berechnet wird</P>
+		<div class="indent">
+			<P>x*e = 1 - phi(N)*y = 1 (mod phi(N)).</P>
+		</div>
+		<P>Die Zahl x ist also die zu e multiplikativ inverse Zahl modulo phi(N). Bei der 
+			RSA-Schlüsselerzeugung berechnet der erweiterte Euklidsche Algorithmus den 
+			geheimen Exponenten d = x zur RSA-Entschlüsselung.</P>
+		<P></U>Die Eulersche phi-Funktion</U> phi(N) liefert für eine natürliche Zahl N die 
+			Anzahl aller natürlichen Zahlen, die kleiner-gleich N und relativ prim zu N 
+			sind.</P>
+		<p>
+			Beispiel: phi(8)=4 , weil die vierl Zahlen 1, 3, 5 und 7 relativ prim zu 8 
+			sind.</p>
+		<p>Weitere Details, siehe <A class="filelink" onclick="parser('script-de.pdf')">Skript</A>.</p>
+	</BODY>
 </HTML>
