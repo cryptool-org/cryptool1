@@ -104,6 +104,8 @@ statement from your version.
 #include "DlgSecretSharingSetup.h"
 #include "DlgPrimeTest.h"
 
+#include "HillEncryption.h"
+
 // #if !defined(_MSC_VER) || _MSC_VER <= 1200
 #include "RSABloemerMayDlg.h"
 #include "RSAStereotypedMSGDlg.h"
@@ -133,6 +135,9 @@ char *CaPseDatei; // =Pfad+"/PSE/PSECA/pseca";
 // Werte: siehe CrypTool.h
 int iHillSchluesselFensterGroesse;
 int iHillSchluesselDim;
+CString sHillGlobalKey[HILL_MAX_DIM_GROSS][HILL_MAX_DIM_GROSS];
+int iHillMultiplicationType = 0;  //0: (matrix)*(column vector) 1:(row vector)*(matrix)
+bool bHexEnabled = false;
 
 // globale Variable, in der immer die Fenster Handle des aktive Fensters steht
 HWND hWndAktivesFenster;

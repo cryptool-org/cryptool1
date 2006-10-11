@@ -21,6 +21,8 @@
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgRot13Caesar 
 
+#include "DlgTextOptions.h"
+
 class CDlgRot13Caesar : public CDialog
 {
 	CBitmapButton m_paste;
@@ -28,8 +30,21 @@ class CDlgRot13Caesar : public CDialog
 public:
 	CDlgRot13Caesar(CWnd* pParent = NULL);   // Standardkonstruktor
 	long m_Decrypt;
+	bool alphCode;
+	unsigned long firstPosNull;
+	bool caesarSelected;
 	UINT m_type;   // PUBLIC PARAMETER {IDS_STRING_ROT13, IDS_STRING_CAESAR }
 	CString m_key; // THE KEY!
+
+	CString getAlphCode(CString alphChar);
+	CString getAlphChar(CString alphPos);
+
+	void EnableFirstPosNull();
+	void DisableFirstPosNull();
+	void OnTxtOptions();
+
+	int getCifLength();
+
 
 	// Dialogfelddaten
 	//{{AFX_DATA(CDlgRot13Caesar)
@@ -37,6 +52,7 @@ public:
 	CEdit	m_CtrlTo;
 	CEdit	m_CtrlFrom;
 	CEdit	m_CtrlKey;
+	CEdit	m_CtrlAlphCode;
 	CEdit   m_dist_control;
 	CButton m_EncryptionButton;
 	CButton m_DecryptionButton;
@@ -57,7 +73,11 @@ protected:
 	//{{AFX_MSG(CDlgRot13Caesar)
 	afx_msg void OnRot13Rad();
 	afx_msg void OnCaesarRad();
+	afx_msg void EnableAlphCode();
+	afx_msg void DisableAlphCode();
+	afx_msg void OnExitAlphCode();
 	afx_msg void OnUpdateKey();
+	afx_msg void OnUpdateAlphCode();
 	virtual BOOL OnInitDialog();
 	afx_msg void OnPasteKey();
 	afx_msg void OnEncrypt();

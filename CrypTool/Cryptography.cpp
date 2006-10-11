@@ -3543,12 +3543,13 @@ BOOL Rot13CaesarAsc(SymbolArray & text, const char *infile)
 	return TRUE;
 }
 
-void Rot13CaesarAscFinish(SymbolArray & text, const char * infile, char * sKey, BOOL bDecrypt, const char *OldTitle, UINT type)
+void Rot13CaesarAscFinish(SymbolArray & text, const char * infile, char * sKey, BOOL bDecrypt, const char *OldTitle, UINT type,unsigned long firstPosNull)
 {
 	char outfile[1024];
 	SymbolArray Key(AppConv);
 	Key.ReadString(sKey);
-	Key += 1;
+	if(firstPosNull == 0) //If Caesar A=0 or A=1
+		Key += 1;
 
 // == Encryption / Decryption
 	SHOW_HOUR_GLASS

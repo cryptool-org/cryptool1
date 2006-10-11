@@ -425,7 +425,11 @@ BOOL CHillEncryption::verschluesseln()
 				long hilf = 0;
 				for (int k=0; k<dim; k++)
 				{
-					hilf += (*enc_mat)(k,j) * plaintext[dim*i+k];
+					if(iHillMultiplicationType)
+						hilf += (*enc_mat)(k,j) * plaintext[dim*i+k];
+					else
+						hilf += (*enc_mat)(j,k) * plaintext[dim*i+k];
+
 					hilf %= modul;
 				}
 				ciphertext[dim*i+j] = hilf;
@@ -458,7 +462,10 @@ BOOL CHillEncryption::verschluesseln()
 		{
 			for (int my_j=0; my_j<dim; my_j++)
 			{
-				TRACE("%d ", (*enc_mat)(my_i,my_j));
+				if(iHillMultiplicationType)
+					TRACE("%d ", (*enc_mat)(my_i,my_j));
+				else
+					TRACE("%d ", (*enc_mat)(my_j,my_i));
 			}
 			TRACE("\n");
 		}
@@ -494,7 +501,11 @@ BOOL CHillEncryption::entschluesseln()
 				long hilf = 0;
 				for (int k=0; k<dim; k++)
 				{
-					hilf += (*dec_mat)(k,j) * ciphertext[dim*i+k];
+					if(iHillMultiplicationType)
+						hilf += (*dec_mat)(k,j) * ciphertext[dim*i+k];
+					else
+						hilf += (*dec_mat)(j,k) * ciphertext[dim*i+k];
+
 					hilf %= modul;
 				}
 				plaintext[dim*i+j] = hilf;
@@ -527,7 +538,10 @@ BOOL CHillEncryption::entschluesseln()
 		{
 			for (int my_j=0; my_j<dim; my_j++)
 			{
-				TRACE("%3d ", (*dec_mat)(my_i,my_j));
+				if(iHillMultiplicationType)
+					TRACE("%3d ", (*dec_mat)(my_i,my_j));
+				else
+					TRACE("%3d ", (*dec_mat)(my_j,my_i));
 			}
 			TRACE("\n");
 		}

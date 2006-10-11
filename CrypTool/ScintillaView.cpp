@@ -24,6 +24,8 @@
 // Suchen und ersetzen
 #include "DlgFindAndReplace.h"
 
+#include "cryptoolapp.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -885,6 +887,8 @@ void CScintillaView::OnViewFontCourier12()
 
 void CScintillaView::OnTohex()
 {
+	bHexEnabled = true;
+
 	CAppDocument *NewDoc;
 	char outfile[128];
 	BOOL Modified;

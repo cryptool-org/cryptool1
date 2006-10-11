@@ -1839,7 +1839,7 @@ void CCryptDoc::OnRot13caesarAsc()
 	{
 		return;
 	}
-	Rot13CaesarAscFinish(text, ContentName, Dlg.m_key.GetBuffer(1), Dlg.m_Decrypt, GetTitle(), Dlg.m_type);	
+	Rot13CaesarAscFinish(text, ContentName, Dlg.m_key.GetBuffer(1), Dlg.m_Decrypt, GetTitle(), Dlg.m_type,Dlg.firstPosNull);	
 }
 
 

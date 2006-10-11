@@ -55,6 +55,7 @@ statement from your version.
 
 #include "HillEncryption.h"
 #include "Cryptography.h"
+#include "afxwin.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgKeyHill5x5 
@@ -77,8 +78,10 @@ class CDlgKeyHill5x5 : public CDialog
 // Konstruktion
 public:
 	int		m_decrypt;
+	bool	alphCode;
 	CSquareMatrixModN * mat;
 	void UpdateFeld (CEdit*feld);
+	void UpdateAlphCode(CEdit *feld);
 	void MatrixEinlesen(CSquareMatrixModN& mat, int dim);
 	void MatrixAnzeigen(CSquareMatrixModN& mat);
 	bool NaechsterEintrag(int& i, int& j) ;
@@ -87,6 +90,18 @@ public:
 	int dim;
 	int Display(CHillEncryption *);
 	class CHiEdit* m_pFelder[HILL_MAX_DIM][HILL_MAX_DIM];
+
+	class CHiEdit* m_pAlphCode[HILL_MAX_DIM][HILL_MAX_DIM];
+
+	CString getAlphCode(CString alphChar);
+	CString getAlphChar(CString alphPos);
+	void setFeldAlph(CEdit *feld,CEdit *feldAlph);
+	void setFeldAlphCode(CEdit *feld,CEdit *feldAlph);
+	void setDoublePos(CEdit *feld);
+
+	void OnHillOptions();
+
+
 	CDlgKeyHill5x5(CHillEncryption *hillkl, CWnd* pParent = NULL);   // Standardkonstruktor
 	~CDlgKeyHill5x5();
 
@@ -121,6 +136,32 @@ public:
 	class CHiEdit	m_Feld54;
 	class CHiEdit	m_Feld55;
 	//}}AFX_DATA
+
+	CHiEdit m_Feld36;
+	CHiEdit m_Feld37;
+	CHiEdit m_Feld38;
+	CHiEdit m_Feld40;
+	CHiEdit m_Feld46;
+	CHiEdit m_Feld47;
+	CHiEdit m_Feld48;
+	CHiEdit m_Feld49;
+	CHiEdit m_Feld50;
+	CHiEdit m_Feld111;
+	CHiEdit m_Feld57;
+	CHiEdit m_Feld58;
+	CHiEdit m_Feld59;
+	CHiEdit m_Feld56;
+	CHiEdit m_Feld115;
+	CHiEdit m_Feld60;
+	CHiEdit m_Feld61;
+	CHiEdit m_Feld62;
+	CHiEdit m_Feld116;
+	CHiEdit m_Feld117;
+	CHiEdit m_Feld63;
+	CHiEdit m_Feld64;
+	CHiEdit m_Feld69;
+	CHiEdit m_Feld65;
+	CHiEdit m_Feld66;
 
 
 // Überschreibungen
@@ -172,10 +213,72 @@ protected:
 	afx_msg void OnUpdateMat53();
 	afx_msg void OnUpdateMat54();
 	afx_msg void OnUpdateMat55();
+
+
+	afx_msg void OnUpdateMat36();
+	afx_msg void OnUpdateMat37();
+	afx_msg void OnUpdateMat38();
+	afx_msg void OnUpdateMat40();
+	afx_msg void OnUpdateMat46();
+	afx_msg void OnUpdateMat47();
+	afx_msg void OnUpdateMat48();
+	afx_msg void OnUpdateMat49();
+	afx_msg void OnUpdateMat50();
+	afx_msg void OnUpdateMat111();
+	afx_msg void OnUpdateMat57();
+	afx_msg void OnUpdateMat58();
+	afx_msg void OnUpdateMat59();
+	afx_msg void OnUpdateMat56();
+	afx_msg void OnUpdateMat115();
+	afx_msg void OnUpdateMat60();
+	afx_msg void OnUpdateMat61();
+	afx_msg void OnUpdateMat62();
+	afx_msg void OnUpdateMat116();
+	afx_msg void OnUpdateMat117();
+	afx_msg void OnUpdateMat63();
+	afx_msg void OnUpdateMat64();
+	afx_msg void OnUpdateMat69();
+	afx_msg void OnUpdateMat65();
+	afx_msg void OnUpdateMat66();
+	afx_msg void OnEnableAlphCode();
+	afx_msg void OnDisableAlphCode();
+	afx_msg void OnRowVectorMatrix();
+	afx_msg void OnMatrixColumnVector();
+
+	afx_msg void OnExitMat36();
+	afx_msg void OnExitMat37();
+	afx_msg void OnExitMat38();
+	afx_msg void OnExitMat40();
+	afx_msg void OnExitMat46();
+	afx_msg void OnExitMat47();
+	afx_msg void OnExitMat48();
+	afx_msg void OnExitMat49();
+	afx_msg void OnExitMat50();
+	afx_msg void OnExitMat111();
+	afx_msg void OnExitMat57();
+	afx_msg void OnExitMat58();
+	afx_msg void OnExitMat59();
+	afx_msg void OnExitMat56();
+	afx_msg void OnExitMat115();
+	afx_msg void OnExitMat60();
+	afx_msg void OnExitMat61();
+	afx_msg void OnExitMat62();
+	afx_msg void OnExitMat116();
+	afx_msg void OnExitMat117();
+	afx_msg void OnExitMat63();
+	afx_msg void OnExitMat64();
+	afx_msg void OnExitMat69();
+	afx_msg void OnExitMat65();
+	afx_msg void OnExitMat66();
+
+
+
 	afx_msg void OnZufaelligerSchluessel();
 	afx_msg void OnGroessereSchluessel();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+public:
+	CString m_pHillAlphInfo;
 };
 
 //{{AFX_INSERT_LOCATION}}

@@ -65,7 +65,8 @@ statement from your version.
 // Klasse fuer Hill-Cipher
 
 #define HILL_MAX_DIM 5 
-#define HILL_MAX_DIM_GROSS 10 
+#define HILL_MAX_DIM_GROSS 10
+
 
 // Rueckgabewerte der Klasse beim Angriff:
 #define HILL_UNDEF                        -1

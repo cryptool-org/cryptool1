@@ -77,6 +77,8 @@ statement from your version.
 #include "DlgFindAndReplace.h"
 #include <atlbase.h>   // Registry
 
+#include "HillEncryption.h"
+
 // globale Variablen fuer Zugriff auf Stringtable
 // Definiert in CrypTool.cpp
 #define STR_LAENGE_STRING_TABLE 1000
@@ -86,6 +88,10 @@ extern char *initializing_file;
 
 extern int iHillSchluesselDim;
 extern int iHillSchluesselFensterGroesse;
+extern CString sHillGlobalKey[HILL_MAX_DIM_GROSS][HILL_MAX_DIM_GROSS];
+extern int iHillMultiplicationType;  //0: (matrix)*(column vector) 1:(row vector)*(matrix)
+extern bool bHexEnabled;
+
 #define HILL_SCHLUESSEL_KLEIN	1
 #define HILL_SCHLUESSEL_GROSS	2
 
