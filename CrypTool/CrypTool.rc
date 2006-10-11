@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -10836,12 +10836,12 @@ BEGIN
     IDS_STRING_TEST_RUNS_BESTANDEN "Runs-Test bestanden!"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -16355,8 +16355,8 @@ BEGIN
     BEGIN
         POPUP "&PKI"
         BEGIN
-            MENUITEM "&Key Generation/Import...",   ID_CRYPT_KeyGen
-            MENUITEM "&Key Display/Export...",      ID_SHOW_ALL_EC_KEYS
+            MENUITEM "&Generation/Import keys",     ID_CRYPT_KeyGen
+            MENUITEM "&Display/Export keys",        ID_SHOW_ALL_EC_KEYS
         END
         MENUITEM "&Sign Document...",           ID_CRYPT_SIGN
         MENUITEM "&Verify Signature...",        ID_CRYPT_VERIFY
@@ -21825,7 +21825,7 @@ BEGIN
     IDS_STRING_TEST_RUNS_BESTANDEN "Runs test passed!"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
