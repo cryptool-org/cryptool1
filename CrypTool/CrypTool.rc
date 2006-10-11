@@ -9525,7 +9525,7 @@ BEGIN
     IDS_HILLEXAMPLE_RESULT_ENCRYPTION "Der Hill-Chiffretext lautet: ""%s""."
     IDS_HILLEXAMPLE_RESULT_DECRYPTION "Der Hill-Klartext lautet: ""%s""."
     IDS_STRING_RAND_DATA_PARAM 
-                            "Zufallsdaten erzeugt mit dem %s Generator-Länge %i Bytes"
+                            "Zufallsdaten erzeugt mit dem %s Generator - Länge %i Bytes"
     IDS_RSA_MKPZ_PLAINTEXT  "Klartext"
 END
 
