@@ -21,6 +21,8 @@ protected:
 
 	BOOL OnInitDialog();
 	void OnOK();
+	void EnableFirstPosNull();
+	void DisableFirstPosNull();
 
 	DECLARE_MESSAGE_MAP()
 public:

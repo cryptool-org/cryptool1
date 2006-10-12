@@ -47,6 +47,8 @@ BOOL DlgHillOptions::OnInitDialog()
 BEGIN_MESSAGE_MAP(DlgHillOptions, CDialog)
 	ON_BN_CLICKED(IDOK, OnBnClickedOk)
 	ON_BN_CLICKED(IDCANCEL, OnBnClickedCancel)
+	ON_BN_CLICKED(IDC_RADIO3, EnableFirstPosNull)
+	ON_BN_CLICKED(IDC_RADIO4, DisableFirstPosNull)
 END_MESSAGE_MAP()
 
 
@@ -65,10 +67,19 @@ void DlgHillOptions::OnOK()
 		CT_WRITE_REGISTRY(unsigned long(firstPosNull), "firstPosNull");
 		CT_CLOSE_REGISTRY();
 	}
+	CDialog::OnOK();
 }
 
 void DlgHillOptions::OnBnClickedCancel()
 {
 	// TODO: Add your control notification handler code here
 	OnCancel();
+}
+void DlgHillOptions::EnableFirstPosNull()
+{
+	firstPosNull = 1;
+}
+void DlgHillOptions::DisableFirstPosNull()
+{
+	firstPosNull = 0;
 }

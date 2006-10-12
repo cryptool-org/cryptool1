@@ -57,6 +57,7 @@ statement from your version.
 #include "ChrTools.h"
 #include "KeyRepository.h"
 #include "DlgHillOptions.h"
+#include "CrypToolTools.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgKeyHill5x5 
@@ -681,7 +682,7 @@ void CDlgKeyHill5x5::UpdateAlphCode(CEdit *feld)
 	feld->GetWindowText(cs);
 	if(cs.GetLength() == 2)
 	{
-		if(_ttoi(cs) < 1 || _ttoi(cs) > theApp.TextOptions.m_alphabet.GetLength())
+		if(_ttoi(cs) < 0 || _ttoi(cs) > theApp.TextOptions.m_alphabet.GetLength())
 		{
 			cs.Empty();
 			feld->SetWindowText(cs);
@@ -1328,7 +1329,11 @@ CString CDlgKeyHill5x5::getAlphCode(CString alphChar)
 	{
 		if(theApp.TextOptions.m_alphabet[i] == alphChar)
 		{
-			str.Format("%d",i+1);
+			if(getFirstPosNull())
+				str.Format("%d",i);
+			else
+				str.Format("%d",i+1);
+			
 			if(str.GetLength() == 1)
 				str.Insert(0,"0");
 			return str;
@@ -1339,7 +1344,10 @@ CString CDlgKeyHill5x5::getAlphCode(CString alphChar)
 CString CDlgKeyHill5x5::getAlphChar(CString alphPos)
 {
 		int pos = _ttoi(alphPos);
-		pos--;
+
+		if(!getFirstPosNull())
+			pos--;
+		
 		if(pos < 0 || pos > theApp.TextOptions.m_alphabet.GetLength())
 			return "";
 		else
@@ -1396,4 +1404,30 @@ void CDlgKeyHill5x5::OnHillOptions()
 {
 	DlgHillOptions hillOpt;
 	hillOpt.DoModal();
+	
+	CString str;
+	for(int i=0;i<5;i++)
+	{
+		for(int j=0;j<5;j++)
+		{
+			m_pFelder[i][j]->GetWindowText(str);
+			m_pAlphCode[i][j]->SetWindowText(getAlphCode(str));
+		}
+	}
+
+}
+BOOL CDlgKeyHill5x5::getFirstPosNull()
+{
+	unsigned long firstPosNull;
+
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_READ) == ERROR_SUCCESS)
+	{
+		
+		CT_READ_REGISTRY_DEFAULT(firstPosNull, "firstPosNull", firstPosNull);
+		
+		UpdateData(false);
+
+		CT_CLOSE_REGISTRY();
+	}
+	return firstPosNull;
 }

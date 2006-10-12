@@ -100,6 +100,7 @@ public:
 	void setDoublePos(CEdit *feld);
 
 	void OnHillOptions();
+	BOOL getFirstPosNull();
 
 
 	CDlgKeyHill5x5(CHillEncryption *hillkl, CWnd* pParent = NULL);   // Standardkonstruktor

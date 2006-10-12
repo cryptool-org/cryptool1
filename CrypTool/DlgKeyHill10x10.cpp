@@ -57,6 +57,8 @@ statement from your version.
 #include "HillEncryption.h"
 #include "ChrTools.h"
 #include "KeyRepository.h"
+#include ".\dlgkeyhill10x10.h"
+#include "DlgHillOptions.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -630,7 +632,8 @@ BEGIN_MESSAGE_MAP(CDlgKeyHill10x10, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON5, OnDecrypt)
 	ON_BN_CLICKED(IDC_BUTTON2, OnPasteKey)
 	//}}AFX_MSG_MAP
-END_MESSAGE_MAP()
+	ON_BN_CLICKED(IDC_BUTTON69, OnBnClickedButton69)
+	END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // Behandlungsroutinen für Nachrichten CDlgKeyHill10x10 
@@ -3016,4 +3019,9 @@ void CDlgKeyHill10x10::OnRowVectorMatrix()
 void CDlgKeyHill10x10::OnMatrixColumnVector()
 {
 	iHillMultiplicationType = 0;
+}
+void CDlgKeyHill10x10::OnBnClickedButton69()
+{
+	DlgHillOptions hillOpt;
+	hillOpt.DoModal();
 }

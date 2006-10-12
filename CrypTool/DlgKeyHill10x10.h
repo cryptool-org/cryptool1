@@ -644,6 +644,7 @@ protected:
 public:
 	CString m_pHillAlphInfo;
 	afx_msg void OnBnClickedOk();
+	afx_msg void OnBnClickedButton69();
 };
 
 //{{AFX_INSERT_LOCATION}}
