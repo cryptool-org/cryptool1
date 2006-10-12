@@ -2,7 +2,7 @@
 <HTML>
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>How the pattern search works</TITLE>
+<TITLE>Pattern search (at 2nd method for analyzing substitution ciphers)</TITLE>
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
@@ -14,15 +14,15 @@
 
 <BODY>
 
-<h3>How the pattern search works</h3>
+<h3>How the pattern search works for the 2nd method to analyse monoalphabetic ciphers</h3>
 
-<P>The analysis method used here only works for encrypted versions of English or German standard text, in which the spaces between words are retained in the <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> text (see <A href="hidd_text_options.html">Text Options</A>).</P>
+<P>The analysis method described here is used when <a href="hid_analyze_subst.html">analyze monoalphabetic ciphers</a> and works only for encrypted versions of English or German standard text, in which the spaces between words are retained in the <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> text (see <A href="hidd_text_options.html">Text Options</A>).</P>
 
 <P>This section describes the analysis for English <!--ZZZPOPUP--><A href="klartext.html">plaintext</A>. However, the analysis works in exactly the same way for German plaintext, although in this case due to the statistical characteristics of the German language the baseline numbers are somewhat different. To avoid generalising too much in the description of the analysis procedure, only the analysis steps based on the statistical frequencies applicable to English plaintext is described.</P>
 
 <P>The analysis for English plaintext is based on the fact that any word taken from an English standard text will have a 0.5 probability of being contained in the list of the 135 commonest English words.</P>
 
-<P>The first step is to break down the text to be analysed into individual words. Every individual words is checked to see whether there is a word in the list of the 135 commonest words which exhibits the same pattern.</P>
+<P>The first step is to break down the text to be analysed into individual words. Every individual words is checked to see whether there is a word in the list of the 135 most common words which exhibits the same pattern.</P>
 
 <P>"Pattern" refers here to the pattern of letters, for example, "letters 1 and 3 are the same, all the others are different". Thus, the words "cat", "big", "the" and "are" all follow the same pattern (i.e. every word consists of three different letters), whereas the words "ally" and "fall" follow different patterns.</P>
 
@@ -35,6 +35,7 @@
 <P>To avoid the effort required to search through the tree assuming exponential proportions, branches in which collisions occur towards the top are not investigated further.</P>
 
 <P>Letters which could not be assigned are represented in the resulting text by lower case letters. Letters for which a substitute was found are shown in upper case.</P>
-
+<p><u>Remark</u>:</p>
+<p>This search method does not have a very good performance and it requires blanks to be kept as word seperators between in the cipher text.</p>
 </BODY>
 </HTML>

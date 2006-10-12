@@ -1,29 +1,42 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
-<HEAD>
-<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Factorisation attack on RSA</TITLE>
-<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
-</HEAD>
-
-<!-- multiple keywords for CrypTool HTML help index -->
-<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
-	<PARAM NAME="Keyword" VALUE="Factorisation">
-	<PARAM NAME="Keyword" VALUE="RSA encryption algorithm">
-	<PARAM NAME="Keyword" VALUE="Demonstrations/Scenarios">
-</OBJECT>
-
-<BODY>
-
-<h3>Factorisation attack on RSA</h3>
-
-<P>The RSA system‚s security is based on the fact that it is practically impossible to compute from the public RSA modulus N its two prime factors p and q, if N is sufficiently large.</P>
-
-<P>For small key lengths you can try to factor N into its two prime factors p and q.</P>
-
-<P>After you have entered the public modulus N and the public key e into the RSA Cryptosystem dialog, you can start this factorisation by pressing the button <A href="hid_einzelverfahren_tutorialfrkleinezahlen_faktorisierenifp.html">Factorise RSA modulus</A></P>
-
-<P>After successful factorisation the private parameters are entered automatically into the dialog and you can now decrypt and sign data.</P>
-
-</BODY>
+	<HEAD>
+		<TITLE>Factorisation attack on RSA</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+		<!-- multiple keywords for CrypTool HTML help index -->
+	</HEAD>
+	<BODY>
+		<OBJECT id="Object1" type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+			VIEWASTEXT>
+			<PARAM NAME="Keyword" VALUE="Factorisation">
+		</OBJECT>
+		<h3>Factorisation attack on RSA</h3>
+		<P>The RSA system's security is based on the fact that it is practically impossible 
+			to compute from the public RSA modulus N its two prime factors p and q, if N is 
+			sufficiently large.</P>
+		<P>For small key lengths you can try to factor N into its two prime factors p and 
+			q.</P>
+		<P>After you have entered the public modulus N and the public key e into the <a href="HID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS.html">
+				RSA Demonstration</a> dialog, you can start this factorisation by pressing 
+			the button <A href="hid_einzelverfahren_tutorialfrkleinezahlen_faktorisierenifp.html">
+				Factorise RSA modulus</A>.</P>
+		<P>After successful factorisation the private parameters are entered automatically 
+			into the dialog and you can now decrypt and sign data.</P>
+		<p><u>Remark</u></p>
+		The Dialog "RSA Demonstration" has in his first group (upper boardered area) 
+		two radio buttons:
+		<UL>
+			<li>
+			If the upper one is active, you have the view/knowledge of the owner of the 
+			private key.
+			<li>
+				If the lower one is active, you have the view/knowledge of an attack or the 
+				receiver of a signed email.
+			</li>
+		</UL>
+		<p>Accodingly the scond group box is changed.</p>
+		<p>If you first chose the lower view and then performed as an attack a successful 
+			factorisation, the dialog automatically switches into the view of the owner.</p>
+	</BODY>
 </HTML>

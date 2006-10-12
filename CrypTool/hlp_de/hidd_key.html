@@ -1,60 +1,75 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
-<HEAD>
-<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Dialog Schlüsseleingabe</TITLE>
-<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
-</HEAD>
-
-<!-- multiple keywords for CrypTool HTML help index -->
-<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
-	<PARAM NAME="Keyword" VALUE="Schlüssel">
-	<PARAM NAME="Keyword" VALUE="Dialog (Übersicht aller Dialoge)">
-	<PARAM NAME="Keyword" VALUE="Verschlüsselung">
-</OBJECT>
-
-<BODY>
-
-<h3>Dialog Schlüsseleingabe</h3>
-
-<P>In diesem Dialog wird der <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> für die folgenden <!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A> eingegeben:</P>
-
-<P>
-<A href="hid_rot13caesar_asc.html">Caesar</A><BR>
-<A href="hid_vigenere_asc.html">Vigenère</A><BR>
-<A href="hid_add_bin.html">Byteweise Addition</A><BR>
-<A href="hid_xor_bin.html">Binäres exklusives Oder</A><BR>
-<A href="hid_crypt_idea.html">IDEA</A><BR>
-<A href="hid_crypt_rc2.html">RC2</A><BR>
-<A href="hid_crypt_rc4.html">RC4</A><BR>
-<A href="hid_crypt_des_desecb.html">DES&nbsp;(ECB)</A><BR>
-<A href="hid_crypt_des_descbc.html">DES&nbsp;(CBC)</A><BR>
-<A href="hid_crypt_3des_ecb.html">Triple&nbsp;DES&nbsp;(ECB)</A><BR>
-<A href="hid_crypt_3des_cbc.html">Triple&nbsp;DES&nbsp;(CBC)</A><BR>
-<A href="hid_crypt_aes_mars.html">MARS</A><BR>
-<A href="hid_crypt_aes_rc6.html">RC6</A><BR>
-<A href="hid_crypt_aes_rijndael.html">Rijndael</A><BR>
-<A href="hid_crypt_aes_serpent.html">Serpent</A><BR>
-<A href="hid_crypt_aes_twofish.html">Twofish</A>
-</P>
-
-<P>Nachdem Sie den Schlüssel eingegeben haben, können Sie das Dokument <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsseln</A>, indem Sie auf den Knopf <B>Verschlüsseln</B> klicken oder die <B>Eingabetaste</B> betätigen. Wenn Sie das Dokument <!--ZZZPOPUP--><A href="entschluesselung.html">entschlüsseln</A> wollen, wählen Sie den Knopf <B>Entschlüsseln</B>.</P>
-
-<P>Mit dem Knopf <IMG SRC="images/iconinsertkey.gif" ALT="iconinsertkey.gif" BORDER=0> können Sie einen im <A href="keystore.html"><B>Schlüsselspeicher</B></A> gespeicherten Schlüssel für den gewählten Algorithmus direkt einfügen.</P>
-
-<P>Bei den meisten symmetrischen Verfahren (IDEA, DES, MARS, RC6, Rijndael, Serpent, Twofish) wird zum Verschlüsseln ein Schlüssel fester Länge benötigt. Kürzere Schlüssel werden mit Nullen aufgefüllt. </P>
-
-<P><B>Beispiel:</B> </P>
-
-<P>Als DES-Schlüssel wählen Sie 12 AB:</P>
-
-<P><IMG SRC="images/des-keydialog.gif" ALT="des-keydialog.gif" BORDER=0></P>
-
-<P>Die aktuelle Datei wird mit dem DES-Schlüssel 12 AB 00 00 00 00 00 00 verschlüsselt, weil das DES-Verfahren einen 64-Bit Hexzeichen langen Schlüssel erwartet.</P>
-
-<P>Typische Schlüssellängen und ihre Darstellung finden Sie in der Tabelle <A href="key_representation.html">Schlüsseldarstellung</A>.</P>
-
-<P>Einige klassische Verfahren erfordern ganz andere Formen der Schlüsseleingaben, so zum Beispiel <A href="hidd_key_hill5x5.html">Hill</A>.</P>
-
-</BODY>
+	<HEAD>
+		<TITLE>Dialog Schlüsseleingabe</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+		<!-- multiple keywords for CrypTool HTML help index -->
+	</HEAD>
+	<BODY>
+		<OBJECT id="Object1" type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+			VIEWASTEXT>
+			<PARAM NAME="Keyword" VALUE="Schlüssel">
+		</OBJECT>
+		<h3>Dialog Schlüsseleingabe</h3>
+		<P>In diesem Dialogtyp wird der <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A>
+			für die folgenden <!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A>
+			eingegeben:</P>
+		<P>
+			<A href="hid_vigenere_asc.html">Vigenère</A><BR>
+			<A href="hid_add_bin.html">Byteweise Addition</A><BR>
+			<A href="hid_xor_bin.html">Binäres exklusives Oder</A><BR>
+			<A href="hid_crypt_idea.html">IDEA</A><BR>
+			<A href="hid_crypt_rc2.html">RC2</A><BR>
+			<A href="hid_crypt_rc4.html">RC4</A><BR>
+			<A href="hid_crypt_des_desecb.html">DES&nbsp;(ECB)</A><BR>
+			<A href="hid_crypt_des_descbc.html">DES&nbsp;(CBC)</A><BR>
+			<A href="hid_crypt_3des_ecb.html">Triple&nbsp;DES&nbsp;(ECB)</A><BR>
+			<A href="hid_crypt_3des_cbc.html">Triple&nbsp;DES&nbsp;(CBC)</A><BR>
+			<A href="hid_crypt_aes_mars.html">MARS</A><BR>
+			<A href="hid_crypt_aes_rc6.html">RC6</A><BR>
+			<A href="hid_crypt_aes_rijndael.html">Rijndael</A><BR>
+			<A href="hid_crypt_aes_serpent.html">Serpent</A><BR>
+			<A href="hid_crypt_aes_twofish.html">Twofish</A>
+		</P>
+		<P>Nachdem Sie den Schlüssel eingegeben haben, können Sie das Dokument <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsseln</A>, 
+			indem Sie auf den Knopf <B>Verschlüsseln</B> klicken oder die <B>Eingabetaste</B>
+			betätigen. Wenn Sie das Dokument <!--ZZZPOPUP--><A href="entschluesselung.html">entschlüsseln</A>
+			wollen, wählen Sie den Knopf <B>Entschlüsseln</B>.</P>
+		<P>Mit dem Knopf <IMG SRC="images/iconinsertkey.gif" ALT="iconinsertkey.gif" BORDER="0">
+			können Sie einen im <A href="keystore.html"><B>Schlüsselspeicher</B></A> gespeicherten 
+			Schlüssel für den gewählten Algorithmus direkt einfügen.</P>
+		<P>Bei den meisten symmetrischen Verfahren (IDEA, DES, MARS, RC6, Rijndael, 
+			Serpent, Twofish) wird zum Verschlüsseln ein Schlüssel fester Länge benötigt. 
+			Kürzere Schlüssel werden mit Nullen aufgefüllt.
+		</P>
+		<P><B>Beispiel:</B>
+		</P>
+		<table border="0">
+			<tr>
+				<td>
+					<b>Beispiel 1</b>: Hexeingabe bei DES (ECB)</td>
+				<td><b>Beispiel 2</b>: Texteingabe bei Vigenère</td>
+			</tr>
+			<tr>
+				<td>Als DES-Schlüssel wählen Sie 12 AB</td>
+				<td>Als Vigenère-Schlüssel wählen Sie TESTER</td>
+			</tr>
+			<tr>
+				<td><IMG SRC="images/des-keydialog.gif" ALT="des-keydialog.gif" BORDER="0"></td>
+				<td><IMG SRC="images/vigenere-keydialog.gif" ALT="vigenere-keydialog.gif" BORDER="0"></td>
+			</tr>
+		</table>
+		<P>Die aktuelle Datei wird mit dem DES-Schlüssel 12 AB 00 00 00 00 00 00 
+			verschlüsselt, weil das DES-Verfahren einen 64-Bit Hexzeichen langen Schlüssel 
+			erwartet.</P>
+		<P><br>
+			Typische Schlüssellängen und ihre Darstellung finden Sie in der Tabelle <A href="key_representation.html">
+				Schlüsseldarstellung</A>.</P>
+		<P>Einige klassische Verfahren erfordern ganz andere Formen der Schlüsseleingaben, 
+			so zum Beispiel <A href="hidd_key_hill5x5.html">Hill</A>, <a href="hidd_key_playfair.html">
+				Playfair</a>, <a href="HIDD_ADFGVX.html">ADFGVX</a></P>
+		, <a href="hidd_key_homophone.html">Homphone</a>, <a href="hidd_key_permutation.html">
+			Permutation</a>, und <a href="HIDD_SOLITAIRE.html">Solitaire</a>. </B></B>
+	</BODY>
 </HTML>

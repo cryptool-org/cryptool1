@@ -1,27 +1,21 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
-<HEAD>
-<TITLE>Dialog Key entry for classical and symmetric encryption algorithms</TITLE>
-<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
-</HEAD>
-
-<!-- multiple keywords for CrypTool HTML help index -->
-<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
-	<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
-	<PARAM NAME="Keyword" VALUE="Encryption">
-	<PARAM NAME="Keyword" VALUE="Keys">
-</OBJECT>
-		
-<BODY>
-		
-<h3>Dialog Key Entry</h3>
-
+	<HEAD>
+		<TITLE>Dialog Key entry for classical and symmetric encryption algorithms</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+		<!-- multiple keywords for CrypTool HTML help index -->
+	</HEAD>
+	<BODY>
+		<OBJECT id="Object1" type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+			VIEWASTEXT>
+			<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
+		</OBJECT>
+		<h3>Dialog Key Entry</h3>
 		<P>This dialog is used to enter the <!--ZZZPOPUP--><A href="schluessel.html">key</A>
 			for the following <!--ZZZPOPUP--><A href="verschlverfahren.html">encryption 
 				algorithms</A>:</P>
 		<P>
-			<A href="hid_rot13caesar_asc.html">Caesar</A><BR>
 			<A href="hid_vigenere_asc.html">Vigenère</A><BR>
 			<A href="hid_add_bin.html">Byte Addition</A><BR>
 			<A href="hid_xor_bin.html">Binary Exclusive-OR</A><BR>
@@ -49,12 +43,27 @@
 			button is deactivated and appears in grey).</P>
 		<P>Most of the symmetric procedures (IDEA, DES, MARS, RC6, Rijndael, Serpent, 
 			Twofish) require a fixed key length. Shorter keys are padded with zeros. 
-			Example: As DES key you choose 12 AB (which is 16 bit):</P>
-		<P><IMG SRC="images/des-keydialog.gif" ALT="des-keydialog.gif" BORDER="0"></P>
+			Example:
+		</P>
+		<table border="0" ID="Table1">
+			<tr>
+				<td>
+					<b>Examle 1</b>: Hexeingabe bei DES (ECB)</td>
+				<td><b>Example 2</b>: Texteingabe bei Vigenère</td>
+			</tr>
+			<tr>
+				<td>As DES key you choose 12 AB (which is 16 bit):</td>
+				<td>As Vigenère key you choose TEST</td>
+			</tr>
+			<tr>
+				<td><IMG SRC="images/des-keydialog.gif" ALT="des-keydialog.gif" BORDER="0"></td>
+				<td><IMG SRC="images/vigenere-keydialog.gif" ALT="vigenere-keydialog.gif" BORDER="0"></td>
+			</tr>
+		</table>
 		<P>
 			The current file is encrypted with the DES key 12 AB 00 00 00 00 00 00 because 
 			the DES algorithm is expecting a key comprising 64 bits.</P>
-		<P>Typical key lengths and their presentations are listed in the table <A href="key_representation.html">
+		<P><br>Typical key lengths and their presentations are listed in the table <A href="key_representation.html">
 				Key presentation</A>.</P>
 		<P>A few classical procedures require different types of key input dialogs; <A href="hidd_key_hill5x5.html">
 				Hill</A> is a good example to demonstrate this difference.</P>

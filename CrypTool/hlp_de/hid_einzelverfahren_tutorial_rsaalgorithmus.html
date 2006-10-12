@@ -1,99 +1,104 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
-<HEAD>
-<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Dialog RSA-Kryptosystem</TITLE>
-<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
-</HEAD>
-
-<!-- multiple keywords for CrypTool HTML help index -->
-<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
-	<PARAM NAME="Keyword" VALUE="Asymmetrisch">
-	<PARAM NAME="Keyword" VALUE="Dialog (Übersicht aller Dialoge)">
-	<PARAM NAME="Keyword" VALUE="RSA-Kryptosystem">
-	<PARAM NAME="Keyword" VALUE="RSA-Verschlüsselungsverfahren">
-	<PARAM NAME="Keyword" VALUE="Demonstrationen/Szenarien">
-	<PARAM NAME="Keyword" VALUE="Kryptographie">
-	<PARAM NAME="Keyword" VALUE="Kryptologie">
-	<PARAM NAME="Keyword" VALUE="Kryptoanalyse">
-	<PARAM NAME="Keyword" VALUE="Primzahlen">
-</OBJECT>
-
-<BODY>
-
-<h3>Dialog RSA-Kryptosystem</h3>
-
-<P>Diesen Dialog erreichen Sie über das Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ <a href="menu_crypt_asymmetric.html">Asymmetrisch</a> \ <a href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">RSA-Demo</a>.</P>
-
-<P>Das wohl bekannteste asymmetrische Kryptosystem ist das nach den Autoren Ron Rivest, Adi Shamir und Leonard Adleman benannte RSA-Verfahren. In diesem Dialog können Sie alle drei Schritte</P>
-
-<OL>
-
-	<LI> <A href="rsa_demo_key_generation.html">RSA-Schlüssel generieren</A>, <BR><BR></LI>
-
-	<LI> <A href="rsa_demo_encryption.html">RSA-Verschlüsselung von Nachrichten</A> und<BR><BR></LI>
-
-	<LI> <A href="rsa_demo_decryption.html">RSA-Entschlüsselung von Nachrichten</A></LI>
-
-</OL>
-
-<P>des RSA-Kryptosystems nachvollziehen.</P>
-
-<P>Für die <A href="public_rsa_parameter.html">RSA-Verschlüsselung und RSA-Signatur-Verifikation</A> genügen als Eingabe die veröffentlichten Parameter: </P>
-
-<UL>
-
-	<LI> der RSA-Modul N und</LI>
-
-	<LI> der öffentliche RSA-Schlüssel e. </LI>
-
-</UL>
-
-<P>In diesem Fall müssen die geheimen Parameter (die Eulersche Phi-Funktion von N und der geheime Schlüssel d) nicht bekannt sein.</P>
-
-<P>Sie können in der Gruppierung <B>RSA mit privatem und öffentlichem Schlüssel - oder nur mit öffentlichem Schlüssel</B> auswählen, wieviel Information bekannt sein soll.</P>
-
-<P>Wird CrypTool neu gestartet, so gilt folgende Voreinstellung (Initialisierung):</P>
-
-<UL>
-
-	<LI> Im Dialogfenster "Das RSA-Kryptosystem" sind bis auf den Wert "2^16+1" für den öffentlichen Exponenten e keine Werte eingestellt.</LI>
-
-	<LI> Im Fenster "Optionen für die RSA-Verschlüsselung" wird standardmäßig als Alphabet das 256 Zeichen umfassende Alphabet der 8-Bit-ASCII Codierung eingestellt.</LI>
-
-</UL>
-
-<P>Solange Sie die CrypTool-Anwendung nicht beenden, werden bei jedem neuen Aufruf des Dialogfensters "Das RSA-Kryptosystem" die zuletzt eingestellten Werte für die Primzahlen, RSA-Parameter und Optionen wieder benutzt, so dass Sie sie nicht neu eingegeben müssen. Natürlich können Sie diese Werte jederzeit ändern.</P>
-
-<P>Um eine Nachricht geheim (vertraulich) übertragen zu können, benötigt man den öffentlichen Schlüssel des Empfängers. Die Codierung der Nachricht mit dem öffentlichen Schlüssel des Empfängers zur Gewährleistung der Vertraulichkeit nennt man <B>Verschlüsselung</B>.</P>
-
-<P>Wendet man dieselbe Operation auf eine Nachricht oder eine Zahl mit dem eigenen geheimen Schlüssel an, wird eine <A href="rsa_demo_signature.html">digitale Signatur</A> erzeugt. Dies ist eine spezielle Eigenschaft des RSA-Kryptosystems. Jeder kann mit Hilfe des öffentlichen Schlüssel verifizieren, dass der Besitzer des geheimen Schlüssels die Nachricht bzw. die Zahl "unterschrieben" hat.</P>
-
-<P>Die Geschichte <A href="rsa_demo_variant.html">Der Dialog der Schwestern</A> [c't Heft 25/99] beschreibt eine Variante des RSA-Kryptosystems, die von Hand berechnet werden kann. Diese Variante kann, nachdem ein kleiner RSA-Schlüssel erzeugt wurde, unter <A href="hidd_options_rsa_demo.html">Optionen für Alphabet und Zahlensystem</A> eingestellt werden.</P>
-
-<P>Das folgende Beispiel zeigt die RSA-Verschlüsselung der folgenden Nachricht:</P>
-
-<P>"Verkaufen Sie am 14.07.00 meine Aktienpakete, und kaufen Sie mir dafür eine Südsee Insel".</P>
-
-<P><IMG SRC="images/rsa_demo_1.gif" ALT="rsa_demo_1.gif" BORDER=0></P>
-
-<P>Dieser Vorgang wird über die folgenden Schritte durchgeführt:</P>
-
-<P>Zunächst werden die zwei Primzahlen p und q gewählt (das geschieht am einfachsten mit Hilfe des Dialoges <A href="hid_einzelverfahren_tutorial_primzahlengenerieren.html"><B>Primzahlen generieren</B></A>), danach wird der öffentliche Schlüssel e eingegeben, und mit dem Button <B>Parameter aktualisieren</B> berechnet sich der geheime Schlüssel d. </P>
-
-<P>Vor der Ver- bzw. Entschlüsselung können Sie im <B>Dialog </B><A href="hidd_options_rsa_demo.html">Optionen für Alphabet und Zahlensystem</A> weitere Einstellungen für die Verschlüsselung vornehmen. Und zwar:</P>
-
-<UL>
-
-	<LI> Alphabetoptionen (Textoptionen)</LI>
-
-	<LI> Die RSA-Variante aus dem Dialog der Schwestern</LI>
-
-	<LI> Das Zahlensystem, in dem die Zahlen der RSA-Ver-/Entschlüsselung dargestellt werden</LI>
-
-</UL>
-
-<P>Zur Verschlüsselung geben Sie den Klartext ein und klicken den Button <B>Verschlüsseln</B>. </P>
-
-</BODY>
+	<HEAD>
+		<TITLE>Dialog RSA-Kryptosystem</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+		<!-- multiple keywords for CrypTool HTML help index -->
+	</HEAD>
+	<BODY>
+		<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+			VIEWASTEXT>
+			<PARAM NAME="Keyword" VALUE="Asymmetrisch">
+		</OBJECT>
+		<h3>Dialog RSA-Demo</h3>
+		<P>Diesen Dialog erreichen Sie über das Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A>
+			\ <a href="menu_crypt_asymmetric.html">Asymmetrisch</a> \ <a href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">
+				RSA-Demo</a>.</P>
+		<P>Das wohl bekannteste asymmetrische Kryptosystem ist das nach den Autoren Ron 
+			Rivest, Adi Shamir und Leonard Adleman benannte RSA-Verfahren. In diesem Dialog 
+			können Sie alle drei Schritte</P>
+		<OL>
+			<LI>
+				<A href="rsa_demo_key_generation.html">RSA-Schlüssel generieren</A>,
+				<BR>
+				<BR>
+			<LI>
+				<A href="rsa_demo_encryption.html">RSA-Verschlüsselung von Nachrichten</A> und<BR>
+				<BR>
+			<LI>
+				<A href="rsa_demo_decryption.html">RSA-Entschlüsselung von Nachrichten</A></LI>
+		</OL>
+		<P>des RSA-Kryptosystems nachvollziehen.</P>
+		<P>Für die <A href="public_rsa_parameter.html">RSA-Verschlüsselung und 
+				RSA-Signatur-Verifikation</A> genügen als Eingabe die veröffentlichten 
+			Parameter:
+		</P>
+		<UL>
+			<LI>
+			der RSA-Modul N und
+			<LI>
+				der öffentliche RSA-Schlüssel e.
+			</LI>
+		</UL>
+		<P>In diesem Fall müssen die geheimen Parameter (die Eulersche Phi-Funktion von N 
+			und der geheime Schlüssel d) nicht bekannt sein.</P>
+		<P>Sie können in der Gruppierung <B>RSA mit privatem und öffentlichem Schlüssel - oder 
+				nur mit öffentlichem Schlüssel</B> auswählen, wieviel Information bekannt 
+			sein soll.</P>
+		<P>Wird CrypTool neu gestartet, so gilt folgende Voreinstellung (Initialisierung):</P>
+		<UL>
+			<LI>
+			Im Dialogfenster "Das RSA-Kryptosystem" sind bis auf den Wert "2^16+1" für den 
+			öffentlichen Exponenten e keine Werte eingestellt.
+			<LI>
+				Im Fenster "Optionen für die RSA-Verschlüsselung" wird standardmäßig als 
+				Alphabet das 256 Zeichen umfassende Alphabet der 8-Bit-ASCII Codierung 
+				eingestellt.</LI>
+		</UL>
+		<P>Solange Sie die CrypTool-Anwendung nicht beenden, werden bei jedem neuen Aufruf 
+			des Dialogfensters "Das RSA-Kryptosystem" die zuletzt eingestellten Werte für 
+			die Primzahlen, RSA-Parameter und Optionen wieder benutzt, so dass Sie sie 
+			nicht neu eingegeben müssen. Natürlich können Sie diese Werte jederzeit ändern.</P>
+		<P>Um eine Nachricht geheim (vertraulich) übertragen zu können, benötigt man den 
+			öffentlichen Schlüssel des Empfängers. Die Codierung der Nachricht mit dem 
+			öffentlichen Schlüssel des Empfängers zur Gewährleistung der Vertraulichkeit 
+			nennt man <B>Verschlüsselung</B>.</P>
+		<P>Wendet man dieselbe Operation auf eine Nachricht oder eine Zahl mit dem eigenen 
+			geheimen Schlüssel an, wird eine <A href="rsa_demo_signature.html">digitale 
+				Signatur</A> erzeugt. Dies ist eine spezielle Eigenschaft des 
+			RSA-Kryptosystems. Jeder kann mit Hilfe des öffentlichen Schlüssel 
+			verifizieren, dass der Besitzer des geheimen Schlüssels die Nachricht bzw. die 
+			Zahl "unterschrieben" hat.</P>
+		<P>Die Geschichte <A href="rsa_demo_variant.html">Der Dialog der Schwestern</A> [c't 
+			Heft 25/99] beschreibt eine Variante des RSA-Kryptosystems, die von Hand 
+			berechnet werden kann. Diese Variante kann, nachdem ein kleiner RSA-Schlüssel 
+			erzeugt wurde, unter <A href="hidd_options_rsa_demo.html">Optionen für Alphabet und 
+				Zahlensystem</A> eingestellt werden.</P>
+		<P>Das folgende Beispiel zeigt die RSA-Verschlüsselung der folgenden Nachricht:</P>
+		<P>"Verkaufen Sie am 14.07.00 meine Aktienpakete, und kaufen Sie mir dafür eine 
+			Südsee Insel".</P>
+		<P><IMG SRC="images/rsa_demo_1.gif" ALT="rsa_demo_1.gif" BORDER="0"></P>
+		<P>Dieser Vorgang wird über die folgenden Schritte durchgeführt:</P>
+		<P>Zunächst werden die zwei Primzahlen p und q gewählt (das geschieht am 
+			einfachsten mit Hilfe des Dialoges <A href="hid_einzelverfahren_tutorial_primzahlengenerieren.html">
+				<B>Primzahlen generieren</B></A>), danach wird der öffentliche Schlüssel e 
+			eingegeben, und mit dem Button <B>Parameter aktualisieren</B> berechnet sich 
+			der geheime Schlüssel d.
+		</P>
+		<P>Vor der Ver- bzw. Entschlüsselung können Sie im <B>Dialog </B><A href="hidd_options_rsa_demo.html">
+				Optionen für Alphabet und Zahlensystem</A> weitere Einstellungen für die 
+			Verschlüsselung vornehmen. Und zwar:</P>
+		<UL>
+			<LI>
+			Alphabetoptionen (Textoptionen)
+			<LI>
+			Die RSA-Variante aus dem Dialog der Schwestern
+			<LI>
+				Das Zahlensystem, in dem die Zahlen der RSA-Ver-/Entschlüsselung dargestellt 
+				werden</LI>
+		</UL>
+		<P>Zur Verschlüsselung geben Sie den Klartext ein und klicken den Button <B>Verschlüsseln</B>.
+		</P>
+	</BODY>
 </HTML>

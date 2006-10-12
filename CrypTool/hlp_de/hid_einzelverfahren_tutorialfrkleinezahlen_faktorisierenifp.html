@@ -1,113 +1,145 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
-<HEAD>
-<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Dialog Faktorisieren einer Zahl</TITLE>
-<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
-<script language="JScript" src="helper.js"></script>
-</HEAD>
-
-<!-- multiple keywords for CrypTool HTML help index -->
-<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
-	<PARAM NAME="Keyword" VALUE="Faktorisierung">
-	<PARAM NAME="Keyword" VALUE="Demonstrationen/Szenarien">
-	<PARAM NAME="Keyword" VALUE="Dialog (Übersicht aller Dialoge)">
-	<PARAM NAME="Keyword" VALUE="Einzelverfahren">
-</OBJECT>
-
-<BODY>
-
-<h3>Dialog Faktorisieren einer Zahl</h3>
-
-<P>Diesen Dialog erhält man über den Menüeintrag <A href="menu_related_methods.html">Einzelverfahren</A> \ <a href="menu_individualprocedures_rsacryptosystem.html">RSA-Kryptosystem</a> \ <a href="hid_einzelverfahren_tutorialfrkleinezahlen_faktorisierenifp.html">Faktorisieren einer Zahl</a>.</P>
-
-<P>Den Vorgang des Aufspaltens natürlicher Zahlen in ihre Primfaktoren (Primfaktorzerlegung) bezeichnet man als <B>Faktorisierung</B>. Jede natürliche Zahl (die größer als 1 ist) lässt sich (bis auf die Reihenfolge der Primzahlfaktoren) eindeutig in ihre Primfaktoren zerlegen. </P>
-
-<P>Das Faktorisierungsproblem stellt eine wichtige Schnittstelle zwischen Mathematik, Informatik und Technik dar, weil diese theoretische Fragestellung auch in der Kryptographie, wie beim <A href="hid_crypt_rsaenc.html">RSA-Verfahren</A> oder <B>Rabin-Williams Verfahren,</B> Anwendung findet.</P>
-
-<P>Dieses Tutorial soll Ihnen einen Eindruck vermitteln, wie Faktorisierungsaufgaben in der Praxis angegangen werden.</P>
-
-<P><IMG SRC="images/faktorisierungsalgorithmen.gif" ALT="faktorisierungsalgorithmen.gif" BORDER=0></P>
-
-<P>Sie haben verschiedene Faktorisierungsalgorithmen zur Zerlegung Ihrer Eingabe zur Auswahl.</P>
-
-<P>Wenn Sie den Button <B>Weiter</B> drücken, wird mit den gewählten Algorithmen versucht, die Eingabe in zwei Faktoren aufzuspalten. Bei den ausgegebenen Faktorisierungsergebnissen werden die zusammengesetzten Faktoren rot markiert.</P>
-
-<P>In diesem Dialog sind effiziente Verfahren zur Faktorisierung implementiert. </P>
-
-<P>Es wird empfohlen, <B>Brute-Force </B>und <B>Brent</B> als "Vorstufe" zu verwenden, da diese Verfahren sehr schnell kleinere Faktoren finden. Will man die Zahl 10^40-1 faktorisieren, so reicht es, die Verfahren Brute-Force und Brent zu verwenden, da diese Eingabe nur "kleine" Primfaktoren besitzt,</P>
-
-<P>Beispiel: 10^40-1</P>
-
-<P>Mit Brute-Force,</P>
-
-<P><IMG SRC="images/bruteforce.gif" ALT="bruteforce.gif" BORDER=0></P>
-
-<P>und dann mit Brent</P>
-
-<P><IMG SRC="images/brent.gif" ALT="brent.gif" BORDER=0></P>
-
-<P>Die Algorithmen <B>Pollard‚s (p-1) </B>bzw. <B>Williams (p+1)</B> führen mit großer Wahrscheinlichkeit </P>
-
-<P>zum Erfolg, wenn die zu faktorisierende Zahl N einen Primfaktor p hat, so dass (p-1) bzw. (p+1) nur aus kleinen Primfaktoren besteht. Sie werden zur Abspaltung von Faktoren kleinerer Größe benutzt und daher stärkeren Verfahren zur Faktorisierung vorgeschaltet.</P>
-
-<P>Beispiel: 233333330996666690033333333</P>
-
-<P><IMG SRC="images/pollard.gif" ALT="pollard.gif" BORDER=0></P>
-
-<P>Der Algorithmus von <B>Lenstra</B> basiert auf einer Verallgemeinerung der Pollard‚s (p-1)-Methode auf elliptischen Kurven. Dieses Verfahren wird auch als <B>ECM (Elliptic Curve Method)</B> bezeichnet. Mit ECM kann man weitaus größere Faktoren abspalten. Trotzdem ist auch ECM nur für die Abspaltung von Faktoren mit bestimmten Eigenschaften geeignet. Diese Einschränkung führt dazu, dass "kleinere" Faktoren mit größerer Wahrscheinlichkeit gefunden werden als "große" Faktoren. Jedoch ist es wesentlich lohnenswerter, ECM statt der (p-1)-Methode einzusetzen. </P>
-
-<P>Beispiel: 3035124991756191792335802070931</P>
-
-<P><IMG SRC="images/lenstraecm.gif" ALT="lenstraecm.gif" BORDER=0></P>
-
-<P>Sehr kleine Primteiler p einer Zahl n werden durch Probieren schneller aufgedeckt als mit ECM. Die Rechenzeit von ECM hängt hauptsächlich von der Größe des gesuchten Primteilers und kaum von der zu faktorisierenden Zahl ab. Wenn eine Zahl mit 1000 Dezimalstellen einen 20-stelligen Teiler hat, kann man ihn mit ECM finden. Andererseits wächst die Rechenzeit beträchtlich mit der Größe des kleinsten Faktors. ECM ist für Faktoren mit bis zu 30 Dezimalstellen geeignet. Der größte bisher mit diesem Verfahren gefundene Primfaktor hat 47 Dezimalstellen und wurde von Peter Montgomery am Zentrum für Mathematik und Informatik (CWI) in Amsterdam entdeckt.</P>
-
-<P>Das <B>quadratische Sieb </B>ist geeignet zur Faktorisierung von Zahlen, die aus mehr als einem großen Faktor (mehr als 30 Stellen) zusammengesetzt sind.</P>
-
-<P>Beispiel: 1999999999999999999077757777777777777777787</P>
-
-<P><IMG SRC="images/qsieb.gif" ALT="qsieb.gif" BORDER=0></P>
-
-<P>Die Rechenzeit ist dabei nicht abhängig vom kleinsten Faktor sondern von der zu faktorisierenden Zahl selbst. Das quadratische Sieb gehört – allerdings mit leichten Abwandlungen – zum schnellsten, was die Mathematiker an Faktorisierungsmethoden bisher "ausknobeln" konnten.</P>
-
-<P>Obwohl sich damit derzeit Zahlen bis um 139 Dezimalstellen faktorisieren lassen, enthält auch dieses Verfahren noch zu viele Stellen, an denen man raten und suchen muss. Und dieses Raten und Suchen (bzw. der Verzicht auf das Raten zu Lasten des Suchens) dauern einfach zu lange, um ein wirklich effizientes Faktorisierungsverfahren zu ergeben.</P>
-
-<P>Das quadratische Sieb wurde über viele Jahre als schnellstes Faktorisierungsverfahren betrachtet, bis vor wenigen Jahren <B>NFS (Number Field Sieve)</B> entdeckt wurde. NFS ist wie das quadratische Sieb ein Verfahren zur Faktorisierung großer Zahlen. NFS ist potenziell bis zu zehn mal schneller als das Quadratische Sieb. Allerdings können die bisher implementierten Algorithmen diesen potenziellen Geschwindigkeitsvorteil noch nicht voll nutzen. In den nächsten Jahren ist mit weiteren Optimierungen zu rechnen.</P>
-
-<P><B>Die Faktorisierung vom RSA-155</B></P>
-
-<P>Am 22. August 1999 veröffentlichte eine Forschergruppe, koordiniert von Herman te Riele vom CWI Amsterdam, die Faktorisierung der 512 Bit Zahl <B>RSA-155</B> mit dem NFS-Algorithmus. RSA-155 stammt aus der "RSA-Challenge List" der Firma RSA Inc. </P>
-
-<P><B>RSA-155</B> =10941738641570527421809707322040357612003732945449205990913842131476349984288934784717997257891267332497625752899781833797076537244027146743531593354333897 </P>
-
-<P>= 102639592829741105772054196573991675900716567808038066803341933521790711307779 * 106603488380168454820927220360012878679207958575989291522270608237193062808643 </P>
-
-<P>Die Gesamtdauer zur Durchführung sämtlicher Schritte betrug 7,4 Monate (9 Wochen Vorberechnung und 5,2 Monate für die eigentliche Faktorisierung).</P>
-
-<OL type="a">
-
-	<LI><P> Für den <B>Siebungs-Schritt</B> wurden 35.7 CPU-Jahre verwendet. Hierfür wurden folgende Rechner verwendet:</P>
-
-<P>160 * 175-400 MHz SGI und Sun workstations</P>
-
-<P>8 * 250 MHz SGI Origin 2000 processors</P>
-
-<P>120 * 300-450 MHz Pentium II PCs</P>
-
-<P>4 * 500 MHz Digital/Compaq boxes</P>
-
-<P>Dieser Aufwand war ungefähr äquivalent zu 8000 MIPS Jahren. 124.722.179 Relationen wurden gesammelt.</P></LI>
-
-<LI><P> Die resultierende Matrix hatte 6.699.191 Zeilen und 6.711.336 Spalten. Abgearbeitet wurde die Matrix in etwa 224 CPU Stunden mit einem Hauptspeicherbedarf von 2 Gbyte auf einer Cray C916 des SARA Amsterdam Academic Computer Center. Die Faktorisierung dauerte vom 17. März bis zum 22. August.</P></LI>
-
-</OL>
-
-<P>Den Siebungsschritt kann man praktisch beliebig parallelisieren. Insbesondere Organisationen mit unbeschränktem Hardwareetat können mit Spezialhardware (vgl. das optoelektronische TWINKLE-Device) die Faktorisierungsaufgabe stark beschleunigen. </P>
-
-<P>http://web.hamline.edu/~wnk/rsa/rsa.html</P>
-
-<P>Weitere Details siehe <A class="filelink" onclick="parser('script-de.pdf')">Skript</A>, Kapitel 4.11.4.</P>
-
-</BODY>
+	<HEAD>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<TITLE>Dialog Faktorisieren einer Zahl</TITLE>
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+			<script language="JScript" src="helper.js"></script>
+	</HEAD>
+	<!-- multiple keywords for CrypTool HTML help index -->
+	<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+		VIEWASTEXT>
+		<PARAM NAME="Keyword" VALUE="Faktorisierung">
+		<PARAM NAME="Keyword" VALUE="Demonstrationen/Szenarien">
+		<PARAM NAME="Keyword" VALUE="Dialog (Übersicht aller Dialoge)">
+		<PARAM NAME="Keyword" VALUE="Einzelverfahren">
+	</OBJECT>
+	<BODY>
+		<h3>Dialog Faktorisieren einer Zahl</h3>
+		<P>Diesen Dialog erhält man über den Menüeintrag <A href="menu_related_methods.html">Einzelverfahren</A>
+			\ <a href="menu_individualprocedures_rsacryptosystem.html">RSA-Kryptosystem</a> 
+			\ <a href="hid_einzelverfahren_tutorialfrkleinezahlen_faktorisierenifp.html">Faktorisieren 
+				einer Zahl</a>.</P>
+		<P>Den Vorgang des Aufspaltens natürlicher Zahlen in ihre Primfaktoren 
+			(Primfaktorzerlegung) bezeichnet man als <B>Faktorisierung</B>. Jede natürliche 
+			Zahl (die größer als 1 ist) lässt sich (bis auf die Reihenfolge der 
+			Primzahlfaktoren) eindeutig in ihre Primfaktoren zerlegen.
+		</P>
+		<P>Das Faktorisierungsproblem stellt eine wichtige Schnittstelle zwischen 
+			Mathematik, Informatik und Technik dar, weil diese theoretische Fragestellung 
+			auch in der Kryptographie, wie beim <A href="hid_crypt_rsaenc.html">RSA-Verfahren</A>
+			oder <B>Rabin-Williams Verfahren,</B> Anwendung findet.</P>
+		<P>Dieses Tutorial soll Ihnen einen Eindruck vermitteln, wie 
+			Faktorisierungsaufgaben in der Praxis angegangen werden.</P>
+		<P><IMG SRC="images/faktorisierungsalgorithmen.gif" ALT="faktorisierungsalgorithmen.gif"
+				BORDER="0"></P>
+		<P>Sie haben verschiedene Faktorisierungsalgorithmen zur Zerlegung Ihrer Eingabe 
+			zur Auswahl.</P>
+		<P>Wenn Sie den Button <B>Weiter</B> drücken, wird mit den gewählten Algorithmen 
+			versucht, die Eingabe in zwei Faktoren aufzuspalten. Bei den ausgegebenen 
+			Faktorisierungsergebnissen werden die zusammengesetzten Faktoren rot markiert.</P>
+		<P>In diesem Dialog sind effiziente Verfahren zur Faktorisierung implementiert.
+		</P>
+		<P>Es wird empfohlen, <B>Brute-Force </B>und <B>Brent</B> als "Vorstufe" zu 
+			verwenden, da diese Verfahren sehr schnell kleinere Faktoren finden. Will man 
+			die Zahl 10^40-1 faktorisieren, so reicht es, die Verfahren Brute-Force und 
+			Brent zu verwenden, da diese Eingabe nur "kleine" Primfaktoren besitzt,</P>
+		<P>Beispiel: 10^40-1</P>
+		<P>Mit Brute-Force,</P>
+		<P><IMG SRC="images/bruteforce.gif" ALT="bruteforce.gif" BORDER="0"></P>
+		<P>und dann mit Brent</P>
+		<P><IMG SRC="images/brent.gif" ALT="brent.gif" BORDER="0"></P>
+		<P>Die Algorithmen <B>Pollard‚s (p-1) </B>bzw. <B>Williams (p+1)</B> führen mit 
+			großer Wahrscheinlichkeit
+		</P>
+		<P>zum Erfolg, wenn die zu faktorisierende Zahl N einen Primfaktor p hat, so dass 
+			(p-1) bzw. (p+1) nur aus kleinen Primfaktoren besteht. Sie werden zur 
+			Abspaltung von Faktoren kleinerer Größe benutzt und daher stärkeren Verfahren 
+			zur Faktorisierung vorgeschaltet.</P>
+		<P>Beispiel: 233333330996666690033333333</P>
+		<P><IMG SRC="images/pollard.gif" ALT="pollard.gif" BORDER="0"></P>
+		<P>Der Algorithmus von <B>Lenstra</B> basiert auf einer Verallgemeinerung der 
+			Pollard‚s (p-1)-Methode auf elliptischen Kurven. Dieses Verfahren wird auch als <B>ECM 
+				(Elliptic Curve Method)</B> bezeichnet. Mit ECM kann man weitaus größere 
+			Faktoren abspalten. Trotzdem ist auch ECM nur für die Abspaltung von Faktoren 
+			mit bestimmten Eigenschaften geeignet. Diese Einschränkung führt dazu, dass 
+			"kleinere" Faktoren mit größerer Wahrscheinlichkeit gefunden werden als "große" 
+			Faktoren. Jedoch ist es wesentlich lohnenswerter, ECM statt der (p-1)-Methode 
+			einzusetzen.
+		</P>
+		<P>Beispiel: 3035124991756191792335802070931</P>
+		<P><IMG SRC="images/lenstraecm.gif" ALT="lenstraecm.gif" BORDER="0"></P>
+		<P>Sehr kleine Primteiler p einer Zahl n werden durch Probieren schneller 
+			aufgedeckt als mit ECM. Die Rechenzeit von ECM hängt hauptsächlich von der 
+			Größe des gesuchten Primteilers und kaum von der zu faktorisierenden Zahl ab. 
+			Wenn eine Zahl mit 1000 Dezimalstellen einen 20-stelligen Teiler hat, kann man 
+			ihn mit ECM finden. Andererseits wächst die Rechenzeit beträchtlich mit der 
+			Größe des kleinsten Faktors. ECM ist für Faktoren mit bis zu 30 Dezimalstellen 
+			geeignet. Der größte bisher mit diesem Verfahren gefundene Primfaktor hat 47 
+			Dezimalstellen und wurde von Peter Montgomery am Zentrum für Mathematik und 
+			Informatik (CWI) in Amsterdam entdeckt.</P>
+		<P>Das <B>quadratische Sieb </B>ist geeignet zur Faktorisierung von Zahlen, die aus 
+			mehr als einem großen Faktor (mehr als 30 Stellen) zusammengesetzt sind.</P>
+		<P>Beispiel: 1999999999999999999077757777777777777777787</P>
+		<P><IMG SRC="images/qsieb.gif" ALT="qsieb.gif" BORDER="0"></P>
+		<P>Die Rechenzeit ist dabei nicht abhängig vom kleinsten Faktor sondern von der zu 
+			faktorisierenden Zahl selbst. Das quadratische Sieb gehört – allerdings mit 
+			leichten Abwandlungen – zum schnellsten, was die Mathematiker an 
+			Faktorisierungsmethoden bisher "ausknobeln" konnten.</P>
+		<P>Obwohl sich damit derzeit Zahlen bis um 139 Dezimalstellen faktorisieren lassen, 
+			enthält auch dieses Verfahren noch zu viele Stellen, an denen man raten und 
+			suchen muss. Und dieses Raten und Suchen (bzw. der Verzicht auf das Raten zu 
+			Lasten des Suchens) dauern einfach zu lange, um ein wirklich effizientes 
+			Faktorisierungsverfahren zu ergeben.</P>
+		<P>Das quadratische Sieb wurde über viele Jahre als schnellstes 
+			Faktorisierungsverfahren betrachtet, bis vor wenigen Jahren <B>NFS (Number Field 
+				Sieve)</B> entdeckt wurde. NFS ist wie das quadratische Sieb ein Verfahren 
+			zur Faktorisierung großer Zahlen. NFS ist potenziell bis zu zehn mal schneller 
+			als das Quadratische Sieb. Allerdings können die bisher implementierten 
+			Algorithmen diesen potenziellen Geschwindigkeitsvorteil noch nicht voll nutzen. 
+			In den nächsten Jahren ist mit weiteren Optimierungen zu rechnen.</P>
+		<P><B>Die Faktorisierung vom RSA-155</B></P>
+		<P>Am 22. August 1999 veröffentlichte eine Forschergruppe, koordiniert von Herman 
+			te Riele vom CWI Amsterdam, die Faktorisierung der 512 Bit Zahl <B>RSA-155</B> mit 
+			dem NFS-Algorithmus. RSA-155 stammt aus der "RSA-Challenge List" der Firma RSA 
+			Inc.
+		</P>
+		<P><B>RSA-155</B> =10941738641570527421809707322040357612003732945449205990913842131476349984288934784717997257891267332497625752899781833797076537244027146743531593354333897
+		</P>
+		<P>= 102639592829741105772054196573991675900716567808038066803341933521790711307779 
+			* 
+			106603488380168454820927220360012878679207958575989291522270608237193062808643
+		</P>
+		<P>Die Gesamtdauer zur Durchführung sämtlicher Schritte betrug 7,4 Monate (9 Wochen 
+			Vorberechnung und 5,2 Monate für die eigentliche Faktorisierung).</P>
+		<OL type="a">
+			<LI>
+				<P>
+					Für den <B>Siebungs-Schritt</B> wurden 35.7 CPU-Jahre verwendet. Hierfür wurden 
+					folgende Rechner verwendet:</P>
+				<P>160 * 175-400 MHz SGI und Sun workstations</P>
+				<P>8 * 250 MHz SGI Origin 2000 processors</P>
+				<P>120 * 300-450 MHz Pentium II PCs</P>
+				<P>4 * 500 MHz Digital/Compaq boxes</P>
+				<P>Dieser Aufwand war ungefähr äquivalent zu 8000 MIPS Jahren. 124.722.179 
+					Relationen wurden gesammelt.</P>
+			</LI>
+			<LI>
+				<P>
+					Die resultierende Matrix hatte 6.699.191 Zeilen und 6.711.336 Spalten. 
+					Abgearbeitet wurde die Matrix in etwa 224 CPU Stunden mit einem 
+					Hauptspeicherbedarf von 2 Gbyte auf einer Cray C916 des SARA Amsterdam Academic 
+					Computer Center. Die Faktorisierung dauerte vom 17. März bis zum 22. August.</P>
+			</LI>
+		</OL>
+		<P>Den Siebungsschritt kann man praktisch beliebig parallelisieren. Insbesondere 
+			Organisationen mit unbeschränktem Hardwareetat können mit Spezialhardware (vgl. 
+			das optoelektronische TWINKLE-Device) die Faktorisierungsaufgabe stark 
+			beschleunigen.
+		</P>
+		<P>Vgl. <a href="http://web.hamline.edu/~wnk/rsa/rsa.html">http://web.hamline.edu/~wnk/rsa/rsa.html 
+				(Factorization of a 512-bits RSA key using the Number Field Sieve)</a></P>
+		<P>Weitere Details siehe <A class="filelink" onclick="parser('script-de.pdf')">Skript</A>, 
+			Kapitel 4.11.4.</P>
+	</BODY>
 </HTML>

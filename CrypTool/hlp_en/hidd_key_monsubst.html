@@ -17,12 +17,17 @@
 				Substitution/Atbash</a>.</P>
 		<P>This dialog is used to enter the <!--ZZZPOPUP--><A href="schluessel.html">key</A>
 			for <A href="hid_cryptmono.html">monoalphabetic substitution</A>.</P>
+		<P>For Atbash the key is fixed and is completely transferred to the key entry 
+			field.<br>
+			For the general monoalphabetic substitution they key entry field has to be 
+			filled bei yourself.</P>
 		<P>When entering the key the following points should be noted:
 		</P>
 		<UL>
 			<LI>
 			The dialog only accepts the 26 letters. All other inputs are automatically 
-			rejected, i.e. they are not displayed.
+			rejected, i.e. they are not displayed (the via text options entered alphabet is 
+			being ignored in this case).
 			<LI>
 				No distinction is made between upper and lower case letters, i.e. lower case 
 				letters are converted to upper case.
@@ -34,14 +39,13 @@
 			<LI>
 				You can enter the desired permutation (an arrangement of all 26 letters in the 
 				alphabet) directly.<br>
-			</LI>
-			<ul type="circle">
-				<LI>
-					In this case a text 26 characters long should be entered. The letter A will 
-					then be mapped to the first latter of the text that is entered, the B to the 
-					second, and so on. Care should be taken here to ensure that no letter occurs 
-					twice in the text input.</LI></ul>
-			<br>
+				<ul type="circle">
+					<LI>
+						In this case a text 26 characters long should be entered. The letter A will 
+						then be mapped to the first latter of the text that is entered, the B to the 
+						second, and so on. Care should be taken here to ensure that no letter occurs 
+						twice in the text input.</LI></ul>
+				<br>
 			<LI>
 				However, you can also enter a keyword from which the permutation is derived. An 
 				example here might be the keyword "RAILWAYS". The resulting permutation is 
@@ -50,8 +54,19 @@
 				the sixth letter of the keyword, the A, has already occurred it is passed over, 
 				since no two (different) letters can be mapped to the same letter. This 
 				continues until all the letters in the keyword have been mapped, i.e. F to Y 
-				and G to S. All the other letters (H to Z) are mapped to the letters that have 
-				not yet been used in reverse sequence, i.e. H to Z, I to Y, .... Z to C.</LI></OL>
+				and G to S. For all the other letters (H to Z) there are two options how to map 
+				them,
+				<br>
+				<b>a)<br>
+					in reversed order,</b>,<br>
+				i.e. H to Z, I to Y, ..., Z to C or<br>
+				<b>b)
+					<br>
+					in ascending order</b>,<br>
+				i.e. H to C, I to D, ..., Z to Z.<br>
+			</LI>
+		</OL>
+		<IMG SRC="images/monosubst-keyentry.gif" ALT="monosubst-keyentry.gif" BORDER="0">
 		<P>After you have entered the key, you can encrypt the document by clicking on the <B>Encrypt</B>
 			button or decrypt the document by selecting <B>Decrypt</B>.</P>
 		<P>The formatting (retention of the spaces, special characters and upper and lower 

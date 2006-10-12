@@ -38,7 +38,14 @@
 <TD>...</TD>
 <TD>&nbsp;</TD>
 </TR>
-</TABLE><BR>
+</TABLE><BR><br><br>
+<p>Mathematisch ausgedrückt:</p>
+<p>a modulo n = r mit n &ne; 0 und 0 < |r| < |n|.</p>
+<p>Dabei gilt für den Rest "r" folgende Gleichung:</p>
+<p>r = a - &lfloor;a / n &rfloor; * n</p>
+<p>Dabei ist |x| der Betrag einer Zahl x; und &lfloor;x&rfloor; ist die nächstniedrigere ganze Zahl von x, wenn x nicht ganzzahlig ist.</p>
+<p>Für negative Werte von a oder n kann man mit der obigen Gleichung den Rest r ebenfalls definieren.</p>
+<p>In den meisten Programmiersprachen ist die Modulo-Operation auf die natürlichen Zahlen beschränkt. Z.B. ist in ANSI C der Modulo-OPerator für negative Operanden nicht definiert. Man kann es selbst mit den FUnktionen floor, ceil und abs definieren, sofern man math.h includiert.</p>
 
 </BODY>
 </HTML>
