@@ -1,51 +1,121 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
-<HEAD>
-<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Modulo-Operation</TITLE>
-<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
-</HEAD>
-
-<!-- multiple keywords for CrypTool HTML help index -->	
-<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
-	<PARAM NAME="Keyword" VALUE="Modulo-Operator">
-</OBJECT>
-
-<BODY>
-
-<h3>Die Modulo-Operation</h3>
-
-<P>Die mathematische Operation modulo bestimmt den Rest bei der Division einer Zahl n durch eine andere Zahl k. Das Ergebnis von n modulo k liegt also im Bereich zwischen 0 und k-1.</P>
-
-<P><U>Beispiel:</U></P>
-
-<TABLE cols=3 width="0*" class="pad20">
-
-<TR VALIGN="top">
-<TD>0 modulo 3 = 0</TD>
-<TD>1 modulo 3 = 1</TD>
-<TD>2 modulo 3 = 2</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD>3 modulo 3 = 0</TD>
-<TD>4 modulo 3 = 1</TD>
-<TD>5 modulo 3 = 2</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD>6 modulo 3 = 0</TD>
-<TD>...</TD>
-<TD>&nbsp;</TD>
-</TR>
-</TABLE><BR><br><br>
-<p>Mathematisch ausgedrückt:</p>
-<p>a modulo n = r mit n &ne; 0 und 0 < |r| < |n|.</p>
-<p>Dabei gilt für den Rest "r" folgende Gleichung:</p>
-<p>r = a - &lfloor;a / n &rfloor; * n</p>
-<p>Dabei ist |x| der Betrag einer Zahl x; und &lfloor;x&rfloor; ist die nächstniedrigere ganze Zahl von x, wenn x nicht ganzzahlig ist.</p>
-<p>Für negative Werte von a oder n kann man mit der obigen Gleichung den Rest r ebenfalls definieren.</p>
-<p>In den meisten Programmiersprachen ist die Modulo-Operation auf die natürlichen Zahlen beschränkt. Z.B. ist in ANSI C der Modulo-OPerator für negative Operanden nicht definiert. Man kann es selbst mit den FUnktionen floor, ceil und abs definieren, sofern man math.h includiert.</p>
-
-</BODY>
+	<HEAD>
+		<TITLE>Modulo-Operation</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+		<!-- multiple keywords for CrypTool HTML help index -->
+	</HEAD>
+	<BODY>
+		<OBJECT id="Object1" type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+			VIEWASTEXT>
+			<PARAM NAME="Keyword" VALUE="Modulo-Operator">
+		</OBJECT>
+		<h3>Die Modulo-Operation</h3>
+		<P>Die mathematische Operation modulo bestimmt den Rest bei der Division einer Zahl 
+			n durch eine andere Zahl k. Das Ergebnis von n modulo k liegt also im Bereich 
+			zwischen 0 und k-1.</P>
+		<P><U>Beispiel 1:</U></P>
+		<TABLE cols="3" width="0*" class="pad20">
+			<TR VALIGN="top">
+				<TD>0 modulo 3 = 0</TD>
+				<TD>1 modulo 3 = 1</TD>
+				<TD>2 modulo 3 = 2</TD>
+			</TR>
+			<TR VALIGN="top">
+				<TD>3 modulo 3 = 0</TD>
+				<TD>4 modulo 3 = 1</TD>
+				<TD>5 modulo 3 = 2</TD>
+			</TR>
+			<TR VALIGN="top">
+				<TD>6 modulo 3 = 0</TD>
+				<TD>...</TD>
+				<TD>&nbsp;</TD>
+			</TR>
+		</TABLE>
+		<BR>
+		<br>
+		<br>
+		<p>Mathematisch ausgedrückt:</p>
+		<p>a modulo n = r mit n &#8800; 0 und 0 &lt; |r| &lt; |n|.</p>
+		<p>Dabei gilt für den Rest "r" folgende Gleichung:</p>
+		<p>r = a - &#8970;a / n&#8971; * n</p>
+		<p>Dabei ist |x| der Betrag einer Zahl x; und &#8970;x&#8971; ist die 
+			nächstniedrigere ganze Zahl von x, wenn x nicht ganzzahlig ist.</p>
+		<p>Für negative Werte von a oder n kann man mit der obigen Gleichung den Rest r 
+			ebenfalls definieren.</p>
+		<p>In den meisten Programmiersprachen ist die Modulo-Operation auf die natürlichen 
+			Zahlen beschränkt. Z.B. ist in ANSI C der Modulo-Operator für negative 
+			Operanden nicht definiert. Man kann es selbst mit den Funktionen floor, ceil 
+			und abs definieren, sofern man math.h includiert.</p>
+		<P><U>Beispiel 2:</U></P>
+		<p>Mit der Definition der Restklassen (Kongruenzklassen) fasst man alle Zahlen 
+			zusammen die denselben Rest ergeben.<br>
+			7 &#8773; 4 modulo 3, denn beide ergeben beim Teilen durch 3 den Rest 1.<br>
+			Man sagt auch a=7 ist kongruent zu b=4 modulo 3</p>
+		<p>Zwei Zahlen a und b sind kongruent, wenn die Differenz (a-b) vom Modulus ohne 
+			Rest geteilt wird. So wird auch (25-(-1))=26 durch 26 geteilt.</p>
+		<P><U>Beispiel 3:</U></P>
+		<p>In der folgenden Tabelle werden nun die Zahlen a, die in dieselbe Restklasse 
+			modulo 26 gehören, untereinander geschrieben:</p>
+		<P>
+			<TABLE id="Table1" cellSpacing="1" cellPadding="1" width="250">
+				<TR>
+					<TD>
+						<P align="center">-26</P>
+					</TD>
+					<TD>
+						<P align="center">-25</P>
+					</TD>
+					<TD>
+						<P align="center">...</P>
+					</TD>
+					<TD>
+						<P align="center">-2</P>
+					</TD>
+					<TD>
+						<P align="center">-1</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD>
+						<P align="center">0</P>
+					</TD>
+					<TD>
+						<P align="center">1</P>
+					</TD>
+					<TD>
+						<P align="center">...</P>
+					</TD>
+					<TD>
+						<P align="center">24</P>
+					</TD>
+					<TD>
+						<P align="center">25</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD>
+						<P align="center">26</P>
+					</TD>
+					<TD>
+						<P align="center">27</P>
+					</TD>
+					<TD>
+						<P align="center">...</P>
+					</TD>
+					<TD>
+						<P align="center">50</P>
+					</TD>
+					<TD>
+						<P align="center">51</P>
+					</TD>
+				</TR>
+			</TABLE>
+		</P>
+		<P>Hier sieht man auch: Lässt man beim Berechnen von a modulo n für a nicht nur N 
+			(alle natürlichen Zahlen plus 0) zu, sondern auch <b>negative ganze</b> Zahlen, dann 
+			gilt: (-1) % 26 = 25.<br>
+			-1 und 25 gehören also zur gleichen Restklasse, ebenso wie a=51 kongruent ist zu b=25, jeweils modulo 26. Alle drei Zahlen stehen in derselben Spalte.</P>
+	</BODY>
 </HTML>
