@@ -66,8 +66,12 @@ public:
 	void SchluesselAnzeigen (CString Key);
 	void MatrixAnzeigen(CSquareMatrixModN& mat, int dim, CHillEncryption& hillklasse);
 	CString* m_pFelder[HILL_MAX_DIM][HILL_MAX_DIM];
+	CString* m_pAlphFelder[HILL_MAX_DIM][HILL_MAX_DIM];
 	CEdit* m_pControlFelder[HILL_MAX_DIM][HILL_MAX_DIM];
+	CEdit* m_pControlAlphFelder[HILL_MAX_DIM][HILL_MAX_DIM];
 	CDlgShowKeyHill5x5(CWnd* pParent = NULL);   // Standardkonstruktor
+
+	CString getAlphCode(CString alphChar);
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgShowKeyHill5x5)
@@ -98,6 +102,34 @@ public:
 	CString	m_Feld53;
 	CString	m_Feld54;
 	CString	m_Feld55;
+
+	CString	m_AlphFeld36;
+	CString	m_AlphFeld37;
+	CString	m_AlphFeld38;
+	CString	m_AlphFeld40;
+	CString	m_AlphFeld46;
+	CString	m_AlphFeld47;
+	CString	m_AlphFeld48;
+	CString	m_AlphFeld49;
+	CString	m_AlphFeld50;
+	CString	m_AlphFeld111;
+	CString	m_AlphFeld57;
+	CString	m_AlphFeld58;
+	CString	m_AlphFeld59;
+	CString	m_AlphFeld56;
+	CString	m_AlphFeld115;
+	CString	m_AlphFeld60;
+	CString	m_AlphFeld61;
+	CString	m_AlphFeld62;
+	CString	m_AlphFeld116;
+	CString	m_AlphFeld117;
+	CString	m_AlphFeld63;
+	CString	m_AlphFeld64;
+	CString	m_AlphFeld69;
+	CString	m_AlphFeld65;
+	CString	m_AlphFeld66;
+
+
 	CEdit	m_ControlFeld11;
 	CEdit	m_ControlFeld12;
 	CEdit	m_ControlFeld13;
@@ -123,6 +155,33 @@ public:
 	CEdit	m_ControlFeld53;
 	CEdit	m_ControlFeld54;
 	CEdit	m_ControlFeld55;
+
+	CEdit	m_ControlAlphFeld36;
+	CEdit	m_ControlAlphFeld37;
+	CEdit	m_ControlAlphFeld38;
+	CEdit	m_ControlAlphFeld40;
+	CEdit	m_ControlAlphFeld46;
+	CEdit	m_ControlAlphFeld47;
+	CEdit	m_ControlAlphFeld48;
+	CEdit	m_ControlAlphFeld49;
+	CEdit	m_ControlAlphFeld50;
+	CEdit	m_ControlAlphFeld111;
+	CEdit	m_ControlAlphFeld57;
+	CEdit	m_ControlAlphFeld58;
+	CEdit	m_ControlAlphFeld59;
+	CEdit	m_ControlAlphFeld56;
+	CEdit	m_ControlAlphFeld115;
+	CEdit	m_ControlAlphFeld60;
+	CEdit	m_ControlAlphFeld61;
+	CEdit	m_ControlAlphFeld62;
+	CEdit	m_ControlAlphFeld116;
+	CEdit	m_ControlAlphFeld117;
+	CEdit	m_ControlAlphFeld63;
+	CEdit	m_ControlAlphFeld64;
+	CEdit	m_ControlAlphFeld69;
+	CEdit	m_ControlAlphFeld65;
+	CEdit	m_ControlAlphFeld66;
+
 	CButton	m_InvertKnopf;
 	int		m_decrypt;
 	//}}AFX_DATA

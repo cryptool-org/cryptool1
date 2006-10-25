@@ -957,8 +957,16 @@ void CDlgKeyHill5x5::OnDimension1()
 	iHillSchluesselDim = dim;
 	AnzeigeDimensionSetzen(dim);
 
-	m_pFelder[0][0]->SetFocus();
-	m_pFelder[0][0]->SetSel(0,-1);
+	if(!alphCode)
+	{
+		m_pFelder[0][0]->SetFocus();
+		m_pFelder[0][0]->SetSel(0,-1);
+	}
+	else
+	{
+		m_pAlphCode[0][0]->SetFocus();
+		m_pAlphCode[0][0]->SetSel(0,1);
+	}
 }
 
 void CDlgKeyHill5x5::OnDimension2() 
@@ -969,8 +977,16 @@ void CDlgKeyHill5x5::OnDimension2()
 	iHillSchluesselDim = dim;
 	AnzeigeDimensionSetzen(dim);
 
-	m_pFelder[0][0]->SetFocus();
-	m_pFelder[0][0]->SetSel(0,-1);
+	if(!alphCode)
+	{
+		m_pFelder[0][0]->SetFocus();
+		m_pFelder[0][0]->SetSel(0,-1);
+	}
+	else
+	{
+		m_pAlphCode[0][0]->SetFocus();
+		m_pAlphCode[0][0]->SetSel(0,1);
+	}
 }
 
 void CDlgKeyHill5x5::OnDimension3() 
@@ -981,8 +997,16 @@ void CDlgKeyHill5x5::OnDimension3()
 	iHillSchluesselDim = dim;
 	AnzeigeDimensionSetzen(dim);
 
-	m_pFelder[0][0]->SetFocus();
-	m_pFelder[0][0]->SetSel(0,-1);
+	if(!alphCode)
+	{
+		m_pFelder[0][0]->SetFocus();
+		m_pFelder[0][0]->SetSel(0,-1);
+	}
+	else
+	{
+		m_pAlphCode[0][0]->SetFocus();
+		m_pAlphCode[0][0]->SetSel(0,1);
+	}
 }
 
 void CDlgKeyHill5x5::OnDimension4() 
@@ -993,8 +1017,16 @@ void CDlgKeyHill5x5::OnDimension4()
 	iHillSchluesselDim = dim;
 	AnzeigeDimensionSetzen(dim);
 
-	m_pFelder[0][0]->SetFocus();
-	m_pFelder[0][0]->SetSel(0,-1);
+	if(!alphCode)
+	{
+		m_pFelder[0][0]->SetFocus();
+		m_pFelder[0][0]->SetSel(0,-1);
+	}
+	else
+	{
+		m_pAlphCode[0][0]->SetFocus();
+		m_pAlphCode[0][0]->SetSel(0,1);
+	}
 }
 
 void CDlgKeyHill5x5::OnDimension5() 
@@ -1005,8 +1037,16 @@ void CDlgKeyHill5x5::OnDimension5()
 	iHillSchluesselDim = dim;
 	AnzeigeDimensionSetzen(dim);
 
-	m_pFelder[0][0]->SetFocus();
-	m_pFelder[0][0]->SetSel(0,-1);
+	if(!alphCode)
+	{
+		m_pFelder[0][0]->SetFocus();
+		m_pFelder[0][0]->SetSel(0,-1);
+	}
+	else
+	{
+		m_pAlphCode[0][0]->SetFocus();
+		m_pAlphCode[0][0]->SetSel(0,1);
+	}
 }
 
 void CDlgKeyHill5x5::AnzeigeDimensionSetzen(int dim)
@@ -1056,6 +1096,17 @@ void CDlgKeyHill5x5::AnzeigeDimensionSetzen(int dim)
 			if(alphCode)
 				m_pAlphCode[i][j]->EnableWindow(mybool);
 		}
+	}
+
+	if(!alphCode)
+	{
+		m_pFelder[0][0]->SetFocus();
+		m_pFelder[0][0]->SetSel(0,-1);
+	}
+	else
+	{
+		m_pAlphCode[0][0]->SetFocus();
+		m_pAlphCode[0][0]->SetSel(0,1);
 	}
 }
 

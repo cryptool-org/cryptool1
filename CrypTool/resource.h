@@ -484,20 +484,28 @@
 #define IDC_EDIT_1_2                    1139
 #define IDC_RADIO3                      1140
 #define IDC_EDIT_1_3                    1140
+#define IDC_EDIT213                     1140
 #define IDC_RADIO4                      1141
 #define IDC_EDIT_1_4                    1141
+#define IDC_EDIT214                     1141
 #define IDC_RADIO5                      1142
 #define IDC_EDIT_1_5                    1142
+#define IDC_EDIT215                     1142
 #define IDC_RADIO6                      1143
 #define IDC_EDIT_1_6                    1143
+#define IDC_EDIT216                     1143
 #define IDC_RADIO7                      1144
 #define IDC_EDIT_2_2                    1144
+#define IDC_EDIT217                     1144
 #define IDC_RADIO8                      1145
 #define IDC_EDIT_2_3                    1145
+#define IDC_EDIT218                     1145
 #define IDC_RADIO9                      1146
 #define IDC_EDIT_2_4                    1146
+#define IDC_EDIT219                     1146
 #define IDC_RADIO10                     1147
 #define IDC_EDIT_2_5                    1147
+#define IDC_EDIT220                     1147
 #define IDC_RADIO11                     1148
 #define IDC_EDIT_3_2                    1148
 #define IDC_EDIT134                     1148
@@ -525,6 +533,7 @@
 #define IDC_RADIO19                     1156
 #define IDC_EDIT_4_4                    1156
 #define IDC_EDIT141                     1156
+#define IDC_EDIT312                     1156
 #define IDC_RADIO20                     1157
 #define IDC_EDIT_4_5                    1157
 #define IDC_EDIT142                     1157
@@ -533,10 +542,13 @@
 #define IDC_EDIT143                     1158
 #define IDC_BUTTON2                     1159
 #define IDC_EDIT_5_2                    1159
+#define IDC_EDIT221                     1159
 #define IDC_BUTTON3                     1160
 #define IDC_EDIT_5_3                    1160
+#define IDC_EDIT222                     1160
 #define IDC_BUTTON4                     1161
 #define IDC_EDIT_5_5                    1161
+#define IDC_EDIT223                     1161
 #define IDC_EDIT_6_6                    1162
 #define IDC_BUTTON_Uebernehmen          1162
 #define IDC_EDIT144                     1162
@@ -550,6 +562,7 @@
 #define IDC_EDIT148                     1166
 #define IDC_EDIT_6_5                    1167
 #define IDC_EDIT311                     1167
+#define IDC_EDIT412                     1167
 #define IDC_PLAYFAIR_LIST               1168
 #define IDC_EDIT149                     1168
 #define IDC_EDIT150                     1169
@@ -564,8 +577,10 @@
 #define IDC_EDIT156                     1175
 #define IDC_RAD5                        1176
 #define IDC_EDIT157                     1176
+#define IDC_EDIT512                     1176
 #define IDC_RADE                        1177
 #define IDC_EDIT411                     1177
+#define IDC_EDIT224                     1177
 #define IDC_RADV                        1178
 #define IDC_EDIT158                     1178
 #define IDC_PASSWORD                    1179
@@ -581,9 +596,12 @@
 #define IDC_EDIT164                     1184
 #define IDC_MYTXT                       1185
 #define IDC_EDIT165                     1185
+#define IDC_EDIT612                     1185
 #define IDC_BUTTON5                     1186
+#define IDC_EDIT225                     1186
 #define IDC_BUTTON_PZ_GENERIEREN        1187
 #define IDC_EDIT511                     1187
+#define IDC_EDIT226                     1187
 #define IDC_BUTTON_PZ_EINGEBEN          1188
 #define IDC_EDIT166                     1188
 #define IDC_EINGABE_PZ_p                1189
@@ -600,8 +618,10 @@
 #define IDC_EDIT172                     1194
 #define IDC_LIST_LOCHERUNG              1195
 #define IDC_EDIT173                     1195
+#define IDC_EDIT712                     1195
 #define IDC_LIST_VERSCHLUESSELTER_TEXT  1196
 #define IDC_EDIT611                     1196
+#define IDC_EDIT227                     1196
 #define IDC_LIST_TEXTEINGABE            1197
 #define IDC_EDIT175                     1197
 #define IDC_EDIT_OEFFENTLICHE_PARAM     1198
@@ -616,8 +636,10 @@
 #define IDC_EDIT180                     1202
 #define IDC_EDIT181                     1203
 #define IDC_EDIT182                     1204
+#define IDC_EDIT812                     1204
 #define IDC_EDIT183                     1205
 #define IDC_EDIT711                     1206
+#define IDC_EDIT228                     1206
 #define IDC_EDIT184                     1207
 #define IDC_EDIT185                     1208
 #define IDC_EDIT186                     1209
@@ -629,9 +651,11 @@
 #define IDC_EDIT190                     1213
 #define IDC_BUTTON_Faktorisieren        1214
 #define IDC_EDIT192                     1214
+#define IDC_EDIT912                     1214
 #define IDC_BUTTON_Generieren           1215
 #define IDC_BUTTON_OK                   1215
 #define IDC_EDIT811                     1215
+#define IDC_EDIT229                     1215
 #define IDC_BUTTON_cancel               1216
 #define IDC_BUTTON6                     1216
 #define IDC_EDIT193                     1216
@@ -651,6 +675,7 @@
 #define IDC_EDIT200                     1223
 #define IDC_DIALOG_LITTLE_SISTERS       1224
 #define IDC_EDIT201                     1224
+#define IDC_EDIT1012                    1224
 #define IDC_VERSCHLUESSELN              1225
 #define IDC_EDIT911                     1225
 #define IDC_ENTSCHLUESSELN              1226
@@ -2774,7 +2799,7 @@
 #define IDS_SCA_KEYWORDPROBLEM          62013
 
 // Next default values for new objects
-//
+// 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        856

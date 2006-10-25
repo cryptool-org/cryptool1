@@ -97,6 +97,33 @@ CDlgShowKeyHill5x5::CDlgShowKeyHill5x5(CWnd* pParent /*=NULL*/)
 	m_Feld53 = _T("");
 	m_Feld54 = _T("");
 	m_Feld55 = _T("");
+
+	m_AlphFeld36 = _T("");
+	m_AlphFeld37 = _T("");
+	m_AlphFeld38 = _T("");
+	m_AlphFeld40 = _T("");
+	m_AlphFeld46 = _T("");
+	m_AlphFeld47 = _T("");
+	m_AlphFeld48 = _T("");
+	m_AlphFeld49 = _T("");
+	m_AlphFeld50 = _T("");
+	m_AlphFeld111 = _T("");
+	m_AlphFeld57 = _T("");
+	m_AlphFeld58 = _T("");
+	m_AlphFeld59 = _T("");
+	m_AlphFeld56 = _T("");
+	m_AlphFeld115 = _T("");
+	m_AlphFeld60 = _T("");
+	m_AlphFeld61 = _T("");
+	m_AlphFeld62 = _T("");
+	m_AlphFeld116 = _T("");
+	m_AlphFeld117 = _T("");
+	m_AlphFeld63 = _T("");
+	m_AlphFeld64 = _T("");
+	m_AlphFeld69 = _T("");
+	m_AlphFeld65 = _T("");
+	m_AlphFeld66 = _T("");
+
 	m_decrypt = 0;
 	//}}AFX_DATA_INIT
 
@@ -127,6 +154,32 @@ CDlgShowKeyHill5x5::CDlgShowKeyHill5x5(CWnd* pParent /*=NULL*/)
 	m_pFelder[4][2] = &m_Feld53;
 	m_pFelder[4][3] = &m_Feld54;
 	m_pFelder[4][4] = &m_Feld55;
+
+	m_pAlphFelder[0][0] = &m_AlphFeld36;
+	m_pAlphFelder[0][1] = &m_AlphFeld37;
+	m_pAlphFelder[0][2] = &m_AlphFeld38;
+	m_pAlphFelder[0][3] = &m_AlphFeld40;
+	m_pAlphFelder[0][4] = &m_AlphFeld46;
+	m_pAlphFelder[1][0] = &m_AlphFeld47;
+	m_pAlphFelder[1][1] = &m_AlphFeld48;
+	m_pAlphFelder[1][2] = &m_AlphFeld49;
+	m_pAlphFelder[1][3] = &m_AlphFeld50;
+	m_pAlphFelder[1][4] = &m_AlphFeld111;
+	m_pAlphFelder[2][0] = &m_AlphFeld57;
+	m_pAlphFelder[2][1] = &m_AlphFeld58;
+	m_pAlphFelder[2][2] = &m_AlphFeld59;
+	m_pAlphFelder[2][3] = &m_AlphFeld56;
+	m_pAlphFelder[2][4] = &m_AlphFeld115;
+	m_pAlphFelder[3][0] = &m_AlphFeld60;
+	m_pAlphFelder[3][1] = &m_AlphFeld61;
+	m_pAlphFelder[3][2] = &m_AlphFeld62;
+	m_pAlphFelder[3][3] = &m_AlphFeld116;
+	m_pAlphFelder[3][4] = &m_AlphFeld117;
+	m_pAlphFelder[4][0] = &m_AlphFeld63;
+	m_pAlphFelder[4][1] = &m_AlphFeld64;
+	m_pAlphFelder[4][2] = &m_AlphFeld69;
+	m_pAlphFelder[4][3] = &m_AlphFeld65;
+	m_pAlphFelder[4][4] = &m_AlphFeld66;
 }
 
 
@@ -160,6 +213,33 @@ void CDlgShowKeyHill5x5::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT53, m_Feld53);
 	DDX_Text(pDX, IDC_EDIT54, m_Feld54);
 	DDX_Text(pDX, IDC_EDIT55, m_Feld55);
+
+	DDX_Text(pDX, IDC_EDIT36, m_AlphFeld36);
+	DDX_Text(pDX, IDC_EDIT37, m_AlphFeld37);
+	DDX_Text(pDX, IDC_EDIT38, m_AlphFeld38);
+	DDX_Text(pDX, IDC_EDIT40, m_AlphFeld40);
+	DDX_Text(pDX, IDC_EDIT46, m_AlphFeld46);
+	DDX_Text(pDX, IDC_EDIT47, m_AlphFeld47);
+	DDX_Text(pDX, IDC_EDIT48, m_AlphFeld48);
+	DDX_Text(pDX, IDC_EDIT49, m_AlphFeld49);
+	DDX_Text(pDX, IDC_EDIT50, m_AlphFeld50);
+	DDX_Text(pDX, IDC_EDIT111, m_AlphFeld111);
+	DDX_Text(pDX, IDC_EDIT57, m_AlphFeld57);
+	DDX_Text(pDX, IDC_EDIT58, m_AlphFeld58);
+	DDX_Text(pDX, IDC_EDIT59, m_AlphFeld59);
+	DDX_Text(pDX, IDC_EDIT56, m_AlphFeld56);
+	DDX_Text(pDX, IDC_EDIT115, m_AlphFeld115);
+	DDX_Text(pDX, IDC_EDIT60, m_AlphFeld60);
+	DDX_Text(pDX, IDC_EDIT61, m_AlphFeld61);
+	DDX_Text(pDX, IDC_EDIT62, m_AlphFeld62);
+	DDX_Text(pDX, IDC_EDIT116, m_AlphFeld116);
+	DDX_Text(pDX, IDC_EDIT117, m_AlphFeld117);
+	DDX_Text(pDX, IDC_EDIT63, m_AlphFeld63);
+	DDX_Text(pDX, IDC_EDIT64, m_AlphFeld64);
+	DDX_Text(pDX, IDC_EDIT69, m_AlphFeld69);
+	DDX_Text(pDX, IDC_EDIT65, m_AlphFeld65);
+	DDX_Text(pDX, IDC_EDIT66, m_AlphFeld66);
+
 	DDX_Control(pDX, IDC_EDIT11, m_ControlFeld11);
 	DDX_Control(pDX, IDC_EDIT12, m_ControlFeld12);
 	DDX_Control(pDX, IDC_EDIT13, m_ControlFeld13);
@@ -185,6 +265,33 @@ void CDlgShowKeyHill5x5::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT53, m_ControlFeld53);
 	DDX_Control(pDX, IDC_EDIT54, m_ControlFeld54);
 	DDX_Control(pDX, IDC_EDIT55, m_ControlFeld55);
+
+	DDX_Control(pDX, IDC_EDIT36, m_ControlAlphFeld36);
+	DDX_Control(pDX, IDC_EDIT37, m_ControlAlphFeld37);
+	DDX_Control(pDX, IDC_EDIT38, m_ControlAlphFeld38);
+	DDX_Control(pDX, IDC_EDIT40, m_ControlAlphFeld40);
+	DDX_Control(pDX, IDC_EDIT46, m_ControlAlphFeld46);
+	DDX_Control(pDX, IDC_EDIT47, m_ControlAlphFeld47);
+	DDX_Control(pDX, IDC_EDIT48, m_ControlAlphFeld48);
+	DDX_Control(pDX, IDC_EDIT49, m_ControlAlphFeld49);
+	DDX_Control(pDX, IDC_EDIT50, m_ControlAlphFeld50);
+	DDX_Control(pDX, IDC_EDIT111, m_ControlAlphFeld111);
+	DDX_Control(pDX, IDC_EDIT57, m_ControlAlphFeld57);
+	DDX_Control(pDX, IDC_EDIT58, m_ControlAlphFeld58);
+	DDX_Control(pDX, IDC_EDIT59, m_ControlAlphFeld59);
+	DDX_Control(pDX, IDC_EDIT56, m_ControlAlphFeld56);
+	DDX_Control(pDX, IDC_EDIT115, m_ControlAlphFeld115);
+	DDX_Control(pDX, IDC_EDIT60, m_ControlAlphFeld60);
+	DDX_Control(pDX, IDC_EDIT61, m_ControlAlphFeld61);
+	DDX_Control(pDX, IDC_EDIT62, m_ControlAlphFeld62);
+	DDX_Control(pDX, IDC_EDIT116, m_ControlAlphFeld116);
+	DDX_Control(pDX, IDC_EDIT117, m_ControlAlphFeld117);
+	DDX_Control(pDX, IDC_EDIT63, m_ControlAlphFeld63);
+	DDX_Control(pDX, IDC_EDIT64, m_ControlAlphFeld64);
+	DDX_Control(pDX, IDC_EDIT69, m_ControlAlphFeld69);
+	DDX_Control(pDX, IDC_EDIT65, m_ControlAlphFeld65);
+	DDX_Control(pDX, IDC_EDIT66, m_ControlAlphFeld66);
+
 	DDX_Radio(pDX, IDC_RADIO1, m_decrypt);
 	//}}AFX_DATA_MAP
 }
@@ -314,6 +421,31 @@ BOOL CDlgShowKeyHill5x5::OnInitDialog()
 	m_pControlFelder[4][3] = &m_ControlFeld54;
 	m_pControlFelder[4][4] = &m_ControlFeld55;
 
+	m_pControlAlphFelder[0][0] = &m_ControlAlphFeld36;
+	m_pControlAlphFelder[0][1] = &m_ControlAlphFeld37;
+	m_pControlAlphFelder[0][2] = &m_ControlAlphFeld38;
+	m_pControlAlphFelder[0][3] = &m_ControlAlphFeld40;
+	m_pControlAlphFelder[0][4] = &m_ControlAlphFeld46;
+	m_pControlAlphFelder[1][0] = &m_ControlAlphFeld47;
+	m_pControlAlphFelder[1][1] = &m_ControlAlphFeld48;
+	m_pControlAlphFelder[1][2] = &m_ControlAlphFeld49;
+	m_pControlAlphFelder[1][3] = &m_ControlAlphFeld50;
+	m_pControlAlphFelder[1][4] = &m_ControlAlphFeld111;
+	m_pControlAlphFelder[2][0] = &m_ControlAlphFeld57;
+	m_pControlAlphFelder[2][1] = &m_ControlAlphFeld58;
+	m_pControlAlphFelder[2][2] = &m_ControlAlphFeld59;
+	m_pControlAlphFelder[2][3] = &m_ControlAlphFeld56;
+	m_pControlAlphFelder[2][4] = &m_ControlAlphFeld115;
+	m_pControlAlphFelder[3][0] = &m_ControlAlphFeld60;
+	m_pControlAlphFelder[3][1] = &m_ControlAlphFeld61;
+	m_pControlAlphFelder[3][2] = &m_ControlAlphFeld62;
+	m_pControlAlphFelder[3][3] = &m_ControlAlphFeld116;
+	m_pControlAlphFelder[3][4] = &m_ControlAlphFeld117;
+	m_pControlAlphFelder[4][0] = &m_ControlAlphFeld63;
+	m_pControlAlphFelder[4][1] = &m_ControlAlphFeld64;
+	m_pControlAlphFelder[4][2] = &m_ControlAlphFeld69;
+	m_pControlAlphFelder[4][3] = &m_ControlAlphFeld65;
+	m_pControlAlphFelder[4][4] = &m_ControlAlphFeld66;
 	
 	// Font mit fester Breite erstellen und fuer alle Schluesselfelder setzen
 	cf.CreatePointFont(80,"Courier");
@@ -322,6 +454,17 @@ BOOL CDlgShowKeyHill5x5::OnInitDialog()
 		for (int j=0; j<HILL_MAX_DIM; j++)
 		{
 			m_pControlFelder[i][j]->SetFont(&cf);
+			m_pControlAlphFelder[i][j]->SetFont(&cf);
+		}
+	}
+
+	CString str;
+	for(int i=0;i<5;i++)
+	{
+		for(int j=0;j<5;j++)
+		{
+			m_pControlFelder[i][j]->GetWindowText(str);
+			m_pControlAlphFelder[i][j]->SetWindowText(getAlphCode(str));
 		}
 	}
 	
@@ -358,13 +501,33 @@ void CDlgShowKeyHill5x5::MatrixAnzeigen(CSquareMatrixModN& mat, int dim, CHillEn
 void CDlgShowKeyHill5x5::OnVerschluesseln() 
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
-	OnDecrypt();	
+	OnDecrypt();
+	
+	CString str;
+	for(int i=0;i<5;i++)
+	{
+		for(int j=0;j<5;j++)
+		{
+			m_pControlFelder[i][j]->GetWindowText(str);
+			m_pControlAlphFelder[i][j]->SetWindowText(getAlphCode(str));
+		}
+	}
 }
 
 void CDlgShowKeyHill5x5::OnEntschluesseln() 
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
 	OnDecrypt();
+	
+	CString str;
+	for(int i=0;i<5;i++)
+	{
+		for(int j=0;j<5;j++)
+		{
+			m_pControlFelder[i][j]->GetWindowText(str);
+			m_pControlAlphFelder[i][j]->SetWindowText(getAlphCode(str));
+		}
+	}
 }
 
 void CDlgShowKeyHill5x5::OnKopieren() 
@@ -376,7 +539,7 @@ void CDlgShowKeyHill5x5::OnKopieren()
 	// schliesslich in diesem Feld alles markieren und in die Zwischenablage speichern
 
 	UpdateData(TRUE);
-	m_decrypt = 0;
+//	m_decrypt = 0;  to copy also the inverse matrix
 	UpdateData(FALSE);
 	OnDecrypt();
 	CString cs, hilf;
@@ -430,4 +593,20 @@ void CDlgShowKeyHill5x5::SchluesselAnzeigen(CString Key)
 			(*m_pFelder[i][j]) = hilf;
 		}
 	}
+}
+CString CDlgShowKeyHill5x5::getAlphCode(CString alphChar)
+{
+	CString str;
+	for(int i=0;i<theApp.TextOptions.m_alphabet.GetLength();i++)
+	{
+		if(theApp.TextOptions.m_alphabet[i] == alphChar)
+		{
+			str.Format("%d",i+1);
+			
+			if(str.GetLength() == 1)
+				str.Insert(0,"0");
+			return str;
+		}
+	}
+	return "";
 }
