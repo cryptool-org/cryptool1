@@ -85,6 +85,8 @@ public:
 	void setFeldAlphCode(CEdit *feld,CEdit *feldAlph);
 	void setDoublePos(CEdit *feld);
 
+	CString getDimMessage();
+
 	CDlgKeyHill10x10(CHillEncryption *hillkl, CWnd* pParent = NULL);   // Standardkonstruktor
 	~CDlgKeyHill10x10();
 

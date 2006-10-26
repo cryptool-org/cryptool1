@@ -2144,9 +2144,11 @@ void CDlgKeyHill10x10::OnOK()
 	// Falls die Matrix nicht invertierbar ist, wieder ins Fenster zurueckspringen
 	if ( ! mat->invert(&mat1))
 	{
+		char msg[1024];
 		LoadString(AfxGetInstanceHandle(),IDS_HILL_BAD_KEY_INV,pc_str,STR_LAENGE_STRING_TABLE);
 		LoadString(AfxGetInstanceHandle(),IDS_HILL_BAD_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-		MessageBox(pc_str, pc_str1, MB_ICONWARNING|MB_OK);
+		sprintf(msg,pc_str,getDimMessage(),theApp.TextOptions.m_alphabet.GetAllocLength());
+		MessageBox(msg, pc_str1, MB_ICONWARNING|MB_OK);
 		m_pFelder[0][0]->SetFocus();
 		m_pFelder[0][0]->SetSel(0,-1);
 		return;
@@ -2181,9 +2183,11 @@ void CDlgKeyHill10x10::OnDecrypt()
 	// Falls die Matrix nicht invertierbar ist, wieder ins Fenster zurueckspringen
 	if ( ! mat->invert(&mat1))
 	{
+		char msg[1024];
 		LoadString(AfxGetInstanceHandle(),IDS_HILL_BAD_KEY_INV,pc_str,STR_LAENGE_STRING_TABLE);
 		LoadString(AfxGetInstanceHandle(),IDS_HILL_BAD_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-		MessageBox(pc_str, pc_str1, MB_ICONWARNING|MB_OK);
+		sprintf(msg,pc_str,getDimMessage(),theApp.TextOptions.m_alphabet.GetAllocLength());
+		MessageBox(msg, pc_str1, MB_ICONWARNING|MB_OK);
 		m_pFelder[0][0]->SetFocus();
 		m_pFelder[0][0]->SetSel(0,-1);
 		return;
@@ -3024,4 +3028,34 @@ void CDlgKeyHill10x10::OnBnClickedButton69()
 {
 	DlgHillOptions hillOpt;
 	hillOpt.DoModal();
+}
+CString CDlgKeyHill10x10::getDimMessage()
+{
+	int iHillKeyDim = dim;
+
+	switch (iHillKeyDim)
+	{
+		case 1:	
+			return "1*1";
+		case 2:	
+			return "2*2";
+		case 3:	
+			return "3*3";
+		case 4:	
+			return "4*4";
+		case 5:	
+			return "5*5";
+		case 6:	
+			return "6*6";
+		case 7:	
+			return "7*7";
+		case 8:	
+			return "8*8";
+		case 9:	
+			return "9*9";
+		case 10:	
+			return "10*10";
+		default:
+			return "2*2";
+	}
 }

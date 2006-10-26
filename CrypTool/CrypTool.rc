@@ -8859,7 +8859,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_HILL_BAD_KEY_INV    "Die eingegebene Schlüsselmatrix kann nicht verwendet werden, da sie nicht invertierbar ist.\r\nWenn Sie in der Hill-Schlüsseleingabe-Maske auf ""Zufälligen Schlüssel"" klicken, werden\r\ndie Zahlenwerte sofort so gewählt, dass die Schlüsselmatrix invertierbar ist."
+    IDS_HILL_BAD_KEY_INV    "Die eingegebene %s-Matrix kann modulo %d nicht invertiert werden. Deshalb kann sie für\ndas Hill-Verfahren nicht verwendet werden.\n\nBitte ändern Sie entweder die Elemente der Matrix, die Dimension der Matrix oder die\nAnzahl der Elemente des Alphabets.\nAlternativ können Sie in der Hill-Schlüsseleingabe-Maske auch auf ""Zufälligen Schlüssel\nerzeugen"" klicken: Dann werden die Matrixelemente so gewählt, dass die Schlüsselmatrix für\ndie eingestellte Dimension und die gegebene Alphabetlänge invertierbar ist."
 END
 
 STRINGTABLE 

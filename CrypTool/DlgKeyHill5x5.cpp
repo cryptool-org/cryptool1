@@ -730,9 +730,11 @@ void CDlgKeyHill5x5::OnOK()
 	// Falls die Matrix nicht invertierbar ist, wieder ins Fenster zurueckspringen
 	if ( ! mat->invert(&mat1))
 	{
+		char msg[1024];
 		LoadString(AfxGetInstanceHandle(),IDS_HILL_BAD_KEY_INV,pc_str,STR_LAENGE_STRING_TABLE);
 		LoadString(AfxGetInstanceHandle(),IDS_HILL_BAD_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-		MessageBox(pc_str, pc_str1, MB_ICONWARNING|MB_OK);
+		sprintf(msg,pc_str,getDimMessage(),theApp.TextOptions.m_alphabet.GetLength());
+		MessageBox(msg, pc_str1, MB_ICONWARNING|MB_OK);
 		m_pFelder[0][0]->SetFocus();
 		m_pFelder[0][0]->SetSel(0,-1);
 		return;
@@ -768,9 +770,11 @@ void CDlgKeyHill5x5::OnDecrypt()
 	// Falls die Matrix nicht invertierbar ist, wieder ins Fenster zurueckspringen
 	if ( ! mat->invert(&mat1))
 	{
+		char msg[1024];
 		LoadString(AfxGetInstanceHandle(),IDS_HILL_BAD_KEY_INV,pc_str,STR_LAENGE_STRING_TABLE);
 		LoadString(AfxGetInstanceHandle(),IDS_HILL_BAD_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-		MessageBox(pc_str, pc_str1, MB_ICONWARNING|MB_OK);
+		sprintf(msg,pc_str,getDimMessage(),theApp.TextOptions.m_alphabet.GetLength());
+		MessageBox(msg, pc_str1, MB_ICONWARNING|MB_OK);
 		m_pFelder[0][0]->SetFocus();
 		m_pFelder[0][0]->SetSel(0,-1);
 		return;
@@ -1471,9 +1475,9 @@ BOOL CDlgKeyHill5x5::getFirstPosNull()
 {
 	unsigned long firstPosNull;
 
+	firstPosNull = 1;
 	if(CT_OPEN_REGISTRY_SETTINGS(KEY_READ) == ERROR_SUCCESS)
-	{
-		
+	{		
 		CT_READ_REGISTRY_DEFAULT(firstPosNull, "firstPosNull", firstPosNull);
 		
 		UpdateData(false);
@@ -1481,4 +1485,24 @@ BOOL CDlgKeyHill5x5::getFirstPosNull()
 		CT_CLOSE_REGISTRY();
 	}
 	return firstPosNull;
+}
+CString CDlgKeyHill5x5::getDimMessage()
+{
+	int iHillKeyDim = dim;
+
+	switch (iHillKeyDim)
+	{
+		case 1:	
+			return "1*1";
+		case 2:	
+			return "2*2";
+		case 3:	
+			return "3*3";
+		case 4:	
+			return "4*4";
+		case 5:	
+			return "5*5";
+		default:
+			return "2*2";
+	}
 }

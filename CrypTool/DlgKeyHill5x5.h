@@ -102,6 +102,7 @@ public:
 	void OnHillOptions();
 	BOOL getFirstPosNull();
 
+	CString getDimMessage();
 
 	CDlgKeyHill5x5(CHillEncryption *hillkl, CWnd* pParent = NULL);   // Standardkonstruktor
 	~CDlgKeyHill5x5();
