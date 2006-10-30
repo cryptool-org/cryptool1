@@ -34,6 +34,7 @@
 #define IDS_CR_PASSWORD                 21
 #define IDS_STRING_TEST_POKER           22
 #define IDS_STRING23                    23
+#define IDS_STRING_HILL_DETAILS         23
 #define IDS_STRING_TEST_FREQ            24
 #define IDS_STRING_TEST_SERIAL          25
 #define IDS_STRING_TEST_RUNS_NICHT_BESTANDEN 26

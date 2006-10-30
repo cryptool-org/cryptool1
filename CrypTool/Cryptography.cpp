@@ -807,7 +807,7 @@ void Hill(const char *infile, const char *OldTitle)
 		if (NewDoc) {
 			char title[128]; 
 			// LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_ANALYSIS_OF,pc_str,STR_LAENGE_STRING_TABLE);
-			GetNewDocTitle(schluessel, OldTitle, IDS_STRING_HILL, title, 128, i_m_decrypt, SCHLUESSEL_QUADRATISCH );
+			GetNewDocTitle(schluessel, OldTitle, IDS_STRING_HILL_DETAILS, title, 128, i_m_decrypt, SCHLUESSEL_QUADRATISCH );
 			NewDoc->SetTitle(title);
 		}
 

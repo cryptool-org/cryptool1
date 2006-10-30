@@ -2147,10 +2147,19 @@ void CDlgKeyHill10x10::OnOK()
 		char msg[1024];
 		LoadString(AfxGetInstanceHandle(),IDS_HILL_BAD_KEY_INV,pc_str,STR_LAENGE_STRING_TABLE);
 		LoadString(AfxGetInstanceHandle(),IDS_HILL_BAD_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-		sprintf(msg,pc_str,getDimMessage(),theApp.TextOptions.m_alphabet.GetAllocLength());
+		sprintf(msg,pc_str,getDimMessage(),theApp.TextOptions.m_alphabet.GetLength());
 		MessageBox(msg, pc_str1, MB_ICONWARNING|MB_OK);
-		m_pFelder[0][0]->SetFocus();
-		m_pFelder[0][0]->SetSel(0,-1);
+	
+		if(!alphCode)
+		{
+			m_pFelder[0][0]->SetFocus();
+			m_pFelder[0][0]->SetSel(0,-1);
+		}
+		else
+		{
+			m_pAlphCode[0][0]->SetFocus();
+			m_pAlphCode[0][0]->SetSel(0,-1);
+		}
 		return;
 	}
 	else
@@ -2186,10 +2195,18 @@ void CDlgKeyHill10x10::OnDecrypt()
 		char msg[1024];
 		LoadString(AfxGetInstanceHandle(),IDS_HILL_BAD_KEY_INV,pc_str,STR_LAENGE_STRING_TABLE);
 		LoadString(AfxGetInstanceHandle(),IDS_HILL_BAD_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-		sprintf(msg,pc_str,getDimMessage(),theApp.TextOptions.m_alphabet.GetAllocLength());
+		sprintf(msg,pc_str,getDimMessage(),theApp.TextOptions.m_alphabet.GetLength());
 		MessageBox(msg, pc_str1, MB_ICONWARNING|MB_OK);
-		m_pFelder[0][0]->SetFocus();
-		m_pFelder[0][0]->SetSel(0,-1);
+		if(!alphCode)
+		{
+			m_pFelder[0][0]->SetFocus();
+			m_pFelder[0][0]->SetSel(0,-1);
+		}
+		else
+		{
+			m_pAlphCode[0][0]->SetFocus();
+			m_pAlphCode[0][0]->SetSel(0,-1);
+		}
 		return;
 	}
 	else
@@ -2537,8 +2554,16 @@ void CDlgKeyHill10x10::OnDimension1()
 	iHillSchluesselDim = dim;
 	AnzeigeDimensionSetzen(dim);
 
-	m_pFelder[0][0]->SetFocus();
-	m_pFelder[0][0]->SetSel(0,-1);
+	if(!alphCode)
+	{
+		m_pFelder[0][0]->SetFocus();
+		m_pFelder[0][0]->SetSel(0,-1);
+	}
+	else
+	{
+		m_pAlphCode[0][0]->SetFocus();
+		m_pAlphCode[0][0]->SetSel(0,-1);
+	}
 }
 
 void CDlgKeyHill10x10::OnDimension2() 
@@ -2549,8 +2574,16 @@ void CDlgKeyHill10x10::OnDimension2()
 	iHillSchluesselDim = dim;
 	AnzeigeDimensionSetzen(dim);
 
-	m_pFelder[0][0]->SetFocus();
-	m_pFelder[0][0]->SetSel(0,-1);
+	if(!alphCode)
+	{
+		m_pFelder[0][0]->SetFocus();
+		m_pFelder[0][0]->SetSel(0,-1);
+	}
+	else
+	{
+		m_pAlphCode[0][0]->SetFocus();
+		m_pAlphCode[0][0]->SetSel(0,-1);
+	}
 }
 
 void CDlgKeyHill10x10::OnDimension3() 
@@ -2561,8 +2594,16 @@ void CDlgKeyHill10x10::OnDimension3()
 	iHillSchluesselDim = dim;
 	AnzeigeDimensionSetzen(dim);
 
-	m_pFelder[0][0]->SetFocus();
-	m_pFelder[0][0]->SetSel(0,-1);
+	if(!alphCode)
+	{
+		m_pFelder[0][0]->SetFocus();
+		m_pFelder[0][0]->SetSel(0,-1);
+	}
+	else
+	{
+		m_pAlphCode[0][0]->SetFocus();
+		m_pAlphCode[0][0]->SetSel(0,-1);
+	}
 }
 
 void CDlgKeyHill10x10::OnDimension4() 
@@ -2572,9 +2613,17 @@ void CDlgKeyHill10x10::OnDimension4()
 	dim = 4;
 	iHillSchluesselDim = dim;
 	AnzeigeDimensionSetzen(dim);
-
-	m_pFelder[0][0]->SetFocus();
-	m_pFelder[0][0]->SetSel(0,-1);
+	
+	if(!alphCode)
+	{
+		m_pFelder[0][0]->SetFocus();
+		m_pFelder[0][0]->SetSel(0,-1);
+	}
+	else
+	{
+		m_pAlphCode[0][0]->SetFocus();
+		m_pAlphCode[0][0]->SetSel(0,-1);
+	}
 }
 
 void CDlgKeyHill10x10::OnDimension5() 
@@ -2585,8 +2634,16 @@ void CDlgKeyHill10x10::OnDimension5()
 	iHillSchluesselDim = dim;
 	AnzeigeDimensionSetzen(dim);
 
-	m_pFelder[0][0]->SetFocus();
-	m_pFelder[0][0]->SetSel(0,-1);
+	if(!alphCode)
+	{
+		m_pFelder[0][0]->SetFocus();
+		m_pFelder[0][0]->SetSel(0,-1);
+	}
+	else
+	{
+		m_pAlphCode[0][0]->SetFocus();
+		m_pAlphCode[0][0]->SetSel(0,-1);
+	}
 }
 
 void CDlgKeyHill10x10::OnDimension6() 
@@ -2597,8 +2654,16 @@ void CDlgKeyHill10x10::OnDimension6()
 	iHillSchluesselDim = dim;
 	AnzeigeDimensionSetzen(dim);
 
-	m_pFelder[0][0]->SetFocus();
-	m_pFelder[0][0]->SetSel(0,-1);
+	if(!alphCode)
+	{
+		m_pFelder[0][0]->SetFocus();
+		m_pFelder[0][0]->SetSel(0,-1);
+	}
+	else
+	{
+		m_pAlphCode[0][0]->SetFocus();
+		m_pAlphCode[0][0]->SetSel(0,-1);
+	}
 }
 
 void CDlgKeyHill10x10::OnDimension7() 
@@ -2609,8 +2674,16 @@ void CDlgKeyHill10x10::OnDimension7()
 	iHillSchluesselDim = dim;
 	AnzeigeDimensionSetzen(dim);
 
-	m_pFelder[0][0]->SetFocus();
-	m_pFelder[0][0]->SetSel(0,-1);
+	if(!alphCode)
+	{
+		m_pFelder[0][0]->SetFocus();
+		m_pFelder[0][0]->SetSel(0,-1);
+	}
+	else
+	{
+		m_pAlphCode[0][0]->SetFocus();
+		m_pAlphCode[0][0]->SetSel(0,-1);
+	}
 }
 
 void CDlgKeyHill10x10::OnDimension8() 
@@ -2621,8 +2694,16 @@ void CDlgKeyHill10x10::OnDimension8()
 	iHillSchluesselDim = dim;
 	AnzeigeDimensionSetzen(dim);
 
-	m_pFelder[0][0]->SetFocus();
-	m_pFelder[0][0]->SetSel(0,-1);
+	if(!alphCode)
+	{
+		m_pFelder[0][0]->SetFocus();
+		m_pFelder[0][0]->SetSel(0,-1);
+	}
+	else
+	{
+		m_pAlphCode[0][0]->SetFocus();
+		m_pAlphCode[0][0]->SetSel(0,-1);
+	}
 }
 
 void CDlgKeyHill10x10::OnDimension9() 
@@ -2633,8 +2714,16 @@ void CDlgKeyHill10x10::OnDimension9()
 	iHillSchluesselDim = dim;
 	AnzeigeDimensionSetzen(dim);
 
-	m_pFelder[0][0]->SetFocus();
-	m_pFelder[0][0]->SetSel(0,-1);
+	if(!alphCode)
+	{
+		m_pFelder[0][0]->SetFocus();
+		m_pFelder[0][0]->SetSel(0,-1);
+	}
+	else
+	{
+		m_pAlphCode[0][0]->SetFocus();
+		m_pAlphCode[0][0]->SetSel(0,-1);
+	}
 }
 
 void CDlgKeyHill10x10::OnDimension10() 
@@ -2645,8 +2734,16 @@ void CDlgKeyHill10x10::OnDimension10()
 	iHillSchluesselDim = dim;
 	AnzeigeDimensionSetzen(dim);
 
-	m_pFelder[0][0]->SetFocus();
-	m_pFelder[0][0]->SetSel(0,-1);
+	if(!alphCode)
+	{
+		m_pFelder[0][0]->SetFocus();
+		m_pFelder[0][0]->SetSel(0,-1);
+	}
+	else
+	{
+		m_pAlphCode[0][0]->SetFocus();
+		m_pAlphCode[0][0]->SetSel(0,-1);
+	}
 }
 
 void CDlgKeyHill10x10::AnzeigeDimensionSetzen(int dim)
@@ -2693,6 +2790,17 @@ void CDlgKeyHill10x10::AnzeigeDimensionSetzen(int dim)
 				m_pAlphCode[i][j]->EnableWindow(mybool);
 		}
 	}
+
+	if(!alphCode)
+	{
+		m_pFelder[0][0]->SetFocus();
+		m_pFelder[0][0]->SetSel(0,-1);
+	}
+	else
+	{
+		m_pAlphCode[0][0]->SetFocus();
+		m_pAlphCode[0][0]->SetSel(0,-1);
+	}
 }
 
 int CDlgKeyHill10x10::AlleFelderKorrekt(int dim)
@@ -2714,8 +2822,16 @@ int CDlgKeyHill10x10::AlleFelderKorrekt(int dim)
 				LoadString(AfxGetInstanceHandle(),IDS_HILL_BAD_KEY_NONVALID_CHAR,pc_str,STR_LAENGE_STRING_TABLE);
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_ERR_INPUT_UNCOMPLETED,pc_str1,STR_LAENGE_STRING_TABLE);
 				MessageBox(pc_str, pc_str1, MB_ICONWARNING|MB_OK);
-				m_pFelder[i][j]->SetFocus();
-				m_pFelder[i][j]->SetSel(0,-1);
+				if(!alphCode)
+				{
+					m_pFelder[0][0]->SetFocus();
+					m_pFelder[0][0]->SetSel(0,-1);
+				}
+				else
+				{
+					m_pAlphCode[0][0]->SetFocus();
+					m_pAlphCode[0][0]->SetSel(0,-1);
+				}
 				return FALSE;
 			}
 		}

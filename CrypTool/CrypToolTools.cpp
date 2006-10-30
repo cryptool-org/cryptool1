@@ -83,18 +83,20 @@ void LoadText( const char *infile, SymbolArray &text )
 
 
 void GetNewDocTitle(const char* keyStr, const char* OldTitle, 
-					int IDS_STRING_ID, char* title, long titleLength, BOOL Decrypt, int KeyType )
+					int IDS_STRING_ID, char* title, long titleLength, BOOL Decrypt, int KeyType)
 {
 	if(Decrypt)
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
 	else
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
+	
+
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_ID,pc_str,STR_LAENGE_STRING_TABLE);
     MakeNewName3(title,titleLength,pc_str1,pc_str,OldTitle,keyStr);
 }
 
 void OpenNewDoc( const char *outfile, const char* keyStr, const char* OldTitle, int IDS_STRING_ID, 
-				 BOOL Decrypt, int KeyType )
+				 BOOL Decrypt, int KeyType)
 {
 	char title[128];
 	CAppDocument *NewDoc;
