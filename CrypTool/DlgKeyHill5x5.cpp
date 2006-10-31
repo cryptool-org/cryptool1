@@ -69,7 +69,6 @@ CDlgKeyHill5x5::CDlgKeyHill5x5(CHillEncryption *hillkl, CWnd* pParent /*=NULL*/)
 {
 	hillklasse = hillkl;
 	m_decrypt = 0;
-	alphCode = 0;
 	//{{AFX_DATA_INIT(CDlgKeyHill5x5)
 	m_Verbose = FALSE;
 	//}}AFX_DATA_INIT
@@ -708,6 +707,14 @@ int CDlgKeyHill5x5::Display(CHillEncryption *hillklasse)
 
 void CDlgKeyHill5x5::OnOK() 
 {
+	
+	UpdateData(true);
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
+	{
+		CT_WRITE_REGISTRY(unsigned long(firstPosNull), "firstPosNull");
+		CT_WRITE_REGISTRY(unsigned long(alphCode), "alphCode");
+		CT_CLOSE_REGISTRY();
+	}
 
 	// Matrizen anlegen und Daten aus Eingabefenster auslesen
 	CSquareMatrixModN mat1(dim,hillklasse->get_modul());
@@ -753,10 +760,18 @@ void CDlgKeyHill5x5::OnOK()
 		m_decrypt = 0;
 		CDialog::OnOK();
 	}
+
 }
 
 void CDlgKeyHill5x5::OnDecrypt()
 {
+	UpdateData(true);
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
+	{
+		CT_WRITE_REGISTRY(unsigned long(firstPosNull), "firstPosNull");
+		CT_WRITE_REGISTRY(unsigned long(alphCode), "alphCode");
+		CT_CLOSE_REGISTRY();
+	}
 
 	// Matrizen anlegen und Daten aus Eingabefenster auslesen
 	CSquareMatrixModN mat1(dim,hillklasse->get_modul());
@@ -823,6 +838,25 @@ BOOL CDlgKeyHill5x5::OnInitDialog()
 	sprintf(l_str,pc_str,len);
 	
 	GetDlgItem(IDC_STATIC_HILL_ALPH)->SetWindowText(l_str);
+
+	alphCode = 0;
+	firstPosNull = 1;
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_READ) == ERROR_SUCCESS)
+	{
+		
+		CT_READ_REGISTRY_DEFAULT(firstPosNull, "firstPosNull", firstPosNull);
+		CT_READ_REGISTRY_DEFAULT(alphCode,"alphCode",alphCode);
+		
+		UpdateData(false);
+
+		CT_CLOSE_REGISTRY();
+	}
+
+	if(!alphCode)
+		CheckRadioButton(IDC_RADIO6, IDC_RADIO7, IDC_RADIO6);
+	else
+		CheckRadioButton(IDC_RADIO6, IDC_RADIO7, IDC_RADIO7);
+
 
 
 	m_pHillAlphInfo = theApp.TextOptions.m_alphabet;
@@ -1379,6 +1413,14 @@ void CDlgKeyHill5x5::OnZufaelligerSchluessel()
 void CDlgKeyHill5x5::OnGroessereSchluessel() 
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+
+	UpdateData(true);
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
+	{
+		CT_WRITE_REGISTRY(unsigned long(firstPosNull), "firstPosNull");
+		CT_WRITE_REGISTRY(unsigned long(alphCode), "alphCode");
+		CT_CLOSE_REGISTRY();
+	}
 
 	iHillSchluesselFensterGroesse = HILL_SCHLUESSEL_GROSS;
 

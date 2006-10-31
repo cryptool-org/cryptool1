@@ -30,7 +30,7 @@ class CDlgRot13Caesar : public CDialog
 public:
 	CDlgRot13Caesar(CWnd* pParent = NULL);   // Standardkonstruktor
 	long m_Decrypt;
-	bool alphCode;
+	unsigned long alphCode;
 	unsigned long firstPosNull;
 	bool caesarSelected;
 	UINT m_type;   // PUBLIC PARAMETER {IDS_STRING_ROT13, IDS_STRING_CAESAR }

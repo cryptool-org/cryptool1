@@ -65,7 +65,8 @@ class CDlgKeyHill10x10 : public CDialog
 // Konstruktion
 public:
 	int		m_decrypt;
-	bool alphCode;
+	unsigned long alphCode;
+	unsigned long firstPosNull;
 	CSquareMatrixModN * mat;
 	void UpdateFeld (CEdit*feld);
 	void UpdateAlphCode(CEdit*feld);

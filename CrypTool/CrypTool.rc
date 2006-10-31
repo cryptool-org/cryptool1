@@ -110,8 +110,9 @@ BEGIN
     GROUPBOX        "Dimension",IDC_STATIC,254,252,99,142
     EDITTEXT        IDC_EDIT1,317,250,19,15,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
-    CONTROL         "Details der Hill-Schlüsselmatrix ausgeben",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,99,398,150,9
+    CONTROL         "Details und Zwischenschritte der Hill-Verschlüsselung ausgeben",
+                    IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,73,398,
+                    229,9
     EDITTEXT        IDC_EDIT36,135,263,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT37,155,263,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT38,175,263,16,12,ES_CENTER | ES_NUMBER
@@ -1161,8 +1162,9 @@ BEGIN
     PUSHBUTTON      "K&leinere Matrix",IDC_BUTTON4,447,362,73,18
     EDITTEXT        IDC_EDIT1,504,199,19,15,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
-    CONTROL         "Details der Hill-Schlüsselmatrix ausgeben",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,180,393,174,9
+    CONTROL         "Details und Zwischenschritte der Hill-Verschlüsselung ausgeben",
+                    IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,165,393,
+                    301,9
     GROUPBOX        "Beschreibung",IDC_STATIC,5,4,535,88
     LTEXT           "Die Hill-Chiffre ist eine polygraphische Substitutionsverschlüsselung, die auf Linearer Algebra basiert. Dies war die erste polygraphische Substitutionsverschlüsselung,",
                     IDC_STATIC,11,17,524,8

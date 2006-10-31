@@ -21,7 +21,6 @@ CDlgRot13Caesar::CDlgRot13Caesar(CWnd* pParent /*=NULL*/)
 {
 	//{{AFX_DATA_INIT(CDlgRot13Caesar)
 	//}}AFX_DATA_INIT
-	alphCode = 0;
 	caesarSelected = 1;
 	m_type = IDS_STRING_CAESAR;
 }
@@ -103,15 +102,22 @@ BOOL CDlgRot13Caesar::OnInitDialog()
 
 
 	firstPosNull = 1;
+	alphCode = 0;
 	if(CT_OPEN_REGISTRY_SETTINGS(KEY_READ) == ERROR_SUCCESS)
 	{
 		
 		CT_READ_REGISTRY_DEFAULT(firstPosNull, "firstPosNull", firstPosNull);
+		CT_READ_REGISTRY_DEFAULT(alphCode,"alphCode",alphCode);
 		
 		UpdateData(false);
 
 		CT_CLOSE_REGISTRY();
 	}
+	if(!alphCode)
+		CheckRadioButton(IDC_RADIO5, IDC_RADIO6, IDC_RADIO5);
+	else
+		CheckRadioButton(IDC_RADIO5, IDC_RADIO6, IDC_RADIO6);
+
 
 	if(firstPosNull)
 		CheckRadioButton(IDC_RADIO3, IDC_RADIO4, IDC_RADIO3);
@@ -340,6 +346,7 @@ void CDlgRot13Caesar::OnEncrypt()
 	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
 	{
 		CT_WRITE_REGISTRY(unsigned long(firstPosNull), "firstPosNull");
+		CT_WRITE_REGISTRY(unsigned long(alphCode), "alphCode");
 		CT_CLOSE_REGISTRY();
 	}
 	m_Decrypt = 0;
@@ -352,6 +359,7 @@ void CDlgRot13Caesar::OnDecrypt()
 	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
 	{
 		CT_WRITE_REGISTRY(unsigned long(firstPosNull), "firstPosNull");
+		CT_WRITE_REGISTRY(unsigned long(alphCode), "alphCode");
 		CT_CLOSE_REGISTRY();
 	}
 	m_Decrypt = 1;

@@ -59,6 +59,7 @@ statement from your version.
 #include "KeyRepository.h"
 #include ".\dlgkeyhill10x10.h"
 #include "DlgHillOptions.h"
+#include "CrypToolTools.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -76,7 +77,6 @@ CDlgKeyHill10x10::CDlgKeyHill10x10(CHillEncryption *hillkl, CWnd* pParent /*=NUL
 {
 	hillklasse = hillkl;
 	m_decrypt = 0;
-	alphCode = 0;
 	//{{AFX_DATA_INIT(CDlgKeyHill10x10)
 	m_Verbose = FALSE;
 	//}}AFX_DATA_INIT
@@ -2123,6 +2123,13 @@ int CDlgKeyHill10x10::Display(CHillEncryption *hillklasse)
 
 void CDlgKeyHill10x10::OnOK() 
 {
+	UpdateData(true);
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
+	{
+		CT_WRITE_REGISTRY(unsigned long(firstPosNull), "firstPosNull");
+		CT_WRITE_REGISTRY(unsigned long(alphCode), "alphCode");
+		CT_CLOSE_REGISTRY();
+	}
 	// Matrizen anlegen und Daten aus Eingabefenster auslesen
 	CSquareMatrixModN mat1(dim,hillklasse->get_modul());
 
@@ -2171,6 +2178,13 @@ void CDlgKeyHill10x10::OnOK()
 
 void CDlgKeyHill10x10::OnDecrypt()
 {
+	UpdateData(true);
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
+	{
+		CT_WRITE_REGISTRY(unsigned long(firstPosNull), "firstPosNull");
+		CT_WRITE_REGISTRY(unsigned long(alphCode), "alphCode");
+		CT_CLOSE_REGISTRY();
+	}
 	// Matrizen anlegen und Daten aus Eingabefenster auslesen
 	CSquareMatrixModN mat1(dim,hillklasse->get_modul());
 
@@ -2238,6 +2252,24 @@ BOOL CDlgKeyHill10x10::OnInitDialog()
 	sprintf(l_str,pc_str,len);
 	//
 	GetDlgItem(IDC_STATIC_HILL_ALPH)->SetWindowText(l_str);
+
+	alphCode = 0;
+	firstPosNull = 1;
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_READ) == ERROR_SUCCESS)
+	{
+		
+		CT_READ_REGISTRY_DEFAULT(firstPosNull, "firstPosNull", firstPosNull);
+		CT_READ_REGISTRY_DEFAULT(alphCode,"alphCode",alphCode);
+		
+		UpdateData(false);
+
+		CT_CLOSE_REGISTRY();
+	}
+
+	if(!alphCode)
+		CheckRadioButton(IDC_RADIO21, IDC_RADIO22, IDC_RADIO21);
+	else
+		CheckRadioButton(IDC_RADIO21, IDC_RADIO22, IDC_RADIO22);
 
 
 	m_pHillAlphInfo = theApp.TextOptions.m_alphabet;
@@ -3055,6 +3087,13 @@ void CDlgKeyHill10x10::OnZufaelligerSchluessel()
 void CDlgKeyHill10x10::OnKleinereSchluessel() 
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
+	UpdateData(true);
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
+	{
+		CT_WRITE_REGISTRY(unsigned long(firstPosNull), "firstPosNull");
+		CT_WRITE_REGISTRY(unsigned long(alphCode), "alphCode");
+		CT_CLOSE_REGISTRY();
+	}
 
 	iHillSchluesselFensterGroesse = HILL_SCHLUESSEL_KLEIN;
 
