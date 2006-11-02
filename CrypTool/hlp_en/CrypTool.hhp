@@ -20,7 +20,6 @@ MainWindow="Help for CrypTool 1.4.00","cryptool.hhc","CrypTool.hhk","hidd_tipps_
 [FILES]
 helper.js
 zufall.html
-add_secude.html
 aes.html
 aes_gewinner.html
 afx_hidd_fileopen.html
@@ -30,7 +29,6 @@ afx_hidd_print.html
 afx_hidd_printdlg.html
 afx_hidd_printsetup.html
 afx_hidd_replace.html
-afx_hidp_default.html
 afx_hidw_status_bar.html
 afx_hidw_toolbar.html
 angriffe.html
@@ -96,7 +94,6 @@ hid_analyze_subst.html
 hid_app_about.html
 hid_app_exit.html
 hid_auto.html
-hid_barwidth.html
 hid_caesar_auto.html
 hid_context_help.html
 hid_crypt_3des_cbc.html
@@ -496,6 +493,7 @@ hidd_secretsharing_setup.html
 hid_einzelverfahren_secretsharingdemo.html
 shamir.html
 hidd_secretsharing_reveal.html
+contact.html
 
 
 [ALIAS]

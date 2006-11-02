@@ -303,7 +303,6 @@ hid_crypt_3des_ecb.html
 hid_crypt_3des_cbc.html
 hid_context_help.html
 hid_caesar_auto.html
-hid_barwidth.html
 hid_auto.html
 hid_app_exit.html
 hid_app_about.html
@@ -369,7 +368,6 @@ ascii.html
 angriffe.html
 afx_hidw_toolbar.html
 afx_hidw_status_bar.html
-afx_hidp_default.html
 afx_hidd_replace.html
 afx_hidd_printsetup.html
 afx_hidd_printdlg.html
@@ -379,7 +377,6 @@ afx_hidd_filesave.html
 afx_hidd_fileopen.html
 aes_gewinner.html
 aes.html
-add_secude.html
 zufall.html
 man_in_the_middle.html
 hid_cr_sol_crasymmetric.html
@@ -496,6 +493,7 @@ hidd_secretsharing_setup.html
 hid_einzelverfahren_secretsharingdemo.html
 shamir.html
 hidd_secretsharing_reveal.html
+contact.html
 
 
 [ALIAS]
