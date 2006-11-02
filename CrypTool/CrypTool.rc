@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -11227,12 +11227,12 @@ BEGIN
                             "Die Eingabe ist größer als das Alphabet.\nSoll der Wert automatisch auf 1 gesetzt werden?"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -22344,7 +22344,7 @@ BEGIN
     IDS_CRT_SECRETSHARING_LOGWRITTEN 
                             "Logfile succssfully written to the main window."
     ID_EINZELVERFAHREN_SECRETSHARINGDEMO 
-                            "Visualizes the Shamir (t, n)-Threshold-Scheme"
+                            "Visualizes the Shamir (t, n) threshold scheme"
     IDS_STRING_MEMBER       "participant"
     IDS_STRING_VALUESS      "public value x"
     IDS_STRING_SECRETSHARING_EMPTY 
@@ -22498,7 +22498,7 @@ END
 STRINGTABLE 
 BEGIN
     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING 
-                            "Visualizes the Shamir (t, n)-Threshold-Scheme"
+                            "Visualizes the Shamir (t, n) threshold scheme"
 END
 
 STRINGTABLE 
@@ -22553,7 +22553,7 @@ BEGIN
                             "The input is larger than the alphabet length.\nSet the value automaticly to 1?"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
