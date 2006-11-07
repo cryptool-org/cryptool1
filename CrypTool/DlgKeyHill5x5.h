@@ -185,6 +185,7 @@ protected:
 	virtual void OnOK();
 	virtual void OnDecrypt();
 	virtual BOOL OnInitDialog();
+	afx_msg void OnVerbose();
 	afx_msg void OnPasteKey();
 	afx_msg void OnDimension1();
 	afx_msg void OnDimension2();

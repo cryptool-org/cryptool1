@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -1022,7 +1022,7 @@ BEGIN
     EDITTEXT        IDC_EDIT199,423,263,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT200,443,263,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT1012,463,263,16,12,ES_CENTER | ES_READONLY
-    GROUPBOX        "Zahlenwert",IDC_STATIC,269,66,222,222
+    GROUPBOX        "Zahlenwerte",IDC_STATIC,269,66,222,222
 END
 
 IDD_KEY_HILL_10X10 DIALOGEX 0, 0, 545, 436
@@ -11227,12 +11227,12 @@ BEGIN
                             "Die Eingabe ist größer als das Alphabet.\nSoll der Wert automatisch auf 1 gesetzt werden?"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -11407,7 +11407,7 @@ BEGIN
     DEFPUSHBUTTON   "&Encrypt",IDOK,5,352,63,19
     PUSHBUTTON      "&Decrypt",IDC_BUTTON5,80,352,60,19
     PUSHBUTTON      "&Cancel",IDCANCEL,300,352,58,19
-    GROUPBOX        "Alphabet character",IDC_STATIC,15,168,109,100
+    GROUPBOX        "Alphabet characters",IDC_STATIC,15,168,109,100
     GROUPBOX        "Size of matrix",IDC_STATIC,254,180,104,139
     CONTROL         "&1 x 1",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,277,198,31,10
@@ -11439,10 +11439,10 @@ BEGIN
                     352,35
     EDITTEXT        IDC_EDIT3,12,87,338,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
-    CONTROL         "Alphabet character",IDC_RADIO6,"Button",
-                    BS_AUTORADIOBUTTON,95,132,76,10
-    CONTROL         "Number value",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON,95,
-                    146,60,10
+    CONTROL         "Alphabet characters",IDC_RADIO6,"Button",
+                    BS_AUTORADIOBUTTON,95,132,79,10
+    CONTROL         "Number values",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON,
+                    95,146,63,10
     GROUPBOX        "Hill key matrix",IDC_STATIC,5,115,243,204
     EDITTEXT        IDC_EDIT36,134,180,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT37,154,180,16,12,ES_CENTER | ES_NUMBER
@@ -11469,7 +11469,7 @@ BEGIN
     EDITTEXT        IDC_EDIT69,174,249,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT65,194,249,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT66,214,249,16,12,ES_CENTER | ES_NUMBER
-    GROUPBOX        "Number value",IDC_STATIC,128,168,109,100
+    GROUPBOX        "Number values",IDC_STATIC,128,168,109,100
     GROUPBOX        "Multiplication variant",IDC_STATIC,254,115,103,50
     CONTROL         "(row vector) * (matrix)",IDC_RADIO8,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,262,128,82,10
@@ -11581,7 +11581,7 @@ BEGIN
     EDITTEXT        IDC_EDIT53,75,162,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT54,95,162,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT55,115,162,16,12,ES_CENTER | ES_READONLY
-    GROUPBOX        "Alphabet character",IDC_STATIC,24,68,119,118
+    GROUPBOX        "Alphabet characters",IDC_STATIC,24,68,119,118
     EDITTEXT        IDC_EDIT36,168,83,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT37,188,83,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT38,208,83,16,12,ES_CENTER | ES_READONLY
@@ -11607,7 +11607,7 @@ BEGIN
     EDITTEXT        IDC_EDIT69,208,163,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT65,228,163,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT66,248,163,16,12,ES_CENTER | ES_READONLY
-    GROUPBOX        "Number value",IDC_STATIC,156,68,119,118
+    GROUPBOX        "Number values",IDC_STATIC,156,68,119,118
 END
 
 IDD_KEYASYM_GENERATION DIALOGEX 0, 0, 419, 338
@@ -12229,7 +12229,7 @@ BEGIN
     EDITTEXT        IDC_EDIT108,182,259,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT109,202,259,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT1010,222,259,16,12,ES_CENTER | ES_READONLY
-    GROUPBOX        "Alphabet character",IDC_STATIC,28,62,225,222
+    GROUPBOX        "Alphabet characters",IDC_STATIC,28,62,225,222
     EDITTEXT        IDC_EDIT40,279,78,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT50,299,78,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT20,319,78,16,12,ES_CENTER | ES_READONLY
@@ -12330,7 +12330,7 @@ BEGIN
     EDITTEXT        IDC_EDIT199,419,259,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT200,439,259,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT1012,459,259,16,12,ES_CENTER | ES_READONLY
-    GROUPBOX        "Number value",IDC_STATIC,265,62,225,222
+    GROUPBOX        "Number values",IDC_STATIC,265,62,225,222
 END
 
 IDD_KEY_HILL_10X10 DIALOGEX 0, 0, 546, 401
@@ -12441,7 +12441,7 @@ BEGIN
     DEFPUSHBUTTON   "&Encrypt",IDOK,5,376,80,19
     PUSHBUTTON      "&Decrypt",IDC_BUTTON5,100,376,74,19
     PUSHBUTTON      "&Cancel",IDCANCEL,486,376,56,19
-    GROUPBOX        "Alphabet character",IDC_STATIC,11,149,210,166
+    GROUPBOX        "Alphabet characters",IDC_STATIC,11,149,210,166
     GROUPBOX        "Size of matrix",IDC_STATIC,441,162,101,186
     CONTROL         "&1 x 1",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     BS_CENTER | WS_GROUP,473,181,36,10
@@ -12482,10 +12482,10 @@ BEGIN
                     537,35
     EDITTEXT        IDC_EDIT3,12,76,521,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
-    CONTROL         "Alphabet character",IDC_RADIO21,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,191,118,76,10
-    CONTROL         "Number value",IDC_RADIO22,"Button",BS_AUTORADIOBUTTON,
-                    191,131,60,10
+    CONTROL         "Alphabet characters",IDC_RADIO21,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,191,118,79,10
+    CONTROL         "Number values",IDC_RADIO22,"Button",BS_AUTORADIOBUTTON,
+                    191,131,63,10
     GROUPBOX        "Multiplication variant",IDC_STATIC,441,107,101,41
     CONTROL         "(row vector) * (matrix)",IDC_RADIO23,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,449,120,82,10
@@ -12592,7 +12592,7 @@ BEGIN
     EDITTEXT        IDC_EDIT209,371,296,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT212,391,296,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT1011,411,296,16,12,ES_CENTER | ES_NUMBER
-    GROUPBOX        "Number value",IDC_STATIC,223,149,210,166
+    GROUPBOX        "Number values",IDC_STATIC,223,149,210,166
     PUSHBUTTON      "Hill options",IDC_BUTTON69,195,376,60,19
 END
 
@@ -22553,7 +22553,7 @@ BEGIN
                             "The input is larger than the alphabet length.\nSet the value automaticly to 1?"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

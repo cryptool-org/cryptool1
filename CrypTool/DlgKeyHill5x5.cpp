@@ -240,6 +240,8 @@ BEGIN_MESSAGE_MAP(CDlgKeyHill5x5, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON5, OnDecrypt)
 	ON_BN_CLICKED(IDC_BUTTON2, OnPasteKey)
 	ON_BN_CLICKED(IDC_BUTTON1,	OnHillOptions)
+
+	ON_BN_CLICKED(IDC_CHECK1, OnVerbose)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -1574,4 +1576,9 @@ CString CDlgKeyHill5x5::getDimMessage()
 		default:
 			return "2*2";
 	}
+}
+void CDlgKeyHill5x5::OnVerbose()
+{
+	CButton* pCheck = (CButton*)GetDlgItem(IDC_CHECK1);
+	m_Verbose = pCheck->GetCheck();
 }
