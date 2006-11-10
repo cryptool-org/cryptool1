@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -4682,10 +4682,10 @@ BEGIN
                     IDC_STATIC,30,171,265,19
 END
 
-IDD_AUTO_SUBSTITUTION_ANALYSIS DIALOG  0, 0, 394, 321
+IDD_AUTO_SUBSTITUTION_ANALYSIS DIALOGEX 0, 0, 394, 321
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Automatische Substitutionsanalyse"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "Substitution akzeptieren",IDOK,7,300,86,14
     GROUPBOX        "Aktuelle Substitution (Schlüssel)",IDC_STATIC,7,7,246,
@@ -4693,7 +4693,7 @@ BEGIN
     LTEXT           "ABCDEFGHIJKLMNOPQRSTUVWXYZ",IDC_SUBST_ALPHABET,43,18,
                     150,10
     LTEXT           "ABCDEFGHIJKLMNOPQRSTUVWXYZ",IDC_SUBST_KEY,43,28,150,10
-    GROUPBOX        "Sprachenerkennungsinfo",IDC_STATIC,260,48,127,26
+    GROUPBOX        "Erkannte Sprache",IDC_STATIC,260,48,127,26
     GROUPBOX        "Aktuelles Substitutionsergebnis",IDC_STATIC,7,81,380,
                     211
     LTEXT           "Deutsch",IDC_SUBST_LANGINFO,274,60,104,11
@@ -4705,8 +4705,7 @@ BEGIN
     GROUPBOX        "Anzahl der validen Zeichen im Text",IDC_STATIC,259,7,
                     128,36
     LTEXT           "0",IDC_SUBST_CHINFO,274,19,105,12
-    GROUPBOX        "Referenzdatei für Sprachenanalyse",IDC_STATIC,7,48,246,
-                    26
+    GROUPBOX        "Referenzdatei für Sprachanalyse",IDC_STATIC,7,48,246,26
     EDITTEXT        IDC_SUBST_REFFILE,13,59,233,12,ES_AUTOHSCROLL | 
                     ES_READONLY | NOT WS_BORDER
 END
@@ -5237,7 +5236,7 @@ BEGIN
     PUSHBUTTON      "Abbrechen",IDCANCEL,7,402,86,14
     DEFPUSHBUTTON   "Rekonstruktion",IDOK,279,402,85,14,WS_DISABLED
     LTEXT           "Geheimnis S mit S >= 0",IDC_STATIC,12,84,74,8
-    GROUPBOX        "Geheimnis und Steuer-Parameter wählen (ganze Zahlen)",
+    GROUPBOX        "Geheimnis und Steuerparameter wählen (ganze Zahlen)",
                     IDC_STATIC_PARAMETER,7,68,357,69
     LTEXT           "Anzahl der Teilnehmer n mit n > 0",
                     IDC_STATIC_PARTICIPANTS,12,102,106,8
@@ -11227,12 +11226,12 @@ BEGIN
                             "Die Eingabe ist größer als das Alphabet.\nSoll der Wert automatisch auf 1 gesetzt werden?"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -11854,10 +11853,10 @@ BEGIN
     EDITTEXT        IDC_EDIT1,10,23,267,24,ES_MULTILINE | WS_VSCROLL
 END
 
-IDD_MANUAL_SUBST_ANALYSIS DIALOG  0, 0, 347, 319
+IDD_MANUAL_SUBST_ANALYSIS DIALOGEX 0, 0, 347, 319
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Substitution Analysis: Manual Postprocessing"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT1,40,46,14,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,85,46,14,12,ES_AUTOHSCROLL
@@ -11891,7 +11890,7 @@ BEGIN
                     WS_TABSTOP,266,127,22,20
     EDITTEXT        IDC_EDIT4,13,168,321,114,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_READONLY | ES_WANTRETURN | WS_VSCROLL
-    DEFPUSHBUTTON   "Output current &status",IDOK,13,291,120,21
+    DEFPUSHBUTTON   "Show current &status",IDOK,13,291,120,21
     PUSHBUTTON      "&Cancel",IDCANCEL,252,291,82,21
     LTEXT           "a:",IDC_STATIC,25,46,8,9
     LTEXT           "b:",IDC_STATIC,70,47,8,9
@@ -11919,8 +11918,9 @@ BEGIN
     LTEXT           "x:",IDC_STATIC,115,107,8,8
     LTEXT           "y:",IDC_STATIC,160,107,8,8
     LTEXT           "z:",IDC_STATIC,201,107,8,8
-    LTEXT           "Current intermediate status:",IDC_STATIC,15,156,307,8
-    LTEXT           "In this dialogue ciphertext characters are schown in small letters and plaintext characters are schown in big letters (example: a --> C means that the letter 'a' is decrypted into 'C').",
+    LTEXT           "Current intermediate status of decryption:",IDC_STATIC,
+                    15,156,307,8
+    LTEXT           "In this dialog window ciphertext characters are shown in small letters and plaintext characters are shown in capital letters (example: a --> C means that the letter 'a' is decrypted into 'C').",
                     IDC_STATIC,13,6,321,17
     LTEXT           "Each change of the substitution list below will result into a change of the intermediate status of decryption below. Using the actual state of decryption you may try out other substitutions. ",
                     IDC_STATIC,13,23,321,17
@@ -14073,10 +14073,10 @@ BEGIN
                     BS_BITMAP | WS_TABSTOP,302,284,79,14
 END
 
-IDD_ENTROPY_INFO DIALOG  0, 0, 211, 90
+IDC_ENTROPY_INFO DIALOGEX 0, 0, 211, 90
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Entropy"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,81,66,50,17
     LTEXT           "Static",IDC_ALPHABET_INFO,7,7,197,21
@@ -19772,7 +19772,7 @@ BEGIN
         VERTGUIDE, 540
     END
 
-    IDD_ENTROPY_INFO, DIALOG
+    IDC_ENTROPY_INFO, DIALOG
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 204
@@ -22553,7 +22553,7 @@ BEGIN
                             "The input is larger than the alphabet length.\nSet the value automaticly to 1?"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
