@@ -36,9 +36,9 @@ BOOL DlgHillOptions::OnInitDialog()
 		CT_CLOSE_REGISTRY();
 	}
 
-	if(firstPosNull)
+	if(firstPosNull == 1)
 		CheckRadioButton(IDC_RADIO3, IDC_RADIO4, IDC_RADIO3);
-	else
+	if(firstPosNull == 0)
 		CheckRadioButton(IDC_RADIO3, IDC_RADIO4, IDC_RADIO4);
 
 	return TRUE;
@@ -61,7 +61,7 @@ void DlgHillOptions::OnBnClickedOk()
 }
 void DlgHillOptions::OnOK()
 {
-	UpdateData(true);
+
 	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
 	{
 		CT_WRITE_REGISTRY(unsigned long(firstPosNull), "firstPosNull");

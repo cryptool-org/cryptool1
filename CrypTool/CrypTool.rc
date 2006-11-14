@@ -11220,10 +11220,24 @@ BEGIN
     IDS_STRING_TEST_FREQ    "Frequency-Test"
     IDS_STRING_TEST_SERIAL  "Serial-Test"
     IDS_STRING_TEST_RUNS_NICHT_BESTANDEN "Runs-Test nicht bestanden!"
+    IDS_STRING_HILL_DETAILS_MULT0 
+                            "Zur Verschlüsselung wird die Hillmatrix mit einem Spaltenvektor von links multipliziert."
     IDS_STRING_TEST_RUNS_BESTANDEN "Runs-Test bestanden!"
     IDS_HILL_CASE           "Benutztes Alphabet (%d Zeichen)"
     IDS_ROT13_CAESAR_TOO_LARGE_KEY 
                             "Die Eingabe ist größer als das Alphabet.\nSoll der Wert automatisch auf 1 gesetzt werden?"
+    IDS_STRING_HILL_DETAILS_MULT1 
+                            "Zur Verschlüsselung wird die Hillmatrix mit einem Zeilenvektor von rechts multipliziert."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STRING_HILL_DETAILS_DIM 
+                            "Die gewählte Hill-Matrix hat die Dimension %ix%i."
+    IDS_STRING_HILL_DETAILS_CHARS 
+                            "Das aktuelle Alphabet besteht aus %d Zeichen."
+    IDS_STRING_HILL_DETAILS_FIRSTPOS 
+                            "Der erste Alphabetbuchstabe hat den Wert %d."
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -16048,7 +16062,7 @@ BEGIN
                     IDC_STATIC,14,9,288,60
     CONTROL         "Key entry: Remaining characters are filled in ascending order",
                     IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,21,25,206,10
-    CONTROL         "Key entry: Remaining characters ere filled in descending order",
+    CONTROL         "Key entry: Remaining characters are filled in descending order",
                     IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,21,38,210,10
     CONTROL         "Atbash (the encryption is using a fixed key)",
                     IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,21,51,229,10
@@ -22547,10 +22561,23 @@ BEGIN
     IDS_STRING_TEST_FREQ    "Frequency test"
     IDS_STRING_TEST_SERIAL  "Serial test"
     IDS_STRING_TEST_RUNS_NICHT_BESTANDEN "Runs test failed!"
+    IDS_STRING_HILL_DETAILS_MULT0 
+                            "The hill matrix is left side multiplicated with a column vector for the encryption."
     IDS_STRING_TEST_RUNS_BESTANDEN "Runs test passed!"
     IDS_HILL_CASE           "Used alphabet (%d characters)"
     IDS_ROT13_CAESAR_TOO_LARGE_KEY 
                             "The input is larger than the alphabet length.\nSet the value automaticly to 1?"
+    IDS_STRING_HILL_DETAILS_MULT1 
+                            "The hill matrix is right side multiplicated with a row vector for the encryption."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STRING_HILL_DETAILS_DIM "The choosen matrix has the dimension %ix%i."
+    IDS_STRING_HILL_DETAILS_CHARS 
+                            "The current alphabet consists of %d character(s)."
+    IDS_STRING_HILL_DETAILS_FIRSTPOS 
+                            "The first alphabet character has the value %d."
 END
 
 #endif    // Englisch (GB) resources

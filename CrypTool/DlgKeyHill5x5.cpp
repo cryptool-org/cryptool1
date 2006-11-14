@@ -709,14 +709,6 @@ int CDlgKeyHill5x5::Display(CHillEncryption *hillklasse)
 
 void CDlgKeyHill5x5::OnOK() 
 {
-	
-	UpdateData(true);
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
-	{
-		CT_WRITE_REGISTRY(unsigned long(firstPosNull), "firstPosNull");
-		CT_WRITE_REGISTRY(unsigned long(alphCode), "alphCode");
-		CT_CLOSE_REGISTRY();
-	}
 
 	// Matrizen anlegen und Daten aus Eingabefenster auslesen
 	CSquareMatrixModN mat1(dim,hillklasse->get_modul());
@@ -767,14 +759,6 @@ void CDlgKeyHill5x5::OnOK()
 
 void CDlgKeyHill5x5::OnDecrypt()
 {
-	UpdateData(true);
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
-	{
-		CT_WRITE_REGISTRY(unsigned long(firstPosNull), "firstPosNull");
-		CT_WRITE_REGISTRY(unsigned long(alphCode), "alphCode");
-		CT_CLOSE_REGISTRY();
-	}
-
 	// Matrizen anlegen und Daten aus Eingabefenster auslesen
 	CSquareMatrixModN mat1(dim,hillklasse->get_modul());
 
@@ -840,6 +824,7 @@ BOOL CDlgKeyHill5x5::OnInitDialog()
 	sprintf(l_str,pc_str,len);
 	
 	GetDlgItem(IDC_STATIC_HILL_ALPH)->SetWindowText(l_str);
+
 
 	alphCode = 0;
 	firstPosNull = 1;

@@ -39,9 +39,14 @@
 #define IDS_STRING_TEST_SERIAL          25
 #define IDS_STRING_TEST_RUNS_NICHT_BESTANDEN 26
 #define IDS_STRING_TEST_LONGRUN         27
+#define IDS_STRING_HILL_DETAILS_MULT0   27
 #define IDS_STRING_TEST_RUNS_BESTANDEN  28
 #define IDS_HILL_CASE                   29
 #define IDS_ROT13_CAESAR_TOO_LARGE_KEY  30
+#define IDS_STRING_HILL_DETAILS_MULT1   31
+#define IDS_STRING_HILL_DETAILS_DIM     32
+#define IDS_STRING_HILL_DETAILS_CHARS   33
+#define IDS_STRING_HILL_DETAILS_FIRSTPOS 34
 #define IDC_EDIT53                      53
 #define IDC_EDIT69                      54
 #define IDC_EDIT88                      55

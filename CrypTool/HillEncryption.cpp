@@ -61,6 +61,7 @@ statement from your version.
 
 #include "HillEncryption.h"
 #include "CrypToolApp.h"
+#include "CrypToolTools.h"
 #include <string.h>
 
 //////////////////////////////////////////////////////////////////
@@ -611,6 +612,43 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 	}
 
 	MatOut = MatOut + '\n' + '\n';
+
+	if(!iHillMultiplicationType)
+		LoadString(AfxGetInstanceHandle(), IDS_STRING_HILL_DETAILS_MULT0, pc_str, STR_LAENGE_STRING_TABLE);
+	if(iHillMultiplicationType)
+		LoadString(AfxGetInstanceHandle(), IDS_STRING_HILL_DETAILS_MULT1, pc_str, STR_LAENGE_STRING_TABLE);
+
+	MatOut += CString(pc_str) + '\n';
+
+
+	char cTempStr[1000];
+		
+	LoadString(AfxGetInstanceHandle(), IDS_STRING_HILL_DETAILS_DIM, pc_str, STR_LAENGE_STRING_TABLE);
+	sprintf(cTempStr, pc_str,dim,dim);
+	MatOut += CString(cTempStr) + '\n';
+	
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_HILL_DETAILS_CHARS, pc_str, STR_LAENGE_STRING_TABLE);
+	sprintf(cTempStr, pc_str, theApp.TextOptions.m_alphabet.GetLength());
+	MatOut += CString(cTempStr) + '\n';
+
+	unsigned long firstPosNull = 0;
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_READ) == ERROR_SUCCESS)
+	{
+		
+		CT_READ_REGISTRY_DEFAULT(firstPosNull, "firstPosNull", firstPosNull);
+	
+		CT_CLOSE_REGISTRY();
+	}
+
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_HILL_DETAILS_FIRSTPOS, pc_str, STR_LAENGE_STRING_TABLE);
+	if(firstPosNull)
+		sprintf(cTempStr, pc_str, 0);
+	else
+		sprintf(cTempStr, pc_str, 1);
+
+	MatOut += CString(cTempStr) + '\n' + '\n';
+	
+
 
 	// Encryption matrix
 	if ( enc_mat )
