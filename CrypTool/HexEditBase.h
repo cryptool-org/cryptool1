@@ -161,7 +161,8 @@ protected:
 	UINT m_nBinDataClipboardFormat;	
 	bool m_bRecalc;
 	bool m_bHasCaret;
-	bool m_bHighBits;
+	bool m_bHighBits; // caret on high nibble
+	bool m_bCaretAscii;	// true: caret in ASCII area; false: caret in hex area
 	bool m_bAutoBytesPerRow;
 	bool m_bShowAddress;
 	bool m_bShowAscii;
@@ -206,7 +207,7 @@ protected:
 	void DestoyEditCaret();
 	void SetEditCaretPos(UINT nOffset, bool bHighBits);
 	bool OnEditInput(WORD nInput);
-	void MoveCurrentAddress(int iDeltaAdr, bool bHighBits);
+	void MoveCurrentAddress(int iDeltaAdr, bool bHighBits, bool bIgnoreShift = false);
 	void SetScrollPositionY(UINT nPosition, bool bUpdate=false);
 	void SetScrollPositionX(UINT nPosition, bool bUpdate=false);
 	void SetScrollbarRanges();

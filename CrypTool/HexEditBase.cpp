@@ -150,6 +150,7 @@ CHexEditBase::CHexEditBase() :
 	m_nCurCaretHeight(0), 
 	m_bHasCaret(false), 
 	m_bHighBits(true),
+	m_bCaretAscii(false),
 	m_bReadOnly(false), 
 	m_bInsert(false),
 	m_nHighlightedBegin(NOSECTION_VAL), 
@@ -1132,11 +1133,10 @@ void CHexEditBase::GetAddressFromPoint(const CPoint& cPt, UINT& nAddress, bool& 
 	bool bAscii = false;
 	CPoint cPoint(cPt);
 	cPoint.x += m_nScrollPostionX;
+	cPoint.x += (m_tPaintDetails.nCharacterWidth>>1);
 	cPoint.y -= m_tPaintDetails.cPaintingRect.top;
 	if((GetStyle() & ES_MULTILINE)) {
-		cPoint.x += (m_tPaintDetails.nCharacterWidth>>1) - CONTROL_BORDER_SPACE ;
-	} else {
-		cPoint.x += (m_tPaintDetails.nCharacterWidth>>1);
+		cPoint.x -= CONTROL_BORDER_SPACE + 3; // 3 determined experimentally :-(
 	}
 	if(cPoint.y < 0) {
 		cPoint.y = 0;
@@ -1145,15 +1145,15 @@ void CHexEditBase::GetAddressFromPoint(const CPoint& cPt, UINT& nAddress, bool& 
 	}
 
 	if((int)cPoint.x < (int)m_tPaintDetails.nHexPos){
-		cPoint.x = m_tPaintDetails.nHexPos;
-	}
-
-	if((int)cPoint.x > (int)(m_tPaintDetails.nAsciiPos)){
+		cPoint.x = 0;
+	} else if((int)cPoint.x >= (int)(m_tPaintDetails.nAsciiPos)){
 		cPoint.x -= m_tPaintDetails.nAsciiPos;
 		bAscii = true;
-	}
-	else
+	} else {
 		cPoint.x -= m_tPaintDetails.nHexPos;
+		if (cPoint.x >= m_tPaintDetails.nHexLen - DATA_ASCII_SPACE)
+			cPoint.x = m_tPaintDetails.nHexLen - DATA_ASCII_SPACE - 1;
+	}
 
 	UINT nRow = cPoint.y / m_tPaintDetails.nLineHeight;
 	UINT nCharColumn  = cPoint.x / m_tPaintDetails.nCharacterWidth ;
@@ -1170,6 +1170,7 @@ void CHexEditBase::GetAddressFromPoint(const CPoint& cPt, UINT& nAddress, bool& 
 		nAddress = GetDataSize1() - 1;
 		bHighBits = false;
 	}
+	m_bCaretAscii = bAscii;
 }
 
 BOOL CHexEditBase::OnMouseWheel(UINT nFlags, short zDelta, CPoint)
@@ -1288,10 +1289,13 @@ ASSERT(::IsWindow(m_hWnd));
 		nCarretHeight = m_tPaintDetails.nLineHeight;
 	}
 
-	CPoint cCarretPoint(m_tPaintDetails.cPaintingRect.left 
-		- m_nScrollPostionX + m_tPaintDetails.nHexPos 
-		+ (nColumn * 3 + (bHighBits ? 0 : 1)) * m_tPaintDetails.nCharacterWidth,
-		m_tPaintDetails.cPaintingRect.top + 1 + nRow * m_tPaintDetails.nLineHeight);
+	UINT xpos = m_tPaintDetails.cPaintingRect.left - m_nScrollPostionX;
+	if (m_bCaretAscii)
+		xpos += m_tPaintDetails.nAsciiPos + nColumn * m_tPaintDetails.nCharacterWidth;
+	else
+		xpos += m_tPaintDetails.nHexPos + (nColumn * 3 + (bHighBits ? 0 : 1)) * m_tPaintDetails.nCharacterWidth;
+	UINT ypos = m_tPaintDetails.cPaintingRect.top + 1 + nRow * m_tPaintDetails.nLineHeight;
+	CPoint cCarretPoint(xpos,ypos);
 	
 	if( (cCarretPoint.x + (short)m_tPaintDetails.nCharacterWidth <= m_tPaintDetails.cPaintingRect.left-2 ) 
 		|| (cCarretPoint.x > m_tPaintDetails.cPaintingRect.right) ) {
@@ -1495,61 +1499,64 @@ bool CHexEditBase::OnEditInput(WORD nInput)
 	
 	BYTE nValue = 255;
 	char nKey = (char)tolower(nInput);	
-	if( (nKey >= 'a') && (nKey <= 'f') ) {
+	if (m_bCaretAscii) {
+		if (nInput <= 256)
+			nValue = (BYTE)nInput;
+	} else if( (nKey >= 'a') && (nKey <= 'f') ) {
 		nValue = nKey - (BYTE)'a' + (BYTE)0xa;
 	} else if ( (nKey >= '0') && (nKey <= '9') ) {
 		nValue = nKey - (BYTE)'0';
-	}
-	if(nValue != 255) {
-		ASSERT(m_nCurrentAddress <= m_nLength);
-		if (m_nCurrentAddress >= m_nLength || (m_bInsert && m_bHighBits)) {
-			// ensure storage is available for new byte
-			if (m_nLength >= m_nCapacity) { 
-				// increase capacity
-				UINT cap = m_nCapacity + 1 + m_nCapacity/CAPACICTYINCDIVISOR;
-				if (cap > MAXHEXEDITLENGTH || cap <= m_nCapacity)
-					return false;
-				BYTE *data = new BYTE[cap];
-				if (!data)
-					return false;
-				if (m_pData) {
-					if (m_nCurrentAddress > 0)
-						memcpy(data, m_pData, m_nCurrentAddress);
-					if (m_nCurrentAddress < m_nLength)
-						memcpy(data    + m_nCurrentAddress + 1, 
-							   m_pData + m_nCurrentAddress, 
-							   m_nLength - m_nCurrentAddress);
-				}
-				m_nCapacity = cap;
-				if (m_bDeleteData) 
-					delete []m_pData;
-				m_pData = data;
-			} else {
-				// no capacity increase necessary
+	} else
+		return false;
+	ASSERT(m_nCurrentAddress <= m_nLength);
+	if (m_nCurrentAddress >= m_nLength || (m_bInsert && (m_bCaretAscii || m_bHighBits))) {
+		// ensure storage is available for new byte
+		if (m_nLength >= m_nCapacity) { 
+			// increase capacity
+			UINT cap = m_nCapacity + 1 + m_nCapacity/CAPACICTYINCDIVISOR;
+			if (cap > MAXHEXEDITLENGTH || cap <= m_nCapacity)
+				return false;
+			BYTE *data = new BYTE[cap];
+			if (!data)
+				return false;
+			if (m_pData) {
+				if (m_nCurrentAddress > 0)
+					memcpy(data, m_pData, m_nCurrentAddress);
 				if (m_nCurrentAddress < m_nLength)
-					memmove(m_pData + m_nCurrentAddress + 1, 
+					memcpy(data    + m_nCurrentAddress + 1, 
 							m_pData + m_nCurrentAddress, 
 							m_nLength - m_nCurrentAddress);
 			}
-			m_pData[m_nCurrentAddress] = 0;
-			m_nLength++;
-			m_bRecalc = true;
-		}
-		if(m_bHighBits) {
-			nValue <<= 4;
-			m_pData[m_nCurrentAddress] &= 0x0f;
-			m_pData[m_nCurrentAddress] |= nValue;
-			MoveCurrentAddress(0, false);
+			m_nCapacity = cap;
+			if (m_bDeleteData) 
+				delete []m_pData;
+			m_pData = data;
 		} else {
-			m_pData[m_nCurrentAddress] &= 0xf0;
-			m_pData[m_nCurrentAddress] |= nValue;
-			MoveCurrentAddress(1, true);
+			// no capacity increase necessary
+			if (m_nCurrentAddress < m_nLength)
+				memmove(m_pData + m_nCurrentAddress + 1, 
+						m_pData + m_nCurrentAddress, 
+						m_nLength - m_nCurrentAddress);
 		}
-		Invalidate();
-		NotifyParent(HEN_CHANGE);
-	} else {
-		return false;
+		m_pData[m_nCurrentAddress] = 0;
+		m_nLength++;
+		m_bRecalc = true;
 	}
+	if (m_bCaretAscii) {
+		m_pData[m_nCurrentAddress] = nValue;
+		MoveCurrentAddress(1, true, true);
+	} else if(m_bHighBits) {
+		nValue <<= 4;
+		m_pData[m_nCurrentAddress] &= 0x0f;
+		m_pData[m_nCurrentAddress] |= nValue;
+		MoveCurrentAddress(0, false, true);
+	} else {
+		m_pData[m_nCurrentAddress] &= 0xf0;
+		m_pData[m_nCurrentAddress] |= nValue;
+		MoveCurrentAddress(1, true, true);
+	}
+	Invalidate();
+	NotifyParent(HEN_CHANGE);
 	return true;
 }
 
@@ -1626,8 +1633,13 @@ LRESULT CHexEditBase::OnWMChar(WPARAM wParam, LPARAM)
 BOOL CHexEditBase::PreTranslateMessage(MSG* pMsg) 
 {
 	if(pMsg->message == WM_KEYDOWN) {
-		if(GetKeyState(VK_CONTROL) & 0x80000000) {
-			switch(pMsg->wParam) {			
+		bool bIsShift = (GetKeyState(VK_SHIFT) & 0x80000000) == 0x80000000;
+		bool bIsControl = (GetKeyState(VK_CONTROL) & 0x80000000) == 0x80000000;
+		bool bIsAlt = (GetKeyState(VK_MENU) & 0x80000000) == 0x80000000;
+		WPARAM key = pMsg->wParam;
+
+		if(bIsControl) {
+			switch(key) {			
 			case 'X': // ctrl + x: cut
 				OnEditCut();
 				return TRUE;
@@ -1639,6 +1651,71 @@ BOOL CHexEditBase::PreTranslateMessage(MSG* pMsg)
 				return TRUE;
 			case 'A': // ctrl + a: select all
 				OnEditSelectAll();
+				return TRUE;
+			}
+		} else { // !bIsControl
+			if( bIsShift && (m_nSelectingBeg == NOSECTION_VAL) ) {
+				// start with selecting
+				m_nSelectingBeg = m_nCurrentAddress;
+			}
+			switch(key) {			
+			case VK_DOWN:
+				MoveCurrentAddress(m_tPaintDetails.nBytesPerRow, m_bHighBits);
+				return TRUE;
+			case VK_UP:
+				MoveCurrentAddress(-(int)m_tPaintDetails.nBytesPerRow, m_bHighBits);
+				return TRUE;
+			case VK_RIGHT:
+				if (m_bCaretAscii) {
+					MoveCurrentAddress(1, true);
+				} else if(m_bHighBits) {
+					// offset stays the same, caret moves to low-byte
+					MoveCurrentAddress(0, false);
+				} else {
+					MoveCurrentAddress(1, true);
+				}
+				return TRUE;
+			case VK_LEFT:
+				if (m_bCaretAscii) {
+					MoveCurrentAddress(-1, true);
+				} else if(!m_bHighBits) {
+					// offset stays the same, caret moves to high-byte
+					MoveCurrentAddress(0, true);
+				} else {
+					MoveCurrentAddress(-1, false);
+				}
+				return TRUE;
+			case VK_PRIOR:
+				MoveCurrentAddress(-(int)(m_tPaintDetails.nBytesPerRow*(m_tPaintDetails.nVisibleLines-1)), m_bHighBits);
+				return TRUE;
+			case VK_NEXT:
+				MoveCurrentAddress(m_tPaintDetails.nBytesPerRow*(m_tPaintDetails.nVisibleLines-1), m_bHighBits);
+				return TRUE;
+			case VK_HOME:
+				MoveCurrentAddress(-0x8000000, true);
+				return TRUE;
+			case VK_END:
+				MoveCurrentAddress(0x7ffffff, false);
+				return TRUE;
+			case VK_INSERT:
+				m_bInsert = !m_bInsert;
+				SetEditCaretPos(m_nCurrentAddress, m_bHighBits);
+				Invalidate();
+				return TRUE;
+			//case VK_RETURN:
+				// not suported yet
+				//return TRUE;
+			case VK_TAB:
+				if (m_bShowAscii && !m_bCaretAscii == !bIsShift) {
+					m_bCaretAscii = !m_bCaretAscii;
+					SetEditCaretPos(m_nCurrentAddress, m_bHighBits);
+					Invalidate();
+				} else
+					GetParent()->GetNextDlgTabItem(this, bIsShift)->SetFocus();
+				return TRUE;
+			case VK_DELETE:
+			case VK_BACK:
+				OnDelete(pMsg->wParam);
 				return TRUE;
 			}
 		}
@@ -1677,9 +1754,9 @@ void CHexEditBase::SetScrollPositionX(UINT nPosition, bool bUpdate)
 	m_nScrollPostionX = nPosition;
 }
 
-void CHexEditBase::MoveCurrentAddress(int iDeltaAdr, bool bHighBits)
+void CHexEditBase::MoveCurrentAddress(int iDeltaAdr, bool bHighBits, bool bIgnoreShift)
 {
-	bool bIsShift = (GetKeyState(VK_SHIFT) & 0x80000000) == 0x80000000;
+	bool bExtendSelection = !bIgnoreShift && (GetKeyState(VK_SHIFT) & 0x80000000) == 0x80000000;
 
 	if(m_pData == NULL) {
 		return;
@@ -1687,7 +1764,7 @@ void CHexEditBase::MoveCurrentAddress(int iDeltaAdr, bool bHighBits)
 		
 	UINT nAddress = m_nCurrentAddress;
 
-	if(!bIsShift) {
+	if(!bExtendSelection) {
 		m_nSelectingBeg = NOSECTION_VAL;
 		m_nSelectionBegin = NOSECTION_VAL;
 		m_nSelectingEnd = NOSECTION_VAL;
@@ -1710,7 +1787,7 @@ void CHexEditBase::MoveCurrentAddress(int iDeltaAdr, bool bHighBits)
 			bHighBits = true;
 		}
 	} 
-	if(bIsShift && (m_nSelectingBeg != NOSECTION_VAL)) {
+	if(bExtendSelection && (m_nSelectingBeg != NOSECTION_VAL)) {
 		m_nSelectingEnd = nAddress;
 		m_nSelectionBegin = m_nSelectingBeg;
 		m_nSelectionEnd = m_nSelectingEnd;
@@ -1722,65 +1799,6 @@ void CHexEditBase::MoveCurrentAddress(int iDeltaAdr, bool bHighBits)
 
 void CHexEditBase::OnKeyDown(UINT nChar, UINT, UINT) 
 {
-	bool bIsShift = (GetKeyState(VK_SHIFT) & 0x80000000) == 0x80000000;
-
-	
-	if( bIsShift && (m_nSelectingBeg == NOSECTION_VAL) ) {
-		// start with selecting
-		m_nSelectingBeg = m_nCurrentAddress;
-	}
-
-	switch(nChar) {
-	case VK_DOWN:
-		MoveCurrentAddress(m_tPaintDetails.nBytesPerRow, m_bHighBits);
-		break;
-	case VK_UP:
-		MoveCurrentAddress(-(int)m_tPaintDetails.nBytesPerRow, m_bHighBits);
-		break;
-	case VK_RIGHT:
-		if(m_bHighBits) {
-			// offset stays the same, caret moves to low-byte
-			MoveCurrentAddress(0, false);
-		} else {
-			MoveCurrentAddress(1, true);
-		}
-		break;
-	case VK_LEFT:
-		if(!m_bHighBits) {
-			// offset stays the same, caret moves to high-byte
-			MoveCurrentAddress(0, true);
-		} else {
-			MoveCurrentAddress(-1, false);
-		}
-		break;
-	case VK_PRIOR:
-		MoveCurrentAddress(-(int)(m_tPaintDetails.nBytesPerRow*(m_tPaintDetails.nVisibleLines-1)), m_bHighBits);
-		break;
-	case VK_NEXT:
-		MoveCurrentAddress(m_tPaintDetails.nBytesPerRow*(m_tPaintDetails.nVisibleLines-1), m_bHighBits);
-		break;
-	case VK_HOME:
-		MoveCurrentAddress(-0x8000000, true);
-		break;
-	case VK_END:
-		MoveCurrentAddress(0x7ffffff, false);
-		break;
-	case VK_INSERT:
-		m_bInsert = !m_bInsert;
-		SetEditCaretPos(m_nCurrentAddress, m_bHighBits);
-		Invalidate();
-		break;
-	case VK_DELETE:
-	case VK_BACK:
-		OnDelete(nChar);
-		break;
-	case VK_RETURN:
-		// not suported yet
-		break;
-	case VK_TAB:
-		GetParent()->GetNextDlgTabItem(this, bIsShift)->SetFocus();
-		break;
-	}
 }
 
 void CHexEditBase::OnContextMenu(CWnd*, CPoint cPoint)
