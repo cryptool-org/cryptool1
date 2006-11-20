@@ -295,7 +295,7 @@ void AESCrypt (const char* infile, const char *OldTitle, int AlgId, bool Enc_Or_
     if( tag==0 && mode == DIR_DECRYPT)
 	{	                           // Entschlüsselung ausgewählt
 		// Padding entfernen
-		for(datalen--; 0 == bcip[datalen]; datalen--);
+		for(datalen--; 0 == bcip[datalen]; datalen--); // FIXME: ensure datalen >= 0
 	}
 	if( tag==1 && !Enc_Or_Dec)
 	{	                           // Entschlüsselung ausgewählt
