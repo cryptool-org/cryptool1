@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -10268,7 +10268,7 @@ BEGIN
     IDS_STRING_SIG_ATT_BAD_BITLENGTH 
                             "Für den eingestellten Hash-Algorithmus muss die signifikante Bitlänge zwischen 1 und %d liegen."
     IDS_STRING_SIG_ATT_DOCUMENTS_FOUND 
-                            "Der Angriff war erfolgreich: Es wurden zwei\nNachrichten gefunden, deren Hashwert innerhalb der ersten %d Bits identisch ist."
+                            "Der Angriff war erfolgreich: Es wurden zwei Nachrichten gefunden, deren Hashwert innerhalb der ersten %d Bits identisch ist."
     IDS_STRING_SIG_ATT_RUN_NUMBER "Run Nr."
     IDS_STRING_SIG_ATT_NO_DOCUMENTS_FOUND 
                             "Der Angriff schlug fehl: Es konnte kein Nachrichtenpaar gefunden werden."
@@ -11243,12 +11243,12 @@ BEGIN
     IDS_CLIPBOARD_HEXPASTE  "Die Zwischenablage enthält ausschließlich Hexadezimal-Zeichen.\nDiese können entweder decodiert (Standard) oder unverändert eingefügt werden.\n\nSollen die hexadezimalen Daten decodiert werden?"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -22586,7 +22586,7 @@ BEGIN
     IDS_CLIPBOARD_HEXPASTE  "The clipboard contains hexadecimal characters only. They can be inserted decoded (default) or unchanged.\n\nDecode hexadecimal data?"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
