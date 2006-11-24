@@ -47,6 +47,9 @@
 #define IDS_STRING_HILL_DETAILS_DIM     32
 #define IDS_STRING_HILL_DETAILS_CHARS   33
 #define IDS_STRING_HILL_DETAILS_FIRSTPOS 34
+#define IDS_CLIPBORD_COPY_ERROR         35
+#define IDS_CLIPBOARD_HEXCOPY           36
+#define IDS_CLIPBOARD_HEXPASTE          37
 #define IDC_EDIT53                      53
 #define IDC_EDIT69                      54
 #define IDC_EDIT88                      55
