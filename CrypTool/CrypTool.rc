@@ -4653,10 +4653,10 @@ BEGIN
     CONTROL         834,IDC_STATIC,"Static",SS_BITMAP,287,372,59,29
 END
 
-IDD_AUTO_SUBSTITUTION_ANALYSIS_ALGORITHM_CHOICE DIALOG  0, 0, 318, 237
+IDD_AUTO_SUBSTITUTION_ANALYSIS_ALGORITHM_CHOICE DIALOGEX 0, 0, 318, 237
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Auswahl automatische Substitutionsanalyse"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,216,50,14
     PUSHBUTTON      "Abbrechen",IDCANCEL,261,216,50,14
@@ -4670,10 +4670,10 @@ BEGIN
                     IDC_STATIC,7,5,304,210,WS_GROUP
     LTEXT           "Der Algorithmus analysiert die Häufigkeit einzelner Digramme im verschlüsselten Text und versucht, anhand einer Standardverteilung den Schlüssel zu erraten.",
                     IDC_STATIC,30,35,251,21
-    LTEXT           "Eine automatische Sprachenerkennung ist eingebaut. Das Verfahren arbeitet auch auf verschlüsselten Texten, die keine Leerzeichen enthalten. Dieses Vefahren eignet sich am besten für die Analyse längerer Texte.",
-                    IDC_STATIC,30,55,251,29
+    LTEXT           "Dieses Vefahren eignet sich am besten für die Analyse längerer Texte.\nEine automatische Spracherkennung ist eingebaut. Das Verfahren arbeitet auch auf verschlüsselten Texten, die keine Leerzeichen enthalten.",
+                    IDC_STATIC,30,55,251,33
     LTEXT           "Quelle: Thomas Jakobsen ""A Fast Method for the Cryptanalysis of Substitution Ciphers"", Cryptologia 19:3, 1995",
-                    IDC_STATIC,30,83,251,19
+                    IDC_STATIC,30,85,251,19
     LTEXT           "Bei jeder möglichen Zuordnung ergibt sich daraus eine (partielle) Substitution. Durch einen Suchbaum wird diejenige Substitution ermittelt, die mit den meisten partiellen Substitutionen verträglich ist.",
                     IDC_STATIC,29,145,265,26
     LTEXT           "Quelle: George W. Hart ""To Decode Short Cryptograms"", Communications of the ACM, Sept 1994, Vol 37, No.4",
@@ -11035,7 +11035,7 @@ BEGIN
     IDS_MONO_SUBST_AUTO_FILE_OPEN_ERROR 
                             "Der  Analysevorgang wird abgebrochen, da ein Fehler beim Öffnen der folgenden Datei aufgetreten ist:\n "
     IDS_MONO_SUBST_AUTO_LANGREC_FAILED 
-                            "Die automatische Sprachenerkennung ist fehlgeschlagen, \nda der eingegebene Text entweder zu kurz ist oder die charakteristischen Eigenschaften \n(Buchstabenhäufigkeiten) nicht eindeutig einer Sprache zuzuordnen sind. \nBitte wählen Sie die Sprache explizit."
+                            "Die automatische Spracherkennung ist fehlgeschlagen, \nda der eingegebene Text entweder zu kurz ist oder die charakteristischen Eigenschaften \n(Buchstabenhäufigkeiten) nicht eindeutig einer Sprache zuzuordnen sind. \nBitte wählen Sie die Sprache explizit."
     IDS_MONO_SUBST_AUTO_MANUAL_ANALYSIS_NOT_POSS 
                             "Manuelle Analyse ist nicht möglich, \nda das Leerzeichen substituiert wurde \n(d.h. durch einen anderen Buchstaben ersetzt)."
     IDS_BAD_KEY             "Mindestens ein Zeichen des in die Zwischenablage kopierten Schlüssels\nist nicht im aktuell eingestellten Alphabet enthalten, der Schlüssel\nkann daher nicht verwendet werden!"
@@ -13806,7 +13806,7 @@ BEGIN
                     BS_AUTORADIOBUTTON,30,61,121,10
     CONTROL         "Manual analysis.",IDC_RADIO3,"Button",
                     BS_AUTORADIOBUTTON,30,178,71,9
-    CONTROL         "Manual Analysis using the stored key.",IDC_RADIO4,
+    CONTROL         "Manual analysis using the stored key.",IDC_RADIO4,
                     "Button",BS_AUTORADIOBUTTON | WS_GROUP,30,191,150,8
     CONTROL         "Use 'e' as most frequent character.",IDC_CHECK1,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,30,102,168,8
@@ -14970,7 +14970,7 @@ BEGIN
     PUSHBUTTON      "Cancel",IDC_CANCELATTACK,406,345,64,14,WS_DISABLED
     EDITTEXT        IDC_EDITP,25,403,222,14,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDITQ,267,403,203,14,ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "Show Logfile",IDC_BUTTONLOG2,297,432,66,14
+    PUSHBUTTON      "Show log file",IDC_BUTTONLOG2,297,432,66,14
     PUSHBUTTON      "Close dialog",IDC_BUTTON1,413,432,57,14
     LTEXT           "N:",IDC_STATIC,14,139,8,8
     LTEXT           "e:",IDC_STATIC,14,156,8,8
@@ -15821,10 +15821,10 @@ BEGIN
     CONTROL         834,IDC_STATIC,"Static",SS_BITMAP,287,372,59,29
 END
 
-IDD_AUTO_SUBSTITUTION_ANALYSIS_ALGORITHM_CHOICE DIALOG  0, 0, 318, 237
+IDD_AUTO_SUBSTITUTION_ANALYSIS_ALGORITHM_CHOICE DIALOGEX 0, 0, 318, 237
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Selection automatic substitution analysis"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,216,50,14
     PUSHBUTTON      "Abbrechen",IDCANCEL,261,216,50,14
@@ -15838,7 +15838,7 @@ BEGIN
                     IDC_STATIC,7,5,304,210,WS_GROUP
     LTEXT           "This method analyses the frequency of digrams in the cyphertext and guesses the key based on a standard digram distribution.",
                     IDC_STATIC,30,35,251,19
-    LTEXT           "Automatic language recognition is included. Processing of texts that do not contain space characters is also possible. The method is suited best for longer texts.",
+    LTEXT           "The method is suited best for longer texts.\nAutomatic language recognition is included. Processing of texts that do not contain space characters is also possible.",
                     IDC_STATIC,30,54,251,29
     LTEXT           "Source: Thomas Jakobsen ""A Fast Method for the Cryptanalysis of Substitution Ciphers"", Cryptologia 19:3, 1995",
                     IDC_STATIC,30,83,251,19
