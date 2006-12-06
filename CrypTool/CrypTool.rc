@@ -407,10 +407,10 @@ BEGIN
                     IDC_STATIC,13,11,219,8
 END
 
-IDD_OPTIONS_SUBSTITUTION_ANALYSIS DIALOG  0, 0, 227, 239
+IDD_OPTIONS_SUBSTITUTION_ANALYSIS DIALOGEX 0, 0, 227, 239
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Substitutionsanalyse"
-FONT 8, "MS Sans Serif"
+CAPTION "Automatische Substitutionsanalyse 2 - Optionen"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&Starten",IDOK,10,213,50,17
     PUSHBUTTON      "&Abbrechen",IDCANCEL,166,213,50,17
@@ -4710,10 +4710,10 @@ BEGIN
                     ES_READONLY | NOT WS_BORDER
 END
 
-IDD_OPTIONS_SUBSTITUTION_AUTO_ANALYSIS DIALOG  0, 0, 212, 102
+IDD_OPTIONS_SUBSTITUTION_AUTO_ANALYSIS DIALOGEX 0, 0, 212, 102
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Automatische Substitutionsanalyse - Optionen"
-FONT 8, "MS Sans Serif"
+CAPTION "Automatische Substitutionsanalyse 1 - Optionen"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,81,50,14
     PUSHBUTTON      "Abbrechen",IDCANCEL,155,81,50,14
@@ -4721,10 +4721,10 @@ BEGIN
     CONTROL         "Das Leerzeichen wurde substituiert",
                     IDC_ALPHABET_SPACE_CHECK,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,21,13,169,13
-    LTEXT           "(d.h. durch einen anderen Buchstaben ersetzt)",
+    LTEXT           "(d.h. durch einen anderen Buchstaben ersetzt).",
                     IDC_STATIC,33,26,156,11
     GROUPBOX        "GUI",IDC_STATIC,7,44,198,29
-    CONTROL         "Zwischenergebnisse nicht anzeigen (schneller)",
+    CONTROL         "Zwischenergebnisse nicht anzeigen (schneller).",
                     IDC_NOGUI,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,22,56,
                     169,10
 END
@@ -10978,7 +10978,7 @@ BEGIN
     IDS_CRT_SECRETSHARING_NOSUCCESS2 
                             "Mindestens ein Passwort war falsch.\r\n\r\n----- Rekonstruktion gescheitert -----\r\n\r\n"
     IDS_MONO_SUBST_AUTO_SHORT_TEXT_WARNING 
-                            "Der eingegebene Text ist zu kurz, um verlässliche Ergebnisse zu produzieren. \nErfahrungsgemäß braucht das Jakobsen-Verfahren eine Textlänge von mindestens 300 Zeichen. \nSollte die automatische Analyse fehlschlagen, versuchen Sie es bitte mit der manuellen Analyse."
+                            "Der eingegebene Text ist zu kurz, um verlässliche Ergebnisse zu produzieren. \nWie Versuche zeigen, braucht das Jakobsen-Verfahren eine Textlänge von mindestens 300 Zeichen. \nSollte die automatische Analyse fehlschlagen, können Sie es mit der manuellen Analyse versuchen."
     IDS_MONO_SUBST_AUTO_STAT_ANALYSIS_IS_RUNNING 
                             "Die statistische Textanalyse wird durchgeführt. Bitte warten Sie..."
     IDS_MONO_SUBST_AUTO_FILE_CONTENT_ERROR "Fehler in der Statistikdatei:\n"
@@ -13793,10 +13793,10 @@ BEGIN
     RTEXT           "Verification:",IDC_STATIC,15,157,37,12
 END
 
-IDD_OPTIONS_SUBSTITUTION_ANALYSIS DIALOG  0, 0, 229, 242
+IDD_OPTIONS_SUBSTITUTION_ANALYSIS DIALOGEX 0, 0, 229, 242
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Substitution Analysis"
-FONT 8, "MS Sans Serif"
+CAPTION "Automatic Substitution Analysis 2 - Options"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&Start",IDOK,10,215,50,17
     PUSHBUTTON      "&Cancel",IDCANCEL,168,215,50,17
@@ -15823,14 +15823,14 @@ END
 
 IDD_AUTO_SUBSTITUTION_ANALYSIS_ALGORITHM_CHOICE DIALOGEX 0, 0, 318, 237
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Selection automatic substitution analysis"
+CAPTION "Selection Automatic Substitution Analysis"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,216,50,14
     PUSHBUTTON      "Abbrechen",IDCANCEL,261,216,50,14
     CONTROL         "Method based on the frequency analysis of digrams in the text",
                     IDC_ALG_DIGRAM,"Button",BS_AUTORADIOBUTTON,18,19,256,17
-    CONTROL         "Method based on the recognition of the most frequent words of a langu<age",
+    CONTROL         "Method based on the recognition of the most frequent words of a language",
                     IDC_ALG_WORD,"Button",BS_AUTORADIOBUTTON,18,117,256,15
     LTEXT           "This method is based on a list of the most frequent words of a particular language. The words of the ciphertext are compared (according to their pattern) with the words of the list.",
                     IDC_STATIC,30,132,265,28
@@ -15848,10 +15848,10 @@ BEGIN
                     IDC_STATIC,30,188,265,21
 END
 
-IDD_AUTO_SUBSTITUTION_ANALYSIS DIALOG  0, 0, 394, 321
+IDD_AUTO_SUBSTITUTION_ANALYSIS DIALOGEX 0, 0, 394, 321
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Automatic substitution analysis"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "Accept substitution",IDOK,7,300,86,14
     GROUPBOX        "Current substitution (key)",IDC_STATIC,7,7,246,37
@@ -15860,7 +15860,7 @@ BEGIN
     LTEXT           "ABCDEFGHIJKLMNOPQRSTUVWXYZ",IDC_SUBST_KEY,43,29,150,10
     GROUPBOX        "Language recognition information",IDC_STATIC,259,48,128,
                     26
-    GROUPBOX        "Current substition result",IDC_STATIC,7,80,380,212
+    GROUPBOX        "Current substitution result",IDC_STATIC,7,80,380,212
     LTEXT           "German",IDC_SUBST_LANGINFO,274,60,90,11
     EDITTEXT        IDC_SUBST_TEXT,13,91,368,195,ES_MULTILINE | 
                     ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
@@ -15876,10 +15876,10 @@ BEGIN
     DEFPUSHBUTTON   "Manual analysis",IDC_MANUAL,197,300,86,14
 END
 
-IDD_OPTIONS_SUBSTITUTION_AUTO_ANALYSIS DIALOG  0, 0, 212, 102
+IDD_OPTIONS_SUBSTITUTION_AUTO_ANALYSIS DIALOGEX 0, 0, 212, 102
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Automatic Substitution Analysis - Options"
-FONT 8, "MS Sans Serif"
+CAPTION "Automatic Substitution Analysis 1 - Options"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,81,50,14
     PUSHBUTTON      "Cancel",IDCANCEL,155,81,50,14
@@ -15887,10 +15887,10 @@ BEGIN
     CONTROL         "The SPACE character was also substituted",
                     IDC_ALPHABET_SPACE_CHECK,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,21,13,169,13
-    LTEXT           "(i.e. the encryption alphabet contains ""SPACE"")",
+    LTEXT           "(i.e. the encryption alphabet contains ""SPACE"").",
                     IDC_STATIC,33,26,156,11
     GROUPBOX        "GUI",IDC_STATIC,7,44,198,29
-    CONTROL         "Do not show intermediate results (faster)",IDC_NOGUI,
+    CONTROL         "Do not show intermediate results (faster).",IDC_NOGUI,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,22,56,169,10
 END
 
@@ -20747,7 +20747,7 @@ BEGIN
     IDS_STRING_ADFGVX_CHAR_EXISTS_1A "The character '"
     IDS_STRING_ADFGVX_CHAR_EXISTS_1B "The character '"
     IDS_STRING_ADFGVX_CHAR_EXISTS_2 
-                            "' was already assigned. \nDo you want to retain the new entry? \nyes: The old entry will be deleted.\n\nNo: Undo the changes."
+                            "' was already assigned. \nDo you want to retain the new entry? \n\nYes: The old entry will be deleted.\n\nNo: Undo the changes."
     IDS_STRING_ADFGVX_ERROR_1 "Please enter password!"
 END
 
@@ -22329,7 +22329,7 @@ BEGIN
     IDS_CRT_SECRETSHARING_NOSUCCESS2 
                             "At least one wrong key has been entered.\r\n\r\n----- Reconstruction failed -----\r\n\r\n"
     IDS_MONO_SUBST_AUTO_SHORT_TEXT_WARNING 
-                            "Input text is too short to produce reliable results. \nAs expirience shows, the Jakobsen algorithm needs at least 300 characters. \nIf the autoanalysis fails, try to analyse this text manually."
+                            "Input text is too short to produce reliable results. \nAs experiments show, the Jakobsen algorithm needs at least 300 characters. \nIf the automatic analysis fails, you can try to analyse this cipher text manually."
     IDS_MONO_SUBST_AUTO_STAT_ANALYSIS_IS_RUNNING 
                             "The statistic analysis of the text is running. Please wait..."
     IDS_MONO_SUBST_AUTO_FILE_CONTENT_ERROR "Error in the statisitc file: \n"

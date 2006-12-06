@@ -17,137 +17,155 @@
 		<h3>Substitution (Menü <A href="menu_analyze.html">Analyse</A> \ Symmetrische 
 			Verschlüsselung (klassisch) \ Ciphertext only)</h3>
 		<P>
-			<A href="#introduction">Einleitung</A><br>
-			<A href="#implementation">Implementierte Verfahren</A><br>
-			<A href="#automaticanalysis">Automatische Kryptoanalyse</A><br>
-			<A href="#speechrecognition">Spracherkennung</A><br>
-			<A href="#usage">Benutzung</A><br>
-			<A href="#constraints">Bekannte Einschränkungen</A><br>
-		</P>
-		<h3><A name="introduction">Einleitung</h3>
-		<P>In CrypTool sind 2 Verfahren zur <B>automatischen Kryptoanalyse monoalphabetischer 
-				Substitutionschiffren</B> implementiert. Das erste (und schwächere) 
-			Verfahren basiert auf der Erkennung der häufigsten Wörter einer Sprache und hat 
-			u.a. folgende Einschränkungen: Keine automatische Spracherkennung, 
-			Notwendigkeit zum Erhalten der Leerzeichen im Chiffretext, keine Unterscheidung 
-			der Groß-/Kleinschreibung.</P>
-		<P>Die zweite Implementierung basiert auf der Arbeit von Thomas Jakobsen "A Fast 
-			Method for the Cryptanalysis of Substitution Ciphers" (Cryptologia 19:3, 1995). 
-			Dieses neue Verfahren sollte folgende Vorteile mit sich bringen:</P>
-		<UL>
-			<LI>
-				bessere Entschlüsselungsraten,</LI>
-			<LI>
-				Geschwindigkeitszuwachs,</LI>
-			<LI>
-				Entschlüsselung von Chiffretexten mit und ohne Leerzeichen.</LI>
-		</UL>
-		<P>Der Algorithmus arbeitet auf dem lateinischen Alphabet mit 26 Buchstaben 
-			(A...Z). Das feste Verschlüsselungsalphabet kann durch das Leerzeichen 
-			erweitert werden, so dass das Leerzeichen wie andere Buchstaben verschlüsselt 
-			(d.h., auf einen anderen Buchstaben abgebildet) wird. Umlaute, Satzzeichen und 
-			Sonderzeichen werden standardmäßig beibehalten. Ebenso wird die 
-			Groß-/Kleinschreibung bei der Entschlüsselung des Textes beibehalten.</P>
-		<P>Des Weiteren wurde die zweite Implementierung um einen Algorithmus zur 
-			automatischen Spracherkennung erweitert. Das implementierte Verfahren basiert 
-			auf der Berechnung der Zeichenkoinzidenz (englisch: "index of coincidence", 
-			nach W. F. Friedman, 1922).</P>
-		<h3><A name="implementation">Implementierte Verfahren</h3>
-		<h4><A name="automaticanalysis">Automatische Kryptoanalyse</h4>
-		<P>Das zweite Kryptoanalyseverfahren führt eine Häufigkeitsanalyse des Textes 
-			durch, wobei die Häufigkeitsverteilungen einzelner Buchstaben und Digramme im 
-			Chiffretext berechnet werden. Die Häufigkeitsverteilung einzelner Buchstaben 
-			wird zum Errechnen des Initialwerts für den Schlüssel benutzt. Die 
-			Häufigkeitsverteilung der Digramme wird für die Güteberechnung des jeweiligen 
-			Schlüssels verwendet. Das Verfahren basiert auf einem schnellen Algorithmus, 
-			der am Anfang der Kryptoanalyse eines Chiffretextes einen Initialwert für den 
-			Schlüssel errechnet und in folgenden Iterationen diesen Schlüssel verfeinert. 
-			In jeder Iteration wird entschieden, ob die Verfeinerung des Schlüssels einen 
-			"besseren" Wert gebracht hat und wenn ja, wird dieser Wert für die weitere 
-			Berechnung übernommen.</P>
-		<P>Die höhere Geschwindigkeit des Verfahrens basiert vor allem auf einer 
-			Verteilungsmatrix für Digramme und nicht direkt auf dem Chiffretext. Bei der 
-			Schlüsselsuche werden die Häufigkeiten einzelner Buchstaben berücksichtigt.</P>
-		<P>Die Berechnung der "Güte" des Schlüssels basiert auf dem Vergleich der 
-			Digramm-Häufigkeitsverteilung des vorliegenden Chiffretextes mit der 
-			Häufigkeitsverteilung der Referenztexte in der Zielsprache (in unserem Fall 
-			Englisch bzw. Deutsch). Der Abweichungswert wird durch das Aufsummieren der 
-			Abweichungen aller einzelnen Digramme berechnet. Je kleiner dieser Wert ist, um 
-			so "besser" ist der Entschlüsselungsschlüssel. Im Idealfall sollte gar keine 
-			Abweichung beider Verteilungen festzustellen sein. Dies kommt jedoch in der 
-			Praxis kaum vor, da jeder Text seine eigene Häufigkeitsverteilung der Digramme 
-			besitzt, die sich von der Referenzverteilung unterscheidet. Die Strategie des 
-			Algorithmus ist somit die Minimierung der vorhandenen Abweichung.</P>
-		<P>Die vorliegende Implementierung benutzt als Referenzdatei die CrypTool 
-			Referenzdatei für statistische Auswertungen, die über den Menüeintrag <A href="menu_options.html">
-				Optionen</A> \ <A href="hid_opttext.html">Textoptionen</A> gefunden werden 
-			kann.</P>
-		<P>Laut dem Autor des Algorithmus (Jakobsen) ist dieses Verfahren erheblich 
-			schneller als andere bekannte Verfahren wie Carroll-Robbins und King-Bahler. 
-			Der Algorithmus soll nach Angaben des Autors in 98% aller Fälle erfolgreich 
-			sein (bezogen auf 400 Zeichen lange Chiffretexte).</P>
-		<P>Nähere Informationen über das implementierte Verfahren finden Sie in der Arbeit 
-			von Thomas Jakobsen "A Fast Method for the Cryptanalysis of Substitution 
-			Ciphers" (Cryptologia 19:3, 1995).</P>
-		<h4><A name="speechrecognition">Sprachenerkennung</h4>
-		<P>Die Unterscheidung, in welcher Sprache ein Chiffretext ursprünglich verfasst 
-			war, ist leichter als die Kryptoanalyse dieses Textes ohne Kenntnis des 
-			Schlüssels. Dies wurde bereits 1922 von W. F. Friedman gezeigt. Zur Bestimmung 
-			der Sprache wird die sogenannte Zeichenkoinzidenz verwendet, deren Wert 
-			charakteristisch für eine bestimmte Sprache ist. Die Zeichenkoinzidenz wird 
-			über die Häufigkeiten des Auftretens einzelner Zeichen im Chiffretext 
-			berechnet.</P>
-		<P>An dieser Stelle sei erwähnt, dass auch die Sprachenerkennung, die auf der 
-			Berechnung der Zeichenkoinzidenz basiert, nicht immer genaue Ergebnisse liefern 
-			kann. Der Grund hierfür ist die Streuung der Buchstabenhäufigkeiten für 
-			verschiedene Texte, die sich deutlich von Referenzwerten einer Sprache 
-			unterscheiden können.</P>
-		<h3><A name="usage">Benutzung</h3>
-		<P>Zuerst wird dem Benutzer über folgenden Dialog ermöglicht, den neuen (zweiten) 
-			oder alten (ersten) Algorithmus zur Substitutionsanalyse auszuwählen:</P>
-		<P><IMG SRC="images/automaticAnalysisSubstitutionSelection.gif" ALT="images/automaticAnalysisSubstitutionSelection.gif"
-				BORDER="0"></P>
-		<p><u>Bedienung des zweiten Verfahrens</u></p>
-		<P>Standardmäßig ist der neue Algorithmus selektiert (Digramm-Analyse). Nach dem 
-			Start des neuen Algorithmus wird folgender Dialog präsentiert, in dem der 
-			Benutzer Einstellungen für die bevorstehende Kryptoanalyse vornehmen kann.</P>
-		<P><IMG SRC="images/automaticAnalysisSubstitutionOptions.gif" ALT="images/automaticAnalysisSubstitutionOptions.gif"
-				BORDER="0"></P>
-		<P>Benutzer können im Optionendialog angeben, ob das Leerzeichen im verschlüsselten 
-			Text mit einem anderen Buchstaben substituiert wurde (d.h. das Leerzeichen 
-			gehört dann zum Verschlüsselungsalphabet). Zusätzlich kann der Benutzer das 
-			Analyse-GUI für die Berechnungszeit komplett ausschalten und sich nur das 
-			Endergebnis anzeigen lassen. Die Aktivierung dieser Option bringt einen 
-			Geschwindigkeitszuwachs mit sich, da nicht mehr jeder erfolgreich 
-			 entschlüsselte Text auf dem Bildschirm ausgegeben werden muss.</P>
-		<P>Ist der zu analysierende Text zu kurz (weniger als 200 zum Alphabet gehörende 
-			Zeichen), erscheint die folgende Warnung:</P>
-		<P><IMG SRC="images/automaticAnalysisSubstitutionWarning.gif" ALT="images/automaticAnalysisSubstitutionWarning.gif"
-				BORDER="0"></P>
-		<P>Das Endergebnis wird in einem weiteren Fenster angezeigt (nächstes Bild). Wurde 
-			das GUI im Einstellungsdialog nicht deaktiviert, werden die aktuellen 
-			Berechungen in demselben Fenster angezeigt, wobei die Anzeige ständig 
-			aktualisiert wird, wenn ein "besserer" Schlüssel gefunden wurde. Auf diese 
-			Weise kann der Benutzer die Kryptoanalyse dynamisch mitverfolgen.</P>
-		<P><IMG SRC="images/automaticAnalysisSubstitutionResult.gif" ALT="images/automaticAnalysisSubstitutionResult.gif"
-				BORDER="0"></P>
-		<P>Wird die Substitution vom Benutzer akzeptiert, öffnet sich ein weiteres 
-			Dokumentfenster, das den entschlüsselten Text enthält. Dieser kann vom Benutzer 
-			abgespeichert werden. Der Benutzer kann den aktuellen Substitutionsschlüssel in den internen
-			Schlüsselspeicher kopieren, indem er auf Button <b>"Schlüssel kopieren"</b> klickt. 
-			Der Benutzer hat auch die Möglichkeit, das Ergebnis der automatischen 
-			Substitutionsanalyse durch die manuelle Analyse selbst weiter zu verbessern: Durch das 
-			Klicken auf den Button <b>"Manuelle Analyse"</b> gelangt der Benutzer zum Fenster für 
-			die <a href="hidd_manual_subst_analysis.html">manuelle Substitutionsanalyse</a>. Das Ergebnis der automatischen Analyse wird 
-			als Grundlage für die manuelle Analyse übernommen.</P>
-		<h3><A name="constraints">Bekannte Einschränkungen</h3>
-		<P>Die größte Einschränkung für die implementierten Verfahren stellt die Länge des 
-			vorliegenden Chiffretextes dar. Wie bei allen auf der Häufigkeitsanalyse 
-			basierenden Verfahren muss der vorliegende Text ausreichend lang sein, um eine 
-			Häufigkeitsanalyse überhaupt zu ermöglichen. Das zweite Verfahren 
-			eignet sich somit schlechter für die Kryptoanalyse kurzer Texte. Laut dem Autor 
-			des Verfahrens wird die maximale Erfolgsrate bei Chiffretexten ab 300-400 
-			Zeichen erreicht (98%). Die Erfolgsrate bei Texten mit 100 bis 200 Zeichen 
-			liegt zwischen 50% und 80%.</P>
+<A href="#introduction">Einleitung</A><br>
+<A href="#implementation">Implementierte Verfahren</A><br>
+<A href="#automaticanalysis">Automatische Kryptoanalyse</A><br>
+<A href="#speechrecognition">Spracherkennung</A><br>
+<A href="#usage">Benutzung</A><br>
+<A href="#constraints">Bekannte Einschränkungen</A><br>
+</P>
+
+<h3><A name="introduction">Einleitung</h3>
+
+<P>Das alte in CrypTool enthaltene Verfahren (jetzt genannt Methode 2) zur <B>automatischen Kryptoanalyse 
+monoalphabetischer Substitutionschiffren</B> basierte auf der Erkennung der häufigsten 
+Wörter einer Sprache und hatte u.a. folgende Einschränkungen: Keine automatische 
+Spracherkennung, Notwendigkeit zum Erhalten der Leerzeichen im Chiffretext, 
+keine Unterscheidung der Groß-/Kleinschreibung.</P>
+
+<P>Die neue Implementierung (jetzt genannt Methode 1) basiert auf der Arbeit von Thomas Jakobsen "A Fast Method 
+for the Cryptanalysis of Substitution Ciphers" (Cryptologia 19:3, 1995). Dieses neue 
+Verfahren sollte vor allem folgende Vorteile mit sich bringen:</P>
+
+<UL>
+<LI>bessere Entschlüsselungsraten,</LI>
+<LI>Geschwindigkeitszuwachs,</LI>
+<LI>Entschlüsselung von Chiffretexten mit und ohne Leerzeichen.</LI>
+</UL>
+
+<P>Der Algorithmus arbeitet auf dem lateinischen Alphabet mit 26 Buchstaben (A..Z). 
+Das Verschlüsselungsalphabet kann durch das Leerzeichen erweitert werden, so dass das 
+Leerzeichen wie andere Buchstaben verschlüsselt (d.h., auf einen anderen Buchstaben 
+abgebildet) wird. Umlaute, Satzzeichen und Sonderzeichen werden beibehalten. Ebenso 
+wird die Groß-/Kleinschreibung bei der Entschlüsselung des Textes beibehalten.</P>
+
+<P>Des Weiteren wurde die neue Implementierung um einen Algorithmus zur automatischen 
+Spracherkennung erweitert. Das implementierte Verfahren basiert auf der Berechnung 
+der Zeichenkoinzidenz (englisch: "index of coincidence", nach W. F. Friedman, 1922).</P>
+
+<h3><A name="implementation">Implementierte Verfahren</h3>
+
+<h4><A name="automaticanalysis">Automatische Kryptoanalyse</h4>
+
+<P>Das implementierte Kryptoanalyseverfahren führt eine Häufigkeitsanalyse des Textes 
+durch, wobei die Häufigkeitsverteilungen einzelner Buchstaben und Digramme im Chiffretext 
+berechnet werden. Die Häufigkeitsverteilung einzelner Buchstaben wird zum Errechnen des 
+Initialwerts für den Schlüssel benutzt. Die Häufigkeitsverteilung der Digramme wird für 
+die Güteberechnung des jeweiligen Schlüssels verwendet. Das Verfahren basiert auf einem 
+schnellen Algorithmus, der am Anfang der Kryptoanalyse eines Chiffretextes einen 
+Initialwert für den Schlüssel errechnet und in folgenden Iterationen diesen Schlüssel 
+verfeinert. In jeder Iteration wird entschieden, ob die Verfeinerung des Schlüssels einen 
+"besseren" Wert gebracht hat und wenn ja, wird dieser Wert für die weitere Berechnung 
+übernommen.</P>
+
+<P>Die höhere Geschwindigkeit des Verfahrens basiert vor allem auf den folgenden 
+Algorithmusdetails: Der Schlüsselinitialwert wird unter Berücksichtigung der 
+Häufigkeitsverteilung einzelner Buchstaben im Chiffretext erstellt. Das Verfahren 
+arbeitet auf einer Verteilungsmatrix für Digramme. Bei der Schlüsselsuche werden die Häufigkeiten einzelner Buchstaben berücksichtigt.</P>
+
+<P>Die Berechnung der "Güte" des Schlüssels basiert auf dem Vergleich der 
+Digramm-Häufigkeitsverteilung des vorliegenden Chiffretextes mit der 
+Häufigkeitsverteilung der Referenztexte in der Zielsprache (in unserem Fall Englisch 
+bzw. Deutsch). Der Abweichungswert wird durch das Aufsummieren der Abweichungen aller 
+einzelnen Digramme berechnet. Je kleiner dieser Wert ist, um so "besser" ist der 
+Entschlüsselungsschlüssel. Im Idealfall sollte gar keine Abweichung beider Verteilungen 
+festzustellen sein. Dies kommt jedoch in der Praxis kaum vor, da jeder Text seine eigene 
+Häufigkeitsverteilung der Digramme besitzt, die sich von der Referenzverteilung 
+unterscheidet. Die Strategie des Algorithmus ist somit die Minimierung der vorhandenen 
+Abweichung.</P>
+
+<P>Die vorliegende Implementierung benutzt als Referenzdatei die CrypTool Referenzdatei 
+für statistische Auswertungen, die über den Menüeintrag 
+<A href="menu_options.html">Optionen</A> \ <A href="hid_opttext.html">Textoptionen</A> 
+gefunden werden kann.</P>
+
+<P>Laut dem Autor des Algorithmus Thomas Jacobsen, ist dieses Verfahren erheblich schneller als andere 
+bekannte Verfahren wie Carroll-Robbins und King-Bahler. Der Algorithmus soll nach 
+Angaben des Autors in 98% aller Fälle erfolgreich sein (bezogen auf 400 Zeichen lange 
+Chiffretexte).</P>
+
+
+<h4><A name="speechrecognition">Spracherkennung</h4>
+
+<P>Die Unterscheidung, in welcher Sprache ein Chiffretext ursprünglich verfasst war, 
+ist leichter als die Kryptoanalyse dieses Textes ohne Kenntnis des Schlüssels. Dies 
+wurde bereits 1922 von W. F. Friedman gezeigt. Zur Bestimmung der Sprache wird die 
+sogenannte Zeichenkoinzidenz verwendet, deren Wert charakteristisch für eine bestimmte 
+Sprache ist. Die Zeichenkoinzidenz wird über die Häufigkeiten des Auftretens einzelner 
+Zeichen im Chiffretext berechnet.</P>
+
+<P>An dieser Stelle sei erwähnt, dass auch die Sprachenerkennung, die auf der Berechnung 
+der Zeichenkoinzidenz basiert, nicht immer genaue Ergebnisse liefern kann. Der Grund 
+hierfür ist die Streuung der Buchstabenhäufigkeiten für verschiedene Texte, die sich 
+deutlich von Referenzwerten einer Sprache unterscheiden können.</P>
+
+<h3><A name="usage">Benutzung</h3>
+
+<P>Die automatische Kryptoanalyse wird über den Menüeintrag 
+<A href="menu_analyze.html">Analyse</A> \ Symmetrische Verschlüsselung (klassisch) \ 
+Ciphertext only \ Substitution gestartet.
+
+<P>Danach wird dem Benutzer über folgenden Dialog ermöglicht, den neuen oder alten 
+Algorithmus zur Substitutionsanalyse auszuwählen:</P>
+
+<P><IMG SRC="images/automaticAnalysisSubstitutionSelection.gif" ALT="images/automaticAnalysisSubstitutionSelection.gif" BORDER=0></P>
+
+<P>Standardmäßig ist der neue Algorithmus selektiert (Digramm-Analyse). Nach dem Start 
+des neuen Algorithmus wird folgender Dialog präsentiert, in dem der Benutzer Einstellungen 
+für die bevorstehende Kryptoanalyse vornehmen kann.</P>
+
+<P><IMG SRC="images/automaticAnalysisSubstitutionOptions.gif" ALT="images/automaticAnalysisSubstitutionOptions.gif" BORDER=0></P>
+
+<P>Benutzer können im Optionendialog angeben, ob das Leerzeichen im verschlüsselten Text 
+mit einem anderen Buchstaben substituiert wurde (d.h. das Leerzeichen gehört dann zum 
+Verschlüsselungsalphabet). Zusätzlich kann der Benutzer das Analyse-GUI für die 
+Berechnungszeit komplett ausschalten und sich nur das Endergebnis anzeigen lassen. 
+Die Aktivierung dieser Option bringt einen Geschwindigkeitszuwachs mit sich, da der Text 
+nicht mehr in jeder erfolgreichen Iteration entschlüsselt und auf dem Bildschirm ausgegeben 
+werden muss.</P>
+
+<P>Ist der zu analysierende Text zu kurz (weniger als 300 zum Alphabet gehörenden 
+Zeichen), erscheint die folgende Warnung:</P>
+
+<P><IMG SRC="images/automaticAnalysisSubstitutionWarning.gif" ALT="images/automaticAnalysisSubstitutionWarning.gif" BORDER=0></P>
+
+<P>Das Endergebnis wird in einem weiteren Fenster angezeigt (nächstes Bild). Wurde das 
+GUI im Einstellungsdialog nicht deaktiviert, werden die aktuellen Berechungen in demselben 
+Fenster angezeigt, wobei die Anzeige ständig aktualisiert wird, wenn ein "besserer" 
+Schlüssel gefunden wurde. Auf diese Weise kann der Benutzer die Kryptoanalyse dynamisch 
+mitverfolgen.</P>
+
+<P><IMG SRC="images/automaticAnalysisSubstitutionResult.gif" ALT="images/automaticAnalysisSubstitutionResult.gif" BORDER=0></P>
+
+<P>Der Benutzer kann den aktuellen Substitutionsschlüssel in die Windows-Ablage kopieren, indem 
+er auf Button <b>Schlüssel kopieren</b> klickt. Der Benutzer hat auch die Möglichkeit, das 
+Ergebnis der automatischen Substitutionsanalyse durch die manuelle Analyse zu verbessern. 
+Durch das Klicken auf den Button <b>Manuelle Analyse</b> gelangt der Benutzer zum Fenster für 
+die manuelle Substitutionsanalyse. Das Ergebnis der automatischen Analyse wird als Grundlage 
+für die manuelle Analyse übernommen.</P>
+<p>
+Wird die Substitution vom Benutzer akzeptiert, öffnet sich ein weiteres Dokumentfenster, 
+das den entschlüsselten Text enthält. Dieser kann dann vom Benutzer abgespeichert werden. </p>
+
+<h3><A name="constraints">Bekannte Einschränkungen</h3>
+
+<P>Die größte Einschränkung für die implementierten Verfahren stellt die Länge des 
+vorliegenden Chiffretextes dar. Wie bei allen auf der Häufigkeitsanalyse basierenden 
+Verfahren muss der vorliegende Text ausreichend lang sein, um eine Häufigkeitsanalyse 
+überhaupt zu ermöglichen. Die implementierten Verfahren eignen sich somit schlechter für 
+die Kryptoanalyse kurzer Texte. Laut dem Autor des Verfahrens wird die maximale 
+Erfolgsrate bei Chiffretexten ab 300-400 Zeichen erreicht (98%). Die Erfolgsrate bei 
+Texten mit 100 bis 200 Zeichen liegt zwischen 50% und 80%.</P>
+
 	</BODY>
 </HTML>

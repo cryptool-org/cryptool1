@@ -24,23 +24,75 @@
 
 <P>In diesem Dialog werden Einstellungen für die <A href="hid_analyze_subst.html">automatische Analyse der monoalphabetischen Substitution</A> gemacht.</P>
 
-<P>Sofern eine automatische Analyse gewünscht ist, muss ausgewählt werden, ob der <!--ZZZPOPUP--><A href="klartext.html">Klartext</A> Deutsch oder Englisch ist. Dies geschieht durch Anklicken des entsprechenden Feldes.</P>
+<P>Werden keine Optionen gewählt, so wird eine <A href="pattern_suche.html">Muster-(Pattern-)Suche</A> mit den häufigsten Wörtern der Klartextsprache durchgeführt. Für die englische Sprache bekommt man hier schon recht zufriedenstellende Ergebnisse. Im Deutschen ist das Analyseergebnis jedoch oft verbesserungsfähig.</P>
 
-<P>Zwei Optionen können ausgewählt werden:</P>
+<P>Aus diesem Grund können weitere Optionen gewählt werden:</P>
+<ul>
+<li>
+<P><U>Option "'e' als häufigstes Zeichen annehmen":</U></P>
 
-<P><B>e als häufigstes Zeichen annehmen</B>.</P>
+<P>Vor der <A href="pattern_suche.html">Pattern-Suche</A> wird das häufigste Zeichen des Textes ermittelt. Es wird angenommen, dass dieses Zeichen dem Klartextbuchstaben "e" entspricht. Mit dieser (partiellen) Substitution wird die Pattern-Suche gestartet.</P>
 
-<P><B>Erweiterte Analyse (für deutschen Klartext)</B>.</P>
+<P>Die Annahme, dass "e" das häufigste Zeichen eines Textes ist, trifft sowohl im Deutschen als auch im Englischen die Realität sehr gut. Bei extrem kurzen oder sehr speziellen Texten kann diese Annahme allerdings falsch sein.</P>
 
-<P>Eine Option ist aktiviert, wenn sich ein Häkchen in dem Feld vor dem Text befindet. Das Aktivieren bzw. Deaktivieren geschieht durch einen Mausklick. Nach der Analyse öffnet sich der Dialog <A href="hidd_manual_subst_analysis.html">Manuelle Nachbearbeitung</A>.</P>
+<P><u>Anmerkung</u>: Es gibt einen kompletten (sinnvollen) Roman in französischer Sprache, der ohne den Buchstaben "e" auskommt. Dieser Roman wurde (erneut unter Vermeidung des "e") ins Deutsche übersetzt.</P>
+</li>
+<li>
+<P><U>Option "Erweiterte Analyse (deutscher Klartext) ":</U></P>
 
-<P>Ist die automatische Analyse nicht gewünscht, sondern soll der <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> manuell gefunden werden, so ist die Option <B>Manuelle Analyse</B> anzuwählen. Dadurch wird die automatische Analyse übersprungen und der Dialog <A href="hidd_manual_subst_analysis.html">Manuelle Nachbearbeitung</A> öffnet sich sofort.</P>
+<P>Diese Analyse basiert auf Besonderheiten der deutschen Sprache. Grundsätzlich wäre diese Analyse auch für englischen Klartext möglich. </P>
 
-<P>Es werden keine Zuweisungen (Substitutionen) vorgenommen. Alle Zuweisungen sind</P>
+<P>Vor der Pattern-Suche werden vier Buchstaben auf folgende Art und Weise zugeordnet:</P>
 
-<P>auf unbestimmt (*) gesetzt und müssen von Ihnen eingegeben werden.</P>
+<UL>
+	<LI>Es wird wieder angenommen, dass der häufigste Buchstabe im Text dem Chiffrat des Buchstaben "e" entspricht.</LI>
 
-<P>Weitere Erklärungen zu den Einstellungen im Dialog Analyse monoalphabetische Substitution befinden sich im Kapitel <A href="hid_analyze_subst.html">automatische Analyse der monoalphabetischen Substitution</A>.</P>
+	<LI>Aus diesem Grunde ist das Abschalten der Option "'e' als häufigstes Zeichen annehmen" nicht sinnvoll und wird vom Programm ausgeschlossen.</LI>
+
+	<LI>Es wird eine Liste mit den häufigsten Buchstaben am Wortanfang, am Wortende und vor und nach dem "e" erstellt. Diese wird in absteigender Reihenfolge sortiert.</LI>
+
+	<LI>Es werden die beiden Buchstaben ermittelt, die in den sortierten Listen der häufigsten Buchstaben am Ende der Wortes und nach dem "e" "am weitesten oben stehen" (Die Summe der Indizes ist minimal). Es wird angenommen, dass diese beiden Buchstaben den Chiffraten von "n" und "r" entsprechen.</LI>
+
+	<LI>Als das Chiffrat von "n" wird der Buchstabe angenommen, der in der Liste der häufigsten Buchstaben am Wortende am weitesten oben steht.</LI>
+
+	<LI>Es werden Listen mit den häufigsten Buchstaben vor und nach dem n angelegt und sortiert.</LI>
+
+	<LI>Der Buchstabe, der in den drei Listen der häufigsten Buchstaben vor und nach dem "e" und vor dem "n" "am weitesten oben steht", wird als das Chiffrat von "i" angenommen.</LI>
+</UL>
+
+<P>Mit dieser (partiellen) Substitution wird nun wieder eine Pattern-Suche gestartet.</P>
+
+<P>Hat CrypTool seine Analysen beendet, wird ein <A href="hidd_manual_subst_analysis.html">Nachbearbeitungsfenster</A> geöffnet, in das die Ergebnisse eingetragen sind.</P>
+
+<P>Im Kapitel <A href="hid_hilfe_szenarien.html">Szenarien</A> befindet sich ein <A href="szenarien_monosubst.html">Beispiel</A> zum <A href="angriffe.html">Angriff</A> auf das <!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A>.</P>
+
+<P><U>Voraussetzungen an das Dokument für einen erfolgreichen Angriff:</U></P>
+
+<P>Generell kann man sagen, dass der Schlüssel (also die Substitutionen oder zumindest ein großer Teil der Substitutionen) gefunden werden kann, wenn das <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselte</A> <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> aus deutschem oder englischem Text (Länge: mehrere 100 Zeichen) besteht, der zum großen Teil die häufigsten Wörter der Sprache enthält; die häufigsten Wörter der entsprechenden Sprache sind in <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> in einer Liste abgelegt. Die Analyse wird fehlschlagen, wenn der zu analysierende Text vorwiegend aus Wörtern besteht, die nicht in der Liste vorkommen.</P>
+
+<P>Beispielsweise liefert eine Verschlüsselung von</P>
+
+<P>THE QUICK BROWN FOX JUMPED OVER THE LAZY DOGS BACK</P>
+
+<P>(ohne manuelle Nachbearbeitung oder erweiterte Analyse) das Ergebnis</P>
+
+<P>thL THEIR brown fox SHOULD ovLr thL MANY Dogs bAIR.</P>
+
+<P>Andererseits kann durch diese Art der Analyse jedoch auch schon für sehr kurze Chiffrate ein erstaunlich gutes Ergebnis erzielt werden.</P>
+
+<P>Ein Chiffrat des Textes</P>
+
+<P>THIS IS A TEST</P>
+
+<P>(ohne manuelle Nachbearbeitung oder erweiterte Analyse) liefert das Ergebnis</P>
+
+<P>THIS IS A TeST.</P>
+
+<P>Ein solcher Text wäre für eine auf Häufigkeitsverteilungen basierende Analysemethode viel zu kurz, um statistisch signifikante Informationen zu enthalten. Eine solche Analyse würde also mit hoher Wahrscheinlichkeit fehlschlagen.</P>
+
+<P>Für deutschen Klartext ist das Ergebnis einer <A href="pattern_suche.html">Pattern-Such-Analyse</A> wesentlich schlechter als für englischen Klartext. Dies liegt wahrscheinlich an den zahlreichen Beugungsformen deutscher Worte. Während im englischen der Artikel "the" nur einmal in der Liste (für englischen Klartext) auftaucht, kommen neben "der" auch noch die Wörter "die", "das", "den", "dem", etc. in der Liste für deutschen Klartext vor.</P>
+
+<P>Aus diesem Grund bietet CrypTool auch die oben beschriebenen erweiterten Analysen an, mit denen man – aufbauend auf der Vorabanalyse durch CrypTool – den Schlüssel ermitteln kann.</P>
 
 </BODY>
 </HTML>

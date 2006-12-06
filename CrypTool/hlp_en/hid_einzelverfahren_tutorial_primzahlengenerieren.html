@@ -1,32 +1,27 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
-<HEAD>
-<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Dialog Generate Prime Numbers</TITLE>
-<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
-<script language="JScript" src="helper.js"></script>
-</HEAD>
-
-<!-- multiple keywords for CrypTool HTML help index -->
-<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
-	<PARAM NAME="Keyword" VALUE="Prime numbers">
-	<PARAM NAME="Keyword" VALUE="Generate">
-	<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
-</OBJECT>
-
-<BODY>
-		
-<h3>Dialog Generate Prime Numbers (Menu <a href="menu_related_methods.html">Individual Procedures</a> \ RSA Cryptosystem)</h3>
-
-<P>You can access this dialog via the menu entry <a href="menu_related_methods.html">Individual Procedures</a> \ RSA Cryptosystem</P>		
-
-
-
-<P>Sie können diesen Dialog über das Menü <a href="menu_related_methods.html">Einzelverfahren</a> \ <a href="menu_individualprocedures_rsacryptosystem.html">RSA-Kryptosystem</a> \ <a href="hid_einzelverfahren_tutorial_primzahlengenerieren.html">Primzahlen generieren</a> aufrufen.</P>
+	<HEAD>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<TITLE>Dialog Generate prime numbers</TITLE>
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+			<script language="JScript" src="helper.js"></script>
+	</HEAD>
+	<!-- multiple keywords for CrypTool HTML help index -->
+	<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+		VIEWASTEXT ID="Object1">
+		<PARAM NAME="Keyword" VALUE="Prime numbers">
+		<PARAM NAME="Keyword" VALUE="Generate">
+		<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
+	</OBJECT>
+	<BODY>
+		<h3>Dialog Generate prime numbers (Menu <a href="menu_related_methods.html">Individual 
+				Procedures</a> \ RSA Cryptosystem)</h3>
+		<P>You can access this dialog via the menu entry <a href="menu_related_methods.html">Individual 
+				Procedures</a> \ <a href="menu_individualprocedures_rsacryptosystem.html">RSA Cryptosystem</a> \ <a href="hid_einzelverfahren_tutorial_primzahlengenerieren.html"> Generate prime numbers</a>.</P>
 		
 		<P>Prime numbers are natural numbers greater than 1, which are divisible only by 1 
 			and by themselves, and in cryptography they play an important role. In this 
-			demonstration you can generate prime numbers yourself, the prime numbers being 
+			demonstration you can generate prime numbers yourself, the prime numbers are 
 			generated randomly within freely definable limits.</P>
 		<P><IMG SRC="images/generatepz.gif" ALT="generatepz.gif" BORDER="0"></P>
 		<P>If you press the <B>Generate prime numbers</B> button, a <!--ZZZPOPUP--><A href="hid_zufall_generatoren.html">random</A>
@@ -41,8 +36,8 @@
 				positive. If the prime number test is repeated 80 times "independently" and 
 				always has a positive outcome, then the probability that X is not actually a 
 				prime number is extremely small at 2^(-80) and the number thus found is 
-				understood as a prime number, and is displayed as either prime number p or prime 
-				number q.</LI>
+				understood as a prime number, and is displayed as either prime number p or 
+				prime number q.</LI>
 			<LI>
 				If one of k prime number test is negative, then X is not prime and the test is 
 				repeated with a new randomly chosen number X.</LI>
@@ -50,15 +45,15 @@
 		<P>In this dialog you can choose between the following prime number tests:</P>
 		<UL>
 			<LI>
-				Miller-Rabin Test,</LI>
+				Miller-Rabin test,</LI>
 			<LI>
-				Solovay-Strassen Test and</LI>
+				Solovay-Strassen test and</LI>
 			<LI>
-				Fermat Test</LI>
+				Fermat test</LI>
 		</UL>
 		<P>If no prime number has been found after trying 1000 randomly drawn numbers X, 
 			then an appropriate error message is displayed. In that case you need to raise 
-			the permitted value limits [Lower limit ... Upper limit] for the prime numbers 
+			the range defined by the limits [Lower limit ... Upper limit] for the prime numbers 
 			accordingly.
 		</P>
 		<P>Detailed information on the subject of prime numbers will be found in the <A class="filelink" onclick="parser('script-en.pdf')">
