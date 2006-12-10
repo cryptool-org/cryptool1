@@ -21,17 +21,16 @@
 				
 				
 		<P>Dieser Test untersucht, ob Paare aufeinanderfolgender Zahlen <A href="gleichver.html">
-				gleichverteilt</A> sind und prüft somit die Unabhängigkeit.</p>
-				<p>Bei einer Binärfolge 
-			wird bestimmt, ob die Wahrscheinlichkeit dafür, dass aufeinanderfolgende 
+				gleichverteilt</A> sind und prüft somit deren Unabhängigkeit voneinander.</p>
+				<p>Bei einer Binärfolge s wird bestimmt, ob die Wahrscheinlichkeit dafür, dass aufeinanderfolgende 
 			Elemente der Folge gleich oder unterschiedlich sind, in etwa gleich groß ist. 
 			Dies ist ein Indiz dafür, dass jedes Bit unabhängig von seinem Vorgängerbit 
 			ist. Bei Binärfolgen gibt es 4 verschiedene Paarungen: 00, 01, 10, 11. Die Anzahl jeder der vier Paarungen (Teilfolgen) in s soll annähernd der bei einer 
 			echten Zufallsfolge erwarteten Anzahl entsprechen. Da bei diesem Test stets 
 			zwei Bits auf einmal untersucht werden, wird der Test in der Literatur auch mit <I>Zwei-Bit-Test</I>
 			bezeichnet.</P>
-		<P>Seien n0 und n1 die Anzahl der Nullen bzw. der Einsen in s, und seien n00, n01, 
-			n10 und n11 die jeweilige Anzahl der Teilsequenzen 00; 01; 10; 11 in <I>s</I>. Da 
+		<P>Seien n0 und n1 die Anzahl der Nullen bzw. der Einsen in s; und seien n00, n01, 
+			n10 und n11 die jeweilige Anzahl der Teilsequenzen 00, 01, 10, 11 in <I>s</I>. Da 
 			sich die Teilfolgen überlappen dürfen, gilt (mit n = Bitlänge von s):
 		</P>
 		<div style="TEXT-ALIGN:center">
@@ -39,7 +38,7 @@
 		</div>
 		<P>Die verwendete Teststatistik ist gegeben durch</P>
 		<div style="TEXT-ALIGN:center">
-			<P>X2 = [4 / (n –1)] * (n_00^2 + n_01^2 + n_10^2 + n_11^2) – (2 / n) * (n_0^2 + 
+			<P>X2 = [4 / (n –1)] * (n00^2 + n01^2 + n10^2 + n11^2) – (2 / n) * (n0^2 + 
 				n1^2) + 1,</P>
 		</div>
 		<P>wobei X2 annähernd einer <A href="chi_2_verteilung.html">chi^2 – Verteilung</A> mit 
@@ -60,12 +59,12 @@
 		<div class="indent">
 			<TABLE cols="2" width="0*" class="pad20">
 				<TR VALIGN="top">
-					<TD>n_00 = 35</TD>
-					<TD>n_10 = 38</TD>
+					<TD>n00 = 35</TD>
+					<TD>n10 = 38</TD>
 				</TR>
 				<TR VALIGN="top">
-					<TD>n_01 = 39</TD>
-					<TD>n_11 = 47</TD>
+					<TD>n01 = 39</TD>
+					<TD>n11 = 47</TD>
 				</TR>
 			</TABLE>
 			<BR>

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
 	<HEAD>
-		<TITLE>Dialog Schlüsseleingabe für monoalphabetische Substitution / Atbash</TITLE>
+		<TITLE>Dialog Schlüsseleingabe: Monoalphabetische Substitution / Atbash</TITLE>
 		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 		<!-- multiple keywords for CrypTool HTML help index -->
@@ -12,8 +12,10 @@
 			<PARAM NAME="Keyword" VALUE="Monoalphabetische Substitution">
 	<PARAM NAME="Keyword" VALUE="Substitutions-Verschlüsselungsverfahren">
 	<PARAM NAME="Keyword" VALUE="Atbash">
+		<PARAM NAME="Keyword" VALUE="Verschlüsselung">
+	<PARAM NAME="Keyword" VALUE="Schlüssel">
 		</OBJECT>
-		<h3>Dialog Schlüsseleingabe für monoalphabetische Substitution / Atbash</h3>
+		<h3>Dialog Schlüsseleingabe: Monoalphabetische Substitution / Atbash</h3>
 		<P>Sie erreichen den Dialog über den Menüeintrag <A href="menu_crypt.html">Ver-/Entschlüsseln</A>
 			\ <a href="menu_crypt_symmetricclassic.html">Symmetrisch (klassisch)</a> \ <a href="HID_CryptMono.html">
 				Substitution/Atbash</a>.</P>
@@ -30,7 +32,7 @@
 		<UL>
 			<LI>
 			Das Eingabefeld akzeptiert nur die 26 Buchstaben. Alle anderen Eingaben werden 
-			automatisch zurückgewiesen, das heißt nicht angezeigt (das hier unter 
+			automatisch zurückgewiesen, das heißt nicht angezeigt (das unter 
 			Textoptionen eingestellte Alphabet wird hier ignoriert).
 			<LI>
 				Es wird nicht zwischen Groß- und Kleinschreibung unterschieden, das heißt 
@@ -41,11 +43,11 @@
 		</P>
 		<OL>
 			<LI>
-				Sie drücken Atbash. Dadurch wird ein fester Schlüssel gewählt.</LI>
+				Sie drücken Atbash. Dadurch wird ein fester Schlüssel gewählt.</LI><br>
 			<LI>
-				Sie können ein Schlüsselwort eingeben, aus dem die Permutation abgeleitet wird. 
-				Ein Beispiel für diesen Fall: Es ist das Schlüsselwort "EISENBAHN" eingegeben. 
-				Die resultierende Permutation ermittelt sich daraus wie folgt: Das A wird auf 
+				Sie können ein Schlüsselwort eingeben, aus dem die Permutation des Alphabets abgeleitet wird. 
+				Beispielsweise wird das Schlüsselwort "EISENBAHN" eingegeben. 
+				Die resultierende Permutation ergibt sich daraus wie folgt: Das A wird auf 
 				den ersten Buchstaben (in diesem Falle das E abgebildet). Entsprechend wird das 
 				B auf I und das C auf S abgebildet. Da der vierte Buchstabe des 
 				Schlüsselwortes, das E, schon einmal aufgetaucht ist, wird es übersprungen (man 
@@ -53,20 +55,20 @@
 				gleichen Buchstaben abgebildet werden dürfen). Das geht so lange weiter, bis 
 				alle Buchstaben des Schlüsselwortes abgearbeitet sind, das heißt es wird D auf 
 				N, E auf B, F auf A und G auf H abgebildet. Für das Auffüllen der restlichen 
-				Buchstaben (H-Z) gibt es zwei Möglichkeiten, wie sie auf die noch nicht 
+				Buchstaben (hier H-Z) gibt es zwei Möglichkeiten, wie sie auf die noch nicht 
 				benutzten Buchstaben abgebildet werden:
 				<br>
-				<b>a)<br>
-					In umgekehrter Reihenfolge</b>,<br>
+				<ul type="a"><li><br>
+					In umgekehrter Reihenfolge,<br>
 				d.h. H auf Z, I auf Y, ..., Z auf C oder<br>
-				<b>b)
+				</li><li>
 					<br>
-					in aufsteigender Reihenfolge</b>,<br>
+					in aufsteigender Reihenfolge,<br>
 				d.h. H auf C, I auf D, ..., Z auf Z.<br>
 				<p>
 					Wenn ein Schlüsselwort alle 26 verschiedenen Zeichen des Alphabets enthält, 
 					spielt das Auffüllen keine Rolle mehr. Die daraus hergeleitete Folge der 26 
-					Alphabetzeichen nennt man auch eine Permutation des Alphabets.</p>
+					Alphabetzeichen nennt man auch eine Permutation des Alphabets.</p></li>
 		</OL>
 		<IMG SRC="images/monosubst-keyentry.gif" ALT="monosubst-keyentry.gif" BORDER="0">
 		<P>Falls Sie das <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> mit dem 

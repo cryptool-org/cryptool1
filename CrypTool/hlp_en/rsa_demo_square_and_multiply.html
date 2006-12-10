@@ -16,7 +16,7 @@
 	<BODY>
 		<h3>Square and multiply exponentiation</h3>
 		<P>"Square and multiply" exponentiation is a quick method of raising to a power x 
-			modulus N,which needs only bit length (x) operations instead of x operations.</P>
+			modulus N, which needs only bit length (x) operations instead of x operations.</P>
 		<P>Calculation of y = m^x (mod N) in pseudo-code where we use for the exponent x 
 			the binary representation of x[0] x[1] ... x[n-1]:</P>
 		<PRE><CODE>1. y = 1
@@ -26,7 +26,7 @@
     if (x[i] == 1) then y = y*m (mod N)         // Multiply
     }</CODE></PRE>
 		<P>This algorithm thus requires bit length(x) multiplications and squares.</P>
-		<P>For example, in the calculation</P>
+		<P>For example, in</P>
 		<div class="indent">
 			<P>
 				m^65537_10 = m^10000000000000001_2 (mod N)</P>
@@ -44,6 +44,6 @@
 				<br>
 				y=y*y; y*y*m (x[16]=1)</P>
 		</div>
-		<P>modulus N is calculated via one multiplication and 16 squares.</P>
+		<P>is calculated via one multiplication and 16 squares.</P>
 	</BODY>
 </HTML>

@@ -19,7 +19,7 @@
 		<P>This dialog can be called via <A href="menu_related_methods.html">Individual 
 				Procedures</A> \ <a href="menu_individualprocedures_rsacryptosystem.html">RSA 
 				Demonstration</a> \ <a href="hid_einzelverfahren_tutorialfrkleinezahlen_faktorisierenifp.html">
-				Factorisation of a number</a></P>
+				Factorisation of a number</a>.</P>
 		<P>The procedure for splitting up natural numbers into their prime factors is 
 			referred to as <B>prime factorisation</B>. Every natural number (which is 
 			bigger than 1) can be broken down uniquely into its prime factors (apart from 
@@ -27,8 +27,8 @@
 		</P>
 		<P>The factorisation problem constitutes an important interface between 
 			mathematics, information science and technology, because this theoretical 
-			problem is also relevant to cryptography, as in the <B>Rabin-Williams and <A href="hid_crypt_rsaenc.html">
-					RSA algorithms</A></B>.</P>
+			problem is also relevant to cryptography, as in the <B>Rabin-Williams algorithm</B> and <A href="hid_crypt_rsaenc.html">
+					RSA algorithms</A>.</P>
 		<P>This tutorial is intended to give you an idea of how factorisation problems are 
 			tackled in practice.</P>
 		<P><IMG SRC="images/faktorisierungsalgorithmen.gif" ALT="faktorisierungsalgorithmen.gif"
@@ -110,7 +110,8 @@
 		</P>
 		<P>It took 7.4 months (9 weeks‚ preparation and 5.2 months for the actual 
 			factorisation) to carry out all the steps.</P>
-		<p><STRONG>a.</STRONG></p>
+		<OL type="a">
+			<LI>
 		Application of the <B>sieve step</B> took 35.7 CPU years. The following 
 		computers were used for this:
 		<P>160 * 175-400 MHz SGI and Sun workstations</P>
@@ -119,13 +120,13 @@
 		<P>4 * 500 MHz Digital/Compaq boxes</P>
 		<P>This effort was roughly equivalent to 8000 MIPS years. 124,722,179 relations 
 			were collected.
-		</P>
-		<p><STRONG>b.</STRONG></p>
+		</P></li>
+		<li>
 		<P>The resulting matrix had 6,699,191 lines and 6,711,336 columns. The matrix was 
 			worked off in around 224 CPU hours with a main memory requirement of 2GB on a 
 			Cray C916 belonging to the SARA Amsterdam Academic Computer Centre. The 
 			factorisation took from 17 March to 22 August.
-		</P>
+		</P></li>
 		<P>&nbsp;</P>
 		<P>The sieve stage can in practice be run in parallel on an arbitrary number of 
 			computers. In particular, organisations with unrestricted hardware budgets can 
