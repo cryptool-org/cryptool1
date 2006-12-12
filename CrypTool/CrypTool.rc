@@ -5439,6 +5439,20 @@ BEGIN
                     IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,18,37,181,10
 END
 
+IDD_SELECTCOPYENCODING DIALOGEX 0, 0, 221, 106
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Codiert kopieren/ausschneiden "
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,96,82,50,17
+    PUSHBUTTON      "Cancel",IDCANCEL,162,82,50,17
+    LTEXT           "Die markierten Daten können unverändert oder codiert in die Zwischenablage übernommen werden.\nEine Codierung ist z.B. erforderlich, wenn Sie nicht-druckbare Daten in andere Anwendungen exportieren wollen.\n\nAuswahl der Codierung:",
+                    IDC_STATIC,7,7,205,50
+    COMBOBOX        IDC_COMBO_ENCODING,7,59,205,60,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -8248,6 +8262,18 @@ BEGIN
     0
 END
 
+IDD_SELECTCOPYENCODING DLGINIT
+BEGIN
+    IDC_COMBO_ENCODING, 0x403, 16, 0
+0x656b, 0x6e69, 0x2065, 0x6f43, 0x6964, 0x7265, 0x6e75, 0x0067, 
+    IDC_COMBO_ENCODING, 0x403, 20, 0
+0x6568, 0x6178, 0x6564, 0x697a, 0x616d, 0x206c, 0x6f63, 0x6964, 0x7265, 
+0x0074, 
+    IDC_COMBO_ENCODING, 0x403, 15, 0
+0x6162, 0x6573, 0x3436, 0x6320, 0x646f, 0x6569, 0x7472, "\000" 
+    0
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -8792,6 +8818,17 @@ BEGIN
         RIGHTMARGIN, 206
         TOPMARGIN, 7
         BOTTOMMARGIN, 75
+    END
+
+    IDD_SELECTCOPYENCODING, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 212
+        VERTGUIDE, 18
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 99
+        HORZGUIDE, 59
+        HORZGUIDE, 82
     END
 END
 #endif    // APSTUDIO_INVOKED

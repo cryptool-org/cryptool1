@@ -307,6 +307,8 @@
 #define IDD_AUTO_SUBSTITUTION_ANALYSIS  854
 #define IDS_STRING_TEST_LONGRUN_BESTANDEN 855
 #define IDS_STRING_TEST_LONGRUN_NICHT_BESTANDEN 856
+#define IDD_DIALOG3                     856
+#define IDD_SELECTCOPYENCODING          856
 #define IDD_Hill_Options                857
 #define IDC_EDIT133                     1015
 #define IDC_EDIT1                       1016
@@ -1401,6 +1403,7 @@
 #define IDC_CRT_SECRETSHARINGEDIT15     1895
 #define IDC_BUTTON_TxtOpt               1895
 #define IDC_CRT_SECRETSHARINGEDIT15b    1896
+#define IDC_COMBO_ENCODING              1896
 #define IDC_CRT_SECRETSHARINGEDIT9b     1897
 #define IDC_CRT_SECRETSHARINGEDIT9c     1898
 #define IDC_CRT_SECRETSHARINGEDIT21     1899
@@ -2811,9 +2814,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        856
+#define _APS_NEXT_RESOURCE_VALUE        858
 #define _APS_NEXT_COMMAND_VALUE         33339
-#define _APS_NEXT_CONTROL_VALUE         1896
+#define _APS_NEXT_CONTROL_VALUE         1897
 #define _APS_NEXT_SYMED_VALUE           107
 #endif
 #endif

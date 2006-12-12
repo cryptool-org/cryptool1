@@ -54,7 +54,7 @@ statement from your version.
 #include "HexEditBase.h"
 #include "resource.h"
 #include "stdafx.h"
-
+#include "SelectCopyEncoding.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // defines
@@ -1919,8 +1919,10 @@ void CHexEditBase::OnEditCopyCutDelete(bool cutdel,bool clipboard)
 		nLength--;
 
 	if (clipboard) {
-		bool doHexEncode = (IDYES == AfxMessageBox(IDS_CLIPBOARD_HEXCOPY,
-			MB_YESNO | MB_ICONQUESTION | MB_DEFBUTTON2));
+		int encoding = CSelectCopyEncoding::selectCopyEncoding();
+		if (encoding < 0)
+			return;
+		bool doHexEncode = (encoding == ENCODING_HEX);
 		HGLOBAL hMem = NULL;
 		CLIPFORMAT clipformat = 0;
 		try {
