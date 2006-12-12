@@ -22,11 +22,10 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-
 	DECLARE_MESSAGE_MAP()
 public:
-	CComboBox ctrlComboEncoding;
 	BOOL OnInitDialog(void);
 	static int selectCopyEncoding(void);
+	// static int m_encode_type;
 };
 
