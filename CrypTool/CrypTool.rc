@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -5439,18 +5439,21 @@ BEGIN
                     IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,18,37,181,10
 END
 
-IDD_SELECTCOPYENCODING DIALOGEX 0, 0, 221, 106
+IDD_SELECTCOPYENCODING DIALOGEX 0, 0, 221, 122
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Codiert kopieren/ausschneiden "
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,96,82,50,17
-    PUSHBUTTON      "Cancel",IDCANCEL,162,82,50,17
-    LTEXT           "Die markierten Daten können unverändert oder codiert in die Zwischenablage übernommen werden.\nEine Codierung ist z.B. erforderlich, wenn Sie nicht-druckbare Daten in andere Anwendungen exportieren wollen.\n\nAuswahl der Codierung:",
-                    IDC_STATIC,7,7,205,50
-    COMBOBOX        IDC_COMBO_ENCODING,7,59,205,60,CBS_DROPDOWN | WS_VSCROLL | 
-                    WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,96,96,50,19
+    PUSHBUTTON      "Abbrechen",IDCANCEL,162,96,50,19
+    LTEXT           "Die markierten Daten können unverändert oder codiert in die Zwischenablage übernommen werden.\nEine Codierung ist z.B. erforderlich, wenn Sie nicht-druckbare Daten in andere Anwendungen exportieren wollen.",
+                    IDC_STATIC,7,7,205,36
+    CONTROL         "keine Codierung",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,18,59,67,10
+    CONTROL         "Hex Codierung",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,
+                    18,71,63,10
+    GROUPBOX        "Auswahl der Codierung",IDC_STATIC,7,47,205,42
 END
 
 
@@ -8262,18 +8265,6 @@ BEGIN
     0
 END
 
-IDD_SELECTCOPYENCODING DLGINIT
-BEGIN
-    IDC_COMBO_ENCODING, 0x403, 16, 0
-0x656b, 0x6e69, 0x2065, 0x6f43, 0x6964, 0x7265, 0x6e75, 0x0067, 
-    IDC_COMBO_ENCODING, 0x403, 20, 0
-0x6568, 0x6178, 0x6564, 0x697a, 0x616d, 0x206c, 0x6f63, 0x6964, 0x7265, 
-0x0074, 
-    IDC_COMBO_ENCODING, 0x403, 15, 0
-0x6162, 0x6573, 0x3436, 0x6320, 0x646f, 0x6569, 0x7472, "\000" 
-    0
-END
-
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -8826,9 +8817,10 @@ BEGIN
         RIGHTMARGIN, 212
         VERTGUIDE, 18
         TOPMARGIN, 7
-        BOTTOMMARGIN, 99
-        HORZGUIDE, 59
-        HORZGUIDE, 82
+        BOTTOMMARGIN, 115
+        HORZGUIDE, 54
+        HORZGUIDE, 89
+        HORZGUIDE, 96
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -11280,12 +11272,12 @@ BEGIN
     IDS_CLIPBOARD_HEXPASTE  "Die Zwischenablage enthält ausschließlich Hexadezimal-Zeichen.\nDiese können entweder decodiert (Standard) oder unverändert eingefügt werden.\n\nSollen die hexadezimalen Daten decodiert werden?"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -14127,16 +14119,6 @@ BEGIN
                     BS_BITMAP | WS_TABSTOP,302,284,79,14
 END
 
-IDC_ENTROPY_INFO DIALOGEX 0, 0, 211, 90
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Entropy"
-FONT 8, "MS Sans Serif", 0, 0, 0x0
-BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,81,66,50,17
-    LTEXT           "Static",IDC_ALPHABET_INFO,7,7,197,21
-    CTEXT           "Static",IDC_ENTROPY_INFO,7,34,197,23
-END
-
 IDD_KEY_PERMUTATION_INFO DIALOGEX 0, 0, 317, 194
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Dialog"
@@ -16628,6 +16610,33 @@ BEGIN
                     194,10
     CONTROL         "Value of the first alphabet character = 1 (e.g. ""A""=1)",
                     IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,18,37,193,10
+END
+
+IDD_ENTROPY_INFO DIALOG  0, 0, 209, 90
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Entropie"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,82,67,50,16
+    LTEXT           "Static",IDC_ALPHABET_INFO,7,7,195,22
+    CTEXT           "Static",IDC_ENTROPY_INFO,7,34,195,23
+END
+
+IDD_SELECTCOPYENCODING DIALOGEX 0, 0, 221, 122
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Encoded Copy/Cut"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,96,96,50,19
+    PUSHBUTTON      "Cancel",IDCANCEL,162,96,50,19
+    LTEXT           "The marked data you may transfer encoded or unchanged into the clipboard.\nIf the text is to be transferred to other applications and non printable characters are marked then choose encoding.",
+                    IDC_STATIC,7,7,205,36
+    CONTROL         "no encodierung",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,18,59,65,10
+    CONTROL         "hex encodierung",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,
+                    18,71,69,10
+    GROUPBOX        "Select encoding",IDC_STATIC,7,47,205,42
 END
 
 
@@ -19826,15 +19835,6 @@ BEGIN
         VERTGUIDE, 540
     END
 
-    IDC_ENTROPY_INFO, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 204
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 83
-        HORZGUIDE, 66
-    END
-
     IDD_STARTOPTIONS, DIALOG
     BEGIN
         LEFTMARGIN, 12
@@ -20233,6 +20233,18 @@ BEGIN
         RIGHTMARGIN, 219
         TOPMARGIN, 7
         BOTTOMMARGIN, 75
+    END
+
+    IDD_SELECTCOPYENCODING, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 212
+        VERTGUIDE, 18
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 115
+        HORZGUIDE, 54
+        HORZGUIDE, 89
+        HORZGUIDE, 96
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -22623,7 +22635,7 @@ BEGIN
     IDS_CLIPBOARD_HEXPASTE  "The clipboard contains hexadecimal characters only. They can be inserted decoded (default) or unchanged.\n\nDecode hexadecimal data?"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

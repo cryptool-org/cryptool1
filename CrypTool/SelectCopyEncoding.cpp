@@ -5,6 +5,7 @@
 #include "CrypToolApp.h"
 #include "SelectCopyEncoding.h"
 
+static int m_encode_type = 0;
 
 // CSelectCopyEncoding dialog
 
@@ -21,7 +22,7 @@ CSelectCopyEncoding::~CSelectCopyEncoding()
 void CSelectCopyEncoding::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
-	DDX_Control(pDX, IDC_COMBO_ENCODING, ctrlComboEncoding);
+	DDX_Radio(pDX, IDC_RADIO1, m_encode_type);
 }
 
 
@@ -34,8 +35,6 @@ END_MESSAGE_MAP()
 BOOL CSelectCopyEncoding::OnInitDialog(void)
 {
 	CDialog::OnInitDialog();
-	ctrlComboEncoding.SetCurSel(0);
-	// ctrlComboEncoding.Set
 	return TRUE;
 }
 
@@ -45,6 +44,5 @@ int CSelectCopyEncoding::selectCopyEncoding(void)
 	if ( IDOK != dlg.DoModal() )
 		return -1;
 
-	int retVal = dlg.ctrlComboEncoding.GetCurSel();
-	return retVal;
+	return m_encode_type;
 }
