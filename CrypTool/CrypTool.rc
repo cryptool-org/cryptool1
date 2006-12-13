@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -4655,14 +4655,14 @@ END
 
 IDD_AUTO_SUBSTITUTION_ANALYSIS_ALGORITHM_CHOICE DIALOGEX 0, 0, 318, 237
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Auswahl automatische Substitutionsanalyse"
+CAPTION "Methodenauswahl zur automatische Substitutionsanalyse"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,216,50,14
     PUSHBUTTON      "Abbrechen",IDCANCEL,261,216,50,14
-    CONTROL         "Verfahren basierend auf der Häufigkeitsanalyse der Digramme im Text",
+    CONTROL         "Verfahren 1 basierend auf der Häufigkeitsanalyse der Digramme im Text",
                     IDC_ALG_DIGRAM,"Button",BS_AUTORADIOBUTTON,18,19,256,17
-    CONTROL         "Verfahren basierend auf der Erkennung der häufigsten Wörter einer Sprache",
+    CONTROL         "Verfahren 2 basierend auf der Erkennung der häufigsten Wörter einer Sprache",
                     IDC_ALG_WORD,"Button",BS_AUTORADIOBUTTON,18,103,256,15
     LTEXT           "Die Analyse basiert auf einer Liste mit den häufigsten Wörtern der jeweiligen Sprache. Die Wörter des Ciphertextes werden (ihrem Muster nach) mit den Wörtern in der Liste verglichen.",
                     IDC_STATIC,30,118,265,28
@@ -4670,7 +4670,7 @@ BEGIN
                     IDC_STATIC,7,5,304,210,WS_GROUP
     LTEXT           "Der Algorithmus analysiert die Häufigkeit einzelner Digramme im verschlüsselten Text und versucht, anhand einer Standardverteilung den Schlüssel zu erraten.",
                     IDC_STATIC,30,35,251,21
-    LTEXT           "Dieses Vefahren eignet sich am besten für die Analyse längerer Texte.\nEine automatische Spracherkennung ist eingebaut. Das Verfahren arbeitet auch auf verschlüsselten Texten, die keine Leerzeichen enthalten.",
+    LTEXT           "Dieses Verfahren eignet sich am besten für die Analyse längerer Texte.\nEine automatische Spracherkennung ist eingebaut. Das Verfahren arbeitet auch auf verschlüsselten Texten, die keine Leerzeichen enthalten.",
                     IDC_STATIC,30,55,251,33
     LTEXT           "Quelle: Thomas Jakobsen ""A Fast Method for the Cryptanalysis of Substitution Ciphers"", Cryptologia 19:3, 1995",
                     IDC_STATIC,30,85,251,19
@@ -4684,7 +4684,7 @@ END
 
 IDD_AUTO_SUBSTITUTION_ANALYSIS DIALOGEX 0, 0, 394, 321
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Automatische Substitutionsanalyse"
+CAPTION "Automatische Substitutionsanalyse mittels Digrammhäufigkeit"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "Substitution akzeptieren",IDOK,7,300,86,14
@@ -11272,12 +11272,12 @@ BEGIN
     IDS_CLIPBOARD_HEXPASTE  "Die Zwischenablage enthält ausschließlich Hexadezimal-Zeichen.\nDiese können entweder decodiert (Standard) oder unverändert eingefügt werden.\n\nSollen die hexadezimalen Daten decodiert werden?"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -15842,14 +15842,14 @@ END
 
 IDD_AUTO_SUBSTITUTION_ANALYSIS_ALGORITHM_CHOICE DIALOGEX 0, 0, 318, 237
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Selection Automatic Substitution Analysis"
+CAPTION "Method Selection for Automatic Substitution Analysis"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,216,50,14
     PUSHBUTTON      "Abbrechen",IDCANCEL,261,216,50,14
-    CONTROL         "Method based on the frequency analysis of digrams in the text",
+    CONTROL         "Method 1 based on the frequency analysis of digrams in the text",
                     IDC_ALG_DIGRAM,"Button",BS_AUTORADIOBUTTON,18,19,256,17
-    CONTROL         "Method based on the recognition of the most frequent words of a language",
+    CONTROL         "Method 2 based on the recognition of the most frequent words of a language",
                     IDC_ALG_WORD,"Button",BS_AUTORADIOBUTTON,18,117,256,15
     LTEXT           "This method is based on a list of the most frequent words of a particular language. The words of the ciphertext are compared (according to their pattern) with the words of the list.",
                     IDC_STATIC,30,132,265,28
@@ -15869,7 +15869,7 @@ END
 
 IDD_AUTO_SUBSTITUTION_ANALYSIS DIALOGEX 0, 0, 394, 321
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Automatic substitution analysis"
+CAPTION "Automatic substitution analysis by digram frequency"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "Accept substitution",IDOK,7,300,86,14
@@ -22635,7 +22635,7 @@ BEGIN
     IDS_CLIPBOARD_HEXPASTE  "The clipboard contains hexadecimal characters only. They can be inserted decoded (default) or unchanged.\n\nDecode hexadecimal data?"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

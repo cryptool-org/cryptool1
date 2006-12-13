@@ -14,28 +14,30 @@
 		<PARAM NAME="Keyword" VALUE="Atbash-Verschlüsselungsverfahren">
 	</OBJECT>
 	<BODY>
-		<h3>Substitution (Menü <A href="menu_analyze.html">Analyse</A> \ Symmetrische 
+		<h3>Analyse monoalphabetischer Substitutionschiffren (Menü <A href="menu_analyze.html">Analyse</A> \ Symmetrische 
 			Verschlüsselung (klassisch) \ Ciphertext only)</h3>
 		<P>
 <A href="#introduction">Einleitung</A><br>
 <A href="#implementation">Implementierte Verfahren</A><br>
-<A href="#automaticanalysis">Automatische Kryptoanalyse</A><br>
-<A href="#speechrecognition">Spracherkennung</A><br>
+&nbsp;&nbsp;<A href="#automaticanalysis">Automatische Kryptoanalyse nach Methode 1</A><br>
+&nbsp;&nbsp;<A href="#speechrecognition">Spracherkennung</A><br>
+&nbsp;&nbsp;<A href="#automaticanalysis2">Automatische Kryptoanalyse nach Methode 2</a><br>
 <A href="#usage">Benutzung</A><br>
 <A href="#constraints">Bekannte Einschränkungen</A><br>
 </P>
 
 <h3><A name="introduction">Einleitung</h3>
 
-<P>Das alte in CrypTool enthaltene Verfahren (jetzt genannt Methode 2) zur <B>automatischen Kryptoanalyse 
-monoalphabetischer Substitutionschiffren</B> basierte auf der Erkennung der häufigsten 
-Wörter einer Sprache und hatte u.a. folgende Einschränkungen: Keine automatische 
+<P>In CrypTool sind zwei Verfahren zur <B>automatischen Kryptoanalyse 
+monoalphabetischer Substitutionschiffren</B> implementiert.</p>
+<p>Das alte (und schwächere) Verfahren (nun <u>Methode 2</u> genannt) basiert auf der Erkennung der häufigsten 
+Wörter einer Sprache und hat u.a. folgende Einschränkungen: Keine automatische 
 Spracherkennung, Notwendigkeit zum Erhalten der Leerzeichen im Chiffretext, 
 keine Unterscheidung der Groß-/Kleinschreibung.</P>
 
-<P>Die neue Implementierung (jetzt genannt Methode 1) basiert auf der Arbeit von Thomas Jakobsen "A Fast Method 
+<P>Die neue Implementierung (jetzt genannt <u>Methode 1</u>) basiert auf der Arbeit von Thomas Jakobsen "A Fast Method 
 for the Cryptanalysis of Substitution Ciphers" (Cryptologia 19:3, 1995). Dieses neue 
-Verfahren sollte vor allem folgende Vorteile mit sich bringen:</P>
+Verfahren sollte folgende Vorteile mit sich bringen:</P>
 
 <UL>
 <LI>bessere Entschlüsselungsraten,</LI>
@@ -43,10 +45,10 @@ Verfahren sollte vor allem folgende Vorteile mit sich bringen:</P>
 <LI>Entschlüsselung von Chiffretexten mit und ohne Leerzeichen.</LI>
 </UL>
 
-<P>Der Algorithmus arbeitet auf dem lateinischen Alphabet mit 26 Buchstaben (A..Z). 
-Das Verschlüsselungsalphabet kann durch das Leerzeichen erweitert werden, so dass das 
+<P>Der Algorithmus arbeitet auf dem lateinischen Alphabet mit 26 Buchstaben (A...Z). 
+Das feste Verschlüsselungsalphabet kann durch das Leerzeichen erweitert werden, so dass das 
 Leerzeichen wie andere Buchstaben verschlüsselt (d.h., auf einen anderen Buchstaben 
-abgebildet) wird. Umlaute, Satzzeichen und Sonderzeichen werden beibehalten. Ebenso 
+abgebildet) wird. Umlaute, Satzzeichen und Sonderzeichen werden standardmäßig beibehalten. Ebenso 
 wird die Groß-/Kleinschreibung bei der Entschlüsselung des Textes beibehalten.</P>
 
 <P>Des Weiteren wurde die neue Implementierung um einen Algorithmus zur automatischen 
@@ -55,7 +57,7 @@ der Zeichenkoinzidenz (englisch: "index of coincidence", nach W. F. Friedman, 19
 
 <h3><A name="implementation">Implementierte Verfahren</h3>
 
-<h4><A name="automaticanalysis">Automatische Kryptoanalyse</h4>
+<h4><A name="automaticanalysis">Automatische Kryptoanalyse nach Methode 1</h4>
 
 <P>Das implementierte Kryptoanalyseverfahren führt eine Häufigkeitsanalyse des Textes 
 durch, wobei die Häufigkeitsverteilungen einzelner Buchstaben und Digramme im Chiffretext 
@@ -68,10 +70,7 @@ verfeinert. In jeder Iteration wird entschieden, ob die Verfeinerung des Schlüss
 "besseren" Wert gebracht hat und wenn ja, wird dieser Wert für die weitere Berechnung 
 übernommen.</P>
 
-<P>Die höhere Geschwindigkeit des Verfahrens basiert vor allem auf den folgenden 
-Algorithmusdetails: Der Schlüsselinitialwert wird unter Berücksichtigung der 
-Häufigkeitsverteilung einzelner Buchstaben im Chiffretext erstellt. Das Verfahren 
-arbeitet auf einer Verteilungsmatrix für Digramme. Bei der Schlüsselsuche werden die Häufigkeiten einzelner Buchstaben berücksichtigt.</P>
+<P>Die höhere Geschwindigkeit des Verfahrens auf einer Verteilungsmatrix für Digramme. Bei der Schlüsselsuche werden die Häufigkeiten einzelner Buchstaben berücksichtigt.</P>
 
 <P>Die Berechnung der "Güte" des Schlüssels basiert auf dem Vergleich der 
 Digramm-Häufigkeitsverteilung des vorliegenden Chiffretextes mit der 
@@ -89,7 +88,7 @@ für statistische Auswertungen, die über den Menüeintrag
 <A href="menu_options.html">Optionen</A> \ <A href="hid_opttext.html">Textoptionen</A> 
 gefunden werden kann.</P>
 
-<P>Laut dem Autor des Algorithmus Thomas Jacobsen, ist dieses Verfahren erheblich schneller als andere 
+<P>Laut dem Autor des Algorithmus (Thomas Jacobsen) ist dieses Verfahren erheblich schneller als andere 
 bekannte Verfahren wie Carroll-Robbins und King-Bahler. Der Algorithmus soll nach 
 Angaben des Autors in 98% aller Fälle erfolgreich sein (bezogen auf 400 Zeichen lange 
 Chiffretexte).</P>
@@ -109,14 +108,14 @@ der Zeichenkoinzidenz basiert, nicht immer genaue Ergebnisse liefern kann. Der G
 hierfür ist die Streuung der Buchstabenhäufigkeiten für verschiedene Texte, die sich 
 deutlich von Referenzwerten einer Sprache unterscheiden können.</P>
 
+<h4><A name="automaticanalysis2">Automatische Kryptoanalyse nach Methode 2</h4>
+
+<p>Hier wird versucht, die häufigsten Worte einer Sprache auf die Worte im gegebenen Ciphertext zu matchen.<br>
+Voraussetzung ist, dass die Wortgrenzen durch Satz- oder Leerzeichen vorhanden sind.</p>
+
 <h3><A name="usage">Benutzung</h3>
 
-<P>Die automatische Kryptoanalyse wird über den Menüeintrag 
-<A href="menu_analyze.html">Analyse</A> \ Symmetrische Verschlüsselung (klassisch) \ 
-Ciphertext only \ Substitution gestartet.
-
-<P>Danach wird dem Benutzer über folgenden Dialog ermöglicht, den neuen oder alten 
-Algorithmus zur Substitutionsanalyse auszuwählen:</P>
+<P>Zuerst wird dem Benutzer über folgenden Dialog ermöglicht, den neuen (Methode 1) oder alten (Methode 2) Algorithmus zur Substitutionsanalyse auszuwählen:</P>
 
 <P><IMG SRC="images/automaticAnalysisSubstitutionSelection.gif" ALT="images/automaticAnalysisSubstitutionSelection.gif" BORDER=0></P>
 
@@ -130,11 +129,9 @@ für die bevorstehende Kryptoanalyse vornehmen kann.</P>
 mit einem anderen Buchstaben substituiert wurde (d.h. das Leerzeichen gehört dann zum 
 Verschlüsselungsalphabet). Zusätzlich kann der Benutzer das Analyse-GUI für die 
 Berechnungszeit komplett ausschalten und sich nur das Endergebnis anzeigen lassen. 
-Die Aktivierung dieser Option bringt einen Geschwindigkeitszuwachs mit sich, da der Text 
-nicht mehr in jeder erfolgreichen Iteration entschlüsselt und auf dem Bildschirm ausgegeben 
-werden muss.</P>
+Die Aktivierung dieser Option bringt einen Geschwindigkeitszuwachs mit sich, da nicht jeder erfolgreich entschlüsselte Text und auf dem Bildschirm ausgegeben werden muss.</P>
 
-<P>Ist der zu analysierende Text zu kurz (weniger als 300 zum Alphabet gehörenden 
+<P>Ist der zu analysierende Text zu kurz (weniger als 300 zum Alphabet gehörende 
 Zeichen), erscheint die folgende Warnung:</P>
 
 <P><IMG SRC="images/automaticAnalysisSubstitutionWarning.gif" ALT="images/automaticAnalysisSubstitutionWarning.gif" BORDER=0></P>
@@ -147,11 +144,11 @@ mitverfolgen.</P>
 
 <P><IMG SRC="images/automaticAnalysisSubstitutionResult.gif" ALT="images/automaticAnalysisSubstitutionResult.gif" BORDER=0></P>
 
-<P>Der Benutzer kann den aktuellen Substitutionsschlüssel in die Windows-Ablage kopieren, indem 
-er auf Button <b>Schlüssel kopieren</b> klickt. Der Benutzer hat auch die Möglichkeit, das 
-Ergebnis der automatischen Substitutionsanalyse durch die manuelle Analyse zu verbessern. 
-Durch das Klicken auf den Button <b>Manuelle Analyse</b> gelangt der Benutzer zum Fenster für 
-die manuelle Substitutionsanalyse. Das Ergebnis der automatischen Analyse wird als Grundlage 
+<P>Der Benutzer kann den aktuellen Substitutionsschlüssel in den internen Schlüsselspeicher kopieren, indem 
+er auf Button <b>Schlüssel kopieren</b> klickt.<br>
+Der Benutzer hat auch die Möglichkeit, das Ergebnis der automatischen Substitutionsanalyse durch manuelle Analyse selbst weiter zu verbessern: 
+Durch das Klicken auf den Button <b>Manuelle Analyse</b> gelangt man zum Dialog  
+die <a href="hid_analyze_subst.html">manuelle Analyse für monoalphabetische Substitution</a>. Das Ergebnis der automatischen Analyse wird als Grundlage 
 für die manuelle Analyse übernommen.</P>
 <p>
 Wird die Substitution vom Benutzer akzeptiert, öffnet sich ein weiteres Dokumentfenster, 
