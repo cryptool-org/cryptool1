@@ -24,21 +24,18 @@
 			sich der Mathematik bedienten (lineare Abbildungen, die in Matrixform 
 			geschrieben werden können). Durch die Benutzung der Mathematik versprach man 
 			sich ein Mehr an Sicherheit.</P>
-		<P>Das Hill-Verschlüsselungsverfahren benötigt einen aus den zu <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselnden</A>
-			Zeichen bestehenden <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> (siehe 
-			Dialog <A href="hidd_text_options.html">Textoptionen</A>), der genauso viele 
-			Zeilen wie Spalten hat. Der Schlüssel muss im Dialog <A href="hidd_key_hill5x5.html">
-				Schlüssel für Hill Verschlüsselungsverfahren</A> eingegeben werden.</P>
-		<P>Der <!--ZZZPOPUP--><A href="klartext.html">Klartext</A>, der ebenfalls nur aus 
-			den zu verschlüsselnden Zeichen bestehen darf, wird in Blöcke gleicher Größe 
-			(ein Block besteht aus so vielen Zeichen, wie der Schlüssel Zeilen hat) 
-			unterteilt. Zur Verschlüsselung wird der Klartext blockweise verarbeitet. Ein 
-			Zeichen des verschlüsselten Textes hängt beim Hill-Verschlüsselungsverfahren 
-			nicht nur vom entsprechenden Klartextzeichen und dem Schlüssel ab (wie beim <A href="hid_rot13caesar_asc.html">
-				Caesar</A> und <A href="hid_vigenere_asc.html">Vigenère-Verschlüsselungsverfahren</A>), 
-			sondern auch von den anderen Klartextzeichen des Blockes. Der letzte Block 
-			besteht unter Umständen aus zu wenigen Zeichen; in diesem Fall wird er mit dem 
-			Zeichen mit dem kleinsten <A href="ascii.html">ASCII</A>-Wert aufgefüllt.</P>
+		<P>Das Hill-Verschlüsselungsverfahren benötigt einen Schlüssel und den Klartext. Auch der
+			Schlüssel darf nur aus den Zeichen des Klartextalphabets (siehe Dialog <A href="hidd_text_options.html">Textoptionen</A>)
+			bestehen. Außerdem ist der Schlüssel eine quadratische Matrix, d.h. die Matrix hat genauso viele
+			Zeile wie Spalten. Diese Anzahl bezeichnet man auch als Dimension der Matrix. Der
+			Schlüssel muss im Dialog <A href="hidd_key_hill5x5.html">Schlüssel für Hill
+			Verschlüsselungsverfahren</A> eingegeben werden.</P>
+		<P>Der <A href="klartext.html">Klartext</A> wird in Blöcke gleicher Größe (ein Block 
+			besteht aus so vielen Zeilen, wie der Schlüssel Zeilen hat) unterteilt.</P>
+		<P>Der letzte Block besteht unter Umständen aus zu wenigen Zeichen: In diesem Fall wird auf
+			die Länge der Matrixdimension aufgefüllt -- und zwar standardmäßig mit den kleinsten
+			Zeichen des benutzten Alphabets (das muss nicht das Zeichen mit dem kleinsten <A href="ascii.html">ASCII
+			</A>-Wert sein, z.B. wenn das Alphabet folgendermaßen definiert ist: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789").</P>
 		<P>Mathematisch gesehen beruht das Hill-Verschlüsselungsverfahren auf der 
 			Matrizenmultiplikation mit der Matrix A=(a[i,j]) für i und j zwischen 1 und n. 
 			Dabei werden sowohl der Klartext und der verschlüsselte Text als auch der 

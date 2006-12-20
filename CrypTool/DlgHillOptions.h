@@ -12,6 +12,9 @@ public:
 	virtual ~DlgHillOptions();
 
 	unsigned long firstPosNull;
+	unsigned long useFirstCharFromAlph;
+
+	bool isInAlph(CString strChar);
 
 // Dialog Data
 	enum { IDD = IDD_Hill_Options };
@@ -28,4 +31,9 @@ protected:
 public:
 	afx_msg void OnBnClickedOk();
 	afx_msg void OnBnClickedCancel();
+	CString m_FirstCharFromAlph;
+	afx_msg void OnBnClickedRadio1();
+	afx_msg void OnBnClickedRadio2();
+	CString m_ownCharForPadding;
+	afx_msg void OnEnChangeEdit2();
 };

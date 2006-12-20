@@ -125,15 +125,47 @@ void CHillEncryption::init_zahlen_zeichen (char* erlaubte_zeichen)
 	// wir benutzen hier unsigned Vergleiche, damit das Leerzeichen dann
 	// das Fuellzeichen wird, wenn es im Alphabet vorhanden ist und keine
 	// Steuerzeichen (0x00-0x1f) im Alphabet vorhanden sind.
+	
+	
 	ASSERT(modul >= 1);
-	fuellzeichen = zeichen[0];
-	for (i=0; i<modul; i++)
+	//read from registry
+	unsigned long useFirstCharFromAlph = 1;
+	CString strOwnCharForPadding;
+
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_READ) == ERROR_SUCCESS)
 	{
-		if ((unsigned char)zeichen[i] < (unsigned char)fuellzeichen)
-		{
-			fuellzeichen = zeichen[i];
-		}
+		char cFirstCharFromAlph[1024];
+		CString strAlph = zeichen[0];
+		strncpy(cFirstCharFromAlph,strAlph.GetBuffer(0),strAlph.GetLength());
+		cFirstCharFromAlph[strAlph.GetLength()] = '\0';
+		unsigned long u_length = 1024;
+
+		CT_READ_REGISTRY_DEFAULT(useFirstCharFromAlph, "useFirstCharFromAlph", useFirstCharFromAlph);
+		CT_READ_REGISTRY(cFirstCharFromAlph,"ownCharForPadding",u_length);
+
+		strOwnCharForPadding = cFirstCharFromAlph;
+
+		CT_CLOSE_REGISTRY();
 	}
+
+	CString strCharForPadding;
+	if(useFirstCharFromAlph == 1)
+		strCharForPadding = zeichen[0];
+	if(useFirstCharFromAlph == 0)
+		strCharForPadding = strOwnCharForPadding;
+	
+	//fuellzeichen = zeichen[0];
+
+	
+	fuellzeichen = *(LPCTSTR)strCharForPadding;
+
+	//for (i=0; i<modul; i++)
+	//{
+	//	if ((unsigned char)zeichen[i] < (unsigned char)fuellzeichen)
+	//	{
+	//		fuellzeichen = zeichen[i];
+	//	}
+	//}
 }
 
 
@@ -569,7 +601,36 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
     MatOut = _T("");
 	char num[3];
 
-	const char example[] = "CIPHERTEXT";
+	//read from registry
+	unsigned long firstPosNull = 1;
+
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_READ) == ERROR_SUCCESS)
+	{
+		CT_READ_REGISTRY_DEFAULT(firstPosNull, "firstPosNull", firstPosNull);
+
+		CT_CLOSE_REGISTRY();
+	}
+
+
+	CString strExmpl;
+
+	//reading example from userinput
+	for(int x = 0; x < laenge_plain; x++)
+	{
+		for(int y = 0; y < theApp.TextOptions.m_alphabet.GetLength();y++)
+		{
+			if((CString)my_int_to_char(plaintext[x]) == (CString)theApp.TextOptions.m_alphabet[y])
+			{
+				strExmpl += (CString)my_int_to_char(plaintext[x]);
+				break;
+			}
+		}
+	}
+
+
+	LPCTSTR example = strExmpl;
+
+
 	int  i_act_example[256];
 	char c_act_example[256];  
 	ASSERT(strlen(example) < INT_MAX);
@@ -593,6 +654,11 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 	for (i=0; i<=floor_rows; i++)
 	{
 		int ndx = i;
+		
+		//if first position is 1 than shift 1 position
+		int ndxFirstPosNull = 0;
+		if(!firstPosNull)ndxFirstPosNull++; //if first pos is 1 then inkrement
+		
 		if ( i == floor_rows && 0 == remainder ) break;
 		MatOut = MatOut +'\t';
 		for (j=0; j<4; j++)
@@ -600,9 +666,9 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 			if (i == floor_rows && j >= remainder) break;
 			MatOut = MatOut + (char)my_int_to_char(ndx) + ' ' + CString(" --> ")  + '\t';
 			if ( modul > 100 )
-				sprintf(num, "%03i", ndx);
+				sprintf(num, "%03i", ndx+ndxFirstPosNull);
 			else 
-				sprintf(num, "%02i", ndx);
+				sprintf(num, "%02i", ndx+ndxFirstPosNull);
 			MatOut = MatOut + CString(num) + ' ';
 		    MatOut = MatOut + '\t';
 			ndx += floor_rows;
@@ -631,14 +697,6 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 	sprintf(cTempStr, pc_str, theApp.TextOptions.m_alphabet.GetLength());
 	MatOut += CString(cTempStr) + '\n';
 
-	unsigned long firstPosNull = 0;
-	if(CT_OPEN_REGISTRY_SETTINGS(KEY_READ) == ERROR_SUCCESS)
-	{
-		
-		CT_READ_REGISTRY_DEFAULT(firstPosNull, "firstPosNull", firstPosNull);
-	
-		CT_CLOSE_REGISTRY();
-	}
 
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_HILL_DETAILS_FIRSTPOS, pc_str, STR_LAENGE_STRING_TABLE);
 	if(firstPosNull)
