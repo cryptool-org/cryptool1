@@ -21,13 +21,13 @@
 			Test</a></p>	
 			
 <P>This test examines whether pairs of consecutive numbers are <A href="gleichver.html">equally distributed</A> and thus checks their independence of each other.</p>
-<p>In the case of a binary sequence s, the test determines whether the probability, that consecutive elements in the sequence are the same or different is equal or not. This is an index of whether every bit is independent from its immediate predecessor or not. The number of sub-sequences 00, 01, 10, 11 in <I>s</I> should approach the number expected if a number sequence is truly random. Since under this test two bits are always examined together, the test is also known in the literature as the <I>Two-Bit test</I>.</P>
+<p>In the case of a binary sequence s, the test determines whether the probability, that consecutive elements in the sequence are the same or different, is equal or not. This is an index of whether every bit is independent from its immediate predecessor or not. The number of sub-sequences 00, 01, 10, 11 in <I>s</I> should approach the number expected if a number sequence is truly random. Since under this test two bits are always examined together, the test is also known in the literature as the <I>Two-Bit test</I>.</P>
 
-<P>Let n0 and n1 be the numbers of zeros and ones, respectively, in <I>s</I>; and let n00, n01 , n10 and n11 be the relevant numbers of sub-sequences 00, 01, 10, 11 in <I>s</I>. As the sub-sequences overlap, the following applies (with n = bit length of s):</P>
+<P>Let n<sub>0</sub> and n<sub>1</sub> be the numbers of zeros and ones, respectively, in <I>s</I>; and let n<sub>00</sub>, n<sub>01</sub>, n<sub>10</sub> and n<sub>11</sub> be the relevant numbers of sub-sequences 00, 01, 10, 11 in <I>s</I>. As the sub-sequences overlap, the following applies (with n = bit length of s):</P>
 
 <div style="text-align:center">
 
-<P>n00 + n01 + n10 + n11 = n - 1</P>
+<P>n<sub>00</sub> + n<sub>01</sub> + n<sub>10</sub> + n<sub>11</sub> = n - 1</P>
 
 </div>
 
@@ -35,13 +35,13 @@
 
 <div style="text-align:center">
 
-<P>X2 = [4 / (n –1)] * (n00^2 + n01^2 + n10^2 + n11^2) – (2 / n) * (n0^2 + n1^2) + 1,</P>
+<P>X<sub>2</sub> = [4 / (n –1)] * (n<sub>00</sub>^2 + n<sub>01</sub>^2 + n<sub>10</sub>^2 + n<sub>11</sub>^2) – (2 / n) * (n<sub>0</sub>^2 + n<sub>1</sub>^2) + 1,</P>
 
 </div>
 
-<P>whereby X2 approaches a <A href="chi_2_verteilung.html">chi^2 distribution</A> with two degrees of freedom, provided that n&gt;=21.</P>
+<P>whereby X<sub>2</sub> approaches a <A href="chi_2_verteilung.html">chi^2 distribution</A> with two degrees of freedom, provided that n&gt;=21.</P>
 
-<P>In the <A href="dialog_serial.html">Serial Test</A> dialog it is possible to determine <!--ZZZPOPUP--><A href="sign_niv.html">significance level</A>, <!--ZZZPOPUP--><A href="offst.html">offset</A> and <!--ZZZPOPUP--><A href="testlen.html">test length</A>.</P>
+<P>In the <A href="dialog_serial.html">serial test</A> dialog it is possible to determine <!--ZZZPOPUP--><A href="sign_niv.html">significance level</A>, <!--ZZZPOPUP--><A href="offst.html">offset</A> and <!--ZZZPOPUP--><A href="testlen.html">test length</A>.</P>
 
 <P><B>Example of the Serial Test</B></P>
 
@@ -62,27 +62,27 @@
 <TABLE cols=2 width="0*" class="pad20">
 
 <TR VALIGN="top">
-<TD>n00 = 35</TD>
-<TD>n10 = 38</TD>
+<TD>n<sub>00</sub> = 35</TD>
+<TD>n<sub>10</sub> = 38</TD>
 </TR>
 
 <TR VALIGN="top">
-<TD>n01 = 39</TD>
-<TD>n11 = 47</TD>
+<TD>n<sub>01</sub> = 39</TD>
+<TD>n<sub>11</sub> = 47</TD>
 </TR>
 </TABLE><BR>
 
 </div>
 
-<P>The test statistics for the <I>Two-Bit test</I> is calculated by</P>
+<P>The test statistics for the <I>two-bit test</I> is calculated by</P>
 
 <div style="text-align:center">
 
-<P>X2 = [4 / (160 –1)] * (35^2 + 39^2 + 38^2 + 47^2) – (2 / 160) * (74^2 + 86^2) + 1 = 1.081</P>
+<P>X<sub>2</sub> = [4 / (160 –1)] * (35^2 + 39^2 + 38^2 + 47^2) – (2 / 160) * (74^2 + 86^2) + 1 = 1.081</P>
 
 </div>
 
-<P>The threshold for X2 in a <A href="chi_2_verteilung.html">chi^2 distribution</A> with two degrees of freedom and a <!--ZZZPOPUP--><A href="sign_niv.html">significance level</A> of alpha = 0.05 is given by 5.991. With X2 = 1.081 &lt;= 5.991, sequence <I>s</I> passes the Serial test.</P>
+<P>The threshold for X<sub>2</sub> in a <A href="chi_2_verteilung.html">chi^2 distribution</A> with two degrees of freedom and a <!--ZZZPOPUP--><A href="sign_niv.html">significance level</A> of alpha = 0.05 is given by 5.991. With X<sub>2</sub> = 1.081 &lt;= 5.991, sequence <I>s</I> passes the serial test.</P>
 
 <P>Reference: Christian Schiestl, <I>Pseudozufallszahlen in der Kryptographie</I>, in Klagenfurt, 1999.</P>
 

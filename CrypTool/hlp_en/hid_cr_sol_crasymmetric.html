@@ -2,7 +2,7 @@
 <HTML>
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Solution to Challenge-Response Scenario (asymmetric)</TITLE>
+<TITLE>Solution to challenge-response scenario (asymmetric)</TITLE>
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
@@ -16,16 +16,16 @@
 
 <H3>Solution to Challenge-Response Scenario (asymmetric)</H3>
 
-<P>The solution lies in so-called <A href="man_in_the_middle.html">Man-in-the-Middle-Attack</A>. The attacker sees to it that all data packet is transferred through him and identifies himself before the client as server and before the server as client. So, invisibly, he is involved in all protocol steps. As soon as the client is accepted by the server the attacker can disconnect the client and play its role for further communication. In Scenario you proceed as follows:</p>
+<P>The solution is based on the so-called <A href="man_in_the_middle.html">man-in-the-middle-attack</A>. The attacker makes sure that all data packets are transferred through him and identifies himself to the client as server and to the server as client. So, invisibly, he is involved in all protocol steps. As soon as the client is accepted by the server the attacker can disconnect the client and play its role for further communication. In the scenario you proceed as follows:</p>
 
 <OL>
 	<LI>You create a connection between the attacker and the two routers.<BR><BR></LI>
 
 	<LI>Separate the connection between the two routers.<BR><BR></LI>
 
-	<LI>Now you have reached a connection configuration so that the whole communication between Client and Server 1 is passed through you. If you put on your masking you are ready for the <A href="man_in_the_middle.html">Man-in-the-Middle-Attack</A>.<BR><BR></LI>
+	<LI>Now you have reached a connection configuration so that the whole communication between Client and Server 1 is passed through you. If you put on your masking you are ready for the <A href="man_in_the_middle.html">man-in-the-middle-attack</A>.<BR><BR></LI>
 
-	<LI>Start the protocol from the client. Finally, you (attacker) due to your masking will be authenticated instead of the client(<A href="man_in_the_middle.html">Man-in-the-Middle-Attack</A>).</LI>
+	<LI>Start the protocol from the client. Finally, you (attacker) due to your masking will be authenticated instead of the client (<A href="man_in_the_middle.html">man-in-the-middle-attack</A>).</LI>
 </OL>
 
 <P>This solution works, by the way, for all previous scenarios too.</P>

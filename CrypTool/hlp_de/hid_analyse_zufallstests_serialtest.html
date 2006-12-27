@@ -29,19 +29,19 @@
 			echten Zufallsfolge erwarteten Anzahl entsprechen. Da bei diesem Test stets 
 			zwei Bits auf einmal untersucht werden, wird der Test in der Literatur auch mit <I>Zwei-Bit-Test</I>
 			bezeichnet.</P>
-		<P>Seien n0 und n1 die Anzahl der Nullen bzw. der Einsen in s; und seien n00, n01, 
-			n10 und n11 die jeweilige Anzahl der Teilsequenzen 00, 01, 10, 11 in <I>s</I>. Da 
+		<P>Seien n<sub>0</sub> und n<sub>1</sub> die Anzahl der Nullen bzw. der Einsen in s; und seien n<sub>00</sub>, n<sub>01</sub>, 
+			n<sub>10</sub> und n<sub>11</sub> die jeweilige Anzahl der Teilsequenzen 00, 01, 10, 11 in <I>s</I>. Da 
 			sich die Teilfolgen überlappen dürfen, gilt (mit n = Bitlänge von s):
 		</P>
 		<div style="TEXT-ALIGN:center">
-			<P>n00 + n01 + n10 + n11 = n - 1</P>
+			<P>n<sub>00</sub> + n<sub>01</sub> + n<sub>10</sub> + n<sub>11</sub> = n - 1</P>
 		</div>
 		<P>Die verwendete Teststatistik ist gegeben durch</P>
 		<div style="TEXT-ALIGN:center">
-			<P>X2 = [4 / (n –1)] * (n00^2 + n01^2 + n10^2 + n11^2) – (2 / n) * (n0^2 + 
-				n1^2) + 1,</P>
+			<P>X<sub>2</sub> = [4 / (n –1)] * (n<sub>00</sub>^2 + n<sub>01</sub>^2 + n<sub>10</sub>^2 + n<sub>11</sub>^2) – (2 / n) * (n<sub>0</sub>^2 + 
+				n<sub>1</sub>^2) + 1,</P>
 		</div>
-		<P>wobei X2 annähernd einer <A href="chi_2_verteilung.html">chi^2 – Verteilung</A> mit 
+		<P>wobei X<sub>2</sub> annähernd einer <A href="chi_2_verteilung.html">chi^2 – Verteilung</A> mit 
 			zwei Freiheitsgraden entspricht, vorausgesetzt n &gt;= 21.</P>
 		<P>In dem <A href="dialog_serial.html">Serial-Test-Dialogfenster</A> kann man <!--ZZZPOPUP--><A href="sign_niv.html">Signifikanzniveau</A>,  <!--ZZZPOPUP--><A href="offset.html">Offset</A>
 			und <!--ZZZPOPUP--><A href="testlen.html">Testlänge</A> bestimmen.</P>
@@ -59,12 +59,12 @@
 		<div class="indent">
 			<TABLE cols="2" width="0*" class="pad20">
 				<TR VALIGN="top">
-					<TD>n00 = 35</TD>
-					<TD>n10 = 38</TD>
+					<TD>n<sub>00</sub> = 35</TD>
+					<TD>n<sub>10</sub> = 38</TD>
 				</TR>
 				<TR VALIGN="top">
-					<TD>n01 = 39</TD>
-					<TD>n11 = 47</TD>
+					<TD>n<sub>01</sub> = 39</TD>
+					<TD>n<sub>11</sub> = 47</TD>
 				</TR>
 			</TABLE>
 			<BR>
@@ -72,12 +72,12 @@
 		<P>Die Prüfgröße für den <I>Zwei-Bit-Test</I> wird ermittelt durch
 		</P>
 		<div style="TEXT-ALIGN:center">
-			<P>X2 = [4 / (160 –1)] * (35^2 + 39^2 + 38^2 + 47^2) – (2 / 160) * (74^2 + 86^2) + 
+			<P>X<sub>2</sub> = [4 / (160 –1)] * (35^2 + 39^2 + 38^2 + 47^2) – (2 / 160) * (74^2 + 86^2) + 
 				1 = 1,081</P>
 		</div>
-		<P>Der Grenzwert für X2 ist bei einer <A href="chi_2_verteilung.html">chi^2 – 
+		<P>Der Grenzwert für X<sub>2</sub> ist bei einer <A href="chi_2_verteilung.html">chi^2 – 
 				Verteilung</A> mit zwei Freiheitsgraden und einem <!--ZZZPOPUP--><A href="sign_niv.html">Signifikanzniveau</A>
-			von alpha = 0.05 gegeben mit 5,991 . Mit X2 = 1,081 &lt;= 5.991 besteht die 
+			von alpha = 0.05 gegeben mit 5,991 . Mit X<sub>2</sub> = 1,081 &lt;= 5.991 besteht die 
 			Folge s den Serial-Test.</P>
 		<P>Literatur: Christian Schiestl, <I>Pseudozufallszahlen in der Kryptographie</I>, 
 			Klagenfurt, 1999.</P>

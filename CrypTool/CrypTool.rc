@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -11284,12 +11284,12 @@ BEGIN
     IDS_CLIPBOARD_HEXPASTE  "Die Zwischenablage enthält ausschließlich Hexadezimal-Zeichen.\nDiese können entweder decodiert (Standard) oder unverändert eingefügt werden.\n\nSollen die hexadezimalen Daten decodiert werden?"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -11338,12 +11338,12 @@ BEGIN
     LTEXT           "for the document:",IDC_STATIC,13,95,84,9,0,WS_EX_RIGHT
 END
 
-IDD_DIFFIEHELLMANVISUALIZATION DIALOG  0, 0, 525, 345
+IDD_DIFFIEHELLMANVISUALIZATION DIALOGEX 0, 0, 525, 345
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION 
 "Diffie-Hellman Demonstration - Visualization of the Diffie-Hellman Key Exchange Protocol"
 
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     CONTROL         "IDB_DH_BUTTON1_R_",IDC_SETPUBLICPARAMETERS,"Button",
                     BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,7,11,108,31
@@ -11381,8 +11381,8 @@ BEGIN
     EDITTEXT        IDC_FINALBOB,405,257,100,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
     CONTROL         544,IDC_STATIC,"Static",SS_BITMAP,70,276,58,42
-    CONTROL         "Show &information dialogues",IDC_CHECK_DISABLEHELP,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,411,327,102,10
+    CONTROL         "Show &information dialogs",IDC_CHECK_DISABLEHELP,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,411,327,94,10
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,226,8,5
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,176,8,5
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,126,8,5
@@ -13131,7 +13131,7 @@ END
 
 IDD_RSA_DEMO DIALOGEX 0, 0, 391, 399
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "The RSA Demonstration"
+CAPTION "RSA Demonstration"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     PUSHBUTTON      "&Generate prime numbers...",IDC_BUTTON_PZ_GENERIEREN,
@@ -22658,7 +22658,7 @@ BEGIN
     IDS_CLIPBOARD_HEXPASTE  "The clipboard contains hexadecimal characters only. They can be inserted decoded (default) or unchanged.\n\nDecode hexadecimal data?"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
