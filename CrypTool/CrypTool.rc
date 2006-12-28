@@ -1755,7 +1755,7 @@ BEGIN
                     BS_AUTORADIOBUTTON,184,76,121,10
     PUSHBUTTON      "&Abbrechen",IDC_ENDDIALOG,254,202,59,20
     GROUPBOX        "",IDC_STATIC,11,0,303,32
-    LTEXT           "Primzahlen spielen in der modernen Kryptographie eine wichtige Rolle. Hier erzeugen Sie sich zwei zufällige Primzahlen p und q aus dem Wertebereich [Untergrenze, ..., Obergrenze].",
+    LTEXT           "Primzahlen spielen in der modernen Kryptographie eine wichtige Rolle. Hier erzeugen Sie sich zwei zufällige Primzahlen p und q aus dem Wertebereich [Untergrenze, Obergrenze].",
                     IDC_STATIC,19,9,289,17
     GROUPBOX        "Algorithmen zur Generierung",IDC_STATIC,11,39,142,61
     GROUPBOX        "Wertebereich der beiden Primzahlen",IDC_STATIC,172,39,
@@ -2351,16 +2351,16 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,18,39,104,10
     CONTROL         "Zufällige Blöcke aus der Datei verwenden",IDC_CHECK3,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,51,170,13
-    EDITTEXT        IDC_EDIT2,53,70,54,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT5,53,89,54,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,58,70,54,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,58,89,54,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT4,162,70,55,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT6,79,144,63,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT6,80,144,63,12,ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&Schließen",IDOK,143,276,83,18
     GROUPBOX        "Runs-Parameter",IDC_STATIC,8,7,218,104
     LTEXT           "Signifikanzniveau alpha: ",IDC_STATIC,18,21,80,8
     LTEXT           "Offset:",IDC_STATIC,18,72,22,8
-    LTEXT           "Testlänge:",IDC_STATIC,120,72,34,8
-    LTEXT           "Runlänge:",IDC_STATIC,18,91,34,8
+    LTEXT           "Testlänge:",IDC_STATIC,125,72,34,8
+    LTEXT           "Run-Länge:",IDC_STATIC,18,91,38,8
     GROUPBOX        "Long-Runs-Parameter",IDC_STATIC,8,115,218,50
     CONTROL         "Default-Long-Runs-Parameter",IDC_CHECK1,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,18,127,110,10
@@ -8437,6 +8437,7 @@ BEGIN
 
     IDD_RUNS_TEST, DIALOG
     BEGIN
+        VERTGUIDE, 18
         BOTTOMMARGIN, 295
     END
 
@@ -10171,7 +10172,7 @@ BEGIN
     IDS_STRING_MSG_PERM     "Permutationseingabe"
     IDS_STRING_MSG_PERM_ZERO_INVALID_INPUT 
                             "Der Permutationsschlüssel darf keine Nullen enthalten. Bitte korrigieren Sie Ihre Eingabe im ersten Eingabefeld!"
-    IDS_NUMBER_RSA_MODUL    "Der RSA-Modul N wurde erfolgreich in die Primzahlen p und q faktorisiert!\nSie können die RSA-Operation auch mit dem geheimen Schlüssel d\ndurchführen: benutzen Sie hierfür den Knopf Entschlüsseln."
+    IDS_NUMBER_RSA_MODUL    "Der RSA-Modul N wurde erfolgreich in die Primzahlen p und q faktorisiert!\nSie können die RSA-Operation auch mit dem geheimen Schlüssel d\ndurchführen: Benutzen Sie hierfür den Knopf Entschlüsseln."
     IDS_NUMBER_NOT_FACTORIZED "Die Zahl N wurde nicht faktorisiert!"
     IDS_NUMBER_NOT_RSA_MODUL 
                             "Die Zahl N ist kein RSA-Modul:\n- entweder hat N mehr als zwei Faktoren\n- oder N = p^2 ist eine Quadratzahl.\n\nBitte korrigieren Sie die Eingabe für N."
@@ -13112,7 +13113,7 @@ BEGIN
     EDITTEXT        IDC_EDIT6,224,166,81,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_TABSTOP
     GROUPBOX        "",IDC_STATIC,11,0,303,32
-    LTEXT           "Prime numbers play an important role in modern cryptography. Generate two random prime numbers p and q within the value range [lower limit ... upper limit].",
+    LTEXT           "Prime numbers play an important role in modern cryptography. Generate two random prime numbers p and q within the value range [lower limit, upper limit].",
                     IDC_STATIC,19,9,289,17
     GROUPBOX        "Algorithms for prime number generation",IDC_STATIC,11,
                     39,142,61
@@ -13464,10 +13465,10 @@ BEGIN
     LTEXT           "Modulus  N =",IDC_STATIC,49,72,44,8
 END
 
-IDD_OPTIONS_RSA_DEMO DIALOG  0, 0, 291, 298
+IDD_OPTIONS_RSA_DEMO DIALOGEX 0, 0, 291, 298
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Options for RSA Encryption"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,274,50,18
     CONTROL         "All 256 &ASCII characters",IDC_RADIO1,"Button",
@@ -13477,7 +13478,7 @@ BEGIN
     EDITTEXT        IDC_EDIT1,28,46,248,14,ES_AUTOHSCROLL
     CONTROL         "&Normal",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,18,89,51,8
-    CONTROL         "Dialogue of &sisters",IDC_RADIO8,"Button",
+    CONTROL         "Dialogue of the &Sisters",IDC_RADIO8,"Button",
                     BS_AUTORADIOBUTTON,89,89,87,8
     CONTROL         "b-ad&ic",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,19,128,43,8

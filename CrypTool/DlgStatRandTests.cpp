@@ -985,3 +985,4 @@ void CDlgFreqTest::OnStnClickedInfoStatic()
 {
 	// TODO: Fügen Sie hier Ihren Kontrollbehandlungscode für die Benachrichtigung ein.
 }
+

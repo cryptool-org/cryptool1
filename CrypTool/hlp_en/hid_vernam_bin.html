@@ -26,18 +26,18 @@
 			to be <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> is chosen 
 			(this is known as a one-time pad).</P>
 		<P>To invoke this function, select the menu <A href="menu_crypt.html">Crypt/Decrypt</A>
-			\ Symmetric (classic) \ Vernam: Then a dialog opens in which the file with the 
+			\ <a href="menu_crypt_symmetricclassic.html">Symmetric (classic)</a> \ Vernam: Then a dialog opens in which the file with the 
 			key (keystream) can be selected.</P>
 		<P>An <A href="szenarien_vernam.html">example</A> of the Vernam encryption 
 			algorithm can be found in the <A href="hid_hilfe_szenarien.html">Examples</A> chapter.</P>
-		<p><u>Remark 1:</u>:<br>
+		<p><u>Remark 1</u>:<br>
 			This implementation does not check, whether the data of the key file is random 
-			or whether the data of the key file are longer than the cleartext document.</p>
+			or whether the data of the key file is longer than the cleartext document.</p>
 		<p><u>Remark 2</u>:<br>
-			If the data of the cleartext document are longer than the keystream, then the 
-			key automatically is applied cyclically.</p>
+			If the data of the cleartext document is longer than the keystream, then the 
+			key automatically is applied cyclically (repeated again and again).</p>
 		<p><u>Remark 3</u>:<br>
 			The character "A" in the keystream file for Vernam has the same effect on the 
-			cleartext document as the two hex numbers "41" fpr XOR.</p>
+			cleartext document as the two hex numbers "41" for XOR.</p>
 	</BODY>
 </HTML>

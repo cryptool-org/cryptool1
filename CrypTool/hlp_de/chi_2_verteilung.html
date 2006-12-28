@@ -2,7 +2,7 @@
 <HTML>
 	<HEAD>
 		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-		<TITLE>CHI^2 Verteilung</TITLE>
+		<TITLE>CHI^2-Verteilung</TITLE>
 		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 	</HEAD>
 	<!-- multiple keywords for CrypTool HTML help index -->
@@ -13,18 +13,18 @@
 		<PARAM NAME="Keyword" VALUE="Analyse">
 	</OBJECT>
 	<BODY>
-		<h3>CHI^2 Verteilung</h3>
+		<h3>CHI^2-Verteilung</h3>
 		<P>Wenn man die Quadrate von v unabhängigen <A href="norm_vert.html">Standard-normalverteilten</A>
 			Zufallsvariablen aufsummiert, erhält man eine sogenannte chi^2 (gesprochen chi 
 			quadrat) verteilte Zufallsvariable mit v Freiheitsgraden. Chi^2 verteilte 
-			Zufallsvariablen X = Z_1^2 + ... + Z_v^2 sind sehr gut untersucht, und man 
+			Zufallsvariablen X = Z<sub>1^2</sub> + ... + Z<sub>v^2</sub> sind sehr gut untersucht, und man 
 			kennt die Wahrscheinlichkeiten P[X &gt; x]. Deshalb eignet sich die chi^2 
 			Verteilung sehr gut für statistische Tests.</P>
 		<p>Vergleiche die Tests Frequency, Poker, Runs, und Serial im Menü <a href="menu_analyze.html">
 				Analyse</a> \ <a href="menu_analysis_randomanalysis.html">Zufallsanalyse</a>.</p>
 		<P>Für die Auswertung der Dichtefunktion der chi^2 – Verteilung existieren 
 			umfangreiche Tabellenwerke. Folgende Tabelle gibt einige ausgewählte Quantile 
-			für die "chi^2" – Verteilung für v Freiheitsgrade wieder:</P>
+			für die chi^2-Verteilung für v Freiheitsgrade wieder:</P>
 		<PRE><CODE><B>v    alpha  = 0.01    alpha  = 0.05    alpha  = 0.1
      (P[X&gt;x]&lt;0.01)    (P[X&gt;x]&lt;0.05)    (P[X&gt;x]&lt;0.1)
           x=               x=               x=
@@ -43,8 +43,8 @@
 <I>20      </I>37.57             31.41            28.41
 <I>30      </I>50.89             43.77            40.25
 <I>255     </I>310.4             293.2            284.3</CODE></PRE>
-		<P>Der Eintrag (v = 10, alpha = 0.05, x = 18.31) bedeutet also, dass - angenommen X 
-			ist chi^2 - verteilt mit 10 Freiheitsgraden - X den Wert 18.31 in nur 5 % aller 
+		<P>Der Eintrag (v = 10, alpha = 0.05, x = 18.31) bedeutet also, dass &#150; angenommen X 
+			ist chi^2-verteilt mit 10 Freiheitsgraden &#150; X den Wert 18.31 in nur 5 % aller 
 			Fälle übersteigen wird.</P>
 		<P>Literatur: Christian Schiestl, <I>Pseudozufallszahlen in der Kryptographie</I>, 
 			Klagenfurt, 1999.</P>

@@ -18,13 +18,13 @@
 
 <h3>Autokorrelationstest (Menü <A href="menu_analyze.html">Analyse</A> \ Zufallstests)</h3>
 
-<P>Mit diesem statistischen Test wird für eine Bitfolge (S_i) [i=1,2, ...] das Merkmal der Unabhängigkeit überprüft. Der Autokorrelationstest bestimmt für die Zahlen k = 1, 2, 3, ... die Korrelation zwischen der zu untersuchenden Bitfolge (S_i) und der gleichen um k Bitpositionen verschobenen Bitfolge (S_[i+k]).</P>
+<P>Mit diesem statistischen Test wird für eine Bitfolge (S<sub>i</sub>) [i=1,2, ...] das Merkmal der Unabhängigkeit überprüft. Der Autokorrelationstest bestimmt für die Zahlen k = 1, 2, 3, ... die Korrelation zwischen der zu untersuchenden Bitfolge (S<sub>i</sub>) und der gleichen um k Bitpositionen verschobenen Bitfolge (S<sub>[i+k]</sub>).</P>
 
-<P>Die Anzahl der übereinstimmenden Bitpositionen D(k) der Bitfolgen (S_i) und (S_[i+k]) wird für eine Teilfolge der Länge n durch die Formel bestimmt</P>
+<P>Die Anzahl der übereinstimmenden Bitpositionen D(k) der Bitfolgen (S<sub>i</sub>) und (S<sub>[i+k]</sub>) wird für eine Teilfolge der Länge n durch die Formel bestimmt</P>
 
 <div style="text-align:center">
 
-<P>D(k) = (S_1 XOR S_[1 + k]) + .... + (S_[n-k+1] XOR S_n).</P>
+<P>D(k) = (S<sub>1</sub> XOR S<sub>[1 + k]</sub>) + .... + (S<sub>[n-k+1]</sub> XOR S<sub>n</sub>).</P>
 
 </div>
 
@@ -32,11 +32,11 @@
 
 <div style="text-align:center">
 
-<P>X5 = 2 * [(D(k) – [(n – k) / 2]) / (n – k) ^ (1 / 2)].</P>
+<P>X<sub>5</sub> = 2 * [(D(k) – [(n – k) / 2]) / (n – k) ^ (1 / 2)].</P>
 
 </div>
 
-<P>Wenn die Folgenlänge n größer als 10 ist, dann ist für eine unabhängige, gleichverteilte Zufalls-Binärfolge die Variable X5 annähernd Standard-normalverteilt. Da sowohl kleine Werte für D(k) wie auch große Werte für D(k) unerwartet sind, ist ein zweiseitiger Test empfehlenswert.</P>
+<P>Wenn die Folgenlänge n größer als 10 ist, dann ist für eine unabhängige, gleichverteilte Zufalls-Binärfolge die Variable X<sub>5</sub> annähernd Standard-normalverteilt. Da sowohl kleine Werte für D(k) wie auch große Werte für D(k) unerwartet sind, ist ein zweiseitiger Test empfehlenswert.</P>
 
 <P><B>Beispiel für einen Autokorrelationstest:</B></P>
 
@@ -54,13 +54,13 @@
 
 <div style="text-align:center">
 
-<P>X5 = 2 * (68 – [(160 – 8) / 2) / (160 – 8) ^ (1 / 2) = -1.29777</P>
+<P>X<sub>5</sub> = 2 * (68 – [(160 – 8) / 2) / (160 – 8) ^ (1 / 2) = -1.29777</P>
 
 </div>
 
-<P>Der Grenzwert für eine <A href="norm_vert.html">normalverteilte</A> Prüfgröße X5 liegt bei einem <!--ZZZPOPUP--><A href="sign_niv.html">Signifikanzniveau</A> von alpha = 0.05 bei 1.6449. </P>
+<P>Der Grenzwert für eine <A href="norm_vert.html">normalverteilte</A> Prüfgröße X<sub>5</sub> liegt bei einem <!--ZZZPOPUP--><A href="sign_niv.html">Signifikanzniveau</A> von alpha = 0.05 bei 1.6449. </P>
 
-<P>Mit X5 = - 1.29777 &lt;= 1.6449 besteht die Folge s den Autokorrelationstest.</P>
+<P>Mit X<sub>5</sub> = - 1.29777 &lt;= 1.6449 besteht die Folge s den Autokorrelationstest.</P>
 
 <P>In CrypTool wird der Autokorrelationstest auf Bytes statt auf Bits abgewandt. </P>
 
