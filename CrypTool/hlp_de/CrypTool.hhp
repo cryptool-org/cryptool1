@@ -304,7 +304,6 @@ hid_context_help.html
 hid_caesar_auto.html
 hid_auto.html
 hid_app_exit.html
-hid_app_about.html
 hid_analyze_subst.html
 hid_analyse_zufallstests_serialtest.html
 hid_analyse_zufallstests_runs.html
@@ -493,7 +492,7 @@ shamir.html
 hidd_secretsharing_reveal.html
 contact.html
 AFX_HIDP_default.html
-
+pki.html
 
 [ALIAS]
 #include CrypTool_Alias.h

@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+	<HEAD>
+		<TITLE>Public-Key-Infrastruktur</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+			<script language="JScript" src="helper.js"></script>
+		<!-- multiple keywords for CrypTool HTML help index -->
+	</HEAD>
+	<BODY>
+		<OBJECT id="Object1" type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+			VIEWASTEXT>
+			<PARAM NAME="Keyword" VALUE="PKI">
+
+		</OBJECT>
+		<h3>Public-Key-Infrastruktur</h3>
+		<p>Mit Public-Key-Infrastruktur (PKI, engl.: public key infrastructure) bezeichnet man in der Kryptologie und Kryptografie ein System, welches es ermöglicht, digitale Zertifikate auszustellen, zu verteilen und zu prüfen. Die innerhalb einer PKI für Personen, Maschinen oder Dienste ausgestellten Zertifikate werden zur Absicherung computergeschützter Kommunikation verwendet. Die Zertifikate enthalten die öffentlichen Schlüssel. Die dazu gehörenden geheimen Schlüssel können in einer <a href="pse.html">PSE</a> sowohl in Software als auch in Hardware (Smartcard, HSM) gespeichert werden. Die PKIs können sowohl von Einzelorganisationen intern als auch öffentlich betrieben werden.</p>
+		<p>
+<p>Der zu Grunde liegende Gedanke ist der folgende: Mit Hilfe eines asymmetrischen Kryptosystems können Nachrichten im Internet digital signiert und verschlüsselt werden. Allerdings benötigt man hierzu den öffentlichen Schlüssel (Public-Key) des Absenders. Dieser könnte z.B. per E-Mail versendet oder von einer Web-Seite heruntergeladen werden. Es stellt sich genau an diesem Punkt aber die Frage, wie sichergestellt werden kann, dass es sich tatsächlich um den Schlüssel des Absenders handelt und nicht um die Fälschung eines Betrügers. Hierzu werden digitale Zertifikate verwendet, welche die Authentizität eines öffentlichen Schlüssels und seinen zulässigen Anwendungs- und Geltungsbereich bestätigen. Das digitale Zertifikat ist selbst durch eine digitale Signatur geschützt, deren Echtheit mit dem öffentlichen Schlüssel des Ausstellers des Zertifikates geprüft werden kann. Um nun die Authentizität des Aussteller-Schlüssel zu prüfen wird wiederum eine digitales Zertifikat benötigt. Auf diese Weise lässt sich eine Kette von digitalen Zertifikaten konstruieren, die jeweils die Authentizität des öffentlichen Schlüssels bestätigen, mit dem das vorhergehende Zertifikat geprüft werden kann; eine solche Kette von Zertifikat wird Validierungspfad genannt. Auf die Echtheit des letzten Zertifikates (und des durch diesen zertifzierten Schlüssels) muss man sich aber ohne ein weiteres Zertifikat verlassen können.</p>
+<p>Mit Hilfe von PKIs kann man den Aufwand für die Schlüsselverteilung in großen Netzen deutlich handhabbarer gestalten, als wenn man auf symmetrischen Verfahren aufsetzt.</P>
+<p>Zum Einsatz kommen PKIs z.B. bei sicherer E-Mail mittels S/MIME, bei sicheren Web-Verbindungen mittels SSL oder beim sicheren Logon (ans Betriebssystem, remote). Die Sicherheit ist deutlich höher als beim Einsatz von Passwörtern.</p>
+<p>Aus: Wikipedia / Public-key Infrastruktur <a href="http://de.wikipedia.org/wiki/Public_Key_Infrastructure">(http://de.wikipedia.org/wiki/Public_Key_Infrastructure)</a>
+	</BODY>
+</HTML>
