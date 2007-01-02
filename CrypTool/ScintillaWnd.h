@@ -72,10 +72,8 @@ public:
    virtual void SetDisplaySelection(BOOL bFlag = TRUE);
 // @cmember set display of source folding margin on/off
    virtual void SetDisplayFolding(BOOL bFlag = TRUE);
-// @cmember cut selection to clipboard
-   virtual void Cut();
-// @cmember copy selection to clipboard
-   virtual void Copy();
+// @cmember copy/cut selection to clipboard
+   virtual void CopyCut(UINT msg);
 // @cmember paste from clipboard
    virtual void Paste();
 // @cmember clear selection
@@ -172,6 +170,8 @@ protected:
    BOOL m_bFolding;
 // @cmember search flags
    int  m_nSearchflags;
+// @cmember binary clipboard format id
+   CLIPFORMAT m_nBinDataClipboardFormat;	
 
 };
 #define STR_SCINTILLAWND _T("Scintilla")

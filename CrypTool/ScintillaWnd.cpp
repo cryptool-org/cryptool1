@@ -31,6 +31,10 @@ typedef basic_ifstream<char, char_traits<char> > ifstream;
 static char THIS_FILE[]=__FILE__;
 #define new DEBUG_NEW
 #endif
+
+// clipboard format, same as HexEditBase.cpp
+#define CF_BINDATA_HEXCTRL			_T("BinaryData")
+
 // the next 2 arrays are used to determine lexer format from file extensions
 static TCHAR *szExtensions[] = 
 {
@@ -130,6 +134,9 @@ CScintillaWnd::CScintillaWnd()
    m_bSelection = TRUE;
    m_bFolding = FALSE;
    m_nSearchflags = 0;
+   m_nBinDataClipboardFormat = RegisterClipboardFormat(CF_BINDATA_HEXCTRL);
+   ASSERT(m_nBinDataClipboardFormat != 0);
+
 }
 
 /////////////////////////////////////
@@ -467,20 +474,41 @@ void CScintillaWnd::SetDisplayLinenumbers(
    m_bLinenumbers = bFlag;
 }
 /////////////////////////////////////
-// @mfunc Cut the selected text to the clipboard
+// @mfunc Copy/Cut the selected text to the clipboard
 // @rvalue void | not used
 //
-void CScintillaWnd::Cut()
+void CScintillaWnd::CopyCut(UINT msg)
 {
-   SendMessage(SCI_CUT, 0, 0);
-}
-/////////////////////////////////////
-// @mfunc Copy the selected text to the clipboard
-// @rvalue void | not used
-//
-void CScintillaWnd::Copy()
-{
-   SendMessage(SCI_COPY, 0, 0);
+   UINT sellen = SendMessage(SCI_GETSELECTIONEND) - SendMessage(SCI_GETSELECTIONSTART);
+   SendMessage(msg, 0, 0);
+   HGLOBAL mem = NULL;
+   char *memptr = NULL;
+   if (OpenClipboard() && 
+	   (mem = GetClipboardData(CF_TEXT)) != NULL &&
+	   (memptr = (char*)::GlobalLock(mem)) != NULL &&
+	   sellen != strlen(memptr) // selection contains \0
+	   ) { // convert to binary clipboard format
+		HGLOBAL membin = ::GlobalAlloc(GMEM_MOVEABLE|GMEM_DDESHARE|GMEM_ZEROINIT, sizeof(UINT) + sellen);
+		BYTE *membinptr = NULL;
+		if (membin != NULL && 
+			(membinptr = (BYTE*)::GlobalLock(membin)) != NULL
+			) {
+			*(UINT*)membinptr= sellen;
+			memcpy(membinptr + sizeof(UINT), memptr, sellen);
+			::GlobalUnlock(mem);
+			memptr = NULL;
+			::GlobalUnlock(membin);
+			membinptr = NULL;
+			if (EmptyClipboard())
+				if (SetClipboardData(m_nBinDataClipboardFormat, membin))
+					membin = NULL;
+		}
+		if (membin != NULL)
+			::GlobalFree(membin);
+   }
+   if (memptr != NULL)
+		::GlobalUnlock(mem);
+   CloseClipboard();
 }
 /////////////////////////////////////
 // @mfunc Paste the text from the clipboard to the control
@@ -488,7 +516,24 @@ void CScintillaWnd::Copy()
 //
 void CScintillaWnd::Paste()
 {
-   SendMessage(SCI_PASTE, 0, 0);
+   HGLOBAL mem = NULL;
+   if (OpenClipboard() &&
+	   (mem = GetClipboardData(m_nBinDataClipboardFormat)) != NULL)
+   {
+		LPBYTE memptr = NULL;
+		if ((memptr = (LPBYTE)::GlobalLock(mem)) != NULL) {
+			UINT len = *(UINT*)memptr;
+			SendMessage(SCI_BEGINUNDOACTION);
+			SendMessage(SCI_CLEAR);
+			SendMessage(SCI_ADDTEXT,len,(LPARAM)(memptr + sizeof(UINT)));
+			SendMessage(SCI_ENDUNDOACTION);
+		}
+		if (memptr != NULL)
+			::GlobalUnlock(mem);
+		CloseClipboard();
+   } else {
+		SendMessage(SCI_PASTE, 0, 0);
+   }
 }
 /////////////////////////////////////
 // @mfunc Delete the selected text
@@ -544,7 +589,14 @@ BOOL CScintillaWnd::CanRedo()
 //
 BOOL CScintillaWnd::CanPaste()
 {
-   return SendMessage(SCI_CANPASTE, 0, 0) != 0;
+	if (SendMessage(SCI_CANPASTE, 0, 0))
+		return true;
+	bool canpastebin =
+		OpenClipboard() &&
+		IsClipboardFormatAvailable(m_nBinDataClipboardFormat) &&
+		!SendMessage(SCI_GETREADONLY);
+	CloseClipboard();
+	return canpastebin;
 }
 /////////////////////////////////////
 // @mfunc Get the current line number - this the with the caret in it

@@ -565,7 +565,7 @@ void CScintillaView::OnInitialUpdate()
 //
 void CScintillaView::OnEditCopy() 
 {
-	m_wndScintilla.Copy();
+	m_wndScintilla.CopyCut(SCI_COPY);
 }
 /////////////////////////////////////
 // @mfunc menu check handler - do nothing
@@ -581,7 +581,7 @@ void CScintillaView::OnUpdateEditCopy(
 //
 void CScintillaView::OnEditCut() 
 {
-	m_wndScintilla.Cut();
+	m_wndScintilla.CopyCut(SCI_CUT);
 }
 /////////////////////////////////////
 // @mfunc menu check handler - do nothing
