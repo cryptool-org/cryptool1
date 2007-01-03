@@ -201,6 +201,8 @@ private:
 public:
 	afx_msg void OnDecodeUu();
 	afx_msg void OnEncodeUu();
+	afx_msg void OnHybridEccEnc();
+	afx_msg void OnHybridEccDec();
 };
 
 

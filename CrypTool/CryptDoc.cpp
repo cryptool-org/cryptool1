@@ -95,7 +95,7 @@ statement from your version.
 #include "DlgSolitaireAnalyse.h"
 #include ".\cryptdoc.h"
 
-
+// #include "ECIESMain.h"
 
 
 
@@ -281,6 +281,8 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CAppDocument)
 	ON_COMMAND(ID_DECODE_UU, OnDecodeUu)
 	//}}AFX_MSG_MAP
 
+	ON_COMMAND(ID_HYBRID_ECCENC, OnHybridEccEnc)
+	ON_COMMAND(ID_HYBRID_ECCDEC, OnHybridEccDec)
 	END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -1979,8 +1981,18 @@ void CCryptDoc::OnEncodeUu()
 
 void CCryptDoc::OnDecodeUu()
 {
-	
     UpdateContent();
 	douudec(ContentName, GetTitle());
+}
 
+void CCryptDoc::OnHybridEccEnc()
+{
+    UpdateContent();
+ //   ECCEnc(ContentName, GetTitle());
+}
+
+void CCryptDoc::OnHybridEccDec()
+{
+    UpdateContent();
+ //   ECCDec(ContentName, GetTitle());
 }

@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -5600,6 +5600,8 @@ BEGIN
 
             MENUITEM "RSA-AES-&Entschlüsselung...", ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
             , GRAYED
+            MENUITEM "ECC-AES-Ve&rschlüsselung...", ID_HYBRID_ECCENC
+            MENUITEM "ECC-AES-En&tschlüsselung...", ID_HYBRID_ECCDEC, GRAYED
         END
     END
     POPUP "Digitale Signaturen/&PKI"
@@ -5691,6 +5693,7 @@ BEGIN
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
+        MENUITEM "P&unktaddition auf einer Elliptischen Kurve", ID_INDIV_POINTADDITIONONELLIPTICCURVES
         MENUITEM SEPARATOR
         POPUP "C&odierungen"
         BEGIN
@@ -5916,7 +5919,6 @@ BEGIN
         POPUP "S&chriftart"
         BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
-            , GRAYED
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
             , GRAYED
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
@@ -5981,6 +5983,8 @@ BEGIN
 
             MENUITEM "RSA-AES-&Entschlüsselung...", ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
 
+            MENUITEM "ECC-AES-Ve&rschlüsselung...", ID_HYBRID_ECCENC
+            MENUITEM "ECC-AES-En&tschlüsselung...", ID_HYBRID_ECCDEC
         END
     END
     POPUP "Digitale Signaturen/&PKI"
@@ -6066,6 +6070,7 @@ BEGIN
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
+        MENUITEM "P&unktaddition auf einer Elliptischen Kurve", ID_INDIV_POINTADDITIONONELLIPTICCURVES
         MENUITEM SEPARATOR
         POPUP "C&odierungen"
         BEGIN
@@ -6243,7 +6248,7 @@ BEGIN
     END
     POPUP "&Bearbeiten"
     BEGIN
-        MENUITEM "&Rückgängig\tStrg+Z",         ID_EDIT_UNDO, GRAYED
+        MENUITEM "&Rückgängig\tStrg+Z",         ID_EDIT_UNDO
         MENUITEM SEPARATOR
         MENUITEM "&Ausschneiden\tStrg+X",       ID_EDIT_CUT, GRAYED
         MENUITEM "&Kopieren\tStrg+C",           ID_EDIT_COPY, GRAYED
@@ -6274,7 +6279,6 @@ BEGIN
         POPUP "S&chriftart"
         BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
-            , GRAYED
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
             , GRAYED
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
@@ -6295,7 +6299,6 @@ BEGIN
         POPUP "Symmetrisch (&klassisch)"
         BEGIN
             MENUITEM "Caesar / &Rot-13...",         ID_ROT13CAESAR_ASC
-            , GRAYED
             MENUITEM "&Vigenère...",                ID_VIGENERE_ASC, GRAYED
             MENUITEM "H&ill...",                    ID_HILL, GRAYED
             MENUITEM "&Substitution / Atbash...",   ID_CryptMono, GRAYED
@@ -6313,7 +6316,7 @@ BEGIN
         END
         POPUP "Symmetrisch (&modern)"
         BEGIN
-            MENUITEM "&IDEA...",                    ID_CRYPT_IDEA, GRAYED
+            MENUITEM "&IDEA...",                    ID_CRYPT_IDEA
             MENUITEM "RC&2...",                     ID_CRYPT_RC2, GRAYED
             MENUITEM "RC&4...",                     ID_CRYPT_RC4, GRAYED
             MENUITEM "&DES (ECB)...",               ID_CRYPT_DES_DESECB
@@ -6340,7 +6343,7 @@ BEGIN
         END
         POPUP "&Asymmetrisch"
         BEGIN
-            MENUITEM "RSA-&Verschlüsselung...",     ID_CRYPT_RsaEnc, GRAYED
+            MENUITEM "RSA-&Verschlüsselung...",     ID_CRYPT_RsaEnc
             MENUITEM "RSA-&Entschlüsselung...",     ID_CRYPT_RsaDec, GRAYED
             MENUITEM "RSA-&Demo...",                ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
@@ -6351,6 +6354,8 @@ BEGIN
 
             MENUITEM "RSA-AES-&Entschlüsselung...", ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
             , GRAYED
+            MENUITEM "ECC-AES-Ve&rschlüsselung...", ID_HYBRID_ECCENC
+            MENUITEM "ECC-AES-En&tschlüsselung...", ID_HYBRID_ECCDEC, GRAYED
         END
     END
     POPUP "Digitale Signaturen/&PKI"
@@ -6372,7 +6377,6 @@ BEGIN
         POPUP "&Hashverfahren"
         BEGIN
             MENUITEM "MD&2",                        ID_CRYPT_HASH_MD2
-            , GRAYED
             MENUITEM "MD&4",                        ID_CRYPT_HASH_MD4
             , GRAYED
             MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5
@@ -6442,19 +6446,20 @@ BEGIN
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
+        MENUITEM "P&unktaddition auf einer Elliptischen Kurve", 
+                                                ID_INDIV_POINTADDITIONONELLIPTICCURVES
         MENUITEM SEPARATOR
         POPUP "C&odierungen"
         BEGIN
             POPUP "&Base64-Codierung/Base64-Decodierung"
             BEGIN
                 MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64
-                , GRAYED
                 MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
                 , GRAYED
             END
             POPUP "&UU-Codierung/UU-Decodierung"
             BEGIN
-                MENUITEM "UU &codieren",                ID_ENCODE_UU, GRAYED
+                MENUITEM "UU &codieren",                ID_ENCODE_UU
                 MENUITEM "UU &decodieren",              ID_DECODE_UU, GRAYED
             END
             MENUITEM "ASN.&1-Decodieren eines Dokuments", 
@@ -6464,7 +6469,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "&Komprimieren"
         BEGIN
-            MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP, GRAYED
+            MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
             MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
         END
         MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
@@ -6492,7 +6497,6 @@ BEGIN
             POPUP "&Ciphertext only"
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
-                , GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 , GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
@@ -6507,12 +6511,11 @@ BEGIN
             END
             POPUP "Known &Plaintext"
             BEGIN
-                MENUITEM "H&ill...",                    ID_HILL_AUTO, GRAYED
+                MENUITEM "H&ill...",                    ID_HILL_AUTO
             END
             POPUP "&Manuelle Analyse"
             BEGIN
                 MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
-                , GRAYED
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
                 , GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
@@ -6521,7 +6524,7 @@ BEGIN
         END
         POPUP "Symmetrische Verschlüsselung (&modern)"
         BEGIN
-            MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA, GRAYED
+            MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA
             MENUITEM "RC&2...",                     ID_ANALYSE_RC2, GRAYED
             MENUITEM "RC&4...",                     ID_ANALYSE_RC4, GRAYED
             MENUITEM "&DES (ECB)...",               ID_ANALYSE_DESECB
@@ -6570,7 +6573,7 @@ BEGIN
         POPUP "&Zufallsanalyse"
         BEGIN
             MENUITEM "&Frequency-Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
-            , GRAYED
+
             MENUITEM "&Poker-Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
             , GRAYED
             MENUITEM "&Runs-Test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
@@ -6598,7 +6601,7 @@ BEGIN
     END
     POPUP "&Fenster"
     BEGIN
-        MENUITEM "&Überlappend anordnen",       ID_WINDOW_CASCADE, GRAYED
+        MENUITEM "&Überlappend anordnen",       ID_WINDOW_CASCADE
         MENUITEM "&Nichtüberlappend anordnen",  ID_WINDOW_TILE_HORZ, GRAYED
         MENUITEM "&Symbole anordnen",           ID_WINDOW_ARRANGE, GRAYED
         MENUITEM "&Alle schließen",             ID_WINDOW_CLOSE_ALL, GRAYED
@@ -6729,6 +6732,8 @@ BEGIN
 
             MENUITEM "RSA-AES-&Entschlüsselung...", ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
 
+            MENUITEM "ECC-AES-Ve&rschlüsselung...", ID_HYBRID_ECCENC
+            MENUITEM "ECC-AES-En&tschlüsselung...", ID_HYBRID_ECCDEC
         END
     END
     POPUP "Digitale Signaturen/&PKI"
@@ -6814,6 +6819,7 @@ BEGIN
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
+        MENUITEM "P&unktaddition auf einer Elliptischen Kurve", ID_INDIV_POINTADDITIONONELLIPTICCURVES
         MENUITEM SEPARATOR
         POPUP "C&odierungen"
         BEGIN
@@ -7124,6 +7130,8 @@ BEGIN
 
             MENUITEM "RSA-AES-&Entschlüsselung...", ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
             , GRAYED
+            MENUITEM "ECC-AES-Ve&rschlüsselung...", ID_HYBRID_ECCENC
+            MENUITEM "ECC-AES-En&tschlüsselung...", ID_HYBRID_ECCDEC, GRAYED
         END
     END
     POPUP "Digitale Signaturen/&PKI"
@@ -7215,6 +7223,7 @@ BEGIN
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
+        MENUITEM "P&unktaddition auf einer Elliptischen Kurve", ID_INDIV_POINTADDITIONONELLIPTICCURVES
         MENUITEM SEPARATOR
         POPUP "C&odierungen"
         BEGIN
@@ -11285,12 +11294,45 @@ BEGIN
     IDS_CLIPBOARD_HEXPASTE  "Die Zwischenablage enthält ausschließlich Hexadezimal-Zeichen.\nDiese können entweder decodiert (Standard) oder unverändert eingefügt werden.\n\nSollen die hexadezimalen Daten decodiert werden?"
 END
 
-#endif    // Deutsch (Deutschland) resources
+STRINGTABLE 
+BEGIN
+    IDS_ECIES_CRYPT         "ECIES-AES-Hybrid"
+    IDS_ECIES_ENC_TIME      "Für die ECIES-Verschlüsselung benötigte Zeit: %.3f Sekunden."
+    IDS_ECIES_DEC_TIME      "Für die ECIES-Entschlüsselung benötigte Zeit: %.3f Sekunden."
+    IDS_ECIES_HEADER_01     "Sender:"
+    IDS_ECIES_HEADER_02     "Empfaenger:"
+    IDS_ECIES_HEADER_03     "|Kurvenidentifikation:"
+    IDS_ECIES_HEADER_04     "|Laenge des ECIES-verschluesselten AES-Sessionkeys:"
+    IDS_ECIES_HEADER_05     "Byte|Laenge des Ciphertextes:"
+    IDS_ECIES_HEADER_07     "|AES-Ciphertext:"
+    IDS_ERROPEN_ECCDemo     "Die ECCDemo kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob ECCDemo installiert wurde."
+    IDS_ECIES_DIFFERING_CURVES 
+                            "Sender und Empfänger müssen die gleiche elliptische Kurve verwenden.\n\n Bitte wählen Sie einen Empfängerschlüssel mit dem Kurvenarameter %s!"
+    IDS_ECCDemo_PATH        ".\\ECCDemo\\"
+    IDS_ECCDemo_EXECUTABLE  "java.exe"
+    IDS_ECCDemo_FILE        " -jar .\\ECCDemo\\eccdemo.jar"
+    IDS_ECIES_ENC_ERROR_11  "Der Senderschlüssel benutzt keine elliptische Kurve nach ANSI-Standard!"
+    IDS_ECIES_ENC_ERROR_12  "Der Senderschlüssel ist fehlerhaft!"
+    IDS_ECIES_ENC_ERROR_21  "Der Empfängerschlüssel benutzt keine elliptische Kurve nach ANSI-Standard!"
+    IDS_ECIES_ENC_ERROR_22  "Der Empfängerschlüssel ist fehlerhaft!"
+    IDS_ECIES_HEADER_06     "Byte|ECIES-verschluesselter AES-Sessionkey:"
+    IDS_ECIES_DEC_ERROR_01  "Die Entschlüsselung war nicht erfolgreich.\nDie Datei hat ein falsches Format, eventuell ist der Header beschädigt."
+    IDS_ECIES_DEC_ERROR_02  "Die Entschlüsselung war nicht erfolgreich,da der AES-Sessionkey beschädigt ist."
+    IDS_ECIES_DEC_ERROR_03  "Die Entschlüsselung war nicht erfolgreich, da der AES-Ciphertext beschädigt ist."
+    IDS_ECIES_DEC_ERROR_42  "Die Enschlüsselung war nicht erfolgreich.\nEs wurde ein falscher Schlüssel zum Entschlüsseln benutzt."
+    IDS_ECIES_DEC_ERROR_05  "Der AES-Ciphertext konnte nicht mit dem AES-Sessionkey entschlüsselt werden.\nEventuell ist einer der beiden oder beide beschädigt."
+    ID_INDIV_POINTADDITIONONELLIPTICCURVES 
+                            "Veranschaulicht die Punktaddition auf einer Elliptischen Kurve"
+    ID_HYBRID_ECCDEC        "Entschlüsselt eine mit dem ECC-Algorithmus verschlüsselte  Datei"
+    ID_HYBRID_ECCENC        "Verschlüsselt eine mit dem ECC-Algorithmus verschlüsselte  Datei"
+END
+
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -16795,6 +16837,8 @@ BEGIN
 
             MENUITEM "RSA-AES &Decryption...",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
             , GRAYED
+            MENUITEM "ECC-AES-E&ncryption...",      ID_HYBRID_ECCENC
+            MENUITEM "ECC-AES-De&cryption...",      ID_HYBRID_ECCDEC, GRAYED
         END
     END
     POPUP "Digital Signatures/&PKI"
@@ -16882,6 +16926,9 @@ BEGIN
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
+
+        MENUITEM "Point &Addition on Elliptic Curves", 
+                                                ID_INDIV_POINTADDITIONONELLIPTICCURVES
 
         MENUITEM SEPARATOR
         POPUP "C&odes"
@@ -17172,6 +17219,8 @@ BEGIN
 
             MENUITEM "RSA-AES &Decryption...",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
 
+            MENUITEM "ECC-AES-E&ncryption...",      ID_HYBRID_ECCENC
+            MENUITEM "ECC-AES-De&cryption...",      ID_HYBRID_ECCDEC
         END
     END
     POPUP "Digital Signatures/&PKI"
@@ -17254,6 +17303,7 @@ BEGIN
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
+        MENUITEM "Point &Addition on Elliptic Curves", ID_INDIV_POINTADDITIONONELLIPTICCURVES
         MENUITEM SEPARATOR
         POPUP "C&odes"
         BEGIN
@@ -17538,6 +17588,8 @@ BEGIN
 
             MENUITEM "RSA-AES &Decryption...",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
             , GRAYED
+            MENUITEM "ECC-AES-E&ncryption...",      ID_HYBRID_ECCENC
+            MENUITEM "ECC-AES-De&cryption...",      ID_HYBRID_ECCDEC, GRAYED
         END
     END
     POPUP "Digital Signatures/&PKI"
@@ -17625,6 +17677,9 @@ BEGIN
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
+
+        MENUITEM "Point &Addition on Elliptic Curves", 
+                                                ID_INDIV_POINTADDITIONONELLIPTICCURVES
 
         MENUITEM SEPARATOR
         POPUP "C&odes"
@@ -17912,6 +17967,8 @@ BEGIN
 
             MENUITEM "RSA-AES &Decryption...",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
 
+            MENUITEM "ECC-AES-E&ncryption...",      ID_HYBRID_ECCENC
+            MENUITEM "ECC-AES-De&cryption...",      ID_HYBRID_ECCDEC
         END
     END
     POPUP "Digital Signatures/&PKI"
@@ -17993,6 +18050,9 @@ BEGIN
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
+
+        MENUITEM "Point &Addition on Elliptic Curves", 
+                                                ID_INDIV_POINTADDITIONONELLIPTICCURVES
 
         MENUITEM SEPARATOR
         POPUP "C&odes"
@@ -18303,6 +18363,8 @@ BEGIN
 
             MENUITEM "RSA-AES &Decryption...",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
             , GRAYED
+            MENUITEM "ECC-AES-E&ncryption...",      ID_HYBRID_ECCENC
+            MENUITEM "ECC-AES-De&cryption...",      ID_HYBRID_ECCDEC, GRAYED
         END
     END
     POPUP "Digital Signatures/&PKI"
@@ -18390,6 +18452,9 @@ BEGIN
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
+
+        MENUITEM "Point &Addition on Elliptic Curves", 
+                                                ID_INDIV_POINTADDITIONONELLIPTICCURVES
 
         MENUITEM SEPARATOR
         POPUP "C&odes"
@@ -22659,7 +22724,40 @@ BEGIN
     IDS_CLIPBOARD_HEXPASTE  "The clipboard contains hexadecimal characters only. They can be inserted decoded (default) or unchanged.\n\nDecode hexadecimal data?"
 END
 
-#endif    // Englisch (GB) resources
+STRINGTABLE 
+BEGIN
+    IDS_ECIES_CRYPT         "ECIES-AES hybrid"
+    IDS_ECIES_ENC_TIME      "ECIES encryption time: %.3f seconds."
+    IDS_ECIES_DEC_TIME      "ECIES decryption time: %.3f seconds."
+    IDS_ECIES_HEADER_01     "Sender:"
+    IDS_ECIES_HEADER_02     "Receiver:"
+    IDS_ECIES_HEADER_03     "|Curve ID:"
+    IDS_ECIES_HEADER_04     "|Length of the ECIES-encrypted AES session key:"
+    IDS_ECIES_HEADER_05     "Byte|Ciphertext length:"
+    IDS_ECIES_HEADER_07     "|AES ciphertext:"
+    IDS_ERROPEN_ECCDemo     "ECCDemo cannot be opened.\n\nPlease check if ECCDemo is installed."
+    IDS_ECIES_DIFFERING_CURVES 
+                            "Sender and receiver must use the same elliptic curve.\n\nPlease choose a receiver key with the curve parameter %s!"
+    IDS_ECCDemo_PATH        ".\\ECCDemo\\"
+    IDS_ECCDemo_EXECUTABLE  "java.exe"
+    IDS_ECCDemo_FILE        " -jar .\\ECCDemo\\eccdemo.jar"
+    IDS_ECIES_ENC_ERROR_11  "The sender key does not use an ASNI-standardised elliptic curve!"
+    IDS_ECIES_ENC_ERROR_12  "The sender key is corrupt!"
+    IDS_ECIES_ENC_ERROR_21  "The receiver key does not use an ASNI-standardised elliptic curve!"
+    IDS_ECIES_ENC_ERROR_22  "The receiver key is corrupt!"
+    IDS_ECIES_HEADER_06     "Byte\n\nECIES-encrypted AES session key:\n"
+    IDS_ECIES_DEC_ERROR_01  "The decryption was not successful.\nThe file has the wrong format, the header might be damaged."
+    IDS_ECIES_DEC_ERROR_02  "The decryption was not successful, the AES session key is damaged."
+    IDS_ECIES_DEC_ERROR_03  "The decryption was not successful, the AES ciphertext is damaged."
+    IDS_ECIES_DEC_ERROR_42  "The decryption was not successful, a wrong key was used for decryption."
+    IDS_ECIES_DEC_ERROR_05  "The AES ciphertext could not be decrypted with the AES session key.\nOne or both components might be damaged."
+    ID_INDIV_POINTADDITIONONELLIPTICCURVES 
+                            "Demonstrates point addition on elliptic curves."
+    ID_HYBRID_ECCDEC        "Decrypts a file encrypted with the ECC-AES algorithm"
+    ID_HYBRID_ECCENC        "Encrypts a file encrypted with the ECC-AES algorithm"
+END
+
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

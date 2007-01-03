@@ -208,6 +208,7 @@ public:
 	virtual BOOL OnDDECommand(LPTSTR lpszCommand);
 	afx_msg void OnPrimenumberTest();
 	afx_msg void OnAesSelfextract();
+	afx_msg void OnIndivPointadditiononellipticcurves();
 };
 
 class CMainFrame : public CMDIFrameWnd
