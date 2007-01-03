@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+	<HEAD>
+		<TITLE>Dialog zur Visualisierung der Hybridverschlüsselung</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	</HEAD>
+	<BODY>
+		<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+			<PARAM NAME="Keyword" VALUE="Hybridverschlüsselung">
+		</OBJECT>
+		<h3><P><A NAME="hidd_hybrid_encryption_demo"></A>Dialog zur ECIES-Hybridverschlüsselung</P>
+		</h3>
+		<P>
+			Dieser Dialog bietet die Möglichkeit,&nbsp;die Verschlüsselung mit dem 
+			ECIES-Hybridverfahren durchzuführen.</P>
+		<P>ECIES ist eine Hybridverschlüsselung mittels ECDH- und AES-Verfahren. Das <A href="hid_verentschlsseln_hybridverfahren_hybridverschlsselung.html">
+				Hybridverfahren</A> ist das am weitesten verbreitete Verfahren, Daten 
+			verschlüsselt zu übertragen. Weitere Informationen zur Hybridverschlüsselung 
+			finden sie im <A href="script-de.pdf">Skript</A>.</P>
+		<P>Um ein Dokument mit ECIES zu verschlüsseln, ist es nötig, dass ein 
+			ECC-Schlüsselpaar vorliegt.&nbsp;Wenn Sie noch keinen asymmetrischen Schlüssel 
+			angelegt haben, müssen Sie das vor dem Aufruf des 
+			Dialogs&nbsp;ECIES-Hybridverschlüsselung tun:</P>
+		<P>Im Menü von CrypTool unter </B><A href="menu_key.html">Schlüsselverwaltung</A> \ 
+			Schlüssel erzeugen finden Sie entsprechende Werkzeuge. Damit können Sie sich 
+			Ihr ECC-Schlüsselpaar erzeugen und in die interne Datenbank von CrypTool 
+			abspeichern.&nbsp;</P>
+		<P>Nun kann ein Dokument in CrypTool geöffnet werden und über den Menüpunkt&nbsp;<A href="menu_crypt.html"><STRONG>Ver-/Entschlüsseln</STRONG></A><STRONG>
+				\ Hybrid\ ECC-AES-Verschlüsselung</STRONG> wird der ECIES-Dialog für die 
+			Verschlüsselung gestartet.
+		</P>
+		<IMG SRC="images/ECIES2.gif" ALT="ECIES2.gif" BORDER="0">
+		<P></P>
+		<P>Nach Auswahl des Schlüsselpaares wird durch einen Klick auf den Button <STRONG>Verschlüsseln</STRONG>
+			das Dokument mit ECIES verschlüsselt. Optional kann man sich die zum 
+			Verschlüsseln benötigte Zeit durch die Markierung der Checkbox anzeigen lassen. 
+			Das verschlüsselte ECIES-Dokument wird nun in CrypTool angezeigt:</P>
+		<IMG SRC="images/ECIES1.gif" ALT="ECIES1.gif" BORDER="0">
+		<P></P>
+		<P>Der Inhalt dieses Fensters dient auch als Grundlage für die <A href="hid_verentschlsseln_hybridverfahren_hybridECCentschlsselung.html">
+				Hybridentschlüsselung</A>, die den gesamten Verschlüsselungsvorgang 
+			rückgängig machen kann.</P>
+	</BODY>
+</HTML>
