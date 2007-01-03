@@ -5466,6 +5466,43 @@ BEGIN
     GROUPBOX        "Auswahl der Codierung",IDC_STATIC,7,47,205,42
 END
 
+IDD_ECCDECRECEIVER DIALOGEX 0, 0, 382, 268
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "ECIES-Entschlüsselung (ECDH-AES)"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "List1",IDC_LIST_KEYS,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
+                    WS_TABSTOP,7,21,368,185
+    EDITTEXT        IDC_EDIT1,320,214,55,15,ES_PASSWORD | ES_AUTOHSCROLL
+    CONTROL         "Zum Entschlüsseln benötigte Zeit anzeigen",IDC_CHECK1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,228,255,8
+    DEFPUSHBUTTON   "&Entschlüsseln",IDOK,9,242,85,19
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,319,242,56,19
+    LTEXT           "Wählen Sie Ihren geheimen Schlüssel aus der Liste der PSEs aus und geben Sie die PIN ein:",
+                    -1,9,6,366,10
+    LTEXT           "Bemerkung: Es werden nur Namen mit einem ECC Schlüssel angezeigt.",
+                    -1,8,214,265,8
+    RTEXT           "PIN-Code:",-1,273,214,39,15
+END
+
+IDD_ECCENCRECEIVER DIALOGEX 0, 0, 392, 271
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "ECIES-Verschlüsselung (ECDH-AES)"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
+                    WS_TABSTOP,7,20,377,190
+    CONTROL         "Zum Verschlüsseln benötigte Zeit anzeigen",IDC_CHECK1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,232,255,8
+    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,7,244,75,20
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,324,244,60,20
+    LTEXT           "Bemerkung: Es werden nur Namen angezeigt, die einen ECC-Schlüssel haben.",
+                    -1,7,217,365,8
+    LTEXT           "Wählen Sie den Empfänger aus:",-1,7,7,172,9
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -5693,7 +5730,9 @@ BEGIN
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
-        MENUITEM "P&unktaddition auf einer Elliptischen Kurve", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+        MENUITEM "P&unktaddition auf einer Elliptischen Kurve", 
+                                                ID_INDIV_POINTADDITIONONELLIPTICCURVES
+
         MENUITEM SEPARATOR
         POPUP "C&odierungen"
         BEGIN
@@ -6070,7 +6109,9 @@ BEGIN
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
-        MENUITEM "P&unktaddition auf einer Elliptischen Kurve", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+        MENUITEM "P&unktaddition auf einer Elliptischen Kurve", 
+                                                ID_INDIV_POINTADDITIONONELLIPTICCURVES
+
         MENUITEM SEPARATOR
         POPUP "C&odierungen"
         BEGIN
@@ -6448,6 +6489,7 @@ BEGIN
 
         MENUITEM "P&unktaddition auf einer Elliptischen Kurve", 
                                                 ID_INDIV_POINTADDITIONONELLIPTICCURVES
+
         MENUITEM SEPARATOR
         POPUP "C&odierungen"
         BEGIN
@@ -6819,7 +6861,9 @@ BEGIN
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
-        MENUITEM "P&unktaddition auf einer Elliptischen Kurve", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+        MENUITEM "P&unktaddition auf einer Elliptischen Kurve", 
+                                                ID_INDIV_POINTADDITIONONELLIPTICCURVES
+
         MENUITEM SEPARATOR
         POPUP "C&odierungen"
         BEGIN
@@ -7223,7 +7267,9 @@ BEGIN
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
-        MENUITEM "P&unktaddition auf einer Elliptischen Kurve", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+        MENUITEM "P&unktaddition auf einer Elliptischen Kurve", 
+                                                ID_INDIV_POINTADDITIONONELLIPTICCURVES
+
         MENUITEM SEPARATOR
         POPUP "C&odierungen"
         BEGIN
@@ -11222,6 +11268,10 @@ STRINGTABLE
 BEGIN
     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING 
                             "Visualisiert das (t, n)-Schwellenwertverfahren nach Shamir"
+    ID_HYBRID_ECCENC        "Verschlüsselt eine mit dem ECC-Algorithmus verschlüsselte  Datei"
+    ID_HYBRID_ECCDEC        "Entschlüsselt eine mit dem ECC-Algorithmus verschlüsselte  Datei"
+    ID_INDIV_POINTADDITIONONELLIPTICCURVES 
+                            "Veranschaulicht die Punktaddition auf einer Elliptischen Kurve"
 END
 
 STRINGTABLE 
@@ -11308,9 +11358,17 @@ BEGIN
     IDS_ERROPEN_ECCDemo     "Die ECCDemo kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob ECCDemo installiert wurde."
     IDS_ECIES_DIFFERING_CURVES 
                             "Sender und Empfänger müssen die gleiche elliptische Kurve verwenden.\n\n Bitte wählen Sie einen Empfängerschlüssel mit dem Kurvenarameter %s!"
+END
+
+STRINGTABLE 
+BEGIN
     IDS_ECCDemo_PATH        ".\\ECCDemo\\"
     IDS_ECCDemo_EXECUTABLE  "java.exe"
     IDS_ECCDemo_FILE        " -jar .\\ECCDemo\\eccdemo.jar"
+END
+
+STRINGTABLE 
+BEGIN
     IDS_ECIES_ENC_ERROR_11  "Der Senderschlüssel benutzt keine elliptische Kurve nach ANSI-Standard!"
     IDS_ECIES_ENC_ERROR_12  "Der Senderschlüssel ist fehlerhaft!"
     IDS_ECIES_ENC_ERROR_21  "Der Empfängerschlüssel benutzt keine elliptische Kurve nach ANSI-Standard!"
@@ -11321,10 +11379,6 @@ BEGIN
     IDS_ECIES_DEC_ERROR_03  "Die Entschlüsselung war nicht erfolgreich, da der AES-Ciphertext beschädigt ist."
     IDS_ECIES_DEC_ERROR_42  "Die Enschlüsselung war nicht erfolgreich.\nEs wurde ein falscher Schlüssel zum Entschlüsseln benutzt."
     IDS_ECIES_DEC_ERROR_05  "Der AES-Ciphertext konnte nicht mit dem AES-Sessionkey entschlüsselt werden.\nEventuell ist einer der beiden oder beide beschädigt."
-    ID_INDIV_POINTADDITIONONELLIPTICCURVES 
-                            "Veranschaulicht die Punktaddition auf einer Elliptischen Kurve"
-    ID_HYBRID_ECCDEC        "Entschlüsselt eine mit dem ECC-Algorithmus verschlüsselte  Datei"
-    ID_HYBRID_ECCENC        "Verschlüsselt eine mit dem ECC-Algorithmus verschlüsselte  Datei"
 END
 
 #endif    // German (Germany) resources
@@ -16703,6 +16757,43 @@ BEGIN
     GROUPBOX        "Select encoding",IDC_STATIC,7,47,205,42
 END
 
+IDD_ECCENCRECEIVER DIALOGEX 0, 0, 392, 271
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "ECIES encryption (ECDH-AES)"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
+                    WS_TABSTOP,7,20,377,190
+    CONTROL         "Display encryption time",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,232,255,8
+    DEFPUSHBUTTON   "&Encrypt",IDOK,7,244,75,20
+    PUSHBUTTON      "&Cancel",IDCANCEL,324,244,60,20
+    LTEXT           "Note: Only PSEs containing an ECC key are shown.",-1,7,
+                    217,365,8
+    LTEXT           "Choose a destination:",-1,7,7,172,9
+END
+
+IDD_ECCDECRECEIVER DIALOGEX 0, 0, 382, 268
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "ECIES decryption (ECDH-AES)"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "List1",IDC_LIST_KEYS,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
+                    WS_TABSTOP,7,21,368,185
+    EDITTEXT        IDC_EDIT1,320,214,55,15,ES_PASSWORD | ES_AUTOHSCROLL
+    CONTROL         "Display decryption time",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,228,255,8
+    DEFPUSHBUTTON   "&Encrypt",IDOK,9,242,85,19
+    PUSHBUTTON      "&Cancel",IDCANCEL,319,242,56,19
+    LTEXT           "Select your secret key from the PSE list.",-1,9,6,366,
+                    10
+    LTEXT           "Note: Only PSEs containing an ECC key are shown.",-1,8,
+                    214,265,8
+    RTEXT           "PIN code:",-1,273,214,39,15
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -17303,7 +17394,9 @@ BEGIN
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
-        MENUITEM "Point &Addition on Elliptic Curves", ID_INDIV_POINTADDITIONONELLIPTICCURVES
+        MENUITEM "Point &Addition on Elliptic Curves", 
+                                                ID_INDIV_POINTADDITIONONELLIPTICCURVES
+
         MENUITEM SEPARATOR
         POPUP "C&odes"
         BEGIN
@@ -22654,6 +22747,10 @@ STRINGTABLE
 BEGIN
     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING 
                             "Visualizes the Shamir (t, n) threshold scheme"
+    ID_HYBRID_ECCENC        "Encrypts a file encrypted with the ECC-AES algorithm"
+    ID_HYBRID_ECCDEC        "Decrypts a file encrypted with the ECC-AES algorithm"
+    ID_INDIV_POINTADDITIONONELLIPTICCURVES 
+                            "Demonstrates point addition on elliptic curves."
 END
 
 STRINGTABLE 
@@ -22738,9 +22835,17 @@ BEGIN
     IDS_ERROPEN_ECCDemo     "ECCDemo cannot be opened.\n\nPlease check if ECCDemo is installed."
     IDS_ECIES_DIFFERING_CURVES 
                             "Sender and receiver must use the same elliptic curve.\n\nPlease choose a receiver key with the curve parameter %s!"
+END
+
+STRINGTABLE 
+BEGIN
     IDS_ECCDemo_PATH        ".\\ECCDemo\\"
     IDS_ECCDemo_EXECUTABLE  "java.exe"
     IDS_ECCDemo_FILE        " -jar .\\ECCDemo\\eccdemo.jar"
+END
+
+STRINGTABLE 
+BEGIN
     IDS_ECIES_ENC_ERROR_11  "The sender key does not use an ASNI-standardised elliptic curve!"
     IDS_ECIES_ENC_ERROR_12  "The sender key is corrupt!"
     IDS_ECIES_ENC_ERROR_21  "The receiver key does not use an ASNI-standardised elliptic curve!"
@@ -22751,10 +22856,6 @@ BEGIN
     IDS_ECIES_DEC_ERROR_03  "The decryption was not successful, the AES ciphertext is damaged."
     IDS_ECIES_DEC_ERROR_42  "The decryption was not successful, a wrong key was used for decryption."
     IDS_ECIES_DEC_ERROR_05  "The AES ciphertext could not be decrypted with the AES session key.\nOne or both components might be damaged."
-    ID_INDIV_POINTADDITIONONELLIPTICCURVES 
-                            "Demonstrates point addition on elliptic curves."
-    ID_HYBRID_ECCDEC        "Decrypts a file encrypted with the ECC-AES algorithm"
-    ID_HYBRID_ECCENC        "Encrypts a file encrypted with the ECC-AES algorithm"
 END
 
 #endif    // English (U.K.) resources

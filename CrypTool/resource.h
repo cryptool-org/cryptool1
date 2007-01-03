@@ -310,6 +310,8 @@
 #define IDD_DIALOG3                     856
 #define IDD_SELECTCOPYENCODING          856
 #define IDD_Hill_Options                857
+#define IDD_ECCDECRECEIVER              858
+#define IDD_ECCENCRECEIVER              859
 #define IDC_EDIT133                     1015
 #define IDC_EDIT1                       1016
 #define IDC_EDIT2                       1017
@@ -1840,8 +1842,8 @@
 #define ID_DECODE_UU                    33336
 #define ID_UU_UUENCODE                  33337
 #define ID_UU_UUDECODE                  33338
-#define ID_HYBRID_ECCENC				33339
-#define ID_HYBRID_ECCDEC				33340
+#define ID_HYBRID_ECCENC                33339
+#define ID_HYBRID_ECCDEC                33340
 #define ID_INDIV_POINTADDITIONONELLIPTICCURVES 33341
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
@@ -2842,7 +2844,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        858
+#define _APS_NEXT_RESOURCE_VALUE        860
 #define _APS_NEXT_COMMAND_VALUE         33339
 #define _APS_NEXT_CONTROL_VALUE         1897
 #define _APS_NEXT_SYMED_VALUE           107

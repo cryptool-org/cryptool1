@@ -493,6 +493,10 @@ hidd_secretsharing_reveal.html
 contact.html
 AFX_HIDP_default.html
 pki.html
+hidd_hybrid_encryption_ecc.html
+hid_verentschlsseln_hybridverfahren_hybridECCentschlsselung.html
+hid_verentschlsseln_hybridverfahren_hybridECCverschlsselung.html
+hidd_hybrid_decryption_ecc.html
 
 [ALIAS]
 #include CrypTool_Alias.h
