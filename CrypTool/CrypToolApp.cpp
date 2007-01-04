@@ -322,7 +322,7 @@ BOOL CCrypToolApp::InitInstance()
 
 	//Ende der Initialiserung der globalen Variablen
 
-	// Enable3dControls(); // deprecated, no longer necessary
+	SetRegistryKey("HKEY_CURRENT_USER\\Software\\CrypTool\\Most Recently Used Files"); // No .Ini File#
 	/* Einstellen der Länge der MRU-Liste */
 	LoadStdProfileSettings(10);
     MRU_Flag = TRUE;
