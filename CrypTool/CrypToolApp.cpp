@@ -138,6 +138,7 @@ int iHillSchluesselDim;
 CString sHillGlobalKey[HILL_MAX_DIM_GROSS][HILL_MAX_DIM_GROSS];
 int iHillMultiplicationType = 0;  //0: (matrix)*(column vector) 1:(row vector)*(matrix)
 bool bHexEnabled = false;
+bool bGlobVerbose = false;
 
 // globale Variable, in der immer die Fenster Handle des aktive Fensters steht
 HWND hWndAktivesFenster;

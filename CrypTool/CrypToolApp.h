@@ -91,6 +91,7 @@ extern int iHillSchluesselFensterGroesse;
 extern CString sHillGlobalKey[HILL_MAX_DIM_GROSS][HILL_MAX_DIM_GROSS];
 extern int iHillMultiplicationType;  //0: (matrix)*(column vector) 1:(row vector)*(matrix)
 extern bool bHexEnabled;
+extern bool bGlobVerbose;
 
 #define HILL_SCHLUESSEL_KLEIN	1
 #define HILL_SCHLUESSEL_GROSS	2

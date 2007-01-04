@@ -88,6 +88,7 @@ BEGIN
     EDITTEXT        IDC_EDIT53,61,331,16,12,ES_CENTER
     EDITTEXT        IDC_EDIT54,81,331,16,12,ES_CENTER
     EDITTEXT        IDC_EDIT55,101,331,16,12,ES_CENTER
+    EDITTEXT        IDC_EDIT36,135,263,16,12,ES_CENTER | ES_NUMBER
     GROUPBOX        "Alphabetzeichen",IDC_STATIC,14,251,110,101
     DEFPUSHBUTTON   "&Verschlüsseln",IDOK,5,419,63,19
     PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON5,81,419,60,19
@@ -109,11 +110,11 @@ BEGIN
     PUSHBUTTON      "&Größere Matrix",IDC_BUTTON4,264,371,70,18
     GROUPBOX        "Dimension",IDC_STATIC,254,252,99,142
     EDITTEXT        IDC_EDIT1,317,250,19,15,ES_MULTILINE | ES_AUTOVSCROLL | 
-                    ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
+                    ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE | NOT 
+                    WS_TABSTOP
     CONTROL         "Details und Zwischenschritte der Hill-Verschlüsselung ausgeben",
                     IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,73,398,
                     229,9
-    EDITTEXT        IDC_EDIT36,135,263,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT37,155,263,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT38,175,263,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT40,195,263,16,12,ES_CENTER | ES_NUMBER
@@ -1130,6 +1131,7 @@ BEGIN
     EDITTEXT        IDC_EDIT108,157,334,16,12,ES_CENTER
     EDITTEXT        IDC_EDIT109,177,334,16,12,ES_CENTER
     EDITTEXT        IDC_EDIT1010,197,334,16,12,ES_CENTER
+    EDITTEXT        IDC_EDIT40,231,199,16,12,ES_CENTER | ES_NUMBER
     DEFPUSHBUTTON   "&Verschlüsseln",IDOK,5,412,80,19
     PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON5,95,412,74,19
     PUSHBUTTON      "&Abbrechen",IDCANCEL,484,412,56,19
@@ -1172,7 +1174,6 @@ BEGIN
                     IDC_STATIC,11,27,488,8
     LTEXT           "quadratische Matrix, deren Dimension dieser Blocklänge entspricht. Bei der Verschlüsselung werden nur die Zahlenwerte der Alphabetzeichen verwendet:",
                     IDC_STATIC,11,37,516,8
-    EDITTEXT        IDC_EDIT40,231,199,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT50,251,199,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT20,271,199,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT90,291,199,16,12,ES_CENTER | ES_NUMBER
@@ -11322,13 +11323,13 @@ BEGIN
     IDS_STRING_TEST_SERIAL  "Serial-Test"
     IDS_STRING_TEST_RUNS_NICHT_BESTANDEN "Runs-Test nicht bestanden!"
     IDS_STRING_HILL_DETAILS_MULT0 
-                            "Zur Verschlüsselung wird die Hillmatrix mit einem Spaltenvektor von links multipliziert."
+                            "Es werden nur die 2 ersten Buchstaben aus dem Klartext, die zum Alphabet gehören, hier durchgerechnet.\nZur Verschlüsselung wird die Hillmatrix mit einem Spaltenvektor von links multipliziert."
     IDS_STRING_TEST_RUNS_BESTANDEN "Runs-Test bestanden!"
     IDS_HILL_CASE           "Benutztes Alphabet (%d Zeichen)"
     IDS_ROT13_CAESAR_TOO_LARGE_KEY 
                             "Die Eingabe ist größer als das Alphabet.\nSoll der Wert automatisch auf 1 gesetzt werden?"
     IDS_STRING_HILL_DETAILS_MULT1 
-                            "Zur Verschlüsselung wird die Hillmatrix mit einem Zeilenvektor von rechts multipliziert."
+                            "Es werden nur die 2 ersten Buchstaben aus dem Klartext, die zum Alphabet gehören, hier durchgerechnet.\nZur Verschlüsselung wird die Hillmatrix mit einem Zeilenvektor von rechts multipliziert."
 END
 
 STRINGTABLE 
@@ -11558,6 +11559,7 @@ BEGIN
     EDITTEXT        IDC_EDIT53,61,249,16,12,ES_CENTER
     EDITTEXT        IDC_EDIT54,81,249,16,12,ES_CENTER
     EDITTEXT        IDC_EDIT55,101,249,16,12,ES_CENTER
+    EDITTEXT        IDC_EDIT36,134,180,16,12,ES_CENTER | ES_NUMBER
     DEFPUSHBUTTON   "&Encrypt",IDOK,5,352,63,19
     PUSHBUTTON      "&Decrypt",IDC_BUTTON5,80,352,60,19
     PUSHBUTTON      "&Cancel",IDCANCEL,300,352,58,19
@@ -11579,8 +11581,9 @@ BEGIN
     PUSHBUTTON      "&Larger matrix",IDC_BUTTON4,267,295,59,18
     EDITTEXT        IDC_EDIT1,329,177,19,15,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
-    CONTROL         "Output details of the Hill key matrix",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,118,329,174,9
+    CONTROL         "Show details and single steps of the Hill cipher",
+                    IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,98,329,
+                    166,9
     GROUPBOX        "Description",IDC_STATIC,5,4,352,64
     LTEXT           "The Hill cipher is a polygraphic substitution cipher based on linear algebra.",
                     IDC_STATIC,11,17,321,8
@@ -11598,7 +11601,6 @@ BEGIN
     CONTROL         "Number values",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON,
                     95,146,63,10
     GROUPBOX        "Hill key matrix",IDC_STATIC,5,115,243,204
-    EDITTEXT        IDC_EDIT36,134,180,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT37,154,180,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT38,174,180,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT40,194,180,16,12,ES_CENTER | ES_NUMBER
@@ -12593,6 +12595,7 @@ BEGIN
     EDITTEXT        IDC_EDIT108,158,296,16,12,ES_CENTER
     EDITTEXT        IDC_EDIT109,178,296,16,12,ES_CENTER
     EDITTEXT        IDC_EDIT1010,198,296,16,12,ES_CENTER
+    EDITTEXT        IDC_EDIT40,231,161,16,12,ES_CENTER | ES_NUMBER
     DEFPUSHBUTTON   "&Encrypt",IDOK,5,376,80,19
     PUSHBUTTON      "&Decrypt",IDC_BUTTON5,100,376,74,19
     PUSHBUTTON      "&Cancel",IDCANCEL,486,376,56,19
@@ -12624,8 +12627,9 @@ BEGIN
     PUSHBUTTON      "&Smaller matrix",IDC_BUTTON4,455,325,73,18
     EDITTEXT        IDC_EDIT1,505,159,19,15,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
-    CONTROL         "Output details of the Hill key matrix",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,218,358,174,9
+    CONTROL         "Show details and single steps of the Hill cipher",
+                    IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,214,358,
+                    174,9
     GROUPBOX        "Description",IDC_STATIC,5,4,537,50
     LTEXT           "The Hill cipher is a polygraphic substitution cipher based on linear algebra.",
                     IDC_STATIC,11,17,512,8
@@ -12647,7 +12651,6 @@ BEGIN
     CONTROL         "(matrix) * (column vector)",IDC_RADIO24,"Button",
                     BS_AUTORADIOBUTTON,449,133,90,10
     GROUPBOX        "Hill key matrix",IDC_STATIC,5,107,433,241
-    EDITTEXT        IDC_EDIT40,231,161,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT50,251,161,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT20,271,161,16,12,ES_CENTER | ES_NUMBER
     EDITTEXT        IDC_EDIT90,291,161,16,12,ES_CENTER | ES_NUMBER
@@ -20495,7 +20498,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_HILL_BAD_KEY_INV    "The entered %s matrix key cannot be inverted with modulo %d. Thats why the key cannot be used for this Hill cipher.\n\nPlease change the matrix elements, the matrix dimension or the number of elements of the alphabet.\nAlternatively you can click in the Hill-Input-Dialog on the button ""Generate random key"": The matrix elements will be choosed so, that the key matrix\nfor the choosen dimension and alphabet is invertible."
+    IDS_HILL_BAD_KEY_INV    "The entered %s matrix key cannot be inverted with modulo %d. Therefore the key cannot be used for this Hill cipher.\n\nPlease either change the matrix elements, the matrix dimension or the number of elements of the alphabet.\nAlternatively in the Hill key entry dialog you can click on the button ""Generate random key"": The key matrix elements then will be chosen so, that the matrix\nfor the chosen dimension and alphabet size is invertible."
 END
 
 STRINGTABLE 

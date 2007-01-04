@@ -2235,7 +2235,7 @@ BOOL CDlgKeyHill10x10::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	
+	m_Verbose = bGlobVerbose;
 
 	CheckRadioButton(IDC_RADIO21,IDC_RADIO22,IDC_RADIO21);
 	
@@ -3096,6 +3096,7 @@ void CDlgKeyHill10x10::OnKleinereSchluessel()
 	}
 
 	iHillSchluesselFensterGroesse = HILL_SCHLUESSEL_KLEIN;
+	bGlobVerbose = m_Verbose;
 
 	//save matrix entries for hill5x5
 	for(int i=0;i<dim;i++)

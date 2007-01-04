@@ -808,6 +808,8 @@ void CDlgKeyHill5x5::OnDecrypt()
 BOOL CDlgKeyHill5x5::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
+
+	m_Verbose = bGlobVerbose;
 	
 	CheckRadioButton(IDC_RADIO6,IDC_RADIO7,IDC_RADIO6);
 
@@ -840,9 +842,13 @@ BOOL CDlgKeyHill5x5::OnInitDialog()
 	}
 
 	if(!alphCode)
+	{
 		CheckRadioButton(IDC_RADIO6, IDC_RADIO7, IDC_RADIO6);
+	}
 	else
+	{
 		CheckRadioButton(IDC_RADIO6, IDC_RADIO7, IDC_RADIO7);
+	}
 
 
 
@@ -902,6 +908,7 @@ BOOL CDlgKeyHill5x5::OnInitDialog()
 	m_pAlphCode[4][3] = &m_Feld65;
 	m_pAlphCode[4][4] = &m_Feld66;
 
+
 	
 	// Font mit fester Breite erstellen und fuer alle Schluesselfelder setzen
 	cf.CreatePointFont(80,"Courier");
@@ -951,6 +958,8 @@ BOOL CDlgKeyHill5x5::OnInitDialog()
 	CheckRadioButton(IDC_RADIO15, IDC_RADIO16, IDC_RADIO15);
 
 	AnzeigeDimensionSetzen(dim);
+
+
 
 	//Read the matrix entries from hill10x10
 	for(int i=0;i<dim;i++)
@@ -1410,6 +1419,8 @@ void CDlgKeyHill5x5::OnGroessereSchluessel()
 	}
 
 	iHillSchluesselFensterGroesse = HILL_SCHLUESSEL_GROSS;
+	bGlobVerbose = m_Verbose;
+
 
 	//save matrix entries for hill10x10
 	for(int i=0;i<dim;i++)

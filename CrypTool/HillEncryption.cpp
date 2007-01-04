@@ -679,6 +679,7 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 
 	MatOut = MatOut + '\n' + '\n';
 
+
 	if(!iHillMultiplicationType)
 		LoadString(AfxGetInstanceHandle(), IDS_STRING_HILL_DETAILS_MULT0, pc_str, STR_LAENGE_STRING_TABLE);
 	if(iHillMultiplicationType)
