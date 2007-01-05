@@ -43,7 +43,7 @@ SecretSharingLog::SecretSharingLog(CString partyLimit_set,
 	tmp.LoadString(IDS_STRING_LOGSS_1);
 	this->LogText += tmp;
 	this->LogText += BREAK;
-	this->LogText += "K: ";
+	this->LogText += "S: ";
 	this->LogText += this->Secret;
 	this->LogText += "\n";
 	this->LogText += "l = Max(n): ";

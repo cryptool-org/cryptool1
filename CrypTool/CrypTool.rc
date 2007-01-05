@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -11120,7 +11120,7 @@ BEGIN
                             "Die Anzahl der Teilnehmer liegt über der von Ihnen festgelegten Grenze."
     IDS_STRING_SECRETSHARING_LESS 
                             "Die Anzahl der ausgewählten Teilnehmer liegt unter dem von Ihnen gesetzten Schwellenwert."
-    IDS_STRING_LOGSS_1      "Zunächst haben Sie die Parameter des Schemas festgelegt. Dabei handelt es sich um das Geheimnis K, die Begrenzung der Teilnehmerzahl l = Max(n), die Teilnehmerzahl n, die Begrenzung für die Primzahl Max(p) und den Schwellenwert t."
+    IDS_STRING_LOGSS_1      "Zunächst haben Sie die Parameter des Shamir-Schemas festgelegt. Dabei handelt es sich um das Geheimnis S, die Begrenzung der Teilnehmerzahl l = Max(n), die Teilnehmerzahl n, die Begrenzung für die Primzahl Max(p) und den Schwellenwert t."
     IDS_STRING_LOGSS_2A     "Auf Basis der von Ihnen gemachten Angaben hat CrypTool zufällig eine Primzahl p bestimmt."
     IDS_STRING_LOGSS_4      "Für jeden Teilnehmer wurde eine zufällige Zahl x gewählt. Diese Zahl ist der öffentliche Wert des entsprechenden Teilnehmers."
     IDS_STRING_LOGSS_5      "Durch Einsetzen der öffentlichen Werte in das Polynom f(x) erhält jeder Teilnehmer seinen geheimen Wert y (Share)."
@@ -11246,11 +11246,11 @@ STRINGTABLE
 BEGIN
     IDS_STRING_LOGSS_6      "Sie haben die folgenden Teilnehmer ausgewählt, um das Geheimnis wiederherzustellen."
     IDS_STRING_LOGSS_7      "Die zu diesen Teilnehmern gehörenden Wertepaare (x/y) sind:"
-    IDS_STRING_LOGSS_8      "Mit Hilfe des Lagrange-Interpolationsverfahrens wurde aus diesen %d Wertepaaren das Geheimnis K rekonstruiert."
+    IDS_STRING_LOGSS_8      "Mit Hilfe des Lagrange-Interpolationsverfahrens wurde aus diesen %d Wertepaaren das Geheimnis S rekonstruiert."
     IDS_STRING_SECRETSHARING_SMALLPRIME 
                             "Die Obergrenze für die Primzahl p muss sowohl größer als das Geheimnis K\nals auch größer als die Teilnehmerzahl n sein."
     IDS_STRING_LOGSS_2B     "Sie haben eine Primzahl p festgelegt."
-    IDS_STRING_LOGSS_3A     "Zusätzlich wurde ein Polynom f(x) vom Grad t-1 mit zufälligen Koeffizienten und dem absoluten Summanden K erzeugt. Alle folgenden Berechnungen finden mod p statt."
+    IDS_STRING_LOGSS_3A     "Zusätzlich wurde ein Polynom f(x) vom Grad t-1 mit zufälligen Koeffizienten und dem absoluten Summanden S erzeugt. Alle folgenden Berechnungen finden mod p statt."
     IDS_STRING_LOGSS_3B     "Für ein Polynom f(x) vom Grad t-1 haben sie die Koeffizienten bestimmt. Alle folgenden Berechnungen finden mod p statt."
     IDS_STRING_SECRETSHARING_NOPRIME 
                             "Bei der von Ihnen eingegebenen Zahl handelt es sich nicht um eine Primzahl."
@@ -11382,12 +11382,12 @@ BEGIN
     IDS_ECIES_DEC_ERROR_05  "Der AES-Ciphertext konnte nicht mit dem AES-Sessionkey entschlüsselt werden.\nEventuell ist einer der beiden oder beide beschädigt."
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -16529,12 +16529,12 @@ BEGIN
     EDITTEXT        IDC_EDIT_SECRET,162,79,91,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_PARTICIPANTS,162,97,91,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_THRESHOLD,162,115,91,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "Set default parameters",IDC_BUTTON_EXAMPLE,270,78,85,14
-    PUSHBUTTON      "Options",IDC_BUTTON_OPT,270,96,85,14
-    PUSHBUTTON      "Generate polynomial",IDC_BUTTON_GENERATE,162,143,91,15,
+    PUSHBUTTON      "Set default parameters",IDC_BUTTON_EXAMPLE,266,78,89,14
+    PUSHBUTTON      "Options",IDC_BUTTON_OPT,265,96,90,14
+    PUSHBUTTON      "Generate polynomial",IDC_BUTTON_GENERATE,162,143,90,14,
                     WS_DISABLED
-    PUSHBUTTON      "Edit polynomial parameter",IDC_BUTTON_CHANGE,270,143,85,
-                    14,WS_DISABLED
+    PUSHBUTTON      "Edit polynomial parameters",IDC_BUTTON_CHANGE,264,143,
+                    91,14,WS_DISABLED
     EDITTEXT        IDC_EDIT_POLYNOM,75,197,178,12,ES_AUTOHSCROLL | 
                     ES_READONLY
     EDITTEXT        IDC_EDIT_MOD,75,216,178,12,ES_AUTOHSCROLL | ES_READONLY | 
@@ -16543,12 +16543,11 @@ BEGIN
                     WS_DISABLED
     CONTROL         "",IDC_LIST_SHARES,"SysListView32",LVS_REPORT | 
                     LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,257,357,96
-    CONTROL         "Show information dialogue at startup",
-                    IDC_CHECK_SHOWINTRO,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,21,382,130,10
+    CONTROL         "Show information dialog at startup",IDC_CHECK_SHOWINTRO,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,382,122,10
     PUSHBUTTON      "Cancel",IDCANCEL,7,402,86,14
     DEFPUSHBUTTON   "Reconstruction",IDOK,279,402,85,14,WS_DISABLED
-    GROUPBOX        "Choose your secret and parameters to set up a scheme (whole numbers) ",
+    GROUPBOX        "Choose your secret and the parameters (whole numbers) to set up a scheme",
                     IDC_STATIC_PARAMETER,7,64,357,71
     LTEXT           "Secret S with S >= 0",IDC_STATIC,13,81,66,8
     GROUPBOX        "Parameters concerning the polynomial f(x) of degree t-1",
@@ -22606,9 +22605,9 @@ BEGIN
                             "The number of participants exceeds the previously defined limit."
     IDS_STRING_SECRETSHARING_LESS 
                             "The number of selected participants is below your chosen threshold"
-    IDS_STRING_LOGSS_1      "At first, you chose the following parameters that determine your shamir scheme: the secret K, the upper limit of participants l = Max(n), the number of participants n, the upper limit to a prime Max(p) and your threshold t."
-    IDS_STRING_LOGSS_2A     "Founded on the values you entered before, CrypTool has randomly chosen a prime number, p."
-    IDS_STRING_LOGSS_4      "Each participant recieves its public value x. x has been chosen at random."
+    IDS_STRING_LOGSS_1      "At first, you chose the following parameters that determine the Shamir scheme: the secret S, the upper limit of participants l = Max(n), the number of participants n, the upper limit to a prime Max(p) and your threshold t."
+    IDS_STRING_LOGSS_2A     "Founded on the values you entered before, CrypTool has randomly chosen a prime number p."
+    IDS_STRING_LOGSS_4      "Each participant receives its public value x. Also x has been chosen at random."
     IDS_STRING_LOGSS_5      "By applying the polynomial f(x) to every single public value, each participant obtains his secret value y (share)."
 END
 
@@ -22725,13 +22724,13 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_STRING_LOGSS_6      "The following participants have been selected to reconstruct the secret."
+    IDS_STRING_LOGSS_6      "You selected the following participants to reconstruct the secret."
     IDS_STRING_LOGSS_7      "These participants hold the following pairs of public values and shares (x/y):"
-    IDS_STRING_LOGSS_8      "By means of polynomial interpolation, the secret has been reconstructed out of these %d pairs of public values and shares."
+    IDS_STRING_LOGSS_8      "By means of Lagrange polynomial interpolation, the secret S has been reconstructed out of these %d pairs of public values and shares."
     IDS_STRING_SECRETSHARING_SMALLPRIME 
                             "The defined limit for your prime p has to be bigger than your secret K and the number of participants n."
     IDS_STRING_LOGSS_2B     "You did set a prime number p."
-    IDS_STRING_LOGSS_3A     "In addition, a polynomial f(x) of degree t-1 with random coefficients and the absolute summand K has been created. All computations take place in the discrete space GF(p). "
+    IDS_STRING_LOGSS_3A     "In addition, a polynomial f(x) of degree t-1 with random coefficients and the absolute summand S has been created. All computations take place in the discrete space GF(p). "
     IDS_STRING_LOGSS_3B     "You determined the coefficients of a polynomial of degree t-1. All computations take place in the discrete space GF(p)."
     IDS_STRING_SECRETSHARING_NOPRIME 
                             "The number you habe entered is no prime number."
@@ -22861,7 +22860,7 @@ BEGIN
     IDS_ECIES_DEC_ERROR_05  "The AES ciphertext could not be decrypted with the AES session key.\nOne or both components might be damaged."
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
