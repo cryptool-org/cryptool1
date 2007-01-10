@@ -22,23 +22,23 @@
 
 <P>Anhand eines binären <!--ZZZPOPUP--><A href="dokument.html">Dokuments</A> wird die Signatur mittels des <A href="hid_crypt_sign.html">RSA-Verfahrens</A> vorgestellt.</P>
 
-<P>Zunächst muss (wie bei der <!--ZZZPOPUP--><A href="verschluesselung.html">Ver</A>- und <!--ZZZPOPUP--><A href="entschluesselung.html">Entschlüsselung</A> mit dem <A href="hid_crypt_rsaenc.html">RSA-Verschlüsselungsverfahren</A>) ein asymmetrisches <!--ZZZPOPUP--><A href="schluesselpaar.html">Schlüsselpaar</A> erzeugt werden. Über den Befehl <A href="hid_crypt_keygen.html">Schlüssel erzeugen</A> im Menü <A href="menu_digitalsignaturespki.html">Digitale Signaturen/PKI</A> \ <A href="menu_digitalsignaturespkipki.html">PKI</A> öffnet sich der folgende Dialog.</P>
+<P>Zunächst muss (wie bei der <!--ZZZPOPUP--><A href="verschluesselung.html">Ver</A>- und <!--ZZZPOPUP--><A href="entschluesselung.html">Entschlüsselung</A> mit dem <A href="hid_crypt_rsaenc.html">RSA-Verschlüsselungsverfahren</A>) ein asymmetrisches <!--ZZZPOPUP--><A href="schluesselpaar.html">Schlüsselpaar</A> erzeugt werden. Über den Befehl <A href="hid_crypt_keygen.html">Schlüssel erzeugen/importieren</A> im Menü <A href="menu_digitalsignaturespki.html">Digitale Signaturen/PKI</A> \ <A href="menu_digitalsignaturespkipki.html">PKI</A> öffnet sich der folgende Dialog.</P>
 
 <P><IMG SRC="images/szenariorsa_sig1.gif" ALT="szenariorsa_sig1.gif" BORDER=0></P>
 
 <P>Als Namen haben wir<CODE> Lieschen Meier</CODE> als eingegeben, für die optionale Schlüsselkennung wählten wir als<CODE> Lieschens Schlüssel</CODE> und als Pin-Code (zweimal)<CODE> CrypTool</CODE>. Die Länge des Moduls soll<CODE> 512</CODE> Bit betragen. Nach der Betätigung der <B>Eingabetaste</B> oder einen Klick auf den <B>OK</B>-Knopf wird die Erzeugung des <!--ZZZPOPUP--><A href="schluesselpaar.html">Schlüsselpaars</A> gestartet.</P>
 
-<P>Im nächsten Fenster erscheinen die öffentlichen RSA–Parameter: der aus zwei Primzahlen zusammengesetzten Modul und der öffentliche Exponent (öffentlicher Schlüssel).</P>
+<P>Im nächsten Fenster erscheinen die öffentlichen RSA-Parameter: der aus zwei Primzahlen zusammengesetzten Modul und der öffentliche Exponent (öffentlicher Schlüssel).</P>
 
 <P><IMG SRC="images/szenariorsa-sigparam.gif" ALT="szenariorsa-sigparam.gif" BORDER=0></P>
 
-<P>Im Anschluss erscheint der für die Datenbank zugewiesene Schlüsselbezeichner und die zur Schlüsselerzeugung benötigte Rechenzeit.</P>
+<P>Nach Klick auf <b>Schlüssel übernehmen</b> zeigt der folgende Dialog, unter welchem Schlüsselbezeichner der Schlüssel in der internen Datenbank abgelegt ist, und die zur Schlüsselerzeugung benötigte Rechenzeit.</P>
 
 <P><IMG SRC="images/szenariorsa_sig2.gif" ALT="szenariorsa_sig2.gif" BORDER=0></P>
 
 <P>Nach dem Schließen dieses Dialoges muss auch der Dialog <A href="hidd_keyasym_generation.html">Erzeugung eines asymmetrischen Schlüsselpaares</A> durch <B>Abbrechen</B> geschlossen werden.</P>
 
-<P>Bevor wir ein <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> <!--ZZZPOPUP--><A href="signatur.html">signieren</A>, wollen wir das Zertifikat des erzeugten <!--ZZZPOPUP--><A href="schluesselpaar.html">Schlüsselpaares</A> anzeigen. Dazu wird über den Befehl <A href="hid_show_all_ec_keys.html">Schlüssel anzeigen</A> im Menü <A href="menu_digitalsignaturespki.html">Digitale Signaturen/PKI</A> \ <A href="menu_digitalsignaturespkipki.html">PKI</A> der folgende Dialog <A href="hidd_key_asym.html">Verfügbare asymmetrische Schlüsselpaare</A> geöffnet und das vorher erzeugte Schlüsselpaar markiert.</P>
+<P>Bevor wir ein <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> <!--ZZZPOPUP--><A href="signatur.html">signieren</A>, wollen wir das Zertifikat des erzeugten <!--ZZZPOPUP--><A href="schluesselpaar.html">Schlüsselpaares</A> anzeigen. Dazu wird über den Befehl <A href="hid_show_all_ec_keys.html">Schlüssel anzeigen/exportieren</A> im Menü <A href="menu_digitalsignaturespki.html">Digitale Signaturen/PKI</A> \ <A href="menu_digitalsignaturespkipki.html">PKI</A> der folgende Dialog <A href="hidd_key_asym.html">Verfügbare asymmetrische Schlüsselpaare</A> geöffnet und das vorher erzeugte Schlüsselpaar markiert.</P>
 
 <P><IMG SRC="images/szenariorsa_sig3.gif" ALT="szenariorsa_sig3.gif" BORDER=0></P>
 
@@ -46,7 +46,7 @@
 
 <P><IMG SRC="images/szenariorsa_sig4.gif" ALT="szenariorsa_sig4.gif" BORDER=0></P>
 
-<P>Nachdem dieser Dialog durch Betätigung des <B>Schließen</B>-Knopfes geschlossen wird (der Dialog <A href="hidd_key_asym.html">Verfügbare asymmetrische Schlüsselpaare</A> wird dadurch ebenfalls geschlossen), können wir ein <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> <!--ZZZPOPUP--><A href="signatur.html">signieren</A>.</P>
+<P>Durch Betätigung des <B>Schließen</B>-Knopfes in diesem Dialog und in dem Dialog <A href="hidd_key_asym.html">Verfügbare asymmetrische Schlüsselpaare</A> werden diese Dialoge geschlossen.</p><p>Da wir nun wissen welche Zertifikate es gibt können wir ein <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> <!--ZZZPOPUP--><A href="signatur.html">signieren</A>.Dies wollen wir am folgenden Beispiel durchspielen.</p>
 
 <P>Wir wollen das <A href="cryptoolfoto.html">Bildschirmfoto</A> von <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>, welches sich in der <!--ZZZPOPUP--><A href="datei.html">Datei</A><CODE> CrypTool.bmp</CODE> befindet, <!--ZZZPOPUP--><A href="signatur.html">signieren</A>.</P>
 

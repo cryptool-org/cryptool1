@@ -22,14 +22,21 @@
 
 <P><!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> bietet die Möglichkeit, einen Brute-Force Angriff durchzuführen. Die Eingabe des zu durchsuchenden Schlüsselbereiches erfolgt über den Dialog <A href="hidd_bruteforce.html">Brute-Force Analyse</A>.</P>
 
-<P>Um moderene symmetrische Verfahren in angemessener Zeit erfolgreich angreifen zu können, müssen folgende Voraussetzungen erfüllt sein:</P>
-
-<P><B>a)</B> Das Dokument ist nicht zu kurz (ca. >= 128 Zeichen).</P>
-
-<P><B>b)</B> Die ersten 128 Zeichen am Anfang des Dokuments (Anzahl einstellbar im Dialog <a href="hidd_options_analysis.html">Analyseoptionen</a>) sind nicht zu gleichmäßig verteilt (siehe <a href="histogramm.html">Histogramm</a> und <a href="entropie.html">Entropie</a>). Dies trifft auf die meisten nicht-komprimierten Dokumente zu.</P>
-
-<P><B>c)</B> Der Schlüsselraum, der bei modernen symmetrischen Verfahren 2^128 und mehr Möglichkeiten umfasst, kann eingeschränkt werden. Wir treffen also die Annahme: Man kennt einen Teil des Schlüssels, z.B. weil der Angreifer Kenntnis von Teilen des Schlüssels erhielt oder weil der Zufallszahlengenerator (absichtlich) den Schlüsselraum nicht ausschöpft.</P>
-
+<p><h4>Brute-Force Angriff gegen moderne symmetrische Verfahren</h4></p>
+<P>Um einen Angriff in angemessener Zeit erfolgreich durchführen zu können, müssen folgende Voraussetzungen erfüllt sein:</P>
+<ul>
+<li>
+<P> Das Dokument ist nicht zu kurz (>1000 Zeichen).</P>
+</li><li>
+<P>Die ersten 128 Zeichen am Anfang des Dokuments (Anzahl einstellbar im Dialog <a href="hidd_options_analysis.html">Analyseoptionen</a>) sind nicht zu gleichmäßig verteilt (siehe <a href="histogramm.html">Histogramm</a> und <a href="entropie.html">Entropie</a>). Dies trifft auf die meisten nicht-komprimierten Dokumente zu.</P>
+</li><li>
+<P>Der Schlüsselraum, der bei modernen symmetrischen Verfahren 2^128 und mehr Möglichkeiten umfasst, kann eingeschränkt werden. Wir treffen also die Annahme: Man kennt einen Teil des Schlüssels, z.B. weil der Angreifer Kenntnis von Teilen des Schlüssels erhielt oder weil der Zufallszahlengenerator (absichtlich) den Schlüsselraum nicht ausschöpft.</P>
+</li></ul>
+<P>Der Schlüssel wird immer gefunden, falls das Dokument nicht zu kurz ist 
+			(mindestens 1000 Zeichen) und die ersten 1000 Zeichen am Anfang des Dokuments 
+			nicht zu gleichmäßig verteilt sind (siehe <!--ZZZPOPUP--><A href="histogramm.html">Histogramm</A>
+			und <a href="entropie.html">Entropie</a>). Dies trifft auf die meisten Dokumente zu, die nicht <!--ZZZPOPUP--><A href="hid_zip.html">komprimiert</A>
+			sind.</P>
 
 </BODY>
 </HTML>

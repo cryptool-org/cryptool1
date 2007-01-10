@@ -9251,7 +9251,7 @@ BEGIN
     IDS_STRING_ASYMKEY_MSG_SIGNATURE_FAIL "Signatur fehlerhaft !"
     IDS_STRING_ASYMKEY_MSG_SIGNATURE_CORRECT "Signatur korrekt !"
     IDS_STRING_ASYMKEY_COULD_NOT_EXTRACT_SIGNATURE 
-                            "Es konnten nicht alle Schlüsseltexte in dem Informationsblock des signierten Dokuments gefunden werden.\nBitte beachten Sie, dass Ein signiertes Dokument aus den Signaturinformationen und der eigentlichen Nachricht besteht.\nDer Signaturblock konnte nicht ausgewertet werden, deshalb kann eine Signaturverifikation nicht erfolgen!"
+                            "Es konnten nicht alle Schlüsseltexte in dem Signaturblock des signierten Dokuments gefunden werden.\nBitte beachten Sie, dass ein signiertes Dokument aus dem Signaturblock und der eigentlichen Nachricht besteht.\nDer Signaturblock konnte nicht ausgewertet werden, deshalb kann eine Signaturverifikation nicht erfolgen!"
     IDS_STRING_ASYMKEY_SELECT_HASH_METHOD "                Hashfunktion:   "
     IDS_FLOATING_FREQUENCY  "Verschiedene Zeichen pro 64 Byte Block"
     IDS_STRING_ASYMKEY_ERR_ON_VERIFIKATION_TITLE 
@@ -20788,7 +20788,7 @@ BEGIN
     IDS_STRING_ASYMKEY_MSG_SIGNATURE_FAIL "Signature is not correct!"
     IDS_STRING_ASYMKEY_MSG_SIGNATURE_CORRECT "Correct signature!"
     IDS_STRING_ASYMKEY_COULD_NOT_EXTRACT_SIGNATURE 
-                            "Not all keywords were found in the information section of the signature.\nPlease consider that a signed document consists of the signature information part and the document itself.\nThe signature information part could not be compiled, therefore the signature check was not performed!"
+                            "Not all keywords were found in the information section of the signature.\nPlease consider that a signed document consists of the signature information part and the document itself.\nThe signature information part could not be analyzed, therefore the signature check was not performed!"
     IDS_STRING_ASYMKEY_SELECT_HASH_METHOD "                Hash function:   "
     IDS_FLOATING_FREQUENCY  "Different characters per 64 byte block"
     IDS_STRING_ASYMKEY_ERR_ON_VERIFIKATION_TITLE 
@@ -21048,7 +21048,7 @@ BEGIN
                             "Signature generation time: %s seconds."
     IDS_STRING_MSG_SIGNATURE_VERIFICATION_TIME 
                             "Duration of signature verification: %s seconds."
-    IDS_STRING_BAD_SIGNATURE "Invalid signature!\\%s"
+    IDS_STRING_BAD_SIGNATURE "Invalid signature!s"
     IDS_STRING_CORRECT_SIGNATURE "Correct signature!\n%s"
     IDS_STRING_MSG_KEY_GENERATION_TIME 
                             "Elapsed time while creating key pair: %s seconds."

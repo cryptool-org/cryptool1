@@ -23,19 +23,24 @@
 		<P><!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> offers a brute-force attack 
 			to be carried out. The key range to be searched through is entered in the <A href="hidd_bruteforce.html">
 				Key range</A> dialog.</P>
-		<P>To attack modern symmetric encryption algorithms successfully in an appropriate 
+				<p><h4>Brute-force attack against modern symmetric encryption algorithms</h4></p>
+		<P>To perform an attack successfully in an appropriate 
 			time, some conditions must be fulfilled:</P>
-		<P><B>a)</B> The document is not too short (approx. not less than 128 characters 
+		<ul><li>
+		<P> The document is not too short (>1000 characters 
 			long).</P>
-		<P><B>b)</B> The first 128 characters at the beginning of the according cleartext 
+			</li><li>
+		<P>The first 128 characters at the beginning of the according cleartext 
 			document (this number can be adjusted in the dialog <a href="hidd_options_analysis.html">
 				Analysis Options</a>) are not too uniquely distributed (see <a href="histogramm.html">
 				histogram</a> and <a href="entropie.html">entropy</a>). This applies to 
-			most documents which are not compressed.</P>
-		<P><B>c)</B> The key range, which has 2^128 and more possibilities with modern 
+			most documents which are not compressed.</P></li><li>
+		<P>The key range, which has 2^128 and more possibilities with modern 
 			symmetric algorithms, can be cut down. So we make the assumption: Parts of the 
 			key are known, e.g. because the user did not choose the key by random, or 
 			because the attacker somehow got the knowledge, or because the random number 
-			generator does (by will) not use the full key range.</P>
+			generator does (by will) not use the full key range.</P></li></ul>
+			
+			<P>The key will always be found if the document is not too short (at least 1000 characters long) and the first thousand characters at the beginning of the document are not distributed too evenly (see <!--ZZZPOPUP--><A href="histogramm.html">histogram</A> and <!--ZZZPOPUP--><A href="entropie.html">entropy</A>). This applies to most documents which are not <!--ZZZPOPUP--><A href="hid_zip.html">compressed</A>.</P>
 	</BODY>
 </HTML>
