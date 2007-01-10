@@ -222,7 +222,7 @@ void CDlgSecretSharingSetup::OnButtonUpdate()
 	{
 		CString number;
 		CString entry = "";
-		entry.LoadString(IDS_STRING_MEMBER);
+		entry.LoadString(IDS_STRING_MEMBER2);
 		entry+=" ";
 		number.Format("%d", row+1);
 		entry += number;

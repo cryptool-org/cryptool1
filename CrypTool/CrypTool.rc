@@ -11237,9 +11237,9 @@ BEGIN
     IDS_CT_FILE_OPEN_ERROR  "Fehler beim Öffnen von Datei\n%s:\n%s"
     IDS_UU_FILE_WRITE_ERROR "Fehler beim Schreiben in die Datei %s."
     IDS_UU_DECODE_LB_DIFFERS_TOLONG 
-                            "Die aktuelle Zeile ist länger als die durch das Längenbyte angegebene Länge.\nZeile: %u\nDie Decodierung  wird an dieser Stelle abgebrochen und kann fehlerhaft sein."
+                            "Die aktuelle Zeile ist länger als die durch das Längenbyte angegebene Länge.\nZeile: %u\nDie Decodierung und wird deshalb an dieser Stelle abgebrochen und kann fehlerhaft sein."
     IDS_UU_DECODE_LB_DIFFERS_TOSHORT 
-                            "Die aktuelle Zeile ist kürzer als die durch das Längenbyte angegebene Länge.\nZeile: %u\nDie Decodierung  wird an dieser Stelle abgebrochen und kann fehlerhaft sein."
+                            "Die aktuelle Zeile ist kürzer als die durch das Längenbyte angegebene Länge.\nZeile: %u\nDie Decodierung und wird deshalb an dieser Stelle abgebrochen und kann fehlerhaft sein."
 END
 
 STRINGTABLE 
@@ -11343,6 +11343,7 @@ BEGIN
     IDS_CLIPBORD_COPY_ERROR "Fehler beim Kopieren in die Zwischenablage."
     IDS_CLIPBOARD_HEXCOPY   "Die markierten Daten können unverändert (Standard) oder hexadezimal codiert in die Zwischenablage übernommen werden.\nEine hexadezimale Codierung ist z.B. erforderlich, wenn Sie nicht-druckbare Daten in andere Anwendungen exportieren wollen.\n\nHexadezimale Codierung verwenden?"
     IDS_CLIPBOARD_HEXPASTE  "Die Zwischenablage enthält ausschließlich Hexadezimal-Zeichen.\nDiese können entweder decodiert (Standard) oder unverändert eingefügt werden.\n\nSollen die hexadezimalen Daten decodiert werden?"
+    IDS_STRING_MEMBER2      "Teilnehmer"
 END
 
 STRINGTABLE 
@@ -22595,8 +22596,8 @@ BEGIN
                             "Logfile succssfully written to the main window."
     ID_EINZELVERFAHREN_SECRETSHARINGDEMO 
                             "Visualizes the Shamir (t, n) threshold scheme"
-    IDS_STRING_MEMBER       "participant"
-    IDS_STRING_VALUESS      "public value x"
+    IDS_STRING_MEMBER       "Participant"
+    IDS_STRING_VALUESS      "Public value x"
     IDS_STRING_SECRETSHARING_EMPTY 
                             "You did not enter all values needed to set up the scheme."
     IDS_STRING_SECRETSHARING_THRESHOLD 
@@ -22604,7 +22605,7 @@ BEGIN
     IDS_STRING_SECRETSHARING_PARTICIPANTS 
                             "The number of participants exceeds the previously defined limit."
     IDS_STRING_SECRETSHARING_LESS 
-                            "The number of selected participants is below your chosen threshold"
+                            "The number of selected participants is below your chosen threshold."
     IDS_STRING_LOGSS_1      "At first, you chose the following parameters that determine the Shamir scheme: the secret S, the upper limit of participants l = Max(n), the number of participants n, the upper limit to a prime Max(p) and your threshold t."
     IDS_STRING_LOGSS_2A     "Founded on the values you entered before, CrypTool has randomly chosen a prime number p."
     IDS_STRING_LOGSS_4      "Each participant receives its public value x. Also x has been chosen at random."
@@ -22742,7 +22743,7 @@ BEGIN
     IDS_STRING_SECRETSHARING_BIGCOEFF 
                             "All coefficients have to be less than your prime module."
     IDS_STRING_SECRETSHARING_NOINPUT "You have to enter a number!"
-    IDS_STRING_SHARE        "share (secret value f(x))"
+    IDS_STRING_SHARE        "Share [secret value f(x)]"
 END
 
 STRINGTABLE 
@@ -22773,11 +22774,11 @@ END
 STRINGTABLE 
 BEGIN
     IDS_UU_DECODE_MISSING_FN 
-                            "In the first line no filename was found. Decoding is not done."
+                            "In the first line no file name was found. Decoding is not done."
     IDS_UU_DECODE_MISSING_END 
-                            "No""end"" statement was found. Decoding is not done."
+                            "No ""end"" statement was found. Decoding is not done."
     IDS_UU_DECODE_MISSING_BEGIN 
-                            "No""begin"" statement was found. Decoding is not done."
+                            "No ""begin"" statement was found. Decoding is not done."
     IDS_UU_DECODE_ILLEGAL_CHARACTER 
                             "An illegal character occured in the UU input.\nLocation: %u, character: %s\nThe decoding has been aborted at this location."
     IDS_UU_DECODE_MISSING_CHAR 
@@ -22821,6 +22822,7 @@ BEGIN
     IDS_CLIPBORD_COPY_ERROR "Cannot copy to clipboard."
     IDS_CLIPBOARD_HEXCOPY   "The marked data can be put into the clipboard unchanged (default) or in hexadecimal encoding.\nHexadecimal encoding is required e.g. if you want to export non-printable data to other applications.\n\nUse hexadecimal encoding?"
     IDS_CLIPBOARD_HEXPASTE  "The clipboard contains hexadecimal characters only. They can be inserted decoded (default) or unchanged.\n\nDecode hexadecimal data?"
+    IDS_STRING_MEMBER2      "participant"
 END
 
 STRINGTABLE 
