@@ -719,7 +719,10 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 			MatOut = MatOut + CString("\t[\t");
 			for (j=0; j<dim; j++)
 			{
-				MatOut = MatOut + (char)my_int_to_char((*enc_mat)(i,j)) + '\t';
+				if(iHillMultiplicationType)				
+					MatOut = MatOut + (char)my_int_to_char((*enc_mat)(i,j)) + '\t';
+				else
+					MatOut = MatOut + (char)my_int_to_char((*enc_mat)(j,i)) + '\t';
 			}
 			MatOut = MatOut + ']' + '\n';
 		} 
@@ -732,8 +735,16 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 			MatOut = MatOut + CString("\t[\t");
 			for (j=0; j<dim; j++)
 			{
-				if ( modul > 100 ) sprintf(num, "%03i", (*enc_mat)(i,j));	
-				else               sprintf(num, "%02i", (*enc_mat)(i,j));
+				if(iHillMultiplicationType)
+				{
+					if ( modul > 100 ) sprintf(num, "%03i", (*enc_mat)(i,j));	
+					else               sprintf(num, "%02i", (*enc_mat)(i,j));
+				}
+				else
+				{
+					if(modul > 100) sprintf(num, "%03i", (*enc_mat)(j,i));
+					else			sprintf(num, "%02i", (*enc_mat)(j,i));
+				}
 				MatOut = MatOut + num + '\t';
 			}
 			MatOut = MatOut + ']' + '\n';
@@ -769,7 +780,10 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 			int ciph = 0;
 			for (j=0; j<dim; j++)
 			{
-				ciph +=i_act_example[j]*(*enc_mat)(j,i);
+				if(iHillMultiplicationType)
+					ciph +=i_act_example[j]*(*enc_mat)(j,i);
+				else
+					ciph +=i_act_example[j]*(*enc_mat)(i,j);
 				ciph %= modul;
 			}
 			i_res_example[i] = ciph;
@@ -785,12 +799,18 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 				if ( modul > 100 )				
 				{
 					sprintf(num, "%03i", i_act_example[j]);
-					sprintf(num2, "%03i", (*enc_mat)(j,i));					
+					if(iHillMultiplicationType)
+						sprintf(num2, "%03i", (*enc_mat)(j,i));					
+					else
+						sprintf(num2, "%03i", (*enc_mat)(i,j));
 				}
 				else 
 				{
 					sprintf(num, "%02i", i_act_example[j]);
-					sprintf(num2, "%02i", (*enc_mat)(j,i));
+					if(iHillMultiplicationType)
+						sprintf(num2, "%02i", (*enc_mat)(j,i));
+					else
+						sprintf(num2, "%02i", (*enc_mat)(i,j));
 				}
 				MatOut = MatOut + CString(num) + '*' + CString(num2) + ' ';
 				if ( j < dim-1 ) MatOut = MatOut + '+' + ' ';
@@ -823,7 +843,10 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 			MatOut = MatOut + CString("\t[\t");
 			for (j=0; j<dim; j++)
 			{
-				MatOut = MatOut + (char)my_int_to_char((*dec_mat)(i,j)) + '\t';
+				if(iHillMultiplicationType)
+					MatOut = MatOut + (char)my_int_to_char((*dec_mat)(i,j)) + '\t';
+				else
+					MatOut = MatOut + (char)my_int_to_char((*dec_mat)(i,j)) + '\t';
 			}
 			MatOut = MatOut + ']' + '\n';
 		}
@@ -835,8 +858,16 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 			MatOut = MatOut + CString("\t[\t");
 			for (j=0; j<dim; j++)
 			{
-				if ( modul > 100 ) sprintf(num, "%03i", (*dec_mat)(i,j));	
-				else               sprintf(num, "%02i", (*dec_mat)(i,j));
+				if(iHillMultiplicationType)
+				{
+					if ( modul > 100 ) sprintf(num, "%03i", (*dec_mat)(i,j));	
+					else               sprintf(num, "%02i", (*dec_mat)(i,j));
+				}
+				else
+				{
+					if( modul > 100)	sprintf(num, "%03i", (*dec_mat)(j,i));
+					else				sprintf(num, "%02i", (*dec_mat)(j,i));
+				}
 				MatOut = MatOut + num + '\t';
 			}
 			MatOut = MatOut + ']' + '\n';
@@ -872,7 +903,10 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 			int ciph = 0;
 			for (j=0; j<dim; j++)
 			{
-				ciph +=i_act_example[j]*(*dec_mat)(j,i);
+				if(iHillMultiplicationType)
+					ciph +=i_act_example[j]*(*dec_mat)(j,i);
+				else
+					ciph +=i_act_example[j]*(*dec_mat)(i,j);
 				ciph %= modul;
 			}
 			i_res_example[i] = ciph;
@@ -888,12 +922,18 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 				if ( modul > 100 )				
 				{
 					sprintf(num, "%03i", i_act_example[j]);
-					sprintf(num2, "%03i", (*dec_mat)(j,i));					
+					if(iHillMultiplicationType)
+						sprintf(num2, "%03i", (*dec_mat)(j,i));					
+					else
+						sprintf(num2, "%03i", (*dec_mat)(i,j));
 				}
 				else 
 				{
 					sprintf(num, "%02i", i_act_example[j]);
-					sprintf(num2, "%02i", (*dec_mat)(j,i));
+					if(iHillMultiplicationType)
+						sprintf(num2, "%02i", (*dec_mat)(j,i));
+					else
+						sprintf(num2, "%02i", (*dec_mat)(i,j));
 				}
 				MatOut = MatOut + CString(num) + '*' + CString(num2) + ' ';
 				if ( j < dim-1 ) MatOut = MatOut + '+' + ' ';
