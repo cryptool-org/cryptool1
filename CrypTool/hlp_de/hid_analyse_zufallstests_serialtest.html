@@ -15,7 +15,7 @@
 
 <BODY>
 
-<h3>Serial-Test (Menü <A href="menu_analyze.html"> Analyse</A> \ Zufallsanalyse)</h3>
+<h3>Serial-Test (Menü <A href="menu_analyze.html"> Analyse</A> \ <a href="menu_analysis_randomanalysis.html">Zufallsanalyse</a>)</h3>
 <p>Beim Aufruf dieses Menüeintrags öffnet sich der Dialog 
 				für den <a href="dialog_serial.html">Serial-Test</a>.
 				
@@ -27,7 +27,7 @@
 			Dies ist ein Indiz dafür, dass jedes Bit unabhängig von seinem Vorgängerbit 
 			ist. Bei Binärfolgen gibt es 4 verschiedene Paarungen: 00, 01, 10, 11. Die Anzahl jeder der vier Paarungen (Teilfolgen) in s soll annähernd der bei einer 
 			echten Zufallsfolge erwarteten Anzahl entsprechen. Da bei diesem Test stets 
-			zwei Bits auf einmal untersucht werden, wird der Test in der Literatur auch mit <I>Zwei-Bit-Test</I>
+			zwei Bits auf einmal untersucht werden, wird der Test in der Literatur auch als <I>Zwei-Bit-Test</I>
 			bezeichnet.</P>
 		<P>Seien n<sub>0</sub> und n<sub>1</sub> die Anzahl der Nullen bzw. der Einsen in s; und seien n<sub>00</sub>, n<sub>01</sub>, 
 			n<sub>10</sub> und n<sub>11</sub> die jeweilige Anzahl der Teilsequenzen 00, 01, 10, 11 in <I>s</I>. Da 
@@ -53,7 +53,7 @@
 11010001 00101110 11010100 11000011 01010001
 11010110 00110010 10001111 00000111 01000111</CODE></PRE>
 		<P>mit der Länge n = 160 (20 Byte) der klassische Serial-Test durchgeführt. Das <!--ZZZPOPUP--><A href="sign_niv.html">Signifikanzniveau</A>
-			wird mit alpha = 0.05 festgelegt.</P>
+			wird mit alpha = 0,05 festgelegt.</P>
 		<P>Die Anzahl der sich überlappenden Paare 00, 01, 10 und 11 in <I>s</I> beträgt
 		</P>
 		<div class="indent">
@@ -77,7 +77,7 @@
 		</div>
 		<P>Der Grenzwert für X<sub>2</sub> ist bei einer <A href="chi_2_verteilung.html">chi^2 – 
 				Verteilung</A> mit zwei Freiheitsgraden und einem <!--ZZZPOPUP--><A href="sign_niv.html">Signifikanzniveau</A>
-			von alpha = 0.05 gegeben mit 5,991 . Mit X<sub>2</sub> = 1,081 &lt;= 5.991 besteht die 
+			von alpha = 0,05 gegeben mit 5,991 . </p><p>Mit X<sub>2</sub> = 1,081 &lt;= 5,991 besteht die 
 			Folge s den Serial-Test.</P>
 		<P>Literatur: Christian Schiestl, <I>Pseudozufallszahlen in der Kryptographie</I>, 
 			Klagenfurt, 1999.</P>

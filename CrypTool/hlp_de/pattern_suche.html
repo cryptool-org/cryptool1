@@ -16,10 +16,9 @@
 		<h3>Funktionsweise der Muster-Suche für die 2. Methode zur Analyse 
 			monoalphabetischer Chiffren</h3>
 		<P>Die hier verwendete Analysemethode wird bei der <a href="hid_analyze_subst.html">Analyse 
-				monoalphabetischer Chiffren</a>angewendet funktioniert nur für Chiffrate 
+				monoalphabetischer Chiffren</a> angewendet. Sie funktioniert nur für Chiffrate 
 			von englischem oder deutschem Standardtext, bei dem die Leerzeichen im <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A>
-			Text erhalten sind (siehe Option <A href="hidd_text_options.html">Formatierung 
-				beibehalten</A>).</P>
+			Text erhalten sind (siehe Dialog <A href="hidd_text_options.html">Textoptionen</A>).</P>
 		<P>Im folgenden wird die Analyse für englischen <!--ZZZPOPUP--><A href="klartext.html">Klartext</A>
 			beschrieben. Für deutschen Klartext funktioniert die Analyse entsprechend: Hier 
 			ergibt sich aufgrund statistischer Eigenschaften der deutschen Sprache jedoch 
@@ -33,9 +32,9 @@
 		<P>Zu Beginn wird der zu analysierende Text in einzelne Wörter zerlegt. Jedes 
 			einzelne Wort wird darauf überprüft, ob es in der Liste der 135 häufigsten 
 			Wörter ein Wort gibt, das dasselbe "Muster" (Pattern) aufweist.</P>
-		<P>Mit Muster ist hierbei gemeint, dass zum Beispiel "erster und dritter Buchstabe 
-			gleich sind , alle anderen verschieden".. So haben die Wörter "der", "dem", 
-			"von" und "ein" alle das selbe "Muster" (jedes Wort besteht aus drei 
+		<P>Mit Muster ist hierbei gemeint, dass zum Beispiel erster und dritter Buchstabe 
+			gleich sind oder dass alle Buchstaben verschieden sind.So haben die Wörter "der", "dem", 
+			"von" und "ein" alle dasselbe "Muster" (jedes Wort besteht aus drei 
 			verschiedenen Buchstaben), die Wörter "alle" und "Fall" unterscheiden sich aber 
 			in ihren Mustern.</P>
 		<P>Wörter, die kein passendes Gegenstück in der Liste haben, werden nicht 

@@ -2,7 +2,7 @@
 <HTML>
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>PKCS12 Import / Export</TITLE>
+<TITLE>CrypTool PKCS12 Import / Export</TITLE>
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
@@ -18,7 +18,7 @@
 
 <h3>CrypTool PKCS #12 Import/Export</h3>
 
-<P>CrypTool unterstützt das Exportieren und das Importieren von digitalen Zertifikaten und privaten Schlüsseln innerhalb der standardisierten PKCS #12-Datenstruktur. PKCS #12 ist ein Industrie-bewährter <A href="standards.html">Standard</A>, der den sicheren Transport von sensitiven Daten erlaubt. Der in der PKCS #12-Datenstruktur gespeicherte Schlüssel ist symmetrisch verschlüsselt und damit geschützt. Nur der Besitzer der Transport-PIN kann den Schlüssel zur symmetrischen Entschlüsselung berechnen lassen, und den privaten Schlüssel aus der PKCS #12-Struktur extrahieren.</P>
+<P>CrypTool unterstützt das Exportieren und das Importieren von <a href="certificates.html">digitalen Zertifikaten</a> und privaten Schlüsseln innerhalb der standardisierten PKCS #12-Datenstruktur. PKCS #12 ist ein Industrie-bewährter <A href="standards.html">Standard</A>, der den sicheren Transport von sensitiven Daten erlaubt. Der in der PKCS #12-Datenstruktur gespeicherte Schlüssel ist symmetrisch verschlüsselt. Nur der Besitzer der Transport-PIN kann den Schlüssel zur symmetrischen Entschlüsselung berechnen lassen, und den privaten Schlüssel aus der PKCS #12-Struktur extrahieren.</P>
 
 <P>CrypTool kann selbst erzeugte private Schlüssel sowie zugehörige X.509-Zertifikate in eine PKCS #12-Struktur exportieren. Diese privaten Schlüssel/Zertifikate können in weitere CrypTool-Installationen importiert werden. Es ist auch möglich, diese PKCS #12-Dateien in andere Applikationen (wie Netscape oder MS Windows) zu importieren. </P>
 
@@ -26,11 +26,8 @@
 
 <P><B>Einschränkungen:</B> </P>
 
-<div class="indent">
 
 <P>Obwohl die in der CrypTool-Umgebung erzeugten und genutzten Zertifikate dem X.509-Standard genügen, ist es nicht möglich, fremde Zertifikate in CrypTool zu importieren. CrypTool speichert innerhalb der PKCS #12-Struktur weitere intern benötigte Daten, die von fremden Applikationen nicht zur Verfügung gestellt werden. Diese Daten werden beim Importieren des Zertifikats in einer weiteren CrypTool-Installation benötigt.</P>
-
-</div>
 
 </BODY>
 </HTML>

@@ -15,10 +15,14 @@
 		</OBJECT>
 		<h3>Dialog Schlüsseleingabe</h3>
 		<P>In diesem Dialogtyp wird der <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A>
-			für die folgenden <!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A>
+			für die folgenden klassischen und symmetrischen <!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A>
 			eingegeben:</P>
 		<P>
-			<A href="hid_vigenere_asc.html">Vigenère</A><BR>
+		Texteingabe:<br>
+		<A href="hid_rot13caesar_asc.html">ROT-13 / Caesar</A><BR>
+		<A href="hid_cryptmono.html">Monoalphabetische Substitution</A><BR>
+			<A href="hid_vigenere_asc.html">Vigenère</A><BR><br>
+			Hexeingabe:<br>
 			<A href="hid_add_bin.html">Byteweise Addition</A><BR>
 			<A href="hid_xor_bin.html">Binäres exklusives Oder</A><BR>
 			<A href="hid_crypt_idea.html">IDEA</A><BR>
@@ -45,32 +49,28 @@
 			Serpent, Twofish) wird zum Verschlüsseln ein Schlüssel fester Länge benötigt. 
 			Kürzere Schlüssel werden mit Nullen aufgefüllt.
 		</P>
-		<P><B>Beispiel:</B>
+		<P><B>Beispieldialoge:</B>
 		</P>
-		<table border="0">
-			<tr>
-				<td>
-					<b>Beispiel 1</b>: Hexeingabe bei DES (ECB)</td>
-				<td><b>Beispiel 2</b>: Texteingabe bei Vigenère</td>
-			</tr>
-			<tr>
-				<td>Als DES-Schlüssel wählen Sie 12 AB.</td>
-				<td>Als Vigenère-Schlüssel wählen Sie TESTER.</td>
-			</tr>
-			<tr>
-				<td><IMG SRC="images/des-keydialog.gif" ALT="des-keydialog.gif" BORDER="0"></td>
-				<td><IMG SRC="images/vigenere-keydialog.gif" ALT="vigenere-keydialog.gif" BORDER="0"></td>
-			</tr>
-		</table>
+		<p>
+					<b>Beispiel 1</b>: Hexeingabe bei DES (ECB)<br>
+				Als DES-Schlüssel wählen Sie 12 AB.</p>
+			
+				<IMG SRC="images/des-keydialog.gif" ALT="des-keydialog.gif" BORDER="0">
+				
 		<P>Die aktuelle Datei wird mit dem DES-Schlüssel 12 AB 00 00 00 00 00 00 
 			verschlüsselt (gemäß der eingestellten Schlüssellänge erwartet das DES-Verfahren einen 64-Bit Hexzeichen langen Schlüssel und die Default-Vorbelegung für Hexschlüssel ist 0).</P>
 		<P><br>
 			Typische Schlüssellängen und ihre Darstellung finden Sie in der Tabelle <A href="key_representation.html">
 				Schlüsseldarstellung</A>.</P>
+				
+				<p>Beispiel 2</b>: Texteingabe bei Vigenère<br>
+				Als Vigenère-Schlüssel wählen Sie TESTER.</p>
+				<IMG SRC="images/vigenere-keydialog.gif" ALT="vigenere-keydialog.gif" BORDER="0">
+				
 		<P>Einige klassische Verfahren erfordern andere Formen der Schlüsseleingaben, 
 			so zum Beispiel <A href="hidd_key_hill5x5.html">Hill</A>, <a href="hidd_key_playfair.html">
 				Playfair</a>, <a href="HIDD_ADFGVX.html">ADFGVX</a>
 		, <a href="hidd_key_homophone.html">Homphone</a>, <a href="hidd_key_permutation.html">
-			Permutation</a>, und <a href="HIDD_SOLITAIRE.html">Solitaire</a>.</P> </B></B>
+			Permutation</a> und <a href="HIDD_SOLITAIRE.html">Solitaire</a>.</P> </B></B>
 	</BODY>
 </HTML>

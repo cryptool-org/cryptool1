@@ -2,7 +2,7 @@
 <HTML>
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Example illustrating the application of the RSA encryption algorithm to signature creation</TITLE>
+<TITLE>Example illustrating the RSA signature generation</TITLE>
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
@@ -16,9 +16,9 @@
 
 <BODY>
 
-<h3>Example illustrating the application of the RSA algorithm to signature creation</h3>
+<h3>Example Illustrating the RSA Signature Generation</h3>
 
-<P>This section provides an <A href="hid_hilfe_szenarien.html">example</A> which illustrates the use of the <A href="hid_crypt_sign.html">RSA method</A> as applied to <!--ZZZPOPUP--><A href="signatur.html">signatures</A>. To make it easier to follow the steps that need to be performed with <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>, the example is illustrated with a number of screenshots.</P>
+<P>This section provides an <A href="hid_hilfe_szenarien.html">example</A> which illustrates the use of the <A href="hid_crypt_sign.html">RSA method</A> applied to generate <A href="signatur.html">signatures</A>. To make it easier to follow the steps that need to be performed with <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>, the example is illustrated with a number of screenshots.</P>
 
 <P>The application of the <A href="hid_crypt_sign.html">RSA method</A> to signatures is illustrated with a binary <!--ZZZPOPUP--><A href="dokument.html">document</A>.</P>
 
@@ -82,15 +82,15 @@
 
 <P><IMG SRC="images/szenariorsa_sig10.gif" ALT="szenariorsa_sig10.gif" BORDER=0></P>
 
-<P>The message has not therefore been changed.</p><p>We now wish to change the message, so we replace the first character in the message, the <CODE>B</CODE>, with an <CODE>A</CODE>.</P>
+<P>So, the message has not been changed.</p><p>We now wish to change the message, so we replace the first character in the message, the <CODE>B</CODE>, with an <CODE>A</CODE>.</P>
 
 <P><IMG SRC="images/szenariorsa_sig12.gif" ALT="szenariorsa_sig12.gif" BORDER=0></P>
 
 <P>If we now select <A href="menu_digitalsignaturespki.html">Digital Signatures/PKI</A> \ <A href="hid_crypt_verify.html">Verify signature</A>, the following dialog box appears.</P>
 
-<P><IMG SRC="images/szenariorsa_sig13.gif" ALT="szenariorsa_sig13.gif" BORDER=0></P>
+<P><IMG SRC="images/szenariorsa_sig13.gif" ALT="szenariorsa_sig13.png" BORDER=0></P>
 
-<P>Thus, <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> has detected that the <!--ZZZPOPUP--><A href="dokument.html">document</A> has been changed.</P>
+<P>Thus, <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> has detected using the RSA signature that the <!--ZZZPOPUP--><A href="dokument.html">document</A> has been changed.</P>
 
 </BODY>
 </HTML>

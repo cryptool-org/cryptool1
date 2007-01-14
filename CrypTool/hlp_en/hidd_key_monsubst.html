@@ -20,9 +20,9 @@
 			\ <a href="menu_crypt_symmetricclassic.html">Symmetric(classic)</a> \ <a href="HID_CryptMono.html">
 				Substitution/Atbash</a>.</P>
 		<P>This dialog is used to enter the <!--ZZZPOPUP--><A href="schluessel.html">key</A>
-			for <A href="hid_cryptmono.html">monoalphabetic substitution</A>.</P>
+			for <A href="hid_cryptmono.html">monoalphabetic substitution</A>, and accordingly for the special case <A href="hid_cryptmono.html">Atbash</a>.</P>
 		<P>For Atbash the key is fixed and is completely transferred to the key entry 
-			field.<br>
+			field.</p><p>
 			For the general monoalphabetic substitution they key entry field has to be 
 			filled bei yourself.</P>
 		<P>When entering the key the following points should be noted:
@@ -30,8 +30,7 @@
 		<UL>
 			<LI>
 			The dialog only accepts the 26 letters. All other inputs are automatically 
-			rejected, i.e. they are not displayed (the via text options entered alphabet is 
-			being ignored in this case).
+			rejected, i.e. they are not displayed (the alphabet, defined via text options is ignored in this case).
 			<LI>
 				No distinction is made between upper and lower case letters, i.e. lower case 
 				letters are converted to upper case.
@@ -41,32 +40,22 @@
 		</P>
 		<OL>
 			<LI>
-				You can enter the desired permutation (an arrangement of all 26 letters in the 
-				alphabet) directly.<br>
-				<ul type="circle">
-					<LI>
-						In this case a text 26 characters long should be entered. The letter A will 
-						then be mapped to the first latter of the text that is entered, the B to the 
-						second, and so on. Care should be taken here to ensure that no letter occurs 
-						twice in the text input.</LI></ul>
-				<br>
-			<LI>
-				However, you can also enter a keyword from which the permutation of the alphabet is derived. An 
-				example here might be the keyword "RAILWAYS". The resulting permutation is 
+				<p>You select Atbash. So a fixed key is chosen.</p>
+			<LI><p>
+				You enter a keyword from which the permutation of the alphabet is derived. An 
+				example here might be the keyword "RAILWAYS".</p><p> The resulting permutation is 
 				worked out as follows. The A is mapped to the first letter (in this case the 
 				R). Similarly, the B is mapped to A, the C to I, the D to L and the E to W. As 
 				the sixth letter of the keyword, the A, has already occurred it is passed over, 
 				since no two (different) letters can be mapped to the same letter. This 
 				continues until all the letters in the keyword have been mapped, i.e. F to Y 
 				and G to S. For all the other letters (in this case H to Z) there are two options how to map 
-				them,
-				<br>
-				<ul type="a"><li><br>
-					in reversed order,,<br>
+				them,</p>
+				
+				<ul type="a"><li>in reversed order:<br>
 				i.e. H to Z, I to Y, ..., Z to C or<br>
 				</li><li>
-					<br>
-					in ascending order,<br>
+					in ascending order:<br>
 				i.e. H to C, I to D, ..., Z to Z.<br></li>
 			</LI>
 		</OL>

@@ -5781,7 +5781,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "Symmetrische Verschlüsselung (&klassisch)"
         BEGIN
-            POPUP "&Ciphertext only"
+            POPUP "&Ciphertext-Only"
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 , GRAYED
@@ -5797,7 +5797,7 @@ BEGIN
                 MENUITEM "A&ddition",                   ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
             END
-            POPUP "Known &Plaintext"
+            POPUP "Known-&Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO, GRAYED
             END
@@ -6157,7 +6157,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "Symmetrische Verschlüsselung (&klassisch)"
         BEGIN
-            POPUP "&Ciphertext only"
+            POPUP "&Ciphertext-Only"
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
@@ -6171,7 +6171,7 @@ BEGIN
                 MENUITEM "A&ddition",                   ID_ADD_AUTO
                 MENUITEM "&XOR",                        ID_XOR_AUTO
             END
-            POPUP "Known &Plaintext"
+            POPUP "Known-&Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO
             END
@@ -6537,7 +6537,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "Symmetrische Verschlüsselung (&klassisch)"
         BEGIN
-            POPUP "&Ciphertext only"
+            POPUP "&Ciphertext-Only"
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
@@ -6552,7 +6552,7 @@ BEGIN
                 MENUITEM "A&ddition",                   ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
             END
-            POPUP "Known &Plaintext"
+            POPUP "Known-&Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO
             END
@@ -6909,7 +6909,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "Symmetrische Verschlüsselung (&klassisch)"
         BEGIN
-            POPUP "&Ciphertext only"
+            POPUP "&Ciphertext-Only"
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
@@ -6923,7 +6923,7 @@ BEGIN
                 MENUITEM "A&ddition",                   ID_ADD_AUTO
                 MENUITEM "&XOR",                        ID_XOR_AUTO
             END
-            POPUP "Known &Plaintext"
+            POPUP "Known-&Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO
             END
@@ -7318,7 +7318,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "Symmetrische Verschlüsselung (&klassisch)"
         BEGIN
-            POPUP "&Ciphertext only"
+            POPUP "&Ciphertext-Only"
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 , GRAYED
@@ -7334,7 +7334,7 @@ BEGIN
                 MENUITEM "A&ddition",                   ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
             END
-            POPUP "Known &Plaintext"
+            POPUP "Known-&Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO, GRAYED
             END
@@ -11122,8 +11122,8 @@ BEGIN
                             "Die Anzahl der ausgewählten Teilnehmer liegt unter dem von Ihnen gesetzten Schwellenwert."
     IDS_STRING_LOGSS_1      "Zunächst haben Sie die Parameter des Shamir-Schemas festgelegt. Dabei handelt es sich um das Geheimnis S, die Begrenzung der Teilnehmerzahl l = Max(n), die Teilnehmerzahl n, die Begrenzung für die Primzahl Max(p) und den Schwellenwert t."
     IDS_STRING_LOGSS_2A     "Auf Basis der von Ihnen gemachten Angaben hat CrypTool zufällig eine Primzahl p bestimmt."
-    IDS_STRING_LOGSS_4      "Für jeden Teilnehmer wurde eine zufällige Zahl x gewählt. Diese Zahl ist der öffentliche Wert des entsprechenden Teilnehmers."
-    IDS_STRING_LOGSS_5      "Durch Einsetzen der öffentlichen Werte in das Polynom f(x) erhält jeder Teilnehmer seinen geheimen Wert y (Share)."
+    IDS_STRING_LOGSS_4      "Für jeden Teilnehmer wurde eine zufällige Zahl x gewählt. Diese Zahl ist der öffentliche Wert des entsprechenden Teilnehmers:"
+    IDS_STRING_LOGSS_5      "Durch Einsetzen der öffentlichen Werte in das Polynom f(x) erhält jeder Teilnehmer seinen geheimen Wert y (Share):"
 END
 
 STRINGTABLE 
@@ -11244,9 +11244,9 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_STRING_LOGSS_6      "Sie haben die folgenden Teilnehmer ausgewählt, um das Geheimnis wiederherzustellen."
+    IDS_STRING_LOGSS_6      "Sie haben die folgenden Teilnehmer ausgewählt, um das Geheimnis wiederherzustellen:"
     IDS_STRING_LOGSS_7      "Die zu diesen Teilnehmern gehörenden Wertepaare (x/y) sind:"
-    IDS_STRING_LOGSS_8      "Mit Hilfe des Lagrange-Interpolationsverfahrens wurde aus diesen %d Wertepaaren das Geheimnis S rekonstruiert."
+    IDS_STRING_LOGSS_8      "Mit Hilfe des Lagrange-Interpolationsverfahrens wurde aus diesen %d Wertepaaren das Geheimnis S rekonstruiert:"
     IDS_STRING_SECRETSHARING_SMALLPRIME 
                             "Die Obergrenze für die Primzahl p muss sowohl größer als das Geheimnis K\nals auch größer als die Teilnehmerzahl n sein."
     IDS_STRING_LOGSS_2B     "Sie haben eine Primzahl p festgelegt."
@@ -15284,7 +15284,7 @@ END
 IDD_ADFGVX DIALOGEX 0, 0, 266, 411
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Key Input: ADFGVX"
+CAPTION "Key Entry: ADFGVX"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_M00,40,42,12,12,ES_CENTER | ES_UPPERCASE | 
@@ -17071,7 +17071,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "Symmetric Encryption (classic)"
         BEGIN
-            POPUP "&Ciphertext only"
+            POPUP "&Ciphertext-Only"
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 , GRAYED
@@ -17087,7 +17087,7 @@ BEGIN
                 MENUITEM "A&ddition",                   ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
             END
-            POPUP "Known &Plaintext"
+            POPUP "Known-&Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO, GRAYED
             END
@@ -17444,7 +17444,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "Symmetric Encryption (classic)"
         BEGIN
-            POPUP "&Ciphertext only"
+            POPUP "&Ciphertext-Only"
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
@@ -17458,7 +17458,7 @@ BEGIN
                 MENUITEM "A&ddition",                   ID_ADD_AUTO
                 MENUITEM "&XOR",                        ID_XOR_AUTO
             END
-            POPUP "Known &Plaintext"
+            POPUP "Known-&Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO
             END
@@ -17824,7 +17824,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "Symmetric Encryption (classic)"
         BEGIN
-            POPUP "&Ciphertext only"
+            POPUP "&Ciphertext-Only"
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 , GRAYED
@@ -17840,7 +17840,7 @@ BEGIN
                 MENUITEM "A&ddition",                   ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
             END
-            POPUP "Known &Plaintext"
+            POPUP "Known-&Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO, GRAYED
             END
@@ -18194,7 +18194,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "Symmetric Encryption (classic)"
         BEGIN
-            POPUP "&Ciphertext only"
+            POPUP "&Ciphertext-Only"
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
@@ -18208,7 +18208,7 @@ BEGIN
                 MENUITEM "A&ddition",                   ID_ADD_AUTO
                 MENUITEM "&XOR",                        ID_XOR_AUTO
             END
-            POPUP "Known &Plaintext"
+            POPUP "Known-&Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO
             END
@@ -18599,7 +18599,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "Symmetric Encryption (classic)"
         BEGIN
-            POPUP "&Ciphertext only"
+            POPUP "&Ciphertext-Only"
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 , GRAYED
@@ -18615,7 +18615,7 @@ BEGIN
                 MENUITEM "A&ddition",                   ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
             END
-            POPUP "Known &Plaintext"
+            POPUP "Known-&Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO, GRAYED
             END
@@ -21048,7 +21048,7 @@ BEGIN
                             "Signature generation time: %s seconds."
     IDS_STRING_MSG_SIGNATURE_VERIFICATION_TIME 
                             "Duration of signature verification: %s seconds."
-    IDS_STRING_BAD_SIGNATURE "Invalid signature!s"
+    IDS_STRING_BAD_SIGNATURE "Invalid signature!\n%s"
     IDS_STRING_CORRECT_SIGNATURE "Correct signature!\n%s"
     IDS_STRING_MSG_KEY_GENERATION_TIME 
                             "Elapsed time while creating key pair: %s seconds."
@@ -22608,8 +22608,8 @@ BEGIN
                             "The number of selected participants is below your chosen threshold."
     IDS_STRING_LOGSS_1      "At first, you chose the following parameters that determine the Shamir scheme: the secret S, the upper limit of participants l = Max(n), the number of participants n, the upper limit to a prime Max(p) and your threshold t."
     IDS_STRING_LOGSS_2A     "Founded on the values you entered before, CrypTool has randomly chosen a prime number p."
-    IDS_STRING_LOGSS_4      "Each participant receives its public value x. Also x has been chosen at random."
-    IDS_STRING_LOGSS_5      "By applying the polynomial f(x) to every single public value, each participant obtains his secret value y (share)."
+    IDS_STRING_LOGSS_4      "Each participant receives its public value x. Also x has been chosen at random:"
+    IDS_STRING_LOGSS_5      "By applying the polynomial f(x) to every single public value, each participant obtains his secret value y (share):"
 END
 
 STRINGTABLE 
@@ -22725,9 +22725,9 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_STRING_LOGSS_6      "You selected the following participants to reconstruct the secret."
+    IDS_STRING_LOGSS_6      "You selected the following participants to reconstruct the secret:"
     IDS_STRING_LOGSS_7      "These participants hold the following pairs of public values and shares (x/y):"
-    IDS_STRING_LOGSS_8      "By means of Lagrange polynomial interpolation, the secret S has been reconstructed out of these %d pairs of public values and shares."
+    IDS_STRING_LOGSS_8      "By means of Lagrange polynomial interpolation, the secret S has been reconstructed out of these %d pairs of public values and shares:"
     IDS_STRING_SECRETSHARING_SMALLPRIME 
                             "The defined limit for your prime p has to be bigger than your secret K and the number of participants n."
     IDS_STRING_LOGSS_2B     "You did set a prime number p."

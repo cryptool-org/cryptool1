@@ -15,10 +15,14 @@
 		</OBJECT>
 		<h3>Dialog Key Entry</h3>
 		<P>This dialog is used to enter the <!--ZZZPOPUP--><A href="schluessel.html">key</A>
-			for the following <!--ZZZPOPUP--><A href="verschlverfahren.html">encryption 
+			for the following classic and symmetric <!--ZZZPOPUP--><A href="verschlverfahren.html">encryption 
 				algorithms</A>:</P>
 		<P>
-			<A href="hid_vigenere_asc.html">Vigenère</A><BR>
+		Text input:<br>
+		<A href="hid_rot13caesar_asc.html">ROT-13 / Caesar</A><BR>
+		<A href="hid_cryptmono.html">Monoalphabetic substitution</A><BR>
+			<A href="hid_vigenere_asc.html">Vigenère</A><BR><br>
+			Hex input:<br>
 			<A href="hid_add_bin.html">Byte Addition</A><BR>
 			<A href="hid_xor_bin.html">Binary Exclusive-OR</A><BR>
 			<A href="hid_crypt_idea.html">IDEA</A><BR>
@@ -44,32 +48,27 @@
 			"paste key" (if there is no key stored for this encryption algorithm, the 
 			button is deactivated and appears in grey).</P>
 		<P>Most of the symmetric procedures (IDEA, DES, MARS, RC6, Rijndael, Serpent, 
-			Twofish) require a fixed key length. Shorter keys are padded with zeros. 
-			Example:
-		</P>
-		<table border="0" ID="Table1">
-			<tr>
-				<td>
-					<b>Example 1</b>: Entering hex characters with DES (ECB).</td>
-				<td><b>Example 2</b>: Entering text characters with Vigenère.</td>
-			</tr>
-			<tr>
-				<td>As DES key you choose 12 AB (which is 16 bit):</td>
-				<td>As Vigenère key you choose TEST</td>
-			</tr>
-			<tr>
-				<td><IMG SRC="images/des-keydialog.gif" ALT="des-keydialog.gif" BORDER="0"></td>
-				<td><IMG SRC="images/vigenere-keydialog.gif" ALT="vigenere-keydialog.gif" BORDER="0"></td>
-			</tr>
-		</table>
+			Twofish) require a fixed key length. Shorter keys are padded with zeros. </P>
+			<p><h4>Example dialogs:</h4></p>
+		
+		
+					<p><b>Example 1</b>: Entering hex characters with DES (ECB).<br>
+			
+				As DES key you choose 12 AB (which is 16 bit):</p>
+				
+				<IMG SRC="images/des-keydialog.gif" ALT="des-keydialog.gif" BORDER="0"></td>
+				
 		<P>
 			The current file is encrypted with the DES key 12 AB 00 00 00 00 00 00 (according to the set key length the DES algorithm is expecting a key comprising 64 bits and the default value to hex keys is 0).</P>
 		<P><br>Typical key lengths and their presentations are listed in the table <A href="key_representation.html">
 				Key presentation</A>.</P>
-		<P>A few classic algorithms require different types of key input dialogs e.g., <A href="hidd_key_hill5x5.html">
+				
+				<p><b>Example 2</b>: Entering text characters with Vigenère.<br>As Vigenère key you choose TESTER.</p>
+				<IMG SRC="images/vigenere-keydialog.gif" ALT="vigenere-keydialog.gif" BORDER="0">
+		<P>A few classic algorithms require different types of key input dialogs e.g. <A href="hidd_key_hill5x5.html">
 				Hill</A> , <a href="hidd_key_playfair.html">
 				Playfair</a>, <a href="HIDD_ADFGVX.html">ADFGVX</a>
 		, <a href="hidd_key_homophone.html">Homphone</a>, <a href="hidd_key_permutation.html">
-			Permutation</a>, and <a href="HIDD_SOLITAIRE.html">Solitaire</a>.</P> </B></B>
+			Permutation</a> and <a href="HIDD_SOLITAIRE.html">Solitaire</a>.</P> </B></B>
 	</BODY>
 </HTML>
