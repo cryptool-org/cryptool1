@@ -88,6 +88,8 @@ private:
 		*ciphertext;
 	long laenge_plain,   // Laenge der Felder plaintext und ciphertext
         laenge_cipher;
+
+	unsigned long firstPosNull;  //if firstPosNull==1 - >A=0 else A=1
 	
 	// Felder fuer den Angriff (Funktion SucheSchluessel)
 	// Diese Felder haben alle die Laenge modul; der Speicher wird im Konstruktor 
@@ -150,6 +152,8 @@ private:
 	// Hilfsfunktion fuer den Angriff zum Berechnen der Faktoren fuer die
 	// Linearkombination 
 	void BerechneFaktoren(int, long);
+
+	int getPositionOfCharForOutput(int iPos);
 	
 public:
 	CHillEncryption(char*);
