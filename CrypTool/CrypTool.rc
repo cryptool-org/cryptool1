@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -11323,13 +11323,13 @@ BEGIN
     IDS_STRING_TEST_SERIAL  "Serial-Test"
     IDS_STRING_TEST_RUNS_NICHT_BESTANDEN "Runs-Test nicht bestanden!"
     IDS_STRING_HILL_DETAILS_MULT0 
-                            "Es werden nur die 2 ersten Buchstaben aus dem Klartext, die zum Alphabet gehören, hier durchgerechnet.\nZur Verschlüsselung wird die Hillmatrix mit einem Spaltenvektor von links multipliziert."
+                            "Zur Verschlüsselung wird die Hillmatrix mit einem Spaltenvektor von links multipliziert."
     IDS_STRING_TEST_RUNS_BESTANDEN "Runs-Test bestanden!"
     IDS_HILL_CASE           "Benutztes Alphabet (%d Zeichen)"
     IDS_ROT13_CAESAR_TOO_LARGE_KEY 
                             "Die Eingabe ist größer als das Alphabet.\nSoll der Wert automatisch auf 1 gesetzt werden?"
     IDS_STRING_HILL_DETAILS_MULT1 
-                            "Es werden nur die 2 ersten Buchstaben aus dem Klartext, die zum Alphabet gehören, hier durchgerechnet.\nZur Verschlüsselung wird die Hillmatrix mit einem Zeilenvektor von rechts multipliziert."
+                            "Zur Verschlüsselung wird die Hillmatrix mit einem Zeilenvektor von rechts multipliziert."
 END
 
 STRINGTABLE 
@@ -11344,6 +11344,10 @@ BEGIN
     IDS_CLIPBOARD_HEXCOPY   "Die markierten Daten können unverändert (Standard) oder hexadezimal codiert in die Zwischenablage übernommen werden.\nEine hexadezimale Codierung ist z.B. erforderlich, wenn Sie nicht-druckbare Daten in andere Anwendungen exportieren wollen.\n\nHexadezimale Codierung verwenden?"
     IDS_CLIPBOARD_HEXPASTE  "Die Zwischenablage enthält ausschließlich Hexadezimal-Zeichen.\nDiese können entweder decodiert (Standard) oder unverändert eingefügt werden.\n\nSollen die hexadezimalen Daten decodiert werden?"
     IDS_STRING_MEMBER2      "Teilnehmer"
+    IDS_HILL_DETAILS_IS_NOT_ALPHCHAR 
+                            "Der Klartext besteht aus %d Buchstaben. Davon sind %d Nichtalphabetzeichen: ""%s..."". Verschlüsselt werden nur die Alphabetzeichen.\nDie Ver- und Entschlüsselung ist unten beispielhaft durchgerechnet für die %d ersten Buchstaben aus dem Klartext, die zum Alphabet gehören."
+    IDS_HILL_DETAILS_IS_ALPHCHAR 
+                            "Der Klartext besteht aus %d Buchstaben. Alle diese Buchstaben gehören zum eingestellten Alphabet. Verschlüsselt werden nur die Alphabetzeichen.\nDie Ver- und Entschlüsselung ist unten beispielhaft durchgerechnet für die %d ersten Buchstaben aus dem Klartext, die zum Alphabet gehören."
 END
 
 STRINGTABLE 
@@ -11383,12 +11387,12 @@ BEGIN
     IDS_ECIES_DEC_ERROR_05  "Der AES-Ciphertext konnte nicht mit dem AES-Sessionkey entschlüsselt werden.\nEventuell ist einer der beiden oder beide beschädigt."
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -22803,13 +22807,13 @@ BEGIN
     IDS_STRING_TEST_SERIAL  "Serial test"
     IDS_STRING_TEST_RUNS_NICHT_BESTANDEN "Runs test failed!"
     IDS_STRING_HILL_DETAILS_MULT0 
-                            "The hill matrix is left side multiplicated with a column vector for the encryption."
+                            "For encryption the hill matrix is multiplicated from the left side with a column vector."
     IDS_STRING_TEST_RUNS_BESTANDEN "Runs test passed!"
     IDS_HILL_CASE           "Used alphabet (%d characters)"
     IDS_ROT13_CAESAR_TOO_LARGE_KEY 
                             "The input is larger than the alphabet length.\nSet the value automaticly to 1?"
     IDS_STRING_HILL_DETAILS_MULT1 
-                            "The hill matrix is right side multiplicated with a row vector for the encryption."
+                            "For encryption the hill matrix is multiplicated form the right side with a row vector."
 END
 
 STRINGTABLE 
@@ -22823,6 +22827,10 @@ BEGIN
     IDS_CLIPBOARD_HEXCOPY   "The marked data can be put into the clipboard unchanged (default) or in hexadecimal encoding.\nHexadecimal encoding is required e.g. if you want to export non-printable data to other applications.\n\nUse hexadecimal encoding?"
     IDS_CLIPBOARD_HEXPASTE  "The clipboard contains hexadecimal characters only. They can be inserted decoded (default) or unchanged.\n\nDecode hexadecimal data?"
     IDS_STRING_MEMBER2      "participant"
+    IDS_HILL_DETAILS_IS_NOT_ALPHCHAR 
+                            "The cleartext consists of %d characters. %d characters of these don't belong to the customized alphabet: ""%s..."". Only the characters belonging to the alphabet are used for encryption.\nBelow the encryption and decryption process is exemplified with the first %d characters of the cleartext, which belong to the customized alphabet."
+    IDS_HILL_DETAILS_IS_ALPHCHAR 
+                            "The cleartext consists of %d characters. All these characters are part of the customized alphabet. Only the characters belonging to the alphabet are used for encryption.\nBelow the encryption and decryption process is exemplified with the first %d characters of the cleartext, which belong to the customized alphabet."
 END
 
 STRINGTABLE 
@@ -22862,7 +22870,7 @@ BEGIN
     IDS_ECIES_DEC_ERROR_05  "The AES ciphertext could not be decrypted with the AES session key.\nOne or both components might be damaged."
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

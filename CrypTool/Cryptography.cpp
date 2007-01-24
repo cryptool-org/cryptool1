@@ -465,6 +465,8 @@ void Hill(const char *infile, const char *OldTitle)
 	// Überprüfung, ob Eingabedatei mindestens ein Zeichen enthält. 
 	CFile datei(infile, CFile::modeRead);
 
+	sNotInFileChars = ""; //clear because of not wrong counting past userinput
+
 	long infile_zeichen_anz = 0;
 	char c;
 	while(datei.Read(&c,1))
@@ -477,8 +479,14 @@ void Hill(const char *infile, const char *OldTitle)
 		{
 			infile_zeichen_anz++;
 		}
+		else
+		{
+			if(sNotInFileChars.GetLength() < 4) //to show only first 3 chars in hill details
+				sNotInFileChars += (CString)c; //if not exists in alph
+		}
 	}
 	datei.Close();
+
 
 	if (! infile_zeichen_anz)
 	{

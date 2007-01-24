@@ -93,6 +93,8 @@ extern int iHillMultiplicationType;  //0: (matrix)*(column vector) 1:(row vector
 extern bool bHexEnabled;
 extern bool bGlobVerbose;
 
+extern CString sNotInFileChars;
+
 #define HILL_SCHLUESSEL_KLEIN	1
 #define HILL_SCHLUESSEL_GROSS	2
 

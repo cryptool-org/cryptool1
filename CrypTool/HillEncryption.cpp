@@ -716,7 +716,23 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 		MatOut = MatOut + '\n';
 	}
 
-	MatOut = MatOut + '\n' + '\n';
+	MatOut = MatOut + '\n';
+
+	char cTempStr[1000];
+
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_HILL_DETAILS_CHARS, pc_str, STR_LAENGE_STRING_TABLE);
+	sprintf(cTempStr, pc_str, theApp.TextOptions.m_alphabet.GetLength());
+	MatOut += CString(cTempStr);
+
+	MatOut += ' ';
+
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_HILL_DETAILS_FIRSTPOS, pc_str, STR_LAENGE_STRING_TABLE);
+	if(firstPosNull)
+		sprintf(cTempStr, pc_str, 0);
+	else
+		sprintf(cTempStr, pc_str, 1);
+
+	MatOut += CString(cTempStr) + '\n';
 
 
 	if(!iHillMultiplicationType)
@@ -726,27 +742,28 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 
 	MatOut += CString(pc_str) + '\n';
 
-
-	char cTempStr[1000];
 		
 	LoadString(AfxGetInstanceHandle(), IDS_STRING_HILL_DETAILS_DIM, pc_str, STR_LAENGE_STRING_TABLE);
 	sprintf(cTempStr, pc_str,dim,dim);
 	MatOut += CString(cTempStr) + '\n';
-	
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_HILL_DETAILS_CHARS, pc_str, STR_LAENGE_STRING_TABLE);
-	sprintf(cTempStr, pc_str, theApp.TextOptions.m_alphabet.GetLength());
+
+	MatOut += '\n';
+    
+	if(sNotInFileChars.GetLength() > 0)
+	{
+		LoadString(AfxGetInstanceHandle(), IDS_HILL_DETAILS_IS_NOT_ALPHCHAR, pc_str, STR_LAENGE_STRING_TABLE);
+		sprintf(cTempStr, pc_str,dim,sNotInFileChars.GetLength(),sNotInFileChars,dim);
+	}
+	else
+	{
+		LoadString(AfxGetInstanceHandle(), IDS_HILL_DETAILS_IS_ALPHCHAR, pc_str, STR_LAENGE_STRING_TABLE);
+		sprintf(cTempStr, pc_str,dim,dim);
+	}
+
 	MatOut += CString(cTempStr) + '\n';
 
 
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_HILL_DETAILS_FIRSTPOS, pc_str, STR_LAENGE_STRING_TABLE);
-	if(firstPosNull)
-		sprintf(cTempStr, pc_str, 0);
-	else
-		sprintf(cTempStr, pc_str, 1);
-
-	MatOut += CString(cTempStr) + '\n' + '\n';
-	
-
+	MatOut += '\n';
 
 	// Encryption matrix
 	if ( enc_mat )

@@ -51,6 +51,8 @@
 #define IDS_CLIPBOARD_HEXCOPY           36
 #define IDS_CLIPBOARD_HEXPASTE          37
 #define IDS_STRING_MEMBER2              38
+#define IDS_HILL_DETAILS_IS_NOT_ALPHCHAR 39
+#define IDS_HILL_DETAILS_IS_ALPHCHAR    40
 #define IDC_EDIT53                      53
 #define IDC_EDIT69                      54
 #define IDC_EDIT88                      55
