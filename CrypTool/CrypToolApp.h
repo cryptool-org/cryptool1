@@ -94,6 +94,8 @@ extern bool bHexEnabled;
 extern bool bGlobVerbose;
 
 extern CString sNotInFileChars;
+extern int iClearTextAlphCharCount;
+extern int iClearTextNotAlphCharCount;
 
 #define HILL_SCHLUESSEL_KLEIN	1
 #define HILL_SCHLUESSEL_GROSS	2

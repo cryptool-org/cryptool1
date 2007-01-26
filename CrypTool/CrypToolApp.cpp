@@ -141,6 +141,8 @@ bool bHexEnabled = false;
 bool bGlobVerbose = false;
 
 CString sNotInFileChars;
+int iClearTextAlphCharCount;
+int iClearTextNotAlphCharCount;
 
 // globale Variable, in der immer die Fenster Handle des aktive Fensters steht
 HWND hWndAktivesFenster;

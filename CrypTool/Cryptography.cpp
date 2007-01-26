@@ -467,6 +467,9 @@ void Hill(const char *infile, const char *OldTitle)
 
 	sNotInFileChars = ""; //clear because of not wrong counting past userinput
 
+	iClearTextAlphCharCount = 0;
+	iClearTextNotAlphCharCount = 0;
+
 	long infile_zeichen_anz = 0;
 	char c;
 	while(datei.Read(&c,1))
@@ -481,9 +484,13 @@ void Hill(const char *infile, const char *OldTitle)
 		}
 		else
 		{
-			if(sNotInFileChars.GetLength() < 4) //to show only first 3 chars in hill details
+			iClearTextNotAlphCharCount++;
+
+			if(sNotInFileChars.GetLength() < 3) //to show only first 3 chars in hill details
 				sNotInFileChars += (CString)c; //if not exists in alph
+
 		}
+		iClearTextAlphCharCount++;
 	}
 	datei.Close();
 

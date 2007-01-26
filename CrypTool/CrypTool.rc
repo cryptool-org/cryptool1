@@ -11345,9 +11345,9 @@ BEGIN
     IDS_CLIPBOARD_HEXPASTE  "Die Zwischenablage enthält ausschließlich Hexadezimal-Zeichen.\nDiese können entweder decodiert (Standard) oder unverändert eingefügt werden.\n\nSollen die hexadezimalen Daten decodiert werden?"
     IDS_STRING_MEMBER2      "Teilnehmer"
     IDS_HILL_DETAILS_IS_NOT_ALPHCHAR 
-                            "Der Klartext besteht aus %d Buchstaben. Davon sind %d Nichtalphabetzeichen: ""%s..."". Verschlüsselt werden nur die Alphabetzeichen.\nDie Ver- und Entschlüsselung ist unten beispielhaft durchgerechnet für die %d ersten Buchstaben aus dem Klartext, die zum Alphabet gehören."
+                            "Der Klartext besteht aus %d Zeichen. Davon sind %d Nichtalphabetzeichen: ""%s"". Verschlüsselt werden nur die Alphabetzeichen, Nichtalphabetzeichen werden ignoriert(wenn das Alphabet nur Großbuchstaben enthält, werden die entsprechenden Kleinbuchstaben aber ebenfalls verschlüsselt; nicht umgekehrt).\nDie Ver- und Entschlüsselung ist unten beispielhaft durchgerechnet für die %d ersten Buchstaben aus dem Klartext, die zum Alphabet gehören."
     IDS_HILL_DETAILS_IS_ALPHCHAR 
-                            "Der Klartext besteht aus %d Buchstaben. Alle diese Buchstaben gehören zum eingestellten Alphabet. Verschlüsselt werden nur die Alphabetzeichen.\nDie Ver- und Entschlüsselung ist unten beispielhaft durchgerechnet für die %d ersten Buchstaben aus dem Klartext, die zum Alphabet gehören."
+                            "Der Klartext besteht aus %d Buchstaben. Alle diese Buchstaben gehören zum eingestellten Alphabet. Verschlüsselt werden nur die Alphabetzeichen. Wenn das Alphabet nur Großbuchstaben enthält, werden die entsprechenden Kleinbuchstaben aber ebenfalls verschlüsselt; nicht umgekehrt.\nDie Ver- und Entschlüsselung ist unten beispielhaft durchgerechnet für die %d ersten Buchstaben aus dem Klartext, die zum Alphabet gehören."
 END
 
 STRINGTABLE 
@@ -22828,9 +22828,9 @@ BEGIN
     IDS_CLIPBOARD_HEXPASTE  "The clipboard contains hexadecimal characters only. They can be inserted decoded (default) or unchanged.\n\nDecode hexadecimal data?"
     IDS_STRING_MEMBER2      "participant"
     IDS_HILL_DETAILS_IS_NOT_ALPHCHAR 
-                            "The cleartext consists of %d characters. %d characters of these don't belong to the customized alphabet: ""%s..."". Only the characters belonging to the alphabet are used for encryption.\nBelow the encryption and decryption process is exemplified with the first %d characters of the cleartext, which belong to the customized alphabet."
+                            "The cleartext consists of %d characters. %d characters of these don't belong to the customized alphabet: ""%s"". Only the characters belonging to the alphabet are used for encryption, non-alphabetic characters are ignored(if the alphabet contains only capital letters, accord lower letter characters are also encrypted; but not revers).\nBelow the encryption and decryption process is exemplified with the first %d characters of the cleartext, which belong to the customized alphabet."
     IDS_HILL_DETAILS_IS_ALPHCHAR 
-                            "The cleartext consists of %d characters. All these characters are part of the customized alphabet. Only the characters belonging to the alphabet are used for encryption.\nBelow the encryption and decryption process is exemplified with the first %d characters of the cleartext, which belong to the customized alphabet."
+                            "The cleartext consists of %d characters. All these characters are part of the customized alphabet. Only the characters belonging to the alphabet are used for encryption. If the alphabet contains only capital letters, according lower letter characters are also encrypted; but not reverse.\nBelow the encryption and decryption process is exemplified with the first %d characters of the cleartext, which belong to the customized alphabet."
 END
 
 STRINGTABLE 

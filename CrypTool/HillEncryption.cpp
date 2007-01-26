@@ -751,13 +751,16 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
     
 	if(sNotInFileChars.GetLength() > 0)
 	{
+		if(iClearTextNotAlphCharCount > 3)
+			sNotInFileChars += "...";
+
 		LoadString(AfxGetInstanceHandle(), IDS_HILL_DETAILS_IS_NOT_ALPHCHAR, pc_str, STR_LAENGE_STRING_TABLE);
-		sprintf(cTempStr, pc_str,dim,sNotInFileChars.GetLength(),sNotInFileChars,dim);
+		sprintf(cTempStr, pc_str,iClearTextAlphCharCount,iClearTextNotAlphCharCount,sNotInFileChars,dim);
 	}
 	else
 	{
 		LoadString(AfxGetInstanceHandle(), IDS_HILL_DETAILS_IS_ALPHCHAR, pc_str, STR_LAENGE_STRING_TABLE);
-		sprintf(cTempStr, pc_str,dim,dim);
+		sprintf(cTempStr, pc_str,iClearTextAlphCharCount,dim);
 	}
 
 	MatOut += CString(cTempStr) + '\n';
