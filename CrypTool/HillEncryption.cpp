@@ -667,10 +667,10 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 	for (i=0; i<(int)strlen(example); i++)
 	{
 		if(!firstPosNull)
-			i_act_example[i] = ((example[i] - 'A')+1) % modul;
+			i_act_example[i] = ((example[i] - theApp.TextOptions.m_alphabet[0])+1)%modul;
 		else
-			i_act_example[i] = (example[i] - 'A') % modul;
-		
+			i_act_example[i] = (example[i] - theApp.TextOptions.m_alphabet[0]) % modul;
+
 		c_act_example[i] = (char)my_int_to_char(i_act_example[i]);
 	}
 	c_act_example[dim] = '\0';
