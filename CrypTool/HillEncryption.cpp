@@ -655,6 +655,8 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 				break;
 			}
 		}
+		if(strExmpl.GetLength() == 10)
+			break;
 	}
 
 
