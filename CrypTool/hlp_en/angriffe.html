@@ -17,13 +17,13 @@
 
 <h3><P><A NAME="angriffe"></A><B>Examples of different kinds of attacks</B></P></h3>
 
-<P>A number of different types of attack on cryptosystems are possible. These require different levels of knowledge, computing power, and availability of data on the part of the adversary. However, it is normally assumed that the adversary starts from the position of knowing which <!--ZZZPOPUP--><A href="verschlverfahren.html">encryption algorithm</A> is being used. This assumption has proved correct in practice, as it has proved virtually impossible to keep encryption algorithms which are normally implemented in freely available programs secret in the long-term.</P>
+<P>A number of different types of attack on cryptosystems is possible. These attacks require different levels of knowledge, computing power, and availability of data on the part of the adversary. However, it is normally assumed that the adversary starts from the position of knowing which <!--ZZZPOPUP--><A href="verschlverfahren.html">encryption algorithm</A> is being used. This assumption has proved correct in practice, as it has proved virtually impossible to keep encryption algorithms which are normally implemented in freely available programs secret in the long-term.</P>
 
-<P>The <!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">Ciphertext-Only attack</A> requires the least by way of knowledge of the <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> text and the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A>. A <!--ZZZPOPUP--><A href="knownplaintextangriff.html">Known Plaintext attack</A> requires that the adversary knows a bit more about the text and a <!--ZZZPOPUP--><A href="chosenplaintextangriff.html">Chosen Plaintext attack</A> <U>still more</U>.</P>
+<P>The <!--ZZZPOPUP--><A href="ciphertextonlyangriff.html">ciphertext-only attack</A> has the least requirements &ndash; considering the knowledge of the <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> text and the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A>. The attack's demand raise then from a <!--ZZZPOPUP--><A href="knownplaintextangriff.html">known-plaintext attack</A> to the <A href="chosenplaintextangriff.html">chosen-plaintext attack</A>.</P>
 
-<P>The effort required to perpetrate the attack is inversely proportional to the requirements: with a Known Plaintext attack the adversary has one set of plaintext and encrypted text available, whereas in the Ciphertext-Only attack he has only the encrypted text. Hence a Ciphertext-Only attack is generally more difficult than a Known Plaintext attack. In a Chosen Plaintext attack, one can generate any number of sets of plaintext and encrypted text, hence a Chosen Plaintext attack takes less time than a Known Plaintext attack.</P>
+<P>The effort required to perpetrate the attack is inversely proportional to the requirements: With a known-plaintext attack the adversary has one set of plaintext and encrypted text available, whereas in the ciphertext-only attack he has only the encrypted text. Hence a ciphertext-only attack is generally more difficult than a known-plaintext attack. In a chosen-plaintext attack, one can generate any number of sets of plaintext and encrypted text, hence a chosen-plaintext attack takes less time than a known-plaintext attack.</P>
 
-<P>Another type of attack is the <!--ZZZPOPUP--><A href="bruteforce.html">Brute-force attack</A><U>.</U> In this type of attack, an attempt is made to arrive at the correct <!--ZZZPOPUP--><A href="schluessel.html">key</A> by trying out every possible permutation (from within a pre-specified range). A variation of Brute-force attacks are <A href="textboock_attack.html">Dictionary attacks</A> on passwords.</P>
+<P>Another type of attack is the <!--ZZZPOPUP--><A href="bruteforce.html">brute-force attack</A><U>.</U> In this type of attack, an attempt is made to get the correct <!--ZZZPOPUP--><A href="schluessel.html">key</A> by trying out every possible permutation (from within a pre-specified range). A variation of brute-force attacks are <A href="textboock_attack.html">dictionary attacks</A> on passwords.</P>
 
 <P>Other types of attacks are:
 <ol type="disc"><li>
@@ -31,7 +31,7 @@
 <li>
 <A href="sidechannelattacks.html">side-channel attacks</A></P></li></ol>
 
-<P><!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> contains <A href="hid_hilfe_szenarien.html">examples</A> in which the existing attacks on encryption algorithms contained in CrypTool are also described.</P>
+<P><!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> contains <A href="hid_hilfe_szenarien.html">examples</A> in which the existing attacks on encryption algorithms contained in CrypTool are described.</P>
 
 </BODY>
 </HTML>
