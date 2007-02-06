@@ -101,7 +101,7 @@ void CDlgAbout::DoDataExchange(CDataExchange* pDX)
 	//{{AFX_DATA_MAP(CDlgAbout)
 	DDX_Control(pDX, IDC_ABOUTBOX_CRYPTOOL, m_cryptoolTxt_ctrl);
 	DDX_Text(pDX, IDC_EDIT_SECUDE1, strVersionSecude1);
-	DDX_Text(pDX, IDC_EDIT_SECUDE2, strVersionSecude2);
+	// DDX_Text(pDX, IDC_EDIT_SECUDE2, strVersionSecude2);
 	DDX_Text(pDX, IDC_EDIT_MIRACL, strVersionMiracl);
 	DDX_Text(pDX, IDC_EDIT_OPENSSL, strVersionOpenSSL);
 	DDX_Text(pDX, IDC_EDIT_NTL, strVersionNTL);
@@ -199,9 +199,10 @@ void CDlgAbout::determineLibraryVersions()
 		this->strVersionSecude1 = pc_str;
 		int index = this->strVersionSecude1.Find("SECUDE ");
 		this->strVersionSecude1.Delete(index, this->strVersionSecude1.GetLength() - index);
-		this->strVersionSecude1.Insert(this->strVersionSecude1.GetLength()-1, ",");
-		this->strVersionSecude2 = pc_str;
-		this->strVersionSecude2.Delete(0, index);
+		// Only version information required
+		// this->strVersionSecude1.Insert(this->strVersionSecude1.GetLength()-1, ",");
+		// this->strVersionSecude2 = pc_str;
+		// this->strVersionSecude2.Delete(0, index);
 	}
 	else
 	{

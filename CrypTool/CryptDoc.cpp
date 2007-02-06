@@ -95,7 +95,7 @@ statement from your version.
 #include "DlgSolitaireAnalyse.h"
 #include ".\cryptdoc.h"
 
-// #include "ECIESMain.h"
+#include "ECIESMain.h"
 
 
 
@@ -1988,11 +1988,11 @@ void CCryptDoc::OnDecodeUu()
 void CCryptDoc::OnHybridEccEnc()
 {
     UpdateContent();
- //   ECCEnc(ContentName, GetTitle());
+    ECCEnc(ContentName, GetTitle());
 }
 
 void CCryptDoc::OnHybridEccDec()
 {
     UpdateContent();
- //   ECCDec(ContentName, GetTitle());
+    ECCDec(ContentName, GetTitle());
 }

@@ -1,6 +1,5 @@
 
 //cvact-Library
-#if 0  // FIXME
 #include "actInit.h"
 #include "actAlgorithm.h"
 #include "actTools.h"
@@ -969,5 +968,3 @@ void newWindow(const bool &plain, const act::Blob &output, const char* &OldTitle
 	act::blob2file(outfile,output);
 	OpenNewDoc(outfile,ReceiverName+", "+ReceiverFirstname+", "+ReceiverKeyType,OldTitle,IDS_ECIES_CRYPT,plain,0);
 }
-
-#endif  // FIXME
