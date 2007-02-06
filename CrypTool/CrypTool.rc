@@ -697,12 +697,12 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Über CrypTool: Mitwirkende"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,112,267,50,14
+    DEFPUSHBUTTON   "OK",IDOK,112,277,50,19
     CTEXT           "Personen, die zu CrypTool beitrugen",IDC_STATIC,7,6,270,
                     11,SS_CENTERIMAGE | WS_BORDER
     CTEXT           "Bernhard Esslinger",IDC_STATIC,14,32,263,8
-    CTEXT           "Peer Wichmann\nJoerg Cornelius Schneider",IDC_STATIC,14,
-                    59,263,16
+    CTEXT           "Peer Wichmann (bis Version 1.2)\nJoerg Cornelius Schneider (ab Version 1.3)",
+                    IDC_STATIC,14,59,263,16
     CTEXT           "Henrik Koy",IDC_STATIC,14,93,263,9,NOT WS_GROUP
     GROUPBOX        " Idee, Sponsoring, Challenges, QA, Leitung",IDC_STATIC,
                     7,23,270,22,BS_CENTER
@@ -711,20 +711,20 @@ BEGIN
     GROUPBOX        " Kümmerer Version 1.3 und 1.4",IDC_STATIC,7,83,270,22,
                     BS_CENTER
     GROUPBOX        " Entwicklung, Dokumentation, Übersetzung ",IDC_STATIC,7,
-                    109,270,106,BS_CENTER
-    GROUPBOX        " Review und Feedback",IDC_STATIC,7,220,270,42,BS_CENTER
-    LTEXT           "Martin Bartosch\nLars Dülfer\nThomas Gauweiler\nJan Hofmann\nMatthias Kraft\nMatej Matejicek\nRoger Oyono\nMark Santiago\nChristian Tobias\nThilo Zieschang\nChristof Rezk Salama",
-                    IDC_STATIC,18,122,84,88
+                    109,270,115,BS_CENTER
+    GROUPBOX        " Review und Feedback",IDC_STATIC,7,229,270,42,BS_CENTER
+    LTEXT           "Martin Bartosch\nLars Dülfer\nThomas Gauweiler\nJan Hofmann\nMatthias Kraft\nMatej Matejicek\nRoger Oyono\nMark Santiago\nChristian Tobias\nThilo Zieschang\nChristof Rezk Salama\nEnrique Zabala",
+                    IDC_STATIC,18,122,84,97
     LTEXT           "Jan Blumenstein\nKlaus Esslinger\nPeter Gruber\nJens Liebehenschel\nMichael Linden\nChristian Mletzko\nMarkus Ruhs\nMatthias Schneider\nMyriam Zeuner-Gurrier\nHendrik Lennarz\nSebastian Przybylski",
                     IDC_STATIC,102,122,84,90
     LTEXT           "Ariane Büger\nKarsten Schaar\nSibylle Müller",
-                    IDC_STATIC,18,231,84,26
+                    IDC_STATIC,18,240,84,26
     LTEXT           "Richard Christensen\nBartol Filipovic\nJörg Hambamer\nDennis Laupichler\nFlorian Marchal\nLowell Montgomery\nDaniel Saffran\nChristine Stötzel\nThomas Thiele\nAndre Beunink\nElmar Kubitz",
                     IDC_STATIC,186,122,85,91
     LTEXT           "Matthias Büger\nWolfgang Scondo\nGerhard Kramarz",
-                    IDC_STATIC,102,231,84,26
+                    IDC_STATIC,102,240,84,26
     LTEXT           "Wolfgang Patzewitz\nGary Tagg\n...und viele andere.",
-                    IDC_STATIC,186,231,85,26
+                    IDC_STATIC,186,240,85,26
 END
 
 IDD_SHOW_PUBLICKEY_EC DIALOG  0, 0, 399, 287
@@ -3875,37 +3875,36 @@ BEGIN
     LTEXT           "für Dokumente:",IDC_STATIC,13,106,89,9,0,WS_EX_RIGHT
 END
 
-IDD_ABOUT DIALOGEX 34, 22, 242, 421
+IDD_ABOUT DIALOGEX 34, 22, 242, 423
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Über CrypTool"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,70,393,90,19,WS_GROUP
-    CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,41,50,105,37,
+    DEFPUSHBUTTON   "OK",IDOK,70,395,90,19,WS_GROUP
+    CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,44,50,105,37,
                     WS_EX_TRANSPARENT
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,40,82,143,37,
                     WS_EX_TRANSPARENT
-    CTEXT           "haben die Universitäten Siegen und Darmstadt",
-                    IDC_STATIC,0,130,242,10
-    CTEXT           "CRYPTOOL RELEASE INFO",IDC_ABOUTBOX_CRYPTOOL,1,145,241,
+    CTEXT           "haben die Universitäten Siegen und Darmstadt\nund viele freiwillige Entwickler im Open-Source-Projekt",
+                    IDC_STATIC,0,130,242,19
+    CTEXT           "CRYPTOOL RELEASE INFO",IDC_ABOUTBOX_CRYPTOOL,1,153,241,
                     11
-    CTEXT           "entwickelt.",IDC_STATIC,1,168,241,24
-    CTEXT           "CrypTool nutzt folgende Bibliotheken:",IDC_STATIC,0,211,
+    CTEXT           "entwickelt.",IDC_STATIC,1,176,241,24
+    CTEXT           "CrypTool nutzt folgende Bibliotheken:",IDC_STATIC,0,219,
                     241,8
     CTEXT           "Kontakt:",IDC_STATIC,0,302,241,10
     CTEXT           "Copyright (C) 1998-2006 Deutsche Bank AG\nFrankfurt am Main, Germany",
                     IDC_STATIC,0,369,242,17
     LTEXT           "esslinger@fb5.uni-siegen.de\njoerg-cornelius.schneider@db.com\nhenrik.koy@db.com\ncryptool-list@sec.informatik.tu-darmstadt.de",
                     IDC_STATIC,63,311,152,42
-    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT | SS_SUNKEN | 
-                    WS_BORDER,10,46,222,79
+    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,10,46,222,79
     CTEXT           "CrypTool ist ein kostenloses und umfangreiches Lernprogramm\nzu klassischer und moderner Kryptographie/Kryptoanalyse.\n\nGemeinsam mit den Sponsoren",
                     IDC_STATIC,1,12,241,33
     LTEXT           "Internet: http://www.cryptool.de",IDC_STATIC,63,353,175,
                     8
     CTEXT           "MIRACL",IDC_EDIT_MIRACL,1,242,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
-    CTEXT           "SECUDE1",IDC_EDIT_SECUDE1,1,223,240,8,SS_CENTERIMAGE,
+    CTEXT           "SECUDE1",IDC_EDIT_SECUDE1,1,231,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
     CTEXT           "OPENSSL",IDC_EDIT_OPENSSL,1,253,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
@@ -3913,14 +3912,12 @@ BEGIN
                     WS_EX_TRANSPARENT
     CTEXT           "SCINTILLA",IDC_EDIT_SCINTILLA,1,273,240,8,
                     SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "SECUDE2",IDC_EDIT_SECUDE2,1,231,240,8,SS_CENTERIMAGE,
-                    WS_EX_TRANSPARENT
     CTEXT           "GMP",IDC_EDIT_GMP,0,283,241,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
-    CTEXT           "BUILD INFO",IDC_EDIT_BUILD_INFO,0,156,241,8,
+    CTEXT           "BUILD INFO",IDC_EDIT_BUILD_INFO,0,164,241,8,
                     SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "CrypTool wird zur Ausbildung, in der Lehre und zur\nMitarbeiter-Awareness für IT-Sicherheit eingesetzt.",
-                    IDC_STATIC,1,185,240,19
+    CTEXT           "CrypTool wird weltweit in Firmen und Behörden zur Ausbildung, in\nder Lehre und zur Mitarbeiter-Awareness für IT-Sicherheit eingesetzt.",
+                    IDC_STATIC,1,193,240,19,WS_TABSTOP
 END
 
 IDD_HMAC DIALOG  0, 0, 323, 425
@@ -8471,7 +8468,8 @@ BEGIN
 
     IDD_AUTHORS, DIALOG
     BEGIN
-        BOTTOMMARGIN, 287
+        BOTTOMMARGIN, 296
+        HORZGUIDE, 277
     END
 
     IDD_KEY_HOMOPHONE, DIALOG
@@ -8724,7 +8722,7 @@ BEGIN
     IDD_ABOUT, DIALOG
     BEGIN
         VERTGUIDE, 63
-        BOTTOMMARGIN, 412
+        BOTTOMMARGIN, 414
     END
 
     IDD_HMAC, DIALOG
@@ -11880,10 +11878,10 @@ CAPTION "About CrypTool"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,70,394,90,19,WS_GROUP
-    CTEXT           "and the universities \nSiegen and Darmstadt",IDC_STATIC,
-                    0,125,242,17
+    CTEXT           "the universities Siegen and Darmstadt\nand many voluntary developers the open source project",
+                    IDC_STATIC,0,125,242,17
     CTEXT           "CrypTool uses the following libraries:",IDC_STATIC,1,
-                    211,241,8
+                    220,241,8
     CTEXT           "Contact:",IDC_STATIC,0,304,241,10
     LTEXT           "esslinger@fb5.uni-siegen.de\nhenrik.koy@db.com\njoerg-cornelius.schneider@db.com\ncryptool-list@sec.informatik.tu-darmstadt.de",
                     IDC_STATIC,67,312,145,40
@@ -11891,20 +11889,19 @@ BEGIN
                     IDC_STATIC,0,371,242,17
     CTEXT           "CrypTool is a free and comprehensive eLearning program about\nclassic and contemporary cryptography and cryptanalysis.\n\nIn a joint effort of the sponsors",
                     IDC_STATIC,1,10,241,32
-    CTEXT           "has been developed.",IDC_STATIC,1,172,241,24
-    CTEXT           "CRYPTOOL RELEASE INFO",IDC_ABOUTBOX_CRYPTOOL,1,148,241,
+    CTEXT           "has been developed.",IDC_STATIC,1,181,241,24
+    CTEXT           "CRYPTOOL RELEASE INFO",IDC_ABOUTBOX_CRYPTOOL,1,157,241,
                     11
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,41,48,105,37,
                     WS_EX_TRANSPARENT
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,40,80,143,37,
                     WS_EX_TRANSPARENT
-    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT | SS_SUNKEN | 
-                    WS_BORDER,10,44,222,79
+    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,10,44,222,79
     LTEXT           "Internet: http://www.cryptool.org",IDC_STATIC,67,356,
                     175,8
     CTEXT           "MIRACL",IDC_EDIT_MIRACL,1,244,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
-    CTEXT           "SECUDE1",IDC_EDIT_SECUDE1,1,225,240,8,SS_CENTERIMAGE,
+    CTEXT           "SECUDE1",IDC_EDIT_SECUDE1,1,234,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
     CTEXT           "OPENSSL",IDC_EDIT_OPENSSL,1,255,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
@@ -11912,14 +11909,12 @@ BEGIN
                     WS_EX_TRANSPARENT
     CTEXT           "SCINTILLA",IDC_EDIT_SCINTILLA,1,275,240,8,
                     SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "SECUDE2",IDC_EDIT_SECUDE2,1,233,240,8,SS_CENTERIMAGE,
-                    WS_EX_TRANSPARENT
     CTEXT           "GMP",IDC_EDIT_GMP,0,285,241,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
-    CTEXT           "BUILD INFO",IDC_EDIT_BUILD_INFO,0,159,241,8,
+    CTEXT           "BUILD INFO",IDC_EDIT_BUILD_INFO,0,168,241,8,
                     SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "CrypTool is used for education and for\nemployee awareness for IT security.",
-                    IDC_STATIC,0,188,241,24
+    CTEXT           "CrypTool is used world wide in companies and goverment organizations\nfor education and for employee awareness for IT security.",
+                    IDC_STATIC,0,197,241,24
 END
 
 IDD_SHOW_PROGRESS DIALOG  0, 0, 187, 105
@@ -12161,18 +12156,18 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_AUTHORS DIALOGEX 0, 0, 291, 295
+IDD_AUTHORS DIALOGEX 0, 0, 291, 306
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About CrypTool: Contributors"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,119,272,50,15
+    DEFPUSHBUTTON   "OK",IDOK,118,278,50,19
     CTEXT           "Persons Contributing to CrypTool",IDC_STATIC,7,6,277,11,
                     SS_CENTERIMAGE | WS_BORDER
     CTEXT           "Bernhard Esslinger",IDC_STATIC,14,33,270,8
     CTEXT           "Henrik Koy",IDC_STATIC,14,94,270,8,NOT WS_GROUP
-    CTEXT           "Peer Wichmann\nJoerg Cornelius Schneider",IDC_STATIC,14,
-                    59,270,17
+    CTEXT           "Peer Wichmann (till release 1.2)\nJoerg Cornelius Schneider (from release 1.3)",
+                    IDC_STATIC,14,59,270,17
     GROUPBOX        " Idea, Sponsoring, Challenges, QA, Lead ",IDC_STATIC,7,
                     23,277,23,BS_CENTER
     GROUPBOX        " Design, Support and Architecture",IDC_STATIC,7,49,277,
@@ -12180,16 +12175,16 @@ BEGIN
     GROUPBOX        " Main person taking overall care for version 1.3 and 1.4",
                     IDC_STATIC,7,83,277,24,BS_CENTER
     GROUPBOX        " Implementation, Documentation, Translation ",
-                    IDC_STATIC,7,110,277,105,BS_CENTER
-    GROUPBOX        " Review and Feedback",IDC_STATIC,7,223,277,43,BS_CENTER
+                    IDC_STATIC,7,110,277,113,BS_CENTER
+    GROUPBOX        " Review and Feedback",IDC_STATIC,7,229,277,43,BS_CENTER
     LTEXT           "Ariane Büger\nKarsten Schaar\nSibylle Müller",
-                    IDC_STATIC,18,237,84,26
+                    IDC_STATIC,18,243,84,26
     LTEXT           "Matthias Büger\nWolfgang Scondo\nGerhard Kramarz",
-                    IDC_STATIC,102,237,84,26
+                    IDC_STATIC,102,243,84,26
     LTEXT           "Wolfgang Patzewitz\nGary Tagg\n...and many others.",
-                    IDC_STATIC,186,237,85,26
-    LTEXT           "Martin Bartosch\nLars Dülfer\nThomas Gauweiler\nJan Hofmann\nMatthias Kraft\nMatej Matejicek\nRoger Oyono\nMark Santiago\nChristian Tobias\nThilo Zieschang\nChristof Rezk Salama",
-                    IDC_STATIC,18,122,84,88
+                    IDC_STATIC,186,243,85,26
+    LTEXT           "Martin Bartosch\nLars Dülfer\nThomas Gauweiler\nJan Hofmann\nMatthias Kraft\nMatej Matejicek\nRoger Oyono\nMark Santiago\nChristian Tobias\nThilo Zieschang\nChristof Rezk Salama\nEnrique Zabala",
+                    IDC_STATIC,18,122,84,98
     LTEXT           "Jan Blumenstein\nKlaus Esslinger\nPeter Gruber\nJens Liebehenschel\nMichael Linden\nChristian Mletzko\nMarkus Ruhs\nMatthias Schneider\nMyriam Zeuner-Guerrier\nHendrik Lennarz\nSebastian Przybylski",
                     IDC_STATIC,102,122,84,88
     LTEXT           "Richard Christensen\nBartol Filipovic\nJörg Hambamer\nDennis Laupichler\nFlorian Marchal\nLowell Montgomery\nDaniel Saffran\nChristine Stötzel\nThomas Thiele\nAndre Beunink\nElmar Kubitz",
@@ -19794,7 +19789,8 @@ BEGIN
 
     IDD_AUTHORS, DIALOG
     BEGIN
-        BOTTOMMARGIN, 292
+        BOTTOMMARGIN, 297
+        HORZGUIDE, 278
     END
 
     IDD_SHOW_KEY, DIALOG
