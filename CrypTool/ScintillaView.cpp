@@ -107,6 +107,8 @@ BEGIN_MESSAGE_MAP(CScintillaView, CCrypToolView)
 	ON_UPDATE_COMMAND_UI(ID_ZEICHENFORMAT_COURIER08, OnUpdateZeichenformatCourier08)
 	ON_UPDATE_COMMAND_UI(ID_ZEICHENFORMAT_COURIER10, OnUpdateZeichenformatCourier10)
 	ON_UPDATE_COMMAND_UI(ID_ZEICHENFORMAT_COURIER12, OnUpdateZeichenformatCourier12)
+	ON_COMMAND(ID_VIEW_ALPHABET, OnViewAlphabet)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_ALPHABET, OnUpdateViewAlphabet)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////
@@ -705,8 +707,19 @@ BOOL CScintillaView::OnNotify(
       SCNotification *pMsg = (SCNotification*)lParam;
       switch (phDR->code)
       {
-         case SCN_STYLENEEDED:
-         break;
+	     case SCN_STYLENEEDED: 
+#if CONTAINER_LEXER_CURRENTLY_NOT_USED
+	     {
+			unsigned int startPos = SendMessage(SCI_GETENDSTYLED);
+			//do we need to find start of line?
+			unsigned int lineNumber = SendMessage(SCI_LINEFROMPOSITION,startPos);
+			startPos = SendMessage(SCI_POSITIONFROMLINE,lineNumber);
+			unsigned int endPos = pMsg->position;
+			m_wndScintilla.StyleNeeded(startPos, endPos,theApp.TextOptions.m_alphabet,theApp.TextOptions.m_alphabet.GetLength());
+	        break;
+		 }
+#endif
+	     break;
          case SCN_CHARADDED:
          break;
          case SCN_SAVEPOINTREACHED:
@@ -849,7 +862,7 @@ void CScintillaView::setTextFont(int size, const char* fontClass)
 	CWnd *pActiveWindow = this->GetTopWindow();
 	if(pActiveWindow)
 	{
-		int style = pActiveWindow->SendMessage(SCI_GETSTYLEAT,0,0);
+		int style = STYLE_DEFAULT; // set the font for all styles without their own font settings
 		pActiveWindow->SendMessage(SCI_STYLESETSIZE, style, size);
 		pActiveWindow->SendMessage(SCI_STYLESETFONT, style, reinterpret_cast<LPARAM>(fontClass));
 	}
@@ -999,4 +1012,29 @@ void CScintillaView::SaveMarginSettings(const CString& sSection)
 	pApp->WriteProfileInt(sSection, _T("RightMargin"), m_rMargin.right);
 	pApp->WriteProfileInt(sSection, _T("TopMargin"), m_rMargin.top);
 	pApp->WriteProfileInt(sSection, _T("BottomMargin"), m_rMargin.bottom);
+}
+
+void CScintillaView::OnViewAlphabet()
+{
+	CScintillaWnd *pActiveWindow = (CScintillaWnd*)GetTopWindow();
+	if (!pActiveWindow)
+		return;
+	int show = pActiveWindow->GetShowAlphabet();
+	pActiveWindow->SetShowAlphabet(!show);
+}
+
+void CScintillaView::OnUpdateViewAlphabet(CCmdUI *pCmdUI)
+{
+	CScintillaWnd *pActiveWindow = (CScintillaWnd*)GetTopWindow();
+	if(pActiveWindow)
+		pCmdUI->SetCheck(pActiveWindow->GetShowAlphabet());
+}
+
+void CScintillaView::RefreshAlphabet()
+{
+	CScintillaWnd *pActiveWindow = (CScintillaWnd*)GetTopWindow();
+	if (!pActiveWindow)
+		return;
+	if (pActiveWindow->GetShowAlphabet())
+		pActiveWindow->SetShowAlphabet(true);
 }

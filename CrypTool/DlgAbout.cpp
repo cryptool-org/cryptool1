@@ -227,9 +227,11 @@ void CDlgAbout::determineLibraryVersions()
 	this->strVersionNTL.Insert(0, "NTL ");
 
 
-	// Scintilla (statisch)
-	// *** TODO *** eventuell Version aus ../scintilla/version.txt lesen
-	this->strVersionScintilla = "1.6.5";
+	// Scintilla
+	int scv =
+#include "../scintilla/version.txt"
+	;
+	this->strVersionScintilla.Format("%d.%d.%d",scv/100, (scv/10)%10, scv%10);
 	this->strVersionScintilla.Insert(0, "Scintilla ");
 
 	// GMP (dynamisch)

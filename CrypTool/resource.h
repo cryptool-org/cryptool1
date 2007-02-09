@@ -53,6 +53,7 @@
 #define IDS_STRING_MEMBER2              38
 #define IDS_HILL_DETAILS_IS_NOT_ALPHCHAR 39
 #define IDS_HILL_DETAILS_IS_ALPHCHAR    40
+#define IDS_SCINTILLA_LEXER_ERROR       41
 #define IDC_EDIT53                      53
 #define IDC_EDIT69                      54
 #define IDC_EDIT88                      55
@@ -1848,6 +1849,7 @@
 #define ID_HYBRID_ECCENC                33339
 #define ID_HYBRID_ECCDEC                33340
 #define ID_INDIV_POINTADDITIONONELLIPTICCURVES 33341
+#define ID_VIEW_ALPHABET                33342
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -2848,7 +2850,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        860
-#define _APS_NEXT_COMMAND_VALUE         33339
+#define _APS_NEXT_COMMAND_VALUE         33341
 #define _APS_NEXT_CONTROL_VALUE         1897
 #define _APS_NEXT_SYMED_VALUE           107
 #endif

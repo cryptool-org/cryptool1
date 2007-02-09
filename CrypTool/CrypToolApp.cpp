@@ -875,7 +875,6 @@ void CCrypToolApp::WinHelpInternal( DWORD_PTR dwData, UINT nCmd)
 		CString html_help_path = CString(m_pszHelpFilePath) + CString(">MainWindow");
 		
 		// calling the help by turning an ID over to the htmlhelp
-		HWND hwnd;
 		switch (nCmd)
 		{
 			case HELP_CONTEXT:	

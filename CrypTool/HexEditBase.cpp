@@ -190,8 +190,13 @@ CHexEditBase::CHexEditBase() :
 
 {
 	memset(&m_tPaintDetails, 0, sizeof(PAINTINGDETAILS));
+#if 0 
 	m_tSelectedNoFocusTxtCol = GetSysColor(COLOR_WINDOWTEXT);
 	m_tSelectedNoFocusBkgCol = GetSysColor(COLOR_BTNFACE);
+#else // for consistency with Scintilla
+	m_tSelectedNoFocusTxtCol = GetSysColor(COLOR_HIGHLIGHTTEXT);
+	m_tSelectedNoFocusBkgCol = GetSysColor(COLOR_HIGHLIGHT);
+#endif
 	m_tSelectedFousTxtCol = GetSysColor(COLOR_HIGHLIGHTTEXT);
 	m_tSelectedFousBkgCol = GetSysColor(COLOR_HIGHLIGHT);
 	if(!m_cFont.CreateStockObject(ANSI_FIXED_FONT)) {

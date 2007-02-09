@@ -36,6 +36,7 @@ public:
 // @access public function member
 // @cmember get document
 	CScintillaDoc* GetDocument();
+	void RefreshAlphabet(); // refresh alphabet from text options
 
 // @cmember process notification from scintilla control
    virtual BOOL OnNotify( WPARAM wParam, LPARAM lParam, LRESULT* pResult );
@@ -101,6 +102,7 @@ public:
 	virtual void LoadMarginSettings(const CString& sSection = _T("PageSetup"));
 	virtual void SaveMarginSettings(const CString& sSection = _T("PageSetup"));
 
+
 // Implementierung
 public:
 	virtual ~CScintillaView();
@@ -143,6 +145,8 @@ public:
 	afx_msg void OnUpdateZeichenformatCourier08(CCmdUI *pCmdUI);
 	afx_msg void OnUpdateZeichenformatCourier10(CCmdUI *pCmdUI);
 	afx_msg void OnUpdateZeichenformatCourier12(CCmdUI *pCmdUI);
+	afx_msg void OnViewAlphabet();
+	afx_msg void OnUpdateViewAlphabet(CCmdUI *pCmdUI);
 };
 
 #ifndef _DEBUG  // Testversion in ScintillaView.cpp

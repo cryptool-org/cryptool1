@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -5552,6 +5552,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Balkendiagramm",             ID_PLOTBAR
         MENUITEM SEPARATOR
+        MENUITEM "Al&phabet",                   ID_VIEW_ALPHABET, GRAYED
         MENUITEM "Zeilen&ende",                 ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "Zeilen&umbruch",              ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE, GRAYED
@@ -5950,6 +5951,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Balkendiagramm",             ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
+        MENUITEM "Al&phabet",                   ID_VIEW_ALPHABET, GRAYED
         MENUITEM "Zeilen&ende",                 ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "Zeilen&umbruch",              ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE, GRAYED
@@ -6312,6 +6314,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Balkendiagramm",             ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
+        MENUITEM "Al&phabet",                   ID_VIEW_ALPHABET, GRAYED
         MENUITEM "Zeilen&ende",                 ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "Zeilen&umbruch",              ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE, GRAYED
@@ -6704,6 +6707,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Balkendiagramm",             ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
+        MENUITEM "Al&phabet",                   ID_VIEW_ALPHABET
         MENUITEM "Zeilen&ende",                 ID_VIEW_ENDOFLINE
         MENUITEM "Zeilen&umbruch",              ID_VIEW_LINEWRAP
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE
@@ -7090,6 +7094,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Balkendiagramm",             ID_PLOTBAR
         MENUITEM SEPARATOR
+        MENUITEM "Al&phabet",                   ID_VIEW_ALPHABET, GRAYED
         MENUITEM "Zeilen&ende",                 ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "Zeilen&umbruch",              ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE, GRAYED
@@ -11267,10 +11272,11 @@ STRINGTABLE
 BEGIN
     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING 
                             "Visualisiert das (t, n)-Schwellenwertverfahren nach Shamir"
-    ID_HYBRID_ECCENC        "Verschlüsselt eine mit dem ECC-Algorithmus verschlüsselte  Datei"
-    ID_HYBRID_ECCDEC        "Entschlüsselt eine mit dem ECC-Algorithmus verschlüsselte  Datei"
+    ID_HYBRID_ECCENC        "Verschlüsselt eine Datei mit dem ECC-Algorithmus"
+    ID_HYBRID_ECCDEC        "Entschlüsselt eine mit dem ECC-Algorithmus verschlüsselte Datei"
     ID_INDIV_POINTADDITIONONELLIPTICCURVES 
                             "Veranschaulicht die Punktaddition auf einer Elliptischen Kurve"
+    ID_VIEW_ALPHABET        "Nicht-Alphabet-Zeichen ausgrauen"
 END
 
 STRINGTABLE 
@@ -11346,6 +11352,8 @@ BEGIN
                             "Der Klartext besteht aus %d Zeichen. Davon sind %d Nichtalphabetzeichen: ""%s"".\nVerschlüsselt werden nur die Alphabetzeichen, Nichtalphabetzeichen werden ignoriert (wenn das Alphabet nur Großbuchstaben enthält, werden die entsprechenden Kleinbuchstaben aber ebenfalls verschlüsselt; nicht umgekehrt).\nDie Ver- und Entschlüsselung ist unten beispielhaft durchgerechnet für die %d ersten Buchstaben aus dem Klartext, die zum Alphabet gehören."
     IDS_HILL_DETAILS_IS_ALPHCHAR 
                             "Der Klartext besteht aus %d Buchstaben. Alle diese Buchstaben gehören zum eingestellten Alphabet.\nVerschlüsselt werden nur die Alphabetzeichen. Wenn das Alphabet nur Großbuchstaben enthält, werden die entsprechenden Kleinbuchstaben aber ebenfalls verschlüsselt; nicht umgekehrt.\nDie Ver- und Entschlüsselung ist unten beispielhaft durchgerechnet für die %d ersten Buchstaben aus dem Klartext, die zum Alphabet gehören."
+    IDS_SCINTILLA_LEXER_ERROR 
+                            "Die Alphabet-Ansicht kann nicht aktiviert werden, wahrscheinlich wurde nicht\ndie mit CrypTool gelieferte SCILEXER.DLL geladen, sondern eine andere."
 END
 
 STRINGTABLE 
@@ -11385,12 +11393,12 @@ BEGIN
     IDS_ECIES_DEC_ERROR_05  "Der AES-Ciphertext konnte nicht mit dem AES-Sessionkey entschlüsselt werden.\nEventuell ist einer der beiden oder beide beschädigt."
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -16847,6 +16855,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR
         MENUITEM SEPARATOR
+        MENUITEM "Al&phabet",                   ID_VIEW_ALPHABET, GRAYED
         MENUITEM "&End of Line",                ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "Line W&rap",                  ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
@@ -17241,6 +17250,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
+        MENUITEM "Al&phabet",                   ID_VIEW_ALPHABET, GRAYED
         MENUITEM "&End of Line",                ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "Line W&rap",                  ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
@@ -17600,6 +17610,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
+        MENUITEM "Al&phabet",                   ID_VIEW_ALPHABET, GRAYED
         MENUITEM "&End of Line",                ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "Line W&rap",                  ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
@@ -17994,6 +18005,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
+        MENUITEM "Al&phabet",                   ID_VIEW_ALPHABET
         MENUITEM "&End of Line",                ID_VIEW_ENDOFLINE
         MENUITEM "Line W&rap",                  ID_VIEW_LINEWRAP
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE
@@ -18376,6 +18388,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR
         MENUITEM SEPARATOR
+        MENUITEM "Al&phabet",                   ID_VIEW_ALPHABET, GRAYED
         MENUITEM "&End of Line",                ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "Line W&rap",                  ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
@@ -22671,6 +22684,17 @@ END
 
 STRINGTABLE 
 BEGIN
+    ID_INDIVIDUAL_PROCEDURES_SECRETSHARING 
+                            "Visualizes the Shamir (t, n) threshold scheme"
+    ID_HYBRID_ECCENC        "Encrypts a file encrypted with the ECC-AES algorithm"
+    ID_HYBRID_ECCDEC        "Decrypts a file encrypted with the ECC-AES algorithm"
+    ID_INDIV_POINTADDITIONONELLIPTICCURVES 
+                            "Demonstrates point addition on elliptic curves."
+    ID_VIEW_ALPHABET        "Gray out non-alphabet characters"
+END
+
+STRINGTABLE 
+BEGIN
     ID_ZEICHENFORMAT_ARIAL12 "Text representation using Arial 12 dots font."
     ID_ZEICHENFORMAT_ARIAL08 "Text representation using Arial 8 dots font."
     ID_ZEICHENFORMAT_COURIER08 
@@ -22748,16 +22772,6 @@ END
 
 STRINGTABLE 
 BEGIN
-    ID_INDIVIDUAL_PROCEDURES_SECRETSHARING 
-                            "Visualizes the Shamir (t, n) threshold scheme"
-    ID_HYBRID_ECCENC        "Encrypts a file encrypted with the ECC-AES algorithm"
-    ID_HYBRID_ECCDEC        "Decrypts a file encrypted with the ECC-AES algorithm"
-    ID_INDIV_POINTADDITIONONELLIPTICCURVES 
-                            "Demonstrates point addition on elliptic curves."
-END
-
-STRINGTABLE 
-BEGIN
     IDS_STRING_PRIMETEST_RESULT_ERROR "Error in processing"
     IDS_STRING_PRIMETEST_RESULT_PROBABLEPRIME "The number is probable prime: "
     IDS_STRING_PRIMETEST_RESULT_CANCEL "Test canceled"
@@ -22827,6 +22841,8 @@ BEGIN
                             "The cleartext consists of %d characters. %d characters of these don't belong to the customized alphabet: ""%s"".\nOnly the characters belonging to the alphabet are used for encryption, non-alphabetic characters are ignored (if the alphabet contains only capital letters, accord lower letter characters are also encrypted; but not revers).\nBelow the encryption and decryption process is exemplified with the first %d characters of the cleartext, which belong to the customized alphabet."
     IDS_HILL_DETAILS_IS_ALPHCHAR 
                             "The cleartext consists of %d characters. All these characters are part of the customized alphabet.\nOnly the characters belonging to the alphabet are used for encryption. If the alphabet contains only capital letters, according lower letter characters are also encrypted; but not reverse.\nBelow the encryption and decryption process is exemplified with the first %d characters of the cleartext, which belong to the customized alphabet."
+    IDS_SCINTILLA_LEXER_ERROR 
+                            "The alphabet view could not be activated, probably not the version of SCILEXER.DLL\nwhich comes with CrypTool was loaded, but a different one."
 END
 
 STRINGTABLE 
@@ -22866,7 +22882,7 @@ BEGIN
     IDS_ECIES_DEC_ERROR_05  "The AES ciphertext could not be decrypted with the AES session key.\nOne or both components might be damaged."
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

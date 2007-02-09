@@ -55,6 +55,8 @@ statement from your version.
 #include "ChrTools.h"
 #include "DialogeMessage.h"
 #include "DlgTextOptions.h"
+#include "ScintillaDoc.h"
+#include "ScintillaView.h"
 #include ".\dlgtextoptions.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -278,6 +280,22 @@ void CDlgTextOptions::OnOK()
 	else m_IgnoreCase = 1;
 
 	AppConv.SetAlphabet(m_alphabet.GetBuffer(257), m_IgnoreCase);
+	CWnd m_wndMDIClient;
+	CMDIFrameWnd *m_MDIFrameWnd = (CMDIFrameWnd*)theApp.m_MainWnd;
+	int ret = m_wndMDIClient.Attach(m_MDIFrameWnd->m_hWndMDIClient);
+	ASSERT(ret != 0);
+	CWnd *pWndCurrentChild = m_wndMDIClient.GetWindow(GW_CHILD);
+	while (pWndCurrentChild) {
+		if (pWndCurrentChild->IsKindOf(RUNTIME_CLASS(CMDIChildWnd))) {
+			TRACE0("CMDIChildWnd");
+			CView *cview = ((CMDIChildWnd*)pWndCurrentChild)->GetActiveView();
+			if (cview && cview->IsKindOf(RUNTIME_CLASS(CScintillaView)))
+				((CScintillaView*)cview)->RefreshAlphabet();
+		}
+
+		pWndCurrentChild = (CMDIChildWnd*)pWndCurrentChild->GetWindow(GW_HWNDNEXT);
+	}
+	m_wndMDIClient.Detach();
 	CDialog::OnOK();
 }
 

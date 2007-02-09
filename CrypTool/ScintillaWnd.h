@@ -158,7 +158,8 @@ public:
    virtual int ReplaceAll(LPCSTR szFind, LPCSTR szReplace, BOOL bSelection = TRUE);
    virtual long FormatRange(BOOL draw,RangeToFormat* fr);
    virtual int GetTextLength();
-
+   virtual void SetShowAlphabet(BOOL);
+   virtual BOOL GetShowAlphabet() { return m_bShowAlphabet; }
 
 protected:
 // @access protected data members
@@ -170,6 +171,8 @@ protected:
    BOOL m_bFolding;
 // @cmember search flags
    int  m_nSearchflags;
+// @cmember show alphabet by graying out non-alphabet chars
+   BOOL m_bShowAlphabet;
 // @cmember binary clipboard format id
    CLIPFORMAT m_nBinDataClipboardFormat;	
 

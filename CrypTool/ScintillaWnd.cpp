@@ -26,6 +26,8 @@ typedef basic_ifstream<char, char_traits<char> > ifstream;
 
 #include <io.h>
 
+#include "CrypToolApp.h" // theApp
+
 #ifdef _DEBUG
 #undef THIS_FILE
 static char THIS_FILE[]=__FILE__;
@@ -34,6 +36,9 @@ static char THIS_FILE[]=__FILE__;
 
 // clipboard format, same as HexEditBase.cpp
 #define CF_BINDATA_HEXCTRL			_T("BinaryData")
+#define CT_LEXER_LANGUAGE "CrypTool"
+#define CT_LEXER_LIB "LexCrypTool"
+#define STYLE_NONEALPHABET "2"
 
 // the next 2 arrays are used to determine lexer format from file extensions
 static TCHAR *szExtensions[] = 
@@ -134,6 +139,7 @@ CScintillaWnd::CScintillaWnd()
    m_bSelection = TRUE;
    m_bFolding = FALSE;
    m_nSearchflags = 0;
+   m_bShowAlphabet = false;
    m_nBinDataClipboardFormat = RegisterClipboardFormat(CF_BINDATA_HEXCTRL);
    ASSERT(m_nBinDataClipboardFormat != 0);
 
@@ -754,58 +760,6 @@ void CScintillaWnd::SetDisplayFolding(BOOL bFlag)
 //
 void CScintillaWnd::Init()
 {
-// clear all text styles
-   SendMessage(SCI_CLEARDOCUMENTSTYLE, 0, 0);
-// set the number of styling bits to 7 - the asp/html views need a lot of styling - default is 5
-// If you leave the default you will see twiggle lines instead of ASP code
-	SendMessage(SCI_SETSTYLEBITS, 7, 0);
-// set the display for indetation guides to on - this displays virtical dotted lines from the beginning of 
-// a code block to the end of the block
-	SendMessage(SCI_SETINDENTATIONGUIDES, TRUE, 0);
-// set tabwidth to 3
-	SendMessage(SCI_SETTABWIDTH,3,0);
-// set indention to 3
-	SendMessage(SCI_SETINDENT,3,0);
-// set the caret blinking time to 400 milliseconds
-	SendMessage(SCI_SETCARETPERIOD,400,0);
-// source folding section
-// tell the lexer that we want folding information - the lexer supplies "folding levels"
-   SendMessage(SCI_SETPROPERTY, (WPARAM)_T("fold"), (LPARAM)_T("1"));
-   SendMessage(SCI_SETPROPERTY, (WPARAM)_T("fold.html"), (LPARAM)_T("1"));
-   SendMessage(SCI_SETPROPERTY, (WPARAM)_T("fold.html.preprocessor"), (LPARAM)_T("1"));
-   SendMessage(SCI_SETPROPERTY, (WPARAM)_T("fold.comment"), (LPARAM)_T("1"));
-   SendMessage(SCI_SETPROPERTY, (WPARAM)_T("fold.at.else"), (LPARAM)_T("1"));
-   SendMessage(SCI_SETPROPERTY, (WPARAM)_T("fold.flags"), (LPARAM)_T("1"));
-   SendMessage(SCI_SETPROPERTY, (WPARAM)_T("fold.preprocessor"), (LPARAM)_T("1"));
-   SendMessage(SCI_SETPROPERTY, (WPARAM)_T("styling.within.preprocessor"), (LPARAM)_T("1"));
-   SendMessage(SCI_SETPROPERTY, (WPARAM)_T("asp.default.language"), (LPARAM)_T("1"));
-// Tell scintilla to draw folding lines UNDER the folded line
-   SendMessage(SCI_SETFOLDFLAGS, 16,0);
-// Set margin 2 = folding margin to display folding symbols
-	SendMessage(SCI_SETMARGINMASKN, 2, SC_MASK_FOLDERS);
-// allow notifications for folding actions
-   SendMessage(SCI_SETMODEVENTMASK, SC_MOD_INSERTTEXT|SC_MOD_DELETETEXT, 0);
-//   SendMessage(SCI_SETMODEVENTMASK, SC_MOD_CHANGEFOLD|SC_MOD_INSERTTEXT|SC_MOD_DELETETEXT, 0);
-// make the folding margin sensitive to folding events = if you click into the margin you get a notification event
-	SendMessage(SCI_SETMARGINSENSITIVEN, 2, TRUE);
-// define a set of markers to displa folding symbols
-   SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDEROPEN, SC_MARK_MINUS);
-   SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDER, SC_MARK_PLUS);
-   SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDERSUB, SC_MARK_EMPTY);
-   SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDERTAIL, SC_MARK_EMPTY);
-   SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDEREND, SC_MARK_EMPTY);
-   SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDEROPENMID, SC_MARK_EMPTY);
-   SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDERMIDTAIL, SC_MARK_EMPTY);
-// set the forground color for some styles
-   SendMessage(SCI_STYLESETFORE, 0, RGB(0,0,0));
-   SendMessage(SCI_STYLESETFORE, 2, RGB(0,64,0));
-   SendMessage(SCI_STYLESETFORE, 5, RGB(0,0,255));
-   SendMessage(SCI_STYLESETFORE, 6, RGB(200,20,0));
-   SendMessage(SCI_STYLESETFORE, 9, RGB(0,0,255));
-   SendMessage(SCI_STYLESETFORE, 10, RGB(255,0,64));
-   SendMessage(SCI_STYLESETFORE, 11, RGB(0,0,0));
-// set the backgroundcolor of brace highlights
-   SendMessage(SCI_STYLESETBACK, STYLE_BRACELIGHT, RGB(0,255,0));
 // set end of line mode to CRLF
    SendMessage(SCI_SETEOLMODE, 0, 0);
    SendMessage(SCI_SETVIEWEOL, TRUE, 0);
@@ -818,7 +772,49 @@ void CScintillaWnd::Init()
    SetDisplayLinenumbers(FALSE);
    SetDisplayFolding(FALSE);
    SetDisplaySelection(FALSE);
+// set the display for indetation guides to on - this displays virtical dotted lines from the beginning of 
+// a code block to the end of the block
+	SendMessage(SCI_SETINDENTATIONGUIDES, TRUE, 0);
+// set tabwidth to 3
+	SendMessage(SCI_SETTABWIDTH,3,0);
+// set indention to 3
+	SendMessage(SCI_SETINDENT,3,0);
+// set the caret blinking time to 400 milliseconds
+	SendMessage(SCI_SETCARETPERIOD,400,0);
+	// allow notifications for folding actions
+   SendMessage(SCI_SETMODEVENTMASK, SC_MOD_INSERTTEXT|SC_MOD_DELETETEXT, 0);
+//   SendMessage(SCI_SETMODEVENTMASK, SC_MOD_CHANGEFOLD|SC_MOD_INSERTTEXT|SC_MOD_DELETETEXT, 0);
+// make the folding margin sensitive to folding events = if you click into the margin you get a notification event
+	SendMessage(SCI_SETMARGINSENSITIVEN, 2, TRUE);
+// define a set of markers to displa folding symbols
+   SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDEROPEN, SC_MARK_MINUS);
+   SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDER, SC_MARK_PLUS);
+   SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDERSUB, SC_MARK_EMPTY);
+   SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDERTAIL, SC_MARK_EMPTY);
+   SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDEREND, SC_MARK_EMPTY);
+   SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDEROPENMID, SC_MARK_EMPTY);
+   SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDERMIDTAIL, SC_MARK_EMPTY);
 
+#if 0
+// source folding section
+// tell the lexer that we want folding information - the lexer supplies "folding levels"
+   SendMessage(SCI_SETPROPERTY, (WPARAM)_T("fold"), (LPARAM)_T("1"));
+   SendMessage(SCI_SETPROPERTY, (WPARAM)_T("fold.html"), (LPARAM)_T("1"));
+  SendMessage(SCI_SETPROPERTY, (WPARAM)_T("fold.html.preprocessor"), (LPARAM)_T("1"));
+   SendMessage(SCI_SETPROPERTY, (WPARAM)_T("fold.comment"), (LPARAM)_T("1"));
+   SendMessage(SCI_SETPROPERTY, (WPARAM)_T("fold.at.else"), (LPARAM)_T("1"));
+   SendMessage(SCI_SETPROPERTY, (WPARAM)_T("fold.flags"), (LPARAM)_T("1"));
+   SendMessage(SCI_SETPROPERTY, (WPARAM)_T("fold.preprocessor"), (LPARAM)_T("1"));
+   SendMessage(SCI_SETPROPERTY, (WPARAM)_T("styling.within.preprocessor"), (LPARAM)_T("1"));
+   SendMessage(SCI_SETPROPERTY, (WPARAM)_T("asp.default.language"), (LPARAM)_T("1"));
+// Tell scintilla to draw folding lines UNDER the folded line
+   SendMessage(SCI_SETFOLDFLAGS, 16,0);
+// Set margin 2 = folding margin to display folding symbols
+	SendMessage(SCI_SETMARGINMASKN, 2, SC_MASK_FOLDERS);
+#endif
+   SendMessage(SCI_SETSELFORE,true,GetSysColor(COLOR_HIGHLIGHTTEXT));
+   SendMessage(SCI_SETSELBACK,true,GetSysColor(COLOR_HIGHLIGHT));
+   SetShowAlphabet(false);
 }
 /////////////////////////////////////
 // @mfunc Update UI and do brace matching
@@ -1116,6 +1112,53 @@ int CScintillaWnd::ReplaceAll(
    return nCount;
 }
 
+void CScintillaWnd::SetShowAlphabet(BOOL show)
+{
+	// we do not check if show == m_bShowAlphabet, because this method is also 
+	// used to refresh the alphabet after changes to the text options
+	if (show) {
+		SendMessage(SCI_STYLESETFORE, atoi(STYLE_NONEALPHABET), RGB(192,192,192));
+		SendMessage(SCI_SETPROPERTY, (WPARAM)_T("cryptool.nonalphabetstyle"), (LPARAM)STYLE_NONEALPHABET);
+		SendMessage(SCI_SETPROPERTY, (WPARAM)_T("cryptool.alphabet"), (LPARAM)(LPCTSTR)theApp.TextOptions.m_alphabet);
+		SendMessage(SCI_SETSTYLEBITS, 5, 0);
+		SendMessage(SCI_SETLEXERLANGUAGE,0,(LPARAM)CT_LEXER_LANGUAGE );
+		if (SCLEX_NULL == SendMessage(SCI_GETLEXER)) {
+#ifdef BUILD_AS_EXTERNAL_LEXER
+			SendMessage(SCI_LOADLEXERLIBRARY,0,(LPARAM)CT_LEXER_LIB);
+			SendMessage(SCI_SETLEXERLANGUAGE,0,(LPARAM)CT_LEXER_LANGUAGE );
+#endif
+			if (SCLEX_NULL == SendMessage(SCI_GETLEXER)) {
+				show = false;
+				CString msg;
+				msg.Format(IDS_SCINTILLA_LEXER_ERROR,CT_LEXER_LIB);
+				MessageBox(msg);
+			}
+		}
+		SendMessage(SCI_CLEARDOCUMENTSTYLE, 0, 0);
+		SendMessage(SCI_COLOURISE,0,(LPARAM)1); // trigger re-lexing
+	} else {
+		SendMessage(SCI_SETLEXER, SCLEX_NULL);
+		SendMessage(SCI_CLEARDOCUMENTSTYLE, 0, 0);
+	}
+	m_bShowAlphabet = show;
+}
 
+#ifdef CONTAINER_LEXER_CURRENTLY_NOT_USED
+void CScintillaWnd::StyleNeeded(unsigned int startPos, unsigned int endPos, 
+						   const char *alphabet, unsigned int alphabetLen)
+{
+	SciFnDirect SendEditor = (SciFnDirect)SendMessage(SCI_GETDIRECTFUNCTION);
+	sptr_t swnd = (sptr_t)SendMessage(SCI_GETDIRECTPOINTER);
 
+	SendEditor(swnd, SCI_STARTSTYLING, startPos, 0x1f);
+	
+	int style;
+	unsigned int p;
+	for (p = startPos; p < endPos; p++) {
+		char c = SendEditor(swnd, SCI_GETCHARAT, p, 0);
+		style = memchr(alphabet, c, alphabetLen) ? STYLE_ALPHABET : STYLE_NONEALPHABET;
+		SendEditor(swnd, SCI_SETSTYLING, 1, style);
+	}
+}
 
+#endif
