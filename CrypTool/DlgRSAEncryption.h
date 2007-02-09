@@ -55,6 +55,7 @@ statement from your version.
 // RsaEnc.h : Header-Datei
 //
 #include "KeyFileHandling.h"
+#include "afxwin.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgRSAEncryption 
@@ -86,7 +87,7 @@ public:
 	CButton	m_ctrlOK;
 	CListCtrl	m_listview;
 	BOOL	m_ShowDuration;
-	CString	m_strHeadlineSelect;
+	CStatic m_ctrlHeadlineSelect;
 	//}}AFX_DATA
 
 // Überschreibungen
@@ -121,6 +122,7 @@ protected:
 	afx_msg void OnItemclickList1(NMHDR* pNMHDR, LRESULT* pResult);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+public:
 };
 
 //{{AFX_INSERT_LOCATION}}

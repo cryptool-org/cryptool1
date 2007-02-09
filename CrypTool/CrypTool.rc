@@ -11311,6 +11311,7 @@ BEGIN
     IDS_STRING_MSG_UUDEC_OF "UU-Dekodierung von <%s>"
     IDS_STRING_TEST_LONGRUN_BESTANDEN "Long-Runs-Test bestanden!"
     IDS_STRING_TEST_LONGRUN_NICHT_BESTANDEN "Long-Runs-Test nicht bestanden!"
+    IDS_OK                  "OK"
 END
 
 STRINGTABLE 
@@ -22801,6 +22802,7 @@ BEGIN
     IDS_STRING_MSG_UUDEC_OF "UU Decoding of <%s>"
     IDS_STRING_TEST_LONGRUN_BESTANDEN "Long runs test passed!"
     IDS_STRING_TEST_LONGRUN_NICHT_BESTANDEN "Long runs test failed!"
+    IDS_OK                  "OK"
 END
 
 STRINGTABLE 

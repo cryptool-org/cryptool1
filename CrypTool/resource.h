@@ -316,6 +316,7 @@
 #define IDD_Hill_Options                857
 #define IDD_ECCDECRECEIVER              858
 #define IDD_ECCENCRECEIVER              859
+#define IDS_OK                          860
 #define IDC_EDIT133                     1015
 #define IDC_EDIT1                       1016
 #define IDC_EDIT2                       1017
@@ -2849,7 +2850,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        860
+#define _APS_NEXT_RESOURCE_VALUE        861
 #define _APS_NEXT_COMMAND_VALUE         33341
 #define _APS_NEXT_CONTROL_VALUE         1897
 #define _APS_NEXT_SYMED_VALUE           107
