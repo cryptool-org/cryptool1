@@ -54,7 +54,6 @@ ENGLISH Edit # &Edit
 ENGLISH File # &File
 ENGLISH Help # &Help
 ENGLISH IndivProcedures # &Indiv. Procedures
-ENGLISH IndivProcedures_Compress # &Indiv. Procedures|&Compress
 ENGLISH IndivProcedures_Hash # &Indiv. Procedures|&Hash
 ENGLISH Options # &Options
 ENGLISH	Analysis	# &Analysis
@@ -75,25 +74,27 @@ ENGLISH CryptDecrypt_Symmetricmodern # &Crypt/Decrypt|Symmetric (&modern)
 ENGLISH CryptDecrypt_Hybrid # &Crypt/Decrypt|&Hybrid
 ENGLISH DigitalSignaturesPKI # Digital Signatures/&PKI
 ENGLISH DigitalSignaturesPKI_PKI # Digital Signatures/&PKI|&PKI
-ENGLISH IndivProcedures_Codes # &Indiv. Procedures|C&odes
-ENGLISH IndivProcedures_Codes_Base64EncodeDecode # &Indiv. Procedures|C&odes|&Base64 Encode/Decode
-ENGLISH IndivProcedures_Codes_UUEncodeDecode # &Indiv. Procedures|C&odes|&UU Encode/Decode
 ENGLISH IndivProcedures_Protocols # &Indiv. Procedures|&Protocols
 ENGLISH IndivProcedures_EducationalGames # &Indiv. Procedures|&Educational Games
 ENGLISH IndivProcedures_RSACryptosystem # &Indiv. Procedures|&RSA Cryptosystem
 ENGLISH IndivProcedures_ChineseRemainderTheoremApplications # &Indiv. Procedures|Chinese Remainder &Theorem Applications
-ENGLISH IndivProcedures_VisualizationofAlgorithmsusingANIMAL # &Indiv. Procedures|&Visualization of Algorithms using ANIMAL
 ENGLISH View # &View
 ENGLISH Window # &Window
 ENGLISH IndivProcedures_RSACryptosystem_LatticeBasedAttacksonRSA # &Indiv. Procedures|&RSA Cryptosystem|&Lattice Based Attacks on RSA
 ENGLISH PopUp # PopUp
 ENGLISH View_Font # &View|&Font
 ENGLISH IndivProcedures_EducationalGames # &Indiv. Procedures|&Educational Games
+ENGLISH CryptDecrypt_Symmetricmodern_Further # &Crypt/Decrypt|Symmetric (&modern)|&Further
+ENGLISH IndivProcedures_Tools # &Indiv. Procedures|&Tools
+ENGLISH IndivProcedures_Tools_Codes # &Indiv. Procedures|&Tools|C&odes
+ENGLISH IndivProcedures_Tools_Codes_Base64EncodeDecode # &Indiv. Procedures|&Tools|C&odes|&Base64 Encode/Decode
+ENGLISH IndivProcedures_Tools_Codes_UUEncodeDecode # &Indiv. Procedures|&Tools|C&odes|&UU Encode/Decode
+ENGLISH IndivProcedures_Tools_Compress # &Indiv. Procedures|&Tools|&Compress
+ENGLISH IndivProcedures_VisualizationofAlgorithms # &Indiv. Procedures|&Visualization of Algorithms
 GERMAN	Analyse	# A&nalyse
 GERMAN Bearbeiten # &Bearbeiten
 GERMAN Datei # &Datei
 GERMAN Einzelverfahren # &Einzelverfahren
-GERMAN Einzelverfahren_Komprimieren # &Einzelverfahren|&Komprimieren
 GERMAN Einzelverfahren_Protokolle # &Einzelverfahren|&Protokolle
 GERMAN Einzelverfahren_Lernspiele # &Einzelverfahren|&Lernspiele
 GERMAN Hilfe # &Hilfe
@@ -116,7 +117,6 @@ GERMAN Einzelverfahren_Hashverfahren # &Einzelverfahren|&Hashverfahren
 GERMAN Einzelverfahren_RSAKryptosystem # &Einzelverfahren|&RSA-Kryptosystem
 GERMAN Einzelverfahren_AnwendungendesChinesischenRestsatzes # &Einzelverfahren|Anwendungen des &Chinesischen Restsatzes
 GERMAN Einzelverfahren_RSAKryptosystem_GitterbasierteAngriffeaufRSA # &Einzelverfahren|&RSA-Kryptosystem|&Gitterbasierte Angriffe auf RSA
-GERMAN Einzelverfahren_VisualisierungvonAlgorithmenmitANIMAL # &Einzelverfahren|&Visualisierung von Algorithmen mit ANIMAL
 GERMAN VerEntschlsseln_Hybrid # &Ver-/Entschlüsseln|&Hybrid
 GERMAN VerEntschlsseln_Symmetrischklassisch # &Ver-/Entschlüsseln|Symmetrisch (&klassisch)
 GERMAN VerEntschlsseln_Symmetrischmodern # &Ver-/Entschlüsseln|Symmetrisch (&modern)
@@ -128,6 +128,11 @@ GERMAN Ansicht # &Ansicht
 GERMAN Fenster # &Fenster
 GERMAN Ansicht_Schriftart # &Ansicht|S&chriftart
 GERMAN PopUp # PopUp
-GERMAN Einzelverfahren_Codierungen # &Einzelverfahren|C&odierungen
-GERMAN Einzelverfahren_Codierungen_Base64CodierungBase64Decodierung # &Einzelverfahren|C&odierungen|&Base64-Codierung/Base64-Decodierung
-GERMAN Einzelverfahren_Codierungen_UUCodierungUUDecodierung # &Einzelverfahren|C&odierungen|&UU-Codierung/UU-Decodierung
+GERMAN Einzelverfahren_Tools # &Einzelverfahren|&Tools
+GERMAN Einzelverfahren_Tools_Codierungen # &Einzelverfahren|&Tools|C&odierungen
+GERMAN Einzelverfahren_Tools_Codierungen_Base64CodierungBase64Decodierung # &Einzelverfahren|&Tools|C&odierungen|&Base64-Codierung/Base64-Decodierung
+GERMAN Einzelverfahren_Tools_Codierungen_UUCodierungUUDecodierung # &Einzelverfahren|&Tools|C&odierungen|&UU-Codierung/UU-Decodierung
+GERMAN Einzelverfahren_Tools_Komprimieren # &Einzelverfahren|&Tools|&Komprimieren
+GERMAN Einzelverfahren_VisualisierungvonAlgorithmen # &Einzelverfahren|&Visualisierung von Algorithmen
+GERMAN VerEntschlsseln_Symmetrischmodern_Weitere # &Ver-/Entschl³sseln|Symmetrisch (&modern)|&Weitere
+

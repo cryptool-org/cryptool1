@@ -1851,6 +1851,9 @@
 #define ID_HYBRID_ECCDEC                33340
 #define ID_INDIV_POINTADDITIONONELLIPTICCURVES 33341
 #define ID_VIEW_ALPHABET                33342
+#define ID_VISUALISIERUNGVONALGORITHMEN_AESDETAILS 33342
+#define ID_CRYPT_DESX                   33343
+#define ID_FLASH_AESDEMO                33344
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -2728,6 +2731,7 @@
 #define IDS_ECIES_DEC_ERROR_03          39031
 #define IDS_ECIES_DEC_ERROR_42          39032
 #define IDS_ECIES_DEC_ERROR_05          39033
+#define IDS_AESDEMO_EXEC_STR            39044
 #define IDS_DH_LOG_1                    61889
 #define IDS_DH_LOG_2                    61890
 #define IDS_DH_LOG_3                    61891
@@ -2851,7 +2855,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        861
-#define _APS_NEXT_COMMAND_VALUE         33341
+#define _APS_NEXT_COMMAND_VALUE         33343
 #define _APS_NEXT_CONTROL_VALUE         1897
 #define _APS_NEXT_SYMED_VALUE           107
 #endif
