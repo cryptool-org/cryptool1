@@ -355,6 +355,9 @@ UINT CHashRunnable::run()
 	ASSERT(rc == 0);
 	bool canceledbyuser = canceled();
 	theApp.fs.cancel();
+
+	while ( theApp.fs.m_displayed )	Sleep(10);  // Wait until the progress window is destroyed: FIXME !!!
+
 	CDlgShowHash HashDlg;
 	HashDlg.SetHash( hashostr, OldTitle, AlgTitel );
 	if ( !canceledbyuser && IDOK == HashDlg.DoModal() )
@@ -363,15 +366,6 @@ UINT CHashRunnable::run()
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_HASH_VALUE_OF,pc_str,STR_LAENGE_STRING_TABLE);
 		MakeNewName2(title,sizeof(title),pc_str,OldTitle,AlgTitel);
 		theApp.ThreadOpenDocumentFileNoMRU(outfile,title);
-#if 0
-		NewDoc = theApp.OpenDocumentFileNoMRU(outfile);
-		remove(outfile);
-		if(NewDoc) {
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_HASH_VALUE_OF,pc_str,STR_LAENGE_STRING_TABLE);
-				MakeNewName2(title,sizeof(title),pc_str,OldTitle,AlgTitel);
-				NewDoc->SetTitle(title);
-			}
-#endif
 	}
 	theApp.SecudeLib.aux_free(hashostr.octets);
 	delete this;
