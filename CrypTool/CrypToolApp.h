@@ -214,6 +214,7 @@ public:
 	afx_msg void OnPrimenumberTest();
 	afx_msg void OnAesSelfextract();
 	afx_msg void OnIndivPointadditiononellipticcurves();
+	afx_msg void OnFlashAesdemo();
 };
 
 class CMainFrame : public CMDIFrameWnd

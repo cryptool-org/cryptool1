@@ -217,6 +217,7 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 ON_COMMAND(ID_PRIMENUMBER_TEST, OnPrimenumberTest)
 ON_COMMAND(ID_AES_SELFEXTRACT, OnAesSelfextract)
 ON_COMMAND(ID_INDIV_POINTADDITIONONELLIPTICCURVES, OnIndivPointadditiononellipticcurves)
+ON_COMMAND(ID_FLASH_AESDEMO, OnFlashAesdemo)
 END_MESSAGE_MAP()
 
 
@@ -1075,7 +1076,7 @@ void CCrypToolApp::execAnimalVisualization(int animalPathID, int animalFileID, i
 	animalFile = animalLocale + CString(" ") + CString("\"") + animalPath + animalFile +CString("\"");
 
 
-	HINSTANCE hInst=ShellExecute(NULL,NULL,animalExecutable,animalFile, animalPath, SW_SHOW); 
+	HINSTANCE hInst=ShellExecute(NULL,NULL,animalExecutable,animalFile, animalPath, SW_HIDE); 
 
 	if ( reinterpret_cast<int>(hInst) <= 32 )
 		Message(IDS_ERROPEN_ANIM, MB_ICONSTOP);
@@ -1214,15 +1215,25 @@ void CCrypToolApp::OnAesSelfextract()
 void CCrypToolApp::OnIndivPointadditiononellipticcurves()
 {
 	CString ECCPath, ECCFile, ECCExecutable;
-// Punktaddition auf einer Elliptischen Kurve
+	HINSTANCE hInst;
+
 
 	LoadString(AfxGetInstanceHandle(),IDS_ECCDemo_EXECUTABLE,pc_str,STR_LAENGE_STRING_TABLE);
 	ECCExecutable = pc_str; //IDS_ECCDemo_EXECUTABLE     java.exe
 
 	LoadString(AfxGetInstanceHandle(),IDS_ECCDemo_FILE,pc_str,STR_LAENGE_STRING_TABLE);
-	ECCFile = pc_str; //IDS_ECCDemo_FILE .\\ECCDemo.jar
+	ECCFile = pc_str; // ECCDemo.jar
 
-	HINSTANCE hInst=ShellExecute(NULL,NULL,ECCExecutable,ECCFile,NULL,SW_HIDE);
+	hInst=ShellExecute(NULL,NULL, ECCExecutable, ECCFile, Pfad, SW_HIDE);
 
+	if ( reinterpret_cast<int>(hInst) <= 32 ) Message(IDS_ERROPEN_ECCDemo, MB_ICONSTOP);
+}
+
+void CCrypToolApp::OnFlashAesdemo()
+{
+	CString AESDemoExecStr;
+	AESDemoExecStr.LoadString(IDS_AESDEMO_EXEC_STR);
+
+	HINSTANCE hInst = ShellExecute(NULL,NULL, AESDemoExecStr, " ", Pfad, SW_SHOW);
 	if ( reinterpret_cast<int>(hInst) <= 32 ) Message(IDS_ERROPEN_ECCDemo, MB_ICONSTOP);
 }
