@@ -1141,6 +1141,7 @@ void CScintillaWnd::SetShowAlphabet(BOOL show)
 		SendMessage(SCI_CLEARDOCUMENTSTYLE, 0, 0);
 		SendMessage(SCI_COLOURISE,0,(LPARAM)1); // trigger re-lexing
 	} else {
+		SendMessage(SCI_SETVIEWEOL, TRUE, 0); // if omitted and word wrap is active only the first line of a paragraph is shown
 		SendMessage(SCI_SETLEXER, SCLEX_NULL);
 		SendMessage(SCI_CLEARDOCUMENTSTYLE, 0, 0);
 	}
