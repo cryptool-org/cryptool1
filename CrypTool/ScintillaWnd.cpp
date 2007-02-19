@@ -523,14 +523,16 @@ void CScintillaWnd::CopyCut(UINT msg)
 void CScintillaWnd::Paste()
 {
    HGLOBAL mem = NULL;
-   if (OpenClipboard() &&
+   int clipboardopen = OpenClipboard();
+   if (clipboardopen &&
 	   (mem = GetClipboardData(m_nBinDataClipboardFormat)) != NULL)
    {
 		LPBYTE memptr = NULL;
 		if ((memptr = (LPBYTE)::GlobalLock(mem)) != NULL) {
 			UINT len = *(UINT*)memptr;
 			SendMessage(SCI_BEGINUNDOACTION);
-			SendMessage(SCI_CLEAR);
+			if ((GetSelectionEnd() - GetSelectionStart()) != 0)
+				SendMessage(SCI_CLEAR); // if called without selection one char is overwritten
 			SendMessage(SCI_ADDTEXT,len,(LPARAM)(memptr + sizeof(UINT)));
 			SendMessage(SCI_ENDUNDOACTION);
 		}
@@ -538,6 +540,8 @@ void CScintillaWnd::Paste()
 			::GlobalUnlock(mem);
 		CloseClipboard();
    } else {
+		if (clipboardopen)
+			CloseClipboard();
 		SendMessage(SCI_PASTE, 0, 0);
    }
 }
