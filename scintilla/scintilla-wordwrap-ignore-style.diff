@@ -1,0 +1,14 @@
+diff -ur scintilla1\src\Editor.cxx scintilla\src\Editor.cxx
+--- scintilla1\src\Editor.cxx	Fri Jul 21 00:02:50 2006
++++ scintilla\src\Editor.cxx	Tue Feb 20 11:56:51 2007
+@@ -2138,8 +2138,10 @@
+ 												- posLineStart;
+ 						p = pdoc->MovePositionOutsideChar(p + 1 + posLineStart, 1) - posLineStart;
+ 						continue;
++#ifdef BREAK_ON_STYLE_CHANGES
+ 					} else if (ll->styles[p] != ll->styles[p - 1]) {
+ 						lastGoodBreak = p;
++#endif
+ 					} else if (IsSpaceOrTab(ll->chars[p - 1]) && !IsSpaceOrTab(ll->chars[p])) {
+ 						lastGoodBreak = p;
+ 					}
