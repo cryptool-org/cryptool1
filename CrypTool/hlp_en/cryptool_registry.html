@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>CrypTool Registry</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Birthday attack/birthday paradox">
+	<PARAM NAME="Keyword" VALUE="Default settings">
+	<PARAM NAME="Keyword" VALUE="CrypTool">
+	<PARAM NAME="Keyword" VALUE="Initialization file">
+	<PARAM NAME="Keyword" VALUE="Configuration file">
+</OBJECT>
+
+<BODY>
+
+<h3><P><A NAME="cryptool_registry"></A><B>The CrypTool Registry"</B></P></h3>
+
+<P>The default settings for some options used in CrypTool to survive a program session (persistance) are stored into the CrypTool registry. </P>
+
+<P>Starting CrypTool the first time introducing information (starting dialog and an example file) will be shown. Each time you have the option to decide if this will be shown in the future starts of CrypTool.</P>
+
+<P>The file CrypTool registry is located in the standard Windows registry (you may open the windows registry with the DOS command regedit.exe) at the following path:</P>
+<P>HKEY_CURRENT_USER/Software/CrypTool</P>
+
+<!-- TODO !!!
+<P> Below the information stored in CrypTool.ini is explained.</P>
+<P>The CrypTool.ini file is organized in sections. Each section starts with an expression in brackets. CrypTool uses the sections </P>
+
+<UL>
+	<LI>[Settings] for generic settings, </LI>
+
+	<LI>[Recent File List] for the list of the 10 last files which where opened in CrypTool and </LI>
+
+	<LI>[SigAttTest] for parameters used to control the series of experiments of the birthday attack against the digital signature.</LI>
+</UL>
+
+<P><B>Section [Settings]: General Settings </B></P>
+
+<OL>
+
+	<LI> Start options for CrypTool:<BR>
+The <A href="hid_options_startoptions.html">Start options</A> are set via the menu <A href="menu_options.html"><B>Options</B></A><B> \ Start options</B>. <BR>
+<CODE>NoTipps=1</CODE> or <CODE>NoTipps=0</CODE> define if the "How to Start" dialog is shown at the begin of CrypTool.<BR>
+<CODE>SampleTextFile=1</CODE> or <CODE>SampleTextFile=0</CODE> defines, if CrypTool opens automatically an example file or if it starts with an empty main window.<BR><BR></LI>
+
+	<LI> Options for the <A href="hid_einzelverfahren_diffiehellmandemo.html">Diffie-Hellman key exchange protocol</A>: <BR>
+If you start the Diffie-Hellman key exchange protocol at first time, a short introducing dialog text is shown at the beginning. The variable <CODE>DH_IntroDialogue </CODE>in the CrypTool.ini file controls if this dialog will be shown. If you set this variable to 0, this information dialog will be shown no more. Setting this variable to 1 or deleting this variable will lead to the opposite. These settings are also controlled via the menu <A href="menu_options.html"><B>Options</B></A><B> \ Further Options</B>.<BR>
+Before each single step of the Diffie-Hellman protocol information to this step will be shown. Setting <CODE>DH_InfoDialogues</CODE> to 0 disables the appearence of these dialogs. Setting this variable to 1 or deleting this variable will enable the information again.<BR><BR></LI>
+
+	<LI> Options to the <A href="hid_signatur_attack.html">birthday attack on the digital signature</A>:<BR>
+The options which are set in the dialog <A href="hidd_options_signature_attack.html">Options for the birthday attack on the digital signature</A> are stored within the CrypTool.ini file as follows:<BR>
+<BR>
+The option <CODE>SignatureAttackTestMode=1</CODE> controls that instead of the interactive usage a series of experiments for the birthday attack is performed (see below: series of experiments for the birthday attack against the digital signature). By default this option has the value <CODE>0</CODE> for interactive usage.<BR>
+<BR>
+The option <CODE>SignatureAttackHashAlgorithmID </CODE>stores the hash function (0=MD2, 1=MD4, 2=MD5, 3=SHA, 4=SHA-1, 5=RIPEMD-160) which should be attacked. The option <CODE>SignatureAttackSignificantBitLength=32 </CODE>defines the number of significant bits, which are considerd during the collision search (in this example 32 bits). <BR>
+<BR>
+If the option <CODE>SignatureAttackModificationMethod </CODE>is set to 1 (which means that during the text modification additional blanks or carriage returns (whitespaces) are included), then the parameters <CODE>SignatureAttackCheck1</CODE> resp. <CODE>SignatureAttackCheck3</CODE> control whether blanks before end of line resp. doubling blanks are allowed during the text modification. <BR>
+If the option <CODE>SignatureAttackModificationMethod </CODE>is set to <CODE>0</CODE> (then the text modification takes place in the last row of the text), then the option <CODE>SignatureAttackAttMethod=0</CODE> or <CODE>=1</CODE> defines whether the characters of the text modification are visible (for demonstration) or not.<BR>
+<BR>
+Beside the options above the paths of the initial files for the signature attack are stored within the ini file. If you remove the following rows from your CrypTool.ini file then the initial paths of the CrypTool example files are stored within the ini file:</P>
+
+<PRE><CODE>SignatureAttackHarmlessFile=C:\Programs\CrypTool\original.txt
+SignatureAttackDangerousFile=C:\Programs\CrypTool\fake.txt</CODE></PRE><BR><BR></LI>
+
+</OL>
+
+<P><B>Section [SigAttTest]: Series of experiments for the birthday attack against the digital signature</B></P>
+
+<P>Within a series of experiments (series of tests) the attack is done automatically without interaction for different parameters.</P>
+
+<P>A series of experiments for the <A href="hid_signatur_attack.html">birthday attack against the digital signature</A> is controlled via the configuration file CrypTool.ini. This requires the variable <CODE>SignatureAttackTestMode</CODE> in section [Settings] to be set to 1 and the settings in section [SigAttTest] to to be enhanced by the following parameters:</P>
+
+<P>The directories of the harmless and the dangerous file are set via the variables <CODE>HarmlessDocument</CODE> and <CODE>DangerousDocument</CODE>.</P>
+
+<P>The parameters <CODE>SignificantBitLengthMIN</CODE> and <CODE>SignificantBitLengthMAX</CODE> define the start length and the end length of the significant bits for the hash values. The parameter <CODE>SignificantBitLengthJump</CODE> defines the step width for each increase of the significant bit length during the test row.</P>
+
+<P>Using the parameters <CODE>HashAlgorithmIDMIN=0</CODE> and <CODE>HashAlgorithmIDMAX=2</CODE> you can determine the hash functions during the series of experiments. The example above (a range from 0 to 2) means that during the experiments against the hash funtions MD2, MD4 und MD5 (0=MD2, 1=MD4, 2=MD5, 3=SHA, 4=SHA-1, 5=RIPEMD-160) are performed. </P>
+
+<P>The parameter <CODE>Attempts</CODE> defines how often for each fixed parameter (see above) a test has to be repeated independantly (those replays are valuable for statistic analysis).</P>
+
+<P>The series of experiments is documented by 4 report files:</P>
+
+<P>The results of the birthday attacks are stored in a log file. Additionally the original harmless and the original dangerous file plus the configuration of the series of experiments in further report files. To ensure a unique matching of the report files a numeric time prefix <CODE>&lt;TIME&gt;</CODE> is added by CrypTool to the file names. You can define the directory of the report files using the parameter <CODE>LogPath</CODE>. </P>
+
+<P>The 4 report files have the following names:</P>
+
+<P><CODE>&lt;TIME&gt;_Dangerous.txt //</CODE> Original text of the dangerous file</P>
+
+<P><CODE>&lt;TIME&gt;_Harmless.txt  //</CODE> Original text of the harmless file</P>
+
+<P><CODE>&lt;TIME&gt;_Header.txt    //</CODE> Configuration of the series of experiments</P>
+
+<P><CODE>&lt;TIME&gt;_Log.txt       //</CODE> Results of the series of experiments</P>
+
+<P>Example: </P>
+
+<P>The following configuration determines the series of experiments for the birthday attack against the digital signature over the files <CODE>original.txt</CODE> and <CODE>fake.txt</CODE> for significant bit lengths of 32, 34, ..., 40 bit. The hash functions MD2, MD4 and MD5 are used. For each configuration (bit length, hash function) the attack is repeated independently 10 times. This test row applies the birthday attack 5 x 3 x 10 = 150 times.</P>
+
+<PRE><CODE>[SigAttTest]
+SignificantBitLengthMIN=32
+SignificantBitLengthMAX=40
+SignificantBitLengthJump=2
+HashAlgorithmIDMIN=0
+HashAlgorithmIDMAX=2
+Attempts=10
+HarmlessDocument=C:\Programs\CrypTool\original.txt</CODE></PRE>
+
+<P><CODE>DangerousDocument=C:\Programs\CrypTool\fake.txt</CODE></P>
+
+<PRE><CODE>LogPath=C:\results\</CODE></PRE>
+
+<P><B>Remark 1</B>:</P>
+
+<P>Please keep in mind that all parameters/options (besides the ones for the birthday attack series of experiments) should be set only via the option dialogs within CrypTool. Only there checks against false input values are made. </P>
+
+<P>This documentation here about CrypTool.ini is made above all for developers or "researchers" and less for "normal" users.</P>
+
+<P>Only the ones who do series of experiments with CrypTool must directly edit CrypTool.ini. Then they have to take care to make only correct settings.</P>
+
+<P><B>Section [Recent File List]: List of the </B><A href="hid_file_mru_file1.html">last 10 files used in CrypTool</A> </P>
+
+<P>Example:</P>
+
+<PRE><CODE>File1=C:\Programme\CrypTool\Vigenére.txt
+File2=E:\CrypTool\geheim.txt
+File3=E:\CrypTool\Original.txt
+File4=C:\Programme\CrypTool\Angebotsbestätigung.txt
+File5=C:\Programme\CrypTool\deutsch.txt
+File6=C:\develop\CrypTool\source\CrypTool\asn1 examples\certs.p7s
+File7=C:\Programme\CrypTool\test.txt
+File8=C:\Programme\CrypTool\vertraulich an Bob.txt
+File9=C:\Programme\CrypTool\pse\pseca\psec</CODE></PRE>
+
+<P><B>Remark 2</B>:</P>
+
+<P>The following parameters are stored in CrypTool during the current session, but not permanently:</P>
+
+<UL>
+	<LI>Passwords used for different encryption methods, </LI>
+
+	<LI>Length of the entropy window used at the brute-force analysis.</LI>
+</UL>
+-->
+</BODY>
+</HTML>
