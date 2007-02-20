@@ -6,6 +6,7 @@
 #define IDS_FINDANDREPLACE_TEXTNOTFOUND 2
 #define IDCANCEL2                       3
 #define IDS_FINDANDREPLACE_TEXTOCCURANCESREPLACED 3
+#define IDOK2                           3
 #define IDCANCEL3                       4
 #define IDS_HASHDEMO_STRING_MD2         4
 #define IDCANCEL4                       5
@@ -62,6 +63,7 @@
 #define IDC_EDIT191                     58
 #define IDD_PLAYFAIR_ANALYSIS           102
 #define IDD_ICG_RANDOMPARAMETER         103
+#define IDR_HTML_SELECTPASTEENCODING    107
 #define IDD_KEY                         109
 #define IDD_RSA_DECRYPTION              110
 #define IDD_KEY_SUBSTITUTION            112
@@ -1571,6 +1573,8 @@
 #define IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_3 30730
 #define IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_1 30731
 #define IDD_SELECTCOPYENCODING1         30732
+#define IDD_SELECTPASTEDECODING         30732
+#define IDD_SELECTPASTEDECODING1        30733
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
 #define ID_HILL                         33002
@@ -2707,6 +2711,9 @@
 #define IDS_STRING_COMMA                38116
 #define IDS_CRYPT_ATBASH                38117
 #define IDS_BUILD_INFO                  38118
+#define IDS_RSA_BM_CHECKN               38119
+#define IDS_RSA_BM_CHECKE               38120
+#define IDS_RSA_BM_CHECKD               38121
 #define IDS_ECCDemo_PATH                39000
 #define IDS_ECCDemo_EXECUTABLE          39001
 #define IDS_ECCDemo_FILE                39002
@@ -2857,6 +2864,6 @@
 #define _APS_NEXT_RESOURCE_VALUE        861
 #define _APS_NEXT_COMMAND_VALUE         33343
 #define _APS_NEXT_CONTROL_VALUE         1897
-#define _APS_NEXT_SYMED_VALUE           107
+#define _APS_NEXT_SYMED_VALUE           108
 #endif
 #endif

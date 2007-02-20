@@ -1149,7 +1149,7 @@ void CDlgKeyAsymGeneration::CreateAsymKeys()
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_KEY_GENERATION_TIME,pc_str,STR_LAENGE_STRING_TABLE);
 	char temp[256];
 	char strDuration[20];
-	double_fmt( duration, strDuration, 2 );
+	double_fmt( duration, strDuration, 3 );
 	sprintf(temp, pc_str, strDuration);
 	AfxMessageBox (((CString)pc_str1)+((CString)"\n\n")+temp,MB_ICONINFORMATION);
 }

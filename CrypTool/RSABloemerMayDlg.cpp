@@ -121,52 +121,75 @@ HCURSOR CRSABloemerMayDlg::OnQueryDragIcon()
 //////////////////////////////////////////////
 // Start the attack.
 //////////////////////////////////////////////
+
+void CRSABloemerMayDlg::errorMessageBox(long ID)
+{
+    CString tmp, myTitle;
+	tmp.Format(ID);
+	this->GetWindowText(myTitle);
+	MessageBox(tmp, myTitle);
+}
+
 void CRSABloemerMayDlg::OnStart() 
 {
 	UpdateData();
 	CString tmp;
 	if(!(CStringToDouble(m_delta)>0)){
-		tmp.Format(IDS_RSA_BM_DELTAVALUE);
-				CString myTitle;
-		this->GetWindowText(myTitle);
-		MessageBox(tmp,myTitle);
+		errorMessageBox(IDS_RSA_BM_DELTAVALUE);
+		return;
 	}
-	else if(CStringToDouble(m_delta)>0.29){
-		tmp.Format(IDS_RSA_BM_DELTATOOBIG);
-		CString myTitle;
-		this->GetWindowText(myTitle);
-		MessageBox(tmp,myTitle);
+	if(CStringToDouble(m_delta)>0.29){
+		errorMessageBox(IDS_RSA_BM_DELTATOOBIG);
+		return;
 	}
-	else if(CStringToDouble(m_delta)>CStringToDouble(m_maxdelta)){
-		tmp.Format(IDS_RSA_BM_MAXDELTA);
-		CString myTitle;
-		this->GetWindowText(myTitle);
-		MessageBox(tmp,myTitle);
-	}
-	else
+	if(CStringToDouble(m_delta)>CStringToDouble(m_maxdelta)){
+		errorMessageBox(IDS_RSA_BM_MAXDELTA);
+		return;
+	}	
+
+	NTLExpPars myPars;
+	if ( 8 > NumBits(myPars.parseExp(m_N)) )
 	{
-		// disable everything that could make trouble
-		GetDlgItem(IDC_BUTTONSTART)->EnableWindow(false);
-		GetDlgItem(IDC_CANCELATTACK)->EnableWindow(true);
-		enableDisable(false);
-
-		// timer to update the time display
-		SetTimer(1, 1000, 0);
-		elapsedTime=0;
-		// read all the parameters
-		NTLExpPars myPars;
-		sa.setN(myPars.parseExp(m_N));
-		sa.setE(myPars.parseExp(m_e));
-		sa.setDelta(CStringToDouble(m_delta));
-		sa.setM(m_m);
-		sa.setT(GetDlgItemInt(IDC_EDITT));
-		sa.status=1;
-		SetDlgItemText(IDC_EDITP,"");
-		SetDlgItemText(IDC_EDITQ,"");
-		// start the attack by calling the thread function
-		pThread = AfxBeginThread (thrFunction, this);
-
+		errorMessageBox(IDS_RSA_BM_CHECKN);
+		// FIXME 
+		return;
 	}
+	if ( 8 > NumBits(myPars.parseExp(m_e)) )
+	{
+		errorMessageBox(IDS_RSA_BM_CHECKE);
+		// FIXME 
+		return;
+	}
+	if ( 4 > NumBits(myPars.parseExp(m_d)) )
+	{
+		errorMessageBox(IDS_RSA_BM_CHECKD);
+		// FIXME
+		return;
+	}
+
+
+
+	// Start Attack
+	// disable everything that could make trouble
+	GetDlgItem(IDC_BUTTONSTART)->EnableWindow(false);
+	GetDlgItem(IDC_CANCELATTACK)->EnableWindow(true);
+	enableDisable(false);
+
+	// timer to update the time display
+	SetTimer(1, 1000, 0);
+	elapsedTime=0;
+	// read all the parameters
+	sa.setN(myPars.parseExp(m_N));
+	sa.setE(myPars.parseExp(m_e));
+	sa.setDelta(CStringToDouble(m_delta));
+	sa.setM(m_m);
+	sa.setT(GetDlgItemInt(IDC_EDITT));
+	sa.status=1;
+	SetDlgItemText(IDC_EDITP,"");
+	SetDlgItemText(IDC_EDITQ,"");
+	// start the attack by calling the thread function
+	pThread = AfxBeginThread (thrFunction, this);
+
 }
 //////////////////////////////////////////////
 // Gnerate a random example

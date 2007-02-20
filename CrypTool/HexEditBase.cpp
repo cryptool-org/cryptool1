@@ -55,6 +55,7 @@ statement from your version.
 #include "resource.h"
 #include "stdafx.h"
 #include "SelectCopyEncoding.h"
+#include "SelectPasteDecoding.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // defines
@@ -2120,7 +2121,12 @@ void CHexEditBase::OnEditPaste()
 	bool doHexdecode = false;
 	int nHexDigits = countHexDigits(pSource,nSourceByteLength); // < 0 or odd if non valid hex encoding
 	if (nHexDigits > 0 && nHexDigits % 2 == 0) {
-		if (IDYES == AfxMessageBox(IDS_CLIPBOARD_HEXPASTE, MB_YESNO | MB_ICONQUESTION | MB_DEFBUTTON2)) {
+		int decoding = CSelectPasteDecoding::selectPasteDecoding();
+		if (decoding < 0)
+			return;
+		if ( 1 == decoding )
+		{
+		// if (IDYES == AfxMessageBox(IDS_CLIPBOARD_HEXPASTE, MB_YESNO | MB_ICONQUESTION | MB_DEFBUTTON2)) {
 			doHexdecode = true;
 			nSourceByteLength = nHexDigits / 2;
 		}

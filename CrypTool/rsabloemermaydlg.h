@@ -91,6 +91,8 @@ private:
 	ZZ GetDlgItemZZ(int ID, int base);
 	long elapsedTime;
 	CWinThread* pThread;
+
+	void errorMessageBox(long ID);
 };
 
 //{{AFX_INSERT_LOCATION}}

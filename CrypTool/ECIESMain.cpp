@@ -185,7 +185,9 @@ CDlgECCEncSender ECCEncDialogSender;
 				if (ECCEncDialogReceiver.m_ShowDuration==TRUE)
 				{
 					LoadString(AfxGetInstanceHandle(),IDS_ECIES_ENC_TIME,pc_str1,STR_LAENGE_STRING_TABLE);
-					sprintf(pc_str, pc_str1, duration);
+					char strDuration[20];
+					double_fmt( duration, strDuration, 3 );
+					sprintf(pc_str, pc_str1, strDuration);
 					AfxMessageBox (((CString)pc_str),MB_ICONINFORMATION|MB_OK);
 				}
 //				theApp.SecudeLib.af_close (PseHandle);
@@ -373,7 +375,9 @@ int error;
 		if (ECCDecDialogReceiver.m_ShowDuration==TRUE)
 		{
 			LoadString(AfxGetInstanceHandle(),IDS_ECIES_DEC_TIME,pc_str1,STR_LAENGE_STRING_TABLE);
-			sprintf(pc_str, pc_str1, duration);
+			char strDuration[20];
+			double_fmt( duration, strDuration, 3 );
+			sprintf(pc_str, pc_str1, strDuration);
 			AfxMessageBox (((CString)pc_str),MB_ICONINFORMATION|MB_OK);
 		}
 		theApp.SecudeLib.af_close (PseHandle);

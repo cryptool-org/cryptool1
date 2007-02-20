@@ -340,7 +340,7 @@ void RsaEnc(char* infile, const char *OldTitle){
 		{
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_RSA_ENCRYPTION_TIME,pc_str1,STR_LAENGE_STRING_TABLE);
 			char strDuration[20];
-			double_fmt( duration, strDuration, 2 );
+			double_fmt( duration, strDuration, 3 );
 			sprintf(pc_str, pc_str1, strDuration);
 			AfxMessageBox (((CString)pc_str),MB_ICONINFORMATION|MB_OK);
 		}
@@ -487,7 +487,7 @@ int test = 1234;
 		{
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_RSA_DECRYPTION_TIME,pc_str1,STR_LAENGE_STRING_TABLE);
 			char strDuration[20];
-			double_fmt( duration, strDuration, 2 );
+			double_fmt( duration, strDuration, 3 );
 			sprintf(pc_str, pc_str1, strDuration);
 			AfxMessageBox (((CString)pc_str),MB_ICONINFORMATION|MB_OK);
 		}
@@ -759,7 +759,7 @@ void Sign(char* infile, const char *OldTitle)
 		{
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SIGNATURE_GENERATION_TIME,pc_str1,STR_LAENGE_STRING_TABLE);
 			char strDuration[20];
-			double_fmt( duration, strDuration, 2 );
+			double_fmt( duration, strDuration, 3 );
 			sprintf(pc_str, pc_str1, strDuration);
 			AfxMessageBox (((CString)pc_str),MB_ICONINFORMATION|MB_OK);
 		}
@@ -1461,7 +1461,7 @@ void Verify(char* infile, const char *OldTitle)
 						LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SIGNATURE_VERIFICATION_TIME,pc_str,STR_LAENGE_STRING_TABLE);
 						LoadString(AfxGetInstanceHandle(),IDS_STRING_BAD_SIGNATURE,temp,STR_LAENGE_STRING_TABLE);
 						char strDuration[20];
-						double_fmt( duration, strDuration, 2 );
+						double_fmt( duration, strDuration, 3 );
 						sprintf(pc_str1, pc_str, strDuration);
 						sprintf(pc_str, temp, pc_str1);
 						AfxMessageBox (pc_str, MB_ICONEXCLAMATION);
@@ -1480,7 +1480,7 @@ void Verify(char* infile, const char *OldTitle)
 						LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SIGNATURE_VERIFICATION_TIME,pc_str,STR_LAENGE_STRING_TABLE);
 						LoadString(AfxGetInstanceHandle(),IDS_STRING_CORRECT_SIGNATURE,temp,STR_LAENGE_STRING_TABLE);
 						char strDuration[20];
-						double_fmt( duration, strDuration, 2 );
+						double_fmt( duration, strDuration, 3 );
 						sprintf(pc_str1, pc_str, strDuration);
 						sprintf(pc_str, temp, pc_str1);
 						AfxMessageBox (pc_str, MB_ICONINFORMATION);
@@ -1507,7 +1507,7 @@ void Verify(char* infile, const char *OldTitle)
 						LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SIGNATURE_VERIFICATION_TIME,pc_str,STR_LAENGE_STRING_TABLE);
 						LoadString(AfxGetInstanceHandle(),IDS_STRING_BAD_SIGNATURE,temp,STR_LAENGE_STRING_TABLE);
 						char strDuration[20];
-						double_fmt( duration, strDuration, 2 );
+						double_fmt( duration, strDuration, 3 );
 						sprintf(pc_str1, pc_str, strDuration);
 						sprintf(pc_str, temp, pc_str1);
 						AfxMessageBox (pc_str, MB_ICONEXCLAMATION);
@@ -1526,7 +1526,7 @@ void Verify(char* infile, const char *OldTitle)
 						LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SIGNATURE_VERIFICATION_TIME,pc_str,STR_LAENGE_STRING_TABLE);
 						LoadString(AfxGetInstanceHandle(),IDS_STRING_CORRECT_SIGNATURE,temp,STR_LAENGE_STRING_TABLE);
 						char strDuration[20];
-						double_fmt( duration, strDuration, 2 );
+						double_fmt( duration, strDuration, 3 );
 						sprintf(pc_str1, pc_str, strDuration);
 						sprintf(pc_str, temp, pc_str1);
 						AfxMessageBox (pc_str, MB_ICONINFORMATION);
@@ -1724,7 +1724,7 @@ void Verify(char* infile, const char *OldTitle)
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SIGNATURE_VERIFICATION_TIME,pc_str,STR_LAENGE_STRING_TABLE);
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_BAD_SIGNATURE,temp,STR_LAENGE_STRING_TABLE);
 				char strDuration[20];
-				double_fmt( duration, strDuration, 2 );
+				double_fmt( duration, strDuration, 3 );
 				sprintf(pc_str1, pc_str, strDuration);
 				sprintf(pc_str, temp, pc_str1);
 				AfxMessageBox (pc_str, MB_ICONEXCLAMATION);
@@ -1743,7 +1743,7 @@ void Verify(char* infile, const char *OldTitle)
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SIGNATURE_VERIFICATION_TIME,pc_str,STR_LAENGE_STRING_TABLE);
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_CORRECT_SIGNATURE,temp,STR_LAENGE_STRING_TABLE);
 				char strDuration[20];
-				double_fmt( duration, strDuration, 2 );
+				double_fmt( duration, strDuration, 3 );
 				sprintf(pc_str1, pc_str, strDuration);
 				sprintf(pc_str, temp, pc_str1);
 				AfxMessageBox (pc_str, MB_ICONINFORMATION);
