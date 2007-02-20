@@ -134,5 +134,5 @@ GERMAN Einzelverfahren_Tools_Codierungen_Base64CodierungBase64Decodierung # &Ein
 GERMAN Einzelverfahren_Tools_Codierungen_UUCodierungUUDecodierung # &Einzelverfahren|&Tools|C&odierungen|&UU-Codierung/UU-Decodierung
 GERMAN Einzelverfahren_Tools_Komprimieren # &Einzelverfahren|&Tools|&Komprimieren
 GERMAN Einzelverfahren_VisualisierungvonAlgorithmen # &Einzelverfahren|&Visualisierung von Algorithmen
-GERMAN VerEntschlsseln_Symmetrischmodern_Weitere # &Ver-/Entschl³sseln|Symmetrisch (&modern)|&Weitere
+GERMAN VerEntschlsseln_Symmetrischmodern_Weitere # &Ver-/Entschlüsseln|Symmetrisch (&modern)|&Weitere
 
