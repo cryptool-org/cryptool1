@@ -9,7 +9,7 @@ static int m_decode_type = 0;
 
 // CSelectPasteDecoding dialog
 
-IMPLEMENT_DYNCREATE(CSelectPasteDecoding, CDHtmlDialog)
+IMPLEMENT_DYNCREATE(CSelectPasteDecoding, CDialog)
 
 CSelectPasteDecoding::CSelectPasteDecoding(CWnd* pParent /*=NULL*/)
 	: CDialog(CSelectPasteDecoding::IDD, pParent)
