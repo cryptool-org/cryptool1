@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
 <HEAD>
-<TITLE>Substitution</TITLE>
+<TITLE>Analysis of monoalphabetic substitution ciphers</TITLE>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
@@ -16,10 +16,9 @@
 
 <BODY>
 
-<h3>Substitution (Menu <A href="menu_analyze.html">Analysis</A> \ Symmetric Encryption (classic) \ Ciphertext-Only)</h3>
+<h3>Analysis of Monoalphabetic Substituion Ciphers (Menu <A href="menu_analyze.html">Analysis</A> \ Symmetric Encryption (classic) \ Ciphertext-Only)</h3>
 <P>
 <A href="#introduction">Introduction</A><br>
-<A href="#implementation">Implementation</A><br>
 &nbsp;&nbsp;<A href="#automaticanalysis">Automatic crypt analysis by method 1</A><br>
 &nbsp;&nbsp;<A href="#languagerecognition">Language recognition</A><br>
 &nbsp;&nbsp;<A href="#automaticanalysis2">Automatic crypt analysis by method 2</A><br>
@@ -53,7 +52,6 @@ special characters as well as upper and lower case are retained during encryptio
 recognition. The implemented method is based on the "index of coincidence" (according to 
 W. F. Friedman, 1922).</P>
 
-<h3><A name="implementation">Implementation</h3>
 
 <h4><A name="automaticanalysis">Automatic crypt analysis (Method 1)</h4>
 
@@ -92,7 +90,7 @@ frequency of single characters in the ciphertext.</P>
 this is the statistical spread of character frequencies in different texts that 
 significantly differ from reference texts of a certain language.</P>
 
-<h4><A name="automaticanalysis">Automatic crypt analysis by Method 2</h4>
+<h4><A name="automaticanalysis2">Automatic crypt analysis by Method 2</h4>
 <p>This method tries to match the most frequent words of a language to the words within the given ciphertext.<br>
 The prequesite therefore is, that spaces and punctuation marks are kept.
 <h3><A name="usage">Usage</h3>

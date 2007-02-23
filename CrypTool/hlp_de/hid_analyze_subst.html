@@ -2,7 +2,7 @@
 <HTML>
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Automatische Analyse monoalphabetische Substitution</TITLE>
+<TITLE>Dialog Manuelle Analyse monoalphabetische Substitution</TITLE>
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
@@ -16,9 +16,15 @@
 
 <BODY>
 
-<h3>Automatische Analyse für monoalphabetische Substitution (Menü <A href="menu_analyze.html">Analyse</A> \ Symmetrische Verschlüsselung (klassisch) \ Manuelle Analyse)</h3>
+<h3>Dialog Manuelle für monoalphabetische Substitution (Menü <A href="menu_analyze.html">Analyse</A> \ Symmetrische Verschlüsselung (klassisch) \ Manuelle Analyse)</h3>
 
-<P>Hier kann eine vollkommen computergestützte manuelle Analyse durchgeführt werden. Der gleiche Dialog erscheint, wenn für die <A href="hid_cryptmono.html">monoalphabetische Substitution</A> ein <A href="ciphertextonlyangriff.html">Ciphertext-only-Angriff</A> durchgeführt wird.
+<P>Hier kann eine computerunterstützte manuelle Analyse durchgeführt werden.</p>
+<p> Der gleiche Dialog erscheint, wenn für die <A href="hid_cryptmono.html">monoalphabetische Substitution</A> ein automatisierter <A href="ciphertextonlyangriff.html">Ciphertext-only-Angriff</A> durchgeführt wurde und man das Analyseergebnis anschließend manuell verbessern möchte.</p>
+<P>Nachdem <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> seine <A href="hid_analyze_subst.html">automatische Analyse der monoalphabetischen Substitution</A> abgeschlossen hat, erscheint dieses Nachbearbeitungsfenster, oder direkt über das Menü <A href="menu_analyze.html">Analyse</A> \ <A href="menu_analysis_symmetricclassic.html">Symmetrische Verschlüsselung (klassisch)</A> \ <a href="menu_analysis_symmetricclassic_manualanalysis.html">Manuelle Analyse</a> \ <a href="hid_analyze_subst.html">Substitution</a>. Im oberen Teil des Dialoges befinden sich Buchstabenzuordnungen, die von CrypTool ermittelt wurden. Sie können diese durch Überschreiben ändern. Eine Zuordnung des Buchstabens A zum Buchstaben E bedeutet zum Beispiel, dass der Buchstabe A des verschlüsselten Textes dem Klartextbuchstaben E entspricht. CrypTool prüft, ob neue Zuordnungen nicht mit schon vorhandenen Zuordnungen kollidieren, das heißt ob zwei unterschiedliche Buchstaben ein und demselben Buchstaben zugeordnet werden (das ist bei monoalphabetischer Substitution unzulässig). Wird eine Kollision festgestellt, so erscheint ein Dialog, das sie auf diesen Umstand hinweist und fragt, ob sie die alte oder die neue Eingabe beibehalten möchten. Die jeweils andere Zuordnung wird auf unbestimmt (*) gesetzt. Handelt es sich um eine vorschriftsmäßige Eingabe, so wird diese Eingabe auf den zu analysierenden Text angewendet und das Ergebnis im unteren Teil des Dialoges dargestellt.</P>
+
+<P>Durch Betätigen des Knopfes <B>Ergebnis der automatischen Analyse wieder herstellen</B> werden die eigenen Eingaben rückgängig gemacht und im oberen Teil des Dialoges wird wieder die von CrypTool ermittelte (partielle) Substitution dargestellt. Mit dem Knopf <B>Zurück</B>, können Sie die jeweils letzte Änderung rückgängig machen.</P>
+
+<P>Durch Drücken des Knopfes <B>Aktuellen Zwischenstand ausgeben</B> wird der verschlüsselte Text mit der aktuell eingegebenen Substitution <!--ZZZPOPUP--><A href="entschluesselung.html">entschlüsselt</A> und in einem neuen <A href="hidr_texttype.html">Textfenster</A> ausgegeben.</P>
 
 </BODY>
 </HTML>
