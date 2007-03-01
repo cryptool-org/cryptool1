@@ -2042,7 +2042,7 @@ static UINT countHexDigits(const BYTE *data, UINT ndata)
 #define hex2int(ascii) ( \
 	('0' <= (ascii) && (ascii) <= '9') ? (ascii) - '0' : \
 	('A' <= (ascii) && (ascii) <= 'F') ? (ascii) - 'A' + 10 : \
-	('a' <= (ascii) && (ascii) <= 'a') ? (ascii) - 'a' + 10 : \
+	('a' <= (ascii) && (ascii) <= 'f') ? (ascii) - 'a' + 10 : \
 	-1 )
 
 // decode hex digits from source to target, not writing more than ntarget bytes; 
@@ -2056,12 +2056,15 @@ static INT hexDecode(BYTE *target, const BYTE *source, UINT ntarget)
 		if (hexdigits & 1) { // expecting low nibble
 			if (!isxdigit(*source)) 
 				return -(hexdigits/2);
-			*(target++) = (highnibble << 4) | hex2int(*source);
+			BYTE lownibble = hex2int(*source);
+			ASSERT(lownibble != 0xFF);
+			*(target++) = (highnibble << 4) | lownibble;
 			ntarget--;
 			hexdigits++;
 		} else { // expecting high nibble or white space etc.
 			if (isxdigit(*source)) {
 				highnibble = hex2int(*source);
+				ASSERT(highnibble != 0xFF);
 				hexdigits++;
 			} else if (!isHexSeparator(*source))
 				return -(hexdigits/2);
