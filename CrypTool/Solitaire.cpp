@@ -348,6 +348,10 @@ char Deck::schritt5()
 				schritt4();
 			};
 
+			a = deck[0];
+			if (a == anzahl)
+				a-=1;
+
 			return deck[a];
 		}
 		//Schlüsselwert gefunden
