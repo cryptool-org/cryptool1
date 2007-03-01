@@ -777,7 +777,10 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 		MatOut = MatOut + '\n' + CString(pc_str) + CString("\n\nH[t] =");
 		for (i=0; i<dim; i++)
 		{
-			MatOut = MatOut + CString("\t[\t");
+			if(i==0)
+				MatOut = MatOut + CString("\t[\t");
+			else
+				MatOut = MatOut + CString("\t\t\t[\t");
 			for (j=0; j<dim; j++)
 			{
 				if(iHillMultiplicationType)				
@@ -793,7 +796,10 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 		MatOut = MatOut + '\n' + CString(pc_str) + CString("\n\nH[n] =");
 		for (i=0; i<dim; i++)
 		{
-			MatOut = MatOut + CString("\t[\t");
+			if(i==0)
+				MatOut = MatOut + CString("\t[\t");
+			else
+				MatOut = MatOut + CString("\t\t\t[\t");
 			for (j=0; j<dim; j++)
 			{
 				if(iHillMultiplicationType)
@@ -834,7 +840,11 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 		int  i_res_example[256];
 		char c_res_example[256];  
 
-        LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_ENCRYPTION,pc_str,STR_LAENGE_STRING_TABLE);
+		if(iHillMultiplicationType)
+			LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_ENCRYPTION,pc_str,STR_LAENGE_STRING_TABLE);
+		else
+			LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_ENCRYPTION2,pc_str,STR_LAENGE_STRING_TABLE);
+
 		MatOut = MatOut + '\n' + '\n' + CString(pc_str) + '\n' + '\n';		
 		for (i=0; i<dim; i++)
 		{
@@ -901,7 +911,10 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 		MatOut = MatOut + '\n' + CString(pc_str) + CString("\n\nD[t] =");
 		for (i=0; i<dim; i++)
 		{
-			MatOut = MatOut + CString("\t[\t");
+			if(i==0)
+				MatOut = MatOut + CString("\t[\t");
+			else
+				MatOut = MatOut + CString("\t\t\t[\t");
 			for (j=0; j<dim; j++)
 			{
 				if(iHillMultiplicationType)
@@ -916,7 +929,10 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 		MatOut = MatOut + '\n' + CString(pc_str) + CString("\n\nD[n] =");
 		for (i=0; i<dim; i++)
 		{
-			MatOut = MatOut + CString("\t[\t");
+			if(i==0)
+                MatOut = MatOut + CString("\t[\t");
+			else
+				MatOut = MatOut + CString("\t\t\t[\t");
 			for (j=0; j<dim; j++)
 			{
 				if(iHillMultiplicationType)
@@ -957,7 +973,11 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 		int  i_res_example[256];
 		char c_res_example[256];  
 
-        LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_DECRYPTION,pc_str,STR_LAENGE_STRING_TABLE);
+		if(iHillMultiplicationType)
+			LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_DECRYPTION,pc_str,STR_LAENGE_STRING_TABLE);
+		else
+			LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_DECRYPTION2,pc_str,STR_LAENGE_STRING_TABLE);
+
 		MatOut = MatOut + '\n' + '\n' + CString(pc_str) + '\n' + '\n';		
 		for (i=0; i<dim; i++)
 		{

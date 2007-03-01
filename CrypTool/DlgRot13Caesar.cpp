@@ -164,11 +164,13 @@ void CDlgRot13Caesar::OnCaesarRad()
 	{
 		m_CtrlKey.EnableWindow(FALSE);
 		m_CtrlAlphCode.EnableWindow(TRUE);
+		m_CtrlAlphCode.SetFocus();
 	}
 	else
 	{
 		m_CtrlKey.EnableWindow(TRUE);
 		m_CtrlAlphCode.EnableWindow(FALSE);
+		m_CtrlKey.SetFocus();
 	}
 	m_type = IDS_STRING_CAESAR;
 	caesarSelected = 1;

@@ -816,6 +816,7 @@ void Hill(const char *infile, const char *OldTitle)
 		verboseOut << out.GetBuffer(0);
 		verboseOut.close();
 
+
 		CAppDocument *NewDoc;
 		NewDoc = theApp.OpenDocumentFileNoMRU(outfile);
 		remove(outfile);
@@ -824,6 +825,7 @@ void Hill(const char *infile, const char *OldTitle)
 			// LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_ANALYSIS_OF,pc_str,STR_LAENGE_STRING_TABLE);
 			GetNewDocTitle(schluessel, OldTitle, IDS_STRING_HILL_DETAILS, title, 128, i_m_decrypt, SCHLUESSEL_QUADRATISCH );
 			NewDoc->SetTitle(title);
+
 		}
 
 

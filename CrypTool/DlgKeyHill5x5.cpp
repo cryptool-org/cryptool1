@@ -1363,9 +1363,30 @@ void CDlgKeyHill5x5::OnPasteKey()
 				break;
 			}
 			AnzeigeDimensionSetzen(dim);
+
+
+			CString str;
+			for(int i=0;i<5;i++)
+			{
+				for(int j=0;j<5;j++)
+				{
+					m_pFelder[i][j]->GetWindowText(str);
+					m_pAlphCode[i][j]->SetWindowText(getAlphCode(str));
+				}
+			}
+			
 			// Cursor in Feld links oben setzen
- 			m_pFelder[0][0]->SetFocus();
- 			m_pFelder[0][0]->SetSel(0,-1);
+
+			if(!alphCode)
+			{
+				m_pFelder[0][0]->SetFocus();
+				m_pFelder[0][0]->SetSel(0,-1);
+			}
+			else
+			{
+				m_pAlphCode[0][0]->SetFocus();
+				m_pAlphCode[0][0]->SetSel(0,-1);
+			}
 		}
  		else
 		{  
