@@ -3498,7 +3498,6 @@ END
 
 IDD_CHALLENGERESPONSE_DIALOG DIALOGEX 0, 0, 518, 342
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-EXSTYLE WS_EX_APPWINDOW
 CAPTION "Challenge-Response-Demo"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
@@ -5414,10 +5413,10 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION |
 CAPTION "Substitutionspasswort"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,69,23,50,14
-    PUSHBUTTON      "Abbrechen",IDCANCEL,121,23,50,14
     EDITTEXT        IDC_EDIT1,7,7,164,13,ES_UPPERCASE | ES_AUTOHSCROLL | 
                     ES_WANTRETURN
+    DEFPUSHBUTTON   "OK",IDOK,69,23,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,121,23,50,14
 END
 
 IDD_Hill_Options DIALOGEX 0, 0, 256, 147
@@ -5499,6 +5498,25 @@ BEGIN
     LTEXT           "Bemerkung: Es werden nur Namen angezeigt, die einen ECC-Schlüssel haben.",
                     -1,7,217,365,8
     LTEXT           "Wählen Sie den Empfänger aus:",-1,7,7,172,9
+END
+
+IDD_SELECTPASTEDECODING DIALOGEX 0, 0, 221, 122
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Decodiert einfügen"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,96,96,50,19
+    PUSHBUTTON      "Abbrechen",IDCANCEL,162,96,50,19
+    CONTROL         "keine Decodierung",IDC_RADIO1,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,18,60,75,10
+    CONTROL         "Hex Decodierung",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,
+                    18,72,71,10
+    GROUPBOX        "Auswahl der Decodierung",IDC_STATIC,7,47,205,42
+    DEFPUSHBUTTON   "OK",IDOK2,96,96,50,19
+    PUSHBUTTON      "Abbrechen",IDCANCEL3,162,96,50,19
+    LTEXT           "Die Zwischenablage enthält ausschließlich Hexadezimal-Zeichen.\n\nDiese können entweder decodiert oder unverändert eingefügt werden.",
+                    IDC_STATIC,7,7,205,32
 END
 
 
@@ -5609,20 +5627,24 @@ BEGIN
             , GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC
             , GRAYED
-            MENUITEM SEPARATOR
-            MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
-            , GRAYED
-            MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6, GRAYED
             MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
             , GRAYED
-            MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
-            , GRAYED
-            MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
-            , GRAYED
-            MENUITEM "DESL...",                     1004, GRAYED
-            MENUITEM "DESX...",                     ID_CRYPT_DESX, GRAYED
-            MENUITEM "DESXL...",                    1005, GRAYED
+            POPUP "&Weitere", GRAYED
+            BEGIN
+                MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
+                , GRAYED
+                MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
+                , GRAYED
+                MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
+                , GRAYED
+                MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
+                , GRAYED
+                MENUITEM "DESL...",                     1004, GRAYED
+                MENUITEM "DESX...",                     ID_CRYPT_DESX
+                , GRAYED
+                MENUITEM "DESXL...",                    1005, GRAYED
+            END
             MENUITEM SEPARATOR
             MENUITEM "&AES (selbstextrahierend)...", ID_AES_SELFEXTRACT
         END
@@ -5722,45 +5744,53 @@ BEGIN
                                                     ID_INDIV_CRT_SECRETSHARING
 
         END
-        POPUP "&Visualisierung von Algorithmen mit ANIMAL"
+        POPUP "&Visualisierung von Algorithmen"
         BEGIN
             MENUITEM "&Caesar...",                  ID_HELP_ANIMAL_CAESAR
             MENUITEM "&Vigenère...",                ID_HELP_ANIMAL_VIGENERE
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
+            MENUITEM SEPARATOR
+            MENUITEM "P&unktaddition auf einer Elliptischen Kurve...", 
+                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
+
+            MENUITEM SEPARATOR
+            MENUITEM "&AES ...",                    ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
-        MENUITEM "P&unktaddition auf einer Elliptischen Kurve", 
-                                                ID_INDIV_POINTADDITIONONELLIPTICCURVES
-
         MENUITEM SEPARATOR
-        POPUP "C&odierungen"
+        POPUP "&Tools"
         BEGIN
-            POPUP "&Base64-Codierung/Base64-Decodierung"
+            POPUP "C&odierungen"
             BEGIN
-                MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64
-                , GRAYED
-                MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
+                POPUP "&Base64-Codierung/Base64-Decodierung"
+                BEGIN
+                    MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64
+                    , GRAYED
+                    MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
+                    , GRAYED
+                END
+                POPUP "&UU-Codierung/UU-Decodierung"
+                BEGIN
+                    MENUITEM "UU &codieren",                ID_ENCODE_UU
+                    , GRAYED
+                    MENUITEM "UU &decodieren",              ID_DECODE_UU
+                    , GRAYED
+                END
+                MENUITEM "ASN.&1-Decodieren eines Dokuments", 
+                                                        ID_EINZELVERFAHREN_ASN1DECODIEREN
                 , GRAYED
             END
-            POPUP "&UU-Codierung/UU-Decodierung"
+            MENUITEM SEPARATOR
+            POPUP "&Komprimieren"
             BEGIN
-                MENUITEM "UU &codieren",                ID_ENCODE_UU, GRAYED
-                MENUITEM "UU &decodieren",              ID_DECODE_UU, GRAYED
+                MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP, GRAYED
+                MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
             END
-            MENUITEM "ASN.&1-Decodieren eines Dokuments", 
-                                                    ID_EINZELVERFAHREN_ASN1DECODIEREN
-            , GRAYED
+            MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
         END
-        MENUITEM SEPARATOR
-        POPUP "&Komprimieren"
-        BEGIN
-            MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP, GRAYED
-            MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
-        END
-        MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
         BEGIN
@@ -5795,7 +5825,7 @@ BEGIN
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 , GRAYED
                 MENUITEM SEPARATOR
-                MENUITEM "A&ddition",                   ID_ADD_AUTO, GRAYED
+                MENUITEM "Byteweise A&ddition",         ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
             END
             POPUP "Known-&Plaintext"
@@ -5836,9 +5866,9 @@ BEGIN
             , GRAYED
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
             , GRAYED
-            MENUITEM "DESL...",                     ID_ANALYSE_DESL, GRAYED
-            MENUITEM "DESX...",                     ID_ANALYSE_DESX, GRAYED
-            MENUITEM "DESXL...",                    ID_ANALYSE_DESXL, GRAYED
+            MENUITEM "DESL...",                     1006, GRAYED
+            MENUITEM "DESX...",                     1007, GRAYED
+            MENUITEM "DESXL...",                    1008, GRAYED
         END
         POPUP "&Asymmetrische Verfahren"
         BEGIN
@@ -6005,16 +6035,18 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_CRYPT_DES_DESCBC
             MENUITEM "&Triple DES (ECB)...",        ID_CRYPT_3DES_ECB
             MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC
-            MENUITEM SEPARATOR
-            MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
-            MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
             MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
-            MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
-            MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
-            MENUITEM "DESL...",                     1004
-            MENUITEM "DESX...",                     ID_CRYPT_DESX
-            MENUITEM "DESXL...",                    1005
+            POPUP "&Weitere"
+            BEGIN
+                MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
+                MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
+                MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
+                MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
+                MENUITEM "DESL...",                     ID_CRYPT_DESL
+                MENUITEM "DESX...",                     1003
+                MENUITEM "DESXL...",                    ID_CRYPT_DESXL
+            END
             MENUITEM SEPARATOR
             MENUITEM "&AES (selbstextrahierend)...", ID_AES_SELFEXTRACT
         END
@@ -6108,43 +6140,49 @@ BEGIN
                                                     ID_INDIV_CRT_SECRETSHARING
 
         END
-        POPUP "&Visualisierung von Algorithmen mit ANIMAL"
+        POPUP "&Visualisierung von Algorithmen"
         BEGIN
             MENUITEM "&Caesar...",                  ID_HELP_ANIMAL_CAESAR
             MENUITEM "&Vigenère...",                ID_HELP_ANIMAL_VIGENERE
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
+            MENUITEM SEPARATOR
+            MENUITEM "P&unktaddition auf einer Elliptischen Kurve...", 
+                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
+
+            MENUITEM SEPARATOR
+            MENUITEM "&AES ...",                    ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
-        MENUITEM "P&unktaddition auf einer Elliptischen Kurve", 
-                                                ID_INDIV_POINTADDITIONONELLIPTICCURVES
-
         MENUITEM SEPARATOR
-        POPUP "C&odierungen"
+        POPUP "&Tools"
         BEGIN
-            POPUP "&Base64-Codierung/Base64-Decodierung"
+            POPUP "C&odierungen"
             BEGIN
-                MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64
-                MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
-            END
-            POPUP "&UU-Codierung/UU-Decodierung"
-            BEGIN
-                MENUITEM "UU &codieren",                ID_ENCODE_UU
-                MENUITEM "UU &decodieren",              ID_DECODE_UU
-            END
-            MENUITEM "ASN.&1-Decodieren eines Dokuments", 
-                                                    ID_EINZELVERFAHREN_ASN1DECODIEREN
+                POPUP "&Base64-Codierung/Base64-Decodierung"
+                BEGIN
+                    MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64
+                    MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
+                END
+                POPUP "&UU-Codierung/UU-Decodierung"
+                BEGIN
+                    MENUITEM "UU &codieren",                ID_ENCODE_UU
+                    MENUITEM "UU &decodieren",              ID_DECODE_UU
+                END
+                MENUITEM "ASN.&1-Decodieren eines Dokuments", 
+                                                        ID_EINZELVERFAHREN_ASN1DECODIEREN
 
+            END
+            MENUITEM SEPARATOR
+            POPUP "&Komprimieren"
+            BEGIN
+                MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
+                MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
+            END
+            MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
         END
-        MENUITEM SEPARATOR
-        POPUP "&Komprimieren"
-        BEGIN
-            MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
-            MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
-        END
-        MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
         BEGIN
@@ -6176,7 +6214,7 @@ BEGIN
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
 
                 MENUITEM SEPARATOR
-                MENUITEM "A&ddition",                   ID_ADD_AUTO
+                MENUITEM "Byteweise A&ddition",         ID_ADD_AUTO
                 MENUITEM "&XOR",                        ID_XOR_AUTO
             END
             POPUP "Known-&Plaintext"
@@ -6205,8 +6243,8 @@ BEGIN
             MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
             MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
             MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
-            MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
-            MENUITEM "DESL...",                     ID_ANALYSE_DESX
+            MENUITEM "&Twofish...",                 33033
+            MENUITEM "DESL...",                     1006
             MENUITEM "DESX...",                     ID_ANALYSE_DESX
             MENUITEM "DESXL...",                    ID_ANALYSE_DESXL
         END
@@ -6381,20 +6419,23 @@ BEGIN
             , GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC
             , GRAYED
-            MENUITEM SEPARATOR
-            MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
-            , GRAYED
-            MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6, GRAYED
             MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
             , GRAYED
-            MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
-            , GRAYED
-            MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
-            , GRAYED
-            MENUITEM "DESL...",                     1004
-            MENUITEM "DESX...",                     ID_CRYPT_DESX
-            MENUITEM "DESXL...",                    1005
+            POPUP "&Weitere", GRAYED
+            BEGIN
+                MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
+                MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
+                , GRAYED
+                MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
+                , GRAYED
+                MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
+                , GRAYED
+                MENUITEM "DESL...",                     1004, GRAYED
+                MENUITEM "DESX...",                     ID_CRYPT_DESX
+                , GRAYED
+                MENUITEM "DESXL...",                    1005, GRAYED
+            END
             MENUITEM SEPARATOR
             MENUITEM "&AES (selbstextrahierend)...", ID_AES_SELFEXTRACT
         END
@@ -6493,44 +6534,51 @@ BEGIN
                                                     ID_INDIV_CRT_SECRETSHARING
 
         END
-        POPUP "&Visualisierung von Algorithmen mit ANIMAL"
+        POPUP "&Visualisierung von Algorithmen"
         BEGIN
             MENUITEM "&Caesar...",                  ID_HELP_ANIMAL_CAESAR
             MENUITEM "&Vigenère...",                ID_HELP_ANIMAL_VIGENERE
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
+            MENUITEM SEPARATOR
+            MENUITEM "P&unktaddition auf einer Elliptischen Kurve...", 
+                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
+
+            MENUITEM SEPARATOR
+            MENUITEM "&AES ...",                    ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
-        MENUITEM "P&unktaddition auf einer Elliptischen Kurve", 
-                                                ID_INDIV_POINTADDITIONONELLIPTICCURVES
-
         MENUITEM SEPARATOR
-        POPUP "C&odierungen"
+        POPUP "&Tools"
         BEGIN
-            POPUP "&Base64-Codierung/Base64-Decodierung"
+            POPUP "C&odierungen"
             BEGIN
-                MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64
-                MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
+                POPUP "&Base64-Codierung/Base64-Decodierung"
+                BEGIN
+                    MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64
+                    MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
+                    , GRAYED
+                END
+                POPUP "&UU-Codierung/UU-Decodierung"
+                BEGIN
+                    MENUITEM "UU &codieren",                ID_ENCODE_UU
+                    MENUITEM "UU &decodieren",              ID_DECODE_UU
+                    , GRAYED
+                END
+                MENUITEM "ASN.&1-Decodieren eines Dokuments", 
+                                                        ID_EINZELVERFAHREN_ASN1DECODIEREN
                 , GRAYED
             END
-            POPUP "&UU-Codierung/UU-Decodierung"
+            MENUITEM SEPARATOR
+            POPUP "&Komprimieren"
             BEGIN
-                MENUITEM "UU &codieren",                ID_ENCODE_UU
-                MENUITEM "UU &decodieren",              ID_DECODE_UU, GRAYED
+                MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
+                MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
             END
-            MENUITEM "ASN.&1-Decodieren eines Dokuments", 
-                                                    ID_EINZELVERFAHREN_ASN1DECODIEREN
-            , GRAYED
+            MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
         END
-        MENUITEM SEPARATOR
-        POPUP "&Komprimieren"
-        BEGIN
-            MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
-            MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
-        END
-        MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
         BEGIN
@@ -6564,7 +6612,7 @@ BEGIN
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 , GRAYED
                 MENUITEM SEPARATOR
-                MENUITEM "A&ddition",                   ID_ADD_AUTO, GRAYED
+                MENUITEM "Byteweise A&ddition",         ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
             END
             POPUP "Known-&Plaintext"
@@ -6604,9 +6652,9 @@ BEGIN
             , GRAYED
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
             , GRAYED
-            MENUITEM "DESL...",                     ID_ANALYSE_DESL, GRAYED
-            MENUITEM "DESX...",                     ID_ANALYSE_DESX, GRAYED
-            MENUITEM "DESXL...",                    ID_ANALYSE_DESXL, GRAYED
+            MENUITEM "DESL...",                     1006, GRAYED
+            MENUITEM "DESX...",                     1007, GRAYED
+            MENUITEM "DESXL...",                    1008, GRAYED
         END
         POPUP "&Asymmetrische Verfahren"
         BEGIN
@@ -6771,16 +6819,18 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_CRYPT_DES_DESCBC
             MENUITEM "&Triple DES (ECB)...",        ID_CRYPT_3DES_ECB
             MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC
-            MENUITEM SEPARATOR
-            MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
-            MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
             MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
-            MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
-            MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
-            MENUITEM "DESL...",                     1004
-            MENUITEM "DESX...",                     ID_CRYPT_DESX
-            MENUITEM "DESXL...",                    1005
+            POPUP "&Weitere"
+            BEGIN
+                MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
+                MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
+                MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
+                MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
+                MENUITEM "DESL...",                     1004
+                MENUITEM "DESX...",                     ID_CRYPT_DESX
+                MENUITEM "DESXL...",                    1005
+            END
             MENUITEM SEPARATOR
             MENUITEM "&AES (selbstextrahierend)...", ID_AES_SELFEXTRACT
         END
@@ -6874,43 +6924,49 @@ BEGIN
                                                     ID_INDIV_CRT_SECRETSHARING
 
         END
-        POPUP "&Visualisierung von Algorithmen mit ANIMAL"
+        POPUP "&Visualisierung von Algorithmen"
         BEGIN
             MENUITEM "&Caesar...",                  ID_HELP_ANIMAL_CAESAR
             MENUITEM "&Vigenère...",                ID_HELP_ANIMAL_VIGENERE
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
+            MENUITEM SEPARATOR
+            MENUITEM "P&unktaddition auf einer Elliptischen Kurve...", 
+                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
+
+            MENUITEM SEPARATOR
+            MENUITEM "&AES ...",                    ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
-        MENUITEM "P&unktaddition auf einer Elliptischen Kurve", 
-                                                ID_INDIV_POINTADDITIONONELLIPTICCURVES
-
         MENUITEM SEPARATOR
-        POPUP "C&odierungen"
+        POPUP "&Tools"
         BEGIN
-            POPUP "&Base64-Codierung/Base64-Decodierung"
+            POPUP "C&odierungen"
             BEGIN
-                MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64
-                MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
-            END
-            POPUP "&UU-Codierung/UU-Decodierung"
-            BEGIN
-                MENUITEM "UU &codieren",                ID_ENCODE_UU
-                MENUITEM "UU &decodieren",              ID_DECODE_UU
-            END
-            MENUITEM "ASN.&1-Decodieren eines Dokuments", 
-                                                    ID_EINZELVERFAHREN_ASN1DECODIEREN
+                POPUP "&Base64-Codierung/Base64-Decodierung"
+                BEGIN
+                    MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64
+                    MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
+                END
+                POPUP "&UU-Codierung/UU-Decodierung"
+                BEGIN
+                    MENUITEM "UU &codieren",                ID_ENCODE_UU
+                    MENUITEM "UU &decodieren",              ID_DECODE_UU
+                END
+                MENUITEM "ASN.&1-Decodieren eines Dokuments", 
+                                                        ID_EINZELVERFAHREN_ASN1DECODIEREN
 
+            END
+            MENUITEM SEPARATOR
+            POPUP "&Komprimieren"
+            BEGIN
+                MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
+                MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
+            END
+            MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
         END
-        MENUITEM SEPARATOR
-        POPUP "&Komprimieren"
-        BEGIN
-            MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
-            MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
-        END
-        MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
         BEGIN
@@ -6942,7 +6998,7 @@ BEGIN
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
 
                 MENUITEM SEPARATOR
-                MENUITEM "A&ddition",                   ID_ADD_AUTO
+                MENUITEM "Byteweise A&ddition",         ID_ADD_AUTO
                 MENUITEM "&XOR",                        ID_XOR_AUTO
             END
             POPUP "Known-&Plaintext"
@@ -6972,9 +7028,9 @@ BEGIN
             MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
             MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
-            MENUITEM "DESL...",                     ID_ANALYSE_DESL
-            MENUITEM "DESX...",                     ID_ANALYSE_DESX
-            MENUITEM "DESXL...",                    ID_ANALYSE_DESXL
+            MENUITEM "DESL...",                     1006
+            MENUITEM "DESX...",                     1007
+            MENUITEM "DESXL...",                    1008
         END
         POPUP "&Asymmetrische Verfahren"
         BEGIN
@@ -7174,20 +7230,24 @@ BEGIN
             , GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC
             , GRAYED
-            MENUITEM SEPARATOR
-            MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
-            , GRAYED
-            MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6, GRAYED
             MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
             , GRAYED
-            MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
-            , GRAYED
-            MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
-            , GRAYED
-            MENUITEM "DESL...",                     ID_ANALYSE_DESL, GRAYED
-            MENUITEM "DESX...",                     ID_ANALYSE_DESX, GRAYED
-            MENUITEM "DESXL...",                    ID_ANALYSE_DESXL, GRAYED
+            POPUP "&Weitere", GRAYED
+            BEGIN
+                MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
+                , GRAYED
+                MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
+                , GRAYED
+                MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
+                , GRAYED
+                MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
+                , GRAYED
+                MENUITEM "DESL...",                     1004, GRAYED
+                MENUITEM "DESX...",                     ID_CRYPT_DESX
+                , GRAYED
+                MENUITEM "DESXL...",                    1005, GRAYED
+            END
             MENUITEM SEPARATOR
             MENUITEM "&AES (selbstextrahierend)...", ID_AES_SELFEXTRACT
         END
@@ -7287,45 +7347,53 @@ BEGIN
                                                     ID_INDIV_CRT_SECRETSHARING
 
         END
-        POPUP "&Visualisierung von Algorithmen mit ANIMAL"
+        POPUP "&Visualisierung von Algorithmen"
         BEGIN
             MENUITEM "&Caesar...",                  ID_HELP_ANIMAL_CAESAR
             MENUITEM "&Vigenère...",                ID_HELP_ANIMAL_VIGENERE
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
+            MENUITEM SEPARATOR
+            MENUITEM "P&unktaddition auf einer Elliptischen Kurve...", 
+                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
+
+            MENUITEM SEPARATOR
+            MENUITEM "&AES ...",                    ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
-        MENUITEM "P&unktaddition auf einer Elliptischen Kurve", 
-                                                ID_INDIV_POINTADDITIONONELLIPTICCURVES
-
         MENUITEM SEPARATOR
-        POPUP "C&odierungen"
+        POPUP "&Tools"
         BEGIN
-            POPUP "&Base64-Codierung/Base64-Decodierung"
+            POPUP "C&odierungen"
             BEGIN
-                MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64
-                , GRAYED
-                MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
+                POPUP "&Base64-Codierung/Base64-Decodierung"
+                BEGIN
+                    MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64
+                    , GRAYED
+                    MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
+                    , GRAYED
+                END
+                POPUP "&UU-Codierung/UU-Decodierung"
+                BEGIN
+                    MENUITEM "UU &codieren",                ID_ENCODE_UU
+                    , GRAYED
+                    MENUITEM "UU &decodieren",              ID_DECODE_UU
+                    , GRAYED
+                END
+                MENUITEM "ASN.&1-Decodieren eines Dokuments", 
+                                                        ID_EINZELVERFAHREN_ASN1DECODIEREN
                 , GRAYED
             END
-            POPUP "&UU-Codierung/UU-Decodierung"
+            MENUITEM SEPARATOR
+            POPUP "&Komprimieren"
             BEGIN
-                MENUITEM "UU &codieren",                ID_ENCODE_UU, GRAYED
-                MENUITEM "UU &decodieren",              ID_DECODE_UU, GRAYED
+                MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP, GRAYED
+                MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
             END
-            MENUITEM "ASN.&1-Decodieren eines Dokuments", 
-                                                    ID_EINZELVERFAHREN_ASN1DECODIEREN
-            , GRAYED
+            MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
         END
-        MENUITEM SEPARATOR
-        POPUP "&Komprimieren"
-        BEGIN
-            MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP, GRAYED
-            MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
-        END
-        MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
         BEGIN
@@ -7360,7 +7428,7 @@ BEGIN
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 , GRAYED
                 MENUITEM SEPARATOR
-                MENUITEM "A&ddition",                   ID_ADD_AUTO, GRAYED
+                MENUITEM "Byteweise A&ddition",         ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
             END
             POPUP "Known-&Plaintext"
@@ -7401,9 +7469,9 @@ BEGIN
             , GRAYED
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
             , GRAYED
-            MENUITEM "DESL...",                     ID_ANALYSE_DESL, GRAYED
-            MENUITEM "DESX...",                     ID_ANALYSE_DESX, GRAYED
-            MENUITEM "DESXL...",                    ID_ANALYSE_DESXL, GRAYED
+            MENUITEM "DESL...",                     1006, GRAYED
+            MENUITEM "DESX...",                     1007, GRAYED
+            MENUITEM "DESXL...",                    1008, GRAYED
         END
         POPUP "&Asymmetrische Verfahren"
         BEGIN
@@ -8924,6 +8992,18 @@ BEGIN
         HORZGUIDE, 89
         HORZGUIDE, 96
     END
+
+    IDD_SELECTPASTEDECODING, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 212
+        VERTGUIDE, 18
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 115
+        HORZGUIDE, 54
+        HORZGUIDE, 89
+        HORZGUIDE, 96
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -9095,7 +9175,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.01 beta - 01"
+    IDR_MAINFRAME           "CrypTool 1.4.10 beta - 02"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Datei (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnbenannt\n\nBinäre Datei (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnbenannt\n\nASCII-Datei (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -9364,7 +9444,7 @@ BEGIN
     IDS_STRING_MSG_FREQ_ANALYSE_NOTE 
                             "Mehrere Zeichen sind gleich häufig.\nHäufigstes Zeichen wird nicht berücksichtigt.\nDadurch ist auch keine erweiterte Analyse möglich."
     IDS_STRING_POSSIBLE_PLAINTEXT_OF 
-                            "Möglicher Klartext von <%s>, Schlüssel: <%s>"
+                            "Substitutionsanalyse von <%s>, Schlüssel: <%s>"
     IDS_STRING_MSG_MAX_INPUT_LENGTH_TXT 
                             "Geben Sie den Schlüssel ein.\nSchlüssellänge maximal  %d Zeichen !"
     IDS_STRING_ERR_ZIP      "ZIP-Fehler"
@@ -9457,8 +9537,7 @@ BEGIN
     IDS_STRING_ANALYSE_ON   "Brute-Force Analyse von %s"
     IDS_STRING_MSG_SEARCHING_COMPLETE 
                             "Vollständige %d Bit Suche zu %%d%%%% erledigt.\nRestzeit: %%s"
-    IDS_STRING_AUTOMATIC_ANALYSE 
-                            "Automatische %s-Analyse von <%s>, Schlüssel <%s>"
+    IDS_STRING_AUTOMATIC_ANALYSE "%s-Analyse von <%s>, Schlüssel <%s>"
     IDS_STRING_MSG_SIGNED_MESSAGE_TO_BIG 
                             "Die signierte Nachricht ist sehr gross. Sie kann nicht in dem Hex-Editor von CrypTool angezeigt werden.\nDeshalb wurde die Nachricht in der temporären Datei '%s' zwischengespeichert."
     IDS_STRING_SIGNATURE_ORIGINATOR "Signaturerzeuger:"
@@ -9789,10 +9868,6 @@ BEGIN
                             "Berechnung der Hill-Dechiffrierung durch das Vektor-Matrixprodukt C[n]*D[n] (der Vektor C[n] ist ein Zeilenvektor):"
     IDS_HILLEXAMPLE_RESULT_ENCRYPTION "Der Hill-Chiffretext lautet: ""%s""."
     IDS_HILLEXAMPLE_RESULT_DECRYPTION "Der Hill-Klartext lautet: ""%s""."
-    IDS_HILLEXAMPLE_ENCRYPTION2 
-                            "Berechnung der Hill-Chiffrierung durch das Vektor-Matrixprodukt H[n]*K[n] (der Vektor K[n] ist ein Spaltenvektor):"
-    IDS_HILLEXAMPLE_DECRYPTION2 
-                            "Berechnung der Hill-Dechiffrierung durch das Vektor-Matrixprodukt D[n]*C[n] (der Vektor C[n] ist ein Spaltenvektor):"
     IDS_STRING_RAND_DATA_PARAM 
                             "Zufallsdaten erzeugt mit dem %s Generator - Länge %i Bytes"
     IDS_RSA_MKPZ_PLAINTEXT  "Klartext"
@@ -11240,23 +11315,6 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_CRYPT_DESX          "DESX"
-    IDS_CRYPT_DESL          "DESL"
-    IDS_CRYPT_DESXL         "DESXL"
-    ID_CRYPT_DESX           "Ver-/Entschlüsseln mit DESX"
-    ID_CRYPT_DESL           "Ver-/Entschlüsseln mit DESL"
-    ID_CRYPT_DESXL          "Ver-/Entschlüsseln mit DESXL"
-    ID_ANALYSE_DESL         "Automatische Brute-force Analyse einer DESL-Verschlüsselung"
-    ID_ANALYSE_DESX         "Automatische Brute-force Analyse einer DESX-Verschlüsselung"
-END
-
-STRINGTABLE 
-BEGIN
-    ID_ANALYSE_DESXL        "Automatische Brute-force Analyse einer DESXL-Verschlüsselung"
-END
-
-STRINGTABLE 
-BEGIN
     IDS_DH_VISUALIZATION_TOOLTIPKEY 
                             "Anzeige des ausgehandelten geheimen Schlüssels und Abspeichern der Logdatei."
 END
@@ -11332,6 +11390,18 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_CRYPT_DESX          "DESX"
+    IDS_CRYPT_DESL          "DESL"
+    IDS_CRYPT_DESXL         "DESXL"
+    ID_CRYPT_DESX           "Ver-/Entschlüsseln mit DESX"
+    ID_CRYPT_DESL           "Ver-/Entschlüsseln mit DESL"
+    ID_CRYPT_DESXL          "Ver-/Entschlüsseln mit DESXL"
+    ID_ANALYSE_DESL         "Automatische Brute-force Analyse einer DESL-Verschlüsselung"
+    ID_ANALYSE_DESX         "Automatische Brute-force Analyse einer DESX-Verschlüsselung"
+END
+
+STRINGTABLE 
+BEGIN
     ID_PRIMENUMBER_TEST     "Testet ob eine Zahl eine Primzahl ist"
 END
 
@@ -11344,6 +11414,9 @@ BEGIN
     IDS_STRING_COMMA        ","
     IDS_CRYPT_ATBASH        "Atbash"
     IDS_BUILD_INFO          "(%s übersetzt mit %s)"
+    IDS_RSA_BM_CHECKN       "Bitte überprüfe den Wert des RSA-Moduls N"
+    IDS_RSA_BM_CHECKE       "Bitte überprüfe den Wert des öffentlichen Exponenten e"
+    IDS_RSA_BM_CHECKD       "Bitte überprüfe den Wert der Schätzung des geheimen Exponenten d"
 END
 
 STRINGTABLE 
@@ -11411,8 +11484,8 @@ END
 STRINGTABLE 
 BEGIN
     IDS_ECIES_CRYPT         "ECIES-AES-Hybrid"
-    IDS_ECIES_ENC_TIME      "Für die ECIES-Verschlüsselung benötigte Zeit: %.3f Sekunden."
-    IDS_ECIES_DEC_TIME      "Für die ECIES-Entschlüsselung benötigte Zeit: %.3f Sekunden."
+    IDS_ECIES_ENC_TIME      "Für die ECIES-Verschlüsselung benötigte Zeit: %s Sekunden."
+    IDS_ECIES_DEC_TIME      "Für die ECIES-Entschlüsselung benötigte Zeit: %s Sekunden."
     IDS_ECIES_HEADER_01     "Sender:"
     IDS_ECIES_HEADER_02     "Empfaenger:"
     IDS_ECIES_HEADER_03     "|Kurvenidentifikation:"
@@ -11428,7 +11501,7 @@ STRINGTABLE
 BEGIN
     IDS_ECCDemo_PATH        ".\\ECCDemo\\"
     IDS_ECCDemo_EXECUTABLE  "java.exe"
-    IDS_ECCDemo_FILE        " -jar .\\ECCDemo\\eccdemo.jar"
+    IDS_ECCDemo_FILE        " -jar eccdemo.jar"
 END
 
 STRINGTABLE 
@@ -11443,6 +11516,16 @@ BEGIN
     IDS_ECIES_DEC_ERROR_03  "Die Entschlüsselung war nicht erfolgreich, da der AES-Ciphertext beschädigt ist."
     IDS_ECIES_DEC_ERROR_42  "Die Enschlüsselung war nicht erfolgreich.\nEs wurde ein falscher Schlüssel zum Entschlüsseln benutzt."
     IDS_ECIES_DEC_ERROR_05  "Der AES-Ciphertext konnte nicht mit dem AES-Sessionkey entschlüsselt werden.\nEventuell ist einer der beiden oder beide beschädigt."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_AESDEMO_EXEC_STR    "Rijndael-Animation.exe"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_ANALYSE_DESXL        "Automatische Brute-force Analyse einer DESXL-Verschlüsselung"
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -14736,7 +14819,6 @@ END
 
 IDD_CHALLENGERESPONSE_DIALOG DIALOGEX 0, 0, 518, 342
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-EXSTYLE WS_EX_APPWINDOW
 CAPTION "Challenge-Response Demonstration"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
@@ -16760,10 +16842,10 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION |
 CAPTION "Substitution password"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,68,23,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,122,23,50,14
     EDITTEXT        IDC_EDIT1,7,7,165,13,ES_UPPERCASE | ES_AUTOHSCROLL | 
                     ES_WANTRETURN
+    DEFPUSHBUTTON   "OK",IDOK,68,23,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,122,23,50,14
 END
 
 IDD_Hill_Options DIALOGEX 0, 0, 311, 161
@@ -16983,20 +17065,24 @@ BEGIN
             , GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC
             , GRAYED
-            MENUITEM SEPARATOR
-            MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
-            , GRAYED
-            MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6, GRAYED
-            MENUITEM "&Rijndael (AES)...\tShift + Ctrl + R", 
+            MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
             , GRAYED
-            MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
-            , GRAYED
-            MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
-            , GRAYED
-            MENUITEM "DESL...",                     ID_CRYPT_DESL, GRAYED
-            MENUITEM "DESX...",                     ID_CRYPT_DESX, GRAYED
-            MENUITEM "DESXL...",                    ID_CRYPT_DESXL, GRAYED
+            POPUP "&Further", GRAYED
+            BEGIN
+                MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
+                , GRAYED
+                MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
+                , GRAYED
+                MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
+                , GRAYED
+                MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
+                , GRAYED
+                MENUITEM "DESL...",                     1004, GRAYED
+                MENUITEM "DESX...",                     ID_CRYPT_DESX
+                , GRAYED
+                MENUITEM "DESXL...",                    1005, GRAYED
+            END
             MENUITEM SEPARATOR
             MENUITEM "&AES (self extracting)...",   ID_AES_SELFEXTRACT
         END
@@ -17093,45 +17179,53 @@ BEGIN
             MENUITEM "&Secret Sharing by CRT...",   ID_INDIV_CRT_SECRETSHARING
 
         END
-        POPUP "&Visualization of Algorithms using ANIMAL"
+        POPUP "&Visualization of Algorithms"
         BEGIN
             MENUITEM "&Caesar...",                  ID_HELP_ANIMAL_CAESAR
             MENUITEM "&Vigenère...",                ID_HELP_ANIMAL_VIGENERE
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
+            MENUITEM SEPARATOR
+            MENUITEM "Point &Addition on Elliptic Curves...", 
+                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
+
+            MENUITEM SEPARATOR
+            MENUITEM "&AES ...",                    ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
-        MENUITEM "Point &Addition on Elliptic Curves", 
-                                                ID_INDIV_POINTADDITIONONELLIPTICCURVES
-
         MENUITEM SEPARATOR
-        POPUP "C&odes"
+        POPUP "&Tools"
         BEGIN
-            POPUP "&Base64 Encode/Decode"
+            POPUP "C&odes"
             BEGIN
-                MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64
-                , GRAYED
-                MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
+                POPUP "&Base64 Encode/Decode"
+                BEGIN
+                    MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64
+                    , GRAYED
+                    MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
+                    , GRAYED
+                END
+                POPUP "&UU Encode/Decode"
+                BEGIN
+                    MENUITEM "UU &Encode",                  ID_ENCODE_UU
+                    , GRAYED
+                    MENUITEM "UU &Decode",                  ID_DECODE_UU
+                    , GRAYED
+                END
+                MENUITEM "Decode ASN.&1 Code of a Document", 
+                                                        ID_EINZELVERFAHREN_ASN1DECODIEREN
                 , GRAYED
             END
-            POPUP "&UU Encode/Decode"
+            MENUITEM SEPARATOR
+            POPUP "&Compress"
             BEGIN
-                MENUITEM "UU &Encode",                  ID_ENCODE_UU, GRAYED
-                MENUITEM "UU &Decode",                  ID_DECODE_UU, GRAYED
+                MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP, GRAYED
+                MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
             END
-            MENUITEM "Decode ASN.&1 Code of a Document", 
-                                                    ID_EINZELVERFAHREN_ASN1DECODIEREN
-            , GRAYED
+            MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
         END
-        MENUITEM SEPARATOR
-        POPUP "&Compress"
-        BEGIN
-            MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP, GRAYED
-            MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
-        END
-        MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
         BEGIN
@@ -17166,7 +17260,7 @@ BEGIN
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 , GRAYED
                 MENUITEM SEPARATOR
-                MENUITEM "A&ddition",                   ID_ADD_AUTO, GRAYED
+                MENUITEM "Byte A&ddition",              ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
             END
             POPUP "Known-&Plaintext"
@@ -17207,9 +17301,9 @@ BEGIN
             , GRAYED
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
             , GRAYED
-            MENUITEM "DESL...",                     ID_ANALYSE_DESL, GRAYED
-            MENUITEM "DESX...",                     ID_ANALYSE_DESX, GRAYED
-            MENUITEM "DESXL...",                    ID_ANALYSE_DESXL, GRAYED
+            MENUITEM "DESL...",                     1006, GRAYED
+            MENUITEM "DESX...",                     1007, GRAYED
+            MENUITEM "DESXL...",                    1008, GRAYED
         END
         POPUP "&Asymmetric Encryption"
         BEGIN
@@ -17334,7 +17428,6 @@ BEGIN
         POPUP "&Font"
         BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
-            , GRAYED
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
             , GRAYED
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
@@ -17376,16 +17469,18 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_CRYPT_DES_DESCBC
             MENUITEM "&Triple DES (ECB)...",        ID_CRYPT_3DES_ECB
             MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC
-            MENUITEM SEPARATOR
-            MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
-            MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
-            MENUITEM "&Rijndael (AES)...\tShift + Ctrl + R", 
+            MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
-            MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
-            MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
-            MENUITEM "DESL...",                     ID_CRYPT_DESL
-            MENUITEM "DESX...",                     ID_CRYPT_DESX
-            MENUITEM "DESXL...",                    ID_CRYPT_DESXL
+            POPUP "&Further"
+            BEGIN
+                MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
+                MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
+                MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
+                MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
+                MENUITEM "DESL...",                     1004
+                MENUITEM "DESX...",                     ID_CRYPT_DESX
+                MENUITEM "DESXL...",                    1005
+            END
             MENUITEM SEPARATOR
             MENUITEM "&AES (self extracting)...",   ID_AES_SELFEXTRACT
         END
@@ -17476,43 +17571,49 @@ BEGIN
             MENUITEM "&Secret Sharing by CRT...",   ID_INDIV_CRT_SECRETSHARING
 
         END
-        POPUP "&Visualization of Algorithms using ANIMAL"
+        POPUP "&Visualization of Algorithms"
         BEGIN
             MENUITEM "&Caesar...",                  ID_HELP_ANIMAL_CAESAR
             MENUITEM "&Vigenère...",                ID_HELP_ANIMAL_VIGENERE
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
+            MENUITEM SEPARATOR
+            MENUITEM "Point &Addition on Elliptic Curves...", 
+                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
+
+            MENUITEM SEPARATOR
+            MENUITEM "&AES ...",                    ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
-        MENUITEM "Point &Addition on Elliptic Curves", 
-                                                ID_INDIV_POINTADDITIONONELLIPTICCURVES
-
         MENUITEM SEPARATOR
-        POPUP "C&odes"
+        POPUP "&Tools"
         BEGIN
-            POPUP "&Base64 Encode/Decode"
+            POPUP "C&odes"
             BEGIN
-                MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64
-                MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
-            END
-            POPUP "&UU Encode/Decode"
-            BEGIN
-                MENUITEM "UU &Encode",                  ID_ENCODE_UU
-                MENUITEM "UU &Decode",                  ID_DECODE_UU
-            END
-            MENUITEM "Decode ASN.&1 Code of a Document", 
-                                                    ID_EINZELVERFAHREN_ASN1DECODIEREN
+                POPUP "&Base64 Encode/Decode"
+                BEGIN
+                    MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64
+                    MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
+                END
+                POPUP "&UU Encode/Decode"
+                BEGIN
+                    MENUITEM "UU &Encode",                  ID_ENCODE_UU
+                    MENUITEM "UU &Decode",                  ID_DECODE_UU
+                END
+                MENUITEM "Decode ASN.&1 Code of a Document", 
+                                                        ID_EINZELVERFAHREN_ASN1DECODIEREN
 
+            END
+            MENUITEM SEPARATOR
+            POPUP "&Compress"
+            BEGIN
+                MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
+                MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
+            END
+            MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
         END
-        MENUITEM SEPARATOR
-        POPUP "&Compress"
-        BEGIN
-            MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
-            MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
-        END
-        MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
         BEGIN
@@ -17544,7 +17645,7 @@ BEGIN
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
 
                 MENUITEM SEPARATOR
-                MENUITEM "A&ddition",                   ID_ADD_AUTO
+                MENUITEM "Byte A&ddition",              ID_ADD_AUTO
                 MENUITEM "&XOR",                        ID_XOR_AUTO
             END
             POPUP "Known-&Plaintext"
@@ -17574,9 +17675,9 @@ BEGIN
             MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
             MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
-            MENUITEM "DESL...",                     ID_ANALYSE_DESL
-            MENUITEM "DESX...",                     ID_ANALYSE_DESX
-            MENUITEM "DESXL...",                    ID_ANALYSE_DESXL
+            MENUITEM "DESL...",                     1006
+            MENUITEM "DESX...",                     1007
+            MENUITEM "DESXL...",                    1008
         END
         POPUP "&Asymmetric Encryption"
         BEGIN
@@ -17750,20 +17851,24 @@ BEGIN
             , GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC
             , GRAYED
-            MENUITEM SEPARATOR
-            MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
-            , GRAYED
-            MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6, GRAYED
-            MENUITEM "&Rijndael (AES)...\tShift + Ctrl + R", 
+            MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
             , GRAYED
-            MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
-            , GRAYED
-            MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
-            , GRAYED
-            MENUITEM "DESL...",                     ID_CRYPT_DESL, GRAYED
-            MENUITEM "DESX...",                     ID_CRYPT_DESX, GRAYED
-            MENUITEM "DESXL...",                    ID_CRYPT_DESXL, GRAYED
+            POPUP "&Further", GRAYED
+            BEGIN
+                MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
+                , GRAYED
+                MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
+                , GRAYED
+                MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
+                , GRAYED
+                MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
+                , GRAYED
+                MENUITEM "DESL...",                     1004, GRAYED
+                MENUITEM "DESX...",                     ID_CRYPT_DESX
+                , GRAYED
+                MENUITEM "DESXL...",                    1005, GRAYED
+            END
             MENUITEM SEPARATOR
             MENUITEM "&AES (self extracting)...",   ID_AES_SELFEXTRACT
         END
@@ -17860,45 +17965,53 @@ BEGIN
             MENUITEM "&Secret Sharing by CRT...",   ID_INDIV_CRT_SECRETSHARING
 
         END
-        POPUP "&Visualization of Algorithms using ANIMAL"
+        POPUP "&Visualization of Algorithms"
         BEGIN
             MENUITEM "&Caesar...",                  ID_HELP_ANIMAL_CAESAR
             MENUITEM "&Vigenère...",                ID_HELP_ANIMAL_VIGENERE
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
+            MENUITEM SEPARATOR
+            MENUITEM "Point &Addition on Elliptic Curves...", 
+                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
+
+            MENUITEM SEPARATOR
+            MENUITEM "&AES ...",                    ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
-        MENUITEM "Point &Addition on Elliptic Curves", 
-                                                ID_INDIV_POINTADDITIONONELLIPTICCURVES
-
         MENUITEM SEPARATOR
-        POPUP "C&odes"
+        POPUP "&Tools"
         BEGIN
-            POPUP "&Base64 Encode/Decode"
+            POPUP "C&odes"
             BEGIN
-                MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64
-                , GRAYED
-                MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
+                POPUP "&Base64 Encode/Decode"
+                BEGIN
+                    MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64
+                    , GRAYED
+                    MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
+                    , GRAYED
+                END
+                POPUP "&UU Encode/Decode"
+                BEGIN
+                    MENUITEM "UU &Encode",                  ID_ENCODE_UU
+                    , GRAYED
+                    MENUITEM "UU &Decode",                  ID_DECODE_UU
+                    , GRAYED
+                END
+                MENUITEM "Decode ASN.&1 Code of a Document", 
+                                                        ID_EINZELVERFAHREN_ASN1DECODIEREN
                 , GRAYED
             END
-            POPUP "&UU Encode/Decode"
+            MENUITEM SEPARATOR
+            POPUP "&Compress"
             BEGIN
-                MENUITEM "UU &Encode",                  ID_ENCODE_UU, GRAYED
-                MENUITEM "UU &Decode",                  ID_DECODE_UU, GRAYED
+                MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP, GRAYED
+                MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
             END
-            MENUITEM "Decode ASN.&1 Code of a Document", 
-                                                    ID_EINZELVERFAHREN_ASN1DECODIEREN
-            , GRAYED
+            MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
         END
-        MENUITEM SEPARATOR
-        POPUP "&Compress"
-        BEGIN
-            MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP, GRAYED
-            MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
-        END
-        MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
         BEGIN
@@ -17933,7 +18046,7 @@ BEGIN
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 , GRAYED
                 MENUITEM SEPARATOR
-                MENUITEM "A&ddition",                   ID_ADD_AUTO, GRAYED
+                MENUITEM "Byte A&ddition",              ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
             END
             POPUP "Known-&Plaintext"
@@ -17974,9 +18087,9 @@ BEGIN
             , GRAYED
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
             , GRAYED
-            MENUITEM "DESL...",                     ID_ANALYSE_DESL, GRAYED
-            MENUITEM "DESX...",                     ID_ANALYSE_DESX, GRAYED
-            MENUITEM "DESXL...",                    ID_ANALYSE_DESXL, GRAYED
+            MENUITEM "DESL...",                     1006, GRAYED
+            MENUITEM "DESX...",                     1007, GRAYED
+            MENUITEM "DESXL...",                    1008, GRAYED
         END
         POPUP "&Asymmetric Encryption"
         BEGIN
@@ -18140,16 +18253,18 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_CRYPT_DES_DESCBC
             MENUITEM "&Triple DES (ECB)...",        ID_CRYPT_3DES_ECB
             MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC
-            MENUITEM SEPARATOR
-            MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
-            MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
-            MENUITEM "&Rijndael (AES)...\tShift + Ctrl + R", 
+            MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
-            MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
-            MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
-            MENUITEM "DESL...",                     ID_CRYPT_DESL
-            MENUITEM "DESX...",                     ID_CRYPT_DESX
-            MENUITEM "DESXL...",                    ID_CRYPT_DESXL
+            POPUP "&Further"
+            BEGIN
+                MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
+                MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
+                MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
+                MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
+                MENUITEM "DESL...",                     1004
+                MENUITEM "DESX...",                     ID_CRYPT_DESX
+                MENUITEM "DESXL...",                    1005
+            END
             MENUITEM SEPARATOR
             MENUITEM "&AES (self extracting)...",   ID_AES_SELFEXTRACT
         END
@@ -18240,43 +18355,49 @@ BEGIN
             MENUITEM "&Secret Sharing by CRT...",   ID_INDIV_CRT_SECRETSHARING
 
         END
-        POPUP "&Visualization of Algorithms using ANIMAL"
+        POPUP "&Visualization of Algorithms"
         BEGIN
             MENUITEM "&Caesar...",                  ID_HELP_ANIMAL_CAESAR
             MENUITEM "&Vigenère...",                ID_HELP_ANIMAL_VIGENERE
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
+            MENUITEM SEPARATOR
+            MENUITEM "Point &Addition on Elliptic Curves...", 
+                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
+
+            MENUITEM SEPARATOR
+            MENUITEM "&AES ...",                    ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
-        MENUITEM "Point &Addition on Elliptic Curves", 
-                                                ID_INDIV_POINTADDITIONONELLIPTICCURVES
-
         MENUITEM SEPARATOR
-        POPUP "C&odes"
+        POPUP "&Tools"
         BEGIN
-            POPUP "&Base64 Encode/Decode"
+            POPUP "C&odes"
             BEGIN
-                MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64
-                MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
-            END
-            POPUP "&UU Encode/Decode"
-            BEGIN
-                MENUITEM "UU &Encode",                  ID_ENCODE_UU
-                MENUITEM "UU &Decode",                  ID_DECODE_UU
-            END
-            MENUITEM "Decode ASN.&1 Code of a Document", 
-                                                    ID_EINZELVERFAHREN_ASN1DECODIEREN
+                POPUP "&Base64 Encode/Decode"
+                BEGIN
+                    MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64
+                    MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
+                END
+                POPUP "&UU Encode/Decode"
+                BEGIN
+                    MENUITEM "UU &Encode",                  ID_ENCODE_UU
+                    MENUITEM "UU &Decode",                  ID_DECODE_UU
+                END
+                MENUITEM "Decode ASN.&1 Code of a Document", 
+                                                        ID_EINZELVERFAHREN_ASN1DECODIEREN
 
+            END
+            MENUITEM SEPARATOR
+            POPUP "&Compress"
+            BEGIN
+                MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
+                MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
+            END
+            MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
         END
-        MENUITEM SEPARATOR
-        POPUP "&Compress"
-        BEGIN
-            MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
-            MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
-        END
-        MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
         BEGIN
@@ -18308,7 +18429,7 @@ BEGIN
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
 
                 MENUITEM SEPARATOR
-                MENUITEM "A&ddition",                   ID_ADD_AUTO
+                MENUITEM "Byte A&ddition",              ID_ADD_AUTO
                 MENUITEM "&XOR",                        ID_XOR_AUTO
             END
             POPUP "Known-&Plaintext"
@@ -18338,9 +18459,9 @@ BEGIN
             MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
             MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
-            MENUITEM "DESL...",                     ID_ANALYSE_DESL
-            MENUITEM "DESX...",                     ID_ANALYSE_DESX
-            MENUITEM "DESXL...",                    ID_ANALYSE_DESXL
+            MENUITEM "DESL...",                     1006
+            MENUITEM "DESX...",                     1007
+            MENUITEM "DESXL...",                    1008
         END
         POPUP "&Asymmetric Encryption"
         BEGIN
@@ -18539,20 +18660,24 @@ BEGIN
             , GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC
             , GRAYED
-            MENUITEM SEPARATOR
-            MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
-            , GRAYED
-            MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6, GRAYED
-            MENUITEM "&Rijndael (AES)...\tShift + Ctrl + R", 
+            MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
             , GRAYED
-            MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
-            , GRAYED
-            MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
-            , GRAYED
-            MENUITEM "DESL...",                     ID_ANALYSE_DESL, GRAYED
-            MENUITEM "DESX...",                     ID_ANALYSE_DESX, GRAYED
-            MENUITEM "DESXL...",                    ID_ANALYSE_DESXL, GRAYED
+            POPUP "&Further", GRAYED
+            BEGIN
+                MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
+                , GRAYED
+                MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
+                , GRAYED
+                MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
+                , GRAYED
+                MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
+                , GRAYED
+                MENUITEM "DESL...",                     1004, GRAYED
+                MENUITEM "DESX...",                     ID_CRYPT_DESX
+                , GRAYED
+                MENUITEM "DESXL...",                    1005, GRAYED
+            END
             MENUITEM SEPARATOR
             MENUITEM "&AES (self extracting)...",   ID_AES_SELFEXTRACT
         END
@@ -18649,45 +18774,53 @@ BEGIN
             MENUITEM "&Secret Sharing by CRT...",   ID_INDIV_CRT_SECRETSHARING
 
         END
-        POPUP "&Visualization of Algorithms using ANIMAL"
+        POPUP "&Visualization of Algorithms"
         BEGIN
             MENUITEM "&Caesar...",                  ID_HELP_ANIMAL_CAESAR
             MENUITEM "&Vigenère...",                ID_HELP_ANIMAL_VIGENERE
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
+            MENUITEM SEPARATOR
+            MENUITEM "Point &Addition on Elliptic Curves...", 
+                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
+
+            MENUITEM SEPARATOR
+            MENUITEM "&AES ...",                    ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
-        MENUITEM "Point &Addition on Elliptic Curves", 
-                                                ID_INDIV_POINTADDITIONONELLIPTICCURVES
-
         MENUITEM SEPARATOR
-        POPUP "C&odes"
+        POPUP "&Tools"
         BEGIN
-            POPUP "&Base64 Encode/Decode"
+            POPUP "C&odes"
             BEGIN
-                MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64
-                , GRAYED
-                MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
+                POPUP "&Base64 Encode/Decode"
+                BEGIN
+                    MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64
+                    , GRAYED
+                    MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
+                    , GRAYED
+                END
+                POPUP "&UU Encode/Decode"
+                BEGIN
+                    MENUITEM "UU &Encode",                  ID_ENCODE_UU
+                    , GRAYED
+                    MENUITEM "UU &Decode",                  ID_DECODE_UU
+                    , GRAYED
+                END
+                MENUITEM "Decode ASN.&1 Code of a Document", 
+                                                        ID_EINZELVERFAHREN_ASN1DECODIEREN
                 , GRAYED
             END
-            POPUP "&UU Encode/Decode"
+            MENUITEM SEPARATOR
+            POPUP "&Compress"
             BEGIN
-                MENUITEM "UU &Encode",                  ID_ENCODE_UU, GRAYED
-                MENUITEM "UU &Decode",                  ID_DECODE_UU, GRAYED
+                MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP, GRAYED
+                MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
             END
-            MENUITEM "Decode ASN.&1 Code of a Document", 
-                                                    ID_EINZELVERFAHREN_ASN1DECODIEREN
-            , GRAYED
+            MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
         END
-        MENUITEM SEPARATOR
-        POPUP "&Compress"
-        BEGIN
-            MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP, GRAYED
-            MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
-        END
-        MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
         BEGIN
@@ -18722,7 +18855,7 @@ BEGIN
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 , GRAYED
                 MENUITEM SEPARATOR
-                MENUITEM "A&ddition",                   ID_ADD_AUTO, GRAYED
+                MENUITEM "Byte A&ddition",              ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
             END
             POPUP "Known-&Plaintext"
@@ -18763,9 +18896,9 @@ BEGIN
             , GRAYED
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
             , GRAYED
-            MENUITEM "DESL...",                     ID_ANALYSE_DESL, GRAYED
-            MENUITEM "DESX...",                     ID_ANALYSE_DESX, GRAYED
-            MENUITEM "DESXL...",                    ID_ANALYSE_DESXL, GRAYED
+            MENUITEM "DESL...",                     1006, GRAYED
+            MENUITEM "DESX...",                     1007, GRAYED
+            MENUITEM "DESXL...",                    1008, GRAYED
         END
         POPUP "&Asymmetric Encryption"
         BEGIN
@@ -20727,7 +20860,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.01 - beta 01 "
+    IDR_MAINFRAME           "CrypTool 1.4.10 - beta 02 "
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -20990,7 +21123,7 @@ BEGIN
                             "Monoalphabetic substitution of <%s>"
     IDS_STRING_MSG_FREQ_ANALYSE_NOTE 
                             "Several characters occur equally often.\nThe most common character has been ignored.\nThis means that an extended analysis is not possible."
-    IDS_STRING_POSSIBLE_PLAINTEXT_OF "Possible plaintext of <%s>, key <%s>"
+    IDS_STRING_POSSIBLE_PLAINTEXT_OF "Substitution analysis of <%s>, key <%s>"
     IDS_STRING_MSG_MAX_INPUT_LENGTH_TXT 
                             "Enter the key.\nThe maximum key length is %d characters!"
     IDS_STRING_ERR_ZIP      "ZIP error"
@@ -21080,7 +21213,7 @@ BEGIN
     IDS_STRING_ANALYSE_ON   "Brute-Force Analysis of %s"
     IDS_STRING_MSG_SEARCHING_COMPLETE 
                             "%d bit brute-force search %%d%%%% completed.\nRemaining time: %%s"
-    IDS_STRING_AUTOMATIC_ANALYSE "Automatic %s Analysis of <%s>, key: <%s>"
+    IDS_STRING_AUTOMATIC_ANALYSE "%s Analysis of <%s>, key: <%s>"
     IDS_STRING_MSG_SIGNED_MESSAGE_TO_BIG 
                             "The signed message is very large. It cannot be displayed in the CrypTool hex editor.\nThe message has therefore been provisionally stored in the temporary file '%s'."
     IDS_STRING_SIGNATURE_ORIGINATOR "Signer:"
@@ -21400,10 +21533,6 @@ BEGIN
                             "Computation of the Hill decryption by the vector matrix multiplication C[n]*D[n]:"
     IDS_HILLEXAMPLE_RESULT_ENCRYPTION "The Hill ciphertext is: ""%s""."
     IDS_HILLEXAMPLE_RESULT_DECRYPTION "The Hill plaintext is: ""%s""."
-    IDS_HILLEXAMPLE_ENCRYPTION2 
-                            "Computation of the Hill cipher by the matrix vector multiplication  H[n]*K[n]:"
-    IDS_HILLEXAMPLE_DECRYPTION2 
-                            "Computation of the Hill decryption by the vector matrix multiplication D[n]*C[n]:"
     IDS_STRING_RAND_DATA_PARAM 
                             "Random data generated with the %s generator - length %i bytes"
     IDS_RSA_MKPZ_PLAINTEXT  "Plaintext"
@@ -22889,29 +23018,15 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_CRYPT_DESX          "DESX"
-    IDS_CRYPT_DESL          "DESL"
-    IDS_CRYPT_DESXL         "DESXL"
-    ID_CRYPT_DESX           "Encryption / decryption with DESX"
-    ID_CRYPT_DESL           "Encryption / decryption with DESL"
-    ID_CRYPT_DESXL          "Encryption / decryption with DESXL"
-    ID_ANALYSE_DESL         "Automatic brute-force analysis of encryption using the DESL algorithm"
-    ID_ANALYSE_DESX         "Automatic brute-force analysis of encryption using the DESX algorithm"
-END
-
-STRINGTABLE 
-BEGIN
-    ID_ANALYSE_DESXL        "Automatic brute-force analysis of encryption using the DESXL algorithm"
-END
-
-STRINGTABLE 
-BEGIN
     IDS_STRING_PRIMETEST_RESULT_ERROR "Error in processing"
     IDS_STRING_PRIMETEST_RESULT_PROBABLEPRIME "The number is probable prime: "
     IDS_STRING_PRIMETEST_RESULT_CANCEL "Test canceled"
     IDS_STRING_COMMA        "."
     IDS_CRYPT_ATBASH        "Atbash"
     IDS_BUILD_INFO          "(%s compiled with %s)"
+    IDS_RSA_BM_CHECKN       "Please check the value of the RSA modulus N"
+    IDS_RSA_BM_CHECKE       "Please check the value of the public exponent e"
+    IDS_RSA_BM_CHECKD       "Please check the estimated value of the secret exponent d"
 END
 
 STRINGTABLE 
@@ -22983,8 +23098,8 @@ END
 STRINGTABLE 
 BEGIN
     IDS_ECIES_CRYPT         "ECIES-AES hybrid"
-    IDS_ECIES_ENC_TIME      "ECIES encryption time: %.3f seconds."
-    IDS_ECIES_DEC_TIME      "ECIES decryption time: %.3f seconds."
+    IDS_ECIES_ENC_TIME      "ECIES encryption time: %s seconds."
+    IDS_ECIES_DEC_TIME      "ECIES decryption time: %s seconds."
     IDS_ECIES_HEADER_01     "Sender:"
     IDS_ECIES_HEADER_02     "Receiver:"
     IDS_ECIES_HEADER_03     "|Curve ID:"
@@ -23000,7 +23115,7 @@ STRINGTABLE
 BEGIN
     IDS_ECCDemo_PATH        ".\\ECCDemo\\"
     IDS_ECCDemo_EXECUTABLE  "java.exe"
-    IDS_ECCDemo_FILE        " -jar .\\ECCDemo\\eccdemo.jar"
+    IDS_ECCDemo_FILE        " -jar eccdemo.jar"
 END
 
 STRINGTABLE 
@@ -23015,6 +23130,28 @@ BEGIN
     IDS_ECIES_DEC_ERROR_03  "The decryption was not successful, the AES ciphertext is damaged."
     IDS_ECIES_DEC_ERROR_42  "The decryption was not successful, a wrong key was used for decryption."
     IDS_ECIES_DEC_ERROR_05  "The AES ciphertext could not be decrypted with the AES session key.\nOne or both components might be damaged."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_AESDEMO_EXEC_STR    "Rijndael-Animation.exe"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CRYPT_DESX          "DESX"
+    IDS_CRYPT_DESL          "DESL"
+    IDS_CRYPT_DESXL         "DESXL"
+    ID_CRYPT_DESX           "Encryption / decryption with DESX"
+    ID_CRYPT_DESL           "Encryption / decryption with DESL"
+    ID_CRYPT_DESXL          "Encryption / decryption with DESXL"
+    ID_ANALYSE_DESL         "Automatic brute-force analysis of encryption using the DESL algorithm"
+    ID_ANALYSE_DESX         "Automatic brute-force analysis of encryption using the DESX algorithm"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_ANALYSE_DESXL        "Automatic brute-force analysis of encryption using the DESXL algorithm"
 END
 
 #endif    // Englisch (GB) resources

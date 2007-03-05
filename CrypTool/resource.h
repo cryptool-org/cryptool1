@@ -63,6 +63,7 @@
 #define IDC_EDIT191                     58
 #define IDD_PLAYFAIR_ANALYSIS           102
 #define IDD_ICG_RANDOMPARAMETER         103
+#define IDR_HTML_SELECTPASTEENCODING    107
 #define IDD_KEY                         109
 #define IDD_RSA_DECRYPTION              110
 #define IDD_KEY_SUBSTITUTION            112
@@ -1863,6 +1864,8 @@
 #define ID_HYBRID_ECCDEC                33340
 #define ID_INDIV_POINTADDITIONONELLIPTICCURVES 33341
 #define ID_VIEW_ALPHABET                33342
+#define ID_VISUALISIERUNGVONALGORITHMEN_AESDETAILS 33342
+#define ID_FLASH_AESDEMO                33344
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -2244,9 +2247,7 @@
 #define IDS_STRING61440                 37130
 #define IDS_HILLEXAMPLE_RESULT_DECRYPTION 37130
 #define IDS_STRING61441                 37131
-#define IDS_HILLEXAMPLE_ENCRYPTION2     37131
 #define IDS_STRING61442                 37132
-#define IDS_HILLEXAMPLE_DECRYPTION2     37132
 #define IDS_STRING_RAND_DATA_PARAM      37133
 #define IDS_RSA_MKPZ_PLAINTEXT          37134
 #define IDS_RSA_MKPZ_CIPHERTEXT         37137
@@ -2718,6 +2719,9 @@
 #define IDS_STRING_COMMA                38116
 #define IDS_CRYPT_ATBASH                38117
 #define IDS_BUILD_INFO                  38118
+#define IDS_RSA_BM_CHECKN               38119
+#define IDS_RSA_BM_CHECKE               38120
+#define IDS_RSA_BM_CHECKD               38121
 #define IDS_ECCDemo_PATH                39000
 #define IDS_ECCDemo_EXECUTABLE          39001
 #define IDS_ECCDemo_FILE                39002
@@ -2742,6 +2746,7 @@
 #define IDS_ECIES_DEC_ERROR_03          39031
 #define IDS_ECIES_DEC_ERROR_42          39032
 #define IDS_ECIES_DEC_ERROR_05          39033
+#define IDS_AESDEMO_EXEC_STR            39044
 #define IDS_DH_LOG_1                    61889
 #define IDS_DH_LOG_2                    61890
 #define IDS_DH_LOG_3                    61891
@@ -2867,6 +2872,6 @@
 #define _APS_NEXT_RESOURCE_VALUE        861
 #define _APS_NEXT_COMMAND_VALUE         33343
 #define _APS_NEXT_CONTROL_VALUE         1897
-#define _APS_NEXT_SYMED_VALUE           107
+#define _APS_NEXT_SYMED_VALUE           108
 #endif
 #endif
