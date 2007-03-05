@@ -6,6 +6,7 @@
 #define IDS_FINDANDREPLACE_TEXTNOTFOUND 2
 #define IDCANCEL2                       3
 #define IDS_FINDANDREPLACE_TEXTOCCURANCESREPLACED 3
+#define IDOK2                           3
 #define IDCANCEL3                       4
 #define IDS_HASHDEMO_STRING_MD2         4
 #define IDCANCEL4                       5
@@ -317,6 +318,15 @@
 #define IDD_ECCDECRECEIVER              858
 #define IDD_ECCENCRECEIVER              859
 #define IDS_OK                          860
+#define IDS_CRYPT_DESX                  1000
+#define IDS_CRYPT_DESL                  1001
+#define IDS_CRYPT_DESXL                 1002
+#define ID_CRYPT_DESX                   1003
+#define ID_CRYPT_DESL                   1004
+#define ID_CRYPT_DESXL                  1005
+#define ID_ANALYSE_DESL                 1006
+#define ID_ANALYSE_DESX                 1007
+#define ID_ANALYSE_DESXL                1008
 #define IDC_EDIT133                     1015
 #define IDC_EDIT1                       1016
 #define IDC_EDIT2                       1017
@@ -1571,6 +1581,8 @@
 #define IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_3 30730
 #define IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_1 30731
 #define IDD_SELECTCOPYENCODING1         30732
+#define IDD_SELECTPASTEDECODING         30732
+#define IDD_SELECTPASTEDECODING1        30733
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
 #define ID_HILL                         33002
@@ -2853,7 +2865,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        861
-#define _APS_NEXT_COMMAND_VALUE         33341
+#define _APS_NEXT_COMMAND_VALUE         33343
 #define _APS_NEXT_CONTROL_VALUE         1897
 #define _APS_NEXT_SYMED_VALUE           107
 #endif

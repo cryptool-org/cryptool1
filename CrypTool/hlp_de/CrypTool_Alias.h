@@ -177,3 +177,10 @@ HIDR_MAINFRAME = main_index.html
 HIDR_MDI_HITYPE = HIDR_DOC1TYPE.html
 HID_PRIMENUMBER_TEST = hidd_prime_test.html
 HID_APP_ABOUT = HIDD_ABOUT.html
+HID_CRYPT_DESL = hid_crypt_desl.html
+HID_CRYPT_DESX = hid_crypt_desx.html
+HID_CRYPT_DESXL = hid_crypt_desxl.html
+HID_ANALYSE_DESL = hid_analyse_desl.html
+HID_ANALYSE_DESX = hid_analyse_desx.html
+HID_ANALYSE_DESXL = hid_analyse_desxl.html
+

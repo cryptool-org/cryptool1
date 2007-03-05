@@ -68,6 +68,7 @@ statement from your version.
 #include "Cryptography.h"
 #include "MakeNewName.h"
 
+#include "DESXL.h"
 
 void FreePar(CryptPar *par);
 void doaescrypt(int AlgId,char mode,int keylen,char *keybuffhex,unsigned char *borg,int datalen,
@@ -159,6 +160,36 @@ void doaescrypt(int AlgId,char mode,int keylen,char *keybuffhex,unsigned char *b
 				(BYTE *)borg,datalen, bcip);
 			break;
 		}
+	case 6://DESL
+		{
+			DESXL desxlInstance;
+			desxlInstance.createKey(keybuffhex,keylen*8,VAR_DESL);
+			if(mode==DIR_DECRYPT)
+				desxlInstance.decrypt((BYTE *)borg,datalen,bcip,VAR_DESL);
+			else
+				desxlInstance.encrypt((BYTE *)borg,datalen,bcip,VAR_DESL);
+			break;
+		}
+	case 7://DESX
+		{
+			DESXL desxlInstance;
+			desxlInstance.createKey(keybuffhex,keylen*8,VAR_DESX);
+			if(mode==DIR_DECRYPT)
+				desxlInstance.decrypt((BYTE *)borg,datalen,bcip,VAR_DESX);
+			else
+				desxlInstance.encrypt((BYTE *)borg,datalen,bcip,VAR_DESX);
+			break;
+		}
+	case 8://DESXL
+		{
+			DESXL desxlInstance;
+			desxlInstance.createKey(keybuffhex,keylen*8,VAR_DESXL);
+			if(mode==DIR_DECRYPT)
+				desxlInstance.decrypt((BYTE *)borg,datalen,bcip,VAR_DESXL);
+			else
+				desxlInstance.encrypt((BYTE *)borg,datalen,bcip,VAR_DESXL);
+			break;
+		}
 	}
 }
 
@@ -171,7 +202,10 @@ void doaescrypt(int AlgId,char mode,int keylen,char *keybuffhex,unsigned char *b
 	2 steht für RC6
 	3 steht für Rijndael
 	4 steht für Serpent
-	5 steht für Twofish */
+	5 steht für Twofish 
+	6 steht für DESL
+	7 steht für DESX
+	8 steht für DESXL*/
 void AESCrypt (const char* infile, const char *OldTitle, int AlgId, bool Enc_Or_Dec, const char * NewFileName, const char* NewFileKey)
 {
 	
@@ -200,17 +234,27 @@ void AESCrypt (const char* infile, const char *OldTitle, int AlgId, bool Enc_Or_
 		IDS_CRYPT_RC6,
 		IDS_CRYPT_RIJNDAEL,
 		IDS_CRYPT_SERPENT,
-		IDS_CRYPT_TWOFISH
+		IDS_CRYPT_TWOFISH,
+		IDS_CRYPT_DESL,
+		IDS_CRYPT_DESX,
+		IDS_CRYPT_DESXL
 	};
 	ASSERT(AlgId < sizeof(AlgResIds)/sizeof(UINT));
 	AlgTitle.LoadString(AlgResIds[AlgId]);
 	if ( 3 == AlgId )
 		Title.LoadString(IDS_STRING_KEYINPUT_AES_RIJNDAEL);
+	else if ((6 == AlgId)||(7 == AlgId)||(8 == AlgId))
+        Title.Format(IDS_STRING_KEYINPUT_SYMMETRIC,AlgTitle);
 	else
 		Title.Format(IDS_STRING_KEYINPUT_AES_CANDIDATE,AlgTitle);
 	int tag=0;
     CDlgKeyHexFixedLen KeyDialog;
-	KeyDialog.Init(Title,128,256,64);
+	if ((7 == AlgId)||(8 == AlgId))
+		KeyDialog.Init(Title,192,192,192);
+	else if ((6 == AlgId))
+		KeyDialog.Init(Title,64,64,64);
+	else
+		KeyDialog.Init(Title,128,256,64);
 	if( NewFileName == NULL )
 	{
 		int res;
@@ -393,6 +437,15 @@ UINT AESBrute(PVOID p)
 		break;
 	case 5:                        // Twofish
 		titleID = IDS_CRYPT_TWOFISH;
+		break;
+	case 6:                        // DESL
+		titleID = IDS_CRYPT_DESL;
+		break;
+	case 7:                        // DESX
+		titleID = IDS_CRYPT_DESX;
+		break;
+	case 8:                        // DESXL
+		titleID = IDS_CRYPT_DESXL;
 		break;
 	}
 	LoadString(AfxGetInstanceHandle(),titleID,pc_str,STR_LAENGE_STRING_TABLE);

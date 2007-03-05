@@ -496,6 +496,12 @@ hid_verentschlsseln_hybridverfahren_hybridECCentschlsselung.html
 hid_verentschlsseln_hybridverfahren_hybridECCverschlsselung.html
 hidd_hybrid_decryption_ecc.html
 certificates.html
+hid_crypt_desl.html
+hid_crypt_desx.html
+hid_crypt_desxl.html
+hid_analyse_desl.html
+hid_analyse_desx.html
+hid_analyse_desxl.html
 
 [ALIAS]
 #include CrypTool_Alias.h

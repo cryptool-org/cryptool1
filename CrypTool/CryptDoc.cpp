@@ -279,6 +279,12 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CAppDocument)
 	ON_COMMAND(ID_DECODE_BASE64, OnIndivproceduresBase64Decode)
 	ON_COMMAND(ID_ENCODE_UU, OnEncodeUu)
 	ON_COMMAND(ID_DECODE_UU, OnDecodeUu)
+	ON_COMMAND(ID_CRYPT_DESL, OnCryptDESL)
+	ON_COMMAND(ID_CRYPT_DESX, OnCryptDESX)
+	ON_COMMAND(ID_CRYPT_DESXL, OnCryptDESXL)
+	ON_COMMAND(ID_ANALYSE_DESL, OnAnalyseDESL)
+	ON_COMMAND(ID_ANALYSE_DESX, OnAnalyseDESX)
+	ON_COMMAND(ID_ANALYSE_DESXL, OnAnalyseDESXL)
 	//}}AFX_MSG_MAP
 
 	ON_COMMAND(ID_HYBRID_ECCENC, OnHybridEccEnc)
@@ -1995,4 +2001,80 @@ void CCryptDoc::OnHybridEccDec()
 {
     UpdateContent();
     ECCDec(ContentName, GetTitle());
+}
+
+void CCryptDoc::OnCryptDESL()
+{
+	UpdateContent();
+    AESCrypt(ContentName, GetTitle(),6);
+}
+
+void CCryptDoc::OnCryptDESX()
+{
+	UpdateContent();
+    AESCrypt(ContentName, GetTitle(),7);
+}
+
+void CCryptDoc::OnCryptDESXL()
+{
+	UpdateContent();
+    AESCrypt(ContentName, GetTitle(),8);
+}
+
+
+void CCryptDoc::OnAnalyseDESL() 
+{
+	CryptPar *para;
+
+	para = (CryptPar *) malloc(sizeof(CryptPar));
+    UpdateContent();
+	memset(para,0,sizeof(CryptPar));
+	para->infile = strdup(ContentName);
+	para->OldTitle = strdup(GetTitle());
+	para->key = (char *) malloc(sizeof(int));
+	*(int *)para->key = 6;
+	para->keylenstep = 64; 
+	para->keylenmin = 64;
+	para->keylenmax = 64;
+	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
+	theApp.OpenBGFlag = 1;
+    AfxBeginThread( AESBrute, ((void *) para) );
+}
+
+void CCryptDoc::OnAnalyseDESX() 
+{
+	CryptPar *para;
+
+	para = (CryptPar *) malloc(sizeof(CryptPar));
+    UpdateContent();
+	memset(para,0,sizeof(CryptPar));
+	para->infile = strdup(ContentName);
+	para->OldTitle = strdup(GetTitle());
+	para->key = (char *) malloc(sizeof(int));
+	*(int *)para->key = 7;
+	para->keylenstep = 64; 
+	para->keylenmin = 192;
+	para->keylenmax = 192;
+	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
+	theApp.OpenBGFlag = 1;
+    AfxBeginThread( AESBrute, ((void *) para) );
+}
+
+void CCryptDoc::OnAnalyseDESXL() 
+{
+	CryptPar *para;
+
+	para = (CryptPar *) malloc(sizeof(CryptPar));
+    UpdateContent();
+	memset(para,0,sizeof(CryptPar));
+	para->infile = strdup(ContentName);
+	para->OldTitle = strdup(GetTitle());
+	para->key = (char *) malloc(sizeof(int));
+	*(int *)para->key = 8;
+	para->keylenstep = 64; 
+	para->keylenmin = 192;
+	para->keylenmax = 192;
+	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
+	theApp.OpenBGFlag = 1;
+    AfxBeginThread( AESBrute, ((void *) para) );
 }

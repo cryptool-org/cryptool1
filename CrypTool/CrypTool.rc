@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -5620,6 +5620,9 @@ BEGIN
             , GRAYED
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
             , GRAYED
+            MENUITEM "DESL...",                     1004, GRAYED
+            MENUITEM "DESX...",                     ID_CRYPT_DESX, GRAYED
+            MENUITEM "DESXL...",                    1005, GRAYED
             MENUITEM SEPARATOR
             MENUITEM "&AES (selbstextrahierend)...", ID_AES_SELFEXTRACT
         END
@@ -5833,6 +5836,9 @@ BEGIN
             , GRAYED
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
             , GRAYED
+            MENUITEM "DESL...",                     ID_ANALYSE_DESL, GRAYED
+            MENUITEM "DESX...",                     ID_ANALYSE_DESX, GRAYED
+            MENUITEM "DESXL...",                    ID_ANALYSE_DESXL, GRAYED
         END
         POPUP "&Asymmetrische Verfahren"
         BEGIN
@@ -6006,6 +6012,9 @@ BEGIN
                                                     ID_CRYPT_AES_RIJNDAEL
             MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
+            MENUITEM "DESL...",                     1004
+            MENUITEM "DESX...",                     ID_CRYPT_DESX
+            MENUITEM "DESXL...",                    1005
             MENUITEM SEPARATOR
             MENUITEM "&AES (selbstextrahierend)...", ID_AES_SELFEXTRACT
         END
@@ -6197,6 +6206,9 @@ BEGIN
             MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
             MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
+            MENUITEM "DESL...",                     ID_ANALYSE_DESX
+            MENUITEM "DESX...",                     ID_ANALYSE_DESX
+            MENUITEM "DESXL...",                    ID_ANALYSE_DESXL
         END
         POPUP "&Asymmetrische Verfahren"
         BEGIN
@@ -6380,6 +6392,9 @@ BEGIN
             , GRAYED
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
             , GRAYED
+            MENUITEM "DESL...",                     1004
+            MENUITEM "DESX...",                     ID_CRYPT_DESX
+            MENUITEM "DESXL...",                    1005
             MENUITEM SEPARATOR
             MENUITEM "&AES (selbstextrahierend)...", ID_AES_SELFEXTRACT
         END
@@ -6589,6 +6604,9 @@ BEGIN
             , GRAYED
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
             , GRAYED
+            MENUITEM "DESL...",                     ID_ANALYSE_DESL, GRAYED
+            MENUITEM "DESX...",                     ID_ANALYSE_DESX, GRAYED
+            MENUITEM "DESXL...",                    ID_ANALYSE_DESXL, GRAYED
         END
         POPUP "&Asymmetrische Verfahren"
         BEGIN
@@ -6760,6 +6778,9 @@ BEGIN
                                                     ID_CRYPT_AES_RIJNDAEL
             MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
+            MENUITEM "DESL...",                     1004
+            MENUITEM "DESX...",                     ID_CRYPT_DESX
+            MENUITEM "DESXL...",                    1005
             MENUITEM SEPARATOR
             MENUITEM "&AES (selbstextrahierend)...", ID_AES_SELFEXTRACT
         END
@@ -6951,6 +6972,9 @@ BEGIN
             MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
             MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
+            MENUITEM "DESL...",                     ID_ANALYSE_DESL
+            MENUITEM "DESX...",                     ID_ANALYSE_DESX
+            MENUITEM "DESXL...",                    ID_ANALYSE_DESXL
         END
         POPUP "&Asymmetrische Verfahren"
         BEGIN
@@ -7161,6 +7185,9 @@ BEGIN
             , GRAYED
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
             , GRAYED
+            MENUITEM "DESL...",                     ID_ANALYSE_DESL, GRAYED
+            MENUITEM "DESX...",                     ID_ANALYSE_DESX, GRAYED
+            MENUITEM "DESXL...",                    ID_ANALYSE_DESXL, GRAYED
             MENUITEM SEPARATOR
             MENUITEM "&AES (selbstextrahierend)...", ID_AES_SELFEXTRACT
         END
@@ -7374,6 +7401,9 @@ BEGIN
             , GRAYED
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
             , GRAYED
+            MENUITEM "DESL...",                     ID_ANALYSE_DESL, GRAYED
+            MENUITEM "DESX...",                     ID_ANALYSE_DESX, GRAYED
+            MENUITEM "DESXL...",                    ID_ANALYSE_DESXL, GRAYED
         END
         POPUP "&Asymmetrische Verfahren"
         BEGIN
@@ -11210,6 +11240,23 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_CRYPT_DESX          "DESX"
+    IDS_CRYPT_DESL          "DESL"
+    IDS_CRYPT_DESXL         "DESXL"
+    ID_CRYPT_DESX           "Ver-/Entschlüsseln mit DESX"
+    ID_CRYPT_DESL           "Ver-/Entschlüsseln mit DESL"
+    ID_CRYPT_DESXL          "Ver-/Entschlüsseln mit DESXL"
+    ID_ANALYSE_DESL         "Automatische Brute-force Analyse einer DESL-Verschlüsselung"
+    ID_ANALYSE_DESX         "Automatische Brute-force Analyse einer DESX-Verschlüsselung"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_ANALYSE_DESXL        "Automatische Brute-force Analyse einer DESXL-Verschlüsselung"
+END
+
+STRINGTABLE 
+BEGIN
     IDS_DH_VISUALIZATION_TOOLTIPKEY 
                             "Anzeige des ausgehandelten geheimen Schlüssels und Abspeichern der Logdatei."
 END
@@ -11398,12 +11445,12 @@ BEGIN
     IDS_ECIES_DEC_ERROR_05  "Der AES-Ciphertext konnte nicht mit dem AES-Sessionkey entschlüsselt werden.\nEventuell ist einer der beiden oder beide beschädigt."
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -16809,6 +16856,25 @@ BEGIN
     RTEXT           "PIN code:",-1,273,214,39,15
 END
 
+IDD_SELECTPASTEDECODING DIALOGEX 0, 0, 221, 122
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Decoded Paste"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,96,96,50,19
+    PUSHBUTTON      "Abbrechen",IDCANCEL,162,96,50,19
+    CONTROL         "no decoding",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,18,60,55,10
+    CONTROL         "hex decoding",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,
+                    72,59,10
+    GROUPBOX        "Select decoding",IDC_STATIC,7,47,205,42
+    DEFPUSHBUTTON   "OK",IDOK2,96,96,50,19
+    PUSHBUTTON      "Abbrechen",IDCANCEL3,162,96,50,19
+    LTEXT           "The clipboard contains hexadecimal characters only.\n\nThey can be inserted decoded (default) or unchanged.",
+                    IDC_STATIC,7,7,205,32
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -16928,6 +16994,9 @@ BEGIN
             , GRAYED
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
             , GRAYED
+            MENUITEM "DESL...",                     ID_CRYPT_DESL, GRAYED
+            MENUITEM "DESX...",                     ID_CRYPT_DESX, GRAYED
+            MENUITEM "DESXL...",                    ID_CRYPT_DESXL, GRAYED
             MENUITEM SEPARATOR
             MENUITEM "&AES (self extracting)...",   ID_AES_SELFEXTRACT
         END
@@ -17138,6 +17207,9 @@ BEGIN
             , GRAYED
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
             , GRAYED
+            MENUITEM "DESL...",                     ID_ANALYSE_DESL, GRAYED
+            MENUITEM "DESX...",                     ID_ANALYSE_DESX, GRAYED
+            MENUITEM "DESXL...",                    ID_ANALYSE_DESXL, GRAYED
         END
         POPUP "&Asymmetric Encryption"
         BEGIN
@@ -17311,6 +17383,9 @@ BEGIN
                                                     ID_CRYPT_AES_RIJNDAEL
             MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
+            MENUITEM "DESL...",                     ID_CRYPT_DESL
+            MENUITEM "DESX...",                     ID_CRYPT_DESX
+            MENUITEM "DESXL...",                    ID_CRYPT_DESXL
             MENUITEM SEPARATOR
             MENUITEM "&AES (self extracting)...",   ID_AES_SELFEXTRACT
         END
@@ -17499,6 +17574,9 @@ BEGIN
             MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
             MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
+            MENUITEM "DESL...",                     ID_ANALYSE_DESL
+            MENUITEM "DESX...",                     ID_ANALYSE_DESX
+            MENUITEM "DESXL...",                    ID_ANALYSE_DESXL
         END
         POPUP "&Asymmetric Encryption"
         BEGIN
@@ -17683,6 +17761,9 @@ BEGIN
             , GRAYED
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
             , GRAYED
+            MENUITEM "DESL...",                     ID_CRYPT_DESL, GRAYED
+            MENUITEM "DESX...",                     ID_CRYPT_DESX, GRAYED
+            MENUITEM "DESXL...",                    ID_CRYPT_DESXL, GRAYED
             MENUITEM SEPARATOR
             MENUITEM "&AES (self extracting)...",   ID_AES_SELFEXTRACT
         END
@@ -17893,6 +17974,9 @@ BEGIN
             , GRAYED
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
             , GRAYED
+            MENUITEM "DESL...",                     ID_ANALYSE_DESL, GRAYED
+            MENUITEM "DESX...",                     ID_ANALYSE_DESX, GRAYED
+            MENUITEM "DESXL...",                    ID_ANALYSE_DESXL, GRAYED
         END
         POPUP "&Asymmetric Encryption"
         BEGIN
@@ -18063,6 +18147,9 @@ BEGIN
                                                     ID_CRYPT_AES_RIJNDAEL
             MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
+            MENUITEM "DESL...",                     ID_CRYPT_DESL
+            MENUITEM "DESX...",                     ID_CRYPT_DESX
+            MENUITEM "DESXL...",                    ID_CRYPT_DESXL
             MENUITEM SEPARATOR
             MENUITEM "&AES (self extracting)...",   ID_AES_SELFEXTRACT
         END
@@ -18251,6 +18338,9 @@ BEGIN
             MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
             MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
+            MENUITEM "DESL...",                     ID_ANALYSE_DESL
+            MENUITEM "DESX...",                     ID_ANALYSE_DESX
+            MENUITEM "DESXL...",                    ID_ANALYSE_DESXL
         END
         POPUP "&Asymmetric Encryption"
         BEGIN
@@ -18460,6 +18550,9 @@ BEGIN
             , GRAYED
             MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
             , GRAYED
+            MENUITEM "DESL...",                     ID_ANALYSE_DESL, GRAYED
+            MENUITEM "DESX...",                     ID_ANALYSE_DESX, GRAYED
+            MENUITEM "DESXL...",                    ID_ANALYSE_DESXL, GRAYED
             MENUITEM SEPARATOR
             MENUITEM "&AES (self extracting)...",   ID_AES_SELFEXTRACT
         END
@@ -18670,6 +18763,9 @@ BEGIN
             , GRAYED
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
             , GRAYED
+            MENUITEM "DESL...",                     ID_ANALYSE_DESL, GRAYED
+            MENUITEM "DESX...",                     ID_ANALYSE_DESX, GRAYED
+            MENUITEM "DESXL...",                    ID_ANALYSE_DESXL, GRAYED
         END
         POPUP "&Asymmetric Encryption"
         BEGIN
@@ -20439,6 +20535,18 @@ BEGIN
     END
 
     IDD_SELECTCOPYENCODING, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 212
+        VERTGUIDE, 18
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 115
+        HORZGUIDE, 54
+        HORZGUIDE, 89
+        HORZGUIDE, 96
+    END
+
+    IDD_SELECTPASTEDECODING, DIALOG
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 212
@@ -22781,6 +22889,23 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_CRYPT_DESX          "DESX"
+    IDS_CRYPT_DESL          "DESL"
+    IDS_CRYPT_DESXL         "DESXL"
+    ID_CRYPT_DESX           "Encryption / decryption with DESX"
+    ID_CRYPT_DESL           "Encryption / decryption with DESL"
+    ID_CRYPT_DESXL          "Encryption / decryption with DESXL"
+    ID_ANALYSE_DESL         "Automatic brute-force analysis of encryption using the DESL algorithm"
+    ID_ANALYSE_DESX         "Automatic brute-force analysis of encryption using the DESX algorithm"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_ANALYSE_DESXL        "Automatic brute-force analysis of encryption using the DESXL algorithm"
+END
+
+STRINGTABLE 
+BEGIN
     IDS_STRING_PRIMETEST_RESULT_ERROR "Error in processing"
     IDS_STRING_PRIMETEST_RESULT_PROBABLEPRIME "The number is probable prime: "
     IDS_STRING_PRIMETEST_RESULT_CANCEL "Test canceled"
@@ -22892,7 +23017,7 @@ BEGIN
     IDS_ECIES_DEC_ERROR_05  "The AES ciphertext could not be decrypted with the AES session key.\nOne or both components might be damaged."
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
