@@ -1,4 +1,4 @@
-	// Microsoft Visual C++ generated resource script.
+// Microsoft Visual C++ generated resource script.
 //
 #include "resource.h"
 
@@ -5566,7 +5566,7 @@ BEGIN
         MENUITEM "St&atusleiste",               ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
         MENUITEM "Als &Text anzeigen",          ID_TOTXT, GRAYED
-        MENUITEM "Als &HexDump ",               ID_TOHEX, GRAYED
+        MENUITEM "Als &HexDump anzeigen",       ID_TOHEX, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&Balkendiagramm",             ID_PLOTBAR
         MENUITEM SEPARATOR
@@ -5641,11 +5641,11 @@ BEGIN
                 MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
                 , GRAYED
                 MENUITEM "&DESL...",                    ID_CRYPT_DESL
-		, GRAYED
+                , GRAYED
                 MENUITEM "DES&X...",                    ID_CRYPT_DESX
                 , GRAYED
                 MENUITEM "DESX&L...",                   ID_CRYPT_DESXL
-		, GRAYED
+                , GRAYED
             END
             MENUITEM SEPARATOR
             MENUITEM "&AES (selbstextrahierend)...", ID_AES_SELFEXTRACT
@@ -5868,12 +5868,9 @@ BEGIN
             , GRAYED
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
             , GRAYED
-            MENUITEM "&DESL...",                    ID_ANALYSE_DESL
-            , GRAYED
-            MENUITEM "DES&X...",                    ID_ANALYSE_DESX
-            , GRAYED
-            MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL
-            , GRAYED
+            MENUITEM "&DESL...",                    ID_ANALYSE_DESL, GRAYED
+            MENUITEM "DES&X...",                    ID_ANALYSE_DESX, GRAYED
+            MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL, GRAYED
         END
         POPUP "&Asymmetrische Verfahren"
         BEGIN
@@ -5988,7 +5985,7 @@ BEGIN
         MENUITEM "St&atusleiste",               ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
         MENUITEM "Als &Text anzeigen",          ID_TOTXT
-        MENUITEM "Als &HexDump ",               ID_TOHEX, GRAYED
+        MENUITEM "Als &HexDump anzeigen",       ID_TOHEX, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&Balkendiagramm",             ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
@@ -6365,7 +6362,7 @@ BEGIN
         MENUITEM "St&atusleiste",               ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
         MENUITEM "Als &Text anzeigen",          ID_TOTXT, GRAYED
-        MENUITEM "Als &HexDump ",               ID_TOHEX, GRAYED
+        MENUITEM "Als &HexDump anzeigen",       ID_TOHEX, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&Balkendiagramm",             ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
@@ -6438,11 +6435,11 @@ BEGIN
                 MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
                 , GRAYED
                 MENUITEM "&DESL...",                    ID_CRYPT_DESL
-		, GRAYED
+                , GRAYED
                 MENUITEM "DES&X...",                    ID_CRYPT_DESX
                 , GRAYED
                 MENUITEM "DESX&L...",                   ID_CRYPT_DESXL
-		, GRAYED
+                , GRAYED
             END
             MENUITEM SEPARATOR
             MENUITEM "&AES (selbstextrahierend)...", ID_AES_SELFEXTRACT
@@ -6660,12 +6657,9 @@ BEGIN
             , GRAYED
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
             , GRAYED
-            MENUITEM "&DESL...",                    ID_ANALYSE_DESL
-            , GRAYED
-            MENUITEM "DES&X...",                    ID_ANALYSE_DESX
-            , GRAYED
-            MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL
-            , GRAYED
+            MENUITEM "&DESL...",                    ID_ANALYSE_DESL, GRAYED
+            MENUITEM "DES&X...",                    ID_ANALYSE_DESX, GRAYED
+            MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL, GRAYED
         END
         POPUP "&Asymmetrische Verfahren"
         BEGIN
@@ -6780,7 +6774,7 @@ BEGIN
         MENUITEM "St&atusleiste",               ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
         MENUITEM "Als &Text anzeigen",          ID_TOTXT, GRAYED
-        MENUITEM "Als &HexDump ",               ID_TOHEX
+        MENUITEM "Als &HexDump anzeigen",       ID_TOHEX
         MENUITEM SEPARATOR
         MENUITEM "&Balkendiagramm",             ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
@@ -7181,7 +7175,7 @@ BEGIN
         MENUITEM "St&atusleiste",               ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
         MENUITEM "Als &Text anzeigen",          ID_TOTXT, GRAYED
-        MENUITEM "Als &HexDump ",               ID_TOHEX, GRAYED
+        MENUITEM "Als &HexDump anzeigen",       ID_TOHEX, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&Balkendiagramm",             ID_PLOTBAR
         MENUITEM SEPARATOR
@@ -7255,11 +7249,11 @@ BEGIN
                 MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
                 , GRAYED
                 MENUITEM "&DESL...",                    ID_CRYPT_DESL
-		, GRAYED
+                , GRAYED
                 MENUITEM "DES&X...",                    ID_CRYPT_DESX
                 , GRAYED
                 MENUITEM "DESX&L...",                   ID_CRYPT_DESXL
-		, GRAYED
+                , GRAYED
             END
             MENUITEM SEPARATOR
             MENUITEM "&AES (selbstextrahierend)...", ID_AES_SELFEXTRACT
@@ -7482,12 +7476,9 @@ BEGIN
             , GRAYED
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
             , GRAYED
-            MENUITEM "&DESL...",                    ID_ANALYSE_DESL
-            , GRAYED
-            MENUITEM "DES&X...",                    ID_ANALYSE_DESX
-            , GRAYED
-            MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL
-            , GRAYED
+            MENUITEM "&DESL...",                    ID_ANALYSE_DESL, GRAYED
+            MENUITEM "DES&X...",                    ID_ANALYSE_DESX, GRAYED
+            MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL, GRAYED
         END
         POPUP "&Asymmetrische Verfahren"
         BEGIN
@@ -9906,7 +9897,7 @@ BEGIN
     IDS_STRING_KEY_INPUT_XOR "Schlüsseleingabe: Byteweises XOR"
     IDS_STRING_KEY_INPUT_ADD "Schlüsseleingabe: Byteweise Addition (ADD)"
     IDS_STRING_RSA_TUTORIAL_INPUT 
-                            "Eingabe der zu ver- oder entschlüsselnden Nachricht als Text oder als Hex-Dump."
+                            "Eingabe der zu ver- oder entschlüsselnden Nachricht als Text oder als HexDump."
 END
 
 STRINGTABLE 
@@ -10361,7 +10352,7 @@ BEGIN
     IDS_NUMBER_NOT_RSA_MODUL 
                             "Die Zahl N ist kein RSA-Modul:\n- entweder hat N mehr als zwei Faktoren\n- oder N = p^2 ist eine Quadratzahl.\n\nBitte korrigieren Sie die Eingabe für N."
     IDS_RSA_HEXNOTINVERTIBLE 
-                            "Der eigegebene hex-dump lässt sich nicht RSA-Invertieren!\nbitte wählen Sie Eingabe als Text."
+                            "Der eigegebene HexDump lässt sich nicht RSA-Invertieren!\nbitte wählen Sie Eingabe als Text."
     IDS_RSADEMO_REQUEST_FORNUMMBERS 
                             "Die Eingabe wurde als Folge von Zahlen erkannt!\n\nWollen Sie die Eingabe als Folge von Zahlen betrachten [ja/nein]?"
     IDS_ENTROPY_ALPHABET_INFO 
@@ -11299,7 +11290,7 @@ BEGIN
     IDS_TITLE_DLG_RSADECRYPTION 
                             "Auswahl eines Schlüssels zur RSA-Entschlüsselung von <%s>"
     ID_POPUP_OPENGL_SHOW_BOX 
-                            "Anzeige von Würfelkanten in der OpenGL-Visualisierung."
+                            "Anzeige von Würfelkanten in der OpenGL-Visualisierung"
     ID_VIEW_ENDOFLINE       "Ein- oder Ausschalten besonderer Zeichen anstelle von Zeilenenden"
     ID_VIEW_LINEWRAP        "Ein- oder Ausschalten besonderer Zeichen anstelle von Zeilenumbrüchen"
     ID_VIEW_WHITESPACE      "Ein- oder Ausschalten besonderer Zeichen anstelle von Leerzeichen"
@@ -17020,7 +17011,7 @@ BEGIN
         MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
         MENUITEM "Show &as Text",               ID_TOTXT, GRAYED
-        MENUITEM "As &HexDump ",                ID_TOHEX, GRAYED
+        MENUITEM "Show as &HexDump ",           ID_TOHEX, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR
         MENUITEM SEPARATOR
@@ -17095,11 +17086,11 @@ BEGIN
                 MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
                 , GRAYED
                 MENUITEM "&DESL...",                    ID_CRYPT_DESL
-		, GRAYED
+                , GRAYED
                 MENUITEM "DES&X...",                    ID_CRYPT_DESX
                 , GRAYED
                 MENUITEM "DESX&L...",                   ID_CRYPT_DESXL
-		, GRAYED
+                , GRAYED
             END
             MENUITEM SEPARATOR
             MENUITEM "&AES (self extracting)...",   ID_AES_SELFEXTRACT
@@ -17319,12 +17310,9 @@ BEGIN
             , GRAYED
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
             , GRAYED
-            MENUITEM "&DESL...",                    ID_ANALYSE_DESL
-            , GRAYED
-            MENUITEM "DES&X...",                    ID_ANALYSE_DESX
-            , GRAYED
-            MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL
-            , GRAYED
+            MENUITEM "&DESL...",                    ID_ANALYSE_DESL, GRAYED
+            MENUITEM "DES&X...",                    ID_ANALYSE_DESX, GRAYED
+            MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL, GRAYED
         END
         POPUP "&Asymmetric Encryption"
         BEGIN
@@ -17438,7 +17426,7 @@ BEGIN
         MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
         MENUITEM "Show &as Text",               ID_TOTXT
-        MENUITEM "As &HexDump ",                ID_TOHEX, GRAYED
+        MENUITEM "Show as &HexDump ",           ID_TOHEX, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
@@ -17811,7 +17799,7 @@ BEGIN
         MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
         MENUITEM "Show &as Text",               ID_TOTXT, GRAYED
-        MENUITEM "As &HexDump ",                ID_TOHEX, GRAYED
+        MENUITEM "Show as &HexDump ",           ID_TOHEX, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
@@ -17886,11 +17874,11 @@ BEGIN
                 MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
                 , GRAYED
                 MENUITEM "&DESL...",                    ID_CRYPT_DESL
-		, GRAYED
+                , GRAYED
                 MENUITEM "DES&X...",                    ID_CRYPT_DESX
                 , GRAYED
                 MENUITEM "DESX&L...",                   ID_CRYPT_DESXL
-		, GRAYED
+                , GRAYED
             END
             MENUITEM SEPARATOR
             MENUITEM "&AES (self extracting)...",   ID_AES_SELFEXTRACT
@@ -18110,12 +18098,9 @@ BEGIN
             , GRAYED
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
             , GRAYED
-            MENUITEM "&DESL...",                    ID_ANALYSE_DESL
-            , GRAYED
-            MENUITEM "DES&X...",                    ID_ANALYSE_DESX
-            , GRAYED
-            MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL
-            , GRAYED
+            MENUITEM "&DESL...",                    ID_ANALYSE_DESL, GRAYED
+            MENUITEM "DES&X...",                    ID_ANALYSE_DESX, GRAYED
+            MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL, GRAYED
         END
         POPUP "&Asymmetric Encryption"
         BEGIN
@@ -18229,7 +18214,7 @@ BEGIN
         MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
         MENUITEM "Show &as Text",               ID_TOTXT, GRAYED
-        MENUITEM "As &HexDump ",                ID_TOHEX
+        MENUITEM "Show as &HexDump ",           ID_TOHEX
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
@@ -18626,7 +18611,7 @@ BEGIN
         MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
         MENUITEM "Show &as Text",               ID_TOTXT, GRAYED
-        MENUITEM "As &HexDump ",                ID_TOHEX, GRAYED
+        MENUITEM "Show as &HexDump ",           ID_TOHEX, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR
         MENUITEM SEPARATOR
@@ -18700,11 +18685,11 @@ BEGIN
                 MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
                 , GRAYED
                 MENUITEM "&DESL...",                    ID_CRYPT_DESL
-		, GRAYED
+                , GRAYED
                 MENUITEM "DES&X...",                    ID_CRYPT_DESX
                 , GRAYED
                 MENUITEM "DESX&L...",                   ID_CRYPT_DESXL
-		, GRAYED
+                , GRAYED
             END
             MENUITEM SEPARATOR
             MENUITEM "&AES (self extracting)...",   ID_AES_SELFEXTRACT
@@ -18924,12 +18909,9 @@ BEGIN
             , GRAYED
             MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
             , GRAYED
-            MENUITEM "&DESL...",                    ID_ANALYSE_DESL
-            , GRAYED
-            MENUITEM "DES&X...",                    ID_ANALYSE_DESX
-            , GRAYED
-            MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL
-            , GRAYED
+            MENUITEM "&DESL...",                    ID_ANALYSE_DESL, GRAYED
+            MENUITEM "DES&X...",                    ID_ANALYSE_DESX, GRAYED
+            MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL, GRAYED
         END
         POPUP "&Asymmetric Encryption"
         BEGIN

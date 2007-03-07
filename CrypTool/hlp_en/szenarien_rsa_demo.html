@@ -21,7 +21,7 @@
 
 <P>This text describes an <A href="hid_hilfe_szenarien.html">example</A> illustrating the RSA demonstration. The RSA demonstration contains facilities for <A href="hid_einzelverfahren_tutorial_primzahlengenerieren.html">generating prime</A> numbers and <A href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">factorising</A> (breaking down into prime factors) natural numbers, plus the <A href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">RSA Cryptosystem</A>. </P>
 
-<P>To make it easier to follow the steps that need to be performed with CrypTool, the example is illustrated with a number of screenshots. Further information about RSA can be found within the online help pages <A href="rsa_demo_encryption.html">RSA encryption</A> and dialog box <A href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">The RSA Cryptosystem</A>.</P>
+<P>To make it easier to follow the steps that need to be performed with CrypTool, the example is illustrated with a number of screenshots. Further information about RSA can be found within the online help pages <A href="rsa_demo_encryption.html">RSA encryption</A> and dialog box <A href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">RSA Cryptosystem</A>.</P>
 
 <P>Not only is a description provided of how the RSA algorithm works but the individual steps involved in running the RSA algorithm using small numbers are also described.</P>
 
@@ -42,7 +42,7 @@
 
 <P><B><a name="1">1. Generation of RSA keys</a></B></P>
 
-<P>We would like first of all to create an <A href="rsa_demo_key_generation.html">RSA key</A>. Do this, select <B>Indiv. Procedures \ RSA Cryptosystem \ RSA Demonstration</B>.</P>
+<P>We would like first of all to create an <A href="rsa_demo_key_generation.html">RSA key</A>. To do this, select <B><a href="menu_related_methods.html">Individual Procedures</a> \ <a href="menu_individualprocedures_rsacryptosystem.html">RSA Cryptosystem</a> \ <a href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">RSA Demonstration</a></B>.</P>
 
 <P><IMG SRC="images/dialogrsa-kryptosystem1.gif" ALT="dialogrsa-kryptosystem1.gif" BORDER=0></P>
 
@@ -94,7 +94,7 @@
 
 <P><B><LI>Encryption of the message with block length 1</LI></B></P>
 
-<P>Click on <B>Options for the alphabet and the number system...</B> and activate the radio button <B>All 256 ASCII characters </B>. Now choose the <!--ZZZPOPUP--><A href="hidd_options_rsa_demo.html"><B>b-adic</B></A> option in the <B>Method for coding a block into numbers</B> box and then specify 1 as the block length.</P>
+<P>Click on <B>Options for the alphabet and the number system...</B> and activate the radio button <B>All 256 ASCII characters</B>. Now choose the <!--ZZZPOPUP--><A href="hidd_options_rsa_demo.html"><B>b-adic</B></A> option in the <B>Method for coding a block into numbers</B> box and then specify 1 as the block length.</P>
 
 <P>To confirm your entries, click on <B>OK</B>. You can now enter the input text, ”RSA works!”, in the input line and click on the <B>Encrypt</B> button.</P>
 
@@ -110,7 +110,7 @@
 
 <P><B><LI>Encryption of the message with block length 2</LI></B></P>
 
-<P>Click on <B>Options for the alphabet and the number system...</B> and activate the radio button <B>All 256 ASCII characters </B>. Now choose the <B>b-adic</B> option in the <B>Method for coding a block into numbers</B> box, and then specify 2 as the maximum block length.</P>
+<P>Click on <B>Options for the alphabet and the number system...</B> and activate the radio button <B>All 256 ASCII characters</B>. Now choose the <B>b-adic</B> option in the <B>Method for coding a block into numbers</B> box, and then specify 2 as the maximum block length.</P>
 
 <P>If you now encrypt the message ”RSA works!”, you will receive a ciphertext that is only half as long:</P>
 
@@ -123,6 +123,8 @@
 <P>We illustrate a possible attack on the RSA cryptosystem using already published ”challenges” to crack ciphertexts. As well as the ciphertext, the attacker also has access to the public key e and the RSA modulus N.</P>
 
 <P>The following examples describe attacks for the factorisation of public RSA modulus N. If the factorisation is successful, then all the secret parameters of the RSA cryptosystem can be calculated, and these can then be used to crack the ciphertext challenge. The most well-known crypto challenges are published by RSA Security Lab (<U>www.rsa.com</U>).</P>
+
+<BR>
 
 <P><B>Challenge 1 (Stinson)</B></P>
 
@@ -162,7 +164,7 @@
 
 </OL>
 
-<P><B><U>Cryptanalysis using CrypTool</U></B></P>
+<P><B>Cryptanalysis using CrypTool</B></P>
 
 <P>The analysis is performed in two stages: first of all the prime factorisation of the RSA modulus is calculated using factorisation, and then in the second stage the secret key for encryption of the message is determined. After this, the ciphertext can be decrypted with the cracked secret key.</P>
 
@@ -170,7 +172,7 @@
 	<LI>Factorisation of the RSA modulus with the aid of prime factorisation:</LI>
 
 
-<P>To break down the natural number, select menu sequence <B>Indiv. Procedures \ RSA Kryptosystem \ <A href="hid_einzelverfahren_tutorialfrkleinezahlen_faktorisierenifp.html">Factorisation of a Number</A></B></P>
+<P>To break down the natural number, select menu sequence <B>Indiv. Procedures \ RSA Cryptosystem \ <A href="hid_einzelverfahren_tutorialfrkleinezahlen_faktorisierenifp.html">Factorisation of a Number</A></B></P>
 
 <P><I>N </I>= 31313 into its prime factors p and q.</P>
 
@@ -180,7 +182,7 @@
 <P>It is interesting to see which procedure broke down the RSA modulus the fastest (in this case it is the Brute Force method). Copy the results of factorisation to a text field (mark the output and then use Ctrl+C to copy it to the clipboard).</P>
 
 
-	<LI>Calculate the secret key d from the prime factorisation of N and the public key e.</LI>
+	<LI>Calculate the secret key d from the prime factorisation of N and the public key e:</LI>
 
 
 <P>With knowledge of the prime factors p = 173 and q = 181 and the public key <I>e </I>= 4913, you are now in a position to decrypt the ciphertext:</P>
@@ -196,8 +198,7 @@
 
 	<UL type="disc">
 	
-<LI>  Text options for the input text: <B>Specify alphabet</B><BR></LI>
-ABCDEFGHIJKLMNOPQRSTUVWXYZ<BR>
+<LI>  Text options for the input text: <B>Specify alphabet</B>:<BR>ABCDEFGHIJKLMNOPQRSTUVWXYZ</LI>
 
 	<LI>  RSA variant: <B>Normal</B></LI>
 
@@ -230,6 +231,8 @@ RGETTINGTHATTHEYHADLEFTTHEREBECAUSETHELANDWASNTSOGOODSOTHENE
 WLIFETURNEDOUTTOBEALOTLIKETHEOLDEXCEPTTHEWINTERSAREWORSEZ</CODE></PRE>
 
 <P>The pure solution has been published by Prof. Stinson at <CODE>http://www.cacr.math.uwaterloo.ca/~dstinson/solns.html</CODE></P>
+
+<BR>
 
 <P><B>Challenge 2 (Yan)</B></P>
 
@@ -281,8 +284,7 @@ With knowledge of the prime factors p = 145295143558111 and q = 440334654777631 
 
 <UL type="disc">
 
-<LI>  Text options for the input text: <B>Specify alphabet</B><BR></LI>
-ABCDEFGHIJKLMNOPQRSTUVWXYZ<BR>
+<LI>  Text options for the input text: <B>Specify alphabet</b>:<br>ABCDEFGHIJKLMNOPQRSTUVWXYZ</LI>
 
 <LI>  RSA variant: <B>Normal</B></LI>
 
@@ -305,9 +307,9 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZ<BR>
 
 <P><U>Remark</U></P>
 
-<P>You can pass through the two examples above to attack the RSA algorithm also completely from the dialog box ”The RSA cryptosystem”. So you save the steps to transfer manually the results between the masks. </P>
+<P>You can pass through the two examples above to attack the RSA algorithm also completely from the dialog box "RSA Demonstration". So you save the steps to transfer manually the results between the masks. </P>
 
-<P>Start the dialog via <B>Indiv. Procedures \ RSA Cryptosystem \ RSA Demonstration...</B> and then click the 2nd radio button: this means you only know the public parameters. Then click <b>Factorise RSA modulus...</b>.</P>
+<P>Start the dialog via <B>Indiv. Procedures \ RSA Cryptosystem \ RSA Demonstration...</B> and then click the 2nd radio button: This means you only know the public parameters. Then click <b>Factorise RSA modulus</b>.</P>
 
 <P><IMG SRC="images/rsaszenariomodulfactorisation.gif" ALT="rsaszenariomodulfactorisation.gif" BORDER=0></P>
 
