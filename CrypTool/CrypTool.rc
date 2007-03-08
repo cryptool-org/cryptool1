@@ -5757,7 +5757,7 @@ BEGIN
                                                     ID_INDIV_POINTADDITIONONELLIPTICCURVES
 
             MENUITEM SEPARATOR
-            MENUITEM "&AES ...",                    ID_FLASH_AESDEMO
+            MENUITEM "&AES...",                    ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -6153,7 +6153,7 @@ BEGIN
                                                     ID_INDIV_POINTADDITIONONELLIPTICCURVES
 
             MENUITEM SEPARATOR
-            MENUITEM "&AES ...",                    ID_FLASH_AESDEMO
+            MENUITEM "&AES...",                    ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -6550,7 +6550,7 @@ BEGIN
                                                     ID_INDIV_POINTADDITIONONELLIPTICCURVES
 
             MENUITEM SEPARATOR
-            MENUITEM "&AES ...",                    ID_FLASH_AESDEMO
+            MENUITEM "&AES...",                    ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -6940,7 +6940,7 @@ BEGIN
                                                     ID_INDIV_POINTADDITIONONELLIPTICCURVES
 
             MENUITEM SEPARATOR
-            MENUITEM "&AES ...",                    ID_FLASH_AESDEMO
+            MENUITEM "&AES...",                    ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -7365,7 +7365,7 @@ BEGIN
                                                     ID_INDIV_POINTADDITIONONELLIPTICCURVES
 
             MENUITEM SEPARATOR
-            MENUITEM "&AES ...",                    ID_FLASH_AESDEMO
+            MENUITEM "&AES...",                    ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -11393,6 +11393,7 @@ BEGIN
     ID_INDIV_POINTADDITIONONELLIPTICCURVES 
                             "Veranschaulicht die Punktaddition auf einer Elliptischen Kurve"
     ID_VIEW_ALPHABET        "Nicht-Alphabet-Zeichen ausgrauen"
+    ID_FLASH_AESDEMO		"Visualisiert den AES-Algorithmus mittels Flash"
 END
 
 STRINGTABLE 
@@ -17199,7 +17200,7 @@ BEGIN
                                                     ID_INDIV_POINTADDITIONONELLIPTICCURVES
 
             MENUITEM SEPARATOR
-            MENUITEM "&AES ...",                    ID_FLASH_AESDEMO
+            MENUITEM "&AES...",                    ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -17591,7 +17592,7 @@ BEGIN
                                                     ID_INDIV_POINTADDITIONONELLIPTICCURVES
 
             MENUITEM SEPARATOR
-            MENUITEM "&AES ...",                    ID_FLASH_AESDEMO
+            MENUITEM "&AES...",                    ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -17987,7 +17988,7 @@ BEGIN
                                                     ID_INDIV_POINTADDITIONONELLIPTICCURVES
 
             MENUITEM SEPARATOR
-            MENUITEM "&AES ...",                    ID_FLASH_AESDEMO
+            MENUITEM "&AES...",                    ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -18377,7 +18378,7 @@ BEGIN
                                                     ID_INDIV_POINTADDITIONONELLIPTICCURVES
 
             MENUITEM SEPARATOR
-            MENUITEM "&AES ...",                    ID_FLASH_AESDEMO
+            MENUITEM "&AES...",                    ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -18798,7 +18799,7 @@ BEGIN
                                                     ID_INDIV_POINTADDITIONONELLIPTICCURVES
 
             MENUITEM SEPARATOR
-            MENUITEM "&AES ...",                    ID_FLASH_AESDEMO
+            MENUITEM "&AES...",                    ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -22948,8 +22949,9 @@ BEGIN
     ID_HYBRID_ECCENC        "Encrypts a file encrypted with the ECC-AES algorithm"
     ID_HYBRID_ECCDEC        "Decrypts a file encrypted with the ECC-AES algorithm"
     ID_INDIV_POINTADDITIONONELLIPTICCURVES 
-                            "Demonstrates point addition on elliptic curves."
+                            "Demonstrates point addition on elliptic curves"
     ID_VIEW_ALPHABET        "Gray out non-alphabet characters"
+    ID_FLASH_AESDEMO		"Visualizes the AES encryption algorithm using Flash"
 END
 
 STRINGTABLE 

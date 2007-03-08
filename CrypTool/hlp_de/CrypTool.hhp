@@ -402,7 +402,7 @@ menu_individualprocedures_hashprocedures.html
 menu_individualprocedures_rsacryptosystem.html
 menu_individualprocedures_protocols.html
 menu_individualprocedures_chineseremaindertheorem.html
-menu_individualprocedures_visualizationwithanimal.html
+menu_individualprocedures_visualizations.html
 menu_individualprocedures_compress.html
 menu_individualprocedures_codes.html
 menu_individualprocedures_rsacryptosystem_latticebasedattacks.html
@@ -504,6 +504,9 @@ hid_analyse_desx.html
 hid_analyse_desxl.html
 hid_view_alphabet.html
 hid_flash_aesdemo.html
+menu_crypt_symmetricmodern_further.html
+hid_indiv_pointadditiononellipticcurves.html
+menu_relatedmethods_tools.html
 
 [ALIAS]
 #include CrypTool_Alias.h

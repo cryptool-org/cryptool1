@@ -395,7 +395,7 @@ hidd_crt_astronomy.html
 hid_einzelverfahren_crt_definition.html
 hidd_crt_secretsharing.html
 keystore.html
-menu_individualprocedures_visualizationwithanimal.html
+menu_individualprocedures_visualizations.html
 menu_analysis_asymmetric.html
 menu_analysis_asymmetric_latticebasedattacks.html
 menu_analysis_hashprocedures.html
@@ -504,6 +504,9 @@ hid_analyse_desx.html
 hid_analyse_desxl.html
 hid_view_alphabet.html
 hid_flash_aesdemo.html
+menu_crypt_symmetricmodern_further.html
+hid_indiv_pointadditiononellipticcurves.html
+menu_relatedmethods_tools.html
 
 
 [ALIAS]
