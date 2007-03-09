@@ -107,6 +107,7 @@ void CDlgAbout::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_NTL, strVersionNTL);
 	DDX_Text(pDX, IDC_EDIT_SCINTILLA, strVersionScintilla);
 	DDX_Text(pDX, IDC_ABOUTBOX_CRYPTOOL, m_cryptoolTxt);
+	DDX_Text(pDX, IDC_EDIT_CRYPTOVISION, strVersionCryptovision);
 	//}}AFX_DATA_MAP
 	DDX_Control(pDX, IDC_EDIT_GMP, CStatInformAboutGMP);
 	DDX_Control(pDX, IDC_EDIT_BUILD_INFO, m_ctrlBuildInfo);
@@ -239,5 +240,8 @@ void CDlgAbout::determineLibraryVersions()
 	StrGMPWindowText.Format("GMP %s", gmp_version);
 	this->CStatInformAboutGMP.SetWindowText(StrGMPWindowText);
 
+	// CRYPTOVISION (statisch)
+	this->strVersionCryptovision = "1.3.0";
+	this->strVersionCryptovision.Insert(0, "cv act library ");
 }
 

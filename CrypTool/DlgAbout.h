@@ -77,6 +77,8 @@ public:
 	CString strVersionNTL;
 	// Versionsstring der Scintilla Bibliothek
 	CString strVersionScintilla;
+	// Versionsstring der cryptovision Bibliothek
+	CString strVersionCryptovision;
 	//}}AFX_DATA
 	
 	

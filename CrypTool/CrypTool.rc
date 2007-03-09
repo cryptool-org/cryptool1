@@ -3874,12 +3874,12 @@ BEGIN
     LTEXT           "für Dokumente:",IDC_STATIC,13,106,89,9,0,WS_EX_RIGHT
 END
 
-IDD_ABOUT DIALOGEX 34, 22, 242, 423
+IDD_ABOUT DIALOGEX 34, 22, 242, 443
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Über CrypTool"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,70,395,90,19,WS_GROUP
+    DEFPUSHBUTTON   "OK",IDOK,70,415,90,19,WS_GROUP
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,44,50,105,37,
                     WS_EX_TRANSPARENT
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,40,82,143,37,
@@ -3891,15 +3891,15 @@ BEGIN
     CTEXT           "entwickelt.",IDC_STATIC,1,176,241,24
     CTEXT           "CrypTool nutzt folgende Bibliotheken:",IDC_STATIC,0,219,
                     241,8
-    CTEXT           "Kontakt:",IDC_STATIC,0,302,241,10
+    CTEXT           "Kontakt:",IDC_STATIC,0,322,241,10
     CTEXT           "Copyright (C) 1998-2006 Deutsche Bank AG\nFrankfurt am Main, Germany",
-                    IDC_STATIC,0,369,242,17
+                    IDC_STATIC,0,389,242,17
     LTEXT           "esslinger@fb5.uni-siegen.de\njoerg-cornelius.schneider@db.com\nhenrik.koy@db.com\ncryptool-list@sec.informatik.tu-darmstadt.de",
-                    IDC_STATIC,63,311,152,42
+                    IDC_STATIC,63,331,152,42
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,10,46,222,79
     CTEXT           "CrypTool ist ein kostenloses und umfangreiches Lernprogramm\nzu klassischer und moderner Kryptographie/Kryptoanalyse.\n\nGemeinsam mit den Sponsoren",
                     IDC_STATIC,1,12,241,33
-    LTEXT           "Internet: http://www.cryptool.de",IDC_STATIC,63,353,175,
+    LTEXT           "Internet: http://www.cryptool.de",IDC_STATIC,63,373,175,
                     8
     CTEXT           "MIRACL",IDC_EDIT_MIRACL,1,242,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
@@ -3917,6 +3917,8 @@ BEGIN
                     SS_CENTERIMAGE,WS_EX_TRANSPARENT
     CTEXT           "CrypTool wird weltweit in Firmen und Behörden zur Ausbildung, in\nder Lehre und zur Mitarbeiter-Awareness für IT-Sicherheit eingesetzt.",
                     IDC_STATIC,1,193,240,19,WS_TABSTOP
+    CTEXT           "CRYPTOVISION",IDC_EDIT_CRYPTOVISION,0,293,241,8,
+                    SS_CENTERIMAGE,WS_EX_TRANSPARENT
 END
 
 IDD_HMAC DIALOG  0, 0, 323, 425
@@ -5757,7 +5759,7 @@ BEGIN
                                                     ID_INDIV_POINTADDITIONONELLIPTICCURVES
 
             MENUITEM SEPARATOR
-            MENUITEM "&AES...",                    ID_FLASH_AESDEMO
+            MENUITEM "&AES...",                     ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -6153,7 +6155,7 @@ BEGIN
                                                     ID_INDIV_POINTADDITIONONELLIPTICCURVES
 
             MENUITEM SEPARATOR
-            MENUITEM "&AES...",                    ID_FLASH_AESDEMO
+            MENUITEM "&AES...",                     ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -6550,7 +6552,7 @@ BEGIN
                                                     ID_INDIV_POINTADDITIONONELLIPTICCURVES
 
             MENUITEM SEPARATOR
-            MENUITEM "&AES...",                    ID_FLASH_AESDEMO
+            MENUITEM "&AES...",                     ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -6940,7 +6942,7 @@ BEGIN
                                                     ID_INDIV_POINTADDITIONONELLIPTICCURVES
 
             MENUITEM SEPARATOR
-            MENUITEM "&AES...",                    ID_FLASH_AESDEMO
+            MENUITEM "&AES...",                     ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -7365,7 +7367,7 @@ BEGIN
                                                     ID_INDIV_POINTADDITIONONELLIPTICCURVES
 
             MENUITEM SEPARATOR
-            MENUITEM "&AES...",                    ID_FLASH_AESDEMO
+            MENUITEM "&AES...",                     ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -8832,7 +8834,7 @@ BEGIN
     IDD_ABOUT, DIALOG
     BEGIN
         VERTGUIDE, 63
-        BOTTOMMARGIN, 414
+        BOTTOMMARGIN, 434
     END
 
     IDD_HMAC, DIALOG
@@ -11393,7 +11395,11 @@ BEGIN
     ID_INDIV_POINTADDITIONONELLIPTICCURVES 
                             "Veranschaulicht die Punktaddition auf einer Elliptischen Kurve"
     ID_VIEW_ALPHABET        "Nicht-Alphabet-Zeichen ausgrauen"
-    ID_FLASH_AESDEMO		"Visualisiert den AES-Algorithmus mittels Flash"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FLASH_AESDEMO        "Visualisiert den AES-Algorithmus mittels Flash"
 END
 
 STRINGTABLE 
@@ -12023,21 +12029,21 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_ABOUT DIALOGEX 34, 22, 242, 425
+IDD_ABOUT DIALOGEX 34, 22, 242, 443
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About CrypTool"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,70,394,90,19,WS_GROUP
+    DEFPUSHBUTTON   "OK",IDOK,70,415,90,19,WS_GROUP
     CTEXT           "the universities Siegen and Darmstadt\nand many voluntary developers the open source project",
                     IDC_STATIC,0,125,242,17
     CTEXT           "CrypTool uses the following libraries:",IDC_STATIC,1,
                     220,241,8
-    CTEXT           "Contact:",IDC_STATIC,0,304,241,10
+    CTEXT           "Contact:",IDC_STATIC,0,322,241,10
     LTEXT           "esslinger@fb5.uni-siegen.de\nhenrik.koy@db.com\njoerg-cornelius.schneider@db.com\ncryptool-list@sec.informatik.tu-darmstadt.de",
-                    IDC_STATIC,67,312,145,40
+                    IDC_STATIC,67,330,145,40
     CTEXT           "Copyright (C) 1998-2006 Deutsche Bank AG\nFrankfurt am Main, Germany",
-                    IDC_STATIC,0,371,242,17
+                    IDC_STATIC,0,389,242,17
     CTEXT           "CrypTool is a free and comprehensive eLearning program about\nclassic and contemporary cryptography and cryptanalysis.\n\nIn a joint effort of the sponsors",
                     IDC_STATIC,1,10,241,32
     CTEXT           "has been developed.",IDC_STATIC,1,181,241,24
@@ -12048,7 +12054,7 @@ BEGIN
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,40,80,143,37,
                     WS_EX_TRANSPARENT
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,10,44,222,79
-    LTEXT           "Internet: http://www.cryptool.org",IDC_STATIC,67,356,
+    LTEXT           "Internet: http://www.cryptool.org",IDC_STATIC,67,374,
                     175,8
     CTEXT           "MIRACL",IDC_EDIT_MIRACL,1,244,240,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
@@ -12066,6 +12072,8 @@ BEGIN
                     SS_CENTERIMAGE,WS_EX_TRANSPARENT
     CTEXT           "CrypTool is used world wide in companies and goverment organizations\nfor education and for employee awareness for IT security.",
                     IDC_STATIC,0,197,241,24
+    CTEXT           "CRYPTOVISION",IDC_EDIT_CRYPTOVISION,0,294,241,8,
+                    SS_CENTERIMAGE,WS_EX_TRANSPARENT
 END
 
 IDD_SHOW_PROGRESS DIALOG  0, 0, 187, 105
@@ -17200,7 +17208,7 @@ BEGIN
                                                     ID_INDIV_POINTADDITIONONELLIPTICCURVES
 
             MENUITEM SEPARATOR
-            MENUITEM "&AES...",                    ID_FLASH_AESDEMO
+            MENUITEM "&AES...",                     ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -17592,7 +17600,7 @@ BEGIN
                                                     ID_INDIV_POINTADDITIONONELLIPTICCURVES
 
             MENUITEM SEPARATOR
-            MENUITEM "&AES...",                    ID_FLASH_AESDEMO
+            MENUITEM "&AES...",                     ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -17988,7 +17996,7 @@ BEGIN
                                                     ID_INDIV_POINTADDITIONONELLIPTICCURVES
 
             MENUITEM SEPARATOR
-            MENUITEM "&AES...",                    ID_FLASH_AESDEMO
+            MENUITEM "&AES...",                     ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -18378,7 +18386,7 @@ BEGIN
                                                     ID_INDIV_POINTADDITIONONELLIPTICCURVES
 
             MENUITEM SEPARATOR
-            MENUITEM "&AES...",                    ID_FLASH_AESDEMO
+            MENUITEM "&AES...",                     ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -18799,7 +18807,7 @@ BEGIN
                                                     ID_INDIV_POINTADDITIONONELLIPTICCURVES
 
             MENUITEM SEPARATOR
-            MENUITEM "&AES...",                    ID_FLASH_AESDEMO
+            MENUITEM "&AES...",                     ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -20017,7 +20025,7 @@ BEGIN
         VERTGUIDE, 67
         VERTGUIDE, 76
         TOPMARGIN, 1
-        BOTTOMMARGIN, 422
+        BOTTOMMARGIN, 440
     END
 
     IDD_SHOW_PROGRESS, DIALOG
@@ -22951,7 +22959,11 @@ BEGIN
     ID_INDIV_POINTADDITIONONELLIPTICCURVES 
                             "Demonstrates point addition on elliptic curves"
     ID_VIEW_ALPHABET        "Gray out non-alphabet characters"
-    ID_FLASH_AESDEMO		"Visualizes the AES encryption algorithm using Flash"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FLASH_AESDEMO        "Visualizes the AES encryption algorithm using Flash"
 END
 
 STRINGTABLE 
