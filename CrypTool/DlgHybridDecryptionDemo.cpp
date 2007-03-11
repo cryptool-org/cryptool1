@@ -330,13 +330,14 @@ int CDlgHybridDecryptionDemo::UpdateDataDisplay()
 		return 0;
 	}
 	if (step == 3)
-	{
+	{  
 		HIDE_HOUR_GLASS
 		RsaDec();
 		CString DecSessionKey_tmp="";
-		for (int k=0;k<DecSessionKey.GetLength();k++)
+		CString SessionKeyWithoutPadding = DecSessionKey.Right(32);  // FIXME AES has variable key sizes
+		for (int k=0;k<SessionKeyWithoutPadding.GetLength();k++)
 		{	
-			DecSessionKey_tmp += DecSessionKey[k];
+			DecSessionKey_tmp += SessionKeyWithoutPadding[k];
 			if(k%2==1)
 			{
 				DecSessionKey_tmp += ' ';
