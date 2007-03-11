@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -5859,20 +5859,25 @@ BEGIN
             , GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
             , GRAYED
-            MENUITEM SEPARATOR
-            MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
-            , GRAYED
-            MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
-            , GRAYED
             MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
             , GRAYED
-            MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
-            , GRAYED
-            MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
-            , GRAYED
-            MENUITEM "&DESL...",                    ID_ANALYSE_DESL, GRAYED
-            MENUITEM "DES&X...",                    ID_ANALYSE_DESX, GRAYED
-            MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL, GRAYED
+            POPUP "&Weitere"
+            BEGIN
+                MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
+                , GRAYED
+                MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
+                , GRAYED
+                MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
+                , GRAYED
+                MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
+                , GRAYED
+                MENUITEM "&DESL...",                    ID_ANALYSE_DESL
+                , GRAYED
+                MENUITEM "DES&X...",                    ID_ANALYSE_DESX
+                , GRAYED
+                MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL
+                , GRAYED
+            END
         END
         POPUP "&Asymmetrische Verfahren"
         BEGIN
@@ -6242,15 +6247,19 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
             MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
-            MENUITEM SEPARATOR
-            MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
-            MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
             MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
-            MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
-            MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
-            MENUITEM "&DESL...",                    ID_ANALYSE_DESL
-            MENUITEM "DES&X...",                    ID_ANALYSE_DESX
-            MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL
+            POPUP "&Weitere"
+            BEGIN
+                MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
+                MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
+                MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
+
+                MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
+
+                MENUITEM "&DESL...",                    ID_ANALYSE_DESL
+                MENUITEM "DES&X...",                    ID_ANALYSE_DESX
+                MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL
+            END
         END
         POPUP "&Asymmetrische Verfahren"
         BEGIN
@@ -6429,7 +6438,6 @@ BEGIN
             POPUP "&Weitere"
             BEGIN
                 MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
-                , GRAYED
                 MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
                 , GRAYED
                 MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
@@ -6637,7 +6645,7 @@ BEGIN
         END
         POPUP "Symmetrische Verschlüsselung (&modern)"
         BEGIN
-            MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA
+            MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA, GRAYED
             MENUITEM "RC&2...",                     ID_ANALYSE_RC2, GRAYED
             MENUITEM "RC&4...",                     ID_ANALYSE_RC4, GRAYED
             MENUITEM "&DES (ECB)...",               ID_ANALYSE_DESECB
@@ -6648,20 +6656,25 @@ BEGIN
             , GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
             , GRAYED
-            MENUITEM SEPARATOR
-            MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
-            , GRAYED
-            MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
-            , GRAYED
             MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
             , GRAYED
-            MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
-            , GRAYED
-            MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
-            , GRAYED
-            MENUITEM "&DESL...",                    ID_ANALYSE_DESL, GRAYED
-            MENUITEM "DES&X...",                    ID_ANALYSE_DESX, GRAYED
-            MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL, GRAYED
+            POPUP "&Weitere"
+            BEGIN
+                MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
+                , GRAYED
+                MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
+                , GRAYED
+                MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
+                , GRAYED
+                MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
+                , GRAYED
+                MENUITEM "&DESL...",                    ID_ANALYSE_DESL
+                , GRAYED
+                MENUITEM "DES&X...",                    ID_ANALYSE_DESX
+                , GRAYED
+                MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL
+                , GRAYED
+            END
         END
         POPUP "&Asymmetrische Verfahren"
         BEGIN
@@ -7029,15 +7042,19 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
             MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
-            MENUITEM SEPARATOR
-            MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
-            MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
             MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
-            MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
-            MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
-            MENUITEM "&DESL...",                    ID_ANALYSE_DESL
-            MENUITEM "DES&X...",                    ID_ANALYSE_DESX
-            MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL
+            POPUP "&Weitere"
+            BEGIN
+                MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
+                MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
+                MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
+
+                MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
+
+                MENUITEM "&DESL...",                    ID_ANALYSE_DESL
+                MENUITEM "DES&X...",                    ID_ANALYSE_DESX
+                MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL
+            END
         END
         POPUP "&Asymmetrische Verfahren"
         BEGIN
@@ -7467,20 +7484,25 @@ BEGIN
             , GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
             , GRAYED
-            MENUITEM SEPARATOR
-            MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
-            , GRAYED
-            MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
-            , GRAYED
             MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
             , GRAYED
-            MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
-            , GRAYED
-            MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
-            , GRAYED
-            MENUITEM "&DESL...",                    ID_ANALYSE_DESL, GRAYED
-            MENUITEM "DES&X...",                    ID_ANALYSE_DESX, GRAYED
-            MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL, GRAYED
+            POPUP "&Weitere"
+            BEGIN
+                MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
+                , GRAYED
+                MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
+                , GRAYED
+                MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
+                , GRAYED
+                MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
+                , GRAYED
+                MENUITEM "&DESL...",                    ID_ANALYSE_DESL
+                , GRAYED
+                MENUITEM "DES&X...",                    ID_ANALYSE_DESX
+                , GRAYED
+                MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL
+                , GRAYED
+            END
         END
         POPUP "&Asymmetrische Verfahren"
         BEGIN
@@ -11542,12 +11564,12 @@ BEGIN
     ID_ANALYSE_DESXL        "Automatische Brute-force Analyse einer DESXL-Verschlüsselung"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -17308,20 +17330,24 @@ BEGIN
             , GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
             , GRAYED
-            MENUITEM SEPARATOR
-            MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
-            , GRAYED
-            MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
-            , GRAYED
             MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
             , GRAYED
-            MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
-            , GRAYED
-            MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
-            , GRAYED
-            MENUITEM "&DESL...",                    ID_ANALYSE_DESL, GRAYED
-            MENUITEM "DES&X...",                    ID_ANALYSE_DESX, GRAYED
-            MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL, GRAYED
+            POPUP "&Further"
+            BEGIN
+                MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
+                MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
+                , GRAYED
+                MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
+                , GRAYED
+                MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
+                , GRAYED
+                MENUITEM "&DESL...",                    ID_ANALYSE_DESL
+                , GRAYED
+                MENUITEM "DES&X...",                    ID_ANALYSE_DESX
+                , GRAYED
+                MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL
+                , GRAYED
+            END
         END
         POPUP "&Asymmetric Encryption"
         BEGIN
@@ -17687,15 +17713,19 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
             MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
-            MENUITEM SEPARATOR
-            MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
-            MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
             MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
-            MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
-            MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
-            MENUITEM "&DESL...",                    ID_ANALYSE_DESL
-            MENUITEM "DES&X...",                    ID_ANALYSE_DESX
-            MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL
+            POPUP "&Further"
+            BEGIN
+                MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
+                MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
+                MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
+
+                MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
+
+                MENUITEM "&DESL...",                    ID_ANALYSE_DESL
+                MENUITEM "DES&X...",                    ID_ANALYSE_DESX
+                MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL
+            END
         END
         POPUP "&Asymmetric Encryption"
         BEGIN
@@ -18096,20 +18126,25 @@ BEGIN
             , GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
             , GRAYED
-            MENUITEM SEPARATOR
-            MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
-            , GRAYED
-            MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
-            , GRAYED
             MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
             , GRAYED
-            MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
-            , GRAYED
-            MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
-            , GRAYED
-            MENUITEM "&DESL...",                    ID_ANALYSE_DESL, GRAYED
-            MENUITEM "DES&X...",                    ID_ANALYSE_DESX, GRAYED
-            MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL, GRAYED
+            POPUP "&Further"
+            BEGIN
+                MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
+                , GRAYED
+                MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
+                , GRAYED
+                MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
+                , GRAYED
+                MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
+                , GRAYED
+                MENUITEM "&DESL...",                    ID_ANALYSE_DESL
+                , GRAYED
+                MENUITEM "DES&X...",                    ID_ANALYSE_DESX
+                , GRAYED
+                MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL
+                , GRAYED
+            END
         END
         POPUP "&Asymmetric Encryption"
         BEGIN
@@ -18473,15 +18508,19 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
             MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
-            MENUITEM SEPARATOR
-            MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
-            MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
             MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
-            MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
-            MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
-            MENUITEM "&DESL...",                    ID_ANALYSE_DESL
-            MENUITEM "DES&X...",                    ID_ANALYSE_DESX
-            MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL
+            POPUP "&Further"
+            BEGIN
+                MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
+                MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
+                MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
+
+                MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
+
+                MENUITEM "&DESL...",                    ID_ANALYSE_DESL
+                MENUITEM "DES&X...",                    ID_ANALYSE_DESX
+                MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL
+            END
         END
         POPUP "&Asymmetric Encryption"
         BEGIN
@@ -18907,20 +18946,25 @@ BEGIN
             , GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
             , GRAYED
-            MENUITEM SEPARATOR
-            MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
-            , GRAYED
-            MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
-            , GRAYED
             MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
             , GRAYED
-            MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
-            , GRAYED
-            MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
-            , GRAYED
-            MENUITEM "&DESL...",                    ID_ANALYSE_DESL, GRAYED
-            MENUITEM "DES&X...",                    ID_ANALYSE_DESX, GRAYED
-            MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL, GRAYED
+            POPUP "&Further"
+            BEGIN
+                MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
+                , GRAYED
+                MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
+                , GRAYED
+                MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
+                , GRAYED
+                MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
+                , GRAYED
+                MENUITEM "&DESL...",                    ID_ANALYSE_DESL
+                , GRAYED
+                MENUITEM "DES&X...",                    ID_ANALYSE_DESX
+                , GRAYED
+                MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL
+                , GRAYED
+            END
         END
         POPUP "&Asymmetric Encryption"
         BEGIN
@@ -23181,7 +23225,7 @@ BEGIN
     ID_ANALYSE_DESXL        "Automatic brute-force analysis of encryption using the DESXL algorithm"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
