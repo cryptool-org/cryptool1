@@ -67,6 +67,7 @@ ENGLISH Analysis_SymmetricEncryptionclassic_CiphertextOnly # &Analysis|Symmetric
 ENGLISH Analysis_SymmetricEncryptionclassic_KnownPlaintext # &Analysis|Symmetric Encryption (classic)|Known-&Plaintext
 ENGLISH Analysis_SymmetricEncryptionclassic_ManualAnalysis # &Analysis|Symmetric Encryption (classic)|&Manual Analysis
 ENGLISH Analysis_SymmetricEncryptionmodern # &Analysis|Symmetric Encryption (modern)
+ENGLISH Analysis_SymmetricEncryptionmodern_Further # &Analysis|Symmetric Encryption (modern)|&Further
 ENGLISH CryptDecrypt # &Crypt/Decrypt
 ENGLISH CryptDecrypt_Asymmetric # &Crypt/Decrypt|&Asymmetric
 ENGLISH CryptDecrypt_Symmetricclassic # &Crypt/Decrypt|Symmetric (&classic)
@@ -112,6 +113,7 @@ GERMAN Analyse_SymmetrischeVerschlsselungklassisch_ManuelleAnalyse # A&nalyse|Sy
 GERMAN Analyse_SymmetrischeVerschlsselungmodern # A&nalyse|Symmetrische Verschlüsselung (&modern)
 GERMAN Analyse_WerkzeugezurAnalyse # A&nalyse|&Werkzeuge zur Analyse
 GERMAN Analyse_Zufallsanalyse # A&nalyse|&Zufallsanalyse
+GERMAN Analyse_SymmetrischeVerschlsselungmodern_Weitere # A&nalyse|Symmetrische Verschlüsselung (&modern)|&Weitere
 GERMAN DigitaleSignaturenPKI # Digitale Signaturen/&PKI
 GERMAN DigitaleSignaturenPKI_PKI # Digitale Signaturen/&PKI|&PKI
 GERMAN Einzelverfahren_Hashverfahren # &Einzelverfahren|&Hashverfahren

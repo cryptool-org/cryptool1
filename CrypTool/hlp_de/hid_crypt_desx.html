@@ -11,49 +11,27 @@
 	<PARAM NAME="Keyword" VALUE="Symmetrisch">
 	<PARAM NAME="Keyword" VALUE="Verschlüsselung">
 	<PARAM NAME="Keyword" VALUE="DES-Verschlüsselungsverfahren">
-	<PARAM NAME="Keyword" VALUE="DESX">
 </OBJECT>
 
 <BODY>
 
 <h3>DESX-Algorithmus (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Symmetrisch (modern) \ Weitere)</h3>
 
-		<P>Bereits bei der Veröffentlichung des <A href="des_info.html">DES</A>
-Verschlüsselungsstandards in den 70er Jahren gab es kritische Stimmen, die bemängelten,
-dass die Schlüssellänge von 56 Bits viel zu kurz sei um ein
-ausreichendes Sicherheitsniveau zu gewährleisten. Aus diesem Grund
-ersann Ron Rivest (das 'R' in <A href="hid_crypt_rsaenc.html">RSA</A>) bereits Mitte der 1980er
-Jahre die DES-Variante DESX. Bei DESX wird die Nachricht x mit einem
-64-Bit Schlüssel XORiert, anschließend regulär mit DES verschlüsselt und
-abschließend wird das Ergebnis mit einem zweiten 64-Bit Schlüssel
-XORiert. </P>
+<P>Bereits bei der Veröffentlichung des <A href="des_info.html">DES</A>-Verschlüsselungsstandards in den 70er Jahren gab es kritische Stimmen, die bemängelten, dass die Schlüssellänge von 56 Bit zu kurz sei, um ein ausreichendes Sicherheitsniveau zu gewährleisten. Aus diesem Grund ersann Ron Rivest (das 'R' in <A href="hid_crypt_rsaenc.html">RSA</A>) bereits Mitte der 1980er Jahre die DES-Variante DESX. Bei DESX wird die Nachricht x mit einem 64-Bit Schlüssel XOR-verknüpft, anschließend regulär mit DES verschlüsselt und abschließend wird das Ergebnis mit einem zweiten 64-Bit Schlüssel XOR-verknüpft. </P>
 
 <P>DESX(x) = K<span style="vertical-align:text-bottom;font-size:0.6em">2</span> + DES<span style="vertical-align:text-bottom;font-size:0.6em">K</span><span style="vertical-align:text-bottom;font-size:0.5em">DES</span>(x + K<span style="vertical-align:text-bottom;font-size:0.6em">1</span>)</P>
 
-<P>Durch die beiden zusätzlichen 64-Bit Schlüssel erhöht sich der
-Schlüsselraum auf 184 Bits. Kilian und Rogaway bewiesen jedoch, dass das
-effektive Sicherheitsniveau nur ungefähr 118 Bits entspricht [KR96]. Dies ist
-jedoch eine gewaltige Verbesserung im Vergleich zu den ursprünglichen 56
-Bits.</P>
+<P>Durch die beiden zusätzlichen 64-Bit Schlüssel erhöht sich der Schlüsselraum auf 184 Bit (64 + 64 + 56 = 184). Kilian und Rogaway bewiesen jedoch, dass das effektive Sicherheitsniveau nur ungefähr 118 Bit entspricht [KR96]. Dies ist jedoch eine gewaltige Verbesserung im Vergleich zu den ursprünglichen 56 Bit.</P>
 
-<P>Bemerkenswert ist auch die Einfachheit dieses Ansatzes: Lediglich zwei simple XOR
-Gatter werden  zusätzlich benötigt. XOR Gatter sind sowohl in Hardware
-als auch in Software sehr effizient und ohne nennenswerte
-Performanzeinbußen realisierbar. Des weiteren ist eine Kompatibilität zu
-DES gewährleistet indem K<span style="vertical-align:text-bottom;font-size:0.6em">1</span> = K<span style="vertical-align:text-bottom;font-size:0.6em">2</span> = 0 gesetzt wird.
-Einsatz findet DESX in den SAFER Sicherheitstools von RSA, allerdings
-mit einem abgewandelten Schlüssel. Der 64-Bit Pre-Whitening Schlüssel
-(K<span style="vertical-align:text-bottom;font-size:0.6em">1</span>) und der 56-Bit DES Schlüssel (K<span style="vertical-align:text-bottom;font-size:0.6em">DES</span>) werden konkateniert und in
-eine Einwegfunktion gegeben. Das 64-Bit Ergebnis dieser Einwegfunktion
-dient als Post-Whitening Schlüssel (K<span style="vertical-align:text-bottom;font-size:0.6em">2</span>).</P>
+<P>Bemerkenswert ist auch die Einfachheit dieses Ansatzes: Lediglich zwei simple XOR-Gatter werden  zusätzlich benötigt. XOR-Gatter sind sowohl in Hardware als auch in Software sehr effizient und ohne nennenswerte Performanzeinbußen realisierbar. Des weiteren ist eine Kompatibilität zu DES gewährleistet, indem K<span style="vertical-align:text-bottom;font-size:0.6em">1</span> = K<span style="vertical-align:text-bottom;font-size:0.6em">2</span> = 0 gesetzt wird. Einsatz findet DESX in den SAFER-Sicherheitstools von RSA, allerdings mit einem abgewandelten Schlüssel. Der 64-Bit Pre-Whitening Schlüssel (K<span style="vertical-align:text-bottom;font-size:0.6em">1</span>) und der 56-Bit DES Schlüssel (K<span style="vertical-align:text-bottom;font-size:0.6em">DES</span>) werden konkateniert und in eine Einwegfunktion gegeben. Das 64-Bit Ergebnis dieser Einwegfunktion dient als Post-Whitening Schlüssel (K<span style="vertical-align:text-bottom;font-size:0.6em">2</span>).</P>
 
-<P>Für weitere Informationen siehe auch<br />
-<A href="http://www.crypto.rub.de/publications.html">http://www.crypto.rub.de/publications.html</A></P>
+<P>Für weitere Informationen siehe auch: <A href="http://www.crypto.rub.de/publications.html">http://www.crypto.rub.de/publications.html</A></P>
 
-<P>Quellen: </P>
+<P>Quellen:</P>
+
 <P>[KR96a] <A href="http://www.cs.ucdavis.edu/~rogaway/papers/desx.ps">www.cs.ucdavis.edu/~rogaway/papers/desx.ps</A></P>
 
-<P>[KR96b] Author Phillip Rogaway, RSA Laboratories' CryptoBytes, Summer 1996<br />
+<P>[KR96b] Phillip Rogaway, RSA Laboratories' CryptoBytes, Summer 1996<br />
 <A href="http://www.cs.ucdavis.edu/~rogaway/papers/cryptobytes.ps">www.cs.ucdavis.edu/~rogaway/papers/cryptobytes.ps</A>
 </P>
 <P>Siehe auch: <A href="hid_crypt_desl.html">DESL</A>, <A href="hid_crypt_desxl.html">DESXL</A></P>
