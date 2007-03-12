@@ -276,8 +276,14 @@ void CDlgFindAndReplace::addFindTerm(CString _term)
 	// that means new entries are inserted AT THE BEGINNING of the list
 
 	// look for existing entries...
-	for(unsigned int i=0; i<termsFind.size(); i++)
-		if(termsFind[i] == _term) return;
+	std::vector <CString>::iterator Iter;
+
+	for(Iter = termsFind.begin(); Iter != termsFind.end(); Iter++)
+		if(*Iter == _term) 
+		{   // if the term is in history then erase it (because it will be inserted at first place)
+			termsFind.erase(Iter);
+			break;
+		}
 	// ...or insert new one
 	termsFind.insert(termsFind.begin(), _term);
 }
@@ -288,9 +294,14 @@ void CDlgFindAndReplace::addReplaceTerm(CString _term)
 	// FM, 12.03.2007 ATTENTION: insertion is done in REVERSED order now, 
 	// that means new entries are inserted AT THE BEGINNING of the list
 
+	std::vector <CString>::iterator Iter;
 	// look for existing entries...
-	for(unsigned int i=0; i<termsReplace.size(); i++)
-		if(termsReplace[i] == _term) return;
+	for(Iter=termsReplace.begin(); Iter != termsReplace.end(); Iter++)
+		if( *Iter == _term) 
+		{
+			termsReplace.erase(Iter);
+			break;
+		}
 	// ...or insert new one
 	termsReplace.insert(termsReplace.begin(), _term);
 }
@@ -318,9 +329,9 @@ void CDlgFindAndReplace::insertOldFindAndReplaceTerms()
 		comboBoxControlReplace.InsertString(-1, termsReplace[j]);
 
 	// select the last FIND term in the combox box
-	if(termsFind.size() > 0) comboBoxControlFind.SelectString(-1, termsFind[termsFind.size()-1]);
+	if(termsFind.size() > 0) comboBoxControlFind.SelectString(-1, *termsFind.begin());
     // select the last REPLACE term in the combo box
-	if(termsReplace.size() > 0) comboBoxControlReplace.SelectString(-1, termsReplace[termsReplace.size()-1]);
+	if(termsReplace.size() > 0) comboBoxControlReplace.SelectString(-1, *termsReplace.begin());
 }
 
 void CDlgFindAndReplace::show()
