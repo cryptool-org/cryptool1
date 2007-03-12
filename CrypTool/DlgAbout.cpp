@@ -242,6 +242,6 @@ void CDlgAbout::determineLibraryVersions()
 
 	// CRYPTOVISION (statisch)
 	this->strVersionCryptovision = "1.3.0";
-	this->strVersionCryptovision.Insert(0, "cv act library ");
+	this->strVersionCryptovision.Insert(0, "cv cryptovision (tm) cv act library ");
 }
 

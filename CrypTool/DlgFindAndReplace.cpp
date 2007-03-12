@@ -272,21 +272,27 @@ void CDlgFindAndReplace::OnBnClickedButtonReplaceAll()
 // add FIND term to vector (no doubled entries)
 void CDlgFindAndReplace::addFindTerm(CString _term)
 {
+	// FM, 12.03.2007 ATTENTION: insertion is done in REVERSED order now, 
+	// that means new entries are inserted AT THE BEGINNING of the list
+
 	// look for existing entries...
 	for(unsigned int i=0; i<termsFind.size(); i++)
 		if(termsFind[i] == _term) return;
 	// ...or insert new one
-	termsFind.push_back(_term);
+	termsFind.insert(termsFind.begin(), _term);
 }
 
 // add REPLACE term to vector (no doubled entries)
 void CDlgFindAndReplace::addReplaceTerm(CString _term)
 {
+	// FM, 12.03.2007 ATTENTION: insertion is done in REVERSED order now, 
+	// that means new entries are inserted AT THE BEGINNING of the list
+
 	// look for existing entries...
 	for(unsigned int i=0; i<termsReplace.size(); i++)
 		if(termsReplace[i] == _term) return;
 	// ...or insert new one
-	termsReplace.push_back(_term);
+	termsReplace.insert(termsReplace.begin(), _term);
 }
 
 BOOL CDlgFindAndReplace::OnInitDialog()
