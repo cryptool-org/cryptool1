@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -5185,10 +5185,10 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE |
 CAPTION "Suchen und Ersetzen"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    COMBOBOX        IDC_COMBO_FIND,47,15,200,30,CBS_DROPDOWN | CBS_SORT | 
-                    WS_TABSTOP
-    COMBOBOX        IDC_COMBO_REPLACE,47,35,200,30,CBS_DROPDOWN | CBS_SORT | 
-                    WS_TABSTOP
+    COMBOBOX        IDC_COMBO_FIND,47,15,200,99,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_REPLACE,47,35,200,79,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
     DEFPUSHBUTTON   "&Suchen",IDC_BUTTON_FIND,266,15,50,14
     PUSHBUTTON      "&Ersetzen",IDC_BUTTON_REPLACE,266,35,50,14
     PUSHBUTTON      "&Alle ersetzen",IDC_BUTTON_REPLACE_ALL,266,55,50,14
@@ -11588,12 +11588,12 @@ BEGIN
     ID_ANALYSE_DESXL        "Automatische Brute-force Analyse einer DESXL-Verschlüsselung"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -16678,10 +16678,10 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE |
 CAPTION "Find and Replace"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    COMBOBOX        IDC_COMBO_FIND,47,15,200,30,CBS_DROPDOWN | CBS_SORT | 
-                    WS_TABSTOP
-    COMBOBOX        IDC_COMBO_REPLACE,47,35,200,30,CBS_DROPDOWN | CBS_SORT | 
-                    WS_TABSTOP
+    COMBOBOX        IDC_COMBO_FIND,47,15,200,99,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_REPLACE,47,35,200,79,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
     DEFPUSHBUTTON   "&Find",IDC_BUTTON_FIND,266,15,50,14
     PUSHBUTTON      "&Replace",IDC_BUTTON_REPLACE,266,35,50,14
     PUSHBUTTON      "Replace &All",IDC_BUTTON_REPLACE_ALL,266,55,50,14
@@ -23273,7 +23273,7 @@ BEGIN
     ID_ANALYSE_DESXL        "Automatic brute-force analysis of encryption using the DESXL algorithm"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
