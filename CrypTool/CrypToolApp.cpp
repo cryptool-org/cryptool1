@@ -92,6 +92,7 @@ statement from your version.
 #include "DialogeMessage.h"
 #include "DlgSideChannelAttackVisualizationHE.h"
 #include "ChallengeResponseDlg.h"
+#include "DlgPasswordQualityMeter.h"
 
 #include "HexEditCtrlDoc.h"
 #include "HexEditCtrlView.h"
@@ -179,6 +180,7 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_COMMAND(ID_LOAD_README, OnLoadReadme)
 	ON_COMMAND(ID_SCRIPT, OnScript)
 	ON_COMMAND(ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION, OnEinzelverfahrenSidechannelattackOnHybridencryption)
+	ON_COMMAND(ID_PASSWORDQUALITYMETER, OnPasswordQualityMeter)
 	ON_COMMAND(ID_CHALLENGE_RESPONSE, OnChallengeResponse)
 	ON_COMMAND(ID_RSA_FACTORHINT, OnRsaFactorhint)
 	ON_COMMAND(ID_RSA_STEREOTYPED, OnRsaStereotyped)
@@ -1017,8 +1019,11 @@ void CCrypToolApp::OnEinzelverfahrenSidechannelattackOnHybridencryption()
 	dlg.DoModal();
 }
 
-
-
+void CCrypToolApp::OnPasswordQualityMeter()
+{
+	CDlgPasswordQualityMeter dlg;
+	dlg.DoModal();
+}
 
 void CCrypToolApp::OnChallengeResponse() 
 {

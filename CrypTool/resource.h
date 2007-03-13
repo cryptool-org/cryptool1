@@ -319,6 +319,7 @@
 #define IDD_ECCDECRECEIVER              858
 #define IDD_ECCENCRECEIVER              859
 #define IDS_OK                          860
+#define IDD_PASSWORDQUALITYMETER        861
 #define IDS_CRYPT_DESX                  1000
 #define IDS_CRYPT_DESL                  1001
 #define IDS_CRYPT_DESXL                 1002
@@ -1869,6 +1870,7 @@
 #define ID_SYMMETRISCHEVERSCHL_         33343
 #define ID_FLASH_AESDEMO                33344
 #define ID_Menu                         33345
+#define ID_PASSWORDQUALITYMETER         33346
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -2874,8 +2876,8 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        861
-#define _APS_NEXT_COMMAND_VALUE         33346
+#define _APS_NEXT_RESOURCE_VALUE        862
+#define _APS_NEXT_COMMAND_VALUE         33347
 #define _APS_NEXT_CONTROL_VALUE         1897
 #define _APS_NEXT_SYMED_VALUE           108
 #endif

@@ -5521,6 +5521,16 @@ BEGIN
                     IDC_STATIC,7,7,205,32
 END
 
+IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 450, 250
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Passwortqualitätsmesser"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,229,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,393,229,50,14
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -5794,6 +5804,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
             END
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
+            MENUITEM "&Passwortqualitätsmesser...", ID_PASSWORDQUALITYMETER
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -6191,6 +6202,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
             END
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
+            MENUITEM "&Passwortqualitätsmesser...", ID_PASSWORDQUALITYMETER
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -6593,6 +6605,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
             END
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
+            MENUITEM "&Passwortqualitätsmesser...", ID_PASSWORDQUALITYMETER
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -6986,6 +6999,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
             END
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
+            MENUITEM "&Passwortqualitätsmesser...", ID_PASSWORDQUALITYMETER
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -7419,6 +7433,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
             END
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
+            MENUITEM "&Passwortqualitätsmesser...", ID_PASSWORDQUALITYMETER
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -9034,6 +9049,14 @@ BEGIN
         HORZGUIDE, 54
         HORZGUIDE, 89
         HORZGUIDE, 96
+    END
+
+    IDD_PASSWORDQUALITYMETER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 443
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 243
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -11422,6 +11445,7 @@ END
 STRINGTABLE 
 BEGIN
     ID_FLASH_AESDEMO        "Visualisiert den AES-Algorithmus mittels Flash"
+    ID_PASSWORDQUALITYMETER "Misst die Qualität von Passwörtern"
 END
 
 STRINGTABLE 
@@ -16995,6 +17019,16 @@ BEGIN
                     IDC_STATIC,7,7,205,32
 END
 
+IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 450, 250
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Password Quality Meter"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,229,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,393,229,50,14
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -17265,6 +17299,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
             END
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
+            MENUITEM "&Password Quality Meter",     ID_PASSWORDQUALITYMETER
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -17657,6 +17692,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
             END
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
+            MENUITEM "&Password Quality Meter",     ID_PASSWORDQUALITYMETER
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -18061,6 +18097,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
             END
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
+            MENUITEM "&Password Quality Meter",     ID_PASSWORDQUALITYMETER
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -18452,6 +18489,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
             END
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
+            MENUITEM "&Password Quality Meter",     ID_PASSWORDQUALITYMETER
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -18881,6 +18919,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
             END
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
+            MENUITEM "&Password Quality Meter",     ID_PASSWORDQUALITYMETER
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -20755,6 +20794,14 @@ BEGIN
         HORZGUIDE, 54
         HORZGUIDE, 89
         HORZGUIDE, 96
+    END
+
+    IDD_PASSWORDQUALITYMETER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 443
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 243
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -23008,6 +23055,7 @@ END
 STRINGTABLE 
 BEGIN
     ID_FLASH_AESDEMO        "Visualizes the AES encryption algorithm using Flash"
+    ID_PASSWORDQUALITYMETER "Measures the quality of passwords"
 END
 
 STRINGTABLE 
