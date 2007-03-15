@@ -1,33 +1,50 @@
 ;Include Modern UI
 
   !include "MUI.nsh"
-  !include LogicLib.nsh
+  !include "WordFunc.nsh"
+  !insertmacro WordFind
 
 ;--------------------------------
 ;General
 
   !define VersionInfo "1.4.10"
   !define CopyrightInfo "Copyright (C) Deutsche Bank AG 1998 - 2007"
-;  !define LANGUAGE_STR "de"  
   
   ;Name and file
   Name "CrypTool"
   OutFile "SetupCrypTool_${LANGUAGE_STR}.exe"
 
   ;Default installation folder
-  InstallDir "$PROGRAMFILES\CrypTool"
+  InstallDir "$PROGRAMFILES\$(^NameDA)"
+
+  Var ShortCutName
+  
+;--------------------------------
+;Interface Settings
+
+  !define MUI_ABORTWARNING
 
 ;--------------------------------
-;Select Language  // FIXME ?!?!
+;Pages
 
-;  !insertmacro MUI_LANGUAGE "German"
+  !insertmacro MUI_PAGE_WELCOME
+  !insertmacro MUI_PAGE_LICENSE "setup-${LANGUAGE_STR}\license-${LANGUAGE_STR}.rtf"
+  !insertmacro MUI_PAGE_DIRECTORY
+  !insertmacro MUI_PAGE_INSTFILES
+  !insertmacro MUI_PAGE_FINISH
+
+  !insertmacro MUI_UNPAGE_WELCOME
+  !insertmacro MUI_UNPAGE_CONFIRM
+  !insertmacro MUI_UNPAGE_INSTFILES
+  !insertmacro MUI_UNPAGE_FINISH
+
+;--------------------------------
+;Select Language  
 
 !ifndef LANGUAGE_STR
    !echo "ERROR: Please define LANGUAGE_STR with /D option!" 
-   ; EXIT
+   Abort ; EXIT
 !endif
-
-
 
 !if ${LANGUAGE_STR} == 'de' 
    !insertmacro MUI_LANGUAGE "German"
@@ -37,46 +54,46 @@
    !insertmacro MUI_LANGUAGE "Polish"
 !else
   !echo "ERROR: ...!"
-  ; EXIT
+  Abort ; EXIT
 !endif
-
-;--------------------------------
-;Interface Settings
-
-  !define MUI_ABORTWARNING
-
-;--------------------------------
-;Pages
-
-  !insertmacro MUI_PAGE_LICENSE "..\licence-de.txt"
-;  !insertmacro MUI_PAGE_COMPONENTS
-  !insertmacro MUI_PAGE_DIRECTORY
-  !insertmacro MUI_PAGE_INSTFILES
-  
-  !insertmacro MUI_UNPAGE_CONFIRM
-  !insertmacro MUI_UNPAGE_INSTFILES
-  
-
 
 ;--------------------------------
 ;Installer Sections
 
-Section "CrypTool" SecInst
+Section "CrypTool" 
 
   SetOutPath "$INSTDIR"
   
-  ;Files to install
-  File /r *.*
 
-  CreateDirectory "$SMPROGRAMS\CrypTool" 
-  CreateShortCut "$SMPROGRAMS\CrypTool\CrypTool.lnk" "$INSTDIR\CrypTool.exe"
-  CreateShortCut "$SMPROGRAMS\CrypTool\Unistall.lnk" "$INSTDIR\Uninstall.exe"
-  CreateShortCut "$SMPROGRAMS\CrypTool\NumberShark.lnk" "$INSTDIR\Number Shark.exe"
-  CreateShortCut "$SMPROGRAMS\CrypTool\Animal.lnk" "$INSTDIR\animal.bat"
-  CreateShortCut "$SMPROGRAMS\CrypTool\AESTool.lnk" "$INSTDIR\aestool.exe"
+  ${WordFind} $INSTDIR "\" "-1*}" $ShortCutName
+  
+  ;Files to install
+  File /r setup-${LANGUAGE_STR}\*.*
+ 
+
+ 
+ ; OLD 
+ ; CreateDirectory "$SMPROGRAMS\CrypTool" 
+ ; CreateShortCut "$SMPROGRAMS\CrypTool\CrypTool.lnk" "$INSTDIR\CrypTool.exe"
+ ; CreateShortCut "$SMPROGRAMS\CrypTool\Unistall.lnk" "$INSTDIR\Uninstall.exe"
+ ; CreateShortCut "$SMPROGRAMS\CrypTool\NumberShark.lnk" "$INSTDIR\Number Shark.exe"
+ ; CreateShortCut "$SMPROGRAMS\CrypTool\Animal.lnk" "$INSTDIR\animal.bat"
+ ; CreateShortCut "$SMPROGRAMS\CrypTool\AESTool.lnk" "$INSTDIR\aestool.exe"
+
+  CreateDirectory "$SMPROGRAMS\$ShortCutName" 
+  CreateShortCut "$SMPROGRAMS\$ShortCutName\CrypTool.lnk" "$INSTDIR\CrypTool.exe"
+  CreateShortCut "$SMPROGRAMS\$ShortCutName\CrypTool-Help.lnk" "$INSTDIR\CrypTool-${LANGUAGE_STR}.chm"
+  CreateShortCut "$SMPROGRAMS\$ShortCutName\NumberShark.lnk" "$INSTDIR\Number Shark.exe"
+  CreateShortCut "$SMPROGRAMS\$ShortCutName\NumberShark-Help.lnk" "$INSTDIR\Number Shark-$LANGUAGE_STR}.chm"
+  CreateShortCut "$SMPROGRAMS\$ShortCutName\AESTool.lnk" "$INSTDIR\aestool.exe"
+  CreateShortCut "$SMPROGRAMS\$ShortCutName\Script.lnk" "$INSTDIR\script-${LANGUAGE_STR}.pdf"
+  CreateShortCut "$SMPROGRAMS\$ShortCutName\Presentation.lnk" "$INSTDIR\CrypToolPresentation-${LANGUAGE_STR}.pdf"
+  CreateShortCut "$SMPROGRAMS\$ShortCutName\ReadMe.lnk" "$INSTDIR\ReadMe-${LANGUAGE_STR}.txt"
+  CreateShortCut "$SMPROGRAMS\$ShortCutName\Unistall.lnk" "$INSTDIR\Uninstall.exe"
+
 
   ;Store installation folder
-  WriteRegStr HKCU "Software\CrypTool" "" $INSTDIR
+  WriteRegStr HKCU "Software\$ShortCutName" "" $INSTDIR
   
   ;Create uninstaller
   WriteUninstaller "$INSTDIR\Uninstall.exe"
@@ -87,21 +104,21 @@ SectionEnd
 ;Descriptions
 
   ;Language strings
-  LangString DESC_SecInst ${LANG_POLISH} "Install section."
+  ; LangString DESC_SecInst ${LANG_POLISH} "Install section."
 
   ;Assign language strings to sections
-  !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
-    !insertmacro MUI_DESCRIPTION_TEXT ${SecInst} $(DESC_SecInst)
-  !insertmacro MUI_FUNCTION_DESCRIPTION_END
+  ; !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
+  ; !insertmacro MUI_DESCRIPTION_TEXT ${SecInst} $(DESC_SecInst)
+  ; !insertmacro MUI_FUNCTION_DESCRIPTION_END
 
 ;--------------------------------
 ;Uninstaller Section
 
 Section "Uninstall"
-
+  
   RMDir /r "$INSTDIR"
-  RMDir /r "$SMPROGRAMS\CrypTool" 
+  RMDir /r "$SMPROGRAMS\$ShortCutName" 
 
-  DeleteRegKey HKCU "Software\CrypTool"
+  DeleteRegKey HKCU "Software\$ShortCutName"
 
 SectionEnd
