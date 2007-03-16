@@ -93,7 +93,7 @@ Section "CrypTool"
 
 
   ;Store installation folder
-  WriteRegStr HKCU "Software\$ShortCutName" "" $INSTDIR
+  WriteRegStr HKCU "Software\CrypTool" "" $INSTDIR
   
   ;Create uninstaller
   WriteUninstaller "$INSTDIR\Uninstall.exe"
@@ -119,6 +119,7 @@ Section "Uninstall"
   RMDir /r "$INSTDIR"
   RMDir /r "$SMPROGRAMS\$ShortCutName" 
 
-  DeleteRegKey HKCU "Software\$ShortCutName"
+; FIXME
+;  DeleteRegKey HKCU "Software\$ShortCutName"
 
 SectionEnd
