@@ -294,13 +294,13 @@ BEGIN
         BLOCK "040704e4"
         BEGIN
             VALUE "CompanyName", "Deutsche Bank"
-            VALUE "Copyright (C) 2006", "(C) CrypTool-Projekt 2006"
+            VALUE "Copyright (C) 2006", "(C) CrypTool-Projekt 2007"
             VALUE "FileDescription", "Der ""Zahlenhai"" ist ein Lernspiel, das das Verständnis für Teiler und Primzahlen verbessern soll."
-            VALUE "FileVersion", "1.0.0.0"
+            VALUE "FileVersion", "1.1.0.0"
             VALUE "InternalName", "ZahlenHai.exe"
             VALUE "OriginalFilename", "ZahlenHai.exe"
             VALUE "ProductName", "Zahlenhai"
-            VALUE "ProductVersion", "1.0.0.0"
+            VALUE "ProductVersion", "1.1.0.0"
         END
     END
     BLOCK "VarFileInfo"
@@ -516,7 +516,7 @@ BEGIN
     IDS_SHARK_AGAINST       " gegen "
     IDS_GAME_DATA           "GameData.txt"
     IDS_HELP_FILE           "NumberShark-de.chm::/Zahlenhai.html"
-    IDS_TITLE_VERSION       " - Version 1.0.1"
+    IDS_TITLE_VERSION       " - Version 1.1.0"
 END
 
 STRINGTABLE 
@@ -823,13 +823,13 @@ BEGIN
         BLOCK "040704e4"
         BEGIN
             VALUE "CompanyName", "Deutsche Bank"
-            VALUE "Copyright (C) 2006", " (C) CrypTool-Project 2006"
+            VALUE "Copyright (C) 2006", " (C) CrypTool-Project 2007"
             VALUE "FileDescription", "Number Shark is an educational game to improve the knowledge of factors and prime numbers."
-            VALUE "FileVersion", "1.0.0.0"
+            VALUE "FileVersion", "1.1.0.0"
             VALUE "InternalName", "NumberShark.exe"
             VALUE "OriginalFilename", "NumberShark.exe"
             VALUE "ProductName", "NumberShark"
-            VALUE "ProductVersion", "1.0.0.0"
+            VALUE "ProductVersion", "1.1.0.0"
         END
     END
     BLOCK "VarFileInfo"
@@ -1029,7 +1029,7 @@ BEGIN
     IDS_SHARK_AGAINST       " against "
     IDS_GAME_DATA           "GameData.txt"
     IDS_HELP_FILE           "NumberShark-en.chm::/NumberShark_Manual.html"
-    IDS_TITLE_VERSION       " - Version 1.0.1"
+    IDS_TITLE_VERSION       " - Version 1.1.0"
 END
 
 STRINGTABLE 

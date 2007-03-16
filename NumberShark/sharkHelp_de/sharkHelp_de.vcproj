@@ -44,7 +44,7 @@
 				Name="VCNMakeTool"
 				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot; OUTDIR=$(OutDir)"
 				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a OUTDIR=$(OutDir)"
-				Output="NumberShark-de.chm"/>
+				Output="..\$(ConfigurationName)\NumberShark-de.chm"/>
 		</Configuration>
 	</Configurations>
 	<References>

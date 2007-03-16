@@ -692,12 +692,12 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_AUTHORS DIALOGEX 0, 0, 284, 303
+IDD_AUTHORS DIALOGEX 0, 0, 284, 327
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Über CrypTool: Mitwirkende"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,112,277,50,19
+    DEFPUSHBUTTON   "OK",IDOK,112,302,50,18
     CTEXT           "Personen, die zu CrypTool beitrugen",IDC_STATIC,7,6,270,
                     11,SS_CENTERIMAGE | WS_BORDER
     CTEXT           "Bernhard Esslinger",IDC_STATIC,14,32,263,8
@@ -711,20 +711,20 @@ BEGIN
     GROUPBOX        " Kümmerer Version 1.3 und 1.4",IDC_STATIC,7,83,270,22,
                     BS_CENTER
     GROUPBOX        " Entwicklung, Dokumentation, Übersetzung ",IDC_STATIC,7,
-                    109,270,115,BS_CENTER
-    GROUPBOX        " Review und Feedback",IDC_STATIC,7,229,270,42,BS_CENTER
-    LTEXT           "Martin Bartosch\nLars Dülfer\nThomas Gauweiler\nJan Hofmann\nMatthias Kraft\nMatej Matejicek\nRoger Oyono\nMark Santiago\nChristian Tobias\nThilo Zieschang\nChristof Rezk Salama\nEnrique Zabala",
-                    IDC_STATIC,18,122,84,97
-    LTEXT           "Jan Blumenstein\nKlaus Esslinger\nPeter Gruber\nJens Liebehenschel\nMichael Linden\nChristian Mletzko\nMarkus Ruhs\nMatthias Schneider\nMyriam Zeuner-Gurrier\nHendrik Lennarz\nSebastian Przybylski",
-                    IDC_STATIC,102,122,84,90
-    LTEXT           "Ariane Büger\nKarsten Schaar\nSibylle Müller",
-                    IDC_STATIC,18,240,84,26
-    LTEXT           "Richard Christensen\nBartol Filipovic\nJörg Hambamer\nDennis Laupichler\nFlorian Marchal\nLowell Montgomery\nDaniel Saffran\nChristine Stötzel\nThomas Thiele\nAndre Beunink\nElmar Kubitz",
-                    IDC_STATIC,186,122,85,91
-    LTEXT           "Matthias Büger\nWolfgang Scondo\nGerhard Kramarz",
-                    IDC_STATIC,102,240,84,26
-    LTEXT           "Wolfgang Patzewitz\nGary Tagg\n...und viele andere.",
-                    IDC_STATIC,186,240,85,26
+                    109,270,131,BS_CENTER
+    GROUPBOX        " Review und Feedback",IDC_STATIC,7,245,270,49,BS_CENTER
+    LTEXT           "Martin Bartosch\nLars Dülfer\nThomas Gauweiler\nJan Hofmann\nMatthias Kraft\nMatej Matejicek\nRoger Oyono\nMark Santiago\nChristian Tobias\nThilo Zieschang\nChristof Rezk Salama\nEnrique Zabala\nFrank Spieß\nMarkus Diett",
+                    IDC_STATIC,18,122,84,111
+    LTEXT           "Jan Blumenstein\nKlaus Esslinger\nPeter Gruber\nJens Liebehenschel\nMichael Linden\nChristian Mletzko\nMarkus Ruhs\nMatthias Schneider\nMyriam Zeuner-Guerrier\nHendrik Lennarz\nSebastian Przybylski\nMartin Ramberger\nMarco Verch\nAxel Poschmann",
+                    IDC_STATIC,102,122,84,113
+    LTEXT           "Ariane Büger\nKarsten Schaar\nSibylle Müller\nPeter Schartner",
+                    IDC_STATIC,18,256,84,32
+    LTEXT           "Richard Christensen\nBartol Filipovic\nJörg Hambamer\nDennis Laupichler\nFlorian Marchal\nLowell Montgomery\nDaniel Saffran\nChristine Stötzel\nThomas Thiele\nAndre Beunink\nElmar Kubitz\nBartosz Sawicki\nDenis Döll",
+                    IDC_STATIC,186,122,85,111
+    LTEXT           "Matthias Büger\nWolfgang Scondo\nGerhard Kramarz\n...und viele andere.",
+                    IDC_STATIC,102,256,84,34
+    LTEXT           "Wolfgang Patzewitz\nGary Tagg\nDirk Fox",IDC_STATIC,186,
+                    256,85,26
 END
 
 IDD_SHOW_PUBLICKEY_EC DIALOG  0, 0, 399, 287
@@ -7627,12 +7627,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Deutsche Bank AG"
             VALUE "FileDescription", "www.cryptool.de"
-            VALUE "FileVersion", "1.4.00"
+            VALUE "FileVersion", "1.4.10"
             VALUE "InternalName", "CrypTool"
-            VALUE "LegalCopyright", "Copyright © 1999-2006"
+            VALUE "LegalCopyright", "Copyright © 1999-2007"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "1.4.00"
+            VALUE "ProductVersion", "1.4.10"
         END
     END
     BLOCK "VarFileInfo"
@@ -8617,8 +8617,8 @@ BEGIN
 
     IDD_AUTHORS, DIALOG
     BEGIN
-        BOTTOMMARGIN, 296
-        HORZGUIDE, 277
+        BOTTOMMARGIN, 320
+        HORZGUIDE, 302
     END
 
     IDD_KEY_HOMOPHONE, DIALOG
@@ -9229,7 +9229,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.10 beta - 02"
+    IDR_MAINFRAME           "CrypTool 1.4.10 beta - 03"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Datei (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnbenannt\n\nBinäre Datei (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnbenannt\n\nASCII-Datei (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -12361,12 +12361,12 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_AUTHORS DIALOGEX 0, 0, 291, 306
+IDD_AUTHORS DIALOGEX 0, 0, 291, 334
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About CrypTool: Contributors"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,118,278,50,19
+    DEFPUSHBUTTON   "OK",IDOK,118,307,50,18
     CTEXT           "Persons Contributing to CrypTool",IDC_STATIC,7,6,277,11,
                     SS_CENTERIMAGE | WS_BORDER
     CTEXT           "Bernhard Esslinger",IDC_STATIC,14,33,270,8
@@ -12380,20 +12380,20 @@ BEGIN
     GROUPBOX        " Main person taking overall care for version 1.3 and 1.4",
                     IDC_STATIC,7,83,277,24,BS_CENTER
     GROUPBOX        " Implementation, Documentation, Translation ",
-                    IDC_STATIC,7,110,277,113,BS_CENTER
-    GROUPBOX        " Review and Feedback",IDC_STATIC,7,229,277,43,BS_CENTER
-    LTEXT           "Ariane Büger\nKarsten Schaar\nSibylle Müller",
-                    IDC_STATIC,18,243,84,26
-    LTEXT           "Matthias Büger\nWolfgang Scondo\nGerhard Kramarz",
-                    IDC_STATIC,102,243,84,26
-    LTEXT           "Wolfgang Patzewitz\nGary Tagg\n...and many others.",
-                    IDC_STATIC,186,243,85,26
-    LTEXT           "Martin Bartosch\nLars Dülfer\nThomas Gauweiler\nJan Hofmann\nMatthias Kraft\nMatej Matejicek\nRoger Oyono\nMark Santiago\nChristian Tobias\nThilo Zieschang\nChristof Rezk Salama\nEnrique Zabala",
-                    IDC_STATIC,18,122,84,98
-    LTEXT           "Jan Blumenstein\nKlaus Esslinger\nPeter Gruber\nJens Liebehenschel\nMichael Linden\nChristian Mletzko\nMarkus Ruhs\nMatthias Schneider\nMyriam Zeuner-Guerrier\nHendrik Lennarz\nSebastian Przybylski",
-                    IDC_STATIC,102,122,84,88
-    LTEXT           "Richard Christensen\nBartol Filipovic\nJörg Hambamer\nDennis Laupichler\nFlorian Marchal\nLowell Montgomery\nDaniel Saffran\nChristine Stötzel\nThomas Thiele\nAndre Beunink\nElmar Kubitz",
-                    IDC_STATIC,186,122,85,89
+                    IDC_STATIC,7,110,277,131,BS_CENTER
+    GROUPBOX        " Review and Feedback",IDC_STATIC,7,246,277,54,BS_CENTER
+    LTEXT           "Ariane Büger\nKarsten Schaar\nSibylle Müller\nPeter Schartner",
+                    IDC_STATIC,18,260,84,34
+    LTEXT           "Matthias Büger\nWolfgang Scondo\nGerhard Kramarz\n...and many others.",
+                    IDC_STATIC,102,260,84,35
+    LTEXT           "Wolfgang Patzewitz\nGary Tagg\nDirk Fox",IDC_STATIC,186,
+                    260,85,26
+    LTEXT           "Martin Bartosch\nLars Dülfer\nThomas Gauweiler\nJan Hofmann\nMatthias Kraft\nMatej Matejicek\nRoger Oyono\nMark Santiago\nChristian Tobias\nThilo Zieschang\nChristof Rezk Salama\nEnrique Zabala\nFrank Spieß\nMarkus Diett",
+                    IDC_STATIC,18,122,84,113
+    LTEXT           "Jan Blumenstein\nKlaus Esslinger\nPeter Gruber\nJens Liebehenschel\nMichael Linden\nChristian Mletzko\nMarkus Ruhs\nMatthias Schneider\nMyriam Zeuner-Guerrier\nHendrik Lennarz\nSebastian Przybylski\nMartin Ramberger\nMarco Verch\nAxel Poschmann",
+                    IDC_STATIC,102,122,84,115
+    LTEXT           "Richard Christensen\nBartol Filipovic\nJörg Hambamer\nDennis Laupichler\nFlorian Marchal\nLowell Montgomery\nDaniel Saffran\nChristine Stötzel\nThomas Thiele\nAndre Beunink\nElmar Kubitz\nBartosz Sawicki\nDenis Döll",
+                    IDC_STATIC,186,122,85,107
 END
 
 IDD_SHOW_PUBLICKEY_EC DIALOG  0, 0, 399, 287
@@ -19112,12 +19112,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Deutsche Bank AG"
             VALUE "FileDescription", "www.cryptool.org"
-            VALUE "FileVersion", "1.4.00"
+            VALUE "FileVersion", "1.4.10"
             VALUE "InternalName", "CrypTool"
             VALUE "LegalCopyright", "Copyright © 1999-2006"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "1.4.00"
+            VALUE "ProductVersion", "1.4.10"
         END
     END
     BLOCK "VarFileInfo"
@@ -20141,8 +20141,8 @@ BEGIN
 
     IDD_AUTHORS, DIALOG
     BEGIN
-        BOTTOMMARGIN, 297
-        HORZGUIDE, 278
+        BOTTOMMARGIN, 325
+        HORZGUIDE, 307
     END
 
     IDD_SHOW_KEY, DIALOG
@@ -20973,7 +20973,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.10 - beta 02 "
+    IDR_MAINFRAME           "CrypTool 1.4.10 - beta 03"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
