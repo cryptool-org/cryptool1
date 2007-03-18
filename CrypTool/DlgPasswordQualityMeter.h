@@ -46,6 +46,7 @@ statement from your version.
 
 #ifndef _DLGPASSWORDQUALITYMETER_H_
 #define _DLGPASSWORDQUALITYMETER_H_
+#include "afxwin.h"
 
 class CDlgPasswordQualityMeter : public CDialog
 {
@@ -61,7 +62,28 @@ public:
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV-Unterstützung
 
+	// initialize the dialog properly
+	virtual BOOL OnInitDialog();
+	// this function is called when the user enables/disables the password display
+	afx_msg void OnShowPassword();
+	// this function is called each time the user changes his password
+	afx_msg void EditPasswordChanged();
+
 	DECLARE_MESSAGE_MAP()
+private:
+	CEdit controlEditPassword;
+	CProgressCtrl controlQualityKeePass;
+	CProgressCtrl controlQualityMozilla;
+	CProgressCtrl controlQualityPGP;
+	CProgressCtrl controlQualityAverage;
+
+	CString password;
+	BOOL showPassword;
+	
+	CString passwordQualityKeePass;
+	CString passwordQualityMozilla;
+	CString passwordQualityPGP;
+	CString passwordQualityAverage;
 };
 
 #endif

@@ -1489,6 +1489,16 @@
 #define IDC_STATIC_PRIM_RES2            1959
 #define ID_PRIMENUMBER_TEST             1960
 #define IDC_BUTTON_STRINGBOX            1961
+#define IDC_EDIT_PASSWORD               1962
+#define IDC_CHECK_SHOWPASSWORD          1963
+#define IDC_QUALITY_KEEPASS             1964
+#define IDC_QUALITY_MOZILLA             1965
+#define IDC_QUALITY_PGP                 1966
+#define IDC_QUALITY_AVERAGE             1967
+#define IDC_PROGRESS_KEEPASS            1968
+#define IDC_PROGRESS_MOZILLA            1969
+#define IDC_PROGRESS_PGP                1970
+#define IDC_PROGRESS_AVERAGE            1971
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -2878,7 +2888,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        862
 #define _APS_NEXT_COMMAND_VALUE         33347
-#define _APS_NEXT_CONTROL_VALUE         1897
+#define _APS_NEXT_CONTROL_VALUE         1972
 #define _APS_NEXT_SYMED_VALUE           108
 #endif
 #endif

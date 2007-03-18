@@ -51,6 +51,12 @@ IMPLEMENT_DYNAMIC(CDlgPasswordQualityMeter, CDialog)
 CDlgPasswordQualityMeter::CDlgPasswordQualityMeter(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgPasswordQualityMeter::IDD, pParent)
 {
+	password = "";
+	showPassword = false;
+	passwordQualityKeePass = "";
+	passwordQualityMozilla = "";
+	passwordQualityPGP = "";
+	passwordQualityAverage = "";
 }
 
 CDlgPasswordQualityMeter::~CDlgPasswordQualityMeter()
@@ -60,11 +66,72 @@ CDlgPasswordQualityMeter::~CDlgPasswordQualityMeter()
 void CDlgPasswordQualityMeter::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
+	//{{AFX_DATA_MAP(CDlgPasswordQualityMeter)
+	DDX_Check(pDX, IDC_CHECK_SHOWPASSWORD, showPassword);
+	DDX_Control(pDX, IDC_EDIT_PASSWORD, controlEditPassword);
+	DDX_Control(pDX, IDC_PROGRESS_KEEPASS, controlQualityKeePass);
+	DDX_Control(pDX, IDC_PROGRESS_MOZILLA, controlQualityMozilla);
+	DDX_Control(pDX, IDC_PROGRESS_PGP, controlQualityPGP);
+	DDX_Control(pDX, IDC_PROGRESS_AVERAGE, controlQualityAverage);
+	DDX_Text(pDX, IDC_EDIT_PASSWORD, password);
+	DDX_Text(pDX, IDC_QUALITY_KEEPASS, passwordQualityKeePass);
+	DDX_Text(pDX, IDC_QUALITY_MOZILLA, passwordQualityMozilla);
+	DDX_Text(pDX, IDC_QUALITY_PGP, passwordQualityPGP);
+	DDX_Text(pDX, IDC_QUALITY_AVERAGE, passwordQualityAverage);
+	//}}AFX_DATA_MAP
 }
 
 
 BEGIN_MESSAGE_MAP(CDlgPasswordQualityMeter, CDialog)
+	//{{AFX_MSG_MAP(CDlgPasswordQualityMeter)
+	ON_EN_CHANGE(IDC_EDIT_PASSWORD, EditPasswordChanged)
+	ON_BN_CLICKED(IDC_CHECK_SHOWPASSWORD, OnShowPassword)
+	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 
 // CDlgPasswordQualityMeter-Meldungshandler
+
+BOOL CDlgPasswordQualityMeter::OnInitDialog()
+{
+	CDialog::OnInitDialog();
+
+	// some inits
+	controlQualityKeePass.SetRange(0, 100);
+	controlQualityKeePass.SetStep(1);
+	controlQualityKeePass.SetPos(0);
+	controlQualityMozilla.SetRange(0, 100);
+	controlQualityMozilla.SetStep(1);
+	controlQualityMozilla.SetPos(0);
+	controlQualityPGP.SetRange(0, 100);
+	controlQualityPGP.SetStep(1);
+	controlQualityPGP.SetPos(0);
+	controlQualityAverage.SetRange(0, 100);
+	controlQualityAverage.SetStep(1);
+	controlQualityAverage.SetPos(0);
+
+	UpdateData(false);
+
+	return FALSE;
+}
+
+void CDlgPasswordQualityMeter::OnShowPassword()
+{
+	UpdateData(true);
+
+	if(showPassword)
+		controlEditPassword.SetPasswordChar('*');
+	else
+		controlEditPassword.SetPasswordChar(0);
+}
+
+void CDlgPasswordQualityMeter::EditPasswordChanged()
+{
+	UpdateData(true);
+
+	// todo...
+	controlQualityKeePass.StepIt();
+	controlQualityKeePass.StepIt();
+
+	UpdateData(false);
+}
