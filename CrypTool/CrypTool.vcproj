@@ -8944,6 +8944,69 @@ cmd /c copy /y &quot;$(InputDir)ticket&quot; &quot;$(OutDir)&quot;
 		<File
 			RelativePath="..\OpenSSL\sha.h">
 		</File>
+
+		<File
+			RelativePath="passwordqualitymeter.cpp">
+			<FileConfiguration
+				Name="Release_en|Win32">
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_de|Win32">
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug|Win32">
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"/>
+			</FileConfiguration>
+		</File>
+
+		<File
+			RelativePath="passwordqualitymeter.h">
+			<FileConfiguration
+				Name="Release_en|Win32">
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_de|Win32">
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="2"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug|Win32">
+				<Tool
+					Name="VCCLCompilerTool"
+					Optimization="0"
+					AdditionalIncludeDirectories=""
+					PreprocessorDefinitions=""
+					BrowseInformation="1"/>
+			</FileConfiguration>
+		</File>
+
 		<File
 			RelativePath="SideChannelAttack.cpp">
 			<FileConfiguration

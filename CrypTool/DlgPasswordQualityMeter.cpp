@@ -5,13 +5,15 @@
 #include "CrypToolApp.h"
 #include "DlgPasswordQualityMeter.h"
 
+#include "passwordqualitymeter.h"
+
 
 // CDlgPasswordQualityMeter-Dialogfeld
 
 CDlgPasswordQualityMeter::CDlgPasswordQualityMeter(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgPasswordQualityMeter::IDD, pParent)
 {
-	password = "password";
+	password = "";
 	showPassword = false;
 
 	intQualityKeePass = 0;
@@ -62,12 +64,13 @@ void CDlgPasswordQualityMeter::EditPasswordChanged()
 {
 	UpdateData(true);
 
-	// TODO: implement quality measurement here
-	intQualityKeePass = password.GetLength() + 1;
-	intQualityMozilla = password.GetLength() + 2;
-	intQualityPGP = password.GetLength() - 5;
+
+	intQualityKeePass = passwordQualityKeePass(password);
+	intQualityMozilla = passwordQualityMozilla(password);
+	intQualityPGP = passwordQualityPGP(password);
+
 	intQualityAverage = (intQualityKeePass+intQualityMozilla+intQualityPGP)/3;
-	// TODO: implement quality measurement here
+
 
 	UpdateUserInterface();
 }
