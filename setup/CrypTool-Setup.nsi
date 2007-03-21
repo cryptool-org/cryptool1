@@ -7,15 +7,16 @@
 ;--------------------------------
 ;General
 
-  !define VersionInfo "1.4.10"
-  !define CopyrightInfo "Copyright (C) Deutsche Bank AG 1998 - 2007"
-  
   ;Name and file
-  Name "CrypTool"
+  !define ProgramName "CrypTool"
+  !define VersionInfo "1.4.10"
+  
+  Name "${ProgramName} ${VersionInfo}"
   OutFile "SetupCrypTool_${LANGUAGE_STR}.exe"
+  BrandingText "CrypTool 1.4.10"
 
   ;Default installation folder
-  InstallDir "$PROGRAMFILES\$(^NameDA)"
+  InstallDir "$PROGRAMFILES\${ProgramName}"   ; "$PROGRAMFILES\$(^NameDA)"
 
   Var ShortCutName
   
@@ -48,10 +49,58 @@
 
 !if ${LANGUAGE_STR} == 'de' 
    !insertmacro MUI_LANGUAGE "German"
+   !define SCN_CRYPTOOL		"CrypTool"
+   !define SCL_CRYPTOOL		"CrypTool.exe"
+   !define SCN_CRYPTOOL_HELP    "CrypTool-Hilfe"
+   !define SCL_CRYPTOOL_HELP	"CrypTool-${LANGUAGE_STR}.chm"
+   !define SCN_NUMBERSHARK	"Zahlenhai"
+   !define SCL_NUMBERSHARK	"Zahlenhai.exe"
+   !define SCN_NUMBERSHARK_HELP "Zahlenhai-Hilfe"
+   !define SCL_NUMBERSHARK_HELP "Numbershark_${LANGUAGE_STR}.chm"
+   !define SCN_AES_TOOL		"AES-Tool"
+   !define SCL_AES_TOOL		"aestool.exe"
+   !define SCN_SCRIPT		"Skript"
+   !define SCL_SCRIPT		"script-${LANGUAGE_STR}.pdf"
+   !define SCN_PRESENTATION	"Präsentation"
+   !define SCL_PRESENTATION	"CrypToolPresentation-${LANGUAGE_STR}.pdf"
+   !define SCN_README		"ReadMe"
+   !define SCL_README 		"ReadMe-${LANGUAGE_STR}.txt"
 !else if ${LANGUAGE_STR} == 'en'
    !insertmacro MUI_LANGUAGE "English"
+   !define SCN_CRYPTOOL		"CrypTool"
+   !define SCL_CRYPTOOL		"CrypTool.exe"
+   !define SCN_CRYPTOOL_HELP    "CrypTool Help"
+   !define SCL_CRYPTOOL_HELP	"CrypTool-${LANGUAGE_STR}.chm"
+   !define SCN_NUMBERSHARK	"Number Shark"
+   !define SCL_NUMBERSHARK	"Numbershark.exe"
+   !define SCN_NUMBERSHARK_HELP "Number Shark Help"
+   !define SCL_NUMBERSHARK_HELP "Numbershark_${LANGUAGE_STR}.chm"
+   !define SCN_AES_TOOL		"AES-Tool"
+   !define SCL_AES_TOOL		"aestool.exe"
+   !define SCN_SCRIPT		"Script"
+   !define SCL_SCRIPT		"script-${LANGUAGE_STR}.pdf"
+   !define SCN_PRESENTATION	"Presentation"
+   !define SCL_PRESENTATION	"CrypToolPresentation-${LANGUAGE_STR}.pdf"
+   !define SCN_README		"ReadMe"
+   !define SCL_README 		"ReadMe-${LANGUAGE_STR}.txt"
 !else if ${LANGUAGE_STR} == 'pl'
    !insertmacro MUI_LANGUAGE "Polish"
+   !define SCN_CRYPTOOL		"CrypTool"
+   !define SCL_CRYPTOOL		"CrypTool.exe"
+   !define SCN_CRYPTOOL_HELP    "CrypTool Help"
+   !define SCL_CRYPTOOL_HELP	"CrypTool-${LANGUAGE_STR}.chm"
+   !define SCN_NUMBERSHARK	"Number Shark"
+   !define SCL_NUMBERSHARK	"Numbershark.exe"
+   !define SCN_NUMBERSHARK_HELP "Number Shark Help"
+   !define SCL_NUMBERSHARK_HELP "Numbershark_${LANGUAGE_STR}.chm"
+   !define SCN_AES_TOOL		"AES-Tool"
+   !define SCL_AES_TOOL		"aestool.exe"
+   !define SCN_SCRIPT		"Script"
+   !define SCL_SCRIPT		"script-${LANGUAGE_STR}.pdf"
+   !define SCN_PRESENTATION	"Presentation"
+   !define SCL_PRESENTATION	"CrypToolPresentation-${LANGUAGE_STR}.pdf"
+   !define SCN_README		"ReadMe"
+   !define SCL_README 		"ReadMe-${LANGUAGE_STR}.txt"
 !else
   !echo "ERROR: ...!"
   Abort ; EXIT
@@ -63,37 +112,26 @@
 Section "CrypTool" 
 
   SetOutPath "$INSTDIR"
-  
 
-  ${WordFind} $INSTDIR "\" "-1*}" $ShortCutName
+  ${WordFind} $INSTDIR "\" "-1*}" $ShortCutName  ; FIXME '\' at the string end
   
   ;Files to install
   File /r setup-${LANGUAGE_STR}\*.*
  
-
- 
- ; OLD 
- ; CreateDirectory "$SMPROGRAMS\CrypTool" 
- ; CreateShortCut "$SMPROGRAMS\CrypTool\CrypTool.lnk" "$INSTDIR\CrypTool.exe"
- ; CreateShortCut "$SMPROGRAMS\CrypTool\Unistall.lnk" "$INSTDIR\Uninstall.exe"
- ; CreateShortCut "$SMPROGRAMS\CrypTool\NumberShark.lnk" "$INSTDIR\Number Shark.exe"
- ; CreateShortCut "$SMPROGRAMS\CrypTool\Animal.lnk" "$INSTDIR\animal.bat"
- ; CreateShortCut "$SMPROGRAMS\CrypTool\AESTool.lnk" "$INSTDIR\aestool.exe"
-
   CreateDirectory "$SMPROGRAMS\$ShortCutName" 
-  CreateShortCut "$SMPROGRAMS\$ShortCutName\CrypTool.lnk" "$INSTDIR\CrypTool.exe"
-  CreateShortCut "$SMPROGRAMS\$ShortCutName\CrypTool-Help.lnk" "$INSTDIR\CrypTool-${LANGUAGE_STR}.chm"
-  CreateShortCut "$SMPROGRAMS\$ShortCutName\NumberShark.lnk" "$INSTDIR\Number Shark.exe"
-  CreateShortCut "$SMPROGRAMS\$ShortCutName\NumberShark-Help.lnk" "$INSTDIR\Number Shark-$LANGUAGE_STR}.chm"
-  CreateShortCut "$SMPROGRAMS\$ShortCutName\AESTool.lnk" "$INSTDIR\aestool.exe"
-  CreateShortCut "$SMPROGRAMS\$ShortCutName\Script.lnk" "$INSTDIR\script-${LANGUAGE_STR}.pdf"
-  CreateShortCut "$SMPROGRAMS\$ShortCutName\Presentation.lnk" "$INSTDIR\CrypToolPresentation-${LANGUAGE_STR}.pdf"
-  CreateShortCut "$SMPROGRAMS\$ShortCutName\ReadMe.lnk" "$INSTDIR\ReadMe-${LANGUAGE_STR}.txt"
-  CreateShortCut "$SMPROGRAMS\$ShortCutName\Unistall.lnk" "$INSTDIR\Uninstall.exe"
+  CreateShortCut "$SMPROGRAMS\$ShortCutName\${SCN_CRYPTOOL}.lnk" 	 "$INSTDIR\${SCL_CRYPTOOL}"		
+  CreateShortCut "$SMPROGRAMS\$ShortCutName\${SCN_CRYPTOOL_HELP}.lnk" 	 "$INSTDIR\${SCL_CRYPTOOL_HELP}"	
+  CreateShortCut "$SMPROGRAMS\$ShortCutName\${SCN_NUMBERSHARK}.lnk" 	 "$INSTDIR\${SCL_NUMBERSHARK}"		
+  CreateShortCut "$SMPROGRAMS\$ShortCutName\${SCN_NUMBERSHARK_HELP}.lnk" "$INSTDIR\${SCL_NUMBERSHARK_HELP}"
+  CreateShortCut "$SMPROGRAMS\$ShortCutName\${SCN_AES_TOOL}.lnk" 	 "$INSTDIR\${SCL_AES_TOOL}"		
+  CreateShortCut "$SMPROGRAMS\$ShortCutName\${SCN_SCRIPT}.lnk" 		 "$INSTDIR\${SCL_SCRIPT}"		
+  CreateShortCut "$SMPROGRAMS\$ShortCutName\${SCN_PRESENTATION}.lnk" 	 "$INSTDIR\${SCL_PRESENTATION}"		
+  CreateShortCut "$SMPROGRAMS\$ShortCutName\${SCN_README}.lnk" 		 "$INSTDIR\${SCL_README}"		
+  CreateShortCut "$SMPROGRAMS\$ShortCutName\Unistall.lnk" 		 "$INSTDIR\Uninstall.exe"		
 
 
   ;Store installation folder
-  WriteRegStr HKCU "Software\CrypTool" "" $INSTDIR
+  WriteRegStr HKCU "Software\$ShortCutName" "" $INSTDIR
   
   ;Create uninstaller
   WriteUninstaller "$INSTDIR\Uninstall.exe"
@@ -120,6 +158,6 @@ Section "Uninstall"
   RMDir /r "$SMPROGRAMS\$ShortCutName" 
 
 ; FIXME
-;  DeleteRegKey HKCU "Software\$ShortCutName"
+  DeleteRegKey HKCU "Software\$ShortCutName"
 
 SectionEnd
