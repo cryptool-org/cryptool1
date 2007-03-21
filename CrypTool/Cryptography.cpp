@@ -94,6 +94,9 @@ using namespace std;
 #include "MakeNewName.h"
 #include "CrypToolTools.h"
 
+#include "ScintillaDoc.h"
+#include "ScintillaView.h"
+
 #include <fstream>
 
 #define MAX_LAENGE_STRTEXT 16000
@@ -825,10 +828,9 @@ void Hill(const char *infile, const char *OldTitle)
 			// LoadString(AfxGetInstanceHandle(),IDS_STRING_NGRAM_ANALYSIS_OF,pc_str,STR_LAENGE_STRING_TABLE);
 			GetNewDocTitle(schluessel, OldTitle, IDS_STRING_HILL_DETAILS, title, 128, i_m_decrypt, SCHLUESSEL_QUADRATISCH );
 			NewDoc->SetTitle(title);
-
+			CView* CView_hilf = ((CMDIFrameWnd*)theApp.m_pMainWnd)->MDIGetActive()->GetActiveView();
+			((CScintillaView*)CView_hilf)->OnViewFontCourier10();
 		}
-
-
 	}
 
 

@@ -362,11 +362,11 @@ void dobase64enc(const char *infile, const char *OldTitle)
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_BASE64ENC_OF,pc_str,STR_LAENGE_STRING_TABLE);
         MakeNewName(title,sizeof(title),pc_str,OldTitle);
         NewDoc->SetTitle(title);
+
+		CView* CView_hilf = ((CMDIFrameWnd*)theApp.m_pMainWnd)->MDIGetActive()->GetActiveView();
+		((CScintillaView*)CView_hilf)->OnViewFontCourier10();
     }
 
-	CView* CView_hilf = ((CMDIFrameWnd*)theApp.m_pMainWnd)->MDIGetActive()->GetActiveView();
-	((CScintillaView*)CView_hilf)->OnViewFontCourier10();
-	
 }
 
 void dobase64dec(const char *infile, const char *OldTitle)
