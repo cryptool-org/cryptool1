@@ -93,6 +93,7 @@ ENGLISH IndivProcedures_Tools_Codes_UUEncodeDecode # &Indiv. Procedures|&Tools|C
 ENGLISH IndivProcedures_Tools_Compress # &Indiv. Procedures|&Tools|&Compress
 ENGLISH IndivProcedures_VisualizationofAlgorithms # &Indiv. Procedures|&Visualization of Algorithms
 ENGLISH Analysis_SymmetricEncryptionmodern_Further # &Analysis|Symmetric Encryption (modern)|&Further
+ENGLISH IndivProcedures_NumberTheoryInteractively # &Indiv. Procedures|&Number Theory Interactively
 GERMAN	Analyse	# A&nalyse
 GERMAN Bearbeiten # &Bearbeiten
 GERMAN Datei # &Datei
@@ -139,4 +140,5 @@ GERMAN Einzelverfahren_Tools_Komprimieren # &Einzelverfahren|&Tools|&Komprimiere
 GERMAN Einzelverfahren_VisualisierungvonAlgorithmen # &Einzelverfahren|&Visualisierung von Algorithmen
 GERMAN VerEntschlsseln_Symmetrischmodern_Weitere # &Ver-/Entschlüsseln|Symmetrisch (&modern)|&Weitere
 GERMAN Analyse_SymmetrischeVerschlsselungmodern_Weitere # A&nalyse|Symmetrische Verschlüsselung (&modern)|&Weitere
+GERMAN Einzelverfahren_ZahlentheorieInteraktiv # &Einzelverfahren|&Zahlentheorie Interaktiv
 

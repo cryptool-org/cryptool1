@@ -1881,6 +1881,8 @@
 #define ID_FLASH_AESDEMO                33344
 #define ID_Menu                         33345
 #define ID_PASSWORDQUALITYMETER         33346
+#define ID_INTERACTIVE_NUMBER_THEORY    33348
+#define ID_EINZELVERFAHREN_ZAHLENTHEORIEINTERAKTIV 33349
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -2764,6 +2766,8 @@
 #define IDS_ECIES_DEC_ERROR_42          39032
 #define IDS_ECIES_DEC_ERROR_05          39033
 #define IDS_AESDEMO_EXEC_STR            39044
+#define IDS_INTERACTIVE_NUMBER_THEORY_EXEC 39045
+#define IDS_ERROPEN_INTERACTIVE_NUMBER_THEORY 39046
 #define IDS_DH_LOG_1                    61889
 #define IDS_DH_LOG_2                    61890
 #define IDS_DH_LOG_3                    61891
@@ -2887,7 +2891,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        862
-#define _APS_NEXT_COMMAND_VALUE         33347
+#define _APS_NEXT_COMMAND_VALUE         33350
 #define _APS_NEXT_CONTROL_VALUE         1972
 #define _APS_NEXT_SYMED_VALUE           108
 #endif

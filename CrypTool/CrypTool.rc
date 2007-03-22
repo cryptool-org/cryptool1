@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -5669,7 +5669,8 @@ BEGIN
             MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
             , GRAYED
-            POPUP "&Weitere"
+            MENUITEM SEPARATOR
+            POPUP "&Weitere Algorithmen"
             BEGIN
                 MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
                 , GRAYED
@@ -5792,10 +5793,6 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
-            MENUITEM "P&unktaddition auf einer Elliptischen Kurve...", 
-                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
-
-            MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
@@ -5837,6 +5834,16 @@ BEGIN
         POPUP "&Lernspiele"
         BEGIN
             MENUITEM "&Der Zahlenhai",              ID_NUMBERSHARK
+        END
+        MENUITEM SEPARATOR
+        POPUP "&Zahlentheorie Interaktiv"
+        BEGIN
+            MENUITEM "&Tutorial zur Public Key Kryptographie...", 
+                                                    ID_INTERACTIVE_NUMBER_THEORY
+
+            MENUITEM "&Punktaddition auf Elliptischen Kurven...", 
+                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
+
         END
     END
     POPUP "A&nalyse"
@@ -6084,7 +6091,8 @@ BEGIN
             MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC
             MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
-            POPUP "&Weitere"
+            MENUITEM SEPARATOR
+            POPUP "&Weitere Algorithmen"
             BEGIN
                 MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
                 MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
@@ -6194,10 +6202,6 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
-            MENUITEM "P&unktaddition auf einer Elliptischen Kurve...", 
-                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
-
-            MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
@@ -6235,6 +6239,16 @@ BEGIN
         POPUP "&Lernspiele"
         BEGIN
             MENUITEM "&Der Zahlenhai",              ID_NUMBERSHARK
+        END
+        MENUITEM SEPARATOR
+        POPUP "&Zahlentheorie Interaktiv"
+        BEGIN
+            MENUITEM "&Tutorial zur Public Key Kryptographie...", 
+                                                    ID_INTERACTIVE_NUMBER_THEORY
+
+            MENUITEM "&Punktaddition auf Elliptischen Kurven...", 
+                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
+
         END
     END
     POPUP "A&nalyse"
@@ -6474,7 +6488,8 @@ BEGIN
             MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
             , GRAYED
-            POPUP "&Weitere"
+            MENUITEM SEPARATOR
+            POPUP "&Weitere Algorithmen"
             BEGIN
                 MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
                 MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
@@ -6595,10 +6610,6 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
-            MENUITEM "P&unktaddition auf einer Elliptischen Kurve...", 
-                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
-
-            MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
@@ -6638,6 +6649,16 @@ BEGIN
         POPUP "&Lernspiele"
         BEGIN
             MENUITEM "&Der Zahlenhai",              ID_NUMBERSHARK
+        END
+        MENUITEM SEPARATOR
+        POPUP "&Zahlentheorie Interaktiv"
+        BEGIN
+            MENUITEM "&Tutorial zur Public Key Kryptographie...", 
+                                                    ID_INTERACTIVE_NUMBER_THEORY
+
+            MENUITEM "&Punktaddition auf Elliptischen Kurven...", 
+                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
+
         END
     END
     POPUP "A&nalyse"
@@ -6881,7 +6902,8 @@ BEGIN
             MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC
             MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
-            POPUP "&Weitere"
+            MENUITEM SEPARATOR
+            POPUP "&Weitere Algorithmen"
             BEGIN
                 MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
                 MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
@@ -6991,10 +7013,6 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
-            MENUITEM "P&unktaddition auf einer Elliptischen Kurve...", 
-                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
-
-            MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
@@ -7032,6 +7050,16 @@ BEGIN
         POPUP "&Lernspiele"
         BEGIN
             MENUITEM "&Der Zahlenhai",              ID_NUMBERSHARK
+        END
+        MENUITEM SEPARATOR
+        POPUP "&Zahlentheorie Interaktiv"
+        BEGIN
+            MENUITEM "&Tutorial zur Public Key Kryptographie...", 
+                                                    ID_INTERACTIVE_NUMBER_THEORY
+
+            MENUITEM "&Punktaddition auf Elliptischen Kurven...", 
+                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
+
         END
     END
     POPUP "A&nalyse"
@@ -7298,7 +7326,8 @@ BEGIN
             MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
             , GRAYED
-            POPUP "&Weitere"
+            MENUITEM SEPARATOR
+            POPUP "&Weitere Algorithmen"
             BEGIN
                 MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
                 , GRAYED
@@ -7421,10 +7450,6 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
-            MENUITEM "P&unktaddition auf einer Elliptischen Kurve...", 
-                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
-
-            MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
@@ -7466,6 +7491,16 @@ BEGIN
         POPUP "&Lernspiele"
         BEGIN
             MENUITEM "&Der Zahlenhai",              ID_NUMBERSHARK
+        END
+        MENUITEM SEPARATOR
+        POPUP "&Zahlentheorie Interaktiv"
+        BEGIN
+            MENUITEM "&Tutorial zur Public Key Kryptographie...", 
+                                                    ID_INTERACTIVE_NUMBER_THEORY
+
+            MENUITEM "&Punktaddition auf Elliptischen Kurven...", 
+                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
+
         END
     END
     POPUP "A&nalyse"
@@ -11624,6 +11659,9 @@ END
 STRINGTABLE 
 BEGIN
     IDS_AESDEMO_EXEC_STR    "Rijndael-Animation.exe"
+    IDS_INTERACTIVE_NUMBER_THEORY_EXEC "ZT.exe"
+    IDS_ERROPEN_INTERACTIVE_NUMBER_THEORY 
+                            "Das Lerntool zur Zahlentheorie kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob das Programm ZT.exe im CrypTool Heimatverzeichnis installiert wurde."
 END
 
 STRINGTABLE 
@@ -11631,12 +11669,12 @@ BEGIN
     ID_ANALYSE_DESXL        "Automatische Brute-force Analyse einer DESXL-Verschlüsselung"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -17183,7 +17221,8 @@ BEGIN
             MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
             , GRAYED
-            POPUP "&Further"
+            MENUITEM SEPARATOR
+            POPUP "&Further Algorithms"
             BEGIN
                 MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
                 , GRAYED
@@ -17216,8 +17255,8 @@ BEGIN
 
             MENUITEM "RSA-AES &Decryption...",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
             , GRAYED
-            MENUITEM "ECC-AES-E&ncryption...",      ID_HYBRID_ECCENC
-            MENUITEM "ECC-AES-De&cryption...",      ID_HYBRID_ECCDEC, GRAYED
+            MENUITEM "ECC-AES E&ncryption...",      ID_HYBRID_ECCENC
+            MENUITEM "ECC-AES De&cryption...",      ID_HYBRID_ECCDEC, GRAYED
         END
     END
     POPUP "Digital Signatures/&PKI"
@@ -17303,10 +17342,6 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
-            MENUITEM "Point &Addition on Elliptic Curves...", 
-                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
-
-            MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
@@ -17348,6 +17383,16 @@ BEGIN
         POPUP "&Educational Games"
         BEGIN
             MENUITEM "&Number Shark",               ID_NUMBERSHARK
+        END
+        MENUITEM SEPARATOR
+        POPUP "&Number Theory Interactively"
+        BEGIN
+            MENUITEM "&Tutorial for Public Key Cryptography...", 
+                                                    ID_INTERACTIVE_NUMBER_THEORY
+
+            MENUITEM "&Point Addition on Elliptic Curves...", 
+                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
+
         END
     END
     POPUP "&Analysis"
@@ -17593,7 +17638,8 @@ BEGIN
             MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC
             MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
-            POPUP "&Further"
+            MENUITEM SEPARATOR
+            POPUP "&Further Algorithms"
             BEGIN
                 MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
                 MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
@@ -17619,8 +17665,8 @@ BEGIN
 
             MENUITEM "RSA-AES &Decryption...",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
 
-            MENUITEM "ECC-AES-E&ncryption...",      ID_HYBRID_ECCENC
-            MENUITEM "ECC-AES-De&cryption...",      ID_HYBRID_ECCDEC
+            MENUITEM "ECC-AES E&ncryption...",      ID_HYBRID_ECCENC
+            MENUITEM "ECC-AES De&cryption...",      ID_HYBRID_ECCDEC
         END
     END
     POPUP "Digital Signatures/&PKI"
@@ -17700,10 +17746,6 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
-            MENUITEM "Point &Addition on Elliptic Curves...", 
-                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
-
-            MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
@@ -17741,6 +17783,16 @@ BEGIN
         POPUP "&Educational Games"
         BEGIN
             MENUITEM "&Number Shark",               ID_NUMBERSHARK
+        END
+        MENUITEM SEPARATOR
+        POPUP "&Number Theory Interactively"
+        BEGIN
+            MENUITEM "&Tutorial for Public Key Cryptography...", 
+                                                    ID_INTERACTIVE_NUMBER_THEORY
+
+            MENUITEM "&Point Addition on Elliptic Curves...", 
+                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
+
         END
     END
     POPUP "&Analysis"
@@ -17981,7 +18033,8 @@ BEGIN
             MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
             , GRAYED
-            POPUP "&Further"
+            MENUITEM SEPARATOR
+            POPUP "&Further Algorithms"
             BEGIN
                 MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
                 , GRAYED
@@ -18014,8 +18067,8 @@ BEGIN
 
             MENUITEM "RSA-AES &Decryption...",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
             , GRAYED
-            MENUITEM "ECC-AES-E&ncryption...",      ID_HYBRID_ECCENC
-            MENUITEM "ECC-AES-De&cryption...",      ID_HYBRID_ECCDEC, GRAYED
+            MENUITEM "ECC-AES E&ncryption...",      ID_HYBRID_ECCENC
+            MENUITEM "ECC-AES De&cryption...",      ID_HYBRID_ECCDEC, GRAYED
         END
     END
     POPUP "Digital Signatures/&PKI"
@@ -18101,10 +18154,6 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
-            MENUITEM "Point &Addition on Elliptic Curves...", 
-                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
-
-            MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
@@ -18146,6 +18195,16 @@ BEGIN
         POPUP "&Educational Games"
         BEGIN
             MENUITEM "&Number Shark",               ID_NUMBERSHARK
+        END
+        MENUITEM SEPARATOR
+        POPUP "&Number Theory Interactively"
+        BEGIN
+            MENUITEM "&Tutorial for Public Key Cryptography...", 
+                                                    ID_INTERACTIVE_NUMBER_THEORY
+
+            MENUITEM "&Point Addition on Elliptic Curves...", 
+                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
+
         END
     END
     POPUP "&Analysis"
@@ -18390,7 +18449,8 @@ BEGIN
             MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC
             MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
-            POPUP "&Further"
+            MENUITEM SEPARATOR
+            POPUP "&Further Algorithms"
             BEGIN
                 MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
                 MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
@@ -18416,8 +18476,8 @@ BEGIN
 
             MENUITEM "RSA-AES &Decryption...",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
 
-            MENUITEM "ECC-AES-E&ncryption...",      ID_HYBRID_ECCENC
-            MENUITEM "ECC-AES-De&cryption...",      ID_HYBRID_ECCDEC
+            MENUITEM "ECC-AES E&ncryption...",      ID_HYBRID_ECCENC
+            MENUITEM "ECC-AES De&cryption...",      ID_HYBRID_ECCDEC
         END
     END
     POPUP "Digital Signatures/&PKI"
@@ -18497,10 +18557,6 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
-            MENUITEM "Point &Addition on Elliptic Curves...", 
-                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
-
-            MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
@@ -18538,6 +18594,16 @@ BEGIN
         POPUP "&Educational Games"
         BEGIN
             MENUITEM "&Number Shark",               ID_NUMBERSHARK
+        END
+        MENUITEM SEPARATOR
+        POPUP "&Number Theory Interactively"
+        BEGIN
+            MENUITEM "&Tutorial for Public Key Cryptography...", 
+                                                    ID_INTERACTIVE_NUMBER_THEORY
+
+            MENUITEM "&Point Addition on Elliptic Curves...", 
+                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
+
         END
     END
     POPUP "&Analysis"
@@ -18803,7 +18869,8 @@ BEGIN
             MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
             , GRAYED
-            POPUP "&Further"
+            MENUITEM SEPARATOR
+            POPUP "&Further Algorithms"
             BEGIN
                 MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
                 , GRAYED
@@ -18836,8 +18903,8 @@ BEGIN
 
             MENUITEM "RSA-AES &Decryption...",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
             , GRAYED
-            MENUITEM "ECC-AES-E&ncryption...",      ID_HYBRID_ECCENC
-            MENUITEM "ECC-AES-De&cryption...",      ID_HYBRID_ECCDEC, GRAYED
+            MENUITEM "ECC-AES E&ncryption...",      ID_HYBRID_ECCENC
+            MENUITEM "ECC-AES De&cryption...",      ID_HYBRID_ECCDEC, GRAYED
         END
     END
     POPUP "Digital Signatures/&PKI"
@@ -18923,10 +18990,6 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
-            MENUITEM "Point &Addition on Elliptic Curves...", 
-                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
-
-            MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
@@ -18968,6 +19031,16 @@ BEGIN
         POPUP "&Educational Games"
         BEGIN
             MENUITEM "&Number Shark",               ID_NUMBERSHARK
+        END
+        MENUITEM SEPARATOR
+        POPUP "&Number Theory Interactively"
+        BEGIN
+            MENUITEM "&Tutorial for Public Key Cryptography...", 
+                                                    ID_INTERACTIVE_NUMBER_THEORY
+
+            MENUITEM "&Point Addition on Elliptic Curves...", 
+                                                    ID_INDIV_POINTADDITIONONELLIPTICCURVES
+
         END
     END
     POPUP "&Analysis"
@@ -23297,6 +23370,9 @@ END
 STRINGTABLE 
 BEGIN
     IDS_AESDEMO_EXEC_STR    "Rijndael-Animation.exe"
+    IDS_INTERACTIVE_NUMBER_THEORY_EXEC "NT.exe"
+    IDS_ERROPEN_INTERACTIVE_NUMBER_THEORY 
+                            "The numbertheory learning tool cannot be opened.\n\nPlease check if NT.exe is installed at the CrypTool program directory."
 END
 
 STRINGTABLE 
@@ -23316,7 +23392,7 @@ BEGIN
     ID_ANALYSE_DESXL        "Automatic brute-force analysis of encryption using the DESXL algorithm"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
