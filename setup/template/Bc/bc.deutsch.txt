@@ -1,0 +1,352 @@
+
+Umgang mit bc
+
+    Um bc kennen zu lernen, können Sie Bc.exe starten, dann öffnet sich 
+    ein schwarzes Fenster. Geben Sie ein
+
+		17+4
+
+    und drücken Sie die Enter-Taste. In der nächsten Zeile erscheint: 21
+    Geben Sie ein
+
+		sqrt(49)
+
+    und drücken Sie die Enter-Taste. In der nächsten Zeile erscheint: 7
+    Denn 7 ist die Quadratwurzel von 49.
+
+    Geben Sie ein
+
+		define sag () {print "Hallo\n"}
+		sag()
+
+    und drücken Sie die Enter-Taste. In der nächsten Zeile erscheint: Hallo
+    Sie haben die Funktion sag() programmiert und aufgerufen.
+
+    Die Regeln, wie man in bc programmiert, werden unten kurz beschrieben.
+    Ausführlich beschrieben werden sie in englischer Sprache in bc.1.txt.
+
+
+    Man kann Bc.exe starten und Dateien laden, die bc-Programme enthalten:
+    bc Prog1 Prog2 ...
+    Das kann eine Batch-Datei erledigen, zum Beispiel so:
+
+	bc.exe und Prog1 liegen im Ordner Bc,
+	Prog1 enthält bc-Programme und soll geladen werden.
+	Dabei soll auch die Mathe-Bibliothek geladen werden.
+	Man schreibt in eine Text-Datei	die Zeile
+
+	bc -l Prog1
+
+	und speichert unter dem Namen testProg1.bat im Ordner Bc.
+	Doppelklickt man testProg1.bat, so erledigt sie die Aufgabe.
+
+    Die geladenen bc-Programme kann man beim Rechnen so benutzen, 
+    als hätte man sie eben im schwarzen Fenster geschrieben. 
+    Das Umgekehrte geht leider nicht: vom Fenster aus speichern;
+    beim Beenden von bc ist alles weg.
+    Dauerhaft programmiert man in einer Datei, die man zum Testen lädt.
+
+
+gekürzte Beschreibung der Sprache bc
+ 
+Zahlen
+
+    können in bc beliebig lang sein. Wie im Englischen üblich
+    dient als Dezimalzeichen nicht das Komma, sondern der Punkt.
+
+    Beispiele: 	-7,  0,  3.14159265358979323844
+
+    Mit wieviel Stellen nach dem Punkt gerechnet wird, 
+    legt man fest mit der Variablen scale.
+    Der Standardwert von scale ist 0.
+
+Variablen
+
+    gibt es von zweierlei Typ:
+
+    1. die einfache Variable, die eine Zahl enthält
+       Beispiele: x, zahl_1
+	
+    2. das Array, das beliebig viele Zahlen enthält
+       Beispiel:  schlossallee[]
+
+    Namensgebung: 	ein Kleinbuchstabe am Anfang, 
+			dann Kleinbuchstaben, Zahlen, Unterstriche.
+			Array-Namen folgen eckige Klammern []. 
+	
+    Eine einzelne Zahl im Array erreicht man über ihren Index:
+    schlossallee[77] enthält die Zahl auf Platz 77 im Array schlossallee[].
+    Als Index in Frage kommen auch Ausdrücke wie x+1, überhaupt alles,
+    was unten als Ausdruck definiert wird.
+		
+Kommentare
+
+    1. Alles zwischen /* und */ wird von bc ignoriert.
+    2. Alles zwischen # und Zeilen-Ende wird von bc ignoriert.
+
+Ausdrücke
+
+    1. Konstanten,                      z.B. -7,  0,  3.14
+    2. einfache Variablen,              z.B. x, zahl1
+    3. Array-Variablen mit Index,       z.B. schlossallee[77]
+
+    4. zusammengesetzte Ausdrücke erhält man
+
+       a) mit den Rechenzeichen
+
+	   	+	Summe
+	   	-	Differenz
+	   	*	Produkt
+	   	/	Quotient
+	   	%	Divisionsrest
+	   	^	Potenz
+
+       b) mit runden Klammern um Ausdrücke herum
+
+	   	()	Klammerung
+
+       c) mit dem Zeichen
+
+       		= 	Zuweisung an eine Variable 
+			Beispiele: x = 17+4, 	schlossalle[77] = x
+
+       d) mit den Relationszeichen (Ergebnis ist 0 oder 1)
+
+	        == 	gleich
+	        != 	ungleich
+		<	kleiner
+		<=	kleiner oder gleich
+		>	größer
+		>=	größer oder gleich
+
+       e) mit den Boole'schen Operatoren (Ergebnis ist 0 oder 1)
+
+	       	! 	nicht
+		&& 	und
+	       	|| 	oder
+
+    Neben "Punkt vor Strich" gilt "Vorfahrt" in der Reihenfolge:
+
+	Vorzeichen -	
+	^		rechtsbindend: 	a^b^c ist a^(b^c)
+       	*, / 		links    ~   :  a/b*c ist (a/b)*c
+        +, - 		links    ~   :  a-b+c ist (a-b)+c
+	Zuweisung	rechts   ~   :  a=b=c ist a=(b=c)
+	Relationen	links    ~   :  a<b<c ist (a<b)<c
+	Negation !
+	&&		links    ~   :  a && b && c ist (a && b) && c
+	||		links    ~   :  a || b || c ist (a || b) || c
+
+    Wo man unsicher ist, sollte man runde Klammern () setzen.  
+
+       f) Funktions-Aufrufe (siehe unten)
+
+
+    Jeder Ausdruck stellt eine Zahl dar, die bc errechnet, wenn es den
+    Ausdruck auswertet.
+
+
+Standard-Funktionen
+
+    length ( Ausdruck )    Wieviele Stellen hat die Zahl, 
+			   die der Ausdruck darstellt?
+
+    scale ( Ausdruck )     Wieviele Stellen hinterm Dezimalpunkt 
+			   hat die Zahl, die der Ausdruck darstellt?
+
+    sqrt ( Ausdruck )      Wurzel der Zahl, die der Ausdruck darstellt
+			   Negative Ausdrücke erzeugen Laufzeitfehler.
+
+Anweisungen
+
+    Jede Anweisung wird ausgeführt, sobald ein Zeilenumbruch folgt.
+    Anweisungen innerhalb einer Zeile trennt man durch Semikolon.
+
+    Es gibt folgende Arten von Anweisungen:
+	
+    1.  Ausdruck
+
+        a)  Hat der Ausdruck die Form "Variable = ...", so wird der
+	    Variablen links die Zahl rechts zugewiesen.
+
+        b)  Sonst wird die Zahl ausgegeben, die der Ausdruck darstellt.
+	    Lange Zahlen werden am Ende jeder Zeile umgebrochen,
+	    dabei erscheint \ als letztes Zeichen jeder Zeile.
+
+    Die Variable last enthält die zuletzt ausgegebene Zahl.  
+ 
+    2.  Zeichenkette
+
+	    Zeichen zwischen doppelten Anführungszeichen " "
+	    bilden eine Zeichenkette und werden wörtlich ausgegeben.
+	    Danach steht kein Zeilenumbruch.
+
+    3.  print Liste
+
+            eine andere Methode der Ausgabe. Die "Liste" enthält, 
+	    durch Komma getrennt, Zeichenketten und Ausdrücke.
+	    Hier können Zeichenketten Spezialzeichen enthalten:
+	    Sie fangen mit backslash \ an.
+	    Das wichtigste Spezialzeichen ist \n für den Zeilenumbruch.
+	    Die Ausdrücke werden ausgewertet ausgegeben.
+	    Danach steht kein Zeilenumbruch.
+
+    4. { Anweisungen } 
+
+            Die Klammern {} fassen mehrere Anweisungen zu einer zusammen.
+
+    5. if ( Ausdruck ) Anweisung1
+       if ( Ausdruck ) Anweisung1 else Anweisung2
+
+	    Die if-Anweisung wertet den Ausdruck aus und befolgt
+            Anweisung1 oder - falls vorhanden - Anweisung2, 
+	    abhängig vom Wert des Ausdrucks:
+
+	    Wenn der Wert des Ausdruck ungleich 0 ist, Anweisung1,   
+	    sonst - falls vorhanden - Anweisung2.
+
+    6. while ( Ausdruck ) Anweisung1
+
+            Die while-Anweisung befolgt Anweisung1, 
+	    solange der Ausdruck einen Wert ungleich 0 hat.  
+	    Sie wertet den Ausdruck vor jeder Befolgung der Anweisung1 aus.
+
+	    Sie endet, wenn der Ausdruck den Wert 0 hat
+	    oder durch break-Anweisung.
+
+    7. for( Ausdruck1 ; Ausdruck2 ; Ausdruck3 ) Anweisung
+
+	    Die for-Anweisung ist gleichbedeutend mit:
+
+              		Ausdruck1
+              		while (Ausdruck2) {
+              		   Anweisung
+              		   Ausdruck3
+              		}
+
+    8. break  
+
+	    Verlassen der übergeordneten while-Anweisung oder for-Anweisung
+
+    9. continue
+
+	    in einer for-Anweisung: sofort zu Ausdruck3, nächste Runde 
+
+    10. return ( Ausdruck )
+
+	    beendet eine Funktion und liefert den Wert des Ausdrucks.            	
+	    (siehe unten über Funktionen)  
+	    Die Klammern kann man weg lassen.
+
+Pseudo-Anweisungen
+
+    limits 	Ausgabe der Grenzen der laufenden bc-Version
+
+    quit   	beendet bc, egal wo die Anweisung gefunden wird.  
+		Beispiel:  "if (0 == 1) quit"  beendet bc.
+
+    warranty	Ausgabe eines Garantie-Hinweises
+
+
+Funktionen
+
+    ermöglichen es, Berechnungen zu definieren und später aufzurufen.
+    In bc berechnet jede Funktion eine Zahl und liefert sie dem Aufrufer.
+
+    Funktionen werden in bc dynamisch definiert:
+    Eine Funktion ist undefiniert, bis in der Eingabe eine Definition auf-
+    taucht. Diese Definition gilt dann, bis eine andere Definition für den
+    selben Namen auftaucht. Dann ersetzt die neue Definition die alte.
+	
+    Eine Funktion wird so definiert:
+
+         	define Name ( Parameter ) { 
+                  Auto-Liste   
+		  Anweisungen 
+		}
+
+    Ein Funktions-Aufruf ist ein Ausdruck der Form "Name(Parameter)".
+
+    Für den Namen einer Funktion gelten die allgemeinen Namensregeln,
+    also insbesondere: keine Großbuchstaben.
+    An den runden Klammern () hinter dem Namen erkennt bc, dass der Name
+    einer Funktion gehört.
+
+
+    Parameter 
+
+        sind Zahlen oder Arrays. Beim Definieren einer Funktion
+    legt man die Namen fest, die sie innerhalb der Funktion tragen. 
+    Mehrere Parameter trennt man durch Kommas: "Name(x, y, z)"
+    Funktionen ohne Parameter sind möglich:    "Name()"
+
+    Zahlen als Parameter sind immer call-by-value, das heißt: 
+    Die Funktion kopiert die Zahl in eine neue Variable
+    und arbeitet mit der neuen Variablen.
+
+    Arrays als Parameter sind immer call-by-variable, das heißt:
+    Die Funktion arbeitet mit dem Original, auch wenn das Original 
+    außerhalb der Funktion einen anderen Namen hat.
+    Das Original kann dabei verändert werden.
+
+    Arrays als Parameter notiert man in der Form "Name[]" - ohne Index,
+    sonst hätte man nicht das Array, sondern nur eine Zahl daraus.
+    Diese Notation gilt beim Definieren der Funktion und beim Aufruf.
+
+    Zahlen als Parameter können beim Aufruf beliebige Ausdrücke sein.
+	 
+    Weil Funktionen dynamisch definiert werden, werden Anzahl und Typen
+    der Parameter beim Funktions-Aufruf geprüft. Unstimmigkeiten führen 
+    zu Laufzeitfehlern, undefinierte Funktionen ebenso.
+
+
+    Die Auto-Liste 
+
+        enthält Variablen für "lokalen" Gebrauch. 
+    Sie kann fehlen. Falls vorhanden, hat sie die Form "auto Name, ...", 
+    dabei ist Name der Name einer Auto-Variablen:
+
+    Die Werte dieser Variablen werden beim Start der Funktion auf einen
+    Stapel gelegt. Dann erhalten die Variablen den Startwert 0 und werden
+    in der Funktion zum Rechnen benutzt. Beim Beenden erleichtert sich der
+    Stapel: Er gibt den Auto-Variablen ihre alten Werte zurück.
+
+    Arrays als Auto-Variablen notiert man in der Form "Name[]".
+
+    Ein Parameter ist eigentlich eine Auto-Variable, deren Startwert 
+    durch den Funktions-Aufruf bestimmt wird.
+
+    Auto-Variablen sind keine traditionellen lokalen Variablen, denn wenn
+    Funktion A Funktion B aufruft, kann B mit A's Auto-Variablen arbeiten,
+    es sei denn B kennzeichnet sie ihrerseits als Auto-Variablen.
+
+    Weil Auto-Variablen und Parameter auf einem Stapel verwaltet werden,
+    ermöglicht bc rekursive Funktionen.
+
+    Beispiel: rekursive Berechnung der Fakultät von x
+
+              define f (x) {
+                if (x <= 1) return (1)
+                return (f(x-1) * x)
+              }
+
+
+    Der Funktions-Rumpf 
+
+        ist eine Reihe von bc-Anweisungen. Wie üblich
+    werden sie getrennt durch Semikolons oder Zeilenumbrüche.
+
+    Return-Anweisungen bewirken das Ende einer Funktion und die Rückgabe
+    eines Wertes. Es gibt zwei Versionen:
+    Die erste, "return", liefert den Wert 0 an den aufrufenden Ausdruck,
+    die zweite, "return ( Ausdruck )", berechnet den Wert des Ausdrucks
+    und liefert ihn an den aufrufenden Ausdruck.
+    Es gibt ein automatisches "return(0)" am Ende jeder Funktion, so dass
+    man eine Funktion ohne ausdrückliche Return-Anweisung definieren kann.
+
+
+Notbremse (gehört nicht zu BC)
+
+    Die Tasten-Kombination Strg+c unterbricht Berechnungen.
+
+

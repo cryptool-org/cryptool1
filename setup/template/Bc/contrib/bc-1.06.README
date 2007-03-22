@@ -1,0 +1,46 @@
+* bc-1.06 for Windows *
+=======================
+
+What is it?
+-----------
+Bc: arbitrary precision calculator language
+
+Description
+-----------
+bc is an arbitrary precision numeric processing language. Syntax is
+similar to C, but differs in many substantial areas. It supports
+interactive execution of statements.
+
+bc is a language that supports arbitrary precision numbers with
+interactive execution of statements. There are some similarities in the
+syntax to the C programming language. A standard math library is available
+by command line option. If requested, the math library is defined before
+processing any files. bc starts by processing code from all the files
+listed on the command line in the order listed. After all files have been
+processed, bc reads from the standard input.  All code is executed as it
+is read.  (If a file contains a command to halt the processor, bc will
+never read from the standard input.)
+	 
+Homepage
+--------
+http://www.gnu.org/software/bc/bc.html
+	 
+System
+------
+- Windows95/98/2000/NT with msvcrt.dll
+- if msvcrt.dll is not in your Windows/System folder, get it
+  from http://www.simtel.net/simtel.net/win95/dll
+  or by installing Internet Explorer 4.0 or higher
+
+Notes
+-----
+- see also bc.htm
+
+Package Availability
+--------------------
+- in: http://sourceforge.net/project/showfiles.php?group_id=23617
+- as: bc-1.06-bin.zip
+
+Documentation
+-------------
+- bc-1.06-doc.zip

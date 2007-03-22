@@ -1,0 +1,21 @@
+# Bruchrechnung - braucht prims.txt
+
+
+define kuerze (a, b) {
+
+  auto sign, ggt
+
+  sign = sig(a) * sig(b)
+  ggt = euklid1( a, b )
+  bruch_res[1] = abs( a / ggt) * sign
+  bruch_res[2] = abs( b / ggt)
+}
+
+
+define plus (az, an, bz, bn) { auto h; h = kuerze( az*bn + bz*an, an*bn ) }
+define mal  (az, an, bz, bn) { auto h; h = kuerze( az*bz, an*bn ) }
+
+
+define showb () { print bruch_res[1], "/", bruch_res[2], "\n" }
+
+

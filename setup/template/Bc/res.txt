@@ -1,0 +1,19 @@
+
+sieb(4,16,137937727)
+Kongruenzen bis jetzt: 0 (Ziel: 14)
+sieb(8,64,137937727)
+Kongruenzen bis jetzt: 3 (Ziel: 18)
+Big-Paare: 2
+sieb(16,256,137937727)
+Kongruenzen bis jetzt: 27 (Ziel: 26)
+Big-Paare: 11
+smatrix(s[],27,17,137937727,11744)
+Anzahl Einsen: 119 (ca. 25.9% und ca. 7.0 pro Zeile)
+gauss(27,17,0)
+  Pivot-Zeile: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 
+Rang: 15
+Variablen belegen
+0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Variablen belegen
+0 0 1 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+7927

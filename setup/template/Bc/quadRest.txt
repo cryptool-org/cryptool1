@@ -1,0 +1,566 @@
+/*
+    BC-Funktionen zu Quadratischen Resten, daneben u.a. Faktorisierungen nach Jones und Lehman
+    braucht BC-Funktionen der Datei prims.txt
+    Copyright (C) 2006 Martin Ramberger (rambo@uni-koblenz.de)
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+*/
+
+
+qr_geladen = 1			# global
+
+
+
+
+define jacobi (a, m) {		# Jacobi-Symbol
+
+  auto k, v1, v2
+
+  if (euklid1(a,m) > 1) return 0
+
+  if (m<0) m = -m
+  a = mod(a,m)
+  if (a<0) a = a + m
+
+  if (m==0) return 0
+  if (m<=2) return 1
+
+  if (m % 2 == 0) {		# m gerade (nicht vorgesehen, geht bei maple, hier z.T. anderes Ergebnis)
+    k = 0
+    while (m % 2 == 0) {
+      k = k + 1
+      m = m / 2
+    }
+    if (qr2er(a % 2^k, k) == 0) return -1
+    if (m == 1) return 1
+  }
+
+  a = a % m
+  if (a<=1) return a
+
+  k = 0
+  while (a % 2 == 0) {
+    k = k + 1
+    a = a / 2
+  }
+
+  #print "( ", m, " / ", a, " )\n"
+
+  v1 = k*(m^2-1)/8 % 2
+  v2 = (a-1)*(m-1)/4 % 2
+
+  return (-1)^(v1+v2) * jacobi(m, a)
+}
+
+
+
+
+define qr2er (a, e) {		# Ist a quadratischer Rest mod 2^e ?
+
+  auto k
+
+  print "qr2er(",a,", ",e,")\n"
+
+  if (e<=1) return (1)
+  if (e==2) return (a % 4 <= 1)
+  if (a%2)  return (a % 8 == 1)
+
+  k = 0
+  while (a % 2 == 0) {
+    k = k + 1
+    a = a / 2
+  }
+  return (k%2 == 0) && qr2er(a, e)
+}
+
+
+
+
+
+define solstr(n) {		# Solovay-Strassen-Primzahl-Test
+
+  auto i, a, p
+
+  if (n % 2 == 0) return 0	# nicht prim
+
+  for (i=1; i<=iter_mr; i++) {
+    a = random(2, n-2)
+    j = jacobi(a, n)
+    #print j, "\n"
+
+    if (j == 0) return 0
+    p = powermod(a, (n-1)/2, n)
+    if ((p-j) % n) return 0	# nicht prim
+  }
+  return 1			# n ist wahrscheinlich Primzahl
+}
+
+
+
+
+define pock(n) {		# Pocklington-Primzahl-Beweis
+
+  auto i, j, h, a, w
+
+  if (n == 2 || n == 3) return 1
+  if (solstr(n) == 0) return 0	# nicht prim [statt solstr(n) ginge auch mr(n)]
+
+  w = sqrt(n) - 1
+
+  if (primteiler(n-1) == 0) {
+    b[1] = 0
+    if (testpt() < w) {
+      print "zu wenige Primteiler von n-1 bekannt\n"
+      return -1
+    }
+  }
+
+  j = 0
+  while (a[j+1]) j=j+1		# a[j] = letzter Primteiler
+
+  i = j
+  f = a[i]
+  while (f < w || (i>1 && a[i]==a[i-1])) {
+    i=i-1
+    f = f * a[i]
+  }				# n-1 = f*r,  f > sqrt(n)-1 und ggT(f, r) = 1
+  print "f = ", f, "\n"
+
+  for (a=2; a<n-1; a++) {
+    if (powermod(a,n-1,n) != 1) continue
+
+    for (h=i; h<=j; h++) {
+      if (a[i] > a[i-1]) if (powermod(a,(n-1)/a[i],n) == 1) {h=j+1; continue}
+    }
+    return 1			# n ist Primzahl
+  }
+  return 0			# nicht prim
+}
+
+
+
+
+
+
+define sqrmod(x, p) {		# Quadratwurzel aus x mod p (p Primzahl)
+				# (vgl. Wikipedia)
+  auto r, invx, h
+
+  if (p < 2) return 0
+  if (euklid(x,p) > 1) return 0		# nicht teilerfremd
+  invx = koeff_x
+  if (p == 2) return 1
+  if (!mr(p)) return 0			# p nicht prim
+
+  if (jacobi(x,p) < 0) return -1	# x quadratischer Nichtrest mod p
+
+  if (mod(p,4) == 3) return powermod(x, (p+1)/4, p)
+
+  for (r=1; r<p; r++) if (jacobi(r*r-4*x, p) < 0) break
+
+  h = euklid(2*r, p)
+
+  for (h=0; h<65536; h++) wmem[h] = 0	# init Liste
+  zaehler = 0
+
+  h = mod( x*koeff_x*( w((p-1)/4,r,invx,p) + w((p+3)/4,r,invx,p) ), p)
+  if (h < 0) h = h + p
+
+  if (mod(h*h -x, p) != 0) {print " Fehler aufgetreten\n"; return -10}
+  return h
+}
+
+
+
+
+define w(n, r, invx, p) {	# rekursive Folge Wn für sqrmod(x,p)
+
+  auto h, i, ln, l2
+
+  zaehler = zaehler + 1
+
+  #i = n-1	# Platzverschwendung, besser logarithmischer Index:
+
+  if (n <= 2) {
+    i = n-1
+  } else {
+    scale = 10
+    l2 = l(2)
+    ln = l(n-1)
+    scale = 0
+    i = (ln/l2)*2 + mod(n,2)
+  }
+
+  if (i < 65536) if (wmem[i]) return wmem[i]	# Wert aus der Liste
+
+  if (n == 1) {    	 h = mod( r*r*invx -2, p)
+
+  } else if (!mod(n,2)) {h = mod( w(n/2, r, invx, p)^2 -2, p)
+
+  } else {    		 h = mod( w((n+1)/2,r,invx,p) * w((n-1)/2,r,invx,p) -w(1,r,invx,p), p)
+
+  }
+  if (i < 65536) wmem[i] = h			# Wert in die Liste
+  return h
+}
+
+
+
+define showw() {
+
+  auto i
+
+  for (i=0; i<65536; i++) if (wmem[i]) print i, " ", wmem[i], "\n"
+}
+
+
+
+define testsq(i) {
+
+  auto h, x
+
+  if (i <= 2) i = 3
+  i = nextprime(i+1)
+
+  while (h>-10) {
+    while (i % 4 != 1) i=nextprime(i+1)
+    x = 2
+    while (h=sqrmod(x,i) == -1) x = x + 1
+    print "sqrt(",x, " mod ", i, "): ", h, "\n"
+    i = i + 1
+  }
+}
+
+
+
+
+
+define sqrtmod(a, p) {			# Quadratwurzel aus a mod p (p Primzahl)
+					# vgl. ruppertEllk6.pdf
+
+  auto x, e, ee, i, j, b, n, q, qq, z
+
+  if (p < 2) return 0
+  if (euklid1(a,p) > 1) return 0	# nicht teilerfremd
+  if (p == 2) return 1
+
+  q = p - 1
+
+  while (mod(q, 2) == 0) {
+    e = e + 1
+    q = quotient
+  }
+
+  n = 2
+  while (jacobi(n, p) == 1) n = n + 1
+  z = powermod(n, q, p)
+
+  b = powermod(a, q, p)
+  x = powermod(a, (q+1)/2, p)
+
+  while (b != 1) {
+
+    qq = b
+    ee = 0
+    while (qq > 1 && ee < e) {
+      ee = ee + 1
+      qq = mod(qq*qq, p)
+      #print qq, " ", b, " "
+    }
+    if (qq != 1) return 0		# p nicht prim
+    if (ee == e) return -1		# geht nicht (oder p nicht prim)
+
+    qq = z
+    for (i=1; i<=e-ee-1; i++) qq = mod(qq*qq, p)
+    x = mod(x*qq, p)
+    qq = mod(b*qq*qq, p)
+    if (qq == b || ++j >= e) return 0	# p nicht prim
+    b = qq
+  }
+  return x				# Wurzel
+}
+
+
+
+
+define testsqrtmod (a, von) {		# Was macht sqrtmod() bei Nicht-Primzahlen?
+
+  auto h
+
+  while (1) {  
+    while (mr(von)) von = von + 1
+    print von, "\n"
+    if (h = sqrtmod(a,von) > 0) {print "\a"; return h}
+    von = von + 1
+  }
+}
+
+
+
+
+define cornacchia (d, p) {		# Löse: x^2 - D*y^2 = 4*p   (vgl. ruppertCornacchia.pdf)
+
+  auto l, x0, x1, x2, q			# x, y global
+
+  if (d >= 0) return 0			# d >= 0
+  if (mod(d,4) > 1) return 0		# mod(d,4) > 1
+
+  if (x=sqrtmod(d, p) <= 0) return x	# 0: p nicht prim oder ggT(p,d)>1; -1: keine Lösung
+
+  if (mod(x-d,2) != 0) x = x + p
+
+  l = sqrt(4*p)
+  x0 = 2*p
+  x1 = x
+
+  while (x1 > l) {
+    x2 = mod(x0, x1)
+    x0 = x1
+    x1 = x2
+  }
+
+  if (mod(x1^2 - 4*p, d) != 0) return -1	# keine Lösung
+  q = (x1^2 - 4*p)/d
+  y = sqrt(q)
+  if (y^2 != q) return -1			# keine Lösung
+
+  x = x1
+  print "x: ", x, "  y: ", y, "\n"
+  return 1					# Lösung
+}
+
+
+
+
+
+
+
+
+
+
+
+define repunit(n) {		# Rep-Unit mit n Einsen
+
+  return (10^n - 1)/9
+}
+
+
+
+define testrep(i, bis) {	# welche Rep-Units sind Primzahlen?
+
+  if (bis > maxp) bis = maxp
+
+  for (  ; i<=maxp; i++) if (mr(repunit(prims[i]))) print prims[i], " "
+}
+
+
+
+
+
+define testcyc(p, b) {		# Test, ob p im b-System eine zyklische Zahl ist
+
+  auto t, r, n, x, d
+
+  if (!(b%p)) return 0		# p teilt b
+  if (!mr(p)) return 0		# p nicht prim
+
+  r = 1
+
+  while (t < p) {
+
+    t = t + 1
+    x = r * b
+    d = x / p
+    r = x % p
+    n = n * b + d
+    print d, " "
+    if (r == 1) break
+  }
+  print "\n", n, "\n"
+  return t > p/2
+}
+
+
+
+
+
+define period(n, b, lim) {		# Länge der Periode von 1/n im b-System
+
+  auto r, p
+
+  if (p=euklid1(n,b) > 1) return -p	# Teiler
+
+  if (lim > n) lim = n
+  r = 1
+
+  while (p < lim) {
+    r = mod(b*r, n)
+    #print quotient, " "	# Periode weiter
+    #print r, " "		# nächster Rest
+    if (r == 1) break
+    p = p + 1
+  }
+  /*if (b==10) {
+      scale = p
+      print 1/n, "\n"
+      scale = 0
+    }
+  */
+  if (r != 1) return 0		# unbekannte Periode
+  return p			# periodisch
+}
+
+
+
+define jones(n, von, bis, lim) {	# Jones-Faktorisierung
+
+  auto h, i, p
+
+print "Jones ", n, "\n"
+
+  for (b=von; b<=bis; b++) {		# Periode im b-System suchen
+
+    print "Peridenlaenge im ", b, "er-System: "
+    if (p = period(n, b, lim) == 0) {print "unbekannt\n"; continue}
+    if (p < 0)  {print "Teiler gefunden: "; return -p}
+    print p, "\n"
+    if( primteiler(p) == 0) continue  
+
+    for(i=1; a[i]; i++) {
+      h = euklid1( 10^(p/a[i])-1, n)
+      if ( h>1 && h<n ) return h
+    }
+  }
+  return 0
+}
+
+
+
+
+
+###############################################################
+
+# http://www.christianroepke.de/studium_kryptographie2.html
+
+
+define lehman (n, start, ziel) {	# Faktorisierung nach Lehman
+
+  auto lim1, lim2, k, d, h, x, y, sqrtkn, kn
+
+  print "\nLehman ", n, "\n"
+
+  scale = 0
+  lim1 = abs(nroot(n,3))
+  scale = 2
+  h = sqrt(lim1)/4
+
+  if (ziel > lim1) ziel = lim1
+  if (start < 1) start = 1
+
+  for (k=start; k<ziel; k++) {
+
+    lim2 = top(h/sqrt(k))
+    #print "|" #print "lim2: ", lim2, "\n"
+    sqrtkn = bot(2*sqrt(k*n))
+    kn = 4*k*n
+
+    for (d=1; d<=lim2; d++) {
+
+      x = (sqrtkn + d)^2 - kn
+
+      if (sqrt(x)^2 == x) {
+
+        x = sqrtkn + d
+        y = sqrt(x^2 - kn)           # x^2 = y^2 mod n
+
+        scale = 0
+        return euklid1( (x+y)/2, n)	# Teiler
+      } 
+    }
+  }
+  scale = 0
+  return 0
+}
+
+
+
+
+/*
+Wenn man in der folgenden Gleichung für die 26 Unbekannten nichtnegative ganze Zahlen einsetzt, dann ist jedes positive Ergebnis eine Primzahl und es existieren unendlich viele Lösungen.
+*/
+
+define p(a[]) { 	# http://www.mathematic.de/beweise/primenumbers-jsww.html
+
+  auto res
+
+  res = 1 - (a[23]*a[26] + a[8] + a[10] - a[17])^2 
+  res = res - ((a[7]*a[11] + 2*a[7] + a[11] + 1)*(a[8] + a[10]) + a[8] - a[26])^2 
+  res = res - (2*a[14] + a[16] + a[17] + a[26] - a[5])^2 
+  res = res - (16*(a[11] + 1)^3*(a[11] + 2)*(a[14] + 1)^2 + 1 - a[6]^2)^2 
+  res = res - (a[5]^3*(a[5] + 2)*(a[1] + 1)^2 + 1 - a[15]^2)^2 
+  res = res - ((a[1]^2 - 1)*a[25]^2 + 1 - a[24]^2)^2 
+  res = res - (16*a[18]^2*a[25]^4*(a[1]^2 - 1) + 1 - a[21]^2)^2 
+  res = res - (((a[1] + a[21]^2*(a[21]^2 - a[1]))^2 - 1)*(a[14] + 4*a[4]*a[25])^2 + 1 - (a[24] + a[3]*a[21])^2)^2 
+  res = res - (a[14] + a[12] + a[22] - a[25])^2 
+  res = res - ((a[1]^2 - 1)*a[12]^2 + 1 - a[13]^2)^2 
+  res = res - (a[1]*a[9] + a[11] + 1 - a[12] - a[9])^2 
+  res = res - (a[16] + a[12]*(a[1] - a[14] - 1) + a[2]*(2*a[1]*a[14] + 2*a[1] - a[14]^2 - 2*a[14] - 2) - a[13])^2 
+  res = res - (a[17] + a[25]*(a[1] - a[16] - 1) + a[19]*(2*a[1]*a[16] + 2*a[1] - a[16]^2 - 2*a[16] - 2) - a[24])^2 
+  res = res - (a[26] + a[16]*a[12]*(a[1] - a[16]) + a[20]*(2*a[1]*a[16] - a[16]^2 - 1) - a[16]*a[13])^2
+
+  return res * (k + 2)
+}
+
+/*
+Der Term ist ein Produkt aus k+2 und einem zweiten Faktor, der kleiner/gleich 1 ist. Somit ergibt sich P(a, b, c, ...,z) = k+2 und der zweite Faktor muß gleich 1 sein. Der zweite Faktor ist 1 minus einer Summe von Quadraten, soll dieser 1 sein müssen alle Quadrate gleich 0 sein. Das heißt, daß man alle Primzahlen dadurch ermitteln kann, daß man alle nichtnegativen Lösungen der 14 Gleichungen in den 26 Unbekannten, die man durch Nullsetzen der Summanden des zweiten Faktors erhält, aufsucht. Bislang wurde keine der unendlich vielen Lösungen gefunden (Wissensstand 1995).
+*/
+
+ 
+
+
+define ftest (n) {	# Test, ob n-te Fermatzahl Primzahl
+
+  auto fn, a, pot
+
+  fn = 2^2^n+1
+  
+  for(a=2; a<fn; a++) {
+
+    if( pot = powermod(a, 2^(2^n-1), fn) == 1 ) continue #return(a)
+    #print a, " quadrieren\n"
+    if(!mod(a,1000)) print a, "\n"
+    if( pot = powermod(pot, 2, fn) != 1 ) continue #return(a)
+  
+    return(1)
+  }
+  return(0)
+}
+
+
+define lucas (p) {	# Test, ob n-te Mersennezahl Primzahl
+
+  auto mn, s, i
+
+  if (mr(p) == 0) {print "Argument nicht prim\n"; return(0)}
+
+  if (mod(p, 4) == 3) if (mr(2*p+1)) {print "2p+1 ist prim\n"; return(0)}
+
+  mn = 2^p-1
+  s = 4
+
+  for (i=1; i<p-1; i++) s = mod(s*s-2, mn)
+
+  return (s == 0)
+}

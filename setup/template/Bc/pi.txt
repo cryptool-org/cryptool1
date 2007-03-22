@@ -1,0 +1,74 @@
+# Näherungsformeln für pi
+
+
+define vieta (g) {
+
+  # 2/pi = sqrt(1/2) * sqrt( 1/2 + sqrt(1/2)/2 ) ...
+
+  auto pi, a;
+
+  scale = 100;
+  a = 0;
+  pi = 1;
+
+  for( i=1; i<=g; i++) {
+    a = sqrt( (1+a)/2 );
+    pi *= a;
+  }
+
+  return 2/pi;
+}
+
+
+
+define wallis (g) {
+ 
+  # Wallis: pi = 2 2 4 4 6 6 ...
+  #         /2   1 3 3 5 5 7
+
+  auto h, i, z, n, pi;
+
+  if( g <= 0 ) return 0;
+
+  bruch_res[1] = 1;
+  bruch_res[2] = 1;
+  z = 2;
+  n = 1;
+
+  for( i=1; i <= g; i++) {
+    h = mal( bruch_res[1], bruch_res[2],  z, n );
+    if( mod(i, 2) ) {n += 2;} else {z += 2;}
+  }
+  scale = 100;
+  pi = 2 * bruch_res[1] / bruch_res[2];
+  scale = 0
+  return pi;
+}
+
+
+
+define leibniz (g) {
+
+  # pi/4 = 1 - 1/3 + 1/5 - 1/7 + 1/9 ...
+
+  auto h, i, z, n, pi;
+
+  bruch_res[1] = 0;
+  bruch_res[2] = 1;
+  z = 1;
+  n = 1;
+
+  for( i=1; i<=g; i++) {
+    h = plus( bruch_res[1], bruch_res[2],  z, n );
+    z *= -1;
+    n += 2;
+  }
+  scale = 100;
+  pi = 4 * bruch_res[1] / bruch_res[2];
+  scale = 0
+  return pi;
+}
+
+
+
+

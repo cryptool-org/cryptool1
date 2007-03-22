@@ -1,0 +1,1032 @@
+/*
+    BC-Funktionen zum Rechnen mit Polynomen, Fast-Fourier-Transformation, Primzahlbeweis nach Agrawal,
+    braucht BC-Funktionen der Datei prims.txt
+    Copyright (C) 2006 Martin Ramberger (rambo@uni-koblenz.de)
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+*/
+
+
+modulp = 3	# global
+iter_mrp = 10	# global
+lim_fft = 4000	# global
+
+# global: aus[], pol1[], pol2[], pol3[], pol4[], quot[], ar[], ai[]	# Polynome
+
+# pol~[0] ist der Grad des Polynoms
+# pol~[i] ist Koeffizient i-1
+
+# Rechenergebnis ist aus[].
+
+
+
+define poly(n) {	# baue Polynom aus[]
+
+  auto i, h, flag
+
+  for (i=n; i>=0; i--) {
+
+    print "Koeffizient bei x^", i, ": "
+    h = read()
+    if (modulp) {
+      h = mod(h, modulp)
+    }
+    aus[i+1] = h
+    if ((h || !i) && !flag) {
+      flag = 1
+      aus[0] = i
+    }
+  }
+  print "\n"
+
+  i = showp(aus[])
+  #i = showij(aus[],0,aus[0]+1)
+}
+
+
+
+
+define showp(p[]) {	# zeige p[]
+
+  auto i, flag
+
+  for (i=p[0]+1; i; i--) {
+
+    if (p[i]) {
+      if (flag) if (p[i]>0) print " + " else print " "
+      flag = 1
+      if (abs(p[i])!=1 || i==1) {
+        print p[i]
+        if (i>1) print "*"
+      }
+      if (p[i]==-1 && i>1) print "-"
+      if (i>1) print "x"
+      if (i>2) print "^", i-1
+    }
+  }
+  if (!flag) print 0
+  print "\n"
+}
+
+
+
+define wertp(p[], x) {	# p(x)
+
+  auto i, y
+
+  for (i=p[0]+1; i; i--) {
+    y = y * x + p[i]
+  }
+  if (modulp) {
+    y = mod(y, modulp)
+    if (y<0) y = y + modulp
+  }
+  return y
+}
+
+
+
+define ns(p[]) {	# Nullstelle in Zp, falls vorhanden
+
+  auto i
+
+  for (i=0; i<=modulp; i++) if (wertp(p[],i)==0) return i
+
+  return -1
+}
+
+
+
+define tauschp() {	# vertausche pol1[] mit pol2[]
+
+  auto i, n, x
+
+  n = max(pol1[0], pol2[0]) + 1
+
+  for (i=0; i<=n; i++) {
+    x = pol1[i]
+    pol1[i] = pol2[i]
+    pol2[i] = x
+  }
+}
+
+
+
+define copyp(p[], ziel) {	# kopiere p[] nach pol1[], pol2[], pol3[] oder pol4[]
+
+  auto i
+
+  if (ziel==1) for (i=0; i<=p[0]+1; i++) pol1[i] = p[i]
+  if (ziel==2) for (i=0; i<=p[0]+1; i++) pol2[i] = p[i]
+  if (ziel==3) for (i=0; i<=p[0]+1; i++) pol3[i] = p[i]
+  if (ziel==4) for (i=0; i<=p[0]+1; i++) pol4[i] = p[i]
+}
+
+
+
+define aus(p[]) {		# kopiere p[] nach aus[]
+
+  auto i
+
+  for (i=0; i<=p[0]+1; i++) aus[i] = p[i]
+
+}
+
+
+
+define gleichp(p1[], p2[]) {	# Test, ob p1[] = p2[]
+
+  auto i
+
+  if (!modulp) {
+    for (i=0; i<=p1[0]+1; i++) if (p1[i] != p2[i]) return 0
+  } else {
+    for (i=0; i<=p1[0]+1; i++) if (mod(p1[i] - p2[i], modulp) != 0) return 0
+  }
+  return 1
+}
+
+
+
+define konstp(k) {	# Konstante: aus[] = k
+
+  aus[0] = 0
+  aus[1] = k
+
+}
+
+
+
+define grad(p[], n) {		# Grad bestimmen (von n abwärts suchen)
+
+  while (n && !p[n]) n=n-1
+
+  if (!n) return 0
+  return n-1
+}
+
+
+
+
+define smul(p[], s) {		# s-Multiplikation: aus[] = s*p[]
+
+  auto i
+
+  for (i=1; i<=p[0]+1; i++) aus[i] = s*p[i]
+
+  if (!s) {
+    aus[i] = 0
+  } else {
+    aus[0] = p[0]
+    i = smodp(aus[], modulp)
+  }
+}
+
+
+
+
+define smodp(p[], s) {		# aus[] ist p[] mit Koeffizienten mod s
+
+  auto i, flag
+
+  if (!s || s==1) {
+    i = aus(p[])
+    return
+  }
+  s = abs(s)
+
+  for (i=p[0]+1; i>=1; i--) {
+
+    aus[i] = mod(p[i], s)
+    if (!flag && aus[i]) {
+      flag = 1
+      aus[0] = i-1
+    }
+
+  }
+  if (!flag) aus[0] = 0
+}
+
+
+
+
+define addp(p1[], p2[]) {	# addiere: aus[] = p1[] + p2[]
+
+  auto i, n
+
+  n = min(p1[0], p2[0]) + 1
+
+  for (i=1; i<=n; i++) aus[i] = p1[i] + p2[i]
+
+  if (p1[0] < p2[0]) {
+    n = p2[0]+1
+    while (i<=n) aus[i] = p2[i++]
+  } else {
+    n = p1[0]+1
+    while (i<=n) aus[i] = p1[i++]
+  }
+  
+  aus[0] = grad(aus[], n)
+  i = smodp(aus[], modulp)
+}
+
+
+
+
+define multp(p1[], p2[]) {	# multipliziere: aus[] = p1[] * p2[]
+
+  auto i, j, n1, n2
+
+  n1 = p1[0]
+  n2 = p2[0]
+
+  if (n1+n2 > lim_fft) {
+    h = multpfft( p1[], p2[] )		# FFT
+    return
+  }
+
+
+  for (i=0; i<=n1+n2+1; i++) aus[i] = 0	# init aus[]
+
+  for (i=1; i<=n1+1; i++) {
+    for (j=1; j<=n2+1; j++) {
+
+      aus[i+j-1] = p1[i] * p2[j] + aus[i+j-1]
+
+    }
+  }
+  aus[0] = grad(aus[], n1+n2+1)
+  i = smodp(aus[], modulp)
+}
+
+
+
+
+define quadp(p[]) {		# quadriere: aus[] = p[] * p[]
+
+  auto i, j, n
+
+  n = p[0]
+
+  if (n > lim_fft/2) {
+    h = multpfft( p[], p[] )		# FFT
+    return
+  }
+
+
+  for (i=0; i<=2*n+1; i++) aus[i] = 0	# init aus[]
+
+  for (i=1; i<=n+1; i++) {
+
+    aus[2*i-1] = p[i]^2 + aus[2*i-1]
+
+    for (j=i+1; j<=n+1; j++) {
+ 
+      aus[i+j-1] = 2 * p[i] * p[j] + aus[i+j-1]
+
+    }
+  }
+  aus[0] = grad(aus[], 2*n+1)
+  i = smodp(aus[], modulp)
+}
+
+
+
+
+
+define modp(p1[], p2[], ziel, quot) {		# ziel = Rest von p1[] / p2[]
+
+  auto i, j, n1, n2, h, x, d, flag
+
+  #  h = showp(p1[]); "durch "; h = showp(p2[]);
+
+  if (!p2[0] && !p2[1]) return -2				# p2[] ist Nullpolynom
+
+  n1 = p1[0]
+  n2 = p2[0]
+
+  if (modulp) if (h=euklid( p2[n2+1], modulp) > 1) return -1 	# nicht invertierbar mod modulp
+  if (quot) for (i=0; i<=n2+1; i++) quot[i] = 0			# init Quotient
+
+  while (n1 >= n2 && (n1 || p1[1])) {
+
+    #print "|"
+
+    d = n1-n2
+
+    if (!modulp) {
+      x = p1[n1+1] / p2[n2+1]	# höchste Stelle p1[] durch höchste Stelle p2[]
+    } else {
+      x = p1[n1+1] * koeff_x
+    }
+    if (quot) {			# Quotient
+      if (modulp) {
+        x = mod(x, modulp)
+      }
+      quot[d+1] = x
+    }
+
+    p1[n1+1] = 0
+    n1 = n1-1
+    flag = 0
+
+    for (i=n1+1; i>d; i--) {	# zurückrechnen
+
+      p1[i] = p1[i] - x*p2[i-d]
+      if (!flag) if(p1[i]) {
+        flag = 1
+        n1 = i-1
+      }
+    }
+
+    if (!flag) n1 = 0
+
+  }
+  p1[0] = n1
+
+  if (quot) quot[0] = grad(quot[], n2+1)	# Quotient fertig      
+  h = smodp(p1[], modulp)
+  h = copyp(aus[], ziel)			# Rest
+  # print "\nRest:   "; h = showp(p1[])
+
+}
+
+
+
+
+
+define euklidp(a[], pol2[]) {		# aus[] = ggT von a[] und pol2[]
+
+  auto h
+
+  h = aus(a[])			# aus[]  = a[]
+
+  while (pol2[0] || pol2[1]) {	# solange pol2[] ungleich 0
+
+    #print pol2[0], " "
+  
+    h = modp(aus[], pol2[], 1, 0)	# pol1[] = aus[] mod pol2[]
+    h = aus(pol2[])			# aus[]  = pol2[]
+    h = copyp(pol1[],2)			# pol2[] = pol1[]
+  }
+  #print "ggT: ", h = showp(aus[]), "\n"
+
+  if (!aus[0]) return 1		# ggT ist Skalar
+  return 0
+}
+
+
+
+
+#/* nicht korrekt, wo liegt der Fehler?
+
+define euklidpk (pol3[], pol2[]) {	# Euklid mit Vielfachsummen-Berechnung
+
+  auto x[], x1[], y[], y1[], h, i	# global: quot[], kx[], ky[]
+
+  kx[0] = 0	# kx[] = 1
+  kx[1] = 1
+
+  x1[0] = 0	# x1[] = 0
+  x1[1] = 0
+
+  ky[0] = 0	# ky[] = 0
+  ky[1] = 0
+
+  y1[0] = 0	# y1[] = 1
+  y1[1] = 1
+
+  while (pol2[0] || pol2[1]) {		# solange pol2[] ungleich 0
+  
+    h = modp(pol3[], pol2[], 1, 1)	# pol1[] = pol3[] mod pol2[],  quot[] = Quotient
+    h = copyp(pol2[], 3)		# pol3[] = pol2[]
+    h = copyp(pol1[], 2)		# pol2[] = pol1[]
+
+    for (i=0; i<=x1[0]+1; i++) x[i] = x1[i]		# x[] = x1[]
+    for (i=0; i<=y1[0]+1; i++) y[i] = y1[i]		# y[] = y1[]
+
+    h = multp(quot[], x1[])
+    h = smul (aus[], -1)
+    h = addp (aus[], kx[])
+    for (i=0; i<=aus[0]+1; i++) x1[i] = aus[i]		# x1[] = kx[] - quot[] * x1[]
+
+    h = multp(quot[], y1[])
+    h = smul (aus[], -1)
+    h = addp (aus[], ky[])
+    for (i=0; i<=aus[0]+1; i++) y1[i] = aus[i]		# y1[] = ky[] - quot[] * y1[]
+
+    for (i=0; i<=x[0]+1; i++) kx[i] = x[i]		# kx[] = x[]
+    for (i=0; i<=y[0]+1; i++) ky[i] = y[i]		# ky[] = y[]
+
+  }
+
+  if (pol3[0] == 0) {			# ggT ist Skalar
+    if (pol3[1] != 1) {
+      h = euklid( pol3[1], modulp )
+      h = smul  ( kx[], koeff_x )
+      for (i=0; i<=aus[0]+1; i++) kx[i] = aus[i]
+      h = smul  ( ky[], koeff_x )
+      for (i=0; i<=aus[0]+1; i++) ky[i] = aus[i]
+    }
+  }
+  h = aus(pol3[])
+  return (pol3[0] == 0)				
+}
+
+#*/
+
+
+
+
+define powermodp (bas[], exp, modul[]) {	# schnelle Potenz bas^exp mod modul
+
+  auto h					
+
+  if (!modul[0] && !modul[0]) return(-1)
+
+  pol1[0] = 0; pol1[1] = 1			# y = 1
+  h = copyp(bas[], 2)				# pol2[] = bas[]
+
+  while (exp > 0) {
+
+    print exp, " "
+
+    if ( mod(exp,2) ) {
+      exp = quotient
+
+      h = multp( pol1[], pol2[] )		# "multiply"
+      print "  multp fertig\n"
+      h = modp( aus[], modul[], 1, 0)		# Polynomreduktion
+      print "  modp fertig\n"
+
+    } else exp = quotient
+
+    if (exp) {
+      h = quadp( pol2[] )			# "square"
+      print "  multp fertig\n"
+      h = modp( aus[], modul[], 2, 0 )		# Polynomreduktion
+      print "  modp fertig\n"
+    }
+  }
+  
+  h = aus(pol1[])				# Ergebnis aus[] = pol1[]
+  #h = showp(aus[])
+}
+
+
+
+
+
+define erzp(p[], modul[]) {			# Erzeugnis von p[]
+
+  auto h, i
+
+  h = copyp(p[],1)
+  while (pol1[0] || pol1[1]>1) {
+
+    h = showp(pol1[])
+    h = multp(pol1[],p[])
+    h = modp( aus[], modul[], 1, 0 )
+    i = i+1
+  }
+  h = showp(pol1[])
+  return i+1
+}
+
+
+
+
+
+# nicht immer korrekt:
+define invp(p[], modul[]) {			# Inverses von p[] mod modul[]
+
+  auto h
+
+  if( !euklidpk(p[], modul[]) ) {
+    print " nicht invertierbar\n"
+    return -1
+  }
+  # h = powermodp(p[], modulp^modul[0]-2, modul[])	# falls modul[] irreduzibel
+
+  h = aus(kx[])					# nicht immer korrekt
+}
+
+
+
+
+define randomp (p, n, voll) {			# Zufalls-Polynom über Zp vom Grad <=n, nicht 0
+
+  auto i
+
+  for (i=1; i<=n+1; i++) {
+
+    aus[i] = mod( random(1,1000007), p)
+  }
+
+  aus[0] = grad(aus[], i-1)
+
+  if (voll && !aus[n+1]) {
+    aus[n+1] = 1 
+    aus[0] = aus[0] + 1
+  }
+  if (!aus[0] && !aus[1])  aus[1] = 1
+}
+
+
+
+
+
+define mrpkern (a[],d,s) {		# Kern des Miller-Rabin-Tests für Polynome
+
+  auto bas[], i, me
+
+  me = modulp - 1
+
+  i = randomp(modulp, a[0]-1, 0)		# Zufallspolynom:
+  for (i=0; i<=aus[0]+1; i++) bas[i] = aus[i]	# bas[]
+
+
+  if ( euklidp(bas[],a[]) == 0 ) return(0)	# a[] reduzibel
+
+  i = powermodp(bas[],d,a[])
+  if ( !aus[0] && ( aus[1] == 1 || aus[1] == me )) return(1)	# a[] scheint irreduzibel (bei dieser Basis)
+
+  while (s > 1) {
+
+    i = multp( aus[], aus[])
+    i = modp ( aus[], a[], 1, 0)
+    if ( !pol1[0] && pol1[1] == me ) return(1)	# a[] scheint irreduzibel (bei dieser Basis)
+    s = s - 1
+
+  }
+  return(0)					# a[] reduzibel
+}
+
+
+
+
+
+define mrp (a[]) {		# Miller-Rabin-Test, ob Polynom irreduzibel, max. Anzahl Durchläufe: iter_mrp
+
+  auto d, s, i					# global: quotient, iter_mr
+
+  if (a[0] <= 1) return(1)			# nicht mal Quadrat, also irreduzibel
+ 
+  d = modulp ^ a[0] - 1				# Wie oft kann man modulp^a[0]-1 halbieren?
+  s = 0
+  while (mod(d,2) == 0) {
+    s = s + 1					# s mal
+    d = quotient
+  }			  			# d ist größter ungerader Teiler von modulp^a[0]-1
+
+  if (iter_mrp < 1) iter_mrp = 1		# mindestens eine Iteration
+
+  for (i=1; i<=iter_mrp; i++) {
+    if ( mrpkern(a[],d,s) == 0 ) return(0)	# a[] reduzibel
+  }
+
+  return(1)					# wahrscheinlich ist a[] irreduzibel
+}
+
+
+
+
+
+
+define aks (n) {		# Agrawal-Primzahl-Test    (http://primes.utm.edu/prove/prove4_3.html)
+
+  auto a, ln, r, q, h, i, s
+
+  if( ispp(n, prims[maxp]) ) return 0		# echte (Primzahl-) Potenz
+
+  if (mod(n, 2) == 0) return 0	# n gerade
+
+  scale = 10
+  ln = l(n)
+  scale = 0
+  print "ln: ", ln, "\n"
+
+  i = 2
+  r = prims[i]	# 3
+  while (r < n) {
+
+    if (!r || r > 65000) return -2		# 0 oder zu groß für BC-Arrays
+						# n = nextprime(10^7)  => r =  16547 (verletzt Array bei FFT)
+						# n = nextprime(10^8)  => r =  21563
+						# n = nextprime(10^12) => r =  48947
+						# n = nextprime(10^13) => r =  56999
+						# n = nextprime(10^14) => r >  65000 (Arraygrenze)
+						# n = nextprime(10^18) => r = 109547
+						# n = nextprime(10^20) => r > 130000
+    if (mod(n, r) == 0) return 0
+    #if (mr(r)) {
+        if( primteiler(r-1) == 0 ) return -1	# r-1 hat unbekannte Primteiler
+        q = a[a[0]-1]				# größter Primteiler
+
+        if (q > 4*sqrt(r)*ln && powermod(n, (r-1)/q, r) != 1) break
+    #}
+    
+    r = prims[++i]	# r + 2
+  }
+
+  print "r: ", r, "\n"
+  if (r == n) return 1
+
+  q = 2*sqrt(r)*ln
+  modulp = n
+
+  a[0] = 1
+  a[1] = 1	# vorerst
+  a[2] = 1
+
+  m[0] = r
+  m[1] = -1
+  for (i=2; i<=r; i++) m[i] = 0
+  m[r+1] = 1
+
+  print "m[]: "; h=showp(m[])
+
+  # [a^(n DIV r) * x^(n MOD r) - a] = (x^n - a) = mod (x^r - a)
+  # Polynom b[]:  [x^(n MOD r) - a] = (x^n - a) = mod (x^r - 1)
+
+  s = mod(n, r)
+  b[0] = s
+  for (i=2; i<=s; i++) b[i] = 0
+
+
+
+  for (a=1; a<=q; a++) {
+  #for (a=814; a<=q; a++) {
+
+    print "\na: ", a, " von ", q
+
+    a[1] = -a
+    print "\na[]: "; h=showp(a[])
+
+    print "\npowermodp( a[], n, m[] ): \n"
+    h = powermodp( a[], n, m[] )		# Polynom-Potenz (langsam, FFT verwenden!)
+    print "\n  =  "; h=showp(aus[])
+
+    b[1] = 0
+    b[s+1] = 1
+    b[1] = mod( b[1] -a, n)
+    print "b[]: "; h=showp(b[])
+
+    if (!gleichp( aus[], b[] )) return 0
+  }
+  return 1
+
+}
+
+
+
+
+
+#########################################################################################################
+
+
+#  Schnelle Fourier-Transformation (FFT)
+#
+#  vgl.
+#  http://www.iti.fh-flensburg.de/lang/algorithmen/fft/fft.htm
+
+
+/*
+Das Verfahren setzt voraus, dass n eine Zweierpotenz ist.
+(n ist die Zahl der Stützstellen, sie muss größer sein als der Grad des Ergebnis-Polynoms.)
+*/
+
+
+/*
+Die folgende Prozedur berechnet die Fouriertransformation eines komplexen Vektors a, beginnend beim Index lo und der Länge n. Der Parameter w steht für die primitive n-te Einheitswurzel.
+*/
+
+
+# w  =  cos(k*2*pi/n) + i*sin(k*2*pi/n)  für k aus {0,...,n-1}   sind die n n-ten Einheitswurzeln. primitive n-te Einheitswurzel: k = 1
+
+
+
+define fft (n, lo, wr, wi)	# global ar[], ai[] enthalten jeweils Real- und Imaginärteile
+{
+    auto i, m, h, m2, m3, m4,  zr, zi, vr, vi, dr, di
+
+    if (n>1)
+    {
+        m = n/2
+        zr = 1				# Einheitswurzel 1
+        zi = 0
+
+        for (i=lo; i<lo+m; i++)
+        {
+            dr = ar[i] - ar[i+m]	# Differenz
+            di = ai[i] - ai[i+m]
+
+            ar[i] = ar[i] + ar[i+m]	# obere Hälfte: Summe
+            ai[i] = ai[i] + ai[i+m]
+
+            ar[i+m] = dr*zr - di*zi	# untere Hälfte: Differenz mal Einheitswurzel
+            ai[i+m] = dr*zi + di*zr
+
+            h = multc(zr, zi, wr, wi)	# nächste Einheitswurzel
+            zr = prodr
+            zi = prodi
+        }
+        h = quadc(wr, wi)		# Quadrat der primitiven Einheitswurzel w
+        wr = prodr
+        wi = prodi
+        h = fft(m, lo,   wr, wi)
+        h = fft(m, lo+m, wr, wi)
+        h = shuffle (n, lo)
+    }
+}
+
+
+
+/*
+Die Prozedur shuffle verschränkt die beiden, von den rekursiven Aufrufen von fft erzeugten Hälften reißverschlussartig ineinander. Die entsprechende Permutation für n = 8 lautet  
+ 
+ 0 1 2 3 4 5 6 7 
+ 0 4 1 5 2 6 3 7 
+  
+Zur Ausführung der Permutation wird ein Hilfsarray b verwendet, in das zunächst die eine Hälfte der Folge ausgelagert wird. 
+*/
+
+
+
+define shuffle (n, lo)
+{
+    auto i, m, br[], bi[]	# ar[], ai[] global
+
+    m = n/2
+
+    for (i=0; i<m; i++) {
+        br[i] = ar[lo+i]
+        bi[i] = ai[lo+i]
+    }
+    for (i=0; i<m; i++) {
+        ar[lo+i+i+1] = ar[lo+i+m]
+        ai[lo+i+i+1] = ai[lo+i+m]
+    }
+    for (i=0; i<m; i++) {
+        ar[lo+i+i] = br[i]
+        ai[lo+i+i] = bi[i]
+    }
+}
+
+
+
+/*
+Die inverse Fouriertransformation lässt sich mit demselben Verfahren durchführen. Aufgrund der Definition der inversen Fouriermatrix F^-1 wird jedoch statt mit der primitiven n-ten Einheitswurzel w mit der inversen n-ten Einheitswurzel w^-1 gearbeitet. In C ist dies die konjugiert komplexe n-te Einheitswurzel w'. Ferner werden die Elemente der zu transformierenden Folge zunächst durch n geteilt.  
+*/
+
+
+
+
+
+
+
+define addc (ar, ai, br, bi) {		# komplexe Addition
+
+  sumr = ar + br
+  sumi = ai + bi
+
+  #print "(", sumr, ", ", sumi, ")\n"
+}
+
+
+
+define multc (ar, ai, br, bi) {		# komplexe Multiplikation
+
+  prodr = ar * br - ai * bi
+  prodi = ar * bi + ai * br
+
+  #print "(", prodr, ", ", prodi, ")\n"
+}
+
+
+
+define quadc (ar, ai) {			# komplexe Quadratur
+
+  prodr = (ar + ai)*(ar - ai)
+  prodi = ar * ai * 2
+
+  #print "(", prodr, ", ", prodi, ")\n"
+}
+
+
+
+
+define wc(n) {				# primitive komplexe Einheitswurzel
+
+  auto i
+
+  scale = 10
+  for (i=2000; i<n; i*=2) scale = scale + 15
+
+  wr = rnd( c(2*pi/n), scale-1)	# cosinus
+  wi = rnd( s(2*pi/n), scale-1)	# sinus
+
+  scale = 0
+
+  #print "(", wr, ", ", wi, ")\n"
+}
+
+
+
+define rnd (a, n) {			# runde a auf n Stellen hinterm Komma
+
+  auto h, b, c
+
+  h = scale
+  scale = n
+
+  b = a/1
+
+  scale = n+1
+  c = (a - b) * 10^(n+1)
+
+  if (abs(c) >= 5) {
+    if (a>0) b = b + 10^(-n)
+    if (a<0) b = b - 10^(-n)
+    scale = n
+    b = b/1
+  }
+  scale = h
+
+  return b
+}
+
+
+
+
+scale = 100
+pi    = 2*a(10^100)			# pi auf 99 Stellen genau (arcus tangens)
+scale = 0
+
+
+
+
+
+define invfft (n) {			# inverses fft (benutzt ar[], ai[])
+
+  auto i, h
+
+  scale = 10
+  for (i=2000; i<n; i*=2) scale = scale + 15
+
+  for (i=1; i<=n; i++) {
+
+    h = multc(ar[i], ai[i], 1/n, 0)	# komplexe Werte durch n teilen
+    ar[i] = prodr
+    ai[i] = prodi
+
+  }
+  scale = 0
+
+  i = wc(n)
+  wi = -wi
+  i = fft(n, 1, wr, wi)
+}
+
+
+
+
+/*
+ar[1] = 1
+ar[2] = 1
+ar[3] = 1
+ar[4] = 0
+
+wc(4)
+*/
+
+
+
+
+
+define testfft (ar[]) {		# FFT hin und zurück
+
+  auto h, i, n, ai[]
+
+  n = 2
+  while (n<=ar[0]) n=2*n	# nächste 2er-Potenz > Grad des Polynoms
+
+  print "test FFT(", n, ")\n"
+  h = wc(n)			# n-te primitive Einheitswurzel
+
+  for (i=ar[0]+2; i<=n; i++) ar[i] = 0	# ar[] reinigen
+
+  #showp(ar[])
+  h = copyp(ar[], 1)		# aufheben zum späteren Vergleich
+
+  h = fft(n, 1, wr, wi)		# fft(ar[])
+  print "  1 fertig\n"
+
+#showij(ar[],0,n+5)
+#showij(ai[],0,n+5)
+
+
+  h = invfft(n)			# zurück in Koeffizientendarstellung verwandeln
+  print "  zurueck fertig\n"
+
+  ar[0] = grad(ar[], n)
+  for (i=1; i<=ar[0]+1; i++) ar[i] = rnd(ar[i],0)	# runden
+  ar[0] = grad(ar[], n)
+
+  #showp(ar[])
+  h = aus(ar[])
+
+  i = modulp
+  modulp = 0
+  h = gleichp(ar[], pol1[])
+  modulp = i
+  return h
+}
+
+
+
+
+
+
+
+
+define multpfft (ar[], br[]) {		# Polynom-Multiplikation mit FFT
+
+  auto h, i, n, ai[], cr[], ci[]
+
+  n = 2
+  while (n<=ar[0]+br[0]) n=2*n		# Grad des Produkts
+  print "FFT(", n, ")\n"
+  h = wc(n)				# n-te primitive Einheitswurzel
+  for (i=ar[0]+2; i<=n; i++) ar[i] = 0	# ar[] reinigen
+
+
+  h = fft(n, 1, wr, wi)			# fft(ar[])
+  print "  1 fertig\n"
+
+
+  for (i=1; i<=n; i++) {		# Arrays umkopieren (leider nötig)
+    cr[i] = ar[i]
+    ci[i] = ai[i]
+    ai[i] = 0
+  }
+  for (i=1; i<=br[0]+1; i++) ar[i] = br[i]
+  while (i<=n) ar[i++] = 0		# ar[] reinigen
+
+
+  h = fft(n, 1, wr, wi)			# fft(br[])
+  print "  2 fertig\n"
+
+
+  for (i=1; i<=n; i++) {		# Polynome komplex multiplizieren
+
+    h = multc(ar[i], ai[i], cr[i], ci[i])
+    ar[i] = prodr
+    ai[i] = prodi
+
+  }
+  print "  Produkt fertig\n"
+
+
+  h = invfft(n)				# zurück in Koeffizientendarstellung verwandeln
+  print "  zurueck fertig\n"
+
+  ar[0] = grad(ar[], n)
+  for (i=1; i<=ar[0]+1; i++) ar[i] = rnd(ar[i],0)	# runden
+  h = smodp(ar[], modulp)				# Ergebnis: aus[]
+  print "  Grad: ", aus[0], "\n"
+
+}
+
+
+
+
+/* # Tests:
+x=15000
+randomp(x,x,1)
+testfft(aus[])
+
+copyp(aus[],1)
+randomp(x,x,1)
+copyp(aus[],2)
+lim_fft = 3*x
+multp(pol1[],pol2[])
+copyp(aus[],3)
+multpfft(pol1[],pol2[])
+copyp(aus[],4)
+gleichp(pol3[],pol4[])
+*/
+
+

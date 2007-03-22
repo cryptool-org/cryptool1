@@ -1,0 +1,671 @@
+/*
+    BC-Funktionen zur Berechnung des diskreten Logarithmus in Restklassengruppen,
+    braucht Bc-Funktionen der Datei prims.txt
+    Copyright (C) 2006 Martin Ramberger (rambo@uni-koblenz.de)
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+*/
+
+
+################### ehemals in Prims.txt (verschoben zwecks Ballance) ######################
+
+
+define phi_zyk (n) {		# Euler-Funktion bei zyklischem n
+
+  auto i, p, phi			# a[], b[], quotient global
+
+  i = 1
+  a[1] = 0				# als leer markieren
+  b[1] = 0				# als leer markieren
+
+  n = abs(n)
+  if (n < 2) return(n)
+  if (mod(n,4) == 0) {if (n == 4) {a[i++] = 2; a[i] = 0; return(2)} else return(0)}
+  if (mod(n,2) == 0) n = n/2
+
+  if (mr(n) > 0) {b[1] = n-1; b[2] = 0; return(n-1)}
+
+  p = ispp(n, 2)			# prüft, ob n echte Primzahlpotenz
+  if (p <= 0) return(0)
+
+  phi = p-1
+  if (phi == 2) {
+    a[i++] = phi			# Primtteiler festhalten
+    a[i] = 0
+  } else {
+    b[1] = phi				# unzerlegten Teiler festhalten
+    b[2] = 0
+  }
+
+  n = n/p
+  while (mod(n,p) == 0) {n = quotient; phi = phi * p; a[i++] = p}
+  a[i] = 0				# Ende von a[] markieren
+  a[0] = i
+
+  return(phi)
+}
+
+
+
+
+define ord_ (n, modul, phi, a[], p) {	# Ordnung von n mod modul intern
+
+  auto i
+
+  if (phi == 0) return(-1)
+  if (a[1] == 0) return(-2)
+  if (euklid1(n,modul) > 1) return(-3)
+
+  if (p) { # echte Ordnung, also Minimum aller Exponenten finden
+
+    for (i=1; a[i] != 0; i++) {
+
+      if ( powermod(n, phi/a[i], modul) == 1 ) {
+
+        phi = phi/a[i]
+
+      } else { # anderen Primfaktor testen
+
+        while (a[i] == a[i+1]) i = i+1
+      }
+    }
+  } else {  # jeden Primfaktor nur einmal testen (reicht bei Suche nach Primitivwurzel)
+
+    for (i=1; a[i] != 0; i++) {
+
+      if (a[i] != a[i-1]) if ( powermod(n, phi/a[i], modul) == 1 ) phi = phi/a[i]
+    }
+
+  }
+  return( phi )
+}
+
+
+
+
+define ord (n, modul) {		# Ordnung von n mod modul
+
+  auto phi, i
+
+  phi = phi(modul)
+  i = primteiler(phi)			# legt die Primteiler ins array a[]
+  i = ord_(n, modul, phi, a[], 1)
+
+  if (i == -1) print "Phi unbekannt\n"
+  if (i == -2) print "Primteiler(Phi) fehlen\n"
+  if (i == -3) print "nicht teilerfremd\n"
+
+  return( i )
+}
+
+
+
+
+define pr (modul, phi, a_phi[], b_phi[]) {		# Primitivwurzel intern
+
+  auto i, j
+
+  modul = abs(modul)
+  if (modul < 2) return(modul)
+  if (phi == 0) {print "nicht zyklisch "; return(0)}
+  print "Phi: ", phi
+
+  if (a_phi[1] != 0) print "\nPrimteiler: "; i=show(a_phi[])
+
+  if (b_phi[1] != 0) {					# b_phi[1] zerlegen
+
+    if (a_phi[1] != 0) print "weitere "
+    if (primteiler(b_phi[1]) == 0)  {print "Primteiler(Phi) unbekannt\n"; return(0)}
+
+    j = a[0]-1
+    for (i=1; a_phi[i]; i++) a[j+i] = a_phi[i]		# vorher gesammelte Primteiler anhängen
+    a[j+i] = 0   
+  }
+
+  i = 2
+  while ( ord_(i,modul,phi,a[], 0) < phi ) i = i + 1 
+
+  return (i)
+}
+
+
+
+
+define proot (modul) {		# Primitivwurzel
+
+  auto phi
+
+  modul = abs(modul)
+  if (modul < 2) return(modul)
+
+  phi = phi_zyk(modul)		# setzt a[], b[]
+
+  return(pr(modul, phi, a[], b[]))
+}
+
+
+################### end ehemals in Prims.txt ######################
+
+
+
+
+
+define dislog_anfang (basis, a, modul, ord) {	# saubere Bedingungen, ggf. Primitivwurzel, Ordnung bestimmen
+
+  auto phi, i, j, h
+
+  if (modul < 2) return(-1)
+
+  if ( mod(basis-a, modul) == 0) return (1)			# Lösung = 1
+
+  if (euklid1(a, modul) > 1) {
+    print a, " nicht teilerfremd zu ", modul, "\n"
+    return(-1)
+  }
+  bas = basis
+  phi = phi_zyk(modul)						# setzt a[], b[]
+
+  if( basis == 0 ) {						# Aufruf verlangt Suche nach Primitivwurzel
+
+    print "\nSuche Primitivwurzel\n"
+    if (phi == 0) {print "nicht zyklisch\n";  return(-1)}	# nicht zyklisch
+    if (bas = pr (modul, phi, a[], b[]) == 0) return(-1)	# Phi hat unbekannte Primteiler
+    print "Primitivwurzel: ", bas, "\n"				# bas global
+    ord = phi
+
+  } else if( ord == 0) {					# Aufruf verlangt Suche nach |G|
+
+    if (euklid1(bas, modul) > 1) {
+      print bas, " nicht teilerfremd zu ", modul, "\n"
+      return(-1)
+    }
+    print "Berechne Primteiler von Phi(", modul, ")\n"
+    if (phi == 0) {
+      phi = phi(modul)
+      i = primteiler(phi)					# Phi zerlegen
+    } else {
+      ord = a[1]						# a[1] ist der Hauptprimteiler p von Phi oder 0
+      j = a[0] - 1
+      i = primteiler(b[1])					# p-1 zerlegen
+    }
+    for (i=1; a[i]; i++) i=i
+    for (h=1; b[h]; h++) a[i++] = b[h]
+    if (ord) while (j--) a[i++] = ord				# Primteiler und unzerlegte Teiler von Phi
+    a[i] = 0
+
+    print "Berechne ord(",bas, " mod ",modul, ")\n"
+    if (ord = ord_(bas, modul, phi, a[], 1) <= 0) return(-1)	# Ordnung von bas mod modul unbekannt
+    if (ord < phi) {
+      h = ord
+      j = 1
+      for (i=1; a[i]; i++) {
+        if (a[i] <= h && mod(h, a[i]) == 0) {			# Primteiler von ord auflesen
+          b[j++] = a[i]
+          h = quotient
+        }
+      }
+      b[j] = 0
+      for (i=1; b[i]; i++) a[i] = b[i]				# Primteiler von ord zurück nach a[]
+      a[i] = 0
+    }
+  } 
+  # a[] enthält Primteiler und unzerlegte Teiler von |G|.
+
+  print "\nLoese ", bas, "^x = ", a, " mod ", modul, "\n"
+
+  if ( mod(bas-a, modul) == 0) return (1)			# Lösung = 1
+
+  print "|G|: ", ord, "\n"
+
+  return(ord)
+}
+
+
+
+
+define dislog (bas, a, modul) {			# diskreter Log Reduktion Primzahlpotenzordnung
+
+  auto ord, i, j
+
+  modul = abs(modul)
+
+  if ( ord = dislog_anfang (bas, a, modul, 0) < 0 ) return(-1)	# setzt bas, a[], b[]
+  if ( ord == 1 ) return(1)
+
+  if ( mod(a, modul) == 1 ) return (ord)			# Lösung = |G|
+
+  j = 0
+  for (i=1; a[i]; i++) {					# Primzahlpotenzen bilden: pp[]
+
+    if (a[i] != a[i-1]) {
+      pp[++j] = a[i]
+      p[j] = a[i]
+      e[j] = 1
+    } else {
+      pp[j] = pp[j]*a[i]
+      e[j] = e[j]+1
+    }
+  }
+  pp[j+1] = 0
+
+  print "\nPrimzahlpotenzen, die |G| teilen\n"
+  show(pp[])
+
+  for (i=1; pp[i]; i++) {					# Log für jede Primzahlpotenz lösen: x[]
+  
+    j = ord / pp[i]
+ 
+    x[i] = dislogp( powermod(bas,j,modul), powermod(a,j,modul), modul, p[i], e[i] )
+
+    if (x[i] < 0) return(-1)
+  }
+
+  print "\nChinesischer Restsatz:\n"
+  return( mod( chin(x[], pp[]), ord))				# Gesamt-Log mittels Chinesischem Restsatz
+}
+
+
+
+
+define chin(a[], m[]) {		# Chinesischer Restsatz
+
+  auto i, j, n, n[], n1[], x
+
+  n = 1
+  for (i=1; m[i]; i++) {			# n = Produkt der m[i]
+    if (euklid1(n, m[i]) > 1) {
+      print "nicht teilerfremd\n"
+      return(-1)
+    }
+    n = n*m[i]
+  }
+  print "n = ", n, "\n"
+
+  for (i=1; m[i]; i++) {			# n[i] = n / m[i], deren Inverse n1[i]
+    n[i] = n/m[i]
+    j = euklid(n[i], m[i])
+    n1[i] = koeff_x
+  }
+  #showij(n[], 1,i)
+  #showij(n1[],1,i)
+
+  x = 0
+  for (i=1; m[i]; i++) {			# Lösung x
+    x = mod( x + a[i]*n[i]*n1[i], n )
+  }
+  if (x < 0) x = x+n				# Standardvertreter
+  return(x)
+}
+
+
+
+# 818496093806
+# dislog(0,31541357, 101^7)
+# dislog(0,31541357, 100000007^3)
+
+
+
+
+
+define dislogp (bas, alpha, modul, p, e) {	# diskreter Log Reduktion auf Primzahlordnung
+
+  auto i, j, baspot, x[], x, phi
+
+  baspot = powermod(bas, p^(e-1), modul)
+
+  for (i=0; i<e; i++) {
+
+    #if (p<=400000000) { # Problem auf Rechner MATHE04
+    if (p<=100000000) {
+      x[i] = shank( baspot,  powermod(alpha, p^(e-1-i), modul),  modul,  p,  0)
+    } else {
+      x[i] = pollardlogo( baspot,  powermod(alpha, p^(e-1-i), modul),  modul,  p)
+    }
+    if (x[i] < 0) return(-1)
+    alpha = mod(alpha * powermod(bas, -x[i]*p^i, modul), modul)
+  }
+
+  print "\nx berechnen\n"
+  showij(x[], 0, e-1)
+
+  phi = p^e
+  for (i=e-1; i>=0; i--) x = mod(x*p + x[i], phi)
+
+  return (x)
+}
+
+
+# --------------------- Pollards Rho-Algorithmus für diskreten Logarithmus:
+
+
+define pollardlog (bas, a, modul) {		# Löse bas^x = a mod modul
+  return(pollardlogo (bas, a, modul, 0))
+}
+
+
+define pollardlogo (bas, a, modul, ord) {	# Löse bas^x = a mod modul
+
+  auto phi, g1, g2, z, zalt, y, yalt, b, balt, ba[], i, j, k, l, lim
+
+  modul = abs(modul)
+
+  if ( ord = dislog_anfang (bas, a, modul, ord) < 0 ) return(-1) # setzt bas
+  if ( ord == 1 ) return(1)
+
+  if ( mod(a, modul) == 1 ) return (ord)			# Lösung = Phi
+
+  a = mod(a, modul)
+  if (a < 0) a = a+modul		# Standardvertreter
+
+  g1 = modul/3				# Grenze 1
+  g2 = 2*g1				# Grenze 2
+  z = random(1, ord)			# zufälliger Startwert z0
+  y = 0					# y0
+  b = powermod(bas, z, modul)
+  balt = b;  zalt = z;  yalt = y
+  i = 1
+  lim = max(100, sqrt(sqrt(ord)))
+
+  while (j < ord) {			# Brents cycle-finding algorithm:
+					# If i is a power of 2, let balt = b, and at each step, 
+					# compare the current value b with the saved value balt.
+    j = i
+
+    for (k=8; k>1; k--) {
+      ba[k] = ba[k-1]
+      z[k] = z[k-1]
+      y[k] = y[k-1]
+    }
+
+    ba[1] = b
+    z[1] = z
+    y[1] = y
+
+    print "|"
+    while (i < 2*j) {			# b durchläuft eine Quasi-Zufallsfolge
+
+      i = i+1
+
+      if (b < g1) {
+ 	b = mod( bas*b, modul )
+	z = mod( z+1, ord )		# ein bas mehr
+      } else if (b < g2) {
+ 	b = mod( b*b, modul )
+	z = mod( 2*z, ord )		# bas verdoppelt
+	y = mod( 2*y, ord )		# a   verdoppelt
+      } else {
+ 	b = mod( a*b, modul )
+	y = mod( y+1, ord )		# ein a mehr
+      }
+      if (b<0) b = b + modul            # Standardvertreter wegen Vergleich
+
+      if (b == ba[1] || b == ba[2] || b == ba[3] || b == ba[4] || b == ba[5] || b == ba[6] || b == ba[7] || b == ba[8] ) {		# Zyklus gefunden
+
+        for (k=1; k<=8; k++) if (b == ba[k]) break
+        zalt = z[k]
+        yalt = y[k]
+
+	print "\nLoese Kongruenz ", y-yalt, "*x = ", zalt-z, " mod ", ord, "\n"  , "k: ", k, "\n"
+
+	k = kong( y-yalt, zalt-z, ord)		# a[] enthält k Lösungen der Kongruenz
+	print k, "\n"
+
+	if (k == 0) {				# Kongruenz hat keine Lösung
+	  return(-1)
+
+	} else if (k > lim) {
+	  print "suche Kongruenz mit weniger Loesungen\n"
+	  z = random(1, ord)			# zufälliger Startwert z0
+	  y = 0					# y0
+	  b = powermod(bas, z, modul)
+          for (k=8; k>1; k--) {ba[k] = 0; z[k] = 0; y[k] = 0}
+          ba[1] = b; z[1] = z; y[1] = y
+	  i = 1
+	  lim = 2*lim				# gegen endloses Suchen
+	  break
+
+	} else {
+	  print "passende Loesung: (", bas, "^x = ", a, " mod ", modul, ")\n"
+	  for (l=1; l<=k; l++) {		# Lösungen durchprobieren
+	    if ( powermod(bas, a[l], modul) == a ) return(a[l])
+	  }
+  	  print "keine\n"
+	  return(-1)				# keine passende Lösung gefunden
+	}
+      }
+
+    } # while innen
+  }   # while außen
+  print "keinen Zyklus gefunden\n"
+  return(-1)
+}
+
+
+
+
+
+# --------------------- Shanks Babystep-Giantstep-Algorithmus:
+
+define hashinit (h) {
+
+  auto i
+ 
+  hashmod = h		# global
+  ende = 3		# global
+  h = h*ende
+
+  for (i = 1; i <= h; i++) {
+    hash[i] = -1;	# 0 ist als Eintrag möglich, -1 nicht
+    next[i] = 0;	# Verweise sind > 0
+  }
+  return(ende)
+}
+
+
+
+
+define put (n, a) {
+
+  auto i, j
+
+  i = (mod(n,hashmod) + 1) * 3
+
+  if (hash[i-2] == -1) {		# Platz frei
+    hash[i-2] = n
+    hash[i-1] = a
+    return(ende)
+  }
+
+  j = hash[i]				# Index auf Rivalen
+
+  if (j == -1) {			# erste Kollision an dieser Stelle
+
+    hash[i] = ende			# Verweis auf letzten Platz im array next
+
+  } else {				# Schnitzeljagd
+
+    while (j > 0) {
+      i = j
+      j = next[j]			# Index auf weiteren Rivalen
+    }
+    next[i] = ende			# Verweis auf letzten Platz im array next
+  }
+
+  next[ende-2] = n
+  next[ende-1] = a
+  ende = ende + 3
+
+  return(ende)
+}
+
+
+
+
+define get (n) {
+
+  auto i
+
+  i = (mod(n,hashmod) + 1) * 3
+
+  if (hash[i-2] == n) return(hash[i-1])		# gefunden
+
+  i = hash[i]					# Index auf Rivalen
+
+  while (i > 0) {
+    if (next[i-2] == n) return(next[i-1])	# gefunden
+    i = next[i]					# Index auf weiteren Rivalen
+  }
+  return(-1)					# nicht gefunden
+}
+
+
+
+define bucket (n) {
+
+  auto i
+
+  i = (mod(n,hashmod) + 1) * 3
+
+  if (hash[i-2] > -1) {				# nicht leer
+    print "(", hash[i-2], ",", hash[i-1], ")"
+  }
+
+  i = hash[i]					# Index auf Rivalen
+
+  while (i > 0) {
+    print ", (", next[i-2], ",", next[i-1], ")"	# noch ein Baby
+    i = next[i]					# Index auf weiteren Rivalen
+  }
+  print "\n"
+}
+
+
+
+define babies (n) {		# Hashtabelle, nach n Zeilen auf Eingabe warten
+  auto i, j
+  for(i=0; i<hashmod; i++) {
+    print i, ": "; j = bucket(i)
+    if( i && mod(i,n) == 0 ) read()	
+  }
+}
+
+
+
+define table () {		# Hashtabelle
+  auto i, j
+  for(i=0; i<hashmod; i++) {print i, ": "; j = bucket(i)}
+}
+
+
+
+define table0 () {
+
+  auto y, i
+
+  y = zeil			# zeil ist global
+  zeil = 3
+  i = showij(hash[],1,3*hashmod)
+  i = showij(next[],1,ende)
+  zeil = y
+}
+
+
+
+define shank (bas, alpha, modul, ord, zehner) {		# Löse bas^x = alpha mod modul
+
+  auto phi, proot, wurz, x
+
+  if ( ord = dislog_anfang (bas, alpha, modul, ord) < 0 ) return(-1) 	# setzt bas
+  if ( ord == 1 ) return(1)
+
+  if (ord > 400000000)  {print "|G| > 400000000\n"; return(-1)}
+
+  alpha = mod(alpha, modul)
+  if (alpha < 0) alpha = alpha+modul		# Standardvertreter
+
+  wurz = sqrt(ord)
+  if (wurz * wurz < ord) wurz = wurz + 1
+  print "Wurzel(|G|): ", wurz, "\nsammle Babysteps ...\n"
+
+  x = baby( alpha, modul, zehner, bas, wurz)
+
+  if (x < 0) {
+    print "noch keine Loesung\n"
+    
+    x = giant(bas, wurz, modul)
+  }
+  print "Loesung: "
+  return(x)     
+}
+
+
+
+define baby (alpha, modul, zehner, proot, wurz) {		# Baby-Steps
+
+  auto i, j, pot
+
+  if (zehner != 0) {
+    hashmod = wurz
+    if (wurz <= 10000) hashmod = 10000				# hashmod ist global
+    if (wurz <= 1000) hashmod = 1000
+    if (wurz <= 100) hashmod = 100
+    if (wurz <= 10) hashmod = 10
+  } else hashmod = wurz
+
+  ende = hashinit(hashmod)					# ende ist global
+
+  for (i = 0; i < wurz; i++) {
+
+    pot = mod( alpha * powermod(proot,-i,modul), modul)		# Babystep in die Hashtabelle
+    j = put(pot,i)
+    if (pot == 1) break
+  }
+  #pot = table()						# zeigt die Hashtabelle
+
+  if (i < wurz) return(i) else return(-1)
+}
+
+
+
+define giant (proot, wurz, modul) {	# Giant-Steps
+
+  auto r, q, potenz
+
+  delta = powermod( proot, wurz, modul)
+  print "Giantsteps\ndelta = Primitivwurzel^Wurzel mod ", modul, ": ", delta, "\n"
+  r = -1
+  print "Erhoehe q, bis delta^q die erste Komponente eines Babysteps ist ...\n"
+
+  potenz = 1
+  for (q = 1; q <= wurz; q++) { 	# obere Grenze korrekt?
+
+    potenz = mod(potenz*delta, modul) 	# = powermod( delta, q, modul)
+    #print potenz
+
+    r = get(potenz)
+
+    if (r >= 0) break
+    #print ", "
+
+  }
+  if (q>wurz) {print "keine Loesung\n"; return(-1)}
+
+  print "Bingo! (", potenz, ", ", r, "), q: ", q, "\n"
+  print wurz, " * q + ", r, " mod ", modul," = "
+
+  return( mod(wurz*q+r, modul) )
+}
+
+

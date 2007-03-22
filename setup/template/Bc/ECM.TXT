@@ -1,0 +1,746 @@
+/*
+    BC-Funktionen zum Faktorisieren mit elliptischen Kurven und für den Primzahlbeweis nach Atkin/Morain,
+    braucht BC-Funktionen der Dateien prims.txt und (für Primzahlbeweis) quadRest.txt
+    Copyright (C) 2006 Martin Ramberger (rambo@uni-koblenz.de)
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+*/
+
+
+iter_ecm = 20	# global: Anzahl Kurven
+start_a_ecm = 1	# global: erstes a
+
+
+
+define kurve_punkt (n) {	# setzt x0, y0, z0, a, b
+
+  auto ggt, discrim		# ecm: x0, y0, z0, a, b
+
+  z0 = 1
+  ggt = n
+
+  while (ggt == n) {
+
+    a  = a+1	#random(0,n-1)	#a+1	#
+    x0 = 0	#random(0,n-1)	#0	#
+    y0 = 1	#random(0,n-1)	#1	#
+
+    b = 1	#y0^2 - x0^3 - a*x0	#1	#
+    discrim = 4*a^3 + 27*b^2
+
+    if (discrim != 0) ggt = euklid(discrim,n)
+  }
+
+  if (ggt > 1) return( -ggt ) else return( a )
+}
+
+
+
+
+
+define euklidx (a, b) {		# setzt koeff_x
+
+  auto vora, x, x0, x1, r
+
+  vora = sig(a)
+  a = abs(a)
+  b = abs(b)
+  x0 = 1
+  x1 = 0
+
+  while (b != 0) {
+  
+    r = mod(a, b)
+    a = b
+    b = r
+    x = x1
+    x1 = x0 - quotient * x1	# quotient ist global
+    x0 = x
+  }
+  koeff_x = x0 * vora		# global 
+  return (a)			# ggT
+}
+
+
+
+
+
+
+define plus_affin (x1, y1, x2, y2) {	# setzt xsum, ysum
+
+  auto ggt, bruch			# mal_affin, nachecm: xsum, ysum
+					# ecm a, n 	# global: koeff_x
+
+  #print "(",x1,",",y1,") + (",x2,",",y2,") \t\t"#, faktor, "\n" 
+
+  if (x1 == -1) {xsum = x2; ysum = y2; return(0)}	# P1 = neutral = (-1,-1)
+  if (x2 == -1) {xsum = x1; ysum = y1; return(0)}	# P2 = neutral = (-1,-1)
+
+
+  if (x1 == x2) {
+
+    if (y1 + y2 == n)   {xsum = -1; return(0)}		# P1 + P2 = neutral = (-1,-1)
+    if (y1 != y2) return( euklidx(y1-y2,n) )		# gemäß "Faktorisieren mit elliptK.ps"
+							# www.mi.uni-erlangen.de/~ruppert/WS0001/kryp15.ps
+    if (!y1)   {xsum = -1; return(0)}			# P1 + P2 = neutral = (-1,-1)
+
+
+    		# P1 = P2: verdoppeln
+
+    ggt = euklidx( 2*y1, n)				# nenner  = 2 * y1
+    if ( ggt > 1 ) return( ggt )			# zaehler = 3 * x1^2 + a
+    bruch = mod( (3*x1^2+a) * koeff_x, n)		# zaehler / nenner
+
+
+  } else {	# x1 != x2
+
+    ggt = euklidx( x2-x1, n)				# nenner  = x2 - x1
+    if ( ggt > 1 ) return( ggt )			# zaehler = y2 - y1
+    bruch = mod( (y2-y1) * koeff_x, n) 			# zaehler / nenner
+
+  }
+
+
+  xsum = mod( bruch^2 - x1 - x2, n)
+  ysum = mod( bruch * (x1 - xsum) - y1, n)
+
+  if (xsum < 0) xsum = xsum + n		# nicht-neg für den Vergleich
+  if (ysum < 0) ysum = ysum + n		# nicht-neg für den Vergleich
+
+  return(0)
+}
+
+
+
+
+
+define mal_affin (x0, y0, faktor) {	# setzt xprod, yprod
+
+  auto d, xsum, ysum			# Aufrufer: xprod, yprod	# global: quotient
+
+    xprod = -1
+    yprod = -1					# P0 = (x0,y0),  P = (-1,-1)
+
+    while (faktor > 0) {
+
+      if ( mod(faktor,2) ) {			# P = P + P0:
+        faktor = quotient
+
+        d = plus_affin( xprod,yprod, x0,y0 )	# (xsum,ysum) = (xprod,yprod)+(x0,y0)
+        if (d) {print "\n\n"; return (d)}	# Teiler gefunden
+        xprod = xsum
+        yprod = ysum
+
+      } else faktor = quotient
+						# P0 verdoppeln:
+
+      d = plus_affin( x0,y0, x0,y0 )		# (xsum,ysum) = (x0,y0)+(x0,y0)
+      if (d) {print "\n\n"; return (d)}		# Teiler gefunden
+      x0 = xsum
+      y0 = ysum
+    }
+  return(0)
+}
+
+
+
+
+
+
+define plus (x1, y1, z1, x2, y2, z2) {		# setzt xsum, ysum, zsum
+						# rechnet mit Jacobi-Koordinaten
+						# vgl. BirgitHenhapl.diss.pdf
+
+  auto zz1, zz2, s, m, t, u1, u2, s1, s2, h, h2, h3, r	# mal: xsum, ysum, zsum
+							# ecm a, n
+
+  #print "(",x1,",",y1,",",z1,") + (",x2,",",y2,",",z2,") \n"#, faktor, "\n" 
+
+  if (!z1) {xsum = x2; ysum = y2; zsum = z2; return(0)}	# P1 = neutral
+  if (!z2) {xsum = x1; ysum = y1; zsum = z1; return(0)}	# P2 = neutral
+
+  zz1 = mod(z1*z1, n)
+  zz2 = mod(z2*z2, n)
+
+  if (x1*zz2 == x2*zz1) {
+
+    if (mod(y1*z2*zz2 + y2*z1*zz1, n) == 0)   {zsum=0; return(0)}	# P1 + P2 = neutral
+
+    		# P1 = P2: verdoppeln
+
+    s = mod(4*x1*y1*y1, n)
+    m = mod(3*x1*x1 + a*powermod(z1,4,n), n)
+    t = mod(m*m - 2*s, n)
+
+    xsum = t
+    ysum = mod(m*(s-t) - 8*powermod(y1,4,n), n)
+    zsum = mod(2*y1*z1, n)
+
+  } else {	# x1*zz2 != x2*zz1
+
+    u1 = mod(x1*zz2, n)
+    u2 = mod(x2*zz1, n)
+    s1 = mod(y1*powermod(z2,3,n), n)
+    s2 = mod(y2*powermod(z1,3,n), n)
+    h  = u2 - u1
+    h2 = mod(h*h, n)
+    h3 = mod(h*h2, n)
+    r  = s2 - s1
+
+    xsum = mod(r*r - h3 - 2*u1*h2, n)
+    ysum = mod(r*(u1*h2 - xsum) - s1*h3, n)
+    zsum = mod(z1*z2*h, n)
+
+  }
+
+  return(0)
+}
+
+
+
+
+
+define mal (x0, y0, z0, faktor) {		# setzt xprod, yprod, zprod
+
+  auto d, xsum, ysum, zsum			# Aufrufer: xprod, yprod, zprod
+
+  xprod = 1
+  yprod = 1					# P0 = (x0,y0),  P = (-1,-1)
+  zprod = 0
+
+  while (faktor > 0) {
+
+    if ( mod(faktor,2) ) {			# P = P + P0:
+      faktor = quotient
+
+      d = plus( xprod,yprod,zprod, x0,y0,z0 )	# (xsum,ysum) = (xprod,yprod)+(x0,y0)
+      xprod = xsum
+      yprod = ysum
+      zprod = zsum
+
+    } else faktor = quotient
+						# P0 verdoppeln:
+
+    d = plus( x0,y0,z0, x0,y0,z0 )		# (xsum,ysum) = (x0,y0)+(x0,y0)
+    x0 = xsum
+    y0 = ysum
+    z0 = zsum
+  }
+  return(0)
+}
+
+
+
+
+define ecm (n) {
+
+  auto maxab, i, a, b, d, xprod, yprod, x0, y0		# global: iter_ecm, pollardk, faktbasi # rekpt: sameEC
+
+  n = abs(n)
+
+  print "\nECM ", n, " B = ", pollardb, "\n"	#, " same_ec ", same_ec, "\n"
+
+  if ( n < 4) return (n)
+  if ( euklidx(n,6) > 1 ) return (euklidx(n,6))
+
+  maxab = maxabstand()			# maximaler Abstand zweier benachbarter gespeicherter Primzahlen
+
+  a = start_a_ecm -1	# = 0
+  for(i=1; i<=iter_ecm; i++) {
+
+    if (same_ec) {				# weiter mit vorhandenem Punkt
+
+      a = i + start_a_ecm -1
+      b = 1
+      x0 = pkt[3*i-2]
+      y0 = pkt[3*i-1]
+      z0 = pkt[3*i]
+
+    } else {
+
+      d = kurve_punkt(n)			# setzt x0, y0, z0, a
+      if( d < 0 ) return(-d)			# Teiler gefunden
+    }
+
+    print "Kurve ", i, " a: ", a," b: ", b, "\n"
+
+    d = mal( x0,y0,z0, pollardk)		# berechnet (xprod, yprod) = (x0,y0) * pollardk
+
+    #print "a: ", a," b: ", b, "\n"
+    #d = punkt( xprod, yprod, n, a, b)
+
+    d = euklid1( xprod*yprod*zprod, n )		# since this coordinate will be zero in Zp
+    if (d>1 && d<n) return (d)			# Teiler gefunden
+
+    pkt[3*i-2] = xprod
+    pkt[3*i-1] = yprod
+    pkt[3*i] = zprod
+
+    if (pollardb >= 10000) {
+      d = nach_ecm( n, xprod, yprod, zprod )	# Nacharbeit
+      if (d>1 && d<n) return (d)		# Teiler gefunden
+    }
+  }
+
+  #print "\n"
+  return(0)			# nichts gefunden
+}
+
+
+
+
+
+define nach_ecm (n, x, y, z) {	# (x,y,z) = (x0,y0,z0) * pollardk, wurde von ecm errechnet
+
+  # vgl. berger.diplom.ps
+  #	 http://www.informatik.tu-darmstadt.de/TI/Veroeffentlichung/reports/README.diplomarbeiten.html
+
+
+  auto i, p1, p2, d, xsum, ysum, zsum, xprod, yprod, zprod	# ecm: maxab	# global: faktbasi
+
+
+  # Koordinaten umrechnen: Jacobi -> affin
+
+  d = euklidx(z*z*z, n)			
+  if (d>1 && d<n) return (d)		# Teiler gefunden
+  y = mod(y*koeff_x, n)
+  if(y < 0) y = y + n
+
+  x = mod(x*koeff_x*z, n)
+  if(x < 0) x = x + n
+
+  print "Nacharbeit mit (",x,",",y,")\n"
+
+
+  # 1. Tabelle anlegen
+  
+  xsum = -1				# (-1,-1) ist neutral
+  ysum = -1
+
+  for (i=2; i<=maxab; i+=2) {		# i durchläuft die Abstände benachbarter gespeicherter Primzahlen
+
+    d = plus_affin( x,y, xsum,ysum )
+    if (d) return (d)			# Teiler gefunden
+    d = plus_affin( x,y, xsum,ysum )
+    if (d) return (d)			# Teiler gefunden
+    ecm[i-1] = xsum
+    ecm[i] = ysum			# ecm[] enthält (x,y)*2, (x,y)*4, (x,y)*6, ...
+  }
+  #showij(ecm[],1,maxab)
+
+
+  # 2. rechnen
+
+  p1 = prims[faktbasi]			# erste Primzahl > pollardb
+  
+  d = mal_affin(x,y, p1)		# (x,y) * p1
+  if (d) return (d)			# Teiler gefunden
+  xsum = xprod
+  ysum = yprod
+
+  for (i=faktbasi+1; i<=maxp; i++) {	# (x,y) mit restlichen gespeicherten Primzahlen multiplizieren
+					# dabei gilt: (x,y)*p2 = (x,y)*p1 + (x,y)*(p2-p1),
+					# (x,y)*p1 kennt man vom Schritt vorher, (x,y)*(p2-p1) aus der Tabelle
+    p2 = prims[i]
+    x = ecm[p2-p1-1]			# x aus der Tabelle
+    y = ecm[p2-p1]			# y aus der Tabelle
+    p1 = p2
+
+    d = plus_affin( x,y, xsum,ysum )
+    if (d) return (d)			# Teiler gefunden
+  }
+
+  print "\n"
+  return(0)				# nichts gefunden
+}
+
+
+
+
+define punkt (x, y, n, a, b) {print mod( y^2, n), " = ", mod( x^3+a*x+b, n), "\n"} # Kontrolle, ob auf Kurve
+
+
+
+
+define ellk (n, a, b) {
+
+  auto x, y, count
+
+  print "a:",a, " b:",b
+  if ( 4*a^3 + 27*b^2 == 0 ) {print "  Diskriminante = 0\n"; return} 
+  print " (2te Stelle jeweils +-)\n0 "
+  count = 1
+
+  if( mr(n)) { # n Primzahl
+    for (x=0; x<n; x++) {
+      if( y = sqrtmod( x^3 + a*x + b, n) > 0) {
+        print "(",x,",",y,") " 
+        count += 2
+      } else if( y == 0) {
+        print "(",x,",0)\n" 
+        count += 1
+      }
+    }
+  } else { # n keine Primzahl
+    n2 = n/2
+    for (x=0; x<n; x++) {
+      if ( mod( x^3 + a*x + b, n ) == 0 ) {print "(",x,",0) "; count = count + 1}
+      for (y=1; y<n2; y++) {
+        if ( mod( x^3 + a*x + b - y^2, n ) == 0 ) {print "(",x,",",y,") "; count = count + 2}
+      }
+      if ( mod( x^3 + a*x + b - y^2, n ) == 0 ) {print "(",x,",",y,") "; count = count + 1 + n%2}
+    }
+  }
+  print "\n"
+  return count 
+}
+
+
+
+
+
+
+
+
+
+
+
+define proveprime (n) {			# Primzahl-Beweis nach Atkin/Morain (vgl. ellipticForster)
+
+  auto h, inv27, d, j, invj, sup, m[], ords[]
+
+  if (n == 2 || n == 3) return 2
+  if (h = euklid(n,2) > 1) return -h		# Teiler von n
+  if (h = euklidx( 27, n) > 1) return -h	# Teiler von n
+  inv27 = koeff_x
+
+  if (qr_geladen == 0) {
+    print "\nDatei quadRest ist nicht geladen.\n"
+    return 0
+  }
+  d = -1
+
+  while (d) {
+
+    j = jd (n, d-1)				# setzt neues d
+    print "\nd: ", d, "\n"
+
+    while( d && h = ord_kand(n, d) <= 0) {	# Ordnungs-Kandidaten zu d: m[]
+
+      if (!h) print "Ordnungen waren schon bei anderem d dran.\n"
+
+      if (h == -1) {				# supersingulär
+        print "supersingulaer\n"
+        if (!sup) {
+          sup = 1				# nur einmal bearbeiten
+          m[0] = 1
+          m[1] = n + 1				# Ordnung n+1
+          break
+        }
+      }
+      j = jd (n, d-1)				# setzt neues d
+      print "\nd: ", d, "\n"
+    }
+    if (d) if( h = kurven_zu_d(n, j, d, m[])) return h
+  }
+  return 0					# kein d übrig, Ergebnis unbekannt
+}
+
+
+
+
+
+define j (p, a, b) {	# j-Invariante von y^2 = x^3 + ax^2 + b über Zp
+
+  auto nenner, h
+
+  nenner = 4*a^3 + 27*b^2
+  if (h = euklid(nenner, p) > 1) return -1
+
+  if (h = mod( 1728 * 4*a^3 * koeff_x, p) < 0) h = h + p
+  return h
+}
+
+
+
+
+define jd (p, dd) {	# j-Invariante zu nächstem D <= dd  (vgl. ruppertCornacchia)
+
+  # global: d
+
+  if (dd >= -3) 	{d = -3;   return 0}
+  if (dd >= -4)	 	{d = -4;   return 1728}			#  2^6 3^3
+  if (dd >= -7) 	{d = -7;   return p-3375}		# -3^3 5^3
+  if (dd >= -8) 	{d = -8;   return 8000}			#  2^6 5^3
+  if (dd >= -11) 	{d = -11;  return p-32768}		# -2^15
+  if (dd >= -12) 	{d = -12;  return 54000}		#  2^4 3^3 5^3
+  if (dd >= -16) 	{d = -16;  return 287496}		#  2^3 3^3 11^3
+  if (dd >= -19) 	{d = -19;  return p-884736}		# -2^15 3^3
+  if (dd >= -27) 	{d = -27;  return p-12288000}		# -2^15 3 5^3
+  if (dd >= -28) 	{d = -28;  return 16581375}		#  3^3 5^3 17^3
+  if (dd >= -43) 	{d = -43;  return p-884736000}		# -2^18 3^3 5^3
+  if (dd >= -67) 	{d = -67;  return p-147197952000}	# -2^15 3^3 5^3 11^3
+  if (dd >= -163)	{d = -163; return p-262537412640768000}	# -2^18 3^3 5^3 23^3 29^3
+
+  d = 0
+  return -10^20		# unbekannt
+}
+ 
+
+
+
+define ord_kand (n, d) {	# Ordnungskandidaten bei D (gehört zur Invariante j)
+				# (vgl. ruppertCornacchia)
+
+  auto h, i, l, x, y, m		# global: m[]	# proveprime: ords[]
+
+  m[0] = 1
+  if (d == -3) if (mod(n, 3) == 2) return -1	# supersingulär, ord = n+1
+  if (d == -4) if (mod(n, 4) == 3) return -1	# supersingulär, ord = n+1
+
+  if (h = cornacchia(d, n) < 0) return h	# (-1: keine Lösung, supersingulär, ord = n+1)
+						# setzt x, y
+  l = ords[0]
+
+  h = n + 1 - x
+  for (i=1; i<=l; i++) if (h == ords[i]) break
+  if (i > l) {m[++m] = h; ords[++l] = h}
+
+  h= n + 1 + x
+  for (i=1; i<=l; i++) if (h == ords[i]) break
+  if (i > l) {m[++m] = h; ords[++l] = h}
+
+  if (d == -4) {
+
+    h = n + 1 - 2*y
+    for (i=1; i<=l; i++) if (h == ords[i]) break
+    if (i > l) {m[++m] = h; ords[++l] = h}
+
+    h = n + 1 + 2*y
+    for (i=1; i<=l; i++) if (h == ords[i]) break
+    if (i > l) {m[++m] = h; ords[++l] = h}
+
+  } else if (d == -3) {
+
+    m[++m] = n + 1 - (-x - 3*y)/2; ords[++l] = m[m]
+    m[++m] = n + 1 - (-x + 3*y)/2; ords[++l] = m[m]
+    m[++m] = n + 1 - ( x - 3*y)/2; ords[++l] = m[m]
+    m[++m] = n + 1 - ( x + 3*y)/2; ords[++l] = m[m]
+  }
+  m[0] = m
+  ords[0] = l
+  return m			# Anzahl Kandidaten
+}
+
+
+
+
+
+define kurven_zu_d (n, jinvar, d, m[]) {
+
+  auto ord[], ord,   a, b,   h, i, j, w
+
+  if (d < -4) {
+    if (h = euklidx( jinvar, n) > 1) return -h	# Teiler von n
+    invj = koeff_x
+  }
+
+  h = ellkj1 (n, jinvar)			# erste Kurve: a, b
+  for (i=1; i<=m[0]; i++) ord[i] = 0		# init geprüfte Ordnungen
+
+  for (i=1; i<=m[0]; i+=10*neuellk(n,d)) {	# Kurven aller Ordnungen prüfen:
+
+    if( ord = ord_ellk(n, a, b, m[]) == 0) { 
+      print "Ordnung unklar: neue Kurve\n"
+      continue
+    }
+    if( ord < 0) return ord			# ggf. -Teiler, n keine Primzahl
+
+    print "a: ", a, "  b: ", b, "\n"
+
+    for (j=1; j<=m[0]; j++)  if( ord == m[j] ) break	# Ordnung noch nicht bei anderem d gehabt
+    if (j > m[0]) {
+      print "Ordnung war schon bei anderem d dran: neue Kurve\n"
+      continue
+    }
+    for (j=1; j<=i; j++)  if( ord == ord[j] ) break	# Ordnung schon gehabt
+    if (j <= i) {
+      print "Ordnung war schon dran: neue Kurve\n"
+      continue
+    }
+    ord[i++] = ord
+    print "\nOrdnung: ", ord, "\n"
+
+    h = primteiler(ord)				# Primteiler suchen
+
+    j = 0
+    while (a[j+1]) j=j+1			# a[j] = größter gefundener Primteiler
+    scale = 10
+    w = (sqrt(sqrt(ord)) + 1)^2
+    scale = 0
+
+    if( j>1 && a[j] > w ) {
+      if (h = probiere_kurve(a, b, a[j], n, ord)) return h
+    } else if (j>1) {
+      print "zu klein\n"
+    } else {
+      print "zu wenige\n"
+    }
+    print "\nnaechste Ordnung\n"
+
+  }
+  if (i >= 100) return -1			# n keine Primzahl
+  return 0					# neues d probieren
+}
+
+
+
+
+
+define ellkj1 (p, j) {		# eine erste Kurve über Zp mit j-Invariante = j
+				# (vgl. Elliptische-Kurven-SS2000.pdf)
+
+  auto h			# global: a, b
+
+  if (j == 0) {
+    a = 0
+    b = 1			# b ändern: 6 mögl. Ordnungen (oder nur p+1)
+  } else if (j == 1728) {
+    a = 1			# a ändern: 4 mögl. Ordnungen (oder nur p+1)
+    b = 0
+  } else {
+    if (h = euklid(4*(j - 1728), p) > 1) return h
+    a = mod( -27*j * koeff_x, p)
+    b = a			# a, b ändern: 2 mögl. Ordnungen (oder nur p+1)
+    if (b > 0) b = -b
+  }
+}
+
+
+
+
+define neuellk (p, d) {		# ändert global a, b
+
+  # proveprime: inv27, 	# kurven_zu_d: invj
+
+  if (d == -3) {
+    b = b+1
+  } else if (d == -4) {
+    a = a+1
+  } else {
+    if (b < 0) {
+      b = -b
+    } else {			# wie noch ändern? So:
+
+      b = -1
+      while (b == -1) {
+        a = a + 1
+        b = sqrtmod( (1728*invj - 1)*4*inv27*a^3, p)
+      }
+      if (b == 0) return 100	# p nicht prim
+      b = -b
+    }
+  }
+  if (a>=p || b >= p) return 1 	# d ändern
+}
+
+
+
+
+
+define ord_ellk (n, a, b, m[]) {	# Ordnung von E: y^2 = x^3 +ax + b über Zn bestimmen 
+
+  auto h, x, y, i
+
+  print "ord_ellk a: ", a, ", b: ",b, ", n: ",n,"\n"
+  x = 0
+
+  while (m[0] > 1 && x < n) {
+
+    while( jacobi( x^3+a*x+b, n) < 1) {		# nächster Punkt der Kurve:
+      x = x + 1
+    }
+    if( y = sqrtmod(x^3+a*x+b, n) == 0) return -1	# n keine Primzahl
+    print "(", x, ", ", y, ")\n"
+
+    for (i=1; i<=m[0]; i++) {			# prüfe alle Kandidaten aus m[]
+
+      h = mal(x, y, 1, m[i])
+      if (h && h<n) return (-h)			# Teiler von n gefunden
+
+      if (zprod) {				# Ergebnis ungleich neutral, m[i] streichen:
+        print " ", m[i], " gestrichen\n"
+        m[i] = m[m[0]]
+        m[0] = m[0] - 1
+        i = i - 1
+      }
+    }
+    if (m[0] == 0) {
+      print "\nKein Ordnungs-Kandidat passt.\n"
+      return -1					# n ist nicht prim
+    }
+    x = x + 1
+  }
+  if (x < n ) return m[1]			# Ordnung
+  return 0					# unklar (mehrere Kandidaten passen)
+}
+
+
+
+
+
+define probiere_kurve (a, b, q, n, ord) {
+
+  auto x, y, h
+
+  print "\nProbiere Kurve a: ", a, ", b: ",b, " mit q: ", q,"\n"
+
+  x = 0						# find a point (x,y) of order q:
+
+  while (x < n) {
+
+    while( jacobi( x^3+a*x+b, n) < 1) x = x + 1	# nächster Punkt der Kurve
+    if( y = sqrtmod(x^3+a*x+b, n) == 0) break	# n keine Primzahl
+    print "(", x, ", ", y, ")\n"
+
+    if (h = mal(x,y,1, ord/q) > 0) break
+    if (zprod) {
+      print "(", xprod, ", ", yprod, ")\n"	# Dieser Punkt hat Ordnung q, wenn n Primzahl
+      print "a: ", a, " b: ", b, "\n"
+      print n, " Primzahl, wenn ", q, " Primzahl\n"
+      return q					# n Primzahl, wenn q Primzahl
+    }
+    x = x + 1
+  }
+  iter_mr = it
+  if (x >= n) return 0				# unentschieden
+  return min(-h, -1)				# evtl. -Teiler
+}
+
+
+
+
+#p = nextprime(10^16)
+#q = nextprime(10^22)
+#start_a_ecm = 70
+
+
+h = faktbas(100)	# setzt faktbasi
+ein = (2^127+8)/(8*17)
+
+
+
+
+

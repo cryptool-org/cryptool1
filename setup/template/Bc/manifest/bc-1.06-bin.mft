@@ -1,0 +1,16 @@
+bin/bc.exe
+bin/dc.exe
+contrib/Authors
+contrib/bc-1.06.README
+contrib/ChangeLog
+contrib/COPYING
+contrib/COPYING.LIB
+contrib/FAQ
+contrib/install-sh
+contrib/INSTALL
+contrib/News
+contrib/README
+man/cat1/bc.1.txt
+man/cat1/dc.1.txt
+manifest/bc-1.06-bin.mft
+manifest/bc-1.06-bin.ver
