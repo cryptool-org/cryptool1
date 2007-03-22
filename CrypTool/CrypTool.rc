@@ -5906,7 +5906,7 @@ BEGIN
             , GRAYED
             MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
             , GRAYED
-            POPUP "&Weitere"
+            POPUP "&Weitere Algorithmen"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
                 , GRAYED
@@ -6301,7 +6301,7 @@ BEGIN
             MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
             MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
-            POPUP "&Weitere"
+            POPUP "&Weitere Algorithmen"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
                 MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
@@ -6719,7 +6719,7 @@ BEGIN
             , GRAYED
             MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
             , GRAYED
-            POPUP "&Weitere"
+            POPUP "&Weitere Algorithmen"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
                 , GRAYED
@@ -7112,7 +7112,7 @@ BEGIN
             MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
             MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
-            POPUP "&Weitere"
+            POPUP "&Weitere Algorithmen"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
                 MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
@@ -7563,7 +7563,7 @@ BEGIN
             , GRAYED
             MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
             , GRAYED
-            POPUP "&Weitere"
+            POPUP "&Weitere Algorithmen"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
                 , GRAYED
@@ -17455,7 +17455,7 @@ BEGIN
             , GRAYED
             MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
             , GRAYED
-            POPUP "&Further"
+            POPUP "&Further Algorithms"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
                 MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
@@ -17845,7 +17845,7 @@ BEGIN
             MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
             MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
-            POPUP "&Further"
+            POPUP "&Further Algorithms"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
                 MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
@@ -18267,7 +18267,7 @@ BEGIN
             , GRAYED
             MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
             , GRAYED
-            POPUP "&Further"
+            POPUP "&Further Algorithms"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
                 , GRAYED
@@ -18656,7 +18656,7 @@ BEGIN
             MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
             MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
-            POPUP "&Further"
+            POPUP "&Further Algorithms"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
                 MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
@@ -19103,7 +19103,7 @@ BEGIN
             , GRAYED
             MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
             , GRAYED
-            POPUP "&Further"
+            POPUP "&Further Algorithms"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
                 , GRAYED
