@@ -13,7 +13,7 @@
   
   Name "${ProgramName} ${VersionInfo}"
   OutFile "SetupCrypTool_${LANGUAGE_STR}.exe"
-  BrandingText "CrypTool 1.4.10"
+  BrandingText "(c) 1998-2007 Contributors"
 
   ;Default installation folder
   InstallDir "$PROGRAMFILES\${ProgramName}"   ; "$PROGRAMFILES\$(^NameDA)"

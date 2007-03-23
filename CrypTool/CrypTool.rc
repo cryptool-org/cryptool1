@@ -5836,7 +5836,7 @@ BEGIN
             MENUITEM "&Der Zahlenhai",              ID_NUMBERSHARK
         END
         MENUITEM SEPARATOR
-        POPUP "&Zahlentheorie Interaktiv"
+        POPUP "&Zahlentheorie interaktiv"
         BEGIN
             MENUITEM "&Tutorial zur Public Key Kryptographie...", 
                                                     ID_INTERACTIVE_NUMBER_THEORY
@@ -6241,7 +6241,7 @@ BEGIN
             MENUITEM "&Der Zahlenhai",              ID_NUMBERSHARK
         END
         MENUITEM SEPARATOR
-        POPUP "&Zahlentheorie Interaktiv"
+        POPUP "&Zahlentheorie interaktiv"
         BEGIN
             MENUITEM "&Tutorial zur Public Key Kryptographie...", 
                                                     ID_INTERACTIVE_NUMBER_THEORY
@@ -6651,7 +6651,7 @@ BEGIN
             MENUITEM "&Der Zahlenhai",              ID_NUMBERSHARK
         END
         MENUITEM SEPARATOR
-        POPUP "&Zahlentheorie Interaktiv"
+        POPUP "&Zahlentheorie interaktiv"
         BEGIN
             MENUITEM "&Tutorial zur Public Key Kryptographie...", 
                                                     ID_INTERACTIVE_NUMBER_THEORY
@@ -7052,7 +7052,7 @@ BEGIN
             MENUITEM "&Der Zahlenhai",              ID_NUMBERSHARK
         END
         MENUITEM SEPARATOR
-        POPUP "&Zahlentheorie Interaktiv"
+        POPUP "&Zahlentheorie interaktiv"
         BEGIN
             MENUITEM "&Tutorial zur Public Key Kryptographie...", 
                                                     ID_INTERACTIVE_NUMBER_THEORY
@@ -7493,7 +7493,7 @@ BEGIN
             MENUITEM "&Der Zahlenhai",              ID_NUMBERSHARK
         END
         MENUITEM SEPARATOR
-        POPUP "&Zahlentheorie Interaktiv"
+        POPUP "&Zahlentheorie interaktiv"
         BEGIN
             MENUITEM "&Tutorial zur Public Key Kryptographie...", 
                                                     ID_INTERACTIVE_NUMBER_THEORY
@@ -17385,7 +17385,7 @@ BEGIN
             MENUITEM "&Number Shark",               ID_NUMBERSHARK
         END
         MENUITEM SEPARATOR
-        POPUP "&Number Theory Interactively"
+        POPUP "&Number Theory - Interactive"
         BEGIN
             MENUITEM "&Tutorial for Public Key Cryptography...", 
                                                     ID_INTERACTIVE_NUMBER_THEORY
@@ -17785,7 +17785,7 @@ BEGIN
             MENUITEM "&Number Shark",               ID_NUMBERSHARK
         END
         MENUITEM SEPARATOR
-        POPUP "&Number Theory Interactively"
+        POPUP "&Number Theory - Interactive"
         BEGIN
             MENUITEM "&Tutorial for Public Key Cryptography...", 
                                                     ID_INTERACTIVE_NUMBER_THEORY
@@ -18197,7 +18197,7 @@ BEGIN
             MENUITEM "&Number Shark",               ID_NUMBERSHARK
         END
         MENUITEM SEPARATOR
-        POPUP "&Number Theory Interactively"
+        POPUP "&Number Theory - Interactive"
         BEGIN
             MENUITEM "&Tutorial for Public Key Cryptography...", 
                                                     ID_INTERACTIVE_NUMBER_THEORY
@@ -18596,7 +18596,7 @@ BEGIN
             MENUITEM "&Number Shark",               ID_NUMBERSHARK
         END
         MENUITEM SEPARATOR
-        POPUP "&Number Theory Interactively"
+        POPUP "&Number Theory - Interactive"
         BEGIN
             MENUITEM "&Tutorial for Public Key Cryptography...", 
                                                     ID_INTERACTIVE_NUMBER_THEORY
@@ -19033,7 +19033,7 @@ BEGIN
             MENUITEM "&Number Shark",               ID_NUMBERSHARK
         END
         MENUITEM SEPARATOR
-        POPUP "&Number Theory Interactively"
+        POPUP "&Number Theory - Interactive"
         BEGIN
             MENUITEM "&Tutorial for Public Key Cryptography...", 
                                                     ID_INTERACTIVE_NUMBER_THEORY
