@@ -24,6 +24,10 @@
 ;Interface Settings
 
   !define MUI_ABORTWARNING
+  !define MUI_WELCOMEFINISHPAGE_BITMAP CrypTool.bmp
+  !define MUI_UNWELCOMEFINISHPAGE_BITMAP CrypTool.bmp
+  !define MUI_HEADERIMAGE
+  !define MUI_HEADERIMAGE_BITMAP CrypToolH.bmp
 
 ;--------------------------------
 ;Pages
@@ -32,6 +36,8 @@
   !insertmacro MUI_PAGE_LICENSE "setup-${LANGUAGE_STR}\license-${LANGUAGE_STR}.rtf"
   !insertmacro MUI_PAGE_DIRECTORY
   !insertmacro MUI_PAGE_INSTFILES
+  !define MUI_FINISHPAGE_RUN CrypTool.exe
+  !define MUI_FINISHPAGE_SHOWREADME ReadMe-${LANGUAGE_STR}.txt
   !insertmacro MUI_PAGE_FINISH
 
   !insertmacro MUI_UNPAGE_WELCOME
