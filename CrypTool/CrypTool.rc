@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -5521,14 +5521,14 @@ BEGIN
                     IDC_STATIC,7,7,205,32
 END
 
-IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 300, 290
+IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 300, 307
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Passwortqualitätsmesser"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,269,50,14
-    PUSHBUTTON      "Abbrechen",IDCANCEL,243,269,50,14
+    DEFPUSHBUTTON   "OK",IDOK,7,286,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,243,286,50,14
     GROUPBOX        "Einführung",IDC_STATIC,7,7,286,60
     GROUPBOX        "Eingabe des Passworts",IDC_STATIC,7,72,286,98
     GROUPBOX        "Qualität des Passworts",IDC_STATIC,7,175,286,85
@@ -5536,10 +5536,10 @@ BEGIN
                     40
     LTEXT           "Bitte geben Sie Ihr Passwort in das Eingabefeld ein. Die Qualität des Passworts wird nach jedem Tastendruck automatisch aktualisiert.",
                     IDC_STATIC,20,85,260,16
-    EDITTEXT        IDC_EDIT_PASSWORD,61,106,157,14,ES_AUTOHSCROLL
-    LTEXT           "Passwort:",IDC_STATIC,20,107,33,8
+    EDITTEXT        IDC_EDIT_PASSWORD,68,106,150,14,ES_AUTOHSCROLL
+    LTEXT           "Passwort:",IDC_STATIC,28,106,33,8
     CONTROL         "Passwort im Klartext anzeigen",IDC_CHECK_SHOWPASSWORD,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,61,122,112,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,68,122,150,10
     CONTROL         "",IDC_PROGRESS_KEEPASS,"msctls_progress32",WS_BORDER | 
                     0x1,68,188,150,8
     LTEXT           "KeePass:",IDC_STATIC,31,188,30,8
@@ -5549,13 +5549,16 @@ BEGIN
                     0x1,68,202,150,8
     CONTROL         "",IDC_PROGRESS_PGP,"msctls_progress32",WS_BORDER | 0x1,
                     68,216,150,8
-    CONTROL         "",IDC_PROGRESS_AVERAGE,"msctls_progress32",WS_BORDER | 
+    CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",WS_BORDER | 
                     0x1,68,236,150,8
-    LTEXT           "Durchschnitt:",IDC_STATIC,20,236,44,8
+    LTEXT           "CrypTool:",IDC_STATIC,29,236,32,8
     CTEXT           "100 %",IDC_QUALITY_KEEPASS,225,188,55,8
     CTEXT           "100 %",IDC_QUALITY_MOZILLA,225,202,55,8
     CTEXT           "100 %",IDC_QUALITY_PGP,225,216,55,8
-    CTEXT           "100 %",IDC_QUALITY_AVERAGE,225,236,55,8
+    CTEXT           "100 %",IDC_QUALITY_CRYPTOOL,225,236,55,8
+    CONTROL         "CrypTool-Alphabet verwenden",
+                    IDC_CHECK_USECRYPTOOLALPHABET,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,68,246,150,10
 END
 
 
@@ -9124,7 +9127,7 @@ BEGIN
         VERTGUIDE, 225
         VERTGUIDE, 280
         TOPMARGIN, 7
-        BOTTOMMARGIN, 283
+        BOTTOMMARGIN, 300
         HORZGUIDE, 20
         HORZGUIDE, 72
         HORZGUIDE, 85
@@ -11617,6 +11620,8 @@ BEGIN
                             "Der Klartext besteht aus %d Buchstaben. Alle diese Buchstaben gehören zum eingestellten Alphabet.\nVerschlüsselt werden nur die Alphabetzeichen. Wenn das Alphabet nur Großbuchstaben enthält, werden die entsprechenden Kleinbuchstaben aber ebenfalls verschlüsselt; nicht umgekehrt.\nDie Ver- und Entschlüsselung ist unten beispielhaft durchgerechnet für die %d ersten Buchstaben aus dem Klartext, die zum Alphabet gehören."
     IDS_SCINTILLA_LEXER_ERROR 
                             "Die Alphabet-Ansicht kann nicht aktiviert werden, wahrscheinlich wurde nicht\ndie mit CrypTool gelieferte SCILEXER.DLL geladen, sondern eine andere."
+    IDS_PQM_CRYPTOOLALPHABETINACTIVE 
+                            "Sie haben die Berücksichtigung des CrypTool-Alphabets deaktiviert. Bitte beachten Sie, dass die von CrypTool\nangezeigte Passwortqualität in dieser Konfiguration die tatsächliche Passwortqualität übersteigen kann."
 END
 
 STRINGTABLE 
@@ -11669,12 +11674,12 @@ BEGIN
     ID_ANALYSE_DESXL        "Automatische Brute-force Analyse einer DESXL-Verschlüsselung"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -23392,7 +23397,7 @@ BEGIN
     ID_ANALYSE_DESXL        "Automatic brute-force analysis of encryption using the DESXL algorithm"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

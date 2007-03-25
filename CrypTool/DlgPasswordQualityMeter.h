@@ -24,19 +24,23 @@ protected:
 private:
 	CString password;
 	BOOL showPassword;
+	BOOL useCrypToolAlphabet;
 
 	int intQualityKeePass;
 	int intQualityMozilla;
 	int intQualityPGP;
-	int intQualityAverage;
+	int intQualityCrypTool;
 	
 	CString stringQualityKeePass;
 	CString stringQualityMozilla;
 	CString stringQualityPGP;
-	CString stringQualityAverage;
+	CString stringQualityCrypTool;
 
 	CProgressCtrl controlQualityKeePass;
 	CProgressCtrl controlQualityMozilla;
 	CProgressCtrl controlQualityPGP;
-	CProgressCtrl controlQualityAverage;
+	CProgressCtrl controlQualityCrypTool;
+public:
+	afx_msg void OnBnClickedCheckUsecryptoolalphabet();
+	afx_msg void OnBnClickedCheckShowpassword();
 };

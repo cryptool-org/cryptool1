@@ -55,6 +55,7 @@
 #define IDS_HILL_DETAILS_IS_NOT_ALPHCHAR 39
 #define IDS_HILL_DETAILS_IS_ALPHCHAR    40
 #define IDS_SCINTILLA_LEXER_ERROR       41
+#define IDS_PQM_CRYPTOOLALPHABETINACTIVE 42
 #define IDC_EDIT53                      53
 #define IDC_EDIT69                      54
 #define IDC_EDIT88                      55
@@ -1494,11 +1495,12 @@
 #define IDC_QUALITY_KEEPASS             1964
 #define IDC_QUALITY_MOZILLA             1965
 #define IDC_QUALITY_PGP                 1966
-#define IDC_QUALITY_AVERAGE             1967
+#define IDC_QUALITY_CRYPTOOL            1967
 #define IDC_PROGRESS_KEEPASS            1968
 #define IDC_PROGRESS_MOZILLA            1969
 #define IDC_PROGRESS_PGP                1970
-#define IDC_PROGRESS_AVERAGE            1971
+#define IDC_PROGRESS_CRYPTOOL           1971
+#define IDC_CHECK_USECRYPTOOLALPHABET   1972
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -2892,7 +2894,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        862
 #define _APS_NEXT_COMMAND_VALUE         33350
-#define _APS_NEXT_CONTROL_VALUE         1972
+#define _APS_NEXT_CONTROL_VALUE         1973
 #define _APS_NEXT_SYMED_VALUE           108
 #endif
 #endif
