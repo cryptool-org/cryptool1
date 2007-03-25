@@ -61,6 +61,7 @@ using namespace std;
 #include "CryptDoc.h"
 #include "DlgPrimesGeneratorDemo.h"
 #include "DlgShowProgress.h"
+#include "CrypToolTools.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -74,10 +75,18 @@ UINT GenRandomDataThread( PVOID pParam ) // Thread-Version
 	BOOL Out;
 	CString title;
 	CString progress;
-	char	outfile[128];
+	char	outfile[256], outfile2[256];
 	RandPar* par = static_cast<RandPar*>(pParam);
 	GetTmpName(outfile,"cry",".hex");
 	ofstream rndData(outfile, ios::binary);
+	ofstream rndState;
+	CString  rndStateStr;
+
+	if ( par->m_SelGenerator && par->m_PrintInternalStates )
+	{
+		GetTmpName(outfile2, "cry", ".txt");
+		rndState.open( outfile2 );
+	}
 	unsigned char	o;
 	long			i, j, k(0), l;
 	progress.LoadString(IDS_RAND_PROGRESS);
@@ -108,10 +117,23 @@ UINT GenRandomDataThread( PVOID pParam ) // Thread-Version
 			title.Format(IDS_RAND_GEN_PARAM, "X^2 (mod N)", par->m_DataSize);
 			theApp.fs.Display(LPCTSTR(title));
 			par->rnd_x2modN.setSeed( par->m_seed );
+			if ( par->m_PrintInternalStates )
+			{
+				par->rnd_x2modN.randIntStr(rndStateStr);
+				rndState << rndStateStr << " ";
+			}
 			for ( j=0; j<par->m_DataSize; j++ )
 			{
 				o=0;
-				for (i=0; i<8; i++) o |= par->rnd_x2modN.randBit() << (7-i);
+				for (i=0; i<8; i++) {
+					par->rnd_x2modN.randomize();
+					o |= par->rnd_x2modN.randBit() << (7-i);
+					if ( par->m_PrintInternalStates )
+					{
+						par->rnd_x2modN.randIntStr(rndStateStr);
+						rndState << rndStateStr << " ";
+					}
+				}
 				rndData << o;
 				if(theApp.fs.m_canceled)
 				{
@@ -131,10 +153,23 @@ UINT GenRandomDataThread( PVOID pParam ) // Thread-Version
 			title.Format(IDS_RAND_GEN_PARAM, "LCG", par->m_DataSize);
 			theApp.fs.Display(LPCTSTR(title));
 			Out = par->DLCG.setSeed( par->m_seed );
+			if ( par->m_PrintInternalStates )
+			{
+				par->DLCG.randIntStr(rndStateStr);
+				rndState << rndStateStr << " ";
+			}
 			for(j=0;j<par->m_DataSize;j++)
 			{
 				o = 0;
-				for (i=0; i<8; i++) o |= par->DLCG.randBit() << (7-i);
+				for (i=0; i<8; i++) {
+					par->DLCG.randomize();
+					o |= par->DLCG.randBit() << (7-i);
+					if ( par->m_PrintInternalStates )
+					{
+						par->DLCG.randIntStr(rndStateStr);
+						rndState << rndStateStr << " ";
+					}
+				}
 				rndData << o;
 				if(theApp.fs.m_canceled)
 				{
@@ -154,12 +189,23 @@ UINT GenRandomDataThread( PVOID pParam ) // Thread-Version
 			title.Format(IDS_RAND_GEN_PARAM, "ICG", par->m_DataSize);
 			theApp.fs.Display(LPCTSTR(title));
 			Out = par->DICG.setSeed( par->m_seed );
+			if ( par->m_PrintInternalStates )
+			{
+				par->DICG.randIntStr(rndStateStr);
+				rndState << rndStateStr << " ";
+			}
 			for(j=0;j<par->m_DataSize*9;j++)
 			{
 				o=0;
 				for (i=0; i<8 ; i++)
 				{
+					par->DICG.randomize();
 					o |= par->DICG.randBit() << (7-i);
+					if ( par->m_PrintInternalStates )
+					{
+						par->DICG.randIntStr(rndStateStr);
+						rndState << rndStateStr << " ";
+					}
 					par->DICG.SetCount(j+i);
 				}
 				rndData << o;
@@ -180,12 +226,39 @@ UINT GenRandomDataThread( PVOID pParam ) // Thread-Version
 		break;
 	}
 	rndData.close();
-    
+	if ( par->m_PrintInternalStates )
+		rndState.close();
+
+	if(!theApp.fs.m_canceled) 
+	{
+		if ( par->m_PrintInternalStates )
+			theApp.ThreadOpenDocumentFileNoMRU(outfile2, title);	
+		theApp.ThreadOpenDocumentFileNoMRU(outfile,title);
+	}    
+	theApp.fs.cancel();
+
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
+	{
+		CT_WRITE_REGISTRY(par->m_seed.GetBuffer(), "RANDOM_GENERATOR_SEED");
+		CT_WRITE_REGISTRY((unsigned int)par->m_DataSize, "RANDOM_GENERATOR_DATASIZE");
+		CT_WRITE_REGISTRY((unsigned int)par->m_PrintInternalStates, "RANDOM_GENERATOR_OUTPUT_INTERNALSTATE");
+
+		CT_WRITE_REGISTRY(par->DRPXN.m_EditModul_N.GetBuffer(), "RANDOM_GENERATOR_X2MODN_N");
+
+		CT_WRITE_REGISTRY(par->DRP_LCG.m_LinParam_a.GetBuffer(), "RANDOM_GENERATOR_LCG_P1");
+		CT_WRITE_REGISTRY(par->DRP_LCG.m_LinParam_b.GetBuffer(), "RANDOM_GENERATOR_LCG_P2");
+		CT_WRITE_REGISTRY(par->DRP_LCG.m_LinParam_N.GetBuffer(), "RANDOM_GENERATOR_LCG_N");
+
+		CT_WRITE_REGISTRY(par->DRP_ICG.m_Param_a.GetBuffer(), "RANDOM_GENERATOR_ICG_P1");
+		CT_WRITE_REGISTRY(par->DRP_ICG.m_Param_b.GetBuffer(), "RANDOM_GENERATOR_ICG_P2");
+		CT_WRITE_REGISTRY(par->DRP_ICG.m_Param_N.GetBuffer(), "RANDOM_GENERATOR_ICG_N");
+
+		CT_CLOSE_REGISTRY();
+	}
+
+
 	delete par;
 	par = 0;
-
-	if(!theApp.fs.m_canceled) theApp.ThreadOpenDocumentFileNoMRU(outfile,title);
-	theApp.fs.cancel();
 	return 0;
 }
 
@@ -195,19 +268,14 @@ UINT GenRandomDataThread( PVOID pParam ) // Thread-Version
 
 CDlgRandomGenerator::CDlgRandomGenerator(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgRandomGenerator::IDD, pParent)
+	, m_PrintInternalStates(false)
 {
 	//{{AFX_DATA_INIT(CDlgRandomGenerator)
-	m_SelGenerator = 0;
+	m_SelGenerator = 1;
 	m_seed = _T("314159");
 	m_DataSize = 2500;
 	//}}AFX_DATA_INIT
 	m_pPara = new (RandPar);
-	// x2modN-Generator
-	m_pPara->DRPXN.SetModul(CString(STANDARD_X2MOD_N_MODUL));
-	// LCG-Parameter nach Lehmer
-    m_pPara->DLCG.SetParameter(CString("23"), CString("0"), CString("100000001"));
-	// ICG-Parameter nach ???
-	m_pPara->DLCG.SetParameter(CString("22211"), CString("11926380"), CString("2147483053"));
 }
 
 
@@ -221,6 +289,7 @@ void CDlgRandomGenerator::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT1, m_seed);
 	DDX_Text(pDX, IDC_EDIT2, m_DataSize);
 	DDV_MinMaxLong(pDX, m_DataSize, 1, 1048576);
+	DDX_Check(pDX, IDC_CHECK1, m_PrintInternalStates);
 	//}}AFX_DATA_MAP
 }
 
@@ -275,9 +344,10 @@ void CDlgRandomGenerator::OnSelGenParam()
 void CDlgRandomGenerator::OnGenRandomData() 
 {
 	UpdateData(TRUE);
-	m_pPara->m_DataSize = m_DataSize;
-	m_pPara->m_SelGenerator = m_SelGenerator;
-	m_pPara->m_seed = m_seed;
+	m_pPara->m_DataSize				= m_DataSize;
+	m_pPara->m_SelGenerator			= m_SelGenerator;
+	m_pPara->m_seed					= m_seed;
+	m_pPara->m_PrintInternalStates	= m_PrintInternalStates;
 	UpdateData(FALSE);
 	if ( m_DataSize >= 1 && m_DataSize < 1048576 )
 	{
@@ -302,6 +372,43 @@ BOOL CDlgRandomGenerator::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_READ ) == ERROR_SUCCESS )
+	{
+		char tmpStr1[2048], tmpStr2[2048], tmpStr3[2048];  
+		unsigned long dataSize, outputInternalState, l;
+
+		l = 2047; CT_READ_REGISTRY_DEFAULT(tmpStr1, "RANDOM_GENERATOR_SEED", "314159", l);
+		CT_READ_REGISTRY_DEFAULT(dataSize, "RANDOM_GENERATOR_DATASIZE", 2500);
+		CT_READ_REGISTRY_DEFAULT(outputInternalState, "RANDOM_GENERATOR_OUTPUT_INTERNALSTATE", 1);
+		UpdateData(true);
+		m_seed			= tmpStr1;
+		m_DataSize		= dataSize;
+		m_PrintInternalStates	= outputInternalState;
+
+
+		CT_READ_REGISTRY_DEFAULT(tmpStr1, "RANDOM_GENERATOR_X2MODN_N", STANDARD_X2MOD_N_MODUL, l);
+		m_pPara->DRPXN.SetModul(CString(tmpStr1));
+
+		l = 2047; CT_READ_REGISTRY_DEFAULT(tmpStr1, "RANDOM_GENERATOR_LCG_P1", "23", l);
+		l = 2047; CT_READ_REGISTRY_DEFAULT(tmpStr2, "RANDOM_GENERATOR_LCG_P2", "0", l);
+		l = 2047; CT_READ_REGISTRY_DEFAULT(tmpStr3, "RANDOM_GENERATOR_LCG_N", "100000001", l);
+		// LCG-Parameter nach Lehmer
+		m_pPara->DRP_LCG.m_LinParam_a = tmpStr1;
+		m_pPara->DRP_LCG.m_LinParam_b = tmpStr2;
+		m_pPara->DRP_LCG.m_LinParam_N = tmpStr3;
+
+		l = 2047; CT_READ_REGISTRY_DEFAULT(tmpStr1, "RANDOM_GENERATOR_ICG_P1", "22211", l);
+		l = 2047; CT_READ_REGISTRY_DEFAULT(tmpStr2, "RANDOM_GENERATOR_ICG_P2", "11926380", l);
+		l = 2047; CT_READ_REGISTRY_DEFAULT(tmpStr3, "RANDOM_GENERATOR_ICG_N", "2147483053", l);
+		// ICG-Parameter nach ???
+		m_pPara->DRP_ICG.m_Param_a = tmpStr1;
+		m_pPara->DRP_ICG.m_Param_b = tmpStr2;
+		m_pPara->DRP_ICG.m_Param_N = tmpStr3;
+
+		UpdateData(false);
+		CT_CLOSE_REGISTRY();
+	}
+
     if(theApp.SecudeStatus == 2) 
 	{
 		m_CtrlSecudeGenerator.EnableWindow(TRUE);

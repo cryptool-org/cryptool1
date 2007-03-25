@@ -363,12 +363,13 @@ protected:
 	Big RandNo;
 
 public:
-	virtual void randomize() = 0;
 	BOOL setSeed( CString &SeetStr );
 	CRandomGenerator();
-	virtual ~CRandomGenerator();
-	virtual long     randBit() = 0;
-
+	virtual     ~CRandomGenerator();
+	virtual void randomize() = 0;
+	virtual long randBit() = 0;
+	// virtual double	randFloat() = 0;
+	virtual void randIntStr( CString &IntStr, int base = BASE_DEC );
 };
 
 /////////////////////////////////////////////////////////////////////////////
@@ -380,24 +381,26 @@ public:
 class CX2ModNGenerator : public CRandomGenerator  
 {
 	Big Modul_N;
+
 public:
-	void randomize();
 	BOOL setModul( CString &NStr );
 	CX2ModNGenerator();
 	virtual ~CX2ModNGenerator();
-	long     randBit();
+	void    randomize();
+	long    randBit();
 };
 
 
 class LinearCongruenceGenerator : public CRandomGenerator  
 {
 	Big a, b, N;
+
 public:
-	void randomize();
 	BOOL SetParameter( CString &aStr, CString &bStr, CString &NStr );
 	LinearCongruenceGenerator();
 	virtual ~LinearCongruenceGenerator();
-	long     randBit();
+	void    randomize();
+	long    randBit();
 };
 
 
@@ -405,12 +408,13 @@ class InverseCongruenceGenerator : public CRandomGenerator
 {
 	Big a, b, N;
 	long count;
+
 public:
-	void randomize();
 	BOOL SetCount( long n );
 	BOOL SetParameter( CString &aStr, CString &bStr, CString &NStr );
 	InverseCongruenceGenerator();
 	virtual ~InverseCongruenceGenerator();
+	void     randomize();
 	long     randBit();
 };
 

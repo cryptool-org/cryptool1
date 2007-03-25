@@ -91,7 +91,7 @@ ENGLISH IndivProcedures_Tools_Codes_Base64EncodeDecode # &Indiv. Procedures|&Too
 ENGLISH IndivProcedures_Tools_Codes_UUEncodeDecode # &Indiv. Procedures|&Tools|C&odes|&UU Encode/Decode
 ENGLISH IndivProcedures_Tools_Compress # &Indiv. Procedures|&Tools|&Compress
 ENGLISH IndivProcedures_VisualizationofAlgorithms # &Indiv. Procedures|&Visualization of Algorithms
-ENGLISH IndivProcedures_NumberTheoryInteractively # &Indiv. Procedures|&Number Theory Interactively
+ENGLISH IndivProcedures_NumberTheoryInteractive # &Indiv. Procedures|&Number Theory - Interactive
 ENGLISH Analysis_SymmetricEncryptionmodern_FurtherAlgorithms # &Analysis|Symmetric Encryption (modern)|&Further Algorithms
 GERMAN	Analyse	# A&nalyse
 GERMAN Bearbeiten # &Bearbeiten
@@ -136,7 +136,7 @@ GERMAN Einzelverfahren_Tools_Codierungen_Base64CodierungBase64Decodierung # &Ein
 GERMAN Einzelverfahren_Tools_Codierungen_UUCodierungUUDecodierung # &Einzelverfahren|&Tools|C&odierungen|&UU-Codierung/UU-Decodierung
 GERMAN Einzelverfahren_Tools_Komprimieren # &Einzelverfahren|&Tools|&Komprimieren
 GERMAN Einzelverfahren_VisualisierungvonAlgorithmen # &Einzelverfahren|&Visualisierung von Algorithmen
-GERMAN Einzelverfahren_ZahlentheorieInteraktiv # &Einzelverfahren|&Zahlentheorie Interaktiv
+GERMAN Einzelverfahren_Zahlentheorieinteraktiv # &Einzelverfahren|&Zahlentheorie interaktiv
 GERMAN Analyse_SymmetrischeVerschlsselungmodern_WeitereAlgorithmen # A&nalyse|Symmetrische Verschlüsselung (&modern)|&Weitere Algorithmen
 GERMAN VerEntschlsseln_Symmetrischmodern_WeitereAlgorithmen # &Ver-/Entschlüsseln|Symmetrisch (&modern)|&Weitere Algorithmen
 

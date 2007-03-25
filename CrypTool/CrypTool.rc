@@ -2005,10 +2005,10 @@ BEGIN
     LTEXT           "-Gramm",IDC_STATIC,43,64,25,8
 END
 
-IDD_RANDOM_GENERATOR DIALOG  0, 0, 301, 255
+IDD_RANDOM_GENERATOR DIALOGEX 0, 0, 301, 278
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Zufallsdaten erzeugen"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     CONTROL         "Zufallsgenerator der &Secude Bibliothek",IDC_RADIO1,
                     "Button",BS_AUTORADIOBUTTON | WS_GROUP,18,59,165,8
@@ -2022,16 +2022,19 @@ BEGIN
     PUSHBUTTON      "Generatorspezifische &Parameter wählen ...",IDC_BUTTON1,
                     18,158,155,18
     EDITTEXT        IDC_EDIT2,110,200,40,12,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "Ausgabe &erzeugen",IDOK,9,229,127,19
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,224,229,68,19
+    DEFPUSHBUTTON   "Ausgabe &erzeugen",IDOK,9,248,127,19
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,224,248,68,19
     GROUPBOX        "",IDC_STATIC,9,0,283,36
     LTEXT           "Zufallsdaten werden mit Hilfe der sogenannten ""Pseudozufallsgeneratoren"" erzeugt. Dies ist eine Auswahl sowohl von ""kryptographisch starken"" als auch unsicheren Pseudozufallsgeneratoren.",
                     IDC_STATIC,18,8,256,24
     GROUPBOX        "Auswahl des Algorithmus ",IDC_STATIC,9,42,283,79
     GROUPBOX        "Parameter ",IDC_STATIC,9,126,283,58
     LTEXT           "Saat:",IDC_STATIC,18,141,18,9
-    GROUPBOX        "Ausgabeoptionen ",IDC_STATIC,9,189,283,31
+    GROUPBOX        "Ausgabeoptionen ",IDC_STATIC,9,189,283,49
     LTEXT           "Länge der Ausgabe in Bytes:",IDC_STATIC,18,202,92,8
+    CONTROL         "Interne Zufalls-Generator-Zustaände ausgeben (nur für X^2 mod N, LCG und ICG).",
+                    IDC_CHECK1,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | 
+                    WS_TABSTOP,18,217,162,16
 END
 
 IDD_RANDOMPARAMETER_SECUDE DIALOG  0, 0, 186, 86
@@ -5841,7 +5844,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "&Zahlentheorie interaktiv"
         BEGIN
-            MENUITEM "&Tutorial zur Public Key Kryptographie...", 
+            MENUITEM "&Tutorial zur Public-Key-Kryptographie...", 
                                                     ID_INTERACTIVE_NUMBER_THEORY
 
             MENUITEM "&Punktaddition auf Elliptischen Kurven...", 
@@ -6246,7 +6249,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "&Zahlentheorie interaktiv"
         BEGIN
-            MENUITEM "&Tutorial zur Public Key Kryptographie...", 
+            MENUITEM "&Tutorial zur Public-Key-Kryptographie...", 
                                                     ID_INTERACTIVE_NUMBER_THEORY
 
             MENUITEM "&Punktaddition auf Elliptischen Kurven...", 
@@ -6656,7 +6659,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "&Zahlentheorie interaktiv"
         BEGIN
-            MENUITEM "&Tutorial zur Public Key Kryptographie...", 
+            MENUITEM "&Tutorial zur Public-Key-Kryptographie...", 
                                                     ID_INTERACTIVE_NUMBER_THEORY
 
             MENUITEM "&Punktaddition auf Elliptischen Kurven...", 
@@ -7057,7 +7060,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "&Zahlentheorie interaktiv"
         BEGIN
-            MENUITEM "&Tutorial zur Public Key Kryptographie...", 
+            MENUITEM "&Tutorial zur Public-Key-Kryptographie...", 
                                                     ID_INTERACTIVE_NUMBER_THEORY
 
             MENUITEM "&Punktaddition auf Elliptischen Kurven...", 
@@ -7498,7 +7501,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "&Zahlentheorie interaktiv"
         BEGIN
-            MENUITEM "&Tutorial zur Public Key Kryptographie...", 
+            MENUITEM "&Tutorial zur Public-Key-Kryptographie...", 
                                                     ID_INTERACTIVE_NUMBER_THEORY
 
             MENUITEM "&Punktaddition auf Elliptischen Kurven...", 
@@ -8695,6 +8698,12 @@ BEGIN
         HORZGUIDE, 283
         HORZGUIDE, 368
         HORZGUIDE, 391
+    END
+
+    IDD_RANDOM_GENERATOR, DIALOG
+    BEGIN
+        VERTGUIDE, 18
+        HORZGUIDE, 267
     END
 
     IDD_KEY_PERMUTATION, DIALOG
@@ -11510,6 +11519,7 @@ BEGIN
                             "Alle Koeffizienten müssen kleiner sein als die gewählte Primzahl."
     IDS_STRING_SECRETSHARING_NOINPUT "Sie müssen eine Zahl angeben!"
     IDS_STRING_SHARE        "Share (geheimer Wert f(x))"
+    IDS_STRING_PRIMETEST_ERROR_EMPTY "Geben Sie eine zu testende Zahl ein!"
 END
 
 STRINGTABLE 
@@ -13746,10 +13756,10 @@ BEGIN
     LTEXT           "-gram",IDC_STATIC,45,64,25,8
 END
 
-IDD_RANDOM_GENERATOR DIALOG  0, 0, 292, 255
+IDD_RANDOM_GENERATOR DIALOGEX 0, 0, 292, 274
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Generation of Random Numbers"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     CONTROL         "&Secude Library random number generator",IDC_RADIO1,
                     "Button",BS_AUTORADIOBUTTON | WS_GROUP,18,59,165,8
@@ -13763,16 +13773,19 @@ BEGIN
     PUSHBUTTON      "Choose generator-specific &parameters ...",IDC_BUTTON1,
                     18,158,155,18
     EDITTEXT        IDC_EDIT2,110,200,40,12,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&Generate output",IDOK,9,229,127,19
-    PUSHBUTTON      "&Cancel",IDCANCEL,214,229,68,19
+    DEFPUSHBUTTON   "&Generate output",IDOK,9,243,127,19
+    PUSHBUTTON      "&Cancel",IDCANCEL,214,243,68,19
     GROUPBOX        "",IDC_STATIC,9,0,273,36
     LTEXT           "Random data is generated with the aid of so-called ""pseudorandom number generators"". This is a selection of both ""cryptographically strong"" and also insecure pseudorandom number generators.",
                     IDC_STATIC,18,8,256,24
     GROUPBOX        "Algorithm selection ",IDC_STATIC,9,42,273,79
     GROUPBOX        "Parameters ",IDC_STATIC,9,126,273,58
     LTEXT           "Seed:",IDC_STATIC,18,141,18,9
-    GROUPBOX        "Output options ",IDC_STATIC,9,189,273,31
+    GROUPBOX        "Output options ",IDC_STATIC,9,189,273,48
     LTEXT           "Length of output in bytes:",IDC_STATIC,18,202,92,8
+    CONTROL         "Print out internal random number states (only for X^2 mod N, ICG and LCG).",
+                    IDC_CHECK1,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | 
+                    WS_TABSTOP,18,217,258,16
 END
 
 IDD_RANDOMPARAMETER_SECUDE DIALOG  0, 0, 186, 86
@@ -17392,7 +17405,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "&Number Theory - Interactive"
         BEGIN
-            MENUITEM "&Tutorial for Public Key Cryptography...", 
+            MENUITEM "&Tutorial for Public-Key Cryptography...", 
                                                     ID_INTERACTIVE_NUMBER_THEORY
 
             MENUITEM "&Point Addition on Elliptic Curves...", 
@@ -17792,7 +17805,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "&Number Theory - Interactive"
         BEGIN
-            MENUITEM "&Tutorial for Public Key Cryptography...", 
+            MENUITEM "&Tutorial for Public-Key Cryptography...", 
                                                     ID_INTERACTIVE_NUMBER_THEORY
 
             MENUITEM "&Point Addition on Elliptic Curves...", 
@@ -18204,7 +18217,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "&Number Theory - Interactive"
         BEGIN
-            MENUITEM "&Tutorial for Public Key Cryptography...", 
+            MENUITEM "&Tutorial for Public-Key Cryptography...", 
                                                     ID_INTERACTIVE_NUMBER_THEORY
 
             MENUITEM "&Point Addition on Elliptic Curves...", 
@@ -18603,7 +18616,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "&Number Theory - Interactive"
         BEGIN
-            MENUITEM "&Tutorial for Public Key Cryptography...", 
+            MENUITEM "&Tutorial for Public-Key Cryptography...", 
                                                     ID_INTERACTIVE_NUMBER_THEORY
 
             MENUITEM "&Point Addition on Elliptic Curves...", 
@@ -19040,7 +19053,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "&Number Theory - Interactive"
         BEGIN
-            MENUITEM "&Tutorial for Public Key Cryptography...", 
+            MENUITEM "&Tutorial for Public-Key Cryptography...", 
                                                     ID_INTERACTIVE_NUMBER_THEORY
 
             MENUITEM "&Point Addition on Elliptic Curves...", 
@@ -20308,6 +20321,12 @@ BEGIN
         HORZGUIDE, 288
         HORZGUIDE, 380
         HORZGUIDE, 406
+    END
+
+    IDD_RANDOM_GENERATOR, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 255
+        HORZGUIDE, 262
     END
 
     IDD_X2MODN_RANDOMPARAMETER, DIALOG
@@ -23254,6 +23273,7 @@ BEGIN
                             "All coefficients have to be less than your prime module."
     IDS_STRING_SECRETSHARING_NOINPUT "You have to enter a number!"
     IDS_STRING_SHARE        "Share [secret value f(x)]"
+    IDS_STRING_PRIMETEST_ERROR_EMPTY "Please enter a number!"
 END
 
 STRINGTABLE 

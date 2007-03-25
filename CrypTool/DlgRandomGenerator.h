@@ -66,6 +66,7 @@ typedef struct
 	int		m_SelGenerator;
 	long	m_DataSize;
 	CString m_seed;
+	int     m_PrintInternalStates;
 
 	// X^2 (mod N) Generator
 	CX2ModNGenerator rnd_x2modN;
@@ -103,6 +104,7 @@ public:
 	int		m_SelGenerator;
 	CString m_seed;
 	long	m_DataSize;
+	int     m_PrintInternalStates;
 	//}}AFX_DATA
 
 
@@ -125,7 +127,6 @@ protected:
 	virtual BOOL OnInitDialog();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
-private:
 
 };
 

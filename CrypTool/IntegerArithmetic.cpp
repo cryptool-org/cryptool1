@@ -2846,6 +2846,11 @@ BOOL CRandomGenerator::setSeed(CString &SeetStr)
 	return retValue;
 }
 
+void CRandomGenerator::randIntStr(CString & IntStr, int base )
+{
+	BigToCString(RandNo, IntStr, base);
+}
+
 
 //////////////////////////////////////////////////////////////////////
 // X^2 (mod N) Generator
@@ -2854,7 +2859,7 @@ BOOL CRandomGenerator::setSeed(CString &SeetStr)
 CX2ModNGenerator::CX2ModNGenerator()
 {
 	CString tmp = STANDARD_X2MOD_N_MODUL;
-	CStringFormulaToBig( tmp, Modul_N );
+	setModul(tmp);
 }
 
 CX2ModNGenerator::~CX2ModNGenerator()
@@ -2875,10 +2880,8 @@ void CX2ModNGenerator::randomize()
 
 long CX2ModNGenerator::randBit()
 {
-	randomize();
 	return RandNo % 2;
 }
-
 
 //////////////////////////////////////////////////////////////////////
 // Linear Kongruenz Generator 
@@ -2908,10 +2911,8 @@ void LinearCongruenceGenerator::randomize()
 
 long LinearCongruenceGenerator::randBit()
 {
-	randomize();
 	return (RandNo > N/2) ? 1 : 0;
 }
-
 
 //////////////////////////////////////////////////////////////////////
 // Inverse Kongruenz Generator
@@ -2947,10 +2948,8 @@ BOOL InverseCongruenceGenerator::SetCount( long n )
 
 long InverseCongruenceGenerator::randBit()
 {
-	randomize();
 	return (RandNo >  N/2) ? 1 : 0;
 }
-
 
 ////////////////////////////////////////////////////////////////////////
 // Rahmen für die Klasse CTutorialFactorisation (Lösung zur Realsierung
