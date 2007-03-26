@@ -65,19 +65,32 @@ using namespace std;
 #include <string.h>
 #include <math.h>
 
+// ****************************************************************************
+//
+// SOME UTILITY FUNCTIONS
+//
+// ****************************************************************************
+
 ///This function indicates whether the argument is a lower case letter.
 bool isLowerCaseLetter(char);
 ///This function indicates whether the argument is an upper case letter.
 bool isUpperCaseLetter(char);
 ///This function indicates whether the argument is a digit.
 bool isDigit(char);
-
 ///This function converts the string argument to lower case letters.
 void stringToLowerCase(char*);
 ///This function capitalizes the string argument.
 void stringCapitalize(char*);
 
-///This struct implements a password structure.<br><br>The password structure is used to store which different type of characters a password consists of. Supported character classes include upper and lower case letters, digits and special characters.
+
+
+// ****************************************************************************
+//
+// PASSWORD STRUCTURE (for password analysis)
+//
+// ****************************************************************************
+
+///This struct implements a password structure used to store which different types of characters a password consists of. Supported character classes include upper and lower case letters, digits and special characters.
 struct PasswordStructure
 {
   ///The number of lower case letters in the password.
@@ -99,6 +112,14 @@ struct PasswordStructure
   };
 };
 
+
+
+// ****************************************************************************
+//
+// PASSWORD CLASS
+//
+// ****************************************************************************
+
 ///This class implements passwords.<br><br>After the password characters are assigned, the password's structure is analyzed (see struct PasswordStructure) automatically. You can use the function structure() to return a reference to the previously analyzed password structure. <b>NOTE</b>: Each character not being a letter or a digit is considered a special character!
 class Password
 {
@@ -108,10 +129,8 @@ class Password
   int pwLength;
   ///The structure of the password.
   PasswordStructure pwStructure;
-
   ///This function analyzes the structure of the password.
   void analyzeStructure();
-
   ///This is the quality of the password (ranging from 0 to 100)
   double pwQuality;
 
@@ -122,23 +141,27 @@ public:
   Password(const char*);
   ///Virtual destructor.
   virtual ~Password();
-
   ///This function returns the length of the password.
   int length() { return pwLength; };
   ///This function returns a pointer to the password characters.
   char *characters() { return pwCharacters; };
   ///This function returns a pointer to the password structure.
   PasswordStructure *structure() { return &pwStructure; };
-
   ///This function returns the quality of a password.
   double quality() { return pwQuality; };
   ///This function sets the quality of a password.
   void setQuality(double q) { pwQuality = q; };
-  
   ///Overridden operator to assign the password characters.
   void operator=(const char*);
 };
 
+
+
+// ****************************************************************************
+//
+// PASSWORD FILE CLASS
+//
+// ****************************************************************************
 
 ///This class implements a password file for serial input of passwords.
 class PasswordFile
@@ -153,18 +176,26 @@ public:
   PasswordFile();
   ///Destruction
   virtual ~PasswordFile();
-
   ///This function returns the password file's name.
   char *characters() { return pwFileCharacters; };
   ///This function returns the length of the password file's name.
   size_t length() { return pwFileLength; };
-
   ///This overloaded operator assigns a specific file name.
   void operator=(const char*);
 };
 
+
+
+// ****************************************************************************
+//
+// GLOBAL PASSWORD QUALITY FUNCTIONS
+//
+// ****************************************************************************
+
 unsigned int passwordQualityKeePass(const char *_password);
 unsigned int passwordQualityMozilla(const char *_password);
 unsigned int passwordQualityPGP(const char *_password);
+
+
 
 #endif

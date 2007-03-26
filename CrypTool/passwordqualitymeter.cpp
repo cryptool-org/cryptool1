@@ -53,6 +53,12 @@ statement from your version.
 
 #include "passwordqualitymeter.h"
 
+// ****************************************************************************
+//
+// SOME UTILITY FUNCTIONS
+//
+// ****************************************************************************
+
 bool isLowerCaseLetter(char c)
 {
   if((int)(c) >= (int)('a') && (int)(c) <= (int)('z'))
@@ -95,6 +101,13 @@ void stringCapitalize(char *s)
   s[0] = (char)(int)(toupper(s[0]));
 }
 
+
+
+// ****************************************************************************
+//
+// PASSWORD CLASS
+//
+// ****************************************************************************
 
 Password::Password()
 {
@@ -160,6 +173,12 @@ void Password::analyzeStructure()
 
 
 
+// ****************************************************************************
+//
+// PASSWORD FILE CLASS
+//
+// ****************************************************************************
+
 PasswordFile::PasswordFile()
 {
   pwFileCharacters = 0;
@@ -190,6 +209,13 @@ void PasswordFile::operator=(const char *c)
   memcpy(pwFileCharacters, c, pwFileLength);
 }
 
+
+
+// ****************************************************************************
+//
+// GLOBAL PASSWORD QUALITY FUNCTIONS
+//
+// ****************************************************************************
 
 unsigned int passwordQualityKeePass(const char *_password)
 {
