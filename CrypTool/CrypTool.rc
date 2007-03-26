@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -2032,9 +2032,9 @@ BEGIN
     LTEXT           "Saat:",IDC_STATIC,18,141,18,9
     GROUPBOX        "Ausgabeoptionen ",IDC_STATIC,9,189,283,49
     LTEXT           "Länge der Ausgabe in Bytes:",IDC_STATIC,18,202,92,8
-    CONTROL         "Interne Zufalls-Generator-Zustaände ausgeben (nur für X^2 mod N, LCG und ICG).",
+    CONTROL         "Interne Zufalls-Generator-Zustände ausgeben (nur für X^2 mod N, LCG und ICG).",
                     IDC_CHECK1,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | 
-                    WS_TABSTOP,18,217,162,16
+                    WS_TABSTOP,18,217,271,16
 END
 
 IDD_RANDOMPARAMETER_SECUDE DIALOG  0, 0, 186, 86
@@ -11684,12 +11684,12 @@ BEGIN
     ID_ANALYSE_DESXL        "Automatische Brute-force Analyse einer DESXL-Verschlüsselung"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -23417,7 +23417,7 @@ BEGIN
     ID_ANALYSE_DESXL        "Automatic brute-force analysis of encryption using the DESXL algorithm"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

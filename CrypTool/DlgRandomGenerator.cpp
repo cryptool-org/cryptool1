@@ -242,6 +242,7 @@ UINT GenRandomDataThread( PVOID pParam ) // Thread-Version
 		CT_WRITE_REGISTRY(par->m_seed.GetBuffer(), "RANDOM_GENERATOR_SEED");
 		CT_WRITE_REGISTRY((unsigned int)par->m_DataSize, "RANDOM_GENERATOR_DATASIZE");
 		CT_WRITE_REGISTRY((unsigned int)par->m_PrintInternalStates, "RANDOM_GENERATOR_OUTPUT_INTERNALSTATE");
+		CT_WRITE_REGISTRY((unsigned int)par->m_SelGenerator, "RANDOM_GENERATOR_TYPE_ID");
 
 		CT_WRITE_REGISTRY(par->DRPXN.m_EditModul_N.GetBuffer(), "RANDOM_GENERATOR_X2MODN_N");
 
@@ -375,16 +376,17 @@ BOOL CDlgRandomGenerator::OnInitDialog()
 	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_READ ) == ERROR_SUCCESS )
 	{
 		char tmpStr1[2048], tmpStr2[2048], tmpStr3[2048];  
-		unsigned long dataSize, outputInternalState, l;
+		unsigned long dataSize, outputInternalState, randomGeneratorTypeID, l;
 
 		l = 2047; CT_READ_REGISTRY_DEFAULT(tmpStr1, "RANDOM_GENERATOR_SEED", "314159", l);
 		CT_READ_REGISTRY_DEFAULT(dataSize, "RANDOM_GENERATOR_DATASIZE", 2500);
 		CT_READ_REGISTRY_DEFAULT(outputInternalState, "RANDOM_GENERATOR_OUTPUT_INTERNALSTATE", 1);
+		CT_READ_REGISTRY_DEFAULT(randomGeneratorTypeID, "RANDOM_GENERATOR_TYPE_ID", 0);
 		UpdateData(true);
-		m_seed			= tmpStr1;
-		m_DataSize		= dataSize;
+		m_seed					= tmpStr1;
+		m_DataSize				= dataSize;
 		m_PrintInternalStates	= outputInternalState;
-
+		m_SelGenerator			= randomGeneratorTypeID;
 
 		CT_READ_REGISTRY_DEFAULT(tmpStr1, "RANDOM_GENERATOR_X2MODN_N", STANDARD_X2MOD_N_MODUL, l);
 		m_pPara->DRPXN.SetModul(CString(tmpStr1));
@@ -412,16 +414,16 @@ BOOL CDlgRandomGenerator::OnInitDialog()
     if(theApp.SecudeStatus == 2) 
 	{
 		m_CtrlSecudeGenerator.EnableWindow(TRUE);
-		UpdateData();
-		m_SelGenerator = 0;
-		UpdateData(FALSE);
 	}
 	else 
 	{
 		m_CtrlSecudeGenerator.EnableWindow(FALSE);
-		UpdateData();
-		m_SelGenerator = 1;
-		UpdateData(FALSE);
+		if ( m_SelGenerator == 0 )
+		{
+			UpdateData();
+			m_SelGenerator = 1;
+			UpdateData(FALSE);
+		}
 	}
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
