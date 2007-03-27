@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -2032,9 +2032,9 @@ BEGIN
     LTEXT           "Saat:",IDC_STATIC,18,141,18,9
     GROUPBOX        "Ausgabeoptionen ",IDC_STATIC,9,189,283,49
     LTEXT           "Länge der Ausgabe in Bytes:",IDC_STATIC,18,202,92,8
-    CONTROL         "Interne Zufalls-Generator-Zustände ausgeben (nur für X^2 mod N, LCG und ICG).",
+    CONTROL         "Interne Zufalls-Generator-Zustaände ausgeben (nur für X^2 mod N, LCG und ICG).",
                     IDC_CHECK1,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | 
-                    WS_TABSTOP,18,217,271,16
+                    WS_TABSTOP,18,217,162,16
 END
 
 IDD_RANDOMPARAMETER_SECUDE DIALOG  0, 0, 186, 86
@@ -5534,7 +5534,7 @@ BEGIN
     PUSHBUTTON      "Abbrechen",IDCANCEL,243,286,50,14
     GROUPBOX        "Einführung",IDC_STATIC,7,7,286,60
     GROUPBOX        "Eingabe des Passworts",IDC_STATIC,7,72,286,98
-    GROUPBOX        "Qualität des Passworts",IDC_STATIC,7,175,286,85
+    GROUPBOX        "Qualität des Passworts",IDC_STATIC,7,175,286,98
     LTEXT           "Informationen zur Einführung...",IDC_STATIC,20,20,260,
                     40
     LTEXT           "Bitte geben Sie Ihr Passwort in das Eingabefeld ein. Die Qualität des Passworts wird nach jedem Tastendruck automatisch aktualisiert.",
@@ -5553,15 +5553,15 @@ BEGIN
     CONTROL         "",IDC_PROGRESS_PGP,"msctls_progress32",WS_BORDER | 0x1,
                     68,216,150,8
     CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",WS_BORDER | 
-                    0x1,68,236,150,8
-    LTEXT           "CrypTool:",IDC_STATIC,29,236,32,8
+                    0x1,68,236,150,16
+    LTEXT           "CrypTool:",IDC_STATIC,29,240,32,8
     CTEXT           "100 %",IDC_QUALITY_KEEPASS,225,188,55,8
     CTEXT           "100 %",IDC_QUALITY_MOZILLA,225,202,55,8
     CTEXT           "100 %",IDC_QUALITY_PGP,225,216,55,8
-    CTEXT           "100 %",IDC_QUALITY_CRYPTOOL,225,236,55,8
+    CTEXT           "100 %",IDC_QUALITY_CRYPTOOL,225,240,55,8
     CONTROL         "CrypTool-Alphabet verwenden",
                     IDC_CHECK_USECRYPTOOLALPHABET,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,68,246,150,10
+                    WS_TABSTOP,68,254,150,10
 END
 
 
@@ -8645,6 +8645,12 @@ END
 #ifdef APSTUDIO_INVOKED
 GUIDELINES DESIGNINFO 
 BEGIN
+    IDD_KEY, DIALOG
+    BEGIN
+        VERTGUIDE, 255
+        HORZGUIDE, 28
+    END
+
     IDD_KEY_HILL5X5, DIALOG
     BEGIN
         RIGHTMARGIN, 357
@@ -11632,6 +11638,10 @@ BEGIN
                             "Die Alphabet-Ansicht kann nicht aktiviert werden, wahrscheinlich wurde nicht\ndie mit CrypTool gelieferte SCILEXER.DLL geladen, sondern eine andere."
     IDS_PQM_CRYPTOOLALPHABETINACTIVE 
                             "Sie haben die Berücksichtigung des CrypTool-Alphabets deaktiviert. Bitte beachten Sie, dass die von CrypTool\nangezeigte Passwortqualität in dieser Konfiguration die tatsächliche Passwortqualität übersteigen kann."
+    IDS_STATISTICAL_REFERENCE_FILE_MISSING 
+                            "Die Referenzdatei für statistische Anwendungen wurde nicht gefunden.\nBitte geben Sie diese über den Dialog Textoptionen an."
+    IDS_STATISTICAL_REFERENCE_FILE_STILL_MISSING 
+                            "Achtung! Sie haben immer noch keine Referenzdatei für statistische Anwendungen spezifiziert."
 END
 
 STRINGTABLE 
@@ -11684,12 +11694,12 @@ BEGIN
     ID_ANALYSE_DESXL        "Automatische Brute-force Analyse einer DESXL-Verschlüsselung"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -23353,6 +23363,12 @@ BEGIN
                             "The cleartext consists of %d characters. All these characters are part of the customized alphabet.\nOnly the characters belonging to the alphabet are used for encryption. If the alphabet contains only capital letters, according lower letter characters are also encrypted; but not reverse.\nBelow the encryption and decryption process is exemplified with the first %d characters of the cleartext, which belong to the customized alphabet."
     IDS_SCINTILLA_LEXER_ERROR 
                             "The alphabet view could not be activated, probably not the version of SCILEXER.DLL\nwhich comes with CrypTool was loaded, but a different one."
+    IDS_PQM_CRYPTOOLALPHABETINACTIVE 
+                            "You have deactivated the consideration of the CrypTool alphabet. Please note that the displayed\npassword quality can possibly exceed the effective password quality in this configuration."
+    IDS_STATISTICAL_REFERENCE_FILE_MISSING 
+                            "The reference file for statistical applications could not be found.\nPlease specify the file name in the text options dialog."
+    IDS_STATISTICAL_REFERENCE_FILE_STILL_MISSING 
+                            "Warning! You still haven't specified a valid reference file for statistical applications."
 END
 
 STRINGTABLE 
@@ -23417,7 +23433,7 @@ BEGIN
     ID_ANALYSE_DESXL        "Automatic brute-force analysis of encryption using the DESXL algorithm"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

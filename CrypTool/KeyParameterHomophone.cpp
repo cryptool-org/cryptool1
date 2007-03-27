@@ -198,6 +198,23 @@ void CKeyParameterHomophone::Analyse(int _keyType)
 
 	Init(_keyType);
 
+	// check for reference file for statistical applications
+	while(theApp.TextOptions.m_StrRefFile.IsEmpty()) 
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_STATISTICAL_REFERENCE_FILE_MISSING, pc_str, STR_LAENGE_STRING_TABLE);
+		AfxMessageBox(pc_str, MB_ICONINFORMATION);
+
+		// open text options dialog
+		if(theApp.TextOptions.DoModal() != IDOK)
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_STATISTICAL_REFERENCE_FILE_STILL_MISSING, pc_str, STR_LAENGE_STRING_TABLE);
+			AfxMessageBox(pc_str, MB_ICONINFORMATION);
+			return;
+		}
+	}
+
+	// at this point the reference file should be valid
+
 	ifstream f(theApp.TextOptions.m_StrRefFile, ios::binary | ios::in );
 	f.read(buffer,buffsize);
 
