@@ -54,7 +54,7 @@
 
 <P><B>Bemerkung 4: Padding</B></P>
 
-<P>Gibt man den obigen Input in CrypTool oder OpenSSL ein, erhält man einen doppelt so langen Output (32 statt 16 Byte), da der Input in diesen Implementierungen immer mit 128 Bit gepadded wird.</P>
+<P>Gibt man das 16 Byte lange Input-Beispiel aus der Spezifikation (siehe Bemerkung 1) in CrypTool oder OpenSSL ein, erhält man einen doppelt so langen Output (32 statt 16 Byte). Dies liegt daran, dass der Input in diesen Implementierungen immer mit 128 Bit gepadded wird.</P>
 
 <P>Die ersten 16 Byte (der erste Outputblock = der eigentliche Geheimtextblock) sind bei OpenSSL und CrypTool identisch, und stimmen jeweils mit der Animation (bzw. der Spezifikation) überein.</P>
 

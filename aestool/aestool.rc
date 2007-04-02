@@ -426,15 +426,15 @@ BEGIN
     LTEXT           "Key:",IDC_STATIC,24,52,38,18
     LTEXT           "Input file:",IDC_STATIC,24,70,38,19
     LTEXT           "Output file:",IDC_STATIC,24,89,38,19
-    LTEXT           "The key is entered in hexadecimal form (characters '0' to '9' and 'A' to 'F'). The maximum key length is 256 bits or 64 digits. The recommended minimum key length is 20 digits.",
+    LTEXT           "The key is entered in hexadecimal form (characters '0' to '9' and 'A' to 'F'). The maximum key length is 256 bits or 64 hex digits. The recommended minimum key length is 20 digits.",
                     IDC_STATIC,62,52,396,18
     LTEXT           "The input file contains the data to be encrypted or decrypted. If a file is chosen that was encrypted with this program, then the program will be automatically set to decryption mode. Otherwise the program will stay in encryption mode. ",
                     IDC_STATIC,62,70,396,19
-    LTEXT           "The output file name and directory can be determined after pressing the ""Encrypt""/""Decrypt"" button. \nWhen encrypting a selection between two formats can be made with ""radio buttons"":",
+    LTEXT           "The output file name and directory can be determined after pressing the ""Encrypt""/""Decrypt"" button. \nWhen encrypting you can select between two output formats via ""radio buttons"":",
                     IDC_STATIC,62,89,396,19
     LTEXT           "A 'self extracting archive' is a file containing data and at the same time it is a program. This program has the same func- tionality as AES-Tool and can be used to decrypt the data and store it in a file (after the correct password has been entered).",
                     IDC_STATIC,69,108,389,19
-    LTEXT           "An 'encrypted file' contains the data only. Then this program is required for decryption.",
+    LTEXT           "An 'encrypted file' contains the encrypted data only. Then the AES-Tool program is required for decryption.",
                     IDC_STATIC,69,127,389,11
     LTEXT           "The second way to invoke the program is with command line parameters. These can be specified either by position or by key word. If all",
                     IDC_STATIC,24,138,425,8
@@ -444,7 +444,7 @@ BEGIN
                     IDC_STATIC,62,169,396,10
     LTEXT           "The third possibility for program invocation is the self extracting archive. The input file name here is being preset by the self extracting archive.",
                     IDC_STATIC,24,210,434,15
-    LTEXT           "With a normal start by clicking the icon, all necessary parameters can be entered into a dialogue box.",
+    LTEXT           "With a normal start by clicking the icon, all necessary parameters can be entered into a dialog box.",
                     IDC_STATIC,24,33,434,9
     LTEXT           "1.",IDC_STATIC,12,33,12,9
     LTEXT           "2.",IDC_STATIC,12,138,12,11
@@ -459,9 +459,9 @@ BEGIN
                     IDC_STATIC,24,196,391,8
     LTEXT           "The output file's extension determines the encryption format: .EXE: self extracting archive, others: ordinary encrypted file.",
                     IDC_STATIC,24,188,434,9
-    LTEXT           "Due to operating system's and development evironment's limitations the size of encrypted files (including header and self extractor) is limited to 4 GB.",
+    LTEXT           "Due to operating system's and development environment's limitations the size of encrypted files (including header and self extractor) is limited to 4 GB.",
                     IDC_STATIC,12,238,446,16
-    LTEXT           "Please note to check the origin before calling self extracting archives.\nIt is recommendable to always keep antivirus and operating systems software up to date.",
+    LTEXT           "Please note to check the origin before calling self extracting archives.\nIt is recommendable to always keep antivirus and operating system software up to date.",
                     IDC_STATIC,12,268,446,18
 END
 

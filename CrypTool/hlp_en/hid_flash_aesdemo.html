@@ -54,7 +54,7 @@
 
 <P><B>Remark 4: Padding</B></P>
 
-<P>If you use the above input in CrypTool or OpenSSL you get an output of double length (32 instead of 16 byte), because any input in these implementations is always padded with another 128 bit.</P>
+<P>If you use the 16 byte long exemplary input from the specification (see remark 1) in CrypTool or OpenSSL you get an output of double length (32 instead of 16 byte). This is due to the fact that any input in these implementations is always padded with another 128 bit.</P>
 
 <P>The first 16 byte (the first output block = the actual ciphertext block) are identical with OpenSSL and CrypTool, and also are the same at the animation (and the spec).</P>
 

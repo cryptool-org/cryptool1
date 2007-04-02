@@ -8647,7 +8647,6 @@ GUIDELINES DESIGNINFO
 BEGIN
     IDD_KEY, DIALOG
     BEGIN
-        VERTGUIDE, 255
         HORZGUIDE, 28
     END
 
@@ -10877,7 +10876,7 @@ BEGIN
     IDS_SIGATT_HARMLESS     "examples\\Original.txt"
     IDS_SIGATT_DANGEROUS    "examples\\Faelschung.txt"
     IDS_SCRIPTPATH          "%sScript-de.pdf"
-    IDS_ERROPEN_SCRIPT      "Das Skript konnte nicht geöffnet werden!\nBitte überprüfen Sie:\nob sich die Datei ""Script-de.pdf"" im gleichen Pfad wie das Programm ""CrypTool.exe"" befindet und\nob Sie den Acrobat Reader installiert haben (www.adobe.com)."
+    IDS_ERROPEN_SCRIPT      "Das Skript konnte nicht geöffnet werden!\n\nBitte überprüfen Sie:\n- ob sich die Datei ""Script-de.pdf"" im gleichen Pfad wie das Programm ""CrypTool.exe"" befindet und\n- ob Sie den Acrobat Reader installiert haben (www.adobe.com)."
     IDS_OPENHASHOFAFILE     "Hashwert einer Datei"
     IDS_PROGESS_COMPUTE_DIGEST "%s-Hashwert berechnen"
 END
@@ -13891,7 +13890,7 @@ BEGIN
     EDITTEXT        IDC_EDIT1,28,46,248,14,ES_AUTOHSCROLL
     CONTROL         "&Normal",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,18,89,51,8
-    CONTROL         "Dialogue of the &Sisters",IDC_RADIO8,"Button",
+    CONTROL         "Dialog of the &Sisters",IDC_RADIO8,"Button",
                     BS_AUTORADIOBUTTON,89,89,87,8
     CONTROL         "b-ad&ic",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,19,128,43,8
@@ -14572,7 +14571,7 @@ FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,12,61,50,18
     PUSHBUTTON      "&Cancel",IDCANCEL,215,61,50,18
-    CONTROL         "Show dialogue ""How to start"" when starting CrypTool.",
+    CONTROL         "Show dialog ""How to start"" when starting CrypTool.",
                     IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,15,
                     185,10
     CONTROL         "Open the sample text file automatically when starting CrypTool.",
@@ -14795,7 +14794,7 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,135,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,234,135,50,14
-    CONTROL         "&Show introduction dialogue on startup",IDC_CHECK1,
+    CONTROL         "&Show introduction dialog on startup",IDC_CHECK1,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,26,135,10
     GROUPBOX        "Options for the Diffie-Hellman Demonstration",
                     IDC_STATIC,7,7,277,40
@@ -15104,7 +15103,7 @@ BEGIN
     PUSHBUTTON      "&All steps at once",IDC_BUTTON_ALLREMAININGSTEPS,225,
                     325,100,26
     GROUPBOX        "Attack control:",IDC_ATTACKCONTROL,220,282,111,75
-    CONTROL         "Show &information dialogues",IDC_CHECK_DISABLEHELP,
+    CONTROL         "Show &information dialogu",IDC_CHECK_DISABLEHELP,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,541,368,102,10
 END
 
@@ -16134,7 +16133,7 @@ BEGIN
                     IDC_STATIC,7,45,219,35
     LTEXT           "In this scheme, we are using number-keys: each person is 'marked' with an identifier an has got a personal key, that can only be validated, when it is used with the correct identifier.",
                     IDC_STATIC,7,84,219,25
-    CONTROL         "Display this dialogue on next startup",IDC_CHECK1,
+    CONTROL         "Display this dialog on next startup",IDC_CHECK1,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,171,133,10
     LTEXT           "In case of uncertainties while using this application, simply hit the F1-key to get a context-specific help.",
                     IDC_STATIC,7,117,219,23
@@ -16645,7 +16644,7 @@ BEGIN
     PUSHBUTTON      "Cancel",IDC_BUTTON67,517,304,102,18
     PUSHBUTTON      "Decrypt",IDC_BUTTON68,121,304,102,18,WS_DISABLED
     GROUPBOX        "Description",IDC_STATIC,222,6,214,46
-    LTEXT           "This dialogue generates a keystream with the Solitaire algorithm. The key stream is used to encrypt or decrypt the given message.",
+    LTEXT           "This dialog generates a keystream with the Solitaire algorithm. The key stream is used to encrypt or decrypt the given message.",
                     IDC_STATIC,232,15,192,32
     CONTROL         "Paste",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,
                     241,307,23,15
@@ -16740,7 +16739,7 @@ BEGIN
                     ES_READONLY
     PUSHBUTTON      "Generate key",IDC_BUTTON4,11,270,82,14,WS_DISABLED
     GROUPBOX        "Description",IDC_STATIC,223,7,160,155
-    LTEXT           "This dialogue makes an automatical or semi-automatical analysis of a ciphertext, which is encrypted with SOLITAIRE.\nThe starting position is a found ciphertext with its according final deck. ",
+    LTEXT           "This dialog makes an automatical or semi-automatical analysis of a ciphertext, which is encrypted with SOLITAIRE.\nThe starting position is a found ciphertext with its according final deck. ",
                     IDC_STATIC,230,20,144,55
     LTEXT           "Because of Solitair´s irreversibility it is not stated, that the correct plaintext can be defined.",
                     IDC_STATIC,227,85,148,31
@@ -21437,7 +21436,7 @@ BEGIN
     IDS_STRING_MSG_ON_INPUT_FORMAT 
                             "The input fields for the last name, first name and the key identifier\nmust not contain any of the following special characters:\n\\/:*?""<>|~$%&,;]["
     IDS_STRING_ASYMKEY_MSG_NO_RSA_EMPTY_KEYLIST 
-                            "There is no PSE, containing an RSA key pair and a certificate or a user.\nYou can deliver this either\n- within the menu ""Key management \\ Key generation"" or\n- within this dialogue box via ""Generate Key"" and then via Provide certificate""."
+                            "There is no PSE, containing an RSA key pair and a certificate or a user.\nYou can deliver this either\n- within the menu ""Key management \\ Key generation"" or\n- within this dialog box via ""Generate Key"" and then via Provide certificate""."
     IDS_STRING_KEY          "                Key:      "
     IDS_STRING_DECRYPTION_OF_USING_KEY "%s decryption of <%s>, key <%s>"
     IDS_STRING_ENCRYPTION_OF_USING_KEY "%s encryption of <%s>, key <%s>"
@@ -21688,7 +21687,7 @@ BEGIN
     IDS_STRING_HYBRID_DEC_MSG6 
                             "\r\nThe session key is the following 128 bit number:\r\nSession key: "
     IDS_STRING_HYBRID_DEC_MSG7 
-                            "Clicking Decrypt\r\n- decrypts the message with the session key and\r\n- displays the decrypted message within the main window and\r\n- closes this dialogue box.\r\n\r\nClick Decrypt."
+                            "Clicking Decrypt\r\n- decrypts the message with the session key and\r\n- displays the decrypted message within the main window and\r\n- closes this dialog box.\r\n\r\nClick Decrypt."
 END
 
 STRINGTABLE 
@@ -22508,7 +22507,7 @@ BEGIN
     IDS_ANALYSIS_SUBSTITUTION "Substitution analysis"
     IDS_RSADEMO_NUMBERS_BIGGER_THAN_N 
                             "At least one number of the input is greater or equal the size of the RSA modulus N\n(the RSA exponentation is for a number greater or equal than N not invertible)!\n\nPlease correct your input."
-    IDS_NORSAKEY_AVAILABLE  "There is no RSA key available!\nYou can generate your own within the following dialogue."
+    IDS_NORSAKEY_AVAILABLE  "There is no RSA key available!\nYou can generate your own within the following dialog."
 END
 
 STRINGTABLE 
@@ -22541,7 +22540,7 @@ BEGIN
     IDS_SIGATT_HARMLESS     "examples\\original.txt"
     IDS_SIGATT_DANGEROUS    "examples\\fake.txt"
     IDS_SCRIPTPATH          "%sScript-en.pdf"
-    IDS_ERROPEN_SCRIPT      "The script file could not be opened!\nPlease check\nif the file ""Script-en.pdf"" is in the same directory as ""CrypTool.exe"" and\nif the Acrobat reader is installed (www.adobe.com)."
+    IDS_ERROPEN_SCRIPT      "The script file could not be opened!\n\nPlease check\n- if the file ""Script-en.pdf"" is in the same directory as ""CrypTool.exe"" and\n- if the Acrobat reader is installed (www.adobe.com)."
     IDS_OPENHASHOFAFILE     "Hash of a file"
     IDS_PROGESS_COMPUTE_DIGEST "Calculating %s hashvalue"
 END
@@ -23058,9 +23057,9 @@ BEGIN
     IDS_CRT_SECRETSHARING_FINISH 
                             "\r\n----- calculation of identifiers and passwords is finished -----\r\n\r\n"
     IDS_CRT_SECRETSHARING_EQUALPRIMES 
-                            "While generating prime numbers for %d identifiers, some of these numbers arose doubly.\r\nTo apply the chinese remainder theorem, all these identifiers have to be different.\r\nPlease click 'Calculate' once again or go to the dialogue 'options' and increase the Co-domain. .\r\n"
+                            "While generating prime numbers for %d identifiers, some of these numbers arose doubly.\r\nTo apply the chinese remainder theorem, all these identifiers have to be different.\r\nPlease click 'Calculate' once again or go to the dialog 'options' and increase the Co-domain. .\r\n"
     IDS_CRT_SECRETSHARING_GENERATEPRIME 
-                            "This demonstration supports prime numbers with a bit length up to 109.\r\nThese numbers have up to 33 decimal places.\r\nPlease go to the 'Options'-dialogue and decrease the Co-domain."
+                            "This demonstration supports prime numbers with a bit length up to 109.\r\nThese numbers have up to 33 decimal places.\r\nPlease go to the 'Options'-dialog and decrease the Co-domain."
     IDS_CRT_SECRETSHARING_REK1 
                             "\r\n\r\n\r\n----- Reconstruction started -----\r\n\r\n"
 END
