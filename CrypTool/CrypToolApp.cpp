@@ -220,6 +220,7 @@ ON_COMMAND(ID_PRIMENUMBER_TEST, OnPrimenumberTest)
 ON_COMMAND(ID_AES_SELFEXTRACT, OnAesSelfextract)
 ON_COMMAND(ID_INDIV_POINTADDITIONONELLIPTICCURVES, OnIndivPointadditiononellipticcurves)
 ON_COMMAND(ID_FLASH_AESDEMO, OnFlashAesdemo)
+ON_COMMAND(ID_FLASH_ENIGMADEMO, OnFlashEnigmademo)
 ON_COMMAND(ID_INTERACTIVE_NUMBER_THEORY, OnInteractiveNumberTheory)
 END_MESSAGE_MAP()
 
@@ -1242,6 +1243,12 @@ void CCrypToolApp::OnFlashAesdemo()
 
 	HINSTANCE hInst = ShellExecute(NULL,NULL, AESDemoExecStr, " ", Pfad, SW_SHOW);
 	if ( reinterpret_cast<int>(hInst) <= 32 ) Message(IDS_ERROPEN_ECCDemo, MB_ICONSTOP);
+}
+
+void CCrypToolApp::OnFlashEnigmademo()
+{
+	// ***TODOENIGMA***
+	AfxMessageBox("TODO: ENIGMA FLASH-DEMO");
 }
 
 void CCrypToolApp::OnInteractiveNumberTheory()

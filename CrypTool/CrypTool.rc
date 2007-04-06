@@ -5800,6 +5800,7 @@ BEGIN
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
+            MENUITEM "&Enigma...",                     ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -6209,6 +6210,7 @@ BEGIN
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
+            MENUITEM "&Enigma...",                     ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -6617,6 +6619,7 @@ BEGIN
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
+            MENUITEM "&Enigma...",                     ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -7020,6 +7023,7 @@ BEGIN
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
+            MENUITEM "&Enigma...",                     ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -7457,6 +7461,7 @@ BEGIN
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
+            MENUITEM "&Enigma...",                     ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -11542,6 +11547,7 @@ STRINGTABLE
 BEGIN
     ID_FLASH_AESDEMO        "Visualisiert den AES-Algorithmus mittels Flash"
     ID_PASSWORDQUALITYMETER "Misst die Qualität von Passwörtern"
+    ID_FLASH_ENIGMADEMO     "Visualisiert die Enigma-Maschine mittels Flash"
 END
 
 STRINGTABLE 
@@ -14794,8 +14800,8 @@ FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,135,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,234,135,50,14
-    CONTROL         "&Show introduction dialog on startup",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,26,135,10
+    CONTROL         "&Show introduction dialog on startup",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,20,26,135,10
     GROUPBOX        "Options for the Diffie-Hellman Demonstration",
                     IDC_STATIC,7,7,277,40
     GROUPBOX        "Options for the Side-Channel Attack Demonstration",
@@ -15103,8 +15109,8 @@ BEGIN
     PUSHBUTTON      "&All steps at once",IDC_BUTTON_ALLREMAININGSTEPS,225,
                     325,100,26
     GROUPBOX        "Attack control:",IDC_ATTACKCONTROL,220,282,111,75
-    CONTROL         "Show &information dialogu",IDC_CHECK_DISABLEHELP,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,541,368,102,10
+    CONTROL         "Show &information dialogu",IDC_CHECK_DISABLEHELP,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,541,368,102,10
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_ALICE DIALOG  0, 0, 375, 250
@@ -16133,8 +16139,8 @@ BEGIN
                     IDC_STATIC,7,45,219,35
     LTEXT           "In this scheme, we are using number-keys: each person is 'marked' with an identifier an has got a personal key, that can only be validated, when it is used with the correct identifier.",
                     IDC_STATIC,7,84,219,25
-    CONTROL         "Display this dialog on next startup",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,171,133,10
+    CONTROL         "Display this dialog on next startup",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,171,133,10
     LTEXT           "In case of uncertainties while using this application, simply hit the F1-key to get a context-specific help.",
                     IDC_STATIC,7,117,219,23
     LTEXT           "their keys at the same time.",IDC_STATIC,138,69,90,9
@@ -17370,6 +17376,7 @@ BEGIN
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
+            MENUITEM "&Enigma...",                     ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -17774,6 +17781,7 @@ BEGIN
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
+            MENUITEM "&Enigma...",                     ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -18182,6 +18190,7 @@ BEGIN
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
+            MENUITEM "&Enigma...",                     ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -18585,6 +18594,7 @@ BEGIN
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
+            MENUITEM "&Enigma...",                     ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -19018,6 +19028,7 @@ BEGIN
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
+            MENUITEM "&Enigma...",                     ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -23205,6 +23216,7 @@ STRINGTABLE
 BEGIN
     ID_FLASH_AESDEMO        "Visualizes the AES encryption algorithm using Flash"
     ID_PASSWORDQUALITYMETER "Measures the quality of passwords"
+    ID_FLASH_ENIGMADEMO     "Visualizes the Enigma machine using Flash"
 END
 
 STRINGTABLE 

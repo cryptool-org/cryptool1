@@ -216,6 +216,7 @@ public:
 	afx_msg void OnAesSelfextract();
 	afx_msg void OnIndivPointadditiononellipticcurves();
 	afx_msg void OnFlashAesdemo();
+	afx_msg void OnFlashEnigmademo();
 	afx_msg void OnInteractiveNumberTheory();
 };
 
