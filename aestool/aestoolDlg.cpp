@@ -197,6 +197,7 @@ BOOL CAestoolDlg::OnInitDialog()
 	m_CButtonOK.EnableWindow(FALSE);
 
 	m_CHEditKey.SetWindowText(m_CMD_inKey);
+	m_CHEditKey.SetLimitText(95);
 	// EXEFile bestimmen
 	GetModuleFileName(GetModuleHandle(NULL), EXEName.GetBuffer(512), 511);
 	EXEName.ReleaseBuffer();
