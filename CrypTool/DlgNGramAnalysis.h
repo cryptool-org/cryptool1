@@ -117,6 +117,7 @@ protected:
 	//{{AFX_MSG(CDlgNGramAnaylsis)
 	afx_msg void OnEvalNGram();
 	afx_msg void OnSaveNGramList();
+	afx_msg void OnTextOptions();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 

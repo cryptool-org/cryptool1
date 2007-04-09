@@ -108,6 +108,7 @@ BEGIN_MESSAGE_MAP(CDlgNGramAnaylsis, CDialog)
 	//{{AFX_MSG_MAP(CDlgNGramAnaylsis)
 		ON_BN_CLICKED(IDC_BUTTON2, OnEvalNGram)
 		ON_BN_CLICKED(IDOK, OnSaveNGramList)
+		ON_BN_CLICKED(IDC_BUTTON_TEXTOPTIONS, OnTextOptions)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -477,6 +478,13 @@ void CDlgNGramAnaylsis::OnSaveNGramList()
 	HIDE_HOUR_GLASS
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
 	CDialog::OnOK();
+}
+
+void CDlgNGramAnaylsis::OnTextOptions()
+{
+	if(theApp.TextOptions.DoModal() != IDOK) return;
+	// liste neu berechnen
+	OnEvalNGram();
 }
 
 
