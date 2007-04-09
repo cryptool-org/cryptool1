@@ -71,11 +71,11 @@ static char THIS_FILE[] = __FILE__;
 // Dialogfeld CDlgKeyHill10x10 
 
 
-CDlgKeyHill10x10::CDlgKeyHill10x10(CHillEncryption *hillkl, CWnd* pParent /*=NULL*/)
+CDlgKeyHill10x10::CDlgKeyHill10x10(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgKeyHill10x10::IDD, pParent)
 	, m_pHillAlphInfo(_T(""))
 {
-	hillklasse = hillkl;
+	hillklasse = new CHillEncryption(theApp.TextOptions.m_alphabet.GetBuffer(0));;
 	m_decrypt = 0;
 	//{{AFX_DATA_INIT(CDlgKeyHill10x10)
 	m_Verbose = FALSE;
@@ -85,10 +85,8 @@ CDlgKeyHill10x10::CDlgKeyHill10x10(CHillEncryption *hillkl, CWnd* pParent /*=NUL
 
 CDlgKeyHill10x10::~CDlgKeyHill10x10()
 {
-	if (mat)
-	{
-		delete mat;
-	}
+	if(hillklasse) delete hillklasse;
+	if(mat) delete mat;
 }
 
 void CDlgKeyHill10x10::DoDataExchange(CDataExchange* pDX)
@@ -631,6 +629,9 @@ BEGIN_MESSAGE_MAP(CDlgKeyHill10x10, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON4, OnKleinereSchluessel)
 	ON_BN_CLICKED(IDC_BUTTON5, OnDecrypt)
 	ON_BN_CLICKED(IDC_BUTTON2, OnPasteKey)
+
+	ON_BN_CLICKED(IDC_BUTTON_TEXTOPTIONS, OnTextOptions)
+
 	//}}AFX_MSG_MAP
 	ON_BN_CLICKED(IDC_BUTTON69, OnBnClickedButton69)
 	END_MESSAGE_MAP()
@@ -2110,7 +2111,7 @@ void CDlgKeyHill10x10::UpdateFeld(CEdit *feld)
 	}
 }
 
-int CDlgKeyHill10x10::Display(CHillEncryption *hillklasse)
+int CDlgKeyHill10x10::Display()
 {
 	int res;
 
@@ -3234,4 +3235,22 @@ CString CDlgKeyHill10x10::getDimMessage()
 		default:
 			return "2*2";
 	}
+}
+
+void CDlgKeyHill10x10::OnTextOptions()
+{
+	if(theApp.TextOptions.DoModal() != IDOK) return;
+
+	//if(hillklasse) delete hillklasse;
+	hillklasse = new CHillEncryption(theApp.TextOptions.m_alphabet.GetBuffer(0));
+	
+	int len = theApp.TextOptions.m_alphabet.GetLength();
+	LoadString(AfxGetInstanceHandle(),IDS_HILL_CASE,pc_str,STR_LAENGE_STRING_TABLE);
+	char l_str[1024];
+	sprintf(l_str,pc_str,len);
+	GetDlgItem(IDC_STATIC_HILL_ALPH)->SetWindowText(l_str);
+
+	m_pHillAlphInfo = theApp.TextOptions.m_alphabet;
+	
+	UpdateData(false);
 }

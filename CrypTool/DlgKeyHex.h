@@ -91,6 +91,7 @@ protected:
 	//{{AFX_MSG(CDlgKeyHex)
 	afx_msg void OnUpdateKey();
 	afx_msg void OnPasteHexKey();
+	virtual BOOL OnInitDialog();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

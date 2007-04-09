@@ -76,7 +76,7 @@ public:
 	int AlleFelderKorrekt(int);
 	void AnzeigeDimensionSetzen(int);
 	int dim;
-	int Display(CHillEncryption *);
+	int Display();
 	CHiEdit* m_pFelder[HILL_MAX_DIM_GROSS][HILL_MAX_DIM_GROSS];
 	CHiEdit* m_pAlphCode[HILL_MAX_DIM_GROSS][HILL_MAX_DIM_GROSS];
 
@@ -88,8 +88,10 @@ public:
 
 	CString getDimMessage();
 
-	CDlgKeyHill10x10(CHillEncryption *hillkl, CWnd* pParent = NULL);   // Standardkonstruktor
+	CDlgKeyHill10x10(CWnd* pParent = NULL);   // Standardkonstruktor
 	~CDlgKeyHill10x10();
+
+	CHillEncryption *getHillKlasse() { return hillklasse; };
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgKeyHill10x10)
@@ -641,6 +643,8 @@ protected:
 	afx_msg void OnExitMat209();
 	afx_msg void OnExitMat212();
 	afx_msg void OnExitMat1011();
+
+	afx_msg void OnTextOptions();
 
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()

@@ -27,18 +27,19 @@ LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
 // Dialog
 //
 
-IDD_KEY DIALOG  0, 0, 251, 85
+IDD_KEY DIALOGEX 0, 0, 300, 90
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    EDITTEXT        IDC_EDIT1,11,29,185,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT1,10,30,240,12,ES_AUTOHSCROLL
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
-                    218,28,22,20
-    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,11,53,58,19
-    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,89,53,57,19
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,185,53,55,19
-    LTEXT           "Static",IDC_STATIC_TEXT,11,7,229,17
+                    268,30,22,20
+    DEFPUSHBUTTON   "&Verschlüsseln",IDOK,10,61,55,19
+    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,75,61,55,19
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,235,61,55,19
+    LTEXT           "Static",IDC_STATIC_TEXT,10,7,229,17
+    PUSHBUTTON      "&Textoptionen",IDC_BUTTON_TEXTOPTIONS,140,61,55,19
 END
 
 IDD_DIALOG_PLOT_PARAM DIALOG  0, 0, 159, 118
@@ -91,7 +92,7 @@ BEGIN
     EDITTEXT        IDC_EDIT36,135,263,16,12,ES_CENTER | ES_NUMBER
     GROUPBOX        "Alphabetzeichen",IDC_STATIC,14,251,110,101
     DEFPUSHBUTTON   "&Verschlüsseln",IDOK,5,419,63,19
-    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON5,81,419,60,19
+    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON5,75,419,60,19
     PUSHBUTTON      "&Abbrechen",IDCANCEL,300,419,53,19
     CONTROL         "&1 x 1",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,277,274,31,10
@@ -180,7 +181,8 @@ BEGIN
     LTEXT           "Sie können sich die Schlüsselmatrix auch per Buttonklick so mit zufälligen Werten füllen lassen, dass die",
                     IDC_STATIC,15,125,328,8
     LTEXT           "Invertierbarkeit erfüllt ist.",IDC_STATIC,15,135,77,8
-    PUSHBUTTON      "Hill-Optionen",IDC_BUTTON1,157,419,60,19
+    PUSHBUTTON      "Hill-Optionen",IDC_BUTTON1,155,419,60,19
+    PUSHBUTTON      "Textoptionen",IDC_BUTTON_TEXTOPTIONS,225,419,60,19
 END
 
 IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 298
@@ -1297,6 +1299,7 @@ BEGIN
     LTEXT           "invertierbar ist. Sie können sich die Schlüsselmatrix auch per Buttonklick so mit zufälligen Werten füllen lassen, dass die Invertierbarkeit erfüllt ist.",
                     IDC_STATIC,11,77,516,8
     PUSHBUTTON      "Hill-Optionen",IDC_BUTTON69,185,412,60,19
+    PUSHBUTTON      "&Textoptionen",IDC_BUTTON_TEXTOPTIONS,255,412,74,20
 END
 
 IDD_SHOW_KEY DIALOG  0, 0, 284, 87
@@ -5527,7 +5530,7 @@ END
 IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 300, 307
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Passwortqualitätsmesser"
+CAPTION "Passwort-Qualitätsmesser"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,286,50,14
@@ -5800,7 +5803,7 @@ BEGIN
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
-            MENUITEM "&Enigma...",                     ID_FLASH_ENIGMADEMO
+            MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -5835,7 +5838,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
             END
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
-            MENUITEM "&Passwortqualitätsmesser...", ID_PASSWORDQUALITYMETER
+            MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -6210,7 +6213,7 @@ BEGIN
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
-            MENUITEM "&Enigma...",                     ID_FLASH_ENIGMADEMO
+            MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -6241,7 +6244,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
             END
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
-            MENUITEM "&Passwortqualitätsmesser...", ID_PASSWORDQUALITYMETER
+            MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -6619,7 +6622,7 @@ BEGIN
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
-            MENUITEM "&Enigma...",                     ID_FLASH_ENIGMADEMO
+            MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -6652,7 +6655,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
             END
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
-            MENUITEM "&Passwortqualitätsmesser...", ID_PASSWORDQUALITYMETER
+            MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -7023,7 +7026,7 @@ BEGIN
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
-            MENUITEM "&Enigma...",                     ID_FLASH_ENIGMADEMO
+            MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -7054,7 +7057,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
             END
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
-            MENUITEM "&Passwortqualitätsmesser...", ID_PASSWORDQUALITYMETER
+            MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -7461,7 +7464,7 @@ BEGIN
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
-            MENUITEM "&Enigma...",                     ID_FLASH_ENIGMADEMO
+            MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -7496,7 +7499,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
             END
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
-            MENUITEM "&Passwortqualitätsmesser...", ID_PASSWORDQUALITYMETER
+            MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -8652,13 +8655,20 @@ GUIDELINES DESIGNINFO
 BEGIN
     IDD_KEY, DIALOG
     BEGIN
-        HORZGUIDE, 28
+        VERTGUIDE, 10
+        VERTGUIDE, 75
+        VERTGUIDE, 250
+        VERTGUIDE, 290
+        HORZGUIDE, 30
+        HORZGUIDE, 61
+        HORZGUIDE, 80
     END
 
     IDD_KEY_HILL5X5, DIALOG
     BEGIN
         RIGHTMARGIN, 357
         HORZGUIDE, 8
+        HORZGUIDE, 419
     END
 
     IDD_OPTIONS_ANALYSIS, DIALOG
@@ -8697,6 +8707,11 @@ BEGIN
     BEGIN
         BOTTOMMARGIN, 320
         HORZGUIDE, 302
+    END
+
+    IDD_KEY_HILL_10X10, DIALOG
+    BEGIN
+        HORZGUIDE, 412
     END
 
     IDD_KEY_HOMOPHONE, DIALOG
@@ -11878,7 +11893,7 @@ BEGIN
     EDITTEXT        IDC_EDIT55,101,249,16,12,ES_CENTER
     EDITTEXT        IDC_EDIT36,134,180,16,12,ES_CENTER | ES_NUMBER
     DEFPUSHBUTTON   "&Encrypt",IDOK,5,352,63,19
-    PUSHBUTTON      "&Decrypt",IDC_BUTTON5,80,352,60,19
+    PUSHBUTTON      "&Decrypt",IDC_BUTTON5,75,352,60,19
     PUSHBUTTON      "&Cancel",IDCANCEL,300,352,58,19
     GROUPBOX        "Alphabet characters",IDC_STATIC,15,168,109,100
     GROUPBOX        "Size of matrix",IDC_STATIC,254,180,104,139
@@ -11949,6 +11964,7 @@ BEGIN
     CONTROL         "(matrix) * (column vector)",IDC_RADIO9,"Button",
                     BS_AUTORADIOBUTTON,262,145,93,10
     PUSHBUTTON      "Hill options",IDC_BUTTON1,155,352,60,19
+    PUSHBUTTON      "&Text options",IDC_BUTTON_TEXTOPTIONS,225,352,60,19
 END
 
 IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 306
@@ -13068,6 +13084,7 @@ BEGIN
     EDITTEXT        IDC_EDIT1011,411,296,16,12,ES_CENTER | ES_NUMBER
     GROUPBOX        "Number values",IDC_STATIC,223,149,210,166
     PUSHBUTTON      "Hill options",IDC_BUTTON69,195,376,60,19
+    PUSHBUTTON      "&Textoptionen",IDC_BUTTON_TEXTOPTIONS,265,376,74,20
 END
 
 IDD_SHOW_KEY DIALOG  0, 0, 277, 89
@@ -14585,18 +14602,19 @@ BEGIN
                     212,10
 END
 
-IDD_KEY DIALOG  0, 0, 251, 85
+IDD_KEY DIALOGEX 0, 0, 300, 90
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Key Entry"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    EDITTEXT        IDC_EDIT1,11,29,191,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT1,10,30,240,12,ES_AUTOHSCROLL
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,
-                    220,28,22,20
-    DEFPUSHBUTTON   "&Encrypt",IDOK,11,53,58,19
-    PUSHBUTTON      "&Decrypt",IDC_BUTTON1,94,53,57,19
-    PUSHBUTTON      "&Cancel",IDCANCEL,185,53,55,19
-    LTEXT           "Static",IDC_STATIC_TEXT,11,7,229,17
+                    268,30,22,20
+    DEFPUSHBUTTON   "&Encrypt",IDOK,10,61,55,19
+    PUSHBUTTON      "&Decrypt",IDC_BUTTON1,75,61,55,19
+    PUSHBUTTON      "&Cancel",IDCANCEL,235,61,55,19
+    LTEXT           "Static",IDC_STATIC_TEXT,10,7,280,17
+    PUSHBUTTON      "&Text options",IDC_BUTTON_TEXTOPTIONS,140,61,55,19
 END
 
 IDD_KEY_HEX_FIXED_LEN DIALOG  0, 0, 310, 108
@@ -17376,7 +17394,7 @@ BEGIN
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
-            MENUITEM "&Enigma...",                     ID_FLASH_ENIGMADEMO
+            MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -17781,7 +17799,7 @@ BEGIN
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
-            MENUITEM "&Enigma...",                     ID_FLASH_ENIGMADEMO
+            MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -18190,7 +18208,7 @@ BEGIN
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
-            MENUITEM "&Enigma...",                     ID_FLASH_ENIGMADEMO
+            MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -18594,7 +18612,7 @@ BEGIN
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
-            MENUITEM "&Enigma...",                     ID_FLASH_ENIGMADEMO
+            MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -19028,7 +19046,7 @@ BEGIN
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
             MENUITEM "&AES...",                     ID_FLASH_AESDEMO
-            MENUITEM "&Enigma...",                     ID_FLASH_ENIGMADEMO
+            MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
@@ -20232,6 +20250,7 @@ BEGIN
     IDD_KEY_HILL5X5, DIALOG
     BEGIN
         RIGHTMARGIN, 363
+        HORZGUIDE, 352
     END
 
     IDD_OPTIONS_ANALYSIS, DIALOG
@@ -20297,6 +20316,11 @@ BEGIN
     BEGIN
         BOTTOMMARGIN, 325
         HORZGUIDE, 307
+    END
+
+    IDD_KEY_HILL_10X10, DIALOG
+    BEGIN
+        HORZGUIDE, 376
     END
 
     IDD_SHOW_KEY, DIALOG
@@ -20540,12 +20564,13 @@ BEGIN
 
     IDD_KEY, DIALOG
     BEGIN
-        VERTGUIDE, 11
-        VERTGUIDE, 202
-        VERTGUIDE, 220
-        VERTGUIDE, 240
-        HORZGUIDE, 53
-        HORZGUIDE, 72
+        VERTGUIDE, 10
+        VERTGUIDE, 75
+        VERTGUIDE, 250
+        VERTGUIDE, 290
+        HORZGUIDE, 30
+        HORZGUIDE, 61
+        HORZGUIDE, 80
     END
 
     IDD_KEY_HEX_FIXED_LEN, DIALOG

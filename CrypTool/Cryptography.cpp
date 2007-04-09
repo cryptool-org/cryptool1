@@ -544,10 +544,9 @@ void Hill(const char *infile, const char *OldTitle)
 
 		if (iHillSchluesselFensterGroesse == HILL_SCHLUESSEL_KLEIN)
 		{
-			hillklasse = new CHillEncryption(theApp.TextOptions.m_alphabet.GetBuffer(0));
-
-			hillein = new CDlgKeyHill5x5(hillklasse);
-			iLocalRc = hillein->Display(hillklasse);
+			hillein = new CDlgKeyHill5x5();
+			hillklasse = hillein->getHillKlasse();
+			iLocalRc = hillein->Display();
 
 			// Falls nicht auf "Groessere Schluessel" geklickt wurde
 			if (iHillSchluesselFensterGroesse == HILL_SCHLUESSEL_KLEIN)
@@ -559,16 +558,14 @@ void Hill(const char *infile, const char *OldTitle)
 				// Die Maske Groessere Schluessel muss geoeffnet werden
 				delete hillein;
 				hillein = NULL;
-				delete hillklasse;
 				hillklasse = NULL;
 			}
 		}
 		else // iHillSchluesselFensterGroesse = HILL_SCHLUESSEL_GROSS
 		{
-			hillklasse = new CHillEncryption(theApp.TextOptions.m_alphabet.GetBuffer(0));
-
-			hilleingross = new CDlgKeyHill10x10(hillklasse);
-			iLocalRc = hilleingross->Display(hillklasse);
+			hilleingross = new CDlgKeyHill10x10();
+			hillklasse = hilleingross->getHillKlasse();
+			iLocalRc = hilleingross->Display();
 
 			// Falls nicht auf "Kleinere Schluessel" geklickt wurde
 			if (iHillSchluesselFensterGroesse == HILL_SCHLUESSEL_GROSS)
@@ -580,7 +577,6 @@ void Hill(const char *infile, const char *OldTitle)
 				// Die Maske Kleinere Schluessel muss geoeffnet werden
 				delete hilleingross;
 				hilleingross = NULL;
-				delete hillklasse;
 				hillklasse = NULL;
 			}
 		}
@@ -599,8 +595,6 @@ void Hill(const char *infile, const char *OldTitle)
 			ASSERT (hillein != NULL);
 			delete hillein;
 		}
-		ASSERT (hillklasse != NULL);
-		delete hillklasse;
 
 		return;
 	}
@@ -846,8 +840,6 @@ void Hill(const char *infile, const char *OldTitle)
 		ASSERT (hillein != NULL);
 		delete hillein;
 	}
-	ASSERT (hillklasse != NULL);
-	delete hillklasse;
 
 	// Nun muessen die in die Eingabedatei geschriebenen Zeichen wieder entfernt werden,
 	// da sonst bei Verschluesselung der gleichen Datei mit Schluesseln verschiedener 

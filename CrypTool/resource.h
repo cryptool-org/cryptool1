@@ -1503,6 +1503,7 @@
 #define IDC_PROGRESS_PGP                1970
 #define IDC_PROGRESS_CRYPTOOL           1971
 #define IDC_CHECK_USECRYPTOOLALPHABET   1972
+#define IDC_BUTTON_TEXTOPTIONS          1973
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010

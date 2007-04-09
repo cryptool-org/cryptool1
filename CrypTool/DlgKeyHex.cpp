@@ -190,4 +190,15 @@ void CDlgKeyHex::OnPasteHexKey()
 	UpdateData(FALSE);
 }
 
+BOOL CDlgKeyHex::OnInitDialog() 
+{
+	CDlgKey::OnInitDialog();
+
+	// flomar: TODO
+	//m_TextOptionsButton.ShowWindow(SW_HIDE);
+
+	return true;
+}
+
+
 

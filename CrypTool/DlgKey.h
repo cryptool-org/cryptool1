@@ -77,6 +77,7 @@ public:
 	enum { IDD = IDD_KEY };
 	CButton	m_EncryptionButton;
 	CButton	m_DecryptionButton;
+	CButton m_TextOptionsButton;
 	CEdit	m_text_ctl;
 	CString	m_text;
 	CString	m_static_text;
@@ -92,12 +93,12 @@ public:
 
 // Implementation
 protected:
-
 	// Generated message map functions
 	//{{AFX_MSG(CDlgKey)
 	afx_msg void OnUpdateEdit1();
 	afx_msg void OnDecrypt();
 	afx_msg void OnEncrypt();
+	afx_msg void OnTextOptions();
 	virtual BOOL OnInitDialog();
 	afx_msg void OnPasteKey();
 	//}}AFX_MSG

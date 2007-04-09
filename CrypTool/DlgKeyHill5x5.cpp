@@ -63,11 +63,11 @@ statement from your version.
 // Dialogfeld CDlgKeyHill5x5 
 
 
-CDlgKeyHill5x5::CDlgKeyHill5x5(CHillEncryption *hillkl, CWnd* pParent /*=NULL*/)
+CDlgKeyHill5x5::CDlgKeyHill5x5(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgKeyHill5x5::IDD, pParent)
 	, m_pHillAlphInfo(_T(""))
 {
-	hillklasse = hillkl;
+	hillklasse = new CHillEncryption(theApp.TextOptions.m_alphabet.GetBuffer(0));;
 	m_decrypt = 0;
 	//{{AFX_DATA_INIT(CDlgKeyHill5x5)
 	m_Verbose = FALSE;
@@ -76,10 +76,8 @@ CDlgKeyHill5x5::CDlgKeyHill5x5(CHillEncryption *hillkl, CWnd* pParent /*=NULL*/)
 
 CDlgKeyHill5x5::~CDlgKeyHill5x5()
 {
-	if (mat)
-	{
-		delete mat;
-	}
+	if(hillklasse) delete hillklasse;
+	if(mat) delete mat;
 }
 
 void CDlgKeyHill5x5::DoDataExchange(CDataExchange* pDX)
@@ -242,6 +240,8 @@ BEGIN_MESSAGE_MAP(CDlgKeyHill5x5, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON1,	OnHillOptions)
 
 	ON_BN_CLICKED(IDC_CHECK1, OnVerbose)
+
+	ON_BN_CLICKED(IDC_BUTTON_TEXTOPTIONS, OnTextOptions)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -696,7 +696,7 @@ void CDlgKeyHill5x5::UpdateAlphCode(CEdit *feld)
 	}
 }
 
-int CDlgKeyHill5x5::Display(CHillEncryption *hillklasse)
+int CDlgKeyHill5x5::Display()
 {
 	int res;
 
@@ -1598,4 +1598,22 @@ void CDlgKeyHill5x5::OnVerbose()
 {
 	CButton* pCheck = (CButton*)GetDlgItem(IDC_CHECK1);
 	m_Verbose = pCheck->GetCheck();
+}
+
+void CDlgKeyHill5x5::OnTextOptions()
+{
+	if(theApp.TextOptions.DoModal() != IDOK) return;
+
+	//if(hillklasse) delete hillklasse;
+	hillklasse = new CHillEncryption(theApp.TextOptions.m_alphabet.GetBuffer(0));
+	
+	int len = theApp.TextOptions.m_alphabet.GetLength();
+	LoadString(AfxGetInstanceHandle(),IDS_HILL_CASE,pc_str,STR_LAENGE_STRING_TABLE);
+	char l_str[1024];
+	sprintf(l_str,pc_str,len);
+	GetDlgItem(IDC_STATIC_HILL_ALPH)->SetWindowText(l_str);
+
+	m_pHillAlphInfo = theApp.TextOptions.m_alphabet;
+	
+	UpdateData(false);
 }

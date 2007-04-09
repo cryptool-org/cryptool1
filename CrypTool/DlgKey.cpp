@@ -101,6 +101,7 @@ void CDlgKey::DoDataExchange(CDataExchange* pDX)
 	//{{AFX_DATA_MAP(CDlgKey)
 	DDX_Control(pDX, IDOK, m_EncryptionButton);
 	DDX_Control(pDX, IDC_BUTTON1, m_DecryptionButton);
+	DDX_Control(pDX, IDC_BUTTON_TEXTOPTIONS, m_TextOptionsButton);
 	DDX_Control(pDX, IDC_EDIT1, m_text_ctl);
 	DDX_Text(pDX, IDC_EDIT1, m_text);
 	DDV_MaxChars(pDX, m_text, len);
@@ -114,6 +115,7 @@ BEGIN_MESSAGE_MAP(CDlgKey, CDialog)
 	ON_EN_UPDATE(IDC_EDIT1, OnUpdateEdit1)
 	ON_BN_CLICKED(IDC_BUTTON1, OnDecrypt)
 	ON_BN_CLICKED(IDOK, OnEncrypt)
+	ON_BN_CLICKED(IDC_BUTTON_TEXTOPTIONS, OnTextOptions)
 	ON_BN_CLICKED(IDC_BUTTON2, OnPasteKey)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
@@ -188,6 +190,38 @@ void CDlgKey::OnEncrypt()
 	OnOK();
 }
 
+void CDlgKey::OnTextOptions()
+{
+	theApp.TextOptions.DoModal();
+	// check whether key contains non-alphabet characters now
+	if(!IsKeyInAlphabet(m_text, theApp.TextOptions.m_alphabet))
+	{
+		// remove those characters from the key one by one
+		for(int i=0; i<m_text.GetLength(); i++)
+		{
+			if(theApp.TextOptions.m_alphabet.Find(m_text.GetAt(i)) == -1)
+				m_text.Remove(m_text.GetAt(i));
+		}
+	}
+
+	// set focus to text edit for better usage
+	m_text_ctl.SetFocus();
+
+	// enable/disable encryption/decryption button if there is a/no key
+	if (m_text.GetLength())
+	{
+		m_EncryptionButton.EnableWindow(TRUE);
+		m_DecryptionButton.EnableWindow(TRUE);	
+	}
+	else
+	{
+		m_EncryptionButton.EnableWindow(FALSE);
+		m_DecryptionButton.EnableWindow(FALSE);	
+	}
+
+	UpdateData(false);
+}
+
 void CDlgKey::SetAlternativeWindowText(LPCTSTR s_title)
 {
     strncpy(s_alternativeWindowText, s_title, 126);
@@ -219,6 +253,7 @@ BOOL CDlgKey::OnInitDialog()
 	{
 		m_Paste.EnableWindow(FALSE);
 	}
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
