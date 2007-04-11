@@ -1,47 +1,46 @@
 ==================================================================
-    CrypTool, Version 1.4.00 für Win32, Juli 2006
-    (c) Deutsche Bank AG, Frankfurt am Main
-    (c) Universität Siegen und Darmstadt
-    (c) 1998-2006
+    CrypTool, Version 1.4.10 für Win32, April 2007
+    (c) Contributors
+        Dazu gehören z.B.
+        Deutsche Bank AG, Frankfurt am Main
+        Universität Siegen und Darmstadt
+        1998-2007
+    www.cryptool.de
     Bernhard Esslinger
     $Id$
 ==================================================================
-
-                       Inhalt
 
  1. .... Kurzbeschreibung des CrypTool-Paketes
  1.1. .... Wie Sie am besten starten - Der Einstieg in CrypTool
  1.2. .... Was beinhaltet die Distribution
  1.3. .... Danke
- 1.4. .... Maintainer, Hosting und Roadmap
+ 1.4. .... Maintainer und Hosting
  2. .... Beschränkungen und Voraussetzungen
  2.1. .... Lern-, Trainings- und Awareness-Software
- 2.2. .... Win32-Umgebung
- 2.3. .... Installation unter Windows 95
- 2.4. .... Interaktive Online-Hilfe unter Windows XP
- 2.5. .... Unterstützung verschiedener Sprachen
- 2.6. .... Einschränkungen
- 2.7. .... Zertifikate, die mit älteren CrypTool-Versionen erzeugt wurden
+ 2.2. .... Win32-Umgebung und Roadmap
+ 2.3. .... Interaktive Online-Hilfe unter Windows XP
+ 2.4. .... Unterstützung verschiedener Sprachen
+ 2.5. .... Einschränkungen
+ 2.6. .... Zertifikate, die mit älteren CrypTool-Versionen erzeugt wurden
  3. .... Installation / Deinstallation / Betrieb
  3.1. .... Installation und Nutzung von Schlüsseln aus vorherigen Versionen
  3.2. .... Installation in Mehrbenutzersystemen
- 3.3. .... Deinstallation of CrypTool
+ 3.3. .... Deinstallation von CrypTool
  3.4. .... Betrieb in Mehrbenutzersystemen
  4. .... Liste der Dateien in der Auslieferung
  4.1. .... Überprüfen der Integrität der heruntergeladenen Dateien
- 5. .... Neuerungen in CrypTool 1.4.00
- 5.1. .... Was bietet CrypTool generell
- 5.2. .... Neuerungen in Version 1.4.00
+ 5. .... Was bietet CrypTool im Detail
+ 5.1. .... Was können Sie mit CrypTool machen?
+ 5.2. .... Neuerungen in Version 1.4.10
  6. .... Mögliche Punkte für eine Weiterentwicklung -- Ideen, Anfragen
  6.1. .... Funktionalität: Algorithmen / Verfahren
  6.2. .... Funktionalität: Analyse
  6.3. .... Interne Schnittstellen / Editoren
  6.4. .... User-Interface / Visualisierungen
- 6.5. .... Erweiterung um zahlentheoretische Funktionen
- 6.6. .... Portierung nach Linux, Java und VS2005/WPF
- 6.7. .... Sinnvolle Aufgaben für jemand, der neu anfängt mitzuentwickeln
+ 6.5. .... Portierung nach Linux, Java und VS2005/WPF
+ 6.6. .... Sinnvolle Aufgaben für jemand, der neu anfängt mitzuentwickeln
  7. .... Kurze Historie der freigegebenen Hauptversionen
- 8. .... Feedback bei Fehlern
+ 8. .... Feedback
  9. .... Kontaktadressen
 10. .... Verweise
 10.1. .... Artikel zu CrypTool
@@ -58,24 +57,38 @@
 Diese Readme-Datei gehört zur kostenlosen Distribution des Open-Source
 Programms CrypTool. Mit CrypTool kann man kryptographische Verfahren
 erlernen, ausprobieren und sowohl bekannte wie unbekannte Verfahren
-analysieren.
+analysieren. Schon in der Antike wurden solche Verfahren zur Geheim-
+haltung von Nachrichten entwickelt. Heutige Verfahren basieren auf
+moderner Mathematik und erlauben neben der Verschlüsselung auch die
+Prüfung der Integrität, die Erstellung von Signaturen, sichere
+Authentisierung und Vieles mehr. CrypTool unterstützt sowohl die
+Ausführung als auch die Analyse solcher Verfahren.
+
+CrypTool wird seit 1998 entwickelt. Im Moment arbeiten über 30 Personen
+weltweit daran.
 
 Zu jedem Programmteil gibt es reichhaltige Online-Hilfe, die auch
 ohne tiefes Kryptowissen verstanden werden kann.
 
 CrypTool ist komplett in Deutsch und Englisch vorhanden.
+Die Polnische Version hat die gleiche Funktionalität [übersetzt ist
+im Moment aber nur das Programm selbst, also die Oberfläche (Menüs,
+Dialoge, ...). Die der polnischen Version beigelegte Dokumentation
+ist noch in Englisch].
 
 Vorausgesetzt wird, dass der Benutzer mit Anwendungen in einer
 Windows-Umgebung umgehen kann.
 
-Die jeweils aktuelle Version von CrypTool finden Sie unter den
-Internet-Adressen:  http://www.CrypTool.de
-                    http://www.CrypTool.com
-                    http://www.CrypTool.org
+Die aktuelle Release-Version von CrypTool und die Sourcen dazu
+finden Sie unter den Internet-Adressen (keine Registrierung):
+                http://www.CrypTool.de
+                http://www.CrypTool.com
+                http://www.CrypTool.org
+                http://www.CrypTool.pl
 
-Seit Anfang 2006 bewegt sich die Downloadrate bei rund 2000
-CrypTool-Paketen pro Monat -- mit wachsender Tendenz (davon
-entfallen etwas über 1/3 auf die englische Version).
+Seit Mitte 2006 werden rund 3000 CrypTool-Pakete pro Monat herunter
+geladen -- mit wachsender Tendenz (davon entfallen etwas über 1/3
+auf die englische Version).
 
 Ziel von CrypTool ist es, kryptographische Mechanismen anschaulich
 zu machen und die Verwendung und die Grenzen einzelner Verfahren
@@ -102,7 +115,7 @@ Wir laden jeden herzlich ein, an CrypTool mit zu entwickeln oder
 Feedback zu geben. Auch für Hinweise zu Arbeiten (Diplom-, Doktor-
 oder Seminararbeiten), die man in CrypTool integrieren könnte, sind
 wir sehr dankbar. 
-Kontakte: Siehe Kapitel 8 und 9 unten.
+Kontakte: Siehe Kapitel 9 unten.
 
 
 1.1. Wie Sie am besten starten - Der Einstieg in CrypTool
@@ -117,10 +130,10 @@ Inhalte von CrypTool kennen zu lernen (z.B. mit Hilfe der Links auf
 dieser Startseite).
 Bitte lesen Sie die Hinweise und Tipps der Hilfe-Startseite.
 
-Einen schnellen Einstieg in CrypTool finden Sie, wenn Sie einige
-Szenarien (Tutorials) der Online-Hilfe durchspielen (die Szenarien
-stehen im Inhaltsverzeichnis der Online-Hilfe unter "Beginn der 
-Arbeit mit CrypTool").
+Einen schnellen Einstieg in die Kryptographie mittels CrypTool
+finden Sie, wenn Sie einige Szenarien (Tutorials) der Online-Hilfe
+durchspielen (die Szenarien stehen im Inhaltsverzeichnis der
+Online-Hilfe unter "Beginn der Arbeit mit CrypTool").
 
 Die Funktionen von CrypTool können Sie am einfachsten ausprobieren
 mit der standardmäßig geöffneten Datei "Startbeispiel-de.txt".
@@ -133,7 +146,7 @@ nicht recht weiter wissen, sollten Sie mittels der F1-Taste ausreichend
 Hilfe finden (wenn nicht, geben Sie uns bitte Feedback).
 
 Eine 1-seitige Übersicht über alle Menüs in CrypTool (Menübaum)
-finden Sie im beigelegten PDF-Skript (Anhang A1).
+finden Sie im beigelegten PDF-Skript (siehe Anhang A1).
 
 Wir wünschen viel Spaß beim Lernen und beim Ausprobieren der Funktionen
 von CrypTool.
@@ -160,9 +173,10 @@ eingesetzt wird:
   - der Miracl-Bibliothek (http://indigo.ie/~mscott/),
   - der OpenSSL-Bibliothek (http://www.openssl.org/),
   - der NTL-Zahlentheorie-Bibliothek von Victor Shoup
-    (http://www.shoup.net/ntl/) und
+    (http://www.shoup.net/ntl/),
   - der GMP-Bibliothek für beliebig genaue Arithmetik
-    (http://www.swox.com/gmp/).
+    (http://www.swox.com/gmp/) und
+  - der cv act library der cv cryptovision Gmbh (www.cryptovision.com).
  
   Die aktuell benutzten Versionen der inkludierten Bibliotheken finden
   Sie in der Dialogbox "Über CrypTool" (siehe Hilfe-Menü).
@@ -198,29 +212,49 @@ d) Präsentation, die auf Folien die Möglichkeiten von CrypTool
 
 (3) Eigenständige Programme
 ---------------------------
-Alle diese Programme können aus CrypTool heraus, aber auch stand-alone
-aufgerufen werden.
-a) Das Programm AES-Tool (entstanden im CrypTool-Projekt)
+Die folgenden Programme können aus CrypTool heraus, aber auch stand-alone
+aufgerufen werden:
+
+a) Das Programm AES-Tool v 2.4 (entstanden im CrypTool-Projekt)
    Zum Erstellen selbstentpackender Executables ist in CrypTool ein
    Programm integriert, das auch eigenständig benutzt werden kann.
    Darin wird aus einem Passwort ein Session-Key erzeugt, mit dem
    ein beliebiger Dateiinhalt AES-verschlüsselt wird.
-   Dieses Verschlüsselungstool kann sowohl als Fenster als auch von
-   Kommandozeile (z.B. aus einer Batchdatei) aufgerufen werden.
-b) Das Lernspiel "Der Zahlenhai" (entstanden im CrypTool-Projekt)
+   Dieses Verschlüsselungstool kann sowohl als Fensteranwendung als
+   auch von Kommandozeile (z.B. aus einer Batchdatei) aufgerufen werden.
+   Dateien können bis zu einer Größe von 4 GB verschlüsselt werden.
+
+b) Das Lernspiel "Der Zahlenhai" v 1.2 (entstanden im CrypTool-Projekt)
    Dieses Lernspiel für Schüler bringt diesen den Umgang mit
    Teilern und Primfaktoren näher.
+
 c) Das Animationsprogramm ANIMAL (siehe http://www.animal.ahrgr.de)
    Mit diesem an der TU Darmstadt von Dr. Rößling gepflegten Programm
    kann man die Einzelschritte von Algorithmen oder die Komponenten von
    Datenstrukturen beliebig genau modellieren, diese manuell vor und 
-   zurück abspielen oder automatisch ablaufen lassen. Das Animal-System
-   erlaubt die Erstellung von Animationen mithilfe einer GUI, einer 
-   Skriptsprache sowie einer Java-API.
+   zurück abspielen oder automatisch ablaufen lassen. Damit kann man
+   auch dynamisch Source Code-Zeilen visualisieren.
+   Das Animal-System erlaubt die Erstellung von Animationen mithilfe
+   einer GUI, einer Skriptsprache sowie einer Java-API.
+   Weitere Beispiele finden sich im ANIMAL-Repository (Datenbank):
+   http://www.animal.ahrgr.de/animations.php3?tool=Animal&lang=de
+
+d) Die Flash-Anwendungen "Rijndael" (visualisiert das Verschlüsselungs-
+   verfahren AES) und "Enigma" (visualisiert das 2.-Weltkriegs Krypto-
+   Gerät Enigma).
+
+e) Die Authorware-Anwendung "ZT" (Zahlentheorie) führt in die elementare
+   Zahlentheorie ein und visualisiert viele der Verfahren und Konzepte,
+   die Grundlage der modernen Public-Key-Kryptographie sind.
+   Wo nötig zeigt sie auch die entsprechenden mathematischen Formeln.
+   Dabei können diese mathematischen Verfahren dynamisch mit eigenen
+   kleinen Zahlenbeispielen ausprobiert werden.
+   Dazu gehört auch das Programm bc.exe der Free Software Foundation,
+   mit dem man auf der Kommandozeile beliebig genau rechnen kann.
 
 
-(4) Geschichten mit Bezug zur Zahlentheorie und Kryptographie
--------------------------------------------------------------
+(4) Geschichten mit Bezug zu Zahlentheorie und Kryptographie
+------------------------------------------------------------
 Als PDF-Datei sind zwei Geschichten beigelegt:
 - In "Der Dialog der Schwestern" wird eine Variante des RSA-Verfahrens
   von den Titelheldinnen benutzt, um verschlüsselt zu kommunizieren.
@@ -235,40 +269,60 @@ Readme) aufgeführt.
 
 1.3. Danke
      -----
-Zu CrypTool haben viele verschiedene Personen beigetragen --
+Zu CrypTool haben sehr viele verschiedene Personen beigetragen --
 insbesondere auch in ihrer Freizeit (einige sind namentlich in der
 Dialogbox aufgeführt, die man erhält, wenn man in der Dialogbox 
 "Über CrypTool" einen Doppelklick ausführt). Herzlichen Dank.
 
-Ebenfalls beigetragen haben als Sponsoren die Deutsche Bank AG und
-die Technische Universität Darmstadt.
+Ebenfalls beigetragen haben als Sponsoren z.B. die Deutsche Bank AG
+und die Technische Universität Darmstadt.
 
-Dr. Carsten Elsner erlaubte uns, seine beiden Geschichten als 
-PDF-Datei beizulegen.
-Der Verfasser, als alleiniger Inhaber aller Rechte an den Werken,
-räumt dem CrypTool-Maintainer das ausschließliche Vervielfälti-
-gungs- und Verbreitungsrecht ein. Die Geschichten dürfen nur zusammen
-mit dem CrypTool-Paket verbreitet werden.
-Die Geschichte "Der Dialog der Schwestern" wurde zuerst in dem 
-Computermagazin c't 25/1999 veröffentlicht. Während in der c't
-eine etwas gekürzte Fassung veröffentlicht wurde, liegt hier die
-Originalfassung bei.
+Ohne vollständig sein zu wollen, möchten wir hier einige Mitwirkende
+erwähnen (und evtl. besondere Bedingungen aufführen):
 
-Die Firmen Secude IT Security GmbH und Shamus Software Ltd. (siehe oben)
-gestatteten uns großzügigerweise, ihre Krypto-Bibliotheken zu nutzen.
-Diese mit CrypTool verteilten Bibliotheken dürfen nicht in einem
-Kontext außerhalb CrypTool benutzt werden, ohne vorher die erwähnten
-Firmen zu kontaktieren und nach ihren aktuellen Lizenzbedingungen zu
-fragen.
+- Dr. Carsten Elsner erlaubte uns, seine beiden Geschichten als 
+  PDF-Datei beizulegen.
+  Der Verfasser, als alleiniger Inhaber aller Rechte an den Werken,
+  räumt dem CrypTool-Maintainer das ausschließliche Vervielfälti-
+  gungs- und Verbreitungsrecht ein. Die Geschichten dürfen nur zusammen
+  mit dem CrypTool-Paket verbreitet werden.
+  Die Geschichte "Der Dialog der Schwestern" wurde zuerst in dem 
+  Computermagazin c't 25/1999 veröffentlicht. Während in der c't
+  eine etwas gekürzte Fassung veröffentlicht wurde, liegt hier die
+  Originalfassung bei.
 
-Ebenso danken möchten wir den Open-Source-Entwicklern, deren Code wir
-nutzen dürfen (z.B. die Bibliotheken OpenSSL und NTL) oder die uns
-mit ihrem Code Anregungen gaben.
+- Dr. Guido Rößling erlaubte uns seine Freeware ANIMAL, eine Java-basierte
+  Animationssoftware mit auszuliefern.
+
+- Ebenfalls integrieren durften wir erweiterte Versionen von:
+  - der Flash-Animation zu AES von Enrique Zabala,
+  - der Flash-Animation zur Enigma von Dr. Frank Spieß,
+  - dem Zahlentheorie-Lernprogramm von Martin Ramberger.
+  Die über eine Verwendung außerhalb des freien CrypTool-Contextes
+  hinausgehenden Rechte verbleiben beim jeweiligen Autor.
+
+- Die Firmen
+  - Secude IT Security GmbH, 
+  - Shamus Software Ltd (Miracl) und
+  - cv cryptovision Gmbh (siehe oben)
+  gestatteten uns großzügigerweise, ihre Krypto-Bibliotheken zu nutzen.
+  Diese mit CrypTool verteilten Bibliotheken dürfen nicht in einem
+  Kontext außerhalb CrypTool benutzt werden, ohne vorher die erwähnten
+  Firmen zu kontaktieren und nach ihren aktuellen Lizenzbedingungen zu
+  fragen.
+
+Ebenso herzlich danken möchten wir den Open-Source-Entwicklern, die uns
+mit ihrem Code Anregungen gaben oder deren Code wir nutzen dürfen
+(z.B. die Bibliotheken OpenSSL, GMP und NTL, die Installations-Software
+NSIS, die Texteditorsoftware Scintilla).
+
+Bedanken möchte ich mich auch bei Herrn Bartosz Sawicki von der
+Universität Warschau, der mit seinem Team die gesamte polnische
+Version erstellte.
 
 
-1.4. Maintainer, Hosting und Roadmap
-     -------------------------------
-Wie geplant hat CrypTool ein akademisches Zuhause erhalten:
+1.4. Maintainer und Hosting
+     ----------------------
 Seit Oktober 2002 hostet der Lehrstuhl Sicherheit in der Informations-
 technik, Fachbereich Informatik unter Frau Prof. Dr. Claudia Eckert
 an der TU Darmstadt die deutsche und englische Webseite von CrypTool
@@ -278,13 +332,13 @@ Die CrypTool-Entwicklergruppe unter Bernhard Esslinger fungiert auch
 weiterhin als Maintainer, d.h. sie kümmert sich um die Pflege des
 Codes, die Veröffentlichung als Open Source und Freeware, und um
 die Koordination der Weiterentwicklung. Die nächsten Schritte der
-Roadmap werden auf der Webseite veröffentlicht.
+Roadmap werden auch auf der Webseite veröffentlicht.
 
-Die Homepage von CrypTool bleibt weiterhin www.cryptool.de.
+Die Homepage von CrypTool ist www.cryptool.de.
 
-Wir würden uns sehr freuen, wenn sich nicht nur die bisherigen
-Entwickler, sondern auch viele neue an der Weiterentwicklung von
-CrypTool beteiligen. Ideen dazu finden Sie in Kapitel 6.
+Wir freuen uns über jeden weiteren Entwickler, der sich an der
+Weiterentwicklung von CrypTool beteiligt.
+Ideen zur Weiterentwicklung finden Sie in Kapitel 6.
 
 Ebenfalls sehr willkommen sind uns Ideen und Infos, wie CrypTool in
 Lehre, Schule und Ausbildung eingesetzt wurde, damit wir dazu 
@@ -310,10 +364,10 @@ das CA-Schlüsselpaar fest in der Software (Source und Binary) und es
 ist geschützt mit einer ebenfalls bewusst sehr einfachen PIN für die
 CA-PSE (Personal Security Environment).
 
-Der Rootschlüssel der in CrypTool 1.4.00 eingebauten CA hat eine Länge
+Der Rootschlüssel der in CrypTool 1.4.10 eingebauten CA hat eine Länge
 von 2048 Bit und ist 20 Jahre gültig (06.07.2006 - 06.07.2026).
 Zertifikate, die mit dem alten Rootkey aus früheren CrypTool-Versionen
-(1.3.05 und älter) ausgestellt wurden, können nicht in Version 1.4.00
+(1.3.05 und älter) ausgestellt wurden, können nicht in Version 1.4.10
 importiert werden.
 
 Beachten Sie also beim Umgang mit Zertifikaten, dass jedes CrypTool-
@@ -327,22 +381,30 @@ Secude-CA oder die Microsoft-CA managen zusätzlich den ganzen
 Lebenszyklus von Zertifikaten, bieten CRL-Handling, sorgen für
 eindeutige Seriennummern und nutzen definierte Registrierungsprozesse.
 
-Die in CrypTool vorhandenen Verfahren selbst sind entsprechend den
-internationalen Standards implementiert und genauso "gut" wie in
+Die in CrypTool vorhandenen modernen Krypto-Verfahren sind entsprechend
+den internationalen Standards implementiert und genauso "gut" wie in
 kommerziellen Anwendungen.
 
 
-2.2. Win32-Umgebung
-     --------------
-CrypTool erfordert eine Win32-Umgebung, wie sie unter Windows 95,
-Windows 98, Windows Me, Windows NT (ab 4.0), Windows 2000 und
-Windows XP gegeben ist.
+2.2. Win32-Umgebung und Roadmap
+     --------------------------
+CrypTool erfordert eine Win32-Umgebung.
 
-Seit Version 1.4.00 sind weder für die Installation noch für die
-Benutzung Administrator-Rechte notwendig. Persistente Daten werden
-nur im CrypTool-Verzeichnis, in das Standard-Windows-Verzeichnis für
-temporäre Dateien (TEMP-Verzeichnis) und in den benutzerspezifischen
-Bereich der Windows-Registry geschrieben (Details siehe Kapitel 3).
+Einige Funktionen erfordern zusätzlich eine Java Runtime-Umgebung
+(> Version 1.4).
+
+Die minimale Rechnerausstattung liegt bei 300 MHz CPU, 256 MByte RAM,
+40 MByte Festplattenplatz (geringe Anforderungen).
+
+CrypTool 1.4.10 unterstützt Windows 2000, Windows XP and Windows Vista.
+
+Weder für die Installation noch für die Benutzung sind Administrator-
+Rechte notwendig.
+
+Persistente Daten werden nur im CrypTool-Verzeichnis, in das Standard-
+Windows-Verzeichnis für temporäre Dateien (TEMP-Verzeichnis) und in
+den benutzerspezifischen Bereich der Windows-Registry geschrieben
+(Details siehe Kapitel 3) (Es gibt keine INI-Dateien mehr).
 
 Anmerkung: Wo das TEMP-Verzeichnis von Windows liegt, kann man sehen,
 wenn man in Windows-Explorer %TEMP% eingibt. Den Wert kann man unter
@@ -353,35 +415,11 @@ CrypTool funktioniert grundsätzlich auch unter FreeBSD/Linux mit
 Wine (mit großen Abstrichen an Funktionalität und Stabilität).
 Siehe Anhang 11.1.
 
-Eine Portierung auf Linux oder ein Neudesign mit Java oder eine
-Vorbereitung auf Windows Vista/Avalon sind weitere Ziele (siehe
-Kapitel 6).
+Eine Portierung auf Linux oder Java und die Erstellung einer Version 2.0,
+die Windows WPF nutzt, sind weitere Ziele (siehe Kapitel 6.5).
 
 
-2.3. Installation unter Windows 95
-     -----------------------------
-Bei älteren Windows 95-Systemen erhalten Sie beim Aufruf von
-CrypTool die Meldung "Kann 'secude.dll' nicht finden". In diesem
-Fall können Sie CrypTool nur eingeschränkt nutzen.
-
-Die Algorithmen der Secude-Bibliothek werden beim Start von
-CrypTool mit Hilfe der Bibliothek "msvcrt.dll" dynamisch geladen.
-
-Die Datei "msvcrt.dll" wird standardmäßig mit Windows 98,
-Windows NT etc. ausgeliefert, aber nicht mit Windows 95.
-Zum Lieferumfang verschiedener Anwendungs-Programme gehört eine
-(nicht immer ausreichend neue) Version von "msvcrt.dll".
-Kopieren Sie diese Datei in das Windows-Verzeichnis oder in das
-Verzeichnis von CrypTool.
-Alternativ können Sie eine selbstentpackende Datei von Microsoft
-herunterladen, die "msvcrt.dll" enthält:
-    ftp://ftp.microsoft.com/softlib/mslfiles/msvcrt.exe
-Speichern Sie diese Datei in einem temporären Verzeichnis und
-extrahieren Sie die Dateien durch Doppelklick. Weitere
-Anweisungen stehen in der dort mitgelieferten Readme-Datei.
-
-
-2.4. Interaktive Online-Hilfe unter Windows XP
+2.3. Interaktive Online-Hilfe unter Windows XP
      -----------------------------------------
 Unter Windows XP ist der Aufruf der interaktiven Online-Hilfe über
 die F1-Taste in einem Spezialfall nicht möglich: Betroffen sind
@@ -407,19 +445,19 @@ einklappen: Dann funktioniert das Aufrufen der Online-Hilfe mit F1
 auch unter Windows XP.
 
 
-2.5. Unterstützung verschiedener Sprachen
+2.4. Unterstützung verschiedener Sprachen
      ------------------------------------
 Programm, Hilfesystem und Dokumentation sind mehrsprachig aus-
-gelegt (zur Zeit englisch und deutsch).
+gelegt (zur Zeit komplett englisch und deutsch).
 
-Für jede unterstützte Sprache gibt es ein eigenes Setup (der
-Versuch, alle Sprachen in ein einziges Executable einzubinden
-wurde wieder aufgegeben, da die automatische Spracheinstellung
-beim Anwender (anhand seiner Systemeinstellungen) nur unter
-Windows NT 4.0, nicht aber unter Win9x, korrekt funktionierte).
+In der aktuellen polnischen Version sind im Moment das Programm inclusive
+aller Masken und Menüs in Polnisch; Hilfesystem und Dokumentation sind
+noch in Englisch (wird bis Ende 2007 geändert).
+
+Für jede unterstützte Sprache gibt es derzeit ein eigenes Setup.
 
 
-2.6. Einschränkungen
+2.5. Einschränkungen
      ---------------
 - Zur Demonstration des RSA-Kryptosystem und zur Faktorisierung von
   Zahlen greift CrypTool auf die Langzahlarithmetik der Bibliothek
@@ -443,7 +481,7 @@ Windows NT 4.0, nicht aber unter Win9x, korrekt funktionierte).
   sofern die Dateien nicht geladen werden. 
 
 - Mit dem AES-Tool können nur Dateien bis 4 GB Größe verschlüsselt
-  und archiviert werden (solange mit VS2003 compiliert).
+  und archiviert werden (solange mit VS2003 compiliert wird).
 
   Bitte beachten Sie, dass die Ausgabe des Standalone AES-Tools nicht
   vollkommen identisch ist mit der Ausgabe, die Sie in CrypTool mit der 
@@ -454,10 +492,10 @@ Windows NT 4.0, nicht aber unter Win9x, korrekt funktionierte).
   zusammen mit dem Dateinamen hinter den verschlüsselten Daten an.
 
 
-2.7. Zertifikate, die mit älteren CrypTool-Versionen erzeugt wurden
+2.6. Zertifikate, die mit älteren CrypTool-Versionen erzeugt wurden
      --------------------------------------------------------------
-Falls Sie Zertifikate, die mit älteren Versionen von CrypTool erzeugt
-wurden, unter CrypTool 1.4.00 weiter verwenden wollen, gehen Sie bitte
+Falls Sie Zertifikate, die mit CrypTool-Versionen vor 1.4.00 erzeugt
+wurden, unter CrypTool 1.4.10 weiter verwenden wollen, gehen Sie bitte
 folgendermaßen vor:
   a) für RSA- und DSA-Schlüssel:
      Exportieren Sie diese PSEs mit Hilfe des alten CrypTools in ein
@@ -493,7 +531,7 @@ Dateien überschrieben werden. Bitte beachten Sie:
   in der neuen Version von CrypTool nutzen wollen, dann sichern
   Sie vor der Deinstallation das unter dem Programmverzeichnis
   liegende Verzeichnis pse\ mit allen darin gespeicherten Dateien
-  in ein anderes Verzeichnis. Vergleiche auch Kapitel 2.7.
+  in ein anderes Verzeichnis. Vergleiche auch Kapitel 2.6.
   Nachdem die neue Version von CrypTool installiert wurde,
   kopieren Sie das gesicherte pse\-Verzeichnis in das neue
   Programmverzeichnis.
@@ -525,7 +563,7 @@ Verzeichnis, in das CrypTool installiert werden soll:
 Hat er diese Rechte nicht, bricht die Installation ab.
 
 Deshalb sollten Sie als normaler Benutzer ohne Administratorrechte als 
-Zielverzeichnis ein sogenanntes "lokales Verzeichnis" angeben (statt
+Zielverzeichnis ein so genanntes "lokales Verzeichnis" angeben (statt
 "C:\Programme"). Lokal und für den Benutzer zugänglich könnten z.B. sein:
 %ALLUSERSPROFILE% (Die Standardeinstellung im deutschen Windows XP ist: 
 "C:\Dokumente und Einstellungen\All Users").
@@ -552,8 +590,8 @@ Dann klicken Sie auf "CrypTool deinstallieren".
 
 3.4. Betrieb in Mehrbenutzersystemen
      -------------------------------
-Ab Version 1.4.00 werden alle Benutzer-spezifischen Einstellungen in
-der lokalen Registry gespeichert (z.B. die zuletzt geöffneten Dateien):
+Ab Version 1.4.10 werden alle Benutzer-spezifischen Einstellungen in
+der lokalen Registry gespeichert (auch die zuletzt geöffneten Dateien):
 Dadurch braucht man keine ini-Datei mehr im Windows-Verzeichnis und
 unterstützt den Betrieb in Mehrbenutzersystemen.
  
@@ -565,8 +603,7 @@ Explizit nötig sind Schreibrechte nur auf 2 Verzeichnissen:
 - das Standard-Windows-Verzeichnis für temporäre Dateien (TEMP)
   für die cry*.*-Dateien,
 - das Unterverzeichnis "CrypTool\pse", da darin die erzeugten 
-  asymmetrischen Zertifikate und Schlüssel abgelegt werden (siehe
-  Kapitel 3 oben).
+  asymmetrischen Zertifikate und Schlüssel abgelegt werden.
 
 
 4. Liste der Dateien in der Auslieferung
@@ -586,7 +623,7 @@ md5sum.txt ....... MD5-Hashwerte aller Dateien innerhalb des CrypTool-
                    Paketes (selbstextrahierendes Archiv).
 sha1sum.txt ...... SHA-1-Hashwerte aller dieser Dateien.
 
-CrypTool.exe ..... Das ausführbare eLearning-Programm (deutsch + englisch).
+CrypTool.exe ..... Das ausführbare E-Learning-Programm (deutsch + englisch).
 aestool.exe ...... Ein Programm, das Dateien in sich selbst entpackende
                    Programme verschlüsselt. Zur Entschlüsselung müssen
                    Sie das korrekte Passwort eingeben.
@@ -802,35 +839,41 @@ sind, dass Ihr Rechner unberührt ist.
 
 
 
-5. Neuerungen in CrypTool 1.4.00
+5. Was bietet CrypTool im Detail
    -----------------------------
 
-Kapitel 5 listet die Erweiterungen und Bugfixes auf, die in
-CrypTool 1.4.00 seit CrypTool 1.3.05 hinzugefügt wurden.
+5.1. Was können Sie mit CrypTool machen
+     ----------------------------------
+Die generellen Eigenschaften und Funktionen von CrypTool sind:
 
-5.1. Was bietet CrypTool generell
-     ----------------------------
-Hier vorab noch mal die generellen Eigenschaften von CrypTool:
-- eLearning-Programm rund um das Thema Kryptographie.
-- Kryptographie und Kryptoanalyse unter einer Oberfläche.
-- Alles in Deutsch und Englisch.
-- Klassische Verschlüsselungsverfahren, und dafür teilweise manuell
-  unterstützte, teilweise automatische Analyse.
-- Moderne symmetrische Verschlüsselungsverfahren, und die
-  Brute-Force-Analyse dazu
-  (Bei der Brute-Force-Attacke auf symmetrische Algorithmen werden
+- E-Learning-Programm rund um das Thema Kryptographie und Kryptoanalyse.
+
+- Alles in einem Programmpaket und steuerbar unter einer Oberfläche.
+
+- Alles in CrypTool ist in Deutsch und Englisch verfügbar.
+  Das Programm selbst gibt es auch in Polnisch.
+
+- Viele klassische Verschlüsselungsverfahren: Und dazu teilweise manuell
+  unterstützte, teilweise automatische Analyse (Known-Plaintext-Attack).
+
+- Codierungen wie Base64 und UU-Encode.
+
+- Nahezu alle modernen symmetrischen Verschlüsselungsverfahren: Und dazu
+  jeweils die Brute-force-Analyse
+  (Bei der Brute-force-Attacke auf symmetrische Algorithmen werden
    Jokerzeichen zugelassen und die erwartete Zeit wird ausgegeben. 
    Außerdem kann man die Breite für das hierbei genutzte
    Entropiefenster in den Analyseoptionen einstellen).
-- Moderne Kryptoverfahren und Protokolle (Hash, RSA, ECC, Digitale
-  Signatur, Hybrid-Verschlüsselung, PKCS#5, Shared Secret, ...) und
-  teilweise Angriffe darauf (Geburtstagsangriff, Seitenkanalangriff, 
+
+- Moderne (asymmetrische) Kryptoverfahren und Protokolle (Hash, RSA, ECC,
+  Digitale Signatur, Hybrid-Verschlüsselung, PKCS#5, Shared Secret, ...)
+  und teilweise Angriffe darauf (Geburtstagsangriff, Seitenkanalangriff, 
   Gitterbasenreduktion).
-- Hashwerte berechnen und ihre Sensitivität demonstrieren.
-- Pseudozufallszahlengeneratoren und statistische Analysen für 
-  Zufallsdaten (z.B. FIPS-140-1).
-- Demo zur Zahlentheorie und zum RSA-Verfahren:
-  - Primzahlen generieren und testen.
+
+- Demo des RSA-Verfahrens (in verschiedenen Varianten) und einiger 
+  zugehöriger Algorithmen der Zahlentheorie:
+  - Primzahlen generieren und testen (incl. dem deterministischen
+    AKS-Verfahren).
   - Zahlen (schrittweise) mit verschiedenen Verfahren faktorisieren
     (die verschiedenen Verfahren laufen in parallelen Threads).
   - Das RSA-Kryptosystem transparent durchführen:
@@ -838,142 +881,31 @@ Hier vorab noch mal die generellen Eigenschaften von CrypTool:
      - Ver-/Entschlüsseln mit dem RSA-Verfahren.
      - RSA-Signaturen erzeugen und diese verifizieren.
      - das RSA-Verfahren angreifen.
-- PKCS#12-Export und -Import von RSA- und DSA-PSEs und damit
-  von den darin gespeicherten Schlüsseln.
-- Visualisierung durch Flussdiagramm (z.B. beim Diffie-Hellman
-  Schlüsselaustausch-Verfahren) oder mit ANIMAL.
-- Die modernen Verfahren wurden gemäß den internationalen Standards
-  implementiert (Referenzimplementierung).
-- Das eigenständige Programm AES-Tool kann selbstentpackende
-  Programme erzeugen. Damit kann man eine beliebige Datei ( < 4 GB)
-  Passwort-geschützt mit AES verschlüsseln (durch Eingabe eines 
-  Hexadezimal-Schlüssels).
-  Voller Funktionsumfang auch bei einem Aufruf von der Kommandozeile.
-- Die letzte Einstellung zu einem Verfahren (Parameter, Schlüssel oder
-  Alphabet) wird Programm-intern aufbewahrt. Der Schlüssel kann pro 
-  Verfahren über das Schlüsseleinfügen-Symbol auch wieder abgerufen 
-  werden.
-- Umfangreiche Dokumentation (Onlinehilfe, Skript).
-- Webseite mit den Hashwerten aller herunterladbaren CrypTool-Dateien:
-  Damit kann man die Integrität der Dateien aus dem CrypTool-Paket, die
-  sich auf dem Computer befinden, überprüfen.
-- Weltweite Nutzung in Schulen, Universitäten, Behörden und Firmen.
 
-Eine gute Übersicht, was CrypTool bietet, finden Sie auch
-- in der beigelegten Powerpoint-Präsentation
-   (Titel: "Kryptographie mit CrypTool") und
-- auf der CrypTool-Webseite 
-   (insbesondere über den Eintrag "CT-Einstiegsseite" im linken Frame).
+- Drei auf Gitterreduktionsverfahren basierende Angriffe gegen das 
+  RSA-Verfahren, die darauf beruhen, dass bestimmte Vorbedingungen 
+  erfüllt sind:
+  * ein Teil von einem der beiden Faktoren von N ist bekannt 
+    ("Faktorisieren mit teilweise bekanntem p"),
+  * ein Teil des Klartextes einer abgefangenen verschlüsselten 
+    Nachricht ist bekannt und e ist klein ("Angriff auf stereotype
+    Nachrichten"),
+  * wenn d im Vergleich zu N zu klein gewählt ist, kann man N 
+    faktorisieren ("Angriff auf kleine geheime Exponenten (nach
+    Blömer/May)").
+  Die Diplomarbeit von Herrn Mathias Schneider, innerhalb von der
+  diese Verfahren implementiert wurden, kann auf Anfrage zugemailt
+  werden (sie liegt nur in Deutsch vor).
 
-
-5.2. Neuerungen in Version 1.4.00
-     ----------------------------
-
-a) Entwickler-relevante Änderungen (eher programm-technisch):
-
-- Die Sourcen von CrypTool 1.4.00 können ebenfalls von der CrypTool-
-  Homepage heruntergeladen werden (keine Registrierung).
-
-- Details zum Compilieren, Linken und zur einheitlichen Entwicklung
-  finden sich in den Sourcen in der Datei "readme-source".
-
-- Die Sourcen lassen sich nun mit der Microsoft Entwicklungsumgebung
-  Visual Studio 2003 (VC++ v7.1) compilieren.
-  Der Support von VC++ v6.0 wurde aufgegeben (neben einigen Inkompatibili-
-  täten zwischen den Compilern konnte man vor allem die GMP nicht damit
-  compilieren).
-
-  Es gibt schon einen Sourcezweig in unserem Subversion-System, der sich
-  auch mit VS2005 (VC++ v8.0) übersetzen lässt. Dies wird nach 1.4.00
-  offiziell unterstützt.
-
-- Nach der Secude- und der Miracl-Bibliothek wurden auch die 
-  Bibliotheken von OpenSSL, NTL und GMP eingebunden.
-
-- Die Editoren für Text- und Binärdaten wurden durch Open-Source-
-  Editoren mit besserer Funktionalität ausgetauscht und deren Code
-  wurde stellenweise erweitert: Dadurch ist der Anzeigevorgang
-  schneller, der Speicherbedarf geringer und es können größere Dateien
-  geladen werden.
-
-  * Hex-Editor / Hex-Control / HexView:
-    Link: http://www.codeguru.com/Cpp/controls/controls/article.php/c5287
-    -> Erweitert: Einfügen, beim Markieren wird sowohl die Hex- als auch
-                  die ASCII-Darstellung markiert.
-
-  * Text-Editor:
-    Link: http://scintilla.sourceforge.net/ScintillaDownload.html
-
-  Außerdem kann man nun auch Dateien, die nicht druckbare Zeichen
-  enthalten, im Text-Modus anschauen.
-
-  Mit dem Menüeintrag "Ansicht" \ "Schriftart" kann man schnell
-  sinnvolle Größen und den Fonttyp (monospace oder proportional)
-  einstellen.
-  So ist "Courier 10" z.B. gut, um sich den Output der ADFGVX-Chiffre
-  anzusehen.
-
-  Für Textdateien wurde Suchen und Ersetzen um reguläre Ausdrücke 
-  erweitert.
-  In Hex-Dateien funktioniert derzeit keine Suche.
-
-- Die Menüstruktur wurde klarer gegliedert und enthält mehr Einträge.
-
-  Die Menüstruktur ist konstant sichtbar: Einträge, die für bestimmte
-  Dokumenttypen nicht ausführbar sind, werden ausgegraut, aber nicht
-  mehr ganz entfernt (häufiger Benutzerwunsch).
-
-- Zu jedem Fenster kann nun ein Dialog angezeigt werden, der alle
-  wesentlichen Eigenschaften dieses Dokuments anzeigt.
-
-- Die Online-Hilfe ist im HTML-Format (statt wie bisher in Winhelp).
-
-- Alle persistenten Daten werden im Nutzer-lokalen Teil der Registry
-  abgelegt (keine INI-Datei mehr), wodurch man CrypTool ohne 
-  Administratorrechte ausführen kann und verschiedene Benutzer
-  am gleichen PC jeweils verschiedene Einstellungen haben können.
-
-- Mit Hilfe der ANIMAL-Software lassen sich Abläufe visualisieren:
-  - Link: http://www.animal.ahrgr.de
-  - Weitere Beispiele im ANIMAL-Repository (Datenbank):
-    http://www.animal.ahrgr.de/animations.php3?tool=Animal&lang=de
-
-
-b) Änderungen in der Benutzer-Dokumentation:
-
-- Online-Hilfe verbessert und stark erweitert.
-
-- Im Skript: Behebung kleinerer Fehler, neues Kapitel zu Papier-
-  und Bleistiftverfahren, Infos zu Kryptographie in Filmen und
-  Belletristik, und etliche Aktualisierungen.
-
-- Weitere Fantasy-Geschichte: In "Das Chinesische Labyrinth" von Dr.
-  Carsten Elsner muss Marco Polo zahlentheoretische Aufgaben lösen.
-
-- Aktualisierte und auf knapp 90 Seiten erweiterte Präsentation.
-
-
-c) Funktionale Erweiterungen:
-
-- Die Schlüsseleingabemasken für Caesar und monoalphabetische
-  Substitution sind ausführlicher und beinhalten als Option auch
-  gleich die Spezialfälle ROT13 und Atbash.
-
-- Das Verschlüsselungsverfahren Solitaire als Beispiel eines Papier-
-  und Bleistiftverfahrens und eine Analyse dazu.
-
-- Die Implementierung und Analyse von ADFGVX als Beispiel einer 
-  kaskadierenden Chiffre.
-  Dabei kann das Passwort für die Substitutionsmatrix auch als String
-  eingegeben werden.
-
-- Eine verbesserte Analyse der monoalphabetischen Substitution.
-
-- Implementierung der Base64- und der UU-Codierung.
-
-- In der Hash-Demo, die die Sensitivität von Hashverfahren
-  demonstriert, können nun alle in CrypTool vorhandenen Hashfunktionen
-  benutzt werden (nicht nur wie bisher MD2, MD5 und SHA-1).
+- Visualisierungen/Animationen/Demonstrationen
+  - Demo der Sensitivität von Hashverfahren.
+  - Visualisierung mit Flussdiagrammen (z.B. beim Diffie-Hellman
+    Schlüsselaustausch-Verfahren oder bei der Challenge-Response-Demo),
+  - Animationen 
+     - mit ANIMAL (z.B. bei DES) oder
+     - mit Flash (AES, Enigma).
+     - mit Java/SWT: Punkteaddition auf Elliptischen Kurven (sowohl auf
+                     diskreten wie auf reelen Kurven).
 
 - Demo zu Authentisierungsmöglichkeiten im Netz (Visualisierung von
   Challenge-Response-Verfahren):
@@ -987,28 +919,64 @@ c) Funktionale Erweiterungen:
 
 - Demo für einen Seitenkanalangriff gegen ein typisches Hybrid-
   verschlüsselungsprotokoll: Bei einer sub-optimalen Implementierung, 
-  wie sie in der Realität vorkam, kann der Angreifer den Sessionkey 
+  wie sie in der Realität vorkam, kann der Angreifer den Session-Key 
   durch Protokoll-gerechte Anfragen an den Server hoch effizient 
   berechnen.
 
-- Drei auf Gitterreduktionsverfahren basierende Angriffe gegen das 
-  RSA-Verfahren, die darauf beruhen, dass bestimmte Vorbedingungen 
-  erfüllt sind:
-  * ein Teil von einem der beiden Faktoren von N ist bekannt 
-    ("Faktorisieren mit teilweise bekanntem p"),
-  * ein Teil des Klartextes einer abgefangenen verschlüsselten 
-    Nachricht ist bekannt und e ist klein ("Angriff auf stereotype
-    Nachrichten"),
-  * wenn d im Vergleich zu N zu klein gewählt ist, kann man N 
-    faktorisieren ("Angriff auf kleine geheime Exponenten").
-  Die Diplomarbeit, innerhalb von der diese Verfahren implementiert
-  wurden, kann auf Anfrage zugemailt werden (diese Diplomarbeit von
-  Herrn Mathias Schneider existiert nur auf Deutsch).
+- Hashwerte berechnen und ihre Sensitivität demonstrieren.
 
 - Implementierung von MAC-Verfahren (Kombination von Hashes und 
   symmetrischen Verfahren zur Authentisierung von Nachrichten). 
   Hashverfahren wurden bisher schon von den in CrypTool implementierten
   Konzepten PKCS#5 und digitale Signaturen verwendet.
+
+- Das Shared-Secret-Verfahren nach Shamir wurde mit vielen Optionen
+  implementiert.
+
+- Zufallszahlen:
+  - Pseudozufallszahlengeneratoren und statistische Analysen für 
+    Zufallsdaten (z.B. FIPS-140-1).
+  - Der Secude-Zufallszahlengenerator bietet die Möglichkeit, Entropie
+    über Mausbewegung und Tastatureingaben zu sammeln.
+    Dies ist die Standardeinstellung für den ersten Aufruf des
+    kryptographischen Zufallsgenerators, damit deutlich wird, dass man
+    für gute Zufallszahlen einen zufälligen Input braucht.
+  - Eine 3-D-Visualisierung von großen Mengen an Zufallszahlen mit Hilfe
+    der Volume-Rendering-Engine aus OpenQVis 
+    (http://openqvis.sourceforge.net/).
+
+- PKCS#12-Export und -Import von RSA- und DSA-PSEs und damit
+  von den darin gespeicherten Schlüsseln.
+
+- Die modernen Verfahren wurden gemäß den internationalen Standards
+  implementiert (Referenzimplementierung).
+
+- Die letzte Einstellung zu einem Verfahren (Parameter, Schlüssel oder
+  Alphabet) wird Programm-intern aufbewahrt. Der Schlüssel kann pro 
+  Verfahren über das Schlüssel-einfügen-Symbol auch wieder abgerufen 
+  werden, was die Bedienung beim Testen und Probieren stark erleichtert.
+
+- Zu jedem Fenster kann nun ein Dialog angezeigt werden, der alle
+  wesentlichen Eigenschaften dieses Dokuments anzeigt.
+
+- Alle persistenten Daten werden im Nutzer-lokalen Teil der Registry
+  abgelegt (keine INI-Datei mehr), wodurch man CrypTool ohne 
+  Administratorrechte ausführen kann und verschiedene Benutzer
+  am gleichen PC jeweils verschiedene Einstellungen haben können.
+
+- Die gleiche Menüstruktur ist konstant sichtbar: Einträge, die für
+  bestimmte Dokumenttypen nicht ausführbar sind, werden ausgegraut,
+  aber nicht mehr ganz entfernt.
+
+- Das eigenständige Programm AES-Tool kann selbstentpackende
+  Programme erzeugen. Damit kann man eine beliebige Datei ( < 4 GB)
+  Passwort-geschützt mit AES verschlüsseln (durch Eingabe eines 
+  Hexadezimal-Schlüssels).
+  Voller Funktionsumfang auch bei einem Aufruf von der Kommandozeile.
+
+- Das eigenständige Lernprogramm für die Mathematik hinter der
+  asymmetrischen Kryptographie beschreibt ausführlich und interaktiv
+  die elementare Zahlentheorie.
 
 - Drei auf dem Chinesischen Restesatz beruhende Anwendungen:
   * Lösung von Systemen linearer modularer Kongruenzen am Beispiel 
@@ -1020,38 +988,132 @@ c) Funktionale Erweiterungen:
     Analogie, dass man zum Öffnen eines Tresors z.B. drei beliebige 
     von 5 Schlüsselinhabern braucht).
 
-- Veranschaulichen von Algorithmen (Caesar, Vigenère, Nihilist und DES)
-  mit Hilfe der Animationssoftware ANIMAL 2.0 (Java-Applikation, die 
-  es erlaubt, die Einzelschritte von Algorithmen oder die Komponenten 
-  von Datenstrukturen beliebig genau zu modellieren, diese manuell vor
-  und zurück abzuspielen oder automatisch ablaufen zu lassen). 
-  Das Animal-System erlaubt die Erstellung von Animationen mithilfe 
-  einer GUI, einer Skriptsprache sowie einer Java-API.
+- Das Lern-Spiels "Der Zahlenhai" bringt Schülern den Umgang mit
+  Teilern und Primfaktoren näher.
 
-- Eine 3-D-Visualisierung von großen Mengen an Zufallszahlen mit Hilfe
-  der Volume-Rendering-Engine aus OpenQVis 
-  (http://openqvis.sourceforge.net/).
+- Webseite mit den Hashwerten aller herunterladbaren CrypTool-Dateien:
+  Damit kann man die Integrität der Dateien aus dem CrypTool-Paket, die
+  sich auf dem Computer befinden, überprüfen.
 
-- Die Ergänzung des Secude-Zufallszahlengenerators um die Möglichkeit,
-  Entropie auch über Mausbewegung und Tastatureingaben zu sammeln.
-  Dies ist die neue Standardeinstellung für den ersten Aufruf des
-  kryptografischen Zufallsgenerators, damit deutlich wird, dass man
-  für gute Zufallszahlen einen zufälligen Input braucht.
+- Umfangreiche Dokumentation (Onlinehilfe, Skript).
+  Die Online-Hilfe ist im HTML-Format.
+  Sie enthält Erläuterungen zur Bedienung und zu allen Verfahren, einen
+  Überblick über die Historie der Kryptographie und die Einordnung in
+  weitere Sachgebiete sowie Informationen für eine sinnvolle Verwendung
+  von Kryptographie.
 
-- Das AES-Tool kann nun Dateien bis zu 4 GB ver- und entschlüsseln
-  (die alte Grenze lag bei 256 MB).
+- Weltweite Nutzung in Schulen, Universitäten, Behörden und Firmen.
 
-- Das Shared-Secret-Verfahren nach Shamir wurde mit vielen Optionen
-  implementiert.
 
-- Bei den asymmetrischen Verfahren RSA und DSA können nun Schlüssel auch
-  bis zu 8192 Bit Länge generiert werden (vorher maximal 1024 Bit).
+Eine gute Übersicht, was CrypTool bietet, finden Sie auch
+- in der beigelegten Powerpoint-Präsentation
+   (Titel: "Kryptographie mit CrypTool"),
+- auf der CrypTool-Webseite
+   (insbesondere über den Eintrag "CT-Einstiegsseite" im linken Frame) oder
+- in der Onlinehilfe (siehe "Startseite").
 
-- Zu den Primzahltestverfahren kam explizit das deterministische
-  AKS-Verfahren hinzu.
 
-- Einbindung eines Lern-Spiels für Schüler, das diesen den Umgang mit
-  Teilern und Primfaktoren näher bringt ("Der Zahlenhai").
+
+5.2. Neuerungen in Version 1.4.10
+   ----------------------------
+Kapitel 5.2 listet die Erweiterungen und Bugfixes auf, die in
+CrypTool 1.4.10 seit CrypTool 1.4.00 hinzugefügt wurden.
+
+a) Entwickler-relevante Änderungen (eher programm-technisch):
+
+- Details zum Compilieren, Linken und zur einheitlichen Entwicklung
+  finden sich in den Sourcen in der Datei "readme-source".
+
+- Die Sourcen wurden mit der Microsoft Entwicklungsumgebung
+  Visual Studio 2003 (VC++ v7.1) compiliert.
+
+  Es gibt schon einen Sourcezweig im Subversion-System, der sich
+  auch mit VS2005 (VC++ v8.0) übersetzen lässt. Dies wird später
+  offiziell unterstützt.
+
+  Die Sourcen des Releases stehen auf der CrypTool-Webseite zum Download.
+
+  Auf die aktuellen Entwicklersourcen im Subversion-Repository kann
+  man lesend per
+  svn checkout https://file.sec.informatik.tu-darmstadt.de/svn/CrypTool/trunk
+      --username anonymous --password anonymous
+  zugreifen.
+
+- Die Editoren für Text- und Binärdaten sind Open-Source:
+  * Hex-Editor / Hex-Control / HexView:
+    Link: http://www.codeguru.com/Cpp/controls/controls/article.php/c5287
+    Erweitert: - Einfügen und Kopieren unterscheidet zwischen ASCII-
+                 und Hex-Codierung (rechte und mittlere Spalte).
+                 - Beim Herauskopieren wird gefragt, ob der markierte
+                   Text codiert oder als Hexzeichen ins Clipboard gelegt
+                   werden soll.
+                 - Beim Einfügen kommt eine Rückfrage, wenn im Clipboard
+                   nur Hexzeichen (eine gerade Anzahl!) enthalten sind: ob
+                   das als Hexdarstellung oder als eigentliche
+                   ASCII-Zeichen interpretiert werden soll.
+    Für Hex-Dateien ist derzeit keine Suche implementiert.
+  * Text-Editor:
+    Link: http://scintilla.sourceforge.net/ScintillaDownload.html
+    Erweitert: - Man kann diejenigen Zeichen ausgrauen, die nicht zum
+                 aktuellen Alphabet gehören.
+               - Suchen und Ersetzen unterstützt nun reguläre Ausdrücke.
+                   xxxxxxxxxxx
+
+- Ab 1.4.10 wird NDIS als Installationstool verwendet.
+
+
+
+b) Änderungen in der Benutzer-Dokumentation:
+
+- Online-Hilfe: verbessert, stark erweitert, Index neu strukturiert.
+
+- Im Skript: Behebung kleinerer Fehler, kleinere Erweiterungen,
+  etliche Aktualisierungen, neues Kapitel über die Zukunft der
+  Kryptographie vom Lehrstuhl Prof. Buchmann. xxxxxxxxxxx
+
+- Aktualisierte und auf knapp 100 Seiten erweiterte Präsentation.
+
+
+c) Funktionale Erweiterungen:
+
+- Bugfixes:
+  - Viele kleine Verbesserungen in den Masken (Benutzerführung).
+  - Hashwert einer Datei berechnen: Race-Condition beseitigt.
+  - Solitaire für einen Spezialfall (war die Ausgabe-Karte ein Joker,
+    wurde sie nicht ausgegeben) korrigiert.
+  - Rijndael für Schlüssellängen > 128 Bit korrigiert.
+
+- Das AES-Tool in der Version 2.4 prüft, dass der Schlüssel nicht mehr als
+  256 Bit lang ist. Außerdem kann man nun auch per Maus die zu verschlüsselnde
+  Datei aus dem Windows-Explorer in das Eingabefeld ziehen.
+   xxxxxxxxxxx -> im Englischen auch noch. Checken ob es tut.
+
+- Die Schlüsseleingabemasken für klassische Verfahren enthalten
+  nun einen Button, so dass man auch von hier aus direkt das Alphabet
+  (Textoption) einstellen kann (wenn sinnvoll).
+
+- Das Hill-Verschlüsselungsverfahren wurde um einige Varianten erweitert:
+  - einstellbar sind nun die Matrixmultiplikation (von rechts oder links)
+    und der Wert des ersten Alphabetbuchstabens.
+  - Auch Eingabe von Zahlen statt nur Buchstaben in die Schlüsselmatrix.
+  - Die Detail-Ausgabe zur Erläuterung des Verfahrens ist nun deutlich
+    ausführlicher. Sie nimmt nun dynamisch die ersten Werte aus dem
+    Klartext (statt mit einem festen String zu arbeiten).
+
+- Zu den modernen symmetrischen Verschlüsselungsverfahren kamen hinzu
+  die DES-Varianten DESX (Rivest), DESL und DESXL (Ruhr-Uni Bochum).
+
+- Elliptische Kurven-Verfahren werden nun nach den Signaturen auch
+  bei der Hybrid-Verschlüsselung (ECC-AES) eingesetzt.
+  Außerdem gibt es eine Demonstration zur der Punkteaddition auf 
+  Elliptischen Kurven (sowohl auf diskreten Kurven wie auf reellen).
+
+- Das Lernprogramm/Lernspiel "Zahlenhai" wurde etwas erweitert.
+
+- Hinzu kamen die Flash-Animationen zu AES und Enigma.
+
+- Hinzu kam das Authorware-Lernprogramm, das die Verfahren der
+  elementaren Zahlentheorie erläutert und visualisiert.
 
 
 
@@ -1061,12 +1123,13 @@ c) Funktionale Erweiterungen:
 6.1. Funktionalität: Algorithmen / Verfahren
      ---------------------------------------
 - Weitere Algorithmen zu jedem Thema implementieren:
+    * Codes:
+       - T9
     * Verschlüsselung:
-       - Fleißner-Schablone bei den klassischen Verfahren.
+       - Klassische Verfahren: Fleißner-Schablone (incl. Analyse).
        - Symmetrische Verfahren:
-         Camellia (RFC3713), RC5 und Gost (http://vipul.net/gost).
-       - Public Key-Verfahren: McEliece und Rabin.
-       - Implementieren des NTRU-Verschlüsselungssystems.
+           Camellia (RFC3713), RC5 und Gost (http://vipul.net/gost).
+       - Public Key-Verfahren: McEliece, Rabin, NTRU.
        - Demonstration der Visuellen Kryptographie.
     * Hashverfahren:
        - SHA-256, SHA-384, SHA-512
@@ -1076,10 +1139,11 @@ c) Funktionale Erweiterungen:
        - Visualisierung von Man-in-the-Middle-Angriffe.
        - Blind Signatures.
        - Elektronische Wahlen.
+       - Tripartite Schlüsselvereinbarung.
 
 - Schnelle Auswahl der verschiedenen Verschlüsselungsverfahren
   über eine Dialogbox statt über die Menüs (Offenlegung aller
-  Steuerparameter der Algorithmen).
+  Steuerparameter der Algorithmen) (analog CryptoBench).
 
 - Kryptographisch starke elliptische Kurven erzeugen und damit
   Implementierung eines auf Elliptischen Kurven basierenden
@@ -1088,16 +1152,9 @@ c) Funktionale Erweiterungen:
   wurde: A. Menezes and S. Vanstone,
          "Elliptic curve cryptosystems and their implementation",
          Journal of Cryptology, 6 (1993), Seite 209-224.
-  Wünschenswert wäre auch:
-    * Eine ECC-Demo, die zeigt, wie man in diskreten und in reellen 
-      Räumen Punkte auf einer elliptischen Kurve addiert und 
-      multipliziert (als Java-Applikation).
-    * Die Implementierung der ECC-AES-Hybrid-Verschlüsselung (in C++)
-      z.B. mithilfe der Krypto-Bibliothek von cryptovision.
 
 - Hillverfahren
    - Schlüsselmatrix transponieren.
-   - Eingabe von Zahlen statt Buchstaben in die Schlüsselmatrix.
 
 - Weil kryptographische Strukturen und Formate häufig ASN.1-
   kodiert sind: Integration eines ASN.1 Dekodier-Tools.
@@ -1139,21 +1196,25 @@ c) Funktionale Erweiterungen:
 - Veranschaulichen der Passwortgüte und der Passwortqualität mit Hilfe
   eines Passwort-Quality-Meters.
 
-- Eine pure Kommandozeilenversion des AES-Tools (auch für weitere
-  Betriebssysteme).
 
 
 6.2. Funktionalität: Analyse
      -----------------------
-- Wünschenswert wäre, wenn insbesondere die Analyse und ihre
-  Visualisierung weiter ausgebaut werden könnte.
+- Wünschenswert wäre, wenn insbesondere die Analyse in allen Formen und
+  ihre Visualisierung weiter ausgebaut werden könnte.
 
 - Zu allen Verschlüsselungsverfahren eine (gute) Analyse anbieten
   (zumindest für die klassischen Verfahren besser als Brute-Force).
 
-- Aktuelle Hashangriffe darstellen (Erstellen von PS-Dokumenten nach
-  Lucks oder von PDF-Dokumenten nach BSI mit gleichem Hashwert) und
-  Aufzeigen der Anwendungsszenarien.
+- Angriff auf symmetrische Verschlüsselungsverfahren, bei denen die
+  Parameter der Verschlüsselungsverfahren flexibel reduziert werden
+  können.
+
+- Differentielle Kryptoanalyse auf symmetrische Chiffren (DES, ...).
+
+- Die Brute-force-Möglichkeiten erweitern: Nutzen von Wissen
+  - um Teile des Klartextes
+  - um Teile des Schlüssels
 
 - Analyse neu implementieren für:
    * homophone Verschlüsselung
@@ -1169,6 +1230,10 @@ c) Funktionale Erweiterungen:
         auch in roter Schrift anzeigen.
    * Wörterbucher für alle Angriffe benutzen, nicht nur für die
      Substitution.
+
+- Nutzung von Algorithmen aus dem Bereich KI (Künstliche Intelligenz) und
+  GP/GA (Genetic Programming/Algorithms) zur Analyse (klassischer)
+  Verschlüsselungsverfahren.
 
 - Massenmustersuche: Erweiterte hoch performante Mustersuche, die
   nach vorgegebenen normierten und regulären Mustern beliebiger Länge
@@ -1215,10 +1280,15 @@ c) Funktionale Erweiterungen:
 
 - Timing Attack auf RSA / Vorteile Blinding.
 
+- Aktuelle Hashangriffe darstellen (Erstellen von PS-Dokumenten nach
+  Lucks oder von PDF-Dokumenten nach BSI mit gleichem Hashwert) und
+  Aufzeigen der Anwendungsszenarien.
+
 - Angriff auf WEP-Protokoll.
 
-- Angriff auf symmetrische Verschlüsselungsverfahren, bei denen die
-  Parameter flexibel reduziert werden können.
+- Weitere Angriffe auf konkrete Protokolle implementieren und/oder
+  visualisieren, um zukünftige Konzepte zu verbessern.
+
 
 
 6.3. Interne Schnittstellen / Editoren
@@ -1246,8 +1316,8 @@ c) Funktionale Erweiterungen:
      Wei Dai's Crypto++, ...).
 
 - Vorhandene Einschränkungen in der N-Gramm-Analyse bzgl. Dateigröße
-  ausdehnen (evtl. mit Benutzerfeedback, wenn viel Zeit erforderlich)
-  (vgl. 5.2.a oben).
+  ausdehnen (evtl. mit Benutzerfeedback und der Möglichkeit abzubrechen,
+  wenn viel Zeit erforderlich).
 
 
 6.4. User-Interface / Visualisierungen
@@ -1278,7 +1348,6 @@ c) Funktionale Erweiterungen:
   nach Änderung der Originaldaten im Hauptfenster, ...).
 
 - AES-Tool:
-  - Portierung nach Linux, ...
   - Einbinden des PKCS#5-Dialogs, um dem Benutzer seine gewohnte
     Eingabeweise zu bieten: Dabei zufällige Werte für Salz und 
     Iterationszahl voreinstellen und den User auffordern, sich
@@ -1325,14 +1394,22 @@ c) Funktionale Erweiterungen:
      visualisieren.
 
 
-6.5. Erweiterung um zahlentheoretische Funktionen
-     --------------------------------------------
-- Dialoge in CrypTool implementieren, so dass man CrypTool als Frontend
-  für zahlentheoretische Funktionen und Werte nutzen kann.
 
-
-6.6. Portierung nach Linux, Java und VS2005/WPF
+6.5. Portierung nach Linux, Java und VS2005/WPF
      ------------------------------------------
+
+- Wunschliste für eine Future Version (2.0):
+  - Alle Sprachen in einem Programm, einem Setup.
+  - Moderneres Layout.
+  - Mehr Benutzerinteraktion, Actionhistorie.
+  - Dynamischer Wechsel zwischen Kryptoprovidern und Sprachen.
+  - Teil-Updates aus dem Internet.
+  - Mehr Funktionen als Thread implementieren.
+  - Einfacheres Erstellen von Kaskaden zusammengestellt aus den
+    existierenden Elementen.
+  - Anbieten eines Recorders für Benutzereingaben.
+
+
 - Portierung nach Linux mit Hilfe von GCC 4.x und Qt 4.x:
    - Die Bibliotheken von Secude, Miracl, NTL, OpenSSL und GMP stehen
      zur Verfügung.
@@ -1340,34 +1417,48 @@ c) Funktionale Erweiterungen:
        - Oberfläche: Hier liegt die Hauptarbeit.
        - Funktionalität, implementiert in purem C/C++: ok
        - Online-Hilfe in HTML: ok.
+   - Im Moment gibt es nur erste Versuche.
 
-- Komplett neu designtes CrypTool in Java (JCrypTool):
-   - Ein größeres Teilprojekt, das CrypTool nach Java portieren soll
-   - Eine Secude-Lib und Bouncy-Castle stehen zur Verfügung.
+- Komplett neu designtes CrypTool in Java (JCrypTool JCT):
+   - Ein größeres Teilprojekt, das CrypTool nach Java portieren soll.
+   - Eine Secude-Lib, Bouncy-Castle und FlexiProvider stehen zur
+     Verfügung.
    - Nutzung von Eclipse, SWT (und Jigloo) zur Entwicklung.
    - Plug-in basierte Architektur.
-   - Weitere Entwickler für dieses Teilprojekt sind SEHR willkommen
-     (Die bisher aktiven Entwickler nutzen ein Wiki zur Kommunikation
-     und Subversion zur Source-Verwaltung).
+   - Weitere Entwickler für dieses Teilprojekt sind SEHR willkommen.
+   - Erste Konzepte und Sourcen existieren.
+   - Die bisher aktiven Entwickler nutzen SourceForge mit Subversion
+     zur Source-Verwaltung: http://jcryptool.sourceforge.net/ .
 
 - Portierung auf Windows Vista mit Visual Studio 2005 und .NET.
   Nutzung der neuen GUI-API Windows Presentation Foundation (WPF)
   zur Gestaltung von multimedialen Oberflächen.
    - Nutzen des .NET-Frameworks (kein MFC mehr)
-   - Nutzen von VS2005 (nicht mehr VS2003 und nicht mehr VC++6.0),
-     sofern sich mit der kostenlosen VS2005-Express-Edition für
-     C++ auch das gesamte Projekt bearbeiten lässt.
+   - Nutzen von VS2005 (nicht mehr VS2003),
+     mit dem Ziel, dass das gesamte Projekt sich mit der kostenlosen
+     VS2005-Express-Edition für C++/C# erstellen lässt.
+   - Ein Prototyp ist schon verfügbar in einem extra Sourcezweig im
+     CrypTool Subversion-Repository, auf den jedermann mit dem User
+     "anonymous" lesenden Zugriff hat.
+   - Weitere Entwickler und graphisch anspruchsvolle Designer sind
+     in diesem neuen Projekt sehr herzlich willkommen.
 
 
 
-6.7. Sinnvolle Aufgaben für jemand, der neu anfängt mitzuentwickeln
+6.6. Sinnvolle Aufgaben für jemand, der neu anfängt mitzuentwickeln
      --------------------------------------------------------------
+- Einbau weiterer klassischer Verfahren wie z.B. Autokey, Nihilist
+  oder Enigma (ohne Animation).
+
 - Einbau des RC5-Algorithmus wie oben beschrieben, um zu sehen,
   an welchen Stellen überall die Sourcen dafür zu ergänzen sind
   (Funktion selbst, Optionen, Menüs + Statuszeileninfo, Online-Hilfe).
 
 - Alle möglichen Arten von Transpositionen und Superpositionen
   in einem ansprechenden Dialog anbieten.
+
+- Ausgabe der pro Verschlüsselungsverfahren gespeicherten Schlüssel
+  in einer Liste.
 
 - Pattern-Matching-Dialoge.
 
@@ -1405,26 +1496,29 @@ Version   Datum		Größe des Windows-Setups	Freigabe durch
 1.3.04    Juli 2003	 8,6 MB		 8,1 MB		DB
 1.3.05    Aug. 2003	 8,6 MB		 8,1 MB		DB
 1.4.00    Juli 2006	18,4 MB		18,2 MB		DB
+1.4.10    Apr. 2007	xx,4 MB		xx,2 MB		DB
 
 Bemerkungen zu den Versionen:
 1.3.02    Viele neue Funktionen gegenüber 1.3.00.
 1.3.03    Viele kleine Bugfixes und Verbesserungen der Dokumentation.
-1.3.04    Etliche neue Funktionalität, einige kleine Bugfixes (Absturz
-          bei Playfair-, N-Gramm-Analyse, RSA), und Verbesserung und 
-          Erweiterung der Dokumentation (Online-Hilfe, Skript).
+1.3.04    Etliche neue Funktionalität, einige kleine Bugfixes, und
+          Verbesserung und Erweiterung der Dokumentation (Online-Hilfe, Skript).
 1.3.05    Kleine Bugfixes.
 1.4.00-Beta10  Dez. 2005  Erste öffentliche Beta von Version 1.4.00.
 1.4.00-Beta12  März 2006  Zweite öffentliche Beta von Version 1.4.00.
 1.4.00-Beta14  Juli 2006  Dritte öffentliche Beta von Version 1.4.00.
 1.4.00    Viele neue Funktionen gegenüber 1.3.05.
+1.4.10-Beta04  April 2007  Erste öffentliche Beta von Version 1.4.10.
+1.4.10    Funktionsumfang und Onlinehilfe stark erweitert i.Vgl zu 1.4.00.
 
 
 
-8. Feedback bei Fehlern
-   --------------------
+8. Feedback
+   --------
 Sollten Sie Probleme haben oder Fehler finden, wenden Sie sich
-bitte mit einer Beschreibung des Problems per e-mail an
-eine der Personen oder an die Mailingliste (siehe Kapitel 9).
+bitte mit einer ausführlichen Beschreibung des Problems (und einigen
+Bildschirmbildern dazu) per E-Mail an eine der in Kapitel 9 genannten
+Personen oder an die Mailingliste.
 
 Für Anregungen jeglicher Art bezüglich CrypTool sind wir immer
 dankbar und helfen Ihnen gern, wenn es unsere Zeit erlaubt.
@@ -1436,8 +1530,8 @@ CrypTool einsetzen.
 
 9. Kontaktadressen
    ---------------
-- joerg-cornelius.schneider@db.com
 - esslinger@fb5.uni-siegen.de
+- joerg-cornelius.schneider@db.com
 - henrik.koy@db.com
 - cryptool-list@sec.informatik.tu-darmstadt.de
 
@@ -1481,6 +1575,24 @@ Auf dem BSI-Kongress 2003 in Bonn wurde von Hr. Koy der Vortrag
 "Awareness in der Informationsgesellschaft: CrypTool - Kryptographie
 spielerisch verstehen" gehalten. Die Textfassung dazu steht im 
 Tagungsband, "IT-Sicherheit im verteilten Chaos", auf S. 485 - 500.
+
+10.1.5. Datenschutz PRAXIS (Juni 2005)
+        ------------------------------
+In der deutsch-sprachigen Fachzeitschrift "Datenschutz PRAXIS",
+Ausgabe Juni 2005 erschien unter dem Titel "Spielend verschlüsseln lernen
+mit dem kostenlosen CrypTool" ein 2-seitiger Artikel über CrypTool von
+Dr. Rainer W. Gerling.
+Diesen Artikel finden Sie im Internet unter
+http://www.interest.de/DP/ausgaben.php?art=188&ID=587903635588.
+
+10.1.6. Report Touch Briefing Information Security (Oktober 2006)
+        ---------------------------------------------------------
+Der "Touch Briefing Information Security"-Report 2006 enthält den Artikel
+"The CrypTool Project – Improving Awareness and Education for Cryptology".
+Abrufbar im Internet unter:
+  http://www.touchbriefings.com/pdf/2259/esslinger.pdf
+Mit den Suchbegriffen "awareness cryptology" listeten danach sowohl
+google.de wie google.com diesen Artikel auf Platz 1. 
 
 
 10.2. Sonstige Referenzen auf CrypTool
@@ -1564,6 +1676,9 @@ d) Eine kleine Auswahl weiterer Seiten:
    http://www.tinohempel.de/info/info/kryptografie/index.htm
    http://www.edsb.ch/e/themen/sicherheit/tipps/kap4.htm
    http://www.roehri.ch/~sr/links/crypto.html
+   http://williamstallings.com/Crypto/Crypto4e.html 
+        (Resource-Seite zu dem Buch "Cryptography and Network Security",
+         4. Auflage von William Stallings)
    ...
 
 
@@ -1576,15 +1691,15 @@ Vollständig mit Source-Code verfügbar sind:
 - http://freshmeat.net/projects/crank/
   Crank wurde im Januar 2001 von Matthew Russell begonnen und unter
   der GNU General Public Licence (GPL) freigegeben.
-  Im Crank-Projekt soll unter Linux ein Programm mit grafischer
-  Oberfläche erstellt werden, das das möglichst automatisierte
-  Brechen von klassischen Kryptoalgorithmen ermöglicht.
-  Initial liegt der Fokus auf der Analyse monoalphabetischer
-  Substitutions-Chiffren und der Entwicklung generischer und
-  flexibler Analysetools.
+  Im Crank-Projekt sollte unter Linux ein Programm mit grafischer
+  Oberfläche erstellt werden, um das automatisierte Brechen von
+  klassischen Kryptoalgorithmen zu ermöglichen.
+  Der Fokus lag auf der Analyse monoalphabetischer Substitutions-Chiffren
+  und der Entwicklung generischer und flexibler Analysetools.
   Das Tool liegt nur in englischer Sprache vor.
-  Die aktuelle Version 0.2.1 wurde im August 2001 freigegeben.
-  Auf der Projekt-Webseite gibt es auch einige sehr interessante Links
+  Die aktuelle Version 0.2.1 wurde im August 2001 freigegeben und seitdem
+  leider nicht mehr weiter entwickelt.
+  Auf der Projekt-Webseite gibt es auch einige interessante Links
   zu klassischer Kryptoanalyse.
 
 - http://freshmeat.net/projects/griffon/
@@ -1594,14 +1709,18 @@ Vollständig mit Source-Code verfügbar sind:
   Ciphers". Es enthält die folgenden klassischen Verschlüsselungs-
   verfahren: monoalphabetische Transposition, Substitution und Playfair.
   Das Tool liegt nur in englischer Sprache vor.
-  Die aktuelle Version 1.0 wurde im November 2000 freigegeben.
+  Die aktuelle Version 1.0 wurde im November 2000 freigegeben und seitdem
+  leider nicht mehr weiter entwickelt.
 
-- http://www.kryptosproject.org/
-  Kryptos ist Open Source-Projekt der George Mason University.
+- http://www.kryptosproject.org/          (alt)
+  http://kryptosproject.sourceforge.net/  (neu)
+  Kryptos ist Open Source-Projekt, das an der George Mason University begann.
   Krytos ist eine Kryptographie-Lernsoftware mit einer statischen
-  Oberfläche, aber vielen modernen Algorithmen. 
+  Oberfläche, aber vielen modernen Algorithmen, die dynamisch aus
+  verschiedenen Bibliotheken kommen können.
   Kryptos hat keine Kryptoanalyse-Funktionen.
-  Die aktuelle Version Kryptos 2.0 gibt es seit April 2005.
+  Die aktuelle Version Kryptos 3.01 gibt es seit Dezember 2006,
+  sie erfordert .NET Framework 2.0.
 
 - http://cryptostudio.sourceforge.net/
   CryptoStudio von Prof. Marco Russo
@@ -1619,8 +1738,8 @@ Vollständig mit Source-Code verfügbar sind:
 
 Die einzigen weiteren uns bekannten brauchbaren Programme, die
 Kryptographie und Kryptoanalyse (unter einer graphischen
-Oberfläche) verbinden, für die aber kein Source-Code freigegeben
-ist, sind:
+Oberfläche) verbinden, sind solche, für die aber kein Source-Code
+freigegeben ist:
 
 - CAP von Dr. Richard J. Spillman
   Die aktuelle Version 4.1 gibt es seit 2004 zum Download.
@@ -1670,9 +1789,9 @@ Programm zu integrieren. Wir freuen uns über jede Kooperation!!
 10.4. Auszeichnungen
       --------------
 Generell ist es für uns die größte Auszeichnung, wenn CrypTool
-eingesetzt wird, und dabei in Schule, Lehre und Training Nutzen
-stiftet. Über die vielen positiven Rückmeldungen freuen wir uns
-natürlich sehr.
+eingesetzt wird, und dabei in Schule, Lehre und Training einen guten
+Nutzen stiftet. Über die vielen bisher erhaltenen positiven Rückmeldungen
+freuten wir uns natürlich sehr.
 
 CrypTool erhielt u.a. folgende explizite Auszeichnungen (s. Webseite):
 
