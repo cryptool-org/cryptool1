@@ -127,6 +127,7 @@ void CDlgKeyHex::DoDataExchange(CDataExchange* pDX)
 	//{{AFX_DATA_MAP(CDlgKeyHex)
 	DDX_Control(pDX, IDOK, m_EncryptionButton);
 	DDX_Control(pDX, IDC_BUTTON1, m_DecryptionButton);
+	DDX_Control(pDX, IDC_BUTTON_TEXTOPTIONS, m_TextOptionsButton);
 	DDX_Control(pDX, IDC_EDIT1, m_einfeld);
 	DDX_Text(pDX, IDC_EDIT1, m_einstr);
 	DDV_MaxChars(pDX, m_einstr, len);
@@ -194,9 +195,9 @@ BOOL CDlgKeyHex::OnInitDialog()
 {
 	CDlgKey::OnInitDialog();
 
-	// flomar: TODO
-	//m_TextOptionsButton.ShowWindow(SW_HIDE);
-
+	// unless explicitly wanted (e.g. in a derived dialog class), HIDE the text options button
+	m_TextOptionsButton.ShowWindow(SW_HIDE);
+	
 	return true;
 }
 

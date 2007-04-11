@@ -10,9 +10,14 @@
 
 <p>The idea for the Number Shark game comes from Mr. Lothar Carl, who created the original version of the game in Delphi. The Number Shark game is used to improve and to train the knowledge of factors and prime numbers in grades six to ten.</p>
 <p>You can find the original game here: <br><a href="http://www.learn-line.nrw.de/angebote/neuemedien/medio/mathe/coalgebr/zahlhai/hai01.htm" target="_blank">http://www.learn-line.nrw.de/angebote/neuemedien/medio/mathe/coalgebr/zahlhai/hai01.htm</a><br>
-The following picture shows the original version. This program from Mr.Carl is freeware, but not open source.</p>
+The following picture shows the original version (it only exists in German). This program from Mr.Carl is freeware, but not open source.</p>
 
-<p><IMG SRC="Pictures_en/game_original_de.png" ALT="game_original_de.png" BORDER=0></p>
+<table>
+
+	<td><IMG SRC="Pictures_en/game_original_de.png" ALT="game_original_de.png" BORDER=0></td>
+	<td>You can find the maximum amount of points possible for numbers up to n=50 on Mr. Carl's site. However, these values were created while playing, so the results are subject to change.<br>The site <br><a href="http://www.research.att.com/~njas/sequences/?q=taxman&sort=0&fmt=0&language=english&go=Search" target="_blank">http://www.research.att.com/~njas/sequences/?q=taxman&sort=0&fmt=0&language=english&go=Search</a><br>within <b>ATT Integer Sequences</b> contains the maximum amount of points possible up to n=54. The sequence can be displayed there graphically, too. Meanwhile the sequence leading to the ideal way is stated. A formula for the ideal value is not known as of now, though.</td>
+	
+</table>
 
 <p>Mr. Carl kindly allowed us to use his ideas and the name for a new implementation.</p>
 
@@ -86,17 +91,17 @@ The Number Shark game has a feature to undo <IMG SRC="Pictures_en/Dlg_main_undo.
 
 <p>To make the program look more like a game and less like a normal office application we needed to change the visual appearance of the game. The first step was to change the look of the buttons in the shell square. To realize this, we created a picture of a shell for every condition of a button (pressed, activated, has focus, deactivated) and placed it over the button. The buttons are transparent, to make the buttons look like the borders of the shell are the borders of the buttons.</p>
 <p>You can switch the style of the shell square while playing the game by pressing <b>SHIFT+ALT+C</b> on your keyboard. This will make the shells in the shell square visible or invisible.</p>
-<p>Different pictures of a shark were added to the dialog, and everytime you press the "<b>New game</b>" Button the picture changes. Then the normal tool tips were replaced by so called balloon tips.</p>
+<p>Different pictures of a shark were added to the dialog, and every time you press the "<b>New game</b>" Button the picture changes. Then the normal tool tips were replaced by so called balloon tips.</p>
 <p>Other visual changes are the different colors on the game progress list and a LED display which shows you the scores and the end results.</p>
 
 <p>The design of the buttons in the numbers stack, the LED display and the coloured course of the game were realized with the help of source code examples from the users of the website <a href="http://www.codeproject.com" target="_blank">http://www.codeproject.com</a>. 
 
-<p>After the game dialog was finished we realized that the game was to big for smaller pc screens and resolutions. To solve this problem we decided to create a new, smaller, game dialog. In this dialog you can only see 20 button shells at one time and the game progress list was shortened.</p>
+<p>After the game dialog was finished we realized that the game was too big for smaller pc screens and resolutions. To solve this problem we decided to create a new, smaller, game dialog. In this dialog you can only see 20 button shells at one time and the game progress list was shortened.</p>
 
 
-<p><b><u>7. TO DOs</u> - How the program can be improved.</b></p>
+<p><b><u>7. TO DOs</u> - How the program can be improved</b></p>
 
-<p>Of course the program is not completed yet. Some ideas are:
+<p>Of course the program is not completed yet. More ideas are:
 <ol type=1>
 	<li>Another big task is to make the algorithm for the maximum possible points and the best way to achieve them faster (see <a href="NumberShark_Challenge.html">challenge</a>).</li>
 	<li>And there are many ways to make the game look more like a game for kids.</li>

@@ -182,7 +182,7 @@ BEGIN
                     IDC_STATIC,15,125,328,8
     LTEXT           "Invertierbarkeit erfüllt ist.",IDC_STATIC,15,135,77,8
     PUSHBUTTON      "Hill-Optionen",IDC_BUTTON1,155,419,60,19
-    PUSHBUTTON      "Textoptionen",IDC_BUTTON_TEXTOPTIONS,225,419,60,19
+    PUSHBUTTON      "&Textoptionen",IDC_BUTTON_TEXTOPTIONS,225,419,60,19
 END
 
 IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 298
