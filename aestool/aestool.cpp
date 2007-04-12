@@ -50,6 +50,7 @@ statement from your version.
 #include "aestoolDlg.h"
 #include "aestoolcrypto.h"
 #include "help.h"
+#include ".\aestool.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -123,6 +124,8 @@ static CString umlauteweg(CString cs)
 
 BOOL CAestoolApp::InitInstance()
 {
+	::CoInitializeEx(NULL, COINIT_MULTITHREADED);
+
 	AfxEnableControlContainer();
 
 	// Standardinitialisierung
@@ -300,4 +303,12 @@ int CAestoolApp::findStr(CString *l)
 		}
 	}
 	return i;
+}
+
+int CAestoolApp::ExitInstance()
+{
+	// TODO: Add your specialized code here and/or call the base class
+	::CoUninitialize();
+
+	return CWinApp::ExitInstance();
 }

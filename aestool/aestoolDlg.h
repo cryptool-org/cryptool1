@@ -54,6 +54,7 @@ statement from your version.
 
 #include "HexEdit1.h"
 #include "aestoolcrypto.h"
+#include "EditDropFilename.h"
 
 #define PROGNAME "aestool.exe"
 
@@ -85,7 +86,7 @@ public:
 	CButton	m_CButtonOK;
 	CButton	m_CRadioExe;
 	CButton	m_CRadioAes;
-	CEdit	m_CEditSrc;
+	CEditDropFilename	m_CEditSrc;
 	CHexEdit	m_CHEditKey;
 	CButton	m_CButtonSrc;
 	int		m_RadioFormat;

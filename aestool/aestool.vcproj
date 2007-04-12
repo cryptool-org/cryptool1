@@ -296,6 +296,9 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\EditDropFilename.cpp">
+			</File>
+			<File
 				RelativePath="Help.cpp">
 				<FileConfiguration
 					Name="Release_aes_de|Win32">
@@ -474,6 +477,9 @@
 				RelativePath="aestoolDlg.h">
 			</File>
 			<File
+				RelativePath=".\EditDropFilename.h">
+			</File>
+			<File
 				RelativePath="Help.h">
 			</File>
 			<File
@@ -555,5 +561,8 @@
 		</File>
 	</Files>
 	<Globals>
+		<Global
+			Name="RESOURCE_FILE"
+			Value="aestool.rc"/>
 	</Globals>
 </VisualStudioProject>

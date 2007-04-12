@@ -212,6 +212,7 @@ BOOL CAestoolDlg::OnInitDialog()
 #endif
 	}
 	m_CEditSrc.SetWindowText(m_CMD_inName);
+	// m_CEditSrc.DragAcceptFiles();
 	OnChangeSrc();
 
 	UpdateData(FALSE);

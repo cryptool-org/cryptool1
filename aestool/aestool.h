@@ -93,6 +93,7 @@ public:
 		//    Innerhalb dieser generierten Quelltextabschnitte NICHTS VERÄNDERN!
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+	virtual int ExitInstance();
 };
 
 extern CAestoolApp theApp;
