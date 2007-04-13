@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta name="description" content="Simulation of the encryption system Enigma implemented in Flash 5">
+<meta name="author" content="Frank Spiess">
+<meta name="keywords" content="enigma simulation flash">
+<TITLE>Enigma Simulation Help</TITLE>
+</head>
+<body bgcolor="#b0b0b0" text="#FFFF00" link="#ffff00" vlink="#CCFF00" alink="#FFFF00">
+<style>
+BODY
+{scrollbar-base-color:b0b0b0;scrollbar-face-color:#b0b0b0;scrollbar-highlight-color:#FFff00;scrollbar-shadow-color:CCFF00;scrollbar-dark-shadow-color:ffffcc;scrollbar-arrow-color:669966}
+.question {color:ffffcc}
+.header {color:ffffcc}
+.highlight {font-weight:bold}
+</style>
+
+<b>History:</b>&nbsp;The rotor machine "Enigma" was brought to this world in 1923 by the German engineer Arthur Scherbius. It was meant to serve as a means to encrypt messages in the economy area. In the 1930s, the German army discovered the Enigma, added the so-called plugboard and changed the rotor wiring. During WW II, the German military used about 100,000 of these cryptosystems in order to scramble the messages they exchanged with each other.
+<hr>
+<b>Construction and function:</b>&nbsp;The Enigma constists, in its main parts, of the plugboard, the three rotors and the reflector which was meant to redirect the electrical current. The original Enigma matched every letter that was entered by means of the keyboard with an encrypted letter by closing an electrical circuit that is reconfigured after each key entry. Some additional information regarding the arrangements of the different Enigma components: the alignment of the three rotors is according to the Enigma's original construction: the first rotor ("fast rotor" changing its position with each letter entry) is the rightmost one. The roman number in the center of each rotor indicates which of the five rotor possibilities was chosen (I, II, III, IV or V).
+<br>
+<hr>
+<b>Prerequesites:</b>&nbsp;Mate, I want to be honest: you need a fast system, a resolution of at least 800x600 pixels, true colors and a Flash plug-in (Version 7 or newer).
+<br>
+<hr>
+<b>A brief example:</b>&nbsp;Open the machine window, click on the "Input:" textbox and enter "c" on the keyboard. The plugboard leaves C as C while highlighting the specific wire in <b><font color=#ff0000>red</font></b>. The electrical current then moves to the rightmost rotor, that is, to its letter A. A is then connected to B. The current enters the middle rotor, that connects G with R. The third (leftmost) rotor maps V to I. In the next step, the reflecor maps B to R. Then the current moves way back along the <b><font color=#669900>green</font></b> wires through the rotors back to the plugboard, where Q leads to Q. As a result, we have the encryption of C to Q.
+<br>
+If you now enter "c" again, you see that in this case it yields G! This is because the rightmost rotor moves one step to the left before a letter is entered. Special case: whenever the right rotor moves from V to W, the second rotor is also changing its position by one step. This holds true for the middle rotor accordingly. All in all, the rotors behave like an odometer.
+<hr>
+<b>How can I encrypt a plaintext?:</b>&nbsp;At first you have to make up a key. In this case, a key consists of two parts, at first you decide, which pairs of letters should be exchanged in the plugboard, e.g. A to B and also F to X. Secondly, choose the rotor settings at the beginning of the text entry, e.g. F-E-S. My suggestion is to click "RESET" which puts the whole machine to the "zero state", now drag the small yellow circle underneath  A to B and release the mouse button. Thus, you have exchanged A and B. Please exchage F and X in that same way.
+<br>
+The mentioned rotor settings are set by pressing the buttons <b>"&lt"</b> or <b>"&gt"</b> above each specific rotor. Each mouse click puts a rotor one position forward in the indicated direction.
+<br>
+Now key in "welcome". The line "Output:" should show "DBRZNUP", the cyphertext. Except for the pure number of letters, the encrypted text really looks somewhat changed, doesn't it.
+<br>
+<hr>
+<b>How do I decrypt a text?:</b>&nbsp;Did I mention that we are dealing with a symmetric encryption system here? Well, that is the case. Symmetric encryption means that for encryption and decryption you need exactly the same key. To prove this in our example, keep the cypertext "DBRZNUP" in mind, clear the entry in the "Input:" row and key in the above cypher text. It yields "WELCOME", couldn't be better.
+<br>
+<hr>
+<b>Limitations to this model:</b>&nbsp;For those among you who want to know some more details about the Enigma, I do not want to hide some simplifications I put into place here. The original Enigma also allowed for changing its so-called ring settings, which implememted a shift in the alphabet by up to 25 letters. Finally, there was the four rotor Enigma that was developed in the late years of WW II in order to protect the Uboat messages even better.
+<br>
+<hr>
+<b>Links:</b>&nbsp;Ok, there is one more nice feature: the rotor wirings that you see in my model are exactly the same as in the original Enigma. Talking about the similarity of simulations in comparison to the real Enigma I definitely have to mention this <a href="http://homepages.tesco.net/~andycarlson/enigma/enigma_j.html" target=mainframe>link</a> (powered by Java instead of Flash). You can compare the codes of the two simulators, please keep in mind that in the applet, you have to choose reflector "B" in the "Advanced Settings" pane in order to match my Flash simulation. The "C" reflector was used in the M4-Enigma having four rotors.
+<br>
+Another interesting website is definitely Jim Oram's <a href="http://www.enigma-replica.com" target=manframe>www.enigma-replica.com</a>, where you can see Jim's incredible project to reconstruct the four-rotor Enigma (M4)!
+</body>
+</html>

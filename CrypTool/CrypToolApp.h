@@ -218,6 +218,7 @@ public:
 	afx_msg void OnFlashAesdemo();
 	afx_msg void OnFlashEnigmademo();
 	afx_msg void OnInteractiveNumberTheory();
+	afx_msg void OnVisualisierungvonalgorithmenEnigma();
 };
 
 class CMainFrame : public CMDIFrameWnd

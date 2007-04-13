@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta name="description" content="Simulation of the encryption system Enigma implemented in Flash 5">
+<meta name="author" content="Frank Spiess">
+<meta name="keywords" content="enigma simulation flash">
+<TITLE>Enigma Simulation Hilfe</TITLE>
+</head>
+<body bgcolor="#b0b0b0" text="#FFFF00" link="#ffff00" vlink="#CCFF00" alink="#FFFF00">
+<style>
+BODY
+{scrollbar-base-color:b0b0b0;scrollbar-face-color:#b0b0b0;scrollbar-highlight-color:#FFff00;scrollbar-shadow-color:CCFF00;scrollbar-dark-shadow-color:ffffcc;scrollbar-arrow-color:669966}
+.question {color:ffffcc}
+.header {color:ffffcc}
+.highlight {font-weight:bold}
+</style>
+
+<b>Geschichte:</b>&nbsp;Die Rotormaschine "Enigma" wurde 1923 vom deutschen Erfinder und Entwickler Arthur Scherbius in diese Welt gebracht. Sie sollte zur Verschlüsselung von Nachrichten in der Wirtschaft dienen. In den 30er Jahren des vergangenen Jahrhunderts entdeckte das deutsche Militär die Enigma, ließ das sogenannte Steckerbrett hinzufügen und die Rotor-Verdrahtungen ändern. Im 2. Weltkrieg benutzte die deutsche Kriegsmaschinerie ca. 100.000 dieser Kryptosysteme, um den Austausch geheimer Informationen zu sichern.
+<hr>
+<b>Aufbau und Funktionsweise:</b>&nbsp;Die Enigma besteht im wesentlichen aus der Tastatur, dem Steckerbrett, drei Rotoren (auch Walzen genannt) und dem sogenannten Reflektor, einer feststehenden Mimik, die zur Stromumlenkung dient. Die Originalmaschine ordnete jedem via Tastatur eingegebenen Buchstaben einen verschlüsselten Buchstaben zu, indem sie einen sich immer wieder neu konfigurierenden Stromkreis schloss. Noch ein paar Worte zur grafischen Aufteilung der Komponenten: die Anordnung der drei Rotoren erfolgte wie bei der echten Enigma: als ersten Rotor ("schneller Rotor", der sich bei jeder Eingabe ändert) wird der rechte bezeichnet. Die römische Zahl, die in der Mitte eines jeden Rotors eingezeichnet ist, zeigt, welcher der 5 Rotoren (I, II, III, IV oder V) eingesetzt wurde.
+<br>
+<hr>
+<b>Systemvoraussetzungen:</b>&nbsp;Sie brauchen einen flinken Rechner, eine Auflösung von mindestens 800x600 Pixeln, Truecolor-Farbtiefe und ein Flash-Plugin (Version 7 oder höher).
+<br>
+<hr>
+<b>Eingabebeispiel:</b>&nbsp;Öffnen Sie das Maschinen-Fenster, klicken Sie auf das Eingabefeld "Input:" und geben Sie dort "c" ein. Das Steckerbrett lässt den Buchstaben C unverändert auf C, der Verbindungsdraht erscheint <b><font color=#ff0000>rot</font></b> markiert. Nun wandert der Strom zum rechten Rotor, zu dessen Buchstaben A. A ist über die Rotorverdrahtung mit B verknüpft. Der Strom wandert zum zweiten Rotor, der G mit R verknüpft, im linken Rotor wird dann V auf I abgebildet. Im nächsten Schritt wird im Reflektor B auf R weitergeleitet. Nun wandert der Strom auf dem <b><font color=#669900>grün</font></b> markierten Weg wieder zurück durch die Rotoren zum Steckerbrett, wo Q unverändert auf Q geleitet wird. Als Ergebnis wurde also C zu Q verschlüsselt.
+<br>
+Geben Sie nun erneut "c" ein, so sehen Sie, dass nun C zu G verschlüsselt wird. Vor jedem Tastendruck nämlich wird der rechte Rotor um einen Schritt weiter nach links gedreht. Sonderfall: dreht sich der rechte Rotor von Stellung V nach W, so wandert der zweite Rotor ebenfalls um einen Schritt weiter nach links. Für den mittleren Rotor gilt die entsprechende Regel. Die Stellung der Rotoren ändert sich also nach dem Prinzip eines Kilometerzählers.
+<hr>
+<b>Wie verschlüssele ich einen Text?:</b>&nbsp;Sie müssen sich zunächst einen Schlüssel ausdenken. Ein Schlüssel besteht hier aus drei Teilen, zuerst geben Sie an, welche Buchstabenpaare im Steckerbrett vertauscht werden sollen, z.B. A mit B und auch F mit X. Zweitens wählen Sie durch Auswählen von "Exchange Rotors" eine Kombination von Rotoren. Zur Verfügung stehen die fünf Rotoren I, II, III, IV und V. Als dritter Teil ist die Stellung der drei Rotoren zu Beginn der Texteingabe zu notieren, z.B. F-E-S. Als einfaches Beispiel versetzen Sie durch Drücken des "RESET" Buttons die gesamte Maschine in den Urzustand.
+<br>
+Geben Sie nun z.B. in der Input-Zeile "versuch" ein. In der Zeile "Output:" sollte der verschlüsselte Text "TBLGXHW" erscheinen. Bis auf die Anzahl der Buchstaben hat der verschlüsselte Text nur noch wenig gemein mit dem Klartext, soviel ist klar.
+<br>
+<hr>
+<b>Wie ENTschlüssele ich einen Text?:</b>&nbsp;Erwähnte ich schon, das wir es hier mit einem symmetrischen Kryptosystem zu tun haben? Nun, so ist es. Dies bedeutet, dass der verschlüsselte Text, mit dem *gleichen* Schlüssel in die Maschine eingegeben, wieder den Klartext hervorbringt. Hierzu löschen Sie mit der Backspace-Taste alle Eingaben in der Input-Zeile (die Rotoren drehen sich rückwärts), und geben Sie statt dessen den Text "TBLGXHW" in die Input-Zeile ein. Sie erhalten "VERSUCH", alles bestens.
+<br>
+<hr>
+<b>Limitierungen des Modells:</b>&nbsp;Für Detailverliebte möchte ich einige Vereinfachungen an dieser Stelle nicht verschweigen. Die Original-Enigma bot neben den gezeigten Funktionen noch sogenannte Ringe. Diese waren an den Rotoren angebracht, und die 26 verschiedenen Ring-Stellungen konnten das Alphabet eines Rotors um eine additive Größe verschieben. Schließlich gab es da noch die gefürchtete Enigma mit *vier* Rotoren (M4), die in den letzten Kriegsjahren in U-Booten eingesetzt wurde und für eine Vergrößerung des Schlüsselraumes um den Faktor 26*26 sorgte (Anzahl Rotorstellungen mal Anzahl der Ringstellungen).
+<br>
+<hr>
+<b>Links:</b>&nbsp;Übrigens: die Rotorverdrahtungen, die Sie hier sehen, sind die gleichen wie bei der Orginal Enigma. In puncto Detailtreue ist folgende
+<a href="http://homepages.tesco.net/~andycarlson/enigma/enigma_j.html" target=mainframe>Enigmasimulation</a> sehr zu empfehlen (statt Flash wurde hier Java verwendet). Sie können gerne den Code der beiden verschiendenen Simulatoren vergleichen. Beachten Sie dabei bitte, dass unter "Advanced Settings" im Applet der Reflector von "C" auf "B" eingestellt sein muss, um mit der Konfiguration meiner Flash Simulation übereinzustimmen. Reflektor "C" wird nur bei der Vier-Rotor Enigma verwendet, die mit dem Applet ebenfalls simuliert werden kann.
+<br>
+Eine weitere sehr interessante ist sicherlich Jim Oram's <a href="http://www.enigma-replica.com" target=manframe>www.enigma-replica.com</a>, dort können Sie Jims Fortschritte bei der Rekonstruktion einer Vier-Rotor Enigma (M4) bestaunen!
+</body>
+</html>
