@@ -55,7 +55,7 @@ void CEditDropFilename::OnDropFiles(HDROP hDropInfo)
 			fPath = new char[fPathLength+1];
 			if ( !fPath )
 			{	// FIXME, current if allocating fails the program continues without drop file 
-				return;
+				break;
 			}
 			DragQueryFile(hDropInfo, ndx, fPath, fPathLength+1);
 			break;
@@ -73,7 +73,6 @@ void CEditDropFilename::OnDropFiles(HDROP hDropInfo)
 
 		CString filename = expandShortCut( fPath );
 
-
 		if ( testFile.GetStatus( filename, fStatus ) )
 		{
 			SetWindowText(fStatus.m_szFullName);
@@ -85,7 +84,7 @@ void CEditDropFilename::OnDropFiles(HDROP hDropInfo)
 }
 
 //////////////////////////////////////////////////////////////////
-//	expand shortcuts
+//	expand shortcuts (synbolic links)
 
 #define __MAX_FULLPATH_SIZE 1024
 
@@ -96,18 +95,16 @@ CString CEditDropFilename::expandShortCut(LPTSTR f_str)
 
     IShellLink* ptr_sl;
 	// Create instance for shell link
-    HRESULT hres;
-	hres = ::CoCreateInstance(CLSID_ShellLink, NULL, CLSCTX_INPROC_SERVER, IID_IShellLink, (LPVOID*) &ptr_sl);
-    if (SUCCEEDED(hres))
-    {
-		if ( !SUCCEEDED( ptr_sl->SetPath(f_str)) )
-			return CString("");
-
+	if (   SUCCEEDED(::CoCreateInstance(CLSID_ShellLink, NULL, CLSCTX_INPROC_SERVER, 
+							IID_IShellLink, (LPVOID*) &ptr_sl) )
+		&&  SUCCEEDED( ptr_sl->SetPath(f_str)) )
+	{	
 		CComQIPtr<IPersistFile> ptr_PersistFile(ptr_sl);
 		WCHAR wf_str[__MAX_FULLPATH_SIZE];
 		MultiByteToWideChar(CP_ACP, 0, f_str, -1, wf_str, __MAX_FULLPATH_SIZE);
 
-		if ( SUCCEEDED(ptr_PersistFile->Load(wf_str, STGM_READ)) && SUCCEEDED(ptr_sl->Resolve(this->m_hWnd, SLR_UPDATE)) )
+		if (   SUCCEEDED(ptr_PersistFile->Load(wf_str, STGM_READ)) 
+			&& SUCCEEDED(ptr_sl->Resolve(this->m_hWnd, SLR_UPDATE)) )
 		{
 			char fullPath[__MAX_FULLPATH_SIZE];
 			if ( SUCCEEDED(ptr_sl->GetPath( fullPath, __MAX_FULLPATH_SIZE, NULL, SLGP_UNCPRIORITY )) )
