@@ -216,9 +216,8 @@ public:
 	afx_msg void OnAesSelfextract();
 	afx_msg void OnIndivPointadditiononellipticcurves();
 	afx_msg void OnFlashAesdemo();
-	afx_msg void OnFlashEnigmademo();
 	afx_msg void OnInteractiveNumberTheory();
-	afx_msg void OnVisualisierungvonalgorithmenEnigma();
+	afx_msg void OnFlashEnigmademo();
 };
 
 class CMainFrame : public CMDIFrameWnd

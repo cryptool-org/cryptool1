@@ -79,30 +79,37 @@ CAPTION "Info über AES-Tool"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
-    LTEXT           "AES-Tool Version 2.4",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "AES-Tool Version 2.4",IDC_STATIC,40,10,119,8,
+                    SS_NOPREFIX
     LTEXT           "Copyright (C) 2007",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
 END
 
 IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 205
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "AES-Tool 2.4"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    EDITTEXT        IDC_EDIT_KEY,28,59,266,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_SRC,28,107,174,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
-    PUSHBUTTON      "Durchsuchen...",IDC_BUTTON_SRC,215,105,78,17
+    EDITTEXT        IDC_EDIT_KEY,26,59,266,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SRC,26,107,194,12,ES_AUTOHSCROLL,
+                    WS_EX_ACCEPTFILES
+    PUSHBUTTON      "Durchsuchen...",IDC_BUTTON_SRC,231,105,62,17
     CONTROL         "Selbstextrahierend und verschlüsselt",IDC_RADIO_EXE,
-                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,28,154,131,10
-    CONTROL         "Verschlüsselt",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,178,154,57,10
-    DEFPUSHBUTTON   "Verschlüsseln",IDOK,15,183,62,17
-    PUSHBUTTON      "Beenden",IDCANCEL,152,183,50,17
-    PUSHBUTTON      "Hilfe",IDC_BUTTON3,255,183,50,17
-    CONTROL         "Passwort anzeigen",IDC_RADIO_PSHOW,"Button",BS_AUTORADIOBUTTON | WS_GROUP,28,41,75,10
-    CONTROL         "Passwort verbergen",IDC_RADIO_PHIDE,"Button",BS_AUTORADIOBUTTON,156,41,79,10
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,26,154,131,10
+    CONTROL         "Verschlüsselt",IDC_RADIO_AES,"Button",
+                    BS_AUTORADIOBUTTON,178,154,57,10
+    DEFPUSHBUTTON   "Verschlüsseln",IDOK,15,180,62,17
+    PUSHBUTTON      "Beenden",IDCANCEL,170,180,50,17
+    PUSHBUTTON      "Hilfe",IDC_BUTTON3,255,180,50,17
+    CONTROL         "Passwort anzeigen",IDC_RADIO_PSHOW,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,26,41,75,10
+    CONTROL         "Passwort verbergen",IDC_RADIO_PHIDE,"Button",
+                    BS_AUTORADIOBUTTON,156,41,79,10
     LTEXT           "Verschlüsseln einer Datei",IDC_STATIC_TITLE,15,9,80,8
-    GROUPBOX        "Schlüssel [maximal 64 Hexzeichen (0, 1, ..., 8, 9, A, B, C, D, E, F)]",IDC_STATIC,15,28,290,54
+    GROUPBOX        "Schlüssel [maximal 64 Hexzeichen (0, 1, ..., 8, 9, A, B, C, D, E, F)]",
+                    IDC_STATIC,15,28,290,54
     GROUPBOX        "Eingabedatei",IDC_STATIC,15,94,290,38
     GROUPBOX        "Ausgabeformat",IDC_STATIC,15,142,290,29
 END
@@ -233,8 +240,8 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 313
         VERTGUIDE, 15
-        VERTGUIDE, 28
-        VERTGUIDE, 202
+        VERTGUIDE, 26
+        VERTGUIDE, 220
         VERTGUIDE, 293
         VERTGUIDE, 305
         TOPMARGIN, 7
@@ -377,23 +384,30 @@ BEGIN
 END
 
 IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 206
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "AES-Tool 2.4"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    EDITTEXT        IDC_EDIT_KEY,28,59,266,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_SRC,28,107,174,12,ES_AUTOHSCROLL,WS_EX_ACCEPTFILES
-    PUSHBUTTON      "Search...",IDC_BUTTON_SRC,215,105,78,17
-    CONTROL         "Selfextracting and encrypted",IDC_RADIO_EXE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,28,154,103,10
-    CONTROL         "Encrypted",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,149,154,80,10
+    EDITTEXT        IDC_EDIT_KEY,26,59,266,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SRC,26,107,202,12,ES_AUTOHSCROLL,
+                    WS_EX_ACCEPTFILES
+    PUSHBUTTON      "Search...",IDC_BUTTON_SRC,238,105,56,17
+    CONTROL         "Selfextracting and encrypted",IDC_RADIO_EXE,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,26,154,103,10
+    CONTROL         "Encrypted",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,
+                    149,154,80,10
     DEFPUSHBUTTON   "En&crypt",IDOK,17,182,51,18
-    PUSHBUTTON      "E&xit",IDCANCEL,148,182,54,18
+    PUSHBUTTON      "E&xit",IDCANCEL,174,182,54,18
     PUSHBUTTON      "&Help",IDC_BUTTON3,254,182,50,18
-    CONTROL         "Show password",IDC_RADIO_PSHOW,"Button",BS_AUTORADIOBUTTON | WS_GROUP,28,41,75,10
-    CONTROL         "Hide password",IDC_RADIO_PHIDE,"Button",BS_AUTORADIOBUTTON,149,41,79,10
+    CONTROL         "Show password",IDC_RADIO_PSHOW,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,26,41,75,10
+    CONTROL         "Hide password",IDC_RADIO_PHIDE,"Button",
+                    BS_AUTORADIOBUTTON,149,41,79,10
     LTEXT           "Encrypt a file",IDC_STATIC_TITLE,17,9,80,8
-    GROUPBOX        "Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]",IDC_STATIC,17,28,287,54
+    GROUPBOX        "Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]",
+                    IDC_STATIC,17,28,287,54
     GROUPBOX        "Input file",IDC_STATIC,17,93,287,39
     GROUPBOX        "Output format",IDC_STATIC,17,142,287,29
 END
@@ -457,7 +471,8 @@ CAPTION "Information about AES-Tool"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
-    LTEXT           "AES-Tool Version 2.4",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "AES-Tool Version 2.4",IDC_STATIC,40,10,119,8,
+                    SS_NOPREFIX
     LTEXT           "Copyright (C) 2007",IDC_STATIC1,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
 END
@@ -522,9 +537,9 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 313
         VERTGUIDE, 17
-        VERTGUIDE, 28
-        VERTGUIDE, 202
-        VERTGUIDE, 293
+        VERTGUIDE, 26
+        VERTGUIDE, 228
+        VERTGUIDE, 294
         VERTGUIDE, 304
         TOPMARGIN, 7
         HORZGUIDE, 46

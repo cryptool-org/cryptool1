@@ -222,7 +222,6 @@ ON_COMMAND(ID_INDIV_POINTADDITIONONELLIPTICCURVES, OnIndivPointadditiononellipti
 ON_COMMAND(ID_FLASH_AESDEMO, OnFlashAesdemo)
 ON_COMMAND(ID_FLASH_ENIGMADEMO, OnFlashEnigmademo)
 ON_COMMAND(ID_INTERACTIVE_NUMBER_THEORY, OnInteractiveNumberTheory)
-ON_COMMAND(ID_VISUALISIERUNGVONALGORITHMEN_ENIGMA, OnVisualisierungvonalgorithmenEnigma)
 END_MESSAGE_MAP()
 
 
@@ -1246,11 +1245,6 @@ void CCrypToolApp::OnFlashAesdemo()
 	if ( reinterpret_cast<int>(hInst) <= 32 ) Message(IDS_ERROPEN_ECCDemo, MB_ICONSTOP);
 }
 
-void CCrypToolApp::OnFlashEnigmademo()
-{
-	// ***TODOENIGMA***
-	AfxMessageBox("TODO: ENIGMA FLASH-DEMO");
-}
 
 void CCrypToolApp::OnInteractiveNumberTheory()
 {
@@ -1261,7 +1255,7 @@ void CCrypToolApp::OnInteractiveNumberTheory()
 	if ( reinterpret_cast<int>(hInst) <= 32 ) Message(IDS_ERROPEN_INTERACTIVE_NUMBER_THEORY, MB_ICONSTOP);
 }
 
-void CCrypToolApp::OnVisualisierungvonalgorithmenEnigma()
+void CCrypToolApp::OnFlashEnigmademo()
 {
 	CString EnigmaFlashExecStr;
 	EnigmaFlashExecStr.LoadString(IDS_ENIGMA_FLASH);

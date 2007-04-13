@@ -284,6 +284,8 @@ void CAestoolDlg::OnSucheSrc()
 		"All Files (*.*)|*.*|EXE Files (*.exe)|*.exe|AES Files (*.aes)|*.aes||", this);
 	if(IDCANCEL == Dlg.DoModal()) return;
 	m_CEditSrc.SetWindowText(Dlg.GetPathName());
+	int curPos = Dlg.GetPathName().GetLength();
+	m_CEditSrc.SetSel(curPos, curPos);
 	if (m_CHEditKey.BinLen == 0)
 		m_CHEditKey.SetFocus();
 	else 

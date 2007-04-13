@@ -75,7 +75,12 @@ void CEditDropFilename::OnDropFiles(HDROP hDropInfo)
 
 		if ( testFile.GetStatus( filename, fStatus ) )
 		{
-			SetWindowText(fStatus.m_szFullName);
+			filename = fStatus.m_szFullName;
+			if ( fStatus.m_attribute == 0x10 )
+				filename += "\\*.*";
+			SetWindowText(filename);
+			SetSel(filename.GetLength(), filename.GetLength());
+			SetFocus();
 		}
 		delete []fPath;
 	}

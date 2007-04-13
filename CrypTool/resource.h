@@ -2774,6 +2774,8 @@
 #define IDS_AESDEMO_EXEC_STR            39044
 #define IDS_INTERACTIVE_NUMBER_THEORY_EXEC 39045
 #define IDS_ERROPEN_INTERACTIVE_NUMBER_THEORY 39046
+#define IDS_ENIGMA_FLASH                39047
+#define IDS_ERROPEN_ENIGMA_FLASH        39048
 #define IDS_DH_LOG_1                    61889
 #define IDS_DH_LOG_2                    61890
 #define IDS_DH_LOG_3                    61891

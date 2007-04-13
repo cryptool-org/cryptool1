@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -723,10 +723,10 @@ BEGIN
                     IDC_STATIC,18,256,84,32
     LTEXT           "Richard Christensen\nBartol Filipovic\nJörg Hambamer\nDennis Laupichler\nFlorian Marchal\nLowell Montgomery\nDaniel Saffran\nChristine Stötzel\nThomas Thiele\nAndre Beunink\nElmar Kubitz\nBartosz Sawicki\nDenis Döll",
                     IDC_STATIC,186,122,85,111
-    LTEXT           "Matthias Büger\nWolfgang Scondo\nGerhard Kramarz\n...und viele andere.",
+    LTEXT           "Matthias Büger\nWolfgang Scondo\nGerhard Kramarz\nTom Riegel",
                     IDC_STATIC,102,256,84,34
-    LTEXT           "Wolfgang Patzewitz\nGary Tagg\nDirk Fox",IDC_STATIC,186,
-                    256,85,26
+    LTEXT           "Wolfgang Patzewitz\nGary Tagg\nDirk Fox\n...und viele andere.",
+                    IDC_STATIC,186,256,85,32
 END
 
 IDD_SHOW_PUBLICKEY_EC DIALOG  0, 0, 399, 287
@@ -11716,6 +11716,9 @@ BEGIN
     IDS_INTERACTIVE_NUMBER_THEORY_EXEC "ZT.exe"
     IDS_ERROPEN_INTERACTIVE_NUMBER_THEORY 
                             "Das Lerntool zur Zahlentheorie kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob das Programm ZT.exe im CrypTool Heimatverzeichnis installiert wurde."
+    IDS_ENIGMA_FLASH        "Enigama_de.exe"
+    IDS_ERROPEN_ENIGMA_FLASH 
+                            "Die Eigma Flash-Demonstration kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob das Programm Enigma_de.exe im CrypTool Heimatverzeichnis installiert wurde."
 END
 
 STRINGTABLE 
@@ -11723,12 +11726,12 @@ BEGIN
     ID_ANALYSE_DESXL        "Automatische Brute-force Analyse einer DESXL-Verschlüsselung"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -12520,10 +12523,10 @@ BEGIN
     GROUPBOX        " Review and Feedback",IDC_STATIC,7,246,277,54,BS_CENTER
     LTEXT           "Ariane Büger\nKarsten Schaar\nSibylle Müller\nPeter Schartner",
                     IDC_STATIC,18,260,84,34
-    LTEXT           "Matthias Büger\nWolfgang Scondo\nGerhard Kramarz\n...and many others.",
+    LTEXT           "Matthias Büger\nWolfgang Scondo\nGerhard Kramarz\nTom Riegel",
                     IDC_STATIC,102,260,84,35
-    LTEXT           "Wolfgang Patzewitz\nGary Tagg\nDirk Fox",IDC_STATIC,186,
-                    260,85,26
+    LTEXT           "Wolfgang Patzewitz\nGary Tagg\nDirk Fox\n...and many others.",
+                    IDC_STATIC,186,260,85,35
     LTEXT           "Martin Bartosch\nLars Dülfer\nThomas Gauweiler\nJan Hofmann\nMatthias Kraft\nMatej Matejicek\nRoger Oyono\nMark Santiago\nChristian Tobias\nThilo Zieschang\nChristof Rezk Salama\nEnrique Zabala\nFrank Spieß\nMarkus Diett",
                     IDC_STATIC,18,122,84,113
     LTEXT           "Jan Blumenstein\nKlaus Esslinger\nPeter Gruber\nJens Liebehenschel\nMichael Linden\nChristian Mletzko\nMarkus Ruhs\nMatthias Schneider\nMyriam Zeuner-Guerrier\nHendrik Lennarz\nSebastian Przybylski\nMartin Ramberger\nMarco Verch\nAxel Poschmann",
@@ -23468,6 +23471,9 @@ BEGIN
     IDS_INTERACTIVE_NUMBER_THEORY_EXEC "NT.exe"
     IDS_ERROPEN_INTERACTIVE_NUMBER_THEORY 
                             "The numbertheory learning tool cannot be opened.\n\nPlease check if NT.exe is installed at the CrypTool program directory."
+    IDS_ENIGMA_FLASH        "Enigama_en.exe"
+    IDS_ERROPEN_ENIGMA_FLASH 
+                            "The Enigma flash demo cannot be opened.\n\nPlease check if Enigma_en.exe is installed at the CrypTool program directory."
 END
 
 STRINGTABLE 
@@ -23487,7 +23493,7 @@ BEGIN
     ID_ANALYSE_DESXL        "Automatic brute-force analysis of encryption using the DESXL algorithm"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
