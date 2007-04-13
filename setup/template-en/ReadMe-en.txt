@@ -17,30 +17,30 @@
  1.2. .... Components of the CrypTool distribution
  1.3. .... Acknowledgements
  1.4. .... Maintainer and hosting
- 2. .... Limitations and requirements
- 2.1. .... Education, training and awareness software
- 2.2. .... Win32 environment and roadmap
- 2.3. .... Interactive online help under Windows XP
- 2.4. .... Support for different languages
- 2.5. .... Restrictions in libraries used
- 2.6. .... Using certificates created with older CrypTool versions
- 3. .... Installation / de-installation / operating
- 3.1. .... Installation and further usage of keys of previous versions
- 3.2. .... Installation under multi-user operating systems
- 3.3. .... De-installation of CrypTool
- 3.4. .... Operating under multi-user operating systems
- 4. .... List of delivered files
- 4.1. .... Checking the integrity of downloaded files
- 5. .... What does CrypTool offer in detail
- 5.1. .... What can you do with CrypTool
- 5.2. .... What's new in version 1.4.10
- 6. .... Possible areas for further development -- ideas, requests
- 6.1. .... Functionality: Algorithms / methods
- 6.2. .... Functionality: Analysis
- 6.3. .... Internal interfaces / editors
- 6.4. .... User interface / visualizations
- 6.5. .... Porting to Linux, Java and VS2005/WPF
- 6.6. .... Meaningful tasks to make the new maintainer familiar with
+ 2. .... What does CrypTool offer in detail
+ 2.1. .... What can you do with CrypTool
+ 2.2. .... What's new in version 1.4.10
+ 3. .... Possible areas for further development -- ideas, requests
+ 3.1. .... Functionality: Algorithms / methods
+ 3.2. .... Functionality: Analysis
+ 3.3. .... Internal interfaces / editors
+ 3.4. .... User interface / visualizations
+ 3.5. .... Porting to Linux, Java and VS2005/WPF
+ 3.6. .... Meaningful tasks to make the new maintainer familiar with
+ 4. .... Limitations and requirements
+ 4.1. .... Scope of this Education, training and awareness software
+ 4.2. .... Win32 environment and roadmap
+ 4.3. .... Interactive online help under Windows XP
+ 4.4. .... Support for different languages
+ 4.5. .... Restrictions in libraries used
+ 4.6. .... Using certificates created with older CrypTool versions
+ 5. .... Installation / de-installation / operating
+ 5.1. .... Installation and further usage of keys of previous versions
+ 5.2. .... Installation under multi-user operating systems
+ 5.3. .... De-installation of CrypTool
+ 5.4. .... Operating under multi-user operating systems
+ 6. .... List of delivered files
+ 6.1. .... Checking the integrity of downloaded files
  7. .... Brief history of the released main versions of CrypTool
  8. .... Feedback
  9. .... Contact addresses
@@ -223,7 +223,7 @@ a) The program AES-Tool v 2.4 (developed within the CrypTool project)
    and as a command line tool (e.g. called from within a batch file).
    Files up to 4 GB can be encrypted.
 
-b) The educational game "Number Shark" v 1.2 (by the CrypTool project)
+b) The educational game "Number Shark" v 1.1 (by the CrypTool project)
    This game helps pupils to get acquainted with divisors and prime
    factors.
 
@@ -333,7 +333,7 @@ Homepage of CrypTool: www.cryptool.com  (www.cryptool.org).
 
 We would be very glad about every new developer, who joins to help
 to enhance the functionality and usability of CrypTool.
-Ideas for further development can be found in chapter 6.
+Ideas for further development can be found in chapter 3.
 
 Also very welcome are ideas and information, how CrypTool is used in
 lectures, school and education, so that we can help to share this
@@ -341,11 +341,619 @@ information.
 
 
 
-2. Limitations and requirements
+2. What does CrypTool offer in detail
+   ----------------------------------
+
+2.1. What can you do with CrypTool
+     -----------------------------
+The general properties and functions of CrypTool are:
+
+- E-learning program around the topic cryptography and cryptanalysis.
+
+- Everything in one program package and controlled by one common 
+  graphical user interface.
+
+- CrypTool is fully available in both English and German.
+  The program itself also available in Polish.
+
+- Many classical encryption methods, and for them either a manual
+  cryptanalysis or an automatic analysis is offered (known-plaintext attack).
+
+- Codes like Base64 and UU-Encode.
+
+- Almost all modern symmetric encryption methods, accompanied by brute-force
+  analysis
+  (The brute-force attack on symmetric algorithms allows to define
+   joker characters and the expected elapsed time is displayed. 
+   Additionally you can customize the width of the entropy field
+   used for this kind of analysis within the analysis options).
+
+- Modern (asymmetric) crypto methods and protocols (hash, RSA, ECC, digital
+  signature, hybrid encryption, PKCS#5, shared secret, ...) and partly
+  attacks against it (birthday attack, side-channel attack, 
+  lattice-base reduction).
+
+- Demonstration of the RSA cryptosystem (and some variants) and some
+  number theoretic algorithms behind:
+  - Generate and test primes (including the deterministic method AKS).
+  - Factorize numbers (step-by-step) with different methods
+    (the different methods run in parallel threads).
+  - Make the RSA cryptosystem understandable and use it:
+     - Generate RSA keys (also with primes of your own choice).
+     - Encrypt/decrypt with RSA.
+     - Generate RSA signatures and validate these.
+     - Attack the RSA cryptosystem.
+
+- Three attacks against RSA, based on lattice reduction. They work,
+  if special preconditions are given:
+  * either a part of one of the two factors of N is known 
+    ("Factoring with a Hint"),
+  * or a part of the cleartext of an eavesdropped encrypted message
+    is known and e is small ("Attack on Stereotyped Messages"),
+  * or if d is too small compared to N, N can be factorized 
+    ("Attack on Small Secret Keys (according to Bloemer/May)").
+  This implementation was done within a thesis, which can be delivered
+  via email (this thesis only exists in the German language).
+
+- Visualization / Animation / Demonstration
+  - demo of the sensitivity of hash algorithms.
+  - visualization via flow process charts (e.g. the Diffie-Hellman
+    key exchange protocol or the challenge response demonstration).
+  - Animations
+     - with ANIMAL (e.g. DES) or
+     - with Flash (AES, Enigma).
+     - with Java/SWT: Addition of points on an elliptic curve (both on
+                      discrete as on real curves).
+
+- Demonstration for different ways of authentication in the net
+  (Visualisation of challenge response methods):
+  * from UID/PW and One-Time-Password
+  * over (unidirectional) challenge response (symmetric + asymmetric)
+  * to asymmetric mutual authentication.
+  * The user interactively can control, what a attacker could do
+    (get the computer under control, create or separate connections,
+     eavesdrop).
+  * Experience: only the mutual asymmetric authentication is secure
+    against man-in-the-middle attacks.
+
+- Demonstration for a side-channel attack against a typical hybrid
+  encryption protocol: If the implementation is not comprehensive,
+  but formally correct, as happened in reality, the attacker can very
+  efficiently calculate the used session key of an eavesdropped message
+  by sending protocol-appropriate requests to the server.
+
+- Calculate hash values and demonstrate its sensitivity.
+
+- Implementation of MACs (combination of hashes and symmetric methods
+  to authenticate messages). 
+  Hashes have been already used in CrypTool within PKCS#5 or digital
+  signatures.
+
+- The Shared Secret method from Shamir has been implemented with
+  many options.
+
+- Random numbers:
+  - generators and statistical analysis for (random) data (e.g. FIPS-140-1).
+  - The Secude cryptographic random number generator allows to gather
+    entropy by mouse moves and keyboard entries.
+    This is the default, when calling it the first time, because it shows,
+    that you need a random source in order to get good random data.
+  - 3-D visualisation of big sets of random numbers with the rendering
+    engine from OpenQVis (http://openqvis.sourceforge.net/).
+
+- Export and import RSA and DSA-PSEs with the keys stored in there
+  via PKCS#12.
+
+- The modern methods are implemented according to international
+  standards (reference implementation).
+
+- The last adjustment for a method (parameter, key or alphabet) is
+  stored within the program. A stored key can be retrieved via an
+  insert-key-icon for any single key, which make the handling of testing
+  and probing easier.  
+
+- For each window you now can call a dialog which shows all relevant
+  properties of the document.
+
+- All persistent data is now stored within the user local part of
+  the registry (no more INI file): So CrypTool can be used without
+  administrator access rights and different users at the same pc can
+  have different settings.
+
+- The same menu structure now permanently visible: Items which cannot
+  be clicked for special document types are dynamically made grey,
+  but they are no more taken away (this was a frequent request from
+  users).
+
+- The self-contained program AES-Tool can create self-extracting
+  programs. So you can encrypt any file <4 GB with the AES algorithm,
+  protected by a password (entered as a hexadecimal key).
+  Full functionality also when calling from the command line.
+
+- The self-contained e-learning program about the mathematics behind the
+  asymmetric cryptography presents exhaustively and interactively the
+  elementary number theory.
+
+- Three applications based on the Chinese remainder theorem:
+  * Solving a system of linear modular congruencies using the solar
+    system as an example.
+  * Showing how you can calculate (add, subtract or multiply) with
+    modular remainders (residues) instead of the (bigger) actual
+    numbers.
+  * Showing the shared secret method (this is an electronic equivalent
+    to the vault mechanism where e.g. at least 3 key-owners must 
+    cooperate to open it, but 5 different keys are there).
+
+- The educational game "The Number Shark" helps pupils to
+  get an easy understanding of divisors and primes.
+
+- Web page with the hash values of all downloadable CrypTool files:
+  So you can check the integrity of the files of the CrypTool package
+  stored on your computer.
+
+- Exhaustive documentation (online help, script).
+  The online help has HTML format.
+  The online help contains explanations about the handling and about all
+  the cryptographic methods, a historic overview and the integration into
+  further scientific and organisational topics plus how cryptography should
+  be used.
+
+- CrypTool is used world-wide in schools, universities, agencies and
+  companies.
+
+You can get a good overview of what CrypTool offers
+- at the attached Powerpoint presentation
+   (title: "Cryptography with CrypTool") and
+- at the web site of CrypTool 
+   (use the item "CT Introduction" within the left frame) or
+- within the online help (see "starting page").
+
+
+
+2.2. What's new in version 1.4.10
+     ----------------------------
+Chapter 2.2 lists the enhancements and bug fixes in CrypTool 1.4.10,
+which have been added since CrypTool 1.4.00.
+
+a) Developer-relevant changes (more technically oriented):
+
+- Details about compilation, linking and about a consistent development
+  can be found in the sources in the file "readme-source".
+
+- The sources have been compiled with Microsoft development environment
+  Visual Studio 2003 (VC++ v7.1).
+
+  There is already a source branch in the Subversion system, which can
+  be compiled with VS2005 (VC++ v8.0). This will be officially 
+  supported later.
+
+  The source code of the release version can be downloaded from
+  the CrypTool webpage.
+
+  Read access to the current developer sources is possible via:
+  svn checkout https://file.sec.informatik.tu-darmstadt.de/svn/CrypTool/trunk
+       --username anonymous --password anonymous
+
+- The editors used for text and binary are open-source:
+  * Hex editor / Hex control / HexView:
+    Link: http://www.codeguru.com/Cpp/controls/controls/article.php/c5287
+    Added: - Insertion and copying distinguishes between ASCII and
+             hex coding.
+    In the hexadecimal editor currently no search is available.
+  * Text editor:
+    Link: http://scintilla.sourceforge.net/ScintillaDownload.html
+    Added: - You can highlight, which characters belong to the
+             actual alphabet.
+           - Search and Replace now supports regular expressions. xxxxxxxxxx
+
+- From 1.4.10 NDIS is used as installation stool.
+
+
+
+b) Changes within the user documentation:
+
+- Online help: improved, strongly enhanced, index structured newly.
+
+- Within the script: minor bug-fixes, small enhancements, some updating,
+  new chapter about the future of cryptography by the research
+  faculty of Prof. Buchmann.
+
+- Updated and enhanced presentation (almost 100 pages now).
+
+
+
+c) New functionality:
+
+- Bugfixes:
+  - Many small improvements in the masks (user interface).
+  - Calculation of the hah value of a file: Race condition eliminated.
+  - Solitaire corrected for a special case (if the output card was a joker,
+    it was not spent).
+  - Rijndael corrected for key length > 128 bit.
+
+- The key entry dialogs for the classical methods now contain a button
+  so you can from here directly change the alphabet (text option) if it
+  does make sense.
+
+- The Hill encryption scheme has been enhanced with some variants:
+  - Customizable are now the matrix multiplication (from left or right) and
+    the value of the first letter of the alphabet. 
+  - The key matrix can be entered not only by letters but also by integers.
+  - The log file (detailed output) to explain the scheme now is more
+    explicit. Additionally the first letters from the cleartext are used
+    dynamically (instead of using a fixed string).
+
+- New within the set of modern symmetric encryption methods are the
+  DES variants DESX (Rivest), DESL and DESXL (Ruhr University Bochum).
+
+- Elliptic curve methods are now used not only in signatures but also
+  with the hybrid encryption (Ecc-AES).
+  Additionally there is a demonstration about addition of points on an
+  elliptic curve (both on discrete as on real curves).
+
+- The educational program/game "Number Shark" was enhanced a bit.
+
+- New are the Flash animations for AES and Enigma.
+
+- Also new is a Authorware e-learning program, which explains and visualizes
+  methods of the elementary number theory.
+
+
+
+3. Possible areas for further development -- ideas, requests
+   ---------------------------------------------------------
+
+3.1. Functionality: Algorithms / methods
+     -----------------------------------
+- Implement additional algorithms on each topic:
+    * Codes:
+       - T9
+    * Encryption:
+       - Classic procedures: Turning grille (Fleissner) (incl. analysis).
+       - Symmetric procedures:
+           Camellia (RFC3713), RC5 and Gost (http://vipul.net/gost).
+       - Public key methods: McEliece, Rabin, NTRU.
+       - Demonstration of visual cryptography.
+    * Hashes:
+       - SHA-256, SHA-384, SHA-512
+         http://csrc.nist.gov/publications/fips/fips180-2/fips180-2.pdf
+       - Tiger (http://www.cs.technion.ac.il/~biham/Reports/Tiger/)
+    * Protocols / weaknesses in protocols:
+       - Visualisation of man-in-the-middle attacks.
+       - Blind signatures.
+       - Electronic voting.
+       - Tripartite key exchange.
+
+- Offer fast selection between different encryption methods using a
+  dialog box instead of using menus (and making all parameters of these
+  algorithms customizable) (see CryptoBench).
+
+- Generate cryptographically strong elliptic curves and use these
+  to implement a cryptosystem based on elliptic curves.
+  Here, one could take the cryptosystem developed by Menezes and
+  Vanstone that was proposed by the authors in 1993:
+  A. Menezes and S. Vanstone,
+  "Elliptic curve cryptosystems and their implementation",
+  Journal of Cryptology, 6 (1993), pp 209-224.
+
+- Hill cipher
+   - enable to transpose the key matrix
+
+- Because cryptographic structures and formats are often ASN.1
+  encoded: Integration of an ASN.1 decoding tool.
+
+- Random numbers:
+  - In Germany evaluations of deterministic random number generators
+    are based on AIS 20 (since December 1999; AIS = Application
+    Notes and Interpretation of the Scheme) and evaluations of 
+    physical random number generators are based on AIS 31 (since
+    September 2001). Especially AIS 31 has achieved great interest
+    outside of Germany: this scheme evaluates not only the quality
+    of the output like FIPS-140, but also the design of the generator
+    itself !
+    The documents AIS 20 and AIS 31 are both in English and German
+    available at the web page of the German GISA:
+    http://www.bsi.bund.de/zertifiz/zert/interpr/ais20e.pdf   
+    http://www.bsi.bund.de/zertifiz/zert/interpr/ais31e.pdf   
+    http://www.bsi.bund.de/zertifiz/zert/interpr/trngk31e.pdf 
+    It would be a meaningful enhancement of CrypTool, to implement
+    these requirements on evaluating random number generators 
+    and also to visualize them.
+
+- Implement further standards and refer to all places, where
+  they (e.g. PKCS#5) are used, from a menu and from the online
+  help (main task here is user interface and documentation).
+
+- Reveal the link between CrypTool (PKCS#12) and PGP by enabling the
+  use of PGP keys within CrypTool.
+    Idea: Open private key ring via a given password, analyse its 
+    structure, get the private key (PGP sources are available) and 
+    use this key, to decrypt PGP files with the algorithms implemented
+    in CrypTool. This shows, that PGP also only uses standard algorithms.
+
+- Usage of CrypTool as a demonstrator for XML signatures.
+
+- Visualize the password quality with a password quality meter.
+
+
+
+3.2. Functionality: Analysis
+     -----------------------
+- It would be especially desirable if analysis in all forms and its
+  visualization could be enhanced.
+
+- Offering a (good) analysis for all encryption methods (which is at
+  least for the classic methods better than brute-force). 
+
+- Attack on symmetric encryption methods, where you have the flexibility
+  to reduce the parameters of the encryption method.
+
+- Differential cryptanalysis on symmetric ciphers (DES, ...).
+
+- Enhance the brute-force possibilities: Use knowledge about
+  - parts of the cleartext
+  - parts of the key.
+
+- Analysis to be newly implemented for:
+   * homophone encryption
+   * permutations/transpositions
+   * Playfair encryption
+      - pure C sources from Gunnar-Andresson are available. 
+
+- Analysis to be improved for:
+   * mono-alphabetic substitution
+      - explicitly show mutually inverted digrams like "th"/"ht" and
+        double-characters like "tt".
+      - Show the characters which have been substituted not only 
+        capitalized but also in red to enhance readability.
+   * Use word lists (dictionary) for all attacks, not only for the
+     substitution.
+
+- Usage of algorithms from the area of AI (artificial intelligence) and
+  GP/GA (Genetic Programming/Algorithms) in order to analyse automatically
+  (classical) encryption ciphers.
+
+- Mass pattern search: Implementation of an enhanced high performance
+  pattern search for pre-given standardized and regular patterns of any
+  size (e.g. in order to find multiple patterns in one file which are 
+  also there in another file), or which searches for unknown but
+  repeated patterns in a document.
+  The search could be enhanced by additionally offering replacing.
+
+- Search for patters using norms (i.e. "together" = 12341546).
+  C sources are available.
+
+- Facilities for correcting individual characters in the analysis
+  of XOR, ADD, Vigenère. Ignorance of non-encrypted areas.
+
+- Display of second-, third-, etc. -best hit in XOR/ADD analysis
+  (this could lead to a shorter key length).
+
+- Autocorrelation: Execute further operations (XOR, ADD, ...) in the
+  blocks prior to super imposition, if appropriate.
+
+- Make it possible to edit the homophone key (necessary for the
+  analysis of homophone encryption).
+
+- Floating entropy: automatic display of relevant places with
+  high entropy.
+
+- Illustrate the Vigenère analysis more deeply:
+  - Enable to enter not only a fixed value for the key length,
+    but also a range of values (e.g. "2-9"). Then show in the next
+    dialog for each length the statistically most appropriate
+    key. Eventually show the top-10 most likely keys for a given length.
+    Clicking at the displayed key proceeds the according
+    decryption. Clicking an additional button performs the
+    decryptions for all displayed keys.
+  - The analysis option "Show base ciphers" currently shows for
+    each "column Caesar" the graphics correlation and histogram.
+    Additionally the text for each column Caesar could be
+    displayed.
+
+- Timing Attack on RSA / Advantages of blinding.
+
+- Visualize current hash attacks (create postscript documents according
+  to Lucks or PDF documents according to BSI with the same hash value)
+  and explain the  scenarios.
+
+- Attack on the WEP protocol.
+
+- Implement and/or visualize further attacks against concrete protocols
+  in order to improve future concepts.
+
+
+
+
+3.3. Internal interfaces / editors
+     -----------------------------
+- Summary of all display modules in a logical class tree.
+
+- Offer a view for any text file to show them in any given fixed
+  block length: e.g. formats xxx xxx xxx  or  xxxxx xxxxx xxxxx ...
+
+- Rearrange the source to facilitate a separation of cryptographic
+  functions from the user interface (make ports and debugging easier).
+
+- Enable customisation wherever possible:
+  Offer an option to set e.g. initial vector, number of rounds, key
+  length, word size or the kind of padding (e.g. for the RC5 algorithm,
+  see RFC2040).
+  Then these additional customisations must become part of the
+  format for the internal key storage.
+
+- Libraries:
+   - Support further libraries (LiDIA, FLINT/C, Wei Dai's Crypto++, ...)
+
+- Extend existing limitations of the N-Gram analysis concerning
+  the file size (evtl. give user feedback and allow to stop calculation,
+  if a high amount of time is necessary).
+
+
+3.4. User interface / visualizations
+     -------------------------------
+- There are several dialogs within CrypTool where special input fields
+  expect a special number format (decimal, hexadecimal, ...).
+  The dialog "The RSA Cryptosystem" e.g. allows to enter the message
+  as text (with an alphabet defined by you) or as a number (with 4
+  different base numbers); compared with that the primes here can 
+  only be entered as decimal numbers or as terms of decimal numbers.
+  It would be useful if a calculator can be called from within 
+  CrypTool as an a-modal window: it should accept terms with numbers 
+  of any basis as input and it should show the result in several
+  fields in parallel with different number bases. 
+  The right output number representation could be transferred into
+  the clipboard via button, or the mouse could drag the field content
+  directly into the entry field in the CrypTool dialog box.
+
+- Offer a customizing feature to the user, so that he can choose that
+  all new windows appear within the main windows (as right now) or
+  as "free" (modal or a-modal) windows outside the main window.
+  E.g. show single dialogue windows in an a-modal way (e.g. N-gram
+  analysis, manual analysis, hybrid encryption demonstration).
+  This allows that one can switch between the main window and
+  the dialogue window without closing the dialogue window first
+  (the burden is a more complex control mechanism, handling of
+  multiple calls to the same dialogue, update after change of
+  window focus or after changing the underlying original data
+  within the main window, ...).
+
+- AES-Tool:
+  - Integrate the PKCS#5 dialog to let the user enter letters in
+    his used way: then set random values for salt and iteration
+    counter and ask the user, to remember the generated hex value
+    or store it securely. 
+  Generally within CrypTool the keys of modern encryption methods
+  intentionally must be typed in using the hex format. 
+  We pedagogically did it by will, that everybody sees what type of
+  key the different methods expect: classical methods expect a key
+  built from the used alphabet, modern symmetric methods expect 
+  binary data of key length 56 bit till 256 bit.
+  On the other hand people normally are used to type their input using
+  all ASCII keyboard buttons. Within a productive application the key
+  should NOT be built of ASCII-letters. If it is wished to use a ASCII
+  password then it is better to generate a good key from the password. 
+  Within CrypTool both requirements (key input via ASCII and showing,
+  that good hex-keys are necessary) could be combined in the
+  following way:
+  Within the hexadecimal key input dialogs a button should be added,
+  calling the dialog "Indiv. Procedures \ Hash \ Key Generation from
+  Password (PKCS#5)". 
+  The called dialog then is already customized with the right key length
+  and after pushing "Back" the generated key will be used as hex 
+  input for the encryption method. In order to make this also work
+  for AES-256, the hash function SHA-256 must be added to the 
+  "Key Generation from Password"-dialog.
+
+- Make customizable by the user how big the part of text and binary
+  files can be which CrypTool will load.
+
+- New magnification function in the display for graphics and/or
+  display of co-ordinates of the current mouse pointer position.
+
+- Visualization:
+   - Visualization of dependencies and workflows in protocols 
+     (not only "simple" algorithms) is a meaningful enhancement.
+   - Attacks on weak RSA keys are described in CrypTool's 
+     online help at Help \ Scenarios \ RSA cryptosystem (demonstration),
+     under the topic "3. Attack on the RSA algorithm", which explains
+     that factorisation of the module can break the method.
+     This is implemented, but not visualized.
+   - Attacks on other asymmetric methods are not implemented in
+     CrypTool yet. To attack Diffie-Hellman, DSA or EC-DSA, one 
+     has to calculate "discrete logarithms". After implementing
+     this it also could be visualized.
+
+
+3.5. Porting to Linux, Java and VS2005/WPF
+     -------------------------------------
+
+- Wish list for a future version (2.0):
+  - All languages supported by one program, one setup.
+  - More modern layout.
+  - More user interaction, action history.
+  - Dynamic change between crypto providers and languages.
+  - Updates of partial functionality via the internet.
+  - Implementation of more functions as threads.
+  - Easier handling of cascade using the existing building blocks.
+  - Offer a recorder for user interactions.
+
+- Porting to Linux using GCC 4.x and Qt 4.x.
+   - The libraries from Secude, Miracl, NTL, OpenSSL and GMP are
+     available.
+   - Divide the complete task in meaningful parts:
+       - graphical user interface: This is the main task.
+       - functionality implemented in pure C/C++: ok
+       - online help in HTML: ok.
+   - At the moment there are only first tries.
+
+- Completely new designed CrypTool in Java (JCrypTool JCT):
+   - A major sub project, which does the port
+   - A Secude library, Bouncy Castle and FlexiProvider are available.
+   - Usage of Eclipe, SWT and Jigloo for development.
+   - Plug-in based architecture.
+   - Further developers for this project are very welcome.
+   - First concepts and sources are available.
+   - The current developers use SourceForge with Subversion for
+     source code version management: http://jcryptool.sourceforge.net/ .
+
+- Porting to Windows Vista using Visual Studio 2005 and .NET.
+  Usage of the new GUI API Windows Presentation Foundation (WPF)
+  to create multi media GUIs.
+   - Usage of the .NET framework (no MFC any more).
+   - Usage of VS2005 (no longer VS2003),
+     aiming to build the whole project with the free-of-charge
+     express edition for C++/C#.
+   - A prototype is already available in an extra source branch
+     in the CrypTool subversion repository, where everyone has read
+     access using the user "anonymous".
+   - Further developers and ambitious graphical designers are more
+     than welcome in this new project.
+
+
+
+
+3.6. Meaningful tasks to make the new maintainer familiar with
+     ---------------------------------------------------------
+- Integration of further classic methods like e.g. autokey, Nihilist
+  or Enigma (without visualization).
+
+- Integrate the RC5 algorithms as described above, in order to
+  see all places where to enhance the sources (function itself,
+  options, menus + status line info, online help, ...).
+
+- Offer all kind of transpositions and superpositions for the
+  content of text windows in an easy-to-use dialogue window.
+
+- Show in a dialog all keys which are saved for the different
+  encryption methods.
+
+- Pattern matching dialogs.
+
+- Create a test suite with examples and solutions, in order to
+  automate testing and to make sure, that program changes do not
+  negatively influence old and running functionality:
+  a) interface, to load test cases manually into the dialog boxes
+  b) interface, to load test cases from a file into the different
+     dialog boxes.
+     Maybe build a script language to control all dialogues or
+     use automated test tools off-the-shelf.
+  c) create command line interface (best after within the source
+     pure crypto functionality is separated from user-interaction)
+     so test cases can be read from a file without using
+     dialog boxes (without user interface), solved and the result
+     again written to a file:
+     -> automatic comparison of the solution possible
+     -> new version can be tested easier.
+
+
+
+
+4. Limitations and requirements
    ----------------------------
 
-2.1. Education, training and awareness software
-     ------------------------------------------
+4.1. Scope of this Education, training and awareness software
+     --------------------------------------------------------
 CrypTool is a demonstration primarily for training and awareness
 purposes, which is intended to be used at once without any previous
 configuration work.
@@ -379,7 +987,7 @@ implemented according to international standards and are working
 as "well" as in productive applications.
 
 
-2.2. Win32 environment and roadmap
+4.2. Win32 environment and roadmap
      -----------------------------
 CrypTool requires a Win32 environment.
 
@@ -408,10 +1016,10 @@ CrypTool also works basically under FreeBSD/Linux with Wine
 See appendix 11.1.
 
 Future goals are to port CrypTool to Linux or Java, and to create a
-version 2.0 using Windows WPF (see chapter 6.5).
+version 2.0 using Windows WPF (see chapter 3.5).
 
 
-2.3. Interactive online help under Windows XP
+4.3. Interactive online help under Windows XP
      ----------------------------------------
 Using Windows XP there is a special case where it is not
 possible to get the online help via F1: Only menu entries with
@@ -435,7 +1043,7 @@ under Windows XP you have to close the submenu of
 press F1.
 
 
-2.4. Support for different languages
+4.4. Support for different languages
      -------------------------------
 Program, help facility and the documentation are designed to run
 in more than one language (currently in English and German).
@@ -447,7 +1055,7 @@ change till end of 2007).
 For each supported language we deliver at the moment an extra setup.
 
 
-2.5. Restrictions
+4.5. Restrictions
      ------------
 - In order to demonstrate the RSA cryptosystem and to factorize
   integers CrypTool uses the long integer arithmetic of the Miracl
@@ -482,7 +1090,7 @@ For each supported language we deliver at the moment an extra setup.
   with the file name to the end of the encrypted data.
 
 
-2.6. Using certificates created with older CrypTool versions
+4.6. Using certificates created with older CrypTool versions
      -------------------------------------------------------
 If you want to keep on using certificates, created with CrypTool versions
 older than 1.4.00, you can do so:
@@ -496,10 +1104,10 @@ older than 1.4.00, you can do so:
 
 
 
-3. Installation / de-installation / operating
+5. Installation / de-installation / operating
    -----------------------------------------
 
-3.1. Installation and further usage of keys of previous versions
+5.1. Installation and further usage of keys of previous versions
      -----------------------------------------------------------
 To install CrypTool on your PC, copy the CrypTool setup executable
 to a suitable place in the file system and double-click on it.
@@ -518,7 +1126,7 @@ of the old files will not be overwritten. Please note:
   version of CrypTool, then perform the following steps. Copy the
   entire pse\ directory in order to protect these keys. De-install
   CrypTool and install the new version. Finally copy the saved
-  pse\ directory to the installation folder. Also see chapter 2.6.
+  pse\ directory to the installation folder. Also see chapter 4.6.
   Alternatively you can export/import RSA and DSA PSEs using the 
   PKCS#12 format.
 
@@ -532,7 +1140,7 @@ structure becomes inconsistent, it may be necessary to completely
 reinstall CrypTool in order to use the certificate based methods.
 
 
-3.2. Installation under multi-user operating systems
+5.2. Installation under multi-user operating systems
      -----------------------------------------------
 In multi-user systems like Windows XP the administrator has full
 access to the whole file system; the other users are normally
@@ -562,33 +1170,74 @@ are on your disk by entering in the Windows Explorer %ALLUSERSPROFILE% or
 %userprofile%.
 
 
-3.3. De-installation of CrypTool
+5.3. De-installation of CrypTool
      ---------------------------
 To de-install use the "Start" menu entry in the windows task bar.
 Go for "All programs" \ "CrypTool".
 Click "Uninstall CrypTool".
 
 
-3.4. Operating under multi-user operating systems
+5.4. Operating under multi-user operating systems
      --------------------------------------------
-All user-specific parameters are stored in the local registry
-(including the files lastly opened): So no ini-file in the
-Windows directory is needed any more and operating for multi-users
-is supported. 
+a) All user-specific parameters are stored in the local registry
+   (including the files lastly opened): So no ini-file in the
+   Windows directory is needed any more and operating for multi-users
+   is supported. 
 
-If the user wants to create (or change) files from within CrypTool in
-multi-user systems like Windows XP, then he needs writing access for
-the appropriate target directory (or for the appropriate files). 
-If this does not work, the user normally gets a warning.
-Writing access is explicitly necessary for only two directories:
-- the default Windows directory for temporary files (TEMP) for the
-  cry*.* files,
-- the sub-directory "CrypTool\pse", where the created asymmetric keys
-  and certificates are stored in.
+b) If the user wants to create (or change) files from within CrypTool in
+   multi-user systems like Windows XP, then he needs writing access for
+   the appropriate target directory (or for the appropriate files). 
+   If this does not work, the user normally gets a warning.
+   Writing access is explicitly necessary for only two directories:
+   - the default Windows directory for temporary files (TEMP) for the
+     cry*.* files,
+   - the sub-directory "CrypTool\pse", where the created asymmetric keys
+     and certificates are stored in.
+
+c) Central installation on a Windows network server:
+
+   Especially in courses at schools educational software is only installed
+   at the central machine; the client PCs are calling the program from there.
+
+   This works with the program CrypTool itself. But if the online help is
+   called from a client PC, then it will not be displayed according to the
+   default settings of Windows XP. This is no prblem specific for CrypTool,
+   but for all Windows online help.
+
+   Online help under Windows normally comes from a CHM file, which bundles
+   all single HTML help files. Within the Microsoft HTML-Help-Program the
+   Internet Explorer is used to display the HTML help files bundled in the
+   CHM file.
+
+   Early XP versios allowed a client PC to display help files on a server.
+   To close a security gap the Windows XP update (KB896358) was distributed.
+   Unfortunately this patch also causes that the Microsoft HTML help
+   doesn't display the actual help page [but the meta information like
+   content, index or search words are displayed correctly], if you want
+   to access from a client help files stored at a server.
+
+   Workaround:
+   Because deinstalling a patch is no good idea and because in this scenario
+   it is not wanted to store the CHM files locally, you can change or add
+   a special registry entry:
+   Assuming that the CHM files are stored at a server partition X: with the
+   UNC path "\\dir-1\\dir-2" liegen, you can allow the client PC to access
+   the server partition by adding the following entry at all client PCs:
+   [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HTMLHelp\1.x\ItssRestrictions]
+   "UrlAllowList"="\\dir-1\\dir-2;file://\\dir-1\\dir-2;X:\\dir-1\\dir-2;file://X:\\dir-1\\dir-2"
+
+   ATTENTION: Changing the registry can cause Windows to stop working. You are
+   solely responsible for such changes.
+   To change the client's registry you probably need administrator rights.
+
+   Further information:
+    - http://support.microsoft.com/kb/896054
+    - http://www.robo-forum.de/cgi-bin/ultimatebb.cgi?ubb=get_topic;f=10;t=000065
 
 
 
-4. List of delivered files
+
+6. List of delivered files
    -----------------------
 The package is distributed as a compressed, self extracting archive
 in two different language versions:
@@ -772,7 +1421,7 @@ cry*.* ........... CrypTool writes temporary files to the \temp
 
 
 
-4.1. Checking the integrity of downloaded files
+6.1. Checking the integrity of downloaded files
      ------------------------------------------
 The integrity of files can be verified using hash values.
 Hash values are like fingerprints -- with a small information base you
@@ -810,614 +1459,6 @@ Alternatively you can use the program CrypTool itself:
 Security reasons recommend to do the comparison for binary
 files (EXE, DLL, PDF, ...), if you are not quite sure, that
 your computer is untouched.
-
-
-
-5. What does CrypTool offer in detail
-   ----------------------------------
-
-5.1. What can you do with CrypTool
-     -----------------------------
-The general properties and functions of CrypTool are:
-
-- E-learning program around the topic cryptography and cryptanalysis.
-
-- Everything in one program package and controlled by one common 
-  graphical user interface.
-
-- CrypTool is fully available in both English and German.
-  The program itself also available in Polish.
-
-- Many classical encryption methods, and for them either a manual
-  cryptanalysis or an automatic analysis is offered (known-plaintext attack).
-
-- Codes like Base64 and UU-Encode.
-
-- Almost all modern symmetric encryption methods, accompanied by brute-force
-  analysis
-  (The brute-force attack on symmetric algorithms allows to define
-   joker characters and the expected elapsed time is displayed. 
-   Additionally you can customize the width of the entropy field
-   used for this kind of analysis within the analysis options).
-
-- Modern (asymmetric) crypto methods and protocols (hash, RSA, ECC, digital
-  signature, hybrid encryption, PKCS#5, shared secret, ...) and partly
-  attacks against it (birthday attack, side-channel attack, 
-  lattice-base reduction).
-
-- Demonstration of the RSA cryptosystem (and some variants) and some
-  number theoretic algorithms behind:
-  - Generate and test primes (including the deterministic method AKS).
-  - Factorize numbers (step-by-step) with different methods
-    (the different methods run in parallel threads).
-  - Make the RSA cryptosystem understandable and use it:
-     - Generate RSA keys (also with primes of your own choice).
-     - Encrypt/decrypt with RSA.
-     - Generate RSA signatures and validate these.
-     - Attack the RSA cryptosystem.
-
-- Three attacks against RSA, based on lattice reduction. They work,
-  if special preconditions are given:
-  * either a part of one of the two factors of N is known 
-    ("Factoring with a Hint"),
-  * or a part of the cleartext of an eavesdropped encrypted message
-    is known and e is small ("Attack on Stereotyped Messages"),
-  * or if d is too small compared to N, N can be factorized 
-    ("Attack on Small Secret Keys (according to Bloemer/May)").
-  This implementation was done within a thesis, which can be delivered
-  via email (this thesis only exists in the German language).
-
-- Visualization / Animation / Demonstration
-  - demo of the sensitivity of hash algorithms.
-  - visualization via flow process charts (e.g. the Diffie-Hellman
-    key exchange protocol or the challenge response demonstration).
-  - Animations
-     - with ANIMAL (e.g. DES) or
-     - with Flash (AES, Enigma).
-     - with Java/SWT: Addition of points on an elliptic curve (both on
-                      discrete as on real curves).
-
-- Demonstration for different ways of authentication in the net
-  (Visualisation of challenge response methods):
-  * from UID/PW and One-Time-Password
-  * over (unidirectional) challenge response (symmetric + asymmetric)
-  * to asymmetric mutual authentication.
-  * The user interactively can control, what a attacker could do
-    (get the computer under control, create or separate connections,
-     eavesdrop).
-  * Experience: only the mutual asymmetric authentication is secure
-    against man-in-the-middle attacks.
-
-- Demonstration for a side-channel attack against a typical hybrid
-  encryption protocol: If the implementation is not comprehensive,
-  but formally correct, as happened in reality, the attacker can very
-  efficiently calculate the used session key of an eavesdropped message
-  by sending protocol-appropriate requests to the server.
-
-- Calculate hash values and demonstrate its sensitivity.
-
-- Implementation of MACs (combination of hashes and symmetric methods
-  to authenticate messages). 
-  Hashes have been already used in CrypTool within PKCS#5 or digital
-  signatures.
-
-- The Shared Secret method from Shamir has been implemented with
-  many options.
-
-- Random numbers:
-  - generators and statistical analysis for (random) data (e.g. FIPS-140-1).
-  - The Secude cryptographic random number generator allows to gather
-    entropy by mouse moves and keyboard entries.
-    This is the default, when calling it the first time, because it shows,
-    that you need a random source in order to get good random data.
-  - 3-D visualisation of big sets of random numbers with the rendering
-    engine from OpenQVis (http://openqvis.sourceforge.net/).
-
-- Export and import RSA and DSA-PSEs with the keys stored in there
-  via PKCS#12.
-
-- The modern methods are implemented according to international
-  standards (reference implementation).
-
-- The last adjustment for a method (parameter, key or alphabet) is
-  stored within the program. A stored key can be retrieved via an
-  insert-key-icon for any single key, which make the handling of testing
-  and probing easier.  
-
-- For each window you now can call a dialog which shows all relevant
-  properties of the document.
-
-- All persistent data is now stored within the user local part of
-  the registry (no more INI file): So CrypTool can be used without
-  administrator access rights and different users at the same pc can
-  have different settings.
-
-- The same menu structure now permanently visible: Items which cannot
-  be clicked for special document types are dynamically made grey,
-  but they are no more taken away (this was a frequent request from
-  users).
-
-- The self-contained program AES-Tool can create self-extracting
-  programs. So you can encrypt any file <4 GB with the AES algorithm,
-  protected by a password (entered as a hexadecimal key).
-  Full functionality also when calling from the command line.
-
-- The self-contained e-learning program about the mathematics behind the
-  asymmetric cryptography presents exhaustively and interactively the
-  elementary number theory.
-
-- Three applications based on the Chinese remainder theorem:
-  * Solving a system of linear modular congruencies using the solar
-    system as an example.
-  * Showing how you can calculate (add, subtract or multiply) with
-    modular remainders (residues) instead of the (bigger) actual
-    numbers.
-  * Showing the shared secret method (this is an electronic equivalent
-    to the vault mechanism where e.g. at least 3 key-owners must 
-    cooperate to open it, but 5 different keys are there).
-
-- The educational game "The Number Shark" helps pupils to
-  get an easy understanding of divisors and primes.
-
-- Web page with the hash values of all downloadable CrypTool files:
-  So you can check the integrity of the files of the CrypTool package
-  stored on your computer.
-
-- Exhaustive documentation (online help, script).
-  The online help has HTML format.
-  The online help contains explanations about the handling and about all
-  the cryptographic methods, a historic overview and the integration into
-  further scientific and organisational topics plus how cryptography should
-  be used.
-
-- CrypTool is used world-wide in schools, universities, agencies and
-  companies.
-
-You can get a good overview of what CrypTool offers
-- at the attached Powerpoint presentation
-   (title: "Cryptography with CrypTool") and
-- at the web site of CrypTool 
-   (use the item "CT Introduction" within the left frame) or
-- within the online help (see "starting page").
-
-
-
-5.2. What's new in version 1.4.10
-     ----------------------------
-Chapter 5.2 lists the enhancements and bug fixes in CrypTool 1.4.10,
-which have been added since CrypTool 1.4.00.
-
-a) Developer-relevant changes (more technically oriented):
-
-- Details about compilation, linking and about a consistent development
-  can be found in the sources in the file "readme-source".
-
-- The sources have been compiled with Microsoft development environment
-  Visual Studio 2003 (VC++ v7.1).
-
-  There is already a source branch in the Subversion system, which can
-  be compiled with VS2005 (VC++ v8.0). This will be officially 
-  supported later.
-
-  The source code of the release version can be downloaded from
-  the CrypTool webpage.
-
-  Read access to the current developer sources is possible via:
-  svn checkout https://file.sec.informatik.tu-darmstadt.de/svn/CrypTool/trunk
-       --username anonymous --password anonymous
-
-- The editors used for text and binary are open-source:
-  * Hex editor / Hex control / HexView:
-    Link: http://www.codeguru.com/Cpp/controls/controls/article.php/c5287
-    Added: - Insertion and copying distinguishes between ASCII and
-             hex coding.
-    In the hexadecimal editor currently no search is available.
-  * Text editor:
-    Link: http://scintilla.sourceforge.net/ScintillaDownload.html
-    Added: - You can highlight, which characters belong to the
-             actual alphabet.
-           - Search and Replace now supports regular expressions. xxxxxxxxxx
-
-- From 1.4.10 NDIS is used as installation stool.
-
-
-
-b) Changes within the user documentation:
-
-- Online help: improved, strongly enhanced, index structured newly.
-
-- Within the script: minor bug-fixes, small enhancements, some updating,
-  new chapter about the future of cryptography by the research
-  faculty of Prof. Buchmann.
-
-- Updated and enhanced presentation (almost 100 pages now).
-
-
-
-c) New functionality:
-
-- Bugfixes:
-  - Many small improvements in the masks (user interface).
-  - Calculation of the hah value of a file: Race condition eliminated.
-  - Solitaire corrected for a special case (if the output card was a joker,
-    it was not spent).
-  - Rijndael corrected for key length > 128 bit.
-
-- The key entry dialogs for the classical methods now contain a button
-  so you can from here directly change the alphabet (text option) if it
-  does make sense.
-
-- The Hill encryption scheme has been enhanced with some variants:
-  - Customizable are now the matrix multiplication (from left or right) and
-    the value of the first letter of the alphabet. 
-  - The key matrix can be entered not only by letters but also by integers.
-  - The log file (detailed output) to explain the scheme now is more
-    explicit. Additionally the first letters from the cleartext are used
-    dynamically (instead of using a fixed string).
-
-- New within the set of modern symmetric encryption methods are the
-  DES variants DESX (Rivest), DESL and DESXL (Ruhr University Bochum).
-
-- Elliptic curve methods are now used not only in signatures but also
-  with the hybrid encryption (Ecc-AES).
-  Additionally there is a demonstration about addition of points on an
-  elliptic curve (both on discrete as on real curves).
-
-- The educational program/game "Number Shark" was enhanced a bit.
-
-- New are the Flash animations for AES and Enigma.
-
-- Also new is a Authorware e-learning program, which explains and visualizes
-  methods of the elementary number theory.
-
-
-
-6. Possible areas for further development -- ideas, requests
-   ---------------------------------------------------------
-
-6.1. Functionality: Algorithms / methods
-     -----------------------------------
-- Implement additional algorithms on each topic:
-    * Codes:
-       - T9
-    * Encryption:
-       - Classic procedures: Turning grille (Fleissner) (incl. analysis).
-       - Symmetric procedures:
-           Camellia (RFC3713), RC5 and Gost (http://vipul.net/gost).
-       - Public key methods: McEliece, Rabin, NTRU.
-       - Demonstration of visual cryptography.
-    * Hashes:
-       - SHA-256, SHA-384, SHA-512
-         http://csrc.nist.gov/publications/fips/fips180-2/fips180-2.pdf
-       - Tiger (http://www.cs.technion.ac.il/~biham/Reports/Tiger/)
-    * Protocols / weaknesses in protocols:
-       - Visualisation of man-in-the-middle attacks.
-       - Blind signatures.
-       - Electronic voting.
-       - Tripartite key exchange.
-
-- Offer fast selection between different encryption methods using a
-  dialog box instead of using menus (and making all parameters of these
-  algorithms customizable) (see CryptoBench).
-
-- Generate cryptographically strong elliptic curves and use these
-  to implement a cryptosystem based on elliptic curves.
-  Here, one could take the cryptosystem developed by Menezes and
-  Vanstone that was proposed by the authors in 1993:
-  A. Menezes and S. Vanstone,
-  "Elliptic curve cryptosystems and their implementation",
-  Journal of Cryptology, 6 (1993), pp 209-224.
-
-- Hill cipher
-   - enable to transpose the key matrix
-
-- Because cryptographic structures and formats are often ASN.1
-  encoded: Integration of an ASN.1 decoding tool.
-
-- Random numbers:
-  - In Germany evaluations of deterministic random number generators
-    are based on AIS 20 (since December 1999; AIS = Application
-    Notes and Interpretation of the Scheme) and evaluations of 
-    physical random number generators are based on AIS 31 (since
-    September 2001). Especially AIS 31 has achieved great interest
-    outside of Germany: this scheme evaluates not only the quality
-    of the output like FIPS-140, but also the design of the generator
-    itself !
-    The documents AIS 20 and AIS 31 are both in English and German
-    available at the web page of the German GISA:
-    http://www.bsi.bund.de/zertifiz/zert/interpr/ais20e.pdf   
-    http://www.bsi.bund.de/zertifiz/zert/interpr/ais31e.pdf   
-    http://www.bsi.bund.de/zertifiz/zert/interpr/trngk31e.pdf 
-    It would be a meaningful enhancement of CrypTool, to implement
-    these requirements on evaluating random number generators 
-    and also to visualize them.
-
-- Implement further standards and refer to all places, where
-  they (e.g. PKCS#5) are used, from a menu and from the online
-  help (main task here is user interface and documentation).
-
-- Reveal the link between CrypTool (PKCS#12) and PGP by enabling the
-  use of PGP keys within CrypTool.
-    Idea: Open private key ring via a given password, analyse its 
-    structure, get the private key (PGP sources are available) and 
-    use this key, to decrypt PGP files with the algorithms implemented
-    in CrypTool. This shows, that PGP also only uses standard algorithms.
-
-- Usage of CrypTool as a demonstrator for XML signatures.
-
-- Visualize the password quality with a password quality meter.
-
-
-
-6.2. Functionality: Analysis
-     -----------------------
-- It would be especially desirable if analysis in all forms and its
-  visualization could be enhanced.
-
-- Offering a (good) analysis for all encryption methods (which is at
-  least for the classic methods better than brute-force). 
-
-- Attack on symmetric encryption methods, where you have the flexibility
-  to reduce the parameters of the encryption method.
-
-- Differential cryptanalysis on symmetric ciphers (DES, ...).
-
-- Enhance the brute-force possibilities: Use knowledge about
-  - parts of the cleartext
-  - parts of the key.
-
-- Analysis to be newly implemented for:
-   * homophone encryption
-   * permutations/transpositions
-   * Playfair encryption
-      - pure C sources from Gunnar-Andresson are available. 
-
-- Analysis to be improved for:
-   * mono-alphabetic substitution
-      - explicitly show mutually inverted digrams like "th"/"ht" and
-        double-characters like "tt".
-      - Show the characters which have been substituted not only 
-        capitalized but also in red to enhance readability.
-   * Use word lists (dictionary) for all attacks, not only for the
-     substitution.
-
-- Usage of algorithms from the area of AI (artificial intelligence) and
-  GP/GA (Genetic Programming/Algorithms) in order to analyse automatically
-  (classical) encryption ciphers.
-
-- Mass pattern search: Implementation of an enhanced high performance
-  pattern search for pre-given standardized and regular patterns of any
-  size (e.g. in order to find multiple patterns in one file which are 
-  also there in another file), or which searches for unknown but
-  repeated patterns in a document.
-  The search could be enhanced by additionally offering replacing.
-
-- Search for patters using norms (i.e. "together" = 12341546).
-  C sources are available.
-
-- Facilities for correcting individual characters in the analysis
-  of XOR, ADD, Vigenère. Ignorance of non-encrypted areas.
-
-- Display of second-, third-, etc. -best hit in XOR/ADD analysis
-  (this could lead to a shorter key length).
-
-- Autocorrelation: Execute further operations (XOR, ADD, ...) in the
-  blocks prior to super imposition, if appropriate.
-
-- Make it possible to edit the homophone key (necessary for the
-  analysis of homophone encryption).
-
-- Floating entropy: automatic display of relevant places with
-  high entropy.
-
-- Illustrate the Vigenère analysis more deeply:
-  - Enable to enter not only a fixed value for the key length,
-    but also a range of values (e.g. "2-9"). Then show in the next
-    dialog for each length the statistically most appropriate
-    key. Eventually show the top-10 most likely keys for a given length.
-    Clicking at the displayed key proceeds the according
-    decryption. Clicking an additional button performs the
-    decryptions for all displayed keys.
-  - The analysis option "Show base ciphers" currently shows for
-    each "column Caesar" the graphics correlation and histogram.
-    Additionally the text for each column Caesar could be
-    displayed.
-
-- Timing Attack on RSA / Advantages of blinding.
-
-- Visualize current hash attacks (create postscript documents according
-  to Lucks or PDF documents according to BSI with the same hash value)
-  and explain the  scenarios.
-
-- Attack on the WEP protocol.
-
-- Implement and/or visualize further attacks against concrete protocols
-  in order to improve future concepts.
-
-
-
-
-6.3. Internal interfaces / editors
-     -----------------------------
-- Summary of all display modules in a logical class tree.
-
-- Offer a view for any text file to show them in any given fixed
-  block length: e.g. formats xxx xxx xxx  or  xxxxx xxxxx xxxxx ...
-
-- Rearrange the source to facilitate a separation of cryptographic
-  functions from the user interface (make ports and debugging easier).
-
-- Enable customisation wherever possible:
-  Offer an option to set e.g. initial vector, number of rounds, key
-  length, word size or the kind of padding (e.g. for the RC5 algorithm,
-  see RFC2040).
-  Then these additional customisations must become part of the
-  format for the internal key storage.
-
-- Libraries:
-   - Support further libraries (LiDIA, FLINT/C, Wei Dai's Crypto++, ...)
-
-- Extend existing limitations of the N-Gram analysis concerning
-  the file size (evtl. give user feedback and allow to stop calculation,
-  if a high amount of time is necessary).
-
-
-6.4. User interface / visualizations
-     -------------------------------
-- There are several dialogs within CrypTool where special input fields
-  expect a special number format (decimal, hexadecimal, ...).
-  The dialog "The RSA Cryptosystem" e.g. allows to enter the message
-  as text (with an alphabet defined by you) or as a number (with 4
-  different base numbers); compared with that the primes here can 
-  only be entered as decimal numbers or as terms of decimal numbers.
-  It would be useful if a calculator can be called from within 
-  CrypTool as an a-modal window: it should accept terms with numbers 
-  of any basis as input and it should show the result in several
-  fields in parallel with different number bases. 
-  The right output number representation could be transferred into
-  the clipboard via button, or the mouse could drag the field content
-  directly into the entry field in the CrypTool dialog box.
-
-- Offer a customizing feature to the user, so that he can choose that
-  all new windows appear within the main windows (as right now) or
-  as "free" (modal or a-modal) windows outside the main window.
-  E.g. show single dialogue windows in an a-modal way (e.g. N-gram
-  analysis, manual analysis, hybrid encryption demonstration).
-  This allows that one can switch between the main window and
-  the dialogue window without closing the dialogue window first
-  (the burden is a more complex control mechanism, handling of
-  multiple calls to the same dialogue, update after change of
-  window focus or after changing the underlying original data
-  within the main window, ...).
-
-- AES-Tool:
-  - Integrate the PKCS#5 dialog to let the user enter letters in
-    his used way: then set random values for salt and iteration
-    counter and ask the user, to remember the generated hex value
-    or store it securely. 
-  Generally within CrypTool the keys of modern encryption methods
-  intentionally must be typed in using the hex format. 
-  We pedagogically did it by will, that everybody sees what type of
-  key the different methods expect: classical methods expect a key
-  built from the used alphabet, modern symmetric methods expect 
-  binary data of key length 56 bit till 256 bit.
-  On the other hand people normally are used to type their input using
-  all ASCII keyboard buttons. Within a productive application the key
-  should NOT be built of ASCII-letters. If it is wished to use a ASCII
-  password then it is better to generate a good key from the password. 
-  Within CrypTool both requirements (key input via ASCII and showing,
-  that good hex-keys are necessary) could be combined in the
-  following way:
-  Within the hexadecimal key input dialogs a button should be added,
-  calling the dialog "Indiv. Procedures \ Hash \ Key Generation from
-  Password (PKCS#5)". 
-  The called dialog then is already customized with the right key length
-  and after pushing "Back" the generated key will be used as hex 
-  input for the encryption method. In order to make this also work
-  for AES-256, the hash function SHA-256 must be added to the 
-  "Key Generation from Password"-dialog.
-
-- Make customizable by the user how big the part of text and binary
-  files can be which CrypTool will load.
-
-- New magnification function in the display for graphics and/or
-  display of co-ordinates of the current mouse pointer position.
-
-- Visualization:
-   - Visualization of dependencies and workflows in protocols 
-     (not only "simple" algorithms) is a meaningful enhancement.
-   - Attacks on weak RSA keys are described in CrypTool's 
-     online help at Help \ Scenarios \ RSA cryptosystem (demonstration),
-     under  "3.) Attack on the RSA algorithm":  saying
-     factorisation of the modules can break the method.
-     This is implemented, but not visualized.
-   - Attacks on other asymmetric methods are not implemented in
-     CrypTool yet. To attack Diffie-Hellman, DSA or EC-DSA, one 
-     has to calculate "discrete logarithms". After implementing
-     this it also could be visualized.
-
-
-6.5. Porting to Linux, Java and VS2005/WPF
-     -------------------------------------
-
-- Wish list for a future version (2.0):
-  - All languages supported by one program, one setup.
-  - More modern layout.
-  - More user interaction, action history.
-  - Dynamic change between crypto providers and languages.
-  - Updates of partial functionality via the internet.
-  - Implementation of more functions as threads.
-  - Easier handling of cascade using the existing building blocks.
-  - Offer a recorder for user interactions.
-
-- Porting to Linux using GCC 4.x and Qt 4.x.
-   - The libraries from Secude, Miracl, NTL, OpenSSL and GMP are
-     available.
-   - Divide the complete task in meaningful parts:
-       - graphical user interface: This is the main task.
-       - functionality implemented in pure C/C++: ok
-       - online help in HTML: ok.
-   - At the moment there are only first tries.
-
-- Completely new designed CrypTool in Java (JCrypTool JCT):
-   - A major sub project, which does the port
-   - A Secude library, Bouncy Castle and FlexiProvider are available.
-   - Usage of Eclipe, SWT and Jigloo for development.
-   - Plug-in based architecture.
-   - Further developers for this project are very welcome.
-   - First concepts and sources are available.
-   - The current developers use SourceForge with Subversion for
-     source code version management: http://jcryptool.sourceforge.net/ .
-
-- Porting to Windows Vista using Visual Studio 2005 and .NET.
-  Usage of the new GUI API Windows Presentation Foundation (WPF)
-  to create multi media GUIs.
-   - Usage of the .NET framework (no MFC any more).
-   - Usage of VS2005 (no longer VS2003),
-     aiming to build the whole project with the free-of-charge
-     express edition for C++/C#.
-   - A prototype is already available in an extra source branch
-     in the CrypTool subversion repository, where everyone has read
-     access using the user "anonymous".
-   - Further developers and ambitious graphical designers are more
-     than welcome in this new project.
-
-
-
-
-6.6. Meaningful tasks to make the new maintainer familiar with
-     ---------------------------------------------------------
-- Integration of further classic methods like e.g. autokey, Nihilist
-  or Enigma (without visualization).
-
-- Integrate the RC5 algorithms as described above, in order to
-  see all places where to enhance the sources (function itself,
-  options, menus + status line info, online help, ...).
-
-- Offer all kind of transpositions and superpositions for the
-  content of text windows in an easy-to-use dialogue window.
-
-- Show in a dialog all keys which are saved for the different
-  encryption methods.
-
-- Pattern matching dialogs.
-
-- Create a test suite with examples and solutions, in order to
-  automate testing and to make sure, that program changes do not
-  negatively influence old and running functionality:
-  a) interface, to load test cases manually into the dialog boxes
-  b) interface, to load test cases from a file into the different
-     dialog boxes.
-     Maybe build a script language to control all dialogues or
-     use automated test tools off-the-shelf.
-  c) create command line interface (best after within the source
-     pure crypto functionality is separated from user-interaction)
-     so test cases can be read from a file without using
-     dialog boxes (without user interface), solved and the result
-     again written to a file:
-     -> automatic comparison of the solution possible
-     -> new version can be tested easier.
-
 
 
 
@@ -1759,7 +1800,7 @@ These hints are based on tests with Wine 0.9.9.
 We do not recommend to use CrypTool under Wine, because too many things
 there only work partly. A full featured CrypTool version for Linux can
 be expected if the port using GCC and Qt4 is successful (see chapter
-6.6). Any developers who can contribute to this sub project are most 
+3.6). Any developers who can contribute to this sub project are most 
 welcome.
 
 11.1.1. Installing CrypTool
