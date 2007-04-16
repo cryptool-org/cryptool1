@@ -109,7 +109,7 @@ CString CEditDropFilename::expandShortCut(LPTSTR f_str)
 		MultiByteToWideChar(CP_ACP, 0, f_str, -1, wf_str, __MAX_FULLPATH_SIZE);
 
 		if (   SUCCEEDED(ptr_PersistFile->Load(wf_str, STGM_READ)) 
-			&& SUCCEEDED(ptr_sl->Resolve(this->m_hWnd, SLR_UPDATE)) )
+			&& SUCCEEDED(ptr_sl->Resolve( NULL, SLR_UPDATE | SLR_NO_UI )) ) // no warning-message "SLR_NO_UI" as of infty loops
 		{
 			char fullPath[__MAX_FULLPATH_SIZE];
 			if ( SUCCEEDED(ptr_sl->GetPath( fullPath, __MAX_FULLPATH_SIZE, NULL, SLGP_UNCPRIORITY )) )
