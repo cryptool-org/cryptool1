@@ -16,7 +16,7 @@
 
 <h3>BC (arbitrary precision calculator)</h3>
 
-<P>Bc is both a <B>programming language</B> that supports arbitrary precision numbers and an arbitrary precision desktop calculator program (<B>utility</B>), which handles scripts and commands written in the language bc and interactively executes the statements from the user. This tool can be used to do some of the number theoretical calculations with higher speed and higher precision.</P>
+<P>Bc is both a <B>programming language</B> that supports arbitrary precision numbers and an arbitrary precision desktop calculator program (<B>utility</B>), which handles scripts and commands written in the language bc and interactively executes the statements from the user. This tool can be used to do some of the number theoretical calculations with higher speed and higher precision than within the number theory <a href="hid_interactive_number_theory.html">educational program</a>.</P>
 
 <P>The utility bc, an extended precision calculator, can compute to at least 99 places right of the decimal point and at least 4000 to the left.</P>
 
@@ -24,53 +24,69 @@
 
 <P>Calling syntax:<br>bc [ -hlwsqv ] [long-options] [ files  ]</P>
 
-<P><B>BC and the Educational Software "Number Theory" Distributed with CrypTool</B></P>
+<br>
+
+<P><B>BC and the Educational Software "<a href="hid_interactive_number_theory.html">Number Theory</a>" Distributed with CrypTool</B></P>
 
 <P>Part of the distribution of the educational tool "Number Theory" is the command line calculator, <a href="http://en.wikipedia.org/wiki/Basic_Calculator">bc</a> (version 1.06, published by Free Software Foundation under <a href="hidd_tipps_and_tricks.html#opensource">GPL</a>), supplemented with some functions from some file loaded directly when starting bc from the educational tool.</P>
 
-<P><B>Bc as Command line calculator</B></P>
+<br>
 
-<P>Bc can calculate arbitrarily precise:</P>
+<P><B>Bc as Command Line Calculator</B></P>
 
-<P>For whole numbers bc deals with multiple bases. The input base is stored in the environment variable ibase. Setting conversion bases means, bc inputs ALL numbers using ibase. The output base is stored in obase.</P>
+<P><B>1)</B> For whole numbers bc deals with multiple <B>bases</B>. The input base is stored in the environment variable <b>ibase</b>. Setting conversion bases means, bc inputs ALL numbers using <b>ibase</b>. The output base is stored in <b>obase</b>.</P>
 
-<P>Sample: To convert 4521 from base 7 to base 13, you have to enter:<br>obase = 13<br>ibase = 7<br>4521<br>or another sample: Conversion from the decimal to the hexadecimal number system:<br>obase=16; ibase=10; 13<br>B</P>
+<P>Sample: To convert 4521 from base 7 to base 13, you have to enter:
 
-<P>For fractional precision of the calculation bc deals with the environment variable "scale", which means the precision of floating points, which is how many digits after the point. By default the scale is 0, that means it is integer. The result of division will usually be a floating point number. In order to get the correct answer, you need to specify the variable "scale". "scale" means the precision of floating point. In "5.00500" the scale is 5; in "5.005" the scale is 3. Some implementations also output one digit more (see below).</P>
+<P class="paddedleft">obase = 13<br>ibase = 7<br>4521
+
+<P>or another sample: Conversion from the decimal to the hexadecimal number system:</P>
+
+<P class="paddedleft">obase=16; ibase=10; 13<br>B</P>
+
+<P><B>2)</B> For <B>fractional precision</B> of the calculation bc deals with the environment variable <b>scale</b>, which means the precision of floating points, which is how many digits after the point. By default the <B>scale</B> is 0, that means it is integer. The result of division will usually be a floating point number. In order to get the correct answer, you need to specify the variable <b>scale</b>. <b>scale</b> means the precision of floating point. In "5.00500" the <b>scale</b> is 5; in "5.005" the <b>scale</b> is 3. Some implementations also output one digit more (see below).</P>
 
 <P>Samples:</P>
 
-<P>scale=6;  60/7.02<br>6.6476776</P>
+<P class="paddedleft">scale=6;  60/7.02<br>6.6476776</P>
 
-<P>obase=10; ibase=10; scale=0; 7/3<br>2</P>
+<P class="paddedleft">obase=10; ibase=10; scale=0; 7/3<br>2</P>
 
-<P>obase=10; ibase=10; scale=3; 7/3<br>2.2523</P>
+<P class="paddedleft">obase=10; ibase=10; scale=3; 7/3<br>2.2523</P>
 
-<P>To do calculation with bc there are three possibilities:</P>
+<P><b>3)</b> To do calculation with bc there are three possibilities:</P>
 
-<OL>
+<UL>
 <LI>Execute scripts, called at the command line,</LI>
 <LI>type the term after starting bc, or</LI>
 <LI>passing the term through pipeline, such as in the following samples:<br>echo "56.8 + 77.7" | bc<br>echo "obase=16; ibase=10; 56" | bc</LI>
-</OL>
+</UL>
 
 <P>At the input mode of bc you can repeat the last statement using the vertical arrow keys on the keyboard, and then edit it.</P>
 
 <P>To get the value of an environment variable: Just enter the name of the variable and enter.</P>
 
+<br>
+
 <P><B>Some Sample Calculations Using bc (Base Calculator)</B></P>
 
-<P>You can call bc from within the educational program "Number Theory" via F3 (menu Calculators \ BC Calculator) or from the command prompt:<br>bc</P>
+<P>You can call bc from within the educational program "Number Theory" via F3 (menu Calculators \ BC Calculator) or from the command prompt:</P>
 
-<P>Test calculation: 686^79:<br>686^79</P>
+<P class="paddedleft">bc</P>
 
-<P>117382982726682578986166177099458354591354816385525364361499835772376409385660129455427115381646910282753710610818762831176373701406457183724515147357457376424117782495278817923488619922286175976292059037752989068589810057216<br>quit</P>
+<P>Test calculation: 686^79:</P>
+
+<P class="paddedleft">686^79</P>
+
+<P class="paddedleft">117382982726682578986166177099458354591354816385525364361499835772376409385660129455427115381646910282753710610818762831176373701406457183724515147357457376424117782495278817923488619922286175976292059037752989068589810057216<br>quit</P>
 
 <P>Description for further functions transferred via the educational program "Number Theory" are available within the educational program via F8 (menu Glossaries \ BC Functions).</P>
 
-<P>powermod(17,33,11)<br>7</P>
+<P class="paddedleft">powermod(17,33,11)<br>7</P>
 
-<p>euklid(847,22)<br>11</p>
+<p class="paddedleft">euklid(847,22)<br>11</p>
+
+<br>
 
 <P><B>Remark 1: BC as a Programming Language</B></P>
 
@@ -91,6 +107,8 @@
 <LI>Arrays use square brackets [ ] for indexes.</LI>
 <LI>quit  returns to the shell.</LI>
 </UL>
+
+<br>
 
 <P><B>Remark 2: Links</B></P>
 

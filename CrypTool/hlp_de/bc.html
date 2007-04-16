@@ -10,67 +10,88 @@
 <BODY>
 
 <!-- multiple keywords for CrypTool HTML help index -->
-<OBJECT id="Object1" type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+<OBJECT id=Object1 type=application/x-oleobject 
+classid=clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e VIEWASTEXT>
 	<PARAM NAME="Keyword" VALUE="BC">
-</OBJECT>
+	</OBJECT>
 
 <h3>BC (beliebig genauer "Taschenrechner")</h3>
 
-<P>Bc ist einerseits eine <B>Programmiersprache</B>, die beliebig genaue Zahlen unterstützt, und andererseits ein <B>Programm</B> (Tool, Utility), das Skripte und Kommandos ausführen kann, die in dieser Sprache bc geschrieben sind, und interaktiv die Eingaben des Benutzers berechnet. Mit diesem Programm kann man einige zahlentheoretische Berechnungen mit höherer Geschwindigkeit und größerer Genauigkeit als innerhalb des Lernprogramms ausführen.</P>
+<P>Bc ist einerseits eine <B>Programmiersprache</B>, die beliebig genaue Zahlen unterstützt, und andererseits ein <B>Programm</B> (Tool, Utility), das Skripte und Kommandos ausführen kann, die in dieser Sprache bc geschrieben sind, und interaktiv die Eingaben des Benutzers berechnet. Mit diesem Programm kann man einige zahlentheoretische Berechnungen mit höherer Geschwindigkeit und größerer Genauigkeit als innerhalb des <a href="hid_interactive_number_theory.html">Lernprogramms</a> ausführen.</P>
 
-<P>Das Tool bc, ein Taschenrechner mit erweiterter Genauigkeit, kann Zahlen darstellen mit mindestens 99 Stellen hinter dem Komma und wenigstens 4000 vor dem Komma.</P>
+<P>Das Tool bc, ein Taschenrechner mit erweiterter Genauigkeit, kann Zahlen darstellen mit mindestens 99 Stellen hinter dem Komma und wenigstens 4000 Stellen vor dem Komma.</P>
 
-<P>Eine mathematische Standardbibliothek ist per Kommandozeilenoption verfügbar. Beim Start prozessiert bc den Code von allen Dateien auf der Kommandozeile, in der angegebenen Reihenfolge. Nachdem alle diese Dateien prozessiert wurden, liest bc von Standard-Input. Jeder Code wird sofort nach dem Lesen ausgeführt (Enthält eine Datei ein Kommando, das den Prozessor anhält, wird bc nichts mehr von der Kommandozeile (Standard-Input) einlesen).</P>
+<P>Eine mathematische Standardbibliothek ist per Kommandozeilenoption verfügbar. Beim Start prozessiert bc den Code von allen Dateien auf der Kommandozeile in der angegebenen Reihenfolge. Nachdem alle diese Dateien prozessiert wurden, liest bc von Standard-Input. Jeder Code wird sofort nach dem Lesen ausgeführt (Enthält eine Datei ein Kommando, das den Prozessor anhält, wird bc nichts mehr von der Kommandozeile (Standard-Input) einlesen).</P>
 
 <P>Aufruf-Syntax:<br>bc [ -hlwsqv ] [Lang-Optionen [ Dateien ]</P>
 
-<P><B>BC und die Lernsoftware "Zahlentheorie" (verteilt mit CrypTool)</B></P>
+<br>
+
+<P><B>BC und die Lernsoftware "<a href="hid_interactive_number_theory.html">Zahlentheorie</a>" (verteilt mit CrypTool)</B></P>
 
 <P>Zu der Distribution des Lernprogramms "Zahlentheorie" gehört der Kommandozeilen-Calculator <a href="http://de.wikipedia.org/wiki/Basic_Calculator">bc</a> (Version 1.06, veröffentlicht von der Free Software Foundation unter der <a href="hidd_tipps_and_tricks.html#opensource">GPL</a>), ergänzt um einige Funktionen aus Dateien, die direkt beim Start von bc aus dem Lernprogramm heraus geladen werden.</P>
 
+<br>
+
 <P><B>Bc als Kommandozeilen-Taschenrechner</B></P>
 
-<P>Bc kann beliebig genau rechnen:</P>
+<P><B>1)</B> Bei ganzen Zahlen arbeitet bc mit mehreren <B>Basen</B> (Basis des Stellenwertsystems). Die Basis für den Input wird in der Umgebungsvariablen <B>ibase</B> gespeichert. Setzt man diese Basis, benutzt bc <B>ibase</B> für alle Eingabezahlen. Die Basis für den Output wird in der Variablen <B>obase</B> gespeichert.</P>
 
-<P>Bei ganzen Zahlen arbeitet bc mit mehreren Basen (Basis des Stellenwertsystems). Die Basis für den Input wird in der Umgebungsvariablen "ibase" gespeichert. Setzt man diese Basis, benutzt bc ibase für alle Eingabezahlen. Die Basis für den Output wird in der Variablen obase gespeichert.</P>
+<P>Beispiel: Konvertieren der Zahl 4521 von der Basis 7 in die Basis 13:</P>
 
-<P>Beispiel: Konvertieren der Zahl 4521 von der Basis 7 in die Basis 13:<br>obase = 13<br>ibase = 7<br>4521<br>oder beispielsweise: Umwandeln vom Zehnersystem ins Hexadezimal-System:<br>obase=16; ibase=10; 13<br>B</P>
+<P class="paddedleft">obase = 13<br>ibase = 7<br>4521</P>
 
-<P>Bei Gleitkommazahlen wird die Genauigkeit mit der Umgebungsvariablen "scale" eingestellt. Diese Variable bestimmt die Genauigkeit der Anzahl der Stellen hinter dem Komma. Standardmäßig hat scale den Wert 0, so dass Eingaben als ganze Zahlen betrachtet werden. Da das Ergebnis einer Division normalerweise eine Gleitkommazahl ist, muss man die Variable "scale" setzen, um das richtige Ergebnis zu erhalten. In "5.00500" hat "scale" den Wert 5, in "5.005" den Wert 3. In manchen Implementierungen wird auch eine Stelle mehr ausgegeben (siehe unten).
+<P>oder beispielsweise: Umwandeln vom Zehnersystem ins Hexadezimal-System:</P>
+
+<P class="paddedleft">obase=16; ibase=10; 13<br>B</P>
+
+<P><B>2)</B> Bei <b>Gleitkommazahlen</b> wird die Genauigkeit mit der Umgebungsvariablen <B>scale</B> eingestellt. Diese Variable bestimmt die Genauigkeit der Anzahl der Stellen hinter dem Komma. Standardmäßig hat <B>scale</B> den Wert 0, so dass Eingaben als ganze Zahlen betrachtet werden. Da das Ergebnis einer Division normalerweise eine Gleitkommazahl ist, muss man die Variable <B>scale</B> setzen, um das richtige Ergebnis zu erhalten. In "5.00500" hat <b>scale</b> den Wert 5, in "5.005" den Wert 3. In manchen Implementierungen wird auch eine Stelle mehr ausgegeben (siehe unten).
 
 <P>Beispiele:</P>
 
-<P>scale=6;  60/7.02<br>6.6476776</P>
+<P class="paddedleft">scale=6;  60/7.02<br>6.6476776</P>
 
-<P>obase=10; ibase=10; scale=0; 7/3<br>2</P>
+<P class="paddedleft">obase=10; ibase=10; scale=0; 7/3<br>2</P>
 
-<P>obase=10; ibase=10; scale=3; 7/3<br>2.2523</P>
+<P class="paddedleft">obase=10; ibase=10; scale=3; 7/3<br>2.2523</P>
 
-<P>Zur Durchführung von Berechnungen mit bc gibt es drei Möglichkeiten:</P>
+<P><B>3)</B> Zur Durchführung von Berechnungen mit bc gibt es drei Möglichkeiten:</P>
 
-<OL>
-<LI>Ausführen von Skripten, die man auf der Kommandozeile übergibt,</LI>
-<LI>Eingabe des Terms nach dem Start im Eingabemodus von bc, oder</LI>
+<UL>
+<LI>Ausführen von Skripten, die man auf der Kommandozeile 
+  übergibt, 
+  
+<LI>Eingabe des Terms nach dem Start im Eingabemodus von 
+  bc, oder 
+  
 <LI>Übergabe des Terms mittels einer Pipe, wie in den folgenden Beispielen:<br>echo "56.8 + 77.7" | bc<br>echo "obase=16; ibase=10; 56" | bc</LI>
-</OL>
+</UL>
 
 <P>Im Eingabemodus von bc kann man die letzten Befehle mit den vertikalen Pfeiltasten wiederholen und dann editieren.</P>
 
 <P>Abfrage des aktuellen Wert einer Umgebungsvariablen: Einfach Variablenname eingeben und Enter (Datenfreigabe-Taste).</P>
 
+<br>
+
 <P><B>Einige Beispiel-Berechnungen mit bc (Base Calculator)</B></P>
 
-<P>Aufruf aus dem Lernprogramm "Zahlentheorie" per F3 (Menü Rechner \ BC-Rechner) oder von der Kommandozeile:<br>bc</P>
+<P>Aufruf aus dem Lernprogramm "Zahlentheorie" per F3 (Menü Rechner \ BC-Rechner) oder von der Kommandozeile:</P>
 
-<P>Testberechnung: 686^79:<br>686^79</P>
+<P class="paddedleft">bc</P>
 
-<P>117382982726682578986166177099458354591354816385525364361499835772376409385660129455427115381646910282753710610818762831176373701406457183724515147357457376424117782495278817923488619922286175976292059037752989068589810057216<br>quit</P>
+<P>Testberechnung: 686^79:</P>
+
+<P class="paddedleft">686^79</P>
+
+<P class="paddedleft">117382982726682578986166177099458354591354816385525364361499835772376409385660129455427115381646910282753710610818762831176373701406457183724515147357457376424117782495278817923488619922286175976292059037752989068589810057216<br>quit</P>
 
 <P>Beschreibungen zu weiteren, aus dem Lernprogramm „Zahlentheorie“ heraus übergebenen Funktionen von bc, erhalten Sie innerhalb des Lernprogramms per F8 (Menü Verzeichnisse \ BC-Funktionen).</P>
 
-<P>powermod(17,33,11)<br>7</P>
+<P class="paddedleft">powermod(17,33,11)<br>7</P>
 
-<p>euklid(847,22)<br>11</p>
+<p class="paddedleft">euklid(847,22)<br>11</p>
+
+<br>
 
 <P><B>Bemerkung 1: BC als Programmiersprache</B></P>
 
@@ -79,18 +100,26 @@
 <P>Die Syntax ist ähnlich zur Sprache "C" – mit den folgenden (und weiteren) Ausnahmen:</P>
 
 <OL>
-<LI>Am Ende einer Zeile braucht man kein Semikolon.</LI>
+<LI>Am Ende einer Zeile braucht man kein Semikolon. 
+  
 <LI>Mit dem define-Statement werden Funktionen definiert.</LI>
 </OL>
 
 <P>Weitere Besonderheiten:</P>
 
 <UL>
-<LI>Kontroll-Statements sind if, while, for, break, und quit.</LI>
-<LI>Kommentare werden eingeschlossen in  /* ...... */  oder stehen nach dem „#“-Zeichen.</LI>
-<LI>Vektoren nutzen eckige Klammern [ ] für die Indizes.</LI>
+<LI>Kontroll-Statements sind if, while, for, break, und 
+  quit. 
+  
+<LI>Kommentare werden eingeschlossen in /* ...... */ oder 
+  stehen nach dem „#“-Zeichen. 
+  
+<LI>Vektoren nutzen eckige Klammern [ ] für die Indizes. 
+  
 <LI>Mit quit kehrt man zur Shell zurück.</LI>
 </UL>
+
+<br>
 
 <P><B>Bemerkung 2: Links</B></P>
 
@@ -101,4 +130,4 @@
 <P><a href="http://de.wikipedia.org/wiki/Basic_Calculator">http://de.wikipedia.org/wiki/Basic_Calculator</a> - Wikipedia zu bc</P>
 
 </BODY>
-</HTML>
+</HTML>

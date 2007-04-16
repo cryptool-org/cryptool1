@@ -15,6 +15,7 @@ h4 {font-family:Arial;bold;font-size:11pt;}
 
 div.indent {margin-left:40pt} /* wird verwendet, um beliebige Blocke einzuruecken */
 p.tindent {text-indent:-40pt;margin-left:40pt;} /* wird verwendet, um Einrueckung nach Zeilenumbruechen zu realisieren */
+p.paddedleft { padding-left: 10pt; }
 
 table.pad10 td {padding-left:10pt;padding-right:10pt;} /* Gestaltung der Tabellen durch einen Rand links und rechts des Tabelleninhaltes */
 table.pad20 td {padding-left:20pt;padding-right:20pt;}
