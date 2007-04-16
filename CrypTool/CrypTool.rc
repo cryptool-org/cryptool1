@@ -5839,7 +5839,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
             END
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
-            MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER
+            MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER, GRAYED
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -6245,7 +6245,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
             END
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
-            MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER
+            MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER, GRAYED
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -6656,7 +6656,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
             END
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
-            MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER
+            MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER, GRAYED
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -7058,7 +7058,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
             END
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
-            MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER
+            MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER, GRAYED
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -7500,7 +7500,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
             END
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
-            MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER
+            MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER, GRAYED
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -17442,7 +17442,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
             END
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
-            MENUITEM "&Password Quality Meter",     ID_PASSWORDQUALITYMETER
+            MENUITEM "&Password Quality Meter",     ID_PASSWORDQUALITYMETER, GRAYED
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -17843,7 +17843,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
             END
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
-            MENUITEM "&Password Quality Meter",     ID_PASSWORDQUALITYMETER
+            MENUITEM "&Password Quality Meter",     ID_PASSWORDQUALITYMETER, GRAYED
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -18256,7 +18256,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
             END
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
-            MENUITEM "&Password Quality Meter",     ID_PASSWORDQUALITYMETER
+            MENUITEM "&Password Quality Meter",     ID_PASSWORDQUALITYMETER, GRAYED
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -18656,7 +18656,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
             END
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
-            MENUITEM "&Password Quality Meter",     ID_PASSWORDQUALITYMETER
+            MENUITEM "&Password Quality Meter",     ID_PASSWORDQUALITYMETER, GRAYED
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -19094,7 +19094,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
             END
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
-            MENUITEM "&Password Quality Meter",     ID_PASSWORDQUALITYMETER
+            MENUITEM "&Password Quality Meter",     ID_PASSWORDQUALITYMETER, GRAYED
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
