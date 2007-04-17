@@ -569,6 +569,40 @@ Index-Calculus &             $ O(e^{(1+o(1)) \sqrt{\ln (p) \ln (\ln (p))}}) $ \\
 \index{Silver} \index{Pohlig, S. C.} \index{Hellman, Martin}
 \index{Baby-Step-Giant-Step}
 
+The current record (as of April 2007) for calculating discrete logarithms was
+established in February 2007 by the group Kleinjung, Franke and Bahr at
+University of Bonn.\footnote{%
+   \href{http://www.nabble.com/Discrete-logarithms-in-GF(p)-----160-digits-t3175622.html}
+{\texttt{http://www.nabble.com/Discrete-logarithms-in-GF(p)-----160-digits-t3175622.html}}}
+Kleinjung calculated the discrete logarithms modulo a 160 digit prime number $p$
+and generator $g$:
+$$
+\begin{array}{r@{\:}c@{\:}l}
+p & = & \lfloor 10^{159}\pi\rfloor + 119849 \\
+  & = & 314159265358979323846264338327950288419716939937510582097494 \\
+  &   & 459230781640628620899862803482534211706798214808651328230664 \\
+  &   & 7093844609550582231725359408128481237299\\
+g & = & 2
+\end{array}
+$$
+The discrete logarithms $k$ of the following integer $y$ was
+determined:\footnote{The integer $y$ was chosen as the first 159 digits of the
+Euler number $e$.}
+$$
+\begin{array}{r@{\:}c@{\:}l}
+y & = & \lfloor 10^{159}e\rfloor \\
+  & = & 271828182845904523536028747135266249775724709369995957496696 \\
+  &   & 762772407663035354759457138217852516642742746639193200305992 \\
+  &   & 1817413596629043572900334295260595630738 \\
+k & = & \log_g(y)\mod p\\
+  & = & 829897164650348970518646802640757844024961469323126472198531 \\
+&   & 845186895984026448342666252850466126881437617381653942624307 \\
+&   & 537679319636711561053526082423513665596
+\end{array}
+$$
+The search was performed with GNFS method (General Number Field Sieve,
+Index-Calculus) \index{General Number Field Sieve (GNFS)} and took about 17 CPU
+years on 3.2 GHz Xeon machines.
 
 %--------------------------------------------------------------------
 \subsubsection[Diffie-Hellman key agreement]
