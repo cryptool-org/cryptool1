@@ -323,6 +323,11 @@
 #define IDD_ECCENCRECEIVER              859
 #define IDS_OK                          860
 #define IDD_PASSWORDQUALITYMETER        861
+#define IDB_PQM_QUALITY_POOR            862
+#define IDB_PQM_QUALITY_LOW             863
+#define IDB_PQM_QUALITY_AVERAGE         864
+#define IDB_PQM_QUALITY_HIGH            865
+#define IDB_PQM_QUALITY_GREAT           866
 #define IDS_CRYPT_DESX                  1000
 #define IDS_CRYPT_DESL                  1001
 #define IDS_CRYPT_DESXL                 1002
@@ -1504,6 +1509,7 @@
 #define IDC_PROGRESS_CRYPTOOL           1971
 #define IDC_CHECK_USECRYPTOOLALPHABET   1972
 #define IDC_BUTTON_TEXTOPTIONS          1973
+#define IDC_PICTURE_QUALITY             1973
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -2898,9 +2904,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        862
+#define _APS_NEXT_RESOURCE_VALUE        867
 #define _APS_NEXT_COMMAND_VALUE         33351
-#define _APS_NEXT_CONTROL_VALUE         1973
+#define _APS_NEXT_CONTROL_VALUE         1974
 #define _APS_NEXT_SYMED_VALUE           108
 #endif
 #endif

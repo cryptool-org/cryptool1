@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -5566,6 +5566,8 @@ BEGIN
     CONTROL         "CrypTool-Alphabet verwenden",
                     IDC_CHECK_USECRYPTOOLALPHABET,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,68,254,150,10
+    CONTROL         "",IDC_PICTURE_QUALITY,"Static",SS_BLACKFRAME,225,106,25,
+                    25
 END
 
 
@@ -8053,6 +8055,11 @@ IDB_CRT_CR_LEFT         BITMAP                  "res\\CRT\\CrtLeft.bmp"
 IDB_CRT_BASIS           BITMAP                  "res\\CRT\\CrtBasis.bmp"
 IDB_CRT_DOWN_F          BITMAP                  "res\\CRT\\CrtDownf.bmp"
 IDB_CRT_DOWN_FSTR       BITMAP                  "res\\CRT\\CrtDownfstr.bmp"
+IDB_PQM_QUALITY_POOR    BITMAP                  "res\\PasswordQualityPoor.bmp"
+IDB_PQM_QUALITY_LOW     BITMAP                  "res\\PasswordQualityLow.bmp"
+IDB_PQM_QUALITY_AVERAGE BITMAP                  "res\\PasswordQualityAverage.bmp"
+IDB_PQM_QUALITY_HIGH    BITMAP                  "res\\PasswordQualityHigh.bmp"
+IDB_PQM_QUALITY_GREAT   BITMAP                  "res\\PasswordQualityGreat.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -11726,12 +11733,12 @@ BEGIN
     ID_ANALYSE_DESXL        "Automatische Brute-force Analyse einer DESXL-Verschlüsselung"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -13926,7 +13933,7 @@ BEGIN
     EDITTEXT        IDC_EDIT1,28,46,248,14,ES_AUTOHSCROLL
     CONTROL         "&Normal",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,18,89,51,8
-    CONTROL         "Dialog of the &Sisters",IDC_RADIO8,"Button",
+    CONTROL         "Dialogue of the &Sisters",IDC_RADIO8,"Button",
                     BS_AUTORADIOBUTTON,89,89,87,8
     CONTROL         "b-ad&ic",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,19,128,43,8
@@ -23493,7 +23500,7 @@ BEGIN
     ID_ANALYSE_DESXL        "Automatic brute-force analysis of encryption using the DESXL algorithm"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
