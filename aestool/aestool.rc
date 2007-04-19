@@ -127,12 +127,12 @@ BEGIN
                     IDC_STATIC,7,52,197,40
 END
 
-IDD_HELP DIALOGEX 0, 0, 470, 334
+IDD_HELP DIALOGEX 0, 0, 470, 346
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hilfe zu AES-Tool"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,209,313,50,14
+    DEFPUSHBUTTON   "OK",IDOK,209,325,50,14
     LTEXT           "AES-Tool ist ein Verschlüsselungsprogramm, mit dessen Hilfe Dateien mit dem symmetrischen und lizenzfreien Rijndael-Algorithmus (= AES) verschlüsselt werden können.",
                     IDC_STATIC,12,8,446,16
     LTEXT           "Das Programm kann auf drei verschiedene Arten aufgerufen werden:",
@@ -140,44 +140,44 @@ BEGIN
     LTEXT           "Die Parameter sind:",IDC_STATIC,24,50,434,8
     LTEXT           "Schlüssel:",IDC_STATIC,24,59,48,17
     LTEXT           "Eingabedatei:",IDC_STATIC,24,76,48,17
-    LTEXT           "Ausgabedatei:",IDC_STATIC,24,93,48,17
+    LTEXT           "Ausgabedatei:",IDC_STATIC,24,103,48,17
     LTEXT           "Der Schlüssel wird in hexadezimaler Form (Zeichen '0' bis '9' und 'A' bis 'F') eingegeben. Die maximale Schlüssellänge beträgt 256 Bit. Das entspricht 64 hexadezimalen Zeichen. Die gegenwärtig empfohlene Mindestlänge liegt bei 20 Zeichen.",
                     IDC_STATIC,72,59,386,17
-    LTEXT           "Die Eingabedatei enthält die zu ver- bzw. entschlüsselnden Daten. Wird eine Datei mit Endung .AES ausgewählt (die mit diesem Programm verschlüsselte Daten enthält), so wird das Programm automatisch auf Entschlüsseln eingestellt.",
-                    IDC_STATIC,72,76,386,17
+    LTEXT           "Die Eingabedatei enthält die zu ver- bzw. entschlüsselnden Daten. Wird eine Datei mit Endung .AES ausgewählt (die mit diesem Programm verschlüsselte Daten enthält), so wird das Programm automatisch auf Entschlüsseln eingestellt.\nDie Datei kann auch per Drag und Drop in das Feld gezogen werden.",
+                    IDC_STATIC,72,76,386,26
     LTEXT           "Name und Verzeichnis der Ausgabedatei kann nach Drücken des Ver-/Entschlüsseln-Buttons gewählt werden. Beim Verschlüsseln kann man per Radiobutton festlegen, welches Format die Ausgabedatei haben soll:",
-                    IDC_STATIC,72,93,386,17
+                    IDC_STATIC,72,103,386,17
     LTEXT           "Ein ""Selbstextrahierendes Archiv"" stellt eine Datei dar, die sowohl die Daten enthält als auch gleichzeitig ein Programm ist. Dieses Programm hat die gleiche Funktionalität wie AES-Tool und erlaubt es, die enthalten Daten zu entschlüsseln",
-                    IDC_STATIC,80,110,378,16
+                    IDC_STATIC,80,120,378,16
     LTEXT           "Eine ""verschlüsselte Datei"" enthält nur die Daten. Um diese dann wieder zu entschlüsseln, benötigt man dieses Programm.",
-                    IDC_STATIC,80,137,378,21
+                    IDC_STATIC,80,145,378,21
     LTEXT           "Die zweite Möglichkeit des Aufrufs ist mit Kommandozeilenparametern. Diese können entweder über die Position oder über Schlüsselworte",
-                    IDC_STATIC,24,156,434,8
+                    IDC_STATIC,24,166,434,8
     LTEXT           "AESTool <Quelldatei> <Zieldatei> <Schlüssel>",
-                    IDC_STATIC,72,183,386,9
+                    IDC_STATIC,72,193,386,9
     LTEXT           "AESTool -i <Quelldatei> -o <Zieldatei> -k <Schlüssel>",
-                    IDC_STATIC,72,192,386,10
+                    IDC_STATIC,72,202,386,10
     LTEXT           "Die dritte Aufrufform ist über das oben angesprochene selbstextrahierende Archiv. Hierbei ist die Ausgangsdatei durch den Inhalt des selbstextrahierenden Archivs vorbestimmt.",
-                    IDC_STATIC,24,230,434,20
+                    IDC_STATIC,24,240,434,20
     LTEXT           "Beim normalen Start durch ""Anklicken"" können die benötigten Parameter direkt auf einer Bildschirmmaske eingegeben werden.",
                     IDC_STATIC,24,41,434,9
-    LTEXT           "2.",IDC_STATIC,12,156,12,14
+    LTEXT           "2.",IDC_STATIC,12,166,12,14
     LTEXT           "1.",IDC_STATIC,12,41,12,9
-    LTEXT           "3.",IDC_STATIC,12,230,12,14
-    LTEXT           "-",IDC_STATIC,72,110,8,16
-    LTEXT           "-",IDC_STATIC,72,135,8,14
+    LTEXT           "3.",IDC_STATIC,12,240,12,14
+    LTEXT           "-",IDC_STATIC,72,120,8,16
+    LTEXT           "-",IDC_STATIC,72,145,8,14
     LTEXT           "Dabei wird automatisch erkannt, ob die Quelldatei verschlüsselt ist und entsprechend ver- bzw. entschlüsselt.\nDie Endung der Zieldatei steuert das Ausgabeformat: .EXE: selbstextrahierendes Archiv, andere: normale verschlüsselte Datei.",
-                    IDC_STATIC,24,201,434,16
+                    IDC_STATIC,24,211,434,16
     LTEXT           "und in einer Datei abzulegen (nachdem der korrekte Schlüssel eingegeben worden ist).",
-                    IDC_STATIC,79,126,274,8
+                    IDC_STATIC,79,136,274,8
     LTEXT           "angegeben werden. Wenn alle Parameter auf der Kommandozeile angegeben werden, ist keine weitere Interaktion nötig (sinnvoll für Batchläufe). Ansonsten öffnet sich ein Fenster, in das die restlichen Parameter interaktiv eingegeben werden können.",
-                    IDC_STATIC,24,165,434,17
+                    IDC_STATIC,24,175,434,17
     LTEXT           "Der Erfolg der Operation kann am Exitcode abgelesen werden: 0: alles OK; 1: Ein Fehler ist aufgetreten, Fehlermeldung auf stderr.",
-                    IDC_STATIC,24,218,407,8
-    LTEXT           "Aufgrund von Beschränkungen durch das Betriebssystem und die Entwicklungsumgebung ist die Größe von verschlüsselten Dateien  (einschließlich Header) auf 4 GB beschränkt.",
-                    IDC_STATIC,12,258,446,21
+                    IDC_STATIC,24,228,407,8
+    LTEXT           "Aufgrund von Beschränkungen im Betriebssystem und in der Entwicklungsumgebung ist die Größe von verschlüsselten Dateien  (einschließlich Header) auf 4 GB beschränkt.",
+                    IDC_STATIC,12,268,446,21
     LTEXT           "Bitte beachten Sie, dass Sie vor dem Aufruf von ausführbaren Archiven deren Herkunft prüfen sollten.\nEs ist empfehlenswert, Antiviren- und Betriebssystem-Software aktuell zu halten.",
-                    IDC_STATIC,12,286,446,18
+                    IDC_STATIC,12,296,446,18
 END
 
 
@@ -266,20 +266,12 @@ BEGIN
         VERTGUIDE, 72
         VERTGUIDE, 80
         TOPMARGIN, 13
-        BOTTOMMARGIN, 327
+        BOTTOMMARGIN, 339
         HORZGUIDE, 29
         HORZGUIDE, 41
         HORZGUIDE, 50
         HORZGUIDE, 59
         HORZGUIDE, 76
-        HORZGUIDE, 93
-        HORZGUIDE, 110
-        HORZGUIDE, 126
-        HORZGUIDE, 140
-        HORZGUIDE, 157
-        HORZGUIDE, 167
-        HORZGUIDE, 176
-        HORZGUIDE, 190
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -412,12 +404,12 @@ BEGIN
     GROUPBOX        "Output format",IDC_STATIC,17,142,287,29
 END
 
-IDD_HELP DIALOGEX 0, 0, 470, 319
+IDD_HELP DIALOGEX 0, 0, 470, 329
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Help for AES-Tool"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,209,298,50,14
+    DEFPUSHBUTTON   "OK",IDOK,209,308,50,14
     LTEXT           "AES-Tool is an encryption program that can be used to encrypt files using the symmetric and licence-free Rijndael algorithm (= AES).",
                     IDC_STATIC,12,9,446,10
     LTEXT           "The program can be invoked in three different ways:",
@@ -425,44 +417,44 @@ BEGIN
     LTEXT           "These parameters are:",IDC_STATIC,24,42,434,10
     LTEXT           "Key:",IDC_STATIC,24,52,38,18
     LTEXT           "Input file:",IDC_STATIC,24,70,38,19
-    LTEXT           "Output file:",IDC_STATIC,24,89,38,19
+    LTEXT           "Output file:",IDC_STATIC,24,99,38,19
     LTEXT           "The key is entered in hexadecimal form (characters '0' to '9' and 'A' to 'F'). The maximum key length is 256 bits or 64 hex digits. The recommended minimum key length is 20 digits.",
                     IDC_STATIC,62,52,396,18
-    LTEXT           "The input file contains the data to be encrypted or decrypted. If a file is chosen that was encrypted with this program, then the program will be automatically set to decryption mode. Otherwise the program will stay in encryption mode. ",
-                    IDC_STATIC,62,70,396,19
+    LTEXT           "The input file contains the data to be encrypted or decrypted. If a file is chosen that was encrypted with this program, then the program will be automatically set to decryption mode. Otherwise the program will stay in encryption mode. \nYou may select the input file via drag and drop.",
+                    IDC_STATIC,62,70,396,27
     LTEXT           "The output file name and directory can be determined after pressing the ""Encrypt""/""Decrypt"" button. \nWhen encrypting you can select between two output formats via ""radio buttons"":",
-                    IDC_STATIC,62,89,396,19
+                    IDC_STATIC,62,99,396,19
     LTEXT           "A 'self extracting archive' is a file containing data and at the same time it is a program. This program has the same func- tionality as AES-Tool and can be used to decrypt the data and store it in a file (after the correct password has been entered).",
-                    IDC_STATIC,69,108,389,19
+                    IDC_STATIC,69,117,389,19
     LTEXT           "An 'encrypted file' contains the encrypted data only. Then the AES-Tool program is required for decryption.",
-                    IDC_STATIC,69,127,389,11
+                    IDC_STATIC,69,134,389,11
     LTEXT           "The second way to invoke the program is with command line parameters. These can be specified either by position or by key word. If all",
-                    IDC_STATIC,24,138,425,8
+                    IDC_STATIC,24,148,425,8
     LTEXT           "AESTool <Input file> <Output file> <key>",IDC_STATIC,62,
-                    159,396,10
+                    169,396,10
     LTEXT           "AESTool -i <Input file> -o <Output file> -k <Key>",
-                    IDC_STATIC,62,169,396,10
+                    IDC_STATIC,62,179,396,10
     LTEXT           "The third possibility for program invocation is the self extracting archive. The input file name here is being preset by the self extracting archive.",
-                    IDC_STATIC,24,210,434,15
+                    IDC_STATIC,24,220,434,15
     LTEXT           "With a normal start by clicking the icon, all necessary parameters can be entered into a dialog box.",
                     IDC_STATIC,24,33,434,9
     LTEXT           "1.",IDC_STATIC,12,33,12,9
-    LTEXT           "2.",IDC_STATIC,12,138,12,11
-    LTEXT           "3.",IDC_STATIC,12,210,12,11
-    RTEXT           "-",IDC_STATIC,56,108,8,19
-    RTEXT           "-",IDC_STATIC,56,127,8,11
+    LTEXT           "2.",IDC_STATIC,12,148,12,11
+    LTEXT           "3.",IDC_STATIC,12,220,12,11
+    RTEXT           "-",IDC_STATIC,56,118,8,19
+    RTEXT           "-",IDC_STATIC,56,137,8,11
     LTEXT           "The program determines automatically if the input file is encrypted and then decrypts it. Otherwise the program encrypts it accordingly.",
-                    IDC_STATIC,24,180,434,8
+                    IDC_STATIC,24,190,434,8
     LTEXT           "parameters are entered no user interaction is required, otherwise a window pops up and the remaining data can be entered interactively.",
-                    IDC_STATIC,24,146,426,8
+                    IDC_STATIC,24,156,426,8
     LTEXT           "The exit code reflects the program's success: 0: everything OK; 1: an error occurred, an error message is displayed on stderr.",
-                    IDC_STATIC,24,196,391,8
+                    IDC_STATIC,24,206,391,8
     LTEXT           "The output file's extension determines the encryption format: .EXE: self extracting archive, others: ordinary encrypted file.",
-                    IDC_STATIC,24,188,434,9
+                    IDC_STATIC,24,198,434,9
     LTEXT           "Due to operating system's and development environment's limitations the size of encrypted files (including header and self extractor) is limited to 4 GB.",
-                    IDC_STATIC,12,238,446,16
+                    IDC_STATIC,12,248,446,16
     LTEXT           "Please note to check the origin before calling self extracting archives.\nIt is recommendable to always keep antivirus and operating system software up to date.",
-                    IDC_STATIC,12,268,446,18
+                    IDC_STATIC,12,278,446,18
 END
 
 IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
@@ -556,20 +548,12 @@ BEGIN
         VERTGUIDE, 69
         VERTGUIDE, 268
         TOPMARGIN, 12
-        BOTTOMMARGIN, 312
+        BOTTOMMARGIN, 322
         HORZGUIDE, 22
         HORZGUIDE, 33
         HORZGUIDE, 42
         HORZGUIDE, 52
         HORZGUIDE, 70
-        HORZGUIDE, 89
-        HORZGUIDE, 108
-        HORZGUIDE, 127
-        HORZGUIDE, 138
-        HORZGUIDE, 155
-        HORZGUIDE, 165
-        HORZGUIDE, 175
-        HORZGUIDE, 185
     END
 
     IDD_ABOUTBOX, DIALOG
