@@ -62,6 +62,7 @@ using namespace std;
 #include "DlgPrimesGeneratorDemo.h"
 #include "DlgShowProgress.h"
 #include "CrypToolTools.h"
+#include ".\dlgrandomgenerator.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -292,6 +293,7 @@ void CDlgRandomGenerator::DoDataExchange(CDataExchange* pDX)
 	DDV_MinMaxLong(pDX, m_DataSize, 1, 1048576);
 	DDX_Check(pDX, IDC_CHECK1, m_PrintInternalStates);
 	//}}AFX_DATA_MAP
+	DDX_Control(pDX, IDC_CHECK1, m_ctrlSetInternalStates);
 }
 
 
@@ -300,6 +302,10 @@ BEGIN_MESSAGE_MAP(CDlgRandomGenerator, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON1, OnSelGenParam)
 	ON_BN_CLICKED(IDOK, OnGenRandomData)
 	//}}AFX_MSG_MAP
+	ON_BN_CLICKED(IDC_RADIO1, OnBnClickedRadio1)
+	ON_BN_CLICKED(IDC_RADIO2, OnBnClickedRadio2)
+	ON_BN_CLICKED(IDC_RADIO3, OnBnClickedRadio3)
+	ON_BN_CLICKED(IDC_RADIO4, OnBnClickedRadio4)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -425,6 +431,35 @@ BOOL CDlgRandomGenerator::OnInitDialog()
 			UpdateData(FALSE);
 		}
 	}
+	OnBnClickedRadio1();
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
+}
+
+void CDlgRandomGenerator::OnBnClickedRadio1()
+{
+	UpdateData();
+	if ( m_SelGenerator )
+		m_ctrlSetInternalStates.EnableWindow();
+	else
+	{
+		m_PrintInternalStates = 0;
+		m_ctrlSetInternalStates.EnableWindow(FALSE);
+	}
+	UpdateData(FALSE);
+}
+
+void CDlgRandomGenerator::OnBnClickedRadio2()
+{
+	OnBnClickedRadio1();
+}
+
+void CDlgRandomGenerator::OnBnClickedRadio3()
+{
+	OnBnClickedRadio1();
+}
+
+void CDlgRandomGenerator::OnBnClickedRadio4()
+{
+	OnBnClickedRadio1();
 }

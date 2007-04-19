@@ -56,6 +56,7 @@ statement from your version.
 #include "DlgLCGRandomParameter.h"
 #include "DlgICGRandomParamater.h"
 #include "DlgShowProgress.h"
+#include "afxwin.h"
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -128,6 +129,12 @@ protected:
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 
+public:
+	afx_msg void OnBnClickedRadio1();
+	CButton m_ctrlSetInternalStates;
+	afx_msg void OnBnClickedRadio2();
+	afx_msg void OnBnClickedRadio3();
+	afx_msg void OnBnClickedRadio4();
 };
 
 //{{AFX_INSERT_LOCATION}}
