@@ -32,7 +32,7 @@
  4.2. .... Win32 environment and roadmap
  4.3. .... Interactive online help under Windows XP
  4.4. .... Support for different languages
- 4.5. .... Restrictions in libraries used
+ 4.5. .... Restrictions / Features
  4.6. .... Using certificates created with older CrypTool versions
  5. .... Installation / de-installation / operating
  5.1. .... Installation and further usage of keys of previous versions
@@ -169,7 +169,7 @@ CrypTool is a demonstration primarily used for training purposes:
 
 - Most of the cryptographic basic algorithms used are taken from:
   - the industry-proven Secude library (http://www.secude.com/),
-  - the Miracl library (http://indigo.ie/~mscott/),
+  - the Miracl library of Shamus Software Ltd (http://indigo.ie/~mscott/),
   - the OpenSSL library (http://www.openssl.org/),
   - the NTL number theory library of Victor Shoup
     (http://www.shoup.net/ntl/),
@@ -297,10 +297,10 @@ eventual special conditions here:
   All rights for a usage outside the free context of CrypTool
   application remain with the appropriate owners/authors.
 
-- The companies
+- The companies (See chapter 1.2)
   - Secude IT Security Ltd, 
-  - Shamus Software Ltd (Miracl) and
-  - cv cryptovision Ltd (see above)
+  - Shamus Software Ltd and
+  - cv cryptovision Ltd
   allowed us gratefully to use their cryptographic libraries.
   These libraries distributed with CrypTool are not allowed to be
   used in another context than CrypTool without contacting the
@@ -501,6 +501,12 @@ The general properties and functions of CrypTool are:
 - CrypTool is used world-wide in schools, universities, agencies and
   companies.
 
+- The source code of the release version can be downloaded from
+  the CrypTool webpage.
+  Read access to the current developer sources is possible via:
+  svn checkout https://file.sec-tud.de/svn/CrypTool/trunk
+       --username anonymous --password anonymous
+
 You can get a good overview of what CrypTool offers
 - at the attached Powerpoint presentation
    (title: "Cryptography with CrypTool") and
@@ -527,13 +533,6 @@ a) Developer-relevant changes (more technically oriented):
   be compiled with VS2005 (VC++ v8.0). This will be officially 
   supported later.
 
-  The source code of the release version can be downloaded from
-  the CrypTool webpage.
-
-  Read access to the current developer sources is possible via:
-  svn checkout https://file.sec.informatik.tu-darmstadt.de/svn/CrypTool/trunk
-       --username anonymous --password anonymous
-
 - The editors used for text and binary are open-source:
   * Hex editor / Hex control / HexView:
     Link: http://www.codeguru.com/Cpp/controls/controls/article.php/c5287
@@ -546,7 +545,8 @@ a) Developer-relevant changes (more technically oriented):
              actual alphabet.
            - Search and Replace now supports regular expressions. xxxxxxxxxx
 
-- From 1.4.10 NDIS is used as installation stool.
+- From 1.4.10 NSIS is used as installation tool
+  (see http://nsis.sourceforge.net/Main_Page).
 
 
 
@@ -554,8 +554,9 @@ b) Changes within the user documentation:
 
 - Online help: improved, strongly enhanced, index structured newly.
 
-- Within the script: minor bug-fixes, small enhancements, some updating,
-  new chapter about the future of cryptography by the research
+- Within the script: minor bug-fixes, small enhancements, some updating
+  (e.g. record in solving a concrete discrete-logarith problems), new
+  chapter about the future of cryptography by the research
   faculty of Prof. Buchmann.
 
 - Updated and enhanced presentation (almost 100 pages now).
@@ -565,20 +566,30 @@ b) Changes within the user documentation:
 c) New functionality:
 
 - Bugfixes:
-  - Many small improvements in the masks (user interface).
-  - Calculation of the hah value of a file: Race condition eliminated.
-  - Solitaire corrected for a special case (if the output card was a joker,
-    it was not spent).
+  - Many small improvements in the masks (user interface),
+    e.g. now all key entry dialogs for the classic methods contain a
+    button for the text options, where you can select the used alphabet.
+    This connection is also offered in the analysis mask for
+    calculating n-grams (there before a fixes alphabet was used).
+  - Calculation of the hash value of a file: Race condition eliminated.
+  - Solitaire corrected for a special case (if the output card was a
+    joker, it was not spent).
   - Rijndael corrected for key length > 128 bit.
+
+- The AES-Tool in version 2.4 checks, that the given key is not longer
+  than 256 bit ist. Additionally now you can draw via the mouse a file
+  from the Windows Explorer into the entry field for the file to be
+  encrypted.
 
 - The key entry dialogs for the classical methods now contain a button
   so you can from here directly change the alphabet (text option) if it
   does make sense.
 
 - The Hill encryption scheme has been enhanced with some variants:
-  - Customizable are now the matrix multiplication (from left or right) and
-    the value of the first letter of the alphabet. 
-  - The key matrix can be entered not only by letters but also by integers.
+  - Customizable are now the matrix multiplication (from left or right)
+    and the value of the first letter of the alphabet. 
+  - The key matrix can be entered not only by letters but also by
+    integers.
   - The log file (detailed output) to explain the scheme now is more
     explicit. Additionally the first letters from the cleartext are used
     dynamically (instead of using a fixed string).
@@ -698,7 +709,7 @@ c) New functionality:
    * homophone encryption
    * permutations/transpositions
    * Playfair encryption
-      - pure C sources from Gunnar-Andresson are available. 
+      - pure C sources from Gunnar-Andresson are available.
 
 - Analysis to be improved for:
    * mono-alphabetic substitution
@@ -782,7 +793,7 @@ c) New functionality:
   Then these additional customisations must become part of the
   format for the internal key storage.
 
-- Libraries:
+- Libraries for arbitray length numbers and cryptography:
    - Support further libraries (LiDIA, FLINT/C, Wei Dai's Crypto++, ...)
 
 - Extend existing limitations of the N-Gram analysis concerning
@@ -894,7 +905,7 @@ c) New functionality:
    - Plug-in based architecture.
    - Further developers for this project are very welcome.
    - First concepts and sources are available.
-   - The current developers use SourceForge with Subversion for
+   - The current developers here use SourceForge with Subversion for
      source code version management: http://jcryptool.sourceforge.net/ .
 
 - Porting to Windows Vista using Visual Studio 2005 and .NET.
@@ -991,7 +1002,7 @@ as "well" as in productive applications.
      -----------------------------
 CrypTool requires a Win32 environment.
 
-Some funcions require an installed Java Runtime Environment (> version 1.4).
+Some funcions require an installed Java Runtime Environment (>= version 1.4).
 
 The computer equipment should have at least a 300 MHz CPU, 256 MByte RAM,
 and 40 MByte free space on the hard drive (low requirements).
@@ -1055,8 +1066,8 @@ change till end of 2007).
 For each supported language we deliver at the moment an extra setup.
 
 
-4.5. Restrictions
-     ------------
+4.5. Restrictions / Features
+     -----------------------
 - In order to demonstrate the RSA cryptosystem and to factorize
   integers CrypTool uses the long integer arithmetic of the Miracl
   library from Shamus Software Ltd. We restricted the integer bit
@@ -1065,8 +1076,25 @@ For each supported language we deliver at the moment an extra setup.
 - From binary files "only" the first almost 2 GB can be loaded into
   the hex editor (< 0x7ffff000 = 2.147.479.552 Bytes).
  
-- Text files can be loaded in unlimited size by the text editor
-  (if you got enough resources on your pc).
+  In contrast text files can be loaded in unlimited size by the text
+  editor (if you got enough resources on your pc).
+
+- Reading and saving text file always uses the two characters CR/NL
+  (so usual under Windows) to characterize the begin of a new line.
+  This means that documents you get from unix, where a new line is
+  characterized only with the character LF) are getting longer [LF
+  is changed into CR/NL]. So the validation of a signature could fail.
+
+- Display of special mathematical characters within the HTML help:
+  Microsoft's HTML-Help calls the predefined Microsoft Internet Explorer
+  (IE). Version IE 6 sometimes has problems, to display mathematical
+  characters like the Gauss bracket.
+  If your computer has IE7 as predefined Microsoft browser, the it
+  works ok.
+  The basic HTML files, which are aggregated within the CHM file are
+  displayed correct with IE7 and Firefox 1.5 and 2.0.
+  Within the online help chapter about the modulo operator the Gauss
+  bracket is used to describe the next lower integer.
 
 - For performance reasons it was decided that CrypTool limits the
   document size when performing n-gram analysis:
@@ -1255,7 +1283,7 @@ md5sum.txt ....... File which contains the MD5 hash values of all files
 sha1sum.txt ...... SHA-1 hash values of all these files.
 
 CrypTool.exe ..... The executable e-learning program (English and German).
-aestool.exe ...... A program which encrypts files into
+aestool.exe ...... A program (D + E) which encrypts files into
                    self-extracting programs. To decrypt the files,
                    the correct password must be entered.
 CrypTool-en.chm .. HTML help archive containing the CrypTool online help
@@ -1264,6 +1292,7 @@ CrypTool-de.chm .. The German version of "CrypTool-en.chm".
 
 EC-Param.ini ..... Initialisation file for public key procedures
                    based on elliptic curves.
+TEST-Param.ini ... Initialisation file for random number tests. 
 secude.dll ....... Library of cryptographic functions provided by
                    Secude IT Security GmbH.
 ticket ........... License for the Secude library.
@@ -1272,12 +1301,24 @@ secidea.dll ...... Is used by the secude.dll for IDEA encryption.
 srndmskb.dll ..... Used by secude.dll for collecting entropy when
                    initializing the Secude random number generator.
 db.dll ........... Is used by the secude.dll.
+secude.xml ....... Is used by the secude.dll. xxxxxxxxx
 libeay32.dll ..... Library from OpenSSL.
 SciLexer.dll ..... Library with the routines for the Scintilla text
                    editor.
-TEST-Param.ini ... Initialisation file for random number tests. 
-irunin.* ......... These files are necessary for installation and
-                   de-installation.
+
+Rijndael-Animation.exe .. Animation (Flash) of the AES algorithm.
+Enigma_en.exe .... Animation (Flash) of the 3-rotor Enigma machine.
+Enigma_de.exe .... The German version of "Enigma_en.exe".
+Enigma-Help_en.html .. HTML online help of "Enigma_en.exe" (English).
+Enigma-Help_de.html .. The German version of "Enigma-Help_en.html".
+
+eccdemo.jar ...... Demonstration (Java) of adding points on elliptic curves.
+NT.exe ........... Educational program (Authorware) of number theory.
+ZT.exe ........... The German version of "NT.exe".
+TextNumberConverter.exe .. Auxiliary program of "NT.exe".
+TextZahlWandler.exe ...... The German version of "TextNumberConverter.exe".
+
+ToolBarWrapper.dll .. xxxxxxxxxxxxxxxxx
 
 NumberShark.exe .. The executable program of the educational game "NumberShark".
 Zahlenhai.exe .... The German version of "NumberShark.exe".
@@ -1310,12 +1351,11 @@ examples\ ........ This directory contains various sample files
 		   "XX-enc-YY.*" are encrypted files. Please do
 		   not change these files.
 
-examples\CrypTool.bmp
-        \CrypTool-en.txt
+examples\CrypTool-en.txt
         \CrypTool-de.txt
         \CrypTool.bmp
         \Playfair-enc-de.txt
-        \Probetext-de.txt
+        \probetext-de.txt
         \psion-enc.hex
         \vernam.txt
         \Startingexample-en.txt
@@ -1330,6 +1370,10 @@ examples\CrypTool.bmp
         \letterFromAliceToBob-DECRYPTED-de.txt .. demonstration of the
         \letterFromAliceToBob-ENCRYPTED-en.hex .. side-channel attack on
         \letterFromAliceToBob-ENCRYPTED-de.hex .. hybrid encryption.
+        \state2.hex ....... un-encrypted sample data of ...
+        \state2-enc.hex ... encrypted sample data of "Rijndael-Animation.exe",
+                            used and created with "CrypTool.exe". 
+
 
 
 references\ ...... This directory contains text files in the
@@ -1345,6 +1389,24 @@ references\deutsch.txt   // Extract from the German value-added tax law
           \genesis-es.txt  // French, Spanish and Latin.
           \genesis-fr.txt  // The 2-letter codes are according
           \genesis-la.txt  // to the ISO 639 language codes.
+
+
+pse\ ............. This directory and its subdirectory pseca\ are
+                   used to store (asymmetric) keys and
+                   certificates that have been generated.
+
+pse\[SideChannelAttack][Bob][RSA-512][1152179494][PIN=1234].pse
+
+pse\pseca\calog    These files are necessary for the administration of 
+         \capse    the key database.
+         \CA_exts  
+         \cert.dir
+         \cert.pag
+         \CRL_exts
+         \crls.dir
+         \crls.pag
+         \user.dir
+         \user.pag
 
 
 animal\ .......... This directory contains files, necessary for the
@@ -1390,28 +1452,57 @@ animal\anims\caesar_de.aml
             \vigenere_en.aml
 
 
-pse\ ............. This directory and its subdirectory pseca\ are
-                   used to store (asymmetric) keys and
-                   certificates that have been generated.
+Bc\ .............. This directory and the ones below contain the utility
+                   BC for calculations with arbitrary precision. It belongs
+                   to "NT.exe", from where it can be started directly.
 
-pse\[SideChannelAttack][Bob][RSA-512][1152179494][PIN=1234].pse
+Bc\bc.1.txt
+  \bc.deutsch.txt
+  \Bc.exe
+  \BCmax.bat
+  \bruch.txt
+  \calc.txt
+  \dislog.txt
+  \ECM.TXT
+  \pi.txt
+  \polynom.txt
+  \Prims.txt
+  \quadRest.txt
+  \res.txt
+  \seed
+  \sieb.txt
+  \testBruch.bat
+  \testPi.bat
+  \testPolynom.bat
+  \testSieb.bat
 
-pse\pseca\calog    These files are necessary for the administration of 
-         \CA_exts  the key database:
-         \cert.dir
-         \cert.pag
-         \CRL_exts
-         \crls.dir
-         \crls.pag
-         \user.dir
-         \user.pag
+Bc\contrib\Authors
+          \bc-1.06.README
+          \ChangeLog
+          \COPYING
+          \COPYING.LIB
+          \FAQ
+          \INSTALL
+          \install-sh
+          \News
+          \README
+
+\Bc\manifest\bc-1.06-bin.mft
+            \bc-1.06-bin.ver
+
+
+xtras\ ............ Belongs to "NT.exe"
+
+xtras\BMPVIEW.X32
+     \MIX32.X32
+     \VIEWSVC.X32
 
 
 While CrypTool is running, the following files are generated and
 managed:
 cry*.* ........... CrypTool writes temporary files to the \temp
                    directory (file names begin with cry*.*).
-                   There are the following file extensions:
+       These files have the following file extensions:
                    txt -> text file view
                    hex -> hexadecimal (binary) view
                    plt -> diagram/plot view (histogram, autocorrelation)
@@ -1595,6 +1686,13 @@ cryptographic security functions.
 More than 600,000 copies of this CD have been produced.
 The content of this CD is the basic for the GISA security portal
 "for inexperienced Internet users" (http://www.bsi-fuer-buerger.de).
+
+10.2.3. GISA Software Suite BOSS 2.0 (Jan. 2007)
+        ---------------------------------------------
+The German Information Security Agency (GISA) delivered CrypTool 1.4.00
+as part of the software suite "BSI OSS Security Suite 2.0 (BOSS)".
+See http://www.bsi.de/produkte/boss/index.htm
+
 
 
 
