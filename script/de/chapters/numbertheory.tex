@@ -11,10 +11,9 @@
 
 \newpage
 \hypertarget{Chapter_ElementaryNT}{}
-
 \section{Einf"uhrung in die elementare Zahlentheorie mit Beispielen}
 \label{Chapter_ElementaryNT}
-(Bernhard Esslinger, Juli 2001, Updates: Nov. 2001, Juni 2002, Mai 2003, Mai 2005) \\
+(Bernhard Esslinger, Juli 2001; Updates: Nov. 2001, Juni 2002, Mai 2003, Mai 2005, M"arz 2006) \\
 
 Diese \glqq Einf"uhrung\grqq~ bietet einen Einstieg f"ur mathematisch Interessierte.
 Erforderlich sind nicht mehr Vorkenntnisse als die, die im Grundkurs Mathematik am Gymnasium vermittelt werden.\par
@@ -107,6 +106,8 @@ Insbesondere wird auf die klassischen Public Key-Verfahren Diffie-Hellman
 
 Au"serdem war es mir wichtig, fundierte Aussagen zur Sicherheit des RSA-Verfahrens zu machen.
 
+
+
 \vskip +40 pt
 
 \begin{center}
@@ -114,7 +115,6 @@ Au"serdem war es mir wichtig, fundierte Aussagen zur Sicherheit des RSA-Verfahre
 Die Mathematik ist die K"onigin der Wissenschaften, die Zahlentheorie aber
 ist die K"onigin der Mathematik.}}
 \end{center}
-
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \subsection{Einf"uhrung in die Zahlentheorie}
@@ -214,8 +214,8 @@ Viele von den gr"o"sten Zauberern haben keine Unze Logik im Kopf.}}
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \subsection{Primzahlen und der erste Hauptsatz der elementaren Zahlentheorie}
-\index{Zahlentheorie!elementare} Viele der Probleme in der elementaren Zahlentheorie besch"aftigen sich mit
-Primzahlen.
+\index{Zahlentheorie!elementare} Viele der Probleme in der elementaren
+Zahlentheorie besch"aftigen sich mit Primzahlen.
 
 Jede ganze Zahl hat Teiler oder Faktoren. Die Zahl 1 hat nur einen, n"amlich
 sich selbst. Die Zahl 12 hat die sechs Teiler 1, 2, 3, 4, 6 und 12\footnote{%
@@ -516,8 +516,8 @@ $
 
 
 % --------------------------------------------------------------------------
-\subsubsection{Muster und Strukturen} \index{Struktur}
 \hypertarget{Chapter_ElementaryNT_5_2}{}
+\subsubsection{Muster und Strukturen} \index{Struktur}
 \label{Label_Chapter_ElementaryNT_5_2}
 
 Generell untersuchen die Mathematiker \glqq Strukturen\grqq. Sie fragen sich
@@ -565,7 +565,8 @@ etwa $2*4 \equiv 8 \equiv 3 {\rm ~(mod~ } 5)$, da $3$ der Rest ist, wenn man $8$
 
 
 % --------------------------------------------------------------------------
-\subsubsection{Addition und Multiplikation} \index{Addition} \index{Multiplikation}\label{addmult}
+\subsubsection{Addition und Multiplikation} \index{Addition} \index{Multiplikation}
+\label{addmult}
 
 Im folgenden werden 
 \begin{itemize}
@@ -710,16 +711,19 @@ Multiplikationstabelle modulo $6$: \quad* &  1 & 2 & 3 & 4 & 5  \\
 \end{table}
 
 
-Neben der $0$ haben hier auch die Zahlen $2, 3$ und $4$ keine eindeutige Inverse
-(man sagt auch, sie haben {\bf keine} Inverse, weil es die elementare Eigenschaft
-einer Inversen ist, eindeutig zu sein).
+Neben der $0$ haben hier auch die Zahlen $2, 3$ und $4$ keine eindeutige
+Inverse (man sagt auch, sie haben {\bf keine} Inverse, weil es die elementare
+Eigenschaft einer Inversen ist, eindeutig zu sein).
 
-Die Zahlen $2, 3$ und $4$ haben mit dem Modul $6$ den Faktor $2$ oder $3$ gemeinsam.
-Nur die zu $6$ teilerfremden Zahlen $1$ und $5$ haben multiplikative Inverse, n"amlich jeweils sich selbst.
+Die Zahlen $2, 3$ und $4$ haben mit dem Modul $6$ den Faktor $2$ oder $3$
+gemeinsam. 
+Nur die zu $6$ teilerfremden Zahlen $1$ und $5$ haben multiplikative Inverse,
+n"amlich jeweils sich selbst.
 
 Die Anzahl der zum Modul $m$ teilerfremden Zahlen ist auch die Anzahl
 derjenigen Zahlen, die eine multiplikative Inverse haben (vgl. unten die
-\hyperlink{EulerFunction}{Euler-Funktion} \index{Eulersche Phi-Funktion} $J(m)$).
+\hyperlink{EulerFunction}{Euler-Funktion} \index{Eulersche Phi-Funktion}
+$J(m)$).
 
 F"ur die beiden in den Multiplikationstabellen verwendeten Moduli $5$ und $6$
 bedeutet dies:
@@ -738,7 +742,8 @@ Algorithmus aufstellen \cite[S. 80]{Pfleeger1997}. Schnellere Algorithmen
 werden z.B. in \cite{Knuth1998} \index{Euklidscher Algorithmus!erweiterter}
 beschrieben\footnote{%
 Mit dem erweiterten Satz von Euklid \index{ggT}(erweiterter ggT) kann man die
-multiplikative Inverse berechnen und die Invertierbarkeit bestimmen (Siehe \hyperlink{Appendix_A}{Anhang A zu diesem Kapitel}).
+multiplikative Inverse berechnen und die Invertierbarkeit bestimmen
+(siehe \hyperlink{Appendix_A}{Anhang A zu diesem Kapitel}).
 Alternativ kann auch die Primitivwurzel genutzt werden. 
 }.
 
@@ -864,8 +869,8 @@ Inverse!
 
 % --------------------------------------------------------------------------
 \subsubsection{Potenzieren}
-
-\index{Potenzieren} Das Potenzieren ist in der modularen Arithmetik definiert als wiederholtes
+\index{Potenzieren}
+Das Potenzieren ist in der modularen Arithmetik definiert als wiederholtes
 Multiplizieren -- wie "ublich, nur dass jetzt Multiplizieren etwas anderes ist.
 Es gelten mit kleinen Einschr"ankungen die "ublichen Rechenregeln wie
 \begin{eqnarray*}
@@ -931,10 +936,11 @@ $$
 
 % --------------------------------------------------------------------------
 \vskip + 10pt
+\hypertarget{hohpot}{}
 \subsubsection{Schnelles Berechnen hoher Potenzen} 
 %\subsubsection*{3.6.3.1 ~~~Schnelles Berechnen hoher Potenzen} 
 %\addcontentsline{toc}{subsubsection}{~~~~~~~~~~3.6.3.1 ~Schnelles Berechnen hoher Potenzen} 
-\hypertarget{hohpot}{}\label{hohpot} \index{Potenz}
+\label{hohpot} \index{Potenz}
 Bei RSA-Ver- und Entschl"usselungen\footnote{%
 Siehe Kapitel \ref{rsabeweis} (Beweis des RSA-Verfahrens mit Euler-Fermat) und 
 Kapitel \ref{rsakonkret} (Das RSA-Verfahren mit konkreten Zahlen).
@@ -1004,32 +1010,34 @@ Gegeben sei die Gleichung: $a \equiv b^c{\rm ~(mod~}m)$.
 \begin{itemize}
 \item [\bf a)] {\bf Logarithmieren\index{Logarithmieren} (Bestimmen von $c$) -- Diskretes Logarithmus Problem\index{Logarithmusproblem!diskret}:}
 
-Wenn man von den drei Zahlen $a, b, c$, welche diese Gleichung erf"ullen, $a$ und
-$b$ kennt, ist jede bekannte Methode, $c$ zu finden, ungef"ahr so aufwendig wie
-das Durchprobieren aller $m$ denkbaren Werte f"ur $c$ -- bei einem typischen $m$ in
-der Gr"o"senordnung von $10^{180}$ f"ur $600$-stellige Bin"arzahlen ein hoffnungsloses
-Unterfangen. Genauer ist f"ur geeignet gro"se Zahlen $m$ der Aufwand nach heutigem
-Wissensstand proportional zu ${\rm exp}\left( C*( \log m [\log \log m]^2)^{1/3}\right)$ mit einer
+Wenn man von den drei Zahlen $a, b, c$, welche diese Gleichung erf"ullen,
+$a$ und $b$ kennt, ist jede bekannte Methode, $c$ zu finden, ungef"ahr so
+aufwendig wie das Durchprobieren aller $m$ denkbaren Werte f"ur $c$ -- bei
+einem typischen $m$ in der Gr"o"senordnung von $10^{180}$ f"ur
+$600$-stellige Bin"arzahlen ein hoffnungsloses Unterfangen. Genauer ist f"ur
+geeignet gro"se Zahlen $m$ der Aufwand nach heutigem Wissensstand proportional
+zu ${\rm exp}\left( C*( \log m [\log \log m]^2)^{1/3}\right)$ mit einer
 Konstanten $C > 1$.
 \item[\bf b)] {\bf Wurzel-Berechnung (Bestimmen von $b$):}  
 
 "Ahnliches gilt, wenn $b$ die Unbekannte ist und die Zahlen $a$ und $c$ bekannt sind. \\
-Wenn die Eulerfunktion \index{Eulersche Phi-Funktion} $J(m)$ bekannt ist, findet man 
-leicht\footnote{%
+Wenn die Eulerfunktion \index{Eulersche Phi-Funktion} $J(m)$ bekannt ist,
+findet man leicht\footnote{%
 Siehe \hyperlink{Appendix_A}{Anhang A zu diesem Kapitel}: der gr"o"ste gemeinsame Teiler (ggT) von ganzen Zahlen.
 } $d$ mit $c*d \equiv 1 {\rm ~(mod~} J(m))$ und erh"alt mit Satz \ref{thm-zth-pot} 
 $$
-        a^d \equiv (b^c)^d \equiv b^{c*d} \equiv b^{c*d~(mod~J(m))} \equiv b^1 \equiv b {\rm ~(mod~} m)
+   a^d \equiv (b^c)^d \equiv b^{c*d} \equiv b^{c*d~(mod~J(m))} \equiv b^1 \equiv b {\rm ~(mod~} m)
 $$
 die {\em $c$-te Wurzel} $b$ von $a$. \par
 
 F"ur den Fall, dass $J(m)$ in der Praxis nicht bestimmt werden 
 kann\footnote{%
-Nach dem ersten Hauptsatz der Zahlentheorie und Satz \ref{thm-zth-phinum} kann man $J(m)$ mit Hilfe 
-der Primfaktorzerlegung\index{Primfaktor!Zerlegung} von $m$ bestimmen.
-}, ist die Berechnung der $c$-ten Wurzel schwierig. Hierauf beruhen die Sicherheitsannahmen f"ur das 
-RSA-Kryptosystem (siehe Kapitel \ref{rsabeweis} oder Kapitel
-\ref{rsaverfahren}).
+Nach dem ersten Hauptsatz der Zahlentheorie und Satz \ref{thm-zth-phinum}
+kann man $J(m)$ mit Hilfe der Primfaktorzerlegung\index{Primfaktor!Zerlegung}
+von $m$ bestimmen.
+}, ist die Berechnung der $c$-ten Wurzel schwierig. Hierauf beruhen die
+Sicherheitsannahmen f"ur das RSA-Kryptosystem (siehe Kapitel \ref{rsabeweis}
+oder Kapitel \ref{rsaverfahren}).
 
 \end{itemize}
 Dagegen ist der Aufwand f"ur die Umkehrung von Addition und Multiplikation
@@ -1173,13 +1181,15 @@ unrational, ja sogar {\bf irrational und damit wirklichkeitsn"aher} sind.}}
 \vskip +4pt
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\hypertarget{Chapter_ElementaryNT_8}{}
 \subsection{Euler-Funktion, kleiner Satz von Fermat und Satz von Euler-Fermat}
-\hypertarget{Chapter_ElementaryNT_8}{} \index{Fermat!kleiner Satz}
 
 % --------------------------------------------------------------------------
 \subsubsection{Muster und Strukturen}\index{Struktur}
+\label{patternsandstructures}
 So wie Mathematiker die Struktur $a*x \equiv b {\rm ~mod~}m $ untersuchen 
-(s. \hyperlink{Chapter_ElementaryNT_5_2}{Kapitel \ref{Label_Chapter_ElementaryNT_5_2}}),
+(s. \hyperlink{Chapter_ElementaryNT_5_2}
+{Kapitel \ref{Label_Chapter_ElementaryNT_5_2}}),
 so interessiert sie auch die Struktur $ x^{a}\equiv b {\rm ~mod~}m$. 
 
 Auch hierbei ist insbesondere der Fall interessant, wenn $b=1$ ist 
@@ -1188,12 +1198,14 @@ Auch hierbei ist insbesondere der Fall interessant, wenn $b=1$ ist
 
 
 % --------------------------------------------------------------------------
-\subsubsection{Die Euler-Funktion}
+\subsubsection{Die Euler-Funktion}\index{Eulersche Phi-Funktion}
+\label{L-Euler-Function}
 Bei vorgegebenem $n$ ist die Anzahl der Zahlen aus der Menge $\{1, \cdots, n-1\}$,
 die zu $n$ teilerfremd sind, gleich dem Wert der Euler\footnote{%
-Leonhard Euler, schweizer Mathematiker, 15.4.1707 -- 18.9.1783\index{Euler, Leonhard} 
+Leonhard Euler, schweizer Mathematiker, 15.4.1707 -- 18.9.1783\index{Euler,
+Leonhard} 
 }-Funktion $J(n)$.
-\index{Eulersche Phi-Funktion}
+
 \begin{definition}\label{def-zth-phiofn} \hypertarget{EulerFunction}{}
 Die Euler-Funktion\footnote{%
 Wird oft auch als Eulersche Phi-Funktion $\Phi(n)$ geschrieben.
@@ -1369,8 +1381,9 @@ $$ x^2 +(J(n)-n-1)x +n=0 $$ l"ost.
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\hypertarget{Chapter_ElementaryNT_9}{}
 \subsection{Multiplikative Ordnung und Primitivwurzel}
-\hypertarget{Chapter_ElementaryNT_9}{} \label{MultOrdPrimitveRoot} 
+\label{MultOrdPrimitveRoot}
 
 Mathematiker stellen sich die Frage, unter welchen Bedingungen ergibt die
 wiederholte Anwendung einer Operation das neutrale Element (vergleiche Strukturen und Muster\index{Struktur}).
@@ -1611,24 +1624,28 @@ die Ordnung 22.
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\subsection{Beweis des RSA-Verfahrens mit Euler-Fermat}\label{rsabeweis}
-\hypertarget{RSABeweis}{} Mit dem Satz von Euler-Fermat kann man in der Gruppe $\mathbb{Z}_n^*$ das 
+\hypertarget{RSABeweis}{} 
+\subsection{Beweis des RSA-Verfahrens mit Euler-Fermat}
+\label{rsabeweis}
+Mit dem Satz von Euler-Fermat kann man in der Gruppe $\mathbb{Z}_n^*$ das 
 RSA\footnote{%
 Das RSA-Verfahren\index{RSA} ist das verbreitetste asymmetrische \index{Verschl""usselung!asymmetrisch} Kryptoverfahren. Es
 wurde 1978 von Ronald Rivest, Adi Shamir und Leonard Adleman entwickelt und
 kann sowohl zum Signieren wie zum Verschl"usseln eingesetzt werden.
 Kryptographen assoziieren mit der Abk"urzung \glqq RSA'' immer dieses
-Verfahren $-$ die folgende Anmerkung soll eher humorvoll zeigen, dass man jede
-Buchstabenkombination mehrfach belegen kann: in Deutschland gibt es sehr
-Interessen-lastige Diskussionen im Gesundheitswesen. Dabei wird mit \glqq RSA''
-der vom Gesundheitsministerium geregelte \glqq {\bf R}isiko{\bf S}truktur{\bf A}usgleich'' in der
-gesetzlichen Krankenversicherung mit einem j"ahrlichen Volumen von "uber 24
-Milliarden DM bezeichnet.
+Verfahren $-$ die folgende Anmerkung soll eher humorvoll zeigen, dass man
+jede Buchstabenkombination mehrfach belegen kann: in Deutschland gibt es sehr
+Interessen-lastige Diskussionen im Gesundheitswesen. Dabei wird mit
+\glqq RSA'' der vom Gesundheitsministerium geregelte \glqq {\bf R}isiko{\bf S}
+truktur{\bf A}usgleich'' in der gesetzlichen Krankenversicherung:
+Im Jahr 2004 wurden durch den RSA ca. 16 Mrd. Euro zwischen den Krankenkassen
+umverteilt.
 }$^,$\footnote{%
-In Literatur\index{Literatur} und in Filmen\index{Filme} sind sowohl klassische
-als auch moderne Kryptographie-Verfahren verarbeitet worden 
-(\hyperlink{appendix-movies}{siehe Anhang C: Filme und Literatur mit Bezug 
-zur Kryptographie}).
+In Literatur\index{Literatur} und in Filmen\index{Filme} sind sowohl
+klassische als auch moderne Kryptographie-Verfahren verarbeitet worden 
+%(\hyperlink{appendix-movies}{siehe Anhang A3: Filme und Literatur mit Bezug 
+%zur Kryptographie}).
+(siehe Anhang \ref{s:appendix-movies}).
 % hier die items NICHT einrücken!
 % \begin{list}{\textbullet}{\leftmargin10pt}
 %   \item dem Film "`Das Kartenhaus"', 1992
@@ -1639,10 +1656,10 @@ zur Kryptographie}).
 
 
 % --------------------------------------------------------------------------
-\subsubsection{Grundidee der Public Key-Kryptographie}
-\index{Kryptographie!Public Key}
 \hypertarget{Chapter_ElementaryNT_10_1}{}
+\subsubsection{Grundidee der Public Key-Kryptographie}
 \label{Label_Chapter_ElementaryNT_10_1}
+\index{Kryptographie!Public Key}
 
 Die Grundidee bei der Public Key-Kryptographie besteht darin, dass alle
 Teilnehmer ein unterschiedliches Paar von Schl"usseln ($P$ und $S$) besitzen und
@@ -1698,7 +1715,9 @@ Verfahren, das alle vier Bedingungen erf"ullte.
 
 
 % --------------------------------------------------------------------------
-\subsubsection{Funktionsweise des RSA-Verfahrens} \hypertarget{RSA}{}
+\hypertarget{RSA}{}
+\subsubsection{Funktionsweise des RSA-Verfahrens}
+\label{RSA}
 Man kann die Einzelschritte zur Durchf"uhrung \index{RSA} des RSA-Verfahren
 folgenderma"sen beschreiben (s. \cite[S. 213 ff]{Eckert2003} \index{Eckert 2003} und 
 \cite[S. 338 ff]{Sedgewick1990}). \index{Sedgewick 1990}
@@ -1737,8 +1756,9 @@ bezeichnet.
 
 \item[{\bf 2.}] W"ahle ein beliebiges $e \in \{2, \cdots, n-1\}$, so dass 
                 gilt\footnote{%
-                Empfehlenswert aus kryptoanalytischen Gründen, aber nicht notwendig
-                für das Funktionieren des Verfahrens ist, $e$ so zu w"ahlen, dass gilt: 
+                Empfehlenswert aus kryptoanalytischen Gr"unden, aber nicht notwendig
+                f"ur das Funktionieren des Verfahrens ist, $e$ so zu w"ahlen, 
+                dass gilt: 
                 $\max(p,q) < e < J(n) - 1$.}: \\
                 $e$ ist teilerfremd zu $J(n) = (p-1)*(q-1)$. \\
                 Danach kann man $p$ und $q$ \glqq wegwerfen''.\footnote{%
@@ -1792,7 +1812,9 @@ Beim RSA-Verfahren bedeutet dies, dass
 
 
 % --------------------------------------------------------------------------
-\subsubsection{Beweis der Forderung 1 (Umkehrbarkeit)} \hypertarget{RSAproof}{}\label{RSAproof}
+\hypertarget{RSAproof}{}
+\subsubsection{Beweis der Forderung 1 (Umkehrbarkeit)}
+\label{RSAproof}
 
 F"ur Schl"usselpaare $(n, e)$ und $(n, d)$, die die in den Schritten 1 bis 3 des RSA-Verfahrens 
 festgelegten Eigenschaften besitzen, muss f"ur alle $M < n$ gelten:
@@ -1964,7 +1986,8 @@ Siehe: {\em Handbook of Applied Cryptography} \cite{Menezes2001}.
 
 % --------------------------------------------------------------------------
 \vskip +40pt
-\subsubsection{Sicherheitsparameter aufgrund neuer Algorithmen}\label{chptSecurityParam}
+\subsubsection{Sicherheitsparameter aufgrund neuer Algorithmen}
+\label{chptSecurityParam}
 
 %\vskip +15 pt
 \paragraph{Faktorisierungsalgorithmen} \mbox{}
@@ -2090,15 +2113,19 @@ anhand des neuesten Faktorisierungsrekordes von RSA-200 (siehe Kapitel \ref{RSA-
 zu best"atigen: Seine Sch"atzung f"ur das Jahr 2005 mit 660 Bit hat die Bitl"ange
 von RSA-200 nahezu auf den Punkt getroffen (vergleiche
 Abbildung~\ref{secorvo-factorisation-forecast}). \\
-H"alt die Prognose, dann ist die Faktorisierung eines RSA-Moduls der L"ange
-1024 Bit in 15 Jahren zu erwarten.
 
-
-\begin{figure}[!hb]
+\begin{figure}[h] %[!hb]
 \begin{center}
 \frame{
-\includegraphics[scale=0.70, clip, viewport=50 20 700 430]{figures/PrognoseRSAFaktorisierungSecorvo.pdf}
-%                                           links unten rechts oben
+%\includegraphics[scale=0.70, clip, viewport=50 20 700 430]{figures/PrognoseRSAFaktorisierungSecorvo.pdf}
+\includegraphics[scale=0.65, clip, viewport=-20 0 680 520]{figures/PrognoseRSAFaktorisierungSecorvo.pdf}
+% Parameter von includegraphics: scale, x, y, dx, dy
+% dx, dy spezifiziert die Ausdehnung, die man dem Bildes spendiert.
+%      Ist dy zu klein, wird das Bild oben abgeschnitten
+% x, y sagt, ab wo der Rahmen um das Bild gezeichnet wird.
+%      Ist z.B. x=50, sind der linke Rahmenstrich und Teile des linken
+%      Teiles des Bildes nicht zu sehen.
+% scale dehnt Rahmenlinie und Bild aus -> Sitenrand wird bei 0.7 z.B. kleiner.
 }
 \caption{Vorhersage "uber die zuk"unftigen Faktorisierungsrekorde verglichen
 mit aktuellen Resultaten (Quelle Secorvo)}
@@ -2106,12 +2133,17 @@ mit aktuellen Resultaten (Quelle Secorvo)}
 \end{center}
 \end{figure}
 
-%be_2005: Erzwingen, dass die Abb. noch in diesem Kapitel !
+H"alt die Prognose, dann ist die Faktorisierung eines RSA-Moduls der L"ange
+1024 Bit in 15 Jahren zu erwarten.
 
 
 
 
-
+\clearpage  % Erzwingt, dass alle Floating Objekte (z.B. Grafiken VORHER
+            % geschrieben werden ! (sonst wurde Kapitel 4.11.4 begonnen,
+            % und die Secorvo-Grafik auf er Folgeseite UNTER die Fussnote
+            % geschoben. Außerdem wahrscheinlich auch Zeilenumbruch,
+            % egal, ob nach der Garfik noch Platz ist.
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \vspace{6ex}
 \begin{center}
@@ -2145,24 +2177,26 @@ einer $200$-stelligen Dezimalzahl in ihre beiden Primfaktoren.
 \vskip +10pt
 Die letzten Rekorde\footnote{%
 Die  "`RSA-Zahlen"' sind gro"se semiprime Zahlen (d.h. Zahlen, die genau aus
-2 Primfaktoren bestehen). Sie wurden von der Firma RSA Security generiert und 
-ver"offentlicht, und sie bilden die "`RSA Factoring Challenge"': In diesem 
-Wettbewerb werden die Primfaktoren dieser Zahlen gesucht.
+2 Primfaktoren bestehen)\index{Zahlen!semiprime}. Sie wurden von der Firma
+RSA Security generiert und ver"offentlicht, und sie bilden die "`RSA Factoring
+Challenge"': In diesem Wettbewerb werden die Primfaktoren dieser Zahlen
+gesucht.
 Siehe \href{http://www.rsasecurity.com/rsalabs/challenges/factoring/numbers.html}
    {\texttt{http://www.rsasecurity.com/rsalabs/challenges/factoring/numbers.html}}.
 
-In der ersten RSA-Factoring-Challenge wurden die Zahlen, von RSA-100 bis RSA-500, 
-gem"a"s der Anzahl ihrer Dezimalstellen benannt; die zweite RSA-Factoring-Challenge 
-benannte die Zahlen anhand der Anzahl ihrer Bin"arstellen. Innerhalb des zweiten 
-Wettbewerbs sind Geldpreise f"ur die erfolgreiche Faktorisierung 
-von RSA576 bis RSA2048 ausgelobt (RSA576, RSA640 etc. in 64-er Schritten).
+In der ersten RSA-Factoring-Challenge wurden die Zahlen, von RSA-100 bis
+RSA-500, gem"a"s der Anzahl ihrer Dezimalstellen benannt; die zweite
+RSA-Factoring-Challenge benannte die Zahlen anhand der Anzahl ihrer
+Bin"arstellen. Innerhalb des zweiten Wettbewerbs sind Geldpreise f"ur die
+erfolgreiche Faktorisierung von RSA576 bis RSA2048 ausgelobt (RSA576, RSA640
+etc. in 64-er Schritten). 
 Die Zahl RSA617 bildet eine Ausnahme, da sie vor der "Anderung des 
 Namensschemas erzeugt wurde.
 
-Die Forscher um Prof. Jens Franke (von der Universit"at Bonn, dem BSI und dem CWI) 
-sind nicht auf die Geldpreise aus, sondern wollen die Grenzen der Forschung 
-ausdehnen. Dadurch werden Aussagen "uber notwendige Minimall"angen f"ur 
-sichere RSA-Moduli fundierter. 
+Die Forscher um Prof. Jens Franke (von der Universit"at Bonn, dem BSI und dem
+CWI) sind nicht auf die Geldpreise aus, sondern wollen die Grenzen der
+Forschung ausdehnen. Dadurch werden Aussagen "uber notwendige Minimall"angen
+f"ur sichere RSA-Moduli fundierter. 
 
 Die "`C-Zahlen"' stammen aus dem Cunningham-Projekt:
 \href{http://www.cerias.purdue.edu/homes/ssw/cun/}
@@ -2182,13 +2216,26 @@ sind in der folgenden Tabelle aufgef"uhrt:
 	RSA-160 & 	160 & 530 & & April, 2003 & Jens Franke et al. \\
 	RSA576 & 	174 & 576 & & Dezember, 2003 & Jens Franke et al. \\
 	C176 & 		176 & 583 & & Mai, 2005 & Kazumaro Aoki et al. \\
+	RSA640\footnotemark & 	193 & 600 & & November, 2005 & Jens Franke et al. \\
 	RSA-200 & 	200 & 663 & & Mai, 2005 & Jens Franke et al. \\
 \hline
 \end{tabular}
-\caption{Die derzeitigen Faktorisierungsrekorde f"ur allgemeine Zahlen (Stand Mai 2005)}
+\caption{Die derzeitigen Faktorisierungsrekorde f"ur allgemeine Zahlen
+(Stand November 2005)}    % Eyecatcher_neue-Mersenne
 \end{center}
 \end{table}
-
+\footnotetext{%
+Eine Arbeitsgruppe des BSI hat die mit 20.000 US-Dollar dotierte Challenge
+RSA-640 mit Hilfe der GNFS-Methode gel"ost. Die Forscher ben"otigten f"ur die
+Zerlegung der Zahl in ihre beiden 320 Bit langen Primfaktoren rund f"unf
+Monate Rechenzeit.\\
+Die RSA-Laboratorien schreiben ihre Challenges schon seit Anfang der
+90er-Jahre aus. Die n"achst gr"o"sere Challenge ist nun die mit 30.000
+US-Dollar dotierte RSA-704.\\
+Siehe:
+\href{http://www.heise.de/newsticker/meldung/print/65957}
+{\texttt{http://www.heise.de/newsticker/meldung/print/65957}}
+}
 %be_2005: Erzwingen, dass die Abb. noch in diesem Kapitel !
 
 
@@ -2406,8 +2453,9 @@ Die Berechnungen erfolgten zwischen Dezember 2002 und April 2003.
 
 % --------------------------------------------------------------------------
 \vskip +20pt
-\paragraph{RSA-200} \label{RSA-200} \index{RSA-200}\mbox{}
 \hypertarget{RSA-200-chap3}{}
+\paragraph{RSA-200} \label{RSA-200} \index{RSA-200}\mbox{}
+%\hypertarget{RSA-200-chap3}{}
 
 Am 9. Mai 2005 meldete die Forschergruppe von Prof. Jens Franke der Universit"at Bonn\footnote{%
    \href{http://www.loria.fr/~zimmerma/records/rsa200}
@@ -2462,23 +2510,25 @@ F"ur die Zerlegung eines 2048-Bit-Moduls br"auchte man ca. {$8,5 \cdot
 \paragraph{Gr"o"senordnung faktorisierter Zahlen im Vergleich zu auf Primalit"at getesteter Zahlen}
 \mbox{}
 
-Wie man sieht, sind die gr"o"sten (aus 2 Primfaktoren) zusammengesetzten Zahlen,
-die man faktorisieren kann, deutlich kleiner als die Zahlen mit einer 
-speziellen Struktur, f"ur die Primzahltests\index{Primzahltest} in der Lage
-sind, Aussagen "uber ihre Primalit"at zu treffen (siehe Kapitel 
+Wie man sieht, sind die gr"o"sten (aus 2 Primfaktoren) zusammengesetzten
+Zahlen, die man faktorisieren kann, deutlich kleiner als die Zahlen mit
+einer speziellen Struktur, f"ur die Primzahltests\index{Primzahltest} in
+der Lage sind, Aussagen "uber ihre Primalit"at zu treffen (siehe Kapitel 
 \ref{search_for_very_big_primes}, \ref{primality_tests} und
 \ref{spezialzahlentypen}).
 
 
-% be_2005_UPDATEN_if-new-mersenne-prime-appears
+% be_2005_UPDATEN_if-new-mersenne-prime-appears   % Eyecatcher_neue-Mersenne
+L"ange in Bit der derzeitigen Weltrekorde:\\
+$$  ~~~~~~~~~[RSA{-}200{-}Zahl] ~~\longleftrightarrow{}~~[43.~bekannte~Mersenne~Primzahl] $$
+$$ 663 ~~ \longleftrightarrow{} ~~ 30.402.457 ~~~~~$$
 
-L"ange in Bit der derzeitigen Weltrekorde (RSA-200 $\longleftrightarrow{}$ M-42):
-  ~  $663 \longleftrightarrow{} 25.964.951$.
 
 %be_2005 - erzwungenes Blank und $$ um Pfeilzeichen, sonst setzt er Blanks an 
 %          die falschen Stellen.
 %        - Wenn man hier \~ statt nur ~ (außerhalb der $$) schreibt, kommen
-%          nachher Fussnoten mit {\bf Einzelverfahren \textbackslash{} Protokolle}
+%          nachher Fussnoten mit 
+%          {\bf Einzelverfahren \textbackslash{} Protokolle}
 %          nur noch mit kaputten Schriftzeichen raus !
 
 
@@ -2626,9 +2676,15 @@ Verweise:
 \paragraph{Das TWIRL-Device} \label{TWIRLDevice} \index{TWIRL-Device}
 \mbox{} % f"ur Zeilenumbruch, da er // allein nicht mag ! xxxxxxxxx
 
-Im Januar 2003 ver"offentlichten Adi Shamir und Eran Tromer vom Weizmann Institute of Science den vorl"aufigen Draft {\em ``Factoring Large Numbers with the TWIRL Device''}, in dem deutliche Bedenken gegen RSA-Schl"ussell"angen unter 1024 begr"undet werden \cite{Shamir2003}.
+Im Januar 2003 ver"offentlichten Adi Shamir und Eran Tromer vom Weizmann
+Institute of Science den vorl"aufigen Draft {\em ``Factoring Large Numbers
+with the TWIRL Device''}, in dem deutliche Bedenken gegen RSA-Schl"ussell"angen
+unter 1024 begr"undet werden \cite{Shamir2003}.
 
 Das Abstract fasst ihre Ergebnisse folgenderma"sen zusammen: ``The security of the RSA cryptosystem depends on the difficulty of factoring large integers. The best current factoring algorithm is the Number Field Sieve (NFS), and its most difficult part is the sieving step. In 1999 a large distributed computation involving thousands of workstations working for many months managed to factor a 512-bit RSA key, but 1024-bit keys were believed to be safe for the next 15-20 years. In this paper we describe a new hardware implementation of the NFS sieving step ... which is 3-4 orders of magnitude more cost effective than the best previously published designs ... . Based on a detailed analysis of all the critical components (but without an actual implementation), we believe that the NFS sieving step for 1024-bit RSA keys can be completed in less than a year by a \$10M device, and that the NFS sieving step for 512-bit RSA keys can be completed in less than ten minutes by a \$10K device. Coupled with recent results about the difficulty of the NFS matrix step ... this raises some concerns about the security of these key sizes.''
+
+Eine ausführliche Fassung findet sich auch in dem Artikel der beiden Autoren
+in den RSA Laboratories CryptoBytes \cite{Shamir2003a}.
 
 Eine sehr gute Erl"auterung, wie der Angriff mit dem Generalized Number Field
 Sieve (GNFS) \index{General Number Field Sieve (GNFS)} funktioniert und
@@ -2649,16 +2705,21 @@ mindestens 2048 Bit L"ange einzusetzen.
 Auch f"ur die geplante TCPA/Palladium-Hardware \index{Palladium} werden
 2048-Bit RSA-Schl"ussel verwendet!
 
-Damit erscheinen die aktuellen Empfehlungen des BSI, auf l"angere RSA-Schl"ussell"angen umzustellen, mehr als gerechtfertigt.
+Damit erscheinen die aktuellen Empfehlungen des BSI, auf l"angere 
+RSA-Schl"ussell"angen umzustellen, mehr als gerechtfertigt.
 
 
 
 % --------------------------------------------------------------------------
 \vskip +20pt
-\paragraph{``Primes in P'': Testen auf Primalit"at ist polynominal} \label{PrimesinP} \index{Primzahltest} 
+%\paragraph{``Primes in P'': Testen auf Primalit"at ist polynominal}
+\paragraph{\glqq Primes in P\grqq: Testen auf Primalit"at ist polynominal}
+\label{PrimesinP} \index{Primzahltest} 
 \mbox{} % f"ur Zeilenumbruch, da er // allein nicht mag ! xxxxxxxxx
 
-Im August 2002 ver"offentlichten die drei indischen Forscher M. Agrawal, N. Kayal und N. Saxena ihr Paper {\em ``PRIMES in P''} "uber einen neuen Primzahltest-Algorithmus, genannt AKS\index{AKS} \cite{Agrawal2002}. 
+Im August 2002 ver"offentlichten die drei indischen Forscher M. Agrawal, 
+N. Kayal und N. Saxena ihr Paper {\em \glqq PRIMES in P\grqq}  %{\em ``PRIMES in P''} 
+"uber einen neuen Primzahltest-Algorithmus, genannt AKS\index{AKS} \cite{Agrawal2002}.
 Sie entdeckten einen polynominalen\index{Polynom} deterministischen Algorithmus, um zu entscheiden, ob eine gegebene Zahl prim ist oder nicht.
 
 Die Bedeutung dieser Entdeckung liegt darin, dass sie Zahlentheoretiker mit neuen Einsichten und M"oglichkeiten f"ur die weitere Forschung versorgt. Viele Menschen haben im Lauf der Jahrhunderte nach einem polynominalen Primzahltest gesucht, so dass dieses Ergebnis einen theoretischen Durchbruch darstellt. Es zeigt sich immer wieder, dass aus schon lange bekannten Fakten neue Ergebnisse generiert werden k"onnen.
@@ -2727,8 +2788,8 @@ ist wie Addieren.
 
 
 % --------------------------------------------------------------------------
+\hypertarget{OneWayFunktion2}{}%
 \subsubsection{Einwegfunktionen}
-\hypertarget{OneWayFunktion2}{}%    %%% be_24.5.03 Ohne das % bg. die ff. Zeile ("Wenn der ...") mit einem Blank
 Wenn der Schl"ussel auch bei gleichzeitiger Kenntnis von
 Klar- und Chiffretext nicht ermittelbar sein soll, braucht man eine
 Funktion, die einerseits relativ einfach berechenbar ist - man will ja
@@ -2905,9 +2966,10 @@ Von Bob: $11 ^ y \equiv 285 {\rm ~(mod~}347)$, also $\log_{11}(285){\rm ~(mod~}3
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\subsection{Das RSA-Verfahren mit konkreten Zahlen} \hypertarget{RSAKonkret}{}
-\index{RSA}\label{rsakonkret}
-\hypertarget{Chapter_ElementaryNT_12}{}
+\hypertarget{RSAKonkret}{}%
+\hypertarget{Chapter_ElementaryNT_12}{}%ist wahrscheinlich redundant !
+\subsection{Das RSA-Verfahren mit konkreten Zahlen}
+\label{rsakonkret}\index{RSA}
 Nachdem oben die \hyperlink{RSA}{Funktionsweise des RSA-Verfahrens} beschrieben wurde, sollen diese 
 Schritte hier mit konkreten, aber kleinen Zahlen durchgef"uhrt werden.
 
@@ -3485,7 +3547,7 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
 
 \bibitem[Lenstra2002]{Lenstra2002} \index{Lenstra 2002}
     Arjen K. Lenstra, Adi Shamir, Jim Tomlinson, Eran Tromer,\\
-    {\em Analysis of Bernstein’s Factorization Circuit},\\
+    {\em Analysis of Bernstein's Factorization Circuit},\\
     \href{http://www.cryptosavvy.com/mesh.pdf}
     {\texttt{http://www.cryptosavvy.com/mesh.pdf}}
 
@@ -3538,6 +3600,13 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
     Januar 2003, \\
     \href{http://www.wisdom.weizmann.ac.il/~tromer/}
     {\texttt{http://www.wisdom.weizmann.ac.il/\~{}tromer/}}
+
+\bibitem[Shamir2003a]{Shamir2003a} \index{Shamir 2003a} \index{TWIRL-Device} 
+    Adi Shamir, Eran Tromer, \\
+    {\em On the Cost of Factoring RSA-1024}, 
+    RSA Laboratories CryptoBytes Volume 6, No. 2, Summer 2003, S. 11-20 \\
+    \href{http://www.rsasecurity.com/rsalabs/cryptobytes/CryptoBytes\_August\_2003.pdf}
+    {\texttt{http://www.rsasecurity.com/rsalabs/cryptobytes/CryptoBytes\_August\_2003.pdf}}
   
 \bibitem[Silverman2000]{Silverman2000} \index{Silverman 2000}
      Robert D. Silverman: \\ 
@@ -3593,7 +3662,8 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
           \href{http://www.mcs.surrey.ac.uk/personal/R.Knott/Fibonacci/fib.html}      {\texttt{http://www.mcs.surrey.ac.uk/personal/R.Knott/Fibonacci/fib.html}}
           
    \item CrypTool,  \index{CrypTool} \\
-          E-Learning-Freeware zur Veranschaulichung von Kryptographie und Kryptoanylse, \\
+          E-Learning-Freeware zur Veranschaulichung von Kryptographie
+          und Kryptoanalyse, \\
           \href{http://www.cryptool.de}{\texttt{http://www.cryptool.de}}, \\
           \href{http://www.cryptool.org}{\texttt{http://www.cryptool.org}},\\ 
           \href{http://www.cryptool.com}{\texttt{http://www.cryptool.com}}
@@ -3705,11 +3775,12 @@ herzlich zu danken:
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage 
-
+\hypertarget{Appendix_A}{}
 \subsection*{%
-Anhang A: Der gr"o"ste gemeinsame Teiler (ggT) von ganzen Zahlen \index{ggT}
-und die beiden Algorithmen von Euklid}
-\hypertarget{Appendix_A}{} \label{Appendix_A} 
+Anhang A: Der gr"o"ste gemeinsame Teiler (ggT) von ganzen 
+Zahlen \index{ggT} und die beiden Algorithmen von Euklid}
+%\hypertarget{Appendix_A}{} \label{Appendix_A}
+\label{Appendix_A}
 \addcontentsline{toc}{subsection}{Anhang A: ggT und die beiden Algorithmen von Euklid}
 \begin{enumerate}
 \item Der gr"o"ste gemeinsame Teiler zweier nat"urlicher Zahlen $a$ und $b$ ist eine wichtige und 
@@ -3813,12 +3884,13 @@ Es folgt
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
-\subsection*{Anhang B: Abschlussbildung} \hypertarget{Appendix_B}{}
+\hypertarget{Appendix_B}{}
+\subsection*{Anhang B: Abschlussbildung}
 \addcontentsline{toc}{subsection}{Anhang B: Abschlussbildung}
 Die Eigenschaft der Abgeschlossenheit\index{Abgeschlossenheit} wird innerhalb einer Menge immer
 bez"uglich einer Operation definiert.
 Im folgenden wird gezeigt, wie man f"ur eine gegebene Ausgangsmenge $G_0$ die
-abgeschlossene Menge G bez"uglich der Operation ‚$+ {\rm ~(mod~} 8)$ konstruiert
+abgeschlossene Menge G bez"uglich der Operation $+ {\rm ~(mod~} 8)$ konstruiert
 (\glqq Abschlussbildung''):
 \begin{eqnarray*}
 G_0 & = & \{ 2, 3 \} {\rm ~die~Addition~der~Zahlen~in~} G_0 {\rm ~bestimmt~weitere~Zahlen:} \nonumber \\
@@ -3832,12 +3904,13 @@ G_1 & = & \{ 2, 3, 4, 5, 6 \} {\rm ~die~Addition~der~Zahlen~in~} G_1 {\rm ~besti
 G_2 & = & \{ 0, 1, 2, 3, 4, 5, 6, 7 \} {\rm ~~die~Addition~der~Zahlen~in~} G_2 {~erweitert~die~Menge~nicht!} \nonumber \\
 G_3 & = & G_2 {\rm ~~man~sagt:~} G_2 {\rm~ist~abgeschlossen~bez"uglich~der~Addition~~(mod~}8). \nonumber \\
 \end{eqnarray*}
-Ende der Abschlussbildung.
+% Ende der Abschlussbildung.
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\vskip +40pt
-\subsection*{Anhang C: Bemerkungen zur modulo Subtraktion} \hypertarget{Appendix_C}{}
+\vskip +60pt
+\hypertarget{Appendix_C}{}
+\subsection*{Anhang C: Bemerkungen zur modulo Subtraktion}
 \addcontentsline{toc}{subsection}{Anhang C: Bemerkungen zur modulo Subtraktion}
 Beispielweise gilt f"ur die Subtraktion modulo 5: $2 - 4 \equiv -2 \equiv 3{\rm ~mod~}2$.
 Es gilt modulo $5$ also nicht, dass $-2 = 2$ ! Dies gleichzusetzen ist ein h"aufig
@@ -3847,52 +3920,66 @@ gemachter Fehler. Dies kann man sich gut verdeutlichen, wenn man die Permutation
 \vskip +10 pt
 \input{figures/line-de.latex}
 
+
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
-\subsection*{Anhang D: Basisdarstellung von Zahlen, Absch"atzung der Ziffernl"ange}
+\hypertarget{Appendix_D}{}
+\subsection*{Anhang D: Basisdarstellung von Zahlen,
+             Absch"atzung der Ziffernl"ange}
 \addcontentsline{toc}{subsection}{Anhang D: Basisdarstellung und -umwandlung
-von Zahlen, Absch"atzung der Ziffernl"ange}
+                                  von Zahlen, Absch"atzung der Ziffernl"ange}
 
 Betrachtet man eine Zahl $z$, so stellt sich die Frage, wie man sie 
 darstellt.  "Ublich sind die Schreibweisen $z = 2374$ oder $z = \sqrt{2}$.
-Die zweite Zahl kann nicht in der ersten Form dargestellt werden, da sie unendlich
-viele Stellen hat.
-Man umgeht das Problem durch die symbolische Schreibweise. Muss man solche Zahlen 
-in der Ziffernschreibweise darstellen, bleibt nichts anderes "ubrig als die Zahl
-zu runden. 
+Die zweite Zahl kann nicht in der ersten Form dargestellt werden, da sie
+unendlich viele Stellen hat.
+Man umgeht das Problem durch die symbolische Schreibweise. Muss man solche
+Zahlen in der Ziffernschreibweise darstellen, bleibt nichts anderes "ubrig
+als die Zahl zu runden. 
 
 Wir haben uns an die Dezimalschreibweise (Zahlen zur Basis 10) gew"ohnt.
 Computer rechnen intern mit Zahlen im Bin"arformat, die nur bei der Ausgabe
 in Dezimalschreibweise oder auch manchmal in Hexadezimalschreibweise (Basis 16)
-dargestellt werden.  
+dargestellt werden.
 
-Dieser Anhang beschreibt, wie man die Basisdarstellung einer nat"urlichen Zahl umrechnet
-in die Darstellung derselben Zahl mit einer anderen Basis,
-und wie man mit Hilfe der Logarithmusfunktion die Ziffernl"ange jeder nat"urlichen Zahl 
-zu einer beliebigen Basis absch"atzen kann. 
+Dieser Anhang beschreibt, wie man die Basisdarstellung einer nat"urlichen Zahl
+umrechnet in die Darstellung derselben Zahl mit einer anderen Basis,
+und wie man mit Hilfe der Logarithmusfunktion die Ziffernl"ange jeder
+nat"urlichen Zahl zu einer beliebigen Basis absch"atzen kann. 
 
 
 \subsubsection*{b-adische Summendarstellung von nat"urlichen Zahlen}
-Zur {\em Basis} $b$ kann man jede nat"urliche Zahl $z$ darstellen als eine {\em b-adische Summe von Zahlen}. 
+Zur {\em Basis} $b$ kann man jede nat"urliche Zahl $z$ darstellen als eine
+{\em b-adische Summe von Zahlen}. 
 $$ z = a_nb^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0, $$
-wobei die nat"urlichen Zahlen $a_i, \; i = 0, \dots, n$ aus dem Wertebereich $0, 1, 2, \dots, b-1$ 
-gew"ahlt sind. Wir nennen diese Zahlen $a_i$ {\em Ziffern}. 
-F"ur diese spezielle Summe gilt, dass f"ur beliebige Ziffern $a_0, a_1, \dots, a_n$
-stets $b^{n+1} > a_nb^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0$ gilt. Aber auch, dass es Ziffern
-gibt $a_0, a_1, \dots, a_n$ (n"amlich $a_i = b-1$ f"ur $i=0, \dots, n$), so dass 
-$b^{n+1} -1 \le a_nb^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0$
-(Damit l"asst sich leicht zeigen, dass jede nat"urliche Zahl sich als $b$-adische Summe darstellen l"asst).
+wobei die nat"urlichen Zahlen $a_i, \; i = 0, \dots, n$ aus dem Wertebereich
+$0, 1, 2, \dots, b-1$  gew"ahlt sind.
+Wir nennen diese Zahlen $a_i$ {\em Ziffern}.
+ 
+F"ur diese spezielle Summe gilt:\\
+1) F"ur beliebige Ziffern $a_0, a_1, \dots, a_n$ gilt:
+   $b^{n+1} > a_nb^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0$.\\
+2) Es gibt auch Ziffern $a_0, a_1, \dots, a_n$ 
+   ~(n"amlich $a_i = b-1$ f"ur $i=0, \dots, n$), so dass
+   $b^{n+1}-1 \le a_nb^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0$.\\
+(Damit l"asst sich leicht zeigen, dass sich jede nat"urliche Zahl als
+ $b$-adische Summe darstellen l"asst).
 
-Wenn man diese Ziffern $a_na_{n-1} \cdots a_1a_0$ direkt hintereinanderschreibt und die Gewichte $b^i$ weg"-l"asst, 
-so erh"alt man die gewohnte Schreibweise f"ur Zahlen.
+Wenn man diese Ziffern $a_na_{n-1} \cdots a_1a_0$ direkt hintereinander
+schreibt und die Gewichte $b^i$ weg"-l"asst, so erh"alt man die gewohnte
+Schreibweise f"ur Zahlen.
 
 {\bf Beispiele}: \\
-Basis $b = 10$: $10278 =  1\cdot10^4 +  0\cdot 10^3 + 2\cdot 10^2 + 7\cdot 10^1 + 8$ und \\
+Basis $b = 10$: $10278 =  1\cdot10^4 +  0\cdot 10^3 + 2\cdot 10^2 + 7\cdot 10^1 + 8$\\
 Basis $b = 16$: $FE70A = 15\cdot16^4 + 14\cdot 16^3 + 7\cdot 16^2 + 0\cdot 16^1 + 10$.
 
+
+
+\vskip +20 pt
 \subsubsection*{L"ange der Zifferndarstellung}
-F"ur eine nat"urliche Zahl $z$ kann die L"ange der Zahl in $b$-adischer Darstellung wie folgt
-bestimmt werden. Dazu geht man von der Absch"atzung $b^{n+1} > z \ge b^n$, wobei $n+1$ die gesuchte Stellenzahl ist, aus.
+F"ur eine nat"urliche Zahl $z$ kann die L"ange der Zahl in $b$-adischer
+Darstellung wie folgt bestimmt werden. Dazu geht man von der Absch"atzung
+$b^{n+1} > z \ge b^n$ aus, wobei $n+1$ die gesuchte Stellenzahl ist.
 Nach dem Logarithmieren zur Basis $b$\footnote{% 
 Nach den Logarithmengesetzen gilt f"ur die Basen $b$ und $b'$ die Gleichung $\log_b z = \log_{b'} z / \log_{b'} (b)$. 
 Es ist also einfach, ausgehend von Logarithmentafeln f"ur z.B. die Basis $b' = 10$ den Logarithmus zur Basis $b = 2$ zu berechnen.
@@ -3904,18 +3991,28 @@ der Zahl einfach abgeschnitten). Man sagt auch {\em untere Gau"sklammer von} $x$
 der Zahl $z$ in $b$-adischer Schreibweise. Es gilt die Gleichung $$l_b(z) = \lfloor \log_b z \rfloor +1. $$
 
 \vskip +10 pt
-{\bf Beispiel 1}:
-F"ur die Zahl $z = 234$ in Dezimalschreibweise (EA in hex) bestimmt man die L"ange in Hexadezimalschreibweise durch
+{\bf Beispiel 1 (dezimal$\rightarrow$hex)}:
+F"ur die Zahl $z = 234$ in Dezimalschreibweise (EA in hex) bestimmt man die
+L"ange in Hexadezimalschreibweise durch
 $$l_{16}(z) = \lfloor \log_{16}(z) \rfloor + 1 = \lfloor \ln (z) / \ln(16) \rfloor + 1 = \lfloor 1,96... \rfloor + 1 = 1 + 1 = 2.$$
 
 \vskip +10 pt 
-{\bf Beispiel 2}:
-F"ur die Zahl $z = 234$ in Dezimalschreibweise (11101010 in bin"ar) bestimmt man die L"ange in Bin"arschreibweise durch
+{\bf Beispiel 2 (dezimal$\rightarrow$bin"ar)}:
+F"ur die Zahl $z = 234$ in Dezimalschreibweise (11101010 in bin"ar) bestimmt
+man die L"ange in Bin"arschreibweise durch
 $$l_{2}(z) = \lfloor \log_{2}(z) \rfloor + 1 = \lfloor \ln (z) / \ln(2) \rfloor + 1 = \lfloor 7,87... \rfloor + 1 = 7 + 1 = 8.$$
+
+\vskip +10 pt 
+{\bf Beispiel 3 (bin"ar$\rightarrow$dezimal)}:
+F"ur die Zahl $z = 11101010$ in Bin"arschreibweise (234 dezimal) bestimmt
+man die L"ange in Dezimalschreibweise durch
+$$l_{10}(z) = \lfloor \log_{10}(z) \rfloor + 1 = \lfloor \ln (z) / \ln(10) \rfloor + 1 = \lfloor 2,36... \rfloor + 1 = 2 + 1 = 3.$$
+
 
 \vskip +20 pt
 \subsubsection*{Algorithmen zur Basisdarstellung von Zahlen}
-Ausgehend von der Zahl $z$ bestimmt man die Zahlendarstellung zur Basis $b$ durch den folgenden Algorithmus:
+Ausgehend von der Zahl $z$ bestimmt man die Zahlendarstellung zur Basis $b$
+durch den folgenden Algorithmus:
 
 \begin{tabbing}
 bla\= \kill
@@ -3930,25 +4027,32 @@ $n := 0, z' := z$ \\
 \end{tabbing}
 
 \vskip +10 pt
-{\bf Beispiel 1}:
+{\bf Beispiel 1 (dezimal$\rightarrow$hex)}:
 Die Zahl $z = 234$ in Dezimalschreibweise wird umgewandelt in 
-Hexadezimalschreibweise: $a_0 = 234 {\rm ~mod~} 16 = 10 = A$, $234 / 16 = 15 = E$, 
-$a_1 = 14 {\rm ~mod~} 16 = E$ also $EA$. 
+Hexadezimalschreibweise:\\
+$a_0 = 234 {\rm ~mod~} 16 = 10 = A$, $234 / 16 = 14 = E$,\\
+$a_1 = 14 {\rm ~mod~} 16 = E$\\
+also $EA$. 
 
 
 \vskip +10 pt
-{\bf Beispiel 2}:
-Die Bin"arzahl $z = 1000100101110101$ wird in die Dezimaldarstellung durch die folgenden Rechnungen umgewandelt: 
+{\bf Beispiel 2 (bin"ar$\rightarrow$dezimal)}:
+Die Bin"arzahl $z = 1000100101110101$ wird in die Dezimaldarstellung durch
+die folgenden Rechnungen umgewandelt: 
 
-$1000100101110101 = 1001$ (mod $1010)  \Longrightarrow a_0 = 9$, $1000100101110101 / 1010 = 110110111110$ \\
+$1000100101110101 = 1001$ (mod $1010)  \Longrightarrow a_0 = 9$, ~ ~ $1000100101110101 / 1010 = 110110111110$ \\
 $110110111110 = 1000$ (mod $1010) \Longrightarrow a_1 = 8$, $110110111110 / 1010 = 101011111$ \\
 $101011111 = 1$ (mod $1010) \Longrightarrow a_2 = 1$, $10101111 / 1010 = 100011$ \\
 $100011 =  101$ (mod $1010) \Longrightarrow a_3 = 5$, $100011 / 1010 = 1$ \\
 $11 = 11$ (mod $1010) \Longrightarrow a_4 = 3$ \\
 also $z = 35189$.
 
+
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
-\subsection*{Anhang E: Beispiele mit Mathematica und Pari-GP } \hypertarget{AppendixD}{}
+\hypertarget{Appendix_E}{}
+\subsection*{Anhang E: Beispiele mit Mathematica und Pari-GP }
 \addcontentsline{toc}{subsection}{Anhang E: Beispiele mit Mathematica und Pari-GP}
 \index{Mathematica}\index{Pari-GP}
 
@@ -3956,8 +4060,9 @@ In diesem Anhang finden Sie den Quellcode, um die Tabellen und
 Beispiele mit Hilfe von Mathematica und dem freien Programm Pari-GP
 zu berechnen.
 
-\subsubsection*{Multiplikationstabellen modulo $m$} \hypertarget{AppArith1}{}
 
+\hypertarget{AppArith1}{}
+\subsubsection*{Multiplikationstabellen modulo $m$}
 Die auf Seite \pageref{SrcArith1a} aufgef"uhrten Multiplikationstabellen modulo $m = 17$
 f"ur $a=5$ und $a=6$ werden mit Mathematica durch die folgenden Befehle bestimmt: 
 \begin{verbatim}
@@ -4005,7 +4110,8 @@ Die weiteren Beispiele der Multiplikationstabelle modulo $13$ und modulo $12$ au
 entsprechenden Zahlenwert ({\tt m=13} bzw. {\tt m=12}) ersetzen.
 
 
-\subsubsection*{Schnelles Berechnen hoher Potenzen} \hypertarget{AppArith2}{}
+\hypertarget{AppArith2}{}
+\subsubsection*{Schnelles Berechnen hoher Potenzen}
 
 Das schnelle Potenzieren modulo $m$ geh"ort zu den Grundfunktionen von Mathematica und 
 Pari-GP. Sie k"onnen mit Hilfe dieser Programme nat"urlich auch die Idee der
@@ -4021,12 +4127,13 @@ Mod([87^43,87^2,87^4,87^8,87^16,87^32],103)
 
 
 
+\hypertarget{AppArith3a}{}
 \subsubsection*{Multiplikative Ordnung und Primitivwurzel}
 
-\hypertarget{AppArith3a}{}
-Die Ordnung $ord_m(a)$ einer Zahl $a$ in der multiplikativen Gruppe $Z_m^*$ ist die 
-kleinste nat"urliche Zahl $i \ge 1$ f"ur die gilt $a^i \equiv 1$ mod $m$. F"ur das Beispiel auf
-Seite \pageref{SrcArith3a} k"onnen Sie sich mit Mathematica alle Exponentiationen $a^i$ mod $11$
+Die Ordnung $ord_m(a)$ einer Zahl $a$ in der multiplikativen Gruppe $Z_m^*$ ist
+die kleinste nat"urliche Zahl $i \ge 1$ f"ur die gilt $a^i \equiv 1$ mod $m$.
+F"ur das Beispiel auf Seite \pageref{SrcArith3a} k"onnen Sie sich mit
+Mathematica alle Exponentiationen $a^i$ mod $11$
 durch die folgende Programmzeile ausgeben lassen. 
 \begin{verbatim}
 m=11;  Table[ Mod[a^i, m], {a, 1, m-1}, {i, 1, m-1} ]
@@ -4154,7 +4261,8 @@ In Pari-GP lautet die Syntax: \\
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
-\subsection*{Anhang F: Liste der hier formulierten Definitionen und S"atze} \hypertarget{AppendixE}{}
+\hypertarget{Appendix_F}{}  %\hypertarget{AppendixListAndDef}{}
+\subsection*{Anhang F: Liste der hier formulierten Definitionen und S"atze}
 \addcontentsline{toc}{subsection}{Anhang F: Liste der hier formulierten Definitionen und S"atze}
 \vskip +8 pt
 \begin{center}

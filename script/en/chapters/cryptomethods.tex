@@ -2,16 +2,25 @@
 % ..............................................................................
 %                V E R S C H L U E S S E L U N G S V E R F A H R E N
 %
-% Schreibregelung: Capitel header with all nouns/verbs-words capitalized,
-%                  All other headers in the normal lower/upper case manner
-%                  like sentences without dot at the end.
+% Schreibregelung / Syntax rules:
+%         - Capitel header with all nouns/verbs-words capitalized,
+%         - All other headers in the normal lower/upper case manner
+%           like sentences without dot at the end.
 %
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%\newpage
 
-\newpage
-\section{Encryption Procedures}
+\begin{center}
+\fbox{\parbox{15cm}{%
+{\em Saying from India}:\\
+Explain it to me, I will forget it.\\
+Show it to me, maybe I will remember it.\\
+Let me do it, and I will be good at it.}}
+\end{center}
+
 \hypertarget{Kapitel_1}{}
-(Bernhard Esslinger, May 1999, Updates Dec. 2001, Feb. 2003, June 2005)
+\section{Encryption Procedures}
+(Bernhard Esslinger, May 1999; Updates Dec. 2001, Feb. 2003, June 2005)
 
 
 This chapter introduces the topic in a more descriptive way without using too much mathematics.
@@ -339,29 +348,6 @@ symmetric and asymmetric encryption methods.
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{subsection}{Bibliography}
 
-\bibitem[Nichols1996]{Nichols1996} \index{Nichols 1996} 
-    Randall K. Nichols, \\
-    {\em Classical Cryptography Course, Volume 1 and 2}, \\
-    Aegean Park Press 1996;
-    or in 12 lessons online at \\
-    \href{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}
-    {\texttt{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}}
-
-
-\bibitem[Schmeh2003]{Schmeh2003}  \index{Schmeh 2003}
-        Klaus Schmeh, \\
-        {\em Cryptography and Public Key Infrastructures on the Internet},\\ 
-        John Wiley \& Sons Ltd., Chichester 2003. \\
-        A considerable, up-to-date, easy to read book, which also 
-        considers practical problems such as standardisation or
-        real existing software.
-
-\bibitem[Schneier1996]{Schneier1996cm} \index{Schneier 1996} 
-    Bruce Schneier, \\
-    {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C}, \\
-    Wiley 1994, 2nd edition 1996.
-
-
 \bibitem[Coppersmith2002]{Coppersmith2002}  \index{Coppersmith 2002}
         Don Coppersmith, \\
         {\em Re: Impact of Courtois and Pieprzyk results}, \\
@@ -371,7 +357,8 @@ symmetric and asymmetric encryption methods.
 
 \bibitem[Courtois2002]{Courtois2002}  \index{Courtois 2002}
         Nicolas Courtois, Josef Pieprzyk, \\
-        {\em Cryptanalysis of Block Ciphers with Overdefined Systems of Equations}, \\
+        {\em Cryptanalysis of Block Ciphers with Overdefined Systems
+             of Equations}, \\
         received 10 Apr 2002, last revised 9 Nov 2002.\\
         A different version, so called compact version of the first XSL attack,
         was published at Asiacrypt Dec 2002. \\
@@ -387,8 +374,17 @@ symmetric and asymmetric encryption methods.
 
 \bibitem[Lucks-DuD2002]{Lucks-DuD2002}  \index{Lucks 2002}
         Stefan Lucks, R\"udiger Weis, \\
-        {\em Neue Ergebnisse zur Sicherheit des Verschl\"usselungsstandards AES}, 
+        {\em Neue Ergebnisse zur Sicherheit des Verschl\"usselungsstandards
+             AES}, 
         in DuD Dec. 2002.
+
+\bibitem[Nichols1996]{Nichols1996} \index{Nichols 1996} 
+       Randall K. Nichols, \\
+       {\em Classical Cryptography Course, Volume 1 and 2}, \\
+       Aegean Park Press 1996;
+       or in 12 lessons online at \\
+       \href{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}
+       {\texttt{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}}
 
 \bibitem[Robshaw2002a]{Robshaw2002a}  \index{Robshaw 2002}
         S.P. Murphy, M.J.B. Robshaw, \\
@@ -403,6 +399,19 @@ symmetric and asymmetric encryption methods.
         September 26, 2002, \\
         \href{http://www.isg.rhul.ac.uk/\~{}mrobshaw/rijndael/rijndael.html}
         {\texttt{http://www.isg.rhul.ac.uk/~mrobshaw/rijndael/rijndael.html}}
+
+\bibitem[Schmeh2003]{Schmeh2003}  \index{Schmeh 2003}
+        Klaus Schmeh, \\
+        {\em Cryptography and Public Key Infrastructures on the Internet},\\ 
+        John Wiley \& Sons Ltd., Chichester 2003. \\
+        A considerable, up-to-date, easy to read book, which also 
+        considers practical problems such as standardisation or
+        real existing software.
+
+\bibitem[Schneier1996]{Schneier1996cm} \index{Schneier 1996} 
+    Bruce Schneier, \\
+    {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C}, \\
+    Wiley 1994, 2nd edition 1996.
 
 \bibitem[Wobst-iX2002]{Wobst-iX2002}  \index{Wobst 2002}
         Reinhard Wobst, \\
@@ -433,8 +442,8 @@ symmetric and asymmetric encryption methods.
          {\tt http://distributed.net/pressroom/news-20020926.html}
 
   \item RSA: ``The RSA Secret Key Challenge'' \\
-       \href{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}
-        {\tt http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}
+      \href{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}
+       {\tt http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}
 
   \item RSA: ``DES Challenge'' \\
         \href{http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}

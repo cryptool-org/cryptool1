@@ -5,11 +5,12 @@
 
 \newpage
 % --------------------------------------------------------------------------
-\section{Hash Functions and Digital Signatures}
 \hypertarget{Chapter_Hashes-and-Digital-Signatures}{}
+\section{Hash Functions and Digital Signatures}
+\label{Chapter_Hashes-and-Digital-Signatures}
 \index{Signature!digital}
-(Schneider J. / Esslinger B. / Koy H., June 2002,
-Update: Feb. 2003, June 2005)
+(Schneider J. / Esslinger B. / Koy H., June 2002;
+Updates: Feb. 2003, June 2005)
 
 \vspace{12pt}
 The aim of digital signatures is to guarantee the following two points:
@@ -60,7 +61,7 @@ CrypTool\index{CrypTool} at several places.\\
 Using menus {\bf Individual Procedures \textbackslash{} Hash} and
             {\bf Analysis \textbackslash{} Hash}
 you have the possibilities
-% hier die items nicht einrücken!
+% hier die items nicht einruecken!
 \begin{list}{\textbullet}{\leftmargin10pt\addtolength{\itemsep}{-1.0\baselineskip}}
 %\begin{itemize}\addtolength{\itemsep}{-1.0\baselineskip} % um den Abstand zu verringern bebe
 \item to apply one of 6 hash functions to the content of the current window, \\
@@ -76,13 +77,32 @@ you have the possibilities
 then be signed.
 
 
+
 % --------------------------------------------------------------------------
 \vskip + 15pt
-\subsection{Hash functions}
+\vskip + 30pt
+%\newpage
+\begin{center}
+\fbox{\parbox{15cm}{{\em Stanislaw Lem\index{Lem, Stanislaw}\footnotemark:}\newline 
+We can make everything out of this world, but we cannot create a world,
+where humans in some ten thousand years can think: 'Ok, now it is enough.
+Everything should stay like it is. Let's do no changes any more, don't do
+inventions any more, because it cannot become better, and if, then we
+don't want this.'
+}}
+\end{center}
+\addtocounter{footnote}{0}\footnotetext{This was the answer of Stanislaw Lem
+to heavy critics at his philosophical main book ~``Summa Technologiae'',
+1964, where he thought about the posibilty of an evolution creating
+artificial intelligence.\\}
+
+% --------------------------------------------------------------------------
 \hypertarget{Hash-functions-ht}{}
+\subsection{Hash functions}
 \index{Hash function}
 A {\em hash function}\footnote{%
-Hash algorithms compute a condensed representation of electronic data (message).
+Hash algorithms compute a condensed representation of electronic data
+(message).
 When a message is input to a hash algorithm, the result is an output called
 a message digest. The message digests typically range in length 
 from 128 to 512 bits, depending on the algorithm. 
@@ -100,12 +120,13 @@ the \index{Hash value} hash value.
 \vskip + 15pt
 \subsubsection{Requirements for hash functions}
 
-Cryptographically secure hash functions fulfill the following requirements:
+Cryptographically secure hash functions fulfill the following requirements
+(the order is in a way that the requirements increase):
 \begin{itemize}
  \item Resistance against 1st Pre-Image attacks:
       \index{Pre-Image-Attack!1st}  \\
-      It should be practically impossible, for a given number, to find a message
-      that has precisely this number as hash value. \\
+      It should be practically impossible, for a given number, to find a
+      message that has precisely this number as hash value. \\
       Given (fix): hash value H', \\
       Searched: message m, so that: H(m) = H'.
  \item Resistance against 2nd Pre-Image attacks:
@@ -162,12 +183,13 @@ or \index{RIPEMD-160} RIPEMD-160\footnote{%
   as hash algorithm and in combination with RSA.
   RIPEMD-160 is also part of the ISO/IEC international standard 
   ISO/IEC 10118-3:1998 on dedicated hash functions, together with 
-  RIPEMD-128 and SHA-1. 
-
+  RIPEMD-128 and SHA-1.
   Further details: \\
-  http://www.esat.kuleuven.ac.be/~bosselae/ripemd160.html \\
-  http://www.ietf.org/rfc/rfc2857.txt (``The Use of HMAC-RIPEMD-160-96
-  within ESP and AH'').
+- \href{http://www.esat.kuleuven.ac.be/~bosselae/ripemd160.html}
+   {\tt http://www.esat.kuleuven.ac.be/\~{}bosselae/ripemd160.html}\\
+- \href{http://www.ietf.org/rfc/rfc2857.txt}
+   {\tt http://www.ietf.org/rfc/rfc2857.txt} (``The Use of HMAC-RIPEMD-160-96
+   within ESP and AH'').
   }%
 ) were trusted.
 
@@ -383,7 +405,6 @@ change the exchanged messages without them noticing. The attack will also work
 if Charlie only has one pair of keys.
 
 Another name for this type of attack is \index{Attack!man-in-the-middle}
-% \index{Man-in-the-middle attack}
 ``man-in-the-middle attack''. Users are promised
 protection against this type of attack by publickey
 certification, which is intended to guarantee the
@@ -409,46 +430,25 @@ of the CA, the certificate-holder's public key and the validity period
 of the certificate. The CA then signs the certificate using its secret key.
 
 Anyone can now use the CA's public key to verify whether a certificate is
-falsified. The CA therefore guarantees that a public key belongs to a particular
-user.
+falsified. The CA therefore guarantees that a public key belongs to a
+particular user.
 
 This procedure is only secure as long as it can be guaranteed that the CA's
-public key is correct. For this reason, each CA has its public key certified by
-another CA that is superior in the hierarchy. In the upper hierarchy level there
-is usually only one CA, which can of course then have its key certified by
-another CA. It must therefore transfer its key securely in another way. In the
-case of many software products that work with certificates (such as the
-Microsoft and Netscape Web browsers), the certificates of these root CAs are
-permanently embedded in the program right from the start and cannot be changed
-by users at a later stage. However, (public) CA keys, in particularly those of
-the root entity, can also be secured by means of making them available publicly.
+public key is correct. For this reason, each CA has its public key certified
+by another CA that is superior in the hierarchy. In the upper hierarchy level
+there is usually only one CA, which can of course then have its key certified
+by another CA. It must therefore transfer its key securely in another way.
+In the case of many software products that work with certificates (such as
+the Microsoft and Netscape Web browsers), the certificates of these root CAs
+are permanently embedded in the program right from the start and cannot be
+changed by users at a later stage. However, (public) CA keys, in particularly
+those of the root entity, can also be secured by means of making them
+available publicly.
 
 
+\newpage
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{subsection}{Bibliography}
-
-\bibitem[Schneier1996]{Schneier1996ds} \index{Schneier 1996} 
-    Bruce Schneier, \\
-    {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C}, \\
-    Wiley, 2nd edition, 1996.
-
-\bibitem[PKCS1]{PKCS1} RSA Laboratories,\\ 
-    \index{PKCS\#1} \index{RSA Laboratories}
-    {\em PKCS \#1 v2.1 Draft 3: RSA Cryptography Standard}, \\
-    April 19, 2002.
-
-\bibitem[X.509]{X.509} ITU-T, \\
-    \index{X.509}
-    {\em ITU-T Recommendation X.509 (1997 E): Information Technology -- 
-    Open Systems Interconnection -- The Directory: Authentication Framework},\\
-    June 1997.
-    
-\bibitem[X.509v3]{X.509v3} ITU-T, \\
-    \index{X.509} \index{ITU-T} \index{ISO/IEC 9594-8}
-    {\em X.509 (1993) Amendment 1: Certificate Extensions, The Directory
-    Authentication Framework},\\ 
-    International Telecommunication Union, Geneva, Switzerland, July 1995\\
-    (equivalent to amendment 1 to ISO/IEC 9594-8).
 
 \bibitem[FIPS180-2]{FIPS180-2} U.S. Department of Commerce/N.I.S.T. ,
     \index{FIPS180-2} \\
@@ -466,7 +466,36 @@ the root entity, can also be secured by means of making them available publicly.
     \index{FIPS186-2} \\
     {\em Digital Signature Standard (DSS)}, \\
     January 27, 2000. Change Note: October 5, 2001.\\
-    http://csrc.nist.gov/publications/fips/fips186-2/fips186-2-change1.pdf
+  \href{http://csrc.nist.gov/publications/fips/fips186-2/fips186-2-change1.pdf}
+   {\tt http://csrc.nist.gov/publications/fips/fips186-2/fips186-2-change1.pdf}
+
+\bibitem[PKCS1]{PKCS1} RSA Laboratories,
+    \index{PKCS\#1} \index{RSA Laboratories} \\
+    {\em PKCS \#1 v2.1 Draft 3: RSA Cryptography Standard}, \\
+    April 19, 2002.
+
+\bibitem[Schneier1996]{Schneier1996ds} \index{Schneier 1996} 
+    Bruce Schneier, \\
+    {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C}, \\
+    Wiley, 2nd edition, 1996.
+
+\bibitem[Wobst2005]{Wobst2005} \index{Wobst 2005} 
+    Reinhard Wobst, \\
+    {\em New Attacks Against Hash Functions}, \\
+    Information Security Bulletin, April 2005.
+
+\bibitem[X.509]{X.509} ITU-T, 
+    \index{X.509} \\
+    {\em ITU-T Recommendation X.509 (1997 E): Information Technology -- 
+    Open Systems Interconnection -- The Directory: Authentication Framework},\\
+    June 1997.
+    
+\bibitem[X.509v3]{X.509v3} ITU-T, 
+    \index{X.509} \index{ITU-T} \index{ISO/IEC 9594-8} \\
+    {\em X.509 (1993) Amendment 1: Certificate Extensions, The Directory
+    Authentication Framework},\\ 
+    International Telecommunication Union, Geneva, Switzerland, July 1995\\
+    (equivalent to amendment 1 to ISO/IEC 9594-8).
 
 \end{thebibliography}
 

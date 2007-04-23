@@ -5,6 +5,8 @@
 
 
 % --------------------------------------------------------------------------
+\newpage
+%\addcontentsline{toc}{section}{Vorwort zur 7. Ausgabe des CrypTool-Skripts} % be_2006: So springt er auf S. 3 statt auf S. 9 !!
 \section*{Vorwort zur 7. Ausgabe des CrypTool-Skripts}
 \addcontentsline{toc}{section}{Vorwort zur 7. Ausgabe des CrypTool-Skripts}
 
@@ -37,21 +39,24 @@ Forschungsergebnissen):
   \item die Suche nach den gr"o"sten Primzahlen (verallgemeinerte
         Mersenne- und Fermatzahlen) \\
 %        Mersenne- und Fermatzahlen, \glqq M-40\grqq) 
-	(Kap. \ref{spezialzahlentypen}, \ref{zahlentyp_mersenne}),
-  \item die Faktorisierung gro"ser Zahlen (RSA-200)\index{RSA-20} 
+	(Kap. \ref{spezialzahlentypen}, \ref{RecordPrimes}),
+  \item die Faktorisierung gro"ser Zahlen (RSA-200)\index{RSA-200} 
         (Kap. \ref{RSA-200}),
   \item Fortschritte bei der Kryptoanalyse von Hashverfahren 
-        (Kap. \ref{collision-attacks-against-sha-1}),
-  \item Fortschritte bei den Ideen f"ur neue Kryptoverfahren (RSA-Nachfolger)
-	(Kap. \ref{xxxxBrute-force-gegen-Symmetr})\index{xxxxxxxxxxxxxxxxxxxxx} und
+        (Kap. \ref{collision-attacks-against-sha-1}) und
+%  \item Fortschritte bei den Ideen f"ur neue Kryptoverfahren (RSA-Nachfolger)
+%	(Kap. \ref{xxxxBrute-force-gegen-Symmetr})\index{xxxxxxxxxxxxxxxxxxxxx} und
   \item eine Auflistung, in welchen Filmen und Romanen Kryptographie eine
-        wesentliche Rolle spielt (siehe Anhang \ref{s:appendix-movies}).
+        wesentliche Rolle spielt (siehe Anhang \ref{s:appendix-movies});
+        und wo Primzahlen als Aufh"anger benutzt wurden 
+        (siehe Kurioses in \ref{HT-Quaint-curious-Primes-usage}).
 \end{itemize}
 
 \vspace{12pt}
-Seit das Skript dem CrypTool-Paket in Version 1.2.01 das erste Mal beigelegt 
-wurde, ist es mit fast jeder neuen Version von CrypTool (1.2.02, 1.3.00, 
-1.3.02, 1.3.03, 1.3.04 und nun 1.3.10) ebenfalls erweitert und aktualisiert worden.
+Seit das Skript dem CrypTool-Paket in Version 1.2.01 das erste Mal beigelegt
+wurde, ist es mit fast jeder neuen Version von CrypTool (1.2.02, 1.3.00,
+1.3.02, 1.3.03, 1.3.04 und nun 1.4.00) ebenfalls erweitert und aktualisiert
+worden.
 
 Ich w"urde mich sehr freuen, wenn sich dies auch innerhalb der folgenden
 Open Source-Versionen\index{Open Source} von CrypTool\index{CrypTool}
@@ -67,14 +72,18 @@ Verst"andnis f"ur dieses moderne und zugleich uralte Thema finden.
 
 Bernhard Esslinger
 
-Frankfurt, Juni 2005
+Frankfurt, Juni 2006
 
 
 
 
 % --------------------------------------------------------------------------
 \newpage
-\section*{Einf"uhrung -- Zusammenspiel von Skript und CrypTool}  \addcontentsline{toc}{section}{Einf"uhrung -- Zusammenspiel von Skript und CrypTool}
+%\addcontentsline{toc}{section}{Einf"uhrung -- Zusammenspiel von Skript
+%        und CrypTool}  % be_2006: So springt er auf S. 9 statt auf S. 10 !!
+\section*{Einf"uhrung -- Zusammenspiel von Skript und CrypTool}
+\addcontentsline{toc}{section}{Einf"uhrung -- Zusammenspiel von Skript
+                               und CrypTool}
 
 
 \textbf{Das Skript}
@@ -111,15 +120,13 @@ mit dessen Hilfe Sie unter einer einheitlichen Oberfl"ache
 kryptographische Verfahren anwenden und analysieren k"onnen.
 \par \vskip + 3pt
 
-CrypTool\index{CrypTool} wurde im Zuge des End-User Awareness-Programms
-entwickelt, um die Sensibilit"at der Mitarbeiter f"ur IT-Sicherheit
-zu erh"ohen und um ein tieferes Verst"andnis f"ur den Begriff Sicherheit
-zu erm"oglichen. 
+CrypTool\index{CrypTool} wurde entwickelt, um die Sensibilit"at der 
+Mitarbeiter f"ur IT-Sicherheit zu erh"ohen und um ein tieferes Verst"andnis
+f"ur Sicherheit zu erm"oglichen. 
 Ein weiteres Anliegen war die Nachvollziehbarkeit der in der Deutschen Bank
 eingesetzten kryptographischen Verfahren. So ist es mit CrypTool als 
 verl"asslicher Referenzimplementierung der verschiedenen 
-Verschl"usselungsverfahren (aufgrund der Nutzung der Industrie-bew"ahrten 
-\index{SECUDE IT Security GmbH} Secude-Bibliothek) auch m"og\-lich, die in
+Verschl"usselungsverfahren auch m"og\-lich, die in
 anderen Programmen eingesetzte Verschl"usselung zu testen.
 \par \vskip + 3pt
 
@@ -131,7 +138,7 @@ mit weiterentwickelt.
 
 \textbf{Dank}
 
-An dieser Stelle m"ochte ich explizit sechs Personen danken, 
+An dieser Stelle m"ochte ich explizit sieben Personen danken, 
 die bisher in ganz besonderer Weise zu CrypTool\index{CrypTool} 
 beigetragen haben.
 Ohne ihre besonderen F"ahigkeiten und ihr gro"ses Engagement w"are CrypTool
@@ -140,6 +147,7 @@ nicht, was es heute ist:
 \begin{list}{\textbullet}{\addtolength{\itemsep}{-0.5\baselineskip}}
    \item Hr.\ Henrik Koy
    \item Hr.\ J"org-Cornelius Schneider
+   \item Hr.\ Florian Marchal
    \item Dr.\ Peer Wichmann
    \item Prof. Dr. Claudia Eckert,  Hr.\ Thomas Buntrock und Hr.\ Thorsten Clausius.
 \end{list}
@@ -149,7 +157,7 @@ Auch allen hier nicht namentlich Genannten ganz herzlichen Dank f"ur das
 
 Bernhard Esslinger
 
-Frankfurt, Juni 2005
+Frankfurt, Juni 2006
 
 % Local Variables:
 % TeX-master: "../script-de.tex"

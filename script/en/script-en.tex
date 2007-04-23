@@ -29,21 +29,37 @@
   {\textbf{Proof #1} \\}
   {\hfill$\Box$ \\}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hack, damit Aufruf von \tableofcontents auch gleich \addcontentsline
+% enthält. Damit steht im Inhaltsverzeichnis das Inhaltsverzeichnis
+% mit korrekter Seitenzahl und Hyperlink.
+\makeatletter
+\renewcommand\tableofcontents{%
+    \section*{\contentsname
+        \@mkboth{%
+           \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
+    \addcontentsline{toc}{section}{\contentsname}
+    \@starttoc{toc}%
+    }
+\makeatother
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title{ 
 	The CrypTool Script: \\
-	Mathematics and Cryptography \\
+	Cryptography, Mathematics and more \\
         \vspace{30pt}
         {\large	Background reading\\*[-8pt] 
-        for the free elearnig program CrypTool (version 1.3.10)}
+        for the free eLearning program CrypTool (version 1.4.00)}
         \vspace{60pt}
 }
 
 \vspace{32pt}
 
 \author{
-(c) Bernhard Esslinger (Co-author and editor), 1998-2005 \\
-Frankfurt am Main
+(c) Bernhard Esslinger (co-author and editor), 1998-2006 \\
+Frankfurt am Main, Germany
 }
 
 
@@ -79,18 +95,17 @@ Frankfurt am Main
 
 % Vergleichbar zur Nutzung von Texten aus der Wikipedia (=GNU Free Documentation Licence, GFDL)
 \vspace{200pt}
-This is a free document, so the content of the document can be copied and distributed,
-also for commercial purposes; 
-so long as the new version acknowledges author, title and the CrypTool web site. \\
-Naturally, citations from the CrypTool script are possible, as in all other documents.
-This licence is abutted on the GNU Free Documentation Licence.
+This is a free document, so the content of the document can be copied and
+distributed, also for commercial purposes -- as long as the author, title and
+the CrypTool web site (www.cryptool.org) are acknowledged. \\
+Naturally, citations from the CrypTool script are possible, as in all other
+documents. This licence is abutted on the GNU Free Documentation Licence.
 
 \newpage
 \input{chapters/aboutcryptool.tex}
 
 \newpage
-\tableofcontents
-\addcontentsline{toc}{section}{Contents}
+\tableofcontents  % --> is redefined !
 
 \newpage
 \normalsize
@@ -106,16 +121,12 @@ This licence is abutted on the GNU Free Documentation Licence.
 \input{chapters/digitalsignatures.tex}
 \input{chapters/ellipticcurves.tex}
 
-
-%\appendix \addcontentsline{toc}{section}{Appendix} %be_2005 raus
 \begin{appendix}
   \newpage
   \input{chapters/menus.tex}
   \input{chapters/authors.tex}
 \end{appendix}
 
-
-%\addcontentsline{toc}{section}{Index} %moved to style.ist
 \printindex
 
 \end{document}

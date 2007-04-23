@@ -1,9 +1,10 @@
 % $Id%
 
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%\newpage  be_2006 Nötig ?
 \hypertarget{appendix-start}{}\label{s:appendix-start}
 % \addcontentsline{toc}{section}{Anhang} 
 % \addcontentsline macht nur Eintrag ins Inhaltsverzeichnis und deren PDF-Darstellung im linken Frame (mit den Kapitelüberschriften). 
-
 %be_2005: Arbeitet man hier mit \addcontentsline{toc}{section}{Anhang} und man
 %         nutzt statt \section das \subsection, damit es korrekterweise
 %         unterhalb von Appendix einetragen wird, hat es das Präfix ".1" oder ".2"
@@ -12,53 +13,62 @@
 
 \section{Anhang}
 
-% be_2005: - Mit ref (zu label) kann man eine anspringbare Kapitel-NUMMER einfügen.
-%          - Mit hyperlink (zu hypertarget) einen anspringbaren Titel (den man aber
-%            selbst nochmal angeben muss).
-%          - Aber wie kann man gleich den Titel selbst als Referenz erhalten ??? 
-\hyperlink{appendix-menutree}{(Anhang A: CrypTool Men"ubaum)}
+    \begin{itemize}
 
-\hyperlink{appendix-authors}{(Anhang B: CrypTool-Skript-Autoren)}
+      \item[1] \hyperlink{appendix-menutree}{CrypTool Men"ubaum}
 
-\hyperlink{appendix-movies}{(Anhang C: Filme und Literatur mit Bezug zur Kryptographie)} 
+      \item[2] \hyperlink{appendix-authors}{Autoren des CrypTool-Skripts}
+
+      \item[3] \hyperlink{appendix-movies}{Filme und belletristische
+                          Literatur mit Bezug zur Kryptographie, B"ucher
+                          mit Sammlungen einfacher Verfahren f"ur Kinder}
+
+    \end{itemize}
 
 
 
 
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
 \enlargethispage{1cm}
+\hypertarget{appendix-menutree}{}
 \subsection{CrypTool-Men"us}
-\hypertarget{appendix-menutree}{}\label{s:appendix-menutree}
+\label{s:appendix-menutree}
 
-Dieser Anhang enth"alt den kompletten Men"u-Baum der CrypTool\index{CrypTool}-Version 1.3.10.
+   % Eyecatcher_Neue-CrypTool-Version
+Dieser Anhang enth"alt auf der folgenden Seite den kompletten Men"u-Baum der
+CrypTool\index{CrypTool}-Version 1.4.00.
 
-Welche Men"ueintr"age gerade aktiv (also nicht ausgegraut) sind, 
-wird durch den Typ des aktiven Dokumentenfenster bestimmt.
-So ist z.~B.  die Brute-Force Analyse\index{Angriff!Brute-force} f"ur DES 
+Welche Men"ueintr"age gerade aktiv (also nicht ausgegraut) sind, wird durch
+den Typ des aktiven Dokumentenfenster bestimmt.
+
+So ist z.~B. die Brute-Force Analyse\index{Angriff!Brute-force} f"ur DES 
 nur verf"ugbar, wenn das aktive Fenster in Hexadezimal-Darstellung 
-ge"offnet ist, w"ahrend der Men"ueintrag
-"`Zufallsdaten erzeugen\dots"' immer verf"ugbar ist. 
+ge"offnet ist, w"ahrend der Men"ueintrag "`Zufallsdaten erzeugen\dots"'
+immer verf"ugbar ist (auch wenn kein Dokument ge"offnet ist). 
 
-Folgende Dokumenttypen gibt es in CrypTool:
-\begin{center}
-\begin{tabular}{rl}
-\bf Codebuchstabe & \bf Dokumententyp \\
-A & ASC\\
-T & Text\\
-H & Hexadezimal\\
-P & Plot\\
-\end{tabular}
-\end{center}
+%Folgende vier Dokumenttypen gibt es in CrypTool:
+%\begin{center}
+%\begin{tabular}{rl}
+%\bf Codebuchstabe & \bf Dokumententyp \\
+%T & Textdatei-Ansicht\\
+%H & Hexadezimal-Ansicht\\
+%P & Diagramm/Plot-Ansicht (Histogramm, Autokorrelation)\\
+%O & OpenGL Graphics-Ansicht\\
+%\end{tabular}
+%\end{center}
+
 
 \clearpage
 \begin{figure}[hb]
 \begin{center}
 \vspace{-30pt}
 %\frame{
-\includegraphics[scale=0.75, angle=270, viewport=14 72 835 590]{figures/cryptool-menu-de}
+\includegraphics[scale=0.25, angle=270, viewport=200 3 2680 1276]
+                {figures/cryptool-menu-de}
 %viewport=rand-links? rand-unten breite hoehe? [bezogen auf querformat]
 %}
-\caption{Komplette "Ubersicht "uber den CrypTool-Men"u-Baum} 
+\caption{Komplette "Ubersicht "uber den Men"u-Baum von CrypTool 1.4.00} 
 \label{menuoverview}
 \end{center}
 \end{figure}

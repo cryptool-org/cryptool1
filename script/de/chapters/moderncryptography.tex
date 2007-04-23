@@ -47,18 +47,19 @@
 \setlength{\fboxsep}{4pt}
 
 \newpage
-%**************************************************************************************************************************
+%********************************************************************
+\hypertarget{Chapter_ModernCryptography}{}
 \section{Die mathematischen Ideen hinter der modernen Kryptographie}
 \label{Chapter_ModernCryptography}
-\hypertarget{Chapter_ModernCryptography}{}
-%**************************************************************************************************************************
-(Oyono R./ Esslinger B., Sep. 2000, Updates Nov. 2000, Feb. 2003)
+%********************************************************************
+(Oyono R./ Esslinger B., Sep. 2000; Updates Nov. 2000, Feb. 2003)
 
-%--------------------------------------------------------------------------------------------------------------------------
+%--------------------------------------------------------------------
+\hypertarget{OneWayFunktion1}{}
 \subsection{Einwegfunktionen mit Fallt"ur und Komplexit"atsklassen}
-%--------------------------------------------------------------------------------------------------------------------------
+%--------------------------------------------------------------------
 \index{Kryptographie!moderne} \index{Einwegfunktion}
-Eine {\bf Einwegfunktion} \hypertarget{OneWayFunktion1}{} ist eine effizient zu 
+Eine {\bf Einwegfunktion} ist eine effizient zu 
 berechnende Funktion, deren Umkehrung jedoch nur mit 
 extrem hohem Rechenaufwand -- jedoch praktisch unm"oglich -- zu berechnen ist.\par
 
@@ -131,12 +132,12 @@ Es wurden eine Reihe von Algorithmen f"ur Public Key-Verfahren vorgeschlagen. Ei
 
 \newpage
 %--------------------------------------------------------------------
-       \subsection{Knapsackproblem als Basis f"ur Public Key-Verfahren} \index{Kryptographie!Public Key}
+\subsection{Knapsackproblem als Basis f"ur Public Key-Verfahren}
+\index{Kryptographie!Public Key}
 %--------------------------------------------------------------------
-%--------------------------------------------------------------------
-    \subsubsection{Knapsackproblem} \index{Knapsack}
 
 %--------------------------------------------------------------------
+\subsubsection{Knapsackproblem} \index{Knapsack}
 
 Gegeben $ n $ Gegenst"ande $ G_1, \dots, G_n $ mit den Gewichten $ g_1, \dots g_n $ und den Werten $w_1, \cdots, w_n. $ Man soll wertm"a"sig so viel wie m"oglich unter Beachtung einer oberen Gewichtsschranke $ g $ davontragen. Gesucht ist also eine Teilmenge von $ \{ G_1, \cdots,G_n\}, $ etwa $ \{G_{i_1}, \dots ,G_{i_k} \}, $ so dass  $ w_{i_1}+ \cdots +w_{i_k} $ maximal wird unter der Bedingung $  g_{i_1}+ \cdots +g_{i_k} \leq g. $ \par
 Derartige Fragen sind sogenannte {\bf NP}-vollst"andige Probleme (nicht \index{Laufzeit!nicht polynomial NP} deterministisch polynomial\index{Polynom}), die aufwendig zu berechnen sind.\index{Knapsack}
@@ -190,9 +191,9 @@ Der folgende Algorithmus l"ost das Knapsackproblem mit superwachsender Folge im 
 \vskip +20 pt
 
 
+
 %--------------------------------------------------------------------
 \subsubsection{Merkle-Hellman Knapsack-Verschl"usselung}
-%--------------------------------------------------------------------
 \index{Hellman, Martin} \index{Merkle, Ralph} 
 
 1978 gaben Merkle und Hellman \cite{Merkle1978} \index{Verschl""usselung!Merkle-Hellman} ein Public Key-Verschl"usselungs-Verfahren an, das darauf beruht, das leichte 0-1-Knapsackproblem mit einer superwachsenden Folge in ein kongruentes mit einer nicht superwachsenden Folge zu \glqq verfremden\grqq. Es ist eine Blockchiffrierung, die bei jedem Durchgang einen $n$ Bit langen Klartext chiffriert.
@@ -237,22 +238,25 @@ Einwegfunktion, deren Fallt"ur-In"-for"-ma"-tion (Verfremden des
 
 
 %---------------------------------------------------------------------
-\subsection{Primfaktorzerlegung als Basis f"ur Public Key-Verfahren}\index{Primfaktor!Zerlegung}
+\subsection{Primfaktorzerlegung als Basis f"ur Public Key-Verfahren}
+\index{Primfaktor!Zerlegung}
 %--------------------------------------------------------------------
 
 
 %--------------------------------------------------------------------
+\hypertarget{RSAVerfahren}{}
 \subsubsection[Das RSA-Verfahren]
 {Das RSA-Verfahren\footnotemark}
 \footnotetext{%
 Mit CrypTool\index{CrypTool} k"onnen Sie praktische Erfahrungen
 mit dem RSA-Verfahren sammeln: per Men"u {\bf Einzelverfahren 
 \textbackslash{} RSA-Kryptosystem \textbackslash{} RSA-Demo}.
-}\index{RSA} \hypertarget{RSAVerfahren}{} \label{rsaverfahren}
+}
+\index{RSA} \label{rsaverfahren}
 
 Bereits 1978 stellten R. \index{Rivest, Ronald} Rivest,
 \index{Shamir, Adi} A. Shamir,  \index{Adleman, Leonard} L. Adleman
- \cite{RSA1978} das bis heute wichtigste 
+\cite{RSA1978} das bis heute wichtigste 
 asymmetrische Kryptographie-Verfahren vor.  \par
 
 \index{Faktorisierung!Faktorisierungsproblem}
@@ -295,9 +299,8 @@ $|\{ x <24 : \ggt (x,24) =1 \}| =|\{1,5,7,11,13,17,19,23\}|. $
 Ist  $ p $ eine Primzahl, so gilt $ \phi (p)= p-1. $
 
 Kennt man die verschiedenen Primfaktoren  $ p_1, \dots , p_k $ von $ N, $ so ist $ \phi (N) = N \cdot (1-\frac{1}{p_1}) \,
-\cdots \, (1-\frac{1}{p_k}) $\footnote{Weitere Formeln finden sich in den
-Artikel \hyperlink{Kapitel_3_8}{\glqq Einf"uhrung in die elementare Zahlentheorie
-mit Beispielen\grqq, Kap. 3.8}.}.
+\cdots \, (1-\frac{1}{p_k}) $\footnote{%
+Weitere Formeln zur Eulerschen Phi-Funktionfinden sich in \ref{L-Euler-Function}.}.
 
 Im Spezialfall $ N=pq $ ist $ \phi (N)= pq(1-1/p)(1-1/q) = p(1-1/p)q(1-1/q)=(p-1)(q-1).$
 \\ \vskip +5 pt
@@ -332,30 +335,30 @@ $L(N)$ & $ 1,42 \cdot 10^{10} $ &  $ 2,34  \cdot 10^{15} $ &  $ 3,26 \cdot 10^{1
 \end{tabular}
 \end{center}
 \vskip +5 pt 
-Solange kein besserer Algorithmus gefunden wird, hei"st dies, dass Werte der
-Gr"o"senordnung $ 100 $ bis $ 200 $ Dezimalstellen zur Zeit sicher sind.
-Einsch"atzungen der aktuellen Computertechnik besagen, dass eine Zahl mit $100$
-Dezimalstellen bei vertretbaren Kosten in etwa zwei Wochen zerlegt werden
-k"onnte. Mit einer teuren Konfiguration (z.B. im Bereich von 10 Millionen
-US-Dollar) k"onnte eine Zahl mit $150$ Dezimalstellen in etwa einem Jahr zerlegt
-werden.  Eine $200-$stellige Zahl d"urfte noch f"ur eine sehr lange Zeit
-unzerlegbar bleiben, falls es zu keinem mathematischen Durchbruch kommt. Zum
-Beispiel w"urde es etwa 1000 Jahre dauern, um eine 200-stellige Zahl mit den
-bestehenden Algorithmen in Primfaktoren zu zerlegen; dies gilt selbst dann, wenn
-$ 10^{12} $  Operationen pro Sekunde ausgef"uhrt werden k"onnten, was jenseits
-der Leistung der heutigen Technik liegt und in der Entwicklung Milliarden von
-Dollar kosten w"urde. Dass es aber nicht doch schon morgen zu einem
-mathematischen Durchbruch kommt, kann man nie ausschlie"sen.
 
 Bewiesen ist bis heute nicht, dass das Problem, RSA zu brechen "aquivalent zum
 Faktorisierungsproblem \index{Faktorisierung!Faktorisierungsproblem} ist. Es ist
 aber klar, dass wenn das Faktorisierungsproblem \glqq gel"ost\grqq {} ist, dass
-dann das RSA-Verfahren nicht mehr sicher ist.
+dann das RSA-Verfahren nicht mehr sicher ist.\footnote{%
+Im Jahre 2000 waren die Autoren der Ansicht, da"s Werte der
+Gr"o"senordnung $ 100 $ bis $ 200 $ Dezimalstellen sicher sind. Sie sch"atzten,
+dass mit der aktuellen Computertechnik eine Zahl mit $100$
+Dezimalstellen bei vertretbaren Kosten in etwa zwei Wochen zerlegt werden
+k"onnte, dass mit einer teuren Konfiguration (z.B. im Bereich von 10 Millionen
+US-Dollar) eine Zahl mit $150$ Dezimalstellen in etwa einem Jahr zerlegt
+werden k"onnte und dass eine $200-$stellige Zahl noch f"ur eine sehr lange Zeit
+unzerlegbar bleiben d"urfte, falls es zu keinem mathematischen Durchbruch kommt.
+Dass es aber nicht doch schon morgen zu einem mathematischen Durchbruch kommt,
+kann man nie ausschlie"sen.\\
+Wie leicht man sich versch"atzen kann, zeigt die
+\hyperlink{RSA-200-chap3}{Faktorisierung von RSA-200} 
+(siehe Kapitel \ref{NoteFactorisation}) -- ganz ohne \glqq mathematische
+Durchbr"eche''.}
+
 
 
 %--------------------------------------------------------------------
-    \subsubsection{Rabin-Public Key-Verfahren (1979)}
-%--------------------------------------------------------------------
+\subsubsection{Rabin-Public Key-Verfahren (1979)}
 
 F"ur \index{Rabin, Michael O.} \index{Rabin!Public-Key Verfahren} 
 dieses Verfahren konnte gezeigt werden, dass es "aquivalent zum Brechen
@@ -387,14 +390,16 @@ Hintert"ur-Information ist die Primfaktorzerlegung von $ n = pq. $
 
 
 
-%--------------------------------------------------------------------
-       \subsection{Der diskrete Logarithmus als Basis f"ur Public Key-Verfahren}
-%--------------------------------------------------------------------
-Diskrete Logarithmen\index{Logarithmusproblem!diskret} sind die Grundlage f"ur eine gro"se Anzahl von Algorithmen von Public Key-Verfahren.
 
 %--------------------------------------------------------------------
-    \subsubsection{Der diskrete Logarithmus in $ \Z_p^* $}
+\subsection{Der diskrete Logarithmus als Basis f"ur Public Key-Verfahren}
+
+Diskrete Logarithmen\index{Logarithmusproblem!diskret} sind die Grundlage f"ur eine gro"se Anzahl von Algorithmen von Public Key-Verfahren.
+
+
 %--------------------------------------------------------------------
+\subsubsection{Der diskrete Logarithmus in $ \Z_p^* $}
+
 Sei $ p $ eine Primzahl, und sei $g$ ein Erzeuger der zyklischen multiplikativen Gruppe $ \Z_p^\ast=\{1,\ldots,p-1\} $. Dann ist die diskrete Exponentialfunktion zur Basis $ g $  definiert durch
 \[ e_g : k \longrightarrow y:=g^k \mod p, \quad 1\leq k \leq p-1. \]
 Die Umkehrfunktion wird diskrete Logarithmusfunktion $ \log_g $ genannt; es gilt
@@ -451,6 +456,7 @@ $$
 Die Suche wurde mit der GNFS-Methode (General Number Field Sieve,
 Index-Calculus) \index{General Number Field Sieve (GNFS)} durchgef"uhrt und
 ben"otigte ca.~17 CPU-Jahre auf 3.2 GHz Xeon Maschinen.
+
 %--------------------------------------------------------------------
 \subsubsection[Diffie-Hellman-Schl"usselvereinbarung]
 {Diffie-Hellman-Schl"usselvereinbarung\footnotemark}
@@ -491,7 +497,7 @@ Die Sicherheit des {\bf Diffie-Hellman-Protokolls} h"angt eng mit der Berechnung
 
 %--------------------------------------------------------------------
 \subsubsection{ElGamal-Public Key-Verschl"usselungsverfahren in $ \Z_p^\ast$}
-%--------------------------------------------------------------------
+
 \index{ElGamal!Public Key}
 Indem man das Diffie-Hellman Schl"usselvereinbarungsprotokoll 
 \index{Diffie-Hellman} \index{Verschl""usselung!ElGamal-Public Key} 
@@ -522,9 +528,8 @@ und
 \vskip +20 pt
 
 
-%-----------------------------------------------------------------------------------------------------------------------
+%--------------------------------------------------------------------
 \subsubsection{Verallgemeinertes ElGamal-Public Key-Verschl"usselungsverfahren }
-%-----------------------------------------------------------------------------------------------------------------------
 
 Den diskreten Logarithmus kann man in beliebigen endlichen \index{Gruppen} Gruppen $ (G, \circ) $ verallgemeinern. Im folgenden geben wir einige Eigenschaften "uber die Gruppe $G$ an, damit das diskrete Logarithmusproblem schwierig wird. \\
 \index{Exponentialfunktion!Berechnung}

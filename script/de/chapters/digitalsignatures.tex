@@ -5,11 +5,12 @@
 
 \newpage
 % --------------------------------------------------------------------------
-\section{Hashfunktionen und Digitale Signaturen}
 \hypertarget{Chapter_Hashes-and-Digital-Signatures}{}
+\section{Hashfunktionen und Digitale Signaturen}
+\label{Chapter_Hashes-and-Digital-Signatures}
 \index{Signatur!digitale}
-(Schneider J. / Esslinger B. / Koy H., Juni 2002, 
-Update: Feb. 2003, Juni 2005)
+(Schneider J. / Esslinger B. / Koy H., Juni 2002; 
+Updates: Feb. 2003, Juni 2005)
 
 \vspace{12pt}
 Ziel der digitalen Signatur ist es, folgende zwei Punkte zu gew"ahrleisten:
@@ -85,10 +86,26 @@ haben Sie die M"oglichkeit
 } an. Deren Output wird dann signiert.
 
 
+
+%\newpage
+\begin{center}
+\fbox{\parbox{15cm}{{\em Stanislaw Lem\index{Lem, Stanislaw}\footnotemark:}\newline 
+Wir k"onnen alles aus dieser Welt machen, nur nicht eine Welt, in der die
+Menschen in einigen zigtausend Jahren "uberlegen k"onnten: 'So, es ist nun
+genug. So soll es von nun an f"ur immer bleiben. Ver"andern wir nichts,
+erfinden wir nichts, weil es besser nicht sein kann, und wenn doch, dann
+wollen wir es nicht.'
+}}
+\end{center}
+\addtocounter{footnote}{0}\footnotetext{Antwort von Stanislaw Lem auf
+die Kritik an seinem philosophischen Hauptwerk ~\glqq Summa Technologiae'',
+1964, in der er die evolution"are M"oglichkeit einer Entstehung der
+k"unstlichen Intelligenz ausf"uhrte.\\}
+
 % --------------------------------------------------------------------------
 \vskip + 15pt
-\subsection{Hashfunktionen}
 \hypertarget{Hash-functions-ht}{}
+\subsection{Hashfunktionen}
 \index{Hashfunktion}
 Eine {\em Hashfunktion}\footnote{%
 Hashverfahren berechnen eine komprimierte Repr"asentation 
@@ -111,7 +128,8 @@ Hashwert, ab.
 \vskip + 15pt
 \subsubsection{Anforderungen an Hashfunktionen}
 
-Kryptographisch sichere Hashfunktionen erfullen folgende Anforderungen:
+Kryptographisch sichere Hashfunktionen erf"ullen folgende Anforderungen
+(Reihenfolge so, dass die Anforderungen ansteigen):
 \begin{itemize}
  \item Standhaftigkeit gegen 1st-Pre-Image-Attacks:
       \index{Pre-Image-Attack!1st}  \\
@@ -126,7 +144,7 @@ Kryptographisch sichere Hashfunktionen erfullen folgende Anforderungen:
       Gegeben (fix): Nachricht m1 [und damit der Hashwert H1 = H(m1)], \\
       Gesucht: Nachricht m2, so dass gilt: H(m2) = H1.
  \item Standhaftigkeit gegen Kollisionsangriffe:
-      \index{Kollisionsangriff}  \\
+      \index{Angriff!Kollisionsangriff}  \\
       Es sollte es praktisch unm"oglich sein, zwei (beliebige) Nachrichten
       mit demselben Hashwert (welcher ist egal) zu finden. \\
       Gesucht: 2 Nachrichten m1 und m2, so dass gilt: H(m1) = H(m2).
@@ -178,12 +196,12 @@ oder \index{RIPEMD-160} RIPEMD-160\footnote{%
   TeleTrusT, sowohl f"ur Hashverfahren als auch in Kombination mit RSA.
   RIPEMD-160 ist Teil des internationalen ISO/IEC-Standards 
   ISO/IEC 10118-3:1998 f"ur dedizierte Hashfunktionen, zusammen mit
-  RIPEMD-128 and SHA-1. 
-
-  Weitere Details: \\
-  http://www.esat.kuleuven.ac.be/\~{}bosselae/ripemd160.html \\
-  http://www.ietf.org/rfc/rfc2857.txt (``The Use of HMAC-RIPEMD-160-96
-  within ESP and AH'').
+  RIPEMD-128 and SHA-1. Weitere Details: \\
+- \href{http://www.esat.kuleuven.ac.be/~bosselae/ripemd160.html}
+   {\tt http://www.esat.kuleuven.ac.be/\~{}bosselae/ripemd160.html}\\
+- \href{http://www.ietf.org/rfc/rfc2857.txt}
+   {\tt http://www.ietf.org/rfc/rfc2857.txt} (``The Use of HMAC-RIPEMD-160-96
+   within ESP and AH'').
   }%
 ) vertraut.
 
@@ -408,28 +426,33 @@ er ein "offentliches Schl"usselverzeichnis f"alscht).
 
 Dann ist folgender Angriff m"oglich:
 \begin{itemize}
-    \item Alice m"ochte eine Nachricht an Bob senden. Sie verschl"usselt diese mit
-          PK1, da sie denkt, dies sei Bobs "offentlicher Schl"ussel. Anschlie"send signiert sie die
-          Nachricht mit ihrem geheimen Schl"ussel und schickt sie ab.
-    \item Charlie f"angt die Nachricht ab, entfernt die Signatur und entschl"usselt
-          die Nachricht mit SK1. Wenn er m"ochte, kann er die Nachricht anschlie"send nach Belieben
-          ver"andern. Dann verschl"usselt er sie wieder, aber diesmal mit dem echten "offentlichen
-          Schl"ussel von Bob, den er sich aus einem "offentlichen Schl"usselverzeichnis geholt
-          hat, signiert sie mit SK2 und schickt die Nachricht weiter an Bob.
-    \item Bob "uberpr"uft die Signatur mit PK2 und wird zu dem Ergebnis kommen, dass die Signatur in
-          Ordnung ist. Dann entschl"usselt er die Nachricht mit seinem geheimen Schl"ussel.
+    \item Alice m"ochte eine Nachricht an Bob senden. Sie verschl"usselt diese
+          mit PK1, da sie denkt, dies sei Bobs "offentlicher Schl"ussel.
+          Anschlie"send signiert sie die Nachricht mit ihrem geheimen
+         Schl"ussel und schickt sie ab.
+    \item Charlie f"angt die Nachricht ab, entfernt die Signatur und
+          entschl"usselt die Nachricht mit SK1. Wenn er m"ochte, kann er die
+          Nachricht anschlie"send nach Belieben ver"andern. Dann
+          verschl"usselt er sie wieder, aber diesmal mit dem echten
+          "offentlichen Schl"ussel von Bob, den er sich aus einem
+          "offentlichen Schl"usselverzeichnis geholt hat, signiert sie mit
+          SK2 und schickt die Nachricht weiter an Bob.
+    \item Bob "uberpr"uft die Signatur mit PK2 und wird zu dem Ergebnis
+          kommen, dass die Signatur in Ordnung ist. Dann entschl"usselt er
+          die Nachricht mit seinem geheimen Schl"ussel.
 \end{itemize}
 
-Charlie ist so in der Lage, die Kommunikation zwischen Alice und Bob abzuh"oren und die ausgetauschten
-Nachrichten zu ver"andern, ohne dass dies von den beteiligten Personen bemerkt wird. Der Angriff funktioniert
+Charlie ist so in der Lage, die Kommunikation zwischen Alice und Bob
+abzuh"oren und die ausgetauschten Nachrichten zu ver"andern, ohne dass dies
+von den beteiligten Personen bemerkt wird. Der Angriff funktioniert
 auch, wenn Charlie nur ein Schl"usselpaar hat.
 
 Ein anderer Name f"ur diese Art von Angriffen ist 
 \index{Angriff!Man-in-the-middle-attack}
-% \index{Man-in-the-middle-attack}
-\glqq man-in-the-middle-attack\grqq. Hilfe gegen diese Art
-von Angriffen verspricht die Public Key-Zertifizierung, die die \index{Authentizit""at} Authentizit"at "offentlicher Schl"ussel
-garantieren soll. Die am weitesten verbreitete Zertifizierungsmethode ist der X.509-Standard.
+\glqq man-in-the-middle-attack\grqq. Hilfe gegen diese Art von Angriffen
+verspricht die Public Key-Zertifizierung, die die \index{Authentizit""at}
+Authentizit"at "offentlicher Schl"ussel garantieren kann. Die am weitesten
+verbreitete Zertifizierungsmethode ist der X.509-Standard.
 
 % --------------------------------------------------------------------------
 \vskip + 15pt
@@ -451,47 +474,29 @@ Zertifikatnehmers und der G"ultigkeitszeitraum des Zertifikats vermerkt
 sind. Die CA unterzeichnet das Zertifikat anschlie"send mit ihrem geheimen
 Schl"ussel.
   
-Jeder kann nun anhand des "offentlichen Schl"ussels der CA "uberpr"ufen, ob das Zertifikat unverf"alscht ist. Die
-CA garantiert also die Zugeh"origkeit von Benutzer und "offentlichem Schl"ussel.
+Jeder kann nun anhand des "offentlichen Schl"ussels der CA "uberpr"ufen, ob
+das Zertifikat unverf"alscht ist. Die CA garantiert also die Zugeh"origkeit
+von Benutzer und "offentlichem Schl"ussel.
 
-Dieses Verfahren ist nur so lange sicher, wie die Richtigkeit des "offentlichen Schl"ussels der CA
-sichergestellt ist. Aus diesem Grund l"asst jede CA ihren "offentlichen Schl"ussel bei einer anderen CA
-zertifizieren, die in der Hierarchie "uber ihr steht. In der obersten
-Hierarchieebene (Wurzelinstanz) gibt es in der Regel
-nur eine CA, die dann nat"urlich keine M"oglichkeit mehr hat, sich ihren Schl"ussel bei einer anderen CA
-zertifizieren zu lassen. Sie ist also darauf angewiesen, ihren Schl"ussel auf andere Art und Weise gesichert
-zu "ubermitteln. Bei vielen Software-Produkten, die mit Zertifikaten arbeiten (zum Beispiel den Webbrowsern
-von Microsoft und Netscape) sind die Zertifikate dieser Wurzel-CAs schon von Anfang an fest in das Programm
-eingebettet und k"onnen auch vom Benutzer nachtr"aglich nicht mehr ge"andert werden. Aber auch durch
+Dieses Verfahren ist nur so lange sicher, wie die Richtigkeit des
+"offentlichen Schl"ussels der CA sichergestellt ist. Aus diesem Grund l"asst
+jede CA ihren "offentlichen Schl"ussel bei einer anderen CA zertifizieren,
+die in der Hierarchie "uber ihr steht. In der obersten Hierarchieebene
+(Wurzelinstanz) gibt es in der Regel nur eine CA, die dann nat"urlich keine
+M"oglichkeit mehr hat, sich ihren Schl"ussel bei einer anderen CA
+zertifizieren zu lassen. Sie ist also darauf angewiesen, ihren Schl"ussel
+auf andere Art und Weise gesichert zu "ubermitteln. Bei vielen
+Software-Produkten, die mit Zertifikaten arbeiten (zum Beispiel den
+Webbrowsern von Microsoft und Netscape) sind die Zertifikate dieser
+Wurzel-CAs schon von Anfang an fest in das Programm eingebettet und k"onnen
+auch vom Benutzer nachtr"aglich nicht mehr ge"andert werden. Aber auch durch
 "offentliche Bekanntgabe in Zeitungen k"onnen ("offentliche) CA-Schl"ussel
 gesichert "ubermittelt werden.
 
 
+\newpage
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{subsection}{Literaturverzeichnis}
-
-\bibitem[Schneier1996]{5Schneier1996ds} \index{Schneier 1996} 
-    Bruce Schneier, \\
-    {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C}, \\
-    Wiley, 2nd edition, 1996.
-
-\bibitem[PKCS1]{PKCS1} RSA Laboratories, \\ 
-    \index{PKCS\#1} \index{RSA Laboratories}
-    {\em PKCS \#1 v2.1 Draft 3: RSA Cryptography Standard}, \\
-    April 19, 2002.
-
-\bibitem[X.509]{X.509} ITU-T, \\
-    \index{X.509}
-    {\em ITU-T Recommendation X.509 (1997 E): Information Technology -- 
-    Open Systems Interconnection -- The Directory: Authentication Framework},\\
-    June 1997.
-
-\bibitem[X.509v3]{X.509v3} ITU-T, \\ 
-    \index{X.509} \index{ITU-T} \index{ISO/IEC 9594-8}
-    {\em X.509 (1993) Amendment 1: Certificate Extensions, The Directory
-    Authentication Framework},\\ 
-    International Telecommunication Union, Geneva, Switzerland, July 1995\\
-    (equivalent to amendment 1 to ISO/IEC 9594-8).
 
 \bibitem[FIPS180-2]{FIPS180-2} U.S. Department of Commerce/N.I.S.T. ,
     \index{FIPS180-2} \\
@@ -502,14 +507,43 @@ gesichert "ubermittelt werden.
 \bibitem[FIPS186]{FIPS186} U.S. Department of Commerce/N.I.S.T. ,
     \index{FIPS186} \\
     {\em Entity authentication using public key cryptography}, \\
-    February 18, 1997.\\
+    Februar 18, 1997.\\
     Nicht mehr g"ultig.
 
 \bibitem[FIPS186-2]{FIPS186-2} U.S. Department of Commerce/N.I.S.T. ,
     \index{FIPS186-2} \\
     {\em Digital Signature Standard (DSS)}, \\
-    January 27, 2000. Change Note: October 5, 2001.\\
-    http://csrc.nist.gov/publications/fips/fips186-2/fips186-2-change1.pdf
+    Januar 27, 2000. Change Note: Oktober 5, 2001.\\
+  \href{http://csrc.nist.gov/publications/fips/fips186-2/fips186-2-change1.pdf}
+   {\tt http://csrc.nist.gov/publications/fips/fips186-2/fips186-2-change1.pdf}
+
+\bibitem[PKCS1]{PKCS1} RSA Laboratories,  
+    \index{PKCS\#1} \index{RSA Laboratories} \\
+    {\em PKCS \#1 v2.1 Draft 3: RSA Cryptography Standard}, \\
+    April 19, 2002.
+
+\bibitem[Schneier1996]{5Schneier1996ds} \index{Schneier 1996} 
+    Bruce Schneier, \\
+    {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C}, \\
+    Wiley, 2nd edition, 1996.
+
+\bibitem[Wobst2005]{Wobst2005} \index{Wobst 2005} 
+    Reinhard Wobst, \\
+    {\em New Attacks Against Hash Functions}, \\
+    Information Security Bulletin, April 2005.
+
+\bibitem[X.509]{X.509} ITU-T,
+    \index{X.509} \\
+    {\em ITU-T Recommendation X.509 (1997 E): Information Technology -- 
+    Open Systems Interconnection -- The Directory: Authentication Framework},\\
+    Juni 1997.
+
+\bibitem[X.509v3]{X.509v3} ITU-T, 
+    \index{X.509} \index{ITU-T} \index{ISO/IEC 9594-8} \\
+    {\em X.509 (1993) Amendment 1: Certificate Extensions, The Directory
+    Authentication Framework},\\ 
+    International Telecommunication Union, Geneva, Switzerland, July 1995\\
+    (equivalent to amendment 1 to ISO/IEC 9594-8).
 
 \end{thebibliography}
                                                           

@@ -2,29 +2,37 @@
 % ............................................................................
 %             V E R S C H L U E S S E L U N G S V E R F A H R E N
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+% "`xx"'
 \newpage
-
 %------------------------------------------------------------------------------
 % First Editor: Christine Stötzel, April 2004
 % Update and corrections: B. Esslinger, June 2005
 % corrected by C. Esslinger, June 2005 
 %------------------------------------------------------------------------------
-\section{Papier- und Bleistift-Verschl"usselungsverfahren}
-
 \hypertarget{Kapitel_PaperandPencil}{}
+
+\begin{center}
+\fbox{\parbox{15cm}{%
+{\em Edgar Allan Poe\index{Poe, Edgar Allan}: 
+A Few Words on Secret Writing, 1841}\\
+Nur Wenige kann man glauben machen, dass es keine leichte Sache ist,
+eine Geheimschrift zu erdenken, die sich der Untersuchung widersetzt.
+Dennoch kann man rundheraus annehmen, dass menschlicher Scharfsinn
+keine Chiffre erdenken kann, die menschlicher Scharfsinn nicht l"osen kann.}}
+\end{center}
+
+\section{Papier- und Bleistift-Verschl"usselungsverfahren}
 \label{Kapitel_PaperandPencil}
-(Christine St"otzel, April 2004)
+(Christine St"otzel, April 2004; Updates B.+C. Esslinger, Juni 2005)
+\index{Papier- und Bleistiftverfahren}
 
 Das folgende Kapitel bietet einen recht vollst"andigen "Uberblick "uber Papier- 
-und Bleistiftverfahren\footnotemark
-    \footnotetext{Jeweils mit Verweisen zu vertiefenden Informationen.}
-    \index{Papier- und Bleistiftverfahren}.
+und Bleistiftverfahren\footnote{Jeweils mit Verweisen zu vertiefenden Informationen.}.
 Unter diesem Begriff lassen sich alle Verfahren zusammenfassen, die Menschen von
 Hand anwenden k"onnen, um Nachrichten zu ver- und entschl"usseln.
 Besonders popul"ar waren diese Verfahren f"ur Geheimdienste (und 
-sind es immer noch), da ein Schreibblock und ein Stift - im 
-Gegensatz zu elektronischen Hilfsmitteln - vollkommen unverd"achtig sind.
+sind es immer noch), da ein Schreibblock und ein Stift -- im 
+Gegensatz zu elektronischen Hilfsmitteln -- vollkommen unverd"achtig sind.
 
 Die ersten Papier- und Bleistiftverfahren entstanden bereits vor rund 
 3000 Jahren, aber auch w"ahrend des vergangenen Jahrhunderts kamen 
@@ -41,7 +49,7 @@ Erfolgreiche bzw. verbreiteter eingesetzte Verfahren mussten die gleichen
 Merkmale erf"ullen wie moderne Verfahren:
 \begin{itemize}
 \item Vollst"andige Beschreibung, klare Regeln, ja fast Standardisierung 
-      (incl. der Sonderf"alle, dem Padding, etc.).
+      (inkl. der Sonderf"alle, dem Padding, etc.).
 \item Gute Balance zwischen Sicherheit und Benutzbarkeit 
       (denn zu kompliziert zu bedienende Verfahren waren fehlertr"achtig
       oder unangemessen langsam).
@@ -50,7 +58,7 @@ Merkmale erf"ullen wie moderne Verfahren:
 
 \vskip +30 pt
 %------------------------------------------------------------------------------
-\subsection{Transposition}
+\subsection{Transpositionsverfahren}
 
 Bei der Verschl"usselung durch Transposition\index{Transposition} 
 bleiben die urspr"unglichen Zeichen der Nachricht erhalten,
@@ -59,41 +67,45 @@ Vertauschung)\footnote{Ein anderer Begriff f"ur eine Transposition
 ist Permutation\index{Permutation}.}.
 
 %------------------------------------------------------------------------------
-\subsubsection{Einf"uhrungs-Beispiele unterschiedlicher Transpositionsverfahren}
+\subsubsection{Einf"uhrungs-Beispiele unterschiedlicher
+               Transpositionsverfahren}
+\label{introsamplesTranspositionCiphers}  %be_2006 so ist es gut.
 
 \begin{itemize}
 
 \item {\bf Gartenzaun}\footnote{In CrypTool
    kann man dieses Verfahren "uber den Men"ueintrag {\bf Ver-/Entschl"usseln
    \textbackslash{} Symmetrisch (klassisch) \textbackslash{} Permutation} 
-   abbilden: f"ur einen Gartenzaun mit 2 Zeilen gibt man als Schl"ussel "`B,A"'
-   ein und l"asst ansonsten die Standardeinstellungen (nur 1 Permutation, in 
-   der man zeilenweise ein- und spaltenweise ausliest). 
-   Mit dem Schl"ussel "`A,B"' w"rde man man das Zick-zack-Muster unten so 
+   abbilden: f"ur einen Gartenzaun mit 2 Zeilen gibt man als Schl"ussel
+   "`B,A"' ein und l"asst ansonsten die Standardeinstellungen (nur 1
+   Permutation, in der man zeilenweise ein- und spaltenweise ausliest). 
+   Mit dem Schl"ussel "`A,B"' w"urde man man das Zick-zack-Muster unten so 
    beginnen, dass der 1. Buchstabe in der ersten statt in der 2. Zeile steht.}
-   \cite{Singh2001}%
-   : 
+   \cite{Singh2001}\index{Gartenzaun-Verschl""usselung}:
+                        % Kein Blank VOR "\index", sonst ist der
+                        % Doppelpunkt nicht direkt nach dem Fussnotenindex.
    Die Buchstaben des Klartextes werden abwechselnd in zwei (oder mehr) 
    Zeilen geschrieben, so dass ein Zickzack-Muster entsteht. 
    Dann werden die Zeichen zeilenweise nacheinander gelesen.\\
    Dieses Verfahren ist eher eine Kinderverschl"usselung.
 	
-   Klartext\footnote{Da als Alphabet nur die 26 Buchstaben verwendet werden, 
+   Klartext\footnote{Wenn das Alphabet nur die 26 Buchstaben verwendet, 
    schreiben wir den Klartext in Kleinbuchstaben und den Geheimtext in 
-   Gro"sbuchstaben.}: ein beispiel zur transposition\\
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}
+   Gro"sbuchstaben.}: ein beispiel zur transposition
+
+   \begin{table}[h]
+   \begin{center}
+   \begin{tabular}{r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}
                 r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}
                 r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}}
 	  & i &   & b &   & i &   & p &   & e &   & z &   & r &   & 
             r &   & n &   & p &   & s &   & t &   & o &   \\
 	e &   & n &   & e &   & s &   & i &   & l &   & u &   & t &
           & a &   & s &   & o &   & i &   & i &   & n 
-\end{tabular}
-\caption{Gartenzaun-Verschl"usselung}
-\end{center}
-\end{table}
+   \end{tabular}
+   \caption{Gartenzaun-Verschl"usselung}
+   \end{center}
+   \end{table}
 
    Geheimtext\footnote{Die Buchstaben des Klartextes sind hier -- wie 
    historisch "ublich -- in 5-er Bl"ocken gruppiert. Man k"onnte o.E.d.A.
@@ -107,21 +119,22 @@ ist Permutation\index{Permutation}.}.
    einfachen Spaltentransposition.  
    In CrypTool kann man dieses Verfahren "uber den Men"ueintrag {\bf 
    Ver-/Entschl"usseln \textbackslash{} Symmetrisch (klassisch) 
-   \textbackslash{} Permutation} abbilden: bei der Skytale wird in der 
-   Dialogbox nur die erste Permutation benutzt und man gibt bei z.B. 4 
+   \textbackslash{} Permutation} abbilden: F"ur die Skytale braucht man in
+   der Dialogbox nur die erste Permutation. Darin gibt man bei z.B. 4 
    Kanten als Schl"ussel  "`1,2,3,4"'  ein. Dies w"are so, als w"urde man
    den Text in 4-er Bl"ocken waagrecht in eine Tabelle schreiben und 
    senkrecht auslesen. 
    Weil der Schl"ussel aufsteigend geordnet ist, bezeichnet man die Skytale
-   auch als identische Permutation; weil das Schreiben und Auslesen nur 
-   einmal durchgef"uhrt wird, als einfache (keine doppelte) Permutation.}
-   \cite{Singh2001}%
+   auch als identische Permutation. Weil das Schreiben und Auslesen nur 
+   einmal durchgef"uhrt wird, als einfache (und nicht als doppelte)
+   Permutation.}
+   \cite{Singh2001}\index{Skytale}%
    : 
-   Dieses Verfahren wurde wahrscheinlich das erste Mal vor mehr als 600 v.Chr.
+   Dieses Verfahren wurde wahrscheinlich das erste Mal um 600 v.Chr.
    benutzt und es wurde von dem griechischen Schriftsteller und Philosophen
    Plutarch (50-120 v.Chr.) zuerst beschrieben.\\
-   Um einen Holzstab wird ein Streifen Papier o."a. gewickelt, worauf 
-   zeilenweise der Klartext geschrieben wird. 
+   Um einen Holzstab wird ein Streifen Papier o."a. gewickelt. Dann wird
+   darauf zeilenweise der Klartext geschrieben. 
    Wickelt man den Streifen ab, h"alt man den Geheimtext in den H"anden.
 
 \item {\bf Schablone} \cite{Goebel2003}: Sender und Empf"anger benutzen
@@ -132,7 +145,10 @@ ist Permutation\index{Permutation}.}.
    Dieses Verfahren kann man nicht durch eine einfache Spaltentransposition
    darstellen.}.
 
-\item {\bf Flei"sner-Schablone} \cite{Savard1999}: Die Flei"sner-Schablone
+   \hypertarget{turning-grille}{}  %be_2006 so ist es gut.
+\item {\bf Flei"sner-Schablone} \cite{Savard1999}% verhindert, dass Blank vor ":"
+   \index{Flei""sner-Schablone}: 
+   Die Flei"sner-Schablone
    wurde im Ersten Weltkrieg von deutschen Soldaten benutzt\footnote{%
    Erfunden wurde die Flei"sner-Schablone bereits 1881 von Eduard Flei"sner
    von Wostrowitz.\\
@@ -149,24 +165,24 @@ ist Permutation\index{Permutation}.}.
 
    In die Beispiel-Flei"sner-Schablone in der folgenden Tabelle k"onnen
    4 Mal je 16 Zeichen des Klartextes auf ein Blatt geschrieben werden:
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|cccc|cccc|}
-\hline 	
+   \begin{table}[h]
+   \begin{center}
+   \begin{tabular}{|cccc|cccc|}
+   \hline 	
 	O & - & - & - & - & O & - & - \\
 	- & - & - & O & O & - & - & O \\
 	- & - & - & O & - & - & O & - \\
 	- & - & O & - & - & - & - & - \\
-\hline 	
+   \hline 	
 	- & - & - & - & O & - & - & - \\
 	O & - & O & - & - & - & O & - \\
 	- & O & - & - & - & - & - & O \\
 	- & - & - & O & O & - & - & - \\
-\hline
-\end{tabular}  
-\caption{Eine 8x8-Flei"sner-Schablone}
-\end{center} 
-\end{table}
+   \hline
+   \end{tabular}  
+   \caption{8x8-Flei"sner-Schablone}
+   \end{center} 
+   \end{table}
 
 \end{itemize}
 
@@ -181,22 +197,24 @@ Symmetrisch (klassisch) \textbackslash{} Permutation} abgebildet werden.}
 
 \begin{itemize}
 
-\item {\bf Einfache Spaltentransposition} \cite{Savard1999}: Zun"achst wird ein 
-   Schl"usselwort bestimmt, das "uber die Spalten eines Gitters geschrieben wird.
-   Dann schreibt man den zu verschl"usselnden Text zeilenweise in dieses Gitter.
+\item {\bf Einfache Spaltentransposition} \cite{Savard1999}: Zun"achst wird
+   ein Schl"usselwort bestimmt, das "uber die Spalten eines Gitters geschrieben
+   wird. Dann schreibt man den zu verschl"usselnden Text zeilenweise in dieses
+   Gitter.
    Die Spalten werden entsprechend des Auftretens der Buchstaben des 
    Schl"usselwortes im Alphabet durchnummeriert. In dieser Reihenfolge werden 
    nun auch die Spalten ausgelesen und so der Geheimtext gebildet\footnote{%
    Darstellung mit CrypTool: Eingabe eines Schl"ussels f"ur die 1. Permutation,
    zeilenweise einlesen, spaltenweise permutieren und auslesen.}.
 	
-   Klartext: ein beispiel zur transposition\\
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|c|c|c|}
-\hline
+   Klartext: ein beispiel zur transposition
+
+   \begin{table}[h]
+   \begin{center}
+   \begin{tabular}{|c|c|c|}
+   \hline
 	K & E & Y \\
-\hline
+   \hline
 	e & i & n \\
 	b & e & i \\
 	s & p & i \\
@@ -206,20 +224,22 @@ Symmetrisch (klassisch) \textbackslash{} Permutation} abgebildet werden.}
 	s & p & o \\
 	s & i & t \\
 	i & o & n \\
-\hline
-\end{tabular}
-\caption{Einfache Spaltentransposition}
-\end{center}
-\end{table}
+   \hline
+   \end{tabular}
+   \caption{Einfache Spaltentransposition}
+   \end{center}
+   \end{table}
 
    Transpositionsschl"ussel: K=2; E=1; Y=3. \\
    Geheimtext: IEPLR APIOE BSEUR SSINI IZTNO TN \\
 
-\item {\bf AMSCO} \cite{ACA2002}: Die Klartextzeichen werden abwechselnd in 
-   Einer- und Zweiergruppen in ein Gitter geschrieben.
+\item {\bf AMSCO} \cite{ACA2002}\index{AMSCO}: Die Klartextzeichen werden 
+   abwechselnd in Einer- und Zweiergruppen in ein Gitter geschrieben.
    Dann erfolgt eine Vertauschung der Spalten, anschlie"send das Auslesen.
 
-\item {\bf Doppelte Spaltentransposition} \cite{Savard1999}: Die doppelte 
+\item {\bf Doppelte Spaltentransposition / "`Doppelw"urfel"'} 
+   \cite{Savard1999}\index{Doppelw""urfel}: 
+   Die doppelte 
    Spaltentransposition wurde h"aufig im Zweiten Weltkrieg und zu Zeiten des 
    Kalten Krieges angewendet. Dabei werden zwei Spaltentranspositionen 
    nacheinander durchgef"uhrt, f"ur die zweite Transposition wird ein neuer
@@ -227,23 +247,25 @@ Symmetrisch (klassisch) \textbackslash{} Permutation} abgebildet werden.}
    Darstellung mit CrypTool: Eingabe eines Schl"ussels f"ur die 1. Permutation,
    zeilenweise einlesen, spaltenweise permutieren und auslesen.
    Eingabe eines (neuen) Schl"ussels f"ur die 2. Permutation, Ergebnis der
-   1. Permutation zeilenweise einlesen, spaltenweise permutieren und auslesen.}
-   .
+   1. Permutation zeilenweise einlesen, spaltenweise permutieren und
+   auslesen.}.
 
 \item {\bf Spaltentransposition, General Luigi Sacco} \cite{Savard1999}: Die 
-   Spalten eines Gitters werden den Buchstaben des Schl"usselwortes entsprechend
-   nummeriert. Der Klartext wird dann zeilenweise eingetragen, in der ersten
-   Zeile bis zur Spalte mit der Nummer 1, in der zweiten Zeile bis zur Spalte
-   mit der Nummer 2 usw. Das Auslesen erfolgt wiederum spaltenweise.
+   Spalten eines Gitters werden den Buchstaben des Schl"usselwortes
+   entsprechend nummeriert. Der Klartext wird dann zeilenweise eingetragen,
+   in der ersten Zeile bis zur Spalte mit der Nummer 1, in der zweiten Zeile
+   bis zur Spalte mit der Nummer 2 usw. Das Auslesen erfolgt wiederum
+   spaltenweise.
 
-   Klartext: ein beispiel zur transposition\\
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline
+   Klartext: ein beispiel zur transposition
+
+   \begin{table}[h]
+   \begin{center}
+   \begin{tabular}{|c|c|c|c|c|c|c|}
+   \hline
 	G & E & N & E & R & A & L\\
 	4 & 2 & 6 & 3 & 7 & 1 & 5\\
-\hline
+   \hline
 	e & i & n & b & e & i &  \\
 	s & p &   &   &   &   &  \\
 	i & e & l & z &   &   &  \\
@@ -251,11 +273,11 @@ Symmetrisch (klassisch) \textbackslash{} Permutation} abgebildet werden.}
 	r & t & r & a & n & s & p\\
 	o & s & i &   &   &   &  \\
 	t & i & o & n &   &   &  \\
-\hline
-\end{tabular}
-\caption{Spaltentransposition nach General Luigi Sacco}
-\end{center}
-\end{table}
+   \hline
+   \end{tabular}
+   \caption{Spaltentransposition nach General Luigi Sacco}
+   \end{center}
+   \end{table}
 
    Geheimtext: ESIUR OTIPE TSINL RIOBZ ANENI SP\\
 
@@ -294,31 +316,35 @@ Symmetrisch (klassisch) \textbackslash{} Permutation} abgebildet werden.}
    Namen und Bezeichnungen gibt es Codew"orter, die zusammen mit den Routen
    in einem Codebuch festgehalten werden. Eine Route bestimmt die Gr"o"se des
    Gitters, in das der Klartext eingetragen wird und das Muster, nach dem der
-   Geheimtext ausgelesen wird. Zus"atzlich gibt es eine Anzahl von F"ullw"ortern.
+   Geheimtext ausgelesen wird. Zus"atzlich gibt es eine Anzahl von
+   F"ullw"ortern.
 
-\item {\bf Nihilist-Transposition} \cite{ACA2002}: Der Klartext wird in eine
+\item {\bf Nihilist-Transposition} \cite{ACA2002}%
+   \index{Nihilist-Transposition}: 
+   Der Klartext wird in eine
    quadratische Matrix eingetragen, an deren Seiten jeweils der gleiche 
    Schl"ussel steht. Anhand dieses Schl"ussels werden sowohl die Zeilen als 
    auch die Spalten alphabetisch geordnet und der Inhalt der Matrix
    dementsprechend umsortiert. Der Geheimtext wird zeilenweise ausgelesen.
 
-   Klartext: ein beispiel zur transposition\\
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|c|ccccc||cc|ccccc|}
-\hline
+   Klartext: ein beispiel zur transposition
+
+   \begin{table}[h]
+   \begin{center}
+   \begin{tabular}{|c|ccccc||cc|ccccc|}
+   \hline
 	  & K & A & T & Z & E &   &   & A & E & K & T & Z\\
-\hline
+   \hline
 	K & e & i & n & b & e &   & A & s & e & i & p & i\\
 	A & i & s & p & i & e &   & E & s & i & o & i & t\\
 	T & l & z & u & r & t &   & K & i & e & e & n & b\\
 	Z & r & a & n & s & p &   & T & z & t & l & u & r\\
 	E & o & s & i & t & i &   & Z & a & p & r & n & s\\
-\hline
-\end{tabular}
-\caption[Nihilist-Transposition]{Nihilist-Transposition\footnotemark}
-\end{center}
-\end{table}
+   \hline
+   \end{tabular}
+   \caption[Nihilist-Transposition]{Nihilist-Transposition\footnotemark}
+   \end{center}
+   \end{table}
 
    Geheimtext: SEIPI SIOIT IEENB ZTLUR APRNS\\
    \footnotetext{%
@@ -326,7 +352,8 @@ Symmetrisch (klassisch) \textbackslash{} Permutation} abgebildet werden.}
    das Resultat nach dem Vertauschen von Zeilen und Spalten.}
 
 
-\item {\bf Cadenus} \cite{ACA2002}: Hierbei handelt es sich um eine 
+\item {\bf Cadenus} \cite{ACA2002}\index{Cadenus}:
+   Hierbei handelt es sich um eine 
    Spalten"-transposition, die zwei Schl"us"-sel"-worte benutzt.\\
    Das erste Schl"usselwort wird benutzt, um die Spalten zu vertauschen.\\
    Das zweite Schl"usselwort wird benutzt, um das Startzeichen jeder Spalte
@@ -337,13 +364,16 @@ Symmetrisch (klassisch) \textbackslash{} Permutation} abgebildet werden.}
    ersten Schl"usselwortes in dem zweiten Schl"usselwort zu finden ist.\\
    Der Geheimtext wird zeilenweise ausgelesen.
 
-   Klartext: ein laengeres beispiel zur transposition mit cadenus\\
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|c|ccc|ccc|ccc|}
-\hline
+   Siehe Tabelle \ref{Cadenus-table-reference}.
+
+   Klartext: ein laengeres beispiel zur transposition mit cadenus
+
+   \begin{table}[h]
+   \begin{center}
+   \begin{tabular}{|c|ccc|ccc|ccc|}
+   \hline
 	  & K & {\bf E} & Y & {\bf E} & K & Y & {\bf E} & K & Y\\
-\hline
+   \hline
 	A & e & i & n & i & e & n & {\bf p} & r & n\\
 	D & l & a & e & a & l & e & i & b & o\\
 	X & n & g & e & g & n & e & o & s & t\\
@@ -360,15 +390,16 @@ Symmetrisch (klassisch) \textbackslash{} Permutation} abgebildet werden.}
 	B & c & a & d & a & c & d & r & e & z\\
 	R & e & n & u & n & e & u & a & l & t\\
 	G & s & - & - & - & s & - & - & n & -\\
-\hline
-\end{tabular}
+   \hline
+   \end{tabular}
 %be_2005: Fußnote zur Tabellenüberschrift wird nur angezeigt, wenn man das
 %         \footnotetext-Statement nicht direkt hinter \caption{...} schreibt,
 %         sondern außerhalb!
 %\caption{Cadenus\footnotemark}
-\caption[Cadenus]{Cadenus\footnotemark}
-\end{center}
-\end{table}%  be_2005: Das % ist nötig: sonst ist "Geheimtext" etwas eingerückt.
+   \caption[Cadenus]{Cadenus\footnotemark}
+   \label{Cadenus-table-reference}
+   \end{center}
+   \end{table}%  be_2005: Das % ist nötig: sonst ist "Geheimtext" etwas eingerückt.
            %           Noch besser: Man lässt das % weg und fügt dafür eine
            %           Leerzeile nach \end{table} ein, denn dann wird nicht
            %           mehr der "Geheimtext..." VOR die Tabelle gedruckt !!
@@ -384,7 +415,7 @@ Symmetrisch (klassisch) \textbackslash{} Permutation} abgebildet werden.}
 
 
 %------------------------------------------------------------------------------
-\subsection{Substitution}
+\subsection{Substitutionsverfahren}
 \index{Substitution}
 
 
@@ -393,29 +424,41 @@ Symmetrisch (klassisch) \textbackslash{} Permutation} abgebildet werden.}
 Monoalphabetische Substitutionsverfahren\index{Substitution!monoalphabetisch}
 ordnen jedem Klartextzeichen ein Geheimtextzeichen fest zu, d.h. diese
 Zuordnung ist w"ahrend des ganzen Verschl"usselungsprozesses dieselbe.
+\label{monoalphabeticSubstitutionCiphers}
 
 \begin{itemize}
 
-\item {\bf Zuf"allige Buchstabenpaare} \cite{Singh2001}: Die Substitution 
-   erfolgt aufgrund einer festgelegten Kombination der Buchstaben.
+\item {\bf Allgemeine monoalphabetische Substitution / Zuf"allige
+   Buchstabenzuordnung\footnotemark}
+   \footnotetext{%
+   Dieses Verfahren kann in CrypTool\index{CrypTool} mit dem Men"upunkt 
+   {\bf Ver-/Entschl"usseln \textbackslash{} Symmetrisch (klassisch) \textbackslash{}
+   Substitution / Atbash} abgebildet werden.}
+   \cite{Singh2001}: Die Substitution erfolgt aufgrund einer festgelegten
+   Zuordnung der Einzelbuchstaben.
 
-\item {\bf Atbash} \cite{Singh2001}: Der erste Buchstabe des Alphabets wird 
+\item {\bf Atbash\footnotemark}
+   \footnotetext{%
+   Dieses Verfahren kann in CrypTool\index{CrypTool} mit dem Men"upunkt 
+   {\bf Ver-/Entschl"usseln \textbackslash{} Symmetrisch (klassisch) \textbackslash{}
+   Substitution / Atbash} abgebildet werden.} 
+   \cite{Singh2001}\index{Atbash}: Der erste Buchstabe des Alphabets wird 
    durch den letzten Buchstaben des Alphabets ersetzt, 	der zweite durch den
    vorletzten, usw.
 
-\item {\bf Verschiebechiffre, z.B. C"asar}\footnote{In CrypTool
+\item {\bf Verschiebechiffre, z.B. Caesar}\footnote{In CrypTool
    kann man dieses Verfahren an drei verschiedenen Stellen im Men"u finden:\\
    - {\bf Ver-/Entschl"usseln \textbackslash{} Symmetrisch (klassisch)
-     \textbackslash{} Caesar} \\
+     \textbackslash{} Caesar / ROT13} \\
    - {\bf Analyse \textbackslash{} Symmetrische Verschl"usselung (klassisch)
      \textbackslash{} Ciphertext only \textbackslash{} Caesar} \\
    - {\bf Einzelverfahren \textbackslash{} Visualisierung von Algorithmen 
      mit ANIMAL \textbackslash{} Caesar}. }
-   \cite{Singh2001}%
+   \cite{Singh2001}\index{Caesar}%
    : Klartext- und Geheimtextalphabet werden um eine bestimmte Anzahl von
    Zeichen gegeneinander verschoben.
 
-   Klartext: 	bei der caesarchiffre wird um drei stellen verschoben\\
+   Klartext: 	bei der caesarchiffre wird um drei stellen verschoben
 
    Geheimtext:	EHL GHU FDHVDUFKLIIUH ZLUG XP GUHL VWHOOHQ YHUVFKREHQ\\
 
@@ -428,7 +471,7 @@ Zuordnung ist w"ahrend des ganzen Verschl"usselungsprozesses dieselbe.
    Nihilist-Verfahren findet sich in CrypTool unter dem Men"upunkt 
      {\bf Einzelverfahren \textbackslash{} Visualisierung von Algorithmen 
      mit ANIMAL \textbackslash{} Nihilist}. }
-   \cite{ACA2002}: Das Alphabet wird in 
+   \cite{ACA2002}\index{Nihilist-Substitution}: Das Alphabet wird in 
    eine 5x5-Matrix eingetragen und jeder Klartextbuchstabe durch das 
    entsprechende Ziffernpaar ersetzt. Die so entstandenen zweistelligen 
    Zahlen werden in eine Tabelle eingetragen. Dazu wird zun"achst ein
@@ -436,33 +479,41 @@ Zuordnung ist w"ahrend des ganzen Verschl"usselungsprozesses dieselbe.
    wobei die Zeichen des Schl"usselwortes ebenfalls durch Zahlenpaare
    substituiert werden. Die Geheimtextzeichen sind die Summen aus den
    Zahlen des Klartextes und den Zahlen des Schl"usselwortes. Bei Zahlen
-   zwischen 100 und 110 wird die f"uhrende 1 ignoriert, so dass jeder
+   zwischen 100 und 110 wird die f"uhrende "`1"' ignoriert, so dass jeder
    Buchstabe durch eine zweistellige Zahl repr"asentiert wird.
+
+   Siehe Tabelle \ref{Nihilist-substitution-table-reference}.
 	
-   Klartext: ein beispiel zur substitution\\
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|c|ccccc|}
-\hline 	
+   Klartext: ein beispiel zur substitution
+
+% \begin{minipage}  Das um die Table herum führt nur zu Tex-Fehlern!
+% Hier nun um 2 Tabellen nur 1 TABLE: Table hat 2 Wirkungen:
+%   a) sagt TeX, dass er es frei vertikal positionieren kann.
+%   b) dass man eine Nummerierung erhält und einen Index erstellen kann.
+   \begin{table}[h]
+
+   \begin{center}
+   Matrix~~   % Text links vor eine Table und 2 Blanks dazu
+   \begin{tabular}{|c|ccccc|}
+   \hline 	
 	  & 1 & 2 & 3 & 4 & 5\\
-\hline
+   \hline
 	1 & S & C & H & L & U\\
 	2 & E & A & B & D & F\\
 	3 & G & I & K & M & N\\
 	4 & O & P & Q & R & T\\
 	5 & V & W & X & Y & Z\\
-\hline
-\end{tabular}  
-\end{center} 
-\end{table}
+   \hline
+   \end{tabular}  
+   \end{center} 
 
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|ccc|}
-\hline 	
+   \begin{center}
+   Tabelle~~
+   \begin{tabular}{|ccc|}
+   \hline 	
 	K & E & Y\\
 	(33) & (21) & (54)\\
-\hline
+   \hline
 	e & i & n\\
 	(54) & (53) & (89)\\
 	b & e & i\\
@@ -481,39 +532,48 @@ Zuordnung ist w"ahrend des ganzen Verschl"usselungsprozesses dieselbe.
 	(48) & (66) & (86)\\
 	o & n &   \\	
 	(74) & (56)&   \\
-\hline
-\end{tabular}  
-\caption{Nihilist-Substitution}
-\end{center} 
-\end{table}
+   \hline
+   \end{tabular}  
+   \caption{Nihilist-Substitution}
+   \label{Nihilist-substitution-table-reference} %Ans Ende legen; analog bei figure!
+   \end{center} 
+
+   \end{table}%
+   % \end{minipage}  Verträgt sich nicht mit TABLE.
 	
    Geheimtext: 
    54 53 89 56 42~~~86 44 63 86 54~~~35 09 48 65 65
    48 44 65 78 53~~~99 48 66 86 74~~~56\\
 
 
+\newpage % Damit die Tables immer direkt nach dem zugehörigen Item. 
 \item {\bf Codierung} \cite{Singh2001}: Im Laufe der Geschichte wurden immer
    wieder Codeb"ucher verwendet. In diesen B"uchern wird jedem m"oglichen 
-   Wort eines Klartextes ein Codewort, ein Symbol oder eine Zahl zugeordnet.
-   Voraussetzung f"ur eine erfolgreiche geheimen Kommunikation ist, dass 
+   {\bf Wort} eines Klartextes ein Codewort, ein Symbol oder eine Zahl
+   zugeordnet.
+   Voraussetzung f"ur eine erfolgreiche geheime Kommunikation ist, dass 
    Sender und Empf"anger exakt das gleiche Codebuch besitzen und die 
    Zuordnung der Codew"orter zu den Klartextw"ortern nicht offengelegt wird.
 
-\item {\bf Nomenklatur} \cite{Singh2001}: Eine Nomenklatur ist ein 
-   Verschl"usselungssystem, das auf einem Geheimtextalphabet basiert,
+\item {\bf Nomenklatur} \cite{Singh2001}\index{Nomenklatur}: Eine Nomenklatur 
+   ist ein Verschl"usselungssystem, das auf einem Geheimtextalphabet basiert,
    mit dem ein Gro"steil der Nachricht chiffriert wird. F"ur besonders
    h"aufig auftretende oder geheim zu haltende W"orter existieren eine 
    begrenzte Anzahl von Codew"ortern.
 
-\item {\bf Landkarten-Chiffre}: Diese Methode stellt eine Kombination aus 
+\item {\bf Landkarten-Chiffre} \cite{ThinkQuest1999}\index{Landkarten-Chiffre}: 
+   Diese Methode stellt eine Kombination aus 
    Substitution und Steganographie\footnote{Statt eine Nachricht zu 
-   verschl"usseln, versucht man bei der reinen Steganographie, die Existenz
+   verschl"usseln, versucht man bei der reinen
+   Steganographie\index{Steganographie}, die Existenz
    der Nachricht zu verbergen.} dar.
    Klartextzeichen werden durch Symbole ersetzt, diese werden nach bestimmten
    Regeln in Landkarten angeordnet.
 
 
-\item {\bf Straddling Checkerboard} \cite{Goebel2003}: Eine 3x10-Matrix wird
+\item {\bf Straddling Checkerboard} 
+   \cite{Goebel2003}\index{Straddling Checkerboard}: 
+   Eine 3x10-Matrix wird
    mit den Buchstaben des Alphabets und zwei beliebigen Sonderzeichen oder
    Zahlen gef"ullt, indem zun"achst die voneinander verschiedenen Zeichen
    eines Schl"usselwortes und anschlie"send die restlichen Buchstaben des
@@ -524,37 +584,47 @@ Zuordnung ist w"ahrend des ganzen Verschl"usselungsprozesses dieselbe.
    die ersten Ziffern der m"oglichen Ziffernkombinationen sind, werden
    sie nicht als einzelne Ziffern verwendet. 
 
-   Klartext: substitution bedeutet ersetzung\\
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|c|cccccccccc|}
-\hline
+   Siehe Tabelle \ref{Straddling-Checkerboard-table-reference}.
+
+   Klartext: substitution bedeutet ersetzung  % hiernach Leerzeile, nichts stattdessen
+                                              % ein \\, sonst wird, wenn die Tabelle
+                                              % später kommt, der Abstand doppelt. 
+                                              % Warum auch immer?!
+
+   \begin{table}[h]
+   \begin{center}
+   \begin{tabular}{|c|cccccccccc|}
+   \hline
 	  & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9\\
-\hline
+   \hline
 	  & S & - & - & C & H & L & U & E & A & B\\
 	1 & D & F & G & I & J & K & M & N & O & P\\
 	2 & Q & R & T & V & W & X & Y & Z & . & /\\
-\hline
-\end{tabular}
-\caption{Straddling Checkerboard mit Passwort "`Schluessel"'}
-\end{center}
-\end{table}
+   \hline
+   \end{tabular}
+   \caption{Straddling Checkerboard mit Passwort "`Schluessel"'}
+   \label{Straddling-Checkerboard-table-reference}
+   \end{center}
+   \end{table}
 
    Geheimtext: 06902 21322 23221 31817 97107 62272 27210 72227 61712\\
 
    Auff"allig ist die H"aufigkeit der Ziffern 1 und 2, 
-   dies wird jedoch durch die folgende Variante behoben.
+   dies wird jedoch durch die folgende Variante behoben.\\
 
 
-\item {\bf Straddling Checkerboard, Variante} \cite{Goebel2003}: 
+\item {\bf Straddling Checkerboard, Variante} \cite{Goebel2003}%
+   \index{Straddling Checkerboard}: 
    Diese Form des Straddling Checkerboards wurde von sowjetischen Spionen
-   im Zweiten Weltkrieg entwickelt. Das Alphabet wird in ein Gitter 
-   eingetragen (Spaltenanzahl = L"ange des Schl"usselwortes), und es werden
-   zwei beliebige Ziffern als "reserviert" festgelegt, die sp"ater die zweite 
-   und dritte Zeile einer
-   3x10-Matrix bezeichnen (in unserem Bsp. 3 und 7). Nun wird das Gitter mit dem erzeugten
-   Alphabet spaltenweise durchlaufen und Buchstaben zeilenweise in die Matrix
-   übertragen:
+   im Zweiten Weltkrieg entwickelt. Angeblich haben auch Ernesto (Ch\'e)
+   Guevara\index{Ch\'e Guevara} und Fidel Castro diese Chiffre zur geheimen
+   Kommunikation benutzt.  
+   Das Alphabet wird in ein Gitter eingetragen (Spaltenanzahl = L"ange des 
+   Schl"usselwortes), und es werden zwei beliebige Ziffern als "`reserviert"' 
+   festgelegt, die sp"ater die zweite und dritte Zeile einer
+   3x10-Matrix bezeichnen (in unserem Bsp. 3 und 7). Nun wird das Gitter mit 
+   dem erzeugten Alphabet spaltenweise durchlaufen und Buchstaben zeilenweise
+   in die Matrix "ubertragen:
    Die acht h"aufigsten Buchstaben (ENIRSATD f"ur die deutsche Sprache) 
    bekommen zur schnelleren Chiffrierung die Ziffern 0 bis 9 zugewiesen, 
    dabei werden die reservierten Ziffern nicht vergeben. Die "ubrigen
@@ -562,79 +632,109 @@ Zuordnung ist w"ahrend des ganzen Verschl"usselungsprozesses dieselbe.
    Gegebenenfalls wird als zweite Stufe der Verschl"usselung zum Geheimtext
    noch eine beliebige Ziffernfolge addiert.
 
-   Klartext: substitution bedeutet ersetzung\\
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline 		
-	{\bf S} & C & H & L & U & {\bf E}\\
-\hline
-	{\bf A} & B & {\bf D} & F & G & {\bf I}\\
-\hline
-	J & K & M & {\bf N} & O & P\\
-\hline
-	Q & {\bf R} & {\bf T} & V & W & X\\
-\hline
-	Y & Z & . & / &   &    \\
-\hline
-\end{tabular}  
-\end{center} 
-\end{table}
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|c|cccccccccc|}
-\hline 	
-	  & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9\\
-\hline
-	  & S & A & R & - & D & T & N & - & E & I\\
-	1 & J & Q & Y & C & B & K & Z & H & M & .\\
-	2 & L & F & V & / & U & G & O & W & P & X\\
-\hline
-\end{tabular}  
-\caption{Variante des Straddling Checkerboards}
-\end{center} 
-\end{table}
+   Siehe Tabelle \ref{Straddling-Checkerboard-variant-table-reference}.
 
-   Geheimtext: 02414 05952 45926 61484 82458 58208 51624 625\\
+   Klartext: substitution bedeutet ersetzung
+
+   \begin{table}[h]
+
+   \begin{center}
+   Gitter~~
+   \begin{tabular}{|c|c|c|c|c|c|}
+   \hline 		
+	{\bf S} & C & H & L & U & {\bf E}\\
+   \hline
+	{\bf A} & B & {\bf D} & F & G & {\bf I}\\
+   \hline
+	J & K & M & {\bf N} & O & P\\
+   \hline
+	Q & {\bf R} & {\bf T} & V & W & X\\
+   \hline
+	Y & Z & . & / &   &    \\
+   \hline
+   \end{tabular}  
+   \end{center} 
+
+   \begin{center}
+   Matrix~~
+   \begin{tabular}{|c|cccccccccc|}
+   \hline 	
+	  & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9\\
+   \hline
+	  & {\bf S} & {\bf A} & {\bf R} & - & {\bf D} & {\bf T} & {\bf N} & - & {\bf E} & {\bf I}\\
+	3 & J & Q & Y & C & B & K & Z & H & M & .\\
+	7 & L & F & V & / & U & G & O & W & P & X\\
+   \hline
+   \end{tabular}  
+   \caption{Variante des Straddling Checkerboards}
+   \label{Straddling-Checkerboard-variant-table-reference}
+   \end{center}
+ 
+   \end{table}
+
+   Geheimtext: 07434 05957 45976 63484 87458 58208 53674 675\\
+
+
+   \begin{itemize}
+      \item {\bf Ch\'e Guevara};
+      Einen Spezialfall dieser Variante benutzte Ch\'e Guevara (mit einem 
+      zus"atzlicher Substitutionsschritt und einem leicht modifizierten Checkerboard):
+	 \begin{itemize}
+	    \item Die sieben h"aufigsten Buchstaben im Spanischen werden auf
+               die erste Zeile verteilt.
+            \item Es werden vier statt drei Zeilen benutzt.
+            \item Damit konnte man $10*4 - 4 = 36 $ verschiedene Zeichen 
+               verschl"usseln.\\
+         \end{itemize}
+   \end{itemize}
+  
 
 
 \item {\bf Tri-Digital} \cite{ACA2002}: 
-   Aus einem Schl"usselwort der L"ange 10 wird ein numerischer Schl"ussel 
+   Aus einem Schl"ussel"-wort der L"ange 10 wird ein numerischer Schl"us"-sel 
    gebildet, indem die Buchstaben entsprechend ihres Auftretens im Alphabet
    durchnummeriert werden. Dieser Schl"ussel wird "uber ein Gitter mit zehn
    Spalten geschrieben. In dieses Gitter wird unter Verwendung eines 
    Schl"usselwortes zeilenweise das Alphabet eingetragen, wobei die letzte
    Spalte frei bleibt. Die Klartextzeichen werden durch die Zahl "uber der
    entsprechenden Spalte substituiert, die Zahl "uber der freien Spalte dient
-   als Trennzeichen zwischen den einzelnen W"ortern.
+   als Trennzeichen zwischen den einzelnen W"ortern.\\
 
-\item {\bf Baconian Cipher} \cite{ACA2002}: 
+
+\item {\bf Baconian Cipher} \cite{ACA2002}\index{Baconian Cipher}: 
    Jedem Buchstaben des Alphabets und 6 Zahlen oder Sonderzeichen wird ein
    f"unfstelliger Bin"arcode zugeordnet (zum Beispiel 00000 = A, 00001 = B, 
    usw.). Die Zeichen der Nachricht werden entsprechend ersetzt. Nun benutzt
-   man eine zweite, unverd"achtige Nachricht, um den Code zu verbergen.
-   Dies kann zum Beispiel durch Klein- und Gro"sschreibung oder kursiv 
-   gesetzte Buchstaben geschehen. 
+   man eine zweite, unverd"achtige Nachricht, um darin den Geheimtext zu 
+   verbergen. Dies kann zum Beispiel durch Klein- und Gro"sschreibung oder
+   kursiv gesetzte Buchstaben geschehen: man schreibt z.B. alle Buchstaben
+   in der unverd"achtigen Nachricht gro"s, die unter einer \glqq 1\grqq~
+   stehen.
 
-   Nachricht: hilfe\\
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|ccccc|}
-\hline 	
-	00111 & 01000 & 01011 & 00101 & 00100\\
-	esist & warmu & nddie & sonne & scheint\\
-\hline
-	esIST & wArmu & nDdIE & soNnE & scHeint\\
-\hline
-\end{tabular}  
-\caption{Baconian Cipher}
-\end{center} 
-\end{table}
-\end{itemize}
+   Siehe Tabelle \ref{Baconian-table-reference}.
+
+   \begin{table}[h]
+   \begin{center}
+   \begin{tabular}{|c|ccccc|}
+   \hline
+        Nachricht                &  H   &   I   &   L   &   F   &   E     \\
+   \hline
+	Geheimtext               & {\tt 00111} & {\tt 01000} & {\tt 01011} & {\tt 00101} & {\tt 00100}   \\
+	Unverd"achtige Nachricht & {\tt esist} & {\tt warmu} & {\tt nddie} & {\tt sonne} & {\tt scheint} \\
+   \hline
+	Baconian Cipher          & {\tt esIST} & {\tt wArmu} & {\tt nDdIE} & {\tt soNnE} & {\tt scHeint} \\
+   \hline
+   \end{tabular}  
+   \caption{Baconian Cipher}
+   \label{Baconian-table-reference}
+   \end{center} 
+   \end{table}
+
+   \end{itemize}
 
 
 %------------------------------------------------------------------------------
-\subsubsection{Homophone Substitution}
+\subsubsection{Homophone Substitutionsverfahren}
 
 Homophone Verfahren\index{Substitution!homophon} stellen eine Sonderform der
 monoalphabetischen Substitution dar. Jedem Klartextzeichen werden mehrere
@@ -642,17 +742,21 @@ Geheimtextzeichen zugeordnet.
 
 \begin{itemize}
 
-\item {\bf Homophone monoalphabetische Substitution} \cite{Singh2001}: 
+\item {\bf Homophone monoalphabetische Substitution}\footnote{In CrypTool
+   kann man dieses Verfahren "uber den Men"ueintrag {\bf Ver-/Entschl"usseln
+   \textbackslash{} Symmetrisch (klassisch) \textbackslash{} Homophone}
+   aufrufen.}
+   \cite{Singh2001}: 
    Um die typische H"aufigkeitsverteilung der Buchstaben einer nat"urlichen
    Sprache zu verschleiern, werden einem Klartextbuchstaben mehrere 
    Geheimtextzeichen fest zugeordnet. Die Anzahl der zugeordneten Zeichen
    richtet sich gew"ohnlich nach der H"aufigkeit des zu verschl"usselnden
    Buchstabens.
 
-\item {\bf Beale-Chiffre} \cite{Singh2001}: 
+\item {\bf Beale-Chiffre} \cite{Singh2001}\index{Beale-Chiffre}: 
    Die Beale-Chiffre ist eine Buchchiffre, bei der die W"orter eines 
-   Schl"usseltextes durchnummeriert werden. Diese Zahlen ersetzen die Buchstaben
-   des Klartextes entsprechend der Anfangsbuchstaben der W"orter.
+   Schl"usseltextes durchnummeriert werden. Diese Zahlen ersetzen die
+   Buchstaben des Klartextes durch die Anfangsbuchstaben der W"orter.
 
 \item {\bf Grandpr\'e Cipher} \cite{Savard1999}: 
    Eine 10x10-Matrix (auch andere Gr"o"sen sind m"oglich) wird mit zehn W"orter
@@ -663,17 +767,19 @@ Geheimtextzeichen zugeordnet.
    Buchstaben durch mehrere Ziffernpaare ersetzt werden k"onnen. Wichtig ist,
    dass die zehn W"orter m"oglichst alle Buchstaben des Alphabets enthalten.
 
-\item {\bf Buchchiffre}: 
+\item {\bf Buchchiffre}\index{Buchchiffre}: 
    Die W"orter eines Klartextes werden durch Zahlentripel der Form 
-   "`Seite-Zeile-Positio"' ersetzt. Diese Methode setzt eine genaue 
+   "`Seite-Zeile-Position"' ersetzt. Diese Methode setzt eine genaue 
    Absprache des verwendeten Buches voraus, so muss es sich insbesondere um 
    die gleiche Ausgabe handeln (Layout, Fehlerkorrekturen, etc.).
 
 \end{itemize}
 
 
+
 %------------------------------------------------------------------------------
-\subsubsection{Polygraphische Substitution}
+\subsubsection{Polygraphische Substitutionsverfahren}
+\label{polygraphicSubstitutionCiphers}
 
 Bei der polygraphische Substitution\index{Substitution!polygraphisch} werden 
 keine einzelne Buchstaben ersetzt, sondern Buchstabengruppen. Dabei kann es
@@ -684,12 +790,18 @@ sich um Digramme, Trigramme, Silben, etc. handeln.
 \item {\bf Gro"se Chiffre} \cite{Singh2001}: 
    Die Gro"se Chiffre wurde von Ludwig XIV. verwendet und erst kurz vor 
    Beginn des 20. Jahrhunderts entschl"usselt. Die Kryptogramme enthielten 587
-   verschieden Zahlen, jede Zahl repr"asentierte eine Silbe. Die Erfinder dieser
-   Chiffre (Rossignol, Vater und Sohn) hatten zus"atzliche Fallen eingebaut, um
-   die Sicherheit der Methode zu erh"ohen. Eine Zahl konnte beispielsweise die
-   vorangehende l"oschen oder ihr eine andere Bedeutung zuweisen.
+   verschieden Zahlen, jede Zahl repr"asentierte eine Silbe. Die Erfinder
+   dieser Chiffre (Rossignol, Vater und Sohn) hatten zus"atzliche Fallen
+   eingebaut, um die Sicherheit der Methode zu erh"ohen. Eine Zahl konnte
+   beispielsweise die vorangehende l"oschen oder ihr eine andere Bedeutung
+   zuweisen.
 
-\item {\bf Playfair} \cite{Singh2001}: 
+   \hypertarget{playfair}{}
+\item {\bf Playfair}\footnote{In CrypTool
+   kann man dieses Verfahren "uber den Men"ueintrag {\bf Ver-/Entschl"usseln
+   \textbackslash{} Symmetrisch (klassisch) \textbackslash{} Playfair}
+   aufrufen.}
+   \cite{Singh2001}\index{Playfair}: 
    Eine 5x5-Matrix wird mit dem Alphabet gef"ullt, z.B. erst mit den 
    verschiedenen Zeichen eines Schl"usselwortes, dann mit den restlichen 
    Buchstaben des Alphabets. Der Klartext wird in Digramme unterteilt, die 
@@ -702,40 +814,46 @@ sich um Digramme, Trigramme, Silben, etc. handeln.
       \item Befinden sich die Buchstaben in unterschiedlichen Spalten und 
          Zeilen, nimmt man jeweils den Buchstaben, der zwar in der selben
          Zeile, aber in der Spalte des anderen Buchstabens steht.
-      \item F"ur Doppelbuchstaben gelten Sonderregelungen, wie zum Beispiel
+      \item F"ur Doppelbuchstaben (falls sie in einem Digramm vorkommen)
+         gelten Sonderregelungen, wie zum Beispiel
          die Trennung durch einen F"uller.
    \end{enumerate}
 
-   Klartext: buchstaben werden paarweise verschluesxselt\\
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|}
-\hline
+   Siehe Tabelle \ref{Playfair-table-reference}.
+
+   Klartext: buchstaben werden paarweise verschluesxselt
+
+   \begin{table}[h]
+   \begin{center}
+   \begin{tabular}{|c|c|c|c|c|}
+   \hline
 	S & C & H & L & U\\
-\hline
+   \hline
 	E & A & B & D & F\\
-\hline
+   \hline
 	G & I & K & M & N\\
-\hline
+   \hline
 	O & P & Q & R & T\\
-\hline
+   \hline
 	V & W & X & Y & Z\\
-\hline
-\end{tabular}
-\caption{5x5-Playfair}
-\end{center}
-\end{table}
+   \hline
+   \end{tabular}
+   \caption{5x5-Playfair-Matrix}
+   \label{Playfair-table-reference}
+   \end{center}
+   \end{table}
 
    Geheimtext: FHHLU OBDFG VAYMF GWIDP VAGCG SDOCH LUSFH VEGUR\\
 
 
 \item {\bf Playfair f"ur Trigramme} \cite{Savard1999}: 
 Zun"achst f"ullt man eine 5x5-Matrix mit dem Alphabet und teilt den Klartext
-in Trigramme auf. Für die Verschl"usselung gelten folgende Regeln:
+in Trigramme auf. F"ur die Verschl"usselung gelten folgende Regeln:
    \begin{enumerate}
       \item Drei gleiche Zeichen werden durch drei gleiche Zeichen ersetzt, 
          es wird der Buchstabe verwendet, der rechts unter dem urspr"unglichen
-         Buchstaben steht.
+         Buchstaben steht (Beispiel anhand von Tabelle 11: 
+         BBB $ \Rightarrow $ MMM).
       \item Bei zwei gleichen Buchstaben in einem Trigramm gelten die Regeln
          der Original-Playfair-Verschl"usselung.
       \item Bei drei unterschiedlichen Buchstaben kommen relativ komplizierte
@@ -760,27 +878,31 @@ in Trigramme auf. Für die Verschl"usselung gelten folgende Regeln:
    den beiden Klartextbuchstaben als gegen"uberliegende Eckpunkte, erh"alt man
    im zweiten und vierten Quadranten die zugeh"origen Geheimtextzeichen.
 
-   Klartext: buchstaben werden paarweise verschluesselt\\
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|ccccc|ccccc|}
-\hline
+   Siehe Tabelle \ref{Four-Square-Cipher-table-reference}.
+
+   Klartext: buchstaben werden paarweise verschluesselt
+
+   \begin{table}[h]
+   \begin{center}
+   \begin{tabular}{|ccccc|ccccc|}
+   \hline
 	d & w & x & y & m & E & P & T & O & L\\
 	r & q & e & k & i & C & V & I & Q & Z\\
 	u & v & h & p & s & R & M & A & G & U\\
 	a & l & {\bf b} & z & n & F & W & {\bf Y} & H & S\\
 	g & c & o & f & t & B & N & D & X & K\\
-\hline
+   \hline
 	Q & T & B & L & E & v & q & i & p & g\\
 	Z & H & {\bf N} & D & X & s & t & {\bf u} & o & h\\
 	P & M & I & Y & C & n & r & d & x & y\\
 	V & S & K & W & O & b & l & w & m & f\\
 	U & A & F & R & G & c & z & k & a & e\\
-\hline
-\end{tabular}
-\caption{Four Square Cipher}
-\end{center}
-\end{table}
+   \hline
+   \end{tabular}
+   \caption{Four Square Cipher}
+   \label{Four-Square-Cipher-table-reference}
+   \end{center}
+   \end{table}
 
    Geheimtext:  YNKHM XFVCI LAIPC IGRWP LACXC BVIRG MKUUR XVKT\\
 
@@ -799,7 +921,7 @@ in Trigramme auf. Für die Verschl"usselung gelten folgende Regeln:
    Klartextbuchstabe wird im ersten Quadranten gesucht und kann mit jedem 
    Zeichen der selben Spalte verschl"usselt werden. Der zweite 
    Klartextbuchstabe wird im zweiten Quadranten (diagonal gegenüberliegend) 
-   gesucht und kann mit jedem Buchstaben der selben Zeile verschl"usselt werden.
+   gesucht und kann mit jedem Buchstaben derselben Zeile verschl"usselt werden.
    Zwischen diese Geheimtextzeichen wird der Buchstabe des Schnittpunktes 
    gesetzt.
 
@@ -807,40 +929,51 @@ in Trigramme auf. Für die Verschl"usselung gelten folgende Regeln:
    Angewendet von der Deutschen Marine im Zweiten Weltkrieg.
 
 \end{itemize}
-
+~\\
 
 
 %------------------------------------------------------------------------------
-\subsubsection{Polyalphabetische Substitution}
+\subsubsection{Polyalphabetische Substitutionsverfahren}
 
 Bei der polyalphabetischen Substitution\index{Substitution!polyalphabetisch}
 ist die Zuordnung Klartext-/Geheimtextzeichen nicht fest, sondern variabel
-(meist abh"angig vom Schlüssel).
+(meist abh"angig vom Schl"ussel).
 
 \begin{itemize}
 
-\item {\bf Vigen\`ere}  \cite{Singh2001}: 
-Entsprechend den Zeichen eines Schl"usselwortes wird jedes Klartextzeichen mit 
-einem anderen Geheimtextalpahabet verschl"usselt (als Hilfsmittel dient das
-sog. Vigen\`ere-Tableau). Ist der Klartext l"anger als der Schl"ussel, wird
-dieser wiederholt.
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{ccccc}
-   Klartext: & das & alphabet & wechselt & staendig\\
-   Schl"ussel: & KEY & KEYKEYKE & YKEYKEYK & EYKEYKEY\\
-   Geheimtext: & NEQ & KPNREZOX & UOGFCIJD & WRKILNME\\
-\end{tabular}  
-\end{center} 
-\end{table}
-\begin{table}[h]
-{
-\textmd \small
-\begin{center}
-\begin{tabular}{|@{\:}r@{\:}@{\:}|r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}|}
-\hline
+\item {\bf Vigen\`ere}\footnote{%
+   In CrypTool kann man dieses Verfahren "uber den Men"ueintrag {\bf 
+   Ver-/Entschl"usseln \textbackslash{} Symmetrisch (klassisch) 
+   \textbackslash{} Vigen\`ere} aufrufen.}
+   \cite{Singh2001}\index{Vigen\`ere}: 
+   Entsprechend den Zeichen eines Schl"usselwortes wird jedes Klartextzeichen
+   mit einem anderen Geheimtextalphabet verschl"usselt (als Hilfsmittel dient
+   das sog. Vigen\`ere-Tableau). Ist der Klartext l"anger als der Schl"ussel,
+   wird dieser wiederholt.
+
+   Siehe Tabelle \ref{Vigenere-table-reference}.
+
+   \begin{table}[h]
+
+   \begin{center}
+   \begin{tabular}{|c|c|c|c|c|}
+   \hline
+   Klartext:   & {\tt das} & {\tt alphabet} & {\tt wechselt} & {\tt staendig}\\
+   \hline
+   Schl"ussel: & {\tt KEY} & {\tt KEYKEYKE} & {\tt YKEYKEYK} & {\tt EYKEYKEY}\\
+   \hline
+   Geheimtext: & {\tt NEQ} & {\tt KPNREZOX} & {\tt UOGFCIJD} & {\tt WRKILNME}\\
+   \hline
+   \end{tabular}  
+   \end{center} 
+
+   {
+   \textmd \small
+   \begin{center}
+   \begin{tabular}{|@{\:}r@{\:}@{\:}|r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}|}
+   \hline
 	- & A & B & C & {\bf D} & E & F & G & H & I & J & K & L & M & N & O & P & Q & R & S & T & U & V & W & X & Y & Z\\
-\hline
+   \hline
 	A & A & B & C & D & E & F & G & H & I & J & K & L & M & N & O & P & Q & R & S & T & U & V & W & X & Y & Z\\
 	B & B & C & D & E & F & G & H & I & J & K & L & M & N & O & P & Q & R & S & T & U & V & W & X & Y & Z & A\\
 	C & C & D & E & F & G & H & I & J & K & L & M & N & O & P & Q & R & S & T & U & V & W & X & Y & Z & A & B\\
@@ -853,59 +986,80 @@ dieser wiederholt.
 	J & J & K & L & M & N & O & P & Q & R & S & T & U & V & W & X & Y & Z & A & B & C & D & E & F & G & H & I\\
 	{\bf K} & K & L & M & {\bf N} & O & P & Q & R & S & T & U & V & W & X & Y & Z & A & B & C & D & E & F & G & H & I & J\\
 	... & ... & ... &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   &  \\
-\hline
-\end{tabular}  
-\caption{Vigen\`ere-Tableau}
-\end{center} 
-}
-\end{table}
+   \hline
+   \end{tabular}  
+   \caption{Vigen\`ere-Tableau}
+   \label{Vigenere-table-reference}
+   \end{center} 
+   }
+
+   \end{table}
+%~ \\  % Nötig für einheitlichen Abstand (sonst folgt nach der Tabelle ja oft eine 
+      % Zeile mit dem Geheimtext. Aber so nie sicher, ob der Abstand nach der
+      % Tabelle auf der gleichen Seite (ok), oder nach dem Text (zuviel), falls
+      % die Tabelle auf die kommende Seite kommt.
 
 
-\item {\bf Unterbrochener Schl"ussel}: 
-  Der Schl"ussel wird nicht fortlaufend wiederholt, sondern beginnt mit 
-  jedem neuen Klartextwort von vorne.
+\newpage % Damit die Tables immer direkt nach dem zugehörigen Item. 
+\begin{itemize}
+   \item {\bf Unterbrochener Schl"ussel}: 
+     Der Schl"ussel wird nicht fortlaufend wiederholt, sondern beginnt mit 
+     jedem neuen Klartextwort von vorne.
+
+ 
+   \item {\bf Autokey-Variante} \cite{Savard1999}: 
+      Nachdem der vereinbarte Schl"ussel abgearbeitet wurde, geht man dazu
+      "uber, die Zeichen der Nachricht als Schl"ussel zu benutzen.
+
+      Siehe Tabelle \ref{Autokey-table-reference}.
+
+   \begin{table}[h]
+   \begin{center}
+   \begin{tabular}{|c|c|c|c|c|}
+   \hline
+   Klartext:   & {\tt das} & {\tt alphabet} & {\tt wechselt} & {\tt staendig}\\
+   \hline
+   Schl"ussel: & {\tt KEY} & {\tt DASALPHA} & {\tt BETWECHS} & {\tt ELTSTAEN}\\
+   \hline
+   Geheimtext: & {\tt NEQ} & {\tt DLHHLQLA} & {\tt XIVDWGSL} & {\tt WETWGDMT}\\
+   \hline
+   \end{tabular}  
+   \caption{Autokey-Variante}
+   \label{Autokey-table-reference}	
+   \end{center} 
+   \end{table}  % Hiernach u. in die nächste Zeile darf man kein // setzen 
+                % -> TeX-Fehler !
+                %~ \\
 
 
-\item {\bf Autokey-Variante} \cite{Savard1999}: 
-   Nachdem der vereinbarte Schl"ussel abgearbeitet wurde, geht man dazu "uber,
-   die Zeichen der Nachricht als Schl"ussel zu benutzen.
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{ccccc}
-   Klartext: & das & alphabet & wechselt & staendig\\
-   Schl"ussel: & KEY & DASALPHA & BETWECHS & ELTSTAEN\\
-   Geheimtext: & NEQ & DLHHLQLA & XIVDWGSL & WETWGDMT\\
-\end{tabular}  
-\caption{Autokey-Variante}	
-\end{center} 
-\end{table}
+   \item {\bf Progressive-Key-Variante} \cite{Savard1999}: 
+      Der Schl"ussel "andert sich im Laufe der Chiffrierung, indem er das 
+      Alphabet durchl"auft. So wird aus KEY LFZ.
+
+   \item {\bf Gronsfeld} \cite{Savard1999}: 
+      Vigen\`ere-Variante, die einen Zahlenschl"ussel verwendet.
+
+   \item {\bf Beaufort} \cite{Savard1999}\index{Beaufort}: 
+      Vigen\`ere-Variante, keine Verschl"usselung durch Addition, sondern durch
+      Subtraktion. Auch mit r"uckw"arts geschriebenem Alphabet.
+
+   \item {\bf Porta} \cite{ACA2002}: 
+      Vigen\`ere-Variante, die nur 13 Alphabete verwendet. Das bedeutet, dass 
+      jeweils zwei Schl"usselbuchstaben dasselbe Geheimtextalphabet zugeordnet
+      wird, und die erste und zweite H"alfte des Alphabets reziprok sind.
+
+   \item {\bf Slidefair} \cite{ACA2002}: 
+      Kann als Vigen\`ere-, Gronsfeld- oder Beaufort-Variante verwendet werden. 
+      Dieses Verfahren verschl"usselt Digramme. Den ersten Buchstaben sucht man
+      im Klartextalphabet "uber dem Tableau, den zweiten in der Zeile, die dem
+      Schl"usselbuchstaben entspricht. Diese beiden Punkte bilden 
+      gegen"uberliegende Punkte eines gedachten Rechtecks, die verbleibenden
+      Ecken bilden die Geheimtextzeichen.
+
+\end{itemize}
 
 
-\item {\bf Progressive-Key-Variante} \cite{Savard1999}: 
-   Der Schl"ussel "andert sich im Laufe der Chiffrierung, indem er das 
-   Alphabet durchl"auft. So wird aus KEY LFZ.
-
-\item {\bf Gronsfeld} \cite{Savard1999}: 
-   Vigen\`ere-Variante, die einen Zahlenschl"ussel verwendet.
-
-\item {\bf Beaufort} \cite{Savard1999}: 
-   Vigen\`ere-Variante, keine Verschl"usselung durch Addition, sondern durch
-   Subtraktion. Auch mit r"uckw"arts geschriebenem Alphabet.
-
-\item {\bf Porta} \cite{ACA2002}: 
-   Vigen\`ere-Variante, die nur 13 Alphabete verwendet. Das bedeutet, dass 
-   jeweils zwei Schl"usselbuchstaben dasselbe Geheimtextalphabet zugeordnet
-   wird, und die erste und zweite H"alfte des Alphabets reziprok sind.
-
-\item {\bf Slidefair} \cite{ACA2002}: 
-   Kann als Vigen\`ere-, Gronsfeld- oder Beaufort-Variante verwendet werden. 
-   Dieses Verfahren verschl"usselt Digramme. Den ersten Buchstaben sucht man
-   im Klartextalphabet "uber dem Tableau, den zweiten in der Zeile, die dem
-   Schl"usselbuchstaben entspricht. Diese beiden Punkte bilden 
-   gegen"uberliegende Punkte eines gedachten Rechtecks, die verbleibenden
-   Ecken bilden die Geheimtextzeichen.
-
-\item {\bf Superposition}
+\item {\bf Superposition}\index{Superposition}
    \begin{itemize}
       \item {\bf Buchchiffre}: 
          Addition eines Schl"usseltextes (z.B. aus einem Buch) zum Klartext.
@@ -930,19 +1084,19 @@ dieser wiederholt.
    entspricht wieder der Zahl 1. Ein Buchstabe der Nachricht wird chiffriert,
    indem man im Alphabet entsprechend viele Buchstaben nach rechts geht.
 
-   Alphabet: SCHLUEABDFGHIKLMNOPQRSTUVWXZ\\
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|c||r@{\:}r@{\:}r@{\:}|r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}|r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}|r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}|}
-\hline
+   Alphabet: SCHLUEABDFGIKMNOPQRTVWXZ\\
+   \begin{table}[h]
+   \begin{center}
+   \begin{tabular}{|c||r@{\:}r@{\:}r@{\:}|r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}|r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}|r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}r@{\:}|}
+   \hline
    Klartext: & d & a & s & a & l & p & h & a & b & e & t & w & e & c & h & s & e & l & t & s & t & a & e & n & d & i & g\\
    Nummerierung: & 1 & 2 & 3 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11\\
-   Geheimtext: & F & D & L & D & O & T & B & I & L & K & L & S & F & A & D & B & K & I & U & U & Z & I & I & V & O & T & S\\
-\hline
-\end{tabular}  
-\caption{Ragbaby}
-\end{center} 
-\end{table}
+   Geheimtext: & F & D & L & D & A & V & B & K & N & M & U & S & F & A & D & B & M & K & E & U & S & K & K & X & Q & W & W\\
+   \hline
+   \end{tabular}  
+   \caption{Ragbaby}
+   \end{center} 
+   \end{table}
 
 \end{itemize}
  
@@ -952,7 +1106,8 @@ dieser wiederholt.
 \subsection{Kombination aus Substitution und Transposition}
 
 In der Geschichte der Kryptographie sind h"aufig Kombinationen der oben 
-angef"uhrten Verfahrensklassen anzutreffen.
+angef"uhrten Verfahrensklassen anzutreffen. Diese haben sich - im Durchschnitt - 
+als sicherer erwiesen als Verfahren, die nur auf einem der Prinzipien Transposition oder Substitution beruhen.
 
 \begin{itemize}
 
@@ -960,7 +1115,7 @@ angef"uhrten Verfahrensklassen anzutreffen.
    In CrypTool kann man dieses Verfahren "uber den Men"ueintrag {\bf 
    Ver-/Entschl"usseln \textbackslash{} Symmetrisch (klassisch) 
    \textbackslash{} ADFGVX} aufrufen.}
-   \cite{Singh2001}%
+   \cite{Singh2001}\index{ADFGVX}%
    : 
    Die ADFG(V)X-Verschl"usselung wurde in Deutschland im ersten Weltkrieg 
    entwickelt. Eine 5x5- oder 6x6-Matrix wird mit dem Alphabet gef"ullt, die 
@@ -979,47 +1134,59 @@ angef"uhrten Verfahrensklassen anzutreffen.
    \begin{itemize}
       \item {\bf Bifid/Polybius square/Checkerboard} \cite{Goebel2003}: 
          Bei der Grundform dieser Verschl"usselungsmethode wird eine 5x5-Matrix
-         mit den Buchstaben des Alphabets gef"ullt (siehe Playfair). Die Spalten
-         und Zeilen dieser Matrix m"ussen durchnummeriert sein, damit jedes
-         Zeichen des Klartextes durch ein Ziffernpaar (Zeile/Spalte) ersetzt
-         werden kann. Meist wird der Klartext vorher in Bl"ocke gleicher L"ange
-         zerlegt. Um den Geheimtext zu erhalten, werden zun"achst alle 
-         Zeilennummern, dann alle Spaltennummern eines Blocks ausgelesen. 
+         mit den Buchstaben des Alphabets gef"ullt (siehe Playfair). Die
+         Spalten und Zeilen dieser Matrix m"ussen durchnummeriert sein, damit
+         jedes Zeichen des Klartextes durch ein Ziffernpaar (Zeile/Spalte)
+         ersetzt werden kann. Die Zahlen k"onnen jede beliebige Permutation
+         von (1,2,3,4,5,) sein. Dies ist ein "`Schl"ussel"' oder
+         Konfigurations-Parameter dieses Verfahrens. Eine m"ogliche Variante
+         besteht darin, Schl"usselw"orter statt der Zahlen 1 bis 5
+         zu verwenden.
+	 Meist wird der Klartext vorher in Bl"ocke gleicher L"ange
+         zerlegt. Die Blockl"ange (hier 5) ist ein weiterer
+         Konfigurations-Parameter diese Verfahrens. Um den Geheimtext zu
+         erhalten, werden zun"achst alle Zeilennummern, dann alle
+         Spaltennummern eines Blocks ausgelesen. 
          Anschlie"send werden die Ziffern paarweise in Buchstaben umgewandelt.
-         Eine m"ogliche Variante besteht darin, Schl"usselw"orter statt der 
-         Zahlen 1 bis 5 zu verwenden.
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|c|ccccc|}
-\hline
-	  & 2 & 4 & {\bf 5} & 1 & 3\\
-\hline
-	1 & S & C & H & L & U\\
-	4 & E & A & B & D & F\\
-	{\bf 2} & G & I & {\bf K} & M & N\\
-	3 & O & P & Q & R & T\\
-	5 & V & W & X & Y & Z\\
-\hline
-\end{tabular}  
-\end{center} 
-\end{table}
+        
 
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|c|cccccc|}
-\hline
-         Klartext: & {\bf k}ombi & natio & nenme & hrere & rverf & ahren\\
-\hline
-         Zeilen:	& {\bf 2}3242	& 24323 & 24224 & 13434 & 35434 & 41342\\
-         Spalten: & {\bf 5}2154 & 34342 & 32312 & 51212 & 12213 & 45123\\
-\hline
-\end{tabular}  
-\caption{Bifid}
-\end{center} 
-\end{table}
+         Siehe Tabelle \ref{Bifid-table-reference}.
 
-      23242 52154 24323 34342 24224 32312 13434 51212 35434 12213 41342 45123\\
-      Geheimtext: NIKMW IOTFE IGFNS UFBSS QFDGU DPIYN\\		
+         \begin{table}[h]
+
+         \begin{center}
+         \begin{tabular}{|c|ccccc|}
+         \hline
+            & 2 & 4 & {\bf 5} & 1 & 3\\
+         \hline
+          1 & S & C & H & L & U\\
+          4 & E & A & B & D & F\\
+	  {\bf 2} & G & I & {\bf K} & M & N\\
+          3 & O & P & Q & R & T\\
+          5 & V & W & X & Y & Z\\
+         \hline
+         \end{tabular}  
+         \end{center} 
+
+         \begin{center}
+         \begin{tabular}{|c|cccccc|}
+         \hline
+         Klartext: & {\tt {\bf k}ombi} & {\tt natio} & {\tt nenme} & {\tt hrere} & {\tt rverf} & {\tt ahren}\\
+         \hline
+         Zeilen:	& {\tt {\bf 2}3242}	& {\tt 24323} & {\tt 24224} & {\tt 13434} & {\tt 35434} & {\tt 41342}\\
+         Spalten: & {\tt {\bf 5}2154} & {\tt 34342} & {\tt 32312} & {\tt 51212} & {\tt 12213} & {\tt 45123}\\
+         \hline
+         \end{tabular}  
+         \caption{Bifid}
+         \label{Bifid-table-reference}
+         \end{center} 
+
+         \end{table}
+
+         23242 52154 24323 34342 24224 32312 13434 51212 35434 12213 41342 45123\\
+
+         Geheimtext: NIKMW IOTFE IGFNS UFBSS QFDGU DPIYN\\		
+
 
       \item {\bf Trifid} \cite{Savard1999}: 
          27 Zeichen (Alphabet + 1 Sonderzeichen) k"onnen durch Tripel aus den 
@@ -1039,33 +1206,38 @@ angef"uhrten Verfahrensklassen anzutreffen.
    wird jeweils umgekehrt und zu jedem Zeichen entsprechend seiner Position
    in der ersten Matrix sein Gegenst"uck in der Schl"usselmatrix gesucht.
 
+   Siehe Tabelle \ref{Bazeries-table-reference}.
+
    Klartext: kombinationen mehrerer verfahren\\
-   Schl"usselwort: 900.004 (neunhunderttausendundvier)\\
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|ccccccccccc|}
-\hline
+   Schl"usselwort: 900.004 (neunhunderttausendundvier)
+
+   \begin{table}[h]
+
+   \begin{center}
+   \begin{tabular}{|ccccccccccc|}
+   \hline
 	a & f & l & q & v & & N & E & U & H & D\\
 	b & g & {\bf m} & r & w & & R & T & {\bf A} & S & V\\
 	c & h & n & s & x & & I & B & C & F & G\\
 	d & i & o & t & y & & K & L & M & O & P\\
 	e & k & p & u & z & & Q & W & X & Y & Z\\
-\hline
-\end{tabular}  
-\end{center} 
-\end{table} 
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|ccccccccc|}
-\hline
-	kom & bi & nation & enm & ehr & ere & rverf & ahr & en\\
-	{\bf m}ok & ib & noitan & mne & rhe & ere & frevr & rha & ne\\
-	{\bf A}MW & LR & CMLONC & ACQ & SBQ & QSQ & ESQDS & SBN & CQ\\
-\hline
-\end{tabular}  
-\caption{Bazeries}
-\end{center} 
-\end{table}	
+   \hline
+   \end{tabular}  
+   \end{center} 
+
+   \begin{center}
+   \begin{tabular}{|ccccccccc|}
+   \hline
+	{\tt kom} & {\tt bi} & {\tt nation} & {\tt enm} & {\tt ehr} & {\tt ere} & {\tt rverf} & {\tt ahr} & {\tt en}\\
+	{\tt {\bf m}ok} & {\tt ib} & {\tt noitan} & {\tt mne} & {\tt rhe} & {\tt ere} & {\tt frevr} & {\tt rha} & {\tt ne}\\
+	{\tt {\bf A}MW} & {\tt LR} & {\tt CMLONC} & {\tt ACQ} & {\tt SBQ} & {\tt QSQ} & {\tt ESQDS} & {\tt SBN} & {\tt CQ}\\
+   \hline
+   \end{tabular}  
+   \caption{Bazeries}
+   \label{Bazeries-table-reference}
+   \end{center} 
+
+   \end{table}	
 
 
 \item {\bf Digrafid} \cite{ACA2002}: 
@@ -1079,17 +1251,27 @@ angef"uhrten Verfahrensklassen anzutreffen.
    die in Dreierbl"ocken angeordnet sind, geschrieben. Dann werden die 
    horizontal entstandenen dreistelligen Zahlen ausgelesen und in Buchstaben
    umgewandelt.
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|ccccccccc|ccc|c|}
-\hline	
+
+   {\bf Bemerkung:} Da das Verfahren immer ganze Dreiergruppen ben"otigt,
+   ist eine vollst"andige Verfahrensbeschreibung zwischen Sender und Empf"anger
+   notwendig, die auch den Umgang mit Texten erl"autert, die im letzten Block
+   nur 1-5 Klartextbuchstaben enthalten. Vom Weglassen bis Padding mit
+   zuf"allig oder fix vorher festgelegten Buchstaben ist alles m"oglich.
+
+   Siehe Tabelle \ref{Digrafid-table-reference}.
+
+   \begin{table}[h]
+
+   \begin{center}
+   \begin{tabular}{|ccccccccc|ccc|c|}
+   \hline	
 	1 & {\bf 2} & 3 & 4 & 5 & 6 & 7 & 8 & 9 &   &   &   &  \\
-\hline
+   \hline
 
 	A & B & C & D & E & F & G & H & I & 1 & 2 & 3 &  \\
 	J & {\bf K} & L & M & N & O & P & Q & R & 4 & {\bf 5} & 6 &  \\
 	S & T & U & V & W & X & Y & Z & . & 7 & 8 & 9 &  \\
-\hline
+   \hline
 	  &   &   &   &   &   &   &   &   & A & J & S & 1\\
 	  &   &   &   &   &   &   &   &   & B & K & T & 2\\
 	  &   &   &   &   &   &   &   &   & C & L & U & 3\\
@@ -1099,41 +1281,46 @@ angef"uhrten Verfahrensklassen anzutreffen.
 	  &   &   &   &   &   &   &   &   & G & P & Y & 7\\
 	  &   &   &   &   &   &   &   &   & H & Q & Z & 8\\
 	  &   &   &   &   &   &   &   &   & I & R & . & 9\\
-\hline
-\end{tabular}  
-\end{center} 
-\end{table} 
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|ccccccccccccccccccc|}
-\hline		
+   \hline
+   \end{tabular}  
+   \end{center} 
+
+   \begin{center}
+   \begin{tabular}{|ccccccccccccccccccc|}
+   \hline		
 	ko & mb & in &   & at & io & ne &   & nm & eh & re &   & re & rv & er &   & fa & hr & en\\
-\hline
+   \hline
 	2  & 4  & 9  &   & 1  & 9  & 5  &   & 5  & 5  & 9  &   & 9  & 9  & 5  &   & 6  & 8  & 5\\ 
 	5  & 4  & 2  &   & 3  & 2  & 4  &   & 5  & 1  & 4  &   & 4  & 6  & 2  &   & 1  & 2  & 2\\ 
 	6  & 2  & 5  &   & 2  & 6  & 5  &   & 4  & 8  & 5  &   & 5  & 4  & 9  &   & 1  & 9  & 5\\
-\hline
+   \hline
 	KI & NB & FN &   & SW & CM & KW	&   & NR & ED & VN &   & .W & MT & NI &   & XN & AK & SW\\
-\hline
-\end{tabular}
-\caption{Digrafid}
-\end{center}
-\end{table}
+   \hline
+   \end{tabular}
+   \caption{Digrafid}
+   \label{Digrafid-table-reference}
+   \end{center}
 
+   \end{table}
 
+\clearpage   % Damit Tabelle 19 (Nicodemus) noch vor Kapitel 2.4. kommt.
 \item {\bf Nicodemus} \cite{ACA2002}: 
-Zun"achst wird eine einfache Spaltentransposition durchgef"uhrt. Noch vor 
-dem Auslesen erfolgt eine Vigen\`ere-Verschl"usselung (die Buchstaben einer
-Spalte werden mit dem entsprechenden Zeichen des Schl"usselwortes chiffriert).
-Das Auslesen erfolgt in vertikalen Bl"ocken.
+   Zun"achst wird eine einfache Spaltentransposition durchgef"uhrt. Noch vor 
+   dem Auslesen erfolgt eine Vigen\`ere-Verschl"usselung (die Buchstaben einer
+   Spalte werden mit dem entsprechenden Zeichen des Schl"usselwortes
+   chiffriert).
+   Das Auslesen erfolgt in vertikalen Bl"ocken.
 
-   Klartext: kombinationen mehrerer verfahren\\
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|ccccccccccc|}
-\hline
+   Siehe Tabelle \ref{Nicodemus-table-reference}.
+
+   Klartext: kombinationen mehrerer verfahren
+
+   \begin{table}[h]
+   \begin{center}
+   \begin{tabular}{|ccccccccccc|}
+   \hline
 	K & E & Y & & E & K & Y & & E & K & Y\\
-\hline
+   \hline
 	k & o & m & & o & k & m & & S & U & K\\
 	b & i & n & & i & b & n & & M & L & L\\
 	a & t & i & & t & a & i & & X & K & G\\
@@ -1144,37 +1331,42 @@ Das Auslesen erfolgt in vertikalen Bl"ocken.
 	v & e & r & & e & v & r & & I & F & P\\
 	f & a & h & & a & f & h & & E & P & F\\
 	r & e & n & & e & r & n & & I & B & L\\
-\hline
-\end{tabular}
-\caption{Nicodemus}
-\end{center}
-\end{table}
+   \hline
+   \end{tabular}
+   \caption{Nicodemus}
+   \label{Nicodemus-table-reference}
+   \end{center}
+   \end{table}
 
    Geheimtext: SMXRQ ULKYX KLGCC VIIEI RBFPB CPPFL\\
 
 \end{itemize}
 
 
-
+% \clearpage  % Damit Tabelle 19 (Nicodemus) noch vor Kapitel 2.4. kommt.
+             % Leider dann Tab. 19 allein auf der Folgeseite und 2.4 beginnt
+             % auf übernächster Seite.
 %------------------------------------------------------------------------------
 \subsection{Andere Verfahren}
+\label{Further-PaP-methods}
 
 \begin{itemize}
 
 \item {\bf Nadelstich-Verschl"usselung} \cite{Singh2001}: 
    Dieses simple Verfahren wurde aus den unterschiedlichsten Gr"unden "uber
    viele Jahrhunderte hinweg praktiziert. So markierten zum Beispiel im 
-   viktorianischen Zeitalter kleine L"ocher unter Buchstaben in 
+   Viktorianischen Zeitalter kleine L"ocher unter Buchstaben in 
    Zeitungsartikeln die Zeichen des Klartextes, da das Versenden einer Zeitung
    sehr viel billiger war als das Porto f"ur einen Brief.
 
 \item {\bf Lochschablone}: 
-   Die Lochschablone ist auch unter der Bezeichnung Kardinal-Richelieu-Schl"ussel
-   bekannt. Eine Schablone wird "uber einen vorher vereinbarten Text gelegt
+   Die Lochschablone ist auch unter der Bezeichnung
+   Kardinal-Richelieu-Schl"ussel bekannt.
+   Eine Schablone wird "uber einen vorher vereinbarten Text gelegt
    und die Buchstaben, die sichtbar bleiben, bilden den Geheimtext.
 
 \item {\bf Kartenspiele} \cite{Savard1999}: 
-   Der Schl"ussel wird mit Hilfe eines Kartenspieles und vorher festgelegter
+   Der Schl"ussel wird mit Hilfe eines Kartenspiels und vorher festgelegter
    Regeln erzeugt. Alle im Folgenden genannten Verfahren sind als 
    Papier- und Bleistiftverfahren ausgelegt, also ohne elektronische 
    Hilfsmittel durchf"uhrbar. Ein Kartenspiel ist f"ur Au"senstehende 
@@ -1183,14 +1375,24 @@ Das Auslesen erfolgt in vertikalen Bl"ocken.
    umwandeln und Transpositionen lassen sich ohne weitere Hilfsmittel 
    (sei es schriftlich oder elektronisch) durchf"uhren.
    \begin{itemize}
-      \item {\bf Solitaire (Bruce Schneier)} \cite{Schneier1999}: 
-         Es wird ein Schl"ussel erzeugt, der ebenso viele Zeichen besitzen
-         muss, wie der zu verschl"usselnde Klartext. Die Verschl"usselung
-         erfolgt durch Addition mod 26. Die Basis zur Erzeugung des Schl"ussels
-         ist ein gemischtes Kartenspiel mit 54 Karten (As, 2 - 10, Bube, Dame,
-         K"onig in vier Farben + 2 Joker). Sender und Empf"anger der Botschaft
-         m"ussen jeweils ein Kartenspiel mit der gleichen Anordnung der Karten
-         besitzen. Der Kartenstapel wird offen in die Hand genommen.
+      \item {\bf Solitaire (Bruce Schneier)\footnotemark}
+         \footnotetext{%
+         %Dieses Verfahren wird in einem zuk"unftigen Release von CrypTool
+         %enthalten sein.}
+         In CrypTool kann man dieses Verfahren "uber den Men"ueintrag {\bf 
+         Ver-/Entschl"usseln \textbackslash{} Symmetrisch (klassisch) 
+         \textbackslash{} Solitaire} aufrufen.}
+         \cite{Schneier1999}\index{Solitaire}: 
+         Sender und Empf"anger der Botschaft m"ussen jeweils ein Kartenspiel
+         besitzen, bei dem alle Karten in der gleichen Ausgangsanordnung
+         im Stapel liegen. Mit den Karten wird ein Schl"usselstrom erzeugt,
+         der ebenso viele Zeichen besitzen muss wie der zu verschl"usselnde
+         Klartext. 
+
+         Als Basis zur Erzeugung des Schl"ussels wird ein gemischtes 
+         Bridge-Kartenspiel mit 54 Karten (As, 2 - 10, Bube, Dame, K"onig
+         in vier Farben + 2 Joker) benutzt. Der Kartenstapel wird dazu offen
+         in die Hand genommen:
          \begin{enumerate}
             \item Der erste Joker wandert um eine Position nach hinten.
             \item Der zweite Joker wandert um zwei Positionen nach hinten.
@@ -1207,7 +1409,13 @@ Das Auslesen erfolgt in vertikalen Bl"ocken.
                bis 26. Handelt es sich um einen Joker, wird wieder bei Schritt
               1 begonnen. 
 	 \end{enumerate}
-         Diese 6 Schritte werden f"ur jedes neue Schl"usselzeichen abgearbeitet.
+         Diese 6 Schritte werden f"ur jedes neue Schl"usselzeichen
+         abgearbeitet. Dieser Vorgang dauert -- von Hand -- relativ lange
+         (4 h f"ur 300 Zeichen, je nach "Ubung) und erfordert hohe
+         Konzentration.
+      
+         Die Verschl"usselung erfolgt dann durch Addition mod 26. Sie geht im
+         Vergleich zur Schl"usselstromerzeugung relativ rasch.\\
 
       \item {\bf Mirdek (Paul Crowley)} \cite{Crowley2000}: 
          Hierbei handelt es sich um ein relativ kompliziertes Verfahren, der
@@ -1216,7 +1424,8 @@ Das Auslesen erfolgt in vertikalen Bl"ocken.
 
       \item {\bf Playing Card Cipher (John Savard)} \cite{Savard1999}: 
          Dieses Verfahren verwendet ein bereits gemischtes Kartenspiel ohne 
-         Joker, wobei das Mischen gesondert geregelt ist.
+         Joker, wobei das Mischen gesondert geregelt ist. Ein Schl"ussel wird 
+         erzeugt ,indem:
          \begin{enumerate}
             \item Der Stapel liegt verdeckt vor dem Anwender, der solange 
                Karten aufdeckt und in einer Reihe ablegt, bis die Summe der 
@@ -1226,18 +1435,21 @@ Das Auslesen erfolgt in vertikalen Bl"ocken.
                Summe der Werte der ausgelegten Karten (eine Zahl zwischen 8 und
                17). In einer zweiten Reihe wird nun die notierte Anzahl von 
                Karten ausgelegt.
-            \item Die dann noch verbleibenden Karten werden reihenweise abgelegt
-               und zwar in der ersten Reihe bis zur Position der niedrigsten 
-               Karte aus 2., in der zweiten Reihe bis zur Position der 
-               zweitniedrigsten Karte aus 2. usw. Dabei ist rot niedriger zu
-               bewerten als schwarz.
-            \item Die in 3. ausgeteilten Karten werden spaltenweise eingesammelt
-               und auf einem Stapel offen abgelegt (Spaltentransposition). 
-               Dabei wird mit der Spalte under der niedrigsten Karte begonnen.
+            \item Die dann noch verbleibenden Karten werden reihenweise
+               abgelegt und zwar in der ersten Reihe bis zur Position der
+               niedrigsten Karte aus 2., in der zweiten Reihe bis zur Position
+               der zweitniedrigsten Karte aus 2. usw. Sind 2 Karten gleich,
+               ist rot niedriger zu bewerten als schwarz.
+            \item Die in 3. ausgeteilten Karten werden spaltenweise
+               eingesammelt und auf einem Stapel offen abgelegt
+               (Spaltentransposition). 
+               Dabei wird mit der Spalte unter der niedrigsten Karte
+	       begonnen.(aufgedeckt)
             \item Die in 1. und 2. ausgeteilten Karten werden eingesammelt 
                (die letzte Karte wird zuerst entfernt).
-            \item Der Stapel wird umgedreht, so dass die Karten verdeckt liegen.
-               Im Anschluss werden die Schritte 1 bis 6 noch zweimal ausgef"uhrt.
+            \item Der Stapel wird umgedreht, so dass die Karten verdeckt
+               liegen. Im Anschluss werden die Schritte 1 bis 6 noch zweimal
+               ausgef"uhrt.
          \end{enumerate}
          Um ein Schl"usselzeichen zu erzeugen, wird der Wert der ersten Karte,
          die nicht Bube, Dame oder K"onig ist, notiert und die entsprechende
@@ -1249,7 +1461,8 @@ Das Auslesen erfolgt in vertikalen Bl"ocken.
 
 \item {\bf VIC cipher} \cite{Savard1999}: 
    Dies ist ein extrem aufw"andiges, aber verh"altnism"a"sig sicheres 
-   Papier- und Bleistiftverfahren. Es wurde von sowjetischen Spionen eingesetzt.
+   Papier- und Bleistiftverfahren. Es wurde von sowjetischen Spionen
+   eingesetzt.
    Unter anderem musste der Anwender aus einem Datum, einem Satzanfang und 
    einer beliebigen f"unfstelligen Zahl nach bestimmten Regeln zehn
    Pseudozufallszahlen erzeugen. Bei der Verschl"usselung findet unter 
@@ -1313,10 +1526,11 @@ Das Auslesen erfolgt in vertikalen Bl"ocken.
 	John J. G. Savard, \\
 	{\em A Cryptographic Compendium}, \\
 	1999.\\
-	\href{http://home.ecn.ab.ca/~jsavard/crypto/jscrypt.htm}
-	{\texttt{http://home.ecn.ab.ca/~{}jsavard/crypto/jscrypt.htm}}
+	\href{http://www.hypermaths.org/quadibloc/crypto/jscrypt.htm}
+	{\texttt{http://www.hypermaths.org/quadibloc/crypto/jscrypt.htm}}
 % manchmal schlecht zu erreichen, auch wenn man von seiner Homepage
-% http://www.hypermaths.org/quadibloc/main.htm  aus startet.
+% http://www.hypermaths.org/quadibloc/main.htm    aus startet.
+% http://www.hypermaths.org/quadibloc/crypto/jscrypt.htm
 	
 \bibitem[Schmeh2004]{Schmeh2004}  \index{Schmeh 2004}
         Klaus Schmeh, \\
@@ -1335,6 +1549,14 @@ Das Auslesen erfolgt in vertikalen Bl"ocken.
 	{\em Geheime Botschaften. Die Kunst der Verschl"usselung von der 
         Antike bis in die Zeiten des Internet}, \\
 	dtv, 2001.
+
+\bibitem[ThinkQuest1999]{ThinkQuest1999} \index{ThinkQuest 1999}
+	ThinkQuest Team 27158, \\
+	{\em Data Encryption}, \\
+	1999.\\
+	\href{http://library.thinkquest.org/27158/}
+	{\texttt{http://library.thinkquest.org/27158/} }
+
 	
 %xxxxxxxxxxx
 %\bibitem[x]{x}  \index{x}

@@ -11,10 +11,9 @@
 
 \newpage
 \hypertarget{Chapter_ElementaryNT}{}
-
 \section{Introduction to Elementary Number Theory with Examples}
 \label{Chapter_ElementaryNT}
-(Bernhard Esslinger, July 2001, Updates: Dec. 2001, June 2002, May 2003, May 2005) \\
+(Bernhard Esslinger, July 2001; Updates: Dec. 2001, June 2002, May 2003, May 2005, March 2006) \\
 
 This ``introduction'' is for people with a mathematical interest. There is no
 more pre-knowledge necessary than what you learn in the secondary school.\par
@@ -100,18 +99,21 @@ traditional Diffie-Hellman\index{Diffie-Hellman} (DH) and RSA public
 key procedures.\index{RSA}
 
 Additionally I added some qualified statements about the security of the RSA algorithm.
+
+
+
 \vskip +40 pt
 
 \begin{center}
 \fbox{\parbox{15cm}{{\em Carl Friedrich Gauss\index{Gauss, Carl Friedrich}:}\\
-Mathematics is the queen of sciences and number theory is the queen of mathematics.}}
+Mathematics is the queen of sciences and number theory is the queen of
+mathematics.}}
 \end{center}
 
 %\begin{quote}
 %{\em Carl Friedrich Gauss:}\\
 %Mathematics is the queen of sciences and number theory is the queen of mathematics.
 %\end{quote}
-
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \subsection{Introduction to number theory} \index{Number theory!introduction} 
@@ -170,7 +172,7 @@ Unless stated otherwise:
 \item The letters $a, b, c, d, e, k, n, m, p, q$ are used to present whole numbers.
 \item The letters $i$ ~\mbox{and} $j$ represent natural numbers. 
 \item The letters $p$ always represents a prime number.
-\item Te sets $\mathbb{N} = \{ 1, 2, 3, \cdots \}$ and $\mathbb{Z} =\{ \cdots, -3, -2, -1, 0, 1, 2, 3, \cdots \}$ 
+\item The sets $\mathbb{N} = \{ 1, 2, 3, \cdots \}$ and $\mathbb{Z} =\{ \cdots, -3, -2, -1, 0, 1, 2, 3, \cdots \}$ 
 are the {\em natural} and {\em whole} numbers respectively.
 \end{itemize}
 
@@ -190,7 +192,7 @@ wizards haven't got an ounce of logic.}}
 
 %\begin{quote}
 %{\em Joanne K. Rowling\footnote{Joanne K. Rowling,~``Harry Potter and the Philosopher's Stone'', Carlsen, (c) 
-%1997, chapter ``Through the trapdoor'', p. 310.}:}\newline This isn't magic – it's logic – a puzzle. A 
+%1997, chapter ``Through the trapdoor'', p. 310.}:}\newline This isn't magic -- it's logic -- a puzzle. A 
 %lot of the greatest wizards haven't got an ounce of logic.
 %\end{quote}
 
@@ -200,7 +202,7 @@ wizards haven't got an ounce of logic.}}
 \index{Number theory!elementary} Many of the problems in elementary number theory are concerned with prime 
 numbers.
 
-Every whole number has divisors or factors. The number 1 has just one – itself, whereas the number 12 has the 
+Every whole number has divisors or factors. The number 1 has just one -- itself, whereas the number 12 has the 
 six factors 1, 2, 3, 4, 6 and 12\footnote{Due to the fact that 12 has so many factors, this number -- and multiples 
 of this number -- is often found in everyday life: the 12-hour scale on clocks, the 60 minutes in an hour, the 
 360-degree scale for measuring angles, etc. If we divide these scales into segments, the segments often turn out to be whole numbers. 
@@ -475,8 +477,8 @@ $
 
 
 % --------------------------------------------------------------------------
-\subsubsection{Patterns and structures}
 \hypertarget{Chapter_ElementaryNT_5_2}{}
+\subsubsection{Patterns and structures}
 \label{Label_Chapter_ElementaryNT_5_2}
 
 In general mathematicians investigate ``Structures''\index{Structure}. They ask e.g. at $ a * x \equiv b $ mod $m$,
@@ -520,7 +522,8 @@ when we divide $8$ by $5$.
 
 
 % --------------------------------------------------------------------------
-\subsubsection{Addition and multiplication} \index{Addition} \index{Multiplication}\label{addmult}
+\subsubsection{Addition and multiplication} \index{Addition} \index{Multiplication}
+\label{addmult}
 
 The following shows
 
@@ -557,7 +560,7 @@ Addition table modulo 5: \quad + &  0 & 1 & 2 & 3 & 4  \\
 \end{table}
 
 % --------------------------------------------------------------------------
-\subsubsection*{Example of an multiplication table:}
+\subsubsection*{Example of a multiplication table:}
 The result of the multiplication $4 * 4 {\rm ~(mod~ } 5)$ is calculated as follows: $4 * 4 = 
 16$ and subtract $5$ until the result is less than the modulus.
 $$16 - 5 = 11;~ 11 - 5 = 6;~6- 5 = 1.$$
@@ -668,7 +671,7 @@ Although it may seem difficult to calculate the table of multiplicative inverses
 to the areas of the table shaded dark grey), we can use Fermat's Little Theorem\index{Fermat!little theorem}
 to create a simple algorithm for this \cite[p. 80]{Pfleeger1997}. Quicker algorithms are described, for instance, in 
 \cite{Knuth1998}\footnote{Using Euclid's extended theorem\index{Euclidean algorithm!extended}  (extended gcd), we can calculate the 
-multiplicative inverse and determine whether numbers have an inverse (see \hyperlink{Appendix_A}{appendix A of this chapter}). Alternatively, we can also use the primitive roots. }.
+multiplicative inverse and determine whether numbers have an inverse (see \hyperlink{Appendix_A}{appendix A of this chapter}). Alternatively, we can also use the primitive roots.}.
 
 Cryptographically not only the unique nature of the inverse is important, but
 also that the set of possible values has been exhausted.
@@ -766,7 +769,6 @@ because $6$ and the modulus $m=12$ are not co-prime.
 
 % --------------------------------------------------------------------------
 \subsubsection{Raising to the power} \index{Raising to the power} 
-
 In modular arithmetic, raising to the power is defined as repeated multiplication -- as usual except that 
 multiplication is now slightly different.  We can even apply the usual rules, such as:
 \begin{eqnarray*}
@@ -831,7 +833,8 @@ $$
 
 % --------------------------------------------------------------------------
 \vskip +10pt
-\subsubsection{Fast calculation of high powers} \hypertarget{hohpot}{} \label{hohpot}\index{Power}
+\hypertarget{hohpot}{}
+\subsubsection{Fast calculation of high powers} \label{hohpot}\index{Power}
 %\subsubsection*{3.6.3.1 ~~~Fast calculation of high powers} \hypertarget{hohpot}{} \index{Power}
 %\addcontentsline{toc}{subsubsection}{~~~~~~~~~~3.6.3.1 ~Fast calculation of high powers}
 RSA encryption and decryption\footnote{See chapter \ref{rsabeweis} (Proof of the
@@ -912,14 +915,18 @@ If we know the Euler function \index{Euler!(phi) function} of $m, J(m)$, then we
 the greatest common divisor (gcd) of whole numbers.}\index{Gcd} calculate $d$ with $c*d \equiv 1 {\rm ~(mod~} J(m))$ and 
 use theorem \ref{thm-zth-pot} to obtain:
 $$
-        a^d \equiv (b^c)^d \equiv b^{c*d} \equiv b^{c*d~(mod~J(m))} \equiv b^1 \equiv b {\rm ~(mod~} m)
+   a^d \equiv (b^c)^d \equiv b^{c*d} \equiv b^{c*d~(mod~J(m))} \equiv b^1 \equiv b {\rm ~(mod~} m)
 $$
 the {\em $c$-th root} $b$ of $a$. \par
 
-If $J(m)$ cannot be determined\footnote{According to the first fundamental theorem of number 
-theory\index{Number theory!fundamental theorem} and theorem \ref{thm-zth-phinum}, we determine $J(m)$ by reducing $m$ to prime factors\index{Prime factor!decomposition}.}, it is difficult to calculate 
-the $c$-th root. This forms the basis for the security assumption used by the RSA encryption system (see 
-Sub-section 4.3.1: \hyperlink{RSAVerfahren}{the RSA procedure} and \hyperlink{RSABeweis}{Sub-section 3.10 Proof of the RSA procedure}).
+If $J(m)$ cannot be determined\footnote{According to the first fundamental
+theorem of number theory\index{Number theory!fundamental theorem} and
+theorem \ref{thm-zth-phinum}, we can determine $J(m)$ by reducing $m$ to
+prime factors\index{Prime factor!decomposition}.
+}, it is difficult to calculate the $c$-th root. This forms the basis for the
+security assumption used by the RSA encryption system (see chapter
+\ref{rsabeweis} or chapter \ref{rsaverfahren}).
+
 \end{itemize}
 The time required for inverting addition and multiplication, on the other hand, 
 is simply proportional to $\log m$ or $(\log m)^2$. Powers (for a number $x$ 
@@ -1062,13 +1069,14 @@ not rational, perhaps even {\bf irrational and thereby closer to reality}.}}
 %\end{quote}
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\hypertarget{Chapter_ElementaryNT_8}{}
 \subsection{Euler function, Fermat's little theorem and Euler-Fermat}
 
 % --------------------------------------------------------------------------
-\subsubsection{Patterns and structures}
-\hypertarget{Chapter_ElementaryNT_8}{}\label{patternsandstructures}
-As mathematicians investigate the structure \index{Structure}
-$a *x \equiv b$ mod $m$ (see \hyperlink{Chapter_ElementaryNT_5_2}
+\subsubsection{Patterns and structures} \index{Structure}
+\label{patternsandstructures}
+As mathematicians investigate the structure $a *x \equiv b$ mod $m$
+(see \hyperlink{Chapter_ElementaryNT_5_2}
 {chapter \ref{Label_Chapter_ElementaryNT_5_2}}), so they are interested in
 the structure $ x^{a} \equiv b$ mod $m.$
 
@@ -1079,9 +1087,10 @@ fixpoint\index{Fixpoint}).
 
 % --------------------------------------------------------------------------
 \subsubsection{The Euler function\index{Euler!(phi) function}}
+\label{L-Euler-Function}
 Given $n$, the number of numbers from the set $\{1, \cdots, n-1\}$ that are relatively prime to $n$ is equal to the value of 
-the Euler\footnote{Leonhard Euler, Swiss mathematician, Apr 15, 1707 -- Sep 18, 1783\index{Euler, Leonhard}}
- function $J(n)$.
+the Euler\footnote{Leonhard Euler, Swiss mathematician, Apr 15, 1707 -- Sep 18, 1783\index{Euler, Leonhard}
+} function $J(n)$.
 
 \begin{definition}\label{def-zth-phiofn} \hypertarget{EulerFunction}{} 
 The Euler function\footnote{Often written as the Euler phi function\index{Euler!(phi) function} $\Phi(n)$.} $J(n)$ specifies the number of 
@@ -1128,13 +1137,14 @@ $$J(n) = [3^1 * 2] * [5^2 * 4] * [7^3 * 6] = 1,234,800.$$
 
 
 % --------------------------------------------------------------------------
-\subsubsection{The theorem of Euler-Fermat}\index{Euler Leonhard}\index{RSA}
+\subsubsection{The theorem of Euler-Fermat}\index{Euler, Leonhard}\index{RSA}
 \label{Label_KleinerSatzFermat-chap3}
 In order to prove the RSA procedure, we need Fermat's theorem and its 
 generalisation (Euler-Fermat theorem) -- 
 \hyperlink{KleinerSatzFermat-chap2}{please see chapter \ref{primality_tests}}.
 
 \hypertarget{KleinerSatzFermat-chap3}{}
+\index{Fermat!little theorem}
 \begin{theorem}\label{thm-zth-fermat1}{\bf Fermat's Little Theorem}\footnote{Pierre de Fermat, French mathematician, Aug 17, 1601 -- Jan 12, 1665.
 \index{Fermat, Pierre}
 }
@@ -1242,8 +1252,9 @@ $$} (please compare requisition 3 in \hyperlink{Chapter_ElementaryNT_10_1}
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \pagebreak
+\hypertarget{Chapter_ElementaryNT_9}{}
 \subsection{Multiplicative order and primitive roots}
-\hypertarget{Chapter_ElementaryNT_9}{} \label{MultOrdPrimitveRoot}
+\label{MultOrdPrimitveRoot}
 
 Mathematicians often ask, in which conditions the repeated application of an operation results in the neutral
 element (compare patterns and structures before)\index{Structure}.
@@ -1465,20 +1476,25 @@ The number $7$ is a primitive root of $46$,  because $ord_{46}(7) = 2 = J(46)$.
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\hypertarget{Chapter_ElementaryNT_10}{}
 \subsection{Proof of the RSA procedure with Euler-Fermat}
-\hypertarget{Chapter_ElementaryNT_10}{}\index{RSA}\label{rsabeweis}
+\index{RSA}\label{rsabeweis}
 
 \hypertarget{RSABeweis} Using the Euler-Fermat theorem, we can ``prove'' the
 RSA\footnote{The RSA procedure\index{RSA!RSA procedure} is the most
 common asymmetric cryptography procedure. Developed in 1978 by Ronald Rivest,
 Adi Shamir and Leonard Adleman, it can be used both for signatures and for
 encryption. Cryptographers always associate this procedure with the
-abbreviation ``RSA''. However, please note that the abbreviation may be
-used in other fields to mean something completely different.}$^,$\footnote{%
+abbreviation ``RSA'' $-$ the following remark is meant with humor to show
+that each letter combination can be used with several meanings: In Britain
+the ``Royal Society for the encouragement of Arts, Manufactures \& Commerce''
+is commonly known as the ``RSA''.
+}$^,$\footnote{%
 In literature\index{Literature} and in movies\index{Movies} not only 
 classic but also modern cryptographic methods have been used 
-(\hyperlink{appendix-movies}
-{see appendix C: Movies and Literature with Relation to Cryptography}).
+%(\hyperlink{appendix-movies}
+%{see appendix A3: Movies and Literature with Relation to Cryptography}).
+(see appendix \ref{s:appendix-movies}).
 % hier die items nicht einrücken ! xxxxxxxxxxxxxxx
 % \begin{list}{\textbullet}{\leftmargin10pt}
 %   \item the movie ``House of Cards'', 1992
@@ -1489,10 +1505,10 @@ procedure in the group $\mathbb{Z}_n^*$.
 
 
 % --------------------------------------------------------------------------
-\subsubsection{Basic idea of public key cryptography}
-\index{Cryptography!public key}
 \hypertarget{Chapter_ElementaryNT_10_1}{}
+\subsubsection{Basic idea of public key cryptography}
 \label{Label_Chapter_ElementaryNT_10_1}
+\index{Cryptography!public key}
 
 The basic idea behind public key cryptography is that all participants possess a different pair of keys ($P$ and $S$) and the 
 public keys for all recipients are published. You can retrieve the public key $P$ for a recipient from a directory just as you 
@@ -1533,8 +1549,9 @@ discovered later by Rivest, Shamir and Adleman.
 
 
 % --------------------------------------------------------------------------
-\subsubsection{How the RSA procedure works}\hypertarget{RSA}{}\label{RSA}
-
+\hypertarget{RSA}{}
+\subsubsection{How the RSA procedure works}
+\label{RSA}
 The individual steps for implementing the \index{RSA} RSA procedure can be described as follows (see \cite[p. 213 ff]{Eckert2003}\index{Eckert 2003} and 
 \cite[p. 338 ff]{Sedgewick1990}\index{Sedgewick 1990}). 
 Steps 1 to 3 constitute key generation, steps 4 and 5 are the encryption, and steps 
@@ -1622,7 +1639,9 @@ Concrete for the RSA method does this mean:
 
 
 % --------------------------------------------------------------------------
-\subsubsection{Proof of requirement 1 (invertibility)}\hypertarget{RSAproof}{}\label{RSAproof}
+\hypertarget{RSAproof}{}
+\subsubsection{Proof of requirement 1 (invertibility)}
+\label{RSAproof}
 
 For pairs of keys $(n, e)$ and $(n, d)$ that possess fixed properties in steps 1 to 3 of the RSA procedure, 
 the following must be true for all $M < n$:
@@ -1779,7 +1798,8 @@ Please refer to: {\em Handbook of Applied Cryptography} \cite{Menezes2001}.
 
 % --------------------------------------------------------------------------
 \vskip +40pt
-\subsubsection{Security parameters because of new algorithms} \label{chptSecurityParam}
+\subsubsection{Security parameters because of new algorithms}
+\label{chptSecurityParam}
 
 %\vskip +15 pt
 \paragraph{Factorisation algorithms} \mbox{}
@@ -1901,8 +1921,7 @@ of 1024 bit can be expected in 15 years.
 \begin{figure}[!hb]
 \begin{center}
 \frame{
-\includegraphics[scale=0.70, clip, viewport=50 20 700 430]{figures/PrognoseRSAFaktorisierungSecorvo.pdf}
-%                                           links unten rechts oben
+\includegraphics[scale=0.65, clip, viewport=-20 0 680 520]{figures/PrognoseRSAFaktorisierungSecorvo.pdf}
 }
 \caption{Forecast about future factorisation records compared with current results
 (from Secorvo)}
@@ -1910,10 +1929,9 @@ of 1024 bit can be expected in 15 years.
 \end{center}
 \end{figure}
 
-%be_2005: Erzwingen, dass die Abb. noch in diesem Kapitel !
 
 
-
+\clearpage
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \vspace{4ex}
 \begin{center}
@@ -1946,7 +1964,8 @@ both prime factors.
 \vskip +10pt
 The last records\footnote{%
 The 'RSA numbers' are certain large semiprime numbers (i.e., numbers with
-exactly two prime factors). They were generated and published by the 
+exactly two prime factors)\index{Number!semi prime}. 
+They were generated and published by the 
 company RSA Security and they form the basis of the RSA Factoring 
 Challenge, in which factorisations for these numbers are sought.
 See \href{http://www.rsasecurity.com/rsalabs/challenges/factoring/numbers.html}
@@ -1984,12 +2003,23 @@ listed in the following table:
 	RSA-160 & 	160 & 530 & & April, 2003 & Jens Franke et al. \\
 	RSA576 & 	174 & 576 & & December, 2003 & Jens Franke et al. \\
 	C176 & 		176 & 583 & & May, 2005 & Kazumaro Aoki et al. \\
+	RSA640\footnotemark & 	193 & 600 & & November, 2005 & Jens Franke et al. \\
 	RSA-200 & 	200 & 663 & & May, 2005 & Jens Franke et al. \\
 \hline
 \end{tabular}
-\caption{The current general purpose factoring records (as of May 2005)}
+\caption{The current general purpose factoring records (as of November 2005)}    % Eyecatcher_neue-Mersenne 
 \end{center}
 \end{table} 
+\footnotetext{%
+A research group of the GISA solved this challenge which was awarded with
+20,000 US dollar using the GNFS method. The researchers needed about five
+months to divide this number into its both 320 bit long prime factors.\\
+RSA Labs offers its challenges since the beginning of the 1990th.
+The next bigger challenge awarded with 30,000 US dollars is RSA-704.\\
+See:
+\href{http://www.heise.de/newsticker/meldung/print/65957}
+{\texttt{http://www.heise.de/newsticker/meldung/print/65957}}
+}
 
 %be_2005: Erzwingen, dass die Abb. noch in diesem Kapitel !
 
@@ -2160,8 +2190,9 @@ The calculations took place between December 2002 and April 2003.
 
 % --------------------------------------------------------------------------
 \vskip +20pt
-\paragraph{RSA-200} \label{RSA-200} \index{RSA-200}\mbox{}
 \hypertarget{RSA-200-chap3}{}
+\paragraph{RSA-200} \label{RSA-200} \index{RSA-200}\mbox{}
+%\hypertarget{RSA-200-chap3}{}
 
 On May 9, 2005 the research group of Prof. Jens Franke at the German
 University of Bonn\footnote{%
@@ -2224,10 +2255,14 @@ tests\index{Primality testing} are able to decide whether these numbers are prim
 or not (see chapters \ref{search_for_very_big_primes}, \ref{primality_tests}
 and \ref{spezialzahlentypen}). 
 
-% be_2005_UPDATEN_if-new-mersenne-prime-appears
-
-Length in bits of the current world records (RSA-200 $\longleftrightarrow{}$ M-42):
-  ~  $663 \longleftrightarrow 25,964,951$.
+% be_2005_UPDATEN_if-new-mersenne-prime-appears % Eyecatcher_neue-Mersenne
+Length in bits of the current world records:\\
+% (RSA-200 $\longleftrightarrow{}$ 43rd known Mersenne prime) \\
+%  ~  $663 \longleftrightarrow 30,402,457$.
+%$$ (RSA-200 ~~ \longleftrightarrow{} ~~ 43rd ~known~Mersenne~Prime) $$ mnmnmn
+%$$ (RSA~-200 ~~ \longleftrightarrow{} ~~ 43rd ~known~Mersenne~Prime) $$
+$$ [RSA{-}200~Number] ~~\longleftrightarrow{}~~ [43rd ~known~Mersenne~Prime] $$
+$$ 663 ~~ \longleftrightarrow{} ~~ 30,402,457 ~~~~~$$
 
 
 
@@ -2235,9 +2270,10 @@ Length in bits of the current world records (RSA-200 $\longleftrightarrow{}$ M-4
 % --------------------------------------------------------------------------
 \vskip +60pt
 \subsubsection{Further current research about primes and factorisation}
-Prime numbers are part of very many topical research areas in number theory and computer science. 
-Progress made with factorisation is bigger than was estimated 5 years ago -- this
-is not only due to faster computers but also new knowledge.
+Prime numbers are part of very many topical research areas in number theory
+and computer science. Progress made with factorisation is bigger than was
+estimated 5 years ago -- this is not only due to faster computers but
+also new knowledge.
 
 The security of the RSA algorithm is based on the empirical observation
 that factoring large numbers is a hard problem. A module $n$ (typically,
@@ -2381,6 +2417,9 @@ completed in less than ten minutes with a \$10K device. Coupled with recent
 results about the difficulty of the NFS matrix step ... this raises some
 concerns about the security of these key sizes.''
 
+A detailed explanation from these two authors also can be found in the
+RSA Laboratories CryptoBytes \cite{Shamir2003a}.
+
 The 3-page article in the DuD issue of June 2003 \cite{Weis2003} contains
 a very good explanation, how the attack using the Generalized Number Field
 Sieve (GNFS) \index{General Number Field Sieve (GNFS)} works and which 
@@ -2471,8 +2510,8 @@ The essential reason for this is that subtraction is just as simple an operation
 
 
 % --------------------------------------------------------------------------
-\subsubsection{One way functions}\index{One way function}
 \hypertarget{OneWayFunktion2}{}%
+\subsubsection{One way functions}\index{One way function}
 If the key is to be impossible to determine even with knowledge of both the 
 plaintext and the cipher text, we need a function that is, on the one hand, 
 relatively easy to calculate -- we don't want to have problems encrypting 
@@ -2623,9 +2662,9 @@ For Bob: $11 ^ y \equiv 285 {\rm ~(mod~}347)$, that means $\log_{11}(285){\rm ~(
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\subsection{The RSA procedure with actual numbers}\hypertarget{Chapter_ElementaryNT_12}{}
-\index{RSA}\label{rsaconcrete}
-
+\hypertarget{Chapter_ElementaryNT_12}{}
+\subsection{The RSA procedure with actual numbers}
+\label{rsaconcrete}\index{RSA}
 Having described above \hyperlink{RSA}{how the RSA procedure works}, we will now work through the steps using actual, but small, numbers.
 
 
@@ -3194,7 +3233,14 @@ This needs to be stressed because the type of padding is extremely important dur
     Januar 2003, \\
     \href{http://www.wisdom.weizmann.ac.il/~tromer/}
     {\texttt{http://www.wisdom.weizmann.ac.il/\~{}tromer/}}.
-  
+
+\bibitem[Shamir2003a]{Shamir2003a} \index{Shamir 2003a} \index{TWIRL device} 
+    Adi Shamir, Eran Tromer, \\
+    {\em On the Cost of Factoring RSA-1024}, 
+    RSA Laboratories CryptoBytes Volume 6, No. 2, Summer 2003, p. 11-20 \\
+    \href{http://www.rsasecurity.com/rsalabs/cryptobytes/CryptoBytes\_August\_2003.pdf}
+    {\texttt{http://www.rsasecurity.com/rsalabs/cryptobytes/CryptoBytes\_August\_2003.pdf}}
+
 \bibitem[Silverman2000]{Silverman2000} \index{Silverman 2000}
      Robert D. Silverman: \\ 
      {\em A Cost-Based Security Analysis of Symmetric and Asymmetric 
@@ -3346,9 +3392,10 @@ I would like to take this opportunity to thank
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
-\hypertarget{Appendix_A}{} \label{Appendix_A}
-\subsection*{Appendix A: the greatest common divisor (gcd) of whole numbers and the two
-Algorithms of Euclid} 
+\hypertarget{Appendix_A}{}
+\subsection*{Appendix A: the greatest common divisor (gcd) of whole
+             numbers and the two Algorithms of Euclid}
+\label{Appendix_A}
 \addcontentsline{toc}{subsection}{Appendix A: gcd of whole numbers and the two
 algorithms of Euclid}\index{Euclidean algorithm!extended}\index{Gcd}
 
@@ -3446,7 +3493,8 @@ Thus
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
-\subsection*{Appendix B: Forming closed sets} \hypertarget{Appendix_B}{}
+\hypertarget{Appendix_B}{}
+\subsection*{Appendix B: Forming closed sets}
 \addcontentsline{toc}{subsection}{Appendix B: Forming closed sets}
 
 The property of closeness \index{Closeness} is always defined in relation to an operation in a set.
@@ -3463,58 +3511,69 @@ G_1 & = & \{ 2, 3, 4, 5, 6 \} {\rm ~addition~of~the~numbers~in~} G_1 {\rm ~deter
 G_2 & = & \{ 0, 1, 2, 3, 4, 5, 6, 7 \} {\rm ~~addition~of~the~numbers~in~} G_2 {~does~not~extend~the~set!} \nonumber \\
 G_3 & = & G_2 {\rm ~~we~say:~} G_2 {\rm~is~closed~for~addition~~(mod~}8). \nonumber 
 \end{eqnarray*}
-End of forming a closed set.
+% End of forming a closed set.
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\vskip +40pt
-\subsection*{Appendix C: Comments on modulo subtraction} \hypertarget{Appendix_C}{}
+\vskip +60pt
+\hypertarget{Appendix_C}{}
+\subsection*{Appendix C: Comments on modulo subtraction}
 \addcontentsline{toc}{subsection}{Appendix C: Comments on modulo subtraction}
-
 Comment on subtraction modulo 5: $2 - 4 \equiv -2 \equiv 3{\rm ~mod~}2$.
 It is therefore not true modulo $5$ that $-2 = 2$ ! People often make the mistake of equating this. You can show this clearly if you place the permutation $(0, 1, 2, 3, 4)$ in $\mathbb{Z}_5$, for example from $-11$ to $+11$, over the range of numbers in $\mathbb{Z}$.
 
 \vskip +10 pt
 \input{figures/line-en.latex}
 
+
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
-\subsection*{Appendix D: Base representation of numbers, estimation of length of digits}
-\addcontentsline{toc}{subsection}{Appendix D: Base representation and base transformation of numbers, estimation of length of digits}
+\hypertarget{Appendix_D}{}
+\subsection*{Appendix D: Base representation of numbers,
+             estimation of length of digits}
+\addcontentsline{toc}{subsection}{Appendix D: Base representation and base
+                 transformation of numbers, estimation of length of digits}
 
-For a given number $z$ one may ask how to represent such a number. In general we use
-representations like $z = 2374$ or $z = \sqrt{2}$. The second number consists of an infinite
-number of digits and therefore it can never be described precisely by the first representation. In this case 
-the number must be rounded.
+For a given number $z$ one may ask how to represent such a number. In general
+we use representations like $z = 2374$ or $z = \sqrt{2}$. The second number
+consists of an infinite number of digits and therefore it can never be
+described precisely by the first representation. In this case the number
+must be rounded.
 
 We represent numbers usually in the decimal system (base 10). Computers
-are working with the binary representation of numbers --- only for the display numbers are 
-represented in decimal or sometimes hexadecimal (base 16) form.
+are working with the binary representation of numbers --- only for the
+display numbers are represented in decimal or sometimes hexadecimal (base 16)
+form.
 
-This appendix describes how to generate arbitrary base representations of anay positive integer and how 
-to determine the number of required digits via the logarithm function.
+This appendix describes how to generate arbitrary base representations of
+any positive integer and how to determine the number of required digits
+via the logarithm function.
 
 
 \subsubsection*{$b$-adic sum representation of positive integers}
-Given base $b$, each positive integer $z$ can be represented as a $b$-adic sum 
-$$ z = a_nb^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0, $$
-where $a_i \in \{0, 1, \dots, b-1\}, \; i=0,1,\dots, n$ are called {\em digits}.
-For this sum, it follows that for arbitrary digits $a_0, a_1, \dots, a_n$ we have 
-$b^{n+1} > a_nb^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0$. On the other hand there exist
-$a_0, a_1, \dots, a_n$~(namely $a_i = b-1$ for $i=0, \dots, n$) following that  
-$b^{n+1} -1 \le a_nb^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0$
-(using these inequalities it can be shown that each positve integer can be represented by a $b$-adic sum).
+Given base $b$, each positive integer $z$ can be represented as a $b$-adic
+sum  $$ z = a_nb^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0, $$ where
+$a_i \in \{0, 1, \dots, b-1\}, \; i=0,1,\dots, n$ are called {\em digits}.
+
+For this sum, it follows that:\\
+1) For arbitrary digits $a_0, a_1, \dots, a_n$ it is:
+   $b^{n+1} > a_nb^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0$.\\
+2) There exist digits $a_0, a_1, \dots, a_n$
+   ~(namely $a_i = b-1$ for $i=0, \dots, n$), following that  
+   $b^{n+1} -1 \le a_nb^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0$.\\
+(Using these inequalities it can be shown that each positve integer can be
+represented by a $b$-adic sum).
 
 By writing the digits $a_na_{n-1} \cdots a_1a_0$ in a row directly after each other (without the $b^i$) 
 the usual writing for numbers comes to hand.
 
 {\bf Examples}: \\
-Base $b = 10$: $10278 =  1\cdot10^4 +  0\cdot 10^3 + 2\cdot 10^2 + 7\cdot 10^1 + 8$ and \\
+Base $b = 10$: $10278 =  1\cdot10^4 +  0\cdot 10^3 + 2\cdot 10^2 + 7\cdot 10^1 + 8$\\
 Base $b = 16$: $FE70A = 15\cdot16^4 + 14\cdot 16^3 + 7\cdot 16^2 + 0\cdot 16^1 + 10$.
 
 
+\vskip +20 pt
 \subsubsection*{Number of digits to represent a positive integer}
-
 For a positive integer $z$ the length of the $b$-adic representation can be determined via the 
 following steps. Starting from the inequality $b^{n+1} > z \ge b^n$ 
 we have --- after applying the logarithm function on basis $b$\footnote{%
@@ -3526,16 +3585,23 @@ The function $\lfloor x \rfloor$ determines the next integer smaller than $x$ (i
 $$l_b(z) := \lfloor log_b z \rfloor +1.$$
 
 \vskip +10 pt
-{\bf Example 1}:
+{\bf Example 1 (decimal$\rightarrow$hex)}:
 We compute for the decimal number $z = 234$ (EA in hex) the hexadecimal representation (number base $b = 16$)
 $$l_{16}(z) = \lfloor \log_{16}(z) \rfloor + 1 = \lfloor \ln (z) / \ln(16) \rfloor + 1 = \lfloor 1.96... \rfloor + 1 = 1 + 1 = 2.$$
 
 \vskip +10 pt
-{\bf Example 2}:
+{\bf Example 2 (decimal$\rightarrow$binary)}:
 We compute for the decimal number $z = 234$ (11101010 in binary) the binary representation (number base $b = 2$)
 $$l_{2}(z) = \lfloor \log_{2}(z) \rfloor + 1 = \lfloor \ln (z) / \ln(2) \rfloor + 1 = \lfloor 7.87... \rfloor + 1 = 7 + 1 = 8.$$
 
-\vskip + 10  pt
+\vskip +10 pt 
+{\bf Example 3 (binary$\rightarrow$decimal)}:
+We compute for the decimal number $z = 11101010$ (234 decimal) the decimal
+representation (number base $b = 10$)
+$$l_{10}(z) = \lfloor \log_{10}(z) \rfloor + 1 = \lfloor \ln (z) / \ln(10) \rfloor + 1 = \lfloor 2,36... \rfloor + 1 = 2 + 1 = 3.$$
+
+
+\vskip + 20 pt
 \subsubsection*{Algorithm to compute the base representation}
 Given the number $z$ one can compute the base $b$ representation of $z$ using the following algorithm
 
@@ -3552,15 +3618,18 @@ $n := 0, z' := z$ \\
 \end{tabbing}
 
 
-{\bf Example 1}:
+{\bf Example 1 (decimal$\rightarrow$hex)}:
 The integer $z = 234$ on the number base $10$ will be transformed into the hex representation via
-$a_0 = 234 {\rm ~mod~} 16 = 10 = A$, $234 / 16 = 15 = E$, $a_1 = 14 {\rm ~mod~} 16 = E$ and therefore we have $EA$. 
+$a_0 = 234 {\rm ~mod~} 16 = 10 = A$, $234 / 16 = 14 = E$,\\
+$a_1 = 14 {\rm ~mod~} 16 = E$\\
+and therefore we have $EA$. 
 
 \vskip +10 pt
-{\bf Example 2}:
-The binary number $z = 1000100101110101$ is transformed into the decimal representation via the following steps:
+{\bf Example 2 (binary$\rightarrow$decimal)}:
+The binary number $z = 1000100101110101$ is transformed into the decimal
+representation via the following steps:
 
-$1000100101110101 = 1001$ (mod $1010)  \Longrightarrow a_0 = 9$, $1000100101110101 / 1010 = 110110111110$ \\
+$1000100101110101 = 1001$ (mod $1010)  \Longrightarrow a_0 = 9$, ~ ~ $1000100101110101 / 1010 = 110110111110$ \\
 $110110111110 = 1000$ (mod $1010) \Longrightarrow a_1 = 8$, $110110111110 / 1010 = 101011111$ \\
 $101011111 = 1$ (mod $1010) \Longrightarrow a_2 = 1$, $10101111 / 1010 = 100011$ \\
 $100011 =  101$ (mod $1010) \Longrightarrow a_3 = 5$, $100011 / 1010 = 1$ \\
@@ -3568,9 +3637,11 @@ $11 = 11$ (mod $1010) \Longrightarrow a_4 = 3$ \\
 therefore $z = 35189$. 
 
 
+
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
-\subsection*{Appendix E: Examples using Mathematica and Pari-GP} \hypertarget{AppendixD}{}
+\hypertarget{Appendix_E}{}
+\subsection*{Appendix E: Examples using Mathematica and Pari-GP}
 \addcontentsline{toc}{subsection}{Appendix E: Examples using Mathematica and Pari-GP}
 \index{Mathematica}\index{Pari-GP}
 
@@ -3579,8 +3650,9 @@ software Pari-GP.
 % In diesem Anhang finden Sie den Quellcode, mit dem die Tabellen und
 % Beispiele mit Hilfe von Mathematica und dem freien Programm Pari-GP berrechnet werden k"onnen.
 
-\subsubsection*{Multiplication table modulus $m$} \hypertarget{AppArith1}{}
 
+\hypertarget{AppArith1}{}
+\subsubsection*{Multiplication table modulus $m$}
 The multiplication tables modulo $m = 17$ for $a=5$ and $a=6$ on page \pageref{SrcArith1a} 
 can be computed in Mathematica with the following commands: 
 \begin{verbatim}
@@ -3626,7 +3698,9 @@ The other multiplication table examples modulo $13$ and modulo $12$ on page
 \pageref{SrcArith1b} can computed by replacing {\tt m=17} with {\tt m=13}
 and {\tt m=12} respectively.
 
-\subsubsection*{Fast exponentiation} \hypertarget{AppArith2}{}
+
+\hypertarget{AppArith2}{}
+\subsubsection*{Fast exponentiation}
 
 The fast exponentiation modulo $m$ belongs to the built in functions of Mathematica and Pari-GP.
 Using those programs you can comprehend the idea of the square and multiply method. With Mathematica
@@ -3640,9 +3714,10 @@ and in Pari-GP the syntax is:
 Mod([87^43,87^2,87^4,87^8,87^16,87^32],103)
 \end{verbatim}
 
-\subsubsection*{Multiplicative order and primitive roots}
 
-\hypertarget{AppArith3a}{} The order $ord_m(a)$ of a number $a$ in the
+\hypertarget{AppArith3a}{}
+\subsubsection*{Multiplicative order and primitive roots}
+The order $ord_m(a)$ of a number $a$ in the
 multiplicative group $Z_m^*$ is the smallest number $i \ge 1$, for with
 $a^i \equiv 1$ mod $m$ holds. For the example on page~\pageref{SrcArith3a}
 you can make Mathematica print all exponentiations $a^i$ mod $11$ using the
@@ -3775,7 +3850,8 @@ RSA encryption with Pari-GP: \\
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 % \vskip +12pt
 \newpage
-\subsection*{Appendix F: List of the formulated definitions and theorems} \hypertarget{AppendixListAndDef}{}
+\hypertarget{Appendix_F}{}  %\hypertarget{AppendixListAndDef}{}
+\subsection*{Appendix F: List of the formulated definitions and theorems}
 \addcontentsline{toc}{subsection}{Appendix F: List of the formulated definitions and theorems}
 \vskip +8 pt
 \begin{center}

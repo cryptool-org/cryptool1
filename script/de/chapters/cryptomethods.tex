@@ -3,9 +3,17 @@
 %             V E R S C H L U E S S E L U N G S V E R F A H R E N
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-\section{Verschl"usselungsverfahren}
+\begin{center}
+\fbox{\parbox{15cm}{%
+{\em Indisches Sprichwort}:\\
+Erkl"are es mir, ich werde es vergessen.\\
+Zeige es mir, ich werde es vielleicht behalten.\\
+Lass es mich tun, und ich werde es k"onnen.}}
+\end{center}
+
 \hypertarget{Kapitel_1}{}
-(Bernhard Esslinger, Mai 1999, Updates: Dez. 2001, Feb. 2003, June 2005)
+\section{Verschl"usselungsverfahren}
+(Bernhard Esslinger, Mai 1999; Updates: Dez. 2001, Feb. 2003, June 2005)
 
 
 Dieses Kapitel soll einen eher beschreibenden Einstieg bieten und die
@@ -36,20 +44,21 @@ zu brechen. Bei guten Verfahren sind diese jedoch so aufw"andig, dass sie
 praktisch nicht durchf"uhrbar sind und diese Verfahren als (praktisch)
 sicher angesehen werden k"onnen.\par \vskip + 3pt
 
-Einen sehr guten "Uberblick zu den Verfahren bietet das Buch von Bruce Schneier \cite{Schneier1996cm}. Grunds"atzlich unterscheidet man zwischen symmetrischen und 
-asymmetrischen Verfahren zur Verschl"usselung.
+Einen sehr guten "Uberblick zu den Verfahren bietet das Buch von Bruce
+Schneier \cite{Schneier1996cm}. Grunds"atzlich unterscheidet man zwischen
+symmetrischen und asymmetrischen Verfahren zur Verschl"usselung.
 
 % --------------------------------------------------------------------------
 \subsection[Symmetrische Verschl"usselung]
 {Symmetrische Verschl"usselung\footnotemark}
-        \footnotetext{% XXX dieses Prozent ist nötig, sonst startet die Fußnote mit einem Blank !
-        Mit CrypTool\index{CrypTool} k"onnen Sie "uber das Men"u
-        {\bf Ver-/Entschl"usseln \textbackslash{} Symmetrisch (modern)} folgende 
-        modernen symmetrischen Verschl"usselungsverfahren ausf"uhren: \\
-        IDEA, RC2, RC4, DES (ECB), DES (CBC), Triple-DES (ECB), Triple-DES (CBC),
-        MARS (AES-Kandidat), RC6 (AES-Kandidat), Serpent (AES-Kandidat), 
-        Twofish (AES-Kandidat), Rijndael (offizielles AES-Verfahren).
-        }
+   \footnotetext{% XXX dieses Prozent ist nötig, sonst startet die Fußnote mit einem Blank !
+     Mit CrypTool\index{CrypTool} k"onnen Sie "uber das Men"u
+     {\bf Ver-/Entschl"usseln \textbackslash{} Symmetrisch (modern)} folgende 
+     modernen symmetrischen Verschl"usselungsverfahren ausf"uhren: \\
+     IDEA, RC2, RC4, DES (ECB), DES (CBC), Triple-DES (ECB), Triple-DES (CBC),
+     MARS (AES-Kandidat), RC6 (AES-Kandidat), Serpent (AES-Kandidat), 
+     Twofish (AES-Kandidat), Rijndael (offizielles AES-Verfahren).
+     }
 
 Bei der {\em symmetrischen} Verschl"usselung 
 \index{Verschl""usselung!symmetrisch} m"ussen Sender und Empf"anger
@@ -84,11 +93,13 @@ Er wurde 1975 als Standard ver"offentlicht. Trotz seines relativ hohen
 Alters ist jedoch bis heute kein  ~\glqq effektiver\grqq~ Angriff auf
 ihn gefunden worden. Der effektivste Angriff besteht aus dem Durchprobieren
 (fast) aller m"oglichen Schl"ussel, bis der richtige gefunden wird 
-({\em brute-force-attack})\index{Angriff!Brute-force}. Aufgrund der relativ kurzen
-Schl"ussell"ange von effektiv 56 Bits (64 Bits, die allerdings 8 Parit"atsbits enthalten),
-sind in der Vergangenheit schon mehrfach mit dem DES verschl"usselte Nachrichten gebrochen worden, so dass
-er heute als nur noch bedingt sicher anzusehen ist. Symmetrische Alternativen zum DES sind zum Beispiel die Algorithmen
-IDEA \index{IDEA} oder Triple-DES.\par \vskip + 3pt
+({\em brute-force-attack})\index{Angriff!Brute-force}. Aufgrund der relativ
+kurzen Schl"ussell"ange von effektiv 56 Bits (64 Bits, die allerdings 8
+Parit"atsbits enthalten), sind in der Vergangenheit schon mehrfach mit dem
+DES verschl"usselte Nachrichten gebrochen worden, so dass er heute als nur
+noch bedingt sicher anzusehen ist. Symmetrische Alternativen zum DES sind
+zum Beispiel die Algorithmen IDEA \index{IDEA} oder Triple-DES.
+\par \vskip + 3pt
 
 Hohe Aktualit"at besitzt das symmetrische AES-Verfahren: \index{AES} 
 Der dazu geh"orende Rijndael-Algo"-rithmus wurde am 2. Oktober 2000 zum
@@ -108,13 +119,47 @@ Sie in der CrypTool-Online-Hilfe\index{CrypTool}%
 \subsubsection{Neue Ergebnisse zur Kryptoanalyse von AES}
 \index{Kryptoanalyse} \label{NeueAES-Analyse}
 
-Im Anschluss finden Sie einige Informationen, die das AES-Verfahren in letzter Zeit in Zweifel zogen -- unserer Ansicht nach aber (noch) unbegr"undet. Die folgenden Informationen beruhen auf den unten angegebenen Originalarbeiten und auf \cite{Wobst-iX2002} und \cite{Lucks-DuD2002}.
+Im Anschluss finden Sie einige Informationen, die das AES-Verfahren in
+letzter Zeit in Zweifel zogen -- unserer Ansicht nach aber (noch)
+unbegr"undet. Die folgenden Informationen beruhen auf den unten
+angegebenen Originalarbeiten und auf \cite{Wobst-iX2002} und
+\cite{Lucks-DuD2002}.
 
-Der AES bietet mit einer Mindestschl"ussell"ange von 128 Bit gegen Brute-force-Angriffe auch auf l"angere Sicht gen"ugend Sicherheit -- es sei denn, es st"unden entsprechend leistungsf"ahige Quantencomputer zur Verf"ugung. Der AES war immun gegen alle bis dahin bekannten Kryptoanalyse-Verfahren, die vor allem auf statistischen "Uberlegungen beruhen und auf DES angewandt wurden: man konstruiert aus Geheim- und Klartextpaaren Ausdr"ucke, die sich nicht rein zuf"allig verhalten, sondern R"uckschl"usse auf den verwendeten Schl"ussel zulassen. Dazu waren aber unrealistische Mengen an abgeh"orten Daten n"otig.
+Der AES bietet mit einer Mindestschl"ussell"ange von 128 Bit gegen
+Brute-force-Angriffe auch auf l"angere Sicht gen"ugend Sicherheit -- es sei
+denn, es st"unden entsprechend leistungsf"ahige Quantencomputer zur
+Verf"ugung. Der AES war immun gegen alle bis dahin bekannten
+Kryptoanalyse-Verfahren, die vor allem auf statistischen
+"Uberlegungen beruhen und auf DES angewandt wurden: man konstruiert aus
+Geheim- und Klartextpaaren Ausdr"ucke, die sich nicht rein zuf"allig
+verhalten, sondern R"uckschl"usse auf den verwendeten Schl"ussel zulassen.
+Dazu waren aber unrealistische Mengen an abgeh"orten Daten n"otig.
 
-Bei Kryptoverfahren bezeichnet man solche Kryptoanalyseverfahren als ''akademischen Erfolg'' oder als ''kryptoanalytischen Angriff'', da sie theoretisch schneller sind als das Durchprobieren aller Schl"ussel, das beim Brute-force-Angriff\index{Angriff!Brute-force} verwendet wird. Im Fall des AES mit maximaler Schl"ussell"ange (256 Bit) braucht die ersch"opfende Schl"usselsuche im Durchschnitt $2^{255}$ Verschl"usselungsoperationen. Ein kryptoanalytischer Angriff muss diesen Wert unterbieten. Als aktuell gerade noch praktikabel (z.B. f"ur einen Geheimdienst) gilt ein Aufwand von $2^{75}$ bis $2^{90}$ Verschl"usselungsoperationen.
+Bei Kryptoverfahren bezeichnet man solche Kryptoanalyseverfahren als
+''akademischen Erfolg'' oder als ''kryptoanalytischen Angriff'', da sie
+theoretisch schneller sind als das Durchprobieren aller Schl"ussel, das
+beim Brute-force-Angriff\index{Angriff!Brute-force} verwendet wird. Im
+Fall des AES mit maximaler Schl"ussell"ange (256 Bit) braucht die
+ersch"opfende Schl"usselsuche im Durchschnitt $2^{255}$
+Verschl"usselungsoperationen. Ein kryptoanalytischer Angriff muss diesen
+Wert unterbieten. Als aktuell gerade noch praktikabel (z.B. f"ur einen
+Geheimdienst) gilt ein Aufwand von $2^{75}$ bis $2^{90}$
+Verschl"usselungsoperationen.
 
-Eine neue Vorgehensweise wurde in der Arbeit von Ferguson, Schroeppel und Whiting im Jahre 2001 \cite{Ferguson2001} beschrieben: sie stellten AES als geschlossene Formel (in der Form einer Art Kettenbruch) dar, was aufgrund seiner ''relativ'' "ubersichtlichen Struktur gelang. Da diese Formel aus rund 1 Billiarde Summanden besteht, taugt sie zun"achst nicht f"ur die Kryptoanalyse. Dennoch war die wissenschaftliche Neugier geweckt. Bereits bekannt war, dass sich der 128-Bit-AES als ein "uberbestimmtes System von rund 8000 quadratischen Gleichungen ("uber algebraischen Zahlk"orpern) mit rund 1600 Variablen (einige Unbekannte sind die Schl"usselbits) darstellen l"asst -- solch gro"se Gleichungssysteme sind praktisch nicht l"osbar. Dieses Gleichungssystem ist relativ d"unn besetzt (''sparse''), d.h. von den insgesamt etwa 1.280.000 m"oglichen quadratischen Termen tauchen nur relativ wenige "uberhaupt im Gleichungssystem auf.
+Eine neue Vorgehensweise wurde in der Arbeit von Ferguson, Schroeppel
+und Whiting im Jahre 2001 \cite{Ferguson2001} beschrieben: sie stellten
+AES als geschlossene Formel (in der Form einer Art Kettenbruch) dar,
+was aufgrund seiner ''relativ'' "ubersichtlichen Struktur gelang. Da
+diese Formel aus rund 1 Billiarde Summanden besteht, taugt sie zun"achst
+nicht f"ur die Kryptoanalyse. Dennoch war die wissenschaftliche Neugier
+geweckt. Bereits bekannt war, dass sich der 128-Bit-AES als ein
+"uberbestimmtes System von rund 8000 quadratischen Gleichungen
+("uber algebraischen Zahlk"orpern) mit rund 1600 Variablen (einige
+Unbekannte sind die Schl"usselbits) darstellen l"asst -- solch gro"se
+Gleichungssysteme sind praktisch nicht l"osbar. Dieses Gleichungssystem
+ist relativ d"unn besetzt (''sparse''), d.h. von den insgesamt etwa
+1.280.000 m"oglichen quadratischen Termen tauchen nur relativ wenige
+"uberhaupt im Gleichungssystem auf.
 
 Die Mathematiker Courois und Pieprzyk \cite{Courtois2002} ver"offentlichten 
 2002 eine Arbeit, die in der Krypto-Szene stark diskutiert wird: Sie 
@@ -155,7 +200,15 @@ Verfahrens mit verschiedenen Schl"usseln wie bei Triple-DES bezeichnet.
 }
 nicht mehr exponentiell mit der Rundenzahl.
 
-Aktuell wird sehr intensiv auf diesem Gebiet geforscht: z.B. stellten Murphy und Robshaw auf der Crypto 2002 ein Papier vor \cite{Robshaw2002a}, das die Kryptoanalyse drastisch verbessern k"onnte: der Aufwand f"ur 128-Bit-Schl"ussel wurde auf $2^{100}$ gesch"atzt, indem sie AES als Spezialfall eines Algorithmus BES (Big Encryption System) darstellten, der eine besonders ''runde'' Struktur hat. Aber auch $2^{100}$ Rechenschritte liegen jenseits dessen, was praktisch in absehbarer Zeit realisierbar ist. Bei 256 Bit Schl"ussell"ange sch"atzen die Autoren den Aufwand f"ur den XSL-Angriff auf $2^{200}$ Operationen.
+Aktuell wird sehr intensiv auf diesem Gebiet geforscht: z.B. stellten
+Murphy und Robshaw auf der Crypto 2002 ein Papier vor \cite{Robshaw2002a},
+das die Kryptoanalyse drastisch verbessern k"onnte: der Aufwand f"ur
+128-Bit-Schl"ussel wurde auf $2^{100}$ gesch"atzt, indem sie AES als
+Spezialfall eines Algorithmus BES (Big Encryption System) darstellten,
+der eine besonders ''runde'' Struktur hat. Aber auch $2^{100}$
+Rechenschritte liegen jenseits dessen, was praktisch in absehbarer Zeit
+realisierbar ist. Bei 256 Bit Schl"ussell"ange sch"atzen die Autoren
+den Aufwand f"ur den XSL-Angriff auf $2^{200}$ Operationen.
 
 Weitere Details dazu stehen unter:
 % nur \href r"uckt nicht ein, deshalb \item dazu !
@@ -167,8 +220,9 @@ Weitere Details dazu stehen unter:
                {\texttt{http://www.minrank.org/aes/}}
 \end{itemize}
 
-F"ur 256-AES w"are der Angriff ebenfalls viel besser als Brute-force\index{Angriff!Brute-force}, 
-aber auch noch weiter au"serhalb der Reichweite realisierbarer Rechenpower.
+F"ur 256-AES w"are der Angriff ebenfalls viel besser als Brute-force
+\index{Angriff!Brute-force}, aber auch noch weiter au"serhalb der
+Reichweite realisierbarer Rechenpower.
 
 \begin{sloppypar}
 Die Diskussion ist z.Zt. sehr kontrovers: Don Coppersmith (einer der DES-Erfinder) 
@@ -188,30 +242,63 @@ Anhand der Blockchiffre RC5 kann der aktuelle Stand von Brute-force-Angriffen
 auf symmetrische Verschl"usselungsverfahren gut erl"autert werden.
 
 \begin{sloppypar}
-Als Brute-force-Angriff (exhaustive search, trial-and-error) bezeichnet man das vollst"andige Durchsuchen des Schl"usselraumes: dazu m"ussen keine besonderen Analysetechniken eingesetzt werden. Stattdessen wird der Ciphertext mit allen m"oglichen Schl"usseln des Schl"usselraums entschl"usselt und gepr"uft, ob der resultierende Text einen sinnvollen Klartext ergibt. Bei einer Schl"ussell"ange von 64 Bit sind dies maximal $2^{64}$ = 18.446.744.073.709.551.616 oder rund 18 Trillionen zu "uberpr"ufende Schl"ussel\index{CrypTool}%
+Als Brute-force-Angriff (exhaustive search, trial-and-error) bezeichnet
+man das vollst"andige Durchsuchen des Schl"usselraumes: dazu m"ussen
+keine besonderen Analysetechniken eingesetzt werden. Stattdessen wird
+der Ciphertext mit allen m"oglichen Schl"usseln des Schl"usselraums
+entschl"usselt und gepr"uft, ob der resultierende Text einen sinnvollen
+Klartext ergibt. Bei einer Schl"ussell"ange von 64 Bit sind dies maximal
+$2^{64}$ = 18.446.744.073.709.551.616 oder rund 18 Trillionen zu
+"uberpr"ufende Schl"ussel\index{CrypTool}%
 \footnote{%
 Mit CrypTool\index{CrypTool} k"onnen Sie "uber das Men"u
-        {\bf Analyse \textbackslash{} Symmetrische Verschl"usselung (modern)}
-ebenfalls Brute-force-Analysen von modernen symmetrischen Verfahren durchf"uhren
-(unter der schw"achsten aller m"oglichen Annahmen: der Angreifer kennt nur den
-Geheimtext, er f"uhrt also einen Ciphertext only-Angriff durch). 
-Um in einer sinnvollen Zeit auf einem Einzel-PC ein Ergebnis zu erhalten, sollten
-Sie nicht mehr als 20 Bit des Schl"ussels als unbekannt kennzeichnen.
+{\bf Analyse \textbackslash{} Symmetrische Verschl"usselung (modern)}
+ebenfalls Brute-force-Analysen von modernen symmetrischen Verfahren
+durchf"uhren (unter der schw"achsten aller m"oglichen Annahmen: der
+Angreifer kennt nur den Geheimtext, er f"uhrt also einen Ciphertext
+only-Angriff durch). 
+Um in einer sinnvollen Zeit auf einem Einzel-PC ein Ergebnis zu
+erhalten, sollten Sie nicht mehr als 20 Bit des Schl"ussels als
+unbekannt kennzeichnen.
 }.
 \end{sloppypar}
 
-Um zu zeigen, welche Sicherheit bekannte symmetrische Verfahren wie DES, Triple-DES oder RC5 haben, veranstaltet z.B. RSA Security sogenannte Cipher-Challenges\footnote{\href{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}{\tt http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}}. Unter kontrollierten Bedingungen werden Preise ausgelobt, um Ciphertexte 
-(verschl"usselt mit verschiedenen Verfahren und verschiedenen Schl"ussell"angen) zu entschl"usseln und den symmetrischen Schl"ussel zu ermitteln. Damit werden theoretische Resultate praktisch best"atigt.
+Um zu zeigen, welche Sicherheit bekannte symmetrische Verfahren wie
+DES, Triple-DES oder RC5 haben, veranstaltet z.B. RSA Security
+sogenannte Cipher-Challenges\footnote{%
+\href{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}
+{\tt http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}}.
+Unter kontrollierten Bedingungen werden Preise ausgelobt, um Ciphertexte
+(verschl"usselt mit verschiedenen Verfahren und verschiedenen
+Schl"ussell"angen) zu entschl"usseln und den symmetrischen Schl"ussel
+zu ermitteln. Damit werden theoretische Resultate praktisch best"atigt.
 
-Dass das "`alte"' Standard-Verfahren DES mit der fixen Schl"ussell"ange von 56 Bit nicht mehr sicher ist, wurde schon im Januar 1999 von der Electronic Frontier Foundation (EFF) demonstriert, als sie mit Deep Crack eine DES-verschl"usselte Nachricht in weniger als einem Tag knackten\footnote{\href{http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}{\tt http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}}.
+Dass das "`alte"' Standard-Verfahren DES mit der fixen Schl"ussell"ange
+von 56 Bit nicht mehr sicher ist, wurde schon im Januar 1999 von der
+Electronic Frontier Foundation (EFF) demonstriert, als sie mit Deep Crack
+eine DES-verschl"usselte Nachricht in weniger als einem Tag knackten\footnote{%
+\href{http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}
+{\tt http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}}.
 
-Der aktuelle Rekord f"ur starke symmetrische Verfahren liegt bei 64 Bit langen Schl"usseln. Dazu wurde das Verfahren RC5 benutzt, eine Blockchiffre mit variabler Schl"ussell"ange. 
+Der aktuelle Rekord f"ur starke symmetrische Verfahren liegt bei 64 Bit
+langen Schl"usseln. Dazu wurde das Verfahren RC5 benutzt, eine
+Blockchiffre mit variabler Schl"ussell"ange. 
 
-Die RC5-64 Challenge wurde im September 2002 nach 5 Jahren vom distributed.net-Team gel"ost\footnote{\href{http://distributed.net/pressroom/news-20020926.html}{\tt http://distributed.net/pressroom/news-20020926.html}}. Insgesamt arbeiteten 331.252 Personen gemeinsam "uber das Internet zusammen. Getestet wurden rund 15 Trillionen Schl"ussel, bis der richtige Schl"ussel gefunden wurde.
+Die RC5-64 Challenge wurde im September 2002 nach 5 Jahren vom
+distributed.net-Team gel"ost\footnote{%
+\href{http://distributed.net/pressroom/news-20020926.html}
+{\tt http://distributed.net/pressroom/news-20020926.html}}.
+Insgesamt arbeiteten 331.252 Personen gemeinsam "uber das Internet
+zusammen. Getestet wurden rund 15 Trillionen Schl"ussel, bis der
+richtige Schl"ussel gefunden wurde.
 
-Damit ist gezeigt, dass symmetrische Verfahren (auch wenn sie keinerlei kryptographische Schw"a"-chen haben) mit 64 Bit langen Schl"usseln keine geeigneten Verfahren mehr sind, um sensible Daten l"anger geheim zu halten.
+Damit ist gezeigt, dass symmetrische Verfahren (auch wenn sie keinerlei
+kryptographische Schw"a"-chen haben) mit 64 Bit langen Schl"usseln
+keine geeigneten Verfahren mehr sind, um sensible Daten l"anger geheim
+zu halten.
 
-"Ahnliche Cipher-Challenges gibt es auch f"ur asymmetrische Verfahren (siehe Kapitel \ref{NoteFactorisation}).
+"Ahnliche Cipher-Challenges gibt es auch f"ur asymmetrische Verfahren
+(siehe Kapitel \ref{NoteFactorisation}).
 
 
 
@@ -239,19 +326,26 @@ im Internet.\par \vskip + 3pt
 
 M"ochte Alice\index{Alice}%
 \footnote{%
-      Zur Beschreibung kryptographischer Protokolle werden den Teilnehmern
-      oft Namen gegeben (vergleiche \cite[S. 23]{Schneier1996cm}). 
-      Alice und Bob f"uhren alle allgemeinen 
-      2-Personen-Protokolle durch, wobei Alice dies initiiert und Bob antwortet.
-      Die Angreifer werden als Eve (eavesdropper = passiver Lauscher) und Mallory 
-      (malicious active attacker = b"oswilliger, aktiver Abgreifer) bezeichnet.
-  } mit Bob kommunizieren, so sucht sie Bobs "offentlichen Schl"ussel aus dem Verzeichnis und benutzt
-ihn, um ihre Nachricht an ihn zu verschl"usseln. Diesen verschl"usselten Text schickt sie dann an Bob, der mit
-Hilfe seines geheimen Schl"ussels den Text wieder entschl"usseln kann. Da einzig Bob Kenntnis von seinem
-geheimen Schl"ussel hat, ist auch nur er in der Lage, an ihn adressierte Nachrichten zu entschl"usseln.
-Selbst Alice als Absenderin der Nachricht kann aus der von ihr versandten (verschl"usselten) Nachricht den
-Klartext nicht wieder herstellen. Nat"urlich muss sichergestellt sein, dass man aus dem "offentlichen
-Schl"ussel nicht auf den geheimen Schl"ussel schlie"sen kann.\par \vskip + 3pt
+  Zur Beschreibung kryptographischer Protokolle werden den Teilnehmern
+  oft Namen gegeben (vergleiche \cite[S. 23]{Schneier1996cm}). 
+  Alice und Bob f"uhren alle allgemeinen 2-Personen-Protokolle durch,
+  wobei Alice dies initiiert und Bob antwortet.
+  Die Angreifer werden als Eve (eavesdropper = passiver Lauscher) und
+  Mallory (malicious active attacker = b"oswilliger, aktiver Abgreifer)
+  bezeichnet.
+  }
+mit Bob kommunizieren, so sucht sie Bobs "offentlichen Schl"ussel aus
+dem Verzeichnis und benutzt ihn, um ihre Nachricht an ihn zu
+verschl"usseln. Diesen verschl"usselten Text schickt sie dann an Bob,
+der mit Hilfe seines geheimen Schl"ussels den Text wieder entschl"usseln
+kann. Da einzig Bob Kenntnis von seinem geheimen Schl"ussel hat, ist
+auch nur er in der Lage, an ihn adressierte Nachrichten zu
+entschl"usseln.
+Selbst Alice als Absenderin der Nachricht kann aus der von ihr
+versandten (verschl"usselten) Nachricht den Klartext nicht wieder
+herstellen. Nat"urlich muss sichergestellt sein, dass man aus dem
+"offentlichen Schl"ussel nicht auf den geheimen Schl"ussel schlie"sen
+kann.\par \vskip + 3pt
 
 Veranschaulichen kann man sich ein solches Verfahren mit einer
 Reihe von einbruchssicheren Briefk"asten. Wenn ich eine Nachricht
@@ -296,7 +390,8 @@ Martin \index{Hellman, Martin} Hellman in Jahre 1976 vorgestellt.
 Heute spielen auch die Verfahren nach
 ElGamal \index{ElGamal, Tahir} eine bedeutende Rolle, vor allem die
 \index{Schnorr, C.P.} Schnorr-Varianten im \index{DSA} DSA (Digital
-\index{Signatur!digitale}\index{DSA-Signatur}\index{Signatur!DSA} Signature Algorithm).
+\index{Signatur!digitale}\index{DSA-Signatur}\index{Signatur!DSA}
+Signature Algorithm).
 
 
 % --------------------------------------------------------------------------
@@ -305,8 +400,9 @@ ElGamal \index{ElGamal, Tahir} eine bedeutende Rolle, vor allem die
 \footnotetext{%
 In CrypTool\index{CrypTool} erhalten Sie "uber das Men"u
 {\bf Ver-/Entschl"usseln \textbackslash{} Hybrid} eine Visualisierung
-dieses Verfahrens: darin werden die einzelnen Schritte und ihre Abh"angigkeiten
-mit konkreten Zahlen gezeigt. Benutzt werdenals asymmetrisches Verfahren RSA und als symmetrisches Verfahren AES.
+dieses Verfahrens: darin werden die einzelnen Schritte und ihre
+Abh"angigkeiten mit konkreten Zahlen gezeigt. Benutzt werden als
+asymmetrisches Verfahren RSA und als symmetrisches Verfahren AES.
 }\index{Hybridverfahren}
 
 Um die Vorteile von symmetrischen und asymmetrischen Techniken gemeinsam 
@@ -315,20 +411,20 @@ Hybridverfahren \index{Verschl""usselung!hybrid} verwendet.\par \vskip + 3pt
 
 Hier werden die Daten mittels symmetrischer Verfahren
 verschl"usselt: der Schl"ussel ist ein vom Absender zuf"allig\footnote{%
-Die Erzeugung zuf"alliger Zahlen ist ein wichtiger Bestandteil 
-kryptographisch sicherer Verfahren. Mit CrypTool\index{CrypTool} 
-k"onnen Sie "uber 
-das Men"u {\bf Einzelverfahren \textbackslash{} Zufallsdaten erzeugen} 
-verschiedene Zufallszahlengeneratoren ausprobieren. 
-"Uber das Men"u {\bf Analyse \textbackslash{} Zufallsanalyse} k"onnen Sie
-verschiedene Testverfahren f"ur Zufallsdaten auf bin"are Dokumente
-anwenden. \\
-Bisher konzentriert sich CrypTool auf kryptographisch starke 
-Pseudozufallszahlengeneratoren. Nur im Secude-Generator\index{SECUDE IT Security GmbH} 
-wird eine \glqq echte\grqq~ Zufallsquelle einbezogen. 
+  Die Erzeugung zuf"alliger Zahlen ist ein wichtiger Bestandteil 
+  kryptographisch sicherer Verfahren. Mit CrypTool\index{CrypTool} 
+  k"onnen Sie "uber das Men"u {\bf Einzelverfahren \textbackslash{}
+  Zufallsdaten erzeugen} verschiedene Zufallszahlengeneratoren ausprobieren.
+  "Uber das Men"u {\bf Analyse \textbackslash{} Zufallsanalyse} k"onnen Sie
+  verschiedene Testverfahren f"ur Zufallsdaten auf bin"are Dokumente
+  anwenden. \\
+  Bisher konzentriert sich CrypTool auf kryptographisch starke 
+  Pseudozufallszahlengeneratoren. Nur im Secude-Generator
+  \index{SECUDE IT Security GmbH} wird eine \glqq echte\grqq~ 
+  Zufallsquelle einbezogen. 
 }\index{Zufall}
-generierter Sitzungsschl"ussel (session key)\index{Session Key}, der nur f"ur diese
-Nachricht verwendet wird. Anschlie"send wird dieser
+generierter Sitzungsschl"ussel (session key)\index{Session Key}, der
+nur f"ur diese Nachricht verwendet wird. Anschlie"send wird dieser
 Sitzungsschl"ussel mit Hilfe des asymmetrischen Verfahrens
 verschl"usselt und zusammen mit der Nachricht an den Empf"anger
 "ubertragen. Der Empf"anger kann den Sitzungsschl"ussel mit Hilfe
@@ -349,38 +445,15 @@ einzelnen symmetrischen und asymmetrischen Verschl"usselungsverfahren.
 
 
 % --------------------------------------------------------------------------
-\newpage
-\begin{thebibliography}{99999}
-\addcontentsline{toc}{subsection}{Literaturverzeichnis}
-
-\bibitem[Nichols1996]{Nichols1996} \index{Nichols 1996} 
-    Randall K. Nichols, \\
-    {\em Classical Cryptography Course, Volume 1 and 2}, \\
-    Aegean Park Press 1996; \\
-    oder in 12 Lektionen online unter \\
-    \href{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}
-    {\texttt{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}}
-
-\bibitem[Schmeh2001]{Schmeh2001}  \index{Schmeh 2001}
-        Klaus Schmeh, \\
-        {\em Kryptografie und Public-Key Infrastrukturen im Internet},\\ 
-        dpunkt.verlag, 2. akt. und erw. Auflage 2001. \\
-        Sehr gut lesbares, hoch aktuelles und umfangreiches Buch "uber 
-	Kryptographie. 
-        Geht auch auf praktische Probleme, wie Standardisierung oder 
-        real existierende Software, ein.
-
-\bibitem[Schneier1996]{Schneier1996cm} \index{Schneier 1996} 
-    Bruce Schneier, \\
-    {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C}, \\
-    Wiley 1994, 2nd edition 1996.
-
 %xxxxxxxxxxx
 %\bibitem[x]{x}  \index{x}
 %        x, \\
 %        {\em x}, 
 %       x x.
 %xxxxxxxxxxx
+\newpage
+\begin{thebibliography}{99999}
+\addcontentsline{toc}{subsection}{Literaturverzeichnis}
 
 \bibitem[Coppersmith2002]{Coppersmith2002}  \index{Coppersmith 2002}
         Don Coppersmith, \\
@@ -391,7 +464,8 @@ einzelnen symmetrischen und asymmetrischen Verschl"usselungsverfahren.
 
 \bibitem[Courtois2002]{Courtois2002}  \index{Courtois 2002}
         Nicolas Courtois, Josef Pieprzyk, \\
-        {\em Cryptanalysis of Block Ciphers with Overdefined Systems of Equations}, \\
+        {\em Cryptanalysis of Block Ciphers with Overdefined Systems
+             of Equations}, \\
         received 10 Apr 2002, last revised 9 Nov 2002.\\
         Eine davon verschiedene ~\glqq compact version\grqq~ des 
 	ersten XSL-Angriffs wurde 
@@ -408,22 +482,45 @@ einzelnen symmetrischen und asymmetrischen Verschl"usselungsverfahren.
 
 \bibitem[Lucks-DuD2002]{Lucks-DuD2002}  \index{Lucks 2002}
         Stefan Lucks, R"udiger Weis, \\
-        {\em Neue Ergebnisse zur Sicherheit des Verschl"usselungsstandards AES}, 
+        {\em Neue Ergebnisse zur Sicherheit des Verschl"usselungsstandards
+             AES}, 
         in DuD 12/2002.
 
+\bibitem[Nichols1996]{Nichols1996} \index{Nichols 1996} 
+       Randall K. Nichols, \\
+       {\em Classical Cryptography Course, Volume 1 and 2}, \\
+       Aegean Park Press 1996; \\
+       oder in 12 Lektionen online unter \\
+       \href{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}
+       {\texttt{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}}
+
 \bibitem[Robshaw2002a]{Robshaw2002a}  \index{Robshaw 2002}
-        S.P. Murphy, M.J.B. Robshaw, \\
-        {\em Essential Algebraic Structure within the AES}, 
-        5. Juni 2002, auf der Crypto 2002,  \\
-        \href{http://www.isg.rhul.ac.uk/~mrobshaw/rijndael/rijndael.html}
-        {\texttt{http://www.isg.rhul.ac.uk/\~{}mrobshaw/rijndael/rijndael.html}}
+       S.P. Murphy, M.J.B. Robshaw, \\
+       {\em Essential Algebraic Structure within the AES}, 
+       5. Juni 2002, auf der Crypto 2002,  \\
+       \href{http://www.isg.rhul.ac.uk/~mrobshaw/rijndael/rijndael.html}
+       {\texttt{http://www.isg.rhul.ac.uk/\~{}mrobshaw/rijndael/rijndael.html}}
 
 \bibitem[Robshaw2002b]{Robshaw2002b}  \index{Robshaw 2002}
-        S.P. Murphy, M.J.B. Robshaw, \\
-        {\em Comments on the Security of the AES and the XSL Technique}, 
-        26. September 2002, \\
-        \href{http://www.isg.rhul.ac.uk/~mrobshaw/rijndael/rijndael.html}
-        {\texttt{http://www.isg.rhul.ac.uk/\~{}mrobshaw/rijndael/rijndael.html}}
+       S.P. Murphy, M.J.B. Robshaw, \\
+       {\em Comments on the Security of the AES and the XSL Technique}, 
+       26. September 2002, \\
+       \href{http://www.isg.rhul.ac.uk/~mrobshaw/rijndael/rijndael.html}
+       {\texttt{http://www.isg.rhul.ac.uk/\~{}mrobshaw/rijndael/rijndael.html}}
+
+\bibitem[Schmeh2001]{Schmeh2001}  \index{Schmeh 2001}
+        Klaus Schmeh, \\
+        {\em Kryptografie und Public-Key Infrastrukturen im Internet},\\ 
+        dpunkt.verlag, 2. akt. und erw. Auflage 2001. \\
+        Sehr gut lesbares, hoch aktuelles und umfangreiches Buch "uber 
+	Kryptographie. 
+        Geht auch auf praktische Probleme, wie Standardisierung oder 
+        real existierende Software, ein.
+
+\bibitem[Schneier1996]{Schneier1996cm} \index{Schneier 1996} 
+    Bruce Schneier, \\
+    {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C}, \\
+    Wiley 1994, 2nd edition 1996.
 
 \bibitem[Wobst-iX2002]{Wobst-iX2002}  \index{Wobst 2002}
         Reinhard Wobst, \\
@@ -457,8 +554,8 @@ einzelnen symmetrischen und asymmetrischen Verschl"usselungsverfahren.
          {\tt http://distributed.net/pressroom/news-20020926.html}
 
   \item RSA: ~\glqq The RSA Secret Key Challenge'' \\
-       \href{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}
-        {\tt http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}
+      \href{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}
+       {\tt http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}
 
   \item RSA: ~\glqq DES Challenge'' \\
         \href{http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}

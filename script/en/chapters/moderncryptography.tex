@@ -88,17 +88,18 @@
 \setlength{\fboxsep}{4pt}
 
 \newpage
-%**************************************************************************************************************************
+%********************************************************************
+\hypertarget{Chapter_ModernCryptography}{}
 \section{The Mathematical Ideas behind Modern Cryptography}
 \label{Chapter_ModernCryptography}
-\hypertarget{Chapter_ModernCryptography}{}
-%**************************************************************************************************************************
-(Oyono R. / Esslinger B., Sep. 2000, Updates Nov. 2000, Feb. 2003)
+%********************************************************************
+(Oyono R. / Esslinger B., Sep. 2000; Updates Nov. 2000, Feb. 2003)
 
-%--------------------------------------------------------------------------------------------------------------------------
+%--------------------------------------------------------------------
+\hypertarget{OneWayFunktion1}{}
 \subsection{One way functions with trapdoor and complexity classes}
-%--------------------------------------------------------------------------------------------------------------------------
-\index{Cryptography!modern} \index{One way function} \hypertarget{OneWayFunktion1}{}
+%--------------------------------------------------------------------
+\index{Cryptography!modern} \index{One way function}
 A {\bf one way function} is a function that can be calculated 
 efficiently, but whose inverse is extremely complicated and practically 
 impossible to calculate.\par
@@ -224,9 +225,10 @@ with trapdoor, suggested by Ralph Merkle \cite{Merkle1978}.
 \subsection{Knapsack problem as a basis for public key procedures}%
 \index{Cryptography!public key}
 %--------------------------------------------------------------------
+
 %--------------------------------------------------------------------
-\subsubsection{Knapsack problem} \index{Knapsack}
-%--------------------------------------------------------------------
+\subsubsection{Knapsack problem}
+\index{Knapsack}
 
 You are given $ n $ objects $ G_1, \dots, G_n $ with the weights $ g_1, \dots 
 g_n $ and the values $w_1, \cdots, w_n. $ The aim is to carry away as much as 
@@ -361,12 +363,13 @@ information (defamiliarisation of the 0-1 knapsack problem) could be discovered
 by an evesdropper.
 
 
-
+%--------------------------------------------------------------------
 \subsection{Decomposition into prime factors as a basis for public key 
 procedures}\index{Prime factor!decomposition}
 
 
 %--------------------------------------------------------------------
+\hypertarget{RSAVerfahren}{}
 \subsubsection[The RSA procedure]
 {The RSA procedure\footnotemark}
 \footnotetext{
@@ -374,9 +377,10 @@ Using CrypTool\index{CrypTool} you can gain practical experience
 with the RSA procedure via the menu {\bf Indiv.Procedures \textbackslash{} 
 RSA Cryptosystem \textbackslash{} RSA Demonstration}.
 }
-\index{RSA} \hypertarget{RSAVerfahren}{} 
-As early as 1978, R. \index{Rivest, Ronald} Rivest, \index{Shamir, Adi} A. Shamir,
-\index{Adleman, Leonard} L. Adleman \cite{RSA1978} introduced 
+\index{RSA} \label{rsaverfahren}
+
+As early as 1978, R. \index{Rivest, Ronald} Rivest, \index{Shamir, Adi} 
+A. Shamir, \index{Adleman, Leonard} L. Adleman \cite{RSA1978} introduced 
 the most important asymmetric cryptography procedure to date.  \par
 
 
@@ -428,7 +432,7 @@ If we know the various prime factors $ p_1, \dots , p_k $ of $ N, $ then $ \phi
 (N) = N \cdot (1-\frac{1}{p_1}) \,
 \cdots \, (1-\frac{1}{p_k}) $\footnote{Further formulas for the Euler phi
 function are in the article ``Introduction to Elementary Number Theory with
-Examples'', chapter~\ref{patternsandstructures}.}.
+Examples'', chapter~\ref{patternsandstructures}.}. %or \ref{L-Euler-Function}
 
 In the case of $ N=pq $, $ \phi (N)= pq(1-1/p)(1-1/q) = p(1-1/p)q(1-1/q)=(p-
 1)(q-1). $
@@ -471,25 +475,29 @@ $L(N)$ & $ 1.42 \cdot 10^{10} $ &  $ 2.34  \cdot 10^{15} $ &  $ 3.26 \cdot
 \end{tabular}
 \end{center}
 \vskip +5 pt
-As long as no better algorithm is found, this means that values of the order of 
-magnitude $ 100 $ to $ 200 $ decimal places are currently safe. Estimates of the 
-current computer technology indicate that a number with $100$ decimal places 
-could be factorised in approximately two weeks at justifiable cost. Using an 
-expensive configuration (e.g. of around 10 million US dollars), a number with 
-$150$ decimal places could be factorised in about a year. A $200-$digit number 
-should remain impossible to factorise for a long time to come, unless there is a 
-mathematical breakthrough. For example, it would take about 1000 years to 
-decompose a 200-digit number into prime factors using the existing algorithms; 
-this applies even if $ 10^{12} $  operations can be performed per second, which 
-is beyond the performance\index{Performance} of current technology and would cost billions of 
-dollars in development costs. However, you can never be sure that there won't be 
-a mathematical breakthrough tomorrow.
 
 To this date, it has not been proved that the problem of breaking RSA is 
-equivalent to the factorisation problem. Nevertheless, it is clear that the RSA 
-procedure will no longer be safe if the factorisation problem is ``solved''.
+equivalent to the factorisation problem. Nevertheless, it is clear that
+the RSA procedure will no longer be safe if the factorisation problem is
+``solved''.\footnote{%
+In 2000 the authors assumed that values of the order magnitude $ 100 $ to $ 200 $
+decimal places are currently safe. They estimates that the current computer
+technology indicates that a number with $100$ decimal places could be
+factorised in approximately two weeks at justifiable costs, and using an 
+expensive configuration (e.g. of around 10 million US dollars), a number with 
+$150$ decimal places could be factorised in about a year, and a $200-$digit
+number should remain impossible to factorise for a long time to come, unless
+there is a mathematical breakthrough. However, you can never be sure that
+there won't be a mathematical breakthrough tomorrow.\\
+How easy it is to guess the future wrong is shown by the
+\hyperlink{RSA-200-chap3}{Factorization of RSA-200} 
+(see chapter \ref{NoteFactorisation}) -- completely without a
+``mathematical breakthrough''.}
 
 
+
+
+%--------------------------------------------------------------------
 \subsubsection{Rabin public key procedure (1979)}
 
 In this case it has been shown that the procedure \index{Rabin, Michael O.} 
@@ -529,8 +537,8 @@ Backdoor information is the decomposition into prime numbers of $ n = pq. $
 
 
 
-
-       \subsection{The discrete logarithm as a basis for public key procedures}
+%--------------------------------------------------------------------
+\subsection{The discrete logarithm as a basis for public key procedures}
 Discrete logarithms \index{Discrete logarithm} form the basis for a large number of algorithms for public-
 key procedures.
 \index{Logarithm problem!discrete}
@@ -538,8 +546,8 @@ key procedures.
 
 
 
-
-    \subsubsection{The discrete logarithm in $ \Z_p $}
+%--------------------------------------------------------------------
+\subsubsection{The discrete logarithm in $ \Z_p $}
 Let $ p $ be a prime number and let $ g \in \Z_p^\ast=\{0,1,\ldots,p-1\} $. Then 
 the discrete exponential function base $ g $  is defined as
 \[ e_g : k \longrightarrow y:=g^k \mod p, \quad 1\leq k \leq p-1. \]
@@ -603,7 +611,7 @@ $$
 The search was performed with GNFS method (General Number Field Sieve,
 Index-Calculus) \index{General Number Field Sieve (GNFS)} and took about 17 CPU
 years on 3.2 GHz Xeon machines.
-
+ 
 %--------------------------------------------------------------------
 \subsubsection[Diffie-Hellman key agreement]
 {Diffie-Hellman key agreement\footnotemark}
@@ -658,7 +666,6 @@ problems are equivalent.
 
 %--------------------------------------------------------------------
 \subsubsection{ElGamal public key encryption procedure in $ \Z_p^\ast$}
-%--------------------------------------------------------------------
 \index{ElGamal!public key}
 By varying the Diffie-Hellman key agreement protocol \index{Diffie-Hellman} 
 \index{Encryption!ElGamal public key} slightly, you can obtain an 
@@ -694,7 +701,6 @@ and
 
 %--------------------------------------------------------------------
 \subsubsection{Generalised ElGamal public key encryption procedure}
-%--------------------------------------------------------------------
 
 The discrete logarithm can be generalised in any number of finite \index{Group} 
 groups $ (G, \circ) $. The following provides several properties of $ G, $ that 

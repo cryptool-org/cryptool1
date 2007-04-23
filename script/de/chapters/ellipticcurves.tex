@@ -3,15 +3,16 @@
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 \newpage
-\section{Elliptische Kurven}
-\index{Elliptische Kurven}
-\label{Chapter_EllipticCurves} %be_2005: \label immer NACH \section !
 \hypertarget{ellcurve}{}
-(Filipovics B. / B"uger M. / Esslinger B. / Oyono R., April 2000, Updates: Dez. 2001, Juni 2002, M"arz 2003)
+\section{Elliptische Kurven}
+\label{Chapter_EllipticCurves}
+\index{Elliptische Kurven}
+(Filipovics B. / B"uger M. / Esslinger B. / Oyono R., April 2000,
+ Updates: Dez. 2001, Juni 2002, M"arz 2003)
 
 % -----------------------------------------------------------------------------
 \subsection{Elliptische Kurven -- ein effizienter Ersatz f"ur RSA?}
-\index{Performance}   %be_2005: wenn in gl. Zeile wie \subsection, springt man von Inhalt zu einer Seite zu weit vorne!
+\index{Performance}
 \label{ECAlternative}
 
 
@@ -208,7 +209,7 @@ kurz eingef"uhrt werden:
    \item Eine Gruppe ist eine nichtleere Menge $G$ mit einer Verkn"upfung ``$\cdot$''. Die Menge $G$ ist unter der
          Verkn"upfung $\cdot $ abgeschlossen, d.h, sind $a,b$ Elemente aus $G$, so ist auch ihre Verkn"upfung $ab=a\cdot  b$ ein Element aus $G$.
    \item F"ur alle Elemente $a, b$ und $c$ aus $G$ gilt: $(ab)c = a(bc)$ (Assoziativgesetz).
-   \item Es gibt ein Element $e$ in $G$, das sich bez"uglich der Verkn"upfung $\cdot$ neutral verh"alt´, d.h., f"ur alle $a$ aus der Menge $G:$ gilt $ae = ea = a$.
+   \item Es gibt ein Element $e$ in $G$, das sich bez"uglich der Verkn"upfung $\cdot$ neutral verh"alt, d.h., f"ur alle $a$ aus der Menge $G:$ gilt $ae = ea = a$.
    \item Zu jedem Element $a$ aus $G$ gibt es ein {\it inverses Element}%
 \footnote{Das inverse Element ist eindeutig bestimmt, denn sind $x,y\in G$ zwei Inverse zu $a$, d.h. gilt $ax=xa=e$ und $ay=ya=e$, so folgt $x=xe=x(ay)=(xa)y=ey=y$.}
 $a^{-1}$(in $G$), so dass gilt: $aa^{-1} = a^{-1}a = e$.
@@ -232,12 +233,12 @@ Als {\it zyklische Gruppen}\footnote{Zyklische Gruppen k"onnen grunds"atzlich au
 mittels der Gruppen-Verkn"upfung alle anderen Elemente der Gruppe erzeugen kann. Es gibt also f"ur jedes
 Element $a$ aus $G'$ eine positive, ganze Zahl $i$, so dass die $i$-fache Verkn"upfung von $g$ mit sich
 selbst $g^i = g\cdot g \cdots g = a$. Das Element $g$ ist ein {\em Generator} der zyklischen Gruppe --- jedes Element
-in $G´$ l"asst sich mittels $g$ und der Verkn"upfung erzeugen.
+in $G'$ l"asst sich mittels $g$ und der Verkn"upfung erzeugen.
 
 
 \paragraph{Ordnung von Elementen einer Gruppe}\index{Gruppen!Ordnung}
 Nun zur Ordnung eines Elements der Gruppe: Sei $a$ aus $G$. Die kleinste positive ganze Zahl $r$ f"ur
-die gilt, dass $a^r$, also $r$ mal $a$ mit sich selbst verkn"upft, das neutrale Element der Gruppe $G´$ ist
+die gilt, dass $a^r$, also $r$ mal $a$ mit sich selbst verkn"upft, das neutrale Element der Gruppe $G'$ ist
 (d.h. $a^r = e$), nennt man {\em Ordnung} von $a$.
 
 Die {\it Ordnung der Gruppe} ist die Anzahl der Elemente in der Menge $G$. Ist die Gruppe $G$ zyklisch und $g$ ein Generator, so stimmt die Ordnung von $g$ mit der Gruppenordnung "uberein. Man kann leicht zeigen, dass die Ordnung eines Gruppenelements stets die Gruppenordnung teilt. Hieraus folgt insbesondere, dass Gruppen mit Primzahlordnung (d.h. die Ordnung der Gruppe ist eine Primzahl) zyklisch sind.
@@ -561,8 +562,8 @@ Nun ist $R=rG$. Also folgt hier $\bar v_1=\bar r_1$, d.h. $R$ und $V$ stimmen mo
 
 
 % -----------------------------------------------------------------------------
-\subsection{Faktorisieren mit Elliptischen Kurven} \label{ECC-Factorisation} 
 \hypertarget{faktell}{}
+\subsection{Faktorisieren mit Elliptischen Kurven} \label{ECC-Factorisation} 
 
 Es gibt Faktorisierungsalgorithmen%
 \footnote{Insbesondere John M. Pollard \index{Pollard, John M.} war an der 
@@ -570,11 +571,12 @@ Entwicklung vieler verschiedener Faktorisierungsalgorithmen beteiligt; auch
 beim Faktorisieren mit ECC war er einer der f"uhrenden K"opfe. Als Mitarbeiter
 von British Telekom hat er leider nie viel selbst publiziert. Auf der RSA
 Konferenz 1999 wurde er f"ur seine \glqq outstanding contributions in 
-mathematics\grqq ~ausgezeichnet: 
+mathematics\grqq ~ausgezeichnet:\\ 
 \href{http://www.eff.org/Privacy/Crypto_misc/DESCracker/HTML/19990118_rsa_awards.html}
 {\texttt{http://www.eff.org/Privacy/Crypto\_misc/DESCracker/HTML/19990118\_rsa\_awards.html}}.
-}, die auf Elliptischen Kurven \index{Faktorisierung!Faktorisierungsalgorithmen}
-basieren\footnote{Im Jahr 1987 stellte H.W. Lenstra\index{Lenstra 1987}
+}, die auf Elliptischen Kurven
+\index{Faktorisierung!Faktorisierungsalgorithmen} basieren\footnote{%
+Im Jahr 1987 stellte H.W. Lenstra\index{Lenstra 1987}
 einen Faktorisierungsalgorithmus vor, der auf Elliptischen Kurven basiert 
 (siehe \cite{Lenstra1987}). Die aktuell gr"o"ste mit Elliptischen Kurven 
 faktorisierte Zahl\index{Faktorisierung!Faktorisierungsrekorde} ist die 
