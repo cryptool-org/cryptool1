@@ -10,8 +10,6 @@
     $Id$
 ==================================================================
 
-                       Contents
-
  1. .... Brief description of the CrypTool package
  1.1. .... How to start - An introduction to CrypTool
  1.2. .... Components of the CrypTool distribution

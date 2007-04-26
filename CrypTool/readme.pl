@@ -37,9 +37,20 @@ s{^([.0-9]+\.) ([^.].*)}{<h2><a name="s$1">$1</a> $2</h2>}gm;
 s{----*}{}g;
 my $f = readfile($template);
 $f =~ s{__BODY__}{$_};
+
+print "Deleting $outfile...\n";
+unlink($outfile);
+
 open(F,">$outfile") or die "open $outfile: $!";
 print F $f;
 close(F);
+
+if( -e $outfile ) {
+    print "Creation of $outfile SUCCESSFUL!\n";
+}
+else {
+    print "Creation of $outfile FAILED!\n";
+}
 
 __END__
 =head1 NAME

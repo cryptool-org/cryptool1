@@ -984,7 +984,16 @@ void CCrypToolApp::OnSigattmodificdemo()
 
 void CCrypToolApp::OnLoadReadme() 
 {
-	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
+	callHtmlHelp(HH_HELP_CONTEXT, ID_LOAD_README+0x10000);
+
+	/*
+	 *	CAUTION (Florian Marchal, 04/26/2007)
+	 *	
+	 *	The old behavior of opening the readme file in a regular CrypTool text window (see code below)
+	 *	is gone now. Instead, an automatically generated HTML readme file (created at compile time) 
+	 *	is displayed in the CrypTool help browser.
+	 *
+
 	char readmePath[1024];
 	LoadString(AfxGetInstanceHandle(),IDS_READMEPATH,pc_str,STR_LAENGE_STRING_TABLE);
 	sprintf(readmePath, pc_str, Pfad);
@@ -998,6 +1007,7 @@ void CCrypToolApp::OnLoadReadme()
 	datei.Close();
 	CAppDocument *NewDoc;
 	NewDoc = theApp.OpenDocumentFileNoMRU(readmePath,"ReadMe");
+	*/
 }
 
 void CCrypToolApp::OnScript() 
