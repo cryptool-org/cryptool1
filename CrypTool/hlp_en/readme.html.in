@@ -13,17 +13,18 @@
 	<PARAM NAME="Keyword" VALUE="Readme">
 </OBJECT>
 
+<h3>CrypTool Readme</h3>
+
+<p>This readme file contains information about the current CrypTool distribution.</p>
+
 <table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" align="center">
-<tr>
-<td>
-	<h2>CrypTool Readme</h2>
-</td>
-</tr>
+
 <tr>
 <td>
 	<pre>__BODY__</pre>
 </td>
 </tr>
+
 </table>
 
 </body>
