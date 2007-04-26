@@ -5843,7 +5843,6 @@ BEGIN
             END
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
             MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER
-            , GRAYED
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -6252,7 +6251,6 @@ BEGIN
             END
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
             MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER
-            , GRAYED
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -6666,7 +6664,6 @@ BEGIN
             END
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
             MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER
-            , GRAYED
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -7071,7 +7068,6 @@ BEGIN
             END
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
             MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER
-            , GRAYED
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -7516,7 +7512,6 @@ BEGIN
             END
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
             MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER
-            , GRAYED
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -17466,7 +17461,6 @@ BEGIN
             END
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Password Quality Meter",     ID_PASSWORDQUALITYMETER
-            , GRAYED
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -17870,7 +17864,6 @@ BEGIN
             END
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Password Quality Meter",     ID_PASSWORDQUALITYMETER
-            , GRAYED
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -18286,7 +18279,6 @@ BEGIN
             END
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Password Quality Meter",     ID_PASSWORDQUALITYMETER
-            , GRAYED
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -18689,7 +18681,6 @@ BEGIN
             END
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Password Quality Meter",     ID_PASSWORDQUALITYMETER
-            , GRAYED
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -19130,7 +19121,6 @@ BEGIN
             END
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Password Quality Meter",     ID_PASSWORDQUALITYMETER
-            , GRAYED
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
