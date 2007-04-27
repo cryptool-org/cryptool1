@@ -135,6 +135,12 @@ Section "CrypTool"
   CreateShortCut "$SMPROGRAMS\$ShortCutName\${SCN_README}.lnk" 		 "$INSTDIR\${SCL_README}"		
   CreateShortCut "$SMPROGRAMS\$ShortCutName\Unistall.lnk" 		 "$INSTDIR\Uninstall.exe"		
 
+  ;File association for AES tool
+  WriteRegStr HKCR ".aes" "" "AESToolFile"
+  WriteRegStr HKCR "AESToolFile" "" "AES Tool File"
+  WriteRegStr HKCR "AESToolFile\DefaultIcon" "" "$INSTDIR\aestool.exe,1"
+  WriteRegStr HKCR "AESToolFile\shell" "" "open"
+  WriteRegStr HKCR "AESToolFile\shell\open\command" "" '$INSTDIR\aestool.exe "%1"'
 
   ;Store installation folder
   WriteRegStr HKCU "Software\$ShortCutName" "" $INSTDIR
