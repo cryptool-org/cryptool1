@@ -221,6 +221,7 @@ ON_COMMAND(ID_PRIMENUMBER_TEST, OnPrimenumberTest)
 ON_COMMAND(ID_AES_SELFEXTRACT, OnAesSelfextract)
 ON_COMMAND(ID_INDIV_POINTADDITIONONELLIPTICCURVES, OnIndivPointadditiononellipticcurves)
 ON_COMMAND(ID_FLASH_AESDEMO, OnFlashAesdemo)
+ON_COMMAND(ID_FLASH_RIJNDAEL_INSPECTOR, OnFlashRijndaelInspector)
 ON_COMMAND(ID_FLASH_ENIGMADEMO, OnFlashEnigmademo)
 ON_COMMAND(ID_INTERACTIVE_NUMBER_THEORY, OnInteractiveNumberTheory)
 END_MESSAGE_MAP()
@@ -1230,9 +1231,17 @@ void CCrypToolApp::OnFlashAesdemo()
 	AESDemoExecStr.LoadString(IDS_AESDEMO_EXEC_STR);
 
 	HINSTANCE hInst = ShellExecute(NULL,NULL, AESDemoExecStr, " ", Pfad, SW_SHOW);
-	if ( reinterpret_cast<int>(hInst) <= 32 ) Message(IDS_ERROPEN_ECCDemo, MB_ICONSTOP);
+	if ( reinterpret_cast<int>(hInst) <= 32 ) Message(IDS_ERROR_OPEN_FLASHAESDEMO, MB_ICONSTOP);
 }
 
+void CCrypToolApp::OnFlashRijndaelInspector()
+{
+	CString RijndaelInspectorExecStr;
+	RijndaelInspectorExecStr.LoadString(IDS_RIJNDAEL_INSPECTOR_EXEC_STR);
+
+	HINSTANCE hInst = ShellExecute(NULL,NULL, RijndaelInspectorExecStr, " ", Pfad, SW_SHOW);
+	if ( reinterpret_cast<int>(hInst) <= 32 ) Message(IDS_ERROR_OPEN_RIJNDAELINSPECTOR, MB_ICONSTOP);
+}
 
 void CCrypToolApp::OnInteractiveNumberTheory()
 {

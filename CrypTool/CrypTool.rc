@@ -5806,7 +5806,12 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
-            MENUITEM "&AES...",                     ID_FLASH_AESDEMO
+            POPUP "&AES"
+            BEGIN
+                MENUITEM "Rijndael-&Animation...",      ID_FLASH_AESDEMO
+                MENUITEM "Rijndael-&Inspector...",      ID_FLASH_RIJNDAEL_INSPECTOR
+
+            END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
@@ -6218,7 +6223,12 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
-            MENUITEM "&AES...",                     ID_FLASH_AESDEMO
+            POPUP "&AES"
+            BEGIN
+                MENUITEM "Rijndael-&Animation...",      ID_FLASH_AESDEMO
+                MENUITEM "Rijndael-&Inspector...",      ID_FLASH_RIJNDAEL_INSPECTOR
+
+            END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
@@ -6629,7 +6639,12 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
-            MENUITEM "&AES...",                     ID_FLASH_AESDEMO
+            POPUP "&AES"
+            BEGIN
+                MENUITEM "Rijndael-&Animation...",      ID_FLASH_AESDEMO
+                MENUITEM "Rijndael-&Inspector...",      ID_FLASH_RIJNDAEL_INSPECTOR
+
+            END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
@@ -6726,7 +6741,7 @@ BEGIN
         END
         POPUP "Symmetrische Verschlüsselung (&modern)"
         BEGIN
-            MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA, GRAYED
+            MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA
             MENUITEM "RC&2...",                     ID_ANALYSE_RC2, GRAYED
             MENUITEM "RC&4...",                     ID_ANALYSE_RC4, GRAYED
             MENUITEM "&DES (ECB)...",               ID_ANALYSE_DESECB
@@ -6742,7 +6757,6 @@ BEGIN
             POPUP "&Weitere Algorithmen"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
-                , GRAYED
                 MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
                 , GRAYED
                 MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
@@ -7035,7 +7049,12 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
-            MENUITEM "&AES...",                     ID_FLASH_AESDEMO
+            POPUP "&AES"
+            BEGIN
+                MENUITEM "Rijndael-&Animation...",      ID_FLASH_AESDEMO
+                MENUITEM "Rijndael-&Inspector...",      ID_FLASH_RIJNDAEL_INSPECTOR
+
+            END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
@@ -7475,7 +7494,12 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
-            MENUITEM "&AES...",                     ID_FLASH_AESDEMO
+            POPUP "&AES"
+            BEGIN
+                MENUITEM "Rijndael-&Animation...",      ID_FLASH_AESDEMO
+                MENUITEM "Rijndael-&Inspector...",      ID_FLASH_RIJNDAEL_INSPECTOR
+
+            END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
@@ -11586,9 +11610,11 @@ END
 
 STRINGTABLE 
 BEGIN
-    ID_FLASH_AESDEMO        "Visualisiert den AES-Algorithmus mittels Flash"
+    ID_FLASH_AESDEMO        "Visualisiert den AES-Algorithmus mittels Flash mit fest vorgegebenen Daten"
     ID_PASSWORDQUALITYMETER "Misst die Qualität von Passwörtern"
     ID_FLASH_ENIGMADEMO     "Visualisiert die Enigma-Maschine mittels Flash"
+    ID_FLASH_RIJNDAEL_INSPECTOR 
+                            "Zeigt die AES-Zwischenergebnisse nach jedem Schritt in jeder Runde für frei wählbare Daten an"
 END
 
 STRINGTABLE 
@@ -11688,6 +11714,11 @@ BEGIN
                             "Die Referenzdatei für statistische Anwendungen wurde nicht gefunden.\nBitte geben Sie diese über den Dialog Textoptionen an."
     IDS_STATISTICAL_REFERENCE_FILE_STILL_MISSING 
                             "Achtung! Sie haben immer noch keine Referenzdatei für statistische Anwendungen spezifiziert."
+    IDS_RIJNDAEL_INSPECTOR_EXEC_STR "Rijndael-Inspector.exe"
+    IDS_ERROR_OPEN_FLASHAESDEMO 
+                            "Die AES-Demo kann nicht geöffnet werden.\nBitte überprüfen Sie, ob die AES-Demo installiert wurde."
+    IDS_ERROR_OPEN_RIJNDAELINSPECTOR 
+                            "Der Rijndael-Inspector kann nicht geöffnet werden.\nBitte überprüfen Sie, ob der Rijndael-Inspector installiert wurde."
 END
 
 STRINGTABLE 
@@ -17424,7 +17455,12 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
-            MENUITEM "&AES...",                     ID_FLASH_AESDEMO
+            POPUP "&AES"
+            BEGIN
+                MENUITEM "Rijndael &Animation...",      ID_FLASH_AESDEMO
+                MENUITEM "Rijndael &Inspector...",      ID_FLASH_RIJNDAEL_INSPECTOR
+
+            END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
@@ -17831,7 +17867,12 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
-            MENUITEM "&AES...",                     ID_FLASH_AESDEMO
+            POPUP "&AES"
+            BEGIN
+                MENUITEM "Rijndael &Animation...",      ID_FLASH_AESDEMO
+                MENUITEM "Rijndael &Inspector...",      ID_FLASH_RIJNDAEL_INSPECTOR
+
+            END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
@@ -18242,7 +18283,12 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
-            MENUITEM "&AES...",                     ID_FLASH_AESDEMO
+            POPUP "&AES"
+            BEGIN
+                MENUITEM "Rijndael &Animation...",      ID_FLASH_AESDEMO
+                MENUITEM "Rijndael &Inspector...",      ID_FLASH_RIJNDAEL_INSPECTOR
+
+            END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
@@ -18648,7 +18694,12 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
-            MENUITEM "&AES...",                     ID_FLASH_AESDEMO
+            POPUP "&AES"
+            BEGIN
+                MENUITEM "Rijndael &Animation...",      ID_FLASH_AESDEMO
+                MENUITEM "Rijndael &Inspector...",      ID_FLASH_RIJNDAEL_INSPECTOR
+
+            END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
@@ -19084,7 +19135,12 @@ BEGIN
             MENUITEM "&Nihilist...",                ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES...",                     ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
-            MENUITEM "&AES...",                     ID_FLASH_AESDEMO
+            POPUP "&AES"
+            BEGIN
+                MENUITEM "Rijndael &Animation...",      ID_FLASH_AESDEMO
+                MENUITEM "Rijndael &Inspector...",      ID_FLASH_RIJNDAEL_INSPECTOR
+
+            END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
         MENUITEM "&Secret Sharing Demonstration (Shamir)...", 
@@ -23287,9 +23343,11 @@ END
 
 STRINGTABLE 
 BEGIN
-    ID_FLASH_AESDEMO        "Visualizes the AES encryption algorithm using Flash"
+    ID_FLASH_AESDEMO        "Visualizes the AES encryption algorithm using Flash with fixed data"
     ID_PASSWORDQUALITYMETER "Measures the quality of passwords"
     ID_FLASH_ENIGMADEMO     "Visualizes the Enigma machine using Flash"
+    ID_FLASH_RIJNDAEL_INSPECTOR 
+                            "Shows the AES intermediate results after each step in each round for arbitrary data"
 END
 
 STRINGTABLE 
@@ -23453,6 +23511,11 @@ BEGIN
                             "The reference file for statistical applications could not be found.\nPlease specify the file name in the text options dialog."
     IDS_STATISTICAL_REFERENCE_FILE_STILL_MISSING 
                             "Warning! You still haven't specified a valid reference file for statistical applications."
+    IDS_RIJNDAEL_INSPECTOR_EXEC_STR "Rijndael-Inspector.exe"
+    IDS_ERROR_OPEN_FLASHAESDEMO 
+                            "The AES demo cannot be opened.\nPlease make sure whether it was installed correctly."
+    IDS_ERROR_OPEN_RIJNDAELINSPECTOR 
+                            "The Rindael Inspector cannot be opened.\nPlease make sure whether it was installed correctly."
 END
 
 STRINGTABLE 
