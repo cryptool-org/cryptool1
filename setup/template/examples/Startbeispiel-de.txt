@@ -2,10 +2,13 @@ CrypTool
 
 Dies ist eine Textdatei, mit der Sie Ihre ersten Schritte mit CrypTool machen können.
 
+CrypTool ist ein umfangreiches Lernprogramm zu den Themen Kryptographie und Kryptoanalyse.
+
 1) Sie können diese Datei z.B. über das Menü "Ver-/Entschlüsseln \ Symmetrisch (klassisch)" mit dem Caesar-Verfahren verschlüsseln.
 
 2) Den besten Überblick über die Möglichkeiten von CrypTool bietet die Startseite in der Windows Online-Hilfe zu CrypTool. Von der Startseite aus können Sie alle wesentlichen Funktionen über Links erreichen.
-Die Startseite selbst erreichen Sie über das Menü "Hilfe \ Startseite"  oder  indem Sie in der Online-Hilfe im Index den Begriff "Startseite" eingeben.
+Die Startseite selbst erreichen Sie über das Menü "Hilfe \ Startseite" oder indem Sie in der Online-Hilfe im Index den Begriff "Startseite" eingeben.
+Öffnen Sie die Online-Hilfe mit F1.
 
 3) Insbesondere mit den Szenarien (Tutorials) in der Online-Hilfe finden Sie einen schnellen Einstieg. Auch die Szenarien können Sie direkt über das Menü "Hilfe" erreichen.
 
@@ -15,4 +18,4 @@ Die Startseite selbst erreichen Sie über das Menü "Hilfe \ Startseite"  oder  in
 - Sie schauen sich die beiliegende Präsentation an (siehe Abschnitt "Dokumentation" auf der Startseite der Online-Hilfe).
 - Sie schauen sich die Webseite www.cryptool.de an.
 
-Jan 2006
+Mai 2007

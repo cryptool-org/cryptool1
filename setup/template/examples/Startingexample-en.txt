@@ -2,10 +2,13 @@ CrypTool
 
 This is a text file, shown in order to help you to make your first steps with CrypTool.
 
+CrypTool is a comprehensive educational program about cryptography and cryptanalysis.
+
 1) One thing you can do e.g. is to encrypt this file with the Caesar algorithm [via the menu "Crypt/Decrypt \ Symmetric (classic)"].
 
-2) The best overview about all features of CrypTool is offered by the starting page of the Windows online help  which contains links to all relevant functions.
-You can call up the starting page via the menu "Help \ Starting page"  or  using the search keyword "Starting page" within the index of the online help.
+2) The best overview about all features of CrypTool is offered by the starting page of the Windows online help which contains links to all relevant functions.
+You can call up the starting page via the menu "Help \ Starting page" or using the search keyword "Starting page" within the index of the online help.
+Press F1 to start the online help.
 
 3) Especially the examples (tutorials) provided within the online help make it easy for you to get up to speed. These pages can be found via the menu "Help \ Scenarios (Tutorials)".
 
@@ -15,4 +18,4 @@ You can call up the starting page via the menu "Help \ Starting page"  or  using
 - by looking at the presentation (see section "Documentation" at the starting page of the online help).
 - by looking at the web page www.cryptool.org.
 
-Jan 2006
+May 2007

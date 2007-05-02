@@ -11601,6 +11601,8 @@ STRINGTABLE
 BEGIN
     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING 
                             "Visualisiert das (t, n)-Schwellenwertverfahren nach Shamir"
+    ID_ENCODE_UU            "Codieren des aktiven Dokuments mittels UU"
+    ID_DECODE_UU            "Decodieren des aktiven Dokuments mittels UU"
     ID_HYBRID_ECCENC        "Verschlüsselt eine Datei mit dem ECC-Algorithmus"
     ID_HYBRID_ECCDEC        "Entschlüsselt eine mit dem ECC-Algorithmus verschlüsselte Datei"
     ID_INDIV_POINTADDITIONONELLIPTICCURVES 
@@ -11612,6 +11614,8 @@ STRINGTABLE
 BEGIN
     ID_FLASH_AESDEMO        "Visualisiert den AES-Algorithmus mittels Flash mit fest vorgegebenen Daten"
     ID_PASSWORDQUALITYMETER "Misst die Qualität von Passwörtern"
+    ID_INTERACTIVE_NUMBER_THEORY 
+                            "Visualisiert die Zahlentheorie durch ein interaktives Lernprogramm"
     ID_FLASH_ENIGMADEMO     "Visualisiert die Enigma-Maschine mittels Flash"
     ID_FLASH_RIJNDAEL_INSPECTOR 
                             "Zeigt die AES-Zwischenergebnisse nach jedem Schritt in jeder Runde für frei wählbare Daten an"
@@ -19382,7 +19386,7 @@ BEGIN
             VALUE "FileDescription", "www.cryptool.org"
             VALUE "FileVersion", "1.4.10"
             VALUE "InternalName", "CrypTool"
-            VALUE "LegalCopyright", "Copyright © 1999-2006"
+            VALUE "LegalCopyright", "Copyright © 1999-2007"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
             VALUE "ProductVersion", "1.4.10"
@@ -23334,6 +23338,8 @@ STRINGTABLE
 BEGIN
     ID_INDIVIDUAL_PROCEDURES_SECRETSHARING 
                             "Visualizes the Shamir (t, n) threshold scheme"
+    ID_ENCODE_UU            "Encoding the active document using UU"
+    ID_DECODE_UU            "Decoding the active document using UU"
     ID_HYBRID_ECCENC        "Encrypts a file encrypted with the ECC-AES algorithm"
     ID_HYBRID_ECCDEC        "Decrypts a file encrypted with the ECC-AES algorithm"
     ID_INDIV_POINTADDITIONONELLIPTICCURVES 
@@ -23345,6 +23351,8 @@ STRINGTABLE
 BEGIN
     ID_FLASH_AESDEMO        "Visualizes the AES encryption algorithm using Flash with fixed data"
     ID_PASSWORDQUALITYMETER "Measures the quality of passwords"
+    ID_INTERACTIVE_NUMBER_THEORY 
+                            "Visualizes number theory using an interactive learning tool"
     ID_FLASH_ENIGMADEMO     "Visualizes the Enigma machine using Flash"
     ID_FLASH_RIJNDAEL_INSPECTOR 
                             "Shows the AES intermediate results after each step in each round for arbitrary data"
