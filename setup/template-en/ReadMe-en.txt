@@ -220,6 +220,9 @@ a) The program AES-Tool v 2.4 (developed within the CrypTool project)
    This encryption tool can be called both as a Windows application
    and as a command line tool (e.g. called from within a batch file).
    Files up to 4 GB can be encrypted.
+   At the installation the file extension "AES" is associated with this
+   programme.
+
 
 b) The educational game "Number Shark" v 1.1 (by the CrypTool project)
    This game helps pupils to get acquainted with divisors and prime
@@ -1299,7 +1302,7 @@ secidea.dll ...... Is used by the secude.dll for IDEA encryption.
 srndmskb.dll ..... Used by secude.dll for collecting entropy when
                    initializing the Secude random number generator.
 db.dll ........... Is used by the secude.dll.
-secude.xml ....... Is used by the secude.dll. xxxxxxxxx
+secude.xml ....... Is used by the secude.dll.
 libeay32.dll ..... Library from OpenSSL.
 SciLexer.dll ..... Library with the routines for the Scintilla text
                    editor.
@@ -1339,6 +1342,8 @@ ChinLab-en.pdf.pdf .. Story by Dr. Elsner about basic number theory
                       problems assigned to Marco Polo by the Great
                       Khan.
 ChinLab-de.pdf.pdf .. German version of ChinLab-en.pdf.
+
+Uninstall.exe .... Part of the NSIS installer. 
 
 
 examples\ ........ This directory contains various sample files
@@ -1453,9 +1458,12 @@ animal\anims\caesar_de.aml
 Bc\ .............. This directory and the ones below contain the utility
                    BC for calculations with arbitrary precision. It belongs
                    to "NT.exe", from where it can be started directly.
+                   Only bc.exe and bc.1.txt are part of the original distribution;
+                   the remaining BC files are from the "NT.exe" author and contain
+                   scripts with number theoretic functions.
 
 Bc\bc.1.txt
-  \bc.deutsch.txt
+  \bc.deutsch.txt ... German translation of bc.1.txt
   \Bc.exe
   \BCmax.bat
   \bruch.txt
@@ -1489,7 +1497,7 @@ Bc\contrib\Authors
             \bc-1.06-bin.ver
 
 
-xtras\ ............ Belongs to "NT.exe"
+xtras\ ............ Files needed by Authorware, used to build "NT.exe"
 
 xtras\BMPVIEW.X32
      \MIX32.X32

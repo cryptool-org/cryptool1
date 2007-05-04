@@ -222,6 +222,8 @@ a) Das Programm AES-Tool v 2.4 (entstanden im CrypTool-Projekt)
    Dieses Verschlüsselungstool kann sowohl als Fensteranwendung als
    auch von Kommandozeile (z.B. aus einer Batchdatei) aufgerufen werden.
    Dateien können bis zu einer Größe von 4 GB verschlüsselt werden.
+   Bei der Installation wird diesem Programm die Dateiendung "AES"
+   zugeordnet.
 
 b) Das Lernspiel "Der Zahlenhai" v 1.1 (entstanden im CrypTool-Projekt)
    Dieses Lernspiel für Schüler bringt diesen den Umgang mit
@@ -599,7 +601,6 @@ c) Funktionale Erweiterungen:
   nicht länger als 256 Bit ist. Außerdem kann man nun auch per Maus die
   zu verschlüsselnde Datei aus dem Windows-Explorer in das Eingabefeld
   ziehen.
-   xxxxxxxxxxx Checken ob es tut.
 
 - Die Schlüsseleingabemasken für klassische Verfahren enthalten
   nun einen Button, so dass man auch von hier aus direkt das Alphabet
@@ -1361,7 +1362,7 @@ srndmskb.dll ..... Wird benötigt von der secude.dll für den
                    Entropiesammler zur Initialisierung des 
                    Secude-Zufallsgenerators.
 db.dll ........... Wird benötigt von der secude.dll.
-secude.xml ....... Wird benötigt von der secude.dll. xxxxxxxxx
+secude.xml ....... Wird benötigt von der secude.dll.
 libeay32.dll...... Bibliothek aus OpenSSL.
 SciLexer.dll ..... Bibliothek mit den Routinen für den 
                    Scintilla-Texteditor.
@@ -1403,7 +1404,7 @@ ChinLab-de.pdf.pdf .. Geschichte von Dr. Elsner über zahlentheoretische
                       werden.
 ChinLab-en.pdf.pdf .. Englische Fassung von ChinLab-de.pdf.
 
-Uninstall.exe .... XXXXXX
+Uninstall.exe .... Teil des NSIS-Installers.
 
 
 examples\ ........ Dieses Verzeichnis enthält unterschiedliche
@@ -1519,9 +1520,12 @@ animal\anims\caesar_de.aml
 Bc\ .............. In diesem Verzeichnis und darunter liegt das Utility
                    BC zum Rechnen mit beliebig langen Zahlen. Es gehört 
                    zu "ZT.exe" und kann direkt daraus gestartet werden.
+                   Nur bc.exe und bc.1.txt sind im Original dabei; die
+                   restlichen BC-Dateien stammen vom "ZT.exe"-Autor
+                   und beinhalten Skripte mit Funktionen.
 
 Bc\bc.1.txt
-  \bc.deutsch.txt
+  \bc.deutsch.txt ... Übersetzung von bc.1.txt
   \Bc.exe
   \BCmax.bat
   \bruch.txt
@@ -1555,7 +1559,7 @@ Bc\contrib\Authors
             \bc-1.06-bin.ver
 
 
-xtras\ ............ Gehört zu Belongs to "ZT.exe"
+xtras\ ............ Gehört zu Authorware, mit dem "ZT.exe" erstellt wurde.
 
 xtras\BMPVIEW.X32
      \MIX32.X32
