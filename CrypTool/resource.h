@@ -326,11 +326,11 @@
 #define IDD_ECCENCRECEIVER              859
 #define IDS_OK                          860
 #define IDD_PASSWORDQUALITYMETER        861
-#define IDB_PQM_QUALITY_POOR            862
-#define IDB_PQM_QUALITY_LOW             863
-#define IDB_PQM_QUALITY_AVERAGE         864
-#define IDB_PQM_QUALITY_HIGH            865
-#define IDB_PQM_QUALITY_GREAT           866
+#define IDR_GIF_PQM_QUALITY_POOR        862
+#define IDR_GIF_PQM_QUALITY_LOW         863
+#define IDR_GIF_PQM_QUALITY_AVERAGE     864
+#define IDR_GIF_PQM_QUALITY_HIGH        865
+#define IDR_GIF_PQM_QUALITY_GREAT       866
 #define IDS_CRYPT_DESX                  1000
 #define IDS_CRYPT_DESL                  1001
 #define IDS_CRYPT_DESXL                 1002

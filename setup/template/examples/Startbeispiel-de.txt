@@ -1,8 +1,8 @@
 CrypTool
 
-Dies ist eine Textdatei, mit der Sie Ihre ersten Schritte mit CrypTool machen können.
-
 CrypTool ist ein umfangreiches Lernprogramm zu den Themen Kryptographie und Kryptoanalyse.
+
+Dies ist eine Textdatei, mit der Sie Ihre ersten Schritte mit CrypTool machen können.
 
 1) Sie können diese Datei z.B. über das Menü "Ver-/Entschlüsseln \ Symmetrisch (klassisch)" mit dem Caesar-Verfahren verschlüsseln.
 

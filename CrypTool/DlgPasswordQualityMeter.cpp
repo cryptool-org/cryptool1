@@ -177,15 +177,15 @@ void CDlgPasswordQualityMeter::UpdateUserInterface()
 	((CEdit*)GetDlgItem(IDC_EDIT_PASSWORD))->SetFocus();
 
 	// we start with a "poor" visual password rating
-	this->controlPictureQuality.Load("res\\PasswordQualityPoor.bmp");
+	this->controlPictureQuality.Load(MAKEINTRESOURCE(IDR_GIF_PQM_QUALITY_POOR), _T("GIF"));
 	if(20 < intQualityCrypTool && intQualityCrypTool <= 40)
-		this->controlPictureQuality.Load("res\\PasswordQualityLow.bmp");
+		this->controlPictureQuality.Load(MAKEINTRESOURCE(IDR_GIF_PQM_QUALITY_LOW), _T("GIF"));
 	if(40 < intQualityCrypTool && intQualityCrypTool <= 60)
-		this->controlPictureQuality.Load("res\\PasswordQualityAverage.bmp");
+		this->controlPictureQuality.Load(MAKEINTRESOURCE(IDR_GIF_PQM_QUALITY_AVERAGE), _T("GIF"));
 	if(60 < intQualityCrypTool && intQualityCrypTool <= 80)
-		this->controlPictureQuality.Load("res\\PasswordQualityHigh.bmp");
+		this->controlPictureQuality.Load(MAKEINTRESOURCE(IDR_GIF_PQM_QUALITY_HIGH), _T("GIF"));
 	if(80 < intQualityCrypTool && intQualityCrypTool <= 100)
-		this->controlPictureQuality.Load("res\\PasswordQualityGreat.bmp");
+		this->controlPictureQuality.Load(MAKEINTRESOURCE(IDR_GIF_PQM_QUALITY_GREAT), _T("GIF"));
 	this->controlPictureQuality.Draw();
 
 	UpdateData(false);

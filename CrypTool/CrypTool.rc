@@ -8089,11 +8089,6 @@ IDB_CRT_CR_LEFT         BITMAP                  "res\\CRT\\CrtLeft.bmp"
 IDB_CRT_BASIS           BITMAP                  "res\\CRT\\CrtBasis.bmp"
 IDB_CRT_DOWN_F          BITMAP                  "res\\CRT\\CrtDownf.bmp"
 IDB_CRT_DOWN_FSTR       BITMAP                  "res\\CRT\\CrtDownfstr.bmp"
-IDB_PQM_QUALITY_POOR    BITMAP                  "res\\PasswordQualityPoor.bmp"
-IDB_PQM_QUALITY_LOW     BITMAP                  "res\\PasswordQualityLow.bmp"
-IDB_PQM_QUALITY_AVERAGE BITMAP                  "res\\PasswordQualityAverage.bmp"
-IDB_PQM_QUALITY_HIGH    BITMAP                  "res\\PasswordQualityHigh.bmp"
-IDB_PQM_QUALITY_GREAT   BITMAP                  "res\\PasswordQualityGreat.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -8125,6 +8120,11 @@ IDR_SCA_ABARROWSUCCESS  GIF                     "res\\SCABitmaps\\gifs\\sca_ab_a
 IDR_SCA_LIGHTS_RED      GIF                     "res\\SCABitmaps\\gifs\\sca_lights_red.gif"
 IDR_SCA_ABARROWTRANSMISSION_TRUDYBOB GIF                     "res\\SCABitmaps\\gifs\\sca_ab_arrow_transmission_trudybob.gif"
 IDR_CRT_ASTRONOMY       GIF                     "res\\CRT\\CrtAstronomy.gif"
+IDR_GIF_PQM_QUALITY_POOR GIF                     "res\\PasswordQualityPoor.gif"
+IDR_GIF_PQM_QUALITY_LOW GIF                     "res\\PasswordQualityLow.gif"
+IDR_GIF_PQM_QUALITY_AVERAGE GIF                     "res\\PasswordQualityAverage.gif"
+IDR_GIF_PQM_QUALITY_HIGH GIF                     "res\\PasswordQualityHigh.gif"
+IDR_GIF_PQM_QUALITY_GREAT GIF                     "res\\PasswordQualityGreat.gif"
 
 /////////////////////////////////////////////////////////////////////////////
 //

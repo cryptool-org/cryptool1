@@ -1,8 +1,8 @@
 CrypTool
 
-This is a text file, shown in order to help you to make your first steps with CrypTool.
-
 CrypTool is a comprehensive educational program about cryptography and cryptanalysis.
+
+This is a text file, shown in order to help you to make your first steps with CrypTool.
 
 1) One thing you can do e.g. is to encrypt this file with the Caesar algorithm [via the menu "Crypt/Decrypt \ Symmetric (classic)"].
 
