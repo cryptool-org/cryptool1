@@ -995,7 +995,8 @@ void CCrypToolApp::OnScript()
 	LoadString(AfxGetInstanceHandle(),IDS_SCRIPTPATH,pc_str,STR_LAENGE_STRING_TABLE);
 	sprintf(readmePath, pc_str, Pfad);
 
-	HINSTANCE hInst = ShellExecute(0, "open", readmePath, NULL, 0, SW_SHOW );
+	//HINSTANCE hInst = ShellExecute(0, "open", readmePath, NULL, 0, SW_SHOW ); // does not work for BE - .NET 3.0 issue?
+	HINSTANCE hInst = ShellExecute(0, NULL, readmePath, NULL, 0, SW_SHOW );
 
 	if ( reinterpret_cast<int>(hInst) <= 32 )
 		Message(IDS_ERROPEN_SCRIPT, MB_ICONSTOP);
