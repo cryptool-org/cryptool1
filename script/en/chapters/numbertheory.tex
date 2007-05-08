@@ -2734,6 +2734,7 @@ L       & 12   & Y    & 25 \\
 {\bf 2.} $e = 37$ (should lie between $79$ and $3,588$ and must be relatively prime to $3,588$). \\
 {\bf 3.} $d=97$ (since $e*d=1{\rm ~mod~}J(n); 37*97 \equiv 3,589 \equiv 1{\rm ~(mod~}3,588) \;$)\footnote{How
 to compute $d = 97$ using the {\em extended} gcd algorithm is shown in \hyperlink{Appendix_A}{appendix A of this chapter}}. \\
+
 {\bf 4. Encryption}:\\
 {\tt
 \begin{tabular}{rcccccccccccccccccccc}
@@ -2793,12 +2794,14 @@ the number $J(n)$ using Mathematica and Pari-GP.
 Using CrypTool\index{CrypTool} you can solve this with the 
 {\bf Indiv.Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} 
 Factorisation of a Number}.}. \\
-{\bf 2.} $e=256,027$ (should lie between $509$ and $255,016$ and must be relatively prime to $255,016$)\footnote{$e$ cannot,
+
+{\bf 2.} $e=65,537$ (should lie between $509$ and $255,016$ and must be relatively prime to $255,016$)\footnote{$e$ cannot,
 therefore, be $2, 127$ or $251$ ($65537 = 2^{16}+1$).\\
 In real life, $J(n)$ is not factorised but rather the Euclidean algorithm 
 is used for the selected e to guarantee that ${\rm gcd}(d,J(n))=1$.}.\\
+
 {\bf 3.} $d=231,953$ \\\strut\quad\ (since $e \equiv d^{-1}{\rm ~mod~}J(n): ~65,537*231,953 \equiv 15,201,503,761 \equiv 1
-{\rm ~(mod~}67,000)$)\footnote{Other possible combinations of $(e,d)$ include: $(3, 170,011)$, $(5, 204,013)$, $(7, 36,431)$.}.
+{\rm ~(mod~}255,016)$)\footnote{Other possible combinations of $(e,d)$ include: $(3, 170,011)$, $(5, 204,013)$, $(7, 36,431)$.}.
 
 
 % --------------------------------------------------------------------------
