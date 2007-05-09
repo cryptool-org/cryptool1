@@ -1232,7 +1232,12 @@ void CCrypToolApp::OnFlashAesdemo()
 	AESDemoExecStr.LoadString(IDS_AESDEMO_EXEC_STR);
 
 	HINSTANCE hInst = ShellExecute(NULL,NULL, AESDemoExecStr, " ", Pfad, SW_SHOW);
-	if ( reinterpret_cast<int>(hInst) <= 32 ) Message(IDS_ERROR_OPEN_FLASHAESDEMO, MB_ICONSTOP);
+	if ( reinterpret_cast<int>(hInst) <= 32 ) {
+		// display error message stating where the desired executable is expected
+		CString message;
+		message.Format(IDS_ERROR_OPEN_FLASHAESDEMO, Pfad);
+		AfxMessageBox(message, MB_ICONSTOP);
+	}
 }
 
 void CCrypToolApp::OnFlashRijndaelInspector()
@@ -1241,7 +1246,12 @@ void CCrypToolApp::OnFlashRijndaelInspector()
 	RijndaelInspectorExecStr.LoadString(IDS_RIJNDAEL_INSPECTOR_EXEC_STR);
 
 	HINSTANCE hInst = ShellExecute(NULL,NULL, RijndaelInspectorExecStr, " ", Pfad, SW_SHOW);
-	if ( reinterpret_cast<int>(hInst) <= 32 ) Message(IDS_ERROR_OPEN_RIJNDAELINSPECTOR, MB_ICONSTOP);
+	if ( reinterpret_cast<int>(hInst) <= 32 ) {
+		// display error message stating where the desired executable is expected
+		CString message;
+		message.Format(IDS_ERROR_OPEN_RIJNDAELINSPECTOR, Pfad);
+		AfxMessageBox(message, MB_ICONSTOP);
+	}
 }
 
 void CCrypToolApp::OnInteractiveNumberTheory()
@@ -1250,7 +1260,12 @@ void CCrypToolApp::OnInteractiveNumberTheory()
 	InteractiveNTExecStr.LoadString(IDS_INTERACTIVE_NUMBER_THEORY_EXEC);
 
 	HINSTANCE hInst = ShellExecute(NULL,NULL, InteractiveNTExecStr, " ", Pfad, SW_SHOW);
-	if ( reinterpret_cast<int>(hInst) <= 32 ) Message(IDS_ERROPEN_INTERACTIVE_NUMBER_THEORY, MB_ICONSTOP);
+	if ( reinterpret_cast<int>(hInst) <= 32 ) {
+		// display error message stating where the desired executable is expected
+		CString message;
+		message.Format(IDS_ERROPEN_INTERACTIVE_NUMBER_THEORY, Pfad);
+		AfxMessageBox(message, MB_ICONSTOP);
+	}
 }
 
 void CCrypToolApp::OnFlashEnigmademo()
@@ -1259,5 +1274,10 @@ void CCrypToolApp::OnFlashEnigmademo()
 	EnigmaFlashExecStr.LoadString(IDS_ENIGMA_FLASH);
 
 	HINSTANCE hInst = ShellExecute(NULL,NULL, EnigmaFlashExecStr, " ", Pfad, SW_SHOW);
-	if ( reinterpret_cast<int>(hInst) <= 32 ) Message(IDS_ERROPEN_ENIGMA_FLASH, MB_ICONSTOP);
+	if ( reinterpret_cast<int>(hInst) <= 32 ) {
+		// display error message stating where the desired executable is expected
+		CString message;
+		message.Format(IDS_ERROPEN_ENIGMA_FLASH, Pfad);
+		AfxMessageBox(message, MB_ICONSTOP);
+	}
 }

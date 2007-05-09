@@ -11722,9 +11722,9 @@ BEGIN
                             "Achtung! Sie haben immer noch keine Referenzdatei für statistische Anwendungen spezifiziert."
     IDS_RIJNDAEL_INSPECTOR_EXEC_STR "Rijndael-Inspector.exe"
     IDS_ERROR_OPEN_FLASHAESDEMO 
-                            "Die AES-Demo kann nicht geöffnet werden.\nBitte überprüfen Sie, ob die AES-Demo installiert wurde."
+                            "Die AES-Demo kann nicht geöffnet werden.\nBitte überprüfen Sie, ob die AES-Demo im CrypTool-Heimatverzeichnis installiert wurde\n(""%s"")."
     IDS_ERROR_OPEN_RIJNDAELINSPECTOR 
-                            "Der Rijndael-Inspector kann nicht geöffnet werden.\nBitte überprüfen Sie, ob der Rijndael-Inspector installiert wurde."
+                            "Der Rijndael-Inspector kann nicht geöffnet werden.\nBitte überprüfen Sie, ob der Rijndael-Inspector im CrypTool-Heimatverzeichnis installiert wurde\n(""%s"")."
 END
 
 STRINGTABLE 
@@ -11769,10 +11769,10 @@ BEGIN
     IDS_AESDEMO_EXEC_STR    "Rijndael-Animation.exe"
     IDS_INTERACTIVE_NUMBER_THEORY_EXEC "ZT.exe"
     IDS_ERROPEN_INTERACTIVE_NUMBER_THEORY 
-                            "Das Lerntool zur Zahlentheorie kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob das Programm ZT.exe im CrypTool Heimatverzeichnis installiert wurde."
-    IDS_ENIGMA_FLASH        "Enigama_de.exe"
+                            "Das Lerntool zur Zahlentheorie kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob das Programm ZT.exe im CrypTool Heimatverzeichnis installiert wurde\n(""%s"")."
+    IDS_ENIGMA_FLASH        "Enigma_de.exe"
     IDS_ERROPEN_ENIGMA_FLASH 
-                            "Die Enigma Flash-Demonstration kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob das Programm Enigma_de.exe im CrypTool Heimatverzeichnis installiert wurde."
+                            "Die Enigma Flash-Demonstration kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob das Programm Enigma_de.exe im CrypTool-Heimatverzeichnis installiert wurde\n(""%s"")."
 END
 
 STRINGTABLE 
@@ -23523,9 +23523,9 @@ BEGIN
                             "Warning! You still haven't specified a valid reference file for statistical applications."
     IDS_RIJNDAEL_INSPECTOR_EXEC_STR "Rijndael-Inspector.exe"
     IDS_ERROR_OPEN_FLASHAESDEMO 
-                            "The AES demo cannot be opened.\nPlease make sure whether it was installed correctly."
+                            "The AES demo cannot be opened.\nPlease make sure whether it was installed correctly in the CrypTool program directory\n(""%s"")."
     IDS_ERROR_OPEN_RIJNDAELINSPECTOR 
-                            "The Rindael Inspector cannot be opened.\nPlease make sure whether it was installed correctly."
+                            "The Rindael Inspector cannot be opened.\nPlease make sure whether it was installed correctly in the CrypTool program directory\n(""%s"")."
 END
 
 STRINGTABLE 
@@ -23570,10 +23570,10 @@ BEGIN
     IDS_AESDEMO_EXEC_STR    "Rijndael-Animation.exe"
     IDS_INTERACTIVE_NUMBER_THEORY_EXEC "NT.exe"
     IDS_ERROPEN_INTERACTIVE_NUMBER_THEORY 
-                            "The numbertheory learning tool cannot be opened.\n\nPlease check if NT.exe is installed at the CrypTool program directory."
-    IDS_ENIGMA_FLASH        "Enigama_en.exe"
+                            "The numbertheory learning tool cannot be opened.\n\nPlease check if NT.exe is installed in the CrypTool program directory\n(""%s"")."
+    IDS_ENIGMA_FLASH        "Enigma_en.exe"
     IDS_ERROPEN_ENIGMA_FLASH 
-                            "The Enigma flash demo cannot be opened.\n\nPlease check if Enigma_en.exe is installed in the CrypTool program directory."
+                            "The Enigma flash demo cannot be opened.\n\nPlease check if Enigma_en.exe is installed in the CrypTool program directory\n(""%s"")."
 END
 
 STRINGTABLE 
