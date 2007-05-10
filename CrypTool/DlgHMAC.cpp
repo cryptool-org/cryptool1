@@ -90,6 +90,7 @@ void CDlgHMAC::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_KEY, m_key);
 	DDX_Text(pDX, IDC_EDIT_KEY2, m_secondkey);
 	DDX_Text(pDX, IDC_SHOW_MAC, m_str_mac);
+	DDX_Text(pDX, IDC_EDIT_ORIGINAL_MESSAGE, m_originalMessage);
 	//}}AFX_DATA_MAP
 }
 
@@ -99,6 +100,7 @@ BEGIN_MESSAGE_MAP(CDlgHMAC, CDialog)
 	ON_BN_CLICKED(IDC_RADIO11, OnBUTTONSecondKey)
 	ON_EN_CHANGE(IDC_SHOW_TEXT, OnEditText)
 	ON_EN_CHANGE(IDC_EDIT_KEY, OnEditKey)
+	ON_EN_CHANGE(IDC_EDIT_ORIGINAL_MESSAGE, OnEditOriginalMessage)
 	ON_BN_CLICKED(IDC_RADIO7, OnBUTTONFront)
 	ON_BN_CLICKED(IDC_RADIO8, OnBUTTONBack)
 	ON_BN_CLICKED(IDC_RADIO9, OnBUTTONBoth)
@@ -130,49 +132,54 @@ void CDlgHMAC::OnOK()
 			{
 				LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_NoKey, pc_str, 100);
 				AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
+				return;
 			}
-			strText = m_key + strText;
+			strText = m_key + m_originalMessage;
 			break;//Schlüssel vorne
 	case 1:	if (m_key == "")
 			{
 				LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_NoKey, pc_str, 100);
 				AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
+				return;
 			}
-			strText += m_key;
+			strText = m_originalMessage + m_key;
 			break;//Schlüssel hinten
 	case 2:	if (m_key == "")
 			{
 				LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_NoKey, pc_str, 100);
 				AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
+				return;
 			}
-			strText = m_key + strText + m_key;
+			strText = m_key + m_originalMessage + m_key;
 			break;//Schlüssel vorne und hinten
 	case 3: if (m_key == "")
 			{
 				LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_Double, pc_str, 150);
 				AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
+				return;
 			}
-			tempRes = m_key + strText;
+			tempRes = m_key + m_originalMessage;
 			strText = m_key + CalculateMac(tempRes);
 			break;//doppelte Ausführung der Hashfunktion
 	case 4: if ((m_key == "") && (m_secondkey == ""))
 			{
 				LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_NoKey, pc_str, 100);
 				AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
+				return;
 			}
-			else 
-				if ((m_key == "") && (m_secondkey != ""))
-				{
-					LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_OnlyOneKey, pc_str, 150);
-					AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
-				}
-				else
-					if ((m_key != "") && (m_secondkey == ""))
-					{
-						LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_OnlyOneKey, pc_str, 150);
-						AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
-					}
-			strText = m_key + strText + m_secondkey;
+			else if ((m_key == "") && (m_secondkey != ""))
+			{
+				LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_OnlyOneKey, pc_str, 150);
+				AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
+				return;
+			}
+			else if ((m_key != "") && (m_secondkey == ""))
+			{
+				LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_OnlyOneKey, pc_str, 150);
+				AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
+				return;
+			}
+			strText = m_key + m_originalMessage + m_secondkey;
 			break;//zwei Schlüssel
 	}
 	SetMac(strText);
@@ -186,6 +193,9 @@ BOOL CDlgHMAC::OnInitDialog()
 	
 	UpdateData(true);
 	m_text.SetWindowText(strText);
+
+	m_originalMessage = strText;
+
 	UpdateData(false);
 	
 	return TRUE;  // return TRUE unless you set the focus to a control
@@ -320,6 +330,13 @@ void CDlgHMAC::OnEditText()
 }
 
 void CDlgHMAC::OnEditKey() 
+{
+	UpdateData(true);
+	m_create_mac.EnableWindow(TRUE);
+	UpdateData(false);
+}
+
+void CDlgHMAC::OnEditOriginalMessage()
 {
 	UpdateData(true);
 	m_create_mac.EnableWindow(TRUE);

@@ -79,6 +79,7 @@ public:
 	CString	m_key;
 	CString	m_secondkey;
 	CString	m_str_mac;
+	CString m_originalMessage;
 	//}}AFX_DATA
 
 
@@ -99,6 +100,7 @@ protected:
 	afx_msg void OnBUTTONSecondKey();
 	afx_msg void OnEditText();
 	afx_msg void OnEditKey();
+	afx_msg void OnEditOriginalMessage();
 	afx_msg void OnBUTTONFront();
 	afx_msg void OnBUTTONBack();
 	afx_msg void OnBUTTONBoth();

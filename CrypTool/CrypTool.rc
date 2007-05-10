@@ -3957,7 +3957,8 @@ BEGIN
     EDITTEXT        IDC_EDIT_KEY,6,212,310,12,ES_AUTOHSCROLL | ES_WANTRETURN
     EDITTEXT        IDC_EDIT_KEY2,6,241,310,12,ES_AUTOHSCROLL | WS_DISABLED
     EDITTEXT        IDC_SHOW_MAC,6,272,310,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_SHOW_TEXT,6,311,310,74,ES_MULTILINE | WS_VSCROLL
+    EDITTEXT        IDC_SHOW_TEXT,7,349,309,36,ES_MULTILINE | ES_READONLY | 
+                    WS_VSCROLL
     PUSHBUTTON      "Schließen",IDCANCEL,6,397,90,21
     LTEXT           "Geben Sie den Schlüssel (k) ein:",IDC_STATIC,6,200,104,
                     8
@@ -3965,8 +3966,8 @@ BEGIN
                     230,131,8
     LTEXT           "Erzeugter MAC in Hexadezimaldarstellung:",IDC_STATIC,6,
                     260,134,8
-    LTEXT           "Eingabetext, der für die (äußere) Hashfunktion benutzt wird (der Eingabetext wird anhand der von Ihnen gewählten MAC-Variante aus Nachricht und Schlüssel erzeugt):",
-                    IDC_STATIC,6,291,310,16
+    LTEXT           "Eingabetext (gebildet aus Schlüssel und Nachricht, abhängig von der MAC-Variante):",
+                    IDC_STATIC,7,337,310,8
     GROUPBOX        "Hashfunktion wählen",IDC_STATIC,6,72,102,121
     GROUPBOX        "MAC-Variante (Position des Schlüssels)",IDC_STATIC,120,
                     72,196,121
@@ -3976,6 +3977,8 @@ BEGIN
     LTEXT           "Um den MAC einer Nachricht zu erzeugen, wird eine kryptographische Hashfunktion auf eine Verknüpfung aus der Nachricht m und dem geheimen Schlüssel k angewendet. Je nach MAC-Variante können auch zwei geheime Schlüssel k und k' Verwendung finden. ",
                     IDC_STATIC,11,38,300,25
     GROUPBOX        "",IDC_STATIC,6,7,310,61
+    EDITTEXT        IDC_EDIT_ORIGINAL_MESSAGE,7,297,309,36,ES_AUTOHSCROLL
+    LTEXT           "Nachricht:",IDC_STATIC,7,287,34,8
 END
 
 IDD_ADFGVX DIALOGEX 0, 0, 265, 402
@@ -15637,10 +15640,10 @@ BEGIN
                     83,178,9
 END
 
-IDD_HMAC DIALOG  0, 0, 323, 418
+IDD_HMAC DIALOGEX 0, 0, 323, 418
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Message Authentication Code"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     CONTROL         "MD2",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
                     17,80,31,8
@@ -15665,15 +15668,16 @@ BEGIN
     EDITTEXT        IDC_EDIT_KEY,7,203,309,12,ES_AUTOHSCROLL | ES_WANTRETURN
     EDITTEXT        IDC_EDIT_KEY2,7,234,309,12,ES_AUTOHSCROLL | WS_DISABLED
     EDITTEXT        IDC_SHOW_MAC,7,265,309,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_SHOW_TEXT,7,303,309,77,ES_MULTILINE | WS_VSCROLL
+    EDITTEXT        IDC_SHOW_TEXT,7,349,309,36,ES_MULTILINE | ES_READONLY | 
+                    WS_VSCROLL
     PUSHBUTTON      "Close",IDCANCEL,7,389,89,21
     DEFPUSHBUTTON   "Generate MAC",IDOK,226,388,90,22
     LTEXT           "Enter your key (k):",IDC_STATIC,7,192,58,8
     LTEXT           "Enter second key (k'):",IDC_STATIC,7,222,70,8
     LTEXT           "MAC generated from message and key:",IDC_STATIC,7,253,
                     125,8
-    LTEXT           "Input to  the (outer) hash function (the input is created according to the variation you have chosen above):",
-                    IDC_STATIC,7,283,309,16
+    LTEXT           "Input text (created from key and message, depends on the chosen MAC variant):",
+                    IDC_STATIC,7,337,309,8
     GROUPBOX        "Choose hash function",IDC_STATIC,7,63,89,123
     GROUPBOX        "Variation (Position of key)",IDC_STATIC,108,63,208,123
     LTEXT           "By means of a MAC the recipient of a message is able to verify its integrity and the authenticity of its origin (sender). Therefore both parties use a shared secret (symmetric key).",
@@ -15681,6 +15685,8 @@ BEGIN
     LTEXT           "To create a MAC, a cryptographic hash function is applied to a combination of the message m and the secret key k. According to the variation chosen below, two different keys k and k' can be used.",
                     IDC_STATIC,12,31,297,27
     GROUPBOX        "",IDC_STATIC,7,7,309,52
+    EDITTEXT        IDC_EDIT_ORIGINAL_MESSAGE,7,297,309,36,ES_AUTOHSCROLL
+    LTEXT           "Message:",IDC_STATIC,7,287,32,8
 END
 
 IDD_ADFGVX DIALOGEX 0, 0, 266, 411
