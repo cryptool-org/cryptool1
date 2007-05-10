@@ -3928,57 +3928,57 @@ BEGIN
                     SS_CENTERIMAGE,WS_EX_TRANSPARENT
 END
 
-IDD_HMAC DIALOGEX 0, 0, 323, 425
+IDD_HMAC DIALOGEX 0, 0, 325, 425
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Message Authentication Code"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     CONTROL         "MD2",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
-                    17,88,31,8
-    CONTROL         "MD4",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,17,104,31,
+                    19,156,31,8
+    CONTROL         "MD4",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,19,170,31,
                     10
-    CONTROL         "MD5",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,17,122,31,8
-    CONTROL         "SHA",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,17,139,31,
+    CONTROL         "MD5",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,19,184,31,8
+    CONTROL         "SHA",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,19,198,31,
                     11
-    CONTROL         "SHA-1",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,17,158,37,
+    CONTROL         "SHA-1",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,19,212,37,
                     10
-    CONTROL         "RIPEMD-160",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,17,
-                    176,58,8
+    CONTROL         "RIPEMD-160",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,19,
+                    226,58,8
     CONTROL         "H(k, m): vor der Nachricht",IDC_RADIO7,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,132,87,98,10
+                    BS_AUTORADIOBUTTON | WS_GROUP,133,156,98,10
     CONTROL         "H(m, k): hinter der Nachricht",IDC_RADIO8,"Button",
-                    BS_AUTORADIOBUTTON,132,104,126,10
+                    BS_AUTORADIOBUTTON,133,170,126,10
     CONTROL         "H(k, m, k): vor und hinter der Nachricht",IDC_RADIO9,
-                    "Button",BS_AUTORADIOBUTTON,132,122,147,10
+                    "Button",BS_AUTORADIOBUTTON,133,184,147,10
     CONTROL         "H(k, H(k, m)): doppeltes Hashing",IDC_RADIO10,"Button",
-                    BS_AUTORADIOBUTTON,132,140,140,10
+                    BS_AUTORADIOBUTTON,133,198,140,10
     CONTROL         "H(k, m, k'): zwei verschiedene Schlüssel",IDC_RADIO11,
-                    "Button",BS_AUTORADIOBUTTON,132,158,150,10
-    EDITTEXT        IDC_EDIT_KEY,6,212,310,12,ES_AUTOHSCROLL | ES_WANTRETURN
-    EDITTEXT        IDC_EDIT_KEY2,6,241,310,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_SHOW_MAC,6,272,310,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_SHOW_TEXT,7,349,309,36,ES_MULTILINE | ES_READONLY | 
+                    "Button",BS_AUTORADIOBUTTON,133,212,150,10
+    EDITTEXT        IDC_EDIT_KEY,7,255,310,12,ES_AUTOHSCROLL | ES_WANTRETURN
+    EDITTEXT        IDC_EDIT_KEY2,7,284,310,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_SHOW_MAC,7,372,310,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_SHOW_TEXT,7,313,311,36,ES_MULTILINE | ES_READONLY | 
                     WS_VSCROLL
-    PUSHBUTTON      "Schließen",IDCANCEL,6,397,90,21
-    LTEXT           "Geben Sie den Schlüssel (k) ein:",IDC_STATIC,6,200,104,
+    PUSHBUTTON      "Schließen",IDCANCEL,7,398,90,20
+    LTEXT           "Geben Sie den Schlüssel (k) ein:",IDC_STATIC,7,243,104,
                     8
-    LTEXT           "Geben Sie den zweiten Schlüssel (k') ein:",IDC_STATIC,6,
-                    230,131,8
-    LTEXT           "Erzeugter MAC in Hexadezimaldarstellung:",IDC_STATIC,6,
-                    260,134,8
-    LTEXT           "Eingabetext (gebildet aus Schlüssel und Nachricht, abhängig von der MAC-Variante):",
-                    IDC_STATIC,7,337,310,8
-    GROUPBOX        "Hashfunktion wählen",IDC_STATIC,6,72,102,121
-    GROUPBOX        "MAC-Variante (Position des Schlüssels)",IDC_STATIC,120,
-                    72,196,121
-    LTEXT           "Mit Hilfe eines MACs kann der Empfänger einer Nachricht deren Integrität und die Authentizität ihres Ursprungs (Senders) überprüfen. Hierzu verwenden beide Parteien ein gemeinsames Geheimnis (symmetrischer Schlüssel). ",
-                    IDC_STATIC,11,14,297,25
-    DEFPUSHBUTTON   "MAC erzeugen",IDOK,226,396,90,22
-    LTEXT           "Um den MAC einer Nachricht zu erzeugen, wird eine kryptographische Hashfunktion auf eine Verknüpfung aus der Nachricht m und dem geheimen Schlüssel k angewendet. Je nach MAC-Variante können auch zwei geheime Schlüssel k und k' Verwendung finden. ",
-                    IDC_STATIC,11,38,300,25
-    GROUPBOX        "",IDC_STATIC,6,7,310,61
-    EDITTEXT        IDC_EDIT_ORIGINAL_MESSAGE,7,297,309,36,ES_AUTOHSCROLL
-    LTEXT           "Nachricht:",IDC_STATIC,7,287,34,8
+    LTEXT           "Geben Sie den zweiten Schlüssel (k') ein:",IDC_STATIC,7,
+                    273,131,8
+    LTEXT           "Erzeugter MAC in Hexadezimaldarstellung:",IDC_STATIC,7,
+                    361,134,8
+    LTEXT           "Eingabe für Hashfunktion (abhängig von der oben gewählten MAC-Variante):",
+                    IDC_STATIC,7,301,310,8
+    GROUPBOX        "Hashfunktion wählen",IDC_STATIC,7,143,102,96
+    GROUPBOX        "MAC-Variante (Position des Schlüssels)",IDC_STATIC,123,
+                    143,195,96
+    LTEXT           "Mit Hilfe eines MACs kann der Empfänger einer Nachricht ihre Integrität und die Authentizität ihres Ursprungs (Senders) überprüfen. Hierzu verwenden beide Parteien ein gemeinsames Geheimnis (symmetrischer Schlüssel). ",
+                    IDC_STATIC,15,20,295,24
+    DEFPUSHBUTTON   "MAC erzeugen",IDOK,228,398,90,20
+    LTEXT           "Um den MAC einer Nachricht zu erzeugen, wird eine kryptographische Hashfunktion auf eine Verknüpfung aus der Nachricht m und dem geheimen Schlüssel k angewendet. Je nach MAC-Variante können auch zwei geheime Schlüssel k und k' verwendet werden. ",
+                    IDC_STATIC,15,48,295,24
+    EDITTEXT        IDC_EDIT_ORIGINAL_MESSAGE,15,93,295,42,ES_AUTOHSCROLL
+    GROUPBOX        "Beschreibung",IDC_STATIC,7,7,310,70
+    GROUPBOX        "Nachricht",IDC_STATIC,7,80,311,60
 END
 
 IDD_ADFGVX DIALOGEX 0, 0, 265, 402
@@ -5539,10 +5539,10 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,254,50,14
     PUSHBUTTON      "Abbrechen",IDCANCEL,243,254,50,14
-    GROUPBOX        "Einführung",IDC_STATIC,7,7,286,60
+    GROUPBOX        "Beschreibung",IDC_STATIC,7,7,286,60
     GROUPBOX        "Eingabe des Passworts",IDC_STATIC,7,72,286,70
     GROUPBOX        "Qualität des Passworts",IDC_STATIC,7,147,286,98
-    LTEXT           "Es ist nicht möglich, die Sicherheit von Passwörtern quantitativ eindeutig zu bestimmen. Allerdings ist es möglich, die Sicherheit von Passwörtern durch qualitative Aussagen zu schätzen.",
+    LTEXT           "Es ist nicht möglich, die Sicherheit von Passwörtern quantitativ eindeutig zu bestimmen. Allerdings ist es möglich, die Sicherheit von Passwörtern basierend auf Hypothesen zu schätzen.",
                     IDC_STATIC,20,20,260,24
     LTEXT           "Bitte geben Sie Ihr Passwort in das Eingabefeld ein. Die Qualität des Passworts wird prozentual angezeigt und nach jedem Tastendruck automatisch aktualisiert.",
                     IDC_STATIC,20,85,260,16
@@ -5561,17 +5561,17 @@ BEGIN
                     68,188,150,8
     CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",WS_BORDER | 
                     0x1,68,209,150,16
-    LTEXT           "CrypTool:",IDC_STATIC,29,213,32,8
+    LTEXT           "Experimentell:",IDC_STATIC,15,213,46,8
     CTEXT           "100 %",IDC_QUALITY_KEEPASS,225,160,55,8
     CTEXT           "100 %",IDC_QUALITY_MOZILLA,225,174,55,8
     CTEXT           "100 %",IDC_QUALITY_PGP,225,188,55,8
     CTEXT           "100 %",IDC_QUALITY_CRYPTOOL,225,213,55,8
     CONTROL         "CrypTool-Alphabet verwenden",
                     IDC_CHECK_USECRYPTOOLALPHABET,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,68,227,150,10
+                    NOT WS_VISIBLE | WS_TABSTOP,68,227,150,10
     CONTROL         "",IDC_PICTURE_QUALITY,"Static",SS_BLACKFRAME,225,106,25,
                     25
-    LTEXT           "Dieser Passwort-Qualitätsmesser hilft Ihnen dabei, die Sicherheit Ihres Passworts qualitativ einzuordnen.",
+    LTEXT           "Hier sind verschiedene Beispiele für Passwort-Qualitätsmesser aufgeführt, die Ihnen dabei helfen, die Sicherheit Ihres Passworts einzuschätzen.",
                     IDC_STATIC,20,44,260,16
 END
 
@@ -9031,9 +9031,12 @@ BEGIN
     IDD_HMAC, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 316
+        RIGHTMARGIN, 318
+        VERTGUIDE, 15
+        VERTGUIDE, 310
         TOPMARGIN, 7
         BOTTOMMARGIN, 418
+        HORZGUIDE, 20
     END
 
     IDD_ADFGVX, DIALOG
@@ -15640,53 +15643,54 @@ BEGIN
                     83,178,9
 END
 
-IDD_HMAC DIALOGEX 0, 0, 323, 418
+IDD_HMAC DIALOGEX 0, 0, 325, 425
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Message Authentication Code"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     CONTROL         "MD2",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
-                    17,80,31,8
-    CONTROL         "MD4",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,17,97,31,10
-    CONTROL         "MD5",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,17,115,31,8
-    CONTROL         "SHA",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,17,132,31,
-                    11
-    CONTROL         "SHA-1",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,17,150,37,
+                    19,156,31,8
+    CONTROL         "MD4",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,19,170,31,
                     10
-    CONTROL         "RIPEMD-160",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,17,
-                    168,58,8
+    CONTROL         "MD5",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,19,184,31,8
+    CONTROL         "SHA",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,19,198,31,
+                    11
+    CONTROL         "SHA-1",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,19,212,37,
+                    10
+    CONTROL         "RIPEMD-160",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,19,
+                    226,58,8
     CONTROL         "H(k, m): in front of message",IDC_RADIO7,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,119,80,102,10
+                    BS_AUTORADIOBUTTON | WS_GROUP,133,156,102,10
     CONTROL         "H(m, k): at the back of message",IDC_RADIO8,"Button",
-                    BS_AUTORADIOBUTTON,119,97,117,10
+                    BS_AUTORADIOBUTTON,133,170,117,10
     CONTROL         "H(k, m, k): in front and at the back",IDC_RADIO9,"Button",
-                    BS_AUTORADIOBUTTON,119,115,124,10
+                    BS_AUTORADIOBUTTON,133,184,124,10
     CONTROL         "H(k, H(k, m)): double hashing",IDC_RADIO10,"Button",
-                    BS_AUTORADIOBUTTON,119,132,108,10
+                    BS_AUTORADIOBUTTON,133,198,108,10
     CONTROL         "H(k, m, k'): different keys",IDC_RADIO11,"Button",
-                    BS_AUTORADIOBUTTON,119,150,94,10
-    EDITTEXT        IDC_EDIT_KEY,7,203,309,12,ES_AUTOHSCROLL | ES_WANTRETURN
-    EDITTEXT        IDC_EDIT_KEY2,7,234,309,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_SHOW_MAC,7,265,309,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_SHOW_TEXT,7,349,309,36,ES_MULTILINE | ES_READONLY | 
+                    BS_AUTORADIOBUTTON,133,212,94,10
+    EDITTEXT        IDC_EDIT_KEY,7,255,311,12,ES_AUTOHSCROLL | ES_WANTRETURN
+    EDITTEXT        IDC_EDIT_KEY2,7,285,311,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_SHOW_MAC,7,372,311,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_SHOW_TEXT,7,313,311,36,ES_MULTILINE | ES_READONLY | 
                     WS_VSCROLL
-    PUSHBUTTON      "Close",IDCANCEL,7,389,89,21
-    DEFPUSHBUTTON   "Generate MAC",IDOK,226,388,90,22
-    LTEXT           "Enter your key (k):",IDC_STATIC,7,192,58,8
-    LTEXT           "Enter second key (k'):",IDC_STATIC,7,222,70,8
-    LTEXT           "MAC generated from message and key:",IDC_STATIC,7,253,
+    PUSHBUTTON      "Close",IDCANCEL,7,398,90,20
+    DEFPUSHBUTTON   "Generate MAC",IDOK,228,398,90,20
+    LTEXT           "Enter your key (k):",IDC_STATIC,7,243,58,8
+    LTEXT           "Enter second key (k'):",IDC_STATIC,7,273,70,8
+    LTEXT           "MAC generated from message and key:",IDC_STATIC,7,361,
                     125,8
-    LTEXT           "Input text (created from key and message, depends on the chosen MAC variant):",
-                    IDC_STATIC,7,337,309,8
-    GROUPBOX        "Choose hash function",IDC_STATIC,7,63,89,123
-    GROUPBOX        "Variation (Position of key)",IDC_STATIC,108,63,208,123
+    LTEXT           "Input for hash funtion (depends on the MAC variant chosen above):",
+                    IDC_STATIC,7,301,311,8
+    GROUPBOX        "Choose hash function",IDC_STATIC,7,143,102,96
+    GROUPBOX        "Variation (Position of key)",IDC_STATIC,123,143,195,96
     LTEXT           "By means of a MAC the recipient of a message is able to verify its integrity and the authenticity of its origin (sender). Therefore both parties use a shared secret (symmetric key).",
-                    IDC_STATIC,12,15,296,17
+                    IDC_STATIC,15,20,295,16
     LTEXT           "To create a MAC, a cryptographic hash function is applied to a combination of the message m and the secret key k. According to the variation chosen below, two different keys k and k' can be used.",
-                    IDC_STATIC,12,31,297,27
-    GROUPBOX        "",IDC_STATIC,7,7,309,52
-    EDITTEXT        IDC_EDIT_ORIGINAL_MESSAGE,7,297,309,36,ES_AUTOHSCROLL
-    LTEXT           "Message:",IDC_STATIC,7,287,32,8
+                    IDC_STATIC,15,40,295,24
+    GROUPBOX        "Description",IDC_STATIC,7,7,311,70
+    EDITTEXT        IDC_EDIT_ORIGINAL_MESSAGE,15,93,295,42,ES_AUTOHSCROLL
+    GROUPBOX        "Message",IDC_STATIC,7,80,311,60
 END
 
 IDD_ADFGVX DIALOGEX 0, 0, 266, 411
@@ -17224,14 +17228,48 @@ BEGIN
                     IDC_STATIC,7,7,205,32
 END
 
-IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 450, 250
+IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 300, 275
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Password Quality Meter"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,229,50,14
-    PUSHBUTTON      "Abbrechen",IDCANCEL,393,229,50,14
+    DEFPUSHBUTTON   "OK",IDOK,7,254,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,243,254,50,14
+    CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",WS_BORDER | 
+                    0x1,68,209,150,16
+    CTEXT           "100 %",IDC_QUALITY_CRYPTOOL,225,213,55,8
+    CONTROL         "Use CrypTool alphabet",IDC_CHECK_USECRYPTOOLALPHABET,
+                    "Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,
+                    68,227,150,10
+    LTEXT           "Experimental:",IDC_STATIC,16,213,45,8
+    CONTROL         "",IDC_PROGRESS_KEEPASS,"msctls_progress32",WS_BORDER | 
+                    0x1,68,160,150,8
+    LTEXT           "KeePass:",IDC_STATIC,31,160,30,8
+    LTEXT           "Mozilla:",IDC_STATIC,37,174,24,8
+    LTEXT           "PGP:",IDC_STATIC,45,188,16,8
+    CONTROL         "",IDC_PROGRESS_MOZILLA,"msctls_progress32",WS_BORDER | 
+                    0x1,68,174,150,8
+    CONTROL         "",IDC_PROGRESS_PGP,"msctls_progress32",WS_BORDER | 0x1,
+                    68,188,150,8
+    CTEXT           "100 %",IDC_QUALITY_KEEPASS,225,160,55,8
+    CTEXT           "100 %",IDC_QUALITY_MOZILLA,225,174,55,8
+    CTEXT           "100 %",IDC_QUALITY_PGP,225,188,55,8
+    GROUPBOX        "Password quality",IDC_STATIC,7,147,286,98
+    GROUPBOX        "Password input",IDC_STATIC,7,72,286,70
+    LTEXT           "Please enter your password here. The password quality is shown in percent and updated with every key stroke.",
+                    IDC_STATIC,20,85,260,16
+    EDITTEXT        IDC_EDIT_PASSWORD,68,106,150,14,ES_AUTOHSCROLL
+    LTEXT           "Password:",IDC_STATIC,27,106,34,8
+    CONTROL         "Show password",IDC_CHECK_SHOWPASSWORD,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,68,122,150,10
+    CONTROL         "",IDC_PICTURE_QUALITY,"Static",SS_BLACKFRAME,225,106,25,
+                    25
+    GROUPBOX        "Description",IDC_STATIC,7,7,286,60
+    LTEXT           "Es ist nicht möglich, die Sicherheit von Passwörtern quantitativ eindeutig zu bestimmen. Allerdings ist es möglich, die Sicherheit von Passwörtern basierend auf Hypothesen zu schätzen.",
+                    IDC_STATIC,20,20,260,24
+    LTEXT           "Hier sind verschiedene Beispiele für Passwort-Qualitätsmesser aufgeführt, die Ihnen dabei helfen, die Sicherheit Ihres Passworts einzuschätzen.",
+                    IDC_STATIC,20,44,260,16
 END
 
 
@@ -20919,9 +20957,12 @@ BEGIN
     IDD_HMAC, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 316
+        RIGHTMARGIN, 318
+        VERTGUIDE, 15
+        VERTGUIDE, 310
         TOPMARGIN, 7
-        BOTTOMMARGIN, 411
+        BOTTOMMARGIN, 418
+        HORZGUIDE, 20
     END
 
     IDD_ADFGVX, DIALOG
@@ -21100,9 +21141,25 @@ BEGIN
     IDD_PASSWORDQUALITYMETER, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 443
+        RIGHTMARGIN, 293
+        VERTGUIDE, 20
+        VERTGUIDE, 61
+        VERTGUIDE, 68
+        VERTGUIDE, 218
+        VERTGUIDE, 225
+        VERTGUIDE, 280
         TOPMARGIN, 7
-        BOTTOMMARGIN, 243
+        BOTTOMMARGIN, 268
+        HORZGUIDE, 20
+        HORZGUIDE, 72
+        HORZGUIDE, 85
+        HORZGUIDE, 106
+        HORZGUIDE, 122
+        HORZGUIDE, 147
+        HORZGUIDE, 160
+        HORZGUIDE, 174
+        HORZGUIDE, 188
+        HORZGUIDE, 209
     END
 END
 #endif    // APSTUDIO_INVOKED
