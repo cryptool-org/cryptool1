@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.10 für Win32, April 2007
+    CrypTool, Version 1.4.10 für Win32, Mai 2007
     (c) Contributors
         Dazu gehören z.B.
         Deutsche Bank AG, Frankfurt am Main
@@ -240,9 +240,11 @@ c) Das Animationsprogramm ANIMAL (siehe http://www.animal.ahrgr.de)
    Weitere Beispiele finden sich im ANIMAL-Repository (Datenbank):
    http://www.animal.ahrgr.de/animations.php3?tool=Animal&lang=de
 
-d) Die Flash-Anwendungen "Rijndael" (visualisiert das Verschlüsselungs-
-   verfahren AES) und "Enigma" (visualisiert das 2.-Weltkriegs Krypto-
-   Gerät Enigma).
+d) Die Flash-Anwendungen:
+   - "Rijndael-Animation" (visualisiert das Verschlüsselungsverfahren AES),
+   - "Rijndael-Inspector" (visualisiert die Änderungen der State-Matrix 
+                           nach jedem Schritt in jeder Runde bei AES) und
+   - "Enigma" (visualisiert das 2.-Weltkriegs-Krypto-Gerät Enigma).
 
 e) Die Authorware-Anwendung "ZT" (Zahlentheorie) führt in die elementare
    Zahlentheorie ein und visualisiert viele der Verfahren und Konzepte,
@@ -296,7 +298,7 @@ erwähnen (und evtl. besondere Bedingungen aufführen):
   Animationssoftware mit auszuliefern.
 
 - Ebenfalls integrieren durften wir erweiterte Versionen von:
-  - der Flash-Animation zu AES von Enrique Zabala,
+  - den beiden Flash-Animationen zu AES von Enrique Zabala,
   - der Flash-Animation zur Enigma von Dr. Frank Spieß,
   - dem Zahlentheorie-Lernprogramm von Martin Ramberger.
   Die über eine Verwendung außerhalb des freien CrypTool-Contextes
@@ -476,7 +478,7 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
   bestimmte Dokumenttypen nicht ausführbar sind, werden ausgegraut,
   aber nicht mehr ganz entfernt.
 
-- Das eigenständige Programm AES-Tool kann selbstentpackende
+- Das eigenständige Programm AES-Tool kann selbst-entpackende
   Programme erzeugen. Damit kann man eine beliebige Datei ( < 4 GB)
   Passwort-geschützt mit AES verschlüsseln (durch Eingabe eines 
   Hexadezimal-Schlüssels).
@@ -543,8 +545,13 @@ a) Entwickler-relevante Änderungen (eher programm-technisch):
   Visual Studio 2003 (VC++ v7.1) compiliert.
 
   Es gibt schon einen Sourcezweig im Subversion-System, der sich
-  auch mit VS2005 (VC++ v8.0) übersetzen lässt. Dies wird später
-  offiziell unterstützt.
+  auch mit VS2005 (VC++ v8.0) übersetzen lässt.
+  Die WPF-Version CrypTool 2.0 wird mit VS2005 oder VS2007 gebaut.
+
+- Folgende Code-Änderungen waren erforderlic, damit CrypTool unter Windows
+  Vista lauffähig ist:
+  - ShellExecute mit "NULL" anstatt "open" im 2. Parameter und Parameter,
+    der den USer des zu startenden Programms angibt
 
 - Die Editoren für Text- und Binärdaten sind Open-Source:
   * Hex-Editor / Hex-Control / HexView:
@@ -576,7 +583,7 @@ b) Änderungen in der Benutzer-Dokumentation:
 - Online-Hilfe: verbessert, stark erweitert, Index neu strukturiert.
 
 - Im Skript: Behebung kleinerer Fehler, kleinere Erweiterungen,
-  etliche Aktualisierungen (z.B. Rekord in der Lösung einer konkreten
+  etliche Aktualisierungen (z.B. Rekord in der Lösung eines konkreten
   Diskreten-Logarithmus-Problems), neues Kapitel über die Zukunft der
   Kryptographie vom Lehrstuhl Prof. Buchmann. xxxxxxxxxxx
 
@@ -586,12 +593,7 @@ b) Änderungen in der Benutzer-Dokumentation:
 c) Funktionale Erweiterungen:
 
 - Bugfixes:
-  - Viele kleine Verbesserungen in den Masken (Benutzerführung),
-    z.B. ist in allen Schlüsseleingabemasken der klassischen Verfahren nun
-    ein Button zu den Textoptionen, so dass man das benutzte Alphabet
-    einstellen kann. Diese Verknüpfung wurde auch in der Analysemaske
-    zur Berechnung der N-Gramme eingeführt, die vorher auf ein fixes
-    Alphabet ausgelegt war.
+  - Viele kleine Verbesserungen in den Masken (Benutzerführung).
   - Hashwert einer Datei berechnen: Race-Condition beseitigt.
   - Solitaire für einen Spezialfall (war die Ausgabe-Karte ein Joker,
     wurde sie nicht ausgegeben) korrigiert.
@@ -605,6 +607,8 @@ c) Funktionale Erweiterungen:
 - Die Schlüsseleingabemasken für klassische Verfahren enthalten
   nun einen Button, so dass man auch von hier aus direkt das Alphabet
   (Textoption) einstellen kann (wenn sinnvoll).
+  Diese Verknüpfung wurde auch in der Analysemaske zur Berechnung der
+  N-Gramme eingeführt, die vorher auf ein fixes Alphabet ausgelegt war.
 
 - Das Hill-Verschlüsselungsverfahren wurde um einige Varianten erweitert:
   - einstellbar sind nun die Matrixmultiplikation (von rechts oder links)
@@ -625,6 +629,9 @@ c) Funktionale Erweiterungen:
 - Das Lernprogramm/Lernspiel "Zahlenhai" wurde etwas erweitert.
 
 - Hinzu kamen die Flash-Animationen zu AES und Enigma.
+
+- Hinzu kam der Dialog, mit dem man die Qulität eines Passwortes anzeigen
+  kann.
 
 - Hinzu kam das Authorware-Lernprogramm, das die Verfahren der
   elementaren Zahlentheorie erläutert und visualisiert.
@@ -1051,7 +1058,8 @@ Einige Funktionen erfordern zusätzlich eine Java Runtime-Umgebung
 Die minimale Rechnerausstattung liegt bei 300 MHz CPU, 256 MByte RAM,
 40 MByte Festplattenplatz (geringe Anforderungen).
 
-CrypTool 1.4.10 unterstützt Windows 2000, Windows XP and Windows Vista.
+Die Lauffähigkeit von CrypTool 1.4.10 wird unterstützt für Windows XP
+und Windows Vista.
 
 Weder für die Installation noch für die Benutzung sind Administrator-
 Rechte notwendig.
@@ -1329,8 +1337,8 @@ c) Zentrale Installation auf einem Windows-Netzwerkrechner:
 CrypTool wird als komprimiertes, selbst-extrahierendes Archiv in
 zwei verschiedenen Sprachversionen verteilt:
 
-SetupCrypTool_1_4_00_en.exe    Englische Sprachversion.
-SetupCrypTool_1_4_00_de.exe    Deutsche Sprachversion.
+SetupCrypTool_1_4_10_en.exe    Englische Sprachversion.
+SetupCrypTool_1_4_10_de.exe    Deutsche Sprachversion.
 
 Diese Archive enthalten die folgenden Dateien:
 
@@ -1368,6 +1376,8 @@ SciLexer.dll ..... Bibliothek mit den Routinen für den
                    Scintilla-Texteditor.
 
 Rijndael-Animation.exe .. Animation (Flash) des AES-Algorithmus.
+Rijndael-Inspector.exe .. Animation (Flash) zu den Änderung des Datenblock
+                          innerhalb des AES-Algorithmus.
 Enigma_de.exe .... Animation (Flash) der 3-Rotor Enigma-Maschine.
 Enigma_en.exe .... Die englische Version von "Enigma_de.exe".
 Enigma-Help_de.html .. HTML-Onlinehilfe für  "Enigma_de.exe" (deutsch).
@@ -1392,8 +1402,8 @@ script-de.pdf .... Ein Skript (deutsch) über Kryptographie, Primzahlen,
                    einigen Algorithmen.
 script-en.pdf .... Die englische Fassung von script-de.pdf.
 
-CrypToolPresentation_1_4_00_de.pdf .. Folien-Präsentation (deutsch)
-CrypToolPresentation_1_4_00_en.pdf .. Folien-Präsentation (englisch)
+CrypToolPresentation_1_4_10_de.pdf .. Folien-Präsentation (deutsch)
+CrypToolPresentation_1_4_10_en.pdf .. Folien-Präsentation (englisch)
 
 DialogSchwestern.pdf .. Fantasy-Geschichte von Dr. Elsner, in der
                         eine Variante des RSA-Kryptosystems
@@ -1641,7 +1651,7 @@ Version   Datum		Größe des Windows-Setups	Freigabe durch
 1.3.04    Juli 2003	 8,6 MB		 8,1 MB		DB
 1.3.05    Aug. 2003	 8,6 MB		 8,1 MB		DB
 1.4.00    Juli 2006	18,4 MB		18,2 MB		DB
-1.4.10    Apr. 2007	xx,4 MB		xx,2 MB		DB
+1.4.10    May  2007	45,0 MB		45,0 MB		DB
 
 Bemerkungen zu den Versionen:
 1.3.02    Viele neue Funktionen gegenüber 1.3.00.
@@ -1653,8 +1663,8 @@ Bemerkungen zu den Versionen:
 1.4.00-Beta12  März 2006  Zweite öffentliche Beta von Version 1.4.00.
 1.4.00-Beta14  Juli 2006  Dritte öffentliche Beta von Version 1.4.00.
 1.4.00    Viele neue Funktionen gegenüber 1.3.05.
-1.4.10-Beta04  April 2007  Erste öffentliche Beta von Version 1.4.10.
-1.4.10    Funktionsumfang und Onlinehilfe stark erweitert i.Vgl zu 1.4.00.
+1.4.10-Beta04  Mai 2007  Erste öffentliche Beta von Version 1.4.10.
+1.4.10    Funktionsumfang und Onlinehilfe stark erweitert i.Vgl. zu 1.4.00.
 
 
 

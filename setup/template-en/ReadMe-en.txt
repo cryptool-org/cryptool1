@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.10 for Win32, April 2007
+    CrypTool, Version 1.4.10 for Win32, May 2007
     (c) Contributors
         including
         Deutsche Bank AG, Frankfurt/Main
@@ -239,8 +239,11 @@ c) The animation program ANIMAL (see http://www.animal.ahrgr.de)
    Further examples can be found within the ANIMAL repository: 
    http://www.animal.ahrgr.de/animations.php3?tool=Animal&lang=en
 
-d) The Flash applications "Rijndael" (visualizes the AES encryption
-   method) and "Enigma" (visualizes the WW2 crypto machine Enigma).
+d) The Flash applications:
+   - "Rijndael Animation" (visualizes the AES encryption method),
+   - "Rijndael Inspector" (visualizes the changes in the state matrix after
+                           each step of each round of AES), and
+   - "Enigma" (visualizes the WW2 crypto machine Enigma).
 
 e) The Authorware application "NT" (Number Theory) introduces elementary
    number theory and visualizes many of the methods and concepts, which
@@ -292,13 +295,13 @@ eventual special conditions here:
   ANIMAL, a Java based animation software.
 
 - We also got the allowance to integrate enhanced versions of:
-  - the Flash animation for AES by Enrique Zabala,
+  - the two Flash animations for AES by Enrique Zabala,
   - the Flash animation for Enigma by Dr. Frank Spiess,
   - the number theory e-learning program by Martin Ramberger.
   All rights for a usage outside the free context of CrypTool
   application remain with the appropriate owners/authors.
 
-- The companies (See chapter 1.2)
+- The companies (see chapter 1.2)
   - Secude IT Security Ltd, 
   - Shamus Software Ltd and
   - cv cryptovision Ltd
@@ -531,8 +534,13 @@ a) Developer-relevant changes (more technically oriented):
   Visual Studio 2003 (VC++ v7.1).
 
   There is already a source branch in the Subversion system, which can
-  be compiled with VS2005 (VC++ v8.0). This will be officially 
-  supported later.
+  be compiled with VS2005 (VC++ v8.0).
+  The WPF version CrypTool 2.0 will be build with VS2005 or VS2007.
+
+- The following code changes have been necessary, to make CrypTool runable
+  under Windows Vista:
+  - ShellExecute using "NULL" instead of "open" as 2nd parameter and
+    explicitely mention the user starting the program.
 
 - The editors used for text and binary are open-source:
   * Hex editor / Hex control / HexView:
@@ -556,7 +564,7 @@ b) Changes within the user documentation:
 - Online help: improved, strongly enhanced, index structured newly.
 
 - Within the script: minor bug-fixes, small enhancements, some updating
-  (e.g. record in solving a concrete discrete-logarith problems), new
+  (e.g. record in solving a concrete discrete-logarithm problem), new
   chapter about the future of cryptography by the research
   faculty of Prof. Buchmann.
 
@@ -567,11 +575,7 @@ b) Changes within the user documentation:
 c) New functionality:
 
 - Bugfixes:
-  - Many small improvements in the masks (user interface),
-    e.g. now all key entry dialogs for the classic methods contain a
-    button for the text options, where you can select the used alphabet.
-    This connection is also offered in the analysis mask for
-    calculating n-grams (there before a fixes alphabet was used).
+  - Many small improvements in the masks (user interface).
   - Calculation of the hash value of a file: Race condition eliminated.
   - Solitaire corrected for a special case (if the output card was a
     joker, it was not spent).
@@ -583,8 +587,10 @@ c) New functionality:
   encrypted.
 
 - The key entry dialogs for the classical methods now contain a button
-  so you can from here directly change the alphabet (text option) if it
-  does make sense.
+  so you can directly change the alphabet (text option) from here (if it
+  does make sense).
+  This connection is also offered in the analysis mask for
+  calculating n-grams (previously there was used a fixed alphabet).
 
 - The Hill encryption scheme has been enhanced with some variants:
   - Customizable are now the matrix multiplication (from left or right)
@@ -606,6 +612,8 @@ c) New functionality:
 - The educational program/game "Number Shark" was enhanced a bit.
 
 - New are the Flash animations for AES and Enigma.
+
+- New ist the dialog to check the quality of your password.
 
 - Also new is a Authorware e-learning program, which explains and visualizes
   methods of the elementary number theory.
@@ -1008,7 +1016,7 @@ Some funcions require an installed Java Runtime Environment (>= version 1.4).
 The computer equipment should have at least a 300 MHz CPU, 256 MByte RAM,
 and 40 MByte free space on the hard drive (low requirements).
 
-CrypTool 1.4.10 support Windows 2000, Windows XP and Windows Vista.
+It is supported that CrypTool 1.4.10 runs under Windows XP and Windows Vista.
 
 CrypTool doesn't need administrator access rights - neither for the
 installation nor for the usage.
@@ -1271,8 +1279,8 @@ c) Central installation on a Windows network server:
 The package is distributed as a compressed, self extracting archive
 in two different language versions:
 
-SetupCrypTool_1_4_00_en.exe   English language support only.
-SetupCrypTool_1_4_00_de.exe   German language support only.
+SetupCrypTool_1_4_10_en.exe   English language support only.
+SetupCrypTool_1_4_10_de.exe   German language support only.
 
 The archives contain the following files:
 
@@ -1308,6 +1316,8 @@ SciLexer.dll ..... Library with the routines for the Scintilla text
                    editor.
 
 Rijndael-Animation.exe .. Animation (Flash) of the AES algorithm.
+Rijndael-Inspector.exe .. Animation (Flash) of the changes within the
+                          data block when processing the AES algorithmu.
 Enigma_en.exe .... Animation (Flash) of the 3-rotor Enigma machine.
 Enigma_de.exe .... The German version of "Enigma_en.exe".
 Enigma-Help_en.html .. HTML online help of "Enigma_en.exe" (English).
@@ -1332,8 +1342,8 @@ script-en.pdf .... A script on cryptography, prime numbers,
                    behind certain algorithms.
 script-de.pdf .... The German version of script-en.pdf.
 
-CrypToolPresentation_1_4_00_en.pdf .. Slides presentation
-CrypToolPresentation_1_4_00_de.pdf .. German version of presentation.
+CrypToolPresentation_1_4_10_en.pdf .. Slides presentation
+CrypToolPresentation_1_4_10_de.pdf .. German version of presentation.
 
 DialogueSisters.pdf ... Fantasy story by Dr. Elsner describing a
                         variant of the RSA cryptosystem.
@@ -1571,10 +1581,10 @@ Version   Date		Size of Windows Setup		Released by
 1.3.00    Jan. 2002	 4.7 MB		 4.9 MB		DB
 1.3.02    June 2002	 6.4 MB		 6.9 MB		DB
 1.3.03    Sep. 2002	 6.5 MB		 6.9 MB		DB
-1.3.04    July 2003	 8.6 MB		 8,1 MB		DB
-1.3.05    Aug. 2003	 8.6 MB		 8,1 MB		DB
-1.4.00    July 2006	18,2 MB		18,4 MB		DB
-1.4.10    Apr. 2007	xx,4 MB		xx,2 MB		DB
+1.3.04    July 2003	 8.1 MB		 8.6 MB		DB
+1.3.05    Aug. 2003	 8.2 MB		 8.6 MB		DB
+1.4.00    July 2006	18.2 MB		18.4 MB		DB
+1.4.10    May  2007	45.0 MB		45.0 MB		DB
 
 Remarks about the versions:
 1.3.02    Many new functions compared to 1.3.00.
@@ -1586,8 +1596,8 @@ Remarks about the versions:
 1.4.00 Beta12  Mar. 2006  Second public beta of version 1.4.00.
 1.4.00 Beta14  July 2006  Third public beta of version 1.4.00.
 1.4.00    Many new functions compared to 1.3.05.
-1.4.10 Beta04  April 2007  First public beta of version 1.4.10.
-1.4.10    Set of functions and online help enhanced compared to 1.4.00.
+1.4.10 Beta04  May 2007  First public beta of version 1.4.10.
+1.4.10    Set of functions and online help heavily enhanced compared to 1.4.00.
 
 
 
