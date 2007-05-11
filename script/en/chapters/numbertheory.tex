@@ -1465,13 +1465,14 @@ The number $7$ is a primitive root of $46$,  because $ord_{46}(7) = 2 = J(46)$.
     \ref{thm-zth-exhperm}). This determines a permutation\index{Permutation}
     $\pi(p-1)$.}$^,$\footnote{%
     Table 6 demonstrates that for composite moduli $n$ not all $a$ are of
-    maximal order $J(n)$. In this example only $5,7,11,15,17,19\mbox{ and }21$ are of
-    order 22.
-  } For a modulus $n$ and $a$ relative prime to
-  $n$ the following holds: \\
-  $\{ a^i (\mbox{mod }n) | i = 1,\dots,J(n)\}$ equals the multiplicative
-  group $Z_n^*$ if and only if $ord_n(a) = J(n)$.
+    maximal order $J(n)$. In this example only $5,7,11,15,17,19\mbox{ and }21$
+    are of order 22.
+  } Given a modulus $n$ and a number $a$, relative prime to $n$ the
+  following holds: \\
+  The set $\{ a^i\; (\mbox{mod }n) |\; i = 1,\dots,J(n)\}$ equals the
+  multiplicative group $Z_n^*$ if and only if $ord_n(a) = J(n)$.
 \end{theorem}
+The multiplicative group $Z_n^*$ contains all values from $1$ to $n-1$.
 
 
 
@@ -2616,7 +2617,7 @@ Yet Mathematica is able to calculate this with the general function for the mult
 {\tt MultiplicativeOrder[11, 347, 49]} delivers the value $67$.\\
 The syntax with Pari-GP is: \texttt{znlog(Mod(49,347),Mod(11,347))}.\index{Pari-GP}\\
 Such number-theory tasks can also be solved using other tools such as the
-LiDIA\index{LiDIA} or BC package (see web links in appendix).
+LiDIA\index{LiDIA} or \index{BC} BC package (see web links in appendix).
 The dl function in the {\bf LC} user interface for LiDIA also delivers the value $67$ for {\tt dl(11,49,347)}.
 }${}^,$\footnote{Why have the functions delivered the value $67$ rather than $240$ for the dl problem for Alice?
 The discrete logarithm is the smallest natural exponent that solves the equation $11^x\equiv49 {\rm ~(mod~} 347)$. Both $x=67$ 
@@ -3309,8 +3310,8 @@ This needs to be stressed because the type of padding is extremely important dur
           
    \item BC, \index{BC} \\
           Interpreter with number-theory functions \\
-          \href{http://www.maths.uq.edu.au/~krm/gnubc.html}
-          {\texttt{http://www.maths.uq.edu.au/\~{}}krm/gnubc.html}
+         \href{http://www.gnu.org/software/bc/bc.html}
+         {\texttt{http://www.gnu.org/software/bc/bc.html}}
           
    \item Pari-GP, \index{Pari-GP} \\
          Excellent, fast, free interpreter with number theoretical functions\\
@@ -3329,8 +3330,7 @@ This needs to be stressed because the type of padding is extremely important dur
          \href{http://www.hydrargyrum.de/kryptographie}
          {\texttt{http://www.hydrargyrum.de/kryptographie}}
                       
-    \item Once again only after finishing this I happened upon
-          the web site of Mr.~Wagner, who is responsible for the development
+    \item Web site of Mr.~Wagner, who is responsible for the development
 	  of the curriculum of computer science in one of the German federal 
           states (L\"ander). Here you can get hold of a collection of texts
 	  and (Java-)\discretionary{}{}{}programs (available only in German):\\

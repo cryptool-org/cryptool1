@@ -1617,10 +1617,11 @@ Tabelle~6 zeigt, dass bei zusammengesetzten Moduli $n$ nicht alle $a$ die
 maximale Ordnung $J(n)$ haben. In diesem Beispiel haben nur $5,7,11,15,17,19
 \mbox{ und } 21$
 die Ordnung 22.
-} F"ur einen Modul $n$ und $a$ teilerfremd zu $n$ gilt: $\{ a^i (\mbox{mod }n) | i =
-1,\dots,J(n)\}$ ist gleich der multiplikativen Gruppe $Z_n^*$ genau dann, wenn  $ord_n(a) = J(n)$.
+} F"ur einen Modul $n$ und eine Zahl $a$, teilerfremd zu $n$ gilt:\\
+Die Menge $\{ a^i\; (\mbox{mod }n) |\; i = 1,\dots,J(n)\}$ ist gleich der 
+multiplikativen Gruppe $Z_n^*$ genau dann, wenn  $ord_n(a) = J(n)$.
 \end{satz}
-
+Die multiplikative Gruppe $Z_n^*$ nimmt alle Werte von $1$ bis $n-1$ an.
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2913,7 +2914,7 @@ es Mathematica (hier f"ur Alice)\index{Mathematica}:
 {\texttt{MultiplicativeOrder[11, 347, 49]}} liefert den Wert $67$. \\
 In Pari-GP lautet die Syntax: {\texttt{znlog(Mod(49,347),Mod(11,347))}}.\index{Pari-GP}
 \\
-Auch mit anderen Tools wie dem \index{LiDIA} LiDIA- oder BC-Paket (siehe Anhang Web-Links)
+Auch mit anderen Tools wie dem \index{LiDIA} LiDIA- oder \index{BC} BC-Paket (siehe Anhang Web-Links)
 k"onnen solche zahlentheoretischen Aufgaben gel"ost werden.
 Die Funktion {\tt dl} im Userinterface {\bf LC} zu LiDIA liefert mit {\tt dl(11,49,347)}
 ebenfalls den Wert $67$.
@@ -3680,8 +3681,11 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
           
    \item BC, \index{BC} \\
          Interpreter mit zahlentheoretischen Funktionen \\
-         \href{http://www.maths.uq.edu.au/~krm/gnubc.html}
-         {\texttt{http://www.maths.uq.edu.au/\~{}}krm/gnubc.html}
+         \href{http://www.gnu.org/software/bc/bc.html}
+         {\texttt{http://www.gnu.org/software/bc/bc.html}}
+         %Check 11.5.07: nicht mehr zugänglich.
+         %\href{http://www.maths.uq.edu.au/~krm/gnubc.html}
+         %{\texttt{http://www.maths.uq.edu.au/\~{}}krm/gnubc.html}
          
    \item Pari-GP, \index{Pari-GP} \\
          Hervorragender, schneller und freier Interpreter mit
@@ -3702,9 +3706,8 @@ des Padding sehr wichtig ist f"ur interoperable Algorithmen.
          {\texttt{http://www.hydrargyrum.de/kryptographie}}
          
          
-   \item Ebenfalls erst nach Vollendung dieses Artikels wurde mir die 
-         Seite des Beauftragten f"ur die Lehrplanentwicklung des Fachs
-         Informatik an der gymnasialen Oberstufe des Landes Saarland bekannt.
+   \item Seite des Beauftragten f"ur die Lehrplanentwicklung des Fachs
+         Informatik an der gymnasialen Oberstufe des Landes Saarland.
          Hier befindet sich eine Sammlung von Texten und Programmen 
          (in Java), die aus didaktischen "Uberlegungen entstand (alles 
          leider nur in Deutsch verf"ugbar). \\
