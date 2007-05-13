@@ -100,6 +100,8 @@ void DlgHillOptions::OnOK()
 		CT_WRITE_REGISTRY(m_ownCharForPadding,"ownCharForPadding");
 		CT_CLOSE_REGISTRY();
 	}
+
+	UpdateData(false);
 	CDialog::OnOK();
 }
 
@@ -110,22 +112,30 @@ void DlgHillOptions::OnBnClickedCancel()
 }
 void DlgHillOptions::EnableFirstPosNull()
 {
+	UpdateData(true);
 	firstPosNull = 1;
+	UpdateData(false);
 }
 void DlgHillOptions::DisableFirstPosNull()
 {
+	UpdateData(true);
 	firstPosNull = 0;
+	UpdateData(false);
 }
 
 void DlgHillOptions::OnBnClickedRadio1()
 {
+	UpdateData(true);
     useFirstCharFromAlph = 1;
+	UpdateData(false);
 	GetDlgItem(IDC_EDIT2)->EnableWindow(FALSE);
 }
 
 void DlgHillOptions::OnBnClickedRadio2()
 {
+	UpdateData(true);
 	useFirstCharFromAlph = 0;
+	UpdateData(false);
 	GetDlgItem(IDC_EDIT2)->EnableWindow(TRUE);
 	GetDlgItem(IDC_EDIT2)->SetFocus();
 }
@@ -133,7 +143,6 @@ void DlgHillOptions::OnBnClickedRadio2()
 void DlgHillOptions::OnEnChangeEdit2()
 {
 	UpdateData(true);
-
 	if(isInAlph(m_ownCharForPadding))
 	{
 		if(m_ownCharForPadding.GetLength() == 1)

@@ -635,354 +635,270 @@ BOOL CHillEncryption::entschluesseln()
 // 
 // ACHTUNG 
 // 
+
+void CHillEncryption::my_sprintf(char *str, int i)
+{
+	if (modul > 100)
+		sprintf(str, "%03i", i);
+	else
+		sprintf(str, "%02i", i);
+}
+
+
 void CHillEncryption::OutputHillmatrix(CString &MatOut)
 {
-	int i,j;
-    MatOut = _T("");
-	char num[3];
 
+	char num[4];
+	CString tmpStr;
+
+	MatOut.LoadString(IDS_HILL_DUMP);
 
 	CString strExmpl;
-
 	//reading example from userinput
-	for(int x = 0; x < laenge_plain; x++)
-	{
-		for(int y = 0; y < theApp.TextOptions.m_alphabet.GetLength();y++)
-		{
-			if((CString)my_int_to_char(plaintext[x]) == (CString)theApp.TextOptions.m_alphabet[y])
-			{
-				strExmpl += (CString)my_int_to_char(plaintext[x]);
-				break;
-			}
-		}
-		if(strExmpl.GetLength() == 10)
-			break;
-	}
-
-
-	LPCTSTR example = strExmpl;
-
-
 	int  i_act_example[256];
 	char c_act_example[256];  
-	ASSERT(strlen(example) < INT_MAX);
-	for (i=0; i<(int)strlen(example); i++)
-	{
-		if(!firstPosNull)
-			i_act_example[i] = ((example[i] - theApp.TextOptions.m_alphabet[0])+1)%modul;
-		else
-			i_act_example[i] = (example[i] - theApp.TextOptions.m_alphabet[0]) % modul;
 
+	for (int i=0; (i<dim && i<laenge_plain); i++)
+	{
+		strExmpl += (CString)my_int_to_char(plaintext[i]);
+		i_act_example[i] = plaintext[i];
 		c_act_example[i] = (char)my_int_to_char(i_act_example[i]);
 	}
 	c_act_example[dim] = '\0';
+	LPCTSTR example = strExmpl;
+	MatOut.Replace("%PLAINTEXT%", example);
 
 
 	if ( !dec_mat && !enc_mat ) 
 		return;
 
-	// Alphabet-Kodierung
 	int floor_rows = modul / 4;
 	int remainder = modul % 4;
 
 	int iShiftPos = 0;
 	if(!firstPosNull)iShiftPos = 1;
 
-	LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_CODE_ALPHABET,pc_str,STR_LAENGE_STRING_TABLE);
-	MatOut = MatOut + CString(pc_str) + '\n';
-	for (i=0; i<=floor_rows; i++)
+	tmpStr = _T("");
+	for (int i=0; i<=floor_rows; i++)
 	{
 		int ndx = i;
 		
-		
 		if ( i == floor_rows && 0 == remainder ) break;
-		MatOut = MatOut +'\t';
-		for (j=0; j<4; j++)
+		tmpStr += '\t';
+		for (int j=0; j<4; j++)
 		{
 			if (i == floor_rows && j >= remainder) break;
 
 			if(!firstPosNull)
-				MatOut = MatOut + (char)my_int_to_char((ndx + 1)%modul/*ndx*/) + ' ' + CString(" --> ")  + '\t';	
+				tmpStr = tmpStr + (char)my_int_to_char((ndx + 1)%modul) + ' ' + CString(" --> ")  + '\t';	
 			else
-				MatOut = MatOut + (char)my_int_to_char(ndx) + ' ' + CString(" -->") + '\t';
+				tmpStr = tmpStr + (char)my_int_to_char(ndx) + ' ' + CString(" -->") + '\t';
 				
-			if ( modul > 100 )
-				sprintf(num, "%03i", ndx+iShiftPos);
-			else 
-				sprintf(num, "%02i", ndx+iShiftPos);
-			MatOut = MatOut + CString(num) + ' ';
-		    MatOut = MatOut + '\t';
+			my_sprintf(num, ndx+iShiftPos);
+
+			tmpStr += CString(num) + ' ';
+		    tmpStr += '\t';
 			ndx += floor_rows;
 			if ( j<remainder ) ndx++;						
 		}
-		MatOut = MatOut + '\n';
+		tmpStr += '\n';
 	}
+	MatOut.Replace("%ALPHABET_MAPPING%", tmpStr);
 
-	MatOut = MatOut + '\n';
+	tmpStr.Format(_T("%d"), theApp.TextOptions.m_alphabet.GetLength() );
+	MatOut.Replace("%ALPHABET_SIZE%", tmpStr);
 
-	char cTempStr[1000];
-
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_HILL_DETAILS_CHARS, pc_str, STR_LAENGE_STRING_TABLE);
-	sprintf(cTempStr, pc_str, theApp.TextOptions.m_alphabet.GetLength());
-	MatOut += CString(cTempStr);
-
-	MatOut += ' ';
-
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_HILL_DETAILS_FIRSTPOS, pc_str, STR_LAENGE_STRING_TABLE);
 	if(firstPosNull)
-		sprintf(cTempStr, pc_str, 0);
+		MatOut.Replace("%ALPHABET_CODING_OFFSET%", _T("0"));
 	else
-		sprintf(cTempStr, pc_str, 1);
+		MatOut.Replace("%ALPHABET_CODING_OFFSET%", _T("1"));
 
-	MatOut += CString(cTempStr) + '\n';
-
-
-	if(!iHillMultiplicationType)
-		LoadString(AfxGetInstanceHandle(), IDS_STRING_HILL_DETAILS_MULT0, pc_str, STR_LAENGE_STRING_TABLE);
 	if(iHillMultiplicationType)
-		LoadString(AfxGetInstanceHandle(), IDS_STRING_HILL_DETAILS_MULT1, pc_str, STR_LAENGE_STRING_TABLE);
-
-	MatOut += CString(pc_str) + '\n';
-
-		
-	LoadString(AfxGetInstanceHandle(), IDS_STRING_HILL_DETAILS_DIM, pc_str, STR_LAENGE_STRING_TABLE);
-	sprintf(cTempStr, pc_str,dim,dim);
-	MatOut += CString(cTempStr) + '\n';
-
-	MatOut += '\n';
-    
-	if(sNotInFileChars.GetLength() > 0)
 	{
-		if(iClearTextNotAlphCharCount > 3)
-			sNotInFileChars += "...";
-
-		LoadString(AfxGetInstanceHandle(), IDS_HILL_DETAILS_IS_NOT_ALPHCHAR, pc_str, STR_LAENGE_STRING_TABLE);
-		sprintf(cTempStr, pc_str,iClearTextAlphCharCount,iClearTextNotAlphCharCount,sNotInFileChars,dim);
+		tmpStr.LoadString(IDS_HILL_MULTIPLICATION_TYPE_LEFT);
+		MatOut.Replace("%HILL_MULTIPLICATION_TYPE%", tmpStr);
+		tmpStr.LoadString(IDS_HILL_VECTORTYPE_ROW);
+		MatOut.Replace("%HILL_VECTORTYPE%", tmpStr);
+		tmpStr.LoadString(IDS_HILL_VECTOR_MATRIX_MULTTYPE_LEFT);
+		MatOut.Replace("%HILL_VECTOR_MATRIX_MULTTYPE%", tmpStr);		
 	}
 	else
 	{
-		LoadString(AfxGetInstanceHandle(), IDS_HILL_DETAILS_IS_ALPHCHAR, pc_str, STR_LAENGE_STRING_TABLE);
-		sprintf(cTempStr, pc_str,iClearTextAlphCharCount,dim);
+		tmpStr.LoadString(IDS_HILL_MULTIPLICATION_TYPE_RIGHT);
+		MatOut.Replace("%HILL_MULTIPLICATION_TYPE%", tmpStr);
+		tmpStr.LoadString(IDS_HILL_VECTORTYPE_COL);
+		MatOut.Replace("%HILL_VECTORTYPE%", tmpStr);
+		tmpStr.LoadString(IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT);
+		MatOut.Replace("%HILL_VECTOR_MATRIX_MULTTYPE%", tmpStr);		
 	}
+	
+		
+	tmpStr.Format(_T("%d"), dim);
+	MatOut.Replace("%HILL_DIMENSION%", tmpStr);
 
-	MatOut += CString(cTempStr) + '\n';
+	tmpStr.Format(_T("%d"), iClearTextAlphCharCount );
+	MatOut.Replace("%HILL_PLAINTEXT_SIZE%", tmpStr);
+	
+	tmpStr.Format(_T("%d"), iClearTextNotAlphCharCount );
+	MatOut.Replace("%HILL_NON_ALPHABET_CHARS%", tmpStr);
 
 
-	MatOut += '\n';
-
-	// Encryption matrix
+	
+	// HILL ENCRYPTION TEXT MATRIX
 	if ( enc_mat )
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_ENCRYPTIONMATRIX,pc_str,STR_LAENGE_STRING_TABLE);
-		MatOut = MatOut + '\n' + CString(pc_str) + CString("\n\nH[t] =");
-		for (i=0; i<dim; i++)
+		tmpStr = _T("H[t] =");
+		for (int i=0; i<dim; i++)
 		{
 			if(i==0)
-				MatOut = MatOut + CString("\t[\t");
+				tmpStr = tmpStr + CString("\t[\t");
 			else
-				MatOut = MatOut + CString("\t\t\t[\t");
-			for (j=0; j<dim; j++)
+				tmpStr = tmpStr + CString("\t\t\t[\t");
+			for (int j=0; j<dim; j++)
 			{
-				if(iHillMultiplicationType)				
-					MatOut = MatOut + (char)my_int_to_char((*enc_mat)(i,j)) + '\t';
-				else
-					MatOut = MatOut + (char)my_int_to_char((*enc_mat)(j,i)) + '\t';
+				tmpStr = tmpStr + (char)my_int_to_char((*enc_mat)(i,j)) + '\t';
 			}
-			MatOut = MatOut + ']' + '\n';
+			tmpStr = tmpStr + ']' + '\n';
 		} 
+		MatOut.Replace("%HILL_ENCRYPTION_TEXTMATRIX%", tmpStr);
 
-
-		LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_ENCODED_MATRIX,pc_str,STR_LAENGE_STRING_TABLE);
-		MatOut = MatOut + '\n' + CString(pc_str) + CString("\n\nH[n] =");
-		for (i=0; i<dim; i++)
+		// HILL_ENCRYPTION INT MATRIX
+		tmpStr = CString("H[n] =");
+		for (int i=0; i<dim; i++)
 		{
 			if(i==0)
-				MatOut = MatOut + CString("\t[\t");
+				tmpStr = tmpStr + CString("\t[\t");
 			else
-				MatOut = MatOut + CString("\t\t\t[\t");
-			for (j=0; j<dim; j++)
+				tmpStr = tmpStr + CString("\t\t\t[\t");
+			for (int j=0; j<dim; j++)
 			{
-				if(iHillMultiplicationType)
-				{
-					if ( modul > 100 ) sprintf(num, "%03i", getPositionOfCharForOutput(((*enc_mat)(i,j))));	
-					else               sprintf(num, "%02i", getPositionOfCharForOutput(((*enc_mat)(i,j))));
-				}
-				else
-				{
-					if(modul > 100) sprintf(num, "%03i", getPositionOfCharForOutput(((*enc_mat)(j,i))));
-					else			sprintf(num, "%02i", getPositionOfCharForOutput(((*enc_mat)(j,i))));
-				}
-				MatOut = MatOut + num + '\t';
+				my_sprintf(num, getPositionOfCharForOutput(((*enc_mat)(i,j))));
+				tmpStr = tmpStr + num + '\t';
 			}
-			MatOut = MatOut + ']' + '\n';
+			tmpStr = tmpStr + ']' + '\n';
 		} 
+		MatOut.Replace("%HILL_ENCRYPTION_INTMATRIX%", tmpStr);
 
-		// HILL - Encryption
-		LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_HLENCRYPT,pc_str,STR_LAENGE_STRING_TABLE);
+		// HILL PLAINTEXT VECTOR
+		tmpStr = CString("\n\nK[n] = \t[\t");
+		for (int i=0; i<dim; i++)
 		{
-			char line[1024];
-			sprintf(line, pc_str, c_act_example);
-			MatOut = MatOut + '\n' + '\n' + CString(line) + '\n';
+			my_sprintf(num, getPositionOfCharForOutput(i_act_example[i]));
+			tmpStr = tmpStr + num + '\t';
 		}
+		tmpStr = tmpStr + ']';
+		MatOut.Replace("%HILL_PLAINTEXT_VECTOR%", tmpStr);
 
-        LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_ENCODED_PLAINTEXT,pc_str,STR_LAENGE_STRING_TABLE);
-		MatOut = MatOut + '\n' + CString(pc_str) + CString("\n\nK[n] = \t[\t");
-		for (i=0; i<dim; i++)
-		{
-			if ( modul > 100 )
-				sprintf(num, "%03i", getPositionOfCharForOutput(i_act_example[i]));
-			else 
-				sprintf(num, "%02i", getPositionOfCharForOutput(i_act_example[i]));
-			MatOut = MatOut + num + '\t';
-		}
-		MatOut = MatOut + ']';
 
 		int  i_res_example[256];
 		char c_res_example[256];  
 
-		if(iHillMultiplicationType)
-			LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_ENCRYPTION,pc_str,STR_LAENGE_STRING_TABLE);
-		else
-			LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_ENCRYPTION2,pc_str,STR_LAENGE_STRING_TABLE);
-
-		MatOut = MatOut + '\n' + '\n' + CString(pc_str) + '\n' + '\n';		
-		for (i=0; i<dim; i++)
+		// HILL ENCRYPTION
+		tmpStr = _T("");		
+		for (int i=0; i<dim; i++)
 		{
 			int ciph = 0;
-			for (j=0; j<dim; j++)
+			for (int j=0; j<dim; j++)
 			{
 				if(iHillMultiplicationType)
 					ciph +=i_act_example[j]*(*enc_mat)(j,i);
 				else
-					ciph +=i_act_example[j]*(*enc_mat)(i,j);
+					ciph +=(*enc_mat)(i,j)*i_act_example[j];
 				ciph %= modul;
 			}
 			i_res_example[i] = ciph;
 			c_res_example[i] = (char)my_int_to_char(ciph);
 			
-			if ( modul > 100 )	sprintf(num, "%03i", ciph);
-			else 	            sprintf(num, "%02i", ciph);					
+			my_sprintf(num, ciph);
 
-			MatOut = MatOut + (char)my_int_to_char(ciph) + CString("\t<--\t") + CString(num) + CString(" = ");
-			for (j=0; j<dim; j++)
+			tmpStr = tmpStr + (char)my_int_to_char(ciph) + CString("\t<--\t") + CString(num) + CString(" = ");
+			for (int j=0; j<dim; j++)
 			{
-				char num2[3];
-				if ( modul > 100 )				
+				char num2[4];
+
+				my_sprintf(num, i_act_example[j]);
+				if (iHillMultiplicationType)
 				{
-					sprintf(num, "%03i", i_act_example[j]);
-					if(iHillMultiplicationType)
-						sprintf(num2, "%03i", getPositionOfCharForOutput(((*enc_mat)(j,i))));					
-					else
-						sprintf(num2, "%03i", getPositionOfCharForOutput(((*enc_mat)(i,j))));
+					my_sprintf(num2, getPositionOfCharForOutput(((*enc_mat)(j,i))));
+					tmpStr = tmpStr + CString(num) + '*' + CString(num2) + ' ';
 				}
-				else 
+				else
 				{
-					sprintf(num, "%02i", i_act_example[j]);
-					if(iHillMultiplicationType)
-						sprintf(num2, "%02i", getPositionOfCharForOutput(((*enc_mat)(j,i))));
-					else
-						sprintf(num2, "%02i", getPositionOfCharForOutput(((*enc_mat)(i,j))));
+					my_sprintf(num2, getPositionOfCharForOutput(((*enc_mat)(i,j))));
+					tmpStr = tmpStr + CString(num2) + '*' + CString(num) + ' ';
 				}
-				MatOut = MatOut + CString(num) + '*' + CString(num2) + ' ';
-				if ( j < dim-1 ) MatOut = MatOut + '+' + ' ';
+				if ( j < dim-1 ) tmpStr = tmpStr + '+' + ' ';
 			}
-			if ( modul > 100 )	sprintf(num, "%03i", modul);
-			else 	            sprintf(num, "%02i", modul);					
-			MatOut = MatOut + CString(" (mod ") + CString(num) + ')' + '\n';
+			my_sprintf(num, modul);
+			tmpStr = tmpStr + CString(" (mod ") + CString(num) + ')' + '\n';
 		}
 
-		for (i=0; i<dim; i++)
+		for (int i=0; i<dim; i++)
 		{
 			i_act_example[i] = i_res_example[i];
 			c_act_example[i] = c_res_example[i];
 		}
-        LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_RESULT_ENCRYPTION,pc_str,STR_LAENGE_STRING_TABLE);
-		{
-			char line[1024];
-			sprintf(line, pc_str, c_act_example);
-			MatOut = MatOut + '\n' + CString(line) + '\n' +'\n' + '\n';
-		}		
 	}
+	MatOut.Replace("%HILL_ENCRYPTION%",tmpStr);
+	MatOut.Replace("%CIPHERTEXT%", c_act_example);
 
-	// Decryption matrix
+	// Hill Decryption text matrix
 	if ( dec_mat )
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_DECRYPTION_MATRIX,pc_str,STR_LAENGE_STRING_TABLE);
-		MatOut = MatOut + '\n' + CString(pc_str) + CString("\n\nD[t] =");
-		for (i=0; i<dim; i++)
+		tmpStr = "D[t] =";
+		for (int i=0; i<dim; i++)
 		{
 			if(i==0)
-				MatOut = MatOut + CString("\t[\t");
+				tmpStr = tmpStr + CString("\t[\t");
 			else
-				MatOut = MatOut + CString("\t\t\t[\t");
-			for (j=0; j<dim; j++)
+				tmpStr = tmpStr + CString("\t\t\t[\t");
+			for (int j=0; j<dim; j++)
 			{
-				if(iHillMultiplicationType)
-					MatOut = MatOut + (char)my_int_to_char(((*dec_mat)(i,j))) + '\t';
-				else
-					MatOut = MatOut + (char)my_int_to_char(((*dec_mat)(i,j))) + '\t';
+				tmpStr = tmpStr + (char)my_int_to_char(((*dec_mat)(i,j))) + '\t';
 			}
-			MatOut = MatOut + ']' + '\n';
+			tmpStr = tmpStr + ']' + '\n';
 		}
+		MatOut.Replace("%HILL_DECRYPTION_TEXTMATRIX%", tmpStr);
 
-		LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_ENCODED_MATRIX,pc_str,STR_LAENGE_STRING_TABLE);
-		MatOut = MatOut + '\n' + CString(pc_str) + CString("\n\nD[n] =");
-		for (i=0; i<dim; i++)
+		// Hill Decryption int matrix
+		tmpStr = "D[n] =";
+		for (int i=0; i<dim; i++)
 		{
 			if(i==0)
-                MatOut = MatOut + CString("\t[\t");
+                tmpStr = tmpStr + CString("\t[\t");
 			else
-				MatOut = MatOut + CString("\t\t\t[\t");
-			for (j=0; j<dim; j++)
+				tmpStr = tmpStr + CString("\t\t\t[\t");
+			for (int j=0; j<dim; j++)
 			{
 				if(iHillMultiplicationType)
-				{
-					if ( modul > 100 ) sprintf(num, "%03i", getPositionOfCharForOutput(((*dec_mat)(i,j))));	
-					else               sprintf(num, "%02i", getPositionOfCharForOutput(((*dec_mat)(i,j))));
-				}
+					my_sprintf(num, getPositionOfCharForOutput(((*dec_mat)(i,j))));
 				else
-				{
-					if( modul > 100)	sprintf(num, "%03i", getPositionOfCharForOutput(((*dec_mat)(j,i))));
-					else				sprintf(num, "%02i", getPositionOfCharForOutput(((*dec_mat)(j,i))));
-				}
-				MatOut = MatOut + num + '\t';
+					my_sprintf(num, getPositionOfCharForOutput(((*dec_mat)(j,i))));
+				tmpStr = tmpStr + num + '\t';
 			}
-			MatOut = MatOut + ']' + '\n';
+			tmpStr = tmpStr + ']' + '\n';
 		} 
+		MatOut.Replace("%HILL_DECRYPTION_INTMATRIX%", tmpStr);
 
-		// HILL - Decryption
-		LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_HLDECRYPT,pc_str,STR_LAENGE_STRING_TABLE);
-		{
-			char line[1024];
-			sprintf(line, pc_str, c_act_example);
-			MatOut = MatOut + '\n' + '\n' + CString(line) + '\n';
-		}
-
-        LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_ENCODED_CIPHERTEXT,pc_str,STR_LAENGE_STRING_TABLE);
-		MatOut = MatOut + '\n' + CString(pc_str) + CString("\n\nC[n] = \t[\t");
+		// CIPHERTEXT VECTOR
+		tmpStr = "C[n] = \t[\t";
 		for (i=0; i<dim; i++)
 		{
-			if ( modul > 100 )
-				sprintf(num, "%03i", getPositionOfCharForOutput(i_act_example[i]));
-			else 
-				sprintf(num, "%02i", getPositionOfCharForOutput(i_act_example[i]));
-			MatOut = MatOut + num + '\t';
+			my_sprintf(num, getPositionOfCharForOutput(i_act_example[i]));
+			tmpStr = tmpStr + num + '\t';
 		}
-		MatOut = MatOut + ']';
+		tmpStr = tmpStr + ']';
+		MatOut.Replace("%HILL_CIPHERTEXT_VECTOR%", tmpStr);
 
+		// HILL DECRYPTION
 		int  i_res_example[256];
 		char c_res_example[256];  
 
-		if(iHillMultiplicationType)
-			LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_DECRYPTION,pc_str,STR_LAENGE_STRING_TABLE);
-		else
-			LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_DECRYPTION2,pc_str,STR_LAENGE_STRING_TABLE);
-
-		MatOut = MatOut + '\n' + '\n' + CString(pc_str) + '\n' + '\n';		
-		for (i=0; i<dim; i++)
+		tmpStr = _T("");		
+		for (int i=0; i<dim; i++)
 		{
 			int ciph = 0;
-			for (j=0; j<dim; j++)
+			for (int j=0; j<dim; j++)
 			{
 				if(iHillMultiplicationType)
 					ciph +=i_act_example[j]*(*dec_mat)(j,i);
@@ -993,49 +909,37 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 			i_res_example[i] = ciph;
 			c_res_example[i] = (char)my_int_to_char(ciph);
 			
-			if ( modul > 100 )	sprintf(num, "%03i", ciph);
-			else 	            sprintf(num, "%02i", ciph);					
+			my_sprintf(num, ciph);
 
-			MatOut = MatOut + (char)my_int_to_char(ciph) + CString("\t<--\t") + CString(num) + CString(" = ");
-			for (j=0; j<dim; j++)
+			tmpStr = tmpStr + (char)my_int_to_char(ciph) + CString("\t<--\t") + CString(num) + CString(" = ");
+			for (int j=0; j<dim; j++)
 			{
-				char num2[3];
-				if ( modul > 100 )				
+				char num2[4];
+				my_sprintf(num, i_act_example[j]);
+				if(iHillMultiplicationType)
 				{
-					sprintf(num, "%03i", i_act_example[j]);
-					if(iHillMultiplicationType)
-						sprintf(num2, "%03i", getPositionOfCharForOutput(((*dec_mat)(j,i))));					
-					else
-						sprintf(num2, "%03i", getPositionOfCharForOutput(((*dec_mat)(i,j))));
+					my_sprintf(num2, getPositionOfCharForOutput(((*dec_mat)(j,i))));
+					tmpStr = tmpStr + CString(num) + '*' + CString(num2) + ' ';
 				}
-				else 
+				else
 				{
-					sprintf(num, "%02i", i_act_example[j]);
-					if(iHillMultiplicationType)
-						sprintf(num2, "%02i", getPositionOfCharForOutput(((*dec_mat)(j,i))));
-					else
-						sprintf(num2, "%02i", getPositionOfCharForOutput(((*dec_mat)(i,j))));
+					my_sprintf(num2, getPositionOfCharForOutput(((*dec_mat)(i,j))));
+					tmpStr = tmpStr + CString(num2) + '*' + CString(num) + ' ';
 				}
-				MatOut = MatOut + CString(num) + '*' + CString(num2) + ' ';
-				if ( j < dim-1 ) MatOut = MatOut + '+' + ' ';
+				
+				if ( j < dim-1 ) tmpStr = tmpStr + '+' + ' ';
 			}
 			if ( modul > 100 )	sprintf(num, "%03i", modul);
 			else 	            sprintf(num, "%02i", modul);					
-			MatOut = MatOut + CString(" (mod ") + CString(num) + ')' + '\n';
+			tmpStr = tmpStr + CString(" (mod ") + CString(num) + ')' + '\n';
 		}
 
-		for (i=0; i<dim; i++)
+		for (int i=0; i<dim; i++)
 		{
 			i_act_example[i] = i_res_example[i];
 			c_act_example[i] = c_res_example[i];
 		}
-        LoadString(AfxGetInstanceHandle(),IDS_HILLEXAMPLE_RESULT_DECRYPTION,pc_str,STR_LAENGE_STRING_TABLE);
-		{
-			char line[1024];
-			sprintf(line, pc_str, c_act_example);
-			MatOut = MatOut + '\n' + CString(line) + '\n' +'\n' + '\n';
-		}		
-
+		MatOut.Replace("%HILL_DECRYPTION%", tmpStr);
 	}   	
 }
 

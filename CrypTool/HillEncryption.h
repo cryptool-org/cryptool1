@@ -82,6 +82,7 @@ statement from your version.
 
 class CHillEncryption
 {
+
 private:
 	// Daten
 	int *plaintext,
@@ -154,6 +155,7 @@ private:
 	void BerechneFaktoren(int, long);
 
 	int getPositionOfCharForOutput(int iPos);
+	void my_sprintf(char *str, int i);
 	
 public:
 	CHillEncryption(char*);

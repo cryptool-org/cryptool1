@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -10071,30 +10071,10 @@ BEGIN
     IDS_STRING_ERR_PERIOD_ANALYSIS_TEXTLENGTH 
                             "Die zu analysierende Datei muss mindestens 4 Bytes groß sein!"
     IDS_STRING_PA_NO        "Nr."
-    IDS_HILLEXAMPLE_CODE_ALPHABET 
-                            "Hill-Ver-/Entschlüsselung\n\nDiese Detailbeschreibung der Hill-Verschlüsselung hat folgende Teile\n- Alphabet-Codierung in Zahlen,\n- Verschlüsselungsparameter und Eigenschaften des Klartextes,\n- Hill-Verschlüsselung und\nHill-Entschlüsselung.\n\nAlphabet-Codierung in Zahlen:\n\nDas aktuell im Menü ""Optionen / Textoptionen"" gewählte Alphabet und dessen Codierung in Zahlen lautet:"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_HILLEXAMPLE_ENCRYPTIONMATRIX 
-                            "\nHill-Verschlüsselung:\n\nDie gewählte Hill-Matrix zum Verschlüsseln ist:"
-    IDS_HILLEXAMPLE_DECRYPTION_MATRIX 
-                            "\nHill-Entschlüsselung:\n\nDie gewählte inverse Hill-Matrix zum Entschlüsseln ist:"
-    IDS_HILLEXAMPLE_ENCODED_MATRIX "Diese Matrix codiert in Zahlen:"
-    IDS_HILLEXAMPLE_HLENCRYPT 
-                            "Beispiel: Verschlüsselung des Klartextes: ""%s"":"
-    IDS_HILLEXAMPLE_HLDECRYPT 
-                            "Beispiel: Entschlüsselung des Chiffretextes: ""%s"":"
-    IDS_HILLEXAMPLE_ENCODED_PLAINTEXT "Klartext-Vektor K codiert in Zahlen:"
-    IDS_HILLEXAMPLE_ENCODED_CIPHERTEXT 
-                            "Chiffretext-Vektor C codiert in Zahlen:"
-    IDS_HILLEXAMPLE_ENCRYPTION 
-                            "Berechnung der Hill-Chiffrierung durch das Vektor-Matrixprodukt K[n]*H[n] (der Vektor K[n] ist ein Zeilenvektor):"
-    IDS_HILLEXAMPLE_DECRYPTION 
-                            "Berechnung der Hill-Dechiffrierung durch das Vektor-Matrixprodukt C[n]*D[n] (der Vektor C[n] ist ein Zeilenvektor):"
-    IDS_HILLEXAMPLE_RESULT_ENCRYPTION "Der Hill-Chiffretext lautet: ""%s""."
-    IDS_HILLEXAMPLE_RESULT_DECRYPTION "Der Hill-Klartext lautet: ""%s""."
     IDS_STRING_RAND_DATA_PARAM 
                             "Zufallsdaten erzeugt mit dem %s Generator - Länge %i Bytes"
     IDS_RSA_MKPZ_PLAINTEXT  "Klartext"
@@ -11658,6 +11638,12 @@ BEGIN
     IDS_RSA_BM_CHECKN       "Bitte überprüfe den Wert des RSA-Moduls N"
     IDS_RSA_BM_CHECKE       "Bitte überprüfe den Wert des öffentlichen Exponenten e"
     IDS_RSA_BM_CHECKD       "Bitte überprüfe den Wert der Schätzung des geheimen Exponenten d"
+    IDS_HILL_DUMP           "Hill-Ver-/Entschlüsselung:\n\nDiese Detailbeschreibung der Hill-Verschlüsselung hat folgende Teile: \n 1. Alphabet-Codierung in Zahlen\n 2. Verschlüsselungsparameter und Eigenschaften\n 3. Hill-Verschlüsselung\n 4. Hill-Entschlüsselung\n \n\n\n1. Alphabet-Codierung in Zahlen:\n\nDas aktuell im Menü ""Optionen / Textoptionen"" gewählte Alphabet und dessen Codierung in Zahlen lautet:\n \n%ALPHABET_MAPPING%\n \nDas aktuelle Alphabet besteht aus %ALPHABET_SIZE% Zeichen. Der erste Alphabetbuchstabe hat den Zahlenwert %ALPHABET_CODING_OFFSET%.\n\n\n2. Verschlüsselungsparameter und Eigenschaften:\n\nDie Ver- und Entschlüsselung ist unten beispielhaft durchgerechnet für die %HILL_DIMENSION% ersten Buchstaben aus dem Klartext, die zum Alphabet gehören. Hier die Notwendigen Parameter Informationen für die ausgewählte Hill-Verschlüsselung: \n  o Zur Ver- bzw. Entschlüsselung wird die Hillmatrix mit einem %HILL_MULTIPLICATION_TYPE% multipliziert. \n  o Die gewählte Hill-Matrix hat die Dimension %HILL_DIMENSION%x%HILL_DIMENSION%. \n  o Der Klartext besteht aus %HILL_PLAINTEXT_SIZE% Buchstaben. Davon sind %HILL_NON_ALPHABET_CHARS% Nichtalphabetzeichen. Nichtalphabetzeichen werden ignoriert. Wenn das Alphabet nur Großbuchstaben enthält, werden die entsprechenden Kleinbuchstaben aber ebenfalls verschlüsselt; nicht umgekehrt.  Die Ver- und Entschlüsselung ist unten beispielhaft durchgerechnet für die %HILL_DIMENSION% ersten Buchstaben aus dem Klartext, die zum Alphabet gehören.\n \n\n3. Hill-Verschlüsselung:\n\nDie gewählte Hill-Matrix zum Verschlüsseln ist:\n \n%HILL_ENCRYPTION_TEXTMATRIX%\n \nDiese Matrix codiert in Zahlen:\n \n%HILL_ENCRYPTION_INTMATRIX%\n \nBeispiel: Verschlüsselung des Klartextes: ""%PLAINTEXT%"": \nKlartext-Vektor K codiert in Zahlen:\n \n%HILL_PLAINTEXT_VECTOR%\n \nBerechnung der Hill-Chiffrierung durch das %HILL_VECTOR_MATRIX_MULTTYPE% (der Vektor K[n] ist ein %HILL_VECTORTYPE%): \n%HILL_ENCRYPTION%\n \nDer Hill-Chiffretext lautet: ""%CIPHERTEXT%"". \n\n\n4. Hill-Entschlüsselung:\n\nDie gewählte inverse Hill-Matrix zum Entschlüsseln ist: \n%HILL_DECRYPTION_TEXTMATRIX%\n \nDiese Matrix codiert in Zahlen: \n%HILL_DECRYPTION_INTMATRIX%\n \nBeispiel: Entschlüsselung des Chiffretextes: ""%CIPHERTEXT%"": \nChiffretext-Vektor C codiert in Zahlen: \n%HILL_CIPHERTEXT_VECTOR%\n \nBerechnung der Hill-Dechiffrierung durch das %HILL_VECTOR_MATRIX_MULTTYPE% (der Vektor C[n] ist ein %HILL_VECTORTYPE%): \n%HILL_DECRYPTION%\n \nDer Hill-Klartext lautet: ""%PLAINTEXT%"". \n\n\n"
+    IDS_HILL_MULTIPLICATION_TYPE_LEFT "Zeilenvektor von links"
+    IDS_HILL_MULTIPLICATION_TYPE_RIGHT "Spaltenvektor von rechts"
+    IDS_HILL_VECTORTYPE_ROW "Zeilenvektor"
+    IDS_HILL_VECTORTYPE_COL "Spaltenvektor"
+    IDS_HILL_VECTOR_MATRIX_MULTTYPE_LEFT "Zeilen-Spalten Vektor-Matrixprodukt"
 END
 
 STRINGTABLE 
@@ -11692,32 +11678,18 @@ BEGIN
     IDS_STRING_TEST_FREQ    "Frequency-Test"
     IDS_STRING_TEST_SERIAL  "Serial-Test"
     IDS_STRING_TEST_RUNS_NICHT_BESTANDEN "Runs-Test nicht bestanden!"
-    IDS_STRING_HILL_DETAILS_MULT0 
-                            "Zur Verschlüsselung wird die Hillmatrix mit einem Spaltenvektor von links multipliziert."
     IDS_STRING_TEST_RUNS_BESTANDEN "Runs-Test bestanden!"
     IDS_HILL_CASE           "Benutztes Alphabet (%d Zeichen)"
     IDS_ROT13_CAESAR_TOO_LARGE_KEY 
                             "Die Eingabe ist größer als das Alphabet.\nSoll der Wert automatisch auf 1 gesetzt werden?"
-    IDS_STRING_HILL_DETAILS_MULT1 
-                            "Zur Verschlüsselung wird die Hillmatrix mit einem Zeilenvektor von rechts multipliziert."
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_STRING_HILL_DETAILS_DIM 
-                            "Die gewählte Hill-Matrix hat die Dimension %ix%i."
-    IDS_STRING_HILL_DETAILS_CHARS 
-                            "Das aktuelle Alphabet besteht aus %d Zeichen."
-    IDS_STRING_HILL_DETAILS_FIRSTPOS 
-                            "Der erste Alphabetbuchstabe hat den Zahlenwert %d."
     IDS_CLIPBORD_COPY_ERROR "Fehler beim Kopieren in die Zwischenablage."
     IDS_CLIPBOARD_HEXCOPY   "Die markierten Daten können unverändert (Standard) oder hexadezimal codiert in die Zwischenablage übernommen werden.\nEine hexadezimale Codierung ist z.B. erforderlich, wenn Sie nicht-druckbare Daten in andere Anwendungen exportieren wollen.\n\nHexadezimale Codierung verwenden?"
     IDS_CLIPBOARD_HEXPASTE  "Die Zwischenablage enthält ausschließlich Hexadezimal-Zeichen.\nDiese können entweder decodiert (Standard) oder unverändert eingefügt werden.\n\nSollen die hexadezimalen Daten decodiert werden?"
     IDS_STRING_MEMBER2      "Teilnehmer"
-    IDS_HILL_DETAILS_IS_NOT_ALPHCHAR 
-                            "Der Klartext besteht aus %d Zeichen. Davon sind %d Nichtalphabetzeichen: ""%s"".\nVerschlüsselt werden nur die Alphabetzeichen, Nichtalphabetzeichen werden ignoriert (wenn das Alphabet nur Großbuchstaben enthält, werden die entsprechenden Kleinbuchstaben aber ebenfalls verschlüsselt; nicht umgekehrt).\nDie Ver- und Entschlüsselung ist unten beispielhaft durchgerechnet für die %d ersten Buchstaben aus dem Klartext, die zum Alphabet gehören."
-    IDS_HILL_DETAILS_IS_ALPHCHAR 
-                            "Der Klartext besteht aus %d Buchstaben. Alle diese Buchstaben gehören zum eingestellten Alphabet.\nVerschlüsselt werden nur die Alphabetzeichen. Wenn das Alphabet nur Großbuchstaben enthält, werden die entsprechenden Kleinbuchstaben aber ebenfalls verschlüsselt; nicht umgekehrt.\nDie Ver- und Entschlüsselung ist unten beispielhaft durchgerechnet für die %d ersten Buchstaben aus dem Klartext, die zum Alphabet gehören."
     IDS_SCINTILLA_LEXER_ERROR 
                             "Die Alphabet-Ansicht kann nicht aktiviert werden, wahrscheinlich wurde nicht\ndie mit CrypTool gelieferte SCILEXER.DLL geladen, sondern eine andere."
     IDS_PQM_CRYPTOOLALPHABETINACTIVE 
@@ -11786,12 +11758,18 @@ BEGIN
     ID_ANALYSE_DESXL        "Automatische Brute-force Analyse einer DESXL-Verschlüsselung"
 END
 
-#endif    // Deutsch (Deutschland) resources
+STRINGTABLE 
+BEGIN
+    IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT 
+                            "Spalten-Zeilen Matrix-Vektorprodukt"
+END
+
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -21981,29 +21959,10 @@ BEGIN
     IDS_STRING_ERR_PERIOD_ANALYSIS_TEXTLENGTH 
                             "The file to be analysed must be at least 4 bytes large!"
     IDS_STRING_PA_NO        "No."
-    IDS_HILLEXAMPLE_CODE_ALPHABET 
-                            "HILL encryption / decryption\n\nThe current selected alphabet (see Menu: Options / Textoptions) and its encoding into numbers are:"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_HILLEXAMPLE_ENCRYPTIONMATRIX 
-                            "\nHill encryption:\n\nThe selected Hill matrix for encryption is:"
-    IDS_HILLEXAMPLE_DECRYPTION_MATRIX 
-                            "\nHill decryption:\n\nThe selected inverse Hill matrix for decryption is:"
-    IDS_HILLEXAMPLE_ENCODED_MATRIX "This matrix encoded into numbers:"
-    IDS_HILLEXAMPLE_HLENCRYPT "Example: Encryption of the plaintext: ""%s"":"
-    IDS_HILLEXAMPLE_HLDECRYPT "Example: Decryption of the ciphertext: ""%s"":"
-    IDS_HILLEXAMPLE_ENCODED_PLAINTEXT 
-                            "Plaintext vector K encoded into numbers:"
-    IDS_HILLEXAMPLE_ENCODED_CIPHERTEXT 
-                            "Ciphertext vector C encoded into numbers:"
-    IDS_HILLEXAMPLE_ENCRYPTION 
-                            "Computation of the Hill cipher by the matrix vector multiplication  K[n]*H[n]:"
-    IDS_HILLEXAMPLE_DECRYPTION 
-                            "Computation of the Hill decryption by the vector matrix multiplication C[n]*D[n]:"
-    IDS_HILLEXAMPLE_RESULT_ENCRYPTION "The Hill ciphertext is: ""%s""."
-    IDS_HILLEXAMPLE_RESULT_DECRYPTION "The Hill plaintext is: ""%s""."
     IDS_STRING_RAND_DATA_PARAM 
                             "Random data generated with the %s generator - length %i bytes"
     IDS_RSA_MKPZ_PLAINTEXT  "Plaintext"
@@ -23512,6 +23471,12 @@ BEGIN
     IDS_RSA_BM_CHECKN       "Please check the value of the RSA modulus N"
     IDS_RSA_BM_CHECKE       "Please check the value of the public exponent e"
     IDS_RSA_BM_CHECKD       "Please check the estimated value of the secret exponent d"
+    IDS_HILL_DUMP           "Hill En-/Decryption:\n\nThi detailed description of the Hill encryption / decryption consists of the following parts: \n 1. Alphabet encoding to numbers\n 2. Encryption parameters end properties\n 3. Hill encryption\n 4. Hill decryption\n \n\n\n1. Alphabet encoding to numbers:\n\nThe actually selected alphabet and it's encoding to numbers as of Menu ""Options / Textoptions"" is:\n \n%ALPHABET_MAPPING%\n \nDas actual alphabet consists of %ALPHABET_SIZE% characters. The first alphabet caharcter is encoded to the number %ALPHABET_CODING_OFFSET%.\n\n\n2. Encryption Parameters and Properties:\n\nThis example describes the Hill encryption of the %HILL_DIMENSION% first characters of the input plaintext. Only characters from the current alphabet are encrypted. Here are the required parameter information for the selected Hill encryption: \n  o For the Hill encryption and decryption the Hill matrix is multiplioed by a %HILL_MULTIPLICATION_TYPE%. \n  o The selected Hill matrix is of dimension %HILL_DIMENSION%x%HILL_DIMENSION%. \n  o The plaintext consists of %HILL_PLAINTEXT_SIZE% characters. Thereof are %HILL_NON_ALPHABET_CHARS% non alphabet characters. Non alphabet characters are ignored. In case the selected alphabet consists ony capital characters non capital characters are encrypted too but this is not true for the other direction.  Below the Hill encryption and decryption is demonstrated on the example of the %HILL_DIMENSION% first alphabet characters from the plaintext.\n \n\n3. Hill Encryption:\n\nSelected Hill matrix for encryption:\n \n%HILL_ENCRYPTION_TEXTMATRIX%\n \nThis matrix encoded to numbers:\n \n%HILL_ENCRYPTION_INTMATRIX%\n \nExample: Encryption of the plaintext: ""%PLAINTEXT%"": \nThis plaintext vector K is below encoded to numbers:\n \n%HILL_PLAINTEXT_VECTOR%\n \nComputation of the Hill encryption by the %HILL_VECTOR_MATRIX_MULTTYPE% (the vector K[n] is a %HILL_VECTORTYPE%): \n%HILL_ENCRYPTION%\n \nThe Hill ciphertext is: ""%CIPHERTEXT%"". \n\n\n4. Hill decryption:\n\nThe selected inverted Hill matrix for decryption: \n%HILL_DECRYPTION_TEXTMATRIX%\n \nThis matrix encoded to numbers: \n%HILL_DECRYPTION_INTMATRIX%\n \nExampüle: Decryption of the ciphertext: ""%CIPHERTEXT%"": \nCiphertext vector C decoded to numbers: \n%HILL_CIPHERTEXT_VECTOR%\n \nComputation of the Hill decryption by the %HILL_VECTOR_MATRIX_MULTTYPE% (the vector C[n] is a %HILL_VECTORTYPE%): \n%HILL_DECRYPTION%\n \nThe Hill plaintext is: ""%PLAINTEXT%"". \n\n\n"
+    IDS_HILL_MULTIPLICATION_TYPE_LEFT "row vector from left"
+    IDS_HILL_MULTIPLICATION_TYPE_RIGHT "column vector from right"
+    IDS_HILL_VECTORTYPE_ROW "row vector"
+    IDS_HILL_VECTORTYPE_COL "column vector"
+    IDS_HILL_VECTOR_MATRIX_MULTTYPE_LEFT "row column vector matrix product"
 END
 
 STRINGTABLE 
@@ -23551,31 +23516,18 @@ BEGIN
     IDS_STRING_TEST_FREQ    "Frequency test"
     IDS_STRING_TEST_SERIAL  "Serial test"
     IDS_STRING_TEST_RUNS_NICHT_BESTANDEN "Runs test failed!"
-    IDS_STRING_HILL_DETAILS_MULT0 
-                            "For encryption the hill matrix is multiplicated from the left side with a column vector."
     IDS_STRING_TEST_RUNS_BESTANDEN "Runs test passed!"
     IDS_HILL_CASE           "Used alphabet (%d characters)"
     IDS_ROT13_CAESAR_TOO_LARGE_KEY 
                             "The input is larger than the alphabet length.\nSet the value automaticly to 1?"
-    IDS_STRING_HILL_DETAILS_MULT1 
-                            "For encryption the hill matrix is multiplicated form the right side with a row vector."
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_STRING_HILL_DETAILS_DIM "The choosen matrix has the dimension %ix%i."
-    IDS_STRING_HILL_DETAILS_CHARS 
-                            "The current alphabet consists of %d character(s)."
-    IDS_STRING_HILL_DETAILS_FIRSTPOS 
-                            "The first alphabet character has the number value %d."
     IDS_CLIPBORD_COPY_ERROR "Cannot copy to clipboard."
     IDS_CLIPBOARD_HEXCOPY   "The marked data can be put into the clipboard unchanged (default) or in hexadecimal encoding.\nHexadecimal encoding is required e.g. if you want to export non-printable data to other applications.\n\nUse hexadecimal encoding?"
     IDS_CLIPBOARD_HEXPASTE  "The clipboard contains hexadecimal characters only. They can be inserted decoded (default) or unchanged.\n\nDecode hexadecimal data?"
     IDS_STRING_MEMBER2      "participant"
-    IDS_HILL_DETAILS_IS_NOT_ALPHCHAR 
-                            "The cleartext consists of %d characters. %d characters of these don't belong to the customized alphabet: ""%s"".\nOnly the characters belonging to the alphabet are used for encryption, non-alphabetic characters are ignored (if the alphabet contains only capital letters, accord lower letter characters are also encrypted; but not revers).\nBelow the encryption and decryption process is exemplified with the first %d characters of the cleartext, which belong to the customized alphabet."
-    IDS_HILL_DETAILS_IS_ALPHCHAR 
-                            "The cleartext consists of %d characters. All these characters are part of the customized alphabet.\nOnly the characters belonging to the alphabet are used for encryption. If the alphabet contains only capital letters, according lower letter characters are also encrypted; but not reverse.\nBelow the encryption and decryption process is exemplified with the first %d characters of the cleartext, which belong to the customized alphabet."
     IDS_SCINTILLA_LEXER_ERROR 
                             "The alphabet view could not be activated, probably not the version of SCILEXER.DLL\nwhich comes with CrypTool was loaded, but a different one."
     IDS_PQM_CRYPTOOLALPHABETINACTIVE 
@@ -23656,7 +23608,12 @@ BEGIN
     ID_ANALYSE_DESXL        "Automatic brute-force analysis of encryption using the DESXL algorithm"
 END
 
-#endif    // Englisch (GB) resources
+STRINGTABLE 
+BEGIN
+    IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT "column row matrix vector product"
+END
+
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
