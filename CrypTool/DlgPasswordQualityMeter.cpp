@@ -178,13 +178,13 @@ void CDlgPasswordQualityMeter::UpdateUserInterface()
 
 	// we start with a "poor" visual password rating
 	this->controlPictureQuality.Load(MAKEINTRESOURCE(IDR_GIF_PQM_QUALITY_POOR), _T("GIF"));
-	if(20 < intQualityCrypTool && intQualityCrypTool <= 40)
+	if(25 < intQualityCrypTool && intQualityCrypTool <= 50)
 		this->controlPictureQuality.Load(MAKEINTRESOURCE(IDR_GIF_PQM_QUALITY_LOW), _T("GIF"));
-	if(40 < intQualityCrypTool && intQualityCrypTool <= 60)
+	if(50 < intQualityCrypTool && intQualityCrypTool <= 75)
 		this->controlPictureQuality.Load(MAKEINTRESOURCE(IDR_GIF_PQM_QUALITY_AVERAGE), _T("GIF"));
-	if(60 < intQualityCrypTool && intQualityCrypTool <= 80)
+	if(75 < intQualityCrypTool && intQualityCrypTool <= 90)
 		this->controlPictureQuality.Load(MAKEINTRESOURCE(IDR_GIF_PQM_QUALITY_HIGH), _T("GIF"));
-	if(80 < intQualityCrypTool && intQualityCrypTool <= 100)
+	if(90 < intQualityCrypTool && intQualityCrypTool <= 100)
 		this->controlPictureQuality.Load(MAKEINTRESOURCE(IDR_GIF_PQM_QUALITY_GREAT), _T("GIF"));
 	this->controlPictureQuality.Draw();
 

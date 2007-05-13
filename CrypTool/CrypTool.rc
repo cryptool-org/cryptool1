@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -5542,7 +5542,7 @@ BEGIN
     GROUPBOX        "Beschreibung",IDC_STATIC,7,7,286,60
     GROUPBOX        "Eingabe des Passworts",IDC_STATIC,7,72,286,70
     GROUPBOX        "Qualität des Passworts",IDC_STATIC,7,147,286,98
-    LTEXT           "Es ist nicht möglich, die Sicherheit von Passwörtern quantitativ eindeutig zu bestimmen. Allerdings ist es möglich, die Sicherheit von Passwörtern basierend auf Hypothesen zu schätzen.",
+    LTEXT           "Es ist nicht möglich, die Sicherheit von Passwörtern quantitativ eindeutig zu bestimmen. Allerdings ist es möglich, die Sicherheit von Passwörtern basierend auf bestimmten Hypothesen zu schätzen.",
                     IDC_STATIC,20,20,260,24
     LTEXT           "Bitte geben Sie Ihr Passwort in das Eingabefeld ein. Die Qualität des Passworts wird prozentual angezeigt und nach jedem Tastendruck automatisch aktualisiert.",
                     IDC_STATIC,20,85,260,16
@@ -11764,12 +11764,12 @@ BEGIN
                             "Zeilen-Spalten Matrix-Vektorprodukt"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -17244,9 +17244,9 @@ BEGIN
     CONTROL         "",IDC_PICTURE_QUALITY,"Static",SS_BLACKFRAME,225,106,25,
                     25
     GROUPBOX        "Description",IDC_STATIC,7,7,286,60
-    LTEXT           "Es ist nicht möglich, die Sicherheit von Passwörtern quantitativ eindeutig zu bestimmen. Allerdings ist es möglich, die Sicherheit von Passwörtern basierend auf Hypothesen zu schätzen.",
+    LTEXT           "It is not possible to exactly determine and quantify the security of passwords. But it is possible to estimate the security of passwords based on certain assumptions.",
                     IDC_STATIC,20,20,260,24
-    LTEXT           "Hier sind verschiedene Beispiele für Passwort-Qualitätsmesser aufgeführt, die Ihnen dabei helfen, die Sicherheit Ihres Passworts einzuschätzen.",
+    LTEXT           "Here you can see different examples for password quality meters, helping you to estimate the security of your password.",
                     IDC_STATIC,20,44,260,16
 END
 
@@ -17524,7 +17524,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
             END
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
-            MENUITEM "&Password Quality Meter",     ID_PASSWORDQUALITYMETER
+            MENUITEM "&Password Quality Meter...",  ID_PASSWORDQUALITYMETER
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -17932,7 +17932,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
             END
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
-            MENUITEM "&Password Quality Meter",     ID_PASSWORDQUALITYMETER
+            MENUITEM "&Password Quality Meter...",  ID_PASSWORDQUALITYMETER
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -18352,7 +18352,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
             END
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
-            MENUITEM "&Password Quality Meter",     ID_PASSWORDQUALITYMETER
+            MENUITEM "&Password Quality Meter...",  ID_PASSWORDQUALITYMETER
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -18759,7 +18759,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
             END
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
-            MENUITEM "&Password Quality Meter",     ID_PASSWORDQUALITYMETER
+            MENUITEM "&Password Quality Meter...",  ID_PASSWORDQUALITYMETER
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -19204,7 +19204,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
             END
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
-            MENUITEM "&Password Quality Meter",     ID_PASSWORDQUALITYMETER
+            MENUITEM "&Password Quality Meter...",  ID_PASSWORDQUALITYMETER
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -19788,6 +19788,11 @@ IDR_SCA_ABARROWSUCCESS  GIF                     "res\\SCABitmaps_en\\gifs\\sca_a
 IDR_SCA_LIGHTS_RED      GIF                     "res\\SCABitmaps_en\\gifs\\sca_lights_red.gif"
 IDR_SCA_ABARROWTRANSMISSION_TRUDYBOB GIF                     "res\\SCABitmaps_en\\gifs\\sca_ab_arrow_transmission_trudybob.gif"
 IDR_CRT_ASTRONOMY       GIF                     "res\\crtastronomy.gif"
+IDR_GIF_PQM_QUALITY_POOR GIF                     "res\\PasswordQualityPoor.gif"
+IDR_GIF_PQM_QUALITY_LOW GIF                     "res\\PasswordQualityLow.gif"
+IDR_GIF_PQM_QUALITY_AVERAGE GIF                     "res\\PasswordQualityAverage.gif"
+IDR_GIF_PQM_QUALITY_HIGH GIF                     "res\\PasswordQualityHigh.gif"
+IDR_GIF_PQM_QUALITY_GREAT GIF                     "res\\PasswordQualityGreat.gif"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -23613,7 +23618,7 @@ BEGIN
     IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT "row column matrix vector product"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
