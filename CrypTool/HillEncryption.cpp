@@ -871,9 +871,9 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 			for (int j=0; j<dim; j++)
 			{
 				if(iHillMultiplicationType)
-					my_sprintf(num, getPositionOfCharForOutput(((*dec_mat)(i,j))));
-				else
 					my_sprintf(num, getPositionOfCharForOutput(((*dec_mat)(j,i))));
+				else
+					my_sprintf(num, getPositionOfCharForOutput(((*dec_mat)(i,j))));
 				tmpStr = tmpStr + num + '\t';
 			}
 			tmpStr = tmpStr + ']' + '\n';

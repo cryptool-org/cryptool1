@@ -11761,7 +11761,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT 
-                            "Spalten-Zeilen Matrix-Vektorprodukt"
+                            "Zeilen-Spalten Matrix-Vektorprodukt"
 END
 
 #endif    // German (Germany) resources
@@ -23610,7 +23610,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT "column row matrix vector product"
+    IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT "row column matrix vector product"
 END
 
 #endif    // English (U.K.) resources
