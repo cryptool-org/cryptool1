@@ -6575,28 +6575,6 @@ BEGIN
     END
     POPUP "&Einzelverfahren"
     BEGIN
-        POPUP "&Hashverfahren"
-        BEGIN
-            MENUITEM "MD&2",                        ID_CRYPT_HASH_MD2
-            MENUITEM "MD&4",                        ID_CRYPT_HASH_MD4
-            , GRAYED
-            MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5
-            , GRAYED
-            MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
-            , GRAYED
-            MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
-            , GRAYED
-            MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
-            , GRAYED
-            MENUITEM SEPARATOR
-            MENUITEM "&Hashwert einer Datei...",    ID_HASH_OFAFILE
-            MENUITEM "Hash-&Demo...",               ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
-            , GRAYED
-            MENUITEM "Schlüssel aus &Passwort generieren (PKCS #5)...", 
-                                                    ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
-
-            MENUITEM "&Generieren von MACs...",     ID_GENERATE_MACS, GRAYED
-        END
         POPUP "&RSA-Kryptosystem"
         BEGIN
             MENUITEM "Primzahl&test...",            ID_PRIMENUMBER_TEST
@@ -6655,6 +6633,28 @@ BEGIN
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
+        POPUP "&Hashverfahren"
+        BEGIN
+            MENUITEM "MD&2",                        ID_CRYPT_HASH_MD2
+            MENUITEM "MD&4",                        ID_CRYPT_HASH_MD4
+            , GRAYED
+            MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5
+            , GRAYED
+            MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
+            , GRAYED
+            MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
+            , GRAYED
+            MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
+            , GRAYED
+            MENUITEM SEPARATOR
+            MENUITEM "&Hashwert einer Datei...",    ID_HASH_OFAFILE
+            MENUITEM "Hash-&Demo...",               ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
+            , GRAYED
+            MENUITEM "Schlüssel aus &Passwort generieren (PKCS #5)...", 
+                                                    ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
+
+            MENUITEM "&Generieren von MACs...",     ID_GENERATE_MACS, GRAYED
+        END
         MENUITEM SEPARATOR
         POPUP "&Tools"
         BEGIN

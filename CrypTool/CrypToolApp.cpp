@@ -311,7 +311,12 @@ BOOL CCrypToolApp::InitInstance()
 
 	//Kopieren des Inhalts von CString Pfad2 nach char *Pfad
 	LPTSTR help1 = new TCHAR[Pfad2.GetLength()+1];
+	
+	Pfad2.Replace("/","\\"); //change Slashes to ensure Vista compatibility
+	
 	_tcscpy(help1, Pfad2);
+
+	
 	Pfad=help1;
 	
 	CString PseV, CaPseD, CaPseV;
@@ -1062,18 +1067,22 @@ void CCrypToolApp::execAnimalVisualization(int animalPathID, int animalFileID, i
 	CString animalPath, animalFile, animalExecutable, animalLocale;
 	LoadString(AfxGetInstanceHandle(),animalPathID,pc_str,STR_LAENGE_STRING_TABLE);
 	animalPath = CString(Pfad) + CString(pc_str);
+	
 	LoadString(AfxGetInstanceHandle(),animalExecutableID,pc_str,STR_LAENGE_STRING_TABLE);
 	animalExecutable = pc_str;
+	
 	LoadString(AfxGetInstanceHandle(),animalFileID,pc_str,STR_LAENGE_STRING_TABLE);
 	animalFile = pc_str;
+	
 	LoadString(AfxGetInstanceHandle(),animalLocaleID,pc_str,STR_LAENGE_STRING_TABLE);
 	animalLocale = pc_str;
 
 	animalFile = animalLocale + CString(" ") + CString("\"") + animalPath + animalFile +CString("\"");
 
+	animalPath.Replace("/","\\");
 
-	HINSTANCE hInst=ShellExecute(NULL,NULL,animalExecutable,animalFile, animalPath, SW_HIDE); 
-
+	HINSTANCE hInst=ShellExecute(NULL,NULL,animalExecutable,animalFile,animalPath,SW_HIDE );
+	
 	if ( reinterpret_cast<int>(hInst) <= 32 )
 		Message(IDS_ERROPEN_ANIM, MB_ICONSTOP);
 }
@@ -1230,6 +1239,7 @@ void CCrypToolApp::OnFlashAesdemo()
 	CString AESDemoExecStr;
 	AESDemoExecStr.LoadString(IDS_AESDEMO_EXEC_STR);
 
+  	
 	HINSTANCE hInst = ShellExecute(NULL,NULL, AESDemoExecStr, " ", Pfad, SW_SHOW);
 	if ( reinterpret_cast<int>(hInst) <= 32 ) {
 		// display error message stating where the desired executable is expected
@@ -1243,6 +1253,7 @@ void CCrypToolApp::OnFlashRijndaelInspector()
 {
 	CString RijndaelInspectorExecStr;
 	RijndaelInspectorExecStr.LoadString(IDS_RIJNDAEL_INSPECTOR_EXEC_STR);
+
 
 	HINSTANCE hInst = ShellExecute(NULL,NULL, RijndaelInspectorExecStr, " ", Pfad, SW_SHOW);
 	if ( reinterpret_cast<int>(hInst) <= 32 ) {
@@ -1258,6 +1269,7 @@ void CCrypToolApp::OnInteractiveNumberTheory()
 	CString InteractiveNTExecStr;
 	InteractiveNTExecStr.LoadString(IDS_INTERACTIVE_NUMBER_THEORY_EXEC);
 
+
 	HINSTANCE hInst = ShellExecute(NULL,NULL, InteractiveNTExecStr, " ", Pfad, SW_SHOW);
 	if ( reinterpret_cast<int>(hInst) <= 32 ) {
 		// display error message stating where the desired executable is expected
@@ -1271,6 +1283,7 @@ void CCrypToolApp::OnFlashEnigmademo()
 {
 	CString EnigmaFlashExecStr;
 	EnigmaFlashExecStr.LoadString(IDS_ENIGMA_FLASH);
+
 
 	HINSTANCE hInst = ShellExecute(NULL,NULL, EnigmaFlashExecStr, " ", Pfad, SW_SHOW);
 	if ( reinterpret_cast<int>(hInst) <= 32 ) {
