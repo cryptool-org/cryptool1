@@ -780,7 +780,7 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 		MatOut.Replace("%HILL_ENCRYPTION_INTMATRIX%", tmpStr);
 
 		// HILL PLAINTEXT VECTOR
-		tmpStr = CString("\n\nK[n] = \t[\t");
+		tmpStr = CString("\n\nP[n] = \t[\t");
 		for (int i=0; i<dim; i++)
 		{
 			my_sprintf(num, getPositionOfCharForOutput(i_act_example[i]));
