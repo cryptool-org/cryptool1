@@ -156,7 +156,7 @@ void CHillEncryption::init_zahlen_zeichen (char* erlaubte_zeichen)
 	unsigned long useFirstCharFromAlph = 1;
 	CString strOwnCharForPadding;
 
-	if(CT_OPEN_REGISTRY_SETTINGS(KEY_READ) == ERROR_SUCCESS)
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS) == ERROR_SUCCESS)
 	{
 		char cFirstCharFromAlph[1024];
 		CString strAlph = zeichen[0];
@@ -205,7 +205,7 @@ CHillEncryption::CHillEncryption(char* erlaubte_zeichen)
 		//read from registry
 	firstPosNull = 1;
 
-	if(CT_OPEN_REGISTRY_SETTINGS(KEY_READ) == ERROR_SUCCESS)
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS) == ERROR_SUCCESS)
 	{
 		CT_READ_REGISTRY_DEFAULT(firstPosNull, "firstPosNull", firstPosNull);
 		CT_CLOSE_REGISTRY();
@@ -228,7 +228,7 @@ CHillEncryption::CHillEncryption(char* erlaubte_zeichen, int d)
 		//read from registry
 	firstPosNull = 1;
 
-	if(CT_OPEN_REGISTRY_SETTINGS(KEY_READ) == ERROR_SUCCESS)
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS) == ERROR_SUCCESS)
 	{
 		CT_READ_REGISTRY_DEFAULT(firstPosNull, "firstPosNull", firstPosNull);
 		CT_CLOSE_REGISTRY();

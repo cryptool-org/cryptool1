@@ -103,7 +103,7 @@ BOOL CDlgRot13Caesar::OnInitDialog()
 
 	firstPosNull = 1;
 	alphCode = 0;
-	if(CT_OPEN_REGISTRY_SETTINGS(KEY_READ) == ERROR_SUCCESS)
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS) == ERROR_SUCCESS)
 	{
 		
 		CT_READ_REGISTRY_DEFAULT(firstPosNull, "firstPosNull", firstPosNull);

@@ -830,7 +830,7 @@ BOOL CDlgKeyHill5x5::OnInitDialog()
 
 	alphCode = 0;
 	firstPosNull = 1;
-	if(CT_OPEN_REGISTRY_SETTINGS(KEY_READ) == ERROR_SUCCESS)
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS) == ERROR_SUCCESS)
 	{
 		
 		CT_READ_REGISTRY_DEFAULT(firstPosNull, "firstPosNull", firstPosNull);
@@ -1564,7 +1564,7 @@ BOOL CDlgKeyHill5x5::getFirstPosNull()
 	unsigned long firstPosNull;
 
 	firstPosNull = 1;
-	if(CT_OPEN_REGISTRY_SETTINGS(KEY_READ) == ERROR_SUCCESS)
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS) == ERROR_SUCCESS)
 	{		
 		CT_READ_REGISTRY_DEFAULT(firstPosNull, "firstPosNull", firstPosNull);
 		

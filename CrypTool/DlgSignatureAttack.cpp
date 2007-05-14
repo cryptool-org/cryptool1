@@ -144,7 +144,7 @@ void CDlgSignatureAttack::OnBrowseFake()
 void CDlgSignatureAttack::OnCompute() 
 {
 	unsigned long u_SigAttTestMode = (unsigned long)FALSE;
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_READ ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
 	{
 		CT_READ_REGISTRY_DEFAULT(u_SigAttTestMode, "SignatureAttackTestMode", u_SigAttTestMode);
 		CT_CLOSE_REGISTRY();
@@ -167,7 +167,7 @@ void CDlgSignatureAttack::OnCompute()
 			UINT MessageID;
 
 
-			CT_OPEN_REGISTRY_SETTINGS( KEY_READ );
+			CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS );
 			unsigned long l_SignificantBitLengthMIN = 0;
 			CT_READ_REGISTRY_DEFAULT(l_SignificantBitLengthMIN, "SignificantBitLengthMIN", l_SignificantBitLengthMIN);
 			unsigned long l_SignificantBitLengthMAX = 0;
@@ -339,7 +339,7 @@ void CDlgSignatureAttack::OnCompute()
 
 
 							unsigned long u_SignatureAttackModificationMethod = 0;
-							CT_OPEN_REGISTRY_SETTINGS( KEY_READ );
+							CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS );
 							CT_READ_REGISTRY_DEFAULT(u_SignatureAttackModificationMethod, "SignatureAttackModificationMethod", u_SignatureAttackModificationMethod);
 							fprintf(SigAttTest,
 								"\n\nInternal Information\n\nModificationMethod=%d\nHarmlessFile=%s%d%s\nHarmlessFileLength=%d\nDangerousFile=%s%d%s\nDangerousFileLength=%d",

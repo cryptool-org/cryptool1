@@ -379,14 +379,18 @@ BOOL CDlgRandomGenerator::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_READ ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
 	{
 		char tmpStr1[2048], tmpStr2[2048], tmpStr3[2048];  
 		unsigned long dataSize, outputInternalState, randomGeneratorTypeID, l;
 
-		l = 2047; CT_READ_REGISTRY_DEFAULT(tmpStr1, "RANDOM_GENERATOR_SEED", "314159", l);
+		l = 2047; 
+		CT_READ_REGISTRY_DEFAULT(tmpStr1, "RANDOM_GENERATOR_SEED", "314159", l);
+		dataSize = 2500; 
 		CT_READ_REGISTRY_DEFAULT(dataSize, "RANDOM_GENERATOR_DATASIZE", 2500);
+		outputInternalState = 1;
 		CT_READ_REGISTRY_DEFAULT(outputInternalState, "RANDOM_GENERATOR_OUTPUT_INTERNALSTATE", 1);
+		randomGeneratorTypeID = 0;
 		CT_READ_REGISTRY_DEFAULT(randomGeneratorTypeID, "RANDOM_GENERATOR_TYPE_ID", 0);
 		UpdateData(true);
 		m_seed					= tmpStr1;
@@ -394,12 +398,16 @@ BOOL CDlgRandomGenerator::OnInitDialog()
 		m_PrintInternalStates	= outputInternalState;
 		m_SelGenerator			= randomGeneratorTypeID;
 
+		l = 2047;
 		CT_READ_REGISTRY_DEFAULT(tmpStr1, "RANDOM_GENERATOR_X2MODN_N", STANDARD_X2MOD_N_MODUL, l);
 		m_pPara->DRPXN.SetModul(CString(tmpStr1));
 
-		l = 2047; CT_READ_REGISTRY_DEFAULT(tmpStr1, "RANDOM_GENERATOR_LCG_P1", "23", l);
-		l = 2047; CT_READ_REGISTRY_DEFAULT(tmpStr2, "RANDOM_GENERATOR_LCG_P2", "0", l);
-		l = 2047; CT_READ_REGISTRY_DEFAULT(tmpStr3, "RANDOM_GENERATOR_LCG_N", "100000001", l);
+		l = 2047; 
+		CT_READ_REGISTRY_DEFAULT(tmpStr1, "RANDOM_GENERATOR_LCG_P1", "23", l);
+		l = 2047; 
+		CT_READ_REGISTRY_DEFAULT(tmpStr2, "RANDOM_GENERATOR_LCG_P2", "0", l);
+		l = 2047; 
+		CT_READ_REGISTRY_DEFAULT(tmpStr3, "RANDOM_GENERATOR_LCG_N", "100000001", l);
 		// LCG-Parameter nach Lehmer
 		m_pPara->DRP_LCG.m_LinParam_a = tmpStr1;
 		m_pPara->DRP_LCG.m_LinParam_b = tmpStr2;

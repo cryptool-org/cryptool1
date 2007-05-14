@@ -94,7 +94,7 @@ BOOL CDlgOptionsStartoptions::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_READ ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
 	{
 		unsigned long u_how_to_start = 1, u_flagSampleTextFile = 0;
 		CT_READ_REGISTRY_DEFAULT(u_how_to_start, "NoTipps", u_how_to_start);
