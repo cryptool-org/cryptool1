@@ -633,7 +633,7 @@ BOOL CHillEncryption::entschluesseln()
 
 // ==================================================================
 // 
-// ACHTUNG 
+//  
 // 
 
 void CHillEncryption::my_sprintf(char *str, int i)
