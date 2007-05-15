@@ -144,6 +144,11 @@ Section "CrypTool"
 
   ;Store installation folder
   WriteRegStr HKCU "Software\$ShortCutName" "" $INSTDIR
+
+  ; Important general CrypTool registry container required for uninstall 
+  ; $INSTDIR is the registry access key to get the startmenu folder information 
+  WriteRegStr HKCU "Software\CrypTool" $INSTDIR $ShortCutName
+  
   
   ;Create uninstaller
   WriteUninstaller "$INSTDIR\Uninstall.exe"
@@ -166,10 +171,16 @@ SectionEnd
 
 Section "Uninstall"
   
+; *******************
+  
+  Var /GLOBAL StartUpFolder
+  ReadRegStr $StartUpFolder HKCU "Software\CrypTool" $INSTDIR
+
   RMDir /r "$INSTDIR"
-  RMDir /r "$SMPROGRAMS\$ShortCutName" 
+  RMDir /r "$SMPROGRAMS\$StartUpFolder" 
 
 ; FIXME
-  DeleteRegKey HKCU "Software\$ShortCutName"
+  DeleteRegKey HKCU "Software\$StartUpFolder"
+  DeleteRegValue HKCU "Software\CrypTool" $INSTDIR
 
 SectionEnd
