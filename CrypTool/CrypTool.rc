@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -11764,12 +11764,12 @@ BEGIN
                             "Zeilen-Spalten Matrix-Vektorprodukt"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -15658,7 +15658,7 @@ BEGIN
     LTEXT           "Enter second key (k'):",IDC_STATIC,7,273,70,8
     LTEXT           "MAC generated from message and key:",IDC_STATIC,7,361,
                     125,8
-    LTEXT           "Input for hash funtion (depends on the MAC variant chosen above):",
+    LTEXT           "Input for hash function (depends on the MAC variant chosen above):",
                     IDC_STATIC,7,301,311,8
     GROUPBOX        "Choose hash function",IDC_STATIC,7,143,102,96
     GROUPBOX        "Variation (Position of key)",IDC_STATIC,123,143,195,96
@@ -23619,7 +23619,7 @@ BEGIN
     IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT "row*column matrix*vector product"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
