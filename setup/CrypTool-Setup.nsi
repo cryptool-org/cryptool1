@@ -177,10 +177,12 @@ Section "Uninstall"
   ReadRegStr $StartUpFolder HKCU "Software\CrypTool" $INSTDIR
 
   RMDir /r "$INSTDIR"
+
+  StrCmp $StartUpfolder "" +3 0
   RMDir /r "$SMPROGRAMS\$StartUpFolder" 
+  DeleteRegKey HKCU "Software\$StartUpFolder"
 
 ; FIXME
-  DeleteRegKey HKCU "Software\$StartUpFolder"
   DeleteRegValue HKCU "Software\CrypTool" $INSTDIR
 
 SectionEnd
