@@ -613,10 +613,12 @@ c) Funktionale Erweiterungen:
 - Das Hill-Verschlüsselungsverfahren wurde um einige Varianten erweitert:
   - einstellbar sind nun die Matrixmultiplikation (von rechts oder links)
     und der Wert des ersten Alphabetbuchstabens.
-  - Auch Eingabe von Zahlen statt nur Buchstaben in die Schlüsselmatrix.
-  - Die Detail-Ausgabe zur Erläuterung des Verfahrens ist nun deutlich
-    ausführlicher. Sie nimmt nun dynamisch die ersten Werte aus dem
-    Klartext (statt mit einem festen String zu arbeiten).
+  - Man kann die Schlüsselmatrix nun auch mit Zahlen füllen (bisher
+    nur Buchstaben).
+  - Die Detail-Ausgabe zur Erläuterung des Verfahrens (Log-Datei)ist
+    nun deutlich ausführlicher. Sie nimmt nun dynamisch die ersten Werte
+    aus dem Klartext (statt mit einem festen String zu arbeiten) und führt
+    die Matrixmultiplikation mit den konkreten Zahlen durch.
 
 - Zu den modernen symmetrischen Verschlüsselungsverfahren kamen hinzu
   die DES-Varianten DESX (Rivest), DESL und DESXL (Ruhr-Uni Bochum).
@@ -1639,19 +1641,19 @@ sind, dass Ihr Rechner unberührt ist.
 7. Kurze Historie der freigegebenen Hauptversionen
    -----------------------------------------------
 
-Version   Datum		Größe des Windows-Setups	Freigabe durch
-			Deutsch		Englisch
-1.0.01    Okt. 1999	 1,3 MB		 -		DB
-1.1.01    Mai  2000	 2,3 MB		 -		DB
-1.2.00    Aug. 2000	 2,8 MB		 -		DB
-1.2.02    Dez. 2000	 3,2 MB		 -		DB
-1.3.00    Jan. 2002	 4,9 MB		 4,7 MB		DB
-1.3.02    Juni 2002	 6,9 MB		 6,4 MB		DB
-1.3.03    Sep. 2002	 6,9 MB		 6,5 MB		DB
-1.3.04    Juli 2003	 8,6 MB		 8,1 MB		DB
-1.3.05    Aug. 2003	 8,6 MB		 8,1 MB		DB
-1.4.00    Juli 2006	18,4 MB		18,2 MB		DB
-1.4.10    May  2007	45,0 MB		45,0 MB		DB
+Version   Datum         Größe des Windows-Setups  Plattenplatz  Freigabe
+                         Deutsch    Englisch                     durch
+1.0.01    Okt. 1999       1,3 MB      -              -            DB
+1.1.01    Mai  2000       2,3 MB      -              -            DB
+1.2.00    Aug. 2000       2,8 MB      -              -            DB
+1.2.02    Dez. 2000       3,2 MB      -              -            DB
+1.3.00    Jan. 2002       4,9 MB      4,7 MB         -            DB
+1.3.02    Juni 2002       6,9 MB      6,4 MB         -            DB
+1.3.03    Sep. 2002       6,9 MB      6,5 MB         -            DB
+1.3.04    Juli 2003       8,6 MB      8,1 MB         -            DB
+1.3.05    Aug. 2003       8,6 MB      8,1 MB         -            DB
+1.4.00    Juli 2006      18,4 MB     18,2 MB         -            DB
+1.4.10    May  2007      26,0 MB     25,5 MB         45 MB        DB
 
 Bemerkungen zu den Versionen:
 1.3.02    Viele neue Funktionen gegenüber 1.3.00.
@@ -2047,4 +2049,13 @@ nicht.
   anzeigen:
 
   $ wine winhlp32 CrypTool.hlp
+
+
+
+###########################
+
+Was fehlt noch in dieser Beta gegenüber der Release-Version 1.4.10:
+- Weiteres Kapitel im CrypTool-Skript
+- Deutsche Fassung des Rijndael-Inspectors
+- Update der Präsentation
 

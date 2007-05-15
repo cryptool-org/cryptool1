@@ -597,9 +597,10 @@ c) New functionality:
     and the value of the first letter of the alphabet. 
   - The key matrix can be entered not only by letters but also by
     integers.
-  - The log file (detailed output) to explain the scheme now is more
-    explicit. Additionally the first letters from the cleartext are used
-    dynamically (instead of using a fixed string).
+  - The log file (detailed output) to explain the scheme is more
+    explicit now. Additionally the first letters from the cleartext are
+    used dynamically (instead of using a fixed string). Die Logdatei
+    enthält die Matrixmultiplikation mit den konkreten Zahlen.
 
 - New within the set of modern symmetric encryption methods are the
   DES variants DESX (Rivest), DESL and DESXL (Ruhr University Bochum).
@@ -1572,19 +1573,19 @@ your computer is untouched.
 7. Brief history of the released main versions of CrypTool
    -------------------------------------------------------
 
-Version   Date		Size of Windows Setup		Released by
-			English	    	German
-1.0.01    Oct. 1999	 -		 1.3 MB 	DB
-1.1.01    May  2000	 -		 2.3 MB		DB
-1.2.00    Aug. 2000	 -		 2.8 MB		DB
-1.2.02    Dec. 2000	 -		 3.2 MB		DB
-1.3.00    Jan. 2002	 4.7 MB		 4.9 MB		DB
-1.3.02    June 2002	 6.4 MB		 6.9 MB		DB
-1.3.03    Sep. 2002	 6.5 MB		 6.9 MB		DB
-1.3.04    July 2003	 8.1 MB		 8.6 MB		DB
-1.3.05    Aug. 2003	 8.2 MB		 8.6 MB		DB
-1.4.00    July 2006	18.2 MB		18.4 MB		DB
-1.4.10    May  2007	45.0 MB		45.0 MB		DB
+Version   Date		Size of Windows Setup  Needed Size  Released
+			English      German    ca. on disc  by 
+1.0.01    Oct. 1999	 -            1.3 MB    -            DB
+1.1.01    May  2000	 -            2.3 MB	-            DB
+1.2.00    Aug. 2000	 -            2.8 MB	-            DB
+1.2.02    Dec. 2000	 -            3.2 MB	-            DB
+1.3.00    Jan. 2002	 4.7 MB       4.9 MB	-            DB
+1.3.02    June 2002	 6.4 MB       6.9 MB	-            DB
+1.3.03    Sep. 2002	 6.5 MB       6.9 MB	-            DB
+1.3.04    July 2003	 8.1 MB       8.6 MB	-            DB
+1.3.05    Aug. 2003	 8.2 MB       8.6 MB	-            DB
+1.4.00    July 2006	18.2 MB      18.4 MB	-            DB
+1.4.10    May  2007	25.5 MB	     26.0 MB	45 MB        DB
 
 Remarks about the versions:
 1.3.02    Many new functions compared to 1.3.00.
@@ -1966,4 +1967,13 @@ not find some important files.
 
   $ wine winhlp32 CrypTool.hlp
 
+
+
+
+###########################
+
+What is missing in this beta compared to the coming release version 1.4.10:
+- Further chapter in the CrypTool script
+- German verion of the Rijndael Inspector
+- Update of the presentation
 
