@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -6575,6 +6575,28 @@ BEGIN
     END
     POPUP "&Einzelverfahren"
     BEGIN
+        POPUP "&Hashverfahren"
+        BEGIN
+            MENUITEM "MD&2",                        ID_CRYPT_HASH_MD2
+            MENUITEM "MD&4",                        ID_CRYPT_HASH_MD4
+            , GRAYED
+            MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5
+            , GRAYED
+            MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
+            , GRAYED
+            MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
+            , GRAYED
+            MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
+            , GRAYED
+            MENUITEM SEPARATOR
+            MENUITEM "&Hashwert einer Datei...",    ID_HASH_OFAFILE
+            MENUITEM "Hash-&Demo...",               ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
+            , GRAYED
+            MENUITEM "Schlüssel aus &Passwort generieren (PKCS #5)...", 
+                                                    ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
+
+            MENUITEM "&Generieren von MACs...",     ID_GENERATE_MACS, GRAYED
+        END
         POPUP "&RSA-Kryptosystem"
         BEGIN
             MENUITEM "Primzahl&test...",            ID_PRIMENUMBER_TEST
@@ -6633,28 +6655,6 @@ BEGIN
         MENUITEM "&Secret-Sharing-Demo (nach Shamir)...", 
                                                 ID_INDIVIDUAL_PROCEDURES_SECRETSHARING
 
-        POPUP "&Hashverfahren"
-        BEGIN
-            MENUITEM "MD&2",                        ID_CRYPT_HASH_MD2
-            MENUITEM "MD&4",                        ID_CRYPT_HASH_MD4
-            , GRAYED
-            MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5
-            , GRAYED
-            MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
-            , GRAYED
-            MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
-            , GRAYED
-            MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
-            , GRAYED
-            MENUITEM SEPARATOR
-            MENUITEM "&Hashwert einer Datei...",    ID_HASH_OFAFILE
-            MENUITEM "Hash-&Demo...",               ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
-            , GRAYED
-            MENUITEM "Schlüssel aus &Passwort generieren (PKCS #5)...", 
-                                                    ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
-
-            MENUITEM "&Generieren von MACs...",     ID_GENERATE_MACS, GRAYED
-        END
         MENUITEM SEPARATOR
         POPUP "&Tools"
         BEGIN
@@ -11764,12 +11764,12 @@ BEGIN
                             "Zeilen-Spalten Matrix-Vektorprodukt"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -23619,7 +23619,7 @@ BEGIN
     IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT "row*column matrix*vector product"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
