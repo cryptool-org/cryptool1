@@ -2,6 +2,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[a4paper,11pt]{article}
+\usepackage[latin1]{inputenc} % Umlaute
 % \usepackage[dvips]{graphics}
 % \usepackage{graphicx}
 
@@ -22,8 +23,10 @@
 %\usepackage{pslatex}
 %\usepackage{ae,aecompl}
 
-% Formatierung der Fu"snoten
+% Formatierung der Fußnoten
 \usepackage[flushmargin]{footmisc}
+% Literaturverzeichnis kapitelweise
+\usepackage{bibunits}
 
 \makeindex
 \hypersetup{colorlinks=true}
@@ -45,7 +48,6 @@
 %(D:20000920201000) } ???????????????
 
 \usepackage[german]{babel}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Hack, damit Aufruf von \tableofcontents auch gleich \addcontentsline
@@ -78,7 +80,7 @@
         \vspace{30pt}
         {\large Hintergrundmaterial und Zusatzinformationen\\%*[-8pt]
          zum freien E-Learning-Programm CrypTool\\
-         (8. Auflage -- zu Version 1.4.10 Beta 4)}
+         (8. Auflage -- zu Version 1.4.10)}
         \vspace{60pt}
 }
 
@@ -92,7 +94,6 @@ Frankfurt am Main% \\*[8pt]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-
 \pagestyle{plain}
 \setlength{\fboxrule}{.5mm}
 \setlength{\fboxsep}{1.75mm}
@@ -119,12 +120,12 @@ Frankfurt am Main% \\*[8pt]
 
 % Vergleichbar zur Nutzung von Texten aus der Wikipedia (=GNU Free Documentation Licence, GFDL)
 \vspace{200pt}
-Dies ist ein freies Dokument, d.h. Inhalte des Dokuments k"onnen kopiert und
+Dies ist ein freies Dokument, d.h. Inhalte des Dokuments können kopiert und
 verbreitet werden, auch zu kommerziellen Zwecken. \\
 Im Gegenzug sind Autor, Titel und die CrypTool-Webseite (www.cryptool.de) zu
-nennen. Selbstverst"andlich darf aus dem CrypTool-Skript, genau wie aus jedem
+nennen. Selbstverständlich darf aus dem CrypTool-Skript, genau wie aus jedem
 anderen Werk auch, zitiert werden. Diese Lizenzbedingungen sind angelehnt an
-die GNU-Lizenz f"ur freie Dokumentation.
+die GNU-Lizenz für freie Dokumentation.
 
 % be_2005: a) Auf erste Seite nur den Titel ! -> Newpage eingefügt.
 %          b) "aboutcryptool.tex" hier und nicht unten vor "introduction.tex"
@@ -148,7 +149,11 @@ die GNU-Lizenz f"ur freie Dokumentation.
 \input{chapters/moderncryptography.tex}
 \input{chapters/digitalsignatures.tex}
 \input{chapters/ellipticcurves.tex}
-
+\bibliographyunit[\section]
+\bibliography*{references}
+\bibliographystyle*{plain}
+\input{chapters/crypto2020.tex}
+\bibliographyunit
 
 %\appendix \addcontentsline{toc}{section}{Appendix} %be_2005 raus
 \begin{appendix}

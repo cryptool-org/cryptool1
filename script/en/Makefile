@@ -13,6 +13,7 @@ dvi: $(DVI)
 $(PDF): $(SRC) style.ist
 	echo q | pdflatex $(TEX) | tail
 	echo q | pdflatex $(TEX) | tail
+	for f in bu*.aux; do bibtex $$f; done
 	makeindex -s style.ist $(IDX)
 	echo q | pdflatex $(TEX) | tail
 	echo q | pdflatex $(TEX) | tail

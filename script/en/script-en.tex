@@ -13,6 +13,8 @@
 \usepackage[pdftex]{graphicx}
 
 \usepackage[flushmargin]{footmisc}
+% Literaturverzeichnis kapitelweise
+\usepackage{bibunits}
 
 \makeindex
 \hypersetup{colorlinks=true}
@@ -52,7 +54,7 @@
         \vspace{30pt}
         {\large	Background reading\\%*[-8pt] 
         for the free eLearning program CrypTool\\
-       (8th edition -- for version 1.4.10 Beta 4)}
+       (8th edition -- distributed with CrypTool version 1.4.10)}
         \vspace{60pt}
 }
 
@@ -121,6 +123,11 @@ documents. This licence is abutted on the GNU Free Documentation Licence.
 \input{chapters/moderncryptography.tex}
 \input{chapters/digitalsignatures.tex}
 \input{chapters/ellipticcurves.tex}
+\bibliographyunit[\section]
+\bibliography*{../de/references}
+\bibliographystyle*{plain}
+\input{chapters/crypto2020.tex}
+\bibliographyunit
 
 \begin{appendix}
   \newpage
