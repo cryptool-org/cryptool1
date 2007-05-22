@@ -64,19 +64,9 @@ statement from your version.
 
 class CHexEditCtrlDoc : public CCryptDoc
 {
-public:
-	BYTE* GetData() { return m_pData; }
-	UINT GetDataSize() const { return m_nSize; }
-
 protected:
-	BYTE *m_pData;
-	UINT m_nSize;
-
-	CHexEditCtrlDoc();
-	virtual ~CHexEditCtrlDoc();
 
 	//{{AFX_VIRTUAL(CHexEditCtrlDoc)
-	virtual BOOL OnNewDocument();
 	virtual void Serialize(CArchive& ar);
 	//}}AFX_VIRTUAL
 
@@ -87,10 +77,6 @@ protected:
 	DECLARE_DYNCREATE(CHexEditCtrlDoc)
 	DECLARE_MESSAGE_MAP()
 
-#ifdef _DEBUG
-	virtual void AssertValid() const;
-	virtual void Dump(CDumpContext& dc) const;
-#endif
 };
 
 /////////////////////////////////////////////////////////////////////////////

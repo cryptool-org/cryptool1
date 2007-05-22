@@ -70,8 +70,6 @@ statement from your version.
 static char THIS_FILE[] = __FILE__;
 #endif
 
-#define DOC_EMPTY_STR	"this is an empty document... open a  file!"
-
 /////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
 // class CHexEditCtrlDoc
@@ -87,46 +85,12 @@ BEGIN_MESSAGE_MAP(CHexEditCtrlDoc, CCryptDoc)
 END_MESSAGE_MAP()
 
 
-
-CHexEditCtrlDoc::CHexEditCtrlDoc() : m_pData(NULL), m_nSize(0)
-{ 
-}
-
-CHexEditCtrlDoc::~CHexEditCtrlDoc()
-{
-	delete []m_pData;
-}
-
-BOOL CHexEditCtrlDoc::OnNewDocument()
-{
-	if (!CDocument::OnNewDocument())
-		return FALSE;
-	
-	delete []m_pData;
-	m_nSize = strlen(DOC_EMPTY_STR)+1;
-	m_pData = new BYTE[m_nSize];
-	strcpy((char*)m_pData, DOC_EMPTY_STR);
-	return TRUE;
-}
-
 void CHexEditCtrlDoc::Serialize(CArchive& ar)
 {
 	POSITION p = GetFirstViewPosition();
 	CHexEditCtrlView *view = (CHexEditCtrlView*)GetNextView(p);
 	view->GetHexEditCtrl().Serialize(ar);
 }
-
-#ifdef _DEBUG
-void CHexEditCtrlDoc::AssertValid() const
-{
-	CDocument::AssertValid();
-}
-
-void CHexEditCtrlDoc::Dump(CDumpContext& dc) const
-{
-	CDocument::Dump(dc);
-}
-#endif //_DEBUG
 
 void CHexEditCtrlDoc::OnTotxt() 
 {
