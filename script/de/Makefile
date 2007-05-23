@@ -1,10 +1,10 @@
 LANG=de
-SRC=script-$(LANG).tex chapters/*.tex figures/*.pdf figures/*.eps figures/*.latex
+SRC=script-$(LANG).tex references.bib chapters/*.tex figures/*.pdf figures/*.eps figures/*.latex
 PDF=script-$(LANG).pdf
 DVI=script-$(LANG).dvi
 TEX=script-$(LANG).tex
 IDX=script-$(LANG).idx
-TMP=*.aux *.idx *.ilg *.ind *.log *.out *.toc auto
+TMP=*.aux *.idx *.ilg *.ind *.log *.out *.toc *.bbl *.blg auto
 all: pdf
 
 pdf: $(PDF)
