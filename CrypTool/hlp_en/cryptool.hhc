@@ -21,6 +21,10 @@
 			<param name="Name" value="How to use the CrypTool online help">
 			<param name="Local" value="hilfeueberhilfe.html">
 			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Broader Context of Cryptology">
+			<param name="Local" value="cryptology.html">
+			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Functionality of CrypTool">

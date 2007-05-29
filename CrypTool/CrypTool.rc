@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -3411,17 +3411,17 @@ BEGIN
                     IDC_STATIC,7,23,226,16
 END
 
-IDD_SIDECHANNELATTACKVISUALIZATION_HE_PSEPINPROMPT DIALOG  0, 0, 226, 124
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_PSEPINPROMPT DIALOGEX 0, 0, 226, 124
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "PIN-Eingabe"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_PIN,87,74,50,14,ES_PASSWORD | ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&OK",IDOK,7,103,50,14
     PUSHBUTTON      "&Abbrechen",IDCANCEL,169,103,50,14
     LTEXT           "Bitte geben Sie nun die PIN für Bobs privaten Schlüsseln ein:",
                     IDC_STATIC,7,55,193,8
-    LTEXT           "Bob braucht zum Entschlüsseln seinen privaten Schlüssel. Der private Schlüssel ist PIN-geschützt, um unbefugten Zugriff zu verhindern.",
+    LTEXT           "Bob braucht zum Entschlüsseln seinen privaten Schlüssel. Der private Schlüssel ist PIN-geschützt, um unbefugten Zugriff zu verhindern (Bobs PIN: 1234).",
                     IDC_STATIC,7,23,212,24
     LTEXT           "Bob hat die hybridverschlüsselte Nachricht von Alice empfangen.",
                     IDC_STATIC,7,7,206,8
@@ -4819,10 +4819,10 @@ BEGIN
                     IDC_STATIC,7,71,261,16
 END
 
-IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_2 DIALOG  0, 0, 275, 190
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_2 DIALOGEX 0, 0, 275, 190
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
 CAPTION "Fortfahren mit Seitenkanalangriff"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     CONTROL         "Sie hybridverschlüsseln das geöffnete Dokument oder",
                     IDC_RADIO_CHOICE_1,"Button",BS_AUTORADIOBUTTON | BS_LEFT | 
@@ -4832,9 +4832,9 @@ BEGIN
                     IDC_RADIO_CHOICE_2,"Button",BS_AUTORADIOBUTTON | BS_LEFT | 
                     BS_TOP | BS_MULTILINE | WS_GROUP | WS_TABSTOP,25,55,243,
                     10
-    CONTROL         "Sie verwenden ein in CrypTool integriertes Dokument, das für einen bereits existenten Benutzer verschlüsselt worden ist. Dadurch überspringen Sie den Vorgang der Hybridverschlüsselung.",
+    CONTROL         "Sie verwenden ein in CrypTool integriertes Dokument, das für den bereits angelegten Benutzer Bob verschlüsselt worden ist. Dadurch überspringen Sie den Vorgang der Hybridverschlüsselung.",
                     IDC_RADIO_CHOICE_3,"Button",BS_AUTORADIOBUTTON | BS_LEFT | 
-                    BS_TOP | BS_MULTILINE | WS_GROUP | WS_TABSTOP,25,70,243,
+                    BS_TOP | BS_MULTILINE | WS_GROUP | WS_TABSTOP,25,70,235,
                     30
     DEFPUSHBUTTON   "&OK",IDOK,7,169,50,14
     PUSHBUTTON      "&Abbrechen",IDCANCEL,218,169,50,14
@@ -4846,10 +4846,10 @@ BEGIN
                     IDC_STATIC,7,105,261,8
 END
 
-IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_3 DIALOG  0, 0, 275, 190
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_3 DIALOGEX 0, 0, 275, 190
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
 CAPTION "Fortfahren mit Seitenkanalangriff"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     CONTROL         "Sie verwenden das geöffnete Dokument oder",
                     IDC_RADIO_CHOICE_1,"Button",BS_AUTORADIOBUTTON | BS_LEFT | 
@@ -4859,10 +4859,6 @@ BEGIN
                     IDC_RADIO_CHOICE_2,"Button",BS_AUTORADIOBUTTON | BS_LEFT | 
                     BS_TOP | BS_MULTILINE | WS_GROUP | WS_TABSTOP,25,55,243,
                     10
-    CONTROL         "Sie verwenden ein in CrypTool integriertes Dokument, das für einen bereits existenten Benutzer verschlüsselt worden ist. Dadurch überspringen Sie den Vorgang der Hybridverschlüsselung.",
-                    IDC_RADIO_CHOICE_3,"Button",BS_AUTORADIOBUTTON | BS_LEFT | 
-                    BS_TOP | BS_MULTILINE | WS_GROUP | WS_TABSTOP,25,70,243,
-                    30
     DEFPUSHBUTTON   "&OK",IDOK,7,169,50,14
     PUSHBUTTON      "&Abbrechen",IDCANCEL,218,169,50,14
     LTEXT           "Es ist bereits ein hybridverschlüsseltes Dokument geöffnet.",
@@ -4871,6 +4867,10 @@ BEGIN
                     IDC_STATIC,7,23,261,8
     LTEXT           "Bitte wählen Sie eine der möglichen Optionen aus.",
                     IDC_STATIC,7,105,261,8
+    CONTROL         "Sie verwenden ein in CrypTool integriertes Dokument, das für den bereits angelegten Benutzer Bob verschlüsselt worden ist. Dadurch überspringen Sie den Vorgang der Hybridverschlüsselung.",
+                    IDC_RADIO_CHOICE_3,"Button",BS_AUTORADIOBUTTON | BS_LEFT | 
+                    BS_TOP | BS_MULTILINE | WS_GROUP | WS_TABSTOP,25,70,235,
+                    30
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS_REQUEST_1 DIALOG  0, 0, 275, 190
@@ -5477,7 +5477,7 @@ END
 
 IDD_ECCDECRECEIVER DIALOGEX 0, 0, 382, 268
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "ECIES-Entschlüsselung (ECDH-AES)"
+CAPTION "ECC-AES-Entschlüsselung"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     CONTROL         "List1",IDC_LIST_KEYS,"SysListView32",LVS_REPORT | 
@@ -5497,7 +5497,7 @@ END
 
 IDD_ECCENCRECEIVER DIALOGEX 0, 0, 392, 271
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "ECIES-Verschlüsselung (ECDH-AES)"
+CAPTION "ECC-AES-Verschlüsselung"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
@@ -11764,12 +11764,12 @@ BEGIN
                             "Zeilen-Spalten Matrix-Vektorprodukt"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -15282,17 +15282,17 @@ BEGIN
                     IDC_STATIC,7,23,226,16
 END
 
-IDD_SIDECHANNELATTACKVISUALIZATION_HE_PSEPINPROMPT DIALOG  0, 0, 226, 124
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_PSEPINPROMPT DIALOGEX 0, 0, 226, 124
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "PIN Prompt for Bob"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_PIN,87,74,50,14,ES_PASSWORD | ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&OK",IDOK,7,103,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,169,103,50,14
     LTEXT           "Please enter the PIN for Bob's private key:",IDC_STATIC,
                     7,55,134,8
-    LTEXT           "Bob needs his private key to decrypt the received message. The private key is protected with a PIN to prevent misuse by a third party.",
+    LTEXT           "Bob needs his private key to decrypt the received message. The private key is protected with a PIN to prevent misuse by a third party (Bob's PIN: 1234).",
                     IDC_STATIC,7,23,212,24
     LTEXT           "Bob received the hybrid encrypted message from Alice.",
                     IDC_STATIC,7,7,174,8
@@ -16527,10 +16527,10 @@ BEGIN
                     IDC_RADIO_CHOICE_2,"Button",BS_AUTORADIOBUTTON | BS_LEFT | 
                     BS_TOP | BS_MULTILINE | WS_GROUP | WS_TABSTOP,25,55,243,
                     10
-    CONTROL         "You use a document integrated in CrypTool which was encrypted for an already existing user. Thus you skip the hybrid encryption process.",
+    CONTROL         "You use a document integrated in CrypTool which was encrypted for the already existing user Bob. Thus you skip the hybrid encryption process.",
                     IDC_RADIO_CHOICE_3,"Button",BS_AUTORADIOBUTTON | BS_LEFT | 
-                    BS_TOP | BS_MULTILINE | WS_GROUP | WS_TABSTOP,25,70,243,
-                    20
+                    BS_TOP | BS_MULTILINE | WS_GROUP | WS_TABSTOP,25,70,235,
+                    24
     DEFPUSHBUTTON   "&OK",IDOK,7,169,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,218,169,50,14
     LTEXT           "A document is already opened.",-1,7,7,261,8
@@ -16550,9 +16550,6 @@ BEGIN
     CONTROL         "You hybrid encrypt another document.",
                     IDC_RADIO_CHOICE_2,"Button",BS_AUTORADIOBUTTON | BS_LEFT | 
                     BS_TOP | BS_MULTILINE | WS_TABSTOP,25,55,243,10
-    CONTROL         "You use a document integrated in CrypTool which was encrypted for an already exsiting user. Thus you skip the hybrid encryption process.",
-                    IDC_RADIO_CHOICE_3,"Button",BS_AUTORADIOBUTTON | BS_LEFT | 
-                    BS_TOP | BS_MULTILINE | WS_TABSTOP,25,70,243,20
     DEFPUSHBUTTON   "&OK",IDOK,7,169,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,218,169,50,14
     LTEXT           "A hybrid encrypted document is already opened.",-1,7,7,
@@ -16560,6 +16557,10 @@ BEGIN
     LTEXT           "You have three options to continue the side-channel attack:",
                     -1,7,23,261,8
     LTEXT           "Please choose one of the options above.",-1,7,105,261,8
+    CONTROL         "You use a document integrated in CrypTool which was encrypted for the already existing user Bob. Thus you skip the hybrid encryption process.",
+                    IDC_RADIO_CHOICE_3,"Button",BS_AUTORADIOBUTTON | BS_LEFT | 
+                    BS_TOP | BS_MULTILINE | WS_GROUP | WS_TABSTOP,25,70,235,
+                    24
 END
 
 IDD_KEY_MONSUBST DIALOGEX 0, 0, 309, 233
@@ -17153,7 +17154,7 @@ END
 
 IDD_ECCENCRECEIVER DIALOGEX 0, 0, 392, 271
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "ECIES encryption (ECDH-AES)"
+CAPTION "ECC-AES Encryption"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
@@ -17170,7 +17171,7 @@ END
 
 IDD_ECCDECRECEIVER DIALOGEX 0, 0, 382, 268
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "ECIES decryption (ECDH-AES)"
+CAPTION "ECC-AES Decryption"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     CONTROL         "List1",IDC_LIST_KEYS,"SysListView32",LVS_REPORT | 
@@ -17179,7 +17180,7 @@ BEGIN
     EDITTEXT        IDC_EDIT1,320,214,55,15,ES_PASSWORD | ES_AUTOHSCROLL
     CONTROL         "Display decryption time",IDC_CHECK1,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,228,255,8
-    DEFPUSHBUTTON   "&Encrypt",IDOK,9,242,85,19
+    DEFPUSHBUTTON   "&Decrypt",IDOK,9,242,85,19
     PUSHBUTTON      "&Cancel",IDCANCEL,319,242,56,19
     LTEXT           "Select your secret key from the PSE list.",-1,9,6,366,
                     10
@@ -23619,7 +23620,7 @@ BEGIN
     IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT "row*column matrix*vector product"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

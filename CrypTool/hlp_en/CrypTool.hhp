@@ -490,10 +490,6 @@ shamir.html
 hidd_secretsharing_reveal.html
 contact.html
 pki.html
-hid_verentschlsseln_hybridverfahren_hybridECCentschlsselung.html
-hid_verentschlsseln_hybridverfahren_hybridECCverschlsselung.html
-hidd_hybrid_decryption_ecc.html
-hidd_hybrid_encryption_ecc.html
 certificates.html
 hid_crypt_desl.html
 hid_crypt_desx.html
@@ -523,6 +519,10 @@ hid_zeichenformat_courier08.html
 hid_zeichenformat_courier10.html
 hid_zeichenformat_courier12.html
 gplgnu.html
+hidd_eccdecreceiver.html
+hidd_eccencreceiver.html
+hid_hybrid_eccdec.html
+hid_hybrid_eccenc.html
 
 
 [ALIAS]
