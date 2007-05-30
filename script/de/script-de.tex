@@ -25,8 +25,12 @@
 
 % Formatierung der Fußnoten
 \usepackage[flushmargin]{footmisc}
+
 % Literaturverzeichnis kapitelweise
-\usepackage{bibunits}
+\usepackage[labelstoglobalaux]{bibunits} % ohne labelstoglobalaux scheint man thebibilograpy und bibtex nicht mischen zu können
+%\bibliographyunit[\section] % bibunits für das ganze Dokument aktivieren
+\defaultbibliography{references}
+\defaultbibliographystyle{abbrv}
 
 \makeindex
 \hypersetup{colorlinks=true}
@@ -149,11 +153,9 @@ die GNU-Lizenz für freie Dokumentation.
 \input{chapters/moderncryptography.tex}
 \input{chapters/digitalsignatures.tex}
 \input{chapters/ellipticcurves.tex}
-\bibliographyunit[\section]
-\bibliography*{references}
-\bibliographystyle*{plain}
+\begin{bibunit}
 \input{chapters/crypto2020.tex}
-\bibliographyunit
+\end{bibunit}
 
 %\appendix \addcontentsline{toc}{section}{Appendix} %be_2005 raus
 \begin{appendix}

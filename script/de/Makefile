@@ -4,17 +4,22 @@ PDF=script-$(LANG).pdf
 DVI=script-$(LANG).dvi
 TEX=script-$(LANG).tex
 IDX=script-$(LANG).idx
-TMP=*.aux *.idx *.ilg *.ind *.log *.out *.toc *.bbl *.blg auto
+TMP=*.aux *.idx *.ilg *.ind *.log *.out *.toc *.bbl *.blg *.lof *.lot auto
 all: pdf
 
 pdf: $(PDF)
 
 $(PDF): $(SRC) style.ist
-	echo q | pdflatex $(TEX) | tail
-	echo q | pdflatex $(TEX) | tail
+	echo q | pdflatex $(TEX) | tail -2
+	@echo
+	echo q | pdflatex $(TEX) | tail -2
+	@echo
 	for f in bu*.aux; do bibtex $$f; done
+	@echo
 	makeindex -s style.ist $(IDX)
-	echo q | pdflatex $(TEX) | tail
+	@echo
+	echo q | pdflatex $(TEX) | tail -2
+	@echo
 	echo q | pdflatex $(TEX) | tail
 
 pdf1: 

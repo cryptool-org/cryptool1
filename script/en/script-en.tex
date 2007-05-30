@@ -13,8 +13,12 @@
 \usepackage[pdftex]{graphicx}
 
 \usepackage[flushmargin]{footmisc}
+
 % Literaturverzeichnis kapitelweise
-\usepackage{bibunits}
+\usepackage[labelstoglobalaux]{bibunits} % ohne labelstoglobalaux scheint man thebibilograpy und bibtex nicht mischen zu können
+%\bibliographyunit[\section] % bibunits für das ganze Dokument aktivieren
+\defaultbibliography{references}
+\defaultbibliographystyle{abbrv}
 
 \makeindex
 \hypersetup{colorlinks=true}

@@ -1,23 +1,27 @@
 LANG=en
-SRC=script-$(LANG).tex references.bib chapters/*.tex figures/*.pdf figures/*.eps figures/*.latex
+SRC=script-$(LANG).tex ../de/references.bib chapters/*.tex figures/*.pdf figures/*.eps figures/*.latex
 PDF=script-$(LANG).pdf
 DVI=script-$(LANG).dvi
 TEX=script-$(LANG).tex
 IDX=script-$(LANG).idx
-TMP=*.aux *.idx *.ilg *.ind *.log *.out *.toc *.bbl *.blg auto
+TMP=*.aux *.idx *.ilg *.ind *.log *.out *.toc *.bbl *.blg *.lof *.lot auto
 all: pdf
 
 pdf: $(PDF)
 dvi: $(DVI)
 
 $(PDF): $(SRC) style.ist
-	echo q | pdflatex $(TEX) | tail
-	echo q | pdflatex $(TEX) | tail
+	echo q | pdflatex $(TEX) | tail -2
+	@echo
+	echo q | pdflatex $(TEX) | tail -2
+	@echo
 	for f in bu*.aux; do bibtex $$f; done
+	@echo
 	makeindex -s style.ist $(IDX)
+	@echo
+	echo q | pdflatex $(TEX) | tail -2
+	@echo
 	echo q | pdflatex $(TEX) | tail
-	echo q | pdflatex $(TEX) | tail
-	#dvipdf $(DVI) $(PDF)
 
 script-$(LANG).ind: script-$(LANG).idx style.ist
 	makeindex -s style.ist script-$(LANG).idx
