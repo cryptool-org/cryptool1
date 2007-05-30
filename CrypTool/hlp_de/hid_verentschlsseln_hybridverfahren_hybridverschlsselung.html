@@ -14,42 +14,12 @@
 
 <BODY>
 
-<h3>Hybridverschlüsselung</B> (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Hybrid)</h3>
+<h3>Hybridverschlüsselung mit RSA-AES</B> (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Hybrid)</h3>
 
-		<P>Die Hybridverschlüsselung wird mit den Daten des aktiven Dokuments in dem Dialog <A href="hidd_hybrid_encryption_demo.html">
-				Visualisierung der Hybridverschlüsselung</A> visualisiert.</P>
-		<P>Das Ziel der Hybridverfahren ist es, die jeweiligen Nachteile der symmetrischen 
-			bzw. asymmetrischen Verschlüsselung zu kompensieren, und ihre Vorteile zu 
-			kombinieren.</P>
-		<P>Das Grundproblem bei symmetrischen Verfahren ist die <!--ZZZPOPUP--><A href="keyexchange.html">Schlüsselverwaltung</A>
-			einer großen Anzahl von geheimen Schlüsseln bei beiden 
-			Kommunikationsteilnehmern. Die asymmetrische Kryptographie mit ihrem Paar aus 
-			privatem (geheimem) und öffentlichem Schlüssel löst dieses Problem auf elegante 
-			Weise auf. Dagegen sind symmetrische Verfahren im Vergleich zu asymmetrischen 
-			wesentlich schneller.</P>
-		<P>Asymmetrische Verschlüsselungssysteme werden in der Praxis wegen des sehr hohen 
-			Rechenbedarfs lediglich zur Verschlüsselung von sogenannten 
-			"Sitzungsschlüsseln" (Sessionkeys) verwendet. Die Verschlüsselung der 
-			eigentlichen Nutzdaten findet dann mit einem symmetrischen Verfahren unter 
-			Verwendung des jeweiligen Sitzungsschlüssels statt. In diesem Fall spricht man 
-			von einer Hybridverschlüsselung (asymmetrisch / symmetrisch). Dies beinhaltet 
-			keine Sicherheitsdefizite, wenn der Sessionkey mit einem guten 
-			Zufallszahlengenerator erzeugt wird.</P>
-		<P>Bei <B><U>Hybridverfahren</U></B> erzeugt der Sender "A" in seiner 
-			vertrauenswürdigen Umgebung einen möglichst zufälligen, d.h. für andere 
-			unvorhersehbaren, symmetrischen Schlüssel "S" (sogenannter "Sessionkey") und 
-			verschlüsselt mit diesem seine Nachricht. Diesen Sessionkey verschlüsselt der 
-			Sender mit dem öffentlichen (asymmetrischen) Schlüssel des Empfängers "B". 
-			Beides, die mit "S" verschlüsselte Nachricht und der verschlüsselte 
-			Sitzungsschlüssel werden nun an den Empfänger übermittelt.</P>
-		<P>Da der Empfänger "B" den Sitzungsschlüssel nicht kennt, muss er zunächst den 
-			chiffrierten (symmetrischen) Sitzungsschlüssel entschlüsseln. Dies erfolgt mit 
-			seinem geheimen (asymmetrischen) Schlüssel. Den so gewonnenen Sitzungsschlüssel 
-			"S" kann er nun dazu verwenden, die chiffriert übermittelte Nachricht wieder zu 
-			dechiffrieren und somit Kenntnis des Nachrichteninhalts zu erlangen.</P>
-		<P>Nach diesem Modell arbeitet zum Beispiel <!--ZZZPOPUP--><A href="pgp.html">PGP</A>. 
-			Dabei kommt für die Datenverschlüsselung <!--ZZZPOPUP--><A href="hid_crypt_idea.html">IDEA</A>
-			als symmetrisches Verfahren zum Einsatz, die Schlüssel werden mit <!--ZZZPOPUP--><A href="hid_crypt_rsaenc.html">RSA</A>
-			"verpackt und versandfertig gemacht".</P>
-	</BODY>
+<P>Das <a href="hybridencryptionsystem.html">Hybridverfahren</a> wendet auf die Daten des aktiven Dokuments 
+eine symmetrische Verschlüsselung (hier AES) mit einem Sessionkey an. Der Sessionkey wird dann mit einem 
+asymmetrischen Verfahren verschlüsselt (hier mit dem RSA-Verfahren). Das Ganze wird in dem Dialog 
+<A href="hidd_hybrid_encryption_demo.html">Visualisierung der Hybridverschlüsselung</A> visualisiert.</P>
+		
+</BODY>
 </HTML>

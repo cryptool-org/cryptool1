@@ -29,14 +29,14 @@ Das folgende Bild zeigt die urspr&uuml;ngliche Fassung. Das Programm von Herrn C
 
 <p>Zuerst wurde das Verfahren des Zahlenhai-Spiels in C++ als "Konsolenprogramme" implementiert (Konsolenprogramm machen nur eine  Textein- und Ausgabe. Sie werden von der Kommandozeile gestartet: Unter Windows ist das Kommandozeilenfenster sehr versteckt: siehe Start \ Alle Programme \ Zubeh&ouml;r \ Eingabeaufforderung).</p>
 
-<p><IMG SRC="Pictures_de/console_de.png" ALT="console_de.png" BORDER=0></p>
+<p><IMG SRC="Pictures_de/console_de.png" ALT="console_de.png" BORDER=0 width="91%"></p>
 
 <p>Erst als die Logik des Algorithmus korrekt implementiert war, wurde mit der grafischen Oberfl&auml;che begonnen.<br>
 Danach wurde das Programm stetig erweitert: <a name="Buttons">Die</a> erste Erweiterung bestand darin, das Spiel mit mehr als 50 Zahlen spielen zu k&ouml;nnen (50 Zahlen waren die Obergrenze in dem Spiel von Herrn Carl). Daf&uuml;r wurde ein Reiter-Control verwendet, auf dem sich 30 Buttons befinden, die je nach ausgew&auml;hltem Reiter ihre Beschriftung und somit auch ihren Wert &auml;ndern.<br>
 Dadurch wurde die maximal m&ouml;gliche Anzahl an Zahlen auf 9999 erh&ouml;ht. Die Grenze ist im Quellcode so vorgegeben und ist bedingt durch die Gr&ouml;&szlig;e der Buttons und der Reiter. Es w&auml;re auch nicht sinnvoll, mit noch mehr Zahlen zu spielen, da man bei so einer Menge gleichzeitig sehr viele Teiler von sehr vielen Zahlen ber&uuml;cksichtigen muss und dadurch auch schnell den &Uuml;berblick &uuml;ber das Spiel verliert.</p>
 <p>Das Spielfenster und alle Teile darin haben eine feste Gr&ouml;&szlig;e. Wir h&auml;tten gern das Fenster wenigstens in vertikaler Richtung  so gr&ouml;&szlig;enver&auml;nderlich gemacht, dass sich die Spielverlaufstabelle entsprechend anpasst, leider bot uns der Layout-Manager im Ressourceneditor von Visual C++ 6.0 und Visual C++ 7.1 (Visual Studio 2003) keine M&ouml;glichkeit f&uuml;r das so genannte "Andocken" von graphischen Elementen an die Dialogmasken. Nur die Spalten der Spielverlaufstabelle sind in ihrer Breite ver&auml;nderbar, damit sich der Spieler wirklich alle Punkte, die der Zahlenhai erhalten hat, anschauen kann. Die Spalten passen sich aber nicht automatisch ihrem Inhalt an.</p>
 
-<p><IMG SRC="Pictures_de/Dlg_limit_de.png" ALT="Dlg_limit_de.png" BORDER=0></p>
+<p><IMG SRC="Pictures_de/Dlg_limit_de.png" ALT="Dlg_limit_de.png" BORDER=0 width="91%"></p>
 
 <p><b><u>2. Maximal erreichbare Punktzahl ausgeben</u></b></p>
 
@@ -53,24 +53,24 @@ Dadurch wurde die maximal m&ouml;gliche Anzahl an Zahlen auf 9999 erh&ouml;ht. D
 </p>
 <p>Da die Berechnung f&uuml;r eine gr&ouml;&szlig;ere Anzahl an Zahlen sehr lange dauert, wird der Spieler vorher gefragt, ob diese Funktion wirklich ausgef&uuml;hrt werden soll.</p>
 
-<p><IMG SRC="Pictures_de/Dlg_max_warn_de.png" ALT="Dlg_max_warn_de.png" BORDER=0></p>
+<p><IMG SRC="Pictures_de/Dlg_max_warn_de.png" ALT="Dlg_max_warn_de.png" BORDER=0 width="91%"></p>
 
-<p><IMG SRC="Pictures_de/Dlg_max_value_de.png" ALT="Dlg_max_new_de.png" BORDER=0></p>
+<p><IMG SRC="Pictures_de/Dlg_max_value_de.png" ALT="Dlg_max_new_de.png" BORDER=0 width="91%"></p>
 
 <p><u><b>Bemerkung:</b></u></p>
 
 <p>Die maximal m&ouml;glichen Punktzahlen sind f&uuml;r die Zahlenvorr&auml;te von 1 bis 22 schon in der Datei "GameData.txt" abgelegt und m&uuml;ssen nicht noch einmal berechnet werden, sondern werden sofort ausgegeben.</p>
 
-<p><IMG SRC="Pictures_de/Dlg_max_old_de.png" ALT="Dlg_max_old_de.png" BORDER=0></p>
+<p><IMG SRC="Pictures_de/Dlg_max_old_de.png" ALT="Dlg_max_old_de.png" BORDER=0 width="91%"></p>
 
 <p>Au&szlig;erdem kann sich der Spieler auch noch einen optimalen Weg (also die Folge der Zahlen, die zur maximalen Punktzahl f&uuml;hrt) anzeigen lassen.</p>
 
-<p><IMG SRC="Pictures_de/Dlg_max_way_de.png" ALT="Dlg_max_way_de.png" BORDER=0></p>
+<p><IMG SRC="Pictures_de/Dlg_max_way_de.png" ALT="Dlg_max_way_de.png" BORDER=0 width="91%"></p>
 
 <p><b><u>3. Durchf&uuml;hrung und Wiederaufsetzten bei &uuml;berlangen Berechnungen</u></b></p>
 <p>Da die Berechnung der maximal m&ouml;glichen Punkte bei gr&ouml;&szlig;eren Zahlen extrem lange dauert, musste ein Weg gefunden werden, um die Berechnung der Zahlen unterbrechen und zu einem sp&auml;teren Zeitpunkt wieder fortsetzen zu k&ouml;nnen (z.B. weil der Strom ausfiel oder man den Rechner f&uuml;r andere Aufgaben brauchte). Dazu werden alle f&uuml;r die Berechnung ben&ouml;tigten Zwischenwerte in geringen Zeitabst&auml;nden in einer Textdatei gespeichert. Die Datei "ZahlenHaiSuche[Anzahl der Zahlen].zha" wird in demselben Ordner gespeichert, in dem sich auch die Datei "Zahlenhai.exe" befindet, Sie l&auml;sst sich mit einem Texteditor &ouml;ffnen und anschauen.</p> 
 
-<p><IMG SRC="Pictures_de/game_max_calc.png" ALT="game_max_calc.png" BORDER=0></p>
+<p><IMG SRC="Pictures_de/game_max_calc.png" ALT="game_max_calc.png" BORDER=0 width="91%"></p>
 
 <p>Wenn jetzt eine neue Berechnung der maximalen Punktzahl gestartet wird, schaut das Programm erst, ob schon eine Datei mit gespeicherten Werten existiert, liest diese ein und setzt dann die Suche an der eingelesenen Stelle fort. Auch ohne Wissen dar&uuml;ber, was f&uuml;r Werte in der Datei gespeichert werden und wie die Brute-force-Suche funktioniert, kannst Du, einen schnellen Rechner und viel Zeit vorausgesetzt, auch selbst neue Werte berechnen.</p>
 
@@ -94,7 +94,7 @@ Dadurch wurde die maximal m&ouml;gliche Anzahl an Zahlen auf 9999 erh&ouml;ht. D
 <p>Im n&auml;chsten Schritt wurde ein Haifisch-Bild in das Spielfenster eingef&uuml;gt und die normalen rechteckigen ToolTips wurden durch abgerundete Fenster, so genannte Balloon-Tips, ersetzt.</p>
 <p>Nachdem die Bilder ausgew&auml;hlt waren, wurde die Schriftfarbe an die Farbe der Bilder angepasst. Zus&auml;tzlich wurde die Spielverlaufstabelle in den Farben der Muscheln eingef&auml;rbt.</p>
 <p>Um den Dialog noch mehr wie ein Spiel aussehen zu lassen, wurde ein Dialogfeld, das aussieht wie eine LED-Anzeige, hinzugef&uuml;gt: W&auml;hrend des Spiels zeigt dieses gro&szlig; den Punktestand an.</p>
-<p>Die Optionen wurden in "Willkommen, "Standard" und "Maximalwerte" unterteilt und auf Reitern ausgelagert, so dass jede Optionen-Art f&uuml;r sich alleine steht. In dem Reiter "Farben" soll man sp&auml;ter noch die M&ouml;glichkeit haben, sich die Farben der Tabelle und die Schriftfarben, &auml;hnlich wie bei MS Paint, selber auszusuchen.<p>
+<p>Die Optionen wurden auf die Reiter <B>Willkommen</B>, <B>Standard</B> und <B>Maximalwerte</B> verteilt, so dass jede Optionen-Art f&uuml;r sich alleine steht. In dem Reiter <B>Farben</B> soll man sp&auml;ter noch die M&ouml;glichkeit haben, sich die Farben der Tabelle und die Schriftfarben, &auml;hnlich wie bei MS Paint, selber auszusuchen.<p>
 
 <p>Die Gestaltung der Buttons f&uuml;r den Zahlenvorrat, die LED-Anzeige und die farbige Darstellung der Spielverlaufstabelle wurden mit Hilfe von Quellcodebeispielen von den Usern der Seite <a href="http://www.codeproject.com" target="_blank">http://www.codeproject.com</a> erstellt.</p> 
 
