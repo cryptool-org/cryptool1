@@ -6,9 +6,9 @@
 
 % --------------------------------------------------------------------------
 \newpage
-%\addcontentsline{toc}{section}{Vorwort zur 7. Ausgabe des CrypTool-Skripts} % be_2006: So springt er auf S. 3 statt auf S. 9 !!
-\section*{Vorwort zur 7. Ausgabe des CrypTool-Skripts}
-\addcontentsline{toc}{section}{Vorwort zur 7. Ausgabe des CrypTool-Skripts}
+%\addcontentsline{toc}{section}{Vorwort zur 8. Ausgabe des CrypTool-Skripts} % be_2006: So springt er auf S. 3 statt auf S. 9 !!
+\section*{Vorwort zur 8. Ausgabe des CrypTool-Skripts}
+\addcontentsline{toc}{section}{Vorwort zur 8. Ausgabe des CrypTool-Skripts}
 
 Ab dem Jahr 2000 wurde mit dem CrypTool-Paket\index{CrypTool} auch ein Skript 
 ausgeliefert, das die Mathematik einzelner Themen genauer, aber doch 
@@ -31,39 +31,52 @@ Die rasante Verbreitung des Internets hat auch zu einer verstärkten
 Forschung der damit verbundenen Technologien geführt. Gerade im Bereich 
 der Kryptographie gibt es viele neue Erkenntnisse.
 
-In dieser Ausgabe des Skripts wurden einige Themen ergänzt und andere auf
-den aktuellen Stand gebracht (z.B. die Zusammenfassungen zu aktuellen 
-Forschungsergebnissen):                   
+%In dieser Ausgabe des Skripts wurden einige Themen ergänzt und andere auf
+%den aktuellen Stand gebracht (z.B. die Zusammenfassungen zu aktuellen 
+%Forschungsergebnissen):                   
+In dieser Ausgabe des Skripts wurden wieder einige Themen ergänzt und auf
+den aktuellen Stand gebracht.
 \vspace{-7pt}
 \begin{itemize}
-  \item die Suche nach den größten Primzahlen (verallgemeinerte
-        Mersenne- und Fermatzahlen) \\
-%        Mersenne- und Fermatzahlen, \glqq M-40\grqq) 
-	(Kap. \ref{spezialzahlentypen}, \ref{RecordPrimes}),
-  \item die Faktorisierung großer Zahlen (RSA-200)\index{RSA-200} 
+  \item die Suche nach den größten Primzahlen (Mersenne- und Fermatzahlen):
+        \glqq M44\grqq~ oder
+        die im März 2007 gefundene größte Nicht-Mersenne-Primzahl, die sich bei
+        der Untersuchung der Sierpinsky-Zahlen ergab
+	(Kap. \ref{spezialzahlentypen}, \ref{RecordPrimes};
+         Tab. \ref{L_n_Largest_Kown-Primes}, 
+         Seite \pageref{L_n_Largest_Kown-Primes}),
+  \item die Faktorisierung großer Zahlen, wie (C307)\index{C307}
         (Kap. \ref{RSA-200}),
-  \item Fortschritte bei der Kryptoanalyse von Hashverfahren 
-        (Kap. \ref{collision-attacks-against-sha-1}) und
+  \item der aktuelle Rekord (April 2007) in der Berechnung des diskreten
+        Logarithmus 
+        (die als Beispielzahl benutzte Potenz bestand aus den ersten 160 Stellen
+        der Euler-Zahl e und es wurde modulo einer 160-stelligen Primzahl
+        gerechnet)
+        (Kap. \ref{L_Discrete_Logarithm}),
+%  \item Fortschritte bei der Kryptoanalyse von Hashverfahren 
+%        (Kap. \ref{collision-attacks-against-sha-1}) und
 %  \item Fortschritte bei den Ideen für neue Kryptoverfahren (RSA-Nachfolger)
 %	(Kap. \ref{xxxxBrute-force-gegen-Symmetr})\index{xxxxxxxxxxxxxxxxxxxxx} und
-  \item eine Auflistung, in welchen Filmen und Romanen Kryptographie eine
-        wesentliche Rolle spielt (siehe Anhang \ref{s:appendix-movies});
-        und wo Primzahlen als Aufhänger benutzt wurden 
-        (siehe Kurioses in \ref{HT-Quaint-curious-Primes-usage}).
+  \item die Auflistung, in welchen Filmen und Romanen Kryptographie eine
+        wesentliche Rolle spielt (siehe Anhang \ref{s:appendix-movies}),
+        und Kurioses zu Primzahlen (siehe \ref{HT-Quaint-curious-Primes-usage}).
 \end{itemize}
+Neu hinzu gekommen ist Kapitel \ref{Chapter_Crypto2020} von Prof. Buchman et al.:
+{\bf Krypto2020}.
 
 \vspace{12pt}
 Seit das Skript dem CrypTool-Paket in Version 1.2.01 das erste Mal beigelegt
 wurde, ist es mit fast jeder neuen Version von CrypTool (1.2.02, 1.3.00,
-1.3.02, 1.3.03, 1.3.04 und nun 1.4.00) ebenfalls erweitert und aktualisiert
-worden.
+1.3.02, 1.3.03, 1.3.04, 1.4.00 und nun 1.4.10) ebenfalls erweitert
+und aktualisiert worden.
 
 Ich würde mich sehr freuen, wenn sich dies auch innerhalb der folgenden
 Open Source-Versionen\index{Open Source} von CrypTool\index{CrypTool}
 so weiter fortsetzt.
 
 Herzlichen Dank nochmal an alle, die mit Ihrem großem Einsatz zum 
-Erfolg und zur weiten Verbreitung dieses Projekts beigetragen haben. 
+Erfolg und zur weiten Verbreitung dieses Projekts beigetragen haben.
+Danke auch an die Leser, die uns Feedback sandten. 
 
 Ich hoffe, dass viele Leser mit diesem Skript mehr Interesse an und 
 Verständnis für dieses moderne und zugleich uralte Thema finden.
@@ -72,15 +85,12 @@ Verständnis für dieses moderne und zugleich uralte Thema finden.
 
 Bernhard Esslinger
 
-Frankfurt, Juni 2006
+Frankfurt, Juni 2007
 
 
-New in May 2007:
-- Update for prime records: M44, Sierpinsky
-- Update for discrete logarithm problem record
-- further literature added
-- bugfixes reported by readers - thanks.
-- new chapter by Prof. Buchmann at al.
+New in June 2007:
+- Update for prime records: 1039th Mersenne number (C307)
+- QC nötige Längen !
 
 
 % --------------------------------------------------------------------------
