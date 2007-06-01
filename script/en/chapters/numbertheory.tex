@@ -2006,6 +2006,7 @@ listed in the following table:
 	C176 & 		176 & 583 & & May, 2005 & Kazumaro Aoki et al. \\
 	RSA640\footnotemark & 	193 & 600 & & November, 2005 & Jens Franke et al. \\
 	RSA-200 & 	200 & 663 & & May, 2005 & Jens Franke et al. \\
+	C307 & 		307 & 1017 & & May, 2007 & Jens Franke et al. \\
 \hline
 \end{tabular}
 \caption{The current general purpose factoring records (as of November 2005)}    % Eyecatcher_neue-Mersenne 
@@ -2241,6 +2242,95 @@ if the machine constantly achieves one million integer operations per second (MI
 For illustration: a INTEL Pentium 100 processor achieves about 50 MIPS.
 To factorize a 2048 bit module it is estimated to need about {$8.5 \cdot
  10^{40}$ MY}. }.
+
+
+
+
+
+
+% --------------------------------------------------------------------------
+\vskip +20pt
+\paragraph{C307 / M1039} \label{C307} \index{C307} \index{M1039}\mbox{}
+\hypertarget{C307-chap3}{}
+
+On January 18, 2002 researchers at the German University of Bonn\footnote{%
+\href{http://www.ercim.org/publication/Ercim\_News/enw49/franke.html, 2002-01}
+{\texttt{http://www.ercim.org/publication/Ercim\_News/enw49/franke.html, 2002-01}}}
+factorised a 158-digit decimal number into its both prime factors (these are
+build with 73 and 86 decimal digits) using the GNFS method (General Number
+Field Sieve)\index{General Number Field Sieve (GNFS)}.
+
+This record got much less attention within the press than the solution of
+RSA-155.
+
+The task of the researchers from Bonn was not initiated by a challenge, but
+they wanted to find the last prime factors of the integer $2^{953} - 1$
+(see ``Wanted List'' of the Cunningham Project\index{%
+Cunningham project}\footnote{%
+Cunningham project: \href{http://www.cerias.purdue.edu/homes/ssw/cun/}
+                 {\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/}}}).
+
+The 6 smaller prime factors, already found before have been:
+$$
+\begin{array}{c}
+3, 1907, 425796183929, \\
+1624700279478894385598779655842584377, \\
+3802306738549441324432139091271828121 \quad {\rm and} \\
+128064886830166671444802576129115872060027.
+\end{array}
+$$
+The first 3 factors can be easily computed\footnote{%
+E.g. using CrypTool\index{CrypTool} via menu 
+{\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} 
+Factorisation of a Number}. \\
+CrypTool can factorize in a reasonable time numbers no longer than 250 bit.
+Numbers bigger than 1024 bits are currently not accepted by CrypTool.
+}.
+The next three prime factors were found by P.~Zimmerman\footnote{%
+\href{http://www.loria.fr/~zimmerma/ecmnet}{\tt http://www.loria.fr/\~{}zimmerma/ecmnet}}, 
+T.~Grandlund\footnote{\href{http://www.swox.se/gmp/}{\tt http://www.swox.se/gmp/}}
+and R. Harley during the years 1999 and 2000 using the elliptic curve factorisation method.
+
+The last remaining factor, called ``C158'', was known to be composite by
+then, but its factors where not known (the following 3 lines contain one number):
+$$
+\begin{array}{c}
+39505874583265144526419767800614481996020776460304936 \\
+45413937605157935562652945068360972784246821953509354 \\
+4305870490251995655335710209799226484977949442955603
+\end{array}
+$$
+The factorisation of C158 resulted in the following two 73- and 86-digit prime factors:
+$$
+\begin{array}{c}
+3388495837466721394368393204672181522815830368604993048084925840555281177
+\end{array}
+$$
+and
+$$
+\begin{array}{c}
+1165882340667125990314837655838327081813101 \\
+2258146392600439520994131344334162924536139.
+\end{array}
+$$
+So now all 8 prime factors of $2^{953} - 1$ have been found.
+
+\begin{minipage}{\textwidth}
+\vspace{3ex}
+Links:
+\vspace{-10pt}
+\begin{itemize}
+\item[]   \href{http://www.loria.fr/~zimmerma/records/gnfs158}
+       {\texttt{http://www.loria.fr/~zimmerma/records/gnfs158}} \\
+          \href{http://www.crypto-world.com/FactorRecords.html}
+       {\texttt{http://www.crypto-world.com/FactorRecords.html}} \\
+          \href{http://www.crypto-world.com/announcements/c158.txt}
+       {\texttt{http://www.crypto-world.com/announcements/c158.txt}}
+\end{itemize}
+\end{minipage}
+\vspace{12pt}
+
+
 
 
 
@@ -3123,9 +3213,9 @@ This needs to be stressed because the type of padding is extremely important dur
     {\em Verschl\"usselungsalgorithmen -- Angewandte Zahlentheorie 
     rund um Sicherheitsprotokolle}, Vieweg, 2002.
 
-\bibitem[Buchmann1999]{Buchmann1999} \index{Buchmann 1999}
+\bibitem[Buchmann2004]{Buchmann2004} \index{Buchmann 2004}
     Johannes Buchmann, \\
-    {\em Einf\"uhrung in die Kryptographie}, Springer, 1999.
+    {\em Introduction to Cryptography}, Springer, 2nd edition, 2004.
 
 \bibitem[Buhler1993]{Buhler1993} \index{Buhler 1993} 
     J.P. Buhler, H.W. Lenstra, C. Pomerance, \\
@@ -3152,7 +3242,7 @@ This needs to be stressed because the type of padding is extremely important dur
     A statement on these recommendations: \\
     \href{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}
     {\texttt{http://www.secorvo.de/publikat/}}\\
-    \vspace*{1cm}
+    \hspace*{1cm}
     \href{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}
     {\texttt{stellungnahme-algorithmenempfehlung-020307.pdf}}
 

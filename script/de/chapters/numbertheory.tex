@@ -2219,6 +2219,7 @@ sind in der folgenden Tabelle aufgeführt:
 	C176 & 		176 & 583 & & Mai, 2005 & Kazumaro Aoki et al. \\
 	RSA640\footnotemark & 	193 & 600 & & November, 2005 & Jens Franke et al. \\
 	RSA-200 & 	200 & 663 & & Mai, 2005 & Jens Franke et al. \\
+	C307 & 		307 & 1017 & & Mai, 2007 & Jens Franke et al. \\
 \hline
 \end{tabular}
 \caption{Die derzeitigen Faktorisierungsrekorde für allgemeine Zahlen
@@ -2480,7 +2481,7 @@ $$
 Die Faktorisierung von RSA-200 ergab die beiden Primfaktoren:
 $$
 \begin{array}{c}
-p = 35324619344027701212726049781984643686711974001976 \\         
+p = 35324619344027701212726049781984643686711974001976 \\
     25023649303468776121253679423200058547956528088349
 \end{array}
 $$
@@ -2502,6 +2503,121 @@ ausführt, in einem Jahr bewältigt. Zur Illustration: ein INTEL
 Pentium 100 Prozessor hat etwa 50 MIPS.
 Für die Zerlegung eines 2048-Bit-Moduls bräuchte man ca. {$8,5 \cdot 
 10^{40}$ MY}.}.
+
+
+
+
+
+
+
+% --------------------------------------------------------------------------
+\vskip +20pt
+\paragraph{C307 / M1039} \label{C307} \index{C307} \index{M1039} 
+\mbox{} % für Zeilenumbruch, da er \\ allein nicht mag ! xxxxxxxxx
+\hypertarget{C307-chap3}{}
+
+Im Mai 2007 meldeten Prof. Franke, Prof. Kleinjung (von der Universität Bonn),
+das japanische Telekommunikationsunternehmen NTT und Prof. Arjen Lenstra von
+der Polytechnischen Hochschule in Lausanne, dass sie mit der SNFS-Methode
+(Special Number Field Sieve) \index{Special Number Field Sieve (SNFS)}
+innerhalb von 11 Monaten
+eine $307$-stellige Dezimalzahl in ihre beiden Primfaktoren zerlegten
+(diese haben 80 und 227 Dezimalstellen).
+
+Die Aufgabe der Wissenschaftler entsprang nicht einer Challenge, sondern
+die Aufgabe war, die letzten Primfaktoren der Mersenne-Zahl $2^{1039}+1$ 
+zu finden (siehe~ \glqq Wanted List\grqq~ des Cunningham-Projekts)\index{%
+Cunningham-Projekt}\footnote{%
+Cunningham-Projekt: \href{http://www.cerias.purdue.edu/homes/ssw/cun/}
+                 {\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/}}\\
+Cunningham-Tabelle: \href{http://homes.cerias.purdue.edu/~ssw/cun/pmain1206}
+                 {\texttt{http://homes.cerias.purdue.edu/~ssw/cun/pmain1206}}\\
+Die Zahlen in der Cunningham-Tabelle werden folgendermaßen geschrieben:\\
+\glqq (2,n)-\grqq~ bedeutet $2^{n}-1$;~~~
+\glqq (2,n)+\grqq~ bedeutet $2^{n}+1$.\\
+Um die Größenordnung eine Zerlegung anzudeuten schreibt man pn oder cn,
+wobei n die Anzahl der Dezimalstellen ist und \glqq p\grqq~ und \glqq c\grqq~
+bedeuten, dass die Zahl eine Primzahl oder eine zusammengesetzte Zahl ist.\\
+$2^{1039}-1 = p7 * c307 = p7 * p80 * p227$ \\
+Genauer erklärt wird dies auf der CUN-Seite folgendermaßen:\\
+\glqq 2,651+ means $2^651 + 1$ and the size (c209 means 209 decimal digits)
+of the
+number which was factored.  Then come the new factor(s), the discoverer and
+the method used.  Recently, only the multiple polynomial quadratic sieve
+(ppmpqs), the elliptic curve method (ecm) and the number field sieve (nfs)
+have been used.  `hmpqs' stands for hypercube multiple polynomial quadratic
+sieve.  Under `new factors', `p90' means a 90-digit prime and `c201' is a
+201-digit composite number.\grqq. 
+}\\
+
+
+Die Zahl $2^{1039}-1$ besteht aus 3 Primfaktoren: Der kleinste Faktor
+$p7 = 5080711$ war schon länger bekannt.\footnote{%
+Er kann mit CrypTool\index{CrypTool} über das Menü 
+{\bf Einzelverfahren \textbackslash{} RSA-Kryptosystem \textbackslash{} 
+Faktorisieren einer Zahl gefunden werden: mit den Algorithmen von Brent
+Williams oder Lenstra, mit denen man gut "relativ" kleine Faktoren abspalten
+kann.}. \\
+In sinnvoller Zeit zerlegt CrypTool Zahlen bis 250 Bit Länge vollständig.
+}
+
+Zur vollständigen Faktorisierung musste der zweite Faktors (Koteiler) "`C307"'
+zerlegt werden: Bis dahin wusste man nur, dass er zusammengesetzt ist, aber man
+kannte weder die Anzahl seiner Primfaktoren, noch die Primfaktoren selbst.
+Die folgenden fünf Zeilen sind eine einzige Zahl: $C307 =$
+$$
+\begin{array}{c}
+1159420574072573064369807148876894640753899791702017724986868353538\\
+8224838599667566080006095408005179472053993261230204874402860435302\\
+8619141014409345351233471273967988850226307575280937916602855510550\\
+0425810771176177610094137970787973806187008437777186828680889844712\\
+822002935201806074755451541370711023817
+\end{array}
+$$
+Die Faktorisierung von C307 ergab die beiden 80- und 227-stelligen Primfaktoren:
+$$
+\begin{array}{c}
+p80 = 558536666199362912607492046583159449686465270184\\
+      88637648010052346319853288374753
+\end{array}
+$$
+und
+$$
+\begin{array}{c}
+p227 = 207581819464423827645704813703594695162939708007395209881208\\
+       387037927290903246793823431438841448348825340533447691122230\\
+       281583276965253760914101891052419938993341097116243589620659\\
+       72167481161749004803659735573409253205425523689
+.
+\end{array}
+$$
+Damit wurde die Zahl $2^{1039}-1$ vollständig in ihre 3 Primfaktoren zerlegt.
+
+\begin{minipage}{\textwidth}
+\vspace{3ex}
+Verweise:
+\vspace{-10pt}
+\begin{itemize}
+\item[]   \href{http://www.loria.fr/~zimmerma/records/21039-}
+       {\texttt{http://www.loria.fr/~zimmerma/records/21039-}} \\
+          \href{http://www.crypto-world.com/announcements/m1039.txt}
+       {\texttt{http://www.crypto-world.com/announcements/m1039.txt}} \\
+          \href{http://www.crypto-world.com/FactorAnnouncements.html}
+       {\texttt{http://www.crypto-world.com/FactorAnnouncements.html}} \\
+          \href{http://www1.uni-bonn.de/pressDB/jsp/pressemitteilungsdetails.jsp?detailjahr=2007&detail=160}
+       {\texttt{http://www1.uni-bonn.de/pressDB/jsp/pressemitteilungsdetails.jsp?detailjahr=2007&detail=160}} \\
+
+
+http://en.wikipedia.org/wiki/Integer_factorization_records
+http://en.wikipedia.org/wiki/Special_number_field_sieve
+http://en.wikipedia.org/wiki/General_number_field_sieve
+
+
+\end{itemize}
+\end{minipage}
+
+
+
 
 
 
@@ -3499,9 +3615,9 @@ des Padding sehr wichtig ist für interoperable Algorithmen.
     \href{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}
     {\texttt{stellungnahme-algorithmenempfehlung-020307.pdf}}
 
-\bibitem[Buchmann1999]{Buchmann1999} \index{Buchmann 1999}
+\bibitem[Buchmann2004]{Buchmann2004} \index{Buchmann 2004}
     Johannes Buchmann, \\
-    {\em Einführung in die Kryptographie}, Springer, 1999.
+    {\em Einführung in die Kryptographie}, Springer, 3. Auflage, 2004.
 
 \bibitem[Buhler1993]{Buhler1993} \index{Buhler 1993} 
     J.P. Buhler, H.W. Lenstra, C. Pomerance, \\
