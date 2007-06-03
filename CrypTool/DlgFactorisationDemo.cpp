@@ -189,8 +189,12 @@ void CDlgFactorisationDemo::OnButtonFactorisation()
 {
 	int i, started;
 	CString name;
+
+
+	// differ between English and German version ("quadratisches Sieb" <-> "quadratic sieve")
+	LoadString(AfxGetInstanceHandle(), IDS_QUADRATIC_SIEVE, pc_str, STR_LAENGE_STRING_TABLE);
 	CTutorialFactorisation Brent(0,"Brent"), Pollard(1,"Pollard"), 
-			Williams(2,"Williams"), Lenstra(3,"Lenstra"), QSieve(4,"Quadratic Sieve");
+			Williams(2,"Williams"), Lenstra(3,"Lenstra"), QSieve(4, pc_str);
 
 //	Da man die gesamte Laufzeit braucht, wurden die folgenden Deklaration global gemacht!!
 //	clock_t FactStart;

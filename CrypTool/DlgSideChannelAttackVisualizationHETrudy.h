@@ -94,6 +94,8 @@ protected:
 private:
 	CWnd* parent;
 	int significantBits;
+public:
+	afx_msg void OnBnClickedOk();
 };
 
 //{{AFX_INSERT_LOCATION}}
