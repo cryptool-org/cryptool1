@@ -116,8 +116,7 @@ void CDlgFindAndReplace::DoFindReplace(bool replace, bool all)
 	UpdateData(true);
 	// store find term
 	addFindTerm(textFind);
-	if (replace)
-		addReplaceTerm(textReplace);
+	addReplaceTerm(textReplace);
 	
 	CWnd *pWndTmp = theApp.GetMainWnd(); ASSERT(pWndTmp); // CMainFrame
 	pWndTmp = pWndTmp->GetTopWindow(); ASSERT(pWndTmp); // ?? CWnd
