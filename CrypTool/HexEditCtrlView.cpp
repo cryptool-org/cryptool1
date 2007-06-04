@@ -93,9 +93,7 @@ BEGIN_MESSAGE_MAP(CHexEditCtrlView, CHexEditBaseView)
 	ON_COMMAND(ID_ENTROPY, OnEntropy)
 	ON_COMMAND(ID_HISTOGRAM, OnHistogram)
 	ON_COMMAND(ID_TOTXT, OnTotxt)
-#if 0 // LATER  FIXME 
 	ON_COMMAND(ID_EDIT_FIND, OnEditFind)
-#endif
 END_MESSAGE_MAP()
 
 

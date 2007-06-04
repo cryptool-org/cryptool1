@@ -2135,42 +2135,53 @@ void CHexEditBase::OnEditPaste()
 		}
 	}
 
-	BYTE *pTarget = m_pData;
-	UINT nTargetLength = m_nLength - nReplaceLength + nSourceByteLength;
+	if (!PrepareReplace(nPasteAdr, nReplaceLength, nSourceByteLength)) {
+		::GlobalUnlock(hClipData);
+		return;
+	}
+	if (doHexdecode)
+		hexDecode(m_pData+nPasteAdr, pSource, nSourceByteLength);
+	else
+		memcpy(m_pData+nPasteAdr, pSource, nSourceByteLength);
+	::GlobalUnlock(hClipData);
+}
+
+// Prepare replacing [pos, pos+oldlen] with new content of newlen bytes
+// Allocates new storage if required and returns false if that fails
+// Does not copy the new content, only makes (ininitialized) room for it
+bool CHexEditBase::PrepareReplace(UINT pos, UINT oldlen, UINT newlen) 
+{
+	UINT nTargetLength = m_nLength - oldlen + newlen;
+	BYTE * pTarget = m_pData;
 	if (nTargetLength > m_nCapacity) {
 		pTarget = new BYTE[nTargetLength];
-		if (!pTarget) {
-			::GlobalUnlock(hClipData);
-			return;
-		}
-		if (nPasteAdr > 0) 
-			memcpy(pTarget,m_pData,nPasteAdr); // data before selection
+		if (!pTarget) 
+			return false;
+		if (pos > 0) 
+			memcpy(pTarget, m_pData, pos); // data before selection
 	}
-	if (m_nLength - (nPasteAdr + nReplaceLength) > 0)
-		memmove(pTarget  + nPasteAdr + nSourceByteLength, 
-				m_pData  + nPasteAdr + nReplaceLength, 
-				m_nLength - (nPasteAdr + nReplaceLength)); // move data behind paste area to target position
-	if (doHexdecode)
-		hexDecode(pTarget+nPasteAdr,pSource, nSourceByteLength);
-	else
-		memcpy(pTarget+nPasteAdr, pSource, nSourceByteLength);
-	::GlobalUnlock(hClipData);
+	if (m_nLength - (pos + oldlen) > 0)
+		memmove(pTarget  + pos + newlen, 
+				m_pData  + pos + oldlen, 
+				m_nLength - (pos + oldlen)); // move data behind paste area to target position
 	if (pTarget != m_pData) {
 		if (m_bDeleteData)
 			delete []m_pData;
 		m_pData = pTarget;
+		m_bDeleteData = true;
 		m_nCapacity = nTargetLength;
 	}
 	if (m_nLength != nTargetLength) {
 		m_bRecalc = true;
 		m_nLength = nTargetLength;
 	}
-	m_bRecalc = true;
-	MakeVisible(nPasteAdr+nSourceByteLength, nPasteAdr+nSourceByteLength, true);
+	//m_bRecalc = true;
+	MakeVisible(pos+newlen, pos+newlen, true);
 	SetSelection(NOSECTION_VAL, NOSECTION_VAL, true, false);
-	SetEditCaretPos(nPasteAdr+nSourceByteLength, true);
+	SetEditCaretPos(pos+newlen, true);
 	NotifyParent(HEN_CHANGE);
 	Invalidate();
+	return true;
 }
 
 void CHexEditBase::OnEditClear() 
@@ -2482,6 +2493,79 @@ void CHexEditBase::SetNotUsedCol(COLORREF tNotUsedBkCol, bool bUpdate)
 	}
 }
 
+LPCSTR memfind(LPCSTR pattern, size_t patternlength, LPCSTR text, size_t textlength) {
+	if (patternlength > textlength)
+		return NULL;
+	LPCSTR searchend = text + textlength - patternlength;
+	while (text <= searchend) {
+		if (0 == memcmp(pattern, text, patternlength))
+			return text;
+		text++;
+	}
+	return NULL;
+}
+
+LPCSTR memifind(LPCSTR pattern, size_t patternlength, LPCSTR text, size_t textlength) {
+	if (patternlength > textlength)
+		return NULL;
+	LPCSTR searchend = text + textlength - patternlength;
+	while (text <= searchend) {
+		if (0 == _memicmp(pattern, text, patternlength))
+			return text;
+		text++;
+	}
+	return NULL;
+}
+
+bool CHexEditBase::Search(LPCSTR pattern, size_t length, UINT flags)
+{
+	bool matchcase = (flags & HE_FIND_MATCHCASE) != 0;
+	UINT i;
+	if (IsSelection()) {
+		UINT dummy;
+		GetSelection(i,dummy);
+		if ((flags & HE_FIND_NOSKIP) == 0)
+			i++; // skip the first char of a selection (to enable repeated search) unless HE_FIND_NOSKIP
+	} else
+		i = m_nCurrentAddress;
+	LPCSTR text = (LPCSTR)m_pData;
+	LPCSTR found = NULL;
+	if (i >= m_nLength)
+		i = m_nLength;
+	if (matchcase)
+		found = memfind(pattern, length, text + i, m_nLength - i);
+	else
+		found = memifind(pattern, length, text + i, m_nLength - i);
+	if (found == NULL)
+		return false;
+	UINT foundAddress = found - text;
+	SetSelection(foundAddress, length == 0 ? foundAddress : foundAddress + length - 1);
+	return true;
+}
+
+bool CHexEditBase::ReplaceSelection(LPCSTR data, size_t length)
+{
+	if (!IsSelection())
+		return false;
+	UINT start, end;
+	GetSelection(start, end);
+	if (!PrepareReplace(start, end - start + 1, length))
+		return false;
+	if (length > 0)
+		memcpy(m_pData + start, data, length);
+	return true;
+}
+
+int CHexEditBase::ReplaceAll(LPCSTR pfind, size_t findlen, LPCSTR preplace, size_t replacelen, UINT searchflags)
+{
+	int count = 0;
+	while (Search(pfind, findlen, searchflags)) {
+		if (!ReplaceSelection(preplace, replacelen))
+			break;
+		count++;
+	}
+	return count;
+}
 
 
 ///////////////////////////////////////////////////////////////////////////

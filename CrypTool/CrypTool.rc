@@ -6050,7 +6050,7 @@ BEGIN
         MENUITEM "Ein&fügen\tStrg+V",           ID_EDIT_PASTE
         MENUITEM "&Löschen\tEntf",              ID_EDIT_CLEAR
         MENUITEM SEPARATOR
-        MENUITEM "&Suchen/Ersetzen...",         ID_EDIT_FIND, GRAYED
+        MENUITEM "&Suchen/Ersetzen...",         ID_EDIT_FIND
         MENUITEM "Suche &nächstes\tF3",         ID_EDIT_REPEAT
         MENUITEM SEPARATOR
         MENUITEM "Alles &markieren\tStrg+A",    ID_EDIT_SELECT_ALL
@@ -17724,7 +17724,7 @@ BEGIN
         MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
         MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR
         MENUITEM SEPARATOR
-        MENUITEM "&Find/Replace...",            ID_EDIT_FIND, GRAYED
+        MENUITEM "&Find/Replace...",            ID_EDIT_FIND
         MENUITEM "Find &Next\tF3",              ID_EDIT_REPEAT
         MENUITEM SEPARATOR
         MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECT_ALL

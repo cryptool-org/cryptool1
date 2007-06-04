@@ -76,6 +76,11 @@ public:
 	afx_msg void OnBnClickedButtonReplace();
 	afx_msg void OnBnClickedButtonReplaceAll();
 
+	void OnBnClickedButtonFind(bool replace, bool all);
+	void DoFindReplace(bool replace, bool all);
+	void DoFindReplaceScintilla(CWnd *pWindow, bool replace, bool all);
+	void DoFindReplaceHexEdit(CWnd *pWindow, bool replace, bool all);
+
     CString textFind;
 	CString textReplace;
 

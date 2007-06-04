@@ -98,175 +98,148 @@ END_MESSAGE_MAP()
 
 void CDlgFindAndReplace::OnBnClickedButtonFind()
 {
+	DoFindReplace(false, false);
+}
+
+void CDlgFindAndReplace::OnBnClickedButtonReplace()
+{
+	DoFindReplace(true, false);
+}
+
+void CDlgFindAndReplace::OnBnClickedButtonReplaceAll()
+{
+	DoFindReplace(true, true);
+}
+
+void CDlgFindAndReplace::DoFindReplace(bool replace, bool all)
+{
 	UpdateData(true);
 	// store find term
 	addFindTerm(textFind);
+	if (replace)
+		addReplaceTerm(textReplace);
 	
-	// get run time class information of current window (CScintillaView or CHexEditCtrlView)
-	CRuntimeClass *pRunTimeClassText = RUNTIME_CLASS(CScintillaView);
-	CRuntimeClass *pRunTimeClassHex = RUNTIME_CLASS(CHexEditCtrlView);
-
+	CWnd *pWndTmp = theApp.GetMainWnd(); ASSERT(pWndTmp); // CMainFrame
+	pWndTmp = pWndTmp->GetTopWindow(); ASSERT(pWndTmp); // ?? CWnd
+	pWndTmp = pWndTmp->GetTopWindow(); // CMDIChildWnd
 	// do nothing if there's no window opened (prevent segmentation faults)
-	if(!theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()) 
+	if (!pWndTmp) 
 		return;
+	CWnd *pWndView = pWndTmp->GetTopWindow(); // CView
 
-	if(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->IsKindOf(pRunTimeClassText))
+	if (pWndView->IsKindOf(RUNTIME_CLASS(CScintillaView)))
 	{
-		// *******************
-		// *** TEXT FORMAT ***
-		// *******************
-
-		// pointer to the actual Scintilla window (CScintillaWnd)
-		CScintillaWnd *pWindow = (CScintillaWnd*)theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->GetTopWindow();
-		if(!pWindow) return;
-
-		int searchflags = 0;
-		if(theApp.findAndReplaceDialog.checkCaseSensitive) searchflags |= SCFIND_MATCHCASE;
-		if(theApp.findAndReplaceDialog.checkRegularExpressions) searchflags |= SCFIND_REGEXP;
-		pWindow->SetSearchflags(searchflags);
-		pWindow->SearchForward(theApp.findAndReplaceDialog.textFind.GetBuffer());
+		DoFindReplaceScintilla(pWndView->GetTopWindow(), replace, all);
 	}
-	else if(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->IsKindOf(pRunTimeClassHex))
+	else if (pWndView->IsKindOf(RUNTIME_CLASS(CHexEditCtrlView)))
 	{
-		// ******************
-		// *** HEX FORMAT ***
-		// ******************
-		
-		// TODO...
-		LoadString(AfxGetInstanceHandle(), IDS_FINDANDREPLACE_HEXNOTIMPLEMENTED, pc_str, STR_LAENGE_STRING_TABLE);
-        MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
-		return;
+		DoFindReplaceHexEdit(pWndView->GetTopWindow(), replace, all);
 	} 
 
 	// update find and replace terms
 	insertOldFindAndReplaceTerms();
 }
 
-void CDlgFindAndReplace::OnBnClickedButtonReplace()
+void CDlgFindAndReplace::DoFindReplaceScintilla(CWnd *pWnd, bool replace, bool all)
 {
-	UpdateData(true);
-	// store find and replace terms
-	addFindTerm(textFind);
-	addReplaceTerm(textReplace);
+	ASSERT(pWnd);
 
-	// get run time class information of current window (CScintillaView or CHexEditCtrlView)
-	CRuntimeClass *pRunTimeClassText = RUNTIME_CLASS(CScintillaView);
-	CRuntimeClass *pRunTimeClassHex = RUNTIME_CLASS(CHexEditCtrlView);
-
-	// do nothing if there's no window opened (prevent segmentation faults)
-	if(!theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()) return;
-
-	if(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->IsKindOf(pRunTimeClassText))
-	{
-		// *******************
-		// *** TEXT FORMAT ***
-		// *******************
-		CScintillaWnd *pWindow = (CScintillaWnd*)theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->GetTopWindow();
-		if(!pWindow) return;
-
-		int searchflags = 0;
-		if(theApp.findAndReplaceDialog.checkCaseSensitive) searchflags |= SCFIND_MATCHCASE;
-		if(theApp.findAndReplaceDialog.checkRegularExpressions) searchflags |= SCFIND_REGEXP;
-		pWindow->SetSearchflags(searchflags);
-
-		char *ttf = theApp.findAndReplaceDialog.textFind.GetBuffer();
+	CScintillaWnd *pWindow = (CScintillaWnd*)pWnd;
+	CString msg;
+	int searchflags = 0;
+	if (checkCaseSensitive) searchflags |= SCFIND_MATCHCASE;
+	if (checkRegularExpressions) searchflags |= SCFIND_REGEXP;
+	pWindow->SetSearchflags(searchflags);
+	char *ttf = textFind.GetBuffer();
+	char *ttr = textReplace.GetBuffer();
+	if (replace && !all) {
 		long pStart = pWindow->GetSelectionStart();
 		long pEnd   = pWindow->GetSelectionEnd();
 
-		if ( pStart == pEnd && FALSE == pWindow->SearchForward(ttf) )
+		if ( pStart == pEnd && !pWindow->SearchForward(ttf) )
 		{
-			LoadString(AfxGetInstanceHandle(), IDS_FINDANDREPLACE_TEXTNOTFOUND, pc_str, STR_LAENGE_STRING_TABLE);
-			MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
+			msg.Format(IDS_FINDANDREPLACE_TEXTNOTFOUND);
+			MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
 			return;
 		}
 
-		pWindow->ReplaceSearchedText(theApp.findAndReplaceDialog.textReplace.GetBuffer());
+		pWindow->ReplaceSearchedText(ttr);
 
-		if ( FALSE == pWindow->SearchForward(ttf) )
+		if ( !pWindow->SearchForward(ttf) )
 		{
-			LoadString(AfxGetInstanceHandle(), IDS_FINDANDREPLACE_TEXT_FINISHED, pc_str, STR_LAENGE_STRING_TABLE);
-			MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
+			msg.Format(IDS_FINDANDREPLACE_TEXT_FINISHED);
+			MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
 			return;
 		}
-	}
-	else if(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->IsKindOf(pRunTimeClassHex))
-	{
-		// ******************
-		// *** HEX FORMAT ***
-		// ******************
-		
-		// TODO...
-		LoadString(AfxGetInstanceHandle(), IDS_FINDANDREPLACE_HEXNOTIMPLEMENTED, pc_str, STR_LAENGE_STRING_TABLE);
-        MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
-		return;
-	}
-
-	// update find and replace terms
-	insertOldFindAndReplaceTerms();
-}
-
-void CDlgFindAndReplace::OnBnClickedButtonReplaceAll()
-{
-	UpdateData(true);
-	// store find and replace terms
-	addFindTerm(textFind);
-	addReplaceTerm(textReplace);
-
-	// get run time class information of current window (CScintillaView or CHexEditCtrlView)
-	CRuntimeClass *pRunTimeClassText = RUNTIME_CLASS(CScintillaView);
-	CRuntimeClass *pRunTimeClassHex = RUNTIME_CLASS(CHexEditCtrlView);
-
-	// do nothing if there's no window opened (prevent segmentation faults)
-	if(!theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()) return;
-
-	if(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->IsKindOf(pRunTimeClassText))
-	{
-		// *******************
-		// *** TEXT FORMAT ***
-		// *******************
-
-		CScintillaWnd *pWindow = (CScintillaWnd*)theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->GetTopWindow();
-		if(!pWindow) return;
-
-		char *ttf = theApp.findAndReplaceDialog.textFind.GetBuffer();
-		char *ttr = theApp.findAndReplaceDialog.textReplace.GetBuffer();
-
-		int searchflags = 0;
-		if(theApp.findAndReplaceDialog.checkCaseSensitive) searchflags |= SCFIND_MATCHCASE;
-		if(theApp.findAndReplaceDialog.checkRegularExpressions) searchflags |= SCFIND_REGEXP;
-		pWindow->SetSearchflags(searchflags);
+	} else if (replace && all) {
 		int noCnt = pWindow->ReplaceAll(ttf, ttr, FALSE);
 
 		// how often was the desired text replaced?
 		if(!noCnt)
 		{
-			LoadString(AfxGetInstanceHandle(), IDS_FINDANDREPLACE_TEXTNOTFOUND, pc_str, STR_LAENGE_STRING_TABLE);
-			MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
+			msg.Format(IDS_FINDANDREPLACE_TEXTNOTFOUND);
+			MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
 			return;
 		}
 		else
 		{
-            LoadString(AfxGetInstanceHandle(), IDS_FINDANDREPLACE_TEXTOCCURANCESREPLACED, pc_str, STR_LAENGE_STRING_TABLE);
-			char temp[STR_LAENGE_STRING_TABLE+20];
-			sprintf(temp, pc_str, noCnt);
-			MessageBox(temp, "CrypTool", MB_ICONINFORMATION);
+            msg.Format(IDS_FINDANDREPLACE_TEXTOCCURANCESREPLACED, noCnt);
+			MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
 			return;
 		}
+	} else { // !replace -> search
+		pWindow->SearchForward(ttf); // FIXME: truncates at \0
 	}
-	else if(theApp.GetMainWnd()->GetTopWindow()->GetTopWindow()->GetTopWindow()->IsKindOf(pRunTimeClassHex))
-	{
-		// ******************
-		// *** HEX FORMAT ***
-		// ******************
-		
-		// TODO...
-		LoadString(AfxGetInstanceHandle(), IDS_FINDANDREPLACE_HEXNOTIMPLEMENTED, pc_str, STR_LAENGE_STRING_TABLE);
-        MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
-		return;
-	}
+	textFind.ReleaseBuffer(); ttf = 0;
+	textReplace.ReleaseBuffer(); ttr = 0;
+}
 
-	// update find and replace terms
-	insertOldFindAndReplaceTerms();
+void CDlgFindAndReplace::DoFindReplaceHexEdit(CWnd *pWnd, bool replace, bool all)
+{
+	ASSERT(pWnd);
+
+	CHexEditBase *pWindow = (CHexEditBase*)pWnd;
+	CString msg;
+	int searchflags = 0;
+	if (checkCaseSensitive) searchflags |= HE_FIND_MATCHCASE;
+	if (checkRegularExpressions) searchflags |= HE_FIND_REGEXP;
+
+	LPCSTR pfind = (LPCSTR)textFind;
+	int findlen = textFind.GetLength();
+	LPCSTR preplace = (LPCSTR)textReplace;
+	int replacelen = textReplace.GetLength();
+
+	if (replace && !all) {
+		if (!pWindow->Search(pfind, findlen, searchflags | HE_FIND_NOSKIP)) {
+			msg.Format(IDS_FINDANDREPLACE_TEXT_FINISHED);
+			MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
+			return;
+		}
+		pWindow->ReplaceSelection(preplace,replacelen);
+		if (!pWindow->Search(pfind, findlen, searchflags | HE_FIND_NOSKIP)) {
+			msg.Format(IDS_FINDANDREPLACE_TEXT_FINISHED);
+			MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
+			return;
+		}
+	} else if (replace && all) {
+		int noCnt = pWindow->ReplaceAll(pfind, findlen, preplace, replacelen, searchflags);
+
+		// how often was the desired text replaced?
+		if(!noCnt)
+		{
+			msg.Format(IDS_FINDANDREPLACE_TEXTNOTFOUND);
+			MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
+			return;
+		}
+		else
+		{
+            msg.Format(IDS_FINDANDREPLACE_TEXTOCCURANCESREPLACED, noCnt);
+			MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
+			return;
+		}
+	} else { // !replace -> search
+		pWindow->Search(pfind, findlen, searchflags);
+	}
 }
 
 // add FIND term to vector (no doubled entries)

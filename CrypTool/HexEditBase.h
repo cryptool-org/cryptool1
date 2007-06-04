@@ -69,6 +69,11 @@ statement from your version.
 // increase capacity by 1 + m_nCapacity/CAPACICTYINCDIVISOR when a character is appended/inserted
 #define CAPACICTYINCDIVISOR 8
 
+#define HE_FIND_MATCHCASE 1
+#define HE_FIND_REGEXP 2
+// don't skip the first char of the current select (standard behaviour to enable repeated search)
+#define HE_FIND_NOSKIP 4
+
 /////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
 // class CHexEditBase
@@ -112,6 +117,9 @@ public:
 	void SetContextCopyStr(const CString& cStr) { m_cContextCopy = cStr; }
 	void SetContextPasteStr(const CString& cStr) { m_cContextPaste = cStr; }
 	void Serialize(CArchive& ar);
+	bool Search(LPCSTR text, size_t length, UINT flags);
+	bool ReplaceSelection(LPCSTR text, size_t length);
+	int ReplaceAll(LPCSTR pfind, size_t findlen, LPCSTR preplace, size_t replacelen, UINT searchflags);
 
 	// quick and dirty: to access copy/paste functions from outside
 	void callOnEditCut() { OnEditCut(); }
@@ -121,6 +129,8 @@ public:
 	void callOnEditSelectAll() { OnEditSelectAll(); };
 
 protected:
+	bool PrepareReplace(UINT pos, UINT oldlen, UINT newlen); // Prepare replacing [pos, pos+oldlen] with new content of newlen bytes
+
 	struct PAINTINGDETAILS {
 		UINT nFullVisibleLines;
 		UINT nLastLineHeight;
