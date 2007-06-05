@@ -57,13 +57,17 @@ die Fortschritte den letzten 30 Jahre bei der Faktorisierung von
 RSA-Moduln. Diese beruhen sowohl auf bahnbrechenden mathematischen
 Ideen, zum Beispiel der Entwicklung des Zahlkörpersiebs durch John Pollard,
 als auch auf bedeutenden Fortschritten in der Computer- und
-Implementierungstechnik.
+Implementierungstechnik.\footnote{%
+Vergleiche Kapitel \ref{SecurityRSA}
+\hyperlink{SecurityRSA}{Zur Sicherheit des RSA-Verfahrens}, und
+speziell die Kapitel \ref{NoteFactorisation} und \ref{FactorisationResearch}.
+}
 
-Lenstra und Verheul entwickelten 2000 eine Interpolationsformel zur
-Voraussage der Sicherheit\index{Sicherheit!Voraussage} von RSA
-und anderen wichtigen
-kryptographischen Verfahren (vgl.\ \url{www.keylength.com}). Dieser
-Formel zufolge muss man derzeit schon 850-stellige RSA-Moduln verwenden,
+Lenstra und Verheul\index{Lenstra/Verheul} entwickelten 2000 eine
+Interpolationsformel zur Voraussage der Sicherheit\index{Sicherheit!Voraussage}
+von RSA und anderen wichtigen kryptographischen Verfahren
+(vgl.\ \url{www.keylength.com}). Dieser Formel zufolge muss man
+derzeit schon 850-stellige RSA-Moduln verwenden,
 um Sicherheit für die nächsten dreißig Jahre zu gewährleisten.
 
 Aber auch eine solche Interpolationsformel ist keine
@@ -75,9 +79,30 @@ Gesetze der Quantenmechanik ausnutzt -- große Zahlen im Prinzip sehr
 schnell faktorisieren könnte \cite{shor:1997}. Trotz intensiver
 Forschungsbemühungen ist es aber auch heute noch unklar, ob sich jemals
 hinreichend leistungsfähige Quantencomputer\index{Quantencomputer}
-bauen lassen.  Verlautbarungen der
-Start-up-Firma D-Wave (\url{www.dwavesys.com}) trafen auf verbreitete
-Skepsis, ja Spott.
+bauen lassen.\footnote{%
+Benötigte qbits für Angriffe auf RSA, DSA und ECDSA für Schlüssel
+der Bit-Länge n: \\
+\vskip +1 pt
+\begin{tabular}{|c|l|}
+\hline
+   RSA		&  2n + 3 \\
+   DSA		&  2n + 3 \\
+   ECDSA $2^n$	&  \~{}2n + 8 log n \\
+   ECDSA p	&  \~{}6n \\
+\hline
+\end{tabular}
+\vskip +6 pt
+Vergleiche Kap. 5.3 in
+\glqq SicAri -- Eine Sicherheitsplattform und deren Werkzeuge
+für die ubiquitäre Internetnutzung, KB2.1 -- Abschlussbericht,
+Übersicht über Angriffe auf relevante kryptographische Verfahren\grqq,
+Version 1.0, 17. Mai 2005,
+Prof. Dr. Johannes Buchmann et al., TUD-KryptC und cv cryptovision GmbH
+(\href{http://www.cdc.informatik.tu-darmstadt.de/~schepers/kb\_21\_angriffe.pdf}
+ {\tt http://www.cdc.informatik.tu-darmstadt.de/\~{}schepers/kb\_21\_angriffe.pdf}).
+}
+Aktuelle Verlautbarungen der Start-up-Firma D-Wave (\url{www.dwavesys.com})
+trafen auf verbreitete Skepsis, ja Spott.
 
 Analog zu RSA verläuft die Entwicklung bei Angriffen
 auf die meistverwendeten Public-Key-Alternativen:

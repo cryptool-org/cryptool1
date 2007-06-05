@@ -1543,7 +1543,8 @@ Die Voraussetzung/Bedingung ggT$(7,46)=1$ ist erfüllt.
 %\newpage                                                                       
 {
 \subsubsection*{Tabelle 6: Werte von $a^i{\rm ~mod~}46, 1\leq a,i<23$:}
-\textmd \small \label{SrcArith3c}
+\label{SrcArith3c}
+\textmd \small 
 \begin{center}
 \vspace{-5ex}
 \begin{tabular}{|p{16 pt}||@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|c|}
@@ -1625,9 +1626,10 @@ Die multiplikative Gruppe $Z_n^*$ nimmt alle Werte von $1$ bis $n-1$ an.
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%\hypertarget{Chapter_ElementaryNT_10}{}
 \hypertarget{RSABeweis}{} 
 \subsection{Beweis des RSA-Verfahrens mit Euler-Fermat}
-\label{rsabeweis}
+\index{RSA}\label{rsabeweis}
 Mit dem Satz von Euler-Fermat kann man in der Gruppe $\mathbb{Z}_n^*$ das 
 RSA\footnote{%
 Das RSA-Verfahren\index{RSA} ist das verbreitetste asymmetrische \index{Verschlüsselung!asymmetrisch} Kryptoverfahren. Es
@@ -1894,14 +1896,14 @@ $$
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\hypertarget{SecurityRSA}{}
 \subsection[Zur Sicherheit des RSA-Verfahrens]
 {Zur Sicherheit des RSA-Verfahrens\footnotemark}
     \footnotetext{%
     Große Teile der Kapitel \ref{complexity} und \ref{chptSecurityParam}
     sind angelehnt an den Artikel \glqq Vorzüge und Grenzen des
     RSA-Verfahrens\grqq von F. Bourseau, D. Fox und C. Thiel 
-    \cite{Bourseau2002}.
-             }
+    \cite{Bourseau2002}.}
     \label{SecurityRSA}
 
 Die Eignung des RSA-Verfahrens für digitale Signaturen und Verschlüsselung gerät immer wieder in die Diskussion, 
@@ -2164,16 +2166,23 @@ Hält die Prognose, dann ist die Faktorisierung eines RSA-Moduls der Länge
 
 Ausführliche Übersichten über die Rekorde im Faktorisieren
 zusammengesetzter Zahlen \index{Faktorisierung!Faktorisierungsrekorde}
-mit unterschiedlichen Methoden finden sich auf den Webseiten 
-\href{http://www.crypto-world.com}{\texttt{http://www.crypto-world.com}}
-und
-\href{http://www.tutorgig.com/ed/RSA\_number}{\texttt{http://www.tutorgig.com/ed/RSA\_number}}\footnote{%
-Diese Seite war Ende Mai 2005 nicht ganz auf dem aktuellen Stand: RSA-200 fehlte.}. 
+mit unterschiedlichen Methoden finden sich auf den folgenden Webseiten:
+\vspace{-10pt}
+\begin{itemize}
+\item[]
+     \href{http://www.crypto-world.com}
+  {\texttt{http://www.crypto-world.com}} \\
+     \href{http://www.tutorgig.com/ed/RSA\_number}
+  {\texttt{http://www.tutorgig.com/ed/RSA\_number}}  ~~ The RSA Factoring Challenge \\
+%  {\texttt{http://www.tutorgig.com/ed/RSA\_number}}\footnote{%
+%Diese Seite war Ende Mai 2005 nicht ganz auf dem aktuellen Stand: RSA-200 fehlte.}. \\
+     \href{http://en.wikipedia.org/wiki/Integer_factorization_records}
+  {\texttt{http://en.wikipedia.org/wiki/Integer\_factorization\_records}}
+\end{itemize}
 
-\vskip +10pt
 Der aktuelle Rekord (Stand Mai 2005) mit der GNFS-Methode (General Number
 Field Sieve) \index{General Number Field Sieve (GNFS)} liegt in der Zerlegung
-einer $200$-stelligen Dezimalzahl in ihre beiden Primfaktoren.
+einer allgemeinen $200$-stelligen Dezimalzahl in ihre beiden Primfaktoren.
 
 \vskip +10pt
 Die letzten Rekorde\footnote{%
@@ -2222,8 +2231,7 @@ sind in der folgenden Tabelle aufgeführt:
 	C307 & 		307 & 1017 & & Mai, 2007 & Jens Franke et al. \\
 \hline
 \end{tabular}
-\caption{Die derzeitigen Faktorisierungsrekorde für allgemeine Zahlen
-(Stand November 2005)}    % Eyecatcher_neue-Mersenne
+\caption{Die derzeitigen Faktorisierungsrekorde (Stand Juni 2007)}    % Eyecatcher_neue-Mersenne
 \end{center}
 \end{table}
 \footnotetext{%
@@ -2242,6 +2250,19 @@ Siehe:
 
 
 Im Folgenden werden diese letzten Rekorde etwas ausführlicher erläutert.
+Die beiden dabei benutzten Methoden GNFS und SNFS werden kurz z.B. auf
+den ff. Webseiten dargestellt:
+\index{General Number Field Sieve (GNFS)}
+\index{Special Number Field Sieve (SNFS)}
+\vspace{-10pt}
+\begin{itemize}
+\item[]
+      \href{http://en.wikipedia.org/wiki/Special_number_field_sieve}
+   {\texttt{http://en.wikipedia.org/wiki/Special\_number\_field\_sieve}} \\
+      \href{http://en.wikipedia.org/wiki/General_number_field_sieve}
+   {\texttt{http://en.wikipedia.org/wiki/General\_number\_field\_sieve}}
+\end{itemize}
+%\vspace{-10pt}
 
 
 % --------------------------------------------------------------------------
@@ -2249,7 +2270,7 @@ Im Folgenden werden diese letzten Rekorde etwas ausführlicher erläutert.
 \paragraph{RSA-155} \label{RSA-155} \index{RSA-155} 
 \mbox{} % für Zeilenumbruch, da er // allein nicht mag ! xxxxxxxxx
 
-Am 22. Oktober 1999 fanden niederländische Forscher die Lösung dieser 
+Am 22. August 1999 fanden niederländische Forscher die Lösung dieser 
 RSA-Challenge. Sie zerlegten eine $155$-stellige Zahl in ihre beiden $78$-stelligen
 Primfaktoren (vergleiche Kapitel \ref{chptSecurityParam}).
 Mit der $512$ Bit-Zahl RSA-155 war eine {\em magische} Grenze erreicht.
@@ -2343,6 +2364,7 @@ Verweise:
        {\texttt{http://www.crypto-world.com/announcements/c158.txt}}
 \end{itemize}
 \end{minipage}
+\vspace{24pt}
 
 
 
@@ -2503,8 +2525,7 @@ ausführt, in einem Jahr bewältigt. Zur Illustration: ein INTEL
 Pentium 100 Prozessor hat etwa 50 MIPS.
 Für die Zerlegung eines 2048-Bit-Moduls bräuchte man ca. {$8,5 \cdot 
 10^{40}$ MY}.}.
-
-
+\vspace{24pt}
 
 
 
@@ -2526,21 +2547,21 @@ eine $307$-stellige Dezimalzahl in ihre beiden Primfaktoren zerlegten
 
 Die Aufgabe der Wissenschaftler entsprang nicht einer Challenge, sondern
 die Aufgabe war, die letzten Primfaktoren der Mersenne-Zahl $2^{1039}+1$ 
-zu finden (siehe~ \glqq Wanted List\grqq~ des Cunningham-Projekts)\index{%
+zu finden (siehe~ \glqq Wanted List\grqq~ des Cunningham-Projekts\index{%
 Cunningham-Projekt}\footnote{%
 Cunningham-Projekt: \href{http://www.cerias.purdue.edu/homes/ssw/cun/}
                  {\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/}}\\
 Cunningham-Tabelle: \href{http://homes.cerias.purdue.edu/~ssw/cun/pmain1206}
-                 {\texttt{http://homes.cerias.purdue.edu/~ssw/cun/pmain1206}}\\
+                 {\texttt{http://homes.cerias.purdue.edu/\~{}ssw/cun/pmain1206}}\\
 Die Zahlen in der Cunningham-Tabelle werden folgendermaßen geschrieben:\\
 \glqq (2,n)-\grqq~ bedeutet $2^{n}-1$;~~~
 \glqq (2,n)+\grqq~ bedeutet $2^{n}+1$.\\
-Um die Größenordnung eine Zerlegung anzudeuten schreibt man pn oder cn,
-wobei n die Anzahl der Dezimalstellen ist und \glqq p\grqq~ und \glqq c\grqq~
+Um die Größenordnung einer Zerlegung anzudeuten schreibt man $p<n>$ oder $c<n>$,
+wobei \glqq n\grqq~ die Anzahl der Dezimalstellen ist und \glqq p\grqq~ und \glqq c\grqq~
 bedeuten, dass die Zahl eine Primzahl oder eine zusammengesetzte Zahl ist.\\
 $2^{1039}-1 = p7 * c307 = p7 * p80 * p227$ \\
 Genauer erklärt wird dies auf der CUN-Seite folgendermaßen:\\
-\glqq 2,651+ means $2^651 + 1$ and the size (c209 means 209 decimal digits)
+\glqq 2,651+ means $2^{651} + 1$ and the size (c209 means 209 decimal digits)
 of the
 number which was factored.  Then come the new factor(s), the discoverer and
 the method used.  Recently, only the multiple polynomial quadratic sieve
@@ -2548,26 +2569,26 @@ the method used.  Recently, only the multiple polynomial quadratic sieve
 have been used.  `hmpqs' stands for hypercube multiple polynomial quadratic
 sieve.  Under `new factors', `p90' means a 90-digit prime and `c201' is a
 201-digit composite number.\grqq. 
-}\\
+}).\\
 
 
 Die Zahl $2^{1039}-1$ besteht aus 3 Primfaktoren: Der kleinste Faktor
 $p7 = 5080711$ war schon länger bekannt.\footnote{%
 Er kann mit CrypTool\index{CrypTool} über das Menü 
 {\bf Einzelverfahren \textbackslash{} RSA-Kryptosystem \textbackslash{} 
-Faktorisieren einer Zahl gefunden werden: mit den Algorithmen von Brent
-Williams oder Lenstra, mit denen man gut "relativ" kleine Faktoren abspalten
-kann.}. \\
-In sinnvoller Zeit zerlegt CrypTool Zahlen bis 250 Bit Länge vollständig.
+Faktorisieren einer Zahl} gefunden werden --- mit den Algorithmen von Brent,
+Williams oder Lenstra, mit denen man gut \glqq relativ\grqq~ kleine Faktoren
+abspalten kann. \\
+In sinnvoller Zeit zerlegt CrypTool vollständig Zahlen bis 250 Bit Länge.
 }
 
-Zur vollständigen Faktorisierung musste der zweite Faktors (Koteiler) "`C307"'
+Zur vollständigen Faktorisierung musste der zweite Faktor (Koteiler) "`C307"'
 zerlegt werden: Bis dahin wusste man nur, dass er zusammengesetzt ist, aber man
 kannte weder die Anzahl seiner Primfaktoren, noch die Primfaktoren selbst.
-Die folgenden fünf Zeilen sind eine einzige Zahl: $C307 =$
+Die folgenden fünf Zeilen sind eine einzige Zahl:
 $$
 \begin{array}{c}
-1159420574072573064369807148876894640753899791702017724986868353538\\
+C307 =1159420574072573064369807148876894640753899791702017724986868353538\\
 8224838599667566080006095408005179472053993261230204874402860435302\\
 8619141014409345351233471273967988850226307575280937916602855510550\\
 0425810771176177610094137970787973806187008437777186828680889844712\\
@@ -2599,23 +2620,17 @@ Verweise:
 \vspace{-10pt}
 \begin{itemize}
 \item[]   \href{http://www.loria.fr/~zimmerma/records/21039-}
-       {\texttt{http://www.loria.fr/~zimmerma/records/21039-}} \\
+       {\texttt{http://www.loria.fr/\~{}zimmerma/records/21039-}} \\
           \href{http://www.crypto-world.com/announcements/m1039.txt}
        {\texttt{http://www.crypto-world.com/announcements/m1039.txt}} \\
           \href{http://www.crypto-world.com/FactorAnnouncements.html}
        {\texttt{http://www.crypto-world.com/FactorAnnouncements.html}} \\
           \href{http://www1.uni-bonn.de/pressDB/jsp/pressemitteilungsdetails.jsp?detailjahr=2007&detail=160}
-       {\texttt{http://www1.uni-bonn.de/pressDB/jsp/pressemitteilungsdetails.jsp?detailjahr=2007&detail=160}} \\
-
-
-http://en.wikipedia.org/wiki/Integer_factorization_records
-http://en.wikipedia.org/wiki/Special_number_field_sieve
-http://en.wikipedia.org/wiki/General_number_field_sieve
-
-
+       {\texttt{http://www1.uni-bonn.de/pressDB/jsp/pressemitteilungsdetails.jsp?}} \\
+          \href{http://www1.uni-bonn.de/pressDB/jsp/pressemitteilungsdetails.jsp?detailjahr=2007&detail=160}
+       {\texttt{\quad \quad \quad detailjahr=2007\&detail=160}}
 \end{itemize}
 \end{minipage}
-
 
 
 
@@ -2653,6 +2668,7 @@ $$ 663 ~~ \longleftrightarrow{} ~~ 30.402.457 ~~~~~$$
 % --------------------------------------------------------------------------
 \vskip +60pt
 \subsubsection{Weitere aktuelle Forschungsergebnisse zu Primzahlen und Faktorisierung}
+\label{FactorisationResearch}
 Primzahlen sind Teil vieler hochaktueller Forschungsgebiete der Zahlentheorie. 
 Die Fortschritte bei der Faktorisierung sind größ als noch vor 5 Jahren
 geschätzt -- sie gehen nicht nur auf das Konto schnellerer Rechner, 
@@ -3839,7 +3855,7 @@ des Padding sehr wichtig ist für interoperable Algorithmen.
          \href{http://www.crypto-world.com/}
            {\texttt{http://www.crypto-world.com/}} \\
          \href{http://www.crypto-world.com/FactorWorld.html}
-           {\texttt{http://www.crypto-world.com/FactorWorld.html, Webseite von Scott Contini}} \\
+           {\texttt{http://www.crypto-world.com/FactorWorld.html}}, Webseite von Scott Contini \\
          \href{http://www.loria.fr/~zimmerma/records/factor.html}
            {\texttt{http://www.loria.fr/\~{}zimmerma/records/factor.html}} \\
          \href{http://www.tutorgig.com/ed/RSA\_number}

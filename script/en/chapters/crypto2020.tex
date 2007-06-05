@@ -66,13 +66,18 @@ based on break-through mathematical ideas --- e.g.\
 the number field sieve proposed by John
 Pollard --- as well as significant developments in
 computer hardware and software implementation
-technology.
+technology.\footnote{%
+Please compare chapter \ref{SecurityRSA}
+\hyperlink{SecurityRSA}{Considerations regarding the
+security of the RSA algorithm}, and especailly chapters
+\ref{NoteFactorisation} and \ref{FactorisationResearch}.
+}
 
-In 2000, Lenstra and Verheul developed an
-extrapolation formula that is supposed to help us
-forecast the security\index{Security!forecast}
-one can achieve with RSA and
-other important cryptographic schemes in the long
+In 2000, Lenstra and Verheul\index{Lenstra/Verheul}
+developed an extrapolation formula that is supposed
+to help us forecast the security\index{Security!forecast}
+one can achieve with RSA and other important
+cryptographic schemes in the long
 term (\url{www.keylength.com}).  The formula
 suggests the use of 850 digit RSA moduli if one
 wishes to protect data for the next 30 years.
@@ -91,7 +96,28 @@ Despite intensive research in the area, it is
 still too early to judge whether we are ever going
 to be able to build quantum computers\index{Quantum computer} of
 sufficient capacity to apply Shor's algorithm to
-numbers of relevant size.  Recent announcements of
+numbers of relevant size.\footnote{%
+Required qbits for attacks on RSA, DSA and ECDSA using key with a bit length n: \\
+\vskip +1 pt
+\begin{tabular}{|c|l|}
+\hline
+   RSA		&  2n + 3 \\
+   DSA		&  2n + 3 \\
+   ECDSA $2^n$	&  \~{}2n + 8 log n \\
+   ECDSA p	&  \~{}6n \\
+\hline
+\end{tabular}
+\vskip +6 pt
+Please compare chapter 5.3 in
+``SicAri -- Eine Sicherheitsplattform und deren Werkzeuge
+für die ubiquitäre Internetnutzung, KB2.1 -- Abschlussbericht,
+Übersicht über Angriffe auf relevante kryptographische Verfahren'',
+version 1.0, Mai 17, 2005,
+Prof. Dr. Johannes Buchmann et al., TUD-KryptC and cv cryptovision GmbH
+(\href{http://www.cdc.informatik.tu-darmstadt.de/~schepers/kb\_21\_angriffe.pdf}
+ {\tt http://www.cdc.informatik.tu-darmstadt.de/\~{}schepers/kb\_21\_angriffe.pdf}).
+}
+Recent announcements of
 significant progress in this area made by the
 start-up company D-Wave (\url{www.dwavesys.com})
 have been greeted with a lot of scepticism, even

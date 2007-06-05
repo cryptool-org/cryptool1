@@ -1395,8 +1395,9 @@ The requirement/condition $gcd(7,46)=1$ is fulfilled.
 %\newpage
 \pagebreak
 
-\subsubsection*{Table 6: Values of $a^i{\rm ~mod~}46, 1\leq a,i<23$:}\label{SrcArith3c}
-{ \textmd \small
+\subsubsection*{Table 6: Values of $a^i{\rm ~mod~}46, 1\leq a,i<23$:}
+\label{SrcArith3c}
+\textmd \small
 \begin{center}  
 \begin{tabular}{|p{16 pt}||@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|c|}
 \hline
@@ -1478,10 +1479,10 @@ The multiplicative group $Z_n^*$ contains all values from $1$ to $n-1$.
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \hypertarget{Chapter_ElementaryNT_10}{}
+\hypertarget{RSABeweis}{}
 \subsection{Proof of the RSA procedure with Euler-Fermat}
 \index{RSA}\label{rsabeweis}
-
-\hypertarget{RSABeweis} Using the Euler-Fermat theorem, we can ``prove'' the
+Using the Euler-Fermat theorem, we can ``prove'' the
 RSA\footnote{The RSA procedure\index{RSA!RSA procedure} is the most
 common asymmetric cryptography procedure. Developed in 1978 by Ronald Rivest,
 Adi Shamir and Leonard Adleman, it can be used both for signatures and for
@@ -1713,13 +1714,13 @@ $$
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\hypertarget{SecurityRSA}{}
 \subsection[Considerations regarding the security of the RSA algorithm]
 {Considerations regarding the security of the RSA algorithm\footnotemark}
     \footnotetext{Major
     parts of chapters \ref{complexity} and \ref{chptSecurityParam} follow
     the article ``Vorz\"uge und Grenzen des RSA-Verfahrens'' written by
-    F.~Bourseau, D.~Fox and C.~Thiel \cite{Bourseau2002}
-             }
+    F.~Bourseau, D.~Fox and C.~Thiel \cite{Bourseau2002}.}
     \label{SecurityRSA}
 
 There have always been discussions about the suitability of the RSA
@@ -1948,18 +1949,24 @@ of 1024 bit can be expected in 15 years.
 \subsubsection{Status regarding factorisation of concrete large numbers}
 \label{NoteFactorisation}
 
+An exhaustive overview about the factoring records
+\index{Factorisation!factoring records} of composed integers using different
+methods can be found on the following web pages:
+\vspace{-10pt}
+\begin{itemize}
+\item[]
+     \href{http://www.crypto-world.com}
+  {\texttt{http://www.crypto-world.com}} \\
+     \href{http://www.tutorgig.com/ed/RSA\_number}
+  {\texttt{http://www.tutorgig.com/ed/RSA\_number}}  ~~ The RSA Factoring Challenge \\
+     \href{http://en.wikipedia.org/wiki/Integer_factorization_records}
+  {\texttt{http://en.wikipedia.org/wiki/Integer\_factorization\_records}}
+\end{itemize}
+%\footnote{%
+%This site was not quite up-to-date end of May 2005: RSA-200 was missing.}
 
-
-An exhaustive overviews about the factoring records\index{Factorisation!factoring records} of 
-composed integers using different methods can be found on the following web pages:\\
-\href{http://www.crypto-world.com}{\texttt{http://www.crypto-world.com}}\ 
-and
-\href{http://www.tutorgig.com/ed/RSA\_number}{\texttt{http://www.tutorgig.com/ed/RSA\_number}}\footnote{%
-This site was not quite up-to-date end of May 2005: RSA-200 was missing.}
-
-\vskip +10pt
 The current record (as of May 2005) obtained using the GNFS method
-(General Number Field Sieve) factorised a 200 decimal digit into its
+(General Number Field Sieve) factorised a general 200 decimal digit into its
 both prime factors.
 
 \vskip +10pt
@@ -2009,7 +2016,7 @@ listed in the following table:
 	C307 & 		307 & 1017 & & May, 2007 & Jens Franke et al. \\
 \hline
 \end{tabular}
-\caption{The current general purpose factoring records (as of November 2005)}    % Eyecatcher_neue-Mersenne 
+\caption{The current factoring records (as of June 2007)}    % Eyecatcher_neue-Mersenne 
 \end{center}
 \end{table} 
 \footnotetext{%
@@ -2027,6 +2034,20 @@ See:
 
 
 Below the last records are explained in more detail.
+The two methods, GNFS and SNFS, used to do so are shortly illustrated at the 
+following web pages:
+\index{General Number Field Sieve (GNFS)}
+\index{Special Number Field Sieve (SNFS)}
+\vspace{-10pt}
+\begin{itemize}
+\item[]
+      \href{http://en.wikipedia.org/wiki/Special_number_field_sieve}
+   {\texttt{http://en.wikipedia.org/wiki/Special\_number\_field\_sieve}} \\
+      \href{http://en.wikipedia.org/wiki/General_number_field_sieve}
+   {\texttt{http://en.wikipedia.org/wiki/General\_number\_field\_sieve}}
+\end{itemize}
+%\vspace{-10pt}
+
 
 
 % --------------------------------------------------------------------------
@@ -2084,7 +2105,7 @@ T.~Grandlund\footnote{\href{http://www.swox.se/gmp/}{\tt http://www.swox.se/gmp/
 and R. Harley during the years 1999 and 2000 using the elliptic curve factorisation method.
 
 The last remaining factor, called ``C158'', was known to be composite by
-then, but its factors where not known (the following 3 lines contain one number):
+then, but its factors were not known (the following 3 lines contain one number):
 $$
 \begin{array}{c}
 39505874583265144526419767800614481996020776460304936 \\
@@ -2112,8 +2133,8 @@ So now all 8 prime factors of $2^{953} - 1$ have been found.
 Links:
 \vspace{-10pt}
 \begin{itemize}
-\item[]   \href{http://www.loria.fr/~zimmerma/records/gnfs158}
-       {\texttt{http://www.loria.fr/~zimmerma/records/gnfs158}} \\
+\item[]   \href{http://www.loria.fr/~{}zimmerma/records/gnfs158}
+       {\texttt{http://www.loria.fr/~{}zimmerma/records/gnfs158}} \\
           \href{http://www.crypto-world.com/FactorRecords.html}
        {\texttt{http://www.crypto-world.com/FactorRecords.html}} \\
           \href{http://www.crypto-world.com/announcements/c158.txt}
@@ -2242,7 +2263,7 @@ if the machine constantly achieves one million integer operations per second (MI
 For illustration: a INTEL Pentium 100 processor achieves about 50 MIPS.
 To factorize a 2048 bit module it is estimated to need about {$8.5 \cdot
  10^{40}$ MY}. }.
-
+\vspace{24pt}
 
 
 
@@ -2253,82 +2274,99 @@ To factorize a 2048 bit module it is estimated to need about {$8.5 \cdot
 \paragraph{C307 / M1039} \label{C307} \index{C307} \index{M1039}\mbox{}
 \hypertarget{C307-chap3}{}
 
-On January 18, 2002 researchers at the German University of Bonn\footnote{%
-\href{http://www.ercim.org/publication/Ercim\_News/enw49/franke.html, 2002-01}
-{\texttt{http://www.ercim.org/publication/Ercim\_News/enw49/franke.html, 2002-01}}}
-factorised a 158-digit decimal number into its both prime factors (these are
-build with 73 and 86 decimal digits) using the GNFS method (General Number
-Field Sieve)\index{General Number Field Sieve (GNFS)}.
+In May 2007 Prof. Franke, Prof. Kleinjung (University of Bonn),
+the Japanese telecommunication company NTT and Prof. Arjen Lenstra
+(Polytechnical University of Lausanne) announced, that they managed to
+factorize a $307$ digit decimal number into its both prime factors
+with the SNFS method (Special Number Field Sieve)
+\index{Special Number Field Sieve (SNFS)} within 11 months
+(the two factors have 80 and 227 decimal digits).
 
-This record got much less attention within the press than the solution of
-RSA-155.
-
-The task of the researchers from Bonn was not initiated by a challenge, but
-they wanted to find the last prime factors of the integer $2^{953} - 1$
+The task of the researchers was not initiated by a challenge, but
+they wanted to find the last prime factors of the Mersenne number $2^{1039}+1$
 (see ``Wanted List'' of the Cunningham Project\index{%
 Cunningham project}\footnote{%
 Cunningham project: \href{http://www.cerias.purdue.edu/homes/ssw/cun/}
-                 {\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/}}}).
+                 {\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/}}\\
+Cunningham table: \href{http://homes.cerias.purdue.edu/~ssw/cun/pmain1206}
+                {\texttt{http://homes.cerias.purdue.edu/\~{}ssw/cun/pmain1206}}\\
+The numbers in the Cunningham table have the following syntax:\\
+``(2,n)-'' means $2^{n}-1$;~~~
+``(2,n)+'' means $2^{n}+1$.\\
+To describe the magnitude one writes $p<n>$ or $c<n>$: 
+``n'' is the number of decimal digits and ``p'' and ``c'' tell,
+whether the number is prime or composite.\\
+$2^{1039}-1 = p7 * c307 = p7 * p80 * p227$ \\
+It is explained more precisely at the CUN page:\\
+``2,651+ means $2^{651} + 1$ and the size (c209 means 209 decimal digits)
+of the
+number which was factored.  Then come the new factor(s), the discoverer and
+the method used.  Recently, only the multiple polynomial quadratic sieve
+(ppmpqs), the elliptic curve method (ecm) and the number field sieve (nfs)
+have been used.  `hmpqs' stands for hypercube multiple polynomial quadratic
+sieve.  Under `new factors', `p90' means a 90-digit prime and `c201' is a
+201-digit composite number.''.
+}).\\
 
-The 6 smaller prime factors, already found before have been:
-$$
-\begin{array}{c}
-3, 1907, 425796183929, \\
-1624700279478894385598779655842584377, \\
-3802306738549441324432139091271828121 \quad {\rm and} \\
-128064886830166671444802576129115872060027.
-\end{array}
-$$
-The first 3 factors can be easily computed\footnote{%
-E.g. using CrypTool\index{CrypTool} via menu 
+
+The number $2^{1039}-1$ consists of 3 prime factors: The smallest one, 
+$p7 = 5080711$ was already known.\footnote{%
+This one can also be found using CrypTool\index{CrypTool}  via menu 
 {\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} 
-Factorisation of a Number}. \\
+Factorisation of a Number} --- with the algorithms of Brent, Williams or
+Lenstra, which are ``relativ'' good to separate small factors. \\
 CrypTool can factorize in a reasonable time numbers no longer than 250 bit.
-Numbers bigger than 1024 bits are currently not accepted by CrypTool.
-}.
-The next three prime factors were found by P.~Zimmerman\footnote{%
-\href{http://www.loria.fr/~zimmerma/ecmnet}{\tt http://www.loria.fr/\~{}zimmerma/ecmnet}}, 
-T.~Grandlund\footnote{\href{http://www.swox.se/gmp/}{\tt http://www.swox.se/gmp/}}
-and R. Harley during the years 1999 and 2000 using the elliptic curve factorisation method.
+}
 
-The last remaining factor, called ``C158'', was known to be composite by
-then, but its factors where not known (the following 3 lines contain one number):
+
+To complete this the second factor (co-divider) ``C307'' had to be factorized:
+Till then it was only known, that the last remaining factor was composite,
+but it was unknown, how many prime factors it had and what are the prime factors.
+The following 5 lines contain one number:
 $$
 \begin{array}{c}
-39505874583265144526419767800614481996020776460304936 \\
-45413937605157935562652945068360972784246821953509354 \\
-4305870490251995655335710209799226484977949442955603
+C307 =1159420574072573064369807148876894640753899791702017724986868353538\\
+8224838599667566080006095408005179472053993261230204874402860435302\\
+8619141014409345351233471273967988850226307575280937916602855510550\\
+0425810771176177610094137970787973806187008437777186828680889844712\\
+822002935201806074755451541370711023817
 \end{array}
 $$
-The factorisation of C158 resulted in the following two 73- and 86-digit prime factors:
+The factorisation of C307 resulted in the following two 80- and 2276-digit prime factors:
 $$
 \begin{array}{c}
-3388495837466721394368393204672181522815830368604993048084925840555281177
+p80 = 558536666199362912607492046583159449686465270184\\
+      88637648010052346319853288374753
 \end{array}
 $$
 and
 $$
 \begin{array}{c}
-1165882340667125990314837655838327081813101 \\
-2258146392600439520994131344334162924536139.
+p227 = 207581819464423827645704813703594695162939708007395209881208\\
+       387037927290903246793823431438841448348825340533447691122230\\
+       281583276965253760914101891052419938993341097116243589620659\\
+       72167481161749004803659735573409253205425523689
+.
 \end{array}
 $$
-So now all 8 prime factors of $2^{953} - 1$ have been found.
+So now the number $2^{1039}-1$ is completely factorized in its 3 prime factors.
 
 \begin{minipage}{\textwidth}
 \vspace{3ex}
 Links:
 \vspace{-10pt}
 \begin{itemize}
-\item[]   \href{http://www.loria.fr/~zimmerma/records/gnfs158}
-       {\texttt{http://www.loria.fr/~zimmerma/records/gnfs158}} \\
-          \href{http://www.crypto-world.com/FactorRecords.html}
-       {\texttt{http://www.crypto-world.com/FactorRecords.html}} \\
-          \href{http://www.crypto-world.com/announcements/c158.txt}
-       {\texttt{http://www.crypto-world.com/announcements/c158.txt}}
-\end{itemize}
+\item[]   \href{http://www.loria.fr/~zimmerma/records/21039-}
+       {\texttt{http://www.loria.fr/\~{}zimmerma/records/21039-}} \\
+          \href{http://www.crypto-world.com/announcements/m1039.txt}
+       {\texttt{http://www.crypto-world.com/announcements/m1039.txt}} \\
+          \href{http://www.crypto-world.com/FactorAnnouncements.html}
+       {\texttt{http://www.crypto-world.com/FactorAnnouncements.html}} \\
+          \href{http://www1.uni-bonn.de/pressDB/jsp/pressemitteilungsdetails.jsp?detailjahr=2007&detail=160}
+       {\texttt{http://www1.uni-bonn.de/pressDB/jsp/pressemitteilungsdetails.jsp?}} \\
+          \href{http://www1.uni-bonn.de/pressDB/jsp/pressemitteilungsdetails.jsp?detailjahr=2007&detail=160}
+       {\texttt{\quad \quad \quad detailjahr=2007\&detail=160}}\end{itemize}
 \end{minipage}
-\vspace{12pt}
 
 
 
@@ -2336,7 +2374,7 @@ Links:
 
 
 % --------------------------------------------------------------------------
-\vskip +50pt
+\vskip +70pt
 \paragraph{Size of factorized numbers compared to primality proven numbers}
 \mbox{}
 
@@ -2361,6 +2399,7 @@ $$ 663 ~~ \longleftrightarrow{} ~~ 30,402,457 ~~~~~$$
 % --------------------------------------------------------------------------
 \vskip +60pt
 \subsubsection{Further current research about primes and factorisation}
+\label{FactorisationResearch}
 Prime numbers are part of very many topical research areas in number theory
 and computer science. Progress made with factorisation is bigger than was
 estimated 5 years ago -- this is not only due to faster computers but
@@ -3436,7 +3475,7 @@ This needs to be stressed because the type of padding is extremely important dur
          \href{http://www.crypto-world.com/}
            {\texttt{http://www.crypto-world.com/}} \\
          \href{http://www.crypto-world.com/FactorWorld.html}
-           {\texttt{http://www.crypto-world.com/FactorWorld.html, page by Scott Contini}} \\
+           {\texttt{http://www.crypto-world.com/FactorWorld.html}}, page by Scott Contini \\
          \href{http://www.loria.fr/~zimmerma/records/factor.html}
            {\texttt{http://www.loria.fr/\~{}zimmerma/records/factor.html}} \\
          \href{http://www.tutorgig.com/ed/RSA\_number}
