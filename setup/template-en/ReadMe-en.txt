@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.10 for Win32, May 2007
+    CrypTool, Version 1.4.10 for Win32, June 2007
     (c) Contributors
         including
         Deutsche Bank AG, Frankfurt/Main
@@ -547,7 +547,7 @@ a) Developer-relevant changes (more technically oriented):
     Link: http://www.codeguru.com/Cpp/controls/controls/article.php/c5287
     Added: - Insertion and copying distinguishes between ASCII and
              hex coding.
-    In the hexadecimal editor currently no search is available.
+           - Search and replace within hex documents.
   * Text editor:
     Link: http://scintilla.sourceforge.net/ScintillaDownload.html
     Added: - You can highlight, which characters belong to the
@@ -628,15 +628,20 @@ c) New functionality:
      -----------------------------------
 - Implement additional algorithms on each topic:
     * Codes:
-       - T9
+       - T9 etc. (http://en.wikipedia.org/wiki/T9_%28predictive_text%29)
     * Encryption:
-       - Classic procedures: Turning grille (Fleissner) (incl. analysis).
+       - Classic procedures (incl. analysis):
+           - Turning grille (Fleissner)
+           - Further rotor ciphers, Hagelin, Lorenz machine, Purple.
        - Symmetric procedures:
-           Camellia (RFC3713), RC5 and Gost (http://vipul.net/gost).
+           Camellia (RFC3713), RC5 and Gost (http://vipul.net/gost),
+           Radio Gatun, SOSEMANUK, VSH, ...
        - Public key methods: McEliece, Rabin, NTRU.
-       - Demonstration of visual cryptography.
+       - Demonstration of visual cryptography ==> already at work!
+       - Integrate new methods developed at Ecrypt (Network of Excellence
+         in Cryptology). See http://www.ecrypt.eu.org/.
     * Hashes:
-       - SHA-256, SHA-384, SHA-512
+       - SHA2 family (SHA-256, SHA-384, SHA-512)
          http://csrc.nist.gov/publications/fips/fips180-2/fips180-2.pdf
        - Tiger (http://www.cs.technion.ac.il/~biham/Reports/Tiger/)
     * Protocols / weaknesses in protocols:
@@ -656,9 +661,6 @@ c) New functionality:
   A. Menezes and S. Vanstone,
   "Elliptic curve cryptosystems and their implementation",
   Journal of Cryptology, 6 (1993), pp 209-224.
-
-- Hill cipher
-   - enable to transpose the key matrix
 
 - Because cryptographic structures and formats are often ASN.1
   encoded: Integration of an ASN.1 decoding tool.
@@ -714,6 +716,9 @@ c) New functionality:
 - Enhance the brute-force possibilities: Use knowledge about
   - parts of the cleartext
   - parts of the key.
+
+- Demonstration, how long an exhaustive key search lasts (depending
+  on the key length).
 
 - Analysis to be newly implemented for:
    * homophone encryption
@@ -774,9 +779,11 @@ c) New functionality:
 
 - Timing Attack on RSA / Advantages of blinding.
 
-- Visualize current hash attacks (create postscript documents according
+- Visualize current hash attacks (e.g. create postscript documents according
   to Lucks or PDF documents according to BSI with the same hash value)
   and explain the  scenarios.
+
+- Usage of Rainbow tables.
 
 - Attack on the WEP protocol.
 

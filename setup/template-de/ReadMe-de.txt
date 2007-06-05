@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.10 für Win32, Mai 2007
+    CrypTool, Version 1.4.10 für Win32, Juni 2007
     (c) Contributors
         Dazu gehören z.B.
         Deutsche Bank AG, Frankfurt am Main
@@ -383,9 +383,10 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
 - Demo des RSA-Verfahrens (in verschiedenen Varianten) und einiger 
   zugehöriger Algorithmen der Zahlentheorie:
   - Primzahlen generieren und testen (incl. dem deterministischen
-    AKS-Verfahren).
+    AKS-Verfahren). [bis zu einer Größenordnung von 2^xxxxxxxxxxx]
   - Zahlen (schrittweise) mit verschiedenen Verfahren faktorisieren
     (die verschiedenen Verfahren laufen in parallelen Threads).
+    [bis zu einer Größenordnung von 2^xxxxxxxxxxx]
   - Das RSA-Kryptosystem transparent durchführen:
      - RSA-Schlüssel erzeugen (auch mit selbst-gewählten Primzahlen).
      - Ver-/Entschlüsseln mit dem RSA-Verfahren.
@@ -565,7 +566,7 @@ a) Entwickler-relevante Änderungen (eher programm-technisch):
                    nur Hexzeichen (eine gerade Anzahl!) enthalten sind: ob
                    das als Hexdarstellung oder als eigentliche
                    ASCII-Zeichen interpretiert werden soll.
-    Für Hex-Dateien ist derzeit keine Suche implementiert.
+               - Suchen und Ersetzen in Hex-Dokumenten.
   * Text-Editor:
     Link: http://scintilla.sourceforge.net/ScintillaDownload.html
     Erweitert: - Man kann diejenigen Zeichen ausgrauen, die nicht zum
@@ -632,7 +633,7 @@ c) Funktionale Erweiterungen:
 
 - Hinzu kamen die Flash-Animationen zu AES und Enigma.
 
-- Hinzu kam der Dialog, mit dem man die Qulität eines Passwortes anzeigen
+- Hinzu kam der Dialog, mit dem man die Qualität eines Passwortes anzeigen
   kann.
 
 - Hinzu kam das Authorware-Lernprogramm, das die Verfahren der
@@ -647,15 +648,20 @@ c) Funktionale Erweiterungen:
      ---------------------------------------
 - Weitere Algorithmen zu jedem Thema implementieren:
     * Codes:
-       - T9
+       - T9 etc.  (http://de.wikipedia.org/wiki/Text_on_9_keys)
     * Verschlüsselung:
-       - Klassische Verfahren: Fleißner-Schablone (incl. Analyse).
+       - Klassische Verfahren (incl. Analyse):
+           - Fleißner-Schablone
+           - Weitere Rotorchiffren, Hagelin, Lorenz-Maschine, Purple.
        - Symmetrische Verfahren:
-           Camellia (RFC3713), RC5 und Gost (http://vipul.net/gost).
+           Camellia (RFC3713), RC5 und Gost (http://vipul.net/gost),
+           Radio Gatun, SOSEMANUK, VSH, ...
        - Public Key-Verfahren: McEliece, Rabin, NTRU.
-       - Demonstration der Visuellen Kryptographie.
+       - Demonstration der Visuellen Kryptographie ==> in Arbeit!
+       - Neue Verfahren von Ecrypt (Network of Excellence in Cryptology)
+         integrieren. Siehe http://www.ecrypt.eu.org/.
     * Hashverfahren:
-       - SHA-256, SHA-384, SHA-512
+       - SHA2-Familie (SHA-256, SHA-384, SHA-512)
          http://csrc.nist.gov/publications/fips/fips180-2/fips180-2.pdf
        - Tiger (http://www.cs.technion.ac.il/~biham/Reports/Tiger/)
     * Protokolle / Protokollschwächen:
@@ -675,9 +681,6 @@ c) Funktionale Erweiterungen:
   wurde: A. Menezes and S. Vanstone,
          "Elliptic curve cryptosystems and their implementation",
          Journal of Cryptology, 6 (1993), Seite 209-224.
-
-- Hillverfahren
-   - Schlüsselmatrix transponieren.
 
 - Weil kryptographische Strukturen und Formate häufig ASN.1-
   kodiert sind: Integration eines ASN.1 Dekodier-Tools.
@@ -700,6 +703,9 @@ c) Funktionale Erweiterungen:
     Es wäre eine gute Ergänzung für CrypTool, diese Standard-
     anforderungen zur Evaluierung von Zufallszahlen  
     einzubauen und dies auch zu visualisieren.
+  - Nutzung der schon eingebauten 3-D-Darstellung von Zufallsdaten,
+    um dem Nutzer m.H. der beim Drehen sichtbaren Hyperebenen die
+    Schwächen von Zufallsgeneratoren (z.B. bei LCG) zu verdeutlichen.
 
 - Weitere Standards implementieren und direkt über die Menüs bzw.
   aus der Online-Hilfe heraus an alle Stellen verzweigen, wo diese
@@ -737,7 +743,10 @@ c) Funktionale Erweiterungen:
 
 - Die Brute-force-Möglichkeiten erweitern: Nutzen von Wissen
   - um Teile des Klartextes
-  - um Teile des Schlüssels
+  - um Teile des Schlüssels.
+
+- Demo, wie lange eine vollständige Schlüsselsuche dauert (in Abhängigkeit
+  von der Schlüssellänge).
 
 - Analyse neu implementieren für:
    * homophone Verschlüsselung
@@ -751,7 +760,7 @@ c) Funktionale Erweiterungen:
         und von Doppelzeichen wie "mm".
       - Ersetzte Buchstaben in der Dialogbox nicht nur groß, sondern
         auch in roter Schrift anzeigen.
-   * Wörterbucher für alle Angriffe benutzen, nicht nur für die
+   * Wörterbücher für alle Angriffe benutzen, nicht nur für die
      Substitution.
 
 - Nutzung von Algorithmen aus dem Bereich KI (Künstliche Intelligenz) und
@@ -803,9 +812,11 @@ c) Funktionale Erweiterungen:
 
 - Timing Attack auf RSA / Vorteile Blinding.
 
-- Aktuelle Hashangriffe darstellen (Erstellen von PS-Dokumenten nach
+- Aktuelle Hashangriffe darstellen (z.B. Erstellen von PS-Dokumenten nach
   Lucks oder von PDF-Dokumenten nach BSI mit gleichem Hashwert) und
   Aufzeigen der Anwendungsszenarien.
+
+- Nutzung von Rainbow-Tabellen.
 
 - Angriff auf WEP-Protokoll.
 
