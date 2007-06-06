@@ -11714,9 +11714,9 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_ECIES_CRYPT         "ECIES-AES-Hybrid"
-    IDS_ECIES_ENC_TIME      "Für die ECIES-Verschlüsselung benötigte Zeit: %s Sekunden."
-    IDS_ECIES_DEC_TIME      "Für die ECIES-Entschlüsselung benötigte Zeit: %s Sekunden."
+    IDS_ECIES_CRYPT         "ECC-AES-Hybrid"
+    IDS_ECIES_ENC_TIME      "Für die ECC-AES-Verschlüsselung benötigte Zeit: %s Sekunden."
+    IDS_ECIES_DEC_TIME      "Für die ECC-AES-Entschlüsselung benötigte Zeit: %s Sekunden."
     IDS_ECIES_HEADER_01     "Sender:"
     IDS_ECIES_HEADER_02     "Empfaenger:"
     IDS_ECIES_HEADER_03     "|Kurvenidentifikation:"
@@ -23565,9 +23565,9 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_ECIES_CRYPT         "ECIES-AES hybrid"
-    IDS_ECIES_ENC_TIME      "ECIES encryption time: %s seconds."
-    IDS_ECIES_DEC_TIME      "ECIES decryption time: %s seconds."
+    IDS_ECIES_CRYPT         "ECC-AES hybrid"
+    IDS_ECIES_ENC_TIME      "ECC-AES encryption time: %s seconds."
+    IDS_ECIES_DEC_TIME      "ECC-AES decryption time: %s seconds."
     IDS_ECIES_HEADER_01     "Sender:"
     IDS_ECIES_HEADER_02     "Receiver:"
     IDS_ECIES_HEADER_03     "|Curve ID:"
