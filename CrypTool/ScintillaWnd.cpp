@@ -943,7 +943,8 @@ BOOL CScintillaWnd::SearchForward(
    long lPos = GetCurrentPosition();
    TextToFind tf;
    tf.lpstrText = szText;
-   tf.chrg.cpMin = lPos+1;
+   // added new search behaviour to be compliant to common search tools (tf.chrg.cpMin = lPos+1;)
+   tf.chrg.cpMin = lPos;
    tf.chrg.cpMax = SendMessage(SCI_GETLENGTH, 0, 0);
    lPos = SendMessage(SCI_FINDTEXT, m_nSearchflags, (long)&tf);
    if (lPos >= 0)

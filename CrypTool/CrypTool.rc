@@ -5210,8 +5210,8 @@ BEGIN
     CONTROL         "Groß-/Kleinschreibung beachten",
                     IDC_CHECK_CASE_SENSITIVE,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,7,69,118,10
-    CONTROL         "Suchrichtung umkehren",IDC_CHECK_FIND_BACKWARDS,"Button",
-                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,7,83,91,10
+    CONTROL         "Rückwärtssuche",IDC_CHECK_FIND_BACKWARDS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,83,68,10
     CONTROL         "Reguläre Ausdrücke im Suchfeld erlauben",
                     IDC_CHECK_REGULAR_EXPRESSIONS,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,7,97,148,10
@@ -11685,10 +11685,14 @@ BEGIN
     IDS_HILL_CASE           "Benutztes Alphabet (%d Zeichen)"
     IDS_ROT13_CAESAR_TOO_LARGE_KEY 
                             "Die Eingabe ist größer als das Alphabet.\nSoll der Wert automatisch auf 1 gesetzt werden?"
+    IDS_FINDANDREPLACE_NOBACKWARSSEARCH_IN_HEX 
+                            "Die Rückwärtssuche ist für hexadezimale Daten nicht verfügbar."
 END
 
 STRINGTABLE 
 BEGIN
+    IDS_FINDANDREPLACE_NOREGULAREXPRESSIONS_IN_HEX 
+                            "Die Suche nach regulären Ausdrücken ist für hexadezimale Daten nicht verfügbar."
     IDS_CLIPBORD_COPY_ERROR "Fehler beim Kopieren in die Zwischenablage."
     IDS_CLIPBOARD_HEXCOPY   "Die markierten Daten können unverändert (Standard) oder hexadezimal codiert in die Zwischenablage übernommen werden.\nEine hexadezimale Codierung ist z.B. erforderlich, wenn Sie nicht-druckbare Daten in andere Anwendungen exportieren wollen.\n\nHexadezimale Codierung verwenden?"
     IDS_CLIPBOARD_HEXPASTE  "Die Zwischenablage enthält ausschließlich Hexadezimal-Zeichen.\nDiese können entweder decodiert (Standard) oder unverändert eingefügt werden.\n\nSollen die hexadezimalen Daten decodiert werden?"
@@ -16883,7 +16887,7 @@ BEGIN
     CONTROL         "Case sensitive",IDC_CHECK_CASE_SENSITIVE,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,69,62,10
     CONTROL         "Find backwards",IDC_CHECK_FIND_BACKWARDS,"Button",
-                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,7,83,65,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,83,65,10
     CONTROL         "Regular expressions",IDC_CHECK_REGULAR_EXPRESSIONS,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,97,81,10
 END
@@ -23532,10 +23536,14 @@ BEGIN
     IDS_HILL_CASE           "Used alphabet (%d characters)"
     IDS_ROT13_CAESAR_TOO_LARGE_KEY 
                             "The input is larger than the alphabet length.\nSet the value automaticly to 1?"
+    IDS_FINDANDREPLACE_NOBACKWARSSEARCH_IN_HEX 
+                            "The backwards search is not available for hexadecimal data."
 END
 
 STRINGTABLE 
 BEGIN
+    IDS_FINDANDREPLACE_NOREGULAREXPRESSIONS_IN_HEX 
+                            "The search for regular expressions is not available for hexadecimal data."
     IDS_CLIPBORD_COPY_ERROR "Cannot copy to clipboard."
     IDS_CLIPBOARD_HEXCOPY   "The marked data can be put into the clipboard unchanged (default) or in hexadecimal encoding.\nHexadecimal encoding is required e.g. if you want to export non-printable data to other applications.\n\nUse hexadecimal encoding?"
     IDS_CLIPBOARD_HEXPASTE  "The clipboard contains hexadecimal characters only. They can be inserted decoded (default) or unchanged.\n\nDecode hexadecimal data?"

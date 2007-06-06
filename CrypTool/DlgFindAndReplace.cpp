@@ -132,6 +132,21 @@ void CDlgFindAndReplace::DoFindReplace(bool replace, bool all)
 	}
 	else if (pWndView->IsKindOf(RUNTIME_CLASS(CHexEditCtrlView)))
 	{
+		// prevent activation of backwards search and search of regular expressions in hex edit
+		CString msg;
+		if(checkFindBackwards)
+		{
+			msg.Format(IDS_FINDANDREPLACE_NOBACKWARSSEARCH_IN_HEX);
+			MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
+			return;
+		}
+		if(checkRegularExpressions)
+		{
+			msg.Format(IDS_FINDANDREPLACE_NOREGULAREXPRESSIONS_IN_HEX);
+			MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
+			return;
+		}
+
 		DoFindReplaceHexEdit(pWndView->GetTopWindow(), replace, all);
 	} 
 
@@ -151,26 +166,55 @@ void CDlgFindAndReplace::DoFindReplaceScintilla(CWnd *pWnd, bool replace, bool a
 	pWindow->SetSearchflags(searchflags);
 	char *ttf = textFind.GetBuffer();
 	char *ttr = textReplace.GetBuffer();
-	if (replace && !all) {
+
+	// *** REPLACE (SINGLE REPLACE) ***
+	if (replace && !all)
+	{
 		long pStart = pWindow->GetSelectionStart();
 		long pEnd   = pWindow->GetSelectionEnd();
 
-		if ( pStart == pEnd && !pWindow->SearchForward(ttf) )
+		// forward search (and single replace)
+		if(!checkFindBackwards)
 		{
-			msg.Format(IDS_FINDANDREPLACE_TEXTNOTFOUND);
-			MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
-			return;
+            if ( pStart == pEnd && !pWindow->SearchForward(ttf) )
+			{
+				msg.Format(IDS_FINDANDREPLACE_TEXTNOTFOUND);
+				MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
+				return;
+			}
+
+			pWindow->ReplaceSearchedText(ttr);
+
+			if(!pWindow->SearchForward(ttf))
+			{
+				msg.Format(IDS_FINDANDREPLACE_TEXT_FINISHED);
+				MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
+				return;
+			}
 		}
-
-		pWindow->ReplaceSearchedText(ttr);
-
-		if ( !pWindow->SearchForward(ttf) )
+		// backward search (and single replace)
+		else
 		{
-			msg.Format(IDS_FINDANDREPLACE_TEXT_FINISHED);
-			MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
-			return;
+			if ( pStart == pEnd && !pWindow->SearchBackward(ttf) )
+			{
+				msg.Format(IDS_FINDANDREPLACE_TEXTNOTFOUND);
+				MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
+				return;
+			}
+
+			pWindow->ReplaceSearchedText(ttr);
+
+			if(!pWindow->SearchBackward(ttf))
+			{
+				msg.Format(IDS_FINDANDREPLACE_TEXT_FINISHED);
+				MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
+				return;
+			}
 		}
-	} else if (replace && all) {
+	}
+	// *** REPLACE (MULTIPLE REPLACE) ***
+	else if (replace && all)
+	{
 		int noCnt = pWindow->ReplaceAll(ttf, ttr, FALSE);
 
 		// how often was the desired text replaced?
@@ -186,8 +230,28 @@ void CDlgFindAndReplace::DoFindReplaceScintilla(CWnd *pWnd, bool replace, bool a
 			MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
 			return;
 		}
-	} else { // !replace -> search
-		pWindow->SearchForward(ttf); // FIXME: truncates at \0
+	}
+	// *** SEARCH ONLY (NO REPLACE) ***
+	else	
+	{	
+		// forward search
+		if(!checkFindBackwards)
+		{
+            if(!pWindow->SearchForward(ttf)) { // FIXME: truncates at \0
+				msg.Format(IDS_FINDANDREPLACE_TEXTNOTFOUND);
+				MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
+				return;
+			}
+		}
+		// backward search
+		else
+		{
+			if(!pWindow->SearchBackward(ttf)) {
+				msg.Format(IDS_FINDANDREPLACE_TEXTNOTFOUND);
+				MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
+				return;
+			}
+		}
 	}
 	textFind.ReleaseBuffer(); ttf = 0;
 	textReplace.ReleaseBuffer(); ttr = 0;
@@ -208,7 +272,9 @@ void CDlgFindAndReplace::DoFindReplaceHexEdit(CWnd *pWnd, bool replace, bool all
 	LPCSTR preplace = (LPCSTR)textReplace;
 	int replacelen = textReplace.GetLength();
 
-	if (replace && !all) {
+	// *** REPLACE (SINGLE REPLACE) ***
+	if (replace && !all)
+	{
 		if (!pWindow->Search(pfind, findlen, searchflags | HE_FIND_NOSKIP)) {
 			msg.Format(IDS_FINDANDREPLACE_TEXT_FINISHED);
 			MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
@@ -220,7 +286,10 @@ void CDlgFindAndReplace::DoFindReplaceHexEdit(CWnd *pWnd, bool replace, bool all
 			MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
 			return;
 		}
-	} else if (replace && all) {
+	}
+	// *** REPLACE (MULTIPLE REPLACE) ***
+	else if (replace && all)
+	{
 		int noCnt = pWindow->ReplaceAll(pfind, findlen, preplace, replacelen, searchflags);
 
 		// how often was the desired text replaced?
@@ -236,7 +305,10 @@ void CDlgFindAndReplace::DoFindReplaceHexEdit(CWnd *pWnd, bool replace, bool all
 			MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
 			return;
 		}
-	} else { // !replace -> search
+	}
+	// *** SEARCH ONLY (NO REPLACE) ***
+	else
+	{
 		pWindow->Search(pfind, findlen, searchflags);
 	}
 }
