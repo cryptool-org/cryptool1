@@ -5,30 +5,28 @@
 use strict;
 use File::Find;
 
-#####################################################################
-# ************** TODO ***********************
-#
 # Directories to be included in source code search: (below "trunk")
-# - aes
-# - aestool
-# - CrypTool
-# - dialoguesisters
-# - eccdemo
-# - libanalyse
-# - libec
-# - libVolRen
-# - NumberShark
-# - RijndaelAnimation
-######################################################################
+my @subdirectories = (
+    "aes",
+    "aestool",
+    "CrypTool",
+    "dialoguesisters",
+    "eccdemo",
+    "libanalyse",
+    "libec",
+    "libVolRen",
+    "NumberShark",
+    "RijndaelAnimation"
+);
 
-
-# this is the root directory from where the search is started
-my $directory = $ARGV[0] || ".";
+# this is the root directory from where the search is started (deprecated)
+my $directory = $ARGV[0] || "../.";
 
 
 # EDIT THIS HASH TO ASSIGN DEFAULT VALUES FOR FILE TYPES TO LOOK FOR
 my %fileTypes = (
     "C/C++ source code" => "h c cpp",
+    "MFC resource code" => "rc",
     "Java source code" => "java",
     "HTML code" => "html hpp",
     "Text files" => "txt"
@@ -65,14 +63,20 @@ sub findFiles() {
         foreach my $extension ( @extensions ) {
             if( $File::Find::name =~ /\.$extension$/ ) {
                 if ( not defined $fileLOC{$File::Find::name} ) {
-		    # file found; store it for later processing
-                    $fileLOC{$File::Find::name} = 0;
-                    if ( not defined $fileTypeCount{$extension} ) {
-	                # file counter for this file type not yet created
-                        $fileTypeCount{$extension} = 0;
-                    }
-		    # increase counter for this file type
-                    $fileTypeCount{$extension}++;
+		    # see whether we are in a valid sub directory
+		    foreach my $subdirectory ( @subdirectories ) {
+			if ( $File::Find::dir =~ m/$subdirectory/ ) {
+			    # file found; store it for later processing
+	                    $fileLOC{$File::Find::name} = 0;
+        	            if ( not defined $fileTypeCount{$extension} ) {
+	                        # file counter for this file type not yet created
+                        	$fileTypeCount{$extension} = 0;
+                    	    }
+		            # increase counter for this file type
+                            $fileTypeCount{$extension}++;
+
+			}
+		    }
                 }
             }              
         }
