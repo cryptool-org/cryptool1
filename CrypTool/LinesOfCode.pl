@@ -29,7 +29,8 @@ my %fileTypes = (
     "MFC resource code" => "rc",
     "Java source code" => "java",
     "HTML code" => "html hpp",
-    "Text files" => "txt"
+    "LaTex code" => "tex",
+    "Text files" => "txt" 
 );
 
 
