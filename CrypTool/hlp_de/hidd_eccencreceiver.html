@@ -16,15 +16,15 @@
 		
 <P>In diesem Dialog können Sie den auf Elliptischen Kurven (ECC) basierten öffentlichen Schlüssel des Empfängers wählen. Damit wird dann der Sessionkey verschlüsselt, der verwendet wurde, um mit dem symmetrischen AES-Verfahren das Dokument zu verschlüsseln.</P>
 
-<P>Der dazu verwendete <a href="http://en.wikipedia.org/wiki/ECIES">ECIES</a>-Standard nutzt ECDH- und AES-Verfahren. Die <A href="hid_verentschlsseln_hybridverfahren_hybridverschlsselung.html">Hybridverschlüsselung</a> ist das am weitesten verbreitete Verfahren, Daten verschlüsselt zu übertragen. Weitere Informationen zur Hybridverschlüsselung finden Sie im <A class="filelink" onclick="parser('script-de.pdf')">Skript</A>.
+<P>Der dazu verwendete <a href="http://en.wikipedia.org/wiki/ECIES" target="_blank">ECIES</a>-Standard nutzt <a href="http://en.wikipedia.org/wiki/Elliptic_Curve_Diffie-Hellman" target="_blank">ECDH</a>- und <a href="aes_gewinner.html">AES</a>-Verfahren. Die <A href="hybridencryptionsystem.html">Hybridverschlüsselung</a> ist das am weitesten verbreitete Verfahren, Daten verschlüsselt zu übertragen. Weitere Informationen zur Hybridverschlüsselung finden Sie im <A class="filelink" onclick="parser('script-de.pdf')">Skript</A>.
 
 <P>Um ein Dokument mit ECIES zu verschlüsseln, ist es nötig, dass ein ECC-Schlüsselpaar vorliegt.&nbsp;Wenn Sie noch keinen asymmetrischen Schlüssel angelegt haben, müssen Sie das vor dem Aufruf des Dialogs&nbsp;ECIES-Hybridverschlüsselung tun [ein Benutzer Bob mit dem ECC-Schlüssel "Hybrid Encryption" wird standardmäßig mit ausgeliefert]:</P>
 
-<P>Im Menü von CrypTool unter <a href="menu_digitalsignaturespki.html">Digitale Signaturen/PKI</a> / PKI / Schlüssel erzeugen finden Sie entsprechende Werkzeuge. Damit können Sie sich Ihr ECC-Schlüsselpaar erzeugen und in die interne Datenbank von CrypTool abspeichern.</P>
+<P>Im Menü von CrypTool unter <a href="menu_digitalsignaturespki.html">Digitale Signaturen/PKI</a> \ PKI \ Schlüssel erzeugen finden Sie entsprechende Werkzeuge. Damit können Sie sich Ihr ECC-Schlüsselpaar erzeugen und in die interne Datenbank von CrypTool abspeichern.</P>
 
 <P>Nun kann ein Dokument in CrypTool geöffnet werden und über den Menüpunkt <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Hybrid \ ECC-AES-Verschlüsselung wird der Dialog für die Verschlüsselung gestartet.</P>
 
-<IMG SRC="images/ECIES2.jpg" ALT="ECIES2.jpg" BORDER="0">
+<IMG SRC="images/ECIES2.jpg" ALT="ECIES2.jpg" BORDER="0" width="91%">
 
 <P>Nach Auswahl des Schlüsselpaares wird durch einen Klick auf den Button <b>Verschlüsseln</b> das Dokument mit ECC-AES verschlüsselt.</P>
 
@@ -33,7 +33,7 @@
 <P>Das verschlüsselte Dokument wird nun in CrypTool angezeigt:</P>
 
 
-		<IMG SRC="images/ECIES1.jpg" ALT="ECIES1.jpg" BORDER="0">
+		<IMG SRC="images/ECIES1.jpg" ALT="ECIES1.jpg" BORDER="0" width="91%">
 		<P></P>
 		<P>Der Inhalt dieses Fensters dient auch als Grundlage für die <A href="hid_hybrid_eccdec.html">
 				Hybridentschlüsselung</A>, die den gesamten Verschlüsselungsvorgang 
