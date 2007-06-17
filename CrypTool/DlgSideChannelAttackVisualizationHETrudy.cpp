@@ -259,8 +259,11 @@ void CDlgSideChannelAttackVisualizationHETrudy::updateDisplay()
 		clearText.noctets = 0;
 		decryptMessageAES(&originalCipherText, &o, &clearText, significantBits);
 		// Anzeige aktualisieren
-		m_ComputedMessage = clearText.octets;
-		m_ComputedMessage.SetAt(clearText.noctets, '\0');
+		char *tempBuffer = new char[clearText.noctets+1];
+		memset(tempBuffer, 0, clearText.noctets+1);
+		memcpy(tempBuffer, clearText.octets, clearText.noctets);
+		m_ComputedMessage = tempBuffer;
+		delete tempBuffer;
 	}
 	else
 	{
