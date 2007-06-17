@@ -3968,7 +3968,7 @@ BEGIN
                     273,131,8
     LTEXT           "Erzeugter MAC in Hexadezimaldarstellung:",IDC_STATIC,7,
                     361,134,8
-    LTEXT           "Eingabe für Hashfunktion (abhängig von der oben gewählten MAC-Variante):",
+    LTEXT           "Eingabe für äußere Hashfunktion (abhängig von der oben gewählten MAC-Variante):",
                     IDC_STATIC,7,301,310,8
     GROUPBOX        "Hashfunktion wählen",IDC_STATIC,7,143,102,96
     GROUPBOX        "MAC-Variante (Position des Schlüssels)",IDC_STATIC,123,
@@ -5191,7 +5191,7 @@ BEGIN
     GROUPBOX        "Visualisierungsparameter",IDC_STATIC,7,5,217,75
 END
 
-IDD_FIND_AND_REPLACE DIALOGEX 0, 0, 323, 121
+IDD_FIND_AND_REPLACE DIALOGEX 0, 0, 323, 97
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | 
     WS_CAPTION | WS_SYSMENU
 CAPTION "Suchen und Ersetzen"
@@ -5204,17 +5204,17 @@ BEGIN
     DEFPUSHBUTTON   "&Suchen",IDC_BUTTON_FIND,266,15,50,14
     PUSHBUTTON      "&Ersetzen",IDC_BUTTON_REPLACE,266,35,50,14
     PUSHBUTTON      "&Alle ersetzen",IDC_BUTTON_REPLACE_ALL,266,55,50,14
-    PUSHBUTTON      "Abbrechen",IDCANCEL,266,100,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,266,75,50,14
     LTEXT           "Suchen:",IDC_STATIC,7,15,40,12
     LTEXT           "Ersetzen:",IDC_STATIC,7,35,40,12
     CONTROL         "Groß-/Kleinschreibung beachten",
                     IDC_CHECK_CASE_SENSITIVE,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,69,118,10
+                    WS_TABSTOP,7,60,118,10
     CONTROL         "Rückwärtssuche (nur Text)",IDC_CHECK_FIND_BACKWARDS,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,83,103,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,70,103,10
     CONTROL         "Reguläre Ausdrücke im Suchfeld erlauben (nur Text)",
                     IDC_CHECK_REGULAR_EXPRESSIONS,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,97,183,10
+                    WS_TABSTOP,7,80,183,10
 END
 
 IDD_SECRETSHARING_SETUP DIALOGEX 0, 0, 371, 423
@@ -9161,7 +9161,7 @@ BEGIN
         VERTGUIDE, 247
         VERTGUIDE, 266
         TOPMARGIN, 7
-        BOTTOMMARGIN, 114
+        BOTTOMMARGIN, 90
         HORZGUIDE, 15
         HORZGUIDE, 35
         HORZGUIDE, 55
@@ -15666,7 +15666,7 @@ BEGIN
     LTEXT           "Enter second key (k'):",IDC_STATIC,7,273,70,8
     LTEXT           "MAC generated from message and key:",IDC_STATIC,7,361,
                     125,8
-    LTEXT           "Input for hash function (depends on the MAC variant chosen above):",
+    LTEXT           "Input for outer hash function (depends on the MAC variant chosen above):",
                     IDC_STATIC,7,301,311,8
     GROUPBOX        "Choose hash function",IDC_STATIC,7,143,102,96
     GROUPBOX        "Variation (Position of key)",IDC_STATIC,123,143,195,96
@@ -16868,7 +16868,7 @@ BEGIN
     GROUPBOX        "Visualization parameter",IDC_STATIC,7,5,216,75
 END
 
-IDD_FIND_AND_REPLACE DIALOGEX 0, 0, 323, 121
+IDD_FIND_AND_REPLACE DIALOGEX 0, 0, 323, 97
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | 
     WS_CAPTION | WS_SYSMENU
 CAPTION "Find and Replace"
@@ -16881,16 +16881,16 @@ BEGIN
     DEFPUSHBUTTON   "&Find",IDC_BUTTON_FIND,266,15,50,14
     PUSHBUTTON      "&Replace",IDC_BUTTON_REPLACE,266,35,50,14
     PUSHBUTTON      "Replace &All",IDC_BUTTON_REPLACE_ALL,266,55,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,266,100,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,266,76,50,14
     LTEXT           "Find:",IDC_STATIC,7,15,40,12
     LTEXT           "Replace:",IDC_STATIC,7,35,40,12
     CONTROL         "Case sensitive",IDC_CHECK_CASE_SENSITIVE,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,69,62,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,60,62,10
     CONTROL         "Find backwards (text only)",IDC_CHECK_FIND_BACKWARDS,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,83,101,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,70,101,10
     CONTROL         "Regular expressions (text only)",
                     IDC_CHECK_REGULAR_EXPRESSIONS,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,97,117,10
+                    WS_TABSTOP,7,80,117,10
 END
 
 IDD_SECRETSHARING_INTRO DIALOGEX 0, 0, 281, 273
@@ -21083,7 +21083,7 @@ BEGIN
         VERTGUIDE, 247
         VERTGUIDE, 266
         TOPMARGIN, 7
-        BOTTOMMARGIN, 114
+        BOTTOMMARGIN, 90
         HORZGUIDE, 15
         HORZGUIDE, 35
         HORZGUIDE, 55

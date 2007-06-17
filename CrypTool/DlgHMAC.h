@@ -82,7 +82,6 @@ public:
 	CString m_originalMessage;
 	//}}AFX_DATA
 
-
 // Überschreibungen
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
 	//{{AFX_VIRTUAL(CDlgHMAC)

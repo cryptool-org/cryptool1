@@ -196,6 +196,9 @@ BOOL CDlgHMAC::OnInitDialog()
 
 	m_originalMessage = strText;
 
+	// make "Calculate MAC" button invisble; maybe remove this button completely...
+	GetDlgItem(IDOK)->ShowWindow(SW_HIDE);
+
 	UpdateData(false);
 	
 	return TRUE;  // return TRUE unless you set the focus to a control
@@ -334,6 +337,9 @@ void CDlgHMAC::OnEditKey()
 	UpdateData(true);
 	m_create_mac.EnableWindow(TRUE);
 	UpdateData(false);
+
+	// calculate MAC implicitly after the key is altered
+	OnOK();
 }
 
 void CDlgHMAC::OnEditOriginalMessage()
@@ -341,6 +347,10 @@ void CDlgHMAC::OnEditOriginalMessage()
 	UpdateData(true);
 	m_create_mac.EnableWindow(TRUE);
 	UpdateData(false);
+
+	// if there is at least one key, calculate MAC implicitly after text is altered
+	if(m_key.GetLength() > 0)
+		OnOK();
 }
 
 void CDlgHMAC::OnBUTTONFront() 
@@ -380,6 +390,9 @@ void CDlgHMAC::OnEditSecondKey()
 	UpdateData(true);
 	m_create_mac.EnableWindow(TRUE);
 	UpdateData(false);
+
+	// calculate MAC implicitly after the second key is altered
+	OnOK();
 }
 
 void CDlgHMAC::OnBUTTONHashFunction() 
@@ -388,5 +401,3 @@ void CDlgHMAC::OnBUTTONHashFunction()
 	m_create_mac.EnableWindow(TRUE);
 	UpdateData(false);
 }
-
-
