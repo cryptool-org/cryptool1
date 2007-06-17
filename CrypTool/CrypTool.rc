@@ -5210,11 +5210,11 @@ BEGIN
     CONTROL         "Groß-/Kleinschreibung beachten",
                     IDC_CHECK_CASE_SENSITIVE,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,7,69,118,10
-    CONTROL         "Rückwärtssuche",IDC_CHECK_FIND_BACKWARDS,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,83,68,10
-    CONTROL         "Reguläre Ausdrücke im Suchfeld erlauben",
+    CONTROL         "Rückwärtssuche (nur Text)",IDC_CHECK_FIND_BACKWARDS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,83,103,10
+    CONTROL         "Reguläre Ausdrücke im Suchfeld erlauben (nur Text)",
                     IDC_CHECK_REGULAR_EXPRESSIONS,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,97,148,10
+                    WS_TABSTOP,7,97,183,10
 END
 
 IDD_SECRETSHARING_SETUP DIALOGEX 0, 0, 371, 423
@@ -16886,10 +16886,11 @@ BEGIN
     LTEXT           "Replace:",IDC_STATIC,7,35,40,12
     CONTROL         "Case sensitive",IDC_CHECK_CASE_SENSITIVE,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,69,62,10
-    CONTROL         "Find backwards",IDC_CHECK_FIND_BACKWARDS,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,83,65,10
-    CONTROL         "Regular expressions",IDC_CHECK_REGULAR_EXPRESSIONS,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,97,81,10
+    CONTROL         "Find backwards (text only)",IDC_CHECK_FIND_BACKWARDS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,83,101,10
+    CONTROL         "Regular expressions (text only)",
+                    IDC_CHECK_REGULAR_EXPRESSIONS,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,97,117,10
 END
 
 IDD_SECRETSHARING_INTRO DIALOGEX 0, 0, 281, 273

@@ -309,7 +309,12 @@ void CDlgFindAndReplace::DoFindReplaceHexEdit(CWnd *pWnd, bool replace, bool all
 	// *** SEARCH ONLY (NO REPLACE) ***
 	else
 	{
-		pWindow->Search(pfind, findlen, searchflags);
+		if(!pWindow->Search(pfind, findlen, searchflags))
+		{
+			msg.Format(IDS_FINDANDREPLACE_TEXTNOTFOUND);
+			MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
+			return;
+		}
 	}
 }
 
