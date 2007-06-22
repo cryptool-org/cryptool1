@@ -80,7 +80,6 @@ void CDlgHMAC::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgHMAC)
-	DDX_Control(pDX, IDOK, m_create_mac);
 	DDX_Control(pDX, IDC_EDIT_KEY2, m_ctrl_secondkey);
 	DDX_Control(pDX, IDC_EDIT_KEY, m_ctrl_key);
 	DDX_Control(pDX, IDC_SHOW_MAC, m_mac);
@@ -118,75 +117,6 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // Behandlungsroutinen für Nachrichten CDlgHMAC 
 
-void CDlgHMAC::OnOK() 
-{
-	// TODO: Zusätzliche Prüfung hier einfügen
-	
-	// CDialog::OnOK();
-
-	UpdateData(true);
-	CString tempRes;
-	switch (m_position)
-	{
-	case 0: if (m_key == "")
-			{
-				LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_NoKey, pc_str, 100);
-				AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
-				return;
-			}
-			strText = m_key + m_originalMessage;
-			break;//Schlüssel vorne
-	case 1:	if (m_key == "")
-			{
-				LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_NoKey, pc_str, 100);
-				AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
-				return;
-			}
-			strText = m_originalMessage + m_key;
-			break;//Schlüssel hinten
-	case 2:	if (m_key == "")
-			{
-				LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_NoKey, pc_str, 100);
-				AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
-				return;
-			}
-			strText = m_key + m_originalMessage + m_key;
-			break;//Schlüssel vorne und hinten
-	case 3: if (m_key == "")
-			{
-				LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_Double, pc_str, 150);
-				AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
-				return;
-			}
-			tempRes = m_key + m_originalMessage;
-			strText = m_key + CalculateMac(tempRes);
-			break;//doppelte Ausführung der Hashfunktion
-	case 4: if ((m_key == "") && (m_secondkey == ""))
-			{
-				LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_NoKey, pc_str, 100);
-				AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
-				return;
-			}
-			else if ((m_key == "") && (m_secondkey != ""))
-			{
-				LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_OnlyOneKey, pc_str, 150);
-				AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
-				return;
-			}
-			else if ((m_key != "") && (m_secondkey == ""))
-			{
-				LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_OnlyOneKey, pc_str, 150);
-				AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
-				return;
-			}
-			strText = m_key + m_originalMessage + m_secondkey;
-			break;//zwei Schlüssel
-	}
-	SetMac(strText);
-	m_text.SetWindowText(strText);
-	UpdateData(false);
-}
-
 BOOL CDlgHMAC::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
@@ -195,9 +125,6 @@ BOOL CDlgHMAC::OnInitDialog()
 	m_text.SetWindowText(strText);
 
 	m_originalMessage = strText;
-
-	// make "Calculate MAC" button invisble; maybe remove this button completely...
-	GetDlgItem(IDOK)->ShowWindow(SW_HIDE);
 
 	UpdateData(false);
 	
@@ -268,7 +195,6 @@ void CDlgHMAC::SetMac(CString input)
 			break;//RIPEMD 160
 	}
 	m_str_mac = MacToHex(&macHash);
-	m_create_mac.EnableWindow(FALSE);
 	UpdateData(false);
 	theApp.SecudeLib.aux_free(macHash.octets);
 }
@@ -320,14 +246,21 @@ void CDlgHMAC::OnBUTTONSecondKey()
 {
 	UpdateData(true);
 	m_ctrl_secondkey.EnableWindow(TRUE);
-	m_create_mac.EnableWindow(TRUE);
-	UpdateData(false);	
+	UpdateData(false);
+
+	calculateMACAndUpdateGUI();
+
+	// if there is no key selected, set focus to first key
+	if(m_key.GetLength() == 0 && m_secondkey.GetLength() == 0)
+		this->GetDlgItem(IDC_EDIT_KEY)->SetFocus();
+	// if there is the first key selected, set focus to second key
+	if(m_key.GetLength() > 0)
+		this->GetDlgItem(IDC_EDIT_KEY2)->SetFocus();
 }
 
 void CDlgHMAC::OnEditText() 
 {
 	UpdateData(true);
-	m_create_mac.EnableWindow(TRUE);
 	m_text.GetWindowText(strText);
 	UpdateData(false);
 }
@@ -335,69 +268,165 @@ void CDlgHMAC::OnEditText()
 void CDlgHMAC::OnEditKey() 
 {
 	UpdateData(true);
-	m_create_mac.EnableWindow(TRUE);
-	UpdateData(false);
 
-	// calculate MAC implicitly after the key is altered
-	OnOK();
+	calculateMACAndUpdateGUI();
 }
 
 void CDlgHMAC::OnEditOriginalMessage()
 {
 	UpdateData(true);
-	m_create_mac.EnableWindow(TRUE);
-	UpdateData(false);
 
-	// if there is at least one key, calculate MAC implicitly after text is altered
+	// if there is at least one key...
 	if(m_key.GetLength() > 0)
-		OnOK();
+		calculateMACAndUpdateGUI();
 }
 
 void CDlgHMAC::OnBUTTONFront() 
 {
 	UpdateData(true);
 	m_ctrl_secondkey.EnableWindow(FALSE);
-	m_create_mac.EnableWindow(TRUE);
 	UpdateData(false);
+
+	calculateMACAndUpdateGUI();
+
+	// if there is no key selected, set focus to first key
+	if(m_key.GetLength() == 0 && m_secondkey.GetLength() == 0)
+		this->GetDlgItem(IDC_EDIT_KEY)->SetFocus();
+	// if there is the first key selected, set focus to second key
+	if(m_key.GetLength() > 0)
+		this->GetDlgItem(IDC_EDIT_KEY2)->SetFocus();
 }
 
 void CDlgHMAC::OnBUTTONBack() 
 {
 	UpdateData(true);
 	m_ctrl_secondkey.EnableWindow(FALSE);
-	m_create_mac.EnableWindow(TRUE);
 	UpdateData(false);
+
+	calculateMACAndUpdateGUI();
+
+	// if there is no key selected, set focus to first key
+	if(m_key.GetLength() == 0 && m_secondkey.GetLength() == 0)
+		this->GetDlgItem(IDC_EDIT_KEY)->SetFocus();
+	// if there is the first key selected, set focus to second key
+	if(m_key.GetLength() > 0)
+		this->GetDlgItem(IDC_EDIT_KEY2)->SetFocus();
 }
 
 void CDlgHMAC::OnBUTTONBoth() 
 {
 	UpdateData(true);
 	m_ctrl_secondkey.EnableWindow(FALSE);
-	m_create_mac.EnableWindow(TRUE);
 	UpdateData(false);
+
+	calculateMACAndUpdateGUI();
+
+	// if there is no key selected, set focus to first key
+	if(m_key.GetLength() == 0 && m_secondkey.GetLength() == 0)
+		this->GetDlgItem(IDC_EDIT_KEY)->SetFocus();
+	// if there is the first key selected, set focus to second key
+	if(m_key.GetLength() > 0)
+		this->GetDlgItem(IDC_EDIT_KEY2)->SetFocus();
 }
 
 void CDlgHMAC::OnBUTTONDouble() 
 {
 	UpdateData(true);
 	m_ctrl_secondkey.EnableWindow(FALSE);
-	m_create_mac.EnableWindow(TRUE);
 	UpdateData(false);
+
+	calculateMACAndUpdateGUI();
+
+	// if there is no key selected, set focus to first key
+	if(m_key.GetLength() == 0 && m_secondkey.GetLength() == 0)
+		this->GetDlgItem(IDC_EDIT_KEY)->SetFocus();
+	// if there is the first key selected, set focus to second key
+	if(m_key.GetLength() > 0)
+		this->GetDlgItem(IDC_EDIT_KEY2)->SetFocus();
 }
 
 void CDlgHMAC::OnEditSecondKey() 
 {
 	UpdateData(true);
-	m_create_mac.EnableWindow(TRUE);
-	UpdateData(false);
 
-	// calculate MAC implicitly after the second key is altered
-	OnOK();
+	calculateMACAndUpdateGUI();
 }
 
 void CDlgHMAC::OnBUTTONHashFunction() 
 {
 	UpdateData(true);
-	m_create_mac.EnableWindow(TRUE);
-	UpdateData(false);
+
+	calculateMACAndUpdateGUI();
+}
+
+void CDlgHMAC::calculateMACAndUpdateGUI()
+{
+	UpdateData(true);
+	CString tempRes;
+	switch (m_position)
+	{
+	case 0: if (m_key == "")
+			{
+				LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_NoKey, pc_str, 100);
+				AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
+				// no return because of auto-update implementation
+				//return;
+			}
+			strText = m_key + m_originalMessage;
+			break;//Schlüssel vorne
+	case 1:	if (m_key == "")
+			{
+				LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_NoKey, pc_str, 100);
+				AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
+				// no return because of auto-update implementation
+				//return;
+			}
+			strText = m_originalMessage + m_key;
+			break;//Schlüssel hinten
+	case 2:	if (m_key == "")
+			{
+				LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_NoKey, pc_str, 100);
+				AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
+				// no return because of auto-update implementation
+				//return;
+			}
+			strText = m_key + m_originalMessage + m_key;
+			break;//Schlüssel vorne und hinten
+	case 3: if (m_key == "")
+			{
+				LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_Double, pc_str, 150);
+				AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
+				// no return because of auto-update implementation
+				//return;
+			}
+			tempRes = m_key + m_originalMessage;
+			strText = m_key + CalculateMac(tempRes);
+			break;//doppelte Ausführung der Hashfunktion
+	case 4: if ((m_key == "") && (m_secondkey == ""))
+			{
+				LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_NoKey, pc_str, 100);
+				AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
+				// no return because of auto-update implementation
+				//return;
+			}
+			else if ((m_key == "") && (m_secondkey != ""))
+			{
+				LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_OnlyOneKey, pc_str, 150);
+				AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
+				// no return because of auto-update implementation
+				//return;
+			}
+			else if ((m_key != "") && (m_secondkey == ""))
+			{
+				LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_OnlyOneKey, pc_str, 150);
+				AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
+				// no return because of auto-update implementation
+				//return;
+			}
+			strText = m_key + m_originalMessage + m_secondkey;
+			break;//zwei Schlüssel
+	}
+	SetMac(strText);
+	m_text.SetWindowText(strText);
+	UpdateData(false);	
 }

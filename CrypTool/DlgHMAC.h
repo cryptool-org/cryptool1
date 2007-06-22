@@ -69,7 +69,6 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgHMAC)
 	enum { IDD = IDD_HMAC };
-	CButton	m_create_mac;
 	CEdit	m_ctrl_secondkey;
 	CEdit	m_ctrl_key;
 	CEdit	m_mac;
@@ -94,7 +93,6 @@ protected:
 
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgHMAC)
-	virtual void OnOK();
 	virtual BOOL OnInitDialog();
 	afx_msg void OnBUTTONSecondKey();
 	afx_msg void OnEditText();
@@ -108,6 +106,11 @@ protected:
 	afx_msg void OnBUTTONHashFunction();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+
+	// this function is used for the live-update functionality of this dialog; as soon as a dialog 
+	// control is ivoked that changes a variable, use this function to both re-calculate the MAC and 
+	// update the user interface accordingly
+	void calculateMACAndUpdateGUI();
 };
 
 //{{AFX_INSERT_LOCATION}}

@@ -3935,6 +3935,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Message Authentication Code"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
+    EDITTEXT        IDC_EDIT_KEY,7,255,310,12,ES_AUTOHSCROLL | ES_WANTRETURN
     CONTROL         "MD2",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
                     19,156,31,8
     CONTROL         "MD4",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,19,170,31,
@@ -3956,7 +3957,6 @@ BEGIN
                     BS_AUTORADIOBUTTON,133,198,140,10
     CONTROL         "H(k, m, k'): zwei verschiedene Schlüssel",IDC_RADIO11,
                     "Button",BS_AUTORADIOBUTTON,133,212,150,10
-    EDITTEXT        IDC_EDIT_KEY,7,255,310,12,ES_AUTOHSCROLL | ES_WANTRETURN
     EDITTEXT        IDC_EDIT_KEY2,7,284,310,12,ES_AUTOHSCROLL | WS_DISABLED
     EDITTEXT        IDC_SHOW_MAC,7,372,310,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_SHOW_TEXT,7,313,311,36,ES_MULTILINE | ES_READONLY | 
@@ -3971,11 +3971,10 @@ BEGIN
     LTEXT           "Eingabe für äußere Hashfunktion (abhängig von der oben gewählten MAC-Variante):",
                     IDC_STATIC,7,301,310,8
     GROUPBOX        "Hashfunktion wählen",IDC_STATIC,7,143,102,96
-    GROUPBOX        "MAC-Variante (Position des Schlüssels)",IDC_STATIC,123,
-                    143,195,96
+    GROUPBOX        "MAC-Variante (Position der Schlüssel; Verschachtelung)",
+                    IDC_STATIC,123,143,195,96
     LTEXT           "Mit Hilfe eines MACs kann der Empfänger einer Nachricht ihre Integrität und die Authentizität ihres Ursprungs (Senders) überprüfen. Hierzu verwenden beide Parteien ein gemeinsames Geheimnis (symmetrischer Schlüssel). ",
                     IDC_STATIC,15,20,295,24
-    DEFPUSHBUTTON   "MAC erzeugen",IDOK,228,398,90,20
     LTEXT           "Um den MAC einer Nachricht zu erzeugen, wird eine kryptographische Hashfunktion auf eine Verknüpfung aus der Nachricht m und dem geheimen Schlüssel k angewendet. Je nach MAC-Variante können auch zwei geheime Schlüssel k und k' verwendet werden. ",
                     IDC_STATIC,15,48,295,24
     EDITTEXT        IDC_EDIT_ORIGINAL_MESSAGE,15,93,295,42,ES_AUTOHSCROLL
@@ -15634,6 +15633,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Message Authentication Code"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
+    EDITTEXT        IDC_EDIT_KEY,7,255,311,12,ES_AUTOHSCROLL | ES_WANTRETURN
     CONTROL         "MD2",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
                     19,156,31,8
     CONTROL         "MD4",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,19,170,31,
@@ -15655,13 +15655,11 @@ BEGIN
                     BS_AUTORADIOBUTTON,133,198,108,10
     CONTROL         "H(k, m, k'): different keys",IDC_RADIO11,"Button",
                     BS_AUTORADIOBUTTON,133,212,94,10
-    EDITTEXT        IDC_EDIT_KEY,7,255,311,12,ES_AUTOHSCROLL | ES_WANTRETURN
     EDITTEXT        IDC_EDIT_KEY2,7,285,311,12,ES_AUTOHSCROLL | WS_DISABLED
     EDITTEXT        IDC_SHOW_MAC,7,372,311,12,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_SHOW_TEXT,7,313,311,36,ES_MULTILINE | ES_READONLY | 
                     WS_VSCROLL
     PUSHBUTTON      "Close",IDCANCEL,7,398,90,20
-    DEFPUSHBUTTON   "Generate MAC",IDOK,228,398,90,20
     LTEXT           "Enter your key (k):",IDC_STATIC,7,243,58,8
     LTEXT           "Enter second key (k'):",IDC_STATIC,7,273,70,8
     LTEXT           "MAC generated from message and key:",IDC_STATIC,7,361,
@@ -15669,7 +15667,8 @@ BEGIN
     LTEXT           "Input for outer hash function (depends on the MAC variant chosen above):",
                     IDC_STATIC,7,301,311,8
     GROUPBOX        "Choose hash function",IDC_STATIC,7,143,102,96
-    GROUPBOX        "Variation (Position of key)",IDC_STATIC,123,143,195,96
+    GROUPBOX        "MAC variant (position of the keys; nesting)",IDC_STATIC,
+                    123,143,195,96
     LTEXT           "By means of a MAC the recipient of a message is able to verify its integrity and the authenticity of its origin (sender). Therefore both parties use a shared secret (symmetric key).",
                     IDC_STATIC,15,20,295,16
     LTEXT           "To create a MAC, a cryptographic hash function is applied to a combination of the message m and the secret key k. According to the variation chosen below, two different keys k and k' can be used.",
