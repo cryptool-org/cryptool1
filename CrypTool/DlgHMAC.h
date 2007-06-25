@@ -61,6 +61,7 @@ public:
 	CString MacToHex(OctetString *hash);
 	void String2Octets(OctetString *osTarget,const char* Source, const int Length);
 	void SetMac(CString input);
+	void SetOuterHash();
 	CString CalculateMac(CString tmpStr);
 	CString strText;
 
@@ -79,6 +80,7 @@ public:
 	CString	m_secondkey;
 	CString	m_str_mac;
 	CString m_originalMessage;
+	CString m_outerHash;
 	//}}AFX_DATA
 
 // Überschreibungen

@@ -90,6 +90,7 @@ void CDlgHMAC::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_KEY2, m_secondkey);
 	DDX_Text(pDX, IDC_SHOW_MAC, m_str_mac);
 	DDX_Text(pDX, IDC_EDIT_ORIGINAL_MESSAGE, m_originalMessage);
+	DDX_Text(pDX, IDC_SHOW_HASH, m_outerHash);
 	//}}AFX_DATA_MAP
 }
 
@@ -195,6 +196,42 @@ void CDlgHMAC::SetMac(CString input)
 			break;//RIPEMD 160
 	}
 	m_str_mac = MacToHex(&macHash);
+	UpdateData(false);
+	theApp.SecudeLib.aux_free(macHash.octets);
+
+	// implicitly update result for outer hash function after setting the MAC
+	SetOuterHash();
+}
+
+void CDlgHMAC::SetOuterHash()
+{
+	//Umwandeln in OctetString
+	OctetString os, macHash;
+	os.octets = 0x00000000;
+	os.noctets = 0;
+	const char* None = new char[0];
+	macHash.octets = 0x000000000;
+	macHash.noctets = 0;
+	String2Octets(&os, LPCSTR(m_originalMessage), m_originalMessage.GetLength());
+	String2Octets(&macHash, None, 0);
+	
+	//hashen mit dem gewählten Algorithmus	
+	switch (m_alg)
+	{
+	case 0:	theApp.SecudeLib.sec_hash_all(&os, &macHash, theApp.SecudeLib.md2_aid, NULL);
+			break;//MD2
+	case 1:	theApp.SecudeLib.sec_hash_all(&os, &macHash, theApp.SecudeLib.md4_aid, NULL);
+			break;//MD4
+	case 2:	theApp.SecudeLib.sec_hash_all(&os, &macHash, theApp.SecudeLib.md5_aid, NULL);
+			break;//MD5
+	case 3:	theApp.SecudeLib.sec_hash_all(&os, &macHash, theApp.SecudeLib.sha_aid, NULL);
+			break;//SHA
+	case 4:	theApp.SecudeLib.sec_hash_all(&os, &macHash, theApp.SecudeLib.sha1_aid, NULL);
+			break;//SHA1
+	case 5:	theApp.SecudeLib.sec_hash_all(&os, &macHash, theApp.SecudeLib.ripemd160_aid, NULL);
+			break;//RIPEMD 160
+	}
+	m_outerHash = MacToHex(&macHash);
 	UpdateData(false);
 	theApp.SecudeLib.aux_free(macHash.octets);
 }

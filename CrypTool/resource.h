@@ -1103,6 +1103,7 @@
 #define IDC_SHOW_MAC                    1616
 #define IDC_SHOW_TEXT                   1617
 #define IDC_M00                         1618
+#define IDC_SHOW_HASH                   1618
 #define IDC_M01                         1619
 #define IDC_M02                         1620
 #define IDC_M03                         1621
