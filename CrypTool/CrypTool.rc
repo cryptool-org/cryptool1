@@ -12215,10 +12215,10 @@ BEGIN
                     NOT WS_BORDER
 END
 
-IDD_RSA_ENCRYPTION DIALOG  0, 0, 392, 271
+IDD_RSA_ENCRYPTION DIALOGEX 0, 0, 392, 271
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "RSA encryption"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
@@ -12227,8 +12227,8 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,232,255,8
     DEFPUSHBUTTON   "&Encrypt",IDOK,7,244,75,20
     PUSHBUTTON      "&Cancel",IDCANCEL,324,244,60,20
-    LTEXT           "Choose a destination",IDC_HEADLINE_SELECT,9,5,373,8
-    LTEXT           "Note: Only PSEs containing an RSA key are shown.",
+    LTEXT           "Choose the receipient:",IDC_HEADLINE_SELECT,9,5,373,8
+    LTEXT           "Note: Here only names are displayed, which have an RSA key.",
                     IDC_STATIC,7,217,365,8
 END
 
@@ -15083,7 +15083,7 @@ BEGIN
     CONTROL         "Password",IDC_PASSWORT_RADIO,"Button",
                     BS_AUTORADIOBUTTON | BS_PUSHLIKE | BS_MULTILINE,5,85,75,
                     25
-    CONTROL         "One-time-passwords",IDC_EINMALPASSWOERTER,"Button",
+    CONTROL         "One-time passwords",IDC_EINMALPASSWOERTER,"Button",
                     BS_AUTORADIOBUTTON | BS_PUSHLIKE | BS_MULTILINE,5,114,75,
                     25
     CONTROL         "Challenge-Response (symmetric)",
@@ -22906,7 +22906,7 @@ BEGIN
     IDS_modeText_Passwoerter 
                             "Password: In this scenario the client authenticates himself by means of a password that he and server 1 know.\r\n\r\nYour job is to authenticate yourself as attacker at server 1 so that he expects you to be the client."
     IDS_modeText_Einmalpasswoerter 
-                            "One-time-passwords: In order to avoid the attack of the password-scenario, client and server 1 have agreed to change the password after each authentication taken place. Therefor they have created a list of one-time-passwords they know both. After authentication with a current password, this one will be marked as used and it cannot be used again. For next authentication another one-time-password of the list must be used.\r\n\r\nAgain your exercise is to authenticate yourself as attacker at server 1 so that he expects you to be the client."
+                            "One-time passwords: In order to avoid the attack of the password scenario, the client and server 1 have agreed to change the password after each authentication taken place. Therefor they have created a list of one-time passwords they know both. After authentication with a current password, this one will be marked as used and cannot be used again. For the next authentication another one-time password of the list must be used.\r\n\r\nAgain, your exercise is to authenticate yourself as attacker at server 1 so that it expects you to be the client."
     IDS_modeText_ChallengeResponseSymmetrisch 
                             "Challenge Response (with symmetric encryption): After the attack at the one-time-passwords client and servers use symmetric encryption by means of a secrect key now. In order to minimize the organisational effort, not each pair of client and server get an own key, but all confidential parties get a common secret key. For authentication the server sends a random number, called Challenge, to the client. By the use of encryption the client generates the response and sends it back to the server. The server decrypts the response and checks whether the decrypted response conforms with the sent one. If that is the case, authentication is successful; otherwise the client is rejected. The server can trust the client, because no outsider knows the secret key and therefor can not generate the correct Response.\r\n\r\nBut maybe something has been overlooked by them...you can find more hints in the online-help."
     IDS_modeText_ChallengeResponseAsymmetrisch 
