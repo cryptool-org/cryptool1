@@ -265,12 +265,13 @@ UINT VigenereAuto(PVOID p)
     r = Autocorr(&para);	
 	while(theApp.fs.m_displayed) Sleep(100);
 	if(r) return r;
+	/* removed information dialog according to BE's remarks, 02/07/07
 	if (Opt.m_VKorr) 
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_PROCEED,pc_str,STR_LAENGE_STRING_TABLE);
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_VIGENERE,pc_str1,STR_LAENGE_STRING_TABLE);
 		theApp.m_MainWnd->MessageBox(pc_str, pc_str1, MB_OK);
-	}
+	}*/
 	
 // == compute the assumed key-length
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
@@ -294,6 +295,14 @@ UINT VigenereAuto(PVOID p)
 	}
 
 	SymbolArray reference(AppConv);
+	// bug: CrypTool terminated when no valid reference file was given (e.g. empty string)
+	// solution: tell user to specify valid reference file and return
+	if(theApp.TextOptions.m_StrRefFile.GetLength() <= 0)
+	{
+		LoadString(AfxGetInstanceHandle(),IDS_ERRON_OPEN_REFERENCE_FILE,pc_str,STR_LAENGE_STRING_TABLE);
+		AfxMessageBox(pc_str, MB_ICONINFORMATION);
+		return -1;
+	}
 	reference.Read(theApp.TextOptions.m_StrRefFile);
 	reference += 1;
 	NGram d(reference);
@@ -696,12 +705,13 @@ UINT XorAuto(PVOID p)
     r = Autocorr(&para);
 	while(theApp.fs.m_displayed) Sleep(100);
 	if(r) return r;
+	/* removed information dialog according to BE's remarks, 02/07/07
 	if (Opt.m_VKorr) 
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_PROCEED,pc_str,STR_LAENGE_STRING_TABLE);
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_XOR,pc_str1,STR_LAENGE_STRING_TABLE);
 		theApp.m_MainWnd->MessageBox(pc_str, pc_str1, MB_OK);
-	}
+	}*/
 	
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
 		SHOW_HOUR_GLASS
@@ -847,12 +857,14 @@ UINT AddAuto(PVOID p)
     r = Autocorr(&para);
 	while(theApp.fs.m_displayed) Sleep(100);
 	if(r) return r;
+	
+	/* removed information dialog according to BE's remarks, 02/07/07
 	if (Opt.m_VKorr) 
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_PROCEED,pc_str,STR_LAENGE_STRING_TABLE);
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_ADD,pc_str1,STR_LAENGE_STRING_TABLE);
 		theApp.m_MainWnd->MessageBox(pc_str, pc_str1, MB_OK);
-	}
+	}*/
 	
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
 		SHOW_HOUR_GLASS
