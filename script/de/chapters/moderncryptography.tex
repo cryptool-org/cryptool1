@@ -46,14 +46,51 @@
 \setlength{\fboxrule}{.4pt}
 \setlength{\fboxsep}{4pt}
 
+
 \newpage
 %********************************************************************
 \hypertarget{Chapter_ModernCryptography}{}
-\section{Die mathematischen Ideen hinter der modernen Kryptographie}
+\section[Die mathematischen Ideen hinter der modernen Kryptographie]
+        {Die mathematischen Ideen hinter der modernen Kryptographie\footnotemark}
+\footnotetext{%
+    \index{ZT, Lernprogramm Zahlentheorie}%
+    \index{Lernprogramm ZT}%
+    Mit dem Lernprogramm {\bf ZT} können Sie spielerisch einige der hier
+    besprochenen Verfahren (RSA, Rabin, DH, ElGamal) nachvollziehen
+    (siehe Lern-Kapitel 4.2 und 4.3, Seiten 9-17/17).\\
+    ZT können Sie in CrypTool\index{CrypTool} über das Menü
+    {\bf Einzelverfahren \textbackslash{} Zahlentheorie 
+    interaktiv \textbackslash{} Lernprogramm für Zahlentheorie} aufrufen.
+    Siehe Anhang \ref{s:appendix-Learn-NT}.}
+}
 \label{Chapter_ModernCryptography}
 %********************************************************************
 (Oyono R./ Esslinger B./ Schneider J., Sep. 2000;
            Updates Nov. 2000, Feb. 2003, Apr. 2007)
+
+
+
+\vskip +30 pt
+
+\begin{center}
+\fbox{\parbox{15cm}{
+   {\em Georg Christoph Lichtenberg\footnotemark:}\\
+   Ich weiß nicht, ob es besser wird, wenn wir es ändern,\\
+   aber ich weiß, dass wir es ändern müssen, wenn es besser werden soll.\\
+
+   {\em Anmerkung von Unbekannt (Radio) dazu:}\\
+   Und Gott gebe den Akteuren bei der notwendigen Umsetzung\\
+   das Wissen, die Weisheit und das Verantwortungsbewusstsein,\\
+   zwischen Aktionismus, Selbstdarstellung und planvollem Handeln\\
+   zu unterscheiden -- und ihr Wissen auch anzuwenden.
+}}
+\end{center}
+\addtocounter{footnote}{0}\footnotetext{%
+  Georg Christoph Lichtenberg\index{Lichtenberg, Georg Christoph}, 
+  deutscher Schriftsteller und Physiker (1742-1799),\\ 
+  (siehe auch: \href{http://de.wikipedia.org/wiki/Georg\_Christoph\_Lichtenberg}
+                {\tt http://de.wikipedia.org/wiki/Georg\_Christoph\_Lichtenberg})
+}
 
 %--------------------------------------------------------------------
 \hypertarget{OneWayFunktion1}{}
@@ -128,10 +165,11 @@ Es gab immer wieder die Aussage, jemand habe die Äquivalenz bewiesen, z.B.
 
 aber bisher erwiesen sich diese Aussagen stets als falsch.
 
-Es wurden eine Reihe von Algorithmen für Public Key-Verfahren vorgeschlagen. Einige davon erwiesen sich, obwohl sie zunächst vielversprechend erschienen, als polynomial \index{Polynom} lösbar. Der berühmteste durchgefallene Bewerber ist der Knapsack mit Falltür, der von Ralph Merkle \cite{Merkle1978} vorgeschlagen wurde.
+Es wurden eine Reihe von Algorithmen für Public Key-Verfahren vorgeschlagen. Einige davon erwiesen sich, obwohl sie zunächst vielversprechend erschienen, als polynomial \index{Polynom} lösbar. Der berühmteste durchgefallene Bewerber ist der von Ralph Merkle \cite{Merkle1978} vorgeschlagen Knapsack mit Falltür.
 
 
-\newpage
+%\newpage
+\vskip +20 pt
 %--------------------------------------------------------------------
 \subsection{Knapsackproblem als Basis für Public Key-Verfahren}
 \index{Kryptographie!Public Key}
@@ -168,7 +206,7 @@ diese Zahlen aufgezählt werden. Beispielsweise ist eine Permutation $\pi$ von $(
 und $\pi(3) = 2$.} 
 $ \pi $  von $ 1, \dots, n $  mit $ a_{\pi (j)} > \sum_{i=1}^{j-1} a_{\pi(i)} $  existiert. Ist zusätzlich $ \pi $ die Identität, d.h. $ \pi(i)=i $ für $ i=1,2,\dots,n, $ so heißt die Folge $ a_1, \dots , a_n $ superwachsend.
 Der folgende Algorithmus löst das Knapsackproblem mit superwachsender Folge im Zeitraum von $ O(n). $
-\newpage
+%\newpage
 \begin{center}
 
 \fbox{\parbox{12cm}{        
@@ -187,7 +225,7 @@ Der folgende Algorithmus löst das Knapsackproblem mit superwachsender Folge im Z
 \end{tabbing}
 }}
 \end{center}
-\vskip +10 pt
+%\vskip +10 pt
 {\bf Algorithmus 1.} Lösen von Knapsackproblemen mit superwachsenden Gewichten
 \vskip +20 pt
 
@@ -217,7 +255,7 @@ G^{(j)} & \equiv & \bar{w} g^{(j)} = \sum_{i=1}^n x_i^{(j)} b_{\pi (i)} \bar{w} 
 indem er die leichten 0-1-Knapsackprobleme $ K(a_1,\dots,a_n;G^{(j)}) $ mit superwachsender Folge $ a_1, \dots,a_n $ löst.
 }}
 \end{center}
-\vskip +10 pt
+%\vskip +10 pt
 {\bf Merkle-Hellman Verfahren} (auf Knapsackproblemen basierend).
 \vskip +20 pt
 
@@ -233,7 +271,7 @@ polynomialer Zeit an. Ernst Brickell \index{Brickell, Ernst}
 \cite{Brickell1985} gab schließlich einen Algorithmus zum Brechen des
 mehrfachen iterierten Merkle-Hellman Knapsack-Verschlüsselungs"-ver"-fah"-ren in
 polynomialer Zeit an. Damit war dieses Verfahren als
-Verschlüsselungs"-ver"-fah"-ren ungeeignet. Dieses Verfahren liefert also eine
+Verschlüsse"-lungs"-ver"-fah"-ren ungeeignet. Dieses Verfahren liefert also eine
 Einwegfunktion, deren Falltür-In"-for"-ma"-tion (Verfremden des
 0-1-Knapsackproblems) durch einen Gegner entdeckt werden könnte.
 
@@ -242,7 +280,6 @@ Einwegfunktion, deren Falltür-In"-for"-ma"-tion (Verfremden des
 \subsection{Primfaktorzerlegung als Basis für Public Key-Verfahren}
 \index{Primfaktor!Zerlegung}
 %--------------------------------------------------------------------
-
 
 %--------------------------------------------------------------------
 \hypertarget{RSAVerfahren}{}
@@ -284,7 +321,7 @@ Der Ausgangstext wird in Blöcke zerlegt und verschlüsselt, wobei jeder Block ein
 }}
 \end{center}
 
-\vskip +10 pt
+%\vskip +10 pt
 {\bf RSA-Verfahren} (auf dem Faktorisierungsproblem basierend).
 \vskip +20 pt
 
@@ -381,7 +418,7 @@ Seien $ p $ und $ q $ zwei verschiedene Primzahlen mit $ p,q\equiv 3 \mod 4 $ un
 }}
 \end{center}
 
-\vskip +10 pt
+%\vskip +10 pt
 {\bf Rabin-Verfahren} (auf dem Faktorisierungsproblem basierend).
 \vskip +20 pt
 
@@ -392,12 +429,24 @@ Hintertür-Information ist die Primfaktorzerlegung von $ n = pq. $
 
 
 
-
+\vskip +20 pt
 %--------------------------------------------------------------------
-\subsection{Der diskrete Logarithmus als Basis für Public Key-Verfahren}
-
+\hypertarget{HT-Discrete-Logarithm-as-Basis}{}
+\subsection[Der diskrete Logarithmus als Basis für Public Key-Verfahren]
+           {Der diskrete Logarithmus als Basis für Public Key-Verfahren\footnotemark}
+\footnotetext{%
+    \index{ZT, Lernprogramm Zahlentheorie}%
+    \index{Lernprogramm ZT}%
+    In dem Lernprogramm {\bf ZT} können Sie mit der Verteilung des diskreten
+    Logarithmus experimentieren und Shanks Babystep-Giantstep-Methode anwenden:
+    Siehe Lern-Kapitel 6.1-6.3, Seiten 1-6/6.\\
+    ZT können Sie in CrypTool\index{CrypTool} über das Menü
+    {\bf Einzelverfahren \textbackslash{} Zahlentheorie interaktiv \textbackslash{}
+    Lernprogramm für Zahlentheorie} aufrufen.
+    Siehe Anhang \ref{s:appendix-Learn-NT}.}
+}
+\label{L-Discrete-Logarithm-as-Basis}
 Diskrete Logarithmen\index{Logarithmusproblem!diskret} sind die Grundlage für eine große Anzahl von Algorithmen von Public Key-Verfahren.
-
 
 %--------------------------------------------------------------------
 \subsubsection{Der diskrete Logarithmus in $ \Z_p^* $}
@@ -479,7 +528,7 @@ Die Mechanismen und Algorithmen der klassischen Kryptographie greifen erst dann,
 Das Revolutionäre der modernen Kryptographie ist unter anderem, dass man keine geheimen Kanäle mehr braucht: Man kann geheime Schlüssel über nicht-geheime, also öffentliche Kanäle vereinbaren. \\
 Ein Protokoll, das dieses Problem löst, ist das von Diffie und Hellman.\\ %\enlargethispage{+20pt}
 
-\newpage
+%\newpage
 \begin{center}
 \fbox{\parbox{12cm}{   
 Zwei Teilnehmer $ A $ und $ B $ wollen einen gemeinsamen geheimen Schlüssel vereinbaren. \par    
@@ -490,7 +539,7 @@ Damit gilt
 }}
 \end{center}
 
-\vskip +10 pt
+%\vskip +10 pt
 {\bf Diffie-Hellman-Schlüsselvereinbarung}.
 \vskip +20 pt
 
@@ -526,7 +575,7 @@ und
 }}
 \end{center}
 
-\vskip +10 pt
+%\vskip +10 pt
 {\bf ElGamal Verfahren} (auf dem diskreten Logarithmusproblem basierend).
 \vskip +20 pt
 
@@ -560,7 +609,7 @@ Man erhält also $ g^k $ aus $ g^{k'} $ indem man einmal quadriert und eventuell 
 
 \vskip +10 pt
 {\bf Problem \index{Logarithmusproblem!diskret} des diskreten Logarithmus'}
-\vskip +10 pt
+%\vskip +10 pt
 \begin{center}
 \fbox{\parbox{12cm}{ 
 Sei $ G $ eine endliche Gruppe mit der Operation $ \circ. $ Sei $ \alpha \in G $ und $ \beta \in H=\{ \alpha^{i}: i\geq 0\}. $ \\
@@ -618,7 +667,7 @@ und
 \end{center}
 
 
-\vskip +10 pt
+%\vskip +10 pt
 {\bf Verallgemeinertes ElGamal Verfahren} (auf das diskrete Logarithmusproblem basierend).
 \vskip +20 pt
 

@@ -30,9 +30,9 @@ keys. They use their secret key to generate signatures and the recipient uses
 the sender's public key to verify whether the signature is correct. As before,
 it must be impossible to use the public key to derive the secret key\footnote{%
 With CrypTool\index{CrypTool} you can also generate and check 
-digital signatures: \\
-using the submenus of the main menu {\bf Digital Signatures / PKI} or \\
-using menu {\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem 
+digital signatures: Using\\
+the submenus of the main menu {\bf Digital Signatures / PKI}  or using\\
+menu {\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem 
 \textbackslash{} Signature Demonstration (Signature Generation)}.
 }.
 
@@ -241,7 +241,10 @@ by Reinhard Wobst and J\"urgen Schmidt\footnote{%
 % --------------------------------------------------------------------------
 \vskip + 15pt
 \subsubsection{Signing with hash functions}
-The hash function procedure is as follows:\\ Rather than signing the actual
+The signature procedure with hash functions is as follows:\footnote{% 
+Compare: \href{http://en.wikipedia.org/wiki/Digital\_signature}
+      {\texttt{http://en.wikipedia.org/wiki/Digital\_signature}}.
+} \\ Rather than signing the actual
 document, the sender now first calculates the hash value of the message and
 signs this. The recipient also calculates the hash value of the message (the
 algorithm used must be known), then verifies whether the signature sent with the

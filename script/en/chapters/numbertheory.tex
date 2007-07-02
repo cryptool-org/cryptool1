@@ -302,25 +302,41 @@ chapter \ref{Label_Kapitel_2}} in this script.
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\subsection{Divisibility, modulus and remainder classes} \index{Modulus} \index{Divisibility} 
+\subsection[Divisibility, modulus and remainder classes]
+           {Divisibility, modulus and remainder classes\footnotemark}
+\footnotetext{%
+    \index{NT, Learning Tool for Number Theory}%
+    \index{Educational tool NT}%
+    With the educational tool for number theory {\bf NT} you can have a
+    playful view at the calculation with congruences, discussed in this and
+    the next chapter (see learning unit 2.1, pages 2-9/40).\\
+    NT can be called in CrypTool\index{CrypTool} via the menu path
+    {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
+    \textbackslash{} Learning Tool for Number Theory}.
+    See appendix \ref{s:appendix-Learn-NT}.
+}
+\index{Modulus} \index{Divisibility} 
 
-If whole numbers are added, subtracted or multiplied, the result is always another whole number.
+If whole numbers are added, subtracted or multiplied, the result is always
+another whole number.
 
-The division of two whole numbers does not always result in a whole number. For example, if we divide $158$ by $10$ 
+The division of two whole numbers does not always result in a whole number.
+For example, if we divide $158$ by $10$ 
 the result is the decimal number $15.8$, which is not a whole number!
 
-If, however, we divide $158$ by $2$ the result $79$ is a whole number. In number theory we express this by 
-saying that $158$ is {\em divisible} by $2$ but not by $10$. In general, we say:
+If, however, we divide $158$ by $2$ the result $79$ is a whole number.
+In number theory we express this by saying that $158$ is {\em divisible} 
+by $2$ but not by $10$. In general, we say:
 
 \begin{definition}\label{def-zth-divisibility} \index{Divisibility} \index{Divisible}
-A whole number $n$ is {\bf divisible} by a whole number $d$ if the quotient $n/d$ is a whole number $c$ such that $n 
-= c * d$.
+A whole number $n$ is {\bf divisible} by a whole number $d$ if the
+quotient $n/d$ is a whole number $c$ such that $n = c * d$.
 \end{definition}
 
 $n$ is called a {\em multiple} of $d$, whereas $d$ is called a \index{Divisor} {\em divisor} or \index{Factor} {\em factor} of $n$.
 
-The mathematical notation for this is $d | n$  (read ``$d$ divides $n$''). The notation $d \!\!\not| n$ means that $d$ 
-does not divide the number $n$.
+The mathematical notation for this is $d | n$  (read ``$d$ divides $n$'').
+The notation $d \!\!\not| n$ means that $d$ does not divide the number $n$.
 
 In our example therefore: $10 \!\!\not| 158$ but $2 | 158$.
 
@@ -900,7 +916,15 @@ calculated at all within a reasonable amount of time.
 Let us take the equation $a \equiv b^c{\rm ~(mod~}m)$.
 
 \begin{itemize}
-\item [\bf a)] {\bf Taking the logarithm (determining $c$) -- Discrete logarithm problem \index{Logarithm problem!discrete}:}
+\item [\bf a)] 
+      {\bf Taking the logarithm (determining $c$) -- Discrete logarithm
+       problem:\footnotemark}
+\footnotetext{%
+Further details about
+the\index{Logarithm problem!discrete}\index{Discrete logarithm}
+\hyperlink{HT-Discrete-Logarithm-as-Basis}{discrete logarithm problem}
+can be found in chapter~\ref{L-Discrete-Logarithm-as-Basis}.
+}
 
 If we know $a$ and $b$ of the three numbers $a$, $b$ and $c$ that meet this equation, then every known method 
 of finding $c$ is approximately just as time-consuming as trying out all $m$ possible values for $c$ one after the 
@@ -1251,9 +1275,21 @@ $$} (please compare requisition 3 in \hyperlink{Chapter_ElementaryNT_10_1}
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\pagebreak
+%\pagebreak
 \hypertarget{Chapter_ElementaryNT_9}{}
-\subsection{Multiplicative order and primitive roots}
+\subsection[Multiplicative order and primitive roots]
+           {Multiplicative order and primitive roots\footnotemark}
+\footnotetext{%
+    \index{NT, Learning Tool for Number Theory}%
+    \index{Educational tool NT}%
+    With the educational tool for number theory {\bf NT} you can have a
+    playful experience with primitive roots
+    (see learning unit 2.2, pages 10-14/40 and 24-40/40).\\
+    NT can be called in CrypTool\index{CrypTool} via the menu path
+    {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
+    \textbackslash{} Learning Tool for Number Theory}.
+    See appendix \ref{s:appendix-Learn-NT}.
+}
 \label{MultOrdPrimitveRoot}
 
 Mathematicians often ask, in which conditions the repeated application of an operation results in the neutral
@@ -1288,7 +1324,7 @@ shows the values $a^i$ mod $11$ for the exponents $i = 1, 2, \cdots, 10$ and for
 $a =  1, 2, \cdots, 10$ as well as the resulting value $ord_{11}(a)$ for each $a$:
 
 \subsubsection*{Table 4: Values of $a^i {\rm ~mod~} 11,  1 \leq a,i<11$ and according order of $a$ mod $m$:}\label{SrcArith3a}
-\begin{center}                                                                          
+\begin{center}
 \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
               & i=1 & i=2 & i=3 & i=4 & i=5 & i=6 & i=7 & i=8 & i=9 & i=10  & $ord_{11}(a)$\\
@@ -1338,7 +1374,7 @@ $a =  1, 2, \cdots, 12$ as well as the resulting value $ord_{45}(a)$ for each $a
 
 
 \subsubsection*{Table 5: Values of $a^i{\rm ~mod~}45, 1\leq a,i<13$:}\label{SrcArith3b}
-\begin{center}                                                                          
+\begin{center}
 \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
  $a\setminus i$ & 1            & 2            & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12     & $ord_{45}(a)$       & $J(45)$ \\
@@ -1394,7 +1430,6 @@ The requirement/condition $gcd(7,46)=1$ is fulfilled.
 
 %\newpage
 \pagebreak
-
 \subsubsection*{Table 6: Values of $a^i{\rm ~mod~}46, 1\leq a,i<23$:}
 \label{SrcArith3c}
 \textmd \small
@@ -1804,7 +1839,21 @@ Please refer to: {\em Handbook of Applied Cryptography} \cite{Menezes2001}.
 \label{chptSecurityParam}
 
 %\vskip +15 pt
-\paragraph{Factorisation algorithms} \mbox{}
+%\paragraph{Factorisation algorithms\footnotemark}
+\paragraph[Factorisation algorithms]
+          {Factorisation algorithms\footnotemark}
+\footnotetext{%
+    \index{NT, Learning Tool for Number Theory}%
+    \index{Educational tool NT}%
+    With the educational tool for number theory {\bf NT} you can gather more
+    experience with current factorization algorithms
+    (see learning unit 5.1-5.5, pages 1-15/15).\\
+    NT can be called in CrypTool\index{CrypTool} via the menu path
+    {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
+    \textbackslash{} Learning Tool for Number Theory}.
+    See appendix \ref{s:appendix-Learn-NT}.
+}
+\mbox{}
 
 The complexity is basically determined by the length $l$ of the module $n$.
 Higher values for this major parameter are oriented at the possibilities of the
@@ -2706,22 +2755,30 @@ Alice and Bob want to negotiate a secret session key $S$ via a channel that may 
                 Bob calculates $B \equiv g^b {\rm ~(mod~} p)$.
 \item[{\bf 4.}] Alice sends the result $A$ to Bob.\\
                 Bob sends the result $B$ to Alice.
-\item[{\bf 5.}] In order to now determine the session key to be used by both, they both separately raise the 
-                respective results they have received to the power of their secret random number modulo $p$. 
+\item[{\bf 5.}] In order to now determine the session key to be used by both,
+                they both separately raise the respective results they have
+                received to the power of their secret random number modulo $p$.
                 This means: 
 \begin{itemize}
     \item[-] Alice calculates $S \equiv B^a {\rm ~(mod~} p)$ and
     \item[-] Bob calculates $S \equiv A^b {\rm ~(mod~} p)$.
 \end{itemize}
 \end{itemize}
-Even if a spy intercepts $g, p$, and the interim results $A$ and $B$, he cannot use these to determine the session key 
-used due to the difficulty of calculating the discrete logarithm\index{Discrete logarithm}\index{Logarithm problem!discrete}.
+Even if a spy intercepts $g, p$, and the interim results $A$ and $B$, he cannot
+use these in order to determine the used session key used -- due to the
+difficulty of calculating the discrete logarithm\footnotemark.
+\footnotetext{%
+Further details about
+the\index{Logarithm problem!discrete}\index{Discrete logarithm}
+\hyperlink{HT-Discrete-Logarithm-as-Basis}{discrete logarithm problem}
+can be found in chapter~\ref{L-Discrete-Logarithm-as-Basis}.
+}
 
 \vskip + 5pt
 We will now use an example with (unrealistically) small numbers to illustrate this.
 \vskip +1em
 
-\pagebreak
+%\pagebreak
 {\bf Example using numbers:} 
 \begin{itemize}
 \item[{\bf 1.}] Alice and Bob select $g = 11, p = 347$.
@@ -3443,11 +3500,15 @@ This needs to be stressed because the type of padding is extremely important dur
          {\texttt{http://www.gnu.org/software/bc/bc.html}}
           
    \item Pari-GP, \index{Pari-GP} \\
-         Excellent, fast, free interpreter with number theoretical functions\\
-         \href{http://www.parigp-home.de}
-              {\texttt{http://www.parigp-home.de}} and 
-         \href{http://www.parigp-home.com}
-              {\texttt{http://www.parigp-home.com}}
+         Excellent, fast, free interpreter with number theoretical functions.\\
+         \href{http://pari.math.u-bordeaux.fr/}
+              {\texttt{http://pari.math.u-bordeaux.fr/}}\\
+         \href{http://en.wikipedia.org/wiki/PARI/GP}
+              {\texttt{http://en.wikipedia.org/wiki/PARI/GP}}\\
+         Resources for PARI/GP at Karim Belabas's website:\\
+         \href{http://www.math.u-bordeaux.fr/~belabas/pari/}
+              {\texttt{http://www.math.u-bordeaux.fr/\~{}belabas/pari/}}
+
               
    \item \index{Munchenbach@M\"unchenbach, Carsten}
          Only after I had completed this article, did I come across the
@@ -3463,8 +3524,8 @@ This needs to be stressed because the type of padding is extremely important dur
 	  of the curriculum of computer science in one of the German federal 
           states (L\"ander). Here you can get hold of a collection of texts
 	  and (Java-)\discretionary{}{}{}programs (available only in German):\\
-          \href{http://www.hom.saar.de/~awa/kryptolo.htm}
-          {\texttt{http://www.hom.saar.de/\~{}awa/kryptolo.htm}}
+          \href{http://www.saar.de/~awa/kryptolo.htm}
+          {\texttt{http://www.saar.de/\~{}awa/kryptolo.htm}}
           
     \item GISA, \index{GISA} \\
           German Information Security Agency \\
@@ -3525,8 +3586,20 @@ I would like to take this opportunity to thank
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
 \hypertarget{Appendix_A}{}
-\subsection*{Appendix A: the greatest common divisor (gcd) of whole
-             numbers and the two Algorithms of Euclid}
+\subsection*{Appendix A: The greatest common divisor (gcd) of whole
+             numbers \index{gcd} and the two algorithms of Euclid%
+\footnote{%
+    \index{NT, Learning Tool for Number Theory}%
+    \index{Educational tool NT}%
+    With the educational tool for number theory {\bf NT} you can see
+a) how Euklid's algorithm calculates the gcd (learning unit 1.3, pages 14-19/21)    and \\
+b) how Euklid's enhanced algorithm finds the multiplicative inverse
+   (learning unit 2.2, page 13/40).\\
+    NT can be called in CrypTool\index{CrypTool} via the menu path
+    {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
+    \textbackslash{} Learning Tool for Number Theory}.
+    See appendix \ref{s:appendix-Learn-NT}.
+}}
 \label{Appendix_A}
 \addcontentsline{toc}{subsection}{Appendix A: gcd of whole numbers and the two
 algorithms of Euclid}\index{Euclidean algorithm!extended}\index{Gcd}

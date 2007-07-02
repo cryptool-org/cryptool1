@@ -626,7 +626,18 @@ No new record is likely to last that long.
 
 
 % --------------------------------------------------------------------------
-\subsection{Prime number tests}
+\subsection[Prime number tests]{Prime number tests\footnotemark}
+\footnotetext{%
+    \index{NT, Learning Tool for Number Theory}%
+    \index{Educational tool NT}%
+    With the educational tool for number theory {\bf NT} you can apply the
+    tests of Fermat and of Miller-Rabin:
+    See learning units 3.2 and 3.3, pages 3-11/11.\\
+    NT can be called in CrypTool\index{CrypTool} via the menu path
+    {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
+    \textbackslash{} Learning Tool for Number Theory}.
+    See appendix \ref{s:appendix-Learn-NT}.
+}
 \label{primality_tests}   % chap. 3.5
 \index{Prime number!test}
 
@@ -1136,49 +1147,53 @@ It is easy to see that $f(41)$ cannot be a prime number:
 \pagebreak %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \vskip +10 pt
 \subsubsection{$f(n) = n^2 - 79 \cdot n + 1,601$}
-\label{L-Polynomfunktion02-1601}
-    This function delivers prime numbers for all values from $n=0$ to $n=79$.
+\label{L-Polynomfunktion02-1601}   \label{SrcPrimArith1}
+   This function\footnote{%
+   See \hyperlink{PrimArith1}{Appendix A of this chapter} for the source code
+   to compute the table using Pari-GP.\index{Pari-GP}
+}
+   delivers prime numbers for all values from $n=0$ to $n=79$.
 Unfortunately $f(80) = 1,681 = 11 \cdot 151$ is not a prime number. To this
 date, no function has been found that delivers more prime numbers in a row. On
 the other hand, each prime occurs twice (first in the decreasing then in the
 increasing sequence), which means that the algorithm delivers a total of 40
-difference prime values (the same ones as delivered by the function in 
-chapter~\ref{L-Polynomfunktion01-41}).
+different prime values (these are the same ones as delivered by the function
+in chapter~\ref{L-Polynomfunktion01-41})\footnote{%
+   Another quadratic polynom, which delivers these primes, is: 
+   $f(n) = n^2 - 9 \cdot n + 61$.\\
+   Among the first 1000 sequence elements more than 50\% are prime
+   (See \hyperlink{PrimArith2}{Appendix A of this chapter}).}.
 $$
 \begin{array}{|ll||ll|}
 \hline
-f(0) = 1,601    & \mapsto {\rm ~prime} &  f(28) = 173    & \mapsto {\rm ~prime}
-\\
-f(1) = 1,523    & \mapsto {\rm ~prime} &  f(29) = 151    & \mapsto {\rm ~prime}
-\\
-f(2) = 1,447    & \mapsto {\rm ~prime} &  f(30) = 131 & \mapsto {\rm ~prime} \\
-f(3) = 1,373    & \mapsto {\rm ~prime} &  f(31) = 113 & \mapsto {\rm ~prime} \\
-f(4) = 1,301    & \mapsto {\rm ~prime} &  f(32) = 97 & \mapsto {\rm ~prime} \\
-f(5) = 1,231    & \mapsto {\rm ~prime} &  f(33) = 83 & \mapsto {\rm ~prime} \\
-f(6) = 1,163    & \mapsto {\rm ~prime} &  f(34) = 71 & \mapsto {\rm ~prime} \\
-f(7) = 1,097    & \mapsto {\rm ~prime} &  f(35) = 61 & \mapsto {\rm ~prime} \\
-f(8) = 1,033    & \mapsto {\rm ~prime} &  f(36) = 53 & \mapsto {\rm ~prime} \\
-f(9) = 971  & \mapsto {\rm ~prime} &  f(37) = 47 & \mapsto {\rm ~prime} \\
-f(10) = 911 & \mapsto {\rm ~prime} &  f(38) = 43 & \mapsto {\rm ~prime} \\
-f(11) = 853 & \mapsto {\rm ~prime} &  f(39) = 41 & \mapsto {\rm ~prime} \\
-f(12) = 797 & \mapsto {\rm ~prime} &  f(40) = 41 & \mapsto {\rm ~prime} \\               
-f(13) = 743 & \mapsto {\rm ~prime} &  f(41) = 43 & \mapsto {\rm ~prime} \\               
-f(14) = 691 & \mapsto {\rm ~prime} &  f(42) = 47 & \mapsto {\rm ~prime} \\               
-f(15) = 641 & \mapsto {\rm ~prime} &  f(43) = 53 & \mapsto {\rm ~prime} \\               
-f(16) = 593 & \mapsto {\rm ~prime} &  \cdots  &  \\                                      
-f(17) = 547 & \mapsto {\rm ~prime} &  f(77) = 1,447  & \mapsto {\rm ~prime} \\           
-f(18) = 503 & \mapsto {\rm ~prime} &  f(78) = 1,523  & \mapsto {\rm ~prime} \\           
-f(19) = 461 & \mapsto {\rm ~prime} &  f(79) = 1,601  & \mapsto {\rm ~prime} \\           
-f(20) = 421 & \mapsto {\rm ~prime} &  f(80) = 41 \cdot 41 & \mapsto {\rm ~NOT~prime!} \\
-f(21) = 383 & \mapsto {\rm ~prime} &  f(81) = 41 \cdot 43 & \mapsto {\rm ~NOT~prime!} \\ 
-f(22) = 347 & \mapsto {\rm ~prime} &  f(82) = 1,847  & \mapsto {\rm ~prime} \\           
-f(21) = 383 & \mapsto {\rm ~prime} &  f(83) = 1,933  & \mapsto {\rm ~prime} \\           
-f(22) = 347 & \mapsto {\rm ~prime} &  f(84) = 43 \cdot 47 &  \mapsto {\rm ~NOT~prime!} \\
-f(23) = 313 & \mapsto {\rm ~prime} & & \\
-f(24) = 281 & \mapsto {\rm ~prime} & & \\
-f(25) = 251 & \mapsto {\rm ~prime} & & \\
-f(26) = 223 & \mapsto {\rm ~prime} & & \\
-f(27) = 197 & \mapsto {\rm ~prime} & & \\
+f(0)  = 1.601 & \mapsto {\rm ~prim}   &   f(26) =   223 & \mapsto {\rm ~prim} \\
+f(1)  = 1.523 & \mapsto {\rm ~prim}   &   f(27) =   197 & \mapsto {\rm ~prim} \\
+f(2)  = 1.447 & \mapsto {\rm ~prim}   &   f(28) =   173 & \mapsto {\rm ~prim} \\
+f(3)  = 1.373 & \mapsto {\rm ~prim}   &   f(29) =   151 & \mapsto {\rm ~prim} \\
+f(4)  = 1.301 & \mapsto {\rm ~prim}   &   f(30) =   131 & \mapsto {\rm ~prim} \\
+f(5)  = 1.231 & \mapsto {\rm ~prim}   &   f(31) =   113 & \mapsto {\rm ~prim} \\
+f(6)  = 1.163 & \mapsto {\rm ~prim}   &   f(32) =    97 & \mapsto {\rm ~prim} \\
+f(7)  = 1.097 & \mapsto {\rm ~prim}   &   f(33) =    83 & \mapsto {\rm ~prim} \\
+f(8)  = 1.033 & \mapsto {\rm ~prim}   &   f(34) =    71 & \mapsto {\rm ~prim} \\
+f(9)  =   971 & \mapsto {\rm ~prim}   &   f(35) =    61 & \mapsto {\rm ~prim} \\
+f(10) =   911 & \mapsto {\rm ~prim}   &   f(36) =    53 & \mapsto {\rm ~prim} \\
+f(11) =   853 & \mapsto {\rm ~prim}   &   f(37) =    47 & \mapsto {\rm ~prim} \\
+f(12) =   797 & \mapsto {\rm ~prim}   &   f(38) =    43 & \mapsto {\rm ~prim} \\
+f(13) =   743 & \mapsto {\rm ~prim}   &   f(39) =    41 & \mapsto {\rm ~prim} \\
+f(14) =   691 & \mapsto {\rm ~prim}   &   f(40) =    41 & \mapsto {\rm ~prim} \\              
+f(15) =   641 & \mapsto {\rm ~prim}   &   f(41) =    43 & \mapsto {\rm ~prim} \\              
+f(16) =   593 & \mapsto {\rm ~prim}   &   f(42) =    47 & \mapsto {\rm ~prim} \\              
+f(17) =   547 & \mapsto {\rm ~prim}   &   f(43) =    53 & \mapsto {\rm ~prim} \\              
+f(18) =   503 & \mapsto {\rm ~prim}   &   \cdots  &  \\                                       
+f(19) =   461 & \mapsto {\rm ~prim}   &   f(77) = 1.447 & \mapsto {\rm ~prim} \\             
+f(20) =   421 & \mapsto {\rm ~prim}   &   f(78) = 1.523 & \mapsto {\rm ~prim} \\             
+f(21) =   383 & \mapsto {\rm ~prim}   &   f(79) = 1.601 & \mapsto {\rm ~prim} \\             
+f(22) =   347 & \mapsto {\rm ~prim}   &   f(80) = 41 \cdot 41 & \mapsto {\rm ~NICHT~prim!} \\
+f(21) =   383 & \mapsto {\rm ~prim}   &   f(81) = 41 \cdot 43 & \mapsto {\rm ~NICHT~prim!} \\ 
+f(22) =   347 & \mapsto {\rm ~prim}   &   f(82) = 1.847 & \mapsto {\rm ~prim} \\             
+f(23) =   313 & \mapsto {\rm ~prim}   &   f(83) = 1.933 & \mapsto {\rm ~prim} \\              
+f(24) =   281 & \mapsto {\rm ~prim}   &   f(84) = 43 \cdot 47 &  \mapsto {\rm ~NICHT~prim!} \\
+f(25) =   251 & \mapsto {\rm ~prim}   &   & \\
 \hline
 \end{array} 
 $$
@@ -1402,15 +1417,18 @@ down all numbers from 2 to $x$, circle 2, then cross out all multiples of 2.
 Next, you circle the lowest number that hasn't been circled or crossed out
 (3) and again cross out all multiples of this number, etc. You only need to
 continue until you reach the largest number whose square is less than or
-equal to $x$.\index{NT, Learning Tool for Number Theory}%
+equal to $x$.%
 \footnote{%
+    \index{NT, Learning Tool for Number Theory}%
+    \index{Educational tool NT}%
     With the educational tool for number theory {\bf NT} you can apply the
     sieve of Eratosthenes in a computer-aided and guided way: Enter you own
-    number and do the sieving step by step: See learning unit 1.2,
-    pages 6/21 and 7/21.\\
+    number and do the sieving step by step:
+    See learning unit 1.2, pages 6/21 and 7/21.\\
     NT can be called in CrypTool\index{CrypTool} via the menu path
     {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
-     \textbackslash{} Learning Tool for Number Theory}.
+    \textbackslash{} Learning Tool for Number Theory}.
+    See appendix \ref{s:appendix-Learn-NT}.
 }
 
 
@@ -2035,11 +2053,11 @@ Calculation using GMP, for example:
 \bibitem[Aaronson2003]{Aaronson2003} \index{Aaronson 2003}
     Scott Aaronson, \\
     {\em The Prime Facts: From Euclid to AKS}, \\
-    \href{http://www.cs.berkeley.edu/~aaronson/prime.ps}
-         {\texttt{http://www.cs.berkeley.edu/\~{}aaronson/prime.ps}}. \\
-    Only after I had completed this article, did I come across the 
-    extremely well-written paper by Scott Aaronson, which also offers
-    a didactically well done intoduction to this topic. It is 
+    \href{http://www.scottaaronson.com/writings/prime.pdf}
+ {\texttt{http://www.scottaaronson.com/writings/prime.pdf}}. \\
+    After I had completed this article, I did come across the 
+    fine paper by Scott Aaronson, which also offers
+    a didactically very well-done intoduction to this topic. It is 
     humorous and easy to read but at the same time precise and erudite.
 
 
@@ -2216,7 +2234,122 @@ http://www.cerias.purdue.edu/homes/ssw/cun }
 \subsection*{Acknowledgments} \addcontentsline{toc}{subsection}{Acknowledgments}
 
 I would like to take this opportunity to thank Mr.\ Henrik Koy and Mr.\ Roger
-Oyono for their very constructive proof-reading of this article.
+Oyono for their very constructive proof-reading of the first versions
+of this article.
+
+
+
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\newpage
+\hypertarget{Appendix_A}{}
+\subsection*{Appendix A: Examples using Pari-GP}
+\addcontentsline{toc}{subsection}{Appendix A: Examples using Pari-GP}
+\index{Pari-GP}
+
+This appendix contains the source code for Pari-GP to compute e.g. the
+quadratic sample sequences for primes.
+
+\hypertarget{PrimArith1}{}
+\subsubsection*{Validation of the results of a quadratic ``prime number formula''}
+
+Sequences like these in the function value table on page \pageref{SrcPrimArith1}
+can be computed in Pari-GP with the following commands:
+
+\vspace{-2ex}
+\begin{verbatim}
+print("N -- N^2 - 9*N + 61");
+for(N=0,50, X=N^2 - 9*N + 61;
+  if (isprime(X)==1,
+    print(N, " -- ", X, "  is prime"),
+    print(N, " -- ", X, "  is NOT prime")
+     );
+   );
+\end{verbatim}
+
+The output looks like this:
+\vspace{-2ex}
+\begin{verbatim}
+N -- N^2 - 9*N + 61
+0 -- 61  is prime
+1 -- 53  is prime
+2 -- 47  is prime
+3 -- 43  is prime
+4 -- 41  is prime
+5 -- 41  is prime
+6 -- 43  is prime
+7 -- 47  is prime
+8 -- 53  is prime
+9 -- 61  is prime
+10 -- 71  is prime
+11 -- 83  is prime
+12 -- 97  is prime
+13 -- 113  is prime
+14 -- 131  is prime
+15 -- 151  is prime
+16 -- 173  is prime
+17 -- 197  is prime
+18 -- 223  is prime
+19 -- 251  is prime
+20 -- 281  is prime
+21 -- 313  is prime
+22 -- 347  is prime
+23 -- 383  is prime
+24 -- 421  is prime
+25 -- 461  is prime
+26 -- 503  is prime
+27 -- 547  is prime
+28 -- 593  is prime
+29 -- 641  is prime
+30 -- 691  is prime
+31 -- 743  is prime
+32 -- 797  is prime
+33 -- 853  is prime
+34 -- 911  is prime
+35 -- 971  is prime
+36 -- 1033  is prime
+37 -- 1097  is prime
+38 -- 1163  is prime
+39 -- 1231  is prime
+40 -- 1301  is prime
+41 -- 1373  is prime
+42 -- 1447  is prime
+43 -- 1523  is prime
+44 -- 1601  is prime
+45 -- 1681  is NOT prime
+46 -- 1763  is NOT prime
+47 -- 1847  is prime
+48 -- 1933  is prime
+49 -- 2021  is NOT prime
+50 -- 2111  is prime
+\end{verbatim}
+
+
+
+
+\hypertarget{PrimArith2}{}
+\subsubsection*{Percentage of primes, delivered by a quadratic ``prime number formula''}
+
+Pari-GP command:
+\vspace{-2ex}
+\begin{verbatim}
+A=0;Beg=0;End=1000;
+for(N=Beg,End, X=N^2-9*N+61;
+  if(isprime(X)==1, 
+  print(N, " -- ", X, "  is prime");A++,
+  print(N, " -- ", X, "  is NOT prime")
+    ) );
+print("Number of primes: ", A, ";  Percentage of primes: " (A*100)/((End-Beg)+1)*1.);
+\end{verbatim}
+The output looks like this:
+\vspace{-2ex}
+\begin{verbatim}
+...
+1000 -- 991061  is NOT prime
+Number of primes: 584;  Percentage of primes: 58.34165834165834165834165834
+\end{verbatim}
+
+
 
 % Local Variables:
 % TeX-master: "../script-en.tex"

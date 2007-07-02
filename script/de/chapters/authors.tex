@@ -13,7 +13,7 @@ zu dem sie beigetragen haben.
 \item[Bernhard Esslinger,] \mbox{}\\  % be_2005: Das \\ allein wird ignoriert (brauche beide)!  
 Initiator des CrypTool-Projekts, Hauptautor dieses Skripts, Leiter IT-Security
 in der Deutschen Bank und Dozent an der Universität Siegen. E-Mail:
-besslinger@web.de, esslinger@fb5.uni-siegen.de.
+esslinger@fb5.uni-siegen.de.
 
 ---------
 
@@ -91,9 +91,9 @@ Kryptographische Verfahren -- sowohl klassische wie moderne -- fanden auch
 Eingang in die Literatur und in Filme. In manchen Medien werden diese nur
 erwähnt und sind reine Beigabe, in anderen sind sie tragend und werden
 genau erläutert, und manchmal ist die Rahmenhandlung nur dazu da, dieses
-Wissen motivierend zu transportieren.
+Wissen motivierend zu transportieren. Anbei der Beginn eines Überblicks.
 
-Anbei der Beginn eines Überblicks:
+\paragraph{Für Erwachsene:}
 
 %be_2005: Hatte zuerst \begin{thebibliography}{99999} und \bibitem[... ,
 %         aber dann wurde immer der feste Titel "Literatur" bzw. "References"
@@ -495,7 +495,10 @@ Textstellen enthalten.
 
 
 
+
 \vskip +60 pt
+\paragraph{Für Kinder:}
+
 Die folgende Auflistung enthält Kinderbücher mit Sammlungen von einfachen
 kryptografischen Verfahren, didaktisch und spannend aufbereitet:
 
@@ -601,13 +604,155 @@ uns sehr freuen, wenn Sie uns den genauen Buchtitel und eine kurze
 Erläuterung zum Buchinhalt zusenden würden. Herzlichen Dank.
 
 
+
+
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\newpage
+\hypertarget{appendix-Learn-NT}{}
+\subsection{Lernprogramm Elementare Zahlentheorie}
+    \label{s:appendix-Learn-NT}  
+    \index{ZT, Lernprogramm Zahlentheorie}%
+    \index{Lernprogramm ZT}%
+
+In CrypTool ist ein interaktives Lernprogramm zur elementaren Zahlentheorie,
+genannt "`ZT"', enthalten.\footnote{%
+    ZT können Sie in CrypTool\index{CrypTool} über das Menü
+    {\bf Einzelverfahren \textbackslash{} Zahlentheorie
+    interaktiv \textbackslash{} Lernprogramm für Zahlentheorie} aufrufen.
+}
+
+Das Lernprogramm "`NT"' (Zahlentheorie) von Martin Ramberger führt in die
+Zahlentheorie ein und visualisiert viele der Verfahren und Konzepte.
+Wo nötig zeigt es auch die entsprechenden mathematischen Formeln.
+Oftmals können die mathematischen Verfahren dynamisch mit eigenen kleinen
+Zahlenbeispielen ausprobiert werden.
+
+Die Inhalte basieren vor allem auf den Büchern von
+\cite{Buchmann2004} und \cite{Scheid2003}.
+
+Dieses visualisierte Lernprogramm wurde mit Authorware 4 erstellt.
+
+\paragraph{Bitte um Erweiterung/Upgrade:}
+Ein Update auf die neueste Version von Authorware oder auf eine andere
+Entwicklungsplattform wäre wünschenswert. Wenn sich hierzu Interessenten
+finden, würde ich mich freuen (bitte E-Mail an den Autor des CrypTool-Skriptes).
+
+
+\paragraph{Abbildungen:}
+Die Abbildungen~\ref{NT_Fig_C1.3_EuclidsAlg-LinearCombinations}
+bis~\ref{NT_Fig_C5.3_PollardRho} vermitteln einen Eindruck des
+Lernprogramms "`NT"':
+
+
+% -> Figur 1  WIE ERREICHT MAN, dass er von vorne zählt ? (nicht wichtig)
+%
+% \includegraphics[scale=0.5]{figures/NT_Fig_C1.3_EuclidsAlg-LinearCombinations}
+%    geht nicht. Im Dateinamen darf keine Punkt sein !!!?????!!!!!
+%    Die Dateiendung muss man weglassen.
+%
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.4]{figures/NT_Fig_C1-3_EuclidsAlg-LinearCombinations}
+\caption{Jeder gemeinsame Teiler zweier Zahlen teilt auch alle ihre
+Linearkombinationen\vspace{1ex}} 
+\label{NT_Fig_C1.3_EuclidsAlg-LinearCombinations}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.4]{figures/NT_Fig_C1-3_EuclidsAlg-Procedure}
+\caption{Euklids Algorithmus zur Bestimmung des ggT\vspace{1ex}} 
+\label{NT_Fig_C1.3_EuclidsAlg-Procedure}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.4]{figures/NT_Fig_C3-1_PrimesDistribution}
+\caption{Verteilung der Primzahlen und ihrer Differenzen\vspace{1ex}} 
+\label{NT_Fig_C3.1_PrimesDistribution}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.4]{figures/NT_Fig_C3-2_Fermat-Test}
+\caption{Primzahlen finden mit dem Primzahltest nach Fermat\vspace{1ex}} 
+\label{NT_Fig_C3.2_Fermat-Test}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.4]{figures/NT_Fig_C4-1_ReversibilityAdditiveCipher}
+\caption{Umkehrbarkeit von Verschlüsselungsalgoritmen am Beispiel additiver Chiffren\vspace{1ex}} 
+\label{NT_Fig_C4.1_ReversibilityAdditiveCipher}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.4]{figures/NT_Fig_C5-2_Fermat-factorization-How-far-1}
+\caption{Fermat-Faktorisierung m.H. der 3. Binomischen Formel\vspace{1ex}} 
+\label{NT_Fig_C5.2_Fermat-factorization-How-far-1}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.4]{figures/NT_Fig_C5-2_Fermat-factorization-How-far-2}
+\caption{Fermat-Faktorisierung: Quadrate erkennen\vspace{1ex}} 
+\label{NT_Fig_C5.2_Fermat-factorization-How-far-2}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.4]{figures/NT_Fig_C5-3_PollardRho}
+\caption{Pollards Rho-Faktorisierung: Kreisfindungsalgorithmus nach Floyd\vspace{1ex}} 
+\label{NT_Fig_C5.3_PollardRho}
+\end{center}
+\end{figure}
+
+
+
+
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\clearpage   % Nötig, damit Lit.verzeichnis nicht gl. nach Abb. 8 kommt.
+% \newpage
+\begin{thebibliography}{99999}
+%\addcontentsline{toc}{subsection}{Literaturverzeichnis}
+
+\bibitem[Buchmann2004]{Buchmann2004} \index{Buchmann 2004}
+    Johannes Buchmann, \\
+    {\em Einführung in die Kryptographie}, Springer, 3. Auflage, 2004.
+
+\bibitem[Scheid2003]{Scheid2003} \index{Scheid 2003}
+    Harald Scheid, \\
+    {\em Zahlentheorie}, Spektrum Akademischer Verlag, 3. Auflage, 2003.
+
+\end{thebibliography}
+
+
+
+
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \clearpage
 \listoffigures
 \addcontentsline{toc}{section}{\listfigurename}
 
-
 \clearpage
-
 \listoftables
 \addcontentsline{toc}{section}{\listtablename}
 

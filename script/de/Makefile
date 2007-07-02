@@ -14,7 +14,7 @@ $(PDF): $(SRC) style.ist
 	@echo
 	echo q | pdflatex $(TEX) | tail -2
 	@echo
-	for f in bu*.aux; do bibtex $$f; done
+	for f in bu*.aux; do bibtex $$f; done   # Problem, wenn bu*.aux weg?
 	@echo
 	makeindex -s style.ist $(IDX)
 	@echo

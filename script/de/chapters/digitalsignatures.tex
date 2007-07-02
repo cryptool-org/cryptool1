@@ -246,7 +246,7 @@ von Reinhard Wobst und Jürgen Schmidt\footnote{%
    {\texttt{http://www.bsi.bund.de/esig/basics/techbas/krypto/index.htm}} \\
       \href{http://csrc.nist.gov/CryptoToolkit/tkhash.html}
    {\texttt{http://csrc.nist.gov/CryptoToolkit/tkhash.html}}.
-} 
+}
   von Heise Security.
 
 
@@ -256,7 +256,14 @@ von Reinhard Wobst und Jürgen Schmidt\footnote{%
 \vskip + 15pt
 \subsubsection{Signieren mit Hilfe von Hashfunktionen}
 Das Signatur-Verfahren mit Hashfunktion (ohne den oben genannten Nachteil)
-sieht folgendermaßen aus:\\ Anstatt das eigentliche Dokument zu signieren,
+sieht folgendermaßen aus:\footnote{% 
+Vergleiche auch:\\
+      \href{http://de.wikipedia.org/wiki/Digitale\_Signatur}
+   {\texttt{http://de.wikipedia.org/wiki/Digitale\_Signatur}},\\
+      \href{http://en.wikipedia.org/wiki/Digital\_signature}
+   {\texttt{http://en.wikipedia.org/wiki/Digital\_signature}}.
+} \\
+Anstatt das eigentliche Dokument zu signieren,
 berechnet der Absender nun zuerst den Hashwert der Nachricht und signiert
 diesen. Der Empfänger bildet ebenfalls den Hashwert der Nachricht (der
 benutzte Algorithmus muss bekannt sein). Er überprüft dann, ob die

@@ -87,14 +87,45 @@
 \setlength{\fboxrule}{.4pt}
 \setlength{\fboxsep}{4pt}
 
+
 \newpage
 %********************************************************************
 \hypertarget{Chapter_ModernCryptography}{}
-\section{The Mathematical Ideas behind Modern Cryptography}
+\section[The Mathematical Ideas behind Modern Cryptograph]
+        {The Mathematical Ideas behind Modern Cryptograph\footnotemark}
+\footnotetext{%
+    \index{NT, Learning Tool for Number Theory}%
+    \index{Educational tool NT}%
+    With the educational tool for number theory {\bf NT} you can apply
+    some of the methods introduced here (RSA, Rabin, DH, ElGamal)
+    (see learning unit 4.2 and 4.3, pages 9-17/17).\\
+    NT can be called in CrypTool\index{CrypTool} via the menu path
+    {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
+    \textbackslash{} Learning Tool for Number Theory}.
+    See appendix \ref{s:appendix-Learn-NT}.
+}
 \label{Chapter_ModernCryptography}
 %********************************************************************
 (Oyono R. / Esslinger B./ Schneider J., Sep. 2000; 
             Updates Nov. 2000, Feb. 2003, Apr. 2007)
+
+
+
+\vskip +30 pt
+
+\begin{center}
+\fbox{\parbox{15cm}{
+   {\em Georg Christoph Lichtenberg\footnotemark:}\\
+   I don't know if its getting better, if we change it,\\
+   but I know, that we have to change it, if it should become better.
+}}
+\end{center}
+\addtocounter{footnote}{0}\footnotetext{%
+  Georg Christoph Lichtenberg\index{Lichtenberg, Georg Christoph}, 
+  German writer and physicist (1742-1799),\\ 
+  (also see: \href{http://en.wikipedia.org/wiki/Georg\_Christoph\_Lichtenberg}
+              {\tt http://en.wikipedia.org/wiki/Georg\_Christoph\_Lichtenberg})
+}
 
 %--------------------------------------------------------------------
 \hypertarget{OneWayFunktion1}{}
@@ -221,7 +252,8 @@ cases - although they at first appeared promising - it was discovered that they
 could be solved polynomially\index{Polynomial}. The most famous failed applicant is the knapsack 
 with trapdoor, suggested by Ralph Merkle \cite{Merkle1978}.
 
-\newpage
+%\newpage
+\vskip +20 pt
 %--------------------------------------------------------------------
 \subsection{Knapsack problem as a basis for public key procedures}%
 \index{Cryptography!public key}
@@ -299,11 +331,11 @@ sequence in the timeframe of $ O(n). $
 \end{tabbing}
 }}
 \end{center}
-\vskip +10 pt
+%\vskip +10 pt
 {\bf Algorithm 1.} Solving knapsack problems with super-increasing weights
-\vskip +20 pt
 
 
+\vskip +40 pt
 %--------------------------------------------------------------------
 \subsubsection{Merkle-Hellman knapsack encryption}
 %--------------------------------------------------------------------
@@ -345,7 +377,7 @@ by solving the easier 0-1 knapsack problems $ K(a_1,\dots,a_n;G^{(j)}) $ with
 super-increasing sequence $ a_1, \dots,a_n $.
 }}
 \end{center}
-\vskip +10 pt
+%\vskip +10 pt
 {\bf Merkle-Hellman procedure} (based on knapsack problems).
 \vskip +20 pt
 
@@ -429,7 +461,7 @@ binary value $ x^{(j)} \leq N $. \vskip + 5 pt
 
 \end{center}
 
-\vskip +10 pt
+%\vskip +10 pt
 {\bf RSA procedure} (based on the factorisation problem).
 \vskip +20 pt
 \index{Factorisation!factorisation problem}
@@ -538,7 +570,7 @@ and $ n = pq.$ Let $ 0\leq B \leq n-1.$ \\
 }}
 \end{center}
 
-\vskip +10 pt
+%\vskip +10 pt
 {\bf Rabin procedure} (based on the factorisation problem).
 \vskip +20 pt
 
@@ -556,12 +588,27 @@ Backdoor information is the decomposition into prime numbers of $ n = pq. $
 
 
 
+\vskip +20 pt
 %--------------------------------------------------------------------
-\subsection{The discrete logarithm as a basis for public key procedures}
-Discrete logarithms \index{Discrete logarithm} form the basis for a large number of algorithms for public-
-key procedures.
+\hypertarget{HT-Discrete-Logarithm-as-Basis}{}
+\subsection[The discrete logarithm as basis for public key procedures]
+           {The discrete logarithm as basis for public key procedures\footnotemark}
+\footnotetext{%
+    \index{NT, Learning Tool for Number Theory}%
+    \index{Educational tool NT}%
+    With the educational tool for number theory {\bf NT} you can play with the
+    distribution of the discrete logarithm values and apply Shank's
+    baby-step-giant-step method:
+    See learning units 6.1-6.3, pages 1-6/6.\\
+    NT can be called in CrypTool\index{CrypTool} via the menu path
+    {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
+    \textbackslash{} Learning Tool for Number Theory}.
+    See appendix \ref{s:appendix-Learn-NT}.
+}
+\label{L-Discrete-Logarithm-as-Basis}
+Discrete logarithms \index{Discrete logarithm} form the basis for a large
+number of algorithms for public-key procedures.
 \index{Logarithm problem!discrete}
-
 
 %--------------------------------------------------------------------
 \subsubsection{The discrete logarithm in $ \Z_p $}
@@ -585,7 +632,7 @@ There are several procedures for calculating the discrete logarithm
 \begin{center}
 \begin{tabular}{|l|l|}\hline
 Name                 &        Complexity \\ \hline \hline
-Baby-Step-Giant-Step &         $ O(\sqrt{p}) $ \\ \hline
+Babystep-Giantstep &         $ O(\sqrt{p}) $ \\ \hline
 Silver-Pohlig-Hellman    &    polynomial in $ q, $ the greatest \\
 &  prime factor of $ p-1. $ \\ \hline
 Index-Calculus &             $ O(e^{(1+o(1)) \sqrt{\ln (p) \ln (\ln (p))}}) $ \\ 
@@ -674,7 +721,7 @@ Thus
 }}
 \end{center}
 
-\vskip +10 pt
+%\vskip +10 pt
 {\bf Diffie-Hellman key agreement.}
 \vskip +20 pt
 
@@ -711,8 +758,7 @@ and
 }}
 \end{center}
 
-
-\vskip +10 pt
+%\vskip +10 pt
 {\bf ElGamal procedure} (based on the factorisation problem).
 \vskip +20 pt
 
@@ -838,7 +884,7 @@ and
 \end{center}
 
 
-\vskip +10 pt
+%\vskip +10 pt
 {\bf Generalised ElGamal procedure} (based on the factorisation problem).
 \vskip +20 pt
 
