@@ -5578,6 +5578,17 @@ BEGIN
                     IDC_STATIC,20,44,260,16
 END
 
+IDD_ADFGVX_SHORTENED_PASSWORD DIALOGEX 0, 0, 235, 124
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "CrypTool"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&Fortsetzen",IDOK,178,103,50,14
+    PUSHBUTTON      "&Zurück",IDCANCEL,7,103,50,14
+    LTEXT           "Statisch",IDC_TEXT_INFO,7,7,221,88
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -9234,6 +9245,14 @@ BEGIN
         HORZGUIDE, 188
         HORZGUIDE, 209
     END
+
+    IDD_ADFGVX_SHORTENED_PASSWORD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 117
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -11277,7 +11296,7 @@ BEGIN
     IDS_STRING_MSG_BASE64DEC_OF "Base64 Decodierung von <%s>"
     IDS_STRING_MSG_BASE64ENC_OF "Base64 Codierung von <%s>"
     IDS_BYTES               "Bytes"
-    IDS_STRING_ADFGVX_NEWPWD "Das neue Passwort lautet:\n\n"
+    IDS_STRING_ADFGVX_NEWPWD "\n\nDas neue Passwort lautet: "
     IDS_STRING_ADFGVX_RESTART_LENGTH 
                             "\n\nBitte starten Sie den Vorgang erneut und passen Sie\ngegebenenfalls die Blocklängen an die neue Passwortlänge an!"
 END
@@ -11694,6 +11713,10 @@ STRINGTABLE
 BEGIN
     IDS_FINDANDREPLACE_NOREGULAREXPRESSIONS_IN_HEX 
                             "Die Suche nach regulären Ausdrücken ist für hexadezimale Daten nicht verfügbar."
+    IDS_STRING_ADFGVX_OPTION_BACK 
+                            "- den Eigabevorgang erneut vornehmen (und gegebenenfalls die Blocklänge anpassen)."
+    IDS_STRING_ADFGVX_OPTION_CONTINUE 
+                            "\n\nSie können nun entweder\n- mit dem verkürzten Transpositionspasswort die Verschlüsselung fortsetzen oder\n"
     IDS_CLIPBORD_COPY_ERROR "Fehler beim Kopieren in die Zwischenablage."
     IDS_CLIPBOARD_HEXCOPY   "Die markierten Daten können unverändert (Standard) oder hexadezimal codiert in die Zwischenablage übernommen werden.\nEine hexadezimale Codierung ist z.B. erforderlich, wenn Sie nicht-druckbare Daten in andere Anwendungen exportieren wollen.\n\nHexadezimale Codierung verwenden?"
     IDS_CLIPBOARD_HEXPASTE  "Die Zwischenablage enthält ausschließlich Hexadezimal-Zeichen.\nDiese können entweder decodiert (Standard) oder unverändert eingefügt werden.\n\nSollen die hexadezimalen Daten decodiert werden?"
@@ -17264,6 +17287,17 @@ BEGIN
                     IDC_STATIC,20,44,260,16
 END
 
+IDD_ADFGVX_SHORTENED_PASSWORD DIALOGEX 0, 0, 235, 124
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "CrypTool"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&Continue",IDOK,178,103,50,14
+    PUSHBUTTON      "&Back",IDCANCEL,7,103,50,14
+    LTEXT           "Statisch",IDC_TEXT_INFO,7,7,221,88
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -21158,6 +21192,14 @@ BEGIN
         HORZGUIDE, 188
         HORZGUIDE, 209
     END
+
+    IDD_ADFGVX_SHORTENED_PASSWORD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 117
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -23118,7 +23160,7 @@ BEGIN
     IDS_STRING_ADFGVX_ERROR_5 "The text has an odd number of characters!"
     IDS_STRING_ADFGVX_ERROR_6 "The length of the password must be >0!"
     IDS_STRING_ADFGVX_ERROR_7 
-                            "The sequence of the password's characters is not clearly defined.\nThe redundant characters in the password have been removed!"
+                            "The sequence of the characters in the transposition password is not uniquely defined.\nThe redundant characters in the password have been removed!"
     IDS_STRING_ADFGVX_ERROR_8 "Please analyse transposition first!"
     IDS_STRING_ADFGVX_ERROR_9 
                             "No valid permutation was found while analysing the transposition phase.\n This may have two reasons:\n\n1. The relative frequency of the letters is atypical for the English or German language.\n this often occurs when analysing short messages.\n\n2. The transposition password is not within the boundaries of the analysis.\nYou should shift the boundaries of the possible password length."
@@ -23151,7 +23193,7 @@ BEGIN
     IDS_STRING_MSG_BASE64DEC_OF "Base64 decoding of <%s>"
     IDS_STRING_MSG_BASE64ENC_OF "Base64 encoding of <%s>"
     IDS_BYTES               "bytes"
-    IDS_STRING_ADFGVX_NEWPWD "\n\nThe new password is:\n\n"
+    IDS_STRING_ADFGVX_NEWPWD "\n\nThe new password is: "
     IDS_STRING_ADFGVX_RESTART_LENGTH 
                             "\n\nPlease restart the process and adjust the\nblock length values to the new password length if necessary!"
 END
@@ -23548,6 +23590,10 @@ STRINGTABLE
 BEGIN
     IDS_FINDANDREPLACE_NOREGULAREXPRESSIONS_IN_HEX 
                             "The search for regular expressions is not available for hexadecimal data."
+    IDS_STRING_ADFGVX_OPTION_BACK 
+                            "- repeat the input process (and alter the block length, if necessary)."
+    IDS_STRING_ADFGVX_OPTION_CONTINUE 
+                            "\n\nNow, you can either\n- continue the encryption with the shortened transposition password or\n"
     IDS_CLIPBORD_COPY_ERROR "Cannot copy to clipboard."
     IDS_CLIPBOARD_HEXCOPY   "The marked data can be put into the clipboard unchanged (default) or in hexadecimal encoding.\nHexadecimal encoding is required e.g. if you want to export non-printable data to other applications.\n\nUse hexadecimal encoding?"
     IDS_CLIPBOARD_HEXPASTE  "The clipboard contains hexadecimal characters only. They can be inserted decoded (default) or unchanged.\n\nDecode hexadecimal data?"

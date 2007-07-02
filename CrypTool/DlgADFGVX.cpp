@@ -56,7 +56,7 @@ statement from your version.
 #include "CrypToolTools.h"
 #include "KeyRepository.h"
 #include "DialogeMessage.h"
-
+#include "DlgADFGVXShortenedPassword.h"
 
 // CDlgADFGVX-Dialogfeld
 
@@ -341,12 +341,25 @@ void CDlgADFGVX::OnBnClickedButtonEncrypt()
 				LoadString (AfxGetInstanceHandle(), IDS_STRING_ADFGVX_NEWPWD, pc_str, STR_LAENGE_STRING_TABLE);
 				message.Append(pc_str);
 				message.Append(password);
-				if(boxBlockOutput1|boxBlockOutput2)
-					LoadString (AfxGetInstanceHandle(), IDS_STRING_ADFGVX_RESTART_LENGTH, pc_str, STR_LAENGE_STRING_TABLE);
-				else
-					LoadString (AfxGetInstanceHandle(), IDS_STRING_ADFGVX_RESTART, pc_str, STR_LAENGE_STRING_TABLE);
+
+				// append user option 1: continue encryption with shortened password
+				LoadString(AfxGetInstanceHandle(), IDS_STRING_ADFGVX_OPTION_CONTINUE, pc_str, STR_LAENGE_STRING_TABLE);
 				message.Append(pc_str);
-				MessageBox(message);
+				// append user option 2: go back to input process and alter block length if necessary
+				LoadString(AfxGetInstanceHandle(), IDS_STRING_ADFGVX_OPTION_BACK, pc_str, STR_LAENGE_STRING_TABLE);
+				message.Append(pc_str);	
+				// show option dialog to user
+                CDlgADFGVXShortenedPassword dlg(message);
+				int userChoice = dlg.DoModal();
+				
+				if(userChoice == IDOK)
+				{
+                    // continue encryption with shortened password...
+					Encrypt();
+					return;
+				}
+
+				// else: actually, do nothing and go back to input process...
 				restart=false;
 				pwdInvalid=false;
 				pwdDouble=false;
