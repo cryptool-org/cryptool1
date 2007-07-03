@@ -2,7 +2,7 @@
 <HTML>
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Example illustrating the Playfair encryption algorithm</TITLE>
+<TITLE>Scenario illustrating the Playfair encryption algorithm</TITLE>
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
@@ -16,21 +16,33 @@
 
 <BODY>
 
-<h3>Example illustrating the Playfair encryption algorithm</h3>
+<h3>Scenario illustrating the Playfair encryption algorithm</h3>
 
 <P>This section provides an <A href="hid_hilfe_szenarien.html">example</A> illustrating the use of the <A href="hid_playfair_bin.html">Playfair encryption algorithm</A>. To make it easier to follow the steps that need to be performed with <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>, the example is illustrated with a number of screenshots.</P>
 
-<P>We start with investigating the <A href="hid_playfair_bin.html">Playfair encryption algorithm</A> by opening a <!--ZZZPOPUP--><A href="dokument.html">document,</A> encrypting it and decrypting it again. After that we will try to find the key that was used to encrypt the plain text by using the Manual Playfair Analysis step by step.</P>
+<P>We start with investigating the <A href="hid_playfair_bin.html">Playfair encryption algorithm</A> by opening a <!--ZZZPOPUP--><A href="dokument.html">document,</A> encrypting it and decrypting it again. After that we will try to find the key that was used to encrypt the plain text by using the manual Playfair analysis step by step.</P>
 
-<P><B>Playfair Encryption</B></P>
+<P><B>1 Playfair Encryption</B></P>
 
-<P>Open the document <CODE>CrypTool-de.txt</CODE> containing part of the online help section Start with CrypTool. You can open that document via menu <A href="menu_file.html">File</A> \ <A href="hid_file_open.html">Open</A>.</P>
+<P>1.1 Open the document to be encrypted: e.g. <CODE>CrypTool-en.txt</CODE>, which is part of the online 
+help section. You can open that document via the menu <A href="menu_file.html">File</A> \ 
+<A href="hid_file_open.html">Open</A>.</p>
 
 <P><IMG SRC="images/playfairplaintext.gif" ALT="playfairplaintext.gif" BORDER=0></P>
 
-<P>Now we <!--ZZZPOPUP--><A href="verschluesselung.html">encrypt</A> this document using the <A href="hid_playfair_bin.html">Playfair encryption algorithm</A>. To do this open the following dialog box by selecting menu <A href="menu_crypt.html">Crypt/Decrypt</A> \ Symmetric (classic) \ Playfair. Please use PEGASOS as the key.</P>
+<P>1.2 Now we <!--ZZZPOPUP--><A href="verschluesselung.html">encrypt</A> this document using the 
+<A href="hid_playfair_bin.html">Playfair encryption algorithm</A>.</P>
+
+<P>From the menu, choose <A href="menu_crypt.html">Crypt/Decrypt</A> \
+<A href="menu_crypt_symmetricclassic.html">Symmetric (classic)</A> \
+<A href="hid_playfair_bin.html">Playfair</A>. The following dialog box is displayed:</P>
 
 <P><IMG SRC="images/playfairkeydialog.gif" ALT="playfairkeydialog.gif" BORDER=0></P>
+
+<P>Using the standard 5x5 key matrix, the <B>Playfair alphabet</B> consists of the normal capital 
+letters A to Z, where J is taken out.</P>
+
+<P>1.3 Please use PEGASOS as the key.</P>
 
 <P>From this key the following Playfair key matrix will be calculated:</P>
 
@@ -81,15 +93,25 @@
 
 </div>
 
-<P>When you push the button <B>Encrypt</B> the Playfair key dialog will be closed and two windows opened: one with the pre-processed plain text and another with the encrypted text:</P>
+<P>1.4 When you push the button <B>Encrypt</B> the Playfair key entry dialog will be closed and two 
+windows are opened: one with the pre-processed plain text and another with the encrypted text:</P>
 
 <P><IMG SRC="images/playfairpreformatandencryption.gif" ALT="playfairpreformatandencryption.gif" BORDER=0></P>
 
 <UL>
-	<LI>The pre-processing step removes all characters from the clear text that are not part of the Playfair alphabet and inserts the character X between two equal characters in a row. E.g. the clear text <B><CODE>CrypTool ist</CODE></B> (German for CrypTool is …) will be pre-processed to <B><CODE>CRYPTOXOLIST</CODE></B>:</LI>
+	<LI>The pre-processing step removes all characters from the clear text that are not part of the 
+	<B>Playfair alphabet</B> and inserts the character X between two equal characters in a row. E.g. the 
+	clear text <B><CODE>CrypTool ist</CODE></B> (German for CrypTool is …) will be pre-processed to 
+	<B><CODE>CRYPTOXOLIST</CODE></B>:</LI>
 
-	<LI>Based on the Playfair key matrix above the pre-processed text can now be encrypted. The basic idea is that two consecutive characters (a di-gram) determine the a rectangle in the key matrix. We consider <I>one dimensional</I> rectangles when both characters are in the same row or column of the key matrix. Let us encrypt the pre-processed plain text <B><CODE>CRYPTOXOLIST</CODE></B>. The following key matrix rectangles have to be considered:</LI>
+	<LI>Based on the Playfair key matrix above, the pre-processed text can now be encrypted. The basic 
+	idea is that two consecutive characters (a di-gram) determine two opposite edges of a rectangle in 
+	the key matrix.<br>We consider <I>one dimensional</I> rectangles for the special case, when both 
+	characters are in the same row or column of the key matrix.</LI>
 </UL>
+
+<P>1.5 Now, let us manually encrypt the pre-processed plain text <B><CODE>CRYPTOXOLIST</CODE></B>. The 
+following key matrix rectangles have to be considered:</P>
 
 <div style="text-align:center">
 
@@ -154,12 +176,19 @@
 
 </div>
 
-<P>For two dimensional rectangles we enumerate the edges as follows: we start with the first plain text character, then character in the other edge on the same row, then the second clear text character. The last character is taken from the remaining edge.<BR>
-In the less common case of one dimensional rectangles we also start with the first plain text character, followed by the bottom resp. right neighbour, the second clear text character and the bottom resp. right neighbour. <BR>
-<BR>
-The second and fourth character of the rectangle are taken to be the encrypted di-gram, in the example above: <CODE>KXVANDVCMKAU</CODE>.<BR>
+<P>For two dimensional rectangles we enumerate the edges as follows: we start with the first plain text 
+character, then choose the character in the other edge <I>on the same row</I>, then the second clear text 
+character. The last character is taken from the remaining edge.</P>
 
-<P>To proceed with the next step (decryption) you can avoid entering the key again by recovering it from the cipher text window. To do this </P>
+<P>In the less common case of one dimensional rectangles we also start with the first plain text 
+character, followed by the bottom resp. right neighbour, the second clear text character and then its 
+bottom resp. right neighbour.</P>
+
+<P>The second and fourth character of the rectangle (the unused edges) are taken to be the encrypted 
+di-gram, in the example above: <CODE>KXVANDVCMKAU</CODE>.</P>
+
+<P>1.6 To proceed with the next step (decryption) you can avoid entering the key again by recovering it 
+from the cipher text window. To do this </P>
 
 <UL>
 	<LI>activate the window with the cipher text</LI>
@@ -171,29 +200,52 @@ The second and fourth character of the rectangle are taken to be the encrypted d
 
 <P>Now the key matrix is stored in CrypTool‚s key store.</P>
 
-<P><B>Playfair Decryption</B></P>
+<P><B>2 Playfair Decryption</B></P>
 
-<P>We now can recover the plain text of the document encrypted in the previous step. Select <A href="menu_crypt.html">menu Crypt/Decrypt</A> \ Symmetric (classic) \ Playfair and enter the encryption key (PEGASOS). If you have saved the key in the key store then you can recover it by clicking on the icon <IMG SRC="images/iconinsertkey.gif" ALT="iconinsertkey.gif" BORDER=0>.</P>
+<P>We now can recover the plain text of the document encrypted in the previous step.</P>
+
+<P>2.1 Select the menu <A href="menu_crypt.html">Crypt/Decrypt</A> \ 
+<A href="menu_crypt_symmetricclassic.html">Symmetric (classic)</A> \
+<A href="hid_playfair_bin.html">Playfair</A>.</P>
+
+<P>2.2 Enter the encryption key (PEGASOS). If you have saved the key in the key store then you can recover 
+it by clicking on the icon <IMG SRC="images/iconinsertkey.gif" ALT="iconinsertkey.gif" BORDER=0>.</P>
 
 <P><IMG SRC="images/dialogplayfairdecryption.gif" ALT="dialogplayfairdecryption.gif" BORDER=0></P>
 
-<P>Now press the <B>Decrypt</B> button to recover the plain text.</P>
+<P>2.3 Press the <B>Decrypt</B> button to recover the plain text.</P>
 
-<P><B>Manual analysis of the Playfair cipher</B></P>
+<P><B>3 Manual analysis of the Playfair cipher</B></P>
 
-<P>Let us now try to decipher a text encrypted with the Playfair cipher with the help of CrypTool.To do this we load the text to be decrypted from the file <CODE>Playfair-enc-de.txt</CODE>: </P>
+<P>Let us now try to decipher a text encrypted with the Playfair cipher where we don't know the key 
+(ciphertext-only analysis).</P>
+
+<P>3.1 To do this we load the text to be decrypted from the file <CODE>Playfair-enc-en.txt</CODE> (this 
+file can be found in the <CODE>examples</CODE> directory distributed with CrypTool):</P>
 
 <P><IMG SRC="images/szenarioplayfair1.gif" ALT="szenarioplayfair1.gif" BORDER=0></P>
 
-<P>This text was created with the <A href="hid_playfair_bin.html">Playfair</A> <!--ZZZPOPUP--><A href="verschlverfahren.html">encryption algorithm</A> without pre-processing: This option effectively leaves characters not contained in the Playfair alphabet unencrypted (e.g. blanks, punctuation marks, line feeds), so that the plain text word and sentence boundaries are obvious. This option also inhibits the insertion of the separating X between two equal characters in a row, and leaves them un-encrypted.</P>
+<P>3.2 This text was created with the <A href="hid_playfair_bin.html">Playfair</A> 
+<!--ZZZPOPUP--><A href="verschlverfahren.html">encryption algorithm</A> <I>without</I> pre-processing: 
+This option effectively leaves characters not contained in the Playfair alphabet unencrypted (e.g. blanks, 
+punctuation marks, line feeds), so that the plain text word and sentence boundaries are obvious.</P> 
 
-<P>CrypTool does only support a semi-manual analysis of the Playfair cipher. Therefore we need some clue about the document to be analyzed. Let us assume that the text is a German letter, which often start with the same words.</P>
+<P>Additionally, the insertion of the separating X between two equal, consecutive characters is switched 
+off so double characters are left unencrypted.</P>
 
-<P>Let us now open the Playfair Analysis window by selecting <A href="menu_analyze.html">Analysis</A> \ Symmetric Encryption (classic) \ Manual Analysis \ Playfair.</P>
+<P>3.3 CrypTool does only support a semi-manual analysis of the Playfair cipher. Therefore we need some 
+clue about the document to be analyzed. Let us assume that the text is a German letter, which often start 
+with the same words.</P>
+
+<P>3.4 Let us now open the Playfair analysis dialog window by selecting the menu 
+<A href="menu_analyze.html">Analysis</A> \ Symmetric Encryption (classic) \ Manual Analysis \ Playfair.</P>
+
+<P>Here you see the text of the opened ciphertext file in the first row of the field "Analysis result".</P>
 
 <P><IMG SRC="images/szenarioplayfair2.gif" ALT="szenarioplayfair2.gif" BORDER=0></P>
 
-<P>The letter probably begins with <B><CODE>Sehr geehrte Damen und Herren</CODE> </B>(German for <I>Dear Sirs</I>).</P>
+<P>3.5 We assume: The letter probably begins with <B><CODE>Sehr geehrte Damen und Herren</CODE></B> 
+(German for <I>Dear Sirs</I>).</P>
 
 <P>Enter this text in the field labelled <B>Expected plaintext.</B> After each key stroke the <B>Letter information </B>table is updated.</P>
 
@@ -231,10 +283,12 @@ The second and fourth character of the rectangle are taken to be the encrypted d
 
 </div>
 
-<P>By pressing the <B>Generate matrix</B> button, those parts of the Playfair key matrix are calculated, that can be determined based on the given information. </P>
+<P>3.6 By pressing the <B>Generate matrix</B> button, those parts of the Playfair key matrix are 
+calculated, that can be determined based on the given information.</P>
 
 <P><IMG SRC="images/szenarioplayfair3.gif" ALT="szenarioplayfair3.gif" BORDER=0></P>
 
+<!--
 <P>We now show how the complete key matrix can be determined manually based on guessed clear text fragments and the Playfair encryption rules.</P>
 
 <UL>
@@ -342,10 +396,20 @@ The second and fourth character of the rectangle are taken to be the encrypted d
 </TABLE><BR>
 
 </div>
+-->
 
-<P>The button <B>Synchronise Analysis result \ Expected plaintext</B> updates the expected plaintext field with the decryption of the cipher text based on the partial matrix. Characters that cannot (yet) be decrypted are marked with the wildcard character '<B><CODE>*</CODE></B>‘ and can now be replaced by guessing.</P>
+<P>3.7 The button <B>Synchronise analysis result \ Expected plaintext</B> updates the field "Expected 
+plaintext" with the decryption of the cipher text based on the partial matrix. Characters that cannot 
+(yet) be decrypted are marked with the wildcard character '<B><CODE>*</CODE></B>‘ and can now be replaced 
+by guessing.</P>
 
-<P>Now the character sequence <B><CODE>E**.*IEMLI**</CODE></B> catches our eye (at least the eye of people knowing some German). If we complete this to read <B><CODE>EIN.ZIEMLICH</CODE></B> two more di-gram mappings result: IN  &gt;  BO and CH  &gt;  HK. Based on the previous matrix and the first di-gram mapping we conclude, that the characters I,N,B,O have to be in the same column, i.e. B must be directly below I and O directly below N. Clicking on <B>Generate matrix</B> swaps row two and four, then row two and three etc. resulting in the following key matrix:</P>
+<P>3.8 Now the character sequence <B><CODE>E**.*IEMLI**</CODE></B> catches our eye (at least the eye of 
+people knowing some German). If we complete this with the field "Expected plaintext" to read 
+<B><CODE>EIN.ZIEMLICH</CODE></B> two more di-gram mappings result: IN  &gt;  BO and CH  &gt;  HK. Based on 
+the previous matrix and the first di-gram mapping we conclude, that the characters I,N,B,O have to be in 
+the same column, i.e. B must be directly below I and O directly below N. Clicking on 
+<B>Generate matrix</B> swaps row two and four, then row two and three etc. resulting in the following key 
+matrix:</P>
 
 <div style="text-align:center">
 
@@ -394,7 +458,7 @@ The second and fourth character of the rectangle are taken to be the encrypted d
 
 </div>
 
-<P>Unfortunately decrypting based on this matrix results in words that do not exist in the German language: </P>
+<P>3.9 Unfortunately, decrypting based on this matrix results in words that do not exist in the German language: </P>
 
 <div class="indent">
 
@@ -404,7 +468,7 @@ MI*.*DXUNDLICHEN.GRUX**EN</CODE></B></P>
 
 </div>
 
-<P>However we can now guess the clear text with high probability, except for the word <B><CODE>*X**</CODE></B>, which we correct to read <B><CODE>****</CODE></B> (this is to avoid conflicts). We now correct the remaining words to read:</P>
+<P>However, we can now guess the clear text with high probability, except for the word <B><CODE>*X**</CODE></B>, which we correct to read <B><CODE>****</CODE></B> (this is to avoid conflicts). We now correct the remaining words to read:</P>
 
 <div class="indent">
 
@@ -414,7 +478,7 @@ MI<B>T</B>.<B>FRE</B>UNDLICHEN.GRU<B>ESS</B>EN</CODE></P>
 
 </div>
 
-<P>This results in more di-gram mappings BT  &gt;  TF, TI  &gt;  BE, LA  &gt; NW, TF  &gt;  BZ, RE  &gt;  FT, SS  &gt;  KK and UE  &gt;  XT. One more click on <B>Generate matrix</B> yields:</P>
+<P>3.10 This results in more di-gram mappings BT  &gt;  TF, TI  &gt;  BE, LA  &gt; NW, TF  &gt;  BZ, RE  &gt;  FT, SS  &gt;  KK and UE  &gt;  XT. One more click on <B>Generate matrix</B> yields:</P>
 
 <div class="indent">
 
@@ -473,7 +537,8 @@ MIT.FREUNDLICHEN.GRUESSEN</CODE></P>
 
 </div>
 
-<P>In a final step we correct <B><CODE>TE**</CODE></B> to read <B><CODE>TEXT</CODE></B> giving the di-gram mapping XT &gt; PU. The Playfair analysis now gives us the key matrix</P>
+<P>3.11 In a final step we correct <B><CODE>TE**</CODE></B> to read <B><CODE>TEXT</CODE></B> giving the 
+di-gram mapping XT &gt; PU. The Playfair analysis now gives us the key matrix</P>
 
 <div style="text-align:center">
 
@@ -522,7 +587,20 @@ MIT.FREUNDLICHEN.GRUESSEN</CODE></P>
 
 </div>
 
-<P>The clear text originally had been encrypted with the password <B><CODE>HIERGIBTESWASZUENTDECKEN</CODE></B> and the options <B>Preformat text</B> and <B>Ignore duplicates within the key phrase</B> deactivated. We finally get the complete plain text:</P>
+<P>3.12 The clear text originally had been encrypted with the password 
+<B><CODE>HIERGIBTESWASZUENTDECKEN</CODE></B> and the options <B>Preformat text</B> and <B>Ignore 
+duplicates within the key phrase</B> was deactivated. We finally get the complete plain text:</P>
+
+<div class="indent">
+<PRE><CODE>    SEHR.GEEHRTE.DAMEN.UND.HERREN...EIN.ZIEMLICH.
+    GEHEIMER.TEXT.BLEIBT.NICHT.IMMER.LANGE.GEHEIM..</CODE>
+    <CODE>MIT.FREUNDLICHEN.GRUESSEN</CODE></PRE>
+</div>
+
+<P>3.13 After clicking the button <B>Output results of analysis</B>, the Playfair analysis dialog window 
+is closed and the cleartext is displayed.</P>
+
+
 
 </BODY>
 </HTML>

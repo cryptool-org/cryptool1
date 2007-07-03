@@ -13420,10 +13420,10 @@ BEGIN
                     NOT WS_BORDER
 END
 
-IDD_PLAYFAIR_ANALYSIS DIALOG  0, 0, 432, 356
+IDD_PLAYFAIR_ANALYSIS DIALOGEX 0, 0, 432, 356
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Playfair Analysis"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_MYTXT,7,307,418,15,ES_UPPERCASE | ES_AUTOHSCROLL
     CONTROL         "&5x5 Matrix",IDC_RAD6,"Button",BS_AUTORADIOBUTTON | 
@@ -13480,13 +13480,13 @@ BEGIN
     LTEXT           "Password:",IDC_STATIC,7,2,32,9
     LTEXT           "Letter information",IDC_STATIC,147,2,187,9
     PUSHBUTTON      "&Generate matix",IDC_BUTTON5,39,208,72,16
-    LTEXT           "Analysis result: The following rows contains Ciphertext, input or result of the frequency analysis, found plaintext",
+    LTEXT           "Analysis result: The following rows contains ciphertext, input or result of the frequency analysis, found plaintext",
                     IDC_STATIC,7,235,407,8
     LTEXT           "Expected plaintext:",IDC_STATIC,7,297,85,8
     SCROLLBAR       IDC_SCROLLBAR1,7,281,418,11
     CONTROL         "&Text was pre-formatted",IDC_CHECK2,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,16,47,111,8
-    PUSHBUTTON      "&Synchronise  Analysis result / Expected plaintext",
+    PUSHBUTTON      "&Synchronise  analysis result / Expected plaintext",
                     IDC_BUTTON6,138,330,170,18
     CONTROL         "Update expected plaintext using the key matrix",
                     IDC_CHECK4,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | 
@@ -13508,11 +13508,11 @@ BEGIN
                     WS_TABSTOP,27,17,78,8
     CONTROL         "&Ignore duplicates within the key phrase",IDC_CHECK1,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,30,161,8
-    CONTROL         "&5x5 Matrix",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,169,106,48,10
-    CONTROL         "&6x6 Matrix",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,169,
-                    118,48,10
-    GROUPBOX        "Optionen",IDC_STATIC,10,7,218,36
+    CONTROL         "&5x5 matrix",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,169,106,47,10
+    CONTROL         "&6x6 matrix",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,169,
+                    118,47,10
+    GROUPBOX        "Options",IDC_STATIC,10,7,218,36
     GROUPBOX        "Playfair key",IDC_STATIC,10,49,218,178
     LTEXT           "Short version of the Playfair key:",IDC_STATIC,24,64,
                     114,11

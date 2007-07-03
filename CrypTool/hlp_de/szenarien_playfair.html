@@ -7,12 +7,13 @@
 		<!-- multiple keywords for CrypTool HTML help index -->
 	</HEAD>
 	<BODY>
-	<OBJECT id="Object1" type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
-		<PARAM NAME="Keyword" VALUE="Playfair-Verschlüsselungsverfahren">
-		<PARAM NAME="Keyword" VALUE="Verschlüsselung">
-		<param name="Keyword" value="Beispiele/Szenarien">
-		<PARAM NAME="Keyword" VALUE="Szenarien/Demonstrationen">
-	</OBJECT>
+		<OBJECT id="Object1" type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+			VIEWASTEXT>
+			<PARAM NAME="Keyword" VALUE="Playfair-Verschlüsselungsverfahren">
+			<PARAM NAME="Keyword" VALUE="Verschlüsselung">
+			<param name="Keyword" value="Beispiele/Szenarien">
+			<PARAM NAME="Keyword" VALUE="Szenarien/Demonstrationen">
+		</OBJECT>
 		<h3>Szenario für das Playfair-Verschlüsselungsverfahren</h3>
 		<P>Im folgenden wird ein <A href="hid_hilfe_szenarien.html">Szenario</A> für das <A href="hid_playfair_bin.html">
 				Playfair-Verschlüsselungsverfahren</A> vorgestellt. Die Veranschaulichung 
@@ -28,27 +29,21 @@
 			ermitteln.
 		</P>
 		<P><B>1 Playfair-Verschlüsselung</B></P>
-		
-		<P>1.1 Öffnen Sie das zu entschlüsselnde Dokument: Zum Beispiel <CODE>CrypTool-de.txt</CODE>, das ein Teil
-		der CrypTool-Hilfe ist. Das Öffnen dieser <!--ZZZPOPUP--><A href="datei.html">Datei</A> geschieht über 
-		das Menü  <A href="menu_file.html">Datei</A> \ <A href="hid_file_open.html">Öffnen</A>.</P>
-		
+		<P>1.1 Öffnen Sie das zu entschlüsselnde Dokument: zum Beispiel <CODE>CrypTool-de.txt</CODE>, 
+			das ein Teil der CrypTool-Hilfe ist. Das Öffnen dieser <!--ZZZPOPUP--><A href="datei.html">Datei</A>
+			geschieht über das Menü <A href="menu_file.html">Datei</A> \ <A href="hid_file_open.html">
+				Öffnen</A>.</P>
 		<P><IMG SRC="images/playfairplaintext.gif" ALT="playfairplaintext.gif" BORDER="0"></P>
-		
 		<P>1.2 Nun wollen wir dieses <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> mit 
 			dem <A href="hid_playfair_bin.html">Playfair-Verschlüsselungsverfahren</A> <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsseln</A>.</P>
-			
-		<P>Wählen Sie das Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ 
-		<A href="menu_crypt_symmetricclassic.html">Symmetrisch (klassisch)</A> \ 
-		<A href="hid_playfair_bin.html">Playfair</A>. So erhalten Sie den folgenden Dialog:</P>
-			
-		<P><IMG SRC="images/playfairkeydialog.gif" ALT="playfairkeydialog.gif" BORDER="0"></P>	
-		
-		<p>Nutzt man die Standard-5x5-Schlüssel-Matrix, besteht das <B>Playfair-Alphabet</B> aus 
-		den normalen Großbuchstaben A bis Z, wobei J weggelassen wird.</p>
-		
-		<P>Als <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> wird PEGASOS eingetragen.</P>
-		
+		<P>Wählen Sie das Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ <A href="menu_crypt_symmetricclassic.html">
+				Symmetrisch (klassisch)</A> \ <A href="hid_playfair_bin.html">Playfair</A>. 
+			So erhalten Sie den folgenden Dialog:</P>
+		<P><IMG SRC="images/playfairkeydialog.gif" ALT="playfairkeydialog.gif" BORDER="0"></P>
+		<p>Nutzt man die Standard-5x5-Schlüssel-Matrix, besteht das <B>Playfair-Alphabet</B>
+			aus den normalen Großbuchstaben A bis Z, wobei J weggelassen wird.</p>
+		<P>1.3 Als <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> wird PEGASOS 
+			eingetragen.</P>
 		<P>Aus diesem Schlüsselwort wird die Playfair Schlüsselmatrix berechnet:</P>
 		<div style="TEXT-ALIGN:center">
 			<TABLE cols="5" width="0*" class="pad10">
@@ -91,34 +86,31 @@
 			<BR>
 		</div>
 		<P>1.4 Nach Betätigung des Buttons <B>Verschlüsseln</B> wird der 
-			Playfair-Schlüsseleingabedialog geschlossen und es öffnen sich nacheinander zwei Fenster: 
-			eines mit dem vorformatierten Klartext und eines mit dem 
+			Playfair-Schlüsseleingabedialog geschlossen und es öffnen sich nacheinander 
+			zwei Fenster: eines mit dem vorformatierten Klartext und eines mit dem 
 			<!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> Text:</P>
-			
 		<P><IMG SRC="images/playfairpreformatandencryption.gif" ALT="playfairpreformatandencryption.gif"
 				BORDER="0" width="91%"></P>
 		<UL>
 			<LI>
-				Die Vorformatierung entfernt aus dem Klartext alle Zeichen, die nicht zum 
-				<B>Playfair-Alphabet</B> gehören und fügt zwischen doppelt vorkommenden Zeichen den 
-				Buchstaben X als Trennzeichen ein. Beispielsweise wird aus dem Klartext "<CODE>CrypTool 
-					ist</CODE>" der vorformatierte Text<CODE> CRYPTOXOLIST</CODE>.<BR>
+				Die Vorformatierung entfernt aus dem Klartext alle Zeichen, die nicht zum <B>Playfair-Alphabet</B>
+				gehören und fügt zwischen doppelt vorkommenden Zeichen den Buchstaben X als 
+				Trennzeichen ein. Beispielsweise wird aus dem Klartext "<CODE>CrypTool ist</CODE>" 
+				der vorformatierte Text<CODE> CRYPTOXOLIST</CODE>.<BR>
 				<BR>
 			<LI>
 				Ausgehend von der Playfair-Schlüsselmatrix können wir den vorformatierten Text 
 				verschlüsseln. Die Idee hinter der Playfair-Verschlüsselung ist, dass die 
 				beiden verschiedenen Zeichen eines Digramms die gegenüberliegenden Ecken eines 
-				Rechtecks in der Playfair-Matrix beschreiben.<br> Für die Ausnahme, dass die 
-				Zeichen des Digramms in derselben Zeile oder Spalte der 
-				Playfair-Schlüsselmatrix stehen, betrachten wir "eindimensionale" Rechtecke.
+				Rechtecks in der Playfair-Matrix beschreiben.<br>
+				Für die Ausnahme, dass die Zeichen des Digramms in derselben Zeile oder Spalte 
+				der Playfair-Schlüsselmatrix stehen, betrachten wir "eindimensionale" 
+				Rechtecke.
 			</LI>
 		</UL>
-		
-		<P>Als Beispiel verschlüsseln wir von Hand den vorformatierten Klartext<CODE> CRYPTOXOLIST</CODE>: 
-		In der Playfair-Matrix beschreiben die Digramme des Klartextes die folgenden Rechtecke(hier z.T. 
-		beispielhaft farblich hervorgehoben):</P>
-		
-		
+		<P>1.5 Als Beispiel verschlüsseln wir von Hand den vorformatierten Klartext<CODE> CRYPTOXOLIST</CODE>: 
+			In der Playfair-Matrix beschreiben die Digramme des Klartextes die folgenden 
+			Rechtecke(hier z.T. beispielhaft farblich hervorgehoben):</P>
 		<div style="TEXT-ALIGN:left">
 			<table border="0">
 				<tr>
@@ -215,8 +207,8 @@
 		</div>
 		<P>Wenn das Rechteck zweidimensional ist, dann zählen wir die Ecken im Rechteck wie 
 			folgt auf: Wir beginnen mit dem ersten Buchstaben im Klartextdigramm, danach 
-			wählen wir den Buchstaben, der die andere Ecke <i>in der gleichen Zeile</i> beschreibt und 
-			dann den zweiten Buchstaben des Klartextdigramms. Schließlich fügen wir den 
+			wählen wir den Buchstaben, der die andere Ecke <i>in der gleichen Zeile</i> beschreibt 
+			und dann den zweiten Buchstaben des Klartextdigramms. Schließlich fügen wir den 
 			Buchstaben der letzten Ecke an.
 		</P>
 		<P>Im selteneren Fall, wenn das Rechteck eindimensional ist, wählen wir zunächst 
@@ -227,66 +219,53 @@
 		<P></P>
 		<P>Die noch unbenutzten Ecken aus dem Rechtecken bilden dann die Chiffren der 
 			Klartextdigramme. Der Chiffretext der Eingabe lautet:<CODE> KXVANDVCMKAU</CODE>.</P>
-		<P>1.6 Wenn der Playfair-Chiffretext ein aktives Fenster in CrypTool ist, können Sie 
-			auf die Toolbar-Ikone <IMG SRC="images/iconkeydialog.gif" ALT="iconkeydialog.gif" BORDER="0">
+		<P>1.6 Wenn der Playfair-Chiffretext ein aktives Fenster in CrypTool ist, können 
+			Sie auf die Toolbar-Ikone <IMG SRC="images/iconkeydialog.gif" ALT="iconkeydialog.gif" BORDER="0">
 			klicken, oder Menü Bearbeiten \ Schlüssel Anzeigen wählen und der 
 			Playfair-Schlüssel wird angezeigt. Sie können jetzt den Playfair-Schlüssel in 
 			dem Schlüsselspeicher sichern. Dadurch brauchen Sie ihn im folgenden Schritt 
 			(Entschlüsselung) nicht mehr eintippen.</P>
-			
 		<P><B>2 Playfair-Entschlüsselung</B></P>
 		<P>Jetzt kann der <!--ZZZPOPUP--><A href="klartext.html">Klartext</A> dieses 
-		<!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> 
-		<!--ZZZPOPUP--><A href="dokument.html">Dokuments</A> wieder ermittelt werden.</P>
-		<P>2.1 Wählen Sie das Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ 
-		<A href="menu_crypt_symmetricclassic.html">Symmetrisch (klassisch)</A> \ 
-		<A href="hid_playfair_bin.html">Playfair</A>.</P>
+			<!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> 
+			<!--ZZZPOPUP--><A href="dokument.html">Dokuments</A> wieder ermittelt werden.</P>
+		<P>2.1 Wählen Sie das Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ <A href="menu_crypt_symmetricclassic.html">
+				Symmetrisch (klassisch)</A> \ <A href="hid_playfair_bin.html">Playfair</A>.</P>
 		<P>2.2 Geben Sie in dem Dialog den <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A>, 
 			mit dem das <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselt</A>
 			worden ist (PEGASOS), ein. Falls Sie diesen Schlüssel in den Schlüsselspeicher 
 			gesichert haben, können Sie den Schlüssel einfach durch das Anklicken der <IMG SRC="images/iconinsertkey.gif" ALT="iconinsertkey.gif" BORDER="0">
 			Ikone in den Schlüsseldialog kopieren.
 		</P>
-		
 		<P><IMG SRC="images/dialogplayfairdecrytion.gif" ALT="dialogplayfairdecrytion.gif" BORDER="0"></P>
-		
 		<P>2.3 Drücken Sie den Knopf <B>Entschlüsseln</B> um den 
-		<!--ZZZPOPUP--><A href="klartext.html">Klartext</A> zu erhalten.</P>
-		
+			<!--ZZZPOPUP--><A href="klartext.html">Klartext</A> zu erhalten.</P>
 		<P><B>3 Manuelle Playfair-Analyse</B></P>
 		<P>Wir wollen mit Hilfe der manuellen Analyse einen verschlüsselten Text 
 			dechiffrieren, von dem wir den Schlüssel nicht kennen (Ciphertext-only-Analyse)</P>
 		<P>3.1 Dazu laden wir den zu dechiffrierenden Text aus der Datei <CODE>Playfair-enc-de.txt</CODE>
-		(zu finden im CrypTool-Unterverzeichnis <CODE>examples</CODE>):</P>
-		
+			(zu finden im CrypTool-Unterverzeichnis <CODE>examples</CODE>):</P>
 		<P><IMG SRC="images/szenarioplayfair1.gif" ALT="szenarioplayfair1.gif" BORDER="0"></P>
-		
 		<P>3.2 Dieser Text wurde mit dem <A href="hidd_key_playfair.html">Playfair-</A><!--ZZZPOPUP--><A href="verschlverfahren.html">Verschlüsselungsverfahren</A>
 			<I>ohne</I> Vorformatierung erstellt: Bei dieser Verschlüsselungsoption werden 
-			Zeichen, die nicht zum Playfair-Alphabet gehören, unverändert in den Chiffretext 
-			übernommen. Deshalb erkennt man in diesem Chiffretext anhand der 
+			Zeichen, die nicht zum Playfair-Alphabet gehören, unverändert in den 
+			Chiffretext übernommen. Deshalb erkennt man in diesem Chiffretext anhand der 
 			unverschlüsselten Leerzeichen, Satzzeichen und Zeilenvorschübe die Länge der 
 			einzelnen Wörter.</P>
-			
-		<P>Außerdem wurden Doppelbuchstaben beim Verschlüsseln des Klartextes ignoriert, d.h. es wurde 
-		kein Trennzeichen X zwischen Doppelbuchstaben hineingeschoben. Die Doppelbuchstaben bleiben 
-		unverschlüsselt.</P>
-		
-		<P>3.3 CrypTool analysiert den Playfair-Chiffretext nicht automatisch, sondern unterstützt 
-		die manuelle Playfair-Analyse. Deshalb benötigen wir zu Beginn der Analyse einen Hinweis über 
-		den ursprünglichen Klartext. Nehmen wir an, dass es sich bei dem Text um einen Brief handelt (Briefe 
-		beginnen oft mit den gleichen Worten).</P>
-		
-		<P>3.4 Öffnen wir also das Fenster Playfairanalyse (Menü <A href="menu_analyze.html">Analyse</A> \ 
-		Symmetrische Verschlüsselung (klassisch) \ Manuelle Analyse \ Playfair).</P>
-		
-		<P>Hier sieht man im Feld "Analyseergebnis" in der ersten Zeile den Text aus den geladenen 
-		Geheimtext-Daten (Chiffrat).</P>
-		
+		<P>Außerdem wurden Doppelbuchstaben beim Verschlüsseln des Klartextes ignoriert, 
+			d.h. es wurde kein Trennzeichen X zwischen Doppelbuchstaben hineingeschoben. 
+			Die Doppelbuchstaben bleiben unverschlüsselt.</P>
+		<P>3.3 CrypTool analysiert den Playfair-Chiffretext nicht automatisch, sondern 
+			unterstützt die manuelle Playfair-Analyse. Deshalb benötigen wir zu Beginn der 
+			Analyse einen Hinweis über den ursprünglichen Klartext. Nehmen wir an, dass es 
+			sich bei dem Text um einen Brief handelt (Briefe beginnen oft mit den gleichen 
+			Worten).</P>
+		<P>3.4 Öffnen wir also das Fenster Playfairanalyse (Menü <A href="menu_analyze.html">Analyse</A>
+			\ Symmetrische Verschlüsselung (klassisch) \ Manuelle Analyse \ Playfair).</P>
+		<P>Hier sieht man im Feld "Analyseergebnis" in der ersten Zeile den Text aus den 
+			geladenen Geheimtext-Daten (Chiffrat).</P>
 		<P><IMG SRC="images/szenarioplayfair2.gif" ALT="szenarioplayfair2.gif" BORDER="0"></P>
-		
 		<P>3.5 Wahrscheinlich beginnt der Brief mit dem Text <B><CODE>Sehr geehrte Damen und Herren</CODE></B>.</P>
-		
 		<P>Der Text wird in dem Feld mit der Überschrift <B>Vermuteter Klartext</B> eingegeben. 
 			Nach jedem eingegebenen Buchstaben wird die Tabelle der <B>Buchstabeninformationen</B>
 			aktualisiert.
@@ -348,12 +327,11 @@
 			<BR>
 		</div>
 		<P>3.6 Durch einen Klick auf den Knopf <B>Erzeuge Matrix</B> werden mit diesen 
-			Informationen die bekannten Teile der Playfair-Schlüsselmatrix berechnet [daher manuelle 
-			oder halbautomatische Analyse - Sie müssen Ideen für Teile des Klartextes haben, CrypTool 
-			berechnet daraus den vollständigen Klartext und die mögliche Schlüsselmatrix]:</P>
-			
+			Informationen die bekannten Teile der Playfair-Schlüsselmatrix berechnet [daher 
+			manuelle oder halbautomatische Analyse - Sie müssen Ideen für Teile des 
+			Klartextes haben, CrypTool berechnet daraus den vollständigen Klartext und die 
+			mögliche Schlüsselmatrix]:</P>
 		<P><IMG SRC="images/szenarioplayfair3.gif" ALT="szenarioplayfair3.gif" BORDER="0"></P>
-		
 		<!--
 		<P>Wir zeigen anhand der Klartextvermutung und den Regeln zur Playfair-Verschlüsselung, wie 
 		die Schlüsselmatrix von Hand berechnet werden kann:</P>
@@ -455,23 +433,20 @@
 			</TABLE>
 			<BR>
 		</div>-->
-		
 		<P>3.7 Drücken Sie den Button <B>Synchronisiere Analyseergebnis / Vermuteter Klartext</B>.</P>
-		
 		<P>Die selektierte Option <B>Vermuteter Klartext aktualisieren</B> bewirkt, dass 
-			das Ergebnis der Playfair-Entschlüsselung mit der Teilmatrix aus der Analyse in das 
-			Feld Vermuteter Klartext kopiert wird. Dabei werden Buchstaben, die nicht 
+			das Ergebnis der Playfair-Entschlüsselung mit der Teilmatrix aus der Analyse in 
+			das Feld Vermuteter Klartext kopiert wird. Dabei werden Buchstaben, die nicht 
 			entschlüsselt werden können, mit dem Jokerzeichen '<B><CODE>*</CODE></B>' 
 			markiert und können jetzt ersetzt werden.</P>
-			
 		<P>3.8 Nun fallen etwa die Teilworte <B><CODE>E**.*IEMLI**</CODE></B> auf. Wenn wir 
-			diese im Feld "Vermuteter Klartext" zu <B><CODE>EIN.ZIEMLICH</CODE></B> ergänzen, ergeben 
-			sich die weiteren Digrammpaare: IN &gt; BO und CH &gt; HK. Mit der bisherigen Schlüsselmatrix 
-			in dem ersten Digrammpaar folgern wir, dass die Buchstaben I,N,B,O in der gleichen 
-			Spalte und somit in der Schlüsselmatrix der Buchstabe B direkt unter I und der 
-			Buchstabe O direkt unter N liegt. Der Klick auf <B>Erzeuge Matrix</B> vertauscht 
-			die zweite und vierte Zeile, danach die zweite und die dritte Zeile, und 
-			liefert als Schlüsselmatrix:</P>
+			diese im Feld "Vermuteter Klartext" zu <B><CODE>EIN.ZIEMLICH</CODE></B> ergänzen, 
+			ergeben sich die weiteren Digrammpaare: IN &gt; BO und CH &gt; HK. Mit der 
+			bisherigen Schlüsselmatrix in dem ersten Digrammpaar folgern wir, dass die 
+			Buchstaben I,N,B,O in der gleichen Spalte und somit in der Schlüsselmatrix der 
+			Buchstabe B direkt unter I und der Buchstabe O direkt unter N liegt. Der Klick 
+			auf <B>Erzeuge Matrix</B> vertauscht die zweite und vierte Zeile, danach die 
+			zweite und die dritte Zeile, und liefert als Schlüsselmatrix:</P>
 		<div style="TEXT-ALIGN:center">
 			<TABLE cols="5" width="0*" class="pad10">
 				<TR VALIGN="top">
@@ -512,7 +487,8 @@
 			</TABLE>
 			<BR>
 		</div>
-		<P>3.9 Leider führt die Entschlüsselung mit dieser Matrix zu Worten, die es nicht gibt.</P>
+		<P>3.9 Leider führt die Entschlüsselung mit dieser Matrix zu Worten, die es nicht 
+			gibt.</P>
 		<div class="indent">
 			<PRE><B><CODE>    SEHR.GEEHRTE.DAMEN.UND.HERREN...EIN.ZIEMLICH.
     GEHEIMER.*X**.BLEIOT.NICH*.IMMER.**NGE.GEHEIM..</CODE></B>
@@ -528,9 +504,9 @@
     GEHEIMER.*<B>*</B>**.BLEI<B>B</B>T.NICH<B>T</B>.IMMER.<B>LA</B>NGE.GEHEIM..</CODE>
     <CODE>MI<B>T</B>.<B>FRE</B>UNDLICHEN.GRU<B>ESS</B>EN</CODE></PRE>
 		</div>
-		<P>3.10 Dies führt zu den weiteren Digrammpaaren BT &gt; TF, TI &gt; BE, LA &gt; NW, TF 
-			&gt; BZ, RE &gt; FT, SS &gt; KK und UE &gt; XT. Ein Klick auf <B>Matrix erzeugen</B>
-			liefert jetzt
+		<P>3.10 Dies führt zu den weiteren Digrammpaaren BT &gt; TF, TI &gt; BE, LA &gt; 
+			NW, TF &gt; BZ, RE &gt; FT, SS &gt; KK und UE &gt; XT. Ein Klick auf <B>Matrix 
+				erzeugen</B> liefert jetzt
 		</P>
 		<div class="indent">
 			<PRE><CODE>    SEHR.GEEHRTE.DAMEN.UND.HERREN...EIN.ZIEMLICH.
