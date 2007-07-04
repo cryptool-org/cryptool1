@@ -11,7 +11,7 @@
 
 <h4><u>1. Die Spielidee</u></h4>
 
-<p>Die Spielidee des Zahlenhais besteht darin, dass Du von den ausw&auml;hlbaren Zahlen m&ouml;glichst viele f&uuml;r Dich gewinnst, so dass deren Summe gr&ouml;&szlig;er ist als die Summe der Zahlen des Zahlenhais und m&ouml;glichst maximal. W&auml;hlst Du eine Zahl, bekommt der Zahlenhai alle noch freien, <a href="Echte_Teiler.html">echten Teiler</a> davon, usw. Die echten Teiler von 6 sind zum Beispiel 1, 2, 3.</p>
+<p>Die Spielidee des Zahlenhais besteht darin, dass Du von den ausw&auml;hlbaren Zahlen m&ouml;glichst viele f&uuml;r Dich gewinnst, so dass deren Summe gr&ouml;&szlig;er ist als die Summe der Zahlen des Zahlenhais und m&ouml;glichst maximal. W&auml;hlst Du eine Zahl, bekommt der Zahlenhai alle noch freien, <a href="NumberSharkRealFactors.html">echten Teiler</a> davon, usw. Die echten Teiler von 6 sind zum Beispiel 1, 2, 3.</p>
 <p>Das Spiel lehrt spielerisch den Umgang mit Teilern und Primzahlen und wurde urspr&uuml;nglich f&uuml;r Sch&uuml;ler konzipiert.</p>
 
 <P>Im Folgenden wird die Bedienung des Zahlenhai-Spiels anhand der Dialogfenster erl&auml;utert.</P>
@@ -53,7 +53,7 @@ alle anderen Zahlen-Muscheln zugreifen kannst. Du kannst Dich mit dem Tabulator 
 Die Spalten der Tabellen sind alle in ihrer Breite ver&auml;nderbar, passen sich aber nicht automatisch der maximalen Breite ihres Inhaltes an. Jede Zeile l&auml;sst sich zur besseren Lesbarkeit einzeln markieren.
 Wenn der angezeigte Bereich der Liste gef&uuml;llt ist, erscheint am rechten Rand ein Rollbalken (Bl&auml;tterleiste) und der Inhalt der Liste wird nach oben ger&uuml;ckt, damit immer der letzte Eintrag sichtbar ist.</p>
 
-<p>Immer wenn eine <a href="Primzahlen.html">Primzahl</a> gew&auml;hlt wurde (egal ob von Dir oder vom Zahlenhai), wird in der Spielverlaufstabelle hinter diese Zahl die Markierung "(prim)" geschrieben, um anzuzeigen, dass es sich bei der Zahl um eine Primzahl handelt.</p>
+<p>Immer wenn eine <a href="NumberSharkPrimes.html">Primzahl</a> gew&auml;hlt wurde (egal ob von Dir oder vom Zahlenhai), wird in der Spielverlaufstabelle hinter diese Zahl die Markierung "(prim)" geschrieben, um anzuzeigen, dass es sich bei der Zahl um eine Primzahl handelt.</p>
 
 <p><IMG SRC="Pictures_de/Dlg_game_course_de.png" ALT="Dlg_game_course_de.png" BORDER=0 width="91%"></P>
 <br>
@@ -102,7 +102,7 @@ Wenn der angezeigte Bereich der Liste gef&uuml;llt ist, erscheint am rechten Ran
 <IMG SRC="Pictures_de/Dlg_options1_de.png" ALT="Dlg_options1_de.png" BORDER=0 width="91%">
 <p>Unter dem Reiter <b>Standardoptionen</b> hast Du folgende M&ouml;glichkeiten:
 <ul>
-	<li>Du kannst Deinen Spielernamen eingeben, der am Ende eines Spieles in die Datei <a href="Zahlenhai_Tutorial.html#Zusammenfassung">Zusammenfassung.txt</a> geschrieben wird und der w&auml;hrend des Spiels in der Kopfzeile des Spielfensters sichtbar ist.</li>
+	<li>Du kannst Deinen Spielernamen eingeben, der am Ende eines Spieles in die Datei <a href="NumberSharkTutorial.html#Zusammenfassung">Zusammenfassung.txt</a> geschrieben wird und der w&auml;hrend des Spiels in der Kopfzeile des Spielfensters sichtbar ist.</li>
 	<li>Ist die Checkbox "ToolTips aktivieren" gesetzt, kannst Du Dir w&auml;hrend des Spiels zu allen aktiven Muscheln (diese sind blau gef&auml;rbt) die noch verf&uuml;gbaren Teiler anzeigen lassen. Diese Option sollten nur Anf&auml;nger aktivieren, die noch nicht gut teilen k&ouml;nnen oder die noch keinen Spiel&uuml;berblick haben.</li>
 	<li>Mit der Option "Spieloptionen beim n&auml;chsten Programmstart anzeigen" kannst Du Dir aussuchen, ob Du den Spieloptionen-Dialog vor dem n&auml;chsten Programmstart sehen m&ouml;chtest oder nicht.</li>
 	<li>Ist der Haken bei "Die zuletzt gew&auml;hlte Anzahl der ausw&auml;hlbaren Zahlen beim n&auml;chsten Programmstart wieder eintragen" gesetzt, merkt sich das Programm diese Zahl f&uuml;r den n&auml;chsten Programmstart.</li>
@@ -112,7 +112,7 @@ Wenn der angezeigte Bereich der Liste gef&uuml;llt ist, erscheint am rechten Ran
 
 <P><IMG SRC="Pictures_de/Dlg_options2_de.png" ALT="Dlg_options2_de.png" BORDER=0 width="91%"></p>
 
-<p>Unter dem Reiter <b>Maximalwerte</b> kannst Du Dir anzeigen lassen, wie viele Punkte man maximal bei welcher Zahlenanzahl n (Zahlenvorrat) bekommen kann. Die Berechnung dieser Werte ist sehr rechenintensiv: Deshalb wurde die Berechnung f&uuml;r Zahlenvorr&auml;te &lt; 23  bereits vorgenommen: Bei diesen Zahlen erscheint das Ergebnis sofort. Bei Zahlenvorr&auml;ten gr&ouml;&szlig;er 22 wirst Du gewarnt, dass die Berechnung sehr lange dauern kann: Wir sch&auml;tzen die Rechendauer der derzeit implementierten Suche bei der Anzahl n=23 auf einem 3 GHz PC auf ca. 80 Tage bei 100% Systemauslastung. Neben der <a href="Zahlenhai_Entstehung.html#Berechnung">maximal m&ouml;glichen Punktzahl</a> wird auch noch mit ausgegeben, welche Zahlen Du in welcher Reihenfolge dr&uuml;cken solltest, um diese maximale Punktzahl zu erreichen. Dieser optimale Weg ist nicht immer eindeutig, oft k&ouml;nnen einzelne direkt aufeinander folgende Zahlen in der Reihenfolge der Auswahl miteinander vertauscht werden. Zus&auml;tzlich erh&auml;lt man noch einen Tipp, mit welcher Zahl man das Spiel beginnen muss, um m&ouml;glichst viele Punkte zu erreichen.</p>
+<p>Unter dem Reiter <b>Maximalwerte</b> kannst Du Dir anzeigen lassen, wie viele Punkte man maximal bei welcher Zahlenanzahl n (Zahlenvorrat) bekommen kann. Die Berechnung dieser Werte ist sehr rechenintensiv: Deshalb wurde die Berechnung f&uuml;r Zahlenvorr&auml;te &lt; 23  bereits vorgenommen: Bei diesen Zahlen erscheint das Ergebnis sofort. Bei Zahlenvorr&auml;ten gr&ouml;&szlig;er 22 wirst Du gewarnt, dass die Berechnung sehr lange dauern kann: Wir sch&auml;tzen die Rechendauer der derzeit implementierten Suche bei der Anzahl n=23 auf einem 3 GHz PC auf ca. 80 Tage bei 100% Systemauslastung. Neben der <a href="NumberSharkDevelopment.html#Berechnung">maximal m&ouml;glichen Punktzahl</a> wird auch noch mit ausgegeben, welche Zahlen Du in welcher Reihenfolge dr&uuml;cken solltest, um diese maximale Punktzahl zu erreichen. Dieser optimale Weg ist nicht immer eindeutig, oft k&ouml;nnen einzelne direkt aufeinander folgende Zahlen in der Reihenfolge der Auswahl miteinander vertauscht werden. Zus&auml;tzlich erh&auml;lt man noch einen Tipp, mit welcher Zahl man das Spiel beginnen muss, um m&ouml;glichst viele Punkte zu erreichen.</p>
 
 <P><IMG SRC="Pictures_de/Dlg_options4_de.png" ALT="Dlg_options4_de.png" BORDER=0 width="91%"></p>
 
@@ -133,9 +133,9 @@ Wenn der angezeigte Bereich der Liste gef&uuml;llt ist, erscheint am rechten Ran
 
 <P><IMG SRC="Pictures_de/Dlg_rules_de.png" ALT="Dlg_rules_de.png" BORDER=0 width="91%"></p>
 
-<p>Wenn Du N&auml;heres zur Entstehungsgeschichte des Zahlenhai-Spieles erfahren willst, klicke <a href="Zahlenhai_Entstehung.html">hier</a>.</p>
+<p>Wenn Du N&auml;heres zur Entstehungsgeschichte des Zahlenhai-Spieles erfahren willst, klicke <a href="NumberSharkDevelopment.html">hier</a>.</p>
 
 
-<p>Aus rechtlichen Gr&uuml;nden m&uuml;ssen wir explizit auf <a href="Zahlenhai_Lizenz.html">Lizenzbestimmungen / Haftungsausschluss</a> hinweisen.</p>
+<p>Aus rechtlichen Gr&uuml;nden m&uuml;ssen wir explizit auf <a href="NumberSharkLicense.html">Lizenzbestimmungen / Haftungsausschluss</a> hinweisen.</p>
 </BODY>
 </HTML> 
