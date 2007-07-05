@@ -632,7 +632,7 @@ There are several procedures for calculating the discrete logarithm
 \begin{center}
 \begin{tabular}{|l|l|}\hline
 Name                 &        Complexity \\ \hline \hline
-Babystep-Giantstep &         $ O(\sqrt{p}) $ \\ \hline
+Baby-step-giant-step &         $ O(\sqrt{p}) $ \\ \hline
 Silver-Pohlig-Hellman    &    polynomial in $ q, $ the greatest \\
 &  prime factor of $ p-1. $ \\ \hline
 Index-Calculus &             $ O(e^{(1+o(1)) \sqrt{\ln (p) \ln (\ln (p))}}) $ \\ 
@@ -641,7 +641,7 @@ Index-Calculus &             $ O(e^{(1+o(1)) \sqrt{\ln (p) \ln (\ln (p))}}) $ \\
 \end{center}
 \vskip +5 pt
 \index{Silver} \index{Pohlig, S. C.} \index{Hellman, Martin}
-\index{Baby-Step-Giant-Step}
+\index{Baby-step-giant-step}
 
 The current record\index{Logarithm problem!record} (as of April 2007) for calculating discrete logarithms was
 established in February 2007 by the group Kleinjung, Franke and Bahr at
@@ -813,8 +813,8 @@ We define $ a $ as $ \log_\alpha (\beta). $
 \paragraph{Calculating the discrete logarithm }
 A simple procedure for calculating the discrete logarithm of a group element, 
 that is considerably more efficient than simply trying all possible values for $ 
-k, $ is the \index{Baby-Step-Giant-Step} Baby-Step-Giant-Step algorithm.
-\begin{theorem}\label{thm-cry-bsgs}[Baby-Step-Giant-Step algorithm]
+k, $ is the \index{Baby-step-giant-step} baby-step-giant-step algorithm.
+\begin{theorem}\label{thm-cry-bsgs}[baby-step-giant-step algorithm]
 Let $ G $ be a group and $ g \in G. $ Let $ n $ be the smallest natural number 
 with $ |G|\leq n^2. $ Then the discrete logarithm of an element $ h 
 \in G $ can be calculated base $ g $ by generating two lists each containing $ n 
@@ -824,21 +824,21 @@ In order to calculate these lists, we need $ 2n $ group operations.
 
 \begin{Proof}{}
   First create the two lists \\
-Giant-Step list: $ \{1,g^n,g^{2n}, \ldots, g^{n \cdot n}\}, $\\
-Baby-Step list: $ \{ hg^{-1} , hg^{-2} , \ldots , hg^{-n} \}. $ \par
+Giant-step list: $ \{1,g^n,g^{2n}, \ldots, g^{n \cdot n}\}, $\\
+Baby-step list: $ \{ hg^{-1} , hg^{-2} , \ldots , hg^{-n} \}. $ \par
 If $ g^{jn} = hg^{-i}, $ i.e. $ h = g^{i+jn}, $ then the problem is solved. If 
 the lists are disjoint, then $ h $ cannot be represented as $ g^{i + jn}, i, 
 j\leq n,$. As all powers of $ g $ are thus recorded, the logarithm problem does 
 not have a solution.
 \end{Proof}
 
-You can use the Baby-Step-Giant-Step algorithm to demonstrate that it is much 
+You can use the baby-step-giant-step algorithm to demonstrate that it is much 
 more difficult to calculate the discrete logarithm than to calculate the 
 discrete exponential function. If the numbers that occur have approximately 1000 
 bits in length, then you only need around 2000 multiplications to calculate $ 
 g^k $ but around $ 2^{500} \approx 10^{150} $ operations to calculate the 
-discrete logarithm using the Baby-Step-Giant-Step algorithm. \\
-In addition to the Baby-Step-Giant-Step algorithm, there are also numerous other 
+discrete logarithm using the baby-step-giant-step algorithm. \\
+In addition to the baby-step-giant-step algorithm, there are also numerous other 
 procedures for calculating the discrete logarithm \cite{4Stinson1995}\index{Stinson 1995}.
 
 \paragraph{The theorem from Silver-Pohlig-Hellman}

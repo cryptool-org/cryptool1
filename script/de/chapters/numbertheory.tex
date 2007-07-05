@@ -1794,26 +1794,27 @@ bezeichnet.
 
 \item[{\bf 2.}] Wähle ein beliebiges $e \in \{2, \cdots, n-1\}$, so dass 
                 gilt\footnote{%
-                Empfehlenswert aus kryptoanalytischen Gründen, aber nicht notwendig
-                für das Funktionieren des Verfahrens ist, $e$ so zu wählen, 
-                dass gilt: 
+                \label{foot:Selection-of-e}%
+                Empfehlenswert aus kryptoanalytischen Gründen, aber nicht
+                notwendig für das Funktionieren des Verfahrens ist, $e$ so
+                zu wählen, dass gilt: 
                 $\max(p,q) < e < J(n) - 1$.}: \\
                 $e$ ist teilerfremd zu $J(n) = (p-1)*(q-1)$. \\
                 Danach kann man $p$ und $q$ \glqq wegwerfen''.\footnote{%
-                Das Verfahren erlaubt es auch, $d$ frei zu wählen und dann $e$ 
-                zu berechnen.
+                Das Verfahren erlaubt es auch, $d$ frei zu wählen und dann
+                $e$ zu berechnen.
                 Dies hat aber praktische Nachteile.
-                Normalerweise will man \glqq schnell'' verschlüsseln können und 
-                wählt deshalb einen öffentlichen Exponenten $e$ so, dass er 
-                im Vergleich zum Modul $n$ sehr kleine Bitlängen und
+                Normalerweise will man \glqq schnell'' verschlüsseln können
+                und wählt deshalb einen öffentlichen Exponenten $e$ so, dass
+                er im Vergleich zum Modul $n$ sehr kleine Bitlängen und
                 möglichst wenige binäre Einsen hat (z.B. $2^{16} + 1$). 
-                Damit ist eine schnelle Exponentiation bei der Verschlüsselung
-                möglich.
+                Damit ist eine schnelle Exponentiation bei der
+                Verschlüsselung möglich.
                 Als besonders praktisch haben sich hierfür die 
                 Primzahlen $3, 17$ und $65537$ erwiesen.
-                Am häufigsten verwendet wird die Zahl
-                $65537 = 2^{16}+1$, also binär: $10\cdots 0\cdots 01$ (diese
-                Zahl ist prim und deshalb zu sehr vielen Zahlen teilerfremd).
+                Am häufigsten verwendet wird die Zahl $65537 = 2^{16}+1$,
+                also binär: $10\cdots 0\cdots 01$ (diese Zahl ist prim und
+                deshalb zu sehr vielen Zahlen teilerfremd).
                 }
 \item[{\bf 3.}] Wähle $d \in \{1, \cdots, n-1\}$  mit  $e*d = 1$  mod $J(n)$,
       d.h. $d$ ist die multiplikative Inverse zu $e$ modulo $J(n)$\footnote{%
@@ -3042,9 +3043,11 @@ abhörbaren Kanal aushandeln.
 \begin{itemize}
    \item[\bf 1.] Sie wählen eine Primzahl $p$ und eine Zufallszahl $g$, und tauschen diese
                  Information offen aus.
-   \item[\bf 2.] Alice wählt nun $a$, eine Zufallszahl kleiner $p$ und hält diese geheim.
+   \item[\bf 2.] Alice wählt nun $a$, eine Zufallszahl kleiner $p$ und
+                 hält diese geheim.
 
-                 Bob wählt ebenso $b$, eine Zufallszahl kleiner $p$ und hält diese geheim.
+                 Bob wählt ebenso $b$, eine Zufallszahl kleiner $p$ und
+                 hält diese geheim.
    \item[\bf 3.] Alice berechnet nun $A \equiv g^a {\rm ~(mod~} p)$. \\
                  Bob berechnet $B \equiv g^b {\rm ~(mod~} p)$.
    \item[\bf 4.] Alice sendet das Ergebnis $A$ an Bob. \\
@@ -3171,15 +3174,21 @@ lösen.
 \begin{itemize}
   \item[\bf 1.] Die gewählten Primzahlen seien $p=5$ und $q=11$. \\
                 Also ist $n=55$ und $J(n) = (p-1)*(q-1)=40$.
-  \item[\bf 2.] $e = 7$ (sollte zwischen $11$ und $40$ liegen und muss teilerfremd zu $40$ sein).
+  \item[\bf 2.] $e = 7$ (sollte\footnote{%
+                Siehe Fußnote \ref{foot:Selection-of-e} auf Seite
+                \pageref{foot:Selection-of-e}.}
+                zwischen $11$ und $39$ liegen und muss
+                teilerfremd zu $40$ sein).
   \item[\bf 3.] $d = 23$ (da $23*7 \equiv 161 \equiv 1{\rm ~(mod~}40)$)
   \begin{itemize} 
      \item[] $\rightarrow$ Public Key des Senders: $(55, 7),$
      \item[] $\rightarrow$ Private Key des Empfängers: $(55, 23).$ 
   \end{itemize}
-  \item[\bf 4.] Nachricht sei nur die Zahl $M = 2$ (also ist kein Aufbrechen in Blöcke nötig).
+  \item[\bf 4.] Nachricht sei nur die Zahl $M = 2$ (also ist kein
+                Aufbrechen in Blöcke nötig).
   \item[\bf 5.] Verschlüsseln: $C \equiv 2^7 \equiv 18 {\rm ~(mod~}55).$
-  \item[\bf 6.] Chiffrat ist nur die Zahl $C = 18$ (also kein Aufbrechen in Blöcke nötig).
+  \item[\bf 6.] Chiffrat ist nur die Zahl $C = 18$ (also kein Aufbrechen
+                in Blöcke nötig).
   \item[\bf 7.] Entschlüsseln: $M \equiv 18^{23} \equiv 18^{(1+2+4+16)} \equiv 18*49*36*26 \equiv 2 {\rm ~(mod~}55).$
 \end{itemize}
 Nun wollen wir RSA auf einen Text anwenden: zuerst mit dem
@@ -3225,7 +3234,11 @@ L       & 12   & Y    & 25 \\
 {\bf Schlüsselerzeugung (Schritt 1 bis 3):} \\
 %\vskip 5 pt
 {\bf 1.} $p=47, q=79$ $( n= 3713;~ J(n) = (p-1)*(q-1)=3.588).$ \\
-{\bf 2.} $e=37$ (sollte zwischen 79 und 3588 liegen und muss teilerfremd zu $3588$ sein). \\
+{\bf 2.} $e=37$ (sollte\footnote{%
+                Siehe Fußnote \ref{foot:Selection-of-e} auf Seite
+                \pageref{foot:Selection-of-e}.}
+                zwischen 79 und 3587 liegen und muss teilerfremd
+                zu $3588$ sein). \\
 {\bf 3.} $d=97$ (denn $e*d=1{\rm ~mod~}J(n); 37*97 \equiv 3.589 
 \equiv 1{\rm ~(mod~}3588) \;$)\footnote{%
 Wie man $d = 97$ mit Hilfe des erweiterten ggT berechnet wird im \hyperlink{Appendix_A}{Anhang A zu diesem Kapitel} gezeigt.
@@ -3307,12 +3320,15 @@ von $J(n)$ mit Mathematica und Pari-GP. \\
 Mit CrypTool\index{CrypTool} können Sie dies per Menü
 {\bf Einzelverfahren \textbackslash{} RSA-Kryptosystem \textbackslash{} Faktorisieren einer Zahl} lösen.
 }. \\
-{\bf 2.} $e=65.537$ (soll zwischen $509$ und $255.016$ liegen u. muss teilerfremd
-zu $255.016$ sein)\footnote{%
-$e$ soll also nicht $2, 127$ oder $251$ sein ($65537 = 2^{16}+1$).\\
-Real wird $J(n)$ nicht faktorisiert, sondern für das gewählte $e$ wird mit dem Euklidschen Algorithmus
-sichergestellt, dass ggT$(d,J(n))=1$.
-}.\\
+{\bf 2.} $e=65.537$ (sollte\footnote{%
+                Siehe Fußnote \ref{foot:Selection-of-e} auf Seite
+                \pageref{foot:Selection-of-e}.}
+                zwischen $509$ und $255.015$ liegen u. muss\footnote{%
+      $e$ darf also nicht $2, 127$ oder $251$ sein
+      ($65537 = 2^{16}+1$) ($255,016 = 2^{3}*127*251$).\\
+      Real wird $J(n)$ nicht faktorisiert, sondern für das gewählte $e$ wird
+      mit dem Euklidschen Algorithmus sichergestellt, dass ggT$(e,J(n))=1$.
+                } teilerfremd zu $255.016$ sein).\\
 {\bf 3.} $d=231.953$ (denn $e \equiv d^{-1}{\rm ~mod~}J(n);$\\
 \mbox{}\quad $65.537*231.953 \equiv 15.201.503.761 \equiv 1
 {\rm ~(mod~}255.016))$\footnote{%
@@ -3443,7 +3459,7 @@ Entschlüsselung pro Block per: $M \equiv C^{231.953}{\rm ~(mod~}256.027)$: \\
 % --------------------------------------------------------------------------
 \subsubsection{Eine kleine RSA-Cipher-Challenge (1)}
 \index{RSA!Cipher-Challenge}
-Die Aufgabe stammt aus \cite[Exercise 4.6]{3Stinson1995}: \index{Stinson 1995}
+Die Aufgabe stammt aus \cite[Exercise 4.6]{3Stinson1995}\index{Stinson 1995}:
 Die pure Lösung hat Prof. Stinson unter
 
 \href{http://www.cacr.math.uwaterloo.ca/~dstinson/solns.html}
@@ -3453,13 +3469,16 @@ oder
      {\texttt{http://bibd.unl/\~{}stinson/solns.html}}.
 }
 
-veröffentlicht. Es geht aber nicht nur um das Ergebnis, sondern vor allem um die Einzelschritte der Lösung, 
-also um die Darlegung der Kryptoanalyse\index{Kryptoanalyse}\footnote{%
-Im Szenario der Online-Hilfe zu CrypTool\index{CrypTool} und in der Präsentation auf der
-Web-Seite wird der Lösungsweg skizziert. Wenn uns jemand einen gut
-aufbereiteten konkreten Lösungsweg schickt, nehmen wir ihn gerne in die
-Dokumentation auf.
-}:
+veröffentlicht. Es geht aber nicht nur um das Ergebnis, sondern vor allem
+um die Einzelschritte der Lösung, also um die Darlegung der
+Kryptoanalyse\index{Kryptoanalyse}\footnote{%
+Im Szenario der Online-Hilfe zu CrypTool\index{CrypTool} und in der
+Präsentation auf der Web-Seite wird der Lösungsweg skizziert.
+Wenn uns jemand einen (weiteren) gut aufbereiteten konkreten Lösungsweg
+schickt, nehmen wir ihn gerne in die Dokumentation auf.
+}.
+
+Hier die Aufgabe im Originaltext:
 
 Two samples of RSA ciphertext are presented in Tables 4.1 and 4.2. Your task
 is to decrypt them. The public parameters of the system are 
@@ -3467,15 +3486,15 @@ is to decrypt them. The public parameters of the system are
 $n = 18.923$ and $e = 1.261$ (for Table 4.1) and \\
 $n = 31.313$ and $e = 4.913$ (for Table 4.2).
 
-This can be accomplished as follows. First, factor $n$ (which is easy because
-it is so small). Then compute the exponent $d$ from $J(n)$, and, finally,
-decrypt the ciphertext. Use the square-and-multiply \index{Square and multiply} algorithm to
-exponentiate modulo $n$.
+This can be accomplished as follows. First, factor $n$ (which is easy
+because it is so small). Then compute the exponent $d$ from $J(n)$, and,
+finally, decrypt the ciphertext. Use the square-and-multiply
+\index{Square and multiply} algorithm to exponentiate modulo $n$.
 
 In order to translate the plaintext back into ordinary English text, you
-need to know how alphabetic characters are ''encoded'' as elements in $\mathbb{Z}_n$. Each
-element of $\mathbb{Z}_n$ represents three alphabetic characters as in the following
-examples: 
+need to know how alphabetic characters are ''encoded'' as elements in
+$\mathbb{Z}_n$. Each element of $\mathbb{Z}_n$ represents three alphabetic
+characters as in the following examples: 
 
 {\tt \begin{tabular}{lll}
 DOG & $\mapsto$ & $3 * 26^2 + 14 * 26 + 6= 2.398$ \\

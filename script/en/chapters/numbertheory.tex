@@ -1620,26 +1620,30 @@ restriction is fulfilled (see \cite{GISA2002}).
 The value $n$ is called the RSA modulus\footnote{
 In CrypTool\index{CrypTool} the RSA modulo is denoted with a capital ``$N$'' .}.
 
-\item[{\bf 2.}] Select an arbitrary $e \in \{2, \cdots, n-1\}$ such that\footnote{%
-                It is recommended by cryptanalytic reasons, but not necessary to
-                make RSA work, to select $e$ such that: \\
+\item[{\bf 2.}] Select an arbitrary $e \in \{2, \cdots, n-1\}$ such
+                that\footnote{%
+                \label{foot:Selection-of-e}%
+                It is recommended by cryptanalytic reasons, but not
+                necessary to make RSA work, to select $e$ such that: \\
                 $\max(p,q)  <  e <  J(n) - 1$.}: \\
                 $e$ is relatively prime to $J(n) = (p-1)*(q-1)$. \\
                 We can then ``throw away'' $p$ and $q$.\footnote{%
                 The procedure also allows us to select $d$ freely and then 
                 calculate $e$. However, this has practical disadvantages.
-                We usually want to be able to encrypt messages ``quickly'', which 
-                is why we choose a public exponent $e$ such that 
+                We usually want to be able to encrypt messages ``quickly'',
+                which is why we choose a public exponent $e$ such that 
                 it has a short bit length compared to the modulus $n$ and 
                 as few binary ones as possible (e.g. $2^{16} + 1$).
                 So a fast exponentiation is possible when encrypting.                
-                We want to select the publicly known $e$ to be an advantageous 
-                value that allows the exponential calculation to be performed 
-                quickly during encryption. The prime numbers $3, 17$ and $65537$ 
-                have proved to be particularly practical for this purpose.
-                The most often used number is $65537 = 2^{16}+1$, or in binary: 
-                $10\cdots 0\cdots 01$ (this number is prime and therefor relatively
-                prime to many other numbers).
+                We want to select the publicly known $e$ to be an
+                advantageous value that allows the exponential calculation
+                to be performed quickly during encryption. The prime numbers
+                $3, 17$ and $65537$ have proved to be particularly practical
+                for this purpose.
+                The most often used number is $65537 = 2^{16}+1$, or in
+                binary: 
+                $10\cdots 0\cdots 01$ (this number is prime and therefore
+                relatively prime to many other numbers).
                 }
 \item[{\bf 3.}] Select $d \in \{1, \cdots, n-1\}$ with $e*d \equiv 1  
                 {\rm ~(mod~} J(n))$, i.e. $d$ is the multiplicative inverse
@@ -2864,8 +2868,12 @@ directly using a single number as message\footnote{Using CrypTool\index{CrypTool
 \begin{itemize}
 \item[{\bf 1.}] Let the selected prime numbers be $p=5$ and $q=11$. \\
 Thus, $n=55$ and $J(n)=(p-1)*(q-1)=40$.
-\item[{\bf 2.}] $e = 7$ (should lie between $11$ and $40$ and must be relatively prime to $40$).
-\item[{\bf 3.}] $d = 23$ (since $23*7 \equiv 161 \equiv 1 {\rm ~(mod~} 40)$),
+\item[{\bf 2.}] $e = 7$ (should\footnote{%
+                See footnote \ref{foot:Selection-of-e} on page
+                \pageref{foot:Selection-of-e}.}
+                lie between $11$ and $39$ and must be relatively prime
+                to $40$).
+\item[{\bf 3.}] $d = 23$ (since $23*7 \equiv 161 \equiv 1{\rm ~(mod~} 40)$),
     \begin{itemize}
     \item[] $\rightarrow$ Public key of the recipient:  $(55, 7),$
     \item[] $\rightarrow$ Private key of the recipient: $(55, 23).$
@@ -2918,7 +2926,11 @@ L       & 12   & Y    & 25 \\
 
 {\bf Key generation (steps 1 to 3)}:\\
 {\bf 1.} $p=47, q=79$ $( n= 3,713; ~J(n) = (p-1)*(q-1)=3,588).$ \\
-{\bf 2.} $e = 37$ (should lie between $79$ and $3,588$ and must be relatively prime to $3,588$). \\
+{\bf 2.} $e = 37$ (should\footnote{%
+                See footnote \ref{foot:Selection-of-e} on page
+                \pageref{foot:Selection-of-e}.}
+                lie between $79$ and $3,587$ and must be relatively prime
+                to $3,588$). \\
 {\bf 3.} $d=97$ (since $e*d=1{\rm ~mod~}J(n); 37*97 \equiv 3,589 \equiv 1{\rm ~(mod~}3,588) \;$)\footnote{How
 to compute $d = 97$ using the {\em extended} gcd algorithm is shown in \hyperlink{Appendix_A}{appendix A of this chapter}}. \\
 
@@ -2982,10 +2994,16 @@ Using CrypTool\index{CrypTool} you can solve this with the
 {\bf Indiv.Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} 
 Factorisation of a Number}.}. \\
 
-{\bf 2.} $e=65,537$ (should lie between $509$ and $255,016$ and must be relatively prime to $255,016$)\footnote{$e$ cannot,
-therefore, be $2, 127$ or $251$ ($65537 = 2^{16}+1$).\\
-In real life, $J(n)$ is not factorised but rather the Euclidean algorithm 
-is used for the selected e to guarantee that ${\rm gcd}(d,J(n))=1$.}.\\
+{\bf 2.} $e=65,537$ (should\footnote{%
+                See footnote \ref{foot:Selection-of-e} on page
+                \pageref{foot:Selection-of-e}.}
+                lie between $509$ and $255,015$ and must\footnote{%
+       $e$ cannot, therefore, be $2, 127$ or $251$
+       ($65,537 = 2^{16}+1$) ($255,016 = 2^{3}*127*251$).\\
+       In real life, $J(n)$ is not factorised but rather the Euclidean
+       algorithm is used for the selected e to guarantee that
+       ${\rm gcd}(e,J(n))=1$.
+                 } be relatively prime to $255,016$).\\
 
 {\bf 3.} $d=231,953$ \\\strut\quad\ (since $e \equiv d^{-1}{\rm ~mod~}J(n): ~65,537*231,953 \equiv 15,201,503,761 \equiv 1
 {\rm ~(mod~}255,016)$)\footnote{Other possible combinations of $(e,d)$ include: $(3, 170,011)$, $(5, 204,013)$, $(7, 36,431)$.}.
@@ -3114,26 +3132,29 @@ The pure solution has been published by Prof. Stinson at
 \href{http://bibd.unl/~stinson/solns.html}{\texttt{http://bibd.unl/\~{}stinson/solns.html}}.}
 
 
-However, it is not the 
-result that is important here but rather the individual steps of the solution, that is, the explanation of the 
-cryptanalysis\index{Cryptanalysis}\footnote{The method of solving the problem is outlined in the scenario of the online help to CrypTool\index{CrypTool} 
-and in the presentation on the website. If anyone sends us a well prepared exact method of solving the problem, we 
-would be pleased to include it in the documentation.}:
+However, it is not the result that is important here but rather the
+individual steps of the solution, that is, the explanation of the 
+cryptanalysis\index{Cryptanalysis}\footnote{The method of solving the
+problem is outlined in the scenario of the online help to
+CrypTool\index{CrypTool} and in the presentation on the website.
+If anyone sends us a well prepared exact method of solving the problem,
+we would be pleased to include it in the documentation.}:
 
 Two samples of RSA cipher text are presented in Tables 4.1 and 4.2. 
-Your task is to decrypt them.
-The public parameters of the system are 
+Your task is to decrypt them. The public parameters of the system are 
 
 $n = 18,923$ and $e = 1,261$ (for Table 4.1) and \\
 $n = 31,313$ and $e = 4,913$ (for Table 4.2). 
 
-This can be accomplished as follows. First, factor $n$ (which is easy because it is so small). Then compute the 
-exponent $d$ from $J(n)$, and, finally, decrypt the cipher text. Use the square-and-multiply\index{Square and multiply} algorithm to exponentiate 
-modulo $n$. 
+This can be accomplished as follows. First, factor $n$ (which is easy
+because it is so small). Then compute the exponent $d$ from $J(n)$, and,
+finally, decrypt the cipher text. Use the square-and-multiply
+\index{Square and multiply} algorithm to exponentiate modulo $n$. 
 
-In order to translate the plaintext back into ordinary English text, you need to know how alphabetic characters are 
-``encoded'' as elements in $\mathbb{Z}_n$. Each element of $\mathbb{Z}_n$ represents three alphabetic characters as in the 
-following examples:
+In order to translate the plaintext back into ordinary English text, you
+need to know how alphabetic characters are ``encoded'' as elements in
+$\mathbb{Z}_n$. Each element of $\mathbb{Z}_n$ represents three alphabetic
+characters as in the following examples:
 
 {\tt \begin{tabular}{lll}
 DOG & $\mapsto$ & $3 * 26^2 + 14 * 26 + 6= 2,398$ \\
@@ -3146,7 +3167,8 @@ You will have to invert this process as the final step in your program.
 The first plaintext was taken from ``The Diary of Samuel Marchbanks'', by Robertson Davies, 1947, and the second was 
 taken from ``Lake Wobegon Days'', by Garrison Keillor, 1985.
 
-\newpage
+% \newpage  be_05.07.07 raus, da sonst vorherige Seite fast leer.
+\vspace{12pt}
 TABLE 4.1\footnote{The numbers of this table can be worked with via Copy and Paste.}: RSA cipher text
 
 {\tt 
