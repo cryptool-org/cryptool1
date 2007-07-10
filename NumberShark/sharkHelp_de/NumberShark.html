@@ -41,7 +41,7 @@ alle anderen Zahlen-Muscheln zugreifen kannst. Du kannst Dich mit dem Tabulator 
 
 <p><IMG SRC="Pictures_de/Dlg_main_shells_use_de.png" ALT="/Dlg_main_shells_use_de.png" BORDER=0 width="91%"></p>
 
-<P>Die Spielverlaufstabelle zeigt den jeweils aktuellen Punktestand an. Dabei unterteilt sich die Liste in sechs Spalten:<br>
+<P>Die Spielverlaufstabelle, die anstelle des Haibilds nach Deiner ersten Auswahl erscheint, zeigt den jeweils aktuellen Punktestand an. Dabei unterteilt sich die Liste in sechs Spalten:<br>
 <ul>
 	<li>die Nummer der aktuellen Runde,</li>
 	<li>die Zahl, welche Du in der jeweiligen Runde gew&auml;hlt und erhalten hast,</li>
@@ -112,7 +112,11 @@ Wenn der angezeigte Bereich der Liste gef&uuml;llt ist, erscheint am rechten Ran
 
 <P><IMG SRC="Pictures_de/Dlg_options2_de.png" ALT="Dlg_options2_de.png" BORDER=0 width="91%"></p>
 
-<p>Unter dem Reiter <b>Maximalwerte</b> kannst Du Dir anzeigen lassen, wie viele Punkte man maximal bei welcher Zahlenanzahl n (Zahlenvorrat) bekommen kann. Die Berechnung dieser Werte ist sehr rechenintensiv: Deshalb wurde die Berechnung f&uuml;r Zahlenvorr&auml;te &lt; 23  bereits vorgenommen: Bei diesen Zahlen erscheint das Ergebnis sofort. Bei Zahlenvorr&auml;ten gr&ouml;&szlig;er 22 wirst Du gewarnt, dass die Berechnung sehr lange dauern kann: Wir sch&auml;tzen die Rechendauer der derzeit implementierten Suche bei der Anzahl n=23 auf einem 3 GHz PC auf ca. 80 Tage bei 100% Systemauslastung. Neben der <a href="NumberSharkDevelopment.html#Berechnung">maximal m&ouml;glichen Punktzahl</a> wird auch noch mit ausgegeben, welche Zahlen Du in welcher Reihenfolge dr&uuml;cken solltest, um diese maximale Punktzahl zu erreichen. Dieser optimale Weg ist nicht immer eindeutig, oft k&ouml;nnen einzelne direkt aufeinander folgende Zahlen in der Reihenfolge der Auswahl miteinander vertauscht werden. Zus&auml;tzlich erh&auml;lt man noch einen Tipp, mit welcher Zahl man das Spiel beginnen muss, um m&ouml;glichst viele Punkte zu erreichen.</p>
+<p>Unter dem Reiter <b>Maximalwerte</b> kannst Du Dir anzeigen lassen, wie viele Punkte man maximal bei welcher Zahlenanzahl n (Zahlenvorrat) bekommen kann.</P>
+
+<P>Die Berechnung dieser Werte ist mit unserem Brute-Force-Algorithmus sehr rechenintensiv: Deshalb wurde die Berechnung f&uuml;r Zahlenvorr&auml;te &lt; 23  bereits vorgenommen: Bei diesen Zahlen erscheint das Ergebnis sofort. Bei Zahlenvorr&auml;ten gr&ouml;&szlig;er 22 wirst Du gewarnt, dass die Berechnung sehr lange dauern kann: Wir sch&auml;tzen die Rechendauer der derzeit implementierten Suche bei der Anzahl n=23 auf einem 3 GHz PC auf ca. 80 Tage bei 100% Systemauslastung. Darüber hinaus sind im Programm die Ergebnisse von Dan Hoey für Werte &lt 159 gespeichert.</P>
+
+<P>Neben der <a href="NumberSharkDevelopment.html#Berechnung">maximal m&ouml;glichen Punktzahl</a> wird auch noch mit ausgegeben, welche Zahlen Du in welcher Reihenfolge dr&uuml;cken solltest, um diese maximale Punktzahl zu erreichen. Dieser optimale <B>Weg</B> ist nicht immer eindeutig, oft k&ouml;nnen einzelne direkt aufeinander folgende Zahlen in der Reihenfolge der Auswahl miteinander vertauscht werden (es gibt keine eindeutige Lösung). Zus&auml;tzlich erh&auml;lt man noch einen Tipp, mit welcher Zahl man das Spiel beginnen muss, um m&ouml;glichst viele Punkte zu erreichen.</p>
 
 <P><IMG SRC="Pictures_de/Dlg_options4_de.png" ALT="Dlg_options4_de.png" BORDER=0 width="91%"></p>
 

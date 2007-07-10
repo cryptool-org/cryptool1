@@ -13,6 +13,9 @@
 #include <fstream>
 
 #include <stdlib.h>
+#include <direct.h>
+#include <stdio.h>
+
 #include ".\mfc-zahlenhaidlg.h"
 
 #ifdef _DEBUG
@@ -1464,12 +1467,16 @@ void CMFCZahlenHaiDlg::addOnInformation()
 			answer.Format(IDS_MAX_POINTS_INFORMATION, sepUpperLimit, hai.setSeperator(maxPossiblePoints[upperLimit-1]), sepUpperLimit, hai.setSeperator(maxPrime(upperLimit)));
 			CString fileName;
 			fileName.LoadString(IDS_GAME_DATA);
+			CString directory;
+			char directoryBuffer[1024];
+			if(_getcwd(directoryBuffer, 1024) != NULL)
+				directory = directoryBuffer;
 			int r = MessageBox(answer,headline, MB_ICONINFORMATION | MB_YESNO);
 			//Gibt dem Spieler die Möglichkeit sich den optimalen Weg mit anzeigen zu lassen
 			if(r==IDYES)
 			{
 				if(proofedOptimal[upperLimit-1][2]=="")
-					answer.Format(IDS_MAX_POINTS_INFORMATION_NOVALUE, fileName);
+					answer.Format(IDS_MAX_POINTS_INFORMATION_NOVALUE, fileName, directory);
 				else
 					answer.Format(IDS_MAX_POINTS_INFORMATION2, sepUpperLimit, hai.setSeperator(atoi(proofedOptimal[upperLimit-1][2])),proofedOptimal[upperLimit-1][1]);
 				MessageBox(answer,headline, MB_ICONINFORMATION | MB_OK);
