@@ -17091,16 +17091,16 @@ BEGIN
     GROUPBOX        "",IDC_PRIMETEST_GROUPBOX_TEXT,7,4,345,62
     GROUPBOX        "Algorithms for prime number test",
                     IDC_PRIMETEST_GROUPBOX_ALGO,7,72,345,73
-    LTEXT           "There are various methods to check if a number is a prime number (mathematician also say, to check if a number is prime).",
+    LTEXT           "There are various methods to check if a number is a prime number (mathematicians also say, to check if a number is prime).",
                     IDC_PRIMETEST_LABEL_TEXT1,17,12,324,17
-    GROUPBOX        "Prime Number Test",IDC_PRIMETEST_GROUPBOX_RESULT,7,151,
+    GROUPBOX        "Prime number test",IDC_PRIMETEST_GROUPBOX_RESULT,7,151,
                     345,79
     LTEXT           "Number to test",IDC_PRIMETEST_LABEL_NUMBER,17,191,50,8
     LTEXT           "Result",IDC_PRIMETEST_LABEL_RESULT,17,211,21,8,
                     SS_ENDELLIPSIS
     LTEXT           "Usually probablistic methods are applied: They are very fast, but can only determine with a certain (adjustable small) amount of probability if a number is prime.",
                     IDC_PRIMETEST_LABEL_TEXT2,17,28,324,17
-    LTEXT           "Besides that there are also deterministic methods: A provided result is of 100 % correctness (from the mathematic point of view).",
+    LTEXT           "Besides that there are also deterministic methods: A provided result is of 100 % correctness (from the mathematical point of view).",
                     IDC_PRIMETEST_LABEL_TEXT3,17,44,324,19
     CONTROL         250,IDC_STATIC_PRIM_RES,"Static",SS_BITMAP | NOT 
                     WS_VISIBLE,57,209,15,13
