@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -5211,8 +5211,8 @@ BEGIN
     CONTROL         "Groß-/Kleinschreibung beachten",
                     IDC_CHECK_CASE_SENSITIVE,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,7,60,118,10
-    CONTROL         "Rückwärtssuche (nur Text)",IDC_CHECK_FIND_BACKWARDS,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,70,103,10
+    CONTROL         "Rückwärtssuche",IDC_CHECK_FIND_BACKWARDS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,70,103,10
     CONTROL         "Reguläre Ausdrücke im Suchfeld erlauben (nur Text)",
                     IDC_CHECK_REGULAR_EXPRESSIONS,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,7,80,183,10
@@ -11705,8 +11705,6 @@ BEGIN
     IDS_HILL_CASE           "Benutztes Alphabet (%d Zeichen)"
     IDS_ROT13_CAESAR_TOO_LARGE_KEY 
                             "Die Eingabe ist größer als das Alphabet.\nSoll der Wert automatisch auf 1 gesetzt werden?"
-    IDS_FINDANDREPLACE_NOBACKWARSSEARCH_IN_HEX 
-                            "Die Rückwärtssuche ist für hexadezimale Daten nicht verfügbar."
 END
 
 STRINGTABLE 
@@ -11795,12 +11793,12 @@ BEGIN
                             "Zeilen-Spalten Matrix-Vektorprodukt"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -16912,8 +16910,8 @@ BEGIN
     LTEXT           "Replace:",IDC_STATIC,7,35,40,12
     CONTROL         "Case sensitive",IDC_CHECK_CASE_SENSITIVE,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,60,62,10
-    CONTROL         "Find backwards (text only)",IDC_CHECK_FIND_BACKWARDS,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,70,101,10
+    CONTROL         "Find backwards",IDC_CHECK_FIND_BACKWARDS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,70,101,10
     CONTROL         "Regular expressions (text only)",
                     IDC_CHECK_REGULAR_EXPRESSIONS,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,7,80,117,10
@@ -23582,8 +23580,6 @@ BEGIN
     IDS_HILL_CASE           "Used alphabet (%d characters)"
     IDS_ROT13_CAESAR_TOO_LARGE_KEY 
                             "The input is larger than the alphabet length.\nSet the value automaticly to 1?"
-    IDS_FINDANDREPLACE_NOBACKWARSSEARCH_IN_HEX 
-                            "The backwards search is not available for hexadecimal data."
 END
 
 STRINGTABLE 
@@ -23683,7 +23679,7 @@ BEGIN
     IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT "row*column matrix*vector product"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

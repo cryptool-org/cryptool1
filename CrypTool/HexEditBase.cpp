@@ -2517,25 +2517,60 @@ LPCSTR memifind(LPCSTR pattern, size_t patternlength, LPCSTR text, size_t textle
 	return NULL;
 }
 
+LPCSTR memrfind(LPCSTR pattern, size_t patternlength, LPCSTR text, size_t textlength) {
+	if (patternlength > textlength)
+		return NULL;
+	LPCSTR searchpos = text + textlength - patternlength;
+	while (text <= searchpos) {
+		if (0 == memcmp(pattern, searchpos, patternlength))
+			return searchpos;
+		searchpos--;
+	}
+	return NULL;
+}
+
+LPCSTR memirfind(LPCSTR pattern, size_t patternlength, LPCSTR text, size_t textlength) {
+	if (patternlength > textlength)
+		return NULL;
+	LPCSTR searchpos = text + textlength - patternlength;
+	while (text <= searchpos) {
+		if (0 == _memicmp(pattern, searchpos, patternlength))
+			return searchpos;
+		searchpos--;
+	}
+	return NULL;
+}
+
+
 bool CHexEditBase::Search(LPCSTR pattern, size_t length, UINT flags)
 {
 	bool matchcase = (flags & HE_FIND_MATCHCASE) != 0;
+	bool findbackwards = (flags && HE_FIND_BACKWARDS) != 0;
 	UINT i;
 	if (IsSelection()) {
 		UINT dummy;
 		GetSelection(i,dummy);
-		if ((flags & HE_FIND_NOSKIP) == 0)
-			i++; // skip the first char of a selection (to enable repeated search) unless HE_FIND_NOSKIP
+		if ((flags & HE_FIND_NOSKIP) == 0) // skip the first char of a selection (to enable repeated search) unless HE_FIND_NOSKIP
+			if (findbackwards)
+				i = (i == 0) ? 0 : i - 1;
+			else
+				i++; 
 	} else
 		i = m_nCurrentAddress;
 	LPCSTR text = (LPCSTR)m_pData;
 	LPCSTR found = NULL;
 	if (i >= m_nLength)
 		i = m_nLength;
-	if (matchcase)
-		found = memfind(pattern, length, text + i, m_nLength - i);
+	if (findbackwards)
+		if (matchcase)
+			found = memrfind(pattern, length, text, min(i + length, m_nLength));
+		else
+			found = memirfind(pattern, length, text, min(i + length, m_nLength));
 	else
-		found = memifind(pattern, length, text + i, m_nLength - i);
+		if (matchcase)
+			found = memfind(pattern, length, text + i, m_nLength - i);
+		else
+			found = memifind(pattern, length, text + i, m_nLength - i);
 	if (found == NULL)
 		return false;
 	UINT foundAddress = found - text;

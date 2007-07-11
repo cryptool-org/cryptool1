@@ -132,14 +132,8 @@ void CDlgFindAndReplace::DoFindReplace(bool replace, bool all)
 	}
 	else if (pWndView->IsKindOf(RUNTIME_CLASS(CHexEditCtrlView)))
 	{
-		// prevent activation of backwards search and search of regular expressions in hex edit
+		// prevent activation of search of regular expressions in hex edit
 		CString msg;
-		if(checkFindBackwards)
-		{
-			msg.Format(IDS_FINDANDREPLACE_NOBACKWARSSEARCH_IN_HEX);
-			MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
-			return;
-		}
 		if(checkRegularExpressions)
 		{
 			msg.Format(IDS_FINDANDREPLACE_NOREGULAREXPRESSIONS_IN_HEX);
@@ -265,7 +259,8 @@ void CDlgFindAndReplace::DoFindReplaceHexEdit(CWnd *pWnd, bool replace, bool all
 	CString msg;
 	int searchflags = 0;
 	if (checkCaseSensitive) searchflags |= HE_FIND_MATCHCASE;
-	if (checkRegularExpressions) searchflags |= HE_FIND_REGEXP;
+	if (checkFindBackwards) searchflags |= HE_FIND_BACKWARDS;
+	//if (checkRegularExpressions) searchflags |= HE_FIND_REGEXP;
 
 	LPCSTR pfind = (LPCSTR)textFind;
 	int findlen = textFind.GetLength();

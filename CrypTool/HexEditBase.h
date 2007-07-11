@@ -73,6 +73,7 @@ statement from your version.
 #define HE_FIND_REGEXP 2
 // don't skip the first char of the current select (standard behaviour to enable repeated search)
 #define HE_FIND_NOSKIP 4
+#define HE_FIND_BACKWARDS 8
 
 /////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
