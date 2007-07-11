@@ -2545,7 +2545,7 @@ LPCSTR memirfind(LPCSTR pattern, size_t patternlength, LPCSTR text, size_t textl
 bool CHexEditBase::Search(LPCSTR pattern, size_t length, UINT flags)
 {
 	bool matchcase = (flags & HE_FIND_MATCHCASE) != 0;
-	bool findbackwards = (flags && HE_FIND_BACKWARDS) != 0;
+	bool findbackwards = (flags & HE_FIND_BACKWARDS) != 0;
 	UINT i;
 	if (IsSelection()) {
 		UINT dummy;
