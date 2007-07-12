@@ -337,6 +337,7 @@
 #define IDR_GIF_PQM_QUALITY_HIGH        865
 #define IDR_GIF_PQM_QUALITY_GREAT       866
 #define IDD_ADFGVX_SHORTENED_PASSWORD   867
+#define IDD_LIST_RESULTS                868
 #define IDS_CRYPT_DESX                  1000
 #define IDS_CRYPT_DESL                  1001
 #define IDS_CRYPT_DESXL                 1002
@@ -1521,6 +1522,9 @@
 #define IDC_BUTTON_TEXTOPTIONS          1973
 #define IDC_PICTURE_QUALITY             1973
 #define IDC_EDIT_ORIGINAL_MESSAGE       1974
+#define IDC_LIST4                       1975
+#define IDC_HEADER                      1976
+#define IDC_TEXT_INFO			1977
 #define IDC_TEXT_INFO                   1975
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
@@ -1911,6 +1915,8 @@
 #define ID_VISUALISIERUNGVONALGORITHMEN_AES 33352
 #define ID_AES_RIJNDAEL                 33353
 #define ID_FLASH_RIJNDAEL_INSPECTOR     33356
+#define IDS_STRING_ADFGVX_OPTION_BACK	33357
+#define IDS_STRING_ADFGVX_OPTION_CONTINUE 33358
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -2776,6 +2782,7 @@
 #define IDS_HILL_VECTORTYPE_COL         38126
 #define IDS_HILL_VECTOR_MATRIX_MULTTYPE_LEFT 38127
 #define IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT 38128
+#define IDS_LISTBRUTEFORCECANDIDATES_HEADER 38129
 #define IDS_ECCDemo_PATH                39000
 #define IDS_ECCDemo_EXECUTABLE          39001
 #define IDS_ECCDemo_FILE                39002
@@ -2927,9 +2934,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        868
-#define _APS_NEXT_COMMAND_VALUE         33357
-#define _APS_NEXT_CONTROL_VALUE         1976
+#define _APS_NEXT_RESOURCE_VALUE        869
+#define _APS_NEXT_COMMAND_VALUE         33359
+#define _APS_NEXT_CONTROL_VALUE         1978
 #define _APS_NEXT_SYMED_VALUE           108
 #endif
 #endif
