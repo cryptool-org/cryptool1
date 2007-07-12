@@ -64,185 +64,206 @@ statement from your version.
 #include "AppDocument.h"
 #include "DlgShowHash.h"
 #include "DialogeMessage.h"
+#include "SecudeCryptography.h"
 
-/*  Die Funktion Crypt führt die eigentliche 
-	(symmetrische) Verschlüsselung aus. 
-	Über die Parameter, die Crypt von der 
-	aufrufenden Funktion bekommt wird so die 
-	Funktion sec_encrypt_all bzw. sec_decrypt_all
-	angesteuert.
-	Der Parameter alg gibt an, mit welchem Algorithmus
-	die Daten ver-/entschlüsselt werden sollen:
-	1 steht für IDEA
-	2 steht für DES im ECB mode
-	3 steht für DES im CBC mode
-	4 steht für Triple-DES im CBC mode
-	5 steht für Triple-DES im ECB mode
-	6 steht für RC4
-	7 steht für rc2
-
-    Sollen später weitere Algorithmen integriert werden, so muß diese Funktion
-    aber unter Umständen angepaßt werden:
-	Die Funktion baut, in ihrer jetzigen Form, einzig und allein auf der SECUDE-
-	Bibliothek auf. Zur Ver- und Entschlüsselung müssen nur der Plain- bzw.
-	Ciphertext zusammen mit dem eingegebenen Schlüssel und dem Algorithmen-
-	Identifier des zu benutzenden Verfahrens übergeben werden. Alles weitere
-	macht das SECUDE-Toolkit.
-*/
-void Crypt (char* infile, const char *OldTitle, int keylenmin, int keylenmax, int keylenstep, int AlgId)
+inline int convert(char c)
 {
-	
-    char outfile[CRYPTOOL_PATH_LENGTH], title[128];
-    CAppDocument *NewDoc;
-
-	FILE *fi;
-	int lenght;
-
-	fi = fopen(infile,"rb");
-	fseek(fi,0,SEEK_END);
-	lenght = ftell(fi);
-	fclose(fi);
-	if(lenght < 1) {
-		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 1);
-		return;
-	}
-
-// == Definition der Parameter
-	Key keyinfo;
-	KeyInfo info;
-	char AlgTitel[64];
-	switch (AlgId){
-	case 1://IDEA
-		info.subjectAI=theApp.SecudeLib.idea_aid;
-		sprintf(AlgTitel, "IDEA");
-		break;
-	case 2://DES-ECB
-		info.subjectAI=theApp.SecudeLib.desECB_aid;
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_DES_ECB,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(AlgTitel, pc_str);
-		break;
-	case 3://DES-CBC (Padding)
-		info.subjectAI=theApp.SecudeLib.desCBC_pad_aid;
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_DES_CBC,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(AlgTitel, pc_str);
-		break;
-	case 4://Triple-DES (CBC mode)
-		info.subjectAI=theApp.SecudeLib.desCBC3_aid;
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_TRIPLE_DES_CBC,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(AlgTitel, pc_str);
-		break;
-	case 5://Triple-DES (ECB mode)
-		info.subjectAI=theApp.SecudeLib.desEDE_aid;
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_TRIPLE_DES_ECB,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(AlgTitel, pc_str);
-		break;
-	case 6://RC4
-		info.subjectAI=theApp.SecudeLib.rc4_aid;
-		sprintf(AlgTitel, "RC4");
-		break;
-	case 7://RC2
-		info.subjectAI=theApp.SecudeLib.rc2CBC_aid;
-		sprintf(AlgTitel, "RC2");
-		break;
-	}
-
-
-	CString Title;
-	Title.Format(IDS_STRING_KEYINPUT_SYMMETRIC,AlgTitel);
-    CDlgKeyHexFixedLen KeyDialog;
-	KeyDialog.Init(Title,keylenmin,keylenmax,keylenstep);
-	if (KeyDialog.DoModal() != IDOK) 
-		return;
-	int keybytelen = KeyDialog.GetKeyByteLength();
-	char *key = KeyDialog.GetKeyBytes();
-
-    GetTmpName(outfile,"cry",".tmp");
-
-
-	info.subjectkey.nbits = keybytelen * 8;
-	info.subjectkey.bits = key;
-	keyinfo.key=&info;
-	keyinfo.pse_sel=NULL;
-	keyinfo.alg=NULL;
-	keyinfo.add_object=NULL;
-	keyinfo.add_object_type=NULL;
-	keyinfo.key_size=NULL;
-	keyinfo.private_key=NULL;
-
-
-    if(KeyDialog.ModeIsDecrypt()){		// Entschlüsselung ausgewählt
-		  
-		// Initialisierung der Variablen
-		// in enthält den Ciphertext, out den ermittelten Plaintext
-		BitString in;
-		OctetString out,*help;
-		
-		//Konversion File->BitString (über den Umweg OctetString)
-		help = theApp.SecudeLib.aux_file2OctetString(infile);
-		in.nbits=8*(help->noctets);
-		in.bits=help->octets;
-				
-		//out initialisieren:
-		out.noctets=0;
-		out.octets=(char*)malloc(in.nbits/8+16); // mindestens bis zur nächsten 
-                                                         // Blockgrenze Speicher 
-
-		// Entschlüsselung des Ciphertextes mit dem vom Benutzer eingegebenen Schlüssel.
-		if(theApp.SecudeLib.sec_decrypt_all (&in, &out, &keyinfo)==-1){
-			Message(IDS_STRING_DECRYPTION_ERROR,MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
-			theApp.SecudeLib.aux_free_OctetString(&help);
-			free(out.octets);
-			return;}
-		theApp.SecudeLib.aux_free_OctetString(&help);
-		
-		//Datenausgabe:
-		theApp.SecudeLib.aux_OctetString2file(&out, outfile, 2);
-		free(out.octets);
-		NewDoc = theApp.OpenDocumentFileNoMRU(outfile,KeyDialog.GetKeyFormatted());
-		remove(outfile);
-		if(NewDoc) {
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-			MakeNewName3(title,sizeof(title),pc_str1,AlgTitel,OldTitle,KeyDialog.GetKeyFormatted());
-			NewDoc->SetTitle(title);
-		}
-	}
-    
-	else {			// Verschlüsseln ausgewählt
-		
-		// Einlesen des zu verschlüsselnden Textes aus infile
-		// Der Plaintext wird in der Variablen "in", der resultierende Ciphertext
-		// in der Variablen "out" gespeichert.
-		OctetString *in;
-		BitString out;
-		in = theApp.SecudeLib.aux_file2OctetString(infile);
-		out.nbits=0;
-		out.bits=(char*)malloc(in->noctets+16);  // Speicher bis zur
-                                                         // Blockgrenze
-		
-		// Verschlüsselung des Plaintextes mit dem vom Benutzer eingegebenen Schlüssel.
-		if (theApp.SecudeLib.sec_encrypt_all (in, &out, &keyinfo)==-1){
-			theApp.SecudeLib.aux_free_OctetString(&in);
-			free(out.bits);
-			Message(IDS_STRING_ENCRYPTION_ERROR,MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
-			return;}
-		theApp.SecudeLib.aux_free_OctetString(&in);
-		
-		//Datenausgabe:
-		OctetString *outOctet;
-		outOctet = theApp.SecudeLib.aux_BString2OString(&out);
-		free(out.bits);
-		theApp.SecudeLib.aux_OctetString2file(outOctet,outfile,2);
-		theApp.SecudeLib.aux_free_OctetString(&outOctet);
-		NewDoc = theApp.OpenDocumentFileNoMRU(outfile,KeyDialog.GetKeyFormatted());
-		remove(outfile);
-		if(NewDoc) {
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-			MakeNewName3(title,sizeof(title),pc_str1,AlgTitel,OldTitle,KeyDialog.GetKeyFormatted());
-			NewDoc->SetTitle(title);
-		}
-    }
+	if(('0' <= c) && (c <= '9')) return c-'0';
+	if(('A' <= c) && (c <= 'F')) return c+10-'A';
+	if(('a' <= c) && (c <= 'f')) return c+10-'a';
+	if(c==0) return 0;	// for ease of conversion
+	return -1;
 }
 
+int  select_algorithm( int crypt_id, KeyInfo &key_info )
+{
+
+	switch (crypt_id) {
+	case IDS_CRYPT_DES_ECB:  
+		key_info.subjectAI=theApp.SecudeLib.desECB_aid; 			  
+		break;
+	case IDS_CRYPT_DES_CBC:  
+		key_info.subjectAI=theApp.SecudeLib.desCBC_pad_aid;    
+		break;
+	case IDS_CRYPT_TRIPLE_DES_CBC: 
+		key_info.subjectAI=theApp.SecudeLib.desCBC3_aid;  
+		break;
+	case IDS_CRYPT_TRIPLE_DES_ECB: 
+		key_info.subjectAI=theApp.SecudeLib.desEDE_aid;   
+		break;
+	case IDS_CRYPT_RC2:      
+		key_info.subjectAI=theApp.SecudeLib.rc2CBC_aid;      
+		break;
+	case IDS_CRYPT_RC4:      
+		key_info.subjectAI=theApp.SecudeLib.rc4_aid;      
+		break;
+	case IDS_CRYPT_IDEA:     
+		key_info.subjectAI=theApp.SecudeLib.idea_aid;  
+		break;
+	default:       
+		return -1;
+	}
+	return 0;
+}
+
+void init_key( char *key_hex, char *key, int key_bitlength,
+			 Key &key_value, KeyInfo &key_info )
+{
+	// convert key_hex to key
+    for (int i=0; i<key_bitlength>>2; i++)
+	{
+		if ( !(i%2) ) key[i/2]  = convert(key_hex[i])<<4;
+		else          key[i/2] += convert(key_hex[i]);
+	}
+
+	key_info.subjectkey.bits=(char *)key;  // keybuffer
+	key_info.subjectkey.nbits= key_bitlength;
+
+	key_value.key=&key_info;
+	key_value.pse_sel=NULL;
+	key_value.alg=NULL;
+	key_value.add_object=NULL;
+	key_value.add_object_type=NULL;
+	key_value.key_size=NULL;
+	key_value.private_key=NULL;
+}
+
+int sym_encrypt_secude(int crypt_id, 
+			char *key_hex, int key_bitlength, 
+			char *in,  int in_bytelength,  
+			char *out, int &out_bytelength)
+{
+	char	key[256];
+	Key		key_value;
+	KeyInfo key_info;
+
+	int error = select_algorithm( crypt_id, key_info );
+	if (error < 0)
+		return error;
+
+	init_key(key_hex, key, key_bitlength, key_value, key_info);
+
+	OctetString     input;
+	BitString       output;
+	input.octets  = in;
+	input.noctets = in_bytelength;
+	output.bits   = out;
+	output.nbits  = 0;
+
+	error = theApp.SecudeLib.sec_encrypt_all (&input, &output, &key_value);
+	out_bytelength = output.nbits >> 3;
+	return error;
+}
+
+int sym_decrypt_secude(int crypt_id,
+			char *key_hex, int key_bitlength, 
+			char *in, int in_bytelength, 
+			char *out, int &out_bytelength)
+{
+	char	key[256];
+	Key		key_value;
+	KeyInfo key_info;
+
+	int error = select_algorithm( crypt_id, key_info );
+	if (error < 0)
+		return error;
+	init_key(key_hex, key, key_bitlength, key_value, key_info);
+
+	BitString         input;
+	OctetString       output;
+	input.bits      = in;
+	input.nbits     = in_bytelength << 3;
+	output.octets   = out;
+	output.noctets  = 0;
+
+	error = theApp.SecudeLib.sec_decrypt_all (&input, &output, &key_value);
+	out_bytelength = output.noctets;
+	return error;
+}
+
+/////////////////////////////////////////////////////////////////
+//
+
+#define __KEY_NULL "0000000000000000000000000000000000000000000000000000000000000000"
+
+sym_brute_secude::sym_brute_secude(int crypt_id, int key_bitlength, 
+		char *cipher, int cipher_bytelength)
+{
+	int error = select_algorithm( crypt_id, key_info );
+	if ( 0 > error )
+	{
+		// FIXME
+	}
+	init_key(__KEY_NULL, key, key_bitlength, key_value, key_info);
+	input.bits = (char *) malloc(cipher_bytelength+16);
+	memcpy(input.bits, cipher, cipher_bytelength);
+	input.nbits = cipher_bytelength << 3;
+
+	output.octets = (char *) malloc(cipher_bytelength+32);
+	output.noctets = 0;
+}
+
+sym_brute_secude::~sym_brute_secude()
+{
+	free (output.octets);
+	free (input.bits);
+}
+
+char * sym_brute_secude::decrypt(char *key_hex)
+{
+	output.noctets = 0;
+    for (int i=0; i<(int)key_info.subjectkey.nbits<<2; i++)
+	{
+		if ( !(i%2) ) key[i/2]  = convert(key_hex[i])<<4;
+		else          key[i/2] += convert(key_hex[i]);
+	}
+	int error = theApp.SecudeLib.sec_decrypt_all (&input, &output, &key_value);
+
+	if (error == -1)
+	{
+		struct ErrStack *err;
+		err = theApp.SecudeLib.th_remove_last_error();
+		if ( err->e_number == 1792 ) error = 0;
+		else                         error = err->e_number;
+		if(err->e_text) theApp.SecudeLib.aux_free(err->e_text);
+		if(err->e_proc) theApp.SecudeLib.aux_free(err->e_proc);
+		if(err->e_addr)
+		{
+			switch (err->e_addrtype)
+			{
+			case int_n:
+				break;
+			case OctetString_n:
+				theApp.SecudeLib.aux_free_OctetString((OctetString **) &(err->e_addr));
+				break;
+			case BitString_n:
+				theApp.SecudeLib.aux_free_BitString((BitString **) &(err->e_addr));
+				break;
+			case AlgId_n:
+				//	theApp.SecudeLib.aux_free_AlgId((AlgId **) &(err->e_addr));
+				break;
+			case KeyInfo_n:
+				theApp.SecudeLib.aux_free_KeyInfo((KeyInfo **) &(err->e_addr));
+				break;
+			case ObjId_n:
+				theApp.SecudeLib.aux_free_ObjId((ObjId **) &(err->e_addr));
+				break;
+			case KeyBits_n:
+				theApp.SecudeLib.aux_free_KeyBits((KeyBits **) &(err->e_addr));
+				break;
+			case PSEToc_n:
+				theApp.SecudeLib.aux_free_PSEToc((PSEToc **) &(err->e_addr));
+				break;
+			}
+		}
+		theApp.SecudeLib.aux_free(err);
+	}
+
+	return (char*)output.octets;
+}
+
+///////////////////////////////////////////////////////////////
+//
 
 class CHashRunnable : public CProgressRunnable 
 {

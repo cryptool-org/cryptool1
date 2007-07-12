@@ -64,8 +64,12 @@ statement from your version.
 #include "DlgKeyHexAnalysis.h"
 #include "DlgBruteForceAES.h"
 #include "DialogeMessage.h"
+#include "ListResults.h"
+#include "bruteforceheap.h"
+
 
 void FreePar(CryptPar *par);
+
 
 int KLen(unsigned __int64 *k)
 {
@@ -107,6 +111,7 @@ UINT Brute(PVOID p)
 	int i, l, lorg, r, AlgId, pos,lenght;
 	int distr[256],keybits;
 	double entr, emax, f;
+	int parity_check = 0;
 
 	// Include Alphabet options from DlgOptionsAnalysis
 	int alphaSet[256];
@@ -163,21 +168,25 @@ UINT Brute(PVOID p)
 		info.subjectAI=theApp.SecudeLib.desECB_aid;
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_DES_ECB,pc_str,STR_LAENGE_STRING_TABLE);
 		strcpy(AlgTitel,pc_str);
+		parity_check = 1;
 		break;
 	case 3://DES-CBC (Padding)
 		info.subjectAI=theApp.SecudeLib.desCBC_pad_aid;
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_DES_CBC,pc_str,STR_LAENGE_STRING_TABLE);
 		strcpy(AlgTitel,pc_str);
+		parity_check = 1;
 		break;
 	case 4://Triple-DES (CBC mode)
 		info.subjectAI=theApp.SecudeLib.desCBC3_aid;
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_TRIPLE_DES_CBC,pc_str,STR_LAENGE_STRING_TABLE);
 		strcpy(AlgTitel,pc_str);
+		parity_check = 1;
 		break;
 	case 5://Triple-DES (ECB mode)
 		info.subjectAI=theApp.SecudeLib.desEDE_aid;
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_TRIPLE_DES_ECB,pc_str,STR_LAENGE_STRING_TABLE);
 		strcpy(AlgTitel,pc_str);
+		parity_check = 1;
 		break;
 	case 6://RC4
 		info.subjectAI=theApp.SecudeLib.rc4_aid;
@@ -251,9 +260,13 @@ UINT Brute(PVOID p)
 		key[i]=0;
 		kfound[i]=0;
 	}
+
+	// NOW
+	CBruteForceHeap candidates;
+	candidates.init( keybits/8, in.nbits/8+16, 5);
 	
 	pos=0;
-	while ( KeyDialog.Step())  // Nächsten Schlüssel ermitteln
+	while ( KeyDialog.Step(parity_check))  // Nächsten Schlüssel ermitteln
 	{                               // und Fortschritt
 		// Entschlüsselung des Plaintextes mit dem vom Benutzer eingegebenen Schlüssel.
 		if(par->flags & CRYPT_DO_PROGRESS)
@@ -316,7 +329,7 @@ UINT Brute(PVOID p)
 		BOOL decryptionResult_invalid = FALSE;
 		if ( theApp.Options.i_alphabetOptions )
 		{
-			for (i=0; i<l; i++)
+			for (int i=0; i<l; i++)
 				if (!alphaSet[(int)out.octets[i]])
 				{
 					decryptionResult_invalid = TRUE;
@@ -327,9 +340,14 @@ UINT Brute(PVOID p)
 		// else                 // Falls kein Fehler Entropie berechenen
 		if ( !decryptionError && !decryptionResult_invalid ) {
 			memset(distr,0,sizeof(distr));
+			int i;
 			for(i=0;i<l;i++) distr[(unsigned char) out.octets[i]]++;
 			for(entr = i = 0; i<256; i++)
 				entr += xlogx[distr[i]];
+
+			if ( candidates.check_add( entr ) )
+				candidates.add_candidate( entr, key, out.octets);
+
 			if(entr > emax)
 			{
 				emax = entr;
@@ -338,6 +356,8 @@ UINT Brute(PVOID p)
 		}
 	}
 	
+	candidates.sort();
+
 	if (emax == 0.0)
 	{
 		Message(IDS_STRING_NO_VALID_KEYS_FOUND, MB_ICONINFORMATION);
@@ -347,6 +367,10 @@ UINT Brute(PVOID p)
 		return r;
 	}
 	
+	CListResults dlgResults;
+	dlgResults.DoModal();
+
+
 	CDlgKeyHexAnalysis dia;
 	
 	if(IDCANCEL == dia.Display((LPCTSTR)title,kfound,keybits / 8))
@@ -359,7 +383,7 @@ UINT Brute(PVOID p)
 		return r;
 	}
 	
-	for(i=0; i<sizeof(key); i++) key[i]=0;
+	for(int i=0; i<sizeof(key); i++) key[i]=0;
 	memcpy(key,dia.GetData(),keybits / 8);
 	info.subjectkey.bits = (char *)key;
 	info.subjectkey.nbits = keybits;

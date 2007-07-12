@@ -47,9 +47,34 @@ statement from your version.
 //////////////////////////////////////////////////////////////////
 // Programmiert von Christian Tobias
 //////////////////////////////////////////////////////////////////
+#pragma once
 
+#include "stdafx.h"
+#include "SymEncBase.h"
 
-void Crypt (char* infile, const char *OldTitle, int keylenmin, int keylenmax, int keylenstep, int AlgId);
+int sym_encrypt_secude(int crypt_id, 
+			char *key_hex, int key_bitlength, 
+			char *in,  int in_bytelength,  
+			char *out, int &out_bytelength);
+int sym_decrypt_secude(int crypt_id,
+			char *key_hex, int key_bitlength, 
+			char *in, int in_bytelength, 
+			char *out, int &out_bytelength);
+
+class sym_brute_secude : public sym_brute {
+	char			key[256];
+	Key				key_value;
+	KeyInfo			key_info;
+	BitString         input;
+	OctetString       output;
+
+public:
+	sym_brute_secude(int crypt_id, int key_bitlength, 
+		char *cipher, int cipher_bytelength);
+	~sym_brute_secude();
+	char *decrypt(char *key_hex);
+};
+
 void hash (char* infile, const char *OldTitle, int AlgId);
 
 UINT Brute(PVOID p);

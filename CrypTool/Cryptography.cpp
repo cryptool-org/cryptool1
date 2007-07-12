@@ -58,7 +58,7 @@ statement from your version.
 #include "HillEncryption.h"
 #include "DlgShowProgress.h"
 #include "DlgKeySubstitution.h"
-#include "secure.h"
+// #include "secure.h"
 #include "DlgOptionsSubstitutionAnalysis.h"
 #include "DlgManualSubstAnalysis.h"
 #if !defined(_MSC_VER) || _MSC_VER <= 1200
@@ -96,6 +96,8 @@ using namespace std;
 
 #include "ScintillaDoc.h"
 #include "ScintillaView.h"
+#include "DlgKeyHexFixedLen.h"
+#include "DlgBruteForceAES.h" 
 
 #include <fstream>
 
@@ -106,6 +108,88 @@ int *MaxPermu[26];
 float Fortschritt=20.0;
 
 
+#if 0
+///////////////////////////////////////////////////////////////////////
+// FIXME
+
+
+int symEncProviderSecude::onErrCleanUp()
+{
+	int decryptionError = 0;
+	struct ErrStack *err;
+	err = theApp.SecudeLib.th_remove_last_error();
+	if ( err->e_number == 1792 ) decryptionError = 0;
+	else                         decryptionError = err->e_number;
+	if(err->e_text) theApp.SecudeLib.aux_free(err->e_text);
+	if(err->e_proc) theApp.SecudeLib.aux_free(err->e_proc);
+	if(err->e_addr)
+	{
+		switch (err->e_addrtype)
+		{
+		case int_n:
+			break;
+		case OctetString_n:
+			theApp.SecudeLib.aux_free_OctetString((OctetString **) &(err->e_addr));
+			break;
+		case BitString_n:
+			theApp.SecudeLib.aux_free_BitString((BitString **) &(err->e_addr));
+			break;
+		case AlgId_n:
+			//					theApp.SecudeLib.aux_free_AlgId((AlgId **) &(err->e_addr));
+			break;
+		case KeyInfo_n:
+			theApp.SecudeLib.aux_free_KeyInfo((KeyInfo **) &(err->e_addr));
+			break;
+		case ObjId_n:
+			theApp.SecudeLib.aux_free_ObjId((ObjId **) &(err->e_addr));
+			break;
+		case KeyBits_n:
+			theApp.SecudeLib.aux_free_KeyBits((KeyBits **) &(err->e_addr));
+			break;
+		case PSEToc_n:
+			theApp.SecudeLib.aux_free_PSEToc((PSEToc **) &(err->e_addr));
+			break;
+		}
+	}
+	theApp.SecudeLib.aux_free(err);
+	return decryptionError;
+}
+
+
+
+int	symEncProviderSecude::set_key(const char *key, int keylength)
+{
+
+	return 0;
+}
+
+int	symEncProviderSecude::encrypt()
+{
+	// ASSERT()
+	if (theApp.SecudeLib.sec_encrypt_all (&in, &out, &keyinfo)==-1)
+		return onErrCleanUp()
+	else
+		return 0;
+}
+
+int	symEncProviderSecude::decrypt()
+{
+	// ASSERT()
+	if (theApp.SecudeLib.sec_decrypt_all (&in, &out, &keyinfo)==-1)
+		return onErrCleanUp()
+	else
+		return 0;
+}
+
+symEncProviderCrypTool::symEncProviderCrypTool()
+{
+
+
+}
+
+
+
+#endif
 
 //////////////////////////////////////////////////////////////////////////////
 
@@ -3580,5 +3664,220 @@ void Rot13CaesarAscFinish(SymbolArray & text, const char * infile, char * sKey, 
 	OpenNewDoc(outfile, sKey, OldTitle, type, bDecrypt);
 
 	HIDE_HOUR_GLASS
+}
+
+void SymmetricEncryption(int AlgId, cryptProvider provider, 
+						 const char* infile, const char *OldTitle,
+						 int fixed_keylength)
+{
+	CString Title, AlgString;
+	AlgString.LoadString(AlgId);
+	int errorCode = 0;
+	char keybuffhex[256/4+1];
+	unsigned char keybuffbin[256/8];
+
+	Title.Format(IDS_STRING_KEYINPUT_SYMMETRIC, AlgString);
+    CDlgKeyHexFixedLen KeyDialog;
+
+	if ( !fixed_keylength ) switch (AlgId)
+	{
+		case IDS_CRYPT_MARS:
+		case IDS_CRYPT_RC6:
+		case IDS_CRYPT_RIJNDAEL:
+		case IDS_CRYPT_SERPENT:
+		case IDS_CRYPT_TWOFISH:
+			KeyDialog.Init(Title,128,256,64);
+			break;
+		case IDS_CRYPT_DESL:
+		case IDS_CRYPT_DES_CBC:
+		case IDS_CRYPT_DES_ECB:
+			KeyDialog.Init(Title,64,64,64);
+			break;
+		case IDS_CRYPT_TRIPLE_DES_CBC:
+		case IDS_CRYPT_TRIPLE_DES_ECB:
+			KeyDialog.Init(Title,128,128,128);
+			break;
+		case IDS_CRYPT_DESX:
+		case IDS_CRYPT_DESXL:
+			KeyDialog.Init(Title,192,192,192);
+			break;
+		case IDS_CRYPT_IDEA:
+			KeyDialog.Init(Title,128,128,128);
+			break;
+		case IDS_CRYPT_RC2:
+		case IDS_CRYPT_RC4:
+			KeyDialog.Init(Title,8,128,8);
+		default:
+			ASSERT(0);
+	}
+	else
+		KeyDialog.Init(Title,fixed_keylength,fixed_keylength,1);
+
+	if (KeyDialog.DoModal() != IDOK) 
+		return;
+
+	unsigned char *key = (unsigned char *) KeyDialog.GetKeyBytes();
+	int            keylen = KeyDialog.GetKeyByteLength();
+	ASSERT(keylen <= sizeof keybuffbin);
+	for(int i=0;i<keylen; i++) keybuffbin[i] = key[i];
+	
+	ASSERT(2*keylen + 1 <= sizeof keybuffhex);
+	for(int i=0; i<keylen; i++) 
+		sprintf(keybuffhex+2*i,"%02.2X",keybuffbin[i]);
+
+	char outfile[CRYPTOOL_PATH_LENGTH];
+    GetTmpName(outfile,"cry",".tmp");
+
+	if ( KeyDialog.ModeIsDecrypt() )
+	{
+		errorCode = sym_decrypt(AlgId, provider, keybuffhex, keylen<<3,infile, outfile);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
+	}
+	else
+	{
+		errorCode = sym_encrypt(AlgId, provider, keybuffhex, keylen<<3,infile, outfile);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
+	}
+
+	if ( errorCode >= 0 )
+	{
+		char title[128];
+		CAppDocument *NewDoc;
+		NewDoc = theApp.OpenDocumentFileNoMRU(outfile,KeyDialog.GetKeyFormatted());
+		remove(outfile);
+		if(NewDoc) {
+			MakeNewName3(title,sizeof(title),pc_str1,AlgString,OldTitle,KeyDialog.GetKeyFormatted());
+			NewDoc->SetTitle(title);
+		}
+	}
+	else
+	{
+		if ( provider == SECUDE_PROVIDER )
+			Message(IDS_STRING_DECRYPTION_ERROR,MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
+	}
+}
+
+
+UINT SymmetricBruteForce(PVOID p)
+{
+// Initialise fast entropy computation
+	int windowlen = theApp.Options.m_BFEntropyWindow;
+	double entr, f;
+	double *xlogx = new double[windowlen + 1];
+	if (!xlogx) return 0;
+	xlogx[0] = 0.0;
+	for (int i = 1; i <= windowlen; i++) 
+		xlogx[i] = (f = i) * log(f);
+	int r = 0, skip_parity = 0;
+
+
+	CryptPar *par = (CryptPar *) p;
+	if(par->flags & CRYPT_DO_WAIT_CURSOR)
+		SHOW_HOUR_GLASS
+
+//  get file size
+	FILE *fi = fopen(par->infile,"rb");
+	fseek(fi,0,SEEK_END);
+	int datalen = ftell(fi);
+	fclose(fi);
+	
+	if(datalen < 1) 
+	{
+		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 1);
+		if(par->flags & CRYPT_DO_WAIT_CURSOR)
+			HIDE_HOUR_GLASS
+		return r;
+	}
+	if(datalen > windowlen)     
+		datalen=windowlen;
+
+//	load brute force pattern
+	algorithm_info *info = (algorithm_info*)par->key;
+	CString AlgTitle;
+	AlgTitle.LoadString(info->AlgId);
+
+	CDlgBruteForceAES KeyDialog;
+	if(KeyDialog.Display(AlgTitle.GetBuffer(),par->keylenmin,par->keylenmax,par->keylenstep)!=IDOK)
+	{
+		if(par->flags & CRYPT_DO_WAIT_CURSOR)
+			HIDE_HOUR_GLASS
+		return r;
+	}
+
+//	initialize brute force
+	int key_bitlength = KeyDialog.GetBinlen();
+
+// load ciphertext 
+	char *cipher;
+	cipher = (char*)malloc(datalen);
+	fi = fopen(par->infile,"rb");
+	int inputSize = fread(cipher,1,datalen,fi);
+	fclose(fi);
+	sym_brute *brute = init_sym_brute(info->AlgId, info->provider, key_bitlength, cipher, datalen);
+	free(cipher);
+
+//  start progress dialog
+	CString title;
+	title.Format(IDS_STRING_ANALYSE_ON,AlgTitle);
+	if(par->flags & CRYPT_DO_PROGRESS)
+	{
+		CString message;
+		message.Format(IDS_STRING_MSG_SEARCHING_COMPLETE,KeyDialog.GetSearchBitLen());
+		theApp.fs.setModelTitleFormat(&KeyDialog,title,message);
+		theApp.fs.Display();
+	}
+
+	if ( info->AlgId == IDS_CRYPT_DES_CBC ||
+		 info->AlgId == IDS_CRYPT_DES_ECB ||
+		 info->AlgId == IDS_CRYPT_TRIPLE_DES_CBC ||
+		 info->AlgId == IDS_CRYPT_TRIPLE_DES_ECB ||
+		 info->AlgId == IDS_CRYPT_DESL ||
+		 info->AlgId == IDS_CRYPT_DESX ||
+		 info->AlgId == IDS_CRYPT_DESXL )
+		skip_parity = 1;
+
+//  brute force
+	int pos=0;
+	theApp.fs.startClock();
+
+	while (KeyDialog.Step(skip_parity))    // nächsten Schlüssel setzen
+	{                                // und Fortschritt erhalten
+
+		if(par->flags & CRYPT_DO_PROGRESS)
+		{
+			if(theApp.fs.m_canceled)
+			{
+				theApp.fs.cancel();
+				par->flags |= CRYPT_DONE;
+				FreePar(par);
+				return 2;
+			}
+		}
+
+		char *cipher = brute->decrypt(KeyDialog.GetData());
+
+/*
+		// Entropie berechnen
+		memset(distr,0,sizeof(distr));
+		for(i=0;i<windowlen;i++)
+			distr[(unsigned int) bcip[i]]++;
+		entr = 0.0;
+		for(i = 0; i<256; i++)
+			entr += xlogx[distr[i]];
+		if(entr > emax)
+		{
+			emax = entr;
+			strcpy(kfound,keyhex);
+		}
+*/
+	}
+	if(par->flags & CRYPT_DO_PROGRESS) theApp.fs.cancel();
+
+	delete brute;
+
+	par->flags |= CRYPT_DONE;
+	FreePar(par);
+
+	return r;
 }
 

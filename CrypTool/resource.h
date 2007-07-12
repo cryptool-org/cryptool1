@@ -1525,7 +1525,6 @@
 #define IDC_LIST4                       1975
 #define IDC_HEADER                      1976
 #define IDC_TEXT_INFO			1977
-#define IDC_TEXT_INFO                   1975
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -1915,8 +1914,6 @@
 #define ID_VISUALISIERUNGVONALGORITHMEN_AES 33352
 #define ID_AES_RIJNDAEL                 33353
 #define ID_FLASH_RIJNDAEL_INSPECTOR     33356
-#define IDS_STRING_ADFGVX_OPTION_BACK	33357
-#define IDS_STRING_ADFGVX_OPTION_CONTINUE 33358
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502

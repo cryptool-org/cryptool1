@@ -51,6 +51,7 @@ statement from your version.
 
 #include "DlgShowProgress.h"
 #include "MakeNewName.h"
+#include "symEncBase.h"
 
 /////////////////////////////////////////////////////////////////
 //
@@ -68,6 +69,11 @@ typedef struct {
 	void		*result;
 } CryptPar;
 
+typedef struct  {
+	int AlgId;
+	cryptProvider provider;
+} algorithm_info;
+
 // ================================================================
 #define CRYPT_DISPLAY_BG		0x001
 #define CRYPT_FREE_MEM			0x002
@@ -76,6 +82,7 @@ typedef struct {
 #define CRYPT_DO_PROGRESS		0x010
 #define CRYPT_ASCII				0x020
 #define CRYPT_DONE				0x080000000
+
 
 
 void CaesarAsc(const char *infile, const char *OldTitle);	
@@ -108,6 +115,10 @@ void Hashdemo(const char *infile,const char *OldTitle);
 void HashOfAFile();
 void SignatureTutorial(const char *infile, const char* OldTitle);
 void CreateMac(const char *infile, const char *OldTitle);
+void SymmetricEncryption(int AlgId, cryptProvider provider, 
+						 const char* infile, const char *OldTitle, 
+						 int fixed_keylength = 0);
+UINT SymmetricBruteForce(PVOID p);
 
 BOOL Rot13CaesarAsc(SymbolArray & text, const char *infile);
 void Rot13CaesarAscFinish(SymbolArray & text, const char * infile, char * sKey, BOOL bDecrypt, const char *OldTitle, UINT type,unsigned long firstPosNull);

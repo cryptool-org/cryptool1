@@ -139,7 +139,7 @@ void extractHybridEncryptedFileInformation(const char*, hybEncInfo&);
 void generateSCAReport(SCA_Client*,SCA_Server*,SCA_Attacker*,const char*);
 bool isNullKey(const OctetString*);
 // für AES-Verschlüsselung/Entschlüsselung
-void doaescrypt(int,char,int,char*,unsigned char*,int,unsigned char*);
+// void doaescrypt(int,char,int,char*,unsigned char*,int,unsigned char*);
 void getPublicKey(const char*,const char*,const char*,char*,char*);
 
 

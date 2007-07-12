@@ -73,3 +73,4 @@ statement from your version.
 #undef max
 #include "libanalyse\la_string.h"
 #include "libanalyse\analyse.h"
+#include <afxdhtml.h>

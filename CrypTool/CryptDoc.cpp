@@ -607,19 +607,19 @@ void CHexDoc::OnHistogram()
 void CCryptDoc::OnCryptIdea() 
 {
     UpdateContent();
-	Crypt(ContentName, GetTitle(),128,128,1,1);
+	SymmetricEncryption(IDS_CRYPT_IDEA, SECUDE_PROVIDER, ContentName, GetTitle());
 }
 
 void CCryptDoc::OnCryptRc2() 
 {
 	UpdateContent();
-	Crypt(ContentName, GetTitle(),8,128,8,7);
+	SymmetricEncryption(IDS_CRYPT_RC2, SECUDE_PROVIDER, ContentName, GetTitle());
 }
 
 void CCryptDoc::OnCryptDesDesecb() 
 {
     UpdateContent();
-	Crypt(ContentName, GetTitle(),64,64,1,2);
+	SymmetricEncryption(IDS_CRYPT_DES_ECB, SECUDE_PROVIDER, ContentName, GetTitle());
 }
 
 void CCryptDoc::OnCryptHashMd5() 
@@ -773,25 +773,25 @@ BOOL CAscDoc::UpdateContent( void )
 void CCryptDoc::OnCrypt3desCbc() 
 {
 	UpdateContent();
-	Crypt(ContentName, GetTitle(),128,128,1,4);
+	SymmetricEncryption(IDS_CRYPT_TRIPLE_DES_CBC, SECUDE_PROVIDER, ContentName, GetTitle());
 }
 
 void CCryptDoc::OnCrypt3desEcb() 
 {
 	UpdateContent();
-	Crypt(ContentName, GetTitle(),128,128,1,5);
+	SymmetricEncryption(IDS_CRYPT_TRIPLE_DES_ECB, SECUDE_PROVIDER, ContentName, GetTitle());
 }
 
 void CCryptDoc::OnCryptRc4() 
 {
 	UpdateContent();
-	Crypt(ContentName, GetTitle(),8,128,8,6);
+	SymmetricEncryption(IDS_CRYPT_RC4, SECUDE_PROVIDER, ContentName, GetTitle());
 }
 
 void CCryptDoc::OnCryptDesDescbc() 
 {
 	UpdateContent();
-	Crypt(ContentName, GetTitle(),64,64,1,3);
+	SymmetricEncryption(IDS_CRYPT_DES_CBC, SECUDE_PROVIDER, ContentName, GetTitle());
 }
 
 
@@ -991,6 +991,11 @@ void CCryptDoc::OnUpdateNeedSecudeTicket(CCmdUI* pCmdUI)
 
 void CCryptDoc::OnAnalyseDescbc() 
 {
+	algorithm_info *info;
+	info = (algorithm_info*)malloc(sizeof(algorithm_info));
+	info->AlgId = IDS_CRYPT_DES_CBC;
+	info->provider = SECUDE_PROVIDER;
+
 	CryptPar *para;
 
 	para = (CryptPar *) malloc(sizeof(CryptPar));
@@ -998,20 +1003,21 @@ void CCryptDoc::OnAnalyseDescbc()
 	memset(para,0,sizeof(CryptPar));
 	para->infile = strdup(ContentName);
 	para->OldTitle = strdup(GetTitle());
-	para->key = (char *) malloc(sizeof(int));
-	*(int *)para->key = 3;
+	para->key = (char*)info;
 	para->keylenstep = 1; 
 	para->keylenmin = para->keylenmax = 64;
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
 	theApp.OpenBGFlag = 1;
-    AfxBeginThread( Brute, ((void *) para) );
-
-//	UpdateContent();
-//	Brute(ContentName, GetTitle(),64,3);
+    AfxBeginThread( SymmetricBruteForce, ((void *) para) );
 }
 
 void CCryptDoc::OnAnalyseDesecb() 
 {
+	algorithm_info *info;
+	info = (algorithm_info*)malloc(sizeof(algorithm_info));
+	info->AlgId = IDS_CRYPT_DES_ECB;
+	info->provider = SECUDE_PROVIDER;
+
 	CryptPar *para;
 
 	para = (CryptPar *) malloc(sizeof(CryptPar));
@@ -1019,16 +1025,12 @@ void CCryptDoc::OnAnalyseDesecb()
 	memset(para,0,sizeof(CryptPar));
 	para->infile = strdup(ContentName);
 	para->OldTitle = strdup(GetTitle());
-	para->key = (char *) malloc(sizeof(int));
-	*(int *)para->key = 2;
+	para->key = (char*)info;
 	para->keylenstep = 1; 
 	para->keylenmin = para->keylenmax = 64;
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
 	theApp.OpenBGFlag = 1;
-    AfxBeginThread( Brute, ((void *) para) );
-
-//  UpdateContent();
-//	Brute(ContentName, GetTitle(),64,2);
+    AfxBeginThread( SymmetricBruteForce, ((void *) para) );
 }
 
 void CCryptDoc::OnAnalyseIdea() 
@@ -1141,31 +1143,31 @@ void CCryptDoc::OnAnalyseTripledesecb()
 void CCryptDoc::OnCryptAesMars() 
 {
 	UpdateContent();
-	AESCrypt(ContentName, GetTitle(),1);
+	SymmetricEncryption(IDS_CRYPT_MARS, CORE_PROVIDER, ContentName, GetTitle());
 }
 
 void CCryptDoc::OnCryptAesRc6() 
 {
 	UpdateContent();
-	AESCrypt(ContentName, GetTitle(),2);
+	SymmetricEncryption(IDS_CRYPT_RC6, CORE_PROVIDER, ContentName, GetTitle());
 }
 
 void CCryptDoc::OnCryptAesRijndael() 
 {
 	UpdateContent();
-	AESCrypt(ContentName, GetTitle(),3);
+	SymmetricEncryption(IDS_CRYPT_RIJNDAEL, CORE_PROVIDER, ContentName, GetTitle());
 }
 
 void CCryptDoc::OnCryptAesSerpent() 
 {
 	UpdateContent();
-	AESCrypt(ContentName, GetTitle(),4);
+	SymmetricEncryption(IDS_CRYPT_SERPENT, CORE_PROVIDER, ContentName, GetTitle());
 }
 
 void CCryptDoc::OnCryptAesTwofish() 
 {
 	UpdateContent();
-	AESCrypt(ContentName, GetTitle(),5);
+	SymmetricEncryption(IDS_CRYPT_TWOFISH, CORE_PROVIDER, ContentName, GetTitle());
 }
 
 void CCryptDoc::OnAnalyseAesMars() 
@@ -2006,19 +2008,19 @@ void CCryptDoc::OnHybridEccDec()
 void CCryptDoc::OnCryptDESL()
 {
 	UpdateContent();
-    AESCrypt(ContentName, GetTitle(),6);
+	SymmetricEncryption(IDS_CRYPT_DESL, CORE_PROVIDER, ContentName, GetTitle());
 }
 
 void CCryptDoc::OnCryptDESX()
 {
 	UpdateContent();
-    AESCrypt(ContentName, GetTitle(),7);
+	SymmetricEncryption(IDS_CRYPT_DESX, CORE_PROVIDER, ContentName, GetTitle());
 }
 
 void CCryptDoc::OnCryptDESXL()
 {
 	UpdateContent();
-    AESCrypt(ContentName, GetTitle(),8);
+	SymmetricEncryption(IDS_CRYPT_DESXL, CORE_PROVIDER, ContentName, GetTitle());
 }
 
 

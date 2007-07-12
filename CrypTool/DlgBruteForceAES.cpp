@@ -175,7 +175,7 @@ double CDlgBruteForceAES::getProgress()
 
 #define incWithCarry(p) (((p) = m_hexinc[(p)]) == '0')
 		
-int CDlgBruteForceAES::Step()
+int CDlgBruteForceAES::Step(int parity_check)
 {
 	if (m_state < 0) {
 		m_state = 1;
@@ -183,8 +183,19 @@ int CDlgBruteForceAES::Step()
 	}
 	int i = 0;
 	int j;
-	while ((j = m_mask[i]) >= 0 && incWithCarry(m_data[j]))
-		i++;
+	if (parity_check) // For DES variants
+	{  // note: 1. lower half byte ((m_mask[i] %2) == TRUE) contains the parity bit (least significant bit)
+	   //       2. Step() ignores parity checks as the des implementations ignores them too
+		while ( ((j = m_mask[i]) >= 0)
+			&& (   ( !(m_mask[i] % 2) &&  incWithCarry(m_data[j]) )
+			    || (  (m_mask[i] % 2) && (incWithCarry(m_data[j]) || incWithCarry(m_data[j])) ) ) )
+			i++;
+	}
+	else
+	{
+		while ((j = m_mask[i]) >= 0 && incWithCarry(m_data[j]))
+			i++;
+	}
 	return m_state = (j >= 0);
 }
 

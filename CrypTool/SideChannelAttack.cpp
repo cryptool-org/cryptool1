@@ -56,10 +56,11 @@ statement from your version.
 #include "SideChannelAttack.h"
 #include "AsymmetricEncryption.h"
 #include "FileTools.h"
-#include "..\AES\mars\mars.h"
+// #include "..\AES\mars\mars.h"
 #include "ChrTools.h"
 #include "CrypToolTools.h"
 #include "DlgEntropyInfo.h"
+#include "SymEncBase.h"
 
 void HybridEncryptedFileInfo::init()
 {
@@ -958,18 +959,20 @@ void decryptMessageAES(OctetString *cipherTextIn, OctetString *key, OctetString 
 	// Länge des Session Keys ermitteln (in BYTE)
 	int keyLength = sigBits/8;
 	// AES-Modus: ENTSCHLÜSSELN
-	char aesMode = DIR_DECRYPT;
+	// char aesMode = DIR_DECRYPT;
 	// Default-Algorithmus: Rijndael
 	int algorithmId = 3;
 	// Datenlänge bestimmen
 	int dataLength = cipherTextIn->noctets;
 	// Speicher anfordern
-	unsigned char *cipherText = new unsigned char[dataLength + 32];
+	char *cipherText = new char[dataLength + 32];
 	if(!cipherText)	throw SCA_Error(E_SCA_MEMORY_ALLOCATION);
-	unsigned char *clearText = new unsigned char[dataLength + 64];
+	char *clearText = new char[dataLength + 64];
 	if(!clearText) throw SCA_Error(E_SCA_MEMORY_ALLOCATION);
 	// Speicher kopieren
 	memcpy(cipherText, (unsigned char*)cipherTextIn->octets, cipherTextIn->noctets);
+
+#if 0
 	// Padding hinzufügen
 	for(;dataLength%16;dataLength++) cipherText[dataLength]=0; 
 	// Länge in Bits
@@ -980,6 +983,11 @@ void decryptMessageAES(OctetString *cipherTextIn, OctetString *key, OctetString 
 	dataLength >>= 3;
 	// Padding entfernen
 	for(dataLength--; 0 == clearText[dataLength]; dataLength--);
+#endif
+
+	sym_decrypt(IDS_CRYPT_RIJNDAEL, CORE_PROVIDER, decryptedSessionKeyHEX, keyLength, 
+		cipherText, dataLength, clearText, dataLength);
+
 	// Speicher für Rückgabewert allokieren
 	if(clearTextOut->octets) delete clearTextOut->octets;
 	clearTextOut->octets = new char[dataLength];

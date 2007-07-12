@@ -54,11 +54,11 @@ statement from your version.
 #include "CrypToolApp.h"
 #include "FileTools.h"
 #include "DlgKeyHexFixedLen.h"
-#include "..\AES\mars\mars.h"
-#include "..\AES\RC6\RC6.h"
-#include "..\AES\Rijndael\Rijndael-api-fst.h"
-#include "..\AES\Serpent\Serpent.h"
-#include "..\AES\Twofish\Twofish.h"
+// #include "..\AES\mars\mars.h"
+// #include "..\AES\RC6\RC6.h"
+// #include "..\AES\Rijndael\Rijndael-api-fst.h"
+// #include "..\AES\Serpent\Serpent.h"
+// #include "..\AES\Twofish\Twofish.h"
 #include "AppDocument.h"
 #include "DlgKeyHexAnalysis.h"
 #include "DlgBruteForceAES.h"   // Dialogbox für die Schlüsselsuche
@@ -68,9 +68,12 @@ statement from your version.
 #include "Cryptography.h"
 #include "MakeNewName.h"
 
-#include "DESXL.h"
+// #include "DESXL.h"
+#include "bruteforceheap.h"
 
 void FreePar(CryptPar *par);
+
+#if 0
 void doaescrypt(int AlgId,char mode,int keylen,char *keybuffhex,unsigned char *borg,int datalen,
 				unsigned char *bcip);
 
@@ -192,7 +195,7 @@ void doaescrypt(int AlgId,char mode,int keylen,char *keybuffhex,unsigned char *b
 		}
 	}
 }
-
+#endif
 
 /*  Die Funktion AESCrypt führt die eigentliche 
 	(symmetrische) Verschlüsselung aus. 
@@ -209,6 +212,7 @@ void doaescrypt(int AlgId,char mode,int keylen,char *keybuffhex,unsigned char *b
 void AESCrypt (const char* infile, const char *OldTitle, int AlgId, bool Enc_Or_Dec, const char * NewFileName, const char* NewFileKey)
 {
 	
+#if 0
 	char outfile[CRYPTOOL_PATH_LENGTH], keybuffhex[256/4+1],title[200];
 	CString AlgTitle,Title;
 	unsigned char keybuffbin[256/8];
@@ -372,6 +376,8 @@ void AESCrypt (const char* infile, const char *OldTitle, int AlgId, bool Enc_Or_
 		}
 		HIDE_HOUR_GLASS		
 	}
+
+#endif
 }
 
 
@@ -395,7 +401,7 @@ UINT AESBrute(PVOID p)
 	xlogx[0] = 0.0;
 	for (i = 1; i <= windowlen; i++) 
 		xlogx[i] = (f = i) * log(f);
-	mode = DIR_DECRYPT;
+	// mode = DIR_DECRYPT;
 
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
 		SHOW_HOUR_GLASS
@@ -504,7 +510,7 @@ UINT AESBrute(PVOID p)
 			}
 		}
 		
-		doaescrypt(AlgId,mode,keylen/8,keyhex,borg,datalen,bcip);
+//		doaescrypt(AlgId,mode,keylen/8,keyhex,borg,datalen,bcip);
 		
 		// Entropie berechnen
 		memset(distr,0,sizeof(distr));
@@ -549,7 +555,7 @@ UINT AESBrute(PVOID p)
 		borg[datalen]=0;            
 	datalen <<= 3;
 	
-	doaescrypt(AlgId,mode,keylen/8,kfound,borg,datalen,bcip);
+//	doaescrypt(AlgId,mode,keylen/8,kfound,borg,datalen,bcip);
 	free(borg);
 	
 	datalen >>= 3;
@@ -570,3 +576,316 @@ UINT AESBrute(PVOID p)
 	
 	return 0;
 }
+
+#if 0
+
+/*  SymEncBrute() führt eine Schlüsselraumsuche für die AES Verfahren aus.
+	in (CryptPar *)p sind alle nötigen Daten (AlgId siehe AESCrypt())
+	enthalten. */
+UINT BruteSymmetricEncryption(PVOID p)
+{
+	int windowlen = theApp.Options.m_BFEntropyWindow;
+    char outfile[CRYPTOOL_PATH_LENGTH], line[256];
+	CString AlgTitel;
+    char mode, *keyhex, kfound[65];
+	unsigned char *borg, *bcip;
+	int i,pos, cntr, keylen, datalen;
+	cryptProviderID providerID;
+	symmetricEncAlg AlgID;
+	int distr[256];
+	double entr, emax, f;
+	FILE *fi;
+	CryptPar *par = (CryptPar *) p;
+	int titleID;
+	double *xlogx = new double[windowlen + 1];
+	if (!xlogx) return 0;
+	xlogx[0] = 0.0;
+	for (i = 1; i <= windowlen; i++) 
+		xlogx[i] = (f = i) * log(f);
+	mode = DIR_DECRYPT;
+
+	if(par->flags & CRYPT_DO_WAIT_CURSOR)
+		SHOW_HOUR_GLASS
+	
+	fi = fopen(par->infile,"rb");
+	fseek(fi,0,SEEK_END);
+	datalen = ftell(fi);
+	fclose(fi);
+	
+	if(datalen < 1) 
+	{
+		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 1);
+		if(par->flags & CRYPT_DO_WAIT_CURSOR)
+			HIDE_HOUR_GLASS
+		return 0;
+	}
+	borg = (unsigned char *) malloc(datalen+32);
+	bcip = (unsigned char *) malloc(datalen+64);
+	
+	if(datalen > windowlen)     // nur die ersten windowlen Zeichen anschauen
+		datalen=windowlen;
+	
+	AlgId = (symmetricEncAlg)(*((int *) par->key));  // Namen setzen
+
+// Set name, select decryption provider
+	strcpy(AlgTitel,"");           // Name setzen
+	switch (AlgId)
+	{
+	case DES_ECB:                       
+		titleID = IDS_CRYPT_DES_ECB;
+		parity_check = 1;
+		providerID = SECUDE;
+		break;
+	case DES_CBC:                       
+		titleID = IDS_CRYPT_DES_CBC;
+		parity_check = 1;
+		providerID = SECUDE;
+		break;
+	case TDES_CBC:                       
+		titleID = IDS_CRYPT_TRIPLE_DES_CBC;
+		parity_check = 1;
+		providerID = SECUDE;
+		break;
+	case TDES_ECB:                       
+		titleID = IDS_CRYPT_TRIPLE_DES_ECB;
+		parity_check = 1;
+		providerID = SECUDE;
+		break;
+	case RC2:                        
+		titleID = IDS_CRYPT_RC2;
+		providerID = SECUDE;
+		break;
+	case RC4:                       
+		titleID = IDS_CRYPT_RC4;
+		providerID = SECUDE;
+		break;
+	case IDEA:                       
+		titleID = IDS_CRYPT_IDEA;
+		providerID = SECUDE;
+		break;
+	case MARS:                        
+		titleID = IDS_CRYPT_MARS;
+		providerID = CRYPTOOL;
+		break;
+	case RC6:                       
+		titleID = IDS_CRYPT_RC6;
+		providerID = CRYPTOOL;
+		break;
+	case RIJNDAEL:                       
+		titleID = IDS_CRYPT_RIJNDAEL;
+		providerID = CRYPTOOL;
+		break;
+	case SERPENT:                        
+		titleID = IDS_CRYPT_SERPENT;
+		providerID = CRYPTOOL;
+		break;
+	case TWOFISH:                       
+		titleID = IDS_CRYPT_TWOFISH;
+		providerID = CRYPTOOL;
+		break;
+	case DESL:                       
+		titleID = IDS_CRYPT_DESL;
+		providerID = CRYPTOOL;
+		parity_check = 1;
+		break;
+	case DESX:                      
+		titleID = IDS_CRYPT_DESX;
+		providerID = CRYPTOOL;
+		parity_check = 1;
+		break;
+	case DESXL:                       
+		titleID = IDS_CRYPT_DESXL;
+		providerID = CRYPTOOL;
+		parity_check = 1;
+		break;
+	}
+	LoadString(AfxGetInstanceHandle(),titleID,pc_str,STR_LAENGE_STRING_TABLE);
+	strcpy( AlgTitel, pc_str );
+
+	// load ciphertext 
+	fi = fopen(par->infile,"rb");
+	int inputSize = fread(borg,1,datalen,fi);
+	fclose(fi);
+
+	// Get KeyPattern
+	CDlgBruteForceAES KeyDialog;
+	if(KeyDialog.Display(AlgTitel,par->keylenmin,par->keylenmax,par->keylenstep)!=IDOK)
+	{
+		if(par->flags & CRYPT_DO_WAIT_CURSOR)
+			HIDE_HOUR_GLASS
+		return 0;
+	}
+
+	keylen = KeyDialog.GetBinlen();
+	keyhex = KeyDialog.GetData();
+	strcpy(kfound,keyhex);
+
+	class symEncProviderBase *provider;
+	// initiate encryption provider
+	switch (providerID) {
+		case SECUDE:
+			{
+				symEncProviderSecude *SecudeProvider;
+				SecudeProvider = new symEncProviderSecude();
+				provider = SecudeProvider;
+				break;
+			}
+		case CRYPTOOL: 
+			{
+				for(; inputSize %16; inputSize++)
+					borg[inputSize]=0;          // padden
+				datalen <<= 3;
+				symEncProviderCrypTool *CrypToolProvider;
+				CrypToolProvider = new symEncProviderCrypTool();
+				provider = CrypToolProvider;
+				break;
+			}
+	}
+
+	provider->setAlgorithmID(AlgID);
+	provider->initBufferEncryption(borg, min(8*inputSize, 8*windowlen));
+	
+	CString title;
+	title.Format(IDS_STRING_ANALYSE_ON,AlgTitel);
+	if(par->flags & CRYPT_DO_PROGRESS)
+	{
+		CString message;
+		message.Format(IDS_STRING_MSG_SEARCHING_COMPLETE,KeyDialog.GetSearchBitLen());
+		theApp.fs.setModelTitleFormat(&KeyDialog,title,message);
+		theApp.fs.Display();
+	}
+		
+
+	CBruteForceHeap candidates;
+	candidates.init( keybits/8, in.nbits/8+16, 5);
+
+	emax = 0.0;                      // max Entropie 
+	pos=0;
+	char *outbuffer;
+	int   outlength;
+	theApp.fs.startClock();
+	while (cntr=KeyDialog.Step(parity_check))    // nächsten Schlüssel setzen
+	{                                // und Fortschritt erhalten
+		
+		if(par->flags & CRYPT_DO_PROGRESS)
+		{
+			if(theApp.fs.m_canceled)
+			{
+				theApp.fs.cancel();
+				par->flags |= CRYPT_DONE;
+				FreePar(par);
+				free(borg);
+				return 2;
+			}
+		}
+	
+		KeyDialog.GetDataInt(keyval);
+		keyhex=KeyDialog.GetData();
+
+		switch (providerID) {
+			case SECUDE:
+				{
+					provider->set_key(keyval, keylen/8);
+					break;
+				}
+			case CRYPTOOL:
+				{
+					
+					provider->set_key(keyhex, keylen/8);
+					break;
+				}
+		}
+
+		
+		provider->decrypt();
+		outbuffer = provider->getOutput(outlength);
+
+		BOOL decryptionResult_invalid = FALSE;
+		if ( theApp.Options.i_alphabetOptions )
+		{
+			for (int i=0; i<outlength; i++)
+				if (!alphaSet[(int)outbuffer[i]])
+				{
+					decryptionResult_invalid = TRUE;
+					break;
+				}
+		}
+
+		if ( !decryptionError && !decryptionResult_invalid ) 
+		{
+			// Entropie berechnen
+			memset(distr,0,sizeof(distr));
+			for(i=0;i<windowlen;i++)
+				distr[(unsigned int) outbuffer[i]]++;
+			entr = 0.0;
+			for(i = 0; i<256; i++)
+				entr += xlogx[distr[i]];
+
+			if ( candidates.check_add( entr ) )
+				candidates.add_candidate( entr, key, out.octets);
+
+			if(entr > emax)
+			{
+				emax = entr;
+				strcpy(kfound,keyhex);
+			}
+		}
+	}
+	
+	candidates.sort();
+
+
+
+	CDlgKeyHexAnalysis dia;
+	
+	if(IDCANCEL == dia.Display((LPCTSTR)title,kfound))
+	{
+		if(par->flags & CRYPT_DO_WAIT_CURSOR)
+			HIDE_HOUR_GLASS
+		if(par->flags & CRYPT_DO_PROGRESS)
+			theApp.fs.cancel();
+		par->flags |= CRYPT_DONE;
+		FreePar(par);
+		return 0;
+	}
+	
+	if(par->flags & CRYPT_DO_PROGRESS)
+		theApp.fs.cancel();
+
+	dia.GetHexData(kfound,sizeof(kfound));
+
+	fi = fopen(par->infile,"rb");
+	fseek(fi,0,SEEK_END);
+	datalen = ftell(fi);
+	fseek(fi,0,SEEK_SET);
+	fread(borg,1,datalen,fi);
+	fclose(fi);
+	
+	for(; datalen %16; datalen++)    // padden
+		borg[datalen]=0;            
+	datalen <<= 3;
+	
+	doaescrypt(AlgId,mode,keylen/8,kfound,borg,datalen,bcip);
+	free(borg);
+	
+	datalen >>= 3;
+	
+	for(datalen--; 0 == bcip[datalen]; datalen--);
+
+	GetTmpName(outfile,"cry",".tmp");
+	fi = fopen(outfile,"wb");        // Ergebnis ausgeben
+	fwrite(bcip, 1, datalen, fi);
+	free(bcip);
+	fclose(fi);
+	
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_AUTOMATIC_ANALYSE,pc_str,STR_LAENGE_STRING_TABLE);
+	MakeNewName3(line,sizeof(line),pc_str, AlgTitel, par->OldTitle, dia.m_einstr.GetBuffer(1));
+    theApp.ThreadOpenDocumentFileNoMRU(outfile,line,dia.m_einstr.GetBuffer(1));
+	
+	par->flags |= CRYPT_DONE;
+	FreePar(par);
+	
+	return 0;
+}
+
+#endif

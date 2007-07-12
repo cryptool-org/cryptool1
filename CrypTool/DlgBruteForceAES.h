@@ -76,7 +76,7 @@ public:
 	int GetSearchBitLen();
 	char *GetData();
 	void GetDataInt(char *);
-	int Step(); // set next key if not finished, otherwise return false
+	int Step(int parity_check = 0); // set next key if not finished, otherwise return false
 	virtual double getProgress(); // 0.0 <= result <= 1.0
 
 // Dialogfelddaten
