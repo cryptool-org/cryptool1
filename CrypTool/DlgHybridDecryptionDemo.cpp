@@ -470,18 +470,14 @@ void CDlgHybridDecryptionDemo::OnOK()
 	// Hybrid-Entschlüsselung + Ausgabe der Entschlüsselung 
 	char outfile[CRYPTOOL_PATH_LENGTH];
 	
-	int AlgId=3;
-
 	GetTmpName(outfile,"cry",".hex");
-
 	theApp.SecudeLib.aux_OctetString2file(&message,outfile,2);
 		
 	SHOW_HOUR_GLASS
-	
-	AESCrypt(outfile, m_strTitle1, AlgId, false, outfile,(PCTSTR)DecSessionKey); // assuming null padding
+
+	sym_decrypt(IDS_CRYPT_RIJNDAEL, CORE_PROVIDER, (PCTSTR)DecSessionKey, 128, outfile, outfile);
 
 	remove(outfile);
-	
 	HIDE_HOUR_GLASS	
 
 	CDialog::OnOK();
