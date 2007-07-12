@@ -77,8 +77,5 @@ public:
 
 void hash (char* infile, const char *OldTitle, int AlgId);
 
-UINT Brute(PVOID p);
-//void Brute (char* infile, const char *OldTitle, int KeyLength, int AlgId);
-
 
 

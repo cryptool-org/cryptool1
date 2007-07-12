@@ -82,6 +82,7 @@ int KLen(unsigned __int64 *k)
 		return (i+1);
 }
 
+#if 0
 /*  Die Funktion Brute führt die eigentliche Analyse der
 	symmetrischen Verschlüsselung über Brute force aus. 
 	Über die Parameter, die Crypt von der 
@@ -415,3 +416,4 @@ UINT Brute(PVOID p)
 	
 	return r;
 }
+#endif

@@ -219,6 +219,7 @@ public:
 	afx_msg void OnFlashRijndaelInspector();
 	afx_msg void OnInteractiveNumberTheory();
 	afx_msg void OnFlashEnigmademo();
+	afx_msg void OnIndividualPINEncryption();
 };
 
 class CMainFrame : public CMDIFrameWnd

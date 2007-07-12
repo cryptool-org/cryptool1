@@ -98,6 +98,8 @@ using namespace std;
 #include "ScintillaView.h"
 #include "DlgKeyHexFixedLen.h"
 #include "DlgBruteForceAES.h" 
+#include "ListResults.h"
+#include "bruteforceheap.h"
 
 #include <fstream>
 
@@ -3762,12 +3764,6 @@ UINT SymmetricBruteForce(PVOID p)
 {
 // Initialise fast entropy computation
 	int windowlen = theApp.Options.m_BFEntropyWindow;
-	double entr, f;
-	double *xlogx = new double[windowlen + 1];
-	if (!xlogx) return 0;
-	xlogx[0] = 0.0;
-	for (int i = 1; i <= windowlen; i++) 
-		xlogx[i] = (f = i) * log(f);
 	int r = 0, skip_parity = 0;
 
 
@@ -3786,6 +3782,7 @@ UINT SymmetricBruteForce(PVOID p)
 		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 1);
 		if(par->flags & CRYPT_DO_WAIT_CURSOR)
 			HIDE_HOUR_GLASS
+		// BUG 
 		return r;
 	}
 	if(datalen > windowlen)     
@@ -3801,6 +3798,7 @@ UINT SymmetricBruteForce(PVOID p)
 	{
 		if(par->flags & CRYPT_DO_WAIT_CURSOR)
 			HIDE_HOUR_GLASS
+		// BUG
 		return r;
 	}
 
@@ -3827,6 +3825,7 @@ UINT SymmetricBruteForce(PVOID p)
 		theApp.fs.Display();
 	}
 
+//	Skip parity bits during enumeration (i.e. DES variants)
 	if ( info->AlgId == IDS_CRYPT_DES_CBC ||
 		 info->AlgId == IDS_CRYPT_DES_ECB ||
 		 info->AlgId == IDS_CRYPT_TRIPLE_DES_CBC ||
@@ -3836,8 +3835,36 @@ UINT SymmetricBruteForce(PVOID p)
 		 info->AlgId == IDS_CRYPT_DESXL )
 		skip_parity = 1;
 
+//  Build alphabet set
+	int alphaSet[256];
+	for (int i=0; i<256; i++)
+	{
+		switch ( theApp.Options.i_alphabetOptions ) {
+			case 0: alphaSet[i] = 1;
+				break;
+			case 1: alphaSet[i] = ( i >= 32 ) ? 1 : 0;
+				break;
+			case 2: alphaSet[i] = ( 0 <= theApp.TextOptions.m_alphabet.Find((char)i) ) ? 1 : 0;
+				break;
+		}
+	}
+
+//	precomputations for fast entropy calculation
+	double entr, f;
+	double *xlogx = new double[datalen + 1];
+	if (!xlogx) return 0;
+	xlogx[0] = 0.0;
+	for (int i = 1; i <= datalen; i++) 
+		xlogx[i] = (f = i) * log(f);
+
+
 //  brute force
+#define BRUTEFORCE_HEAPSIZE 5
+	CBruteForceHeap candidates;
+	candidates.init( key_bitlength/8, datalen, BRUTEFORCE_HEAPSIZE);
+
 	int pos=0;
+	int distr[256];
 	theApp.fs.startClock();
 
 	while (KeyDialog.Step(skip_parity))    // nächsten Schlüssel setzen
@@ -3848,30 +3875,61 @@ UINT SymmetricBruteForce(PVOID p)
 			if(theApp.fs.m_canceled)
 			{
 				theApp.fs.cancel();
-				par->flags |= CRYPT_DONE;
-				FreePar(par);
-				return 2;
+				break;
+				// par->flags |= CRYPT_DONE;
+				// FreePar(par);
+				// return 2;
 			}
 		}
 
 		char *cipher = brute->decrypt(KeyDialog.GetData());
 
-/*
-		// Entropie berechnen
+		if ( theApp.Options.i_alphabetOptions )
+		{
+			BOOL decryptionResult_invalid = FALSE;
+			for (int i=0; i<brute->decrypted_bytes; i++)
+				if (!alphaSet[(int)cipher[i]])
+				{
+					decryptionResult_invalid = TRUE;
+					break;
+				}
+			if ( decryptionResult_invalid )
+				continue;
+		}
+
+		//	compute entropy
 		memset(distr,0,sizeof(distr));
-		for(i=0;i<windowlen;i++)
-			distr[(unsigned int) bcip[i]]++;
+		for(i=0;i<brute->decrypted_bytes;i++)
+			distr[(unsigned int) cipher[i]]++;
 		entr = 0.0;
 		for(i = 0; i<256; i++)
 			entr += xlogx[distr[i]];
-		if(entr > emax)
-		{
-			emax = entr;
-			strcpy(kfound,keyhex);
-		}
-*/
+		if ( candidates.check_add( entr ) )
+			candidates.add_candidate( entr, KeyDialog.GetData(), cipher);
 	}
+
 	if(par->flags & CRYPT_DO_PROGRESS) theApp.fs.cancel();
+
+	if ( !candidates.heapsize )
+	{
+		Message(IDS_STRING_NO_VALID_KEYS_FOUND, MB_ICONINFORMATION);
+	}
+	else
+	{
+		candidates.sort();
+		CListResults dlgResults;
+		// TODO load list
+		if ( IDOK == dlgResults.DoModal() )
+		{
+			// TODO
+			// GetTmpName(outfile,"cry",".tmp");
+			// int sym_decrypt(int crypt_id, cryptProvider provider, char *key_hex, int key_bitlength, const char *in_filename, char *out_filename);
+			//
+			// LoadString(AfxGetInstanceHandle(),IDS_STRING_AUTOMATIC_ANALYSE,pc_str,STR_LAENGE_STRING_TABLE);
+			// MakeNewName3(line,sizeof(line),pc_str, AlgTitel, par->OldTitle, dia.m_einstr.GetBuffer(1));
+			// theApp.ThreadOpenDocumentFileNoMRU(outfile,line,dia.m_einstr.GetBuffer(1));
+		}
+	}
 
 	delete brute;
 

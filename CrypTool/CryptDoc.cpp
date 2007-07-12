@@ -102,8 +102,6 @@ statement from your version.
 extern char *CaPseDatei, *CaPseVerzeichnis, *Pfad, *PseVerzeichnis;
 
 
-UINT AESBrute(PVOID p);
-
 /////////////////////////////////////////////////////////////////////////////
 // CCryptDoc
 
@@ -1035,6 +1033,11 @@ void CCryptDoc::OnAnalyseDesecb()
 
 void CCryptDoc::OnAnalyseIdea() 
 {
+	algorithm_info *info;
+	info = (algorithm_info*)malloc(sizeof(algorithm_info));
+	info->AlgId = IDS_CRYPT_IDEA;
+	info->provider = SECUDE_PROVIDER;
+
 	CryptPar *para;
 
 	para = (CryptPar *) malloc(sizeof(CryptPar));
@@ -1042,20 +1045,21 @@ void CCryptDoc::OnAnalyseIdea()
 	memset(para,0,sizeof(CryptPar));
 	para->infile = strdup(ContentName);
 	para->OldTitle = strdup(GetTitle());
-	para->key = (char *) malloc(sizeof(int));
-	*(int *)para->key = 1;
+	para->key = (char*)info;
 	para->keylenstep = 1; 
 	para->keylenmin = para->keylenmax = 128;
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
 	theApp.OpenBGFlag = 1;
-    AfxBeginThread( Brute, ((void *) para) );
-
-//  UpdateContent();
-//	Brute(ContentName, GetTitle(),128,1);
+    AfxBeginThread( SymmetricBruteForce, ((void *) para) );
 }
 
 void CCryptDoc::OnAnalyseRc2() 
 {
+	algorithm_info *info;
+	info = (algorithm_info*)malloc(sizeof(algorithm_info));
+	info->AlgId = IDS_CRYPT_RC2;
+	info->provider = SECUDE_PROVIDER;
+
 	CryptPar *para;
 
 	para = (CryptPar *) malloc(sizeof(CryptPar));
@@ -1063,21 +1067,22 @@ void CCryptDoc::OnAnalyseRc2()
 	memset(para,0,sizeof(CryptPar));
 	para->infile = strdup(ContentName);
 	para->OldTitle = strdup(GetTitle());
-	para->key = (char *) malloc(sizeof(int));
-	*(int *)para->key = 7;
+	para->key = (char*)info;
 	para->keylenstep = 8; 
 	para->keylenmin = 8; 
 	para->keylenmax = 128;
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
 	theApp.OpenBGFlag = 1;
-    AfxBeginThread( Brute, ((void *) para) );
-
-//	UpdateContent();
-//	Brute(ContentName, GetTitle(),128,7);
+    AfxBeginThread( SymmetricBruteForce, ((void *) para) );
 }
 
 void CCryptDoc::OnAnalyseRc4() 
 {
+	algorithm_info *info;
+	info = (algorithm_info*)malloc(sizeof(algorithm_info));
+	info->AlgId = IDS_CRYPT_RC4;
+	info->provider = SECUDE_PROVIDER;
+
 	CryptPar *para;
 
 	para = (CryptPar *) malloc(sizeof(CryptPar));
@@ -1085,21 +1090,22 @@ void CCryptDoc::OnAnalyseRc4()
 	memset(para,0,sizeof(CryptPar));
 	para->infile = strdup(ContentName);
 	para->OldTitle = strdup(GetTitle());
-	para->key = (char *) malloc(sizeof(int));
-	*(int *)para->key = 6;
+	para->key = (char*)info;
 	para->keylenstep = 8; 
 	para->keylenmin = 8; 
 	para->keylenmax = 128;
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
 	theApp.OpenBGFlag = 1;
-    AfxBeginThread( Brute, ((void *) para) );
-
-//	UpdateContent();
-//	Brute(ContentName, GetTitle(),128,6);
+    AfxBeginThread( SymmetricBruteForce, ((void *) para) );
 }
 
 void CCryptDoc::OnAnalyseTripledescbc() 
 {
+	algorithm_info *info;
+	info = (algorithm_info*)malloc(sizeof(algorithm_info));
+	info->AlgId = IDS_CRYPT_TRIPLE_DES_CBC;
+	info->provider = SECUDE_PROVIDER;
+
 	CryptPar *para;
 
 	para = (CryptPar *) malloc(sizeof(CryptPar));
@@ -1107,20 +1113,21 @@ void CCryptDoc::OnAnalyseTripledescbc()
 	memset(para,0,sizeof(CryptPar));
 	para->infile = strdup(ContentName);
 	para->OldTitle = strdup(GetTitle());
-	para->key = (char *) malloc(sizeof(int));
-	*(int *)para->key = 4;
+	para->key = (char*)info;
 	para->keylenstep = 1; 
 	para->keylenmin = para->keylenmax = 128;
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
 	theApp.OpenBGFlag = 1;
-    AfxBeginThread( Brute, ((void *) para) );
-
-//	UpdateContent();
-//	Brute(ContentName, GetTitle(),128,4);
+    AfxBeginThread( SymmetricBruteForce, ((void *) para) );
 }
 
 void CCryptDoc::OnAnalyseTripledesecb() 
 {
+	algorithm_info *info;
+	info = (algorithm_info*)malloc(sizeof(algorithm_info));
+	info->AlgId = IDS_CRYPT_TRIPLE_DES_ECB;
+	info->provider = SECUDE_PROVIDER;
+
 	CryptPar *para;
 
 	para = (CryptPar *) malloc(sizeof(CryptPar));
@@ -1128,16 +1135,12 @@ void CCryptDoc::OnAnalyseTripledesecb()
 	memset(para,0,sizeof(CryptPar));
 	para->infile = strdup(ContentName);
 	para->OldTitle = strdup(GetTitle());
-	para->key = (char *) malloc(sizeof(int));
-	*(int *)para->key = 5;
+	para->key = (char*)info;
 	para->keylenstep = 1; 
 	para->keylenmin = para->keylenmax = 128;
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
 	theApp.OpenBGFlag = 1;
-    AfxBeginThread( Brute, ((void *) para) );
-
-//	UpdateContent();
-//	Brute(ContentName, GetTitle(),128,5);
+    AfxBeginThread( SymmetricBruteForce, ((void *) para) );
 }
 
 void CCryptDoc::OnCryptAesMars() 
@@ -1172,6 +1175,11 @@ void CCryptDoc::OnCryptAesTwofish()
 
 void CCryptDoc::OnAnalyseAesMars() 
 {
+	algorithm_info *info;
+	info = (algorithm_info*)malloc(sizeof(algorithm_info));
+	info->AlgId = IDS_CRYPT_MARS;
+	info->provider = CORE_PROVIDER;
+
 	CryptPar *para;
 
 	para = (CryptPar *) malloc(sizeof(CryptPar));
@@ -1179,18 +1187,22 @@ void CCryptDoc::OnAnalyseAesMars()
 	memset(para,0,sizeof(CryptPar));
 	para->infile = strdup(ContentName);
 	para->OldTitle = strdup(GetTitle());
-	para->key = (char *) malloc(sizeof(int));
-	*(int *)para->key = 1;
+	para->key = (char*)info;
 	para->keylenstep = 64; 
 	para->keylenmin = 128;
 	para->keylenmax = 256;
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
 	theApp.OpenBGFlag = 1;
-    AfxBeginThread( AESBrute, ((void *) para) );
+    AfxBeginThread( SymmetricBruteForce, ((void *) para) );
 }
 
 void CCryptDoc::OnAnalyseAesRc6() 
 {
+	algorithm_info *info;
+	info = (algorithm_info*)malloc(sizeof(algorithm_info));
+	info->AlgId = IDS_CRYPT_RC6;
+	info->provider = CORE_PROVIDER;
+
 	CryptPar *para;
 
 	para = (CryptPar *) malloc(sizeof(CryptPar));
@@ -1198,18 +1210,22 @@ void CCryptDoc::OnAnalyseAesRc6()
 	memset(para,0,sizeof(CryptPar));
 	para->infile = strdup(ContentName);
 	para->OldTitle = strdup(GetTitle());
-	para->key = (char *) malloc(sizeof(int));
-	*(int *)para->key = 2;
+	para->key = (char*)info;	
 	para->keylenstep = 64; 
 	para->keylenmin = 128;
 	para->keylenmax = 256;
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
 	theApp.OpenBGFlag = 1;
-    AfxBeginThread( AESBrute, ((void *) para) );
+    AfxBeginThread( SymmetricBruteForce, ((void *) para) );
 }
 
 void CCryptDoc::OnAnalyseAesRijndael() 
 {
+	algorithm_info *info;
+	info = (algorithm_info*)malloc(sizeof(algorithm_info));
+	info->AlgId = IDS_CRYPT_RIJNDAEL;
+	info->provider = CORE_PROVIDER;
+
 	CryptPar *para;
 
 	para = (CryptPar *) malloc(sizeof(CryptPar));
@@ -1217,18 +1233,22 @@ void CCryptDoc::OnAnalyseAesRijndael()
 	memset(para,0,sizeof(CryptPar));
 	para->infile = strdup(ContentName);
 	para->OldTitle = strdup(GetTitle());
-	para->key = (char *) malloc(sizeof(int));
-	*(int *)para->key = 3;
+	para->key = (char*)info;	
 	para->keylenstep = 64; 
 	para->keylenmin = 128;
 	para->keylenmax = 256;
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
 	theApp.OpenBGFlag = 1;
-    AfxBeginThread( AESBrute, ((void *) para) );
+    AfxBeginThread( SymmetricBruteForce, ((void *) para) );
 }
 
 void CCryptDoc::OnAnalyseAesSerpent() 
 {
+	algorithm_info *info;
+	info = (algorithm_info*)malloc(sizeof(algorithm_info));
+	info->AlgId = IDS_CRYPT_SERPENT;
+	info->provider = CORE_PROVIDER;
+
 	CryptPar *para;
 
 	para = (CryptPar *) malloc(sizeof(CryptPar));
@@ -1236,18 +1256,22 @@ void CCryptDoc::OnAnalyseAesSerpent()
 	memset(para,0,sizeof(CryptPar));
 	para->infile = strdup(ContentName);
 	para->OldTitle = strdup(GetTitle());
-	para->key = (char *) malloc(sizeof(int));
-	*(int *)para->key = 4;
+	para->key = (char*)info;	
 	para->keylenstep = 64; 
 	para->keylenmin = 128;
 	para->keylenmax = 256;
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
 	theApp.OpenBGFlag = 1;
-    AfxBeginThread( AESBrute, ((void *) para) );
+    AfxBeginThread( SymmetricBruteForce, ((void *) para) );
 }
 
 void CCryptDoc::OnAnalyseAesTwofish() 
 {
+	algorithm_info *info;
+	info = (algorithm_info*)malloc(sizeof(algorithm_info));
+	info->AlgId = IDS_CRYPT_TWOFISH;
+	info->provider = CORE_PROVIDER;
+
 	CryptPar *para;
 
 	para = (CryptPar *) malloc(sizeof(CryptPar));
@@ -1255,14 +1279,13 @@ void CCryptDoc::OnAnalyseAesTwofish()
 	memset(para,0,sizeof(CryptPar));
 	para->infile = strdup(ContentName);
 	para->OldTitle = strdup(GetTitle());
-	para->key = (char *) malloc(sizeof(int));
-	*(int *)para->key = 5;
+	para->key = (char*)info;	
 	para->keylenstep = 64; 
 	para->keylenmin = 128;
 	para->keylenmax = 256;
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
 	theApp.OpenBGFlag = 1;
-    AfxBeginThread( AESBrute, ((void *) para) );
+    AfxBeginThread( SymmetricBruteForce, ((void *) para) );
 }
 
 #if 0
@@ -2023,28 +2046,35 @@ void CCryptDoc::OnCryptDESXL()
 	SymmetricEncryption(IDS_CRYPT_DESXL, CORE_PROVIDER, ContentName, GetTitle());
 }
 
-
 void CCryptDoc::OnAnalyseDESL() 
 {
+	algorithm_info *info;
+	info = (algorithm_info*)malloc(sizeof(algorithm_info));
+	info->AlgId = IDS_CRYPT_DESL;
+	info->provider = CORE_PROVIDER;
+
 	CryptPar *para;
 
 	para = (CryptPar *) malloc(sizeof(CryptPar));
     UpdateContent();
 	memset(para,0,sizeof(CryptPar));
 	para->infile = strdup(ContentName);
-	para->OldTitle = strdup(GetTitle());
-	para->key = (char *) malloc(sizeof(int));
-	*(int *)para->key = 6;
+	para->key = (char*)info;	
 	para->keylenstep = 64; 
 	para->keylenmin = 64;
 	para->keylenmax = 64;
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
 	theApp.OpenBGFlag = 1;
-    AfxBeginThread( AESBrute, ((void *) para) );
+    AfxBeginThread( SymmetricBruteForce, ((void *) para) );
 }
 
 void CCryptDoc::OnAnalyseDESX() 
 {
+	algorithm_info *info;
+	info = (algorithm_info*)malloc(sizeof(algorithm_info));
+	info->AlgId = IDS_CRYPT_DESX;
+	info->provider = CORE_PROVIDER;
+
 	CryptPar *para;
 
 	para = (CryptPar *) malloc(sizeof(CryptPar));
@@ -2052,18 +2082,22 @@ void CCryptDoc::OnAnalyseDESX()
 	memset(para,0,sizeof(CryptPar));
 	para->infile = strdup(ContentName);
 	para->OldTitle = strdup(GetTitle());
-	para->key = (char *) malloc(sizeof(int));
-	*(int *)para->key = 7;
+	para->key = (char*)info;	
 	para->keylenstep = 64; 
 	para->keylenmin = 192;
 	para->keylenmax = 192;
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
 	theApp.OpenBGFlag = 1;
-    AfxBeginThread( AESBrute, ((void *) para) );
+    AfxBeginThread( SymmetricBruteForce, ((void *) para) );
 }
 
 void CCryptDoc::OnAnalyseDESXL() 
 {
+	algorithm_info *info;
+	info = (algorithm_info*)malloc(sizeof(algorithm_info));
+	info->AlgId = IDS_CRYPT_DESXL;
+	info->provider = CORE_PROVIDER;
+
 	CryptPar *para;
 
 	para = (CryptPar *) malloc(sizeof(CryptPar));
@@ -2071,12 +2105,11 @@ void CCryptDoc::OnAnalyseDESXL()
 	memset(para,0,sizeof(CryptPar));
 	para->infile = strdup(ContentName);
 	para->OldTitle = strdup(GetTitle());
-	para->key = (char *) malloc(sizeof(int));
-	*(int *)para->key = 8;
+	para->key = (char*)info;	
 	para->keylenstep = 64; 
 	para->keylenmin = 192;
 	para->keylenmax = 192;
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
 	theApp.OpenBGFlag = 1;
-    AfxBeginThread( AESBrute, ((void *) para) );
+    AfxBeginThread( SymmetricBruteForce, ((void *) para) );
 }
