@@ -475,7 +475,7 @@ void CDlgHybridDecryptionDemo::OnOK()
 		
 	SHOW_HOUR_GLASS
 
-	sym_decrypt(IDS_CRYPT_RIJNDAEL, CORE_PROVIDER, (PCTSTR)DecSessionKey, 128, outfile, outfile);
+	sym_decrypt(IDS_CRYPT_RIJNDAEL, CORE_PROVIDER, DecSessionKey.GetBuffer(), 128, outfile, outfile);
 
 	remove(outfile);
 	HIDE_HOUR_GLASS	

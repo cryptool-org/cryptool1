@@ -415,8 +415,6 @@ void CDlgHybridEncryptionDemo::OnButtonEncDocumentSym()
 
 	UpdateData(true);
 
-	int AlgId=3;
-	
 	// Henrik Koy, 19. April 2002,
 	// Programm unter Windows XP-abgestürzt: 20 Zeichen Speicher sind zu wenig
 	char strPathEncDocument[CRYPTOOL_PATH_LENGTH];
@@ -429,8 +427,9 @@ void CDlgHybridEncryptionDemo::OnButtonEncDocumentSym()
 
 	SHOW_HOUR_GLASS
 
-	AESCrypt((char*)(LPCTSTR)m_strPathSelDoc, "", AlgId,true,strPathEncDocument,key);
 	//das Dokument wird mit AES verschlüsselt
+	sym_encrypt(IDS_CRYPT_RIJNDAEL, CORE_PROVIDER, key, 128, 
+		(char*)(LPCTSTR)m_strPathSelDoc, strPathEncDocument);
 
 	if ( CipherText )
 		theApp.SecudeLib.aux_free_OctetString(&CipherText);

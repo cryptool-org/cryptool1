@@ -44,6 +44,7 @@ statement from your version.
 #ifndef _CRYPTDOC_H_
 #define _CRYPTDOC_H_
 
+#include "symEncBase.h"
 #include "CrypToolApp.h"
 //////////////////////////////////////////////////////////////////
 // Copyright 1998-2002 Deutsche Bank AG, Frankfurt am Main
@@ -201,7 +202,7 @@ protected:
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
-
+	void SymCryptBruteForce( int AlgID, cryptProvider provider, int keylen_min, int keylen_max, int keylen_step = 1 );
 
 public:
 	afx_msg void OnDecodeUu();
