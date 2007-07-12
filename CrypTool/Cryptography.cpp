@@ -3782,7 +3782,8 @@ UINT SymmetricBruteForce(PVOID p)
 		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 1);
 		if(par->flags & CRYPT_DO_WAIT_CURSOR)
 			HIDE_HOUR_GLASS
-		// BUG 
+		par->flags |= CRYPT_DONE;
+		FreePar(par);
 		return r;
 	}
 	if(datalen > windowlen)     
@@ -3798,7 +3799,8 @@ UINT SymmetricBruteForce(PVOID p)
 	{
 		if(par->flags & CRYPT_DO_WAIT_CURSOR)
 			HIDE_HOUR_GLASS
-		// BUG
+		par->flags |= CRYPT_DONE;
+		FreePar(par);
 		return r;
 	}
 
@@ -3876,9 +3878,6 @@ UINT SymmetricBruteForce(PVOID p)
 			{
 				theApp.fs.cancel();
 				break;
-				// par->flags |= CRYPT_DONE;
-				// FreePar(par);
-				// return 2;
 			}
 		}
 
@@ -3908,7 +3907,6 @@ UINT SymmetricBruteForce(PVOID p)
 			candidates.add_candidate( entr, KeyDialog.GetData(), cipher);
 	}
 
-	if(par->flags & CRYPT_DO_PROGRESS) theApp.fs.cancel();
 
 	if ( !candidates.heapsize )
 	{
@@ -3932,6 +3930,8 @@ UINT SymmetricBruteForce(PVOID p)
 	}
 
 	delete brute;
+
+	if(par->flags & CRYPT_DO_PROGRESS) theApp.fs.cancel();
 
 	par->flags |= CRYPT_DONE;
 	FreePar(par);

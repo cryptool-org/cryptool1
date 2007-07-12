@@ -258,7 +258,7 @@ char * sym_brute_secude::decrypt(char *key_hex)
 		}
 		theApp.SecudeLib.aux_free(err);
 	}
-
+	decrypted_bytes = output.noctets;
 	return (char*)output.octets;
 }
 

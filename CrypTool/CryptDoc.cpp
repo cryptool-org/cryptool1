@@ -1079,27 +1079,27 @@ void CCryptDoc::OnCryptAesTwofish()
 
 void CCryptDoc::OnAnalyseAesMars() 
 {
-	SymCryptBruteForce( IDS_CRYPT_MARS, SECUDE_PROVIDER, 128, 256, 64 );
+	SymCryptBruteForce( IDS_CRYPT_MARS, CORE_PROVIDER, 128, 256, 64 );
 }
 
 void CCryptDoc::OnAnalyseAesRc6() 
 {
-	SymCryptBruteForce( IDS_CRYPT_RC6, SECUDE_PROVIDER, 128, 256, 64 );
+	SymCryptBruteForce( IDS_CRYPT_RC6, CORE_PROVIDER, 128, 256, 64 );
 }
 
 void CCryptDoc::OnAnalyseAesRijndael() 
 {
-	SymCryptBruteForce( IDS_CRYPT_RIJNDAEL, SECUDE_PROVIDER, 128, 256, 64 );
+	SymCryptBruteForce( IDS_CRYPT_RIJNDAEL, CORE_PROVIDER, 128, 256, 64 );
 }
 
 void CCryptDoc::OnAnalyseAesSerpent() 
 {
-	SymCryptBruteForce( IDS_CRYPT_SERPENT, SECUDE_PROVIDER, 128, 256, 64 );
+	SymCryptBruteForce( IDS_CRYPT_SERPENT, CORE_PROVIDER, 128, 256, 64 );
 }
 
 void CCryptDoc::OnAnalyseAesTwofish() 
 {
-	SymCryptBruteForce( IDS_CRYPT_TWOFISH, SECUDE_PROVIDER, 128, 256, 64 );
+	SymCryptBruteForce( IDS_CRYPT_TWOFISH, CORE_PROVIDER, 128, 256, 64 );
 }
 
 #if 0
@@ -1862,15 +1862,15 @@ void CCryptDoc::OnCryptDESXL()
 
 void CCryptDoc::OnAnalyseDESL() 
 {
-	SymCryptBruteForce( IDS_CRYPT_DESL, SECUDE_PROVIDER, 64, 64 );
+	SymCryptBruteForce( IDS_CRYPT_DESL, CORE_PROVIDER, 64, 64 );
 }
 
 void CCryptDoc::OnAnalyseDESX() 
 {
-	SymCryptBruteForce( IDS_CRYPT_DESX, SECUDE_PROVIDER, 192, 192 );
+	SymCryptBruteForce( IDS_CRYPT_DESX, CORE_PROVIDER, 192, 192 );
 }
 
 void CCryptDoc::OnAnalyseDESXL() 
 {
-	SymCryptBruteForce( IDS_CRYPT_DESXL, SECUDE_PROVIDER, 192, 192 );
+	SymCryptBruteForce( IDS_CRYPT_DESXL, CORE_PROVIDER, 192, 192 );
 }
