@@ -11803,6 +11803,9 @@ BEGIN
     IDS_ENIGMA_FLASH        "Enigma_de.exe"
     IDS_ERROPEN_ENIGMA_FLASH 
                             "Die Enigma Flash-Demonstration kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob das Programm Enigma_de.exe im CrypTool-Heimatverzeichnis installiert wurde\n(""%s"")."
+    IDS_NO_ITEM_SELECTED    "Bitte selektieren Sie einen Entschlüsselungskandidaten, oder wählen Sie Abbrechen wenn der Angriff nicht erfolgreich war."
+    IDS_DECRYPTION_HEADER   "Entschlüsselung"
+    IDS_DECRYPTION_HEADER_HEX_DUMP "Entschlüsselung: Hex-Dump"
 END
 
 STRINGTABLE 
@@ -23703,6 +23706,9 @@ BEGIN
     IDS_ENIGMA_FLASH        "Enigma_en.exe"
     IDS_ERROPEN_ENIGMA_FLASH 
                             "The Enigma flash demo cannot be opened.\n\nPlease check if Enigma_en.exe is installed in the CrypTool program directory\n(""%s"")."
+    IDS_NO_ITEM_SELECTED    "Please select a decryption candidate or select 'Cancel' if the attack was unsuccessful."
+    IDS_DECRYPTION_HEADER   "Decryption"
+    IDS_DECRYPTION_HEADER_HEX_DUMP "Decryption: hex dump"
 END
 
 STRINGTABLE 

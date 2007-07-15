@@ -14,7 +14,7 @@ int CBruteForceHeap::init(long _keybytes, long _plainbytes, long _max_heapsize)
 		heapsize = 0;
 		for (int i=0; i<max_heapsize; i++)
 		{
-			list[i].key = new char[keybytes];
+			list[i].key = new char[keybytes*2+1];
 			list[i].plain = new char[plainbytes];
 			if (!list[i].key || !list[i].plain )
 			{
@@ -30,9 +30,8 @@ int CBruteForceHeap::init(long _keybytes, long _plainbytes, long _max_heapsize)
 	return 0;
 }
 
-int CBruteForceHeap::add_candidate(double entropy, char *key, char *plain)
+int CBruteForceHeap::add_candidate(double entropy, char *key, char *plain, int plainsize)
 {
-	entropy = ENTROPY_INVERTER - entropy;
 	if (heapsize < max_heapsize)
 	{
 		heapsize++;
@@ -46,8 +45,11 @@ int CBruteForceHeap::add_candidate(double entropy, char *key, char *plain)
 		else
 			return 0; // no candidate
 	}
-	memcpy(list[heapsize-1].key, key, keybytes);
-	memcpy(list[heapsize-1].plain, plain, plainbytes);
+
+	strncpy(list[heapsize-1].key, key, keybytes*2);
+	list[heapsize-1].key[keybytes*2] = '\0';
+	memcpy(list[heapsize-1].plain, plain, plainsize);
+	list[heapsize-1].plain_size = plainsize;
 	list[heapsize-1].entropy = entropy;
 	push_heap(list, list+heapsize, less_mag());
 	if ( heapsize >= max_heapsize )

@@ -11,6 +11,7 @@ struct candidate {
 	double entropy;
 	char *key;
 	char *plain;
+	int   plain_size;
 };
 
 struct less_mag : public binary_function<candidate, candidate, bool> {
@@ -19,25 +20,22 @@ struct less_mag : public binary_function<candidate, candidate, bool> {
 
 class CBruteForceHeap
 {
-
 	long max_heapsize;
 	double max_entropy;
-
-
 
 public:
 	long keysize;
 	long keybytes;
-	long plainbytes;
 	long heapsize;
+	long plainbytes;
 	struct candidate *list;
 
 	CBruteForceHeap(void);
 	~CBruteForceHeap(void);
 	int init(long _keybytes, long _plainbytes, long _max_heapsize);
-    int add_candidate(double entropy, char *key, char *plain);
+    int add_candidate(double entropy, char *key, char *plain, int plainsize);
 	int check_add(double entropy)
-	{ return ((heapsize < max_heapsize) || (ENTROPY_INVERTER - entropy < max_entropy) ); }
+	{ return ((heapsize < max_heapsize) || (entropy < max_entropy) ); }
 	int sort() {
 		if ( heapsize > 1 )
 		{

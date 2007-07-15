@@ -1524,7 +1524,7 @@
 #define IDC_EDIT_ORIGINAL_MESSAGE       1974
 #define IDC_LIST4                       1975
 #define IDC_HEADER                      1976
-#define IDC_TEXT_INFO			1977
+#define IDC_TEXT_INFO                   1977
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -2809,6 +2809,9 @@
 #define IDS_ERROPEN_INTERACTIVE_NUMBER_THEORY 39046
 #define IDS_ENIGMA_FLASH                39047
 #define IDS_ERROPEN_ENIGMA_FLASH        39048
+#define IDS_NO_ITEM_SELECTED            39049
+#define IDS_DECRYPTION_HEADER           39050
+#define IDS_DECRYPTION_HEADER_HEX_DUMP  39051
 #define IDS_DH_LOG_1                    61889
 #define IDS_DH_LOG_2                    61890
 #define IDS_DH_LOG_3                    61891

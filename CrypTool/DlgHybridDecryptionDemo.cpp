@@ -365,7 +365,7 @@ int CDlgHybridDecryptionDemo::UpdateDataDisplay()
 
 void CDlgHybridDecryptionDemo::RsaDec()
 {
-	char outfile[128];
+	char outfile[1024];
 	
 	// Anzeigen der Dialogbox zur Auswahl des zu benutzenden (geheimen) Schlüssels
 	
@@ -468,16 +468,25 @@ void CDlgHybridDecryptionDemo::RsaDec()
 void CDlgHybridDecryptionDemo::OnOK() 
 {
 	// Hybrid-Entschlüsselung + Ausgabe der Entschlüsselung 
+	char infile[CRYPTOOL_PATH_LENGTH];
 	char outfile[CRYPTOOL_PATH_LENGTH];
+	char line[CRYPTOOL_PATH_LENGTH];
+
 	
+	GetTmpName(infile,"cry",".hex");
+	theApp.SecudeLib.aux_OctetString2file(&message,infile,2);
 	GetTmpName(outfile,"cry",".hex");
-	theApp.SecudeLib.aux_OctetString2file(&message,outfile,2);
-		
+
 	SHOW_HOUR_GLASS
 
-	sym_decrypt(IDS_CRYPT_RIJNDAEL, CORE_PROVIDER, DecSessionKey.GetBuffer(), 128, outfile, outfile);
+	char *key_hex = DecSessionKey.GetBuffer()+(DecSessionKey.GetLength()-32);
+	sym_decrypt(IDS_CRYPT_RIJNDAEL, CORE_PROVIDER, key_hex, 128, infile, outfile);
+	remove(infile);
 
-	remove(outfile);
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_DEC_TITLE,pc_str,STR_LAENGE_STRING_TABLE);
+	MakeNewName(line, sizeof(line),pc_str, m_strTitle1 );
+	theApp.ThreadOpenDocumentFileNoMRU(outfile,line,key_hex);
+
 	HIDE_HOUR_GLASS	
 
 	CDialog::OnOK();

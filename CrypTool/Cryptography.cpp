@@ -3807,14 +3807,18 @@ UINT SymmetricBruteForce(PVOID p)
 //	initialize brute force
 	int key_bitlength = KeyDialog.GetBinlen();
 
-// load ciphertext 
-	char *cipher;
-	cipher = (char*)malloc(datalen);
-	fi = fopen(par->infile,"rb");
-	int inputSize = fread(cipher,1,datalen,fi);
-	fclose(fi);
-	sym_brute *brute = init_sym_brute(info->AlgId, info->provider, key_bitlength, cipher, datalen);
-	free(cipher);
+	// load ciphertext 
+	sym_brute *brute;
+	{
+		char *cipher;
+		cipher = (char*)malloc(datalen);
+		fi = fopen(par->infile,"rb");
+		int inputSize = fread(cipher,1,datalen,fi);
+		fclose(fi);
+		// initialise ...
+		brute = init_sym_brute(info->AlgId, info->provider, key_bitlength, cipher, datalen);
+		free(cipher);
+	}
 
 //  start progress dialog
 	CString title;
@@ -3857,11 +3861,11 @@ UINT SymmetricBruteForce(PVOID p)
 	if (!xlogx) return 0;
 	xlogx[0] = 0.0;
 	for (int i = 1; i <= datalen; i++) 
-		xlogx[i] = (f = i) * log(f);
+		xlogx[i] = -1.0 * (f = i) * log(f/double(datalen))/log(2.0);
 
 
 //  brute force
-#define BRUTEFORCE_HEAPSIZE 5
+#define BRUTEFORCE_HEAPSIZE 50
 	CBruteForceHeap candidates;
 	candidates.init( key_bitlength/8, datalen, BRUTEFORCE_HEAPSIZE);
 
@@ -3869,9 +3873,8 @@ UINT SymmetricBruteForce(PVOID p)
 	int distr[256];
 	theApp.fs.startClock();
 
-	while (KeyDialog.Step(skip_parity))    // nächsten Schlüssel setzen
-	{                                // und Fortschritt erhalten
-
+	while (KeyDialog.Step(skip_parity))    // next key
+	{           
 		if(par->flags & CRYPT_DO_PROGRESS)
 		{
 			if(theApp.fs.m_canceled)
@@ -3881,13 +3884,13 @@ UINT SymmetricBruteForce(PVOID p)
 			}
 		}
 
-		char *cipher = brute->decrypt(KeyDialog.GetData());
+		char *plain = brute->decrypt(KeyDialog.GetData());
 
 		if ( theApp.Options.i_alphabetOptions )
 		{
 			BOOL decryptionResult_invalid = FALSE;
 			for (int i=0; i<brute->decrypted_bytes; i++)
-				if (!alphaSet[(int)cipher[i]])
+				if (!alphaSet[(int)plain[i]])
 				{
 					decryptionResult_invalid = TRUE;
 					break;
@@ -3899,12 +3902,13 @@ UINT SymmetricBruteForce(PVOID p)
 		//	compute entropy
 		memset(distr,0,sizeof(distr));
 		for(i=0;i<brute->decrypted_bytes;i++)
-			distr[(unsigned int) cipher[i]]++;
+			distr[(unsigned char) plain[i]]++;
 		entr = 0.0;
 		for(i = 0; i<256; i++)
 			entr += xlogx[distr[i]];
+		entr /= (double)datalen;
 		if ( candidates.check_add( entr ) )
-			candidates.add_candidate( entr, KeyDialog.GetData(), cipher);
+			candidates.add_candidate( entr, KeyDialog.GetData(), plain, brute->decrypted_bytes );
 	}
 
 
@@ -3916,16 +3920,18 @@ UINT SymmetricBruteForce(PVOID p)
 	{
 		candidates.sort();
 		CListResults dlgResults;
+		dlgResults.LoadList( candidates.list, candidates.heapsize );
 		// TODO load list
 		if ( IDOK == dlgResults.DoModal() )
 		{
-			// TODO
-			// GetTmpName(outfile,"cry",".tmp");
-			// int sym_decrypt(int crypt_id, cryptProvider provider, char *key_hex, int key_bitlength, const char *in_filename, char *out_filename);
-			//
-			// LoadString(AfxGetInstanceHandle(),IDS_STRING_AUTOMATIC_ANALYSE,pc_str,STR_LAENGE_STRING_TABLE);
-			// MakeNewName3(line,sizeof(line),pc_str, AlgTitel, par->OldTitle, dia.m_einstr.GetBuffer(1));
-			// theApp.ThreadOpenDocumentFileNoMRU(outfile,line,dia.m_einstr.GetBuffer(1));
+			char outfile[CRYPTOOL_PATH_LENGTH];
+			char line[CRYPTOOL_PATH_LENGTH];
+			GetTmpName(outfile,"cry",".tmp");
+			sym_decrypt(info->AlgId, info->provider, dlgResults.get_keyhex(), key_bitlength, par->infile, outfile);
+			
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_AUTOMATIC_ANALYSE,pc_str,STR_LAENGE_STRING_TABLE);
+			MakeNewName3(line,sizeof(line),pc_str, AlgTitle, par->OldTitle, dlgResults.get_keyhex());
+			theApp.ThreadOpenDocumentFileNoMRU(outfile,line,dlgResults.get_keyhex());
 		}
 	}
 
