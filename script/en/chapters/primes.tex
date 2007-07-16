@@ -9,7 +9,7 @@
 \hypertarget{Kapitel_2}{}
 \section{Prime Numbers}
 \label{Label_Kapitel_2}
-(Bernhard Esslinger, May 1999; Updates Nov. 2000, Dec. 2001, June 2003, May 2005, March 2006, May 2007)
+(Bernhard Esslinger, May 1999; Updates Nov. 2000, Dec. 2001, June 2003, May 2005, March 2006, June 2007)
 
 \begin{center}
 \fbox{\parbox{15cm}{
@@ -56,9 +56,9 @@ http://www.mersenne.org/prime.htm}).
 Many people have been fascinated by prime numbers over the past two millennia.
 Ambition to make new discoveries about prime numbers has often resulted in
 brilliant ideas and conclusions. The following section provides an easily
-comprehensible introduction to the basics of prime numbers. We will also explain
-what is known about the distribution (density, number of prime numbers in
-particular intervals) of prime numbers and how prime number tests work.
+comprehensible introduction to the basics of prime numbers. We will also
+explain what is known about the distribution (density, number of prime numbers
+in particular intervals) of prime numbers and how prime number tests work.
 
 
 % --------------------------------------------------------------------------
@@ -1268,24 +1268,38 @@ In any case, it has not been proved that this formula delivers only primes.
 \vskip +10 pt
 \subsection{Density and distribution of the primes}
 
-As Euclid discovered, there is an infinite number of primes. However, some
-infinite sets are {\em denser} \index{Prime number!density} than others. Within
-the set of natural numbers, there is an infinite number of even, uneven and
-square numbers.
+As Euclid discovered, there is an infinite number of primes. However,
+some infinite sets are {\em denser} \index{Prime number!density} than
+others.
 
-The following proves that there are more even numbers than square ones:
+Within the set of natural numbers, there is an infinite number of even,
+uneven and square numbers. How  to compare the ``density'' of two
+infinite sets is shown with even and square numbers.
+
+The following proves that the even numbers are distributed more densely
+than square ones:\footnotemark
+   \footnotetext{%
+   Whereas in colloquial language you often can hear, that ``there are
+   more'' even numbers than square ones, mathematicians say, that from
+   both there are inifinitely many, that their sets are equvalent to
+   $ \mathbb{N}$ (so both are inifinite and countable, i.e. one can
+   assign to each even number and to each square number an integer),
+   but that the set of even numbers is denser than the set of square
+   numbers.
+   }
 \begin{itemize}
   \item the size of the $n$th element: \\
-    The $n$th element of the even numbers is $2n$; the $n$th element of the
-square numbers is $n^2$. Because for all $n>2$: $2n < n^2$, the $n$th even
-number occurs much earlier than the $n$th square number.
-    Thus the even numbers are distributed more densely and we can say that there
-are more even numbers than square ones.
-  \item the number of values that are less than or equal to a certain {\em
-maximum value} $x$ in ${\mathbb R}$ is: \\
-    There are $[x/2]$ such even numbers and $[\sqrt{x}]$ square numbers. Because
-for large $x$ the value $x/2$ is much greater than the square root of $2$, we
-can again say that there are more even numbers.
+    The $n$th element of the even numbers is $2n$;
+    the $n$th element of the square numbers is $n^2$.
+    Because for all $n>2$: $2n < n^2$, the $n$th even number occurs much
+    earlier than the $n$th square number.
+  \item the numbers of values that are less than or equal to a certain
+    {\em maximum value} $x$ in ${\mathbb R}$ are: \\
+    There are $\lfloor x/2 \rfloor$ such even numbers and
+    $\lfloor \sqrt{x} \rfloor$ square numbers.
+    Because for all $x>6$ the value $\lfloor x/2 \rfloor$ is greater
+    than the largest integer smaller or equal to the square root of $x$,
+    the even numbers are distributed more densely.
 \end{itemize}
 
 
@@ -2012,6 +2026,10 @@ Volume of the universe (in $cm^3$)   & $10^{84}$ = $(2^{280})$ \\ \hline
 \newpage
 \subsubsection{Special values of the binary and decimal system}
 
+These values can be used, to evaluate from a key length in bit the
+according number of possible keys and the search effort (if assumed, that
+e.g. one million keys can be tested within one second).
+
 \begin{table}[h]
 \begin{center}
 \begin{tabular}{|l|l|}\hline
@@ -2027,6 +2045,7 @@ $2^{112}$ 	&  $5.19230\cdot 10^{33}$ \\
 $2^{128}$ 	&  $3.40282\cdot 10^{38}$ \\
 $2^{150}$ 	&  $1.42725\cdot 10^{45}$ \\
 $2^{160}$ 	&  $1.46150\cdot 10^{48}$ \\
+$2^{192}$ 	&   $6,27710\cdot 10^{57}$ \\
 $2^{250}$ 	&  $1.80925\cdot 10^{75}$ \\
 $2^{256}$ 	&  $1.15792\cdot 10^{77}$ \\
 $2^{320}$ 	&  $2.13599\cdot 10^{96}$ \\
@@ -2039,8 +2058,14 @@ $2^{2048}$	&  $3.23170\cdot 10^{616}$ \\ \hline
 \end{center}
 \end{table}
 
-Calculation using GMP, for example:
-{\href{http://www.gnu.ai.mit.edu}{\tt http://www.gnu.ai.mit.edu}}.
+Such tables can easily be calculated with computer algebra systems.
+Here a code sample for the CAS system Pari-GP\index{Pari-GP}:
+\vspace{-2ex}
+\begin{verbatim}
+v2=[56, 64, 80, 90, 112, 128, 192, 256];
+default(format,"e0.6");
+for ( i=1,8, o=v2[i]; print(o, " --- ", 1.*2^o) );
+\end{verbatim}
 
 
 

@@ -126,20 +126,28 @@ In Dedekind's\footnote{Julius Wilhelm Richard Dedekind,
   German mathematician, Oct 6, 1831 $-$ Feb 12, 1916.}\index{Dedekind, Julius} opinion, they are a creation of the human intellect. Dependent upon one's ideology,
 this is an unsolvable contradiction or one and the same thing.
 
-In ancient times, no distinction was made between number theory and numerology, which attributed a mystical 
-significance to specific numbers. In the same way as astronomy and chemistry gradually detached themselves 
-from astrology and alchemy during the Renaissance (from the 14th century), number theory also separated itself 
-from numerology.
+In ancient times, no distinction was made between number theory and numerology,
+which attributed a mystical significance to specific numbers. In the same way
+as astronomy and chemistry gradually detached themselves from astrology and
+alchemy during the Renaissance (from the 14th century), number theory also
+separated itself from numerology.
 
-Number theory has always been a source of fascination -- for both amateurs and professional mathematicians. In 
-contrast to other areas of mathematics, many of the problems and theorems in number theory can be understood 
-by non-experts. On the other hand, mathematicians often take a long time to find solutions to the problems or 
-prove the theorems. It is therefore one thing to pose good questions but quite another matter to find the answer. One 
-example of this is what is known as Fermat's Last (or large) theorem\footnote{One of the things you learn in mathematics at school is Pythagoras theorem, which states the following for a right-angle 
-triangle: $a^2 + b^2 = c^2$, where $a$ and $b$ are the lengths of the sides containing the right angle and $c$ is the 
-length of the hypotenuse. Fermat famously proposed that $a^n + b^n \not= c^n$ for whole-number exponents $n 
-> 2$. Unfortunately, the letter in which Fermat made the claim did not have enough space for him to prove it. 
-The theorem was not proved until over 300 years later \cite[p. 433-551]{Wiles1994}\index{Wiles, Andrew}. }.
+Number theory has always been a source of fascination -- for both amateurs and
+professional mathematicians. In contrast to other areas of mathematics, many
+of the problems and theorems in number theory can be understood by non-experts.
+On the other hand, the solutions to these problems or the prove to the theorems
+often resisted to the mathematicians for a very long time.
+It is therefore one thing to pose good questions but quite another matter to
+find the answer. One example of this is what is known as Fermat's Last (or
+large) theorem\footnote{One of the things we learn in mathematics at school
+   is Pythagoras' theorem, which states the following for a right-angle
+   triangle: $a^2 + b^2 = c^2$, where $a$ and $b$ are the lengths of the sides
+   containing the right angle and $c$ is the length of the hypotenuse.
+   Fermat famously proposed that $a^n + b^n \not= c^n$
+   for $a,b,c \in \mathbb{N}$ and whole-number exponents $n > 2$.
+   Unfortunately, the letter in which Fermat made the claim did not have
+   enough space for him to prove it. The theorem was not proven until over
+   300 years later \cite[p. 433-551]{Wiles1994}\index{Wiles, Andrew}. }.
 
 Up until the mid 20th century, number theory was considered to be the purest area of mathematics, an area that 
 had no practical use in the real world. This changed with the development of computers and digital 
@@ -545,7 +553,7 @@ The following shows
 
 \begin{itemize}
 \item the addition table\footnote{Comment on subtraction modulo 5: \\
-$2 - 4 \equiv -2 \equiv 3{\rm ~mod~}5.$\\
+$2 - 4 = -2 \equiv 3{\rm ~mod~}5.$\\
 It is therefore not true modulo $5$ that $-2 = 2$ (see also \hyperlink{Appendix_C}{Appendix C of this chapter}). }
 ${\rm ~(mod~ } 5)$ and
 \item the multiplication tables\footnote{\label{ftn-mod6}Comment on division modulo $6$:\index{Division modulo $n$}\\
@@ -794,11 +802,11 @@ a^{b+c} & = & a^b * a^c,  \nonumber \\
 
 
 Modular powers work in the same way as modular addition and modular multiplication:
-$$ 3^2 \equiv 9 \equiv 4 {\rm ~(mod~} 5). $$
+$$ 3^2 = 9 \equiv 4 {\rm ~(mod~} 5). $$
 Even consecutive powers work in the same way: 
 
 {\bf Example 1:}
-$$ (4^3)^2 \equiv 64^2 \equiv 4096 \equiv 1 {\rm ~(mod~} 5). $$
+$$ (4^3)^2 = 64^2 \equiv 4096 \equiv 1 {\rm ~(mod~} 5). $$
 \begin{quote}
 (1) We can speed up\footnote{The time required to calculate the multiplication 
 of two numbers normally depends on the length of the numbers.  We can observe
@@ -843,7 +851,7 @@ $(a^b)^c \equiv a^{b*c{\rm ~(mod~}J(m))}{\rm ~(mod~}m)$.
 
 {\bf Example 2:}
 $$
-3^{28} \equiv 3^{4\:*\:7} \equiv 3^{4\:*\:7{\rm ~(mod~}10)} \equiv 3^8 \equiv 6561 \equiv 5 {\rm ~(mod~}11).
+3^{28} = 3^{4\:*\:7} \equiv 3^{4\:*\:7{\rm ~(mod~}10)} \equiv 3^8 \equiv 6561 \equiv 5 {\rm ~(mod~}11).
 $$
 
 
@@ -1601,12 +1609,13 @@ $n$ was the product of two big and one relative small prime: $n=o*p*q.$
 With theorem \ref{J_of_p1..pk} we get:
 $J(n)= (o-1)*(p-1)*(q-1). $ This method did not assert itself yet.\\
 One reason probably is, that Compaq claimed a patent \index{Patent} on it. 
-Generally there is less understanding in Europe and with the Open Source Initiative
-\index{Open Source}, that one can claim patents on algorithms. But there is really
-no understanding outside the U.S., that one can get a patent for a special case 
-(3 factors) of an algorithm (RSA), although the patent for the general case is
-almost expired.}$^,$\footnote{If the two primes $p$ and $q$ are equal then $ (m^{e})^{d} \equiv m $ mod $n$ is not true for all $ m<n$ (although
-$ e*d \equiv 1$ mod $J(n)$ is fulfilled). 
+Generally there is less understanding in Europe and with the Open Source
+Initiative\index{Open Source}, that one can claim patents on algorithms.
+But there is really no understanding outside the U.S., that one can get
+a patent for a special case (3 factors) of an algorithm (RSA), although
+the patent for the general case is almost expired.}$^,$\footnote{If the
+two primes $p$ and $q$ are equal then $ (m^{e})^{d} \equiv m $ mod $n$ is
+not true for all $ m<n$ (although $ e*d \equiv 1$ mod $J(n)$ is fulfilled). 
 Example: If $ n=5^2$ then according to theorem \ref{thm-zth-phinum} it 
 is $J(n)=5*4=20, ~ e=3, ~ d=7, ~e*d=21\equiv 1$ mod $J(n).$ 
 But it is $ (5^3)^7\equiv 0 $ mod $ 25$. } $p$ and $q$ and calculate 
@@ -2987,14 +2996,14 @@ Coded in decimal notation, the text ``RSA works!'' is as follows: \\
 
 We will work through the example in 2 variants. The steps 1 to 3 are common for both.\par
 {\bf Key generation (steps 1 to 3)}: \label{SrcArith4b} \\
-{\bf 1.} $p=503, q=509 \quad (n= 256,027; \; J(n)=(p-1)(q-1)=255,016=2^3*127*251)$\footnote{%
+{\bf 1.} $p=503,~q=509 \quad (n= 256,027; \; J(n)=(p-1)(q-1)=255,016=2^3*127*251)$\footnote{%
 See \hyperlink{AppArith4b}{Appendix E of this chapter} for the source code to factorise
 the number $J(n)$ using Mathematica and Pari-GP.
 Using CrypTool\index{CrypTool} you can solve this with the 
 {\bf Indiv.Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} 
 Factorisation of a Number}.}. \\
-
-{\bf 2.} $e=65,537$ (should\footnote{%
+{\bf 2.} $e=65,537$ \\
+\strut\quad\ (should\footnote{%
                 See footnote \ref{foot:Selection-of-e} on page
                 \pageref{foot:Selection-of-e}.}
                 lie between $509$ and $255,015$ and must\footnote{%
@@ -3004,8 +3013,8 @@ Factorisation of a Number}.}. \\
        algorithm is used for the selected e to guarantee that
        ${\rm gcd}(e,J(n))=1$.
                  } be relatively prime to $255,016$).\\
-
-{\bf 3.} $d=231,953$ \\\strut\quad\ (since $e \equiv d^{-1}{\rm ~mod~}J(n): ~65,537*231,953 \equiv 15,201,503,761 \equiv 1
+{\bf 3.} $d=231,953$ \\
+\strut\quad\ (since $e \equiv d^{-1}{\rm ~mod~}J(n): ~65,537*231,953 \equiv 15,201,503,761 \equiv 1
 {\rm ~(mod~}255,016)$)\footnote{Other possible combinations of $(e,d)$ include: $(3, 170,011)$, $(5, 204,013)$, $(7, 36,431)$.}.
 
 

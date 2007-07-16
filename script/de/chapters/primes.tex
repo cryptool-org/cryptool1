@@ -7,7 +7,7 @@
 \hypertarget{Kapitel_2}{}
 \section{Primzahlen}
 \label{Label_Kapitel_2}  %Die Kapitelnr. von \label wird per per \ref geholt.
-(Bernhard Esslinger, Mai 1999; Updates: Nov. 2000, Dez. 2001, Juni 2003, Mai 2005, März 2006, Mai 2007)
+(Bernhard Esslinger, Mai 1999; Updates: Nov. 2000, Dez. 2001, Juni 2003, Mai 2005, März 2006, Juni 2007)
 
 \begin{center}
 \fbox{\parbox{15cm}{
@@ -1330,8 +1330,8 @@ C(4) = 2^{127} - 1 &      = 170. 141. 183. 460. 469. 231. 731. 687. 303. 715. 88
 \end{array}
 $$
 Ob $C_5$ bzw.\ alle höheren Elemente prim sind, ist (noch) nicht bekannt,
-aber auch nicht wahrscheinlich.
-Bewiesen ist jedenfalls nicht, dass diese Formel nur Primzahlen liefert.
+aber auch nicht wahrscheinlich. Bewiesen ist jedenfalls nicht, dass diese
+Formel nur Primzahlen liefert.
 
 
 
@@ -1340,21 +1340,39 @@ Bewiesen ist jedenfalls nicht, dass diese Formel nur Primzahlen liefert.
 \vskip +10 pt
 \subsection{Dichte und Verteilung der Primzahlen}
 
-Wie Euklid herausfand, gibt es unendlich viele Primzahlen. Einige unendliche Mengen sind aber
-{\em dichter} \index{Primzahl!Dichte} als andere. Innerhalb der natürlichen Zahlen gibt es unendlich viele gerade, ungerade und
-quadratische Zahlen.
+Wie Euklid herausfand, gibt es unendlich viele Primzahlen. Einige unendliche
+Mengen sind aber {\em dichter} \index{Primzahl!Dichte} als andere.
 
-Nach folgenden Gesichtspunkten gibt es mehr gerade Zahlen als quadratische:
+Innerhalb der natürlichen Zahlen gibt es unendlich viele gerade, ungerade
+und quadratische Zahlen. Wie man die \glqq Dichte'' zweier unendlicher Mengen
+vergleicht, soll kurz anhand der geraden und quadratischen Zahlen erläutert
+werden. 
+
+Nach folgenden Gesichtspunkten ist die Menge der geraden Zahlen dichter als
+die Menge der quadratischen Zahlen:\footnotemark
+   \footnotetext{%
+   Während in der Umgangssprache oft gesagt wird, es ~\glqq gibt mehr'' gerade
+   als quadratische Zahlen, sagen Mathematiker, dass es von beiden unendlich
+   viele gibt, dass ihre Mengen äquivalent zu $ \mathbb{N}$ sind
+   (also beide unendlich und abzählbar, d.h. man kann für jede gerade Zahl und
+   für jede quadratische Zahl eine natürliche Zahl angeben), dass aber die
+   Menge der geraden Zahlen dichter ist als die der quadratischen Zahlen.
+   Mathematiker haben für die Mächtigkeit von Mengen also sehr präzise
+   Formulierungen gefunden.
+   }
 \begin{itemize}
   \item die Größe des $n$-ten Elements: \\
-    Das $n$-te Element der geraden Zahlen ist $2n$; das $n$-te Element der Quadratzahlen ist $n^2$. Weil für
-    alle $n>2$ gilt: $2n < n^2$, kommt die $n$-te gerade Zahl viel früher als die $n$-te quadratische Zahl.
-    Daher sind die geraden Zahlen dichter verteilt, und wir können sagen, es gibt mehr gerade als
-    quadratische Zahlen.
-  \item die Anzahl der Werte, die kleiner oder gleich einem bestimmten {\em Dachwert} $x$ aus ${\mathbb R}$ ist: \\
-    Es gibt $[x/2]$ solcher gerader Zahlen und $[\sqrt{x}]$ Quadratzahlen. Da für große $x$ der
-    Wert $x/2$ viel größer ist als die Quadratwurzel aus $2$, können wir wiederum sagen, es gibt mehr
-    gerade Zahlen.
+    Das $n$-te Element der geraden Zahlen ist $2n$;
+    das $n$-te Element der Quadratzahlen ist $n^2$.
+    Weil für alle $n>2$ gilt: $2n < n^2$, kommt die $n$-te gerade Zahl viel
+    früher als die $n$-te quadratische Zahl.
+  \item die Anzahlen der Werte, die kleiner oder gleich einem bestimmten
+    {\em Dachwert} $x$ aus ${\mathbb R}$ sind: \\
+    Es gibt $\lfloor x/2 \rfloor$ solcher gerader Zahlen und
+    $\lfloor \sqrt{x} \rfloor$ Quadratzahlen.
+    Da für alle $x>6$ gilt, dass der Wert $\lfloor x/2 \rfloor$ größer ist als
+    die größte ganze Zahl kleiner oder gleich der Quadratwurzel aus $x$,
+    sind die geraden Zahlen dichter verteilt. %[x] = largest integer <= x
 \end{itemize}
 
 
@@ -2103,6 +2121,10 @@ Volumen des Universums (in $cm^3$)		&  $10^{84}$   = $(2^{280})$ \\ \hline
 \newpage
 \subsubsection{Spezielle Werte des Zweier- und Zehnersystems}
 
+Diese Werte können dazu benutzt werden, aus einer Schlüssellänge in Bit
+die Anzahl möglicher Schlüssel und den Such-Aufwand abzuschätzen (wenn man
+z.B. annimmt, dass 1 Million Schlüssel in 1 sec durchprobiert werden können).
+
 % be_2005 vorher nur getappt, nun als Tabelle mit Rahmen
 % \begin{tabbing}
 % DualSystem~~~ \= \kill
@@ -2127,6 +2149,7 @@ $2^{112}$ 	&   $5,19230\cdot 10^{33}$ \\
 $2^{128}$ 	&   $3,40282\cdot 10^{38}$ \\
 $2^{150}$ 	&   $1,42725\cdot 10^{45}$ \\
 $2^{160}$ 	&   $1,46150\cdot 10^{48}$ \\
+$2^{192}$ 	&   $6,27710\cdot 10^{57}$ \\
 $2^{250}$ 	&   $1,80925\cdot 10^{75}$ \\
 $2^{256}$ 	&   $1,15792\cdot 10^{77}$ \\
 $2^{320}$ 	&   $2,13599\cdot 10^{96}$ \\
@@ -2139,9 +2162,14 @@ $2^{2048}$ 	&   $3,23170\cdot 10^{616}$ \\ \hline
 \end{center}
 \end{table}
 
-Berechnung zum Beispiel per GMP:
-{\href{http://www.gnu.ai.mit.edu}{\tt http://www.gnu.ai.mit.edu}}.
-
+Solche Tabelle lassen sich einfach mit Computeralgebrasystemen berechnen.
+Hier ein Codebeispiel für das CAS-System Pari-GP\index{Pari-GP}:
+\vspace{-2ex}
+\begin{verbatim}
+v2=[56, 64, 80, 90, 112, 128, 192, 256];
+default(format,"e0.6");
+for ( i=1,8, o=v2[i]; print(o, " --- ", 1.*2^o) );
+\end{verbatim}
 
 
 % --------------------------------------------------------------------------

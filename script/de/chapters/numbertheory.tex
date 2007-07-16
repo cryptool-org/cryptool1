@@ -148,15 +148,16 @@ widersetzten sich die Lösungen zu den Problemen und die Beweise zu den Sätzen
 oft sehr lange den Mathematikern. Es ist also leicht, gute Fragen zu stellen,
 aber es ist ganz etwas anderes, die Antwort zu finden. Ein Beispiel dafür ist
 der sogenannte letzte (oder große) Satz von Fermat\footnote{Thema der
-	Schul-Mathematik ist der Satz von Pythagoras\index{Pythagoras!Satz von},
-	wo gelehrt wird, dass in einem
-	rechtwinkligen Dreieck gilt: $a^2 + b^2 = c^2$, wobei $a, b$ die
-	Schenkellängen sind und c die Länge der Hypothenuse ist. Fermats berühmte
-	Behauptung war, dass für ganzzahlige Exponenten $n > 2$ immer die
-	Ungleichheit $a^n + b^n \not= c^n$ gilt. Leider fand \index{Fermat!letzter
-	Satz} Fermat auf dem Brief, wo er die Behauptung aufstellte, nicht genügend
-	Platz, um den Satz zu beweisen. Der Satz konnte erst über 300 Jahre später
-	bewiesen werden \cite[S.  433-551]{Wiles1994}. \index{Wiles, Andrew}
+   Schul-Mathematik ist der Satz von Pythagoras\index{Pythagoras!Satz von},
+   wo gelehrt wird, dass in einem rechtwinkligen Dreieck gilt:
+   $a^2 + b^2 = c^2$, wobei $a, b$ die Schenkellängen sind und 
+   c die Länge der Hypothenuse ist.
+   Fermats berühmte Behauptung war, dass für $a,b,c \in \mathbb{N}$ und
+   für ganzzahlige Exponenten $n > 2$ immer die Ungleichheit
+   $a^n + b^n \not= c^n$ gilt.  Leider fand \index{Fermat!letzter
+   Satz} Fermat auf dem Brief, wo er die Behauptung aufstellte, nicht genügend
+   Platz, um den Satz zu beweisen. Der Satz konnte erst über 300 Jahre später
+   bewiesen werden \cite[S. 433-551]{Wiles1994}. \index{Wiles, Andrew}
 }.
 
 Bis zur Mitte des 20. Jahrhunderts wurde die Zahlentheorie als das reinste
@@ -585,7 +586,7 @@ Im folgenden werden
 \begin{itemize}
 \item die Additionstabelle\footnote{%
 Bemerkung zur Subtraktion modulo 5: \\
-      $2 - 4 \equiv -2 \equiv 3{\rm ~mod~}5.$\\
+      $2 - 4 = -2 \equiv 3{\rm ~mod~}5.$\\
       Es gilt modulo $5$ also nicht, dass $-2 = 2$ (siehe auch \hyperlink{Appendix_C}{Anhang C zu diesem Kapitel}). 
       } für ${\rm mod~ } 5$ und
 \item die Multiplikationstabellen\footnote{\label{ftn-mod6}%
@@ -895,13 +896,12 @@ a^{b+c} & = & a^b * a^c,  \nonumber \\
 
 Analog der modularen Addition und der modularen Multiplikation funktioniert
 das modulare Potenzieren:
-$$ 3^2 \equiv 9 \equiv 4 {\rm ~(mod~} 5). $$
+$$ 3^2 = 9 \equiv 4 {\rm ~(mod~} 5). $$
 Auch aufeinanderfolgendes Potenzieren geht analog: 
 
 {\bf Beispiel 1:}
-
 \begin{quote}
-$$ (4^3)^2 \equiv 64^2 \equiv 4096 \equiv 1 {\rm ~(mod~} 5). $$
+$$ (4^3)^2 = 64^2 \equiv 4096 \equiv 1 {\rm ~(mod~} 5). $$
 (1) Reduziert man bereits {\bf Zwischenergebnisse} modulo $5$, kann man
 schneller\footnote{%
 Die Rechenzeit der Multiplikation zweier Zahlen hängt normalerweise von der
@@ -944,7 +944,7 @@ $(a^b)^c \equiv a^{b*c{\rm ~(mod~}J(m))}{\rm ~(mod~}m)$.
 
 {\bf Beispiel 2:}
 $$
-3^{28} \equiv 3^{4\:*\:7} \equiv 3^{4\:*\:7{\rm ~(mod~}10)} \equiv 3^8 \equiv 6561 \equiv 5 {\rm ~(mod~}11).
+3^{28} = 3^{4\:*\:7} \equiv 3^{4\:*\:7{\rm ~(mod~}10)} \equiv 3^8 \equiv 6561 \equiv 5 {\rm ~(mod~}11).
 $$
 
 
@@ -3159,8 +3159,9 @@ Von Bob: $11 ^ y \equiv 285 {\rm ~(mod~}347)$, also $\log_{11}(285){\rm ~(mod~}3
 \hypertarget{Chapter_ElementaryNT_12}{}%ist wahrscheinlich redundant !
 \subsection{Das RSA-Verfahren mit konkreten Zahlen}
 \label{rsakonkret}\index{RSA}
-Nachdem oben die \hyperlink{RSA}{Funktionsweise des RSA-Verfahrens} beschrieben wurde, sollen diese 
-Schritte hier mit konkreten, aber kleinen Zahlen durchgeführt werden.
+Nachdem oben die \hyperlink{RSA}{Funktionsweise des RSA-Verfahrens} beschrieben
+wurde, sollen diese Schritte hier mit konkreten, aber kleinen Zahlen
+durchgeführt werden.
 
 
 % --------------------------------------------------------------------------
@@ -3181,7 +3182,7 @@ lösen.
                 teilerfremd zu $40$ sein).
   \item[\bf 3.] $d = 23$ (da $23*7 \equiv 161 \equiv 1{\rm ~(mod~}40)$)
   \begin{itemize} 
-     \item[] $\rightarrow$ Public Key des Senders: $(55, 7),$
+     \item[] $\rightarrow$ Public Key des Empfängers: $(55, 7),$
      \item[] $\rightarrow$ Private Key des Empfängers: $(55, 23).$ 
   \end{itemize}
   \item[\bf 4.] Nachricht sei nur die Zahl $M = 2$ (also ist kein
@@ -3314,7 +3315,7 @@ Der Text \glqq RSA works!'' bedeutet in Dezimalschreibweise codiert:
 Das Beispiel wird in 2 Varianten durchgespielt. Gemeinsam für beide sind die Schritte $1$ bis $3$.
 \vskip +10pt
 {\bf Schlüsselerzeugung (Schritt 1 bis 3):} \\\label{SrcArith4b}%
-{\bf 1.} $p=509, q=503 \quad (n= 256.027; \; ~J(n)=(p-1)*(q-1)=255.016=2^3*127*251)$\footnote{%
+{\bf 1.} $p=509,~q=503 \quad (n= 256.027; \; ~J(n)=(p-1)*(q-1)=255.016=2^3*127*251)$\footnote{%
 In \hyperlink{AppArith4b}{Anhang E zu diesem Kapitel} finden Sie den Quelltext zur Faktorisierung 
 von $J(n)$ mit Mathematica und Pari-GP. \\
 Mit CrypTool\index{CrypTool} können Sie dies per Menü
@@ -3329,7 +3330,8 @@ Mit CrypTool\index{CrypTool} können Sie dies per Menü
       Real wird $J(n)$ nicht faktorisiert, sondern für das gewählte $e$ wird
       mit dem Euklidschen Algorithmus sichergestellt, dass ggT$(e,J(n))=1$.
                 } teilerfremd zu $255.016$ sein).\\
-{\bf 3.} $d=231.953$ (denn $e \equiv d^{-1}{\rm ~mod~}J(n);$\\
+{\bf 3.} $d=231.953$ \\
+\strut\quad\ (denn $e \equiv d^{-1}{\rm ~mod~}J(n);$
 \mbox{}\quad $65.537*231.953 \equiv 15.201.503.761 \equiv 1
 {\rm ~(mod~}255.016))$\footnote{%
 Andere mögliche Kombinationen von (e,d) sind z.B.: (3, 170.011), (5, 204.013), (7, 36.431).
