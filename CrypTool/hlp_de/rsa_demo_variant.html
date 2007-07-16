@@ -18,23 +18,47 @@
 
 <h3>Dialog der Schwestern</h3>
 
-<P>Die Geschichte <A href="rsa_demo_variant.html">Der Dialog der Schwestern</A> [c't 
-			Heft 25/99] beschreibt eine Variante des RSA-Kryptosystems, die von Hand 
-			berechnet werden kann. Diese Variante kann, nachdem ein kleiner RSA-Schlüssel 
-			erzeugt wurde, unter <A href="hidd_options_rsa_demo.html">Optionen für Alphabet und 
-				Zahlensystem</A> eingestellt werden.</P>
+<P>Die Geschichte <A href="rsa_demo_variant.html">Der Dialog der Schwestern</A> [c't Heft 25/99] 
+beschreibt eine Variante des RSA-Kryptosystems, die von Hand berechnet werden kann. Diese Variante kann, 
+nachdem ein kleiner RSA-Schlüssel erzeugt wurde, unter <A href="hidd_options_rsa_demo.html">Optionen für 
+die RSA-Demo</A> eingestellt werden.</P>
 				
-<P>In der Geschichte "<A class="filelink" onclick="parser('DialogSchwestern.pdf')">Dialog der Schwestern</A>" wird das RSA-Verfahren vereinfacht dargestellt. Zunächst wird ein RSA-Modul N &gt; 27 aus 2 Primzahlen generiert. </P>
+<P>In der Geschichte <A class="filelink" onclick="parser('DialogSchwestern.pdf')">Dialog der Schwestern</A> wird das RSA-Verfahren vereinfacht dargestellt.<P>
 
-<P>Beispiel N = 13*7 = 91 mit der Eulerschen phi-Funktion phi(N) = 12*6 = 72. Als öffentlichen Exponenten wählen wir e = 5. Daraus berechnet sich der geheime Schlüssel d = 29. </P>
+<P>Beispiel: Zunächst wird ein RSA-Modul N &gt; 27 aus 2 Primzahlen generiert (innerhalb des Dialogs 
+<a href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">RSA-Demo</a>). Für N = 13*7 = 91 errechnet sich 
+die Eulersche phi-Funktion phi(N) = 12*6 = 72.<br>Als öffentlichen Exponenten wählen wir e = 5. Daraus 
+berechnet sich der geheime Schlüssel d = 29.</P>
 
-<P>Nachdem Sie die RSA-Parameter erzeugt haben, wählen Sie unter <A href="hidd_options_rsa_demo.html">Optionen für Alphabet und Zahlensystem</A> die Option "Dialog der Schwestern" mit dem Alphabet "ABCDEFGHIJKLMNOPQRSTUVWXYZ " (das Leerzeichen gehört zum Alphabet).</P>
+<P>Nachdem Sie innerhalb des Dialogs 
+<a href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">RSA-Demo</a> die RSA-Parameter erzeugt haben, 
+klicken Sie den Button <B>Optionen für Alphabet und Zahlensystem</B>. Im folgenden Dialog 
+<A href="hidd_options_rsa_demo.html">Optionen für die RSA-Demo</A> wählen Sie die RSA-Variante 
+<B>Dialog der Schwestern</B> mit dem Alphabet "ABCDEFGHIJKLMNOPQRSTUVWXYZ " (das Leerzeichen gehört zum 
+Alphabet). Nach dem Bestätigen schließt sich der Optionen-Dialog und Sie können in der RSA-Demo einen 
+Text eingeben.</P>
+
+<P>Als Beispieltext wird die Nachricht </P>
+
+<div class="indent">
+
+<P>"DIES IST EINE VERTRAULICHE NACHRICHT"</P>
+
+</div>
+
+<P>verschlüsselt:</P>
+
+<P><IMG SRC="images/rsa_demo_6.gif" ALT="rsa_demo_6.gif" BORDER=0></P>
+
+<P>bzw. entschlüsselt:</P>
+
+<P><IMG SRC="images/rsa_demo_7.gif" ALT="rsa_demo_7.gif" BORDER=0></P>
 
 <P>Die Codierung der Buchstaben "A, B, C, ..., Z" sowie das Leerzeichen ' ' erfolgt in Zahlen:</P>
 
 <div class="indent">
 
-<TABLE cols=2 width="0*" class="pad20">
+<TABLE cols=2 width="0*" class="pad20" ID="Table1">
 
 <TR VALIGN="top">
 <TD>A ---&gt; 1</TD>
@@ -107,25 +131,15 @@
 
 <P>Ohne die zufällige Zahl r gäbe es nur 27 verschiedene Ciphertext-Zahlen und das Verfahren wäre wie eine monoalphabetische Substitution mit den 27 verschiedenen Werten über eine Häufigkeitsanalyse leicht anzugreifen.</P>
 
-<P>In dem folgenden Beispiel wird die Nachricht </P>
-
-<div class="indent">
-
-<P>"DIES IST EINE VERTRAULICHE NACHRICHT"</P>
-
-</div>
-
-<P>verschlüsselt:</P>
-
-<P><IMG SRC="images/rsa_demo_6.gif" ALT="rsa_demo_6.gif" BORDER=0></P>
-
-<P>bzw. entschlüsselt:</P>
-
-<P><IMG SRC="images/rsa_demo_7.gif" ALT="rsa_demo_7.gif" BORDER=0></P>
-
-<P><B>Bemerkung:</B></P>
+<P><B>Bemerkung 1:</B></P>
 
 <P>Sie sehen hier eine andere Zahlenfolge als Chiffretext als im vorhergehenden Bild, obwohl beide zum selben Klartext gehören und beide mit demselben Schlüsselpaar erzeugt wurden. Dies liegt daran, dass das Chiffrat mit verschiedenen zufällig gewählten Werten von r erzeugt wurde.</P>
+
+<P><B>Bemerkung 2:</B></P>
+
+<P>Wenn Sie Nicht-Alphabetzeichen als Input angeben (z.B. gehören die Kleinbuchstaben nicht zu dem oben 
+angegebenen 27-elementigen Alphabet), werden diese nicht verschlüsselt.</P>
+
 
 </BODY>
 </HTML>
