@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -2165,10 +2165,10 @@ BEGIN
     PUSHBUTTON      "&Details",IDC_BUTTON1,266,244,76,16
 END
 
-IDD_OPTIONS_RSA_DEMO DIALOG  0, 0, 292, 300
+IDD_OPTIONS_RSA_DEMO DIALOGEX 0, 0, 292, 300
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Optionen für die RSA-Verschlüsselung"
-FONT 8, "MS Sans Serif"
+CAPTION "Optionen für die RSA-Demo"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,274,50,18
     CONTROL         "Alle 256 Zeichen",IDC_RADIO1,"Button",
@@ -11821,12 +11821,12 @@ BEGIN
                             "Bei der Brute-Force-Analyse wurde für jeden Schlüssel die Nachricht entschlüsselt und ein Entropiewert bestimmt. Die Entschlüsselten Informationen mit den niedrigsten Entropiewerten sind hier aufgeführt. Gerade bei sehr kurze Nachrichten kann es sein, dass es mehrere Kandidaten für die richtige Entschlüsselung gibt. Sie haben hier die Möglichkeit die passende Nachricht auszuwählen."
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -14010,7 +14010,7 @@ END
 
 IDD_OPTIONS_RSA_DEMO DIALOGEX 0, 0, 291, 298
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Options for RSA Encryption"
+CAPTION "Options for the RSA Demonstration"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,274,50,18
@@ -23735,7 +23735,7 @@ BEGIN
                             "Bei der Brute-Force-Analyse wurde für jeden Schlüssel die Nachricht entschlüsselt und ein Entropiewert bestimmt. Die Entschlüsselten Informationen mit den niedrigsten Entropiewerten sind hier aufgeführt. Gerade bei sehr kurze Nachrichten kann es sein, dass es mehrere Kandidaten für die richtige Entschlüsselung gibt. Sie haben hier die Möglichkeit die passende Nachricht auszuwählen."
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
