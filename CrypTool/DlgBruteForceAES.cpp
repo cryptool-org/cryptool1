@@ -186,10 +186,21 @@ int CDlgBruteForceAES::Step(int parity_check)
 	if (parity_check) // For DES variants
 	{  // note: 1. lower half byte ((m_mask[i] %2) == TRUE) contains the parity bit (least significant bit)
 	   //       2. Step() ignores parity checks as the des implementations ignores them too
+#if 0
 		while ( ((j = m_mask[i]) >= 0)
 			&& (   ( !(m_mask[i] % 2) &&  incWithCarry(m_data[j]) )
 			    || (  (m_mask[i] % 2) && (incWithCarry(m_data[j]) || incWithCarry(m_data[j])) ) ) )
 			i++;
+#else
+		while ( (j = m_mask[i]) >= 0
+			&&  j % 2 == 0 
+				? incWithCarry(m_data[j]) 
+				: (incWithCarry(m_data[j]) || incWithCarry(m_data[j])) )
+		{
+			ASSERT( j < sizeof(m_data));
+			i++;
+		}
+#endif
 	}
 	else
 	{
@@ -248,8 +259,10 @@ void CDlgBruteForceAES::UpdateDataMask()
 	char c;
 	CString res;
 
+#if 0
 	for (i=0;i<64;i++)
 		m_data[i]='0';
+#endif
 	for(k=i=num=l=j=0;i<m_text.GetLength();i++)
 	{
 		c = m_text[i];
@@ -267,12 +280,19 @@ void CDlgBruteForceAES::UpdateDataMask()
 	ASSERT(l < sizeof(m_mask)/sizeof(int));
 	m_mask[l] = -1;
 	m_state = -1;
+#if 0
 	if(j == 0) m_len=0;
+	else if(j <= 16) m_len = 8;
 	else if(j <= 32) m_len = 16;
 	else if(j <= 48) m_len = 24;
 	else m_len = 32;
 	m_data[m_len<<1]=0;
-
+#else
+	ASSERT(j < sizeof(m_data));
+	m_data[j] = 0;
+	ASSERT(j % 2 == 0);
+	m_len = j/2;
+#endif
 }
 
 void CDlgBruteForceAES::OnOK() 

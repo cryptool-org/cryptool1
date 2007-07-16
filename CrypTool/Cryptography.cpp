@@ -3762,7 +3762,7 @@ void SymmetricEncryption(int AlgId, cryptProvider provider,
 
 UINT SymmetricBruteForce(PVOID p)
 {
-// Initialise fast entropy computation
+// 
 	int windowlen = theApp.Options.m_BFEntropyWindow;
 	int r = 0, skip_parity = 0;
 
@@ -3856,12 +3856,12 @@ UINT SymmetricBruteForce(PVOID p)
 	}
 
 //	precomputations for fast entropy calculation
-	double entr, f;
+	double entr;
 	double *xlogx = new double[datalen + 1];
 	if (!xlogx) return 0;
 	xlogx[0] = 0.0;
 	for (int i = 1; i <= datalen; i++) 
-		xlogx[i] = -1.0 * (f = i) * log(f/double(datalen))/log(2.0);
+		xlogx[i] = -1.0 * i * log(i/double(datalen))/log(2.0);
 
 
 //  brute force
@@ -3879,12 +3879,12 @@ UINT SymmetricBruteForce(PVOID p)
 		{
 			if(theApp.fs.m_canceled)
 			{
-				theApp.fs.cancel();
+				// theApp.fs.cancel();
 				break;
 			}
 		}
 
-		char *plain = brute->decrypt(KeyDialog.GetData());
+ 		char *plain = brute->decrypt(KeyDialog.GetData());
 
 		if ( theApp.Options.i_alphabetOptions )
 		{
@@ -3910,7 +3910,8 @@ UINT SymmetricBruteForce(PVOID p)
 		if ( candidates.check_add( entr ) )
 			candidates.add_candidate( entr, KeyDialog.GetData(), plain, brute->decrypted_bytes );
 	}
-
+	
+	//theApp.fs.m_displayed = false;
 
 	if ( !candidates.heapsize )
 	{

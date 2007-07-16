@@ -55,7 +55,7 @@ BOOL CListResults::OnInitDialog()
 
 	for ( int i=0; i<clist_size; i++)
 	{
-		char str[256], strhex[256*3-1];
+		char str[256+1], strhex[256*3];
 		sprintf(str, "%3.4f", clist[i].entropy);
 		resultListCtrl.InsertItem(i, str);
 		str[0] = strhex[0] = '\0';
@@ -64,9 +64,9 @@ BOOL CListResults::OnInitDialog()
 			str[j] = ( (unsigned char)clist[i].plain[j] >= 32 && (unsigned char)clist[i].plain[j] < 128 ) ? clist[i].plain[j] : '.';
 			sprintf(strhex+3*j, "%02X ", (unsigned char)clist[i].plain[j]);
 		}
+		str[j] = '\0';
 		resultListCtrl.SetItemText(i,1, strhex);
 		resultListCtrl.SetItemText(i,2, str);
-
 	}
 
 	return TRUE;  // return TRUE unless you set the focus to a control
