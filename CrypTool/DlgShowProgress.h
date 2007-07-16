@@ -77,6 +77,7 @@ public:
 	void cancel( void );
 	int m_displayed;
 	int m_canceled;
+	CEvent pEvent;
 	
 	// old interface
 	int Set(int pos);

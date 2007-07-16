@@ -3910,7 +3910,9 @@ UINT SymmetricBruteForce(PVOID p)
 		if ( candidates.check_add( entr ) )
 			candidates.add_candidate( entr, KeyDialog.GetData(), plain, brute->decrypted_bytes );
 	}
-	
+
+	if(par->flags & CRYPT_DO_PROGRESS) theApp.fs.cancel();
+	WaitForSingleObject( theApp.fs.pEvent.m_hObject, INFINITE );
 	//theApp.fs.m_displayed = false;
 
 	if ( !candidates.heapsize )

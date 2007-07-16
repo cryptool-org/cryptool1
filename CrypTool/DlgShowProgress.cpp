@@ -196,6 +196,7 @@ void CDlgShowProgress::OnCancel()
 	CDialog::OnCancel();
 	DestroyWindow();
 	m_displayed=0;
+	pEvent.SetEvent();
 	Lock.Unlock();
 }
 

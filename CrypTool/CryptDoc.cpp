@@ -96,6 +96,7 @@ statement from your version.
 #include ".\cryptdoc.h"
 
 #include "ECIESMain.h"
+#include "bruteforceheap.h"
 
 
 
@@ -171,6 +172,7 @@ void CCryptDoc::SymCryptBruteForce( int AlgID, cryptProvider provider, int keyle
 	para->keylenmin = keylen_min;
 	para->keylenmax = keylen_max;
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
+	para->result = NULL;
 	theApp.OpenBGFlag = 1;
     AfxBeginThread( SymmetricBruteForce, ((void *) para) );
 }
