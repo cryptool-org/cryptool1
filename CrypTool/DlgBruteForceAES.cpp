@@ -138,19 +138,21 @@ int CDlgBruteForceAES::GetBinlen()
 
 int CDlgBruteForceAES::GetSearchBitLen()
 {
-	int n = 0;
-	while (m_mask[n] >= 0)
-		n++;
-	return n * 4;
+	int n;
+	int bits = 0;
+	for (n = 0; m_mask[n] >= 0; n++)
+		bits += (m_parity_check && m_mask[n]%2) ? 3 : 4;
+	return bits;
 }
 
-int CDlgBruteForceAES::Display(char *titel,int keylenmin,int keylenmax, int keylenstep)
+int CDlgBruteForceAES::Display(char *titel,int keylenmin,int keylenmax, int keylenstep, int parity_check)
 {
 	int res;
 	m_alg = titel;
 	m_keylenmin = keylenmin;
 	m_keylenmax = keylenmax;
 	m_keylenstep = keylenstep;
+	m_parity_check = parity_check;
 	res=DoModal();
 	return res;
 }
@@ -165,9 +167,19 @@ double CDlgBruteForceAES::getProgress()
 	int i = 0;
 	while (m_mask[i] >= 0) {
 		//char c = *(m_mask[i++]);
-		char c = m_data[m_mask[i++]];
-		p += c >= 'A' ? c - 'A' + 10 : c - '0';
-		p /= 16.0;
+		char c = m_data[m_mask[i]];
+		//  p += c >= 'A' ? c - 'A' + 10 : c - '0';
+		if ( m_parity_check && (m_mask[i] % 2) )
+		{
+			p += (c >= 'A' ? c - 'A' + 10 : c - '0')/2;
+			p /= 8.0;
+		}
+		else
+		{
+			p += c >= 'A' ? c - 'A' + 10 : c - '0';
+			p /= 16.0;
+		}
+		i++;
 	}
 	return p;
 }
@@ -175,7 +187,7 @@ double CDlgBruteForceAES::getProgress()
 
 #define incWithCarry(p) (((p) = m_hexinc[(p)]) == '0')
 		
-int CDlgBruteForceAES::Step(int parity_check)
+int CDlgBruteForceAES::Step()
 {
 	if (m_state < 0) {
 		m_state = 1;
@@ -183,7 +195,7 @@ int CDlgBruteForceAES::Step(int parity_check)
 	}
 	int i = 0;
 	int j;
-	if (parity_check) // For DES variants
+	if (m_parity_check) // For DES variants
 	{  // note: 1. lower half byte ((m_mask[i] %2) == TRUE) contains the parity bit (least significant bit)
 	   //       2. Step() ignores parity checks as the des implementations ignores them too
 #if 0
@@ -243,7 +255,7 @@ BOOL CDlgBruteForceAES::OnInitDialog()
 	m_keylen_ctl.ResetContent();
 	for (int b = m_keylenmin; b <= m_keylenmax; b += m_keylenstep) {
 		CString s;
-		s.Format("%d",b);
+		s.Format("%d", m_parity_check ? 7*b/8 : b);
 		m_keylen_ctl.AddString(s);
 	}
 	m_keylen_ctl.SetCurSel(0);

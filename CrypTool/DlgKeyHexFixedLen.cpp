@@ -101,12 +101,13 @@ void CDlgKeyHexFixedLen::OnChangeKeyLen()
 	m_key_ctl.SetFixedByteLength(targetbits / 8);
 }
 
-void CDlgKeyHexFixedLen::Init(CString title, int keylenmin, int keylenmax, int keylenstep)
+void CDlgKeyHexFixedLen::Init(CString title, int keylenmin, int keylenmax, int keylenstep, int parity_check)
 {
 	m_title = title;
 	m_keylenmin = keylenmin;
 	m_keylenmax = keylenmax;
 	m_keylenstep = keylenstep;
+	m_parity_check = parity_check;
 }
 
 char * CDlgKeyHexFixedLen::GetKeyBytes()
@@ -130,7 +131,7 @@ BOOL CDlgKeyHexFixedLen::OnInitDialog()
 	m_key_len_ctl.ResetContent();
 	for (int b = m_keylenmin; b <= m_keylenmax; b += m_keylenstep) {
 		CString s;
-		s.Format("%d",b);
+		s.Format("%d", m_parity_check ? 7*b/8 : b);
 		m_key_len_ctl.AddString(s);
 	}
 	m_key_len_ctl.SetCurSel(0);

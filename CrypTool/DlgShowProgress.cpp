@@ -175,6 +175,7 @@ BOOL CDlgShowProgress::OnInitDialog()
 	m_old_pos=-1;
 	m_displayed=1;
 	m_canceled = 0;
+	pEvent.ResetEvent();
 	SetTimer(43,250,NULL);
 	Lock.Unlock();
 

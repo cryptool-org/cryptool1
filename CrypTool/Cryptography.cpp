@@ -3693,15 +3693,15 @@ void SymmetricEncryption(int AlgId, cryptProvider provider,
 		case IDS_CRYPT_DESL:
 		case IDS_CRYPT_DES_CBC:
 		case IDS_CRYPT_DES_ECB:
-			KeyDialog.Init(Title,64,64,64);
+			KeyDialog.Init(Title,64,64,64,1);
 			break;
 		case IDS_CRYPT_TRIPLE_DES_CBC:
 		case IDS_CRYPT_TRIPLE_DES_ECB:
-			KeyDialog.Init(Title,128,128,128);
+			KeyDialog.Init(Title,128,128,128,1);
 			break;
 		case IDS_CRYPT_DESX:
 		case IDS_CRYPT_DESXL:
-			KeyDialog.Init(Title,192,192,192);
+			KeyDialog.Init(Title,192,192,192,1);
 			break;
 		case IDS_CRYPT_IDEA:
 			KeyDialog.Init(Title,128,128,128);
@@ -3795,7 +3795,18 @@ UINT SymmetricBruteForce(PVOID p)
 	AlgTitle.LoadString(info->AlgId);
 
 	CDlgBruteForceAES KeyDialog;
-	if(KeyDialog.Display(AlgTitle.GetBuffer(),par->keylenmin,par->keylenmax,par->keylenstep)!=IDOK)
+
+//	Skip parity bits during enumeration (i.e. DES variants)
+	if ( info->AlgId == IDS_CRYPT_DES_CBC ||
+		 info->AlgId == IDS_CRYPT_DES_ECB ||
+		 info->AlgId == IDS_CRYPT_TRIPLE_DES_CBC ||
+		 info->AlgId == IDS_CRYPT_TRIPLE_DES_ECB ||
+		 info->AlgId == IDS_CRYPT_DESL ||
+		 info->AlgId == IDS_CRYPT_DESX ||
+		 info->AlgId == IDS_CRYPT_DESXL )
+		skip_parity = 1;
+
+	if(KeyDialog.Display(AlgTitle.GetBuffer(),par->keylenmin,par->keylenmax,par->keylenstep,skip_parity)!=IDOK)
 	{
 		if(par->flags & CRYPT_DO_WAIT_CURSOR)
 			HIDE_HOUR_GLASS
@@ -3831,16 +3842,6 @@ UINT SymmetricBruteForce(PVOID p)
 		theApp.fs.Display();
 	}
 
-//	Skip parity bits during enumeration (i.e. DES variants)
-	if ( info->AlgId == IDS_CRYPT_DES_CBC ||
-		 info->AlgId == IDS_CRYPT_DES_ECB ||
-		 info->AlgId == IDS_CRYPT_TRIPLE_DES_CBC ||
-		 info->AlgId == IDS_CRYPT_TRIPLE_DES_ECB ||
-		 info->AlgId == IDS_CRYPT_DESL ||
-		 info->AlgId == IDS_CRYPT_DESX ||
-		 info->AlgId == IDS_CRYPT_DESXL )
-		skip_parity = 1;
-
 //  Build alphabet set
 	int alphaSet[256];
 	for (int i=0; i<256; i++)
@@ -3853,6 +3854,8 @@ UINT SymmetricBruteForce(PVOID p)
 			case 2: alphaSet[i] = ( 0 <= theApp.TextOptions.m_alphabet.Find((char)i) ) ? 1 : 0;
 				break;
 		}
+		if ( i == (int)'\0' || i == (int)'\n' || i == (int)'\r' || i == (int)'\t' )
+			alphaSet[i] = 1;
 	}
 
 //	precomputations for fast entropy calculation
@@ -3873,7 +3876,7 @@ UINT SymmetricBruteForce(PVOID p)
 	int distr[256];
 	theApp.fs.startClock();
 
-	while (KeyDialog.Step(skip_parity))    // next key
+	while (KeyDialog.Step())    // next key
 	{           
 		if(par->flags & CRYPT_DO_PROGRESS)
 		{
@@ -3904,9 +3907,19 @@ UINT SymmetricBruteForce(PVOID p)
 		for(i=0;i<brute->decrypted_bytes;i++)
 			distr[(unsigned char) plain[i]]++;
 		entr = 0.0;
-		for(i = 0; i<256; i++)
-			entr += xlogx[distr[i]];
+		i = 0; 
+		while (i<256) {
+			entr += xlogx[distr[i++]];
+			entr += xlogx[distr[i++]];
+			entr += xlogx[distr[i++]];
+			entr += xlogx[distr[i++]];
+			entr += xlogx[distr[i++]];
+			entr += xlogx[distr[i++]];
+			entr += xlogx[distr[i++]];
+			entr += xlogx[distr[i++]];
+		}
 		entr /= (double)datalen;
+
 		if ( candidates.check_add( entr ) )
 			candidates.add_candidate( entr, KeyDialog.GetData(), plain, brute->decrypted_bytes );
 	}

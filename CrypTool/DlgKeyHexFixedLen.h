@@ -62,7 +62,7 @@ public:
 	virtual bool ModeIsDecrypt();
 	virtual int GetKeyByteLength();
 	virtual char * GetKeyBytes();
-	virtual void Init(CString title, int keylenmin, int keylenmax, int keylenstep);
+	virtual void Init(CString title, int keylenmin, int keylenmax, int keylenstep, int parity_check = 0);
 	CDlgKeyHexFixedLen(CWnd* pParent = NULL);   // Standardkonstruktor
 
 // Dialogfelddaten
@@ -89,6 +89,7 @@ protected:
 	CFont m_font; // font for m_key_ctl
 	bool m_modeisdecrypt; // available after DoModal has finished
 	CString m_key_formatted; // available after DoModal has finished
+	int m_parity_check;
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgKeyHexFixedLen)
 	afx_msg void OnChangeKeyLen();

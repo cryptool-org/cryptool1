@@ -69,14 +69,15 @@ public:
 	int m_state; // -1: initially, 1: after first Step, 0: after last Step
 	int m_len;
 	int m_text_len;
+	int m_parity_check;
 	CString m_alg;
-	int Display(char *titel,int keylenmin,int keylenmax, int keylenstep);
+	int Display(char *titel,int keylenmin,int keylenmax, int keylenstep, int _parity_check = 0);
 	int GetLen();
 	int GetBinlen();
 	int GetSearchBitLen();
 	char *GetData();
 	void GetDataInt(char *);
-	int Step(int parity_check = 0); // set next key if not finished, otherwise return false
+	int Step(); // set next key if not finished, otherwise return false
 	virtual double getProgress(); // 0.0 <= result <= 1.0
 
 // Dialogfelddaten
