@@ -3953,8 +3953,6 @@ UINT SymmetricBruteForce(PVOID p)
 
 	delete brute;
 
-	if(par->flags & CRYPT_DO_PROGRESS) theApp.fs.cancel();
-
 	par->flags |= CRYPT_DONE;
 	FreePar(par);
 
