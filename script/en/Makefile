@@ -9,6 +9,8 @@ all: pdf
 
 pdf: $(PDF)
 dvi: $(DVI)
+pdf1:
+	echo q | pdflatex $(TEX) | tail
 
 $(PDF): $(SRC) style.ist
 	echo q | pdflatex $(TEX) | tail -2
