@@ -17491,8 +17491,8 @@ BEGIN
     BEGIN
         POPUP "&PKI"
         BEGIN
-            MENUITEM "&Key Generation/Import...",   ID_CRYPT_KeyGen
-            MENUITEM "&Key Display/Export...",      ID_SHOW_ALL_EC_KEYS
+            MENUITEM "&Generate/Import Keys...",   ID_CRYPT_KeyGen
+            MENUITEM "&Display/Export Keys...",      ID_SHOW_ALL_EC_KEYS
         END
         MENUITEM "&Sign Document...",           ID_CRYPT_SIGN, GRAYED
         MENUITEM "&Verify Signature...",        ID_CRYPT_VERIFY, GRAYED
@@ -17909,8 +17909,8 @@ BEGIN
     BEGIN
         POPUP "&PKI"
         BEGIN
-            MENUITEM "&Generation/Import keys",     ID_CRYPT_KeyGen
-            MENUITEM "&Display/Export keys",        ID_SHOW_ALL_EC_KEYS
+            MENUITEM "&Generate/Import Keys...",     ID_CRYPT_KeyGen
+            MENUITEM "&Display/Export Keys...",        ID_SHOW_ALL_EC_KEYS
         END
         MENUITEM "&Sign Document...",           ID_CRYPT_SIGN
         MENUITEM "&Verify Signature...",        ID_CRYPT_VERIFY
@@ -18319,8 +18319,8 @@ BEGIN
     BEGIN
         POPUP "&PKI"
         BEGIN
-            MENUITEM "&Key Generation/Import...",   ID_CRYPT_KeyGen
-            MENUITEM "&Key Display/Export...",      ID_SHOW_ALL_EC_KEYS
+            MENUITEM "&Generate/Import Keys...",   ID_CRYPT_KeyGen
+            MENUITEM "&Display/Export Keys...",      ID_SHOW_ALL_EC_KEYS
         END
         MENUITEM "&Sign Document...",           ID_CRYPT_SIGN, GRAYED
         MENUITEM "&Verify Signature...",        ID_CRYPT_VERIFY, GRAYED
@@ -18736,8 +18736,8 @@ BEGIN
     BEGIN
         POPUP "&PKI"
         BEGIN
-            MENUITEM "&Key Generation/Import...",   ID_CRYPT_KeyGen
-            MENUITEM "&Key Display/Export...",      ID_SHOW_ALL_EC_KEYS
+            MENUITEM "&Generate/Import Keys...",   ID_CRYPT_KeyGen
+            MENUITEM "&Display/Export Keys...",      ID_SHOW_ALL_EC_KEYS
         END
         MENUITEM "&Sign Document...",           ID_CRYPT_SIGN
         MENUITEM "&Verify Signature...",        ID_CRYPT_VERIFY
@@ -19171,8 +19171,8 @@ BEGIN
     BEGIN
         POPUP "&PKI"
         BEGIN
-            MENUITEM "&Key Generation/Import...",   ID_CRYPT_KeyGen
-            MENUITEM "&Key Display/Export...",      ID_SHOW_ALL_EC_KEYS
+            MENUITEM "&Generate/Import Keys...",   ID_CRYPT_KeyGen
+            MENUITEM "&Display/Export Keys...",      ID_SHOW_ALL_EC_KEYS
         END
         MENUITEM "&Sign Document...",           ID_CRYPT_SIGN, GRAYED
         MENUITEM "&Verify Signature...",        ID_CRYPT_VERIFY, GRAYED
