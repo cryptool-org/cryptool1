@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -5578,18 +5578,18 @@ BEGIN
                     IDC_STATIC,20,44,260,16
 END
 
-IDD_LIST_RESULTS DIALOGEX 0, 0, 434, 199
+IDD_LIST_RESULTS DIALOGEX 0, 0, 434, 220
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Ergebnisse der Brute-Force-Analyse"
+CAPTION "Ergebnisse der Brute-Force Analyse"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Auswahl &übernehmen",IDOK,284,172,76,20
-    PUSHBUTTON      "&Abbruch",IDCANCEL,374,172,53,20
+    DEFPUSHBUTTON   "Auswahl &übernehmen",IDOK,276,193,84,20
+    PUSHBUTTON      "&Abbruch",IDCANCEL,374,193,53,20
     CONTROL         "",IDC_LIST4,"SysListView32",LVS_REPORT | LVS_SINGLESEL | 
                     LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | 
-                    WS_TABSTOP,7,42,420,122
-    LTEXT           "Static",IDC_HEADER,7,7,420,33
+                    WS_TABSTOP,7,55,420,129
+    LTEXT           "Static",IDC_HEADER,7,7,420,47
 END
 
 IDD_ADFGVX_SHORTENED_PASSWORD DIALOGEX 0, 0, 235, 124
@@ -9265,8 +9265,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 427
         TOPMARGIN, 7
-        BOTTOMMARGIN, 192
-        HORZGUIDE, 172
+        BOTTOMMARGIN, 213
     END
 
     IDD_ADFGVX_SHORTENED_PASSWORD, DIALOG
@@ -11818,15 +11817,15 @@ BEGIN
     IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT 
                             "Zeilen-Spalten Matrix-Vektorprodukt"
     IDS_LISTBRUTEFORCECANDIDATES_HEADER 
-                            "Bei der Brute-Force-Analyse wurde für jeden Schlüssel die Nachricht entschlüsselt und ein Entropiewert bestimmt. Die Entschlüsselten Informationen mit den niedrigsten Entropiewerten sind hier aufgeführt. Gerade bei sehr kurze Nachrichten kann es sein, dass es mehrere Kandidaten für die richtige Entschlüsselung gibt. Sie haben hier die Möglichkeit die passende Nachricht auszuwählen."
+                            "Die Brute-Force Analyse entschlüsselte das Chiffrat mit allen möglichen Schlüssel aus dem selektierten Schlüsselraum und bestimmte dann für jede entschlüsselte Nachricht den Entropiewert. Diese Liste enthält die entschlüsselten Nachrichten mit den niedrigsten Entropiewerten.\nGerade bei sehr kurzen Chiffraten kann es sein, dass es falsche Kandidaten mit einem kleinen Entropiewert gibt. Sie haben hier die Möglichkeit, den Kandidaten mit der richtigen Entschlüsselung auszuwählen."
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -17313,18 +17312,18 @@ BEGIN
                     IDC_STATIC,20,44,260,16
 END
 
-IDD_LIST_RESULTS DIALOGEX 0, 0, 434, 199
+IDD_LIST_RESULTS DIALOGEX 0, 0, 434, 211
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Brute Force Analysis - Results"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Accept selection",IDOK,284,172,76,20
-    PUSHBUTTON      "&Cancel",IDCANCEL,374,172,53,20
+    DEFPUSHBUTTON   "&Accept selection",IDOK,284,184,76,20
+    PUSHBUTTON      "&Cancel",IDCANCEL,374,184,53,20
     CONTROL         "",IDC_LIST4,"SysListView32",LVS_REPORT | LVS_SINGLESEL | 
                     LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | 
-                    WS_TABSTOP,7,42,420,122
-    LTEXT           "Static",IDC_HEADER,7,7,420,33
+                    WS_TABSTOP,7,45,420,131
+    LTEXT           "Static",IDC_HEADER,7,7,420,38
 END
 
 IDD_ADFGVX_SHORTENED_PASSWORD DIALOGEX 0, 0, 235, 124
@@ -21238,8 +21237,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 427
         TOPMARGIN, 7
-        BOTTOMMARGIN, 192
-        HORZGUIDE, 172
+        BOTTOMMARGIN, 204
     END
 
     IDD_ADFGVX_SHORTENED_PASSWORD, DIALOG
@@ -23732,10 +23730,10 @@ STRINGTABLE
 BEGIN
     IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT "row*column matrix*vector product"
     IDS_LISTBRUTEFORCECANDIDATES_HEADER 
-                            "Bei der Brute-Force-Analyse wurde für jeden Schlüssel die Nachricht entschlüsselt und ein Entropiewert bestimmt. Die Entschlüsselten Informationen mit den niedrigsten Entropiewerten sind hier aufgeführt. Gerade bei sehr kurze Nachrichten kann es sein, dass es mehrere Kandidaten für die richtige Entschlüsselung gibt. Sie haben hier die Möglichkeit die passende Nachricht auszuwählen."
+                            "The brute-force analysis decrypted the given ciphertext with all possible keys out of the selected key space and then calculated for each decrypted message the entropy value. This list contains the decrypted messages with the lowest entropy values.\nEspecially in case of very short ciphertexts it could be, that there are wrong candidates with a small entropy value. Here you have the opportunity to select the candidate with the correct decryption."
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
