@@ -94,7 +94,6 @@ CDlgAbout::CDlgAbout(CWnd* pParent /*=NULL*/)
 	
 }
 
-
 void CDlgAbout::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);

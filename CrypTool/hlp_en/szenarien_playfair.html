@@ -96,7 +96,7 @@ letters A to Z, where J is taken out.</P>
 <P>1.4 When you push the button <B>Encrypt</B> the Playfair key entry dialog will be closed and two 
 windows are opened: one with the pre-processed plain text and another with the encrypted text:</P>
 
-<P><IMG SRC="images/playfairpreformatandencryption.gif" ALT="playfairpreformatandencryption.gif" BORDER=0></P>
+<P><IMG SRC="images/playfairpreformatandencryption.gif" ALT="playfairpreformatandencryption.gif" BORDER=0 width="91%"></P>
 
 <UL>
 	<LI>The pre-processing step removes all characters from the clear text that are not part of the 
@@ -113,68 +113,100 @@ windows are opened: one with the pre-processed plain text and another with the e
 <P>1.5 Now, let us manually encrypt the pre-processed plain text <B><CODE>CRYPTOXOLIST</CODE></B>. The 
 following key matrix rectangles have to be considered:</P>
 
-<div style="text-align:center">
-
-<TABLE cols=4 width="0*" class="pad10" >
-
-<TR VALIGN="top">
-<TD>plaintext</TD>
-<TD>&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD>encrypted</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD>di-gram</TD>
-<TD>rectangle</TD>
-<TD>dimension</TD>
-<TD>di-gram </TD>
-</TR>
-
-<TR VALIGN="top">
-<TD>CR</TD>
-<TD>C,K,R,X</TD>
-<TD>1</TD>
-<TD>KX</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD>YP</TD>
-<TD>Y,V,P,A</TD>
-<TD>2</TD>
-<TD>VA</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD>TO</TD>
-<TD>T,N,O,D</TD>
-<TD>2</TD>
-<TD>ND</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD>XO</TD>
-<TD>X,V,O,C</TD>
-<TD>2</TD>
-<TD>VC</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD>LI</TD>
-<TD>L,M,I,K</TD>
-<TD>1</TD>
-<TD>MK</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD>ST</TD>
-<TD>S,A,T,U</TD>
-<TD>2</TD>
-<TD>AU</TD>
-</TR>
-</TABLE><BR>
-
-</div>
+<div style="TEXT-ALIGN:left">
+			<table border="0" ID="Table1">
+				<tr>
+					<td width="217">
+						<TABLE cols="5" width="0*" class="pad10" ID="Table2">
+							<TR VALIGN="top">
+								<TD><FONT color="#3366ff"><STRONG>P</STRONG></FONT></TD>
+								<TD>E</TD>
+								<TD>G</TD>
+								<TD><FONT color="#3366ff"><STRONG>A</STRONG></FONT></TD>
+								<TD>S</TD>
+							</TR>
+							<TR VALIGN="top">
+								<TD><FONT color="#00cc00"><STRONG>O</STRONG></FONT></TD>
+								<TD>B</TD>
+								<TD><FONT color="#ff0033"><STRONG>C</STRONG></FONT></TD>
+								<TD><FONT color="#00cc00"><STRONG>D</STRONG></FONT></TD>
+								<TD>F</TD>
+							</TR>
+							<TR VALIGN="top">
+								<TD height="20">H</TD>
+								<TD height="20">I</TD>
+								<TD height="20"><FONT color="#ff0033"><STRONG>K</STRONG></FONT></TD>
+								<TD height="20">L</TD>
+								<TD height="20">M</TD>
+							</TR>
+							<TR VALIGN="top">
+								<TD><FONT color="#00cc00"><STRONG>N</STRONG></FONT></TD>
+								<TD>Q</TD>
+								<TD><FONT color="#ff0033"><STRONG>R</STRONG></FONT></TD>
+								<TD><FONT color="#00cc00"><STRONG>T</STRONG></FONT></TD>
+								<TD>U</TD>
+							</TR>
+							<TR VALIGN="top">
+								<TD><FONT color="#3366ff"><STRONG>V</STRONG></FONT></TD>
+								<TD>W</TD>
+								<TD><FONT color="#ff0033"><STRONG>X</STRONG></FONT></TD>
+								<TD><FONT color="#3366ff"><STRONG>Y</STRONG></FONT></TD>
+								<TD>Z</TD>
+							</TR>
+						</TABLE>
+					</td>
+					<td align="center">&nbsp;&lt; -- &gt;
+					</td>
+					<td>
+						<TABLE class="pad10" id="Table3" cols="4" width="0*">
+							<TR vAlign="top">
+								<TD>Plaintext di-gram</TD>
+								<TD>Rectangle</TD>
+								<TD>Dimension</TD>
+								<TD>Encryption</TD>
+							</TR>
+							<TR vAlign="top">
+								<TD>CR</TD>
+								<TD><FONT color="#ff0033"><STRONG>C,K,R,X</STRONG></FONT></TD>
+								<TD>1</TD>
+								<TD>KX</TD>
+							</TR>
+							<TR vAlign="top">
+								<TD>YP</TD>
+								<TD><FONT color="#3366ff"><STRONG>Y,V,P,A</STRONG></FONT></TD>
+								<TD>2</TD>
+								<TD>VA</TD>
+							</TR>
+							<TR vAlign="top">
+								<TD>TO</TD>
+								<TD><FONT color="#00cc00"><STRONG>T,N,O,D</STRONG></FONT></TD>
+								<TD>2</TD>
+								<TD>ND</TD>
+							</TR>
+							<TR vAlign="top">
+								<TD height="10">XO</TD>
+								<TD height="10">X,V,O,C</TD>
+								<TD height="10">2</TD>
+								<TD height="10">VC</TD>
+							</TR>
+							<TR vAlign="top">
+								<TD>LI</TD>
+								<TD>L,M,I,K</TD>
+								<TD>1</TD>
+								<TD>MK</TD>
+							</TR>
+							<TR vAlign="top">
+								<TD>ST</TD>
+								<TD>S,A,T,U</TD>
+								<TD>2</TD>
+								<TD>AU</TD>
+							</TR>
+						</TABLE>
+					</td>
+				</tr>
+			</table>
+			<BR>
+		</div>
 
 <P>For two dimensional rectangles we enumerate the edges as follows: we start with the first plain text 
 character, then choose the character in the other edge <I>on the same row</I>, then the second clear text 
@@ -220,7 +252,7 @@ it by clicking on the icon <IMG SRC="images/iconinsertkey.gif" ALT="iconinsertke
 <P>Let us now try to decipher a text encrypted with the Playfair cipher where we don't know the key 
 (ciphertext-only analysis).</P>
 
-<P>3.1 To do this we load the text to be decrypted from the file <CODE>Playfair-enc-en.txt</CODE> (this 
+<P>3.1 To do this we load the text to be decrypted from the file <CODE>Playfair-enc-de.txt</CODE> (this 
 file can be found in the <CODE>examples</CODE> directory distributed with CrypTool):</P>
 
 <P><IMG SRC="images/szenarioplayfair1.gif" ALT="szenarioplayfair1.gif" BORDER=0></P>

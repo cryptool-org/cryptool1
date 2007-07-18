@@ -6,80 +6,15 @@
 </HEAD>
 
 <!-- multiple keywords for CrypTool HTML help index -->
-<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object2">
-	<PARAM NAME="Keyword" VALUE="Codierungen">
-	<PARAM NAME="Keyword" VALUE="Base64-Codierung">
-</OBJECT>
+<!-- ... -->
 
 <body>
-<h3>Base64-Codierung (Menü <a href="menu_related_methods.html">Einzelverfahren</a> \ Tools \ Codierungen \ Base64-Codierung/Base64-Decodierung)</h3>
 
-<p>Die Base64-Codierung wird vor allem für Email-Anhänge verwendet.</p>
-<p>Base64 ist eine Zeichencodierung, die dazu dient, binäre Daten in einem druckbaren Zeichenvorrat zu repräsentieren.</p>
+<h3>Base64-Codierung (Menü <a href="menu_related_methods.html">Einzelverfahren</a> \ Tools \ Codierungen \ Base64-Codierung/Base64-Codierung)</h3>
 
-<p>Die Base64-Codierung ist keine Verschlüsselung: Es wird kein Schlüssel verwendet, und wenn man denselben Text ein zweites Mal codiert, erhält man denselben Output.</p>
+<P>Über diesen Menüeintrag können Sie ein Dokument mit Base64 codieren.</P>
 
-<p>Base64 codiert jeweils drei Byte Binärdaten (anhand der Base64-Codierungstabelle) so in vier Byte um, dass danach alle Zeichen druckbar bleiben. Dies bringt eine Vergrößerung der Gesamt-Datenmenge um 1/3 mit sich.</p>
-
-
-<p><b><h4>Wo kommt Base64 zum Einsatz?</b></h4></p>
-
-<p>Haupteinsatzgebiet ist der Email-Standard MIME, der zum Versenden und Empfangen von Emails mit beliebigen Text- und Binärdaten dient. Dies ist nötig, da das benutzte Sendeprotokoll SMTP Einschränkungen beim Datenversand hat:</p>
-<div class="indent">
-<ul type="disc">
-<li>Es funktioniert nur der Versand von 7-Bit-ASCII-Zeichen</li>
-<li>Eine Zeile kann maximal 1000 Zeichen lang sein.</li>
-</ul>
-</div>
-<p>Unbehandelte Binärdaten würden meist fehlerhaft übertragen werden, da Zeilenumbrüche nur zufällig auftreten und da auch der Zeichenvorrat größer ist.</p>
-
-<p>Durch die Base64-Codierung liegt nur noch ein 6-Bit-ASCII-Zeichenvorrat vor. Außerdem ist Base64-Code nach den RFCs auf eine maximale Zeilenlänge von 76 Zeichen (standardmäßig 64 Zeichen) spezifiziert. Nach der Codierung ist es nun problemlos möglich, binäre Daten mit dem SMTP-Protokoll zu versenden.</p>
-<p>Base64 kommt hauptsächlich für Anhänge von Emails zum Einsatz und ist für den Menschen nicht zu lesen. Für den Textteil der Email wird meist die Quoted-Printable Codierung verwendet, welche auch ohne Decodierung zumindest teilweise lesbar ist.</p>
-
-<p><b><h4>Wie funktioniert Base64?</b></h4></p>
-
-<p>Base64 arbeitet immer mit einem 24-Bit-Puffer (also 3 Byte), der in je 4 Teile à 6 Bit aufgeteilt wird.</p>
-
- <P><IMG SRC="images/base64_schema.gif" ALT="base64_schema.gif" BORDER=0></p>
-
-
-<p>Diese 6-Bit-Zeichen werden aus einer Tabelle ausgelesen, die nur aus den Zeichen „0-9“, 
-„a-z“, „A-Z“ sowie „+“ und „/“ besteht.
-So ergeben sich aus je 3 Byte Klartext   4 Byte Base64-Code, was die Vergrößerung um 1/3 bewirkt.</p>
-<p>Eine besondere Funktion erfüllt das Padding-Zeichen „=“: Es wird benötigt, wenn am Ende kein vollständiger 3-Byte Block vorliegt. Der fehlende Teil wird mit 0-Bits aufgefüllt und diese ergeben dann als Base64-Zeichen das „=“.</p>
-
-<p>Die hier in CrypTool implementierte Base64-Codierung entspricht den RFCs 1421/2045. Sie ist kompatibel zu einer Base64-Codierung mit Hilfe von OpenSSL (mit der Ausnahme der Behandlung von unerlaubten Zeichen im Base64-codiertem Text). OpenSSL verhält sich den RFCs entsprechend und ignoriert Zeichen, die nicht zum Base64-Alphabet gehören. Die hier implementierte Codierung richtet sich nach einem Entwurfsdokument der IETF (Arbeitsgruppe zum Thema Internet-Standards) nach dem es einen Abbruch beim Auffinden illegaler Zeichen gibt, um zu verhindern, dass gezielt eingeschleuste illegale Zeichen für schädliche Zwecke, z.B. Hervorrufen eines Buffer-Overflows genutzt werden.</p>
-
-
-
-<p><b><h4>Beispiel: Codierung des Wortes „Sven“</b></h4></p>
-
- 
-<P><IMG SRC="images/base64_wortbeispiel.gif" ALT="base64_wortbeispiel.gif" BORDER=0></p>
-
-<br>
-
-<p><b><h4>Beispiel: Codierung eines kleinen Satzes</b></h4></p>
-
-<p><u>Klartext:</u><p>
-<p>Sven fährt einen Ford Focus.</p>
-
-<p><u>Base64-codierter Text:</u></p>
-<p>U3ZlbiBm5GhydCBlaW5lbiBGb3JkIEZvY3VzLg==</p>
-<br>
-<p><b><h4>Base64-Codierungstabelle</b></h4></p>
-<P><IMG SRC="images/base64_zeichentabelle.gif" ALT="base64_zeichentabelle.gif" BORDER=0></p>
-
-<P><a href="base64uucomparison.html">Vergleich von Base64- und UU-Codierung</a>.</P>
-
-<b>Quellen:<br></b>
-<ul type="disc">
-<li>Wikipedia zu Base64: <a href="http://de.wikipedia.org/wiki/Base64">http://de.wikipedia.org/wiki/Base64</a></li>
-<li>RFCs: siehe <a href="http://www.rfc-editor.org/rfc-index2.html">http://www.rfc-editor.org/rfc-index2.html</a></li>
-<li>Entwurfsdokument der IETF zu Base16, Base32 und Base64-Codierungen: <a href="http://www.ietf.org/internet-drafts/draft-josefsson-rfc3548bis-00.txt">http://www.ietf.org/internet-drafts/draft-josefsson-rfc3548bis-00.txt</a></li>
-</ul>
-
-
+<p>Informationen zur Base64-Codierung finden Sie <a href="base64.html">hier</a>.</p>
 
 </body>
 </html>

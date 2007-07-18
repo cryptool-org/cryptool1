@@ -5711,7 +5711,7 @@ BEGIN
             , GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC
             , GRAYED
-            MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
+            MENUITEM "Rijndael (&AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
             , GRAYED
             MENUITEM SEPARATOR
@@ -5956,7 +5956,7 @@ BEGIN
             , GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
             , GRAYED
-            MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "Rijndael (&AES)...",          ID_ANALYSE_AES_RIJNDAEL
             , GRAYED
             POPUP "&Weitere Algorithmen"
             BEGIN
@@ -6142,7 +6142,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_CRYPT_DES_DESCBC
             MENUITEM "&Triple DES (ECB)...",        ID_CRYPT_3DES_ECB
             MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC
-            MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
+            MENUITEM "Rijndael (&AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
             MENUITEM SEPARATOR
             POPUP "&Weitere Algorithmen"
@@ -6360,7 +6360,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
             MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
-            MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "Rijndael (&AES)...",          ID_ANALYSE_AES_RIJNDAEL
             POPUP "&Weitere Algorithmen"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
@@ -6546,7 +6546,7 @@ BEGIN
             , GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC
             , GRAYED
-            MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
+            MENUITEM "Rijndael (&AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
             , GRAYED
             MENUITEM SEPARATOR
@@ -6785,7 +6785,7 @@ BEGIN
             , GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
             , GRAYED
-            MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "Rijndael (&AES)...",          ID_ANALYSE_AES_RIJNDAEL
             , GRAYED
             POPUP "&Weitere Algorithmen"
             BEGIN
@@ -6968,7 +6968,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_CRYPT_DES_DESCBC
             MENUITEM "&Triple DES (ECB)...",        ID_CRYPT_3DES_ECB
             MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC
-            MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
+            MENUITEM "Rijndael (&AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
             MENUITEM SEPARATOR
             POPUP "&Weitere Algorithmen"
@@ -7186,7 +7186,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
             MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
-            MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "Rijndael (&AES)...",          ID_ANALYSE_AES_RIJNDAEL
             POPUP "&Weitere Algorithmen"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
@@ -7399,7 +7399,7 @@ BEGIN
             , GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC
             , GRAYED
-            MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
+            MENUITEM "Rijndael (&AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
             , GRAYED
             MENUITEM SEPARATOR
@@ -7644,7 +7644,7 @@ BEGIN
             , GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
             , GRAYED
-            MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "Rijndael (&AES)...",          ID_ANALYSE_AES_RIJNDAEL
             , GRAYED
             POPUP "&Weitere Algorithmen"
             BEGIN
@@ -10675,7 +10675,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_PLAYFAIR_WARNMSG002 
-                            "Das Chiffrat enthält auch ungültige Zeichen. Diese sind ausmaskiert."
+                            "Das Chiffrat enthält auch Zeichen, die nicht zum Playfair-Alphabet gehören (alle Zeichen des Felds ""Analyseergebnis""). Sie werden durch einen Punkt ausmaskiert."
     IDS_STRING_PLAYFAIR_WARNMSG003 
                             "Der Buchstabe 'J' und die Ziffern '0'-'9' dürfen bei einer 5x5 Matrix nicht verwendet werden. Verwenden Sie ggf. eine 6x6 Matrix."
     IDS_NGRAMLIST_TOLONG    "Die Anzahl der Tabelleneinträge ist auf 5.000 Zeilen beschränkt!\nBitte geben Sie eine Zahl zwischen 1 und 5.000 ein."
@@ -17446,7 +17446,7 @@ BEGIN
             , GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC
             , GRAYED
-            MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
+            MENUITEM "Rijndael (&AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
             , GRAYED
             MENUITEM SEPARATOR
@@ -17688,7 +17688,7 @@ BEGIN
             , GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
             , GRAYED
-            MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "Rijndael (&AES)...",          ID_ANALYSE_AES_RIJNDAEL
             , GRAYED
             POPUP "&Further Algorithms"
             BEGIN
@@ -17872,7 +17872,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_CRYPT_DES_DESCBC
             MENUITEM "&Triple DES (ECB)...",        ID_CRYPT_3DES_ECB
             MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC
-            MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
+            MENUITEM "Rijndael (&AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
             MENUITEM SEPARATOR
             POPUP "&Further Algorithms"
@@ -18087,7 +18087,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
             MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
-            MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "Rijndael (&AES)...",          ID_ANALYSE_AES_RIJNDAEL
             POPUP "&Further Algorithms"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
@@ -18274,7 +18274,7 @@ BEGIN
             , GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC
             , GRAYED
-            MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
+            MENUITEM "Rijndael (&AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
             , GRAYED
             MENUITEM SEPARATOR
@@ -18516,7 +18516,7 @@ BEGIN
             , GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
             , GRAYED
-            MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "Rijndael (&AES)...",          ID_ANALYSE_AES_RIJNDAEL
             , GRAYED
             POPUP "&Further Algorithms"
             BEGIN
@@ -18699,7 +18699,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_CRYPT_DES_DESCBC
             MENUITEM "&Triple DES (ECB)...",        ID_CRYPT_3DES_ECB
             MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC
-            MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
+            MENUITEM "Rijndael (&AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
             MENUITEM SEPARATOR
             POPUP "&Further Algorithms"
@@ -18914,7 +18914,7 @@ BEGIN
             MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
             MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
-            MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "Rijndael (&AES)...",          ID_ANALYSE_AES_RIJNDAEL
             POPUP "&Further Algorithms"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
@@ -19126,7 +19126,7 @@ BEGIN
             , GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC
             , GRAYED
-            MENUITEM "&Rijndael (AES)...\tShift + Strg + R", 
+            MENUITEM "Rijndael (&AES)...\tShift + Strg + R", 
                                                     ID_CRYPT_AES_RIJNDAEL
             , GRAYED
             MENUITEM SEPARATOR
@@ -19368,7 +19368,7 @@ BEGIN
             , GRAYED
             MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
             , GRAYED
-            MENUITEM "&Rijndael (AES)...",          ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "Rijndael (&AES)...",          ID_ANALYSE_AES_RIJNDAEL
             , GRAYED
             POPUP "&Further Algorithms"
             BEGIN

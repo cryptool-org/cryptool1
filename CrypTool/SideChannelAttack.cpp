@@ -972,20 +972,8 @@ void decryptMessageAES(OctetString *cipherTextIn, OctetString *key, OctetString 
 	// Speicher kopieren
 	memcpy(cipherText, (unsigned char*)cipherTextIn->octets, cipherTextIn->noctets);
 
-#if 0
-	// Padding hinzufügen
-	for(;dataLength%16;dataLength++) cipherText[dataLength]=0; 
-	// Länge in Bits
-	dataLength <<= 3;
-	// ENTSCHLÜSSELUNG
-	doaescrypt(algorithmId, aesMode, keyLength, decryptedSessionKeyHEX, cipherText, dataLength, clearText);
-	// Länge in Bytes
-	dataLength >>= 3;
-	// Padding entfernen
-	for(dataLength--; 0 == clearText[dataLength]; dataLength--);
-#endif
-
-	sym_decrypt(IDS_CRYPT_RIJNDAEL, CORE_PROVIDER, decryptedSessionKeyHEX, keyLength, 
+	// Note:  keyLength in bytes --> to be transformed in bits
+	sym_decrypt(IDS_CRYPT_RIJNDAEL, CORE_PROVIDER, decryptedSessionKeyHEX, keyLength<<3, 
 		cipherText, dataLength, clearText, dataLength);
 
 	// Speicher für Rückgabewert allokieren
