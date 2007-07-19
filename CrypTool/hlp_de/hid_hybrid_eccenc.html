@@ -6,16 +6,23 @@
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 <BODY>
-		<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
-			<PARAM NAME="Keyword" VALUE="Hybridverschlüsselung">
-		</OBJECT>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Hybridverschlüsselung">
+	<PARAM NAME="Keyword" VALUE="Verschlüsselung">
+</OBJECT>
 
 <h3>Hybridverschlüsselung mit ECC-AES (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Hybrid)</h3>
 
 <P>Das <a href="hybridencryptionsystem.html">Hybridverfahren</a> wendet auf die Daten des aktiven Dokuments 
-eine symmetrische Verschlüsselung (hier AES) mit einem Sessionkey an. Der Sessionkey wird dann mit einem 
-asymmetrischen Verfahren verschlüsselt (hier mit dem im Dialog 
+eine symmetrische Verschlüsselung (hier AES) mit einem Sessionkey an.</P>
+
+<P>Der Sessionkey wird dann mit einem  symmetrischen Verfahren verschlüsselt (hier mit dem im Dialog 
 <a href="hidd_eccencreceiver.html">Hybridverschlüsselung mit ECC-AES</a> gewählten ECC-Schlüssel).</P>
+
+<P>Der erzeugte Ciphertext kann mit dem Dialog 
+<a href="hidd_eccdecreceiver.html">Hybridentschlüsselung mit ECC-AES</a> entschlüsselt werden.</P>
 
 </BODY>
 </HTML>

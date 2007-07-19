@@ -164,7 +164,7 @@ BEGIN
                     WS_EX_TRANSPARENT
     GROUPBOX        "",IDC_STATIC_BLOCK,4,174,382,139
     LTEXT           "",IDC_STATIC_SUM,11,354,371,17,NOT WS_VISIBLE
-    GROUPBOX        "Spielverlaufstabelle  [ In der Tabelle sind die Primzahlen mit ""(prim)"" markiert]",
+    GROUPBOX        "Spielverlaufstabelle  [ In der Tabelle sind die Primzahlen mit ""(prim)"" markiert ]",
                     IDC_STATIC_LISTE,4,6,381,161
     CONTROL         "",IDC_LIST2,"SysListView32",LVS_REPORT | LVS_SINGLESEL | 
                     WS_BORDER | WS_TABSTOP,4,21,381,148,WS_EX_TRANSPARENT | 
@@ -780,7 +780,7 @@ BEGIN
                     382,54,0,WS_EX_TRANSPARENT
     GROUPBOX        "",IDC_STATIC_BLOCK,4,174,382,139
     LTEXT           "",IDC_STATIC_SUM,11,356,371,17,NOT WS_VISIBLE
-    GROUPBOX        "Course of the game -  [""prime"" marks a prime number]",
+    GROUPBOX        "Course of the game -  [ ""prime"" marks a prime number ]",
                     IDC_STATIC_LISTE,4,6,381,161
     CONTROL         "",IDC_LIST2,"SysListView32",LVS_REPORT | LVS_SINGLESEL | 
                     WS_BORDER | WS_TABSTOP,4,21,381,148,WS_EX_TRANSPARENT | 
