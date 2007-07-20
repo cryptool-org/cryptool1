@@ -526,6 +526,7 @@ hid_hybrid_eccenc.html
 hybridencryptionsystem.html
 hidd_list_results.html
 passwords.html
+padding.html
 
 [ALIAS]
 #include CrypTool_Alias.h
