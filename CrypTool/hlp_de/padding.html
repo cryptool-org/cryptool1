@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Padding</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Padding">
+</OBJECT>
+
+<BODY>
+
+<h3>Padding</h3>
+
+<P>Padding bedeutet, dass die zu verarbeitenden Daten - zum Beispiel ein zu verschlüsselndes Dokument - 
+nach einem bestimmten Muster mit Daten aufgefüllt werden. Padding-Mechanismen sind ein wichtiger 
+Bestandteil der modernen Kryptographie.</P>
+
+<P><a href="hashfunktion.html">Hashfunktionen</a> verarbeiten Daten zum Beispiel in Blöcken fixer Länge. 
+Deswegen werden die Daten, die gehasht werden sollen, im Vorfeld nach bestimmten Regeln aufgefüllt. 
+Ähnlich verhält es sich mit manchen symmetrischen Verschlüsselungsverfahren. Sie verlangen, dass die 
+Länge der zu verschlüsselnden Daten ein Vielfaches einer bestimmten Blockgröße beträgt. Ein Beispiel für 
+solche Verfahren sind <a href="HID_CRYPT_DES_DESCBC.html">DES (CBC)</a> und 
+<a href="HID_CRYPT_3DES_CBC.html">Triple-DES (CBC)</a>, die beide den Modus des 
+<a href="cbcmodus.html">Cipher-Block-Chaining</a> nutzen.</P>
+
+<P>Abhängig vom Verschlüsselungsmodus kann es deshalb vorkommen, dass ein null Byte langes Dokument nach 
+der Verschlüsselung länger als null Byte ist.</P>
+
+</BODY>
+</HTML>
