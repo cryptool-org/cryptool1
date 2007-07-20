@@ -216,15 +216,16 @@ BEGIN
                     ES_NUMBER
     GROUPBOX        "Umfang der Ausgabe bei der automatischen Analyse",
                     IDC_STATIC,13,15,281,132
-    GROUPBOX        "IDEA, RC2, RC4, DES, Triple DES, Mars, RC6, Rijndael (AES), Serpent, Twofish",
-                    IDC_STATIC,20,173,267,84
-    LTEXT           "Alphabetoptionen:",IDC_STATIC,29,209,118,8
+    LTEXT           "Zeichensatz für den zu erwartenden Klartext",IDC_STATIC,
+                    29,209,210,8
     CONTROL         "Alle 256 Zeichen",IDC_RADIO1,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,29,221,245,10
     CONTROL         "Druckbare Zeichen (ASCII 32 - 256)",IDC_RADIO2,"Button",
                     BS_AUTORADIOBUTTON,29,232,245,10
     CONTROL         "Zeichensatz, wie in Menü: Optionen -->Textoptionen definiert",
                     IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,29,242,245,11
+    LTEXT           "IDEA, RC2, RC4, DES, Triple DES, Mars, RC6, Rijndael (AES), Serpent, Twofish",
+                    IDC_STATIC,29,174,258,8
 END
 
 IDD_HILL_ANALYSIS DIALOG  0, 0, 301, 221
@@ -5585,7 +5586,7 @@ CAPTION "Ergebnisse der Brute-Force Analyse"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Auswahl &übernehmen",IDOK,276,193,84,20
-    PUSHBUTTON      "&Abbruch",IDCANCEL,374,193,53,20
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,374,193,53,20
     CONTROL         "",IDC_LIST4,"SysListView32",LVS_REPORT | LVS_SINGLESEL | 
                     LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | 
                     WS_TABSTOP,7,55,420,129
@@ -7755,8 +7756,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,4,0,0
- PRODUCTVERSION 1,4,0,0
+ FILEVERSION 1,4,1,0
+ PRODUCTVERSION 1,4,1,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -9446,7 +9447,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.10 beta - 04"
+    IDR_MAINFRAME           "CrypTool 1.4.10 beta - 06"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Datei (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnbenannt\n\nBinäre Datei (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnbenannt\n\nASCII-Datei (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -11802,7 +11803,7 @@ BEGIN
     IDS_ENIGMA_FLASH        "Enigma_de.exe"
     IDS_ERROPEN_ENIGMA_FLASH 
                             "Die Enigma Flash-Demonstration kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob das Programm Enigma_de.exe im CrypTool-Heimatverzeichnis installiert wurde\n(""%s"")."
-    IDS_NO_ITEM_SELECTED    "Bitte selektieren Sie einen Entschlüsselungskandidaten, oder wählen Sie Abbrechen wenn der Angriff nicht erfolgreich war."
+    IDS_NO_ITEM_SELECTED    "Bitte selektieren Sie einen Entschlüsselungskandidaten,\noder wählen Sie ""Abbrechen"" in der Maske mit den Analyseergebnissen, wenn der Angriff nicht erfolgreich war."
     IDS_DECRYPTION_HEADER   "Entschlüsselung"
     IDS_DECRYPTION_HEADER_HEX_DUMP "Entschlüsselung: Hex-Dump"
 END
@@ -12104,15 +12105,16 @@ BEGIN
                     190,118,8
     EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,150,187,30,14,ES_AUTOHSCROLL | 
                     ES_NUMBER
-    GROUPBOX        "IDEA, RC2, RC4, DES, Triple DES, Mars, RC6, Rijndael (AES), Serpent, Twofish",
-                    IDC_STATIC,20,173,266,88
-    LTEXT           "Alphabet options:",IDC_STATIC,29,209,118,8
+    LTEXT           "Alphabet for the expected cleartext:",IDC_STATIC,29,209,
+                    118,8
     CONTROL         "All 256 characters",IDC_RADIO1,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,29,221,245,10
     CONTROL         "Printable characters (ascii 32 - 256)",IDC_RADIO2,
                     "Button",BS_AUTORADIOBUTTON,29,232,245,10
     CONTROL         "Charcters as defined in menu: Options -->Textoptions",
                     IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,29,242,245,11
+    LTEXT           "IDEA, RC2, RC4, DES, Triple DES, Mars, RC6, Rijndael (AES), Serpent, Twofish",
+                    IDC_STATIC,29,173,258,8
 END
 
 IDD_HILL_ANALYSIS DIALOG  0, 0, 301, 221
@@ -17491,8 +17493,8 @@ BEGIN
     BEGIN
         POPUP "&PKI"
         BEGIN
-            MENUITEM "&Generate/Import Keys...",   ID_CRYPT_KeyGen
-            MENUITEM "&Display/Export Keys...",      ID_SHOW_ALL_EC_KEYS
+            MENUITEM "&Generate/Import Keys...",    ID_CRYPT_KeyGen
+            MENUITEM "&Display/Export Keys...",     ID_SHOW_ALL_EC_KEYS
         END
         MENUITEM "&Sign Document...",           ID_CRYPT_SIGN, GRAYED
         MENUITEM "&Verify Signature...",        ID_CRYPT_VERIFY, GRAYED
@@ -17909,8 +17911,8 @@ BEGIN
     BEGIN
         POPUP "&PKI"
         BEGIN
-            MENUITEM "&Generate/Import Keys...",     ID_CRYPT_KeyGen
-            MENUITEM "&Display/Export Keys...",        ID_SHOW_ALL_EC_KEYS
+            MENUITEM "&Generate/Import Keys...",    ID_CRYPT_KeyGen
+            MENUITEM "&Display/Export Keys...",     ID_SHOW_ALL_EC_KEYS
         END
         MENUITEM "&Sign Document...",           ID_CRYPT_SIGN
         MENUITEM "&Verify Signature...",        ID_CRYPT_VERIFY
@@ -18319,8 +18321,8 @@ BEGIN
     BEGIN
         POPUP "&PKI"
         BEGIN
-            MENUITEM "&Generate/Import Keys...",   ID_CRYPT_KeyGen
-            MENUITEM "&Display/Export Keys...",      ID_SHOW_ALL_EC_KEYS
+            MENUITEM "&Generate/Import Keys...",    ID_CRYPT_KeyGen
+            MENUITEM "&Display/Export Keys...",     ID_SHOW_ALL_EC_KEYS
         END
         MENUITEM "&Sign Document...",           ID_CRYPT_SIGN, GRAYED
         MENUITEM "&Verify Signature...",        ID_CRYPT_VERIFY, GRAYED
@@ -18736,8 +18738,8 @@ BEGIN
     BEGIN
         POPUP "&PKI"
         BEGIN
-            MENUITEM "&Generate/Import Keys...",   ID_CRYPT_KeyGen
-            MENUITEM "&Display/Export Keys...",      ID_SHOW_ALL_EC_KEYS
+            MENUITEM "&Generate/Import Keys...",    ID_CRYPT_KeyGen
+            MENUITEM "&Display/Export Keys...",     ID_SHOW_ALL_EC_KEYS
         END
         MENUITEM "&Sign Document...",           ID_CRYPT_SIGN
         MENUITEM "&Verify Signature...",        ID_CRYPT_VERIFY
@@ -19171,8 +19173,8 @@ BEGIN
     BEGIN
         POPUP "&PKI"
         BEGIN
-            MENUITEM "&Generate/Import Keys...",   ID_CRYPT_KeyGen
-            MENUITEM "&Display/Export Keys...",      ID_SHOW_ALL_EC_KEYS
+            MENUITEM "&Generate/Import Keys...",    ID_CRYPT_KeyGen
+            MENUITEM "&Display/Export Keys...",     ID_SHOW_ALL_EC_KEYS
         END
         MENUITEM "&Sign Document...",           ID_CRYPT_SIGN, GRAYED
         MENUITEM "&Verify Signature...",        ID_CRYPT_VERIFY, GRAYED
@@ -19477,8 +19479,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,4,0,0
- PRODUCTVERSION 1,4,0,0
+ FILEVERSION 1,4,1,0
+ PRODUCTVERSION 1,4,1,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -21417,7 +21419,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.10 - beta 04"
+    IDR_MAINFRAME           "CrypTool 1.4.10 - beta 06"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -23704,7 +23706,7 @@ BEGIN
     IDS_ENIGMA_FLASH        "Enigma_en.exe"
     IDS_ERROPEN_ENIGMA_FLASH 
                             "The Enigma flash demo cannot be opened.\n\nPlease check if Enigma_en.exe is installed in the CrypTool program directory\n(""%s"")."
-    IDS_NO_ITEM_SELECTED    "Please select a decryption candidate or select 'Cancel' if the attack was unsuccessful."
+    IDS_NO_ITEM_SELECTED    "Please select a decryption candidate or select 'Cancel' in the dialog with the results\nof the brute-force analysis if the attack was unsuccessful."
     IDS_DECRYPTION_HEADER   "Decryption"
     IDS_DECRYPTION_HEADER_HEX_DUMP "Decryption: hex dump"
 END

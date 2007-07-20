@@ -9,7 +9,7 @@
 
   ;Name and file
   !define ProgramName "CrypTool"
-  !define VersionInfo "1.4.10"
+  !define VersionInfo "1.4.10 beta 6"
   
   Name "${ProgramName} ${VersionInfo}"
   OutFile "SetupCrypTool_${LANGUAGE_STR}.exe"
@@ -62,7 +62,7 @@
    !define SCN_NUMBERSHARK	"Zahlenhai"
    !define SCL_NUMBERSHARK	"Zahlenhai.exe"
    !define SCN_NUMBERSHARK_HELP "Zahlenhai-Hilfe"
-   !define SCL_NUMBERSHARK_HELP "Numbershark_${LANGUAGE_STR}.chm"
+   !define SCL_NUMBERSHARK_HELP "NumberShark-${LANGUAGE_STR}.chm"
    !define SCN_AES_TOOL		"AES-Tool"
    !define SCL_AES_TOOL		"aestool.exe"
    !define SCN_SCRIPT		"Skript"
@@ -78,9 +78,9 @@
    !define SCN_CRYPTOOL_HELP    "CrypTool Help"
    !define SCL_CRYPTOOL_HELP	"CrypTool-${LANGUAGE_STR}.chm"
    !define SCN_NUMBERSHARK	"Number Shark"
-   !define SCL_NUMBERSHARK	"Numbershark.exe"
+   !define SCL_NUMBERSHARK	"Number Shark.exe"
    !define SCN_NUMBERSHARK_HELP "Number Shark Help"
-   !define SCL_NUMBERSHARK_HELP "Numbershark_${LANGUAGE_STR}.chm"
+   !define SCL_NUMBERSHARK_HELP "NumberShark-${LANGUAGE_STR}.chm"
    !define SCN_AES_TOOL		"AES-Tool"
    !define SCL_AES_TOOL		"aestool.exe"
    !define SCN_SCRIPT		"Script"
