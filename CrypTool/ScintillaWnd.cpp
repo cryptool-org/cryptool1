@@ -931,7 +931,16 @@ void CScintillaWnd::GotoLine(
 {
 	SendMessage(SCI_GOTOLINE, lLine-1, 0);
 }
-/////////////////////////////////////
+void CScintillaWnd::SetSearchflags(int nSearchflags)
+{
+	// some member functions (e.g. SearchForward/SCI_FINDTEXT) use m_nSearchflags, 
+	// others like ReplaceAll/SCI_SEARCHINTARGET rely on SCI_SETSEARCHFLAGS
+	// -> set both
+	m_nSearchflags = nSearchflags; 
+	SendMessage(SCI_SETSEARCHFLAGS, m_nSearchflags);
+}
+
+   /////////////////////////////////////
 // @mfunc Search forward for a given string and select it if found. You may use regular expressions on the text.
 // @rvalue BOOL | TRUE if text is ffound else FALSE
 //

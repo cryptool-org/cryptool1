@@ -35,8 +35,7 @@ public:
 // @cmember return folding margin display flag
    BOOL GetDisplayFolding (){return m_bFolding;};
 // @cmember set search flags
-   virtual void SetSearchflags (int nSearchflags){m_nSearchflags = nSearchflags;};
-   
+   virtual void SetSearchflags (int nSearchflags);   
 
 public:
 // @access public function members
