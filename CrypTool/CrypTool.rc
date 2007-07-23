@@ -5214,9 +5214,9 @@ BEGIN
                     WS_TABSTOP,7,60,118,10
     CONTROL         "Rückwärtssuche",IDC_CHECK_FIND_BACKWARDS,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,70,103,10
-    CONTROL         "Reguläre Ausdrücke im Suchfeld erlauben (nur Text)",
+    CONTROL         "Reguläre Ausdrücke im Suchfeld erlauben (nur in der Text-Ansicht)",
                     IDC_CHECK_REGULAR_EXPRESSIONS,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,80,183,10
+                    WS_TABSTOP,7,80,229,10
 END
 
 IDD_SECRETSHARING_SETUP DIALOGEX 0, 0, 371, 423
@@ -16941,9 +16941,9 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,60,62,10
     CONTROL         "Find backwards",IDC_CHECK_FIND_BACKWARDS,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,70,101,10
-    CONTROL         "Regular expressions (text only)",
+    CONTROL         "Regular expressions (text view only)",
                     IDC_CHECK_REGULAR_EXPRESSIONS,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,80,117,10
+                    WS_TABSTOP,7,80,133,10
 END
 
 IDD_SECRETSHARING_INTRO DIALOGEX 0, 0, 281, 273
