@@ -314,6 +314,8 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CAppDocument)
 
 	ON_COMMAND(ID_HYBRID_ECCENC, OnHybridEccEnc)
 	ON_COMMAND(ID_HYBRID_ECCDEC, OnHybridEccDec)
+	ON_COMMAND(ID_EDIT_REPEAT, OnEditRepeat)
+	ON_UPDATE_COMMAND_UI(ID_EDIT_REPEAT, OnUpdateEditRepeat)
 	END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -1875,4 +1877,16 @@ void CCryptDoc::OnAnalyseDESX()
 void CCryptDoc::OnAnalyseDESXL() 
 {
 	SymCryptBruteForce( IDS_CRYPT_DESXL, CORE_PROVIDER, 192, 192 );
+}
+
+void CCryptDoc::OnEditRepeat()
+{
+	theApp.findAndReplaceDialog.OnBnClickedButtonFind();
+}
+
+void CCryptDoc::OnUpdateEditRepeat(CCmdUI *pCmdUI)
+{
+
+	BOOL enable = theApp.findAndReplaceDialog.m_hWnd != 0 && theApp.findAndReplaceDialog.textFind.GetLength() != 0;
+	pCmdUI->Enable(enable);
 }
