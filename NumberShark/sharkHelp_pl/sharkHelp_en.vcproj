@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="7.10"
+	Name="sharkHelp_en"
+	ProjectGUID="{068B2C5B-4AA8-459C-B0B9-0B0EE768B793}"
+	Keyword="Win32Proj">
+	<Platforms>
+		<Platform
+			Name="Win32"/>
+	</Platforms>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="Debug"
+			IntermediateDirectory="Debug"
+			ConfigurationType="0"
+			CharacterSet="2">
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot; OUTDIR=$(OutDir)"
+				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a OUTDIR=$(OutDir)"
+				Output="NumberShark-en.chm"/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="Release"
+			IntermediateDirectory="Release"
+			ConfigurationType="0"
+			CharacterSet="2">
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot; OUTDIR=$(OutDir)"
+				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a OUTDIR=$(OutDir)"
+				Output="NumberShark-en.chm"/>
+		</Configuration>
+		<Configuration
+			Name="Debug_en|Win32"
+			OutputDirectory="$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="0"
+			CharacterSet="2">
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot; OUTDIR=$(OutDir)"
+				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a OUTDIR=$(OutDir)"
+				Output="NumberShark-en.chm"/>
+		</Configuration>
+		<Configuration
+			Name="Release_en|Win32"
+			OutputDirectory="..\$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="0"
+			CharacterSet="2">
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot; OUTDIR=$(OutDir)"
+				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a OUTDIR=$(OutDir)"
+				Output="..\$(ConfigurationName)\NumberShark-en.chm"/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Files>
+		<File
+			RelativePath=".\hlp_en.mak">
+		</File>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>

@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<OBJECT type="text/site properties">
+	<param name="ImageType" value="Folder">
+</OBJECT>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Manual of the game">
+		<param name="Local" value="NumberShark_Manual.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Tutorial for the game">
+		<param name="Local" value="NumberShark_Tutorial.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Development of the game">
+		<param name="Local" value="NumberShark_Development.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Real factors">
+		<param name="Local" value="Real_Factors.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Challenge">
+		<param name="Local" value="NumberShark_Challenge.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Terms of License">
+		<param name="Local" value="NumberShark_License.html">
+		</OBJECT>
+</UL>
+</BODY></HTML>
