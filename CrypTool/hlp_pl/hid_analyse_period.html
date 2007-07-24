@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1250">
+<TITLE>Kryptoanaliza cykliczności</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Periodicity analysis">
+	<PARAM NAME="Keyword" VALUE="Analysis">
+</OBJECT>
+
+<BODY>
+
+<h3>Analiza cykliczności (Menu <A href="menu_analyze.html">Kryptoanaliza</A> \ Narzędzia analizy)</h3>
+
+<P>Cykliczność to powtarzanie określonej sekwencji znaków, o długości k (k &gt;= 1), od określonego miejsca w dokumencie - pozycji. Cykliczność musi trwać, aż do końca dokumentu. Nie wystarczy więc, że wzorzec występuje wielokrotnie w pliku, aby uznać go za cykl.</P>
+
+<P>Wszystkie cykle są pokazywane. Możliwe jest uzyskanie kilku cykli, tylko jeśli są one zagnieżdżone w sobie.</P>
+
+<P>Dokument o k cyklach musi mieć długość co najmniej 2 ^ (k + 1) – 2 bajtów. Cryptool może wyszukać do 100 cykli.</P>
+
+<P>Pierwszy bajt w dokumencie ma pozycję 1.</P>
+
+<P>Analiza cykliczności może być stosowana do dokumentów tekstowych i binarnych.</P>
+
+<P>Przykłady:</P>
+
+<TABLE cols=2 width="0*" class="pad20">
+
+<TR VALIGN="top">
+<TD>
+<PRE><CODE>bbbbaaaa      </CODE></PRE>
+</TD>
+<TD>cykl <B><CODE>a</CODE></B> ma pozycję 5 i długość 1.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>
+<PRE><CODE>bbbazazaz     </CODE></PRE>
+</TD>
+<TD>cykl <B><CODE>az</CODE></B> ma pozycję 4 i długość 2.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>
+<PRE><CODE>bbbazazbazaz  </CODE></PRE>
+</TD>
+<TD>zawiera dwa zagnieżdżone cykle, pierwszy od pozycji 3 i o długość 5 (<B><CODE>bazaz</CODE></B>), a drugi zaczyna się na pozycji 9 i ma długość 2 (<B><CODE>az</CODE></B>).</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>
+<PRE><CODE>axakaxal</CODE></PRE>
+</TD>
+<TD>to nie jest cykl</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>
+<PRE><CODE>axaxaxak</CODE></PRE>
+</TD>
+<TD>to nie jest cykl</TD>
+</TR>
+</TABLE><BR>
+
+<P><IMG SRC="images/perioddlg.gif" ALT="perioddlg.gif" BORDER=0></P>
+
+<P>Analiza cykliczności może być przeprowadzona tylko jeśli długość dokumentu wynosi przynajmniej 2 bajty.</P>
+
+<P>Wynik może być zachowany w pliku tekstowym, jeśli jest to potrzebne.</P>
+
+<P>Jeśli cykl jest dłuższy niż 20 znaków, Wtedy tylko pierwsze 20 znaków będzie wyświetlone.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1250">
+<TITLE>Okno Opcje analizy</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- zestaw słów kluczowych dla indeksu pomocy HTML CrypTool -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Okno (przegląd wszystkich okien)">
+	<PARAM NAME="Keyword" VALUE="Opcje">
+	<PARAM NAME="Keyword" VALUE="Kryptoanaliza">
+</OBJECT>
+
+<BODY>
+
+<h3>Okno Opcje analizy</h3>
+
+<P>Okno to jest osiągalne z poziomu menu <a href="menu_options.html">Opcje</a> \ <a href="HID_OPTIONS_ANALYSIS.html">Opcje analizy</a>.</P>
+
+<P>Okno to zawiera kilka opcji, które mają wpływ na polecenia dostępne w menu <A href="menu_analyze.html">Kryptoanaliza</A>.</P>
+
+<OL>
+
+<LI> W górnej części okna można podać opcje wyjściowe określonych wyników pośrednich dla <B>analizy automatycznej </B>różnych <!--ZZZPOPUP--><A href="verschlverfahren.html">algorytmów kryptograficznych</A>.<BR>
+<BR>
+Parametry znajdujące się w ramce po lewej stronie dotyczą szyfru <A href="hid_rot13caesar_asc.html">Cezara</A>,<BR>
+podczas gdy parametry umieszczone w ramce po prawej stronie umożliwiają zmianę opcji dla <A href="hid_vigenere_asc.html">szyfru Vigen&egrave;re</A>, <A href="hid_add_bin.html">dodawania bajtów</A> i <A href="hid_xor_bin.html">XOR</A> .<BR>
+<BR>
+Opcja <B>Pokaż podstawową analizę szyfru</B> oznacza przy analizie szyfru Vigen&egrave;re, że histogram i <A href="correlation.html">korelacja</A> są pokazywane dla każdego znaku klucza pośredniego.<BR>
+Dodatkowo, podczas korzystania z XOR lub dodawania bajtów, widoczne jest tylko okno binarnego histogramu.<BR>
+<BR>
+Wszystkie zaznaczone opcje są wyświetlone. Przycisk wyboru może zostać odznaczony i zaznaczony poprzez naciśnięcie lewego przycisku myszki. Im więcej przycisków wyboru jest zaznaczonych, tym więcej okien informacyjnych zostanie wyświetlonych w czasie analizy.<BR><BR></LI>
+
+<LI> Dolna część okna zawiera opcje dla <!--ZZZPOPUP--><A href="bruteforce.html"> ataków Brute-force</A> przeprowadzanych na algorytmach symetrycznych. Ataki te są opisane bardziej szczegółowo na stronie okna <A href="hidd_bruteforce.html">Zakres kluczy dla analizy brutalnej siły</A>.<BR>
+Opcja <B>Liczba bajtów dla testu entropii </B> określa ile bajtów dokumentu, zaczynając od jego początku, zostaje użytych w teście entropii. Domyślna wartość 128 bajtów stanowi odpowiedni kompromis pomiędzy szybkością a dokładnością. Mniejsze wartości przyspieszają działanie testu entropii, ale może to uniemożliwić znalezienie poprawnego klucza. Duże wartości są użyteczne, jeśli dokument zaczyna się obszarem wysokiej entropii.<BR><BR></LI>
+
+</OL>
+
+</BODY>
+</HTML>

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>DESL-Verschlüsselungsverfahren</TITLE>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Symmetrisch">
+	<PARAM NAME="Keyword" VALUE="Verschlüsselung">
+	<PARAM NAME="Keyword" VALUE="DESL-Verschlüsselungsverfahren">
+</OBJECT>
+
+<BODY>
+
+<h3>DESL-Algorithmus (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Symmetrisch (modern) \ Weitere)</h3>
+
+<P>Die <A href="des_info.html">DES</A>-Variante DESL wurde erstmalig auf dem Workshop on RFID Security (RFIDSec) im Jahre 2006 vorgestellt. DESL ist mit Blick auf minimale Hardwareanforderungen am <A href="http://www.crypto.rub.de">Lehrstuhl für Kommunikationssicherheit</A> an der Ruhr-Universität Bochum entwickelt worden. Eine Hardware-Implementierung (Chip) des Algorithmus sollte so klein wie möglich sein, gleichzeitig aber ein hohes Sicherheitsniveau bieten. Die Entwickler entschieden sich, DES zu verändern, weil DES die wohl bestuntersuchte Chiffre ist. In den 30 Jahren seit der Veröffentlichung von DES sind nur drei analytische Attacken auf DES bekannt geworden:</P>
+
+<UL>
+<LI>die Lineare Kryptanalyse von Matsui (1993),</LI>
+<LI>die Differentielle Kryptanalyse von Biham und Shamir (das "S" in <A href="hid_crypt_rsaenc.html">RSA</A>) (1990) sowie</LI>
+<LI>die Davies-Murphy Attacke (1993).</LI>
+</UL>
+
+<P>Des weiteren ist DES, im Gegensatz zu fast allen anderen symmetrischen Chiffren, mit dem Ziel einer guten Hardware-Performanz entworfen wurde. Dabei muss bedacht werden, dass die Hardware zur Zeit der Entwicklung von DES (Anfang der 1970er Jahre) im Vergleich zu heutiger Hardware extrem leistungsschwach war. Dieses spiegelt sich auch in der extrem niedriegen Anzahl an Transistoren wider, die bei einer Hardware-Realisierung von DES benötigt werden.</P>
+
+<P>Um die Anzahl der Transistoren weiter zu verringern, wurden die 8 verschiedenen S-Boxen des DES durch 8 identische S-Boxen ausgetauscht. Dabei wurde eine kryptografisch extrem starke S-Box ausgewählt, die gegen die Davies-Murphy Attacke sowie die Lineare und die Differentielle Kryptanalyse immun ist. Desweiteren wurden die Initiale Permutation (IP) und ihre Inverse (IP<span style="vertical-align:text-top;font-size:0.6em">-1</span>) weggelassen, weil beide keinen Einfluss auf die kryptografischen Eigenschaften des Algorithmus haben.</P>
+
+<P>Mögliche Einsatzgebiete von DESL sind RFID-Tags, sowie sämtliche ressourcenbeschränkte Geräte.</P>
+
+<P>Ein Problem von DESL ist seine kurze Schlüssellänge von 56 Bits. Um dieses Manko auszugleichen, wurde analog zu <A href="hid_crypt_desx.html">DESX</A> eine Variante <A href="hid_crypt_desxl.html">DESXL</A> entwickelt.</P>
+
+<P>Für weitere Informationen siehe auch: <A href="http://www.crypto.rub.de/publications.html">http://www.crypto.rub.de/publications.html</A></P>
+
+<P>Siehe auch: <A href="hid_crypt_desx.html">DESX</A>, <A href="hid_crypt_desxl.html">DESXL</A></P>
+
+</BODY>
+</HTML>

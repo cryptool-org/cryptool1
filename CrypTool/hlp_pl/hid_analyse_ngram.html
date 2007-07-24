@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1250">
+<TITLE>Przeglądanie listy N-gramów w dokumencie</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Analysis">
+	<PARAM NAME="Keyword" VALUE="Histogram">
+	<PARAM NAME="Keyword" VALUE="N-gram">
+	<PARAM NAME="Keyword" VALUE="Digram">
+	<PARAM NAME="Keyword" VALUE="Trigram">
+</OBJECT>
+
+<BODY>
+
+<h3>Przeglądanie listy N-gramów w dokumencie (Menu <A href="menu_analyze.html">Kryptoanaliza</A> \ Narzędzia analizy)</h3>
+
+<P>N-gram jest ciągiem N znaków. 2-gramy and 3-gramy są nazywane bi- lub digramami oraz trigramami.</P>
+
+<P>Lista N-gramów dokumentu zawiera wszystkie N-gramy w dokumencie razem z ich częstotliwością, zazwyczaj uporządkowane malejąco wg. częstotliwości. Listy 1-gramów są nazywane histogramami. CrypTool ogranicza listę N-gramów do 5000 najczęstszych N-gramów.</P>
+
+<P>Jeśli analizujesz dokument tekstowy, wtedy tylko znaki z aktualnego alfabetu (zobacz menu Opcje \ Opcje tekstu) są brane pod uwagę. Znaki, które nie należą do aktualengo alfabetu będą "separować" tekst. Przykładowo: jeśli znak spacji nie należy do aktualnego alfabetu, wtedy tekst "ATTACK AT DAWN" zawiera trigramy ATT, TTA, TAC, ACK, DAW i AWN.</P>
+
+<P>Analiza N-gramów w pliku binarnym będzie brać pod uwagę wszystkie 256 różnych bajtów.</P>
+
+<P>Przykład:</P>
+
+<P>Pięć najczęstszych trigramów pliku referencyjnego<CODE> genesis-en.txt</CODE> to:</P>
+
+<div class="indent">
+
+<TABLE cols=2 width="0*" class="pad20">
+
+<TR VALIGN="top">
+<TD>
+<PRE><CODE>THE</CODE></PRE>
+</TD>
+<TD>
+<PRE><CODE>5.445 %</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>
+<PRE><CODE>AND</CODE></PRE>
+</TD>
+<TD>
+<PRE><CODE>5.375 %</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>
+<PRE><CODE>HER</CODE></PRE>
+</TD>
+<TD>
+<PRE><CODE>1.275 %</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>
+<PRE><CODE>HIS</CODE></PRE>
+</TD>
+<TD>
+<PRE><CODE>1.000 %</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>
+<PRE><CODE>HAT</CODE></PRE>
+</TD>
+<TD>
+<PRE><CODE>0.892 %</CODE></PRE>
+</TD>
+</TR>
+</TABLE><BR>
+
+</div>
+
+<P>Analiza N-gramów może być przeprowadzona w <A href="hidd_ngram_analysis.html">oknie dialogowym Lista N-Gramów</A>.</P>
+
+<P>Lista ta może być opcjonalnie zachowana w pliku tekstowym.</P>
+
+</BODY>
+</HTML>

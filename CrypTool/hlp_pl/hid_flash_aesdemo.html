@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Rijndael-Animation</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="AES-Verschlüsselungsverfahren">
+	<PARAM NAME="Keyword" VALUE="Rijndael-Verschlüsselungsverfahren">
+	<PARAM NAME="Keyword" VALUE="Visualisierung">
+</OBJECT>
+
+<BODY>
+
+<h3>Rijndael-Animation (Menü <a href="menu_related_methods.html">Einzelverfahren</a> \ Visualisierung von Algorithmen \ AES)</h3>
+
+<P>Dieses Flash-Programm visualisiert die Details des AES-Algorithmus für einen fest gewählten Datensatz. Im Gegensatz dazu können Sie mit dem <a href="hid_flash_rijndael_inspector.html">Rijndael-Inspector</a> die Daten frei wählen.</P>
+
+<P><a href="HID_CRYPT_AES_RIJNDAEL.html">AES</a> ist der aktuelle Standard moderner symmetrischer Verschlüsselungsverfahren.</P>
+
+<P>Der AES ist ein standardisierter Spezialfall des Rijndael-Verschlüsselungsverfahren, das mit variabler Blocklänge für die Daten (insbesondere 128 Bit) und mit variabler Schlüssellänge (128, 192 und 256 Bit) arbeitet.</P>
+
+<P>In der Visualisierung von Enrique Zabala wird das AES-Verfahren mit der Animationssoftware Flash demonstriert. Dabei werden fest vorgegebene Daten verwendet. Sowohl die Klartextnachricht (in der Spezifikation "state" genannt) als auch der benutzte Hauptschlüssel haben eine Länge von jeweils 128 Bit ( = 16 Byte).</P>
+
+<P>Die Animation zeigt dann schrittweise die Weiterverarbeitung: sowohl den eigentlichen, auf den Datenblock angewandten Verschlüsselungsprozess, als auch den Prozess der Generierung der Teilschlüssel aus dem Hauptschlüssel.</P>
+
+<P><IMG SRC="images/aes-Flash-sample1.png" ALT="aes-Flash-sample1.png" BORDER=0 width="91%"></P>
+
+<P><B>Bemerkung 1: Spezifikation</B></P>
+
+<P>Die Daten des visualisierten Beispiels stammen direkt aus der offiziellen AES-Spezifikation des NIST: "Federal Information Processing Standards Publication 197, November 26, 2001, Announcing the ADVANCED ENCRYPTION STANDARD (AES)" (http://csrc.nist.gov/publications/fips/fips197/fips-197.pdf), Anhang B.</P>
+
+<P>Eine ebenfalls sehr gute Darstellung findet sich in Kapitel 11, Seite 20 von http://www.techheap.com/cryptography/encryption/spec.v36.pdf (A Specification for Rijndael, the AES Algorithm, Dr. Brian Gladman, v3.6, 15th April 2003).</P>
+
+<P>Die Testdaten aus der Spezifikation lauten:<br>Input = 32 43 f6 a8 88 5a 30 8d 31 31 98 a2 e0 37 07 34<br>Cipher key = 2b 7e 15 16 28 ae d2 a6 ab f7 15 88 09 cf 4f 3c</P>
+
+<P>a) Input = State = Klartextblock von 16 Bytes:<br>3243f6a8885a308d313198a2e0370734<br>Dieser Input ist auch in der mit ausgelieferten Hex-Datei "state2.hex" abgespeichert.<br>Die Inputdaten werden initial spaltenweise (!) in die Matrix geschrieben:<br>32 88 31 e0<br>43 5a 31 37<br>f6 30 98 07<br>a8 8d a2 34</P>
+
+<P>b) Cipher key (Hauptschlüssel):<br>2b7e151628aed2a6abf7158809cf4f3c<br>Der Schlüssel wird ebenfalls spaltenweise (!) in eine 4-zeilige Matrix geschrieben:<br>2b 28 ab 09<br>7e ae f7 cf<br>15 d2 15 4f<br>16 a6 88 3c</P>
+
+<P>c) Output = Geheimtextblock:<br>Als Output erhält man wieder 16 Bytes, dargestellt in einer Matrix:<br>39 02 dc 19<br>25 dc 11 6a<br>84 09 85 0b<br>1d fb 97 32<br>Geschrieben in einer Datei im Hexformat ergibt dies:<br>39 25 84 1d  02 dc 09 fb  dc 11 85 97  19 6a 0b 32</P>
+
+<P><IMG SRC="images/aes-Flash-sample2.png" ALT="aes-Flash-sample2.png" BORDER=0 width="91%"></P>
+
+<P><B>Bemerkung 2: Spaltenweises Einlesen</B></P>
+
+<P>Sowohl die gegebenen Daten wie auch der Hauptschlüssel werden gemäß Standard spaltenweise in eine 4*4 Byte-Matrix eingelesen (16 Byte = 128 Bit).</P>
+
+<P>Wenn man sich die Flash-Animation ansieht und die Beispieldaten mit der implementierten AES-Funktionalität unter dem normalen Menüeintrag <A href="hid_crypt_aes_rijndael.html">Rijndael (AES)</A> nachvollziehen will, muss man die Matrixdaten in der Visualisierung spaltenweise auslesen und in eine Zeile schreiben (dadurch erhält man die ursprünglichen Beispieldaten aus der Spezifikation wie in Bemerkung 1 beschrieben).</P>
+
+<P><B>Bemerkung 3: OpenSSL</B></P>
+
+<P>Zum Vergleich: Mit dem folgenden OpenSSL-Befehl wird das Chiffrat in die Datei "state2-enc.hex" geschrieben:<br>openssl enc -aes-128-ecb -in state2.hex -out state2-enc.hex -iv 0 -K 2b7e151628aed2a6abf7158809cf4f3c</P>
+
+<P><B>Bemerkung 4: Padding</B></P>
+
+<P>Gibt man das 16 Byte lange Input-Beispiel aus der Spezifikation (siehe Bemerkung 1) in CrypTool oder OpenSSL ein, erhält man einen doppelt so langen Output (32 statt 16 Byte). Dies liegt daran, dass der Input in diesen Implementierungen immer mit 128 Bit gepadded wird.</P>
+
+<P>Die ersten 16 Byte (der erste Outputblock = der eigentliche Geheimtextblock) sind bei OpenSSL und CrypTool identisch, und stimmen jeweils mit der Animation (bzw. der Spezifikation) überein.</P>
+
+<P>Der zweite Block, das verschlüsselte Padding, ist unterschiedlich: Das liegt daran, dass CrypTool und OpenSSL ein unterschiedliches Padding verwenden. Das Padding ist im Standard nicht spezifiziert. In der Animation wird kein Padding durchgeführt.</P>
+
+<P>Beispiel-Output von CrypTool:<br>39 25 84 1d  02 dc 09 fb  dc 11 85 97  19 6a 0b 32<br>fa c6 b4 e4  f2 d2 33 cd  74 c0 35 d7  84 67 af b7</P>
+
+<P>Beispiel-Output mit OpenSSL:<br>39 25 84 1d  02 dc 09 fb  dc 11 85 97  19 6a 0b 32<br>a2 54 be 88 e0 37 dd d9 d7 9f b6 41 1c 3f 9d f8</P>
+
+<P>OpenSSL erzeugt bei festem Key (2b7e151628aed2a6abf7158809cf4f3c) bei jedem beliebigen Klartext immer die gleiche zweite Zeile (a2 54 be 88 e0 37 dd d9 d7 9f b6 41 1c 3f 9d f8).<br>CrypTool padded den Klartext mit einer anderen Folge (binär 10000000000000...) und hat deshalb eine andere zweite Zeile.</P>
+
+<P><B>Bemerkung 5: Beispieldateien</B></P>
+
+<P>Die beiden Dateien "state2.hex" (Klartext) und "state2-enc.hex" (Chiffrat) sind zum einfacheren Nachvollziehen dem CrypTool-Paket beigelegt.</P>
+
+<P><B>Bemerkung 6: Weitere AES-Animationen im Internet</B></P>
+
+<P>Unter <A href="http://home.datacomm.ch/th.aes/Daten/Html/frame.html">http://home.datacomm.ch/th.aes/Daten/Html/frame.html</A> findet man die als HTML-Seite aufbereitete Diplomarbeit von Thomas Hunger: "Der Rijndael (AES) Algorithmus: Eine Visualisierung". Dort werden die Details des Algorithmus in einzelnen Java-Applets dargestellt, in die sogar dynamisch beliebige Werte in Hexadezimaldarstellung in die Blöcke eingetragen werden können. Implementiert ist diese Visualisierung ebenfalls für eine Schlüssellänge und eine Datenblockgröße von jeweils fix 128 Bit.</P>
+
+</BODY>
+</HTML>

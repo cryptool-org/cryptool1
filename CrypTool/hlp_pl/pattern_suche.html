@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1250">
+<TITLE>Jak działa szukanie wzorców</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->	
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Pattern search">
+	<PARAM NAME="Keyword" VALUE="Analysis">
+</OBJECT>
+
+<BODY>
+
+<h3>Jak działa szukanie wzorców</h3>
+
+<P>Metoda analizy wykorzystywanej tutaj działa wyłącznie dla zaszyfrowanych tekstów napisanych w jezyku angielskim lub niemieckim, przy czym odstępy między słowami są zachowane w tekście <!--ZZZPOPUP--><A href="verschluesselung.html">zaszyfrowanym </A> (zobacz <A href="hidd_text_options.html">Opcje tekstu</A>).</P>
+
+<P>Ta część dokumentu opisuje analizę <!--ZZZPOPUP--><A href="klartext.html">jawnych tektów</A> angielskich. Należy zaznaczyć, że analiza ta działa również w ten sam sposób dla jawnych tekstów w języku niemieckim, jednakże w tym przypadku, w związku z charakterystyką statystyczną języka niemieckiego, liczby bazowe są nieco inne. Aby uniknąć zbyt ogólnego opisu procedury analizy, przedstawione zostaną jedynie kroki analizy bazującej na statystycznej częstości wystąpień, które mają miejsce w języku angielskim.</P>
+
+<P>Analiza angielskiego tekstu jawnego wykorzystuje fakt, że każde słowo wzięte z typowego tektu angielskiego z prawdopodobieństwem 0,5 znajduje się na liście 135 najbardziej popularnych słów angielskich. </P>
+
+<P>Pierwszym krokiem jest podzielenie tekstu podlegającego analizie na indywidualne słowa. Każde z tych słów jest sprawdzane, czy istnieje słowo na liście 135 naczęściej występujących słów, które występuje w tym samym wzorcu.</P>
+
+<P>Pojęcie "wzorzec" odnosi się do wzorca liter, np. "litera 1 i 3 jest taka sama, inne są różne". Zatem słowa
+"kot", "dwa", "ten", "ich" realizują ten sam wzorzec (czyli każde słowo zawiera trzy różne litery), podczas gdy słowa "szum" i "masz" są zgodne z innym wzorcem.</P>
+
+<P>Słowa, które nie mają pasujących odpowiedników na liście nie są rozważane. Wszystkie inne słowa są sortowane według wzorców i zbierane razem w zestawy (wszystkie posiadające ten sam wzorzec). Kazdy z tych zestawów jes przypisywany do zestawu słów na liście, które posiadają ten sam wzorzec.</P>
+
+<P>
+Każda para słów z zestawów przypisanych sobie podlega częściowej zamianie. W tym kontekście "częściowy" oznacza, że pasujące wzorcem słowo podlegające zamianie niekoniecznie musi być zgodne co do każdej litery. Może się zatem wydarzyć, że nie uda się wydobyć znaczenia dla każdej litery. 
+</P>
+
+<P>Wykorzystując drzewo wyszukiwania, które jest przeszukiwane w kolejności słów od najdalszeego do pierwszego, wyszukiwana jest utworzona najbardziej indywidualna (częściowa) zamiana zachodząca bez żadnej kolizji (np. konfliktu).
+</P>
+
+<P>Aby zapobiec wysiłkowi wymaganemu dla przeszukania drzewa o proporcjach rosnących wykładniczo, gałęzie, w których następują kolizje w kierunku wierzchołka, nie są dalej badane. 
+</P>
+
+<P>Litery, dla których nie znaleziono odpowiednika, są reprezentowane w wynikowym tekście jako małe litery. Litery, dla których znaleziono odpowiednik, są pokazane jako duże litery.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,324 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=windows-1250">
+<TITLE>Wprowadzenie</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+<script language="JScript" src="helper.js"></script>
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Starting page">
+	<PARAM NAME="Keyword" VALUE="Introduction to CrypTool">
+	<PARAM NAME="Keyword" VALUE="Overview/Subsumption/Broader Context">
+	<PARAM NAME="Keyword" VALUE="Context/Subsumption/Overview">
+	<PARAM NAME="Keyword" VALUE="License terms">
+	<PARAM NAME="Keyword" VALUE="CrypTool">
+	<PARAM NAME="Keyword" VALUE="Cryptanalysis">
+	<PARAM NAME="Keyword" VALUE="Cryptography">
+	<PARAM NAME="Keyword" VALUE="Cryptology">	
+</OBJECT>
+
+<BODY>
+
+<h3>Witamy! Wprowadzenie do programu CrypTool</h3>
+
+<P>Dostęp do tej strony znajdziesz zawsze poprzez pozycje w menu <a href="menu_help.html">Pomoc</a> / <a href="hidd_tipps_and_tricks.html">Strona startowa</a>.</P>
+
+<P>CrypTool jest rozbudowanym programem wspomagającym naukę kryptografii i kryptoanalizy
+(<a href="crypto_methods.html">kryptologii</a>). Związek pomiędzy kryptologią, bezpieczeństwem systemów informatycznych oraz zarządzaniem ryzykiem wyjaśniono opisano
+na <a href="cryptology.html">oddzielnej stronie</a>.</P>
+
+<h3>Spis treści:</h3>
+
+<p>
+<a href="#whatiscryptool">Czym jest CrypTool?</a><p>
+<a href="#rsa">Kryptosystem RSA</a><p>
+<a href="#demo">Interaktywne demonstracje i wizualizacje</a><p>
+<a href="#onlinehelp">Pomoc, Dokumentacja</a><p>
+<a href="#organization">Podziękowania</a><p>
+<A href="#licence_terms">Licencja</a><p>
+<a href="#opensource">Kod źródłowy</a><p>
+<p>
+
+<TABLE cols=2 width="0*">
+
+<TR VALIGN="top">
+<TD width=30%>
+Naciskając klawisz <b>F1</b> lub poprzez <A href="hid_context_help.html">kontekstową okno</A> dostępne pod prawym klawiszem myszy możesz przenieść się do interaktywnego systemu pomocy. Pomoc została opracowana dla:
+<ul>
+<li>wszystkich pozycji w menu,</li>
+<li>każdego z okien dialogowych.</li>
+</ul>
+
+<P>Jeśli nie umiesz koszystać z pomocy w systemie MS Windows, przeczytaj <A href="hilfeueberhilfe.html">Jak używać pomocy programu CrypTool</A>.</P>
+
+<P>Za pomocą <A href="hid_options_startoptions.html">Opcji startowych</A> możesz ustalić, które okna będą otwierane automatycznie podczas uruchamiania programu CrypTool.</P>
+
+<P>Przypominamy, że zgodnie z <A href="#licence_terms">warunkami licencji</A> autorzy <A href="gewaehrleistung.html">nie biorą odpowiedzialności za straty spowodowane korzystaniem z programu CrypTool</A>.</P>
+</TD>
+<TD width=70%><IMG SRC="images/logo-cryptool.gif" ALT="logo-cryptool.gif" BORDER=0></TD>
+</TR>
+</TABLE><BR>
+
+<P><B><a name="whatiscryptool">Czym jest CrypTool?</a></B></P>
+
+<P><!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> jest <b>wolnym, darmowym programem</b> pozwalającym stosować i analizować mechanizmy kryptograficzne. Wyróżnia go łatwy i intuicyjny interfejs użytkownika.</P>
+
+<p>CrypTool zawiera rozbudowany <A href="main_index.html">system wbudowanej pomocy<a/>, który
+napisany jest prostym językiem zrozumiałym nawet przez osoby nie mające
+głębokiej wiedzy matematycznej, czy kryptograficznej. <br>
+CrypTool zystał wydany w trzech językach: po angielsku, niemiecku i
+polsku. W programie zostały zawarte prawie wszyskie współczesne
+zagadnienia kryptologicze. Dzięki temu jednym środowisku możemy
+poznawać wiele zastosowań i słabości kryptografii.
+</p>
+
+
+	<P>Zaprezentowane są zarówno historyczne, jak i współczesne systemy szyfrujące:</P>
+	<UL>
+	<li>algorytmy historyczne: np. szyfr <A href="hid_rot13caesar_asc.html">Cezara</A>, the szyfr <A href="hid_encrypt_adfgvx.html">ADFGVX</A> i <A href="hid_permutation_asc.html">dwukolumnowe przestawienie (permutacja)</A>.
+	<li>	algorytmy współczesne: np. alogrytmy <A href="hid_crypt_rsaenc.html">RSA</A> i <A href="aes_gewinner.html">AES</A> , szyfrowanie hybrydowe, algorytmy oparte na <A href="menu_analysis_asymmetric_latticebasedattacks.html">kratach</A> i <A href="ellipkurven.html">krzywych elipticznych</A>. 
+	</UL>
+
+	<P>Spis wszystkich zaimplementowanych <!--ZZZPOPUP--><A href="verschlverfahren.html"><B> algorytmów szyfrujących </B></A> zawarty jest w pomocy CrypToola w menu <A href="menu_crypt.html">Szyfrowanie</A>.</P>
+
+	<p>W załączonej <a class="filelink" onclick="parser('CrypToolPresentation_1_4_00_en.pdf')">prezentacji CrypToola</a> umieszczono widoki okien programu. </p>
+
+<p>Po zaszyfrowaniu dokumentu zostaje stworzone nowe okno z
+kryptogramem. Belka tytułowa nowego okna zawiera nazwę pierwotnego
+dokumentu oraz klucz użyty do szyfrowania. Użycie kluczy wiąże się z
+dwoma specjalnymi ikonami.
+Kliknięcie na "Skopiuj klucz" <img src="images/keycopy.png">
+pozwala zapamiętać klucz użyty do zaszyforwania. Podczas kolejnego
+szyfrowania przy pomocy tego samego algorytmu można następnie użyć
+ikony "Wstaw klucz" <img src="images/keypaste.png">.</p>
+
+<p>CrypTool dysponuje automatycznymi algorytmami kryptoanalizy prostych
+szyfrów historycznych. Oprócz znajomości kryptogramu wykorzystują one
+wiedzę o dokumencie, np. język, w którym został on napisany. Szczegóły
+automatycznej kryptoanalizy zawarte są w pliku pomocy <A href="menu_analyze.html">Kryptoanaliza</a>.
+</p>
+
+
+<p>Możliwa jest także samodzielna, ręczna analiza zaszyfrowanych
+dokumentów. CrypTool pozwala wyznaczyć <!--ZZZPOPUP--><A href="histogramm.html">histogram</A> kryptogramu,
+statystyki dla dowolnych <A href="hid_analyse_ngram.html">N-gramów</a>, obliczyć <A href="entropie.html">entropię</a> oraz
+<!--ZZZPOPUP--><A href="autokorrelation.html">autokorelacje</a>.
+</p>
+
+
+<p>Gotowe metody szyfrowania zostały zaimplementowane w menu <A href="menu_crypt.html">Szyfrowanie</a>, dzięki temu są dostępne w łatwy i wygodny sposób. <br>Jednocześnie w menu <A href="menu_related_methods.html">Algorytmy</a> umieszczone są pojedyńcze algorytmy. W ten sposób możliwe jest samodzielne i stopniowe wykonywanie skomplikowanych metod.
+</p>
+
+
+<p>W menu <A href="menu_related_methods.html">Algorytmy</a> znajdziemy wiele podstawowych algorytmów i protokołów, np.:<br>
+</p><ul>
+<li> obliczenie <!--ZZZPOPUP--><A href="hashwert.html">funkcji skrótu (hasz)</a> (menu 
+Algorytmy / <A href="menu_individualprocedures_hashprocedures.html">Hasz</a>),
+</li>
+<LI>tworzenie <A href="hid_generate_macs.html">Message Authentication Codes (MACs).</A></LI>
+<li> demonstracje w jaki sposób "silne klucze" mogą być generowane z hasła wg. standardu <A href="hid_einzelverfahren_schluesselgenerieren.html">PKCS#5</a>,
+</li><li><A href="hid_zip.html"> kompresja</a> dokumentów i jej interakcje z algorytmami szyfrującymi,
+</li><li> generowanie i analiza <A href="hid_zufall_generatoren.html">liczb losowych</a>,
+</li>
+<LI>demonstracja protokołów <A href="hid_cr_overview.html">uwierzytelniania</A> i <A href="hid_einzelverfahren_diffiehellmandemo.html">ustalania klucza (Diffie-Hellman).</A></LI>
+<LI>zbadanie w jaki sposób starożytne(<A href="menu_individualprocedures_chineseremaindertheorem.html">Chińskie twierdzenie o resztach</A>) jest dzisiaj stosowane (np. Kiedy planety układu słonecznego znajdą się w jednej linii?).</LI>
+<LI>wizualizacja 'krok po kroku' kilku wybranych algorytmów (przy wykorzystaniu systemu animacji <A href="menu_individualprocedures_visualizationwithanimal.html">ANIMAL</A>).</LI>
+<LI>zastosowanie popularnego kodowania <A href="hid_encode_base64.html">base64</A> i <A href="hid_encode_uu.html">uuencode.</A></LI></ul>
+
+<p>Kilka innych pozycji z menu "Algorytmy" zostanie opisanych poniżej (patrz <a href="#rsa">RSA</a>, <a href="#demo">Wizualizacje</a>).</p>
+
+<p><A href="menu_structure.html">Struktura menu</a> i pod-menu w programie CrypTool jest generowana dynamicznie w zależności od typu dokumentu (binarny lub tekstowy).
+Wszystkie pozycje menu są zawsze widoczne, ale można wybrać tylko te,
+dla których taka operacja jest uzasadniona.
+</p>
+
+<p>Pełne drzewo menu (opcji programu) można znaleźć w <A href="menu_structure.html">drzewie menu</a> oraz w załączniku A do <A class="filelink" onclick="parser('script-en.pdf')">skryptu (ang.)</a>.
+</p>
+
+<p>Wszystkie algorytmy w CrypToolu zostały zaimplementowane zgodnie z ogólnoświatowymi standardami i normami.</p>
+
+<p>W internecie można znaleźć wiele dobrych, otwartych programów
+realizujących funkcje niedostępne w programie CrypTool. Warto się z
+nimi zapoznać w celu poszerzenia swojej wiedzy. Przykładem może być
+tutaj znakomity program do przeprowadzania ataków słownikowych na bazy
+haseł, <a href="http://www.openwall.com/john/" target="_top">John-the-Ripper</a>.</p>
+
+
+<br><P><B><a name="rsa">Kryptosystem RSA</a></B></P>
+
+<p>Kryptosystem RSA (w menu <A href="menu_related_methods.html">Algorytmy</a> \ <A href="menu_individualprocedures_rsacryptosystem.html">Kryptosystem RSA</A> \
+<A href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">Demonstracja RSA</a>) jest wyjątkowo dokładnie zaprezentowany.
+Użytkownik ma możliwość wybrania liczb pierwszych używanych do
+generowania klucza. Działanie algorytmu generowania kluczy,
+szyfrowanie i deszyfrowanie może być prześledzione krok po kroku. </p>
+
+<p>Omówiono bardzo istotny w kryptografii problem faktoryzacji liczb.
+Użytkownik ma możliwość złamania prostych systemów RSA poprzez
+zastosowanie algorytmów faktoryzacji dostępnych w programie CrypTool. W
+ten sposób każdy może się przekonać o znaczniu minimalnej długości
+klucza dla bezpieczeństwa danych.
+</p>
+
+<br><P><B><a name="demo">Interaktywne demonstracje i wizualizacje</a></B></P>
+
+<p>Interaktywne demostracje (<A href="visualizations.html">wizualizacje</a>) zostały wykorzystane w celu pomocy w zrozumieniu wybranych zagadnień:
+
+<ul>
+<li>składanie <A href="hid_einzelverfahren_sign_doc.html">podpisu cyfrowego.</a></li>
+<li>przebieg <A href="hid_verentschlsseln_hybridverfahren_hybridverschlsselung.html">hybrydowego algorytmu szyfrującego.</a></li>
+<li>w jaki sposób modyfikacje dokumentu wpływają na wartość funkcji skrótu (hasz)?
+	<ul>
+	<li><A href="hid_einzelverfahren_hashwerte_hashdemo.html">wrażliwość na algorytm haszujący</a></li>
+	<li>szukanie <A href="hid_signatur_attack.html">kolizji funkcji haszującej</a> (paradoks urodzinowy). </li>
+	</ul>
+<li>przebieg <A href="hid_einzelverfahren_diffiehellmandemo.html">algorytmu ustalenia klucza, Diffie-Hellmana</a></li>
+</li>
+<li><A href="hid_einzelverfahren_sidechannelattack_on_hybridencryption.html">atak side-channel</a></li>
+<li><A href="hid_cr_overview.html">protokoły uwierzytelniania</a></li>
+<li>dzielenie tajemnic przy wykorzystaniu <A href="hid_indiv_crt_secretsharing.html">Chińskiego twierdzenia o resztach</a> oraz <A href="hid_individual_procedures_secretsharing.html">wielomianowego schematu Shamira</A>.</li>
+<li>	<a href="hid_analysis_random_3d_visualization.html">Wizualizacja 3D</a> dużego zbioru liczb losowych.</li></ul>
+</p>
+
+<p>Pakiet CrypTool zawiera także grę edukacyjną "The Number Shark", w której uczeń ćwiczy umiejętność obliczania dzielników.
+</p>
+
+
+<br><p><P><B><a name="onlinehelp">Pomoc, dokumentacja</a></B></P>
+
+<p>W programie CrypTool dużą uwagę przykładamy do pomocy dostępnej dla
+każdej z opcji programu. Zagubiony użytkownik zawsze może nacisnać
+klawisz <b>F1</b> i w ten sposób szukać szerszego opisu poszczególnych
+algorytmów.
+</p>
+
+<p>W plikach pomocy znajduje się:
+</p><ul>
+<li>wyjaśnienie wszystkich podstawowych terminów kryptograficznych,</li>
+<li>krótka <A href="literatur.html">lista odnośników</a> pozwalających na pogłębienie wiedzy,</li>
+<li>przegląd przez <A href="menu_zeittafel.html">historię kryptografii</a> z uwzględnieniem rozwoju kolejnych algorytmów</li>
+<li><A href="hid_hilfe_szenarien.html">gotowe przykłady</a>, które przyspieszają naukę,</li>
+</ul>
+
+<p>Oprócz pomocy dostępnej z programu, CrypTool zawiera kilka innych ciekawych dokumentów:
+</p>
+
+<UL>
+
+<li> Plik <A class="filelink" onclick="parser('readme-en.txt')">readme</a>
+opisuje wszystkie istotne elementy pakiety CrypTool, opis nowych
+funkcji dostępnych w kolejnych wersjach i postępy w pracach nad
+projektem.
+</li>
+
+<li> Szczegółowe informacje na temat wszystkich algorytmów podparte solidną wiedzą matematyczną zawarte są w <A class="filelink" onclick="parser('script-en.pdf')">skrypcie</a> (dostarczanym jako oddzielny plik PDF, o objętości około 200 stron). Można w nim znaleźć m.in.:
+<ul>
+	<li> podstawy algorytmów kryptograficznych,
+	</li><li> teoria liczb pierwszych,
+	</li><li> podstawy teorii liczb w przykładach,
+	</li><li> współczesne wyniki badań kryptoanalitycznych,
+        </li><li> listę beletrystycznych książek i filmów, w których kryptografia odgrywała ważną rolę.
+</li></ul>
+</li>
+
+
+<li> <A class="filelink" onclick="parser('CrypToolPresentation_1_4_00_en.pdf')">Prezentacje</a> (80 slajdów) wprowadzającą w projekt CrypTool i jego obecne możliwości.
+
+<li> Opowiadanie <A class="filelink" onclick="parser('DialogueSisters.pdf')">The Dialogue of the Sisters</a> autorstwa Carstena
+Elsnera, w którym dwie siostry przebywające w szpitalu psychiatrycznym
+używają kryptosystemu RSA.
+</li>
+
+<li> Kolejne opowiadanie <A class="filelink" onclick="parser('ChinLab-en.pdf')">The Chinese Labyrinth</a> autorstwa Carstena
+Elsnera, w którym Marco Polo musi rozwiązać problem z teorii liczb,
+żeby zostać głównym doradcą Wielkiego Chana.
+</li>
+
+</UL>
+
+<br><P><B><a name="organization">Podziękowania</a></B></P>
+
+<p>CrypTool powstał jako połączony projekt uczelni i firm, które potrzebowały odpowiedniego narzędzia dydaktycznego. Jednak celem jest także szeroka edukacja całego społeczeństwa. Jesteśmy przekonani, że  to jedyna droga w celu podniesienia bezpieczeństwa w cyfrowym świecie.
+</p>
+
+<p>CrypTool może być także stosowany jako referencyjna implementacja algorytmów kryptograficznych. Dzieki temu można sprawdzić i porównać algorytmy szyfrujące wbudowane w inne programy.</p>
+
+<p>Implementacje <A href="hashfunktion.html">jednokierunkowej funkcji skrótu (Hasz)</a>, współczesnych
+algorytmów symetrycznych i asymetrycznych oraz funkcje do zarządzania
+kluczami zostały wykonane przy pomocy biblioteki Secude opracowanej
+przez
+<!--ZZZPOPUP--><A href="secude.html">Secude IT Security GmbH</a>. </p>
+
+<p>Załączona, darmowa wersja biblioteki Secude nie obsługuje kart inteligentnych. Płatna wersja licencjonowna ma taką możliwość.</p>
+
+<p>Demostracja kryptosystemu RSA i faktoryzacji liczb została wykonana
+przy pomocy biblioteki Miracl. Tą bibliotekę programistyczną
+przeznaczoną do operacji na długich liczbach całkowitych napisała firma
+<a href="http://indigo.ie/%7Emscott/">Shamus Software Ltd</a>.
+</p>
+
+<p>Demostracja kolicji hash za pomocą paradoksu urodzinowego została zrealizowana za pomocą biblioteki <a href="http://www.openssl.org/">OpenSSL</a>, libeay32.dll.</p>
+
+<p>Victos Shoup jest autorem biblioteki do teorii liczb <a href="http://www.shoup.net/ntl">NTL</a>.
+Jest ona wykorzystywana do ataków na RSA opartych na kratach.</p>
+
+<p>Biblioteka <a href="http://www.swox.com/gmp/" target="_blank">GMP</a> gwarantująca dowolną dokładność obliczeń została użyta w algorytmach testów pierwszości.
+</p>
+
+<p>Information about the future roadmap can be found on the <a href="www.cryptool.org">CrypTool web site</a>, within the <a class="filelink" onclick="parser('readme-en.txt')">Readme file</a> and in the <A class="filelink" onclick="parser('CrypToolPresentation_1_4_00_en.pdf')">CrypTool presentation</a>.
+
+<P>Przypominamy, że zgodnie z <A href="#licence_terms">warunkami licencji</A> autorzy <A href="gewaehrleistung.html">nie biorą odpowiedzialności za straty spowodowane korzystaniem z programu CrypTool</A>.</P>
+
+<br><P><A NAME="licence_terms"></A><B>Warunki licencji</B></P>
+
+
+
+Program CrypTool może być używany bez żadnych opłat w celach edukacyjnych, w
+ celu poznawania metod kryptologicznych i testowania ich. Nie ma
+ dodatkowych ograniczeń co do komercyjnego wykorzystania programu.
+ Jednak w każdym z przypadków muszą być spełnione poniższe wymagania:
+ <ul>
+
+ <li> Używanie programu musi być zgodne z prawodawstwem obowiązującym w kraju
+użytkownika - odpowiedzialność za złamanie restrykcji prawnych ciąży na
+użytkowniku. Produkt nie jest objęty żadną gwarancją. Autorzy nie ponoszą
+odpowiedzialności za funkcjonalność i bezpieczeństwo produktu, działanie
+jego komponentów oraz za wyniki jego działania. CrypTool jest aplikacją
+chronioną prawem autorskim. Używanie produktu w żaden sposób nie zmniejsza
+praw przynależnym autorom.
+	</li>
+
+<li>Bezpłatne wykorzystanie algorytmu IDEA jest ograniczone tylko do
+zastosowań prywatnych. Wykorzystanie algorytmu IDEA w programie CrypTool nie
+jest dozwolone do celów komercyjnych. Licencje na komercyjne wykorzystanie
+algorytmu IDEA udziela MediaCrypt AG, www.mediacrypt.com.</li>
+
+<li>Używanie bibliotek Secude GmbH i Shamus Software Ltd. dozwolone jest
+tylko razem z programem CrypTool.</li>
+
+</ul>
+<p>Załączone opowiadania "The Dialog of the Sisters" i "The Chinese
+Labyrinth" podlegają ochronie autorskiej. Twórcy programu CrypTool uzyskali
+jedynie prawo do redystrybucji opowiadań w pakiecie CrypTool.</p>
+
+
+<br><P><B><a name="opensource">Kod źródłowy</a></B></P>
+
+<p>CrypTool jest oprogramowaniem typu <em>open source</em>, które jest
+chronione licencją GPL (GNU General Public Licence, <a
+href="http://www.gnu.org/">www.gnu.org</a>) przygotowaną przez Free Software
+Foundation.  </p>
+
+<p>Licencja GPL nie dotyczy to kodu źródłowego biblioteki SECUDE (Secude IT Security GmbH),
+biblioteki MIRACL (Shamus Software Ltd.) i programu ANIMAL, które to
+dystrybuowane są tylko w formie binarnej.
+</p>
+
+<p>Grupie deweloperów przewodzi <a href="mailto:esslinger@fb5.uni-siegen.de">Bernhard Esslinger</a>.</p>
+
+<p><b><i>Bernhard Esslinger -- Copyright &copy; 1998 - 2007 </i></b></p>
+
+</BODY>
+</HTML>

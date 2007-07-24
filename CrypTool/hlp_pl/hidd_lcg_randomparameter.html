@@ -1,0 +1,265 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1250">
+<TITLE>Okno Generator Kongruencji Liniowej</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- zestaw słów kluczowych dla indeksu pomocy HTML CrypTool -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Okno (przegląd wszystkich okien)">
+	<PARAM NAME="Keyword" VALUE="Generator kongruencji">
+	<PARAM NAME="Keyword" VALUE="Losowy">
+	<PARAM NAME="Keyword" VALUE="Algorytmy">
+</OBJECT>
+
+<BODY>
+
+<h3>Okno Generator Kongruencji Liniowej</h3>
+
+<P>Generator Kongruencji Liniowej (ang. Linear Congruence Generator - LCG) jest algorytmem służącym do generowania ciągu pseudolosowych liczb całkowitych (X_[i]) zgodnie ze wzorami:</P>
+
+<div class="indent">
+
+<P>X_[0] := tajna wartość ziarna</P>
+
+<P>X_[i+1] := a*X_[i] +b  (mod N)   dla i = 0, 1, 2, 3, ...</P>
+
+</div>
+
+<P>gdzie X_[i] są liczbami całkowitymi z przedziału 0,1,2, ..., N-1. Zwyczajowo wybiera się tylko te liczby losowe, które są liczbami wymiernymi [0,1[, stąd wyjście w postaci liczb wymiernych Z[i] := X_[i]/N.</P>
+
+<P>W CrypTool obserwujemy wyłącznie "rzuty monetą" ("orłowi" przypisywana jest wartość 0, a "reszce" wartość 1). W generatorze kongruencji liniowej wylosowanie 0 jest zatem reprezentowane przez zdarzenie [Z_[i] &lt; 0.5], a wyrzucenie 1 przez [0.5 &lt;= Z_[i] &lt; 1]. Sekwencja rzutów jest zapisywana jako plik binarny (8 kolejnych rzutów daje jeden losowy znak ASCII).</P>
+
+<P>Parametrami w generatorze kongruencji liniowej są liczby N, a, b z równania liniowego y = a*x+b (mod N): wartość modulo N, współczynnik a: 0&lt;a&lt;N oraz stała b: 1&lt;b&lt;N. Ponadto, generator kongruencji liniowej jest inicjalizowany przez tajną wartość początkową albo ziarno X_0.</P>
+
+<P>Wybierz <B>Algorytmy \ Generowanie liczb losowych</B> i włącz przycisk opcji <B>Generator liniowej kongruencji</B>. Możesz teraz podać parametry generatora kongruencji liniowej wciskając przycisk "<B>Wybierz parametry specyficzne dla generatora</B>".</P>
+
+<P><IMG SRC="images/lcgoptions.gif" ALT="lcgoptions.gif" BORDER=0></P>
+
+<P>Warto dodać, że jakość generatora kongruencji liniowej zależy bezpośrednio od wyboru parametrów. Ważną wielkością jest w tym przypadku <A href="periodenlange.html">długość okresu </A> losowego ciągu, która jest wyznaczana na podstawie parametrów. </P>
+
+<P>Generator kongruencji liniowej jest powszechnie stosowany, gdyż jego prosta struktura ułatwia implementację oraz zapewnia wysoką wydajność. Duża ilość pseudolosowych funkcji w systemach operacyjnych (np. UNIX) i w językach programowania (takich jak ANSI C, Fortran itd.) zawiera generator kongruencji liniowej. Ze względu na swoją popularność, generator kongruencji liniowej jest jednym z najlepszych i najczęściej analizowanych generatorów liczb losowych.</P>
+
+<P>Poniższa tabela przedstawia podsumowanie parametrów kilku wybranych generatorów kongruencji liniowej.</P>
+
+<TABLE cols=4 width="0*" class="pad20">
+
+<TR VALIGN="top">
+<TD>A</TD>
+<TD>b</TD>
+<TD>N</TD>
+<TD>Zawarte w:</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>19496</TD>
+<TD>0</TD>
+<TD>2^15-19</TD>
+<TD>Chiang, Hwang, Kao</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>214013</TD>
+<TD>13523655</TD>
+<TD>2^24</TD>
+<TD>BASIC</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>16598013</TD>
+<TD>12820163</TD>
+<TD>2^24</TD>
+<TD>Qbasic</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>62605</TD>
+<TD>113218009</TD>
+<TD>2^29</TD>
+<TD>Berkeley UNIX Pascal</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>452807053</TD>
+<TD>0</TD>
+<TD>2^31</TD>
+<TD>URN12</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>16807</TD>
+<TD>0</TD>
+<TD>2^31-1</TD>
+<TD>_Minimal Standard_ of Lewis et al.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>41358</TD>
+<TD>0</TD>
+<TD>2^31-1</TD>
+<TD>L'Ecuyer</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>48271</TD>
+<TD>0</TD>
+<TD>2^31-1</TD>
+<TD>Park &amp; Miller</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>51081</TD>
+<TD>0</TD>
+<TD>2^31-1</TD>
+<TD>Härtel</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>69621</TD>
+<TD>0</TD>
+<TD>2^31-1</TD>
+<TD>Park &amp; Miller</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>950706376</TD>
+<TD>0</TD>
+<TD>2^31-1</TD>
+<TD>FISH von Fishman &amp; Moore</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>63060016</TD>
+<TD>0</TD>
+<TD>2^31-1</TD>
+<TD>SIMSCRIPT II</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>397204094</TD>
+<TD>0</TD>
+<TD>2^31-1</TD>
+<TD>SAS &amp; IMSL library of Hoaglin</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>65539</TD>
+<TD>0</TD>
+<TD>2^31</TD>
+<TD>IBM's RANDU</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>1103515245</TD>
+<TD>12345</TD>
+<TD>2^31</TD>
+<TD>UNIX rand [Rip90], ANSI C</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>129</TD>
+<TD>907633385</TD>
+<TD>2^32</TD>
+<TD>Turbo Pascal</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>69069</TD>
+<TD>1</TD>
+<TD>2^32</TD>
+<TD>VAX VMS generator of Marsaglia</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>663608941</TD>
+<TD>0</TD>
+<TD>2^32</TD>
+<TD>C-RAND from Ahrens</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>1099087573</TD>
+<TD>0</TD>
+<TD>2^32</TD>
+<TD>Fishman</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>3141592653</TD>
+<TD>1</TD>
+<TD>2^32</TD>
+<TD>DERIVE</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>2147001325</TD>
+<TD>715136305</TD>
+<TD>2^32</TD>
+<TD>BCPL by Richards, Whitby-Strevens</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>5^15</TD>
+<TD>7261067085</TD>
+<TD>2^35</TD>
+<TD>Boeing Computer Services BCSLIB</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>71971110957370</TD>
+<TD>0</TD>
+<TD>2^47-115</TD>
+<TD>L'Ecuyer</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>25214903917</TD>
+<TD>11</TD>
+<TD>2^48</TD>
+<TD>SUN-UNIX drand48</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>44485709377909</TD>
+<TD>0</TD>
+<TD>2^48</TD>
+<TD>Cray X-MP Library</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>68909602460261</TD>
+<TD>0</TD>
+<TD>2^48</TD>
+<TD>Fishman</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>13^13</TD>
+<TD>0</TD>
+<TD>2^59</TD>
+<TD>NAG Fortran Library</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>2307085864</TD>
+<TD>0</TD>
+<TD>2^63-25</TD>
+<TD>L'Ecuyer</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>427419669081</TD>
+<TD>0</TD>
+<TD>10^12-11</TD>
+<TD>MAPLE</TD>
+</TR>
+</TABLE><BR>
+
+<P>Wybrane generatory kongruencji liniowej</P>
+
+<P>Jakość danych wyjściowych wygenerowanych przez generator liczb losowych może zostać sprawdzona za pomocą testów losowości, analizy częstotliwości, kompresyjności i analizy Vitany zaimplementowanej w CrypTool.</P>
+
+</BODY>
+</HTML>

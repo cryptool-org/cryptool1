@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Okno generowania asymetrycznej pary kluczy</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+<script language="JScript" src="helper.js"></script>
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
+	<PARAM NAME="Keyword" VALUE="Asymmetric">
+	<PARAM NAME="Keyword" VALUE="Keys">
+</OBJECT>
+
+<BODY>
+
+<h3>Okno generowania asymetrycznej pary kluczy</h3>
+
+<P>Okno to jest dostêpne z menu poprzez <A href="menu_digitalsignaturespki.html">Podpis cyfrowy</A> \ <a href="menu_digitalsignaturespkipki.html">PKI</a> \ <A href="hid_crypt_keygen.html">Generowanie/Import klucza</A>.</P>
+
+<P>Okno to jest u¿ywane do specyfikacji parametrów, które maj¹ byæ u¿yte do <A href="hid_crypt_keygen.html">generowania asymetrycznej pary kluczy</A>. Asymetryczna <!--ZZZPOPUP--><A href="schluesselpaar.html">para kluczy</A> mo¿e byæ generowana dla takich algorytmów szyfrowania:</P>
+
+<UL>
+	<LI><A href="hid_crypt_rsaenc.html">RSA</A></LI>
+
+	<LI><A href="dsa.html">DSA</A></LI>
+
+	<LI>Metoda oparta na <A href="ellipkurven.html">krzywych eliptycznych</A></LI>
+</UL>
+
+<P> <!--ZZZPOPUP--><A href="schluessel.html">Klucze</A> stworzone metod¹ <A href="ellipkurven.html">krzywej eliptycznej</A> i DSA mog¹ byæ u¿yte w programie <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> tylko do <!--ZZZPOPUP--><A href="signatur.html">podpisywania</A> wiadomoœci. Klucze RSA mog¹ byæ u¿yte w programie <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> do podpisywania, <!--ZZZPOPUP--><A href="verschluesselung.html">szyfrowania</A> oraz <!--ZZZPOPUP--><A href="entschluesselung.html">deszyfrowania</A> informacji.
+
+<P>Okno jest podzielone na piêæ kawa³ków (trzy dolne kawa³ki s¹ aktywne tylko wtedy, kiedy klucze generowane s¹ metod¹ <A href="ellipkurven.html">krzywych eliptycznych</A>).</P>
+
+<UL>
+	<LI>Wybór <B>algorytmu</B>:<BR>
+Dla klucza RSA i DSA, <!--ZZZPOPUP--><A href="schluessellaenge.html">d³ugoœæ klucza</A> musi byæ ustalona (w bitach). Modulus n w protokole RSA (jest to wynik iloczynu dwóch du¿ych liczb pierwszych) musi mieæ d³ugoœæ pomiêdzy 301 a 768 bitów (w³aœciciele pe³nej wersji Secude library mog¹ u¿ywaæ moduli RSA o d³ugoœci do 2047 bitów). Ka¿da liczba ca³kowita pomiêdzy tymi wartoœciami jest prawid³owa oraz zaakceptywana po wprowadzeniu. Bitowe d³ugoœci 512, 768 oraz 1024 s¹ ju¿ zdefiniowane i mog¹ byæ wybrane za pomoc¹ myszy. Liczba pierwsza p w <B>DSA</B> - musi byæ wybrana z jednej z dostêpnych opcji (bezpoœrednie wejœcie nie jest mo¿liwe). Jest dziewiêæ mo¿liwych ustawieñ dla d³ugoœci bitowej p. Dla <B>krzywych eliptycznych</B> jest dostêpnych siedem opcji. Krzywe s¹ wybierane z zestawu "identyfikatorów parametru" (znane tak¿e jako "identyfikatory krzywej"). Ka¿dy identyfikator parametru jest w formie primeXXXvY, gdzie XXX oznacza d³ugoœæ bitow¹ liczby pierwszej p, zaœ Y odró¿na ró¿ne krzywe, dla których p ma tak¹ sam¹ d³ugoœæ w bitach. Eliptyczna krzywa jest definiowana poprzez Z[p]. Zobacz tak¿e <A class="filelink" onclick="parser('script-en.pdf')">skrypt</A> o krzywych eliptycznych, sekcja zatytuowana "Krzywe eliptyczne w kryptografii".
+	<BR><BR></LI>
+
+	<LI><B>Informacje dla u¿ytkownika</B>:<BR>
+	S¹ pola, w których wprowadza siê zwi¹zane z u¿ytkownikiem dane œrodkami, które pozwalaj¹ odró¿niæ ró¿ne <!--ZZZPOPUP--><A href="schluessel.html">klucze</A>. Wpisy w polach <B>Nazwisko</B>, <B>Imiê</B>, <B>PIN</B> i <B>Weryfikacja PINu</B> s¹ obowi¹zkowe. Wpis w polu <B>Identyfikator klucza</B> jest opcjonalny i pozwala stworzyæ wiele kluczy dla twojego imienia. Podczas wpisywania nazwiska, imienia i identyfikatora klucza, nie mog¹ byæ u¿ywane znaki specjalne (na przyk³ad:  \ / : * ? " &lt; &gt; | ). W przypadku ich u¿ycia, zostanie wyœwietlona odpowiednia informacja o b³êdzie. <BR><BR></LI>
+
+	<LI><B>Parametry dziedziny</B>:<BR>
+W <B>Parametrach dziedziny</B> na dole okna, wyœwietlane s¹ parametry dla aktualnie zaznaczonej krzywej. W <A class="filelink" onclick="parser('script-en.pdf')">skrypcie</A>, w dziale zatytuo³owanym "Krzywe eliptyczne w kryptografii", jest wyt³umaczone co siê kryje za pojêciem dziedziny parametru.<BR><BR></LI>
+
+	<LI><B>System liczbowy:<BR>
+</B>Mo¿na wybraæ jeden z trzech systemów liczbowych: ósemkowy, dziesiêtny i hex (zobacz <A href="ascii.html">tabela ASCII</A>).<BR><BR></LI>
+
+	<LI><B>Wyœwietl wygenerowane pary kluczy</B>:<BR>
+To pole pozwala zadecydowaæ, czy chce siê zobaczyæ <!--ZZZPOPUP--><A href="schluesselpaar.html">parê kluczy</A> wygenerowan¹ dla <A href="ellipkurven.html">krzywych eliptycznych</A> czy te¿ nie. W przypadku wybrania wyœwietlania pary kluczy, nowe okno zatytuowane <A href="hidd_show_parameter_key_ec.html">Wyœwietl publiczny i prywatny klucz dla krzywych eliptycznych</A>, zostanie otwarte. Tutaj mo¿na generowaæ pseudolosowe liczby do momentu, a¿ jedna z par kluczy bêdzie satysfakcjonuj¹ca dla u¿ytkownika i zdecyduje siê j¹ zachowaæ.</LI>
+</UL>
+
+<P>Ka¿da wygenerowana para kluczy i dodatkowe zwi¹zane z ni¹ informacje s¹ trzymane pod <!--ZZZPOPUP--><A href="schluesselbezeichner.html">identyfikatorem klucza</A>.</P>
+
+<P>Wygenerowane klucze RSA i DSA mog¹ byæ eksportowane do pliku w formacie PKCS #12 u¿ywaj¹æ okna dialogowego zatytuowanego: <A href="hidd_key_asym.html">Dostêpne asymetryczne pary kluczy</A>. Mo¿na u¿ywaæ przycisku <B>Import PKCS #12</B> w tym oknie dialogowym do ponownego importu kluczy. Nale¿y mieæ na wzglêdzie, ¿e s¹ pewne<A href="pkcs12_import_export.html">restrykcje dotycz¹ce importu PKCS #12</A>.</P>
+
+</BODY>
+</HTML>

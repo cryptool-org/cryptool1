@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1250">
+<TITLE>tajna wiadomość of Sparta</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->	
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Skytale">
+</OBJECT>
+
+<BODY>
+
+<h3>Spartańska tajna wiadomość Skytale (500 r.n.e) (opisana przez Plutarch)</h3>
+
+<P>Nadawca i odbiorca potrzebowali dwóch cylindrów (sześciennych lasek) o tej samej grubości</P>
+
+<P>i takiej samej liczbie krawędzi.</P>
+
+<P>Nadawca nawijał niewielki pas pergaminu wokół swojego cylindra i pisał swoją wiadomość na stykających się brzegach pergaminu. Wiadomość na rozwiniętym pasie możliwa była do rozczytania tylko przez osobą, która miała identyczny cylinder. </P>
+
+<div class="indent">
+
+<P><IMG SRC="images/skytale1.gif" ALT="skytale1.gif" BORDER=0></P>
+
+</div>
+
+<P>Jak można zastosować ten algorytm przy użyciu CrypTool ? </P>
+
+<P>tajna wiadomość odpowiada identycznej <A href="hid_permutation_asc.html">permutacji</A> (1,2,3, ..., n) o n kolumnach (n było liczbą krawędzi w Skytale).</P>
+
+<P>Przykład:</P>
+
+<P>Dla n=3 (dokładnie 3 krawędzie) nadawca pisał na pasie:</P>
+
+<div class="indent">
+
+<PRE><CODE>JAM ESB OND</CODE></PRE>
+
+</div>
+
+<P>i otrzymał rozwinięty pas z: </P>
+
+<div class="indent">
+
+<P><CODE>JEO ASN MBD</CODE>.</P>
+
+</div>
+
+<P></P>
+
+<P>Jeśli napisał </P>
+
+<div class="indent">
+
+<PRE><CODE>    JAM ESB OND
+    WAN TED DEA</CODE>
+    <CODE>DOR ALI VE</CODE></PRE>
+
+</div>
+
+<P>to otrzymał </P>
+
+<div class="indent">
+
+<PRE><CODE>    JEO WTD DAV
+    ASN AEE OLE</CODE>
+    <CODE>MBD NDA RI</CODE></PRE>
+
+</div>
+
+</BODY>
+</HTML>

@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1250">
+<TITLE>Okno Analiza manualna zastąpienia</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- zestaw słów kluczowych dla indeksu pomocy HTML CrypTool -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Manual post-processing (szyfr monoalfabetyczny)">
+	<PARAM NAME="Keyword" VALUE="Szyfr monoalfabetyczny">
+	<PARAM NAME="Keyword" VALUE="Kryptoanaliza">
+	<PARAM NAME="Keyword" VALUE="Okno (przegląd wszystkich okien)">
+</OBJECT>
+
+<BODY>
+
+<h3>Okno Analiza manualna zastąpienia</h3>
+
+<P>Okno to jest używane do przejrzenia analizy automatycznej <!--ZZZPOPUP--><A href="verschluesselung.html">zaszyfrowanego</A> tekstu przy użyciu <A href="hid_cryptmono.html"> szyfru monoalfabetycznego</A>.</P>
+
+<P>Okno to pojawia się w momencie, gdy <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> kończy działanie <A href="hid_analyze_subst.html">analizy automatycznej szyfru monoalfabetycznego</A>. Górna część okna zawiera listę zastąpienia liter, którą opracował CrypTool.</P>
+
+<P>Lista ta może zostać zmieniona poprzez nadpisanie wartości w odpowiednich polach. Przykładowo, przypisanie litery A do litery E oznacza, że litera A w kryptogramie będzie odpowiadała literze E tekstu jawnego. CrypTool sprawdza nowe przypisania, czy nie powodują one konfliktów z istniejącymi przypisaniami, np. czy dwie różne litery nie zostały przypisane do jednej i tej samej litery (co nie jest dopuszczalne w szyfrach monoalfabetycznych). Jeśli występuje kolizja, na ekranie pojawia się okno z zapytaniem, czy zatrzymać wpisy poprzednie, czy nowe. Pola w konflikcie zostają ustawione jako nieokreślone (*). Jeśli elementy listy zastąpienia są poprawne, całość zostaje użyta do zaszyfrowania analizowanego tekstu, a wyniki są prezentowane w dolnej części okna.</P>
+
+<P>Lista zastąpienia użytkownika może zostać przywrócona poprzez naciśnięcie przycisku <B>Resetuj wartości do rezultatów analizy automatycznej</B>, przez co w górnej części okna na nowo pojawią się wartości listy zastąpienia opracowanej przez CrypTool. Możesz cofnąć ostatnią zmianę naciskając przycisk <B>Cofnij</B>.</P>
+
+<P>Naciśnięcie przycisku <B>Aktualny status wyjścia</B> spowoduje <!--ZZZPOPUP--><A href="entschluesselung.html">odszyfrowanie</A> kryptogramu za pomocą aktualnej listy zastąpienia i wyświetlenie wyników w nowym <A href="hidr_texttype.html">oknie tekstowym</A>.</P>
+
+</BODY>
+</HTML>

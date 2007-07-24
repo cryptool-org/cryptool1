@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="7.10"
+	Name="hlp_pl"
+	ProjectGUID="{3D9B8B0A-2A43-47C5-B553-09BB3D74FDFC}"
+	Keyword="MakeFileProj">
+	<Platforms>
+		<Platform
+			Name="Win32"/>
+	</Platforms>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="Debug"
+			IntermediateDirectory="Debug"
+			ConfigurationType="0">
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; OUTDIR=$(OutDir)"
+				ReBuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; /a OUTDIR=$(OutDir)"
+				Output="CrypTool-pl.chm"/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="Release"
+			IntermediateDirectory="Release"
+			ConfigurationType="0">
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; OUTDIR=$(OutDir)"
+				ReBuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; /a OUTDIR=$(OutDir)"
+				Output="CrypTool-pl.chm"/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Files>
+		<File
+			RelativePath=".\hlp_pl.mak">
+		</File>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>

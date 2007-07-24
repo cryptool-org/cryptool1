@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1250">
+<TITLE>Okno Opcje dla ataku na wartość hasz podpisu cyfrowego</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- zestaw słów kluczowych dla indeksu pomocy HTML CrypTool -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Okno (przegląd wszystkich okien)">
+	<PARAM NAME="Keyword" VALUE="Opcje">
+</OBJECT>
+
+<BODY>
+
+<h3>Okno Opcje dla ataku na wartość hasz podpisu cyfrowego</h3>
+
+<P>Dostęp do tego okna możesz uzyskać wciskając przycisk <b>Opcje</b> z poziomu okna <a href="HIDD_SIGNATURE_ATTACK.html">Atak na wartość hasz podpisu cyfrowego</a>.</P>
+
+<P>Do przeprowadzenia ataku może zostać wybrana jedna z sześciu <!--ZZZPOPUP--><A href="hashfunktion.html">funkcji haszujących</A>. Dostępne są 128-bitowe funkcje MD2, MD4 i MD5 oraz 180-bitowe funkcje haszujące SHA, SHA-1 i RIPEMD-160.</P>
+
+<P><B>Długość znaczącego bitu</B> określa liczbę najwyższych bitów w wartościach hasz, które muszą się zgadzać, aby atak mógł zostać uznany za udany. Przeciwdziedzina długości znaczącego bitu wynosi 1 &lt;= x &lt;= n, gdzie n jest liczbą bitów w wybranej funkcji haszującej.</P>
+
+<P><IMG SRC="images/ads_options.gif" ALT="ads_options.gif" BORDER=0></P>
+
+<P>W kategorii <B>Opcje modyfikacji wiadomości</B> może zostać wybrana metoda modyfikacji wiadomości w zależności od ostatnio utworzonej wartości hasz.</P>
+
+<P>Jeśli przycisk wyboru <B>Umieszczaj spacje</B> jest zaznaczony, to przynajmniej jeden z dwóch przycisków opcji <B>Przed końcem linii</B> albo <B>Podwójne spacje</B> również musi zostać zaznaczony. Zaczynając od końca wiadomości, umieszczana jest spacja przed końcem linii i/lub przed następną spacją.</P>
+
+<P><B>Dołącz znaki</B> jest drugą metodą modyfikacji wiadomości. Polega na tym, że dwa bity wartości hasz są przypisywane jednemu znakowi, który jest dołączany na końcu wiadomości. Na użytek demonstracji mogą zostać wykorzystane <B>Znaki drukowalne</B> ("A", "B", "C" oraz "D"), w przeciwnym wypadku dołączane są <B>Znaki niedrukowalne</B> (znaki o kodach ASCII 9, 10, 32 oraz 160).</P>
+
+<P>Za pomocą przycisku <B>Przywróć domyślne</B> ustawienia zostają zresetowane do następujących wartości:</P>
+
+<TABLE cols=2 width="0*" class="pad20">
+
+<TR VALIGN="top">
+<TD>Funkcja haszująca:</TD>
+<TD><B>MD2</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>Długość znaczącego bitu:</TD>
+<TD><B>16</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>Opcje modyfikacji wiadomości:</TD>
+<TD><B>Umieszczaj spacje/Przed końcem linii oraz Podwójne spacje</B></TD>
+</TR>
+</TABLE><BR>
+
+<P>Poprzez wciśnięcie przycisku <B>Zatwierdź</B> aktualne ustawienia zostają zapisane w pliku CrypTool.INI i są używane dla wszystkich przyszłych ataków, a ponadto użytkownik wraca do okna <A href="hidd_signature_attack.html">Atak na wartość hasz podpisu cyfrowego</A>.</P>
+
+<p><b>Uwaga:</b> Jeśli w pierwszej grupie opcji wybierzesz taką długość znaczącego bitu, że funkcja będzie miała długi czas trwania (np. dla n > 40), ukaże się <a href="hidd_show_progress.html">okno wskaźnika postępu</a>.</P>
+
+</BODY>
+</HTML>

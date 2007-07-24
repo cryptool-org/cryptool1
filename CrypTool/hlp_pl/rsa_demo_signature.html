@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1250">
+<TITLE>Cyfrowe podpisywanie wiadomości</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->	
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Digital signatures/PKI">
+	<PARAM NAME="Keyword" VALUE="Signature">
+</OBJECT>
+
+<BODY>
+
+<h3>Cyfrowe podpisywanie wiadomości</h3>
+
+<OL type="a">
+
+<LI><B>Prosta, naiwna procedura</B>: możesz zaszyfrowac tekst jawny używając tajnego klucza (N,d). Teraz sytuacja zasadniczo się zmieniła:</LI>
+
+<div class="indent">
+
+<P><B>Każdy może odszyfrować wiadomość używając klucza publicznego (N,e), ale tylko Ty jako właściciel tajnego klucza (N,d) możesz wiadomość zaszyfrować.</B></P>
+
+</div>
+
+<P>Właściciel tajnego klucza szyfruje wiadomość M używając tajnego klucza C(N,d;M). Zaszyfrowana wersja C(N,d;M) może być uważana za <B>podpis</B> wiadomości M, ponieważ autentyczność podpisu może być zweryfikowana przez każdego kto posiada C(N,d;M), klucz publiczny (N,e) oraz wiadomość M:</P>
+
+<div class="indent">
+
+<P><B>Podpis C(N,d;M) jest poprawny jeżeli podpis odszyfrowany przy pomocy (N,e), M‚ = E(N,e;C), odpowiada wiadomości M.</B></P>
+
+</div>
+
+<LI>W praktyce najczęściej to nie wiadomość jest podpisywana ale jej wartość hasz o ustalonej długości, otrzymana przy użyciu <A href="hashfunktion.html">funkcji haszującej</A>. Przekazywana jest wtedy podpisana wartość hasz. W taki sposób eliminuje się następujące wady czystego podpisu C(N,d;M):</LI>
+
+<div class="indent">
+
+<UL type=disc>
+	<LI>Jeśli wiadomość M jest zaszyfrowana tajnym kluczem RSA wówczas ilość czasu potrzebna do zaszyfrowania długich wiadmości jest bardzo duża.</LI>
+
+	<LI>Podpis C(N,d;M) jest przynajmniej tak długi jak podpisywana wiadomość M.</LI>
+
+	<LI>Możliwy problem prywatności, gdyż wiadomość może być odzyskana z podpisu.</LI>
+</UL>
+
+</div>
+
+<P>Dlatego bardziej wydajne jest podpisanie tylko wartości hash H = H(M) danej wiadomości. Aby sprawdzić podpis C = C(N,d;H), potrzebna jest dodatkowo wiedza o użytej funkcji haszującej H: </P>
+
+<div class="indent">
+
+<P><B>Podpis C(N,d;H) jest poprawny jeżeli podpis odszyfrowany przy pomocy (N,e), H‚ = E(N,e;C), odpowiada wartości hasz H(M) wiadomości M.</B></P>
+
+</div>
+
+</OL>
+
+</BODY>
+</HTML>

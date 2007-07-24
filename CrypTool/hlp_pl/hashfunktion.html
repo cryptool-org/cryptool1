@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1250">
+<TITLE>Funkcja haszująca (funkcja skrótu)</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Hash function">
+</OBJECT>
+
+<BODY>
+
+<h3>Funkcja haszująca (funkcja skrótu)</h3>
+
+<P><B>Funkcja haszująca</B> jest (matematyczną) funkcją, która przyporządkowuje dowolnie dużej liczbie będącej parametrem wejściowym (wiadomością) krótką (zwykle 128 lub 160 bitów) wartość określaną jako skrót wiadomości. Funkcje haszujące używane w kryptografii powinny być nazywane <B>jednokierunkowymi funkcjami haszującymi</B>.</P>
+
+<P>Funkcja haszująca musi być dostępna publicznie, tzn. każdy powinien mieć możliwość (efektywnego) obliczenia wartości skrótu dla danego wejścia. Operacja odwrotna, tzn. znalezienie liczby wejściowej na podstawie podanego skrótu, musi być praktycznie niemożliwa (nazywamy to <B>jednokierunkowością</B>).</P>
+
+<P>W kryptografii funkcje skrótu muszą spełniać drugi silniejszy warunek: musi być niemożliwe znalezienie dwóch różnych wartości dla których funkcja zwraca te same skróty. Gdyby ten warunek nie był spełniony możliwe byłoby zastąpienie oryginalnej wiadomości inną podrobioną posiadającą ten sam skrót. Funkcje haszujące są używane w połączeniu z cyfrowymi  <!--ZZZPOPUP--><A href="signatur.html">podpisami</A>. Z powodów wydajnościowych podpisywana nie jest sama wiadomość, lecz jej skrót.</P>
+
+<P>Wartość skrótu H = H(M) oryginalnej wiadomości M, jest sprawdzana aby sprawdzić czy otrzymana wiadomość M' nie została zmieniona.</P>
+<!-- ten przykład jest jakiś dziwny, powtarza się znowu definicja kolizji, to brzmi naprawdę kiepsko - ja to tylko tłumacze na polski a nie redaguje -->
+<P>Przykład: W zamierzchłej przeszłości gazety komputerowe dodawały sumy kontrolne do wydruków przykładów kodu źródłowego. Używając tych sum było możliwe szybkie znalezienie typowych literówek, ponieważ należało tylko sprawdzić sumę kontrolną wiersza aby odkryć błąd (płyty CD i Internet nie były powszechne w tych czasach).</P>
+
+<P>Dla tych metod generowania sum kontrolnych było łatwe znalezienie dwóch różnych wierszy R1, R2 z tą samą sumą kontrolną - tzn. H(R1) = H(R2) i R1 != R2. Było więc możliwe wygenerowanie złośliwego kodu, bez możliwości sprawdzenia tej modyfikacji tylko przy pomocy sum kontrolnych. Występowanie dwóch różnych wierszy od tej samej sumie kontrolnej nazywamy kolizją. W notacji wartości skrótów, kolizja występuje wtedy gdy:</P>
+
+<P>M != M' i H(M) = H(M')</P>
+
+<P>Dla celów kryptograficznych musimy uwzględnić warunek, że dla metody haszującej H i dla dowolnej wiadomości M, jest praktycznie niemożliwe wyliczenie kolizji, tzn.  obliczenie takiej fałszywej wiadomości M' != M, dla której H(M') = H(M).</P>
+
+<P>W przykładzie z drukowanym kodem źródłowym w gazetach, proste sumy kontrolne były wystarczające, ponieważ wiadomości (linie) były zmieniane nie z powodu złej woli, lecz zwykłych pomyłek.</P>
+
+<P><!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> dostarcza kryptograficznie silnych metod poprzez menu  <B>Algorytmy \ <A href="menu_individualprocedures_hashprocedures.html">Hasz</A></B>. Te metody haszujące obliczają sumy kontrolne dla dowolnego dokumentu niezależnie od jego wielkości. Długość wyjścia (wartości skrótu) jest w zależności od wybranej metody haszującej równa 128 lub 160 bitów. </P>
+
+</BODY>
+</HTML>

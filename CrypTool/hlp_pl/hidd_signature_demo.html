@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialog RSA Signature Generation</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Signature">
+	<PARAM NAME="Keyword" VALUE="Demonstrations/Scenarios">
+	<PARAM NAME="Keyword" VALUE="RSA encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
+</OBJECT>
+
+<BODY>
+
+<h3>Dialog RSA Signature Generation</h3>
+
+<P>You can reach this dialog via the menu entry <a href="menu_digitalsignaturespki.html">Digital Signatures/PKI</a> \ <a href="hid_einzelverfahren_sign_doc.html">Signature Demonstration (Signature Generation)</a>.</P>
+
+<P>This dialog allows to execute all steps of the <A href="hid_crypt_sign.html">RSA signature</A> process, and therefore it will show transparently the details of the <A href="hid_einzelverfahren_sign_doc.html">RSA signature generation</A>. </P>
+
+<P>As to visualize the actions of the signature generation, the flowchart of this process has been implemented into a dialog. To understand it, you can try out and combine the operations: hashing, asymmetric encryption and the use of a certificate.</P>
+
+<P>Several coloured symbols are used for buttons:</P>
+
+<TABLE cols=2 width="0*" class="pad20">
+
+<TR VALIGN="top">
+<TD><IMG SRC="images/sympre.gif" ALT="sympre.gif" BORDER=0></TD>
+<TD>
+<P>Symbol for preparations (e.g. select a hash function).</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><IMG SRC="images/sym_inp.gif" ALT="sym_inp.gif" BORDER=0></TD>
+<TD>
+<P>Symbol for manual data input (e.g. key generation).</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><IMG SRC="images/sym_dat.gif" ALT="sym_dat.gif" BORDER=0></TD>
+<TD>
+<P>General symbol for data (e.g. hash value).</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><IMG SRC="images/sym_str.gif" ALT="sym_str.gif" BORDER=0></TD>
+<TD>
+<P>Symbol for stored data (here certificate).</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><IMG SRC="images/sym_pro.gif" ALT="sym_pro.gif" BORDER=0></TD>
+<TD>
+<P>Processing symbol (here: signature generation).</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><IMG SRC="images/sym_trm.gif" ALT="sym_trm.gif" BORDER=0></TD>
+<TD>
+<P>Process end symbol (e.g. store signature).</P>
+</TD>
+</TR>
+</TABLE><BR>
+
+<P>The colors of the symbols informs you about the actual state of the individual process step within the flowchart:</P>
+
+<TABLE cols=2 width="0*" class="pad20">
+
+<TR VALIGN="top">
+<TD><B>red</B></TD>
+<TD>Operation to handle (preparation / input / process).</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><B>green</B></TD>
+<TD>Finished operation (preparation / input / process).</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><B>blue</B></TD>
+<TD>Available data (display and further process steps are possible).</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><B>grey</B></TD>
+<TD>Inactive (missing data or not yet executed preliminary processes).</TD>
+</TR>
+</TABLE><BR>
+
+<P>Dependencies between symbols are visualized by arrows. Active buttons (<B>red</B> / <B>green</B> / <B>blue</B>) can be multiple times selected and/or selected in random order. <B>Grey</B> buttons are inactive and can't be selected. A process button will be activated if all preliminary linked operations are executed, and so the required input data is available (all preliminary buttons are coloured <B>blue</B>).</P>
+
+<P>On each symbol on lower left corner there are additional icons placed. Those icons symbolise the type of the operation / data element:</P>
+
+<TABLE cols=2 width="0*" class="pad20">
+
+<TR VALIGN="top">
+<TD><IMG SRC="images/icn_doc.gif" ALT="icn_doc.gif" BORDER=0></TD>
+<TD>Input file for the digital signature.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><IMG SRC="images/icn_alg.gif" ALT="icn_alg.gif" BORDER=0></TD>
+<TD>Information about the selected hash function.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><IMG SRC="images/icn_hsh.gif" ALT="icn_hsh.gif" BORDER=0></TD>
+<TD>Hash value of the input file.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><IMG SRC="images/icn_key.gif" ALT="icn_key.gif" BORDER=0></TD>
+<TD>Secret RSA key for hash value decryption (signing process).</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><IMG SRC="images/icn_enc.gif" ALT="icn_enc.gif" BORDER=0></TD>
+<TD>RSA-encrypted hash value.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><IMG SRC="images/icn_crt.gif" ALT="icn_crt.gif" BORDER=0></TD>
+<TD>Stored certificate.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><IMG SRC="images/icn_sgn.gif" ALT="icn_sgn.gif" BORDER=0></TD>
+<TD>Complete RSA signature, on this header, the input file will be attached later.</TD>
+</TR>
+</TABLE><BR>
+
+<P>The view of this flow chart is separated into five rows:</P>
+
+<P>The first row contain all operations, which are prerequisites for the signature generation. </P>
+
+<P>The second row shows the input data of the two main signature operations.</P>
+
+<P>The third row shows the signature operations of hashing and RSA decryption. </P>
+
+<P>In the fourth row, you can display the output of the above operations.</P>
+
+<P>Using the buttons of the fifth row, you may cancel the dialog or store the digitally signed document, before the dialog is closed.</P>
+
+<P>If you click on the data symbols (row two and four), then the selected information will be show into the text field below the flow chart.</P>
+
+</BODY>
+</HTML>

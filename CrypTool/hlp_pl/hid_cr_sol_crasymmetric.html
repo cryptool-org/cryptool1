@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1250">
+<TITLE>Solution to Challenge-Response Scenario (asymmetric)</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Scenarios/Demonstrations">
+</OBJECT>
+
+<BODY>
+
+<H3>Rozwiązanie dla scenariusza Wyzwania-Odpowiedzi (asymetryczny)</H3>
+
+<P>Rozwiązanie zwane jest także atakiem <A href="man_in_the_middle.html">Man-in-the-Middle</A>. Atakujący przechwytuje wszystkie pakiety danych, jako że wszystkie przechodzą przez niego i przedstawia się klientowi jako serwer, zaś serwerowi jako klient. Dzięki temu niepostrzeżenie wiąże się ze wszelkimi poczynaniami. Tak długo jak serwer akceptuje klienta, atakujący może rozłączyć klienta i przejąć jego rolę dla dalszego połączenia. W scenariuszu tym postępujesz następująco:</p>
+
+<OL>
+	<LI>Tworzysz połączenie między atakującym a dwoma router'ami.<BR><BR></LI>
+
+	<LI>Oddzielasz połączenie między oboma router'ami.<BR><BR></LI>
+
+	<LI>Uzyskując konfigurację połączenia między klientem i serwerem możesz je przekierować w sposób umożliwiający nasłuchiwanie go. Jeśli się "ukryjesz" będziesz gotów na atak <A href="man_in_the_middle.html">Man-in-the-Middle</A>.<BR><BR></LI>
+
+	<LI>Uruchom protokół klienta. Wreszcie, jako atakujący ze względu na swoje maskowanie zostaniesz uwierzytelniony zamiast tego pierwszego.(<A href="man_in_the_middle.html">Atak Man-in-the-Middle</A>).</LI>
+</OL>
+
+<P>Rozwiązanie to działa także dla wszystkich poprzednich scenariuszy.</P>
+
+<P><IMG SRC="images/cr_sol_crasymmetric.jpg" ALT="cr_sol_crasymmetric.jpg" BORDER=0></P>
+
+</BODY>
+</HTML>

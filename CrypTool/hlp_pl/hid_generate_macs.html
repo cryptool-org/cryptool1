@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1250">
+<TITLE>Message Authentication Code</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Message authentication code (MAC)">
+	<PARAM NAME="Keyword" VALUE="Hash function">
+	<PARAM NAME="Keyword" VALUE="Individual procedures">
+</OBJECT>
+
+<BODY>
+	
+<h3>Tworzenie MAC (Menu <A href="menu_related_methods.html">Indiv. Procedures</A> \ Hash)</h3>
+
+<P>Dialog <A href="hidd_hmac.html">Message Authentication Code</A> (MAC) pokazuje w jaki sposób jest tworzony podpis cyfrowy pliku wykorzystując <A href="hashfunktion.html">funkcję haszującą</A>. 
+Celem MAC jest zapewnienie <A href="authentizitaet.html">autentyczności</A>.</P>
+
+<P>Nadawca i odbiorca uzgadniają tajny klucz oraz kryptograficzną funkcję haszującą przed
+rozpoczęciem przesyłania wiadomości. Nadawca łączy wiadomość i klucz (dołącza klucz na końcu
+wiadomości) i haszuje utworzony w ten sposób plik. Następnie wartość hasza jest przesyłana razem
+z wiadomością oryginalną.</P>
+
+<P>Aby sprawdzić autentyczność, odbiorca wykonuje te same operacje co nadawca. Haszuje otrzymaną
+wiadomość razem z tajnym kluczem i porównuje wynikową wartość hasza z przesłaną. Wiadomość jest
+autentyczna tylko wtedy, gdy obie wartości haszy się zgadzają.</P>
+
+</BODY>
+</HTML>

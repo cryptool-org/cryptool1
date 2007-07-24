@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1250">
+<TITLE>Względnie pierwsze</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Relatively prime">
+	<PARAM NAME="Keyword" VALUE="GCD">
+	<PARAM NAME="Keyword" VALUE="Phi function of Euler">
+</OBJECT>
+
+<BODY>
+
+<h3>e jest względnie pierwsze z phi(N)</h3>
+
+<P>Mówi się, że e jest względnie pierwsze z phi(N), gdy e oraz phi(N) nie mają żadnych wspólnych dzielników (oprócz liczby 1). Warunek ten jest wymagany aby liczba e posiadała element odwrotny d modułu phi(N).</P>
+
+<P>Niech a i m będą liczbami naturalnymi oraz NWD(a,m) największym wspólnym dzielnikiem liczb a oraz m. Następujące stwierdzenie jest wówczas poprawne:</P>
+
+<div class="indent">
+
+<P><B>Dla wszystkich a oraz m istnieja liczby całkowite x,y takie że NWD(a,m) = x*a + y*m</B>.</P>
+
+</div>
+
+<P>Rozszerzony algorytm Euklidesa oblicza liczby x oraz y. Jeśli NWD(e,phi(N)) = 1 wówczas</P>
+
+<div class="indent">
+
+<P>x*e + phi(N)*y = 1,</P>
+
+</div>
+
+<P>oraz gdy równanie modulo phi(N) jest obliczane</P>
+
+<div class="indent">
+
+<P>x*e = 1 - phi(N)*y = 1  (mod phi(N)).</P>
+
+</div>
+
+<P>Liczba x jest zatem elementem odwrotnym modułu phi(N). Podczas generacji klucza RSA rozszerzony algorytm Euklidesa oblicza tajny wykładnik d = x do deszyfracji RSA.</P>
+
+</BODY>
+</HTML>

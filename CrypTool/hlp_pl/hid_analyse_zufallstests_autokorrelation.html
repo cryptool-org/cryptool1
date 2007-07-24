@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Autocorrelation test</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Autocorrelation">
+	<PARAM NAME="Keyword" VALUE="Analysis">
+	<PARAM NAME="Keyword" VALUE="Statistics">
+	<PARAM NAME="Keyword" VALUE="Random">
+</OBJECT>
+
+<BODY>
+
+<h3>Autocorrelation Test (Menu <A href="menu_analyze.html">Analysis</A> \ Analyse Randomness)</h3>
+
+<P>The purpose of this empirical test of independence is to check correlations between succeeding outcomes of the pseudorandom number generator and/or between the binary sequence <I>s</I> and an alternative version of <I>s</I> that is displaced by t positions.</P>
+
+<P>Let t be a number, 1 &lt;= t &lt;= (n / 2) and fixed. The number of bit positions in <I>s</I> which do not agree with the version of <I>s</I> that has been displaced by t positions is determined by</P>
+
+<div style="text-align:center">
+
+<P>D(t) = sum[i = 0; i = n – t – 1] s_i XOR s_(i + t)</P>
+
+</div>
+
+<P>The test statistics used are given by</P>
+
+<div style="text-align:center">
+
+<P>X5 = 2 * [(D(t) – [(n – t) / 2]) / (n – t) ^ (1 / 2)]</P>
+
+</div>
+
+<P>whereby X5 approximates an N(0, 1) distribution, provided that n - t &gt;= 10. As both small and large values for D(t) are unexpected, a two-tailed test is recommended.</P>
+
+<P><B>Example of an Autocorrelation Test</B></P>
+
+<P>By way of illustration, a classical Autocorrelation Test will be carried out on the short binary sequence</P>
+
+<PRE><CODE>s =
+00010111 01101101 01111101 11110011 00101111
+00001111 10100100 11001111 11000011 11010001
+11010001 00101110 11010100 11000011 01010001
+11010110 00110010 10001111 00000111 01000111</CODE></PRE>
+
+<P>of length n = 160 (20 bytes). <!--ZZZPOPUP--><A href="sign_niv.html">The significance level</A> is set with ‘alpha‚ = 0.05.</P>
+
+<P>We choose t = 8. The sequence s departs from the copy of s displaced by 8 positions precisely at D(8) = 68 positions. The Autocorrelation Test thus produces a test statistic of</P>
+
+<div style="text-align:center">
+
+<P>X5 = 2 * (68 – [(160 – 8) / 2) / (160 – 8) ^ (1 / 2) = -1.29777</P>
+
+</div>
+
+<P>The limit for a <A href="norm_vert.html">normally distributed</A> test statistic X5 is 1.6449 at a <!--ZZZPOPUP--><A href="sign_niv.html">significance level</A> of ‘alpha‚ = 0.05. With X5 = -1.29777 &lt;= 1.6449, sequence <I>s</I> passes the Autocorrelation Test.</P>
+
+<P>Reference: Christian Schiestl, <I>Pseudozufallszahlen in der Kryptographie</I>, in Klagenfurt, 1999.</P>
+
+</BODY>
+</HTML>

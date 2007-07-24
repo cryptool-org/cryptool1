@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1250"><title>Przykład ilustrujący szyfrowanie przy użyciu podstawienia monoalfabetycznego.</title>
+
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css"><!-- multiple kluczwords for CrypTool HTML help index --><link href="images/highlighter.css" type="text/css" rel="stylesheet"><link href="images/highlighter_002.css" type="text/css" rel="stylesheet"></head><body><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="" id="Object1">
+	<param name="kluczword" value="Examples/Scenarios">
+	<param name="kluczword" value="Encryption">
+	<param name="kluczword" value="Monoalphabetic substitution">
+</object>
+
+
+
+<h3>Przykład ilustrujący szyfrowanie przy użyciu podstawienia monoalfabetycznego.</h3>
+
+<p>W tym rozdziale znajduje się <a href="hid_hilfe_szenarien.html">przykład</a> pokazujący przykładowe <!--ZZZPOPUP--><a href="verschlverfahren.html">szyfrowanie</a> z wykorzystaniem <a href="hid_cryptmono.html">podstawienia monoalfabetycznego</a>Aby łatwiej było wykonywać kolejne kroki niezbędne do wykonania<!--ZZZPOPUP--><a href="cryptool.html"> CrypTool </a>,do przykładu dołączone są pomocnicze zrzuty ekranu.</p>
+
+<p>Będziemy<!--ZZZPOPUP--><a href="verschluesselung.html"> szyfrować </a>dość długi niemiecki<!--ZZZPOPUP--><a href="dokument.html"> dokument</a>, a potem, używając<a href="hid_analyze_subst.html"> funkcji do automatycznej analizy podstawiania monoalfabetycznego</a>, rozpracujemy<!--ZZZPOPUP--><a href="schluessel.html"> klucz </a>oraz <!--ZZZPOPUP--><a href="klartext.html">tekst jawny</a> w <!--ZZZPOPUP--><a href="ciphertextonlyangriff.html">ataku</a> <u>Ciphertext Only</u>.</p>
+
+<p>Teskt wygląda następująco:</p>
+
+<p>DIE DEUTSCHE BANK IST VON INFORMATIONEN ABHAENGIG.</p>
+
+<p>INFORMATIONEN ENTSCHEIDEN UEBER UNSEREN ERFOLG UND</p>
+
+<p>DEN UNSERER KUNDEN. VON GROESSTER WICHTIGKEIT IST </p>
+
+<p>NEBEN DER GENAUIGKEIT UND VERFUEGBARKEIT IN DEN </p>
+
+<p>MEISTEN FAELLEN AUCH DIE VERTRAULICHKEIT VON </p>
+
+<p>INFORMATIONEN. JEDER ANGESTELLTE MUSS SICH DAHER </p>
+
+<p>DER NOTWENDIGKEIT DER INFORMATIONSSICHERHEIT </p>
+
+<p>BEWUSST SEIN UND ENTSPRECHEND HANDELN.</p>
+
+<p>Ten tekst znajduje się w <!--ZZZPOPUP--><a href="datei.html">pliku</a> <code>probetext-de.txt</code>. Aby otworzyć ten <!--ZZZPOPUP--><a href="dokument.html">dokument</a> w CrypTool, wybierz opcje menu <a href="menu_file.html">Plik</a> \ <a href="hid_file_open.html">Otwórz</a>.</p>
+
+<p><img src="images/szenariosubst1.gif" alt="szenariosubst1.gif" border="0"></p>
+
+<p><!--ZZZPOPUP--><a href="dokument.html">Dokument</a> jest teraz <!--ZZZPOPUP--><a href="verschluesselung.html">szyfrowany</a> przy użyciu <!--ZZZPOPUP--><a href="schluessel.html">klucza</a> <code>CRYPTOOL</code>. Do okna zawierającego pole do wpisania klucza dostajemy się po przez <a href="menu_crypt.html">Szyfrowanie</a> \<a href="hid_cryptmono.html"> Historyczne \ Zamiana/Atbash </a>.</p>
+
+<p><img src="images/szenariosubst2.gif" alt="szenariosubst2.gif" border="0"></p>
+
+<p>Wpisz <code>CRYPTOOL</code> w odpowiednie pole tekstowe. Automatycznie zmienił się porządek przypisywania. Poniżej mamy wyjaśnione w jaki sposób zostało przeprowadzone podstawienie przy użyciu <!--ZZZPOPUP--><a href="schluessel.html">klucza</a> <code>CRYPTOOL</code>. Dla <!--ZZZPOPUP--><a href="verschluesselung.html">szyfrowania</a>, zostało zastosowane następujące podstawienie:</p>
+
+<table class="pad20" cols="3" width="0*">
+
+<tbody><tr valign="top">
+<td>
+<pre><code>A</code></pre>
+</td>
+<td>-&gt;</td>
+<td><code>C</code></td>
+</tr>
+
+<tr valign="top">
+<td>
+<pre><code>B</code></pre>
+</td>
+<td>-&gt;</td>
+<td><code>R</code></td>
+</tr>
+
+<tr valign="top">
+<td>
+<pre><code>C</code></pre>
+</td>
+<td>-&gt;</td>
+<td><code>Y</code></td>
+</tr>
+
+<tr valign="top">
+<td>
+<pre><code>D</code></pre>
+</td>
+<td>-&gt;</td>
+<td><code>P</code></td>
+</tr>
+
+<tr valign="top">
+<td>
+<pre><code>E</code></pre>
+</td>
+<td>-&gt;</td>
+<td><code>T</code></td>
+</tr>
+
+<tr valign="top">
+<td>&nbsp;</td>
+<td>...</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr valign="top">
+<td>
+<pre><code>Y</code></pre>
+</td>
+<td>-&gt;</td>
+<td><code>B</code></td>
+</tr>
+
+<tr valign="top">
+<td>
+<pre><code>Z</code></pre>
+</td>
+<td>-&gt;</td>
+<td><code>A</code></td>
+</tr>
+</tbody></table><br>
+
+<p><u>Jak klucz został wygenerowany na podstawie słowa kluczowego</u></p>
+
+<p>Jeśli monoalfabetyczne podstawienie jest używane przy pomocy klucza, prostym 
+sposbem jego użycia,jest jego przypisanie do pierwszych liter alfabetu tekstu jawnego.
+Wtedy pozostałe litery dane alafabetu są przypisywane do pozostałych liter alfabety tekstu jawnego.
+</p>
+
+<p>Kliknij teraz na przycisk <b>OK</b>, i pojawi się nowe okno zawierające zaszyfrowany tekst.</p>
+
+<p><img src="images/szenariosubst4.gif" alt="szenariosubst4.gif" border="0"></p>
+
+<p>Załóżmy, że zapomnieliśmy klucz i musimy zastosować analiże zaszyfrowanego tekstu. W tym celu, 
+wybieramy <a href="menu_analyze.html">Kryptoanaliza</a><a href="hid_analyze_subst.html"> Algorytmy Historyczne\ Analiza manualna \ Zamiana</a>, 
+po czym pojawi się następujące okno.</p>
+
+<p><img src="images/szenariosubst6.gif" alt="szenariosubst6.gif" border="0"></p>
+
+<p>Górna część okna reprezentuje <!--ZZZPOPUP--><a href="klartext.html">tekst jawny</a>
+ rozpoznany do tej pory. Duże litery oznaczają podstawienia znalezione przy użyciu automatycznej analizy,
+ a małe litery są wzięte prosto z <!--ZZZPOPUP--> <a href="verschluesselung.html">zaszyfrowanego</a> tekstu.</p>
+
+<p>Manualny post-processing jest teraz konieczny. Możemy, na przykład, przeprowadzić następujące przestawienia patrząc na tekst pośredni: </p>
+
+<ul>
+	<li>Pierwsze słowo to <code>DIE</code>, tak więc zaszyfrująca litera<code>P</code> powinna być zastąpiona przez <code>D</code> niż przez<code>B</code>, jak przypuszczamy.</li>
+
+	<li>Drugie słowo to <code>DEUTSCHE</code>, zamieniamy <code>G</code> na <code>U.</code></li>
+
+	<li>Szóste słowo od końca to <code>INFORMATIONSSICHERHEIT</code>, zatem <code>O</code> powinno być zastąpione przez <code>F</code>, <code>N</code> przez <code>O</code>, <code>S</code> przez <code>M</code> i <code>C</code> przez <code>A</code>. </li>
+</ul>
+
+<p>Po wykonaniu tych poprawek,<a href="hidd_manual_subst_analysis.html">Okno Manualnego Post-processing</a> wygląda tak:</p>
+
+<p><img src="images/szenariosubst7.gif" alt="szenariosubst7.gif" border="0"></p>
+
+<p>Pozostałe podstawienia są teraz proste to odgadnięcia i mogą być wpisane do odpowienich pól: <code>R</code> zamienione na <code>B</code>, <code>V</code> na <code>K</code>, <code>F</code> na <code>V</code>, <code>L</code> na <code>G</code>, <code>U</code> na <code>L</code>, <code>E</code> na <code>W</code>, <code>W</code> na <code>J</code> i <code>M</code> na <code>P</code>.</p>
+
+<p><img src="images/szenariosubst8.gif" alt="szenariosubst8.gif" border="0"></p>
+
+<p>Jest to poprawne rozwiązane, dające oryginalny <!--ZZZPOPUP--><a href="klartext.html">tekst jawny</a>. Aby złamać szyfrowanie, na podstawie <!--ZZZPOPUP--><a href="verschluesselung.html">zaszyfrowanego</a> <!--ZZZPOPUP--><a href="dokument.html">dokomentu</a>
+jedyną przydatną wiedzą, był fakt, iż jest to tekst niemiecki i trochę przeczucia przy zgadywaniu pierwszych podstawień.
+Kiedy wciśniemy przycisk <b>OK</b> , tekst jawny zostanie wyświetlony w oddzielnym oknie.</p>
+
+<p><img src="images/szenariosubst9.gif" alt="szenariosubst9.gif" border="0"></p>
+
+</body></html>

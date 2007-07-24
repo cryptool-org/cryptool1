@@ -1,0 +1,311 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1250">
+<TITLE>Przykład ilustrujący demonstracje RSA</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+<script language="JScript" src="helper.js"></script>
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Examples/Scenarios">
+	<PARAM NAME="Keyword" VALUE="RSA encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Kryptosystem RSA">
+	<PARAM NAME="Keyword" VALUE="Demonstrations/Scenarios">
+</OBJECT>
+
+<BODY>
+
+<h3>Przykład ilustrujący kryptosystem RSA (Algorytmy \ <A href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">Kryptosystem RSA</A>)</h3>
+
+<P>Ten rozdział zawiera <A href="hid_hilfe_szenarien.html">przykład</A> ilustrujący demonstrację RSA. Demonstracja RSA zawiera narzędzia do <A href="hid_einzelverfahren_tutorial_primzahlengenerieren.html">generowania liczb pierwszych</A> i <A href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">faktoryzacja</A> (podział na dwa czynniki pierwsze) liczb naturalnych, oraz <A href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">Kryptosystem RSA</A>. </P>
+
+<P>Aby ułatwić śledzenie tego przykładu, a także umożliwić samodzielnie wykonywanie wszystkich operacji krok po kroku za pomocą <!--ZZZPOPUP--><A href="cryptool.html">CrypTool'a</A>, zawiera on liczne zrzuty ekranu. Szczegółowe informacje o RSA są dostępne na stronach pomocy online <A href="rsa_demo_encryption.html">szyfrowania RSA</A> oraz w oknie <A href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">Kryptosystem RSA</A>.</P>
+
+<P>Nie jest to wyłącznie opis działania algorytmu RSA, ale również są opisane korki związane z wykorzystaniem algorytmu RSA, używającego małych liczb.</P>
+
+<P>Ten przykład składa się z trzech częsci: </P>
+
+<OL>
+
+	<LI> generowanie klucza RSA,<BR><BR></LI>
+
+	<LI> szyfrowanie i deszyfrowanie wiadomości, oraz<BR><BR></LI>
+
+	<LI> atak na algorytm RSA.<BR><BR></LI>
+
+</OL>
+
+<OL>
+
+<P><B><LI> Generowanie kluczy RSA</LI></B></P>
+
+<P>Chcemy przede wszystkim, stworzyć <A href="rsa_demo_key_generation.html">klucz RSA</A>. W tym celu, wybierz opcję menu <B>Algorytmy \ Kryptosystem RSA \ Demonstracja RSA</B>.</P>
+
+<P><IMG SRC="images/dialogrsa-kryptosystem1.gif" ALT="dialogrsa-kryptosystem1.gif" BORDER=0></P>
+
+<P>Dla klucza RSA, najpierw potrzebujemy dwóch różnych <U>liczb pierwszych</U>, p i q. Możesz podać dwie liczby pierwsze w polach tekstowych <B>Liczba pierwsza</B> i <B>Liczba pierwsza q</B>, albo możesz wygenerować dwie losowe liczby pierwsze, p i q.</P>
+
+<P>W tym przykładzie, chcemy wygenerować losowy 256-bitowy klucz RSA. W tym celu, kliknij na przycisk <B>Stwórz liczby pierwsze</B>. Podobnie jak przy wybraniu opcji menu <BAlgorytmy \ Kryptosystem RSA \ <A href="hid_einzelverfahren_tutorial_primzahlengenerieren.html">Generowanie liczb pierwszych</A></B>, pojawi się okno do tworzenia liczb pierwszych p i q. Dla liczby pierwszej p, wybierz 2^127+2^126 jako <B>min</B> i 2^128 jako <B>max</B>, oraz włącz opcję, ”<B>wspólny zakres</B>”. Kiedy klikniesz na <B>Generuj liczby pierwsze</B>, dwie liczby pierwsze p i q, długości 127.5 i 128 bitów zostaną stworzone. Kiedy p i q są razem podzielne, wynikiem jest modulus RSA o N-bitów długości, większej niż 2*127.5 = 255, np. 256-bitowy <!--ZZZPOPUP--><A href="rsa_demo_key_generation.html">klucz RSA</A>.</P>
+
+<P><IMG SRC="images/rsaszenariopzgenerieren.gif" ALT="rsaszenariopzgenerieren.gif" BORDER=0></P>
+
+<P>Możesz generować liczby pierwsze tak często, jak tylko chcesz. Jeśli klikniesz na przycisk <B>Zatwierdź</B> , liczby pierwsze p i q zostaną przeniesione do okna Kryptosystem RSA. W tym samym czasie modulus RSA N zostaje obliczony , również phi Eulera funkcji phi(N). </P>
+
+<P>Następnym krokiem jest określenie <!--ZZZPOPUP--><A href="rsa_demo_public_key.html">publicznego klusa RSA</A> e, i liczby która jest względnie pierwsza do phi(N). Czasami, znalezienie takiej liczby bywa dość kłopotliwe. Dlatego też, przedstawimy małą wskazówkę : liczba e = 2^16+1 = 65537 (= 10000000000000001 binarnie) jest praktycznie zawsze względnie pierwsza do phi(N).</P>
+
+<P><IMG SRC="images/dialogrsa-kryptosystem2.gif" ALT="dialogrsa-kryptosystem2.gif" BORDER=0></P>
+
+<P>Kliknij na przycisk <B>Odśwież parametry</B>, i <!--ZZZPOPUP--><A href="rsa_demo_private_key.html">prywatny klucz RSA</A> d zostanie wyliczony z liczby e.</P>
+
+<P>Możesz teraz szyfrować i deszyfrować wiadomości.</P>
+
+<P><B><LI> Szyfrowanie albo deszyfrowanie wiadomości przy użyciu pary kluczy RSA</LI></B></P>
+
+<P>Po stworzeniu pary kluczy RSA, możesz szyfrować i deszyfrować wiadomości. Zademonstrujemy teraz różne możliwości algorytmu RSA, używając przykładów zawartych w scenariuszu.</P>
+
+<P><B>Przykład z rozdziału 3.13.2: szyfrowanie wiadomości ”ATAK O ŚWICIE”</B></P>
+
+<P>Najpierw generujemy klucz RSA p=47, q=79 e=37. Następnie klikamy na <B>Odśwież parametry</B>, i parametry N = p*q = 3713, phi(N) = 3588 oraz d = 97 zostają obliczone.</P>
+
+<P>Kliknij teraz na <A href="hidd_options_rsa_demo.html"><B>Opcje dla alfabetu i systemu liczbowego</B></A> i aktywuj opcję <B>Określ alfabet</B>. Przedefiniowany alfabet ” ABCDEFGHIJKLMNOPQRSTUVWXYZ” koduje litery &lt;SPACE&gt; jako 0, A jako 1, ... i Z jako 26. Wybierz teraz opcję <!--ZZZPOPUP--><A href="hidd_options_rsa_demo.html"><B>System liczbowy</B></A> oraz <B>Metoda </B><!--ZZZPOPUP--><A href="rsa_demo_sections.html"><B>kodowania bloku w liczby</B></A><B> dla zakodowania tekstu na liczby </B>, następnie określ 2 jako długość bloku.</P>
+
+<P><IMG SRC="images/dialogrsaoptions1.gif" ALT="dialogrsaoptions1.gif" BORDER=0></P>
+
+<P>Aby aktywować zmiany, kliknij na <B>OK</B>. Możesz teraz podać tekst wejściowy w odpowiednim polu tekstowym: ”ATAK O SWICIE”, po czym wciśnij przycisk <B>Szyfruj</B></P>
+
+<P><IMG SRC="images/dialogrsa-kryptosystem3.gif" ALT="dialogrsa-kryptosystem3.gif" BORDER=0></P>
+
+<P>Zaszyfrowaną wersją tego tekstu jest ciąg liczb</P>
+
+<P>3055 # 0650 # 1455 # 3706 # 3377 # 3587 # 2663 </P>
+
+<P>Numer ”#” służy tutaj do wizualnego oddzielenia kolejnych liczb. Jeśli wpiszesz te liczby do pola tekstowego oraz klikniesz na przycisk <B>Deszyfruj</B>, oryginalny <!--ZZZPOPUP--><A href="klartext.html">tekst</A> zostanie przywrócony.</P>
+
+<P><IMG SRC="images/dialogrsa-kryptosystem3b.gif" ALT="dialogrsa-kryptosystem3b.gif" BORDER=0></P>
+
+<P><B>Przykład z rozdziału 3.13.3, szyfrowanie wiadomości ”RSA dziala!”</B></P>
+
+<P>Najpierw stwórz klucz RSA p=251, q=269 e=65537. Następnie klikamy na <B>Odśwież parametry</B>, i parametry N = p*q = 67519, phi(N) = 67000 oraz d = 2473 zostają obliczone. </P>
+
+<OL type="a">
+
+<P><B><LI>Szyfrowanie wiadomości z długością bloku równą 1</LI></B></P>
+
+<P>Kliknij teraz na <B>Opcje dla alfabetu i systemu liczbowego</B> i aktywuj opcję <B>256 znaków ASCII </B>. Wybierz teraz opcję <!--ZZZPOPUP--><A href="hidd_options_rsa_demo.html"><B>b-adic</B></A> w <B>Metodzie kodowania bloku w liczby</B> i określ 1 jako długość bloku.</P>
+
+<P>Aby aktywować zmiany, kliknij na <B>OK</B>. Możesz teraz podać tekst wejściowy w odpowiednim polu tekstowym: ”RSA dziala!”, po czym wciśnij przycisk <B>Szyfruj</B>.</P>
+
+<P><IMG SRC="images/dialogrsa-kryptosystem4.gif" ALT="dialogrsa-kryptosystem4.gif" BORDER=0></P>
+
+<P>Zaszyfrowaną wersją tego tekstu jest ciąg liczb</P>
+
+<P>58455 # 39103 # 16634 # 28092 # 45707 # 66417 #</p>
+<p>28056 # 16682 # 53802 # 16682 # 03240</P>
+
+
+<P>Numer ”#” służy tutaj do wizualnego oddzielenia kolejnych liczb. Jeśli wpiszesz te liczby do pola tekstowego oraz klikniesz na przycisk <B>Deszyfruj</B>, oryginalny tekst zostanie przywrócony.</P>
+
+<P><B><LI>Szyfrowanie wiadomości z długościa bloku równą 2</LI></B></P>
+
+<P>Kliknij teraz na przycisk <B>Opcje dla alfabetu i systemu liczbowego</B> i aktywuj opcję <B>256 znaków ASCII </B>. Wybierz teraz opcję <B>b-adic</B> option in the w <B>Metodzie kodowania bloku w liczby</B> i określ liczbę 2 jako długość bloku.</P>
+
+<P>Jeśli teraz zaszyfrujes wiadomość ”RSA dziala!”, otrzymasz kryptogram o połowę krótszy niż poprzednio:</P>
+
+<P>03046 # 29337 # 00072 # 35212 # 46926 # 60216 </P>
+
+</OL>
+
+<P><B><LI> Atak na algorytm RSA</LI></B></P>
+
+<P>Przedstawimy prawdopodobny atak na kryptosystem RSA z wykorzystaniem  ”wyzwań” do złamania kryptogramu. As well as the ciphertext, the attacker also has access to the public key e and the RSA modulus N.</P>
+
+<P>Następujący przykład opisuje ataki dla frozkładu poublicznego modulusa RSA N. Jeśli rozkład przebiegł poprawnie, wtedy wszystkie tajne parametry kryptosystemu RSA mogą zostać wyliczone, i to może być wykorzystane do złamania wyzwania kryptogramu. Najbardziej znane kryptograficzne wyzwania są publikowane przez RSA Security Lab (<U>www.rsa.com</U>).</P>
+
+<P><B>Wyzwanie 1 (Stinson)</B></P>
+
+<P>Wyzwanie to zostało opisane przez Profesora Stinson w jego książce [Stinson1995, Exercise 4.6] może być również rozwiązane za pomocą CrypTool:</P>
+
+<P>Wyzwanie:</P>
+
+<P>2 komponenty klucza publicznego:</P>
+
+<P>modulus RSA <I>N </I>= 31313 </P>
+
+<P>Publiczny wykładnik <I>e </I>= 4913</P>
+
+<P>Kryptogram:</P>
+
+<PRE><CODE>6340   8309 14010  8936 27358 25023 16481 25809
+23614  7135 24996 30590 27570 26486 30388  9395
+27584 14999  4517 12146 29421 26439  1606 17881
+25774  7647 23901  7372 25774 18436 12056 13547
+ 7908  8635  2149  1908 22076  7372  8686  1304
+ 4082 11803  5314   107  7359 22470  7372 22827
+15698 30317  4685 14696 30388  8671 29956 15705
+ 1417 26905 25809 28347 26277  7897 20240 21519
+12437  1108 27106 18743 24144 10685 25234 30155
+23005  8267  9917  7994  9694  2149 10042 27705
+15930 29748  8635 23645 11738 24591 20240 27212
+27486  9741  2149 29329  2149  5501 14015 30155
+18154 22319 27705 20321 23254 13624  3249  5443
+ 2149 16975 16087 14600 27705 19386  7325 26277
+19554 23614  7553  4734  8091 23973 14015   107
+ 3183 17347 25234  4595 21498  6360 19837  8463
+ 6000 31280 29413  2066   369 23204  8425  7792
+25973  4477 30989
+</CODE></PRE>
+
+<P>Formuła tego wyzwania może być podjęte przez CrypTool<A class="filelink" onclick="parser('script-en.pdf')">w skrypcie</A> [3.13.4 <U>Wyzwanie małego szyfru RSA (1)</U>].</P>
+
+</OL>
+
+<P><B><U>Kryptoanaliza przy użyciu CrypTool</U></B></P>
+
+<P>Analiza jest przeprowadzana w dwóch etapach: najpierw obliczany jest rozkład na czynniki pierwsze modulusa RSA przy użyciu faktoryzacji, następnie w drugiej fazie określany jest klucz prywatny do szyfrowania wiadomości. Po tej operacji, kryptogram może być odszyfrowany przy użyciu złamanego klucza prywatnego.</P>
+
+<OL>
+	<LI>Rozkład modulusa RSA przy pomocy rozkładu na czynniki pierwsze:</LI>
+
+
+<P>Do złamania liczby naturlanej, wybierz następujące opcje menu <B>Algorytmy \ Demonstracja RSA \ <A href="hid_einzelverfahren_tutorialfrkleinezahlen_faktorisierenifp.html">Rozkład na czynniki pierwsze</A></B></P>
+
+<P><I>N </I>= 31313 w jego czynniki pierwsze p i q.</P>
+
+<P><IMG SRC="images/dialogfactorisation1.gif" ALT="dialogfactorisation1.gif" BORDER=0><BR>
+</P>
+
+<P>Ciekawym spostrzeżeniem jest fakt, która metoda najszybciej złamała modulusa RSA (w tym przypadku jest to metoda Brute Force). Skopiuj wyniki rozkładu do pola tekstowego (zaznacz wynik po czym wciśnij Ctrl+C, aby skopiować tekst do schowka).</P>
+
+
+	<LI>Oblicz klucz prywatny d z rozkładu na czynniki pierwsze N oraz klucza publicznego e.</LI>
+
+
+<P>Wiedząc, że czynniki pierwsze to  p = 173 i q = 181 oraz klucz publiczny <I>e </I>= 4913, jesteś teraz w stanie odszyfrować kryptogram:</P>
+
+<OL type=a>
+	<LI>Otwórz kolejne okno wybierając opcję menu <B>Algorytmy \ Demonstracja RSA \ Kryptosystem RSA</B>:<BR><BR></LI>
+
+	<LI>Podaj czynniki pierwsze p = 173 i q = 181, oraz klucz publiczny <I>e </I>= 4913.<BR><BR></LI>
+
+	<LI>Kliknij na <B>Odśwież parametry</B>.  Phi Eulera funkcji phi(N) = (p-1)*(q-1) jest wyliczone z liczb p i q, i z tego oraz klucz apublicznego e, klucz prywatny RSA zostaje odtajniony. Dalsze informacje są dostępne w skrypcie, Rozdział 3.6.2.<BR><BR></LI>
+
+	<LI>Kliknij na <B>Opcje dla alfabetu i systemu liczbowego</B> , i wykonaj następujące czynności: <BR></LI>
+
+	<UL type="disc">
+	
+<LI>  Opcje alfabetu: <B>Określ alfabet</B><BR><BR></LI>
+ABCDEFGHIJKLMNOPQRSTUVWXYZ<BR><BR>
+
+	<LI>  Warianty RSA: <B>Normalny</B></LI>
+
+	<LI>  Metoda = <B>b-adic</B></LI>
+
+	<LI>  Długość bloku: <B>3</B></LI>
+
+	<LI>  System liczbowy: <B>Dec</B> </LI>
+
+</UL>
+
+	<LI>Teraz podajemy do pola tekstowego kryptogram. Najszybszą metodą jest zaznaczenie kryprogramu i użycie CTRL+C, aby skopiować tekst do schowka. Następnie wklejamy tekst do pola tekstowego po przez wciśnięcie Ctrl+V.<BR><BR></LI>
+
+	<LI>Klikamy teraz na przycisk <B>Deszyfruj</B> aby otrzymać pełny tekst jawny.</LI>
+</OL>
+
+</OL>
+
+<P>Pełny tekst jawny przedstawia się następująco:</P>
+
+<PRE><CODE>LAKEWOBEGONISMOSTLYPOORSANDYSOILANDEVERYSPRINGTHEEARTHHEAVES
+UPANEWCROPOFROCKSPILESOFROCKSTENFEETHIGHINTHECORNERSOFFIELDS
+PICKEDBYGENERATIONSOFUSMONUMENTSTOOURINDUSTRYOURANCESTORSCHO
+SETHEPLACETIREDFROMTHEIRLONGJOURNEYSADFORHAVINGLEFTTHEMOTHER
+LANDBEHINDANDTHISPLACEREMINDEDTHEMOFTHERESOTHEYSETTLEDHEREFO
+RGETTINGTHATTHEYHADLEFTTHEREBECAUSETHELANDWASNTSOGOODSOTHENE
+WLIFETURNEDOUTTOBEALOTLIKETHEOLDEXCEPTTHEWINTERSAREWORSEZ</CODE></PRE>
+
+<P>Pełne rozwiązanie zostało opublikowane przez Prof. Stinsona na <CODE>http://www.cacr.math.uwaterloo.ca/~dstinson/solns.html</CODE></P>
+
+<P><B>Wyzwanie 2 (Yan)</B></P>
+
+<P>Używając CrypTool, istnieje możliwość rozwiązania wyzwania przedstawionego przez Profesora Yan w jego książce [Yan2000, przykład 3.3.7, strona 318]:</P>
+
+<P>Wyzwanie:</P>
+
+<P>2 komponenty klucza publicznego</P>
+
+<P>modulus RSA<I>N </I>= 63978486879527143858831415041<I>; </I></P>
+
+<P>Publiczny wykładnik <I>e </I>= 17579</P>
+
+<P>Kryptogram:</P>
+
+<PRE><CODE>45411667895024938209259253423,
+16597091621432020076311552201,
+46468979279750354732637631044,</CODE></PRE>
+
+<P><CODE>32870167545903741339819671379</CODE></P>
+
+<P>Formuła tego wyzwania może być podjęte przez CrypTool <A class="filelink" onclick="parser('script-en.pdf')">w skrypcie</A> [3.13.5 <U>Wyzwanie małego szyfru RSA (2)</U>].</P>
+
+<P><B><U>Kryptoanaliza przy użyciu CrypTool</U></B></P>
+
+<P>Analiza jest przeprowadzana w dwóch etapach: najpierw obliczany jest rozkład na czynniki pierwsze modulusa RSA przy użyciu faktoryzacji, następnie w drugiej fazie określany jest klucz prywatny do szyfrowania wiadomości. Po tej operacji, kryptogram może być odszyfrowany przy użyciu złamanego klucza prywatnego.</P>
+	<LI>Rozkład modulusa RSA przy pomocy rozkładu na czynniki pierwsze:</LI>
+<OL>
+
+<LI>Rozkład modulusa RSA przy pomocy rozkładu na czynniki pierwsze:</LI><BR>
+ Do złamania liczby naturlanej, wybierz następujące opcje menu <B>Algorytmy \ Demonstracja RSA \ <A href="hid_einzelverfahren_tutorialfrkleinezahlen_faktorisierenifp.html">Rozkład liczby na czynniki pierwsze</A></B><I> N </I>= 63978486879527143858831415041 jako jego czynniki pierwsze p i q.<BR>
+<BR>
+<IMG SRC="images/dialogfactorisation2.gif" ALT="dialogfactorisation2.gif" BORDER=0><BR>
+<BR>
+Ciekawym spostrzeżeniem jest fakt, która metoda najszybciej złamała modulusa RSA (w tym przypadku jest to metoda sita kwadratowego). Skopiuj wyniki rozkładu do pola tekstowego (zaznacz wynik po czym wciśnij Ctrl+C, aby skopiować tekst do schowka).<BR><BR></LI>
+
+<LI> Oblicz klucz prywatny d z rozkładu na czynniki pierwsze N oraz klucza publicznego e.<BR>
+Wiedząc, że czynniki pierwsze to p = 145295143558111 i q = 440334654777631 oraz klucz publiczny <I>e </I>= 17579, jesteś teraz w stanie odszyfrować kryptogram: <BR><BR></LI>
+<OL type="a">
+
+<LI>Otwórz kolejne okno wybierając opcję menu Algorytmy \ Demonstracja RSA \ Kryptosystem RSA:<BR><BR></LI>
+
+<LI>Podaj czynniki pierwsze p = 145295143558111 i q = 440334654777631, oraz klucz publiczny e = 17579.<BR><BR></LI>
+
+<LI>Kliknij na Odśwież parametry. Phi Eulera funkcji phi(N) = (p-1)*(q-1) jest wyliczone z liczb p i q, i z tego oraz klucz apublicznego e, klucz prywatny RSA zostaje odtajniony. Dalsze informacje są dostępne w skrypcie, Rozdział 3.6.2.<BR><BR></LI>
+
+<LI>Kliknij na Opcje dla alfabetu i systemu liczbowego , i wykonaj następujące czynności: <BR><BR></LI>
+
+<UL type="disc">
+
+<LI>  Opcje alfabetu: <B>Określ alfabet</B><BR><BR></LI>
+ABCDEFGHIJKLMNOPQRSTUVWXYZ<BR><BR>
+
+<LI>  Warianty RSA: <B>Normaly</B></LI>
+
+<LI>  Metoda: <B>System liczbowy</B></LI>
+
+<LI>  Długość bloku:  <B>14</B></LI>
+
+<LI>  System liczbowy: <B>Dec</B></LI><BR>
+
+</UL>
+
+<LI>Teraz podajemy do pola tekstowego kryptogram. Najszybszą metodą jest zaznaczenie kryprogramu i użycie CTRL+C, aby skopiować tekst do schowka. Następnie wklejamy tekst do pola tekstowego po przez wciśnięcie Ctrl+V.<BR><BR></LI>
+
+<LI>Klikamy teraz na przycisk Deszyfruj aby otrzymać pełny tekst jawny.<BR><BR></LI>
+
+</OL>
+
+</OL>
+
+<P>Sprawdź swój wynik: ”NATURAL NUMBERS ARE MADE BY GOD”.</P>
+
+<P><U>Uwaga</U></P>
+
+<P>Możesz wykonać powyższe dwa przykłady ataku na algorytm RSA, również po przez okno ”Kryptosystem RSA”. Tutaj nie musisz przepisywać kolejnych wyników między oknami. </P>
+
+<P>Otwórz okno po przez wybranie opcji menu <B>Algorytmy \ Demonstracja RSA \ Kryptosystem RSA</B> i kliknij na drugą opcję: co oznacza, że znasz tylko parametry publiczne. Następnie kliknij na ”Faktoryzacja modulusa RSA”.</P>
+
+<P><IMG SRC="images/rsaszenariomodulfactorisation.gif" ALT="rsaszenariomodulfactorisation.gif" BORDER=0></P>
+
+</BODY>
+</HTML>

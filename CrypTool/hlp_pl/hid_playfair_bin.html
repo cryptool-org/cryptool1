@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1250">
+<TITLE>Playfair encryption algorithm</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Symmetric">
+	<PARAM NAME="Keyword" VALUE="Encryption">
+	<PARAM NAME="Keyword" VALUE="Playfair encryption algorithm">
+</OBJECT>
+
+<BODY>
+
+<h3><P><A NAME="hid_playfair_bin"></A><B>Algorytm szyfrowania playfair (Menu <A href="menu_crypt.html">szyfrowanie/deszyfrowanie</A> \ symetryczne (klasyczne))</B></P></h3>
+
+<P> <!--ZZZPOPUP--><A href="verschlverfahren.html">Algorytm szyfrowania</A> playfair bazuje na algorytmie odkrytym przez Charles Wheatstone w 1854 roku.</P>
+
+<P>Aby użyć algorytmu potrzebny będzie klucz szyfrujący (dla przykładu użyjemy słowa  PASSWORT). To hasło jest wpisywane w macierz  5x5 lub 6x6 używaną przez <A href="hidd_key_playfair.html">okno wprowadzania klucza algorytmu playfair</A>, jest to zilustrowane poniżej. Jako że nie mogą wystąpić w haśle dwie identyczne litery, każdy znak hasła występujący dwa razy, jest zastępowany sąsiednim znakiem przyjętego alfabetu.</P>
+
+<P>Pozostałe komórki macierzy są wypełniane pozostałymi literami alfabetu. Jakiekolwiek znaki, które tam właśnie występują są pomijane.</P>
+
+<P>W przypadku macierzy 5x5, litera J jest pomijana w alfabecie.</P>
+
+<P>Wiadomość zaszyfrowana jest zapisywana w grupach, składających się z dwóch znaków. Na przykład, przypuszczalna wiadomość, która będzie zaszyfrowana to:  </P>
+
+<div class="indent">
+
+<P>AL LE SI ST HE RA US FL IE HE SO FO RT  (= " osłona uszkodzona, uciekać natychmiast ").</P>
+
+</div>
+
+<P>Aby zaszyfrować tą wiadomość, na początek bierzemy pierwszą parę liter, tzn. AL. Te dwie litery pochodzą z końca danej diagonali macierzy, (A-L, czytane z dołu do góry). Punkty końcowe innej diagonali (także, także czytane z dołu do góry) to litery P i M. Para liter AL jest także przesunięta przez parę PM. Natomiast para LE przez XR. Wystąpi problem z parą ST, ponieważ obydwie litery występują w tym samym wierszu. W takim przypadku są użyte litery umieszczone po prawej stronie od oryginalnych tj. TW. Jeśli nie ma więcej liter po lewej stronie, wtedy przechodzi się do końca wiersza. Jeśli litery w parach liter, są umieszczone w tabeli powyżej siebie, jest to przypadek pary FL, w każdym takim przypadku bierze się następne litery pod spodem –LY. Zaszyfrowana wiadomość wygląda następująco: </P>
+
+<div class="indent">
+
+<P>M XR TH TW KB UP BA LY KC KB TP KP CP</P>
+
+</div>
+
+<P>W celu zapewnienia bezpieczeństwa możliwe jest wyeliminowanie jakichkolwiek powtarzających się liter, natomiast przed szyfrowaniem wstawić inną, na przykład literę X. Jest to robione dlatego, że pary takich samych liter dają atakującemu dużo użytecznych informacji.</P>
+
+<P>Ponieważ użyte są powtarzające się litery, algorytm jest trudniejszy do złamania przez systemy deszyfrujące, które używają tylko nie powtarzających się liter. W ten sposób, na przykład, analiza częstotliwości znaków daje mniej informacji i tworzone książki kodu są bardziej rozwlekłe. Z tego powodu nowoczesne metody, nie ograniczają się tylko do dwóch znaków, ale na przykład IDEA, operuje na 64-bitach (tj. 8-znakowych) blokach.</P>
+
+<P>Szczegółowe <A href="szenarien_playfair.html">przykłady</A> algorytmu szyfrowania playfair, znajdziesz w rozdziale <A href="hid_hilfe_szenarien.html">Przykłady</A> .</P>
+
+</BODY>
+</HTML>

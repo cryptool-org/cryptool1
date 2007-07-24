@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1250">
+<TITLE>Test pokerowy</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Poker test">
+	<PARAM NAME="Keyword" VALUE="Analysis">
+	<PARAM NAME="Keyword" VALUE="Random">
+</OBJECT>
+
+<BODY>
+
+<h3>Test pokerowy (Menu <A href="menu_analyze.html">Kryptoanaliza</A> \ Analiza losowości)</h3>
+
+<P>Dla testu pokerowego, podciąg <I>s</I> o długości n, w którym s_i należy do przedziału [0; 1]; 0 &lt;= i &lt;= n - 1 który ma być przetestowany musi być przetransformowany poprzez u_i = d * s_i; 0 &lt;= i &lt;= n - 1, do postaci pełnych liczb z zakresu [0; d - 1]. Weźmy pod uwagę w każdym przypadku pięc całkowitych, sąsiednich, nie pokrywających się liczb, uporządkowanych w sekwencji u. Mogą wystąpić wzorce takie jak przedstawione poniżej, podobnie jak przy grze w pokera:</P>
+
+<div class="indent">
+
+<PRE><CODE>    Strit:           abcde
+    Jedna para:      aabcd
+    Dwie pary:       aabbc
+    Trójka:          aaabc
+    Full:            aaabb
+    Kareta:          aaaab
+    Piątka:          aaaaa</CODE></PRE>
+
+</div>
+
+<P>Należy określić jak często każda z powyższych krotek wystepuje w sekwencji. Następnie należy porównać wartości obliczone z wartościami oczekiwanymi, używając testu <A href="chi_2_verteilung.html">chi^2</A>. Prawdopodobieństwa dla różnych modeli mogą być określone jak poniżej, przy współczynniku transformacji wynoszącym of d = 10.</P>
+
+<div class="indent">
+
+<PRE><CODE>    P("abcde") = 0.3024
+    P("aabcd") = 0.504
+    P("aabbc") = 0.108
+    P("aaabc") = 0.072
+    P("aaabb") = 0.009
+    P("aaaab") = 0.0045
+    P("aaaaa") = 0.0001</CODE></PRE>
+
+</div>
+
+<P><A href="chi_2_verteilung.html">Test chi^2</A> może zostać przeprowadzony przy sześciu poziomach dowolności rozkładu częstotliwości siedmiu klas, przy d = 10. Jedynie liczba różnych wartości jest obliczana w tym miejscu, co jest używane w celu zmniejszenia liczby klas do pięciu kategorii. Dla każdej klasy prawdziwe są poniższe wartości prawdopodobieństwa:</P>
+
+<div class="indent">
+
+<PRE><CODE>    P("5 różnych") = 0.3024
+    P("4 różne")   = 0.504
+    P("3 różne")   = 0.180
+    P("2 różne")   = 0.0135
+    P("1 różna")   = 0.0001</CODE></PRE>
+
+</div>
+
+<P>Publikacja <B>Menezes Alfred J., Van Oorschot Paul C. and Vanstone Scott A. (1997), Handbook of Applied Cryptography, CRC Press, Boca Raton, New York, London</B> zawiera poniższy wariant klasycznego testu pokerowego dla sekwencji binarnych. Dla każdej liczby m istnieje 2^m różnych możliwych postaci sekwencji binarnej o długości m. Podczas tego testu, sekwencja s jest dzielona na bloki o długości m, a następnie określane jest prawdopodobieństwo wystąpienia każdej z 2^m możliwych pod-sekwencji (podciągów) o długości m. Następnie sprawdzane jest, czy 2^ możliwych wartości występuje w sekwencji w akceptowalnym stopniu. </P>
+
+<P>NIech m będzie dodatnią liczbą całkowitą, dla której (n/m) &gt;= 5 * 2^m oraz k = (n/m). Następnie należy rozbić sekwencję s na k nie pokrywających się części, każda o długości m. Następnie należy policzyć liczbę wystąpień 2^m możliwych wartości w sekwencji. Niech n_i będzie numerem m-bitowej wartości i, 0 &lt;= i &lt;= 2^m - 1. Następnie test pokerowy określa czy wszystkie podciągi o długości m występują w przybliżeniu jednakowo często w ciągu s.</P>
+
+<P>Statystyka testu jest określona jako</P>
+
+<div style="text-align:center">
+
+<P>X3 = (2^m / k) * (sum[i = 0; i = 2 ^ m – 1] n_i ^ 2) - k</P>
+
+</div>
+
+<P>przez co X3 zbliża się do <A href="chi_2_verteilung.html">rozkładu chi^2</A> z 2^m-1 stopniami dowolności. Rekomendowane jest kilkukrotne powtórzenie testu dla różnych wartości m.</P>
+
+<P><B>Przykład testu pokerowego</B></P>
+
+<P>Dla przykładu, klasyczny test pokerowy może być przeprowadzony na krótkiej sekwencji binarnej</P>
+
+<PRE><CODE>s =
+00010111 01101101 01111101 11110011 00101111
+00001111 10100100 11001111 11000011 11010001
+11010001 00101110 11010100 11000011 01010001
+11010110 00110010 10001111 00000111 01000111</CODE></PRE>
+
+<P>o długości n = 160 (20 bytes). <!--ZZZPOPUP--><A href="sign_niv.html">Poziom znaczenia</A> został ustalony jako ‘alpha‚ = 0.05.</P>
+
+<P>Wybieramy m=3 (wielkość krotki). Analiza k=53 nie pokrywających się trójznakowych ciągów zawartych w <I>s</I> prowadzi do poniższych wyników:</P>
+
+<PRE><CODE>N[000] = 4    N[100] = 9
+N[001] = 8    N[101] = 9
+N[010] = 3    N[110] = 4
+N[011] = 9    N[111] = 7</CODE></PRE>
+
+<P>Policzmy więc statystyki testowe dla testu pokerowego:</P>
+
+<div style="text-align:center">
+
+<P>X3 = (8 / 53) * (4^2 +8^2 +3^2 +9^2 +9^2 +9^2 +4^2 +7^2) – 53 = 6.925</P>
+
+</div>
+
+<P>Zgodnie z tabelą dla <A href="chi_2_verteilung.html">rozkładu chi^2</A>, przy <!--ZZZPOPUP--><A href="sign_niv.html">poziomie znaczenia</A> określonym jako ‘alpha‚ = 0.05 i <A href="chi_2_verteilung.html">rozkładzie chi^2</A> z 2^3-1 = 7 stopniami dowolności, wartość progu wynosi 14.07, gdzie  X3 = 6.925 &lt;= 14.07, sekwencja <I>s</I> przechodzi pomyślnie test pokerowy.</P>
+
+<P><B>Źródła:</B> </P>
+
+<UL>
+	<LI>Christian Schiestl, <I>Pseudozufallszahlen in der Kryptographie</I>, in Klagenfurt, 1999.</LI>
+
+	<LI>Menezes Alfred J., Van Oorschot Paul C. and Vanstone Scott A, <I>Handbook of Applied Cryptography,</I> CRC Press, Boca Raton, New York, London, 1997.</LI>
+	
+</UL>
+
+</BODY>
+</HTML>

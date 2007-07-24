@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<!-- Title of the help page (important for HTML help index) -->
+<TITLE>Random number visualization</TITLE>
+<!-- Various styles -->
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+<!-- Script to handle special links (for example file links -->
+<script language="JScript" src="helper.js"></script>
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Phase space visualization">
+	<PARAM NAME="Keyword" VALUE="3D visualization">
+	<PARAM NAME="Keyword" VALUE="Random number visualization">
+</OBJECT>
+
+<BODY>
+
+<h3>Random number visualization (Menu <A href="menu_analyze.html">Analysis</A> \ Analyse Randomness)</h3>
+
+<p>
+Random numbers are used extensively in cryptography, e. g. for generation
+of key material. It is among the more difficult tasks of a cryptographer
+to determine the quality of a random number source - statistically good
+random numbers are not necessarily cryptographically secure as well.
+If an adversary is able to exploit a structure within the stream of random
+numbers in order to deduce future values with a certain probability, the
+cryptographic keys generated from these random numbers are vulnerable to
+attack - even if the cryptographic algorithm itself is secure.
+</p>
+<p>
+In order to measure the quality of random numbers various tests and criteria
+have been established that usually analyze the random number sequences
+numerically. Some of them have also been implemented in CrypTool.
+</p>
+<p>
+In addition to numerical approaches, structures in random number sequences
+can also be visualized graphically. CrypTool implements an algorithm that
+is called <b>phase space visualization</b> which was first implemented by Dan
+Kaminsky of <a href="http://www.doxpara.com/" target="_new">DoxPara</a> in his
+program <em>Phentropy</em> (Part of the 
+<a href="http://www.doxpara.com/read.php/code/paketto.html" target="_new">
+Paketto Keiretsu</a> Toolkit).
+</p>
+
+<p>The display options can be adjusted in the dialog <a href="hidd_set_visopt.html">3D Visualization - Options</a>.</p>
+
+</BODY>
+</HTML>

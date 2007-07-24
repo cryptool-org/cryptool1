@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1250">
+<TITLE>Okno wymiany klucza Diffie-Hellman'a: ustawianie publicznych parametrów</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
+</OBJECT>
+
+<BODY>
+
+<h3>Okno ustawiania publicznych parametrów</h3>
+
+<P>To okno dialogowe pojawia się po kliknięcia na przycisk <B>Ustaw publiczne parametry</B> z <a href="hidd_diffiehellmanvisualization.html">demonstracji Diffie-Hellman'a</a>.</P>
+
+<P>W oknie jest prośba o podanie publicznych parametrów <A href="dh-verfahren.html">protokołu</A> wymiany klucza Diffie-Hellman'a.</P>
+
+<P><IMG SRC="images/dh_setpublicparameters.gif" ALT="dh_setpublicparameters.gif" BORDER=0></P>
+
+<P>Proszę wprowadzić prime module p jako pierwszy, ponieważ weryfikacja generatora g zależy bezpośrednio od prime module.</P>
+
+<P>Trzeba mieć na uwadze, że używanie prime module który nie jest <U>liczbą pierwszą</U> może teoretycznie osłabić bezpieczeństwo dalszych działań. Przyciśnij przycisk <B>Stwórz liczbę pierwszą</B> jeśli chcesz aby CrypTool wygenerował prawidłowy prime module.</P>
+
+<P>Co więcej, należy zanotować fakt, że długość bitowa prime module jest kluczowym aspektem dotyczącym bezpieczeństwa całego postępowania.
+Dla celów demonstracyjnych wartości nie zapewniające bezpieczeństwa są akceptowalne.</P>
+
+<P>Można także pozwolić aplikacji na stworzenie generatora, jeśli naciśnie się przycisk <B>Stwórz Generator</B>. W przypadku gdy chce się stworzyć generator dla siebie, należy wziąć pod uwagę następujące wartości (nie zapewniają one bezpieczeństwa): </P>
+
+<UL>
+	<LI>zero</LI>
+
+	<LI>jeden</LI>
+
+	<LI>prime module – 1</LI>
+
+	<LI>wielokrotność prime module</LI>
+</UL>
+
+<P>Można także ograniczyć bezpieczeństwo postępowania.</P>
+
+<P>Przycisk <B>Akceptuję parametry</B> zamyka okno i prowadzi do następnego kroku protokołu. <B> </B></P>
+
+</BODY>
+</HTML>

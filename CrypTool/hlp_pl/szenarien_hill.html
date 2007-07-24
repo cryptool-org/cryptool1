@@ -1,0 +1,228 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; windows-1250">
+<TITLE>Example illustrating the Hill encryption algorithm</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Examples/Scenarios">
+	<PARAM NAME="Keyword" VALUE="Encryption">
+	<PARAM NAME="Keyword" VALUE="Hill encryption algorithm">
+
+</OBJECT>
+
+<BODY>
+
+<h3>Przyk³ad ilustruj±cy szyfrowanie algorytmu Hilla</h3>
+
+<P>Ten rozdzia³ dostarcza <A href="hid_hilfe_szenarien.html">przyk³ad</A> u¿ycia algorytmu szyfrowania <A href="hid_hill.html">Hilla </A>. By u³atwiæ ¶ledzenie kroków, które musz± byæ przedstawione w <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>, przyk³ad jest ilustrowany</P>
+
+<P><U>By rozpocz±æ, poni¿ej znajduje siê krótkie streszczenie kroków do wykonania.</U></P>
+
+<P>Tekst <CODE>HILLCIPHER</CODE> ma byæ <!--ZZZPOPUP--><A href="verschluesselung.html">zaszyfrowany</A> z <!--ZZZPOPUP--><A href="schluessel.html">kluczem</A> <CODE>T</CODE> <CODE>E</CODE> <CODE>S</CODE> <CODE>T</CODE>.</P>
+
+<TABLE cols=6 width="0*" class="pad20">
+
+<TR VALIGN="top">
+<TD>KLUCZ:</TD>
+<TD>
+<PRE><CODE>T</CODE></PRE>
+</TD>
+<TD>
+<PRE><CODE>E</CODE></PRE>
+</TD>
+<TD>odpowiada :</TD>
+<TD>19</TD>
+
+<TD>4</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>&nbsp;</TD>
+<TD>
+<PRE><CODE>S</CODE></PRE>
+</TD>
+<TD>
+<PRE><CODE>T</CODE></PRE>
+</TD>
+<TD>&nbsp;</TD>
+<TD>18</TD>
+
+<TD>19</TD>
+</TR>
+</TABLE><BR>
+
+<P>Poniewa¿ klucz sk³ada siê z dwóch rzêdów i kolumn, tekst musi byæ podzielony na bloki dwuznakowe. </P>
+
+<TABLE cols=14 width="0*" class="pad20">
+
+<TR VALIGN="top">
+<TD>
+<PRE><CODE>H</CODE></PRE>
+</TD>
+<TD>
+<PRE><CODE>I</CODE></PRE>
+
+</TD>
+<TD>&nbsp;</TD>
+<TD>
+<PRE><CODE>L</CODE></PRE>
+</TD>
+<TD>
+<PRE><CODE>L</CODE></PRE>
+</TD>
+<TD>&nbsp;</TD>
+<TD>
+<PRE><CODE>C</CODE></PRE>
+</TD>
+<TD>
+<PRE><CODE>I</CODE></PRE>
+
+</TD>
+<TD>&nbsp;</TD>
+<TD>
+<PRE><CODE>P</CODE></PRE>
+</TD>
+<TD>
+<PRE><CODE>H</CODE></PRE>
+</TD>
+<TD>&nbsp;</TD>
+<TD>
+<PRE><CODE>E</CODE></PRE>
+</TD>
+<TD>
+<PRE><CODE>R</CODE></PRE>
+
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>7</TD>
+<TD>8</TD>
+<TD>&nbsp;</TD>
+<TD>11</TD>
+<TD>11</TD>
+<TD>&nbsp;</TD>
+<TD>2</TD>
+<TD>8</TD>
+
+<TD>&nbsp;</TD>
+<TD>15</TD>
+<TD>7</TD>
+<TD>&nbsp;</TD>
+<TD>4</TD>
+<TD>17</TD>
+</TR>
+</TABLE><BR>
+
+<P>By rozszyfrowaæ pierwszy blok, przeprowadzamy nastêpuj±ce kalkulacje:</P>
+
+<P>7 * 19 + 8 * 18 = 277 = 10 * 26 + 17 = 17 (<!--ZZZPOPUP--><A href="modulo.html">modulo</A> 26),</P>
+
+<P>7 * 4 + 8 * 19 = 180 = 6 * 26 +24 = 24 (modulo 26).</P>
+
+<P>St±d pierwszy blok zaszyfrowanego tekstu to 17 24. To odpowiada: <CODE>R</CODE> <CODE>Y</CODE>.</P>
+
+<P>Ca³y zaszyfrowany tekst odczytujemy jak nastêpuje:</P>
+
+<TABLE cols=14 width="0*" class="pad20">
+
+<TR VALIGN="top">
+
+<TD>
+<PRE><CODE>R</CODE></PRE>
+</TD>
+<TD>
+<PRE><CODE>Y</CODE></PRE>
+</TD>
+<TD>&nbsp;</TD>
+<TD>
+<PRE><CODE>R</CODE></PRE>
+</TD>
+<TD>
+<PRE><CODE>T</CODE></PRE>
+</TD>
+
+<TD>&nbsp;</TD>
+<TD>
+<PRE><CODE>A</CODE></PRE>
+</TD>
+<TD>
+<PRE><CODE>E</CODE></PRE>
+</TD>
+<TD>&nbsp;</TD>
+<TD>
+<PRE><CODE>V</CODE></PRE>
+</TD>
+<TD>
+<PRE><CODE>L</CODE></PRE>
+
+</TD>
+<TD>&nbsp;</TD>
+<TD>
+<PRE><CODE>S</CODE></PRE>
+</TD>
+<TD>
+<PRE><CODE>B</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>17</TD>
+<TD>24</TD>
+
+<TD>&nbsp;</TD>
+<TD>17</TD>
+<TD>19</TD>
+<TD>&nbsp;</TD>
+<TD>0</TD>
+<TD>4</TD>
+<TD>&nbsp;</TD>
+<TD>21</TD>
+<TD>11</TD>
+<TD>&nbsp;</TD>
+<TD>18</TD>
+
+<TD>1</TD>
+</TR>
+</TABLE><BR>
+
+<P>Je¿eli w  <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> jest <!--ZZZPOPUP--><A href="klartext.html">tekst jawny</A> i odpowiadaj±ca mu zakodowana wersja tekstu, jest on w stanie przeprowadziæ pomy¶lne  <A href="hid_hill_auto.html">atak na szyfr algorytmu Hill </A> i rozpracowaæ klucz, jak bêdzie to pokazane poni¿ej.</P>
+
+<P><U>Teraz szczegó³owo omówimy poszczególne kroki.</U></P>
+
+<P>Tekst <CODE>HILLCIPHER</CODE> ma byæ zaszyfrowany kluczem  <CODE>T</CODE> <CODE>E</CODE> <CODE>S</CODE> <CODE>T</CODE>. Aby to zrobiæ, jest tworzony<!--ZZZPOPUP--><A href="dokument.html">dokument</A> przez <A href="menu_file.html">( Plik</A> \ <A href="hid_file_new.html">Nowy )</A> i tekst <CODE>HILLCIPHER</CODE> jest otwierany. W klasycznie zaszyfrowanych algorytmach ma³e litery s± zawsze zamieniane na du¿e litery. Jednak¿e, CrypTool rozró¿nia du¿e i ma³e litery by u³atwiæ nam czytanie. Te dwa aspekty mog± byæ zablokowane niezale¿nie od siebie dziêki opcji <B>utrzymuj znaki nie wystêpuj±ce w alfabecie jako niezmienione</B> i <B>utrzymuj du¿e/ ma³e litery (je¿eli to mo¿liwe) </B> w oknie dialogowym  <A href="hid_opttext.html">Opcje tekstu</A>. Dlatego te¿ nie ma znaczenia czy tekst zawiera ma³e litery. Aby to zademonstrowaæ, u¿yjemy <CODE>Hillcipher</CODE> zamiast  <CODE>HILLCIPHER</CODE>:</P>
+
+<P><IMG SRC="images/szenariohill1.gif" ALT="szenariohill1.gif" BORDER=0></P>
+
+<P>My teraz dokonujemy wyboru <A href="menu_crypt.html">Szyfrowanie</A> <A href="hid_hill.html">\ Historyczne \ Hill</A>, opieraj±c siê na instrukcjach okna dialogowego:</P>
+
+<P><IMG SRC="images/szenariohill2.gif" ALT="szenariohill2.gif" BORDER=0></P>
+
+<P>Po wprowadzeniu klucza <CODE>T</CODE> <CODE>E</CODE> <CODE>S</CODE> <CODE>T</CODE> jest mo¿liwy zapis do schowka (aby unikn±æ konieczo¶ci ponownego wprowadzania klucza w fazie<!--ZZZPOPUP--><A href="entschluesselung.html">deszyfrowania</A>) przez klikniêcie przycisku <B>Kopiuj</B>. Informacje przechowywane w schowku mo¿na znale¼æ w <A href="afx_hidw_toolbar.html">Pomocy na pasku narzêdzi</A>. Teraz kliknij na przycisk <B>Deszyfruj</B>, a otworzy siê nowe okno zawieraj±ce zaszyfrowany tekst.</P>
+
+<P><IMG SRC="images/szenariohill3.gif" ALT="szenariohill3.gif" BORDER=0></P>
+
+<P><!--ZZZPOPUP--><A href="verschluesselung.html">Zaszyfrowany</A> tekst jest teraz <!--ZZZPOPUP--><A href="entschluesselung.html">deszyfrowywany</A>. Procedura rozszyfrowywania jest identyczna do szyfrowania, jednak tym razem zaznaczona musi byæ opcja <B>Rozszyfruj</B>, tzn. przycisk znajduj±cy siê obok tej opcji musi zostaæ zaznaczony. Robimy to poprzez klikniêcie mysz± w danym polu. <!--ZZZPOPUP--><A href="schluessel.html">Klucz</A> mo¿na teraz wpisaæ rêcznie tak jak wcze¶niej lub wstawiæ go ze schowka u¿ywaj±c przycisku <B>Wklej</B> je¶li klucz zosta³ wcze¶niej skopiowany.</P>
+
+<P><IMG SRC="images/szenariohill4.gif" ALT="szenariohill4.gif" BORDER=0></P>
+
+<P>Teraz kliknij na <B>Rozszyfruj</B>, a na ekranie pojawi siê z powrotem <!--ZZZPOPUP--><A href="klartext.html">tekst jawny</A>.</P>
+
+<P><IMG SRC="images/szenariohill5.gif" ALT="szenariohill5.gif" BORDER=0></P>
+
+<P><!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> rozszyfruje teraz <!--ZZZPOPUP--><A href="schluessel.html">klucz</A> u¿ywaj±c <!--ZZZPOPUP--><A href="knownplaintextangriff.html">ataku poprzez Znany Tekst Jawny</A>. Atak ten wymaga dostêpno¶ci zarówno <!--ZZZPOPUP--><A href="klartext.html">tekstu jawnego</A> jak i tekstu <!--ZZZPOPUP--><A href="verschluesselung.html">zaszyfrowanego</A>. Naj³atwiej zrobiæ to przez <A href="hid_edit_copy.html">skopiowanie</A> tekstu jawnego (zaznaczenie kursorem myszy i wci¶niêcie kombinacji klawiszy Ctrl+C) z jednego z dwóch okien, które zawieraj± <CODE>Hillcipher</CODE> do schowka. Teraz czynimy okno zawieraj±ce <!--ZZZPOPUP--><A href="verschluesselung.html">zaszyfrowany</A> tekst oknem aktywnym po raz kolejny (poprzez klikniêcie na niego mysz±) i wybieramy opcjê menu <A href="menu_analyze.html">Kryptoanaliza</A> <A href="hid_hill_auto.html">\ Algorytmy historyczne \Tekst Jawny \ Hill</A> by wy¶wietliæ okno <B>Analizy szyfru Hill'a </B>. <!--ZZZPOPUP--><A href="klartext.html">Tekst jawny</A> jest wtedy <A href="hid_edit_paste.html">wklejany ze schowka do tego okna (u¿ywaj±c kombinacji klawiszy Ctrl+V)</A>.</P>
+
+<P><IMG SRC="images/szenariohill6.gif" ALT="szenariohill6.gif" BORDER=0></P>
+
+<P>Kryptoanaliza zaczyna siê kiedy naci¶niemy przycisk <B>Kontynuuj</B> a <!--ZZZPOPUP--><A href="schluessel.html">klucz</A> <CODE>T</CODE> <CODE>E</CODE> <CODE>S</CODE> <CODE>T</CODE> pojawia siê w wy¶wietlaj±cym siê oknie.</P>
+
+<P><IMG SRC="images/szenariohill7.gif" ALT="szenariohill7.gif" BORDER=0></P>
+
+<P>W ten sposób <!--ZZZPOPUP--><A href="schluessel.html">klucz</A> zosta³ rozpracowany poprzez znajomo¶æ <!--ZZZPOPUP--><A href="klartext.html">tekstu jawnego</A> i odpowiedniego tekstu <!--ZZZPOPUP--><A href="verschluesselung.html">zaszyfrowanego</A> .</P>
+
+</BODY>
+</HTML>

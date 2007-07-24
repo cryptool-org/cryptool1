@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1250">
+<TITLE>Szyfrowanie wiadmości w systemie RSA</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="RSA encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Encryption">
+	<PARAM NAME="Keyword" VALUE="Demonstrations/Scenarios">
+</OBJECT>
+
+<BODY>
+
+<h3>Szyfrowanie wiadmości w systemie RSA</h3>
+
+<P>Po <A href="rsa_demo_key_generation.html">wygenerowaniu klucza RSA</A>, moduł N i klucz RSA e mogą zostać opublikowane. Każdy może zaszyfrować wiadomość do właściciela tajnego klucza albo sprawdzić podpis cyfrowy.</P>
+
+<P>Jeśli <A href="rsa_demo_key_generation.html">wygenerujesz klucz RSA samodzielnie</A> w okienku dialogowym demo RSA wtedy publiczny parametr RSA pojawi się automatycznie. W przeciwnym razie <A href="public_rsa_parameter.html">wpisz publiczny parametr RSA</A>. Wiadomość może być teraz zaszyfrowana.</P>
+
+<P>Do tego celu wpisz wiadomość (teskt jawny) M, który ma zostać zaszyfrowany. Na przykład:</P>
+
+<P>"Verkaufen Sie am 14.07.00 meine Aktienpakete, und kaufen Sie mir dafür eine Südsee Insel" [Sprzedaj moje udziały 14 lipca 2000 i użyj dochodu aby kupić mi wyspe na Morzu Południowym].</P>
+
+<P>Gdy klikniesz na <B>Szyfruj</B>, wiadomość najpierw zostanie przekonwertowana na liczby. Do tego celu wiadomość M jest dzielona na <!--ZZZPOPUP--><A href="rsa_demo_segment_size.html">bloki po k znaków</A> (M = M[1] # M[2] # ... # M[j]), tak aby k*8 było zawsze mniejsze niż <!--ZZZPOPUP--><A href="rsa_demo_bitlength.html">długość bitowa modułu N systemu RSA</A>. W celu zaszyfrowania bloki wiadmośći (M[i], i = 1, 2, ..., j) są konwertowane na liczby (m[i], for i = 1, 2, ..., j) i szyfrowane przy użyciu publicznego klucza RSA (N,e) według następującego wzoru:</P>
+
+<div class="indent">
+
+<P>c[i] = m[i]^e (mod N)    for  i = 1, 2, ..., j .</P>
+
+</div>
+
+<P>Ponieważ klucz publiczny (N,e) jest dostępny dla każdego a klucz prywatny (N,d) pozostaje poufny, możemy założyć że:</P>
+
+<div class="indent">
+
+<P><B>Każdy może zaszyfrować wiadomość kluczem publicznym ale tylko właściciel tajnego klucza może <A href="#rsa_demo_encryption">odszyfrować</A></B> <B>wiadomość ponownie.</B></P>
+
+</div>
+
+<P><IMG SRC="images/rsa_demo_3.gif" ALT="rsa_demo_3.gif" BORDER=0></P>
+
+<P>Konwersja tekstu jawnego M na liczby m = m[1] # m[2] # .... #  m[j] oraz zaszyfrowana wersja c = c[1] # c[2] # .... # c[j] są prezentowane w 2 liniach poniżej pola wejściowego na dane. </P>
+
+<P>Znak # nie ma żadnego znaczenia w tym miejscu: jest to po prostu wizualny separator pomiędzy różnymi numerami bloków do zaszyfrowania lub odszyfrowania. </P>
+
+<P>Możesz ustalić długość bloku k poprzez kliknięcie na <!--ZZZPOPUP--><A href="hidd_options_rsa_demo.html">Opcje dla alfabetu i systemu liczbowego</A>. W okienku dialogowym uzyskanym poprzez tą opcję możesz również określić podstawę reprezentacji liczb w szyfrowaniu RSA oraz możesz poeksperymentować z wariantem RSA <A href="rsa_demo_variant.html">Dialog sióstr</A> [zobacz c‚t 25/99].</P>
+
+<P>Zamiast wpisywać tekst możesz również określić w opcjach, że chcesz bezpośrednio zaszyfrować sekwencje liczb tekstu jawnego m =  m[1] # m[2] # ... # m[j]:</P>
+
+<P><IMG SRC="images/rsa_demo_4.gif" ALT="rsa_demo_4.gif" BORDER=0></P>
+
+</BODY>
+</HTML>

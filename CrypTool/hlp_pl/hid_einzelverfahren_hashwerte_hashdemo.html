@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1250">
+<TITLE>Hash Demonstration</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Demonstrations/Scenarios">
+	<PARAM NAME="Keyword" VALUE="Hash function">
+	<PARAM NAME="Keyword" VALUE="Individual procedures">
+</OBJECT>
+
+<BODY>
+
+<h3>Hash Demonstration (Menu <A href="menu_related_methods.html">Individual Procedures</A> \ Hash )</h3>
+
+<P>To <A href="hidd_hash_demo.html">okno</A> pokazuje właściwości bezpieczeństwa kryptograficznej <A href="hashfunktion.html">funkcji hash'ującej</A>. Jest prawie niemożliwe znalezienie dóch różnych dokumentów z taką samą wartością klucza hash.</P>
+
+<P>W oknie tym możemy dowolnie edytować oryginalny plik. Jakiekolwiek zmiany zmienią wartość klucza hash odpowiadającego danemu dokumentowi, który następnie zostanie porównany z kluczem hash oryginalnego pliku.</P>
+
+<P>Idealnie jest gdy funkcja hash zachowuje się jak funkcja random. </P>
+
+<P>W oknie tekstowym "Actual file" możemy dowolnie edtować otwarty plik, z ograniczeniem, że tylko pierwsze 16,000 znaków oryginalnego pliku zostanie skopiowanych do tego okna (zobacz pole textowe "Wartość hash oryginalnego pliku" oraz "Wartość hash obecnego pliku").</P>
+
+<P><B>Przykład:</B></P>
+
+<P>Ustawiając 128 bitową funkcję hash dla 2^128 różnych dokoumentów możesz generować 2^128 pseudo różnych wartości klucza hash. Wtedy prawdopodobieństwo, że jeden z 2^128 dokumentów może mieć taką samą wartość funkcji hash jak oryginalny plik jest 1 – 1 / e (= 0.6931...; e = "Liczba Rulera"). To zdanie jest prawdziwe tylko jeśli funkcja hash naprawdę zachowuje się jak funkcja random.</P>
+
+<P><B>Uwaga:</B></P>
+
+<P>Zwróć uwagę, że ten pokaz jest tylko możliwy dla plików tekstowych. Najwyżej, 16,000 bitów ładowanego pliku, w tym przypadku tylko pierwsze 16,000 bitów determinuje wartość funkcji hash pliku oryginalnego.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+	<HEAD>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1250">
+		<TITLE>Przykład ilustrujący użycie algorytmu szyfrującego RSA</TITLE>
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	</HEAD>
+	<!-- multiple keywords for CrypTool HTML help index -->
+	<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+		VIEWASTEXT ID="Object1">
+		<PARAM NAME="Keyword" VALUE="Przykłady/Scenarios">
+		<PARAM NAME="Keyword" VALUE="Szyfrowanie">
+		<PARAM NAME="Keyword" VALUE="RSA algorytm szyfrujący">
+	</OBJECT>
+	<BODY>
+		<h3>Przykład ilustrujący użycie algorytmu szyfrującego RSA</h3>
+		<P>
+			W tym rozdziale znajduje się przykład, pokazujący przykładowe zastosowanie algorytmu RSA 
+			do szyfrowania i deszyfrowania. Aby łatwiej było wykonywać kolejne kroki, niezbędne do wykonania 
+			w CrypTool, do przykładu dołączone są pomocnicze zrzuty ekranu.
+		</P>
+		<P>
+			Szyfrowanie oraz deszyfrowanie będzie przeprowadzone na dokumencie tekstowym.
+		</P>
+		<P>
+			Przede wszystkim, należy (w podobny sposób jak przy tworzeniu podpisu z użyciem
+			algorytmu RSA) wygenerować asymetryczną parę kluczy. Wybierz opcję menu
+			<B>Podpis Cyfrowy \ PKI \ Generowanie/Import klucza</B>, i powinno pojawić się następujące okno.</P>
+		<P><IMG SRC="images/szenariorsa_ver1.gif" ALT="szenariorsa_ver1.gif" BORDER="0"></P>
+		<P>
+			Jako dane osobowe podaliśmy <CODE>Jan Kowalski</CODE>, opcjonalnym identyfikatorem klucza 
+			jest <CODE>Klucz Jana </CODE> i jako numer PIN (dwukrotnie) podaliśmy <CODE>CrypTool</CODE>. 
+			Długość modulusa to <CODE>768</CODE> bitów. Wciśnij przycisk <B> ENTER </B>albo naciśnij na <B>
+			Wygeneruj nową parę kluczy</B> ,żeby wygenerować nową <!--ZZZPOPUP--><A href="schluesselpaar.html">parę kluczy.</A>
+		</P>
+		<P>
+			 W oknie 'parametry publiczne' (dla klucza publicznego) pojawia się modulus, składający się z dwóch liczb 
+			 pierwszych i publicznego wykładnika.
+		</P>
+		<P><IMG SRC="images/szenariorsaoeffentlicheparameter.gif" ALT="szenariorsaoeffentlicheparameter.gif"
+				BORDER="0"></P>
+		<P>
+			Naciśnij na przycisk <B>Zatwierdź</B>, i nazwa, pod którą została zapisana para kluczy oraz 
+			czas potrzebny na stworzenie klucza zostaną wyświetlone.
+		</P>
+		<P><IMG SRC="images/szenariorsa_ver2.gif" ALT="szenariorsa_ver2.gif" BORDER="0"></P>
+		<P>
+			Po zamknięciu się okna, należy również zamknąć okno 
+			<A href="hidd_keyasym_generation.html">Generowanie pary kluczy asymetrycznych</A>
+  			po przez kliknięcie na przycisk <B>Zamknij</B>.
+		</P>
+		<P>Teraz wczytujemy fragment tekstu pomocy dla CryptTool, "Wprowadzenie do CrypTool", 
+			który jest zawarty w pliku "CrypTool-en.txt". Aby otworzyć ten dokument w CryptTool,
+			należy wybrać opcję menu <B> Plik \ Otwórz </B>
+		</P>
+		<P><IMG SRC="images/szenariorsa_ver3.gif" ALT="szenariorsa_ver3.gif" BORDER="0"></P>
+		<P>Aby zainicjować proces szyfrowania przy użyciu szyfrowania RSA, należy wybrać opcję 
+		   menu <B>Szyfrowanie \ Asymetryczne </B>.
+		</P>
+		<P><IMG SRC="images/szenariorsa_ver4.gif" ALT="szenariorsa_ver4.gif" BORDER="0"></P>
+		<P>By rozpocząć szyfrowanie, musisz wybrać odbiorcę (który zawiera jego klucz publiczny)
+			i kliknąć na przycisk <B>Szyfruj</B>. Do szyfrowania nie jest potrzebna znajomość 
+			numeru PIN. Następujące okno pokazuje wyniki szyfrowania.
+		</P>
+		<P><IMG SRC="images/szenariorsa_ver5.gif" ALT="szenariorsa_ver5.gif" BORDER="0"></P>
+		<P>Deszyfrowanie asymetryczne może być wykonane tylko przez autoryzowaną osobę: 
+		   Jednakże do deszyfrowania w kontraście do szyfrowania, potrzebujesz znać numer PIN. 
+		</P>
+		<P><IMG SRC="images/szenariorsa_ver6.gif" ALT="szenariorsa_ver6.gif" BORDER="0"></P>
+		<P>Tekst jawny zostaje wyświetlony w oknie dla tekstowego wejścia i wyjścia.
+			Następujące okno pokazuje rezultat.
+		</P>
+		<P><IMG SRC="images/szenariorsa_ver7.gif" ALT="szenariorsa_ver7.gif" BORDER="0"></P>
+	</BODY>
+</HTML>

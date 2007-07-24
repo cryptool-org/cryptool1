@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1250">
+<TITLE>Weryfikacja podpisu RSA wiadomości</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->	
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="RSA encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Signature">
+	<PARAM NAME="Keyword" VALUE="Demonstrations/Scenarios">
+</OBJECT>
+
+<BODY>
+
+<h3>Weryfikacja podpisu RSA wiadomości</h3>
+
+<P>Możesz zweryfikować podpis cyfrowy RSA używając publicznych <A href="public_rsa_parameter.html">parametrów RSA</A> podpisującego.</P>
+
+<P>Zanim będziesz mógł zweryfikować otrzymany podpis musisz otrzymać klucz publiczny wysyłającego.</P>
+
+<P>Podpis do weryfikacji jest liczbą zawsze mniejszą niż moduł N. Możesz wpisac podpis jako sekwencję 2 heksadecymalnych cyfr oddzielonych spacją lub jako liczbę o wybranej podstawie.</P>
+
+<P>Po kliknięciu na przycisk <B>Deszyfruj</B> (jeśli dostałeś sie do tego okienka dialogowego przez menu <A href="hid_crypt_verify.html">Podpis cyfrowy \ Sprawdź podpis</A> ukaże się przycisk <B>Zweryfikuj</B>) zostanie wykonane działanie podnoszenia do potęgi z publicznym kluczem RSA e. </P>
+
+<P>Wynik podnoszenia do potęgi jest wartością hasz która musi być porównana z wartością hasz obliczoną na podstawie dokumentu. Jeśli wartości hasz są identyczne wówczas uważa się to za dowód, że właściciel odpowiadającego prywatnego klucza RSA podpisał dokument.</P>
+
+<P>Jeśli używasz menu <A href="hid_crypt_verify.html">Podpis cyfrowy \ Sprawdź podpis</A> do weryfikacji podpisu RSA możesz zaznaczyć pole wyboru <B>Wyświetl wyniki pośrednie</B>. Po kliknięciu na przycisk <B>Zweryfikuj</B> otrzymasz następujące wyjście:</P>
+
+<P><IMG SRC="images/rsademoverifysignature.gif" ALT="rsademoverifysignature.gif" BORDER=0></P>
+
+<P>Jeśli wynik podnoszenia do potęgi RSA i wartość hasz dokumentu pasują do siebie wówczas podpis jest uznany za poprawny i wyświetlona zostaje buźka :-).</P>
+
+</BODY>
+</HTML>

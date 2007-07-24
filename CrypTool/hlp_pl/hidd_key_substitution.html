@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialog Key Monoalphabetic substitution</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
+	<PARAM NAME="Keyword" VALUE="Keys">
+	<PARAM NAME="Keyword" VALUE="Monoalphabetic substitution">
+	<PARAM NAME="Keyword" VALUE="Encryption">
+</OBJECT>
+
+<BODY>
+
+<h3>Dialog Key Monoalphabetic Substitution</h3>
+
+<P>This dialog is used to enter the <!--ZZZPOPUP--><A href="schluessel.html">key</A> for <A href="hid_cryptmono.html">monoalphabetic substitution</A>.</P>
+
+<P>When entering the key the following points should be noted: </P>
+
+<UL>
+	<LI>The dialog only accepts the 26 letters. All other inputs are automatically rejected, i.e. they are not displayed.</LI>
+
+	<LI>No distinction is made between upper and lower case letters, i.e. lower case letters are converted to upper case. </LI>
+</UL>
+
+<P>There are two ways of entering the key: </P>
+
+<UL>
+	<LI>You can enter the desired permutation (an arrangement of all 26 letters in the alphabet) directly.</LI>
+
+	<LI>In this case a text 26 characters long should be entered. The letter A will then be mapped to the first latter of the text that is entered, the B to the second, and so on. Care should be taken here to ensure that no letter occurs twice in the text input.</LI>
+
+	<LI>However, you can also enter a keyword from which the permutation is derived. An example here might be the keyword "RAILWAYS". The resulting permutation is worked out as follows. The A is mapped to the first letter (in this case the R). Similarly, the B is mapped to A, the C to I, the D to L and the E to W. As the sixth letter of the keyword, the A, has already occurred it is passed over, since no two (different) letters can be mapped to the same letter. This continues until all the letters in the keyword have been mapped, i.e. F to Y and G to S. All the other letters (H to Z) are mapped to the letters that have not yet been used in reverse sequence, i.e. H to Z, I to Y, .... Z to C.</LI>
+</UL>
+
+<P>After you have entered the key, you can encrypt the document by clicking on the <B>Encrypt</B> button or decrypt the document by selecting <B>Decrypt</B>.</P>
+
+<P>The formatting (retention of the spaces, special characters and upper and lower case distinction) of the output of the encrypted or decrypted document can be set in the <A href="hid_opttext.html">Text Options</A> dialog.</P>
+
+</BODY>
+</HTML>

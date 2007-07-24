@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<head>
+<meta http-equiv="Content-type" content="text/html; windows-1250" />
+<TITLE>Analysis of Monoalphabetic Substitution Ciphers</TITLE>
+<meta http-equiv="Content-Type" content="text/html; windows-1250">
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Analysis">
+	<PARAM NAME="Keyword" VALUE="Substitution encryption algorithm">
+</OBJECT>
+
+<BODY>
+
+<h3>Podstawianie (Menu <A href="menu_analyze.html">Kryptoanaliza</A> \ Algorytmy kistoryczne \ Tylko szyfr) </h3>
+
+<P>
+<A href="#introduction">Wstêp</A><br>
+<A href="#implementation">Wprowadzenie</A><br>
+<A href="#automaticanalysis">Automatyczna kryptoanaliza szyfru</A><br>
+<A href="#speechrecognition">Rozpoznanie mowy</A><br>
+
+<A href="#usage">U¿ycie</A><br>
+<A href="#constraints">Znane ograniczenia</A><br>
+</P>
+
+<h3><A name="introduction">Wstêp</h3>
+
+<P>Metoda do automatycznej kryptoanalizy szyfru mono-alfabetycznego podstawiania szyfru wprowadzonego w CrypTool by³a jak dot±d oparta na rozpoznawaniu najczêstszych s³ów z jêzyka i mia³a nastêpuj±ce ograniczenia: brak automatycznego rozpoznawania mowy, potrzeba zachowania bia³ych spacji wewn±trz zaszyfrowanego tekstu i brak ró¿nicy pomiêdzy ma³ymi i du¿ymi literami. </P>
+
+<P>Nowa wersja jest oparta na Szybkiej Metodzie do Kryptoanalizy Podstawiania Szyfru (Kryptologia 19:3, 1995) Thomasa Jakobsen-a. Ta metoda by³a g³ównie przedstawiona po to, by przedstawiæ nastêpuj±ce korzy¶ci:</P>
+
+<UL>
+<LI>lepsze wska¼niki sukcesu w rozszyfrowywaniu,</LI>
+<LI>wzrost szybko¶ci,</LI>
+<LI>deszyfracja zaszyfrowanego tekstu z i bez bia³ych spacji.</LI>
+</UL>
+
+<P>Algorytm pracuje na ³aciñskim alfabecie z 26 znakami (od A do Z). Alfabet mo¿e byæ poszerzony o znak bia³ej spacji, po to by bia³e spacje by³y kodowane tak samo jak inne znaki (ka¿dy znak jest odwzorowany na innym znaku). Zarówno znaki interpunkcyjne, znaki specjalne, jak równie¿ du¿e i ma³e litery, s± zachowane podczas kodowania.</P>
+
+<P>Co wiêcej, nowa wersja by³a poszerzona o algorytm automatycznego rozpoznawania mowy. Wprowadzona metoda jest oparta na indeksie przypadku (wed³ug W.F. Friedman-a, 1922).</P>
+
+<h3><A name="implementation">Wprowadzenie</h3>
+
+<h4><A name="automaticanalysis">Automatyczna kryptoanaliza szyfru</h4>
+
+<P>Wprowadzona metoda kryptoanalizy kryptogramu okre¶la czêstotliwo¶ci rozk³adu danego tekstu. Czêstotliwo¶æ rozk³adu pojedynczych znaków jest u¿ywana by obliczyæ pocz±tkow± warto¶æ klucza. Metoda jest oparta na szybkim algorytmie, obliczanie pocz±tkowej warto¶ci klucza a potem ulepszanie tego klucza z ka¿d± interakcj±.</P>
+
+<P>Wzrost szybko¶ci tej metody jest oparty na nastêpuj±cych szczegó³ach: pocz±tkowa warto¶æ klucza jest stworzona w odniesieniu do rozk³adu czêstotliwo¶ci pojedynczych znaków zaszyfrowanego tekstu. Ta metoda dzia³a z matryc± rozk³adu dla diagramów, a nie bezpo¶rednio z zaszyfrowanym tekstem. Podczas szukania klucza czêstotliwo¶æ pojedynczych znaków jest brana pod uwagê. </P>
+
+<P>Obliczanie jako¶ci klucza jest oparte na porównaniu diagramu czêstotliwo¶ci rozk³adu danego zaszyfrowanego tekstu i czêsto¶ci rozk³adu odno¶nika pliku tekstowego CryptTool, który mo¿e byæ znaleziony poprzez wej¶cie w menu <A href="menu_options.html">Opcje</A> 
+\ <A href="hid_opttext.html">Opcje tekstu</A>.Ca³o¶ciowe odchylenie jest obliczane przez zsumowanie wszystkich pojedynczych diagramów. Im mniejsze odchylenie, tym lepiej obliczony klucz.
+W idealnym przypadku powinno wcale nie byæ odchyleñ. Ale jest to rzadko obserwowalne w rzeczywisto¶ci, gdy¿ ka¿dy tekst ma swój w³asny diagram rozk³adu czêstotliwo¶ci, inny od odno¶nika rozk³adu. Zatem strategi± tego algorytmu jest minimalizacja danego odchylenia.
+.</P>
+
+<P>Zdaniem autora, ta metoda jest znacznie szybsza ni¿ inne, dobrze znane metody, takie jak Carroll-Robbins i King-Bahler, i algorytm ma za cel uzyskanie wska¼nika 98% (z zaszyfrowanym tekstem z 400 znaków).</P>
+
+<P>Dodatkowe informacje o zastosowanej metodzie mo¿na znale¼æ w Szybka metoda do kryptoanalizy zaszyfrowanego tekstu. (Kryptologia 19:3, 1995) Thomasa Jakobsen-a.</P>
+
+<h4><A name="speechrecognition">Rozpoznawanie tekstu</h4>
+
+<P>£atwiej jest zdecydowaæ, jakim jêzykiem zosta³ napisany zaszyfrowany tekst, ni¿ rozszyfrowaæ go nie znaj±c klucza. To ju¿ zosta³o ukazane przez W.F Friedman- a w 1922 r. Jêzyk jest zdeterminowany poprzez u¿ycie indeksu przypadku, co jest charakterystyczne dla poszczególnego jêzyka. Indeks przypadku jest obliczany przy u¿yciu czêsto¶ci pojedynczych znaków ró¿nych od wska¼nika tekstów poszczególnego jêzyka.
+</P>
+
+<h3><A name="usage">U¿ycie</h3>
+
+<P> Automatyczna kryptoanaliza szyfru rozpoczyna siê przez wej¶cie do menu 
+<A href="menu_analyze.html">Kryptoanaliza</A> \ Algorytmy historyczne \ 
+ Tylko szyfr \ Zamiana .</P>
+
+<P>Potem u¿ytkownik mo¿e wybraæ stary lub nowy algorytm.:</P>
+
+<P><IMG SRC="images/automaticAnalysisSubstitutionSelection.gif" ALT="images/automaticAnalysisSubstitutionSelection.gif" BORDER=0></P>
+
+<P>Nowy algorytm jest wybrany jako domy¶lny. Po wybraniu algorytmu, ukazuj± siê opcje:</P>
+
+<P><IMG SRC="images/automaticAnalysisSubstitutionOptions.gif" ALT="images/automaticAnalysisSubstitutionOptions.gif" BORDER=0></P>
+
+<P>U¿ytkownicy mog± wybraæ czy bia³e spacje maja nale¿eæ do alfabetu. Dodatkowo, u¿ytkownik mo¿e ukryæ graficzny interfejs u¿ytkownika podczas kryptoanalizy, po to by zobaczyæ tylko rezultat koñcowy. Wybór tej opcji prowadzi do podniesienia szybko¶ci, poniewa¿ tekst nie musi byæ odszyfrowany i wy¶wietlany na ekranie po ka¿dej pomy¶lnej interakcji.</P>
+
+<P>Nastêpuj±ce ostrze¿enie pojawia siê, je¶li tekst do kryptoanalizy jest za krótki (mniej ni¿ 200 znaków z alfabetu):</P>
+
+<P><IMG SRC="images/automaticAnalysisSubstitutionWarning.gif" ALT="images/automaticAnalysisSubstitutionWarning.gif" BORDER=0></P>
+
+<P>Koñcowy rezultat jest ukazuje siê w innym oknie. Je¶li graficzny interfejs u¿ytkownika nie by³ dezaktywowany wcze¶niej, bie¿±ce obliczenia s± ukazane w tym samym oknie. Obraz na ekranie jest aktualizowany za ka¿dym razem, gdy lepszy klucz zostanie znaleziony, wiêc kryptoanaliza szyfru mo¿e byæ przeprowadzona w bardzo dynamiczny sposób..</P>
+
+<P><IMG SRC="images/automaticAnalysisSubstitutionResult.gif" ALT="images/automaticAnalysisSubstitutionResult.gif" BORDER=0></P>
+
+<P>Je¶li podstawienie jest zaakceptowane przez u¿ytkownika, nowe okno zawieraj±ce rozszyfrowany tekst jest otwierane. Tekst ten mo¿e byæ zapisany przez u¿ytkownika. U¿ytkownik mo¿e tak¿e skopiowaæ bie¿±cy, podstawiony klucz do kluczowej pamiêci poprzez klikniêcie klawisza Kopiuj klucz. Co wiêcej, u¿ytkownik mo¿e spróbowaæ polepszyæ rezultat automatycznej kryptoanalizy poprzez klikniêcie klawisza Rêczna kryptoanaliza.</P>
+
+<h3><A name="constraints">Znane ograniczenia</h3>
+
+<P>Najwiêkszym ograniczeniem przedstawionych metod jest d³ugo¶æ dostêpnego zaszyfrowanego tekstu. Jak w ka¿dych innych metodach opartych na czêstotliwo¶ci, zaszyfrowany tekst musi byæ w odpowiednim formacie by w ogóle umo¿liwiæ kryptoanalizê podstawiania. Jednak wprowadzone metody nie pasuj± do kryptoanalizy szyfru krótkich zaszyfrowanych tekstów. Wed³ug autora, najlepsze rezultaty osi±gamy u¿ywaj±c zaszyfrowane teksty sk³adaj±ce siê z 300 do 400 znaków lub wiêcej (98% wska¼nik sukcesu),gdy wska¼nik sukcesu przy zaszyfrowanych tekstach od 100 do 200 znaków oscyluje pomiêdzy 50% a 80%.</P>
+
+</BODY>
+</HTML>

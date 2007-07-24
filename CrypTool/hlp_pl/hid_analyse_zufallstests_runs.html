@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Runs test</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Runs test">
+	<PARAM NAME="Keyword" VALUE="Analysis">
+	<PARAM NAME="Keyword" VALUE="Random">
+</OBJECT>
+
+<BODY>
+
+<h3>Runs Test (Menu <A href="menu_analyze.html">Analysis</A> \ Analyse Randomness)</h3>
+
+<P>The classic Runs Test is used to investigate monotonically rising and falling sub-sequences in a number sequence. A "run-up" of length k is understood to mean a sub-sequence X_i; ... ; X_(i + k – 1) with X_(i + r) &lt;= X_(i + r + 1) for all r, 0 &lt;= r &lt;= k - 1. "Run-downs" of length k are defined in similar fashion. Bad generators have a tendency to create runs that are too long.</P>
+
+<P>The Runs Test now compares the observed frequencies of different length of run with the expected frequencies. For the expected frequency of a run-up of length k in a sequence of length n, the following holds true:</P>
+
+<div style="text-align:center">
+
+<P>E_k = [(k^2 + k + 1) * (n - k - 1)] / (k + 2)!</P>
+
+</div>
+
+<P>As contiguous runs are not independent of each other (a long run is more likely to be followed by a short run than a long run and vice versa), the <A href="chi_2_verteilung.html">chi^2 test</A> cannot be immediately used to compare the observed runs with the expected frequencies. Knuth suggests as a simple solution to the problem that every number which comes directly after the end of a run should be discarded. This means that one obtains runs which are independent of each other and whose distribution can be tested using the <A href="chi_2_verteilung.html">chi^2 test</A> with (k-1) degrees of freedom. The frequency distribution is divided into k classes, whereby the i<SUP>th</SUP> class, (0 &lt;= i &lt;= k - 1), contains runs with length i and class (k-1) contains runs of length &gt;=k. The probabilities for runs of length k are given by</P>
+
+<div style="text-align:center">
+
+<P>P(<I>run has length k</I>) = k / (k + 1)!</P>
+
+</div>
+
+<P>In the case of checking binary sequences, consideration of upward / downward runs simplifies itself to observation of the length of the <!--ZZZPOPUP--><A href="block_lueck.html">gaps and blocks</A>. The purpose of the Runs Test, applied to binary sequences, is to determine whether the number of binary runs of various lengths contained in sequence <I>s</I> behaves as in a genuinely random sequence.</P>
+
+<P>The number of <!--ZZZPOPUP--><A href="block_lueck.html">gaps</A> (or <!--ZZZPOPUP--><A href="block_lueck.html">blocks</A>) of length i that are expected in a n-bit random sequence is given by</P>
+
+<div style="text-align:center">
+
+<P>E_i = (n - i + 3) / 2 ^ (i + 2)</P>
+
+</div>
+
+<P>Let k be equal to the biggest number i, for which ei _ 5 holds true, and let Bi;Gi be the number of <!--ZZZPOPUP--><A href="block_lueck.html">blocks and gaps</A> of length i contained in <I>s</I> for all i, 1 _ i _ k. The test statistics used are given by</P>
+
+<div style="text-align:center">
+
+<P>X4 =sum[i = 1; i = k] (B_i – e_i) ^ 2 / e_i + sum[i = 1; i = k] (G_i – e_i) ^ 2 / e_i</P>
+
+</div>
+
+<P>whereby X4 approximates a <A href="chi_2_verteilung.html">chi^2 distribution</A> with (2k-2) degrees of freedom.</P>
+
+<P><B>An example of the Runs Test</B></P>
+
+<P>By way of illustration, a classical Runs Test will be carried out on the short binary sequence</P>
+
+<PRE><CODE>s =
+00010111 01101101 01111101 11110011 00101111 
+00001111 10100100 11001111 11000011 11010001
+11010001 00101110 11010100 11000011 01010001
+11010110 00110010 10001111 00000111 01000111</CODE></PRE>
+
+<P>of length n = 160 (20 bytes). The <!--ZZZPOPUP--><A href="sign_niv.html">significance level</A> <U>i</U>s set with ‘alpha‚ = 0.05.</P>
+
+<P>With absolute(s) = 160, in our specific Runs Test for <I>s</I>, k=3. The expected number of runs of length i = 1, 2, 3 in a 160-bit sequence amounts to e_i = (160 – i + 3) / 2 ^ (i + 2), 1 &lt;= i &lt;= 3.</P>
+
+<div class="indent">
+
+<TABLE cols=3 width="0*" class="pad20"
+
+<TR VALIGN="top">
+<TD>E_1 = 20.25</TD>
+<TD>E_2 = 10.0625</TD>
+<TD>E_3 = 5</TD>
+</TR>
+</TABLE><BR>
+
+</div>
+
+<P>Sequence <I>s</I> contains the following number of <!--ZZZPOPUP--><A href="block_lueck.html">blocks</A> B_i and/or <!--ZZZPOPUP--><A href="block_lueck.html">gaps</A> G_1 of length i = 1, 2, 3:</P>
+
+<div class="indent">
+
+<TABLE cols=2 width="0*" class="pad20">
+
+<TR VALIGN="top">
+<TD><PRE><CODE>B_1 = 17</CODE></PRE></TD>
+<TD><PRE><CODE>G_1 = 20</CODE></PRE></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><PRE><CODE>B_2 = 9</CODE></PRE></TD>
+<TD><PRE><CODE>G_2 = 8</CODE></PRE></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><PRE><CODE>B_3 = 6</CODE></PRE></TD>
+<TD><PRE><CODE>G_3 = 7</CODE></PRE></TD>
+</TR>
+</TABLE><BR>
+
+</div>
+
+<P>Let us now determine the test statistics for the Runs Test:</P>
+
+<div class="indent">
+
+<TABLE cols=2 width="0*" class="pad20">
+
+<TR VALIGN="top">
+<TD>X4 = </TD>
+<TD>[(17 – 20.25) ^ 2 / 20.25] + [(9 – 10.0625) ^ 2 / 10.0625] + [(6 – 5) ^ 2 / 5] + </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>&nbsp;</TD>
+<TD>[(20 – 20.25) ^ 2 / 20.25] + [(8 – 10.0625) ^ 2 / 10.0625] + [(7 – 5) ^ 2 / 5]</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD> = </TD>
+<TD>2.0596</TD>
+</TR>
+</TABLE><BR>
+
+</div>
+
+<P>For a significance level of ‘alpha‚ = 0.05, at (2*3-2) = 4 degrees of freedom, there is the critical area above 9.488. With X4 = 2.0596 &lt;= 9.488, sequence <I>s</I> passes the Runs Test.</P>
+
+<P>References: Christian Schiestl, <I>Pseudozufallszahlen in der Kryptographie</I>, in Klagenfurt, 1999.</P>
+
+</BODY>
+</HTML>

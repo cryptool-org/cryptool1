@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+	<HEAD>
+		<TITLE>Dialog zur Visualisierung der Hybridverschlüsselung</TITLE>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	</HEAD>
+	<BODY>
+		<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+			<PARAM NAME="Keyword" VALUE="Hybridverschlüsselung">
+		</OBJECT>
+		<h3><P>
+				Dialog ECIES-encryption</P>
+		</h3>
+		<P>
+			This dialog is supposed to encrypt documents based on the ECIES-encryption.</P>
+		<P>ECIES is a hybrid&nbsp;scheme by using&nbsp;the ECDH- and AES algorithm. Hybrid 
+			encryption is the most widely deployed method of transferring encrypted data. 
+			More details on the <A href="hid_verentschlsseln_hybridverfahren_hybridverschlsselung.html">
+				hybrid encryption</A> method can be found in the <A href="script-en.pdf">script</A>.</P>
+		<P>If you have not already created an asymmetric key, you have to do this before 
+			calling the dialogu for&nbsp;ECIES encryption:</P>
+		<P>In the menu of CrypTool under <A href="menu_key.html">Key Management \ Key 
+				Generation</A> you can find appropriate tools for generating&nbsp;ECC key 
+			pairs and storing them in the CrypTool database (PSE file).
+		</P>
+		<P>After you have a valid ECC key pair,&nbsp;you can open a document and start the 
+			encryption dialog through the menu selection<A href="menu_crypt.html"><STRONG>En/Decrypt</STRONG></A><STRONG>
+				\ Hybrid\ ECC-AES-Encryption</STRONG>
+		.
+		<P>
+			<IMG SRC="images/ECIES2.gif" ALT="ECIES2.gif" BORDER="0"></P>
+		<P></P>
+		<P>After&nbsp;selecting&nbsp;a key pair you can start the encryption by clicking 
+			the button <STRONG>encrypt</STRONG>.</P>
+		<P>The&nbsp;required encryption time can be shown by&nbsp;activating the checkbox.</P>
+		<P>The encrypted&nbsp;ECIES-document is shown in the CrypTool main window:</P>
+		<IMG SRC="images/ECIES1.gif" ALT="ECIES1.gif" BORDER="0">
+		<P></P>
+		<P>This data can then be used as input for <A href="hid_verentschlsseln_hybridverfahren_hybridECCentschlsselung.html">
+				hybrid decryption</A>, which inverts the whole encryption process.</P>
+	</BODY>
+</HTML>

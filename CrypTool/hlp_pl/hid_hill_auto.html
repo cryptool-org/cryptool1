@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Automatic Analysis, Hill encryption algorithm</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Analysis">
+	<PARAM NAME="Keyword" VALUE="Hill encryption algorithm">
+</OBJECT>
+
+<BODY>
+
+<h3><P><A NAME="hid_hill_auto"></A><B>Automatic analysis, Hill encryption method (Menu <A href="menu_analyze.html">Analysis</A></B> <B>\ Symmetric Encryption (classic) \ Known Plaintext)</B></P></h3>
+
+<P>A <!--ZZZPOPUP--><A href="knownplaintextangriff.html">Known Plaintext attack</A> is available for the <A href="hid_hill.html">Hill encryption algorithm</A>. This means that it is necessary to enter not just the text <!--ZZZPOPUP--><A href="verschluesselung.html">encrypted</A> by the Hill encryption algorithm but also the same text in <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> form. <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> then works out the <!--ZZZPOPUP--><A href="schluessel.html">key</A> with which the plaintext was encrypted. </P>
+
+<P>As mentioned above, both the plaintext and the encrypted text must be known to the automatic analysis function. One of the texts must be available in the active window prior to calling the function for automatic analysis of the Hill encryption algorithm, and the other text must be entered in the <A href="hidd_hill_analysis.html">Hill cipher Analysis</A> dialog.</P>
+
+<P>The analysis functions as follows: <U>CrypTool</U> assumes that the key has the dimension<CODE> n</CODE> x<CODE> n</CODE> (from the range chosen in the <A href="hidd_hill_analysis.html">Hill cipher Analysis</A> dialog. The plaintext and the encrypted text are now divided into blocks of length<CODE> n</CODE>. The matrices<CODE> K</CODE> (plaintext) and<CODE> V</CODE> (encrypted text) are constructed from<CODE> n</CODE> blocks of plaintext and the corresponding blocks of the encrypted text. Clearly,<CODE> V</CODE> =<CODE> K</CODE> *<CODE> A</CODE>, where<CODE> A</CODE> is the key. If<CODE> K</CODE> is invertible, then the key can be calculated through simple matrix multiplication <!--ZZZPOPUP--><A href="modulo.html">modulo</A> 26 (number of letters): inverse(<CODE>K</CODE>) *<CODE> V</CODE> =<CODE> A</CODE>. If<CODE> K</CODE> is not invertible, then another possible combination of blocks is tried out. </P>
+
+<P><U>Example of searching a combination of blocks</U></P>
+
+<TABLE cols=2 width="0*" class="pad10">
+
+<TR VALIGN="top">
+<TD>The plaintext goes:</TD>
+<TD><CODE>ABCDXY</CODE>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>The encrypted text is:</TD>
+<TD><CODE>STONLC</CODE>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>The <!--ZZZPOPUP--><A href="schluessellaenge.html">key length</A> is:</TD>
+<TD>2.</TD>
+</TR>
+</TABLE><BR>
+
+<P>First of all CrypTool tries to find the key using the following matrices.</P>
+
+<TABLE cols=4 width="0*" class="pad10">
+
+<TR VALIGN="top">
+<TD><U>K:</U></TD>
+<TD>AB</TD>
+<TD><U>V:</U></TD>
+<TD>ST</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>&nbsp;</TD>
+<TD>CD</TD>
+<TD>&nbsp;</TD>
+<TD>ON</TD>
+</TR>
+</TABLE><BR>
+
+<P>Matrix<CODE> K</CODE> is not invertible. Therefore it would not be possible to find the key if the plaintext were<CODE> ABCD</CODE> and the encrypted text<CODE> STON</CODE>. However, as there is another block in the example, the next possible combination of blocks is now formed, producing these matrices:</P>
+
+<TABLE cols=4 width="0*" class="pad10">
+
+<TR VALIGN="top">
+<TD><U>K:</U></TD>
+<TD>AB</TD>
+<TD><U>V:</U></TD>
+<TD>ST</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>&nbsp;</TD>
+<TD>XY</TD>
+<TD>&nbsp;</TD>
+<TD>LC</TD>
+</TR>
+</TABLE><BR>
+
+<P>As this matrix<CODE> K</CODE> is invertible, the product of the inverse matrix of<CODE> K</CODE> and matrix<CODE> V</CODE> is calculated, and immediately one obtains the key of dimension 2 x 2:</P>
+
+<TABLE cols=2 width="0*" class="pad10">
+
+<TR VALIGN="top">
+<TD><U>A:</U></TD>
+<TD>TE</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>&nbsp;</TD>
+<TD>ST</TD>
+</TR>
+</TABLE><BR>
+
+<P>This key is then displayed in the Key for Hill cipher dialog.</P>
+
+<P>With this plaintext and this encrypted text, the last possible combination of blocks would be:</P>
+
+<TABLE cols=4 width="0*" class="pad10">
+
+<TR VALIGN="top">
+<TD><U>K:</U></TD>
+<TD>CD</TD>
+<TD><U>V:</U></TD>
+<TD>ON</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>&nbsp;</TD>
+<TD>XY</TD>
+<TD>&nbsp;</TD>
+<TD>LC</TD>
+</TR>
+</TABLE><BR>
+
+<P>In this example, it was not necessary to construct this last combination as the key had already been discovered from the previous combination of blocks.</P>
+
+<P>If the key is not found after trying all possible combinations of blocks, the next dimension is tried. If the key can still not be found, an appropriate message is displayed.</P>
+
+<P>In the <A href="hid_hilfe_szenarien.html">Examples</A> chapter there is an <A href="szenarien_hill.html">example</A> of an <A href="angriffe.html">attack</A> on the encryption algorithm.</P>
+
+<P><U>Conditions which the document must satisfy for a successful attack</U></P>
+
+<P>The key will normally be found if the <!--ZZZPOPUP--><A href="dokument.html">document</A></P>
+
+<P>is not too short (though it must contain at least as many characters as the length of the key),</P>
+
+<P>and does not consist of one and the same sequence of characters (or character sequences whose characters are the same distance apart).</P>
+
+<P>The second condition means that, for example, it may not be possible to work out the key for plaintext<CODE> ABAB</CODE>. This is true also for the plaintext sequence<CODE> ABCD</CODE>, as the distance between the letters in the first block (<CODE>AB</CODE>) is the same length as the distance between the letters in the second block (<CODE>CD</CODE>), i.e. one character.</P>
+
+<P>The two above conditions are normally satisfied if the plaintext consists of words from a natural language, for example, the word "HILLCIPHER".</P>
+
+<P>However, it may occasionally still be possible to find the key even with a short text as long as it satisfies the second condition.</P>
+
+</BODY>
+</HTML>

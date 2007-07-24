@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>CBC mode</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Tryb CBC">
+	<PARAM NAME="Keyword" VALUE="Symetryczne">
+	<PARAM NAME="Keyword" VALUE="Szyfrowanie">
+</OBJECT>
+
+<BODY>
+
+<h3>Tryb CBC</h3>
+
+<P>CBC oznacza <B>C</B>ipher <B>B</B>lock <B>C</B>haining.</P>
+
+<P>W tym trybie wynik <!--ZZZPOPUP--><A href="verschluesselung.html">szyfrowania</A> poprzednich bloków wp³ywa na szyfrowanie bie¿¹cego bloku. Ka¿dy blok zaszyfrowanego tekstu zale¿y nie tylko od zwi¹zanego z nim tekstu jawnego, ale tak¿e od wszystkich poprzednich bloków. W dodatku, wektor inicjuj¹cy jest wymagany dla pierwszego bloku tekstu jawnego. </P>
+
+<P><!--ZZZPOPUP--><A href="verschluesselung.html">Szyfrowanie</A> przebiega nastêpuj¹co:</P>
+
+<OL>
+
+	<LI>Pierwszy blok tekstu jawnego jest szyfrowany<BR><BR></LI>
+
+	<LI>Powsta³y blok zaszyfrowanego tekstu jest po³¹czony do nastêpnego bloku tekstu jawnego za pomoc¹ <A href="hid_xor_bin.html">Exclusive-OR</A> i tylko wtedy szyfrowany.<BR><BR></LI>
+
+	<LI>Procedura jest powtarzana do momentu, w którym zostanie osi¹gniêty koniec <!--ZZZPOPUP--><A href="klartext.html">tekstu jawnego</A> <BR><BR></LI>
+
+</OL>
+
+<P><!--ZZZPOPUP--><A href="entschluesselung.html">Odszyfrowywanie</A> jest wykonywane w analogiczny sposób:</P>
+
+<OL>
+
+	<LI>Pierwszy blok kryptogramu jest odszyfrowywany.<BR><BR></LI>
+
+	<LI>Nastêpny blok kryptogramu jest napocz¹tku odszyfrowywany i nastêpnie po³¹czony z poprzednim blokiem zaszyfrowanego tekstu za pomoc¹ <A href="hid_xor_bin.html">Exclusive-OR</A>.<BR><BR></LI>
+
+	<LI>Czynnoœæ jest powtarzana do momentu, w którym zostanie osi¹gniêty koniec kryptogramu. <BR><BR></LI>
+
+</OL>
+
+<P> Niestety, metoda ta, ma wci¹¿ tak¹ wadê, ¿e dwie wiadomoœci produkuj¹ ten sam kryptogram a¿ do pierwszej ró¿nicy. Dlatego dwie identyczne wiadomoœci produkuj¹ ten sam kryptogram. Aby tego unikn¹æ, u¿ywamy "wektorów inicjuj¹cych". Wektor inicjuj¹cy ma losow¹ wartoœæ, która mo¿e byæ przesy³ana jako tekst jawny razem z wiadomoœci¹.
+   Przed szyfrowaniem (lub <!--ZZZPOPUP--><A href="entschluesselung.html">odszyfrowywaniem</A>, w zale¿noœci od przypadku) pierwszego bloku, blok ten jest po³¹czony z wektorem inicjuj¹cym za pomoc¹ <A href="hid_xor_bin.html">Exclusive-OR</A>. Procedura jest kontynuowana w sposób opisany powy¿ej.</P>
+
+<P>W <A href="ecbmodus.html">trybie ECB</A>, ka¿dy blok jest szyfrowany niezale¿nie od innych bloków.</P>
+
+</BODY>
+</HTML>

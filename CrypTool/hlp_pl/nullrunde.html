@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1250">
+<Title>Pasjans - joker na wyjściu (runda zerowa)</Title>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+<script language="JScript" src="helper.js"></script>
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->	
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Card game">
+	<PARAM NAME="Keyword" VALUE="Solitaire encryption algorithm">
+</OBJECT>
+
+<BODY>
+
+<H3>Runda zerowa (joker na wyjściu)</H3>
+
+<p>Runda zerowa występuje w <a href="HID_SYMCLASSIC_SOLITAIRE.html">algorytmie pasjansa </a> zawsze, gdy w piątym kroku generowania strumienia kluczy (ang. keystream) znaleziony zostanie joker.<br />
+
+W tym przypadku wartość karty 53 (w <a href="kartendeck.html">talii kart</a> zawierającej 54 karty) nie jest brana jako literowy strumień kluczy, lecz algorytm jest uruchamiany raz jeszcze, dopóki prawidłowa <a href="kartendeck.html">wartość karty </a> (1-52) nie zostanie w znaleziona w piątym kroku. <br /><br />Jest to realizowane bezpośrednio przez aplikację.</p>
+
+</BODY>
+</HTML>
+

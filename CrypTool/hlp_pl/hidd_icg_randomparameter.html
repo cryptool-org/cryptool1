@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1250">
+<TITLE>Generator Odwrotnej Kongruencji (GOK)</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
+	<PARAM NAME="Keyword" VALUE="Random">
+	<PARAM NAME="Keyword" VALUE="Congruence generator">
+</OBJECT>
+
+<BODY>
+
+<h3>Generator Odwrotnej Kongruencji (GOK)</h3>
+
+<P>Aby otworzyć to okno dialogowe, wybierz <b>Generator Odwrotnej Kongruencji (GOK)</b> z okna <a href="HID_ZUFALL_GENERATOREN.html">Generowanie liczb losowych</a> i kliknij na guzik <b>Wybierz parametry specyficzne dla generatora</b>.</P>
+
+<P>Generator Odwrotnej Kongruencji (GOK) jest algorytmem generującym sekwencje pseudolosowych liczb całkowitych (X_[i]) zgodnie z rekursywną zasadą obliczeń:</P>
+
+<div class="indent">
+
+<P>X_[0] := tajna wartość zarodka</P>
+
+<P>X_[i+1] := inverse[a*(X_[0]+i) + c]  (mod P)   for i = 0, 1, 2, 3, ...</P>
+
+</div>
+
+<P>Gdzie X_[i] są liczbami całkowitymi z zakresu 0,1,2, ..., P-1. Zwyczajowo ujednolica się losowe liczyby do wymiernej wartości zakresu [0,1], w związku z czym wyjście ma postać liczb wymiernych Z[i] := X_[i]/P.</P>
+
+<P>W programie CrypTool obserwujemy jedynie "rzuty monetą" ("orzeł" jest przekształcany na 0 a "reszka" na 1). W GLK rzut monetą 0 jest zatem reprezentowany przyez zdarzenie [Z_[i] &lt; 0.5] a rzut monetą 1 przez zdarzenie [0.5 &lt;= Z_[i] &lt; 1] ab. Ciąg rzutów monetą jest zapisywany jako plik binarny(ciąg ośmiu rzutów menetą tworzy jeden losowy znak ASCII).</P>
+
+<P>Parametrami w GOK są liczby P, a, c z modułu P inwersji równania liniowego y = ax+c: modół P jest liczbą pierwszą, współczynnik  a: 0&lt;a&lt;N i dodatnia inkrementacja b: 1&lt;b&lt;N. Co więcej GLK jest rozpoczynany poprzez tajną wartość początkową lub zarodek X_0.</P>
+
+<P>Wybierz <B>Algorytmy \ Generowanie liczb losowych</B> i zaznacz pole <B>Generator Odwrotnej Kongruencji (GOK)</B>. Możesz teraz określić parametry GOK pod "<B>Wybierz parametry specyficzne dla generatora...</B>".</P>
+
+<P><IMG SRC="images/icgoptions.gif" ALT="icgoptions.gif" BORDER=0></P>
+
+<P>Proszę zwrócić uwagę, że jakość GOK zależy głównie od wyboru parametrów. Ważnym wymiarem jest <A href="periodenlänge.html">długość okresu </A> sekwencji losowej, która wynika z parametrów. </P>
+
+<P>Jakość wyjścia wygenerowanego przez generator liczb losowych może być przetestowana przy pomocy testów losowych, analizy cykliczności, ściśliwości oraz analizy Vitany zaimplementowanej w CrypTool'u.</P>
+
+</BODY>
+</HTML>

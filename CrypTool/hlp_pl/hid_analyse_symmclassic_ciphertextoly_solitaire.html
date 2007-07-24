@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<Title>Solitaire analysis (description)</Title>
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Card game">
+	<PARAM NAME="Keyword" VALUE="Analysis">
+	<PARAM NAME="Keyword" VALUE="Solitaire encryption algorithm">
+</OBJECT>
+
+<BODY>
+
+<H3>Solitaire analysis (Menu <A href="menu_analyze.html">Analysis</A> \ Symmetric  Encryption (classic) \ Ciphertext only)</H3>
+
+<P>The description of the Solitaire analysis-dialog is here: <A href="hidd_Solitaire_Analyse.html">Solitaire analysis-dialogue</A><br></P>
+
+<P>
+For the <A href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire cipher</a>, there is kind of an attack (<A href="ciphertextonlyangriff.html">Ciphertext-only-attack</a>), which makes a automatical or semi-automatical key search. For that it is necessary to know the <a href="kartendeck.html">final deck</a> and the related <A href="chiffretext.html">ciphertext</a>.<br>
+Because the algorithm is strong reversible, by reversing the steps of the algorithm the initial deck can be generated and so the symmetric  <a href="schluessel.html">key</a>. With this key the ciphertext can be decrypted. The problem of the analysis is the non-complete reversibility of the algorithm with the effect that not each step can be reversed in an unique manner. If a wrong way is chosen, the further analysis is also wrong.</P>
+
+<p>The analysis has three general steps:<br><br>
+
+1. Determining the <a href="kartendeck.html">initial deck</a><br>
+2. Generating the keystream<br>
+3. Decryption of the ciphertext<br>
+</p><br>
+
+<p>
+<big>1. Determining the <a href="kartendeck.html">initial deck</a></big><br><br>
+The Solitaire algorithm is passed through backwards for each ciphertext letter. That means it starts with step 5, then follows step 4 and so on.<br><br> 
+
+Step 5:<br>
+No letter is noted. It is just proofed, if there is a <a href="nullrunde.html">zero round</a>. In this case the algorithm has to be passed through backwards once more.<br><br>
+
+Step 4:<br>
+The cards, which have been sorted in front of the last card at step 4, have to be sorted in at the top of the deck. The number of cards is represented by the card at the bottom.<br><br>
+
+Step 3:<br> 
+Swap the stack of cards in front of the first joker with the stack of cards behind the second joker.<br><br>
+
+ Step 2:<br>
+Joker B is sorted in two cards before its current position.<br><br>
+
+Step 1:<br> 
+Joker A is sorted in one card before its current position.<br><br>
+
+After the algorithm is passed through backwards for each ciphertext letter and for each <a href="nullrunde.html">zero round</a>, the initial deck is generated. Because of the aspect, that step 1 and step 2 cannot reversed in an unique manner, the algorithm is not completely reversible. If one of the jokers is sorted in at the wrong position, the decryption leads to a wrong result.
+</p>
+
+<p>It follows the same procedure as at the decryption with Solitaire.</p><br>
+
+<p><big>2. Generating the keystream</big><br><br>
+Now, the algorithm is used once on the <a href="kartendeck.html">initial deck</a> for each ciphertext letter and for each <a href="nullrunde.html">zero round</a> (<A href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire keystream generation</a> ). So the keystream, which has already been used for the encryption of the plaintext is created.<br>
+</p>
+
+<p><big>3. <A href="entschluesselung.html">Decryption </a> of the ciphertext</big><br><br>
+The ciphertext will be decrypted with this keystream.<br>
+</p>
+</BODY>
+</HTML>

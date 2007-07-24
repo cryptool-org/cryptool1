@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialog side-channel attack against the hybrid encryption protocol</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
+	<PARAM NAME="Keyword" VALUE="Visualization">
+	<PARAM NAME="Keyword" VALUE="Demonstrations/Scenarios">	
+	<PARAM NAME="Keyword" VALUE="Side-channel attack">
+</OBJECT>
+
+<BODY>
+
+<h3>Dialog side-channel attack against the hybrid encryption protocol</h3>
+
+<P>You can access this dialog via the menu entry <a href="menu_analyze.html">Analysis</a> \ <a href="menu_analysis_asymmetric.html">Asymmetric Encryption</a> \ <a href="hid_einzelverfahren_sidechannelattack_on_hybridencryption.html">Side-Channel Attack on "Textbook-RSA"</a>.</P>
+
+<P>With this dialog you can execute and thereby understand the <A href="hid_einzelverfahren_sidechannelattack_on_hybridencryption.html">side-channel attack on "Textbook RSA"</A>.</P>
+
+<P><IMG SRC="images/sca_maindialogue.gif" ALT="sca_maindialogue.gif" BORDER=0></P>
+
+<P>For better handling there are <B>inactive buttons</B> as well as <B>active buttons</B>: active buttons appear in a strong coloring and can be clicked. Inactive buttons cannot be clicked and therefore appear in a gray, slightly faded coloring. Some buttons do not turn active until a certain context is reached.</P>
+
+<P>The dialog window is grouped vertically: on the left side there is the <B>navigation bar</B> which is used to control the side-channel attack step by step. On the right side there are three info buttons for each of the involved actors and pictures of the communication channel and the side-channel. The buttons of the <B>navigation bar</B> appear in either red or green coloring. A red button indicates that the corresponding step was not yet executed, whereas a green button indicates that the corresponding step was already executed.</P>
+
+<P>The communication channel of Alice and Bob is located in the middle of the dialog. It is a public channel, so Trudy is also allowed to send and receive information over this channel.</P>
+
+<P>Placed around the communication channel there are three <B>info buttons</B> representing the three involved actors Alice, Bob and Trudy. Please click one of these buttons for detailed status information on the respective actor.</P>
+
+<P>Further on you can see a <B>traffic light representing the actual side-channel</B>. Bob's server reveals information over this channel after being stimulated by Trudy with unscheduled information: In case the server cannot decrypt a received message properly, the traffic light shines red. If the decryption was successful, the traffic light shines green.</P>
+
+<P>The process of the side-channel attack is separated into <B>seven single steps</B> which can be executed one after another:</P>
+
+<TABLE cols=2 width="0*" class="pad20">
+
+<TR VALIGN="top">
+<TD><B>Single step description</B></TD>
+<TD><B>Executing actor</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>
+<UL>
+	<LI>Introduction</LI>
+</UL>
+</TD>
+<TD>&nbsp;</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>
+<UL>
+<LI>Preparations</LI>
+</UL>
+</TD>
+<TD>Alice</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>
+<UL>
+	<LI>Message transmission</LI>
+</UL>
+</TD>
+<TD>Alice</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>
+<UL>
+	<LI>Message reception</LI>
+</UL>
+</TD>
+<TD>Bob</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>
+<UL>
+	<LI>Message interception</LI>
+</UL>
+</TD>
+<TD>Trudy</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>
+<UL>
+	<LI>Start attack cycle</LI>
+</UL>
+</TD>
+<TD>Trudy</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>
+<UL>
+	<LI>Generate report</LI>
+</UL>
+</TD>
+<TD>&nbsp;</TD>
+</TR>
+</TABLE><BR>
+
+<P>Initiating a step by clicking on the appropriate button will show a dialog with more detailed information. Nevertheless you can obtain context sensitive help by pushing the F1 key.</P>
+
+<P><B>Remark 1</B>:</P>
+
+<P>Using the check box in the lower right corner of the dialog you can prevent additional information dialogs from popping up. But note that fundamental information is presented irrespective of the status of this check box.</P>
+
+<P><B>Remark 2</B>:</P>
+
+<P>If you have problems executing the side-channel attack then you can you can obtain help <a href="sidechannelattackvisualization_usage.html">here</a>.</P>
+
+</BODY>
+</HTML>

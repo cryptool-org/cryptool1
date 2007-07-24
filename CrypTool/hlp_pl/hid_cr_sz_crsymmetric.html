@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1250">
+<TITLE>Scenario Symmetric Challenge-Response</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Scenarios/Demonstrations">
+</OBJECT>
+
+<BODY>
+
+<H3>Scenariusz Wyzwania-Odpowiedzi (symetryczny)</H3>
+
+<P>Scenariusz ten odrobinę ulepsza ideę jednorazowego hasła. Ulepszenie polega na fakcie, iż aktualne hasło może być zdobyte jedynie podczas gdy protokół jest uruchomiony. Zastosowanie symetrycznego szyfrowania czyni to możliwym.</P>
+
+<P>Protokół uruchamiany podczas wysyłania przez Serwer 1 losowego ciągu liczb do klienta nazywa sie wyzwaniem. Klient szyfruje tą liczbę swoim sekretnym kluczem i zwraca wynik jako odpowiedź na Serwer 1, który także zna sekretny klucz. Następnie deszyfruje i porównuje wynik z wyzwaniem. Kiedy wszystko zgadza się, identyfikacja klienta powodzi sie i jest on uwierzytelniany.</P>
+
+<P>Przebieg wymiany klucza: Jeśli n części (np. dla n=1000) pragnie się skomunikować, poufność i symetryczne szyfrowanie powinny zostać zastosowane w sposób, w którym oba komunikujące się węzły używają wspólnego klucza, a także musi istnieć</P>
+
+<P>˝ * n * (n-1) </P>
+
+
+<P>różnych kluczy. (Dla n = 1000, będzie 499500 różnych kluczy)</P>
+<br>
+<P>W przypadku zastosowania szyfrowania asymetrycznego, musi istnieć</P>
+
+<P>2 * n </P>
+
+<P>kluczy. (Dla n = 1000, będzie 2000 różnych kluczy)</P>
+
+<P>Ponieważ każda stacja używa symetrycznego szyfrowania, Serwer 1, Serwer 2 i Klient dzielą ten sam symetryczny klucz w celu sprawnej i poufnej komunikacji. Jednym z możliwych rozwiązań tego scenariusza jest celowe połączenie problemu z tą cechą.</P>
+
+<P>Twoim zadaniem jako atakującego jest, znów, znaleźć sposób na przedstawienie sie Serwerowi 1 jako Klient. Tym razem jest kilka rozwiązań. W przypadku porażki możesz je odnaleźć <A href="hid_cr_sol_crsymmetric.html">tutaj</A>.</P>
+
+<P>Metoda Wyzwania-Odpowiedzi jest używana w sieciach komórkowych (odpowiednio sieciach GSM).</P>
+
+<P><A href="hid_cr_sol_crsymmetric.html">Do rozwiązania</A></P>
+
+</BODY>
+</HTML>

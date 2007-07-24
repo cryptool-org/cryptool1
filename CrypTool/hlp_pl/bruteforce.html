@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+	<HEAD>
+		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1250">
+		<TITLE>Atak brute-force</TITLE>
+		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	</HEAD>
+	<!-- multiple keywords for CrypTool HTML help index -->
+	<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
+		VIEWASTEXT>
+		<PARAM NAME="Keyword" VALUE="Analysis">
+		<PARAM NAME="Keyword" VALUE="Brute-force attack">
+	</OBJECT>
+	<BODY>
+		<h3><P><A NAME="bruteforce"></A><B>Atak brute-force</B></P>
+		</h3>
+		<P>Atak brute-force (brutalnej siły) jest <A href="angriffe.html">atakiem</A>, który aby znaleźć
+           <!--ZZZPOPUP--><A href="schluessel.html">klucz</A> którym <!--ZZZPOPUP--><A href="dokument.html">dokument</A> został 
+		   <!--ZZZPOPUP--><A href="verschluesselung.html">zaszyfrowany</A>, sprawdza każdą możliwą wartość klucza.</P>
+		<P>Czas wykorzystywany przez procesor rośnie wykładniczo wraz z 
+           <!--ZZZPOPUP--><A href="schluessellaenge.html">długością klucza</A>.</P>
+		<P><!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> pozwala na przeprowadzenie ataku brute-force.
+           Zakres wartości szukanego klucza należy wpisać w oknie <A href="hidd_bruteforce.html">Analiza brutalnej siły</A>.</P>
+		<P>Aby złamać nowoczesny symetryczny algorytm szyfrujący w rozsądnym czasie parę warunków musi zostać spełnionych:</P>
+		<P><B>a)</B> Dokument nie może być zbyt krótki (w przybliżeniu nie mniej niż 128 znaków).</P>
+		<P><B>b)</B> Pierwsze 128 znaków dokumentu tekstowego (ta liczba może zostać zmieniona w oknie <a href="hidd_options_analysis.html">
+				Opcje Analizy</a>) nie może występować zbyt rzadko (zobacz <a href="histogramm.html">
+				histogram</a> i <a href="entropie.html">entropia</a>). Ten warunek spełnia większość nieskompresowanych dokumentów.</P>
+		<P><B>c)</B> Zakres wartości klucza, który dla nowoczesnych algorytmów symetrycznych wynosi 2^128, może zostać zmniejszony.
+                     Może na to wpłynąć np. to że część klucza jest znana, ponieważ użytkownik nie wybrał klucza losowo lub 
+                     atakujący skądś o tym wie albo generator liczb losowych nie wykorzystał pełnego zakresu wartości klucza.</P>
+	</BODY>
+</HTML>

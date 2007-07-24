@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Monoalphabetic substitution</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Symmetric">
+	<PARAM NAME="Keyword" VALUE="Encryption">
+	<PARAM NAME="Keyword" VALUE="Monoalphabetic substitution">
+</OBJECT>
+
+<BODY>
+
+<h3>Monoalphabetic Substitution / Atbash (Menu <A href="menu_crypt.html">Crypt/Decrypt</A> \ Symmetric (classic))</h3>
+
+<P>Under the substitution <!--ZZZPOPUP--><A href="verschlverfahren.html">encryption algorithm</A>, a monoalphabetic homophonic letter substitution takes place, i.e. every letter of the <!--ZZZPOPUP--><A href="klartext.html">plaintext</A> is replaced by a different letter of the alphabet. The same letter in the plaintext is always replaced by the same letter and no two (different) letters are replaced by the same letter, that means the alphabet is replaced by a permutation of the alphabet.</P>
+
+<P>The difference between this method and the <A href="hid_rot13caesar_asc.html">Caesar encryption algorithm</A> is that the letters are not assigned in any particular sequence but can be mixed up. This has an obvious impact on the number of possible <!--ZZZPOPUP--><A href="schluessel.html">keys</A>: whereas there are 26 possible keys under the Caesar encryption algorithm, under monoalphabetic substitution there are 26! = 26 * 25 *... * 2 * 1 = 403,291,461,126,605,635,584,000,000  4*10<SUP>26</SUP> possible keys.</P>
+
+<P>The key is entered in the <A href="hidd_key_monsubst.html">Key Monoalphabetic Substitution / Atbash</A> dialog.</P>
+
+<P>An <A href="szenarien_monosubst.html">example</A> of encryption using monoalphabetic substitution will be found in the <A href="hid_hilfe_szenarien.html">Examples</A> chapter.</P>
+
+<P>This encryption algorithm can be broken with your support through a dictionary attack (see <A href="hid_analyze_subst.html">Automatic analysis, monoalphabetic substitution</A>). An <A href="szenarien_monosubst.html">example</A> of a <!--ZZZPOPUP--><A href="textboock_attack.html">dictionary attack</A> will be found in the <A href="hid_hilfe_szenarien.html">Examples</A> chapter.</P>
+
+<P>Atbash is a special case of a monoalphabetic substitution with a fixed key: It replaces the first letter of the alphabet by the last of the alphabet, the second one by the second last one, etc. Atbash is, same as ROT13 and XOR, an involutoric method: This means if you perform the same procedure to the cipher, you get the cleartext again.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialog 3D Visualization - Options</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="OpenGL">
+	<PARAM NAME="Keyword" VALUE="Visualization">
+	<PARAM NAME="Keyword" VALUE="3D visualization">
+	
+</OBJECT>
+
+<BODY>
+
+<h3>Dialog 3D Visualization - Options</h3>
+
+<p>
+Random number 3D analysis always applies to the CrypTool windows that
+was active during invocation of 3D visualization. Once all input data
+has been processed as described below, the resulting 3D cube is rendered
+in a CrypTool window. The cube can be manipulated freely by 
+<ul>
+  <li>dragging it with the mouse (left mouse button plus drag),</li>
+  <li>scaling it (shift, right button plus drag) and</li>
+  <li>panning it (right mouse button plus drag).</li>
+</ul>
+</p>
+<p>
+Right click in the render window opens a pop-up-window, where you can change the display preference.
+</p>
+<p>
+1. <em>Box</em> toggles the cube's bounding box. 
+</p>
+<p>
+2. The <em>Preferences</em> menu allows to modify the display options that
+are applied to the render window after closing the preference window:
+<dl>
+  <dt><b>Resolution</b></dt>
+  <dd>Determines the <em>logical resolution</em> of the rendered cube.
+    The default value of 128 represents a logical resolution of 128 * 128 * 128
+    pixels in the cube. Higher resolutions yield a more detailed view of
+    the rendered data, but also demand more memory and CPU power. Reduce
+    this value if your computer cannot generate a smooth animation.<br/>
+    The computed X-, Y- and Z-coordinates in the phase space are scaled
+    to match the logical resolution set here. This means that usually
+    a number of coordinates in the phase space are projected into one single
+    logical pixel.<br/>
+    The <em>physical resolution</em> of the cube is solely dependent on
+    the window size that can be changed by dragging the window border.
+  </dd>
+  <dt><b>Density</b></dt>
+  <dd>The displayed density influences brightness of the pixels set in
+    the rendered cube. Once a coordinate has been determined the brightness
+    of this particular pixel is increased by the density value.
+    Once the maximum brightness of 255 is reached the brightness is
+    sustained.
+    A low density value results in darker but also more detailed 
+    visualization.<br/>
+    When using a densitiy of 127 half the total brightness of a pixel
+    is reached on first occurrence of this coordinate. The (almost)
+    maximum brightness of 254 will already be achieved on the second
+    occurrence of this coordinate.
+  </dd>
+  </dt>
+  <dt><b>Shift</b></dt>
+  <dd>
+    All coordinates are subject to a shift operation (relative to the 
+    logical resolution) before rendering. For a shift value of 50 % this
+    means that the coordinate origin ends up centered in the rendered
+    cube.
+  </dd>
+  <dt><b>Word size</b></dt>
+  <dd>
+    The input sequence can be interpreted as a stream of words of 1, 2 or
+    4 byte length. The word size is completely arbitrary as seen from the
+    analysis perspective, but it influences the results of phase space
+    analysis and its visualization. The correct choice for a distinct
+    input file depends on the type of data contained therein:
+    Audio data (e. g. in WAV format) uses a 2 byte word size, executable
+    data of 32 bit processors has a word size of 4 byte.
+  </dd>
+</dl>
+</p>
+<h2>Phase space visualization</h2>
+<p>
+Phase space visualization in CrypTool works as follows:<br/>
+</p>
+<h3>Coordinate computation</h3>
+<p>
+Within the word sequence the difference between two adjacent words is
+computed and interpreted as a coordinate in 3D space:
+</p>
+<img src="images/phasespace1.gif"/>
+<p>
+In this example the word length is 1, hence the difference between individual
+adjacent bytes of the input sequence is computed directly.
+The difference computation is done modulo the word co-domain, i. e. 256
+for word size 1, 65.536 for word size 2 and 4.294.967.296 for word size 4.
+</p>
+<p>
+Three adjacent difference values are now interpreted as X-, Y- and 
+Z-coordinates within a cube of the word size's co-domain dimension.
+Once a pixel in 3D space has been determined, the brightness value
+of this pixel is increased by a fixed value that is called <em>density</em>.
+For this example the two coordinates P1 = (128, 40, 244) and 
+P2 = (237, 209, 121) are calculated.
+</p>
+<p>
+If a word size of e. g. 2 is used, the general procedure remains the same.
+The only difference is that adjacent bytes in the input sequence are interpreted
+as a word in 
+<a href="http://en.wikipedia.org/wiki/Little_endian">Little-Endian format</a>
+that is used for the usual difference calculation:
+</p>
+<img src="images/phasespace2.gif"/>
+<p>
+The resulting pixel has the coordinates (7080, 48609, 62001).
+</p>
+<h3>Interpretation of rendering results</h3>
+<p>
+Phase space visualization is capable of showing structure in data sequences.
+A stream of true random data generates a uniform fog-like filling of the 
+rendered cube:
+</p>
+<img src="images/sc01-1.gif"/>
+<p>
+If dots, clusters, lines or planes can be made out this is an indication
+for an inner structure of the input data.
+</p>
+<p>
+Particularly interesting is the analysis of non-random data types, such
+as executable programs, office documents, PDF files, pictures, audio
+or text files. In most data formats characteristic patterns can be
+recognized. The following screenshot shows the phase space of a Windows
+system DLL in which planes and lines can be seen:
+</p>
+<img src="images/sc06-1.gif"/>
+<p>
+If a document contains many similar values (e. g. null bytes in program
+data), a high number of computed differences is close to zero, resulting
+in a corresponding 3D coordinate that is close to its origin. Without
+shifting the origin this would result in a cumulation in the cube's corners.
+Due to this observation in most cases it is advisable to shift the computed
+coordinates 50 % within the cube: clusters around the origin hence move
+to the center of the cube and often form geometric patterns which can be
+made out much easier this way.
+</p>
+<h3>Limitations of phase space analysis</h3>
+<p>
+If structures can be recognized within a phase space visualization,
+it is certain that no true random numbers are the source of the analysis.
+However this is not true vice-versa: Uniform fog-like filling of the cube
+cannot be taken as an indication for cryptographic secure random numbers!
+</p>
+<h3>Rendering engine</h3>
+<p>
+In order to display the phase space analysis to the user CrypTool utilizes
+a slightly modified variant of the OpenGL based 3D rendering engine
+<em>VolRen</em> contained in the 
+<a href="http://openqvis.sourceforge.net">OpenQVis project</a>.
+</p>
+
+</BODY>
+</HTML>

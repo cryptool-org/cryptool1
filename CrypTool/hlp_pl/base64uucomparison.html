@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<Title>Comparison of Base64 and UU coding</Title>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Codings">
+	<PARAM NAME="Keyword" VALUE="Base64 coding">
+</OBJECT>
+
+<body>
+
+<h3>Comparison of Base64 and UU coding</h3>
+
+<P>The encoding procedures of <a href="hid_encode_base64.html">Base64</a> and <a href="hid_encode_uu.html">UUencode</a> are quite similar, which is shown by the following figure:</p>
+	<P><IMG SRC="images/Base64UUencodevgl.gif" ALT="Base64UUencodevgl3.gif" BORDER=0></p>
+	<br>
+	Because of the similar encoding procedure, there are also shared advantages and drawbacks:<br><br>
+	<table border="1" width="810">
+	<tr>
+		<th width="50%" >Advantages</th>
+		<th width="50%" >Drawbacks</th>
+</tr>
+
+<tr>
+<td>
+	<ul type="disc">
+		<li>Arbitrary binary data can be represented with a 6-bit char set.
+	<ul>
+		<li>No problems with 7-bit char set restrictions.</li>
+		<li>No problems with line length restrictions or special control characters.</li>
+		</ul></li>
+		<li>Only an enlargement of about 33 % (instead of an enlargment of 100 % when encoding to hexadecimal values).</li>
+	</ul>
+
+	</td>
+		 
+	<td>
+	<ul type="disc">
+		<li>No support for distribution of big files.</li>
+		<li>Enlargement of about 33 % (in comparison to the original file).</li><br>
+		<u>Only UUencode:</u>
+		<li>No EBCDIC support.</li>
+		<li>No defined standards.</li>
+	
+	</ul>
+</td>
+  </tr>
+	  
+</table>
+<br>
+<p align=center><a href="hid_encode_base64.html">Go to Base64 encoding</a></p>
+<p align=center><a href="hid_encode_uu.html">Go to UUencode</a></p>
+</body>

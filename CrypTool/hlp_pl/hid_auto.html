@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1250">
+<TITLE>Autocorrelation</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Autocorrelation">
+	<PARAM NAME="Keyword" VALUE="Analysis">
+</OBJECT>
+
+<BODY>
+
+<h3>Wyliczanie autokorelacji dokumentu (Menu <A href="menu_analyze.html">Kryptoanaliza</A></B> <B>\ Narzedzia Kryptoanalizy)</h3>
+
+<P>Autokorelacja dokumentu jest indeksem informującym o podobieństwach w różnych częściach <!--ZZZPOPUP--><A href="dokument.html">dokumentu</A>. Z autokorelacji dokumentu czasami da się wyznaczyć <!--ZZZPOPUP--><A href="schluessellaenge.html">długość klucza</A> w <!--ZZZPOPUP--><A href="verschluesselung.html">zaszyfrowanym</A> dokumencie.</P>
+
+<P><U>Korelacja</U></P>
+
+<P>Właściwości ważne dla korelacji to: niezależność, jednolite rozprowadzanie wartości, binarna kolejność:</P>
+
+<UL>
+	<LI>"Niezależność" oznacza, że prawdopodobieństwo (n+1) wydarzenia jest niezależne od wszystkich n wcześniejszych wydarzeń.</LI>
+
+	<LI>"Losowa binarna kolejność" oznacza, że zdarzenia z losowej sekwencji przybierają wartości "0" lub "1".</LI>
+
+	<LI>"Jednolite rozprowadzanie" wartości oznacza, że dla każdego zdarzenia w losowej sekwencji prawdopodobieństwo wystąpienia "1" jest takie samo jak prawdopodobieństwo wystąpienia "0".</LI>
+</UL>
+
+<P>Podobieństwo między dwoma zbiorami danych jest normalnie mierzone poprzez ich korelację. Korelacja c między dwoma sekwencjami o długości <CODE>n</CODE> jest przeliczana z liczby <CODE>A</CODE> zgodnych i liczby <CODE>D</CODE> niezgodnych członków według wzoru:</P>
+
+<P>C := (A-D) / n</P>
+
+<P>Według tego wzoru, oczekiwana wartość korelacji między dwoma niezależnymi losowymi sekwencjami wynosi zero. Z drugiej strony jeżeli, dwie sekwencje są zgodne, stosunkowo często będą miały pozytywne wartości korelacji. Ekstremalny przypadek jest gdy dwa dokumenty są identyczne <CODE>A=n</CODE>, <CODE>D=0</CODE> i dlatego korelacja <CODE>C=1</CODE>. Odwrotnie jeśli zgodność jest mniejsza niż <CODE> n/2</CODE>, korelacja będzie negatywna. Stopień korelacji między dwoma sekwencjami jest dlatego miarą ich wzajemnej zależności. </P>
+
+<P><U>Autokorelacja</U></P>
+
+<P>Funkcja autokorelacji<CODE> C</CODE>(<CODE>t</CODE>) mierzy podobieństwo sekwencji (<CODE>s[i]</CODE>)=<CODE>s[1] s[2]</CODE>... do sekwencji (<CODE>s[i+t]</CODE>)=<CODE>s[t] s[t+1]</CODE>.... która jest przesunięta o <CODE> t</CODE> pozycji.</P>
+
+
+<P>Sekwencja o długości <CODE> n</CODE> jest analizowana i definiowane są następujące parametry:</P>
+
+<P><CODE>A</CODE>(<CODE>t</CODE>) := liczba członków sekwencji (<CODE>s[i]</CODE>) i (<CODE>s[i+t]</CODE>) w partii danych uznawanych za zgodne.</P>
+
+<P><CODE>D</CODE>(<CODE>t</CODE>) := liczba członków sekwencji (<CODE>s[i]</CODE>) i (<CODE>s[i+t]</CODE>) w partii danych uznawanych za niezgodne.</P>
+
+<P>Funkcja Autokorelacji wygląda następująco: <CODE> C</CODE>(<CODE>t</CODE>) = (<CODE>A</CODE>(<CODE>t</CODE>)-<CODE>D</CODE>(<CODE>t</CODE>)) /<CODE> n</CODE>.</P>
+
+<P>W przypadku końcowych sekwencji, sekwencja <CODE> s</CODE> jest przesuwana (cyklicznie) o <CODE> t</CODE> pozycji, tak że sekwencja (<CODE>s[i+t]</CODE>) ma tylko <CODE> n</CODE>-<CODE>t</CODE> członków sekwencji (gdzie<CODE> n</CODE> jest długością sekwencji (<CODE>s[i]</CODE>). Do przeliczenia autokorelacji, teraz rozważane są sekwencje: <CODE> s[1] s[2]</CODE>...<CODE> s[n-t+1]</CODE> i <CODE> s[t] s[t+1]</CODE>...<CODE> s[n]</CODE> i kalkulowane ich korelacje.</P>
+
+<P>Funkcja autokorelacji jest używana w różnego rodzaju aplikacjach do opracowywania długości cyklu dla automatycznej kryptoanalizy z użyciem <A href="hid_vigenere_asc.html">algorytmu szyfrowania Vigenčre</A> i szyfrowania przez <A href="hid_add_bin.html">bitowe dodawanie</A> oraz <A href="hid_xor_bin.html">exclusive-OR (XOR)</A>. W celu uzyskania dalszych informacji możesz przejrzeć rozdział <A href="hid_hilfe_szenarien.html">Przykłady</A>.</P>
+
+</BODY>
+</HTML>

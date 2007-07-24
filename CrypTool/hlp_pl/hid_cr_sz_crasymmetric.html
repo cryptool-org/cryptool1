@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1250">
+<TITLE>Scenario Challenge-Response (asymmetric)</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Scenarios/Demonstrations">
+</OBJECT>
+
+<BODY>
+
+<H3>Scenariusz Wyzwania-Odpowiedzi (asymetryczny)</H3>
+
+<P>Możesz także przeprowadzić metodę Wyzwania-Odpowiedzi z szyfrowaniem asymetrycznym. Pozwala to uniknąć dużego wysiłku w zabezpieczaniu wymiany informacji między parami klient-serwer.</P>
+
+<P>Wyróżniamy dwie alternatywy, ale tylko jedna zostanie uwzględniona:</P>
+
+<OL>
+	<LI>Dla uwierzytelnienia serwer wysyła Wyzwanie (losową liczbę) do klienta, który podpisuje otrzymaną wiadomość swoim sekretnym kluczem i wysyła wynik z powrotem na serwer. Teraz każdy, znający publiczny klucz klienta, także serwer, może potwierdzić odpowiedź, mianowicie weryfikuje fakt, iż wyzwanie zostało podpisane przy pomocy klucza prywatnego klienta, który jest tylko w jego posiadaniu.<BR><BR></LI>
+
+	<LI>Dla uwierzytelnienia serwer wysyła Wyzwanie do klienta, zawierające losową liczbę zaszyfrowaną przy pomocy klucza publicznego klienta. Klient deszyfruje wyzwanie swoim kluczem prywatnym i zwraca wynik (losową liczbę) na serwer. Teraz serwer może zweryfikować czy otrzymana losowa liczba zgadza się z uprzednio wysłaną. Jeśli pasuje, serwer może być pewien iż została wysłana przez klienta, ponieważ tylko on posiada klucz prywatny do deszyfracji wyzwania. Tak więc, alternatywa ta oczekuje zgodności liczb losowych, przeciwdziałając odgadywania odpowiedzi przez atakującego. Z tego powodu pierwsza alternatywa jest preferowana w większości wypadków.</LI>
+</OL>
+
+<P>Twoim zadaniem jako atakującego jest, znów, znaleźć sposób na przedstawienie sie Serwerowi 1 jako Klient. Tym razem jest bardzo ciekawe rozwiązanie. W przypadku porażki możesz je odnaleźć <A href="hid_cr_sol_crasymmetric.html">tutaj</A>.</P>
+
+<P><A href="hid_cr_sol_crasymmetric.html">Do rozwiązania</A></P>
+
+</BODY>
+</HTML>

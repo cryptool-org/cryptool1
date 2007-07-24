@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialog Create signature of a document</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
+	<PARAM NAME="Keyword" VALUE="Signature">
+</OBJECT>
+
+<BODY>
+
+<h3>Dialog Create signature of a document</h3>
+
+P>You can reach this dialog via the menu entry <a href="menu_digitalsignaturespki.html">Digital Signatures/PKI</a> \ <a href="hid_crypt_sign.html">Sign Document</a>.</P>
+
+<P>In this dialog a <A href="hid_crypt_sign.html">document can be signed</A>.</P>
+
+<P>The dialog contains two prominent boxes, <B>Choose hash function</B> and <B>Choose signature algorithm</B>. There are five <A href="hashfunktion.html">hash functions</A> available (<A href="hid_crypt_hash_md2.html">MD2</A>, <A href="hid_crypt_hash_md5.html">MD5</A>, <A href="hid_crypt_hash_ripemd160.html">RIPEMD-160</A>, <A href="hid_crypt_hash_sha.html">SHA</A> and <A href="hid_crypt_hash_sha1.html">SHA 1</A>) and four signature algorithms (RSA, DSA, ECSP-DSA and ECSP-NR). According to the cryptographic standards, not every signature algorithm can be used with every hash function. The table below shows the combinations that are permitted:</P>
+
+<TABLE cols=6 width="0*" class="pad20">
+
+<TR VALIGN="top">
+<TD>&nbsp;</TD>
+<TD><B>MD2</B></TD>
+<TD><B>MD5</B></TD>
+<TD><B>RIPEMD-160</B></TD>
+<TD><B>SHA</B></TD>
+<TD><B>SHA-1</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><B>RSA</B></TD>
+<TD>Yes</TD>
+<TD>Yes</TD>
+<TD>Yes</TD>
+<TD>Yes</TD>
+<TD>Yes</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><B>DSA</B></TD>
+<TD>No</TD>
+<TD>No</TD>
+<TD>No</TD>
+<TD>Yes</TD>
+<TD>Yes</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><B>ECSP-DSA</B></TD>
+<TD>No</TD>
+<TD>No</TD>
+<TD>Yes</TD>
+<TD>No</TD>
+<TD>Yes</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><B>ECSP-NR</B></TD>
+<TD>No</TD>
+<TD>No</TD>
+<TD>Yes</TD>
+<TD>No</TD>
+<TD>Yes</TD>
+</TR>
+</TABLE><BR>
+
+<P>To <!--ZZZPOPUP--><A href="signatur.html">sign</A> a <!--ZZZPOPUP--><A href="dokument.html">document</A>, a secret <!--ZZZPOPUP--><A href="schluessel.html">key</A> that meets the requirements of the particular signature algorithm involved is needed. All the keys that are available are listed in the box in the lower area of the window. To generate a digital signature for the active document, place the cursor over the <B>Name</B> field for the relevant line (this will be the name of the creator) and enter the <B>PIN</B> (the one that was chosen when the key was generated) in the field at the bottom right. The document is signed with the chosen signature algorithm and hash function when <B>Sign</B> is clicked. </P>
+
+<P><!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> knows automatically from the key selected which type it is, so that only signature algorithms and hash functions which are mutually compatible and are suitable for use with the key are offered for selection.</P>
+
+<P>It is possible to extract the signature via the menu selection <A href="menu_digitalsignaturespki.html">Digital Signatures/PKI</A>.</P>
+
+<P>When signing with ECSP-DSA or ECSP-NR, it is also possible to view the intermediate steps involved in generation of the signature by checking the <B>Display intermediate results</B> field. These are displayed in the <A href="hidd_ecsignatrure_stepbystep.html">Signature generation - step by step</A> dialog.</P>
+
+<P>The intermediate results of RSA and DSA signature cannot be displayed that way. For RSA signature you should use the <A href="hid_einzelverfahren_sign_doc.html">RSA signature generation</A>, which is specialised on visualising the RSA signature procedure.</P>
+
+</BODY>
+</HTML>

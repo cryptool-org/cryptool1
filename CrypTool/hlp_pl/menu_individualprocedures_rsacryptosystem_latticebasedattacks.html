@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Menu Lattice Based Attacks on RSA</TITLE>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="RSA encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Lattice reduction">
+	<PARAM NAME="Keyword" VALUE="Attacks">
+	<PARAM NAME="Keyword" VALUE="Menu (overview of all menus)">
+</OBJECT>
+
+<!-- alink for CrypTool HTML help -->
+<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="ALink Name" VALUE="IndivProcedures_RSACryptosystem_LatticeBasedAttacksonRSA">
+</OBJECT>
+
+<BODY>
+
+<h3>Commands of the menu Lattice Based Attacks on RSA (Menu <a href="menu_related_methods.html">Individual Procedures</a> \ RSA Cryptosystem)</h3>
+
+<P>The menu <B>Lattice Based Attacks on RSA</B> contains the following commands:</P>
+
+<TABLE cols=2 width="0*" class="pad20" ID="Table1">
+
+<TR VALIGN="top">
+<TD><A href="hid_rsa_factorhint.html">Factoring with a Hint</A></TD>
+<TD>Attacks RSA with lattice reduction algorthms, if a part of one of the primes of N is known.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><A href="hid_rsa_stereotyped.html">Attack on Stereotyped Messages</A></TD>
+<TD>Attacks RSA with lattice reduction algorthms, if a part of the original cleartext of an intercepted ciphertext is known and if e is small.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><A href="hid_rsa_bloemermay.html">Attack on Small Secret Keys</A></TD>
+<TD>Attacks RSA with lattice reduction algorthms, if d is too small compared to N.</TD>
+</TR>
+
+</TABLE>
+
+<p>All attacks presented here are based on a common approach: first the task of 
+  breaking RSA is transformed into finding the root of a polynomial modulo an 
+  integer (mostly <font face="Times New Roman, Times, serif"><strong>N</strong></font>) 
+  but to find such a root is a difficult problem.</p>
+<p> To solve this problem further polynomials are generated which are known to 
+  have the same root. From the coefficients of these polynomials a latticebase 
+  is built. This is then reduced with, i.e. the LLL-algorithm to find a small 
+  vector. <br>
+  <br>
+  From this newly found short vector a new polynomial is built. It can be proven 
+  that if the vector is short enough, the polynomial has the desired root not 
+  only modulo <font face="Times New Roman, Times, serif"><strong>N</strong></font>, 
+  but also over the integers.</p>
+<h4>Example: </h4>
+<table width="100%" border="0" cellspacing="5" cellpadding="0">
+  <tr>
+    <td><img src="images/lattice.gif" width="286" height="209" align="left"></td>
+    <td align="left" valign="top" style="font:11pt"><div align="justify">The polynomial 
+        <font face="Times New Roman, Times, serif"><strong>q<sub>1</sub>(x) = 
+        3x+1</strong></font> has a root <font face="Times New Roman, Times, serif"><strong>x<sub>0</sub> 
+        modulo 7</strong></font>. It is supposed, that the polynomial <font face="Times New Roman, Times, serif"><strong>q<sub>2</sub>(x) 
+        = 4x-1</strong></font> has the same root <font face="Times New Roman, Times, serif"><strong>x<sub>0</sub></strong></font><sub> 
+        </sub><font face="Times New Roman, Times, serif"><strong>modulo 7</strong></font>. 
+        From these polynomials the vectors <font face="Times New Roman, Times, serif"><strong>b<sub>1</sub>=[3 
+        1]</strong></font> and <font face="Times New Roman, Times, serif"><strong>b<sub>2</sub>=[4 
+        -1]</strong></font> are built. All integer linear combinations of these 
+        vectors form points in a lattice. The Figure on the left shows a part 
+        of this lattice. Each point of the lattice now can again be interpreted 
+        as a polynomial having the desired root. A short vector of the lattice 
+        is <font face="Times New Roman, Times, serif"><strong>b<sub>3</sub>=[1 
+        -2]</strong></font> from which the polynomial <font face="Times New Roman, Times, serif"><strong>h(x) 
+        = x-2</strong></font> is built. this polynomial has a root in <font face="Times New Roman, Times, serif"><strong>x<sub>0</sub>=2</strong></font> 
+        over the integers as well als <font face="Times New Roman, Times, serif"><strong>modulo 
+        7</strong></font>. That <font face="Times New Roman, Times, serif"><strong>x<sub>0</sub>=2</strong></font> 
+        is also a root of the polynomials <font face="Times New Roman, Times, serif"><strong>q<sub>1</sub>(x)</strong></font> 
+        and <font face="Times New Roman, Times, serif"><strong>q<sub>2</sub>(x)</strong></font> 
+        <font face="Times New Roman, Times, serif"><strong>modulo 7</strong></font> 
+        can be easily established. <br>
+        <span class="indent">(<font face="Times New Roman, Times, serif"><strong>3x<sub>0</sub>+1=7, 
+        7</strong></font> <font face="Times New Roman, Times, serif"><strong>modulo</strong></font> 
+        <font face="Times New Roman, Times, serif"><strong>7 = 0</strong></font>)</span></div></td>
+  </tr>
+</table>
+<h4><br>
+  Annotations:</h4>
+<p>In 1988 by Johan H&aring;stad [H&aring;s88] presented this method for the first 
+  time and it was further developed by Don Coppersmith [Cop96a, Cop96b] in 1996. 
+  Nick Howgrave-Graham [HG97] showed a more intuitive approach. </p>
+<h4>Sources:</h4>
+<div ></div>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+  <tr>
+    <td width="1" height="1" align="left" valign="top">[Cop96a] </td>
+    <td align="left" valign="top"><div align="justify">Coppersmith, Don: <em>Finding 
+        a Small Root of a Bivariate Integer Equation;</em> Factoring with High 
+        Bits Known. In: <em>Advances in Cryptology – EUROCRYPT ’96, Lecture Notes 
+        in Computer Science 1070</em> (1996), S. 178–189</div></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">[Cop96b]</td>
+    <td align="left" valign="top"><div align="justify">Coppersmith, Don: Finding 
+        a Small Root of a Univariate Modular Equation. In: <em>Advances in Cryptology 
+        – EUROCRYPT ’96, Lecture Notes in Computer Science 1070 </em>(1996), S. 
+        155–165</div></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">[H&aring;s88]</td>
+    <td align="left" valign="top"><div align="justify">H&aring;stad, Johan: Solving 
+        simultaneous modular equations of low degree. In: <em>SIAM Journal of 
+        Computing 17</em> (1988), S. 336–341</div></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">[HG97] </td>
+    <td align="left" valign="top"><div align="justify">Howgrave-Graham, Nick: 
+        Finding Small Roots of Univariate Modular Equations Revisited. In: <em>Cryptography 
+        and coding, Lecture Notes in Computer Science 1355</em> (1997), S. 131–142</div></td>
+  </tr>
+</table>
+
+</BODY>
+</HTML>

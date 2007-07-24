@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1250">
+<TITLE>Dialog sióstr</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+<script language="JScript" src="helper.js"></script>
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->	
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="Dialog of the Sisters">
+	<PARAM NAME="Keyword" VALUE="Short story">
+	<PARAM NAME="Keyword" VALUE="RSA encryption algorithm">
+</OBJECT>
+
+<BODY>
+
+<h3>Dialog sióstr</h3>
+
+<P>W historii <A class="filelink" onclick="parser('DialogueSisters.pdf')">"Dialog sióstr"</A> jest przedstawiona uproszczona wersja algorytmu RSA.</P>
+
+<P>W pierwszym kroku należy wygenerować moduł N systemu RSA (taki że N&gt;27) z dwóch liczb pierwszych.</P>
+
+<P>Na przykład: N = 13*7 = 91, dla którego funkcja Eulera phi wynosi phi(N) = 12*6 = 72. Jako publiczny wykładnik wybieramy e=5. Jest on użyty do obliczenia tajnego klucza d=29. </P>
+
+<P>W momencie, gdy są już wygenerowane parametry RSA kliknij na <A href="hidd_options_rsa_demo.html"><B>Opcje dla alfabetu i systemu liczbowego</B></A> i wybierz w wyświetlonym okienku jako wariant RSA <B>Dialog sióstr</B>. Alfabet "ABCDEFGHIJKLMNOPQRSTUVWXYZ " (ostatnia spacja jest częścią alfabetu) musi być określony.</P>
+
+<P>Litery "A, B, C ... Z" oraz spacja " " są kodowane na liczby:</P>
+
+<div class="indent">
+
+<TABLE cols=2 width="0*" class="pad20">
+
+<TR VALIGN="top">
+<TD>A ---&gt; 1</TD>
+<TD>+ r * 27</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>B ---&gt; 2</TD>
+<TD>+ r * 27</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>C ---&gt; 3</TD>
+<TD>+ r * 27</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>&nbsp;</TD>
+<TD> . . . . . .</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>Z ---&gt; 26</TD>
+<TD>+ r * 27</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>‘ ‘ ---&gt; 27</TD>
+<TD>+ r * 27</TD>
+</TR>
+</TABLE><BR>
+
+</div>
+
+<P>Liczba r jest wybierana losowo dla każdej litery a liczba 27 określa ilość znaków w alfabecie. Na przykład liczby m = 2, 29, 56, 83, .... są poprawnym kodem dla litery B. Szyfrowanie zakodowanych liter m przebiega zgodnie z regułą:</P>
+
+<div class="indent">
+
+<P>c = c(m) = m^e  (mod 91)</P>
+
+</div>
+
+<P>Odszyfrowywanie zaszyfrowanej wiadomości przebiega zgodnie ze wzorem</P>
+
+<div class="indent">
+
+<P>m = d(c) = c^d   (mod 91) (mod 27)</P>
+
+</div>
+
+<P>Druga operacja modulo (mod 27) jest potrzebna żeby zdekodować 1 ---&gt; A, 2 ---&gt; B, ..., 27 ---&gt; ‘ ‘. </P>
+
+<P>Różnice pomiędzy tym wariantem a normalnym algorytmem RSA </P>
+
+<UL>
+
+<LI> dodatkowa losowość r*27 podczas kodowania liter na numery</LI>
+
+<LI> operacja (mod 27) po deszyfrowaniu</LI>
+
+<LI> alfabet ma dokładnie 27 liter</LI>
+
+<LI> długośc bloku wynosi dokładnie 1 znak.</LI>
+
+</UL>
+
+<P>Bez użycia losowej liczby r kryptogram składałby się jedynie z 27 różnych numerów i procedura mogłaby być zaatakowana przy użyciu analizy częstotliwościowej z taką samą łatwością jak zastępowanie monoalfabetyczne.</P>
+
+<P>W naszym przykładzie wiadomość</P>
+
+<div class="indent">
+
+<P>"THIS IS A CONFIDENTIAL MESSAGE" (to jest poufna wiadomość)</P>
+
+</div>
+
+<P>jest szyfrowana</P>
+
+<P><IMG SRC="images/rsa_demo_6.gif" ALT="rsa_demo_6.gif" BORDER=0></P>
+
+<P>i odszyfrowywana</P>
+
+<P><IMG SRC="images/rsa_demo_7.gif" ALT="rsa_demo_7.gif" BORDER=0></P>
+
+<P><B>Uwaga 1</B>:</P>
+
+<P>Możesz zauważyć, że liczby w kryptogramie w tym przypadku są inne niż liczby na obrazku wcześniej pomimo, że oba kryptogramy były utworzone przy użyciu tej samej pary kluczy i pomimo tego, że oba należą do tego samego tekstu jawnego. Powodem takiej sytuacji jest fakt, że każdy kryptogram jest tworzony przy użyciu różnej losowej wartośći r.</P>
+
+<P><B>Uwaga 2</B>:</P>
+
+<P>Jeśli wpiszesz jako tekst wejściowy znaki, które nie znajdują się w alfabecie (np. małe litery nie są częścią alfabetu określonego w przykładzie powyżej) wówczas nie zostaną one zaszyfrowane.</P>
+
+</BODY>
+</HTML>

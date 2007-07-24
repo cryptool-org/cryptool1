@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1250">
+<TITLE>Odszyfrowywanie wiadomości w systemie RSA</TITLE>
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
+	<PARAM NAME="Keyword" VALUE="RSA encryption algorithm">
+	<PARAM NAME="Keyword" VALUE="Decryption">
+	<PARAM NAME="Keyword" VALUE="Demonstrations/Scenarios">
+</OBJECT>
+
+<BODY>
+
+<h3>Odszyfrowywanie wiadomości w systemie RSA</h3>
+
+<P>Tylko w przypadku gdy jesteś posiadaczem tajnego klucza d jesteś w stanie odszyfrować wiadomość zaszyfrowaną odpowiadającym kluczem publicznym. Jeśli masz dostęp do publicznego parametru N oraz e możesz próbować złamać klucz (obliczyć klucz prywatny, działa jedynie dla krótkich kluczy) poprzez <A href="rsa_demo_factorisation_attack.html">atak faktoryzacji</A>.</P>
+
+<P>Aby odszyfrować <A href="rsa_demo_encryption.html">zaszyfrowaną wiadomość w systemie RSA</A>, wprowadź kod numeryczny zaszyfrowanej wiadomości. Gdy klikniesz na <B>Deszyfruj</B>, wprowadzony kryptogram</P>
+
+<div class="indent">
+
+<P>c = c[1] # c[2] # .... # c[j]</P>
+
+</div>
+
+<P>jest odszyfrowywany przy użyciu tajnego klucza (N,d) według następującego wzoru:</P>
+
+<div class="indent">
+
+<P>m[i] = c[i]^d  mod N  dla i = 1, ..., j .</P>
+
+</div>
+
+<P>Numery m = m[1] # m[2] # .... #  m[j] są zamieniane na oryginalną wiadomość M z uwzględnieniem łaczenia podzielonych bloków:</P>
+
+<P><IMG SRC="images/rsa_demo_5.gif" ALT="rsa_demo_5.gif" BORDER=0></P>
+
+</BODY>
+</HTML>
