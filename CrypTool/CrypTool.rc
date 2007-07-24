@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -9753,7 +9753,7 @@ BEGIN
     IDS_STRING_MSG_FILENAME_SIGNED_MESSAGE 
                             "Die signierte Nachricht liegt in Datei:         "
     IDS_STRING_ERR_INPUT_TEXT_LENGTH 
-                            "Die Eingabe muss mindestens %d (nicht unbedingt verschiedene)\nZeichen des eingestellten Alphabets enthalten."
+                            "Die Eingabe muss mindestens %d (nicht unbedingt verschiedene)\nBuchstaben des eingestellten Alphabets enthalten."
     IDS_STRING_ERR_EC_ON_CONVERT_PARAM 
                             "Fehler. Die Domain Parameter der Elliptischen Kurve können nicht in Strings umgewandelt werden!"
     IDS_STRING_ERR_NO_ZIP_FILE "Keine ZIP-Datei (""Magic-Number""-Fehler)."
@@ -11821,12 +11821,12 @@ BEGIN
                             "Die Brute-Force Analyse entschlüsselte das Chiffrat mit allen möglichen Schlüssel aus dem selektierten Schlüsselraum und bestimmte dann für jede entschlüsselte Nachricht den Entropiewert. Diese Liste enthält die entschlüsselten Nachrichten mit den niedrigsten Entropiewerten.\nGerade bei sehr kurzen Chiffraten kann es sein, dass es falsche Kandidaten mit einem kleinen Entropiewert gibt. Sie haben hier die Möglichkeit, den Kandidaten mit der richtigen Entschlüsselung auszuwählen."
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -21719,7 +21719,7 @@ BEGIN
     IDS_STRING_MSG_FILENAME_SIGNED_MESSAGE 
                             "The signed message is in this file:        "
     IDS_STRING_ERR_INPUT_TEXT_LENGTH 
-                            "The input must contain at least %d characters from the current alphabet."
+                            "The input must contain at least %d character(s) from the current alphabet."
     IDS_STRING_ERR_EC_ON_CONVERT_PARAM 
                             "Error. The domain parameters of the elliptic curve cannot be converted to strings!"
     IDS_STRING_ERR_NO_ZIP_FILE "No ZIP file (""Magic number"" error)."
@@ -23735,7 +23735,7 @@ BEGIN
                             "The brute-force analysis decrypted the given ciphertext with all possible keys out of the selected key space and then calculated for each decrypted message the entropy value. This list contains the decrypted messages with the lowest entropy values.\nEspecially in case of very short ciphertexts it could be, that there are wrong candidates with a small entropy value. Here you have the opportunity to select the candidate with the correct decryption."
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
