@@ -22,7 +22,7 @@
 
 <P>We start with investigating the <A href="hid_playfair_bin.html">Playfair encryption algorithm</A> by opening a <!--ZZZPOPUP--><A href="dokument.html">document,</A> encrypting it and decrypting it again. After that we will try to find the key that was used to encrypt the plain text by using the manual Playfair analysis step by step.</P>
 
-<P><B>1 Playfair Encryption</B></P>
+<P><B>1. Playfair Encryption</B></P>
 
 <P>1.1 Open the document to be encrypted: e.g. <CODE>CrypTool-en.txt</CODE>, which is part of the online 
 help section. You can open that document via the menu <A href="menu_file.html">File</A> \ 
@@ -105,7 +105,7 @@ windows are opened: one with the pre-processed plain text and another with the e
 	<B><CODE>CRYPTOXOLIST</CODE></B>:</LI>
 
 	<LI>Based on the Playfair key matrix above, the pre-processed text can now be encrypted. The basic 
-	idea is that two consecutive characters (a di-gram) determine two opposite edges of a rectangle in 
+	idea is that two consecutive characters (a di-gram) determine the two opposite edges of a rectangle in 
 	the key matrix.<br>We consider <I>one dimensional</I> rectangles for the special case, when both 
 	characters are in the same row or column of the key matrix.</LI>
 </UL>
@@ -230,9 +230,9 @@ from the cipher text window. To do this </P>
 	<LI>press <B>Copy key</B> </LI>
 </UL>
 
-<P>Now the key matrix is stored in CrypTool‚s key store.</P>
+<P>Now the key matrix is stored in CrypTool's key store.</P>
 
-<P><B>2 Playfair Decryption</B></P>
+<P><B>2. Playfair Decryption</B></P>
 
 <P>We now can recover the plain text of the document encrypted in the previous step.</P>
 
@@ -247,7 +247,7 @@ it by clicking on the icon <IMG SRC="images/iconinsertkey.gif" ALT="iconinsertke
 
 <P>2.3 Press the <B>Decrypt</B> button to recover the plain text.</P>
 
-<P><B>3 Manual analysis of the Playfair cipher</B></P>
+<P><B>3. Manual analysis of the Playfair cipher</B></P>
 
 <P>Let us now try to decipher a text encrypted with the Playfair cipher where we don't know the key 
 (ciphertext-only analysis).</P>
@@ -320,120 +320,14 @@ calculated, that can be determined based on the given information.</P>
 
 <P><IMG SRC="images/szenarioplayfair3.gif" ALT="szenarioplayfair3.gif" BORDER=0></P>
 
-<!--
-<P>We now show how the complete key matrix can be determined manually based on guessed clear text fragments and the Playfair encryption rules.</P>
+<P>How to manually execute the calculation is shown <a href="#manualcalculationplayfair">here</a>.</P>
 
-<UL>
-	<LI>From ER &gt; RG one can see that the sequence ERG must occur in the matrix either as a column or row. Let us assume it occurs in a column, in which case, given RT &gt; EF, T and F must be in the same column and, given GE &gt; HR, H must also occur, but this would produce 6 letters, which is too many. Therefore ERG must occur in a row.</LI>
+<P>3.7 Press the button <B>Synchronise analysis result \ Expected plaintext</B>.</p>
 
-	<LI>Given EH &gt; RI, I must occur in the same row, likewise H (GE &gt; HR). Let us now write ERGHI e.g. in the bottom row (the sequence HI is correct because of EH &gt; RI).</LI>
-
-	<LI>We can now add a few more letters, namely DL, NX, DX, TF, ST, UA:</LI>
-</UL>
-
-<div style="text-align:center">
-
-<TABLE cols=5 width="0*" class="pad10">
-
-<TR VALIGN="top">
-<TD>*</TD>
-<TD>*</TD>
-<TD>*</TD>
-<TD>*</TD>
-<TD>*</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD>F</TD>
-<TD>S</TD>
-<TD>*</TD>
-<TD>*</TD>
-<TD>T</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD>*</TD>
-<TD>*</TD>
-<TD>*</TD>
-<TD>A</TD>
-<TD>U</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD>D</TD>
-<TD>*</TD>
-<TD>L</TD>
-<TD>N</TD>
-<TD>X</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD>R</TD>
-<TD>G</TD>
-<TD>H</TD>
-<TD>I</TD>
-<TD>E</TD>
-</TR>
-</TABLE><BR>
-
-</div>
-
-
-
-<P>Based on the known di-gram mapping AM &gt; VN we can extend the matrix, because there is only on position in the fourth row left where the character M can possibly fit: </P>
-
-<div style="text-align:center">
-
-<TABLE cols=5 width="0*" class="pad10">
-
-<TR VALIGN="top">
-<TD>*</TD>
-<TD>*</TD>
-<TD>*</TD>
-<TD>*</TD>
-<TD>*</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD>F</TD>
-<TD>S</TD>
-<TD>*</TD>
-<TD>*</TD>
-<TD>T</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD>*</TD>
-<TD>V</TD>
-<TD>*</TD>
-<TD>A</TD>
-<TD>U</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD>D</TD>
-<TD>M</TD>
-<TD>L</TD>
-<TD>N</TD>
-<TD>X</TD>
-</TR>
-
-<TR VALIGN="top">
-<TD>R</TD>
-<TD>G</TD>
-<TD>H</TD>
-<TD>I</TD>
-<TD>E</TD>
-</TR>
-</TABLE><BR>
-
-</div>
--->
-
-<P>3.7 The button <B>Synchronise analysis result \ Expected plaintext</B> updates the field "Expected 
-plaintext" with the decryption of the cipher text based on the partial matrix. Characters that cannot 
-(yet) be decrypted are marked with the wildcard character '<B><CODE>*</CODE></B>‘ and can now be replaced 
-by guessing.</P>
+<P>The selected checkbox-option <B>Update expected plaintext</B> causes that the result of 
+the decryption of the cipher text based on the partial matrix is copied into the field 
+"Expected plaintext". Characters that cannot (yet) be decrypted are marked with the wildcard 
+character '<B><CODE>*</CODE></B>‘ and can now be replaced by guessing.</P>
 
 <P>3.8 Now the character sequence <B><CODE>E**.*IEMLI**</CODE></B> catches our eye (at least the eye of 
 people knowing some German). If we complete this with the field "Expected plaintext" to read 
@@ -619,9 +513,9 @@ di-gram mapping XT &gt; PU. The Playfair analysis now gives us the key matrix</P
 
 </div>
 
-<P>3.12 The clear text originally had been encrypted with the password 
-<B><CODE>HIERGIBTESWASZUENTDECKEN</CODE></B> and the options <B>Preformat text</B> and <B>Ignore 
-duplicates within the key phrase</B> was deactivated. We finally get the complete plain text:</P>
+<P>3.12 The clear text originally had been encrypted with the password <B><CODE>HIERGIBTESWASZUENTDECKEN</CODE></B> 
+(<a href="#Hinweis">see advice regarding the key matrix</a>), and the options <B>Preformat text</B> and <B>Ignore 
+duplicates within the key phrase</B> were deactivated. We finally get the complete plain text:</P>
 
 <div class="indent">
 <PRE><CODE>    SEHR.GEEHRTE.DAMEN.UND.HERREN...EIN.ZIEMLICH.
@@ -632,7 +526,130 @@ duplicates within the key phrase</B> was deactivated. We finally get the complet
 <P>3.13 After clicking the button <B>Output results of analysis</B>, the Playfair analysis dialog window 
 is closed and the cleartext is displayed.</P>
 
+<p><B>Remark</B>:</p>
+<a name="Hinweis">Advice regarding the key matrix:</a>
 
+<p>A cyclicly shifted key matrix leads to the same result. Thus, the originally chosen 
+password cannot be concluded from the calculated matrix.</p>
+
+<br><br>
+<P><B><a name="manualcalculationplayfair"></a>Manual calculation of the key matrix</B></P>
+
+<P>We now show how the complete key matrix can be determined manually based on guessed clear text fragments and the Playfair encryption rules.</P>
+
+<UL>
+	<LI>From ER &gt; RG one can see that the sequence ERG must occur in the matrix either as a column or row. Let us assume it occurs in a column, in which case, given RT &gt; EF, T and F must be in the same column and, given GE &gt; HR, H must also occur, but this would produce 6 letters, which is too many. Therefore ERG must occur in a row.</LI>
+
+	<LI>Given EH &gt; RI, I must occur in the same row, likewise H (GE &gt; HR). Let us now write ERGHI e.g. in the bottom row (the sequence HI is correct because of EH &gt; RI).</LI>
+
+	<LI>We can now add a few more letters, namely DL, NX, DX, TF, ST, UA:</LI>
+</UL>
+
+<div style="text-align:center">
+
+<TABLE cols=5 width="0*" class="pad10" ID="Table4">
+
+<TR VALIGN="top">
+<TD>*</TD>
+<TD>*</TD>
+<TD>*</TD>
+<TD>*</TD>
+<TD>*</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>F</TD>
+<TD>S</TD>
+<TD>*</TD>
+<TD>*</TD>
+<TD>T</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>*</TD>
+<TD>*</TD>
+<TD>*</TD>
+<TD>A</TD>
+<TD>U</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>D</TD>
+<TD>*</TD>
+<TD>L</TD>
+<TD>N</TD>
+<TD>X</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>R</TD>
+<TD>G</TD>
+<TD>H</TD>
+<TD>I</TD>
+<TD>E</TD>
+</TR>
+</TABLE><BR>
+
+</div>
+
+
+
+<P>Based on the known di-gram mapping AM &gt; VN we can extend the matrix, because there is only on position in the fourth row left where the character M can possibly fit: </P>
+
+<div style="text-align:center">
+
+<TABLE cols=5 width="0*" class="pad10" ID="Table5">
+
+<TR VALIGN="top">
+<TD>*</TD>
+<TD>*</TD>
+<TD>*</TD>
+<TD>*</TD>
+<TD>*</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>F</TD>
+<TD>S</TD>
+<TD>*</TD>
+<TD>*</TD>
+<TD>T</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>*</TD>
+<TD>V</TD>
+<TD>*</TD>
+<TD>A</TD>
+<TD>U</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>D</TD>
+<TD>M</TD>
+<TD>L</TD>
+<TD>N</TD>
+<TD>X</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD>R</TD>
+<TD>G</TD>
+<TD>H</TD>
+<TD>I</TD>
+<TD>E</TD>
+</TR>
+</TABLE><BR>
+
+</div>
+
+<P>The following graphics show how a found assignment RT &gt; EF (see chapter 3.5 above) 
+can be aligned:</P>
+
+<P>a) The letters form a rectangle.</P>
+<P><IMG src="images/manualplayfair_a.png" width="91%"></P>
+<P>b) The letters are all in one row or one column.</P>
+<P><IMG src="images/manualplayfair_b.png" width="91%"></P>
 
 </BODY>
 </HTML>

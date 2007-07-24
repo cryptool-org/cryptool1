@@ -527,6 +527,8 @@ hybridencryptionsystem.html
 hidd_list_results.html
 passwords.html
 padding.html
+hidd_find_and_replace.html
+uu.html
 
 [ALIAS]
 #include CrypTool_Alias.h

@@ -15,25 +15,24 @@
 	</OBJECT>
 	<BODY>
 		<h3>Dialogue of the Sisters</h3>
-		<P>The story, <A href="rsa_demo_variant.html">The Dialogue of the Sisters</A> [c't 
-			magazine, issue 25/1999], describes a variant of the RSA cryptosystem that is 
+		<P>The story, <A class="filelink" onclick="parser('DialogueSisters.pdf')">The Dialogue of 
+				the Sisters</A> [c't magazine, issue 25/1999], describes a variant of the RSA cryptosystem that is 
 			suitable for hand calculation. This variant can be selected under <A href="hidd_options_rsa_demo.html">
 				Options for the RSA demonstration</A> after a small RSA key has been 
 			generated.</P>
-		<P>In the story <A class="filelink" onclick="parser('DialogueSisters.pdf')">Dialogue of 
-				the Sisters</A>, a simplified version of the RSA algorithm is presented.</P>
+		<P>In the story "The Dialogue of the Sisters", a simplified version of the RSA algorithm is presented.</P>
 		<P>Example: As the first step an RSA modulus N&gt;27 has to be generated from two 
 			prime numbers within the dialog <a href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">
 				RSA demonstration</a>. N = 13*7 = 91, for which the Euler phi function is 
-			phi(N) = 12*6 = 72. As public exponent, we choose e=5. This is used to 
-			calculate the secret key d=29.
-		</P>
+			phi(N) = 12*6 = 72.<br>As public exponent, we choose e=5. This is used to 
+			calculate the secret key d=29.</P>
 		<P>Once you have generated the RSA parameters within the dialog <a href="hid_einzelverfahren_tutorial_rsaalgorithmus.html">
 				RSA demonstration</a>, click the button <B>Options for alphabet and number 
-				system</B> and then select in the following dialog as RSA variant <B>Dialogue 
-				of the Sisters</B>. The alphabet is specified as 
+				system</B> and then select in the following dialog 
+				<A href="hidd_options_rsa_demo.html">Options for the RSA demonstration</a> as RSA variant 
+				<B>Dialogue of the Sisters</B>. The alphabet is specified as 
 			"ABCDEFGHIJKLMNOPQRSTUVWXYZ " (the final space is a part of the alphabet). 
-			After pressing the OK button, the dialog is closed. Now you can enter text 
+			After pressing the OK button, the options dialog is closed. Now you can enter text 
 			within the RSA demonstration dialog.</P>
 		<P>In our example the message</P>
 		<div class="indent">
@@ -43,7 +42,14 @@
 		<P><IMG SRC="images/rsa_demo_6.gif" ALT="rsa_demo_6.gif" BORDER="0"></P>
 		<P>and decrypted</P>
 		<P><IMG SRC="images/rsa_demo_7.gif" ALT="rsa_demo_7.gif" BORDER="0"></P>
-	<P><B>Explanation of the method used as "Dialog of the Sisters"</B></P>
+		<P><B>Remark 1</B>:</P>
+		<P>You can see that the numbers of the ciphertext here in the second picture are different from the 
+			numbers in the picture before - despite both cipher texts have been created by 
+			the same key pair and despite both belong to the same cleartext. The reason is, 
+			that each ciphertext was created using different random values of r.</P>
+			
+		<br>
+	<h3><B>Explanation of the method used as "Dialogue of the Sisters"</B></h3>
 		<P>The letters "A, B, C ... Z" and the space " " are coded in numbers:</P>
 		<div class="indent">
 			<TABLE cols="2" width="0*" class="pad20" ID="Table1">
@@ -104,11 +110,6 @@
 		<P>Without using the random number r, the ciphertext would only consist of 27 
 			different numbers and the procedure could be attacked by frequency analysis, as 
 			ease as mono-alphabetic substitution.</P>
-		<P><B>Remark 1</B>:</P>
-		<P>You can see that the numbers of the ciphertext here are different from the 
-			numbers in the picture before - despite both cipher texts have been created by 
-			the same key pair and despite both belong to the same cleartext. The reason is, 
-			that each ciphertext was created using different random values of r.</P>
 		<P><B>Remark 2</B>:</P>
 		<P>If you enter non-alphabet characters as input text (e.g. lower case characters 
 			are not part of the alphabet specified in the example above), they will not be 

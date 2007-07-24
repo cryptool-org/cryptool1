@@ -28,7 +28,7 @@
 			wurde, mit Hilfe der manuellen Playfairanalyse Schritt für Schritt zu 
 			ermitteln.
 		</P>
-		<P><B>1 Playfair-Verschlüsselung</B></P>
+		<P><B>1. Playfair-Verschlüsselung</B></P>
 		<P>1.1 Öffnen Sie das zu entschlüsselnde Dokument: zum Beispiel <CODE>CrypTool-de.txt</CODE>, 
 			das ein Teil der CrypTool-Hilfe ist. Das Öffnen dieser <!--ZZZPOPUP--><A href="datei.html">Datei</A>
 			geschieht über das Menü <A href="menu_file.html">Datei</A> \ <A href="hid_file_open.html">
@@ -225,7 +225,7 @@
 			Playfair-Schlüssel wird angezeigt. Sie können jetzt den Playfair-Schlüssel in 
 			dem Schlüsselspeicher sichern. Dadurch brauchen Sie ihn im folgenden Schritt 
 			(Entschlüsselung) nicht mehr eintippen.</P>
-		<P><B>2 Playfair-Entschlüsselung</B></P>
+		<P><B>2. Playfair-Entschlüsselung</B></P>
 		<P>Jetzt kann der <!--ZZZPOPUP--><A href="klartext.html">Klartext</A> dieses 
 			<!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> 
 			<!--ZZZPOPUP--><A href="dokument.html">Dokuments</A> wieder ermittelt werden.</P>
@@ -238,11 +238,11 @@
 			Ikone in den Schlüsseldialog kopieren.
 		</P>
 		<P><IMG SRC="images/dialogplayfairdecrytion.gif" ALT="dialogplayfairdecrytion.gif" BORDER="0"></P>
-		<P>2.3 Drücken Sie den Knopf <B>Entschlüsseln</B> um den 
+		<P>2.3 Drücken Sie den Knopf <B>Entschlüsseln</B>, um den 
 			<!--ZZZPOPUP--><A href="klartext.html">Klartext</A> zu erhalten.</P>
-		<P><B>3 Manuelle Playfair-Analyse</B></P>
+		<P><B>3. Manuelle Playfair-Analyse</B></P>
 		<P>Wir wollen mit Hilfe der manuellen Analyse einen verschlüsselten Text 
-			dechiffrieren, von dem wir den Schlüssel nicht kennen (Ciphertext-only-Analyse)</P>
+			dechiffrieren, von dem wir den Schlüssel (im Gegensatz zu Kapitel 2) nicht kennen (Ciphertext-only-Analyse).</P>
 		<P>3.1 Dazu laden wir den zu dechiffrierenden Text aus der Datei <CODE>Playfair-enc-de.txt</CODE>
 			(zu finden im CrypTool-Unterverzeichnis <CODE>examples</CODE>):</P>
 		<P><IMG SRC="images/szenarioplayfair1.gif" ALT="szenarioplayfair1.gif" BORDER="0"></P>
@@ -327,116 +327,19 @@
 			<BR>
 		</div>
 		<P>3.6 Durch einen Klick auf den Knopf <B>Erzeuge Matrix</B> werden mit diesen 
-			Informationen die bekannten Teile der Playfair-Schlüsselmatrix berechnet [daher 
+			Informationen die bekannten Teile der Playfair-Schlüsselmatrix berechnet. Basierend auf dieser 
+			Matrix wird der vermutete Klartext weit möglichst berechnet [daher 
 			manuelle oder halbautomatische Analyse - Sie müssen Ideen für Teile des 
 			Klartextes haben, CrypTool berechnet daraus den vollständigen Klartext und die 
 			mögliche Schlüsselmatrix]:</P>
 		<P><IMG SRC="images/szenarioplayfair3.gif" ALT="szenarioplayfair3.gif" BORDER="0"></P>
-		<!--
-		<P>Wir zeigen anhand der Klartextvermutung und den Regeln zur Playfair-Verschlüsselung, wie 
-		die Schlüsselmatrix von Hand berechnet werden kann:</P>
-		<UL>
-			<LI>
-			Aus ER &gt; RG erkennt man, dass die Folge ERG in der Matrix entweder als 
-			Spalte oder Zeile auftauchen muss. Nehmen wir an, sie sei in einer Spalte, dann 
-			muss wegen RT &gt; EF auch T und F in derselben Spalte sein und wegen GE &gt; 
-			HR auch noch H, also 6 Buchstaben, was zuviel ist. Also ist ERG in einer Zeile.
-			<LI>
-			Wegen EH &gt; RI ist auch I in derselben Zeile und ebenso H (GE &gt; HR). 
-			Schreiben wir ERGHI z.B. in die letzte Zeile (Die Reihenfolge HI stimmt wegen 
-			EH &gt; RI).
-			<LI>
-				Wir können noch ein paar weitere Buchstaben eintragen, nämlich DL, NX, DX, TF, 
-				ST, UA:
-			</LI>
-		</UL>
-		<div style="TEXT-ALIGN:center">
-			<TABLE cols="5" width="0*" class="pad10">
-				<TR VALIGN="top">
-					<TD>*</TD>
-					<TD>*</TD>
-					<TD>*</TD>
-					<TD>*</TD>
-					<TD>*</TD>
-				</TR>
-				<TR VALIGN="top">
-					<TD>F</TD>
-					<TD>S</TD>
-					<TD>*</TD>
-					<TD>*</TD>
-					<TD>T</TD>
-				</TR>
-				<TR VALIGN="top">
-					<TD>*</TD>
-					<TD>*</TD>
-					<TD>*</TD>
-					<TD>A</TD>
-					<TD>U</TD>
-				</TR>
-				<TR VALIGN="top">
-					<TD>D</TD>
-					<TD>*</TD>
-					<TD>L</TD>
-					<TD>N</TD>
-					<TD>X</TD>
-				</TR>
-				<TR VALIGN="top">
-					<TD>R</TD>
-					<TD>G</TD>
-					<TD>H</TD>
-					<TD>I</TD>
-					<TD>E</TD>
-				</TR>
-			</TABLE>
-			<BR>
-		</div>
-		<P>Mit dem bekannten Digrammpaar (AM &gt; VN) können wir die Matrix erweitern, da 
-			in der vierten Zeile nur noch eine mögliche Stelle für das M zur Verfügung 
-			steht:</P>
-		<div style="TEXT-ALIGN:center">
-			<TABLE cols="5" width="0*" class="pad10">
-				<TR VALIGN="top">
-					<TD>*</TD>
-					<TD>*</TD>
-					<TD>*</TD>
-					<TD>*</TD>
-					<TD>*</TD>
-				</TR>
-				<TR VALIGN="top">
-					<TD>F</TD>
-					<TD>S</TD>
-					<TD>*</TD>
-					<TD>*</TD>
-					<TD>T</TD>
-				</TR>
-				<TR VALIGN="top">
-					<TD>*</TD>
-					<TD>V</TD>
-					<TD>*</TD>
-					<TD>A</TD>
-					<TD>U</TD>
-				</TR>
-				<TR VALIGN="top">
-					<TD>D</TD>
-					<TD>M</TD>
-					<TD>L</TD>
-					<TD>N</TD>
-					<TD>X</TD>
-				</TR>
-				<TR VALIGN="top">
-					<TD>R</TD>
-					<TD>G</TD>
-					<TD>H</TD>
-					<TD>I</TD>
-					<TD>E</TD>
-				</TR>
-			</TABLE>
-			<BR>
-		</div>-->
+		
+		<P>Wie man von Hand die Berechnung ausführen könnte, wird <a href="#manualcalculationplayfair">hier</a> gezeigt.</P>
+		
 		<P>3.7 Drücken Sie den Button <B>Synchronisiere Analyseergebnis / Vermuteter Klartext</B>.</P>
-		<P>Die selektierte Option <B>Vermuteter Klartext aktualisieren</B> bewirkt, dass 
+		<P>Die selektierte Checkbox-Option <B>Vermuteter Klartext aktualisieren</B> bewirkt, dass 
 			das Ergebnis der Playfair-Entschlüsselung mit der Teilmatrix aus der Analyse in 
-			das Feld Vermuteter Klartext kopiert wird. Dabei werden Buchstaben, die nicht 
+			das Feld "Vermuteter Klartext" kopiert wird. Dabei werden Buchstaben, die nicht 
 			entschlüsselt werden können, mit dem Jokerzeichen '<B><CODE>*</CODE></B>' 
 			markiert und können jetzt ersetzt werden.</P>
 		<P>3.8 Nun fallen etwa die Teilworte <B><CODE>E**.*IEMLI**</CODE></B> auf. Wenn wir 
@@ -598,7 +501,7 @@
 			<BR>
 		</div>
 		<P>3.12 Der Klartext wurde ursprünglich mit dem äquivalenten Passwort <B><CODE>HIERGIBTESWASZUENTDECKEN</CODE></B>
-			(<a href="#Hinweis">siehe Hinweis zur Schlüsselmatrix)</a> verschlüsselt, wobei 
+			(<a href="#Hinweis">siehe Hinweis zur Schlüsselmatrix</a>) verschlüsselt, wobei 
 			die Optionen <B>Text vorformatieren </B>und <B>Doppelte Zeichen im Schlüssel 
 				ignorieren</B> deaktiviert waren. Schließlich erhalten wir den Klartext:
 		</P>
@@ -609,10 +512,124 @@
 		</div>
 		<P>3.13 Durch Betätigung des Knopfes <B>Ergebnis der Analyse ausgeben</B> wird die 
 			Dialogbox Playfairanalyse beendet und der Klartext angezeigt.</P>
-		<br>
+		<p><B>Bemerkung</B>:</p>
 		<a name="Hinweis">Hinweis zur Schlüsselmatrix:</a>
-		<p>Eine beliebig oft zyklisch verschobene Schlüsselmatrix führt zu einem gleichen 
+		<p>Eine zyklisch verschobene Schlüsselmatrix führt zu einem gleichen 
 			Ergebnis. Daher ist das ursprünglich gewählte Passwort nicht zwingend direkt 
-			aus der Matrix heraus zu lesen.</p>
-	</BODY>
+			aus der berechneten Matrix heraus zu lesen.</p>
+
+<br><br>
+<P><B><a name="manualcalculationplayfair"></a>Berechnung der Schlüsselmatrix von Hand</B></P>
+
+<P>Wir zeigen anhand der Klartextvermutung und den Regeln zur Playfair-Verschlüsselung, wie 
+		die Schlüsselmatrix von Hand berechnet werden kann:</P>
+		<UL>
+			<LI>
+			Aus ER &gt; RG erkennt man, dass die Folge ERG in der Matrix entweder als 
+			Spalte oder Zeile auftauchen muss. Nehmen wir an, sie sei in einer Spalte, dann 
+			muss wegen RT &gt; EF auch T und F in einer Spalte sein (nicht unbedingt die 
+			gleiche wie ERG). Und wegen GE &gt; 
+			HR auch noch H, also 6 Buchstaben, was zuviel ist. Also ist ERG in einer Zeile.
+			<LI>
+			Wegen EH &gt; RI ist auch I in derselben Zeile und ebenso H (GE &gt; HR). 
+			Schreiben wir ERGHI z.B. in die letzte Zeile (Die Reihenfolge HI stimmt wegen 
+			EH &gt; RI).
+			<LI>
+				Wir können noch ein paar weitere Buchstaben eintragen, nämlich DL, NX, DX, TF, 
+				ST, UA:
+			</LI>
+		</UL>
+		<div style="TEXT-ALIGN:center">
+			<TABLE cols="5" width="0*" class="pad10" ID="Table3">
+				<TR VALIGN="top">
+					<TD>*</TD>
+					<TD>*</TD>
+					<TD>*</TD>
+					<TD>*</TD>
+					<TD>*</TD>
+				</TR>
+				<TR VALIGN="top">
+					<TD>F</TD>
+					<TD>S</TD>
+					<TD>*</TD>
+					<TD>*</TD>
+					<TD>T</TD>
+				</TR>
+				<TR VALIGN="top">
+					<TD>*</TD>
+					<TD>*</TD>
+					<TD>*</TD>
+					<TD>A</TD>
+					<TD>U</TD>
+				</TR>
+				<TR VALIGN="top">
+					<TD>D</TD>
+					<TD>*</TD>
+					<TD>L</TD>
+					<TD>N</TD>
+					<TD>X</TD>
+				</TR>
+				<TR VALIGN="top">
+					<TD>R</TD>
+					<TD>G</TD>
+					<TD>H</TD>
+					<TD>I</TD>
+					<TD>E</TD>
+				</TR>
+			</TABLE>
+			<BR>
+		</div>
+		<P>Mit dem bekannten Digrammpaar (AM &gt; VN) können wir die Matrix erweitern, da 
+			in der vierten Zeile nur noch eine mögliche Stelle für das M zur Verfügung 
+			steht:</P>
+		<div style="TEXT-ALIGN:center">
+			<TABLE cols="5" width="0*" class="pad10" ID="Table5">
+				<TR VALIGN="top">
+					<TD>*</TD>
+					<TD>*</TD>
+					<TD>*</TD>
+					<TD>*</TD>
+					<TD>*</TD>
+				</TR>
+				<TR VALIGN="top">
+					<TD>F</TD>
+					<TD>S</TD>
+					<TD>*</TD>
+					<TD>*</TD>
+					<TD>T</TD>
+				</TR>
+				<TR VALIGN="top">
+					<TD>*</TD>
+					<TD>V</TD>
+					<TD>*</TD>
+					<TD>A</TD>
+					<TD>U</TD>
+				</TR>
+				<TR VALIGN="top">
+					<TD>D</TD>
+					<TD>M</TD>
+					<TD>L</TD>
+					<TD>N</TD>
+					<TD>X</TD>
+				</TR>
+				<TR VALIGN="top">
+					<TD>R</TD>
+					<TD>G</TD>
+					<TD>H</TD>
+					<TD>I</TD>
+					<TD>E</TD>
+				</TR>
+			</TABLE>
+			<BR>
+
+</div>
+<P>Die folgenden Schaulbilder zeigen, wie eine gefundene Zuordnung RT &gt; EF (siehe Absatz 
+3.5 oben) angeordnet sein kann:</P>
+
+<P>a) Die Buchstaben formen ein Rechteck.</P>
+<P><IMG src="images/manualplayfair_a.png" width="91%"></P>
+<P>b) Die Buchstaben liegen alle in einer Zeile oder in einer Spalte.</P>
+<P><IMG src="images/manualplayfair_b.png" width="91%"></P>
+
+</BODY>
 </HTML>

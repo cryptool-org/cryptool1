@@ -12325,7 +12325,7 @@ BEGIN
                     IDC_STATIC,67,330,145,40
     CTEXT           "Copyright (C) 1998-2007 Deutsche Bank AG\nFrankfurt am Main, Germany",
                     IDC_STATIC,0,389,242,17
-    CTEXT           "CrypTool is a free and comprehensive eLearning program about\nclassic and contemporary cryptography and cryptanalysis.\n\nIn a joint effort of the sponsors",
+    CTEXT           "CrypTool is a free and comprehensive e-learning program about\nclassic and contemporary cryptography and cryptanalysis.\n\nIn a joint effort of the sponsors",
                     IDC_STATIC,1,10,241,32
     CTEXT           "has been developed.",IDC_STATIC,1,181,241,24
     CTEXT           "CRYPTOOL RELEASE INFO",IDC_ABOUTBOX_CRYPTOOL,1,157,241,
