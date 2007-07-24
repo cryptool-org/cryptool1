@@ -58,6 +58,18 @@
 				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a OUTDIR=$(OutDir)"
 				Output="..\$(ConfigurationName)\NumberShark-en.chm"/>
 		</Configuration>
+		<Configuration
+			Name="Release_pl|Win32"
+			OutputDirectory="$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="0"
+			CharacterSet="2">
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot; OUTDIR=$(OutDir)"
+				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a OUTDIR=$(OutDir)"
+				Output="NumberShark-en.chm"/>
+		</Configuration>
 	</Configurations>
 	<References>
 	</References>

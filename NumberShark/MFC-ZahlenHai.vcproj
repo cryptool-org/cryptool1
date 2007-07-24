@@ -559,10 +559,10 @@
 				RelativePath=".\Bilder\shark.bmp">
 			</File>
 			<File
-				RelativePath=".\Bilder\Zahlenhai.ico">
+				RelativePath=".\res\Zahlenhai.ico">
 			</File>
 			<File
-				RelativePath=".\res\Zahlenhai.ico">
+				RelativePath=".\Bilder\Zahlenhai.ico">
 			</File>
 		</Filter>
 		<File
