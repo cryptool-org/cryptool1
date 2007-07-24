@@ -1,6 +1,6 @@
 [OPTIONS]
 Compatibility=1.1 or later
-Compiled file=NumberShark-en.chm
+Compiled file=NumberShark-pl.chm
 Contents file=NumberShark.hhc
 Default topic=NumberShark_Manual.html
 Display compile progress=No

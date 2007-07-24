@@ -85,7 +85,8 @@ Global
 		{068B2C5B-4AA8-459C-B0B9-0B0EE768B793}.Release_de.ActiveCfg = Release_en|Win32
 		{068B2C5B-4AA8-459C-B0B9-0B0EE768B793}.Release_en.ActiveCfg = Release|Win32
 		{068B2C5B-4AA8-459C-B0B9-0B0EE768B793}.Release_en.Build.0 = Release|Win32
-		{068B2C5B-4AA8-459C-B0B9-0B0EE768B793}.Release_pl.ActiveCfg = Release_pl|Win32
+		{068B2C5B-4AA8-459C-B0B9-0B0EE768B793}.Release_pl.ActiveCfg = Release|Win32
+		{068B2C5B-4AA8-459C-B0B9-0B0EE768B793}.Release_pl.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection
