@@ -13,7 +13,8 @@
 \hypertarget{Chapter_ElementaryNT}{}
 \section{Einführung in die elementare Zahlentheorie mit Beispielen}
 \label{Chapter_ElementaryNT}
-(Bernhard Esslinger, Juli 2001; Updates: Nov. 2001, Juni 2002, Mai 2003, Mai 2005, März 2006) \\
+(Bernhard Esslinger, Juli 2001; Updates: Nov. 2001, Juni 2002, Mai 2003,
+ Mai 2005, März 2006, Juni 2007) \\
 
 Diese \glqq Einführung\grqq~ bietet einen Einstieg für mathematisch Interessierte.
 Erforderlich sind nicht mehr Vorkenntnisse als die, die im Grundkurs Mathematik am Gymnasium vermittelt werden.\par
@@ -356,7 +357,7 @@ Teilt man $158$ dagegen durch $2$, ist das Ergebnis $79$ eine ganze Zahl.
 In der Zahlentheorie sagt man, $158$ ist {\em teilbar} durch $2$, aber nicht durch $10$.
 Allgemein sagt man:
 
-\begin{definition}\label{def-zth-divisibility} \index{Teilbarkeit} \index{teilbar}
+\begin{definition}\label{def-zth-divisibility} \index{Teilbarkeit}
 Eine ganze Zahl $n$ ist {\bf teilbar} durch eine ganze Zahl $d$, wenn der Quotient $n/d$
 eine ganze Zahl $c$ ist, so dass $n = c * d$.
 \end{definition}
@@ -407,7 +408,7 @@ Da modulo $m$ nur die Reste $0, 1, 2, \cdots, m-1$ möglich sind, rechnet die mod
 Zu jedem Modul $m$ gibt es genau $m$ Restklassen.
 
 \begin{definition}\label{def-zth-congruence} \index{Kongruenz}
-Zwei Zahlen $a, b \in \mathbb{N}$  heißen \index{restgleich} \index{kongruent}
+Zwei Zahlen $a, b \in \mathbb{N}$  heißen \index{restgleich}
 {\bf restgleich oder kongruent bezüglich $m \in \mathbb{N}$}  genau dann, 
 wenn beim Teilen durch $m$ der gleiche Rest bleibt.
 \end{definition}
@@ -486,7 +487,10 @@ Aus Sätzen der Algebra folgt, dass wesentliche Teile der üblichen
 Rechenregeln beim Übergang zum modularen Rechnen über der Grundmenge $\mathbb{Z}$
 erhalten bleiben: Die Addition ist nach wie vor kommutativ. Gleiches gilt für die
 Multiplikation modulo $m$. Das Ergebnis einer Division\footnote{%
-\label{ftn-res-divmodn}Die Division modulo $m$\index{Division modulo $n$} ist nur für Zahlen, die teilerfremd zu $m$ sind, definiert. 
+\label{ftn-res-divmodn}
+Die Division modulo $m$\index{Division modulo $n$}
+ist nur für Zahlen, die teilerfremd\index{Zahlen!teilerfremd (co-prime)}
+zu $m$ sind, definiert, da andere Zahlen die gleiche Eigenschaft wie Null haben.
 Vergleiche Fußsnote \ref{ftn-mod6} in Kapitel \ref{addmult}.
 } ist kein Bruch, sondern eine ganze Zahl zwischen $0$ und $m-1$.
 
@@ -687,9 +691,9 @@ so.
 Bei der modularen Multiplikation dagegen ist das nicht so:
 \begin{satz}\label{thm-zth-multinv}
 Für eine natürliche Zahl $a$ aus der Menge $\{1, \cdots, m-1\}$ gibt es genau dann eine\index{ggT}
-multiplikative Inverse, wenn sie mit dem Modul $m$ \index{teilerfremd}
-teilerfremd\footnote{%
-Es gilt: Zwei ganze Zahlen $a$ und $b$ sind genau dann teilerfremd, wenn ${\rm ggT}(a, b) = 1$.\\
+multiplikative Inverse, wenn sie mit dem Modul $m$ teilerfremd\footnote{%
+Es gilt: Zwei ganze Zahlen $a$ und $b$ sind genau dann
+teilerfremd\index{Zahlen!teilerfremd (co-prime)}, wenn ${\rm ggT}(a, b) = 1$.\\
 Desweiteren gilt: Ist $p$ prim und $a$ eine beliebige ganze Zahl, die kein
 Vielfaches von $p$ ist, so sind beide Zahlen teilerfremd.\\
 Weitere Bezeichnungen zum Thema Teilerfremdheit (mit $a_i \in \mathbb{Z}, i=1, \cdots, n$):
@@ -707,8 +711,9 @@ Sie sind nicht paarweise prim, da $ {\rm~ggT} (2,6)=2>1.$
 Da $m=5$ eine Primzahl ist, sind die Zahlen $1$ bis $4$ teilerfremd zu $5$, und es
 gibt mod $5$ zu {\bf jeder} dieser Zahlen eine multiplikative Inverse.
 
-Ein Gegenbeispiel zeigt die Multiplikationstabelle für mod $6$ (da der Modul $6$
-nicht prim ist, sind nicht alle Elemente aus $\mathbb{Z}_6\setminus \{0\}$ zu $6$ teilerfremd):
+Ein Gegenbeispiel zeigt die Multiplikationstabelle für mod $6$
+(da der Modul $6$ nicht prim ist, sind nicht alle Elemente aus
+$\mathbb{Z}_6\setminus \{0\}$ zu $6$ teilerfremd):
 
 \begin{table}[h]
 \begin{center}
@@ -731,8 +736,8 @@ Eigenschaft einer Inversen ist, eindeutig zu sein).
 
 Die Zahlen $2, 3$ und $4$ haben mit dem Modul $6$ den Faktor $2$ oder $3$
 gemeinsam. 
-Nur die zu $6$ teilerfremden Zahlen $1$ und $5$ haben multiplikative Inverse,
-nämlich jeweils sich selbst.
+Nur die zu $6$ teilerfremden\index{Zahlen!teilerfremd (co-prime)} Zahlen
+$1$ und $5$ haben multiplikative Inverse, nämlich jeweils sich selbst.
 
 Die Anzahl der zum Modul $m$ teilerfremden Zahlen ist auch die Anzahl
 derjenigen Zahlen, die eine multiplikative Inverse haben (vgl. unten die
@@ -813,8 +818,9 @@ Rest                & 6 & 12  & {\bf 1}  & 7 & 13  & 2  & 8 & 14  & 3  & 9 & 15 
 \end{table}
 }
 \vskip - 12 pt
-Da sowohl $5$ als auch $6$ jeweils teilerfremd\index{teilerfremd} zum Modul $m=17$ sind, kommen zwischen
-$i=1, \cdots, m$ für die Reste alle Werte zwischen $0, \cdots, m-1$ vor (vollständige $m$-Permutation\index{Permutation}).
+Da sowohl $5$ als auch $6$ jeweils teilerfremd\index{Zahlen!teilerfremd (co-prime)}
+zum Modul $m=17$ sind, kommen zwischen $i=1, \cdots, m$ für die Reste alle Werte
+zwischen $0, \cdots, m-1$ vor (vollständige $m$-Permutation\index{Permutation}).
 % \enlargethispage{0.5cm}
 
 {
@@ -842,8 +848,10 @@ $i=1, \cdots, m$ für die Reste alle Werte zwischen $0, \cdots, m-1$ vor (vollstä
 }   
 
 \vskip -12 pt
-Da sowohl $5$ als auch $6$ auch zum Modul $m=13$ jeweils teilerfremd sind, kommen
-zwischen $i=1, \cdots, m$ für die Reste alle Werte zwischen $0, \cdots, m-1$ vor.
+Da sowohl $5$ als auch $6$ auch zum Modul $m=13$ jeweils
+teilerfremd\index{Zahlen!teilerfremd (co-prime)} sind, kommen
+zwischen $i=1, \cdots, m$ für die Reste alle Werte zwischen
+$0, \cdots, m-1$ vor.
 
 
 {\bf Die multiplikative Inverse von $5$ (mod $13$) ist $8$, die Inverse von $6$ (mod $13$) ist $11$.}
@@ -873,9 +881,9 @@ Rest                 & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0 
 
 \vskip -12 pt
 Berechnet wurde $(5 * i)$ (mod $12$) und $(6*i)$ (mod $12$).
-Da $6$ und der Modul $m=12$ nicht teilerfremd\index{teilerfremd} sind, kommen zwischen $i=1, \cdots, m$
-nicht alle Werte zwischen $0, \cdots, m-1$ vor und $6$ hat mod $12$ auch keine
-Inverse!
+Da $6$ und der Modul $m=12$ nicht teilerfremd\index{Zahlen!teilerfremd (co-prime)}
+sind, kommen zwischen $i=1, \cdots, m$ nicht alle Werte zwischen
+$0, \cdots, m-1$ vor und $6$ hat mod $12$ auch keine Inverse!
 \index{Inverse!additive} \index{Inverse!multiplikative}
 
 {\bf Die multiplikative Inverse von $5$ (mod $12$) ist $5$. Die Zahl $6$ hat keine Inverse (mod $12$). }
@@ -1064,8 +1072,12 @@ oder Kapitel \ref{rsaverfahren}).
 Dagegen ist der Aufwand für die Umkehrung von Addition und Multiplikation
 nur proportional zu $\log m$ beziehungsweise $(\log m)^2$.
 Potenzieren (zu einer Zahl $x$ berechne $x^a$ mit festem $a$) und Exponentiation
-(zu einer Zahl $x$ berechne $a^x$ mit festem $a$) sind also typische Einwegfunktionen\index{Einwegfunktion}
-(siehe Übersicht über Einwegfunktionen im \hyperlink{OneWayFunktion1}{Skript} oder in diesem \hyperlink{OneWayFunktion2}{Artikel}).
+(zu einer Zahl $x$ berechne $a^x$ mit festem $a$) sind also typische
+Einwegfunktionen\index{Einwegfunktion}
+(vergleiche Kapitel \ref{OneWayFunktion1} und \ref{OneWayFunktion2}).
+%(siehe Übersicht über Einwegfunktionen im \hyperlink{OneWayFunktion1}{Skript}
+%[[Absatz/Kapitel \ref{OneWayFunktion1}]] oder in diesem
+%\hyperlink{OneWayFunktion2}{Artikel} [[Absatz/Kapitel \ref{OneWayFunktion2}]] ).
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1130,7 +1142,8 @@ Jedes Modulo-Produkt mit $5$ ergibt auf dieser Menge $5, 10$ oder $0$.
 \item[b)] In $\mathbb{Z}_{55} \setminus \{0\}$ besitzen z.B. die Elemente $5$ und $11$ 
 keine multiplikativen Inversen. Es gibt nämlich kein $a$ aus $\mathbb{Z}_{55}$ mit 
 $5 * a \equiv 1 ({\rm ~mod~}55)$ und kein $a$ mit $11 *a \equiv 1 {\rm ~mod~}55$.
-Das liegt daran, dass $5$ und $11$ nicht teilerfremd zu $55$ sind.
+Das liegt daran, dass $5$ und $11$ nicht
+teilerfremd\index{Zahlen!teilerfremd (co-prime)} zu $55$ sind.
 Jedes Modulo-Produkt mit $5$ ergibt auf dieser Menge $5, 10, 15, \cdots, 50$ oder $0$.
 Jedes Modulo-Produkt mit $11$ ergibt auf dieser Menge $11, 22, 33, 44$ oder $0$.
 \end{itemize}
@@ -1153,7 +1166,7 @@ Für $n = 10=2*5$ gilt: \index{Restmenge!vollständige}
 
 {\bf Bemerkung:}
 $R'$ bzw. $\mathbb{Z}_n^*$ ist immer eine echte Teilmenge von $R$ bzw. $\mathbb{Z}_n$, da $0$ immer
-Element von $\mathbb{Z}_n$, aber nie Element von $\mathbb{Z}_n^*$ ist. Da $1$ (per Definition) und $n-1$ immer teilerfremd
+Element von $\mathbb{Z}_n$, aber nie Element von $\mathbb{Z}_n^*$ ist. Da $1$ (per Definition) und $n-1$ immer teilerfremd\index{Zahlen!teilerfremd (co-prime)}
 zu $n$ sind, sind sie stets Elemente beider Mengen.
 
 Wählt man irgendein Element aus $\mathbb{Z}_n^*$ und multipliziert es mit jedem anderen
@@ -1222,7 +1235,8 @@ Auch hierbei ist insbesondere der Fall interessant, wenn $b=1$ ist
 \subsubsection{Die Euler-Funktion}\index{Eulersche Phi-Funktion}
 \label{L-Euler-Function}
 Bei vorgegebenem $n$ ist die Anzahl der Zahlen aus der Menge $\{1, \cdots, n-1\}$,
-die zu $n$ teilerfremd sind, gleich dem Wert der Euler\footnote{%
+die zu $n$ teilerfremd\index{Zahlen!teilerfremd (co-prime)} sind,
+gleich dem Wert der Euler\footnote{%
 Leonhard Euler, schweizer Mathematiker, 15.4.1707 -- 18.9.1783\index{Euler,
 Leonhard} 
 }-Funktion $J(n)$.
@@ -1290,32 +1304,38 @@ $$a^p \equiv a {\rm ~(mod~} p).$$
 \end{satz}
 
 Eine alternative Formulierung des kleinen Satzes von Fermat lautet:
-Sei $p$ eine Primzahl und $a$ eine beliebige ganze Zahl, die teilerfremd zu $p$ ist, dann gilt:
+Sei $p$ eine Primzahl und $a$ eine beliebige ganze Zahl, die
+teilerfremd\index{Zahlen!teilerfremd (co-prime)} zu $p$ ist, dann gilt:
 $$a^{p-1} \equiv 1 {\rm ~(mod~} p).$$
 \begin{satz}{\label{thm-zth-fermateuler}
-\bf Satz von Euler-Fermat (Verallgemeinerung des kleines Satzes von Fermat)}\hypertarget{Euler-Fermnat}{}
-Für alle Elemente $a$ aus der Gruppe $\mathbb{Z}_n^*$ gilt (d.h. $a$ und $n$ sind natürliche Zahlen, die
-teilerfremd zueinander sind):
+\bf Satz von Euler-Fermat (Verallgemeinerung des kleines Satzes
+von Fermat)}\hypertarget{Euler-Fermnat}{}
+Für alle Elemente $a$ aus der Gruppe $\mathbb{Z}_n^*$ gilt (d.h. $a$
+und $n$ sind natürliche Zahlen, die teilerfremd zueinander sind):
 $$  a^{J(n)} \equiv 1  {\rm ~(mod~} n).$$
 \end{satz}
 \index{Euler, Leonhard} \index{Fermat, Pierre}
 
-Dieser Satz besagt, dass wenn man ein Gruppenelement (hier $a$) mit der Ordnung der Gruppe (hier $J(n)$) potenziert, 
+Dieser Satz besagt, dass wenn man ein Gruppenelement (hier $a$) mit der
+Ordnung der Gruppe (hier $J(n)$) potenziert, 
 ergibt sich immer das neutrale Element der Multiplikation (die Zahl 1).
 
-Die 2. Formulierung des kleinen Satzes von Fermat ergibt sich direkt aus dem
-Satz von Euler, wenn $n$ eine Primzahl ist.
+Die 2. Formulierung des kleinen Satzes von Fermat ergibt sich direkt
+aus dem Satz von Euler, wenn $n$ eine Primzahl ist.
 
-Falls $n$ das Produkt zweier verschiedenen Primzahlen ist, kann man mit dem Satz von Euler
-in bestimmten Fällen sehr schnell das Ergebnis einer modularen Potenz
-berechnen. Es gilt: $a^{(p-1)*(q-1)} \equiv 1 {\rm ~(mod~}pq)$.
+Falls $n$ das Produkt zweier verschiedenen Primzahlen ist, kann man mit
+dem Satz von Euler in bestimmten Fällen sehr schnell das Ergebnis einer
+modularen Potenz berechnen.
+Es gilt: $a^{(p-1)*(q-1)} \equiv 1 {\rm ~(mod~}pq)$.
 \vskip +7 pt
 
 {\bf Beispiele zur Berechnung einer modularen Potenz:} 
 \vskip -4pt
 \begin{itemize}
-   \item Mit $2 = 1 * 2$ und $6 = 2*3$, wobei $2$ und $3$ jeweils prim; $J(6) = 2$, da nur $1$
-         und $5$ zu $6$ teilerfremd sind folgt $5^2 \equiv 5^{J(6)} \equiv 1 {\rm ~(mod~}6)$,
+   \item Mit $2 = 1 * 2$ und $6 = 2*3$, wobei $2$ und $3$ jeweils prim;
+         $J(6) = 2$, da nur $1$ und $5$ zu $6$ teilerfremd
+         \index{Zahlen!teilerfremd (co-prime)} sind folgt
+         $5^2 \equiv 5^{J(6)} \equiv 1 {\rm ~(mod~}6)$,
          ohne dass man die Potenz berechnen musste.
    \item Mit $792 = 22 * 36$ und $23*37 = 851$, wobei $23$ und $37$ jeweils prim folgt \\
          $31^{792} \equiv 31^{J(23*37)} \equiv 31^{J(851)} \equiv 1 {\rm ~(mod~}851)$.
@@ -1371,15 +1391,19 @@ Wenn man modulo $26$ rechnet, aus welcher Menge können $e$ und $d$ kommen?
 Lösung: Es gilt $e*d \equiv 1$ (mod $J(26)$).
 \begin{itemize}
    \item[] Die reduzierte Restemenge $R' = \mathbb{Z}_{26}^* = \{ 1, 3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25 \}$ sind die 
-Elemente in $\mathbb{Z}_{26}, $ die eine multiplikative Inverse haben, also teilerfremd\index{teilerfremd} zu $26$ sind.
-   \item[] Die reduzierte Restemenge $R''$ enthält nur die Elemente aus $R'$, die
-           teilerfremd zu $J(26) = 12$ sind: $R'' = \{ 1, 5, 7, 11 \}$.
-   \item[] Für jedes $e$ aus $R''$ gibt es ein $d$ aus $R''$, so dass $a \equiv (a^e)^d{\rm ~(mod~}n)$.
+Elemente in $\mathbb{Z}_{26}, $ die eine multiplikative Inverse haben,
+also teilerfremd\index{Zahlen!teilerfremd (co-prime)} zu $26$ sind.
+   \item[] Die reduzierte Restemenge $R''$ enthält nur die Elemente aus
+           $R'$, die teilerfremd zu $J(26) = 12$ sind:
+           $R'' = \{ 1, 5, 7, 11 \}$.
+   \item[] Für jedes $e$ aus $R''$ gibt es ein $d$ aus $R''$, so dass
+           $a \equiv (a^e)^d{\rm ~(mod~}n)$.
 \end{itemize}
-Somit gibt es also zu jedem $e$ in $R''$ genau ein (nicht unbedingt von $e$ verschiedenes) Element, so dass 
-gilt: $e*d \equiv 1$ (mod $J(26)$).
+Somit gibt es also zu jedem $e$ in $R''$ genau ein (nicht unbedingt von
+$e$ verschiedenes) Element, so dass gilt: $e*d \equiv 1$ (mod $J(26)$).
 
-Für alle $e$, die teilerfremd zu $J(n)$ sind, könnte man nach dem Satz von Euler-Fermat das $d$ 
+Für alle $e$, die teilerfremd\index{Zahlen!teilerfremd (co-prime)} zu
+$J(n)$ sind, könnte man nach dem Satz von Euler-Fermat das $d$ 
 folgendermaßen berechnen:
 \begin{eqnarray*}
  d & \equiv & e^{-1}      {\rm ~(mod~} J(n)) \nonumber \\
@@ -1418,27 +1442,35 @@ $$ x^2 +(J(n)-n-1)x +n=0 $$ löst.
 }
 \label{MultOrdPrimitveRoot}
 
-Mathematiker stellen sich die Frage, unter welchen Bedingungen ergibt die
-wiederholte Anwendung einer Operation das neutrale Element (vergleiche Strukturen und Muster\index{Struktur}).
+Mathematiker stellen sich die Frage, unter welchen Bedingungen ergibt
+die wiederholte Anwendung einer Operation das neutrale Element
+(vergleiche Strukturen und Muster\index{Struktur}).
 
-Für die $i$-fach aufeinander folgende modulare Multiplikation einer Zahl $a$ mit 
-$i=1, \cdots , m-1$ ergibt sich als Produkt das neutrale Element der Multiplikation $(1)$ nur dann, wenn
-$a$ und $m$ teilerfremd sind. Der Wert von $i, $ für den das Produkt $a^{i}= 1$ ist, heißt 
-multiplikative Ordnung von $a.$
+Für die $i$-fach aufeinander folgende modulare Multiplikation einer
+Zahl $a$ mit $i=1, \cdots , m-1$ ergibt sich als Produkt das neutrale
+Element der Multiplikation $(1)$ nur dann, wenn $a$ und $m$
+teilerfremd\index{Zahlen!teilerfremd (co-prime)} sind. Der Wert von
+$i, $ für den das Produkt $a^{i}= 1$ ist, heißt multiplikative Ordnung
+von $a.$
 
-Die Multiplikative Ordnung (order) und die Primitivwurzel (primitive root) sind zwei nützliche Konstrukte 
-(Konzepte) der elementaren Zahlentheorie.
+Die Multiplikative Ordnung (order) und die Primitivwurzel (primitive
+root) sind zwei nützliche Konstrukte (Konzepte) der elementaren
+Zahlentheorie.
 
 \begin{definition}\label{def-zth-ordn}
-Die {\bf multiplikative Ordnung} \index{Ordnung!multiplikative} $ord_m(a)$ einer ganzen Zahl $a {\rm ~(mod~} m)$ (wobei $a$ und $m$ teilerfremd sind) ist die 
-kleinste ganze Zahl $e$, für die gilt:  $a^e \equiv 1 {\rm ~(mod~} m)$. 
+Die {\bf multiplikative Ordnung} \index{Ordnung!multiplikative}
+$ord_m(a)$ einer ganzen Zahl $a {\rm ~(mod~} m)$ (wobei $a$ und $m$
+teilerfremd sind) ist die kleinste ganze Zahl $e$, für die gilt:
+ $a^e \equiv 1 {\rm ~(mod~} m)$. 
 \end{definition}
 
-Die folgende Tabelle zeigt, dass in einer multiplikativen Gruppe (hier $\mathbb{Z}_{11}^*$) nicht notwendig alle Zahlen die 
-gleiche Ordnung haben: Die Ordnungen sind $1, 2, 5$ und $10$. Dabei bemerkt man:
+Die folgende Tabelle zeigt, dass in einer multiplikativen Gruppe (hier
+$\mathbb{Z}_{11}^*$) nicht notwendig alle Zahlen die gleiche Ordnung
+haben: Die Ordnungen sind $1, 2, 5$ und $10$. Dabei bemerkt man:
 \begin{enumerate}
   \item Die Ordnungen sind alle Teiler von 10. 
-  \item Die Zahlen $a = 2, 6, 7$ und $8$ haben die Ordnung $10$. Man sagt diese Zahlen haben in $\mathbb{Z}_{11}^*$ 
+  \item Die Zahlen $a = 2, 6, 7$ und $8$ haben die Ordnung $10$.
+        Man sagt diese Zahlen haben in $\mathbb{Z}_{11}^*$ 
         {\bf maximale Ordnung} \index{Ordnung!maximale}.
 \end{enumerate}
 
@@ -1483,19 +1515,22 @@ a=10         & 10  & 1   & 10  & 1   & 10    & 1   & 10  & 1   & 10  & 1    & 2 
 %\end{table}
 \end{center}
 }
-Aus der Tabelle kann man ersehen, dass z.B. die Ordnung von $3$ modulo $11$ den Wert $5$ hat.
+Aus der Tabelle kann man ersehen, dass z.B. die Ordnung von $3$ modulo
+$11$ den Wert $5$ hat.
 
 \begin{definition}\label{def-zth-primitiveroot}
-Sind $a$ und $m$ teilerfremd und gilt $ord_m(a) = J(m)$, (d.h. $a$ hat maximale Ordnung), dann nennt man 
+Sind $a$ und $m$ teilerfremd\index{Zahlen!teilerfremd (co-prime)} und
+gilt $ord_m(a) = J(m)$, (d.h. $a$ hat maximale Ordnung), dann nennt man
 $a$ eine {\bf Primitivwurzel} \index{Primitivwurzel} von $m$.
 \end{definition}
 
-Nicht zu jedem Modul $m$ gibt es  eine Zahl $a,$ die eine Primitivwurzel ist. In der obigen Tabelle ist nur $a = 2, 6, 7$
-und $8$ bezüglich mod $11$ eine Primitivwurzel ($J(11) = 10$).
+Nicht zu jedem Modul $m$ gibt es  eine Zahl $a,$ die eine Primitivwurzel
+ist. In der obigen Tabelle ist nur $a = 2, 6, 7$ und $8$ bezüglich mod
+$11$ eine Primitivwurzel ($J(11) = 10$).
 
 Mit Hilfe der Primitivwurzel kann man die Bedingungen klar herausarbeiten,
-wann Potenzen modulo $m$ {\em eindeutig invertierbar}\index{invertierbar} und die Berechnung in den
-Exponenten handhabbar sind.
+wann Potenzen modulo $m$ {\em eindeutig invertierbar}\index{invertierbar}
+und die Berechnung in den Exponenten handhabbar sind.
 
 
 \newpage
@@ -1557,20 +1592,23 @@ $J(45)$ berechnet sich nach Satz \ref{J_of_n}: $J(45) = J(3^2*5) = [3^1*2] * [1*
 \vskip +20 pt
 
 Da $45$ keine Primzahl ist, gibt es nicht für alle Werte von $a$ eine
-''Multiplikative Ordnung'' (z.B. für die nicht zu $45$ teilerfremden Zahlen 
+''Multiplikative Ordnung'' (z.B. für die nicht zu $45$
+teilerfremden\index{Zahlen!teilerfremd (co-prime)} Zahlen 
 $3, 5, 6, 9, 10, 12, \cdots,$ da $45 = 3^2*5$).\vskip +1em
 
 {\bf Beispiel 3:} \\
 Hat $7$ eine Primitivwurzel modulo $45$?\par
 
 Die Voraussetzung/Bedingung ggT$(7,45)=1$ ist erfüllt.
-Aus der Tabelle (Werte von $a^{i}$ mod $45$) kann man ersehen, dass die Zahl $7$ keine Primitivwurzel von $45$ ist,
+Aus der Tabelle (Werte von $a^{i}$ mod $45$) kann man ersehen, dass die
+Zahl $7$ keine Primitivwurzel von $45$ ist,
 denn $ord_{45}(7) = 12 \not= 24 = J(45)$.\vskip + 1em
 
 \newpage
 {\bf Beispiel 4:} \\
 Die folgende Tabelle\footnote{%
-In \hyperlink{AppArith3c}{Anhang E zu diesem Kapitel} finden Sie den Quelltext zur Berechnung der Tabelle mit Mathematica und Pari-GP.
+In \hyperlink{AppArith3c}{Anhang E zu diesem Kapitel} finden Sie den
+Quelltext zur Berechnung der Tabelle mit Mathematica und Pari-GP.
 } beantwortet die Frage, ob die Zahl $7$ eine Primitivwurzel von $46$ ist.
 Die Voraussetzung/Bedingung ggT$(7,46)=1$ ist erfüllt.
   
@@ -1653,9 +1691,11 @@ Tabelle~6 zeigt, dass bei zusammengesetzten Moduli $n$ nicht alle $a$ die
 maximale Ordnung $J(n)$ haben. In diesem Beispiel haben nur $5,7,11,15,17,19
 \mbox{ und } 21$
 die Ordnung 22.
-} Für einen Modul $n$ und eine Zahl $a$, teilerfremd zu $n$ gilt:\\
-Die Menge $\{ a^i\; (\mbox{mod }n) |\; i = 1,\dots,J(n)\}$ ist gleich der 
-multiplikativen Gruppe $Z_n^*$ genau dann, wenn  $ord_n(a) = J(n)$.
+}
+Für einen Modul $n$ und eine Zahl $a$,
+teilerfremd\index{Zahlen!teilerfremd (co-prime)} zu $n$ gilt:\\
+Die Menge $\{ a^i\; (\mbox{mod }n) |\; i = 1,\dots,J(n)\}$ ist gleich
+der multiplikativen Gruppe $Z_n^*$ genau dann, wenn  $ord_n(a) = J(n)$.
 \end{satz}
 Die multiplikative Gruppe $Z_n^*$ nimmt alle Werte von $1$ bis $n-1$ an.
 
@@ -1672,12 +1712,12 @@ wurde 1978 von Ronald Rivest, Adi Shamir und Leonard Adleman entwickelt und
 kann sowohl zum Signieren wie zum Verschlüsseln eingesetzt werden.
 Kryptographen assoziieren mit der Abkürzung \glqq RSA'' immer dieses
 Verfahren $-$ die folgende Anmerkung soll eher humorvoll zeigen, dass man
-jede Buchstabenkombination mehrfach belegen kann: in Deutschland gibt es sehr
+jede Buchstabenkombination mehrfach belegen kann: In Deutschland gibt es sehr
 Interessen-lastige Diskussionen im Gesundheitswesen. Dabei wird mit
-\glqq RSA'' der vom Gesundheitsministerium geregelte \glqq {\bf R}isiko{\bf S}
-truktur{\bf A}usgleich'' in der gesetzlichen Krankenversicherung:
-Im Jahr 2004 wurden durch den RSA ca. 16 Mrd. Euro zwischen den Krankenkassen
-umverteilt.
+\glqq RSA'' der vom Gesundheitsministerium geregelte
+\glqq {\bf R}isiko{\bf S}truktur{\bf A}usgleich'' in der gesetzlichen
+Krankenversicherung: Im Jahr 2004 wurden durch den RSA ca. 16 Mrd. Euro
+zwischen den Krankenkassen umverteilt.
 }$^,$\footnote{%
 In Literatur\index{Literatur} und in Filmen\index{Filme} sind sowohl
 klassische als auch moderne Kryptographie-Verfahren verarbeitet worden 
@@ -1772,7 +1812,7 @@ dafür angemeldet hat. Generell gibt es in Europa und in der Open Source
 Bewegung \index{Open Source} wenig Verständnis für Patente auf Algorithmen.
 Überhaupt kein Verständnis herscht außerhalb der USA, dass man auf den 
 Sonderfall (3 Faktoren) eines Algorithmus (RSA) ein Patent beantragen kann, 
-obwohl das Patent für den allgemeinen Fall schon fast abgelaufen ist.
+obwohl das Patent für den allgemeinen Fall schon fast abgelaufen war.
 }$^,$\footnote{%
 Für Primzahlen $p$ und $q$ mit $p=q$, und $e,d$ mit $ed\equiv 1 \mod J(n)$
 gilt i.a. nicht $ (m^{e})^d \equiv m \mod n \text{ für alle } m <n.$
@@ -1799,7 +1839,8 @@ bezeichnet.
                 notwendig für das Funktionieren des Verfahrens ist, $e$ so
                 zu wählen, dass gilt: 
                 $\max(p,q) < e < J(n) - 1$.}: \\
-                $e$ ist teilerfremd zu $J(n) = (p-1)*(q-1)$. \\
+                $e$ ist teilerfremd\index{Zahlen!teilerfremd (co-prime)}
+                zu $J(n) = (p-1)*(q-1)$. \\
                 Danach kann man $p$ und $q$ \glqq wegwerfen''.\footnote{%
                 Das Verfahren erlaubt es auch, $d$ frei zu wählen und dann
                 $e$ zu berechnen.
@@ -1879,7 +1920,8 @@ M^{e * d}  & \equiv & M^{1+k*J(n)} \equiv M * M^{k*J(n)} \equiv M * M^{k*(p-1)*(
        & \equiv & M {\rm ~(mod~}p). \nonumber
 \end{eqnarray*}
 Die Voraussetzung für die Anwendung des vereinfachten Satzes von Euler-Fermat 
-(kleiner-Fermat Satz \ref{thm-zth-fermat1}) war, dass $M$ und $p$ teilerfremd sind.
+(kleiner-Fermat Satz \ref{thm-zth-fermat1}) war, dass $M$ und $p$
+teilerfremd\index{Zahlen!teilerfremd (co-prime)} sind.
 
 Da das im allgemeinen nicht gilt, müssen wir noch betrachten, was ist, wenn
 $M$ und $p$ nicht teilerfremd sind: da $p$ eine Primzahl ist, muss dann
@@ -2933,16 +2975,17 @@ Viel mehr als unsere Fähigkeiten sind es
 unsere Entscheidungen ..., die zeigen, wer wir wirklich sind.}}
 \end{center}
 
-\addtocounter{footnote}{0}\footnotetext{Joanne K. Rowling, \glqq Harry Potter und die Kammer des Schreckens'', Carlsen,
-(c) 1998, letztes Kapitel \glqq Dobbys Belohnung'', S. 343, Dumbledore.}
+\addtocounter{footnote}{0}\footnotetext{Joanne K. Rowling, \glqq Harry Potter
+und die Kammer des Schreckens'', Carlsen, (c) 1998,
+letztes Kapitel \glqq Dobbys Belohnung'', S. 343, Dumbledore.}
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \subsection{Anwendungen der asymmetrischen Kryptographie mit Zahlenbeispielen}
 
-In der modernen Kryptographie \index{Kryptographie!moderne} werden die Ergebnisse der modularen Arithmetik
-extensiv angewandt. Hier werden exemplarisch einige wenige Beispiele aus der
-Kryptographie mit kleinen\footnote{%
-\glqq Klein'' bedeutet beim RSA-Verfahren, dass die 
-Bitlängen der Zahlen sehr viel kleiner sind als $1024$ Bit (das sind $308$ Dezimalstellen). 
+In der modernen Kryptographie \index{Kryptographie!moderne} werden die Ergebnisse
+der modularen Arithmetik extensiv angewandt. Hier werden exemplarisch einige
+wenige Beispiele aus der Kryptographie mit kleinen\footnote{%
+\glqq Klein'' bedeutet beim RSA-Verfahren, dass die Bitlängen der Zahlen sehr
+viel kleiner sind als $1024$ Bit (das sind $308$ Dezimalstellen). 
 $1024$ Bit gilt im Moment in der Praxis als Mindestlänge für einen sicheren Certification
 Authority-RSA-Modul.
 } Zahlen vorgestellt.
@@ -2971,7 +3014,8 @@ ist wie Addieren.
 
 % --------------------------------------------------------------------------
 \hypertarget{OneWayFunktion2}{}%
-\subsubsection{Einwegfunktionen}
+\subsubsection{Einwegfunktionen}\index{Einwegfunktion}
+\label{OneWayFunktion2}%
 Wenn der Schlüssel auch bei gleichzeitiger Kenntnis von
 Klar- und Chiffretext nicht ermittelbar sein soll, braucht man eine
 Funktion, die einerseits relativ einfach berechenbar ist - man will ja
@@ -2979,7 +3023,7 @@ chiffrieren können. Andererseits soll ihre Umkehrung zwar existieren (sonst
 würde beim Chiffrieren Information verlorengehen), aber de facto
 unberechenbar sein.
 
-Was sind denkbare Kandidaten für eine solche\index{Einwegfunktion} {\bf Einwegfunktion}?
+Was sind denkbare Kandidaten für eine solche {\bf Einwegfunktion}?
 Man könnte an
 die Stelle der Addition die Multiplikation setzen; aber schon Grundschüler
 wissen, dass deren Umkehrung, die Division, nur geringfügig mühsamer ist als
@@ -3015,8 +3059,9 @@ Diffie, Martin E. Hellman und Ralph Merkle erdacht\footnote{%
 }. 
 
 Eine Einwegfunktion dient Alice und Bob\footnote{%
-Alice und Bob werden standardmäßig als die beiden berechtigten Teilnehmer
-eines Protokolls bezeichnet (siehe \cite[Seite 23]{Schneier1996nt}).
+Alice\index{Alice} und Bob\index{Bob} werden standardmäßig als die beiden
+berechtigten Teilnehmer eines Protokolls bezeichnet (siehe
+\cite[Seite 23]{Schneier1996nt}).
 } dazu, sich einen Schlüssel $S$, den Sessionkey, für die nachfolgende
 Verständigung zu verschaffen. Dieser ist dann ein Geheimnis, das nur diesen
 beiden bekannt ist. Alice wählt sich eine Zufallszahl $a$ und hält sie geheim.
@@ -3179,7 +3224,8 @@ lösen.
                 Siehe Fußnote \ref{foot:Selection-of-e} auf Seite
                 \pageref{foot:Selection-of-e}.}
                 zwischen $11$ und $39$ liegen und muss
-                teilerfremd zu $40$ sein).
+                teilerfremd\index{Zahlen!teilerfremd (co-prime)}
+                zu $40$ sein).
   \item[\bf 3.] $d = 23$ (da $23*7 \equiv 161 \equiv 1{\rm ~(mod~}40)$)
   \begin{itemize} 
      \item[] $\rightarrow$ Public Key des Empfängers: $(55, 7),$
@@ -3238,7 +3284,8 @@ L       & 12   & Y    & 25 \\
 {\bf 2.} $e=37$ (sollte\footnote{%
                 Siehe Fußnote \ref{foot:Selection-of-e} auf Seite
                 \pageref{foot:Selection-of-e}.}
-                zwischen 79 und 3587 liegen und muss teilerfremd
+                zwischen 79 und 3587 liegen und muss
+                teilerfremd\index{Zahlen!teilerfremd (co-prime)}
                 zu $3588$ sein). \\
 {\bf 3.} $d=97$ (denn $e*d=1{\rm ~mod~}J(n); 37*97 \equiv 3.589 
 \equiv 1{\rm ~(mod~}3588) \;$)\footnote{%
@@ -3329,7 +3376,8 @@ Mit CrypTool\index{CrypTool} können Sie dies per Menü
       ($65537 = 2^{16}+1$) ($255,016 = 2^{3}*127*251$).\\
       Real wird $J(n)$ nicht faktorisiert, sondern für das gewählte $e$ wird
       mit dem Euklidschen Algorithmus sichergestellt, dass ggT$(e,J(n))=1$.
-                } teilerfremd zu $255.016$ sein).\\
+                } teilerfremd\index{Zahlen!teilerfremd (co-prime)}
+         zu $255.016$ sein).\\
 {\bf 3.} $d=231.953$ \\
 \strut\quad\ (denn $e \equiv d^{-1}{\rm ~mod~}J(n);$
 \mbox{}\quad $65.537*231.953 \equiv 15.201.503.761 \equiv 1
@@ -4099,9 +4147,12 @@ ggT($37,3588) = a*x + b*y$: ggT($37,3588$) = 1, $x = -1$, $y=97$.
 
 Es folgt 
 \begin{itemize}
-   \item[\bf 1.] $37$ und $3588$ sind teilerfremd ($37$ ist invertierbar modulo $3588$).
-   \item[\bf 2.] $37*97 = (1*3588)+1$ mit anderen Worten $37*97 \equiv 1 {\rm ~(mod~} 3588)$ \\
-                 und damit ist modulo $3588$ die Zahl $97$ multiplikativ invers zu $37$.
+   \item[\bf 1.] $37$ und $3588$ sind teilerfremd\index{Zahlen!teilerfremd (co-prime)}
+                 ($37$ ist invertierbar modulo $3588$).
+   \item[\bf 2.] $37*97 = (1*3588)+1$ mit anderen Worten $37*97 \equiv
+                 1 {\rm ~(mod~} 3588)$ \\
+                 und damit ist modulo $3588$ die Zahl $97$ multiplikativ
+                 invers zu $37$.
 \end{itemize}
 \end{enumerate}
 
@@ -4281,8 +4332,8 @@ also $z = 35189$.
 \index{Mathematica}\index{Pari-GP}
 
 In diesem Anhang finden Sie den Quellcode, um die Tabellen und
-Beispiele mit Hilfe von Mathematica und dem freien Programm Pari-GP
-zu berechnen.
+Beispiele mit Hilfe der beiden Computeralgebrasysteme\index{CAS}
+Mathematica und Pari-GP (freies Programm) zu berechnen.
 
 
 \hypertarget{AppArith1}{}
@@ -4389,10 +4440,14 @@ matrix(12,14, x,y,
        eulerphi(m))))
 \end{verbatim}
 
-{\tt znorder(Mod(x,m))} kann nur berechnet werden, wenn $x$ teilerfremd zu $m$ ist, was mit {\tt gcd(x,m)} überprüft wird.
-Bessere Performance\index{Performance} erreicht man mit {\tt Mod(x,m)${}^\wedge$y} statt mit {\tt (x${}^\wedge$y)\%m}.
+{\tt znorder(Mod(x,m))} kann nur berechnet werden, wenn $x$
+teilerfremd\index{Zahlen!teilerfremd (co-prime)} zu $m$ ist, was mit
+{\tt gcd(x,m)} überprüft wird.
+Bessere Performance\index{Performance} erreicht man mit
+{\tt Mod(x,m)${}^\wedge$y} statt mit {\tt (x${}^\wedge$y)\%m}.
 
-Auch in Pari-GP kann man Schleifen erzeugen. Verzichtet man auf die Tabellenform, sieht das so aus:
+Auch in Pari-GP kann man Schleifen erzeugen. Verzichtet man auf die
+Tabellenform, sieht das so aus:
 \begin{verbatim}
 for( x=1,12, 
      for(y=1,12, print(Mod(x^y,m))); 

@@ -95,6 +95,7 @@
 %--------------------------------------------------------------------
 \hypertarget{OneWayFunktion1}{}
 \subsection{Einwegfunktionen mit Falltür und Komplexitätsklassen}
+\label{OneWayFunktion1}
 %--------------------------------------------------------------------
 \index{Kryptographie!moderne} \index{Einwegfunktion}
 Eine {\bf Einwegfunktion} ist eine effizient zu 
@@ -186,7 +187,10 @@ Gegeben sind die natürlichen Zahlen $ a_1, \dots, a_n $   und $ g .$
 Gesucht sind  $ x_1, \dots, x_n \in \{ 0,1\} $  mit $ g = \sum_{i=1}^{n}x_i a_i $  (wo also $ g_i = a_i = w_i $ gewählt ist).
 Dieses Problem heißt auch  {\bf 0-1-Knapsackproblem} und wird mit $ K(a_1, \dots, a_n;g) $  bezeichnet.\\
 
-Zwei 0-1-Knapsackprobleme  $ K(a_1, \dots, a_n;g) $   und  $ K(a'_1, \dots, a'_n;g') $  heißen kongruent, falls es zwei \index{teilerfremd} teilerfremde Zahlen $ w $ und $ m $ gibt, so dass
+Zwei 0-1-Knapsackprobleme  $ K(a_1, \dots, a_n;g) $   und
+$ K(a'_1, \dots, a'_n;g') $  heißen kongruent, falls es zwei
+teilerfremde\index{Zahlen!teilerfremd (co-prime)} Zahlen $ w $ und $ m $
+gibt, so dass
 \begin{enumerate}
     \item $ m > \max \{ \sum_{i=1}^n a_i , \sum_{i=1}^n a'_i \}, $
 
@@ -242,8 +246,17 @@ Genauer:
 
 \begin{center}
 \fbox{\parbox{12cm}{        
-Es sei $ (a_1, \dots, a_n) $ superwachsend. Seien $ m $ und $ w $ zwei teilerfremde Zahlen mit $ m > \sum_{i=1}^{n} a_i $ und $ 1\leq w \leq m-1. $ Wähle $\bar{w} $ mit $ w \bar{w} \equiv 1 \mod m $ die modulare Inverse von $ w $ und setze $ b_i:= wa_i \mod m, $ $ 0\leq b_i < m $ für $ i=1, \dots ,n, $ und prüfe, ob die Folge $ b_1, \dots b_n $ nicht superwachsend ist. Danach wird eine Permutation $ b_{\pi (1)}, \dots , b_{\pi(n)} $ von $ b_1, \dots , b_n $ publiziert und insgeheim die zu $ \pi $ inverse Permutation $ \mu $ festgehalten. Ein Sender schreibt seine Nachricht in Blöcke $ (x_1^{(j)}, \dots, x_n^{(j)}) $ von Binärzahlen der Länge $ n $ und bildet
-\[ g^{(j)}:= \sum_{i=1}^n x_{i}^{(j)} b_{\pi(i)} \]
+Es sei $ (a_1, \dots, a_n) $ superwachsend. Seien $ m $ und $ w $ zwei
+teilerfremde\index{Zahlen!teilerfremd (co-prime)} Zahlen mit $ m >
+\sum_{i=1}^{n} a_i $ und $ 1\leq w \leq m-1. $
+Wähle $\bar{w} $ mit $ w \bar{w} \equiv 1 \mod m $ die modulare Inverse
+von $ w $ und setze $ b_i:= wa_i \mod m, $ $ 0\leq b_i < m $ für $ i=1,
+\dots ,n, $ und prüfe, ob die Folge $ b_1, \dots b_n $ nicht superwachsend
+ist. Danach wird eine Permutation $ b_{\pi (1)}, \dots , b_{\pi(n)} $
+von $ b_1, \dots , b_n $ publiziert und insgeheim die zu $ \pi $ inverse
+Permutation $ \mu $ festgehalten. Ein Sender schreibt seine Nachricht
+in Blöcke $ (x_1^{(j)}, \dots, x_n^{(j)}) $ von Binärzahlen der Länge
+$ n $ und bildet \[ g^{(j)}:= \sum_{i=1}^n x_{i}^{(j)} b_{\pi(i)} \]
 und sendet $ g^{(j)}, (j=1,2, \dots). $\par
 Der Schlüsselinhaber bildet
 \[ G^{(j)}:=\bar{w} g^{(j)} \mod m ,\quad 0 \leq G^{(j)} < m \]
@@ -326,8 +339,10 @@ Der Ausgangstext wird in Blöcke zerlegt und verschlüsselt, wobei jeder Block ein
 \vskip +20 pt
 
 {\bf Bemerkung:} 
-Die Eulersche Phi-Funktion ist definiert duch: $ \phi (N)$ ist die  Anzahl der zu $ N $ \index{teilerfremd} {} teilerfremden natürlichen Zahlen 
-$ x \leq N. $ Zwei natürliche Zahlen $ a $ und $ b $ \index{teilerfremd} sind teilerfremd, falls $ \ggt (a,b)=1. $ 
+Die Eulersche Phi-Funktion ist definiert duch:
+$ \phi (N)$ ist die Anzahl der zu $ N $ {} teilerfremden natürlichen
+Zahlen $ x \leq N. $ Zwei natürliche Zahlen $ a $ und $ b $ sind
+teilerfremd\index{Zahlen!teilerfremd (co-prime)}, falls $ \ggt (a,b)=1. $
 
 Für die Eulersche Phi-Funktion gilt: $ \phi (1)=1,~\phi(2)=1,
 ~\phi(3)=2, ~\phi (4)=2, ~\phi(6)=2, ~\phi (10)= 4, ~\phi (15)=8. $
@@ -345,7 +360,8 @@ Im Spezialfall $ N=pq $ ist $ \phi (N)= pq(1-1/p)(1-1/q) = p(1-1/p)q(1-1/q)=(p-1
 \\ \vskip +5 pt
 \begin{center}
 \begin{tabular}{|l|l|l|}\hline
-$n$ & $\phi (n) $ & Die zu $ n $ teilerfremden natürlichen Zahlen kleiner $ n. $ \\ \hline
+$n$ & $\phi (n) $ & Die zu $ n $ teilerfremden\index{Zahlen!teilerfremd
+(co-prime)} natürlichen Zahlen kleiner $ n. $ \\ \hline
 1 & 1 & 1  \\
 2 & 1 & 1 \\
 3 &  2 & 1, 2 \\ 
@@ -392,7 +408,7 @@ kann man nie ausschließen.\\
 Wie leicht man sich verschätzen kann, zeigt die
 \hyperlink{RSA-200-chap3}{Faktorisierung von RSA-200} 
 (siehe Kapitel \ref{NoteFactorisation}) -- ganz ohne \glqq mathematische
-Durchbr"eche''.}
+Durchbrüche''.}
 
 
 

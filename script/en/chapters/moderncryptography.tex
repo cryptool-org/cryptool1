@@ -130,6 +130,7 @@
 %--------------------------------------------------------------------
 \hypertarget{OneWayFunktion1}{}
 \subsection{One way functions with trapdoor and complexity classes}
+\label{OneWayFunktion1}
 %--------------------------------------------------------------------
 \index{Cryptography!modern} \index{One way function}
 A {\bf one way function} is a function that can be calculated 
@@ -279,8 +280,8 @@ find $ x_1, \dots, x_n \in \{ 0,1\} $  where $ g = \sum_{i=1}^{n}x_i a_i $
 {\bf 0-1 knapsack problem} and is identified with $ K(a_1, \dots, a_n;g) $.\\
 
 Two 0-1 knapsack problems  $ K(a_1, \dots, a_n;g) $   and  $ K(a'_1, \dots, 
-a'_n;g') $  are called congruent if two \index{Co-prime} co-prime numbers $ w $ 
-and $ m $ exist in such a way that
+a'_n;g') $  are called congruent if two co-prime\index{Number!co-prime}
+numbers $ w $ and $ m $ exist in such a way that
 \begin{enumerate}
     \item $ m > \max \{ \sum_{i=1}^n a_i , \sum_{i=1}^n a'_i \}, $
 
@@ -352,7 +353,8 @@ More precisely:
 
 \begin{center}
 \fbox{\parbox{12cm}{        
-Let $ (a_1, \dots, a_n) $ be super-increasing. Let $ m $ and $ w $ be two co-prime 
+Let $ (a_1, \dots, a_n) $ be super-increasing. Let $ m $ and $ w $ be two
+co-prime\index{Number!co-prime}
 numbers with $ m > \sum_{i=1}^{n} a_i $ and $ 1\leq w \leq m-1. $ Select 
 $\bar{w} $ with $ w \bar{w} \equiv 1 \mod m $ the modular inverse of $ w $ and 
 set $ b_i:= wa_i \mod m, $ $ 0\leq b_i < m $ for $ i=1, \dots ,n, $ and verify 
@@ -468,8 +470,8 @@ binary value $ x^{(j)} \leq N $. \vskip + 5 pt
 \index{Euler!(phi) function}
 {\bf Comment:} 
 The Euler phi function is defined as: $ \phi (N)$ is the number of natural 
-numbers that do not have a common factor with $ N $ \index{Co-prime} {}
-$ x \leq N. $ Two natural numbers $ a $ and $ b $ are co-prime if 
+numbers that do not have a common factor with $ N $ {} $ x \leq N. $
+Two natural numbers $ a $ and $ b $ are co-prime\index{Number!co-prime} if 
 $ \ggt (a,b)=1. $ 
 
 For the Euler phi function: $ \phi (1)=1, \phi(2)=1,
@@ -490,8 +492,8 @@ In the case of $ N=pq $, $ \phi (N)= pq(1-1/p)(1-1/q) = p(1-1/p)q(1-1/q)=(p-
 \\ \vskip +5 pt
 \begin{center}
 \begin{tabular}{|l|l|l|}\hline
-$n$ & $\phi (n) $ & The natural numbers that are co-prime to $ n $ and less than 
-$ n. $ \\ \hline
+$n$ & $\phi (n) $ & The natural numbers that are co-prime\index{Number!co-prime}
+to $ n $ and less than $ n. $ \\ \hline
 1 & 1 & 1  \\
 2 & 1 & 1 \\
 3 &  2 & 1, 2 \\ 

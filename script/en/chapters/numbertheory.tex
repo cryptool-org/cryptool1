@@ -13,7 +13,8 @@
 \hypertarget{Chapter_ElementaryNT}{}
 \section{Introduction to Elementary Number Theory with Examples}
 \label{Chapter_ElementaryNT}
-(Bernhard Esslinger, July 2001; Updates: Dec. 2001, June 2002, May 2003, May 2005, March 2006) \\
+(Bernhard Esslinger, July 2001; Updates: Dec. 2001, June 2002, May 2003,
+ May 2005, March 2006, June 2007) \\
 
 This ``introduction'' is for people with a mathematical interest. There is no
 more pre-knowledge necessary than what you learn in the secondary school.\par
@@ -336,7 +337,7 @@ If, however, we divide $158$ by $2$ the result $79$ is a whole number.
 In number theory we express this by saying that $158$ is {\em divisible} 
 by $2$ but not by $10$. In general, we say:
 
-\begin{definition}\label{def-zth-divisibility} \index{Divisibility} \index{Divisible}
+\begin{definition}\label{def-zth-divisibility} \index{Divisibility}
 A whole number $n$ is {\bf divisible} by a whole number $d$ if the
 quotient $n/d$ is a whole number $c$ such that $n = c * d$.
 \end{definition}
@@ -388,7 +389,7 @@ As only the remainders $0, 1, 2, \cdots, m-1$ are possible for division modulo $
 For each modulo $m$ there are precisely $m$ remainder classes.
 
 \begin{definition}\label{def-zth-congruence} \index{Congruence}
-Two numbers $a, b \in \mathbb{N}$  are said to be \index{Congruent}congruent modulo $m \in 
+Two numbers $a, b \in \mathbb{N}$  are said to be congruent modulo $m \in 
 \mathbb{N}$ if and only if they have the same remainder when divided by $m$.
 \end{definition}
 
@@ -454,10 +455,17 @@ the remainder when this number is divided by $m$. The result is that all results
 % --------------------------------------------------------------------------
 \subsubsection{Laws of modular calculations}
 
-From algebra theorems it follows that essential parts of the conventional calculation rules are kept when we 
-proceed to modular calculations over a basic set $\mathbb{Z}$.  For example, addition remains commutative. 
-The same goes for multiplication modulo $m$. The result of a division\footnote{\label{ftn-zth-divmodn}When dividing modulo $m$\index{Division modulo $n$}  we cannot use every number because some numbers have the same 
-property as zero. See footnote \ref{ftn-mod6} in chapter \ref{addmult}.} is not a fraction but rather a whole number between $0$ and $m-1$.
+From algebra theorems it follows that essential parts of the conventional
+calculation rules are kept when we proceed to modular calculations over
+a basic set $\mathbb{Z}$.  For example, addition remains commutative. 
+The same goes for multiplication modulo $m$. The result of a
+division\footnote{%
+\label{ftn-zth-divmodn}
+When dividing modulo $m$\index{Division modulo $n$} we can one use
+co-prime\index{Number!co-prime} numbers because because other numbers
+have the same property as zero. See footnote
+\ref{ftn-mod6} in chapter \ref{addmult}.
+} is not a fraction but rather a whole number between $0$ and $m-1$.
 
 The known laws apply:
 \begin{itemize}
@@ -640,9 +648,12 @@ In the case of modular addition, this is true for every modulo (not just for $5$
 This is not the case, however, for 
 modular multiplication.
 \begin{theorem}\label{thm-zth-multinv}
-A natural number $a$ from the set $\{1, \cdots, m-1\}$ has one inverse if and only if it 
-and the modulo $m$ are co-prime\footnote{Two whole numbers $a$ and $b$ are co-prime if and only if ${\rm gcd}(a, b) = 1$.\\
-If $p$ is prime and $a$ is a random whole number that is not a multiple of $p$, then $p$ and a are co-prime.\\
+A natural number $a$ from the set $\{1, \cdots, m-1\}$ has one inverse if
+and only if this number and the modulo $m$ are co-prime\footnote{Two whole
+numbers $a$ and $b$ are co-prime\index{Number!co-prime} if and only if
+${\rm gcd}(a, b) = 1$.\\
+If $p$ is prime and $a$ is a random whole number that is not a multiple of
+$p$, then $p$ and a are co-prime.\\
 Further name to the topic co-prime (with $a_i \in \mathbb{Z}, i=1, \cdots, n$):
 \begin{enumerate}
 \item $a_1,a_2, \cdots, a_n$ are {\em relatively prime} \index{Relatively prime}, if $ {\rm~gcd}(a_1, \cdots , a_n) =1.$
@@ -785,7 +796,7 @@ remainder                 & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6 
 \end{center} 
 We have calculated $(5 * i)$ (mod $12$)  and  $(6*i)$ (mod $12$).
 Between $i=1, \cdots, m$, not all values between $0, \cdots, m-1$ occur and $6$ does not have an inverse mod $12$, 
-because $6$ and the modulus $m=12$ are not co-prime.
+because $6$ and the modulus $m=12$ are not co-prime\index{Number!co-prime}.
 
 {\bf The multiplicative inverse of $5$ (mod $12$) is $5$. The number $6$ has no inverse (mod $12$).}
 
@@ -963,9 +974,9 @@ security assumption used by the RSA encryption system (see chapter
 The time required for inverting addition and multiplication, on the other hand, 
 is simply proportional to $\log m$ or $(\log m)^2$. Powers (for a number $x$ 
 calculate $x^a$ with $a$ fixed) and exponents (for a number $x$ 
-calculate $a^x$ with $a$ fixed) are therefore typical one way functions 
-(See Overview of the one way functions in this \hyperlink{OneWayFunktion1}{Script} and
-\hyperlink{OneWayFunktion2}{article}). \index{One way function}
+calculate $a^x$ with $a$ fixed) are therefore typical one way functions
+\index{One way function}
+(compare chapters \ref{OneWayFunktion1} and \ref{OneWayFunktion2}).
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1187,8 +1198,10 @@ An alternative formulation of Fermat's Little Theorem is as follows:
 Let $p$ be a prime number and $a$ be a random whole number that is relatively prime to $p$, then:
 $$      a^{p-1} \equiv 1 {\rm ~(mod~} p).$$ 
 
-\begin{theorem}\label{thm-zth-fermateuler}{\bf Euler-Fermat theorem (generalisation of Fermat's Little Theorem)}
-For all elements $a$ in the group $\mathbb{Z}_n^*$ (i.e. $a$ and $n$ are natural numbers that are co-prime):
+\begin{theorem}\label{thm-zth-fermateuler}{\bf Euler-Fermat theorem
+                         (generalisation of Fermat's Little Theorem)}
+For all elements $a$ in the group $\mathbb{Z}_n^*$ (i.e. $a$ and $n$
+are natural numbers that are co-prime\index{Number!co-prime}):
 $$a^{J(n)} \equiv 1 {\rm ~(mod~} n). $$
 \end{theorem}
 \index{Euler, Leonhard} \index{Fermat, Pierre}
@@ -1310,7 +1323,8 @@ the product $a^{i}=1,$ is called the multiplicative order of $a$. \index{Order!m
 The multiplicative order and the primitive root are two useful constructs (concepts) in elementary number theory.
 
 \begin{definition}\label{def-zth-ordn}
-The {\bf multiplicative order} ${\rm ord}_m(a)$ of a whole number $a$ (mod $m$) (where $a$ and $m$ are co-prime) is the 
+The {\bf multiplicative order} ${\rm ord}_m(a)$ of a whole number $a$ (mod $m$)
+(where $a$ and $m$ are co-prime\index{Number!co-prime}) is the 
 smallest whole number $e$ for which $a^{e} \equiv 1 ~(mod~m)$.  
 \end{definition}
 
@@ -1364,7 +1378,8 @@ $a=10$         & 10  & 1   & 10  & 1   & 10    & 1   & 10  & 1   & 10  & 1    & 
 The table shows, for example, that the order of $3$ modulo $11$ has the value $5$.
 
 \begin{definition}\label{def-zth-primitiveroot}
-If $a$ and $m$ are co-prime and if $ord_m(a) = J(m)$ (i.e. a has maximum order), then we say that $a$ is a {\bf primitive root} of $m$.
+If $a$ and $m$ are co-prime\index{Number!co-prime} and if $ord_m(a) = J(m)$
+(i.e. a has maximum order), then we say that $a$ is a {\bf primitive root} of $m$.
 \end{definition}
 A number $a$ is not a primitive root for every modulo $m$. In the above table, only $a = 2, 6, 7$ and $8$ 
 is a primitive root with respect to mod $11$ ($J(11) = 10$).
@@ -1613,7 +1628,7 @@ Generally there is less understanding in Europe and with the Open Source
 Initiative\index{Open Source}, that one can claim patents on algorithms.
 But there is really no understanding outside the U.S., that one can get
 a patent for a special case (3 factors) of an algorithm (RSA), although
-the patent for the general case is almost expired.}$^,$\footnote{If the
+the patent for the general case was almost expired.}$^,$\footnote{If the
 two primes $p$ and $q$ are equal then $ (m^{e})^{d} \equiv m $ mod $n$ is
 not true for all $ m<n$ (although $ e*d \equiv 1$ mod $J(n)$ is fulfilled). 
 Example: If $ n=5^2$ then according to theorem \ref{thm-zth-phinum} it 
@@ -2704,6 +2719,7 @@ The essential reason for this is that subtraction is just as simple an operation
 % --------------------------------------------------------------------------
 \hypertarget{OneWayFunktion2}{}%
 \subsubsection{One way functions}\index{One way function}
+\label{OneWayFunktion2}%
 If the key is to be impossible to determine even with knowledge of both the 
 plaintext and the cipher text, we need a function that is, on the one hand, 
 relatively easy to calculate -- we don't want to have problems encrypting 
@@ -2734,21 +2750,28 @@ Whitfield Diffie, Martin E. Hellman and Ralph Merkle developed this DH key
 exchange protocol in Stanford in 1976\footnote{%
 With CrypTool\index{CrypTool} this exchange protocol has been
 visualized: you can execute the single steps with concrete numbers using 
-menu {\bf Indiv. Procedures \textbackslash{} Protocols \textbackslash{} Diffie-Hellman Demonstration}.
+menu {\bf Indiv. Procedures \textbackslash{} Protocols
+\textbackslash{} Diffie-Hellman Demonstration}.
 }.
 
-Alice and Bob\footnote{Bob and Alice are the default names used for the two authorised participants in a protocol 
-(see \cite[p. 23]{Schneier1996nt}).
-} use a one way function to obtain a key $S$, the session key, for subsequent correspondence. This is then a secret 
-that is only known to the two of them. Alice selects a random number $a$ and keeps it secret. She applies a one way 
-function to $a$ to calculate the number $A = g^a$ and sends it to Bob. He does the same, by selecting a secret random 
-number $b$, calculating $B = g^b$ and sending it to Alice. The number $g$ is random and can be publicly known. 
-Alice applies the one way function together with her secret number $a$ to $B$, while Bob does the same with his 
-secret number $b$ and the received number $A$.
+Alice and Bob\footnote{Bob\index{Bob} and Alice\index{Alice} are the default
+names used for the two authorised participants in a protocol (see
+\cite[p. 23]{Schneier1996nt}).
+} use a one way function to obtain a key $S$, the session key, for subsequent
+correspondence. This is then a secret that is only known to the two of them.
+Alice selects a random number $a$ and keeps it secret. She applies a one way
+function to $a$ to calculate the number $A = g^a$ and sends it to Bob. He does
+the same, by selecting a secret random number $b$, calculating $B = g^b$ and
+sending it to Alice. The number $g$ is random and can be publicly known.
+Alice applies the one way function together with her secret number $a$ to
+$B$, while Bob does the same with his secret number $b$ and the received
+number $A$.
 
-The result $S$ is the same in each case because the one way function is commutative: $(g^a)^b = (g^b)^a$. But even Bob 
-cannot reconstruct Alice's secret number $a$ from the data available to him, while Alice cannot determine Bob's secret 
-number $b$. And a perpetrator who knows $g$ and has intercepted both $A$ and $B$ cannot use this knowledge to 
+The result $S$ is the same in each case because the one way function is
+commutative: $(g^a)^b = (g^b)^a$. But even Bob cannot reconstruct Alice's
+secret number $a$ from the data available to him, while Alice cannot
+determine Bob's secret number $b$. And a perpetrator who knows $g$ and
+has intercepted both $A$ and $B$ cannot use this knowledge to 
 determine $a, b$ or $S$.
 
 \vskip +10 pt
@@ -3881,10 +3904,8 @@ therefore $z = 35189$.
 \addcontentsline{toc}{subsection}{Appendix E: Examples using Mathematica and Pari-GP}
 \index{Mathematica}\index{Pari-GP}
 
-This appendix gives you the source code to compute the tables and examples using Mathematica or the free 
-software Pari-GP.
-% In diesem Anhang finden Sie den Quellcode, mit dem die Tabellen und
-% Beispiele mit Hilfe von Mathematica und dem freien Programm Pari-GP berrechnet werden k"onnen.
+This appendix contains the source code to compute the tables and examples using
+the computer algebra systems\index{CAS} Mathematica and Pari-GP (free software).
 
 
 \hypertarget{AppArith1}{}
