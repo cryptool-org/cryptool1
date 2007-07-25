@@ -1,6 +1,7 @@
 /* CSS fuer die CrypTool HTML Hilfe */
 
-body {background-color:#FFFFFF;text:#000000;font-family:Arial;font-size:11pt}
+/* "td" below is a workaround for a IE bug (font-size in td not inherited from body) */
+body, td {background-color:#FFFFFF;text:#000000;font-family:Arial;font-size:11pt}
 
 a:link { color:#0000FF; }
 a:visited { color:#000080; }
