@@ -493,7 +493,7 @@ void CDlgHybridDecryptionDemo::OnOK()
 		//	errStr.AppendChar('\n');
 		// 	errStr.Append(theApp.SecudeLib.LASTTEXT);
 		// }
-		Message(IDS_STRING_DECRYPTION_ERROR,MB_ICONSTOP, errStr.GetBuffer());
+		AfxMessageBox(errStr,MB_ICONSTOP);
 	}
 	HIDE_HOUR_GLASS	
 

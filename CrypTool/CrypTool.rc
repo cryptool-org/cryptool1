@@ -11806,10 +11806,10 @@ BEGIN
     IDS_NO_ITEM_SELECTED    "Bitte selektieren Sie einen Entschlüsselungskandidaten, oder\nwählen Sie ""Abbrechen"" in der Maske mit den Analyseergebnissen, wenn der Angriff nicht erfolgreich war."
     IDS_DECRYPTION_HEADER   "Entschlüsselung"
     IDS_DECRYPTION_HEADER_HEX_DUMP "Entschlüsselung: Hex-Dump"
-    IDS_ERR_ON_OPEN_INFILE  "Fehler: kann Eingabedatei nicht öffenen!\n%s"
-    IDS_ERR_ON_OPEN_OUTFILE "Fehler: kann Ausgabedatei nicht öffnen!\n%s"
-    IDS_ERR_ON_ALLOC_MEMORY "Fehler: kann Speicher nicht allokieren!\n%s"
-    IDS_ERR_ON_SYMCRYPT     "Fehler: bei der symmetrischen Verschlüsselung!\n%s"
+    IDS_ERR_ON_OPEN_INFILE  "Fehler: kann Eingabedatei nicht öffenen!%n%1"
+    IDS_ERR_ON_OPEN_OUTFILE "Fehler: kann Ausgabedatei nicht öffnen!%n%1"
+    IDS_ERR_ON_ALLOC_MEMORY "Fehler: kann Speicher nicht allokieren!%n%1"
+    IDS_ERR_ON_SYMCRYPT     "Fehler: bei der symmetrischen Ver- oder Entschlüsselung!%n%1"
 END
 
 STRINGTABLE 
@@ -23713,10 +23713,10 @@ BEGIN
     IDS_NO_ITEM_SELECTED    "Please select a decryption candidate or select 'Cancel' in the dialog with the results\nof the brute-force analysis if the attack was unsuccessful."
     IDS_DECRYPTION_HEADER   "Decryption"
     IDS_DECRYPTION_HEADER_HEX_DUMP "Decryption: hex dump"
-    IDS_ERR_ON_OPEN_INFILE  "Error: could not open input file!\n%s"
-    IDS_ERR_ON_OPEN_OUTFILE "Error: could not open output file!\n%s"
-    IDS_ERR_ON_ALLOC_MEMORY "Error: could not allocate memory!\n%s"
-    IDS_ERR_ON_SYMCRYPT     "Error: could not perform symmetric encryption!\n%s"
+    IDS_ERR_ON_OPEN_INFILE  "Error: could not open input file!%n%1"
+    IDS_ERR_ON_OPEN_OUTFILE "Error: could not open output file!%n%1"
+    IDS_ERR_ON_ALLOC_MEMORY "Error: could not allocate memory!%n%1"
+    IDS_ERR_ON_SYMCRYPT     "Error: could not perform symmetric en- or decryption!%n%1"
 END
 
 STRINGTABLE 

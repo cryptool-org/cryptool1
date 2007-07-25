@@ -3756,7 +3756,7 @@ void SymmetricEncryption(int AlgId, cryptProvider provider,
 			errStr.AppendChar('\n');
 			errStr.Append(theApp.SecudeLib.LASTTEXT);
 		}
-		Message(IDS_STRING_DECRYPTION_ERROR,MB_ICONSTOP, errStr.GetBuffer());
+		AfxMessageBox(errStr, MB_ICONSTOP);
 	}
 }
 
@@ -3957,7 +3957,7 @@ UINT SymmetricBruteForce(PVOID p)
 					errStr.AppendChar('\n');
 					errStr.Append(theApp.SecudeLib.LASTTEXT);
 				}
-				Message(IDS_STRING_DECRYPTION_ERROR,MB_ICONSTOP, errStr.GetBuffer());
+				AfxMessageBox(errStr, MB_ICONSTOP);
 			}
 		}
 	}

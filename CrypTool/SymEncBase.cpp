@@ -112,7 +112,7 @@ int sym_encrypt(int crypt_id, cryptProvider provider,
 	else
 	{
 		error = IDS_ERR_ON_OPEN_INFILE;
-		internalErrorStr.FormatMessage("Internal error: Function = sym_encrypt, section = Get Filesize, Filename = %s", 
+		internalErrorStr.FormatMessage(_T("Internal error: Function = sym_encrypt, section = Get Filesize, Filename = %1"), 
 			in_filename);
 	}
 
@@ -141,7 +141,7 @@ int sym_encrypt(int crypt_id, cryptProvider provider,
 		if ( 0 > retVal )
 		{
 			error = IDS_ERR_ON_SYMCRYPT;
-			internalErrorStr.FormatMessage("Internal error: Function = sym_encrypt, section call sym_encrypt, provider %i, algID", 
+			internalErrorStr.FormatMessage(_T("Internal error: Function = sym_encrypt, section call sym_encrypt, provider %1!d!, %2!d!"), 
 				(int)provider, crypt_id);
 			free(in); free(out);
 		}
@@ -150,7 +150,7 @@ int sym_encrypt(int crypt_id, cryptProvider provider,
 			if ( NULL == (fi = fopen(out_filename, "wb")) )
 			{
 				error = IDS_ERR_ON_OPEN_OUTFILE;
-				internalErrorStr.FormatMessage("Internal error: Function = sym_encrypt, section = write output, Filename = %s", 
+				internalErrorStr.FormatMessage(_T("Internal error: Function = sym_encrypt, section = write output, Filename = %1"), 
 					out_filename);
 				free(in); free(out);
 			}
@@ -199,7 +199,7 @@ int sym_decrypt(int crypt_id, cryptProvider provider,
 	else
 	{
 		error = IDS_ERR_ON_OPEN_INFILE;
-		internalErrorStr.FormatMessage("Internal error: Function = sym_decrypt, section = Get Filesize, Filename = %s", 
+		internalErrorStr.FormatMessage(_T("Internal error: Function = sym_decrypt, section = Get Filesize, Filename = %1"), 
 			in_filename);
 	}
 
@@ -228,7 +228,7 @@ int sym_decrypt(int crypt_id, cryptProvider provider,
 		if ( 0 > retVal )
 		{
 			error = IDS_ERR_ON_SYMCRYPT;
-			internalErrorStr.FormatMessage("Internal error: Function = sym_decrypt, section call sym_encrypt, provider = %d, algID = %d", 
+			internalErrorStr.FormatMessage(_T("Internal error: Function = sym_decrypt, section call sym_encrypt, provider = %1!d!, algID = %2!d!"), 
 				(int)provider, crypt_id);
 			free(in); free(out);
 		}
@@ -237,7 +237,7 @@ int sym_decrypt(int crypt_id, cryptProvider provider,
 			if ( NULL == (fi = fopen(out_filename, "wb")) )
 			{
 				error = IDS_ERR_ON_OPEN_OUTFILE;
-				internalErrorStr.FormatMessage("Internal error: Function = sym_decrypt, section = write output, Filename = %s", 
+				internalErrorStr.FormatMessage(_T("Internal error: Function = sym_decrypt, section = write output, Filename = %1"), 
 					out_filename);
 				free(in); free(out);
 			}
