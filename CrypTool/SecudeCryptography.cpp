@@ -101,7 +101,7 @@ int  select_algorithm( int crypt_id, KeyInfo &key_info )
 		key_info.subjectAI=theApp.SecudeLib.idea_aid;  
 		break;
 	default:       
-		return -1;
+		ASSERT(0);
 	}
 	return 0;
 }

@@ -480,13 +480,21 @@ void CDlgHybridDecryptionDemo::OnOK()
 	SHOW_HOUR_GLASS
 
 	char *key_hex = DecSessionKey.GetBuffer()+(DecSessionKey.GetLength()-32);
-	sym_decrypt(IDS_CRYPT_RIJNDAEL, CORE_PROVIDER, key_hex, 128, infile, outfile);
-	remove(infile);
-
-	LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_DEC_TITLE,pc_str,STR_LAENGE_STRING_TABLE);
-	MakeNewName(line, sizeof(line),pc_str, m_strTitle1 );
-	theApp.ThreadOpenDocumentFileNoMRU(outfile,line,key_hex);
-
+	try {
+		sym_decrypt(IDS_CRYPT_RIJNDAEL, CORE_PROVIDER, key_hex, 128, infile, outfile);
+		remove(infile);
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_DEC_TITLE,pc_str,STR_LAENGE_STRING_TABLE);
+		MakeNewName(line, sizeof(line),pc_str, m_strTitle1 );
+		theApp.ThreadOpenDocumentFileNoMRU(outfile,line,key_hex);
+	}
+	catch ( CString errStr ) {
+		// if ( provider == SECUDE_PROVIDER )
+		// {
+		//	errStr.AppendChar('\n');
+		// 	errStr.Append(theApp.SecudeLib.LASTTEXT);
+		// }
+		Message(IDS_STRING_DECRYPTION_ERROR,MB_ICONSTOP, errStr.GetBuffer());
+	}
 	HIDE_HOUR_GLASS	
 
 	CDialog::OnOK();

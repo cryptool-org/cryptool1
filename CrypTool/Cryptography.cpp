@@ -3730,19 +3730,17 @@ void SymmetricEncryption(int AlgId, cryptProvider provider,
 	char outfile[CRYPTOOL_PATH_LENGTH];
     GetTmpName(outfile,"cry",".tmp");
 
-	if ( KeyDialog.ModeIsDecrypt() )
-	{
-		errorCode = sym_decrypt(AlgId, provider, keybuffhex, keylen<<3,infile, outfile);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-	}
-	else
-	{
-		errorCode = sym_encrypt(AlgId, provider, keybuffhex, keylen<<3,infile, outfile);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-	}
-
-	if ( errorCode >= 0 )
-	{
+	try {
+		if ( KeyDialog.ModeIsDecrypt() )
+		{
+			errorCode = sym_decrypt(AlgId, provider, keybuffhex, keylen<<3,infile, outfile);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
+		}
+		else
+		{
+			errorCode = sym_encrypt(AlgId, provider, keybuffhex, keylen<<3,infile, outfile);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
+		}
 		char title[128];
 		CAppDocument *NewDoc;
 		NewDoc = theApp.OpenDocumentFileNoMRU(outfile,KeyDialog.GetKeyFormatted());
@@ -3752,10 +3750,13 @@ void SymmetricEncryption(int AlgId, cryptProvider provider,
 			NewDoc->SetTitle(title);
 		}
 	}
-	else
-	{
+	catch ( CString errStr ) {
 		if ( provider == SECUDE_PROVIDER )
-			Message(IDS_STRING_DECRYPTION_ERROR,MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
+		{
+			errStr.AppendChar('\n');
+			errStr.Append(theApp.SecudeLib.LASTTEXT);
+		}
+		Message(IDS_STRING_DECRYPTION_ERROR,MB_ICONSTOP, errStr.GetBuffer());
 	}
 }
 
@@ -3943,11 +3944,21 @@ UINT SymmetricBruteForce(PVOID p)
 			char outfile[CRYPTOOL_PATH_LENGTH];
 			char line[CRYPTOOL_PATH_LENGTH];
 			GetTmpName(outfile,"cry",".tmp");
-			sym_decrypt(info->AlgId, info->provider, dlgResults.get_keyhex(), key_bitlength, par->infile, outfile);
-			
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_AUTOMATIC_ANALYSE,pc_str,STR_LAENGE_STRING_TABLE);
-			MakeNewName3(line,sizeof(line),pc_str, AlgTitle, par->OldTitle, dlgResults.get_keyhex());
-			theApp.ThreadOpenDocumentFileNoMRU(outfile,line,dlgResults.get_keyhex());
+			try {
+				sym_decrypt(info->AlgId, info->provider, dlgResults.get_keyhex(), key_bitlength, par->infile, outfile);
+				
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_AUTOMATIC_ANALYSE,pc_str,STR_LAENGE_STRING_TABLE);
+				MakeNewName3(line,sizeof(line),pc_str, AlgTitle, par->OldTitle, dlgResults.get_keyhex());
+				theApp.ThreadOpenDocumentFileNoMRU(outfile,line,dlgResults.get_keyhex());
+			}
+			catch ( CString errStr ) {
+				if ( info->provider == SECUDE_PROVIDER )
+				{
+					errStr.AppendChar('\n');
+					errStr.Append(theApp.SecudeLib.LASTTEXT);
+				}
+				Message(IDS_STRING_DECRYPTION_ERROR,MB_ICONSTOP, errStr.GetBuffer());
+			}
 		}
 	}
 

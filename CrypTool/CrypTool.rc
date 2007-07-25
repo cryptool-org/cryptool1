@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -208,24 +208,24 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,155,125,132,10
     GROUPBOX        "Caesar",IDC_STATIC,20,33,120,109
     GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,147,33,140,109
-    GROUPBOX        "Optionen für Brute-Force Angriffe",IDC_STATIC,13,155,
-                    281,110
-    LTEXT           "Anzahl Bytes für den Entropietest:",IDC_STATIC,29,193,
+    GROUPBOX        "Optionen für Brute-Force Angriffe gegen moderne symmetrische Algorithmen",
+                    IDC_STATIC,13,155,281,110
+    LTEXT           "Anzahl Bytes für den Entropietest:",IDC_STATIC,29,188,
                     109,8
-    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,139,190,30,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,139,185,30,14,ES_AUTOHSCROLL | 
                     ES_NUMBER
     GROUPBOX        "Umfang der Ausgabe bei der automatischen Analyse",
                     IDC_STATIC,13,15,281,132
     LTEXT           "Zeichensatz für den zu erwartenden Klartext",IDC_STATIC,
-                    29,209,210,8
+                    29,210,210,8
     CONTROL         "Alle 256 Zeichen",IDC_RADIO1,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,29,221,245,10
     CONTROL         "Druckbare Zeichen (ASCII 32 - 256)",IDC_RADIO2,"Button",
                     BS_AUTORADIOBUTTON,29,232,245,10
     CONTROL         "Zeichensatz, wie in Menü: Optionen -->Textoptionen definiert",
                     IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,29,242,245,11
-    LTEXT           "IDEA, RC2, RC4, DES, Triple DES, Mars, RC6, Rijndael (AES), Serpent, Twofish",
-                    IDC_STATIC,29,174,258,8
+    LTEXT           "Siehe Menü: Analyse / Symmetrische Verschlüsselung (modern)",
+                    IDC_STATIC,20,165,258,8
 END
 
 IDD_HILL_ANALYSIS DIALOG  0, 0, 301, 221
@@ -5637,7 +5637,7 @@ BEGIN
         MENUITEM "Ein&fügen\tStrg+V",           ID_EDIT_PASTE, GRAYED
         MENUITEM "&Löschen\tEntf",              ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&Suchen/Ersetzen...",         ID_EDIT_FIND, GRAYED
+        MENUITEM "&Suchen/Ersetzen...\tStrg+F",         ID_EDIT_FIND, GRAYED
         MENUITEM "Suche &nächstes\tF3",         ID_EDIT_REPEAT, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Alles &markieren\tStrg+A",    ID_EDIT_SELECT_ALL, GRAYED
@@ -6077,7 +6077,7 @@ BEGIN
         MENUITEM "Ein&fügen\tStrg+V",           ID_EDIT_PASTE
         MENUITEM "&Löschen\tEntf",              ID_EDIT_CLEAR
         MENUITEM SEPARATOR
-        MENUITEM "&Suchen/Ersetzen...",         ID_EDIT_FIND
+        MENUITEM "&Suchen/Ersetzen...\tStrg+F",         ID_EDIT_FIND
         MENUITEM "Suche &nächstes\tF3",         ID_EDIT_REPEAT
         MENUITEM SEPARATOR
         MENUITEM "Alles &markieren\tStrg+A",    ID_EDIT_SELECT_ALL
@@ -6474,7 +6474,7 @@ BEGIN
         MENUITEM "Ein&fügen\tStrg+V",           ID_EDIT_PASTE, GRAYED
         MENUITEM "&Löschen\tEntf",              ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&Suchen/Ersetzen...",         ID_EDIT_FIND, GRAYED
+        MENUITEM "&Suchen/Ersetzen...\tStrg+F", ID_EDIT_FIND, GRAYED
         MENUITEM "Suche &nächstes\tF3",         ID_EDIT_REPEAT, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Alles &markieren\tStrg+A",    ID_EDIT_SELECT_ALL, GRAYED
@@ -6905,7 +6905,7 @@ BEGIN
         MENUITEM "Ein&fügen\tStrg+V",           ID_EDIT_PASTE
         MENUITEM "&Löschen\tEntf",              ID_EDIT_CLEAR
         MENUITEM SEPARATOR
-        MENUITEM "&Suchen/Ersetzen...",         ID_EDIT_FIND
+        MENUITEM "&Suchen/Ersetzen...\tStrg+F",         ID_EDIT_FIND
         MENUITEM "Suche &nächstes\tF3",         ID_EDIT_REPEAT
         MENUITEM SEPARATOR
         MENUITEM "Alles &markieren\tStrg+A",    ID_EDIT_SELECT_ALL
@@ -7326,7 +7326,7 @@ BEGIN
         MENUITEM "Ein&fügen\tStrg+V",           ID_EDIT_PASTE, GRAYED
         MENUITEM "&Löschen\tEntf",              ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&Suchen/Ersetzen...",         ID_EDIT_FIND, GRAYED
+        MENUITEM "&Suchen/Ersetzen...\tStrg+F",         ID_EDIT_FIND, GRAYED
         MENUITEM "Suche &nächstes\tF3",         ID_EDIT_REPEAT, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Alles &markieren\tStrg+A",    ID_EDIT_SELECT_ALL, GRAYED
@@ -10592,7 +10592,7 @@ BEGIN
     IDS_STRING_MSG_PERM     "Permutationseingabe"
     IDS_STRING_MSG_PERM_ZERO_INVALID_INPUT 
                             "Der Permutationsschlüssel darf keine Nullen enthalten. Bitte korrigieren Sie Ihre Eingabe im ersten Eingabefeld!"
-    IDS_NUMBER_RSA_MODUL    "Der RSA-Modul N wurde erfolgreich in die Primzahlen p und q faktorisiert!\nSie können die RSA-Operation auch mit dem geheimen Schlüssel d\ndurchführen: Benutzen Sie hierfür den Knopf Entschlüsseln."
+    IDS_NUMBER_RSA_MODUL    "Der RSA-Modul N wurde erfolgreich in die Primzahlen p und q faktorisiert!\nSie können jetzt die RSA-Operation auch mit dem geheimen Schlüssel d\ndurchführen: Benutzen Sie hierfür den Knopf Entschlüsseln."
     IDS_NUMBER_NOT_FACTORIZED "Die Zahl N wurde nicht faktorisiert!"
     IDS_NUMBER_NOT_RSA_MODUL 
                             "Die Zahl N ist kein RSA-Modul:\n- entweder hat N mehr als zwei Faktoren\n- oder N = p^2 ist eine Quadratzahl.\n\nBitte korrigieren Sie die Eingabe für N."
@@ -11803,9 +11803,13 @@ BEGIN
     IDS_ENIGMA_FLASH        "Enigma_de.exe"
     IDS_ERROPEN_ENIGMA_FLASH 
                             "Die Enigma Flash-Demonstration kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob das Programm Enigma_de.exe im CrypTool-Heimatverzeichnis installiert wurde\n(""%s"")."
-    IDS_NO_ITEM_SELECTED    "Bitte selektieren Sie einen Entschlüsselungskandidaten,\noder wählen Sie ""Abbrechen"" in der Maske mit den Analyseergebnissen, wenn der Angriff nicht erfolgreich war."
+    IDS_NO_ITEM_SELECTED    "Bitte selektieren Sie einen Entschlüsselungskandidaten, oder\nwählen Sie ""Abbrechen"" in der Maske mit den Analyseergebnissen, wenn der Angriff nicht erfolgreich war."
     IDS_DECRYPTION_HEADER   "Entschlüsselung"
     IDS_DECRYPTION_HEADER_HEX_DUMP "Entschlüsselung: Hex-Dump"
+    IDS_ERR_ON_OPEN_INFILE  "Fehler: kann Eingabedatei nicht öffenen!\n%s"
+    IDS_ERR_ON_OPEN_OUTFILE "Fehler: kann Ausgabedatei nicht öffnen!\n%s"
+    IDS_ERR_ON_ALLOC_MEMORY "Fehler: kann Speicher nicht allokieren!\n%s"
+    IDS_ERR_ON_SYMCRYPT     "Fehler: bei der symmetrischen Verschlüsselung!\n%s"
 END
 
 STRINGTABLE 
@@ -11821,12 +11825,12 @@ BEGIN
                             "Die Brute-Force Analyse entschlüsselte das Chiffrat mit allen möglichen Schlüssel aus dem selektierten Schlüsselraum und bestimmte dann für jede entschlüsselte Nachricht den Entropiewert. Diese Liste enthält die entschlüsselten Nachrichten mit den niedrigsten Entropiewerten.\nGerade bei sehr kurzen Chiffraten kann es sein, dass es falsche Kandidaten mit einem kleinen Entropiewert gibt. Sie haben hier die Möglichkeit, den Kandidaten mit der richtigen Entschlüsselung auszuwählen."
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -12099,22 +12103,22 @@ BEGIN
     GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,150,35,136,105
     GROUPBOX        "Output options for automatic analysis",IDC_STATIC,13,16,
                     280,132
-    GROUPBOX        "Options for brute-force attacks",IDC_STATIC,13,155,280,
-                    114
+    GROUPBOX        "Options for brute-force attacks against modern symmetric algorithms",
+                    IDC_STATIC,13,155,280,114
     LTEXT           "Number of bytes for the entropy test:",IDC_STATIC,28,
-                    190,118,8
-    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,150,187,30,14,ES_AUTOHSCROLL | 
+                    186,118,8
+    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,150,183,30,14,ES_AUTOHSCROLL | 
                     ES_NUMBER
-    LTEXT           "Alphabet for the expected cleartext:",IDC_STATIC,29,209,
+    LTEXT           "Alphabet for the expected cleartext:",IDC_STATIC,29,212,
                     118,8
     CONTROL         "All 256 characters",IDC_RADIO1,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,29,221,245,10
+                    BS_AUTORADIOBUTTON | WS_GROUP,29,224,245,10
     CONTROL         "Printable characters (ascii 32 - 256)",IDC_RADIO2,
-                    "Button",BS_AUTORADIOBUTTON,29,232,245,10
+                    "Button",BS_AUTORADIOBUTTON,29,235,245,10
     CONTROL         "Charcters as defined in menu: Options -->Textoptions",
-                    IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,29,242,245,11
-    LTEXT           "IDEA, RC2, RC4, DES, Triple DES, Mars, RC6, Rijndael (AES), Serpent, Twofish",
-                    IDC_STATIC,29,173,258,8
+                    IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,29,245,245,11
+    LTEXT           "See Menu: Analysis / Symmetric Encryption (modern)",
+                    IDC_STATIC,19,165,258,8
 END
 
 IDD_HILL_ANALYSIS DIALOG  0, 0, 301, 221
@@ -17372,7 +17376,7 @@ BEGIN
         MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE, GRAYED
         MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&Find/Replace...",            ID_EDIT_FIND, GRAYED
+        MENUITEM "&Find/Replace...\tStrg+F",            ID_EDIT_FIND, GRAYED
         MENUITEM "Find &Next\tF3",              ID_EDIT_REPEAT, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECT_ALL, GRAYED
@@ -17807,7 +17811,7 @@ BEGIN
         MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
         MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR
         MENUITEM SEPARATOR
-        MENUITEM "&Find/Replace...",            ID_EDIT_FIND
+        MENUITEM "&Find/Replace...\tStrg+F",            ID_EDIT_FIND
         MENUITEM "Find &Next\tF3",              ID_EDIT_REPEAT
         MENUITEM SEPARATOR
         MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECT_ALL
@@ -18200,7 +18204,7 @@ BEGIN
         MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE, GRAYED
         MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&Find/Replace...",            ID_EDIT_FIND, GRAYED
+        MENUITEM "&Find/Replace...\tStrg+F",            ID_EDIT_FIND, GRAYED
         MENUITEM "Find &Next\tF3",              ID_EDIT_REPEAT, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECT_ALL, GRAYED
@@ -18636,7 +18640,7 @@ BEGIN
         MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
         MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR
         MENUITEM SEPARATOR
-        MENUITEM "&Find/Replace...",            ID_EDIT_FIND
+        MENUITEM "&Find/Replace...\tStrg+F",            ID_EDIT_FIND
         MENUITEM "Find &Next\tF3",              ID_EDIT_REPEAT
         MENUITEM SEPARATOR
         MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECT_ALL
@@ -19053,7 +19057,7 @@ BEGIN
         MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE, GRAYED
         MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&Find/Replace...",            ID_EDIT_FIND, GRAYED
+        MENUITEM "&Find/Replace...\tStrg+F",            ID_EDIT_FIND, GRAYED
         MENUITEM "Find &Next\tF3",              ID_EDIT_REPEAT, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECT_ALL, GRAYED
@@ -23709,6 +23713,10 @@ BEGIN
     IDS_NO_ITEM_SELECTED    "Please select a decryption candidate or select 'Cancel' in the dialog with the results\nof the brute-force analysis if the attack was unsuccessful."
     IDS_DECRYPTION_HEADER   "Decryption"
     IDS_DECRYPTION_HEADER_HEX_DUMP "Decryption: hex dump"
+    IDS_ERR_ON_OPEN_INFILE  "Error: could not open input file!\n%s"
+    IDS_ERR_ON_OPEN_OUTFILE "Error: could not open output file!\n%s"
+    IDS_ERR_ON_ALLOC_MEMORY "Error: could not allocate memory!\n%s"
+    IDS_ERR_ON_SYMCRYPT     "Error: could not perform symmetric encryption!\n%s"
 END
 
 STRINGTABLE 
@@ -23735,7 +23743,7 @@ BEGIN
                             "The brute-force analysis decrypted the given ciphertext with all possible keys out of the selected key space and then calculated for each decrypted message the entropy value. This list contains the decrypted messages with the lowest entropy values.\nEspecially in case of very short ciphertexts it could be, that there are wrong candidates with a small entropy value. Here you have the opportunity to select the candidate with the correct decryption."
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

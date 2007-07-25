@@ -62,7 +62,8 @@ int sym_encrypt(int crypt_id, cryptProvider provider,
 			return sym_encrypt_secude( crypt_id, key_hex, key_bitlength, in, in_bytelength, out, out_bytelength);
 			break;
 	}
-	throw ""; // FIXME
+	CString errStr = _T("Internal error: function sym_encrypt, unknown cryptProvider");
+	throw errStr; 
 	return -1;
 }
 
@@ -80,7 +81,8 @@ int sym_decrypt(int crypt_id, cryptProvider provider,
 			return sym_decrypt_secude( crypt_id, key_hex, key_bitlength, in, in_bytelength, out, out_bytelength);
 			break;
 	}
-	throw ""; // FIXME
+	CString errStr = _T("Internal error: function sym_encrypt, unknown cryptProvider");
+	throw errStr; 
 	return -1;
 }
 
@@ -94,40 +96,85 @@ int sym_encrypt(int crypt_id, cryptProvider provider,
 	FILE *fi;
 	int in_size, out_size;
 	char *in, *out;
+	int error = 0;
+	CString internalErrorStr;
+
 
 	// Get Filesize
 
 	fi = fopen(in_filename,"rb");
-	fseek(fi,0,SEEK_END);
-	in_size = ftell(fi);
-	fclose(fi);
-
- // additional space for padding
-	out = (char*) malloc(in_size+64);
-	in  = (char*) malloc(in_size+32);
-
-	fi = fopen(in_filename,"rb");
-	fread(in,1,in_size,fi);
-	fclose(fi);
-
-
-	int error = sym_encrypt(crypt_id, provider, key_hex, key_bitlength, in, in_size, out, out_size);
-	if ( 0 > error )
+	if ( fi != NULL )
 	{
-		// FIXME throw ...
+		fseek(fi,0,SEEK_END);
+		in_size = ftell(fi);
+		fclose(fi);
 	}
 	else
 	{
-		fi = fopen(out_filename, "wb");
-		fwrite(out, 1, out_size, fi);
-		fclose(fi);
+		error = IDS_ERR_ON_OPEN_INFILE;
+		internalErrorStr.FormatMessage("Internal error: Function = sym_encrypt, section = Get Filesize, Filename = %s", 
+			in_filename);
 	}
 
-	free(in);
-	free(out);
+	if ( !error )
+		if ( NULL == (in = (char*) malloc(in_size+32)) )
+		{
+			internalErrorStr = _T("Internal error: Function = sym_encrypt, section = allocate memory for in");
+			error = IDS_ERR_ON_ALLOC_MEMORY;
+		}
+	if ( !error )
+		if ( NULL == (out = (char*) malloc(in_size+64)) )
+		{
+			free (in);
+			internalErrorStr = _T("Internal error: Function = sym_encrypt, section = allocate memory for out");
+			error = IDS_ERR_ON_ALLOC_MEMORY;
+		}
 
+	if ( !error )
+	{
+		fi = fopen(in_filename,"rb");
+		fread(in,1,in_size,fi);
+		fclose(fi);
+
+
+		int retVal = sym_encrypt(crypt_id, provider, key_hex, key_bitlength, in, in_size, out, out_size);
+		if ( 0 > retVal )
+		{
+			error = IDS_ERR_ON_SYMCRYPT;
+			internalErrorStr.FormatMessage("Internal error: Function = sym_encrypt, section call sym_encrypt, provider %i, algID", 
+				(int)provider, crypt_id);
+			free(in); free(out);
+		}
+		else
+		{
+			if ( NULL == (fi = fopen(out_filename, "wb")) )
+			{
+				error = IDS_ERR_ON_OPEN_OUTFILE;
+				internalErrorStr.FormatMessage("Internal error: Function = sym_encrypt, section = write output, Filename = %s", 
+					out_filename);
+				free(in); free(out);
+			}
+			fwrite(out, 1, out_size, fi);
+			fclose(fi);
+		}
+	}
+
+	if ( error )
+	{
+		CString errStr;
+		errStr.FormatMessage(error, (LPCSTR)internalErrorStr);
+		throw errStr;
+	}
+	else
+	{
+		free(in);
+		free(out);
+	}
 	return error;
 }
+
+
+
 
 int sym_decrypt(int crypt_id, cryptProvider provider,
 			char *key_hex, int key_bitlength, 
@@ -137,30 +184,79 @@ int sym_decrypt(int crypt_id, cryptProvider provider,
 	int in_size, out_size;
 	char *in, *out;
 
-	fi = fopen(in_filename,"rb");
-	fseek(fi,0,SEEK_END);
-	in_size = ftell(fi);
-	fclose(fi);
+	int error = 0;
+	CString internalErrorStr;
 
-	in  = (char*) malloc(in_size+32); // additional space for padding
-	out = (char*) malloc(in_size+64);
+	// Get Filesize
 
 	fi = fopen(in_filename,"rb");
-	fread(in,1,in_size,fi);
-	fclose(fi);
-
-	int error = sym_decrypt(crypt_id, provider, key_hex, key_bitlength, in, in_size, out, out_size);
-	if ( 0 > error )
+	if ( fi != NULL )
 	{
-		// FIXME throw ...
+		fseek(fi,0,SEEK_END);
+		in_size = ftell(fi);
+		fclose(fi);
 	}
 	else
 	{
-		fi = fopen(out_filename, "wb");
-		fwrite(out, 1, out_size, fi);
-		fclose(fi);
+		error = IDS_ERR_ON_OPEN_INFILE;
+		internalErrorStr.FormatMessage("Internal error: Function = sym_decrypt, section = Get Filesize, Filename = %s", 
+			in_filename);
 	}
 
+	if ( !error )
+		if ( NULL == (in = (char*) malloc(in_size+32)) )
+		{
+			internalErrorStr = _T("Internal error: Function = sym_decrypt, section = allocate memory for in");
+			error = IDS_ERR_ON_ALLOC_MEMORY;
+		}
+	if ( !error )
+		if ( NULL == (out = (char*) malloc(in_size+64)) )
+		{
+			free (in);
+			internalErrorStr = _T("Internal error: Function = sym_decrypt, section = allocate memory for out");
+			error = IDS_ERR_ON_ALLOC_MEMORY;
+		}
+
+	if ( !error )
+	{
+		fi = fopen(in_filename,"rb");
+		fread(in,1,in_size,fi);
+		fclose(fi);
+
+
+		int retVal = sym_decrypt(crypt_id, provider, key_hex, key_bitlength, in, in_size, out, out_size);
+		if ( 0 > retVal )
+		{
+			error = IDS_ERR_ON_SYMCRYPT;
+			internalErrorStr.FormatMessage("Internal error: Function = sym_decrypt, section call sym_encrypt, provider = %d, algID = %d", 
+				(int)provider, crypt_id);
+			free(in); free(out);
+		}
+		else
+		{
+			if ( NULL == (fi = fopen(out_filename, "wb")) )
+			{
+				error = IDS_ERR_ON_OPEN_OUTFILE;
+				internalErrorStr.FormatMessage("Internal error: Function = sym_decrypt, section = write output, Filename = %s", 
+					out_filename);
+				free(in); free(out);
+			}
+			fwrite(out, 1, out_size, fi);
+			fclose(fi);
+		}
+	}
+
+	if ( error )
+	{
+		CString errStr;
+		errStr.FormatMessage(error, (LPCSTR)internalErrorStr);
+		throw errStr;
+	}
+	else
+	{
+		free(in);
+		free(out);
+	}
 	return error;
 }
 

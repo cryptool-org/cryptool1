@@ -2812,6 +2812,10 @@
 #define IDS_NO_ITEM_SELECTED            39049
 #define IDS_DECRYPTION_HEADER           39050
 #define IDS_DECRYPTION_HEADER_HEX_DUMP  39051
+#define IDS_ERR_ON_OPEN_INFILE          39052
+#define IDS_ERR_ON_OPEN_OUTFILE         39053
+#define IDS_ERR_ON_ALLOC_MEMORY         39054
+#define IDS_ERR_ON_SYMCRYPT             39055
 #define IDS_DH_LOG_1                    61889
 #define IDS_DH_LOG_2                    61890
 #define IDS_DH_LOG_3                    61891

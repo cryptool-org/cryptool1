@@ -70,8 +70,6 @@ int sym_encrypt_core(int crypt_id,
 			char *in,  int in_bytelength,  
 			char *out, int &out_bytelength)
 {
-	int error = 0;
-
 	in[in_bytelength++] = 1;
 	for (; in_bytelength % 16; in_bytelength++)
 		in[in_bytelength] = 0;
@@ -106,12 +104,12 @@ int sym_encrypt_core(int crypt_id,
 			(unsigned char *)in, bitlength, (unsigned char *)out);
 		break;
 	default:       
-		error = -1;
+		ASSERT(0);
 	}
 
 	out_bytelength = bitlength >> 3;
 
-	return error;
+	return out_bytelength;
 }
 
 
@@ -155,13 +153,13 @@ int sym_decrypt_core(int crypt_id,
 			(unsigned char *)in, bitlength, (unsigned char *)out);
 		break;
 	default:       
-		error = -1;
+		ASSERT(0);
 	}
 
 	out_bytelength = bitlength >> 3;
 	for ( out_bytelength--; 0 == out[out_bytelength]; out_bytelength-- ); // remove padding
 
-	return error;
+	return out_bytelength;
 }
 
 /////////////////////////////////////////////////////////////////////
@@ -303,7 +301,7 @@ void DES_XL(int ID, char mode, int key_bits, char *keybuffhex, unsigned char *bo
 	case IDS_CRYPT_DESXL: desxl_variant = VAR_DESXL;
 		break;
 	default:
-		return;
+		ASSERT(0);
 	};
 
 
