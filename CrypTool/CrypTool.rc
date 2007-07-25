@@ -5199,10 +5199,10 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE |
 CAPTION "Suchen und Ersetzen"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    COMBOBOX        IDC_COMBO_FIND,47,15,200,99,CBS_DROPDOWN | CBS_SORT | 
-                    WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_COMBO_REPLACE,47,35,200,79,CBS_DROPDOWN | CBS_SORT | 
-                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_FIND,47,15,200,99,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_REPLACE,47,35,200,79,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
     DEFPUSHBUTTON   "&Suchen",IDC_BUTTON_FIND,266,15,50,14
     PUSHBUTTON      "&Ersetzen",IDC_BUTTON_REPLACE,266,35,50,14
     PUSHBUTTON      "&Alle ersetzen",IDC_BUTTON_REPLACE_ALL,266,55,50,14
@@ -5637,7 +5637,7 @@ BEGIN
         MENUITEM "Ein&fügen\tStrg+V",           ID_EDIT_PASTE, GRAYED
         MENUITEM "&Löschen\tEntf",              ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&Suchen/Ersetzen...\tStrg+F",         ID_EDIT_FIND, GRAYED
+        MENUITEM "&Suchen/Ersetzen...\tStrg+F", ID_EDIT_FIND, GRAYED
         MENUITEM "Suche &nächstes\tF3",         ID_EDIT_REPEAT, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Alles &markieren\tStrg+A",    ID_EDIT_SELECT_ALL, GRAYED
@@ -6077,7 +6077,7 @@ BEGIN
         MENUITEM "Ein&fügen\tStrg+V",           ID_EDIT_PASTE
         MENUITEM "&Löschen\tEntf",              ID_EDIT_CLEAR
         MENUITEM SEPARATOR
-        MENUITEM "&Suchen/Ersetzen...\tStrg+F",         ID_EDIT_FIND
+        MENUITEM "&Suchen/Ersetzen...\tStrg+F", ID_EDIT_FIND
         MENUITEM "Suche &nächstes\tF3",         ID_EDIT_REPEAT
         MENUITEM SEPARATOR
         MENUITEM "Alles &markieren\tStrg+A",    ID_EDIT_SELECT_ALL
@@ -6905,7 +6905,7 @@ BEGIN
         MENUITEM "Ein&fügen\tStrg+V",           ID_EDIT_PASTE
         MENUITEM "&Löschen\tEntf",              ID_EDIT_CLEAR
         MENUITEM SEPARATOR
-        MENUITEM "&Suchen/Ersetzen...\tStrg+F",         ID_EDIT_FIND
+        MENUITEM "&Suchen/Ersetzen...\tStrg+F", ID_EDIT_FIND
         MENUITEM "Suche &nächstes\tF3",         ID_EDIT_REPEAT
         MENUITEM SEPARATOR
         MENUITEM "Alles &markieren\tStrg+A",    ID_EDIT_SELECT_ALL
@@ -7326,7 +7326,7 @@ BEGIN
         MENUITEM "Ein&fügen\tStrg+V",           ID_EDIT_PASTE, GRAYED
         MENUITEM "&Löschen\tEntf",              ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&Suchen/Ersetzen...\tStrg+F",         ID_EDIT_FIND, GRAYED
+        MENUITEM "&Suchen/Ersetzen...\tStrg+F", ID_EDIT_FIND, GRAYED
         MENUITEM "Suche &nächstes\tF3",         ID_EDIT_REPEAT, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Alles &markieren\tStrg+A",    ID_EDIT_SELECT_ALL, GRAYED
@@ -16931,10 +16931,10 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE |
 CAPTION "Find and Replace"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    COMBOBOX        IDC_COMBO_FIND,47,15,200,99,CBS_DROPDOWN | CBS_SORT | 
-                    WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_COMBO_REPLACE,47,35,200,79,CBS_DROPDOWN | CBS_SORT | 
-                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_FIND,47,15,200,99,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_REPLACE,47,35,200,79,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
     DEFPUSHBUTTON   "&Find",IDC_BUTTON_FIND,266,15,50,14
     PUSHBUTTON      "&Replace",IDC_BUTTON_REPLACE,266,35,50,14
     PUSHBUTTON      "Replace &All",IDC_BUTTON_REPLACE_ALL,266,55,50,14
@@ -17376,7 +17376,7 @@ BEGIN
         MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE, GRAYED
         MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&Find/Replace...\tStrg+F",            ID_EDIT_FIND, GRAYED
+        MENUITEM "&Find/Replace...\tStrg+F",    ID_EDIT_FIND, GRAYED
         MENUITEM "Find &Next\tF3",              ID_EDIT_REPEAT, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECT_ALL, GRAYED
@@ -17811,7 +17811,7 @@ BEGIN
         MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
         MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR
         MENUITEM SEPARATOR
-        MENUITEM "&Find/Replace...\tStrg+F",            ID_EDIT_FIND
+        MENUITEM "&Find/Replace...\tStrg+F",    ID_EDIT_FIND
         MENUITEM "Find &Next\tF3",              ID_EDIT_REPEAT
         MENUITEM SEPARATOR
         MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECT_ALL
@@ -18204,7 +18204,7 @@ BEGIN
         MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE, GRAYED
         MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&Find/Replace...\tStrg+F",            ID_EDIT_FIND, GRAYED
+        MENUITEM "&Find/Replace...\tStrg+F",    ID_EDIT_FIND, GRAYED
         MENUITEM "Find &Next\tF3",              ID_EDIT_REPEAT, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECT_ALL, GRAYED
@@ -18640,7 +18640,7 @@ BEGIN
         MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
         MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR
         MENUITEM SEPARATOR
-        MENUITEM "&Find/Replace...\tStrg+F",            ID_EDIT_FIND
+        MENUITEM "&Find/Replace...\tStrg+F",    ID_EDIT_FIND
         MENUITEM "Find &Next\tF3",              ID_EDIT_REPEAT
         MENUITEM SEPARATOR
         MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECT_ALL
@@ -19057,7 +19057,7 @@ BEGIN
         MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE, GRAYED
         MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&Find/Replace...\tStrg+F",            ID_EDIT_FIND, GRAYED
+        MENUITEM "&Find/Replace...\tStrg+F",    ID_EDIT_FIND, GRAYED
         MENUITEM "Find &Next\tF3",              ID_EDIT_REPEAT, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECT_ALL, GRAYED
