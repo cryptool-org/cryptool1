@@ -123,7 +123,11 @@ Section "CrypTool"
   
   ;Files to install
   File /r setup-${LANGUAGE_STR}\*.*
- 
+
+  ;Allow all users to write into pse and examples directory
+  ExecWait 'cacls "$INSTDIR\pse"  /t /e /g USERS:w' 
+  ExecWait 'cacls "$INSTDIR\examples"  /t /e /g USERS:w' 
+
   CreateDirectory "$SMPROGRAMS\$ShortCutName" 
   CreateShortCut "$SMPROGRAMS\$ShortCutName\${SCN_CRYPTOOL}.lnk" 	 "$INSTDIR\${SCL_CRYPTOOL}"		
   CreateShortCut "$SMPROGRAMS\$ShortCutName\${SCN_CRYPTOOL_HELP}.lnk" 	 "$INSTDIR\${SCL_CRYPTOOL_HELP}"	
