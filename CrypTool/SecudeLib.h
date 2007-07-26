@@ -108,6 +108,7 @@ statement from your version.
 	DoOneFn(RC SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, sec_hash_more, SEC_PROTOTYPE_2(void **, context, OctetString*, in_octets))\
 	DoOneFn(RC SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, sec_hash_end, SEC_PROTOTYPE_2(void **, context, OctetString*, hash_result))\
 	DoOneFn(char SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV,  aux_sprint_Certificate, SEC_PROTOTYPE_3(PSE, pse_handle, char*, string, Certificate	*, cert))\
+	DoOneFn(char SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV,  aux_sprint_error, SEC_PROTOTYPE_3(PSE, pse_handle, char *, string, int, verbose))\
 	DoOneFn(OctetString SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV, aux_LN2OctetString, SEC_PROTOTYPE_2(L_NUMBER_ARRAY, lnum, int, size))\
 	DoOneFn(PSE SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, af_create, SEC_PROTOTYPE_5(char*, psename, char*, cadir, char*, pin, SC_DATA*, sc_data, Boolean, onekeypaironly))\
 	DoOneFn(PSESel SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV, sec_create, SEC_PROTOTYPE_4(char *, psename, char *, pin, SC_DATA *, sc_data, Boolean, onekeypaironly))\
@@ -275,6 +276,7 @@ public:
 	int CloseSecudeLib( void );
 	int OpenSecudeLib( void );
 	int GetStatus() { return Status; }
+	void ErrorMessage( UINT resid, PSE pse_handle);
 	CSecudeLib();
 	virtual ~CSecudeLib();
 	DoAll

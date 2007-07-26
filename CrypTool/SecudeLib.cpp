@@ -159,3 +159,14 @@ int CSecudeLib::CloseSecudeLib()
 	Status = 0;
 	return Status;
 }
+
+void CSecudeLib::ErrorMessage( UINT resid, PSE pse_handle)
+{
+	char *serror = theApp.SecudeLib.aux_sprint_error(pse_handle, NULL, 1);
+	aux_free_error();
+	CString msg;
+	msg.Format(resid, serror);
+	if (serror)
+		aux_free_String(&serror);
+	AfxMessageBox((LPCSTR)msg, MB_ICONSTOP);
+}

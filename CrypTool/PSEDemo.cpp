@@ -208,10 +208,16 @@ BOOL CPSEDemo::CreatePSE()
 	if(!m_hPSE)
 	{
 		// Fehler beim erzeugen der PSE
+		theApp.SecudeLib.ErrorMessage(IDS_STRING_ASYMKEY_ERR_CREATE_PSE, m_hPSE);
+		return FALSE;
 	}
 
 	// Geheimen Schlüssel in PSE schreiben
 	psesel = theApp.SecudeLib.af_get_PSESel(m_hPSE, static_cast<ObjId*>(0) );
+	if (!psesel) {
+		theApp.SecudeLib.ErrorMessage(IDS_STRING_ASYMKEY_ERR_CREATE_PSE, m_hPSE);
+		return FALSE;
+	}
 	psesel->object = theApp.SecudeLib.aux_cpy_String(SKnew_name);
 	psesel->object_type = theApp.SecudeLib.SKnew_oid;
 	octetstring = theApp.SecudeLib.e_KeyInfo(&keyinfo);
@@ -219,6 +225,7 @@ BOOL CPSEDemo::CreatePSE()
 	if(theApp.SecudeLib.sec_write_PSE(psesel, octetstring))
 	{
 		// Fehler beim schreiben des Schlüssels in die PSE
+		theApp.SecudeLib.ErrorMessage(IDS_STRING_ASYMKEY_ERR_CREATE_PSE, m_hPSE);
 		theApp.SecudeLib.aux_free_OctetString(&octetstring);
 		return FALSE;
 	}

@@ -814,20 +814,20 @@ void CDlgKeyAsymGeneration::CreateAsymKeys()
 		if (error == -1)
 		{
 			// irgendein Fehler beim erzeugen der PSE ist aufgetreten
-			Message(IDS_STRING_ASYMKEY_ERR_CREATE_PSE, MB_ICONSTOP);
+			theApp.SecudeLib.ErrorMessage(IDS_STRING_ASYMKEY_ERR_CREATE_PSE, NULL);
 			return;
 		}
 		else if (error == -2)
 		{
 			// irgendein Fehler beim öffnen der PSE ist aufgetreten
-			Message(IDS_STRING_ASYMKEY_ERR_OPEN_PSE, MB_ICONSTOP);
+			theApp.SecudeLib.ErrorMessage(IDS_STRING_ASYMKEY_ERR_OPEN_PSE, NULL);
 			return;
 		}
 		else if (error == -9)
 		{
 			// Fehler: die Dateien für die öffentlichen bzw. geheimen Parameter konnten nicht
 			// im Verzeichnis "Pfad" (siehe CrypTool.cpp) erzeugt werden
-			Message(IDS_STRING_KEYLIST_ASYM_ERROR_ONSAVE, MB_ICONSTOP, Pfad);
+			theApp.SecudeLib.ErrorMessage(IDS_STRING_KEYLIST_ASYM_ERROR_ONSAVE, NULL);
 			return;
 		}
 		else if (error != 0)
@@ -877,7 +877,7 @@ void CDlgKeyAsymGeneration::CreateAsymKeys()
 		PseHandle=theApp.SecudeLib.af_create (string3  , NULL, string5, NULL, TRUE);
 		if (PseHandle==NULL)
 		{	// Fehler bei der PSE-Erzeugung
-			Message(IDS_STRING_ASYMKEY_ERR_CREATE_PSE, MB_ICONSTOP);
+			theApp.SecudeLib.ErrorMessage(IDS_STRING_ASYMKEY_ERR_CREATE_PSE, PseHandle);
 			// Freigeben von dynamisch angelegtem Speicher
 			delete string2;
 			delete string4;
