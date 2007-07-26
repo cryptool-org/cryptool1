@@ -490,7 +490,8 @@ void CDlgSignatureDemo::EnableButtons()
 
 	UpdateData(FALSE);
 
-	m_hFocus->SetFocus();
+	if (m_hFocus)
+		m_hFocus->SetFocus();
 }
 
 void CDlgSignatureDemo::OnSelectHashAlg() 
