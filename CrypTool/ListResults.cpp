@@ -71,8 +71,8 @@ BOOL CListResults::OnInitDialog()
 		resultListCtrl.SetItemText(i,2, str);
 	}
 
-	resultListCtrl.SetItem(0, i, LVIF_STATE, NULL, 0, NULL, LVIS_SELECTED, 0);
-
+	resultListCtrl.SetItem(0, 0, LVIF_STATE, NULL, 0, LVIS_SELECTED, LVIS_SELECTED, 0);
+	
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
