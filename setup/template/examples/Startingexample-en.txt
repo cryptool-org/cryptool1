@@ -4,18 +4,17 @@ CrypTool is a comprehensive educational program about cryptography and cryptanal
 
 This is a text file, shown in order to help you to make your first steps with CrypTool.
 
-1) One thing you can do e.g. is to encrypt this file with the Caesar algorithm [via the menu "Crypt/Decrypt \ Symmetric (classic)"].
-
-2) The best overview about all features of CrypTool is offered by the starting page of the Windows online help which contains links to all relevant functions.
-You can call up the starting page via the menu "Help \ Starting page" or using the search keyword "Starting page" within the index of the online help.
+1) As a first step it is recommended you read the included online help, this will provide a useful oversight of all available functions within this application. The starting page of the online help can be accessed via the menu "Help \ Starting Page" at the top right of the screen or using the search keyword "Starting page" within the index of the online help.
 Press F1 to start the online help.
 
-3) Especially the examples (tutorials) provided within the online help make it easy for you to get up to speed. These pages can be found via the menu "Help \ Scenarios (Tutorials)".
+2) A possible next step would be to encrypt a file with the Caesar algorithm, this can be done via the menu "Crypt/Decrypt \ Symmetric (Classic)". A guide/tutorial to this can be found in the online help.
 
-4) Further features can be found
-- by clicking through the menues.
-- by looking into the ReadMe file (see also within the menu "Help").
-- by looking at the presentation (see section "Documentation" at the starting page of the online help).
-- by looking at the web page www.cryptool.org.
+3) There are several examples (tutorials) provided within the online help which provide an easy way to gain an understanding of cryptography. These can be found via the menu "Help \ Scenarios (Tutorials)".
 
-May 2007
+4) You can also further your knowledge by: 
+- Navigating through the menus. You can press F1 to get help on the selected menu item.
+- Reading the included Readme file (See menu "Help \ Readme" menu).
+- Viewing the included presentation (See "Documentation" section found in the "Starting" page of the online help).
+- Viewing the webpage – www.cryptool.org.
+
+July 2007
