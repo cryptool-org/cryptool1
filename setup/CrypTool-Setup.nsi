@@ -9,7 +9,7 @@
 
   ;Name and file
   !define ProgramName "CrypTool"
-  !define VersionInfo "1.4.10 beta 6"
+  !define VersionInfo "1.4.10"
   
   Name "${ProgramName} ${VersionInfo}"
   OutFile "SetupCrypTool_${LANGUAGE_STR}.exe"
@@ -34,6 +34,7 @@
 
   !insertmacro MUI_PAGE_WELCOME
   !insertmacro MUI_PAGE_LICENSE "setup-${LANGUAGE_STR}\license-${LANGUAGE_STR}.rtf"
+  !define MUI_PAGE_CUSTOMFUNCTION_LEAVE mui.DirectoryLeave
   !insertmacro MUI_PAGE_DIRECTORY
   !insertmacro MUI_PAGE_INSTFILES
   !define MUI_FINISHPAGE_RUN CrypTool.exe
@@ -71,6 +72,8 @@
    !define SCL_PRESENTATION	"CrypToolPresentation-${LANGUAGE_STR}.pdf"
    !define SCN_README		"ReadMe"
    !define SCL_README 		"ReadMe-${LANGUAGE_STR}.txt"
+   !define URL		"http://www.cryptool.de/"
+   !define UNINSTALL_PROMPT	"ist bereits installiert. $\n$\nBitte `OK` klicken, um die vorherige Installation zu ersetzen; oder `Abbrechen`, um ein anderes Installationsverzeichnis zu wählen."
 !else if ${LANGUAGE_STR} == 'en'
    !insertmacro MUI_LANGUAGE "English"
    !define SCN_CRYPTOOL		"CrypTool"
@@ -89,6 +92,9 @@
    !define SCL_PRESENTATION	"CrypToolPresentation-${LANGUAGE_STR}.pdf"
    !define SCN_README		"ReadMe"
    !define SCL_README 		"ReadMe-${LANGUAGE_STR}.txt"
+   !define URL		"http://www.cryptool.org/"
+   !define UNINSTALL_PROMPT	"is already installed. $\n$\nClick `OK` to remove the \
+  previous version or `Cancel` to choose another installation directory."
 !else if ${LANGUAGE_STR} == 'pl'
    !insertmacro MUI_LANGUAGE "Polish"
    !define SCN_CRYPTOOL		"CrypTool"
@@ -107,6 +113,9 @@
    !define SCL_PRESENTATION	"CrypToolPresentation-${LANGUAGE_STR}.pdf"
    !define SCN_README		"ReadMe"
    !define SCL_README 		"ReadMe-${LANGUAGE_STR}.txt"
+   !define URL		"http://www.cryptool.pl/"
+   !define UNINSTALL_PROMPT	"is already installed. $\n$\nClick `OK` to remove the \
+  previous version or `Cancel` to choose another installation directory."
 !else
   !echo "ERROR: ...!"
   Abort ; EXIT
@@ -120,7 +129,7 @@ Section "CrypTool"
   SetOutPath "$INSTDIR"
 
   ${WordFind} $INSTDIR "\" "-1*}" $ShortCutName  ; FIXME '\' at the string end
-  
+
   ;Files to install
   File /r setup-${LANGUAGE_STR}\*.*
 
@@ -153,7 +162,16 @@ Section "CrypTool"
   ; $INSTDIR is the registry access key to get the startmenu folder information 
   WriteRegStr HKCU "Software\CrypTool" $INSTDIR $ShortCutName
   
-  
+  ; Add CrypTool to "Add or Remove Programs" in appwiz.cpl
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$ShortCutName" \
+                 "DisplayName" "$ShortCutName ${VersionInfo}"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$ShortCutName" \
+                 "DisplayVersion" "${VersionInfo}"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$ShortCutName" \
+                 "URLUpdateInfo" "${URL}"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$ShortCutName" \
+                 "UninstallString" "$INSTDIR\uninstall.exe"
+ 
   ;Create uninstaller
   WriteUninstaller "$INSTDIR\Uninstall.exe"
 
@@ -189,4 +207,37 @@ Section "Uninstall"
 ; FIXME
   DeleteRegValue HKCU "Software\CrypTool" $INSTDIR
 
+  ; Remove CrypTool to "Add or Remove Programs" in appwiz.cpl
+  DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$StartUpFolder"
+
 SectionEnd
+
+Function mui.DirectoryLeave
+  
+  ${WordFind} $INSTDIR "\" "-1*}" $ShortCutName  ; FIXME '\' at the string end
+  ReadRegStr $R0 HKLM \
+  "Software\Microsoft\Windows\CurrentVersion\Uninstall\$ShortCutName" \
+  "UninstallString"
+  StrCmp $R0 "" done
+ 
+  MessageBox MB_OKCANCEL|MB_ICONEXCLAMATION \
+  "$ShortCutName ${UNINSTALL_PROMPT}" \
+  IDOK uninst
+  Abort
+  
+;Run the uninstaller
+uninst:
+  ClearErrors
+  ExecWait '$R0 _?=$INSTDIR' ;Do not copy the uninstaller to a temp file
+ 
+  IfErrors no_remove_uninstaller
+    ;You can either use Delete /REBOOTOK in the uninstaller or add some code
+    ;here to remove the uninstaller. Use a registry key to check
+    ;whether the user has chosen to uninstall. If you are using an uninstaller
+    ;components page, make sure all sections are uninstalled.
+  no_remove_uninstaller:
+  
+done:
+ 
+FunctionEnd
+
