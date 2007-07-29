@@ -18,7 +18,7 @@
  2. .... What does CrypTool offer in detail
  2.1. .... What can you do with CrypTool
  2.2. .... Where do you find the source code
- 2.3. .... Where can you get other overview about CrypTool
+ 2.3. .... Where can you get another overview about CrypTool
  2.4. .... What's new in version 1.4.10
  3. .... Possible areas for further development -- ideas, requests
  3.1. .... Functionality: Algorithms / methods
@@ -543,12 +543,12 @@ version). Snapshot about the number of files and the number of lines of code:
     4,202 Text files (txt)
   221,716 C/C++ source code (h c cpp)
   
-  TOTAL: 319.771 lines of code
+  TOTAL: 319,771 lines of code
 
 
 
-2.3. Where can you get other overview about CrypTool
-     -----------------------------------------------
+2.3. Where can you get another overview about CrypTool
+     -------------------------------------------------
 You can get a good overview of what CrypTool offers
 - at the attached PDF presentation
    (title: "Cryptology with CrypTool") and
@@ -1651,7 +1651,7 @@ Version   Date		Size of Windows Setup  Needed Size  Released
 1.3.04    July 2003	 8.1 MB       8.6 MB	-            DB
 1.3.05    Aug. 2003	 8.2 MB       8.6 MB	-            DB
 1.4.00    July 2006	18.2 MB      18.4 MB	-            DB
-1.4.10    July 2007	25.8 MB	     26.6 MB	46 MB        DB
+1.4.10    July 2007	26.7 MB	     27.5 MB	47 MB        DB
 
 Remarks about the versions:
 1.3.02    Many new functions compared to 1.3.00.

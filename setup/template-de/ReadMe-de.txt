@@ -244,7 +244,7 @@ c) Das Animationsprogramm ANIMAL (siehe http://www.animal.ahrgr.de)
 
 d) Die Flash-Anwendungen:
    - "Rijndael-Animation" (visualisiert das Verschlüsselungsverfahren AES),
-   - "Rijndael-Inspector" (visualisiert die Änderungen der State-Matrix 
+   - "Rijndael-Inspektor" (visualisiert die Änderungen der State-Matrix 
                            nach jedem Schritt in jeder Runde bei AES) und
    - "Enigma" (visualisiert das 2.-Weltkriegs-Krypto-Gerät Enigma).
 
@@ -1715,7 +1715,7 @@ Version   Datum         Größe des Windows-Setups  Plattenplatz  Freigabe
 1.3.04    Juli 2003       8,6 MB      8,1 MB         -            DB
 1.3.05    Aug. 2003       8,6 MB      8,1 MB         -            DB
 1.4.00    Juli 2006      18,4 MB     18,2 MB         -            DB
-1.4.10    Juli 2007      26,6 MB     25,8 MB         46 MB        DB
+1.4.10    Juli 2007      27,5 MB     26,7 MB         47 MB        DB
 
 Bemerkungen zu den Versionen:
 1.3.02    Viele neue Funktionen gegenüber 1.3.00.
