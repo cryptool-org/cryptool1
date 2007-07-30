@@ -5258,7 +5258,7 @@ BEGIN
     LTEXT           "Polynom f(x)",IDC_STATIC_POLYNOM,12,195,39,8
     LTEXT           "Aus den Parametern berechnete Werte der Teilnehmer:",
                     IDC_STATIC,7,242,175,8
-    LTEXT           "Mit dem (t, n)-Schwellenwertschemas nach Shamir ist es möglich, ein Geheimnis S auf n Personen aufzuteilen. Danach sind t Personen (t <= n) in der Lage, mit ihren Teilgeheimnissen (Shares) das ursprüngliche Geheimnis wiederherzustellen.",
+    LTEXT           "Mit dem (t, n)-Schwellenwertschema nach Shamir ist es möglich, ein Geheimnis S auf n Personen aufzuteilen. Danach sind t Personen (t <= n) in der Lage, mit ihren Teilgeheimnissen (Shares) das ursprüngliche Geheimnis wiederherzustellen.",
                     IDC_STATIC,7,7,357,25
     LTEXT           "Dazu werden ein Polynom f(x) vom Grad t-1 [also mit t-1 zufälligen Koeffizienten a(i)] und eine zufällige Primahl p erzeugt. Jedem Teilnehmer werden dann ein zufällig gewählter, öffentlicher Wert x  und ein geheimer Wert y=f(x) [sein Share] zugewiesen.",
                     IDC_STATIC,7,30,357,26
