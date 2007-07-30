@@ -524,7 +524,7 @@ int decode( const char *StrNumber, char *data, size_t datalen, int blockLength, 
 	mip->IOBASE = numberBase;
 	StringToBig( StrNumber, t, numberBase);
 
-	char tmp[MAX_BIT_LENGTH/8];
+	char tmp[MAX_BIT_LENGTH/8+1];
 	int i, modul, digits, alphabetLength;
 	alphabetLength = ( CPlayfairAlphabet == NULL ) ? 256 : strlen(CPlayfairAlphabet);
     digits = (int)ceil(log((double)alphabetLength)/log((double)numberBase));
@@ -826,7 +826,10 @@ LOOP:
 		op=s[i];
 		s[i]=0;
 
-		if ( log(10.0)/log(2.0)*i > MAX_BIT_LENGTH ) throw eval_err( EVAL_ERR_STR_NUMBER );
+		if ( log(10.0)/log(2.0)*i > MAX_BIT_LENGTH ) 
+		{
+			throw eval_err( EVAL_ERR_STR_NUMBER );
+		}
 		n=s;
 
 		s+=i;
@@ -2958,7 +2961,7 @@ long InverseCongruenceGenerator::randBit()
 CTutorialFactorisationBase::CTutorialFactorisationBase()
 {
 	m_old_mip = get_mip();
-	mirsys(MAX_BIT_LENGTH/32,0);
+	mirsys(MAX_BIT_LENGTH/32+130,0);
 	mip = get_mip();
 	set_io_buffer_size(MAX_BIT_LENGTH + 1);
 	set_mip(m_old_mip);
