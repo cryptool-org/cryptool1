@@ -2961,7 +2961,7 @@ long InverseCongruenceGenerator::randBit()
 CTutorialFactorisationBase::CTutorialFactorisationBase()
 {
 	m_old_mip = get_mip();
-	mirsys(MAX_BIT_LENGTH/32+130,0);
+	mirsys(MAX_BIT_LENGTH/32+128,0);
 	mip = get_mip();
 	set_io_buffer_size(MAX_BIT_LENGTH + 1);
 	set_mip(m_old_mip);
