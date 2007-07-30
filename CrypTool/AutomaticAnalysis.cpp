@@ -725,6 +725,8 @@ UINT XorAuto(PVOID p)
 	if(Opt.m_VLen) {
 		CDlgBinKeyLength dia;
 		dia.m_laenge = periode;
+		// set dialog title
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_XOR,pc_str1,STR_LAENGE_STRING_TABLE);
 		dia.m_title = pc_str1;
 		if(IDCANCEL == dia.DoModal()) {
 			if(par->flags & CRYPT_DO_WAIT_CURSOR)
@@ -880,7 +882,9 @@ UINT AddAuto(PVOID p)
 	if(Opt.m_VLen) {
 		CDlgBinKeyLength dia;
 		dia.m_laenge = periode;
-		dia.m_title = pc_str1;
+		// set dialog title
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_ADD,pc_str1,STR_LAENGE_STRING_TABLE);
+        dia.m_title = pc_str1;
 		if(IDCANCEL == dia.DoModal()) {
 			if(par->flags & CRYPT_DO_WAIT_CURSOR)
 				HIDE_HOUR_GLASS
