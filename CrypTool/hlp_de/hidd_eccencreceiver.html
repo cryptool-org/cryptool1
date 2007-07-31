@@ -15,7 +15,7 @@
 <h3>Dialog Hybridverschlüsselung mit ECC-AES</h3>
 		
 <P>In diesem Dialog können Sie den auf Elliptischen Kurven (ECC) basierten öffentlichen Schlüssel des Empfängers wählen. Damit wird dann der Sessionkey verschlüsselt, der verwendet wurde, um mit dem symmetrischen AES-Verfahren das Dokument zu verschlüsseln.</P>
-
+										
 <P>Der dazu verwendete <a href="http://en.wikipedia.org/wiki/ECIES" target="_blank">ECIES</a>-Standard nutzt <a href="http://en.wikipedia.org/wiki/Elliptic_Curve_Diffie-Hellman" target="_blank">ECDH</a>- und <a href="aes_gewinner.html">AES</a>-Verfahren. Die <A href="hybridencryptionsystem.html">Hybridverschlüsselung</a> ist das am weitesten verbreitete Verfahren, Daten verschlüsselt zu übertragen. Weitere Informationen zur Hybridverschlüsselung finden Sie im <A class="filelink" onclick="parser('script-de.pdf')">Skript</A>.
 
 <P>Um ein Dokument mit ECIES zu verschlüsseln, ist es nötig, dass ein ECC-Schlüsselpaar vorliegt.&nbsp;Wenn Sie noch keinen asymmetrischen Schlüssel angelegt haben, müssen Sie das vor dem Aufruf des Dialogs&nbsp;ECIES-Hybridverschlüsselung tun [ein Benutzer Bob mit dem ECC-Schlüssel "Hybrid Encryption" wird standardmäßig mit ausgeliefert]:</P>
@@ -36,7 +36,7 @@
 		<IMG SRC="images/ECIES1.jpg" ALT="ECIES1.jpg" BORDER="0" width="91%">
 		<P></P>
 		<P>Der Inhalt dieses Fensters dient auch als Grundlage für die <A href="hid_hybrid_eccdec.html">
-				Hybridentschlüsselung</A>, die den gesamten Verschlüsselungsvorgang 
+				Hybridentschlüsselung mit ECC-AES</A>, die den gesamten Verschlüsselungsvorgang 
 			rückgängig machen kann.</P>
 	</BODY>
 </HTML>
