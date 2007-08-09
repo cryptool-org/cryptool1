@@ -1,0 +1,9 @@
+#$Id: downloads,v 1.15 2007/07/31 17:17:53 joerg Exp $
+#this file contains a list of downloadable files (relative to ./downloads)
+#filename TAB require-licence-acceptance[01]
+CrypToolScript_1_4_10_de.pdf	0
+CrypToolScript_1_4_10_en.pdf	0
+CrypToolPresentation_1_4_10_de.pdf	0
+CrypToolPresentation_1_4_10_en.pdf	0
+SetupCrypTool_1_4_10_de.exe	1
+SetupCrypTool_1_4_10_en.exe	1

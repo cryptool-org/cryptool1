@@ -1,0 +1,110 @@
+#!/bin/bash
+
+REPOSITORY=svn+ssh://file.sec.informatik.tu-darmstadt.de/home/subversion/cryptool/cryptool
+ROOTDIR=www/root 
+TOREMOVE='bin cgi-bin/var'
+
+missing() {
+    for f; do
+	test -r $f || echo $f
+    done
+}
+missinghash() {
+    h=$1
+    shift
+    for f; do
+	grep -q "[ 	]\\*\\?$f$" $h || echo $f
+    done
+}
+
+usage() {
+    echo "usage: make-zip dir-with-downloads [subversion-tag]"
+    exit 1
+}
+
+test -z "$1" && usage
+DIR=$1
+REL=$2
+set -e
+: ${TMP:=/tmp}
+TDIR=$TMP/mz$$
+trap "rm -r $TDIR" 0 3
+mkdir $TDIR
+if [ -n "$REL" ]; then
+    cd $TDIR || exit
+    svn -q export $REPOSITORY/$REL/$ROOTDIR $ROOTDIR
+    cd $ROOTMOD || exit
+else
+    tar cf - --exclude .svn --exclude '*.swp' --exclude '*~' . | tar xf - -C $TDIR
+    cd $TDIR/root || exit
+fi
+rm -r $TOREMOVE
+LIST=`perl -nae  'print "$F[0]\n" unless m{^#|/var/cryptool.log};' cgi-bin/etc/downloads`
+RLIST="$LIST ReadMe-en.txt ReadMe-de.txt"
+mkdir downloads 2>/dev/null || true
+cd downloads
+test -n "$DIR" && tar -cf - -C $DIR $RLIST 2>/dev/null | tar xf - 2>/dev/null
+if [ -n "`missing $RLIST`" ]; then
+    echo
+    echo "please copy the following files to `pwd` :"
+    echo "`missing $RLIST`"
+    echo
+    echo "press return when ready or abort with ^C"
+    read
+fi
+
+if ! ls | perl -ne 'chomp; print "[ \t]\\*\\?$_\$\n";' | grep -f - ../md5sum.txt | md5sum -c; then
+    echo 
+    echo "please check md5sum.txt"
+    #exit 1
+fi
+set +e
+OUTPUT="`ls | perl -ne 'chomp; print \"[ \t]\\\\*\\\\?\$_\\\$\\n\";' | grep -f - ../sha1sum.txt | sha1sum -c /dev/stdin 2>&1 | grep -v ': OK$'; true`"
+set -e
+if [ -n "$OUTPUT" ] ; then 
+    echo "$OUTPUT"
+    echo "please check sha1sum.txt"
+    #exit 1
+fi
+L="`missinghash ../md5sum.txt $LIST`"
+if [ -n "$L" ]; then
+    echo 
+    echo "missing from md5sum.txt:"
+    echo "$L"
+    echo
+    #exit 1
+fi
+L="`missinghash ../sha1sum.txt $LIST`"
+if [ -n "$L" ]; then
+    echo 
+    echo "missing from sha1sum.txt:"
+    echo "$L"
+    echo
+    #exit 1
+fi
+
+cd .. # in root again
+for lang in en de; do
+    perl -e '$lang = $ARGV[0]; $DIR = $ARGV[1];
+	sub readfile { local $/; undef $/; $f = shift; open(F,"<$f") or die "open $f: $!\n";
+	    $f = <F>; close F; $f;
+	}
+	$_ = readfile("downloads/ReadMe-$lang.txt");
+	s{^( *)([.0-9]+)( +\.+ +)(.*)$}{$1$2$3<a href="#s$2">$4</a>}gm;
+	s{^([.0-9]+\.) ([^.].*)}{<h2><a name="s$1">$1</a> $2</h2>}gm;
+	s{----*}{}g;
+	$f = readfile("readme.$lang.html.in");
+	$f =~ s{__BODY__}{$_};
+	open(F,">readme.$lang.html") or die "open readme.$lang.html: $!";
+	print F $f;
+	close(F);
+    ' $lang $DIR || exit
+done
+for lang in en; do
+    cp index.$lang.html index.html
+    cp index.$lang.html download.html # for sites that have linked our old download page directly
+    zip=$TMP/cryptool-$lang.zip
+    rm -f $zip 
+    echo Creating $zip
+    zip -r -q $zip *
+done

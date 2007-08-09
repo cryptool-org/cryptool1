@@ -1,0 +1,29 @@
+Checklist for web site update
+
+1. update content (root/*.html, root/images)
+
+2. if downloadable files have been added/removed update
+   - root/cgi-bin/etc/downloads (add/remove filename)
+   - root/download.*.html (add/remove description and filename in selection list)
+   - root/sha1sum.txt (add/remove SHA-1 hash values with sha1sum -b)
+   - root/md5sum.txt (add/remove MD5 hash values with md5sum -b)
+
+3. check everything into Subversion, tag it with tags like CrypTool_1_4_00
+   (let's call it $TAG)
+
+4. put all downloadable files (i.e. all files mentioned in
+   root/etc/downloads except ../var/cryptool.log) in to some directory
+   (let's call it $DIR).
+
+5. put ReadMe-en.txt and ReadMe-de.txt in $DIR
+
+6. build zip files for upload to web site from Subversion
+   bash ./root/bin/make-zip $DIR $TAG
+
+7. upload the two files produced in step 5:
+   /tmp/cryptool-en.zip
+
+
+For testing steps 3-4 can be skipped and step 6 modified to 
+6'. build zip files for upload to web site from the checked out directory
+   bash ./root/bin/make-zip $DIR 

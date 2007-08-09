@@ -1,0 +1,72 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//de">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <META NAME="DESCRIPTION" CONTENT="CrypTool - Kryptographie zum Kennenlernen">
+   <META NAME="KEYWORDS" CONTENT="CrypTool, Kryptographie, Verschl&uuml;sselung, RSA, DSA, DES, Hill, Vigenere, Playfair, Triple-DES, elliptische Kurven, Autokorrelation, Primzahlen, Pseudozufallsfolgen, Zahlentheorie, Schl&uuml;ssel, Public Key">
+   <META HTTP-EQUIV="Content-Language" CONTENT="de">
+   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+   <META NAME="REVISIT-AFTER" CONTENT="7 days">
+   <META HTTP-EQUIV="AUTHOR" CONTENT="Deutsche Bank">
+   <META NAME="PUBLISHER-EMAIL" CONTENT="joerg-cornelius.schneider@db.com">
+   <title>CrypTool</title>
+</head>
+<body>
+
+
+<table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<tr>
+<td align="center" colspan="2">
+	<img border=0 src="images/CrypTool_logo2.png" alt="CrypTool">
+</td>
+</tr>
+<tr>
+  <td align=center>
+        <h2>Survey for the future development of CrypTool</h2>
+  </td>
+</tr>
+</table>
+
+<p>
+  CrypTool is currently developed under Visual C++ v6 with the Microsoft
+  Foundation Classes (MFC). This was a good choice when the project started in
+  1996. For a forward-looking and modern future development, we plan to build
+  on other development platforms. 
+</p>
+
+<p>
+  Currently we plan to port CrypTool to Java or C#. We would like to ask people
+  interested in CrypTool to tell us their opinion about this matter.
+</p>
+
+
+<p>
+  <form action="/cgi-bin/vote.pl">
+    <input type="radio" name="devel" value="mfc"> Visual C++ / MFC (as is)</input><br>
+    <input type="radio" name="devel" value="java-swing"> Java / Swing</input><br>
+    <input type="radio" name="devel" value="java-swt"> Java / SWT (with Eclipse)</input><br>
+    <input type="radio" name="devel" value="net"> C# / .NET / Windows Forms</input><br>
+    <input type="radio" name="devel" value="cppv7"> C++ v7 / .NET / Windows
+    Forms</input><br> 
+    <p>Please add (optionally) comments:<ul>
+      <li>Your experiences</li>
+      <li>Your reasons</li>
+      <li>Are you willing to help during the development?</li>
+      <li>Your email address.</li>
+    </ul></p>
+    <textarea name="comments" cols="50" rows="10"></textarea><br><br>
+
+    <input type="hidden" name="lang" value="en">
+    <input type="submit" name="vote" value="Submit"></input>
+  </form>
+</p>
+
+<p>Thank you.</p>
+
+
+<div ALIGN=right>
+<address><?php echo date ("Y-m-d", filemtime(__FILE__)); ?> <a href="mailto:joerg-cornelius.schneider@db.com">webmaster</a></address>
+</div>
+
+</body>
+</html>

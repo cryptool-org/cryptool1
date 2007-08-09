@@ -1,0 +1,73 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//de">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <META NAME="DESCRIPTION" CONTENT="CrypTool - Kryptographie zum Kennenlernen">
+   <META NAME="KEYWORDS" CONTENT="CrypTool, Kryptographie, Verschl&uuml;sselung, RSA, DSA, DES, Hill, Vigenere, Playfair, Triple-DES, elliptische Kurven, Autokorrelation, Primzahlen, Pseudozufallsfolgen, Zahlentheorie, Schl&uuml;ssel, Public Key">
+   <META HTTP-EQUIV="Content-Language" CONTENT="de">
+   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+   <META NAME="REVISIT-AFTER" CONTENT="7 days">
+   <META HTTP-EQUIV="AUTHOR" CONTENT="Deutsche Bank">
+   <META NAME="PUBLISHER-EMAIL" CONTENT="joerg-cornelius.schneider@db.com">
+   <title>CrypTool</title>
+</head>
+<body>
+
+
+<table CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<tr>
+<td align="center" colspan="2">
+	<img border=0 src="images/CrypTool_logo2.png" alt="CrypTool">
+</td>
+</tr>
+<tr>
+  <td align=center>
+        <h2>Umfrage zur Weiterentwicklung von CrypTool</h2>
+  </td>
+</tr>
+</table>
+
+<p>
+  CrypTool wurde bisher unter Visual C++ v6 mit den Microsoft
+  Foundation Classes (MFC) entwickelt. Dies war beim Start des
+  Projektes 1996 eine gute Wahl. Für eine zukunftsgerechte und moderne
+  Weiterentwicklung wollen wir auf eine neue Entwicklungsplattform umsteigen. 
+</p>
+
+<p>
+  Derzeit finden Überlegungen statt, CrypTool auf Java oder C# zu
+  portieren. Wir möchten CrypTool-Interessierte bitten, uns Ihre Meinung zu 
+  dieser Thematik mitzuteilen. 
+</p>
+
+<p>
+  <form action="/cgi-bin/vote.pl">
+    <input type="radio" name="devel" value="mfc"> Visual C++ / MFC (wie bisher)</input><br>
+    <input type="radio" name="devel" value="java-swing"> Java / Swing</input><br>
+    <input type="radio" name="devel" value="java-swt"> Java / SWT (mit Eclipse)</input><br>
+    <input type="radio" name="devel" value="net"> C# / .NET / Windows Forms</input><br>
+    <input type="radio" name="devel" value="cppv7"> C++ v7 / .NET / Windows
+    Forms</input><br>
+    
+    <p>Bitte teilen Sie uns (freiwillig) mit:<ul>
+      <li>Ihre Erfahrungen</li>
+      <li>Ihre Gründe</li>
+      <li>Kommentare</li>
+      <li>Sind Sie bereit mitzuentwickeln?</li>
+      <li>Ihre Emailadresse.</li>
+    </ul></p>
+    <textarea name="comments" cols="50" rows="10"></textarea><br><br>
+    <input type="hidden" name="lang" value="de">
+    <input type="submit" name="vote" value="Absenden"></input>
+  </form>
+</p>
+
+<p>Vielen Dank.</p>
+
+
+<div ALIGN=right>
+<address><?php echo date ("Y-m-d", filemtime(__FILE__)); ?> <a href="mailto:joerg-cornelius.schneider@db.com">webmaster</a></address>
+</div>
+
+</body>
+</html>
