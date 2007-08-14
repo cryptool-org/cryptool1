@@ -290,7 +290,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release_pl|Win32"
-			OutputDirectory="$(ConfigurationName)"
+			OutputDirectory="../$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
 			UseOfMFC="1"
@@ -559,10 +559,10 @@
 				RelativePath=".\Bilder\shark.bmp">
 			</File>
 			<File
-				RelativePath=".\res\Zahlenhai.ico">
+				RelativePath=".\Bilder\Zahlenhai.ico">
 			</File>
 			<File
-				RelativePath=".\Bilder\Zahlenhai.ico">
+				RelativePath=".\res\Zahlenhai.ico">
 			</File>
 		</Filter>
 		<File
