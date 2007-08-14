@@ -274,7 +274,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG,,AFX_RESOURCE_DLL,AFX_TARG_DEU"
+				PreprocessorDefinitions="NDEBUG,AFX_RESOURCE_DLL,AFX_TARG_DEU"
 				Culture="1031"
 				AdditionalIncludeDirectories="$(IntDir)"/>
 			<Tool
@@ -328,7 +328,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="_DEBUG;AFX_RESOURCE_DLL;AFX_TARG_PLK"
+				PreprocessorDefinitions="NDEBUG;AFX_RESOURCE_DLL;AFX_TARG_PLK"
 				Culture="1045"
 				AdditionalIncludeDirectories="$(IntDir)"/>
 			<Tool
