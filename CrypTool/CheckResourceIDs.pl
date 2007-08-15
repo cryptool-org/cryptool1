@@ -227,76 +227,75 @@ foreach (sort keys %rcmenu) {
 	}
 }
 
+my @languages = sort keys %id;
+my %idall = map { %$_ } values %id; # keys %ids: union of ids for all languages; values %ids: line number of one of the ids (any)
 # check IDs between languages
-my $iden = $id{ENGLISH};
-my $idde = $id{GERMAN};
-foreach (sort keys %$iden) {
-	unless (defined $idde->{$_}) {
-		print "$RC($iden->{$_}) : warning: $_ is missing in german language ressources\n";
-		$nwarning++;
-	}
-}
-foreach (sort keys %$idde) {
-	unless (defined $iden->{$_}) {
-		print "$RC($idde->{$_}) : warning: $_ is missing in english language ressources\n";
-		$nwarning++;
+foreach (sort keys %idall) {
+	foreach $lang (@languages) {
+		unless (defined $id{$lang}->{$_}) {
+			print STDERR "$RC($idall{$_}) : warning: $_ is missing in $lang language ressources\n";
+			$nwarning++;
+		}
 	}
 }
 
 # check dialog IDs between languages
 my $id;
-my $dialogen = $dialog{ENGLISH};
-my $dialogde = $dialog{GERMAN};
-foreach $id (sort keys %$dialogen) {
-	next unless defined $dialogde->{$id};
-	my $iden = $dialogen->{$id};
-	my $idde = $dialogde->{$id};
-	foreach (sort keys %$iden) {
-		unless (defined $idde->{$_}) {
-			print "$RC($iden->{$_}) : warning: $_ (dialog $id) is missing in german language ressources\n";
-			$nwarning++;
-		}
-	}
-	foreach (sort keys %$idde) {
-		unless (defined $iden->{$_}) {
-			print "$RC($idde->{$_}) : warning: $_ (dialog $id) is missing in english language ressources\n";
-			$nwarning++;
+# $dialog{lang}{dialogid}{elementid} = $lno
+my %dialogids = map { %$_ } values %dialog; # keys %dialogids = all dialog ids
+my %dialogall = (); # $dialogall{dialogid}{elementid} = $lno
+foreach $id (keys %dialogids) {
+	$dialogall{$id} = { map { $_->{$id} ? %{$_->{$id}} : () } values %dialog };
+}
+
+foreach $id (sort keys %dialogids) {
+	my %dialogall = # $dialogall{$elementid} = $lno
+		map { $dialog{$_}->{$id} ? %{$dialog{$_}->{$id}} : () } @languages;
+	foreach (sort keys %dialogall) { 
+		foreach $lang (@languages) {
+			if (defined $dialog{$lang}->{$id} &&
+				!defined $dialog{$lang}->{$id}->{$_}) {
+				print STDERR "$RC($dialogall{$_}) : warning: $_ (dialog $id) is missing in $lang language ressources\n";
+				$nwarning++;
+			}
 		}
 	}
 }
 
 # compare menu trees
 my $idr;
-my @idrs = sort keys %{$menutree{GERMAN}} or die "$RC : error: no MENU IDR_... found\n";
+my %idrs = map { %$_ } values %menutree;
+%idrs or die "$RC : error: no MENU IDR_... found";
 my $refidr = 'IDR_TEXTTYPE';
+$idrs{$refidr} or die "$RC : error: $refidr not found";
 
-foreach $idr (sort keys %{$menutree{ENGLISH}}) {
-	if (!$menutree{GERMAN}{$idr}) {
-		print "$RC : warning: MENU $idr is missing in german language ressources\n";
-		$nwarning++;
+foreach $idr (sort keys %idrs) {
+	foreach $lang (@languages) {
+		if (!$menutree{$lang}{$idr}) {
+			print STDERR "$RC : warning: MENU $idr is missing in $lang language ressources\n";
+			$nwarning++;
+		}
 	}
 }
 
 
-foreach $idr (@idrs) {
+foreach $idr (sort keys %idrs) {
 
-	$nwarning += comparemenu($menutree{GERMAN}{$refidr},$menutree{GERMAN}{$idr},
-		"GERMAN/$refidr","GERMAN/$idr")
-		if ($idr ne $refidr && $idr !~ m{_CONTEXT});
-	
-	if (!$menutree{ENGLISH}{$idr}) {
-		print "$RC : warning: MENU $idr is missing in english language ressources\n";
-		$nwarning++;
-		next;
+	foreach $lang (@languages) {
+		if (!$menutree{$lang}{$idr}) {
+			print STDERR "$RC : warning: MENU $idr is missing in $lang language ressources\n";
+			$nwarning++;
+			next;
+		}
+		$nwarning += comparemenu($menutree{$lang}{$refidr},$menutree{$lang}{$idr},
+			"$lang/$refidr","$lang/$idr")
+			if ($idr ne $refidr && $idr !~ m{_CONTEXT});
+		
+		$nwarning += comparemenu($menutree{$languages[0]}{$idr},$menutree{$lang}{$idr},
+			"$languages[0]/$idr","$lang/$idr","ignorenames")
+			if ($lang ne $languages[0]);
 	}
-
-	$nwarning += comparemenu($menutree{ENGLISH}{$refidr},$menutree{ENGLISH}{$idr},
-		"ENGLISH/$refidr","ENGLISH/$idr","ignorenames")
-		if ($idr ne $refidr && $idr !~ m{_CONTEXT});
-	
-	$nwarning += comparemenu($menutree{GERMAN}{$idr},$menutree{ENGLISH}{$idr},
-		"GERMAN/$idr","ENGLISH/$idr","ignorenames")
-	
+		
 }
 if ($nwarning == 0) {
 	#update time stamp
@@ -322,8 +321,8 @@ exit(0);
 sub comparemenu {
 	my ($mlist1,$mlist2,$ctx1,$ctx2,$ignorenames) = @_;
 	my $warnings = 0;
-	my $fake1 = { line => @$mlist1 ? $mlist1->[-1]->{line} : -1 }; # line # of last enry
-	my $fake2 = { line => @$mlist2 ? $mlist2->[-1]->{line} : -1 }; # line # of last enry
+	my $fake1 = { line => @$mlist1 ? $mlist1->[-1]->{line} : -1 }; # line # of last entry
+	my $fake2 = { line => @$mlist2 ? $mlist2->[-1]->{line} : -1 }; # line # of last entry
 	foreach my $i (0 .. (@$mlist1 > @$mlist2 ? @$mlist1 : @$mlist2) - 1) {
 		$warnings += comparemenuitem($mlist1->[$i] || $fake1,$mlist2->[$i] || $fake2,
 				$ctx1,$ctx2,$ignorenames);
@@ -346,40 +345,40 @@ sub comparemenuitem {
 	my $type2 = menutype($m2);
 	if (!defined $type1) {
 		my $idorname2 = $m2->{id} || $m2->{name} || '';
-		print "$RC($m2->{line}) : warning: $type2 $idorname2 from $ctx2 is missing in the corresponding position in $ctx1\n";
-			print "$RC($m1->{line}) : warning: (other location)\n";
+		print STDERR "$RC($m2->{line}) : warning: $type2 $idorname2 from $ctx2 is missing in the corresponding position in $ctx1\n";
+			print STDERR "$RC($m1->{line}) : warning: (other location)\n";
 		return 1;
 	}
 	if (!defined $type2) {
 		my $idorname1 = $m1->{id} || $m1->{name} || '';
-		print "$RC($m1->{line}) : warning: $type1 $idorname1 from $ctx1 is missing in the corresponding position in $ctx2\n";
-			print "$RC($m2->{line}) : warning: (other location)\n";
+		print STDERR "$RC($m1->{line}) : warning: $type1 $idorname1 from $ctx1 is missing in the corresponding position in $ctx2\n";
+			print STDERR "$RC($m2->{line}) : warning: (other location)\n";
 		return 1;
 	}
 	if ($type1 ne $type2) {
 		my $idorname1 = $m1->{id} || $m1->{name} || '';
 		my $idorname2 = $m2->{id} || $m2->{name} || '';
-		print "\n$type1\t$idorname1\t$ctx1\n";
-		print "$type2\t$idorname2\t$ctx2\n";
-		print "$RC($m1->{line}) : warning: $idorname1 from $ctx1 is a $type1, while $idorname2 from $ctx2 in the corresponding position is a $type2\n";
-		print "$RC($m2->{line}) : warning: (other location)\n";
+		print STDERR "\n$type1\t$idorname1\t$ctx1\n";
+		print STDERR "$type2\t$idorname2\t$ctx2\n";
+		print STDERR "$RC($m1->{line}) : warning: $idorname1 from $ctx1 is a $type1, while $idorname2 from $ctx2 in the corresponding position is a $type2\n";
+		print STDERR "$RC($m2->{line}) : warning: (other location)\n";
 		return 1;
 	}
 	if ($type1 eq 'MENUITEM') {
 		if ($m1->{id} ne $m2->{id}) {
-			print "$RC($m1->{line}) : warning: $type1 $m1->{id} from $ctx1 has another id than $type2 $m2->{id} from $ctx2 in the corresponding position\n";
-			print "$RC($m2->{line}) : warning: (other location)\n";
+			print STDERR "$RC($m1->{line}) : warning: $type1 $m1->{id} from $ctx1 has a different id than $type2 $m2->{id} from $ctx2 in the corresponding position\n";
+			print STDERR "$RC($m2->{line}) : warning: (other location)\n";
 			return 1;
 		}
 		if (!$ignorenames && $m1->{name} ne $m2->{name}) {
-			print "$RC($m1->{line}) : warning: $type1 $m1->{id} \"$m1->{name}\" from $ctx1 has another text than $type2 $m2->{id} \"$m2->{name}\" from $ctx2 in the corresponding position\n";
-			print "$RC($m2->{line}) : warning: (other location)\n";
+			print STDERR "$RC($m1->{line}) : warning: $type1 $m1->{id} \"$m1->{name}\" from $ctx1 has a different text than $type2 $m2->{id} \"$m2->{name}\" from $ctx2 in the corresponding position\n";
+			print STDERR "$RC($m2->{line}) : warning: (other location)\n";
 			return 1;
 		}
 	} elsif ($type1 eq 'POPUP') {
 		if (!$ignorenames && $m1->{name} ne $m2->{name}) {
-			print "$RC($m1->{line}) : warning: $type1 $m1->{id} \"$m1->{name}\" from $ctx1 has another text than $type2 $m2->{id} \"$m2->{name}\" from $ctx2 in the corresponding position\n";
-			print "$RC($m2->{line}) : warning: (other location)\n";
+			print STDERR "$RC($m1->{line}) : warning: $type1 \"$m1->{name}\" from $ctx1 has a different text than $type2 \"$m2->{name}\" from $ctx2 in the corresponding position\n";
+			print STDERR "$RC($m2->{line}) : warning: (other location)\n";
 			return 1;
 		}
 		return comparemenu($m1->{submenu},$m2->{submenu},$ctx1,$ctx2,$ignorenames);
