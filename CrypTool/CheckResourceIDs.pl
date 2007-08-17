@@ -158,6 +158,7 @@ foreach (<RC>) {
 		my $text = join("|",@stack);
 		if (defined($rcmenu{$index}) && $text ne $rcmenu{$index}) {
 		    print STDERR "$RC($lno) : warning: This menu entry is the same as an earlier one ($rcmenu{$index}) except for non alpha-numerical characters. Both will be treated the same w.r.t. F1\n";
+		    print STDERR "$RC($rcmenuline{$index}) : warning: (other location)\n";
 			$nwarning++;
 		}
 		$rcmenu{$index} = $text;
@@ -222,7 +223,7 @@ close MID;
 foreach (sort keys %rcmenu) {
 	if (!defined $filemenu{$_}) {
 		my ($lang,$id) = split(':',$_);
-		print STDERR "$RC($rcmenuline{$_}) : warning: New menu entry? Please update $MID by adding the following line: $lang\t$id # $rcmenu{$_}\n";
+		print STDERR "$RC($rcmenuline{$_}) : warning: New popup menu? Please update $MID by adding the following line: $lang\t$id # $rcmenu{$_}\n";
 		$nwarning++;
 	}
 }
@@ -303,6 +304,11 @@ if ($nwarning == 0) {
 	print OKLOG  "$RC and $MID checked successfully.\n\nThis file can be safely removed.\n";
 	close OKLOG ;
 } else {
+	print STDERR "$RC : warning: =================\n";
+	print STDERR "$RC : warning: Doubleclicking on the above warnings will show you the line with the problem in $RC.\n";
+	print STDERR "$RC : warning: This will ONLY work if you first open $RC with 'File \\ Open \\ File \\ Open WITH \\ Source Code (Text) Editor'.\n";
+	print STDERR "$RC : warning: 'Open WITH' is important here. It can be found by clicking on the down arrow next to 'Open'.\n";
+	print STDERR "$RC : warning: =================\n";
 	unlink($OKLOG);
 }
 
