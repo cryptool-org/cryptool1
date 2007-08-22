@@ -12,844 +12,6 @@
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
-
-/////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
-
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
-#ifdef _WIN32
-LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
-#pragma code_page(1252)
-#endif //_WIN32
-
-#ifdef APSTUDIO_INVOKED
-/////////////////////////////////////////////////////////////////////////////
-//
-// TEXTINCLUDE
-//
-
-1 TEXTINCLUDE 
-BEGIN
-    "< Cannot change standard MFC resources! >\0"
-END
-
-#endif    // APSTUDIO_INVOKED
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Icon
-//
-
-// Icon with lowest ID value placed first to ensure application icon
-// remains consistent on all systems.
-IDR_MAINFRAME ICON "res\\aestool.ico"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Dialog
-//
-
-AFX_IDD_NEWTYPEDLG DIALOG  9, 26, 183, 70
-STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
-CAPTION "New"
-FONT 8, "MS Shell Dlg"
-BEGIN
-	LTEXT	"&New ",IDC_STATIC,6,5,123,8,NOT WS_GROUP
-    LISTBOX         AFX_IDC_LISTBOX,6,15,125,49,WS_VSCROLL | WS_TABSTOP
-	DEFPUSHBUTTON	"OK",IDOK,137,6,40,14
-	PUSHBUTTON	"Cancel",IDCANCEL,137,23,40,14
-	PUSHBUTTON	"&Help",ID_HELP,137,43,40,14
-END
-
-IDD_SPLASH DIALOGEX 0, 0, 211, 122
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Warning"
-FONT 8, "MS Sans Serif", 0, 0, 0x0
-BEGIN
-	DEFPUSHBUTTON	"OK",IDOK,47,101,50,14
-	PUSHBUTTON	"Cancel",IDCANCEL,113,101,50,14
-	LTEXT	"You just started executable code that was probably presented to you by a third party.\nThis procedure is usually NOT ADVISABLE as you could import harmful code to your computer.",IDC_STATIC,7,7,197,35
-	LTEXT	"Generally it is advisable to use good precaution when starting code presented by third parties. Otherwise damages inflicted by viruses, trojans etc. can not be completely ruled out.",IDC_STATIC,7,45,197,40
-END
-
-IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 206
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
-    WS_SYSMENU
-EXSTYLE WS_EX_APPWINDOW
-CAPTION "AES-Tool 2.4"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
-BEGIN
-    EDITTEXT        IDC_EDIT_KEY,26,59,266,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_SRC,26,107,202,12,ES_AUTOHSCROLL,
-                    WS_EX_ACCEPTFILES
-	PUSHBUTTON	"Search...",IDC_BUTTON_SRC,238,105,56,17
-	CONTROL	"Selfextracting and encrypted",IDC_RADIO_EXE,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,26,154,103,10
-	CONTROL	"Encrypted",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,
-                    149,154,80,10
-	DEFPUSHBUTTON	"En&crypt",IDOK,17,182,51,18
-	PUSHBUTTON	"E&xit",IDCANCEL,174,182,54,18
-	PUSHBUTTON	"&Help",IDC_BUTTON3,254,182,50,18
-	CONTROL	"Show password",IDC_RADIO_PSHOW,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,26,41,75,10
-	CONTROL	"Hide password",IDC_RADIO_PHIDE,"Button",
-                    BS_AUTORADIOBUTTON,149,41,79,10
-	LTEXT	"Encrypt a file",IDC_STATIC_TITLE,17,9,80,8
-	GROUPBOX	"Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]",IDC_STATIC,17,28,287,54
-	GROUPBOX	"Input file",IDC_STATIC,17,93,287,39
-	GROUPBOX	"Output format",IDC_STATIC,17,142,287,29
-END
-
-IDD_HELP DIALOGEX 0, 0, 500, 350
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Help for AES-Tool"
-FONT 8, "MS Sans Serif", 0, 0, 0x0
-BEGIN
-	DEFPUSHBUTTON	"OK",IDOK,209,329,50,14
-	LTEXT	"AES-Tool is an encryption program that can be used to encrypt files using the symmetric and licence-free Rijndael algorithm (= AES).",IDC_STATIC,12,9,476,10
-	LTEXT	"The program can be invoked in three different ways:",IDC_STATIC,12,21,476,11
-	LTEXT	"These parameters are:",IDC_STATIC,24,42,464,10
-	LTEXT	"Key:",IDC_STATIC,24,52,38,8
-	LTEXT	"Input file:",IDC_STATIC,24,70,38,8
-	LTEXT	"Output file:",IDC_STATIC,24,99,38,19
-	LTEXT	"The key is entered in hexadecimal form (characters '0' to '9' and 'A' to 'F'). The maximum key length is 256 bits or 64 hex digits. The recommended minimum key length is 20 digits.",IDC_STATIC,62,52,426,18
-	LTEXT	"The input file contains the data to be encrypted or decrypted. If a file is chosen that was encrypted with this program, then the program will be automatically set to decryption mode. Otherwise the program will stay in encryption mode.",IDC_STATIC,62,70,426,16
-	LTEXT	"The output file name and directory can be determined after pressing the ""Encrypt""/""Decrypt"" button. \nWhen encrypting you can select between two output formats via ""radio buttons"":",IDC_STATIC,62,99,426,19
-	LTEXT	"A 'self extracting archive' is a file containing data and at the same time it is a program. This program has the same func- tionality as AES-Tool and can be used to decrypt the data and store it in a file (after the correct password has been entered).",IDC_STATIC,69,117,419,19
-	LTEXT	"An 'encrypted file' contains the encrypted data only. Then the AES-Tool program is required for decryption.",IDC_STATIC,69,134,419,11
-	LTEXT	"The second way to invoke the program is with command line parameters. These can be specified either by position or by key word. If all",IDC_STATIC,24,148,425,8
-	LTEXT	"AESTool <Input file> <Output file> <key>",IDC_STATIC,62,
-                    169,426,10
-	LTEXT	"AESTool -i <Input file> -o <Output file> -k <Key>",IDC_STATIC,62,179,426,10
-	LTEXT	"The third possibility for program invocation is the self extracting archive. The input file name here is being preset by the self extracting archive.",IDC_STATIC,24,220,464,15
-	LTEXT	"With a normal start by clicking the icon, all necessary parameters can be entered into a dialog box.",IDC_STATIC,24,33,464,9
-	LTEXT	"1.",IDC_STATIC,12,33,12,9
-	LTEXT	"2.",IDC_STATIC,12,148,12,11
-	LTEXT	"3.",IDC_STATIC,12,220,12,11
-	RTEXT	"-",IDC_STATIC,56,118,8,19
-	RTEXT	"-",IDC_STATIC,56,137,8,11
-	LTEXT	"The program determines automatically if the input file is encrypted and then decrypts it. Otherwise the program encrypts it accordingly.",IDC_STATIC,24,190,464,8
-	LTEXT	"parameters are entered no user interaction is required, otherwise a window pops up and the remaining data can be entered interactively.",IDC_STATIC,24,156,426,8
-	LTEXT	"The exit code reflects the program's success: 0: everything OK; 1: an error occurred, an error message is displayed on stderr.",IDC_STATIC,24,206,391,8
-	LTEXT	"The output file's extension determines the encryption format: .EXE: self extracting archive, others: ordinary encrypted file.",IDC_STATIC,24,198,464,9
-	LTEXT	"Due to operating system's and development environment's limitations the size of encrypted files (including header and self extractor) is limited to 4 GB.",IDC_STATIC,12,248,476,16
-	LTEXT	"Please note to check the origin before calling self extracting archives.\nIt is recommendable to always keep antivirus and operating system software up to date.",IDC_STATIC,12,278,476,18
-	LTEXT	"You also select the file to be used with the mouse (drag and drop) by dragging it from the Windows Explorer into the field ""Input file"".",IDC_STATIC,62,86,426,8
-END
-
-IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Information about AES-Tool"
-FONT 8, "MS Sans Serif", 0, 0, 0x0
-BEGIN
-	ICON	IDR_MAINFRAME,IDC_STATIC,11,17,20,20
-	LTEXT	"AES-Tool Version 2.4",IDC_STATIC,40,10,119,8,
-                    SS_NOPREFIX
-	LTEXT	"Copyright (C) 2007",IDC_STATIC1,40,25,119,8
-	DEFPUSHBUTTON	"OK",IDOK,178,7,50,14,WS_GROUP
-END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Version
-//
-
-VS_VERSION_INFO VERSIONINFO
- FILEVERSION 2,1,0,0
- PRODUCTVERSION 2,1,0,0
- FILEFLAGSMASK 0x3fL
-#ifdef _DEBUG
- FILEFLAGS 0x1L
-#else
- FILEFLAGS 0x0L
-#endif
- FILEOS 0x4L
- FILETYPE 0x1L
- FILESUBTYPE 0x0L
-BEGIN
-    BLOCK "StringFileInfo"
-    BEGIN
-        BLOCK "080904b0"
-        BEGIN
-            VALUE "FileDescription", "AES-Tool"
-            VALUE "FileVersion", "2.1"
-            VALUE "InternalName", "aestool"
-            VALUE "LegalCopyright", "Copyright (C) 2002 Deutsche Bank AG"
-            VALUE "OriginalFilename", "aestool.exe"
-            VALUE "ProductName", "Application AES-Tool"
-            VALUE "ProductVersion", "2.1"
-        END
-    END
-    BLOCK "VarFileInfo"
-    BEGIN
-        VALUE "Translation", 0x809, 1200
-    END
-END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// DESIGNINFO
-//
-
-#ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
-BEGIN
-    IDD_SPLASH, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 204
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 115
-    END
-    IDD_AESTOOL_DIALOG, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 313
-        VERTGUIDE, 17
-        VERTGUIDE, 26
-        VERTGUIDE, 228
-        VERTGUIDE, 294
-        VERTGUIDE, 304
-        TOPMARGIN, 7
-        HORZGUIDE, 46
-        HORZGUIDE, 88
-        HORZGUIDE, 153
-    END
-    IDD_HELP, DIALOG
-    BEGIN
-        LEFTMARGIN, 12
-        RIGHTMARGIN, 488
-        VERTGUIDE, 24
-        VERTGUIDE, 62
-        VERTGUIDE, 69
-        VERTGUIDE, 268
-        TOPMARGIN, 12
-        BOTTOMMARGIN, 343
-        HORZGUIDE, 22
-        HORZGUIDE, 33
-        HORZGUIDE, 42
-        HORZGUIDE, 52
-        HORZGUIDE, 70
-    END
-    IDD_ABOUTBOX, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 228
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 48
-    END
-END
-#endif    // APSTUDIO_INVOKED
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Cursor
-//
-
-AFX_IDC_CONTEXTHELP CURSOR "res\\help.cur"
-AFX_IDC_SMALLARROWS CURSOR "res\\sarrows.cur"
-AFX_IDC_HSPLITBAR CURSOR "res\\splith.cur"
-AFX_IDC_VSPLITBAR CURSOR "res\\splitv.cur"
-AFX_IDC_NODROPCRSR CURSOR "res\\nodrop.cur"
-AFX_IDC_TRACKNWSE CURSOR "res\\trcknwse.cur"
-AFX_IDC_TRACKNESW CURSOR "res\\trcknesw.cur"
-AFX_IDC_TRACKNS CURSOR "res\\trckns.cur"
-AFX_IDC_TRACKWE CURSOR "res\\trckwe.cur"
-AFX_IDC_TRACK4WAY CURSOR "res\\trck4way.cur"
-AFX_IDC_MOVE4WAY CURSOR "res\\move4way.cur"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Bitmap
-//
-
-26567 BITMAP "res\\3dcheck.bmp"
-AFX_IDB_MINIFRAME_MENU BITMAP "res\\minifwnd.bmp"
-AFX_IDB_CHECKLISTBOX_NT BITMAP "res\\ntcheck.bmp"
-AFX_IDB_CHECKLISTBOX_95 BITMAP "res\\95check.bmp"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// String Table
-//
-
-STRINGTABLE 
-BEGIN
-	AFX_IDS_OPENFILE "Open"
-	AFX_IDS_SAVEFILE "Save As"
-	AFX_IDS_ALLFILTER "All Files (*.*)"
-	AFX_IDS_UNTITLED "Untitled"
-	AFX_IDS_UNNAMED_FILE "an unnamed file"
-END
-
-STRINGTABLE 
-BEGIN
-	AFX_IDS_HIDE "&Hide"
-END
-
-STRINGTABLE 
-BEGIN
-	AFX_IDP_NO_ERROR_AVAILABLE "No error message is available."
-	AFX_IDS_NOT_SUPPORTED_EXCEPTION "An unsupported operation was attempted."
-	AFX_IDS_RESOURCE_EXCEPTION "A required resource was unavailable."
-	AFX_IDS_MEMORY_EXCEPTION "Out of memory."
-	AFX_IDS_USER_EXCEPTION "An unknown error has occurred."
-END
-
-STRINGTABLE 
-BEGIN
-	AFX_IDP_INVALID_FILENAME "Invalid filename."
-	AFX_IDP_FAILED_TO_OPEN_DOC "Failed to open document."
-	AFX_IDP_FAILED_TO_SAVE_DOC "Failed to save document."
-	AFX_IDP_ASK_TO_SAVE "Save changes to %1?"
-	AFX_IDP_FAILED_TO_CREATE_DOC "Failed to create empty document."
-	AFX_IDP_FILE_TOO_LARGE "The file is too large to open."
-	AFX_IDP_FAILED_TO_START_PRINT "Could not start print job."
-	AFX_IDP_FAILED_TO_LAUNCH_HELP "Failed to launch help."
-	AFX_IDP_INTERNAL_FAILURE "Internal application error."
-	AFX_IDP_COMMAND_FAILURE "Command failed."
-	AFX_IDP_FAILED_MEMORY_ALLOC "Insufficient memory to perform operation."
-	AFX_IDP_UNREG_DONE "System registry entries have been removed and the INI file (if any) was deleted."
-	AFX_IDP_UNREG_FAILURE "Not all of the system registry entries (or INI file) were removed."
-	AFX_IDP_DLL_LOAD_FAILED "This program requires the file %s, which was not found on this system."
-	AFX_IDP_DLL_BAD_VERSION "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
-END
-
-STRINGTABLE 
-BEGIN
-	AFX_IDS_NOT_DOCOBJECT "The file is not supported by a Document Object server."
-	AFX_IDP_FAILED_TO_NOTIFY "%1\nUnable to register document.\nThe document may already be open."
-	AFX_IDP_GET_NOT_SUPPORTED "Unable to read write-only property."
-	AFX_IDP_SET_NOT_SUPPORTED "Unable to write read-only property."
-END
-
-STRINGTABLE 
-BEGIN
-	AFX_IDP_FAILED_INVALID_FORMAT "Unexpected file format."
-	AFX_IDP_FAILED_INVALID_PATH "%1\nCannot find this file.\nPlease verify that the correct path and file name are given."
-	AFX_IDP_FAILED_DISK_FULL "Destination disk drive is full."
-	AFX_IDP_FAILED_ACCESS_READ "Unable to read from %1, it is opened by someone else."
-	AFX_IDP_FAILED_ACCESS_WRITE "Unable to write to %1, it is read-only or opened by someone else."
-	AFX_IDP_FAILED_IO_ERROR_READ "An unexpected error occurred while reading %1."
-	AFX_IDP_FAILED_IO_ERROR_WRITE "An unexpected error occurred while writing %1."
-END
-
-STRINGTABLE 
-BEGIN
-	AFX_IDP_PARSE_INT "Please enter an integer."
-	AFX_IDP_PARSE_REAL "Please enter a number."
-	AFX_IDP_PARSE_INT_RANGE "Please enter an integer between %1 and %2."
-	AFX_IDP_PARSE_REAL_RANGE "Please enter a number between %1 and %2."
-	AFX_IDP_PARSE_STRING_SIZE "Please enter no more than %1 characters."
-	AFX_IDP_PARSE_RADIO_BUTTON "Please select a button."
-	AFX_IDP_PARSE_BYTE "Please enter an integer between 0 and 255."
-	AFX_IDP_PARSE_UINT "Please enter a positive integer."
-	AFX_IDP_PARSE_DATETIME "Please enter a date and/or time."
-	AFX_IDP_PARSE_CURRENCY "Please enter a currency."
-END
-
-STRINGTABLE 
-BEGIN
-	AFX_IDS_PASTELINKEDTYPE "Linked %s"
-	AFX_IDS_UNKNOWNTYPE "Unknown Type"
-END
-
-STRINGTABLE 
-BEGIN
-	AFX_IDP_FILE_NONE "No error occurred."
-	AFX_IDP_FILE_GENERIC "An unknown error occurred while accessing %1."
-	AFX_IDP_FILE_NOT_FOUND "%1 was not found."
-	AFX_IDP_FILE_BAD_PATH "%1 contains an invalid path."
-	AFX_IDP_FILE_TOO_MANY_OPEN "%1 could not be opened because there are too many open files."
-	AFX_IDP_FILE_ACCESS_DENIED "Access to %1 was denied."
-	AFX_IDP_FILE_INVALID_FILE "An invalid file handle was associated with %1."
-	AFX_IDP_FILE_REMOVE_CURRENT "%1 could not be removed because it is the current directory."
-	AFX_IDP_FILE_DIR_FULL "%1 could not be created because the directory is full."
-	AFX_IDP_FILE_BAD_SEEK "Seek failed on %1"
-	AFX_IDP_FILE_HARD_IO "A hardware I/O error was reported while accessing %1."
-	AFX_IDP_FILE_SHARING "A sharing violation occurred while accessing %1."
-	AFX_IDP_FILE_LOCKING "A locking violation occurred while accessing %1."
-	AFX_IDP_FILE_DISKFULL "Disk full while accessing %1."
-	AFX_IDP_FILE_EOF "An attempt was made to access %1 past its end."
-END
-
-STRINGTABLE 
-BEGIN
-	AFX_IDP_ARCH_NONE "No error occurred."
-	AFX_IDP_ARCH_GENERIC "An unknown error occurred while accessing %1."
-	AFX_IDP_ARCH_READONLY "An attempt was made to write to the reading %1."
-	AFX_IDP_ARCH_ENDOFFILE "An attempt was made to access %1 past its end."
-	AFX_IDP_ARCH_WRITEONLY "An attempt was made to read from the writing %1."
-	AFX_IDP_ARCH_BADINDEX "%1 has a bad format."
-	AFX_IDP_ARCH_BADCLASS "%1 contained an unexpected object."
-	AFX_IDP_ARCH_BADSCHEMA "%1 contains an incorrect schema."
-END
-
-STRINGTABLE 
-BEGIN
-	AFX_IDP_FAILED_MAPI_LOAD "Unable to load mail system support."
-	AFX_IDP_INVALID_MAPI_DLL "Mail system DLL is invalid."
-	AFX_IDP_FAILED_MAPI_SEND "Send Mail failed to send message."
-END
-
-STRINGTABLE 
-BEGIN
-	AFX_IDS_OCC_SCALEUNITS_PIXELS "pixels"
-END
-
-STRINGTABLE 
-BEGIN
-	IDS_ABOUTBOX "Inf&ormation about AES-Tool..."
-	IDS_STRING_DECRYPT "Decrypt a file"
-	IDS_STRING_ENCRYPT "Encrypt a file"
-	IDS_STRING_DECERROR "File decryption error: %s"
-	IDS_STRING_ENCOK "The encrypted file %s has been successfully created."
-	IDS_STRING_DECOK "The decrypted file %s has been successfully created."
-	IDS_STRING_VERSCHLUESSELN "Encrypt"
-	IDS_STRING_ENTSCHLUESSELN "Decrypt"
-	IDS_STRING_FILEERROR "Error opening %s: %s\n"
-	IDS_STRING_NOMEMORY "Out of virtual memory."
-	IDS_STRING_KEYERROR "Wrong key or file corrupt."
-END
-
-STRINGTABLE 
-BEGIN
-	IDS_STRING_ENCERROR "File encryption error: %s"
-	IDS_STRING_VERSION "This file has been encrypted with an older version of AES-Tool. \nPlease use the same version for decrypting."
-	IDS_STRING_CORRUPT "This encrypted file is corrupt."
-	IDS_STRING_INVALID_KEY "Invalid character in key. Please use only 0-9,a-f,A-F."
-	IDS_STRING_KEY_TOO_LONG "Key too long. Maximum AES key length is 256 bits (= 32 bytes = 64 hexadecimal digits)."
-	IDS_STRING_AESTOOL "AES-Tool 2.4"
-	IDS_STRING_AESTOOL_FILE "AES-Tool 2.4 [%s]"
-END
-
-#ifdef APSTUDIO_INVOKED
-/////////////////////////////////////////////////////////////////////////////
-//
-// TEXTINCLUDE
-//
-
-1 TEXTINCLUDE 
-BEGIN
-    "< Cannot change standard MFC resources! >\0"
-END
-
-#endif    // APSTUDIO_INVOKED
-#endif    // Englisch (GB) resources
-
-
-/////////////////////////////////////////////////////////////////////////////
-// Polish resources
-
-
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
-#ifdef _WIN32
-LANGUAGE LANG_POLISH, SUBLANG_DEFAULT
-#pragma code_page(1250)
-#endif //_WIN32
-
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Icon
-//
-
-// Icon with lowest ID value placed first to ensure application icon
-// remains consistent on all systems.
-IDR_MAINFRAME ICON "res\\aestool.ico"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Dialog
-//
-
-AFX_IDD_NEWTYPEDLG DIALOG  9, 26, 183, 70
-STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
-CAPTION "Nowy"
-FONT 8, "MS Shell Dlg"
-BEGIN
-	LTEXT	"&Nowy",IDC_STATIC,6,5,123,8,NOT WS_GROUP
-    LISTBOX         AFX_IDC_LISTBOX,6,15,125,49,WS_VSCROLL | WS_TABSTOP
-	DEFPUSHBUTTON	"OK",IDOK,137,6,40,14
-	PUSHBUTTON	"Anuluj",IDCANCEL,137,23,40,14
-	PUSHBUTTON	"&Pomoc",ID_HELP,137,43,40,14
-END
-
-IDD_SPLASH DIALOGEX 0, 0, 211, 122
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Ostrze¿enie"
-FONT 8, "MS Sans Serif", 0, 0, 0x0
-BEGIN
-	DEFPUSHBUTTON	"OK",IDOK,47,101,50,14
-	PUSHBUTTON	"Anuluj",IDCANCEL,113,101,50,14
-	LTEXT	"W³aœnie uruchomi³eœ plik wykonywalny, który dostarczy³a osoba trzecia.Ta procedura NIE JEST ZALECANA, poniewa¿ istnieje mo¿liwoœæ wykonania niebezpiecznego kodu na Twoim komputerze.",IDC_STATIC,7,7,197,35
-	LTEXT	"Generalnie jest zalecane zachowanie ostro¿noœci podczas uruchamiania kodu od osób trzecich. Dlatego nie mo¿na ca³kowicie wyeliminowaæ wirusów, koni trojañskich etc.",IDC_STATIC,7,45,197,40
-END
-
-IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 206
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
-    WS_SYSMENU
-EXSTYLE WS_EX_APPWINDOW
-CAPTION "AES-Tool 2.4"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
-BEGIN
-    EDITTEXT        IDC_EDIT_KEY,26,59,266,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_SRC,26,107,202,12,ES_AUTOHSCROLL,
-                    WS_EX_ACCEPTFILES
-	PUSHBUTTON	"Szukaj...",IDC_BUTTON_SRC,238,105,56,17
-	CONTROL	"Samorozp. siê i zaszyfrowany",IDC_RADIO_EXE,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,26,154,103,10
-	CONTROL	"Zaszyfrowany",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,
-                    149,154,80,10
-	DEFPUSHBUTTON	"Za&szyfruj",IDOK,17,182,51,18
-	PUSHBUTTON	"Koniec",IDCANCEL,174,182,54,18
-	PUSHBUTTON	"&Pomoc",IDC_BUTTON3,254,182,50,18
-	CONTROL	"Poka¿ has³o",IDC_RADIO_PSHOW,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,26,41,75,10
-	CONTROL	"Ukryj has³o",IDC_RADIO_PHIDE,"Button",
-                    BS_AUTORADIOBUTTON,149,41,79,10
-	LTEXT	"Zaszyfruj plik",IDC_STATIC_TITLE,17,9,80,8
-	GROUPBOX	"Klucz [maksymalnie 64 hex cyfr ( 0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]",IDC_STATIC,17,28,287,54
-	GROUPBOX	"Plik wejœciowy",IDC_STATIC,17,93,287,39
-	GROUPBOX	"Plik wyjœciowy",IDC_STATIC,17,142,287,29
-END
-
-IDD_HELP DIALOGEX 0, 0, 500, 350
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Pomoc do AES-Toola"
-FONT 8, "MS Sans Serif", 0, 0, 0x0
-BEGIN
-	DEFPUSHBUTTON	"OK",IDOK,209,329,50,14
-	LTEXT	"AES-Tool jest programem szyfruj¹cym, który mo¿e byæ u¿yty do szyfrowania plików przy u¿yciu symetrycznego algorytmu Rijandel (=AES).",IDC_STATIC,12,9,476,10
-	LTEXT	"Program mo¿e zostaæ uruchomiony na trzy ró¿ne sposoby:",IDC_STATIC,12,21,476,11
-	LTEXT	"Tymi parametrami s¹:",IDC_STATIC,24,42,464,10
-	LTEXT	"Klucz:",IDC_STATIC,24,52,38,8
-	LTEXT	"Wejœcie:",IDC_STATIC,24,70,38,8
-	LTEXT	"Wyjœcie:",IDC_STATIC,24,99,38,19
-	LTEXT	"Klucz wprowadzany jest w formie heksadecymalnej (znaki '0' - '9' i 'A' - 'F'). Maksymalna d³ugoœæ klucza to 256 bitów lub 64 cyfry. Minimalna zalecana d³ugoœæ klucza wynosi 20 cyfr.",IDC_STATIC,62,52,426,18
-	LTEXT	"Plik wejœciowy zawiera dane, które maj¹ zostaæ zaszyfrowane/odszyfrowane. Jeœli zosta³ wybrany plik zaszyfrowany tym programem, program automatycznie ustawi tryb deszyfrowania. W przeciwnym razie, pozostanie w trybie szyfrowania.",IDC_STATIC,62,70,426,16
-	LTEXT	"Nazwa pliku wyjœciowego i katalog mog¹ zostaæ okreœlone po wybraniu przycisku ""Szyfruj""/""Deszyfruj"".\n Przy szyfrowaniu, wybór pomiêdzy dwoma formatami mo¿e zostaæ dokonany ""radio buttonami"":",IDC_STATIC,62,99,426,19
-	LTEXT	"Archiwum samorozpakowuj¹ce siê jest plikiem zawieraj¹cym dane oraz jednoczeœnie - program. Posiada on t¹ sam¹ funkcjonalnoœæ, jak AES-Tool i mo¿na go u¿yæ przy deszyfrowaniu i przechowywaniu danych w pliku (po wprowadzeniu poprawnego has³a)",IDC_STATIC,69,117,419,19
-	LTEXT	"'Plik zaszyfrowany' zawiera tylko zaszyfrowane dane. Wówczas program ten jest potrzebny do deszyfrowania.",IDC_STATIC,69,134,419,11
-	LTEXT	"Drugi sposób wywo³ania programu to parametry linii poleceñ. Te mog¹ zostaæ okreœlone przez pozycjê, lub s³owo kluczowe.",IDC_STATIC,24,148,425,8
-	LTEXT	"AESTool <Plik wejœciowy> <Plik wyjœciowy> <Klucz>",IDC_STATIC,62,
-                    169,426,10
-	LTEXT	"AESTool -i <Plik wejœciowy> -o <Plik wyjœciowy> -k <Klucz>",IDC_STATIC,62,179,426,10
-	LTEXT	"Trzeci¹ mo¿liwoœci¹ wywo³ania programu jest archiwum samorozpakowuj¹ce. Nazwa pliku wejœciowego zostaje ustalona przez archiwum samorozpakowuj¹ce siê.",IDC_STATIC,24,220,464,15
-	LTEXT	"Zwyk³ym klikniêciem w ikonê, wszystkie niezbêdne parametry mog¹ zostaæ wprowadzone w oknie dialogowym.",IDC_STATIC,24,33,464,9
-	LTEXT	"1.",IDC_STATIC,12,33,12,9
-	LTEXT	"2.",IDC_STATIC,12,148,12,11
-	LTEXT	"3.",IDC_STATIC,12,220,12,11
-	RTEXT	"-",IDC_STATIC,56,118,8,19
-	RTEXT	"-",IDC_STATIC,56,137,8,11
-	LTEXT	"Program automatycznie sprawdza, czy plik wejœciowy jest zaszyfrowany i go deszyfruje. W przeciwnym wypadku program szyfruje go.",IDC_STATIC,24,190,464,8
-	LTEXT	"Parametry s¹ wprowadzane - nie jest wymagana interakcja u¿ytkownika, w przeciwnym razie wyskakuje okienko i brakuj¹ce dane mog¹ zostaæ wprowadzone interaktywnie.",IDC_STATIC,24,156,426,8
-	LTEXT	"Kod wyjœciowy odwzorowuje wynik dzia³ania programu: 0: wszystko OK; 1: wyst¹pi³ b³¹d, na stderr wyœwietlana jest wiadomoœæ o b³êdzie.",IDC_STATIC,24,206,391,8
-	LTEXT	"Format pliku wyjœciowego okreœla format szyfrowania: EXE: plik samorozpakowuj¹cy siê, inny: zwyczajnie zaszyfrowany plik.",IDC_STATIC,24,198,464,9
-	LTEXT	"Zgodnie z systemem operacyjnym i œrodowiskiem zosta³o wprowadzone ograniczenie pliku zaszyfrowanego (w³¹czaj¹c nag³ówki) do 4GB.",IDC_STATIC,12,248,476,16
-	LTEXT	"Proszê sprawdziæ pochodzenie pliku przed otwieraniem plików samorozpakowuj¹cych. Zalecane jest u¿ycie programu antywirusowego.",IDC_STATIC,12,278,476,18
-	LTEXT	"Mo¿esz równie¿ umieœciæ plik, którego chcesz u¿yæ poprzez ""drag & drop"" - umieszczaj¹c go w polu: ""plik wejœciowy"".",IDC_STATIC,62,86,426,8
-END
-
-IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Informacje o programie AES-Tool"
-FONT 8, "MS Sans Serif", 0, 0, 0x0
-BEGIN
-	ICON	IDR_MAINFRAME,IDC_STATIC,11,17,20,20
-	LTEXT	"AES-Tool Version 2.4",IDC_STATIC,40,10,119,8,
-                    SS_NOPREFIX
-	LTEXT	"Copyright (C) 2007",IDC_STATIC1,40,25,119,8
-	DEFPUSHBUTTON	"OK",IDOK,178,7,50,14,WS_GROUP
-END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Version
-//
-
-VS_VERSION_INFO VERSIONINFO
- FILEVERSION 2,1,0,0
- PRODUCTVERSION 2,1,0,0
- FILEFLAGSMASK 0x3fL
-#ifdef _DEBUG
- FILEFLAGS 0x1L
-#else
- FILEFLAGS 0x0L
-#endif
- FILEOS 0x4L
- FILETYPE 0x1L
- FILESUBTYPE 0x0L
-BEGIN
-    BLOCK "StringFileInfo"
-    BEGIN
-        BLOCK "080904b0"
-        BEGIN
-            VALUE "FileDescription", "AES-Tool"
-            VALUE "FileVersion", "2.1"
-            VALUE "InternalName", "aestool"
-            VALUE "LegalCopyright", "Copyright (C) 2002 Deutsche Bank AG"
-            VALUE "OriginalFilename", "aestool.exe"
-            VALUE "ProductName", "Application AES-Tool"
-            VALUE "ProductVersion", "2.1"
-        END
-    END
-    BLOCK "VarFileInfo"
-    BEGIN
-        VALUE "Translation", 0x809, 1200
-    END
-END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// DESIGNINFO
-//
-
-#ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
-BEGIN
-    IDD_SPLASH, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 204
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 115
-    END
-    IDD_AESTOOL_DIALOG, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 313
-        VERTGUIDE, 17
-        VERTGUIDE, 26
-        VERTGUIDE, 228
-        VERTGUIDE, 294
-        VERTGUIDE, 304
-        TOPMARGIN, 7
-        HORZGUIDE, 46
-        HORZGUIDE, 88
-        HORZGUIDE, 153
-    END
-    IDD_HELP, DIALOG
-    BEGIN
-        LEFTMARGIN, 12
-        RIGHTMARGIN, 488
-        VERTGUIDE, 24
-        VERTGUIDE, 62
-        VERTGUIDE, 69
-        VERTGUIDE, 268
-        TOPMARGIN, 12
-        BOTTOMMARGIN, 343
-        HORZGUIDE, 22
-        HORZGUIDE, 33
-        HORZGUIDE, 42
-        HORZGUIDE, 52
-        HORZGUIDE, 70
-    END
-    IDD_ABOUTBOX, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 228
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 48
-    END
-END
-#endif    // APSTUDIO_INVOKED
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Cursor
-//
-
-AFX_IDC_CONTEXTHELP CURSOR "res\\help.cur"
-AFX_IDC_SMALLARROWS CURSOR "res\\sarrows.cur"
-AFX_IDC_HSPLITBAR CURSOR "res\\splith.cur"
-AFX_IDC_VSPLITBAR CURSOR "res\\splitv.cur"
-AFX_IDC_NODROPCRSR CURSOR "res\\nodrop.cur"
-AFX_IDC_TRACKNWSE CURSOR "res\\trcknwse.cur"
-AFX_IDC_TRACKNESW CURSOR "res\\trcknesw.cur"
-AFX_IDC_TRACKNS CURSOR "res\\trckns.cur"
-AFX_IDC_TRACKWE CURSOR "res\\trckwe.cur"
-AFX_IDC_TRACK4WAY CURSOR "res\\trck4way.cur"
-AFX_IDC_MOVE4WAY CURSOR "res\\move4way.cur"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Bitmap
-//
-
-26567 BITMAP "res\\3dcheck.bmp"
-AFX_IDB_MINIFRAME_MENU BITMAP "res\\minifwnd.bmp"
-AFX_IDB_CHECKLISTBOX_NT BITMAP "res\\ntcheck.bmp"
-AFX_IDB_CHECKLISTBOX_95 BITMAP "res\\95check.bmp"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// String Table
-//
-
-STRINGTABLE 
-BEGIN
-	AFX_IDS_OPENFILE "Otwórz"
-	AFX_IDS_SAVEFILE "Zapisz jako"
-	AFX_IDS_ALLFILTER "Wszystkie pliki (*.*)"
-	AFX_IDS_UNTITLED "Bez nazwy"
-	AFX_IDS_UNNAMED_FILE "plik bez nazwy"
-END
-
-STRINGTABLE 
-BEGIN
-	AFX_IDS_HIDE "&Ukryj"
-END
-
-STRINGTABLE 
-BEGIN
-	AFX_IDP_NO_ERROR_AVAILABLE "Nie jest dostêpna wiadomoœæ b³êdu."
-	AFX_IDS_NOT_SUPPORTED_EXCEPTION "An unsupported operation was attempted."
-	AFX_IDS_RESOURCE_EXCEPTION "Wymagane zasoby by³y niedostêpne."
-	AFX_IDS_MEMORY_EXCEPTION "Brak pamiêci."
-	AFX_IDS_USER_EXCEPTION "Wyst¹pi³ nieznany b³¹d."
-END
-
-STRINGTABLE 
-BEGIN
-	AFX_IDP_INVALID_FILENAME "Niepoprawna nazwa pliku."
-	AFX_IDP_FAILED_TO_OPEN_DOC "Nie uda³o siê otworzyæ dokumentów."
-	AFX_IDP_FAILED_TO_SAVE_DOC "Nie uda³o siê zapisaæ dokumentu."
-	AFX_IDP_ASK_TO_SAVE "Zachowaæ zmiany w %1?"
-	AFX_IDP_FAILED_TO_CREATE_DOC "Nie uda³o siê stworzyæ pustego dokumentu."
-	AFX_IDP_FILE_TOO_LARGE "Plik jest zbyt du¿y do otwarcia."
-	AFX_IDP_FAILED_TO_START_PRINT "Nie mo¿na rozpocz¹æ dokumentu."
-	AFX_IDP_FAILED_TO_LAUNCH_HELP "Nie uda³o siê uruchomiæ pomocy."
-	AFX_IDP_INTERNAL_FAILURE "Wewnêtrzny b³¹d aplikacji."
-	AFX_IDP_COMMAND_FAILURE "Polecenie niepoprawne."
-	AFX_IDP_FAILED_MEMORY_ALLOC "Niewystarczaj¹ca iloœæ pamiêci do wykonania operacji."
-	AFX_IDP_UNREG_DONE "Wpisy do rejestru systemowego zosta³y usuniête i plik INI zosta³ usuniêty."
-	AFX_IDP_UNREG_FAILURE "Nie wszystkie wpisy w rejestrze systemu zosta³y usuniête."
-	AFX_IDP_DLL_LOAD_FAILED "Ten program wymaga pliku %s, który nie zosta³ znaleziony w systemie."
-	AFX_IDP_DLL_BAD_VERSION "Ten program jest po³¹czony z brakuj¹cym eksportem %s w pliku %s. Ten komputer mo¿e mieæ niekompatybiln¹ wersjê %s."
-END
-
-STRINGTABLE 
-BEGIN
-	AFX_IDS_NOT_DOCOBJECT "Plik nie jest obs³ugiwany przez Document Object Server."
-	AFX_IDP_FAILED_TO_NOTIFY "%1\nNie mo¿na zarejestrowaæ dokumentu. \n Dokument mo¿e byæ ju¿ otwarty."
-	AFX_IDP_GET_NOT_SUPPORTED "Nie mo¿na odczytaæ wartoœci tylko do odczytu."
-	AFX_IDP_SET_NOT_SUPPORTED "Mie mo¿na zapisaæ wartoœci tylko do odczytu."
-END
-
-STRINGTABLE 
-BEGIN
-	AFX_IDP_FAILED_INVALID_FORMAT "Nieoczekiwany format pliku."
-	AFX_IDP_FAILED_INVALID_PATH "%1\nNie mo¿na znaleŸæ tego pliku.\nProszê sprawdziæ, czy podana jest w³aœciwa œcie¿ka i nazwa pliku."
-	AFX_IDP_FAILED_DISK_FULL "Docelowy dysk jest pe³ny."
-	AFX_IDP_FAILED_ACCESS_READ "Nie mo¿na odczytaæ z %1, zosta³ otwarty przez kogoœ innego."
-	AFX_IDP_FAILED_ACCESS_WRITE "Nie mo¿na zapisaæ do %1, jest read-only, lub zosta³ otwarty przez kogoœ innego."
-	AFX_IDP_FAILED_IO_ERROR_READ "Podczas odczytu %1 wyst¹pi³ nieoczekiwany b³¹d."
-	AFX_IDP_FAILED_IO_ERROR_WRITE "Podczas zapisu do %1 wyst¹pi³ nieoczekiwany b³¹d."
-END
-
-STRINGTABLE 
-BEGIN
-	AFX_IDP_PARSE_INT "Proszê wprowadziæ liczbê ca³kowit¹."
-	AFX_IDP_PARSE_REAL "Proszê wprowadziæ liczbê."
-	AFX_IDP_PARSE_INT_RANGE "Proszê wprowadziæ liczbê ca³kowit¹ pomiêdzy %1 i %2."
-	AFX_IDP_PARSE_REAL_RANGE "Proszê wprowadziæ liczbê pomiêdzy %1 i %2."
-	AFX_IDP_PARSE_STRING_SIZE "Proszê wprowadziæ nie wiêcej ni¿ %1 znaków."
-	AFX_IDP_PARSE_RADIO_BUTTON "Proszê wybraæ przycisk."
-	AFX_IDP_PARSE_BYTE "Proszê wprowadziæ liczbê ca³kowit¹ z zakresu 0 - 255."
-	AFX_IDP_PARSE_UINT "Proszê wprowadziæ liczbê dodatni¹."
-	AFX_IDP_PARSE_DATETIME "Proszê wprowadziæ datê i/lub czas."
-	AFX_IDP_PARSE_CURRENCY "Proszê wprowadziæ walutê."
-END
-
-STRINGTABLE 
-BEGIN
-	AFX_IDS_PASTELINKEDTYPE "Po³¹czony %s"
-	AFX_IDS_UNKNOWNTYPE "Nieznany typ"
-END
-
-STRINGTABLE 
-BEGIN
-	AFX_IDP_FILE_NONE "Nie wyst¹pi³y bêdy."
-	AFX_IDP_FILE_GENERIC "Wyst¹pi³ nieznany b³¹d podczas dostêpu do %1."
-	AFX_IDP_FILE_NOT_FOUND "%1 nie zosta³ odnaleziony."
-	AFX_IDP_FILE_BAD_PATH "%1 zawiera niepoprawn¹ œcie¿kê."
-	AFX_IDP_FILE_TOO_MANY_OPEN "%1 nie móg³ zostaæ otwarty, poniewa¿ jest ju¿ otwartych zbyt wiele plików."
-	AFX_IDP_FILE_ACCESS_DENIED "Dostêp do %1 zabroniony."
-	AFX_IDP_FILE_INVALID_FILE "Nieprawid³owy uchwyt do pliku skojarzony z %1."
-	AFX_IDP_FILE_REMOVE_CURRENT "%1 nie móg³ zostaæ usuniêty, poniewa¿ jest aktualnym katalogiem."
-	AFX_IDP_FILE_DIR_FULL "%1 nie móg³ zostaæ stworzony, poniewa¿ katalog jest pe³ny."
-	AFX_IDP_FILE_BAD_SEEK "Poszukiwanie nie powiod³o siê %1."
-	AFX_IDP_FILE_HARD_IO "Zg³oszony zosta³ b³¹d sprzetu I/O podczas dostêpu do %1."
-	AFX_IDP_FILE_SHARING "Naruszenie dostêpu podczas dostêpu do %1."
-	AFX_IDP_FILE_LOCKING "Naruszenie zabezpieczeñ podczas dostêpu do %1."
-	AFX_IDP_FILE_DISKFULL "Dysk pe³ny podczas dostêpny do %1."
-	AFX_IDP_FILE_EOF "An attempt was made to access %1 past its end."
-END
-
-STRINGTABLE 
-BEGIN
-	AFX_IDP_ARCH_NONE "Nie wyst¹pi³y b³êdy."
-	AFX_IDP_ARCH_GENERIC "Wyst¹pi³ nieznany b³¹d podczas dostêpu do %1."
-	AFX_IDP_ARCH_READONLY "Zosta³a podjêta próba zapisu do obiektu ""tylko do odczytu"" %1."
-	AFX_IDP_ARCH_ENDOFFILE "An attempt was made to access %1 past its end."
-	AFX_IDP_ARCH_WRITEONLY "Zosta³a podjêta próba odczytu z obiektu ""tylko do zapisu"" %1."
-	AFX_IDP_ARCH_BADINDEX "%1 ma z³y format."
-	AFX_IDP_ARCH_BADCLASS "%1 zawiera³ nieoczekiwany obiekt."
-	AFX_IDP_ARCH_BADSCHEMA "%1 zawiera niepoprawny schemat."
-END
-
-STRINGTABLE 
-BEGIN
-	AFX_IDP_FAILED_MAPI_LOAD "Nie mo¿na za³adowaæ wsparcie systemu mailowego."
-	AFX_IDP_INVALID_MAPI_DLL "DLL systemu pocztowego jest niepoprawna."
-	AFX_IDP_FAILED_MAPI_SEND "Send Mail nie wys³a³ wiadomoœci."
-END
-
-STRINGTABLE 
-BEGIN
-	AFX_IDS_OCC_SCALEUNITS_PIXELS "pikseli"
-END
-
-STRINGTABLE 
-BEGIN
-	IDS_ABOUTBOX "Informacje o AES-Toolu..."
-	IDS_STRING_DECRYPT "Deszyfruj plik"
-	IDS_STRING_ENCRYPT "Zaszyfruj plik."
-	IDS_STRING_DECERROR "B³¹d podczas deszyfrowania pliku: %s"
-	IDS_STRING_ENCOK "Zaszyfrowany plik %s zosta³ pomyœlnie stworzony."
-	IDS_STRING_DECOK "Odszyfrowany plik %s zosta³ pomyœnie stworzony."
-	IDS_STRING_VERSCHLUESSELN "Szyfruj"
-	IDS_STRING_ENTSCHLUESSELN "Deszyfruj"
-	IDS_STRING_FILEERROR "B³¹d podczas otwierania %s: %s\n"
-	IDS_STRING_NOMEMORY "Brak pamiêci wirtualnej."
-	IDS_STRING_KEYERROR "B³êdny klucz lub uszkodzony plik."
-END
-
-STRINGTABLE 
-BEGIN
-	IDS_STRING_ENCERROR "B³¹d szyfrowania pliku: %s"
-	IDS_STRING_VERSION "Plik zosta³ zaszyfrowany wczeœniejsz¹ wersj¹ AES-Toola.\n Prosze u¿yæ tej samej wersji do odszyfrowania."
-	IDS_STRING_CORRUPT "Zaszyfrowany plik jest zepsuty."
-	IDS_STRING_INVALID_KEY "Niepoprawny znak w kluczu. Proszê u¿yæ tylko znaków 0-9, a-f,A-F."
-	IDS_STRING_KEY_TOO_LONG "Zbyt d³ugi klucz. Maksymalna d³ugoœæ klucza AES to 256 bitów (= 32 bajtów = 64 cyfr hex)."
-	IDS_STRING_AESTOOL "AES-Tool 2.4"
-	IDS_STRING_AESTOOL_FILE "AES-Tool 2.4 [%s]"
-END
-
-#endif    // Polish resources
-
-
 /////////////////////////////////////////////////////////////////////////////
 // Deutsch (Deutschland) resources
 
@@ -1146,6 +308,459 @@ END
 
 #endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Englisch (GB) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "< Cannot change standard MFC resources! >\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\aestool.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+AFX_IDD_NEWTYPEDLG DIALOG  9, 26, 183, 70
+STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "New"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "&New ",IDC_STATIC,6,5,123,8,NOT WS_GROUP
+    LISTBOX         AFX_IDC_LISTBOX,6,15,125,49,WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,137,6,40,14
+    PUSHBUTTON      "Cancel",IDCANCEL,137,23,40,14
+    PUSHBUTTON      "&Help",ID_HELP,137,43,40,14
+END
+
+IDD_SPLASH DIALOGEX 0, 0, 211, 122
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Warning"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,47,101,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,113,101,50,14
+    LTEXT           "You just started executable code that was probably presented to you by a third party.\nThis procedure is usually NOT ADVISABLE as you could import harmful code to your computer.",
+                    IDC_STATIC,7,7,197,35
+    LTEXT           "Generally it is advisable to use good precaution when starting code presented by third parties. Otherwise damages inflicted by viruses, trojans etc. can not be completely ruled out.",
+                    IDC_STATIC,7,45,197,40
+END
+
+IDD_AESTOOL_DIALOG DIALOGEX 0, 0, 320, 206
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "AES-Tool 2.4"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT_KEY,26,59,266,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SRC,26,107,202,12,ES_AUTOHSCROLL,
+                    WS_EX_ACCEPTFILES
+    PUSHBUTTON      "Search...",IDC_BUTTON_SRC,238,105,56,17
+    CONTROL         "Selfextracting and encrypted",IDC_RADIO_EXE,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,26,154,103,10
+    CONTROL         "Encrypted",IDC_RADIO_AES,"Button",BS_AUTORADIOBUTTON,
+                    149,154,80,10
+    DEFPUSHBUTTON   "En&crypt",IDOK,17,182,51,18
+    PUSHBUTTON      "E&xit",IDCANCEL,174,182,54,18
+    PUSHBUTTON      "&Help",IDC_BUTTON3,254,182,50,18
+    CONTROL         "Show password",IDC_RADIO_PSHOW,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,26,41,75,10
+    CONTROL         "Hide password",IDC_RADIO_PHIDE,"Button",
+                    BS_AUTORADIOBUTTON,149,41,79,10
+    LTEXT           "Encrypt a file",IDC_STATIC_TITLE,17,9,80,8
+    GROUPBOX        "Key [at most 64 hexadecimal digits (0, 1, 2, ..., 8, 9, A, B, C, D, E, F)]",
+                    IDC_STATIC,17,28,287,54
+    GROUPBOX        "Input file",IDC_STATIC,17,93,287,39
+    GROUPBOX        "Output format",IDC_STATIC,17,142,287,29
+END
+
+IDD_HELP DIALOGEX 0, 0, 500, 350
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Help for AES-Tool"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,209,329,50,14
+    LTEXT           "AES-Tool is an encryption program that can be used to encrypt files using the symmetric and licence-free Rijndael algorithm (= AES).",
+                    IDC_STATIC,12,9,476,10
+    LTEXT           "The program can be invoked in three different ways:",
+                    IDC_STATIC,12,21,476,11
+    LTEXT           "These parameters are:",IDC_STATIC,24,42,464,10
+    LTEXT           "Key:",IDC_STATIC,24,52,38,8
+    LTEXT           "Input file:",IDC_STATIC,24,70,38,8
+    LTEXT           "Output file:",IDC_STATIC,24,99,38,19
+    LTEXT           "The key is entered in hexadecimal form (characters '0' to '9' and 'A' to 'F'). The maximum key length is 256 bits or 64 hex digits. The recommended minimum key length is 20 digits.",
+                    IDC_STATIC,62,52,426,18
+    LTEXT           "The input file contains the data to be encrypted or decrypted. If a file is chosen that was encrypted with this program, then the program will be automatically set to decryption mode. Otherwise the program will stay in encryption mode.",
+                    IDC_STATIC,62,70,426,16
+    LTEXT           "The output file name and directory can be determined after pressing the ""Encrypt""/""Decrypt"" button. \nWhen encrypting you can select between two output formats via ""radio buttons"":",
+                    IDC_STATIC,62,99,426,19
+    LTEXT           "A 'self extracting archive' is a file containing data and at the same time it is a program. This program has the same func- tionality as AES-Tool and can be used to decrypt the data and store it in a file (after the correct password has been entered).",
+                    IDC_STATIC,69,117,419,19
+    LTEXT           "An 'encrypted file' contains the encrypted data only. Then the AES-Tool program is required for decryption.",
+                    IDC_STATIC,69,134,419,11
+    LTEXT           "The second way to invoke the program is with command line parameters. These can be specified either by position or by key word. If all",
+                    IDC_STATIC,24,148,425,8
+    LTEXT           "AESTool <Input file> <Output file> <key>",IDC_STATIC,62,
+                    169,426,10
+    LTEXT           "AESTool -i <Input file> -o <Output file> -k <Key>",
+                    IDC_STATIC,62,179,426,10
+    LTEXT           "The third possibility for program invocation is the self extracting archive. The input file name here is being preset by the self extracting archive.",
+                    IDC_STATIC,24,220,464,15
+    LTEXT           "With a normal start by clicking the icon, all necessary parameters can be entered into a dialog box.",
+                    IDC_STATIC,24,33,464,9
+    LTEXT           "1.",IDC_STATIC,12,33,12,9
+    LTEXT           "2.",IDC_STATIC,12,148,12,11
+    LTEXT           "3.",IDC_STATIC,12,220,12,11
+    RTEXT           "-",IDC_STATIC,56,118,8,19
+    RTEXT           "-",IDC_STATIC,56,137,8,11
+    LTEXT           "The program determines automatically if the input file is encrypted and then decrypts it. Otherwise the program encrypts it accordingly.",
+                    IDC_STATIC,24,190,464,8
+    LTEXT           "parameters are entered no user interaction is required, otherwise a window pops up and the remaining data can be entered interactively.",
+                    IDC_STATIC,24,156,426,8
+    LTEXT           "The exit code reflects the program's success: 0: everything OK; 1: an error occurred, an error message is displayed on stderr.",
+                    IDC_STATIC,24,206,391,8
+    LTEXT           "The output file's extension determines the encryption format: .EXE: self extracting archive, others: ordinary encrypted file.",
+                    IDC_STATIC,24,198,464,9
+    LTEXT           "Due to operating system's and development environment's limitations the size of encrypted files (including header and self extractor) is limited to 4 GB.",
+                    IDC_STATIC,12,248,476,16
+    LTEXT           "Please note to check the origin before calling self extracting archives.\nIt is recommendable to always keep antivirus and operating system software up to date.",
+                    IDC_STATIC,12,278,476,18
+    LTEXT           "You also select the file to be used with the mouse (drag and drop) by dragging it from the Windows Explorer into the field ""Input file"".",
+                    IDC_STATIC,62,86,426,8
+END
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Information about AES-Tool"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "AES-Tool Version 2.4",IDC_STATIC,40,10,119,8,
+                    SS_NOPREFIX
+    LTEXT           "Copyright (C) 2007",IDC_STATIC1,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 2,1,0,0
+ PRODUCTVERSION 2,1,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080904b0"
+        BEGIN
+            VALUE "FileDescription", "AES-Tool"
+            VALUE "FileVersion", "2.1"
+            VALUE "InternalName", "aestool"
+            VALUE "LegalCopyright", "Copyright (C) 2002 Deutsche Bank AG"
+            VALUE "OriginalFilename", "aestool.exe"
+            VALUE "ProductName", "Application AES-Tool"
+            VALUE "ProductVersion", "2.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x809, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_SPLASH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 204
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 115
+    END
+
+    IDD_AESTOOL_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 313
+        VERTGUIDE, 17
+        VERTGUIDE, 26
+        VERTGUIDE, 228
+        VERTGUIDE, 294
+        VERTGUIDE, 304
+        TOPMARGIN, 7
+        HORZGUIDE, 46
+        HORZGUIDE, 88
+        HORZGUIDE, 153
+    END
+
+    IDD_HELP, DIALOG
+    BEGIN
+        LEFTMARGIN, 12
+        RIGHTMARGIN, 488
+        VERTGUIDE, 24
+        VERTGUIDE, 62
+        VERTGUIDE, 69
+        VERTGUIDE, 268
+        TOPMARGIN, 12
+        BOTTOMMARGIN, 343
+        HORZGUIDE, 22
+        HORZGUIDE, 33
+        HORZGUIDE, 42
+        HORZGUIDE, 52
+        HORZGUIDE, 70
+    END
+
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+AFX_IDC_CONTEXTHELP     CURSOR                  "res\\help.cur"
+AFX_IDC_SMALLARROWS     CURSOR                  "res\\sarrows.cur"
+AFX_IDC_HSPLITBAR       CURSOR                  "res\\splith.cur"
+AFX_IDC_VSPLITBAR       CURSOR                  "res\\splitv.cur"
+AFX_IDC_NODROPCRSR      CURSOR                  "res\\nodrop.cur"
+AFX_IDC_TRACKNWSE       CURSOR                  "res\\trcknwse.cur"
+AFX_IDC_TRACKNESW       CURSOR                  "res\\trcknesw.cur"
+AFX_IDC_TRACKNS         CURSOR                  "res\\trckns.cur"
+AFX_IDC_TRACKWE         CURSOR                  "res\\trckwe.cur"
+AFX_IDC_TRACK4WAY       CURSOR                  "res\\trck4way.cur"
+AFX_IDC_MOVE4WAY        CURSOR                  "res\\move4way.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+26567                   BITMAP                  "res\\3dcheck.bmp"
+AFX_IDB_MINIFRAME_MENU  BITMAP                  "res\\minifwnd.bmp"
+AFX_IDB_CHECKLISTBOX_NT BITMAP                  "res\\ntcheck.bmp"
+AFX_IDB_CHECKLISTBOX_95 BITMAP                  "res\\95check.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_OPENFILE        "Open"
+    AFX_IDS_SAVEFILE        "Save As"
+    AFX_IDS_ALLFILTER       "All Files (*.*)"
+    AFX_IDS_UNTITLED        "Untitled"
+    AFX_IDS_UNNAMED_FILE    "an unnamed file"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_HIDE            "&Hide"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDP_NO_ERROR_AVAILABLE "No error message is available."
+    AFX_IDS_NOT_SUPPORTED_EXCEPTION "An unsupported operation was attempted."
+    AFX_IDS_RESOURCE_EXCEPTION "A required resource was unavailable."
+    AFX_IDS_MEMORY_EXCEPTION "Out of memory."
+    AFX_IDS_USER_EXCEPTION  "An unknown error has occurred."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDP_INVALID_FILENAME "Invalid filename."
+    AFX_IDP_FAILED_TO_OPEN_DOC "Failed to open document."
+    AFX_IDP_FAILED_TO_SAVE_DOC "Failed to save document."
+    AFX_IDP_ASK_TO_SAVE     "Save changes to %1?"
+    AFX_IDP_FAILED_TO_CREATE_DOC "Failed to create empty document."
+    AFX_IDP_FILE_TOO_LARGE  "The file is too large to open."
+    AFX_IDP_FAILED_TO_START_PRINT "Could not start print job."
+    AFX_IDP_FAILED_TO_LAUNCH_HELP "Failed to launch help."
+    AFX_IDP_INTERNAL_FAILURE "Internal application error."
+    AFX_IDP_COMMAND_FAILURE "Command failed."
+    AFX_IDP_FAILED_MEMORY_ALLOC "Insufficient memory to perform operation."
+    AFX_IDP_UNREG_DONE      "System registry entries have been removed and the INI file (if any) was deleted."
+    AFX_IDP_UNREG_FAILURE   "Not all of the system registry entries (or INI file) were removed."
+    AFX_IDP_DLL_LOAD_FAILED "This program requires the file %s, which was not found on this system."
+    AFX_IDP_DLL_BAD_VERSION "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_NOT_DOCOBJECT   "The file is not supported by a Document Object server."
+    AFX_IDP_FAILED_TO_NOTIFY 
+                            "%1\nUnable to register document.\nThe document may already be open."
+    AFX_IDP_GET_NOT_SUPPORTED "Unable to read write-only property."
+    AFX_IDP_SET_NOT_SUPPORTED "Unable to write read-only property."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDP_FAILED_INVALID_FORMAT "Unexpected file format."
+    AFX_IDP_FAILED_INVALID_PATH 
+                            "%1\nCannot find this file.\nPlease verify that the correct path and file name are given."
+    AFX_IDP_FAILED_DISK_FULL "Destination disk drive is full."
+    AFX_IDP_FAILED_ACCESS_READ 
+                            "Unable to read from %1, it is opened by someone else."
+    AFX_IDP_FAILED_ACCESS_WRITE 
+                            "Unable to write to %1, it is read-only or opened by someone else."
+    AFX_IDP_FAILED_IO_ERROR_READ 
+                            "An unexpected error occurred while reading %1."
+    AFX_IDP_FAILED_IO_ERROR_WRITE 
+                            "An unexpected error occurred while writing %1."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDP_PARSE_INT       "Please enter an integer."
+    AFX_IDP_PARSE_REAL      "Please enter a number."
+    AFX_IDP_PARSE_INT_RANGE "Please enter an integer between %1 and %2."
+    AFX_IDP_PARSE_REAL_RANGE "Please enter a number between %1 and %2."
+    AFX_IDP_PARSE_STRING_SIZE "Please enter no more than %1 characters."
+    AFX_IDP_PARSE_RADIO_BUTTON "Please select a button."
+    AFX_IDP_PARSE_BYTE      "Please enter an integer between 0 and 255."
+    AFX_IDP_PARSE_UINT      "Please enter a positive integer."
+    AFX_IDP_PARSE_DATETIME  "Please enter a date and/or time."
+    AFX_IDP_PARSE_CURRENCY  "Please enter a currency."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_PASTELINKEDTYPE "Linked %s"
+    AFX_IDS_UNKNOWNTYPE     "Unknown Type"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDP_FILE_NONE       "No error occurred."
+    AFX_IDP_FILE_GENERIC    "An unknown error occurred while accessing %1."
+    AFX_IDP_FILE_NOT_FOUND  "%1 was not found."
+    AFX_IDP_FILE_BAD_PATH   "%1 contains an invalid path."
+    AFX_IDP_FILE_TOO_MANY_OPEN 
+                            "%1 could not be opened because there are too many open files."
+    AFX_IDP_FILE_ACCESS_DENIED "Access to %1 was denied."
+    AFX_IDP_FILE_INVALID_FILE "An invalid file handle was associated with %1."
+    AFX_IDP_FILE_REMOVE_CURRENT 
+                            "%1 could not be removed because it is the current directory."
+    AFX_IDP_FILE_DIR_FULL   "%1 could not be created because the directory is full."
+    AFX_IDP_FILE_BAD_SEEK   "Seek failed on %1"
+    AFX_IDP_FILE_HARD_IO    "A hardware I/O error was reported while accessing %1."
+    AFX_IDP_FILE_SHARING    "A sharing violation occurred while accessing %1."
+    AFX_IDP_FILE_LOCKING    "A locking violation occurred while accessing %1."
+    AFX_IDP_FILE_DISKFULL   "Disk full while accessing %1."
+    AFX_IDP_FILE_EOF        "An attempt was made to access %1 past its end."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDP_ARCH_NONE       "No error occurred."
+    AFX_IDP_ARCH_GENERIC    "An unknown error occurred while accessing %1."
+    AFX_IDP_ARCH_READONLY   "An attempt was made to write to the reading %1."
+    AFX_IDP_ARCH_ENDOFFILE  "An attempt was made to access %1 past its end."
+    AFX_IDP_ARCH_WRITEONLY  "An attempt was made to read from the writing %1."
+    AFX_IDP_ARCH_BADINDEX   "%1 has a bad format."
+    AFX_IDP_ARCH_BADCLASS   "%1 contained an unexpected object."
+    AFX_IDP_ARCH_BADSCHEMA  "%1 contains an incorrect schema."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDP_FAILED_MAPI_LOAD "Unable to load mail system support."
+    AFX_IDP_INVALID_MAPI_DLL "Mail system DLL is invalid."
+    AFX_IDP_FAILED_MAPI_SEND "Send Mail failed to send message."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_OCC_SCALEUNITS_PIXELS "pixels"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "Inf&ormation about AES-Tool..."
+    IDS_STRING_DECRYPT      "Decrypt a file"
+    IDS_STRING_ENCRYPT      "Encrypt a file"
+    IDS_STRING_DECERROR     "File decryption error: %s"
+    IDS_STRING_ENCOK        "The encrypted file %s has been successfully created."
+    IDS_STRING_DECOK        "The decrypted file %s has been successfully created."
+    IDS_STRING_VERSCHLUESSELN "Encrypt"
+    IDS_STRING_ENTSCHLUESSELN "Decrypt"
+    IDS_STRING_FILEERROR    "Error opening %s: %s\n"
+    IDS_STRING_NOMEMORY     "Out of virtual memory."
+    IDS_STRING_KEYERROR     "Wrong key or file corrupt."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STRING_ENCERROR     "File encryption error: %s"
+    IDS_STRING_VERSION      "This file has been encrypted with an older version of AES-Tool. \nPlease use the same version for decrypting."
+    IDS_STRING_CORRUPT      "This encrypted file is corrupt."
+    IDS_STRING_INVALID_KEY  "Invalid character in key. Please use only 0-9,a-f,A-F."
+    IDS_STRING_KEY_TOO_LONG "Key too long. Maximum AES key length is 256 bits (= 32 bytes = 64 hexadecimal digits)."
+    IDS_STRING_AESTOOL      "AES-Tool 2.4"
+    IDS_STRING_AESTOOL_FILE "AES-Tool 2.4 [%s]"
+END
+
+#endif    // Englisch (GB) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
 
 #ifndef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
