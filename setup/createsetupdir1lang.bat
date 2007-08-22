@@ -3,9 +3,10 @@ echo Create and populate setup-%lang% directory ...
 if not exist template\nul goto errortemplate
 if x%1==xde goto ok
 if x%1==xen goto ok
+if x%1==xpl goto ok
 
 echo Error: invalid or no argument
-echo Usage: setup1lang de  or  setup1lang en
+echo Usage: setup1lang de  or  setup1lang en  or  setup1lang pl
 goto end
 
 :ok 
