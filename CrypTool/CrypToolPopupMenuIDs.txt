@@ -14,7 +14,7 @@
 # that the online help has to be updated manually (drawback: this file also
 # has to be updated manually).
 #
-# BACKGOUND
+# BACKGROUND
 # 
 # F1 does not work in MFC for menus with sub menus. This is because the 
 # ressource file syntax for popup menus does not include the ID that is used
@@ -141,4 +141,53 @@ GERMAN Einzelverfahren_VisualisierungvonAlgorithmen_AES # &Einzelverfahren|&Visu
 GERMAN Einzelverfahren_Zahlentheorieinteraktiv # &Einzelverfahren|&Zahlentheorie interaktiv
 GERMAN Analyse_SymmetrischeVerschlsselungmodern_WeitereAlgorithmen # A&nalyse|Symmetrische Verschlüsselung (&modern)|&Weitere Algorithmen
 GERMAN VerEntschlsseln_Symmetrischmodern_WeitereAlgorithmen # &Ver-/Entschlüsseln|Symmetrisch (&modern)|&Weitere Algorithmen
-
+POLISH Algorytmy # &Algorytmy
+POLISH Algorytmy_Gryedukacyjne # &Algorytmy|Gry &edukacyjne
+POLISH Algorytmy_Hasz # &Algorytmy|&Hasz
+POLISH Algorytmy_KryptosystemRSA # &Algorytmy|Kryptosystem RSA
+POLISH Algorytmy_KryptosystemRSA_AtakinaRSAopartenasieci # &Algorytmy|Kryptosystem RSA|Ataki na RSA oparte na sieci
+POLISH Algorytmy_KryptosystemRSA_Atakprzypomocykraty # &Algorytmy|Kryptosystem RSA|&Atak przy pomocy kraty
+POLISH Algorytmy_Narzdzia # &Algorytmy|&Narzêdzia
+POLISH Algorytmy_Narzdzia_Kodowanie # &Algorytmy|&Narzêdzia|Kodowanie
+POLISH Algorytmy_Narzdzia_Kodowanie_KodowanieDekodowanieBase64 # &Algorytmy|&Narzêdzia|Kodowanie|Kodowanie/Dekodowanie &Base64
+POLISH Algorytmy_Narzdzia_Kodowanie_KodowaniedekodowanieBase64 # &Algorytmy|&Narzêdzia|Kodowanie|Kodowanie/dekodowanie Base64
+POLISH Algorytmy_Narzdzia_Kodowanie_KodowaniedekodowanieUU # &Algorytmy|&Narzêdzia|Kodowanie|Kodowanie/dekodowanie UU
+POLISH Algorytmy_Narzdzia_Kompresja # &Algorytmy|&Narzêdzia|&Kompresja
+POLISH Algorytmy_Protokoy # &Algorytmy|&Protoko³y
+POLISH Algorytmy_Teorialiczb # &Algorytmy|Teoria liczb
+POLISH Algorytmy_Wizualizacjaalgorytmw # &Algorytmy|&Wizualizacja algorytmów
+POLISH Algorytmy_Wizualizacjaalgorytmw_AES # &Algorytmy|&Wizualizacja algorytmów|&AES
+POLISH Algorytmy_ZastosowaniaChTR # &Algorytmy|Zastosowania ChTR
+POLISH Edycja # &Edycja
+POLISH Kryptoanaliza # &Kryptoanaliza
+POLISH Kryptoanaliza_Algorytmyasymetryczne # &Kryptoanaliza|&Algorytmy asymetryczne
+POLISH Kryptoanaliza_Algorytmyasymetryczne_AtakinaRSAopartenasieci # &Kryptoanaliza|&Algorytmy asymetryczne|&Ataki na RSA oparte na sieci
+POLISH Kryptoanaliza_Algorytmyasymetryczne_Atakprzypomocykraty # &Kryptoanaliza|&Algorytmy asymetryczne|&Atak przy pomocy kraty
+POLISH Kryptoanaliza_Algorytmyhistoryczne # &Kryptoanaliza|Algorytmy historyczne
+POLISH Kryptoanaliza_Algorytmyhistoryczne_Analizamanualna # &Kryptoanaliza|Algorytmy historyczne|Analiza &manualna
+POLISH Kryptoanaliza_Algorytmyhistoryczne_Tekstjawny # &Kryptoanaliza|Algorytmy historyczne|Tekst jawny
+POLISH Kryptoanaliza_Algorytmyhistoryczne_Tylkoszyfr # &Kryptoanaliza|Algorytmy historyczne|Tylko &szyfr
+POLISH Kryptoanaliza_Algorytmysymetryczne # &Kryptoanaliza|Algorytmy &symetryczne
+POLISH Kryptoanaliza_Algorytmysymetryczne_Wicejalgorytmw # &Kryptoanaliza|Algorytmy &symetryczne|&Wiêcej algorytmów
+POLISH Kryptoanaliza_Analizalosowoci # &Kryptoanaliza|&Analiza losowoœci
+POLISH Kryptoanaliza_Hasz # &Kryptoanaliza|&Hasz
+POLISH Kryptoanaliza_Historyczne # &Kryptoanaliza|Historyczne
+POLISH Kryptoanaliza_Historyczne_Analizamanualna # &Kryptoanaliza|Historyczne|&Analiza manualna
+POLISH Kryptoanaliza_Historyczne_Tekstjawny # &Kryptoanaliza|Historyczne|Tekst jawny
+POLISH Kryptoanaliza_Historyczne_Tylkoszyfr # &Kryptoanaliza|Historyczne|&Tylko szyfr
+POLISH Kryptoanaliza_Narzdziaanalizy # &Kryptoanaliza|&Narzêdzia analizy
+POLISH Okno # &Okno
+POLISH Opcje # &Opcje
+POLISH Plik # &Plik
+POLISH Podpiscyfrowy # Podpis cyfrowy
+POLISH Podpiscyfrowy_PKI # Podpis cyfrowy|&PKI
+POLISH Pomoc # &Pomoc
+POLISH PopUp # PopUp
+POLISH Szyfrowanie # &Szyfrowanie
+POLISH Szyfrowanie_Asymetryczne # &Szyfrowanie|&Asymetryczne
+POLISH Szyfrowanie_Historyczne # &Szyfrowanie|Historyczne
+POLISH Szyfrowanie_Hybrydowe # &Szyfrowanie|&Hybrydowe
+POLISH Szyfrowanie_Symetryczne # &Szyfrowanie|Symetryczne
+POLISH Szyfrowanie_Symetryczne_Wicejalgorytmw # &Szyfrowanie|Symetryczne|&Wiêcej algorytmów
+POLISH Widok # &Widok
+POLISH Widok_Czcionka # &Widok|&Czcionka
