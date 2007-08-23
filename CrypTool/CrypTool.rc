@@ -3883,13 +3883,13 @@ BEGIN
                     10
     CONTROL         "RIPEMD-160",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,19,
                     226,58,8
-    CONTROL         "na pocz. wiad.: H(k, m)",IDC_RADIO7,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,133,156,102,10
-    CONTROL         "na koñcu wiadomoœci: H(m, k)",IDC_RADIO8,"Button",
+    CONTROL         "Na pocz¹tku wiadomoœci: H(k, m)",IDC_RADIO7,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,133,156,139,10
+    CONTROL         "Na koñcu wiadomoœci: H(m, k)",IDC_RADIO8,"Button",
                     BS_AUTORADIOBUTTON,133,170,117,10
     CONTROL         "Na pocz¹tku i na koñcu: H(k, m, k)",IDC_RADIO9,"Button",
                     BS_AUTORADIOBUTTON,133,184,124,10
-    CONTROL         "Podw. hasz.: H(k, H(k, m))",IDC_RADIO10,"Button",
+    CONTROL         "Podwójny hasz: H(k, H(k, m))",IDC_RADIO10,"Button",
                     BS_AUTORADIOBUTTON,133,198,108,10
     CONTROL         "Ró¿ne klucze: H(k, m, k')",IDC_RADIO11,"Button",
                     BS_AUTORADIOBUTTON,133,212,94,10
@@ -3899,12 +3899,12 @@ BEGIN
     EDITTEXT        IDC_SHOW_TEXT,7,313,311,36,ES_MULTILINE | ES_READONLY | 
                     WS_VSCROLL
     PUSHBUTTON      "Zamknij",IDCANCEL,7,398,90,20
-    LTEXT           "WprowadŸ swój klucz (k)",IDC_STATIC,7,243,58,8
+    LTEXT           "WprowadŸ klucz (k)",IDC_STATIC,7,243,97,8
     LTEXT           "WprowadŸ drugi klucz (k'):",IDC_STATIC,7,273,70,8
     LTEXT           "MAC wygenerowany z wiadomoœci i klucza",IDC_STATIC,7,
-                    361,125,8
-    LTEXT           "Wejœcie do funkcji haszuj¹cej (wejœcie jest tworzone zgodnie z powy¿szym wyborem):",
-                    IDC_STATIC,7,301,311,8
+                    361,160,8
+    LTEXT           "Dane wejœciowe do funkcji haszuj¹cej",IDC_STATIC,7,301,
+                    311,8
     GROUPBOX        "Wybierz funkcjê haszuj¹c¹:",IDC_STATIC,7,143,102,96
     GROUPBOX        "Ró¿nica (pozycja klucza)",IDC_STATIC,123,143,195,96
     LTEXT           "Za pomoc¹ MAC odbiorca wiadomoœci jest w stanie zweryfikowaæ integralnoœæ i autentycznoœæ orygina³u (nadawcy). W ten sposób obie strony mog¹ u¿yæ klucza dzielonego (klucza symetrycznego).",
@@ -5495,6 +5495,20 @@ BEGIN
                     IDC_STATIC,20,44,260,16
 END
 
+IDD_LIST_RESULTS DIALOGEX 0, 0, 434, 211
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Wyniki ataku brutanej si³y"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_LIST4,"SysListView32",LVS_REPORT | LVS_SINGLESEL | 
+                    LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | 
+                    WS_TABSTOP,7,45,420,131
+    DEFPUSHBUTTON   "&Wybieram zaznaczone",IDOK,274,184,86,20
+    PUSHBUTTON      "&Anuluj",IDCANCEL,374,184,53,20
+    LTEXT           "Static",IDC_HEADER,7,7,420,38
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -5513,7 +5527,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&W³aœciwoœci dokumentu",      ID_FILEPROPERTIES, GRAYED
         MENUITEM "&Drukuj \t Ctrl + P",         ID_FILE_PRINT
-        MENUITEM "Ustawienia drukowania",            ID_FILE_PRINT_SETUP
+        MENUITEM "Ustawienia drukowania",       ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
         MENUITEM "Ostatnie pliki",              ID_FILE_MRU_FILE1
         MENUITEM SEPARATOR
@@ -5523,7 +5537,7 @@ BEGIN
     BEGIN
         MENUITEM "&Cofnij \t Ctrl + Z",         ID_EDIT_UNDO, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Wy&tnij \t Ctrl + X",          ID_EDIT_CUT, GRAYED
+        MENUITEM "Wy&tnij \t Ctrl + X",         ID_EDIT_CUT, GRAYED
         MENUITEM "&Kopiuj \t Ctrl + C",         ID_EDIT_COPY, GRAYED
         MENUITEM "&Wklej \t Ctrl + V",          ID_EDIT_PASTE, GRAYED
         MENUITEM "&Usuñ \t Del",                ID_EDIT_CLEAR, GRAYED
@@ -5534,22 +5548,22 @@ BEGIN
         MENUITEM "Zaznacz &wszystko \t Ctrl + A", ID_EDIT_SELECT_ALL, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Poka¿ &klucz",                ID_SHOW_KEY, GRAYED
-        MENUITEM "Okno &g³ówne",                       ID_GOTO_VATER
+        MENUITEM "Okno &g³ówne",                ID_GOTO_VATER
     END
     POPUP "&Widok"
     BEGIN
         MENUITEM "Pasek &narzêdzi",             ID_VIEW_TOOLBAR
         MENUITEM "&Pasek stanu",                ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
-        MENUITEM "Jako &tekst",            ID_TOTXT, GRAYED
-        MENUITEM "Hexadecymalnie",              ID_TOHEX, GRAYED
+        MENUITEM "Jako &tekst",                 ID_TOTXT, GRAYED
+        MENUITEM "Heksadecymalnie",             ID_TOHEX, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&Wykres s³upkowy",            ID_PLOTBAR
         MENUITEM SEPARATOR
         MENUITEM "Alfabet",                     ID_VIEW_ALPHABET, GRAYED
         MENUITEM "&Koniec linii",               ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "&Zawijanie linii",            ID_VIEW_LINEWRAP, GRAYED
-        MENUITEM "Bia³e znaki",                     ID_VIEW_WHITESPACE, GRAYED
+        MENUITEM "Bia³e znaki",                 ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Czcionka"
         BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
@@ -5578,15 +5592,15 @@ BEGIN
             , GRAYED
             MENUITEM "&Vigenere",                   ID_VIGENERE_ASC, GRAYED
             MENUITEM "&Hill",                       ID_HILL, GRAYED
-            MENUITEM "&Zamiana / Atbash",            ID_CryptMono, GRAYED
+            MENUITEM "&Zamiana / Atbash",           ID_CryptMono, GRAYED
             MENUITEM "&Playfair",                   ID_PLAYFAIR_BIN, GRAYED
             MENUITEM "&ADFGVX",                     ID_ENCRYPT_ADFGVX
             , GRAYED
-            MENUITEM "Dodawanie bajtów",            ID_ADD_BIN, GRAYED
+            MENUITEM "Dodawanie bitów",             ID_ADD_BIN, GRAYED
             MENUITEM "&XOR",                        ID_XOR_BIN, GRAYED
             MENUITEM "V&ernam",                     ID_VERNAM_BIN, GRAYED
-            MENUITEM "H&omofony",                  ID_HOMOPHONE_ASC, GRAYED
-            MENUITEM "&Permutacja / Transpozycja",   ID_PERMUTATION_ASC
+            MENUITEM "H&omofony",                   ID_HOMOPHONE_ASC, GRAYED
+            MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION_ASC
             , GRAYED
             MENUITEM "Soli&taire",                  ID_SYMCLASSIC_SOLITAIRE
             , GRAYED
@@ -5642,16 +5656,16 @@ BEGIN
 
             MENUITEM "Deszyfrowanie RSA-AES",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
             , GRAYED
-            MENUITEM "&Szyfrowanie ECC-AES",        ID_HYBRID_ECCENC
-            MENUITEM "&Deszyfrowanie ECC-AES",      ID_HYBRID_ECCDEC, GRAYED
+            MENUITEM "Szyfrowanie ECC-AES",         ID_HYBRID_ECCENC
+            MENUITEM "Deszyfrowanie ECC-AES",       ID_HYBRID_ECCDEC, GRAYED
         END
     END
     POPUP "Podpis cyfrowy"
     BEGIN
         POPUP "&PKI"
         BEGIN
-            MENUITEM "Generowanie/Import &klucza",  ID_CRYPT_KeyGen
-            MENUITEM "Wyœwietlenie/Eksport &klucza", ID_SHOW_ALL_EC_KEYS
+            MENUITEM "Generowanie/Import klucza",   ID_CRYPT_KeyGen
+            MENUITEM "Wyœwietlenie/Eksport klucza", ID_SHOW_ALL_EC_KEYS
         END
         MENUITEM "&Podpisz dokument",           ID_CRYPT_SIGN, GRAYED
         MENUITEM "&Zweryfikuj podpis",          ID_CRYPT_VERIFY, GRAYED
@@ -5690,24 +5704,23 @@ BEGIN
             MENUITEM "Generowanie liczb pierwszych", 
                                                     ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
-            MENUITEM "Rozk³ad liczby na czynniki pierwsze", 
-                                                    ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+            MENUITEM "&Faktoryzacja liczby",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
             MENUITEM "Demonstracja RSA",            ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
             MENUITEM "&Demonstracja podpisu",       ID_EINZELVERFAHREN_SIGN_DOC
 
-            POPUP "&Atak przy pomocy kraty"
+            POPUP "Ataki oparte na kracie"
             BEGIN
                 MENUITEM "&Faktoryzacja z podpowiedzi¹", ID_RSA_FACTORHINT
-                MENUITEM "&Atak na wiadomoœci stereotypowe", 
+                MENUITEM "Atak na wiadomoœci stereotypowe", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Atak na ma³e klucze tajemne", ID_RSA_BLOEMERMAY
+                MENUITEM "Atak na ma³y klucz tajny",    ID_RSA_BLOEMERMAY
             END
         END
         POPUP "&Protoko³y"
         BEGIN
-            MENUITEM "Demonstracja protoko³u Diffie'ego - Hellmana", 
+            MENUITEM "Demonstracja Diffie-Hellmana", 
                                                     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
             MENUITEM "Uwierzytelnianie w sieci",    ID_CHALLENGE_RESPONSE
@@ -5716,7 +5729,7 @@ BEGIN
         BEGIN
             MENUITEM "&Astronomia i ruch planet",   ID_INDIV_CRT_PLANET
             MENUITEM "&Transformacje reprezentacji", ID_INDIV_CRT_DEMO
-            MENUITEM "&Dzielenie tajemnic przez ChTR", 
+            MENUITEM "Dzielenie tajemnic przez ChTR", 
                                                     ID_INDIV_CRT_SECRETSHARING
 
         END
@@ -5729,7 +5742,7 @@ BEGIN
             MENUITEM SEPARATOR
             POPUP "&AES"
             BEGIN
-                MENUITEM "Rijndael &Animacja",         ID_FLASH_AESDEMO
+                MENUITEM "Rijndael &Animacja",          ID_FLASH_AESDEMO
                 MENUITEM "Rijndael &Inspector",         ID_FLASH_RIJNDAEL_INSPECTOR
 
             END
@@ -5745,9 +5758,9 @@ BEGIN
             BEGIN
                 POPUP "Kodowanie/dekodowanie Base64"
                 BEGIN
-                    MENUITEM "&Kodowanie Base64",            ID_ENCODE_BASE64
+                    MENUITEM "&Kodowanie Base64",           ID_ENCODE_BASE64
                     , GRAYED
-                    MENUITEM "&Dekodowanie Base64",          ID_DECODE_BASE64
+                    MENUITEM "&Dekodowanie Base64",         ID_DECODE_BASE64
                     , GRAYED
                 END
                 POPUP "Kodowanie/dekodowanie UU"
@@ -5777,7 +5790,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "Teoria liczb"
         BEGIN
-            MENUITEM "&Narzêdzie edukacyjne teorii liczb", 
+            MENUITEM "Narzêdzie edukacyjne teorii liczb", 
                                                     ID_INTERACTIVE_NUMBER_THEORY
 
             MENUITEM "&Dodawanie punktów na krzywych eliptycznych", 
@@ -5800,7 +5813,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "Algorytmy historyczne"
         BEGIN
-            POPUP "Tylko &szyfr"
+            POPUP "&Tylko szyfr"
             BEGIN
                 MENUITEM "&Cezar",                      ID_CAESAR_AUTO
                 , GRAYED
@@ -5865,17 +5878,16 @@ BEGIN
         END
         POPUP "&Algorytmy asymetryczne"
         BEGIN
-            MENUITEM "Rozk³ad liczby na czynniki pierwsze", 
-                                                    ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+            MENUITEM "&Faktoryzacja liczby",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            POPUP "&Atak przy pomocy kraty"
+            POPUP "&Atak oparty na kracie"
             BEGIN
                 MENUITEM "&Faktoryzacja z podpowiedzi¹", ID_RSA_FACTORHINT
-                MENUITEM "&Atak na wiadomoœci stereotypowe", 
+                MENUITEM "Atak na wiadomoœci stereotypowe", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Atak na ma³e klucze tajemne", ID_RSA_BLOEMERMAY
+                MENUITEM "Atak na ma³y klucz tajny",    ID_RSA_BLOEMERMAY
             END
-            MENUITEM "&Atak Side-Channel na ""Textbook RSA""", 
+            MENUITEM "Atak Side-Channel na ""Textbook RSA""", 
                                                     ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
 
         END
@@ -5910,14 +5922,14 @@ BEGIN
         MENUITEM "Opcje &uk³adu",               ID_OPTIONS_PLOT
         MENUITEM "Opcje &analizy",              ID_OPTIONS_ANALYSIS
         MENUITEM "&Opcje tekstu",               ID_OPTTEXT
-        MENUITEM "Opcje pocz¹tkowe",           ID_OPTIONS_STARTOPTIONS
+        MENUITEM "Opcje pocz¹tkowe",            ID_OPTIONS_STARTOPTIONS
         MENUITEM "&Dalsze opcje",               ID_OPTIONS_FURTHEROPTIONS
     END
     POPUP "&Okno"
     BEGIN
         MENUITEM "&Kaskadowo",                  ID_WINDOW_CASCADE
-        MENUITEM "&Kafelkowo",                  ID_WINDOW_TILE_HORZ
-        MENUITEM "&Rozmieœæ ikony",             ID_WINDOW_ARRANGE
+        MENUITEM "&S¹siaduj¹co",                ID_WINDOW_TILE_HORZ
+        MENUITEM "&Uporz¹dkuj ikony",           ID_WINDOW_ARRANGE
         MENUITEM "&Zamknij wszystkie",          ID_WINDOW_CLOSE_ALL
     END
     POPUP "&Pomoc"
@@ -5929,7 +5941,7 @@ BEGIN
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "Skrypt",                      ID_SCRIPT
         MENUITEM SEPARATOR
-        MENUITEM "O CrypToolu",                ID_APP_ABOUT
+        MENUITEM "O CrypToolu",                 ID_APP_ABOUT
     END
 END
 
@@ -5949,7 +5961,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "Ostatnie pliki",              ID_FILE_MRU_FILE1
         MENUITEM SEPARATOR
-        MENUITEM "&Koniec \t Alt + F4",          ID_APP_EXIT
+        MENUITEM "&Koniec \t Alt + F4",         ID_APP_EXIT
     END
     POPUP "&Edycja"
     BEGIN
@@ -5974,9 +5986,9 @@ BEGIN
         MENUITEM "&Pasek stanu",                ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
         MENUITEM "Jako &tekst",                 ID_TOTXT
-        MENUITEM "Hexadecymalnie",              ID_TOHEX, GRAYED
+        MENUITEM "Heksadecymalnie",             ID_TOHEX, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&Wykres s³upkowy",           ID_PLOTBAR, GRAYED
+        MENUITEM "&Wykres s³upkowy",            ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Alfabet",                     ID_VIEW_ALPHABET, GRAYED
         MENUITEM "&Koniec linii",               ID_VIEW_ENDOFLINE, GRAYED
@@ -6008,14 +6020,14 @@ BEGIN
             MENUITEM "Cezar / &Rot-13",             ID_ROT13CAESAR_ASC
             MENUITEM "&Vigenere",                   ID_VIGENERE_ASC
             MENUITEM "&Hill",                       ID_HILL
-            MENUITEM "&Zamiana / Atbash",       ID_CryptMono
+            MENUITEM "&Zamiana / Atbash",           ID_CryptMono
             MENUITEM "&Playfair",                   ID_PLAYFAIR_BIN
             MENUITEM "&ADFGVX",                     ID_ENCRYPT_ADFGVX
-            MENUITEM "Dodawanie bajtów",            ID_ADD_BIN
+            MENUITEM "Dodawanie bitów",             ID_ADD_BIN
             MENUITEM "&XOR",                        ID_XOR_BIN
             MENUITEM "V&ernam",                     ID_VERNAM_BIN
             MENUITEM "H&omofony",                   ID_HOMOPHONE_ASC
-            MENUITEM "&Permutacja / Transpozycja",   ID_PERMUTATION_ASC
+            MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION_ASC
             MENUITEM "Soli&taire",                  ID_SYMCLASSIC_SOLITAIRE
         END
         POPUP "Symetryczne"
@@ -6065,7 +6077,7 @@ BEGIN
     BEGIN
         POPUP "&PKI"
         BEGIN
-            MENUITEM "&Generowanie/Import klucza",  ID_CRYPT_KeyGen
+            MENUITEM "Generowanie/Import klucza",   ID_CRYPT_KeyGen
             MENUITEM "Wyœwietlenie/Eksport klucza", ID_SHOW_ALL_EC_KEYS
         END
         MENUITEM "&Podpisz dokument",           ID_CRYPT_SIGN
@@ -6085,7 +6097,7 @@ BEGIN
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
             MENUITEM SEPARATOR
             MENUITEM "Wartoœæ hasz dla pliku",      ID_HASH_OFAFILE
-            MENUITEM "Demonstracja &funkcji haszuj¹cej", 
+            MENUITEM "Demonstracja funkcji haszuj¹cej", 
                                                     ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
 
             MENUITEM "Generowanie klucza z has³a (PKCS #5)", 
@@ -6105,17 +6117,17 @@ BEGIN
 
             MENUITEM "&Demonstracja podpisu",       ID_EINZELVERFAHREN_SIGN_DOC
 
-            POPUP "Ataki na RSA oparte na sieci"
+            POPUP "Ataki oparte na kracie"
             BEGIN
                 MENUITEM "&Faktoryzacja z podpowiedzi¹", ID_RSA_FACTORHINT
                 MENUITEM "Atak na wiadomoœci stereotypowe", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Atak na ma³e klucze tajemne", ID_RSA_BLOEMERMAY
+                MENUITEM "Atak na ma³y klucz tajny",    ID_RSA_BLOEMERMAY
             END
         END
         POPUP "&Protoko³y"
         BEGIN
-            MENUITEM "&Demonstracja protoko³u Diffie'ego-Hellmana", 
+            MENUITEM "Demonstracja Diffie-Hellmana", 
                                                     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
             MENUITEM "Uwierzytelnianie w sieci",    ID_CHALLENGE_RESPONSE
@@ -6137,7 +6149,7 @@ BEGIN
             MENUITEM SEPARATOR
             POPUP "&AES"
             BEGIN
-                MENUITEM "Rijndael - Animacja",         ID_FLASH_AESDEMO
+                MENUITEM "Rijndael &Animacja",          ID_FLASH_AESDEMO
                 MENUITEM "Rijndael &Inspector",         ID_FLASH_RIJNDAEL_INSPECTOR
 
             END
@@ -6151,18 +6163,17 @@ BEGIN
         BEGIN
             POPUP "Kodowanie"
             BEGIN
-                POPUP "Kodowanie/Dekodowanie &Base64"
+                POPUP "Kodowanie/dekodowanie Base64"
                 BEGIN
-                    MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64
-                    MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
+                    MENUITEM "&Kodowanie Base64",           ID_ENCODE_BASE64
+                    MENUITEM "&Dekodowanie Base64",         ID_DECODE_BASE64
                 END
                 POPUP "Kodowanie/dekodowanie UU"
                 BEGIN
-                    MENUITEM "UU &Encode",                  ID_ENCODE_UU
-                    MENUITEM "UU &Decode",                  ID_DECODE_UU
+                    MENUITEM "Kodowanie UU",                ID_ENCODE_UU
+                    MENUITEM "Dekodowanie UU",              ID_DECODE_UU
                 END
-                MENUITEM "Decode ASN.&1 Code of a Document", 
-                                                        ID_EINZELVERFAHREN_ASN1DECODIEREN
+                MENUITEM "Dekoduj kod ASN.1 dokumentu", ID_EINZELVERFAHREN_ASN1DECODIEREN
 
             END
             MENUITEM SEPARATOR
@@ -6172,7 +6183,7 @@ BEGIN
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
             END
             MENUITEM "Tworzenie liczb losowych",    ID_ZUFALL_GENERATOREN
-            MENUITEM "&Miernik jakoœci hase³",      ID_PASSWORDQUALITYMETER
+            MENUITEM "&Miernik jakoœci has³a",      ID_PASSWORDQUALITYMETER
         END
         MENUITEM SEPARATOR
         POPUP "Gry &edukacyjne"
@@ -6202,7 +6213,7 @@ BEGIN
             MENUITEM "&Cyklicznoœæ",                ID_ANALYSE_PERIOD
         END
         MENUITEM SEPARATOR
-        POPUP "Historyczne"
+        POPUP "Algorytmy historyczne"
         BEGIN
             POPUP "&Tylko szyfr"
             BEGIN
@@ -6222,9 +6233,9 @@ BEGIN
             BEGIN
                 MENUITEM "H&ill",                       ID_HILL_AUTO
             END
-            POPUP "&Analiza manualna"
+            POPUP "Analiza &manualna"
             BEGIN
-                MENUITEM "&Zast¹pienie",                ID_ANALYZE_SUBST
+                MENUITEM "&Zamiana",                    ID_ANALYZE_SUBST
                 MENUITEM "&Playfair",                   ID_PLAYFAIR_ANALYSE
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
 
@@ -6258,14 +6269,14 @@ BEGIN
         BEGIN
             MENUITEM "&Faktoryzacja liczby",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            POPUP "&Ataki na RSA oparte na sieci"
+            POPUP "&Atak oparty na kracie"
             BEGIN
                 MENUITEM "&Faktoryzacja z podpowiedzi¹", ID_RSA_FACTORHINT
                 MENUITEM "Atak na wiadomoœci stereotypowe", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Atak na ma³e klucze tajne",   ID_RSA_BLOEMERMAY
+                MENUITEM "Atak na ma³y klucz tajny",    ID_RSA_BLOEMERMAY
             END
-            MENUITEM "Atak ""Side-Chanel"" na ""Textbook-RSA""", 
+            MENUITEM "Atak Side-Channel na ""Textbook RSA""", 
                                                     ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
 
         END
@@ -6276,7 +6287,7 @@ BEGIN
         END
         POPUP "&Analiza losowoœci"
         BEGIN
-            MENUITEM "&Test czêstotliwoœci",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "Test &czêstotliwoœci",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
 
             MENUITEM "Test &pokerowy",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST
 
@@ -6290,35 +6301,35 @@ BEGIN
 
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
-            MENUITEM "&Wizualizacja 3D",            ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "Wizualizacja 3D",             ID_ANALYSIS_RANDOM_3D_VISUALIZATION
 
         END
     END
     POPUP "&Opcje"
     BEGIN
-        MENUITEM "&Opcje uk³adu",               ID_OPTIONS_PLOT
-        MENUITEM "&Opcje analizy",              ID_OPTIONS_ANALYSIS
+        MENUITEM "Opcje &uk³adu",               ID_OPTIONS_PLOT
+        MENUITEM "Opcje &analizy",              ID_OPTIONS_ANALYSIS
         MENUITEM "&Opcje tekstu",               ID_OPTTEXT
-        MENUITEM "&Opcje startowe",             ID_OPTIONS_STARTOPTIONS
+        MENUITEM "Opcje pocz¹tkowe",            ID_OPTIONS_STARTOPTIONS
         MENUITEM "&Dalsze opcje",               ID_OPTIONS_FURTHEROPTIONS
     END
     POPUP "&Okno"
     BEGIN
         MENUITEM "&Kaskadowo",                  ID_WINDOW_CASCADE
-        MENUITEM "&Centralnie",                 ID_WINDOW_TILE_HORZ
-        MENUITEM "&Rozmieœæ ikony",             ID_WINDOW_ARRANGE
+        MENUITEM "&S¹siaduj¹co",                ID_WINDOW_TILE_HORZ
+        MENUITEM "&Uporz¹dkuj ikony",           ID_WINDOW_ARRANGE
         MENUITEM "&Zamknij wszystkie",          ID_WINDOW_CLOSE_ALL
     END
     POPUP "&Pomoc"
     BEGIN
         MENUITEM "&Strona startowa",            ID_HILFE_STARTSEITE
         MENUITEM "Indeks",                      ID_HILFE_INDEX
-        MENUITEM "S&cenariusze (Tutoriale)",    ID_HILFE_SZENARIEN
+        MENUITEM "Scenariusze (Tutoriale)",     ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
-        MENUITEM "S&krypt",                     ID_SCRIPT
+        MENUITEM "Skrypt",                      ID_SCRIPT
         MENUITEM SEPARATOR
-        MENUITEM "&O CrypToolu",                ID_APP_ABOUT
+        MENUITEM "O CrypToolu",                 ID_APP_ABOUT
     END
 END
 
@@ -6327,14 +6338,14 @@ BEGIN
     POPUP "&Plik"
     BEGIN
         MENUITEM "&Nowy \t Ctrl + N",           ID_FILE_NEW
-        MENUITEM "&Otwórz\t Ctrl + O",          ID_FILE_OPEN
+        MENUITEM "&Otwórz \t Ctrl + O",         ID_FILE_OPEN
         MENUITEM "&Zamknij \t Ctrl + F4",       ID_FILE_CLOSE, GRAYED
         MENUITEM "&Zapisz \t Ctrl + S",         ID_FILE_SAVE, GRAYED
-        MENUITEM "Zapisz jako",                 ID_FILE_SAVE_AS, GRAYED
+        MENUITEM "Zapisz &jako",                ID_FILE_SAVE_AS, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&W³aœciwoœci dokumentu",      ID_FILEPROPERTIES, GRAYED
-        MENUITEM "&Drukuj\t Ctrl + P",          ID_FILE_PRINT, GRAYED
-        MENUITEM "Opcje drukowania",            ID_FILE_PRINT_SETUP
+        MENUITEM "&Drukuj \t Ctrl + P",         ID_FILE_PRINT, GRAYED
+        MENUITEM "Ustawienia drukowania",       ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
         MENUITEM "Ostatnie pliki",              ID_FILE_MRU_FILE1
         MENUITEM SEPARATOR
@@ -6342,17 +6353,17 @@ BEGIN
     END
     POPUP "&Edycja"
     BEGIN
-        MENUITEM "&Cofnij \t Crtl + Z",         ID_EDIT_UNDO, GRAYED
+        MENUITEM "&Cofnij \t Ctrl + Z",         ID_EDIT_UNDO, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Wy&tnij \t Crtl + X",         ID_EDIT_CUT, GRAYED
-        MENUITEM "Kopiuj \tCtrl+C",             ID_EDIT_COPY, GRAYED
+        MENUITEM "Wy&tnij \t Ctrl + X",         ID_EDIT_CUT, GRAYED
+        MENUITEM "&Kopiuj \t Ctrl + C",         ID_EDIT_COPY, GRAYED
         MENUITEM "&Wklej \t Ctrl + V",          ID_EDIT_PASTE, GRAYED
-        MENUITEM "&Usuñ",                       ID_EDIT_CLEAR, GRAYED
+        MENUITEM "&Usuñ \t Del",                ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "ZnajdŸ/Zamieñ",               ID_EDIT_FIND, GRAYED
+        MENUITEM "&ZnajdŸ / Zamieñ",            ID_EDIT_FIND, GRAYED
         MENUITEM "ZnajdŸ &nastêpny \t F3",      ID_EDIT_REPEAT, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Zaznacz wszystko \t Ctrl + A", ID_EDIT_SELECT_ALL, GRAYED
+        MENUITEM "Zaznacz &wszystko \t Ctrl + A", ID_EDIT_SELECT_ALL, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Poka¿ &klucz",                ID_SHOW_KEY, GRAYED
         MENUITEM "Okno &g³ówne",                ID_GOTO_VATER, GRAYED
@@ -6362,14 +6373,14 @@ BEGIN
         MENUITEM "Pasek &narzêdzi",             ID_VIEW_TOOLBAR
         MENUITEM "&Pasek stanu",                ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
-        MENUITEM "Poka¿ jako &tekst",           ID_TOTXT, GRAYED
+        MENUITEM "Jako &tekst",                 ID_TOTXT, GRAYED
         MENUITEM "Heksadecymalnie",             ID_TOHEX, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&Wykres s³upkowy",            ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Alfabet",                     ID_VIEW_ALPHABET, GRAYED
         MENUITEM "&Koniec linii",               ID_VIEW_ENDOFLINE, GRAYED
-        MENUITEM "Zawijanie &linii",            ID_VIEW_LINEWRAP, GRAYED
+        MENUITEM "&Zawijanie linii",            ID_VIEW_LINEWRAP, GRAYED
         MENUITEM "Bia³e znaki",                 ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Czcionka"
         BEGIN
@@ -6406,7 +6417,7 @@ BEGIN
             MENUITEM "Dodawanie bitów",             ID_ADD_BIN, GRAYED
             MENUITEM "&XOR",                        ID_XOR_BIN, GRAYED
             MENUITEM "V&ernam",                     ID_VERNAM_BIN, GRAYED
-            MENUITEM "H&omophone",                  ID_HOMOPHONE_ASC, GRAYED
+            MENUITEM "H&omofony",                   ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION_ASC
             , GRAYED
             MENUITEM "Soli&taire",                  ID_SYMCLASSIC_SOLITAIRE
@@ -6471,8 +6482,8 @@ BEGIN
     BEGIN
         POPUP "&PKI"
         BEGIN
-            MENUITEM "&Generowanie/Import Klucza",  ID_CRYPT_KeyGen
-            MENUITEM "&Wyœwietlenie/Eksport Klucza", ID_SHOW_ALL_EC_KEYS
+            MENUITEM "Generowanie/Import klucza",   ID_CRYPT_KeyGen
+            MENUITEM "Wyœwietlenie/Eksport klucza", ID_SHOW_ALL_EC_KEYS
         END
         MENUITEM "&Podpisz dokument",           ID_CRYPT_SIGN, GRAYED
         MENUITEM "&Zweryfikuj podpis",          ID_CRYPT_VERIFY, GRAYED
@@ -6496,39 +6507,38 @@ BEGIN
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
             , GRAYED
             MENUITEM SEPARATOR
-            MENUITEM "Wartoœæ Hasz dla pliku",      ID_HASH_OFAFILE
+            MENUITEM "Wartoœæ hasz dla pliku",      ID_HASH_OFAFILE
             MENUITEM "Demonstracja funkcji haszuj¹cej", 
                                                     ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
             , GRAYED
-            MENUITEM "&Generowanie Klucza z Has³a (PKCS #5)", 
+            MENUITEM "Generowanie klucza z has³a (PKCS #5)", 
                                                     ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
 
             MENUITEM "&Generowanie MAC",            ID_GENERATE_MACS, GRAYED
         END
         POPUP "Kryptosystem RSA"
         BEGIN
-            MENUITEM "Test Pierwszoœci",            ID_PRIMENUMBER_TEST
-            MENUITEM "Generowanie Liczb Pierwszych", 
+            MENUITEM "Test pierwszoœci",            ID_PRIMENUMBER_TEST
+            MENUITEM "Generowanie liczb pierwszych", 
                                                     ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
-            MENUITEM "Rozk³ad liczby na czynniki pierwsze", 
-                                                    ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+            MENUITEM "&Faktoryzacja liczby",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
             MENUITEM "Demonstracja RSA",            ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
             MENUITEM "&Demonstracja podpisu",       ID_EINZELVERFAHREN_SIGN_DOC
 
-            POPUP "&Atak przy pomocy kraty"
+            POPUP "Ataki oparte na kracie"
             BEGIN
                 MENUITEM "&Faktoryzacja z podpowiedzi¹", ID_RSA_FACTORHINT
                 MENUITEM "Atak na wiadomoœci stereotypowe", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Atak na ma³y klucz tajemny",  ID_RSA_BLOEMERMAY
+                MENUITEM "Atak na ma³y klucz tajny",    ID_RSA_BLOEMERMAY
             END
         END
         POPUP "&Protoko³y"
         BEGIN
-            MENUITEM "Demonstracja Diffie'ego - Hellmana", 
+            MENUITEM "Demonstracja Diffie-Hellmana", 
                                                     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
             MENUITEM "Uwierzytelnianie w sieci",    ID_CHALLENGE_RESPONSE
@@ -6537,20 +6547,20 @@ BEGIN
         BEGIN
             MENUITEM "&Astronomia i ruch planet",   ID_INDIV_CRT_PLANET
             MENUITEM "&Transformacje reprezentacji", ID_INDIV_CRT_DEMO
-            MENUITEM "&Dzielenie Tajemnic przez ChRT", 
+            MENUITEM "Dzielenie tajemnic przez ChTR", 
                                                     ID_INDIV_CRT_SECRETSHARING
 
         END
         POPUP "&Wizualizacja algorytmów"
         BEGIN
-            MENUITEM "&Cezar",               ID_HELP_ANIMAL_CAESAR
+            MENUITEM "&Cezar",                      ID_HELP_ANIMAL_CAESAR
             MENUITEM "&Vigenere",                   ID_HELP_ANIMAL_VIGENERE
             MENUITEM "&Nihilist",                   ID_HELP_ANIMAL_NIHILIST
             MENUITEM "&DES",                        ID_HELP_ANIMAL_DES
             MENUITEM SEPARATOR
             POPUP "&AES"
             BEGIN
-                MENUITEM "Rijndael &Animation",         ID_FLASH_AESDEMO
+                MENUITEM "Rijndael &Animacja",          ID_FLASH_AESDEMO
                 MENUITEM "Rijndael &Inspector",         ID_FLASH_RIJNDAEL_INSPECTOR
 
             END
@@ -6573,9 +6583,9 @@ BEGIN
                 END
                 POPUP "Kodowanie/dekodowanie UU"
                 BEGIN
-                    MENUITEM "&Kodowanie UU",               ID_ENCODE_UU
+                    MENUITEM "Kodowanie UU",                ID_ENCODE_UU
                     , GRAYED
-                    MENUITEM "&Dekodowanie UU",             ID_DECODE_UU
+                    MENUITEM "Dekodowanie UU",              ID_DECODE_UU
                     , GRAYED
                 END
                 MENUITEM "Dekoduj kod ASN.1 dokumentu", ID_EINZELVERFAHREN_ASN1DECODIEREN
@@ -6621,7 +6631,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "Algorytmy historyczne"
         BEGIN
-            POPUP "Tylko &szyfr"
+            POPUP "&Tylko szyfr"
             BEGIN
                 MENUITEM "&Cezar",                      ID_CAESAR_AUTO
                 , GRAYED
@@ -6643,7 +6653,7 @@ BEGIN
             END
             POPUP "Analiza &manualna"
             BEGIN
-                MENUITEM "&Zast¹pienie",                ID_ANALYZE_SUBST
+                MENUITEM "&Zamiana",                    ID_ANALYZE_SUBST
                 , GRAYED
                 MENUITEM "&Playfair",                   ID_PLAYFAIR_ANALYSE
                 , GRAYED
@@ -6656,9 +6666,9 @@ BEGIN
             MENUITEM "&IDEA",                       ID_ANALYSE_IDEA, GRAYED
             MENUITEM "RC&2",                        ID_ANALYSE_RC2, GRAYED
             MENUITEM "RC&4",                        ID_ANALYSE_RC4, GRAYED
-            MENUITEM "&DES (ECB)",                  ID_ANALYSE_DESECB
+            MENUITEM "DES z ECB",                   ID_ANALYSE_DESECB
             , GRAYED
-            MENUITEM "D&ES (CBC)",                  ID_ANALYSE_DESCBC
+            MENUITEM "DES z CBC",                   ID_ANALYSE_DESCBC
             , GRAYED
             MENUITEM "3DES z ECB",                  ID_ANALYSE_TRIPLEDESECB
             , GRAYED
@@ -6689,12 +6699,12 @@ BEGIN
         BEGIN
             MENUITEM "&Faktoryzacja liczby",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            POPUP "&Atak przy pomocy kraty"
+            POPUP "&Atak oparty na kracie"
             BEGIN
                 MENUITEM "&Faktoryzacja z podpowiedzi¹", ID_RSA_FACTORHINT
-                MENUITEM "&Atka na Wiadomoœci Stereotypwe", 
+                MENUITEM "Atak na wiadomoœci stereotypowe", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Atak na ma³e klucze tajemne", ID_RSA_BLOEMERMAY
+                MENUITEM "Atak na ma³y klucz tajny",    ID_RSA_BLOEMERMAY
             END
             MENUITEM "Atak Side-Channel na ""Textbook RSA""", 
                                                     ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
@@ -6707,7 +6717,7 @@ BEGIN
         END
         POPUP "&Analiza losowoœci"
         BEGIN
-            MENUITEM "&Test czêstotliwoœci",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "Test &czêstotliwoœci",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
             , GRAYED
             MENUITEM "Test &pokerowy",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST
             , GRAYED
@@ -6728,17 +6738,17 @@ BEGIN
     END
     POPUP "&Opcje"
     BEGIN
-        MENUITEM "&Opcje uk³adu",               ID_OPTIONS_PLOT
-        MENUITEM "&Opcje analizy",              ID_OPTIONS_ANALYSIS
+        MENUITEM "Opcje &uk³adu",               ID_OPTIONS_PLOT
+        MENUITEM "Opcje &analizy",              ID_OPTIONS_ANALYSIS
         MENUITEM "&Opcje tekstu",               ID_OPTTEXT
-        MENUITEM "&Opcje startowe",             ID_OPTIONS_STARTOPTIONS
+        MENUITEM "Opcje pocz¹tkowe",            ID_OPTIONS_STARTOPTIONS
         MENUITEM "&Dalsze opcje",               ID_OPTIONS_FURTHEROPTIONS
     END
     POPUP "&Okno"
     BEGIN
         MENUITEM "&Kaskadowo",                  ID_WINDOW_CASCADE, GRAYED
-        MENUITEM "&Kafelkowo",                  ID_WINDOW_TILE_HORZ, GRAYED
-        MENUITEM "Uporz¹dkuj &ikony",           ID_WINDOW_ARRANGE, GRAYED
+        MENUITEM "&S¹siaduj¹co",                ID_WINDOW_TILE_HORZ, GRAYED
+        MENUITEM "&Uporz¹dkuj ikony",           ID_WINDOW_ARRANGE, GRAYED
         MENUITEM "&Zamknij wszystkie",          ID_WINDOW_CLOSE_ALL, GRAYED
     END
     POPUP "&Pomoc"
@@ -6748,9 +6758,9 @@ BEGIN
         MENUITEM "Scenariusze (Tutoriale)",     ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
-        MENUITEM "S&krypt",                     ID_SCRIPT
+        MENUITEM "Skrypt",                      ID_SCRIPT
         MENUITEM SEPARATOR
-        MENUITEM "&O CrypToolu",                ID_APP_ABOUT
+        MENUITEM "O CrypToolu",                 ID_APP_ABOUT
     END
 END
 
@@ -6760,13 +6770,13 @@ BEGIN
     BEGIN
         MENUITEM "&Nowy \t Ctrl + N",           ID_FILE_NEW
         MENUITEM "&Otwórz \t Ctrl + O",         ID_FILE_OPEN
-        MENUITEM "&Zamknij \t Ctrl + F4",      ID_FILE_CLOSE
-        MENUITEM "&Zapisz \t Ctrl + S",        ID_FILE_SAVE
+        MENUITEM "&Zamknij \t Ctrl + F4",       ID_FILE_CLOSE
+        MENUITEM "&Zapisz \t Ctrl + S",         ID_FILE_SAVE
         MENUITEM "Zapisz &jako",                ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
         MENUITEM "&W³aœciwoœci dokumentu",      ID_FILEPROPERTIES
-        MENUITEM "&Drukuj \t Ctrl + P",          ID_FILE_PRINT
-        MENUITEM "Ustawienia drukowania",            ID_FILE_PRINT_SETUP
+        MENUITEM "&Drukuj \t Ctrl + P",         ID_FILE_PRINT
+        MENUITEM "Ustawienia drukowania",       ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
         MENUITEM "Ostatnie pliki",              ID_FILE_MRU_FILE1
         MENUITEM SEPARATOR
@@ -6777,7 +6787,7 @@ BEGIN
         MENUITEM "&Cofnij \t Ctrl + Z",         ID_EDIT_UNDO
         MENUITEM SEPARATOR
         MENUITEM "Wy&tnij \t Ctrl + X",         ID_EDIT_CUT
-        MENUITEM "&Kopiuj \t Ctrl + C",          ID_EDIT_COPY
+        MENUITEM "&Kopiuj \t Ctrl + C",         ID_EDIT_COPY
         MENUITEM "&Wklej \t Ctrl + V",          ID_EDIT_PASTE
         MENUITEM "&Usuñ \t Del",                ID_EDIT_CLEAR
         MENUITEM SEPARATOR
@@ -6795,14 +6805,14 @@ BEGIN
         MENUITEM "&Pasek stanu",                ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
         MENUITEM "Jako &tekst",                 ID_TOTXT, GRAYED
-        MENUITEM "Hexadecymalnie",              ID_TOHEX
+        MENUITEM "Heksadecymalnie",             ID_TOHEX
         MENUITEM SEPARATOR
         MENUITEM "&Wykres s³upkowy",            ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Alfabet",                     ID_VIEW_ALPHABET
         MENUITEM "&Koniec linii",               ID_VIEW_ENDOFLINE
         MENUITEM "&Zawijanie linii",            ID_VIEW_LINEWRAP
-        MENUITEM "Bia³e znaki",                     ID_VIEW_WHITESPACE
+        MENUITEM "Bia³e znaki",                 ID_VIEW_WHITESPACE
         POPUP "&Czcionka"
         BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
@@ -6830,11 +6840,11 @@ BEGIN
             MENUITEM "&Zamiana / Atbash",           ID_CryptMono
             MENUITEM "&Playfair",                   ID_PLAYFAIR_BIN
             MENUITEM "&ADFGVX",                     ID_ENCRYPT_ADFGVX
-            MENUITEM "Dodawanie bajtów",            ID_ADD_BIN
+            MENUITEM "Dodawanie bitów",             ID_ADD_BIN
             MENUITEM "&XOR",                        ID_XOR_BIN
             MENUITEM "V&ernam",                     ID_VERNAM_BIN
-            MENUITEM "H&omofony",                  ID_HOMOPHONE_ASC
-            MENUITEM "&Permutacja / Transpozycja",  ID_PERMUTATION_ASC
+            MENUITEM "H&omofony",                   ID_HOMOPHONE_ASC
+            MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION_ASC
             MENUITEM "Soli&taire",                  ID_SYMCLASSIC_SOLITAIRE
         END
         POPUP "Symetryczne"
@@ -6876,19 +6886,19 @@ BEGIN
 
             MENUITEM "Deszyfrowanie RSA-AES",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
 
-            MENUITEM "&Szyfrowanie ECC-AES",         ID_HYBRID_ECCENC
-            MENUITEM "&Deszyfrowanie ECC-AES",       ID_HYBRID_ECCDEC
+            MENUITEM "Szyfrowanie ECC-AES",         ID_HYBRID_ECCENC
+            MENUITEM "Deszyfrowanie ECC-AES",       ID_HYBRID_ECCDEC
         END
     END
     POPUP "Podpis cyfrowy"
     BEGIN
         POPUP "&PKI"
         BEGIN
-            MENUITEM "Generowanie/Import &klucza",  ID_CRYPT_KeyGen
-            MENUITEM "Wyœwietlenie/Eksport &klucza", ID_SHOW_ALL_EC_KEYS
+            MENUITEM "Generowanie/Import klucza",   ID_CRYPT_KeyGen
+            MENUITEM "Wyœwietlenie/Eksport klucza", ID_SHOW_ALL_EC_KEYS
         END
         MENUITEM "&Podpisz dokument",           ID_CRYPT_SIGN
-        MENUITEM "&Zweryfikuj podpis",             ID_CRYPT_VERIFY
+        MENUITEM "&Zweryfikuj podpis",          ID_CRYPT_VERIFY
         MENUITEM "&Wyodrêbnij podpis",          ID_CRYPT_EXTRACT
         MENUITEM "&Demonstracja podpisu",       ID_EINZELVERFAHREN_SIGN_DOC
     END
@@ -6918,24 +6928,23 @@ BEGIN
             MENUITEM "Generowanie liczb pierwszych", 
                                                     ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
-            MENUITEM "Rozk³ad liczby na czynniki pierwsze", 
-                                                    ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+            MENUITEM "&Faktoryzacja liczby",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
             MENUITEM "Demonstracja RSA",            ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
             MENUITEM "&Demonstracja podpisu",       ID_EINZELVERFAHREN_SIGN_DOC
 
-            POPUP "&Atak przy pomocy kraty"
+            POPUP "Ataki oparte na kracie"
             BEGIN
                 MENUITEM "&Faktoryzacja z podpowiedzi¹", ID_RSA_FACTORHINT
-                MENUITEM "&Atak na wiadomoœci stereotypowe", 
+                MENUITEM "Atak na wiadomoœci stereotypowe", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Atak na ma³e klucze tajemne", ID_RSA_BLOEMERMAY
+                MENUITEM "Atak na ma³y klucz tajny",    ID_RSA_BLOEMERMAY
             END
         END
         POPUP "&Protoko³y"
         BEGIN
-            MENUITEM "Demonstracja protoko³u Diffie'ego - Hellmana", 
+            MENUITEM "Demonstracja Diffie-Hellmana", 
                                                     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
             MENUITEM "Uwierzytelnianie w sieci",    ID_CHALLENGE_RESPONSE
@@ -6944,7 +6953,7 @@ BEGIN
         BEGIN
             MENUITEM "&Astronomia i ruch planet",   ID_INDIV_CRT_PLANET
             MENUITEM "&Transformacje reprezentacji", ID_INDIV_CRT_DEMO
-            MENUITEM "&Dzielenie tajemnic przez ChTR", 
+            MENUITEM "Dzielenie tajemnic przez ChTR", 
                                                     ID_INDIV_CRT_SECRETSHARING
 
         END
@@ -6973,8 +6982,8 @@ BEGIN
             BEGIN
                 POPUP "Kodowanie/dekodowanie Base64"
                 BEGIN
-                    MENUITEM "&Kodowanie Base64",            ID_ENCODE_BASE64
-                    MENUITEM "&Dekodowanie Base64",          ID_DECODE_BASE64
+                    MENUITEM "&Kodowanie Base64",           ID_ENCODE_BASE64
+                    MENUITEM "&Dekodowanie Base64",         ID_DECODE_BASE64
                 END
                 POPUP "Kodowanie/dekodowanie UU"
                 BEGIN
@@ -7001,7 +7010,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "Teoria liczb"
         BEGIN
-            MENUITEM "&Narzêdzie edukacyjne teorii liczb", 
+            MENUITEM "Narzêdzie edukacyjne teorii liczb", 
                                                     ID_INTERACTIVE_NUMBER_THEORY
 
             MENUITEM "&Dodawanie punktów na krzywych eliptycznych", 
@@ -7023,7 +7032,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "Algorytmy historyczne"
         BEGIN
-            POPUP "Tylko &szyfr"
+            POPUP "&Tylko szyfr"
             BEGIN
                 MENUITEM "&Cezar",                      ID_CAESAR_AUTO
                 MENUITEM "&Vigenere",                   ID_VIGENERE_AUTO
@@ -7075,17 +7084,16 @@ BEGIN
         END
         POPUP "&Algorytmy asymetryczne"
         BEGIN
-            MENUITEM "Rozk³ad liczby na czynniki pierwsze", 
-                                                    ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+            MENUITEM "&Faktoryzacja liczby",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            POPUP "&Atak przy pomocy kraty"
+            POPUP "&Atak oparty na kracie"
             BEGIN
                 MENUITEM "&Faktoryzacja z podpowiedzi¹", ID_RSA_FACTORHINT
-                MENUITEM "&Atak na wiadomoœci stereotypowe", 
+                MENUITEM "Atak na wiadomoœci stereotypowe", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Atak na ma³e klucze tajemne", ID_RSA_BLOEMERMAY
+                MENUITEM "Atak na ma³y klucz tajny",    ID_RSA_BLOEMERMAY
             END
-            MENUITEM "&Atak Side-Channel na ""Textbook RSA""", 
+            MENUITEM "Atak Side-Channel na ""Textbook RSA""", 
                                                     ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
 
         END
@@ -7119,14 +7127,14 @@ BEGIN
         MENUITEM "Opcje &uk³adu",               ID_OPTIONS_PLOT
         MENUITEM "Opcje &analizy",              ID_OPTIONS_ANALYSIS
         MENUITEM "&Opcje tekstu",               ID_OPTTEXT
-        MENUITEM "Opcje pocz¹tkowe",           ID_OPTIONS_STARTOPTIONS
+        MENUITEM "Opcje pocz¹tkowe",            ID_OPTIONS_STARTOPTIONS
         MENUITEM "&Dalsze opcje",               ID_OPTIONS_FURTHEROPTIONS
     END
     POPUP "&Okno"
     BEGIN
         MENUITEM "&Kaskadowo",                  ID_WINDOW_CASCADE
-        MENUITEM "&Kafelkowo",                  ID_WINDOW_TILE_HORZ
-        MENUITEM "&Rozmieœæ ikony",             ID_WINDOW_ARRANGE
+        MENUITEM "&S¹siaduj¹co",                ID_WINDOW_TILE_HORZ
+        MENUITEM "&Uporz¹dkuj ikony",           ID_WINDOW_ARRANGE
         MENUITEM "&Zamknij wszystkie",          ID_WINDOW_CLOSE_ALL
     END
     POPUP "&Pomoc"
@@ -7138,7 +7146,7 @@ BEGIN
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "Skrypt",                      ID_SCRIPT
         MENUITEM SEPARATOR
-        MENUITEM "O CrypToolu",                ID_APP_ABOUT
+        MENUITEM "O CrypToolu",                 ID_APP_ABOUT
     END
 END
 
@@ -7173,14 +7181,14 @@ BEGIN
     POPUP "&Plik"
     BEGIN
         MENUITEM "&Nowy \t Ctrl + N",           ID_FILE_NEW
-        MENUITEM "&Otwórz\tCtrl + O",           ID_FILE_OPEN
+        MENUITEM "&Otwórz \t Ctrl + O",         ID_FILE_OPEN
         MENUITEM "&Zamknij \t Ctrl + F4",       ID_FILE_CLOSE
         MENUITEM "&Zapisz \t Ctrl + S",         ID_FILE_SAVE
-        MENUITEM "Zapisz &Jako",                ID_FILE_SAVE_AS
+        MENUITEM "Zapisz &jako",                ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
         MENUITEM "&W³aœciwoœci dokumentu",      ID_FILEPROPERTIES, GRAYED
         MENUITEM "&Drukuj \t Ctrl + P",         ID_FILE_PRINT
-        MENUITEM "Opcje drukowania",            ID_FILE_PRINT_SETUP
+        MENUITEM "Ustawienia drukowania",       ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
         MENUITEM "Ostatnie pliki",              ID_FILE_MRU_FILE1
         MENUITEM SEPARATOR
@@ -7193,12 +7201,12 @@ BEGIN
         MENUITEM "Wy&tnij \t Ctrl + X",         ID_EDIT_CUT, GRAYED
         MENUITEM "&Kopiuj \t Ctrl + C",         ID_EDIT_COPY, GRAYED
         MENUITEM "&Wklej \t Ctrl + V",          ID_EDIT_PASTE, GRAYED
-        MENUITEM "&Usuñ\t Del",                 ID_EDIT_CLEAR, GRAYED
+        MENUITEM "&Usuñ \t Del",                ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&ZnajdŸ/Zamieñ",              ID_EDIT_FIND, GRAYED
+        MENUITEM "&ZnajdŸ / Zamieñ",            ID_EDIT_FIND, GRAYED
         MENUITEM "ZnajdŸ &nastêpny \t F3",      ID_EDIT_REPEAT, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Zaznacz wszystko \t Ctrl + A", ID_EDIT_SELECT_ALL, GRAYED
+        MENUITEM "Zaznacz &wszystko \t Ctrl + A", ID_EDIT_SELECT_ALL, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Poka¿ &klucz",                ID_SHOW_KEY, GRAYED
         MENUITEM "Okno &g³ówne",                ID_GOTO_VATER
@@ -7208,15 +7216,15 @@ BEGIN
         MENUITEM "Pasek &narzêdzi",             ID_VIEW_TOOLBAR
         MENUITEM "&Pasek stanu",                ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
-        MENUITEM "Poka¿ jako tekst",            ID_TOTXT, GRAYED
-        MENUITEM "Hexadecymalnie",              ID_TOHEX, GRAYED
+        MENUITEM "Jako &tekst",                 ID_TOTXT, GRAYED
+        MENUITEM "Heksadecymalnie",             ID_TOHEX, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&Wykres s³upkowy",            ID_PLOTBAR
         MENUITEM SEPARATOR
         MENUITEM "Alfabet",                     ID_VIEW_ALPHABET, GRAYED
         MENUITEM "&Koniec linii",               ID_VIEW_ENDOFLINE, GRAYED
         MENUITEM "&Zawijanie linii",            ID_VIEW_LINEWRAP, GRAYED
-        MENUITEM "Bia³e znaki",                     ID_VIEW_WHITESPACE, GRAYED
+        MENUITEM "Bia³e znaki",                 ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Czcionka"
         BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
@@ -7248,10 +7256,10 @@ BEGIN
             MENUITEM "&Playfair",                   ID_PLAYFAIR_BIN, GRAYED
             MENUITEM "&ADFGVX",                     ID_ENCRYPT_ADFGVX
             , GRAYED
-            MENUITEM "Dodawanie bajtów",            ID_ADD_BIN, GRAYED
+            MENUITEM "Dodawanie bitów",             ID_ADD_BIN, GRAYED
             MENUITEM "&XOR",                        ID_XOR_BIN, GRAYED
             MENUITEM "V&ernam",                     ID_VERNAM_BIN, GRAYED
-            MENUITEM "H&omofony",                  ID_HOMOPHONE_ASC, GRAYED
+            MENUITEM "H&omofony",                   ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION_ASC
             , GRAYED
             MENUITEM "Soli&taire",                  ID_SYMCLASSIC_SOLITAIRE
@@ -7316,13 +7324,13 @@ BEGIN
     BEGIN
         POPUP "&PKI"
         BEGIN
-            MENUITEM "Generowanie/Import &klucza",  ID_CRYPT_KeyGen
-            MENUITEM "Wyœwietlenie/Eksport &klucza", ID_SHOW_ALL_EC_KEYS
+            MENUITEM "Generowanie/Import klucza",   ID_CRYPT_KeyGen
+            MENUITEM "Wyœwietlenie/Eksport klucza", ID_SHOW_ALL_EC_KEYS
         END
         MENUITEM "&Podpisz dokument",           ID_CRYPT_SIGN, GRAYED
         MENUITEM "&Zweryfikuj podpis",          ID_CRYPT_VERIFY, GRAYED
         MENUITEM "&Wyodrêbnij podpis",          ID_CRYPT_EXTRACT, GRAYED
-        MENUITEM "Demonstracja &podpisu",       ID_EINZELVERFAHREN_SIGN_DOC
+        MENUITEM "&Demonstracja podpisu",       ID_EINZELVERFAHREN_SIGN_DOC
     END
     POPUP "&Algorytmy"
     BEGIN
@@ -7352,28 +7360,27 @@ BEGIN
         END
         POPUP "Kryptosystem RSA"
         BEGIN
-            MENUITEM "Test pierwszoœci",           ID_PRIMENUMBER_TEST
+            MENUITEM "Test pierwszoœci",            ID_PRIMENUMBER_TEST
             MENUITEM "Generowanie liczb pierwszych", 
                                                     ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
 
-            MENUITEM "Rozk³ad liczby na czynniki pierwsze", 
-                                                    ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+            MENUITEM "&Faktoryzacja liczby",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            MENUITEM "Demonstracja RSA",           ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
+            MENUITEM "Demonstracja RSA",            ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
             MENUITEM "&Demonstracja podpisu",       ID_EINZELVERFAHREN_SIGN_DOC
 
-            POPUP "&Atak przy pomocy kraty"
+            POPUP "Ataki oparte na kracie"
             BEGIN
                 MENUITEM "&Faktoryzacja z podpowiedzi¹", ID_RSA_FACTORHINT
-                MENUITEM "&Atak na wiadomoœci stereotypowe", 
+                MENUITEM "Atak na wiadomoœci stereotypowe", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Atak na ma³e klucze tajemne", ID_RSA_BLOEMERMAY
+                MENUITEM "Atak na ma³y klucz tajny",    ID_RSA_BLOEMERMAY
             END
         END
         POPUP "&Protoko³y"
         BEGIN
-            MENUITEM "Demonstracja protoko³u Diffie'ego - Hellmana", 
+            MENUITEM "Demonstracja Diffie-Hellmana", 
                                                     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
 
             MENUITEM "Uwierzytelnianie w sieci",    ID_CHALLENGE_RESPONSE
@@ -7382,7 +7389,7 @@ BEGIN
         BEGIN
             MENUITEM "&Astronomia i ruch planet",   ID_INDIV_CRT_PLANET
             MENUITEM "&Transformacje reprezentacji", ID_INDIV_CRT_DEMO
-            MENUITEM "&Dzielenie tajemnic przez ChTR", 
+            MENUITEM "Dzielenie tajemnic przez ChTR", 
                                                     ID_INDIV_CRT_SECRETSHARING
 
         END
@@ -7413,7 +7420,7 @@ BEGIN
                 BEGIN
                     MENUITEM "&Kodowanie Base64",           ID_ENCODE_BASE64
                     , GRAYED
-                    MENUITEM "&Dekodowanie Base64",          ID_DECODE_BASE64
+                    MENUITEM "&Dekodowanie Base64",         ID_DECODE_BASE64
                     , GRAYED
                 END
                 POPUP "Kodowanie/dekodowanie UU"
@@ -7443,7 +7450,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "Teoria liczb"
         BEGIN
-            MENUITEM "&Narzêdzie edukacyjne teorii liczb", 
+            MENUITEM "Narzêdzie edukacyjne teorii liczb", 
                                                     ID_INTERACTIVE_NUMBER_THEORY
 
             MENUITEM "&Dodawanie punktów na krzywych eliptycznych", 
@@ -7466,7 +7473,7 @@ BEGIN
         MENUITEM SEPARATOR
         POPUP "Algorytmy historyczne"
         BEGIN
-            POPUP "Tylko &szyfr"
+            POPUP "&Tylko szyfr"
             BEGIN
                 MENUITEM "&Cezar",                      ID_CAESAR_AUTO
                 , GRAYED
@@ -7474,7 +7481,7 @@ BEGIN
                 , GRAYED
                 MENUITEM "&ADFGVX",                     ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 , GRAYED
-                MENUITEM "&Zamiana",                ID_CIPHERTEXT_ONLY_SUBSTITUTION
+                MENUITEM "&Zamiana",                    ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 , GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 , GRAYED
@@ -7532,17 +7539,16 @@ BEGIN
         END
         POPUP "&Algorytmy asymetryczne"
         BEGIN
-            MENUITEM "Rozk³ad liczby na czynniki pierwsze", 
-                                                    ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+            MENUITEM "&Faktoryzacja liczby",        ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
 
-            POPUP "&Atak przy pomocy kraty"
+            POPUP "&Atak oparty na kracie"
             BEGIN
                 MENUITEM "&Faktoryzacja z podpowiedzi¹", ID_RSA_FACTORHINT
-                MENUITEM "&Atak na wiadomoœci stereotypowe", 
+                MENUITEM "Atak na wiadomoœci stereotypowe", 
                                                         ID_RSA_STEREOTYPED
-                MENUITEM "Atak na ma³e klucze tajemne", ID_RSA_BLOEMERMAY
+                MENUITEM "Atak na ma³y klucz tajny",    ID_RSA_BLOEMERMAY
             END
-            MENUITEM "&Atak Side-Channel na ""Textbook RSA""", 
+            MENUITEM "Atak Side-Channel na ""Textbook RSA""", 
                                                     ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION
 
         END
@@ -7568,7 +7574,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
             , GRAYED
-            MENUITEM "Wizualizacja 3D",            ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "Wizualizacja 3D",             ID_ANALYSIS_RANDOM_3D_VISUALIZATION
             , GRAYED
         END
     END
@@ -7583,15 +7589,15 @@ BEGIN
     POPUP "&Okno"
     BEGIN
         MENUITEM "&Kaskadowo",                  ID_WINDOW_CASCADE
-        MENUITEM "&Kafelkowo",                  ID_WINDOW_TILE_HORZ
-        MENUITEM "&Rozmieœæ ikony",             ID_WINDOW_ARRANGE
+        MENUITEM "&S¹siaduj¹co",                ID_WINDOW_TILE_HORZ
+        MENUITEM "&Uporz¹dkuj ikony",           ID_WINDOW_ARRANGE
         MENUITEM "&Zamknij wszystkie",          ID_WINDOW_CLOSE_ALL
     END
     POPUP "&Pomoc"
     BEGIN
         MENUITEM "&Strona startowa",            ID_HILFE_STARTSEITE
         MENUITEM "Indeks",                      ID_HILFE_INDEX
-        MENUITEM "Scenariusze (Tutoriale)",    ID_HILFE_SZENARIEN
+        MENUITEM "Scenariusze (Tutoriale)",     ID_HILFE_SZENARIEN
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "Skrypt",                      ID_SCRIPT
@@ -9374,6 +9380,14 @@ BEGIN
         HORZGUIDE, 174
         HORZGUIDE, 188
         HORZGUIDE, 209
+    END
+
+    IDD_LIST_RESULTS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 427
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 204
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -11344,7 +11358,7 @@ BEGIN
     IDS_STRING_ADFGVX_ERROR_4 
                             "Niepoprawne znaki zosta³y usuniête!\nPoprawne s¹ tylko znaki z zakresu 'A-Z'\nNowe has³o:\n\n"
     IDS_STRING_ADFGVX_ERROR_5 "Tekst zawiera nieparzyst¹ liczbê znaków!"
-    IDS_STRING_ADFGVX_ERROR_6 "D³ugoœæ has³o musi byæ wiêksza od zera!"
+    IDS_STRING_ADFGVX_ERROR_6 "D³ugoœæ has³a musi byæ wiêksza od zera!"
     IDS_STRING_ADFGVX_ERROR_7 
                             "Sekwencja znaków has³a nie jest jasno zdefiniowana\nZbyteczne znaki w haœle zosta³y usuniête!"
     IDS_STRING_ADFGVX_ERROR_8 "Proszê najpierw przeanalizowaæ transpozycjê! "

@@ -145,13 +145,7 @@ POLISH Algorytmy # &Algorytmy
 POLISH Algorytmy_Gryedukacyjne # &Algorytmy|Gry &edukacyjne
 POLISH Algorytmy_Hasz # &Algorytmy|&Hasz
 POLISH Algorytmy_KryptosystemRSA # &Algorytmy|Kryptosystem RSA
-POLISH Algorytmy_KryptosystemRSA_AtakinaRSAopartenasieci # &Algorytmy|Kryptosystem RSA|Ataki na RSA oparte na sieci
-POLISH Algorytmy_KryptosystemRSA_Atakprzypomocykraty # &Algorytmy|Kryptosystem RSA|&Atak przy pomocy kraty
-POLISH Algorytmy_Narzdzia # &Algorytmy|&Narzêdzia
 POLISH Algorytmy_Narzdzia_Kodowanie # &Algorytmy|&Narzêdzia|Kodowanie
-POLISH Algorytmy_Narzdzia_Kodowanie_KodowanieDekodowanieBase64 # &Algorytmy|&Narzêdzia|Kodowanie|Kodowanie/Dekodowanie &Base64
-POLISH Algorytmy_Narzdzia_Kodowanie_KodowaniedekodowanieBase64 # &Algorytmy|&Narzêdzia|Kodowanie|Kodowanie/dekodowanie Base64
-POLISH Algorytmy_Narzdzia_Kodowanie_KodowaniedekodowanieUU # &Algorytmy|&Narzêdzia|Kodowanie|Kodowanie/dekodowanie UU
 POLISH Algorytmy_Narzdzia_Kompresja # &Algorytmy|&Narzêdzia|&Kompresja
 POLISH Algorytmy_Protokoy # &Algorytmy|&Protoko³y
 POLISH Algorytmy_Teorialiczb # &Algorytmy|Teoria liczb
@@ -161,20 +155,9 @@ POLISH Algorytmy_ZastosowaniaChTR # &Algorytmy|Zastosowania ChTR
 POLISH Edycja # &Edycja
 POLISH Kryptoanaliza # &Kryptoanaliza
 POLISH Kryptoanaliza_Algorytmyasymetryczne # &Kryptoanaliza|&Algorytmy asymetryczne
-POLISH Kryptoanaliza_Algorytmyasymetryczne_AtakinaRSAopartenasieci # &Kryptoanaliza|&Algorytmy asymetryczne|&Ataki na RSA oparte na sieci
-POLISH Kryptoanaliza_Algorytmyasymetryczne_Atakprzypomocykraty # &Kryptoanaliza|&Algorytmy asymetryczne|&Atak przy pomocy kraty
-POLISH Kryptoanaliza_Algorytmyhistoryczne # &Kryptoanaliza|Algorytmy historyczne
-POLISH Kryptoanaliza_Algorytmyhistoryczne_Analizamanualna # &Kryptoanaliza|Algorytmy historyczne|Analiza &manualna
 POLISH Kryptoanaliza_Algorytmyhistoryczne_Tekstjawny # &Kryptoanaliza|Algorytmy historyczne|Tekst jawny
-POLISH Kryptoanaliza_Algorytmyhistoryczne_Tylkoszyfr # &Kryptoanaliza|Algorytmy historyczne|Tylko &szyfr
-POLISH Kryptoanaliza_Algorytmysymetryczne # &Kryptoanaliza|Algorytmy &symetryczne
-POLISH Kryptoanaliza_Algorytmysymetryczne_Wicejalgorytmw # &Kryptoanaliza|Algorytmy &symetryczne|&Wiêcej algorytmów
 POLISH Kryptoanaliza_Analizalosowoci # &Kryptoanaliza|&Analiza losowoœci
 POLISH Kryptoanaliza_Hasz # &Kryptoanaliza|&Hasz
-POLISH Kryptoanaliza_Historyczne # &Kryptoanaliza|Historyczne
-POLISH Kryptoanaliza_Historyczne_Analizamanualna # &Kryptoanaliza|Historyczne|&Analiza manualna
-POLISH Kryptoanaliza_Historyczne_Tekstjawny # &Kryptoanaliza|Historyczne|Tekst jawny
-POLISH Kryptoanaliza_Historyczne_Tylkoszyfr # &Kryptoanaliza|Historyczne|&Tylko szyfr
 POLISH Kryptoanaliza_Narzdziaanalizy # &Kryptoanaliza|&Narzêdzia analizy
 POLISH Okno # &Okno
 POLISH Opcje # &Opcje
@@ -191,3 +174,13 @@ POLISH Szyfrowanie_Symetryczne # &Szyfrowanie|Symetryczne
 POLISH Szyfrowanie_Symetryczne_Wicejalgorytmw # &Szyfrowanie|Symetryczne|&Wiêcej algorytmów
 POLISH Widok # &Widok
 POLISH Widok_Czcionka # &Widok|&Czcionka
+POLISH Algorytmy_KryptosystemRSA_Atakiopartenakracie # &Algorytmy|Kryptosystem RSA|Ataki oparte na kracie
+POLISH Algorytmy_Narzdzia # &Algorytmy|&Narzêdzia
+POLISH Algorytmy_Narzdzia_Kodowanie_KodowaniedekodowanieUU # &Algorytmy|&Narzêdzia|Kodowanie|Kodowanie/dekodowanie UU
+POLISH Kryptoanaliza_Algorytmyasymetryczne_Atakopartynakracie # &Kryptoanaliza|&Algorytmy asymetryczne|&Atak oparty na kracie
+POLISH Kryptoanaliza_Algorytmyhistoryczne_Analizamanualna # &Kryptoanaliza|Algorytmy historyczne|Analiza &manualna
+POLISH Kryptoanaliza_Algorytmyhistoryczne_Tylkoszyfr # &Kryptoanaliza|Algorytmy historyczne|&Tylko szyfr
+POLISH Algorytmy_Narzdzia_Kodowanie_KodowaniedekodowanieBase64 # &Algorytmy|&Narzêdzia|Kodowanie|Kodowanie/dekodowanie Base64
+POLISH Kryptoanaliza_Algorytmyhistoryczne # &Kryptoanaliza|Algorytmy historyczne
+POLISH Kryptoanaliza_Algorytmysymetryczne # &Kryptoanaliza|Algorytmy &symetryczne
+POLISH Kryptoanaliza_Algorytmysymetryczne_Wicejalgorytmw # &Kryptoanaliza|Algorytmy &symetryczne|&Wiêcej algorytmów
