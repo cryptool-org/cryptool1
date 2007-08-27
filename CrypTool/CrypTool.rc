@@ -12224,7 +12224,7 @@ BEGIN
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_EDITLABELS | WS_BORDER | WS_TABSTOP,
                     10,169,400,100
-    PUSHBUTTON      "PKCS#12 &Import",IDC_BUTTON_P12IMPORT,154,312,86,19
+    PUSHBUTTON      "PKCS #12-&Import",IDC_BUTTON_P12IMPORT,154,312,86,19
     CONTROL         "Anzeigen des erzeugten Schlüsselpaares",IDC_CHECK1,
                     "Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,266,286,
                     144,10
@@ -16655,7 +16655,7 @@ BEGIN
                     IDC_STATIC,23,83,262,8
     LTEXT           "des Alphabets eine gerade Zahl ist.",IDC_STATIC,23,94,
                     112,8
-    GROUPBOX        "Optionen zur Interpretation des Alphabetszeichens",
+    GROUPBOX        "Interpretation des ersten Alphabetzeichens",
                     IDC_STATIC,113,114,194,45
     CONTROL         "Wert des ersten Alphabetzeichens = 0 (z.B. ""A""=0)",
                     IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,124,
@@ -24119,7 +24119,7 @@ BEGIN
                     170,283,61,12
     CONTROL         "Display generated key pair",IDC_CHECK1,"Button",
                     BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,265,284,144,10
-    PUSHBUTTON      "PKCS#12 &import",IDC_BUTTON_P12IMPORT,154,310,86,19
+    PUSHBUTTON      "PKCS #12 &Import",IDC_BUTTON_P12IMPORT,154,310,86,19
     PUSHBUTTON      "&Close",IDCANCEL,337,310,72,19
     GROUPBOX        "Algorithm",IDC_STATIC,10,4,205,145
     LTEXT           "Bit length of RSA modulus:",IDC_KEYASYM_TEXTRSA,33,40,
@@ -24256,7 +24256,7 @@ BEGIN
     CONTROL         "Keep characters not present in the alphabet unchanged",
                     IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,16,
                     213,10
-    CONTROL         "If possible: keep for encryption/decryption upper/lower case informations",
+    CONTROL         "If possible: keep for encryption/decryption upper/lower case information",
                     IDC_CHECK8,"Button",BS_AUTOCHECKBOX | BS_TOP | 
                     BS_MULTILINE | WS_TABSTOP,20,52,235,16
     CONTROL         "Distinguish between uppercase and lowercase",IDC_CHECK2,
@@ -27114,7 +27114,7 @@ BEGIN
     PUSHBUTTON      "&All steps at once",IDC_BUTTON_ALLREMAININGSTEPS,225,
                     325,100,26
     GROUPBOX        "Attack control:",IDC_ATTACKCONTROL,220,282,111,75
-    CONTROL         "Show &information dialogu",IDC_CHECK_DISABLEHELP,"Button",
+    CONTROL         "Show &information dialog",IDC_CHECK_DISABLEHELP,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,541,368,102,10
 END
 
@@ -28830,22 +28830,22 @@ CAPTION "Introduction Secret Sharing Demonstration"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,113,252,50,14
-    LTEXT           "Welcome to the visualization of the Shamir Secret-Sharing-Scheme !",
+    LTEXT           "Welcome to the visualization of the Shamir Secret-Sharing Scheme!",
                     IDC_STATIC,7,7,238,8
     LTEXT           "The protocol deals with the following problem:",
                     IDC_STATIC,7,22,177,8
     LTEXT           "A secret value is to be distributed among n persons so that a single person has no information about this value. At least t out of n persons have to cooperate to succeed in reconstructing the secret.",
                     IDC_STATIC,7,39,267,27
-    LTEXT           "Therefore this method is called a (t,n)-thresholdscheme.",
+    LTEXT           "Therefore, this method is called a (t,n)-threshold scheme.",
                     IDC_STATIC,7,70,222,8
     LTEXT           "Example:",IDC_STATIC,7,86,30,8
     LTEXT           "The secret recipe for a new kind of ice cream is locked up in a safe.",
                     IDC_STATIC,7,94,267,11
     LTEXT           "Since this demonstration is an interactive visualization, you will be prompted for certain inputs a couple of times.",
                     IDC_STATIC,7,173,267,16
-    LTEXT           "If you need additional information, please feel free to use the CrypTool Online-Help by pressing F1.",
+    LTEXT           "If you need additional information, please feel free to use the CrypTool online help by pressing F1.",
                     IDC_STATIC,7,198,267,19
-    LTEXT           "In order to prevent any employee from selling the recipe to a competitor for a great deal of money, the secret combination to open this safe  is split up among the 10 employees.",
+    LTEXT           "In order to prevent any employee from selling the recipe to a competitor for a great deal of money, the secret combination to open this safe is split up among the 10 employees.",
                     IDC_STATIC,7,102,267,26
     LTEXT           "At least 7 employees have to combine their shares of the key to open the safe and to come into the possession of the recipe.",
                     IDC_STATIC,7,127,267,19
@@ -28895,7 +28895,7 @@ BEGIN
                     IDC_STATIC,7,7,357,18
     LTEXT           "To set up such a scheme, a polynomial f(x) of degree at most t-1 [with t-1 coefficients a(i) chosen at random] and a random prime p have to be generated.",
                     IDC_STATIC,7,23,357,16
-    LTEXT           "For further details please check the CrypTool Online-Help by pressing F1.",
+    LTEXT           "For further details please check the CrypTool online help by pressing F1.",
                     IDC_STATIC,7,47,357,8
     LTEXT           "Please select these participants who are to reconstruct the secret, from the list above by checking the boxes.",
                     IDC_STATIC,7,357,357,19
@@ -34865,7 +34865,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_modeText_Start      "Welcome to the demonstration of the Challenge-Response-protocol.\r\nYou will develop the protocol in several scenarios.\r\nThe different scenarios can be selected by the buttons on the left side. It makes sense to wade through the scenarios top down.\r\nYou can get further information by the use of the online-help. You should take a look at the online-help before your first usage.\r\n\r\nPlease continue with 'Introduction' now."
+    IDS_modeText_Start      "Welcome to the demonstration of the Challenge-Response-protocol.\r\nYou will develop the protocol in several scenarios.\r\nThe different scenarios can be selected by the buttons on the left side. It makes sense to wade through the scenarios top down.\r\nYou can get further information by the use of the online help. You should take a look at the online help before your first usage.\r\n\r\nPlease continue with 'Introduction' now."
     IDS_modeText_Einfuehrung 
                             "Introduction: The above shown network with its elements forms the basis of the following scenarios:\r\nQuadrates illustrate computers and their users,\r\nlines show the network connections between these.\r\nYour cast will be the role of the attacker and your task is to get information to authenticate yourself at Server 1. For that purpose the actions link and unlink as well as attack station and quit attacking station are available. All actions can be performed by choosing the corresponding button and then click on the desired station or conduction. Connections between the attacker and a router can be established by choosing 'Link' and click on the according router. By pushing one of the 'Authenticate...' buttons, the authentication protocol is started and data packets are sent between the computers. Attacked computers send a copy of all packets as well as all their secrect data at the attacker. By choosing 'Mask' you can start a man-in-the-middle-attack.\r\nTo restore the initial state of a scenario press 'Reset "
 END
@@ -34877,7 +34877,7 @@ BEGIN
     IDS_modeText_Einmalpasswoerter 
                             "One-time passwords: In order to avoid the attack of the password scenario, the client and server 1 have agreed to change the password after each authentication taken place. Therefor they have created a list of one-time passwords they know both. After authentication with a current password, this one will be marked as used and cannot be used again. For the next authentication another one-time password of the list must be used.\r\n\r\nAgain, your exercise is to authenticate yourself as attacker at server 1 so that it expects you to be the client."
     IDS_modeText_ChallengeResponseSymmetrisch 
-                            "Challenge Response (with symmetric encryption): After the attack at the one-time-passwords client and servers use symmetric encryption by means of a secrect key now. In order to minimize the organisational effort, not each pair of client and server get an own key, but all confidential parties get a common secret key. For authentication the server sends a random number, called Challenge, to the client. By the use of encryption the client generates the response and sends it back to the server. The server decrypts the response and checks whether the decrypted response conforms with the sent one. If that is the case, authentication is successful; otherwise the client is rejected. The server can trust the client, because no outsider knows the secret key and therefor can not generate the correct Response.\r\n\r\nBut maybe something has been overlooked by them...you can find more hints in the online-help."
+                            "Challenge Response (with symmetric encryption): After the attack at the one-time-passwords client and servers use symmetric encryption by means of a secrect key now. In order to minimize the organisational effort, not each pair of client and server get an own key, but all confidential parties get a common secret key. For authentication the server sends a random number, called Challenge, to the client. By the use of encryption the client generates the response and sends it back to the server. The server decrypts the response and checks whether the decrypted response conforms with the sent one. If that is the case, authentication is successful; otherwise the client is rejected. The server can trust the client, because no outsider knows the secret key and therefor can not generate the correct Response.\r\n\r\nBut maybe something has been overlooked by them...you can find more hints in the online help."
     IDS_modeText_ChallengeResponseAsymmetrisch 
                             "Challenge Response (with asymmetric encryption): This time the Challenge Response procedure is performed with asymmetric (public key) encryption. Each participant holds his own pair of keys, consisting of a public key that everyone knows and a secret one that only the owner knows. Again, for authentication the server sends a challenge to the client, who signs it with his secret key and then sends the result back to the server. Now everyone, knowing the client´s public key, including the server, can verify the response: this means that the challenge was signed with the client´s private key.\r\n\r\nEven so the attacker perhaps can authenticate himself as client at server 1 by a trick."
     IDS_modeText_WechselseitigeAuthentifikation 
