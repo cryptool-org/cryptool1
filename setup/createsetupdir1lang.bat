@@ -1,5 +1,4 @@
 @echo off
-echo Create and populate setup-%lang% directory ...
 if not exist template\nul goto errortemplate
 if x%1==xde goto ok
 if x%1==xen goto ok
@@ -11,6 +10,7 @@ goto end
 
 :ok 
 set lang=%1
+echo Create and populate setup-%lang% directory ...
 
 if exist setup-%lang%\nul rmdir /q/s setup-%lang%
 echo Copying template ...
