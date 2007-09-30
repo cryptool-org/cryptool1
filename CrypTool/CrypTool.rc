@@ -16655,8 +16655,8 @@ BEGIN
                     IDC_STATIC,23,83,262,8
     LTEXT           "des Alphabets eine gerade Zahl ist.",IDC_STATIC,23,94,
                     112,8
-    GROUPBOX        "Interpretation des ersten Alphabetzeichens",
-                    IDC_STATIC,113,114,194,45
+    GROUPBOX        "Interpretation des ersten Alphabetzeichens",IDC_STATIC,
+                    113,114,194,45
     CONTROL         "Wert des ersten Alphabetzeichens = 0 (z.B. ""A""=0)",
                     IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,124,
                     129,175,10
@@ -23995,12 +23995,12 @@ BEGIN
                     IDC_STATIC,19,165,258,8
 END
 
-IDD_HILL_ANALYSIS DIALOG  0, 0, 301, 221
+IDD_HILL_ANALYSIS DIALOGEX 0, 0, 301, 221
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hill Analysis (Known Plaintext)"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "&Continue",IDOK,7,197,71,17
+    DEFPUSHBUTTON   "C&ontinue",IDOK,7,197,71,17
     PUSHBUTTON      "&Cancel",IDCANCEL,222,197,62,17
     LTEXT           "Plaintext or ciphertext",IDC_STATIC,7,19,133,10
     CONTROL         "&Plaintext in input box",IDC_RADIO1,"Button",
@@ -25070,7 +25070,7 @@ BEGIN
     EDITTEXT        IDC_EDIT1011,411,296,16,12,ES_CENTER | ES_NUMBER
     GROUPBOX        "Number values",IDC_STATIC,223,149,210,166
     PUSHBUTTON      "Hill options",IDC_BUTTON69,195,376,60,19
-    PUSHBUTTON      "&Textoptionen",IDC_BUTTON_TEXTOPTIONS,265,376,74,20
+    PUSHBUTTON      "&Text Options",IDC_BUTTON_TEXTOPTIONS,265,376,74,20
 END
 
 IDD_SHOW_KEY DIALOG  0, 0, 277, 89
@@ -25666,36 +25666,33 @@ BEGIN
     LTEXT           "Consider input document as",IDC_STATIC,192,18,100,11
 END
 
-IDD_EC_GENERATION DIALOG  0, 0, 404, 353
+IDD_EC_GENERATION DIALOGEX 0, 0, 404, 353
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Elliptische Kurven erzeugen"
-FONT 8, "MS Sans Serif"
+CAPTION "Generate Elliptic Curve"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT2,175,37,94,12,ES_AUTOHSCROLL
-    CONTROL         "Komplexe Multiplikation",IDC_RADIO1,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,26,22,96,8
-    CONTROL         "Mit der Hilfe von ' Zufall '",IDC_RADIO2,"Button",
+    CONTROL         "Complex multiplication",IDC_RADIO1,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,26,22,101,8
+    CONTROL         "Use 'randomness'",IDC_RADIO2,"Button",
                     BS_AUTORADIOBUTTON,26,36,93,8
     EDITTEXT        IDC_EDIT1,29,97,347,12,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&Elliptische Kurve erzeugen",IDC_BUTTON_GEN,29,126,101,
-                    20
+    DEFPUSHBUTTON   "&Generate elliptic curve",IDC_BUTTON_GEN,29,126,101,20
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,29,180,347,85
-    PUSHBUTTON      "Elliptische Kurve &speichern",IDC_BUTTON_ACCEPT,29,320,
-                    101,20
+    PUSHBUTTON      "&Store elliptic curve",IDC_BUTTON_ACCEPT,29,320,101,20
     CONTROL         "&Oktal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,40,287,33,8
     CONTROL         "&Dezimal",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,81,287,
                     41,8
     CONTROL         "&Hexadezimal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,
                     129,287,56,8
-    GROUPBOX        "Methode",IDC_STATIC,14,3,116,53
-    GROUPBOX        "Zufallsgenerator initialisieren ",IDC_STATIC,141,3,251,
-                    53
+    GROUPBOX        "Method",IDC_STATIC,14,3,116,53
+    GROUPBOX        "Initialize random generator",IDC_STATIC,141,3,251,53
     LTEXT           "Die Berechnung der Elliptischen Kurve verwendet eine Zufallsfunktion. Sie können für den Zufall die ""Saat"" setzen.",
                     IDC_STATIC,155,16,221,16
-    LTEXT           "Saat",IDC_STATIC,155,38,16,8
-    GROUPBOX        "Primzahl",IDC_STATIC,14,65,378,51
+    LTEXT           "Seed",IDC_STATIC,155,38,18,8
+    GROUPBOX        "Prime number",IDC_STATIC,14,65,378,51
     LTEXT           "Geben Sie eine Zahl ein (Beispiele: 24877, 2^{17-1}-1). \nFalls die eingegebene Zahl keine Primzahl ist, wird diese Zahl durch die nächst größere Primzahl ersetzt.",
                     IDC_STATIC,29,77,347,18
     GROUPBOX        "Parameter der Elliptischen Kurve",IDC_STATIC,14,156,378,
@@ -26921,10 +26918,10 @@ BEGIN
     LTEXT           "Static",IDC_STATIC_DANGEROUS,24,281,297,8
 END
 
-IDD_SIGATTMODIFICDEMO DIALOG  0, 0, 293, 217
+IDD_SIGATTMODIFICDEMO DIALOGEX 0, 0, 293, 217
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Modification of as message by a hash value"
-FONT 8, "MS Sans Serif"
+CAPTION "Modification of as Message by a Hash Value"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "Compute &modification",IDOK,18,183,107,17
     PUSHBUTTON      "&Cancel",IDCANCEL,231,183,50,17
@@ -26944,8 +26941,8 @@ BEGIN
                     "Button",BS_AUTORADIOBUTTON | WS_GROUP,135,123,129,10
     CONTROL         "&Unprintable characters",IDC_RADIO4,"Button",
                     BS_AUTORADIOBUTTON,135,139,87,10
-    GROUPBOX        "Optionen für die Nachrichtenmodifikation",IDC_STATIC,17,
-                    74,264,101
+    GROUPBOX        "Options for the message modification",IDC_STATIC,17,74,
+                    264,101
     GROUPBOX        "Hash value",IDC_STATIC,18,8,263,59
     LTEXT           "Parity of the hash value",IDC_STATIC,151,46,74,8
     EDITTEXT        IDC_PARITY,230,44,40,14,ES_AUTOHSCROLL | ES_READONLY
@@ -28287,8 +28284,8 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Method Selection for Automatic Substitution Analysis"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,216,50,14
-    PUSHBUTTON      "Abbrechen",IDCANCEL,261,216,50,14
+    DEFPUSHBUTTON   "&OK",IDOK,7,216,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,261,216,50,14
     CONTROL         "Method 1 based on the frequency analysis of digrams in the text",
                     IDC_ALG_DIGRAM,"Button",BS_AUTORADIOBUTTON,18,19,256,17
     CONTROL         "Method 2 based on the recognition of the most frequent words of a language",
@@ -28533,13 +28530,13 @@ BEGIN
                     IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,21,51,229,10
 END
 
-IDD_VISUALIZE_PHASE_SPACE DIALOG  0, 0, 388, 273
+IDD_VISUALIZE_PHASE_SPACE DIALOGEX 0, 0, 388, 273
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "3D-Visualisierung von Binärdaten"
-FONT 8, "MS Sans Serif"
+CAPTION "3D-Visualization from Binary Data"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,283,247,45,20
-    PUSHBUTTON      "Abbrechen",IDCANCEL,336,247,45,20
+    DEFPUSHBUTTON   "&OK",IDOK,283,247,45,20
+    PUSHBUTTON      "&Cancel",IDCANCEL,336,247,45,20
     GROUPBOX        "Density",IDC_RENDER_DENSITY,283,7,46,87
     CONTROL         "Auto",IDC_RENDER_DENSITY_AUTO,"Button",
                     BS_AUTORADIOBUTTON,289,16,33,15
@@ -29085,10 +29082,10 @@ BEGIN
     PUSHBUTTON      "Cancel",IDCANCEL,162,96,50,19
     LTEXT           "The marked data you may transfer encoded or unchanged into the clipboard.\nIf the text is to be transferred to other applications and non printable characters are marked then choose encoding.",
                     IDC_STATIC,7,7,205,36
-    CONTROL         "no encodierung",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
+    CONTROL         "no encoding",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,18,59,65,10
-    CONTROL         "hex encodierung",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,
-                    18,71,69,10
+    CONTROL         "hex encoding",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,
+                    71,69,10
     GROUPBOX        "Select encoding",IDC_STATIC,7,47,205,42
 END
 
@@ -29136,14 +29133,14 @@ CAPTION "Decoded Paste"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,96,96,50,19
-    PUSHBUTTON      "Abbrechen",IDCANCEL,162,96,50,19
+    PUSHBUTTON      "Cancel",IDCANCEL,162,96,50,19
     CONTROL         "no decoding",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,18,60,55,10
     CONTROL         "hex decoding",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,18,
                     72,59,10
     GROUPBOX        "Select decoding",IDC_STATIC,7,47,205,42
     DEFPUSHBUTTON   "OK",IDOK2,96,96,50,19
-    PUSHBUTTON      "Abbrechen",IDCANCEL3,162,96,50,19
+    PUSHBUTTON      "Cancel",IDCANCEL3,162,96,50,19
     LTEXT           "The clipboard contains hexadecimal characters only.\n\nThey can be inserted decoded (default) or unchanged.",
                     IDC_STATIC,7,7,205,32
 END
@@ -32360,6 +32357,12 @@ BEGIN
         HORZGUIDE, 87
         HORZGUIDE, 110
         HORZGUIDE, 201
+    END
+
+    IDD_HILL_ANALYSIS, DIALOG
+    BEGIN
+        VERTGUIDE, 7
+        HORZGUIDE, 214
     END
 
     IDD_KEYASYM_GENERATION, DIALOG
