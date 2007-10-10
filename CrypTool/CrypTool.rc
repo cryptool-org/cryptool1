@@ -25070,7 +25070,7 @@ BEGIN
     EDITTEXT        IDC_EDIT1011,411,296,16,12,ES_CENTER | ES_NUMBER
     GROUPBOX        "Number values",IDC_STATIC,223,149,210,166
     PUSHBUTTON      "Hill options",IDC_BUTTON69,195,376,60,19
-    PUSHBUTTON      "&Text Options",IDC_BUTTON_TEXTOPTIONS,265,376,74,20
+    PUSHBUTTON      "&Text options",IDC_BUTTON_TEXTOPTIONS,265,376,74,20
 END
 
 IDD_SHOW_KEY DIALOG  0, 0, 277, 89
@@ -25689,15 +25689,15 @@ BEGIN
                     129,287,56,8
     GROUPBOX        "Method",IDC_STATIC,14,3,116,53
     GROUPBOX        "Initialize random generator",IDC_STATIC,141,3,251,53
-    LTEXT           "The elliptic curve computation utilise a pseudo random number\nfunction. Please fill in the random 'seed'.",
+    LTEXT           "The elliptic curve computation utilises a pseudo random number\nfunction. Please fill in the random 'seed'.",
                     IDC_STATIC,155,16,221,16
     LTEXT           "Seed",IDC_STATIC,155,38,18,8
     GROUPBOX        "Prime number",IDC_STATIC,14,65,378,51
     LTEXT           "Please enter a number (examples: 24877, 2^{17-1}-1). \nIn case the number is not prime this number will be replaced with the next larger prime.",
                     IDC_STATIC,29,77,347,18
-    GROUPBOX        "Parameter for the generated elliptic curve",IDC_STATIC,
+    GROUPBOX        "Parameter of the generated elliptic curve",IDC_STATIC,
                     14,156,378,154
-    LTEXT           "Domain-parameter for the generated elliptic curve",
+    LTEXT           "Domain parameter of the generated elliptic curve",
                     IDC_STATIC,29,169,172,8
     GROUPBOX        "Number base for the parameter representation",
                     IDC_STATIC,29,272,160,28
@@ -28532,7 +28532,7 @@ END
 
 IDD_VISUALIZE_PHASE_SPACE DIALOGEX 0, 0, 388, 273
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "3D-Visualization from Binary Data"
+CAPTION "3D Visualization of Binary Data"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,283,247,45,20
