@@ -11,18 +11,6 @@
 	</Platforms>
 	<Configurations>
 		<Configuration
-			Name="Debug|Win32"
-			OutputDirectory="Debug"
-			IntermediateDirectory="Debug"
-			ConfigurationType="0"
-			CharacterSet="2">
-			<Tool
-				Name="VCNMakeTool"
-				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot; OUTDIR=$(OutDir)"
-				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a OUTDIR=$(OutDir)"
-				Output="NumberShark-de.chm"/>
-		</Configuration>
-		<Configuration
 			Name="Debug_de|Win32"
 			OutputDirectory="$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
@@ -32,7 +20,7 @@
 				Name="VCNMakeTool"
 				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot; OUTDIR=$(OutDir)"
 				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a OUTDIR=$(OutDir)"
-				Output="NumberShark-de.chm"/>
+				Output="..\$(ConfigurationName)\NumberShark-de.chm"/>
 		</Configuration>
 		<Configuration
 			Name="Release_de|Win32"
@@ -45,36 +33,6 @@
 				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot; OUTDIR=$(OutDir)"
 				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a OUTDIR=$(OutDir)"
 				Output="..\$(ConfigurationName)\NumberShark-de.chm"/>
-		</Configuration>
-		<Configuration
-			Name="Release_pl|Win32"
-			ConfigurationType="1">
-			<Tool
-				Name="VCCLCompilerTool"/>
-			<Tool
-				Name="VCCustomBuildTool"/>
-			<Tool
-				Name="VCLinkerTool"/>
-			<Tool
-				Name="VCMIDLTool"/>
-			<Tool
-				Name="VCPostBuildEventTool"/>
-			<Tool
-				Name="VCPreBuildEventTool"/>
-			<Tool
-				Name="VCPreLinkEventTool"/>
-			<Tool
-				Name="VCResourceCompilerTool"/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"/>
-			<Tool
-				Name="VCWebDeploymentTool"/>
-			<Tool
-				Name="VCManagedWrapperGeneratorTool"/>
-			<Tool
-				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 	</Configurations>
 	<References>

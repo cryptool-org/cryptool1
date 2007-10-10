@@ -11,30 +11,6 @@
 	</Platforms>
 	<Configurations>
 		<Configuration
-			Name="Debug|Win32"
-			OutputDirectory="Debug"
-			IntermediateDirectory="Debug"
-			ConfigurationType="0"
-			CharacterSet="2">
-			<Tool
-				Name="VCNMakeTool"
-				BuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; OUTDIR=$(OutDir)"
-				ReBuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; /a OUTDIR=$(OutDir)"
-				Output="NumberShark-en.chm"/>
-		</Configuration>
-		<Configuration
-			Name="Release|Win32"
-			OutputDirectory="Release"
-			IntermediateDirectory="Release"
-			ConfigurationType="0"
-			CharacterSet="2">
-			<Tool
-				Name="VCNMakeTool"
-				BuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; OUTDIR=$(OutDir)"
-				ReBuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; /a OUTDIR=$(OutDir)"
-				Output="NumberShark-en.chm"/>
-		</Configuration>
-		<Configuration
 			Name="Debug_pl|Win32"
 			OutputDirectory="$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
@@ -44,7 +20,7 @@
 				Name="VCNMakeTool"
 				BuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; OUTDIR=$(OutDir)"
 				ReBuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; /a OUTDIR=$(OutDir)"
-				Output="NumberShark-en.chm"/>
+				Output="..\$(ConfigurationName)\NumberShark-pl.chm"/>
 		</Configuration>
 		<Configuration
 			Name="Release_pl|Win32"

@@ -12,64 +12,8 @@
 	</Platforms>
 	<Configurations>
 		<Configuration
-			Name="Debug|Win32"
-			OutputDirectory="$(ConfigurationName)"
-			IntermediateDirectory="Debug"
-			ConfigurationType="1"
-			UseOfMFC="1"
-			CharacterSet="2">
-			<Tool
-				Name="VCCLCompilerTool"
-				Optimization="0"
-				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG"
-				MinimalRebuild="TRUE"
-				BasicRuntimeChecks="3"
-				RuntimeLibrary="1"
-				TreatWChar_tAsBuiltInType="TRUE"
-				UsePrecompiledHeader="3"
-				WarningLevel="3"
-				Detect64BitPortabilityProblems="TRUE"
-				DebugInformationFormat="4"/>
-			<Tool
-				Name="VCCustomBuildTool"/>
-			<Tool
-				Name="VCLinkerTool"
-				AdditionalDependencies="htmlhelp.lib"
-				OutputFile="../CrypTool/Debug/Zahlenhai.exe"
-				LinkIncremental="2"
-				AdditionalLibraryDirectories="&quot;C:\program files\html help workshop\lib&quot;"
-				GenerateDebugInformation="TRUE"
-				SubSystem="2"
-				TargetMachine="1"/>
-			<Tool
-				Name="VCMIDLTool"
-				PreprocessorDefinitions="_DEBUG"
-				MkTypLibCompatible="FALSE"/>
-			<Tool
-				Name="VCPostBuildEventTool"/>
-			<Tool
-				Name="VCPreBuildEventTool"/>
-			<Tool
-				Name="VCPreLinkEventTool"/>
-			<Tool
-				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="_DEBUG"
-				Culture="1031"
-				AdditionalIncludeDirectories="$(IntDir)"/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"/>
-			<Tool
-				Name="VCWebDeploymentTool"/>
-			<Tool
-				Name="VCManagedWrapperGeneratorTool"/>
-			<Tool
-				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
-		</Configuration>
-		<Configuration
 			Name="Debug_en|Win32"
-			OutputDirectory="$(ConfigurationName)"
+			OutputDirectory="..\$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
 			UseOfMFC="1"
@@ -91,6 +35,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="htmlhelp.lib"
+				OutputFile="../$(ConfigurationName)/Number Shark.exe"
 				LinkIncremental="2"
 				GenerateDebugInformation="TRUE"
 				SubSystem="2"
@@ -123,7 +68,7 @@
 		</Configuration>
 		<Configuration
 			Name="Debug_de|Win32"
-			OutputDirectory="$(ConfigurationName)"
+			OutputDirectory="..\$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
 			UseOfMFC="1"
@@ -145,6 +90,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="htmlhelp.lib"
+				OutputFile="../$(ConfigurationName)/Zahlenhai.exe"
 				LinkIncremental="2"
 				GenerateDebugInformation="TRUE"
 				SubSystem="2"
@@ -161,7 +107,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="_DEBUG,,AFX_RESOURCE_DLL,AFX_TARG_DEU"
+				PreprocessorDefinitions="_DEBUG,AFX_RESOURCE_DLL,AFX_TARG_DEU"
 				Culture="1031"
 				AdditionalIncludeDirectories="$(IntDir)"/>
 			<Tool
@@ -198,7 +144,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="htmlhelp.lib"
-				OutputFile="../Release_en/Number Shark.exe"
+				OutputFile="../$(ConfigurationName)/Number Shark.exe"
 				LinkIncremental="1"
 				IgnoreAllDefaultLibraries="FALSE"
 				GenerateDebugInformation="TRUE"
@@ -255,7 +201,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="htmlhelp.lib"
-				OutputFile="../Release_de/Zahlenhai.exe"
+				OutputFile="../$(ConfigurationName)/Zahlenhai.exe"
 				LinkIncremental="1"
 				GenerateDebugInformation="TRUE"
 				SubSystem="2"
@@ -290,7 +236,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release_pl|Win32"
-			OutputDirectory="../$(ConfigurationName)"
+			OutputDirectory="..\$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
 			UseOfMFC="1"
@@ -312,6 +258,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="htmlhelp.lib"
+				OutputFile="..\$(ConfigurationName)\Number Shark.exe"
 				LinkIncremental="2"
 				GenerateDebugInformation="TRUE"
 				SubSystem="2"
@@ -329,6 +276,62 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;AFX_RESOURCE_DLL;AFX_TARG_PLK"
+				Culture="1045"
+				AdditionalIncludeDirectories="$(IntDir)"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+		</Configuration>
+		<Configuration
+			Name="Debug_pl|Win32"
+			OutputDirectory="..\$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="1"
+			UseOfMFC="1"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG"
+				MinimalRebuild="TRUE"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="1"
+				TreatWChar_tAsBuiltInType="TRUE"
+				UsePrecompiledHeader="3"
+				WarningLevel="3"
+				Detect64BitPortabilityProblems="TRUE"
+				DebugInformationFormat="4"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="htmlhelp.lib"
+				OutputFile="../$(ConfigurationName)/Number Shark.exe"
+				LinkIncremental="2"
+				AdditionalLibraryDirectories="&quot;C:\program files\html help workshop\lib&quot;"
+				GenerateDebugInformation="TRUE"
+				SubSystem="2"
+				TargetMachine="1"/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="_DEBUG"
+				MkTypLibCompatible="FALSE"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_DEBUG,AFX_RESOURCE_DLL,AFX_TARG_PLK"
 				Culture="1045"
 				AdditionalIncludeDirectories="$(IntDir)"/>
 			<Tool
@@ -389,12 +392,6 @@
 			<File
 				RelativePath=".\stdafx.cpp">
 				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"/>
-				</FileConfiguration>
-				<FileConfiguration
 					Name="Debug_en|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
@@ -420,6 +417,12 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release_pl|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug_pl|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						UsePrecompiledHeader="1"/>
