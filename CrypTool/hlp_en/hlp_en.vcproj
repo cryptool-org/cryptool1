@@ -14,19 +14,6 @@
 	</Platforms>
 	<Configurations>
 		<Configuration
-			Name="Debug|Win32"
-			OutputDirectory=".\Debug"
-			IntermediateDirectory=".\Debug"
-			ConfigurationType="0"
-			UseOfMFC="0"
-			ATLMinimizesCRunTimeLibraryUsage="FALSE">
-			<Tool
-				Name="VCNMakeTool"
-				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot; OUTDIR=$(OutDir)"
-				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a OUTDIR=$(OutDir)"
-				Output="CrypTool-en.chm"/>
-		</Configuration>
-		<Configuration
 			Name="Release_en|Win32"
 			OutputDirectory=".\..\Release_en"
 			IntermediateDirectory=".\..\Release_en"
@@ -38,6 +25,19 @@
 				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot; OUTDIR=$(OutDir)"
 				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a OUTDIR=$(OutDir)"
 				Output="..\$(ConfigurationName)\CrypTool-en.chm"/>
+		</Configuration>
+		<Configuration
+			Name="Debug_en|Win32"
+			OutputDirectory="$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="0"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="FALSE">
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="nmake /f &quot;hlp_en.mak&quot; OUTDIR=$(OutDir)"
+				ReBuildCommandLine="nmake /f &quot;hlp_en.mak&quot; /a OUTDIR=$(OutDir)"
+				Output="CrypTool-en.chm"/>
 		</Configuration>
 	</Configurations>
 	<References>
