@@ -1,0 +1,134 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "cracklib_Win32"=".\cracklib_Win32.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "packer"=".\packer.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name cracklib_Win32
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "testlib"=".\testlib.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name cracklib_Win32
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "testnum"=".\testnum.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name cracklib_Win32
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "teststr"=".\teststr.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name cracklib_Win32
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "unpacker"=".\unpacker.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name cracklib_Win32
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "util_Win32"=".\util_Win32.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name cracklib_Win32
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name packer
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name testlib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name testnum
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name teststr
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name unpacker
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+
