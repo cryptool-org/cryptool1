@@ -48,6 +48,7 @@ statement from your version.
 #include "passwordqualitymeter.h"
 #include ".\dlgpasswordqualitymeter.h"
 
+#include "passwordchecker.h"
 
 // CDlgPasswordQualityMeter-Dialogfeld
 
@@ -92,6 +93,8 @@ void CDlgPasswordQualityMeter::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_PROGRESS_CRYPTOOL, controlQualityCrypTool);
 
 	DDX_Control(pDX, IDC_PICTURE_QUALITY, controlPictureQuality);
+
+	DDX_Text(pDX, IDC_EDIT_PASSWORD_RESISTANCE, passwordResistance);
 }
 
 BOOL CDlgPasswordQualityMeter::OnInitDialog()
@@ -187,6 +190,10 @@ void CDlgPasswordQualityMeter::UpdateUserInterface()
 	if(90 < intQualityCrypTool && intQualityCrypTool <= 100)
 		this->controlPictureQuality.Load(MAKEINTRESOURCE(IDR_GIF_PQM_QUALITY_GREAT), _T("GIF"));
 	this->controlPictureQuality.Draw();
+
+	char *result = checkPassword(password.GetBuffer(), "words/cracklib_dict", 0);
+	if(result) passwordResistance = result;
+	else passwordResistance = "";
 
 	UpdateData(false);
 }

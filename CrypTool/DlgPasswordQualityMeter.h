@@ -89,6 +89,9 @@ private:
 	CProgressCtrl controlQualityMozilla;
 	CProgressCtrl controlQualityPGP;
 	CProgressCtrl controlQualityCrypTool;
+
+	CString passwordResistance;
+
 public:
 	afx_msg void OnBnClickedCheckUsecryptoolalphabet();
 	afx_msg void OnBnClickedCheckShowpassword();
