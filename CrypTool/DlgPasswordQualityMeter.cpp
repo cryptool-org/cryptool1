@@ -50,6 +50,9 @@ statement from your version.
 
 #include "passwordchecker.h"
 
+// Verzeichnis, in dem CT gerade läuft (siehe CrypToolApp.cpp)
+extern char *Pfad;
+
 // CDlgPasswordQualityMeter-Dialogfeld
 
 CDlgPasswordQualityMeter::CDlgPasswordQualityMeter(CWnd* pParent /*=NULL*/)
@@ -191,9 +194,28 @@ void CDlgPasswordQualityMeter::UpdateUserInterface()
 		this->controlPictureQuality.Load(MAKEINTRESOURCE(IDR_GIF_PQM_QUALITY_GREAT), _T("GIF"));
 	this->controlPictureQuality.Draw();
 
-	char *result = checkPassword(password.GetBuffer(), "words/cracklib_dict", 0);
-	if(result) passwordResistance = result;
-	else passwordResistance = "";
+	// check password against dictionary attacks (with cracklib)
+	LoadString(AfxGetInstanceHandle(), IDS_PQM_CRACKLIB_DICTIONARY_PATH, pc_str, STR_LAENGE_STRING_TABLE);
+	char *path = pc_str;
+	char *result = checkPassword(password.GetBuffer(), path, 0);
+	if(result) {
+		passwordResistance = result;
+	}
+	else {
+		// construct and display error message for user
+		char tempMessage[STR_LAENGE_STRING_TABLE+1];
+		char tempPath[STR_LAENGE_STRING_TABLE+1];
+		char fullPath[STR_LAENGE_STRING_TABLE+1];
+		memset(tempMessage, 0, STR_LAENGE_STRING_TABLE+1);
+		memset(tempPath, 0, STR_LAENGE_STRING_TABLE+1);
+		memset(fullPath, 0, STR_LAENGE_STRING_TABLE+1);
+		LoadString(AfxGetInstanceHandle(), IDS_PQM_NO_CRACKLIB_DICTIONARY, pc_str, STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(), IDS_PQM_CRACKLIB_DICTIONARY_PATH, tempPath, STR_LAENGE_STRING_TABLE);
+		sprintf(fullPath, "%s%s", Pfad, tempPath);
+		sprintf(tempMessage, pc_str, fullPath);
+		MessageBox(tempMessage, "CrypTool", MB_ICONINFORMATION);
+		passwordResistance = "";
+	}
 
 	UpdateData(false);
 }

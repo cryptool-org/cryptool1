@@ -72,6 +72,8 @@
 #define IDS_PWD_POLICY_MINIMAL          48
 #define IDS_PWD_POLICY_NOT_COMPLIANT    49
 #define IDS_PWD_NOT_ENOUGH_DIFF_CHARS   50
+#define IDS_PQM_CRACKLIB_DICTIONARY_PATH 51
+#define IDS_PQM_NO_CRACKLIB_DICTIONARY  52
 #define IDC_EDIT53                      53
 #define IDC_EDIT69                      54
 #define IDC_EDIT88                      55

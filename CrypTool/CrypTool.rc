@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -5451,14 +5451,14 @@ BEGIN
                     IDC_STATIC,7,7,205,32
 END
 
-IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 300, 350
+IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 300, 380
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Sprawdzenie jakoœci has³a"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,329,50,14
-    PUSHBUTTON      "Anuluj",IDCANCEL,243,329,50,14
+    DEFPUSHBUTTON   "OK",IDOK,7,359,50,14
+    PUSHBUTTON      "Anuluj",IDCANCEL,243,359,50,14
     CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",WS_BORDER | 
                     0x1,68,209,150,16
     CTEXT           "100%",IDC_QUALITY_CRYPTOOL,225,213,55,8
@@ -5494,8 +5494,8 @@ BEGIN
     LTEXT           "Prezentujemy kilka ró¿nych wskaŸników jakoœci has³a. Dziêki nim mo¿esz\noszacowaæ jego bezpieczeñstwo.",
                     IDC_STATIC,20,44,260,16
     GROUPBOX        "Resistance against dictionary attacks",IDC_STATIC,7,250,
-                    286,70
-    EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,262,260,50,ES_MULTILINE | 
+                    286,100
+    EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,262,260,80,ES_MULTILINE | 
                     ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
 END
 
@@ -9373,7 +9373,7 @@ BEGIN
         VERTGUIDE, 225
         VERTGUIDE, 280
         TOPMARGIN, 7
-        BOTTOMMARGIN, 343
+        BOTTOMMARGIN, 373
         HORZGUIDE, 20
         HORZGUIDE, 72
         HORZGUIDE, 85
@@ -11887,12 +11887,18 @@ BEGIN
     IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT "wiersz*kolumna wektor*macierz"
 END
 
-#endif    // Polish resources
+STRINGTABLE 
+BEGIN
+    IDS_PQM_CRACKLIB_DICTIONARY_PATH "words/cracklib_dict"
+    IDS_PQM_NO_CRACKLIB_DICTIONARY "TODO"
+END
+
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -17413,14 +17419,14 @@ BEGIN
                     IDC_STATIC,7,7,205,32
 END
 
-IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 300, 350
+IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 300, 380
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Passwort-Qualitätsmesser"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,329,50,14
-    PUSHBUTTON      "Abbrechen",IDCANCEL,243,329,50,14
+    DEFPUSHBUTTON   "OK",IDOK,7,359,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,243,359,50,14
     GROUPBOX        "Beschreibung",IDC_STATIC,7,7,286,60
     GROUPBOX        "Eingabe des Passworts",IDC_STATIC,7,72,286,70
     GROUPBOX        "Qualität des Passworts",IDC_STATIC,7,147,286,98
@@ -17456,8 +17462,8 @@ BEGIN
     LTEXT           "Hier sind verschiedene Beispiele für Passwort-Qualitätsmesser aufgeführt, die Ihnen dabei helfen, die Sicherheit Ihres Passworts einzuschätzen.",
                     IDC_STATIC,20,44,260,16
     GROUPBOX        "Resistenz gegen Wörterbuch-Attacken",IDC_STATIC,7,250,
-                    286,70
-    EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,262,260,50,ES_MULTILINE | 
+                    286,100
+    EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,262,260,80,ES_MULTILINE | 
                     ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
 END
 
@@ -21130,7 +21136,7 @@ BEGIN
         VERTGUIDE, 225
         VERTGUIDE, 280
         TOPMARGIN, 7
-        BOTTOMMARGIN, 343
+        BOTTOMMARGIN, 373
         HORZGUIDE, 20
         HORZGUIDE, 72
         HORZGUIDE, 85
@@ -23715,14 +23721,17 @@ BEGIN
     IDS_PWD_POLICY_MINIMAL  "TODO: IDS_PWD_POLICY_MINIMAL"
     IDS_PWD_POLICY_NOT_COMPLIANT "TODO: IDS_PWD_POLICY_NOT_COMPLIANT"
     IDS_PWD_NOT_ENOUGH_DIFF_CHARS "TODO: IDS_PWD_NOT_ENOUGH_DIFF_CHARS"
+    IDS_PQM_CRACKLIB_DICTIONARY_PATH "words/cracklib_dict"
+    IDS_PQM_NO_CRACKLIB_DICTIONARY 
+                            "Das Öffnen des cracklib-Wörterbuchs an folgender Stelle schlug fehl:\n%s"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -29163,14 +29172,14 @@ BEGIN
                     IDC_STATIC,7,7,205,32
 END
 
-IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 300, 350
+IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 300, 380
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Password Quality Meter"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,329,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,243,329,50,14
+    DEFPUSHBUTTON   "OK",IDOK,7,359,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,243,359,50,14
     CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",WS_BORDER | 
                     0x1,68,209,150,16
     CTEXT           "100 %",IDC_QUALITY_CRYPTOOL,225,213,55,8
@@ -29206,8 +29215,8 @@ BEGIN
     LTEXT           "Here you can see different examples for password quality meters, helping you to estimate the security of your password.",
                     IDC_STATIC,20,44,260,16
     GROUPBOX        "Resistance against dictionary attacks",IDC_STATIC,7,250,
-                    286,70
-    EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,262,260,50,ES_MULTILINE | 
+                    286,100
+    EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,262,260,80,ES_MULTILINE | 
                     ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
 END
 
@@ -33124,7 +33133,7 @@ BEGIN
         VERTGUIDE, 225
         VERTGUIDE, 280
         TOPMARGIN, 7
-        BOTTOMMARGIN, 343
+        BOTTOMMARGIN, 373
         HORZGUIDE, 20
         HORZGUIDE, 72
         HORZGUIDE, 85
@@ -35642,7 +35651,14 @@ BEGIN
                             "The brute-force analysis decrypted the given ciphertext with all possible keys out of the selected key space and then calculated for each decrypted message the entropy value. This list contains the decrypted messages with the lowest entropy values.\nEspecially in case of very short ciphertexts it could be, that there are wrong candidates with a small entropy value. Here you have the opportunity to select the candidate with the correct decryption."
 END
 
-#endif    // English (U.K.) resources
+STRINGTABLE 
+BEGIN
+    IDS_PQM_CRACKLIB_DICTIONARY_PATH "words/cracklib_dict"
+    IDS_PQM_NO_CRACKLIB_DICTIONARY 
+                            "Could not open the cracklib dictionary:\n%s"
+END
+
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

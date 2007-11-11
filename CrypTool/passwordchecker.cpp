@@ -392,7 +392,10 @@ char *checkPassword(char *password, char *path, int hidePassword) {
 		if (!(pwp = PWOpen(path, "r")))
 		{
 			perror("PWOpen");
-			exit(-1);
+			// Florian Marchal, 08.11.2007
+			// return 0 to indicate the dicitionary could not be found
+			// exit(-1);
+			return 0;
 		}
 		strncpy(lastpath, path, STRINGSIZE);
     }
