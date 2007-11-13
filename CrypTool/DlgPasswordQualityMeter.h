@@ -73,24 +73,21 @@ private:
 private:
 	CString password;
 	BOOL showPassword;
-	BOOL useCrypToolAlphabet;
-
-	int intQualityKeePass;
-	int intQualityMozilla;
-	int intQualityPGP;
-	int intQualityCrypTool;
+	
+	unsigned int intQualityKeePass;
+	unsigned int intQualityMozilla;
+	unsigned int intQualityPGP;
 	
 	CString stringQualityKeePass;
 	CString stringQualityMozilla;
 	CString stringQualityPGP;
-	CString stringQualityCrypTool;
 
 	CProgressCtrl controlQualityKeePass;
 	CProgressCtrl controlQualityMozilla;
 	CProgressCtrl controlQualityPGP;
-	CProgressCtrl controlQualityCrypTool;
 
 	CString passwordResistance;
+	BOOL displayedDictionaryNotFoundMessage;
 
 public:
 	afx_msg void OnBnClickedCheckUsecryptoolalphabet();

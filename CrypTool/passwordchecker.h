@@ -60,7 +60,7 @@ statement from your version.
 #include <string.h>
 #include "resource.h"
 
-// *** BEGIN CRACKLIB DECLARATIONS ********************************************
+// *** BEGIN CRACKLIB SPECIFIC DECLARATIONS ***********************************
 #define STRINGSIZE		1024
 #define TRUNCSTRINGSIZE	(STRINGSIZE/4)
 #define MINDIFF			3
@@ -103,7 +103,7 @@ extern "C" {
 	int PWClose(PWDICT *pwp);
 	PWDICT *PWOpen(char *prefix, char *mode);
 }
-// *** END CRACKLIB DECLARATIONS **********************************************
+// *** END CRACKLIB SPECIFIC DECLARATIONS *************************************
 
 // this function checks a password against patterns
 char *checkPasswordAgainstPatterns(char *password);
@@ -118,7 +118,8 @@ int checkPasswordForCompliance(char *password);
 // this function checks a password's charset
 int checkPasswordCharset(char *password);
 
-// this is the main password checking function
+// this is the main password checking function; it returns 0 if the given path 
+// for the cracklib dictionary is invalid
 char *checkPassword(char *password, char *path, int hidePassword);
 
 #endif

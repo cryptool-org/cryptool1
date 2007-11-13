@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polnisch resources
+// Polish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -5451,21 +5451,14 @@ BEGIN
                     IDC_STATIC,7,7,205,32
 END
 
-IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 300, 380
+IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 300, 340
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Sprawdzenie jakoœci has³a"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,359,50,14
-    PUSHBUTTON      "Anuluj",IDCANCEL,243,359,50,14
-    CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",WS_BORDER | 
-                    0x1,68,209,150,16
-    CTEXT           "100%",IDC_QUALITY_CRYPTOOL,225,213,55,8
-    CONTROL         "U¿yj alfabetu CrypToola",IDC_CHECK_USECRYPTOOLALPHABET,
-                    "Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,
-                    68,227,150,10
-    LTEXT           "W sumie:",IDC_STATIC,16,213,45,8
+    DEFPUSHBUTTON   "OK",IDOK,7,319,50,14
+    PUSHBUTTON      "Anuluj",IDCANCEL,243,319,50,14
     CONTROL         "",IDC_PROGRESS_KEEPASS,"msctls_progress32",WS_BORDER | 
                     0x1,68,160,150,8
     LTEXT           "KeePass:",IDC_STATIC,31,160,30,8
@@ -5478,7 +5471,7 @@ BEGIN
     CTEXT           "100%",IDC_QUALITY_KEEPASS,225,160,55,8
     CTEXT           "100%",IDC_QUALITY_MOZILLA,225,174,55,8
     CTEXT           "100%",IDC_QUALITY_PGP,225,188,55,8
-    GROUPBOX        "Jakoœæ has³a",IDC_STATIC,7,147,286,98
+    GROUPBOX        "Jakoœæ has³a",IDC_STATIC,7,147,286,57
     GROUPBOX        "Wprowadzenie has³a",IDC_STATIC,7,72,286,70
     LTEXT           "Proszê, wprowadŸ poni¿ej swoje has³o. Jakoœæ has³a pokazana zostanie w procentach i jest aktualizowana przy ka¿dym wciœniêciu klawisza.",
                     IDC_STATIC,20,85,260,16
@@ -5493,9 +5486,9 @@ BEGIN
                     IDC_STATIC,20,20,260,24
     LTEXT           "Prezentujemy kilka ró¿nych wskaŸników jakoœci has³a. Dziêki nim mo¿esz\noszacowaæ jego bezpieczeñstwo.",
                     IDC_STATIC,20,44,260,16
-    GROUPBOX        "Resistance against dictionary attacks",IDC_STATIC,7,250,
+    GROUPBOX        "Resistance against dictionary attacks",IDC_STATIC,7,210,
                     286,100
-    EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,262,260,80,ES_MULTILINE | 
+    EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,222,260,80,ES_MULTILINE | 
                     ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
 END
 
@@ -9373,7 +9366,7 @@ BEGIN
         VERTGUIDE, 225
         VERTGUIDE, 280
         TOPMARGIN, 7
-        BOTTOMMARGIN, 373
+        BOTTOMMARGIN, 333
         HORZGUIDE, 20
         HORZGUIDE, 72
         HORZGUIDE, 85
@@ -9383,7 +9376,8 @@ BEGIN
         HORZGUIDE, 160
         HORZGUIDE, 174
         HORZGUIDE, 188
-        HORZGUIDE, 209
+        HORZGUIDE, 204
+        HORZGUIDE, 210
     END
 
     IDD_LIST_RESULTS, DIALOG
@@ -11889,16 +11883,16 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_PQM_CRACKLIB_DICTIONARY_PATH "words/cracklib_dict"
+    IDS_PQM_CRACKLIB_DICTIONARY_PATH "words\\cracklib_dict"
     IDS_PQM_NO_CRACKLIB_DICTIONARY "TODO"
 END
 
-#endif    // Polnisch resources
+#endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -17419,17 +17413,18 @@ BEGIN
                     IDC_STATIC,7,7,205,32
 END
 
-IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 300, 380
+IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 300, 340
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Passwort-Qualitätsmesser"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,359,50,14
-    PUSHBUTTON      "Abbrechen",IDCANCEL,243,359,50,14
+    DEFPUSHBUTTON   "OK",IDOK,7,319,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,243,319,50,14
     GROUPBOX        "Beschreibung",IDC_STATIC,7,7,286,60
     GROUPBOX        "Eingabe des Passworts",IDC_STATIC,7,72,286,70
-    GROUPBOX        "Qualität des Passworts",IDC_STATIC,7,147,286,98
+    GROUPBOX        "Qualität des Passworts basierend auf Hypothesen",
+                    IDC_STATIC,7,147,286,57
     LTEXT           "Es ist nicht möglich, die Sicherheit von Passwörtern quantitativ eindeutig zu bestimmen. Allerdings ist es möglich, die Sicherheit von Passwörtern basierend auf bestimmten Hypothesen zu schätzen.",
                     IDC_STATIC,20,20,260,24
     LTEXT           "Bitte geben Sie Ihr Passwort in das Eingabefeld ein. Die Qualität des Passworts wird prozentual angezeigt und nach jedem Tastendruck automatisch aktualisiert.",
@@ -17447,23 +17442,16 @@ BEGIN
                     0x1,68,174,150,8
     CONTROL         "",IDC_PROGRESS_PGP,"msctls_progress32",WS_BORDER | 0x1,
                     68,188,150,8
-    CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",WS_BORDER | 
-                    0x1,68,209,150,16
-    LTEXT           "Experimentell:",IDC_STATIC,15,213,46,8
     CTEXT           "100 %",IDC_QUALITY_KEEPASS,225,160,55,8
     CTEXT           "100 %",IDC_QUALITY_MOZILLA,225,174,55,8
     CTEXT           "100 %",IDC_QUALITY_PGP,225,188,55,8
-    CTEXT           "100 %",IDC_QUALITY_CRYPTOOL,225,213,55,8
-    CONTROL         "CrypTool-Alphabet verwenden",
-                    IDC_CHECK_USECRYPTOOLALPHABET,"Button",BS_AUTOCHECKBOX | 
-                    NOT WS_VISIBLE | WS_TABSTOP,68,227,150,10
     CONTROL         "",IDC_PICTURE_QUALITY,"Static",SS_BLACKFRAME,225,106,25,
                     25
     LTEXT           "Hier sind verschiedene Beispiele für Passwort-Qualitätsmesser aufgeführt, die Ihnen dabei helfen, die Sicherheit Ihres Passworts einzuschätzen.",
                     IDC_STATIC,20,44,260,16
-    GROUPBOX        "Resistenz gegen Wörterbuch-Attacken",IDC_STATIC,7,250,
+    GROUPBOX        "Resistenz gegen Wörterbuch-Attacken",IDC_STATIC,7,210,
                     286,100
-    EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,262,260,80,ES_MULTILINE | 
+    EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,222,260,80,ES_MULTILINE | 
                     ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
 END
 
@@ -21136,7 +21124,7 @@ BEGIN
         VERTGUIDE, 225
         VERTGUIDE, 280
         TOPMARGIN, 7
-        BOTTOMMARGIN, 373
+        BOTTOMMARGIN, 333
         HORZGUIDE, 20
         HORZGUIDE, 72
         HORZGUIDE, 85
@@ -21146,7 +21134,8 @@ BEGIN
         HORZGUIDE, 160
         HORZGUIDE, 174
         HORZGUIDE, 188
-        HORZGUIDE, 209
+        HORZGUIDE, 204
+        HORZGUIDE, 210
     END
 
     IDD_LIST_RESULTS, DIALOG
@@ -23721,17 +23710,17 @@ BEGIN
     IDS_PWD_POLICY_MINIMAL  "TODO: IDS_PWD_POLICY_MINIMAL"
     IDS_PWD_POLICY_NOT_COMPLIANT "TODO: IDS_PWD_POLICY_NOT_COMPLIANT"
     IDS_PWD_NOT_ENOUGH_DIFF_CHARS "TODO: IDS_PWD_NOT_ENOUGH_DIFF_CHARS"
-    IDS_PQM_CRACKLIB_DICTIONARY_PATH "words/cracklib_dict"
+    IDS_PQM_CRACKLIB_DICTIONARY_PATH "words\\cracklib_dict"
     IDS_PQM_NO_CRACKLIB_DICTIONARY 
-                            "Das Öffnen des cracklib-Wörterbuchs an folgender Stelle schlug fehl:\n%s"
+                            "Das Öffnen des cracklib-Wörterbuchs an folgender Stelle schlug fehl:\r\n%s"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -29172,21 +29161,14 @@ BEGIN
                     IDC_STATIC,7,7,205,32
 END
 
-IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 300, 380
+IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 300, 340
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Password Quality Meter"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,359,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,243,359,50,14
-    CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",WS_BORDER | 
-                    0x1,68,209,150,16
-    CTEXT           "100 %",IDC_QUALITY_CRYPTOOL,225,213,55,8
-    CONTROL         "Use CrypTool alphabet",IDC_CHECK_USECRYPTOOLALPHABET,
-                    "Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,
-                    68,227,150,10
-    LTEXT           "Experimental:",IDC_STATIC,16,213,45,8
+    DEFPUSHBUTTON   "OK",IDOK,7,319,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,243,319,50,14
     CONTROL         "",IDC_PROGRESS_KEEPASS,"msctls_progress32",WS_BORDER | 
                     0x1,68,160,150,8
     LTEXT           "KeePass:",IDC_STATIC,31,160,30,8
@@ -29199,7 +29181,8 @@ BEGIN
     CTEXT           "100 %",IDC_QUALITY_KEEPASS,225,160,55,8
     CTEXT           "100 %",IDC_QUALITY_MOZILLA,225,174,55,8
     CTEXT           "100 %",IDC_QUALITY_PGP,225,188,55,8
-    GROUPBOX        "Password quality",IDC_STATIC,7,147,286,98
+    GROUPBOX        "Password quality based on assumptions",IDC_STATIC,7,147,
+                    286,57
     GROUPBOX        "Password input",IDC_STATIC,7,72,286,70
     LTEXT           "Please enter your password here. The password quality is shown in percent and updated with every key stroke.",
                     IDC_STATIC,20,85,260,16
@@ -29214,9 +29197,9 @@ BEGIN
                     IDC_STATIC,20,20,260,24
     LTEXT           "Here you can see different examples for password quality meters, helping you to estimate the security of your password.",
                     IDC_STATIC,20,44,260,16
-    GROUPBOX        "Resistance against dictionary attacks",IDC_STATIC,7,250,
+    GROUPBOX        "Resistance against dictionary attacks",IDC_STATIC,7,210,
                     286,100
-    EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,262,260,80,ES_MULTILINE | 
+    EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,222,260,80,ES_MULTILINE | 
                     ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
 END
 
@@ -33133,7 +33116,7 @@ BEGIN
         VERTGUIDE, 225
         VERTGUIDE, 280
         TOPMARGIN, 7
-        BOTTOMMARGIN, 373
+        BOTTOMMARGIN, 333
         HORZGUIDE, 20
         HORZGUIDE, 72
         HORZGUIDE, 85
@@ -33143,7 +33126,8 @@ BEGIN
         HORZGUIDE, 160
         HORZGUIDE, 174
         HORZGUIDE, 188
-        HORZGUIDE, 209
+        HORZGUIDE, 204
+        HORZGUIDE, 210
     END
 
     IDD_LIST_RESULTS, DIALOG
@@ -35653,12 +35637,12 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_PQM_CRACKLIB_DICTIONARY_PATH "words/cracklib_dict"
+    IDS_PQM_CRACKLIB_DICTIONARY_PATH "words\\cracklib_dict"
     IDS_PQM_NO_CRACKLIB_DICTIONARY 
                             "Could not open the cracklib dictionary:\n%s"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

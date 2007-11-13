@@ -362,7 +362,8 @@ void clean_up(closure_info **closure_matrix, int pwd_len, int check_flags, int r
 
 struct pwd_coord { int ndx, len; };
 
-// this is the main password checking function
+// this is the main password checking function; it returns 0 if the given path 
+// for the cracklib dictionary is invalid
 char *checkPassword(char *password, char *path, int hidePassword) {
     static char lastpath[STRINGSIZE];
     static PWDICT *pwp;
@@ -393,7 +394,7 @@ char *checkPassword(char *password, char *path, int hidePassword) {
 		{
 			perror("PWOpen");
 			// Florian Marchal, 08.11.2007
-			// return 0 to indicate the dicitionary could not be found
+			// return 0 to indicate the cracklib dictionary could not be found
 			// exit(-1);
 			return 0;
 		}
