@@ -41,57 +41,35 @@ statement from your version.
 
 **********************************************************************/
 
-#ifndef _DLGPASSWORDQUALITYMETER_
-#define _DLGPASSWORDQUALITYMETER_
+#ifndef _DLGPASSWORDGUIDELINES_
+#define _DLGPASSWORDGUIDELINES_
 
 
-// CDlgPasswordQualityMeter-Dialogfeld
+// CDlgPasswordGuidelines-Dialogfeld
 
-#include "PictureEx.h"
-
-class CDlgPasswordQualityMeter : public CDialog
+class CDlgPasswordGuidelines : public CDialog
 {
 public:
-	CDlgPasswordQualityMeter(CWnd* pParent = NULL);   // Standardkonstruktor
-	virtual ~CDlgPasswordQualityMeter();
+	CDlgPasswordGuidelines(CWnd* pParent = NULL);   // standard constructor
+	virtual ~CDlgPasswordGuidelines();
 
-// Dialogfelddaten
-	enum { IDD = IDD_PASSWORDQUALITYMETER };
+// Dialog Data
+	enum { IDD = IDD_PASSWORD_GUIDELINES };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV-Unterstützung
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
-
-	virtual void EditPasswordChanged();
-	virtual void UpdateUserInterface();
-
+	
 	DECLARE_MESSAGE_MAP()
 
-private:
-	CPictureEx controlPictureQuality;
-
-private:
-	CString password;
-	BOOL showPassword;
-	
-	unsigned int intQualityKeePass;
-	unsigned int intQualityMozilla;
-	unsigned int intQualityPGP;
-	
-	CString stringQualityKeePass;
-	CString stringQualityMozilla;
-	CString stringQualityPGP;
-
-	CProgressCtrl controlQualityKeePass;
-	CProgressCtrl controlQualityMozilla;
-	CProgressCtrl controlQualityPGP;
-
-	CString passwordResistance;
-	BOOL displayedDictionaryNotFoundMessage;
+protected:
+	CString stringMinimumLength;
+	CString stringMinimumDigits;
+	CString stringMinimumSpecial;
+	CString stringSpecialGroup;
 
 public:
-	afx_msg void OnBnClickedCheckShowpassword();
-	afx_msg void OnBnClickedConfigurePasswordGuidelines();
+	afx_msg void OnBnClickedOk();
 };
 
 #endif

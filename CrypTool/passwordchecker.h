@@ -50,6 +50,19 @@ statement from your version.
 // Integration des mit Henrik Koy entwickelten Passwort-Checkers in CrypTool
 //
 // ****************************************************************************
+//
+// ATTENTION:
+//
+//   If you plan on extending this password checker, keep one thing in mind: 
+//   We're using an untouched version of the Win32 cracklib. And under certain 
+//   circumstances (i.e. when the dictionary is not found), the library exits 
+//   with "exit(-1)". In turn, the CrypTool application exits WITHOUT any 
+//   information for the user.
+//
+//   For now, we only use a few cracklib functions and errors/exceptions are 
+//   handled properly. But this behaviour might change if you extend the 
+//   functionality.
+//
 
 #ifndef _PASSWORDCHECKER_H_
 #define _PASSWORDCHECKER_H_

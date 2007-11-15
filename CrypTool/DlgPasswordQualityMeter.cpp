@@ -46,9 +46,8 @@ statement from your version.
 #include "DlgPasswordQualityMeter.h"
 
 #include "passwordqualitymeter.h"
-#include ".\dlgpasswordqualitymeter.h"
-
 #include "passwordchecker.h"
+#include "DlgPasswordGuidelines.h"
 
 // Verzeichnis, in dem CT gerade läuft (siehe CrypToolApp.cpp)
 extern char *Pfad;
@@ -162,9 +161,13 @@ void CDlgPasswordQualityMeter::UpdateUserInterface()
 		this->controlPictureQuality.Load(MAKEINTRESOURCE(IDR_GIF_PQM_QUALITY_GREAT), _T("GIF"));
 	this->controlPictureQuality.Draw();
 
-	// check password against dictionary attacks (with cracklib)
-	LoadString(AfxGetInstanceHandle(), IDS_PQM_CRACKLIB_DICTIONARY_PATH, pc_str, STR_LAENGE_STRING_TABLE);
-	char *result = checkPassword(password.GetBuffer(), pc_str, 0);
+	// assemble full path of dictionary 
+	char dictionaryPath[STR_LAENGE_STRING_TABLE+1];
+	char fullDictionaryPath[STR_LAENGE_STRING_TABLE+1];
+    LoadString(AfxGetInstanceHandle(), IDS_PQM_CRACKLIB_DICTIONARY_PATH, dictionaryPath, STR_LAENGE_STRING_TABLE);
+	sprintf(fullDictionaryPath, "%s%s", Pfad, dictionaryPath);
+    // check password against dictionary attacks (with cracklib)
+	char *result = checkPassword(password.GetBuffer(), fullDictionaryPath, 0);
 	if(result) {
 		passwordResistance = result;
 	}
@@ -172,15 +175,8 @@ void CDlgPasswordQualityMeter::UpdateUserInterface()
 		// construct and display error message for user
 		if(!displayedDictionaryNotFoundMessage) {
 			char tempMessage[STR_LAENGE_STRING_TABLE+1];
-			char tempPath[STR_LAENGE_STRING_TABLE+1];
-			char fullPath[STR_LAENGE_STRING_TABLE+1];
-			memset(tempMessage, 0, STR_LAENGE_STRING_TABLE+1);
-			memset(tempPath, 0, STR_LAENGE_STRING_TABLE+1);
-			memset(fullPath, 0, STR_LAENGE_STRING_TABLE+1);
 			LoadString(AfxGetInstanceHandle(), IDS_PQM_NO_CRACKLIB_DICTIONARY, pc_str, STR_LAENGE_STRING_TABLE);
-			LoadString(AfxGetInstanceHandle(), IDS_PQM_CRACKLIB_DICTIONARY_PATH, tempPath, STR_LAENGE_STRING_TABLE);
-			sprintf(fullPath, "%s%s", Pfad, tempPath);
-			sprintf(tempMessage, pc_str, fullPath);
+			sprintf(tempMessage, pc_str, fullDictionaryPath);
 			MessageBox(tempMessage, "CrypTool", MB_ICONINFORMATION);
 			passwordResistance = tempMessage;
 			// make sure this "annoying" pop-up message is displayed only once
@@ -194,6 +190,7 @@ void CDlgPasswordQualityMeter::UpdateUserInterface()
 BEGIN_MESSAGE_MAP(CDlgPasswordQualityMeter, CDialog)
 	ON_EN_CHANGE(IDC_EDIT_PASSWORD, EditPasswordChanged)
 	ON_BN_CLICKED(IDC_CHECK_SHOWPASSWORD, OnBnClickedCheckShowpassword)
+	ON_BN_CLICKED(ID_CONFIGURE_PASSWORD_GUIDELINES, OnBnClickedConfigurePasswordGuidelines)
 END_MESSAGE_MAP()
 
 
@@ -208,4 +205,10 @@ void CDlgPasswordQualityMeter::OnBnClickedCheckShowpassword()
 	else ((CEdit*)GetDlgItem(IDC_EDIT_PASSWORD))->SetPasswordChar('*');
 
 	UpdateUserInterface();
+}
+
+void CDlgPasswordQualityMeter::OnBnClickedConfigurePasswordGuidelines()
+{
+	CDlgPasswordGuidelines dlg;
+	dlg.DoModal();
 }

@@ -52,6 +52,8 @@ statement from your version.
 // ****************************************************************************
 
 #include "passwordchecker.h"
+#include "resource.h"
+#include "CrypToolTools.h"
 
 // these are the patterns a password is checked against
 static char *pwd_patterns[] = {
@@ -77,19 +79,25 @@ char *checkPasswordAgainstPatterns(char *password) {
 		pattern_found = pwd_patterns[i];
 	}
 
-	#define MAX_PATTERN_SIZE 6
+	#define MAX_PATTERN_SIZE 10
 
 	char pattern[MAX_PATTERN_SIZE];
 	int pwd_len = strlen(password);
 	for (int i = 2; i <= pwd_len/2 && i <= MAX_PATTERN_SIZE; i++)
 	{
-		if (  pwd_len % i )
-			continue;
+		// if (  pwd_len % i )
+		// 	continue;
 		strncpy(pattern, password, i);
 		char *ptr = password+i;
 		int   steps = pwd_len / i;
 		for ( int j = 1; (j < steps) && !strncmp(ptr, pattern, i); j++ )
 			ptr += i;
+		if ( pwd_len % i )
+		{
+			steps++;
+			if ( !strncmp(ptr, pattern, pwd_len % i) )
+				j++;
+		}
 		if ( j == steps )
 		{
 			char *str_found = new char[pwd_len+1];
@@ -212,7 +220,35 @@ static char *pwd_chr_families[] = {
 
 // this function checks a password for compliance
 int checkPasswordForCompliance(char *password) {
-    if (strlen(password) < MINLEN)
+	// stick to default values in case there are no registry entries
+	unsigned long minimumLength = MINLEN;
+	unsigned long minimumDigits = 1;
+	unsigned long minimumSpecial = 1;
+	unsigned long buffer = 1024;
+	char *specialGroup = new char[buffer+1];
+	memset(specialGroup, 0, buffer+1);
+	memcpy(specialGroup, "^°!\"§$%&/()=?´`\\<>|,;:.-_#\'+*~@", 31);
+
+	// try to read guidelines from registry 
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_READ ) == ERROR_SUCCESS )
+	{
+		CT_READ_REGISTRY(minimumLength, "PQM_GL_MinimumLength");
+		CT_READ_REGISTRY(minimumDigits, "PQM_GL_MinimumDigits");
+		CT_READ_REGISTRY(minimumSpecial, "PQM_GL_MinimumSpecial");
+		CT_READ_REGISTRY(specialGroup, "PQM_GL_SpecialGroup", buffer);
+		CT_CLOSE_REGISTRY();
+
+		// alter special characters group
+		pwd_chr_families[3] = specialGroup;
+	}
+	else
+	{
+		// FIXME
+	}
+
+	delete specialGroup;
+  
+	if (strlen(password) < minimumLength)
     {
 		return IDS_PWD_POLICY_TOOSHORT;
 	}
@@ -252,25 +288,10 @@ int checkPasswordForCompliance(char *password) {
 		}
 	}
 
-// See IS Standard for Identity Authentication 2.2.1 requirment 5:
-// "Passwords MUST contain alpha and numeric characters and should 
-//  preferably require upper- and lowercase as well as special characters.
-//  Passwords for privileged users MUST contain alpha, numeric and special
-//  characters."
-	if ( (_char_set & 15) == 15 )
-	{ // should
-		return IDS_PWD_POLICY_RECOMMENDED;
-	}
-	if ( (_char_set & 13) == 13 || (_char_set & 14) == 14 )
-	{  // must for admins
-		return IDS_PWD_POLICY_PRIVILEGED;
-	}
-	if ( (_char_set & 5 ) == 5  || (_char_set & 6 ) == 6  )
-	{  // must for all
-		return IDS_PWD_POLICY_MINIMAL;
-	}
+	if( _number < minimumDigits ) return IDS_PWD_POLICY_TOOFEWDIGITS;
+	if( _special < minimumSpecial ) return IDS_PWD_POLICY_TOOFEWSPECIALCHARACTERS;
 
-	return IDS_PWD_POLICY_NOT_COMPLIANT;
+	return IDS_PWD_POLICY_COMPLIANT;
 }
 
 // this function checks a password's charset
@@ -393,9 +414,7 @@ char *checkPassword(char *password, char *path, int hidePassword) {
 		if (!(pwp = PWOpen(path, "r")))
 		{
 			perror("PWOpen");
-			// Florian Marchal, 08.11.2007
 			// return 0 to indicate the cracklib dictionary could not be found
-			// exit(-1);
 			return 0;
 		}
 		strncpy(lastpath, path, STRINGSIZE);
@@ -404,43 +423,24 @@ char *checkPassword(char *password, char *path, int hidePassword) {
 
 	int id_err;
 	id_err = checkPasswordForCompliance(pwtrunced);
-	strcat(str_fnds, "Deutsche Bank Passwort Policy erfüllt:\r\n");
+	LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_COMPLIANT, pc_str, STR_LAENGE_STRING_TABLE);
+	strcat(str_fnds, pc_str);
 
-#if 0
 	switch (id_err) {
+		// password is TOO SHORT
 		case IDS_PWD_POLICY_TOOSHORT:
-			strcat(str_fnds, " - Nein (Länge ist kleiner 8)");
+			LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT, pc_str, STR_LAENGE_STRING_TABLE);
+			strcat(str_fnds, pc_str);
 			break;
-		case IDS_PWD_POLICY_NOT_COMPLIANT:
-			strcat(str_fnds, " - Nein (nicht alphanumerisch)");
-			break;
-		case IDS_PWD_POLICY_MINIMAL:
-			strcat(str_fnds, " - Ja für normale Anwendungen \r\n - Nein für kritische Anwendungen (keine Sonderzeichen)");
-			break;
-		case IDS_PWD_POLICY_PRIVILEGED:
-		case IDS_PWD_POLICY_RECOMMENDED:
-			strcat(str_fnds, " - Ja für normale Anwendungen\r\n - Ja für kritische Anwendungen");
-			break;
+		// password contains TOO FEW DIGITS
+		case IDS_PWD_POLICY_TOOFEWDIGITS:
+			LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_DIGITS, pc_str, STR_LAENGE_STRING_TABLE);
+			strcat(str_fnds, pc_str);
+		// password contains TOO FEW SPECIAL CHARACTERS
+		case IDS_PWD_POLICY_TOOFEWSPECIALCHARACTERS:
+			LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_SPECIAL_CHARACTERS, pc_str, STR_LAENGE_STRING_TABLE);
+			strcat(str_fnds, pc_str);
 	};
-#endif
-
-#if 1
-	switch (id_err) {
-		case IDS_PWD_POLICY_TOOSHORT:
-			strcat(str_fnds, " - Nein für normale Anwendungen (Länge ist kleiner 8)\r\n - Nein für kritische Anwendungen (Länge ist kleiner 8)");
-			break;
-		case IDS_PWD_POLICY_NOT_COMPLIANT:
-			strcat(str_fnds, " - Nein für normale Anwendungen (nicht alphanumerisch)\r\n - Nein für kritische Anwendungen (nicht alphanumerisch oder keine Sonderzeichen)");
-			break;
-		case IDS_PWD_POLICY_MINIMAL:
-			strcat(str_fnds, " - Ja für normale Anwendungen \r\n - Nein für kritische Anwendungen (keine Sonderzeichen)");
-			break;
-		case IDS_PWD_POLICY_PRIVILEGED:
-		case IDS_PWD_POLICY_RECOMMENDED:
-			strcat(str_fnds, " - Ja für normale Anwendungen\r\n - Ja für kritische Anwendungen");
-			break;
-	};
-#endif
 
 	id_err = checkPasswordCharset(pwtrunced);
 	if ( id_err )

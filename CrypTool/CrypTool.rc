@@ -17453,6 +17453,8 @@ BEGIN
                     286,100
     EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,222,260,80,ES_MULTILINE | 
                     ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
+    DEFPUSHBUTTON   "Passwort-Richtlinien",ID_CONFIGURE_PASSWORD_GUIDELINES,
+                    110,319,80,14
 END
 
 IDD_LIST_RESULTS DIALOGEX 0, 0, 434, 220
@@ -17478,6 +17480,37 @@ BEGIN
     DEFPUSHBUTTON   "&Fortsetzen",IDOK,178,103,50,14
     PUSHBUTTON      "&Zurück",IDCANCEL,7,103,50,14
     LTEXT           "Statisch",IDC_TEXT_INFO,7,7,221,88
+END
+
+IDD_PASSWORD_GUIDELINES DIALOGEX 0, 0, 250, 185
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Passwort-Richtlinien"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,164,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,193,164,50,14
+    GROUPBOX        "Beschreibung",IDC_STATIC,7,7,236,52
+    GROUPBOX        "Mindestanforderung an Passwörter",IDC_STATIC,7,65,236,
+                    91
+    LTEXT           "Hier können Sie einstellen, nach welchen Richtlinien Passwörter im Rahmen von CrypTool bewertet werden.",
+                    IDC_STATIC,20,20,210,16
+    LTEXT           "Erfüllt ein Passwort die von Ihnen konfigurierten Richtlinien nicht, so weist Sie der Passwort-Qualitätsmesser darauf hin.",
+                    IDC_STATIC,20,36,210,16
+    RTEXT           "Länge:",IDC_STATIC,30,80,50,8
+    RTEXT           "Ziffern:",IDC_STATIC,30,99,50,8
+    RTEXT           "Sonderzeichen:",IDC_STATIC,30,118,50,8
+    EDITTEXT        IDC_EDIT_PASSWORD_LENGTH,90,78,20,14,ES_CENTER | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PASSWORD_DIGITS,90,97,20,14,ES_CENTER | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PASSWORD_SPECIAL,90,116,20,14,ES_CENTER | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Zeichen",IDC_STATIC,115,80,45,8
+    LTEXT           "Zeichen",IDC_STATIC,115,99,45,8
+    LTEXT           "Zeichen",IDC_STATIC,115,118,46,8
+    EDITTEXT        IDC_EDIT_PASSWORD_SPECIAL_GROUP,90,135,140,14,
+                    ES_AUTOHSCROLL
 END
 
 
@@ -21153,9 +21186,31 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 117
     END
+
+    IDD_PASSWORD_GUIDELINES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 243
+        VERTGUIDE, 20
+        VERTGUIDE, 80
+        VERTGUIDE, 90
+        VERTGUIDE, 110
+        VERTGUIDE, 115
+        VERTGUIDE, 230
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 178
+        HORZGUIDE, 20
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// HTML
+//
+
+IDR_HTML_DLGPASSWORDGUIDELINES HTML                    "DlgPasswordGuidelines.htm"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -23620,8 +23675,7 @@ BEGIN
     IDS_CLIPBOARD_HEXCOPY   "Die markierten Daten können unverändert (Standard) oder hexadezimal codiert in die Zwischenablage übernommen werden.\nEine hexadezimale Codierung ist z.B. erforderlich, wenn Sie nicht-druckbare Daten in andere Anwendungen exportieren wollen.\n\nHexadezimale Codierung verwenden?"
     IDS_CLIPBOARD_HEXPASTE  "Die Zwischenablage enthält ausschließlich Hexadezimal-Zeichen.\nDiese können entweder decodiert (Standard) oder unverändert eingefügt werden.\n\nSollen die hexadezimalen Daten decodiert werden?"
     IDS_STRING_MEMBER2      "Teilnehmer"
-    IDS_PWD_POLICY_RECOMMENDED "TODO: IDS_PWD_POLICY_RECOMMENDED"
-    IDS_PWD_POLICY_PRIVILEGED "TODO: IDS_PWD_POLICY_PRIVILEGED"
+    IDS_PWD_POLICY_COMPLIANT "Ja"
     IDS_SCINTILLA_LEXER_ERROR 
                             "Die Alphabet-Ansicht kann nicht aktiviert werden, wahrscheinlich wurde nicht\ndie mit CrypTool gelieferte SCILEXER.DLL geladen, sondern eine andere."
     IDS_PQM_CRYPTOOLALPHABETINACTIVE 
@@ -23707,12 +23761,23 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_PWD_POLICY_MINIMAL  "TODO: IDS_PWD_POLICY_MINIMAL"
-    IDS_PWD_POLICY_NOT_COMPLIANT "TODO: IDS_PWD_POLICY_NOT_COMPLIANT"
+    IDS_PWD_POLICY_TOOFEWDIGITS "TODO: IDS_PWD_POLICY_TOOFEWDIGITS"
     IDS_PWD_NOT_ENOUGH_DIFF_CHARS "TODO: IDS_PWD_NOT_ENOUGH_DIFF_CHARS"
     IDS_PQM_CRACKLIB_DICTIONARY_PATH "words\\cracklib_dict"
     IDS_PQM_NO_CRACKLIB_DICTIONARY 
                             "Das Öffnen des cracklib-Wörterbuchs an folgender Stelle schlug fehl:\r\n%s"
+    IDS_PQM_PASSWORD_COMPLIANT "Passwort-Richtlinie erfüllt:\r\n"
+    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT "- Nein (Passwort ist zu kurz)"
+    IDS_PQM_PASSWORD_NOT_COMPLIANT_NOT_ALPHANUMERIC "ddd"
+    IDS_STRING56            "- Nein (Passwort ist nicht alphanumerisch)"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_DIGITS 
+                            "- Nein (Passwort enthält zuwenig Ziffern)"
+    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_SPECIAL_CHARACTERS 
+                            "- Nein (Passwort enthält zuwenig Sonderzeichen)"
 END
 
 #endif    // German (Germany) resources
