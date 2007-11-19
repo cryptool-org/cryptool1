@@ -220,6 +220,8 @@ static char *pwd_chr_families[] = {
 
 // this function checks a password for compliance
 int checkPasswordForCompliance(char *password) {
+	// by default, every password is compliant
+	int result = IDS_PWD_POLICY_COMPLIANT;
 	// stick to default values in case there are no registry entries
 	unsigned long minimumLength = MINLEN;
 	unsigned long minimumDigits = 1;
@@ -243,14 +245,8 @@ int checkPasswordForCompliance(char *password) {
 	}
 	else
 	{
-		// FIXME
-	}
-
-	delete specialGroup;
-  
-	if (strlen(password) < minimumLength)
-    {
-		return IDS_PWD_POLICY_TOOSHORT;
+		// FIXME: stick to default values (-> same in DlgPasswordGuidelines.{h|cpp})
+		// TODO...
 	}
 
 	int _APLHA   = 0,		 
@@ -288,10 +284,13 @@ int checkPasswordForCompliance(char *password) {
 		}
 	}
 
-	if( _number < minimumDigits ) return IDS_PWD_POLICY_TOOFEWDIGITS;
-	if( _special < minimumSpecial ) return IDS_PWD_POLICY_TOOFEWSPECIALCHARACTERS;
+	delete specialGroup;
 
-	return IDS_PWD_POLICY_COMPLIANT;
+	if (strlen(password) < minimumLength) result |= IDS_PWD_POLICY_TOOSHORT;
+	if( _number < minimumDigits ) result |= IDS_PWD_POLICY_TOOFEWDIGITS;
+	if( _special < minimumSpecial ) result |= IDS_PWD_POLICY_TOOFEWSPECIALCHARACTERS;
+
+	return result;
 }
 
 // this function checks a password's charset
@@ -426,21 +425,30 @@ char *checkPassword(char *password, char *path, int hidePassword) {
 	LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_COMPLIANT, pc_str, STR_LAENGE_STRING_TABLE);
 	strcat(str_fnds, pc_str);
 
-	switch (id_err) {
-		// password is TOO SHORT
-		case IDS_PWD_POLICY_TOOSHORT:
+	// construct password evaluation messages
+	if(id_err == IDS_PWD_POLICY_COMPLIANT) {
+		// password seems to be compliant
+		LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_IS_COMPLIANT, pc_str, STR_LAENGE_STRING_TABLE);
+		strcat(str_fnds, pc_str);
+	}
+	// password does not seem to be compliant
+	else {
+        if(id_err & IDS_PWD_POLICY_TOOSHORT) {
+			// password is TOO SHORT
 			LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT, pc_str, STR_LAENGE_STRING_TABLE);
 			strcat(str_fnds, pc_str);
-			break;
-		// password contains TOO FEW DIGITS
-		case IDS_PWD_POLICY_TOOFEWDIGITS:
+		}
+		if(id_err & IDS_PWD_POLICY_TOOFEWDIGITS) {
+			// password contains TOO FEW DIGITS
 			LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_DIGITS, pc_str, STR_LAENGE_STRING_TABLE);
 			strcat(str_fnds, pc_str);
-		// password contains TOO FEW SPECIAL CHARACTERS
-		case IDS_PWD_POLICY_TOOFEWSPECIALCHARACTERS:
+		}
+		if(id_err & IDS_PWD_POLICY_TOOFEWSPECIALCHARACTERS) {
+			// password contains TOO FEW SPECIAL CHARACTERS
 			LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_SPECIAL_CHARACTERS, pc_str, STR_LAENGE_STRING_TABLE);
 			strcat(str_fnds, pc_str);
-	};
+		}
+	}
 
 	id_err = checkPasswordCharset(pwtrunced);
 	if ( id_err )

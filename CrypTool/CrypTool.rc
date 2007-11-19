@@ -21207,13 +21207,6 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 //
-// HTML
-//
-
-IDR_HTML_DLGPASSWORDGUIDELINES HTML                    "DlgPasswordGuidelines.htm"
-
-/////////////////////////////////////////////////////////////////////////////
-//
 // String Table
 //
 
@@ -23660,7 +23653,7 @@ BEGIN
     IDS_HILL_CASE           "Benutztes Alphabet (%d Zeichen)"
     IDS_ROT13_CAESAR_TOO_LARGE_KEY 
                             "Die Eingabe ist größer als das Alphabet.\nSoll der Wert automatisch auf 1 gesetzt werden?"
-    IDS_PWD_POLICY_TOOSHORT "TODO: IDS_PWD_POLICY_TOOSHORT"
+    IDS_PQM_PASSWORD_IS_COMPLIANT "- Ja\r\n"
 END
 
 STRINGTABLE 
@@ -23675,7 +23668,6 @@ BEGIN
     IDS_CLIPBOARD_HEXCOPY   "Die markierten Daten können unverändert (Standard) oder hexadezimal codiert in die Zwischenablage übernommen werden.\nEine hexadezimale Codierung ist z.B. erforderlich, wenn Sie nicht-druckbare Daten in andere Anwendungen exportieren wollen.\n\nHexadezimale Codierung verwenden?"
     IDS_CLIPBOARD_HEXPASTE  "Die Zwischenablage enthält ausschließlich Hexadezimal-Zeichen.\nDiese können entweder decodiert (Standard) oder unverändert eingefügt werden.\n\nSollen die hexadezimalen Daten decodiert werden?"
     IDS_STRING_MEMBER2      "Teilnehmer"
-    IDS_PWD_POLICY_COMPLIANT "Ja"
     IDS_SCINTILLA_LEXER_ERROR 
                             "Die Alphabet-Ansicht kann nicht aktiviert werden, wahrscheinlich wurde nicht\ndie mit CrypTool gelieferte SCILEXER.DLL geladen, sondern eine andere."
     IDS_PQM_CRYPTOOLALPHABETINACTIVE 
@@ -23761,23 +23753,20 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_PWD_POLICY_TOOFEWDIGITS "TODO: IDS_PWD_POLICY_TOOFEWDIGITS"
-    IDS_PWD_NOT_ENOUGH_DIFF_CHARS "TODO: IDS_PWD_NOT_ENOUGH_DIFF_CHARS"
     IDS_PQM_CRACKLIB_DICTIONARY_PATH "words\\cracklib_dict"
     IDS_PQM_NO_CRACKLIB_DICTIONARY 
                             "Das Öffnen des cracklib-Wörterbuchs an folgender Stelle schlug fehl:\r\n%s"
     IDS_PQM_PASSWORD_COMPLIANT "Passwort-Richtlinie erfüllt:\r\n"
-    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT "- Nein (Passwort ist zu kurz)"
-    IDS_PQM_PASSWORD_NOT_COMPLIANT_NOT_ALPHANUMERIC "ddd"
-    IDS_STRING56            "- Nein (Passwort ist nicht alphanumerisch)"
+    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT 
+                            "- Nein (Passwort ist zu kurz)\r\n"
 END
 
 STRINGTABLE 
 BEGIN
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_DIGITS 
-                            "- Nein (Passwort enthält zuwenig Ziffern)"
+                            "- Nein (Passwort enthält zuwenig Ziffern)\r\n"
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_SPECIAL_CHARACTERS 
-                            "- Nein (Passwort enthält zuwenig Sonderzeichen)"
+                            "- Nein (Passwort enthält zuwenig Sonderzeichen)\r\n"
 END
 
 #endif    // German (Germany) resources

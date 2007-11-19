@@ -118,6 +118,11 @@ extern "C" {
 }
 // *** END CRACKLIB SPECIFIC DECLARATIONS *************************************
 
+#define IDS_PWD_POLICY_COMPLIANT				0
+#define IDS_PWD_POLICY_TOOSHORT					1
+#define IDS_PWD_POLICY_TOOFEWDIGITS				2
+#define IDS_PWD_POLICY_TOOFEWSPECIALCHARACTERS	4
+
 // this function checks a password against patterns
 char *checkPasswordAgainstPatterns(char *password);
 // this function checks a password against sequences
