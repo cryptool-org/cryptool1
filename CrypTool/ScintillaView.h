@@ -133,6 +133,7 @@ protected:
 	afx_msg void OnUpdateEditRedo(CCmdUI* pCmdUI);
 	afx_msg void OnEditSelectAll();
 	afx_msg void OnUpdateInsert(CCmdUI* pCmdUI);
+	afx_msg void OnUpdateLine(CCmdUI* pCmdUI);
 	afx_msg void OnEditFind();
 	afx_msg void OnFilePageSetup();
 	//}}AFX_MSG

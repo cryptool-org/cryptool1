@@ -93,6 +93,8 @@ protected:
 	afx_msg void OnEditSelectAll();
 	afx_msg void OnGotoVater();
 	afx_msg void OnEditFind();
+	afx_msg void OnUpdateInsert(CCmdUI* pCmdUI);
+	afx_msg void OnUpdateLine(CCmdUI* pCmdUI);
 	//}}AFX_MSG
 
 	DECLARE_DYNCREATE(CHexEditCtrlView)

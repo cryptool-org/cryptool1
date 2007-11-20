@@ -2265,6 +2265,13 @@ UINT CHexEditBase::GetData(BYTE *pByte, UINT nLength)
 		return 0;
 	}
 }
+UINT CHexEditBase::GetCurrentAddress() const {
+	return m_nCurrentAddress;
+}
+UINT CHexEditBase::GetBytesPerRow() const {
+	return m_tPaintDetails.nBytesPerRow;
+}
+
 void CHexEditBase::Serialize(CArchive& ar)
 {
 	CFile *pFile = ar.GetFile();
@@ -2296,6 +2303,12 @@ bool CHexEditBase::IsHighlighted() const
 {
 	return (m_nHighlightedEnd != NOSECTION_VAL) && (m_nHighlightedBegin != NOSECTION_VAL);
 }
+
+bool CHexEditBase::IsInsert() const
+{
+	return m_bInsert;
+}
+
 
 bool CHexEditBase::GetSelection(UINT& nBegin, UINT& nEnd) const
 {

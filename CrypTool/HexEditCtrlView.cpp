@@ -89,6 +89,8 @@ BEGIN_MESSAGE_MAP(CHexEditCtrlView, CHexEditBaseView)
 	ON_COMMAND(ID_EDIT_CLEAR, OnEditClear)
 	ON_COMMAND(ID_EDIT_SELECT_ALL, OnEditSelectAll)
 	ON_COMMAND(ID_GOTO_VATER, OnGotoVater)
+    ON_UPDATE_COMMAND_UI(ID_INDICATOR_LINE, OnUpdateLine) 
+	ON_UPDATE_COMMAND_UI(ID_INDICATOR_OVR, OnUpdateInsert)
 	//}}AFX_MSG_MAP
 	ON_COMMAND(ID_ENTROPY, OnEntropy)
 	ON_COMMAND(ID_HISTOGRAM, OnHistogram)
@@ -228,4 +230,34 @@ void CHexEditCtrlView::OnEditFind()
 {
 	// make the find and replace dialog visible
 	theApp.findAndReplaceDialog.show();
+}
+
+/////////////////////////////////////
+// @mfunc menu check handler - set indicator for overstrike mode
+// @rvalue void | not used
+//
+void CHexEditCtrlView::OnUpdateInsert(
+                                       CCmdUI* pCmdUI) //@parm menu handle
+{
+	CString strText;
+	if (!m_cHexEdit.IsInsert())
+		strText.LoadString(ID_INDICATOR_OVR);
+	pCmdUI->SetText(strText);
+}
+
+/////////////////////////////////////
+// @mfunc menu check handler - set indicator for line number
+// @rvalue void | not used
+//
+void CHexEditCtrlView::OnUpdateLine(
+                                       CCmdUI* pCmdUI) //@parm menu handle
+{
+	pCmdUI->Enable(); 
+	CString strText;
+	unsigned int pos = m_cHexEdit.GetCurrentAddress();
+	unsigned int bpr = m_cHexEdit.GetBytesPerRow();
+	unsigned int line = pos / bpr;
+	unsigned int col = pos % bpr;
+	strText.Format(ID_INDICATOR_LINE, line+1, col+1, pos+1);
+	pCmdUI->SetText(strText);
 }

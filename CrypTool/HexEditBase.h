@@ -94,6 +94,8 @@ public:
 	void SetSelection(UINT nBegin, UINT nEnd, bool bMakeVisible = true, bool bUpdate = true);
 	void MakeVisible(UINT nBegin, UINT nEnd, bool bUpdate=true);
 	UINT GetData(BYTE *pByte, UINT nLength);
+	UINT GetCurrentAddress() const;
+	UINT GetBytesPerRow() const;
 	void SetBytesPerRow(UINT nBytesPerRow, bool bAuto = false, bool bUpdate = true);
 	void SetAddressSize(BYTE nAdrSize, bool bUpdate = true);
 	void SetAdrCol(COLORREF tAdrBkgCol, COLORREF tAdrTxtCol, bool bUpdate = true);
@@ -107,6 +109,7 @@ public:
 	bool GetHighlighted(UINT& nBegin, UINT& nEnd) const;
 	bool IsSelection() const;
 	bool IsHighlighted() const;
+	bool IsInsert() const;
 	UINT GetDataSize() const { return m_nLength; }
 	UINT GetDataSize1() const { return m_nLength + 1; } // for all caret related operations assume add one byte for appending data
 	virtual void SetReadonly(bool bReadOnly, bool bUpdate = true);

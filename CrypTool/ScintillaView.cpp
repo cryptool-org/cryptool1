@@ -41,7 +41,6 @@ IMPLEMENT_DYNCREATE(CScintillaView, CCrypToolView)
 // temporarily disabled:
 	ON_COMMAND(ID_OPTIONS_VIEW_LINENUMBERS, OnOptionsViewLinenumbers)
 	ON_UPDATE_COMMAND_UI(ID_OPTIONS_VIEW_LINENUMBERS, OnUpdateOptionsViewLinenumbers)
-   ON_UPDATE_COMMAND_UI(ID_INDICATOR_LINE, OnUpdateLine) 
    ON_UPDATE_COMMAND_UI(ID_INDICATOR_STYLE, OnUpdateStyle) 
    ON_UPDATE_COMMAND_UI(ID_INDICATOR_FOLD, OnUpdateFold) 
 	ON_COMMAND(ID_OPTIONS_SETFONT, OnOptionsSetfont)
@@ -80,6 +79,7 @@ BEGIN_MESSAGE_MAP(CScintillaView, CCrypToolView)
 	ON_COMMAND(ID_EDIT_REDO, OnEditRedo)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_REDO, OnUpdateEditRedo)
 	ON_COMMAND(ID_EDIT_SELECT_ALL, OnEditSelectAll)
+    ON_UPDATE_COMMAND_UI(ID_INDICATOR_LINE, OnUpdateLine) 
 	ON_UPDATE_COMMAND_UI(ID_INDICATOR_OVR, OnUpdateInsert)
 	ON_COMMAND(ID_VIEW_ENDOFLINE, OnViewEndOfLine)
 	ON_UPDATE_COMMAND_UI(ID_VIEW_ENDOFLINE, OnUpdateViewEndOfLine)
@@ -680,13 +680,27 @@ void CScintillaView::OnEditSelectAll()
 void CScintillaView::OnUpdateInsert(
                                        CCmdUI* pCmdUI) //@parm menu handle
 {
-   CString strText;
-   if (m_wndScintilla.GetOverstrike())
-      strText.LoadString(ID_INDICATOR_OVR);
+	CString strText;
+	if (m_wndScintilla.GetOverstrike())
+		strText.LoadString(ID_INDICATOR_OVR);
 	pCmdUI->SetText(strText);
 }
 
-
+/////////////////////////////////////
+// @mfunc menu check handler - set indicator for line number
+// @rvalue void | not used
+//
+void CScintillaView::OnUpdateLine(
+                                       CCmdUI* pCmdUI) //@parm menu handle
+{
+	pCmdUI->Enable(); 
+	CString strText;
+	unsigned int pos = m_wndScintilla.SendMessage(SCI_GETCURRENTPOS);
+	unsigned int line = m_wndScintilla.SendMessage(SCI_LINEFROMPOSITION, pos);
+	unsigned int col = m_wndScintilla.SendMessage(SCI_GETCOLUMN, pos);
+	strText.Format(ID_INDICATOR_LINE, line+1, col+1, pos+1);
+	pCmdUI->SetText(strText);
+}
 
 
 
