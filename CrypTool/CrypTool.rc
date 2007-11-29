@@ -1765,10 +1765,10 @@ BEGIN
     EDITTEXT        IDC_EDIT66,135,197,14,12,ES_AUTOHSCROLL | ES_READONLY
 END
 
-IDD_BRUTEFORCE DIALOG  0, 0, 277, 158
+IDD_BRUTEFORCE DIALOGEX 0, 0, 277, 158
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Analiza Brutalnej Si³y"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     COMBOBOX        IDC_KEY_LEN,56,78,30,88,CBS_DROPDOWNLIST | WS_VSCROLL | 
                     WS_TABSTOP
@@ -1785,6 +1785,7 @@ BEGIN
     LTEXT           "Wprowad¿ <00 ** AB **  **> aby przeszukaæ wszystkie klucze rozpoczynaj¹ce siê bajtem zerowym, pó¿niej bajtem nieznanym, bajtem <AB>, i ostatnim - nieznanym.",
                     IDC_STATIC,42,33,225,18
     LTEXT           "bit",IDC_STATIC,87,82,8,8
+    DEFPUSHBUTTON   "Analysis &Options",IDOK2,104,131,68,17
 END
 
 IDD_SHOW_KEY_PARAMETER DIALOGEX 0, 0, 317, 156
@@ -13572,10 +13573,10 @@ BEGIN
     EDITTEXT        IDC_EDIT66,135,197,14,12,ES_AUTOHSCROLL | ES_READONLY
 END
 
-IDD_BRUTEFORCE DIALOG  0, 0, 277, 159
+IDD_BRUTEFORCE DIALOGEX 0, 0, 277, 159
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Brute-Force Analyse"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     COMBOBOX        IDC_KEY_LEN,69,82,30,82,CBS_DROPDOWNLIST | WS_VSCROLL | 
                     WS_TABSTOP
@@ -13587,11 +13588,12 @@ BEGIN
     LTEXT           "Beispiel:",IDC_STATIC,10,33,30,8
     LTEXT           "Schlüssellänge:",IDC_STATIC,10,86,50,8
     LTEXT           "Tipp:",IDC_STATIC,10,60,22,8
-    LTEXT           "Die Suchzeit bewegt sich im Bereich von Minuten oder Stunden, wenn sie höchstens 6 Sterne <*> (= 24 Bit) verwenden.",
+    LTEXT           "Die Suchzeit bewegt sich im Bereich von Minuten oder Stunden, wenn Sie höchstens 6 Sterne <*> (= 24 Bit) verwenden.",
                     IDC_STATIC,40,60,227,18
     LTEXT           "Mit der Eingabe <00 ** AB ** ... **>  durchsuchen Sie alle Schlüssel, die mit einem Nullbyte beginnen, gefolgt von einem unbekannten Byte, dem Byte <AB>, und einem unbekannten Rest.",
                     IDC_STATIC,40,33,227,26
     LTEXT           "Bit",IDC_STATIC,100,86,9,8
+    DEFPUSHBUTTON   "Analyse&optionen",IDOK2,104,133,68,17
 END
 
 IDD_SHOW_KEY_PARAMETER DIALOG  0, 0, 317, 156
@@ -20700,6 +20702,11 @@ BEGIN
         HORZGUIDE, 412
     END
 
+    IDD_BRUTEFORCE, DIALOG
+    BEGIN
+        HORZGUIDE, 150
+    END
+
     IDD_KEY_HOMOPHONE, DIALOG
     BEGIN
         VERTGUIDE, 14
@@ -22146,7 +22153,7 @@ BEGIN
     IDS_STRING_PA_HEX       "Periodeninhalt (Hex)"
     IDS_STRING_PA_FSBDTITLE "Ausgabe der Periodenanalyse in"
     IDS_STRING_RSATUT_WRONG_PUBLICKEY 
-                            "Der Parameter e ist nicht Teilerfremd zu phi(N). Wählen sie einen neuen öffentlichen Schlüssel (Beispiel e =2^16+1)."
+                            "Der Parameter e ist nicht teilerfremd zu phi(N). Wählen sie einen neuen öffentlichen Schlüssel (Beispiel e =2^16+1)."
 END
 
 STRINGTABLE 
@@ -23750,7 +23757,7 @@ BEGIN
     IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT 
                             "Zeilen-Spalten Matrix-Vektorprodukt"
     IDS_LISTBRUTEFORCECANDIDATES_HEADER 
-                            "Die Brute-Force Analyse entschlüsselte das Chiffrat mit allen möglichen Schlüssel aus dem selektierten Schlüsselraum und bestimmte dann für jede entschlüsselte Nachricht den Entropiewert. Diese Liste enthält die entschlüsselten Nachrichten mit den niedrigsten Entropiewerten.\nGerade bei sehr kurzen Chiffraten kann es sein, dass es falsche Kandidaten mit einem kleinen Entropiewert gibt. Sie haben hier die Möglichkeit, den Kandidaten mit der richtigen Entschlüsselung auszuwählen."
+                            "Die Brute-Force Analyse entschlüsselte das Chiffrat mit allen möglichen Schlüsseln aus dem selektierten Schlüsselraum und bestimmte dann für jede entschlüsselte Nachricht den Entropiewert. Diese Liste enthält die entschlüsselten Nachrichten mit den niedrigsten Entropiewerten.\nGerade bei sehr kurzen Chiffraten kann es sein, dass es falsche Kandidaten mit einem kleinen Entropiewert gibt. Sie haben hier die Möglichkeit, den Kandidaten mit der richtigen Entschlüsselung auszuwählen."
 END
 
 STRINGTABLE 
@@ -25403,9 +25410,9 @@ CAPTION "Playfair Analysis"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_MYTXT,7,307,418,15,ES_UPPERCASE | ES_AUTOHSCROLL
-    CONTROL         "&5x5 Matrix",IDC_RAD6,"Button",BS_AUTORADIOBUTTON | 
+    CONTROL         "&5x5 matrix",IDC_RAD6,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,16,73,50,8
-    CONTROL         "&6x6 Matrix",IDC_RAD5,"Button",BS_AUTORADIOBUTTON,81,73,
+    CONTROL         "&6x6 matrix",IDC_RAD5,"Button",BS_AUTORADIOBUTTON,81,73,
                     50,8
     CONTROL         "&Duplicates are ignored",IDC_CHECK1,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,16,59,92,8
@@ -25532,10 +25539,10 @@ BEGIN
     EDITTEXT        IDC_EDIT66,135,197,14,12,ES_AUTOHSCROLL | ES_READONLY
 END
 
-IDD_BRUTEFORCE DIALOG  0, 0, 277, 158
+IDD_BRUTEFORCE DIALOGEX 0, 0, 277, 158
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Brute-Force Analysis"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     COMBOBOX        IDC_KEY_LEN,56,78,30,88,CBS_DROPDOWNLIST | WS_VSCROLL | 
                     WS_TABSTOP
@@ -25552,6 +25559,7 @@ BEGIN
     LTEXT           "Enter <00 ** AB ** ... **>  to search all keys starting with a zero byte, followed by an unknown byte, the byte <AB> and an unknown tail.",
                     IDC_STATIC,42,33,225,18
     LTEXT           "bit",IDC_STATIC,87,82,8,8
+    DEFPUSHBUTTON   "Analysis &Options",IDOK2,104,131,68,17
 END
 
 IDD_SHOW_KEY_PARAMETER DIALOGEX 0, 0, 317, 156

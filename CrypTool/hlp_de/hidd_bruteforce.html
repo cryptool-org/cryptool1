@@ -15,9 +15,9 @@
 
 <BODY>
 
-<h3>Dialog Brute-Force Analyse (Suchbereich/Schlüsselraum angeben)</h3>
+<h3>Dialog Brute-Force-Analyse (Suchbereich/Schlüsselraum angeben)</h3>
 
-<P>Sie erreichen diesen Dialog über den Menüeintrag <a href="menu_analyze.html">Analyse</a> \ <a href="menu_analysis_symmetricmodern.html">Symmetrische Verschlüsselung (modern)</a> und das entsprechende Untermenü.</P>
+<P>Sie erreichen diesen Dialog über den Menüeintrag <a href="menu_analyze.html">Analyse</a> \ <a href="menu_analysis_symmetricmodern.html">Symmetrische Verschlüsselung (modern)</a> und das entsprechende Untermenü für das Verfahren.</P>
 
 <IMG src="images/bruteforcekeyrange.gif" alt="bruteforcekeyrange.gif">
 
@@ -47,13 +47,23 @@
 
 <P><A href="hid_analyse_aes_twofish.html">Twofish</A></P>
 
-<P>der Schlüsselbereich angegeben, der bei dem <!--ZZZPOPUP--><A href="bruteforce.html">Brute-Force Angriff</A> durchsucht wird.</P>
+<P>der Schlüsselbereich angegeben, der bei dem <!--ZZZPOPUP--><A href="bruteforce.html">Brute-Force-Angriff</A> durchsucht wird.</P>
 
-<P>Nachdem Sie den Suchraum der Schlüsselsuche eingegeben haben, können Sie den <!--ZZZPOPUP--><A href="bruteforce.html">Brute-Force Angriff</A> starten, indem Sie auf den Knopf <B>Starten</B> klicken oder die <B>Eingabetaste</B> betätigen. <B>Abbrechen</B> beendet die Analyse.</P>
+<P>Nachdem Sie den Suchraum der Schlüsselsuche eingegeben haben, können Sie den <!--ZZZPOPUP--><A href="bruteforce.html">Brute-Force-Angriff</A> starten, indem Sie auf den Knopf <B>Starten</B> klicken oder die <B>Eingabetaste</B> betätigen. <B>Abbrechen</B> beendet die Analyse.</P>
 
-<P>Die Schlüssel werden in hexadezimaler Form eingegeben.</P>
+<P>Die Schlüssel werden in hexadezimaler Form eingegeben, d.h. jede Stelle steht für 2^4 Werte.</P>
 
-<P>Dabei schreibt man für unbekannte Stellen einfach ein *. So werden etwa bei der Eingabe "<B>10 ** 23 00 ... 00</B>" insgesamt (2^4)*(2^4) = 256 Schlüssel durchsucht. Diese sind "10 00 23 00 ... 00", "10 10 23 00 ... 00", "10 20 23 00 ... 00", ... "10 F0 23 00 ... 00" ... "10 FF 23 00 ... 00".  Fünf unbekannte Stellen bedeuten schon, dass maximal 2^(4*5) = 1.048.576 Schlüssel durchprobiert werden.</P>
+<P>Dabei schreibt man für unbekannte Stellen einfach ein *. So werden etwa bei der Eingabe "<B>10 ** 23 00 ... 00</B>" insgesamt (2^4)*(2^4) = 256 Schlüssel durchsucht. Diese sind</P>
+
+<UL>
+<LI>"10 <B>00</B> 23 00 ... 00",</LI>
+<LI>"10 <B>10</B> 23 00 ... 00",</LI>
+<LI>"10 <B>20</B> 23 00 ... 00",</LI>
+<LI>"10 <B>F0</B> 23 00 ... 00",</LI>
+<LI>"10 <B>FF</B> 23 00 ... 00".</LI>
+</UL>
+
+<P>Fünf unbekannte Stellen bedeuten schon, dass maximal 2^(4*5) = 1.048.576 Schlüssel durchprobiert werden.</P>
 
 <P>Die Laufzeit der Analyse hängt hauptsächlich von der Anzahl der unbekannten Stellen ab. Jede zusätzliche unbekannte Stelle verlängert die Suchzeit um den Faktor 16. Außerdem variiert die Laufzeit für die unterschiedlichen Algorithmen und Schlüssellängen. Sie wird zusätzlich davon beeinflusst, wieviele Bytes des Dokuments im Entropietest berücksichtigt werden (siehe hierzu Dialog <A href="hidd_options_analysis.html">Analyseoptionen</A>).</P>
 
@@ -63,7 +73,7 @@
 
 <P><U>Bemerkung 2</U>:</P>
 
-<P>Die Möglichkeit, beliebig viele Sterne für den Schlüsselbereich anzugeben, also auch den Schlüsselraum vollständig absuchen zu lassen, bedeutet nicht, dass man CrypTool als Hackertool anwenden kann. Wie Sie im folgenden Dialog sehen, wird dadurch dem Benutzer nur erfahrbar gemacht, mit welchen riesigen Zeiträumen (z.B. 10^26 Jahre für einen ganzen 128-Bit-Schlüssel) zu rechnen ist, wenn die Schlüssel groß genug sind und das Verfahren gut genug funktioniert.</P>
+<P>Die Möglichkeit, beliebig viele Sterne für den Schlüsselbereich anzugeben, also auch den Schlüsselraum vollständig absuchen zu lassen, bedeutet nicht, dass man CrypTool als Hackertool anwenden kann. Dadurch wird dem Benutzer nur erfahrbar gemacht, mit welchen riesigen Zeiträumen (z.B. 10^26 Jahre für einen ganzen 128-Bit-Schlüssel) zu rechnen ist, wenn die Schlüssel groß genug sind und das Verfahren gut genug funktioniert.</P>
 
 </BODY>
 </HTML>

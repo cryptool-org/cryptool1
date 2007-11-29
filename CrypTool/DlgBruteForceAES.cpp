@@ -52,6 +52,7 @@ statement from your version.
 #include "CrypToolApp.h"
 #include "HexEdit.h"
 #include "DlgBruteForceAES.h"
+#include ".\dlgbruteforceaes.h"
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -90,6 +91,7 @@ BEGIN_MESSAGE_MAP(CDlgBruteForceAES, CDialog)
 	ON_CBN_SELCHANGE(IDC_KEY_LEN, OnSelchangeKeyLen)
 	ON_EN_SETFOCUS(IDC_EDIT1, OnSetfocusHexEdit)
 	//}}AFX_MSG_MAP
+	ON_BN_CLICKED(IDOK2, OnBnClickedOk2)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -317,4 +319,9 @@ void CDlgBruteForceAES::OnOK()
 void CDlgBruteForceAES::OnSetfocusHexEdit() 
 {
 	m_text_ctl.SetSel(0,0);	
+}
+
+void CDlgBruteForceAES::OnBnClickedOk2()
+{
+	theApp.Options.DoModal();
 }
