@@ -53,7 +53,9 @@
 
 <P>Dla nieznanych danych klucza na odpowiednich pozycjach wprowadzamy *. Tak wiêc jeœli wpiszesz: "<B>10 ** 23 00 ... 00</B>" wszystkie z  (2^4)*(2^4) = 256 kluczy zostan¹ przeszukane. S¹ to: "10 00 23 00 ... 00", "10 10 23 00 ... 00", "10 20 23 00 ... 00",... "10 F0 23 00 ... 00"... "10 FF 23 00 ... 00".  Piêæ nieznanych pozycji oznacza, ¿e przeszukanych bêdzie w najgorszym przypadku 2^(4*5) = 1,048,576 mo¿liwych kluczy.</P>
 
-<P>Czas trwania ataku brutalnej si³y zale¿y g³ównie od liczby nieznanych pozycji w kluczu. Ka¿da nieznana pozycja zwiêksza czas ataku 16 razy. Czas ataku zale¿y, tak¿e od wybranego algorytmu szyfrowania i od d³ugoœci klucza. Jest tak¿e zale¿ny od liczby bajtów dokumentu, którego entropia zosta³a zbadana przed uruchomieniem algorytmu ataku, aby dowiedzieæ siê wiêcej otwórz <A href="hidd_options_analysis.html">opcje kryptoanalizy</A>.</P>
+<P>Czas trwania ataku brutalnej si³y zale¿y g³ównie od liczby nieznanych pozycji w kluczu. Ka¿da nieznana pozycja zwiêksza czas ataku 16 razy. Czas ataku zale¿y, tak¿e od wybranego algorytmu szyfrowania i od d³ugoœci klucza. Jest tak¿e zale¿ny od liczby bajtów dokumentu, którego entropia zosta³a zbadana przed uruchomieniem algorytmu ataku, aby dowiedzieæ siê wiêcej otwórz <A href="hidd_options_analysis.html">opcje kryptoanalizy</A>:</P>
+
+<IMG src="images/analysis_options.gif" alt="analysis_options.gif">
 
 <P><U>Uwaga 1</U>:</P>
 
@@ -64,6 +66,8 @@
 <P>Mo¿liwoœæ pozostawienia dowolnej liczby nieznanych pozycji w poszukiwanym kluczu (umo¿liwia to przeszukiwanie bardzo du¿ej przestrzeni kluczy), nie oznacza, ¿e  CrypTool mo¿e byæ u¿yty jako narzêdzie hakierskie.</P>
 
 <P>Jak widaæ w pokazanym oknie dialogowym, CrypTool daje u¿ytkownikowi tylko mo¿liwoœæ obserwacji, jak d³ugi czas jest potrzebny (na przyk³ad. 10^26 lat dla ca³ego 128 bitowego klucza), jeœli d³ugoœæ klucza jest wystarczaj¹co du¿a i zastosowana jest poprawna metoda..</P>
+
+<IMG src="images/brute_force_progress.gif" alt="brute_force_progress.gif">
 
 </BODY>
 </HTML>
