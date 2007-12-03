@@ -324,7 +324,7 @@ char *Lowercase(register char *str) {
     while (*str)
     {
 	//FIXME: *(ptr++) = CRACK_TOLOWER(*str);
-	*(ptr++) = CRACK_TOLOWER(*str);
+	*(ptr++) = CRACK_TOLOWER((unsigned char)*str);
 	str++;
     }
     *ptr = '\0';
@@ -345,7 +345,7 @@ char *prepare_password(char *password)
 
 // Why the trimming??
 	Trim(pwd_prepared);
-    while (*ptr_pwd_prepared && isspace(*ptr_pwd_prepared))
+    while (*ptr_pwd_prepared && isspace((unsigned char)*ptr_pwd_prepared))
     {
 		ptr_pwd_prepared++;
     }

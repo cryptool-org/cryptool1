@@ -17493,13 +17493,11 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,164,50,14
     PUSHBUTTON      "Abbrechen",IDCANCEL,193,164,50,14
-    GROUPBOX        "Beschreibung",IDC_STATIC,7,7,236,52
+    GROUPBOX        "Beschreibung",IDC_STATIC,7,7,236,45
     GROUPBOX        "Mindestanforderung an Passwörter",IDC_STATIC,7,65,236,
                     91
-    LTEXT           "Hier können Sie einstellen, nach welchen Richtlinien Passwörter im Rahmen von CrypTool bewertet werden.",
-                    IDC_STATIC,20,20,210,16
-    LTEXT           "Erfüllt ein Passwort die von Ihnen konfigurierten Richtlinien nicht, so weist Sie der Passwort-Qualitätsmesser darauf hin.",
-                    IDC_STATIC,20,36,210,16
+    LTEXT           "Hier können Sie einstellen, welche Mindestanforderungen der in CrypTool integrierte Passwort-Qualitätsmesser an Ihre Passwörter stellt.",
+                    IDC_STATIC,20,20,210,24
     RTEXT           "Länge:",IDC_STATIC,30,80,50,8
     RTEXT           "Ziffern:",IDC_STATIC,30,99,50,8
     RTEXT           "Sonderzeichen:",IDC_STATIC,30,118,50,8
@@ -29265,6 +29263,8 @@ BEGIN
                     286,100
     EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,222,260,80,ES_MULTILINE | 
                     ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
+    DEFPUSHBUTTON   "Password Guidelines",ID_CONFIGURE_PASSWORD_GUIDELINES,
+                    110,319,80,14
 END
 
 IDD_LIST_RESULTS DIALOGEX 0, 0, 434, 211
@@ -29290,6 +29290,35 @@ BEGIN
     DEFPUSHBUTTON   "&Continue",IDOK,178,103,50,14
     PUSHBUTTON      "&Back",IDCANCEL,7,103,50,14
     LTEXT           "Statisch",IDC_TEXT_INFO,7,7,221,88
+END
+
+IDD_PASSWORD_GUIDELINES DIALOGEX 0, 0, 250, 185
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Password Guidelines"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,164,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,193,164,50,14
+    GROUPBOX        "Description",IDC_STATIC,7,7,236,45
+    GROUPBOX        "Minimum requirements for passwords",IDC_STATIC,7,65,236,
+                    91
+    LTEXT           "Here you can adjust the minimum requirements for passwords checked by the password quality meter that is integrated in CrypTool.",
+                    IDC_STATIC,20,20,210,24
+    RTEXT           "Length:",IDC_STATIC,30,80,50,8
+    RTEXT           "Digits:",IDC_STATIC,30,99,50,8
+    RTEXT           "Special characters:",IDC_STATIC,18,118,62,8
+    EDITTEXT        IDC_EDIT_PASSWORD_LENGTH,90,78,20,14,ES_CENTER | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PASSWORD_DIGITS,90,97,20,14,ES_CENTER | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PASSWORD_SPECIAL,90,116,20,14,ES_CENTER | 
+                    ES_AUTOHSCROLL
+    LTEXT           "characters",IDC_STATIC,115,80,45,8
+    LTEXT           "characters",IDC_STATIC,115,99,45,8
+    LTEXT           "characters",IDC_STATIC,115,118,46,8
+    EDITTEXT        IDC_EDIT_PASSWORD_SPECIAL_GROUP,90,135,140,14,
+                    ES_AUTOHSCROLL
 END
 
 
@@ -33208,6 +33237,21 @@ BEGIN
         RIGHTMARGIN, 228
         TOPMARGIN, 7
         BOTTOMMARGIN, 117
+    END
+
+    IDD_PASSWORD_GUIDELINES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 243
+        VERTGUIDE, 20
+        VERTGUIDE, 80
+        VERTGUIDE, 90
+        VERTGUIDE, 110
+        VERTGUIDE, 115
+        VERTGUIDE, 230
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 178
+        HORZGUIDE, 20
     END
 END
 #endif    // APSTUDIO_INVOKED
