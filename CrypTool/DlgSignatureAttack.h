@@ -98,6 +98,8 @@ private:
 	void GenerateMessageText(int Errorcode, UINT MessageBoxStyle = MB_ICONEXCLAMATION);
 	void BrowseDocument(CString &);
 	bool AreValidPaths();
+public:
+	afx_msg void OnBnClickedButtonUsedefaultmessages();
 };
 
 //{{AFX_INSERT_LOCATION}}

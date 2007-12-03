@@ -3128,27 +3128,27 @@ BEGIN
                     IDC_STATIC,20,74,253,16
 END
 
-IDD_SIGNATURE_ATTACK DIALOG  0, 0, 328, 319
+IDD_SIGNATURE_ATTACK DIALOGEX 0, 0, 328, 319
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Atak na wartoœæ hasz podpisu cyfrowego"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "&Rozpocznij poszukiwania",IDC_COMPUTE,28,280,108,17
     PUSHBUTTON      "&Anuluj",IDCANCEL,221,280,78,17
-    GROUPBOX        "Wybierz plik ""nieszkodliwy""",IDC_STATIC,18,40,291,63
-    GROUPBOX        "Wybierz plik ""niebezpieczny""",IDC_STATIC,18,116,291,
+    GROUPBOX        "Wybierz plik ""nieszkodliwy""",IDC_STATIC,18,54,291,63
+    GROUPBOX        "Wybierz plik ""niebezpieczny""",IDC_STATIC,18,123,291,
                     63
-    EDITTEXT        IDC_FILE_HARMLESS,27,80,205,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Przegl¹daj",IDC_BROWSE_HARMLESS,248,78,50,17
-    EDITTEXT        IDC_FILE_DANGEROUS,27,156,205,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Przegl¹daj",IDC_BROWSE_DANGEROUS,248,154,50,17
+    EDITTEXT        IDC_FILE_HARMLESS,27,94,205,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Przegl¹daj",IDC_BROWSE_HARMLESS,248,92,50,17
+    EDITTEXT        IDC_FILE_DANGEROUS,27,163,205,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Przegl¹daj",IDC_BROWSE_DANGEROUS,248,161,50,17
     PUSHBUTTON      "&Opcje",IDC_OPTIONS,150,280,56,17
     LTEXT           "W tej implementacji ataku, atakuj¹cy próbuje znaleŸæ dwie wiadomoœci, które t³umaczone s¹ na tê sam¹ wartoœæ hasz.",
                     IDC_STATIC,19,13,270,20
     LTEXT           "Atakuj¹cy zak³ada, ¿e jego ofiara podpisze cyfrowo plik ""bezpieczny"".",
-                    IDC_STATIC,28,55,272,22
+                    IDC_STATIC,28,69,272,22
     LTEXT           "W przypadku sukcesu ataku atakuj¹cy mo¿e twierdziæ, ¿e jego ofiara podpisa³a ""niebezpieczny"" dokument, zamiast dokumentu ""nieszkodliwego""",
-                    IDC_STATIC,27,131,271,17
+                    IDC_STATIC,27,138,271,17
     LTEXT           "Klikaj¹c ""rozpocznij poszukiwania"", rozpoczniesz atak, który poszukuje dwóch modyfikacji powy¿szych wiadomoœci, które posiadaæ bêd¹ tak¹ sam¹ wartoœæ hasz.",
                     IDC_STATIC,28,207,270,17
     GROUPBOX        "Rozpocznij poszukiwania/Ustaw opcje",IDC_STATIC,18,192,
@@ -3157,6 +3157,8 @@ BEGIN
                     IDC_STATIC,28,248,270,27
     LTEXT           "Semantyka wiadomoœci nie ró¿ni siê w trakcie ataku, jeœli do modyfikacji u¿ywane s¹ znaki niedrukowane.",
                     IDC_STATIC,28,226,270,19
+    PUSHBUTTON      "Use default messages",IDC_BUTTON_USEDEFAULTMESSAGES,18,
+                    35,291,14
 END
 
 IDD_OPTIONS_SIGNATURE_ATTACK DIALOG  0, 0, 269, 274
@@ -14856,27 +14858,27 @@ BEGIN
     LTEXT           "Static",IDC_HEADING,7,7,186,16
 END
 
-IDD_SIGNATURE_ATTACK DIALOG  0, 0, 328, 319
+IDD_SIGNATURE_ATTACK DIALOGEX 0, 0, 328, 319
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Angriff auf den Hashwert der digitalen Signatur"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "&Nachrichtenpaar suchen",IDC_COMPUTE,28,280,108,17
     PUSHBUTTON      "&Dialog &beenden",IDCANCEL,221,280,78,17
-    GROUPBOX        """Harmlose"" Datei auswählen",IDC_STATIC,18,40,291,63
-    GROUPBOX        """Gefährliche"" Datei auswählen",IDC_STATIC,18,116,291,
+    GROUPBOX        """Harmlose"" Datei auswählen",IDC_STATIC,18,54,291,63
+    GROUPBOX        """Gefährliche"" Datei auswählen",IDC_STATIC,18,123,291,
                     63
-    EDITTEXT        IDC_FILE_HARMLESS,27,80,205,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Suchen ...",IDC_BROWSE_HARMLESS,248,78,50,17
-    EDITTEXT        IDC_FILE_DANGEROUS,27,156,205,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Suchen ...",IDC_BROWSE_DANGEROUS,248,154,50,17
+    EDITTEXT        IDC_FILE_HARMLESS,27,94,205,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Suchen ...",IDC_BROWSE_HARMLESS,248,92,50,17
+    EDITTEXT        IDC_FILE_DANGEROUS,27,163,205,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Suchen ...",IDC_BROWSE_DANGEROUS,248,161,50,17
     PUSHBUTTON      "&Optionen ...",IDC_OPTIONS,150,280,56,17
     LTEXT           "Der hier implementierte Angriff auf die digitale Signatur beruht auf dem Versuch, zwei\nverschiedene Nachrichten mit gleichem Hashwert zu finden.",
                     IDC_STATIC,19,13,270,20
     LTEXT           "Die ""harmlose"" Datei ist eine Nachricht, von der der Angreifer vermutet, dass der\nUnterzeichner sie digital signieren wird.",
-                    IDC_STATIC,28,55,272,22
+                    IDC_STATIC,28,69,272,22
     LTEXT           "Die ""gefährliche"" Datei ist eine Nachricht, von der der Angreifer nach erfolgreichem\nAngriff behaupten wird: ""Diese Nachricht wurde vom Unterzeichner digital signiert.""",
-                    IDC_STATIC,27,131,271,17
+                    IDC_STATIC,27,138,271,17
     LTEXT           "Mit ""Nachrichtenpaar suchen"" starten Sie den Versuch, zu den oben eingestellten\nNachrichten zwei Modifikationen zu finden, die denselben Hashwert haben.",
                     IDC_STATIC,28,207,270,17
     GROUPBOX        "Suche starten / Optionen festlegen",IDC_STATIC,18,192,
@@ -14885,6 +14887,8 @@ BEGIN
                     IDC_STATIC,28,248,270,27
     LTEXT           "Der Sinn (Semantik) der Nachrichten ändert sich während der Suche nicht, da zum\nModifizieren nicht darstellbare bzw. Formatierungszeichen verwendet werden.",
                     IDC_STATIC,28,226,270,19
+    PUSHBUTTON      "Default-Nachrichten benutzen",
+                    IDC_BUTTON_USEDEFAULTMESSAGES,18,35,291,14
 END
 
 IDD_OPTIONS_SIGNATURE_ATTACK DIALOG  0, 0, 269, 274
@@ -26891,26 +26895,26 @@ BEGIN
                     IDC_STATIC,20,74,253,16
 END
 
-IDD_SIGNATURE_ATTACK DIALOG  0, 0, 328, 319
+IDD_SIGNATURE_ATTACK DIALOGEX 0, 0, 328, 319
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Attack on the Hash Value of the Digital Signature"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "&Start search",IDC_COMPUTE,28,280,108,17
     PUSHBUTTON      "&Cancel",IDCANCEL,221,280,78,17
-    GROUPBOX        "Choose ""harmless"" file",IDC_STATIC,18,40,291,63
-    GROUPBOX        "Choose ""dangerous"" file",IDC_STATIC,18,116,291,63
-    EDITTEXT        IDC_FILE_HARMLESS,27,80,205,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Browse ...",IDC_BROWSE_HARMLESS,248,78,50,17
-    EDITTEXT        IDC_FILE_DANGEROUS,27,156,205,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Browse ...",IDC_BROWSE_DANGEROUS,248,154,50,17
+    GROUPBOX        "Choose ""harmless"" file",IDC_STATIC,18,54,291,63
+    GROUPBOX        "Choose ""dangerous"" file",IDC_STATIC,18,123,291,63
+    EDITTEXT        IDC_FILE_HARMLESS,27,94,205,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse ...",IDC_BROWSE_HARMLESS,248,92,50,17
+    EDITTEXT        IDC_FILE_DANGEROUS,27,163,205,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse ...",IDC_BROWSE_DANGEROUS,248,161,50,17
     PUSHBUTTON      "&Options ...",IDC_OPTIONS,150,280,56,17
-    LTEXT           "In this implemented attack at hand the attacker tries to find two different messages which translate to the same hash value.",
+    LTEXT           "The attack implemented here tries to find two different messages which translate to the same hash value.",
                     IDC_STATIC,19,13,270,20
     LTEXT           "The attacker assumes that his victim will digitally sign the ""harmless"" message due to its non vicious content.",
-                    IDC_STATIC,28,55,272,22
+                    IDC_STATIC,28,69,272,22
     LTEXT           "In case of a successful attack the attacker can argue that his victim has digitally signed the ""dangerous"" instead of the ""harmless"" message.",
-                    IDC_STATIC,27,131,271,17
+                    IDC_STATIC,27,138,271,17
     LTEXT           "By clicking ""Start search"" you initiate the attack which searches for two modifications of the messages above which translate to the same hash value.",
                     IDC_STATIC,28,207,270,17
     GROUPBOX        "Start search / Set options",IDC_STATIC,18,192,291,113
@@ -26918,6 +26922,8 @@ BEGIN
                     IDC_STATIC,28,248,270,27
     LTEXT           "The semantics of the messages do not vary throughout the attack as only unprintable or formatting characters are used  to modify them.",
                     IDC_STATIC,28,226,270,19
+    PUSHBUTTON      "Use default messages",IDC_BUTTON_USEDEFAULTMESSAGES,18,
+                    35,291,14
 END
 
 IDD_OPTIONS_SIGNATURE_ATTACK DIALOG  0, 0, 269, 274
@@ -26951,7 +26957,7 @@ BEGIN
     LTEXT           "",IDC_STATIC_SIG_ATT_BITLENGTH_RANGE,128,93,79,8
     LTEXT           "Determine the way messages are modified throughout the attack.",
                     IDC_STATIC,21,137,211,17
-    LTEXT           "Choose one of the six hash functions and set the number of bits that have to match between two hash values so that the attack is considered successful.",
+    LTEXT           "Choose one of the six hash functions, and set the number of bits that have to match between the hash values of the two different messages so that the attack is considered to be successful.",
                     IDC_STATIC,21,22,211,25
     CONTROL         "&Insert blanks",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | 
                     WS_GROUP,21,161,56,10

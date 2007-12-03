@@ -71,8 +71,10 @@ using namespace std;
 #include "OptionsForSignatureAttack.h"
 #include "ErrorcodesForSignatureAttack.h"
 #include "DlgShowProgress.h"
+#include ".\dlgsignatureattack.h"
 
-
+// Verzeichnis, in dem CT gerade läuft (siehe CrypToolApp.cpp)
+extern char *Pfad;
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -116,6 +118,7 @@ BEGIN_MESSAGE_MAP(CDlgSignatureAttack, CDialog)
 	ON_EN_UPDATE(IDC_FILE_DANGEROUS, OnUpdateFileFake)
 	ON_EN_UPDATE(IDC_FILE_HARMLESS, OnUpdateFileOriginal)
 	//}}AFX_MSG_MAP
+	ON_BN_CLICKED(IDC_BUTTON_USEDEFAULTMESSAGES, OnBnClickedButtonUsedefaultmessages)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -718,4 +721,22 @@ void CDlgSignatureAttack::OnCancel()
 	}
 
 	CDialog::OnCancel();
+}
+
+void CDlgSignatureAttack::OnBnClickedButtonUsedefaultmessages()
+{
+	/* The user wants to restore the default settings here. We CAN'T read the settings 
+	from the registry here, because the user might already have changed the registry 
+	entries. Instead, built the path manually here. */
+	char fullPathOriginal[STR_LAENGE_STRING_TABLE+1];
+	char fullPathFake[STR_LAENGE_STRING_TABLE+1];
+	char pathOriginal[STR_LAENGE_STRING_TABLE+1];
+	char pathFake[STR_LAENGE_STRING_TABLE+1];
+	LoadString(AfxGetInstanceHandle(), IDS_SIGATT_HARMLESS, pathOriginal, STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(), IDS_SIGATT_DANGEROUS, pathFake, STR_LAENGE_STRING_TABLE);
+	sprintf(fullPathOriginal, "%s%s", Pfad, pathOriginal);
+	sprintf(fullPathFake, "%s%s", Pfad, pathFake);
+	m_file_harmless = fullPathOriginal;
+	m_file_dangerous = fullPathFake;
+	UpdateData(false);
 }
