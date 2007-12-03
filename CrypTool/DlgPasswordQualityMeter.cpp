@@ -210,5 +210,8 @@ void CDlgPasswordQualityMeter::OnBnClickedCheckShowpassword()
 void CDlgPasswordQualityMeter::OnBnClickedConfigurePasswordGuidelines()
 {
 	CDlgPasswordGuidelines dlg;
-	dlg.DoModal();
+	// user might be confused if we don't update the UI immediately
+	if( dlg.DoModal() == IDOK ) {
+		UpdateUserInterface();
+	}
 }
