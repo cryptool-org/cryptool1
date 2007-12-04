@@ -47,6 +47,7 @@ statement from your version.
 #include "CrypToolApp.h"
 #include "DlgPasswordGuidelines.h"
 #include "CrypToolTools.h"
+#include ".\dlgpasswordguidelines.h"
 
 CDlgPasswordGuidelines::CDlgPasswordGuidelines(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgPasswordGuidelines::IDD, pParent)
@@ -74,9 +75,9 @@ BOOL CDlgPasswordGuidelines::OnInitDialog()
 	CDialog::OnInitDialog();
 
 	// some default values
-	unsigned long minimumLength = 0;
-	unsigned long minimumDigits = 0;
-	unsigned long minimumSpecial = 0;
+	unsigned long minimumLength = 8;
+	unsigned long minimumDigits = 1;
+	unsigned long minimumSpecial = 1;
 	unsigned long buffer = 1024;
 	char *specialGroup = new char[buffer+1];
 	memset(specialGroup, 0, buffer+1);
@@ -139,4 +140,15 @@ void CDlgPasswordGuidelines::OnBnClickedOk()
 
 BEGIN_MESSAGE_MAP(CDlgPasswordGuidelines, CDialog)
 	ON_BN_CLICKED(IDOK, OnBnClickedOk)
+	ON_BN_CLICKED(ID_DEFAULT, OnBnClickedDefault)
 END_MESSAGE_MAP()
+
+void CDlgPasswordGuidelines::OnBnClickedDefault()
+{
+	// this is the hard-coded default for password guidelines
+	stringMinimumLength = "8";
+	stringMinimumDigits = "1";
+	stringMinimumSpecial = "1";
+
+	UpdateData(false);
+}

@@ -615,7 +615,9 @@ char *checkPassword(char *password, char *path, int hidePassword) {
 	   ********************************/
 char joker[] = "********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************";
 
-    strcat(str_fnds, "\r\n\r\nRekonstruktion aus Wörtern, Folgen und Mustern:");
+	LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_RECONSTRUCTION, pc_str, STR_LAENGE_STRING_TABLE);
+    strcat(str_fnds, pc_str);
+	
 	int t_flag = 0;
 
 	for (int j=0; j<=pwd_len; j++)
@@ -625,7 +627,8 @@ char joker[] = "****************************************************************
 				if ( !t_flag )
 				{
 					t_flag++;
-					strcat(str_fnds, "\r\nGefunden wurde(n): ");
+					LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_RECONSTRUCTION_FOUND, pc_str, STR_LAENGE_STRING_TABLE);
+					strcat(str_fnds, pc_str);
 				}
 				else
 					strcat(str_fnds, ", "); 
@@ -637,7 +640,8 @@ char joker[] = "****************************************************************
 				sprintf(tmp_str, "(%i aus %i Zeichen)", i, strlen(password));
 			}
 		
-	strcat(str_fnds, "\r\nMuster: ");
+	LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_RECONSTRUCTION_PATTERNS, pc_str, STR_LAENGE_STRING_TABLE);
+    strcat(str_fnds, pc_str);
 	t_flag = 0;
 	for (int j=0; j<=pwd_len; j++)
 		for (int i=0; i<=pwd_len; i++)
@@ -655,7 +659,8 @@ char joker[] = "****************************************************************
 	if (!t_flag)
 		strcat(str_fnds, " -");
 
-	strcat(str_fnds, "\r\nFolgen: ");
+	LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_RECONSTRUCTION_SEQUENCES, pc_str, STR_LAENGE_STRING_TABLE);
+    strcat(str_fnds, pc_str);
 	t_flag = 0;
 	for (int j=0; j<=pwd_len; j++)
 		for (int i=0; i<=pwd_len; i++)
@@ -674,7 +679,8 @@ char joker[] = "****************************************************************
 	if (!t_flag)
 		strcat(str_fnds, " -");
 
-	strcat(str_fnds, "\r\nTastatur-Folgen: ");
+	LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_RECONSTRUCTION_KEYBOARDSEQUENCES, pc_str, STR_LAENGE_STRING_TABLE);
+    strcat(str_fnds, pc_str);
 	t_flag = 0;
 	for (int j=0; j<=pwd_len; j++)
 		for (int i=0; i<=pwd_len; i++)
@@ -692,7 +698,8 @@ char joker[] = "****************************************************************
 	if (!t_flag)
 		strcat(str_fnds, " -");
 
-	strcat(str_fnds, "\r\nWörterbuch-Einträge: ");
+	LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS, pc_str, STR_LAENGE_STRING_TABLE);
+    strcat(str_fnds, pc_str);
 	t_flag = 0;
 	for (int j=0; j<=pwd_len; j++)
 		for (int i=0; i<=pwd_len; i++)

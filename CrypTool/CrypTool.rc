@@ -5454,14 +5454,14 @@ BEGIN
                     IDC_STATIC,7,7,205,32
 END
 
-IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 300, 340
+IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 300, 350
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Sprawdzenie jakoœci has³a"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,319,50,14
-    PUSHBUTTON      "Anuluj",IDCANCEL,243,319,50,14
+    DEFPUSHBUTTON   "OK",IDOK,7,329,50,14
+    PUSHBUTTON      "Anuluj",IDCANCEL,243,329,50,14
     CONTROL         "",IDC_PROGRESS_KEEPASS,"msctls_progress32",WS_BORDER | 
                     0x1,68,160,150,8
     LTEXT           "KeePass:",IDC_STATIC,31,160,30,8
@@ -5490,8 +5490,8 @@ BEGIN
     LTEXT           "Prezentujemy kilka ró¿nych wskaŸników jakoœci has³a. Dziêki nim mo¿esz\noszacowaæ jego bezpieczeñstwo.",
                     IDC_STATIC,20,44,260,16
     GROUPBOX        "Resistance against dictionary attacks",IDC_STATIC,7,210,
-                    286,100
-    EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,222,260,80,ES_MULTILINE | 
+                    286,110
+    EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,222,260,90,ES_MULTILINE | 
                     ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
 END
 
@@ -5507,6 +5507,36 @@ BEGIN
     DEFPUSHBUTTON   "&Wybieram zaznaczone",IDOK,274,184,86,20
     PUSHBUTTON      "&Anuluj",IDCANCEL,374,184,53,20
     LTEXT           "Static",IDC_HEADER,7,7,420,38
+END
+
+IDD_PASSWORD_GUIDELINES DIALOGEX 0, 0, 250, 185
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Password Guidelines"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,164,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,193,164,50,14
+    GROUPBOX        "Description",IDC_STATIC,7,7,236,45
+    GROUPBOX        "Minimum requirements for passwords",IDC_STATIC,7,65,236,
+                    91
+    LTEXT           "Here you can adjust the minimum requirements for passwords checked by the password quality meter that is integrated in CrypTool.",
+                    IDC_STATIC,20,20,210,24
+    RTEXT           "Length:",IDC_STATIC,30,80,50,8
+    RTEXT           "Digits:",IDC_STATIC,30,99,50,8
+    RTEXT           "Special characters:",IDC_STATIC,18,118,62,8
+    EDITTEXT        IDC_EDIT_PASSWORD_LENGTH,90,78,20,14,ES_CENTER | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PASSWORD_DIGITS,90,97,20,14,ES_CENTER | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PASSWORD_SPECIAL,90,116,20,14,ES_CENTER | 
+                    ES_AUTOHSCROLL
+    LTEXT           "characters",IDC_STATIC,115,80,45,8
+    LTEXT           "characters",IDC_STATIC,115,99,45,8
+    LTEXT           "characters",IDC_STATIC,115,118,46,8
+    EDITTEXT        IDC_EDIT_PASSWORD_SPECIAL_GROUP,90,135,140,14,
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "Default",ID_DEFAULT,100,164,50,14
 END
 
 
@@ -9369,7 +9399,7 @@ BEGIN
         VERTGUIDE, 225
         VERTGUIDE, 280
         TOPMARGIN, 7
-        BOTTOMMARGIN, 333
+        BOTTOMMARGIN, 343
         HORZGUIDE, 20
         HORZGUIDE, 72
         HORZGUIDE, 85
@@ -9389,6 +9419,21 @@ BEGIN
         RIGHTMARGIN, 427
         TOPMARGIN, 7
         BOTTOMMARGIN, 204
+    END
+
+    IDD_PASSWORD_GUIDELINES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 243
+        VERTGUIDE, 20
+        VERTGUIDE, 80
+        VERTGUIDE, 90
+        VERTGUIDE, 110
+        VERTGUIDE, 115
+        VERTGUIDE, 230
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 178
+        HORZGUIDE, 20
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -11792,6 +11837,7 @@ BEGIN
     IDS_HILL_CASE           "U¿yty alfabet (%d znaków)"
     IDS_ROT13_CAESAR_TOO_LARGE_KEY 
                             "Ci¹g wejœciowy jest wiêkszy ni¿ d³ugoœæ alfabetu. \n Ustawiæ wartoœæ automatycznie na 1?"
+    IDS_PQM_PASSWORD_IS_COMPLIANT "TODO"
 END
 
 STRINGTABLE 
@@ -11800,6 +11846,8 @@ BEGIN
     IDS_CLIPBOARD_HEXCOPY   "Zaznaczone dane mog¹ zostaæ umieszczone w schowku niezmienione (domyœlnie) lub zakodowane heksadecymalnie.\n Kodowanie heksadecymalne jest wymagane na przyk³ad jeœli zamierzasz wyeksportowaæ ""niedrukowalne"" znaki do innych aplikacji.\n\nCzy u¿yæ kodowania heksadecymalnego?"
     IDS_CLIPBOARD_HEXPASTE  "Schowek zawiera tylko znaki heksadecymalne. Mog¹ zostaæ umieszczone jako zdekodowane (domyœlnie) lub bez zmian.\n\n Dekodowaæ dane heksadecymalne?"
     IDS_STRING_MEMBER2      "uczestnik"
+    IDS_PQM_PASSWORD_RECONSTRUCTION "TODO"
+    IDS_PQM_PASSWORD_RECONSTRUCTION_FOUND "TODO"
     IDS_SCINTILLA_LEXER_ERROR 
                             "Widok alfabetu nie móg³ zostaæ aktywowany. Prawdopodobnie zosta³a za³adowana inna wersja SCILEXER.DLL\n ni¿ ta, dostarczona z CrypToolem."
     IDS_PQM_CRYPTOOLALPHABETINACTIVE 
@@ -11887,8 +11935,20 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_PQM_PASSWORD_RECONSTRUCTION_PATTERNS "TODO"
+    IDS_PQM_PASSWORD_RECONSTRUCTION_SEQUENCES "TODO"
+    IDS_PQM_PASSWORD_RECONSTRUCTION_KEYBOARDSEQUENCES "TODO"
     IDS_PQM_CRACKLIB_DICTIONARY_PATH "words\\cracklib_dict"
     IDS_PQM_NO_CRACKLIB_DICTIONARY "TODO"
+    IDS_PQM_PASSWORD_COMPLIANT "TODO"
+    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT "TODO"
+    IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS "TODO"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_DIGITS "TODO"
+    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_SPECIAL_CHARACTERS "TODO"
 END
 
 #endif    // Polish resources
@@ -17420,14 +17480,14 @@ BEGIN
                     IDC_STATIC,7,7,205,32
 END
 
-IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 300, 340
+IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 300, 350
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Passwort-Qualitätsmesser"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,319,50,14
-    PUSHBUTTON      "Abbrechen",IDCANCEL,243,319,50,14
+    DEFPUSHBUTTON   "OK",IDOK,7,329,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,243,329,50,14
     GROUPBOX        "Beschreibung",IDC_STATIC,7,7,286,60
     GROUPBOX        "Eingabe des Passworts",IDC_STATIC,7,72,286,70
     GROUPBOX        "Qualität des Passworts basierend auf Hypothesen",
@@ -17457,11 +17517,11 @@ BEGIN
     LTEXT           "Hier sind verschiedene Beispiele für Passwort-Qualitätsmesser aufgeführt, die Ihnen dabei helfen, die Sicherheit Ihres Passworts einzuschätzen.",
                     IDC_STATIC,20,44,260,16
     GROUPBOX        "Resistenz gegen Wörterbuch-Attacken",IDC_STATIC,7,210,
-                    286,100
-    EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,222,260,80,ES_MULTILINE | 
+                    286,110
+    EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,222,260,90,ES_MULTILINE | 
                     ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
     DEFPUSHBUTTON   "Passwort-Richtlinien",ID_CONFIGURE_PASSWORD_GUIDELINES,
-                    110,319,80,14
+                    110,329,80,14
 END
 
 IDD_LIST_RESULTS DIALOGEX 0, 0, 434, 220
@@ -17516,6 +17576,7 @@ BEGIN
     LTEXT           "Zeichen",IDC_STATIC,115,118,46,8
     EDITTEXT        IDC_EDIT_PASSWORD_SPECIAL_GROUP,90,135,140,14,
                     ES_AUTOHSCROLL
+    PUSHBUTTON      "Default",ID_DEFAULT,100,164,50,14
 END
 
 
@@ -21167,7 +21228,7 @@ BEGIN
         VERTGUIDE, 225
         VERTGUIDE, 280
         TOPMARGIN, 7
-        BOTTOMMARGIN, 333
+        BOTTOMMARGIN, 343
         HORZGUIDE, 20
         HORZGUIDE, 72
         HORZGUIDE, 85
@@ -23679,6 +23740,9 @@ BEGIN
     IDS_CLIPBOARD_HEXCOPY   "Die markierten Daten können unverändert (Standard) oder hexadezimal codiert in die Zwischenablage übernommen werden.\nEine hexadezimale Codierung ist z.B. erforderlich, wenn Sie nicht-druckbare Daten in andere Anwendungen exportieren wollen.\n\nHexadezimale Codierung verwenden?"
     IDS_CLIPBOARD_HEXPASTE  "Die Zwischenablage enthält ausschließlich Hexadezimal-Zeichen.\nDiese können entweder decodiert (Standard) oder unverändert eingefügt werden.\n\nSollen die hexadezimalen Daten decodiert werden?"
     IDS_STRING_MEMBER2      "Teilnehmer"
+    IDS_PQM_PASSWORD_RECONSTRUCTION 
+                            "\r\nRekonstruktion aus Wörtern, Folgen und Mustern:"
+    IDS_PQM_PASSWORD_RECONSTRUCTION_FOUND "\r\nGefunden: "
     IDS_SCINTILLA_LEXER_ERROR 
                             "Die Alphabet-Ansicht kann nicht aktiviert werden, wahrscheinlich wurde nicht\ndie mit CrypTool gelieferte SCILEXER.DLL geladen, sondern eine andere."
     IDS_PQM_CRYPTOOLALPHABETINACTIVE 
@@ -23764,20 +23828,25 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_PQM_PASSWORD_RECONSTRUCTION_PATTERNS "\r\nMuster: "
+    IDS_PQM_PASSWORD_RECONSTRUCTION_SEQUENCES "\r\nFolgen: "
+    IDS_PQM_PASSWORD_RECONSTRUCTION_KEYBOARDSEQUENCES "\r\nTastatur-Folgen: "
     IDS_PQM_CRACKLIB_DICTIONARY_PATH "words\\cracklib_dict"
     IDS_PQM_NO_CRACKLIB_DICTIONARY 
                             "Das Öffnen des cracklib-Wörterbuchs an folgender Stelle schlug fehl:\r\n%s"
     IDS_PQM_PASSWORD_COMPLIANT "Passwort-Richtlinie erfüllt:\r\n"
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT 
                             "- Nein (Passwort ist zu kurz)\r\n"
+    IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS 
+                            "\r\nWörterbuch-Einträge: "
 END
 
 STRINGTABLE 
 BEGIN
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_DIGITS 
-                            "- Nein (Passwort enthält zuwenig Ziffern)\r\n"
+                            "- Nein (Passwort enthält zu wenig Ziffern)\r\n"
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_SPECIAL_CHARACTERS 
-                            "- Nein (Passwort enthält zuwenig Sonderzeichen)\r\n"
+                            "- Nein (Passwort enthält zu wenig Sonderzeichen)\r\n"
 END
 
 #endif    // German (Germany) resources
@@ -29229,14 +29298,14 @@ BEGIN
                     IDC_STATIC,7,7,205,32
 END
 
-IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 300, 340
+IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 300, 350
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Password Quality Meter"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,319,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,243,319,50,14
+    DEFPUSHBUTTON   "OK",IDOK,7,329,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,243,329,50,14
     CONTROL         "",IDC_PROGRESS_KEEPASS,"msctls_progress32",WS_BORDER | 
                     0x1,68,160,150,8
     LTEXT           "KeePass:",IDC_STATIC,31,160,30,8
@@ -29266,11 +29335,11 @@ BEGIN
     LTEXT           "Here you can see different examples for password quality meters, helping you to estimate the security of your password.",
                     IDC_STATIC,20,44,260,16
     GROUPBOX        "Resistance against dictionary attacks",IDC_STATIC,7,210,
-                    286,100
-    EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,222,260,80,ES_MULTILINE | 
+                    286,110
+    EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,222,260,90,ES_MULTILINE | 
                     ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
     DEFPUSHBUTTON   "Password Guidelines",ID_CONFIGURE_PASSWORD_GUIDELINES,
-                    110,319,80,14
+                    110,329,80,14
 END
 
 IDD_LIST_RESULTS DIALOGEX 0, 0, 434, 211
@@ -29325,6 +29394,7 @@ BEGIN
     LTEXT           "characters",IDC_STATIC,115,118,46,8
     EDITTEXT        IDC_EDIT_PASSWORD_SPECIAL_GROUP,90,135,140,14,
                     ES_AUTOHSCROLL
+    PUSHBUTTON      "Default",ID_DEFAULT,100,164,50,14
 END
 
 
@@ -33215,7 +33285,7 @@ BEGIN
         VERTGUIDE, 225
         VERTGUIDE, 280
         TOPMARGIN, 7
-        BOTTOMMARGIN, 333
+        BOTTOMMARGIN, 343
         HORZGUIDE, 20
         HORZGUIDE, 72
         HORZGUIDE, 85
@@ -35642,6 +35712,7 @@ BEGIN
     IDS_HILL_CASE           "Used alphabet (%d characters)"
     IDS_ROT13_CAESAR_TOO_LARGE_KEY 
                             "The input is larger than the alphabet length.\nSet the value automaticly to 1?"
+    IDS_PQM_PASSWORD_IS_COMPLIANT "- Yes\r\n"
 END
 
 STRINGTABLE 
@@ -35656,6 +35727,9 @@ BEGIN
     IDS_CLIPBOARD_HEXCOPY   "The marked data can be put into the clipboard unchanged (default) or in hexadecimal encoding.\nHexadecimal encoding is required e.g. if you want to export non-printable data to other applications.\n\nUse hexadecimal encoding?"
     IDS_CLIPBOARD_HEXPASTE  "The clipboard contains hexadecimal characters only. They can be inserted decoded (default) or unchanged.\n\nDecode hexadecimal data?"
     IDS_STRING_MEMBER2      "participant"
+    IDS_PQM_PASSWORD_RECONSTRUCTION 
+                            "\r\nReconstruction from words, sequences and patterns:"
+    IDS_PQM_PASSWORD_RECONSTRUCTION_FOUND "\r\nFound: "
     IDS_SCINTILLA_LEXER_ERROR 
                             "The alphabet view could not be activated, probably not the version of SCILEXER.DLL\nwhich comes with CrypTool was loaded, but a different one."
     IDS_PQM_CRYPTOOLALPHABETINACTIVE 
@@ -35752,9 +35826,25 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_PQM_PASSWORD_RECONSTRUCTION_PATTERNS "\r\nPatterns: "
+    IDS_PQM_PASSWORD_RECONSTRUCTION_SEQUENCES "\r\nSequences: "
+    IDS_PQM_PASSWORD_RECONSTRUCTION_KEYBOARDSEQUENCES 
+                            "\r\nKeyboard sequences: "
     IDS_PQM_CRACKLIB_DICTIONARY_PATH "words\\cracklib_dict"
     IDS_PQM_NO_CRACKLIB_DICTIONARY 
                             "Could not open the cracklib dictionary:\n%s"
+    IDS_PQM_PASSWORD_COMPLIANT "Compliant with password guideline:\r\n"
+    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT 
+                            "- No (Password is too short)\r\n"
+    IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS "\r\nDictionary words: "
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_DIGITS 
+                            "- No (Password contains too few digits)\r\n"
+    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_SPECIAL_CHARACTERS 
+                            "- No (Password contains too few special characters)\r\n"
 END
 
 #endif    // English (U.K.) resources
