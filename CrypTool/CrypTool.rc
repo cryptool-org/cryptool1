@@ -23833,7 +23833,7 @@ BEGIN
     IDS_PQM_PASSWORD_RECONSTRUCTION_KEYBOARDSEQUENCES "\r\nTastatur-Folgen: "
     IDS_PQM_CRACKLIB_DICTIONARY_PATH "words\\cracklib_dict"
     IDS_PQM_NO_CRACKLIB_DICTIONARY 
-                            "Das Öffnen des cracklib-Wörterbuchs an folgender Stelle schlug fehl:\r\n%s"
+                            "Das Öffnen des cracklib-Wörterbuchs an folgender Stelle schlug fehl:\r\n%s\r\nBitte stellen Sie sicher, dass die folgenden Dateien vorhanden sind:\r\n%s.hwm\r\n%s.pwd\r\n%s.pwi"
     IDS_PQM_PASSWORD_COMPLIANT "Passwort-Richtlinie erfüllt:\r\n"
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT 
                             "- Nein (Passwort ist zu kurz)\r\n"
@@ -35832,7 +35832,7 @@ BEGIN
                             "\r\nKeyboard sequences: "
     IDS_PQM_CRACKLIB_DICTIONARY_PATH "words\\cracklib_dict"
     IDS_PQM_NO_CRACKLIB_DICTIONARY 
-                            "Could not open the cracklib dictionary:\n%s"
+                            "Could not open the cracklib dictionary:\n%s\r\nPlease make sure the following files exist:\r\n%s.hwm\r\n%s.pwd\r\n%s.pwi"
     IDS_PQM_PASSWORD_COMPLIANT "Compliant with password guideline:\r\n"
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT 
                             "- No (Password is too short)\r\n"

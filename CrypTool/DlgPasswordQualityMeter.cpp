@@ -176,7 +176,7 @@ void CDlgPasswordQualityMeter::UpdateUserInterface()
 		if(!displayedDictionaryNotFoundMessage) {
 			char tempMessage[STR_LAENGE_STRING_TABLE+1];
 			LoadString(AfxGetInstanceHandle(), IDS_PQM_NO_CRACKLIB_DICTIONARY, pc_str, STR_LAENGE_STRING_TABLE);
-			sprintf(tempMessage, pc_str, fullDictionaryPath);
+			sprintf(tempMessage, pc_str, fullDictionaryPath, fullDictionaryPath, fullDictionaryPath, fullDictionaryPath);
 			MessageBox(tempMessage, "CrypTool", MB_ICONINFORMATION);
 			passwordResistance = tempMessage;
 			// make sure this "annoying" pop-up message is displayed only once
