@@ -85,8 +85,6 @@ char *checkPasswordAgainstPatterns(char *password) {
 	int pwd_len = strlen(password);
 	for (int i = 2; i <= pwd_len/2 && i <= MAX_PATTERN_SIZE; i++)
 	{
-		// if (  pwd_len % i )
-		// 	continue;
 		strncpy(pattern, password, i);
 		char *ptr = password+i;
 		int   steps = pwd_len / i;
@@ -221,7 +219,7 @@ static char *pwd_chr_families[] = {
 // this function checks a password for compliance
 int checkPasswordForCompliance(char *password) {
 	// by default, every password is compliant
-	int result = IDS_PWD_POLICY_COMPLIANT;
+	int complianceCheckResult = IDS_PWD_POLICY_COMPLIANT;
 	// stick to default values in case there are no registry entries
 	unsigned long minimumLength = MINLEN;
 	unsigned long minimumDigits = 1;
@@ -239,14 +237,8 @@ int checkPasswordForCompliance(char *password) {
 		CT_READ_REGISTRY(minimumSpecial, "PQM_GL_MinimumSpecial");
 		CT_READ_REGISTRY(specialGroup, "PQM_GL_SpecialGroup", buffer);
 		CT_CLOSE_REGISTRY();
-
 		// alter special characters group
 		pwd_chr_families[3] = specialGroup;
-	}
-	else
-	{
-		// FIXME: stick to default values (-> same in DlgPasswordGuidelines.{h|cpp})
-		// TODO...
 	}
 
 	int _APLHA   = 0,		 
@@ -286,34 +278,12 @@ int checkPasswordForCompliance(char *password) {
 
 	delete specialGroup;
 
-	if (strlen(password) < minimumLength) result |= IDS_PWD_POLICY_TOOSHORT;
-	if( _number < minimumDigits ) result |= IDS_PWD_POLICY_TOOFEWDIGITS;
-	if( _special < minimumSpecial ) result |= IDS_PWD_POLICY_TOOFEWSPECIALCHARACTERS;
+	// evaluate policy checks
+	if (strlen(password) < minimumLength) complianceCheckResult |= IDS_PWD_POLICY_TOOSHORT;
+	if( _number < minimumDigits ) complianceCheckResult |= IDS_PWD_POLICY_TOOFEWDIGITS;
+	if( _special < minimumSpecial ) complianceCheckResult |= IDS_PWD_POLICY_TOOFEWSPECIALCHARACTERS;
 
-	return result;
-}
-
-// this function checks a password's charset
-int checkPasswordCharset(char *password) {
-	char *jptr, junk[256];
-    jptr = junk;
-    *jptr = '\0';
-
-    for (int i = 0; i < STRINGSIZE && password[i]; i++)
-    {
-		if (!strchr(junk, password[i]))
-		{
-			*(jptr++) = password[i];
-			*jptr = '\0';
-		}
-    }
-
-    if (strlen(junk) < MINDIFF)
-    {
-		return IDS_PWD_NOT_ENOUGH_DIFF_CHARS;
-    }
-
-	return 0;
+	return complianceCheckResult;
 }
 
 /* return a pointer to an lowercase */
@@ -321,14 +291,11 @@ char *Lowercase(register char *str) {
     register char *ptr;
     static char area[STRINGSIZE];
     ptr = area;
-    while (*str)
-    {
-	//FIXME: *(ptr++) = CRACK_TOLOWER(*str);
-	*(ptr++) = CRACK_TOLOWER((unsigned char)*str);
-	str++;
+    while (*str) {
+		*(ptr++) = CRACK_TOLOWER((unsigned char)*str);
+		str++;
     }
     *ptr = '\0';
-
     return (area);
 }
 
@@ -343,7 +310,7 @@ char *prepare_password(char *password)
 	strncpy(pwd_prepared, Lowercase(password), password_len);
 	pwd_prepared[password_len] = '\0';
 
-// Why the trimming??
+	/* Why the trimming?? */
 	Trim(pwd_prepared);
     while (*ptr_pwd_prepared && isspace((unsigned char)*ptr_pwd_prepared))
     {
@@ -355,11 +322,10 @@ char *prepare_password(char *password)
 }
 
 /* Closure matrix */
-	struct closure_info {
-		int flags;
-		int pred;
-	};
-
+struct closure_info {
+	int flags;
+	int pred;
+};
 
 void clean_up(closure_info **closure_matrix, int pwd_len, int check_flags, int rem_flag)
 {
@@ -380,7 +346,10 @@ void clean_up(closure_info **closure_matrix, int pwd_len, int check_flags, int r
 
 }
 
-struct pwd_coord { int ndx, len; };
+struct pwd_coord { 
+	int ndx;
+	int len; 
+};
 
 // this is the main password checking function; it returns 0 if the given path 
 // for the cracklib dictionary is invalid
@@ -412,49 +381,41 @@ char *checkPassword(char *password, char *path, int hidePassword) {
     {
 		if (!(pwp = PWOpen(path, "r")))
 		{
-			perror("PWOpen");
 			// return 0 to indicate the cracklib dictionary could not be found
+			perror("PWOpen");
 			return 0;
 		}
 		strncpy(lastpath, path, STRINGSIZE);
     }
     notfound = PW_WORDS(pwp);
 
-	int id_err;
-	id_err = checkPasswordForCompliance(pwtrunced);
+	int complianceCheckResult = checkPasswordForCompliance(pwtrunced);
 	LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_COMPLIANT, pc_str, STR_LAENGE_STRING_TABLE);
 	strcat(str_fnds, pc_str);
 
 	// construct password evaluation messages
-	if(id_err == IDS_PWD_POLICY_COMPLIANT) {
+	if(complianceCheckResult == IDS_PWD_POLICY_COMPLIANT) {
 		// password seems to be compliant
 		LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_IS_COMPLIANT, pc_str, STR_LAENGE_STRING_TABLE);
 		strcat(str_fnds, pc_str);
 	}
 	// password does not seem to be compliant
 	else {
-        if(id_err & IDS_PWD_POLICY_TOOSHORT) {
+        if(complianceCheckResult & IDS_PWD_POLICY_TOOSHORT) {
 			// password is TOO SHORT
 			LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT, pc_str, STR_LAENGE_STRING_TABLE);
 			strcat(str_fnds, pc_str);
 		}
-		if(id_err & IDS_PWD_POLICY_TOOFEWDIGITS) {
+		if(complianceCheckResult & IDS_PWD_POLICY_TOOFEWDIGITS) {
 			// password contains TOO FEW DIGITS
 			LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_DIGITS, pc_str, STR_LAENGE_STRING_TABLE);
 			strcat(str_fnds, pc_str);
 		}
-		if(id_err & IDS_PWD_POLICY_TOOFEWSPECIALCHARACTERS) {
+		if(complianceCheckResult & IDS_PWD_POLICY_TOOFEWSPECIALCHARACTERS) {
 			// password contains TOO FEW SPECIAL CHARACTERS
 			LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_SPECIAL_CHARACTERS, pc_str, STR_LAENGE_STRING_TABLE);
 			strcat(str_fnds, pc_str);
 		}
-	}
-
-	id_err = checkPasswordCharset(pwtrunced);
-	if ( id_err )
-	{
-		// FIXME 
-		// return 0;
 	}
 
 	char *check_password = prepare_password(pwtrunced);
@@ -525,47 +486,6 @@ char *checkPassword(char *password, char *path, int hidePassword) {
 	word_stack = new pwd_coord[pwd_len*pwd_len];
 	int ptr_word_stack = 0;
 
-#if 0
-	/* ***********************************
-	   pwd closure 
-	   ***********************************/
-	for (int i=0; i<=pwd_len; i++)
-	{
-		for (j=0; j<=pwd_len; j++)
-		{
-			if ( closure_matrix[j][i].flags & DICT_WORDS ) 
-			{
-				word_stack[ptr_word_stack].ndx = j;
-				word_stack[ptr_word_stack].len = i;
-				ptr_word_stack++;
-			}
-		}
-	}
-
-	/* build pwd closure */
-	while ( ptr_word_stack )
-	{
-		ptr_word_stack--;
-		int i = word_stack[ptr_word_stack].len, 
-			j = word_stack[ptr_word_stack].ndx;
-		for (int k=MINLEN_SUBSTR; k<pwd_len; k++)
-			if ( (closure_matrix[j+i][k].flags & DICT_WORDS + COMPOSED_DICT_WORDS) && !(closure_matrix[j][i+k].flags & DICT_WORDS + COMPOSED_DICT_WORDS) )
-			{
-				closure_matrix[j][i+k].flags |= COMPOSED_DICT_WORDS;
-				closure_matrix[j][i+k].pred = i;
-				word_stack[ptr_word_stack].ndx = j;
-				word_stack[ptr_word_stack].len = i+k;
-				ptr_word_stack++;
-			}
-	}		
-
-	/* ***********************************
-	   full closure 
-	   ***********************************/
-#endif 
-
-	ptr_word_stack = 0;
-
 	for (int i=0; i<=pwd_len; i++)
 	{
 		for (j=0; j<=pwd_len; j++)
@@ -606,7 +526,6 @@ char *checkPassword(char *password, char *path, int hidePassword) {
 	clean_up(closure_matrix, pwd_len, SERIALS, SERIALS);
 	clean_up(closure_matrix, pwd_len, KBD_SERIALS, KBD_SERIALS);
 	clean_up(closure_matrix, pwd_len, DICT_WORDS, DICT_WORDS);
-	// clean_up(closure_matrix, pwd_len, COMPOSED_DICT_WORDS + DICT_WORDS, COMPOSED_DICT_WORDS);
 	clean_up(closure_matrix, pwd_len, PATTERN + SERIALS + KBD_SERIALS + DICT_WORDS + COMPOSED_DICT_WORDS + CLOSURE, CLOSURE);
 
 
@@ -617,7 +536,7 @@ char *checkPassword(char *password, char *path, int hidePassword) {
 
 	/* this character is used when the password is to be checked secretly; that means 
 	instead of the actual password, the user is shown an array of wildcard characters */
-	char wildcard = '*';
+	const char wildcard = '*';
 	const int wildcardArraySize = 1024;
 	char wildcardArray[wildcardArraySize];
 	memset(wildcardArray, 0, wildcardArraySize);
@@ -746,10 +665,7 @@ char *checkPassword(char *password, char *path, int hidePassword) {
 	delete []word_stack;
 	for ( int i=0; i<=pwd_len; i++ )
 		delete []closure_matrix[i];
-	delete [] closure_matrix;
-
-
-/* ******************************************************* */
+	delete []closure_matrix;
 
 	return str_fnds;
 }

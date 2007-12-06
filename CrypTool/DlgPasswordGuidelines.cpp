@@ -149,6 +149,7 @@ void CDlgPasswordGuidelines::OnBnClickedDefault()
 	stringMinimumLength = "8";
 	stringMinimumDigits = "1";
 	stringMinimumSpecial = "1";
+	stringSpecialGroup = "^°!\"§$%&/()=?´`\\<>|,;:.-_#\'+*~@";
 
 	UpdateData(false);
 }
