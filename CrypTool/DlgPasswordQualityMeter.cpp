@@ -167,7 +167,7 @@ void CDlgPasswordQualityMeter::UpdateUserInterface()
     LoadString(AfxGetInstanceHandle(), IDS_PQM_CRACKLIB_DICTIONARY_PATH, dictionaryPath, STR_LAENGE_STRING_TABLE);
 	sprintf(fullDictionaryPath, "%s%s", Pfad, dictionaryPath);
     // check password against dictionary attacks (with cracklib)
-	char *result = checkPassword(password.GetBuffer(), fullDictionaryPath, 0);
+	char *result = checkPassword(password.GetBuffer(), fullDictionaryPath, !showPassword);
 	if(result) {
 		passwordResistance = result;
 	}

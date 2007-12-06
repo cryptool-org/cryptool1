@@ -613,7 +613,14 @@ char *checkPassword(char *password, char *path, int hidePassword) {
 	/* ********************************
 	   show substrings 
 	   ********************************/
-char joker[] = "********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************";
+
+
+	/* this character is used when the password is to be checked secretly; that means 
+	instead of the actual password, the user is shown an array of wildcard characters */
+	char wildcard = '*';
+	const int wildcardArraySize = 1024;
+	char wildcardArray[wildcardArraySize];
+	memset(wildcardArray, 0, wildcardArraySize);
 
 	LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_RECONSTRUCTION, pc_str, STR_LAENGE_STRING_TABLE);
     strcat(str_fnds, pc_str);
@@ -634,8 +641,12 @@ char joker[] = "****************************************************************
 					strcat(str_fnds, ", "); 
 				if ( !hidePassword )
 					strncat(str_fnds, password+j, i); 
-				else
-					strncat(str_fnds, joker, i);
+				else {
+					memset(wildcardArray, 0, wildcardArraySize);
+					if(i>wildcardArraySize) i = wildcardArraySize;
+					memset(wildcardArray, wildcard, i);
+					strncat(str_fnds, wildcardArray, strlen(wildcardArray));
+				}
 				char tmp_str[256];
 				sprintf(tmp_str, "(%i aus %i Zeichen)", i, strlen(password));
 			}
@@ -653,8 +664,12 @@ char joker[] = "****************************************************************
 					strcat(str_fnds, ", "); 
 				if ( !hidePassword )
 					strncat(str_fnds, password+j, i); 
-				else
-					strncat(str_fnds, joker, i);
+				else {
+					memset(wildcardArray, 0, wildcardArraySize);
+					if(i>wildcardArraySize) i = wildcardArraySize;
+					memset(wildcardArray, wildcard, i);
+					strncat(str_fnds, wildcardArray, strlen(wildcardArray));
+				}
 			}
 	if (!t_flag)
 		strcat(str_fnds, " -");
@@ -672,9 +687,12 @@ char joker[] = "****************************************************************
 					strcat(str_fnds, ", "); 
 				if ( !hidePassword )
 					strncat(str_fnds, password+j, i); 
-				else
-					strncat(str_fnds, joker, i);
-
+				else {
+					memset(wildcardArray, 0, wildcardArraySize);
+					if(i>wildcardArraySize) i = wildcardArraySize;
+					memset(wildcardArray, wildcard, i);
+					strncat(str_fnds, wildcardArray, strlen(wildcardArray));
+				}
 			}
 	if (!t_flag)
 		strcat(str_fnds, " -");
@@ -692,8 +710,12 @@ char joker[] = "****************************************************************
 					strcat(str_fnds, ", "); 
 				if ( !hidePassword )
 					strncat(str_fnds, password+j, i); 
-				else
-					strncat(str_fnds, joker, i);
+				else {
+					memset(wildcardArray, 0, wildcardArraySize);
+					if(i>wildcardArraySize) i = wildcardArraySize;
+					memset(wildcardArray, wildcard, i);
+					strncat(str_fnds, wildcardArray, strlen(wildcardArray));
+				}
 			}
 	if (!t_flag)
 		strcat(str_fnds, " -");
@@ -711,9 +733,12 @@ char joker[] = "****************************************************************
 					strcat(str_fnds, ", "); 
 				if ( !hidePassword )
 					strncat(str_fnds, password+j, i); 
-				else
-					strncat(str_fnds, joker, i);
-
+				else {
+					memset(wildcardArray, 0, wildcardArraySize);
+					if(i>wildcardArraySize) i = wildcardArraySize;
+					memset(wildcardArray, wildcard, i);
+					strncat(str_fnds, wildcardArray, strlen(wildcardArray));
+				}
 			}
 	if (!t_flag)
 		strcat(str_fnds, " -");
