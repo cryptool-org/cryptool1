@@ -139,7 +139,14 @@ void CDlgRot13Caesar::DisableAlphCode()
 {
 	alphCode = 0;
 	if(caesarSelected)
+	{
+		// WORKAROUND (for the case FirstPOSNull == TRUE AND AlphCode == 0) ---> FIXME
+		if ( m_CtrlKey.GetWindowTextLength() && 0 >= m_CtrlAlphCode.GetWindowTextLength() )
+		{
+			m_CtrlAlphCode.SetWindowText("00");
+		}
 		OnCaesarRad();
+	}
 }
 void CDlgRot13Caesar::OnRot13Rad()
 {
@@ -181,12 +188,17 @@ void CDlgRot13Caesar::OnUpdateAlphCode()
 	{
 		CString str;
 		m_CtrlAlphCode.GetWindowText(str);
+
+		m_CtrlKey.SetWindowText(getAlphChar(str));
+
+/*
 		if(str.GetLength() == 2)
 		{
 			m_CtrlKey.SetWindowText(getAlphChar(str));
 		}
 		else
 			m_CtrlKey.SetWindowText("");
+*/
 	}
 }
 void CDlgRot13Caesar::OnExitAlphCode()
@@ -266,14 +278,6 @@ void CDlgRot13Caesar::OnUpdateKey()
 				else
 					m_dist = (m_dist+1) % alphabet.GetLength();
 
-				//if(firstPosNull)
-				//	m_dist--;
-
-				CString target;
-				target.Format("%d", m_dist);   
-
-				m_dist_control.SetWindowText(target);
-
 				// Output the encryption mapping
 				char to[1024];
 				for (int ii = 0; ii < alphabet.GetLength(); ii ++)
@@ -281,9 +285,16 @@ void CDlgRot13Caesar::OnUpdateKey()
 					to[ii] = alphabet.GetAt((ii+m_dist) % alphabet.GetLength());
 				}
 				to[ii] = '\0';
+
+				// Display the Alphabet Mapping
 				m_CtrlTo.SetWindowText(to);
 
-				// 
+				// Display the CAESAR / ROT13 Key (numerical value)
+				CString target;
+				target.Format("%d", m_dist);   
+				m_dist_control.SetWindowText(target);
+				
+				// Display the CAESAR / ROT13 Key (character value)
 				m_CtrlKey.SetWindowText(m_key);
 
 				// Button Management
@@ -351,6 +362,7 @@ void CDlgRot13Caesar::OnEncrypt()
 		CT_WRITE_REGISTRY(unsigned long(alphCode), "alphCode");
 		CT_CLOSE_REGISTRY();
 	}
+
 	m_Decrypt = 0;
 	OnOK();
 }
@@ -364,6 +376,7 @@ void CDlgRot13Caesar::OnDecrypt()
 		CT_WRITE_REGISTRY(unsigned long(alphCode), "alphCode");
 		CT_CLOSE_REGISTRY();
 	}
+
 	m_Decrypt = 1;
 	OnOK();	
 }
@@ -409,6 +422,7 @@ void CDlgRot13Caesar::EnableFirstPosNull()
 		m_CtrlKey.GetWindowText(str);
 		m_CtrlAlphCode.SetWindowText(getAlphCode(str));
 	}
+	OnUpdateKey();
 }
 void CDlgRot13Caesar::DisableFirstPosNull()
 {
@@ -424,6 +438,7 @@ void CDlgRot13Caesar::DisableFirstPosNull()
 		m_CtrlKey.GetWindowText(str);
 		m_CtrlAlphCode.SetWindowText(getAlphCode(str));
 	}
+	OnUpdateKey();
 }
 void CDlgRot13Caesar::OnTxtOptions()
 {
