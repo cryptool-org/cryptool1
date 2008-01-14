@@ -121,7 +121,7 @@ void SymmetricEncryption(int AlgId, cryptProvider provider,
 UINT SymmetricBruteForce(PVOID p);
 
 BOOL Rot13CaesarAsc(SymbolArray & text, const char *infile);
-void Rot13CaesarAscFinish(SymbolArray & text, const char * infile, char * sKey, BOOL bDecrypt, const char *OldTitle, UINT type,unsigned long firstPosNull);
+void Rot13CaesarAscFinish(SymbolArray & text, const char * infile, char * sKey, BOOL bDecrypt, const char *OldTitle, UINT type, bool keyOffsetZero);
 
 
 

@@ -3640,12 +3640,14 @@ BOOL Rot13CaesarAsc(SymbolArray & text, const char *infile)
 	return TRUE;
 }
 
-void Rot13CaesarAscFinish(SymbolArray & text, const char * infile, char * sKey, BOOL bDecrypt, const char *OldTitle, UINT type,unsigned long firstPosNull)
+void Rot13CaesarAscFinish(SymbolArray & text, const char * infile, char * sKey, BOOL bDecrypt, const char *OldTitle, UINT type, bool keyOffsetZero)
 {
 	char outfile[1024];
 	SymbolArray Key(AppConv);
 	Key.ReadString(sKey);
-	if(firstPosNull == 0) //If Caesar A=0 or A=1
+
+	// handle key offset (whether A=0 or A=1)
+	if(!keyOffsetZero)
 		Key += 1;
 
 // == Encryption / Decryption

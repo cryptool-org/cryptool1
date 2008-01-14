@@ -1,3 +1,46 @@
+/*********************************************************************
+
+Copyright (C) Deutsche Bank AG 1998-2003, Frankfurt am Main
+Copyright (C) Universität Siegen und Darmstadt
+
+This file is part of CrypTool.
+
+CrypTool is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the
+Free Software Foundation; either version 2 of the License, or (at your
+option) any later version.
+
+Foobar is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+for more details.
+
+You should have received a copy of the GNU General Public License
+along with CrypTool; if not, write to the Free Software Foundation,
+Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+
+In addition, as a special exception, Secude GmbH gives permission to
+link the code of this program with the library SECUDE (or with
+modified versions of SECUDE that use the same license as SECUDE), and
+distribute linked combinations including the two. You must obey the
+GNU General Public License in all respects for all of the code used
+other than SECUDE. If you modify this file, you may extend this
+exception to your version of the file, but you are not obligated to do
+so. If you do not wish to do so, delete this exception statement from
+your version.
+ 
+In addition, as a special exception, Shamus Software Ltd. gives
+permission to link the code of this program with the library libmiracl
+(or with modified versions of libmiracl that use the same license as
+libmiracl), and distribute linked combinations including the two. You
+must obey the GNU General Public License in all respects for all of
+the code used other than libmiracl. If you modify this file, you may
+extend this exception to your version of the file, but you are not
+obligated to do so. If you do not wish to do so, delete this exception
+statement from your version.
+
+**********************************************************************/
+
 // DlgRot13Caesar.cpp: Implementierungsdatei
 //
 
@@ -21,8 +64,6 @@ CDlgRot13Caesar::CDlgRot13Caesar(CWnd* pParent /*=NULL*/)
 {
 	//{{AFX_DATA_INIT(CDlgRot13Caesar)
 	//}}AFX_DATA_INIT
-	caesarSelected = 1;
-	m_type = IDS_STRING_CAESAR;
 }
 
 
@@ -30,35 +71,46 @@ void CDlgRot13Caesar::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgRot13Caesar)
-	DDX_Control(pDX, IDC_TO, m_CtrlTo);
-	DDX_Control(pDX, IDC_FROM, m_CtrlFrom);
-	DDX_Control(pDX, ID_ENCRYPT, m_EncryptionButton);
-	DDX_Control(pDX, ID_DECRYPT, m_DecryptionButton);
-	DDX_Control(pDX, IDC_DIST, m_dist_control);
-	DDX_Control(pDX, IDC_KEY, m_CtrlKey);
-	DDX_Control(pDX, IDC_EDIT_ALPHCODE, m_CtrlAlphCode);
+	DDX_Control(pDX, IDC_TO, controlEditTargetAlphabet);
+	DDX_Control(pDX, IDC_FROM, controlEditSourceAlphabet);
+	DDX_Control(pDX, ID_ENCRYPT, controlButtonEncryption);
+	DDX_Control(pDX, ID_DECRYPT, controlButtonDecryption);
+	DDX_Control(pDX, IDC_DIST, controlEditDistance);
+	DDX_Control(pDX, IDC_KEY, controlEditAlphabeticKey);
+	DDX_Control(pDX, IDC_EDIT_ALPHCODE, controlEditNumericKey);
 	//}}AFX_DATA_MAP
-	DDX_Control(pDX, IDC_RADIO2, m_CtrlRadioRot13);
-	DDX_Control(pDX, IDC_MESSAGE_ROT13, m_CtrlMessageRot13);
-	DDX_Control(pDX, IDC_EDIT1, m_CtrlShowAlSize);
+	DDX_Control(pDX, IDC_MESSAGE_ROT13, controlEditMessageROT13);
+	DDX_Control(pDX, IDC_EDIT1, controlEditShowAlphabetSizeAndMapping);
+
+	DDX_Control(pDX, IDC_RADIO1, controlRadioButtonCaesar);
+	DDX_Control(pDX, IDC_RADIO2, controlRadioButtonROT13);
+	DDX_Control(pDX, IDC_RADIO3, controlRadioButtonKeyOffsetZero);
+	DDX_Control(pDX, IDC_RADIO4, controlRadioButtonKeyOffsetOne);
+	DDX_Control(pDX, IDC_RADIO5, controlRadioButtonAlphabetic);
+	DDX_Control(pDX, IDC_RADIO6, controlRadioButtonNumeric);
+
+	DDX_Text(pDX, IDC_KEY, alphabeticKey);
+	DDX_Text(pDX, IDC_EDIT_ALPHCODE, numericKey);
+	DDX_Text(pDX, IDC_FROM, alphabet);
+	DDX_Text(pDX, IDC_TO, targetAlphabet);
+	
 }
 
 
 BEGIN_MESSAGE_MAP(CDlgRot13Caesar, CDialog)
 	//{{AFX_MSG_MAP(CDlgRot13Caesar)
-	ON_BN_CLICKED(IDC_RADIO2, OnRot13Rad)
-	ON_BN_CLICKED(IDC_RADIO1, OnCaesarRad)
-	ON_BN_CLICKED(IDC_RADIO5, DisableAlphCode)
-	ON_BN_CLICKED(IDC_RADIO6, EnableAlphCode)
-	ON_EN_UPDATE(IDC_KEY, OnUpdateKey)
-	ON_EN_UPDATE(IDC_EDIT_ALPHCODE, OnUpdateAlphCode)
+	ON_BN_CLICKED(IDC_RADIO1, onUpdateGUI)
+	ON_BN_CLICKED(IDC_RADIO2, onUpdateGUI)
+	ON_BN_CLICKED(IDC_RADIO3, onUpdateGUI)
+	ON_BN_CLICKED(IDC_RADIO4, onUpdateGUI)
+	ON_BN_CLICKED(IDC_RADIO5, onUpdateGUI)
+	ON_BN_CLICKED(IDC_RADIO6, onUpdateGUI)
+	ON_EN_UPDATE(IDC_KEY, onUpdateGUI)
+	ON_EN_UPDATE(IDC_EDIT_ALPHCODE, onUpdateGUI)
 	ON_BN_CLICKED(IDC_PASTE_KEY, OnPasteKey)
 	ON_BN_CLICKED(ID_ENCRYPT, OnEncrypt)
 	ON_BN_CLICKED(ID_DECRYPT, OnDecrypt)
-	ON_BN_CLICKED(IDC_RADIO3, EnableFirstPosNull)
-	ON_BN_CLICKED(IDC_RADIO4, DisableFirstPosNull)
-	ON_EN_KILLFOCUS(IDC_EDIT_ALPHCODE, OnExitAlphCode)
-	ON_BN_CLICKED(IDC_BUTTON_TxtOpt, OnTxtOptions)
+	ON_BN_CLICKED(IDC_BUTTON_TxtOpt, onTextOptions)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -69,415 +121,108 @@ BOOL CDlgRot13Caesar::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	VERIFY(m_paste.AutoLoad(IDC_PASTE_KEY,this));
-	VERIFY(m_font.CreatePointFont(100,"Courier New"));
-	m_CtrlFrom.SetFont(&m_font);
-	m_CtrlTo.SetFont(&m_font);
-	m_CtrlKey.SetFont(&m_font);
-	m_CtrlKey.SetLimitText(1);
-	m_CtrlAlphCode.SetLimitText(getCifLength());
-	m_CtrlFrom.SetWindowText(theApp.TextOptions.m_alphabet);
-	m_CtrlTo.SetWindowText  ("");
-	m_CtrlKey.SetWindowText ("");
+	// some assertions for debug mode
+	VERIFY(controlBitmapButtonPaste.AutoLoad(IDC_PASTE_KEY,this));
+	VERIFY(font.CreatePointFont(100,"Courier New"));
+	// set monospace font for alphabet display
+	controlEditSourceAlphabet.SetFont(&font);
+	controlEditTargetAlphabet.SetFont(&font);
+	controlEditAlphabeticKey.SetFont(&font);
 
-	GetDlgItem(IDC_BUTTON_TxtOpt)->EnableWindow(!bHexEnabled); //On HexDump disable button
+	// set the limit for the alphabetic key length
+	controlEditAlphabeticKey.SetLimitText(1);
+	// set the limit for the numeric key length (depends on the length of the alphabet)
+	controlEditNumericKey.SetLimitText(getDigitsOfAlphabetLength());
 
+	// some default settings
+	controlRadioButtonCaesar.SetCheck(TRUE);
+	controlRadioButtonKeyOffsetZero.SetCheck(TRUE);
+	controlRadioButtonAlphabetic.SetCheck(TRUE);
+	char charDefaultKey = theApp.TextOptions.m_alphabet[0];
+	CString strDefaultKey;
+	strDefaultKey += charDefaultKey;
+	controlEditAlphabeticKey.SetWindowText(strDefaultKey);
 
-	int length = theApp.TextOptions.m_alphabet.GetLength();
-	if ( length % 2 )
-	{
-		m_CtrlRadioRot13.EnableWindow(FALSE);
-		LoadString(AfxGetInstanceHandle(),IDS_ROT13_INFO_NEGATIVE,pc_str,STR_LAENGE_STRING_TABLE);
-		m_CtrlMessageRot13.SetWindowText(pc_str);
-	}
-
-	LoadString(AfxGetInstanceHandle(),IDS_ROT13_CAESAR_CASE,pc_str,STR_LAENGE_STRING_TABLE);
-	char l_str[1024];
-	sprintf(l_str, pc_str, length);
-	m_CtrlShowAlSize.SetWindowText(l_str);
-
-	CheckRadioButton(IDC_RADIO1, IDC_RADIO2, IDC_RADIO1); 
-	CheckRadioButton(IDC_RADIO5, IDC_RADIO6, IDC_RADIO5);
-	UpdateData();
-
-
-	firstPosNull = 1;
-	alphCode = 0;
-	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS) == ERROR_SUCCESS)
-	{
-		
-		CT_READ_REGISTRY_DEFAULT(firstPosNull, "firstPosNull", firstPosNull);
-		CT_READ_REGISTRY_DEFAULT(alphCode,"alphCode",alphCode);
-		
-		UpdateData(false);
-
-		CT_CLOSE_REGISTRY();
-	}
-	if(!alphCode)
-		CheckRadioButton(IDC_RADIO5, IDC_RADIO6, IDC_RADIO5);
-	else
-		CheckRadioButton(IDC_RADIO5, IDC_RADIO6, IDC_RADIO6);
-
-
-	if(firstPosNull)
-		CheckRadioButton(IDC_RADIO3, IDC_RADIO4, IDC_RADIO3);
-	else
-		CheckRadioButton(IDC_RADIO3, IDC_RADIO4, IDC_RADIO4);
-
-	OnCaesarRad();
+	// update the graphical user interface (main update function)
+	onUpdateGUI();
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
-void CDlgRot13Caesar::EnableAlphCode()
+
+CaesarKey CDlgRot13Caesar::checkPasteKeyVariant(int SID)
 {
-	alphCode = 1;
-	if(caesarSelected)
-		OnCaesarRad();
-}
-void CDlgRot13Caesar::DisableAlphCode()
-{
-	alphCode = 0;
-	if(caesarSelected)
-	{
-		// WORKAROUND (for the case FirstPOSNull == TRUE AND AlphCode == 0) ---> FIXME
-		if ( m_CtrlKey.GetWindowTextLength() && 0 >= m_CtrlAlphCode.GetWindowTextLength() )
-		{
-			m_CtrlAlphCode.SetWindowText("00");
-		}
-		OnCaesarRad();
-	}
-}
-void CDlgRot13Caesar::OnRot13Rad()
-{
-	CString Rot13Key = theApp.TextOptions.m_alphabet.GetAt(theApp.TextOptions.m_alphabet.GetLength() / 2 -1);
-	m_CtrlKey.SetWindowText(Rot13Key);
-	m_CtrlAlphCode.SetWindowText(getAlphCode(Rot13Key));
-	m_CtrlKey.EnableWindow(FALSE);
-	m_CtrlAlphCode.EnableWindow(FALSE);
-	m_type = IDS_STRING_ROT13;
-	m_paste.EnableWindow(FALSE);
-	caesarSelected = 0;
-}
-
-void CDlgRot13Caesar::OnCaesarRad()
-{
-	if ( CheckPasteKeyVariant(IDS_CRYPT_CAESAR) || CheckPasteKeyVariant(IDS_CRYPT_ROT13) )
-		m_paste.EnableWindow(TRUE);
-	else
-		m_paste.EnableWindow(FALSE);
-
-	if(alphCode)
-	{
-		m_CtrlKey.EnableWindow(FALSE);
-		m_CtrlAlphCode.EnableWindow(TRUE);
-		m_CtrlAlphCode.SetFocus();
-	}
-	else
-	{
-		m_CtrlKey.EnableWindow(TRUE);
-		m_CtrlAlphCode.EnableWindow(FALSE);
-		m_CtrlKey.SetFocus();
-	}
-	m_type = IDS_STRING_CAESAR;
-	caesarSelected = 1;
-}
-void CDlgRot13Caesar::OnUpdateAlphCode()
-{
-	if(alphCode)
-	{
-		CString str;
-		m_CtrlAlphCode.GetWindowText(str);
-
-		m_CtrlKey.SetWindowText(getAlphChar(str));
-
-/*
-		if(str.GetLength() == 2)
-		{
-			m_CtrlKey.SetWindowText(getAlphChar(str));
-		}
-		else
-			m_CtrlKey.SetWindowText("");
-*/
-	}
-}
-void CDlgRot13Caesar::OnExitAlphCode()
-{
-		CString cs;
-		m_CtrlAlphCode.GetWindowText(cs);
-
-
-int alphLen = theApp.TextOptions.m_alphabet.GetLength();
-	
-	if(firstPosNull)
-		alphLen--;
-
-	if(cs.GetLength() != getCifLength())
-	{
-		for(int i=cs.GetLength();i<getCifLength();i++)
-		{
-			cs.Insert(0,"0");
-		}
-		m_CtrlAlphCode.SetWindowText(cs);
-	}
-
-
-
-
-	if(_ttoi(cs) < 1 )
-	{
-		cs.Empty();
-		m_CtrlAlphCode.SetWindowText(cs);
-	}
-	else if(_ttoi(cs) > alphLen)
-	{
-		LoadString(AfxGetInstanceHandle(),IDS_ROT13_CAESAR_TOO_LARGE_KEY,pc_str,255);
-		if(AfxMessageBox(pc_str,MB_YESNO,MB_ICONINFORMATION) == 6)
-		{
-			cs = "1";
-			for(int i=cs.GetLength();i<getCifLength();i++)
-				cs.Insert(0,"0");
-
-			m_CtrlAlphCode.SetWindowText(cs);
-		}
-		else
-			m_CtrlAlphCode.SetWindowText("");
-	}
-}
-
-void CDlgRot13Caesar::OnUpdateKey()
-{
-	//if(!alphCode)
-	//{
-	static int BUSY = 0;  // FIXME
-	if (BUSY) return;
-
-	BUSY++;
-
-	BOOL validKey_flag = FALSE;
-	int cStart, cEnd;
-
-	m_CtrlKey.GetSel(cStart, cEnd);
-
-// Read the Key
-	CString alphabet = theApp.TextOptions.m_alphabet;
-	m_CtrlKey.GetWindowText(m_key);
-
-// Process non empty text
-	if ( !m_key.IsEmpty() ) 
-	{
-		if ( theApp.TextOptions.m_ConvertCase )  // Only Capital Letters ?
-			m_key.MakeUpper();
-
-		for (m_dist = 0; m_dist < alphabet.GetLength(); m_dist++)
-			if ( m_key == alphabet.GetAt(m_dist) )
-			{
-				// Inform about the Caesar distance
-				if(firstPosNull)
-                    m_dist = (m_dist) % alphabet.GetLength();
-				else
-					m_dist = (m_dist+1) % alphabet.GetLength();
-
-				// Output the encryption mapping
-				char to[1024];
-				for (int ii = 0; ii < alphabet.GetLength(); ii ++)
-				{
-					to[ii] = alphabet.GetAt((ii+m_dist) % alphabet.GetLength());
-				}
-				to[ii] = '\0';
-
-				// Display the Alphabet Mapping
-				m_CtrlTo.SetWindowText(to);
-
-				// Display the CAESAR / ROT13 Key (numerical value)
-				CString target;
-				target.Format("%d", m_dist);   
-				m_dist_control.SetWindowText(target);
-				
-				// Display the CAESAR / ROT13 Key (character value)
-				m_CtrlKey.SetWindowText(m_key);
-
-				// Button Management
-				m_EncryptionButton.EnableWindow();
-				m_DecryptionButton.EnableWindow();
-				validKey_flag = TRUE;
-				break;
-			}
-	}
-	if ( !validKey_flag ) // ALL BLANK
-	{
-		m_dist_control.SetWindowText("");
-		m_CtrlKey.SetWindowText("");
-		m_CtrlTo.SetWindowText("");
-		m_EncryptionButton.EnableWindow(FALSE);
-		m_DecryptionButton.EnableWindow(FALSE);
-	}
-	m_CtrlKey.SetSel(cStart, cEnd);
-
-	BUSY--;
-	if(!alphCode)
-	{
-
-				CString str;
-				m_CtrlKey.GetWindowText(str);
-				m_CtrlAlphCode.SetWindowText(getAlphCode(str));
-	}
-	//}
-}
-
-char CDlgRot13Caesar::CheckPasteKeyVariant(int SID)
-{
-	CString cs;
-	char ch_key = '\0';
+	CaesarKey theKey;
+	CString theKeyString;
 	LoadString(AfxGetInstanceHandle(),SID,pc_str,STR_LAENGE_STRING_TABLE);
-
-	if ( PasteKey(pc_str,cs) )
-		if (0 <= theApp.TextOptions.m_alphabet.Find(cs))
-			ch_key = cs.GetBuffer(cs.GetLength())[0];
-	return ch_key;
+	if (PasteKey(pc_str, theKeyString)) {
+		// what we get here is a string of the form "A, KEY OFFSET: 0" or "B, KEY OFFSET: 1" (and so 
+		// on), so we separate the actual key (i.e. "A" or "B") from the key offset (i.e. "0" or "1").
+		CString key = theKeyString; key.Delete(1, key.GetLength()-1);
+		CString offset = theKeyString; offset.Delete(0, offset.GetLength()-1);
+		// copy key and offset into Caesar key structure
+		if (0 <= theApp.TextOptions.m_alphabet.Find(key))
+			theKey.key = key.GetBuffer(key.GetLength())[0];
+		theKey.offset = _ttoi(offset);
+	}
+	return theKey;
 }
 
 void CDlgRot13Caesar::OnPasteKey() 
 {
-	char ch_key[2]; ch_key[1] = '\0';
-	ch_key[0] = CheckPasteKeyVariant(IDS_CRYPT_CAESAR);
-	if ( !ch_key[0] )
-		ch_key[0] = CheckPasteKeyVariant(IDS_CRYPT_ROT13);
-
-	if ( ch_key[0] )
-		m_CtrlKey.SetWindowText(ch_key);
-	else
-	{
+	CaesarKey theKey;
+	// check for Caesar key
+	theKey = checkPasteKeyVariant(IDS_CRYPT_CAESAR);
+	// check for ROT13 key, if it's not a Caesar key
+	if(!theKey.key) theKey = checkPasteKeyVariant(IDS_CRYPT_ROT13);
+	
+	// display error message if it's neither a Caesar nor a ROT13 key
+	if(!theKey.key) {
 		LoadString(AfxGetInstanceHandle(),IDS_ROT13_CAESAR_BAD_KEY,pc_str,255);
 		AfxMessageBox(pc_str,MB_ICONEXCLAMATION);
 	}
+	// if the key is valid, enable/disable the respective GUI elements ("simulate" user input)...
+	else {
+		controlRadioButtonAlphabetic.EnableWindow(TRUE);
+		controlRadioButtonNumeric.EnableWindow(FALSE);
+		controlEditAlphabeticKey.SetWindowText(CString(theKey.key));
+		controlEditNumericKey.SetWindowText(calculateNumericKeyFromAlphabeticKey(theKey.key));
+		if(theKey.offset) {
+			controlRadioButtonKeyOffsetZero.SetCheck(0);
+			controlRadioButtonKeyOffsetOne.SetCheck(1);
+		}
+		else {
+			controlRadioButtonKeyOffsetZero.SetCheck(1);
+			controlRadioButtonKeyOffsetOne.SetCheck(0);
+		}
+	}
+
+	// ...and update the GUI
+	onUpdateGUI();
 }
 
 void CDlgRot13Caesar::OnEncrypt() 
 {
-	UpdateData(true);
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
-	{
-		CT_WRITE_REGISTRY(unsigned long(firstPosNull), "firstPosNull");
-		CT_WRITE_REGISTRY(unsigned long(alphCode), "alphCode");
-		CT_CLOSE_REGISTRY();
-	}
-
-	m_Decrypt = 0;
+	modeDecryption = false;
 	OnOK();
 }
 
 void CDlgRot13Caesar::OnDecrypt() 
 {
-	UpdateData(true);
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
-	{
-		CT_WRITE_REGISTRY(unsigned long(firstPosNull), "firstPosNull");
-		CT_WRITE_REGISTRY(unsigned long(alphCode), "alphCode");
-		CT_CLOSE_REGISTRY();
-	}
-
-	m_Decrypt = 1;
+	modeDecryption = true;
 	OnOK();	
 }
-CString CDlgRot13Caesar::getAlphCode(CString alphChar)
-{
-	CString str;
-	for(int i=0;i<theApp.TextOptions.m_alphabet.GetLength();i++)
-	{
-		if(theApp.TextOptions.m_alphabet[i] == alphChar)
-		{
-			if(!firstPosNull)i++;
-			str.Format("%d",i);
-			if(str.GetLength() == 1)
-				str.Insert(0,"0");
-			return str;
-		}
-	}
-	return "";
-}
-CString CDlgRot13Caesar::getAlphChar(CString alphPos)
-{	
-	int pos = _ttoi(alphPos);
-	if(!firstPosNull)pos--;
-	if(pos < 0 || pos >= theApp.TextOptions.m_alphabet.GetLength())
-	{
-	//	m_CtrlAlphCode.SetWindowText("");
-		return "";
-	}
-	else
-		return theApp.TextOptions.m_alphabet[pos];
-}
-void CDlgRot13Caesar::EnableFirstPosNull()
-{
-	firstPosNull = 1;
-	CString str;
-	if(alphCode)
-	{
-		m_CtrlAlphCode.GetWindowText(str);
-		m_CtrlKey.SetWindowText(getAlphChar(str));
-	}
-	else
-	{
-		m_CtrlKey.GetWindowText(str);
-		m_CtrlAlphCode.SetWindowText(getAlphCode(str));
-	}
-	OnUpdateKey();
-}
-void CDlgRot13Caesar::DisableFirstPosNull()
-{
-	firstPosNull = 0;
-	CString str;
-	if(alphCode)
-	{
-		m_CtrlAlphCode.GetWindowText(str);
-		m_CtrlKey.SetWindowText(getAlphChar(str));
-	}
-	else
-	{
-		m_CtrlKey.GetWindowText(str);
-		m_CtrlAlphCode.SetWindowText(getAlphCode(str));
-	}
-	OnUpdateKey();
-}
-void CDlgRot13Caesar::OnTxtOptions()
+
+void CDlgRot13Caesar::onTextOptions()
 {
 
 	theApp.TextOptions.DoModal();
-
-	if(alphCode)
-		OnUpdateAlphCode();
-	else
-		OnUpdateKey();
-	if(caesarSelected)
-		OnCaesarRad();
-	else
-		OnRot13Rad();
-
 	
-	m_CtrlFrom.SetWindowText(theApp.TextOptions.m_alphabet);
+	controlEditSourceAlphabet.SetWindowText(theApp.TextOptions.m_alphabet);
 
-	int length = theApp.TextOptions.m_alphabet.GetLength();
-	if ( length % 2 )
-	{
-		m_CtrlRadioRot13.EnableWindow(FALSE);
-		LoadString(AfxGetInstanceHandle(),IDS_ROT13_INFO_NEGATIVE,pc_str,STR_LAENGE_STRING_TABLE);
-		m_CtrlMessageRot13.SetWindowText(pc_str);
-	}
-	else
-	{
-		m_CtrlRadioRot13.EnableWindow(TRUE);
-		m_CtrlMessageRot13.SetWindowText("");
-	}
-m_CtrlKey.SetFont(&m_font);
-	LoadString(AfxGetInstanceHandle(),IDS_ROT13_CAESAR_CASE,pc_str,STR_LAENGE_STRING_TABLE);
-	char l_str[1024];
-	sprintf(l_str, pc_str, length);
-	m_CtrlShowAlSize.SetWindowText(l_str);
-
-
+	onUpdateGUI();
 }
-int CDlgRot13Caesar::getCifLength()
+int CDlgRot13Caesar::getDigitsOfAlphabetLength()
 {
 	int length = theApp.TextOptions.m_alphabet.GetLength();
 	CString str;
@@ -485,4 +230,172 @@ int CDlgRot13Caesar::getCifLength()
 
 	return str.GetLength();
 
+}
+
+void CDlgRot13Caesar::onUpdateGUI()
+{
+	// caution: ROT13 is only available if the alphabet consists of an even number of characters
+	if(theApp.TextOptions.m_alphabet.GetLength() % 2) {
+		controlRadioButtonCaesar.SetCheck(TRUE);
+		controlRadioButtonROT13.SetCheck(FALSE);
+		controlRadioButtonCaesar.EnableWindow(TRUE);
+		controlRadioButtonROT13.EnableWindow(FALSE);
+		// notify the user
+		LoadString(AfxGetInstanceHandle(),IDS_ROT13_INFO_NEGATIVE,pc_str,STR_LAENGE_STRING_TABLE);
+		controlEditMessageROT13.SetWindowText(pc_str);
+	}
+	else {
+		if(controlRadioButtonCaesar.GetCheck() == BST_CHECKED) controlRadioButtonROT13.SetCheck(FALSE);
+		else controlRadioButtonROT13.SetCheck(TRUE);
+		controlRadioButtonCaesar.EnableWindow(TRUE);
+		controlRadioButtonROT13.EnableWindow(TRUE);
+	}
+
+	UpdateData(TRUE);
+
+	// determine which mode we're in (Caesar or ROT13)
+	if(controlRadioButtonCaesar.GetCheck() == BST_CHECKED) modeCaesar = true;
+	else modeCaesar = false;
+
+	// determine which type of key input the user has chosen (alphabetic or numeric)
+	if(controlRadioButtonAlphabetic.GetCheck() == BST_CHECKED) alphabeticKeyInput = true;
+	else alphabeticKeyInput = false;
+
+	// determine which key offset is to be used (zero or one)
+	if(controlRadioButtonKeyOffsetZero.GetCheck() == BST_CHECKED) keyOffsetZero = true;
+	else keyOffsetZero = false;
+
+	// now do the actual GUI update...
+
+	// *** CAESAR mode ***
+	if(modeCaesar) {
+		// encryption type: Caesar
+		typeEncryption = IDS_STRING_CAESAR;
+		// enable alphabetic key radio button, enable numeric key radio button
+		controlRadioButtonAlphabetic.EnableWindow(TRUE);
+		controlRadioButtonNumeric.EnableWindow(TRUE);
+		if(alphabeticKeyInput) {
+			// enable alphabetic key input field, disable numeric key input field
+			controlEditAlphabeticKey.EnableWindow(TRUE);
+			controlEditNumericKey.EnableWindow(FALSE);
+			// in case we only use upper case letters, capitalize the user input
+			if(theApp.TextOptions.m_ConvertCase) alphabeticKey.MakeUpper();
+			// in case the given alphabetic key is invalid (not found in alphabet or empty), default to an empty key
+			if(theApp.TextOptions.m_alphabet.Find(alphabeticKey) == -1 || alphabeticKey.IsEmpty()) alphabeticKey = "";
+			// calculate the according numeric key
+			numericKey = calculateNumericKeyFromAlphabeticKey(alphabeticKey);
+		}
+		else {
+			// disable alphabetic key input field, enable numeric key input field
+			controlEditAlphabeticKey.EnableWindow(FALSE);
+			controlEditNumericKey.EnableWindow(TRUE);
+			int integerNumericKey = _ttoi(numericKey);
+			// if we have an invalid key (either below zero or larger than the length of the alphabet), default to an empty key
+			if(integerNumericKey < 0 || integerNumericKey > theApp.TextOptions.m_alphabet.GetLength()) alphabeticKey = "";
+			// calculate the according alphabetic key
+			else alphabeticKey = calculateAlphabeticKeyFromNumericKey(numericKey);
+		}
+	}
+	// *** ROT13 mode ***
+	else {
+		// encryption type: ROT13
+		typeEncryption = IDS_STRING_ROT13;
+		// disable alphabetic key radio button, disable numeric key radio button
+		controlRadioButtonAlphabetic.EnableWindow(FALSE);
+		controlRadioButtonNumeric.EnableWindow(FALSE);
+		// disable alphabetic key input field, disable numeric key input field
+		controlEditAlphabeticKey.EnableWindow(FALSE);
+		controlEditNumericKey.EnableWindow(FALSE);
+
+		// set numeric key to half the size of the alphabet
+		int integerNumericKey = theApp.TextOptions.m_alphabet.GetLength() / 2;
+		// we're zero-based here, so increase the key by one
+		integerNumericKey--;
+		numericKey.Format("%d", integerNumericKey);
+		// set alphabetic key accordingly
+		alphabeticKey = calculateAlphabeticKeyFromNumericKey(numericKey);
+	}
+
+	// display the Caesar distance
+	controlEditDistance.SetWindowText(numericKey);
+
+	// display the alphabet
+	alphabet = theApp.TextOptions.m_alphabet;
+
+	// calculate the target alphabet (the shifted one) if there's a valid key
+	if(!alphabeticKey.IsEmpty() && !numericKey.IsEmpty()) {
+		int integerNumericKey = _ttoi(numericKey);
+		int integerAlphabetSize = theApp.TextOptions.m_alphabet.GetLength();
+		char *stringTargetAlphabet = new char[integerAlphabetSize+1];
+		memset(stringTargetAlphabet, 0, integerAlphabetSize+1);
+		for(int i=0; i<integerAlphabetSize; i++) {
+			stringTargetAlphabet[i] = theApp.TextOptions.m_alphabet[(integerNumericKey + i) % integerAlphabetSize];
+		}
+		targetAlphabet = stringTargetAlphabet;
+		delete stringTargetAlphabet;
+	}
+	else {
+		targetAlphabet = "";
+	}
+
+	// display the paste key button only if there's a valid key in the key store
+	if(checkPasteKeyVariant(IDS_CRYPT_CAESAR).key || checkPasteKeyVariant(IDS_CRYPT_ROT13).key)
+		controlBitmapButtonPaste.EnableWindow(TRUE);
+	else controlBitmapButtonPaste.EnableWindow(FALSE);
+
+	// display alphabet size and how the alphabet is mapped (user notification)
+	LoadString(AfxGetInstanceHandle(),IDS_ROT13_CAESAR_CASE,pc_str,STR_LAENGE_STRING_TABLE);
+	char l_str[1024];
+	sprintf(l_str, pc_str, theApp.TextOptions.m_alphabet.GetLength());
+	controlEditShowAlphabetSizeAndMapping.SetWindowText(l_str);
+
+	// display encrypt and decrypt buttons only if there's a valid key and an alphabet
+	if(!alphabeticKey.IsEmpty() && !numericKey.IsEmpty() && !targetAlphabet.IsEmpty()) {
+		controlButtonEncryption.EnableWindow(TRUE);
+		controlButtonDecryption.EnableWindow(TRUE);
+	}
+	else {
+		controlButtonEncryption.EnableWindow(FALSE);
+		controlButtonDecryption.EnableWindow(FALSE);
+	}
+	
+	// display the text options button only if we're not in hex mode
+	GetDlgItem(IDC_BUTTON_TxtOpt)->EnableWindow(!bHexEnabled);
+
+	UpdateData(FALSE);
+}
+
+CString CDlgRot13Caesar::calculateNumericKeyFromAlphabeticKey(CString alphabeticKey) 
+{
+	CString result = "";
+	if(alphabeticKey.IsEmpty()) return result;
+	int position = theApp.TextOptions.m_alphabet.Find(alphabeticKey);
+	// we do have a valid position, that means the alphabetic key is part of the alphabet
+	if(position != -1) {
+		// but if the key offset is not zero, we have to increase the numeric key by one and 
+		// make sure we stay within valid boundaries (% alphabet length)
+		if(!keyOffsetZero) {
+			position++;
+			position = position % theApp.TextOptions.m_alphabet.GetLength();
+		}
+		result.Format("%d", position);
+	}
+	return result;	
+}
+
+CString CDlgRot13Caesar::calculateAlphabeticKeyFromNumericKey(CString numericKey)
+{
+	CString result = "";
+	int position = _ttoi(numericKey);
+	// we do have a valid position, that means the position is within the alphabet range
+	if(position < theApp.TextOptions.m_alphabet.GetLength()) {
+		// but if the key offset is not zero, we have to decrease the numeric key by one unless
+		// it is already zero
+		if(!keyOffsetZero) {
+			if(position <= 0) position = theApp.TextOptions.m_alphabet.GetLength() - 1;
+			else position--;
+		}
+		result = theApp.TextOptions.m_alphabet[position];
+	}
+	return result;
 }

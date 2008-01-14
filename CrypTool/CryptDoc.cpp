@@ -1690,7 +1690,7 @@ void CCryptDoc::OnRot13caesarAsc()
 	{
 		return;
 	}
-	Rot13CaesarAscFinish(text, ContentName, Dlg.m_key.GetBuffer(1), Dlg.m_Decrypt, GetTitle(), Dlg.m_type,Dlg.firstPosNull);	
+	Rot13CaesarAscFinish(text, ContentName, Dlg.GetTheKey().GetBuffer(), Dlg.GetModeDecryption(), GetTitle(), Dlg.GetTypeEncryption(), Dlg.IsKeyOffsetZero());	
 }
 
 
