@@ -84,6 +84,7 @@
 #define IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS 55
 #define IDC_EDIT113                     56
 #define IDS_STRING56                    56
+#define IDS_SECRETSHARINGSHAMIR_LOG_HEADING 56
 #define IDC_EDIT174                     57
 #define IDC_EDIT191                     58
 #define IDD_PLAYFAIR_ANALYSIS           102

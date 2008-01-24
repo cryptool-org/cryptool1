@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -11943,6 +11943,7 @@ BEGIN
     IDS_PQM_PASSWORD_COMPLIANT "TODO"
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT "TODO"
     IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS "TODO"
+    IDS_SECRETSHARINGSHAMIR_LOG_HEADING "TODO"
 END
 
 STRINGTABLE 
@@ -11951,12 +11952,12 @@ BEGIN
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_SPECIAL_CHARACTERS "TODO"
 END
 
-#endif    // Polish resources
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -14154,23 +14155,25 @@ BEGIN
                     IDC_STATIC,18,161,258,25
 END
 
-IDD_PERIODICITY_ANALYSIS DIALOG  0, 0, 382, 266
+IDD_PERIODICITY_ANALYSIS DIALOGEX 0, 0, 382, 266
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Ausgabe der gefundenen Perioden"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "Liste im &Hauptfenster anzeigen",IDOK,7,236,159,22
     PUSHBUTTON      "&Schließen",IDCANCEL,307,236,68,22
     CONTROL         "List1",IDC_LIST_KEYS,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
-                    WS_TABSTOP,7,52,370,169
+                    WS_TABSTOP,7,62,370,159
     LTEXT           "Jede Zeile der Ausgabe unten enthält pro gefundener Periode folgende Informationen:",
                     -1,7,7,368,10
     LTEXT           "- die erste Position in der Datei, wo die Periode startet (das erste Zeichen in der Datei hat den Offset-Wert 0)",
                     -1,7,17,362,8
     LTEXT           "- die Länge der Periode",-1,7,27,310,8
-    LTEXT           "- die ersten maximal 20 Bytes, mit der die Periode beginnt (ausgegeben im ASCII- und Hexformat).",
-                    -1,7,37,310,8
+    LTEXT           "- die ersten maximal 20 Bytes, mit der die Periode beginnt (ausgegeben im ASCII- und Hexformat)",
+                    -1,7,47,310,8
+    LTEXT           "- die Anzahl, wie häufig die Periode vorkommt",-1,7,37,
+                    310,8
 END
 
 IDD_KEY_PERMUTATION DIALOGEX 0, 0, 280, 338
@@ -17218,14 +17221,14 @@ BEGIN
                     IDC_STATIC,13,179,171,8
 END
 
-IDD_SECRETSHARING_INTRO DIALOG  0, 0, 297, 266
+IDD_SECRETSHARING_INTRO DIALOGEX 0, 0, 297, 266
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
 CAPTION "Einleitung Secret Sharing Demo"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,113,245,50,14
-    LTEXT           "Willkommen zur Visualisierung des Secret-Sharing-Verfahrens nach Shamir !",
-                    IDC_STATIC,7,7,238,8
+    DEFPUSHBUTTON   "OK",IDOK,113,237,50,14
+    LTEXT           "Willkommen zur Visualisierung des Secret-Sharing-Verfahrens nach Shamir!",
+                    IDC_STATIC,7,7,236,8
     LTEXT           "Das Verfahren behandelt die folgende Problemstellung:",
                     IDC_STATIC,7,22,177,8
     LTEXT           "Ein geheimer Wert soll unter n Personen so aufgeteilt werden, dass eine einzelne\nPerson keinerlei Information über diesen Wert besitzt. Nur wenn sich mindestens t\nder n Personen zusammenschließen, gelingt die Wiederherstellung des Geheimnisses.",
@@ -17236,16 +17239,16 @@ BEGIN
     LTEXT           "Das Geheimrezept für eine neue Sorte Eiscreme wird in einem Safe eingeschlossen.",
                     IDC_STATIC,7,102,267,8
     LTEXT           "Die folgende interaktive Visualisierung des Verfahrens erfordert Benutzereingaben\nvon Ihnen.",
-                    IDC_STATIC,7,167,267,16
+                    IDC_STATIC,7,158,267,16
     LTEXT           "Weitere Informationen zu diesem Dialog erhalten Sie in der Online-Hilfe, indem Sie F1 drücken.",
-                    IDC_STATIC,7,190,267,17
+                    IDC_STATIC,7,182,267,17
     LTEXT           "Damit kein Mitarbeiter der Versuchung erliegen kann, es aus dem Safe zu nehmen und für viel Geld an die Konkurrenz zu verkaufen, wird die Zahlenkombination unter den 10 Mitarbeitern der Firma aufgeteilt.",
                     IDC_STATIC,7,110,267,24
     LTEXT           "Mindestens 7 Angestellte müssen ihre Teilschlüssel eingeben, um den Tresor zu öffnen und so an die Rezeptur zu gelangen.",
-                    IDC_STATIC,7,134,267,18
+                    IDC_STATIC,7,134,267,16
     CONTROL         "Diesen Dialog in Zukunft nicht mehr anzeigen.",
                     IDC_CHECK_HIDEINTRO,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,51,220,161,10
+                    WS_TABSTOP,51,212,161,10
 END
 
 IDD_SECRETSHARING_REVEAL DIALOGEX 0, 0, 360, 210
@@ -23484,7 +23487,7 @@ BEGIN
     IDS_STRING_LOGSS_1      "Zunächst haben Sie die Parameter des Shamir-Schemas festgelegt. Dabei handelt es sich um das Geheimnis S, die Begrenzung der Teilnehmerzahl l = Max(n), die Teilnehmerzahl n, die Begrenzung für die Primzahl Max(p) und den Schwellenwert t."
     IDS_STRING_LOGSS_2A     "Auf Basis der von Ihnen gemachten Angaben hat CrypTool zufällig eine Primzahl p bestimmt."
     IDS_STRING_LOGSS_4      "Für jeden Teilnehmer wurde eine zufällige Zahl x gewählt. Diese Zahl ist der öffentliche Wert des entsprechenden Teilnehmers:"
-    IDS_STRING_LOGSS_5      "Durch Einsetzen der öffentlichen Werte in das Polynom f(x) erhält jeder Teilnehmer seinen geheimen Wert y (Share):"
+    IDS_STRING_LOGSS_5      "Durch Einsetzen der öffentlichen Werte x in das Polynom f(x) erhält jeder Teilnehmer seinen geheimen Wert y (Share):"
 END
 
 STRINGTABLE 
@@ -23839,6 +23842,8 @@ BEGIN
                             "- Nein (Passwort ist zu kurz)\r\n"
     IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS 
                             "\r\nWörterbuch-Einträge: "
+    IDS_SECRETSHARINGSHAMIR_LOG_HEADING 
+                            "Protokolldatei für das Secret-Sharing-Verfahren nach Shamir"
 END
 
 STRINGTABLE 
@@ -23849,12 +23854,12 @@ BEGIN
                             "- Nein (Passwort enthält zu wenig Sonderzeichen)\r\n"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -25917,7 +25922,7 @@ BEGIN
                     WS_TABSTOP,115,23,228,230
     GROUPBOX        "Selection",IDC_STATIC,7,3,99,122
     LTEXT           "Display of the",IDC_STATIC,20,88,44,8
-    LTEXT           "most common N-Grams (allowed values: 1-5000)",
+    LTEXT           "most common N-grams (allowed values: 1-5000)",
                     IDC_STATIC,20,101,80,20
     LTEXT           "-gram",IDC_STATIC,45,64,25,8
     PUSHBUTTON      "&Text options",IDC_BUTTON_TEXTOPTIONS,7,129,99,23
@@ -26080,23 +26085,25 @@ BEGIN
                     IDC_STATIC,18,161,258,29
 END
 
-IDD_PERIODICITY_ANALYSIS DIALOG  0, 0, 382, 266
+IDD_PERIODICITY_ANALYSIS DIALOGEX 0, 0, 382, 266
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Results of Periodicity Analysis"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&Save list into main window",IDOK,7,236,159,22
     PUSHBUTTON      "&Close",IDCANCEL,307,236,68,22
     CONTROL         "List1",IDC_LIST_KEYS,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
-                    WS_TABSTOP,7,52,370,169
+                    WS_TABSTOP,7,62,370,159
     LTEXT           "Each line below contains the following characteristics of the found cycles:",
                     -1,7,7,368,10
     LTEXT           "- the first position in the file, where the cycle starts (the first character within the file has the offset value 1)",
-                    -1,7,19,356,10
-    LTEXT           "- the length of the cycle",-1,7,29,310,10
+                    -1,7,17,356,10
+    LTEXT           "- the length of the cycle",-1,7,27,310,10
     LTEXT           "- the first maximum 20 bytes of the cycle (presented in ASCII and hex format)",
-                    -1,7,39,310,10
+                    -1,7,47,310,10
+    LTEXT           "- the number, how often the cycle appears",-1,7,37,310,
+                    10
 END
 
 IDD_KEY_PERMUTATION DIALOGEX 0, 0, 280, 338
@@ -28974,12 +28981,12 @@ BEGIN
                     WS_TABSTOP,7,80,133,10
 END
 
-IDD_SECRETSHARING_INTRO DIALOGEX 0, 0, 281, 273
+IDD_SECRETSHARING_INTRO DIALOGEX 0, 0, 281, 258
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
 CAPTION "Introduction Secret Sharing Demonstration"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,113,252,50,14
+    DEFPUSHBUTTON   "OK",IDOK,113,230,50,14
     LTEXT           "Welcome to the visualization of the Shamir Secret-Sharing Scheme!",
                     IDC_STATIC,7,7,238,8
     LTEXT           "The protocol deals with the following problem:",
@@ -28992,15 +28999,15 @@ BEGIN
     LTEXT           "The secret recipe for a new kind of ice cream is locked up in a safe.",
                     IDC_STATIC,7,94,267,11
     LTEXT           "Since this demonstration is an interactive visualization, you will be prompted for certain inputs a couple of times.",
-                    IDC_STATIC,7,173,267,16
+                    IDC_STATIC,7,151,267,16
     LTEXT           "If you need additional information, please feel free to use the CrypTool online help by pressing F1.",
-                    IDC_STATIC,7,198,267,19
+                    IDC_STATIC,7,176,267,19
     LTEXT           "In order to prevent any employee from selling the recipe to a competitor for a great deal of money, the secret combination to open this safe is split up among the 10 employees.",
                     IDC_STATIC,7,102,267,26
     LTEXT           "At least 7 employees have to combine their shares of the key to open the safe and to come into the possession of the recipe.",
-                    IDC_STATIC,7,127,267,19
+                    IDC_STATIC,7,127,267,16
     CONTROL         "Don't show this message again.",IDC_CHECK_HIDEINTRO,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,60,228,115,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,60,206,115,10
 END
 
 IDD_SECRETSHARING_SETUP DIALOGEX 0, 0, 371, 423
@@ -35070,7 +35077,7 @@ STRINGTABLE
 BEGIN
     IDS_modeText_Start      "Welcome to the demonstration of the Challenge-Response-protocol.\r\nYou will develop the protocol in several scenarios.\r\nThe different scenarios can be selected by the buttons on the left side. It makes sense to wade through the scenarios top down.\r\nYou can get further information by the use of the online help. You should take a look at the online help before your first usage.\r\n\r\nPlease continue with 'Introduction' now."
     IDS_modeText_Einfuehrung 
-                            "Introduction: The above shown network with its elements forms the basis of the following scenarios:\r\nQuadrates illustrate computers and their users,\r\nlines show the network connections between these.\r\nYour cast will be the role of the attacker and your task is to get information to authenticate yourself at Server 1. For that purpose the actions link and unlink as well as attack station and quit attacking station are available. All actions can be performed by choosing the corresponding button and then click on the desired station or conduction. Connections between the attacker and a router can be established by choosing 'Link' and click on the according router. By pushing one of the 'Authenticate...' buttons, the authentication protocol is started and data packets are sent between the computers. Attacked computers send a copy of all packets as well as all their secrect data at the attacker. By choosing 'Mask' you can start a man-in-the-middle-attack.\r\nTo restore the initial state of a scenario press 'Reset "
+                            "Introduction: The above shown network with its elements forms the basis of the following scenarios:\r\nQuadrates illustrate computers and their users,\r\nlines show the network connections between these.\r\nYour cast will be the role of the attacker and your task is to get information to authenticate yourself at Server 1. For that purpose the actions link and unlink as well as attack station and quit attacking station are available. All actions can be performed by choosing the corresponding button and then click on the desired station or conduction. Connections between the attacker and a router can be established by choosing 'Link' and click on the according router. By pushing one of the 'Authenticate...' buttons, the authentication protocol is started and data packets are sent between the computers. Attacked computers send a copy of all packets as well as all their secrect data at the attacker. By choosing 'Mask' you can start a man-in-the-middle-attack.\r\nTo restore the initial state of a scenario press 'Reset scenario'."
 END
 
 STRINGTABLE 
@@ -35489,7 +35496,7 @@ BEGIN
     IDS_STRING_LOGSS_1      "At first, you chose the following parameters that determine the Shamir scheme: the secret S, the upper limit of participants l = Max(n), the number of participants n, the upper limit to a prime Max(p) and your threshold t."
     IDS_STRING_LOGSS_2A     "Founded on the values you entered before, CrypTool has randomly chosen a prime number p."
     IDS_STRING_LOGSS_4      "Each participant receives its public value x. Also x has been chosen at random:"
-    IDS_STRING_LOGSS_5      "By applying the polynomial f(x) to every single public value, each participant obtains his secret value y (share):"
+    IDS_STRING_LOGSS_5      "By applying the polynomial f(x) to every single public value x, each participant obtains his secret value y (share):"
 END
 
 STRINGTABLE 
@@ -35837,6 +35844,8 @@ BEGIN
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT 
                             "- No (Password is too short)\r\n"
     IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS "\r\nDictionary words: "
+    IDS_SECRETSHARINGSHAMIR_LOG_HEADING 
+                            "Log file for Shamir's Secret-Sharing Scheme"
 END
 
 STRINGTABLE 
@@ -35847,7 +35856,7 @@ BEGIN
                             "- No (Password contains too few special characters)\r\n"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

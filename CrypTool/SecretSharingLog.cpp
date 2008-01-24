@@ -39,7 +39,13 @@ SecretSharingLog::SecretSharingLog(CString partyLimit_set,
 	this->coeffFlag = coeff_set; 
 
 	CString tmp;
+	
+	// add a heading for the log file
+	tmp.LoadString(IDS_SECRETSHARINGSHAMIR_LOG_HEADING);
+	this->LogText += tmp;
+	this->LogText += BREAK;
 
+	// create the log file content...
 	tmp.LoadString(IDS_STRING_LOGSS_1);
 	this->LogText += tmp;
 	this->LogText += BREAK;
@@ -150,7 +156,7 @@ SecretSharingLog::SecretSharingLog(CString partyLimit_set,
 			this->LogText += ": ";
 			a.Format("%d", Parameter[i]);
 			this->LogText += a;
-			this->LogText += "/";
+			this->LogText += " / ";
 			pc_str << this->Shares[i];
 			std::string y = pc_str;
 			this->LogText += y;
