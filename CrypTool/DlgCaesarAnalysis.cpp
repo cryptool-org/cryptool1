@@ -124,3 +124,39 @@ void CDlgCaesarAnalysis::OnUpdateEdit1()
 	UpdateData(FALSE);
 	m_text_ctl.SetSel(sels,sele);
 }
+
+BOOL CDlgCaesarAnalysis::OnInitDialog()
+{
+	CDialog::OnInitDialog();
+
+	// display the remark regarding the key offset
+	GetDlgItem(IDC_EDIT_KEY_OFFSET_REMARK)->SetWindowText(createKeyOffsetRemark());
+
+	return FALSE;
+}
+
+CString CDlgCaesarAnalysis::createKeyOffsetRemark()
+{
+	// memory allocation
+	char result[STR_LAENGE_STRING_TABLE+1];
+	memset(result, 0, STR_LAENGE_STRING_TABLE+1);
+	char derivedKey[2];
+	memset(derivedKey, 0, 2);
+	char alternativeKey[2];
+	memset(alternativeKey, 0, 2);
+	// build the remark string based on the resource string, the derived key and the alternative key
+	LoadString(AfxGetInstanceHandle(), IDS_CAESAR_ANALYSIS_REMARK, pc_str, STR_LAENGE_STRING_TABLE);
+	memcpy(derivedKey, m_string.GetBuffer(), 1);
+
+	// get the alternative key
+	int pos = theApp.TextOptions.m_alphabet.Find(derivedKey);
+	// take the "next" character in the alphabet after the derived key
+	int newPos = (pos + 1) % theApp.TextOptions.m_alphabet.GetLength();
+	memcpy(alternativeKey, theApp.TextOptions.m_alphabet.GetBuffer() + newPos, 1);
+
+	// mix it all together
+	sprintf(result, pc_str, derivedKey, alternativeKey);
+	// return the resulting string
+	CString theResult = result;
+	return theResult;
+}

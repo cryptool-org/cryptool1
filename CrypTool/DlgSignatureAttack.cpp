@@ -135,6 +135,9 @@ void CDlgSignatureAttack::OnBrowseOriginal()
 	UpdateData(TRUE);
 	BrowseDocument(m_file_harmless);
 	UpdateData(FALSE);
+
+	// activate or deactivate the use-default-messages-button
+	activateOrDeactivateUseDefaultMessagesButton();
 }
 
 void CDlgSignatureAttack::OnBrowseFake() 
@@ -142,6 +145,9 @@ void CDlgSignatureAttack::OnBrowseFake()
 	UpdateData(TRUE);
 	BrowseDocument(m_file_dangerous);
 	UpdateData(FALSE);
+
+	// activate or deactivate the use-default-messages-button
+	activateOrDeactivateUseDefaultMessagesButton();
 }
 
 void CDlgSignatureAttack::OnCompute() 
@@ -613,6 +619,9 @@ BOOL CDlgSignatureAttack::OnInitDialog()
 
 	UpdateData(FALSE);
 
+	// check whether the update button has to be activated
+	activateOrDeactivateUseDefaultMessagesButton();
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
@@ -622,6 +631,9 @@ void CDlgSignatureAttack::OnUpdateFileFake()
 	UpdateData(TRUE);
 	AreValidPaths();
 	UpdateData(FALSE);
+
+	// activate or deactivate the use-default-messages-button
+	activateOrDeactivateUseDefaultMessagesButton();
 }
 
 void CDlgSignatureAttack::OnUpdateFileOriginal() 
@@ -629,6 +641,9 @@ void CDlgSignatureAttack::OnUpdateFileOriginal()
 	UpdateData(TRUE);
 	AreValidPaths();
 	UpdateData(FALSE);
+
+	// activate or deactivate the use-default-messages-button
+	activateOrDeactivateUseDefaultMessagesButton();
 }
 
 bool CDlgSignatureAttack::AreValidPaths()
@@ -739,4 +754,31 @@ void CDlgSignatureAttack::OnBnClickedButtonUsedefaultmessages()
 	m_file_harmless = fullPathOriginal;
 	m_file_dangerous = fullPathFake;
 	UpdateData(false);
+
+	// activate or deactivate the use-default-messages-button
+	activateOrDeactivateUseDefaultMessagesButton();
+}
+
+void CDlgSignatureAttack::activateOrDeactivateUseDefaultMessagesButton()
+{
+	// build the paths to the "default messages" as defined at compile time
+	char fullPathOriginal[STR_LAENGE_STRING_TABLE+1];
+	char fullPathFake[STR_LAENGE_STRING_TABLE+1];
+	char pathOriginal[STR_LAENGE_STRING_TABLE+1];
+	char pathFake[STR_LAENGE_STRING_TABLE+1];
+	LoadString(AfxGetInstanceHandle(), IDS_SIGATT_HARMLESS, pathOriginal, STR_LAENGE_STRING_TABLE);
+	LoadString(AfxGetInstanceHandle(), IDS_SIGATT_DANGEROUS, pathFake, STR_LAENGE_STRING_TABLE);
+	sprintf(fullPathOriginal, "%s%s", Pfad, pathOriginal);
+	sprintf(fullPathFake, "%s%s", Pfad, pathFake);
+	
+	// check whether those paths differ from what is entered in the text boxes; if so, activate the 
+	// button to restore the default settings; in any other case, deactivate it
+	CString stringFullPathOriginal = fullPathOriginal;
+	CString stringFullPathFake = fullPathFake;
+	if(fullPathOriginal != m_file_harmless || fullPathFake != m_file_dangerous) {
+		GetDlgItem(IDC_BUTTON_USEDEFAULTMESSAGES)->EnableWindow(TRUE);
+	}
+	else {
+		GetDlgItem(IDC_BUTTON_USEDEFAULTMESSAGES)->EnableWindow(FALSE);
+	}
 }

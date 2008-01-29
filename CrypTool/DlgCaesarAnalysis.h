@@ -83,6 +83,11 @@ protected:
 	afx_msg void OnUpdateEdit1();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+
+	// intializes the dialog
+	virtual BOOL OnInitDialog();
+	// this function creates the remark regarding the key offset
+	CString createKeyOffsetRemark();
 };
 
 //{{AFX_INSERT_LOCATION}}

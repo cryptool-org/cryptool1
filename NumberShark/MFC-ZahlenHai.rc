@@ -989,7 +989,7 @@ BEGIN
                             "Bei %s Zahlen ist die maximal erreichbare Punktzahl %s.\r\n\r\nWir konnten Dir hier die maximale Punktzahl sofort anzeigen, da wir diesen Wert schon vorberechnet   \r\nund im Programm abgelegt haben.\r\n\r\nEin optimaler Weg lautet: %s.\r\n"
     IDS_DISCLAIMER_TEXT     "Bitte beachte die Lizenzbestimmungen und die Informationen zum \r\nHaftungsausschluss für eventuelle Schäden durch das Zahlenhai-Programm.\r\n(C) CrypTool-Projekt 2007"
     IDS_MAX_POINTS_HEADLINE2 "Maximale Punktzahl und ein optimaler Weg"
-    IDS_INFO_TEXT           "Das Programm Zahlenhai entstand als Ergänzung zum Freeware und \r\nOpen-Source-Projekt CrypTool: www.cryptool.de"
+    IDS_INFO_TEXT           "Das Programm Zahlenhai entstand als Ergänzung zum Freeware- und \r\nOpen-Source-Projekt CrypTool: www.cryptool.de"
     IDS_PRIME_INFO          "(prim)"
     IDS_REG_TRUE            "true"
     IDS_SHARK_AGAINST       " gegen "

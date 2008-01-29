@@ -3644,7 +3644,10 @@ void Rot13CaesarAscFinish(SymbolArray & text, const char * infile, char * sKey, 
 {
 	char outfile[1024];
 	SymbolArray Key(AppConv);
-	Key.ReadString(sKey);
+	
+	// make sure only the first character of the key is actually used as Caesar key,
+	// because using the whole key including the key offset part leads to some weird behaviour
+	Key.ReadString(sKey, 1);
 
 	// handle key offset (whether A=0 or A=1)
 	if(!keyOffsetZero)

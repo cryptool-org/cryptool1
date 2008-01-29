@@ -98,6 +98,12 @@ private:
 	void GenerateMessageText(int Errorcode, UINT MessageBoxStyle = MB_ICONEXCLAMATION);
 	void BrowseDocument(CString &);
 	bool AreValidPaths();
+
+	/* this function checks whether the values for harmless and dangerous file entered by the user 
+	comply with what was defined at compile time; if one of the file names differ, the button for 
+	using the default messages (as defined at compile time) is activated */
+	void activateOrDeactivateUseDefaultMessagesButton();
+
 public:
 	afx_msg void OnBnClickedButtonUsedefaultmessages();
 };

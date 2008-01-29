@@ -11944,6 +11944,7 @@ BEGIN
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT "TODO"
     IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS "TODO"
     IDS_SECRETSHARINGSHAMIR_LOG_HEADING "TODO"
+    IDS_CAESAR_ANALYSIS_REMARK "TODO"
 END
 
 STRINGTABLE 
@@ -12743,15 +12744,17 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_CAESAR_ANALYSIS DIALOG  0, 0, 176, 74
+IDD_CAESAR_ANALYSIS DIALOGEX 0, 0, 185, 145
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Automatische Caesaranalyse"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "&Entschlüsseln",IDOK,13,47,58,17
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,111,47,53,17
+    DEFPUSHBUTTON   "&Entschlüsseln",IDOK,7,121,58,17
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,125,121,53,17
     EDITTEXT        IDC_EDIT1,124,17,16,12
     LTEXT           "Ermittelter Caesar-Schlüssel:",IDC_STATIC,32,19,90,8
+    GROUPBOX        "Bemerkung",IDC_STATIC,7,42,171,68
+    LTEXT           "Statisch",IDC_EDIT_KEY_OFFSET_REMARK,15,54,155,50
 END
 
 IDD_SHOW_KEY_HILL10x10 DIALOGEX 0, 0, 528, 351
@@ -20763,6 +20766,15 @@ BEGIN
         HORZGUIDE, 302
     END
 
+    IDD_CAESAR_ANALYSIS, DIALOG
+    BEGIN
+        RIGHTMARGIN, 178
+        VERTGUIDE, 7
+        VERTGUIDE, 15
+        VERTGUIDE, 170
+        BOTTOMMARGIN, 138
+    END
+
     IDD_KEY_HILL_10X10, DIALOG
     BEGIN
         HORZGUIDE, 412
@@ -23844,6 +23856,8 @@ BEGIN
                             "\r\nWörterbuch-Einträge: "
     IDS_SECRETSHARINGSHAMIR_LOG_HEADING 
                             "Protokolldatei für das Secret-Sharing-Verfahren nach Shamir"
+    IDS_CAESAR_ANALYSIS_REMARK 
+                            "Durch das bei der Verschlüsselung eingestellte Key-Offset existieren zwei mögliche Schlüssel: Für ein Key-Offset von 1 gilt der Schlüssel '%s', für ein Key-Offset von 0 gilt der Schlüssel '%s'."
 END
 
 STRINGTABLE 
@@ -24734,15 +24748,17 @@ BEGIN
                     WS_BORDER
 END
 
-IDD_CAESAR_ANALYSIS DIALOG  0, 0, 176, 74
+IDD_CAESAR_ANALYSIS DIALOGEX 0, 0, 185, 145
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Automatic Caesar Analysis"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "&Decrypt",IDOK,13,47,58,17
-    PUSHBUTTON      "&Cancel",IDCANCEL,111,47,53,17
+    DEFPUSHBUTTON   "&Decrypt",IDOK,7,121,58,17
+    PUSHBUTTON      "&Cancel",IDCANCEL,125,121,53,17
     EDITTEXT        IDC_EDIT1,124,17,16,12
     LTEXT           "Derived Caesar key:",IDC_STATIC,32,19,72,8
+    GROUPBOX        "Remark",IDC_STATIC,7,42,171,68
+    LTEXT           "Statisch",IDC_EDIT_KEY_OFFSET_REMARK,15,54,155,50
 END
 
 IDD_SHOW_KEY_HILL10x10 DIALOGEX 0, 0, 523, 337
@@ -32607,6 +32623,15 @@ BEGIN
         HORZGUIDE, 307
     END
 
+    IDD_CAESAR_ANALYSIS, DIALOG
+    BEGIN
+        RIGHTMARGIN, 178
+        VERTGUIDE, 7
+        VERTGUIDE, 170
+        BOTTOMMARGIN, 74
+        HORZGUIDE, 138
+    END
+
     IDD_KEY_HILL_10X10, DIALOG
     BEGIN
         HORZGUIDE, 376
@@ -35846,6 +35871,8 @@ BEGIN
     IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS "\r\nDictionary words: "
     IDS_SECRETSHARINGSHAMIR_LOG_HEADING 
                             "Log file for Shamir's Secret-Sharing Scheme"
+    IDS_CAESAR_ANALYSIS_REMARK 
+                            "Because of the key offset which was used during encryption, there are two keys possible: For a key offset of 1 the key is '%s', for a key offset of 0 the key is '%s'."
 END
 
 STRINGTABLE 

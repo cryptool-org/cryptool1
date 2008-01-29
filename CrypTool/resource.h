@@ -86,6 +86,7 @@
 #define IDS_STRING56                    56
 #define IDS_SECRETSHARINGSHAMIR_LOG_HEADING 56
 #define IDC_EDIT174                     57
+#define IDS_CAESAR_ANALYSIS_REMARK      57
 #define IDC_EDIT191                     58
 #define IDD_PLAYFAIR_ANALYSIS           102
 #define IDD_ICG_RANDOMPARAMETER         103
@@ -1552,6 +1553,7 @@
 #define IDC_BUTTON_USEDEFAULTMESSAGES   1984
 #define IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_SPECIAL_CHARACTERS 1985
 #define ID_DEFAULT                      1985
+#define IDC_EDIT_KEY_OFFSET_REMARK      1988
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -2968,7 +2970,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        871
 #define _APS_NEXT_COMMAND_VALUE         33359
-#define _APS_NEXT_CONTROL_VALUE         1986
+#define _APS_NEXT_CONTROL_VALUE         1989
 #define _APS_NEXT_SYMED_VALUE           109
 #endif
 #endif
