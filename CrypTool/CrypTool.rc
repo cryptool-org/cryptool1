@@ -17401,7 +17401,7 @@ BEGIN
                     179,10
     CONTROL         "Wert des ersten Alphabetzeichens = 1 (z.B. ""A""=1)",
                     IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,18,37,181,10
-    GROUPBOX        "Zeichen zum Padden des Klartextes (falls nötig)",
+    GROUPBOX        "Zeichen zum Auffüllen des Klartextes (falls nötig)",
                     IDC_STATIC,6,61,243,56
     CONTROL         "Erstes Zeichen im Alphabet verwenden (dies ist der Default)",
                     IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,79,
@@ -23440,7 +23440,7 @@ BEGIN
                             "Bitte warten, Schlüssel werden zusammengefügt!"
     IDS_CRT_SECRETSHARING_REK5 "Benutze Passwörter zu den %d Kennungen  "
     IDS_CRT_SECRETSHARING_REK6 
-                            "Sie haben %d Schlüssel eingegeben. Es werden aber mindestens %d richtige Schlüssel für eine eindeutige \r\nBerechnung benötigt. Mit diesen Schlüsseln bleiben %d Möglichkeiten offen."
+                            "Sie haben %d Schlüssel eingegeben. Es werden aber mindestens %d richtige Schlüssel für eine eindeutige \r\nBerechnung benötigt. Mit diesen Schlüsseln bleiben %f Möglichkeiten offen."
     IDS_CRT_SECRETSHARING_REK7 
                             "Es wurden zu wenige Schlüssel benutzt.\r\n Mit diesen Schlüsseln bleiben %d Möglichkeiten offen.\r\n\r\n----- Rekonstruktion gescheitert -----\r\n\r\n"
     IDS_CRT_SECRETSHARING_REK8 
@@ -35464,7 +35464,7 @@ BEGIN
     IDS_CRT_SECRETSHARING_REK4 "Please wait, while keys are fit together."
     IDS_CRT_SECRETSHARING_REK5 "Using the %d passwords to identifiers    "
     IDS_CRT_SECRETSHARING_REK6 
-                            "You've entered %d keys.\r\nAt least %d correct keys are needed for a defnite calculation.\r\n"
+                            "You've entered %d keys.\r\nAt least %d correct keys are needed for a defnite calculation.\r\nWith the given keys, there are %f possibilities remaining."
     IDS_CRT_SECRETSHARING_REK7 
                             "Number of keys used is to small.\r\n\r\n----- Reconstruction failed -----\r\n\r\n"
     IDS_CRT_SECRETSHARING_REK8 "The following secret was rebuilt:\r\n%s"

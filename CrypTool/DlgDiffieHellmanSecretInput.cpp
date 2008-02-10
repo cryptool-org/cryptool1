@@ -215,8 +215,8 @@ BOOL CDlgDiffieHellmanSecretInput::OnInitDialog()
 	temp2.Format((LPCTSTR)temp1, (LPCTSTR)this->m_Party.c_str());
 	this->m_PartyHeader = (LPCTSTR)temp2;
 
-	// Initial den Focus auf "geheimnis erzeugen" legen
-	this->m_ButtonGenSec.SetFocus();
+	// Initial den Focus auf das Eingabefeld für das Geheimnis legen
+	this->m_SecretControl.SetFocus();
 
 	UpdateData(false);
 
