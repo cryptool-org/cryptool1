@@ -408,21 +408,26 @@ void VernamBin(const char *infile, const char *OldTitle)
 	SHOW_HOUR_GLASS
     GetTmpName(outfile,"cry",".tmp");
 	SymbolArray Key(IdConv);
-	if(!Key.Read( fname )) {
-		/* the file chosen by the user probably doesn't contain a character from the 
-		CrypTool alphabet; thus, the key is invalid; notify the user and return */
-        LoadString(AfxGetInstanceHandle(),IDS_STRING_INVALID_VERNAM_KEY,pc_str,STR_LAENGE_STRING_TABLE);
-		AfxMessageBox(pc_str, MB_ICONINFORMATION);
-		return;
-	}
-	if(Key.GetSize() < text.GetSize()) {
-		/* notify the user if the key is shorter than the text that is to be encrypted; 
-		don't return here; this message is just a notification message */
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_SHORT_VERNAM_KEY,pc_str,STR_LAENGE_STRING_TABLE);
+	Key.Read( fname );
+	/* if the key size is zero, notify the user and DON'T ENCRYPT/DECRYPT anything */
+	if(Key.GetSize() == 0) {
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_INVALID_VERNAM_KEY,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox(pc_str, MB_ICONINFORMATION);
 	}
-	text ^= Key;
-    text.Write(outfile);
+	/* else: encrypt/decrypt */
+	else {
+		int a = Key.GetSize();
+		int b = text.GetSize();
+
+		if(Key.GetSize() < text.GetSize()) {
+			/* notify the user if the key is shorter than the text that is to be encrypted */
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_SHORT_VERNAM_KEY,pc_str,STR_LAENGE_STRING_TABLE);
+			AfxMessageBox(pc_str, MB_ICONINFORMATION);
+		}
+		/* do the actual encryption */
+		text ^= Key;
+	}
+	text.Write(outfile);
 
 // == Open the new document
 	CString csKey = "Datei ";

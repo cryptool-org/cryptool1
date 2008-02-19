@@ -9606,7 +9606,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.20 - Beta 01 (PL)"
+    IDR_MAINFRAME           "CrypTool 1.4.20 - Beta 02 (PL)"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nPliki HEX\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nPliki ASCII\n"
@@ -21460,7 +21460,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.20 - Beta 01 (DE)"
+    IDR_MAINFRAME           "CrypTool 1.4.20 - Beta 02 (DE)"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Datei (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnbenannt\n\nBinäre Datei (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnbenannt\n\nASCII-Datei (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -23860,7 +23860,7 @@ BEGIN
     IDS_CAESAR_ANALYSIS_REMARK 
                             "Durch das bei der Verschlüsselung eingestellte Key-Offset existieren zwei mögliche Schlüssel: Für ein Key-Offset von 1 gilt der Schlüssel '%s', für ein Key-Offset von 0 gilt der Schlüssel '%s'."
     IDS_STRING_INVALID_VERNAM_KEY 
-                            "Der gewählte Vernam-Schlüssel ist ungültig.\nVermutlich enthält die von Ihnen ausgewählte Datei keines der eingestellten Alphabetzeichen.\n"
+                            "Der gewählte Vernam-Schlüssel hat die Länge 0.\nBitte überprüfen Sie die Schlüsseldatei."
     IDS_STRING_SHORT_VERNAM_KEY 
                             "Der Vernam-Schlüssel ist kürzer als der zu verschlüsselnde Text."
 END
@@ -33536,7 +33536,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.20 - Beta 01 (EN)"
+    IDR_MAINFRAME           "CrypTool 1.4.20 - Beta 02 (EN)"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -35878,7 +35878,7 @@ BEGIN
     IDS_CAESAR_ANALYSIS_REMARK 
                             "Because of the key offset which was used during encryption, there are two keys possible: For a key offset of 1 the key is '%s', for a key offset of 0 the key is '%s'."
     IDS_STRING_INVALID_VERNAM_KEY 
-                            "The chosen Vernam key is invalid.\nThe file you chose probably doesn't contain a character from the CrypTool alphabet."
+                            "The chosen Vernam key is of length 0.\nPlease check the key file."
     IDS_STRING_SHORT_VERNAM_KEY 
                             "The vernam key is shorter than the text that is to be encrypted."
 END
