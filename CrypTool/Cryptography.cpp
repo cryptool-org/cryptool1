@@ -408,8 +408,14 @@ void VernamBin(const char *infile, const char *OldTitle)
 	SHOW_HOUR_GLASS
     GetTmpName(outfile,"cry",".tmp");
 	SymbolArray Key(IdConv);
-	Key.Read( fname );
-    text ^= Key;
+	if(!Key.Read( fname )) {
+		/* the file chosen by the user probably doesn't contain a character from the 
+		CrypTool alphabet; thus, the key is invalid; notify the user and return */
+        LoadString(AfxGetInstanceHandle(),IDS_STRING_INVALID_VERNAM_KEY,pc_str,STR_LAENGE_STRING_TABLE);
+		AfxMessageBox(pc_str, MB_ICONINFORMATION);
+		return;
+	}
+	text ^= Key;
     text.Write(outfile);
 
 // == Open the new document

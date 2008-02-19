@@ -88,6 +88,7 @@
 #define IDC_EDIT174                     57
 #define IDS_CAESAR_ANALYSIS_REMARK      57
 #define IDC_EDIT191                     58
+#define IDS_STRING_INVALID_VERNAM_KEY   58
 #define IDD_PLAYFAIR_ANALYSIS           102
 #define IDD_ICG_RANDOMPARAMETER         103
 #define IDR_HTML_SELECTPASTEENCODING    107

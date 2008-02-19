@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polnisch resources
+// Polish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -11945,6 +11945,7 @@ BEGIN
     IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS "TODO"
     IDS_SECRETSHARINGSHAMIR_LOG_HEADING "TODO"
     IDS_CAESAR_ANALYSIS_REMARK "TODO"
+    IDS_STRING_INVALID_VERNAM_KEY "TODO"
 END
 
 STRINGTABLE 
@@ -11953,12 +11954,12 @@ BEGIN
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_SPECIAL_CHARACTERS "TODO"
 END
 
-#endif    // Polnisch resources
+#endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -23858,6 +23859,8 @@ BEGIN
                             "Protokolldatei für das Secret-Sharing-Verfahren nach Shamir"
     IDS_CAESAR_ANALYSIS_REMARK 
                             "Durch das bei der Verschlüsselung eingestellte Key-Offset existieren zwei mögliche Schlüssel: Für ein Key-Offset von 1 gilt der Schlüssel '%s', für ein Key-Offset von 0 gilt der Schlüssel '%s'."
+    IDS_STRING_INVALID_VERNAM_KEY 
+                            "Der gewählte Vernam-Schlüssel ist ungültig.\nVermutlich enthält die von Ihnen ausgewählte Datei keines der eingestellten Alphabetzeichen.\n"
 END
 
 STRINGTABLE 
@@ -23868,12 +23871,12 @@ BEGIN
                             "- Nein (Passwort enthält zu wenig Sonderzeichen)\r\n"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -35873,6 +35876,8 @@ BEGIN
                             "Log file for Shamir's Secret-Sharing Scheme"
     IDS_CAESAR_ANALYSIS_REMARK 
                             "Because of the key offset which was used during encryption, there are two keys possible: For a key offset of 1 the key is '%s', for a key offset of 0 the key is '%s'."
+    IDS_STRING_INVALID_VERNAM_KEY 
+                            "The chosen Vernam key is invalid.\nThe file you chose probably doesn't contain a character from the CrypTool alphabet."
 END
 
 STRINGTABLE 
@@ -35883,7 +35888,7 @@ BEGIN
                             "- No (Password contains too few special characters)\r\n"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
