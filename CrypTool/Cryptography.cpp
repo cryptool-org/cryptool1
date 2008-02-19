@@ -415,6 +415,12 @@ void VernamBin(const char *infile, const char *OldTitle)
 		AfxMessageBox(pc_str, MB_ICONINFORMATION);
 		return;
 	}
+	if(Key.GetSize() < text.GetSize()) {
+		/* notify the user if the key is shorter than the text that is to be encrypted; 
+		don't return here; this message is just a notification message */
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_SHORT_VERNAM_KEY,pc_str,STR_LAENGE_STRING_TABLE);
+		AfxMessageBox(pc_str, MB_ICONINFORMATION);
+	}
 	text ^= Key;
     text.Write(outfile);
 

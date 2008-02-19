@@ -10940,7 +10940,7 @@ BEGIN
     IDS_MSG_HOMOPHONE_ALPHABET_SIZE_ERROR 
                             "B³¹d: Rozmiar nowego alfabetu przekracza liczbê homofonów!\nProsze zwiêkszyæ liczbê homofonów o co najmniej %i znaków."
     IDS_MSG_HOMOPHONE_CHANGE_OF_ALPHABET 
-                            "Alfabet homofoniczny zosta³ zmieniony:\npoprzedni alfabet: %s\nnowy alfabet: %s."
+                            "Alfabet homofoniczny zosta³ zmieniony:\n\npoprzedni alfabet: %s\n\nnowy alfabet: %s"
     IDS_CREATE_USER_KEY_ID1 "[%s][%s][%s-%i][%i]"
     IDS_PADDING             "Padding string:         %s\n\n"
     IDS_DERCODE             "ID Algorytmu:           %s\n\n"
@@ -11946,6 +11946,7 @@ BEGIN
     IDS_SECRETSHARINGSHAMIR_LOG_HEADING "TODO"
     IDS_CAESAR_ANALYSIS_REMARK "TODO"
     IDS_STRING_INVALID_VERNAM_KEY "TODO"
+    IDS_STRING_SHORT_VERNAM_KEY "TODO"
 END
 
 STRINGTABLE 
@@ -15846,15 +15847,14 @@ BEGIN
                     WS_EX_TRANSPARENT
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,40,82,143,37,
                     WS_EX_TRANSPARENT
-    CTEXT           "haben die Universitäten Siegen und Darmstadt\nund viele freiwillige Entwickler im Open-Source-Projekt",
-                    IDC_STATIC,0,130,242,19
-    CTEXT           "CRYPTOOL RELEASE INFO",IDC_ABOUTBOX_CRYPTOOL,1,153,241,
+    CTEXT           "haben es die Universitäten Siegen und Darmstadt\nund viele freiwillige Entwickler in einem Open-Source-Projekt entwickelt.",
+                    IDC_STATIC,9,130,223,24
+    CTEXT           "CRYPTOOL RELEASE INFO",IDC_ABOUTBOX_CRYPTOOL,1,163,241,
                     11
-    CTEXT           "entwickelt.",IDC_STATIC,1,176,241,24
     CTEXT           "CrypTool nutzt folgende Bibliotheken:",IDC_STATIC,0,219,
                     241,8
     CTEXT           "Kontakt:",IDC_STATIC,0,322,241,10
-    CTEXT           "Copyright (C) 1998-2007 Deutsche Bank AG\nFrankfurt am Main, Germany",
+    CTEXT           "Copyright (C) 1998-2008 Deutsche Bank AG\nFrankfurt am Main, Germany",
                     IDC_STATIC,0,389,242,17
     LTEXT           "esslinger@fb5.uni-siegen.de\njoerg-cornelius.schneider@db.com\nhenrik.koy@db.com\ncryptool-list@sec.informatik.tu-darmstadt.de",
                     IDC_STATIC,63,331,152,42
@@ -15875,10 +15875,10 @@ BEGIN
                     SS_CENTERIMAGE,WS_EX_TRANSPARENT
     CTEXT           "GMP",IDC_EDIT_GMP,0,296,241,8,SS_CENTERIMAGE,
                     WS_EX_TRANSPARENT
-    CTEXT           "BUILD INFO",IDC_EDIT_BUILD_INFO,0,164,241,8,
+    CTEXT           "BUILD INFO",IDC_EDIT_BUILD_INFO,0,174,241,8,
                     SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "CrypTool wird weltweit in Firmen und Behörden zur Ausbildung, in\nder Lehre und zur Mitarbeiter-Awareness für IT-Sicherheit eingesetzt.",
-                    IDC_STATIC,1,193,240,19,WS_TABSTOP
+    CTEXT           "CrypTool wird weltweit zur Lehre an Schulen und Hochschulen, und zur Ausbildung und Mitarbeiter-Awareness in Firmen und Behörden eingesetzt.",
+                    IDC_STATIC,3,193,236,19,WS_TABSTOP
     CTEXT           "CRYPTOVISION",IDC_EDIT_CRYPTOVISION,0,243,241,8,
                     SS_CENTERIMAGE,WS_EX_TRANSPARENT
 END
@@ -22842,7 +22842,7 @@ BEGIN
     IDS_MSG_HOMOPHONE_ALPHABET_SIZE_ERROR 
                             "Fehler: Die neue Alphabet-Größe übertrifft die Gesamtzahl der Homophonen !\nBitte erhöhen Sie die Gesamtzahl der Homophonen auf mindestens %i Zeichen."
     IDS_MSG_HOMOPHONE_CHANGE_OF_ALPHABET 
-                            "Das Homophonen-Alphabet wurde geändert:\nAltes Alphabet: %s\nNeues Alphabet: %s."
+                            "Das Homophonen-Alphabet wurde geändert:\n\nAltes Alphabet: %s\n\nNeues Alphabet: %s"
     IDS_CREATE_USER_KEY_ID1 "[%s][%s][%s-%i][%i]"
     IDS_PADDING             "Padding-String:         %s\r\n"
     IDS_DERCODE             "Algorithmus-ID:         %s\r\n"
@@ -23861,6 +23861,8 @@ BEGIN
                             "Durch das bei der Verschlüsselung eingestellte Key-Offset existieren zwei mögliche Schlüssel: Für ein Key-Offset von 1 gilt der Schlüssel '%s', für ein Key-Offset von 0 gilt der Schlüssel '%s'."
     IDS_STRING_INVALID_VERNAM_KEY 
                             "Der gewählte Vernam-Schlüssel ist ungültig.\nVermutlich enthält die von Ihnen ausgewählte Datei keines der eingestellten Alphabetzeichen.\n"
+    IDS_STRING_SHORT_VERNAM_KEY 
+                            "Der Vernam-Schlüssel ist kürzer als der zu verschlüsselnde Text."
 END
 
 STRINGTABLE 
@@ -24366,18 +24368,17 @@ CAPTION "About CrypTool"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,70,415,90,19,WS_GROUP
-    CTEXT           "the universities Siegen and Darmstadt\nand many voluntary developers the open source project",
+    CTEXT           "the universities Siegen and Darmstadt developed it within an\nopen source project thanks to the help of many voluntary developers.",
                     IDC_STATIC,0,125,242,17
     CTEXT           "CrypTool uses the following libraries:",IDC_STATIC,1,
                     220,241,8
     CTEXT           "Contact:",IDC_STATIC,0,322,241,10
     LTEXT           "esslinger@fb5.uni-siegen.de\nhenrik.koy@db.com\njoerg-cornelius.schneider@db.com\ncryptool-list@sec.informatik.tu-darmstadt.de",
                     IDC_STATIC,67,330,145,40
-    CTEXT           "Copyright (C) 1998-2007 Deutsche Bank AG\nFrankfurt am Main, Germany",
+    CTEXT           "Copyright (C) 1998-2008 Deutsche Bank AG\nFrankfurt am Main, Germany",
                     IDC_STATIC,0,389,242,17
     CTEXT           "CrypTool is a free and comprehensive e-learning program about\nclassic and contemporary cryptography and cryptanalysis.\n\nIn a joint effort of the sponsors",
                     IDC_STATIC,1,10,241,32
-    CTEXT           "has been developed.",IDC_STATIC,1,181,241,24
     CTEXT           "CRYPTOOL RELEASE INFO",IDC_ABOUTBOX_CRYPTOOL,1,157,241,
                     11
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,41,48,105,37,
@@ -24401,8 +24402,8 @@ BEGIN
                     WS_EX_TRANSPARENT
     CTEXT           "BUILD INFO",IDC_EDIT_BUILD_INFO,0,168,241,8,
                     SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "CrypTool is used world wide in companies and goverment organizations\nfor education and for employee awareness for IT security.",
-                    IDC_STATIC,0,197,241,24
+    CTEXT           "CrypTool is used world wide for education in schools and universities, and for apprenticeship and employee awareness in companies and government organizations.",
+                    IDC_STATIC,3,188,236,24
     CTEXT           "CRYPTOVISION",IDC_EDIT_CRYPTOVISION,0,246,241,8,
                     SS_CENTERIMAGE,WS_EX_TRANSPARENT
 END
@@ -34861,7 +34862,7 @@ BEGIN
     IDS_MSG_HOMOPHONE_ALPHABET_SIZE_ERROR 
                             "Error: The new alphabet size exceeds the number of homophones!\nPlease raise the number of homophones up to at least %i characters."
     IDS_MSG_HOMOPHONE_CHANGE_OF_ALPHABET 
-                            "The Homophonic alphabet has been changed:\nold alphabet: %s\nnew alphabet: %s."
+                            "The Homophonic alphabet has been changed:\n\nold alphabet: %s\n\nnew alphabet: %s"
     IDS_CREATE_USER_KEY_ID1 "[%s][%s][%s-%i][%i]"
     IDS_PADDING             "Padding string:         %s\r\n"
     IDS_DERCODE             "Algorithm ID:           %s\r\n"
@@ -35878,6 +35879,8 @@ BEGIN
                             "Because of the key offset which was used during encryption, there are two keys possible: For a key offset of 1 the key is '%s', for a key offset of 0 the key is '%s'."
     IDS_STRING_INVALID_VERNAM_KEY 
                             "The chosen Vernam key is invalid.\nThe file you chose probably doesn't contain a character from the CrypTool alphabet."
+    IDS_STRING_SHORT_VERNAM_KEY 
+                            "The vernam key is shorter than the text that is to be encrypted."
 END
 
 STRINGTABLE 
