@@ -1,0 +1,3 @@
+# CrypToolCheckHelp.txt
+#
+# see CheckHelp.pl for details

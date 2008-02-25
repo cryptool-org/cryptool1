@@ -2219,6 +2219,79 @@ SOURCE=.\CrypToolApp.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\CrypToolCheckHelp.txt
+
+!IF  "$(CFG)" == "CrypTool - Win32 Release"
+
+USERDEP__CRYPT="CrypTool.rc"
+# Begin Custom Build - Checking CrypTool Help
+InputPath=.\CrypToolCheckHelp.txt
+
+"CrypToolCheckHelp.log" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	CheckHelp.bat
+
+# End Custom Build
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug"
+
+USERDEP__CRYPT="CrypTool.rc"
+# Begin Custom Build - Checking CrypTool Help
+InputPath=.\CrypToolCheckHelp.txt
+
+"CrypToolCheckHelp.log" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	CheckHelp.bat
+
+# End Custom Build
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_de"
+
+USERDEP__CRYPT="CrypTool.rc"
+# Begin Custom Build - Checking CrypTool Help
+InputPath=.\CrypToolCheckHelp.txt
+
+"CrypToolCheckHelp.log" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	CheckHelp.bat
+
+# End Custom Build
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Release_en"
+
+USERDEP__CRYPT="CrypTool.rc"
+# Begin Custom Build - Checking CrypTool Help
+InputPath=.\CrypToolCheckHelp.txt
+
+"CrypToolCheckHelp.log" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	CheckHelp.bat
+
+# End Custom Build
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug_de"
+
+USERDEP__CRYPT="CrypTool.rc"
+# Begin Custom Build - Checking CrypTool Help
+InputPath=.\CrypToolCheckHelp.txt
+
+"CrypToolCheckHelp.log" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	CheckHelp.bat
+
+# End Custom Build
+
+!ELSEIF  "$(CFG)" == "CrypTool - Win32 Debug_en"
+
+USERDEP__CRYPT="CrypTool.rc"
+# Begin Custom Build - Checking CrypTool Help
+InputPath=.\CrypToolCheckHelp.txt
+
+"CrypToolCheckHelp.log" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	CheckHelp.bat
+
+# End Custom Build
+
+!ENDIF
+
+# End Source File
+# Begin Source File
+
 SOURCE=.\CrypToolPopupMenuIDs.txt
 
 !IF  "$(CFG)" == "CrypTool - Win32 Release"
