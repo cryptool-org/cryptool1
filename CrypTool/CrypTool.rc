@@ -5573,7 +5573,7 @@ BEGIN
         MENUITEM "&Usuñ \t Del",                ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&ZnajdŸ / Zamieñ",            ID_EDIT_FIND, GRAYED
-        MENUITEM "ZnajdŸ &nastêpny \t F3",      ID_EDIT_REPEAT, GRAYED
+        MENUITEM "ZnajdŸ &nastêpny \t F3",      ID_EDIT_FIND_NEXT, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Zaznacz &wszystko \t Ctrl + A", ID_EDIT_SELECT_ALL, GRAYED
         MENUITEM SEPARATOR
@@ -6003,7 +6003,7 @@ BEGIN
         MENUITEM "&Usuñ \t Del",                ID_EDIT_CLEAR
         MENUITEM SEPARATOR
         MENUITEM "&ZnajdŸ / Zamieñ",            ID_EDIT_FIND, GRAYED
-        MENUITEM "ZnajdŸ &nastêpny \t F3",      ID_EDIT_REPEAT
+        MENUITEM "ZnajdŸ &nastêpny \t F3",      ID_EDIT_FIND_NEXT
         MENUITEM SEPARATOR
         MENUITEM "Zaznacz &wszystko \t Ctrl + A", ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
@@ -6391,7 +6391,7 @@ BEGIN
         MENUITEM "&Usuñ \t Del",                ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&ZnajdŸ / Zamieñ",            ID_EDIT_FIND, GRAYED
-        MENUITEM "ZnajdŸ &nastêpny \t F3",      ID_EDIT_REPEAT, GRAYED
+        MENUITEM "ZnajdŸ &nastêpny \t F3",      ID_EDIT_FIND_NEXT, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Zaznacz &wszystko \t Ctrl + A", ID_EDIT_SELECT_ALL, GRAYED
         MENUITEM SEPARATOR
@@ -6822,7 +6822,7 @@ BEGIN
         MENUITEM "&Usuñ \t Del",                ID_EDIT_CLEAR
         MENUITEM SEPARATOR
         MENUITEM "&ZnajdŸ / Zamieñ",            ID_EDIT_FIND
-        MENUITEM "ZnajdŸ &nastêpny \t F3",      ID_EDIT_REPEAT
+        MENUITEM "ZnajdŸ &nastêpny \t F3",      ID_EDIT_FIND_NEXT
         MENUITEM SEPARATOR
         MENUITEM "Zaznacz &wszystko \t Ctrl + A", ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
@@ -7234,7 +7234,7 @@ BEGIN
         MENUITEM "&Usuñ \t Del",                ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&ZnajdŸ / Zamieñ",            ID_EDIT_FIND, GRAYED
-        MENUITEM "ZnajdŸ &nastêpny \t F3",      ID_EDIT_REPEAT, GRAYED
+        MENUITEM "ZnajdŸ &nastêpny \t F3",      ID_EDIT_FIND_NEXT, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Zaznacz &wszystko \t Ctrl + A", ID_EDIT_SELECT_ALL, GRAYED
         MENUITEM SEPARATOR
@@ -8610,7 +8610,7 @@ BEGIN
     VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
     VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
     VK_F1,          ID_CONTEXT_HELP,        VIRTKEY, SHIFT, NOINVERT
-    VK_F3,          ID_EDIT_REPEAT,         VIRTKEY, NOINVERT
+    VK_F3,          ID_EDIT_FIND_NEXT,         VIRTKEY, NOINVERT
     VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
     VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
     VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
@@ -17620,7 +17620,7 @@ BEGIN
         MENUITEM "&Löschen\tEntf",              ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&Suchen/Ersetzen...\tStrg+F", ID_EDIT_FIND, GRAYED
-        MENUITEM "Suche &nächstes\tF3",         ID_EDIT_REPEAT, GRAYED
+        MENUITEM "Suche &nächstes\tF3",         ID_EDIT_FIND_NEXT, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Alles &markieren\tStrg+A",    ID_EDIT_SELECT_ALL, GRAYED
         MENUITEM SEPARATOR
@@ -18060,7 +18060,7 @@ BEGIN
         MENUITEM "&Löschen\tEntf",              ID_EDIT_CLEAR
         MENUITEM SEPARATOR
         MENUITEM "&Suchen/Ersetzen...\tStrg+F", ID_EDIT_FIND
-        MENUITEM "Suche &nächstes\tF3",         ID_EDIT_REPEAT
+        MENUITEM "Suche &nächstes\tF3",         ID_EDIT_FIND_NEXT
         MENUITEM SEPARATOR
         MENUITEM "Alles &markieren\tStrg+A",    ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
@@ -18457,7 +18457,7 @@ BEGIN
         MENUITEM "&Löschen\tEntf",              ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&Suchen/Ersetzen...\tStrg+F", ID_EDIT_FIND, GRAYED
-        MENUITEM "Suche &nächstes\tF3",         ID_EDIT_REPEAT, GRAYED
+        MENUITEM "Suche &nächstes\tF3",         ID_EDIT_FIND_NEXT, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Alles &markieren\tStrg+A",    ID_EDIT_SELECT_ALL, GRAYED
         MENUITEM SEPARATOR
@@ -18888,7 +18888,7 @@ BEGIN
         MENUITEM "&Löschen\tEntf",              ID_EDIT_CLEAR
         MENUITEM SEPARATOR
         MENUITEM "&Suchen/Ersetzen...\tStrg+F", ID_EDIT_FIND
-        MENUITEM "Suche &nächstes\tF3",         ID_EDIT_REPEAT
+        MENUITEM "Suche &nächstes\tF3",         ID_EDIT_FIND_NEXT
         MENUITEM SEPARATOR
         MENUITEM "Alles &markieren\tStrg+A",    ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
@@ -19309,7 +19309,7 @@ BEGIN
         MENUITEM "&Löschen\tEntf",              ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&Suchen/Ersetzen...\tStrg+F", ID_EDIT_FIND, GRAYED
-        MENUITEM "Suche &nächstes\tF3",         ID_EDIT_REPEAT, GRAYED
+        MENUITEM "Suche &nächstes\tF3",         ID_EDIT_FIND_NEXT, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Alles &markieren\tStrg+A",    ID_EDIT_SELECT_ALL, GRAYED
         MENUITEM SEPARATOR
@@ -20691,7 +20691,7 @@ BEGIN
     VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
     VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
     VK_F1,          ID_CONTEXT_HELP,        VIRTKEY, SHIFT, NOINVERT
-    VK_F3,          ID_EDIT_REPEAT,         VIRTKEY, NOINVERT
+    VK_F3,          ID_EDIT_FIND_NEXT,         VIRTKEY, NOINVERT
     VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
     VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
     VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
@@ -29458,7 +29458,7 @@ BEGIN
         MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&Find/Replace...\tStrg+F",    ID_EDIT_FIND, GRAYED
-        MENUITEM "Find &Next\tF3",              ID_EDIT_REPEAT, GRAYED
+        MENUITEM "Find &Next\tF3",              ID_EDIT_FIND_NEXT, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECT_ALL, GRAYED
         MENUITEM SEPARATOR
@@ -29893,7 +29893,7 @@ BEGIN
         MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR
         MENUITEM SEPARATOR
         MENUITEM "&Find/Replace...\tStrg+F",    ID_EDIT_FIND
-        MENUITEM "Find &Next\tF3",              ID_EDIT_REPEAT
+        MENUITEM "Find &Next\tF3",              ID_EDIT_FIND_NEXT
         MENUITEM SEPARATOR
         MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
@@ -30286,7 +30286,7 @@ BEGIN
         MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&Find/Replace...\tStrg+F",    ID_EDIT_FIND, GRAYED
-        MENUITEM "Find &Next\tF3",              ID_EDIT_REPEAT, GRAYED
+        MENUITEM "Find &Next\tF3",              ID_EDIT_FIND_NEXT, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECT_ALL, GRAYED
         MENUITEM SEPARATOR
@@ -30722,7 +30722,7 @@ BEGIN
         MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR
         MENUITEM SEPARATOR
         MENUITEM "&Find/Replace...\tStrg+F",    ID_EDIT_FIND
-        MENUITEM "Find &Next\tF3",              ID_EDIT_REPEAT
+        MENUITEM "Find &Next\tF3",              ID_EDIT_FIND_NEXT
         MENUITEM SEPARATOR
         MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
@@ -31139,7 +31139,7 @@ BEGIN
         MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&Find/Replace...\tStrg+F",    ID_EDIT_FIND, GRAYED
-        MENUITEM "Find &Next\tF3",              ID_EDIT_REPEAT, GRAYED
+        MENUITEM "Find &Next\tF3",              ID_EDIT_FIND_NEXT, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECT_ALL, GRAYED
         MENUITEM SEPARATOR
@@ -32518,7 +32518,7 @@ BEGIN
     VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
     VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
     VK_F1,          ID_CONTEXT_HELP,        VIRTKEY, SHIFT, NOINVERT
-    VK_F3,          ID_EDIT_REPEAT,         VIRTKEY, NOINVERT
+    VK_F3,          ID_EDIT_FIND_NEXT,         VIRTKEY, NOINVERT
     VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
     VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
     VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT

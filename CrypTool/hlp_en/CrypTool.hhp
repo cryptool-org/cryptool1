@@ -529,6 +529,7 @@ padding.html
 hidd_find_and_replace.html
 uu.html
 hidd_password_guidelines.html
+hid_primenumber_test.html
 
 [ALIAS]
 #include CrypTool_Alias.h
