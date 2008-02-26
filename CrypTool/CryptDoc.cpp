@@ -1271,15 +1271,16 @@ void CCryptDoc::OnAnalyseZufallstestsFrequencytest()
 		FREQT.SetCurrentTest( &test );
 		FREQT.init(ContentName, GetTitle());
 		//sprintf(FREQT.tmpStr, "Frequency Test");
-		LoadString(AfxGetInstanceHandle(), IDS_STRING_TEST_FREQ, FREQT.tmpStr, STR_LAENGE_STRING_TABLE);
-		
+		LoadString(AfxGetInstanceHandle(), IDS_STRING_TEST_FREQ, FREQT.tmpStr, STR_LAENGE_STRING_TABLE);	
 		LoadString(AfxGetInstanceHandle(), IDS_STRING_CAPTATION_FREQUENCY_TEST, pc_str, STR_LAENGE_STRING_TABLE);
-		char tmpstr[127];
-		sprintf(tmpstr, pc_str, GetTitle());
-
-		FREQT.SetAlternativeWindowText( tmpstr );
+		int tempStringLength = strlen(pc_str) + strlen(GetTitle()) + 1;
+		char *tempString = new char[tempStringLength];
+		memset(tempString, 0, tempStringLength);
+        sprintf(tempString, pc_str, GetTitle());
+        FREQT.SetAlternativeWindowText(tempString);
 		if ( FREQT.LoadAlphaList() )
 			FREQT.DoModal();
+		delete tempString;
 	}
 	HIDE_HOUR_GLASS
 }
@@ -1306,11 +1307,14 @@ void CCryptDoc::OnAnalyseZufallstestsSerialtest()
 		//sprintf(SERT.tmpStr, "Serial Test");
 		LoadString(AfxGetInstanceHandle(), IDS_STRING_TEST_SERIAL,SERT.tmpStr, STR_LAENGE_STRING_TABLE);
 		LoadString(AfxGetInstanceHandle(), IDS_STRING_CAPTATION_SERIAL_TEST, pc_str, STR_LAENGE_STRING_TABLE);
-		char tmpstr[127];
-		sprintf(tmpstr, pc_str, GetTitle());
-		SERT.SetAlternativeWindowText(tmpstr);
+		int tempStringLength = strlen(pc_str) + strlen(GetTitle()) + 1;
+		char *tempString = new char[tempStringLength];
+		memset(tempString, 0, tempStringLength);
+		sprintf(tempString, pc_str, GetTitle());
+		SERT.SetAlternativeWindowText(tempString);
 		if ( SERT.LoadAlphaList() )
 			SERT.DoModal();
+		delete tempString;
 	}
 	HIDE_HOUR_GLASS
 }
@@ -1333,12 +1337,15 @@ void CCryptDoc::OnAnalyseZufallstestsRuns()
 		LRT.init(ContentName, GetTitle());
 
 		LoadString(AfxGetInstanceHandle(), IDS_STRING_CAPTATION_RUNS_TESTS, pc_str, STR_LAENGE_STRING_TABLE);
-		char tmpstr[127];
-		sprintf(tmpstr, pc_str, GetTitle());
+		int tempStringLength = strlen(pc_str) + strlen(GetTitle()) + 1;
+		char *tempString = new char[tempStringLength];
+		memset(tempString, 0, tempStringLength);
+		sprintf(tempString, pc_str, GetTitle());
 
-		LRT.SetAlternativeWindowText( tmpstr );
+		LRT.SetAlternativeWindowText( tempString );
 		if ( LRT.LoadAlphaList() )
 			LRT.DoModal();
+		delete tempString;
 	}
 	HIDE_HOUR_GLASS
 }
@@ -1365,12 +1372,15 @@ void CCryptDoc::OnAnalyseZufallstestsPokertest()
 	//	sprintf(POKT.tmpStr, "Poker-Test");
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_TEST_POKER,POKT.tmpStr,STR_LAENGE_STRING_TABLE);
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_CAPTATION_POKER_TEST,pc_str,STR_LAENGE_STRING_TABLE);
-		char tmpStr[256];
-		sprintf( tmpStr, pc_str, GetTitle());
+		int tempStringLength = strlen(pc_str) + strlen(GetTitle()) + 1;
+		char *tempString = new char[tempStringLength];
+		memset(tempString, 0, tempStringLength);
+		sprintf(tempString, pc_str, GetTitle());
 		
-		POKT.SetAlternativeWindowText(tmpStr);
+		POKT.SetAlternativeWindowText(tempString);
 		if ( POKT.LoadAlphaList() )
 			POKT.DoModal();
+		delete tempString;
 	}
 	HIDE_HOUR_GLASS
 }
@@ -1404,11 +1414,13 @@ void CCryptDoc::OnAnalyseZufallstestsFipspub1401()
 		FIPS.init(ContentName, GetTitle());
 
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_CAPTATION_FIPS_PUB,pc_str,STR_LAENGE_STRING_TABLE);
-		char tmpStr[256];
-		sprintf( tmpStr, pc_str, GetTitle());
-		FIPS.SetAlternativeWindowText(tmpStr);
-
+		int tempStringLength = strlen(pc_str) + strlen(GetTitle()) + 1;
+		char *tempString = new char[tempStringLength];
+		memset(tempString, 0, tempStringLength);
+		sprintf(tempString, pc_str, GetTitle());
+		FIPS.SetAlternativeWindowText(tempString);
 		FIPS.DoModal();
+		delete tempString;
 	}
 }
 
