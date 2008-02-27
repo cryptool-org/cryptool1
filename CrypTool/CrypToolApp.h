@@ -151,6 +151,7 @@ class CCrypToolApp : public CWinApp
 	afx_msg void OnSigattmodificdemo();
 	afx_msg void OnLoadReadme();
 	afx_msg void OnScript();
+	afx_msg void OnPresentation();
 	afx_msg void OnEinzelverfahrenSidechannelattackOnHybridencryption();
 	afx_msg void OnPasswordQualityMeter();
 	afx_msg void OnChallengeResponse();

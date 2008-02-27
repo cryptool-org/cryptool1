@@ -11,6 +11,8 @@
 #define HID_ENCRYPT                             0x106F3
 #define HID_DECRYPT                             0x106F4
 #define HID_PRIMENUMBER_TEST                    0x107A8
+#define HID_CONFIGURE_PASSWORD_GUIDELINES       0x107BB
+#define HID_DEFAULT                             0x107C1
 #define HID_CR_OVERVIEW                         0x12B7B
 #define HID_CR_USAGE                            0x12B7C
 #define HID_CR_SZ_PASSWORDS                     0x12B7D
@@ -192,6 +194,9 @@
 #define HID_VISUALISIERUNGVONALGORITHMEN_AES    0x18248
 #define HID_AES_RIJNDAEL                        0x18249
 #define HID_FLASH_RIJNDAEL_INSPECTOR            0x1824C
+#define HID_EDIT_FIND_NEXT                      0x1824F
+#define HID_HILFE_PR                            0x18250
+#define HID_HELP_PRESENTATION                   0x18252
 #define HID_ANALYSE_PERIOD                      0x18E94
 #define HID_EINZELVERFAHREN_CRTASTRONOMY        0x19431
 #define HID_EINZELVERFAHREN_CRTTRANSFORMATION   0x19432
@@ -199,11 +204,13 @@
 #define HID_ANALYZE_SUBST_AUTO                  0x1947F
 #define HID_ROT13CAESAR_ASC                     0x19488
 #define HID_EINZELVERFAHREN_SECRETSHARINGDEMO   0x194C5
+#define HID_INDICATOR_LINE                      0x1E706
  
 // Prompts (IDP_*) 									
  
 // Ressources (IDR_*) 								
 #define HIDR_HTML_SELECTPASTEENCODING           0x2006B
+#define HIDR_HTML_DLGPASSWORDGUIDELINES         0x2006C
 #define HIDR_MAINFRAME                          0x20080
 #define HIDR_TEXTTYPE                           0x20081
 #define HIDR_HEXTYPE                            0x20082
@@ -393,6 +400,7 @@
 #define HIDD_PASSWORDQUALITYMETER               0x2035D
 #define HIDD_ADFGVX_SHORTENED_PASSWORD          0x20363
 #define HIDD_LIST_RESULTS                       0x20364
+#define HIDD_PASSWORD_GUIDELINES                0x20365
 #define HIDD_CHALLENGERESPONSE_DIALOG           0x22B5E
 #define HIDD_KEY_HEX_FIXED_LEN                  0x27805
 #define HIDD_ROT13_CAESAR1                      0x27806

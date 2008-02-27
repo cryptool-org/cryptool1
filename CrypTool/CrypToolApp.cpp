@@ -179,6 +179,7 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_COMMAND(ID_SIGATTMODIFICDEMO, OnSigattmodificdemo)
 	ON_COMMAND(ID_LOAD_README, OnLoadReadme)
 	ON_COMMAND(ID_SCRIPT, OnScript)
+	ON_COMMAND(ID_HELP_PRESENTATION, OnPresentation)
 	ON_COMMAND(ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION, OnEinzelverfahrenSidechannelattackOnHybridencryption)
 	ON_COMMAND(ID_PASSWORDQUALITYMETER, OnPasswordQualityMeter)
 	ON_COMMAND(ID_CHALLENGE_RESPONSE, OnChallengeResponse)
@@ -1006,6 +1007,18 @@ void CCrypToolApp::OnScript()
 		Message(IDS_ERROPEN_SCRIPT, MB_ICONSTOP);
 }
 
+void CCrypToolApp::OnPresentation()
+{
+	LoadString(AfxGetInstanceHandle(),IDS_PATH_PRESENTATION,pc_str,STR_LAENGE_STRING_TABLE);
+	int lengthPresentationPath = strlen(pc_str) + strlen(Pfad) + 1;
+	char *presentationPath = new char[lengthPresentationPath];
+	memset(presentationPath, 0, lengthPresentationPath);
+	sprintf(presentationPath, pc_str, Pfad);
+	HINSTANCE hInst = ShellExecute(0, NULL, presentationPath, NULL, 0, SW_SHOW);
+	delete []presentationPath;
+	if(reinterpret_cast<int>(hInst) <= 32)
+		Message(IDS_ERROR_OPENING_PRESENTATION, MB_ICONSTOP);
+}
 
 // Den Dialog "Visualisierung eines Seitenkanalangriffs auf das
 // Hybridverschlüsselungsverfahren" erstellen und anzeigen

@@ -90,6 +90,8 @@
 #define IDC_EDIT191                     58
 #define IDS_STRING_INVALID_VERNAM_KEY   58
 #define IDS_STRING_SHORT_VERNAM_KEY     59
+#define IDS_PATH_PRESENTATION           60
+#define IDS_ERROR_OPENING_PRESENTATION  61
 #define IDD_PLAYFAIR_ANALYSIS           102
 #define IDD_ICG_RANDOMPARAMETER         103
 #define IDR_HTML_SELECTPASTEENCODING    107
@@ -1946,6 +1948,8 @@
 #define ID_AES_RIJNDAEL                 33353
 #define ID_FLASH_RIJNDAEL_INSPECTOR     33356
 #define ID_EDIT_FIND_NEXT               33359
+#define ID_HILFE_PR                     33360
+#define ID_HELP_PRESENTATION            33362
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -2972,7 +2976,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        871
-#define _APS_NEXT_COMMAND_VALUE         33360
+#define _APS_NEXT_COMMAND_VALUE         33363
 #define _APS_NEXT_CONTROL_VALUE         1989
 #define _APS_NEXT_SYMED_VALUE           109
 #endif

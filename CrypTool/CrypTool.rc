@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -11947,6 +11947,8 @@ BEGIN
     IDS_CAESAR_ANALYSIS_REMARK "TODO"
     IDS_STRING_INVALID_VERNAM_KEY "TODO"
     IDS_STRING_SHORT_VERNAM_KEY "TODO"
+    IDS_PATH_PRESENTATION   "%sCrypToolPresentation-en.pdf"
+    IDS_ERROR_OPENING_PRESENTATION "TODO"
 END
 
 STRINGTABLE 
@@ -11955,12 +11957,12 @@ BEGIN
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_SPECIAL_CHARACTERS "TODO"
 END
 
-#endif    // Polish resources
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -18027,6 +18029,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&kript",                     ID_SCRIPT
+        MENUITEM "&Präsentation",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool",              ID_APP_ABOUT
     END
@@ -18424,6 +18427,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&kript",                     ID_SCRIPT
+        MENUITEM "&Präsentation",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool",              ID_APP_ABOUT
     END
@@ -18855,6 +18859,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&kript",                     ID_SCRIPT
+        MENUITEM "&Präsentation",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool",              ID_APP_ABOUT
     END
@@ -19250,6 +19255,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&kript",                     ID_SCRIPT
+        MENUITEM "&Präsentation",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool",              ID_APP_ABOUT
     END
@@ -19715,6 +19721,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&kript",                     ID_SCRIPT
+        MENUITEM "&Präsentation",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
         MENUITEM "&Über CrypTool",              ID_APP_ABOUT
     END
@@ -23863,6 +23870,9 @@ BEGIN
                             "Der gewählte Vernam-Schlüssel hat die Länge 0.\nBitte überprüfen Sie die Schlüsseldatei."
     IDS_STRING_SHORT_VERNAM_KEY 
                             "Der Vernam-Schlüssel ist kürzer als der zu verschlüsselnde Text."
+    IDS_PATH_PRESENTATION   "%sCrypToolPresentation-de.pdf"
+    IDS_ERROR_OPENING_PRESENTATION 
+                            "Die Präsentation konnte nicht geöffnet werden!\n\nBitte überprüfen Sie:\n- ob sich die Datei ""CrypToolPresentation-de.pdf"" im gleichen Pfad wie das Programm ""CrypTool.exe"" befindet und\n- ob Sie den Acrobat Reader installiert haben (www.adobe.com)."
 END
 
 STRINGTABLE 
@@ -23873,12 +23883,17 @@ BEGIN
                             "- Nein (Passwort enthält zu wenig Sonderzeichen)\r\n"
 END
 
-#endif    // German (Germany) resources
+STRINGTABLE 
+BEGIN
+    ID_HELP_PRESENTATION    "Öffnet eine Präsentation mit weiteren Informationen zu CrypTool (Acrobat Reader erforderlich)"
+END
+
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -29860,6 +29875,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&cript",                     ID_SCRIPT
+        MENUITEM "&Presentation",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
         MENUITEM "&About CrypTool",             ID_APP_ABOUT
     END
@@ -30253,6 +30269,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&cript",                     ID_SCRIPT
+        MENUITEM "&Presentation",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
         MENUITEM "&About CrypTool",             ID_APP_ABOUT
     END
@@ -30689,6 +30706,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&cript",                     ID_SCRIPT
+        MENUITEM "&Presentation",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
         MENUITEM "&About CrypTool",             ID_APP_ABOUT
     END
@@ -31080,6 +31098,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&cript",                     ID_SCRIPT
+        MENUITEM "&Presentation",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
         MENUITEM "&About CrypTool",             ID_APP_ABOUT
     END
@@ -31541,6 +31560,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Readme",                     ID_LOAD_README
         MENUITEM "S&cript",                     ID_SCRIPT
+        MENUITEM "&Presentation",               ID_HELP_PRESENTATION
         MENUITEM SEPARATOR
         MENUITEM "&About CrypTool",             ID_APP_ABOUT
     END
@@ -35881,6 +35901,9 @@ BEGIN
                             "The chosen Vernam key is of length 0.\nPlease check the key file."
     IDS_STRING_SHORT_VERNAM_KEY 
                             "The vernam key is shorter than the text that is to be encrypted."
+    IDS_PATH_PRESENTATION   "%sCrypToolPresentation-en.pdf"
+    IDS_ERROR_OPENING_PRESENTATION 
+                            "The presentation could not be opened!\n\nPlease check\n- if the file ""CrypToolPresentation-en.pdf"" is in the same directory as ""CrypTool.exe"" and\n- if the Acrobat reader is installed (www.adobe.com)."
 END
 
 STRINGTABLE 
@@ -35891,7 +35914,12 @@ BEGIN
                             "- No (Password contains too few special characters)\r\n"
 END
 
-#endif    // English (U.K.) resources
+STRINGTABLE 
+BEGIN
+    ID_HELP_PRESENTATION    "Opens a presentation with further information about CrypTool (Acrobat Reader required)"
+END
+
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
