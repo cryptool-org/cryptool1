@@ -159,6 +159,17 @@ struct rsa_st
 	BN_BLINDING *mt_blinding;
 	};
 
+#ifndef OPENSSL_RSA_MAX_MODULUS_BITS
+# define OPENSSL_RSA_MAX_MODULUS_BITS	16384
+#endif
+
+#ifndef OPENSSL_RSA_SMALL_MODULUS_BITS
+# define OPENSSL_RSA_SMALL_MODULUS_BITS	3072
+#endif
+#ifndef OPENSSL_RSA_MAX_PUBEXP_BITS
+# define OPENSSL_RSA_MAX_PUBEXP_BITS	64 /* exponent limit enforced for "large" modulus only */
+#endif
+
 #define RSA_3	0x3L
 #define RSA_F4	0x10001L
 
@@ -184,13 +195,27 @@ struct rsa_st
                                                 * default (ignoring RSA_FLAG_BLINDING),
                                                 * but other engines might not need it
                                                 */
-#define RSA_FLAG_NO_EXP_CONSTTIME	0x0100 /* new with 0.9.7h; the built-in RSA
+#define RSA_FLAG_NO_CONSTTIME		0x0100 /* new with 0.9.8f; the built-in RSA
+						* implementation now uses constant time
+						* operations by default in private key operations,
+						* e.g., constant time modular exponentiation,
+                                                * modular inverse without leaking branches,
+                                                * division without leaking branches. This
+                                                * flag disables these constant time
+                                                * operations and results in faster RSA
+                                                * private key operations.
+                                                */
+#ifndef OPENSSL_NO_DEPRECATED
+#define RSA_FLAG_NO_EXP_CONSTTIME RSA_FLAG_NO_CONSTTIME /* deprecated name for the flag*/
+                                                /* new with 0.9.7h; the built-in RSA
                                                 * implementation now uses constant time
                                                 * modular exponentiation for secret exponents
                                                 * by default. This flag causes the
                                                 * faster variable sliding window method to
                                                 * be used for all exponents.
                                                 */
+#endif
+
 
 #define RSA_PKCS1_PADDING	1
 #define RSA_SSLV23_PADDING	2
@@ -407,6 +432,7 @@ void ERR_load_RSA_strings(void);
 #define RSA_R_IQMP_NOT_INVERSE_OF_Q			 126
 #define RSA_R_KEY_SIZE_TOO_SMALL			 120
 #define RSA_R_LAST_OCTET_INVALID			 134
+#define RSA_R_MODULUS_TOO_LARGE				 105
 #define RSA_R_NO_PUBLIC_EXPONENT			 140
 #define RSA_R_NULL_BEFORE_BLOCK_MISSING			 113
 #define RSA_R_N_DOES_NOT_EQUAL_P_Q			 127
