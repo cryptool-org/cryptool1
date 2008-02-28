@@ -8021,8 +8021,6 @@ IDB_CRT_CR_LEFT         BITMAP                  "res\\CRT\\crtright.bmp"
 IDB_CRT_BASIS           BITMAP                  "res\\CRT\\crtbasis.bmp"
 IDB_CRT_DOWN_F          BITMAP                  "res\\CRT\\crtdownf.bmp"
 IDB_CRT_DOWN_FSTR       BITMAP                  "res\\CRT\\crtdownfstr.bmp"
-IDB_BITMAP10            BITMAP                  "res\\pwlogo.bmp"
-IDB_BITMAP11            BITMAP                  "res\\null.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -11837,7 +11835,6 @@ BEGIN
     IDS_HILL_CASE           "U¿yty alfabet (%d znaków)"
     IDS_ROT13_CAESAR_TOO_LARGE_KEY 
                             "Ci¹g wejœciowy jest wiêkszy ni¿ d³ugoœæ alfabetu. \n Ustawiæ wartoœæ automatycznie na 1?"
-    IDS_PQM_PASSWORD_IS_COMPLIANT "TODO"
 END
 
 STRINGTABLE 
@@ -11846,8 +11843,6 @@ BEGIN
     IDS_CLIPBOARD_HEXCOPY   "Zaznaczone dane mog¹ zostaæ umieszczone w schowku niezmienione (domyœlnie) lub zakodowane heksadecymalnie.\n Kodowanie heksadecymalne jest wymagane na przyk³ad jeœli zamierzasz wyeksportowaæ ""niedrukowalne"" znaki do innych aplikacji.\n\nCzy u¿yæ kodowania heksadecymalnego?"
     IDS_CLIPBOARD_HEXPASTE  "Schowek zawiera tylko znaki heksadecymalne. Mog¹ zostaæ umieszczone jako zdekodowane (domyœlnie) lub bez zmian.\n\n Dekodowaæ dane heksadecymalne?"
     IDS_STRING_MEMBER2      "uczestnik"
-    IDS_PQM_PASSWORD_RECONSTRUCTION "TODO"
-    IDS_PQM_PASSWORD_RECONSTRUCTION_FOUND "TODO"
     IDS_SCINTILLA_LEXER_ERROR 
                             "Widok alfabetu nie móg³ zostaæ aktywowany. Prawdopodobnie zosta³a za³adowana inna wersja SCILEXER.DLL\n ni¿ ta, dostarczona z CrypToolem."
     IDS_PQM_CRYPTOOLALPHABETINACTIVE 
@@ -11931,30 +11926,6 @@ END
 STRINGTABLE 
 BEGIN
     IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT "wiersz*kolumna wektor*macierz"
-END
-
-STRINGTABLE 
-BEGIN
-    IDS_PQM_PASSWORD_RECONSTRUCTION_PATTERNS "TODO"
-    IDS_PQM_PASSWORD_RECONSTRUCTION_SEQUENCES "TODO"
-    IDS_PQM_PASSWORD_RECONSTRUCTION_KEYBOARDSEQUENCES "TODO"
-    IDS_PQM_CRACKLIB_DICTIONARY_PATH "words\\cracklib_dict"
-    IDS_PQM_NO_CRACKLIB_DICTIONARY "TODO"
-    IDS_PQM_PASSWORD_COMPLIANT "TODO"
-    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT "TODO"
-    IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS "TODO"
-    IDS_SECRETSHARINGSHAMIR_LOG_HEADING "TODO"
-    IDS_CAESAR_ANALYSIS_REMARK "TODO"
-    IDS_STRING_INVALID_VERNAM_KEY "TODO"
-    IDS_STRING_SHORT_VERNAM_KEY "TODO"
-    IDS_PATH_PRESENTATION   "%sCrypToolPresentation-en.pdf"
-    IDS_ERROR_OPENING_PRESENTATION "TODO"
-END
-
-STRINGTABLE 
-BEGIN
-    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_DIGITS "TODO"
-    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_SPECIAL_CHARACTERS "TODO"
 END
 
 #endif    // Polnisch resources
