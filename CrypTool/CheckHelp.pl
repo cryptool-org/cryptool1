@@ -38,6 +38,14 @@
 # Florian Marchal, 02/22/2008 (florian@marchal.de)
 # 
 #
+# ADDITIONS
+#
+#   03/02/2008: Integrated a check for Wikipedia links. If a link to 
+#               Wikipedia is detected, the script checks if it points 
+#               to the correct language. As of now, only the value pairs 
+#               (GERMAN, de), (ENGLISH, en) and (POLISH, pl) are working.
+#               In case the link points to the wrong language, a warning 
+#               is dumped.
 #
 
 
@@ -279,6 +287,16 @@ sub runConsistencyCheck() {
                for ($extractor->links() ) {
                    my ($tag, $type, $linkname) = @{$_};
                    $linkname = "\L$linkname";
+                   # special Wikipedia check: 
+                   # print warning if there's a link to Wikipedia in the wrong language 
+                   if($linkname =~ /^http\:\/\/([a-z]+)\.wikipedia\.org/) {
+				       my $languageIdentifier = $1;
+				       if(($language eq "GERMAN" && $languageIdentifier ne "de") ||
+				          ($language eq "ENGLISH" && $languageIdentifier ne "en") ||
+				          ($language eq "POLISH" && $languageIdentifier ne "pl") ) {
+				           print "  WARNING: Wikipedia link $linkname points to wrong language (referenced in file $file)\n" if($debug);         
+				       }			       
+                   }
                    # omit links beginning with '#'
                    next if($linkname =~ /^#/);
                    # omit external links beginning with 'http'
@@ -309,5 +327,5 @@ sub runConsistencyCheck() {
    print "- $numberOfMissingDialogIdentifiers missing help files for dialog identifiers\n";
    print "- $numberOfMissingMenuIdentifiers missing help files for menu identifiers\n";
    print "- $numberOfDeadLinks dead links\n";
-   print "\n(run CheckHelp.pl manually in debug mode for further details)\n\n";
+   print "\n(run CheckHelp.pl manually in debug mode for further details)\n\n" if($debug);
 }
