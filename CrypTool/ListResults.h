@@ -29,4 +29,11 @@ public:
 	CString headerStr;
 	afx_msg void OnBnClickedOk();
 	char *get_keyhex();
+
+protected:
+	afx_msg void OnSize(UINT nType, int cx, int cy);
+	RECT initialRectDialog;
+	RECT initialRectList;
+	RECT initialRectButtonOK;
+	RECT initialRectButtonCancel;
 };

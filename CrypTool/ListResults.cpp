@@ -33,6 +33,7 @@ void CListResults::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CListResults, CDialog)
 	ON_BN_CLICKED(IDOK, OnBnClickedOk)
+	ON_WM_SIZE(this, OnSize)
 END_MESSAGE_MAP()
 
 
@@ -72,7 +73,13 @@ BOOL CListResults::OnInitDialog()
 	}
 
 	resultListCtrl.SetItem(0, 0, LVIF_STATE, NULL, 0, LVIS_SELECTED, LVIS_SELECTED, 0);
-	
+
+	// read window rects at dialog initialization
+	GetWindowRect(&initialRectDialog);
+	GetDlgItem(IDC_LIST4)->GetWindowRect(&initialRectList);
+	GetDlgItem(IDOK)->GetWindowRect(&initialRectButtonOK);
+	GetDlgItem(IDCANCEL)->GetWindowRect(&initialRectButtonCancel);
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -99,6 +106,49 @@ void CListResults::OnBnClickedOk()
 	}
 }
 
+void CListResults::OnSize(UINT nType, int cx, int cy)
+{
+	CWnd *windowList = GetDlgItem(IDC_LIST4);
+	CWnd *windowButtonOK = GetDlgItem(IDOK);
+	CWnd *windowButtonCancel = GetDlgItem(IDCANCEL);
+
+	// make sure we have valid pointers; if not, return
+	if(!windowList || !windowButtonOK || !windowButtonCancel)
+		return;
+
+	// read the new dialog rect
+	RECT newRectDialog;
+	this->GetWindowRect(&newRectDialog);
+
+	// compute new list window rect
+	int marginRightList = initialRectDialog.right - initialRectList.right;
+	int marginBottomList = initialRectDialog.bottom - initialRectList.bottom;
+	int xList = initialRectList.left - initialRectDialog.left;
+	int yList = initialRectList.top - initialRectDialog.top;
+	int widthList = cx - xList - marginRightList;
+	int heightList = cy - yList - marginBottomList;
+	
+	// compute new OK button rect
+	int widthButtonOK = initialRectButtonOK.right - initialRectButtonOK.left;
+	int heightButtonOK = initialRectButtonOK.bottom - initialRectButtonOK.top;
+	int marginRightButtonOK = initialRectDialog.right - initialRectButtonOK.right;
+	int marginBottomButtonOK = initialRectDialog.bottom - initialRectButtonOK.bottom;
+	int xButtonOK = cx - widthButtonOK - marginRightButtonOK;
+	int yButtonOK = cy - heightButtonOK - marginBottomButtonOK;
+
+	// compute new CANCEL button rect
+	int widthButtonCancel = initialRectButtonCancel.right - initialRectButtonCancel.left;
+	int heightButtonCancel = initialRectButtonCancel.bottom - initialRectButtonCancel.top;
+	int marginRightButtonCancel = initialRectDialog.right - initialRectButtonCancel.right;
+	int marginBottomButtonCancel = initialRectDialog.bottom - initialRectButtonCancel.bottom;
+	int xButtonCancel = cx - widthButtonCancel - marginRightButtonCancel;
+	int yButtonCancel = cy - heightButtonCancel - marginBottomButtonCancel;
+
+	// align dialog components
+	windowList->MoveWindow(xList, yList, widthList, heightList);
+	windowButtonOK->MoveWindow(xButtonOK, yButtonOK, widthButtonOK, heightButtonOK);
+	windowButtonCancel->MoveWindow(xButtonCancel, yButtonCancel, widthButtonCancel, heightButtonCancel);
+}
 
 char* CListResults::get_keyhex()
  {
