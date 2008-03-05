@@ -571,7 +571,7 @@ int CDlgKeyPermutation::ShowPermutations()
 	CDlgKeyPermutationInfo KPI;
 
 	CString Titel;
-	char Field[128];
+	char Field[4096];
 
 	if(!m_Invert&&! m_Dec)
 	{
@@ -618,6 +618,5 @@ int CDlgKeyPermutation::ShowPermutations()
 	{
 		KPI.m_Inverse2 = Field;
 	}
-
 	return KPI.DoModal();
 }

@@ -3266,7 +3266,7 @@ void DoPerm(char *dest, char *src, int len, int *p, int plen, int Zin, int Zout)
 {		
 	int i, k, pt;
 	int Zeilenzahl, LetzteZLen;
-	int pres[26], sstart[26], slen[26];
+	int pres[MAX_PERM_LENGTH], sstart[MAX_PERM_LENGTH], slen[MAX_PERM_LENGTH];
 
 	Zeilenzahl = len / plen;
 	LetzteZLen = len % plen;
@@ -3314,7 +3314,7 @@ void DoInvPerm(char *dest, char *src, int len, int *p, int plen, int Zin, int Zo
 {
 	int i, k, pt;
 	int Zeilenzahl, LetzteZLen;
-	int pres[26], sstart[26], slen[26];
+	int pres[MAX_PERM_LENGTH], sstart[MAX_PERM_LENGTH], slen[MAX_PERM_LENGTH];
 
 	Zeilenzahl = len / plen;
 	LetzteZLen = len % plen;

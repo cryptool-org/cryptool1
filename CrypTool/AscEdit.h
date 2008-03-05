@@ -55,7 +55,7 @@ statement from your version.
 // AscEdit.h : Header-Datei
 //
 
-#define MAX_PERM_LENGTH 26
+#define MAX_PERM_LENGTH 100
 
 /////////////////////////////////////////////////////////////////////////////
 // Fenster CAscEdit 
