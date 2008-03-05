@@ -250,7 +250,11 @@ int CDlgKeyPermutation::MakePerm( CString *Pin, int p[], int pinv[])
 		else
 			Pin->Delete(i);
 	}
-	plen = min(Pin->GetLength(), MAX_PERM_LENGTH);
+	// take into account only the first MAX_PERM_LENGTH characters
+	if(Pin->GetLength() > MAX_PERM_LENGTH) {
+		Pin->Delete(MAX_PERM_LENGTH, Pin->GetLength() - MAX_PERM_LENGTH);
+	}
+	plen = Pin->GetLength();
 	if(plen == 0) return 0;
 	for(i=0;i<plen;i++) id[i]=i;
 	for(i=0;i<plen;i++) {
@@ -267,6 +271,7 @@ void CDlgKeyPermutation::OnChangeEdit1()
 {
 	int l;
 	char buffer[1024];
+	memset(buffer, 0, 1024);
 
 	UpdateData(TRUE);
 	m_CPerm1.EmptyUndoBuffer();
@@ -275,9 +280,8 @@ void CDlgKeyPermutation::OnChangeEdit1()
 		m_Decrypt.EnableWindow(TRUE);
 		m_Encrypt.EnableWindow(TRUE);
 		if(isalpha((unsigned char)m_Perm1[0])) {
-			MakePerm(&m_Perm1, m_P1, m_P1inv);
-			m_P1len = l;
-			PrintPerm(buffer, m_P1, m_P1len);
+			m_P1len = MakePerm(&m_Perm1, m_P1, m_P1inv);
+			if(m_P1len > 0) PrintPerm(buffer, m_P1, m_P1len);
 			m_P1out = buffer;
 		}
 		else {
@@ -304,9 +308,8 @@ void CDlgKeyPermutation::OnChangeEdit2()
 	l= m_Perm2.GetLength();
 	if(l>1) {
 		if(isalpha((unsigned char)m_Perm2[0])) {
-			MakePerm(&m_Perm2, m_P2, m_P2inv);
-			m_P2len = l;
-			PrintPerm(buffer, m_P2, m_P2len);
+			m_P2len = MakePerm(&m_Perm2, m_P2, m_P2inv);
+			if(m_P2len > 0) PrintPerm(buffer, m_P2, m_P2len);
 			m_P2out = buffer;
 		}
 		else {
