@@ -17559,6 +17559,38 @@ BEGIN
     PUSHBUTTON      "Default",ID_DEFAULT,100,164,50,14
 END
 
+IDD_PASSWORDENTROPY DIALOGEX 0, 0, 250, 235
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Passwort-Entropie"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,214,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,193,214,50,14
+    DEFPUSHBUTTON   "Passwort generieren",ID_GENERATEPASSWORD,90,180,145,14
+    GROUPBOX        "Beschreibung",IDC_STATIC,7,7,236,50
+    GROUPBOX        "Parameter für Generierung des Passworts",IDC_STATIC,7,
+                    60,236,65
+    GROUPBOX        "Generiertes Passwort",IDC_STATIC,7,129,236,75
+    LTEXT           "Passwort-Länge:",IDC_STATIC,30,145,55,8
+    LTEXT           "Passwort-Beispiel:",IDC_STATIC,26,164,59,8
+    EDITTEXT        IDC_EDIT_PASSWORDLENGTH,90,143,30,14,ES_CENTER | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_PASSWORDEXAMPLE,90,162,145,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Alphabet:",IDC_STATIC,53,95,32,8
+    EDITTEXT        IDC_EDIT_PASSWORDALPHABET,90,93,145,14,ES_AUTOHSCROLL
+    CONTROL         "CrypTool-Alphabet verwenden",
+                    IDC_CHECK_USECRYPTOOLALPHABET,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,90,110,114,10
+    LTEXT           "Bitlänge:",IDC_STATIC,56,76,29,8
+    EDITTEXT        IDC_EDIT_PASSWORDBITLENGTH,90,74,30,14,ES_CENTER | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Zeichen",IDC_STATIC,125,145,26,8
+    LTEXT           "Bits",IDC_STATIC,125,76,12,8
+    DEFPUSHBUTTON   "Textoptionen",ID_TEXTOPTIONS,95,214,60,14
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -18670,6 +18702,7 @@ BEGIN
             END
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
             MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER
+            MENUITEM "Passwort-&Entropie...",       ID_PASSWORDENTROPY
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -19079,6 +19112,7 @@ BEGIN
             END
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
             MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER
+            MENUITEM "Passwort-&Entropie...",       ID_PASSWORDENTROPY
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -19529,6 +19563,7 @@ BEGIN
             END
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
             MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER
+            MENUITEM "Passwort-&Entropie...",       ID_PASSWORDENTROPY
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -21265,6 +21300,16 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 178
         HORZGUIDE, 20
+    END
+
+    IDD_PASSWORDENTROPY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 243
+        VERTGUIDE, 85
+        VERTGUIDE, 90
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 228
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -23857,6 +23902,7 @@ END
 STRINGTABLE 
 BEGIN
     ID_HELP_PRESENTATION    "Öffnet eine Präsentation mit weiteren Informationen zu CrypTool (Acrobat Reader erforderlich)"
+    ID_PASSWORDENTROPY      "Generiert Passwörter mit einer bestimmten Entropie"
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -29685,6 +29731,7 @@ BEGIN
             END
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Password Quality Meter...",  ID_PASSWORDQUALITYMETER
+            MENUITEM "Password &Entropy...",        ID_PASSWORDENTROPY
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -30094,6 +30141,7 @@ BEGIN
             END
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Password Quality Meter...",  ID_PASSWORDQUALITYMETER
+            MENUITEM "Password &Entropy...",        ID_PASSWORDENTROPY
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -30515,6 +30563,7 @@ BEGIN
             END
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Password Quality Meter...",  ID_PASSWORDQUALITYMETER
+            MENUITEM "Password &Entropy...",        ID_PASSWORDENTROPY
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -30923,6 +30972,7 @@ BEGIN
             END
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Password Quality Meter...",  ID_PASSWORDQUALITYMETER
+            MENUITEM "Password &Entropy...",        ID_PASSWORDENTROPY
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -31369,6 +31419,7 @@ BEGIN
             END
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Password Quality Meter...",  ID_PASSWORDQUALITYMETER
+            MENUITEM "Password &Entropy...",        ID_PASSWORDENTROPY
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -35888,6 +35939,7 @@ END
 STRINGTABLE 
 BEGIN
     ID_HELP_PRESENTATION    "Opens a presentation with further information about CrypTool (Acrobat Reader required)"
+    ID_PASSWORDENTROPY      "Generates passwords with a specific entropy"
 END
 
 #endif    // Englisch (GB) resources

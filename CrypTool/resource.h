@@ -360,6 +360,7 @@
 #define IDD_ADFGVX_SHORTENED_PASSWORD   867
 #define IDD_LIST_RESULTS                868
 #define IDD_PASSWORD_GUIDELINES         869
+#define IDD_PASSWORDENTROPY             871
 #define IDS_CRYPT_DESX                  1000
 #define IDS_CRYPT_DESL                  1001
 #define IDS_CRYPT_DESXL                 1002
@@ -1558,6 +1559,12 @@
 #define IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_SPECIAL_CHARACTERS 1985
 #define ID_DEFAULT                      1985
 #define IDC_EDIT_KEY_OFFSET_REMARK      1988
+#define ID_GENERATEPASSWORD             1990
+#define IDC_EDIT_PASSWORDLENGTH         1991
+#define IDC_EDIT_PASSWORDEXAMPLE        1992
+#define IDC_EDIT_PASSWORDALPHABET       1993
+#define IDC_EDIT_PASSWORDBITLENGTH      1994
+#define ID_TEXTOPTIONS                  1996
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -1950,6 +1957,7 @@
 #define ID_EDIT_FIND_NEXT               33359
 #define ID_HILFE_PR                     33360
 #define ID_HELP_PRESENTATION            33362
+#define ID_PASSWORDENTROPY              33364
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -2975,9 +2983,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        871
-#define _APS_NEXT_COMMAND_VALUE         33363
-#define _APS_NEXT_CONTROL_VALUE         1989
+#define _APS_NEXT_RESOURCE_VALUE        872
+#define _APS_NEXT_COMMAND_VALUE         33365
+#define _APS_NEXT_CONTROL_VALUE         1995
 #define _APS_NEXT_SYMED_VALUE           109
 #endif
 #endif

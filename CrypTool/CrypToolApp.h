@@ -154,6 +154,7 @@ class CCrypToolApp : public CWinApp
 	afx_msg void OnPresentation();
 	afx_msg void OnEinzelverfahrenSidechannelattackOnHybridencryption();
 	afx_msg void OnPasswordQualityMeter();
+	afx_msg void OnPasswordEntropy();
 	afx_msg void OnChallengeResponse();
 	afx_msg void OnRsaFactorhint();
 	afx_msg void OnRsaStereotyped();
