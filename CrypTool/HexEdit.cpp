@@ -342,6 +342,19 @@ BOOL CHexEdit::OnUpdate()
 	SetSel(0, l);
 	ReplaceSel(b2);
 	SetSel(ss2,se2);
+
+	// FIXME: the following memory allocation was implemented to close a memory leak;
+	//        implement a function "reAllocBinData()", because this code snippet is 
+	//        used all over this source file.
+	int len=strlen(b2);
+	if(BinBuffLen < (len+1)/2)
+	{
+		free(BinData);
+		BinBuffLen = (len+1)/2 + 128;
+		BinData = (char *) calloc(BinBuffLen,1);
+	}
+	// FIXME END
+
 	SetRedraw(TRUE);
 	Invalidate(TRUE);
 	for(i=0;i<p;i+=3) {
