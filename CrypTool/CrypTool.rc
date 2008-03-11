@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polnisch resources
+// Polish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -11928,12 +11928,12 @@ BEGIN
     IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT "wiersz*kolumna wektor*macierz"
 END
 
-#endif    // Polnisch resources
+#endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -17559,36 +17559,42 @@ BEGIN
     PUSHBUTTON      "Default",ID_DEFAULT,100,164,50,14
 END
 
-IDD_PASSWORDENTROPY DIALOGEX 0, 0, 250, 235
+IDD_PASSWORDENTROPY DIALOGEX 0, 0, 375, 260
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Passwort-Entropie"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,214,50,14
-    PUSHBUTTON      "Abbrechen",IDCANCEL,193,214,50,14
-    DEFPUSHBUTTON   "Passwort generieren",ID_GENERATEPASSWORD,90,180,145,14
-    GROUPBOX        "Beschreibung",IDC_STATIC,7,7,236,50
+    DEFPUSHBUTTON   "OK",IDOK,7,239,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,318,239,50,14
+    DEFPUSHBUTTON   "Passwort generieren",ID_GENERATEPASSWORD,90,205,270,14
+    GROUPBOX        "Beschreibung",IDC_STATIC,7,7,361,71
     GROUPBOX        "Parameter für Generierung des Passworts",IDC_STATIC,7,
-                    60,236,65
-    GROUPBOX        "Generiertes Passwort",IDC_STATIC,7,129,236,75
-    LTEXT           "Passwort-Länge:",IDC_STATIC,30,145,55,8
-    LTEXT           "Passwort-Beispiel:",IDC_STATIC,26,164,59,8
-    EDITTEXT        IDC_EDIT_PASSWORDLENGTH,90,143,30,14,ES_CENTER | 
+                    85,361,65
+    GROUPBOX        "Generiertes Passwort",IDC_STATIC,7,154,361,75
+    LTEXT           "Passwort-Länge:",IDC_STATIC,30,170,55,8
+    LTEXT           "Passwort-Beispiel:",IDC_STATIC,26,189,59,8
+    EDITTEXT        IDC_EDIT_PASSWORDLENGTH,90,168,30,14,ES_CENTER | 
                     ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT_PASSWORDEXAMPLE,90,162,145,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDIT_PASSWORDEXAMPLE,90,187,270,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    LTEXT           "Alphabet:",IDC_STATIC,53,95,32,8
-    EDITTEXT        IDC_EDIT_PASSWORDALPHABET,90,93,145,14,ES_AUTOHSCROLL
+    LTEXT           "Alphabet:",IDC_STATIC,53,120,32,8
+    EDITTEXT        IDC_EDIT_PASSWORDALPHABET,90,118,270,14,ES_AUTOHSCROLL
     CONTROL         "CrypTool-Alphabet verwenden",
                     IDC_CHECK_USECRYPTOOLALPHABET,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,90,110,114,10
-    LTEXT           "Bitlänge:",IDC_STATIC,56,76,29,8
-    EDITTEXT        IDC_EDIT_PASSWORDBITLENGTH,90,74,30,14,ES_CENTER | 
+                    WS_TABSTOP,90,135,114,10
+    LTEXT           "Bitlänge:",IDC_STATIC,56,101,29,8
+    EDITTEXT        IDC_EDIT_PASSWORDBITLENGTH,90,99,30,14,ES_CENTER | 
                     ES_AUTOHSCROLL
-    LTEXT           "Zeichen",IDC_STATIC,125,145,26,8
-    LTEXT           "Bits",IDC_STATIC,125,76,12,8
-    DEFPUSHBUTTON   "Textoptionen",ID_TEXTOPTIONS,95,214,60,14
+    LTEXT           "Zeichen",IDC_STATIC,125,170,26,8
+    LTEXT           "Bits",IDC_STATIC,125,101,12,8
+    DEFPUSHBUTTON   "Textoptionen",ID_TEXTOPTIONS,156,239,60,14
+    LTEXT           "Dieser Dialog berechnet ein zufälliges Passwort mit besonderen Anforderungen.",
+                    IDC_STATIC,15,17,345,8
+    LTEXT           "Sowohl die Passwort-Entropie als auch das Passwort-Alphabet können vorgegeben werden.",
+                    IDC_STATIC,15,29,294,8
+    LTEXT           "Die Sicherheit moderner symmetrischer Verschlüsselungsverfahren liegt in der Bitlänge der verwendeten Schlüssel. Je größer die Schlüssellänge ist, desto höher ist die Entropie. Analog kann die erforderliche Passwortlänge für einen gegebenen Entropie-Wert berechnet werden. Die Vorgabe der Entropie erfolgt mittels der Bitlänge.",
+                    IDC_STATIC,15,41,345,32
 END
 
 
@@ -21305,11 +21311,13 @@ BEGIN
     IDD_PASSWORDENTROPY, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 243
+        RIGHTMARGIN, 368
+        VERTGUIDE, 15
         VERTGUIDE, 85
         VERTGUIDE, 90
+        VERTGUIDE, 360
         TOPMARGIN, 7
-        BOTTOMMARGIN, 228
+        BOTTOMMARGIN, 253
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -23905,12 +23913,12 @@ BEGIN
     ID_PASSWORDENTROPY      "Generiert Passwörter mit einer bestimmten Entropie"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -35942,7 +35950,7 @@ BEGIN
     ID_PASSWORDENTROPY      "Generates passwords with a specific entropy"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
