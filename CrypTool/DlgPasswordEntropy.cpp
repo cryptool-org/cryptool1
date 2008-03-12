@@ -46,6 +46,11 @@ statement from your version.
 #include "DlgPasswordEntropy.h"
 #include ".\dlgpasswordentropy.h"
 
+const CString constStringNonConfusableCharactersWrittenTransmission = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPRSTUVWXYZ23456789";
+const CString constStringNonConfusableCharactersTelephonicTransmission = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
+// BEGIN FIXME/TODO
+	const CString constStringWLANAlphabet = "WLAN FIXME";
+// END FIXME/TODO
 
 // CDlgPasswordEntropy-Dialogfeld
 
@@ -59,6 +64,9 @@ CDlgPasswordEntropy::CDlgPasswordEntropy(CWnd* pParent /*=NULL*/)
 	stringPasswordLength = "";
 	stringPasswordExample = "";
 	useCrypToolAlphabet = false;
+	useNonConfusableCharactersWrittenTransmission = false;
+	useNonConfusableCharactersTelephonicTransmission = false;
+	useWLANAlphabet = false;
 
 	// initialize pseudo-random number generator
 	srand((unsigned)time(NULL));
@@ -77,7 +85,11 @@ void CDlgPasswordEntropy::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_PASSWORDLENGTH, stringPasswordLength);
 	DDX_Text(pDX, IDC_EDIT_PASSWORDEXAMPLE, stringPasswordExample);
 	DDX_Check(pDX, IDC_CHECK_USECRYPTOOLALPHABET, useCrypToolAlphabet);
+	DDX_Check(pDX, IDC_CHECK_USENONCONFUSABLECHARACTERS_WRITTENTRANSMISSION, useNonConfusableCharactersWrittenTransmission);
+	DDX_Check(pDX, IDC_CHECK_USENONCONFUSABLECHARACTERS_TELEPHONICTRANSMISSION, useNonConfusableCharactersTelephonicTransmission);
+	DDX_Check(pDX, IDC_CHECK_USEWLANALPHABET, useWLANAlphabet);
 	DDX_Control(pDX, IDC_EDIT_PASSWORDBITLENGTH, editControlPasswordBitLength);
+	DDX_Control(pDX, IDC_EDIT_PASSWORDALPHABET, editControlPasswordAlphabet);
 }
 
 
@@ -86,6 +98,9 @@ BEGIN_MESSAGE_MAP(CDlgPasswordEntropy, CDialog)
 	ON_EN_CHANGE(IDC_EDIT_PASSWORDBITLENGTH, EditPasswordBitLengthChanged)
 	ON_EN_CHANGE(IDC_EDIT_PASSWORDALPHABET, EditPasswordAlphabetChanged)
 	ON_BN_CLICKED(IDC_CHECK_USECRYPTOOLALPHABET, CheckUseCrypToolAlphabetChanged)
+	ON_BN_CLICKED(IDC_CHECK_USENONCONFUSABLECHARACTERS_WRITTENTRANSMISSION, CheckUseNonConfusableCharactersWrittenTransmissionChanged)
+	ON_BN_CLICKED(IDC_CHECK_USENONCONFUSABLECHARACTERS_TELEPHONICTRANSMISSION, CheckUseNonConfusableCharactersTelephonicTransmissionChanged)
+	ON_BN_CLICKED(IDC_CHECK_USEWLANALPHABET, CheckUseWLANAlphabetChanged)
 	ON_BN_CLICKED(ID_TEXTOPTIONS, OnBnClickedTextoptions)
 END_MESSAGE_MAP()
 
@@ -96,9 +111,319 @@ void CDlgPasswordEntropy::OnBnClickedGeneratepassword()
 {
 	// before generating the password, we need both the password bit length and the alphabet
 	if(stringPasswordBitLength.IsEmpty() || stringPasswordAlphabet.IsEmpty()) {
-		MessageBox("TODO: missing parameters", "CrypTool", MB_ICONINFORMATION);
+		LoadString(AfxGetInstanceHandle(), IDS_PQM_ENTROPY_NOT_ALL_INPUT_PARAMETERS_SET, pc_str, STR_LAENGE_STRING_TABLE);
+		MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
 		return;
 	}
+
+	// get the desired password length
+	int passwordCharactersNeeded = atoi((const char*)(stringPasswordLength));
+
+	// generate a "random" password and make it visible
+	stringPasswordExample = "";
+	for(int i=0; i<(int)(passwordCharactersNeeded); i++) {
+		int index = rand() % stringPasswordAlphabet.GetLength();
+		stringPasswordExample +=  stringPasswordAlphabet[index];
+	}
+
+	UpdateData(false);
+}
+
+void CDlgPasswordEntropy::OnBnClickedTextoptions()
+{
+	// allow the user to change the CrypTool alphabet
+	CString oldAlphabet = theApp.TextOptions.m_alphabet;
+	theApp.TextOptions.DoModal();
+
+	// don't do anything if check box for CrypTool alphabet is not checked
+	if(!useCrypToolAlphabet) return;
+	// else: assign the new alphabet
+	else stringPasswordAlphabet = theApp.TextOptions.m_alphabet;
+	
+	// clear result fields if the alphabet has changed
+	if(oldAlphabet != theApp.TextOptions.m_alphabet) {
+        stringPasswordLength = "";
+		stringPasswordExample = "";
+	}
+
+	UpdateData(false);
+
+	// update the required password length
+	updatePasswordLength();
+}
+
+void CDlgPasswordEntropy::EditPasswordBitLengthChanged() 
+{
+	UpdateData(true);
+
+	// allow digits only
+	CString validBitLength;
+	for(int i=0; i<stringPasswordBitLength.GetLength(); i++) {
+		if(stringPasswordBitLength[i] >= '0' && stringPasswordBitLength[i] <= '9')
+			validBitLength += stringPasswordBitLength[i];
+	}
+	stringPasswordBitLength = validBitLength;
+
+	UpdateData(false);
+
+	// update the required password length
+	updatePasswordLength();
+
+	// set cursor position to the end of the input
+	editControlPasswordBitLength.SetSel(stringPasswordBitLength.GetLength(), stringPasswordBitLength.GetLength());
+}
+
+void CDlgPasswordEntropy::EditPasswordAlphabetChanged()
+{
+	UpdateData(true);
+
+	// make sure there are no double entries
+	CString validAlphabet;
+	for(int i=0; i<stringPasswordAlphabet.GetLength(); i++) {
+		if(stringPasswordAlphabet.Find(stringPasswordAlphabet[i], i+1) == -1) {
+			validAlphabet += stringPasswordAlphabet[i];
+		}
+	}
+	stringPasswordAlphabet = validAlphabet;
+
+	// now clear check boxes if necessary...
+
+	if(useCrypToolAlphabet) {
+		if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(theApp.TextOptions.m_alphabet, stringPasswordAlphabet)) {
+			useCrypToolAlphabet = false;
+		}
+	}
+	if(useNonConfusableCharactersWrittenTransmission) {
+		if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(constStringNonConfusableCharactersWrittenTransmission, stringPasswordAlphabet)) {
+			useNonConfusableCharactersWrittenTransmission = false;
+		}
+	}
+	if(useNonConfusableCharactersTelephonicTransmission) {
+		if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(constStringNonConfusableCharactersTelephonicTransmission, stringPasswordAlphabet)) {
+			useNonConfusableCharactersTelephonicTransmission = false;
+		}
+	}
+	if(useWLANAlphabet) {
+		if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(constStringWLANAlphabet, stringPasswordAlphabet)) {
+			useWLANAlphabet = false;
+		}
+	}
+
+	// clear result field
+	stringPasswordExample = "";
+
+	UpdateData(false);
+
+	// update the required password length
+	updatePasswordLength();
+
+	// set cursor position to the end of the input
+	editControlPasswordAlphabet.SetSel(stringPasswordAlphabet.GetLength(), stringPasswordAlphabet.GetLength());
+}
+
+void CDlgPasswordEntropy::CheckUseCrypToolAlphabetChanged()
+{
+	UpdateData(true);
+
+	// get the old alphabet before any changes by the user
+	CString oldAlphabet = stringPasswordAlphabet;
+	// create a variable for the new (changed) alphabet
+	CString newAlphabet = stringPasswordAlphabet;
+
+	if(useCrypToolAlphabet) {
+		// assign new alphabet
+		newAlphabet = theApp.TextOptions.m_alphabet;
+
+		// disable "don't use confusable characters written transmission" if necessary
+		if(useNonConfusableCharactersWrittenTransmission) {
+			// disable check box if new alphabet doesn't contain all non-confusable characters
+			if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(constStringNonConfusableCharactersWrittenTransmission, newAlphabet)) {
+				useNonConfusableCharactersWrittenTransmission = false;
+			}
+		}
+
+		// disable "don't use confusable characters telephonic transmission" if necessary
+		if(useNonConfusableCharactersTelephonicTransmission) {
+			// disable check box if new alphabet doesn't contain all non-confusable characters
+			if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(constStringNonConfusableCharactersTelephonicTransmission, newAlphabet)) {
+				useNonConfusableCharactersTelephonicTransmission = false;
+			}
+		}
+
+		// disable "use WLAN password alphabet" if necessary
+		if(useWLANAlphabet) {
+			// disable check box if new alphabet doesn't contain all characters of the WLAN alphabet
+			if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(constStringWLANAlphabet, newAlphabet)) {
+				useWLANAlphabet = false;
+			}
+		}
+	}
+
+	// update alphabet and clear result field if the alphabet has changed
+	if(newAlphabet != oldAlphabet) {
+		stringPasswordAlphabet = newAlphabet;
+		stringPasswordExample = "";
+	}
+
+	UpdateData(false);
+
+	// update the required password length
+	updatePasswordLength();
+}
+
+void CDlgPasswordEntropy::CheckUseNonConfusableCharactersWrittenTransmissionChanged()
+{
+	UpdateData(true);
+
+	// get the old alphabet before any changes by the user
+	CString oldAlphabet = stringPasswordAlphabet;
+	// create a variable for the new (changed) alphabet
+	CString newAlphabet = stringPasswordAlphabet;
+
+	if(useNonConfusableCharactersWrittenTransmission) {
+		// assign new alphabet
+		newAlphabet = constStringNonConfusableCharactersWrittenTransmission;
+
+		// disable "use CrypTool alphabet" if necessary
+		if(useCrypToolAlphabet) {
+			// disable check box if new alphabet doesn't contain all characters that are part of the CrypTool alphabet
+			if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(theApp.TextOptions.m_alphabet, newAlphabet)) {
+				useCrypToolAlphabet = false;
+			}
+		}
+
+		// disable "don't use confusable characters telephonic transmission" if necessary
+		if(useNonConfusableCharactersTelephonicTransmission) {
+			// disable check box if new alphabet doesn't contain all non-confusable characters
+			if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(constStringNonConfusableCharactersTelephonicTransmission, newAlphabet)) {
+				useNonConfusableCharactersTelephonicTransmission = false;
+			}
+		}
+
+		// disable "use WLAN password alphabet" if necessary
+		if(useWLANAlphabet) {
+			// disable check box if new alphabet doesn't contain all characters of the WLAN alphabet
+			if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(constStringWLANAlphabet, newAlphabet)) {
+				useWLANAlphabet = false;
+			}
+		}
+	}
+
+	// update alphabet and clear result field if the alphabet has changed
+	if(newAlphabet != oldAlphabet) {
+		stringPasswordAlphabet = newAlphabet;
+		stringPasswordExample = "";
+	}
+
+	UpdateData(false);
+
+	// update the required password length
+	updatePasswordLength();
+}
+
+void CDlgPasswordEntropy::CheckUseNonConfusableCharactersTelephonicTransmissionChanged()
+{
+	UpdateData(true);
+
+	// get the old alphabet before any changes by the user
+	CString oldAlphabet = stringPasswordAlphabet;
+	// create a variable for the new (changed) alphabet
+	CString newAlphabet = stringPasswordAlphabet;
+
+	if(useNonConfusableCharactersTelephonicTransmission) {
+		// assign new alphabet
+		newAlphabet = constStringNonConfusableCharactersTelephonicTransmission;
+
+		// disable "use CrypTool alphabet" if necessary
+		if(useCrypToolAlphabet) {
+			// disable check box if new alphabet doesn't contain all characters that are part of the CrypTool alphabet
+			if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(theApp.TextOptions.m_alphabet, newAlphabet)) {
+				useCrypToolAlphabet = false;
+			}
+		}
+
+		// disable "don't use confusable characters written transmission" if necessary
+		if(useNonConfusableCharactersWrittenTransmission) {
+			// disable check box if new alphabet doesn't contain all non-confusable characters
+			if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(constStringNonConfusableCharactersWrittenTransmission, newAlphabet)) {
+				useNonConfusableCharactersWrittenTransmission = false;
+			}
+		}
+
+		// disable "use WLAN password alphabet" if necessary
+		if(useWLANAlphabet) {
+			// disable check box if new alphabet doesn't contain all characters of the WLAN alphabet
+			if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(constStringWLANAlphabet, newAlphabet)) {
+				useWLANAlphabet = false;
+			}
+		}
+	}
+
+	// update alphabet and clear result field if the alphabet has changed
+	if(newAlphabet != oldAlphabet) {
+		stringPasswordAlphabet = newAlphabet;
+		stringPasswordExample = "";
+	}
+
+	UpdateData(false);
+
+	// update the required password length
+	updatePasswordLength();
+}
+
+void CDlgPasswordEntropy::CheckUseWLANAlphabetChanged()
+{
+	UpdateData(true);
+
+	// get the old alphabet before any changes by the user
+	CString oldAlphabet = stringPasswordAlphabet;
+	// create a variable for the new (changed) alphabet
+	CString newAlphabet = stringPasswordAlphabet;
+
+	if(useWLANAlphabet) {
+		// assign new alphabet
+		newAlphabet = constStringWLANAlphabet;
+
+		// disable "use CrypTool alphabet" if necessary
+		if(useCrypToolAlphabet) {
+			// disable check box if new alphabet doesn't contain all characters that are part of the CrypTool alphabet
+			if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(theApp.TextOptions.m_alphabet, newAlphabet)) {
+				useCrypToolAlphabet = false;
+			}
+		}
+
+		// disable "don't use confusable characters written transmission" if necessary
+		if(useNonConfusableCharactersWrittenTransmission) {
+			// disable check box if new alphabet doesn't contain all non-confusable characters
+			if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(constStringNonConfusableCharactersWrittenTransmission, newAlphabet)) {
+				useNonConfusableCharactersWrittenTransmission = false;
+			}
+		}
+
+		// disable "don't use confusable characters telephonic transmission" if necessary
+		if(useNonConfusableCharactersTelephonicTransmission) {
+			// disable check box if new alphabet doesn't contain all non-confusable characters
+			if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(constStringNonConfusableCharactersTelephonicTransmission, newAlphabet)) {
+				useNonConfusableCharactersTelephonicTransmission = false;
+			}
+		}	
+	}
+
+	// update alphabet and clear result field if the alphabet has changed
+	if(newAlphabet != oldAlphabet) {
+		stringPasswordAlphabet = newAlphabet;
+		stringPasswordExample = "";
+	}
+
+	UpdateData(false);
+
+	// update the required password length
+	updatePasswordLength();
+}
+
+void CDlgPasswordEntropy::updatePasswordLength()
+{
+	UpdateData(true);
 
 	// figure out how many bits of entropy we get with ONE CHARACTER, given the assumption 
 	// that each password character is independently and randomly chosen from the alphabet
@@ -114,88 +439,21 @@ void CDlgPasswordEntropy::OnBnClickedGeneratepassword()
 	sprintf(buffer, "%d", (int)(passwordCharactersNeeded));
 	stringPasswordLength = buffer;
 
-	// generate a "random" password and make it visible
-	stringPasswordExample = "";
-	
-	for(int i=0; i<(int)(passwordCharactersNeeded); i++) {
-		int index = rand() % stringPasswordAlphabet.GetLength();
-		stringPasswordExample +=  stringPasswordAlphabet[index];
-	}
-
-	UpdateData(false);
-}
-
-void CDlgPasswordEntropy::EditPasswordBitLengthChanged() 
-{
-	UpdateData(true);
-
-	// allow digits only
-	CString validBitLength;
-	for(int i=0; i<stringPasswordBitLength.GetLength(); i++) {
-		if(stringPasswordBitLength[i] >= '0' && stringPasswordBitLength[i] <= '9')
-			validBitLength += stringPasswordBitLength[i];
-	}
-	stringPasswordBitLength = validBitLength;
-
-	// clear result fields
-	stringPasswordLength = "";
-	stringPasswordExample = "";
-
-	UpdateData(false);
-
-	// set cursor position to the end of the input
-	editControlPasswordBitLength.SetSel(stringPasswordBitLength.GetLength(), stringPasswordBitLength.GetLength());
-}
-
-void CDlgPasswordEntropy::EditPasswordAlphabetChanged()
-{
-	UpdateData(true);
-
-	// if the alphabet is changed, disable the "use CrypTool alphabet" check box
-	useCrypToolAlphabet = false;
-	// make sure there are no double entries
-	CString validAlphabet;
-	for(int i=0; i<stringPasswordAlphabet.GetLength(); i++) {
-		if(stringPasswordAlphabet.Find(stringPasswordAlphabet[i], i+1) == -1) {
-			validAlphabet += stringPasswordAlphabet[i];
-		}
-	}
-	stringPasswordAlphabet = validAlphabet;
-
-	// clear result fields
-	stringPasswordLength = "";
-	stringPasswordExample = "";
-
-	UpdateData(false);
-}
-
-void CDlgPasswordEntropy::CheckUseCrypToolAlphabetChanged()
-{
-	UpdateData(true);
-
-	// use the CrypTool alphabet if desired
-	if(useCrypToolAlphabet) stringPasswordAlphabet = theApp.TextOptions.m_alphabet;
-	else stringPasswordAlphabet = "";
-
-	// clear result fields
-	stringPasswordLength = "";
-	stringPasswordExample = "";
-
-	UpdateData(false);
-}
-
-void CDlgPasswordEntropy::OnBnClickedTextoptions()
-{
-	// allow the user to change the CrypTool alphabet
-	CString oldAlphabet = theApp.TextOptions.m_alphabet;
-	theApp.TextOptions.DoModal();
-	stringPasswordAlphabet = theApp.TextOptions.m_alphabet;
-	
-	// clear result fields if the alphabet has changed
-	if(oldAlphabet != theApp.TextOptions.m_alphabet) {
-        stringPasswordLength = "";
+	// make sure a password of zero length is impossible
+	if(stringPasswordLength == "0") {
+		stringPasswordLength = "";
 		stringPasswordExample = "";
 	}
 
 	UpdateData(false);
+}
+
+bool CDlgPasswordEntropy::doesFirstAlphabetContainCharactersNotInSecondAlphabet(const CString firstAlphabet, const CString secondAlphabet)
+{
+	for(int i=0; i<firstAlphabet.GetLength(); i++) {
+		if(secondAlphabet.Find(firstAlphabet.GetAt(i)) == -1) {
+			return true;
+		}
+	}
+	return false;
 }

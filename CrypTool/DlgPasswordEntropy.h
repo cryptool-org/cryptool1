@@ -61,22 +61,33 @@ protected:
 
 	virtual void EditPasswordBitLengthChanged();
 	virtual void EditPasswordAlphabetChanged();
+
 	virtual void CheckUseCrypToolAlphabetChanged();
+	virtual void CheckUseNonConfusableCharactersWrittenTransmissionChanged();
+	virtual void CheckUseNonConfusableCharactersTelephonicTransmissionChanged();
+	virtual void CheckUseWLANAlphabetChanged();
+
+	void updatePasswordLength();
+
+	afx_msg void OnBnClickedGeneratepassword();
+	afx_msg void OnBnClickedTextoptions();
 
 	DECLARE_MESSAGE_MAP()
 
-	afx_msg void OnBnClickedGeneratepassword();
-
 	CEdit editControlPasswordBitLength;
+	CEdit editControlPasswordAlphabet;
 
-private:
 	CString stringPasswordBitLength;
 	CString stringPasswordAlphabet;
 	CString stringPasswordLength;
 	CString stringPasswordExample;
+
 	BOOL useCrypToolAlphabet;
-public:
-	afx_msg void OnBnClickedTextoptions();
+	BOOL useNonConfusableCharactersWrittenTransmission;
+	BOOL useNonConfusableCharactersTelephonicTransmission;
+	BOOL useWLANAlphabet;
+
+	bool doesFirstAlphabetContainCharactersNotInSecondAlphabet(const CString firstAlphabet, const CString secondAlphabet);
 };
 
 #endif

@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -11928,12 +11928,12 @@ BEGIN
     IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT "wiersz*kolumna wektor*macierz"
 END
 
-#endif    // Polish resources
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -17559,42 +17559,49 @@ BEGIN
     PUSHBUTTON      "Default",ID_DEFAULT,100,164,50,14
 END
 
-IDD_PASSWORDENTROPY DIALOGEX 0, 0, 375, 260
+IDD_PASSWORDENTROPY DIALOGEX 0, 0, 420, 275
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Passwort-Entropie"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,239,50,14
-    PUSHBUTTON      "Abbrechen",IDCANCEL,318,239,50,14
-    DEFPUSHBUTTON   "Passwort generieren",ID_GENERATEPASSWORD,90,205,270,14
-    GROUPBOX        "Beschreibung",IDC_STATIC,7,7,361,71
-    GROUPBOX        "Parameter für Generierung des Passworts",IDC_STATIC,7,
-                    85,361,65
-    GROUPBOX        "Generiertes Passwort",IDC_STATIC,7,154,361,75
-    LTEXT           "Passwort-Länge:",IDC_STATIC,30,170,55,8
-    LTEXT           "Passwort-Beispiel:",IDC_STATIC,26,189,59,8
-    EDITTEXT        IDC_EDIT_PASSWORDLENGTH,90,168,30,14,ES_CENTER | 
+    DEFPUSHBUTTON   "OK",IDOK,7,254,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,363,254,50,14
+    DEFPUSHBUTTON   "Passwort generieren",ID_GENERATEPASSWORD,90,215,310,14
+    GROUPBOX        "Beschreibung",IDC_STATIC,7,7,406,50
+    GROUPBOX        "Input-Parameter zur Generierung des Passworts",
+                    IDC_STATIC,7,60,406,100
+    GROUPBOX        "Generiertes Passwort",IDC_STATIC,7,164,406,75
+    LTEXT           "Passwort-Länge:",IDC_STATIC,30,178,55,8
+    LTEXT           "Passwort-Beispiel:",IDC_STATIC,26,197,59,8
+    EDITTEXT        IDC_EDIT_PASSWORDLENGTH,90,176,30,14,ES_CENTER | 
                     ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT_PASSWORDEXAMPLE,90,187,270,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDIT_PASSWORDEXAMPLE,90,195,310,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    LTEXT           "Alphabet:",IDC_STATIC,53,120,32,8
-    EDITTEXT        IDC_EDIT_PASSWORDALPHABET,90,118,270,14,ES_AUTOHSCROLL
+    LTEXT           "Alphabet:",IDC_STATIC,53,93,32,8
+    EDITTEXT        IDC_EDIT_PASSWORDALPHABET,90,91,310,14,ES_AUTOHSCROLL
     CONTROL         "CrypTool-Alphabet verwenden",
                     IDC_CHECK_USECRYPTOOLALPHABET,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,90,135,114,10
-    LTEXT           "Bitlänge:",IDC_STATIC,56,101,29,8
-    EDITTEXT        IDC_EDIT_PASSWORDBITLENGTH,90,99,30,14,ES_CENTER | 
+                    WS_TABSTOP,90,108,114,10
+    LTEXT           "Entropie:",IDC_STATIC,55,74,30,8
+    EDITTEXT        IDC_EDIT_PASSWORDBITLENGTH,90,72,30,14,ES_CENTER | 
                     ES_AUTOHSCROLL
-    LTEXT           "Zeichen",IDC_STATIC,125,170,26,8
-    LTEXT           "Bits",IDC_STATIC,125,101,12,8
-    DEFPUSHBUTTON   "Textoptionen",ID_TEXTOPTIONS,156,239,60,14
-    LTEXT           "Dieser Dialog berechnet ein zufälliges Passwort mit besonderen Anforderungen.",
-                    IDC_STATIC,15,17,345,8
-    LTEXT           "Sowohl die Passwort-Entropie als auch das Passwort-Alphabet können vorgegeben werden.",
-                    IDC_STATIC,15,29,294,8
-    LTEXT           "Die Sicherheit moderner symmetrischer Verschlüsselungsverfahren liegt in der Bitlänge der verwendeten Schlüssel. Je größer die Schlüssellänge ist, desto höher ist die Entropie. Analog kann die erforderliche Passwortlänge für einen gegebenen Entropie-Wert berechnet werden. Die Vorgabe der Entropie erfolgt mittels der Bitlänge.",
-                    IDC_STATIC,15,41,345,32
+    LTEXT           "Zeichen",IDC_STATIC,125,178,26,8
+    LTEXT           "Bits",IDC_STATIC,125,74,12,8
+    DEFPUSHBUTTON   "Textoptionen",ID_TEXTOPTIONS,180,254,60,14
+    LTEXT           "Dieser Dialog berechnet ein zufälliges Passwort.",
+                    IDC_STATIC,20,20,380,8
+    LTEXT           "Die Passwort-Entropie definiert, wie schwer das Passwort zu erraten ist. Das Passwort-Alphabet bestimmt, welche Zeichen für das Passwort verwendet werden. Durch Entropie und Alphabet ergibt sich die Passwort-Länge.",
+                    IDC_STATIC,20,32,380,16
+    CONTROL         "Keine verwechselbaren Zeichen verwenden (schriftliche Übertragung)",
+                    IDC_CHECK_USENONCONFUSABLECHARACTERS_WRITTENTRANSMISSION,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,90,120,239,10
+    CONTROL         "Keine verwechselbaren Zeichen verwenden (telefonische Übertragung)",
+                    IDC_CHECK_USENONCONFUSABLECHARACTERS_TELEPHONICTRANSMISSION,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,90,132,243,10
+    CONTROL         "Alphabet für WLAN-Passwörter verwenden (64 Zeichen)",
+                    IDC_CHECK_USEWLANALPHABET,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,90,144,196,10
 END
 
 
@@ -21311,13 +21318,13 @@ BEGIN
     IDD_PASSWORDENTROPY, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 368
-        VERTGUIDE, 15
+        RIGHTMARGIN, 413
+        VERTGUIDE, 20
         VERTGUIDE, 85
         VERTGUIDE, 90
-        VERTGUIDE, 360
+        VERTGUIDE, 400
         TOPMARGIN, 7
-        BOTTOMMARGIN, 253
+        BOTTOMMARGIN, 268
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -23897,6 +23904,8 @@ BEGIN
     IDS_PATH_PRESENTATION   "%sCrypToolPresentation-de.pdf"
     IDS_ERROR_OPENING_PRESENTATION 
                             "Die Präsentation konnte nicht geöffnet werden!\n\nBitte überprüfen Sie:\n- ob sich die Datei ""CrypToolPresentation-de.pdf"" im gleichen Pfad wie das Programm ""CrypTool.exe"" befindet und\n- ob Sie den Acrobat Reader installiert haben (www.adobe.com)."
+    IDS_PQM_ENTROPY_NOT_ALL_INPUT_PARAMETERS_SET 
+                            "Bitte stellen Sie sicher, dass Sie\n- die gewünschte Passwort-Entropie und\n- das gewünschte Passwort-Alphabet\nangegeben haben."
 END
 
 STRINGTABLE 
@@ -23913,12 +23922,12 @@ BEGIN
     ID_PASSWORDENTROPY      "Generiert Passwörter mit einer bestimmten Entropie"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -29464,6 +29473,50 @@ BEGIN
     PUSHBUTTON      "Default",ID_DEFAULT,100,164,50,14
 END
 
+IDD_PASSWORDENTROPY DIALOGEX 0, 0, 420, 275
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Password Entropy"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,254,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,363,254,50,14
+    DEFPUSHBUTTON   "Generate password",ID_GENERATEPASSWORD,90,215,310,14
+    GROUPBOX        "Description",IDC_STATIC,7,7,406,50
+    GROUPBOX        "Input parameters for password generation",IDC_STATIC,7,
+                    60,406,100
+    GROUPBOX        "Generated password",IDC_STATIC,7,164,406,75
+    LTEXT           "Password length:",IDC_STATIC,29,178,56,8
+    LTEXT           "Password example:",IDC_STATIC,22,197,63,8
+    EDITTEXT        IDC_EDIT_PASSWORDLENGTH,90,176,30,14,ES_CENTER | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_PASSWORDEXAMPLE,90,195,310,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Alphabet:",IDC_STATIC,53,93,32,8
+    EDITTEXT        IDC_EDIT_PASSWORDALPHABET,90,91,310,14,ES_AUTOHSCROLL
+    CONTROL         "Use CrypTool alphabet",IDC_CHECK_USECRYPTOOLALPHABET,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,90,108,89,10
+    LTEXT           "Entropy:",IDC_STATIC,56,74,29,8
+    EDITTEXT        IDC_EDIT_PASSWORDBITLENGTH,90,72,30,14,ES_CENTER | 
+                    ES_AUTOHSCROLL
+    LTEXT           "characters",IDC_STATIC,125,178,35,8
+    LTEXT           "bit",IDC_STATIC,125,74,9,8
+    DEFPUSHBUTTON   "Text options",ID_TEXTOPTIONS,180,254,60,14
+    LTEXT           "This dialog computes a random password.",IDC_STATIC,20,
+                    20,380,8
+    CONTROL         "Don't use confusable characters (written transmission)",
+                    IDC_CHECK_USENONCONFUSABLECHARACTERS_WRITTENTRANSMISSION,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,90,120,190,10
+    CONTROL         "Don't use confusable characters (telephonic transmission)",
+                    IDC_CHECK_USENONCONFUSABLECHARACTERS_TELEPHONICTRANSMISSION,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,90,132,200,10
+    CONTROL         "Use alphabet for WLAN passwords (64 characters)",
+                    IDC_CHECK_USEWLANALPHABET,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,90,144,178,10
+    LTEXT           "The password entropy defines how hard it is to guess the password. The password alphabet defines which characters are used to create the password. The combination of entropy and alphabet yield the password length.",
+                    IDC_STATIC,20,32,380,16
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -33415,6 +33468,18 @@ BEGIN
         BOTTOMMARGIN, 178
         HORZGUIDE, 20
     END
+
+    IDD_PASSWORDENTROPY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 413
+        VERTGUIDE, 20
+        VERTGUIDE, 85
+        VERTGUIDE, 90
+        VERTGUIDE, 400
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 268
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -35934,6 +35999,8 @@ BEGIN
     IDS_PATH_PRESENTATION   "%sCrypToolPresentation-en.pdf"
     IDS_ERROR_OPENING_PRESENTATION 
                             "The presentation could not be opened!\n\nPlease check\n- if the file ""CrypToolPresentation-en.pdf"" is in the same directory as ""CrypTool.exe"" and\n- if the Acrobat reader is installed (www.adobe.com)."
+    IDS_PQM_ENTROPY_NOT_ALL_INPUT_PARAMETERS_SET 
+                            "Please make sure you have specified\n- the desired password entropy and\n- the desired password alphabet."
 END
 
 STRINGTABLE 
@@ -35950,7 +36017,7 @@ BEGIN
     ID_PASSWORDENTROPY      "Generates passwords with a specific entropy"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
