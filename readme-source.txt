@@ -1,4 +1,4 @@
-CrypTool 1.4.00  (Jul 2006)
+CrypTool 1.4.00  (March 2008)
 ~~~~~~~~~~~~~~~
 
 
@@ -222,6 +222,13 @@ g) When developing new code, try to separate different functionalities: so pleas
   - Then integrate your program into CrypTool and design the GUI.
   Acting in this way means to have 2 separated steps: this helps to clearly divide up the
   crypto functionality and the application/presentation layer.
+  
+- Among others, there is the perl script "CheckHelp.pl" (located in "trunk/CrypTool") supporting 
+  developers in maintaining the CrypTool online help. It is very useful because it runs various 
+  consistency checks regarding the online help. A simple way to run this script is "perl CheckHelp.pl 
+  ENGLISH hlp_de" from the CrypTool root directory ("trunk/CrypTool"). There are more languages 
+  supported, and you can get detailed output information if the "$debug" switch is set. For more 
+  information, take a look at the documented source file "CheckHelp.pl"
   
 
 
