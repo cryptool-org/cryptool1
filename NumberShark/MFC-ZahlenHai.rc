@@ -760,7 +760,7 @@ BEGIN
     PUSHBUTTON      "&Change style",IDC_BUTTON_SWITCH_STYLE,398,72,59,14,NOT 
                     WS_VISIBLE
     CTEXT           "Statisch",IDC_TIMER,398,148,59,14,SS_CENTERIMAGE
-    LTEXT           "Verstrichene Zeit:",IDC_STATIC,398,129,43,8
+    LTEXT           "Verstrichene Zeit:",IDC_STATIC,398,129,59,8
     PUSHBUTTON      "&Laden",IDC_BUTTON_LOAD,398,271,59,14,NOT WS_VISIBLE
     PUSHBUTTON      "&Speichern",IDC_BUTTON_SAVE,398,294,59,14,NOT 
                     WS_VISIBLE
@@ -1049,7 +1049,7 @@ BEGIN
     IDS_TOOL_TIP_UNDO       "Undo/Backward:\nÜber den ""Rückwärts-"" Knopf kannst Du deine letzten Züge rückgängig machen\nund einen neuen Weg ausprobieren, um die höchste Punktzahl zu erreichen."
     IDS_TOOL_TIP_REDO       "Redo/Foreward:\nÜber den ""Vorwärts"" Knopf kannst Du deine rückgängig gemachten Züge solange wieder vorwärts gehen,\nsolange du keine Änderung im Spielverlauf vornimmst."
     IDS_MAX_POINTS_NEW_2    "Um bei %s Zahlen die maximal mögliche Punktezahl von %s Punkten zu berechnen,\r\nhat das Programm %s Sekunden benötigt und musste dabei %s Knoten durchlaufen.\r\n\r\nDie höchste Primzahl ist %s. Mit dieser Zahl musst Du das Spiel beginnen, um die maximal mögliche Punktzahl \r\nerreichen zu können.\r\n\r\nDie höchste Punktzahl kannst Du unter anderem mit folgender\r\nZugfolge (Weg) erreichen: %s .\r\n\r\n"
-    IDS_SHELL_GROUP_BOX     "Shell square  (blue means: free to choose;  red means: already used)"
+    IDS_SHELL_GROUP_BOX     "Muschelfeld (blau bedeutet: frei wählbar; rot bedeutet: schon vergeben)"
     IDS_NORMAL_GROUP_BOX    "Muschelfeld"
     IDS_NO_SEARCH           "Die Datei ""%s"" konnte nicht erstellt werden, da Du wahrscheinlich nicht genügend Zugriffsrechte in dem Ordner\r\n""%s"" hast.\r\n\r\nDie Berechnung wird trotzdem gestartet, kann aber nach einer Unterbrechnung nicht wieder aufgesetzt werden."
     IDS_NO_SUMMARY          "Die Datei ""%s"" konnte nicht erstellt werden, da Du wahrscheinlich nicht genügend Zugriffsrechte in dem Ordner\r\n""%s"" hast.\r\n"
