@@ -642,6 +642,12 @@ void CDlgKeyHill5x5::UpdateFeld(CEdit *feld)
 	CString cs;
 	feld->GetWindowText(cs);
 
+	// QUICK FIX: if user supplied MORE THAN ON CHARACTER, for example by using 
+	// the copy/paste mechanism, throw away all characters except the first one
+	if(cs.GetLength() > 1) {
+		cs.Delete(1, cs.GetLength() - 1);
+	}
+
 	if (cs.GetLength() == 1)
 	{
 		if ( hillklasse->ist_erlaubtes_zeichen(cs[0]) )

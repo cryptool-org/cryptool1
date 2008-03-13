@@ -5509,36 +5509,6 @@ BEGIN
     LTEXT           "Static",IDC_HEADER,7,7,420,38
 END
 
-IDD_PASSWORD_GUIDELINES DIALOGEX 0, 0, 250, 185
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
-CAPTION "Password Guidelines"
-FONT 8, "MS Shell Dlg", 400, 0, 0x1
-BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,164,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,193,164,50,14
-    GROUPBOX        "Description",IDC_STATIC,7,7,236,45
-    GROUPBOX        "Minimum requirements for passwords",IDC_STATIC,7,65,236,
-                    91
-    LTEXT           "Here you can adjust the minimum requirements for passwords checked by the password quality meter that is integrated in CrypTool.",
-                    IDC_STATIC,20,20,210,24
-    RTEXT           "Length:",IDC_STATIC,30,80,50,8
-    RTEXT           "Digits:",IDC_STATIC,30,99,50,8
-    RTEXT           "Special characters:",IDC_STATIC,18,118,62,8
-    EDITTEXT        IDC_EDIT_PASSWORD_LENGTH,90,78,20,14,ES_CENTER | 
-                    ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_PASSWORD_DIGITS,90,97,20,14,ES_CENTER | 
-                    ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_PASSWORD_SPECIAL,90,116,20,14,ES_CENTER | 
-                    ES_AUTOHSCROLL
-    LTEXT           "characters",IDC_STATIC,115,80,45,8
-    LTEXT           "characters",IDC_STATIC,115,99,45,8
-    LTEXT           "characters",IDC_STATIC,115,118,46,8
-    EDITTEXT        IDC_EDIT_PASSWORD_SPECIAL_GROUP,90,135,140,14,
-                    ES_AUTOHSCROLL
-    PUSHBUTTON      "Default",ID_DEFAULT,100,164,50,14
-END
-
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -9417,21 +9387,6 @@ BEGIN
         RIGHTMARGIN, 427
         TOPMARGIN, 7
         BOTTOMMARGIN, 204
-    END
-
-    IDD_PASSWORD_GUIDELINES, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 243
-        VERTGUIDE, 20
-        VERTGUIDE, 80
-        VERTGUIDE, 90
-        VERTGUIDE, 110
-        VERTGUIDE, 115
-        VERTGUIDE, 230
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 178
-        HORZGUIDE, 20
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -17545,11 +17500,11 @@ BEGIN
     RTEXT           "Länge:",IDC_STATIC,30,80,50,8
     RTEXT           "Ziffern:",IDC_STATIC,30,99,50,8
     RTEXT           "Sonderzeichen:",IDC_STATIC,30,118,50,8
-    EDITTEXT        IDC_EDIT_PASSWORD_LENGTH,90,78,20,14,ES_CENTER | 
+    EDITTEXT        IDC_EDIT_PASSWORD_LENGTH,90,78,20,14,ES_RIGHT | 
                     ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_PASSWORD_DIGITS,90,97,20,14,ES_CENTER | 
+    EDITTEXT        IDC_EDIT_PASSWORD_DIGITS,90,97,20,14,ES_RIGHT | 
                     ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_PASSWORD_SPECIAL,90,116,20,14,ES_CENTER | 
+    EDITTEXT        IDC_EDIT_PASSWORD_SPECIAL,90,116,20,14,ES_RIGHT | 
                     ES_AUTOHSCROLL
     LTEXT           "Zeichen",IDC_STATIC,115,80,45,8
     LTEXT           "Zeichen",IDC_STATIC,115,99,45,8
@@ -17574,34 +17529,34 @@ BEGIN
     GROUPBOX        "Generiertes Passwort",IDC_STATIC,7,164,406,75
     LTEXT           "Passwort-Länge:",IDC_STATIC,30,178,55,8
     LTEXT           "Passwort-Beispiel:",IDC_STATIC,26,197,59,8
-    EDITTEXT        IDC_EDIT_PASSWORDLENGTH,90,176,30,14,ES_CENTER | 
+    EDITTEXT        IDC_EDIT_PASSWORDLENGTH,90,176,30,14,ES_RIGHT | 
                     ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT_PASSWORDEXAMPLE,90,195,310,14,ES_AUTOHSCROLL | 
                     ES_READONLY
     LTEXT           "Alphabet:",IDC_STATIC,53,93,32,8
     EDITTEXT        IDC_EDIT_PASSWORDALPHABET,90,91,310,14,ES_AUTOHSCROLL
-    CONTROL         "CrypTool-Alphabet verwenden",
+    CONTROL         "Aktuelles Text-Alphabet verwenden",
                     IDC_CHECK_USECRYPTOOLALPHABET,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,90,108,114,10
+                    WS_TABSTOP,90,110,131,10
     LTEXT           "Entropie:",IDC_STATIC,55,74,30,8
-    EDITTEXT        IDC_EDIT_PASSWORDBITLENGTH,90,72,30,14,ES_CENTER | 
+    EDITTEXT        IDC_EDIT_PASSWORDBITLENGTH,90,72,30,14,ES_RIGHT | 
                     ES_AUTOHSCROLL
     LTEXT           "Zeichen",IDC_STATIC,125,178,26,8
     LTEXT           "Bits",IDC_STATIC,125,74,12,8
-    DEFPUSHBUTTON   "Textoptionen",ID_TEXTOPTIONS,180,254,60,14
+    DEFPUSHBUTTON   "Textoptionen",ID_TEXTOPTIONS,223,107,177,14
     LTEXT           "Dieser Dialog berechnet ein zufälliges Passwort.",
                     IDC_STATIC,20,20,380,8
     LTEXT           "Die Passwort-Entropie definiert, wie schwer das Passwort zu erraten ist. Das Passwort-Alphabet bestimmt, welche Zeichen für das Passwort verwendet werden. Durch Entropie und Alphabet ergibt sich die Passwort-Länge.",
                     IDC_STATIC,20,32,380,16
     CONTROL         "Keine verwechselbaren Zeichen verwenden (schriftliche Übertragung)",
                     IDC_CHECK_USENONCONFUSABLECHARACTERS_WRITTENTRANSMISSION,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,90,120,239,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,90,122,239,10
     CONTROL         "Keine verwechselbaren Zeichen verwenden (telefonische Übertragung)",
                     IDC_CHECK_USENONCONFUSABLECHARACTERS_TELEPHONICTRANSMISSION,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,90,132,243,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,90,134,243,10
     CONTROL         "Alphabet für WLAN-Passwörter verwenden (64 Zeichen)",
                     IDC_CHECK_USEWLANALPHABET,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,90,144,196,10
+                    WS_TABSTOP,90,146,196,10
 END
 
 
@@ -29459,11 +29414,11 @@ BEGIN
     RTEXT           "Length:",IDC_STATIC,30,80,50,8
     RTEXT           "Digits:",IDC_STATIC,30,99,50,8
     RTEXT           "Special characters:",IDC_STATIC,18,118,62,8
-    EDITTEXT        IDC_EDIT_PASSWORD_LENGTH,90,78,20,14,ES_CENTER | 
+    EDITTEXT        IDC_EDIT_PASSWORD_LENGTH,90,78,20,14,ES_RIGHT | 
                     ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_PASSWORD_DIGITS,90,97,20,14,ES_CENTER | 
+    EDITTEXT        IDC_EDIT_PASSWORD_DIGITS,90,97,20,14,ES_RIGHT | 
                     ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_PASSWORD_SPECIAL,90,116,20,14,ES_CENTER | 
+    EDITTEXT        IDC_EDIT_PASSWORD_SPECIAL,90,116,20,14,ES_RIGHT | 
                     ES_AUTOHSCROLL
     LTEXT           "characters",IDC_STATIC,115,80,45,8
     LTEXT           "characters",IDC_STATIC,115,99,45,8
@@ -29488,31 +29443,32 @@ BEGIN
     GROUPBOX        "Generated password",IDC_STATIC,7,164,406,75
     LTEXT           "Password length:",IDC_STATIC,29,178,56,8
     LTEXT           "Password example:",IDC_STATIC,22,197,63,8
-    EDITTEXT        IDC_EDIT_PASSWORDLENGTH,90,176,30,14,ES_CENTER | 
+    EDITTEXT        IDC_EDIT_PASSWORDLENGTH,90,176,30,14,ES_RIGHT | 
                     ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT_PASSWORDEXAMPLE,90,195,310,14,ES_AUTOHSCROLL | 
                     ES_READONLY
     LTEXT           "Alphabet:",IDC_STATIC,53,93,32,8
     EDITTEXT        IDC_EDIT_PASSWORDALPHABET,90,91,310,14,ES_AUTOHSCROLL
-    CONTROL         "Use CrypTool alphabet",IDC_CHECK_USECRYPTOOLALPHABET,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,90,108,89,10
+    CONTROL         "Use current text alphabet",
+                    IDC_CHECK_USECRYPTOOLALPHABET,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,90,110,99,10
     LTEXT           "Entropy:",IDC_STATIC,56,74,29,8
-    EDITTEXT        IDC_EDIT_PASSWORDBITLENGTH,90,72,30,14,ES_CENTER | 
+    EDITTEXT        IDC_EDIT_PASSWORDBITLENGTH,90,72,30,14,ES_RIGHT | 
                     ES_AUTOHSCROLL
     LTEXT           "characters",IDC_STATIC,125,178,35,8
     LTEXT           "bit",IDC_STATIC,125,74,9,8
-    DEFPUSHBUTTON   "Text options",ID_TEXTOPTIONS,180,254,60,14
+    DEFPUSHBUTTON   "Text options",ID_TEXTOPTIONS,191,107,209,14
     LTEXT           "This dialog computes a random password.",IDC_STATIC,20,
                     20,380,8
     CONTROL         "Don't use confusable characters (written transmission)",
                     IDC_CHECK_USENONCONFUSABLECHARACTERS_WRITTENTRANSMISSION,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,90,120,190,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,90,122,190,10
     CONTROL         "Don't use confusable characters (telephonic transmission)",
                     IDC_CHECK_USENONCONFUSABLECHARACTERS_TELEPHONICTRANSMISSION,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,90,132,200,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,90,134,200,10
     CONTROL         "Use alphabet for WLAN passwords (64 characters)",
                     IDC_CHECK_USEWLANALPHABET,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,90,144,178,10
+                    WS_TABSTOP,90,146,178,10
     LTEXT           "The password entropy defines how hard it is to guess the password. The password alphabet defines which characters are used to create the password. The combination of entropy and alphabet yield the password length.",
                     IDC_STATIC,20,32,380,16
 END
@@ -33548,7 +33504,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_HILL_BAD_KEY_INV    "The entered %s matrix key cannot be inverted with modulo %d. Therefore the key cannot be used for this Hill cipher.\n\nPlease either change the matrix elements, the matrix dimension or the number of elements of the alphabet.\nAlternatively in the Hill key entry dialog you can click on the button ""Generate random key"": The key matrix elements then will be chosen so, that the matrix\nfor the chosen dimension and alphabet size is invertible."
+    IDS_HILL_BAD_KEY_INV    "The entered %s matrix key cannot be inverted with modulo %d. Therefore the key cannot be used for this Hill cipher.\n\nPlease either change the matrix elements, the matrix dimension or the number of elements of the alphabet.\nAlternatively in the Hill key entry dialog you can click on the button ""Generate random key"": The key matrix elements\nthen will be chosen so, that the matrix for the chosen dimension and alphabet size is invertible."
 END
 
 STRINGTABLE 

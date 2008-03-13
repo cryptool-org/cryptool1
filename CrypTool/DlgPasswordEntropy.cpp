@@ -60,10 +60,10 @@ CDlgPasswordEntropy::CDlgPasswordEntropy(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgPasswordEntropy::IDD, pParent)
 {
 	stringPasswordBitLength = "";
-	stringPasswordAlphabet = "";
+	stringPasswordAlphabet = theApp.TextOptions.m_alphabet;
 	stringPasswordLength = "";
 	stringPasswordExample = "";
-	useCrypToolAlphabet = false;
+	useCrypToolAlphabet = true;
 	useNonConfusableCharactersWrittenTransmission = false;
 	useNonConfusableCharactersTelephonicTransmission = false;
 	useWLANAlphabet = false;
