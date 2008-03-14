@@ -29369,7 +29369,7 @@ BEGIN
                     286,110
     EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,222,260,90,ES_MULTILINE | 
                     ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
-    DEFPUSHBUTTON   "Password Guidelines",ID_CONFIGURE_PASSWORD_GUIDELINES,
+    DEFPUSHBUTTON   "Password guidelines",ID_CONFIGURE_PASSWORD_GUIDELINES,
                     110,329,80,14
 END
 
@@ -35940,7 +35940,7 @@ BEGIN
     IDS_PQM_CRACKLIB_DICTIONARY_PATH "words\\cracklib_dict"
     IDS_PQM_NO_CRACKLIB_DICTIONARY 
                             "Could not open the cracklib dictionary:\n%s\r\nPlease make sure the following files exist:\r\n%s.hwm\r\n%s.pwd\r\n%s.pwi"
-    IDS_PQM_PASSWORD_COMPLIANT "Compliant with password guideline:\r\n"
+    IDS_PQM_PASSWORD_COMPLIANT "Compliant with password guidelines:\r\n"
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT 
                             "- No (Password is too short)\r\n"
     IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS "\r\nDictionary words: "
