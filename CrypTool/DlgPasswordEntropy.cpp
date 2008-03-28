@@ -186,29 +186,6 @@ void CDlgPasswordEntropy::EditPasswordAlphabetChanged()
 	}
 	stringPasswordAlphabet = validAlphabet;
 
-	// now clear check boxes if necessary...
-
-	if(useCrypToolAlphabet) {
-		if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(theApp.TextOptions.m_alphabet, stringPasswordAlphabet)) {
-			useCrypToolAlphabet = false;
-		}
-	}
-	if(useNonConfusableCharactersWrittenTransmission) {
-		if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(constStringNonConfusableCharactersWrittenTransmission, stringPasswordAlphabet)) {
-			useNonConfusableCharactersWrittenTransmission = false;
-		}
-	}
-	if(useNonConfusableCharactersTelephonicTransmission) {
-		if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(constStringNonConfusableCharactersTelephonicTransmission, stringPasswordAlphabet)) {
-			useNonConfusableCharactersTelephonicTransmission = false;
-		}
-	}
-	if(useWLANAlphabet) {
-		if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(constStringWLANAlphabet, stringPasswordAlphabet)) {
-			useWLANAlphabet = false;
-		}
-	}
-
 	// clear result field
 	stringPasswordExample = "";
 
@@ -234,28 +211,15 @@ void CDlgPasswordEntropy::CheckUseCrypToolAlphabetChanged()
 		// assign new alphabet
 		newAlphabet = theApp.TextOptions.m_alphabet;
 
-		// disable "don't use confusable characters written transmission" if necessary
+		// compute alphabet union sets
 		if(useNonConfusableCharactersWrittenTransmission) {
-			// disable check box if new alphabet doesn't contain all non-confusable characters
-			if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(constStringNonConfusableCharactersWrittenTransmission, newAlphabet)) {
-				useNonConfusableCharactersWrittenTransmission = false;
-			}
+			newAlphabet = computeAlphabetUnionSet(newAlphabet, constStringNonConfusableCharactersWrittenTransmission);
 		}
-
-		// disable "don't use confusable characters telephonic transmission" if necessary
 		if(useNonConfusableCharactersTelephonicTransmission) {
-			// disable check box if new alphabet doesn't contain all non-confusable characters
-			if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(constStringNonConfusableCharactersTelephonicTransmission, newAlphabet)) {
-				useNonConfusableCharactersTelephonicTransmission = false;
-			}
+			newAlphabet = computeAlphabetUnionSet(newAlphabet, constStringNonConfusableCharactersTelephonicTransmission);
 		}
-
-		// disable "use WLAN password alphabet" if necessary
 		if(useWLANAlphabet) {
-			// disable check box if new alphabet doesn't contain all characters of the WLAN alphabet
-			if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(constStringWLANAlphabet, newAlphabet)) {
-				useWLANAlphabet = false;
-			}
+			newAlphabet = computeAlphabetUnionSet(newAlphabet, constStringWLANAlphabet);
 		}
 	}
 
@@ -284,28 +248,15 @@ void CDlgPasswordEntropy::CheckUseNonConfusableCharactersWrittenTransmissionChan
 		// assign new alphabet
 		newAlphabet = constStringNonConfusableCharactersWrittenTransmission;
 
-		// disable "use CrypTool alphabet" if necessary
+		// compute alphabet union sets
 		if(useCrypToolAlphabet) {
-			// disable check box if new alphabet doesn't contain all characters that are part of the CrypTool alphabet
-			if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(theApp.TextOptions.m_alphabet, newAlphabet)) {
-				useCrypToolAlphabet = false;
-			}
+			newAlphabet = computeAlphabetUnionSet(newAlphabet, theApp.TextOptions.m_alphabet);
 		}
-
-		// disable "don't use confusable characters telephonic transmission" if necessary
 		if(useNonConfusableCharactersTelephonicTransmission) {
-			// disable check box if new alphabet doesn't contain all non-confusable characters
-			if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(constStringNonConfusableCharactersTelephonicTransmission, newAlphabet)) {
-				useNonConfusableCharactersTelephonicTransmission = false;
-			}
+			newAlphabet = computeAlphabetUnionSet(newAlphabet, constStringNonConfusableCharactersTelephonicTransmission);
 		}
-
-		// disable "use WLAN password alphabet" if necessary
 		if(useWLANAlphabet) {
-			// disable check box if new alphabet doesn't contain all characters of the WLAN alphabet
-			if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(constStringWLANAlphabet, newAlphabet)) {
-				useWLANAlphabet = false;
-			}
+			newAlphabet = computeAlphabetUnionSet(newAlphabet, constStringWLANAlphabet);
 		}
 	}
 
@@ -334,28 +285,15 @@ void CDlgPasswordEntropy::CheckUseNonConfusableCharactersTelephonicTransmissionC
 		// assign new alphabet
 		newAlphabet = constStringNonConfusableCharactersTelephonicTransmission;
 
-		// disable "use CrypTool alphabet" if necessary
+		// compute alphabet union sets
 		if(useCrypToolAlphabet) {
-			// disable check box if new alphabet doesn't contain all characters that are part of the CrypTool alphabet
-			if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(theApp.TextOptions.m_alphabet, newAlphabet)) {
-				useCrypToolAlphabet = false;
-			}
+			newAlphabet = computeAlphabetUnionSet(newAlphabet, theApp.TextOptions.m_alphabet);
 		}
-
-		// disable "don't use confusable characters written transmission" if necessary
 		if(useNonConfusableCharactersWrittenTransmission) {
-			// disable check box if new alphabet doesn't contain all non-confusable characters
-			if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(constStringNonConfusableCharactersWrittenTransmission, newAlphabet)) {
-				useNonConfusableCharactersWrittenTransmission = false;
-			}
+			newAlphabet = computeAlphabetUnionSet(newAlphabet, constStringNonConfusableCharactersWrittenTransmission);
 		}
-
-		// disable "use WLAN password alphabet" if necessary
 		if(useWLANAlphabet) {
-			// disable check box if new alphabet doesn't contain all characters of the WLAN alphabet
-			if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(constStringWLANAlphabet, newAlphabet)) {
-				useWLANAlphabet = false;
-			}
+			newAlphabet = computeAlphabetUnionSet(newAlphabet, constStringWLANAlphabet);
 		}
 	}
 
@@ -384,29 +322,16 @@ void CDlgPasswordEntropy::CheckUseWLANAlphabetChanged()
 		// assign new alphabet
 		newAlphabet = constStringWLANAlphabet;
 
-		// disable "use CrypTool alphabet" if necessary
+		// compute alphabet union sets
 		if(useCrypToolAlphabet) {
-			// disable check box if new alphabet doesn't contain all characters that are part of the CrypTool alphabet
-			if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(theApp.TextOptions.m_alphabet, newAlphabet)) {
-				useCrypToolAlphabet = false;
-			}
+			newAlphabet = computeAlphabetUnionSet(newAlphabet, theApp.TextOptions.m_alphabet);
 		}
-
-		// disable "don't use confusable characters written transmission" if necessary
 		if(useNonConfusableCharactersWrittenTransmission) {
-			// disable check box if new alphabet doesn't contain all non-confusable characters
-			if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(constStringNonConfusableCharactersWrittenTransmission, newAlphabet)) {
-				useNonConfusableCharactersWrittenTransmission = false;
-			}
+			newAlphabet = computeAlphabetUnionSet(newAlphabet, constStringNonConfusableCharactersWrittenTransmission);
 		}
-
-		// disable "don't use confusable characters telephonic transmission" if necessary
 		if(useNonConfusableCharactersTelephonicTransmission) {
-			// disable check box if new alphabet doesn't contain all non-confusable characters
-			if(doesFirstAlphabetContainCharactersNotInSecondAlphabet(constStringNonConfusableCharactersTelephonicTransmission, newAlphabet)) {
-				useNonConfusableCharactersTelephonicTransmission = false;
-			}
-		}	
+			newAlphabet = computeAlphabetUnionSet(newAlphabet, constStringNonConfusableCharactersTelephonicTransmission);
+		}
 	}
 
 	// update alphabet and clear result field if the alphabet has changed
@@ -448,12 +373,15 @@ void CDlgPasswordEntropy::updatePasswordLength()
 	UpdateData(false);
 }
 
-bool CDlgPasswordEntropy::doesFirstAlphabetContainCharactersNotInSecondAlphabet(const CString firstAlphabet, const CString secondAlphabet)
+CString CDlgPasswordEntropy::computeAlphabetUnionSet(const CString alphabetOne, const CString alphabetTwo)
 {
-	for(int i=0; i<firstAlphabet.GetLength(); i++) {
-		if(secondAlphabet.Find(firstAlphabet.GetAt(i)) == -1) {
-			return true;
+	// variable for return value
+	CString result;
+	// remove all characters from result alphabet that are NOT part of alphabet two
+	for(int i=0; i<alphabetOne.GetLength(); i++) {
+		if(alphabetTwo.Find(alphabetOne[i]) != -1) {
+			result.AppendChar(alphabetOne[i]);
 		}
 	}
-	return false;
+	return result;
 }

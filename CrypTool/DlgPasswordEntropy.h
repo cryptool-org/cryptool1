@@ -87,7 +87,7 @@ protected:
 	BOOL useNonConfusableCharactersTelephonicTransmission;
 	BOOL useWLANAlphabet;
 
-	bool doesFirstAlphabetContainCharactersNotInSecondAlphabet(const CString firstAlphabet, const CString secondAlphabet);
+	CString computeAlphabetUnionSet(const CString alphabetOne, const CString alphabetTwo);
 };
 
 #endif
