@@ -44,7 +44,6 @@ statement from your version.
 #include "stdafx.h"
 #include "CrypToolApp.h"
 #include "DlgPasswordEntropy.h"
-#include ".\dlgpasswordentropy.h"
 
 const CString constStringNonConfusableCharactersWrittenTransmission = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPRSTUVWXYZ23456789";
 const CString constStringNonConfusableCharactersTelephonicTransmission = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
@@ -53,8 +52,6 @@ const CString constStringNonConfusableCharactersTelephonicTransmission = "ABCDEF
 // END FIXME/TODO
 
 // CDlgPasswordEntropy-Dialogfeld
-
-IMPLEMENT_DYNAMIC(CDlgPasswordEntropy, CDialog)
 
 CDlgPasswordEntropy::CDlgPasswordEntropy(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgPasswordEntropy::IDD, pParent)
@@ -97,10 +94,10 @@ BEGIN_MESSAGE_MAP(CDlgPasswordEntropy, CDialog)
 	ON_BN_CLICKED(ID_GENERATEPASSWORD, OnBnClickedGeneratepassword)
 	ON_EN_CHANGE(IDC_EDIT_PASSWORDBITLENGTH, EditPasswordBitLengthChanged)
 	ON_EN_CHANGE(IDC_EDIT_PASSWORDALPHABET, EditPasswordAlphabetChanged)
-	ON_BN_CLICKED(IDC_CHECK_USECRYPTOOLALPHABET, CheckUseCrypToolAlphabetChanged)
-	ON_BN_CLICKED(IDC_CHECK_USENONCONFUSABLECHARACTERS_WRITTENTRANSMISSION, CheckUseNonConfusableCharactersWrittenTransmissionChanged)
-	ON_BN_CLICKED(IDC_CHECK_USENONCONFUSABLECHARACTERS_TELEPHONICTRANSMISSION, CheckUseNonConfusableCharactersTelephonicTransmissionChanged)
-	ON_BN_CLICKED(IDC_CHECK_USEWLANALPHABET, CheckUseWLANAlphabetChanged)
+	ON_BN_CLICKED(IDC_CHECK_USECRYPTOOLALPHABET, CheckBoxesAlphabetChanged)
+	ON_BN_CLICKED(IDC_CHECK_USENONCONFUSABLECHARACTERS_WRITTENTRANSMISSION, CheckBoxesAlphabetChanged)
+	ON_BN_CLICKED(IDC_CHECK_USENONCONFUSABLECHARACTERS_TELEPHONICTRANSMISSION, CheckBoxesAlphabetChanged)
+	ON_BN_CLICKED(IDC_CHECK_USEWLANALPHABET, CheckBoxesAlphabetChanged)
 	ON_BN_CLICKED(ID_TEXTOPTIONS, OnBnClickedTextoptions)
 END_MESSAGE_MAP()
 
@@ -198,140 +195,41 @@ void CDlgPasswordEntropy::EditPasswordAlphabetChanged()
 	editControlPasswordAlphabet.SetSel(stringPasswordAlphabet.GetLength(), stringPasswordAlphabet.GetLength());
 }
 
-void CDlgPasswordEntropy::CheckUseCrypToolAlphabetChanged()
+void CDlgPasswordEntropy::CheckBoxesAlphabetChanged()
 {
 	UpdateData(true);
 
 	// get the old alphabet before any changes by the user
 	CString oldAlphabet = stringPasswordAlphabet;
 	// create a variable for the new (changed) alphabet
-	CString newAlphabet = stringPasswordAlphabet;
+	CString newAlphabet = "";
+
+	// compute alphabet union sets
 
 	if(useCrypToolAlphabet) {
-		// assign new alphabet
-		newAlphabet = theApp.TextOptions.m_alphabet;
-
-		// compute alphabet union sets
-		if(useNonConfusableCharactersWrittenTransmission) {
-			newAlphabet = computeAlphabetUnionSet(newAlphabet, constStringNonConfusableCharactersWrittenTransmission);
-		}
-		if(useNonConfusableCharactersTelephonicTransmission) {
-			newAlphabet = computeAlphabetUnionSet(newAlphabet, constStringNonConfusableCharactersTelephonicTransmission);
-		}
-		if(useWLANAlphabet) {
-			newAlphabet = computeAlphabetUnionSet(newAlphabet, constStringWLANAlphabet);
-		}
+		// assign new alphabet if necessary
+		if(newAlphabet.IsEmpty()) newAlphabet = theApp.TextOptions.m_alphabet;
+		newAlphabet = computeAlphabetUnionSet(newAlphabet, theApp.TextOptions.m_alphabet);
 	}
-
-	// update alphabet and clear result field if the alphabet has changed
-	if(newAlphabet != oldAlphabet) {
-		stringPasswordAlphabet = newAlphabet;
-		stringPasswordExample = "";
-	}
-
-	UpdateData(false);
-
-	// update the required password length
-	updatePasswordLength();
-}
-
-void CDlgPasswordEntropy::CheckUseNonConfusableCharactersWrittenTransmissionChanged()
-{
-	UpdateData(true);
-
-	// get the old alphabet before any changes by the user
-	CString oldAlphabet = stringPasswordAlphabet;
-	// create a variable for the new (changed) alphabet
-	CString newAlphabet = stringPasswordAlphabet;
-
 	if(useNonConfusableCharactersWrittenTransmission) {
-		// assign new alphabet
-		newAlphabet = constStringNonConfusableCharactersWrittenTransmission;
-
-		// compute alphabet union sets
-		if(useCrypToolAlphabet) {
-			newAlphabet = computeAlphabetUnionSet(newAlphabet, theApp.TextOptions.m_alphabet);
-		}
-		if(useNonConfusableCharactersTelephonicTransmission) {
-			newAlphabet = computeAlphabetUnionSet(newAlphabet, constStringNonConfusableCharactersTelephonicTransmission);
-		}
-		if(useWLANAlphabet) {
-			newAlphabet = computeAlphabetUnionSet(newAlphabet, constStringWLANAlphabet);
-		}
+		// assign new alphabet if necessary
+		if(newAlphabet.IsEmpty()) newAlphabet = constStringNonConfusableCharactersWrittenTransmission;
+		newAlphabet = computeAlphabetUnionSet(newAlphabet, constStringNonConfusableCharactersWrittenTransmission);
 	}
-
-	// update alphabet and clear result field if the alphabet has changed
-	if(newAlphabet != oldAlphabet) {
-		stringPasswordAlphabet = newAlphabet;
-		stringPasswordExample = "";
-	}
-
-	UpdateData(false);
-
-	// update the required password length
-	updatePasswordLength();
-}
-
-void CDlgPasswordEntropy::CheckUseNonConfusableCharactersTelephonicTransmissionChanged()
-{
-	UpdateData(true);
-
-	// get the old alphabet before any changes by the user
-	CString oldAlphabet = stringPasswordAlphabet;
-	// create a variable for the new (changed) alphabet
-	CString newAlphabet = stringPasswordAlphabet;
-
 	if(useNonConfusableCharactersTelephonicTransmission) {
-		// assign new alphabet
-		newAlphabet = constStringNonConfusableCharactersTelephonicTransmission;
-
-		// compute alphabet union sets
-		if(useCrypToolAlphabet) {
-			newAlphabet = computeAlphabetUnionSet(newAlphabet, theApp.TextOptions.m_alphabet);
-		}
-		if(useNonConfusableCharactersWrittenTransmission) {
-			newAlphabet = computeAlphabetUnionSet(newAlphabet, constStringNonConfusableCharactersWrittenTransmission);
-		}
-		if(useWLANAlphabet) {
-			newAlphabet = computeAlphabetUnionSet(newAlphabet, constStringWLANAlphabet);
-		}
+		// assign new alphabet if necessary
+		if(newAlphabet.IsEmpty()) newAlphabet = constStringNonConfusableCharactersTelephonicTransmission;
+		newAlphabet = computeAlphabetUnionSet(newAlphabet, constStringNonConfusableCharactersTelephonicTransmission);
 	}
-
-	// update alphabet and clear result field if the alphabet has changed
-	if(newAlphabet != oldAlphabet) {
-		stringPasswordAlphabet = newAlphabet;
-		stringPasswordExample = "";
-	}
-
-	UpdateData(false);
-
-	// update the required password length
-	updatePasswordLength();
-}
-
-void CDlgPasswordEntropy::CheckUseWLANAlphabetChanged()
-{
-	UpdateData(true);
-
-	// get the old alphabet before any changes by the user
-	CString oldAlphabet = stringPasswordAlphabet;
-	// create a variable for the new (changed) alphabet
-	CString newAlphabet = stringPasswordAlphabet;
-
 	if(useWLANAlphabet) {
-		// assign new alphabet
-		newAlphabet = constStringWLANAlphabet;
+		// assign new alphabet if necessary
+		if(newAlphabet.IsEmpty()) newAlphabet = constStringWLANAlphabet;
+		newAlphabet = computeAlphabetUnionSet(newAlphabet, constStringWLANAlphabet);
+	}
 
-		// compute alphabet union sets
-		if(useCrypToolAlphabet) {
-			newAlphabet = computeAlphabetUnionSet(newAlphabet, theApp.TextOptions.m_alphabet);
-		}
-		if(useNonConfusableCharactersWrittenTransmission) {
-			newAlphabet = computeAlphabetUnionSet(newAlphabet, constStringNonConfusableCharactersWrittenTransmission);
-		}
-		if(useNonConfusableCharactersTelephonicTransmission) {
-			newAlphabet = computeAlphabetUnionSet(newAlphabet, constStringNonConfusableCharactersTelephonicTransmission);
-		}
+	// at this point, NO check box is checked anymore, so use the old alphabet
+	if(	!useCrypToolAlphabet &&	!useNonConfusableCharactersWrittenTransmission && !useNonConfusableCharactersTelephonicTransmission && !useWLANAlphabet) {
+		newAlphabet = oldAlphabet;
 	}
 
 	// update alphabet and clear result field if the alphabet has changed
@@ -339,6 +237,10 @@ void CDlgPasswordEntropy::CheckUseWLANAlphabetChanged()
 		stringPasswordAlphabet = newAlphabet;
 		stringPasswordExample = "";
 	}
+
+	// show text options button only if "use CrypTool alphabet" check box is checked
+	if(useCrypToolAlphabet) GetDlgItem(ID_TEXTOPTIONS)->EnableWindow(true);
+	else GetDlgItem(ID_TEXTOPTIONS)->EnableWindow(false);
 
 	UpdateData(false);
 

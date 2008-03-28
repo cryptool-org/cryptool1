@@ -43,12 +43,9 @@ statement from your version.
 
 #ifndef _DLGPASSWORDENTROPY_
 #define _DLGPASSWORDENTROPY_
-#include "afxwin.h"
 
 class CDlgPasswordEntropy : public CDialog
 {
-	DECLARE_DYNAMIC(CDlgPasswordEntropy)
-
 public:
 	CDlgPasswordEntropy(CWnd* pParent = NULL);   // Standardkonstruktor
 	virtual ~CDlgPasswordEntropy();
@@ -62,10 +59,7 @@ protected:
 	virtual void EditPasswordBitLengthChanged();
 	virtual void EditPasswordAlphabetChanged();
 
-	virtual void CheckUseCrypToolAlphabetChanged();
-	virtual void CheckUseNonConfusableCharactersWrittenTransmissionChanged();
-	virtual void CheckUseNonConfusableCharactersTelephonicTransmissionChanged();
-	virtual void CheckUseWLANAlphabetChanged();
+	virtual void CheckBoxesAlphabetChanged();
 
 	void updatePasswordLength();
 

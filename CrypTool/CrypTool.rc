@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polnisch resources
+// Polish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -11883,12 +11883,12 @@ BEGIN
     IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT "wiersz*kolumna wektor*macierz"
 END
 
-#endif    // Polnisch resources
+#endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -17514,49 +17514,49 @@ BEGIN
     PUSHBUTTON      "Default",ID_DEFAULT,100,164,50,14
 END
 
-IDD_PASSWORDENTROPY DIALOGEX 0, 0, 420, 275
+IDD_PASSWORDENTROPY DIALOGEX 0, 0, 420, 281
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Passwort-Entropie"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,254,50,14
-    PUSHBUTTON      "Abbrechen",IDCANCEL,363,254,50,14
-    DEFPUSHBUTTON   "Passwort generieren",ID_GENERATEPASSWORD,90,215,310,14
+    DEFPUSHBUTTON   "OK",IDOK,7,260,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,363,260,50,14
+    DEFPUSHBUTTON   "Passwort generieren",ID_GENERATEPASSWORD,90,229,310,14
     GROUPBOX        "Beschreibung",IDC_STATIC,7,7,406,50
     GROUPBOX        "Input-Parameter zur Generierung des Passworts",
-                    IDC_STATIC,7,60,406,100
-    GROUPBOX        "Generiertes Passwort",IDC_STATIC,7,164,406,75
-    LTEXT           "Passwort-Länge:",IDC_STATIC,30,178,55,8
-    LTEXT           "Passwort-Beispiel:",IDC_STATIC,26,197,59,8
-    EDITTEXT        IDC_EDIT_PASSWORDLENGTH,90,176,30,14,ES_RIGHT | 
+                    IDC_STATIC,7,60,406,115
+    GROUPBOX        "Generiertes Passwort",IDC_STATIC,7,178,406,75
+    LTEXT           "Passwort-Länge:",IDC_STATIC,30,192,55,8
+    LTEXT           "Passwort-Beispiel:",IDC_STATIC,26,211,59,8
+    EDITTEXT        IDC_EDIT_PASSWORDLENGTH,90,190,30,14,ES_RIGHT | 
                     ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT_PASSWORDEXAMPLE,90,195,310,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDIT_PASSWORDEXAMPLE,90,209,310,14,ES_AUTOHSCROLL | 
                     ES_READONLY
     LTEXT           "Alphabet:",IDC_STATIC,53,93,32,8
     EDITTEXT        IDC_EDIT_PASSWORDALPHABET,90,91,310,14,ES_AUTOHSCROLL
     CONTROL         "Aktuelles Text-Alphabet verwenden",
                     IDC_CHECK_USECRYPTOOLALPHABET,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,90,110,131,10
+                    WS_TABSTOP,90,113,131,10
     LTEXT           "Entropie:",IDC_STATIC,55,74,30,8
     EDITTEXT        IDC_EDIT_PASSWORDBITLENGTH,90,72,30,14,ES_RIGHT | 
                     ES_AUTOHSCROLL
-    LTEXT           "Zeichen",IDC_STATIC,125,178,26,8
+    LTEXT           "Zeichen",IDC_STATIC,125,192,26,8
     LTEXT           "Bits",IDC_STATIC,125,74,12,8
-    DEFPUSHBUTTON   "Textoptionen",ID_TEXTOPTIONS,223,107,177,14
+    DEFPUSHBUTTON   "Textoptionen",ID_TEXTOPTIONS,223,110,177,14
     LTEXT           "Dieser Dialog berechnet ein zufälliges Passwort.",
                     IDC_STATIC,20,20,380,8
     LTEXT           "Die Passwort-Entropie definiert, wie schwer das Passwort zu erraten ist. Das Passwort-Alphabet bestimmt, welche Zeichen für das Passwort verwendet werden. Durch Entropie und Alphabet ergibt sich die Passwort-Länge.",
                     IDC_STATIC,20,32,380,16
     CONTROL         "Keine verwechselbaren Zeichen verwenden (schriftliche Übertragung)",
                     IDC_CHECK_USENONCONFUSABLECHARACTERS_WRITTENTRANSMISSION,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,90,122,239,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,90,129,239,10
     CONTROL         "Keine verwechselbaren Zeichen verwenden (telefonische Übertragung)",
                     IDC_CHECK_USENONCONFUSABLECHARACTERS_TELEPHONICTRANSMISSION,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,90,134,243,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,90,145,243,10
     CONTROL         "Alphabet für WLAN-Passwörter verwenden (64 Zeichen)",
                     IDC_CHECK_USEWLANALPHABET,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,90,146,196,10
+                    WS_TABSTOP,90,161,196,10
 END
 
 
@@ -21279,7 +21279,7 @@ BEGIN
         VERTGUIDE, 90
         VERTGUIDE, 400
         TOPMARGIN, 7
-        BOTTOMMARGIN, 268
+        BOTTOMMARGIN, 274
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -23877,12 +23877,12 @@ BEGIN
     ID_PASSWORDENTROPY      "Generiert Passwörter mit einer bestimmten Entropie"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -29428,47 +29428,47 @@ BEGIN
     PUSHBUTTON      "Default",ID_DEFAULT,100,164,50,14
 END
 
-IDD_PASSWORDENTROPY DIALOGEX 0, 0, 420, 275
+IDD_PASSWORDENTROPY DIALOGEX 0, 0, 420, 281
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Password Entropy"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,254,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,363,254,50,14
-    DEFPUSHBUTTON   "Generate password",ID_GENERATEPASSWORD,90,215,310,14
+    DEFPUSHBUTTON   "OK",IDOK,7,260,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,363,260,50,14
+    DEFPUSHBUTTON   "Generate password",ID_GENERATEPASSWORD,90,229,310,14
     GROUPBOX        "Description",IDC_STATIC,7,7,406,50
     GROUPBOX        "Input parameters for password generation",IDC_STATIC,7,
-                    60,406,100
-    GROUPBOX        "Generated password",IDC_STATIC,7,164,406,75
-    LTEXT           "Password length:",IDC_STATIC,29,178,56,8
-    LTEXT           "Password example:",IDC_STATIC,22,197,63,8
-    EDITTEXT        IDC_EDIT_PASSWORDLENGTH,90,176,30,14,ES_RIGHT | 
+                    60,406,115
+    GROUPBOX        "Generated password",IDC_STATIC,7,178,406,75
+    LTEXT           "Password length:",IDC_STATIC,29,192,56,8
+    LTEXT           "Password example:",IDC_STATIC,22,211,63,8
+    EDITTEXT        IDC_EDIT_PASSWORDLENGTH,90,190,30,14,ES_RIGHT | 
                     ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT_PASSWORDEXAMPLE,90,195,310,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDIT_PASSWORDEXAMPLE,90,209,310,14,ES_AUTOHSCROLL | 
                     ES_READONLY
     LTEXT           "Alphabet:",IDC_STATIC,53,93,32,8
     EDITTEXT        IDC_EDIT_PASSWORDALPHABET,90,91,310,14,ES_AUTOHSCROLL
     CONTROL         "Use current text alphabet",
                     IDC_CHECK_USECRYPTOOLALPHABET,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,90,110,99,10
+                    WS_TABSTOP,90,113,99,10
     LTEXT           "Entropy:",IDC_STATIC,56,74,29,8
     EDITTEXT        IDC_EDIT_PASSWORDBITLENGTH,90,72,30,14,ES_RIGHT | 
                     ES_AUTOHSCROLL
-    LTEXT           "characters",IDC_STATIC,125,178,35,8
+    LTEXT           "characters",IDC_STATIC,125,192,35,8
     LTEXT           "bit",IDC_STATIC,125,74,9,8
-    DEFPUSHBUTTON   "Text options",ID_TEXTOPTIONS,191,107,209,14
+    DEFPUSHBUTTON   "Text options",ID_TEXTOPTIONS,191,110,209,14
     LTEXT           "This dialog computes a random password.",IDC_STATIC,20,
                     20,380,8
     CONTROL         "Don't use confusable characters (written transmission)",
                     IDC_CHECK_USENONCONFUSABLECHARACTERS_WRITTENTRANSMISSION,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,90,122,190,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,90,129,190,10
     CONTROL         "Don't use confusable characters (telephonic transmission)",
                     IDC_CHECK_USENONCONFUSABLECHARACTERS_TELEPHONICTRANSMISSION,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,90,134,200,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,90,145,200,10
     CONTROL         "Use alphabet for WLAN passwords (64 characters)",
                     IDC_CHECK_USEWLANALPHABET,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,90,146,178,10
+                    WS_TABSTOP,90,161,178,10
     LTEXT           "The password entropy defines how hard it is to guess the password. The password alphabet defines which characters are used to create the password. The combination of entropy and alphabet yield the password length.",
                     IDC_STATIC,20,32,380,16
 END
@@ -33434,7 +33434,7 @@ BEGIN
         VERTGUIDE, 90
         VERTGUIDE, 400
         TOPMARGIN, 7
-        BOTTOMMARGIN, 268
+        BOTTOMMARGIN, 274
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -35973,7 +35973,7 @@ BEGIN
     ID_PASSWORDENTROPY      "Generates passwords with a specific entropy"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
