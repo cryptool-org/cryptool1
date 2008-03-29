@@ -113,7 +113,7 @@ void CKeyParameterHomophone::Correct_count_table()
 
 	if ( HOM_ENC_TXT == keyType )
 	{
-		if(FALSE==theApp.TextOptions.m_Case)
+		if(FALSE==theApp.TextOptions.getDistinguishUpperLowerCase())
 		{
 			for(i=65;i<=90;i++)
 			{
@@ -124,9 +124,9 @@ void CKeyParameterHomophone::Correct_count_table()
 		for(i=0;i<range;i++)
 		{
 			char_in_alpha=false;
-			for(j=0;j<theApp.TextOptions.m_alphabet.GetLength();j++)
+			for(j=0;j<theApp.TextOptions.getAlphabet().GetLength();j++)
 			{
-				if((unsigned short)theApp.TextOptions.m_alphabet.GetAt(j)==i)
+				if((unsigned short)theApp.TextOptions.getAlphabet().GetAt(j)==i)
 				{
 					char_in_alpha=true;
 				}
@@ -199,7 +199,7 @@ void CKeyParameterHomophone::Analyse(int _keyType)
 	Init(_keyType);
 
 	// check for reference file for statistical applications
-	while(theApp.TextOptions.m_StrRefFile.IsEmpty()) 
+	while(theApp.TextOptions.getReferenceFile().IsEmpty()) 
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_STATISTICAL_REFERENCE_FILE_MISSING, pc_str, STR_LAENGE_STRING_TABLE);
 		AfxMessageBox(pc_str, MB_ICONINFORMATION);
@@ -215,7 +215,7 @@ void CKeyParameterHomophone::Analyse(int _keyType)
 
 	// at this point the reference file should be valid
 
-	ifstream f(theApp.TextOptions.m_StrRefFile, ios::binary | ios::in );
+	ifstream f(theApp.TextOptions.getReferenceFile(), ios::binary | ios::in );
 	f.read(buffer,buffsize);
 
 	while(f.gcount())

@@ -138,7 +138,7 @@ BOOL CDlgRot13Caesar::OnInitDialog()
 	controlRadioButtonCaesar.SetCheck(TRUE);
 	controlRadioButtonKeyOffsetZero.SetCheck(TRUE);
 	controlRadioButtonAlphabetic.SetCheck(TRUE);
-	char charDefaultKey = theApp.TextOptions.m_alphabet[0];
+	char charDefaultKey = theApp.TextOptions.getAlphabet()[0];
 	CString strDefaultKey;
 	strDefaultKey += charDefaultKey;
 	controlEditAlphabeticKey.SetWindowText(strDefaultKey);
@@ -161,7 +161,7 @@ CaesarKey CDlgRot13Caesar::checkPasteKeyVariant(int SID)
 		CString key = theKeyString; key.Delete(1, key.GetLength()-1);
 		CString offset = theKeyString; offset.Delete(0, offset.GetLength()-1);
 		// copy key and offset into Caesar key structure
-		if (0 <= theApp.TextOptions.m_alphabet.Find(key))
+		if (0 <= theApp.TextOptions.getAlphabet().Find(key))
 			theKey.key = key.GetBuffer(key.GetLength())[0];
 		theKey.offset = _ttoi(offset);
 	}
@@ -218,13 +218,13 @@ void CDlgRot13Caesar::onTextOptions()
 
 	theApp.TextOptions.DoModal();
 	
-	controlEditSourceAlphabet.SetWindowText(theApp.TextOptions.m_alphabet);
+	controlEditSourceAlphabet.SetWindowText(theApp.TextOptions.getAlphabet());
 
 	onUpdateGUI();
 }
 int CDlgRot13Caesar::getDigitsOfAlphabetLength()
 {
-	int length = theApp.TextOptions.m_alphabet.GetLength();
+	int length = theApp.TextOptions.getAlphabet().GetLength();
 	CString str;
 	str.Format("%d",length);
 
@@ -235,7 +235,7 @@ int CDlgRot13Caesar::getDigitsOfAlphabetLength()
 void CDlgRot13Caesar::onUpdateGUI()
 {
 	// caution: ROT13 is only available if the alphabet consists of an even number of characters
-	if(theApp.TextOptions.m_alphabet.GetLength() % 2) {
+	if(theApp.TextOptions.getAlphabet().GetLength() % 2) {
 		controlRadioButtonCaesar.SetCheck(TRUE);
 		controlRadioButtonROT13.SetCheck(FALSE);
 		controlRadioButtonCaesar.EnableWindow(TRUE);
@@ -279,9 +279,9 @@ void CDlgRot13Caesar::onUpdateGUI()
 			controlEditAlphabeticKey.EnableWindow(TRUE);
 			controlEditNumericKey.EnableWindow(FALSE);
 			// in case we only use upper case letters, capitalize the user input
-			if(theApp.TextOptions.m_ConvertCase) alphabeticKey.MakeUpper();
+			if(theApp.TextOptions.getKeepUpperLowerCaseInformation()) alphabeticKey.MakeUpper();
 			// in case the given alphabetic key is invalid (not found in alphabet or empty), default to an empty key
-			if(theApp.TextOptions.m_alphabet.Find(alphabeticKey) == -1 || alphabeticKey.IsEmpty()) alphabeticKey = "";
+			if(theApp.TextOptions.getAlphabet().Find(alphabeticKey) == -1 || alphabeticKey.IsEmpty()) alphabeticKey = "";
 			// calculate the according numeric key
 			numericKey = calculateNumericKeyFromAlphabeticKey(alphabeticKey);
 		}
@@ -291,7 +291,7 @@ void CDlgRot13Caesar::onUpdateGUI()
 			controlEditNumericKey.EnableWindow(TRUE);
 			int integerNumericKey = _ttoi(numericKey);
 			// if we have an invalid key (either below zero or larger than the length of the alphabet), default to an empty key
-			if(integerNumericKey < 0 || integerNumericKey > theApp.TextOptions.m_alphabet.GetLength()) alphabeticKey = "";
+			if(integerNumericKey < 0 || integerNumericKey > theApp.TextOptions.getAlphabet().GetLength()) alphabeticKey = "";
 			// calculate the according alphabetic key
 			else alphabeticKey = calculateAlphabeticKeyFromNumericKey(numericKey);
 		}
@@ -308,7 +308,7 @@ void CDlgRot13Caesar::onUpdateGUI()
 		controlEditNumericKey.EnableWindow(FALSE);
 
 		// set numeric key to half the size of the alphabet
-		int integerNumericKey = theApp.TextOptions.m_alphabet.GetLength() / 2;
+		int integerNumericKey = theApp.TextOptions.getAlphabet().GetLength() / 2;
 		// we're zero-based here, so increase the key by one
 		integerNumericKey--;
 		numericKey.Format("%d", integerNumericKey);
@@ -320,16 +320,16 @@ void CDlgRot13Caesar::onUpdateGUI()
 	controlEditDistance.SetWindowText(numericKey);
 
 	// display the alphabet
-	alphabet = theApp.TextOptions.m_alphabet;
+	alphabet = theApp.TextOptions.getAlphabet();
 
 	// calculate the target alphabet (the shifted one) if there's a valid key
 	if(!alphabeticKey.IsEmpty() && !numericKey.IsEmpty()) {
 		int integerNumericKey = _ttoi(numericKey);
-		int integerAlphabetSize = theApp.TextOptions.m_alphabet.GetLength();
+		int integerAlphabetSize = theApp.TextOptions.getAlphabet().GetLength();
 		char *stringTargetAlphabet = new char[integerAlphabetSize+1];
 		memset(stringTargetAlphabet, 0, integerAlphabetSize+1);
 		for(int i=0; i<integerAlphabetSize; i++) {
-			stringTargetAlphabet[i] = theApp.TextOptions.m_alphabet[(integerNumericKey + i) % integerAlphabetSize];
+			stringTargetAlphabet[i] = theApp.TextOptions.getAlphabet()[(integerNumericKey + i) % integerAlphabetSize];
 		}
 		targetAlphabet = stringTargetAlphabet;
 		delete stringTargetAlphabet;
@@ -346,7 +346,7 @@ void CDlgRot13Caesar::onUpdateGUI()
 	// display alphabet size and how the alphabet is mapped (user notification)
 	LoadString(AfxGetInstanceHandle(),IDS_ROT13_CAESAR_CASE,pc_str,STR_LAENGE_STRING_TABLE);
 	char l_str[1024];
-	sprintf(l_str, pc_str, theApp.TextOptions.m_alphabet.GetLength());
+	sprintf(l_str, pc_str, theApp.TextOptions.getAlphabet().GetLength());
 	controlEditShowAlphabetSizeAndMapping.SetWindowText(l_str);
 
 	// display encrypt and decrypt buttons only if there's a valid key and an alphabet
@@ -369,14 +369,14 @@ CString CDlgRot13Caesar::calculateNumericKeyFromAlphabeticKey(CString alphabetic
 {
 	CString result = "";
 	if(alphabeticKey.IsEmpty()) return result;
-	int position = theApp.TextOptions.m_alphabet.Find(alphabeticKey);
+	int position = theApp.TextOptions.getAlphabet().Find(alphabeticKey);
 	// we do have a valid position, that means the alphabetic key is part of the alphabet
 	if(position != -1) {
 		// but if the key offset is not zero, we have to increase the numeric key by one and 
 		// make sure we stay within valid boundaries (% alphabet length)
 		if(!keyOffsetZero) {
 			position++;
-			position = position % theApp.TextOptions.m_alphabet.GetLength();
+			position = position % theApp.TextOptions.getAlphabet().GetLength();
 		}
 		result.Format("%d", position);
 	}
@@ -388,14 +388,14 @@ CString CDlgRot13Caesar::calculateAlphabeticKeyFromNumericKey(CString numericKey
 	CString result = "";
 	int position = _ttoi(numericKey);
 	// we do have a valid position, that means the position is within the alphabet range
-	if(position < theApp.TextOptions.m_alphabet.GetLength()) {
+	if(position < theApp.TextOptions.getAlphabet().GetLength()) {
 		// but if the key offset is not zero, we have to decrease the numeric key by one unless
 		// it is already zero
 		if(!keyOffsetZero) {
-			if(position <= 0) position = theApp.TextOptions.m_alphabet.GetLength() - 1;
+			if(position <= 0) position = theApp.TextOptions.getAlphabet().GetLength() - 1;
 			else position--;
 		}
-		result = theApp.TextOptions.m_alphabet[position];
+		result = theApp.TextOptions.getAlphabet()[position];
 	}
 	return result;
 }

@@ -75,7 +75,7 @@ CDlgKeyHill10x10::CDlgKeyHill10x10(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgKeyHill10x10::IDD, pParent)
 	, m_pHillAlphInfo(_T(""))
 {
-	hillklasse = new CHillEncryption(theApp.TextOptions.m_alphabet.GetBuffer(0));;
+	hillklasse = new CHillEncryption(theApp.TextOptions.getAlphabet().GetBuffer(0));;
 	m_decrypt = 0;
 	//{{AFX_DATA_INIT(CDlgKeyHill10x10)
 	m_Verbose = FALSE;
@@ -2071,7 +2071,7 @@ void CDlgKeyHill10x10::UpdateFeld(CEdit *feld)
 			// zum naechsten Feld springen
 			NextDlgCtrl();
 		}
-		else if ( (theApp.TextOptions.m_IgnoreCase) && (MyIsLower(cs[0])) && 
+		else if ( (theApp.TextOptions.getIgnoreCase()) && (MyIsLower(cs[0])) && 
 			     (hillklasse->ist_erlaubtes_zeichen(MyToUpper(cs[0]))) )
 		{
 			// Zeichen in Grossbuchstaben umwandeln und anzeigen
@@ -2104,7 +2104,7 @@ void CDlgKeyHill10x10::UpdateFeld(CEdit *feld)
 	feld->GetWindowText(cs);
 	if(cs.GetLength() == 2)
 	{
-		if(_ttoi(cs) < 1 || _ttoi(cs) > theApp.TextOptions.m_alphabet.GetLength())
+		if(_ttoi(cs) < 1 || _ttoi(cs) > theApp.TextOptions.getAlphabet().GetLength())
 		{
 			cs.Empty();
 			feld->SetWindowText(cs);
@@ -2161,7 +2161,7 @@ void CDlgKeyHill10x10::OnOK()
 		char msg[1024];
 		LoadString(AfxGetInstanceHandle(),IDS_HILL_BAD_KEY_INV,pc_str,STR_LAENGE_STRING_TABLE);
 		LoadString(AfxGetInstanceHandle(),IDS_HILL_BAD_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-		sprintf(msg,pc_str,getDimMessage(),theApp.TextOptions.m_alphabet.GetLength());
+		sprintf(msg,pc_str,getDimMessage(),theApp.TextOptions.getAlphabet().GetLength());
 		MessageBox(msg, pc_str1, MB_ICONWARNING|MB_OK);
 	
 		if(!alphCode)
@@ -2216,7 +2216,7 @@ void CDlgKeyHill10x10::OnDecrypt()
 		char msg[1024];
 		LoadString(AfxGetInstanceHandle(),IDS_HILL_BAD_KEY_INV,pc_str,STR_LAENGE_STRING_TABLE);
 		LoadString(AfxGetInstanceHandle(),IDS_HILL_BAD_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-		sprintf(msg,pc_str,getDimMessage(),theApp.TextOptions.m_alphabet.GetLength());
+		sprintf(msg,pc_str,getDimMessage(),theApp.TextOptions.getAlphabet().GetLength());
 		MessageBox(msg, pc_str1, MB_ICONWARNING|MB_OK);
 		if(!alphCode)
 		{
@@ -2252,7 +2252,7 @@ BOOL CDlgKeyHill10x10::OnInitDialog()
 		CheckRadioButton(IDC_RADIO23,IDC_RADIO24,IDC_RADIO24);
 	
 	//// TODO: Zusätzliche Initialisierung hier einfügen
-	int len = theApp.TextOptions.m_alphabet.GetLength();
+	int len = theApp.TextOptions.getAlphabet().GetLength();
 
 	LoadString(AfxGetInstanceHandle(),IDS_HILL_CASE,pc_str,STR_LAENGE_STRING_TABLE);
 	char l_str[1024];
@@ -2279,7 +2279,7 @@ BOOL CDlgKeyHill10x10::OnInitDialog()
 		CheckRadioButton(IDC_RADIO21, IDC_RADIO22, IDC_RADIO22);
 
 
-	m_pHillAlphInfo = theApp.TextOptions.m_alphabet;
+	m_pHillAlphInfo = theApp.TextOptions.getAlphabet();
 
 	UpdateData(FALSE);
 
@@ -3139,9 +3139,9 @@ void CDlgKeyHill10x10::OnKleinereSchluessel()
 CString CDlgKeyHill10x10::getAlphCode(CString alphChar)
 {
 	CString str;
-	for(int i=0;i<theApp.TextOptions.m_alphabet.GetLength();i++)
+	for(int i=0;i<theApp.TextOptions.getAlphabet().GetLength();i++)
 	{
-		if(theApp.TextOptions.m_alphabet[i] == alphChar)
+		if(theApp.TextOptions.getAlphabet()[i] == alphChar)
 		{
 			str.Format("%d",i+1);
 			if(str.GetLength() == 1)
@@ -3155,10 +3155,10 @@ CString CDlgKeyHill10x10::getAlphChar(CString alphPos)
 {
 		int pos = _ttoi(alphPos);
 		pos--;
-		if(pos < 0 || pos > theApp.TextOptions.m_alphabet.GetLength())
+		if(pos < 0 || pos > theApp.TextOptions.getAlphabet().GetLength())
 			return "";
 		else
-			return theApp.TextOptions.m_alphabet[pos];
+			return theApp.TextOptions.getAlphabet()[pos];
 }
 void CDlgKeyHill10x10::setFeldAlphCode(CEdit *feld,CEdit *feldAlph)
 {
@@ -3186,7 +3186,7 @@ void CDlgKeyHill10x10::setDoublePos(CEdit *feld)
 
 	if(cs.GetLength() == 1)
 	{
-		if(_ttoi(cs) < 1 || _ttoi(cs) > theApp.TextOptions.m_alphabet.GetLength())
+		if(_ttoi(cs) < 1 || _ttoi(cs) > theApp.TextOptions.getAlphabet().GetLength())
 		{
 			cs.Empty();
 			feld->SetWindowText(cs);
@@ -3248,15 +3248,15 @@ void CDlgKeyHill10x10::OnTextOptions()
 	if(theApp.TextOptions.DoModal() != IDOK) return;
 
 	//if(hillklasse) delete hillklasse;
-	hillklasse = new CHillEncryption(theApp.TextOptions.m_alphabet.GetBuffer(0));
+	hillklasse = new CHillEncryption(theApp.TextOptions.getAlphabet().GetBuffer(0));
 	
-	int len = theApp.TextOptions.m_alphabet.GetLength();
+	int len = theApp.TextOptions.getAlphabet().GetLength();
 	LoadString(AfxGetInstanceHandle(),IDS_HILL_CASE,pc_str,STR_LAENGE_STRING_TABLE);
 	char l_str[1024];
 	sprintf(l_str,pc_str,len);
 	GetDlgItem(IDC_STATIC_HILL_ALPH)->SetWindowText(l_str);
 
-	m_pHillAlphInfo = theApp.TextOptions.m_alphabet;
+	m_pHillAlphInfo = theApp.TextOptions.getAlphabet();
 	
 	UpdateData(false);
 }

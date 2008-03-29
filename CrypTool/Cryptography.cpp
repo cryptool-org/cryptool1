@@ -493,12 +493,12 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 	}
 	
 	int n=strlen(infile);
-	if ( strncmp(OldTitle+n-4,".txt",4) && theApp.TextOptions.m_Format )
+	if ( strncmp(OldTitle+n-4,".txt",4) && theApp.TextOptions.getKeepCharactersNotPresentInAlphabetUnchanged() )
 		GetTmpName(outfile,"cry",".txt");
 	else
 		GetTmpName(outfile,"cry",".txt");
 
-	class CDlgKeyPlayfair KeyDialog(infile,outfile,theApp.TextOptions.m_Format,theApp.TextOptions.m_ConvertCase);
+	class CDlgKeyPlayfair KeyDialog(infile,outfile,theApp.TextOptions.getKeepCharactersNotPresentInAlphabetUnchanged(),theApp.TextOptions.getKeepUpperLowerCaseInformation());
 
 	if(KeyDialog.Display()!=IDOK) return;
 
@@ -547,7 +547,7 @@ void PlayfairAnalyse(const char *infile, const char *OldTitle)
 {
 	char outfile[128];
 	GetTmpName(outfile,"cry",".tmp");
-	class CDlgPlayfairAnalysis KeyDialog(infile,outfile,theApp.TextOptions.m_Format,theApp.TextOptions.m_ConvertCase);
+	class CDlgPlayfairAnalysis KeyDialog(infile,outfile,theApp.TextOptions.getKeepCharactersNotPresentInAlphabetUnchanged(),theApp.TextOptions.getKeepUpperLowerCaseInformation());
 
 	if(KeyDialog.Display()!=IDOK) return;
 
@@ -564,7 +564,7 @@ void Hill(const char *infile, const char *OldTitle)
 
 	// Die Hillklasse wird zur Ueberpruefung der erlaubten Zeichen benoetigt
 	CHillEncryption *hillklasse;
-	hillklasse = new CHillEncryption(theApp.TextOptions.m_alphabet.GetBuffer(0));
+	hillklasse = new CHillEncryption(theApp.TextOptions.getAlphabet().GetBuffer(0));
 
     char outfile[128];
 
@@ -583,7 +583,7 @@ void Hill(const char *infile, const char *OldTitle)
 		// Falls Gross-/Kleinschreibung ignoriert werden soll,
 		// muessen auch die Kleinbuchstaben mitgezaehlt werden.
 		if ( hillklasse->ist_erlaubtes_zeichen(c) ||
-			 ( (theApp.TextOptions.m_IgnoreCase) && (MyIsLower(c)) && 
+			 ( (theApp.TextOptions.getIgnoreCase()) && (MyIsLower(c)) && 
 			   (hillklasse->ist_erlaubtes_zeichen(MyToUpper(c))) ) )
 		{
 			infile_zeichen_anz++;
@@ -735,7 +735,7 @@ void Hill(const char *infile, const char *OldTitle)
 
 	// Falls Gross-/Kleinschreibung ignoriert werden soll:
 	// Es werden alle Kleinbuchstaben in Grossbuchstaben umgewandelt
-	if(theApp.TextOptions.m_IgnoreCase)
+	if(theApp.TextOptions.getIgnoreCase())
 	{
 		MyToUpper(csEingabeDatei);
 	}
@@ -812,7 +812,7 @@ void Hill(const char *infile, const char *OldTitle)
 		{
 			str[str_laenge++] = csEingabeDatei[i];
 		}
-		else if	( (theApp.TextOptions.m_IgnoreCase) && (MyIsLower(csEingabeDatei[i])) && 
+		else if	( (theApp.TextOptions.getIgnoreCase()) && (MyIsLower(csEingabeDatei[i])) && 
 				   (hillklasse->ist_erlaubtes_zeichen(MyToUpper(csEingabeDatei[i]))) )
 		{
 			str[str_laenge++] = MyToUpper(csEingabeDatei[i]);
@@ -2886,11 +2886,11 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 
 	if(IDOK!=DH.DoModal()) 
 	{
-		theApp.TextOptions.m_alphabet = DH.m_AlphabetBackup;
+		theApp.TextOptions.getAlphabet() = DH.m_AlphabetBackup;
 		in.close();
 		return;
 	}
-	theApp.TextOptions.m_alphabet = DH.m_AlphabetBackup;
+	theApp.TextOptions.getAlphabet() = DH.m_AlphabetBackup;
 
 // Routine zur Homophonen Verschlüsselung
 	char outbuffer[17000];
@@ -3070,11 +3070,11 @@ void HomophoneHex(const char *infile, const char *OldTitle)
 
 	if(IDOK!=DH.DoModal()) 
 	{
-		theApp.TextOptions.m_alphabet = DH.m_AlphabetBackup;
+		theApp.TextOptions.getAlphabet() = DH.m_AlphabetBackup;
 		in.close();
 		return;
 	}
-	theApp.TextOptions.m_alphabet = DH.m_AlphabetBackup;
+	theApp.TextOptions.getAlphabet() = DH.m_AlphabetBackup;
 
 // Routine zur Homophonen Verschlüsselung
 	char outbuffer[4096];
@@ -3373,8 +3373,8 @@ void PermutationAsc(const char *infile, const char *OldTitle)
 	l1 = datei.Read(b1, l1);
 	datei.Close();
 	b1[l1]=0;
-	CPlayfairAlphabet = theApp.TextOptions.m_alphabet.GetBuffer(0);
-	ignoreCase = theApp.TextOptions.m_IgnoreCase;
+	CPlayfairAlphabet = theApp.TextOptions.getAlphabet().GetBuffer(0);
+	ignoreCase = theApp.TextOptions.getIgnoreCase();
 	for(l2=i=0;i<l1;i++) {
 		c = b1[i];
 		if(ignoreCase && 'a'<=c && c<='z')
@@ -3382,7 +3382,7 @@ void PermutationAsc(const char *infile, const char *OldTitle)
 		if(strchr(CPlayfairAlphabet, c))
 			b1[l2++] = c;
 	}
-	theApp.TextOptions.m_alphabet.ReleaseBuffer();
+	theApp.TextOptions.getAlphabet().ReleaseBuffer();
 	b1[l2]=0;
 	if(l2<1) {
 		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 1);
@@ -3634,16 +3634,7 @@ void CreateMac(const char *infile, const char *OldTitle)
 }
 
 BOOL Rot13CaesarAsc(SymbolArray & text, const char *infile)
-{/*
-	CString alphabet = _T("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-
-	if (theApp.TextOptions.m_alphabet != alphabet)
-	{
-		LoadString(AfxGetInstanceHandle(),IDS_ROT13_CAESAR_CASE,pc_str,100);
-		AfxMessageBox(pc_str,MB_ICONINFORMATION);
-		theApp.TextOptions.m_alphabet = alphabet;
-		AppConv.SetAlphabet(alphabet.GetBuffer(257), true);
-	}*/
+{
 // == load INPUT
 	if ( !CheckAlphabet() ) 
 	{
@@ -3874,7 +3865,7 @@ UINT SymmetricBruteForce(PVOID p)
 				break;
 			case 1: alphaSet[i] = ( i >= 32 ) ? 1 : 0;
 				break;
-			case 2: alphaSet[i] = ( 0 <= theApp.TextOptions.m_alphabet.Find((char)i) ) ? 1 : 0;
+			case 2: alphaSet[i] = ( 0 <= theApp.TextOptions.getAlphabet().Find((char)i) ) ? 1 : 0;
 				break;
 		}
 		if ( i == (int)'\0' || i == (int)'\n' || i == (int)'\r' || i == (int)'\t' )

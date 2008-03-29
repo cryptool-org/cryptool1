@@ -319,7 +319,7 @@ int ASCDumpMem(char *Dest, int DestLen, const char *Src, int SrcLen, int blockle
 	if(*SepChar == 0) {
 		*SepChar = ' ';
 		for(i=0;i<sizeof(SepChars);i++) {
-			if(theApp.TextOptions.m_alphabet.Find(SepChars[i]) == -1) {
+			if(theApp.TextOptions.getAlphabet().Find(SepChars[i]) == -1) {
 				*SepChar = SepChars[i];
 				break;
 			}
@@ -384,7 +384,7 @@ int FileCpy(const char *outfile, const char *infile)
 
 BOOL Reformat(const char *reffile, const char *newfile, BOOL FixedAlphabet)
 {
-	if(!theApp.TextOptions.m_Format) return TRUE;
+	if(!theApp.TextOptions.getKeepCharactersNotPresentInAlphabetUnchanged()) return TRUE;
 	else return ForceReformat( reffile, newfile, FixedAlphabet);
 }
 
@@ -423,7 +423,7 @@ BOOL ForceReformat(const char *reffile, const char *newfile, BOOL FixedAlphabet)
 		}
 	}
 	else { // use custom CPlayfairAlphabet
-		if(theApp.TextOptions.m_ConvertCase) { // case insensitive
+		if(theApp.TextOptions.getKeepUpperLowerCaseInformation()) { // case insensitive
 			for(i=p=0;i<lr;i++) {
 				if(AppConv.IsInAlphabet(bufr[i])) {
 					if(islower(bufr[i]))

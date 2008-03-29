@@ -29,14 +29,14 @@ void DlgHillOptions::DoDataExchange(CDataExchange* pDX)
 }
 BOOL DlgHillOptions::OnInitDialog()
 {
-	m_FirstCharFromAlph = theApp.TextOptions.m_alphabet[0];
+	m_FirstCharFromAlph = theApp.TextOptions.getAlphabet()[0];
 
 	firstPosNull = 1;
 	useFirstCharFromAlph = 1;
 	if(CT_OPEN_REGISTRY_SETTINGS(KEY_READ) == ERROR_SUCCESS)
 	{
 		char cFirstCharFromAlph[1024];
-		CString strAlph = theApp.TextOptions.m_alphabet[0];
+		CString strAlph = theApp.TextOptions.getAlphabet()[0];
 		strncpy(cFirstCharFromAlph,strAlph.GetBuffer(0),strAlph.GetLength());
 		cFirstCharFromAlph[strAlph.GetLength()] = '\0';
 		unsigned long u_length = 1024;
@@ -164,9 +164,9 @@ void DlgHillOptions::OnEnChangeEdit2()
 bool DlgHillOptions::isInAlph(CString strChar)
 {
 	MyToUpper(strChar);
-	for(int i=0; i<theApp.TextOptions.m_alphabet.GetLength();i++)
+	for(int i=0; i<theApp.TextOptions.getAlphabet().GetLength();i++)
 	{
-		if(strChar == theApp.TextOptions.m_alphabet[i])
+		if(strChar == theApp.TextOptions.getAlphabet()[i])
 			return true;
 	}
 	return false;

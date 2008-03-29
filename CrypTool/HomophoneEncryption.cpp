@@ -125,7 +125,7 @@ void CHomophoneEncryption::Make_enc_table(const int _keyType )
 	{
 		if ( HOM_ENC_TXT == keyType )
 		{
-			if ((i > 0) && (-1 != theApp.TextOptions.m_alphabet.Find(char(i))) )
+			if ((i > 0) && (-1 != theApp.TextOptions.getAlphabet().Find(char(i))) )
 			{
 				data.encryptionData1[i]=max(int(floor(data.SizeHomophoneKey*data.frequency[i])), 0);
 				// Eingefügt 24. April 2001 -- Henrik Koy
@@ -292,7 +292,7 @@ bool CHomophoneEncryption::Check_key()
 int CHomophoneEncryption::Encrypt(int value)
 // liefert zu dem ASCII-Wert eines plaintext-Zeichens (value) zufällig ein ciphertext-Zeichen zurück
 {
-	if ((HOM_ENC_TXT == keyType) && (FALSE == theApp.TextOptions.m_Case && (value >= 'a' && value<='z')) )	
+	if ((HOM_ENC_TXT == keyType) && (FALSE == theApp.TextOptions.getDistinguishUpperLowerCase() && (value >= 'a' && value<='z')) )	
 	{
 		value += 'A'-'a';
 	}

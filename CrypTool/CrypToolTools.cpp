@@ -54,7 +54,7 @@ statement from your version.
 
 BOOL CheckAlphabet( int minSize )
 {
-	if (theApp.TextOptions.m_alphabet.GetLength() < minSize )
+	if (theApp.TextOptions.getAlphabet().GetLength() < minSize )
 	{
 		Message(IDS_STRING_MSG_ON_ALPHABET, MB_ICONEXCLAMATION, minSize);
 		return FALSE;

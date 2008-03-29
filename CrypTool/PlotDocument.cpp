@@ -139,7 +139,7 @@ void  CPlotDocument::x_axis_add(double x){
 		anItem3->aPoint.x = anItem1->aPoint.x;
 
 		if(m_xchar == '0') sprintf(buffer, "%d", (int) x); // print figures
-		else sprintf(buffer, "%c", theApp.TextOptions.m_alphabet[(int)x-1] /*m_xchar + (int) x*/); // print capital letters 
+		else sprintf(buffer, "%c", theApp.TextOptions.getAlphabet()[(int)x-1] /*m_xchar + (int) x*/); // print capital letters 
 
 		anItem3->x = len = strlen(buffer);
 
@@ -236,7 +236,7 @@ void CPlotDocument::Load_AxisInfo(){
 		x_0=1;
 		x_1=3;
 		x_inc=2;
-		x_n=(theApp.TextOptions.m_alphabet.GetLength() - 1)/ 2;
+		x_n=(theApp.TextOptions.getAlphabet().GetLength() - 1)/ 2;
 	}
 
 	x_axis_add(x_0);

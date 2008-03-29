@@ -1050,20 +1050,6 @@ void CPlayfairAnalysis::SetSize(int sechs)
 // 5x5 oder 6x6 Matrix verwenden
 {
 	mysize=(sechs)?6:5;
-/*	if(sechs)
-	{
-		strncpy(pc_str,alph,36);
-		pc_str[36]=0;
-	}
-	else
-	{
-		strncpy(pc_str,alphs,25);
-		pc_str[25]=0;
-	}
-	AppConv.SetAlphabet(pc_str,ConvertCase);
-	theApp.TextOptions.m_alphabet=pc_str;
-	// TG[25.10.01]: Überschreiben des Alphabets ist nicht mehr gewünscht.
-*/
 
 	if (my_digrams)		{ delete[] (my_digrams);	my_digrams = NULL; }
 	if (my_matrix)		{ delete (my_matrix);		my_matrix = NULL; }
@@ -1414,7 +1400,7 @@ void CPlayfairAnalysis::ApplyPlayfairPreformat( bool DecEnc,char *prename,char *
 	char old,c;
 	char ex,aex;
 	
-	ex=theApp.TextOptions.m_trenn[0];            // Buchstabe zum einfügen
+	ex=theApp.TextOptions.getSeparator()[0];            // Buchstabe zum einfügen
 	aex=(ex=='Z')?'Y':ex+1;                      // alternative
 	if(mysize==5)
 	{
@@ -1437,7 +1423,7 @@ void CPlayfairAnalysis::ApplyPlayfairPreformat( bool DecEnc,char *prename,char *
 		if(myisalpha2(c))
 		{
 			c=toupper(c);
-			if(c==old&&theApp.TextOptions.m_addx)// soll getrennt werden
+			if(c==old&&theApp.TextOptions.getSeparateLetters())// soll getrennt werden
 				prebuf[j++]=(old==ex)?aex:ex;    // falls zwei X
 			prebuf[j++]=c;                       // ein Q einfügen
 			old=c;                               // sonst Doppelbuchstaben
@@ -1557,7 +1543,7 @@ bool CPlayfairAnalysis::DoCipher( bool withConvert, bool Dec, int len, char *sti
 			if(i<len)
 				ib2=toupper(theinbuf[i]);
 			else
-				ib2=theinbuf[theinbuflen++]=theApp.TextOptions.m_trenn[0];
+				ib2=theinbuf[theinbuflen++]=theApp.TextOptions.getSeparator()[0];
 		}
 		else
 			break;

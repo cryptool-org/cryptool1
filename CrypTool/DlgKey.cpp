@@ -146,7 +146,7 @@ void CDlgKey::OnUpdateEdit1()
 	m_text_ctl.GetSel(sels, sele);
 	res.Empty();
 
-	if(theApp.TextOptions.m_IgnoreCase) m_text.MakeUpper();
+	if(theApp.TextOptions.getIgnoreCase()) m_text.MakeUpper();
 
 	for(k=i=0;i<m_text.GetLength();i++) {
 		c = m_text[i];
@@ -194,12 +194,12 @@ void CDlgKey::OnTextOptions()
 {
 	theApp.TextOptions.DoModal();
 	// check whether key contains non-alphabet characters now
-	if(!IsKeyInAlphabet(m_text, theApp.TextOptions.m_alphabet))
+	if(!IsKeyInAlphabet(m_text, theApp.TextOptions.getAlphabet()))
 	{
 		// remove those characters from the key one by one
 		for(int i=0; i<m_text.GetLength(); i++)
 		{
-			if(theApp.TextOptions.m_alphabet.Find(m_text.GetAt(i)) == -1)
+			if(theApp.TextOptions.getAlphabet().Find(m_text.GetAt(i)) == -1)
 				m_text.Remove(m_text.GetAt(i));
 		}
 	}
@@ -263,7 +263,7 @@ void CDlgKey::OnPasteKey()
 {
 	UpdateData(TRUE);
 
-	CString Title, alphabet = theApp.TextOptions.m_alphabet;
+	CString Title, alphabet = theApp.TextOptions.getAlphabet();
 	Title=s_alternativeWindowText;
 	ExtractStrKeyType( strTitle, Title );
 	if ( PasteKey(strTitle,m_text) )

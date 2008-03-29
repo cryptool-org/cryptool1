@@ -385,6 +385,7 @@
 #define IDC_EDIT7                       1023
 #define IDC_EDIT8                       1024
 #define IDC_CHECK10                     1024
+#define IDC_CHECK_UMLAUTS               1024
 #define IDC_EDIT9                       1025
 #define IDC_EDIT_2_6                    1026
 #define IDC_EDIT_2_1                    1027
@@ -1569,6 +1570,20 @@
 #define ID_TEXTOPTIONS                  1996
 #define IDC_CHECK_USENONCONFUSABLECHARACTERS_TELEPHONICTRANSMISSION 1997
 #define IDC_CHECK_USEWLANALPHABET       1998
+#define IDC_CHECK_KEEP_CHARACTERS_NOT_PRESENT_IN_ALPHABET_UNCHANGED 1999
+#define IDC_CHECK_KEEP_UPPER_LOWER_CASE_INFORMATION 2000
+#define IDC_CHECK_DISTINGUISH_UPPER_LOWER_CASE 2001
+#define IDC_CHECK_UPPER_CASE            2002
+#define IDC_CHECK_PUNCTUATION           2003
+#define IDC_CHECK_SPACE                 2004
+#define IDC_CHECK_LOWER_CASE            2005
+#define IDC_CHECK_DIGITS                2006
+#define IDC_EDIT_ALPHABET               2007
+#define IDC_EDIT_REFERENCE_FILE         2008
+#define IDC_BUTTON_SEARCH_REFERENCE_FILE 2009
+#define IDC_CHECK_SEPARATE_LETTERS      2010
+#define IDC_EDIT_SEPARATOR              2011
+#define IDC_BUTTON_RESTORE_STANDARD     2012
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -2989,7 +3004,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        872
 #define _APS_NEXT_COMMAND_VALUE         33365
-#define _APS_NEXT_CONTROL_VALUE         1999
+#define _APS_NEXT_CONTROL_VALUE         2013
 #define _APS_NEXT_SYMED_VALUE           109
 #endif
 #endif

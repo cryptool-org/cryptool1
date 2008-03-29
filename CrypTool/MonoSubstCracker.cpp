@@ -657,15 +657,15 @@ int initializeStandardDMatrix(float *stats, MonoSubstCrackerParameters *paramete
 
 	//////////////////////////////
 	// Open the file
-	in_file  = fopen (theApp.TextOptions.m_StrRefFile, "rt");
+	in_file  = fopen (theApp.TextOptions.getReferenceFile(), "rt");
     if (!in_file)
 	{
 		parameters->Dialog->setThreadFailed(true);
 		LoadString(AfxGetInstanceHandle(), IDS_MONO_SUBST_AUTO_FILE_OPEN_ERROR, pc_str, STR_LAENGE_STRING_TABLE);
-		message = (char*)malloc((strlen(pc_str)+strlen(theApp.TextOptions.m_StrRefFile)+1)*sizeof(char));
+		message = (char*)malloc((strlen(pc_str)+strlen(theApp.TextOptions.getReferenceFile())+1)*sizeof(char));
 		message[0]='\0';
 		strcat(message, pc_str);
-		strcat(message, theApp.TextOptions.m_StrRefFile);
+		strcat(message, theApp.TextOptions.getReferenceFile());
 		AfxMessageBox(message, MB_ICONINFORMATION|MB_OK);
 		// Cannot open file containing reference data
 		return FILE_OPENING_ERROR;

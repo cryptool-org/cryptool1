@@ -74,7 +74,7 @@ CDlgAutoSubstitutionAnalysis::CDlgAutoSubstitutionAnalysis(CWnd* pParent /*=NULL
 	m_language_info = _T("");
 	m_key = _T("");
 	m_text = _T(pc_str);
-	m_ref_file = _T(theApp.TextOptions.m_StrRefFile);
+	m_ref_file = _T(theApp.TextOptions.getReferenceFile());
 	m_character_number = _T("0");
 	//}}AFX_DATA_INIT
 }

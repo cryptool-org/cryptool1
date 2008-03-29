@@ -188,7 +188,7 @@ void CDlgNGramAnaylsis::Register(int N)
 	}
 	else
 	{
-		NGramPtr = new CNGram( bufferSize, (unsigned short)l_N, theApp.TextOptions.m_alphabet.GetLength() );
+		NGramPtr = new CNGram( bufferSize, (unsigned short)l_N, theApp.TextOptions.getAlphabet().GetLength() );
 		char SubStr[NGRAM_NMAX];
 		SubStr[l_N] = 0;
 		int  l=0;
@@ -197,10 +197,10 @@ void CDlgNGramAnaylsis::Register(int N)
 			bool Flag = false;
 
 			char chr = bufferRef[i];
-			if ( !theApp.TextOptions.m_Case && chr >= 'a' && chr <= 'z' ) 
+			if ( !theApp.TextOptions.getDistinguishUpperLowerCase() && chr >= 'a' && chr <= 'z' ) 
 				chr = chr + ('A'-'a');
-			for (j=0; j<theApp.TextOptions.m_alphabet.GetLength(); j++ )
-				if ( chr == theApp.TextOptions.m_alphabet[j] ) 
+			for (j=0; j<theApp.TextOptions.getAlphabet().GetLength(); j++ )
+				if ( chr == theApp.TextOptions.getAlphabet()[j] ) 
 				{ 
 					Flag = true; 
 					break;

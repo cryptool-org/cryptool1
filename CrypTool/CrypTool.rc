@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -565,30 +565,33 @@ CAPTION "Opcje tekstu "
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&ZatwierdŸ",IDOK,20,275,50,17
-    PUSHBUTTON      "&Przywróæ domyœlne",IDC_BUTTON1,86,275,99,17
+    PUSHBUTTON      "&Przywróæ domyœlne",IDC_BUTTON_RESTORE_STANDARD,86,275,
+                    99,17
     CONTROL         "Zachowaj znaki nie reprezentowane w alfabecie jako niezmienione",
-                    IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,16,
-                    213,10
+                    IDC_CHECK_KEEP_CHARACTERS_NOT_PRESENT_IN_ALPHABET_UNCHANGED,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,20,16,213,10
     CONTROL         "Jeœli mo¿liwe: pamiêtaj informacje o szyfrowaniu/deszyfrowaniu, wielkich/ma³ych literach.",
-                    IDC_CHECK8,"Button",BS_AUTOCHECKBOX | BS_TOP | 
-                    BS_MULTILINE | WS_TABSTOP,20,52,235,16
-    CONTROL         "Rozró¿niaj wielkoœæ liter",IDC_CHECK2,"Button",
+                    IDC_CHECK_KEEP_UPPER_LOWER_CASE_INFORMATION,"Button",
+                    BS_AUTOCHECKBOX | BS_TOP | BS_MULTILINE | WS_TABSTOP,20,
+                    52,235,16
+    CONTROL         "Rozró¿niaj wielkoœæ liter",
+                    IDC_CHECK_DISTINGUISH_UPPER_LOWER_CASE,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,20,71,175,10
-    CONTROL         "Wielkie litery",IDC_CHECK3,"Button",BS_AUTO3STATE | 
-                    WS_TABSTOP,20,106,69,10
-    CONTROL         "Spacje",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | 
+    CONTROL         "Wielkie litery",IDC_CHECK_UPPER_CASE,"Button",
+                    BS_AUTO3STATE | WS_TABSTOP,20,106,69,10
+    CONTROL         "Spacje",IDC_CHECK_SPACE,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,20,121,55,10
-    CONTROL         "Interpunkcja",IDC_CHECK6,"Button",BS_AUTO3STATE | 
-                    WS_TABSTOP,105,106,55,10
-    CONTROL         "Ma³e litery",IDC_CHECK4,"Button",BS_AUTO3STATE | 
-                    WS_TABSTOP,105,121,69,10
-    EDITTEXT        IDC_EDIT1,20,161,237,13,ES_AUTOHSCROLL
-    PUSHBUTTON      "&ZnajdŸ",IDC_BUTTON_TEXTOPTIONEN_SUCHE_REFERENZDATEI,
-                    202,205,55,14
-    CONTROL         "Rozdzielaj pary identycznych liter",IDC_CHECK9,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,20,250,126,10
-    EDITTEXT        IDC_EDIT2,202,247,15,12,ES_AUTOHSCROLL
-    CONTROL         "Cyfry arabskie",IDC_CHECK7,"Button",BS_AUTO3STATE | 
+    CONTROL         "Interpunkcja",IDC_CHECK_PUNCTUATION,"Button",
+                    BS_AUTO3STATE | WS_TABSTOP,105,106,55,10
+    CONTROL         "Ma³e litery",IDC_CHECK_LOWER_CASE,"Button",
+                    BS_AUTO3STATE | WS_TABSTOP,105,121,69,10
+    EDITTEXT        IDC_EDIT_ALPHABET,20,161,237,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "&ZnajdŸ",IDC_BUTTON_SEARCH_REFERENCE_FILE,202,205,55,14
+    CONTROL         "Rozdzielaj pary identycznych liter",
+                    IDC_CHECK_SEPARATE_LETTERS,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,20,250,126,10
+    EDITTEXT        IDC_EDIT_SEPARATOR,202,247,15,12,ES_AUTOHSCROLL
+    CONTROL         "Cyfry arabskie",IDC_CHECK_DIGITS,"Button",BS_AUTO3STATE | 
                     WS_TABSTOP,20,136,49,10
     PUSHBUTTON      "&Anuluj",IDCANCEL,202,275,55,17
     GROUPBOX        "Opcje formatowania",IDC_STATIC,8,5,256,27
@@ -597,9 +600,8 @@ BEGIN
     LTEXT           "U¿ywany alfabet",IDC_TEXTOPTIONS_ALPHABET,20,151,226,8
     GROUPBOX        "Plik referencyjny dla zastosowañ statystycznych",
                     IDC_STATIC,8,189,256,39
-    EDITTEXT        IDC_EDIT_TEXTOPTIONEN_REFERENZDATEI,20,205,165,14,
-                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,
-                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_REFERENCE_FILE,20,205,165,14,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
     GROUPBOX        "Playfair",IDC_STATIC,8,235,256,30
     LTEXT           "Separatory:",IDC_STATIC,159,250,38,10
     GROUPBOX        "Wielkie/ma³e litery",IDC_STATIC,8,39,256,48
@@ -11883,12 +11885,12 @@ BEGIN
     IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT "wiersz*kolumna wektor*macierz"
 END
 
-#endif    // Polish resources
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -12345,32 +12347,34 @@ CAPTION "Textoptionen"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Übernehmen",IDOK,8,276,65,17
-    PUSHBUTTON      "Standard &wiederherstellen",IDC_BUTTON1,86,276,99,17
+    PUSHBUTTON      "Standard &wiederherstellen",IDC_BUTTON_RESTORE_STANDARD,
+                    86,276,99,17
     CONTROL         "Nicht im Alphabet enthaltene Zeichen unverändert beibehalten",
-                    IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,18,
-                    213,10
+                    IDC_CHECK_KEEP_CHARACTERS_NOT_PRESENT_IN_ALPHABET_UNCHANGED,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,20,18,213,10
     CONTROL         "Wenn möglich bei der Ver-/Entschlüsselung Informationen zur Groß-/\nKleinschreibung beibehalten",
-                    IDC_CHECK8,"Button",BS_AUTOCHECKBOX | BS_TOP | 
-                    BS_MULTILINE | WS_TABSTOP,20,52,233,18
-    CONTROL         "Groß-/Kleinschreibung beachten",IDC_CHECK2,"Button",
+                    IDC_CHECK_KEEP_UPPER_LOWER_CASE_INFORMATION,"Button",
+                    BS_AUTOCHECKBOX | BS_TOP | BS_MULTILINE | WS_TABSTOP,20,
+                    52,233,18
+    CONTROL         "Groß-/Kleinschreibung beachten",
+                    IDC_CHECK_DISTINGUISH_UPPER_LOWER_CASE,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,20,72,118,10
-    CONTROL         "Großbuchstaben",IDC_CHECK3,"Button",BS_AUTO3STATE | 
-                    WS_TABSTOP,20,107,69,10
-    CONTROL         "Leerzeichen",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | 
+    CONTROL         "Großbuchstaben",IDC_CHECK_UPPER_CASE,"Button",
+                    BS_AUTO3STATE | WS_TABSTOP,20,107,69,10
+    CONTROL         "Leerzeichen",IDC_CHECK_SPACE,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,20,122,55,10
-    CONTROL         "Ziffern",IDC_CHECK7,"Button",BS_AUTO3STATE | WS_TABSTOP,
-                    20,137,36,10
-    CONTROL         "Satzzeichen",IDC_CHECK6,"Button",BS_AUTO3STATE | 
-                    WS_TABSTOP,105,107,55,10
-    CONTROL         "Kleinbuchstaben",IDC_CHECK4,"Button",BS_AUTO3STATE | 
-                    WS_TABSTOP,105,122,69,10
-    EDITTEXT        IDC_EDIT1,20,162,237,13,ES_AUTOHSCROLL
-    PUSHBUTTON      "&Suchen ...",
-                    IDC_BUTTON_TEXTOPTIONEN_SUCHE_REFERENZDATEI,202,206,55,
-                    14
-    CONTROL         "Doppelbuchstaben trennen",IDC_CHECK9,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,20,251,100,10
-    EDITTEXT        IDC_EDIT2,202,248,15,12,ES_AUTOHSCROLL
+    CONTROL         "Ziffern",IDC_CHECK_DIGITS,"Button",BS_AUTO3STATE | 
+                    WS_TABSTOP,20,137,36,10
+    CONTROL         "Satzzeichen",IDC_CHECK_PUNCTUATION,"Button",
+                    BS_AUTO3STATE | WS_TABSTOP,105,107,55,10
+    CONTROL         "Kleinbuchstaben",IDC_CHECK_LOWER_CASE,"Button",
+                    BS_AUTO3STATE | WS_TABSTOP,105,122,69,10
+    EDITTEXT        IDC_EDIT_ALPHABET,20,162,237,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Suchen ...",IDC_BUTTON_SEARCH_REFERENCE_FILE,202,206,
+                    55,14
+    CONTROL         "Doppelbuchstaben trennen",IDC_CHECK_SEPARATE_LETTERS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,251,100,10
+    EDITTEXT        IDC_EDIT_SEPARATOR,202,248,15,12,ES_AUTOHSCROLL
     PUSHBUTTON      "&Abbrechen",IDCANCEL,202,276,63,17
     GROUPBOX        "Formatierungsoptionen",IDC_STATIC,8,5,257,29
     GROUPBOX        "Alphabet für Texte definieren",IDC_STATIC,8,93,257,91
@@ -12378,12 +12382,13 @@ BEGIN
                     152,189,8
     GROUPBOX        "Referenzdatei für statistische Anwendungen",IDC_STATIC,
                     8,190,257,39
-    EDITTEXT        IDC_EDIT_TEXTOPTIONEN_REFERENZDATEI,20,206,165,14,
-                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,
-                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_REFERENCE_FILE,20,206,165,14,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
     GROUPBOX        "Playfair",IDC_STATIC,8,236,257,30
     LTEXT           "Trennzeichen",IDC_STATIC,154,251,45,10
     GROUPBOX        "Groß-/Kleinschreibung",IDC_STATIC,8,40,257,48
+    CONTROL         "Umlaute",IDC_CHECK_UMLAUTS,"Button",BS_AUTO3STATE | 
+                    WS_TABSTOP,105,137,42,10
 END
 
 IDD_KEYLENGTH DIALOG  0, 0, 186, 68
@@ -23877,12 +23882,12 @@ BEGIN
     ID_PASSWORDENTROPY      "Generiert Passwörter mit einer bestimmten Entropie"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -24429,30 +24434,34 @@ CAPTION "Text Options"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Apply",IDOK,20,275,50,17
-    PUSHBUTTON      "&Restore standard",IDC_BUTTON1,86,275,99,17
+    PUSHBUTTON      "&Restore standard",IDC_BUTTON_RESTORE_STANDARD,86,275,
+                    99,17
     CONTROL         "Keep characters not present in the alphabet unchanged",
-                    IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,16,
-                    213,10
+                    IDC_CHECK_KEEP_CHARACTERS_NOT_PRESENT_IN_ALPHABET_UNCHANGED,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,20,16,213,10
     CONTROL         "If possible: keep for encryption/decryption upper/lower case information",
-                    IDC_CHECK8,"Button",BS_AUTOCHECKBOX | BS_TOP | 
-                    BS_MULTILINE | WS_TABSTOP,20,52,235,16
-    CONTROL         "Distinguish between uppercase and lowercase",IDC_CHECK2,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,71,175,10
-    CONTROL         "Uppercase letters",IDC_CHECK3,"Button",BS_AUTO3STATE | 
-                    WS_TABSTOP,20,106,69,10
-    CONTROL         "Space",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    20,121,55,10
-    CONTROL         "Punctuation",IDC_CHECK6,"Button",BS_AUTO3STATE | 
-                    WS_TABSTOP,105,106,55,10
-    CONTROL         "Lowercase letters",IDC_CHECK4,"Button",BS_AUTO3STATE | 
-                    WS_TABSTOP,105,121,69,10
-    EDITTEXT        IDC_EDIT1,20,161,237,13,ES_AUTOHSCROLL
-    PUSHBUTTON      "&Find...",IDC_BUTTON_TEXTOPTIONEN_SUCHE_REFERENZDATEI,
-                    202,205,55,14
-    CONTROL         "Separate pairs of identical letters",IDC_CHECK9,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,20,250,126,10
-    EDITTEXT        IDC_EDIT2,202,247,15,12,ES_AUTOHSCROLL
-    CONTROL         "Numerals",IDC_CHECK7,"Button",BS_AUTO3STATE | 
+                    IDC_CHECK_KEEP_UPPER_LOWER_CASE_INFORMATION,"Button",
+                    BS_AUTOCHECKBOX | BS_TOP | BS_MULTILINE | WS_TABSTOP,20,
+                    52,235,16
+    CONTROL         "Distinguish between uppercase and lowercase",
+                    IDC_CHECK_DISTINGUISH_UPPER_LOWER_CASE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,20,71,175,10
+    CONTROL         "Uppercase letters",IDC_CHECK_UPPER_CASE,"Button",
+                    BS_AUTO3STATE | WS_TABSTOP,20,106,69,10
+    CONTROL         "Space",IDC_CHECK_SPACE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,20,121,55,10
+    CONTROL         "Punctuation",IDC_CHECK_PUNCTUATION,"Button",
+                    BS_AUTO3STATE | WS_TABSTOP,105,106,55,10
+    CONTROL         "Lowercase letters",IDC_CHECK_LOWER_CASE,"Button",
+                    BS_AUTO3STATE | WS_TABSTOP,105,121,69,10
+    EDITTEXT        IDC_EDIT_ALPHABET,20,161,237,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Find...",IDC_BUTTON_SEARCH_REFERENCE_FILE,202,205,55,
+                    14
+    CONTROL         "Separate pairs of identical letters",
+                    IDC_CHECK_SEPARATE_LETTERS,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,20,250,126,10
+    EDITTEXT        IDC_EDIT_SEPARATOR,202,247,15,12,ES_AUTOHSCROLL
+    CONTROL         "Numerals",IDC_CHECK_DIGITS,"Button",BS_AUTO3STATE | 
                     WS_TABSTOP,20,136,49,10
     PUSHBUTTON      "&Cancel",IDCANCEL,202,275,55,17
     GROUPBOX        "Formatting options",IDC_STATIC,8,5,256,27
@@ -24461,12 +24470,13 @@ BEGIN
     LTEXT           "Alphabet to use:",IDC_TEXTOPTIONS_ALPHABET,20,151,226,8
     GROUPBOX        "Reference file for statistical applications",IDC_STATIC,
                     8,189,256,39
-    EDITTEXT        IDC_EDIT_TEXTOPTIONEN_REFERENZDATEI,20,205,165,14,
-                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,
-                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_REFERENCE_FILE,20,205,165,14,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
     GROUPBOX        "Playfair",IDC_STATIC,8,235,256,30
-    LTEXT           "Separators:",IDC_STATIC,159,250,38,10
+    LTEXT           "Separator:",IDC_STATIC,159,250,38,10
     GROUPBOX        "Upper/lower case",IDC_STATIC,8,39,256,48
+    CONTROL         "Umlauts",IDC_CHECK_UMLAUTS,"Button",BS_AUTO3STATE | 
+                    WS_TABSTOP,105,136,41,10
 END
 
 IDD_KEYLENGTH DIALOG  0, 0, 186, 68
@@ -35973,7 +35983,7 @@ BEGIN
     ID_PASSWORDENTROPY      "Generates passwords with a specific entropy"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

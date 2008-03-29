@@ -104,10 +104,10 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 
 // == in the first step, the histograms of the ciphertext and the reference text will be displayed
 	if (theApp.Options.m_CHist) {
-		HistogramASCII(theApp.TextOptions.m_StrRefFile,theApp.TextOptions.m_StrTitle);
+		HistogramASCII(theApp.TextOptions.getReferenceFile(), theApp.TextOptions.getTitle());
 		HistogramASCII(infile, OldTitle);
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_CMP_CIPHER_REFERENCE,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(line, pc_str, theApp.TextOptions.m_StrTitle);
+		sprintf(line, pc_str, theApp.TextOptions.getTitle());
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_ANALYSE_CAESAR,pc_str1,STR_LAENGE_STRING_TABLE);
 		theApp.m_MainWnd->MessageBox(line, pc_str1, MB_OK);
 	}
@@ -126,12 +126,12 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 // == compare the ciphertext and the reference text
 	SymbolArray reference(AppConv);
 	
-	if ( 1 > filesize(theApp.TextOptions.m_StrRefFile.GetBuffer(0)) )
+	if ( 1 > filesize(theApp.TextOptions.getReferenceFile().GetBuffer(0)) )
 	{
 		Message(IDS_ERRON_OPEN_REFERENCE_FILE, MB_ICONEXCLAMATION);
 		return;
 	}
-	reference.Read(theApp.TextOptions.m_StrRefFile);
+	reference.Read(theApp.TextOptions.getReferenceFile());
 	reference+=1;
 	
 	NGram t(text);
@@ -144,7 +144,7 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 		GetTmpName(name,"cry",".plt");
 		
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_CORRELATION,pc_str,STR_LAENGE_STRING_TABLE);
-		MakeNewName2(line,sizeof(line),pc_str,theApp.TextOptions.m_StrTitle,OldTitle);
+		MakeNewName2(line,sizeof(line),pc_str,theApp.TextOptions.getTitle(), OldTitle);
 		
 		c.Show(OStream(name)<< OStream::Title(0) << OStream::Description(0) << OStream::Summary(0));
 		
@@ -186,9 +186,9 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 	if(theApp.Options.m_CKey) {
 		CDlgCaesarAnalysis dia;
 		
-		dia.m_string = theApp.TextOptions.m_alphabet[shift];
+		dia.m_string = theApp.TextOptions.getAlphabet()[shift];
 		if(IDCANCEL == dia.DoModal()) return;
-		if(dia.m_string.GetLength() == 1) shift = theApp.TextOptions.m_alphabet.Find(dia.m_string[0]);
+		if(dia.m_string.GetLength() == 1) shift = theApp.TextOptions.getAlphabet().Find(dia.m_string[0]);
 		else shift = 0;
 	}
 
@@ -198,13 +198,13 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 	GetTmpName(name,"cry",".tmp");
 	text.Write(name);
 	ForceReformat(infile,name, FALSE);
-	CString csKey = theApp.TextOptions.m_alphabet[shift];
+	CString csKey = theApp.TextOptions.getAlphabet()[shift];
 
     NewDoc = theApp.OpenDocumentFileNoMRU(name, csKey);
     remove(name);
 	if(NewDoc) {
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_KEY,pc_str,STR_LAENGE_STRING_TABLE);
-		sprintf(key,pc_str,theApp.TextOptions.m_alphabet[shift]);
+		sprintf(key,pc_str,theApp.TextOptions.getAlphabet()[shift]);
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_AUTOMATIC_CAESAR_ANALYSE_OF,pc_str,STR_LAENGE_STRING_TABLE);
 		MakeNewName2(line,sizeof(line),pc_str,key,OldTitle);
 		NewDoc->SetTitle(line);
@@ -297,13 +297,13 @@ UINT VigenereAuto(PVOID p)
 	SymbolArray reference(AppConv);
 	// bug: CrypTool terminated when no valid reference file was given (e.g. empty string)
 	// solution: tell user to specify valid reference file and return
-	if(theApp.TextOptions.m_StrRefFile.GetLength() <= 0)
+	if(theApp.TextOptions.getReferenceFile().GetLength() <= 0)
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_ERRON_OPEN_REFERENCE_FILE,pc_str,STR_LAENGE_STRING_TABLE);
 		AfxMessageBox(pc_str, MB_ICONINFORMATION);
 		return -1;
 	}
-	reference.Read(theApp.TextOptions.m_StrRefFile);
+	reference.Read(theApp.TextOptions.getReferenceFile());
 	reference += 1;
 	NGram d(reference);
 
@@ -332,12 +332,12 @@ UINT VigenereAuto(PVOID p)
 		
 		int shift=c.FindPeak();
 		
-		key[i] = theApp.TextOptions.m_alphabet[(shift+1) % c.GetSize()];
+		key[i] = theApp.TextOptions.getAlphabet()[(shift+1) % c.GetSize()];
 		if (Opt.m_VBase) {
 			// Ausgabe der Korrelation zwischen deutschem Text und dem Chiffrat
 			GetTmpName(name,"cry",".plt");
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_CORRELATION_CAESAR_REFERENCE,pc_str,STR_LAENGE_STRING_TABLE);
-			sprintf(line,pc_str,i+1, theApp.TextOptions.m_StrTitle);
+			sprintf(line,pc_str,i+1, theApp.TextOptions.getTitle());
 			
 			c.Show(OStream(name)<< OStream::Title(0) << OStream::Description(0) << OStream::Summary(0));
 			
@@ -368,7 +368,7 @@ UINT VigenereAuto(PVOID p)
 			
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASCERTAINED_KEY_CHARACTER,pc_str,STR_LAENGE_STRING_TABLE);
 			// ## NEW CODE (Mai 01) '+1' insered: caused by difference Caesar <--> Vigenere-Caesar 
-			unsigned char CaesarKey = (theApp.TextOptions.m_alphabet[shift]+1 - 'A') % 26;
+			unsigned char CaesarKey = (theApp.TextOptions.getAlphabet()[shift]+1 - 'A') % 26;
 			CaesarKey += 'A';		
 			sprintf(line,pc_str,i+1, CaesarKey ); 
 			// ## END NEW CODE
@@ -420,7 +420,7 @@ UINT VigenereAuto(PVOID p)
 void HillPlain(const char *infile, const char *OldTitle)
 {
 	// Hill Klasse anlegen und Daten in Hill-Klasse fuellen
-	CHillEncryption hillklasse(theApp.TextOptions.m_alphabet.GetBuffer(0));
+	CHillEncryption hillklasse(theApp.TextOptions.getAlphabet().GetBuffer(0));
 	
 	// Überprüfung, ob Eingabedatei mindestens ein Zeichen enthält. 
 	CFile datei(infile, CFile::modeRead);
@@ -431,7 +431,7 @@ void HillPlain(const char *infile, const char *OldTitle)
 		// Falls Gross-/Kleinschreibung ignoriert werden soll,
 		// muessen auch die Kleinbuchstaben mitgezaehlt werden.
 		if ( hillklasse.ist_erlaubtes_zeichen(c) ||
-			( (theApp.TextOptions.m_IgnoreCase) && (MyIsLower(c)) && 
+			( (theApp.TextOptions.getIgnoreCase()) && (MyIsLower(c)) && 
 			(hillklasse.ist_erlaubtes_zeichen(MyToUpper(c))) ) )
 		{
 			infile_zeichen_anz++;
@@ -455,7 +455,7 @@ void HillPlain(const char *infile, const char *OldTitle)
 		
 		// Falls Gross-/Kleinschreibung ignoriert werden soll:
 		// Es werden alle Kleinbuchstaben in Grossbuchstaben umgewandelt
-		if(theApp.TextOptions.m_IgnoreCase)
+		if(theApp.TextOptions.getIgnoreCase())
 		{
 			MyToUpper(EingabeDialog.m_EingabeFeld);
 		}
@@ -505,7 +505,7 @@ void HillPlain(const char *infile, const char *OldTitle)
 				}
 				// Falls Gross-/Kleinschreibung ignoriert werden soll:
 				// Es werden alle Kleinbuchstaben in Grossbuchstaben umgewandelt
-				else if ( (theApp.TextOptions.m_IgnoreCase) && MyIsLower(c) && 
+				else if ( (theApp.TextOptions.getIgnoreCase()) && MyIsLower(c) && 
 					hillklasse.ist_erlaubtes_zeichen(MyToUpper(c)) )
 				{
 					anderer_str[laenge_anderer_str++] = MyToUpper(c);

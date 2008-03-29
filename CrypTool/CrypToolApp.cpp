@@ -417,7 +417,7 @@ BOOL CCrypToolApp::InitInstance()
 	// WinHelp(ID_WIE_SIE_STARTEN+0x10000);
 
 	// initialize the application dependent Converter
-	AppConv.SetAlphabet(TextOptions.m_alphabet.GetBuffer(257), TextOptions.m_IgnoreCase);
+	AppConv.SetAlphabet(TextOptions.getAlphabet().GetBuffer(257), TextOptions.getIgnoreCase());
 
 
 	SecudeStatus = SecudeLib.GetStatus();

@@ -57,7 +57,7 @@ CDlgPasswordEntropy::CDlgPasswordEntropy(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgPasswordEntropy::IDD, pParent)
 {
 	stringPasswordBitLength = "";
-	stringPasswordAlphabet = theApp.TextOptions.m_alphabet;
+	stringPasswordAlphabet = theApp.TextOptions.getAlphabet();
 	stringPasswordLength = "";
 	stringPasswordExample = "";
 	useCrypToolAlphabet = true;
@@ -129,16 +129,16 @@ void CDlgPasswordEntropy::OnBnClickedGeneratepassword()
 void CDlgPasswordEntropy::OnBnClickedTextoptions()
 {
 	// allow the user to change the CrypTool alphabet
-	CString oldAlphabet = theApp.TextOptions.m_alphabet;
+	CString oldAlphabet = theApp.TextOptions.getAlphabet();
 	theApp.TextOptions.DoModal();
 
 	// don't do anything if check box for CrypTool alphabet is not checked
 	if(!useCrypToolAlphabet) return;
 	// else: assign the new alphabet
-	else stringPasswordAlphabet = theApp.TextOptions.m_alphabet;
+	else stringPasswordAlphabet = theApp.TextOptions.getAlphabet();
 	
 	// clear result fields if the alphabet has changed
-	if(oldAlphabet != theApp.TextOptions.m_alphabet) {
+	if(oldAlphabet != theApp.TextOptions.getAlphabet()) {
         stringPasswordLength = "";
 		stringPasswordExample = "";
 	}
@@ -208,8 +208,8 @@ void CDlgPasswordEntropy::CheckBoxesAlphabetChanged()
 
 	if(useCrypToolAlphabet) {
 		// assign new alphabet if necessary
-		if(newAlphabet.IsEmpty()) newAlphabet = theApp.TextOptions.m_alphabet;
-		newAlphabet = computeAlphabetUnionSet(newAlphabet, theApp.TextOptions.m_alphabet);
+		if(newAlphabet.IsEmpty()) newAlphabet = theApp.TextOptions.getAlphabet();
+		newAlphabet = computeAlphabetUnionSet(newAlphabet, theApp.TextOptions.getAlphabet());
 	}
 	if(useNonConfusableCharactersWrittenTransmission) {
 		// assign new alphabet if necessary

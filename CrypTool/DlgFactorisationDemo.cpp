@@ -896,7 +896,7 @@ void CDlgFactorisationDemo::OnUpdateEditEingabe()
 
 	res.Empty();
 
-	if(theApp.TextOptions.m_IgnoreCase) m_CompositeNoStr.MakeUpper();
+	if(theApp.TextOptions.getIgnoreCase()) m_CompositeNoStr.MakeUpper();
 
 	for(k=i=0;i<m_CompositeNoStr.GetLength();i++) {
 		c = m_CompositeNoStr[i];

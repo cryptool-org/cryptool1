@@ -41,102 +41,82 @@ statement from your version.
 
 **********************************************************************/
 
-
-//////////////////////////////////////////////////////////////////
-// Copyright 1998-2000 Deutsche Bank AG, Frankfurt am Main
-//////////////////////////////////////////////////////////////////
-
-#ifndef AFX_TEXTOPTIONS_H__85C21241_18D7_11D3_8D64_00C04F795E36__INCLUDED_
-#define AFX_TEXTOPTIONS_H__85C21241_18D7_11D3_8D64_00C04F795E36__INCLUDED_
-
-
-
-// TextOptions.h : Header-Datei
-//
-
-
-/////////////////////////////////////////////////////////////////////////////
-// Dialogfeld CDlgTextOptions 
-
+#ifndef _DLGTEXTOPTIONS_H_
+#define _DLGTEXTOPTIONS_H_
 
 class CDlgTextOptions : public CDialog
 {
-// Konstruktion
+	enum { IDD = IDD_TEXT_OPTIONS };
 
 public:
-	CString m_StrTitle;
-	int m_IgnoreCase;
-	CDlgTextOptions(CWnd* pParent = NULL);   // Standardkonstruktor
+	// construction
+	CDlgTextOptions(CWnd *pParent = NULL);
 
-// Dialogfelddaten
-	//{{AFX_DATA(CDlgTextOptions)
-	enum { IDD = IDD_TEXT_OPTIONS };
-	CEdit	m_CtrlRefFile;
-	CButton	m_CaseControl;
-	CEdit	m_alphacontrol;
-	BOOL	m_Format;
-	CString	m_alphabet;
-	BOOL	m_Case;
-	BOOL	m_LeerVal;
-	int		m_GrossVal;
-	int		m_KleinVal;
-	int		m_SatzVal;
-	int		m_ZahlVal;
-	BOOL	m_ConvertCase;
-	CString	m_trenn;
-	BOOL	m_addx;
-	CString	m_StrRefFile;
-	CStatic	m_InformationAlphabetSize;
-	//}}AFX_DATA
-
-// Überschreibungen
-	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
-	//{{AFX_VIRTUAL(CDlgTextOptions)
-
-	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV-Unterstützung
-	//}}AFX_VIRTUAL
-
-
-
-// Implementierung
 protected:
-	// Generierte Nachrichtenzuordnungsfunktionen
-	//{{AFX_MSG(CDlgTextOptions)
-	afx_msg void OnUpdateEdit1();
-	afx_msg void OnUpdateEdit2();
-	afx_msg void OnButton1();
+	// initialization
 	virtual BOOL OnInitDialog();
-	virtual void OnCancel();
-	afx_msg void OnCheck2();
-	virtual void OnOK();
-	afx_msg void OnCheck3();
-	afx_msg void OnCheck4();
-	afx_msg void OnCheck5();
-	afx_msg void OnCheck6();
-	afx_msg void OnCheck7();
-	afx_msg void OnCheck8();
-	afx_msg void OnButtonTextoptionenSucheReferenzdatei();
-	afx_msg void OnUpdateEditTextoptionenReferenzdatei();
-	//}}AFX_MSG
+	// data exchange
+	virtual void DoDataExchange(CDataExchange *pDX);
+	// functions associated with standard buttons
+	afx_msg void OnOK();
+	afx_msg void OnCancel();
+	// functions associated with check boxes
+	afx_msg void OnCheckKeepUpperLowerCaseInformation();
+	afx_msg void OnCheckDistinguishUpperLowerCase();
+	afx_msg void OnCheckUpperCase();
+	afx_msg void OnCheckPunctuation();
+	afx_msg void OnCheckSpace();
+	afx_msg void OnCheckLowerCase();
+	afx_msg void OnCheckDigits();
+	afx_msg void OnCheckUmlauts();
+	// misc functions
+	afx_msg void OnUpdateEditAlphabet();
+	afx_msg void OnUpdateEditSeparator();
+	afx_msg void OnButtonRestoreStandard();
+	afx_msg void OnButtonSearchReferenceFile();
+	void updateAlphabetHeading();
+	void updateCheckState();
+
 	DECLARE_MESSAGE_MAP()
 
-private:
-	void UpdateHeaderAlphabet();
-	int UpdateTags();
-	CString OldAlphabet;
-	BOOL	OldFormat;
-	BOOL	OldCase;
 public:
-	afx_msg void OnBnClickedOk();
+	// access methods
+	CString getTitle() { return title; };
+	CString getReferenceFile() { return referenceFile; };
+	CString getAlphabet() { return alphabet; };
+	CString getSeparator() { return separator; };
+	BOOL getSeparateLetters() { return separateLetters; };
+	BOOL getDistinguishUpperLowerCase() { return distinguishUpperLowerCase; };
+	BOOL getKeepCharactersNotPresentInAlphabetUnchanged() { return keepCharactersNotPresentInAlphabetUnchanged; };
+	BOOL getKeepUpperLowerCaseInformation() { return keepUpperLowerCaseInformation; };
+	BOOL getIgnoreCase() { return ignoreCase; };
+
+private:
+	// variables associated with the dialog resource
+	CStatic	informationAlphabetSize;
+	CEdit controlEditReferenceFile;
+	CEdit controlEditAlphabet;
+	// misc variables
+	CString title;
+	CString referenceFile;
+	CString oldAlphabet;
+	CString	separator;
+	CString	alphabet;
+	// boolean variables
+	BOOL keepCharactersNotPresentInAlphabetUnchanged;
+	BOOL oldKeepCharactersNotPresentInAlphabetUnchanged;
+	BOOL distinguishUpperLowerCase;
+	BOOL oldDistinguishUpperLowerCase;
+	BOOL space;
+	BOOL keepUpperLowerCaseInformation;
+	BOOL separateLetters;
+	BOOL ignoreCase;
+	// tri-state variables associated with the check boxes
+	int	upperCase;
+	int lowerCase;
+	int punctuation;
+	int digits;
+	int umlauts;
 };
 
-
-//{{AFX_INSERT_LOCATION}}
-// Microsoft Developer Studio fügt zusätzliche Deklarationen unmittelbar vor der vorhergehenden Zeile ein.
-
-
-#endif // AFX_TEXTOPTIONS_H__85C21241_18D7_11D3_8D64_00C04F795E36__INCLUDED_
-
-
-
+#endif

@@ -351,7 +351,7 @@ void CDlgShowKeyHill5x5::OnDecrypt()
 		// Nun sind die Werte in eine CSquareMatrixModN einzulesen
 
 		// nur fuer Funktion my_char_to_int
-		CHillEncryption hillklasse(theApp.TextOptions.m_alphabet.GetBuffer(0));
+		CHillEncryption hillklasse(theApp.TextOptions.getAlphabet().GetBuffer(0));
 		
 		CSquareMatrixModN mat(dim,hillklasse.get_modul());
 
@@ -597,9 +597,9 @@ void CDlgShowKeyHill5x5::SchluesselAnzeigen(CString Key)
 CString CDlgShowKeyHill5x5::getAlphCode(CString alphChar)
 {
 	CString str;
-	for(int i=0;i<theApp.TextOptions.m_alphabet.GetLength();i++)
+	for(int i=0;i<theApp.TextOptions.getAlphabet().GetLength();i++)
 	{
-		if(theApp.TextOptions.m_alphabet[i] == alphChar)
+		if(theApp.TextOptions.getAlphabet()[i] == alphChar)
 		{
 			str.Format("%d",i+1);
 			

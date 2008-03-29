@@ -729,7 +729,7 @@ BOOL CScintillaView::OnNotify(
 			unsigned int lineNumber = SendMessage(SCI_LINEFROMPOSITION,startPos);
 			startPos = SendMessage(SCI_POSITIONFROMLINE,lineNumber);
 			unsigned int endPos = pMsg->position;
-			m_wndScintilla.StyleNeeded(startPos, endPos,theApp.TextOptions.m_alphabet,theApp.TextOptions.m_alphabet.GetLength());
+			m_wndScintilla.StyleNeeded(startPos, endPos,theApp.TextOptions.getAlphabet(),theApp.TextOptions.getAlphabet().GetLength());
 	        break;
 		 }
 #endif

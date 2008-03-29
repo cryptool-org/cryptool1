@@ -100,7 +100,7 @@ void CDlgKeyVigenereAnalyisis::OnUpdateEdit1()
 	m_text_ctl.GetSel(sels, sele);
 	res.Empty();
 
-	if(theApp.TextOptions.m_IgnoreCase) m_Str.MakeUpper();
+	if(theApp.TextOptions.getIgnoreCase()) m_Str.MakeUpper();
 
 	for(k=i=0;i<m_Str.GetLength();i++) {
 		c = m_Str[i];

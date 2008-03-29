@@ -705,7 +705,7 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 	}
 	MatOut.Replace("%ALPHABET_MAPPING%", tmpStr);
 
-	tmpStr.Format(_T("%d"), theApp.TextOptions.m_alphabet.GetLength() );
+	tmpStr.Format(_T("%d"), theApp.TextOptions.getAlphabet().GetLength() );
 	MatOut.Replace("%ALPHABET_SIZE%", tmpStr);
 
 	if(firstPosNull)

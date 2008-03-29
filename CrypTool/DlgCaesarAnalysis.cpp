@@ -102,7 +102,7 @@ void CDlgCaesarAnalysis::OnUpdateEdit1()
 	m_text_ctl.GetSel(sels, sele);
 	res.Empty();
 
-	if(theApp.TextOptions.m_IgnoreCase)
+	if(theApp.TextOptions.getIgnoreCase())
 	{
 		m_string.MakeUpper();
 	}
@@ -149,10 +149,10 @@ CString CDlgCaesarAnalysis::createKeyOffsetRemark()
 	memcpy(derivedKey, m_string.GetBuffer(), 1);
 
 	// get the alternative key
-	int pos = theApp.TextOptions.m_alphabet.Find(derivedKey);
+	int pos = theApp.TextOptions.getAlphabet().Find(derivedKey);
 	// take the "next" character in the alphabet after the derived key
-	int newPos = (pos + 1) % theApp.TextOptions.m_alphabet.GetLength();
-	memcpy(alternativeKey, theApp.TextOptions.m_alphabet.GetBuffer() + newPos, 1);
+	int newPos = (pos + 1) % theApp.TextOptions.getAlphabet().GetLength();
+	memcpy(alternativeKey, theApp.TextOptions.getAlphabet().GetBuffer() + newPos, 1);
 
 	// mix it all together
 	sprintf(result, pc_str, derivedKey, alternativeKey);

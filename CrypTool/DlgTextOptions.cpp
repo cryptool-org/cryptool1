@@ -41,15 +41,6 @@ statement from your version.
 
 **********************************************************************/
 
-
-//////////////////////////////////////////////////////////////////
-// Copyright 1998-2000 Deutsche Bank AG, Frankfurt am Main
-//////////////////////////////////////////////////////////////////
-// TextOptions.cpp: Implementierungsdatei
-//
-
-
-
 #include "stdafx.h"
 #include "CrypToolApp.h"
 #include "ChrTools.h"
@@ -57,48 +48,38 @@ statement from your version.
 #include "DlgTextOptions.h"
 #include "ScintillaDoc.h"
 #include "ScintillaView.h"
-#include ".\dlgtextoptions.h"
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
-#endif
 
-
-
-/////////////////////////////////////////////////////////////////////////////
-// Dialogfeld CDlgTextOptions 
-
-CDlgTextOptions::CDlgTextOptions(CWnd* pParent /*=NULL*/)
+CDlgTextOptions::CDlgTextOptions(CWnd* pParent)
 	: CDialog(CDlgTextOptions::IDD, pParent)
 {
-	LoadString(/*AfxGetInstanceHandle()*/ NULL,IDS_STRING_STANDARD_REF_TEXT,pc_str,STR_LAENGE_STRING_TABLE);
+	LoadString(NULL,IDS_STRING_STANDARD_REF_TEXT,pc_str,STR_LAENGE_STRING_TABLE);
 	char buffer[CRYPTOOL_PATH_LENGTH];
 	int n = SearchPath(NULL, pc_str, NULL, CRYPTOOL_PATH_LENGTH - 1, buffer, NULL);
 	//{{AFX_DATA_INIT(CDlgTextOptions)
-	m_Format = TRUE;
-	m_alphabet = _T("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-	m_Case = FALSE;
-	m_LeerVal = FALSE;
-	m_GrossVal = FALSE;
-	m_KleinVal = FALSE;
-	m_SatzVal = FALSE;
-	m_ZahlVal = FALSE;
-	m_ConvertCase = FALSE;
-	m_trenn = _T("X");
-	m_addx = TRUE;
+	keepCharactersNotPresentInAlphabetUnchanged = TRUE;
+	alphabet = _T("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+	distinguishUpperLowerCase = FALSE;
+	space = FALSE;
+	upperCase = FALSE;
+	lowerCase = FALSE;
+	punctuation = FALSE;
+	digits = FALSE;
+	keepUpperLowerCaseInformation = FALSE;
+	umlauts = FALSE;
+	separator = _T("X");
+	separateLetters = TRUE;
 	if(n>0) {
-		m_StrRefFile=buffer;	
-		int pos = m_StrRefFile.ReverseFind('\\');
-		m_StrTitle= m_StrRefFile.Mid(pos+1);
+		referenceFile=buffer;	
+		int pos = referenceFile.ReverseFind('\\');
+		title= referenceFile.Mid(pos+1);
 	}
 	else
-		m_StrRefFile=_T("");
+		referenceFile=_T("");
 
 	//}}AFX_DATA_INIT
 
-	m_ConvertCase = TRUE;
-	m_IgnoreCase = 1;
+	keepUpperLowerCaseInformation = TRUE;
+	ignoreCase = 1;
 }
 
 
@@ -107,23 +88,23 @@ void CDlgTextOptions::DoDataExchange(CDataExchange* pDX)
 	CDialog::DoDataExchange(pDX);
 
 	//{{AFX_DATA_MAP(CDlgTextOptions)
-	DDX_Control(pDX, IDC_TEXTOPTIONS_ALPHABET, m_InformationAlphabetSize);
-	DDX_Control(pDX, IDC_EDIT_TEXTOPTIONEN_REFERENZDATEI, m_CtrlRefFile);
-	DDX_Control(pDX, IDC_CHECK2, m_CaseControl);
-	DDX_Control(pDX, IDC_EDIT1, m_alphacontrol);
-	DDX_Check(pDX, IDC_CHECK1, m_Format);
-	DDX_Text(pDX, IDC_EDIT1, m_alphabet);
-	DDX_Check(pDX, IDC_CHECK2, m_Case);
-	DDX_Check(pDX, IDC_CHECK5, m_LeerVal);
-	DDX_Check(pDX, IDC_CHECK3, m_GrossVal);
-	DDX_Check(pDX, IDC_CHECK4, m_KleinVal);
-	DDX_Check(pDX, IDC_CHECK6, m_SatzVal);
-	DDX_Check(pDX, IDC_CHECK7, m_ZahlVal);
-	DDX_Check(pDX, IDC_CHECK8, m_ConvertCase);
-	DDX_Text(pDX, IDC_EDIT2, m_trenn);
-	DDV_MaxChars(pDX, m_trenn, 1);
-	DDX_Check(pDX, IDC_CHECK9, m_addx);
-	DDX_Text(pDX, IDC_EDIT_TEXTOPTIONEN_REFERENZDATEI, m_StrRefFile);
+	DDX_Control(pDX, IDC_TEXTOPTIONS_ALPHABET, informationAlphabetSize);
+	DDX_Control(pDX, IDC_EDIT_REFERENCE_FILE, controlEditReferenceFile);
+	DDX_Control(pDX, IDC_EDIT_ALPHABET, controlEditAlphabet);
+	DDX_Check(pDX, IDC_CHECK_KEEP_CHARACTERS_NOT_PRESENT_IN_ALPHABET_UNCHANGED, keepCharactersNotPresentInAlphabetUnchanged);
+	DDX_Text(pDX, IDC_EDIT_ALPHABET, alphabet);
+	DDX_Check(pDX, IDC_CHECK_DISTINGUISH_UPPER_LOWER_CASE, distinguishUpperLowerCase);
+	DDX_Check(pDX, IDC_CHECK_SPACE, space);
+	DDX_Check(pDX, IDC_CHECK_UPPER_CASE, upperCase);
+	DDX_Check(pDX, IDC_CHECK_LOWER_CASE, lowerCase);
+	DDX_Check(pDX, IDC_CHECK_PUNCTUATION, punctuation);
+	DDX_Check(pDX, IDC_CHECK_DIGITS, digits);
+	DDX_Check(pDX, IDC_CHECK_KEEP_UPPER_LOWER_CASE_INFORMATION, keepUpperLowerCaseInformation);
+	DDX_Check(pDX, IDC_CHECK_UMLAUTS, umlauts);
+	DDX_Text(pDX, IDC_EDIT_SEPARATOR, separator);
+	DDV_MaxChars(pDX, separator, 1);
+	DDX_Check(pDX, IDC_CHECK_SEPARATE_LETTERS, separateLetters);
+	DDX_Text(pDX, IDC_EDIT_REFERENCE_FILE, referenceFile);
 	//}}AFX_DATA_MAP
 }
 
@@ -131,20 +112,19 @@ void CDlgTextOptions::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CDlgTextOptions, CDialog)
 
 	//{{AFX_MSG_MAP(CDlgTextOptions)
-	ON_EN_UPDATE(IDC_EDIT1, OnUpdateEdit1)
-	ON_EN_KILLFOCUS(IDC_EDIT2, OnUpdateEdit2)
-	ON_BN_CLICKED(IDC_BUTTON1, OnButton1)
-	ON_BN_CLICKED(IDC_CHECK2, OnCheck2)
-	ON_BN_CLICKED(IDC_CHECK3, OnCheck3)
-	ON_BN_CLICKED(IDC_CHECK4, OnCheck4)
-	ON_BN_CLICKED(IDC_CHECK5, OnCheck5)
-	ON_BN_CLICKED(IDC_CHECK6, OnCheck6)
-	ON_BN_CLICKED(IDC_CHECK7, OnCheck7)
-	ON_BN_CLICKED(IDC_CHECK8, OnCheck8)
-	ON_BN_CLICKED(IDC_BUTTON_TEXTOPTIONEN_SUCHE_REFERENZDATEI, OnButtonTextoptionenSucheReferenzdatei)
-	ON_EN_UPDATE(IDC_EDIT_TEXTOPTIONEN_REFERENZDATEI, OnUpdateEditTextoptionenReferenzdatei)
+	ON_EN_UPDATE(IDC_EDIT_ALPHABET, OnUpdateEditAlphabet)
+	ON_EN_KILLFOCUS(IDC_EDIT_SEPARATOR, OnUpdateEditSeparator)
+	ON_BN_CLICKED(IDC_BUTTON_RESTORE_STANDARD, OnButtonRestoreStandard)
+	ON_BN_CLICKED(IDC_CHECK_DISTINGUISH_UPPER_LOWER_CASE, OnCheckDistinguishUpperLowerCase)
+	ON_BN_CLICKED(IDC_CHECK_UPPER_CASE, OnCheckUpperCase)
+	ON_BN_CLICKED(IDC_CHECK_LOWER_CASE, OnCheckLowerCase)
+	ON_BN_CLICKED(IDC_CHECK_SPACE, OnCheckSpace)
+	ON_BN_CLICKED(IDC_CHECK_PUNCTUATION, OnCheckPunctuation)
+	ON_BN_CLICKED(IDC_CHECK_DIGITS, OnCheckDigits)
+	ON_BN_CLICKED(IDC_CHECK_KEEP_UPPER_LOWER_CASE_INFORMATION, OnCheckKeepUpperLowerCaseInformation)
+	ON_BN_CLICKED(IDC_CHECK_UMLAUTS, OnCheckUmlauts)
+	ON_BN_CLICKED(IDC_BUTTON_SEARCH_REFERENCE_FILE, OnButtonSearchReferenceFile)
 	//}}AFX_MSG_MAP
-	ON_BN_CLICKED(IDOK, OnBnClickedOk)
 END_MESSAGE_MAP()
 
 
@@ -152,36 +132,33 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // Behandlungsroutinen für Nachrichten CDlgTextOptions  
 
-#define ALLOWED_CHARS "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz 1234567890-.,_:;+*!\"§$%&/()=?"
+#define ALLOWED_CHARS "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz 1234567890-.,_:;+*!\"§$%&/()=?äöüÄÖÜ"
 
-
-void CDlgTextOptions::OnUpdateEdit2() 
+void CDlgTextOptions::OnUpdateEditSeparator() 
 {
 	UpdateData(TRUE);
-	m_trenn.MakeUpper();
-	if(m_trenn.IsEmpty()||m_trenn[0]<'A'||m_trenn[0]>'Z')
-		m_trenn=_T("X");
+	separator.MakeUpper();
+	if(separator.IsEmpty()||separator[0]<'A'||separator[0]>'Z')
+		separator=_T("X");
 	UpdateData(FALSE);
 }
 
-
-
-void CDlgTextOptions::OnUpdateEdit1() 
+void CDlgTextOptions::OnUpdateEditAlphabet() 
 {
 	int i, SS, SE;
 	unsigned char c, set[256];
 	CString Old;
 
-	m_alphacontrol.GetSel(SS, SE);
-	Old = m_alphabet;
+	controlEditAlphabet.GetSel(SS, SE);
+	Old = alphabet;
 
-	UpdateData(TRUE);  // Werte aus Eingabemaske lesen
+	UpdateData(TRUE);
 
-	if(!m_Case) {
-		for(i=0;i<m_alphabet.GetLength();i++) {
-			if(MyIsLower(m_alphabet[i])) {
-				m_Case=TRUE;
-				m_ConvertCase = FALSE;
+	if(!distinguishUpperLowerCase) {
+		for(i=0;i<alphabet.GetLength();i++) {
+			if(MyIsLower(alphabet[i])) {
+				distinguishUpperLowerCase=TRUE;
+				keepUpperLowerCaseInformation = FALSE;
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_SWITCH_ALPHABET,pc_str,STR_LAENGE_STRING_TABLE);
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_NOTE,pc_str1,STR_LAENGE_STRING_TABLE);
 				theApp.m_MainWnd->MessageBox(pc_str,pc_str1,MB_OK | MB_ICONINFORMATION);
@@ -191,95 +168,89 @@ void CDlgTextOptions::OnUpdateEdit1()
 	}
 
 	memset(set,0,sizeof(set));
-	for(i=0;i<m_alphabet.GetLength();i++) {
-		c = m_alphabet[i];
+	for(i=0;i<alphabet.GetLength();i++) {
+		c = alphabet[i];
 		if(set[c]) {
-			m_alphabet = Old;
-			m_alphacontrol.SetSel(SS, SE);
+			alphabet = Old;
+			controlEditAlphabet.SetSel(SS, SE);
 			MessageBeep(MB_ICONEXCLAMATION);
 			break;
 		}
 		set[c]=1;
 	}
-	if(m_alphabet.GetLength() != m_alphabet.SpanIncluding(ALLOWED_CHARS).GetLength()) {
-			m_alphabet = Old;
-			m_alphacontrol.SetSel(SS, SE);
+	if(alphabet.GetLength() != alphabet.SpanIncluding(ALLOWED_CHARS).GetLength()) {
+			alphabet = Old;
+			controlEditAlphabet.SetSel(SS, SE);
 			MessageBeep(MB_ICONEXCLAMATION);
 	}
-	m_alphacontrol.GetSel(SS, SE);
-	UpdateTags();
-	m_alphacontrol.SetSel(SS, SE);
-	UpdateHeaderAlphabet();
+	controlEditAlphabet.GetSel(SS, SE);
+	updateCheckState();
+	controlEditAlphabet.SetSel(SS, SE);
+	updateAlphabetHeading();
 }
 
-
-void CDlgTextOptions::OnButton1() 
+void CDlgTextOptions::OnButtonRestoreStandard() 
 {
-	m_alphabet = _T("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-	m_Case = FALSE;
-	m_ConvertCase = TRUE;
-	m_Format = TRUE;
-	m_trenn = "X";
-	UpdateTags();
-	UpdateHeaderAlphabet();
+	alphabet = _T("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+	distinguishUpperLowerCase = FALSE;
+	keepUpperLowerCaseInformation = TRUE;
+	keepCharactersNotPresentInAlphabetUnchanged = TRUE;
+	separator = "X";
+	updateCheckState();
+	updateAlphabetHeading();
 }
-
 
 BOOL CDlgTextOptions::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
 
-	OldAlphabet = m_alphabet;
-	OldCase = m_Case;
-	OldFormat = m_Format;
-	UpdateTags();
+	oldAlphabet = alphabet;
+	oldDistinguishUpperLowerCase = distinguishUpperLowerCase;
+	oldKeepCharactersNotPresentInAlphabetUnchanged = keepCharactersNotPresentInAlphabetUnchanged;
+	updateCheckState();
 
-	m_CtrlRefFile.SetFocus();
-	m_CtrlRefFile.SetSel(0,-1);
+	controlEditReferenceFile.SetFocus();
+	controlEditReferenceFile.SetSel(0,-1);
 
-	UpdateHeaderAlphabet();
+	updateAlphabetHeading();
 
-	return TRUE;  // return TRUE unless you set the focus to a control
-	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
+	return TRUE;
 }
-
 
 void CDlgTextOptions::OnCancel() 
 {
-	m_alphabet = OldAlphabet;
-	m_Case = OldCase;
-	m_Format = OldFormat;
+	alphabet = oldAlphabet;
+	distinguishUpperLowerCase = oldDistinguishUpperLowerCase;
+	keepCharactersNotPresentInAlphabetUnchanged = oldKeepCharactersNotPresentInAlphabetUnchanged;
 	CDialog::OnCancel();
 }
 
-
-void CDlgTextOptions::OnCheck2() // Groß-Keinschreibubg beachten
+void CDlgTextOptions::OnCheckDistinguishUpperLowerCase()
 {
 	int i, r;
-	UpdateData(TRUE);  // Werte aus Eingabemaske lesen	
-	if(!m_Case) { // ignore Case
-		m_alphabet.MakeUpper();
-		for(i=0;i<m_alphabet.GetLength();i++) {
-			r = m_alphabet.ReverseFind(m_alphabet[i]);
-			if(r>i) m_alphabet = m_alphabet.Left(r) + m_alphabet.Right(m_alphabet.GetLength() - r - 1);
+	UpdateData(TRUE);
+	if(!distinguishUpperLowerCase) {
+		alphabet.MakeUpper();
+		for(i=0;i<alphabet.GetLength();i++) {
+			r = alphabet.ReverseFind(alphabet[i]);
+			if(r>i) alphabet = alphabet.Left(r) + alphabet.Right(alphabet.GetLength() - r - 1);
 		}
 	}
-	else { //setzen auf case sensitiv
-		m_ConvertCase = FALSE;
+	else {
+		keepUpperLowerCaseInformation = FALSE;
 	}
-	UpdateTags();
-	UpdateHeaderAlphabet();
+	updateCheckState();
+	updateAlphabetHeading();
 }
-
 
 void CDlgTextOptions::OnOK() 
 {
-	UpdateData(TRUE);  // Werte aus Eingabemaske lesen
+	UpdateData(TRUE);
 
-	if(m_Case) m_IgnoreCase = 0;
-	else m_IgnoreCase = 1;
+	if(distinguishUpperLowerCase) ignoreCase = 0;
+	else ignoreCase = 1;
 
-	AppConv.SetAlphabet(m_alphabet.GetBuffer(257), m_IgnoreCase);
+	AppConv.SetAlphabet(alphabet.GetBuffer(257), ignoreCase);
 	CWnd m_wndMDIClient;
 	CMDIFrameWnd *m_MDIFrameWnd = (CMDIFrameWnd*)theApp.m_MainWnd;
 	int ret = m_wndMDIClient.Attach(m_MDIFrameWnd->m_hWndMDIClient);
@@ -299,225 +270,293 @@ void CDlgTextOptions::OnOK()
 	CDialog::OnOK();
 }
 
-
-void CDlgTextOptions::OnCheck3() // Großbuchstaben
+void CDlgTextOptions::OnCheckUpperCase()
 {
 	char c;
 	int i;
 
-	if(m_GrossVal != 1) { // falls nicht gesetzt, alle hinzufügen
+	if(upperCase != 1) {
 		for(c='A';c<='Z';c++) {
-			if(-1 == m_alphabet.Find(c))
-				m_alphabet += c; // ein Zeichen nicht gefunden
+			if(-1 == alphabet.Find(c))
+				alphabet += c;
 		}
-		m_GrossVal = 1;
+		upperCase = 1;
 	}
-	else { // Zeichen Löschen
+	else {
 		for(c='A';c<='Z';c++) {
-			if(-1 != (i=m_alphabet.Find(c)))
-				m_alphabet = m_alphabet.Left(i) + m_alphabet.Right(m_alphabet.GetLength() - i - 1); // ein Zeichen gefunden
+			if(-1 != (i=alphabet.Find(c)))
+				alphabet = alphabet.Left(i) + alphabet.Right(alphabet.GetLength() - i - 1); // ein Zeichen gefunden
 		}
-		m_GrossVal = 0;
+		upperCase = 0;
+
+		// if umlauts were part of the alphabet, remove them
+		alphabet.Remove('Ä');
+		alphabet.Remove('Ö');
+		alphabet.Remove('Ü');
 	}
 	UpdateData(FALSE);
-	UpdateHeaderAlphabet();
+
+	updateCheckState();
+	updateAlphabetHeading();
 }
 
 
-void CDlgTextOptions::OnCheck4() // Kleinbuchstaben
+void CDlgTextOptions::OnCheckLowerCase()
 {
 	char c;
 	int i;
 
-	if(1 != m_KleinVal) { // falls nicht gesetzt, alle hinzufügen
+	if(1 != lowerCase) {
 		for(c='a';c<='z';c++) {
-			if(-1 == m_alphabet.Find(c))
-				m_alphabet += c; // ein Zeichen nicht gefunden
+			if(-1 == alphabet.Find(c))
+				alphabet += c;
 		}
-		m_Case = TRUE;
-		m_ConvertCase = FALSE;
-		m_KleinVal = 1;
+		distinguishUpperLowerCase = TRUE;
+		keepUpperLowerCaseInformation = FALSE;
+		lowerCase = 1;
 	}
-	else { // Zeichen Löschen
+	else {
 		for(c='a';c<='z';c++) {
-			if(-1 != (i=m_alphabet.Find(c)))
-				m_alphabet = m_alphabet.Left(i) + m_alphabet.Right(m_alphabet.GetLength() - i - 1); // ein Zeichen gefunden
+			if(-1 != (i=alphabet.Find(c)))
+				alphabet = alphabet.Left(i) + alphabet.Right(alphabet.GetLength() - i - 1); // ein Zeichen gefunden
 		}
-		m_KleinVal = 0;
+		lowerCase = 0;
+
+		// if umlauts were part of the alphabet, remove them
+		alphabet.Remove('ä');
+		alphabet.Remove('ö');
+		alphabet.Remove('ü');
+
 	}
 	UpdateData(FALSE);
-	UpdateHeaderAlphabet();
+
+	updateCheckState();
+	updateAlphabetHeading();
 }
 
+void CDlgTextOptions::OnCheckUmlauts()
+{
+	// if not checked, add umlauts
+	if(umlauts != 1) {
+		// caps
+		if(upperCase) {
+			if(alphabet.Find('Ä') == -1) alphabet += 'Ä';
+			if(alphabet.Find('Ö') == -1) alphabet += 'Ö';
+			if(alphabet.Find('Ü') == -1) alphabet += 'Ü';
+		}
+		// non-caps
+		if(lowerCase) {
+			if(alphabet.Find('ä') == -1) alphabet += 'ä';
+			if(alphabet.Find('ö') == -1) alphabet += 'ö';
+			if(alphabet.Find('ü') == -1) alphabet += 'ü';
+		}
+		umlauts = 1;
 
-void CDlgTextOptions::OnCheck5() // Leerzeichen
+		// set umlauts to "0" if we have neither upper nor lower case checked
+		if(!upperCase && !lowerCase) {
+			umlauts = 0;
+		}
+	}
+	// else: remove umlauts (caps and non-caps)
+	else {
+		alphabet.Remove('Ä');
+		alphabet.Remove('Ö');
+		alphabet.Remove('Ü');
+		alphabet.Remove('ä');
+		alphabet.Remove('ö');		
+		alphabet.Remove('ü');		
+		umlauts = 0;
+	}
+
+	UpdateData(false);
+	updateAlphabetHeading();
+}
+
+void CDlgTextOptions::OnCheckSpace()
 {
 	int i;
 
-	if(m_LeerVal == FALSE) { // falls nicht gesetzt, hinzufügen
-		if(-1 == m_alphabet.Find(' '))
-			m_alphabet += ' '; // ein Zeichen nicht gefunden
-		m_LeerVal = TRUE;
+	if(space == FALSE) {
+		if(-1 == alphabet.Find(' '))
+			alphabet += ' ';
+		space = TRUE;
 	}
-	else { // Zeichen Löschen
-		if(-1 != (i=m_alphabet.Find(' ')))
-			m_alphabet = m_alphabet.Left(i) + m_alphabet.Right(m_alphabet.GetLength() - i - 1); // ein Zeichen gefunden
-		m_LeerVal = FALSE;
+	else {
+		if(-1 != (i=alphabet.Find(' ')))
+			alphabet = alphabet.Left(i) + alphabet.Right(alphabet.GetLength() - i - 1); // ein Zeichen gefunden
+		space = FALSE;
 	}
 	UpdateData(FALSE);
-	UpdateHeaderAlphabet();
+	updateAlphabetHeading();
 }
 
-
-void CDlgTextOptions::OnCheck6() // Satzzeichen
+void CDlgTextOptions::OnCheckPunctuation()
 {
 	char *s;
 	int i;
 
-	if(m_SatzVal != 1) { // falls nicht gesetzt, ale hinzufügen
+	if(punctuation != 1) {
 		for(s=".,:;!?()" ;*s;s++) {
-			if(-1 == m_alphabet.Find(*s))
-				m_alphabet += *s; // ein Zeichen nicht gefunden
+			if(-1 == alphabet.Find(*s))
+				alphabet += *s;
 		}
-		m_SatzVal = 1;
+		punctuation = 1;
 	}
-	else { // Zeichen Löschen
+	else {
 		for(s=".,:;!?()" ;*s;s++) {
-			if(-1 != (i=m_alphabet.Find(*s)))
-				m_alphabet = m_alphabet.Left(i) + m_alphabet.Right(m_alphabet.GetLength() - i - 1); // ein Zeichen gefunden
+			if(-1 != (i=alphabet.Find(*s)))
+				alphabet = alphabet.Left(i) + alphabet.Right(alphabet.GetLength() - i - 1); // ein Zeichen gefunden
 		}
-		m_SatzVal = 0;
+		punctuation = 0;
 	}
 	UpdateData(FALSE);
-	UpdateHeaderAlphabet();
+	updateAlphabetHeading();
 }
 
 
-int CDlgTextOptions::UpdateTags()
+void CDlgTextOptions::updateCheckState()
 {
 	char c, *s;
 	int OK;
 
-	// Update Großbuchstaben 
+	// update upper case
 	OK = 0;
 	for(c='A';c<='Z';c++) {
-		if(-1 == m_alphabet.Find(c))
-			OK |= 1; // ein Zeichen nicht gefunden
+		if(-1 == alphabet.Find(c))
+			OK |= 1;
 		else
-			OK |= 2; // ein Zeichen gefunden
+			OK |= 2;
 	}
 	switch(OK) {
-	case(1): m_GrossVal = 0; // keine Zeichen gefunden
+	case(1): upperCase = 0;
 		break;
-	case(2): m_GrossVal = 1; // alle Zeichen gefunden
+	case(2): upperCase = 1;
 		break;
-	case(3): m_GrossVal = 2; // gemischt
+	case(3): upperCase = 2;
 	}
-	// Update Leerzeichen 
-	if(-1 == m_alphabet.Find(' '))
-			m_LeerVal = FALSE; // Zeichen nicht gefunden
-		else
-			m_LeerVal = TRUE; // Zeichen gefunden
-	// Update Kleinbuchstaben 
 
+	// update space 
+	if(-1 == alphabet.Find(' '))
+			space = FALSE;
+		else
+			space = TRUE;
+	
+	// update lower case
 	OK = 0;
-
 	for(c='a';c<='z';c++) {
-
-		if(-1 == m_alphabet.Find(c))
-			OK |= 1; // ein Zeichen nicht gefunden
+		if(-1 == alphabet.Find(c))
+			OK |= 1;
 		else
-			OK |= 2; // ein Zeichen gefunden
+			OK |= 2;
 	}
 	switch(OK) {
-	case(1): m_KleinVal = 0; // keine Zeichen gefunden
+	case(1): lowerCase = 0;
 		break;
-	case(2): m_KleinVal = 1; // alle Zeichen gefunden
+	case(2): lowerCase = 1;
 		break;
-	case(3): m_KleinVal = 2; // gemischt
+	case(3): lowerCase = 2;
 	}
 
 
-	// Update Satzzeichen 
+	// update punctuation
 	OK = 0;
 	for(s=".,:;!?()" ;*s;s++) {
-		if(-1 == m_alphabet.Find(*s))
-			OK |= 1; // ein Zeichen nicht gefunden
+		if(-1 == alphabet.Find(*s))
+			OK |= 1;
 		else
-			OK |= 2; // ein Zeichen gefunden
-
+			OK |= 2;
 	}
 	switch(OK) {
-	case(1): m_SatzVal = 0; // keine Zeichen gefunden
+	case(1): punctuation = 0;
 		break;
-	case(2): m_SatzVal = 1; // alle Zeichen gefunden
+	case(2): punctuation = 1;
 		break;
-	case(3): m_SatzVal = 2; // gemischt
+	case(3): punctuation = 2;
 	}
 
-
-	// Update Zahlen 
+	// update digits
 	OK = 0;
 	for(c='0';c<='9'; c++) {
-		if(-1 == m_alphabet.Find(c))
-			OK |= 1; // ein Zeichen nicht gefunden
+		if(-1 == alphabet.Find(c))
+			OK |= 1;
 		else
-			OK |= 2; // ein Zeichen gefunden
+			OK |= 2;
 	}
 
 	switch(OK) {
-	case(1): m_ZahlVal = 0; // keine Zeichen gefunden
+	case(1): digits = 0;
 		break;
-	case(2): m_ZahlVal = 1; // alle Zeichen gefunden
+	case(2): digits = 1;
 		break;
-	case(3): m_ZahlVal = 2; // gemischt
+	case(3): digits = 2;
+	}
+
+	// update umlauts
+	OK = 0;
+	CString allUmlauts;
+	if(upperCase) allUmlauts.Append("ÄÖÜ");
+	if(lowerCase) allUmlauts.Append("äöü");
+	for(int i=0; i<allUmlauts.GetLength(); i++) {
+		if(alphabet.Find(allUmlauts[i]) == -1) OK |= 1;
+		else OK |= 2;
+	}
+
+	switch(OK) {
+		case 1:
+			umlauts = 0;
+			break;
+		case 2:
+			umlauts = 1;
+			break;
+		case 3:
+			umlauts = 2;
+			break;
+		default:
+			umlauts = 0;
+			break;
 	}
 
 	UpdateData(FALSE);
-	return 0;
 }
 
-
-
-void CDlgTextOptions::OnCheck7() // Zahlen
-
+void CDlgTextOptions::OnCheckDigits()
 {
 	char c;
 	int i;
 
-	if(m_ZahlVal != 1) { // falls nicht gesetzt, alle hinzufügen
+	if(digits != 1) {
 		for(c='0';c<='9';c++) {
-			if(-1 == m_alphabet.Find(c))
-				m_alphabet += c; // ein Zeichen nicht gefunden
+			if(-1 == alphabet.Find(c))
+				alphabet += c;
 		}
-		m_ZahlVal = 1;
+		digits = 1;
 	}
-	else { // Zeichen Löschen
+	else {
 		for(c='0';c<='9';c++) {
-			if(-1 != (i=m_alphabet.Find(c)))
-				m_alphabet = m_alphabet.Left(i) + m_alphabet.Right(m_alphabet.GetLength() - i - 1); // ein Zeichen gefunden
+			if(-1 != (i=alphabet.Find(c)))
+				alphabet = alphabet.Left(i) + alphabet.Right(alphabet.GetLength() - i - 1);
 		}
-		m_ZahlVal = 0;
+		digits = 0;
 	}
 	UpdateData(FALSE);
-	UpdateHeaderAlphabet();
+	updateAlphabetHeading();
 }
 
 
 
-void CDlgTextOptions::OnCheck8() // Groß-Keinschreibubg konvertieren
+void CDlgTextOptions::OnCheckKeepUpperLowerCaseInformation()
 {
-	UpdateData(TRUE);  // Werte aus Eingabemaske lesen	
+	UpdateData(TRUE);	
 
-	if (m_ConvertCase && m_Case) { // unzulässig
+	if (keepUpperLowerCaseInformation && distinguishUpperLowerCase) {
 		Message(IDS_TEXTOPTIONS_KEEP_UPPERCASE_LOWERCASE, MB_ICONSTOP);
-		m_ConvertCase = FALSE;
+		keepUpperLowerCaseInformation = FALSE;
 		UpdateData(FALSE);
 	}
-	UpdateHeaderAlphabet();
+	updateAlphabetHeading();
 }
 
-void CDlgTextOptions::OnButtonTextoptionenSucheReferenzdatei() 
+void CDlgTextOptions::OnButtonSearchReferenceFile() 
 {
 	OPENFILENAME ofn;
 	char fname[257], ftitle[128];
@@ -539,35 +578,18 @@ void CDlgTextOptions::OnButtonTextoptionenSucheReferenzdatei()
 	if(fname[0]==0) return;
 	
 	UpdateData(TRUE);
-	m_StrRefFile=fname;
-	m_StrTitle = ofn.lpstrFileTitle;
+	referenceFile=fname;
+	title = ofn.lpstrFileTitle;
 	UpdateData(FALSE);
-	m_CtrlRefFile.SetFocus();
-	m_CtrlRefFile.SetSel(0,-1);
-	GotoDlgCtrl( GetDlgItem(IDC_BUTTON_TEXTOPTIONEN_SUCHE_REFERENZDATEI));
+	controlEditReferenceFile.SetFocus();
+	controlEditReferenceFile.SetSel(0,-1);
+	GotoDlgCtrl( GetDlgItem(IDC_BUTTON_SEARCH_REFERENCE_FILE));
 }
 
-void CDlgTextOptions::OnUpdateEditTextoptionenReferenzdatei() 
-{
-	// TODO: Wenn es sich hierbei um ein RICHEDIT-Steuerelement handelt, sendet es
-	// sendet diese Benachrichtigung nur, wenn die Funktion CDialog::OnInitDialog()
-	// überschrieben wird, um die EM_SETEVENTMASK-Nachricht an das Steuerelement
-	// mit dem ENM_UPDATE-Attribut Ored in die Maske lParam zu senden.
-	
-	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
-	
-}
-
-void CDlgTextOptions::UpdateHeaderAlphabet()
+void CDlgTextOptions::updateAlphabetHeading()
 {
 	LoadString(AfxGetInstanceHandle(),IDS_TEXTOPTIONS_HEADER_ALPHABET,pc_str,STR_LAENGE_STRING_TABLE);
 	char line[256];
-	sprintf(line, pc_str, m_alphabet.GetLength());
-	m_InformationAlphabetSize.SetWindowText(line);
-}
-
-void CDlgTextOptions::OnBnClickedOk()
-{
-	// TODO: Add your control notification handler code here
-	OnOK();
+	sprintf(line, pc_str, alphabet.GetLength());
+	informationAlphabetSize.SetWindowText(line);
 }
