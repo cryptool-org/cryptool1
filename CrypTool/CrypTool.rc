@@ -568,8 +568,8 @@ BEGIN
     PUSHBUTTON      "&Przywróæ domyœlne",IDC_BUTTON_RESTORE_STANDARD,86,275,
                     99,17
     CONTROL         "Zachowaj znaki nie reprezentowane w alfabecie jako niezmienione",
-                    IDC_CHECK_KEEP_CHARACTERS_NOT_PRESENT_IN_ALPHABET_UNCHANGED,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,20,16,213,10
+                    IDC_CHECK_KEEP_CHARACTERS_NOT_PRESENT_IN_ALPHABET_UNCHANGED,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,16,213,10
     CONTROL         "Jeœli mo¿liwe: pamiêtaj informacje o szyfrowaniu/deszyfrowaniu, wielkich/ma³ych literach.",
                     IDC_CHECK_KEEP_UPPER_LOWER_CASE_INFORMATION,"Button",
                     BS_AUTOCHECKBOX | BS_TOP | BS_MULTILINE | WS_TABSTOP,20,
@@ -5462,7 +5462,6 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION |
 CAPTION "Sprawdzenie jakoœci has³a"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,329,50,14
     PUSHBUTTON      "Anuluj",IDCANCEL,243,329,50,14
     CONTROL         "",IDC_PROGRESS_KEEPASS,"msctls_progress32",WS_BORDER | 
                     0x1,68,160,150,8
@@ -12350,8 +12349,8 @@ BEGIN
     PUSHBUTTON      "Standard &wiederherstellen",IDC_BUTTON_RESTORE_STANDARD,
                     86,276,99,17
     CONTROL         "Nicht im Alphabet enthaltene Zeichen unverändert beibehalten",
-                    IDC_CHECK_KEEP_CHARACTERS_NOT_PRESENT_IN_ALPHABET_UNCHANGED,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,20,18,213,10
+                    IDC_CHECK_KEEP_CHARACTERS_NOT_PRESENT_IN_ALPHABET_UNCHANGED,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,18,213,10
     CONTROL         "Wenn möglich bei der Ver-/Entschlüsselung Informationen zur Groß-/\nKleinschreibung beibehalten",
                     IDC_CHECK_KEEP_UPPER_LOWER_CASE_INFORMATION,"Button",
                     BS_AUTOCHECKBOX | BS_TOP | BS_MULTILINE | WS_TABSTOP,20,
@@ -17426,8 +17425,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION |
 CAPTION "Passwort-Qualitätsmesser"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,329,50,14
-    PUSHBUTTON      "Abbrechen",IDCANCEL,243,329,50,14
+    PUSHBUTTON      "Schließen",IDCANCEL,243,329,50,14
     GROUPBOX        "Beschreibung",IDC_STATIC,7,7,286,60
     GROUPBOX        "Eingabe des Passworts",IDC_STATIC,7,72,286,70
     GROUPBOX        "Qualität des Passworts basierend auf Hypothesen",
@@ -17519,19 +17517,18 @@ BEGIN
     PUSHBUTTON      "Default",ID_DEFAULT,100,164,50,14
 END
 
-IDD_PASSWORDENTROPY DIALOGEX 0, 0, 420, 281
+IDD_PASSWORDENTROPY DIALOGEX 0, 0, 420, 260
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Passwort-Entropie"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,260,50,14
-    PUSHBUTTON      "Abbrechen",IDCANCEL,363,260,50,14
-    DEFPUSHBUTTON   "Passwort generieren",ID_GENERATEPASSWORD,90,229,310,14
+    PUSHBUTTON      "Schließen",IDCANCEL,363,239,50,14
+    DEFPUSHBUTTON   "Passwort generieren",ID_GENERATEPASSWORD,7,239,100,14
     GROUPBOX        "Beschreibung",IDC_STATIC,7,7,406,50
     GROUPBOX        "Input-Parameter zur Generierung des Passworts",
                     IDC_STATIC,7,60,406,115
-    GROUPBOX        "Generiertes Passwort",IDC_STATIC,7,178,406,75
+    GROUPBOX        "Generiertes Passwort",IDC_STATIC,7,178,406,55
     LTEXT           "Passwort-Länge:",IDC_STATIC,30,192,55,8
     LTEXT           "Passwort-Beispiel:",IDC_STATIC,26,211,59,8
     EDITTEXT        IDC_EDIT_PASSWORDLENGTH,90,190,30,14,ES_RIGHT | 
@@ -17551,7 +17548,7 @@ BEGIN
     DEFPUSHBUTTON   "Textoptionen",ID_TEXTOPTIONS,223,110,177,14
     LTEXT           "Dieser Dialog berechnet ein zufälliges Passwort.",
                     IDC_STATIC,20,20,380,8
-    LTEXT           "Die Passwort-Entropie definiert, wie schwer das Passwort zu erraten ist. Das Passwort-Alphabet bestimmt, welche Zeichen für das Passwort verwendet werden. Durch Entropie und Alphabet ergibt sich die Passwort-Länge.",
+    LTEXT           "Die Passwort-Entropie beschreibt, wie schwer das Passwort zu erraten ist. Das Passwort-Alphabet bestimmt, welche Zeichen für das Passwort verwendet werden. Durch Entropie und Alphabet ergibt sich die Passwort-Länge.",
                     IDC_STATIC,20,32,380,16
     CONTROL         "Keine verwechselbaren Zeichen verwenden (schriftliche Übertragung)",
                     IDC_CHECK_USENONCONFUSABLECHARACTERS_WRITTENTRANSMISSION,
@@ -21284,7 +21281,7 @@ BEGIN
         VERTGUIDE, 90
         VERTGUIDE, 400
         TOPMARGIN, 7
-        BOTTOMMARGIN, 274
+        BOTTOMMARGIN, 253
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -24437,8 +24434,8 @@ BEGIN
     PUSHBUTTON      "&Restore standard",IDC_BUTTON_RESTORE_STANDARD,86,275,
                     99,17
     CONTROL         "Keep characters not present in the alphabet unchanged",
-                    IDC_CHECK_KEEP_CHARACTERS_NOT_PRESENT_IN_ALPHABET_UNCHANGED,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,20,16,213,10
+                    IDC_CHECK_KEEP_CHARACTERS_NOT_PRESENT_IN_ALPHABET_UNCHANGED,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,16,213,10
     CONTROL         "If possible: keep for encryption/decryption upper/lower case information",
                     IDC_CHECK_KEEP_UPPER_LOWER_CASE_INFORMATION,"Button",
                     BS_AUTOCHECKBOX | BS_TOP | BS_MULTILINE | WS_TABSTOP,20,
@@ -29345,7 +29342,6 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION |
 CAPTION "Password Quality Meter"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,329,50,14
     PUSHBUTTON      "Cancel",IDCANCEL,243,329,50,14
     CONTROL         "",IDC_PROGRESS_KEEPASS,"msctls_progress32",WS_BORDER | 
                     0x1,68,160,150,8
@@ -29438,19 +29434,18 @@ BEGIN
     PUSHBUTTON      "Default",ID_DEFAULT,100,164,50,14
 END
 
-IDD_PASSWORDENTROPY DIALOGEX 0, 0, 420, 281
+IDD_PASSWORDENTROPY DIALOGEX 0, 0, 420, 260
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Password Entropy"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,260,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,363,260,50,14
-    DEFPUSHBUTTON   "Generate password",ID_GENERATEPASSWORD,90,229,310,14
+    PUSHBUTTON      "Close",IDCANCEL,363,239,50,14
+    DEFPUSHBUTTON   "Generate password",ID_GENERATEPASSWORD,7,239,100,14
     GROUPBOX        "Description",IDC_STATIC,7,7,406,50
     GROUPBOX        "Input parameters for password generation",IDC_STATIC,7,
                     60,406,115
-    GROUPBOX        "Generated password",IDC_STATIC,7,178,406,75
+    GROUPBOX        "Generated password",IDC_STATIC,7,178,406,55
     LTEXT           "Password length:",IDC_STATIC,29,192,56,8
     LTEXT           "Password example:",IDC_STATIC,22,211,63,8
     EDITTEXT        IDC_EDIT_PASSWORDLENGTH,90,190,30,14,ES_RIGHT | 
@@ -29479,7 +29474,7 @@ BEGIN
     CONTROL         "Use alphabet for WLAN passwords (64 characters)",
                     IDC_CHECK_USEWLANALPHABET,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,90,161,178,10
-    LTEXT           "The password entropy defines how hard it is to guess the password. The password alphabet defines which characters are used to create the password. The combination of entropy and alphabet yield the password length.",
+    LTEXT           "The password entropy describes how hard it is to guess the password. The password alphabet defines which characters are used to create the password. The combination of entropy and alphabet yield the password length.",
                     IDC_STATIC,20,32,380,16
 END
 
@@ -33444,7 +33439,7 @@ BEGIN
         VERTGUIDE, 90
         VERTGUIDE, 400
         TOPMARGIN, 7
-        BOTTOMMARGIN, 274
+        BOTTOMMARGIN, 253
     END
 END
 #endif    // APSTUDIO_INVOKED
