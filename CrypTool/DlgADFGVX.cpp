@@ -232,6 +232,7 @@ BEGIN_MESSAGE_MAP(CDlgADFGVX, CDialog)
 	ON_BN_CLICKED(IDC_CHECK_BLOCK_STAGE2, OnBnClickedCheckBlockStage2)
 	ON_BN_CLICKED(IDC_CHECK_BLOCK_STAGE1, OnBnClickedCheckBlockStage1)
 	ON_BN_CLICKED(IDC_BUTTON_STRINGBOX, OnBnClickedButtonStringbox)
+	ON_BN_CLICKED(IDC_BUTTON_TEXT_OPTIONS, OnBnClickedButtonTextOptions)
 END_MESSAGE_MAP()
 
 BOOL CDlgADFGVX::OnInitDialog() 
@@ -295,9 +296,6 @@ void CDlgADFGVX::OnBnClickedButtonEncrypt()
 			CString oldPassword=password;
 			password=cipher->CleansePassword(validPassword, password);
 			UpdateData(false);
-			//LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_4,pc_str,STR_LAENGE_STRING_TABLE);
-			//CString message=(CString)pc_str+(CString)(password);
-			//MessageBox(message);
 			pwdInvalid=true;
 			restart=true;
 			OnEnChangeTextfieldPassword();
@@ -333,11 +331,11 @@ void CDlgADFGVX::OnBnClickedButtonEncrypt()
 				}
 				if(pwdDouble)
 				{
-					if(pwdInvalid)
-						message.Append("\n");
+					if(pwdInvalid) message.Append("\n");
 					LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_7,pc_str,STR_LAENGE_STRING_TABLE);
 					message.Append(pc_str);
 				}
+				
 				LoadString (AfxGetInstanceHandle(), IDS_STRING_ADFGVX_NEWPWD, pc_str, STR_LAENGE_STRING_TABLE);
 				message.Append(pc_str);
 				message.Append(password);
@@ -1391,4 +1389,10 @@ void CDlgADFGVX::OnBnClickedButtonStringbox()
 
 	//check whether en- or decryption is possible
 	CheckProgress();
+}
+
+void CDlgADFGVX::OnBnClickedButtonTextOptions()
+{
+	// let the user modify the CrypTool alphabet from within the ADFGVX dialog
+	theApp.TextOptions.DoModal();
 }

@@ -52,6 +52,8 @@ statement from your version.
 #include <vector>
 #include <sstream>
 using namespace std;
+// necessary to access the CrypTool alphabet
+#include "CrypToolApp.h"
 
 adfgvx::adfgvx () {
 	codeMatrix[0][0] = 'A';
@@ -758,9 +760,10 @@ int adfgvx::CheckPassword(int minLength, int maxLength, CString password)
 	for(i=0;i<password.GetLength();i++)
 	{
 		pwdChar=password.GetAt(i);
-		if ((pwdChar>='A')&&(pwdChar<='Z'));
-		else
+		// irregular characters are characters NOT part of the CrypTool alphabet
+		if(theApp.TextOptions.getAlphabet().Find(pwdChar) == -1) {
 			testCounter++;
+		}
 	}	
 	if ((testCounter==0));	
 	else
@@ -796,9 +799,8 @@ CString adfgvx::CleansePassword(int errorCode, CString password)
 		for(int i=0;i<password.GetLength();i++)
 		{
 			pwdChar=password.GetAt(i);
-			if ((pwdChar>='A')&&(pwdChar<='Z'));
-			else
-			{
+			// invalid characters are characters NOT part of the CrypTool alphabet
+			if(theApp.TextOptions.getAlphabet().Find(pwdChar) == -1) {
 				password.Remove(pwdChar);
 				i--;//if i is not decreased, the character following pwdChar slips through untested
 			}

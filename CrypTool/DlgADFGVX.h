@@ -151,4 +151,5 @@ public:
 	virtual ~CDlgADFGVX();
 
 	afx_msg void OnBnClickedButtonStringbox();
+	afx_msg void OnBnClickedButtonTextOptions();
 };

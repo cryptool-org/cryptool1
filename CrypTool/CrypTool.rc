@@ -3921,7 +3921,7 @@ BEGIN
     GROUPBOX        "Wiadomoœæ",IDC_STATIC,7,80,311,60
 END
 
-IDD_ADFGVX DIALOGEX 0, 0, 266, 411
+IDD_ADFGVX DIALOGEX 0, 0, 266, 431
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Wprowadzenie Klucza: ADFGVX"
@@ -4005,12 +4005,11 @@ BEGIN
                     BS_MULTILINE
     PUSHBUTTON      "Wyczyœæ",IDC_ERASEMATRIX,133,134,53,19
     CONTROL         "Wklej",IDC_BUTTON_INSERT_KEY,"Button",BS_OWNERDRAW | 
-                    WS_TABSTOP,219,244,20,18
-    EDITTEXT        IDC_TEXTFIELD_PASSWORD,17,189,232,12,ES_UPPERCASE | 
-                    ES_AUTOHSCROLL
-    PUSHBUTTON      "Szyfruj",IDC_BUTTON_ENCRYPT,10,385,66,18
-    PUSHBUTTON      "Deszyfruj",IDC_BUTTON_DECRYPT,85,385,66,18
-    PUSHBUTTON      "Anuluj",IDC_CANCEL,191,385,66,18
+                    WS_TABSTOP,219,264,20,18
+    EDITTEXT        IDC_TEXTFIELD_PASSWORD,17,189,232,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Szyfruj",IDC_BUTTON_ENCRYPT,10,405,66,18
+    PUSHBUTTON      "Deszyfruj",IDC_BUTTON_DECRYPT,85,405,66,18
+    PUSHBUTTON      "Anuluj",IDC_CANCEL,191,405,66,18
     CTEXT           "A",IDC_STATIC,40,30,12,12
     CTEXT           "D",IDC_STATIC,52,30,11,10
     CTEXT           "F",IDC_STATIC,64,30,11,10
@@ -4024,7 +4023,7 @@ BEGIN
     CTEXT           "V",IDC_STATIC,28,90,11,10
     CTEXT           "X",IDC_STATIC,28,102,11,10
     GROUPBOX        "Macierz zast¹pienia",IDC_STATIC,17,18,110,108
-    GROUPBOX        "Krok 2: Transpozycja",IDC_STATIC,10,168,247,68
+    GROUPBOX        "Krok 2: Transpozycja",IDC_STATIC,10,168,247,88
     LTEXT           "Macierz zastêpcza zamienia ka¿d¹ literê tekstu jawnego poprzez parê liter: A,D,F,G,V,X \n\n Macierz musi zawieraæ wszystkie litery z zakresu A-Z i ka¿d¹ cyfrê z zakresu 0-9.",
                     IDC_STATIC,148,30,90,90
     GROUPBOX        "",IDC_STATIC,135,18,114,108
@@ -4033,31 +4032,31 @@ BEGIN
     EDITTEXT        IDC_TEXTFIELD_NUMBERS,17,216,232,14,ES_AUTOHSCROLL | 
                     ES_READONLY
     LTEXT           "Sekwencja kolumny",IDC_STATIC,17,205,57,8
-    GROUPBOX        "Opcje wyjœcia",IDC_STATIC,10,264,247,112
+    GROUPBOX        "Opcje wyjœcia",IDC_STATIC,10,284,247,112
     CONTROL         "Wyœwietlaj rezultaty poœrednie",IDC_CHECK_OUTPUT,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,27,325,106,10
-    EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE2,218,284,21,14,ES_CENTER | 
+                    BS_AUTOCHECKBOX | WS_TABSTOP,27,345,106,10
+    EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE2,218,304,21,14,ES_CENTER | 
                     ES_AUTOHSCROLL | ES_NUMBER | WS_DISABLED
-    LTEXT           "D³ugoœæ bloku (1-26):",IDC_STATIC,151,287,64,8
-    EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE1,218,335,21,14,ES_CENTER | 
+    LTEXT           "D³ugoœæ bloku (1-26):",IDC_STATIC,151,307,64,8
+    EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE1,218,355,21,14,ES_CENTER | 
                     ES_AUTOHSCROLL | ES_NUMBER | WS_DISABLED
-    LTEXT           "D³ugoœæ bloku (1-26):",IDC_STATIC,151,338,63,8
+    LTEXT           "D³ugoœæ bloku (1-26):",IDC_STATIC,151,358,63,8
     CONTROL         "Nowa linia po ka¿dym bloku",IDC_CHECK_NEWLINE_STAGE2,
                     "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,27,
-                    298,159,10
+                    318,159,10
     CONTROL         "Nowa linia po ka¿dym bloku",IDC_CHECK_NEWLINE_STAGE1,
                     "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,27,
-                    352,159,10
-    GROUPBOX        "Rezultat: szyfr po kroku 2",IDC_BOX_OUT_STAGE2,17,276,
+                    372,159,10
+    GROUPBOX        "Rezultat: szyfr po kroku 2",IDC_BOX_OUT_STAGE2,17,296,
                     232,36
     CONTROL         "Oddziel bloki wyjœciowe spacjami",
                     IDC_CHECK_BLOCK_STAGE2,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,27,286,124,10
-    GROUPBOX        "Poœredni rezultat: szyfr po kroku 1",IDC_STATIC,17,316,
+                    WS_TABSTOP,27,306,124,10
+    GROUPBOX        "Poœredni rezultat: szyfr po kroku 1",IDC_STATIC,17,336,
                     232,51
     CONTROL         "Oddziel bloki wyjœciowe spacjami",
                     IDC_CHECK_BLOCK_STAGE1,"Button",BS_AUTOCHECKBOX | 
-                    WS_DISABLED | WS_TABSTOP,27,337,124,10
+                    WS_DISABLED | WS_TABSTOP,27,357,124,10
     PUSHBUTTON      "WprowadŸ ³añcuch",IDC_BUTTON_STRINGBOX,196,134,53,19,
                     BS_MULTILINE
 END
@@ -9194,10 +9193,11 @@ BEGIN
         VERTGUIDE, 239
         VERTGUIDE, 249
         VERTGUIDE, 257
+        BOTTOMMARGIN, 411
         HORZGUIDE, 134
         HORZGUIDE, 153
         HORZGUIDE, 349
-        HORZGUIDE, 403
+        HORZGUIDE, 423
     END
 
     IDD_ADFGVX_MANUAL, DIALOG
@@ -15869,7 +15869,7 @@ BEGIN
     EDITTEXT        IDC_SHOW_HASH,7,365,310,12,ES_AUTOHSCROLL | ES_READONLY
 END
 
-IDD_ADFGVX DIALOGEX 0, 0, 265, 402
+IDD_ADFGVX DIALOGEX 0, 0, 265, 422
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Schlüsseleingabe: ADFGVX"
@@ -15950,12 +15950,11 @@ BEGIN
     PUSHBUTTON      "Standardmatrix",IDC_MATRIX_STANDARD,17,133,53,19
     PUSHBUTTON      "Zufallsmatrix",IDC_MATRIX_SHUFFLE,76,133,49,19
     CONTROL         "Paste",IDC_BUTTON_INSERT_KEY,"Button",BS_OWNERDRAW | 
-                    WS_TABSTOP,227,241,22,18
-    EDITTEXT        IDC_TEXTFIELD_PASSWORD,16,187,233,12,ES_UPPERCASE | 
-                    ES_AUTOHSCROLL
-    PUSHBUTTON      "Verschlüsseln",IDC_BUTTON_ENCRYPT,7,377,66,18
-    PUSHBUTTON      "Entschlüsseln",IDC_BUTTON_DECRYPT,80,377,66,18
-    PUSHBUTTON      "Abbrechen",IDC_CANCEL,192,377,66,18
+                    WS_TABSTOP,227,261,22,18
+    EDITTEXT        IDC_TEXTFIELD_PASSWORD,16,187,233,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Verschlüsseln",IDC_BUTTON_ENCRYPT,7,397,66,18
+    PUSHBUTTON      "Entschlüsseln",IDC_BUTTON_DECRYPT,80,397,66,18
+    PUSHBUTTON      "Abbrechen",IDC_CANCEL,192,397,66,18
     CTEXT           "A",IDC_STATIC,40,30,12,12
     CTEXT           "D",IDC_STATIC,52,30,11,10
     CTEXT           "F",IDC_STATIC,64,30,11,10
@@ -15969,43 +15968,44 @@ BEGIN
     CTEXT           "V",IDC_STATIC,28,90,11,10
     CTEXT           "X",IDC_STATIC,28,102,11,10
     GROUPBOX        "Substitutionsmatrix",IDC_STATIC,16,18,111,108
-    GROUPBOX        "Stufe 2: Transposition",IDC_STATIC,7,166,251,68
+    GROUPBOX        "Stufe 2: Transposition",IDC_STATIC,7,166,251,88
     LTEXT           "Die Substitutionsmatrix ersetzt jeden Klartext- buchstaben durch ein Paar aus den Buchstaben A,D,F,G,V und X.\n\nDie Matrix muss jeden Buchstaben A-Z sowie jede Ziffer 0-9 genau einmal enthalten.",
                     IDC_STATIC,149,30,90,90
     GROUPBOX        "",IDC_STATIC,137,18,112,108
     GROUPBOX        "Stufe 1: Substitution",IDC_STATIC,7,7,251,153
     LTEXT           "Transpositionspasswort",IDC_STATIC,16,176,76,8
-    GROUPBOX        "Ausgabeoptionen",IDC_STATIC,7,259,251,112
+    GROUPBOX        "Ausgabeoptionen",IDC_STATIC,7,279,251,112
     CONTROL         "Zwischenergebnis ausgeben",IDC_CHECK_OUTPUT,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,27,320,106,10
-    EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE2,221,279,21,14,ES_CENTER | 
+                    BS_AUTOCHECKBOX | WS_TABSTOP,27,340,106,10
+    EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE2,221,299,21,14,ES_CENTER | 
                     ES_AUTOHSCROLL | ES_NUMBER | WS_DISABLED
-    LTEXT           "Blocklänge (1-26):",IDC_STATIC,160,282,59,8
+    LTEXT           "Blocklänge (1-26):",IDC_STATIC,160,302,59,8
     EDITTEXT        IDC_TEXTFIELD_NUMBERS,16,212,233,14,ES_AUTOHSCROLL | 
                     ES_READONLY
     LTEXT           "Reihenfolge der Spalten",IDC_STATIC,16,203,78,8
-    EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE1,221,330,21,14,ES_CENTER | 
+    EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE1,221,350,21,14,ES_CENTER | 
                     ES_AUTOHSCROLL | ES_NUMBER | WS_DISABLED
-    LTEXT           "Blocklänge (1-26):",IDC_STATIC,160,333,59,8
+    LTEXT           "Blocklänge (1-26):",IDC_STATIC,160,353,59,8
     CONTROL         "Zusätzlicher Zeilenumbruch nach jedem Block",
                     IDC_CHECK_NEWLINE_STAGE2,"Button",BS_AUTOCHECKBOX | 
-                    WS_DISABLED | WS_TABSTOP,27,293,159,10
+                    WS_DISABLED | WS_TABSTOP,27,313,159,10
     CONTROL         "Zusätzlicher Zeilenumbruch nach jedem Block",
                     IDC_CHECK_NEWLINE_STAGE1,"Button",BS_AUTOCHECKBOX | 
-                    WS_DISABLED | WS_TABSTOP,27,347,159,10
+                    WS_DISABLED | WS_TABSTOP,27,367,159,10
     PUSHBUTTON      "Matrix leeren",IDC_ERASEMATRIX,138,133,53,19
     GROUPBOX        "Endergebnis: Ciphertext nach Stufe 2",
-                    IDC_BOX_OUT_STAGE2,16,271,233,36
+                    IDC_BOX_OUT_STAGE2,16,291,233,36
     CONTROL         "Leerzeichen zwischen den Blöcken",
                     IDC_CHECK_BLOCK_STAGE2,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,27,281,125,10
+                    WS_TABSTOP,27,301,125,10
     GROUPBOX        "Zwischenergebnis: Ciphertext nach Stufe 1",IDC_STATIC,
-                    16,311,233,51
+                    16,331,233,51
     CONTROL         "Leerzeichen zwischen den Blöcken",
                     IDC_CHECK_BLOCK_STAGE1,"Button",BS_AUTOCHECKBOX | 
-                    WS_DISABLED | WS_TABSTOP,27,332,125,10
+                    WS_DISABLED | WS_TABSTOP,27,352,125,10
     PUSHBUTTON      "Zeichenkette eingeben",IDC_BUTTON_STRINGBOX,196,133,53,
                     19,BS_MULTILINE
+    PUSHBUTTON      "Textoptionen",IDC_BUTTON_TEXT_OPTIONS,16,230,233,18
 END
 
 IDD_ADFGVX_MANUAL DIALOGEX 0, 0, 262, 350
@@ -17476,15 +17476,15 @@ BEGIN
     LTEXT           "Static",IDC_HEADER,7,7,420,47
 END
 
-IDD_ADFGVX_SHORTENED_PASSWORD DIALOGEX 0, 0, 235, 124
+IDD_ADFGVX_SHORTENED_PASSWORD DIALOGEX 0, 0, 235, 150
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "CrypTool"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Fortsetzen",IDOK,178,103,50,14
-    PUSHBUTTON      "&Zurück",IDCANCEL,7,103,50,14
-    LTEXT           "Statisch",IDC_TEXT_INFO,7,7,221,88
+    DEFPUSHBUTTON   "&Fortsetzen",IDOK,178,129,50,14
+    PUSHBUTTON      "&Zurück",IDCANCEL,7,129,50,14
+    LTEXT           "Statisch",IDC_TEXT_INFO,7,7,221,112
 END
 
 IDD_PASSWORD_GUIDELINES DIALOGEX 0, 0, 250, 185
@@ -21057,10 +21057,10 @@ BEGIN
         VERTGUIDE, 242
         VERTGUIDE, 249
         VERTGUIDE, 258
+        BOTTOMMARGIN, 402
         HORZGUIDE, 133
         HORZGUIDE, 152
-        HORZGUIDE, 377
-        HORZGUIDE, 395
+        HORZGUIDE, 397
     END
 
     IDD_ADFGVX_MANUAL, DIALOG
@@ -21254,7 +21254,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 228
         TOPMARGIN, 7
-        BOTTOMMARGIN, 117
+        BOTTOMMARGIN, 143
     END
 
     IDD_PASSWORD_GUIDELINES, DIALOG
@@ -23289,12 +23289,12 @@ BEGIN
     IDS_STRING_ADFGVX_ERROR_2 "Matrix enthält doppelte Zeichen!"
     IDS_STRING_ADFGVX_ERROR_3 "Matrix enthält ungültige Zeichen!"
     IDS_STRING_ADFGVX_ERROR_4 
-                            "Ungültige Zeichen wurden entfernt!\nGültige Zeichen sind alle Buchstaben von 'A' bis 'Z'\nDas neue Passwort lautet:\n\n"
+                            "Ungültige Zeichen wurden entfernt. Gültige Zeichen sind alle\nBuchstaben des aktuell eingestellten CrypTool-Alphabets.\n"
     IDS_STRING_ADFGVX_ERROR_5 
                             "Der Eingabetext hat eine ungerade Anzahl an Zeichen!"
     IDS_STRING_ADFGVX_ERROR_6 "Die Passwortlänge muss >0 sein!"
     IDS_STRING_ADFGVX_ERROR_7 
-                            "Die Reihenfolge der Buchstaben des\nTranspositionspasswortes ist nicht eindeutig.\nDoppelte Buchstaben wurden entfernt."
+                            "Die Reihenfolge der Buchstaben des Transpositionspasswortes\nist nicht eindeutig. Doppelte Buchstaben wurden entfernt."
     IDS_STRING_ADFGVX_ERROR_8 "Bitte zuerst Transposition analysieren!"
     IDS_STRING_ADFGVX_ERROR_9 
                             "Bei der Analyse des Transpositionsschrittes wurde keine gültige Permutation gefunden.\nDies kann zwei Gründe haben:\n\n1. Die Häufigkeitsverteilung der Buchstaben ist untypisch für deutsche oder englische Texte.\nDies tritt oft bei kurzen Nachrichten auf.\n\n2. Das verwendete Transpositionspasswort liegt nicht im Suchbereich der Analyse.\nSie sollten den Bereich der Passwortlänge verschieben."
@@ -27798,7 +27798,7 @@ BEGIN
     EDITTEXT        IDC_SHOW_HASH,7,365,310,12,ES_AUTOHSCROLL | ES_READONLY
 END
 
-IDD_ADFGVX DIALOGEX 0, 0, 266, 411
+IDD_ADFGVX DIALOGEX 0, 0, 266, 431
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Key Entry: ADFGVX"
@@ -27882,12 +27882,11 @@ BEGIN
                     BS_MULTILINE
     PUSHBUTTON      "Erase matrix",IDC_ERASEMATRIX,133,134,53,19
     CONTROL         "Paste",IDC_BUTTON_INSERT_KEY,"Button",BS_OWNERDRAW | 
-                    WS_TABSTOP,219,244,20,18
-    EDITTEXT        IDC_TEXTFIELD_PASSWORD,17,189,232,12,ES_UPPERCASE | 
-                    ES_AUTOHSCROLL
-    PUSHBUTTON      "Encrypt",IDC_BUTTON_ENCRYPT,10,385,66,18
-    PUSHBUTTON      "Decrypt",IDC_BUTTON_DECRYPT,85,385,66,18
-    PUSHBUTTON      "Cancel",IDC_CANCEL,191,385,66,18
+                    WS_TABSTOP,219,264,20,18
+    EDITTEXT        IDC_TEXTFIELD_PASSWORD,17,189,232,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Encrypt",IDC_BUTTON_ENCRYPT,10,405,66,18
+    PUSHBUTTON      "Decrypt",IDC_BUTTON_DECRYPT,85,405,66,18
+    PUSHBUTTON      "Cancel",IDC_CANCEL,191,405,66,18
     CTEXT           "A",IDC_STATIC,40,30,12,12
     CTEXT           "D",IDC_STATIC,52,30,11,10
     CTEXT           "F",IDC_STATIC,64,30,11,10
@@ -27901,7 +27900,7 @@ BEGIN
     CTEXT           "V",IDC_STATIC,28,90,11,10
     CTEXT           "X",IDC_STATIC,28,102,11,10
     GROUPBOX        "Substitution matrix",IDC_STATIC,17,18,110,108
-    GROUPBOX        "Step 2: Transposition",IDC_STATIC,10,168,247,68
+    GROUPBOX        "Step 2: Transposition",IDC_STATIC,10,168,247,88
     LTEXT           "The substitution matrix replaces each plaintext letter by a pair of the letters A,D,F,G,V,X.\n\nThe matrix must contain each letter A-Z and each cipher 0-9 exactly once. ",
                     IDC_STATIC,148,30,90,90
     GROUPBOX        "",IDC_STATIC,135,18,114,108
@@ -27910,33 +27909,34 @@ BEGIN
     EDITTEXT        IDC_TEXTFIELD_NUMBERS,17,216,232,14,ES_AUTOHSCROLL | 
                     ES_READONLY
     LTEXT           "Column sequence",IDC_STATIC,17,205,57,8
-    GROUPBOX        "Output options",IDC_STATIC,10,264,247,112
+    GROUPBOX        "Output options",IDC_STATIC,10,284,247,112
     CONTROL         "Print out intermediate result",IDC_CHECK_OUTPUT,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,27,325,106,10
-    EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE2,218,284,21,14,ES_CENTER | 
+                    BS_AUTOCHECKBOX | WS_TABSTOP,27,345,106,10
+    EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE2,218,304,21,14,ES_CENTER | 
                     ES_AUTOHSCROLL | ES_NUMBER | WS_DISABLED
-    LTEXT           "Block length (1-26):",IDC_STATIC,151,287,64,8
-    EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE1,218,335,21,14,ES_CENTER | 
+    LTEXT           "Block length (1-26):",IDC_STATIC,151,307,64,8
+    EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE1,218,355,21,14,ES_CENTER | 
                     ES_AUTOHSCROLL | ES_NUMBER | WS_DISABLED
-    LTEXT           "Block length (1-26):",IDC_STATIC,151,338,63,8
+    LTEXT           "Block length (1-26):",IDC_STATIC,151,358,63,8
     CONTROL         "New line after each block",IDC_CHECK_NEWLINE_STAGE2,
                     "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,27,
-                    298,159,10
+                    318,159,10
     CONTROL         "New line after each block",IDC_CHECK_NEWLINE_STAGE1,
                     "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,27,
-                    352,159,10
+                    372,159,10
     GROUPBOX        "Result: Ciphertext after step 2",IDC_BOX_OUT_STAGE2,17,
-                    276,232,36
+                    296,232,36
     CONTROL         "Separate output blocks by blanks",
                     IDC_CHECK_BLOCK_STAGE2,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,27,286,124,10
+                    WS_TABSTOP,27,306,124,10
     GROUPBOX        "Intermediate result: Ciphertext after step 1",
-                    IDC_STATIC,17,316,232,51
+                    IDC_STATIC,17,336,232,51
     CONTROL         "Separate output blocks by blanks",
                     IDC_CHECK_BLOCK_STAGE1,"Button",BS_AUTOCHECKBOX | 
-                    WS_DISABLED | WS_TABSTOP,27,337,124,10
+                    WS_DISABLED | WS_TABSTOP,27,357,124,10
     PUSHBUTTON      "Enter string",IDC_BUTTON_STRINGBOX,196,134,53,19,
                     BS_MULTILINE
+    PUSHBUTTON      "Textoptionen",IDC_BUTTON_TEXT_OPTIONS,16,234,233,18
 END
 
 IDD_ADFGVX_MANUAL DIALOGEX 0, 0, 269, 351
@@ -29393,15 +29393,15 @@ BEGIN
     LTEXT           "Static",IDC_HEADER,7,7,420,38
 END
 
-IDD_ADFGVX_SHORTENED_PASSWORD DIALOGEX 0, 0, 235, 124
+IDD_ADFGVX_SHORTENED_PASSWORD DIALOGEX 0, 0, 235, 150
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "CrypTool"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Continue",IDOK,178,103,50,14
-    PUSHBUTTON      "&Back",IDCANCEL,7,103,50,14
-    LTEXT           "Statisch",IDC_TEXT_INFO,7,7,221,88
+    DEFPUSHBUTTON   "&Continue",IDOK,178,129,50,14
+    PUSHBUTTON      "&Back",IDCANCEL,7,129,50,14
+    LTEXT           "Statisch",IDC_TEXT_INFO,7,7,221,112
 END
 
 IDD_PASSWORD_GUIDELINES DIALOGEX 0, 0, 250, 185
@@ -33211,10 +33211,11 @@ BEGIN
         VERTGUIDE, 239
         VERTGUIDE, 249
         VERTGUIDE, 257
+        BOTTOMMARGIN, 411
         HORZGUIDE, 134
         HORZGUIDE, 153
         HORZGUIDE, 349
-        HORZGUIDE, 403
+        HORZGUIDE, 423
     END
 
     IDD_ADFGVX_MANUAL, DIALOG
@@ -33412,7 +33413,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 228
         TOPMARGIN, 7
-        BOTTOMMARGIN, 117
+        BOTTOMMARGIN, 143
     END
 
     IDD_PASSWORD_GUIDELINES, DIALOG
@@ -35398,7 +35399,7 @@ BEGIN
     IDS_STRING_ADFGVX_ERROR_2 "Matrix contains redundant characters!"
     IDS_STRING_ADFGVX_ERROR_3 "Matrix contains invalid characters!"
     IDS_STRING_ADFGVX_ERROR_4 
-                            "Invalid characters have been removed!\nOnly characters from 'A' to 'Z' are valid.\nThe new password is:\n\n"
+                            "Invalid characters have been removed. Only characters from the\ncurrent CrypTool alphabet are valid.\n"
     IDS_STRING_ADFGVX_ERROR_5 "The text has an odd number of characters!"
     IDS_STRING_ADFGVX_ERROR_6 "The length of the password must be >0!"
     IDS_STRING_ADFGVX_ERROR_7 
