@@ -362,6 +362,7 @@
 #define IDD_LIST_RESULTS                868
 #define IDD_PASSWORD_GUIDELINES         869
 #define IDD_PASSWORDENTROPY             871
+#define IDD_FORMAT_TEXT_DOCUMENT        872
 #define IDS_CRYPT_DESX                  1000
 #define IDS_CRYPT_DESL                  1001
 #define IDS_CRYPT_DESXL                 1002
@@ -400,8 +401,10 @@
 #define IDC_CHECK3                      1031
 #define IDC_EDIT41                      1031
 #define IDC_EDIT42                      1032
+#define IDC_CHECK_CONVERT_TO_LOWERCASE  1032
 #define IDC_EDIT19                      1033
 #define IDC_EDIT111                     1033
+#define IDC_CHECK_DIVIDE_IN_BLOCKS      1033
 #define IDC_CHECK6                      1034
 #define IDC_EDIT51                      1034
 #define IDC_CHECK7                      1035
@@ -1585,6 +1588,9 @@
 #define IDC_EDIT_SEPARATOR              2011
 #define IDC_BUTTON_RESTORE_STANDARD     2012
 #define IDC_BUTTON_TEXT_OPTIONS         2013
+#define IDC_CHECK_REMOVE_NON_ALPHABET_CHARACTERS 2014
+#define IDC_CHECK_CONVERT_TO_UPPERCASE  2015
+#define IDC_EDIT_BLOCK_SIZE             2016
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -1978,6 +1984,8 @@
 #define ID_HILFE_PR                     33360
 #define ID_HELP_PRESENTATION            33362
 #define ID_PASSWORDENTROPY              33364
+#define ID_FORMAT_TEXT_DOCUMENT         33366
+#define ID_TOOLS_FORMATTEXTDOCUMENT     33367
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -3004,8 +3012,8 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        872
-#define _APS_NEXT_COMMAND_VALUE         33365
-#define _APS_NEXT_CONTROL_VALUE         2014
+#define _APS_NEXT_COMMAND_VALUE         33368
+#define _APS_NEXT_CONTROL_VALUE         2017
 #define _APS_NEXT_SYMED_VALUE           109
 #endif
 #endif

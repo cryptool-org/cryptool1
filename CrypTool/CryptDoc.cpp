@@ -88,17 +88,12 @@ statement from your version.
 #include "DlgAdfgvxManual.h"
 #include "MonoSubstCracker.h"
 #include "DlgRot13Caesar.h"
-// #include "DlgVisualizePhaseSpace.h"
-
 #include "DlgShowKey.h"
 #include "DlgSolitaire.h"
 #include "DlgSolitaireAnalyse.h"
-#include ".\cryptdoc.h"
-
 #include "ECIESMain.h"
 #include "bruteforceheap.h"
-
-
+#include "DlgFormatTextDocument.h"
 
 extern char *CaPseDatei, *CaPseVerzeichnis, *Pfad, *PseVerzeichnis;
 
@@ -310,6 +305,7 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CAppDocument)
 	ON_COMMAND(ID_ANALYSE_DESL, OnAnalyseDESL)
 	ON_COMMAND(ID_ANALYSE_DESX, OnAnalyseDESX)
 	ON_COMMAND(ID_ANALYSE_DESXL, OnAnalyseDESXL)
+	ON_COMMAND(ID_FORMAT_TEXT_DOCUMENT, OnFormatTextDocument)
 	//}}AFX_MSG_MAP
 
 	ON_COMMAND(ID_HYBRID_ECCENC, OnHybridEccEnc)
@@ -1889,6 +1885,22 @@ void CCryptDoc::OnAnalyseDESX()
 void CCryptDoc::OnAnalyseDESXL() 
 {
 	SymCryptBruteForce( IDS_CRYPT_DESXL, CORE_PROVIDER, 192, 192 );
+}
+
+void CCryptDoc::OnFormatTextDocument()
+{
+	CDlgFormatTextDocument dlg;
+	if(dlg.DoModal() == IDOK) {
+		// format the contents of the current document as desired 
+		// and display the result in a new document
+		UpdateContent();
+		CString newDocumentText = dlg.format(ContentName);
+		GetTmpName(ContentName, "cry", ".org");
+		CFile outfile(ContentName, CFile::modeCreate|CFile::modeWrite);
+		outfile.Write(newDocumentText.GetBuffer(), newDocumentText.GetLength());
+		outfile.Close();
+		theApp.OpenDocumentFileNoMRU(ContentName);
+	}
 }
 
 void CCryptDoc::OnEditRepeat()

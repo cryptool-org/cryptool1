@@ -199,6 +199,7 @@ protected:
 	afx_msg void OnAnalyseDESL();
 	afx_msg void OnAnalyseDESX();
 	afx_msg void OnAnalyseDESXL();
+	afx_msg void OnFormatTextDocument();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:

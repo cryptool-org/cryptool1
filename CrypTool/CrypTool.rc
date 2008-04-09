@@ -9193,7 +9193,6 @@ BEGIN
         VERTGUIDE, 239
         VERTGUIDE, 249
         VERTGUIDE, 257
-        BOTTOMMARGIN, 411
         HORZGUIDE, 134
         HORZGUIDE, 153
         HORZGUIDE, 349
@@ -17561,6 +17560,30 @@ BEGIN
                     WS_TABSTOP,90,161,196,10
 END
 
+IDD_FORMAT_TEXT_DOCUMENT DIALOGEX 0, 0, 200, 118
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Textdokument formatieren"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "Schließen",IDCANCEL,143,97,50,14
+    GROUPBOX        "Formatierungsoptionen",IDC_STATIC,7,7,186,82
+    CONTROL         "Nicht im Alphabet enthaltene Zeichen entfernen",
+                    IDC_CHECK_REMOVE_NON_ALPHABET_CHARACTERS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,20,20,167,10
+    CONTROL         "Konvertierung in Großbuchstaben",
+                    IDC_CHECK_CONVERT_TO_UPPERCASE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,20,38,122,10
+    CONTROL         "Konvertierung in Kleinbuchstaben",
+                    IDC_CHECK_CONVERT_TO_LOWERCASE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,20,50,122,10
+    CONTROL         "Unterteilung in Blöcke der Breite",
+                    IDC_CHECK_DIVIDE_IN_BLOCKS,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,20,68,117,10
+    EDITTEXT        IDC_EDIT_BLOCK_SIZE,138,67,20,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    DEFPUSHBUTTON   "OK",IDOK,7,97,50,14
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -17839,6 +17862,8 @@ BEGIN
             END
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
             MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER
+            MENUITEM "Passwort-&Entropie...",       33364
+            MENUITEM "&Textdokument formatieren...", 33366
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -18253,6 +18278,8 @@ BEGIN
             END
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
             MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER
+            MENUITEM "Passwort-&Entropie...",       33364
+            MENUITEM "&Textdokument formatieren...", ID_FORMAT_TEXT_DOCUMENT
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -18673,6 +18700,7 @@ BEGIN
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
             MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER
             MENUITEM "Passwort-&Entropie...",       ID_PASSWORDENTROPY
+            MENUITEM "&Textdokument formatieren...", 33366
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -19083,6 +19111,7 @@ BEGIN
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
             MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER
             MENUITEM "Passwort-&Entropie...",       ID_PASSWORDENTROPY
+            MENUITEM "&Textdokument formatieren...", 33366
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -19534,6 +19563,7 @@ BEGIN
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
             MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER
             MENUITEM "Passwort-&Entropie...",       ID_PASSWORDENTROPY
+            MENUITEM "&Textdokument formatieren...", 33366
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -21057,7 +21087,6 @@ BEGIN
         VERTGUIDE, 242
         VERTGUIDE, 249
         VERTGUIDE, 258
-        BOTTOMMARGIN, 402
         HORZGUIDE, 133
         HORZGUIDE, 152
         HORZGUIDE, 397
@@ -21282,6 +21311,16 @@ BEGIN
         VERTGUIDE, 400
         TOPMARGIN, 7
         BOTTOMMARGIN, 253
+    END
+
+    IDD_FORMAT_TEXT_DOCUMENT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 193
+        VERTGUIDE, 20
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 111
+        HORZGUIDE, 20
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -23877,6 +23916,7 @@ STRINGTABLE
 BEGIN
     ID_HELP_PRESENTATION    "Öffnet eine Präsentation mit weiteren Informationen zu CrypTool (Acrobat Reader erforderlich)"
     ID_PASSWORDENTROPY      "Generiert Passwörter mit einer bestimmten Entropie"
+    ID_FORMAT_TEXT_DOCUMENT "Formatiert ein Textdokument mit bestimmten Parametern"
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -29478,6 +29518,27 @@ BEGIN
                     IDC_STATIC,20,32,380,16
 END
 
+IDD_FORMAT_TEXT_DOCUMENT DIALOGEX 0, 0, 200, 118
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Format Text Document"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,143,97,50,14
+    GROUPBOX        "Formatting options",IDC_STATIC,7,7,186,82
+    CONTROL         "Remove characters not in alphabet",
+                    IDC_CHECK_REMOVE_NON_ALPHABET_CHARACTERS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,20,20,127,10
+    CONTROL         "Convert to uppercase",IDC_CHECK_CONVERT_TO_UPPERCASE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,38,84,10
+    CONTROL         "Convert to lowercase",IDC_CHECK_CONVERT_TO_LOWERCASE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,50,83,10
+    CONTROL         "Divide in blocks of size",IDC_CHECK_DIVIDE_IN_BLOCKS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,68,88,10
+    EDITTEXT        IDC_EDIT_BLOCK_SIZE,109,67,20,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    DEFPUSHBUTTON   "OK",IDOK,7,97,50,14
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -29754,6 +29815,7 @@ BEGIN
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Password Quality Meter...",  ID_PASSWORDQUALITYMETER
             MENUITEM "Password &Entropy...",        ID_PASSWORDENTROPY
+            MENUITEM "&Format Text Document...",    33366
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -30164,6 +30226,7 @@ BEGIN
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Password Quality Meter...",  ID_PASSWORDQUALITYMETER
             MENUITEM "Password &Entropy...",        ID_PASSWORDENTROPY
+            MENUITEM "&Format Text Document...",    ID_FORMAT_TEXT_DOCUMENT
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -30336,7 +30399,7 @@ BEGIN
     END
     POPUP "&Edit"
     BEGIN
-        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO, GRAYED
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
         MENUITEM SEPARATOR
         MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT, GRAYED
         MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY, GRAYED
@@ -30368,7 +30431,6 @@ BEGIN
         POPUP "&Font"
         BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
-            , GRAYED
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
             , GRAYED
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
@@ -30389,7 +30451,6 @@ BEGIN
         POPUP "Symmetric (&classic)"
         BEGIN
             MENUITEM "Caesar / &Rot-13...",         ID_ROT13CAESAR_ASC
-            , GRAYED
             MENUITEM "&Vigenère...",                ID_VIGENERE_ASC, GRAYED
             MENUITEM "&Hill...",                    ID_HILL, GRAYED
             MENUITEM "&Substitution / Atbash...",   ID_CryptMono, GRAYED
@@ -30407,7 +30468,7 @@ BEGIN
         END
         POPUP "Symmetric (&modern)"
         BEGIN
-            MENUITEM "&IDEA...",                    ID_CRYPT_IDEA, GRAYED
+            MENUITEM "&IDEA...",                    ID_CRYPT_IDEA
             MENUITEM "RC&2...",                     ID_CRYPT_RC2, GRAYED
             MENUITEM "RC&4...",                     ID_CRYPT_RC4, GRAYED
             MENUITEM "&DES (ECB)...",               ID_CRYPT_DES_DESECB
@@ -30425,7 +30486,6 @@ BEGIN
             POPUP "&Further Algorithms"
             BEGIN
                 MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
-                , GRAYED
                 MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
                 , GRAYED
                 MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
@@ -30445,7 +30505,7 @@ BEGIN
         END
         POPUP "&Asymmetric"
         BEGIN
-            MENUITEM "RSA &Encryption...",          ID_CRYPT_RsaEnc, GRAYED
+            MENUITEM "RSA &Encryption...",          ID_CRYPT_RsaEnc
             MENUITEM "RSA &Decryption...",          ID_CRYPT_RsaDec, GRAYED
             MENUITEM "RSA &Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
 
@@ -30478,7 +30538,6 @@ BEGIN
         POPUP "&Hash"
         BEGIN
             MENUITEM "MD&2",                        ID_CRYPT_HASH_MD2
-            , GRAYED
             MENUITEM "MD&4",                        ID_CRYPT_HASH_MD4
             , GRAYED
             MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5
@@ -30562,14 +30621,12 @@ BEGIN
                 POPUP "&Base64 Encode/Decode"
                 BEGIN
                     MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64
-                    , GRAYED
                     MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
                     , GRAYED
                 END
                 POPUP "&UU Encode/Decode"
                 BEGIN
                     MENUITEM "UU &Encode",                  ID_ENCODE_UU
-                    , GRAYED
                     MENUITEM "UU &Decode",                  ID_DECODE_UU
                     , GRAYED
                 END
@@ -30580,12 +30637,13 @@ BEGIN
             MENUITEM SEPARATOR
             POPUP "&Compress"
             BEGIN
-                MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP, GRAYED
+                MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
                 MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
             END
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Password Quality Meter...",  ID_PASSWORDQUALITYMETER
             MENUITEM "Password &Entropy...",        ID_PASSWORDENTROPY
+            MENUITEM "&Format Text Document...",    33366
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -30607,7 +30665,7 @@ BEGIN
     BEGIN
         POPUP "&Tools for Analysis"
         BEGIN
-            MENUITEM "&Entropy",                    ID_ENTROPY, GRAYED
+            MENUITEM "&Entropy",                    ID_ENTROPY
             MENUITEM "&Floating Frequency",         ID_FLOATING, GRAYED
             MENUITEM "&Histogram",                  ID_HISTOGRAM, GRAYED
             MENUITEM "&N-Gram...",                  ID_ANALYSE_NGRAM, GRAYED
@@ -30621,7 +30679,6 @@ BEGIN
             POPUP "&Ciphertext-Only"
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
-                , GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
                 , GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
@@ -30636,12 +30693,11 @@ BEGIN
             END
             POPUP "Known-&Plaintext"
             BEGIN
-                MENUITEM "H&ill...",                    ID_HILL_AUTO, GRAYED
+                MENUITEM "H&ill...",                    ID_HILL_AUTO
             END
             POPUP "&Manual Analysis"
             BEGIN
                 MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
-                , GRAYED
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
                 , GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
@@ -30650,7 +30706,7 @@ BEGIN
         END
         POPUP "Symmetric Encryption (modern)"
         BEGIN
-            MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA, GRAYED
+            MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA
             MENUITEM "RC&2...",                     ID_ANALYSE_RC2, GRAYED
             MENUITEM "RC&4...",                     ID_ANALYSE_RC4, GRAYED
             MENUITEM "&DES (ECB)...",               ID_ANALYSE_DESECB
@@ -30666,7 +30722,6 @@ BEGIN
             POPUP "&Further Algorithms"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
-                , GRAYED
                 MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
                 , GRAYED
                 MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
@@ -30707,7 +30762,7 @@ BEGIN
         POPUP "&Analyse Randomness"
         BEGIN
             MENUITEM "&Frequency Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
-            , GRAYED
+
             MENUITEM "&Poker Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
             , GRAYED
             MENUITEM "&Runs Test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
@@ -30735,7 +30790,7 @@ BEGIN
     END
     POPUP "&Window"
     BEGIN
-        MENUITEM "&Cascade",                    ID_WINDOW_CASCADE, GRAYED
+        MENUITEM "&Cascade",                    ID_WINDOW_CASCADE
         MENUITEM "&Tile",                       ID_WINDOW_TILE_HORZ, GRAYED
         MENUITEM "&Arrange Icons",              ID_WINDOW_ARRANGE, GRAYED
         MENUITEM "&Close All",                  ID_WINDOW_CLOSE_ALL, GRAYED
@@ -30995,6 +31050,7 @@ BEGIN
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Password Quality Meter...",  ID_PASSWORDQUALITYMETER
             MENUITEM "Password &Entropy...",        ID_PASSWORDENTROPY
+            MENUITEM "&Format Text Document...",    33366
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -31442,6 +31498,7 @@ BEGIN
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Password Quality Meter...",  ID_PASSWORDQUALITYMETER
             MENUITEM "Password &Entropy...",        ID_PASSWORDENTROPY
+            MENUITEM "&Format Text Document...",    33366
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -33211,7 +33268,6 @@ BEGIN
         VERTGUIDE, 239
         VERTGUIDE, 249
         VERTGUIDE, 257
-        BOTTOMMARGIN, 411
         HORZGUIDE, 134
         HORZGUIDE, 153
         HORZGUIDE, 349
@@ -33441,6 +33497,16 @@ BEGIN
         VERTGUIDE, 400
         TOPMARGIN, 7
         BOTTOMMARGIN, 253
+    END
+
+    IDD_FORMAT_TEXT_DOCUMENT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 193
+        VERTGUIDE, 20
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 111
+        HORZGUIDE, 20
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -35977,6 +36043,9 @@ STRINGTABLE
 BEGIN
     ID_HELP_PRESENTATION    "Opens a presentation with further information about CrypTool (Acrobat Reader required)"
     ID_PASSWORDENTROPY      "Generates passwords with a specific entropy"
+    ID_FORMAT_TEXT_DOCUMENT "Formats a text document with specific parameters"
+    ID_TOOLS_FORMATTEXTDOCUMENT 
+                            "Formats a text document using certain parameters"
 END
 
 #endif    // Englisch (GB) resources
