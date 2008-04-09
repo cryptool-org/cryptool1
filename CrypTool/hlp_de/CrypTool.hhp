@@ -533,6 +533,7 @@ hid_primenumber_test.html
 hid_help_presentation.html
 hidd_passwordentropy.html
 hid_passwordentropy.html
+persistentsettings.html
 
 [ALIAS]
 #include CrypTool_Alias.h
