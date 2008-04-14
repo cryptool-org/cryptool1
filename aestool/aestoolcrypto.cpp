@@ -50,7 +50,7 @@ statement from your version.
 #include <time.h> // time
 #include "rijndael-api-fst.h"
 
-#define BUFFSIZE (40960 * 1024)
+#define BUFFSIZE (4096)
 
 void aescbc(const void *key,int keylen,const void *iv,char direction,const void *datain, unsigned long datalen, void *dataout)
 // all len(ths) in bytes, direction: DIR_DECRYPT or DIR_ENCRYPT
