@@ -57,6 +57,99 @@ statement from your version.
 #include "SelectCopyEncoding.h"
 #include "SelectPasteDecoding.h"
 
+class CHexEditAction {
+public:
+	enum ActionType { unknown, input, cut, paste } type;
+protected:
+	UINT  position;
+	BYTE* replaceData;
+	UINT  replaceLen;
+	BYTE* insertData;
+	UINT  insertLen;
+	CHexEditAction* next;
+public:
+	CHexEditAction();
+	~CHexEditAction();
+	BOOL set(ActionType type, UINT position, const BYTE* replaceData, UINT replaceLen, const BYTE* insertData, UINT insertLen, CHexEditAction* next = 0);
+	void setNext(CHexEditAction* next) { this->next = next; }
+	BOOL append(const BYTE* replaceData, UINT replaceLen, const BYTE* insertData, UINT insertLen);
+	ActionType getType() const { return type; }
+	UINT getPosition() const { return position; }
+	BYTE* getReplaceData() const { return replaceData; }
+	UINT getReplaceLen() const { return replaceLen; }
+	BYTE* getInsertData() const { return insertData; }
+	UINT getInsertLen() const { return insertLen; }
+	CHexEditAction* getNext() const { return next; }
+};
+
+CHexEditAction::CHexEditAction()
+: type(unknown), position(0), replaceData(0), replaceLen(0), insertData(0), insertLen(0), next(0)
+{
+}
+
+CHexEditAction::~CHexEditAction()
+{
+	delete next;
+	delete[] replaceData;
+	delete[] insertData;
+}
+
+BOOL CHexEditAction::set(ActionType type, UINT position, const BYTE* replaceData, UINT replaceLen, const BYTE* insertData, UINT insertLen, CHexEditAction* next)
+{
+	BYTE* rdata = replaceLen != 0 ? new BYTE[replaceLen] : 0;
+	BYTE* idata = insertLen != 0  ? new BYTE[insertLen]  : 0;
+	if ((replaceLen != 0 && rdata == 0) || (insertLen !=0 && idata == 0)) {
+		delete[] rdata;
+		delete[] idata;
+		return FALSE;
+	}
+	if (replaceLen != 0)
+		memcpy(rdata, replaceData, replaceLen);
+	if (insertLen != 0)
+		memcpy(idata, insertData, insertLen);
+	delete[] this->replaceData;
+	delete[] this->insertData;
+	this->type = type;
+	this->position = position;
+	this->replaceData = rdata;
+	this->replaceLen = replaceLen;
+	this->insertData = idata;
+	this->insertLen = insertLen;
+	this->next = next;
+	return TRUE;
+}
+BOOL CHexEditAction::append(const BYTE* replaceData, UINT replaceLen, const BYTE* insertData, UINT insertLen)
+{
+	UINT rlen = this->replaceLen + replaceLen;
+	BYTE* rdata = (replaceLen > 0) ? new BYTE[rlen] : 0;
+	UINT ilen = this->insertLen + insertLen;
+	BYTE* idata = (insertLen > 0) ? new BYTE[ilen] : 0;
+	if ((replaceLen > 0 && rdata == 0) || (insertLen > 0 && idata == 0)) {
+		delete[] rdata;
+		delete[] idata;
+		return FALSE;
+	}
+	if (rdata) {
+		if (this->replaceLen > 0)
+			memcpy(rdata, this->replaceData, this->replaceLen);
+		if (replaceLen > 0)
+			memcpy(rdata + this->replaceLen, replaceData, replaceLen);
+		delete[] this->replaceData;
+		this->replaceData = rdata;
+		this->replaceLen = rlen;
+	}
+	if (idata) {
+		if (this->insertLen > 0)
+			memcpy(idata, this->insertData, this->insertLen);
+		if (insertLen > 0)
+			memcpy(idata + this->insertLen, insertData, insertLen);
+		delete[] this->insertData;
+		this->insertData = idata;
+		this->insertLen = ilen;
+	}
+	return TRUE;
+}
+
 /////////////////////////////////////////////////////////////////////////////
 // defines
 /////////////////////////////////////////////////////////////////////////////
@@ -187,7 +280,9 @@ CHexEditBase::CHexEditBase() :
 	m_cDragRect(0,0,0,0),
 	m_cContextCut("Cut"),
 	m_cContextCopy("Copy"),
-	m_cContextPaste("Paste")
+	m_cContextPaste("Paste"),
+	m_undo(0),
+	m_redo(0)
 
 {
 	memset(&m_tPaintDetails, 0, sizeof(PAINTINGDETAILS));
@@ -228,6 +323,8 @@ CHexEditBase::~CHexEditBase()
 	if(m_bDeleteData) {
 		delete []m_pData;
 	}
+	delete m_undo;
+	delete m_redo;
     if(m_cFont.m_hObject != NULL) {
 		m_cFont.DeleteObject();
 	}
@@ -1515,6 +1612,8 @@ bool CHexEditBase::OnEditInput(WORD nInput)
 	} else
 		return false;
 	ASSERT(m_nCurrentAddress <= m_nLength);
+	BYTE* replaceData = 0;
+	UINT replaceLen = 0;
 	if (m_nCurrentAddress >= m_nLength || (m_bInsert && (m_bCaretAscii || m_bHighBits))) {
 		// ensure storage is available for new byte
 		if (m_nLength >= m_nCapacity) { 
@@ -1547,20 +1646,23 @@ bool CHexEditBase::OnEditInput(WORD nInput)
 		m_pData[m_nCurrentAddress] = 0;
 		m_nLength++;
 		m_bRecalc = true;
+	} else if (m_nCurrentAddress < m_nLength) { // we are overwriting 1 char
+		replaceData = m_pData + m_nCurrentAddress;
+		replaceLen = 1;
 	}
-	if (m_bCaretAscii) {
-		m_pData[m_nCurrentAddress] = nValue;
+	if (!m_bCaretAscii)
+		if (m_bHighBits)
+			nValue = (nValue << 4) | (m_pData[m_nCurrentAddress] & 0x0f);
+		else
+			nValue = (m_pData[m_nCurrentAddress] & 0xf0) | nValue;
+	SaveUndoAction(CHexEditAction::input, m_nCurrentAddress, replaceData, replaceLen, &nValue, 1);
+	m_pData[m_nCurrentAddress] = nValue;
+	if (m_bCaretAscii)
 		MoveCurrentAddress(1, true, true);
-	} else if(m_bHighBits) {
-		nValue <<= 4;
-		m_pData[m_nCurrentAddress] &= 0x0f;
-		m_pData[m_nCurrentAddress] |= nValue;
+	else if(m_bHighBits)
 		MoveCurrentAddress(0, false, true);
-	} else {
-		m_pData[m_nCurrentAddress] &= 0xf0;
-		m_pData[m_nCurrentAddress] |= nValue;
+	else
 		MoveCurrentAddress(1, true, true);
-	}
 	Invalidate();
 	NotifyParent(HEN_CHANGE);
 	return true;
@@ -1619,6 +1721,9 @@ void CHexEditBase::OnDelete(WPARAM wParam)
 		}
 		if (m_nCurrentAddress == m_nLength)
 			return;
+
+		SaveUndoAction(CHexEditAction::cut, m_nCurrentAddress, m_pData + m_nCurrentAddress, 1, 0, 0);
+
 		if (m_nLength - (m_nCurrentAddress + 1) > 0)
 			memmove(m_pData + m_nCurrentAddress, m_pData + m_nCurrentAddress + 1, m_nLength - (m_nCurrentAddress + 1));
 		m_nLength--;
@@ -1990,6 +2095,9 @@ void CHexEditBase::OnEditCopyCutDelete(bool cutdel,bool clipboard)
 			return;
 		}
 	} // if (selection)
+	if (cutdel)
+		SaveUndoAction(CHexEditAction::cut, m_nSelectionBegin, m_pData + m_nSelectionBegin, nLength, 0, 0);
+
 	if (cutdel && m_nSelectionBegin + nLength < m_nLength) {
 		memmove(m_pData + m_nSelectionBegin, 
 				m_pData + m_nSelectionBegin + nLength,
@@ -2134,6 +2242,10 @@ void CHexEditBase::OnEditPaste()
 			nSourceByteLength = nHexDigits / 2;
 		}
 	}
+	
+	if (SaveUndoAction(CHexEditAction::paste, nPasteAdr, m_pData+nPasteAdr, nReplaceLength, pSource, nSourceByteLength) && 
+		doHexdecode && nSourceByteLength > 0) // nSourceByteLength should be > 0, but the test cannot hurt
+		hexDecode(m_undo->getInsertData(), pSource, nSourceByteLength);
 
 	if (!PrepareReplace(nPasteAdr, nReplaceLength, nSourceByteLength)) {
 		::GlobalUnlock(hClipData);
@@ -2208,6 +2320,10 @@ void CHexEditBase::ReInitialize()
 	}
 	m_bDeleteData = false;
 	m_bRecalc = true;
+	delete m_undo;
+	delete m_redo;
+	m_undo = 0;
+	m_redo = 0;
 }
 
 bool CHexEditBase::Allocate(UINT nLen)
@@ -2597,6 +2713,9 @@ bool CHexEditBase::ReplaceSelection(LPCSTR data, size_t length)
 		return false;
 	UINT start, end;
 	GetSelection(start, end);
+
+	SaveUndoAction(CHexEditAction::paste, start, m_pData + start, end - start + 1, (const BYTE*)data, length);
+
 	if (!PrepareReplace(start, end - start + 1, length))
 		return false;
 	if (length > 0)
@@ -2613,6 +2732,79 @@ int CHexEditBase::ReplaceAll(LPCSTR pfind, size_t findlen, LPCSTR preplace, size
 		count++;
 	}
 	return count;
+}
+
+BOOL CHexEditBase::SaveUndoAction(UINT type, UINT position, const BYTE* replaceData, UINT replaceLen, const BYTE* insertData, UINT insertLen)
+{
+	delete m_redo; // m_pData will change invalidating m_redo
+	m_redo = 0;
+	if (type == CHexEditAction::input && m_undo != 0 && m_undo->getType() == CHexEditAction::input &&
+		m_undo->getPosition() + m_undo->getInsertLen() == position) {
+			// merge input actions
+			if (!m_undo->append(replaceData, replaceLen, insertData, insertLen)) {
+				AfxMessageBox(IDS_CANT_SAVE_UNDO, MB_ICONEXCLAMATION);
+				return FALSE;
+			}
+	} else {
+		// new action can't be merged with previous
+		CHexEditAction* action = new CHexEditAction();
+		if (action == 0 || 
+			!action->set(CHexEditAction::input, position, replaceData, replaceLen, insertData, insertLen, m_undo)) {
+			delete action;
+			AfxMessageBox(IDS_CANT_SAVE_UNDO, MB_ICONEXCLAMATION);
+			return FALSE;
+		}
+		m_undo = action;
+	}
+	return TRUE;
+}
+
+void CHexEditBase::Undo()
+{
+	if (!CanUndo())
+		return;
+
+	CHexEditAction* action = m_undo;
+	// ASSERT: the data inserted (if any) in the current undo action is still there
+	ASSERT(action->getInsertLen() == 0 || 
+		memcmp(m_pData + action->getPosition(), action->getInsertData(), action->getInsertLen()) == 0);
+
+	// replace insertData/insertLen at position with replaceData/replaceLen
+	if (!PrepareReplace(action->getPosition(), action->getInsertLen(), action->getReplaceLen())) {
+		AfxMessageBox(IDS_CANT_UNDO, MB_ICONEXCLAMATION);
+		return;
+	}
+	if (action->getReplaceLen() > 0)
+		memcpy(m_pData + action->getPosition(), action->getReplaceData(), action->getReplaceLen());
+
+	// move head of m_undo to m_redo
+	m_undo = action->getNext();
+	action->setNext(m_redo);
+	m_redo = action;
+}
+
+void CHexEditBase::Redo()
+{
+	if (!CanRedo())
+		return;
+	
+	CHexEditAction* action = m_redo;
+	// ASSERT: the data to be replace(if any) in the current redo action is still there
+	ASSERT(action->getReplaceLen() == 0 || 
+		memcmp(m_pData + action->getPosition(), action->getReplaceData(), action->getReplaceLen()) == 0);
+	
+	// replace replaceData/replaceLen at position with insertData/insertLen
+	if (!PrepareReplace(action->getPosition(), action->getReplaceLen(), action->getInsertLen())) {
+		AfxMessageBox(IDS_CANT_REDO, MB_ICONEXCLAMATION);
+		return;
+	}
+	if (action->getInsertLen() > 0)
+		memcpy(m_pData + action->getPosition(), action->getInsertData(), action->getInsertLen());
+
+	// move head of m_redo to m_undo
+	m_redo = action->getNext();
+	action->setNext(m_undo);
+	m_undo = action;
 }
 
 

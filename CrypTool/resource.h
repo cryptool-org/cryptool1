@@ -93,6 +93,9 @@
 #define IDS_PATH_PRESENTATION           60
 #define IDS_ERROR_OPENING_PRESENTATION  61
 #define IDS_PQM_ENTROPY_NOT_ALL_INPUT_PARAMETERS_SET 62
+#define IDS_CANT_UNDO                   63
+#define IDS_CANT_REDO                   64
+#define IDS_CANT_SAVE_UNDO              65
 #define IDD_PLAYFAIR_ANALYSIS           102
 #define IDD_ICG_RANDOMPARAMETER         103
 #define IDR_HTML_SELECTPASTEENCODING    107

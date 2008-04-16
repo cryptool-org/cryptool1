@@ -75,6 +75,8 @@ statement from your version.
 #define HE_FIND_NOSKIP 4
 #define HE_FIND_BACKWARDS 8
 
+class CHexEditAction;
+
 /////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
 // class CHexEditBase
@@ -124,6 +126,10 @@ public:
 	bool Search(LPCSTR text, size_t length, UINT flags);
 	bool ReplaceSelection(LPCSTR text, size_t length);
 	int ReplaceAll(LPCSTR pfind, size_t findlen, LPCSTR preplace, size_t replacelen, UINT searchflags);
+	void Undo();
+	void Redo();
+	BOOL CanUndo() { return m_undo != 0; }
+	BOOL CanRedo() { return m_redo != 0; }
 
 	// quick and dirty: to access copy/paste functions from outside
 	void callOnEditCut() { OnEditCut(); }
@@ -134,6 +140,7 @@ public:
 
 protected:
 	bool PrepareReplace(UINT pos, UINT oldlen, UINT newlen); // Prepare replacing [pos, pos+oldlen] with new content of newlen bytes
+	BOOL SaveUndoAction(UINT type, UINT position, const BYTE* replaceData, UINT replaceLen, const BYTE* insertData, UINT insertLen);
 
 	struct PAINTINGDETAILS {
 		UINT nFullVisibleLines;
@@ -208,6 +215,8 @@ protected:
 	WORD m_nMouseRepSpeed;
 	WORD m_nMouseRepCounter;
 	bool m_bIsMouseRepActive;
+	CHexEditAction* m_undo;
+	CHexEditAction* m_redo;
 
 	// overrideables
 	virtual void OnExtendContextMenu(CMenu&) {} // override this to add your own context-menue-items

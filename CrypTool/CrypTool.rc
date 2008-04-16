@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polnisch resources
+// Polish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -5536,6 +5536,7 @@ BEGIN
     POPUP "&Edycja"
     BEGIN
         MENUITEM "&Cofnij \t Ctrl + Z",         ID_EDIT_UNDO, GRAYED
+        MENUITEM "[i18n]&Redo \t Ctrl + Y",     ID_EDIT_REDO, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Wy&tnij \t Ctrl + X",         ID_EDIT_CUT, GRAYED
         MENUITEM "&Kopiuj \t Ctrl + C",         ID_EDIT_COPY, GRAYED
@@ -5966,6 +5967,7 @@ BEGIN
     POPUP "&Edycja"
     BEGIN
         MENUITEM "&Cofnij \t Ctrl + Z",         ID_EDIT_UNDO
+        MENUITEM "[i18n]&Redo \t Ctrl + Y",     ID_EDIT_REDO
         MENUITEM SEPARATOR
         MENUITEM "Wy&tnij \t Ctrl + X",         ID_EDIT_CUT
         MENUITEM "&Kopiuj \t Ctrl + C",         ID_EDIT_COPY
@@ -6354,6 +6356,7 @@ BEGIN
     POPUP "&Edycja"
     BEGIN
         MENUITEM "&Cofnij \t Ctrl + Z",         ID_EDIT_UNDO, GRAYED
+        MENUITEM "[i18n]&Redo \t Ctrl + Y",     ID_EDIT_REDO, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Wy&tnij \t Ctrl + X",         ID_EDIT_CUT, GRAYED
         MENUITEM "&Kopiuj \t Ctrl + C",         ID_EDIT_COPY, GRAYED
@@ -6785,6 +6788,7 @@ BEGIN
     POPUP "&Edycja"
     BEGIN
         MENUITEM "&Cofnij \t Ctrl + Z",         ID_EDIT_UNDO
+        MENUITEM "[i18n]&Redo \t Ctrl + Y",     ID_EDIT_REDO
         MENUITEM SEPARATOR
         MENUITEM "Wy&tnij \t Ctrl + X",         ID_EDIT_CUT
         MENUITEM "&Kopiuj \t Ctrl + C",         ID_EDIT_COPY
@@ -7155,6 +7159,7 @@ BEGIN
     POPUP " "
     BEGIN
         MENUITEM "&Cofnij",                     ID_EDIT_UNDO
+        MENUITEM "[i18n]&Redo",                 ID_EDIT_REDO
         MENUITEM SEPARATOR
         MENUITEM "&Wytnij",                     ID_EDIT_CUT
         MENUITEM "&Kopiuj",                     ID_EDIT_COPY
@@ -7197,6 +7202,7 @@ BEGIN
     POPUP "&Edycja"
     BEGIN
         MENUITEM "&Cofnij \t Ctrl + Z",         ID_EDIT_UNDO, GRAYED
+        MENUITEM "[i18n]&Redo \t Ctrl + Y",     ID_EDIT_REDO, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Wy&tnij \t Ctrl + X",         ID_EDIT_CUT, GRAYED
         MENUITEM "&Kopiuj \t Ctrl + C",         ID_EDIT_COPY, GRAYED
@@ -8584,6 +8590,7 @@ BEGIN
     VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
     VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
     "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "Y",            ID_EDIT_REDO,           VIRTKEY, CONTROL, NOINVERT
     "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
     "Z",            ID_ZIP,                 VIRTKEY, SHIFT, CONTROL, 
                                                     NOINVERT
@@ -9525,6 +9532,7 @@ BEGIN
     ID_EDIT_REPLACE         "Okreœlony tekst jest zamieniony przez inny tekst."
     ID_EDIT_SELECT_ALL      "Ca³y aktywny dokument zostaje zaznaczony"
     ID_EDIT_UNDO            "Powtarza ostatni¹ akcjê."
+    ID_EDIT_REDO            "[i18n]Restores the last undone action"
 END
 
 STRINGTABLE 
@@ -11883,12 +11891,23 @@ BEGIN
     IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT "wiersz*kolumna wektor*macierz"
 END
 
-#endif    // Polnisch resources
+STRINGTABLE 
+BEGIN
+    IDS_CANT_UNDO           "[i18n]Cannot undo last text change.\n\nFree some memory and try again."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CANT_REDO           "[i18n]Cannot revert last undo.\n\nFree some memory and try again."
+    IDS_CANT_SAVE_UNDO      "[i18n]Could not save information to later undo the last text change."
+END
+
+#endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -17611,6 +17630,7 @@ BEGIN
     POPUP "&Bearbeiten"
     BEGIN
         MENUITEM "&Rückgängig\tStrg+Z",         ID_EDIT_UNDO, GRAYED
+        MENUITEM "&Wiederherstellen\tStrg+Y",   ID_EDIT_REDO, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&Ausschneiden\tStrg+X",       ID_EDIT_CUT, GRAYED
         MENUITEM "&Kopieren\tStrg+C",           ID_EDIT_COPY, GRAYED
@@ -18054,6 +18074,7 @@ BEGIN
     POPUP "&Bearbeiten"
     BEGIN
         MENUITEM "&Rückgängig\tStrg+Z",         ID_EDIT_UNDO
+        MENUITEM "&Wiederherstellen\tStrg+Y",   ID_EDIT_REDO
         MENUITEM SEPARATOR
         MENUITEM "&Ausschneiden\tStrg+X",       ID_EDIT_CUT
         MENUITEM "&Kopieren\tStrg+C",           ID_EDIT_COPY
@@ -18454,6 +18475,7 @@ BEGIN
     POPUP "&Bearbeiten"
     BEGIN
         MENUITEM "&Rückgängig\tStrg+Z",         ID_EDIT_UNDO
+        MENUITEM "&Wiederherstellen\tStrg+Y",   ID_EDIT_REDO
         MENUITEM SEPARATOR
         MENUITEM "&Ausschneiden\tStrg+X",       ID_EDIT_CUT, GRAYED
         MENUITEM "&Kopieren\tStrg+C",           ID_EDIT_COPY, GRAYED
@@ -18888,6 +18910,7 @@ BEGIN
     POPUP "&Bearbeiten"
     BEGIN
         MENUITEM "&Rückgängig\tStrg+Z",         ID_EDIT_UNDO
+        MENUITEM "&Wiederherstellen\tStrg+Y",   ID_EDIT_REDO
         MENUITEM SEPARATOR
         MENUITEM "&Ausschneiden\tStrg+X",       ID_EDIT_CUT
         MENUITEM "&Kopieren\tStrg+C",           ID_EDIT_COPY
@@ -19270,6 +19293,7 @@ BEGIN
     POPUP " "
     BEGIN
         MENUITEM "&Rückgängig",                 ID_EDIT_UNDO
+        MENUITEM "&Wiederherstellen",           ID_EDIT_REDO
         MENUITEM SEPARATOR
         MENUITEM "&Ausschneiden",               ID_EDIT_CUT
         MENUITEM "&Kopieren",                   ID_EDIT_COPY
@@ -19312,6 +19336,7 @@ BEGIN
     POPUP "&Bearbeiten"
     BEGIN
         MENUITEM "&Rückgängig\tStrg+Z",         ID_EDIT_UNDO, GRAYED
+        MENUITEM "&Wiederherstellen\tStrg+Y",   ID_EDIT_REDO, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&Ausschneiden\tStrg+X",       ID_EDIT_CUT, GRAYED
         MENUITEM "&Kopieren\tStrg+C",           ID_EDIT_COPY, GRAYED
@@ -20710,6 +20735,7 @@ BEGIN
     VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
     VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
     "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "Y",            ID_EDIT_REDO,           VIRTKEY, CONTROL, NOINVERT
     "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
     "Z",            ID_ZIP,                 VIRTKEY, SHIFT, CONTROL, 
                                                     NOINVERT
@@ -21459,7 +21485,8 @@ BEGIN
     57640                   "Weitersuchen"
     ID_EDIT_REPLACE         "Der angegebene Text wird durch einen anderen Text ersetzt"
     ID_EDIT_SELECT_ALL      "Der ganze Text im aktiven Dokument wird markiert (ausgewählt)"
-    ID_EDIT_UNDO            "Macht die letzte Aktion rückgängig"
+    ID_EDIT_UNDO            "Macht die letzte Änderung rückgängig"
+    ID_EDIT_REDO            "Stellt die zuletzt Änderung gemachte Aktion wieder her"
 END
 
 STRINGTABLE 
@@ -23902,6 +23929,7 @@ BEGIN
                             "Die Präsentation konnte nicht geöffnet werden!\n\nBitte überprüfen Sie:\n- ob sich die Datei ""CrypToolPresentation-de.pdf"" im gleichen Pfad wie das Programm ""CrypTool.exe"" befindet und\n- ob Sie den Acrobat Reader installiert haben (www.adobe.com)."
     IDS_PQM_ENTROPY_NOT_ALL_INPUT_PARAMETERS_SET 
                             "Bitte stellen Sie sicher, dass Sie\n- die gewünschte Passwort-Entropie und\n- das gewünschte Passwort-Alphabet\nangegeben haben."
+    IDS_CANT_UNDO           "Die letzte Änderung konnte nicht rückgängig gemacht werden.\n\nGeben Sie Speicher frei und versuchen Sie es erneut."
 END
 
 STRINGTABLE 
@@ -23919,12 +23947,18 @@ BEGIN
     ID_FORMAT_TEXT_DOCUMENT "Formatiert ein Textdokument mit bestimmten Parametern"
 END
 
-#endif    // Deutsch (Deutschland) resources
+STRINGTABLE 
+BEGIN
+    IDS_CANT_REDO           "Die zuletzt rückgängig gemachte Änderung konnte nicht wiederhergestellt werden.\n\nGeben Sie Speicher frei und versuchen Sie es erneut."
+    IDS_CANT_SAVE_UNDO      "Konnt keine Informationen speichern, um die Textänderung später rückgängig machen zu können."
+END
+
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -29566,6 +29600,7 @@ BEGIN
     POPUP "&Edit"
     BEGIN
         MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO, GRAYED
+        MENUITEM "&Redo\tCtrl+Y",               ID_EDIT_REDO, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT, GRAYED
         MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY, GRAYED
@@ -30004,6 +30039,7 @@ BEGIN
     POPUP "&Edit"
     BEGIN
         MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM "&Redo\tCtrl+Y",               ID_EDIT_REDO
         MENUITEM SEPARATOR
         MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
         MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
@@ -30400,6 +30436,7 @@ BEGIN
     POPUP "&Edit"
     BEGIN
         MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM "&Redo\tCtrl+Y",               ID_EDIT_REDO
         MENUITEM SEPARATOR
         MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT, GRAYED
         MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY, GRAYED
@@ -30830,6 +30867,7 @@ BEGIN
     POPUP "&Edit"
     BEGIN
         MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM "&Redo\tCtrl+Y",               ID_EDIT_REDO
         MENUITEM SEPARATOR
         MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
         MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
@@ -31208,6 +31246,7 @@ BEGIN
     POPUP " "
     BEGIN
         MENUITEM "&Rückgängig",                 ID_EDIT_UNDO
+        MENUITEM "&Wiederherstellen",           ID_EDIT_REDO
         MENUITEM SEPARATOR
         MENUITEM "&Ausschneiden",               ID_EDIT_CUT
         MENUITEM "&Kopieren",                   ID_EDIT_COPY
@@ -31250,6 +31289,7 @@ BEGIN
     POPUP "&Edit"
     BEGIN
         MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO, GRAYED
+        MENUITEM "&Redo\tCtrl+Y",               ID_EDIT_REDO
         MENUITEM SEPARATOR
         MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT, GRAYED
         MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY, GRAYED
@@ -32645,6 +32685,7 @@ BEGIN
     VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
     VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
     "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "Y",            ID_EDIT_REDO,           VIRTKEY, CONTROL, NOINVERT
     "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
     "Z",            ID_ZIP,                 VIRTKEY, SHIFT, CONTROL, 
                                                     NOINVERT
@@ -33645,6 +33686,7 @@ BEGIN
     ID_EDIT_REPLACE         "The specified text is replaced by a different text"
     ID_EDIT_SELECT_ALL      "The entire active document is highlighted (selected)"
     ID_EDIT_UNDO            "Reverses the last action"
+    ID_EDIT_REDO            "Restores the last undone action"
 END
 
 STRINGTABLE 
@@ -36029,6 +36071,7 @@ BEGIN
                             "The presentation could not be opened!\n\nPlease check\n- if the file ""CrypToolPresentation-en.pdf"" is in the same directory as ""CrypTool.exe"" and\n- if the Acrobat reader is installed (www.adobe.com)."
     IDS_PQM_ENTROPY_NOT_ALL_INPUT_PARAMETERS_SET 
                             "Please make sure you have specified\n- the desired password entropy and\n- the desired password alphabet."
+    IDS_CANT_UNDO           "Cannot undo last text change.\n\nFree some memory and try again."
 END
 
 STRINGTABLE 
@@ -36048,7 +36091,13 @@ BEGIN
                             "Formats a text document using certain parameters"
 END
 
-#endif    // Englisch (GB) resources
+STRINGTABLE 
+BEGIN
+    IDS_CANT_REDO           "Cannot revert last undo.\n\nFree some memory and try again."
+    IDS_CANT_SAVE_UNDO      "Could not save information to later undo the last text change."
+END
+
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

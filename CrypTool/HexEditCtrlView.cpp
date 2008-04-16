@@ -91,6 +91,10 @@ BEGIN_MESSAGE_MAP(CHexEditCtrlView, CHexEditBaseView)
 	ON_COMMAND(ID_GOTO_VATER, OnGotoVater)
     ON_UPDATE_COMMAND_UI(ID_INDICATOR_LINE, OnUpdateLine) 
 	ON_UPDATE_COMMAND_UI(ID_INDICATOR_OVR, OnUpdateInsert)
+	ON_COMMAND(ID_EDIT_UNDO, OnEditUndo)
+	ON_UPDATE_COMMAND_UI(ID_EDIT_UNDO, OnUpdateEditUndo)
+	ON_COMMAND(ID_EDIT_REDO, OnEditRedo)
+	ON_UPDATE_COMMAND_UI(ID_EDIT_REDO, OnUpdateEditRedo)
 	//}}AFX_MSG_MAP
 	ON_COMMAND(ID_ENTROPY, OnEntropy)
 	ON_COMMAND(ID_HISTOGRAM, OnHistogram)
@@ -261,3 +265,42 @@ void CHexEditCtrlView::OnUpdateLine(
 	strText.Format(ID_INDICATOR_LINE, line+1, col+1, pos+1);
 	pCmdUI->SetText(strText);
 }
+
+/////////////////////////////////////
+// @mfunc menu handler - undo last action if possible
+// @rvalue void | not used
+//
+void CHexEditCtrlView::OnEditUndo() 
+{
+	m_cHexEdit.Undo();
+}
+/////////////////////////////////////
+// @mfunc menu check handler - check if there is an action to undo
+// @rvalue void | not used
+//
+void CHexEditCtrlView::OnUpdateEditUndo(
+                                         CCmdUI* pCmdUI) //@parm menu handle
+{
+	pCmdUI->Enable(m_cHexEdit.CanUndo());
+}
+
+
+/////////////////////////////////////
+// @mfunc menu handler - redo last undone action
+// @rvalue void | not used
+//
+void CHexEditCtrlView::OnEditRedo() 
+{
+	m_cHexEdit.Redo();
+}
+
+/////////////////////////////////////
+// @mfunc menu check handler - check if there is an action to redo
+// @rvalue void | not used
+//
+void CHexEditCtrlView::OnUpdateEditRedo(
+                                         CCmdUI* pCmdUI) //@parm menu handle
+{
+	pCmdUI->Enable(m_cHexEdit.CanRedo());
+}
+
