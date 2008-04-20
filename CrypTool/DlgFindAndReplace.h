@@ -46,6 +46,8 @@ statement from your version.
 
 // DlgFindAndReplace.h
 
+#include "HexEdit.h"
+
 #include <vector>
 
 // global vector for previously used FIND terms
@@ -75,6 +77,8 @@ public:
 	afx_msg void OnBnClickedButtonFind();
 	afx_msg void OnBnClickedButtonReplace();
 	afx_msg void OnBnClickedButtonReplaceAll();
+	afx_msg void OnBnClickedRadioTextMode();
+	afx_msg void OnBnClickedRadioHexMode();
 
 	void OnBnClickedButtonFind(bool replace, bool all);
 	void DoFindReplace(bool replace, bool all);
@@ -83,13 +87,26 @@ public:
 
     CString textFind;
 	CString textReplace;
+	CString textFindHex;
+	CString textReplaceHex;
 
 	BOOL checkCaseSensitive;
 	BOOL checkFindBackwards;
 	BOOL checkRegularExpressions;
 
+	// combo boxes for text mode
 	CComboBox comboBoxControlFind;
 	CComboBox comboBoxControlReplace;
+	// hex edit fields for hex mode
+	CHexEdit hexEditControlFind;
+	CHexEdit hexEditControlReplace;
+
+	// radio button for text mode
+	CButton radioButtonControlText;
+	// radio button for hex mode
+	CButton radioButtonControlHex;
+
+	void updateMode();
 
 private:
 	// add FIND term to vector (no doubled entries)

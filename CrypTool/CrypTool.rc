@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -11902,12 +11902,12 @@ BEGIN
     IDS_CANT_SAVE_UNDO      "[i18n]Could not save information to later undo the last text change."
 END
 
-#endif    // Polish resources
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -17095,7 +17095,7 @@ BEGIN
     GROUPBOX        "Visualisierungsparameter",IDC_STATIC,7,5,217,75
 END
 
-IDD_FIND_AND_REPLACE DIALOGEX 0, 0, 323, 97
+IDD_FIND_AND_REPLACE DIALOGEX 0, 0, 323, 121
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | 
     WS_CAPTION | WS_SYSMENU
 CAPTION "Suchen und Ersetzen"
@@ -17108,17 +17108,23 @@ BEGIN
     DEFPUSHBUTTON   "&Suchen",IDC_BUTTON_FIND,266,15,50,14
     PUSHBUTTON      "&Ersetzen",IDC_BUTTON_REPLACE,266,35,50,14
     PUSHBUTTON      "&Alle ersetzen",IDC_BUTTON_REPLACE_ALL,266,55,50,14
-    PUSHBUTTON      "Abbrechen",IDCANCEL,266,75,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,266,100,50,14
     LTEXT           "Suchen:",IDC_STATIC,7,15,40,12
     LTEXT           "Ersetzen:",IDC_STATIC,7,35,40,12
     CONTROL         "Groß-/Kleinschreibung beachten",
                     IDC_CHECK_CASE_SENSITIVE,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,60,118,10
+                    WS_TABSTOP,7,84,118,10
     CONTROL         "Rückwärtssuche",IDC_CHECK_FIND_BACKWARDS,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,70,103,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,94,103,10
     CONTROL         "Reguläre Ausdrücke im Suchfeld erlauben (nur in der Text-Ansicht)",
                     IDC_CHECK_REGULAR_EXPRESSIONS,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,80,229,10
+                    WS_TABSTOP,7,104,229,10
+    CONTROL         "Textmodus",IDC_RADIO_TEXT_MODE,"Button",
+                    BS_AUTORADIOBUTTON,7,55,51,10
+    CONTROL         "Hexmodus",IDC_RADIO_HEX_MODE,"Button",
+                    BS_AUTORADIOBUTTON,7,65,49,10
+    EDITTEXT        IDC_EDIT_FIND_HEX,47,15,200,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_REPLACE_HEX,47,35,200,12,ES_AUTOHSCROLL
 END
 
 IDD_SECRETSHARING_SETUP DIALOGEX 0, 0, 371, 423
@@ -21222,7 +21228,7 @@ BEGIN
         VERTGUIDE, 247
         VERTGUIDE, 266
         TOPMARGIN, 7
-        BOTTOMMARGIN, 90
+        BOTTOMMARGIN, 114
         HORZGUIDE, 15
         HORZGUIDE, 35
         HORZGUIDE, 55
@@ -23953,12 +23959,12 @@ BEGIN
     IDS_CANT_SAVE_UNDO      "Konnt keine Informationen speichern, um die Textänderung später rückgängig machen zu können."
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -36097,7 +36103,7 @@ BEGIN
     IDS_CANT_SAVE_UNDO      "Could not save information to later undo the last text change."
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

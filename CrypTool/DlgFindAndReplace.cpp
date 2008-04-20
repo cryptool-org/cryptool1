@@ -52,11 +52,34 @@ statement from your version.
 #include "ScintillaDoc.h"
 #include "ScintillaView.h"
 #include "HexEditCtrlView.h"
+#include ".\dlgfindandreplace.h"
 
 // global vector for previously used FIND terms
 std::vector<CString> termsFind;
 // global vector for previously used REPLACE terms
 std::vector<CString> termsReplace;
+
+// this function returns true if the input string (which is the output string also) 
+// could be converted from hex to ascii; in case the hex string contains a zero byte (00),
+// the string is cut off at that place and the function returns false
+bool convertHexStringToAsciiString(CString &text) {
+	// this is the string to be returned
+	CString result = "";
+
+	for(int i=0; i<text.GetLength(); i+=2) {
+		char hex[5];
+		hex[0] = '0';
+		hex[1] = 'x';
+		hex[2] = text[i+0];
+		hex[3] = text[i+1];
+		hex[4] = 0;
+		result.AppendChar(strtol(hex, 0, 16));
+	}
+
+	text = result;
+
+	return true;
+}
 
 IMPLEMENT_DYNAMIC(CDlgFindAndReplace, CDialog)
 CDlgFindAndReplace::CDlgFindAndReplace(CWnd* pParent /*=NULL*/)
@@ -79,11 +102,17 @@ void CDlgFindAndReplace::DoDataExchange(CDataExchange* pDX)
 	CDialog::DoDataExchange(pDX);
 	DDX_CBString(pDX, IDC_COMBO_FIND, textFind);
 	DDX_CBString(pDX, IDC_COMBO_REPLACE, textReplace);
+	DDX_Text(pDX, IDC_EDIT_FIND_HEX, textFindHex);
+	DDX_Text(pDX, IDC_EDIT_REPLACE_HEX, textReplaceHex);
 	DDX_Check(pDX, IDC_CHECK_CASE_SENSITIVE, checkCaseSensitive);
 	DDX_Check(pDX, IDC_CHECK_FIND_BACKWARDS, checkFindBackwards);
 	DDX_Check(pDX, IDC_CHECK_REGULAR_EXPRESSIONS, checkRegularExpressions);
 	DDX_Control(pDX, IDC_COMBO_FIND, comboBoxControlFind);
 	DDX_Control(pDX, IDC_COMBO_REPLACE, comboBoxControlReplace);
+	DDX_Control(pDX, IDC_RADIO_TEXT_MODE, radioButtonControlText);
+	DDX_Control(pDX, IDC_RADIO_HEX_MODE, radioButtonControlHex);
+	DDX_Control(pDX, IDC_EDIT_FIND_HEX, hexEditControlFind);
+	DDX_Control(pDX, IDC_EDIT_REPLACE_HEX, hexEditControlReplace);
 }
 
 
@@ -91,6 +120,8 @@ BEGIN_MESSAGE_MAP(CDlgFindAndReplace, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_FIND, OnBnClickedButtonFind)
 	ON_BN_CLICKED(IDC_BUTTON_REPLACE, OnBnClickedButtonReplace)
 	ON_BN_CLICKED(IDC_BUTTON_REPLACE_ALL, OnBnClickedButtonReplaceAll)
+	ON_BN_CLICKED(IDC_RADIO_TEXT_MODE, OnBnClickedRadioTextMode)
+	ON_BN_CLICKED(IDC_RADIO_HEX_MODE, OnBnClickedRadioHexMode)
 END_MESSAGE_MAP()
 
 
@@ -118,7 +149,9 @@ void CDlgFindAndReplace::DoFindReplace(bool replace, bool all)
 	addFindTerm(textFind);
 	addReplaceTerm(textReplace);
 
-	if (textFind.GetLength() == 0) 
+	// return if there is no search term in the selected mode
+	if(	(textFind.GetLength() == 0 && radioButtonControlText.GetCheck() == 1) ||
+		(textFindHex.GetLength() == 0 && radioButtonControlHex.GetCheck() == 1) ) 
 		return;
 	
 	CWnd *pWndTmp = theApp.GetMainWnd(); ASSERT(pWndTmp); // CMainFrame
@@ -153,6 +186,37 @@ void CDlgFindAndReplace::DoFindReplace(bool replace, bool all)
 
 void CDlgFindAndReplace::DoFindReplaceScintilla(CWnd *pWnd, bool replace, bool all)
 {
+	// these are the strings used to search and replace text
+	CString stringFind;
+	CString stringReplace;
+
+	// before we start the search, we have to figure out which mode is set:
+	// if we're in hex mode, we need to convert the hex input in text
+	// if we're in text mode, we don't need to make any adjustments
+	if(radioButtonControlHex.GetCheck() == 1) {
+		// assign the user input
+		stringFind = textFindHex;
+		stringReplace = textReplaceHex;
+		// we need to remove space characters from the input
+		stringFind.Remove(' ');
+		stringReplace.Remove(' ');
+		// now convert the hex string into an ascii string, and notify the user that, 
+		// in case the input contains zero bytes (00), the input is cut off
+		if(!convertHexStringToAsciiString(stringFind)) {
+			// TODO
+			MessageBox("TODO: find string was cut off");
+		}
+		if(!convertHexStringToAsciiString(stringReplace)) {
+			// TODO
+			MessageBox("TODO: replace string was cut off");
+		}
+	}
+	else {
+		// assign the user input 
+		stringFind = textFind;
+		stringReplace = textReplace;
+	}
+
 	ASSERT(pWnd);
 
 	CScintillaWnd *pWindow = (CScintillaWnd*)pWnd;
@@ -161,8 +225,8 @@ void CDlgFindAndReplace::DoFindReplaceScintilla(CWnd *pWnd, bool replace, bool a
 	if (checkCaseSensitive) searchflags |= SCFIND_MATCHCASE;
 	if (checkRegularExpressions) searchflags |= SCFIND_REGEXP;
 	pWindow->SetSearchflags(searchflags);
-	char *ttf = textFind.GetBuffer();
-	char *ttr = textReplace.GetBuffer();
+	char *ttf = stringFind.GetBuffer();
+	char *ttr = stringReplace.GetBuffer();
 
 	// *** REPLACE (SINGLE REPLACE) ***
 	if (replace && !all)
@@ -256,6 +320,37 @@ void CDlgFindAndReplace::DoFindReplaceScintilla(CWnd *pWnd, bool replace, bool a
 
 void CDlgFindAndReplace::DoFindReplaceHexEdit(CWnd *pWnd, bool replace, bool all)
 {
+	// these are the strings used to search and replace text
+	CString stringFind;
+	CString stringReplace;
+
+	// before we start the search, we have to figure out which mode is set:
+	// if we're in hex mode, we need to convert the hex input in text
+	// if we're in text mode, we don't need to make any adjustments
+	if(radioButtonControlHex.GetCheck() == 1) {
+		// assign the user input
+		stringFind = textFindHex;
+		stringReplace = textReplaceHex;
+		// we need to remove space characters from the input
+		stringFind.Remove(' ');
+		stringReplace.Remove(' ');
+		// now convert the hex string into an ascii string, and notify the user that, 
+		// in case the input contains zero bytes (00), the input is cut off
+		if(!convertHexStringToAsciiString(stringFind)) {
+			// TODO
+			MessageBox("TODO: find string was cut off");
+		}
+		if(!convertHexStringToAsciiString(stringReplace)) {
+			// TODO
+			MessageBox("TODO: find string was cut off");
+		}
+	}
+	else {
+		// assign the user input 
+		stringFind = textFind;
+		stringReplace = textReplace;
+	}
+
 	ASSERT(pWnd);
 
 	CHexEditBase *pWindow = (CHexEditBase*)pWnd;
@@ -263,12 +358,11 @@ void CDlgFindAndReplace::DoFindReplaceHexEdit(CWnd *pWnd, bool replace, bool all
 	int searchflags = 0;
 	if (checkCaseSensitive) searchflags |= HE_FIND_MATCHCASE;
 	if (checkFindBackwards) searchflags |= HE_FIND_BACKWARDS;
-	//if (checkRegularExpressions) searchflags |= HE_FIND_REGEXP;
-
-	LPCSTR pfind = (LPCSTR)textFind;
-	int findlen = textFind.GetLength();
-	LPCSTR preplace = (LPCSTR)textReplace;
-	int replacelen = textReplace.GetLength();
+	
+	LPCSTR pfind = (LPCSTR)stringFind;
+	int findlen = stringFind.GetLength();
+	LPCSTR preplace = (LPCSTR)stringReplace;
+	int replacelen = stringReplace.GetLength();
 
 	// *** REPLACE (SINGLE REPLACE) ***
 	if (replace && !all)
@@ -359,6 +453,12 @@ BOOL CDlgFindAndReplace::OnInitDialog()
 
 	insertOldFindAndReplaceTerms();
 
+	// we're in text mode (not hex) by default
+	radioButtonControlText.SetCheck(1);
+	updateMode();
+
+	UpdateData(false);
+
 	return TRUE;
 }
 
@@ -397,4 +497,51 @@ void CDlgFindAndReplace::show()
 void CDlgFindAndReplace::OnCancel() 
 {
 	ShowWindow(SW_HIDE);
+}
+
+// user clicked the "text mode" radio button
+void CDlgFindAndReplace::OnBnClickedRadioTextMode()
+{
+	updateMode();
+}
+
+// user clicked the "hex mode" radio button
+void CDlgFindAndReplace::OnBnClickedRadioHexMode()
+{
+	updateMode();
+}
+
+void CDlgFindAndReplace::updateMode()
+{
+	UpdateData(true);
+
+	// we're in text mode...
+	if(radioButtonControlText.GetCheck()) {
+		// enable text-related input fields
+		GetDlgItem(IDC_COMBO_FIND)->EnableWindow(true);
+		GetDlgItem(IDC_COMBO_FIND)->ShowWindow(SW_SHOW);
+		GetDlgItem(IDC_COMBO_REPLACE)->EnableWindow(true);
+		GetDlgItem(IDC_COMBO_REPLACE)->ShowWindow(SW_SHOW);
+		// disable hex-related input fields	
+		GetDlgItem(IDC_EDIT_FIND_HEX)->EnableWindow(false);
+		GetDlgItem(IDC_EDIT_FIND_HEX)->ShowWindow(SW_HIDE);
+		GetDlgItem(IDC_EDIT_REPLACE_HEX)->EnableWindow(false);
+		GetDlgItem(IDC_EDIT_REPLACE_HEX)->ShowWindow(SW_HIDE);
+	}
+
+	// we're in hex mode...
+	if(radioButtonControlHex.GetCheck()) {
+		// enable hex-related input fields
+		GetDlgItem(IDC_EDIT_FIND_HEX)->EnableWindow(true);
+		GetDlgItem(IDC_EDIT_FIND_HEX)->ShowWindow(SW_SHOW);
+		GetDlgItem(IDC_EDIT_REPLACE_HEX)->EnableWindow(true);
+		GetDlgItem(IDC_EDIT_REPLACE_HEX)->ShowWindow(SW_SHOW);
+		// disable text-related input fields
+		GetDlgItem(IDC_COMBO_FIND)->EnableWindow(false);
+		GetDlgItem(IDC_COMBO_FIND)->ShowWindow(SW_HIDE);
+		GetDlgItem(IDC_COMBO_REPLACE)->EnableWindow(false);
+		GetDlgItem(IDC_COMBO_REPLACE)->ShowWindow(SW_HIDE);
+	}
+
+	UpdateData(false);
 }

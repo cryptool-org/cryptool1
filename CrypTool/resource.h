@@ -1594,6 +1594,11 @@
 #define IDC_CHECK_REMOVE_NON_ALPHABET_CHARACTERS 2014
 #define IDC_CHECK_CONVERT_TO_UPPERCASE  2015
 #define IDC_EDIT_BLOCK_SIZE             2016
+#define IDC_RADIO_TEXT_MODE             2017
+#define IDC_RADIO_HEX_MODE              2018
+#define IDC_EDIT_FIND_HEX               2019
+#define IDC_EDIT_FIND_HEX2              2021
+#define IDC_EDIT_REPLACE_HEX            2021
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -3016,7 +3021,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        872
 #define _APS_NEXT_COMMAND_VALUE         33368
-#define _APS_NEXT_CONTROL_VALUE         2017
+#define _APS_NEXT_CONTROL_VALUE         2020
 #define _APS_NEXT_SYMED_VALUE           109
 #endif
 #endif
