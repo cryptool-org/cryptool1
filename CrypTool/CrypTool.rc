@@ -23962,6 +23962,8 @@ BEGIN
                             "Das eingegebene Suchmuster enthält ein Null-Byte.\nBeachten Sie, dass das Suchmuster an der entsprechenden Stelle abgeschnitten wird."
     IDS_FIND_AND_REPLACE_NULL_BYTE_IN_REPLACE_STRING 
                             "Das eingegebene Ersetzungsmuster enthält ein Null-Byte.\nBeachten Sie, dass das Ersetzungsmuster an der entsprechenden Stelle abgeschnitten wird."
+    IDS_SCA_ATTACK_FAILED_BECAUSE_OF_MISSING_KEYWORD 
+                            "Der Seitenkanalangriff ist fehlgeschlagen!\n\nVermutlich enthielt die Originaldatei vor der Verschlüsselung nicht das Schlüsselwort ""%s"".\n\nIn der Online-Hilfe des Seitenkanalangriffs erfahren Sie, weshalb das Schlüsselwort für einen erfolgreichen Angriff notwendig ist."
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -36117,6 +36119,8 @@ BEGIN
                             "The entered search pattern contains a null byte.\nNote that the search pattern ist cut off."
     IDS_FIND_AND_REPLACE_NULL_BYTE_IN_REPLACE_STRING 
                             "The entered replace pattern contains a null byte.\nNote that the replace pattern is cut off."
+    IDS_SCA_ATTACK_FAILED_BECAUSE_OF_MISSING_KEYWORD 
+                            "The side-channel attack failed!\n\nProbably the original file did not contain the keyword ""%s"" before it was encrypted.\n\nIn the online help of the side-channel attack you can learn why this keyword is necessary for a successful attack."
 END
 
 #endif    // Englisch (GB) resources

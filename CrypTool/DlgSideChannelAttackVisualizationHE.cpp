@@ -768,9 +768,37 @@ void CDlgSideChannelAttackVisualizationHE::OnAttackcycle()
 				HIDE_HOUR_GLASS
 			}
 		
-			// INFO ÜBER ERFOLGREICHEN ANGRIFF
-			CDlgSideChannelAttackVisualizationHEFinished fin;
-			fin.DoModal();
+			// in case ALL answers by the server were negative, obviously the attack failed;
+			// the reason probably is the fact that the keyword ("Alice" by default) was not
+			// part of the file that was attacked
+			if(scaServer->getNumberOfPositiveResponses() == 0) {
+				// first of all, get the current keyword from the registry
+				CString keyword;
+				if ( theApp.localRegistry.Open(HKEY_CURRENT_USER, "Software\\CrypTool\\Settings",KEY_READ) == ERROR_SUCCESS )
+				{
+					unsigned long u_length = 1024;
+					char c_SCA_keyWord[1025];
+					if (ERROR_SUCCESS == theApp.localRegistry.QueryValue(c_SCA_keyWord, "SCA_Keyword", &u_length) )			
+						keyword = c_SCA_keyWord;
+					else
+						keyword = "Alice";
+				}
+				// if we can't access the registry, we default to the keyword "Alice"
+				else {
+					keyword = "Alice";
+				}
+				// now let the user know why the attack probably failed
+				LoadString(AfxGetInstanceHandle(), IDS_SCA_ATTACK_FAILED_BECAUSE_OF_MISSING_KEYWORD, pc_str, STR_LAENGE_STRING_TABLE);
+				char *message = new char[strlen(pc_str) + keyword.GetLength() + 1];
+				memset(message, 0, strlen(pc_str) + keyword.GetLength() + 1);
+				sprintf(message, pc_str, keyword.GetBuffer());
+				MessageBox(message, "CrypTool");
+			}
+			// notify user that the attack was successful
+			else {
+				CDlgSideChannelAttackVisualizationHEFinished fin;
+				fin.DoModal();
+			}
 		}
 		else
 		{
@@ -1116,9 +1144,37 @@ void CDlgSideChannelAttackVisualizationHE::OnButtonNextsinglestep()
 		{
 			// Steuerelemente für Angriff "ausblenden"
 			cancelAttackCycle();
-			// INFO ÜBER ERFOLGREICHEN ANGRIFF
-			CDlgSideChannelAttackVisualizationHEFinished fin;
-			fin.DoModal();
+			// in case ALL answers by the server were negative, obviously the attack failed;
+			// the reason probably is the fact that the keyword ("Alice" by default) was not
+			// part of the file that was attacked
+			if(scaServer->getNumberOfPositiveResponses() == 0) {
+				// first of all, get the current keyword from the registry
+				CString keyword;
+				if ( theApp.localRegistry.Open(HKEY_CURRENT_USER, "Software\\CrypTool\\Settings",KEY_READ) == ERROR_SUCCESS )
+				{
+					unsigned long u_length = 1024;
+					char c_SCA_keyWord[1025];
+					if (ERROR_SUCCESS == theApp.localRegistry.QueryValue(c_SCA_keyWord, "SCA_Keyword", &u_length) )			
+						keyword = c_SCA_keyWord;
+					else
+						keyword = "Alice";
+				}
+				// if we can't access the registry, we default to the keyword "Alice"
+				else {
+					keyword = "Alice";
+				}
+				// now let the user know why the attack probably failed
+				LoadString(AfxGetInstanceHandle(), IDS_SCA_ATTACK_FAILED_BECAUSE_OF_MISSING_KEYWORD, pc_str, STR_LAENGE_STRING_TABLE);
+				char *message = new char[strlen(pc_str) + keyword.GetLength() + 1];
+				memset(message, 0, strlen(pc_str) + keyword.GetLength() + 1);
+				sprintf(message, pc_str, keyword.GetBuffer());
+				MessageBox(message, "CrypTool");
+			}
+			// notify user that the attack was successful
+			else {
+				CDlgSideChannelAttackVisualizationHEFinished fin;
+				fin.DoModal();
+			}
 			// Anzeige aktualisieren
 			updateGUI(4);
 			return;
@@ -1156,9 +1212,37 @@ void CDlgSideChannelAttackVisualizationHE::OnButtonAllremainingsteps()
 
 	// Steuerelemente für Angriff "ausblenden"
 	cancelAttackCycle();
-	// INFO ÜBER ERFOLGREICHEN ANGRIFF
-	CDlgSideChannelAttackVisualizationHEFinished fin;
-	fin.DoModal();
+	// in case ALL answers by the server were negative, obviously the attack failed;
+	// the reason probably is the fact that the keyword ("Alice" by default) was not
+	// part of the file that was attacked
+	if(scaServer->getNumberOfPositiveResponses() == 0) {
+		// first of all, get the current keyword from the registry
+		CString keyword;
+		if ( theApp.localRegistry.Open(HKEY_CURRENT_USER, "Software\\CrypTool\\Settings",KEY_READ) == ERROR_SUCCESS )
+		{
+			unsigned long u_length = 1024;
+			char c_SCA_keyWord[1025];
+			if (ERROR_SUCCESS == theApp.localRegistry.QueryValue(c_SCA_keyWord, "SCA_Keyword", &u_length) )			
+				keyword = c_SCA_keyWord;
+			else
+				keyword = "Alice";
+		}
+		// if we can't access the registry, we default to the keyword "Alice"
+		else {
+			keyword = "Alice";
+		}
+		// now let the user know why the attack probably failed
+		LoadString(AfxGetInstanceHandle(), IDS_SCA_ATTACK_FAILED_BECAUSE_OF_MISSING_KEYWORD, pc_str, STR_LAENGE_STRING_TABLE);
+		char *message = new char[strlen(pc_str) + keyword.GetLength() + 1];
+		memset(message, 0, strlen(pc_str) + keyword.GetLength() + 1);
+		sprintf(message, pc_str, keyword.GetBuffer());
+		MessageBox(message, "CrypTool");
+	}
+	// notify user that the attack was successful
+	else {
+		CDlgSideChannelAttackVisualizationHEFinished fin;
+		fin.DoModal();
+	}
 	// Anzeige aktualisieren
 	updateGUI(4);
 	return;
