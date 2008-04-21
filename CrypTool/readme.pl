@@ -31,7 +31,14 @@ sub readfile {
         $f = <F>; close F; $f;
 }
 
+if (!-e $readme) {
+	print STDERR "$0: can't find $readme; falling back to ";
+	$readme =~ s{-..([./\\])}{-en$1}g;
+	print STDERR "$readme.\n";
+}
+
 $_ = readfile($readme);
+
 s{&}{\&amp;}g;
 s{<}{\&lt;}g;
 s{>}{\&gt;}g;

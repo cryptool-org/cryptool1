@@ -5,15 +5,12 @@
 # 	- #define statements allen HIDs voranstellen
 
 # aktuelles Hilfeverzeichnis
-$lang=$ARGV[0];
-
-$helpdir ="hlp_".$lang;
 
 # die .hm Datei öffnen
-open(HMFILE, "< $helpdir/CrypTool.hm") or die "Couldn't open $helpdir/CrypTool.hm for reading: $!\n";
+open(HMFILE, "< CrypTool.hm") or die "Couldn't open CrypTool.hm for reading: $!\n";
 
 # die .h Datei erzeugen oder zum überschreiben öffnen
-open(HFILE, "> $helpdir/CrypTool_helpIDs.h") or die "Couldn't open $helpdir/CrypTool_helpIDs.h for writing: $!\n";
+open(HFILE, "> CrypTool_helpIDs.h") or die "Couldn't open CrypTool_helpIDs.h for writing: $!\n";
 
 # Zeilen in der .hm Datei mit HID erkennen und in .h Datei mit vorangestelltem #define schreiben
 
