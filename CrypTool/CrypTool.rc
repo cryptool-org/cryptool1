@@ -23957,6 +23957,10 @@ STRINGTABLE
 BEGIN
     IDS_CANT_REDO           "Die zuletzt rückgängig gemachte Änderung konnte nicht wiederhergestellt werden.\n\nGeben Sie Speicher frei und versuchen Sie es erneut."
     IDS_CANT_SAVE_UNDO      "Konnt keine Informationen speichern, um die Textänderung später rückgängig machen zu können."
+    IDS_FIND_AND_REPLACE_NULL_BYTE_IN_FIND_STRING 
+                            "Das eingegebene Suchmuster enthält ein Null-Byte.\nBeachten Sie, dass das Suchmuster an der entsprechenden Stelle abgeschnitten wird."
+    IDS_FIND_AND_REPLACE_NULL_BYTE_IN_REPLACE_STRING 
+                            "Das eingegebene Ersetzungsmuster enthält ein Null-Byte.\nBeachten Sie, dass das Ersetzungsmuster an der entsprechenden Stelle abgeschnitten wird."
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -36101,6 +36105,10 @@ STRINGTABLE
 BEGIN
     IDS_CANT_REDO           "Cannot revert last undo.\n\nFree some memory and try again."
     IDS_CANT_SAVE_UNDO      "Could not save information to later undo the last text change."
+    IDS_FIND_AND_REPLACE_NULL_BYTE_IN_FIND_STRING 
+                            "The entered search pattern contains a null byte.\nNote that the search pattern ist cut off."
+    IDS_FIND_AND_REPLACE_NULL_BYTE_IN_REPLACE_STRING 
+                            "The entered replace pattern contains a null byte.\nNote that the replace pattern is cut off."
 END
 
 #endif    // Englisch (GB) resources

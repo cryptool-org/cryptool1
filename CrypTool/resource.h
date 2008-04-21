@@ -96,6 +96,8 @@
 #define IDS_CANT_UNDO                   63
 #define IDS_CANT_REDO                   64
 #define IDS_CANT_SAVE_UNDO              65
+#define IDS_FIND_AND_REPLACE_NULL_BYTE_IN_FIND_STRING 66
+#define IDS_FIND_AND_REPLACE_NULL_BYTE_IN_REPLACE_STRING 67
 #define IDD_PLAYFAIR_ANALYSIS           102
 #define IDD_ICG_RANDOMPARAMETER         103
 #define IDR_HTML_SELECTPASTEENCODING    107
@@ -1597,7 +1599,6 @@
 #define IDC_RADIO_TEXT_MODE             2017
 #define IDC_RADIO_HEX_MODE              2018
 #define IDC_EDIT_FIND_HEX               2019
-#define IDC_EDIT_FIND_HEX2              2021
 #define IDC_EDIT_REPLACE_HEX            2021
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009

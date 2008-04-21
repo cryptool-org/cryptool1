@@ -65,19 +65,24 @@ std::vector<CString> termsReplace;
 bool convertHexStringToAsciiString(CString &text) {
 	// this is the string to be returned
 	CString result = "";
-
 	for(int i=0; i<text.GetLength(); i+=2) {
+		// conversion from hex to ascii
 		char hex[5];
 		hex[0] = '0';
 		hex[1] = 'x';
 		hex[2] = text[i+0];
 		hex[3] = text[i+1];
 		hex[4] = 0;
+		// in case we have a zero byte (00), return false
+		if(hex[2] == '0' && hex[3] == '0') {
+            text = result;
+			return false;
+		}
+		// append the new character to the result string
 		result.AppendChar(strtol(hex, 0, 16));
 	}
-
+	// assign the result string and return true
 	text = result;
-
 	return true;
 }
 
@@ -203,12 +208,12 @@ void CDlgFindAndReplace::DoFindReplaceScintilla(CWnd *pWnd, bool replace, bool a
 		// now convert the hex string into an ascii string, and notify the user that, 
 		// in case the input contains zero bytes (00), the input is cut off
 		if(!convertHexStringToAsciiString(stringFind)) {
-			// TODO
-			MessageBox("TODO: find string was cut off");
+			LoadString(AfxGetInstanceHandle(), IDS_FIND_AND_REPLACE_NULL_BYTE_IN_FIND_STRING, pc_str, STR_LAENGE_STRING_TABLE);
+            MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
 		}
 		if(!convertHexStringToAsciiString(stringReplace)) {
-			// TODO
-			MessageBox("TODO: replace string was cut off");
+			LoadString(AfxGetInstanceHandle(), IDS_FIND_AND_REPLACE_NULL_BYTE_IN_REPLACE_STRING, pc_str, STR_LAENGE_STRING_TABLE);
+            MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
 		}
 	}
 	else {
@@ -337,12 +342,12 @@ void CDlgFindAndReplace::DoFindReplaceHexEdit(CWnd *pWnd, bool replace, bool all
 		// now convert the hex string into an ascii string, and notify the user that, 
 		// in case the input contains zero bytes (00), the input is cut off
 		if(!convertHexStringToAsciiString(stringFind)) {
-			// TODO
-			MessageBox("TODO: find string was cut off");
+			LoadString(AfxGetInstanceHandle(), IDS_FIND_AND_REPLACE_NULL_BYTE_IN_FIND_STRING, pc_str, STR_LAENGE_STRING_TABLE);
+            MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
 		}
 		if(!convertHexStringToAsciiString(stringReplace)) {
-			// TODO
-			MessageBox("TODO: find string was cut off");
+			LoadString(AfxGetInstanceHandle(), IDS_FIND_AND_REPLACE_NULL_BYTE_IN_REPLACE_STRING, pc_str, STR_LAENGE_STRING_TABLE);
+            MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
 		}
 	}
 	else {
