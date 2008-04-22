@@ -10,11 +10,11 @@
 
   ;Name and file
   !define ProgramName "CrypTool"
-  !define VersionInfo "1.4.20 - Beta 01"
+  !define VersionInfo "1.4.20 - Beta 02"
   
   Name "${ProgramName} ${VersionInfo}"
   OutFile "SetupCrypTool_${LANGUAGE_STR}.exe"
-  BrandingText "(c) 1998-2007 Contributors"
+  BrandingText "(c) 1998-2008 Contributors"
 ;  Icon "..\CrypTool\res\idr_main.ico" ; does not work for some reason
 
   ;Default installation folder
@@ -178,6 +178,8 @@ startMenuDone:
   WriteRegStr HKCR "AESToolFile\DefaultIcon" "" "$INSTDIR\aestool.exe,0"
   WriteRegStr HKCR "AESToolFile\shell" "" "open"
   WriteRegStr HKCR "AESToolFile\shell\open\command" "" '$INSTDIR\aestool.exe "%1"'
+  ; open with:
+  WriteRegStr HKCR "Applications\aestool.exe\shell\open\command" "" '$INSTDIR\aestool.exe "%1"'
 
   ; Add CrypTool to "Add or Remove Programs" in appwiz.cpl
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$ShortCutName" \
@@ -237,6 +239,7 @@ rmdirSMDone:
 failSafe:
   DeleteRegKey HKCR ".aes"
   DeleteRegKey HKCR "AESToolFile" 
+  DeleteRegKey HKCR "Applications\aestool.exe"
 SectionEnd
 
 Function mui.DirectoryLeave
