@@ -408,12 +408,17 @@ void CAestoolDlg::OnRadioPWShow()
 {
 	m_CHEditKey.SetPasswordChar(0);
 	m_CHEditKey.Invalidate();
+	// set the focus to the password field
+	m_CHEditKey.SetFocus();
+
 }
 
 void CAestoolDlg::OnRadioPWHide() 
 {
 	m_CHEditKey.SetPasswordChar('*');
 	m_CHEditKey.Invalidate();
+	// set the focus to the password field
+	m_CHEditKey.SetFocus();
 }
 
 
