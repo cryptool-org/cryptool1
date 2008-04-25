@@ -124,6 +124,7 @@ BEGIN_MESSAGE_MAP(CDlgTextOptions, CDialog)
 	ON_BN_CLICKED(IDC_CHECK_KEEP_UPPER_LOWER_CASE_INFORMATION, OnCheckKeepUpperLowerCaseInformation)
 	ON_BN_CLICKED(IDC_CHECK_UMLAUTS, OnCheckUmlauts)
 	ON_BN_CLICKED(IDC_BUTTON_SEARCH_REFERENCE_FILE, OnButtonSearchReferenceFile)
+	ON_BN_CLICKED(IDC_CHECK_SEPARATE_LETTERS, OnCheckPlayfair)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -204,9 +205,13 @@ BOOL CDlgTextOptions::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	oldAlphabet = alphabet;
-	oldDistinguishUpperLowerCase = distinguishUpperLowerCase;
+	// save information to return to settings in case user exits the dialog with the Cancel button
 	oldKeepCharactersNotPresentInAlphabetUnchanged = keepCharactersNotPresentInAlphabetUnchanged;
+	oldKeepUpperLowerCaseInformation = keepUpperLowerCaseInformation;
+	oldDistinguishUpperLowerCase = distinguishUpperLowerCase;
+	oldAlphabet = alphabet;
+	oldReferenceFile = referenceFile;
+
 	updateCheckState();
 
 	controlEditReferenceFile.SetFocus();
@@ -219,9 +224,13 @@ BOOL CDlgTextOptions::OnInitDialog()
 
 void CDlgTextOptions::OnCancel() 
 {
-	alphabet = oldAlphabet;
-	distinguishUpperLowerCase = oldDistinguishUpperLowerCase;
+	// get back to initial settings
 	keepCharactersNotPresentInAlphabetUnchanged = oldKeepCharactersNotPresentInAlphabetUnchanged;
+	keepUpperLowerCaseInformation = oldKeepUpperLowerCaseInformation;
+	distinguishUpperLowerCase = oldDistinguishUpperLowerCase;
+	alphabet = oldAlphabet;
+	referenceFile = oldReferenceFile;
+
 	CDialog::OnCancel();
 }
 
@@ -542,7 +551,16 @@ void CDlgTextOptions::OnCheckDigits()
 	updateAlphabetHeading();
 }
 
+void CDlgTextOptions::OnCheckPlayfair()
+{
+	UpdateData(true);
 
+	// enable/disable separator edit field
+	if(separateLetters) GetDlgItem(IDC_EDIT_SEPARATOR)->EnableWindow(true);
+	else GetDlgItem(IDC_EDIT_SEPARATOR)->EnableWindow(false);
+
+	UpdateData(false);
+}
 
 void CDlgTextOptions::OnCheckKeepUpperLowerCaseInformation()
 {
@@ -572,6 +590,18 @@ void CDlgTextOptions::OnButtonSearchReferenceFile()
 	ofn.nMaxFile = sizeof(fname)-1;
 	ofn.lpstrFileTitle = ftitle;
 	ofn.lpstrFilter = s_FileFilter;
+
+	// set initial directory to be the directory in which the last reference file was found
+	if(referenceFile.GetLength() != 0) {
+		// delete everything after the last backslash ('\')
+		int index = referenceFile.ReverseFind('\\');
+		if(index != -1) {
+			CString directory = referenceFile;
+			directory.Delete(index, directory.GetLength() - index);
+			ofn.lpstrInitialDir = directory;
+		}
+	}
+
 	ftitle[0] = 0;
 	ofn.nMaxFileTitle = sizeof(ftitle)-1;
 	if(!GetOpenFileName(&ofn)) return;

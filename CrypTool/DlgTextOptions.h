@@ -69,6 +69,7 @@ protected:
 	afx_msg void OnCheckLowerCase();
 	afx_msg void OnCheckDigits();
 	afx_msg void OnCheckUmlauts();
+	afx_msg void OnCheckPlayfair();
 	// misc functions
 	afx_msg void OnUpdateEditAlphabet();
 	afx_msg void OnUpdateEditSeparator();
@@ -98,17 +99,19 @@ private:
 	CEdit controlEditAlphabet;
 	// misc variables
 	CString title;
-	CString referenceFile;
-	CString oldAlphabet;
 	CString	separator;
 	CString	alphabet;
+	CString oldAlphabet;
+	CString referenceFile;
+	CString oldReferenceFile;
 	// boolean variables
 	BOOL keepCharactersNotPresentInAlphabetUnchanged;
 	BOOL oldKeepCharactersNotPresentInAlphabetUnchanged;
+	BOOL keepUpperLowerCaseInformation;
+	BOOL oldKeepUpperLowerCaseInformation;
 	BOOL distinguishUpperLowerCase;
 	BOOL oldDistinguishUpperLowerCase;
 	BOOL space;
-	BOOL keepUpperLowerCaseInformation;
 	BOOL separateLetters;
 	BOOL ignoreCase;
 	// tri-state variables associated with the check boxes

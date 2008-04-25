@@ -24539,7 +24539,7 @@ BEGIN
     CONTROL         "Lowercase letters",IDC_CHECK_LOWER_CASE,"Button",
                     BS_AUTO3STATE | WS_TABSTOP,105,121,69,10
     EDITTEXT        IDC_EDIT_ALPHABET,20,161,237,13,ES_AUTOHSCROLL
-    PUSHBUTTON      "&Find...",IDC_BUTTON_SEARCH_REFERENCE_FILE,202,205,55,
+    PUSHBUTTON      "&Search...",IDC_BUTTON_SEARCH_REFERENCE_FILE,202,205,55,
                     14
     CONTROL         "Separate pairs of identical letters",
                     IDC_CHECK_SEPARATE_LETTERS,"Button",BS_AUTOCHECKBOX | 
