@@ -63,10 +63,12 @@ CDlgPasswordQualityMeter::CDlgPasswordQualityMeter(CWnd* pParent /*=NULL*/)
 	intQualityKeePass = 0;
 	intQualityMozilla = 0;
 	intQualityPGP = 0;
+	intQualityCrypTool = 0;
 
 	stringQualityKeePass = "";
 	stringQualityMozilla = "";
 	stringQualityPGP = "";
+	stringQualityCrypTool = "";
 
 	displayedDictionaryNotFoundMessage = false;
 }
@@ -86,10 +88,12 @@ void CDlgPasswordQualityMeter::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_QUALITY_KEEPASS, stringQualityKeePass);
 	DDX_Text(pDX, IDC_QUALITY_MOZILLA, stringQualityMozilla);
 	DDX_Text(pDX, IDC_QUALITY_PGP, stringQualityPGP);
+	DDX_Text(pDX, IDC_QUALITY_CRYPTOOL, stringQualityCrypTool);
 	
 	DDX_Control(pDX, IDC_PROGRESS_KEEPASS, controlQualityKeePass);
 	DDX_Control(pDX, IDC_PROGRESS_MOZILLA, controlQualityMozilla);
 	DDX_Control(pDX, IDC_PROGRESS_PGP, controlQualityPGP);
+	DDX_Control(pDX, IDC_PROGRESS_CRYPTOOL, controlQualityCrypTool);
 	
 	DDX_Control(pDX, IDC_PICTURE_QUALITY, controlPictureQuality);
 
@@ -118,56 +122,18 @@ void CDlgPasswordQualityMeter::EditPasswordChanged()
 
 void CDlgPasswordQualityMeter::UpdateUserInterface()
 {
-	// first scale down quality values if necessary
-	if(intQualityKeePass >= 100) intQualityKeePass = 100;
-	if(intQualityMozilla >= 100) intQualityMozilla = 100;
-	if(intQualityPGP >= 100) intQualityPGP = 100;
-		
-	// update (string) quality display
-	_itoa(intQualityKeePass, pc_str, 10);
-	stringQualityKeePass = pc_str;
-	stringQualityKeePass.Append(" %");
-	_itoa(intQualityMozilla, pc_str, 10);
-	stringQualityMozilla = pc_str;
-	stringQualityMozilla.Append(" %");
-	_itoa(intQualityPGP, pc_str, 10);
-	stringQualityPGP = pc_str;
-	stringQualityPGP.Append(" %");
-	
-	// update (progress bar) quality display
-	controlQualityKeePass.SetRange(0, 100);
-	controlQualityKeePass.SetPos(intQualityKeePass);
-	controlQualityMozilla.SetRange(0, 100);
-	controlQualityMozilla.SetPos(intQualityMozilla);
-	controlQualityPGP.SetRange(0, 100);
-	controlQualityPGP.SetPos(intQualityPGP);
-		
-	// set focus to password edit field
-	((CEdit*)GetDlgItem(IDC_EDIT_PASSWORD))->SetFocus();
-
-
-	// base the visual password rating on the average of KeePass, Mozilla and PGP
-	int intQualityCrypTool = (intQualityKeePass + intQualityMozilla + intQualityPGP) / 3;
-    
-	// we start with a "poor" visual password rating
-	this->controlPictureQuality.Load(MAKEINTRESOURCE(IDR_GIF_PQM_QUALITY_POOR), _T("GIF"));
-	if(25 < intQualityCrypTool && intQualityCrypTool <= 50)
-		this->controlPictureQuality.Load(MAKEINTRESOURCE(IDR_GIF_PQM_QUALITY_LOW), _T("GIF"));
-	if(50 < intQualityCrypTool && intQualityCrypTool <= 75)
-		this->controlPictureQuality.Load(MAKEINTRESOURCE(IDR_GIF_PQM_QUALITY_AVERAGE), _T("GIF"));
-	if(75 < intQualityCrypTool && intQualityCrypTool <= 90)
-		this->controlPictureQuality.Load(MAKEINTRESOURCE(IDR_GIF_PQM_QUALITY_HIGH), _T("GIF"));
-	if(90 < intQualityCrypTool && intQualityCrypTool <= 100)
-		this->controlPictureQuality.Load(MAKEINTRESOURCE(IDR_GIF_PQM_QUALITY_GREAT), _T("GIF"));
-	this->controlPictureQuality.Draw();
-
 	// assemble full path of dictionary 
 	char dictionaryPath[STR_LAENGE_STRING_TABLE+1];
 	char fullDictionaryPath[STR_LAENGE_STRING_TABLE+1];
     LoadString(AfxGetInstanceHandle(), IDS_PQM_CRACKLIB_DICTIONARY_PATH, dictionaryPath, STR_LAENGE_STRING_TABLE);
 	sprintf(fullDictionaryPath, "%s%s", Pfad, dictionaryPath);
+
+	// parameters for depth analysis (the CrypTool version)
+	double theCrypToolPasswordEntropy;
+	std::string theCrypToolPasswordComponents;
+
     // check password against dictionary attacks (with cracklib)
-	char *result = checkPassword(password.GetBuffer(), fullDictionaryPath, !showPassword);
+	char *result = checkPassword(password.GetBuffer(), fullDictionaryPath, !showPassword, &theCrypToolPasswordEntropy, &theCrypToolPasswordComponents);
 	if(result) {
 		passwordResistance = result;
 	}
@@ -182,7 +148,60 @@ void CDlgPasswordQualityMeter::UpdateUserInterface()
 			// make sure this "annoying" pop-up message is displayed only once
 			displayedDictionaryNotFoundMessage = true;
 		}
+		// update the GUI
+		UpdateData(false);
 	}
+
+	// first scale down quality values if necessary
+	if(intQualityKeePass >= 100) intQualityKeePass = 100;
+	if(intQualityMozilla >= 100) intQualityMozilla = 100;
+	if(intQualityPGP >= 100) intQualityPGP = 100;
+	// for the CrypTool approach we assume an entropy of 128 bits equals a quality of 100
+	intQualityCrypTool = (theCrypToolPasswordEntropy / 128) * 100;
+
+		
+	// update (string) quality display
+	_itoa(intQualityKeePass, pc_str, 10);
+	stringQualityKeePass = pc_str;
+	stringQualityKeePass.Append(" %");
+	_itoa(intQualityMozilla, pc_str, 10);
+	stringQualityMozilla = pc_str;
+	stringQualityMozilla.Append(" %");
+	_itoa(intQualityPGP, pc_str, 10);
+	stringQualityPGP = pc_str;
+	stringQualityPGP.Append(" %");
+	_itoa(intQualityCrypTool, pc_str, 10);
+	stringQualityCrypTool = pc_str;
+	stringQualityCrypTool.Append(" %");
+	
+	// update (progress bar) quality display
+	controlQualityKeePass.SetRange(0, 100);
+	controlQualityKeePass.SetPos(intQualityKeePass);
+	controlQualityMozilla.SetRange(0, 100);
+	controlQualityMozilla.SetPos(intQualityMozilla);
+	controlQualityPGP.SetRange(0, 100);
+	controlQualityPGP.SetPos(intQualityPGP);
+	controlQualityCrypTool.SetRange(0, 100);
+	controlQualityCrypTool.SetPos(intQualityCrypTool);
+		
+	// set focus to password edit field
+	((CEdit*)GetDlgItem(IDC_EDIT_PASSWORD))->SetFocus();
+
+
+	// base the visual password rating on the average of KeePass, Mozilla, PGP and CrypTool
+	int intAverageQuality = (intQualityKeePass + intQualityMozilla + intQualityPGP + intQualityCrypTool) / 4;
+    
+	// we start with a "poor" visual password rating
+	this->controlPictureQuality.Load(MAKEINTRESOURCE(IDR_GIF_PQM_QUALITY_POOR), _T("GIF"));
+	if(25 < intAverageQuality && intAverageQuality <= 50)
+		this->controlPictureQuality.Load(MAKEINTRESOURCE(IDR_GIF_PQM_QUALITY_LOW), _T("GIF"));
+	if(50 < intAverageQuality && intAverageQuality <= 75)
+		this->controlPictureQuality.Load(MAKEINTRESOURCE(IDR_GIF_PQM_QUALITY_AVERAGE), _T("GIF"));
+	if(75 < intAverageQuality && intAverageQuality <= 90)
+		this->controlPictureQuality.Load(MAKEINTRESOURCE(IDR_GIF_PQM_QUALITY_HIGH), _T("GIF"));
+	if(90 < intAverageQuality && intAverageQuality <= 100)
+		this->controlPictureQuality.Load(MAKEINTRESOURCE(IDR_GIF_PQM_QUALITY_GREAT), _T("GIF"));
+	this->controlPictureQuality.Draw();
 
 	UpdateData(false);
 }

@@ -46,8 +46,8 @@ statement from your version.
 
 // ****************************************************************************
 //
-// 06.11.2007 Florian Marchal
-// Integration des mit Henrik Koy entwickelten Passwort-Checkers in CrypTool
+// 11/06/2007 Florian Marchal
+// integration of the password checking function developed with Henrik Koy
 //
 // ****************************************************************************
 
@@ -351,9 +351,176 @@ struct pwd_coord {
 	int len; 
 };
 
+#define MINLEN_SUBSTR 3
+#define PATTERN				 1
+#define SERIALS				 2
+#define KBD_SERIALS			 4 
+#define DICT_WORDS			 8
+#define COMPOSED_DICT_WORDS	16
+#define CLOSURE				32
+
+
+void get_pwd_substrings( int pwd_len, closure_info **closure_matrix, int FLAG, 
+						 char *password, int hidePassword,
+						char *str_fnds, char **word_list, int &word_listSize)
+{
+	/* this character is used when the password is to be checked secretly; that means 
+	instead of the actual password, the user is shown an array of wildcard characters */
+	const char wildcard = '*';
+	const int wildcardArraySize = 1024;
+	char wildcardArray[wildcardArraySize];
+	memset(wildcardArray, 0, wildcardArraySize);
+
+	int t_flag = 0;
+
+	for (int j=0; j<=pwd_len; j++)
+		for (int i=0; i<=pwd_len; i++)
+			if ( closure_matrix[j][i].flags & FLAG ) 
+			{
+				if ( !t_flag )
+				{
+					t_flag++;
+				}
+				else
+					strcat(str_fnds, ", "); 
+				if ( !hidePassword )
+				{
+					strncat(str_fnds, password+j, i); 
+					word_list[word_listSize][i] = '\0';
+					memcpy(word_list[word_listSize++], password+j, i);
+				}
+				else {
+					memset(wildcardArray, 0, wildcardArraySize);
+					if(i>wildcardArraySize) i = wildcardArraySize;
+					memset(wildcardArray, wildcard, i);
+					strncat(str_fnds, wildcardArray, strlen(wildcardArray));
+				}
+				char tmp_str[256];
+				sprintf(tmp_str, "(%i aus %i Zeichen)", i, strlen(password));
+			}
+	if (!t_flag)
+		strcat(str_fnds, " -");
+}
+
+
+
+/* **********************************
+   05/10/2008 Florian Marchal
+   integrated the new Password Entropy Checker based on Henrik Koy's password checking approach
+   ********************************** */
+
+class PasswordEntropyChecker {
+public:
+	// constructor
+	PasswordEntropyChecker(const std::string &_password, closure_info **_closureMatrix);
+	// destructor
+	~PasswordEntropyChecker();
+
+	// password checking function
+	void check(const int &_depth, const int &_length, const double &_entropy);
+
+	// returns the determined entropy
+	double getPasswordEntropy() const { return passwordEntropy; };
+	// returns a string with the determined password components
+	std::string getPasswordComponents() const { return passwordComponentsString; };
+
+private:
+	// the password to be checked
+	std::string password;
+	// the length of the password
+	int passwordLength;
+	// the closure matrix based on a dictionary
+	closure_info **closureMatrix;
+
+	// the determined password entropy
+	double passwordEntropy;
+	// the determined password components as string (separated with the '+' character)
+	std::string passwordComponentsString;
+
+	// the password components
+	char **passwordComponents;
+};
+
+PasswordEntropyChecker::PasswordEntropyChecker(const std::string &_password, closure_info **_closureMatrix) {
+	password = _password;
+	closureMatrix = _closureMatrix;
+
+	// determine the password length
+	passwordLength = password.length();
+	// set the default entropy for the password to 8 bit for each character
+	passwordEntropy = (double)(passwordLength * 8);
+
+	// allocate memory for the password components
+	passwordComponents = new char*[passwordLength];
+	for (int i=0; i<passwordLength; i++)
+		passwordComponents[i] = new char[passwordLength+1];
+}
+
+PasswordEntropyChecker::~PasswordEntropyChecker() {
+	// free memory of the password components
+	for (int i=0; i<passwordLength; i++)
+		delete []passwordComponents[i];
+	delete []passwordComponents;
+}
+
+void PasswordEntropyChecker::check(const int &_depth, const int &_length, const double &_entropy) {
+	double delta_entropy;
+
+	if ( _length >= passwordLength )
+	{
+		if ( _entropy < passwordEntropy )
+		{
+			// build the password components string based on all the password substrings
+			passwordComponentsString = passwordComponents[0];
+			for(int i=1; i<_depth; i++) {
+				passwordComponentsString.append(" + ");
+				passwordComponentsString.append(passwordComponents[i]);
+			}
+			passwordEntropy = _entropy;
+		}
+		return;
+	}
+
+	passwordComponents[_depth][0] = password[_length];
+	passwordComponents[_depth][1] = '\0';
+	delta_entropy = 6.0;
+	check(_depth+1, _length+1, _entropy+delta_entropy); // fixme 
+	for ( int i=2; i<=passwordLength-_length; i++ )
+	{
+		if ( closureMatrix[_length][i].flags )
+		{
+			strncpy(passwordComponents[_depth], password.c_str() +_length, i);
+			passwordComponents[_depth][i] = '\0';
+		}
+		if ( closureMatrix[_length][i].flags & PATTERN )
+		{
+			delta_entropy = 2*6.0+(i-2)*1.0;
+			check(_depth+1, _length+i, _entropy+delta_entropy);
+		}
+		if ( closureMatrix[_length][i].flags & SERIALS ) 
+		{
+			delta_entropy = 2*5.0+(i-2)*1.0;
+			check(_depth+1, _length+i, _entropy+delta_entropy);
+		}
+		if ( closureMatrix[_length][i].flags & KBD_SERIALS ) 
+		{
+			delta_entropy = 2*4.0+(i-2)*1.0;
+			check(_depth+1, _length+i, _entropy+delta_entropy);
+		}
+		if ( closureMatrix[_length][i].flags & DICT_WORDS ) 
+		{
+			delta_entropy = 14.0;
+			check(_depth+1, _length+i, _entropy+delta_entropy);
+		}
+	}
+	return;
+}
+
+
+
 // this is the main password checking function; it returns 0 if the given path 
 // for the cracklib dictionary is invalid
-char *checkPassword(char *password, char *path, int hidePassword) {
+char *checkPassword(char *password, char *path, int hidePassword, double *determinedPasswordEntropy, std::string *determinedPasswordComponents) {
     static char lastpath[STRINGSIZE];
     static PWDICT *pwp;
     char pwtrunced[STRINGSIZE];
@@ -436,13 +603,6 @@ char *checkPassword(char *password, char *path, int hidePassword) {
 		}
 	}
 
-#define MINLEN_SUBSTR 3
-#define PATTERN				 1
-#define SERIALS				 2
-#define KBD_SERIALS			 4 
-#define DICT_WORDS			 8
-#define COMPOSED_DICT_WORDS	16
-#define CLOSURE				32
 
 /* Seek for weak substrings */
 	for ( i = MINLEN_SUBSTR; i<=pwd_len; i++ )
@@ -517,6 +677,23 @@ char *checkPassword(char *password, char *path, int hidePassword) {
 	}		
 
 
+    /* *********************************
+	   new passoword entropy model
+	   ********************************* */
+
+	// if we're in the sophisticated CrypTool checking mode, the last two input parameters
+	// of this function are not null, and the result is stored in those two parameters
+	if(determinedPasswordEntropy != 0 && determinedPasswordComponents != 0) {
+		PasswordEntropyChecker passwordEntropyChecker(password, closure_matrix);
+		passwordEntropyChecker.check(0, 0, 0.0);
+		double thePasswordEntropy = passwordEntropyChecker.getPasswordEntropy();
+		std::string thePasswordComponents = passwordEntropyChecker.getPasswordComponents();
+
+		// set output parameters
+		*determinedPasswordEntropy = thePasswordEntropy;
+		*determinedPasswordComponents = thePasswordComponents;
+	}
+
 	/* *********************************
 	   clean up set of substrings
 	   *********************************/
@@ -532,135 +709,37 @@ char *checkPassword(char *password, char *path, int hidePassword) {
 	/* ********************************
 	   show substrings 
 	   ********************************/
-
-
-	/* this character is used when the password is to be checked secretly; that means 
-	instead of the actual password, the user is shown an array of wildcard characters */
-	const char wildcard = '*';
-	const int wildcardArraySize = 1024;
-	char wildcardArray[wildcardArraySize];
-	memset(wildcardArray, 0, wildcardArraySize);
+	char **word_list;
+	int word_listSize = 0;
+	word_list = new char*[pwd_len*pwd_len];
+	for (int i=0; i<pwd_len*pwd_len; i++) 
+		word_list[i] = new char[pwd_len+1];
 
 	LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_RECONSTRUCTION, pc_str, STR_LAENGE_STRING_TABLE);
     strcat(str_fnds, pc_str);
-	
-	int t_flag = 0;
+	LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_RECONSTRUCTION_FOUND, pc_str, STR_LAENGE_STRING_TABLE);
+	strcat(str_fnds, pc_str);
+	get_pwd_substrings( pwd_len, closure_matrix, CLOSURE, password, hidePassword, str_fnds, word_list, word_listSize);
 
-	for (int j=0; j<=pwd_len; j++)
-		for (int i=0; i<=pwd_len; i++)
-			if ( closure_matrix[j][i].flags & CLOSURE ) 
-			{
-				if ( !t_flag )
-				{
-					t_flag++;
-					LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_RECONSTRUCTION_FOUND, pc_str, STR_LAENGE_STRING_TABLE);
-					strcat(str_fnds, pc_str);
-				}
-				else
-					strcat(str_fnds, ", "); 
-				if ( !hidePassword )
-					strncat(str_fnds, password+j, i); 
-				else {
-					memset(wildcardArray, 0, wildcardArraySize);
-					if(i>wildcardArraySize) i = wildcardArraySize;
-					memset(wildcardArray, wildcard, i);
-					strncat(str_fnds, wildcardArray, strlen(wildcardArray));
-				}
-				char tmp_str[256];
-				sprintf(tmp_str, "(%i aus %i Zeichen)", i, strlen(password));
-			}
-		
 	LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_RECONSTRUCTION_PATTERNS, pc_str, STR_LAENGE_STRING_TABLE);
     strcat(str_fnds, pc_str);
-	t_flag = 0;
-	for (int j=0; j<=pwd_len; j++)
-		for (int i=0; i<=pwd_len; i++)
-			if ( closure_matrix[j][i].flags & PATTERN ) 
-			{
-				if ( !t_flag )
-					t_flag++;
-				else
-					strcat(str_fnds, ", "); 
-				if ( !hidePassword )
-					strncat(str_fnds, password+j, i); 
-				else {
-					memset(wildcardArray, 0, wildcardArraySize);
-					if(i>wildcardArraySize) i = wildcardArraySize;
-					memset(wildcardArray, wildcard, i);
-					strncat(str_fnds, wildcardArray, strlen(wildcardArray));
-				}
-			}
-	if (!t_flag)
-		strcat(str_fnds, " -");
+	get_pwd_substrings( pwd_len, closure_matrix, PATTERN, password, hidePassword, str_fnds, word_list, word_listSize);
 
 	LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_RECONSTRUCTION_SEQUENCES, pc_str, STR_LAENGE_STRING_TABLE);
     strcat(str_fnds, pc_str);
-	t_flag = 0;
-	for (int j=0; j<=pwd_len; j++)
-		for (int i=0; i<=pwd_len; i++)
-			if ( closure_matrix[j][i].flags & SERIALS ) 
-			{
-				if ( !t_flag )
-					t_flag++;
-				else
-					strcat(str_fnds, ", "); 
-				if ( !hidePassword )
-					strncat(str_fnds, password+j, i); 
-				else {
-					memset(wildcardArray, 0, wildcardArraySize);
-					if(i>wildcardArraySize) i = wildcardArraySize;
-					memset(wildcardArray, wildcard, i);
-					strncat(str_fnds, wildcardArray, strlen(wildcardArray));
-				}
-			}
-	if (!t_flag)
-		strcat(str_fnds, " -");
+	get_pwd_substrings( pwd_len, closure_matrix, SERIALS, password, hidePassword, str_fnds, word_list, word_listSize);
 
 	LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_RECONSTRUCTION_KEYBOARDSEQUENCES, pc_str, STR_LAENGE_STRING_TABLE);
     strcat(str_fnds, pc_str);
-	t_flag = 0;
-	for (int j=0; j<=pwd_len; j++)
-		for (int i=0; i<=pwd_len; i++)
-			if ( closure_matrix[j][i].flags & KBD_SERIALS ) 
-			{
-				if ( !t_flag )
-					t_flag++;
-				else
-					strcat(str_fnds, ", "); 
-				if ( !hidePassword )
-					strncat(str_fnds, password+j, i); 
-				else {
-					memset(wildcardArray, 0, wildcardArraySize);
-					if(i>wildcardArraySize) i = wildcardArraySize;
-					memset(wildcardArray, wildcard, i);
-					strncat(str_fnds, wildcardArray, strlen(wildcardArray));
-				}
-			}
-	if (!t_flag)
-		strcat(str_fnds, " -");
+	get_pwd_substrings( pwd_len, closure_matrix, KBD_SERIALS, password, hidePassword, str_fnds, word_list, word_listSize);
 
 	LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS, pc_str, STR_LAENGE_STRING_TABLE);
     strcat(str_fnds, pc_str);
-	t_flag = 0;
-	for (int j=0; j<=pwd_len; j++)
-		for (int i=0; i<=pwd_len; i++)
-			if ( closure_matrix[j][i].flags & DICT_WORDS ) 
-			{
-				if ( !t_flag )
-					t_flag++;
-				else
-					strcat(str_fnds, ", "); 
-				if ( !hidePassword )
-					strncat(str_fnds, password+j, i); 
-				else {
-					memset(wildcardArray, 0, wildcardArraySize);
-					if(i>wildcardArraySize) i = wildcardArraySize;
-					memset(wildcardArray, wildcard, i);
-					strncat(str_fnds, wildcardArray, strlen(wildcardArray));
-				}
-			}
-	if (!t_flag)
-		strcat(str_fnds, " -");
+	get_pwd_substrings( pwd_len, closure_matrix, DICT_WORDS, password, hidePassword, str_fnds, word_list, word_listSize);
+
+	for (int i=0; i<pwd_len*pwd_len; i++) 
+		delete []word_list[i];
+	delete []word_list;
 
 	delete []word_stack;
 	for ( int i=0; i<=pwd_len; i++ )

@@ -71,6 +71,7 @@ statement from your version.
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <string>
 #include "resource.h"
 
 // *** BEGIN CRACKLIB SPECIFIC DECLARATIONS ***********************************
@@ -137,7 +138,9 @@ int checkPasswordForCompliance(char *password);
 int checkPasswordCharset(char *password);
 
 // this is the main password checking function; it returns 0 if the given path 
-// for the cracklib dictionary is invalid
-char *checkPassword(char *password, char *path, int hidePassword);
+// for the cracklib dictionary is invalid; if the last two parameters are specified,
+// a more sophisticated password check is executed: the determined entropy and the found password 
+// components (substrings) are stored in the last two parameters
+char *checkPassword(char *password, char *path, int hidePassword, double *determinedPasswordEntropy = 0, std::string *determinedPasswordComponents = 0);
 
 #endif

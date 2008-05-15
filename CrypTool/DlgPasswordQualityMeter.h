@@ -77,14 +77,17 @@ private:
 	unsigned int intQualityKeePass;
 	unsigned int intQualityMozilla;
 	unsigned int intQualityPGP;
+	unsigned int intQualityCrypTool;
 	
 	CString stringQualityKeePass;
 	CString stringQualityMozilla;
 	CString stringQualityPGP;
+	CString stringQualityCrypTool;
 
 	CProgressCtrl controlQualityKeePass;
 	CProgressCtrl controlQualityMozilla;
 	CProgressCtrl controlQualityPGP;
+	CProgressCtrl controlQualityCrypTool;
 
 	CString passwordResistance;
 	BOOL displayedDictionaryNotFoundMessage;
