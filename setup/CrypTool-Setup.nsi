@@ -38,6 +38,7 @@
   !insertmacro MUI_PAGE_LICENSE "setup-${LANGUAGE_STR}\license-${LANGUAGE_STR}.rtf"
   !define MUI_PAGE_CUSTOMFUNCTION_LEAVE mui.DirectoryLeave
   !insertmacro MUI_PAGE_DIRECTORY
+  !define MUI_FINISHPAGE_NOAUTOCLOSE
   !insertmacro MUI_PAGE_INSTFILES
   !define MUI_FINISHPAGE_RUN CrypTool.exe
   !define MUI_FINISHPAGE_SHOWREADME ReadMe-${LANGUAGE_STR}.txt
@@ -46,6 +47,7 @@
   !insertmacro MUI_UNPAGE_WELCOME
   !define MUI_PAGE_CUSTOMFUNCTION_LEAVE un.mui.ConfirmLeave
   !insertmacro MUI_UNPAGE_CONFIRM
+  !define MUI_UNFINISHPAGE_NOAUTOCLOSE
   !insertmacro MUI_UNPAGE_INSTFILES
   !insertmacro MUI_UNPAGE_FINISH
 
@@ -258,13 +260,20 @@ Function mui.DirectoryLeave
 ;Run the uninstaller
 uninst:
   ClearErrors
-  ;ExecWait '$R0 _?=$INSTDIR' ;Do not copy the uninstaller to a temp file
-  ExecWait '$R0'
+  ;We need to copy the uninstaller to a temp file manually, because 
+  ; - ExecWait '$R0 _?=$INSTDIR' fails to delete the (running) installer
+  ; - ExecWait '$R0' copies the installer to a temp file, but does not wait until it is finished
+  ${WordFind} $R0 "\" "-1{" $R2 ; extract path from $R0 to $R2
+  GetTempFileName $R1 ; create a temporary file $R1
+  CopyFiles $R0 $R1.exe
+  ExecWait '"$R1.exe" _?=$R2' ; call copy of uninstaller with target directory $R2
 
-  IfErrors 0 done ; FIXME jump to install does not work
+  IfErrors 0 done
   Abort ; Abort if uninstall failed
 
 done:
+  Delete $R1 ; delete (empty) file
+  Delete $R1.exe ; delete temporary uninstaller copy
   IfFileExists $INSTDIR\*.* 0 install
   MessageBox MB_OK \
   "${UNINSTALL_PROMPT2}" \
