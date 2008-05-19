@@ -63,6 +63,20 @@ public:
 	CDlgFindAndReplace(CWnd* pParent = NULL);   // standard constructor
 	virtual ~CDlgFindAndReplace();
 
+	// bring dialog window to foreground (make it visible)
+	void show();
+
+	afx_msg void OnBnClickedButtonFind();
+	afx_msg void OnBnClickedButtonReplace();
+	afx_msg void OnBnClickedButtonReplaceAll();
+	afx_msg void OnBnClickedRadioTextMode();
+	afx_msg void OnBnClickedRadioHexMode();
+
+	CString textFind;
+	CString textReplace;
+	CString textFindHex;
+	CString textReplaceHex;
+
 // Dialog Data
 	enum { IDD = IDD_FIND_AND_REPLACE };
 
@@ -70,33 +84,15 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
 	virtual BOOL OnInitDialog();
+	virtual BOOL OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult);
 
 	DECLARE_MESSAGE_MAP()
 
-public:
-	afx_msg void OnBnClickedButtonFind();
-	afx_msg void OnBnClickedButtonReplace();
-	afx_msg void OnBnClickedButtonReplaceAll();
-	afx_msg void OnBnClickedRadioTextMode();
-	afx_msg void OnBnClickedRadioHexMode();
+private:
+	// handles to our Scintilla windows
+	HWND handleScintillaWindowFind;
+	HWND handleScintillaWindowReplace;
 
-	void OnBnClickedButtonFind(bool replace, bool all);
-	void DoFindReplace(bool replace, bool all);
-	void DoFindReplaceScintilla(CWnd *pWindow, bool replace, bool all);
-	void DoFindReplaceHexEdit(CWnd *pWindow, bool replace, bool all);
-
-    CString textFind;
-	CString textReplace;
-	CString textFindHex;
-	CString textReplaceHex;
-
-	BOOL checkCaseSensitive;
-	BOOL checkFindBackwards;
-	BOOL checkRegularExpressions;
-
-	// combo boxes for text mode
-	CComboBox comboBoxControlFind;
-	CComboBox comboBoxControlReplace;
 	// hex edit fields for hex mode
 	CHexEdit hexEditControlFind;
 	CHexEdit hexEditControlReplace;
@@ -108,23 +104,19 @@ public:
 
 	void updateMode();
 
-private:
-	// add FIND term to vector (no doubled entries)
-	void addFindTerm(CString);
-	// add REPLACE term to vector (no doubled entries)
-	void addReplaceTerm(CString);
-
-	// insert old FIND and REPLACE terms in combo boxes
-	void insertOldFindAndReplaceTerms();
+	BOOL checkCaseSensitive;
+	BOOL checkFindBackwards;
+	BOOL checkRegularExpressions;
 
 	// has dialog window already been created? (MODELESS dialog!)
 	bool created;
 	// overridden OnCancel (MODELESS dialog!)
 	virtual void OnCancel();
 
-public:
-	// bring dialog window to foreground (make it visible)
-	void show();
+	void OnBnClickedButtonFind(bool replace, bool all);
+	void DoFindReplace(bool replace, bool all);
+	void DoFindReplaceScintilla(CWnd *pWindow, bool replace, bool all);
+	void DoFindReplaceHexEdit(CWnd *pWindow, bool replace, bool all);
 };
 
 #endif

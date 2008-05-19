@@ -1,24 +1,18 @@
 /*********************************************************************
-
 Copyright (C) Deutsche Bank AG 1998-2003, Frankfurt am Main
 Copyright (C) Universität Siegen und Darmstadt
-
 This file is part of CrypTool.
-
 CrypTool is free software; you can redistribute it and/or modify it
 under the terms of the GNU General Public License as published by the
 Free Software Foundation; either version 2 of the License, or (at your
 option) any later version.
-
 Foobar is distributed in the hope that it will be useful, but WITHOUT
 ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
 FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 for more details.
-
 You should have received a copy of the GNU General Public License
 along with CrypTool; if not, write to the Free Software Foundation,
 Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
-
 In addition, as a special exception, Secude GmbH gives permission to
 link the code of this program with the library SECUDE (or with
 modified versions of SECUDE that use the same license as SECUDE), and
@@ -38,31 +32,22 @@ the code used other than libmiracl. If you modify this file, you may
 extend this exception to your version of the file, but you are not
 obligated to do so. If you do not wish to do so, delete this exception
 statement from your version.
-
 **********************************************************************/
 
 // DlgFindAndReplace.cpp
-
 #include "stdafx.h"
 #include "CrypToolApp.h"
 #include "DlgFindAndReplace.h"
-
 #include "CrypToolView.h"
 #include "ScintillaWnd.h"
 #include "ScintillaDoc.h"
 #include "ScintillaView.h"
 #include "HexEditCtrlView.h"
 #include ".\dlgfindandreplace.h"
-
-// global vector for previously used FIND terms
-std::vector<CString> termsFind;
-// global vector for previously used REPLACE terms
-std::vector<CString> termsReplace;
-
 // this function returns true if the input string (which is the output string also) 
 // could be converted from hex to ascii; in case the hex string contains a zero byte (00),
 // the string is cut off at that place and the function returns false
-bool convertHexStringToAsciiString(CString &text) {
+bool tryToConvertHexStringToAsciiString(CString &text) {
 	// this is the string to be returned
 	CString result = "";
 	for(int i=0; i<text.GetLength(); i+=2) {
@@ -85,6 +70,38 @@ bool convertHexStringToAsciiString(CString &text) {
 	text = result;
 	return true;
 }
+void convertHexToAscii(const char *_hex, char **_ascii, int &_asciiLength)
+{	
+	// allocate memory for output parameters
+	_asciiLength = (strlen(_hex) + 1) / 2;
+	*_ascii = new char[_asciiLength + 1];
+	memset(*_ascii, 0, _asciiLength+1);
+	// convert from hex to ascii
+	for(int i=0; i<strlen(_hex); i+=2) {
+		char buffer[5];
+		buffer[0] = '0';
+		buffer[1] = 'x';
+		buffer[2] = _hex[i+0];
+		buffer[3] = _hex[i+1];
+		buffer[4] = 0;
+		// fill the result string _ascii
+		char temp = strtol(buffer, 0, 16);
+		char tempString[2];
+		tempString[0] = temp;
+		tempString[1] = '\0';
+		memcpy(*_ascii + i/2, tempString, 1);
+	}
+}
+void convertAsciiToHex(const char *_ascii, const int &_asciiLength, char **_hex)
+{
+	// allocate memory for output parameters
+	*_hex = new char[_asciiLength*2 + 1];
+	memset(*_hex, 0, _asciiLength*2 + 1);
+	// convert from ascii to hex
+	for(int i=0; i<_asciiLength; i++) {
+		sprintf(*_hex + 2*i, "%02x", (unsigned char)_ascii[i]);
+	}
+}
 
 IMPLEMENT_DYNAMIC(CDlgFindAndReplace, CDialog)
 CDlgFindAndReplace::CDlgFindAndReplace(CWnd* pParent /*=NULL*/)
@@ -97,29 +114,22 @@ CDlgFindAndReplace::CDlgFindAndReplace(CWnd* pParent /*=NULL*/)
 	, created(FALSE)
 {
 }
-
 CDlgFindAndReplace::~CDlgFindAndReplace()
 {
 }
-
 void CDlgFindAndReplace::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
-	DDX_CBString(pDX, IDC_COMBO_FIND, textFind);
-	DDX_CBString(pDX, IDC_COMBO_REPLACE, textReplace);
 	DDX_Text(pDX, IDC_EDIT_FIND_HEX, textFindHex);
 	DDX_Text(pDX, IDC_EDIT_REPLACE_HEX, textReplaceHex);
 	DDX_Check(pDX, IDC_CHECK_CASE_SENSITIVE, checkCaseSensitive);
 	DDX_Check(pDX, IDC_CHECK_FIND_BACKWARDS, checkFindBackwards);
 	DDX_Check(pDX, IDC_CHECK_REGULAR_EXPRESSIONS, checkRegularExpressions);
-	DDX_Control(pDX, IDC_COMBO_FIND, comboBoxControlFind);
-	DDX_Control(pDX, IDC_COMBO_REPLACE, comboBoxControlReplace);
 	DDX_Control(pDX, IDC_RADIO_TEXT_MODE, radioButtonControlText);
 	DDX_Control(pDX, IDC_RADIO_HEX_MODE, radioButtonControlHex);
 	DDX_Control(pDX, IDC_EDIT_FIND_HEX, hexEditControlFind);
 	DDX_Control(pDX, IDC_EDIT_REPLACE_HEX, hexEditControlReplace);
 }
-
 
 BEGIN_MESSAGE_MAP(CDlgFindAndReplace, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_FIND, OnBnClickedButtonFind)
@@ -129,36 +139,22 @@ BEGIN_MESSAGE_MAP(CDlgFindAndReplace, CDialog)
 	ON_BN_CLICKED(IDC_RADIO_HEX_MODE, OnBnClickedRadioHexMode)
 END_MESSAGE_MAP()
 
-
 // CDlgFindAndReplace message handlers
-
 void CDlgFindAndReplace::OnBnClickedButtonFind()
 {
 	DoFindReplace(false, false);
 }
-
 void CDlgFindAndReplace::OnBnClickedButtonReplace()
 {
 	DoFindReplace(true, false);
 }
-
 void CDlgFindAndReplace::OnBnClickedButtonReplaceAll()
 {
 	DoFindReplace(true, true);
 }
-
 void CDlgFindAndReplace::DoFindReplace(bool replace, bool all)
 {
 	UpdateData(true);
-	// store find term
-	addFindTerm(textFind);
-	addReplaceTerm(textReplace);
-
-	// return if there is no search term in the selected mode
-	if(	(textFind.GetLength() == 0 && radioButtonControlText.GetCheck() == 1) ||
-		(textFindHex.GetLength() == 0 && radioButtonControlHex.GetCheck() == 1) ) 
-		return;
-	
 	CWnd *pWndTmp = theApp.GetMainWnd(); ASSERT(pWndTmp); // CMainFrame
 	pWndTmp = pWndTmp->GetTopWindow(); ASSERT(pWndTmp); // ?? CWnd
 	pWndTmp = pWndTmp->GetTopWindow(); // CMDIChildWnd
@@ -166,7 +162,6 @@ void CDlgFindAndReplace::DoFindReplace(bool replace, bool all)
 	if (!pWndTmp) 
 		return;
 	CWnd *pWndView = pWndTmp->GetTopWindow(); // CView
-
 	if (pWndView->IsKindOf(RUNTIME_CLASS(CScintillaView)))
 	{
 		DoFindReplaceScintilla(pWndView->GetTopWindow(), replace, all);
@@ -181,64 +176,82 @@ void CDlgFindAndReplace::DoFindReplace(bool replace, bool all)
 			MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
 			return;
 		}
-
 		DoFindReplaceHexEdit(pWndView->GetTopWindow(), replace, all);
 	} 
-
-	// update find and replace terms
-	insertOldFindAndReplaceTerms();
 }
-
 void CDlgFindAndReplace::DoFindReplaceScintilla(CWnd *pWnd, bool replace, bool all)
 {
-	// these are the strings used to search and replace text
-	CString stringFind;
-	CString stringReplace;
-
-	// before we start the search, we have to figure out which mode is set:
-	// if we're in hex mode, we need to convert the hex input in text
-	// if we're in text mode, we don't need to make any adjustments
-	if(radioButtonControlHex.GetCheck() == 1) {
-		// assign the user input
-		stringFind = textFindHex;
-		stringReplace = textReplaceHex;
-		// we need to remove space characters from the input
-		stringFind.Remove(' ');
-		stringReplace.Remove(' ');
-		// now convert the hex string into an ascii string, and notify the user that, 
-		// in case the input contains zero bytes (00), the input is cut off
-		if(!convertHexStringToAsciiString(stringFind)) {
-			LoadString(AfxGetInstanceHandle(), IDS_FIND_AND_REPLACE_NULL_BYTE_IN_FIND_STRING, pc_str, STR_LAENGE_STRING_TABLE);
-            MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
-		}
-		if(!convertHexStringToAsciiString(stringReplace)) {
-			LoadString(AfxGetInstanceHandle(), IDS_FIND_AND_REPLACE_NULL_BYTE_IN_REPLACE_STRING, pc_str, STR_LAENGE_STRING_TABLE);
-            MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
-		}
+	UpdateData(true);
+	#define MAXIMUM_LENGTH_OF_FIND_AND_REPLACE_STRING	1024
+	// initialize memory
+	int lengthFindString = 0;
+	int lengthReplaceString = 0;
+	char findString[MAXIMUM_LENGTH_OF_FIND_AND_REPLACE_STRING + 1];
+    char replaceString[MAXIMUM_LENGTH_OF_FIND_AND_REPLACE_STRING + 1];
+    memset(findString, 0, MAXIMUM_LENGTH_OF_FIND_AND_REPLACE_STRING + 1);
+	memset(replaceString, 0, MAXIMUM_LENGTH_OF_FIND_AND_REPLACE_STRING + 1);
+	// if we're in text mode...
+	if(radioButtonControlText.GetCheck() == 1) {
+		// retrieve input from scintilla control
+		lengthFindString = FromHandle(handleScintillaWindowFind)->SendMessage(SCI_GETLENGTH);
+		if(lengthFindString > MAXIMUM_LENGTH_OF_FIND_AND_REPLACE_STRING)
+			lengthFindString = MAXIMUM_LENGTH_OF_FIND_AND_REPLACE_STRING;
+		lengthReplaceString = FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_GETLENGTH);
+		if(lengthReplaceString > MAXIMUM_LENGTH_OF_FIND_AND_REPLACE_STRING)
+			lengthReplaceString = MAXIMUM_LENGTH_OF_FIND_AND_REPLACE_STRING;
+        // get the ascii value from the scintilla input control
+		FromHandle(handleScintillaWindowFind)->SendMessage(SCI_GETTEXT, (WPARAM)lengthFindString+1, (LPARAM)findString);
+		FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_GETTEXT, (WPARAM)lengthReplaceString+1, (LPARAM)replaceString);
 	}
+	// if we're in hex mode...
 	else {
-		// assign the user input 
-		stringFind = textFind;
-		stringReplace = textReplace;
+		// remove whitespaces from input
+		CString tempFindHex = textFindHex;
+		CString tempReplaceHex = textReplaceHex;
+		tempFindHex.Remove(' ');
+		tempReplaceHex.Remove(' ');
+		// convert input
+		char *tempFindString;
+		char *tempReplaceString;
+		convertHexToAscii(tempFindHex.GetBuffer(), &tempFindString, lengthFindString);
+		convertHexToAscii(tempReplaceHex.GetBuffer(), &tempReplaceString, lengthReplaceString);
+		// copy input, delete temporary memory
+		memcpy(findString, tempFindString, MAXIMUM_LENGTH_OF_FIND_AND_REPLACE_STRING);
+		memcpy(replaceString, tempReplaceString, MAXIMUM_LENGTH_OF_FIND_AND_REPLACE_STRING);
+		delete tempFindString;
+		delete tempReplaceString;
 	}
-
+	// if there are null bytes in the find term, abort the search and notify the user
+	for(int i=0; i<lengthFindString; i++) {
+		if(findString[i] == 0) {
+			LoadString(AfxGetInstanceHandle(), IDS_FIND_AND_REPLACE_NULL_BYTE_IN_FIND_STRING, pc_str, STR_LAENGE_STRING_TABLE);
+			MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
+			return;
+		}
+	}
+	// ...do the same for the replace term
+	for(int i=0; i<lengthReplaceString; i++) {
+		if(replaceString[i] == 0) {
+			LoadString(AfxGetInstanceHandle(), IDS_FIND_AND_REPLACE_NULL_BYTE_IN_REPLACE_STRING, pc_str, STR_LAENGE_STRING_TABLE);
+			MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
+			return;
+		}
+	}
+    
 	ASSERT(pWnd);
-
 	CScintillaWnd *pWindow = (CScintillaWnd*)pWnd;
 	CString msg;
 	int searchflags = 0;
 	if (checkCaseSensitive) searchflags |= SCFIND_MATCHCASE;
 	if (checkRegularExpressions) searchflags |= SCFIND_REGEXP;
 	pWindow->SetSearchflags(searchflags);
-	char *ttf = stringFind.GetBuffer();
-	char *ttr = stringReplace.GetBuffer();
-
+	char *ttf = findString;
+	char *ttr = replaceString;
 	// *** REPLACE (SINGLE REPLACE) ***
 	if (replace && !all)
 	{
 		long pStart = pWindow->GetSelectionStart();
 		long pEnd   = pWindow->GetSelectionEnd();
-
 		// forward search (and single replace)
 		if(!checkFindBackwards)
 		{
@@ -248,9 +261,7 @@ void CDlgFindAndReplace::DoFindReplaceScintilla(CWnd *pWnd, bool replace, bool a
 				MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
 				return;
 			}
-
 			pWindow->ReplaceSearchedText(ttr);
-
 			if(!pWindow->SearchForward(ttf))
 			{
 				msg.Format(IDS_FINDANDREPLACE_TEXT_FINISHED);
@@ -267,9 +278,7 @@ void CDlgFindAndReplace::DoFindReplaceScintilla(CWnd *pWnd, bool replace, bool a
 				MessageBox(msg, "CrypTool", MB_ICONINFORMATION);
 				return;
 			}
-
 			pWindow->ReplaceSearchedText(ttr);
-
 			if(!pWindow->SearchBackward(ttf))
 			{
 				msg.Format(IDS_FINDANDREPLACE_TEXT_FINISHED);
@@ -282,7 +291,6 @@ void CDlgFindAndReplace::DoFindReplaceScintilla(CWnd *pWnd, bool replace, bool a
 	else if (replace && all)
 	{
 		int noCnt = pWindow->ReplaceAll(ttf, ttr, FALSE);
-
 		// how often was the desired text replaced?
 		if(!noCnt)
 		{
@@ -322,53 +330,60 @@ void CDlgFindAndReplace::DoFindReplaceScintilla(CWnd *pWnd, bool replace, bool a
 	textFind.ReleaseBuffer(); ttf = 0;
 	textReplace.ReleaseBuffer(); ttr = 0;
 }
-
 void CDlgFindAndReplace::DoFindReplaceHexEdit(CWnd *pWnd, bool replace, bool all)
 {
-	// these are the strings used to search and replace text
-	CString stringFind;
-	CString stringReplace;
-
-	// before we start the search, we have to figure out which mode is set:
-	// if we're in hex mode, we need to convert the hex input in text
-	// if we're in text mode, we don't need to make any adjustments
-	if(radioButtonControlHex.GetCheck() == 1) {
-		// assign the user input
-		stringFind = textFindHex;
-		stringReplace = textReplaceHex;
-		// we need to remove space characters from the input
-		stringFind.Remove(' ');
-		stringReplace.Remove(' ');
-		// now convert the hex string into an ascii string, and notify the user that, 
-		// in case the input contains zero bytes (00), the input is cut off
-		if(!convertHexStringToAsciiString(stringFind)) {
-			LoadString(AfxGetInstanceHandle(), IDS_FIND_AND_REPLACE_NULL_BYTE_IN_FIND_STRING, pc_str, STR_LAENGE_STRING_TABLE);
-            MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
-		}
-		if(!convertHexStringToAsciiString(stringReplace)) {
-			LoadString(AfxGetInstanceHandle(), IDS_FIND_AND_REPLACE_NULL_BYTE_IN_REPLACE_STRING, pc_str, STR_LAENGE_STRING_TABLE);
-            MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
-		}
+	UpdateData(true);
+	#define MAXIMUM_LENGTH_OF_FIND_AND_REPLACE_STRING	1024
+	// initialize memory
+	int lengthFindString = 0;
+	int lengthReplaceString = 0;
+	char findString[MAXIMUM_LENGTH_OF_FIND_AND_REPLACE_STRING + 1];
+    char replaceString[MAXIMUM_LENGTH_OF_FIND_AND_REPLACE_STRING + 1];
+    memset(findString, 0, MAXIMUM_LENGTH_OF_FIND_AND_REPLACE_STRING + 1);
+	memset(replaceString, 0, MAXIMUM_LENGTH_OF_FIND_AND_REPLACE_STRING + 1);
+	// if we're in text mode...
+	if(radioButtonControlText.GetCheck() == 1) {
+		// retrieve input from scintilla control
+		lengthFindString = FromHandle(handleScintillaWindowFind)->SendMessage(SCI_GETLENGTH);
+		if(lengthFindString > MAXIMUM_LENGTH_OF_FIND_AND_REPLACE_STRING)
+			lengthFindString = MAXIMUM_LENGTH_OF_FIND_AND_REPLACE_STRING;
+		lengthReplaceString = FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_GETLENGTH);
+		if(lengthReplaceString > MAXIMUM_LENGTH_OF_FIND_AND_REPLACE_STRING)
+			lengthReplaceString = MAXIMUM_LENGTH_OF_FIND_AND_REPLACE_STRING;
+        // get the ascii value from the scintilla input control
+		FromHandle(handleScintillaWindowFind)->SendMessage(SCI_GETTEXT, (WPARAM)lengthFindString+1, (LPARAM)findString);
+		FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_GETTEXT, (WPARAM)lengthReplaceString+1, (LPARAM)replaceString);
 	}
+	// if we're in hex mode...
 	else {
-		// assign the user input 
-		stringFind = textFind;
-		stringReplace = textReplace;
+		// remove whitespaces from input
+		CString tempFindHex = textFindHex;
+		CString tempReplaceHex = textReplaceHex;
+		tempFindHex.Remove(' ');
+		tempReplaceHex.Remove(' ');
+		// convert input
+		char *tempFindString;
+		char *tempReplaceString;
+		convertHexToAscii(tempFindHex.GetBuffer(), &tempFindString, lengthFindString);
+		convertHexToAscii(tempReplaceHex.GetBuffer(), &tempReplaceString, lengthReplaceString);
+		// copy input, delete temporary memory
+		memcpy(findString, tempFindString, MAXIMUM_LENGTH_OF_FIND_AND_REPLACE_STRING);
+		memcpy(replaceString, tempReplaceString, MAXIMUM_LENGTH_OF_FIND_AND_REPLACE_STRING);
+		delete tempFindString;
+		delete tempReplaceString;
 	}
-
 	ASSERT(pWnd);
-
 	CHexEditBase *pWindow = (CHexEditBase*)pWnd;
 	CString msg;
 	int searchflags = 0;
 	if (checkCaseSensitive) searchflags |= HE_FIND_MATCHCASE;
 	if (checkFindBackwards) searchflags |= HE_FIND_BACKWARDS;
 	
-	LPCSTR pfind = (LPCSTR)stringFind;
-	int findlen = stringFind.GetLength();
-	LPCSTR preplace = (LPCSTR)stringReplace;
-	int replacelen = stringReplace.GetLength();
-
+	LPCSTR pfind = (LPCSTR)findString;
+	int findlen = lengthFindString;
+	LPCSTR preplace = (LPCSTR)replaceString;
+	int replacelen = lengthReplaceString; 
+	
 	// *** REPLACE (SINGLE REPLACE) ***
 	if (replace && !all)
 	{
@@ -388,7 +403,6 @@ void CDlgFindAndReplace::DoFindReplaceHexEdit(CWnd *pWnd, bool replace, bool all
 	else if (replace && all)
 	{
 		int noCnt = pWindow->ReplaceAll(pfind, findlen, preplace, replacelen, searchflags);
-
 		// how often was the desired text replaced?
 		if(!noCnt)
 		{
@@ -414,78 +428,120 @@ void CDlgFindAndReplace::DoFindReplaceHexEdit(CWnd *pWnd, bool replace, bool all
 		}
 	}
 }
-
-// add FIND term to vector (no doubled entries)
-void CDlgFindAndReplace::addFindTerm(CString _term)
-{
-	// FM, 12.03.2007 ATTENTION: insertion is done in REVERSED order now, 
-	// that means new entries are inserted AT THE BEGINNING of the list
-
-	// look for existing entries...
-	std::vector <CString>::iterator Iter;
-
-	for(Iter = termsFind.begin(); Iter != termsFind.end(); Iter++)
-		if(*Iter == _term) 
-		{   // if the term is in history then erase it (because it will be inserted at first place)
-			termsFind.erase(Iter);
-			break;
-		}
-	// ...or insert new one
-	termsFind.insert(termsFind.begin(), _term);
-}
-
-// add REPLACE term to vector (no doubled entries)
-void CDlgFindAndReplace::addReplaceTerm(CString _term)
-{
-	// FM, 12.03.2007 ATTENTION: insertion is done in REVERSED order now, 
-	// that means new entries are inserted AT THE BEGINNING of the list
-
-	std::vector <CString>::iterator Iter;
-	// look for existing entries...
-	for(Iter=termsReplace.begin(); Iter != termsReplace.end(); Iter++)
-		if( *Iter == _term) 
-		{
-			termsReplace.erase(Iter);
-			break;
-		}
-	// ...or insert new one
-	termsReplace.insert(termsReplace.begin(), _term);
-}
-
 BOOL CDlgFindAndReplace::OnInitDialog()
 {
 	CDialog::OnInitDialog();
-
-	insertOldFindAndReplaceTerms();
-
+	// create our two Scintilla windows
+	handleScintillaWindowFind = CreateWindowEx(WS_EX_CLIENTEDGE, "Scintilla", "", WS_CHILD | WS_VISIBLE | WS_TABSTOP | WS_CLIPCHILDREN, 71, 57, 300, 20, *this, NULL, NULL, NULL);
+    handleScintillaWindowReplace = CreateWindowEx(WS_EX_CLIENTEDGE, "Scintilla", "", WS_CHILD | WS_VISIBLE | WS_TABSTOP | WS_CLIPCHILDREN, 71, 89, 300, 20, *this, NULL, NULL, NULL);
+	// initializations (partly taken from CScintillaWnd::Init, May 19th, 2008)
+	FromHandle(handleScintillaWindowFind)->SendMessage(SCI_SETREADONLY, (WPARAM)FALSE);
+	FromHandle(handleScintillaWindowFind)->SendMessage(SCI_SETREADONLY, (WPARAM)FALSE);
+	FromHandle(handleScintillaWindowFind)->SendMessage(SCI_SETMODEVENTMASK, (WPARAM)SC_MOD_INSERTTEXT|SC_MOD_DELETETEXT);
+	FromHandle(handleScintillaWindowFind)->SendMessage(SCI_SETMODEVENTMASK, (WPARAM)SC_MOD_INSERTTEXT|SC_MOD_DELETETEXT);
+	FromHandle(handleScintillaWindowFind)->SendMessage(SCI_SETEOLMODE, 0, 0);
+	FromHandle(handleScintillaWindowFind)->SendMessage(SCI_SETVIEWEOL, TRUE, 0);
+	FromHandle(handleScintillaWindowFind)->SendMessage(SCI_MARKERDEFINE, 0, SC_MARK_CIRCLE);
+	FromHandle(handleScintillaWindowFind)->SendMessage(SCI_SETWRAPMODE,1);
+    FromHandle(handleScintillaWindowFind)->SendMessage(SCI_SETWRAPVISUALFLAGS,1);
+	FromHandle(handleScintillaWindowFind)->SendMessage(SCI_SETMARGINWIDTHN, 0, 0);
+	FromHandle(handleScintillaWindowFind)->SendMessage(SCI_SETWRAPMODE,0,0);
+	FromHandle(handleScintillaWindowFind)->SendMessage(SCI_SETMARGINWIDTHN, 2, 0);
+	FromHandle(handleScintillaWindowFind)->SendMessage(SCI_SETMARGINWIDTHN, 1, 0);
+    FromHandle(handleScintillaWindowFind)->SendMessage(SCI_SETINDENTATIONGUIDES, TRUE, 0);
+	FromHandle(handleScintillaWindowFind)->SendMessage(SCI_SETTABWIDTH,3,0);
+	FromHandle(handleScintillaWindowFind)->SendMessage(SCI_SETINDENT,3,0);
+	FromHandle(handleScintillaWindowFind)->SendMessage(SCI_SETCARETPERIOD,400,0);
+	FromHandle(handleScintillaWindowFind)->SendMessage(SCI_SETMODEVENTMASK, SC_MOD_INSERTTEXT|SC_MOD_DELETETEXT, 0);
+	FromHandle(handleScintillaWindowFind)->SendMessage(SCI_SETMARGINSENSITIVEN, 2, TRUE);
+	FromHandle(handleScintillaWindowFind)->SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDEROPEN, SC_MARK_MINUS);
+	FromHandle(handleScintillaWindowFind)->SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDER, SC_MARK_PLUS);
+	FromHandle(handleScintillaWindowFind)->SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDERSUB, SC_MARK_EMPTY);
+	FromHandle(handleScintillaWindowFind)->SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDERTAIL, SC_MARK_EMPTY);
+	FromHandle(handleScintillaWindowFind)->SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDEREND, SC_MARK_EMPTY);
+    FromHandle(handleScintillaWindowFind)->SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDEROPENMID, SC_MARK_EMPTY);
+    FromHandle(handleScintillaWindowFind)->SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDERMIDTAIL, SC_MARK_EMPTY);
+	FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_SETREADONLY, (WPARAM)FALSE);
+	FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_SETREADONLY, (WPARAM)FALSE);
+	FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_SETMODEVENTMASK, (WPARAM)SC_MOD_INSERTTEXT|SC_MOD_DELETETEXT);
+	FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_SETMODEVENTMASK, (WPARAM)SC_MOD_INSERTTEXT|SC_MOD_DELETETEXT);
+	FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_SETEOLMODE, 0, 0);
+	FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_SETVIEWEOL, TRUE, 0);
+	FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_MARKERDEFINE, 0, SC_MARK_CIRCLE);
+	FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_SETWRAPMODE,1);
+    FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_SETWRAPVISUALFLAGS,1);
+	FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_SETMARGINWIDTHN, 0, 0);
+	FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_SETWRAPMODE,0,0);
+	FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_SETMARGINWIDTHN, 2, 0);
+	FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_SETMARGINWIDTHN, 1, 0);
+    FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_SETINDENTATIONGUIDES, TRUE, 0);
+	FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_SETTABWIDTH,3,0);
+	FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_SETINDENT,3,0);
+	FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_SETCARETPERIOD,400,0);
+	FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_SETMODEVENTMASK, SC_MOD_INSERTTEXT|SC_MOD_DELETETEXT, 0);
+	FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_SETMARGINSENSITIVEN, 2, TRUE);
+	FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDEROPEN, SC_MARK_MINUS);
+	FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDER, SC_MARK_PLUS);
+	FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDERSUB, SC_MARK_EMPTY);
+	FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDERTAIL, SC_MARK_EMPTY);
+	FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDEREND, SC_MARK_EMPTY);
+    FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDEROPENMID, SC_MARK_EMPTY);
+    FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_MARKERDEFINE, SC_MARKNUM_FOLDERMIDTAIL, SC_MARK_EMPTY);
+        
 	// we're in text mode (not hex) by default
 	radioButtonControlText.SetCheck(1);
 	updateMode();
-
 	UpdateData(false);
-
 	return TRUE;
 }
-
-void CDlgFindAndReplace::insertOldFindAndReplaceTerms()
+BOOL CDlgFindAndReplace::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
 {
-	// remove former entries in both boxes
-	comboBoxControlFind.ResetContent();
-	comboBoxControlReplace.ResetContent();
-
-	// insert former FIND terms into combo box...
-	for(unsigned int i=0; i<termsFind.size(); i++)
-		comboBoxControlFind.InsertString(-1, termsFind[i]);
-	// insert former REPLACE terms into combo box...
-	for(unsigned int j=0; j<termsReplace.size(); j++)
-		comboBoxControlReplace.InsertString(-1, termsReplace[j]);
-
-	// select the last FIND term in the combox box
-	if(termsFind.size() > 0) comboBoxControlFind.SelectString(-1, *termsFind.begin());
-    // select the last REPLACE term in the combo box
-	if(termsReplace.size() > 0) comboBoxControlReplace.SelectString(-1, *termsReplace.begin());
+	//CDialog::OnNotify(wParam, lParam, pResult);
+	// catch notification from Scintilla windows
+	NMHDR *lpnmhdr = (LPNMHDR)(lParam);
+	
+	char *theTextFind = 0;
+	int theTextFindLength = 0;
+	char *theTextReplace = 0;
+	int theTextReplaceLength = 0;
+	// the Scintilla "find" window
+	if(lpnmhdr->hwndFrom == handleScintillaWindowFind) {
+		switch(lpnmhdr->code) {
+			case SCN_MODIFIED:
+				// TODO: retrieve new content, update history and synchronize hex field
+				theTextFindLength = FromHandle(handleScintillaWindowFind)->SendMessage(SCI_GETLENGTH);
+				theTextFindLength++;
+				theTextFind = new char[theTextFindLength + 1];
+				memset(theTextFind, 0, theTextFindLength);
+				FromHandle(handleScintillaWindowFind)->SendMessage(SCI_GETTEXT, (WPARAM)theTextFindLength, (LPARAM)theTextFind);
+				// assign new value
+				textFind = theTextFind;
+                return TRUE;
+				break;
+			default:
+				break;
+		}
+	}
+	// the Scintilla "replace" window
+	if(lpnmhdr->hwndFrom == handleScintillaWindowReplace) {
+		switch(lpnmhdr->code) {
+			case SCN_MODIFIED:
+				// TODO: retrieve new content, update history and synchronize hex field
+				theTextReplaceLength = FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_GETLENGTH);
+				theTextReplaceLength++;
+				theTextReplace = new char[theTextReplaceLength + 1];
+				memset(theTextReplace, 0, theTextReplaceLength);
+				FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_GETTEXT, (WPARAM)theTextReplaceLength, (LPARAM)theTextReplace);
+				// assign new value
+				textReplace = theTextReplace;
+                return TRUE;
+				break;
+			default:
+				break;
+		}
+	}
+	return FALSE;
 }
-
 void CDlgFindAndReplace::show()
 {
 	if(!created)
@@ -493,47 +549,65 @@ void CDlgFindAndReplace::show()
 		Create(IDD_FIND_AND_REPLACE);
 		created = true;
 	}
-
-	insertOldFindAndReplaceTerms();
-
 	ShowWindow(SW_SHOW);
 }
-
 void CDlgFindAndReplace::OnCancel() 
 {
 	ShowWindow(SW_HIDE);
 }
-
 // user clicked the "text mode" radio button
 void CDlgFindAndReplace::OnBnClickedRadioTextMode()
 {
 	updateMode();
 }
-
 // user clicked the "hex mode" radio button
 void CDlgFindAndReplace::OnBnClickedRadioHexMode()
 {
 	updateMode();
 }
-
 void CDlgFindAndReplace::updateMode()
 {
 	UpdateData(true);
-
 	// we're in text mode...
 	if(radioButtonControlText.GetCheck()) {
 		// enable text-related input fields
-		GetDlgItem(IDC_COMBO_FIND)->EnableWindow(true);
-		GetDlgItem(IDC_COMBO_FIND)->ShowWindow(SW_SHOW);
-		GetDlgItem(IDC_COMBO_REPLACE)->EnableWindow(true);
-		GetDlgItem(IDC_COMBO_REPLACE)->ShowWindow(SW_SHOW);
+		FromHandle(handleScintillaWindowFind)->EnableWindow(true);
+		FromHandle(handleScintillaWindowFind)->ShowWindow(SW_SHOW);
+		FromHandle(handleScintillaWindowReplace)->EnableWindow(true);
+		FromHandle(handleScintillaWindowReplace)->ShowWindow(SW_SHOW);
 		// disable hex-related input fields	
 		GetDlgItem(IDC_EDIT_FIND_HEX)->EnableWindow(false);
 		GetDlgItem(IDC_EDIT_FIND_HEX)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_EDIT_REPLACE_HEX)->EnableWindow(false);
 		GetDlgItem(IDC_EDIT_REPLACE_HEX)->ShowWindow(SW_HIDE);
+		// ****************************************************
+		// synchronize the input fields (copy from hex -> text)
+		CString temp;
+		char *ascii;
+		int asciiLength;
+		// *** FIND FIELD *************************************
+		// remove all whitespaces
+		temp = textFindHex;
+		temp.Remove(' ');
+		// convert hex to ascii
+		convertHexToAscii(temp.GetBuffer(), &ascii, asciiLength);
+		// make scintilla input control display the calculated ascii value 
+		FromHandle(handleScintillaWindowFind)->SendMessage(SCI_CLEARALL);
+		FromHandle(handleScintillaWindowFind)->SendMessage(SCI_ADDTEXT, (WPARAM)asciiLength, (LPARAM)ascii);
+		// clean up memory
+		delete ascii;
+		// *** REPLACE FIELD **********************************
+		// remove all whitespaces
+		temp = textReplaceHex;
+		temp.Remove(' ');
+		// convert hex to ascii
+		convertHexToAscii(temp.GetBuffer(), &ascii, asciiLength);
+		// make scintilla input control display the calculated ascii value
+		FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_CLEARALL);
+		FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_ADDTEXT, (WPARAM)asciiLength, (LPARAM)ascii);
+		// clean up memory
+		delete ascii;
 	}
-
 	// we're in hex mode...
 	if(radioButtonControlHex.GetCheck()) {
 		// enable hex-related input fields
@@ -542,11 +616,61 @@ void CDlgFindAndReplace::updateMode()
 		GetDlgItem(IDC_EDIT_REPLACE_HEX)->EnableWindow(true);
 		GetDlgItem(IDC_EDIT_REPLACE_HEX)->ShowWindow(SW_SHOW);
 		// disable text-related input fields
-		GetDlgItem(IDC_COMBO_FIND)->EnableWindow(false);
-		GetDlgItem(IDC_COMBO_FIND)->ShowWindow(SW_HIDE);
-		GetDlgItem(IDC_COMBO_REPLACE)->EnableWindow(false);
-		GetDlgItem(IDC_COMBO_REPLACE)->ShowWindow(SW_HIDE);
+		FromHandle(handleScintillaWindowFind)->EnableWindow(false);
+		FromHandle(handleScintillaWindowFind)->ShowWindow(SW_HIDE);
+		FromHandle(handleScintillaWindowReplace)->EnableWindow(false);
+		FromHandle(handleScintillaWindowReplace)->ShowWindow(SW_HIDE);
+		// ****************************************************
+		// synchronize the input fields (copy from text -> hex)
+		CString temp;
+		char *hex;
+		char *ascii;
+		int asciiLength;
+		int estimatedStringLengthHex;
+		
+		// *** FIND FIELD *************************************
+		// get the length of the text in the scintilla control
+		asciiLength = FromHandle(handleScintillaWindowFind)->SendMessage(SCI_GETLENGTH);
+		ascii = new char[asciiLength+1];
+		memset(ascii, 0, asciiLength+1);
+		// get the ascii value from the scintilla input control
+		FromHandle(handleScintillaWindowFind)->SendMessage(SCI_GETTEXT, (WPARAM)asciiLength+1, (LPARAM)ascii);
+		// convert ascii to hex
+		convertAsciiToHex(ascii, asciiLength, &hex);
+		// insert a white space after each two characters
+		temp = hex;
+		estimatedStringLengthHex = temp.GetLength() + (temp.GetLength() / 2) - 1 + (temp.GetLength() % 2);
+		for(int i=2; i<estimatedStringLengthHex; i+=3)
+			temp.Insert(i, ' ');
+		// make the hex control display the calculated hex value
+		textFindHex = temp;
+		// transform new hex value to uppercase
+		textFindHex.MakeUpper();
+		// clean up memory
+		delete hex;
+		delete ascii;
+		
+		// *** REPLACE FIELD **********************************
+		// get the length of the text in the scintilla control
+		asciiLength = FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_GETLENGTH);
+		ascii = new char[asciiLength+1];
+		memset(ascii, 0, asciiLength+1);
+		// get the ascii value from the scintilla input control
+		FromHandle(handleScintillaWindowReplace)->SendMessage(SCI_GETTEXT, (WPARAM)asciiLength+1, (LPARAM)ascii);
+		// convert ascii to hex
+		convertAsciiToHex(ascii, asciiLength, &hex);
+		// insert a white space after each two characters
+		temp = hex;
+		estimatedStringLengthHex = temp.GetLength() + (temp.GetLength() / 2) - 1 + (temp.GetLength() % 2);
+		for(int i=2; i<estimatedStringLengthHex; i+=3)
+			temp.Insert(i, ' ');		
+		// make the hex control display the calculated hex value
+		textReplaceHex = temp;
+		// transform new hex value to uppercase
+		textReplaceHex.MakeUpper();
+		// clean up memory
+		delete hex;
+		delete ascii;
 	}
-
 	UpdateData(false);
 }
