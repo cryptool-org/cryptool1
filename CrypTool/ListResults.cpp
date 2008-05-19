@@ -120,6 +120,16 @@ void CListResults::OnSize(UINT nType, int cx, int cy)
 	RECT newRectDialog;
 	this->GetWindowRect(&newRectDialog);
 
+	// return if the new dialog rect is smaller then the initial one
+	int widthOld = initialRectDialog.right - initialRectDialog.left;
+	int widthNew = newRectDialog.right - newRectDialog.left;
+	int heightOld = initialRectDialog.bottom - initialRectDialog.top;
+	int heightNew = newRectDialog.bottom - newRectDialog.top;
+	if(widthNew < widthOld || heightNew < heightOld) {
+		this->MoveWindow(newRectDialog.left, newRectDialog.top, widthOld, heightOld);
+		return;
+	}
+
 	// compute new list window rect
 	int marginRightList = initialRectDialog.right - initialRectList.right;
 	int marginBottomList = initialRectDialog.bottom - initialRectList.bottom;
@@ -148,6 +158,8 @@ void CListResults::OnSize(UINT nType, int cx, int cy)
 	windowList->MoveWindow(xList, yList, widthList, heightList);
 	windowButtonOK->MoveWindow(xButtonOK, yButtonOK, widthButtonOK, heightButtonOK);
 	windowButtonCancel->MoveWindow(xButtonCancel, yButtonCancel, widthButtonCancel, heightButtonCancel);
+
+	Invalidate();
 }
 
 char* CListResults::get_keyhex()
