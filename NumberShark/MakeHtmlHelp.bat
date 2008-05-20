@@ -6,22 +6,22 @@ if x%LANG%==x set LANG=de
 if x%OUTDIR%==x set OUTDIR=.\Debug
 
 rem if MSVCdir is not set call vcvars32 to fix
-if x%MSVCdir%==x call vcvars32
+if "%MSVCdir%"=="" call vcvars32
 
 set HLP=sharkHelp_%LANG%
-set HM=%HLP%\NumberShark.hm
+set HM=NumberShark.hm
 
 
 
 echo Compiling the help: NumberShark-%LANG%.chm 
 
-start /wait hhc.exe %HLP%\NumberShark.hhp
+start /wait hhc.exe NumberShark.hhp
 REM For some reason, HHC returns one on success.
 if not errorlevel 1 goto Error
 
 mkdir %OUTDIR% 2>nul
-echo copy "%HLP%\NumberShark-%LANG%.chm" %OUTDIR% 
-copy "%HLP%\NumberShark-%LANG%.chm" %OUTDIR% 
+echo copy "NumberShark-%LANG%.chm" %OUTDIR% 
+copy "NumberShark-%LANG%.chm" %OUTDIR% 
 if errorlevel 1 exit 1
 
 goto done
@@ -32,11 +32,11 @@ echo please make sure that perl is installed and in PATH
 exit 1
 
 :Error													
-echo %HLP%\NumberShark.hhp : FAILURE: the help compiler could not compile without failures. Please see %HLP%\NumberShark.log.
+echo NumberShark.hhp : FAILURE: the help compiler could not compile without failures. Please see NumberShark.log.
 goto done
 
 :skip														
-echo Skipping help file generation. Remove "makehelp.no" and "%HLP%\makehelp.no" if this is not what you want	
+echo Skipping help file generation. Remove "makehelp.no" and "makehelp.no" if this is not what you want	
 goto done													
 
 :done													
