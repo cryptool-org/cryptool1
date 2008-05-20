@@ -18,9 +18,9 @@
 			CharacterSet="2">
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; OUTDIR=$(OutDir)"
-				ReBuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; /a OUTDIR=$(OutDir)"
-				Output="..\$(ConfigurationName)\NumberShark-pl.chm"/>
+				BuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; LANG=pl OUTDIR=..\..\$(ConfigurationName)"
+				ReBuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; /a LANG=pl OUTDIR=..\..\$(ConfigurationName)"
+				Output="NumberShark-pl.chm"/>
 		</Configuration>
 		<Configuration
 			Name="Release_pl|Win32"
@@ -30,9 +30,9 @@
 			CharacterSet="2">
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; OUTDIR=$(OutDir)"
-				ReBuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; /a OUTDIR=$(OutDir)"
-				Output="..\$(ConfigurationName)\NumberShark-pl.chm"/>
+				BuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; LANG=pl OUTDIR=..\..\$(ConfigurationName)"
+				ReBuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; /a LANG=pl OUTDIR=..\..\$(ConfigurationName)"
+				Output="NumberShark-pl.chm"/>
 		</Configuration>
 	</Configurations>
 	<References>
