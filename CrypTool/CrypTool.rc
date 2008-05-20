@@ -11352,7 +11352,7 @@ BEGIN
     IDS_ANIMAL_FILE_DES     "anims\\des_en.aml"
     IDS_SCA_HYBRIDENCRYPTEDFILE_DEFAULT_PSEFILE 
                             "listOdAlicjiDoBoba-Zaszyfrowany-pl.hex"
-    IDS_ANIMAL_FILE_LOCALE  """locale=en_EN"" ""animation/animal-ascii-compressed"""
+    IDS_ANIMAL_FILE_LOCALE  """-locale=en_EN"" ""animation/animal-ascii-compressed"""
     IDS_SCA_KEYWORDPROBLEM  "Dla p³ynnego wykonania ataku side-channel otwarty dokument musi zawieraæ s³owo kluczowe ""%s""\nCzy chcesz dodaæ to s³owo kluczowe do dokumentu?"
 END
 
@@ -23348,7 +23348,7 @@ BEGIN
     IDS_ANIMAL_FILE_DES     ".\\anims\\des_de.aml"
     IDS_SCA_HYBRIDENCRYPTEDFILE_DEFAULT_PSEFILE 
                             "examples/letterFromAliceToBob-ENCRYPTED-de.hex"
-    IDS_ANIMAL_FILE_LOCALE  """locale=de_DE"" ""animation/animal-ascii-compressed"""
+    IDS_ANIMAL_FILE_LOCALE  """-locale=de_DE"" ""animation/animal-ascii-compressed"""
     IDS_SCA_KEYWORDPROBLEM  "Für einen reibungslosen Ablauf des Seitenkanalangriffs muss das geöffnete Dokument das Schlüsselwort ""%s"" enthalten.\nWollen Sie dieses Schlüsselwort an die Datei anfügen?"
 END
 
@@ -35512,7 +35512,7 @@ BEGIN
     IDS_ANIMAL_FILE_DES     "anims\\des_en.aml"
     IDS_SCA_HYBRIDENCRYPTEDFILE_DEFAULT_PSEFILE 
                             "examples/letterFromAliceToBob-ENCRYPTED-en.hex"
-    IDS_ANIMAL_FILE_LOCALE  """locale=en_EN"" ""animation/animal-ascii-compressed"""
+    IDS_ANIMAL_FILE_LOCALE  """-locale=en_EN"" ""animation/animal-ascii-compressed"""
     IDS_SCA_KEYWORDPROBLEM  "For a smooth execution of the side-channel attack the opened document must contain the keyword ""%s"".\nDo you want to append this keyword to the document?"
 END
 
