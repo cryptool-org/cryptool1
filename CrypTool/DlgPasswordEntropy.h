@@ -55,6 +55,7 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV-Unterstützung
+	virtual BOOL OnInitDialog();
 
 	virtual void EditPasswordBitLengthChanged();
 	virtual void EditPasswordAlphabetChanged();

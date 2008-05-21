@@ -537,6 +537,7 @@ hid_passwordentropy.html
 persistentsettings.html
 hid_format_text_document.html
 hidd_format_text_document.html
+cryptochallenges.html
 
 [ALIAS]
 #include CrypTool_Alias.h

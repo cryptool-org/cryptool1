@@ -89,6 +89,15 @@ void CDlgPasswordEntropy::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT_PASSWORDALPHABET, editControlPasswordAlphabet);
 }
 
+BOOL CDlgPasswordEntropy::OnInitDialog()
+{
+	CDialog::OnInitDialog();
+
+	// set the focus to bit length input field
+	GetDlgItem(IDC_EDIT_PASSWORDBITLENGTH)->SetFocus();
+	
+	return FALSE;
+}
 
 BEGIN_MESSAGE_MAP(CDlgPasswordEntropy, CDialog)
 	ON_BN_CLICKED(ID_GENERATEPASSWORD, OnBnClickedGeneratepassword)
@@ -123,6 +132,9 @@ void CDlgPasswordEntropy::OnBnClickedGeneratepassword()
 		stringPasswordExample +=  stringPasswordAlphabet[index];
 	}
 
+	// set the focus to bit length input field
+	GetDlgItem(IDC_EDIT_PASSWORDBITLENGTH)->SetFocus();
+
 	UpdateData(false);
 }
 
@@ -147,6 +159,9 @@ void CDlgPasswordEntropy::OnBnClickedTextoptions()
 
 	// update the required password length
 	updatePasswordLength();
+
+	// set the focus to bit length input field
+	GetDlgItem(IDC_EDIT_PASSWORDBITLENGTH)->SetFocus();
 }
 
 void CDlgPasswordEntropy::EditPasswordBitLengthChanged() 

@@ -33,9 +33,9 @@ CAPTION "Informacje o grze NumberShark"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     ICON            128,IDC_STATIC,11,17,20,20
-    LTEXT           "Number Shark Wersja 1.0 Beta 14",IDC_STATIC,40,10,119,8,
+    LTEXT           "Number Shark Wersja 1.1.5",IDC_STATIC,40,10,119,8,
                     SS_NOPREFIX
-    LTEXT           "Copyright (C) 2006",IDC_STATIC,40,25,119,8
+    LTEXT           "Copyright (C) 2008",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
 END
 
@@ -581,9 +581,9 @@ CAPTION "Info über den Zahlenhai"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     ICON            128,IDC_STATIC,11,17,20,20
-    LTEXT           "ZahlenHai Version 1.0 Beta 14",IDC_STATIC,40,10,119,8,
+    LTEXT           "ZahlenHai Version 1.1.5",IDC_STATIC,40,10,119,8,
                     SS_NOPREFIX
-    LTEXT           "Copyright (C) 2006",IDC_STATIC,40,25,119,8
+    LTEXT           "Copyright (C) 2008",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
 END
 
@@ -1096,9 +1096,9 @@ CAPTION "Information about the Number Shark"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     ICON            128,IDC_STATIC,11,17,20,20
-    LTEXT           "Number Shark Version 1.0 Beta 14",IDC_STATIC,40,10,119,
-                    8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2006",IDC_STATIC,40,25,119,8
+    LTEXT           "Number Shark Version 1.1.5",IDC_STATIC,40,10,119,8,
+                    SS_NOPREFIX
+    LTEXT           "Copyright (C) 2008",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
 END
 
