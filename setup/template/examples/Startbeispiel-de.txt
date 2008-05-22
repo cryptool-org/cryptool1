@@ -18,4 +18,5 @@ Die Startseite selbst erreichen Sie über das Menü "Hilfe \ Startseite" oder inde
 - Sie schauen sich die beiliegende Präsentation an (siehe Abschnitt "Dokumentation" auf der Startseite der Online-Hilfe).
 - Sie schauen sich die Webseite www.cryptool.de an.
 
-Juli 2007
+Juni 2008
+
