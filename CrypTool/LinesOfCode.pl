@@ -30,7 +30,8 @@ my %fileTypes = (
     "Java source code" => "java",
     "HTML code" => "html hpp",
     "LaTex code" => "tex",
-    "Text files" => "txt" 
+    "Text files" => "txt",
+    "Perl files" => "pl",
 );
 
 
