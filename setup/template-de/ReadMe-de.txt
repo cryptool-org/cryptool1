@@ -612,31 +612,33 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
   svn checkout https://file.sec-tud.de/svn/CrypTool/trunk
       --username anonymous --password anonymous
 
-- Einen Eindruck von der Größe des Projekts liefert die folgende, Anfang
-  Juni 2008 erstellte Statistik (anhand der wichtigsten Dateien für die
+- Einen Eindruck von der Größe des Projekts liefert die folgende, im Mai
+  2008 erstellte Statistik (anhand der wichtigsten Dateien für die
   deutsche und englische Version):
 
-    FILE SUMMARY xxxxxxxxxxxxxxxxxxxxxxxxxx
+    FILE SUMMARY
     ------------
-        5 .rc   files
-       38 .c    files
-     1050 .html files
-      363 .h    files
-      304 .cpp  files
-        8 .java files
-        9 .tex  files
-       22 .txt  files
+              5 .rc files
+             38 .c files
+            308 .cpp files
+            369 .h files
+              8 .java files
+              9 .pl files
+           1604 .html files
+            108 .txt files
+              9 .tex files
   
     LINES OF CODE (LoC) SUMMARY
     ---------------------------
-     25.847 MFC resource code (rc)
-      1.632 LaTex code (tex)
-     63.127 HTML code (html hpp)
-      3.247 Java source code (java)
-      4.202 Text files (txt)
-    221.716 C/C++ source code (h c cpp)
-  
-    TOTAL: 319.771 lines of code
+         39.149 MFC resource code (rc)
+        238.731 C/C++ source code (h c cpp)
+          3.247 Java source code (java)
+          1.262 Perl files (pl)
+         94.794 HTML code (html hpp)
+          4.392 Text files (txt)
+          1.632 LaTex code (tex)
+
+    TOTAL: 383.207 lines of code (plus of 19,8 % from 319.771 with v1.4.10)
 
    Snapshot zur Anzahl von Dateien und zur Anzahl der Sourcecode-Zeilen
 
@@ -670,7 +672,7 @@ a) Entwickler-relevante Änderungen (eher programm-technisch):
 
 - Aufräumen des Sourcecode, höhere Wiederverwendung.
 
-- Update auf OpenSSL 0.9.8g und ANIMAL 2.3.14.
+- Update auf OpenSSL 0.9.8g, ANIMAL 2.3.14 and NSIS 2.37.
 
 - Automatisierter Konsistenzcheck in der Onlinehilfe (Verweis auf Menüs,
   Dialoge, Bilder, Querverlinkung).
@@ -1853,7 +1855,7 @@ Version   Datum         Größe des Windows-Setups  Plattenplatz  Freigabe
 1.3.05    Aug. 2003       8,6 MB      8,1 MB         -            DB
 1.4.00    Juli 2006      18,4 MB     18,2 MB         -            DB
 1.4.10    Juli 2007      27,5 MB     26,7 MB         47 MB        DB
-1.4.20    Juni 2008      36,7 MB     35,9 MB         72 MB        DB
+1.4.20    Juni 2008      36,7 MB     36,0 MB         72 MB        DB
 
 Bemerkungen zu den Versionen:
 1.3.02    Viele neue Funktionen gegenüber 1.3.00.
@@ -2221,7 +2223,11 @@ CrypTool erhielt u.a. folgende explizite Auszeichnungen (s. Webseite):
 
 11.1. CrypTool unter Linux mit Wine
       -----------------------------
-Diese Hinweise basieren auf Tests mit Wine 0.9.9.
+Wir unternehmen keine Anstrengungen, Wine zu unterstützen. Stattdessen wird es
+mit CrypTooLinux v.1.0 direkten Support für Linux geben (siehe Kapitel 3.5 und
+http://www.cryptoolinux.net/).
+
+Die folgenden Hinweise basieren auf Tests mit Wine 0.9.9.
 
 Es wird nicht empfohlen, CrypTool unter Wine zu nutzen, da viele
 Dinge dort nur teilweise richtig funktionieren. Eine vollständige

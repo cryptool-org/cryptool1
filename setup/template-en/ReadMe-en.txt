@@ -25,15 +25,15 @@
  3.2. .... Functionality: Analysis
  3.3. .... Internal interfaces / editors
  3.4. .... User interface / visualizations
- 3.5. .... Porting to Linux, Java and VS2005/WPF
- 3.6. .... Meaningful tasks to make the new maintainer familiar with
+ 3.5. .... Roadmap: Porting to Linux, Future Projects using Java/Eclipse and C#/.NET
+ 3.6. .... Meaningful tasks to make a new maintainer familiar with the code
  4. .... Limitations and requirements
  4.1. .... Scope of this Education, training and awareness software
- 4.2. .... Win32 environment and roadmap
+ 4.2. .... Win32 environment and Java-Runtime
  4.3. .... Interactive online help under Windows XP
  4.4. .... Support for different languages
  4.5. .... Restrictions / Features
- 4.6. .... Using certificates created with older CrypTool versions
+ 4.6. .... Using certificates and keys created with older CrypTool versions
  5. .... Installation / de-installation / operating
  5.1. .... Installation and further usage of keys of previous versions
  5.2. .... Installation under multi-user operating systems
@@ -44,7 +44,7 @@
  7. .... Brief history of the released main versions of CrypTool
  8. .... Feedback
  9. .... Contact addresses
-10. .... References / hints
+10. .... References / Hints / Awards
 10.1. .... Articles about CrypTool
 10.2. .... Further references
 10.3. .... Further freeware projects (Crank, CAP, CryptoStudio, etc)
@@ -377,7 +377,7 @@ I also want to thank
   colleagues the Spanish version.
 
 
-1.4. Maintainer and Hosting
+1.4. Maintainer and hosting
      ----------------------
 Since April 2008 the chair "Division for distributed systems", Engineering
 department from Prof. Dr. Weis at the University of Duisburg-Essen, Germany
@@ -595,30 +595,32 @@ The general properties and functions of CrypTool are:
        --username anonymous --password anonymous
 
 To get an impression of the size of the project here is a statistics created
-in June 2008 using the most important files for the English and the German
+in May 2008 using the most important files for the English and the German
 version).
 
-    FILE SUMMARY xxxxxxxxxxxxxxxxxx
+    FILE SUMMARY
     ------------
-        5 .rc   files
-       38 .c    files
-     1050 .html files
-      363 .h    files
-      304 .cpp  files
-        8 .java files
-        9 .tex  files
-       22 .txt  files
+              5 .rc files
+             38 .c files
+            308 .cpp files
+            369 .h files
+              8 .java files
+              9 .pl files
+           1604 .html files
+            108 .txt files
+              9 .tex files
   
     LINES OF CODE (LoC) SUMMARY
     ---------------------------
-     25,847 MFC resource code (rc)
-      1,632 LaTex code (tex)
-     63,127 HTML code (html hpp)
-      3,247 Java source code (java)
-      4,202 Text files (txt)
-    221,716 C/C++ source code (h c cpp)
-  
-    TOTAL: 319,771 lines of code
+         39,149 MFC resource code (rc)
+        238,731 C/C++ source code (h c cpp)
+          3,247 Java source code (java)
+          1,262 Perl files (pl)
+         94,794 HTML code (html hpp)
+          4,392 Text files (txt)
+          1,632 LaTex code (tex)
+
+    TOTAL: 383,207 lines of code (plus of 19.8 % from 319,771 with v1.4.10)
 
    Snapshot about the number of files and the number of lines of code
 
@@ -652,7 +654,7 @@ a) Developer-relevant changes (more technically oriented):
 
 - Clearance of source code, better reusage.
 
-- Update to OpenSSL 0.9.8g and ANIMAL 2.3.14.
+- Update to OpenSSL 0.9.8g, ANIMAL 2.3.14 and NSIS 2.37
 
 - Automated consistency check within the online help (link to menus,
   dialogs, pictures, mutual links).
@@ -1105,8 +1107,8 @@ d) Porting of CrypTool 1.4.x to Linux using GCC 4.x and Qt 4.x.
 
 
 
-3.6. Meaningful tasks to make the new maintainer familiar with
-     ---------------------------------------------------------
+3.6. Meaningful tasks to make a new maintainer familiar with the code
+     ----------------------------------------------------------------
 - Integration of further classic methods like e.g. autokey, Nihilist
   or Enigma (without visualization).
 
@@ -1114,7 +1116,7 @@ d) Porting of CrypTool 1.4.x to Linux using GCC 4.x and Qt 4.x.
   see all places where to enhance the sources (function itself,
   options, menus + status line info, online help, ...).
 
-- Offer all kind of transpositions and superpositions for the
+- Offer all kinds of transpositions and superpositions for the
   content of text windows in an easy-to-use dialogue window.
 
 - Show in a dialog all keys which are saved for the different
@@ -1793,7 +1795,7 @@ Version   Date		Size of Windows Setup  Needed Size  Released
 1.3.05    Aug. 2003	 8.2 MB       8.6 MB	-            DB
 1.4.00    July 2006	18.2 MB      18.4 MB	-            DB
 1.4.10    July 2007	26.7 MB	     27.5 MB	47 MB        DB
-1.4.20    June 2008	35.9 MB	     36.7 MB	72 MB        DB
+1.4.20    June 2008	36.0 MB	     36.7 MB	70 MB        DB
 
 Remarks about the versions:
 1.3.02    Many new functions compared to 1.3.00.
@@ -2151,7 +2153,10 @@ CrypTool was honoured with the following awards (see web page):
 
 11.1. Hints for using CrypTool on Linux with Wine
       -------------------------------------------
-These hints are based on tests with Wine 0.9.9.
+Generally we do not aim to support Wine. With CrypTooLinux v.1.0 there will
+be native Linux support (see chapter 3.5 and http://www.cryptoolinux.net/).
+
+The following hints are based on tests with Wine 0.9.9.
 
 We do not recommend to use CrypTool under Wine, because too many things
 there only work partly. A full featured CrypTool version for Linux can
