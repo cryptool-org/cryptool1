@@ -67,18 +67,19 @@ Prüfung der Integrität, die Erstellung von Signaturen, sichere
 Authentisierung und Vieles mehr. CrypTool unterstützt sowohl die
 Ausführung als auch die Analyse solcher Verfahren.
 
-CrypTool wird seit 1998 entwickelt. Im Moment arbeiten über 30 Personen
+CrypTool wird seit 1998 entwickelt. Im Moment arbeiten über 40 Personen
 weltweit daran.
 
 Zu jedem Programmteil gibt es reichhaltige Online-Hilfe, die auch
 ohne tiefes Kryptowissen verstanden werden kann.
 
 CrypTool existiert in den vier Sprachen Deutsch, Englisch, Polnisch
-und Spanisch: In Deutsch und Englisch ist CrypTool komplett vorhanden.
-Die Polnische Version hat die gleiche Funktionalität [übersetzt sind
-im Moment das Programm selbst, also die Oberfläche (Menüs, Dialoge,
-...) und die Onlinehilfe. Die der polnischen Version beigelegte
-Dokumentation ist noch in Englisch]. Ähnlich ist es bei der
+und Spanisch. In Deutsch und Englisch ist das CrypTool-Paket komplett
+vorhanden.
+Die Polnische Programm-Version hat die gleiche Funktionalität [übersetzt
+sind im Moment das Programm selbst, also die Oberfläche (Menüs, Dialoge,
+...) und die Onlinehilfe.  Die der polnischen Version beigelegte
+PDF-Dokumentation ist noch in Englisch]. Ähnlich ist es bei der
 spanischen Version.
 
 Vorausgesetzt wird, dass der Benutzer mit Anwendungen in einer
@@ -113,13 +114,16 @@ CrypTool. Diese werden z.B. auf der Webseite, bei der Installation und
 auf der Einstiegsseite der Online-Hilfe erläutert.
 
 Für bisherige Benutzer von CrypTool dürften in diesem Readme sind vor
-allem die Kapitel 5 (Neuerungen) und 6 (Weiterentwicklung) interessant
-sein.
+allem die Kapitel 2.4 (Neuerungen) und 3 (Weiterentwicklung, Roadmap)
+interessant sein.
 
 Wir laden jeden herzlich ein, an CrypTool mit zu entwickeln oder
 Feedback zu geben. Auch für Hinweise zu Arbeiten (Diplom-, Doktor-
 oder Seminararbeiten), die man in CrypTool integrieren könnte, sind
-wir sehr dankbar. 
+wir sehr dankbar.
+Insbesondere junge Entwickler sind eingeladen, sich zu trauen -- sie können
+bei erfahrenen Entwicklern sehr viel über professionelle Software-Entwicklung
+lernen. 
 Kontakte: Siehe Kapitel 9 unten.
 
 
@@ -178,9 +182,9 @@ eingesetzt wird:
   - der Miracl-Bibliothek von Shamus Software (http://indigo.ie/~mscott/),
   - der OpenSSL-Bibliothek (http://www.openssl.org/),
   - der NTL-Zahlentheorie-Bibliothek von Victor Shoup
-    (http://www.shoup.net/ntl/),
+        (http://www.shoup.net/ntl/),
   - der GMP-Bibliothek für beliebig genaue Arithmetik
-    (http://www.swox.com/gmp/) und
+        (http://www.swox.com/gmp/) und
   - der cv act library der cv cryptovision Gmbh (www.cryptovision.com).
  
   Die aktuell benutzten Versionen der inkludierten Bibliotheken finden
@@ -220,7 +224,7 @@ d) Präsentation, die auf Folien die Möglichkeiten von CrypTool
 Die folgenden Programme können aus CrypTool heraus, aber auch stand-alone
 aufgerufen werden:
 
-a) Das Programm AES-Tool v 2.5 (entstanden im CrypTool-Projekt)
+a) Das Programm AES-Tool v 2.5 (entstanden im CrypTool-Projekt):
    Zum Erstellen selbst-entpackender Executables ist in CrypTool ein
    Programm integriert, das auch eigenständig benutzt werden kann.
    Darin wird aus einem Passwort ein Session-Key erzeugt, mit dem
@@ -230,11 +234,11 @@ a) Das Programm AES-Tool v 2.5 (entstanden im CrypTool-Projekt)
    Bei der Installation wird diesem Programm die Dateiendung "AES"
    zugeordnet.
 
-b) Das Lernspiel "Der Zahlenhai" v 1.1.5 (entstanden im CrypTool-Projekt)
+b) Das Lernspiel "Der Zahlenhai" v 1.1.5 (entstanden im CrypTool-Projekt):
    Dieses Lernspiel für Schüler bringt diesen den Umgang mit
    Teilern und Primfaktoren näher.
 
-c) Das Animationsprogramm ANIMAL (siehe http://www.algoanim.info/Animal2)
+c) Das Animationsprogramm ANIMAL (siehe http://www.algoanim.info/Animal2):
    Mit diesem an der TU Darmstadt von Dr. Rößling gepflegten Programm
    kann man die Einzelschritte von Algorithmen oder die Komponenten von
    Datenstrukturen beliebig genau modellieren, die Einzelschritte manuell
@@ -244,10 +248,10 @@ c) Das Animationsprogramm ANIMAL (siehe http://www.algoanim.info/Animal2)
    einer GUI, einer Skriptsprache sowie einer Java-API.
    Weitere Beispiele finden sich im ANIMAL-Repository (Datenbank):
    http://www.algoanim.info/Animal2/?q=node/284
-   Hierzu wird die JRE 1.5 benötigt (siehe Kapitel 4.2)
+   Hierzu wird die JRE 1.5 benötigt (siehe Kapitel 4.2).
 
 d) Ebenso wie ANIMAL ist die ECC-Demo eine eigenständige Java-Anwendung
-   (JAR-Datei). Hierzu wird die JRE 1.5 benötigt (siehe Kapitel 4.2).
+   (JAR-Datei). Hierzu wird auch die JRE 1.5 benötigt (siehe Kapitel 4.2).
 
 e) Die Flash-Anwendungen:
    - "Rijndael-Animation" (visualisiert das Verschlüsselungsverfahren AES),
@@ -274,10 +278,10 @@ a) Als PDF-Datei sind zwei Geschichten beigelegt:
    - In "Das Chinesische Labyrinth" muss Marco Polo zahlentheoretische
      Aufgaben lösen, um Berater des Großen Khan zu werden.
 
-b) Krypto-Wettbewerbe
-   Ebenfalls beigelegt sind 13 verschlüsselte Texten, die der Buchautor
-   Klaus Schmeh uns freundlicherweise zur Verfügung stellte. Sie stammen
-   größtenteils aus seinem Buch "Codeknacker gegen Codemacher":
+b) Krypto-Wettbewerbe:
+   Ebenfalls beigelegt sind 13 Dateien mit verschlüsselten Texte, die uns
+   freundlicherweise Klaus Schmeh zur Verfügung stellte, der Autor des
+   Buches "Codeknacker gegen Codemacher":
    Klaus Schmeh: "Codeknacker gegen Codemacher. Die faszinierende Geschichte
                  der Verschlüsselung", 2. Auflage, Dezember 2007, W3L-Verlag
 
@@ -310,8 +314,8 @@ Zu CrypTool haben sehr viele verschiedene Personen (weit über 100)
 beigetragen -- insbesondere auch in ihrer Freizeit.
 Einige sind namentlich in der Dialogbox aufgeführt, die man erhält,
 wenn man in der Dialogbox "Über CrypTool" einen Doppelklick ausführt.
-Der Wohnort einiger Entwickler ist auf der CrypTool-Webseite per
-Google-Map zu finden.
+Der Wohnort einiger Entwickler/Mitwirkenden ist auf der CrypTool-Webseite
+per Google-Map zu finden.
 Herzlichen Dank an alle Mitwirkenden.
 
 Besonders herausheben möchte ich einige Kernentwickler/-Architekten
@@ -328,14 +332,14 @@ Software-Architekturen bewältigten:
 - Dominik, Tobias, Al-Akkad, David
 
 Und natürlich den vielen Ungenannten, insbesondere Studenten und
-Praktikanten, die viel dazu beitrugen und dabei von den Experten
-noch mehr lernten.
+Praktikanten, die viel dazu beitrugen und dabei noch mehr lernten
+von den Experten im Projekt.
 
 Ebenfalls beigetragen haben als Sponsoren z.B. die Deutsche Bank AG,
 die Technische Universität Darmstadt und die Universität Duisburg-Essen.
 
-Ohne vollständig sein zu wollen, möchten wir hier einige Mitwirkende
-erwähnen, für deren Input besondere Bedingungen gelten:
+Weiterhin möchten wir hier einige Mitwirkende erwähnen, für deren Input
+besondere Bedingungen gelten:
 
 - Dr. Carsten Elsner erlaubte uns, seine beiden Geschichten als 
   PDF-Datei beizulegen.
@@ -372,13 +376,13 @@ Ebenso herzlich danken möchten wir den Open-Source-Entwicklern, die uns
 mit ihrem Code Anregungen gaben oder deren Code wir nutzen dürfen, z.B.
 - die Bibliotheken OpenSSL, GMP und NTL,
 - die Installations-Software NSIS (http://nsis.sourceforge.net/Main_Page),
-- den Texteditor Scintilla (http://scintilla.sourceforge.net),
+- den Texteditor-Software Scintilla (http://scintilla.sourceforge.net),
 - das Hex-Control (www.codeguru.com/Cpp/controls/controls/article.php/c5287).
 
 Bedanken möchte ich mich auch bei
 - Herrn Bartosz Sawicki von der Universität Warschau, der mit seinem
   Team die polnische Version erstellte.
-- Herrn Gonzalo Alvarez von der Universität Warschau, der mit seinen
+- Herrn Gonzalo Alvarez von der Universität Madrid, der mit seinen
   Kollegen die spanische Version erstellte.
 
 
@@ -394,10 +398,6 @@ Der Lehrstuhl Sicherheit in der Informationstechnik, Fachbereich
 Informatik unter Frau Prof. Dr. Claudia Eckert an der TU Darmstadt
 hostet weiterhin das Subversion-Repository für die Programm-Sourcen
 der Release-Version CrypTool 1.x.
-
-University of Duisburg-Essen xxxxxxxxxx
-Engineering department
-Division for distributed systems 
 
 Die CrypTool-Entwicklergruppe unter Bernhard Esslinger fungiert als
 Maintainer, d.h. sie kümmert sich um die Pflege des Codes, die
@@ -482,9 +482,9 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
   - Visualisierung mit Flussdiagrammen (z.B. beim Diffie-Hellman
     Schlüsselaustausch-Verfahren oder bei der Challenge-Response-Demo),
   - Animationen 
-     - mit ANIMAL:  für die Verschlüsselungsverfahren Caesar, Vigenère,
-                    Nihilist und DES,
-     - mit Flash:   für AES und Enigma,
+     - mit ANIMAL: für die Verschlüsselungsverfahren Caesar, Vigenère,
+                   Nihilist und DES,
+     - mit Flash:  für AES und Enigma,
      - mit Java/SWT: Punkteaddition auf Elliptischen Kurven (sowohl auf
                      diskreten wie auf reelen Kurven).
 
@@ -577,12 +577,13 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
     von 5 Schlüsselinhabern braucht).
 
 - Mit dem Passwort-Qualitätsmesser (PQM) kann man die Widerstandsfähigkeit
-  des Passworts mit verschiedenen Verfahren und unter Vorgabe von
+  eines Passworts mit verschiedenen Verfahren und unter Vorgabe von
   Mindestanforderungen abschätzen.
 
 - Mit dem Passwort-Entropie-Dialog können Sie Passworte erzeugen, die eine
   ähnlich hohe Sicherheit bieten wie zufällig erzeugte Binärschlüssel für
-  symmetrische Verfahren einer vorgegebenen Bitlänge.
+  symmetrische Verfahren einer vorgegebenen Bitlänge. Sie können dabei
+  ebenfalls das für das Passwort verwendete Alphabet festlegen.
 
 - Das Lern-Spiels "Der Zahlenhai" bringt Schülern den Umgang mit
   Teilern und Primfaktoren näher.
@@ -639,6 +640,7 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
 
    Snapshot zur Anzahl von Dateien und zur Anzahl der Sourcecode-Zeilen
 
+
 - Details zum Compilieren, Linken und zur einheitlichen Entwicklung
   finden sich in den Sourcen in der Datei "readme-source".
 
@@ -674,7 +676,7 @@ a) Entwickler-relevante Änderungen (eher programm-technisch):
   Dialoge, Bilder, Querverlinkung).
 
 - Eingabefelder gegen Fuzzy-Eingaben per Clipboard stabilisiert, um
-  Abstürze zu vermeiden.
+  provozierte Abstürze zu vermeiden.
 
 
 b) Änderungen in der Benutzer-Dokumentation / Web-Darstellung:
@@ -682,11 +684,11 @@ b) Änderungen in der Benutzer-Dokumentation / Web-Darstellung:
 - Online-Hilfe: erweitert.
 
 - Skript: Behebung kleinerer Fehler, Menübaum in Anhang A2 der neuen
-          Version angepasst.
+          CrypTool-Version angepasst.
 
 - Aktualisierte und auf rund 120 Seiten erweiterte Präsentation.
 
-- Neue CrypTool-Webseite mit Joomla ab April 2008.
+- Neue CrypTool-Webseite mit Joomla seit April 2008.
 
 
 c) Funktionale Erweiterungen:
@@ -704,7 +706,8 @@ c) Funktionale Erweiterungen:
   AES-Tool optional in das Kontextmenü "Öffnen mit ..." im Windows-
   Explorer ein.
 
-- Das Menü "Hilfe" enthält nun auch den Aufruf der CrypTool-Präsentation.
+- Das Menü "Hilfe" innerhalb der CrypTool-Anwendung enthält nun auch den
+  Aufruf der CrypTool-Präsentation.
 
 - Im Textoptionen-Dialog gibt es nun auch ein Häkchen für deutsche
   Umlaute zum Zusammenklicken des gewählten Alphabets.
@@ -713,7 +716,7 @@ c) Funktionale Erweiterungen:
   werden. Z.B. im Format  xxx xxx xxx  oder  xxxxx xxxxx xxxxx ...
   Auch Konversion in Groß- oder Kleinbuchstaben einstellbar.
 
-- Die Editoren für Text- und Binärdaten sind Open-Source:
+- Erweiterung der Editoren:
   * Hex-Editor / Hex-Control / HexView:
      - Suchen und Ersetzen (incl. Hex-Nullen) auch im Hexbereich.
      - Undo/Redo.
@@ -721,9 +724,14 @@ c) Funktionale Erweiterungen:
      - Suchen und Ersetzen sowohl mit ASCII wie mit Hexstrings synchron.
      - Redo.
 
-
 - Die ADFGVX-Chiffre kann nun das durch die Textoptionen definierte
-  variable Alphabet nutzen und nicht nur die 26 Großbuchstaben.
+  variable Alphabet nutzen (nicht mehr nur die 26 Großbuchstaben).
+
+- Erweiterung der Brute-Force-Analyse symmetrischer Verfahren (Henk -- danke
+  für die praktischen und didaktischen Anregungen):
+  - Einstellen des Alphabets für den erwarteten Klartext, um die Suche
+    nach einem möglichen richtigen Schlüssel einzuschränken.
+  - Anbieten der 50 Klartexte mit den niedrigsten Entropiewerten zur Auswahl.
 
 - Das AES-Tool in der Version 2.5 ist schneller bei großen Dateien.
 
@@ -749,10 +757,10 @@ c) Funktionale Erweiterungen:
 3. Mögliche Punkte für eine Weiterentwicklung -- Ideen, Anfragen
    -------------------------------------------------------------
 
-Generell solen alle größeren Neuerungen ab nun in die beiden Zukunftsprojekte
+Generell sollen alle größeren Neuerungen ab nun in die beiden Zukunftsprojekte
 einfließen (siehe Kapitel 3.5).
 
-In CrypTool 1.x werden weiterhin Fehlr behoben bzw. Funktionen von
+In CrypTool 1.x werden weiterhin Fehler behoben bzw. Funktionen von
 Mitwirkenden aufgenommen, die weiter in C/C++ implementieren wollen.
 
 3.1. Funktionalität: Algorithmen / Verfahren
@@ -1083,10 +1091,10 @@ a) Generelle Wunschliste anhand des Benutzerfeedbacks.
 
 b) Java-CrypTool (JCrypTool, JCT):
    - Komplett neu designtes CrypTool in Java mit Eclipse/RCP.
-   - Plattform-unabhängig
+   - Plattform-unabhängig.
    - Nutzt strikt die Standards von Eclipse.
-   - Verfügbar sind eine Secude-Lib, Bouncy-Castle und FlexiProvider.
    - Nutzung von SWT (und Jigloo) für die GUI.
+   - Verfügbar sind eine Secude-Lib, Bouncy-Castle und FlexiProvider.
    - Meilenstein 1, veröffentlicht im August 2007, war für Entwickler und
      zeigte, dass die Konzepte umsetzbar sind.
      Meilenstein 2 kommt im Juli 2008, und wird auch schon für den
@@ -1101,12 +1109,12 @@ b) Java-CrypTool (JCrypTool, JCT):
 c) Cryptool 2.0 (CT 2)
    - Komplett neu designtes CrypTool in C# mit dem .NET-Framework.
    - Nutzt strikt die Standards von Microsoft (.NET, Look wie Office 2007).
-   - Verfügbar sind die .NET Krypto-Provider und Bibliotheken wie GMP und
-     Crypto++ per Wrapper.
    - Nutzung von Windows Presentation Foundation (WPF) zur Gestaltung
      von multimedialen Oberflächen (GUI).
    - Das gesamte Projekt lässt sich mit der kostenlosen VS2008-Express-
      Edition für C# erstellen.
+   - Verfügbar sind die .NET Krypto-Provider, und Bibliotheken wie GMP und
+     Crypto++ per Wrapper.
    - Die Alphaversion, veröffentlicht im April 2008, ist für Entwickler.
      Die erste Betaversion (für Entwickler und Nutzer) ist für Spätsommer
      2008 geplant.
@@ -1127,10 +1135,10 @@ d) Portierung von CrypTool 1.4.x nach Linux mit Hilfe von GCC 4.x und Qt 4.x:
        - Online-Hilfe in HTML: ok.
    - Die erste Beta wurde im November 2007 veröffentlicht.
      Die zweite Beta ("first functional version") ist für Spätsommer 2008
-     geplant. Danach soll CrypTooLinux auch unabhängig von CrypTool 1.x
-     weiter entwickelt werden.
+     geplant.
+     Danach soll CrypTooLinux auch unabhängig von CrypTool 1.x weiter
+     entwickelt werden.
    - http://www.cryptoolinux.net/
-First beta was released in November 2007; first functional version is planned for end of 2008. xxxxxxxxxxxxx
 
 
 
@@ -1261,8 +1269,8 @@ auch unter Windows XP.
 Programm, Hilfesystem und Dokumentation sind mehrsprachig aus-
 gelegt (zur Zeit komplett englisch und deutsch).
 
-In den aktuellen Version ist das Programm inklusive aller Masken und Menüs
-übersetzt. Die PDF-Dateien sind noch in Englisch.
+In der polnischen und der spanischer Version ist das Programm inklusive aller
+Masken und Menüs übersetzt. Die PDF-Dateien sind noch in Englisch.
 In der polnischen Version ist auch die umfangreiche Onlinehilfe übersetzt;
 in der spanischen Version liegt die englische Onlinehilfe bei.
 
@@ -1430,8 +1438,9 @@ Dann klicken Sie auf "CrypTool deinstallieren".
 
 Manchmal kann es sein, dass die JAR-Dateien nicht gelöscht werden können,
 da Windows und die JRE melden, dass die Datei noch benutzt wird, obwohl
-CrypTool beendet wurde. Nach einem Neustart des Rechners kann man dann
-die JAR-Datei und das ganze Verzeichnis löschen.
+CrypTool samt aller Stand-alone-Programme beendet wurde.
+Nach einem Neustart des Rechners kann man dann die JAR-Datei und das ganze
+Verzeichnis löschen.
 
 
 5.4. Betrieb in Mehrbenutzersystemen
@@ -1623,7 +1632,7 @@ cryptochallenges\ ... Dieses Verzeichnis enthält Dateien mit Chiffraten.
                       Die meisten sind historischer Natur, einige davon
                       sind ungelöst.
                       Zwei Herausforderungen sind auch dabei: die
-                      Doppelwürfel-Chiffre und die HarryPotter-hiffre.
+                      Doppelwürfel-Chiffre und die HarryPotter-Chiffre.
 
 cryptochallenges\Schmeh01-Dorabella-enc.txt
                  Schmeh02-Agapeyeff-enc.txt
@@ -1948,8 +1957,8 @@ google.de wie google.com diesen Artikel auf Platz 1.
 
 10.1.7. DFN-Mitteilungen, Heft 73 (Dezember 2007)
         ---------------------------------------------------------
-Diese Mitteilungen des Deutschen Forschungsnetzes enthalten den 4-seitigen
-Artikel "CrypTool -- Ein E-Learning-Programm für Kryptologie".
+Diese Mitteilungen des Deutschen Forschungsnetzes (DFN) enthalten den
+4-seitigen Artikel "CrypTool -- Ein E-Learning-Programm für Kryptologie".
 Abrufbar im Internet unter:
   http://www.dfn.de/fileadmin/5Presse/DFNMitteilungen/heft73.pdf
 
@@ -2116,9 +2125,7 @@ Vollständig mit Source-Code verfügbar sind:
 - http://www.nku.edu/~mcsc/mat494/uploads/CryptoHelper.jar
   Das Java-Programm CryptoHelper.JAR vom "Math and Computer Science Club"
   an der NKU ist ziemlich komplett, was klassische Chiffren angeht.
-  Letzter Update: Gary Watson, 2005
-  Last update: Gary Watson, 2005  xxxxxxxxx
-  CryptoHelper is also very complete for classical cipher. xxxxxxxxxxx
+  Letzter Update: Gary Watson, 2005.
 
 
 Die einzigen weiteren uns bekannten brauchbaren Programme, die
@@ -2198,10 +2205,8 @@ CrypTool erhielt u.a. folgende explizite Auszeichnungen (s. Webseite):
 - Ausgewählter Ort 2008 im Land-der-Ideen
   Das Cryptool-Projekt wurde bei dem bundesweiten Wettbewerb "365 Orte im
   Land der Ideen" in der Kategorie Wissenschaft und Technik ausgewählt.
-  Dazu findet am 22.7.08 an der Universität Siegen ein Tag-der-offenen-
-  Tür statt.
-
-Cryptool is a Selected Landmark in the Land of Ideas 2008.  This year, a leap year, the biggest German nationwide event series 365 Landmarks in the Land of Ideas will present 365 plus 1 landmarks that shape Germany’s future.  The event series 365 Landmarks in the Land of Ideas is a project of Germany – Land of Ideas, a joint nation-branding initiative by Germany’s federal government and the private sector, represented by the Federation of German Industries (BDI) and Deutsche Bank. 
+  Dazu findet am 22.7.08 an der Universität Siegen ein großer
+  Tag-der-offenen-Tür statt.
 
 
 
