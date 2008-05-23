@@ -17889,8 +17889,8 @@ BEGIN
             END
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
             MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER
-            MENUITEM "Passwort-&Entropie...",       33364
-            MENUITEM "&Textdokument formatieren...", 33366
+            MENUITEM "Passwort-&Entropie...",       ID_PASSWORDENTROPY
+            MENUITEM "&Textdokument formatieren...", ID_FORMAT_TEXT_DOCUMENT
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -18306,7 +18306,7 @@ BEGIN
             END
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
             MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER
-            MENUITEM "Passwort-&Entropie...",       33364
+            MENUITEM "Passwort-&Entropie...",       ID_PASSWORDENTROPY
             MENUITEM "&Textdokument formatieren...", ID_FORMAT_TEXT_DOCUMENT
         END
         MENUITEM SEPARATOR
@@ -19141,7 +19141,7 @@ BEGIN
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
             MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER
             MENUITEM "Passwort-&Entropie...",       ID_PASSWORDENTROPY
-            MENUITEM "&Textdokument formatieren...", 33366
+            MENUITEM "&Textdokument formatieren...", ID_FORMAT_TEXT_DOCUMENT
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -29869,7 +29869,7 @@ BEGIN
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Password Quality Meter...",  ID_PASSWORDQUALITYMETER
             MENUITEM "Password &Entropy...",        ID_PASSWORDENTROPY
-            MENUITEM "&Format Text Document...",    33366
+            MENUITEM "&Format Text Document...",    ID_FORMAT_TEXT_DOCUMENT
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -31107,7 +31107,7 @@ BEGIN
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Password Quality Meter...",  ID_PASSWORDQUALITYMETER
             MENUITEM "Password &Entropy...",        ID_PASSWORDENTROPY
-            MENUITEM "&Format Text Document...",    33366
+            MENUITEM "&Format Text Document...",    ID_FORMAT_TEXT_DOCUMENT
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -36105,8 +36105,6 @@ BEGIN
     ID_HELP_PRESENTATION    "Opens a presentation with further information about CrypTool (Acrobat Reader required)"
     ID_PASSWORDENTROPY      "Generates passwords with a specific entropy"
     ID_FORMAT_TEXT_DOCUMENT "Formats a text document with specific parameters"
-    ID_TOOLS_FORMATTEXTDOCUMENT 
-                            "Formats a text document using certain parameters"
 END
 
 STRINGTABLE 
