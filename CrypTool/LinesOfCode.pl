@@ -24,16 +24,18 @@ my $directory = $ARGV[0] || "../.";
 
 
 # EDIT THIS HASH TO ASSIGN DEFAULT VALUES FOR FILE TYPES TO LOOK FOR
-my %fileTypes = (
-    "C/C++ source code" => "h c cpp",
+my @fileTypes = (
     "MFC resource code" => "rc",
+    "C/C++ source code" => "c cpp h",
     "Java source code" => "java",
+    "Perl code" => "pl",
     "HTML code" => "html hpp",
-    "LaTex code" => "tex",
     "Text files" => "txt",
-    "Perl files" => "pl",
+    "LaTex code" => "tex",
 );
-
+my %fileTypes = @fileTypes; 
+my @fileTypesKeys = @fileTypes[grep { $_ % 2 == 0 } (0 .. $#fileTypes)];
+@fileTypes = undef;
 
 # this hash stores the lines of code for each file, i.e. "sourcefile.cpp => 10 lines of code"
 my %fileLOC = ( );
@@ -41,6 +43,7 @@ my %fileLOC = ( );
 my %filesLOC = ( );
 # this hash stores the number of files for each file type, i.e. ".cpp => 250 files"
 my %fileTypeCount = ( );
+my @fileTypeCountKeys = ( map { split(/ /) } @fileTypes{ @fileTypesKeys });
 
 
 
@@ -60,7 +63,7 @@ dumpResult();
 # callback function used to find specific files
 sub findFiles() {
     # only find files with specific extension    
-    foreach my $fileType ( keys %fileTypes ) {
+    foreach my $fileType ( @fileTypesKeys ) {
         my @extensions = split ( " ", $fileTypes{ $fileType } );
         foreach my $extension ( @extensions ) {
             if( $File::Find::name =~ /\.$extension$/ ) {
@@ -70,13 +73,7 @@ sub findFiles() {
 			if ( $File::Find::dir =~ m/$subdirectory/ ) {
 			    # file found; store it for later processing
 	                    $fileLOC{$File::Find::name} = 0;
-        	            if ( not defined $fileTypeCount{$extension} ) {
-	                        # file counter for this file type not yet created
-                        	$fileTypeCount{$extension} = 0;
-                    	    }
-		            # increase counter for this file type
                             $fileTypeCount{$extension}++;
-
 			}
 		    }
                 }
@@ -103,7 +100,7 @@ sub countLOC() {
 # dumps the result to STDOUT
 sub dumpResult() {
     foreach my $key ( keys %fileLOC ) {
-        foreach my $fileType ( keys %fileTypes ) {
+        foreach my $fileType ( @fileTypesKeys ) {
             my @extensions = split ( " ", $fileTypes{ $fileType } );
             foreach my $extension ( @extensions ) {
                 if( $key =~ /.$extension$/ ) {
@@ -117,24 +114,24 @@ sub dumpResult() {
     # how many files of each file type were found?
     print "\nFILE SUMMARY\n";
     print "------------\n";
-    foreach my $extension ( keys %fileTypeCount ) {
-        print "$fileTypeCount{$extension} .$extension files\n";
+    foreach my $extension ( @fileTypeCountKeys ) {
+        printf "%7d %s\n", $fileTypeCount{$extension}, ".$extension files"
+		if $fileTypeCount{$extension};
     }
 
     # how many lines of code were found?
     print "\nLINES OF CODE SUMMARY\n";
     print "---------------------\n";
 
-    foreach my $key ( keys %filesLOC ) {
-        print "$key ($fileTypes{$key}): $filesLOC{$key} lines of code\n";
+    foreach my $key ( @fileTypesKeys ) {
+        printf "%7d %s\n", $filesLOC{$key}, "$key ($fileTypes{$key})";
     }
      
-    print "\nTOTAL: ";
     my $locTotal = 0;
     foreach my $key ( keys %filesLOC ) {
         $locTotal += $filesLOC{$key};
     }
-    print "$locTotal lines of code\n\n";
+    printf "%7d %s\n\n", $locTotal, "TOTAL";
 }
 
 __END__
