@@ -420,7 +420,7 @@ public:
 	void check(const int &_depth, const int &_length, const double &_entropy);
 
 	// returns the determined entropy
-	double getPasswordEntropy() const { return passwordEntropy; };
+	double getPasswordEntropy() const { return passwordEntropy[passwordLength]; };
 	// returns a string with the determined password components
 	std::string getPasswordComponents() const { return passwordComponentsString; };
 
@@ -433,7 +433,7 @@ private:
 	closure_info **closureMatrix;
 
 	// the determined password entropy
-	double passwordEntropy;
+	double *passwordEntropy;
 	// the determined password components as string (separated with the '+' character)
 	std::string passwordComponentsString;
 
@@ -447,13 +447,14 @@ PasswordEntropyChecker::PasswordEntropyChecker(const std::string &_password, clo
 
 	// determine the password length
 	passwordLength = password.length();
-	// set the default entropy for the password to 8 bit for each character
-	passwordEntropy = (double)(passwordLength * 8);
 
 	// allocate memory for the password components
 	passwordComponents = new char*[passwordLength];
+	passwordEntropy    = new double[passwordLength+1];
 	for (int i=0; i<passwordLength; i++)
 		passwordComponents[i] = new char[passwordLength+1];
+	for (int i=0; i<=passwordLength; i++)
+		passwordEntropy[i] = (double)((i+1) * 8);
 }
 
 PasswordEntropyChecker::~PasswordEntropyChecker() {
@@ -461,22 +462,26 @@ PasswordEntropyChecker::~PasswordEntropyChecker() {
 	for (int i=0; i<passwordLength; i++)
 		delete []passwordComponents[i];
 	delete []passwordComponents;
+	delete []passwordEntropy;
 }
 
 void PasswordEntropyChecker::check(const int &_depth, const int &_length, const double &_entropy) {
 	double delta_entropy;
 
+#if 0
+	if ( _entropy >= passwordEntropy[_length] )
+		return; // cut enumeration
+	else
+		passwordEntropy[_length] = _entropy;
+#endif
+
 	if ( _length >= passwordLength )
 	{
-		if ( _entropy < passwordEntropy )
-		{
-			// build the password components string based on all the password substrings
-			passwordComponentsString = passwordComponents[0];
-			for(int i=1; i<_depth; i++) {
-				passwordComponentsString.append(" + ");
-				passwordComponentsString.append(passwordComponents[i]);
-			}
-			passwordEntropy = _entropy;
+		// build the password components string based on all the password substrings
+		passwordComponentsString = passwordComponents[0];
+		for(int i=1; i<_depth; i++) {
+			passwordComponentsString.append(" + ");
+			passwordComponentsString.append(passwordComponents[i]);
 		}
 		return;
 	}
@@ -484,35 +489,55 @@ void PasswordEntropyChecker::check(const int &_depth, const int &_length, const 
 	passwordComponents[_depth][0] = password[_length];
 	passwordComponents[_depth][1] = '\0';
 	delta_entropy = 6.0;
-	check(_depth+1, _length+1, _entropy+delta_entropy); // fixme 
+	if ( _entropy + delta_entropy < passwordEntropy[_length+1] )
+	{
+		passwordEntropy[_length+1] = _entropy+delta_entropy;
+		check(_depth+1, _length+1, _entropy+delta_entropy); // fixme 
+	}
+
 	for ( int i=2; i<=passwordLength-_length; i++ )
 	{
-		if ( closureMatrix[_length][i].flags )
-		{
-			strncpy(passwordComponents[_depth], password.c_str() +_length, i);
-			passwordComponents[_depth][i] = '\0';
-		}
+		double delta_min = i*8.0;
 		if ( closureMatrix[_length][i].flags & PATTERN )
 		{
 			delta_entropy = 2*6.0+(i-2)*1.0;
-			check(_depth+1, _length+i, _entropy+delta_entropy);
+			if ( delta_min > delta_entropy )
+				delta_min = delta_entropy;
+			// check(_depth+1, _length+i, _entropy+delta_entropy);
 		}
 		if ( closureMatrix[_length][i].flags & SERIALS ) 
 		{
 			delta_entropy = 2*5.0+(i-2)*1.0;
-			check(_depth+1, _length+i, _entropy+delta_entropy);
+			if ( delta_min > delta_entropy )
+				delta_min = delta_entropy;
+			// check(_depth+1, _length+i, _entropy+delta_entropy);
 		}
 		if ( closureMatrix[_length][i].flags & KBD_SERIALS ) 
 		{
 			delta_entropy = 2*4.0+(i-2)*1.0;
-			check(_depth+1, _length+i, _entropy+delta_entropy);
+			if ( delta_min > delta_entropy )
+				delta_min = delta_entropy;
+			// check(_depth+1, _length+i, _entropy+delta_entropy);
 		}
 		if ( closureMatrix[_length][i].flags & DICT_WORDS ) 
 		{
 			delta_entropy = 14.0;
-			check(_depth+1, _length+i, _entropy+delta_entropy);
+			if ( delta_min > delta_entropy )
+				delta_min = delta_entropy;
+			// check(_depth+1, _length+i, _entropy+delta_entropy);
+		}
+		if ( delta_min < i*8.0 )
+		{
+			strncpy(passwordComponents[_depth], password.c_str() +_length, i);
+			passwordComponents[_depth][i] = '\0';
+			if ( _entropy + delta_min < passwordEntropy[_length+i] )
+			{
+				passwordEntropy[_length+i] = _entropy+delta_min;
+				check(_depth+1, _length+i, _entropy+delta_min);
+			}
 		}
 	}
+
 	return;
 }
 
@@ -520,6 +545,9 @@ void PasswordEntropyChecker::check(const int &_depth, const int &_length, const 
 
 // this is the main password checking function; it returns 0 if the given path 
 // for the cracklib dictionary is invalid
+
+const int cryptool_pwd_checker_length = 32;
+
 char *checkPassword(char *password, char *path, int hidePassword, double *determinedPasswordEntropy, std::string *determinedPasswordComponents) {
     static char lastpath[STRINGSIZE];
     static PWDICT *pwp;
@@ -530,8 +558,8 @@ char *checkPassword(char *password, char *path, int hidePassword, double *determ
        password (buffer attack) and so truncate it to a workable size;
        try to define workable size as something from which we cannot
        extend a buffer beyond its limits in the rest of the code */
-    strncpy(pwtrunced, password, TRUNCSTRINGSIZE);
-    pwtrunced[TRUNCSTRINGSIZE - 1] = '\0'; /* enforce */
+    strncpy(pwtrunced, password, cryptool_pwd_checker_length);
+    pwtrunced[cryptool_pwd_checker_length] = '\0'; /* enforce */
 
 	char *str_fnds;
 	str_fnds = new char[strlen(pwtrunced)*strlen(pwtrunced) + 10000];
@@ -683,8 +711,8 @@ char *checkPassword(char *password, char *path, int hidePassword, double *determ
 
 	// if we're in the sophisticated CrypTool checking mode, the last two input parameters
 	// of this function are not null, and the result is stored in those two parameters
-	if(determinedPasswordEntropy != 0 && determinedPasswordComponents != 0) {
-		PasswordEntropyChecker passwordEntropyChecker(password, closure_matrix);
+	if(pwd_len) {
+		PasswordEntropyChecker passwordEntropyChecker(pwtrunced, closure_matrix);
 		passwordEntropyChecker.check(0, 0, 0.0);
 		double thePasswordEntropy = passwordEntropyChecker.getPasswordEntropy();
 		std::string thePasswordComponents = passwordEntropyChecker.getPasswordComponents();

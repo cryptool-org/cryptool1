@@ -48,6 +48,7 @@ statement from your version.
 // CDlgPasswordQualityMeter-Dialogfeld
 
 #include "PictureEx.h"
+#include "afxwin.h"
 
 class CDlgPasswordQualityMeter : public CDialog
 {
@@ -95,6 +96,9 @@ private:
 public:
 	afx_msg void OnBnClickedCheckShowpassword();
 	afx_msg void OnBnClickedConfigurePasswordGuidelines();
+	CEdit passwordEditCtrl;
+	CEdit PasswordLengthCtrl;
+	long passwordLengthOutput;
 };
 
 #endif

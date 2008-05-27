@@ -56,6 +56,7 @@ extern char *Pfad;
 
 CDlgPasswordQualityMeter::CDlgPasswordQualityMeter(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgPasswordQualityMeter::IDD, pParent)
+	, passwordLengthOutput(0)
 {
 	password = "";
 	showPassword = true;
@@ -64,6 +65,7 @@ CDlgPasswordQualityMeter::CDlgPasswordQualityMeter(CWnd* pParent /*=NULL*/)
 	intQualityMozilla = 0;
 	intQualityPGP = 0;
 	intQualityCrypTool = 0;
+	passwordLengthOutput = 0;
 
 	stringQualityKeePass = "";
 	stringQualityMozilla = "";
@@ -84,20 +86,23 @@ void CDlgPasswordQualityMeter::DoDataExchange(CDataExchange* pDX)
 
 	DDX_Text(pDX, IDC_EDIT_PASSWORD, password);
 	DDX_Check(pDX, IDC_CHECK_SHOWPASSWORD, showPassword);
-	
+
 	DDX_Text(pDX, IDC_QUALITY_KEEPASS, stringQualityKeePass);
 	DDX_Text(pDX, IDC_QUALITY_MOZILLA, stringQualityMozilla);
 	DDX_Text(pDX, IDC_QUALITY_PGP, stringQualityPGP);
 	DDX_Text(pDX, IDC_QUALITY_CRYPTOOL, stringQualityCrypTool);
-	
+
 	DDX_Control(pDX, IDC_PROGRESS_KEEPASS, controlQualityKeePass);
 	DDX_Control(pDX, IDC_PROGRESS_MOZILLA, controlQualityMozilla);
 	DDX_Control(pDX, IDC_PROGRESS_PGP, controlQualityPGP);
 	DDX_Control(pDX, IDC_PROGRESS_CRYPTOOL, controlQualityCrypTool);
-	
+
 	DDX_Control(pDX, IDC_PICTURE_QUALITY, controlPictureQuality);
 
 	DDX_Text(pDX, IDC_EDIT_PASSWORD_RESISTANCE, passwordResistance);
+	DDX_Control(pDX, IDC_EDIT_PASSWORD, passwordEditCtrl);
+	DDX_Control(pDX, IDC_EDIT1, PasswordLengthCtrl);
+	DDX_Text(pDX, IDC_EDIT1, passwordLengthOutput);
 }
 
 BOOL CDlgPasswordQualityMeter::OnInitDialog()
@@ -112,6 +117,26 @@ BOOL CDlgPasswordQualityMeter::OnInitDialog()
 void CDlgPasswordQualityMeter::EditPasswordChanged()
 {
 	UpdateData(true);
+	// FIXME: removal of chars <= #32 currently required (CRACKLIB)
+	int i = 0;
+	int nStart, nEnd;
+	passwordEditCtrl.GetSel(nStart, nEnd);
+	while ( 1 )
+	{
+		if ( (unsigned char)password[i] <= ' ' )
+		{
+			if 	( nStart > i ) nStart--;
+			if  ( nEnd > i ) nEnd--;
+			password.Delete(i);
+		}
+		else
+			i++;
+		if ( i >= password.GetLength() )
+			break;
+	};
+	passwordLengthOutput = password.GetLength();
+	UpdateData(false);
+	passwordEditCtrl.SetSel(nStart, nEnd);
 
 	intQualityKeePass = passwordQualityKeePass(password);
 	intQualityMozilla = passwordQualityMozilla(password);
@@ -129,7 +154,7 @@ void CDlgPasswordQualityMeter::UpdateUserInterface()
 	sprintf(fullDictionaryPath, "%s%s", Pfad, dictionaryPath);
 
 	// parameters for depth analysis (the CrypTool version)
-	double theCrypToolPasswordEntropy;
+	double theCrypToolPasswordEntropy = 0.0;
 	std::string theCrypToolPasswordComponents;
 
     // check password against dictionary attacks (with cracklib)
@@ -158,7 +183,7 @@ void CDlgPasswordQualityMeter::UpdateUserInterface()
 	if(intQualityPGP >= 100) intQualityPGP = 100;
 	// for the CrypTool approach we assume an entropy of 128 bits equals a quality of 100
 	intQualityCrypTool = (theCrypToolPasswordEntropy / 128) * 100;
-
+	if(intQualityCrypTool >= 100) intQualityCrypTool = 100;
 		
 	// update (string) quality display
 	_itoa(intQualityKeePass, pc_str, 10);
