@@ -741,7 +741,7 @@ c) Funktionale Erweiterungen:
   des Hashwertes einer Datei
   http://csrc.nist.gov/publications/fips/fips180-2/fips180-2.pdf
 
-- Verbesserung des Passwort-Qualiäts-Meters, indem neben bekannten
+- Verbesserung des Passwort-Qualitätsmessers, indem neben bekannten
   PQM-Methoden wie denen aus KeyPass oder PGP eine eigene Komponente zur
   Bewertung ergänzt wurde. Hierbei wurden die aus Wörterbuch-Angriffen
   bekannten realistischen Annahmen über das Vorwissen von Angreifern
