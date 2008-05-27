@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.20 für Win32, Juni 2008 - Beta 03
+    CrypTool, Version 1.4.20 für Win32, Mai 2008 - Beta 03
     (c) Contributors
         Dazu gehören z.B.
         Deutsche Bank AG, Frankfurt am Main
@@ -544,8 +544,8 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
   springen.
 
 - CrypTool kann man ohne Administratorrechte installieren und ausführen.
-  Verschiedene Benutzer können am gleichen PC jeweils verschiedene Einstellungen
-  haben. Details siehe Kapitel 4.2.
+  Verschiedene Benutzer können am gleichen PC jeweils verschiedene
+  Einstellungen haben. Details siehe Kapitel 4.2.
 
 - Die gleiche Menüstruktur ist konstant sichtbar: Einträge, die für
   bestimmte Dokumenttypen nicht ausführbar sind, werden ausgegraut.
@@ -741,17 +741,20 @@ c) Funktionale Erweiterungen:
   des Hashwertes einer Datei
   http://csrc.nist.gov/publications/fips/fips180-2/fips180-2.pdf
 
-- Verbesserung des Passwort-Quality-Meters, indem neben bekannten PQM-Methoden
-  wie denen aus KeyPass oder PGP eine eigene Komponente zur Bewertung ergänzt
-  wurde. Hierbei wurden die aus Wörterbuch-Angriffen bekannten realistischen
-  Annahmen über das Vorwissen von Angreifer benutzt:
-  - Erkennen von Serien und Mustern (nicht nur die Entropie von einzelnen Zeichen
-    unabhängig bewerten)
+- Verbesserung des Passwort-Quality-Meters, indem neben bekannten
+  PQM-Methoden wie denen aus KeyPass oder PGP eine eigene Komponente zur
+  Bewertung ergänzt wurde. Hierbei wurden die aus Wörterbuch-Angriffen
+  bekannten realistischen Annahmen über das Vorwissen von Angreifern
+  berücksichtigt:
+  - Erkennen von Serien und Mustern (nicht nur die Entropie von einzelnen
+    Zeichen unabhängig bewerten)
   - Alle Verfahren sind normiert: 100 % bedeutet 128 Bit Entropie.
     Ist 100 % erreicht, werden weitere Eingaben im Passwortfeld ignoriert.
   - Einschränkungen in der Beta:
-    - im Passwortfeld können keine Leerzeichen eingegeben werden (Ascii-Code <= 32).
-    - Im Passwortfeld können maximal 32 Zeichen eingegeben werden.
+    - im Passwortfeld können keine Leerzeichen eingegeben werden
+      (Ascii-Code <= 32 ignoriert).
+    - Die neue PQM-Methode wertet nur die ersten 32 Zeichen des eingegebenen
+      Passwortes aus.
 
 - Der Passwort-Entropie-Dialog erlaubt es, zufällige Passworte zu erzeugen,
   die eine ähnlich hohe Sicherheit bieten wie zufällig erzeugte
@@ -764,8 +767,8 @@ c) Funktionale Erweiterungen:
 3. Mögliche Punkte für eine Weiterentwicklung -- Ideen, Anfragen
    -------------------------------------------------------------
 
-Generell sollen alle größeren Neuerungen ab nun in die beiden Zukunftsprojekte
-einfließen (siehe Kapitel 3.5).
+Generell sollen alle größeren Neuerungen ab nun in die beiden
+Zukunftsprojekte einfließen (siehe Kapitel 3.5).
 
 In CrypTool 1.x werden weiterhin Fehler behoben bzw. Funktionen von
 Mitwirkenden aufgenommen, die weiter in C/C++ implementieren wollen.
@@ -1222,12 +1225,12 @@ Die minimale Rechnerausstattung liegt bei 300 MHz CPU, 256 MByte RAM,
 Die Lauffähigkeit von CrypTool 1.4.20 wird unterstützt für Windows XP
 und Windows Vista.
 
-Verschiedene Sprachversionen von CrypTool kann man parallel auf einem Rechner
-installieren.
+Verschiedene Sprachversionen von CrypTool kann man parallel auf einem
+Rechner installieren.
 
-Verschiedene Benutzer können am gleichen PC jeweils verschiedene Einstellungen
-haben (da persistente Einstellungen im Nutzer-lokalen Teil der Registry
-abgelegt werden).
+Verschiedene Benutzer können am gleichen PC jeweils verschiedene
+Einstellungen haben (da persistente Einstellungen im Nutzer-lokalen Teil
+der Registry abgelegt werden).
 
 Weder für die Installation noch für die Benutzung sind Administrator-
 Rechte notwendig:
@@ -1236,16 +1239,43 @@ Rechte notwendig:
   - für das CrypTool-Verzeichnis,
   - für den Benutzer-spezifischen Bereich der Windows-Registry.
 - Bei der Benutzung braucht man Schreibrechte für:
-  - Dateien im CrypTool-Verzeichnis PSE für das PKI-Schlüsselmanagement,
-  - Dateien im Nutzer-spezifischen TEMP-Verzeichnis zur Ablage temporärer
-    Dateien,
+  - Dateien im CrypTool-Verzeichnis PSE (für das PKI-Schlüsselmanagement),
+  - Dateien im Nutzer-spezifischen TEMP-Verzeichnis (zur Ablage temporärer
+    Dateien),
   - Einstellungen in seinem Benutzer-spezifischen Teil der Registry.
 
-Anmerkung: Wo das TEMP-Verzeichnis von Windows liegt, kann man sehen,
+Anmerkung 1: Wo das TEMP-Verzeichnis von Windows liegt, kann man sehen,
 wenn man in Windows-Explorer %TEMP% eingibt. Den Wert kann man unter
 Windows XP auch ansehen und anpassen per "System --> Systemeigenschaften
 --> Reiter Erweitert --> Umgebungsvariablen".
 Oder indem man auf der Kommandozeile "echo %TEMP%" eingibt.
+
+Anmerkung 2 -- Details zu den Zugriffsrechten:
+a) Programm-Verzeichnis:
+   Für einen erfolgreichen Installationsvorgang muss das vom Benutzer
+   gewählte Installationsverzeichnis während der Installation beschreibbar
+   sein.
+   Für die zwei Unterverzeichnisse des Installationsverzeichnisses ("pse"
+   und "examples") erhalten alle Benutzter der Gruppe "Users" Schreibrechte.
+b) Windows-Registry:
+   Um die Datei-Endungen .aes etc. für das Programm AES-Tool zu reservieren
+   muss der folgende Teil der Registry während der Installation beschreibbar
+   sein:
+   HKEY_CLASSES_ROOT
+   HKEY_CLASSES_ROOT\Applications
+
+   CrypTool wird in der Liste der installierten Anwendungen (System ->
+   Software) nur aufgeführt, wenn der folgende Registry-Eintrag beschreibbar
+   ist:
+   HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall
+
+c) Startmenü:
+   CrypTool wird im Startmenü für alle Benutzer eingetragen, wenn das 
+   folgende Verzeichnis während der Installation beschreibbar ist:
+   %allusersprofile%\Startmenü\Programme
+   Wenn dieses Verzeichnis nicht beschreibbar ist, wird CrypTool eingetragen
+   unter:If this directory is not writable CrypTool will be installed in:
+   %userprofile%\Startmenü\Programs.
 
 CrypTool funktioniert grundsätzlich auch unter FreeBSD/Linux mit
 Wine (mit großen Abstrichen an Funktionalität und Stabilität).
@@ -1283,8 +1313,8 @@ auch unter Windows XP.
 Programm, Hilfesystem und Dokumentation sind mehrsprachig aus-
 gelegt (zur Zeit komplett englisch und deutsch).
 
-In der polnischen und der spanischer Version ist das Programm inklusive aller
-Masken und Menüs übersetzt. Die PDF-Dateien sind noch in Englisch.
+In der polnischen und der spanischer Version ist das Programm inklusive
+aller Masken und Menüs übersetzt. Die PDF-Dateien sind noch in Englisch.
 In der polnischen Version ist auch die umfangreiche Onlinehilfe übersetzt;
 in der spanischen Version liegt die englische Onlinehilfe bei.
 
@@ -1301,7 +1331,6 @@ Installationsprogramm (Setup).
 
 - Von Binärdateien werden "nur" knapp die ersten 2 GB in den
   Hex-Editor geladen (< 0x7ffff000 = 2.147.479.552 Bytes).
-  xxxxxxxxxxxxxxxxx
  
   Textdateien können dagegen in unbeschränkter Größe vom Editor geladen
   werden (sofern die Rechnerressourcen reichen).
@@ -1381,30 +1410,27 @@ Bitte beachten Sie:
   werden, löschen Sie diese manuell.
 - Bei der Deinstallation von CrypTool werden alle bisher erzeugten
   asymmetrischen Schlüssel und Zertifikate gelöscht.
-  Wenn Sie diese Schlüssel auch in der neuen Version von CrypTool nutzen
-  wollen, gibt es 2 Möglichkeiten:
-  a) Sichern Sie vor der Deinstallation das unter dem Programmverzeichnis
+
+  Wenn Sie diese Schlüssel und Zertifikate auch in der neuen Version von
+  CrypTool nutzen wollen, gibt es 2 Möglichkeiten:
+  a) Import aus einer alten CrypTool-Versionen VOR 1.4.00:
+     - Für RSA- und DSA-Schlüssel:
+       Exportieren Sie diese PSEs mit Hilfe des alten CrypTools in ein
+       PKCS#12-Format und importieren Sie diese Dateien im neuen CrypTool.
+     - Für ECC-Schlüssel:
+       Hier reicht es, die entsprechenden Dateien 
+       (z.B. [da][db][EC-prime239v1][1131039030][d] )
+       vom alten CrypTool\pse-Verzeichnis in das neue zu kopieren.
+  b) Alternativ aus einer alten CrypTool-Versionen ab 1.4.00:
+     Sichern Sie VOR der Deinstallation das unter dem Programmverzeichnis
      liegende Verzeichnis pse\ mit allen darin gespeicherten Dateien
      in ein anderes Verzeichnis. Alle Dateien darin können Sie dann nach
      Installation der neuen Version von CrypTool in das neue pse\-Programm-
-     verzeichnis.
-  b) Alternativ können Sie RSA- und DSA-PSEs als PKCS#12-Struktur 
-     exportieren bzw. importieren.
-- Falls Sie Zertifikate, die mit CrypTool-Versionen VOR 1.4.00 erzeugt
-  wurden, unter CrypTool 1.4.20 weiter verwenden wollen, gehen Sie bitte
-  folgendermaßen vor:
-  a) für RSA- und DSA-Schlüssel:
-     Exportieren Sie diese PSEs mit Hilfe des alten CrypTools in ein
-     PKCS#12-Format und laden Sie diese Dateien im neuen CrypTool.
-  b) für ECC-Schlüssel:
-     Hier reicht es, die entsprechenden Dateien 
-     (z.B. [da][db][EC-prime239v1][1131039030][d] )
-     vom alten CrypTool\pse-Verzeichnis in das neue zu kopieren.
-xxxxxxxxxxxxxxxx nochmal lesen xxxxxxxxxxx
+     verzeichnis kopieren.
 
-Für den Fall, dass mehrere Benutzer dieselbe CrypTool-
-Installation verwenden wollen, müssen die Zugriffsrechte auf den
-Verzeichnissen pse\ und pse\pseca\ und den darin enthaltenen
+Für den Fall, dass mehrere Benutzer dieselbe CrypTool-Installation
+verwenden wollen, müssen die Zugriffsrechte auf den Verzeichnissen
+pse\ und pse\pseca\ und den darin enthaltenen
 Dateien für alle Benutzer auf Vollzugriff gesetzt werden.
 
 Der Teilbaum "pse\" sollte nicht manuell bearbeitet werden, da
@@ -1798,12 +1824,12 @@ erzeugt und verwaltet:
 cry*.* ........... CrypTool schreibt temporäre Dateien mit dem
                    Namensmuster cry*.* in das TEMP-Verzeichnis.
        Diese Dateien haben folgende Endungen: 
-                   txt -> Textdatei-Ansicht
-                   hex -> Hexadezimale (binäre) Ansicht
-                   plt -> Diagramm/Plot-Ansicht (Histogramm, Autokorrelation)
-                   ogl -> OpenGL-Graphics-Ansicht
-                   org -> Kopie der Originaldatei nach dem Laden
-                   tmp -> Temporäre Datei für Zwischenberechnungen
+                  txt -> Textdatei-Ansicht
+                  hex -> Hexadezimale (binäre) Ansicht
+                  plt -> Diagramm/Plot-Ansicht (Histogramm, Autokorrelation)
+                  ogl -> OpenGL-Graphics-Ansicht
+                  org -> Kopie der Originaldatei nach dem Laden
+                  tmp -> Temporäre Datei für Zwischenberechnungen
 
 
 6.1. Überprüfen der Integrität der heruntergeladenen Dateien
@@ -1855,7 +1881,7 @@ sind, dass Ihr Rechner unberührt ist.
    -----------------------------------------------
 
 Version   Datum         Größe des Windows-Setups  Plattenplatz  Freigabe
-                         Deutsch    Englisch                     durch
+                         Deutsch    Englisch      Bedarf        durch
 1.0.01    Okt. 1999       1,3 MB      -              -            DB
 1.1.01    Mai  2000       2,3 MB      -              -            DB
 1.2.00    Aug. 2000       2,8 MB      -              -            DB

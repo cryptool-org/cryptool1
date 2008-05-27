@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.20 for Win32, June 2008 - Beta 03
+    CrypTool, Version 1.4.20 for Win32, May 2008 - Beta 03
     (c) Contributors
         including
         Deutsche Bank AG, Frankfurt/Main
@@ -528,9 +528,10 @@ The general properties and functions of CrypTool are:
   a role you can directly call the text options dialog via a click on a
   button.
 
-- CrypTool can be installed and used without having administrator access rights.
+- CrypTool can be installed and used without having administrator access
+  rights.
   Different users at the same PC can have different settings.
-  Details see chapter 4.2.
+  See chapter 4.2 for details.
 
 - The same menu structure is permanently visible: Items which cannot
   be clicked for special document types are dynamically made grey.
@@ -724,17 +725,17 @@ c) New functionality:
   value of a file
   http://csrc.nist.gov/publications/fips/fips180-2/fips180-2.pdf
 
-- Improving of the password-quality-meter: In adding to the known PQM methods
-  from KeyPass and PGP an own component was added. This new method rates the
-  password by making realistic assumptions about the attacker knowledge coming
-  from dictionary attacks:
-  - Recognition of series and patterns (the entropy is calculated no more only
-    from single independant characters).
-  - All mathods are normalized: 100 % means 128 bit entropy.
+- Improving of the password-quality-meter: In addition to the known PQM
+  methods from KeyPass and PGP an own component was added. This new method
+  rates the password by making realistic assumptions about the attacker's
+  knowledge coming from dictionary attacks:
+  - Recognition of series and patterns (the entropy is calculated no more
+    only from single independent characters).
+  - All methods are normalized: 100 % means 128 bit entropy.
     If 100 % is achieved, further entries in the password field are ignored.
   - Restrictions in this beta version:
     - In the password field no blanks can be entered (ascii code <= 32).
-    - In the password field at most 32 Zeichen can be entered.
+    - The new PQM method rates at most 32 Zeichen of the entered password.
 
 - The password entropy dialog offers to create random passwords which offer
   a similar high security as randomly generated binary keys for symmetric
@@ -904,7 +905,8 @@ who prefer to keep on developing in C/C++.
 - Make it possible to edit the homophone key (necessary for the
   analysis of homophone encryption).
 
-- Floating entropy: automatic search for places in a document with high entropy.
+- Floating entropy: automatic search for places in a document with high
+  entropy.
 
 - Illustrate the Vigenère analysis more deeply:
   - Enable to enter not only a fixed value for the key length,
@@ -1186,25 +1188,49 @@ CrypTool 1.4.20 is supported to run under Windows XP and Windows Vista.
 Different language versions (localizations) can be used in parallel at one
 computer.
 
-Different users using the same PC can have different settings (because they
-are stored in the user-secific area of the Windows registry).
+Different users using the same PC can have different settings (because these
+settings are stored in the user-specific area of the Windows registry).
 
 CrypTool doesn't need administrator access rights - neither for the
 installation nor for the usage:
 - During the installation process persistent data is stored at the following
-  places, so the installing person needs to have write access there:
-  - for the CrypTool directory,
-  - for the user-specific area in the Windows registry.
+  places, so the installing person needs to have write access for:
+  - the CrypTool directory,
+  - the user-specific area in the Windows registry.
 - During using the CrypTool application you need write access for:
   - files within the CrypTool directory PSE (for the PKI key management),
   - files within the user-specific TEMP directory (for storing temporary files),
   - the user-specific area of the Windows registry (to store user settings).
 
-Remark: Where the TEMP directory of Windows is, can be seen by
+Remark 1: Where the TEMP directory of Windows is, can be seen by
 entering %TEMP% in the Windows Explorer. The value can also be seen
 and adjusted under Windows XP via "System --> System properties 
 --> Tab Enhanced --> Environment variables".
 Or by entereing "echo %TEMP%" at the command line prompt.
+
+Remark 2 -- Details concerning access rights:
+a) Program Directory:
+   For a successful installation the installation directory selected by the
+   user must be writable during installation. 
+   Two subdirectories of the installation directory ("pse" and "examples")
+   will be enabled for writing for everybody who is in the group "Users".
+
+b) Registry:
+   To enable the registration of .aes and other file extensions for AESTool,
+   the following part of the registry needs to be writable during installation:
+   HKEY_CLASSES_ROOT
+   HKEY_CLASSES_ROOT\Applications
+
+   CrypTool will be listed as installed application in the control panel
+   (System -> Software) only if the following registry key is writable:
+   HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall
+
+c) Start menu:
+   CrypTool is installed in the Start Menu for all users if the following
+   directory is writable during installation:
+   %allusersprofile%\Start Menu\Programs
+   If this directory is not writable CrypTool will be installed in:
+   %userprofile%\Start Menu\Programs.
 
 CrypTool also works basically under FreeBSD/Linux with Wine
 (with reservations on functionality and stability).
@@ -1261,7 +1287,6 @@ program (setup).
 
 - From binary files "only" the first almost 2 GB can be loaded into
   the hex editor (< 0x7ffff000 = 2.147.479.552 Bytes).
-  xxxxxxxxxxxxxxxxx
  
   In contrast text files can be loaded in unlimited size by the text
   editor (if you got enough resources on your pc).
@@ -1341,23 +1366,21 @@ Please note:
   may be deleted. If so, delete these manually.
 - De-installation will delete all user generated asymmetric keys and
   certificates.
-  If you intend to further use these keys also in the newly installed 
-  version of CrypTool, then there are two alternatives:
-  a) Copy the entire pse\ directory in order to protect these keys.
-     De-install CrypTool and install the new version. Finally copy the
-     saved pse\ directory to the installation folder.
-  b) Alternatively you can export/import RSA and DSA PSEs using the
-     PKCS#12 format.
-- If you want to keep on using certificates, created with CrypTool versions
-  older than 1.4.00, you can do so:
-  a) for RSA and DSA keys:
-     Export the PSEs with the old CrypTool into a PKCS#12 format and
-     load these files into the new CrypTool.
-  b) for ECC keys:
-     Here it is enough, to copy the according files
-     (e.g. [da][db][EC-prime239v1][1131039030][d] )
-     from the old CrypTool\pse directory into the new one.
-xxxxxxxxxxxxxxxx nochmal lesen xxxxxxxxxxx
+
+  If you intend to further use these keys and certificates also in the
+  newly installed version of CrypTool, then there are two alternatives:
+  a) Import from an CrypTool version older than version 1.4.00:
+     - RSA and DSA keys:
+       You can export these RSA and DSA PSEs with the old CrypTool into
+       the PKCS#12 format; and import these files with the new CrypTool.
+     - For ECC keys:
+       Here it is enough to copy the according files
+       (e.g. [da][db][EC-prime239v1][1131039030][d] )
+       from the old CrypTool\pse directory into the new one.
+  b) Alternatively from CrypTool version 1.4.00:
+     Copy the entire pse\ directory into another directory BEFORE doing
+     the installation. After the installation of the new version copy
+     the saved pse\ directory to the installation folder.
 
 Please note that it might be necessary to adjust the access
 permissions if multiple users want to share one CrypTool
@@ -1741,12 +1764,12 @@ managed:
 cry*.* ........... CrypTool writes temporary files to the \temp
                    directory (file names begin with cry*.*).
        These files have the following file extensions:
-                   txt -> text file view
-                   hex -> hexadecimal (binary) view
-                   plt -> diagram/plot view (histogram, autocorrelation)
-                   ogl -> OpenGL graphics view
-                   org -> copy of an original file after file open
-                   tmp -> temporary file for intermediate results
+                  txt -> text file view
+                  hex -> hexadecimal (binary) view
+                  plt -> diagram/plot view (histogram, autocorrelation)
+                  ogl -> OpenGL graphics view
+                  org -> copy of an original file after file open
+                  tmp -> temporary file for intermediate results
 
 
 
@@ -1807,7 +1830,7 @@ Version   Date		Size of Windows Setup  Needed Size  Released
 1.3.05    Aug. 2003	 8.2 MB       8.6 MB	-            DB
 1.4.00    July 2006	18.2 MB      18.4 MB	-            DB
 1.4.10    July 2007	26.7 MB	     27.5 MB	47 MB        DB
-1.4.20    June 2008	36.0 MB	     36.7 MB	70 MB        DB
+1.4.20    June 2008	36.0 MB	     36.7 MB	71 MB        DB
 
 Remarks about the versions:
 1.3.02    Many new functions compared to 1.3.00.
