@@ -25,12 +25,11 @@
  3.2. .... Funktionalität: Analyse
  3.3. .... Interne Schnittstellen / Editoren
  3.4. .... User-Interface / Visualisierungen
- 3.5. .... Roadmap: Portierung nach Linux, 
-                    Zukunftsprojekte mit Java/Eclipse und C#/.NET
+ 3.5. .... Roadmap: Portierung nach Linux, Zukunftsprojekte mit Java/Eclipse und C#/.NET
  3.6. .... Sinnvolle Aufgaben für jemand, der neu anfängt mit zu entwickeln
  4. .... Beschränkungen und Voraussetzungen
  4.1. .... Anwendungsbereich dieser Lern-, Trainings- und Awareness-Software
- 4.2. .... Win32-Umgebung und Java-Runtime
+ 4.2. .... Win32-Umgebung, Rechte bei Installation und Betrieb, Java-Runtime
  4.3. .... Interaktive Online-Hilfe unter Windows XP
  4.4. .... Unterstützung verschiedener Sprachen
  4.5. .... Einschränkungen / Features
@@ -544,11 +543,9 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
   spielen, kann man direkt per Button-Klick zum Textoptionen-Dialog
   springen.
 
-- Alle persistenten Daten werden im Nutzer-lokalen Teil der Registry
-  abgelegt (keine INI-Datei mehr), wodurch man CrypTool ohne 
-  Administratorrechte ausführen kann und verschiedene Benutzer
-  am gleichen PC jeweils verschiedene Einstellungen haben können.
-  xxxxxxxxxxxxxxxxx
+- CrypTool kann man ohne Administratorrechte installieren und ausführen.
+  Verschiedene Benutzer können am gleichen PC jeweils verschiedene Einstellungen
+  haben. Details siehe Kapitel 4.2.
 
 - Die gleiche Menüstruktur ist konstant sichtbar: Einträge, die für
   bestimmte Dokumenttypen nicht ausführbar sind, werden ausgegraut.
@@ -735,18 +732,26 @@ c) Funktionale Erweiterungen:
     nach einem möglichen richtigen Schlüssel einzuschränken.
   - Anbieten der 50 Klartexte mit den niedrigsten Entropiewerten zur Auswahl.
 
-- Das AES-Tool in der Version 2.5 ist schneller bei großen Dateien.
+- Das AES-Tool in der Version 2.5 ist bei großen Dateien schneller.
 
 - Das Lernprogramm/Lernspiel "Zahlenhai" in der Version 1.1.5 wurde etwas
-  korrigiert und vor allem die Onlinehilfe erweitert.
+  korrigiert und vor allem wurde die Onlinehilfe erweitert.
 
 - SHA2-Familie (SHA-256, SHA-384, SHA-512) ergänzt bei der Berechnung
   des Hashwertes einer Datei
   http://csrc.nist.gov/publications/fips/fips180-2/fips180-2.pdf
 
-- Verbesserung des Passwort-Quality-Meters, indem eine eigene Komponente
-  zur Bewertung mit realistischen Annahmen über den Angreifer ergänzt
-  wurde.
+- Verbesserung des Passwort-Quality-Meters, indem neben bekannten PQM-Methoden
+  wie denen aus KeyPass oder PGP eine eigene Komponente zur Bewertung ergänzt
+  wurde. Hierbei wurden die aus Wörterbuch-Angriffen bekannten realistischen
+  Annahmen über das Vorwissen von Angreifer benutzt:
+  - Erkennen von Serien und Mustern (nicht nur die Entropie von einzelnen Zeichen
+    unabhängig bewerten)
+  - Alle Verfahren sind normiert: 100 % bedeutet 128 Bit Entropie.
+    Ist 100 % erreicht, werden weitere Eingaben im Passwortfeld ignoriert.
+  - Einschränkungen in der Beta:
+    - im Passwortfeld können keine Leerzeichen eingegeben werden (Ascii-Code <= 32).
+    - Im Passwortfeld können maximal 32 Zeichen eingegeben werden.
 
 - Der Passwort-Entropie-Dialog erlaubt es, zufällige Passworte zu erzeugen,
   die eine ähnlich hohe Sicherheit bieten wie zufällig erzeugte
@@ -922,8 +927,8 @@ Mitwirkenden aufgenommen, die weiter in C/C++ implementieren wollen.
 - Editieren der Homophonen-Schlüssel (benötigt bei der Analyse
   der Homophonen Verschlüsselung).
 
-- Gleitende Entropie: Automatische Anzeige der entsprechenden Stellen
-  mit hoher Entropie.xxxxxxxxxxxxxxxxxxxx
+- Gleitende Entropie: Automatisierte Suche von Stellen in einem Dokument
+  mit hoher Entropie.
 
 - Vigenère-Analyse noch weiter veranschaulichen:
   - bei den Keylängen die Eingabe eines Bereiches statt eines Einzel-
@@ -1204,8 +1209,8 @@ den internationalen Standards implementiert und genauso "gut" wie in
 kommerziellen Anwendungen.
 
 
-4.2. Win32-Umgebung und Java-Runtime
-     -------------------------------
+4.2. Win32-Umgebung, Rechte bei Installation und Betrieb, Java-Runtime
+     -----------------------------------------------------------------
 CrypTool erfordert eine Win32-Umgebung.
 
 Einige Funktionen (ANIMAL, ECC-Demo) erfordern zusätzlich eine Java
@@ -1217,23 +1222,30 @@ Die minimale Rechnerausstattung liegt bei 300 MHz CPU, 256 MByte RAM,
 Die Lauffähigkeit von CrypTool 1.4.20 wird unterstützt für Windows XP
 und Windows Vista.
 
-Weder für die Installation noch für die Benutzung sind Administrator-
-Rechte notwendig, aber man braucht als Benutzer Schreibrechte in dem
-Verzeichnis, wo CrypTool installiert ist.
-
-Verschiedene Sprachversionen kann man parallel auf einem Rechner
+Verschiedene Sprachversionen von CrypTool kann man parallel auf einem Rechner
 installieren.
 
-Persistente Daten werden nur in das CrypTool-Verzeichnis, in das Standard-
-Windows-Verzeichnis für temporäre Dateien (TEMP-Verzeichnis) und in
-den benutzerspezifischen Bereich der Windows-Registry geschrieben
-(Weitere Details siehe Kapitel 2.1) (Es gibt keine INI-Dateien).
-xxxxxxxxxxxxx
+Verschiedene Benutzer können am gleichen PC jeweils verschiedene Einstellungen
+haben (da persistente Einstellungen im Nutzer-lokalen Teil der Registry
+abgelegt werden).
+
+Weder für die Installation noch für die Benutzung sind Administrator-
+Rechte notwendig:
+- Bei der Installation werden persistente Daten an ff. Stellen abgelegt, für
+  die der Installierende Schreibrechte haben muss:
+  - für das CrypTool-Verzeichnis,
+  - für den Benutzer-spezifischen Bereich der Windows-Registry.
+- Bei der Benutzung braucht man Schreibrechte für:
+  - Dateien im CrypTool-Verzeichnis PSE für das PKI-Schlüsselmanagement,
+  - Dateien im Nutzer-spezifischen TEMP-Verzeichnis zur Ablage temporärer
+    Dateien,
+  - Einstellungen in seinem Benutzer-spezifischen Teil der Registry.
 
 Anmerkung: Wo das TEMP-Verzeichnis von Windows liegt, kann man sehen,
 wenn man in Windows-Explorer %TEMP% eingibt. Den Wert kann man unter
 Windows XP auch ansehen und anpassen per "System --> Systemeigenschaften
 --> Reiter Erweitert --> Umgebungsvariablen".
+Oder indem man auf der Kommandozeile "echo %TEMP%" eingibt.
 
 CrypTool funktioniert grundsätzlich auch unter FreeBSD/Linux mit
 Wine (mit großen Abstrichen an Funktionalität und Stabilität).

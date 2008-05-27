@@ -29,7 +29,7 @@
  3.6. .... Meaningful tasks to make a new maintainer familiar with the code
  4. .... Limitations and requirements
  4.1. .... Scope of this Education, training and awareness software
- 4.2. .... Win32 environment and Java-Runtime
+ 4.2. .... Win32 environment, rights for installation and usage, Java-Runtime
  4.3. .... Interactive online help under Windows XP
  4.4. .... Support for different languages
  4.5. .... Restrictions / Features
@@ -528,11 +528,9 @@ The general properties and functions of CrypTool are:
   a role you can directly call the text options dialog via a click on a
   button.
 
-- All persistent data is stored within the user local part of
-  the registry (no more INI file): So CrypTool can be used without
-  administrator access rights and different users at the same pc can
-  have different settings.
-  xxxxxxxxxxxx
+- CrypTool can be installed and used without having administrator access rights.
+  Different users at the same PC can have different settings.
+  Details see chapter 4.2.
 
 - The same menu structure is permanently visible: Items which cannot
   be clicked for special document types are dynamically made grey.
@@ -726,8 +724,17 @@ c) New functionality:
   value of a file
   http://csrc.nist.gov/publications/fips/fips180-2/fips180-2.pdf
 
-- Improving of the password-quality-meters by adding an own component
-  to rate the password by making realistic assumptions about the attacker.
+- Improving of the password-quality-meter: In adding to the known PQM methods
+  from KeyPass and PGP an own component was added. This new method rates the
+  password by making realistic assumptions about the attacker knowledge coming
+  from dictionary attacks:
+  - Recognition of series and patterns (the entropy is calculated no more only
+    from single independant characters).
+  - All mathods are normalized: 100 % means 128 bit entropy.
+    If 100 % is achieved, further entries in the password field are ignored.
+  - Restrictions in this beta version:
+    - In the password field no blanks can be entered (ascii code <= 32).
+    - In the password field at most 32 Zeichen can be entered.
 
 - The password entropy dialog offers to create random passwords which offer
   a similar high security as randomly generated binary keys for symmetric
@@ -897,8 +904,7 @@ who prefer to keep on developing in C/C++.
 - Make it possible to edit the homophone key (necessary for the
   analysis of homophone encryption).
 
-- Floating entropy: automatic display of relevant places with
-  high entropy.xxxxxxxxxxxxx
+- Floating entropy: automatic search for places in a document with high entropy.
 
 - Illustrate the Vigenère analysis more deeply:
   - Enable to enter not only a fixed value for the key length,
@@ -1165,8 +1171,8 @@ implemented according to international standards and are working
 as "well" as in productive applications.
 
 
-4.2. Win32 environment and Java-Runtime
-     ----------------------------------
+4.2. Win32 environment, rights for installation and usage, Java-Runtime
+     ------------------------------------------------------------------
 CrypTool requires a Win32 environment.
 
 Some functions (ANIMAL, ECC demonstration) require an installed Java Runtime
@@ -1177,22 +1183,28 @@ and 40 MByte free space on the hard drive (low requirements).
 
 CrypTool 1.4.20 is supported to run under Windows XP and Windows Vista.
 
-CrypTool doesn't need administrator access rights - neither for the
-installation nor for the usage.
-
 Different language versions (localizations) can be used in parallel at one
 computer.
 
-Persistent data is written only into the CrypTool directory, into
-the Windows directory for temporary files (TEMP directory) or into
-the user specific part of the Windows registry (Details see
-chapter 3) (There are no INI files used any more).
-xxxxxxxxxxxxx
+Different users using the same PC can have different settings (because they
+are stored in the user-secific area of the Windows registry).
+
+CrypTool doesn't need administrator access rights - neither for the
+installation nor for the usage:
+- During the installation process persistent data is stored at the following
+  places, so the installing person needs to have write access there:
+  - for the CrypTool directory,
+  - for the user-specific area in the Windows registry.
+- During using the CrypTool application you need write access for:
+  - files within the CrypTool directory PSE (for the PKI key management),
+  - files within the user-specific TEMP directory (for storing temporary files),
+  - the user-specific area of the Windows registry (to store user settings).
 
 Remark: Where the TEMP directory of Windows is, can be seen by
 entering %TEMP% in the Windows Explorer. The value can also be seen
 and adjusted under Windows XP via "System --> System properties 
 --> Tab Enhanced --> Environment variables".
+Or by entereing "echo %TEMP%" at the command line prompt.
 
 CrypTool also works basically under FreeBSD/Linux with Wine
 (with reservations on functionality and stability).
