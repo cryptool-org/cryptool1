@@ -741,7 +741,7 @@ c) Funktionale Erweiterungen:
   des Hashwertes einer Datei
   http://csrc.nist.gov/publications/fips/fips180-2/fips180-2.pdf
 
-- Verbesserung des Passwort-Quality-Meters, indem neben bekannten
+- Verbesserung des Passwort-Qualiäts-Meters, indem neben bekannten
   PQM-Methoden wie denen aus KeyPass oder PGP eine eigene Komponente zur
   Bewertung ergänzt wurde. Hierbei wurden die aus Wörterbuch-Angriffen
   bekannten realistischen Annahmen über das Vorwissen von Angreifern
@@ -1274,7 +1274,7 @@ c) Startmenü:
    folgende Verzeichnis während der Installation beschreibbar ist:
    %allusersprofile%\Startmenü\Programme
    Wenn dieses Verzeichnis nicht beschreibbar ist, wird CrypTool eingetragen
-   unter:If this directory is not writable CrypTool will be installed in:
+   unter:
    %userprofile%\Startmenü\Programs.
 
 CrypTool funktioniert grundsätzlich auch unter FreeBSD/Linux mit
@@ -1413,15 +1413,16 @@ Bitte beachten Sie:
 
   Wenn Sie diese Schlüssel und Zertifikate auch in der neuen Version von
   CrypTool nutzen wollen, gibt es 2 Möglichkeiten:
-  a) Import aus einer alten CrypTool-Versionen VOR 1.4.00:
+  a) Import aus einer alten CrypTool-Version (VOR 1.4.00):
      - Für RSA- und DSA-Schlüssel:
        Exportieren Sie diese PSEs mit Hilfe des alten CrypTools in ein
        PKCS#12-Format und importieren Sie diese Dateien im neuen CrypTool.
      - Für ECC-Schlüssel:
        Hier reicht es, die entsprechenden Dateien 
        (z.B. [da][db][EC-prime239v1][1131039030][d] )
-       vom alten CrypTool\pse-Verzeichnis in das neue zu kopieren.
-  b) Alternativ aus einer alten CrypTool-Versionen ab 1.4.00:
+       vom alten CrypTool\pse-Verzeichnis in das neue Verzeichnis zu
+       kopieren.
+  b) Alternativ, aus einer alten CrypTool-Versionen ab 1.4.00:
      Sichern Sie VOR der Deinstallation das unter dem Programmverzeichnis
      liegende Verzeichnis pse\ mit allen darin gespeicherten Dateien
      in ein anderes Verzeichnis. Alle Dateien darin können Sie dann nach
