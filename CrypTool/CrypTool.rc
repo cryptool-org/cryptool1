@@ -5489,15 +5489,15 @@ BEGIN
                     IDC_STATIC,20,20,285,24
     LTEXT           "Prezentujemy kilka ró¿nych wskaŸników jakoœci has³a. Dziêki nim mo¿esz\noszacowaæ jego bezpieczeñstwo.",
                     IDC_STATIC,20,44,285,16
-    GROUPBOX        "Resistance against dictionary attacks",IDC_STATIC,7,240,
-                    311,110
+    GROUPBOX        "Resistance against dictionary attacks (evaluates only the first 32 characters)",
+                    IDC_STATIC,7,240,311,110
     EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,253,285,90,ES_MULTILINE | 
                     ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
     CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",WS_BORDER | 
                     0x1,68,205,150,8
     LTEXT           "CrypTool:",IDC_STATIC,29,205,32,8
     CTEXT           "100 %",IDC_QUALITY_CRYPTOOL,225,205,35,8
-    LTEXT           "(The CrypTool-PQM method considers only the first 32 characters)",
+    LTEXT           "(The CrypTool-PQM method evaluates only the first 32 characters)",
                     IDC_STATIC,68,216,237,8
     LTEXT           "Password length:",IDC_STATIC,202,124,55,13
     EDITTEXT        IDC_EDIT1,260,123,25,12,ES_AUTOHSCROLL | ES_READONLY | 
@@ -17488,8 +17488,8 @@ BEGIN
                     25
     LTEXT           "Hier sind verschiedene Beispiele für Passwort-Qualitätsmesser aufgeführt, die Ihnen dabei helfen, die Sicherheit Ihres Passworts einzuschätzen.",
                     IDC_STATIC,20,44,285,16
-    GROUPBOX        "Resistenz gegen Wörterbuch-Attacken",IDC_STATIC,7,235,
-                    311,110
+    GROUPBOX        "Resistenz gegen Wörterbuch-Attacken  (bewertet nur die ersten 32 Zeichen)",
+                    IDC_STATIC,7,235,311,110
     EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,247,285,90,ES_MULTILINE | 
                     ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
     DEFPUSHBUTTON   "Passwort-Richtlinien",ID_CONFIGURE_PASSWORD_GUIDELINES,
@@ -17501,7 +17501,7 @@ BEGIN
     LTEXT           "Passwortlänge:",IDC_STATIC,209,124,50,9
     EDITTEXT        IDC_EDIT1,260,123,25,12,ES_AUTOHSCROLL | ES_READONLY | 
                     ES_NUMBER
-    LTEXT           "(Die CrypTool-PQM-Methode berücksichtigt nur die ersten 32 Zeichen)",
+    LTEXT           "(Die CrypTool-PQM-Methode bewertet nur die ersten 32 Zeichen)",
                     IDC_STATIC,68,216,237,8
 END
 
@@ -29482,8 +29482,8 @@ BEGIN
                     IDC_STATIC,20,20,285,24
     LTEXT           "Here you can see different examples for password quality meters, helping you to estimate the security of your password.",
                     IDC_STATIC,20,44,285,16
-    GROUPBOX        "Resistance against dictionary attacks",IDC_STATIC,7,235,
-                    311,110
+    GROUPBOX        "Resistance against dictionary attacks (evaluates only the first 32 characters)",
+                    IDC_STATIC,7,235,311,110
     EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,247,285,90,ES_MULTILINE | 
                     ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
     DEFPUSHBUTTON   "Password guidelines",ID_CONFIGURE_PASSWORD_GUIDELINES,
@@ -29494,7 +29494,7 @@ BEGIN
     CTEXT           "100 %",IDC_QUALITY_CRYPTOOL,225,206,35,8
     GROUPBOX        "Qualität des Passworts basierend auf Hypothesen",
                     IDC_STATIC,7,147,311,82
-    LTEXT           "(The CrypTool-PQM method considers only the first 32 characters)",
+    LTEXT           "(The CrypTool-PQM method evaluates only the first 32 characters)",
                     IDC_STATIC,68,216,237,8
     LTEXT           "Password length:",IDC_STATIC,204,124,56,13
     EDITTEXT        IDC_EDIT1,260,123,25,12,ES_AUTOHSCROLL | ES_READONLY | 
