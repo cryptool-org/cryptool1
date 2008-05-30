@@ -10521,9 +10521,9 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_ACCESS_PSE          "Imoptuj klucz i certyfikat"
+    IDS_ACCESS_PSE          "Importuj klucz i certyfikat"
     IDS_IMPORT              "Importuj"
-    IDS_CONGRATULATIONS     "Congratulations! \n\n\n\n"
+    IDS_CONGRATULATIONS     "Gratulacje! \n\n\n\n"
     IDS_RSASGN_DOCNAME      "Generowanie podpisu RSA zakoñczone sukcesem %s. \n\n\n\n"
     IDS_RSASGN_PSE          "Dla tego celu stworzy³eœ nowy klucz RSA i zachowa³eœ go razem z certyfikatem w pliku PSE  %s. \n\n\n\n"
     IDS_RSASGN_PSE_IMP      "Dla tego celu importowa³eœ klucz RSA razem z certyfikatem z pliku PSE %s\n\n\n"
@@ -10987,7 +10987,7 @@ BEGIN
     IDS_SIGATT_HARMLESS     "examples\\original.txt"
     IDS_SIGATT_DANGEROUS    "examples\\fake.txt"
     IDS_SCRIPTPATH          "%sScript-en.pdf"
-    IDS_ERROPEN_SCRIPT      "Plik sryptu nie móg³ zostaæ otwarty!\nProszê sprawdziæ,\nczy plik ""Script-en.pdf"" znajduje siê w katalogu CrypToola, oraz\nczy jest zainstalowany Acrobat Reader (www.adobe.com)."
+    IDS_ERROPEN_SCRIPT      "Plik skryptu nie móg³ zostaæ otwarty!\nProszê sprawdziæ,\nczy plik ""Script-en.pdf"" znajduje siê w katalogu CrypToola, oraz\nczy jest zainstalowany Acrobat Reader (www.adobe.com)."
     IDS_OPENHASHOFAFILE     "Wartoœæ hasz dla pliku"
     IDS_PROGESS_COMPUTE_DIGEST "%s Obliczanie wartoœci hasz"
 END
@@ -11029,7 +11029,7 @@ BEGIN
     IDS_STRING_SIG_ATT_STA_EFFEXPENSE "PRÓBY OBLICZEÑ"
     IDS_STRING_SIG_ATT_STA_PERFORMED "Operacja hasz wykonana"
     IDS_STRING_SIG_ATT_STA_TITLE 
-                            "Nr biegu.     Kroki do kolizji    Sprawdzenie kolizji     Wszystkie kroki\n\n"
+                            "Przebieg nr     Kroki do kolizji    Sprawdzenie kolizji     Wszystkie kroki\n\n"
     IDS_STRING_SIG_ATT_STA_ADDEDBYTES "DODANE BAJTY"
     IDS_STRING_SIG_ATT_STA_DOCTITLE "Statystyki ataku"
     IDS_STRING_SIG_ATT_STA_TEST_SERIES_STOPPED 
@@ -11056,7 +11056,7 @@ BEGIN
                             "Wybrany algorytm funkcji skrótu wymaga d³ugoœci znacz¹cego bitu pomiêdzy 1 a %d. "
     IDS_STRING_SIG_ATT_DOCUMENTS_FOUND 
                             "Atak pomyœlny: znalezione zosta³y dwie ró¿ne wiadomoœci, dla których wartoœæ skrótu jest równa dla pierwszych %d bitów."
-    IDS_STRING_SIG_ATT_RUN_NUMBER "Bieg nr:"
+    IDS_STRING_SIG_ATT_RUN_NUMBER "Przebieg nr:"
     IDS_STRING_SIG_ATT_NO_DOCUMENTS_FOUND 
                             "Atak nie powiód³ siê: nie znaleziono pary wiadomoœci."
     IDS_STRING_SIG_ATT_CRYPTOOL "CrypTool"
@@ -11106,14 +11106,14 @@ BEGIN
     IDS_SCA_SERVER_ANSWER_FAILURE "Niepoprawne"
     IDS_SCA_ATTACKER_MODIFIEDSESSIONKEY 
                             "Zmodyfikowany i zaszyfrowany klucz sesji (hexadecymalnie):"
-    IDS_SCA_SESSIONKEYNUMBER "Nr.:"
+    IDS_SCA_SESSIONKEYNUMBER "Nr:"
     IDS_SCA_ATTACKER_SESSIONKEYNOTDETERMINEDYET 
                             "Klucz sesji nie zosta³ jeszcze wyznaczony."
 END
 
 STRINGTABLE 
 BEGIN
-    ID_SCRIPT               "Otwiera skryp CrypToola z dalszymi matematycznymi informacjami (wymagany Acrobat Reader)"
+    ID_SCRIPT               "Otwiera skrypt CrypToola z dalszymi matematycznymi informacjami (wymagany Acrobat Reader)"
     ID_EINZELVERFAHREN_SIDECHANNELATTACK_ON_HYBRIDENCRYPTION 
                             "Wizualizacja ataku Side-Channel na protokó³ hybrydowego szyfrowania."
     ID_CHALLENGE_RESPONSE   "Pokazuje kilka sieciowych metod uwierzytelniania i ataków na nie."
@@ -11178,12 +11178,12 @@ BEGIN
     IDS_dataCaption_Einmalpasswort "Aktualne haslo:"
     IDS_dataCaption_geheimerSchluesselClient "Klucz prywatny (klient):"
     IDS_dataCaption_oeffentlicherSchluesselClient "Klucz publiczny (klient):"
-    IDS_dataCaption_geheimerSchluesselServer1 "Klucz prywatny (Serwer):"
+    IDS_dataCaption_geheimerSchluesselServer1 "Klucz prywatny (serwer):"
     IDS_dataCaption_oeffentlicherSchluesselServer1 "Klucz publiczny (serwer):"
     IDS_dataCaption_ChallengeFromServer1 "Wyzwanie od serwera:"
     IDS_dataCaption_ResponseToServer1 "Odpowiedz do serwera:"
     IDS_dataCaption_ChallengeFromClient "Wyzwanie od klienta:"
-    IDS_dataCaption_ResponseToClient "odpowiedz od klienta:"
+    IDS_dataCaption_ResponseToClient "Odpowiedz od klienta:"
     IDS_dataCaption_Schluessel "Klucz:"
 END
 
@@ -11193,13 +11193,13 @@ BEGIN
     IDS_Message_NoConnectionToComputer "Nie masz po³¹czenia z tym komputerem!"
     IDS_Message_NoScenarioChosen "Nie wybra³eœ scenariusza."
     IDS_Message_ProtocolInterrupted "Protokó³ zosta³ przerwany."
-    IDS_Message_AuthenticationFailed "Autentykacja nie powiod³a siê."
+    IDS_Message_AuthenticationFailed "Uwierzytelnienie nie powiod³o siê."
     IDS_Message_AuthenticationOfAttackerSuccessfull 
-                            "Autentykacja atakuj¹cego zakoñczona sukcesem."
+                            "Uwierzytelnienie atakuj¹cego zakoñczone sukcesem."
     IDS_Message_ManInTheMiddleSuccessful 
                             "Autentykacja atakuj¹cego w ""Man In The Middle"" zakoñczona pomyœlnie przy u¿yciu maskowania."
     IDS_Message_AuthenticationOfClientSuccessful 
-                            "Autentykacja klienta pomyœlna."
+                            "Uwierzytelnienie klienta zakoñczone z powodzeniem."
     IDS_Message_CannotMaskConnectionsMisconfiguration 
                             "Przy tej konfiguracji po³¹czenia maskowanie nie jest mo¿liwe."
     IDS_Message_MaskBeforeProtocolStart 
