@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -5463,26 +5463,26 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     PUSHBUTTON      "Anuluj",IDCANCEL,268,353,50,14
     CONTROL         "",IDC_PROGRESS_KEEPASS,"msctls_progress32",WS_BORDER | 
-                    0x1,68,160,150,8
+                    0x1,68,160,130,8
     LTEXT           "KeePass:",IDC_STATIC,31,160,30,8
     LTEXT           "Mozilla:",IDC_STATIC,37,174,24,8
     LTEXT           "PGP:",IDC_STATIC,45,188,16,8
     CONTROL         "",IDC_PROGRESS_MOZILLA,"msctls_progress32",WS_BORDER | 
-                    0x1,68,174,150,8
+                    0x1,68,174,130,8
     CONTROL         "",IDC_PROGRESS_PGP,"msctls_progress32",WS_BORDER | 0x1,
-                    68,188,150,8
-    CTEXT           "100%",IDC_QUALITY_KEEPASS,225,160,35,8
-    CTEXT           "100%",IDC_QUALITY_MOZILLA,225,174,35,8
-    CTEXT           "100%",IDC_QUALITY_PGP,225,188,35,8
-    GROUPBOX        "Jakoœæ has³a",IDC_STATIC,7,147,311,83
+                    68,188,130,8
+    LTEXT           "100% (128 bit)",IDC_QUALITY_KEEPASS,205,160,55,8
+    LTEXT           "100%",IDC_QUALITY_MOZILLA,205,174,55,8
+    LTEXT           "100% (128 bit)",IDC_QUALITY_PGP,205,188,55,8
+    GROUPBOX        "Jakoœæ has³a",IDC_STATIC,7,147,311,82
     GROUPBOX        "Wprowadzenie has³a",IDC_STATIC,7,72,311,70
     LTEXT           "Proszê, wprowadŸ poni¿ej swoje has³o. Jakoœæ has³a pokazana zostanie w procentach i jest aktualizowana przy ka¿dym wciœniêciu klawisza.",
                     IDC_STATIC,20,85,285,16
-    EDITTEXT        IDC_EDIT_PASSWORD,68,106,217,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PASSWORD,68,106,237,14,ES_AUTOHSCROLL
     LTEXT           "Has³o:",IDC_STATIC,27,106,34,8
     CONTROL         "Poka¿ has³o",IDC_CHECK_SHOWPASSWORD,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,68,122,150,10
-    CONTROL         "",IDC_PICTURE_QUALITY,"Static",SS_BLACKFRAME,273,174,25,
+                    BS_AUTOCHECKBOX | WS_TABSTOP,68,124,130,10
+    CONTROL         "",IDC_PICTURE_QUALITY,"Static",SS_BLACKFRAME,272,175,25,
                     25
     GROUPBOX        "Opis",IDC_STATIC,7,7,311,60
     LTEXT           "Okreœlenie jakoœci has³a nie jest jednoznacznym zagadnieniem. Jednak\n wykorzystuj¹c zdefiniowane miary mo¿emy oszacowaæ i porównaæ odpornoœæ\nhas³a na popularne ataki.",
@@ -5494,13 +5494,13 @@ BEGIN
     EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,253,285,90,ES_MULTILINE | 
                     ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
     CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",WS_BORDER | 
-                    0x1,68,205,150,8
-    LTEXT           "CrypTool:",IDC_STATIC,29,205,32,8
-    CTEXT           "100 %",IDC_QUALITY_CRYPTOOL,225,205,35,8
+                    0x1,68,206,130,8
+    LTEXT           "CrypTool:",IDC_STATIC,29,206,32,8
+    LTEXT           "100% (128 bit)",IDC_QUALITY_CRYPTOOL,205,206,55,8
     LTEXT           "(The CrypTool-PQM method evaluates only the first 32 characters)",
                     IDC_STATIC,68,216,237,8
-    LTEXT           "Password length:",IDC_STATIC,202,124,55,13
-    EDITTEXT        IDC_EDIT1,260,123,25,12,ES_AUTOHSCROLL | ES_READONLY | 
+    LTEXT           "Password length:",IDC_STATIC,223,124,56,9
+    EDITTEXT        IDC_EDIT1,280,123,25,12,ES_AUTOHSCROLL | ES_READONLY | 
                     ES_NUMBER
     DEFPUSHBUTTON   "Password guidelines",ID_CONFIGURE_PASSWORD_GUIDELINES,
                     110,353,80,14
@@ -9381,8 +9381,8 @@ BEGIN
         VERTGUIDE, 20
         VERTGUIDE, 61
         VERTGUIDE, 68
-        VERTGUIDE, 218
-        VERTGUIDE, 225
+        VERTGUIDE, 198
+        VERTGUIDE, 205
         VERTGUIDE, 260
         VERTGUIDE, 285
         VERTGUIDE, 305
@@ -9397,7 +9397,8 @@ BEGIN
         HORZGUIDE, 160
         HORZGUIDE, 174
         HORZGUIDE, 188
-        HORZGUIDE, 230
+        HORZGUIDE, 206
+        HORZGUIDE, 229
         HORZGUIDE, 240
     END
 
@@ -11915,12 +11916,12 @@ BEGIN
     IDS_CANT_SAVE_UNDO      "[i18n]Could not save information to later undo the last text change."
 END
 
-#endif    // Polish resources
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -17462,29 +17463,29 @@ BEGIN
     PUSHBUTTON      "Schließen",IDCANCEL,268,353,50,14
     GROUPBOX        "Beschreibung",IDC_STATIC,7,7,311,60
     GROUPBOX        "Eingabe des Passworts",IDC_STATIC,7,72,311,70
-    GROUPBOX        "Qualität des Passworts basierend auf Hypothesen",
+    GROUPBOX        "Qualität des Passworts basierend auf Hypothesen (und Entropie des Passworts in Bits)",
                     IDC_STATIC,7,147,311,82
     LTEXT           "Es ist nicht möglich, die Sicherheit von Passwörtern quantitativ eindeutig zu bestimmen. Allerdings ist es möglich, die Sicherheit von Passwörtern basierend auf bestimmten Hypothesen zu schätzen.",
                     IDC_STATIC,20,20,285,24
     LTEXT           "Bitte geben Sie Ihr Passwort in das Eingabefeld ein. Die Qualität des Passworts wird prozentual angezeigt und nach jedem Tastendruck automatisch aktualisiert.",
                     IDC_STATIC,20,85,285,16
-    EDITTEXT        IDC_EDIT_PASSWORD,68,106,217,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PASSWORD,68,106,237,14,ES_AUTOHSCROLL
     LTEXT           "Passwort:",IDC_STATIC,28,106,33,8
     CONTROL         "Passwort im Klartext anzeigen",IDC_CHECK_SHOWPASSWORD,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,68,124,110,9
     CONTROL         "",IDC_PROGRESS_KEEPASS,"msctls_progress32",WS_BORDER | 
-                    0x1,68,160,150,8
+                    0x1,68,160,130,8
     LTEXT           "KeePass:",IDC_STATIC,31,160,30,8
     LTEXT           "Mozilla:",IDC_STATIC,37,174,24,8
     LTEXT           "PGP:",IDC_STATIC,45,188,16,8
     CONTROL         "",IDC_PROGRESS_MOZILLA,"msctls_progress32",WS_BORDER | 
-                    0x1,68,174,150,8
+                    0x1,68,174,130,8
     CONTROL         "",IDC_PROGRESS_PGP,"msctls_progress32",WS_BORDER | 0x1,
-                    68,188,150,8
-    CTEXT           "100 %",IDC_QUALITY_KEEPASS,225,160,35,8
-    CTEXT           "100 %",IDC_QUALITY_MOZILLA,225,174,35,8
-    CTEXT           "100 %",IDC_QUALITY_PGP,225,188,35,8
-    CONTROL         "",IDC_PICTURE_QUALITY,"Static",SS_BLACKFRAME,271,173,25,
+                    68,188,130,8
+    LTEXT           "100% (128 Bits)",IDC_QUALITY_KEEPASS,205,160,55,8
+    LTEXT           "100%",IDC_QUALITY_MOZILLA,205,174,55,8
+    LTEXT           "100% (128 Bits)",IDC_QUALITY_PGP,205,188,55,8
+    CONTROL         "",IDC_PICTURE_QUALITY,"Static",SS_BLACKFRAME,272,175,25,
                     25
     LTEXT           "Hier sind verschiedene Beispiele für Passwort-Qualitätsmesser aufgeführt, die Ihnen dabei helfen, die Sicherheit Ihres Passworts einzuschätzen.",
                     IDC_STATIC,20,44,285,16
@@ -17495,11 +17496,11 @@ BEGIN
     DEFPUSHBUTTON   "Passwort-Richtlinien",ID_CONFIGURE_PASSWORD_GUIDELINES,
                     110,353,80,14
     CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",WS_BORDER | 
-                    0x1,68,206,150,8
+                    0x1,68,206,130,8
     LTEXT           "CrypTool:",IDC_STATIC,29,206,32,8
-    CTEXT           "100 %",IDC_QUALITY_CRYPTOOL,225,206,35,8
-    LTEXT           "Passwortlänge:",IDC_STATIC,209,124,50,9
-    EDITTEXT        IDC_EDIT1,260,123,25,12,ES_AUTOHSCROLL | ES_READONLY | 
+    LTEXT           "100% (128 Bits)",IDC_QUALITY_CRYPTOOL,205,206,55,8
+    LTEXT           "Passwortlänge:",IDC_STATIC,229,124,50,9
+    EDITTEXT        IDC_EDIT1,280,123,25,12,ES_AUTOHSCROLL | ES_READONLY | 
                     ES_NUMBER
     LTEXT           "(Die CrypTool-PQM-Methode bewertet nur die ersten 32 Zeichen)",
                     IDC_STATIC,68,216,237,8
@@ -21303,8 +21304,8 @@ BEGIN
         VERTGUIDE, 20
         VERTGUIDE, 61
         VERTGUIDE, 68
-        VERTGUIDE, 218
-        VERTGUIDE, 225
+        VERTGUIDE, 198
+        VERTGUIDE, 205
         VERTGUIDE, 260
         VERTGUIDE, 285
         VERTGUIDE, 305
@@ -23985,14 +23986,15 @@ BEGIN
                             "Das eingegebene Ersetzungsmuster enthält ein Null-Byte.\nBeachten Sie, dass die Ersetzung durch Null-Bytes nur in Hex-Dokumenten möglich ist."
     IDS_SCA_ATTACK_FAILED_BECAUSE_OF_MISSING_KEYWORD 
                             "Der Seitenkanalangriff ist fehlgeschlagen!\n\nVermutlich enthielt die Originaldatei vor der Verschlüsselung nicht das Schlüsselwort ""%s"".\n\nIn der Online-Hilfe des Seitenkanalangriffs erfahren Sie, weshalb das Schlüsselwort für einen erfolgreichen Angriff notwendig ist."
+    IDS_PQM_BIT             "Bits"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -29455,27 +29457,27 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     PUSHBUTTON      "Cancel",IDCANCEL,268,353,50,14
     CONTROL         "",IDC_PROGRESS_KEEPASS,"msctls_progress32",WS_BORDER | 
-                    0x1,68,160,150,8
+                    0x1,68,160,130,8
     LTEXT           "KeePass:",IDC_STATIC,31,160,30,8
     LTEXT           "Mozilla:",IDC_STATIC,37,174,24,8
     LTEXT           "PGP:",IDC_STATIC,45,188,16,8
     CONTROL         "",IDC_PROGRESS_MOZILLA,"msctls_progress32",WS_BORDER | 
-                    0x1,68,174,150,8
+                    0x1,68,174,130,8
     CONTROL         "",IDC_PROGRESS_PGP,"msctls_progress32",WS_BORDER | 0x1,
-                    68,188,150,8
-    CTEXT           "100 %",IDC_QUALITY_KEEPASS,225,160,35,8
-    CTEXT           "100 %",IDC_QUALITY_MOZILLA,225,174,35,8
-    CTEXT           "100 %",IDC_QUALITY_PGP,225,188,35,8
-    GROUPBOX        "Password quality based on assumptions",IDC_STATIC,7,147,
-                    311,82
+                    68,188,130,8
+    LTEXT           "100% (128 bit)",IDC_QUALITY_KEEPASS,205,160,55,8
+    LTEXT           "100%",IDC_QUALITY_MOZILLA,205,174,55,8
+    LTEXT           "100% (128 bit)",IDC_QUALITY_PGP,205,188,55,8
+    GROUPBOX        "Password quality based on assumptions (and password entropy in bit)",
+                    IDC_STATIC,7,147,311,82
     GROUPBOX        "Password input",IDC_STATIC,7,72,311,70
     LTEXT           "Please enter your password here. The password quality is shown in percent and updated with every key stroke.",
                     IDC_STATIC,20,85,285,16
-    EDITTEXT        IDC_EDIT_PASSWORD,68,106,217,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PASSWORD,68,106,237,14,ES_AUTOHSCROLL
     LTEXT           "Password:",IDC_STATIC,27,106,34,8
     CONTROL         "Show password",IDC_CHECK_SHOWPASSWORD,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,68,123,116,11
-    CONTROL         "",IDC_PICTURE_QUALITY,"Static",SS_BLACKFRAME,270,174,25,
+                    BS_AUTOCHECKBOX | WS_TABSTOP,68,124,116,11
+    CONTROL         "",IDC_PICTURE_QUALITY,"Static",SS_BLACKFRAME,272,175,25,
                     25
     GROUPBOX        "Description",IDC_STATIC,7,7,311,60
     LTEXT           "It is not possible to exactly determine and quantify the security of passwords. But it is possible to estimate the security of passwords based on certain assumptions.",
@@ -29489,15 +29491,13 @@ BEGIN
     DEFPUSHBUTTON   "Password guidelines",ID_CONFIGURE_PASSWORD_GUIDELINES,
                     110,353,80,14
     CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",WS_BORDER | 
-                    0x1,68,206,150,8
+                    0x1,68,206,130,8
     LTEXT           "CrypTool:",IDC_STATIC,29,206,32,8
-    CTEXT           "100 %",IDC_QUALITY_CRYPTOOL,225,206,35,8
-    GROUPBOX        "Qualität des Passworts basierend auf Hypothesen",
-                    IDC_STATIC,7,147,311,82
+    LTEXT           "100% (128 bit)",IDC_QUALITY_CRYPTOOL,205,206,55,8
     LTEXT           "(The CrypTool-PQM method evaluates only the first 32 characters)",
                     IDC_STATIC,68,216,237,8
-    LTEXT           "Password length:",IDC_STATIC,204,124,56,13
-    EDITTEXT        IDC_EDIT1,260,123,25,12,ES_AUTOHSCROLL | ES_READONLY | 
+    LTEXT           "Password length:",IDC_STATIC,223,124,56,9
+    EDITTEXT        IDC_EDIT1,280,123,25,12,ES_AUTOHSCROLL | ES_READONLY | 
                     ES_NUMBER
 END
 
@@ -33527,8 +33527,8 @@ BEGIN
         VERTGUIDE, 20
         VERTGUIDE, 61
         VERTGUIDE, 68
-        VERTGUIDE, 218
-        VERTGUIDE, 225
+        VERTGUIDE, 198
+        VERTGUIDE, 205
         VERTGUIDE, 260
         VERTGUIDE, 285
         VERTGUIDE, 305
@@ -33545,6 +33545,7 @@ BEGIN
         HORZGUIDE, 174
         HORZGUIDE, 188
         HORZGUIDE, 206
+        HORZGUIDE, 229
     END
 
     IDD_LIST_RESULTS, DIALOG
@@ -36149,9 +36150,10 @@ BEGIN
                             "The entered replace pattern contains a null byte.\nNote that the replacement of null bytes is possible in hex documents only."
     IDS_SCA_ATTACK_FAILED_BECAUSE_OF_MISSING_KEYWORD 
                             "The side-channel attack failed!\n\nProbably the original file did not contain the keyword ""%s"" before it was encrypted.\n\nIn the online help of the side-channel attack you can learn why this keyword is necessary for a successful attack."
+    IDS_PQM_BIT             "bit"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

@@ -56,7 +56,7 @@ extern char *Pfad;
 
 CDlgPasswordQualityMeter::CDlgPasswordQualityMeter(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgPasswordQualityMeter::IDD, pParent)
-	, passwordLengthOutput(0)
+	, passwordLength(0)
 {
 	password = "";
 	showPassword = true;
@@ -65,7 +65,7 @@ CDlgPasswordQualityMeter::CDlgPasswordQualityMeter(CWnd* pParent /*=NULL*/)
 	intQualityMozilla = 0;
 	intQualityPGP = 0;
 	intQualityCrypTool = 0;
-	passwordLengthOutput = 0;
+	passwordLength = 0;
 
 	stringQualityKeePass = "";
 	stringQualityMozilla = "";
@@ -101,8 +101,8 @@ void CDlgPasswordQualityMeter::DoDataExchange(CDataExchange* pDX)
 
 	DDX_Text(pDX, IDC_EDIT_PASSWORD_RESISTANCE, passwordResistance);
 	DDX_Control(pDX, IDC_EDIT_PASSWORD, passwordEditCtrl);
-	DDX_Control(pDX, IDC_EDIT1, PasswordLengthCtrl);
-	DDX_Text(pDX, IDC_EDIT1, passwordLengthOutput);
+	DDX_Control(pDX, IDC_EDIT1, passwordLengthEditCtrl);
+	DDX_Text(pDX, IDC_EDIT1, passwordLength);
 }
 
 BOOL CDlgPasswordQualityMeter::OnInitDialog()
@@ -134,7 +134,7 @@ void CDlgPasswordQualityMeter::EditPasswordChanged()
 		if ( i >= password.GetLength() )
 			break;
 	};
-	passwordLengthOutput = password.GetLength();
+	passwordLength = password.GetLength();
 	UpdateData(false);
 	passwordEditCtrl.SetSel(nStart, nEnd);
 
@@ -188,17 +188,35 @@ void CDlgPasswordQualityMeter::UpdateUserInterface()
 	// update (string) quality display
 	_itoa(intQualityKeePass, pc_str, 10);
 	stringQualityKeePass = pc_str;
-	stringQualityKeePass.Append(" %");
+	stringQualityKeePass.Append("%");
 	_itoa(intQualityMozilla, pc_str, 10);
 	stringQualityMozilla = pc_str;
-	stringQualityMozilla.Append(" %");
+	stringQualityMozilla.Append("%");
 	_itoa(intQualityPGP, pc_str, 10);
 	stringQualityPGP = pc_str;
-	stringQualityPGP.Append(" %");
+	stringQualityPGP.Append("%");
 	_itoa(intQualityCrypTool, pc_str, 10);
 	stringQualityCrypTool = pc_str;
-	stringQualityCrypTool.Append(" %");
-	
+	stringQualityCrypTool.Append("%");
+
+	// CAUTION: for the entropy display, assume a maximum of 128 bit for each approach,
+	//			but exclude Mozilla since the algorithm is not entropy-based
+	char tempString[STR_LAENGE_STRING_TABLE+1];
+
+	// update (string) entropy display
+	int intEntropyKeePass = intQualityKeePass * 128 / 100;
+	LoadString(AfxGetInstanceHandle(), IDS_PQM_BIT, tempString, STR_LAENGE_STRING_TABLE);
+	sprintf(pc_str, " (%d %s)", intEntropyKeePass, tempString);
+	stringQualityKeePass.Append(pc_str);
+	int intEntropyPGP = intQualityPGP * 128 / 100;
+	LoadString(AfxGetInstanceHandle(), IDS_PQM_BIT, tempString, STR_LAENGE_STRING_TABLE);
+	sprintf(pc_str, " (%d %s)", intEntropyPGP, tempString);
+	stringQualityPGP.Append(pc_str);
+	int intEntropyCrypTool = intQualityCrypTool * 128 / 100;
+	LoadString(AfxGetInstanceHandle(), IDS_PQM_BIT, tempString, STR_LAENGE_STRING_TABLE);
+	sprintf(pc_str, " (%d %s)", intEntropyCrypTool, tempString);
+	stringQualityCrypTool.Append(pc_str);
+
 	// update (progress bar) quality display
 	controlQualityKeePass.SetRange(0, 100);
 	controlQualityKeePass.SetPos(intQualityKeePass);

@@ -97,8 +97,8 @@ public:
 	afx_msg void OnBnClickedCheckShowpassword();
 	afx_msg void OnBnClickedConfigurePasswordGuidelines();
 	CEdit passwordEditCtrl;
-	CEdit PasswordLengthCtrl;
-	long passwordLengthOutput;
+	CEdit passwordLengthEditCtrl;
+	int passwordLength;
 };
 
 #endif
