@@ -54,6 +54,7 @@ statement from your version.
 #include "passwordchecker.h"
 #include "resource.h"
 #include "CrypToolTools.h"
+#include "passwordqualitymeter.h"
 
 // these are the patterns a password is checked against
 static char *pwd_patterns[] = {
@@ -427,6 +428,7 @@ public:
 private:
 	// the password to be checked
 	std::string password;
+	double bits_perChar;
 	// the length of the password
 	int passwordLength;
 	// the closure matrix based on a dictionary
@@ -451,6 +453,12 @@ PasswordEntropyChecker::PasswordEntropyChecker(const std::string &_password, clo
 	// allocate memory for the password components
 	passwordComponents = new char*[passwordLength];
 	passwordEntropy    = new double[passwordLength+1];
+	int charSpace;
+	KeePassCharSpace(password.c_str(), charSpace);
+	if ( charSpace > 0 )
+		bits_perChar = log((double)charSpace)/log(2.0);
+	else
+		bits_perChar = 0.0;
 	for (int i=0; i<passwordLength; i++)
 		passwordComponents[i] = new char[passwordLength+1];
 	for (int i=0; i<=passwordLength; i++)
@@ -465,15 +473,9 @@ PasswordEntropyChecker::~PasswordEntropyChecker() {
 	delete []passwordEntropy;
 }
 
-void PasswordEntropyChecker::check(const int &_depth, const int &_length, const double &_entropy) {
+void PasswordEntropyChecker::check(const int &_depth, const int &_length, const double &_entropy) 
+{
 	double delta_entropy;
-
-#if 0
-	if ( _entropy >= passwordEntropy[_length] )
-		return; // cut enumeration
-	else
-		passwordEntropy[_length] = _entropy;
-#endif
 
 	if ( _length >= passwordLength )
 	{
@@ -488,7 +490,7 @@ void PasswordEntropyChecker::check(const int &_depth, const int &_length, const 
 
 	passwordComponents[_depth][0] = password[_length];
 	passwordComponents[_depth][1] = '\0';
-	delta_entropy = 6.0;
+	delta_entropy = bits_perChar;
 	if ( _entropy + delta_entropy < passwordEntropy[_length+1] )
 	{
 		passwordEntropy[_length+1] = _entropy+delta_entropy;
@@ -497,39 +499,38 @@ void PasswordEntropyChecker::check(const int &_depth, const int &_length, const 
 
 	for ( int i=2; i<=passwordLength-_length; i++ )
 	{
+		strncpy(passwordComponents[_depth], password.c_str() +_length, i);
+		passwordComponents[_depth][i] = '\0';
+		int charSpace;
+		KeePassCharSpace(passwordComponents[_depth], charSpace);
+		double charBits = log((double)charSpace)/log(2.0);
 		double delta_min = i*8.0;
 		if ( closureMatrix[_length][i].flags & PATTERN )
 		{
-			delta_entropy = 2*6.0+(i-2)*1.0;
+			delta_entropy = 2*charBits+(i-2)*1.0;
 			if ( delta_min > delta_entropy )
 				delta_min = delta_entropy;
-			// check(_depth+1, _length+i, _entropy+delta_entropy);
 		}
 		if ( closureMatrix[_length][i].flags & SERIALS ) 
 		{
-			delta_entropy = 2*5.0+(i-2)*1.0;
+			delta_entropy = 2*charBits+(i-2)*1.0;
 			if ( delta_min > delta_entropy )
 				delta_min = delta_entropy;
-			// check(_depth+1, _length+i, _entropy+delta_entropy);
 		}
 		if ( closureMatrix[_length][i].flags & KBD_SERIALS ) 
 		{
-			delta_entropy = 2*4.0+(i-2)*1.0;
+			delta_entropy = 2*charBits+(i-2)*1.0;
 			if ( delta_min > delta_entropy )
 				delta_min = delta_entropy;
-			// check(_depth+1, _length+i, _entropy+delta_entropy);
 		}
 		if ( closureMatrix[_length][i].flags & DICT_WORDS ) 
 		{
 			delta_entropy = 14.0;
 			if ( delta_min > delta_entropy )
 				delta_min = delta_entropy;
-			// check(_depth+1, _length+i, _entropy+delta_entropy);
 		}
 		if ( delta_min < i*8.0 )
 		{
-			strncpy(passwordComponents[_depth], password.c_str() +_length, i);
-			passwordComponents[_depth][i] = '\0';
 			if ( _entropy + delta_min < passwordEntropy[_length+i] )
 			{
 				passwordEntropy[_length+i] = _entropy+delta_min;

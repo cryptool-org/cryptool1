@@ -192,6 +192,9 @@ public:
 //
 // ****************************************************************************
 
+int KeePassCharSpace( const char *_password, int &charSpace );
+unsigned int password_bitQualityKeePass(const char *_password);
+
 unsigned int passwordQualityKeePass(const char *_password);
 unsigned int passwordQualityMozilla(const char *_password);
 unsigned int passwordQualityPGP(const char *_password);

@@ -217,9 +217,36 @@ void PasswordFile::operator=(const char *c)
 //
 // ****************************************************************************
 
-unsigned int passwordQualityKeePass(const char *_password)
+/* ************************************************
+   * KEEPASS
+   ************************************************ */
+
+#define KEEPASS_CHLOWER              1
+#define KEEPASS_CHUPPER              2
+#define KEEPASS_CHNUMBER             4
+#define KEEPASS_CHSIMPLE_SPECIAL     8
+#define KEEPASS_CHEXT_SPECIAL       16
+#define KEEPASS_CHHIGH              32
+#define KEEPASS_CHESCAPE            64  
+
+int bitset_KeePassCharSet(char ch)
 {
-	Password password(_password);
+	int bitset;
+	if (  ch < ' ')					  bitset = KEEPASS_CHESCAPE;		// bChEscape = true;
+	if (( ch >= 'A') && ( ch <= 'Z')) bitset = KEEPASS_CHUPPER;			// bChUpper = true;
+	if (( ch >= 'a') && ( ch <= 'z')) bitset = KEEPASS_CHLOWER;			// bChLower = true;
+	if (( ch >= '0') && ( ch <= '9')) bitset = KEEPASS_CHNUMBER;		// bChNumber = true;
+	if (( ch >= ' ') && ( ch <= '/')) bitset = KEEPASS_CHSIMPLE_SPECIAL;// bChSimpleSpecial = true;
+	if (( ch >= ':') && ( ch <= '@')) bitset = KEEPASS_CHEXT_SPECIAL;	// bChExtSpecial = true;
+	if (( ch >= '[') && ( ch <= '`')) bitset = KEEPASS_CHEXT_SPECIAL;	// bChExtSpecial = true;
+	if (( ch >= '{') && ( ch <= '~')) bitset = KEEPASS_CHEXT_SPECIAL;	// bChExtSpecial = true;
+	if (  ch > '~')                   bitset = KEEPASS_CHHIGH;			// bChHigh = true;
+	return bitset;
+}
+
+int KeePassCharSpace(int bitset)
+{
+	int dwCharSpace = 0;
 
 	const unsigned int CHARSPACE_ESCAPE      = 60;
 	const unsigned int CHARSPACE_ALPHA       = 26;
@@ -228,65 +255,56 @@ unsigned int passwordQualityKeePass(const char *_password)
 	const unsigned int CHARSPACE_EXTSPECIAL  = 17;
 	const unsigned int CHARSPACE_HIGH        = 112;
 
-  double q;
-  double dwLen, dwCharSpace, dwBits;
-  bool bChLower = false, bChUpper = false, bChNumber = false;
-  bool bChSimpleSpecial = false, bChExtSpecial = false, bChHigh = false;
-  bool bChEscape = false;
-  char tch;
-  double dblBitsPerChar;
+	if (bitset & KEEPASS_CHESCAPE)         dwCharSpace += CHARSPACE_ESCAPE;
+	if (bitset & KEEPASS_CHUPPER )         dwCharSpace += CHARSPACE_ALPHA;
+	if (bitset & KEEPASS_CHLOWER )         dwCharSpace += CHARSPACE_ALPHA;
+	if (bitset & KEEPASS_CHNUMBER)         dwCharSpace += CHARSPACE_NUMBER;
+	if (bitset & KEEPASS_CHSIMPLE_SPECIAL) dwCharSpace += CHARSPACE_SIMPSPECIAL;
+	if (bitset & KEEPASS_CHEXT_SPECIAL)    dwCharSpace += CHARSPACE_EXTSPECIAL;
+	if (bitset & KEEPASS_CHHIGH)           dwCharSpace += CHARSPACE_HIGH;
 
-  char *pszPassword = password.characters();
-
-  dwLen = strlen(pszPassword);
- 
-  if(dwLen == 0)
-  {
-    q = 0;
-    return q;
-  }
-
-  for(int i=0; i<dwLen; i++)
-  {
-    tch = pszPassword[i];
-    
-    if(tch < ' ') bChEscape = true;
-    if((tch >= 'A') && (tch <= 'Z')) bChUpper = true;
-    if((tch >= 'a') && (tch <= 'z')) bChLower = true;
-    if((tch >= '0') && (tch <= '9')) bChNumber = true;
-    if((tch >= ' ') && (tch <= '/')) bChSimpleSpecial = true;
-    if((tch >= ':') && (tch <= '@')) bChExtSpecial = true;
-    if((tch >= '[') && (tch <= '`')) bChExtSpecial = true;
-    if((tch >= '{') && (tch <= '~')) bChExtSpecial = true;
-    if(tch > '~') bChHigh = true;
-  }
-
-  dwCharSpace = 0;
-  if(bChEscape == true) dwCharSpace += CHARSPACE_ESCAPE;
-  if(bChUpper == true) dwCharSpace += CHARSPACE_ALPHA;
-  if(bChLower == true) dwCharSpace += CHARSPACE_ALPHA;
-  if(bChNumber == true) dwCharSpace += CHARSPACE_NUMBER;
-  if(bChSimpleSpecial == true) dwCharSpace += CHARSPACE_SIMPSPECIAL;
-  if(bChExtSpecial == true) dwCharSpace += CHARSPACE_EXTSPECIAL;
-  if(bChHigh == true) dwCharSpace += CHARSPACE_HIGH;
-
-  if(dwCharSpace == 0)
-  {
-    q = 0;
-    return q;
-  }
-
-  dblBitsPerChar = log((double)dwCharSpace) / log(2.00);
-  dwBits = (double)(ceil(dblBitsPerChar * (double)dwLen));
-
-  q = dwBits;
-
-  // * NEW: scaled to 128 bit directly *
-  int p = 0;
-  ( dwBits > 128) ? p = 100 : ( p = (int)dwBits * 100 / 128 );
-
-  return p;
+	return dwCharSpace;
 }
+
+int KeePassCharSpace( const char *_password, int &charSpace )
+{
+	Password password(_password);
+	char *pszPassword = password.characters();
+	int   dwLen = strlen(pszPassword);
+	charSpace = 0;
+
+	if(dwLen == 0)
+		return 0;
+
+	int bitset_charSpace = 0;
+	for(int i=0; i<dwLen; i++)
+		bitset_charSpace |= bitset_KeePassCharSet(pszPassword[i]); 
+
+	charSpace = KeePassCharSpace(bitset_charSpace);
+	return dwLen;
+}
+
+unsigned int password_bitQualityKeePass(const char *_password)
+{
+	int dwCharSpace;
+	int dwLen = KeePassCharSpace( _password, dwCharSpace );
+
+	if (dwLen == 0 || dwCharSpace == 0)
+		return 0;
+
+	double dblBitsPerChar = log((double)dwCharSpace) / log(2.00);
+	return (int)(ceil(dblBitsPerChar * (double)dwLen));
+}
+
+unsigned int passwordQualityKeePass(const char *_password)
+{
+	int q = password_bitQualityKeePass(_password);
+	return ( q > 128 ) ? 100 : (q * 100) / 120;
+}
+
+/* ************************************************
+   * MOZILLA
+   ************************************************ */
 
 unsigned int passwordQualityMozilla(const char *_password)
 {
@@ -325,8 +343,9 @@ unsigned int passwordQualityMozilla(const char *_password)
 	return q;
 }
 
-
-
+/* ************************************************
+   * PGP
+   ************************************************ */
 int pgpEstimatePassphraseQuality(const char*);
 int pgpEstimateMinEntropyBits(const char*);
 int pgpEstimateMaxEntropyBits(const char*);
