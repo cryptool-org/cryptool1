@@ -66,6 +66,8 @@ statement from your version.
 #include "DialogeMessage.h"
 #include "SecudeCryptography.h"
 
+#include "HashingOperations.h"
+
 inline int convert(char c)
 {
 	if(('0' <= c) && (c <= '9')) return c-'0';
@@ -295,6 +297,12 @@ protected:
 	4 steht für SHA
 	5 steht für SHA-1
 	6 steht für RIPEMD160
+
+	Für die folgenden Hashfunktionen wird die OpenSSL-Bibliothek 
+	an Stelle der Secude-Bibliothek verwendet. Welche Funktion 
+	verwendet wird, hängt von den übergebenen Parametern (AlgId) ab:
+	7 steht für SHA-256
+	8 steht für SHA-512
 */
 
 
@@ -346,50 +354,107 @@ UINT CHashRunnable::run()
 			aid = theApp.SecudeLib.ripemd160_aid;
 			AlgTitel="RIPEMD-160";
 			break;
+		
+		case 7: // SHA-256
+			aid = 0;
+			AlgTitel = "SHA-256";
+			break;
+		case 8: // SHA-512
+			aid = 0;
+			AlgTitel = "SHA-512";
+			break;
 	}
-
 
 	LoadString(AfxGetInstanceHandle(), IDS_PROGESS_COMPUTE_DIGEST, pc_str, STR_LAENGE_STRING_TABLE);
 	char progressTitel[128];
 	sprintf(progressTitel, pc_str, AlgTitel);
 	theApp.fs.SetWindowText(progressTitel);
 
-	FILE *in = fopen(infile,"rb");
-	ASSERT(in);
-	m_pos = 0;
-	fseek(in,0,SEEK_END);
-	m_size = ftell(in);
-	fseek(in,0,SEEK_SET);
-	RC rc;
-	void *context = NULL;
-	rc = theApp.SecudeLib.sec_hash_init(&context,aid,NULL);
-	ASSERT(rc == 0);
-	size_t n;
-	while (!canceled() && (n = fread(buffer,1,sizeof(buffer),in))) {
-		bufferostr.noctets = n;
-		rc = theApp.SecudeLib.sec_hash_more(&context,&bufferostr);
+	// if the AlgorithmID (aid) is zero, we use OpenSSL functions for hashing
+	if(aid == 0) {
+		FILE *in = fopen(infile,"rb");
+		ASSERT(in);
+		m_pos = 0;
+		fseek(in,0,SEEK_END);
+		m_size = ftell(in);
+		fseek(in,0,SEEK_SET);
+
+		CString algorithm = AlgTitel;
+		
+		if(algorithm == "SHA-256") {
+			char charHashValue[32+1];
+			memset(charHashValue, 0, 32+1);
+			HashingOperations hashingOperations(6);
+			int n = fread(buffer, 1, m_size, in);
+			hashingOperations.DoHash(buffer, m_size, charHashValue);
+			hashostr.octets = charHashValue;
+			hashostr.noctets = 32;
+		}
+		if(algorithm == "SHA-512") {
+			char charHashValue[64+1];
+			memset(charHashValue, 0, 64+1);
+			HashingOperations hashingOperations(7);
+			int n = fread(buffer, 1, m_size, in);
+			hashingOperations.DoHash(buffer, m_size, charHashValue);
+			hashostr.octets = charHashValue;
+			hashostr.noctets = 64;
+		}	
+		fclose(in);
+
+		theApp.fs.cancel();
+
+		while ( theApp.fs.m_displayed )	Sleep(10);  // Wait until the progress window is destroyed: FIXME !!!
+
+		CDlgShowHash HashDlg;
+		HashDlg.SetHash( hashostr, OldTitle, AlgTitel );
+		if (IDOK == HashDlg.DoModal() )
+		{
+			theApp.SecudeLib.aux_OctetString2file(&hashostr,outfile,2);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_HASH_VALUE_OF,pc_str,STR_LAENGE_STRING_TABLE);
+			MakeNewName2(title,sizeof(title),pc_str,OldTitle,AlgTitel);
+			theApp.ThreadOpenDocumentFileNoMRU(outfile,title);
+		}
+		theApp.SecudeLib.aux_free(hashostr.octets);
+	}
+	// if the AlgorithmID (aid) is NOT zero, we stick to Secude for hashing
+	else {
+		FILE *in = fopen(infile,"rb");
+		ASSERT(in);
+		m_pos = 0;
+		fseek(in,0,SEEK_END);
+		m_size = ftell(in);
+		fseek(in,0,SEEK_SET);
+		RC rc;
+		void *context = NULL;
+		rc = theApp.SecudeLib.sec_hash_init(&context,aid,NULL);
 		ASSERT(rc == 0);
-		m_pos += n;
-	}
-	fclose(in);
-	rc = theApp.SecudeLib.sec_hash_end(&context,&hashostr);
-	ASSERT(rc == 0);
-	bool canceledbyuser = canceled();
-	theApp.fs.cancel();
+		size_t n;
+		while (!canceled() && (n = fread(buffer,1,sizeof(buffer),in))) {
+			bufferostr.noctets = n;
+			rc = theApp.SecudeLib.sec_hash_more(&context,&bufferostr);
+			ASSERT(rc == 0);
+			m_pos += n;
+		}
+		fclose(in);
+		rc = theApp.SecudeLib.sec_hash_end(&context,&hashostr);
+		ASSERT(rc == 0);
+		bool canceledbyuser = canceled();
+		theApp.fs.cancel();
 
-	while ( theApp.fs.m_displayed )	Sleep(10);  // Wait until the progress window is destroyed: FIXME !!!
+		while ( theApp.fs.m_displayed )	Sleep(10);  // Wait until the progress window is destroyed: FIXME !!!
 
-	CDlgShowHash HashDlg;
-	HashDlg.SetHash( hashostr, OldTitle, AlgTitel );
-	if ( !canceledbyuser && IDOK == HashDlg.DoModal() )
-	{
-		theApp.SecudeLib.aux_OctetString2file(&hashostr,outfile,2);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_HASH_VALUE_OF,pc_str,STR_LAENGE_STRING_TABLE);
-		MakeNewName2(title,sizeof(title),pc_str,OldTitle,AlgTitel);
-		theApp.ThreadOpenDocumentFileNoMRU(outfile,title);
+		CDlgShowHash HashDlg;
+		HashDlg.SetHash( hashostr, OldTitle, AlgTitel );
+		if ( !canceledbyuser && IDOK == HashDlg.DoModal() )
+		{
+			theApp.SecudeLib.aux_OctetString2file(&hashostr,outfile,2);
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_HASH_VALUE_OF,pc_str,STR_LAENGE_STRING_TABLE);
+			MakeNewName2(title,sizeof(title),pc_str,OldTitle,AlgTitel);
+			theApp.ThreadOpenDocumentFileNoMRU(outfile,title);
+		}
+		theApp.SecudeLib.aux_free(hashostr.octets);
+		delete this;
 	}
-	theApp.SecudeLib.aux_free(hashostr.octets);
-	delete this;
 	return 0;
 }
 

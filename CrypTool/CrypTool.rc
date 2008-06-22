@@ -17808,6 +17808,10 @@ BEGIN
             , GRAYED
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
             , GRAYED
+            MENUITEM "SHA-&256",                    ID_CRYPT_HASH_SHA256
+            , GRAYED
+            MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512
+            , GRAYED
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
             , GRAYED
             MENUITEM SEPARATOR
@@ -18230,6 +18234,8 @@ BEGIN
             MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5
             MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
+            MENUITEM "SHA-&256",                    ID_CRYPT_HASH_SHA256
+            MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
             MENUITEM SEPARATOR
             MENUITEM "&Hashwert einer Datei...",    ID_HASH_OFAFILE
@@ -18649,6 +18655,10 @@ BEGIN
             , GRAYED
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
             , GRAYED
+            MENUITEM "SHA-&256",                    ID_CRYPT_HASH_SHA256
+            , GRAYED
+            MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512
+            , GRAYED
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
             , GRAYED
             MENUITEM SEPARATOR
@@ -19064,6 +19074,8 @@ BEGIN
             MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5
             MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
+            MENUITEM "SHA-&256",                    ID_CRYPT_HASH_SHA256
+            MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
             MENUITEM SEPARATOR
             MENUITEM "&Hashwert einer Datei...",    ID_HASH_OFAFILE
@@ -19512,6 +19524,10 @@ BEGIN
             MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
             , GRAYED
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
+            , GRAYED
+            MENUITEM "SHA-&256",                    ID_CRYPT_HASH_SHA256
+            , GRAYED
+            MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512
             , GRAYED
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
             , GRAYED
@@ -21592,6 +21608,15 @@ BEGIN
     ID_CRYPT_HASH_MD4       "Berechnet den MD4-Hashwert des aktiven Dokuments"
     ID_CRYPT_HASH_SHA       "Berechnet den SHA-Hashwert des aktiven Dokuments"
     ID_CRYPT_HASH_SHA1      "Berechnet den SHA-1-Hashwert des aktiven Dokuments"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_HELP_PRESENTATION    "Öffnet eine Präsentation mit weiteren Informationen zu CrypTool (Acrobat Reader erforderlich)"
+    ID_PASSWORDENTROPY      "Generiert Passwörter mit einer bestimmten Entropie"
+    ID_FORMAT_TEXT_DOCUMENT "Formatiert ein Textdokument mit bestimmten Parametern"
+    ID_CRYPT_HASH_SHA256    "Berechnet den SHA-256-Hashwert des aktiven Dokuments"
+    ID_CRYPT_HASH_SHA512    "Berechnet den SHA-512-Hashwert des aktiven Dokuments"
 END
 
 STRINGTABLE 
@@ -23967,13 +23992,6 @@ BEGIN
                             "- Nein (Passwort enthält zu wenig Ziffern)\r\n"
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_SPECIAL_CHARACTERS 
                             "- Nein (Passwort enthält zu wenig Sonderzeichen)\r\n"
-END
-
-STRINGTABLE 
-BEGIN
-    ID_HELP_PRESENTATION    "Öffnet eine Präsentation mit weiteren Informationen zu CrypTool (Acrobat Reader erforderlich)"
-    ID_PASSWORDENTROPY      "Generiert Passwörter mit einer bestimmten Entropie"
-    ID_FORMAT_TEXT_DOCUMENT "Formatiert ein Textdokument mit bestimmten Parametern"
 END
 
 STRINGTABLE 
@@ -29799,6 +29817,10 @@ BEGIN
             , GRAYED
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
             , GRAYED
+            MENUITEM "SHA-&256",                    ID_CRYPT_HASH_SHA256
+            , GRAYED
+            MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512
+            , GRAYED
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
             , GRAYED
             MENUITEM SEPARATOR
@@ -30216,6 +30238,8 @@ BEGIN
             MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5
             MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
+            MENUITEM "SHA-&256",                    ID_CRYPT_HASH_SHA256
+            MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
             MENUITEM SEPARATOR
             MENUITEM "Hash Value of a File...",     ID_HASH_OFAFILE
@@ -30631,6 +30655,10 @@ BEGIN
             , GRAYED
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
             , GRAYED
+            MENUITEM "SHA-&256",                    ID_CRYPT_HASH_SHA256
+            , GRAYED
+            MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512
+            , GRAYED
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
             , GRAYED
             MENUITEM SEPARATOR
@@ -31042,6 +31070,8 @@ BEGIN
             MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5
             MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
+            MENUITEM "SHA-&256",                    ID_CRYPT_HASH_SHA256
+            MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
             MENUITEM SEPARATOR
             MENUITEM "Hash Value of a File...",     ID_HASH_OFAFILE
@@ -31486,6 +31516,10 @@ BEGIN
             MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
             , GRAYED
             MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
+            , GRAYED
+            MENUITEM "SHA-&256",                    ID_CRYPT_HASH_SHA256
+            , GRAYED
+            MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512
             , GRAYED
             MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
             , GRAYED
@@ -33818,6 +33852,15 @@ END
 
 STRINGTABLE 
 BEGIN
+    ID_HELP_PRESENTATION    "Opens a presentation with further information about CrypTool (Acrobat Reader required)"
+    ID_PASSWORDENTROPY      "Generates passwords with a specific entropy"
+    ID_FORMAT_TEXT_DOCUMENT "Formats a text document with specific parameters"
+    ID_CRYPT_HASH_SHA256    "Calculates the SHA-256 hash value of the active document"
+    ID_CRYPT_HASH_SHA512    "Calculates the SHA-512 hash value of the active document"
+END
+
+STRINGTABLE 
+BEGIN
     ID_CRYPT_VERIFY         "Verify signature on the active document"
     ID_CRYPT_EXTRACT        "Extract the actual signature from the output generated through ""Sign document"""
     ID_ANALYZE_SUBST        "Manual analysis of a document encrypted with the substitution algorithm"
@@ -36131,13 +36174,6 @@ BEGIN
                             "- No (Password contains too few digits)\r\n"
     IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_SPECIAL_CHARACTERS 
                             "- No (Password contains too few special characters)\r\n"
-END
-
-STRINGTABLE 
-BEGIN
-    ID_HELP_PRESENTATION    "Opens a presentation with further information about CrypTool (Acrobat Reader required)"
-    ID_PASSWORDENTROPY      "Generates passwords with a specific entropy"
-    ID_FORMAT_TEXT_DOCUMENT "Formats a text document with specific parameters"
 END
 
 STRINGTABLE 

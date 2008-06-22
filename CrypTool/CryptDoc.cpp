@@ -193,6 +193,8 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CAppDocument)
 	ON_COMMAND(ID_CRYPT_HASH_RIPEMD160, OnCryptHashRipemd160)
 	ON_COMMAND(ID_CRYPT_HASH_SHA, OnCryptHashSha)
 	ON_COMMAND(ID_CRYPT_HASH_SHA1, OnCryptHashSha1)
+	ON_COMMAND(ID_CRYPT_HASH_SHA256, OnCryptHashSha256)
+	ON_COMMAND(ID_CRYPT_HASH_SHA512, OnCryptHashSha512)
 	ON_COMMAND(ID_VERNAM_BIN, OnVernamBin)
 	ON_COMMAND(ID_CRYPT_3DES_CBC, OnCrypt3desCbc)
 	ON_COMMAND(ID_CRYPT_3DES_ECB, OnCrypt3desEcb)
@@ -645,12 +647,6 @@ void CCryptDoc::OnCryptDesDesecb()
 	SymmetricEncryption(IDS_CRYPT_DES_ECB, SECUDE_PROVIDER, ContentName, GetTitle());
 }
 
-void CCryptDoc::OnCryptHashMd5() 
-{
-    UpdateContent();
-	hash(ContentName, GetTitle(),3);	
-}
-
 void CCryptDoc::OnCryptHashMd2() 
 {
     UpdateContent();
@@ -663,10 +659,10 @@ void CCryptDoc::OnCryptHashMd4()
 	hash(ContentName, GetTitle(),2);
 }
 
-void CCryptDoc::OnCryptHashRipemd160() 
+void CCryptDoc::OnCryptHashMd5() 
 {
     UpdateContent();
-	hash(ContentName, GetTitle(),6);
+	hash(ContentName, GetTitle(),3);	
 }
 
 void CCryptDoc::OnCryptHashSha() 
@@ -679,6 +675,24 @@ void CCryptDoc::OnCryptHashSha1()
 {
     UpdateContent();
 	hash(ContentName, GetTitle(),5);
+}
+
+void CCryptDoc::OnCryptHashRipemd160() 
+{
+    UpdateContent();
+	hash(ContentName, GetTitle(),6);
+}
+
+void CCryptDoc::OnCryptHashSha256()
+{
+	UpdateContent();
+	hash(ContentName, GetTitle(), 7);
+}
+
+void CCryptDoc::OnCryptHashSha512()
+{
+	UpdateContent();
+	hash(ContentName, GetTitle(), 8);
 }
 
 BOOL CAscDoc::OnSaveDocument(LPCTSTR lpszPathName) 

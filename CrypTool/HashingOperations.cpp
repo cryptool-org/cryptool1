@@ -176,6 +176,26 @@ HAFP[] =
 		160,
 		"RIPEMD-160",
 		382310
+	},
+	{
+		(fp_Init_t) __SSL::SHA256_Init,
+		(fp_Update_t) __SSL::SHA256_Update,
+		(fp_Final_t) __SSL::SHA256_Final,
+		NULL,
+		sizeof(__SSL::SHA256_CTX),
+		256,
+		"SHA-256",
+		555555 // FIXME
+	},
+	{
+		(fp_Init_t) __SSL::SHA512_Init,
+		(fp_Update_t) __SSL::SHA512_Update,
+		(fp_Final_t) __SSL::SHA512_Final,
+		NULL,
+		sizeof(__SSL::SHA512_CTX),
+		512,
+		"SHA-512",
+		777777 // FIXME
 	}
 };
 

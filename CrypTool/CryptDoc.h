@@ -119,6 +119,8 @@ protected:
 	afx_msg void OnCryptHashRipemd160();
 	afx_msg void OnCryptHashSha();
 	afx_msg void OnCryptHashSha1();
+	afx_msg void OnCryptHashSha256();
+	afx_msg void OnCryptHashSha512();
 	afx_msg void OnVernamBin();
 	afx_msg void OnCrypt3desCbc();
 	afx_msg void OnCrypt3desEcb();
