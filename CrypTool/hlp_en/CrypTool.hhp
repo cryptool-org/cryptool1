@@ -110,6 +110,8 @@ hid_crypt_hash_md5.html
 hid_crypt_hash_ripemd160.html
 hid_crypt_hash_sha.html
 hid_crypt_hash_sha1.html
+hid_crypt_hash_sha256.html
+hid_crypt_hash_sha512.html
 hid_crypt_idea.html
 hid_crypt_keygen.html
 hid_crypt_rc2.html

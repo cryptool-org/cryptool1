@@ -72,6 +72,8 @@ public:
 	int		m_selectedHashFunctionMD5;
 	int		m_selectedHashFunctionSHA;
 	int		m_selectedHashFunctionSHA_1;
+	int		m_selectedHashFunctionSHA_256;
+	int		m_selectedHashFunctionSHA_512;
 	int		m_selectedHashFunctionRIPEMD_160;
 	//}}AFX_DATA
 
@@ -94,6 +96,8 @@ protected:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnSelectSHA();
 	afx_msg void OnSelectedSHA_1();
+	afx_msg void OnSelectedSHA_256();
+	afx_msg void OnSelectedSHA_512();
 	afx_msg void OnSelectedRIPEMD_160();
 	virtual void OnOK();
 	//}}AFX_MSG
