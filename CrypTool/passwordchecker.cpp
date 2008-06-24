@@ -413,7 +413,7 @@ void get_pwd_substrings( int pwd_len, closure_info **closure_matrix, int FLAG,
 class PasswordEntropyChecker {
 public:
 	// constructor
-	PasswordEntropyChecker(const std::string &_password, closure_info **_closureMatrix);
+	PasswordEntropyChecker(const std::string &_password, closure_info **_closureMatrix, unsigned long dict_size = 0);
 	// destructor
 	~PasswordEntropyChecker();
 
@@ -429,6 +429,7 @@ private:
 	// the password to be checked
 	std::string password;
 	double bits_perChar;
+	double entropy_dictionary_word;
 	// the length of the password
 	int passwordLength;
 	// the closure matrix based on a dictionary
@@ -443,7 +444,7 @@ private:
 	char **passwordComponents;
 };
 
-PasswordEntropyChecker::PasswordEntropyChecker(const std::string &_password, closure_info **_closureMatrix) {
+PasswordEntropyChecker::PasswordEntropyChecker(const std::string &_password, closure_info **_closureMatrix, unsigned long dict_size) {
 	password = _password;
 	closureMatrix = _closureMatrix;
 
@@ -453,6 +454,12 @@ PasswordEntropyChecker::PasswordEntropyChecker(const std::string &_password, clo
 	// allocate memory for the password components
 	passwordComponents = new char*[passwordLength];
 	passwordEntropy    = new double[passwordLength+1];
+
+	if ( !dict_size )
+		entropy_dictionary_word = 14.0; // FIXME arbitrary value 
+	else
+		entropy_dictionary_word = log((double)dict_size);
+
 	int charSpace;
 	KeePassCharSpace(password.c_str(), charSpace);
 	if ( charSpace > 0 )
@@ -525,7 +532,7 @@ void PasswordEntropyChecker::check(const int &_depth, const int &_length, const 
 		}
 		if ( closureMatrix[_length][i].flags & DICT_WORDS ) 
 		{
-			delta_entropy = 14.0;
+			delta_entropy = entropy_dictionary_word;
 			if ( delta_min > delta_entropy )
 				delta_min = delta_entropy;
 		}
@@ -553,7 +560,7 @@ char *checkPassword(char *password, char *path, int hidePassword, double *determ
     static char lastpath[STRINGSIZE];
     static PWDICT *pwp;
     char pwtrunced[STRINGSIZE];
-    unsigned long int notfound;
+    unsigned long int dict_size;
 
     /* security problem: assume we may have been given a really long
        password (buffer attack) and so truncate it to a workable size;
@@ -583,7 +590,7 @@ char *checkPassword(char *password, char *path, int hidePassword, double *determ
 		}
 		strncpy(lastpath, path, STRINGSIZE);
     }
-    notfound = PW_WORDS(pwp);
+    dict_size = PW_WORDS(pwp);
 
 	int complianceCheckResult = checkPasswordForCompliance(pwtrunced);
 	LoadString(AfxGetInstanceHandle(), IDS_PQM_PASSWORD_COMPLIANT, pc_str, STR_LAENGE_STRING_TABLE);
@@ -658,7 +665,7 @@ char *checkPassword(char *password, char *path, int hidePassword, double *determ
 				closure_matrix[j][i].flags |= KBD_SERIALS;
 			}
 		/*                           */
-			if ( substr = checkPasswordAgainstCracklibDictionary( pwd_substr, pwp, notfound ) )
+			if ( substr = checkPasswordAgainstCracklibDictionary( pwd_substr, pwp, dict_size ) )
 				closure_matrix[j][i].flags |= DICT_WORDS;
 
 			if ( substr )
@@ -713,7 +720,7 @@ char *checkPassword(char *password, char *path, int hidePassword, double *determ
 	// if we're in the sophisticated CrypTool checking mode, the last two input parameters
 	// of this function are not null, and the result is stored in those two parameters
 	if(pwd_len) {
-		PasswordEntropyChecker passwordEntropyChecker(pwtrunced, closure_matrix);
+		PasswordEntropyChecker passwordEntropyChecker(pwtrunced, closure_matrix, dict_size);
 		passwordEntropyChecker.check(0, 0, 0.0);
 		double thePasswordEntropy = passwordEntropyChecker.getPasswordEntropy();
 		std::string thePasswordComponents = passwordEntropyChecker.getPasswordComponents();
