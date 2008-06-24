@@ -73,50 +73,8 @@ static char THIS_FILE[]=__FILE__;
 // Konstruktion/Destruktion
 //////////////////////////////////////////////////////////////////////
 
-typedef void (*fp_Init_t) (void *context);
-typedef void (*fp_Update_t) (void *context, void *data, unsigned long len);
-typedef void (*fp_Final_t) (void *hash, void *context);
-
-struct HashAlgorithmsFP
+HashAlgorithmsFP HAFP[] =
 {
-	fp_Init_t fp_Init;
-	fp_Update_t fp_Update;
-	fp_Final_t fp_Final;
-	void *Context;
-	int ContextSize;
-	int BitLength;
-	char *Name;
-	int HashOpsPerSecond;	// ausgehend von einem Rechner mit ???-Prozessor und ??? MHz Taktfrequenz
-}
-HAFP[] =
-{/*
-	{
-		(fp_Init_t)theApp.SecudeLib.sec_MD2Init,
-		(fp_Update_t)theApp.SecudeLib.sec_MD2Update,
-		(fp_Final_t)theApp.SecudeLib.sec_MD2Final,
-		NULL,
-		sizeof(SEC_MD2_CTX),
-		128,
-		"MD2"
-	},
-	{
-		(fp_Init_t)theApp.SecudeLib.sec_MD4Init,
-		(fp_Update_t)theApp.SecudeLib.sec_MD4Update,
-		(fp_Final_t)theApp.SecudeLib.sec_MD4Final,
-		NULL,
-		sizeof(SEC_MD4_CTX),
-		128,
-		"MD4"
-	},
-	{
-		(fp_Init_t)theApp.SecudeLib.sec_MD5Init,
-		(fp_Update_t)theApp.SecudeLib.sec_MD5Update,
-		(fp_Final_t)theApp.SecudeLib.sec_MD5Final,
-		NULL,
-		sizeof(SEC_MD5_CTX),
-		128,
-		"MD5"
-	}*/
 	{
 		(fp_Init_t) __SSL::MD2_Init,
 		(fp_Update_t) __SSL::MD2_Update,
@@ -230,6 +188,24 @@ void HashingOperations::DoHash(char *OriginalDocument, const int OriginalDocumen
 
 	p_HFP->fp_Update(p_HFP->Context, OriginalDocument, OriginalDocumentLength);
 	p_HFP->fp_Final(ResultingHashValue, p_HFP->Context);
+}
+
+void HashingOperations::chunkHashInit()
+{
+	HashAlgorithmsFP *fp = &(HAFP[m_HashAlgorithmID]);
+	fp->fp_Init(fp->Context);
+}
+
+void HashingOperations::chunkHashUpdate(void *_message, const int _messageLength)
+{
+	HashAlgorithmsFP *fp = &(HAFP[m_HashAlgorithmID]);
+	fp->fp_Update(fp->Context, _message, _messageLength);
+}
+
+void HashingOperations::chunkHashFinal(char *_messageDigest)
+{
+	HashAlgorithmsFP *fp = &(HAFP[m_HashAlgorithmID]);
+	fp->fp_Final(_messageDigest, fp->Context);
 }
 
 void HashingOperations::SetData(int HashAlgorithmID)

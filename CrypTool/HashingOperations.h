@@ -55,6 +55,23 @@ statement from your version.
 
 #include "ErrorcodesForSignatureAttack.h"
 
+typedef void (*fp_Init_t) (void *context);
+typedef void (*fp_Update_t) (void *context, void *data, unsigned long len);
+typedef void (*fp_Final_t) (void *hash, void *context);
+
+struct HashAlgorithmsFP
+{
+	fp_Init_t fp_Init;
+	fp_Update_t fp_Update;
+	fp_Final_t fp_Final;
+	void *Context;
+	int ContextSize;
+	int BitLength;
+	char *Name;
+	int HashOpsPerSecond;	// ausgehend von einem Rechner mit ???-Prozessor und ??? MHz Taktfrequenz
+};
+
+struct HashAlgorithmsFP HAFP[];
 
 class HashingOperations  
 {
@@ -78,6 +95,13 @@ public:
 	virtual ~HashingOperations();
 	void DoHash(char *OriginalDocument, const int OriginalDocumentLength, char *ResultingHashValue) const;
 	
+	HashAlgorithmsFP *getHashAlgorithmsFP() { return &(HAFP[m_HashAlgorithmID]); };	
+
+	// these three functions provide a public access for hashing in chunks
+	void chunkHashInit();
+	void chunkHashUpdate(void *_message, const int _messageLength);
+	void chunkHashFinal(char *_messageDigest);
+
 private:
 	void *m_HashContext;
 	int m_HashAlgorithmID;

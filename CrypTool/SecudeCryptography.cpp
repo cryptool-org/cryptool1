@@ -372,49 +372,97 @@ UINT CHashRunnable::run()
 
 	// if the AlgorithmID (aid) is zero, we use OpenSSL functions for hashing
 	if(aid == 0) {
-		FILE *in = fopen(infile,"rb");
-		ASSERT(in);
-		m_pos = 0;
-		fseek(in,0,SEEK_END);
-		m_size = ftell(in);
-		fseek(in,0,SEEK_SET);
 
-		CString algorithm = AlgTitel;
-		
-		if(algorithm == "SHA-256") {
-			char charHashValue[32+1];
-			memset(charHashValue, 0, 32+1);
+		// SHA-256
+		if(AlgTitel == "SHA-256") {
+			char messageDigest[32+1];
+			memset(messageDigest, 0, 32+1);
+			FILE *in = fopen(infile,"rb");
+			ASSERT(in);
+			m_pos = 0;
+			fseek(in,0,SEEK_END);
+			m_size = ftell(in);
+			fseek(in,0,SEEK_SET);
+			size_t n;
+
+			// create hashing operations object (index 6 = SHA-256)
 			HashingOperations hashingOperations(6);
-			int n = fread(buffer, 1, m_size, in);
-			hashingOperations.DoHash(buffer, m_size, charHashValue);
-			hashostr.octets = charHashValue;
+			// HASH INITIALIZE
+			hashingOperations.chunkHashInit();
+			while (!canceled() && (n = fread(buffer,1,sizeof(buffer),in))) {
+				// HASH UPDATE
+				hashingOperations.chunkHashUpdate(buffer, n);
+				m_pos += n;
+			}
+			fclose(in);
+			// HASH FINALIZE
+			hashingOperations.chunkHashFinal(messageDigest);
+			bool canceledbyuser = canceled();
+			theApp.fs.cancel();
+
+			// assign resulting message digest
 			hashostr.noctets = 32;
+			hashostr.octets = messageDigest;
+
+			while ( theApp.fs.m_displayed )	Sleep(10);  // Wait until the progress window is destroyed: FIXME !!!
+
+			CDlgShowHash HashDlg;
+			HashDlg.SetHash( hashostr, OldTitle, AlgTitel );
+			if ( !canceledbyuser && IDOK == HashDlg.DoModal() )
+			{
+				theApp.SecudeLib.aux_OctetString2file(&hashostr,outfile,2);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_HASH_VALUE_OF,pc_str,STR_LAENGE_STRING_TABLE);
+				MakeNewName2(title,sizeof(title),pc_str,OldTitle,AlgTitel);
+				theApp.ThreadOpenDocumentFileNoMRU(outfile,title);
+			}
+			theApp.SecudeLib.aux_free(hashostr.octets);
+			delete this;
 		}
-		if(algorithm == "SHA-512") {
-			char charHashValue[64+1];
-			memset(charHashValue, 0, 64+1);
+		// SHA-512
+		if(AlgTitel == "SHA-512") {
+			char messageDigest[64+1];
+			memset(messageDigest, 0, 64+1);
+			FILE *in = fopen(infile,"rb");
+			ASSERT(in);
+			m_pos = 0;
+			fseek(in,0,SEEK_END);
+			m_size = ftell(in);
+			fseek(in,0,SEEK_SET);
+			size_t n;
+
+			// create hashing operations object (index 7 = SHA-512)
 			HashingOperations hashingOperations(7);
-			int n = fread(buffer, 1, m_size, in);
-			hashingOperations.DoHash(buffer, m_size, charHashValue);
-			hashostr.octets = charHashValue;
+			// HASH INITIALIZE
+			hashingOperations.chunkHashInit();
+			while (!canceled() && (n = fread(buffer,1,sizeof(buffer),in))) {
+				// HASH UPDATE
+				hashingOperations.chunkHashUpdate(buffer, n);
+				m_pos += n;
+			}
+			fclose(in);
+			// HASH FINALIZE
+			hashingOperations.chunkHashFinal(messageDigest);
+			bool canceledbyuser = canceled();
+			theApp.fs.cancel();
+
+			// assign resulting message digest
 			hashostr.noctets = 64;
-		}	
-		fclose(in);
+			hashostr.octets = messageDigest;
 
-		theApp.fs.cancel();
+			while ( theApp.fs.m_displayed )	Sleep(10);  // Wait until the progress window is destroyed: FIXME !!!
 
-		while ( theApp.fs.m_displayed )	Sleep(10);  // Wait until the progress window is destroyed: FIXME !!!
-
-		CDlgShowHash HashDlg;
-		HashDlg.SetHash( hashostr, OldTitle, AlgTitel );
-		if (IDOK == HashDlg.DoModal() )
-		{
-			theApp.SecudeLib.aux_OctetString2file(&hashostr,outfile,2);
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_HASH_VALUE_OF,pc_str,STR_LAENGE_STRING_TABLE);
-			MakeNewName2(title,sizeof(title),pc_str,OldTitle,AlgTitel);
-			theApp.ThreadOpenDocumentFileNoMRU(outfile,title);
+			CDlgShowHash HashDlg;
+			HashDlg.SetHash( hashostr, OldTitle, AlgTitel );
+			if ( !canceledbyuser && IDOK == HashDlg.DoModal() )
+			{
+				theApp.SecudeLib.aux_OctetString2file(&hashostr,outfile,2);
+				LoadString(AfxGetInstanceHandle(),IDS_STRING_HASH_VALUE_OF,pc_str,STR_LAENGE_STRING_TABLE);
+				MakeNewName2(title,sizeof(title),pc_str,OldTitle,AlgTitel);
+				theApp.ThreadOpenDocumentFileNoMRU(outfile,title);
+			}
+			theApp.SecudeLib.aux_free(hashostr.octets);
+			delete this;
 		}
-		theApp.SecudeLib.aux_free(hashostr.octets);
 	}
 	// if the AlgorithmID (aid) is NOT zero, we stick to Secude for hashing
 	else {
