@@ -158,6 +158,9 @@ PWClose(pwp)
     fclose(pwp->ifp);
     fclose(pwp->dfp);
 
+	// TEST
+	fclose(pwp->wfp);
+
     pwp->header.pih_magic = 0;
 
     return (0);
@@ -247,7 +250,6 @@ GetPW(pwp, number)
     {
 	return (data[number % NUMWORDS]);
     }
-
     if (fseek(pwp->ifp, sizeof(struct pi_header) + (thisblock * sizeof(int32)), 0))
     {
 	perror("(index fseek failed)");
@@ -270,6 +272,7 @@ GetPW(pwp, number)
 	return ((char *) 0);
     }
 
+	memset(buffer, 0, sizeof(buffer));
     if (!fread(buffer, 1, sizeof(buffer), pwp->dfp))
     {
 	perror("(data fread failed)");

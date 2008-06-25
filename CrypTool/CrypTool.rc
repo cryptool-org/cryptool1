@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polnisch resources
+// Polish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -11916,12 +11916,12 @@ BEGIN
     IDS_CANT_SAVE_UNDO      "[i18n]Could not save information to later undo the last text change."
 END
 
-#endif    // Polnisch resources
+#endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -15900,8 +15900,7 @@ BEGIN
     GROUPBOX        "Nachricht",IDC_STATIC,7,80,311,60
     LTEXT           "Eingabe für äußere Hashfunktion (abhängig von der oben gewählten MAC-Variante):",
                     IDC_STATIC,7,301,310,8
-    LTEXT           "Durch äußere Hashfunktion erzeugter Hashwert:",
-                    IDC_STATIC,7,354,154,8
+    LTEXT           "Hashwert der Nachricht m",IDC_STATIC,7,354,83,8
     EDITTEXT        IDC_SHOW_HASH,7,365,310,12,ES_AUTOHSCROLL | ES_READONLY
 END
 
@@ -24017,12 +24016,12 @@ BEGIN
     IDS_PQM_BIT             "Bits"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -27936,7 +27935,8 @@ BEGIN
     GROUPBOX        "Description",IDC_STATIC,7,7,311,70
     EDITTEXT        IDC_EDIT_ORIGINAL_MESSAGE,15,93,295,42,ES_AUTOHSCROLL
     GROUPBOX        "Message",IDC_STATIC,7,80,311,60
-    LTEXT           "Result of outer hash function:",IDC_STATIC,7,354,94,8
+    LTEXT           "Hash value of the message m only",IDC_STATIC,7,354,109,
+                    8
     EDITTEXT        IDC_SHOW_HASH,7,365,310,12,ES_AUTOHSCROLL | ES_READONLY
 END
 
@@ -36204,7 +36204,7 @@ BEGIN
     IDS_PQM_BIT             "bit"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
