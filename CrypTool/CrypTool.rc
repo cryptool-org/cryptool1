@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -11916,12 +11916,12 @@ BEGIN
     IDS_CANT_SAVE_UNDO      "[i18n]Could not save information to later undo the last text change."
 END
 
-#endif    // Polish resources
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -17592,7 +17592,7 @@ BEGIN
                     ES_AUTOHSCROLL
     LTEXT           "Zeichen",IDC_STATIC,125,192,26,8
     LTEXT           "Bits",IDC_STATIC,125,74,12,8
-    DEFPUSHBUTTON   "Textoptionen",ID_TEXTOPTIONS,223,110,177,14
+    PUSHBUTTON      "Textoptionen",ID_TEXTOPTIONS,223,110,177,14
     LTEXT           "Dieser Dialog berechnet ein zufälliges Passwort.",
                     IDC_STATIC,20,20,380,8
     LTEXT           "Die Passwort-Entropie beschreibt, wie schwer das Passwort zu erraten ist. Das Passwort-Alphabet bestimmt, welche Zeichen für das Passwort verwendet werden. Durch Entropie und Alphabet ergibt sich die Passwort-Länge.",
@@ -17606,6 +17606,8 @@ BEGIN
     CONTROL         "Alphabet für WLAN-Passwörter verwenden (64 Zeichen)",
                     IDC_CHECK_USEWLANALPHABET,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,90,161,196,10
+    PUSHBUTTON      "Passwort-Qualität messen",ID_MEASUREPASSWORDQUALITY,114,
+                    239,100,14
 END
 
 IDD_FORMAT_TEXT_DOCUMENT DIALOGEX 0, 0, 200, 118
@@ -24016,12 +24018,12 @@ BEGIN
     IDS_PQM_BIT             "Bits"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -29616,7 +29618,7 @@ BEGIN
                     ES_AUTOHSCROLL
     LTEXT           "characters",IDC_STATIC,125,192,35,8
     LTEXT           "bit",IDC_STATIC,125,74,9,8
-    DEFPUSHBUTTON   "Text options",ID_TEXTOPTIONS,191,110,209,14
+    PUSHBUTTON      "Text options",ID_TEXTOPTIONS,191,110,209,14
     LTEXT           "This dialog computes a random password.",IDC_STATIC,20,
                     20,380,8
     CONTROL         "Don't use confusable characters (written transmission)",
@@ -29630,6 +29632,8 @@ BEGIN
                     WS_TABSTOP,90,161,178,10
     LTEXT           "The password entropy describes how hard it is to guess the password. The password alphabet defines which characters are used to create the password. The combination of entropy and alphabet yield the password length.",
                     IDC_STATIC,20,32,380,16
+    PUSHBUTTON      "Measure password quality",ID_MEASUREPASSWORDQUALITY,114,
+                    239,100,14
 END
 
 IDD_FORMAT_TEXT_DOCUMENT DIALOGEX 0, 0, 200, 118
@@ -36204,7 +36208,7 @@ BEGIN
     IDS_PQM_BIT             "bit"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

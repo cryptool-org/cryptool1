@@ -44,6 +44,7 @@ statement from your version.
 #include "stdafx.h"
 #include "CrypToolApp.h"
 #include "DlgPasswordEntropy.h"
+#include "DlgPasswordQualityMeter.h"
 
 const CString constStringNonConfusableCharactersWrittenTransmission = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPRSTUVWXYZ23456789";
 const CString constStringNonConfusableCharactersTelephonicTransmission = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
@@ -95,6 +96,9 @@ BOOL CDlgPasswordEntropy::OnInitDialog()
 
 	// set the focus to bit length input field
 	GetDlgItem(IDC_EDIT_PASSWORDBITLENGTH)->SetFocus();
+
+	// update the GUI
+	updateGUI();
 	
 	return FALSE;
 }
@@ -108,6 +112,7 @@ BEGIN_MESSAGE_MAP(CDlgPasswordEntropy, CDialog)
 	ON_BN_CLICKED(IDC_CHECK_USENONCONFUSABLECHARACTERS_TELEPHONICTRANSMISSION, CheckBoxesAlphabetChanged)
 	ON_BN_CLICKED(IDC_CHECK_USEWLANALPHABET, CheckBoxesAlphabetChanged)
 	ON_BN_CLICKED(ID_TEXTOPTIONS, OnBnClickedTextoptions)
+	ON_BN_CLICKED(ID_MEASUREPASSWORDQUALITY, OnBnClickedMeasurepasswordquality)
 END_MESSAGE_MAP()
 
 
@@ -135,6 +140,9 @@ void CDlgPasswordEntropy::OnBnClickedGeneratepassword()
 	// set the focus to bit length input field
 	GetDlgItem(IDC_EDIT_PASSWORDBITLENGTH)->SetFocus();
 
+	// update the GUI
+	updateGUI();
+
 	UpdateData(false);
 }
 
@@ -154,6 +162,9 @@ void CDlgPasswordEntropy::OnBnClickedTextoptions()
         stringPasswordLength = "";
 		stringPasswordExample = "";
 	}
+
+	// update the GUI
+	updateGUI();
 
 	UpdateData(false);
 
@@ -175,6 +186,9 @@ void CDlgPasswordEntropy::EditPasswordBitLengthChanged()
 			validBitLength += stringPasswordBitLength[i];
 	}
 	stringPasswordBitLength = validBitLength;
+
+	// update the GUI
+	updateGUI();
 
 	UpdateData(false);
 
@@ -200,6 +214,9 @@ void CDlgPasswordEntropy::EditPasswordAlphabetChanged()
 
 	// clear result field
 	stringPasswordExample = "";
+
+	// update the GUI
+	updateGUI();
 
 	UpdateData(false);
 
@@ -257,6 +274,9 @@ void CDlgPasswordEntropy::CheckBoxesAlphabetChanged()
 	if(useCrypToolAlphabet) GetDlgItem(ID_TEXTOPTIONS)->EnableWindow(true);
 	else GetDlgItem(ID_TEXTOPTIONS)->EnableWindow(false);
 
+	// update the GUI
+	updateGUI();
+
 	UpdateData(false);
 
 	// update the required password length
@@ -287,6 +307,9 @@ void CDlgPasswordEntropy::updatePasswordLength()
 		stringPasswordExample = "";
 	}
 
+	// update the GUI
+	updateGUI();
+
 	UpdateData(false);
 }
 
@@ -301,4 +324,24 @@ CString CDlgPasswordEntropy::computeAlphabetUnionSet(const CString alphabetOne, 
 		}
 	}
 	return result;
+}
+
+void CDlgPasswordEntropy::updateGUI()
+{
+	// if there is no password, disable "measure password quality" button
+	if(this->stringPasswordExample.GetLength() == 0)
+		GetDlgItem(ID_MEASUREPASSWORDQUALITY)->EnableWindow(false);
+	// else: show the button
+	else
+		GetDlgItem(ID_MEASUREPASSWORDQUALITY)->EnableWindow(true);
+}
+
+void CDlgPasswordEntropy::OnBnClickedMeasurepasswordquality()
+{
+	// create a password quality meter dialog
+	CDlgPasswordQualityMeter dialog;
+	// initialize it with the given password
+	dialog.setPassword(stringPasswordExample);
+	// show the dialog
+	dialog.DoModal();
 }

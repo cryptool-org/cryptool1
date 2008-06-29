@@ -109,6 +109,9 @@ BOOL CDlgPasswordQualityMeter::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
+	// this workaround forces to update the password quality display
+	EditPasswordChanged();
+
 	UpdateUserInterface();
 	
 	return FALSE;
@@ -275,4 +278,10 @@ void CDlgPasswordQualityMeter::OnBnClickedConfigurePasswordGuidelines()
 	dlg.DoModal();
 	// user might be confused if we don't update the UI immediately
 	UpdateUserInterface();
+}
+
+void CDlgPasswordQualityMeter::setPassword(const CString &_password)
+{
+	// set the new password
+	password = _password;
 }

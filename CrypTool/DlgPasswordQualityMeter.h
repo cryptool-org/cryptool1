@@ -99,6 +99,9 @@ public:
 	CEdit passwordEditCtrl;
 	CEdit passwordLengthEditCtrl;
 	int passwordLength;
+
+	// this initializes the dialog with a password
+	void setPassword(const CString &_password);
 };
 
 #endif

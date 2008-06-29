@@ -66,6 +66,9 @@ protected:
 
 	afx_msg void OnBnClickedGeneratepassword();
 	afx_msg void OnBnClickedTextoptions();
+	afx_msg void OnBnClickedMeasurepasswordquality();
+
+	void updateGUI();
 
 	DECLARE_MESSAGE_MAP()
 
@@ -82,7 +85,7 @@ protected:
 	BOOL useNonConfusableCharactersTelephonicTransmission;
 	BOOL useWLANAlphabet;
 
-	CString computeAlphabetUnionSet(const CString alphabetOne, const CString alphabetTwo);
+	CString computeAlphabetUnionSet(const CString alphabetOne, const CString alphabetTwo);	
 };
 
 #endif
