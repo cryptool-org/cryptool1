@@ -231,12 +231,12 @@ int checkPasswordForCompliance(char *password) {
 	memcpy(specialGroup, "^°!\"§$%&/()=?´`\\<>|,;:.-_#\'+*~@", 31);
 
 	// try to read guidelines from registry 
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_READ ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_READ, IDS_REGISTRY_SETTINGS, "PasswordGuidelines" ) == ERROR_SUCCESS )
 	{
-		CT_READ_REGISTRY(minimumLength, "PQM_GL_MinimumLength");
-		CT_READ_REGISTRY(minimumDigits, "PQM_GL_MinimumDigits");
-		CT_READ_REGISTRY(minimumSpecial, "PQM_GL_MinimumSpecial");
-		CT_READ_REGISTRY(specialGroup, "PQM_GL_SpecialGroup", buffer);
+		CT_READ_REGISTRY(minimumLength, "MinimumLength");
+		CT_READ_REGISTRY(minimumDigits, "MinimumDigits");
+		CT_READ_REGISTRY(minimumSpecial, "MinimumSpecial");
+		CT_READ_REGISTRY(specialGroup, "SpecialGroup", buffer);
 		CT_CLOSE_REGISTRY();
 		// alter special characters group
 		pwd_chr_families[3] = specialGroup;

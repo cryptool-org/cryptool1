@@ -92,18 +92,31 @@ BOOL CDlgFurtherOptions::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_READ ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_READ, IDS_REGISTRY_SETTINGS, "DifieHellman" ) == ERROR_SUCCESS )
 	{
-
 		unsigned long u_Intro = (unsigned long)TRUE;
-		unsigned long u_length = 1024;
-		char c_SCA_keyWord[1025] = "Alice";
-		
-		CT_READ_REGISTRY(u_Intro, "DH_IntroDialogue");
-		CT_READ_REGISTRY(c_SCA_keyWord, "SCA_Keyword", u_length);
+	
+		CT_READ_REGISTRY(u_Intro, "ShowIntro");
 
 		UpdateData();
 		m_ShowIntroDialogue = u_Intro;
+		UpdateData(FALSE);
+
+		CT_CLOSE_REGISTRY();
+	}
+	else
+	{
+		// FIXME
+	}
+
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_READ, IDS_REGISTRY_SETTINGS, "SideChannelAttack" ) == ERROR_SUCCESS )
+	{
+		unsigned long u_length = 1024;
+		char c_SCA_keyWord[1025] = "Alice";
+
+		CT_READ_REGISTRY(c_SCA_keyWord, "Keyword", u_length);
+
+		UpdateData();
 		m_SCAKeyword = c_SCA_keyWord;
 		UpdateData(FALSE);
 
@@ -124,13 +137,23 @@ void CDlgFurtherOptions::OnOK()
 	UpdateData(true);
 
 
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS, "DifieHellman" ) == ERROR_SUCCESS )
 	{
 
-		CT_WRITE_REGISTRY((unsigned long)m_ShowIntroDialogue, "DH_IntroDialogue");
+		CT_WRITE_REGISTRY((unsigned long)m_ShowIntroDialogue, "ShowIntro");
+		CT_CLOSE_REGISTRY();
+	}
+	else
+	{
+		// FIXME
+	}
+
+		if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS, "SideChannelAttack" ) == ERROR_SUCCESS )
+	{
+
 		if (m_SCAKeyword == "") 
 			m_SCAKeyword = CString("Alice");	
-		CT_WRITE_REGISTRY(m_SCAKeyword, "SCA_Keyword");
+		CT_WRITE_REGISTRY(m_SCAKeyword, "Keyword");
 		CT_CLOSE_REGISTRY();
 	}
 	else

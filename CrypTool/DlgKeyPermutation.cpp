@@ -168,7 +168,7 @@ void CDlgKeyPermutation::OnDecrypt()
 			+ char(m_P1InSeq + '0') + ' ' + char(m_P1Perm + '0') + ' ' + char(m_P1OutSeq + '0')	+ ' '
 			+ char(m_P2InSeq + '0') + ' ' + char(m_P2Perm + '0') + ' ' + char(m_P2OutSeq + '0');
 		CopyKey ( pc_str, Primes );
-		if (ERROR_SUCCESS == CT_OPEN_REGISTRY_SETTINGS	(KEY_WRITE))
+		if (ERROR_SUCCESS == CT_OPEN_REGISTRY_SETTINGS	(KEY_WRITE, IDS_REGISTRY_SETTINGS, "Permutation"))
 		{
 			CT_WRITE_REGISTRY((unsigned long)chk_showPermutations.GetCheck(), "ShowPermutationKey");
 			CT_CLOSE_REGISTRY();
@@ -226,7 +226,7 @@ void CDlgKeyPermutation::OnEncrypt()
 			+ char(m_P1InSeq + '0') + ' ' + char(m_P1Perm + '0') + ' ' + char(m_P1OutSeq + '0') + ' '
 			+ char(m_P2InSeq + '0') + ' ' + char(m_P2Perm + '0') + ' ' + char(m_P2OutSeq + '0');
 		CopyKey ( pc_str, Primes );
-		if (ERROR_SUCCESS == CT_OPEN_REGISTRY_SETTINGS	(KEY_WRITE))
+		if (ERROR_SUCCESS == CT_OPEN_REGISTRY_SETTINGS	(KEY_WRITE, IDS_REGISTRY_SETTINGS, "Permutation"))
 		{
 			CT_WRITE_REGISTRY((unsigned long)chk_showPermutations.GetCheck(), "ShowPermutationKey");
 			CT_CLOSE_REGISTRY();
@@ -376,7 +376,7 @@ BOOL CDlgKeyPermutation::OnInitDialog()
 		m_Paste.EnableWindow(FALSE);
 	}
 
-	if (ERROR_SUCCESS == CT_OPEN_REGISTRY_SETTINGS	(KEY_ALL_ACCESS))
+	if (ERROR_SUCCESS == CT_OPEN_REGISTRY_SETTINGS	(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "Permutation"))
 	{
 		unsigned long u_showPermutations = 1;
 		if ( CT_READ_REGISTRY_DEFAULT(u_showPermutations, "ShowPermutationKey", u_showPermutations) )

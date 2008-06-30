@@ -136,10 +136,10 @@ BOOL CDlgCrtSecretSharing::OnInitDialog()
 	HIDE_HOUR_GLASS			// deaktiviert die Sanduhr
 
 
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "CrtSecretSharing" ) == ERROR_SUCCESS )
 	{
 		unsigned long u_Info = FALSE;
-		CT_READ_REGISTRY(u_Info, "CRT_IntroDialogue");
+		CT_READ_REGISTRY(u_Info, "ShowIntro");
 		if ( u_Info )
 		{
 			DlgCrtSecretSharing_Info newdialog;
@@ -152,7 +152,7 @@ BOOL CDlgCrtSecretSharing::OnInitDialog()
 		m_Info = u_Info;
 		UpdateData(false);
 
-		CT_WRITE_REGISTRY(u_Info, "CRT_IntroDialogue" );
+		CT_WRITE_REGISTRY(u_Info, "ShowIntro" );
 
 		CT_CLOSE_REGISTRY();
 	}

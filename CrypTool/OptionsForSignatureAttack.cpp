@@ -75,11 +75,11 @@ void OptionsForSignatureAttack::SetData(const char *HarmlessFile, const char *Da
 	m_Errorcode = _SIG_ATT_OK;
 	m_IsDataFreed = false;
 
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "SignatureAttack" ) == ERROR_SUCCESS )
 	{
 
 		unsigned long u_SignatureAttackHashAlgorithmID = (unsigned long)FALSE;
-		CT_READ_REGISTRY_DEFAULT(u_SignatureAttackHashAlgorithmID, "SignatureAttackHashAlgorithmID", u_SignatureAttackHashAlgorithmID);
+		CT_READ_REGISTRY_DEFAULT(u_SignatureAttackHashAlgorithmID, "HashAlgorithmID", u_SignatureAttackHashAlgorithmID);
 		m_HashOp = new HashingOperations(u_SignatureAttackHashAlgorithmID);
 		CT_CLOSE_REGISTRY();
 	}
@@ -143,28 +143,28 @@ void OptionsForSignatureAttack::SetData(const char *HarmlessFile, const char *Da
 	ifstr_Dangerous.close();
 
 
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "SignatureAttack" ) == ERROR_SUCCESS )
 	{
 		m_HashAlgorithmBitLength = m_HashOp->GetHashAlgorithmBitLength();
 
 		unsigned long u_SignificantBitLength = 8;
-		CT_READ_REGISTRY_DEFAULT(u_SignificantBitLength, "SignatureAttackSignificantBitLength", u_SignificantBitLength);
+		CT_READ_REGISTRY_DEFAULT(u_SignificantBitLength, "SignificantBitLength", u_SignificantBitLength);
 		m_SignificantBitLength = u_SignificantBitLength;
 
 		unsigned long u_ModifyingMethod = 0;
-		CT_READ_REGISTRY_DEFAULT(u_ModifyingMethod, "SignatureAttackModificationMethod", u_ModifyingMethod);
+		CT_READ_REGISTRY_DEFAULT(u_ModifyingMethod, "ModificationMethod", u_ModifyingMethod);
 		ModifyingMethod = u_ModifyingMethod;
 
 		unsigned long u_Blanks = 0;
-		CT_READ_REGISTRY_DEFAULT(u_Blanks, "SignatureAttackCheck1", u_Blanks);
+		CT_READ_REGISTRY_DEFAULT(u_Blanks, "ModfiyBlankEOL", u_Blanks);
 		Blanks = u_Blanks;
 
 		unsigned long u_DoubledBlanks = 1;
-		CT_READ_REGISTRY_DEFAULT(u_DoubledBlanks, "SignatureAttackCheck3", u_DoubledBlanks);
+		CT_READ_REGISTRY_DEFAULT(u_DoubledBlanks, "ModifyDoubleBlank", u_DoubledBlanks);
 		DoubledBlanks = u_DoubledBlanks;
 
 		unsigned long u_AttMethod = 1;
-		CT_READ_REGISTRY_DEFAULT(u_AttMethod, "SignatureAttackAttMethod", u_AttMethod);
+		CT_READ_REGISTRY_DEFAULT(u_AttMethod, "ModifyCharSet", u_AttMethod);
 		AttMethod = u_AttMethod;
 
 		CT_CLOSE_REGISTRY();

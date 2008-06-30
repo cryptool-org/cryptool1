@@ -108,9 +108,9 @@ BOOL CDlgAdfgvxManual::OnInitDialog()
 	{
 		unsigned long noIntro = FALSE;
 
-		if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
+		if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "ADFGVX" ) == ERROR_SUCCESS )
  		{
-			CT_READ_REGISTRY_DEFAULT(noIntro, "ADFGVX_IntroDialogue", noIntro);
+			CT_READ_REGISTRY_DEFAULT(noIntro, "ShowIntro", noIntro);
 			CT_CLOSE_REGISTRY();
 		}
 		else

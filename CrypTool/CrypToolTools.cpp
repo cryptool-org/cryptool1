@@ -167,9 +167,26 @@ char* double_fmt(double d_num, char *c_buffer, int prec )
 }
 
 
-unsigned long CT_OPEN_REGISTRY_SETTINGS	(unsigned long MODE_ACCESS)
+
+unsigned long CT_OPEN_REGISTRY_SETTINGS	(unsigned long MODE_ACCESS, int ID_REGISTRY_PATH, const char *SUB_FOLDER )
 {
-	return theApp.localRegistry.Open(HKEY_CURRENT_USER, "Software\\CrypTool\\Settings", MODE_ACCESS);
+	char registryPath[1024];
+	LoadString(AfxGetInstanceHandle(),ID_REGISTRY_PATH,registryPath,STR_LAENGE_STRING_TABLE);
+
+	if ( 0 == SUB_FOLDER )
+	{
+		return theApp.localRegistry.Open(HKEY_CURRENT_USER, registryPath, MODE_ACCESS);
+	}
+	else
+	{
+		char *path = new char[strlen(registryPath)+strlen(SUB_FOLDER)+2];
+		strcpy(path, registryPath);
+		strcat(path, "\\");
+		strcat(path, SUB_FOLDER);
+		unsigned long ret_value = theApp.localRegistry.Create(HKEY_CURRENT_USER, path, REG_NONE, REG_OPTION_NON_VOLATILE, MODE_ACCESS);
+		delete []path;
+		return ret_value;
+	}
 }
 
 void CT_CLOSE_REGISTRY()

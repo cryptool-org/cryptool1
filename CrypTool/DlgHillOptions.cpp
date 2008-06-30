@@ -33,7 +33,7 @@ BOOL DlgHillOptions::OnInitDialog()
 
 	firstPosNull = 1;
 	useFirstCharFromAlph = 1;
-	if(CT_OPEN_REGISTRY_SETTINGS(KEY_READ) == ERROR_SUCCESS)
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_READ, IDS_REGISTRY_SETTINGS, "Hill") == ERROR_SUCCESS)
 	{
 		char cFirstCharFromAlph[1024];
 		CString strAlph = theApp.TextOptions.getAlphabet()[0];
@@ -41,9 +41,9 @@ BOOL DlgHillOptions::OnInitDialog()
 		cFirstCharFromAlph[strAlph.GetLength()] = '\0';
 		unsigned long u_length = 1024;
 		
-		CT_READ_REGISTRY_DEFAULT(firstPosNull, "firstPosNull", firstPosNull);
-		CT_READ_REGISTRY_DEFAULT(useFirstCharFromAlph, "useFirstCharFromAlph", useFirstCharFromAlph);
-		CT_READ_REGISTRY(cFirstCharFromAlph,"ownCharForPadding",u_length);
+		CT_READ_REGISTRY_DEFAULT(firstPosNull, "OrdChrOffset", firstPosNull);
+		CT_READ_REGISTRY_DEFAULT(useFirstCharFromAlph, "PaddingDefaultChr", useFirstCharFromAlph);
+		CT_READ_REGISTRY(cFirstCharFromAlph,"PaddingOwnChr",u_length);
 
 		m_ownCharForPadding = cFirstCharFromAlph;
 
@@ -93,11 +93,11 @@ void DlgHillOptions::OnOK()
 {
 	UpdateData(true);
 
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS, "Hill" ) == ERROR_SUCCESS )
 	{
-		CT_WRITE_REGISTRY(unsigned long(firstPosNull), "firstPosNull");
-		CT_WRITE_REGISTRY(unsigned long(useFirstCharFromAlph), "useFirstCharFromAlph");
-		CT_WRITE_REGISTRY(m_ownCharForPadding,"ownCharForPadding");
+		CT_WRITE_REGISTRY(unsigned long(firstPosNull), "OrdChrOffset");
+		CT_WRITE_REGISTRY(unsigned long(useFirstCharFromAlph), "PaddingDefaultChr");
+		CT_WRITE_REGISTRY(m_ownCharForPadding,"PaddingOwnChr");
 		CT_CLOSE_REGISTRY();
 	}
 

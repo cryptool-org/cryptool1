@@ -2902,6 +2902,8 @@
 #define IDS_ERR_ON_OPEN_OUTFILE         39053
 #define IDS_ERR_ON_ALLOC_MEMORY         39054
 #define IDS_ERR_ON_SYMCRYPT             39055
+#define IDS_REGISTRY_SETTINGS           39056
+#define IDS_REGISTRY_SETTINGS_OPTIONS   39057
 #define ID_INDICATOR_LINE               59142
 #define IDS_DH_LOG_1                    61889
 #define IDS_DH_LOG_2                    61890

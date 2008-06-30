@@ -188,17 +188,17 @@ BOOL CDlgSideChannelAttackVisualizationHE::OnInitDialog()
 		// DEFAULT-WERT: 128 Bit
 
 
-		if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
+		if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "SideChannelAttack" ) == ERROR_SUCCESS )
 		{
 			unsigned long u_significantBits = 128;
-			CT_READ_REGISTRY_DEFAULT(u_significantBits, "HybridEncryptionSCASignificantBits", u_significantBits);
+			CT_READ_REGISTRY_DEFAULT(u_significantBits, "BitlengthSecret", u_significantBits);
 			if(!u_significantBits) throw SCA_Error(E_SCA_INTERNAL_ERROR);
 			m_ControlAttackProgress.SetRange(0,u_significantBits+2);
 			m_ControlAttackProgress.SetStep(1);
 			m_ControlAttackProgress.SetPos(0);
 
 			unsigned long u_flag_bShowInfoDialogues = (unsigned long)TRUE;
-			CT_READ_REGISTRY_DEFAULT(u_flag_bShowInfoDialogues, "HybridEncryptionSCASignificantBits", u_flag_bShowInfoDialogues);
+			CT_READ_REGISTRY_DEFAULT(u_flag_bShowInfoDialogues, "BitlengthSecret", u_flag_bShowInfoDialogues);
 			this->m_bShowInfoDialogues = u_flag_bShowInfoDialogues;
 
 			CT_CLOSE_REGISTRY();
@@ -1252,7 +1252,7 @@ void CDlgSideChannelAttackVisualizationHE::OnCheckDisablehelp()
 {
 	UpdateData(true);
 
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS ) == ERROR_SUCCESS )
 	{
 		CT_WRITE_REGISTRY(unsigned long(this->m_bShowInfoDialogues), "SCA_InfoDialogues");
 		CT_CLOSE_REGISTRY();

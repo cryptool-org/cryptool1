@@ -467,33 +467,46 @@ BOOL CCrypToolApp::InitInstance()
 
 ///////////////// LOCAL REGISTRY SETTINGS
 
-	if (ERROR_FILE_NOT_FOUND == CT_OPEN_REGISTRY_SETTINGS	(KEY_READ))
+	if (ERROR_FILE_NOT_FOUND == CT_OPEN_REGISTRY_SETTINGS(KEY_READ, IDS_REGISTRY_SETTINGS))
 	{
 		HKEY hKey;
-		RegCreateKeyEx(HKEY_CURRENT_USER,"Software\\CrypTool\\Settings", 0, NULL, REG_OPTION_NON_VOLATILE,
+		char registryPath[1024];
+		LoadString(AfxGetInstanceHandle(),IDS_REGISTRY_SETTINGS,registryPath,STR_LAENGE_STRING_TABLE);
+
+		RegCreateKeyEx(HKEY_CURRENT_USER,registryPath, 0, NULL, REG_OPTION_NON_VOLATILE,
 			KEY_ALL_ACCESS | KEY_WRITE | KEY_READ, NULL, &hKey, NULL);
-		CT_OPEN_REGISTRY_SETTINGS(KEY_WRITE);
+		CT_OPEN_REGISTRY_SETTINGS(KEY_WRITE, IDS_REGISTRY_SETTINGS);
 		CT_CLOSE_REGISTRY();
 	}
+
+	if ( ERROR_SUCCESS == CT_OPEN_REGISTRY_SETTINGS(KEY_READ, IDS_REGISTRY_SETTINGS, "Options") )
+		CT_CLOSE_REGISTRY();
 
 	CDlgTipsAndTricks Tipps; 
 	unsigned long u_doNotshowAgain    = (unsigned long)FALSE;
 	unsigned long flagOpenSampleFile  = (unsigned long)TRUE;
-	unsigned long flagSignatureAttack = (unsigned long)FALSE;
 
-	if (ERROR_SUCCESS == CT_OPEN_REGISTRY_SETTINGS	(KEY_ALL_ACCESS))
+	if (ERROR_SUCCESS == CT_OPEN_REGISTRY_SETTINGS	(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "SignatureAttack"))
+	{
+		
+		LoadString(AfxGetInstanceHandle(),IDS_SIGATT_HARMLESS,pc_str,STR_LAENGE_STRING_TABLE);
+		CT_WRITE_REGISTRY(CString(Pfad)+CString(pc_str), "HarmlessFile" );
+		LoadString(AfxGetInstanceHandle(),IDS_SIGATT_DANGEROUS,pc_str,STR_LAENGE_STRING_TABLE);
+		CT_WRITE_REGISTRY(CString(Pfad)+CString(pc_str), "DangerousFile" );
+
+		CT_CLOSE_REGISTRY();
+	}
+	else
+	{
+		// FIXME
+	}
+
+	if (ERROR_SUCCESS == CT_OPEN_REGISTRY_SETTINGS	(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS_OPTIONS, "StartingOptions"))
 	{
 		if ( CT_READ_REGISTRY_DEFAULT(u_doNotshowAgain, "NoTipps", u_doNotshowAgain) )
 			Tipps.m_DoNotShowThisAgain = u_doNotshowAgain;
 		CT_READ_REGISTRY_DEFAULT(flagOpenSampleFile, "SampleTextFile", flagOpenSampleFile);
-		if (!CT_READ_REGISTRY(flagSignatureAttack, "flagSignatureAttack"))
-		{
-			CT_WRITE_REGISTRY(flagSignatureAttack, "flagSignatureAttack");
-		}
-		LoadString(AfxGetInstanceHandle(),IDS_SIGATT_HARMLESS,pc_str,STR_LAENGE_STRING_TABLE);
-		CT_WRITE_REGISTRY(CString(Pfad)+CString(pc_str), "SignatureAttackHarmlessFile" );
-		LoadString(AfxGetInstanceHandle(),IDS_SIGATT_DANGEROUS,pc_str,STR_LAENGE_STRING_TABLE);
-		CT_WRITE_REGISTRY(CString(Pfad)+CString(pc_str), "SignatureAttackDangerousFile" );
+		
 
 		if (FALSE == Tipps.m_DoNotShowThisAgain)
 		{

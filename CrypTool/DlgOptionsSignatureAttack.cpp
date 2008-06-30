@@ -118,46 +118,46 @@ BOOL CDlgOptionsSignatureAttack::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "SignatureAttack" ) == ERROR_SUCCESS )
 	{
 		char strBuffer[20];
 		unsigned long u_hashalgorithm_ID = 0;
-		CT_READ_REGISTRY_DEFAULT(u_hashalgorithm_ID, "SignatureAttackHashAlgorithmID", u_hashalgorithm_ID);
+		CT_READ_REGISTRY_DEFAULT(u_hashalgorithm_ID, "HashAlgorithmID", u_hashalgorithm_ID);
 		if (u_hashalgorithm_ID < 0 || u_hashalgorithm_ID > 5) 
 		{
 			u_hashalgorithm_ID = 0;
-			CT_WRITE_REGISTRY(u_hashalgorithm_ID, "SignatureAttackHashAlgorithmID");
+			CT_WRITE_REGISTRY(u_hashalgorithm_ID, "HashAlgorithmID");
 		}
 		m_hashalgorithm = u_hashalgorithm_ID;
 
 		unsigned long u_bitLength = _OPT_SIG_ATT_STANDARD_BITLENGTH;
-		CT_READ_REGISTRY_DEFAULT(u_bitLength, "SignatureAttackSignificantBitLength", u_bitLength);
+		CT_READ_REGISTRY_DEFAULT(u_bitLength, "SignificantBitLength", u_bitLength);
 		_itoa(u_bitLength, strBuffer, 10);
 		m_bitlength = strBuffer;
 
 		unsigned long u_mod_method = 0;
-		CT_READ_REGISTRY_DEFAULT(u_mod_method, "SignatureAttackModificationMethod", u_mod_method);
+		CT_READ_REGISTRY_DEFAULT(u_mod_method, "ModificationMethod", u_mod_method);
 		if (u_mod_method < 0 || u_mod_method > 1) 
 		{
 			u_mod_method = 0;
-			CT_WRITE_REGISTRY(u_mod_method, "SignatureAttackModificationMethod");
+			CT_WRITE_REGISTRY(u_mod_method, "ModificationMethod");
 		}
 		m_mod_method = u_mod_method;
 
 		unsigned long u_check1 = 1;
-		CT_READ_REGISTRY_DEFAULT(u_check1, "SignatureAttackCheck1", u_check1);
+		CT_READ_REGISTRY_DEFAULT(u_check1, "ModfiyBlankEOL", u_check1);
 		m_control_check1.SetCheck((int)u_check1);
 
 		unsigned long u_check3 = 1;
-		CT_READ_REGISTRY_DEFAULT(u_check3, "SignatureAttackCheck3", u_check3);
+		CT_READ_REGISTRY_DEFAULT(u_check3, "ModifyDoubleBlank", u_check3);
 		m_control_check3.SetCheck((int)u_check3);
 
 		unsigned long u_att_method = 0;
-		CT_READ_REGISTRY_DEFAULT(u_att_method, "SignatureAttackAttMethod", u_att_method);
+		CT_READ_REGISTRY_DEFAULT(u_att_method, "ModifyCharSet", u_att_method);
 		if (u_att_method < 0 || u_att_method > 1) 
 		{
 			u_att_method = 0;
-			CT_WRITE_REGISTRY(u_att_method, "SignatureAttackAttMethod");
+			CT_WRITE_REGISTRY(u_att_method, "ModifyCharSet");
 		}
 		m_att_method = u_att_method;
 
@@ -281,15 +281,15 @@ void CDlgOptionsSignatureAttack::OnOK()
 		return;
 	}
 
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS, "SignatureAttack" ) == ERROR_SUCCESS )
 	{
-		CT_WRITE_REGISTRY((unsigned long)m_hashalgorithm, "SignatureAttackHashAlgorithmID");
+		CT_WRITE_REGISTRY((unsigned long)m_hashalgorithm, "HashAlgorithmID");
 		unsigned long u_bitlength = (unsigned long)atoi(m_bitlength);
-		CT_WRITE_REGISTRY(u_bitlength, "SignatureAttackSignificantBitLength");
-		CT_WRITE_REGISTRY((unsigned long)m_mod_method, "SignatureAttackModificationMethod");
-		CT_WRITE_REGISTRY((unsigned long)m_control_check1.GetCheck(), "SignatureAttackCheck1");
-		CT_WRITE_REGISTRY((unsigned long)m_control_check3.GetCheck(), "SignatureAttackCheck3");
-		CT_WRITE_REGISTRY((unsigned long)m_att_method, "SignatureAttackAttMethod");
+		CT_WRITE_REGISTRY(u_bitlength, "SignificantBitLength");
+		CT_WRITE_REGISTRY((unsigned long)m_mod_method, "ModificationMethod");
+		CT_WRITE_REGISTRY((unsigned long)m_control_check1.GetCheck(), "ModfiyBlankEOL");
+		CT_WRITE_REGISTRY((unsigned long)m_control_check3.GetCheck(), "ModifyDoubleBlank");
+		CT_WRITE_REGISTRY((unsigned long)m_att_method, "ModifyCharSet");
 		CT_CLOSE_REGISTRY();
 	}
 	else

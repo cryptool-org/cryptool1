@@ -75,10 +75,10 @@ CDlgSideChannelAttackVisualizationHETrudy::CDlgSideChannelAttackVisualizationHET
 
 	// die signifikante Bitzahl ermitteln
 	// DEFAULT-WERT: 128 Bit
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "SideChannelAttack" ) == ERROR_SUCCESS )
 	{
 		unsigned long u_significantBits = 128;
-		CT_READ_REGISTRY_DEFAULT(u_significantBits, "HybridEncryptionSCASignificantBits", u_significantBits);
+		CT_READ_REGISTRY_DEFAULT(u_significantBits, "BitlengthSecret", u_significantBits);
 		significantBits = u_significantBits;
 		if(!significantBits) throw SCA_Error(E_SCA_INTERNAL_ERROR);
 		CT_CLOSE_REGISTRY();

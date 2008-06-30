@@ -2131,10 +2131,10 @@ int CDlgKeyHill10x10::Display()
 void CDlgKeyHill10x10::OnOK() 
 {
 	UpdateData(true);
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS, "Hill" ) == ERROR_SUCCESS )
 	{
-		CT_WRITE_REGISTRY(unsigned long(firstPosNull), "firstPosNull");
-		CT_WRITE_REGISTRY(unsigned long(alphCode), "alphCode");
+		CT_WRITE_REGISTRY(unsigned long(firstPosNull), "OrdChrOffset");
+		CT_WRITE_REGISTRY(unsigned long(alphCode), "EditKeyChrMatrix");
 		CT_CLOSE_REGISTRY();
 	}
 	// Matrizen anlegen und Daten aus Eingabefenster auslesen
@@ -2186,10 +2186,10 @@ void CDlgKeyHill10x10::OnOK()
 void CDlgKeyHill10x10::OnDecrypt()
 {
 	UpdateData(true);
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS, "Hill" ) == ERROR_SUCCESS )
 	{
-		CT_WRITE_REGISTRY(unsigned long(firstPosNull), "firstPosNull");
-		CT_WRITE_REGISTRY(unsigned long(alphCode), "alphCode");
+		CT_WRITE_REGISTRY(unsigned long(firstPosNull), "OrdChrOffset");
+		CT_WRITE_REGISTRY(unsigned long(alphCode), "EditKeyChrMatrix");
 		CT_CLOSE_REGISTRY();
 	}
 	// Matrizen anlegen und Daten aus Eingabefenster auslesen
@@ -2262,11 +2262,11 @@ BOOL CDlgKeyHill10x10::OnInitDialog()
 
 	alphCode = 0;
 	firstPosNull = 1;
-	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS) == ERROR_SUCCESS)
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "Hill") == ERROR_SUCCESS)
 	{
 		
-		CT_READ_REGISTRY_DEFAULT(firstPosNull, "firstPosNull", firstPosNull);
-		CT_READ_REGISTRY_DEFAULT(alphCode,"alphCode",alphCode);
+		CT_READ_REGISTRY_DEFAULT(firstPosNull, "OrdChrOffset", firstPosNull);
+		CT_READ_REGISTRY_DEFAULT(alphCode,"EditKeyChrMatrix",alphCode);
 		
 		UpdateData(false);
 
@@ -3115,10 +3115,10 @@ void CDlgKeyHill10x10::OnKleinereSchluessel()
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
 	UpdateData(true);
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS, "Hill" ) == ERROR_SUCCESS )
 	{
-		CT_WRITE_REGISTRY(unsigned long(firstPosNull), "firstPosNull");
-		CT_WRITE_REGISTRY(unsigned long(alphCode), "alphCode");
+		CT_WRITE_REGISTRY(unsigned long(firstPosNull), "OrdChrOffset");
+		CT_WRITE_REGISTRY(unsigned long(alphCode), "EditKeyChrMatrix");
 		CT_CLOSE_REGISTRY();
 	}
 

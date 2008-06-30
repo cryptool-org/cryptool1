@@ -481,10 +481,10 @@ BOOL CDlgDiffieHellmanVisualization::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "DifieHellman" ) == ERROR_SUCCESS )
 	{
 		unsigned long u_noInfo = FALSE;
-		CT_READ_REGISTRY(u_noInfo, "DH_IntroDialogue");
+		CT_READ_REGISTRY(u_noInfo, "ShowIntro");
 		if ( u_noInfo )
 		{
 			CDlgDiffieHellmanIntro dlg;
@@ -492,10 +492,10 @@ BOOL CDlgDiffieHellmanVisualization::OnInitDialog()
 			dlg.DoModal();			
 			u_noInfo=dlg.m_Check_NoShow;
 		}
-		CT_WRITE_REGISTRY(u_noInfo, "DH_IntroDialogue" );
+		CT_WRITE_REGISTRY(u_noInfo, "ShowIntro" );
 
 		unsigned long u_showInfoDialogues = TRUE;
-		CT_READ_REGISTRY_DEFAULT(u_showInfoDialogues, "DH_InfoDialogues", u_showInfoDialogues);
+		CT_READ_REGISTRY_DEFAULT(u_showInfoDialogues, "ShowInfo", u_showInfoDialogues);
 		UpdateData();
 		m_bShowInfoDialogues = u_showInfoDialogues;
 		UpdateData(false);		
@@ -705,9 +705,9 @@ void CDlgDiffieHellmanVisualization::OnCheckDisablehelp()
 {
 	UpdateData(true);
 
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS, "DifieHellman" ) == ERROR_SUCCESS )
 	{
-		CT_WRITE_REGISTRY((unsigned long)m_bShowInfoDialogues, "DH_InfoDialogues" );
+		CT_WRITE_REGISTRY((unsigned long)m_bShowInfoDialogues, "ShowInfo" );
 		CT_CLOSE_REGISTRY();
 	}
 	else

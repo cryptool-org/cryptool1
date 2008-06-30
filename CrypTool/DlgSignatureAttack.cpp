@@ -153,9 +153,9 @@ void CDlgSignatureAttack::OnBrowseFake()
 void CDlgSignatureAttack::OnCompute() 
 {
 	unsigned long u_SigAttTestMode = (unsigned long)FALSE;
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "SignatureAttack" ) == ERROR_SUCCESS )
 	{
-		CT_READ_REGISTRY_DEFAULT(u_SigAttTestMode, "SignatureAttackTestMode", u_SigAttTestMode);
+		CT_READ_REGISTRY_DEFAULT(u_SigAttTestMode, "PerformTestRun", u_SigAttTestMode);
 		CT_CLOSE_REGISTRY();
 
 		if (u_SigAttTestMode)
@@ -163,7 +163,7 @@ void CDlgSignatureAttack::OnCompute()
 			SHOW_HOUR_GLASS
 
 			bool DocFiles = false;
-			char FilePath[256], *HarmlessText, *DangerousText;
+			char FilePath[1025], *HarmlessText, *DangerousText;
 			CString LogPath;
 			CWinThread *CWThread;
 			FILE *SigAttTest;
@@ -176,23 +176,31 @@ void CDlgSignatureAttack::OnCompute()
 			UINT MessageID;
 
 
-			CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS );
-			unsigned long l_SignificantBitLengthMIN = 0;
-			CT_READ_REGISTRY_DEFAULT(l_SignificantBitLengthMIN, "SignificantBitLengthMIN", l_SignificantBitLengthMIN);
-			unsigned long l_SignificantBitLengthMAX = 0;
-			CT_READ_REGISTRY_DEFAULT(l_SignificantBitLengthMAX, "SignificantBitLengthMAX", l_SignificantBitLengthMAX);
+			CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "SignatureAttack" );
+			unsigned long l_SignificantBitLengthMIN = 10;
+			CT_READ_REGISTRY_DEFAULT(l_SignificantBitLengthMIN, "SignificantBitLengthMin", l_SignificantBitLengthMIN);
+			unsigned long l_SignificantBitLengthMAX = 20;
+			CT_READ_REGISTRY_DEFAULT(l_SignificantBitLengthMAX, "SignificantBitLengthMax", l_SignificantBitLengthMAX);
 			unsigned long l_SignificantBitLengthJump = 1;
 			CT_READ_REGISTRY_DEFAULT(l_SignificantBitLengthJump, "SignificantBitLengthJump", l_SignificantBitLengthJump);
 			unsigned long l_HashAlgorithmIDMIN = 0; 
-			CT_READ_REGISTRY_DEFAULT(l_HashAlgorithmIDMIN, "HashAlgorithmIDMIN", l_HashAlgorithmIDMIN);
+			CT_READ_REGISTRY_DEFAULT(l_HashAlgorithmIDMIN, "HashAlgorithmIDMin", l_HashAlgorithmIDMIN);
 			unsigned long l_HashAlgorithmIDMAX = 0;
-			CT_READ_REGISTRY_DEFAULT(l_HashAlgorithmIDMAX, "HashAlgorithmIDMAX", l_HashAlgorithmIDMAX);
-			unsigned long l_Attempts = 0;
+			CT_READ_REGISTRY_DEFAULT(l_HashAlgorithmIDMAX, "HashAlgorithmIDMax", l_HashAlgorithmIDMAX);
+			unsigned long l_Attempts = 8;
 			CT_READ_REGISTRY_DEFAULT(l_Attempts, "Attempts", l_Attempts);
 			unsigned long l_AttemptsMAX = ULONG_MAX;
-			CT_READ_REGISTRY_DEFAULT(l_AttemptsMAX, "AttemptsMAX", l_AttemptsMAX);
+			CT_READ_REGISTRY_DEFAULT(l_AttemptsMAX, "AttemptsMax", l_AttemptsMAX);
 			unsigned long SignificantBitLengthCounter, HashAlgorithmsCounter, AttemptsCounter, TotalAttemptsCounter = 0;
-			char s_logPath[1025] = "C:\\";
+
+			char * temp = getenv("TEMP");
+			if(!temp)
+				temp = getenv("TMP");
+			if(!temp)
+				temp = ".";
+
+			char s_logPath[1025];
+			strncpy(s_logPath, temp, (1024 > strlen(temp)) ? strlen(temp) : 1024);
 			unsigned long max_strLength = 1024;
 			CT_READ_REGISTRY_DEFAULT(s_logPath, "LogPath", s_logPath, max_strLength);
 			LogPath = s_logPath;
@@ -204,15 +212,15 @@ void CDlgSignatureAttack::OnCompute()
 				SignificantBitLengthCounter += l_SignificantBitLengthJump)
 			{
 
-				CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE );
-				CT_WRITE_REGISTRY(SignificantBitLengthCounter, "SignatureAttackSignificantBitLength");
+				CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS, "SignatureAttack" );
+				CT_WRITE_REGISTRY(SignificantBitLengthCounter, "SignificantBitLength");
 				CT_CLOSE_REGISTRY();
 
 				for (HashAlgorithmsCounter = l_HashAlgorithmIDMIN; HashAlgorithmsCounter <= l_HashAlgorithmIDMAX;
 					HashAlgorithmsCounter ++)
 				{
-					CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE );
-					CT_WRITE_REGISTRY(HashAlgorithmsCounter, "SignatureAttackHashAlgorithmID");
+					CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS, "SignatureAttack" );
+					CT_WRITE_REGISTRY(HashAlgorithmsCounter, "HashAlgorithmID");
 					CT_CLOSE_REGISTRY();
 
 					for (AttemptsCounter = 0; AttemptsCounter < l_Attempts; AttemptsCounter ++)
@@ -224,10 +232,11 @@ void CDlgSignatureAttack::OnCompute()
 						TotalAttemptsCounter ++;
 
 						char tmpStr[1025]; unsigned long tmpStrLength = 1024;
-						CT_OPEN_REGISTRY_SETTINGS( KEY_READ );
-						CT_READ_REGISTRY(tmpStr, "HarmlessDocument", tmpStrLength);
+						CT_OPEN_REGISTRY_SETTINGS( KEY_READ, IDS_REGISTRY_SETTINGS, "SignatureAttack" );
+						CT_READ_REGISTRY(tmpStr, "HarmlessFile", tmpStrLength);
 						m_file_harmless = tmpStr;
-						CT_READ_REGISTRY(tmpStr, "DangerousDocument", tmpStrLength);
+						tmpStrLength = 1024;
+						CT_READ_REGISTRY(tmpStr, "DangerousFile", tmpStrLength);
 						m_file_dangerous = tmpStr;
 						CT_CLOSE_REGISTRY();
 
@@ -283,9 +292,9 @@ void CDlgSignatureAttack::OnCompute()
 
 							ifstr_Harmless.open(m_file_harmless, ios::in | ios::binary);
 							ifstr_Dangerous.open(m_file_dangerous, ios::in | ios::binary);
-							_snprintf(FilePath, sizeof(FilePath) - 1, "%s%d%s", LogPath, StartTime, _SIG_ATT_HARMLESS);
+							_snprintf(FilePath, sizeof(FilePath) - 1, "%s\\%d%s", LogPath, StartTime, _SIG_ATT_HARMLESS);
 							ofstr_Harmless.open(FilePath, ios::out | ios::binary);
-							_snprintf(FilePath, sizeof(FilePath) - 1, "%s%d%s", LogPath, StartTime, _SIG_ATT_DANGEROUS);
+							_snprintf(FilePath, sizeof(FilePath) - 1, "%s\\%d%s", LogPath, StartTime, _SIG_ATT_DANGEROUS);
 							ofstr_Dangerous.open(FilePath, ios::out | ios::binary);
 							if (!ifstr_Harmless || !ifstr_Dangerous || !ofstr_Harmless || !ofstr_Dangerous)
 							{
@@ -324,7 +333,7 @@ void CDlgSignatureAttack::OnCompute()
 							delete []HarmlessText;
 							delete []DangerousText;
 							
-							_snprintf(FilePath, sizeof(FilePath) - 1, "%s%d%s", LogPath, StartTime, _SIG_ATT_HEADER);
+							_snprintf(FilePath, sizeof(FilePath) - 1, "%s\\%d%s", LogPath, StartTime, _SIG_ATT_HEADER);
 							SigAttTest = fopen(FilePath, "w+");
 							if (NULL == SigAttTest)
 							{
@@ -340,7 +349,7 @@ void CDlgSignatureAttack::OnCompute()
 									"Attempts=%d\n"
 									"HarmlessDocument=%s\n"
 									"DangerousDocument=%s\n"
-									"LogPath=%s\n", 
+									"LogPath=%s\\\n", 
 								l_SignificantBitLengthMIN , l_SignificantBitLengthMAX, l_SignificantBitLengthJump,
 							   l_HashAlgorithmIDMIN, l_HashAlgorithmIDMAX, l_Attempts,
 							   m_file_harmless, m_file_dangerous, LogPath);
@@ -348,10 +357,10 @@ void CDlgSignatureAttack::OnCompute()
 
 
 							unsigned long u_SignatureAttackModificationMethod = 0;
-							CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS );
-							CT_READ_REGISTRY_DEFAULT(u_SignatureAttackModificationMethod, "SignatureAttackModificationMethod", u_SignatureAttackModificationMethod);
+							CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "SignatureAttack" );
+							CT_READ_REGISTRY_DEFAULT(u_SignatureAttackModificationMethod, "ModificationMethod", u_SignatureAttackModificationMethod);
 							fprintf(SigAttTest,
-								"\n\nInternal Information\n\nModificationMethod=%d\nHarmlessFile=%s%d%s\nHarmlessFileLength=%d\nDangerousFile=%s%d%s\nDangerousFileLength=%d",
+								"\n\nInternal Information\n\nModificationMethod=%d\nHarmlessFile=%s\\%d%s\nHarmlessFileLength=%d\nDangerousFile=%s\\%d%s\nDangerousFileLength=%d",
 								u_SignatureAttackModificationMethod,
 								LogPath, StartTime, _SIG_ATT_HARMLESS, HarmlessDocLength,
 								LogPath, StartTime,	_SIG_ATT_DANGEROUS, DangerousDocLength);
@@ -401,7 +410,7 @@ void CDlgSignatureAttack::OnCompute()
 							fprintf(SigAttTest, "\nComments=%s", tmpStr);
 							fclose(SigAttTest);
 
-							_snprintf(FilePath, sizeof(FilePath) - 1, "%s%d%s", LogPath, StartTime, _SIG_ATT_LOG);
+							_snprintf(FilePath, sizeof(FilePath) - 1, "%s\\%d%s", LogPath, StartTime, _SIG_ATT_LOG);
 							SigAttTest = fopen(FilePath, "w+");
 							if (NULL == SigAttTest)
 							{
@@ -598,16 +607,16 @@ BOOL CDlgSignatureAttack::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "SignatureAttack" ) == ERROR_SUCCESS )
 	{
 		char tmpStr[1025] = "";
 		unsigned long max_StrLength = 1024;
-		CT_READ_REGISTRY_DEFAULT(tmpStr, "SignatureAttackHarmlessFile", tmpStr, max_StrLength);
+		CT_READ_REGISTRY_DEFAULT(tmpStr, "HarmlessFile", tmpStr, max_StrLength);
 		m_file_harmless = tmpStr;
 
 		strcpy(tmpStr, "");
 		max_StrLength = 1024;
-		CT_READ_REGISTRY_DEFAULT(tmpStr, "SignatureAttackDangerousFile", tmpStr, max_StrLength);
+		CT_READ_REGISTRY_DEFAULT(tmpStr, "DangerousFile", tmpStr, max_StrLength);
 		m_file_dangerous = tmpStr;
 
 		CT_CLOSE_REGISTRY();
@@ -700,9 +709,9 @@ void CDlgSignatureAttack::GenerateMessageText(int Errorcode, UINT MessageBoxStyl
 		case _SIG_ATT_DOCUMENTS_FOUND:			
 			{
 				unsigned long u_bitLength = _OPT_SIG_ATT_STANDARD_BITLENGTH;
-				if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
+				if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "SignatureAttack" ) == ERROR_SUCCESS )
 				{
-					CT_READ_REGISTRY_DEFAULT(u_bitLength, "SignatureAttackSignificantBitLength", u_bitLength);
+					CT_READ_REGISTRY_DEFAULT(u_bitLength, "SignificantBitLength", u_bitLength);
 					CT_CLOSE_REGISTRY();
 				}
 				msg.Format(IDS_STRING_SIG_ATT_DOCUMENTS_FOUND, u_bitLength); 
@@ -723,10 +732,10 @@ void CDlgSignatureAttack::OnCancel()
 {
 
 	
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS, "SignatureAttack" ) == ERROR_SUCCESS )
 	{
-		CT_WRITE_REGISTRY(m_file_harmless, "SignatureAttackHarmlessFile");
-		CT_WRITE_REGISTRY(m_file_dangerous, "SignatureAttackDangerousFile");
+		CT_WRITE_REGISTRY(m_file_harmless, "HarmlessFile");
+		CT_WRITE_REGISTRY(m_file_dangerous, "DangerousFile");
 
 		CT_CLOSE_REGISTRY();
 	}

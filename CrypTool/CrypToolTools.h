@@ -61,7 +61,7 @@ void OpenNewDoc    (const char *outfile, const char* keyStr, const char* OldTitl
 char* itoa_fmt(int i_num, char *c_buffer = NULL, int i_base = 10 );
 char* double_fmt(double d_num, char *c_buffer, int prec = 2);
 
-unsigned long CT_OPEN_REGISTRY_SETTINGS	(unsigned long MODE_ACCESS);
+unsigned long CT_OPEN_REGISTRY_SETTINGS	(unsigned long MODE_ACCESS, int ID_REGISTRY_PATH, const char *SUB_FOLDER = 0);
 void CT_CLOSE_REGISTRY();
 BOOL CT_READ_REGISTRY			(unsigned long &value,		const char *ID);
 BOOL CT_READ_REGISTRY			(char *value,		const char *ID,		unsigned long &length);

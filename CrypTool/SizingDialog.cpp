@@ -583,13 +583,13 @@ void CSizingDialog::SaveWindowPosition()
 	GetWindowPlacement( &wp );
 
 	// Commit to registry
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS, "SizingDialog" ) == ERROR_SUCCESS )
 	{
 		unsigned long u_keyword_maxLength = STR_LAENGE_STRING_TABLE;
-		CT_WRITE_REGISTRY(wp.rcNormalPosition.top, "CreateReport_Top");
-		CT_WRITE_REGISTRY(wp.rcNormalPosition.left, "CreateReport_Left");
-		CT_WRITE_REGISTRY(wp.rcNormalPosition.bottom, "CreateReport_Bottom");
-		CT_WRITE_REGISTRY(wp.rcNormalPosition.right, "CreateReport_Right");
+		CT_WRITE_REGISTRY(wp.rcNormalPosition.top, "CreateReportTop");
+		CT_WRITE_REGISTRY(wp.rcNormalPosition.left, "CreateReportLeft");
+		CT_WRITE_REGISTRY(wp.rcNormalPosition.bottom, "CreateReportBottom");
+		CT_WRITE_REGISTRY(wp.rcNormalPosition.right, "CreateReportRight");
 		CT_CLOSE_REGISTRY();
 	}
 	else
@@ -612,13 +612,13 @@ void CSizingDialog::RestoreWindowPosition()
 	// Only restore if there is a previously saved position
 
 		// Commit to registry
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "SizingDialog" ) == ERROR_SUCCESS )
 	{
 		unsigned long u_top = ULONG_MAX, u_left = ULONG_MAX, u_bottom = ULONG_MAX, u_right = ULONG_MAX;
-		CT_READ_REGISTRY_DEFAULT(u_top, "CreateReport_Top", u_top);
-		CT_READ_REGISTRY_DEFAULT(u_left, "CreateReport_Left", u_left);
-		CT_READ_REGISTRY_DEFAULT(u_bottom, "CreateReport_Bottom", u_bottom);
-		CT_READ_REGISTRY_DEFAULT(u_right, "CreateReport_Right", u_right);
+		CT_READ_REGISTRY_DEFAULT(u_top, "CreateReportTop", u_top);
+		CT_READ_REGISTRY_DEFAULT(u_left, "CreateReportLeft", u_left);
+		CT_READ_REGISTRY_DEFAULT(u_bottom, "CreateReportBottom", u_bottom);
+		CT_READ_REGISTRY_DEFAULT(u_right, "CreateReportRight", u_right);
 		CT_CLOSE_REGISTRY();
 
 		rtWindow.top = u_top;

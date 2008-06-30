@@ -46,9 +46,9 @@ void CDlgSecretSharingIntro::OnOk()
 
 	UpdateData(true);
 
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS, "SecretSharing" ) == ERROR_SUCCESS )
 	{
-		CT_WRITE_REGISTRY(unsigned long(this->m_hide_intro), "SecretSharing_Intro");
+		CT_WRITE_REGISTRY(unsigned long(this->m_hide_intro), "ShowIntro");
 		CT_CLOSE_REGISTRY();
 	}
 	else

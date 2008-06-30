@@ -156,7 +156,7 @@ void CHillEncryption::init_zahlen_zeichen (char* erlaubte_zeichen)
 	unsigned long useFirstCharFromAlph = 1;
 	CString strOwnCharForPadding;
 
-	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS) == ERROR_SUCCESS)
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "Hill") == ERROR_SUCCESS)
 	{
 		char cFirstCharFromAlph[1024];
 		CString strAlph = zeichen[0];
@@ -164,8 +164,8 @@ void CHillEncryption::init_zahlen_zeichen (char* erlaubte_zeichen)
 		cFirstCharFromAlph[strAlph.GetLength()] = '\0';
 		unsigned long u_length = 1024;
 
-		CT_READ_REGISTRY_DEFAULT(useFirstCharFromAlph, "useFirstCharFromAlph", useFirstCharFromAlph);
-		CT_READ_REGISTRY(cFirstCharFromAlph,"ownCharForPadding",u_length);
+		CT_READ_REGISTRY_DEFAULT(useFirstCharFromAlph, "PaddingDefaultChr", useFirstCharFromAlph);
+		CT_READ_REGISTRY(cFirstCharFromAlph,"PaddingOwnChr",u_length);
 
 		strOwnCharForPadding = cFirstCharFromAlph;
 
@@ -205,9 +205,9 @@ CHillEncryption::CHillEncryption(char* erlaubte_zeichen)
 		//read from registry
 	firstPosNull = 1;
 
-	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS) == ERROR_SUCCESS)
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "Hill") == ERROR_SUCCESS)
 	{
-		CT_READ_REGISTRY_DEFAULT(firstPosNull, "firstPosNull", firstPosNull);
+		CT_READ_REGISTRY_DEFAULT(firstPosNull, "OrdChrOffset", firstPosNull);
 		CT_CLOSE_REGISTRY();
 	}
 	init_zahlen_zeichen(erlaubte_zeichen);
@@ -228,9 +228,9 @@ CHillEncryption::CHillEncryption(char* erlaubte_zeichen, int d)
 		//read from registry
 	firstPosNull = 1;
 
-	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS) == ERROR_SUCCESS)
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "Hill") == ERROR_SUCCESS)
 	{
-		CT_READ_REGISTRY_DEFAULT(firstPosNull, "firstPosNull", firstPosNull);
+		CT_READ_REGISTRY_DEFAULT(firstPosNull, "OrdChrOffset", firstPosNull);
 		CT_CLOSE_REGISTRY();
 	}
 	init_zahlen_zeichen(erlaubte_zeichen);

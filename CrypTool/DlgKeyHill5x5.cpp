@@ -715,7 +715,13 @@ int CDlgKeyHill5x5::Display()
 
 void CDlgKeyHill5x5::OnOK() 
 {
-
+	UpdateData(true);
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS, "Hill" ) == ERROR_SUCCESS )
+	{
+		CT_WRITE_REGISTRY(unsigned long(firstPosNull), "OrdChrOffset");
+		CT_WRITE_REGISTRY(unsigned long(alphCode), "EditKeyChrMatrix");
+		CT_CLOSE_REGISTRY();
+	}
 	// Matrizen anlegen und Daten aus Eingabefenster auslesen
 	CSquareMatrixModN mat1(dim,hillklasse->get_modul());
 
@@ -836,11 +842,11 @@ BOOL CDlgKeyHill5x5::OnInitDialog()
 
 	alphCode = 0;
 	firstPosNull = 1;
-	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS) == ERROR_SUCCESS)
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "Hill") == ERROR_SUCCESS)
 	{
 		
-		CT_READ_REGISTRY_DEFAULT(firstPosNull, "firstPosNull", firstPosNull);
-		CT_READ_REGISTRY_DEFAULT(alphCode,"alphCode",alphCode);
+		CT_READ_REGISTRY_DEFAULT(firstPosNull, "OrdChrOffset", firstPosNull);
+		CT_READ_REGISTRY_DEFAULT(alphCode,"EditKeyChrMatrix",alphCode);
 		
 		UpdateData(false);
 
@@ -1438,10 +1444,10 @@ void CDlgKeyHill5x5::OnGroessereSchluessel()
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
 
 	UpdateData(true);
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS, "Hill" ) == ERROR_SUCCESS )
 	{
-		CT_WRITE_REGISTRY(unsigned long(firstPosNull), "firstPosNull");
-		CT_WRITE_REGISTRY(unsigned long(alphCode), "alphCode");
+		CT_WRITE_REGISTRY(unsigned long(firstPosNull), "OrdChrOffset");
+		CT_WRITE_REGISTRY(unsigned long(alphCode), "EditKeyChrMatrix");
 		CT_CLOSE_REGISTRY();
 	}
 
@@ -1570,9 +1576,9 @@ BOOL CDlgKeyHill5x5::getFirstPosNull()
 	unsigned long firstPosNull;
 
 	firstPosNull = 1;
-	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS) == ERROR_SUCCESS)
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "Hill") == ERROR_SUCCESS)
 	{		
-		CT_READ_REGISTRY_DEFAULT(firstPosNull, "firstPosNull", firstPosNull);
+		CT_READ_REGISTRY_DEFAULT(firstPosNull, "OrdChrOffset", firstPosNull);
 		
 		UpdateData(false);
 

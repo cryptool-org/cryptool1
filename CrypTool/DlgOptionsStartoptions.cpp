@@ -94,7 +94,7 @@ BOOL CDlgOptionsStartoptions::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS_OPTIONS, "StartingOptions" ) == ERROR_SUCCESS )
 	{
 		unsigned long u_how_to_start = 1, u_flagSampleTextFile = 0;
 		CT_READ_REGISTRY_DEFAULT(u_how_to_start, "NoTipps", u_how_to_start);
@@ -119,7 +119,7 @@ BOOL CDlgOptionsStartoptions::OnInitDialog()
 void CDlgOptionsStartoptions::OnOK() 
 {
 	UpdateData(true);
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS_OPTIONS, "StartingOptions" ) == ERROR_SUCCESS )
 	{
 		CT_WRITE_REGISTRY(unsigned long(!m_how_to_start), "NoTipps");
 		CT_WRITE_REGISTRY(unsigned long(m_sample_text_file), "SampleTextFile");

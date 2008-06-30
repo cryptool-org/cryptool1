@@ -11916,7 +11916,13 @@ BEGIN
     IDS_CANT_SAVE_UNDO      "[i18n]Could not save information to later undo the last text change."
 END
 
-#endif    // Polnisch resources
+STRINGTABLE 
+BEGIN
+    IDS_REGISTRY_SETTINGS   "Software\\CrypTool\\Settings"
+    IDS_REGISTRY_SETTINGS_OPTIONS "Software\\CrypTool\\Settings\\Options"
+END
+
+#endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
@@ -24018,7 +24024,13 @@ BEGIN
     IDS_PQM_BIT             "Bits"
 END
 
-#endif    // Deutsch (Deutschland) resources
+STRINGTABLE 
+BEGIN
+    IDS_REGISTRY_SETTINGS   "Software\\CrypTool\\Settings"
+    IDS_REGISTRY_SETTINGS_OPTIONS "Software\\CrypTool\\Settings\\Options"
+END
+
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
@@ -36208,7 +36220,13 @@ BEGIN
     IDS_PQM_BIT             "bit"
 END
 
-#endif    // Englisch (GB) resources
+STRINGTABLE 
+BEGIN
+    IDS_REGISTRY_SETTINGS   "Software\\CrypTool\\Settings"
+    IDS_REGISTRY_SETTINGS_OPTIONS "Software\\CrypTool\\Settings\\Options"
+END
+
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

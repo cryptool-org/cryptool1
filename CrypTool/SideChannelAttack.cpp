@@ -115,11 +115,11 @@ SCA_Server::SCA_Server()
 	// Einstellung aus .ini-Datei holen (Signifikante Bitlänge!!!)
 	// Default-Wert: 128 Bit
 
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "SideChannelAttack" ) == ERROR_SUCCESS )
 	{
 		unsigned long u_significantBits = 128;
 
-		CT_READ_REGISTRY_DEFAULT(u_significantBits, "HybridEncryptionSCASignificantBits", u_significantBits);
+		CT_READ_REGISTRY_DEFAULT(u_significantBits, "BitlengthSecret", u_significantBits);
 		significantBits = u_significantBits;
 
 		CT_CLOSE_REGISTRY();
@@ -260,10 +260,10 @@ bool SCA_Server::wasDecryptionSuccessful(OctetString *decryptedCipherText)
 	std::string strTemp = temp;
 
 	char keyword[STR_LAENGE_STRING_TABLE+1] = "Alice";
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "SideChannelAttack" ) == ERROR_SUCCESS )
 	{
 		unsigned long u_keyword_maxLength = STR_LAENGE_STRING_TABLE;
-		CT_READ_REGISTRY_DEFAULT(keyword, "SCA_Keyword", keyword, u_keyword_maxLength);
+		CT_READ_REGISTRY_DEFAULT(keyword, "Keyword", keyword, u_keyword_maxLength);
 		CT_CLOSE_REGISTRY();
 	}
 	else
@@ -388,11 +388,11 @@ SCA_Attacker::SCA_Attacker()
 	// Einstellung aus .ini-Datei holen (Signifikante Bitlänge!!!)
 	// Default-Wert: 128 Bit
 
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "SideChannelAttack" ) == ERROR_SUCCESS )
 	{
 		unsigned long u_significantBits = 128;
 
-		CT_READ_REGISTRY_DEFAULT(u_significantBits, "HybridEncryptionSCASignificantBits", u_significantBits);
+		CT_READ_REGISTRY_DEFAULT(u_significantBits, "BitlengthSecret", u_significantBits);
 		significantBits = u_significantBits;
 
 		CT_CLOSE_REGISTRY();
