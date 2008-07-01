@@ -442,8 +442,8 @@ BEGIN
     IDS_STRING_CORRUPT      "Zaszyfrowany plik jest zepsuty."
     IDS_STRING_INVALID_KEY  "Niepoprawny znak w kluczu. Proszê u¿yæ tylko znaków 0-9, a-f,A-F."
     IDS_STRING_KEY_TOO_LONG "Zbyt d³ugi klucz. Maksymalna d³ugoœæ klucza AES to 256 bitów (= 32 bajtów = 64 cyfr hex)."
-    IDS_STRING_AESTOOL      "AES-Tool 2.4"
-    IDS_STRING_AESTOOL_FILE "AES-Tool 2.4 [%s]"
+    IDS_STRING_AESTOOL      "AES-Tool 2.5"
+    IDS_STRING_AESTOOL_FILE "AES-Tool 2.5 [%s]"
 END
 
 #endif    // Polnisch resources
@@ -458,44 +458,6 @@ END
 LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
 #pragma code_page(1252)
 #endif //_WIN32
-
-#ifdef APSTUDIO_INVOKED
-/////////////////////////////////////////////////////////////////////////////
-//
-// TEXTINCLUDE
-//
-
-1 TEXTINCLUDE 
-BEGIN
-    "resource.h\0"
-END
-
-2 TEXTINCLUDE 
-BEGIN
-    "#include ""afxres.h""\r\n"
-    "\0"
-END
-
-3 TEXTINCLUDE 
-BEGIN
-    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
-    "#define _AFX_NO_OLE_RESOURCES\r\n"
-    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
-    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
-    "\r\n"
-    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)\r\n"
-    "#ifdef _WIN32\r\n"
-    "LANGUAGE 7, 1\r\n"
-    "#pragma code_page(1252)\r\n"
-    "#endif //_WIN32\r\n"
-    "#include ""res\\aestool.rc2""  // Nicht mit Microsoft Visual C++ bearbeitete Ressourcen\r\n"
-    "#include ""l.deu\\afxres.rc""          // Standardkomponenten\r\n"
-    "#endif\r\n"
-    "\0"
-END
-
-#endif    // APSTUDIO_INVOKED
-
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -644,12 +606,12 @@ BEGIN
         BLOCK "040704b0"
         BEGIN
             VALUE "FileDescription", "AES-Tool"
-            VALUE "FileVersion", "2.4"
+            VALUE "FileVersion", "2.5"
             VALUE "InternalName", "aestool"
             VALUE "LegalCopyright", "Copyright (C) 2002 -2007 Deutsche Bank AG"
             VALUE "OriginalFilename", "aestool.exe"
             VALUE "ProductName", "Anwendung AES-Tool"
-            VALUE "ProductVersion", "2.4"
+            VALUE "ProductVersion", "2.5"
         END
     END
     BLOCK "VarFileInfo"
@@ -713,6 +675,44 @@ END
 #endif    // APSTUDIO_INVOKED
 
 
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 7, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\aestool.rc2""  // Nicht mit Microsoft Visual C++ bearbeitete Ressourcen\r\n"
+    "#include ""l.deu\\afxres.rc""          // Standardkomponenten\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // String Table
@@ -730,7 +730,7 @@ BEGIN
     IDS_STRING_ENTSCHLUESSELN "Entschlüsseln"
     IDS_STRING_FILEERROR    "Fehler beim Öffnen von %s: %s\n"
     IDS_STRING_NOMEMORY     "Nicht genügend virueller Speicher vorhanden."
-    IDS_STRING_KEYERROR     "Falscher Schlüssel oder Datei beschädigt."
+    IDS_STRING_KEYERROR     "Falscher Schlüssel oder Datei %s beschädigt."
 END
 
 STRINGTABLE 
@@ -740,8 +740,8 @@ BEGIN
     IDS_STRING_CORRUPT      "Diese verschlüsselte Datei ist beschädigt."
     IDS_STRING_INVALID_KEY  "Ungültiges Zeichen im Schlüssel. Erlaubt sind: 0-9,a-f,A-F"
     IDS_STRING_KEY_TOO_LONG "Der angegebene Schlüssel ist zu lang. Die maximale Länge für AES Schlüssel beträgt 256 Bit (= 32 Byte = 64 Hexadezimalziffern)."
-    IDS_STRING_AESTOOL      "AES-Tool 2.4"
-    IDS_STRING_AESTOOL_FILE "AES-Tool 2.4 [%s]"
+    IDS_STRING_AESTOOL      "AES-Tool 2.5"
+    IDS_STRING_AESTOOL_FILE "AES-Tool 2.5 [%s]"
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -756,20 +756,6 @@ END
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
 #pragma code_page(1252)
 #endif //_WIN32
-
-#ifdef APSTUDIO_INVOKED
-/////////////////////////////////////////////////////////////////////////////
-//
-// TEXTINCLUDE
-//
-
-1 TEXTINCLUDE 
-BEGIN
-    "< Cannot change standard MFC resources! >\0"
-END
-
-#endif    // APSTUDIO_INVOKED
-
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1032,6 +1018,20 @@ AFX_IDB_MINIFRAME_MENU  BITMAP                  "res\\minifwnd.bmp"
 AFX_IDB_CHECKLISTBOX_NT BITMAP                  "res\\ntcheck.bmp"
 AFX_IDB_CHECKLISTBOX_95 BITMAP                  "res\\95check.bmp"
 
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "< Cannot change standard MFC resources! >\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // String Table
@@ -1181,7 +1181,7 @@ BEGIN
     IDS_STRING_ENTSCHLUESSELN "Decrypt"
     IDS_STRING_FILEERROR    "Error opening %s: %s\n"
     IDS_STRING_NOMEMORY     "Out of virtual memory."
-    IDS_STRING_KEYERROR     "Wrong key or file corrupt."
+    IDS_STRING_KEYERROR     "Wrong key or file %s corrupt."
 END
 
 STRINGTABLE 
@@ -1191,8 +1191,8 @@ BEGIN
     IDS_STRING_CORRUPT      "This encrypted file is corrupt."
     IDS_STRING_INVALID_KEY  "Invalid character in key. Please use only 0-9,a-f,A-F."
     IDS_STRING_KEY_TOO_LONG "Key too long. Maximum AES key length is 256 bits (= 32 bytes = 64 hexadecimal digits)."
-    IDS_STRING_AESTOOL      "AES-Tool 2.4"
-    IDS_STRING_AESTOOL_FILE "AES-Tool 2.4 [%s]"
+    IDS_STRING_AESTOOL      "AES-Tool 2.5"
+    IDS_STRING_AESTOOL_FILE "AES-Tool 2.5 [%s]"
 END
 
 #endif    // Englisch (GB) resources

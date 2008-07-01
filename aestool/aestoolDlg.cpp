@@ -302,7 +302,13 @@ void CAestoolDlg::OnOK()
 	if (m_SrcInfo.isEncrypted())
 		switch (infoblock.decrypt(m_SrcInfo,m_CHEditKey.BinData,m_CHEditKey.BinLen)) {
 		case InfoBlock::CORRUPT:
-			AfxMessageBox(IDS_STRING_KEYERROR,MB_OK);
+			char stringBuffer[2048+1];
+			char stringErrorMessage[2048+1];
+			memset(stringBuffer, 0, 2048+1);
+			memset(stringErrorMessage, 0, 2048+1);
+			LoadString(AfxGetInstanceHandle(), IDS_STRING_KEYERROR, stringBuffer, 2048);
+			sprintf(stringErrorMessage, stringBuffer, m_SrcInfo.getName().GetBuffer());
+			AfxMessageBox(stringErrorMessage, MB_OK);
 			m_CHEditKey.SetSel(0,-1); m_CHEditKey.SetFocus();
 			return;
 		case InfoBlock::NOMEM:

@@ -168,7 +168,13 @@ bool AesToolDecrypt(const void *key,int keylen,const SrcInfo &srcinfo,
 				for(i--;i>0 && buffer2[i]==0;i--);
 				// check trailing 1
 				if(buffer2[i]!=1) { // display error
-					errormsg.LoadString(IDS_STRING_KEYERROR);
+					char stringBuffer[2048+1];
+					char stringErrorMessage[2048+1];
+					memset(stringBuffer, 0, 2048+1);
+					memset(stringErrorMessage, 0, 2048+1);
+					LoadString(AfxGetInstanceHandle(), IDS_STRING_KEYERROR, stringBuffer, 2048);
+					sprintf(stringErrorMessage, stringBuffer, SrcFile.GetFileName().GetBuffer());
+					errormsg = stringErrorMessage;
 					if (buffer2) free(buffer2);
 					return 0;
 				}
