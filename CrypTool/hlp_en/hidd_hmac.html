@@ -19,13 +19,17 @@
 
 <P>You can reach this dialog via the menu entry <a href="menu_related_methods.html">Individual Procedures</a> \ <a href="menu_individualprocedures_hashprocedures.html">Hash</a> \ <A href="hid_generate_macs.html">Generation of MACs</A>.</P>
 
+<P><IMG SRC="images/hmacdialog.gif" ALT="hmacdialog.gif" BORDER=0></P>
+
 <P>With this dialog you can generate the Message Authentication Code (MAC) of the currently opened document using various <A href="hashfunktion.html">hash functions</A>. The generated MAC is displayed in hexadecimal notation.</P>
 
-<P>You can choose one of the following hash functions: MD2, MD4, MD5, SHA, SHA-1 and RIPEMD-160.</P>
+<P>You can choose one of the following hash functions: MD2, MD4, MD5, SHA, SHA-1, SHA-256, SHA-512 and RIPEMD-160.</P>
 
 <P>The secret key used for the MAC generation can be specified in the respective input box. Additionally, a combination of document and key can be chosen [Menezes, Alfred J.; van Oorschot, Paul C.; Vanstone, Scott A.: Hand-book of Applied Cryptography]. The variable m refers to the message, k and H refer to the key and the hash function, respectively.</P>
 
 <P>The combination underlying the computation is shown in the output window.</P>
+
+<P>The first combination is called "Secret Prefix Method", the second combination is called "Secret Suffix Method". The third and fifth combination are called "Envelope Method" using one or two keys, respectively.</P>
 
 <P><B>Remark:</B></P>
 

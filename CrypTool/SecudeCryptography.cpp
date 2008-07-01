@@ -415,7 +415,8 @@ UINT CHashRunnable::run()
 				MakeNewName2(title,sizeof(title),pc_str,OldTitle,AlgTitel);
 				theApp.ThreadOpenDocumentFileNoMRU(outfile,title);
 			}
-			theApp.SecudeLib.aux_free(hashostr.octets);
+			// do not let the Secude lib free the local memory, since this will cause a crash
+			// theApp.SecudeLib.aux_free(hashostr.octets);
 			delete this;
 		}
 		// SHA-512
@@ -460,7 +461,8 @@ UINT CHashRunnable::run()
 				MakeNewName2(title,sizeof(title),pc_str,OldTitle,AlgTitel);
 				theApp.ThreadOpenDocumentFileNoMRU(outfile,title);
 			}
-			theApp.SecudeLib.aux_free(hashostr.octets);
+			// do not let the Secude lib free the local memory, since this will cause a crash
+			// theApp.SecudeLib.aux_free(hashostr.octets);
 			delete this;
 		}
 	}

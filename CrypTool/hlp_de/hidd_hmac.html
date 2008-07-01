@@ -19,13 +19,17 @@
 
 <P>Diesen Dialog erreichen Sie über das Menü <a href="menu_related_methods.html">Einzelverfahren</a> \ <a href="menu_individualprocedures_hashprocedures.html">Hashverfahren</a> \ <A href="hid_generate_macs.html">Generieren von MACs</A>.</P>
 
+<P><IMG SRC="images/hmacdialog.gif" ALT="hmacdialog.gif" BORDER=0></P>
+
 <P>In diesem Dialog können Sie den Message Authentication Code (MAC) einer geöffneten Textdatei erstellen. Dafür stehen Ihnen mehrere kryptographische <A href="hashfunktion.html">Hashfunktionen</A> zur Verfügung. Der erstellte MAC wird Ihnen hexadezimal angezeigt.</P>
 
-<P>Zur Auswahl stehen die Hashfunktionen MD2, MD4, MD5, SHA, SHA-1 und RIPEMD-160.</P>
+<P>Zur Auswahl stehen die Hashfunktionen MD2, MD4, MD5, SHA, SHA-1, SHA-256, SHA-512 und RIPEMD-160.</P>
 
 <P>Der für die Erstellung des MAC benötigte geheime Schlüssel kann über das Eingabefeld festgelegt werden. Zusätzlich kann eine Form der Verknüpfung von Datei und Schlüssel gewählt werden [Menezes, Alfred J.; van Oorschot, Paul C.; Vanstone, Scott A.: Hand-book of Applied Cryptography]. Die Variable m bezeichnet dabei die Nachricht, k den Schlüssel und H die Hashfunktion.</P>
 
 <P>Im Ausgabefenster wird Ihnen die Verknüpfung angezeigt, die der Berechnung zugrunde liegt.</P>
+
+<P>Die erste Verknüpfung bezeichnet man als "Secret Prefix Method", die zweite als "Secret Suffix Method". Die dritte und die fünfte Verknüpfung bezeichnet man als "Envelope Method" mit einem beziehungsweise zwei Schlüsseln.</P>
 
 <P><B>Bemerkung:</B></P>
 
