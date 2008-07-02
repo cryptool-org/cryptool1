@@ -7659,12 +7659,12 @@ BEGIN
         BLOCK "040704b0"
         BEGIN
             VALUE "FileDescription", "www.cryptool.org"
-            VALUE "FileVersion", "1.4.10"
+            VALUE "FileVersion", "1.4.20"
             VALUE "InternalName", "CrypTool"
-            VALUE "LegalCopyright", "Copyright © 1999-2007"
+            VALUE "LegalCopyright", "Copyright © 1999-2008"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "1.4.10"
+            VALUE "ProductVersion", "1.4.20"
         END
     END
     BLOCK "VarFileInfo"
@@ -9581,7 +9581,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.20 - Beta 03 (PL)"
+    IDR_MAINFRAME           "CrypTool 1.4.20 (PL)"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nPliki HEX\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nPliki ASCII\n"
@@ -19850,12 +19850,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Deutsche Bank AG"
             VALUE "FileDescription", "www.cryptool.de"
-            VALUE "FileVersion", "1.4.10"
+            VALUE "FileVersion", "1.4.20"
             VALUE "InternalName", "CrypTool"
-            VALUE "LegalCopyright", "Copyright © 1999-2007"
+            VALUE "LegalCopyright", "Copyright © 1999-2008"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "1.4.10"
+            VALUE "ProductVersion", "1.4.20"
         END
     END
     BLOCK "VarFileInfo"
@@ -21586,7 +21586,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.20 - Beta 03 (DE)"
+    IDR_MAINFRAME           "CrypTool 1.4.20 (DE)"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Datei (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnbenannt\n\nBinäre Datei (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnbenannt\n\nASCII-Datei (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -31861,12 +31861,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Deutsche Bank AG"
             VALUE "FileDescription", "www.cryptool.org"
-            VALUE "FileVersion", "1.4.10"
+            VALUE "FileVersion", "1.4.20"
             VALUE "InternalName", "CrypTool"
-            VALUE "LegalCopyright", "Copyright © 1999-2007"
+            VALUE "LegalCopyright", "Copyright © 1999-2008"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "1.4.10"
+            VALUE "ProductVersion", "1.4.20"
         END
     END
     BLOCK "VarFileInfo"
@@ -33843,7 +33843,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.20 - Beta 03 (EN)"
+    IDR_MAINFRAME           "CrypTool 1.4.20 (EN)"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
