@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polnisch resources
+// Polish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -11920,14 +11920,28 @@ STRINGTABLE
 BEGIN
     IDS_REGISTRY_SETTINGS   "Software\\CrypTool\\Settings"
     IDS_REGISTRY_SETTINGS_OPTIONS "Software\\CrypTool\\Settings\\Options"
+    IDS_ERROR_LOAD_LOCAL_PSE_CAPTION "Error on loading PSE Keys!"
+    IDS_ERROR_LOAD_LOCAL_PSE_MESSAGE 
+                            "Please remove the directory\n%s\nand then restart CrypTool!   "
+    IDS_PSE_FILESTRUCT_CORRUPTED 
+                            "Please remove the directory\n%s\nand then restart CrypTool.   "
+    IDS_PSE_FILESTRUCT_ORIG_CORRUPTED 
+                            "The original CrypTool keystore is corrupted pleaase review the path\n%s .\nYou may reinstall CrypTool."
+    IDS_PSE_FILESTRUCT_COULD_NOT_CREATE_DIRECTORY 
+                            "The keystore path could not be created.\nPlease check the access right of\n%s ."
+    IDS_PSE_FILESTRUCT_COULD_NOT_COPY_PSE 
+                            "The keystore files could not be copied.\nPlease check the access rights of\n%s."
+    IDS_PSE_FILESTRUCT_NO_APPLICATION_DATA_PATH 
+                            "The environment APPDATA does not exist.\nPlease define this environment."
+    IDS_PSE_FILES_READONLY  "The keystore files are read only.\nPlease check the access rights of\n%s."
 END
 
-#endif    // Polnisch resources
+#endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -24031,14 +24045,28 @@ STRINGTABLE
 BEGIN
     IDS_REGISTRY_SETTINGS   "Software\\CrypTool\\Settings"
     IDS_REGISTRY_SETTINGS_OPTIONS "Software\\CrypTool\\Settings\\Options"
+    IDS_ERROR_LOAD_LOCAL_PSE_CAPTION "Fehler bim Laden der PSE Schlüssel!"
+    IDS_ERROR_LOAD_LOCAL_PSE_MESSAGE 
+                            "Bitte löschen Sie das Verzeichnis\n%s\nund starten Sie CrypTool neu!   "
+    IDS_PSE_FILESTRUCT_CORRUPTED 
+                            "Bitte löschen Sie das Verzeichnis\n%s\nund starten Sie CrypTool neu!   "
+    IDS_PSE_FILESTRUCT_ORIG_CORRUPTED 
+                            "Der CrypTool Schlüsselspeicher unter dem Verzeichnis\n%s\nist beschädigt, ggf. müssen Sie CrypTool neu installieren!"
+    IDS_PSE_FILESTRUCT_COULD_NOT_CREATE_DIRECTORY 
+                            "Die Verzeichnisse für den Schlüsselspeicher können nicht erzeugt werden.\nBitte überprüfen Sie die Zugriffsrechte im Verzeichnis\n%s."
+    IDS_PSE_FILESTRUCT_COULD_NOT_COPY_PSE 
+                            "Der Schlüsselspeicher kann nicht kopiert werden.\nBitte überprüfen Sie die Zugriffsrechte im Verzeichnis\n%s."
+    IDS_PSE_FILESTRUCT_NO_APPLICATION_DATA_PATH 
+                            "Die Umgebungsvariable APPDATA existiert nicht.\nBitte definieren Sie diese Variable."
+    IDS_PSE_FILES_READONLY  "Die Dateien in dem Schlüsselspeicher können nicht geschrieben werden.\nBitte überprüfen Sie die Zugriffsrechte im Verzeichnis\n%s."
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -36230,9 +36258,23 @@ STRINGTABLE
 BEGIN
     IDS_REGISTRY_SETTINGS   "Software\\CrypTool\\Settings"
     IDS_REGISTRY_SETTINGS_OPTIONS "Software\\CrypTool\\Settings\\Options"
+    IDS_ERROR_LOAD_LOCAL_PSE_CAPTION "Error on loading PSE Keys!"
+    IDS_ERROR_LOAD_LOCAL_PSE_MESSAGE 
+                            "Please remove the directory\n%s\nand then restart CrypTool!   "
+    IDS_PSE_FILESTRUCT_CORRUPTED 
+                            "Please remove the directory\n%s\nand then restart CrypTool.   "
+    IDS_PSE_FILESTRUCT_ORIG_CORRUPTED 
+                            "The original CrypTool keystore is corrupted pleaase review the path\n%s .\nYou may reinstall CrypTool."
+    IDS_PSE_FILESTRUCT_COULD_NOT_CREATE_DIRECTORY 
+                            "The keystore path could not be created.\nPlease check the access right of\n%s ."
+    IDS_PSE_FILESTRUCT_COULD_NOT_COPY_PSE 
+                            "The keystore files could not be copied.\nPlease check the access rights of\n%s."
+    IDS_PSE_FILESTRUCT_NO_APPLICATION_DATA_PATH 
+                            "The environment APPDATA does not exist.\nPlease define this environment."
+    IDS_PSE_FILES_READONLY  "The keystore files are read only.\nPlease check the access rights of\n%s."
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

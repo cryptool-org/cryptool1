@@ -60,6 +60,9 @@ statement from your version.
 #include "process.h"
 
 #include "stdafx.h"
+#include <stdlib.h>
+
+
 #include "CrypToolApp.h"
 #include "CryptDoc.h"
 #include "CPlotDocument.h"
@@ -228,6 +231,157 @@ ON_COMMAND(ID_INTERACTIVE_NUMBER_THEORY, OnInteractiveNumberTheory)
 END_MESSAGE_MAP()
 
 
+
+int copy_files(const char *from, const char *to)
+{
+	WIN32_FIND_DATA FileData; 
+	HANDLE hSearch; 
+
+	char szTargetPath[MAX_PATH];
+	char szSourcePath[MAX_PATH];
+	lstrcpy(szSourcePath, from);
+	lstrcat(szSourcePath, "\\*.*");
+
+	BOOL fFinished = FALSE; 
+	 
+	hSearch = FindFirstFile(szSourcePath, &FileData); 
+	if (hSearch == INVALID_HANDLE_VALUE) 
+		fFinished = TRUE;
+	 
+	while (!fFinished) 
+	{ 
+		lstrcpy(szTargetPath, to);
+		lstrcat(szTargetPath, "\\");
+		lstrcat(szTargetPath, FileData.cFileName); 
+
+		lstrcpy(szSourcePath, from);
+		lstrcat(szSourcePath, "\\");
+		lstrcat(szSourcePath, FileData.cFileName); 
+
+		if (CopyFile(szSourcePath, szTargetPath, FALSE))
+			SetFileAttributes(szTargetPath, FILE_ATTRIBUTE_NORMAL); 
+
+		if (!FindNextFile(hSearch, &FileData)) 
+		{
+			if (GetLastError() == ERROR_NO_MORE_FILES) 
+			{ 
+				fFinished = TRUE; 
+			} 
+			else
+				break;
+		}
+	} 
+	 
+	FindClose(hSearch);
+	return fFinished;
+}
+
+int check_files(const char *path)
+{
+	WIN32_FIND_DATA FileData; 
+	HANDLE hSearch; 
+
+	char szPath[MAX_PATH];
+	lstrcpy(szPath, path);
+	lstrcat(szPath, "\\*.*");
+
+	BOOL fFinished = FALSE; 
+	int error      = 0;
+	 
+	hSearch = FindFirstFile(szPath, &FileData); 
+	if (hSearch == INVALID_HANDLE_VALUE) 
+		fFinished = TRUE;
+	 
+	while (!fFinished) 
+	{ 
+		lstrcpy(szPath, path);
+		lstrcat(szPath, "\\");
+		lstrcat(szPath, FileData.cFileName); 
+
+		if ( FILE_ATTRIBUTE_READONLY & GetFileAttributes(szPath) )
+			error++;
+
+		if (!FindNextFile(hSearch, &FileData)) 
+		{
+			if (GetLastError() == ERROR_NO_MORE_FILES) 
+			{ 
+				fFinished = TRUE; 
+			} 
+			else
+				break;
+		}
+	} 
+	 
+	FindClose(hSearch);
+	return error;
+}
+
+
+
+
+// PSE Handling
+const int pse_filestruct_valid                      = 0;
+const int pse_filestruct_corrupted                  = IDS_PSE_FILESTRUCT_CORRUPTED;
+const int pse_filestruct_does_not_exist             = 2;
+const int pse_filestruct_could_not_create_directory = IDS_PSE_FILESTRUCT_COULD_NOT_CREATE_DIRECTORY;
+const int pse_filestruct_could_not_copy_pse         = IDS_PSE_FILESTRUCT_COULD_NOT_COPY_PSE;
+const int pse_filestruct_no_application_data_path   = IDS_PSE_FILESTRUCT_NO_APPLICATION_DATA_PATH;
+const int pse_filestruct_orig_corrupted             = IDS_PSE_FILESTRUCT_ORIG_CORRUPTED;
+
+const char pse_folder[]     = "PSE";
+const char pse_ca_folder[]  = "PSE\\PSECA";
+const char pse_ca_keyfile[] = "PSE\\PSECA\\capse.cse";
+
+int check_keystore_path( const char *key_store_path );
+int copy_keystore_path( const char *path_from, const char *path_to );
+
+int check_keystore_path( const char *key_store_path )
+{
+	CString PseV, CaPseD, CaPseV;
+	PseV  = key_store_path + CString(pse_folder);
+	CaPseD= key_store_path + CString(pse_ca_keyfile);
+	CaPseV= key_store_path + CString(pse_ca_folder);
+	if ( FILE_ATTRIBUTE_DIRECTORY == GetFileAttributes( key_store_path ) )
+	{ // PSE-Store Already exists? -- do Nothing!
+		if ( !( ( INVALID_FILE_ATTRIBUTES != GetFileAttributes( PseV ) ) &&  
+				( INVALID_FILE_ATTRIBUTES != GetFileAttributes( CaPseD ) ) &&
+				( INVALID_FILE_ATTRIBUTES != GetFileAttributes( CaPseV ) ) ) )
+			return pse_filestruct_corrupted;
+		else
+			return pse_filestruct_valid;
+	}
+	else
+		return pse_filestruct_does_not_exist;
+}
+
+int copy_keystore_path( const char *path_from, const char *path_to )
+{
+	int error = check_keystore_path(path_from);
+	if ( error != pse_filestruct_valid )
+	{
+		if ( error = pse_filestruct_corrupted )
+			error = pse_filestruct_orig_corrupted;
+		return error;
+	}
+
+	CString PseV, CaPseV, PseV_from, CaPseV_from;
+	PseV  = path_to + CString(pse_folder);
+	CaPseV= path_to + CString(pse_ca_folder);
+
+	if ( !( ((FILE_ATTRIBUTE_DIRECTORY & GetFileAttributes(path_to)) || CreateDirectory(path_to, NULL)) && 
+			((FILE_ATTRIBUTE_DIRECTORY & GetFileAttributes(PseV))    || CreateDirectory(PseV, NULL)) && 
+			((FILE_ATTRIBUTE_DIRECTORY & GetFileAttributes(CaPseV))  || CreateDirectory(CaPseV, NULL)) ) )
+		return pse_filestruct_could_not_create_directory;
+
+	PseV_from   = path_from + CString(pse_folder);
+	CaPseV_from = path_from + CString(pse_ca_folder);
+	if ( !(copy_files(PseV_from, PseV) && copy_files(CaPseV_from, CaPseV) ) )
+		return pse_filestruct_could_not_copy_pse;	
+	return pse_filestruct_valid;
+}
+
+
+
 BOOL CCrypToolApp::InitInstance()
 {
 //	_tsetlocale(LC_ALL, _T(""));
@@ -320,11 +474,12 @@ BOOL CCrypToolApp::InitInstance()
 
 	
 	Pfad=help1;
-	
+
+// Old Path Settings for KeyStore
 	CString PseV, CaPseD, CaPseV;
-	PseV  =Pfad2+"PSE";
-	CaPseD=Pfad2+"PSE/PSECA/capse.cse";
-	CaPseV=Pfad2+"PSE/PSECA";
+	PseV   = Pfad2 + CString(pse_folder);
+	CaPseD = Pfad2 + CString(pse_ca_keyfile);
+	CaPseV = Pfad2 + CString(pse_ca_folder);
 		
 	LPTSTR help2 = new TCHAR[CaPseD.GetLength()+1];
 	_tcscpy(help2, CaPseD);
@@ -338,6 +493,96 @@ BOOL CCrypToolApp::InitInstance()
 	_tcscpy(help4, PseV);
 	PseVerzeichnis=help4;
 
+	if ( ERROR_SUCCESS == CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "UserKeyStore") )
+	{
+		char key_store_path[1024];
+		unsigned long  str_len = 1024;
+		int error = 0;
+
+		unsigned long use_local_pse;
+		CT_READ_REGISTRY_DEFAULT(use_local_pse, "UseUserKeyStore", 1);
+
+		if ( use_local_pse )
+		{
+			if ( !CT_READ_REGISTRY(key_store_path, "Path", str_len) )
+			{
+				char* app_data_env;
+				app_data_env = getenv("APPDATA");
+				if ( app_data_env )
+				{
+					strcpy(key_store_path, app_data_env);
+					strcat(key_store_path, "\\CrypTool\\");
+					if ( pse_filestruct_valid != check_keystore_path( key_store_path ) )
+						error = copy_keystore_path( Pfad2, key_store_path );
+					if ( !error )
+						CT_WRITE_REGISTRY(key_store_path, "Path");
+				}
+				else
+					error = pse_filestruct_no_application_data_path;
+			}
+			else
+			{
+				if ( pse_filestruct_valid != check_keystore_path( key_store_path ) )
+					error = copy_keystore_path( Pfad2, key_store_path );
+			}
+
+			if ( !error )
+			{
+				PseV  = key_store_path + CString(pse_folder);
+				CaPseD= key_store_path + CString(pse_ca_keyfile);
+				CaPseV= key_store_path + CString(pse_ca_folder);
+
+				delete []CaPseDatei;
+				LPTSTR help2 = new TCHAR[CaPseD.GetLength()+1];
+				_tcscpy(help2, CaPseD);
+				CaPseDatei=help2;
+
+				delete []CaPseVerzeichnis;
+				LPTSTR help3 = new TCHAR[CaPseV.GetLength()+1];
+				_tcscpy(help3, CaPseV);
+				CaPseVerzeichnis=help3;
+
+				delete []PseVerzeichnis;
+				LPTSTR help4 = new TCHAR[PseV.GetLength()+1];
+				_tcscpy(help4, PseV);
+				PseVerzeichnis=help4;
+			}
+			else
+			{
+				char error_caption[128];
+				char error_message_template[1024];
+				char error_message[2048];
+				LoadString(AfxGetInstanceHandle(),IDS_ERROR_LOAD_LOCAL_PSE_CAPTION,error_caption,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),error,error_message_template,STR_LAENGE_STRING_TABLE);
+				switch ( error )
+				{
+					case IDS_PSE_FILESTRUCT_CORRUPTED:
+					case IDS_PSE_FILESTRUCT_COULD_NOT_CREATE_DIRECTORY:
+					case IDS_PSE_FILESTRUCT_COULD_NOT_COPY_PSE:
+						sprintf(error_message, error_message_template, key_store_path);
+						break;
+					case IDS_PSE_FILESTRUCT_ORIG_CORRUPTED:
+						sprintf(error_message, Pfad2, key_store_path);
+						break;
+					default:
+						break;
+				}
+				MessageBox(NULL,error_message,error_caption,MB_ICONWARNING|MB_OK);
+			}
+		}
+	}
+
+
+	if ( check_files(CaPseVerzeichnis) || check_files(PseVerzeichnis) )
+	{
+		char error_caption[128];
+		char error_message_template[1024];
+		char error_message[2048];
+		LoadString(AfxGetInstanceHandle(),IDS_ERROR_LOAD_LOCAL_PSE_CAPTION,error_caption,STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(),IDS_PSE_FILES_READONLY,error_message_template,STR_LAENGE_STRING_TABLE);
+		sprintf(error_message, error_message_template, PseVerzeichnis);
+		MessageBox(NULL,error_message,error_caption,MB_ICONWARNING|MB_OK);
+	}
 	//Ende der Initialiserung der globalen Variablen
 
 	SetRegistryKey("HKEY_CURRENT_USER\\Software\\CrypTool\\Most Recently Used Files"); // No .Ini File#
