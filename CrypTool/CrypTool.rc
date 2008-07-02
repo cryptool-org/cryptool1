@@ -17914,14 +17914,14 @@ BEGIN
         BEGIN
             POPUP "C&odierungen"
             BEGIN
-                POPUP "&Base64-Codierung/Base64-Decodierung"
+                POPUP "&Base64-Codierung/Decodierung"
                 BEGIN
                     MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64
                     , GRAYED
                     MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
                     , GRAYED
                 END
-                POPUP "&UU-Codierung/UU-Decodierung"
+                POPUP "&UU-Codierung/Decodierung"
                 BEGIN
                     MENUITEM "UU &codieren",                ID_ENCODE_UU
                     , GRAYED
@@ -18337,12 +18337,12 @@ BEGIN
         BEGIN
             POPUP "C&odierungen"
             BEGIN
-                POPUP "&Base64-Codierung/Base64-Decodierung"
+                POPUP "&Base64-Codierung/Decodierung"
                 BEGIN
                     MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64
                     MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
                 END
-                POPUP "&UU-Codierung/UU-Decodierung"
+                POPUP "&UU-Codierung/Decodierung"
                 BEGIN
                     MENUITEM "UU &codieren",                ID_ENCODE_UU
                     MENUITEM "UU &decodieren",              ID_DECODE_UU
@@ -18761,13 +18761,13 @@ BEGIN
         BEGIN
             POPUP "C&odierungen"
             BEGIN
-                POPUP "&Base64-Codierung/Base64-Decodierung"
+                POPUP "&Base64-Codierung/Decodierung"
                 BEGIN
                     MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64
                     MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
                     , GRAYED
                 END
-                POPUP "&UU-Codierung/UU-Decodierung"
+                POPUP "&UU-Codierung/Decodierung"
                 BEGIN
                     MENUITEM "UU &codieren",                ID_ENCODE_UU
                     MENUITEM "UU &decodieren",              ID_DECODE_UU
@@ -19177,12 +19177,12 @@ BEGIN
         BEGIN
             POPUP "C&odierungen"
             BEGIN
-                POPUP "&Base64-Codierung/Base64-Decodierung"
+                POPUP "&Base64-Codierung/Decodierung"
                 BEGIN
                     MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64
                     MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
                 END
-                POPUP "&UU-Codierung/UU-Decodierung"
+                POPUP "&UU-Codierung/Decodierung"
                 BEGIN
                     MENUITEM "UU &codieren",                ID_ENCODE_UU
                     MENUITEM "UU &decodieren",              ID_DECODE_UU
@@ -19631,14 +19631,14 @@ BEGIN
         BEGIN
             POPUP "C&odierungen"
             BEGIN
-                POPUP "&Base64-Codierung/Base64-Decodierung"
+                POPUP "&Base64-Codierung/Decodierung"
                 BEGIN
                     MENUITEM "Base64 &codieren",            ID_ENCODE_BASE64
                     , GRAYED
                     MENUITEM "Base64 &decodieren",          ID_DECODE_BASE64
                     , GRAYED
                 END
-                POPUP "&UU-Codierung/UU-Decodierung"
+                POPUP "&UU-Codierung/Decodierung"
                 BEGIN
                     MENUITEM "UU &codieren",                ID_ENCODE_UU
                     , GRAYED
