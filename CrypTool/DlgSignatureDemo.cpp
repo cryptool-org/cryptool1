@@ -499,6 +499,9 @@ void CDlgSignatureDemo::OnSelectHashAlg()
 	CDlgSelectHashFunction* HashDialog;
 	HashDialog = new CDlgSelectHashFunction(this);
 
+	// we're in signature demo mode; thus, no SHA-2 support
+	HashDialog->m_deactivateSHA2 = true;
+
 	if (m_Cert->GetHashAlg() && m_Cert->GetHashAlg() != "")
 		HashDialog->m_sHashAlg = m_Cert->GetHashAlg();
 	else

@@ -63,6 +63,7 @@ CDlgSelectHashFunction::CDlgSelectHashFunction(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgSelectHashFunction::IDD, pParent)
 {
 	m_deactivateMD4 = false;
+	m_deactivateSHA2 = false;
 	m_sHashAlg = "MD2";
 	//{{AFX_DATA_INIT(CDlgSelectHashFunction)
 	m_selectedHashFunctionMD2 = -1;
@@ -236,7 +237,14 @@ BOOL CDlgSelectHashFunction::OnInitDialog()
 	if ( m_deactivateMD4 )
 	{
 		m_selectedHashFunctionMD4Ctrl.EnableWindow(false);		
-	}	
+	}
+
+	if ( m_deactivateSHA2 )
+	{
+		GetDlgItem(IDC_RADIO7)->EnableWindow(false);
+		GetDlgItem(IDC_RADIO8)->EnableWindow(false);
+	}
+
 	if(m_sHashAlg=="MD2")			OnSelectedMD2();
 	if(m_sHashAlg=="MD4")			OnSelectedMD4(); 
 	if(m_sHashAlg=="MD5")			OnSelectedMD5(); 	

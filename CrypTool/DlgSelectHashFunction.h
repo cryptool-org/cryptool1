@@ -61,6 +61,7 @@ public:
 	CDlgSelectHashFunction(CWnd* pParent = NULL);   // Standardkonstruktor
 
 	bool    m_deactivateMD4;
+	bool    m_deactivateSHA2;
 	int		m_selectedHashFunction;
 	CString m_sHashAlg;
 // Dialogfelddaten
