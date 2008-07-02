@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -11936,12 +11936,12 @@ BEGIN
     IDS_PSE_FILES_READONLY  "The keystore files are read only.\nPlease check the access rights of\n%s."
 END
 
-#endif    // Polish resources
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -13627,7 +13627,7 @@ END
 
 IDD_BRUTEFORCE DIALOGEX 0, 0, 277, 159
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Brute-Force Analyse"
+CAPTION "Brute-Force-Analyse"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     COMBOBOX        IDC_KEY_LEN,69,82,30,82,CBS_DROPDOWNLIST | WS_VSCROLL | 
@@ -13640,7 +13640,7 @@ BEGIN
     LTEXT           "Beispiel:",IDC_STATIC,10,33,30,8
     LTEXT           "Schlüssellänge:",IDC_STATIC,10,86,50,8
     LTEXT           "Tipp:",IDC_STATIC,10,60,22,8
-    LTEXT           "Die Suchzeit bewegt sich im Bereich von Minuten oder Stunden, wenn Sie höchstens 6 Sterne <*> (= 24 Bit) verwenden.",
+    LTEXT           "Die Suchzeit bewegt sich im Bereich von Minuten oder Stunden, wenn Sie höchstens 6 Sterne (*) (= 24 Bit) verwenden.",
                     IDC_STATIC,40,60,227,18
     LTEXT           "Mit der Eingabe <00 ** AB ** ... **>  durchsuchen Sie alle Schlüssel, die mit einem Nullbyte beginnen, gefolgt von einem unbekannten Byte, dem Byte <AB>, und einem unbekannten Rest.",
                     IDC_STATIC,40,33,227,26
@@ -14516,10 +14516,10 @@ BEGIN
     DEFPUSHBUTTON   "Schlüssel übernehmen",IDOK,9,193,106,19,WS_DISABLED
 END
 
-IDD_CERTIFICATE_GENERATION DIALOG  0, 0, 354, 269
+IDD_CERTIFICATE_GENERATION DIALOGEX 0, 0, 354, 269
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Zertifikat und PSE erzeugen"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     GROUPBOX        "Öffentliche RSA-Parameter",IDC_STATIC_RSA,7,7,340,64
     LTEXT           "Bitlänge:",IDC_STATIC_RSA0,15,19,76,8,NOT WS_GROUP
@@ -14554,10 +14554,10 @@ BEGIN
     LTEXT           "Distinguished Name:",IDC_STATIC,15,224,76,8
     EDITTEXT        IDC_EDIT_CERT_DNAME,97,222,242,12,ES_AUTOHSCROLL | 
                     ES_READONLY
-    PUSHBUTTON      "Abbrechen",IDCANCEL,287,247,60,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,287,248,60,14
     DEFPUSHBUTTON   "Zertifikat / Schlüssel importieren",IDC_PSE_IMPORT,141,
-                    247,123,14
-    DEFPUSHBUTTON   "Zertifkat und PSE erzeugen",IDOK,7,247,112,14
+                    248,123,14
+    DEFPUSHBUTTON   "Zertifkat und PSE erzeugen",IDOK,7,248,112,14
 END
 
 IDD_FACTORISATION_LIST DIALOG  0, 0, 383, 348
@@ -17535,7 +17535,7 @@ END
 IDD_LIST_RESULTS DIALOGEX 0, 0, 434, 220
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
     WS_THICKFRAME
-CAPTION "Ergebnisse der Brute-Force Analyse"
+CAPTION "Ergebnisse der Brute-Force-Analyse"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     CONTROL         "",IDC_LIST4,"SysListView32",LVS_REPORT | LVS_SINGLESEL | 
@@ -20932,6 +20932,13 @@ BEGIN
         BOTTOMMARGIN, 295
     END
 
+    IDD_CERTIFICATE_GENERATION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 347
+        BOTTOMMARGIN, 262
+    END
+
     IDD_SELECT_HASHFUNCTION, DIALOG
     BEGIN
         VERTGUIDE, 25
@@ -21627,7 +21634,7 @@ END
 STRINGTABLE 
 BEGIN
     ID_CRYPT_IDEA           "Ver-/Entschlüsseln mit IDEA"
-    ID_ANALYSE_AES_MARS     "Automatische Brute-force Analyse einer Mars-Verschlüsselung"
+    ID_ANALYSE_AES_MARS     "Automatische Brute-Force-Analyse einer Mars-Verschlüsselung"
     ID_CRYPT_AES_MARS       "Ver-/Entschlüsseln mit MARS"
     ID_CRYPT_RC2            "Ver-/Entschlüsseln mit RC2"
     ID_CRYPT_AES_RC6        "Ver-/Entschlüsseln mit RC6"
@@ -21636,8 +21643,8 @@ BEGIN
     ID_CRYPT_AES_SERPENT    "Ver-/Entschlüsseln mit Serpent"
     ID_CRYPT_AES_TWOFISH    "Ver-/Entschlüsseln mit Twofish"
     ID_CRYPT_HASH_MD5       "Berechnet den MD5-Hashwert des aktiven Dokuments"
-    ID_ANALYSE_IDEA         "Automatische Brute-force Analyse einer IDEA-Verschlüsselung"
-    ID_ANALYSE_RC2          "Automatische Brute-force Analyse einer RC2-Verschlüsselung"
+    ID_ANALYSE_IDEA         "Automatische Brute-Force-Analyse einer IDEA-Verschlüsselung"
+    ID_ANALYSE_RC2          "Automatische Brute-Force-Analyse einer RC2-Verschlüsselung"
     ID_CRYPT_HASH_MD2       "Berechnet den MD2-Hashwert des aktiven Dokuments"
     ID_CRYPT_HASH_MD4       "Berechnet den MD4-Hashwert des aktiven Dokuments"
     ID_CRYPT_HASH_SHA       "Berechnet den SHA-Hashwert des aktiven Dokuments"
@@ -21695,15 +21702,15 @@ END
 STRINGTABLE 
 BEGIN
     ID_CRYPT_HASH_RIPEMD160 "Berechnet den RIPEMD-160-Hashwert des aktiven Dokuments"
-    ID_ANALYSE_RC4          "Automatische Brute-force Analyse einer RC4-Verschlüsselung"
-    ID_ANALYSE_DESECB       "Automatische Brute-force Analyse einer DES-ECB-Verschlüsselung"
-    ID_ANALYSE_DESCBC       "Automatische Brute-force Analyse einer DES-CBC-Verschlüsselung"
-    ID_ANALYSE_TRIPLEDESECB "Automatische Brute-force Analyse einer Triple-DES-ECB-Verschlüsselung"
-    ID_ANALYSE_TRIPLEDESCBC "Automatische Brute-force Analyse einer Triple-DES-CBC-Verschlüsselung"
-    ID_ANALYSE_AES_RC6      "Automatische Brute-force Analyse einer RC6-Verschlüsselung"
-    ID_ANALYSE_AES_RIJNDAEL "Automatische Brute-force Analyse einer Rijndael(AES)-Verschlüsselung"
-    ID_ANALYSE_AES_SERPENT  "Automatische Brute-force Analyse einer Serpent-Verschlüsselung"
-    ID_ANALYSE_AES_TWOFISH  "Automatische Brute-force Analyse einer Twofish-Verschlüsselung"
+    ID_ANALYSE_RC4          "Automatische Brute-Force-Analyse einer RC4-Verschlüsselung"
+    ID_ANALYSE_DESECB       "Automatische Brute-Force-Analyse einer DES-ECB-Verschlüsselung"
+    ID_ANALYSE_DESCBC       "Automatische Brute-Force-Analyse einer DES-CBC-Verschlüsselung"
+    ID_ANALYSE_TRIPLEDESECB "Automatische Brute-Force-Analyse einer Triple-DES-ECB-Verschlüsselung"
+    ID_ANALYSE_TRIPLEDESCBC "Automatische Brute-Force-Analyse einer Triple-DES-CBC-Verschlüsselung"
+    ID_ANALYSE_AES_RC6      "Automatische Brute-Force-Analyse einer RC6-Verschlüsselung"
+    ID_ANALYSE_AES_RIJNDAEL "Automatische Brute-Force-Analyse einer Rijndael(AES)-Verschlüsselung"
+    ID_ANALYSE_AES_SERPENT  "Automatische Brute-Force-Analyse einer Serpent-Verschlüsselung"
+    ID_ANALYSE_AES_TWOFISH  "Automatische Brute-Force-Analyse einer Twofish-Verschlüsselung"
     ID_PLOTBAR              "Zeigt die Grafik im aktiven Fenster als Balkendiagramm an"
     ID_VERNAM_BIN           "Vernam-Verschlüsselung"
     ID_CRYPT_RC4            "Ver-/Entschlüsseln mit RC4"
@@ -21968,9 +21975,9 @@ BEGIN
                             "Das in [Optionen->Textoptionen] einzustellende Alphabet muss mindestens %d Zeichen enthalten."
     IDS_STRING_ERR_ON_SECUDE_DLL 
                             "Die Secude-Bibliothek konnte nicht geladen werden.\nEinige Funktionen sind daher nicht verfügbar!"
-    IDS_STRING_ANALYSE_ON   "Brute-Force Analyse von %s"
+    IDS_STRING_ANALYSE_ON   "Brute-Force-Analyse von %s"
     IDS_STRING_MSG_SEARCHING_COMPLETE 
-                            "Vollständige %d Bit Suche zu %%d%%%% erledigt.\nRestzeit: %%s"
+                            "Vollständige %d Bit-Suche zu %%d%%%% erledigt.\nRestzeit: %%s"
     IDS_STRING_AUTOMATIC_ANALYSE "%s-Analyse von <%s>, Schlüssel <%s>"
     IDS_STRING_MSG_SIGNED_MESSAGE_TO_BIG 
                             "Die signierte Nachricht ist sehr gross. Sie kann nicht in dem Hex-Editor von CrypTool angezeigt werden.\nDeshalb wurde die Nachricht in der temporären Datei '%s' zwischengespeichert."
@@ -23824,8 +23831,8 @@ BEGIN
     ID_CRYPT_DESX           "Ver-/Entschlüsseln mit DESX"
     ID_CRYPT_DESL           "Ver-/Entschlüsseln mit DESL"
     ID_CRYPT_DESXL          "Ver-/Entschlüsseln mit DESXL"
-    ID_ANALYSE_DESL         "Automatische Brute-force Analyse einer DESL-Verschlüsselung"
-    ID_ANALYSE_DESX         "Automatische Brute-force Analyse einer DESX-Verschlüsselung"
+    ID_ANALYSE_DESL         "Automatische Brute-Force-Analyse einer DESL-Verschlüsselung"
+    ID_ANALYSE_DESX         "Automatische Brute-Force-Analyse einer DESX-Verschlüsselung"
 END
 
 STRINGTABLE 
@@ -23980,7 +23987,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    ID_ANALYSE_DESXL        "Automatische Brute-force Analyse einer DESXL-Verschlüsselung"
+    ID_ANALYSE_DESXL        "Automatische Brute-Force-Analyse einer DESXL-Verschlüsselung"
 END
 
 STRINGTABLE 
@@ -23988,7 +23995,7 @@ BEGIN
     IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT 
                             "Zeilen-Spalten Matrix-Vektorprodukt"
     IDS_LISTBRUTEFORCECANDIDATES_HEADER 
-                            "Die Brute-Force Analyse entschlüsselte das Chiffrat mit allen möglichen Schlüsseln aus dem selektierten Schlüsselraum und bestimmte dann für jede entschlüsselte Nachricht den Entropiewert. Diese Liste enthält die entschlüsselten Nachrichten mit den niedrigsten Entropiewerten.\nGerade bei sehr kurzen Chiffraten kann es sein, dass es falsche Kandidaten mit einem kleinen Entropiewert gibt. Sie haben hier die Möglichkeit, den Kandidaten mit der richtigen Entschlüsselung auszuwählen."
+                            "Die Brute-Force-Analyse entschlüsselte das Chiffrat mit allen möglichen Schlüsseln aus dem gegebenen Schlüsselraum und bestimmte dann für jede entschlüsselte Nachricht deren Entropiewert.\nDie folgende Liste enthält die entschlüsselten Nachrichten mit den niedrigsten Entropiewerten.\nGerade bei sehr kurzen Chiffraten kann es sein, dass es falsche Kandidaten mit einem kleinen Entropiewert gibt. Sie haben hier die Möglichkeit, den Kandidaten mit der richtigen Entschlüsselung auszuwählen."
 END
 
 STRINGTABLE 
@@ -24061,12 +24068,12 @@ BEGIN
     IDS_PSE_FILES_READONLY  "Die Dateien in dem Schlüsselspeicher können nicht geschrieben werden.\nBitte überprüfen Sie die Zugriffsrechte im Verzeichnis\n%s."
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -25843,7 +25850,7 @@ BEGIN
     LTEXT           "Example:",IDC_STATIC,10,33,29,8
     LTEXT           "Key length:",IDC_STATIC,10,82,36,8
     LTEXT           "Hint:",IDC_STATIC,10,57,22,8
-    LTEXT           "The search time will be in the order of minutes to hours  if you use not more than 6 asterisks <*> (= 24 bit).",
+    LTEXT           "The search time will be in the order of minutes to hours  if you use not more than 6 asterisks (*) (= 24 bit).",
                     IDC_STATIC,42,57,225,18
     LTEXT           "Enter <00 ** AB ** ... **>  to search all keys starting with a zero byte, followed by an unknown byte, the byte <AB> and an unknown tail.",
                     IDC_STATIC,42,33,225,18
@@ -26790,10 +26797,10 @@ BEGIN
     DEFPUSHBUTTON   "Store key",IDOK,9,193,106,19,WS_DISABLED
 END
 
-IDD_CERTIFICATE_GENERATION DIALOG  0, 0, 354, 269
+IDD_CERTIFICATE_GENERATION DIALOGEX 0, 0, 354, 269
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Create Certificate and PSE"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     GROUPBOX        "Public RSA parameter",IDC_STATIC_RSA,7,7,340,64
     LTEXT           "Bitlength:",IDC_STATIC_RSA0,15,19,75,8,NOT WS_GROUP
@@ -26828,10 +26835,10 @@ BEGIN
     LTEXT           "Distinguished Name:",IDC_STATIC,15,224,75,8
     EDITTEXT        IDC_EDIT_CERT_DNAME,97,222,242,12,ES_AUTOHSCROLL | 
                     ES_READONLY
-    PUSHBUTTON      "Cancel",IDCANCEL,7,248,60,14
-    DEFPUSHBUTTON   "Import certificate and key",IDC_PSE_IMPORT,97,248,103,
+    PUSHBUTTON      "Cancel",IDCANCEL,287,248,60,14
+    DEFPUSHBUTTON   "Import certificate and key",IDC_PSE_IMPORT,141,248,123,
                     14
-    DEFPUSHBUTTON   "Create Certificate and PSE",IDOK,244,248,103,14
+    DEFPUSHBUTTON   "Create Certificate and PSE",IDOK,7,248,112,14
 END
 
 IDD_HYBRID_DECRYPTION_DEMO DIALOGEX 0, 0, 392, 254
@@ -36201,7 +36208,7 @@ STRINGTABLE
 BEGIN
     IDS_HILL_VECTOR_MATRIX_MULTTYPE_RIGHT "row*column matrix*vector product"
     IDS_LISTBRUTEFORCECANDIDATES_HEADER 
-                            "The brute-force analysis decrypted the given ciphertext with all possible keys out of the selected key space and then calculated for each decrypted message the entropy value. This list contains the decrypted messages with the lowest entropy values.\nEspecially in case of very short ciphertexts it could be, that there are wrong candidates with a small entropy value. Here you have the opportunity to select the candidate with the correct decryption."
+                            "The brute-force analysis decrypted the given ciphertext with all possible keys out of the selected key space and then calculated for each decrypted message the entropy value.\nThe following list contains the decrypted messages with the lowest entropy values.\nEspecially in case of very short ciphertexts it could be, that there are wrong candidates with a small entropy value. Here you have the opportunity to select the candidate with the correct decryption."
 END
 
 STRINGTABLE 
@@ -36274,7 +36281,7 @@ BEGIN
     IDS_PSE_FILES_READONLY  "The keystore files are read only.\nPlease check the access rights of\n%s."
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
