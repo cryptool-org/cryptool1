@@ -565,6 +565,7 @@ BOOL CCrypToolApp::InitInstance()
 						sprintf(error_message, Pfad2, key_store_path);
 						break;
 					default:
+						strcpy(error_message, error_message_template);
 						break;
 				}
 				MessageBox(NULL,error_message,error_caption,MB_ICONWARNING|MB_OK);
