@@ -299,7 +299,7 @@ unsigned int password_bitQualityKeePass(const char *_password)
 unsigned int passwordQualityKeePass(const char *_password)
 {
 	int q = password_bitQualityKeePass(_password);
-	return ( q > 128 ) ? 100 : (q * 100) / 120;
+	return ( q > 128 ) ? 100 : (q * 100) / 128;
 }
 
 /* ************************************************
