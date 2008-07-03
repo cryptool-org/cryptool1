@@ -1136,116 +1136,124 @@ void CDlgSideChannelAttackVisualizationHE::cancelAttackCycle()
 
 void CDlgSideChannelAttackVisualizationHE::OnButtonNextsinglestep() 
 {
-	if(!scaAttacker->isDone())
-	{
-		SHOW_HOUR_GLASS
-		HybridEncryptedFileInfo hif = scaAttacker->nextHybridEncryptedFile();
-		if(scaAttacker->isDone())
+	try {
+		if(!scaAttacker->isDone())
 		{
-			// Steuerelemente für Angriff "ausblenden"
-			cancelAttackCycle();
-			// in case ALL answers by the server were negative, obviously the attack failed;
-			// the reason probably is the fact that the keyword ("Alice" by default) was not
-			// part of the file that was attacked
-			if(scaServer->getNumberOfPositiveResponses() == 0) {
-				// first of all, get the current keyword from the registry
-				CString keyword;
-				if ( theApp.localRegistry.Open(HKEY_CURRENT_USER, "Software\\CrypTool\\Settings",KEY_READ) == ERROR_SUCCESS )
-				{
-					unsigned long u_length = 1024;
-					char c_SCA_keyWord[1025];
-					if (ERROR_SUCCESS == theApp.localRegistry.QueryValue(c_SCA_keyWord, "SCA_Keyword", &u_length) )			
-						keyword = c_SCA_keyWord;
-					else
+			SHOW_HOUR_GLASS
+			HybridEncryptedFileInfo hif = scaAttacker->nextHybridEncryptedFile();
+			if(scaAttacker->isDone())
+			{
+				// Steuerelemente für Angriff "ausblenden"
+				cancelAttackCycle();
+				// in case ALL answers by the server were negative, obviously the attack failed;
+				// the reason probably is the fact that the keyword ("Alice" by default) was not
+				// part of the file that was attacked
+				if(scaServer->getNumberOfPositiveResponses() == 0) {
+					// first of all, get the current keyword from the registry
+					CString keyword;
+					if ( theApp.localRegistry.Open(HKEY_CURRENT_USER, "Software\\CrypTool\\Settings",KEY_READ) == ERROR_SUCCESS )
+					{
+						unsigned long u_length = 1024;
+						char c_SCA_keyWord[1025];
+						if (ERROR_SUCCESS == theApp.localRegistry.QueryValue(c_SCA_keyWord, "SCA_Keyword", &u_length) )			
+							keyword = c_SCA_keyWord;
+						else
+							keyword = "Alice";
+					}
+					// if we can't access the registry, we default to the keyword "Alice"
+					else {
 						keyword = "Alice";
+					}
+					// now let the user know why the attack probably failed
+					LoadString(AfxGetInstanceHandle(), IDS_SCA_ATTACK_FAILED_BECAUSE_OF_MISSING_KEYWORD, pc_str, STR_LAENGE_STRING_TABLE);
+					char *message = new char[strlen(pc_str) + keyword.GetLength() + 1];
+					memset(message, 0, strlen(pc_str) + keyword.GetLength() + 1);
+					sprintf(message, pc_str, keyword.GetBuffer());
+					MessageBox(message, "CrypTool");
 				}
-				// if we can't access the registry, we default to the keyword "Alice"
+				// notify user that the attack was successful
 				else {
-					keyword = "Alice";
+					CDlgSideChannelAttackVisualizationHEFinished fin;
+					fin.DoModal();
 				}
-				// now let the user know why the attack probably failed
-				LoadString(AfxGetInstanceHandle(), IDS_SCA_ATTACK_FAILED_BECAUSE_OF_MISSING_KEYWORD, pc_str, STR_LAENGE_STRING_TABLE);
-				char *message = new char[strlen(pc_str) + keyword.GetLength() + 1];
-				memset(message, 0, strlen(pc_str) + keyword.GetLength() + 1);
-				sprintf(message, pc_str, keyword.GetBuffer());
-				MessageBox(message, "CrypTool");
+				// Anzeige aktualisieren
+				updateGUI(4);
+				return;
 			}
-			// notify user that the attack was successful
-			else {
-				CDlgSideChannelAttackVisualizationHEFinished fin;
-				fin.DoModal();
-			}
-			// Anzeige aktualisieren
-			updateGUI(4);
-			return;
+			bool response = scaServer->receiveHybridEncryptedFile(hif);
+			scaAttacker->processServerResponse(response);
+
+			// Fortschrittsanzeige "updaten"
+			m_ControlAttackProgress.StepIt();
+			HIDE_HOUR_GLASS	
+
+			// Animation abspielen: Übertragung Trudy->Bob
+			setABArrow(SCA_ABARROW_TRANSMISSION_TRUDYBOB);
+				
+			// Timer für Animationsabläufe setzen (siehe Funktion OnTimer)
+			if(!SetTimer(SCA_TIMEREVENT_TB_TRANSMISSION, 50, 0))
+					throw SCA_Error(E_SCA_TIMER_NOT_AVAILABLE);
 		}
-		bool response = scaServer->receiveHybridEncryptedFile(hif);
-		scaAttacker->processServerResponse(response);
-
-		// Fortschrittsanzeige "updaten"
-		m_ControlAttackProgress.StepIt();
-		HIDE_HOUR_GLASS	
-
-		// Animation abspielen: Übertragung Trudy->Bob
-		setABArrow(SCA_ABARROW_TRANSMISSION_TRUDYBOB);
-			
-		// Timer für Animationsabläufe setzen (siehe Funktion OnTimer)
-		if(!SetTimer(SCA_TIMEREVENT_TB_TRANSMISSION, 50, 0))
-				throw SCA_Error(E_SCA_TIMER_NOT_AVAILABLE);
 	}
+	// handle exceptions
+	catch(SCA_Error& e) { CreateErrorMessage(e); return; }
 }
 
 void CDlgSideChannelAttackVisualizationHE::OnButtonAllremainingsteps() 
 {
-	SHOW_HOUR_GLASS
-	while(!scaAttacker->isDone())
-	{
-		HybridEncryptedFileInfo hif = scaAttacker->nextHybridEncryptedFile();
-		if(scaAttacker->isDone()) break;
-		bool response = scaServer->receiveHybridEncryptedFile(hif);
-		scaAttacker->processServerResponse(response);
-
-		// Fortschrittsanzeige "updaten"
-		m_ControlAttackProgress.StepIt();
-	}
-	HIDE_HOUR_GLASS
-
-	// Steuerelemente für Angriff "ausblenden"
-	cancelAttackCycle();
-	// in case ALL answers by the server were negative, obviously the attack failed;
-	// the reason probably is the fact that the keyword ("Alice" by default) was not
-	// part of the file that was attacked
-	if(scaServer->getNumberOfPositiveResponses() == 0) {
-		// first of all, get the current keyword from the registry
-		CString keyword;
-		if ( theApp.localRegistry.Open(HKEY_CURRENT_USER, "Software\\CrypTool\\Settings",KEY_READ) == ERROR_SUCCESS )
+	try {
+		SHOW_HOUR_GLASS
+		while(!scaAttacker->isDone())
 		{
-			unsigned long u_length = 1024;
-			char c_SCA_keyWord[1025];
-			if (ERROR_SUCCESS == theApp.localRegistry.QueryValue(c_SCA_keyWord, "SCA_Keyword", &u_length) )			
-				keyword = c_SCA_keyWord;
-			else
+			HybridEncryptedFileInfo hif = scaAttacker->nextHybridEncryptedFile();
+			if(scaAttacker->isDone()) break;
+			bool response = scaServer->receiveHybridEncryptedFile(hif);
+			scaAttacker->processServerResponse(response);
+
+			// Fortschrittsanzeige "updaten"
+			m_ControlAttackProgress.StepIt();
+		}
+		HIDE_HOUR_GLASS
+
+		// Steuerelemente für Angriff "ausblenden"
+		cancelAttackCycle();
+		// in case ALL answers by the server were negative, obviously the attack failed;
+		// the reason probably is the fact that the keyword ("Alice" by default) was not
+		// part of the file that was attacked
+		if(scaServer->getNumberOfPositiveResponses() == 0) {
+			// first of all, get the current keyword from the registry
+			CString keyword;
+			if ( theApp.localRegistry.Open(HKEY_CURRENT_USER, "Software\\CrypTool\\Settings",KEY_READ) == ERROR_SUCCESS )
+			{
+				unsigned long u_length = 1024;
+				char c_SCA_keyWord[1025];
+				if (ERROR_SUCCESS == theApp.localRegistry.QueryValue(c_SCA_keyWord, "SCA_Keyword", &u_length) )			
+					keyword = c_SCA_keyWord;
+				else
+					keyword = "Alice";
+			}
+			// if we can't access the registry, we default to the keyword "Alice"
+			else {
 				keyword = "Alice";
+			}
+			// now let the user know why the attack probably failed
+			LoadString(AfxGetInstanceHandle(), IDS_SCA_ATTACK_FAILED_BECAUSE_OF_MISSING_KEYWORD, pc_str, STR_LAENGE_STRING_TABLE);
+			char *message = new char[strlen(pc_str) + keyword.GetLength() + 1];
+			memset(message, 0, strlen(pc_str) + keyword.GetLength() + 1);
+			sprintf(message, pc_str, keyword.GetBuffer());
+			MessageBox(message, "CrypTool");
 		}
-		// if we can't access the registry, we default to the keyword "Alice"
+		// notify user that the attack was successful
 		else {
-			keyword = "Alice";
+			CDlgSideChannelAttackVisualizationHEFinished fin;
+			fin.DoModal();
 		}
-		// now let the user know why the attack probably failed
-		LoadString(AfxGetInstanceHandle(), IDS_SCA_ATTACK_FAILED_BECAUSE_OF_MISSING_KEYWORD, pc_str, STR_LAENGE_STRING_TABLE);
-		char *message = new char[strlen(pc_str) + keyword.GetLength() + 1];
-		memset(message, 0, strlen(pc_str) + keyword.GetLength() + 1);
-		sprintf(message, pc_str, keyword.GetBuffer());
-		MessageBox(message, "CrypTool");
+		// Anzeige aktualisieren
+		updateGUI(4);
+		return;
 	}
-	// notify user that the attack was successful
-	else {
-		CDlgSideChannelAttackVisualizationHEFinished fin;
-		fin.DoModal();
-	}
-	// Anzeige aktualisieren
-	updateGUI(4);
-	return;
+	// handle exceptions
+	catch(SCA_Error& e) { CreateErrorMessage(e); return; }
 }
 
 void CDlgSideChannelAttackVisualizationHE::OnCheckDisablehelp() 

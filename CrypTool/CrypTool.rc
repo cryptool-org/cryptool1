@@ -23207,7 +23207,7 @@ BEGIN
     IDS_SCA_E_HYBENCFILE_EXTRACTION 
                             "Fehler beim Parsen der hybridverschlüsselten Datei!"
     IDS_SCA_E_ATTACK_CONDITIONS_NOT_MET 
-                            "Die Vorbedingungen für den Seitenkanalangriff sind nicht erfüllt!"
+                            "Die Vorbedingungen für den Seitenkanalangriff sind nicht erfüllt!\n\nDer RSA-Modul muss mindestens 388 Bits lang sein."
     IDS_SCA_E_MIRACL_ERROR  "Fehler innerhalb der Miracl-Bibliothek!"
     IDS_SCA_E_WRONG_PIN     "Falsche PIN eingegeben!"
     IDS_SCA_E_UNKNOWN_ERROR "ACHTUNG!\n\nEs ist ein unbekannter Fehler aufgetreten!"
@@ -35520,7 +35520,7 @@ BEGIN
     IDS_SCA_E_MEMORY_ALLOCATION "Error allocating memory!"
     IDS_SCA_E_HYBENCFILE_EXTRACTION "Error parsing the hybrid encrypted file!"
     IDS_SCA_E_ATTACK_CONDITIONS_NOT_MET 
-                            "The preconditions of the side-channel attack have not been fulfilled yet!"
+                            "The preconditions of the side-channel attack have not been met!\n\nThe RSA modulus must be at least 388 bit long."
     IDS_SCA_E_MIRACL_ERROR  "Error occured in Miracl library!"
     IDS_SCA_E_WRONG_PIN     "A wrong PIN was entered!"
     IDS_SCA_E_UNKNOWN_ERROR "Warning!\n\nAn unknown error occured!"
