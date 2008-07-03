@@ -191,16 +191,16 @@ void CDlgPasswordQualityMeter::UpdateUserInterface()
 	// update (string) quality display
 	_itoa(intQualityKeePass, pc_str, 10);
 	stringQualityKeePass = pc_str;
-	stringQualityKeePass.Append("%");
+	stringQualityKeePass.Append(" %");
 	_itoa(intQualityMozilla, pc_str, 10);
 	stringQualityMozilla = pc_str;
-	stringQualityMozilla.Append("%");
+	stringQualityMozilla.Append(" %");
 	_itoa(intQualityPGP, pc_str, 10);
 	stringQualityPGP = pc_str;
-	stringQualityPGP.Append("%");
+	stringQualityPGP.Append(" %");
 	_itoa(intQualityCrypTool, pc_str, 10);
 	stringQualityCrypTool = pc_str;
-	stringQualityCrypTool.Append("%");
+	stringQualityCrypTool.Append(" %");
 
 	// CAUTION: for the entropy display, assume a maximum of 128 bit for each approach,
 	//			but exclude Mozilla since the algorithm is not entropy-based

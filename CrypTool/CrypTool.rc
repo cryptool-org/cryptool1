@@ -5471,9 +5471,9 @@ BEGIN
                     0x1,68,174,130,8
     CONTROL         "",IDC_PROGRESS_PGP,"msctls_progress32",WS_BORDER | 0x1,
                     68,188,130,8
-    LTEXT           "100% (128 bit)",IDC_QUALITY_KEEPASS,205,160,55,8
-    LTEXT           "100%",IDC_QUALITY_MOZILLA,205,174,55,8
-    LTEXT           "100% (128 bit)",IDC_QUALITY_PGP,205,188,55,8
+    LTEXT           "100 % (128 bit)",IDC_QUALITY_KEEPASS,205,160,55,8
+    LTEXT           "100 %",IDC_QUALITY_MOZILLA,205,174,55,8
+    LTEXT           "100 % (128 bit)",IDC_QUALITY_PGP,205,188,55,8
     GROUPBOX        "Jakoœæ has³a",IDC_STATIC,7,147,311,82
     GROUPBOX        "Wprowadzenie has³a",IDC_STATIC,7,72,311,70
     LTEXT           "Proszê, wprowadŸ poni¿ej swoje has³o. Jakoœæ has³a pokazana zostanie w procentach i jest aktualizowana przy ka¿dym wciœniêciu klawisza.",
@@ -5496,7 +5496,7 @@ BEGIN
     CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",WS_BORDER | 
                     0x1,68,206,130,8
     LTEXT           "CrypTool:",IDC_STATIC,29,206,32,8
-    LTEXT           "100% (128 bit)",IDC_QUALITY_CRYPTOOL,205,206,55,8
+    LTEXT           "100 % (128 bit)",IDC_QUALITY_CRYPTOOL,205,206,55,8
     LTEXT           "(The CrypTool-PQM method evaluates only the first 32 characters)",
                     IDC_STATIC,68,216,237,8
     LTEXT           "Password length:",IDC_STATIC,223,124,56,9
@@ -17508,9 +17508,9 @@ BEGIN
                     0x1,68,174,130,8
     CONTROL         "",IDC_PROGRESS_PGP,"msctls_progress32",WS_BORDER | 0x1,
                     68,188,130,8
-    LTEXT           "100% (128 Bits)",IDC_QUALITY_KEEPASS,205,160,55,8
-    LTEXT           "100%",IDC_QUALITY_MOZILLA,205,174,55,8
-    LTEXT           "100% (128 Bits)",IDC_QUALITY_PGP,205,188,55,8
+    LTEXT           "100 % (128 Bits)",IDC_QUALITY_KEEPASS,205,160,55,8
+    LTEXT           "100 %",IDC_QUALITY_MOZILLA,205,174,55,8
+    LTEXT           "100 % (128 Bits)",IDC_QUALITY_PGP,205,188,55,8
     CONTROL         "",IDC_PICTURE_QUALITY,"Static",SS_BLACKFRAME,272,175,25,
                     25
     LTEXT           "Hier sind verschiedene Beispiele für Passwort-Qualitätsmesser aufgeführt, die Ihnen dabei helfen, die Sicherheit Ihres Passworts einzuschätzen.",
@@ -17524,7 +17524,7 @@ BEGIN
     CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",WS_BORDER | 
                     0x1,68,206,130,8
     LTEXT           "CrypTool:",IDC_STATIC,29,206,32,8
-    LTEXT           "100% (128 Bits)",IDC_QUALITY_CRYPTOOL,205,206,55,8
+    LTEXT           "100 % (128 Bits)",IDC_QUALITY_CRYPTOOL,205,206,55,8
     LTEXT           "Passwortlänge:",IDC_STATIC,229,124,50,9
     EDITTEXT        IDC_EDIT1,280,123,25,12,ES_AUTOHSCROLL | ES_READONLY | 
                     ES_NUMBER
@@ -29552,9 +29552,9 @@ BEGIN
                     0x1,68,174,130,8
     CONTROL         "",IDC_PROGRESS_PGP,"msctls_progress32",WS_BORDER | 0x1,
                     68,188,130,8
-    LTEXT           "100% (128 bit)",IDC_QUALITY_KEEPASS,205,160,55,8
-    LTEXT           "100%",IDC_QUALITY_MOZILLA,205,174,55,8
-    LTEXT           "100% (128 bit)",IDC_QUALITY_PGP,205,188,55,8
+    LTEXT           "100 % (128 bit)",IDC_QUALITY_KEEPASS,205,160,55,8
+    LTEXT           "100 %",IDC_QUALITY_MOZILLA,205,174,55,8
+    LTEXT           "100 % (128 bit)",IDC_QUALITY_PGP,205,188,55,8
     GROUPBOX        "Password quality based on assumptions (and password entropy in bit)",
                     IDC_STATIC,7,147,311,82
     GROUPBOX        "Password input",IDC_STATIC,7,72,311,70
@@ -29580,7 +29580,7 @@ BEGIN
     CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",WS_BORDER | 
                     0x1,68,206,130,8
     LTEXT           "CrypTool:",IDC_STATIC,29,206,32,8
-    LTEXT           "100% (128 bit)",IDC_QUALITY_CRYPTOOL,205,206,55,8
+    LTEXT           "100 % (128 bit)",IDC_QUALITY_CRYPTOOL,205,206,55,8
     LTEXT           "(The CrypTool-PQM method evaluates only the first 32 characters)",
                     IDC_STATIC,68,216,237,8
     LTEXT           "Password length:",IDC_STATIC,223,124,56,9
