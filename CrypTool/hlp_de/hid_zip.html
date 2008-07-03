@@ -55,7 +55,22 @@
 			Sie diese Dokumente&nbsp;nicht mit Anwendungen wie unzip oder Winzip 
 			dekomprimieren - selbst dann nicht, wenn Sie das Schlüsselwort am Beginn der 
 			Datei entfernen.</P>
-			<P>In CrypTool keine Metadaten unterst&uml;tzt, die f&uml;r die Verarbeitung von ZIP-Archiven notwendig sind.
-			</P>
-	</BODY>
+
+<P>Produktiv einsetzbare Kompressions-Programme unterstützen eine Vielzahl 
+unterschiedlicher Verfahren zur Datenkomprimierung und Datenarchivierung, 
+z.B. um Zip- oder Rar-Archive zu erzeugen. Damit Programme solche 
+komprimierten Archive verarbeiten können, wird eine feste Datenstruktur 
+spezifiziert. Diese besteht aus einem Header, der z.B. die Informationen 
+über die angewendeten Verfahren trägt, und dem Body, der die komprimierten 
+Daten beinhaltet.</P>
+
+<P>Aufgrund der hohen Komplexität wäre eine vollständige eigene 
+Zip-interoperable Implementierung mit großem Aufwand verbunden. Eine 
+solche Implementierung ist für CrypTool nicht geplant. 
+Eine aktuelle Zip-Spezifikation ist z.B. unter 
+http://www.info-zip.org/FAQ.html abrufbar.
+Implementiert ist sie z.B. auch in Open-Source-Programmen wie 7-ZIP (
+http://www.7-zip.org/).</P>
+	
+</BODY>
 </HTML>

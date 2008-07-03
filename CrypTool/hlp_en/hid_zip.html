@@ -55,7 +55,16 @@
 		<P>If you save documents compressed with CrypTool in a file, you cannot decrypt 
 			them using tools like unzip or Winzip, even if you are deleting the three magic 
 			characters at the beginning.</P>
-		<P>This is because CrypTool process no meta information required for ZIP archives.
-		</P>
-	</BODY>
+
+<P>Productively applicable compression programs support a multitude of different algorithms for 
+data compression and archiving, i.e. to create ZIP or RAR archives. A fixed data structure is 
+defined so that programs can process these compressed archives. These data structures consist of 
+a header (information about the compressed data) and a body (the compressed data itself).</P>
+
+<P>Due to the complexity, a complete ZIP-compatible implementation amounts to an enormous 
+effort. Such an implementation is not planned for CrypTool. You can find an up-to-date ZIP 
+specification at http://www.info-zip.org/FAQ.html. For example, this specification is also 
+implemented in open-source programs like 7-ZIP (http://www.7-zip.org/).</P>	
+		
+</BODY>
 </HTML>
