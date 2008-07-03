@@ -252,14 +252,14 @@ Primzahlen können nur auf eine einzige (\glqq triviale'') Weise zerlegt werden:
 \begin{eqnarray*}
 5 & = & 1 * 5 \nonumber \\
 17 & =  & 1 * 17 \nonumber \\
-1.013 &  = & 1 * 1.013 \nonumber \\
+1.013 &  = & 1 * 1013 \nonumber \\
 1.296.409 & = & 1 * 1.296.409. \nonumber
 \end{eqnarray*}
 
 \index{Zahlen!zusammengesetzte}
 \begin{definition}\label{def-zth-composite} 
 Natürliche Zahlen größer $1$, die keine Primzahlen sind, heißen
-{\bf zusammengesetzte Zahlen}: diese haben mindestens zwei von $1$ verschiedene
+{\bf zusammengesetzte Zahlen}: Diese haben mindestens zwei von $1$ verschiedene
 Faktoren.
 \end{definition}
 
@@ -401,8 +401,8 @@ durch $m$ denselben Rest $r$ haben.
 \newpage
 {\bf Beispiele:}
 \begin{itemize}
-\item[] Restklasse $0$ modulo $4 = \{ x | x = 4*n; \; n \in \mathbb{N} \} = \{ \dots, -16, -12, -8, -4, 0, 4, 8, 12, 16, \dots \}$
-\item[] Restklasse $3$ modulo $4 = \{ x | x = 4*n + 3;\; n \in \mathbb{N} \} = \{ \dots, -13, -9, -5, -1, 3, 7, 11, 15, \dots \}$
+\item[] Restklasse $0$ modulo $4 = \{ x | x = 4*n; \; n \in \mathbb{Z} \} = \{ \dots, -16, -12, -8, -4, 0, 4, 8, 12, 16, \dots \}$
+\item[] Restklasse $3$ modulo $4 = \{ x | x = 4*n + 3;\; n \in \mathbb{Z} \} = \{ \dots, -13, -9, -5, -1, 3, 7, 11, 15, \dots \}$
 \end{itemize}
 Da modulo $m$ nur die Reste $0, 1, 2, \cdots, m-1$ möglich sind, rechnet die modulare Arithmetik in endlichen Mengen. 
 Zu jedem Modul $m$ gibt es genau $m$ Restklassen.
@@ -441,7 +441,7 @@ wobei $35 - 11 = 24$ sich ohne Rest durch $3$ teilen lässt, während $35:3$ und $
 Für die Summe $(a + b)$ gilt die obige Äquivalenz nicht!
 
 {\bf Beispiel: }\\
-$11 \equiv 2$ (mod $3$), also ist $11 - 2 \equiv 9 \equiv 0$ (mod $3$); aber $11 + 2 = 13$ ist nicht durch $3$ teilbar.
+$11 \equiv 2$ (mod $3$), also ist $11 - 2 = 9 \equiv 0$ (mod $3$); aber $11 + 2 = 13$ ist nicht durch $3$ teilbar.
 Die Aussage von Satz \ref{thm-zth-div} gilt für Summen nicht einmal in eine
 Richtung. Richtig ist sie bei Summen nur für den Rest $0$ und nur in der
 folgenden Richtung: Teilt ein Teiler beide Summanden ohne Rest, teilt er
@@ -509,9 +509,9 @@ Assoziativgesetz und Kommutativgesetz gelten sowohl für die Addition als auch fü
     $ (a * (b+c)) {\rm ~(mod~ } m) \equiv  (a*b + a*c) {\rm ~(mod~ } m).$ 
 \item[\bf 4.] {\bf Reduzierbarkeit:} \index{Reduzierbarkeit} \\
     $(a+b) {\rm ~(mod~} m) \equiv  (a {\rm ~(mod~ } m) + b {\rm ~(mod~ } m)) {\rm ~(mod~} m).$ \\  
-    $(a*b) {\rm ~(mod~} m) \equiv  (a {\rm ~(mod~ } m) * b {\rm ~(mod~ } m)) {\rm ~(mod~} m).$
+    $(a*b) {\rm ~(mod~} m) \equiv  (a {\rm ~(mod~ } m) * b {\rm ~(mod~ } m)) {\rm ~(mod~} m).$ \\
+    Beim Addieren und Multiplizieren ist es gleichgültig, in welcher Reihenfolge die Modulo-Operation durchgeführt wird.
 \end{itemize}
-Es ist gleichgültig, in welcher Reihenfolge die Modulo-Operation durchgeführt wird.
 \begin{itemize}
 \item[\bf 5.] {\bf Existenz einer Identität (neutrales Element):} \index{Identität}\\
     $(a + 0) {\rm ~(mod~ } m) \equiv  (0 + a) {\rm ~(mod~ } m) \equiv  a {\rm ~(mod~ } m).$  \\
@@ -598,9 +598,9 @@ Bemerkung zur Division modulo 6:\index{Division modulo $n$}
 
 \noindent Bei der Division darf nicht durch die Null geteilt werden, dies liegt an
 der besonderen Rolle der $0$ als Identität bei der Addition:\\
-für alle $a$ gilt $a*0=0, $ denn $a*0 = a*(0+0) =a*0 + a*0.$ Es ist
-offensischtlich, dass $0$ keine Inverse bzgl. der Multiplikation besitzt,
-denn sonst müsste gelten $0 = 0 * 0^{-1} = 1.$ Vergleiche Fußnote
+Für alle $a$ gilt $a*0=0, $ denn $a*0 = a*(0+0) =a*0 + a*0.$ Es ist
+offensichtlich, dass $0$ keine Inverse bzgl. der Multiplikation besitzt,
+denn sonst müsste gelten: $0 = 0 * 0^{-1} = 1.$ Vergleiche Fußnote
 \ref{ftn-res-divmodn}.  } für mod $5$ und für mod $6$
 \end{itemize}
 aufgestellt.
@@ -701,7 +701,7 @@ Weitere Bezeichnungen zum Thema Teilerfremdheit (mit $a_i \in \mathbb{Z}, i=1, \
 \item $a_1,a_2, \cdots, a_n$ heißen {\em relativ prim} \index{relativ prim}, wenn $ {\rm~ggT}(a_1, \cdots , a_n) =1.$
 \item Für mehr als $2$ Zahlen  ist eine noch stärkere Anforderung:\\
       $a_1, \cdots , a_n$ heißen {\em paarweise relativ prim}, wenn für alle $i=1, \cdots, n$ und 
-      $j=1, \cdots , n$ mit $ i \neq j $ gilt: $ {\rm~ggT} (a_i, a_j) =1. $
+      $j=1, \cdots , n$ mit $ i \neq j $ gilt: $ {\rm ggT} (a_i, a_j) =1. $
 \end{enumerate}
 Beispiel: $2,3,6 $ sind relativ prim, da $ {\rm~ggT} (2,3,6)=1.$ 
 Sie sind nicht paarweise prim, da $ {\rm~ggT} (2,6)=2>1.$
@@ -712,7 +712,7 @@ Da $m=5$ eine Primzahl ist, sind die Zahlen $1$ bis $4$ teilerfremd zu $5$, und 
 gibt mod $5$ zu {\bf jeder} dieser Zahlen eine multiplikative Inverse.
 
 Ein Gegenbeispiel zeigt die Multiplikationstabelle für mod $6$
-(da der Modul $6$ nicht prim ist, sind nicht alle Elemente aus
+(da der Modul $m = 6$ nicht prim ist, sind nicht alle Elemente aus
 $\mathbb{Z}_6\setminus \{0\}$ zu $6$ teilerfremd):
 
 \begin{table}[h]
@@ -763,7 +763,7 @@ beschrieben\footnote{%
 Mit dem erweiterten Satz von Euklid \index{ggT}(erweiterter ggT) kann man die
 multiplikative Inverse berechnen und die Invertierbarkeit bestimmen
 (siehe \hyperlink{Appendix_A}{Anhang A zu diesem Kapitel}).
-Alternativ kann auch die Primitivwurzel genutzt werden. 
+Alternativ kann auch die Primitivwurzel\index{Primitivwurzel} genutzt werden. 
 }.
 
 \vskip +10 pt
@@ -777,7 +777,7 @@ eine bestimmte Zahl $a$ das Produkt $a*i {\rm ~mod~} m$  alle Werte aus
 $ \{1, \cdots ,m-1\}$ an (erschöpfende Permutation\index{Permutation} der
 Länge $m-1$)\footnote{%
 Vergleiche auch Satz \ref{thm-zth-ordp} in \hyperlink{Chapter_ElementaryNT_9}
-{Kapitel \ref{MultOrdPrimitveRoot}, Multiplikative Ordnung und Primitivwurzel}.
+{Kapitel \ref{MultOrdPrimitveRoot}, Multiplikative Ordnung und Primitivwurzel\index{Primitivwurzel}}.
 }.
 \end{satz}
 
@@ -917,7 +917,7 @@ Länge der Zahlen ab. Dies sieht man, wenn man nach der Schulmethode z.B.
 $474*228$ berechnet: Der Aufwand steigt quadratisch, da $3*3$ Ziffern
 multipliziert werden müssen. Durch die Reduktion der Zwischenergebnisse
 werden die Zahlen deutlich kleiner.
-} rechnen, muss aber auch aufpassen, da sich dann nicht immer alles wie in der
+} rechnen, muss aber auch aufpassen, da sich dann \textit{nicht} immer alles wie in der
 gewöhn"-lichen Arithmetik verhält.
 \begin{eqnarray*}
 (4^3)^2 & \equiv & (4^3{\rm ~(mod~}5))^2{\rm ~(mod~}5) \nonumber \\
@@ -935,7 +935,7 @@ $$ (4^3)^2 \equiv 4^{3*2{\rm ~(mod~}5)} \equiv 4^{6{\rm ~(mod~}5)} \equiv 4^1 \e
 Wie wir oben sahen, ist das richtige Ergebnis aber $1$ !!
 
 (3) Deshalb ist für das fortgesetzte Potenzieren in der modularen Arithmetik
-die Regel etwas anders: man multipliziert die Exponenten nicht in (mod $m$),
+die Regel etwas anders: Man multipliziert die Exponenten nicht in (mod $m$),
 sondern in (mod $J(m)$).
 
 Mit $J(5) = 4$ ergibt sich:
@@ -1032,7 +1032,7 @@ Gegeben sei die Gleichung: $a \equiv b^c{\rm ~(mod~}m)$.
 \begin{itemize}
 \item [\bf a)] 
       {\bf Logarithmieren\index{Logarithmieren} (Bestimmen von $c$) -- Diskretes
-       Logarithmus-Problem\index{Logarithmusproblem!diskret}:\footnotemark}
+       Logarithmusproblem\index{Logarithmusproblem!diskret}:\footnotemark}
 \footnotetext{%
 Weitere Details zum \index{Logarithmusproblem!diskret}
 \hyperlink{HT-Discrete-Logarithm-as-Basis}{Diskreten Logarithmusproblem}
@@ -1185,7 +1185,7 @@ Produkt $1$ ergibt. Mit anderen Worten:
 Jedes Element in $\mathbb{Z}_n^*$ hat eine multiplikative Inverse.
 \end{satz}
 
-Beispiel für $a = 3$ modulo $10$ mit $\mathbb{Z}_n^* = \{ 1, 3, 7, 9 \}$ :
+Beispiel: Für $a = 3$ modulo $10$ mit $\mathbb{Z}_n^* = \{ 1, 3, 7, 9 \}$ gilt $a^{-1} = 7$:
 \begin{eqnarray*}
 3 & \equiv & 3 * 1{\rm ~(mod~}10), \nonumber \\
 9 & \equiv & 3 * 3{\rm ~(mod~}10), \nonumber \\
@@ -1219,6 +1219,7 @@ unrational, ja sogar {\bf irrational und damit wirklichkeitsnäher} sind.}}
 \subsection{Euler-Funktion, kleiner Satz von Fermat und Satz von Euler-Fermat}
 
 % --------------------------------------------------------------------------
+\hypertarget{patternsandstructures}{}
 \subsubsection{Muster und Strukturen}\index{Struktur}
 \label{patternsandstructures}
 So wie Mathematiker die Struktur $a*x \equiv b {\rm ~mod~}m $ untersuchen 
@@ -1227,7 +1228,7 @@ So wie Mathematiker die Struktur $a*x \equiv b {\rm ~mod~}m $ untersuchen
 so interessiert sie auch die Struktur $ x^{a}\equiv b {\rm ~mod~}m$. 
 
 Auch hierbei ist insbesondere der Fall interessant, wenn $b=1$ ist 
-(also den Werte der multiplikativen Einheit annimmt) und wenn $b=x$ ist 
+(also den Wert der multiplikativen Einheit annimmt) und wenn $b=x$ ist 
 (also die Abbildung einen Fixpunkt\index{Fixpunkt} hat).
 
 
@@ -1309,7 +1310,7 @@ teilerfremd\index{Zahlen!teilerfremd (co-prime)} zu $p$ ist, dann gilt:
 $$a^{p-1} \equiv 1 {\rm ~(mod~} p).$$
 \begin{satz}{\label{thm-zth-fermateuler}
 \bf Satz von Euler-Fermat (Verallgemeinerung des kleines Satzes
-von Fermat)}\hypertarget{Euler-Fermnat}{}
+von Fermat)}\hypertarget{Euler-Fermat}{}
 Für alle Elemente $a$ aus der Gruppe $\mathbb{Z}_n^*$ gilt (d.h. $a$
 und $n$ sind natürliche Zahlen, die teilerfremd zueinander sind):
 $$  a^{J(n)} \equiv 1  {\rm ~(mod~} n).$$
@@ -1334,10 +1335,10 @@ Es gilt: $a^{(p-1)*(q-1)} \equiv 1 {\rm ~(mod~}pq)$.
 \begin{itemize}
    \item Mit $2 = 1 * 2$ und $6 = 2*3$, wobei $2$ und $3$ jeweils prim;
          $J(6) = 2$, da nur $1$ und $5$ zu $6$ teilerfremd
-         \index{Zahlen!teilerfremd (co-prime)} sind folgt
+         \index{Zahlen!teilerfremd (co-prime)} sind, folgt
          $5^2 \equiv 5^{J(6)} \equiv 1 {\rm ~(mod~}6)$,
          ohne dass man die Potenz berechnen musste.
-   \item Mit $792 = 22 * 36$ und $23*37 = 851$, wobei $23$ und $37$ jeweils prim folgt \\
+   \item Mit $792 = 22 * 36$ und $23*37 = 851$, wobei $23$ und $37$ jeweils prim sind, folgt für $31 \in \mathbb{Z}_{851}^*$\\
          $31^{792} \equiv 31^{J(23*37)} \equiv 31^{J(851)} \equiv 1 {\rm ~(mod~}851)$.
 \end{itemize}
 
@@ -1418,8 +1419,8 @@ Für $n=pq$  mit $p\neq q$ gilt $ J(n) = (p-1)*(q-1)
 = n -(p+q)+1.$ Ferner sind die Zahlen $p$ und $q$ Lösungen der quadratischen Gleichung
 $x^2-(p+q)x+pq=0. $\\
 Sind nur 
-$n$ und $J(n)$ bekannt, so gilt $pq=n$ und $p+q= n +1 -J(n).$  Man erhält somit die Faktoren $p$ und $q$ von $n$, indem man die quadratische Gleichung
-$$ x^2 +(J(n)-n-1)x +n=0 $$ löst.
+$n$ und $J(n)$ bekannt, so gilt $pq=n$ und $p+q= n +1 -J(n).$  Man erhält somit die Faktoren $p$ und $q$ von $n$, indem man die folgende quadratische Gleichung löst:
+$$ x^2 +(J(n)-n-1)x +n=0 $$
 } (vergleiche Forderung 3 in \hyperlink{Chapter_ElementaryNT_10_1}
 {Kapitel \ref{Label_Chapter_ElementaryNT_10_1}}).
 
@@ -1432,6 +1433,7 @@ $$ x^2 +(J(n)-n-1)x +n=0 $$ löst.
 \footnotetext{%
     \index{ZT, Lernprogramm Zahlentheorie}%
     \index{Lernprogramm ZT}%
+    \index{Primitivwurzel}%
     Mit dem Lernprogramm {\bf ZT} können Sie einige der hier besprochenen
     Verfahren vertiefen
     (siehe Lern-Kapitel 2.2, Seiten 10-14/40 und 24-40/40).\\
@@ -1442,26 +1444,24 @@ $$ x^2 +(J(n)-n-1)x +n=0 $$ löst.
 }
 \label{MultOrdPrimitveRoot}
 
+Die Multiplikative Ordnung (order) und die Primitivwurzel\index{Primitivwurzel} (primitive
+root) sind zwei nützliche Konstrukte (Konzepte) der elementaren
+Zahlentheorie.
+
 Mathematiker stellen sich die Frage, unter welchen Bedingungen ergibt
 die wiederholte Anwendung einer Operation das neutrale Element
-(vergleiche Strukturen und Muster\index{Struktur}).
+(vergleiche \hyperlink{patternsandstructures}{Muster und Strukturen}, Kapitel \ref{patternsandstructures}\index{Struktur}).
 
 Für die $i$-fach aufeinander folgende modulare Multiplikation einer
 Zahl $a$ mit $i=1, \cdots , m-1$ ergibt sich als Produkt das neutrale
 Element der Multiplikation $(1)$ nur dann, wenn $a$ und $m$
-teilerfremd\index{Zahlen!teilerfremd (co-prime)} sind. Der Wert von
-$i, $ für den das Produkt $a^{i}= 1$ ist, heißt multiplikative Ordnung
-von $a.$
-
-Die Multiplikative Ordnung (order) und die Primitivwurzel (primitive
-root) sind zwei nützliche Konstrukte (Konzepte) der elementaren
-Zahlentheorie.
+teilerfremd\index{Zahlen!teilerfremd (co-prime)} sind. 
 
 \begin{definition}\label{def-zth-ordn}
 Die {\bf multiplikative Ordnung} \index{Ordnung!multiplikative}
 $ord_m(a)$ einer ganzen Zahl $a {\rm ~(mod~} m)$ (wobei $a$ und $m$
-teilerfremd sind) ist die kleinste ganze Zahl $e$, für die gilt:
- $a^e \equiv 1 {\rm ~(mod~} m)$. 
+teilerfremd sind) ist die kleinste ganze Zahl $i$, für die gilt:
+ $a^i \equiv 1 {\rm ~(mod~} m)$. 
 \end{definition}
 
 Die folgende Tabelle zeigt, dass in einer multiplikativen Gruppe (hier
@@ -1485,15 +1485,14 @@ die Basen $a = 1, 2, \cdots, 10$ sowie den sich für jedes a daraus ergebenden We
 {
 \subsubsection*{Tabelle 4: Werte von $a^i{\rm ~mod~}11, 1\leq a,i<11$ und zugehörige Ordnung von $a$ modulo $m.$}
 \begin{center} \label{SrcArith3a}
-%\begin{table}[h]
 \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
               & i=1 & i=2 & i=3 & i=4 & i=5 & i=6 & i=7 & i=8 & i=9 & i=10  & $ord_{11}(a)$\\
 \hline
 \hline
-a=1           & 1  & 1    & 1  & 1    & 1    & 1    & 1  & 1    & 1  & 1     & 1   \\
+a=1           & {\bf 1}  & 1    & 1  & 1    & 1    & 1    & 1  & 1    & 1  & 1     & 1   \\
 \hline
-a=2           & 2  & 4    & 8  & 5   & 10    & 9    & 7  & 3    & 6  & 1    & 10  \\
+a=2           & 2  & 4    & 8  & 5   & 10    & 9    & 7  & 3    & 6  & {\bf 1}    & 10  \\
 \hline
 a=3           & 3  & 9    & 5  & 4 & {\bf 1} & 3    & 9  & 5    & 4  & 1     & 5   \\
 \hline
@@ -1501,18 +1500,17 @@ a=4           & 4  & 5    & 9  & 3 & {\bf 1} & 4    & 5  & 9    & 3  & 1    & 5 
 \hline
 a=5           & 5  & 3    & 4  & 9 & {\bf 1} & 5    & 3  & 4    & 9  & 1    & 5   \\
 \hline
-a=6           & 6  & 3    & 7  & 9   & 10    & 5    & 8  & 4    & 2  & 1    & 10  \\
+a=6           & 6  & 3    & 7  & 9   & 10    & 5    & 8  & 4    & 2  & {\bf 1}    & 10  \\
 \hline
-a=7           & 7  & 5    & 2  & 3   & 10    & 4    & 6  & 9    & 8  & 1    & 10  \\
+a=7           & 7  & 5    & 2  & 3   & 10    & 4    & 6  & 9    & 8  & {\bf 1}    & 10  \\
 \hline
-a=8           & 8  & 9    & 6  & 4   & 10    & 3    & 2  & 5    & 7  & 1    & 10  \\
+a=8           & 8  & 9    & 6  & 4   & 10    & 3    & 2  & 5    & 7  & {\bf 1}    & 10  \\
 \hline
 a=9           & 9  & 4    & 3  & 5 & {\bf 1} & 9    & 4  & 3    & 5  & 1    & 5   \\
 \hline
-a=10         & 10  & 1   & 10  & 1   & 10    & 1   & 10  & 1   & 10  & 1    & 2   \\
+a=10         & 10  & {\bf 1}   & 10  & 1   & 10    & 1   & 10  & 1   & 10  & 1    & 2   \\
 \hline
 \end{tabular}
-%\end{table}
 \end{center}
 }
 Aus der Tabelle kann man ersehen, dass z.B. die Ordnung von $3$ modulo
@@ -1524,17 +1522,17 @@ gilt $ord_m(a) = J(m)$, (d.h. $a$ hat maximale Ordnung), dann nennt man
 $a$ eine {\bf Primitivwurzel} \index{Primitivwurzel} von $m$.
 \end{definition}
 
-Nicht zu jedem Modul $m$ gibt es  eine Zahl $a,$ die eine Primitivwurzel
+Nicht zu jedem Modul $m$ gibt es  eine Zahl $a,$ die eine Primitivwurzel\index{Primitivwurzel}
 ist. In der obigen Tabelle ist nur $a = 2, 6, 7$ und $8$ bezüglich mod
-$11$ eine Primitivwurzel ($J(11) = 10$).
+$11$ eine Primitivwurzel\index{Primitivwurzel} ($J(11) = 10$).
 
-Mit Hilfe der Primitivwurzel kann man die Bedingungen klar herausarbeiten,
+Mit Hilfe der Primitivwurzel\index{Primitivwurzel} kann man die Bedingungen klar herausarbeiten,
 wann Potenzen modulo $m$ {\em eindeutig invertierbar}\index{invertierbar}
 und die Berechnung in den Exponenten handhabbar sind.
 
 
 \newpage
-Die folgenden beiden Tabellen zeigen multiplikative Ordnung und Primitivwurzel
+Die folgenden beiden Tabellen zeigen multiplikative Ordnung und Primitivwurzel\index{Primitivwurzel}
 modulo $45$ und modulo $46$.
 
 {\bf Beispiel 2:} \\
@@ -1592,16 +1590,16 @@ $J(45)$ berechnet sich nach Satz \ref{J_of_n}: $J(45) = J(3^2*5) = [3^1*2] * [1*
 \vskip +20 pt
 
 Da $45$ keine Primzahl ist, gibt es nicht für alle Werte von $a$ eine
-''Multiplikative Ordnung'' (z.B. für die nicht zu $45$
+''Multiplikative Ordnung'' (für alle nicht zu $45$
 teilerfremden\index{Zahlen!teilerfremd (co-prime)} Zahlen 
 $3, 5, 6, 9, 10, 12, \cdots,$ da $45 = 3^2*5$).\vskip +1em
 
 {\bf Beispiel 3:} \\
-Hat $7$ eine Primitivwurzel modulo $45$?\par
+Hat $7$ eine Primitivwurzel\index{Primitivwurzel} modulo $45$?\par
 
 Die Voraussetzung/Bedingung ggT$(7,45)=1$ ist erfüllt.
 Aus der Tabelle (Werte von $a^{i}$ mod $45$) kann man ersehen, dass die
-Zahl $7$ keine Primitivwurzel von $45$ ist,
+Zahl $7$ keine Primitivwurzel\index{Primitivwurzel} von $45$ ist,
 denn $ord_{45}(7) = 12 \not= 24 = J(45)$.\vskip + 1em
 
 \newpage
@@ -1609,7 +1607,7 @@ denn $ord_{45}(7) = 12 \not= 24 = J(45)$.\vskip + 1em
 Die folgende Tabelle\footnote{%
 In \hyperlink{AppArith3c}{Anhang E zu diesem Kapitel} finden Sie den
 Quelltext zur Berechnung der Tabelle mit Mathematica und Pari-GP.
-} beantwortet die Frage, ob die Zahl $7$ eine Primitivwurzel von $46$ ist.
+} beantwortet die Frage, ob die Zahl $7$ eine Primitivwurzel\index{Primitivwurzel} von $46$ ist.
 Die Voraussetzung/Bedingung ggT$(7,46)=1$ ist erfüllt.
   
                                                                     
@@ -1677,7 +1675,7 @@ $a \setminus i$   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 &
 
 \vskip +10 pt
 $J(46)$ berechnet sich nach Satz \ref{J_of_pq}: $J(46) = J(2*23) = 1*22 = 22$.
-Die Zahl $7$ ist eine Primitivwurzel von $46$, denn $ord_{46}(7) = 22 = J(46)$.
+Die Zahl $7$ ist eine Primitivwurzel\index{Primitivwurzel} von $46$, denn $ord_{46}(7) = 22 = J(46)$.
 
 \begin{satz}\label{thm-zth-ordp}\footnote{%
     Für Primmoduli $p$ haben alle $a$ mit $0 < a < p$ die Ordnung $J(p) = p
@@ -1710,12 +1708,12 @@ RSA\footnote{%
 Das RSA-Verfahren\index{RSA} ist das verbreitetste asymmetrische \index{Verschlüsselung!asymmetrisch} Kryptoverfahren. Es
 wurde 1978 von Ronald Rivest, Adi Shamir und Leonard Adleman entwickelt und
 kann sowohl zum Signieren wie zum Verschlüsseln eingesetzt werden.
-Kryptographen assoziieren mit der Abkürzung \glqq RSA'' immer dieses
+Kryptographen assoziieren mit der Abkürzung \glqq \textbf{RSA}'' immer dieses
 Verfahren $-$ die folgende Anmerkung soll eher humorvoll zeigen, dass man
 jede Buchstabenkombination mehrfach belegen kann: In Deutschland gibt es sehr
 Interessen-lastige Diskussionen im Gesundheitswesen. Dabei wird mit
 \glqq RSA'' der vom Gesundheitsministerium geregelte
-\glqq {\bf R}isiko{\bf S}truktur{\bf A}usgleich'' in der gesetzlichen
+\mbox{\glqq{\bf R}isiko{\bf S}truktur{\bf A}usgleich''} in der gesetzlichen
 Krankenversicherung: Im Jahr 2004 wurden durch den RSA ca. 16 Mrd. Euro
 zwischen den Krankenkassen umverteilt.
 }$^,$\footnote{%
@@ -1749,7 +1747,7 @@ der zum Entschlüsseln benötigt wird und den niemand sonst kennt. Möchte der
 Sender eine Nachricht $M$ (message) schicken, verschlüsselt er diese Nachricht
 mit dem öffentlichen Schlüssel $P$ des Empfängers, bevor er sie abschickt:
 
-der Chiffretext $C$ (ciphertext) ergibt sich mit $C = E (P; M)$, wobei $E$
+Der Chiffretext $C$ (ciphertext) ergibt sich mit $C = E (P; M)$, wobei $E$
 (encryption) die Verschlüsselungsvorschrift ist.
 Der Empfänger benutzt seinen privaten Schlüssel $S$, um die Nachricht wieder
 mit der Entschlüsselungsvorschrift $D$ (decryption) zu entschlüsseln: 
@@ -1771,7 +1769,7 @@ Verschlüsselungsalgo"-rith"-men.
 
 Die 2. Forderung kann leicht sichergestellt werden, weil es \glqq sehr'' viele \index{Primzahl!Anzahl}
 Primzahlen gibt\footnote{%
-Nach dem Primzahlsatz (prime number theorem) von 
+Nach dem Primzahlsatz\index{Primzahlsatz} (prime number theorem) von 
 Legendre\index{Legendre, Adrien-Marie} und Gauss\index{Gauss, Carl Friedrich}
 gibt es bis zur Zahl $n$ asymptotisch $n/{\rm ln}(n)$ Primzahlen. Dies bedeutet
 beispielsweise: es gibt $6,5*10^{74}$ Primzahlen unterhalb von $n=2^{256}$
@@ -1920,11 +1918,11 @@ M^{e * d}  & \equiv & M^{1+k*J(n)} \equiv M * M^{k*J(n)} \equiv M * M^{k*(p-1)*(
        & \equiv & M {\rm ~(mod~}p). \nonumber
 \end{eqnarray*}
 Die Voraussetzung für die Anwendung des vereinfachten Satzes von Euler-Fermat 
-(kleiner-Fermat Satz \ref{thm-zth-fermat1}) war, dass $M$ und $p$
+(Kleiner-Fermat Satz \ref{thm-zth-fermat1}) war, dass $M$ und $p$
 teilerfremd\index{Zahlen!teilerfremd (co-prime)} sind.
 
 Da das im allgemeinen nicht gilt, müssen wir noch betrachten, was ist, wenn
-$M$ und $p$ nicht teilerfremd sind: da $p$ eine Primzahl ist, muss dann
+$M$ und $p$ nicht teilerfremd sind: Da $p$ eine Primzahl ist, muss dann
 notwendigerweise $p$ ein Teiler von $M$ sein. Das heißt aber: 
 $$  M \equiv 0 {\rm ~(mod~}p) $$
 Wenn $p$ die Zahl $M$ teilt, so teilt $p$ erst recht $M^{e * d}$. Also ist auch:
@@ -1939,12 +1937,12 @@ Völlig analog beweist man:  $M^{e * d} \equiv M{\rm ~(mod~}q)$.
 
 {\bf Schritt 3:} 
 
-Nun führen wir die Behauptungen aus (a) und (b) zusammen für $n=p*q$, um
+Nun führen wir die Behauptungen aus Schritt 1 und 2 zusammen für $n=p*q$, um
 zu zeigen:
 $$ M^{e * d} \equiv M{\rm ~(mod~}n) \mbox{~für~alle~} M < n. $$
-Nach (a) und (b) gilt $(M^{e * d} - M) \equiv 0 {\rm ~(mod~} p)$ und $(M^{e * d} - M) \equiv 0 {\rm ~(mod~} q)$,
+Nach Schritt 1 und 2 gilt $(M^{e * d} - M) \equiv 0 {\rm ~(mod~} p)$ und $(M^{e * d} - M) \equiv 0 {\rm ~(mod~} q)$,
 also teilen $p$ und $q$ jeweils dieselbe Zahl $z = (M^{e * d} - M)$.
-Da $p$ und $q$ {\bf verschiedenen} Primzahlen sind, muss dann auch ihr Produkt diese Zahl $z$ teilen. Also gilt:
+Da $p$ und $q$ {\bf verschiedene} Primzahlen sind, muss dann auch ihr Produkt diese Zahl $z$ teilen. Also gilt:
 $$
 (M^{e * d} - M) \equiv 0 {\rm ~(mod~}p*q) {\rm ~~oder~~ } M^{e * d} \equiv M {\rm ~(mod~}p*q) {\rm ~~oder~~} 
  M^{e * d} \equiv M {\rm ~(mod~}n).
@@ -1953,8 +1951,7 @@ $$
 
 {\bf 1. Bemerkung:} \\
 Man kann die 3 Schritte auch kürzer zusammenfassen, wenn man Satz \ref{thm-zth-fermateuler} 
-(Euler-Fermat) benutzt (also nicht den vereinfachten Satz, wo $n = p$ gilt und
-der dem kleinen Satz von Fermat entspricht):
+(Euler-Fermat) benutzt (also nicht den vereinfachten Satz, wo $n = p$ gilt):
 $$
 (M^e)^d \equiv M^{e*d} \equiv M^{(p-1)(q-1)*k + 1} \equiv 
         (\underbrace{M^{(p-1)(q-1)}}_{\equiv M^{J(n)} \equiv 1 {\rm ~(mod~}n)})^k * M
@@ -3135,7 +3132,7 @@ $g = 11, p = 347, A = 49$ und $B = 285$, den geheimen Schlüssel kann er nicht
 berechnen.
 
 {\bf Bemerkung:} \\
-In diesem Beispiel mit den kleinen Zahlen ist das Diskrete Logarithmus-Problem\index{Logarithmusproblem!diskret} lösbar,
+In diesem Beispiel mit den kleinen Zahlen ist das Diskrete Logarithmusproblem\index{Logarithmusproblem!diskret} lösbar,
 aber mit großen Zahlen ist es kaum zu lösen\footnote{%
 Versucht man mit Mathematica, den diskreten Logarithmus\index{Logarithmusproblem!diskret} $x$, der die Gleichung
 $11^x \equiv 49 {\rm ~(mod~}347)$ löst, mit Hilfe von Solve zu bestimmen, erhält man die
@@ -3152,21 +3149,22 @@ können solche zahlentheoretischen Aufgaben gelöst werden.
 Die Funktion {\tt dl} im Userinterface {\bf LC} zu LiDIA liefert mit {\tt dl(11,49,347)}
 ebenfalls den Wert $67$.
 }${}^,$\footnote{%
-Warum haben die Funktionen bei dem DL-Problem für Alice den Wert $67$ und nicht den Wert 240 geliefert?
+Warum haben die Funktionen bei dem DL-Problem\index{DL-Problem} für Alice den Wert $67$ und nicht den Wert 240 geliefert?
 Der diskrete Logarithmus ist der kleinste natürliche Exponent, der die
 Gleichung $11^x \equiv 49{\rm ~(mod~}347)$ löst. Sowohl $x=67$ als auch $x=240$ (die im Beispiel
 gewählte Zahl) erfüllen die Gleichung und können damit zur Berechnung des
 Sessionkeys benutzt werden: $285^{240}  \equiv 285^{67} \equiv 268 {\rm ~(mod~}347)$.
-Hätten Alice und Bob als Basis $g$ eine Primitivwurzel modulo $p$ gewählt, dann
+Hätten Alice und Bob als Basis $g$ eine Primitivwurzel\index{Primitivwurzel} modulo $p$ gewählt, dann
 gibt es für jeden Rest aus der Menge
 $\{1, 2, \cdots, p-1\}$ genau einen Exponenten aus der Menge $\{0, 1, \cdots, p-2\}.$ \\
 Info: Zum Modul $347$ gibt es $172$ verschiedene Primitivwurzeln, davon sind $32$
 prim (ist nicht notwendig).
-Da die im Beispiel für $g$ gewählte Zahl $11$ keine Primitivwurzel von $347$ ist,
+Da die im Beispiel für $g$ gewählte Zahl $11$ keine Primitivwurzel\index{Primitivwurzel} von $347$ ist,
 nehmen die Reste nicht alle Werte aus der Menge $\{1, 2, \cdots, 346\}$ an. Somit
 kann es für einen bestimmten Rest mehr als einen oder auch gar keinen
 Exponenten aus der Menge $\{0, 1, \cdots, 345\}$ geben, der die Gleichung
-erfüllt.\index{Mathematica} \\
+erfüllt. \\
+Mit Mathematica\index{Mathematica} findet man:\\
 {\tt 
 PrimeQ[347] = True; EulerPhi[347] = 346; GCD[11, 347] = 1;
 MultiplicativeOrder[11, 347] = 173} \\
@@ -3280,16 +3278,16 @@ L       & 12   & Y    & 25 \\
 
 {\bf Schlüsselerzeugung (Schritt 1 bis 3):} \\
 %\vskip 5 pt
-{\bf 1.} $p=47, q=79$ $( n= 3713;~ J(n) = (p-1)*(q-1)=3.588).$ \\
+{\bf 1.} $p=47, q=79$ $( n= 3713;~ J(n) = (p-1)*(q-1)=3588).$ \\
 {\bf 2.} $e=37$ (sollte\footnote{%
                 Siehe Fußnote \ref{foot:Selection-of-e} auf Seite
                 \pageref{foot:Selection-of-e}.}
                 zwischen 79 und 3587 liegen und muss
                 teilerfremd\index{Zahlen!teilerfremd (co-prime)}
                 zu $3588$ sein). \\
-{\bf 3.} $d=97$ (denn $e*d=1{\rm ~mod~}J(n); 37*97 \equiv 3.589 
+{\bf 3.} $d=97$ (denn $e*d=1{\rm ~mod~}J(n); 37*97 \equiv 3589 
 \equiv 1{\rm ~(mod~}3588) \;$)\footnote{%
-Wie man $d = 97$ mit Hilfe des erweiterten ggT berechnet wird im \hyperlink{Appendix_A}{Anhang A zu diesem Kapitel} gezeigt.
+Wie man $d = 97$ mit Hilfe des erweiterten ggT berechnet, wird im \hyperlink{Appendix_A}{Anhang A zu diesem Kapitel} gezeigt.
 }.
 
 {\bf 4. Verschlüsselung:} \\ 
@@ -3320,7 +3318,7 @@ Mit CrypTool\index{CrypTool} können Sie dies per Menü
 Chiffrat: {\tt 1404 2932 3536 0001 3284 2280 2235 }
 
 Aufteilung dieser 28-stelligen Zahl in 4-stellige Teile.\\
-Entschlüsselung aller $7$ Teile jeweils per: $M \equiv C^{97}{\rm ~(mod~}3.713)$: \\
+Entschlüsselung aller $7$ Teile jeweils per: $M \equiv C^{97}{\rm ~(mod~}3713)$: \\
 {\tt 0120 2001 0311 0001 2000 0401 2314}
 
 Umwandeln von 2-stelligen Zahlen in Großbuchstaben und Blanks.\\
@@ -3447,17 +3445,17 @@ Bei der Variante 2 wird die Blockbildung in zwei verschiedenen Untervarianten 4.
 
 {\bf 4. Verschlüsselung:} \\
 Blockbildung\footnote{%
-\\ \tt \begin{tabular}{lll}
-& Binärdarstellung  &Dezimaldarstellung\\
-01010010, 82 & 01010010 01010011 & =21075 \\
+\\ \tt \begin{tabular}{ll@{ }l@{ }l}
+Einzelzeichen& Binärdarstellung  &&Dezimaldarstellung\\
+01010010, 82 & 01010010 01010011 & = &21075 \\
 01010011, 83 & \\
-01000001, 65 & 01000001 00100000 & =16672  \\
+01000001, 65 & 01000001 00100000 & = &16672  \\
 00100000, 32  \\
-01110111, 119 & 01110111 01101111 & =30575 \\
+01110111, 119 & 01110111 01101111 & = &30575 \\
 01101111, 111 \\ 
-01110010, 114 & 01110010 01101011 & =29291 \\
+01110010, 114 & 01110010 01101011 & = &29291 \\
 01101011, 107 \\
-01110011, 115 & 01110011 00100001 & =29473 \\
+01110011, 115 & 01110011 00100001 & = &29473 \\
 00100001, 33: 
 \end{tabular}
 } (die ASCII-Zeichen werden als 8-stellige Binärzahlen hintereinander geschrieben):\\
@@ -3533,8 +3531,8 @@ Hier die Aufgabe im Originaltext:
 Two samples of RSA ciphertext are presented in Tables 4.1 and 4.2. Your task
 is to decrypt them. The public parameters of the system are 
 
-$n = 18.923$ and $e = 1.261$ (for Table 4.1) and \\
-$n = 31.313$ and $e = 4.913$ (for Table 4.2).
+$n = 18.923$ and $e = 1261$ (for Table 4.1) and \\
+$n = 31.313$ and $e = 4913$ (for Table 4.2).
 
 This can be accomplished as follows. First, factor $n$ (which is easy
 because it is so small). Then compute the exponent $d$ from $J(n)$, and,
@@ -3547,8 +3545,8 @@ $\mathbb{Z}_n$. Each element of $\mathbb{Z}_n$ represents three alphabetic
 characters as in the following examples: 
 
 {\tt \begin{tabular}{lll}
-DOG & $\mapsto$ & $3 * 26^2 + 14 * 26 + 6= 2.398$ \\
-CAT & $\mapsto$ & $2 * 26^2 + 0 * 26 + 19 = 1.371$ \\
+DOG & $\mapsto$ & $3 * 26^2 + 14 * 26 + 6= 2398$ \\
+CAT & $\mapsto$ & $2 * 26^2 + 0 * 26 + 19 = 1371$ \\
 ZZZ & $\mapsto$ & $25 * 26^2 + 25 * 26 + 25 = 17.575$. 
 \end{tabular} }
 
@@ -3631,7 +3629,7 @@ Szenario für die RSA-Demonstration\grqq~ der CrypTool-Auslieferung
 \subsubsection{Eine kleine RSA-Cipher-Challenge (2)}
 \index{RSA!Cipher-Challenge}
 
-Die folgende Aufgabe ist eine korrigierte Variante aus dem sehr guten Buch
+Die folgende Aufgabe ist eine korrigierte Variante aus dem Buch
 von Prof.~Yan \cite[Example 3.3.7, S. 318]{Yan2000}. \index{Yan 2000}
 Es geht aber nicht nur um das Ergebnis, sondern vor allem um die
 Einzelschritte der Lösung, also um die Darlegung der 
@@ -3643,19 +3641,19 @@ nehmen wir ihn gerne in die Dokumentation auf.
 }.
 
 Man kann sich drei völlig unterschiedlich schwierige Aufgaben vorstellen:
-Gegeben ist jeweils der Ciphertext und der öffentliche Schlüssel $(e,n)$:
+Gegeben ist jeweils der Geheimtext und der öffentliche Schlüssel $(e,n)$:
 \begin{itemize}
 \item \index{Angriff!Known-Plaintext} Known-Plaintext: finde den geheimen Schlüssel $d$ unter Benutzung der
 zusätzlich bekannten Ursprungsnachricht.
-\item \index{Angriff!Ciphertext-only} Ciphertext-only: finde $d$ und den Cleartext.
-\item \index{Faktorisierung!Faktorisierungsproblem} RSA-Modul knacken, d.h. faktorisieren (ohne Kenntnis der Messages).
+\item \index{Angriff!Ciphertext-only} Ciphertext-only: finde $d$ und die Klartextnachricht.
+\item \index{Faktorisierung!Faktorisierungsproblem} RSA-Modul knacken, d.h. faktorisieren (ohne Kenntnis der Nachrichten).
 \end{itemize}
 \newpage
 $n = 63978486879527143858831415041, ~e = 17579$
 
-Message\footnote{%
+Klartextnachricht\footnote{%
 Die Zahlen dieser Tabelle befinden sich auch in der Online-Hilfe \glqq Szenario
-für die RSA-Demonstration\grqq~ der CrypTool-Auslieferung\index{CrypTool}.
+für die RSA-Demonstration\grqq~ der CrypTool-Auslieferung.\index{CrypTool}
 }:
 
 {\tt
@@ -3666,7 +3664,7 @@ für die RSA-Demonstration\grqq~ der CrypTool-Auslieferung\index{CrypTool}.
 0002250007150400 
 \end{tabular} } % tt
 
-Cipher:
+Geheimtext:
 
 {\tt
 \begin{tabular}{l}
@@ -3777,7 +3775,7 @@ des Padding sehr wichtig ist für interoperable Algorithmen.
 \bibitem[Graham1994]{Graham1994} \index{Graham 1994}
      Graham, Knuth, Patashnik, \\
      {\em Concrete Mathemathics, a Foundation of Computer Science}, \\
-     Addison Wesley 1989, 6th printing 1990.
+     Addison Wesley 1989, 6th printing 1994.
 
 \bibitem[Kippenhahn1997]{Kippenhahn1997} \index{Kippenhahn 1997}
     Rudolph Kippenhahn, \\
@@ -4076,7 +4074,7 @@ INPUT: a,b != 0
                                // bleibt unveraendert 
 3. if ( a != 0 ) then goto 1.  // nach jedem Schritt faellt a, und 
                                // der Algorithmus endet, wenn a == 0.
-OUTPUT "ggT(a,b) = " b         // b ist der ggT vom ursprünglichen a und b
+OUTPUT "ggT(a,b) = " b         // b ist der ggT vom urspruenglichen a und b
 \end{verbatim}
 \item Aus dem ggT lassen sich aber noch weitere Zusammenhänge bestimmen:
 Dazu betrachtet man für $a$ und $b$ das Gleichungssystem:
@@ -4091,7 +4089,7 @@ $$ \left(\begin{array}{c}a \\ b\end{array}\right) =
 Wir fassen diese Informationen in der erweiterten Matrix 
 $$\left(\begin{array}{cccc} a & | & 1 & 0 \\ b & | & 0 & 1 \end{array} \right)$$
 zusammen. Wendet man den ggT-Algorithmus auf diese Matrix an, so erhält man den 
-{\em erweiterten ggT Algorithmus}, \index{Euklidscher Algorithmus!erweiterter} mit dem die multiplikative Inverse bestimmt wird. 
+{\em erweiterten Euklidschen Algorithmus}, \index{Euklidscher Algorithmus!erweiterter} mit dem die multiplikative Inverse bestimmt wird. 
 
 \newpage
 {\tt INPUT:} $a,b \not= 0$
@@ -4168,16 +4166,16 @@ Im folgenden wird gezeigt, wie man für eine gegebene Ausgangsmenge $G_0$ die
 abgeschlossene Menge G bezüglich der Operation $+ {\rm ~(mod~} 8)$ konstruiert
 (\glqq Abschlussbildung''):
 \begin{eqnarray*}
-G_0 & = & \{ 2, 3 \} {\rm ~die~Addition~der~Zahlen~in~} G_0 {\rm ~bestimmt~weitere~Zahlen:} \nonumber \\
+G_0 & = & \{ 2, 3 \} {\rm -- die~Addition~der~Zahlen~in~} G_0 {\rm ~bestimmt~weitere~Zahlen:} \nonumber \\
     & &    2 + 3 \equiv 5{\rm ~(mod~}8) = 5 \nonumber \\
     & &    2 + 2 \equiv 4{\rm ~(mod~}8) = 4 \nonumber \\
     & &    3 + 3 \equiv 6{\rm ~(mod~}8) = 6 \nonumber \\ 
-G_1 & = & \{ 2, 3, 4, 5, 6 \} {\rm ~die~Addition~der~Zahlen~in~} G_1 {\rm ~bestimmt:}\nonumber \\
+G_1 & = & \{ 2, 3, 4, 5, 6 \} {\rm -- die~Addition~der~Zahlen~in~} G_1 {\rm ~bestimmt:}\nonumber \\
     & &    3 + 4 \equiv 7{\rm ~(mod~}8) = 7 \nonumber \\
     & &    3 + 5 \equiv 8{\rm ~(mod~}8) = 0 \nonumber \\
     & &    3 + 6 \equiv 9{\rm ~(mod~}8) = 1 \nonumber \\ 
-G_2 & = & \{ 0, 1, 2, 3, 4, 5, 6, 7 \} {\rm ~~die~Addition~der~Zahlen~in~} G_2 {~erweitert~die~Menge~nicht!} \nonumber \\
-G_3 & = & G_2 {\rm ~~man~sagt:~} G_2 \mbox{~ist~abgeschlossen~bezüglich~der~Addition~~(mod~}8). \nonumber \\
+G_2 & = & \{ 0, 1, 2, 3, 4, 5, 6, 7 \} {\rm -- die~Addition~der~Zahlen~in~} G_2 {~erweitert~die~Menge~nicht!} \nonumber \\
+G_3 & = & G_2 {\rm -- man~sagt:~} G_2 \mbox{~ist~abgeschlossen~bezüglich~der~Addition~~(mod~}8). \nonumber \\
 \end{eqnarray*}
 % Ende der Abschlussbildung.
 
@@ -4187,7 +4185,7 @@ G_3 & = & G_2 {\rm ~~man~sagt:~} G_2 \mbox{~ist~abgeschlossen~bezüglich~der~Addi
 \hypertarget{Appendix_C}{}
 \subsection*{Anhang C: Bemerkungen zur modulo Subtraktion}
 \addcontentsline{toc}{subsection}{Anhang C: Bemerkungen zur modulo Subtraktion}
-Beispielweise gilt für die Subtraktion modulo 5: $2 - 4 \equiv -2 \equiv 3{\rm ~mod~}2$.
+Beispielweise gilt für die Subtraktion modulo 5: $2 - 4 = -2 \equiv 3{\rm ~mod~}2$.
 Es gilt modulo $5$ also nicht, dass $-2 = 2$ ! Dies gleichzusetzen ist ein häufig
 gemachter Fehler. Dies kann man sich gut verdeutlichen, wenn man die Permutation $(0, 1, 2, 3,
 4)$ aus $\mathbb{Z}_5$ von z.B. $-11$ bis $+11$ wiederholt über den Zahlenstrahl aus $\mathbb{Z}$ legt.
@@ -4404,6 +4402,7 @@ Mod([87^43,87^2,87^4,87^8,87^16,87^32],103)
 
 \hypertarget{AppArith3a}{}
 \subsubsection*{Multiplikative Ordnung und Primitivwurzel}
+\index{Primitivwurzel}
 
 Die Ordnung $ord_m(a)$ einer Zahl $a$ in der multiplikativen Gruppe $Z_m^*$ ist
 die kleinste natürliche Zahl $i \ge 1$ für die gilt $a^i \equiv 1$ mod $m$.
