@@ -368,9 +368,15 @@ int copy_keystore_path( const char *path_from, const char *path_to )
 	PseV  = path_to + CString(pse_folder);
 	CaPseV= path_to + CString(pse_ca_folder);
 
-	if ( !( ((FILE_ATTRIBUTE_DIRECTORY & GetFileAttributes(path_to)) || CreateDirectory(path_to, NULL)) && 
-			((FILE_ATTRIBUTE_DIRECTORY & GetFileAttributes(PseV))    || CreateDirectory(PseV, NULL)) && 
-			((FILE_ATTRIBUTE_DIRECTORY & GetFileAttributes(CaPseV))  || CreateDirectory(CaPseV, NULL)) ) )
+	DWORD a1, a2, a3;
+	a1 = GetFileAttributes(path_to);
+	a2 = GetFileAttributes(PseV);
+	a3 = GetFileAttributes(CaPseV);
+
+	// IF NOT ( (DIR does not exists but can be created) OR (DIR exists) ) ...
+	if ( !((((INVALID_FILE_ATTRIBUTES == a1) && CreateDirectory(path_to, NULL)) || (FILE_ATTRIBUTE_DIRECTORY & a1)) &&
+	       (((INVALID_FILE_ATTRIBUTES == a2) && CreateDirectory(PseV, NULL))    || (FILE_ATTRIBUTE_DIRECTORY & a2)) &&
+	       (((INVALID_FILE_ATTRIBUTES == a3) && CreateDirectory(CaPseV, NULL))  || (FILE_ATTRIBUTE_DIRECTORY & a3))) )
 		return pse_filestruct_could_not_create_directory;
 
 	PseV_from   = path_from + CString(pse_folder);
