@@ -29429,7 +29429,7 @@ END
 IDD_Hill_Options DIALOGEX 0, 0, 311, 161
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Hill options"
+CAPTION "Hill Options"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     CONTROL         "Value of the first alphabet character = 0 (e.g. ""A""=0)",
