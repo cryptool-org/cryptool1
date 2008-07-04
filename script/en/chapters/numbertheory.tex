@@ -476,14 +476,14 @@ The known laws apply:
     $(a+b) {\rm ~(mod~ } m) \equiv  (b+a) {\rm ~(mod~ } m).$ \\
      $(a*b) {\rm ~(mod~ } m) \equiv  (b*a) {\rm ~(mod~ } m).$
 \end{itemize}
-The associative law and commutative law apply to both addition and multiplication.
+The associative law and the commutative law apply to both addition and multiplication.
 \begin{itemize}
 \item[\bf 3.] {\bf Distributive law:} \index{Distributive law}\\
     $ (a * (b+c)) {\rm ~(mod~ } m) \equiv  (a*b + a*c) {\rm ~(mod~ } m).$ 
 \item[\bf 4.] {\bf Reducibility:} \index{Reducibility} \\
     $(a+b) {\rm ~(mod~} m) \equiv  (a {\rm ~(mod~ } m) + b {\rm ~(mod~ } m)) {\rm ~(mod~} m).$ \\  
     $(a*b) {\rm ~(mod~} m) \equiv  (a {\rm ~(mod~ } m) * b {\rm ~(mod~ } m)) {\rm ~(mod~} m).$ \\
-    When adding or multiplying the order in which order the modulo operation is performed is irrelevant.
+    When adding or multiplying the order in which the modulo operation is performed does not matter.
 \end{itemize}
 \begin{itemize}
 \item[\bf 5.] {\bf Existence of an identity (neutral element):} \index{Identity}\\
@@ -566,7 +566,7 @@ It is therefore not true modulo $5$ that $-2 = 2$ (see also \hyperlink{Appendix_
 ${\rm ~(mod~ } 5)$ and
 \item the multiplication tables\footnote{\label{ftn-mod6}Comment on division modulo $6$:\index{Division modulo $n$}\\
 Due to the special role of zero as the identity for addition, division by zero is not permitted:\\
-for all $a$ it is $a*0=0,$ because $a*0=a*(0+0)=a*0+a*0.$ Obviously $0$ has no inverse regarding the
+For all $a$ it is $a*0=0,$ because $a*0=a*(0+0)=a*0+a*0.$ Obviously $0$ has no inverse regarding the
 multiplication, because if there would be one, it must be $ 0= 0*0^{-1} =1.$ Also see footnote \ref{ftn-zth-divmodn}.}
 for mod $5$ and mod $6$.
 \end{itemize}
@@ -656,13 +656,13 @@ If $p$ is prime and $a$ is a random whole number that is not a multiple of
 $p$, then $p$ and a are co-prime.\\
 Further name to the topic co-prime (with $a_i \in \mathbb{Z}, i=1, \cdots, n$):
 \begin{enumerate}
-\item $a_1,a_2, \cdots, a_n$ are {\em relatively prime} \index{Relatively prime}, if $ {\rm~gcd}(a_1, \cdots , a_n) =1.$
+\item $a_1,a_2, \cdots, a_n$ are {\em relatively prime} \index{Relatively prime}, if $ \mbox{gcd}(a_1, \cdots , a_n) =1.$
 \item An even stronger request for more than two numbers is :\\
                 $a_1, \cdots , a_n$ are {\em in pairs relatively prime}, if for all $i=1, \cdots, n$ and 
-$j=1, \cdots , n$ with $ i \neq j $: $ {\rm~gcd} (a_i, a_j) =1. $
+$j=1, \cdots , n$ with $ i \neq j $: $ \mbox{gcd} (a_i, a_j) =1. $
 \end{enumerate}
-Example: $2,3,6 $ are relatively prime, because $ {\rm~gcd} (2,3,6)=1.$ 
-They are not in pairs relatively prime, because $ {\rm~gcd} (2,6)=2>1.$}\index{Gcd}, in other words if $a$ and $m$ have 
+Example: $2,3,6 $ are relatively prime, because $ \mbox{gcd} (2,3,6)=1.$ 
+They are not in pairs relatively prime, because $ \mbox{gcd} (2,6)=2>1.$}\index{Gcd}, in other words if $a$ and $m$ have 
 no common prime factors.
 \end{theorem}
 Since $m=5$ is prime, the numbers $1$ to $4$ are relatively prime to $5$ and {\bf each} of these numbers has a 
@@ -1221,7 +1221,7 @@ of a modular power very quickly. We have: $a^{(p-1)*(q-1)} \equiv 1 {\rm ~(mod~}
 \item  With $2 = 1 * 2$  and  $6 = 2*3$ where $2$ and $3$ are both prime; $J(6) = 2$ because only $1$ and $5$ are 
        relatively prime to $6$, we obtain the equation $5^2 \equiv 5^{J(6)} \equiv 1 {\rm ~(mod~} 6)$,
        without having to calculate the power.
-\item  With $792 = 22 * 36$  and  $23*37 = 851$ where $23$ and $37$ are both prime, it follows that
+\item  With $792 = 22 * 36$  and  $23*37 = 851$ where $23$ and $37$ are both prime, it follows for $31 \in \mathbb{Z}_{851}^*$ that
        $31^{792} \equiv 31^{J(23*37)} \equiv 31^{J(851)} \equiv 1 {\rm ~(mod~} 851)$.
 \end{itemize}
 
@@ -1320,7 +1320,7 @@ Mathematicians often ask, in which conditions the repeated application of an ope
 element (compare \hyperlink{patternsandstructures}{Patterns and Structures}, chapter \ref{patternsandstructures})\index{Structure}.
 
 For the $i$-times successive modular multiplication of a number $a$ with $i=1,\cdots, m-1$ the product is the neutral element
-of the multiplication (1) if and only if $a$ and $m$ are relatively prime. 
+of the multiplication if and only if $a$ and $m$ are relatively prime. 
 
 \begin{definition}\label{def-zth-ordn}
 The {\bf multiplicative order} ${\rm ord}_m(a)$ of a whole number $a$ (mod $m$)
@@ -1386,6 +1386,7 @@ is a primitive root with respect to mod $11$ ($J(11) = 10$).
 
 Using the primitive roots, we can clearly establish the conditions for which powers modulo $m$ have a unique inverse and the calculation in the exponents is manageable.
 
+\newpage
 The following two tables show the multiplicative orders and primitive roots modulo $45$ and modulo $46$.
 
 {\bf Example 2:} \\
@@ -1590,7 +1591,7 @@ The 1st requirement is a general condition for all cryptographic encryption algo
 
 The 2nd requirement can easily be met because there is a ``very'' large number
 of prime numbers\footnote{%
-According to the prime number theorem of 
+According to the \textbf{\hyperlink{thm-pz-pi-x}{prime number theorem}} (chapter~\ref{thm-pz-pi-x}, p.~\pageref{thm-pz-pi-x}) of 
 Legendre\index{Legendre, Adrien-Marie} and Gauss \index{Gauss, Carl Friedrich} 
 there are approximately $n/\ln(n)$ 
 prime numbers\index{Prime number!number of} up to the number $n$. 
