@@ -189,7 +189,7 @@ void CDlgSignatureAttack::OnCompute()
 			CT_READ_REGISTRY_DEFAULT(l_HashAlgorithmIDMAX, "HashAlgorithmIDMax", l_HashAlgorithmIDMAX);
 			unsigned long l_Attempts = 8;
 			CT_READ_REGISTRY_DEFAULT(l_Attempts, "Attempts", l_Attempts);
-			unsigned long l_AttemptsMAX = ULONG_MAX;
+			unsigned long l_AttemptsMAX = 32;
 			CT_READ_REGISTRY_DEFAULT(l_AttemptsMAX, "AttemptsMax", l_AttemptsMAX);
 			unsigned long SignificantBitLengthCounter, HashAlgorithmsCounter, AttemptsCounter, TotalAttemptsCounter = 0;
 
