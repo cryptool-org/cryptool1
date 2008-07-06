@@ -1614,10 +1614,16 @@ CTutorialFactorisation::~CTutorialFactorisation()
 
 BOOL CTutorialFactorisation::IsPrime(CString &Num)
 {
-	set_mip(mip);
-	Big tmpN;
-	CStringFormulaToBig( Num, tmpN );
-	return ( prime( tmpN ) );
+	primeChecker.SetP( Num );
+	return ( primeChecker.FermatTest(30) );
+}
+
+BOOL CTutorialFactorisation::IsPrime(Big &Num)
+{
+	Big N;
+	N = Num;
+	primeChecker.SetP( N );
+	return ( primeChecker.FermatTest(30) );
 }
 
 
@@ -1635,7 +1641,7 @@ BOOL CTutorialFactorisation::Precheck()
 		return true;
 	}
 
-    if ( prime( N ) )
+    if ( IsPrime( N ) )
 	{
 		status |= THREAD_FACTORIZED;
 		return true;
@@ -2255,7 +2261,7 @@ int CTutorialFactorisation::initv()
 	
     nbts=8*sizeof(int);
 
-    if (prime(NN))
+    if (IsPrime(NN))
     {      
 		//this number is prime
         return (-1);
@@ -2289,7 +2295,7 @@ int CTutorialFactorisation::initv()
     {
         // N is a perfect square!"
 		// factors are
-        if (prime(RR)) 
+        if (IsPrime(RR)) 
 		{
 			// N has a perfect prime-square!" Sollte also sollen die zwei Faktoren schwarz markiert werden!!
 		}
@@ -2299,7 +2305,7 @@ int CTutorialFactorisation::initv()
 		}
 
         NN=NN/RR;
-		if (prime(NN)) 
+		if (IsPrime(NN)) 
 		{
 			// N is a perfect prime-square!" Sollte also sollen die zwei Faktoren schwarz markiert werden!!
 		}
@@ -2443,7 +2449,7 @@ void CTutorialFactorisation::new_poly()
     mip->NTRY=1;        /* a probable prime  */
     do
     { /* looking for suitable prime DG = 3 mod 4 */
-        do DG+=4; while(!prime(DG));
+        do DG+=4; while(!IsPrime(DG));
         TT=(DG-1)/2;
         TT=pow(DD,TT,DG);  /*  check DD is quad residue */
     } while (TT!=1);
@@ -2677,7 +2683,7 @@ BOOL CTutorialFactorisation::QuadraticSieve()
 
     hmod=2*mlf+1;               /* set up hash table */
     TT=hmod;
-    while (!prime(TT)) TT-=2;
+    while (!IsPrime(TT)) TT-=2;
     hmod=toint(TT);
     hmod2=hmod-2;
     for (i=0;i<hmod;i++) hash[i]=(-1);
@@ -2764,7 +2770,7 @@ BOOL CTutorialFactorisation::QuadraticSieve()
                 { /* factors found! */
                     PP=gcd(PP,NN);
 	                //factors are";
-                    if (prime(PP))
+                    if (IsPrime(PP))
 					{
 						// PP ist ein Primfaktor von N, sollte deshalb sschwarz markiert sein!
 					}
@@ -2773,7 +2779,7 @@ BOOL CTutorialFactorisation::QuadraticSieve()
 						// PP ist ein zusammengesetztes Faktor von N, sollte also rot markiert werden!
 					}
                     NN/=PP;
-                    if (prime(NN))
+                    if (IsPrime(NN))
 					{
 						// NN ist ein Primfaktor von N, sollte deshalb sschwarz markiert sein!
 					}

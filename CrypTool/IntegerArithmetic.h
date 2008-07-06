@@ -259,6 +259,7 @@ class CTutorialFactorisation : public CTutorialFactorisationBase
 	Big N;
 	Big factor1;
 	Big factor2;
+	GeneratePrimes primeChecker;
 public:
 	int status;
 	int m_iterations;
@@ -337,6 +338,7 @@ private:
 public:
 //	static BOOL IsPrime( CString & Num );
 	BOOL IsPrime( CString & Num );
+	BOOL IsPrime(Big &Num);
 	void GetFactor2Str( CString &Factor2 );
 	void GetFactor1Str( CString &Factor1 );
 	//void SetN( CString &NStr );
