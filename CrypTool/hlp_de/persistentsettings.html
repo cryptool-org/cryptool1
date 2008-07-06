@@ -15,11 +15,236 @@
 
 <h3>Persistente Einstellungen</h3>
 
-<P>TODO</P>
+<P>Die Default-Einstellungen für einige in CrypTool benutzte Optionen, die eine Sitzung 
+überdauern sollen (Persistenz), werden in der Windows-Registry abgespeichert.</P>
 
-<P>Informationen über CrypTool.ini und Windows Registry</P>
+<P>Wenn Sie CrypTool zum ersten Mal aufrufen, erscheint der Dialog 
+<a href="hidd_tipps_and_tricks.html">Wie Sie starten</a>. Wenn Sie diesen Dialog zukünftig nicht 
+mehr sehen wollen, können Sie die Checkbox <B>Diesen Dialog in Zukunft nicht mehr anzeigen</B> 
+benutzen. Dadurch wird in der Registry die Variable <B>NoTipps</B> auf null gesetzt, sodass der 
+Dialog beim Starten nicht mehr angezeigt wird.</P>
 
-<P>TODO</P>
+<P><img src="images/howtostart.gif" alt="howtostart.gif"></P>
+
+<P>Im Folgenden wird beschrieben, wie Sie auf die Windows-Registry zugreifen können. Darüber 
+hinaus werden die einzelnen CrypTool-Parameter kurz erklärt.</P>
+
+<P><U><B>Zugriff auf die Windows-Registry</B></U></P>
+
+<P><B>Bitte beachten Sie:</B> Die Windows-Registry enthält kritische Informationen, deren 
+Änderung zu Instabilitäten des Betriebssystems oder von Anwendungen führen kann.</P>
+
+<P>Zur Windows-Registry gelangen Sie mit Hilfe des DOS-Kommandos <B>regedit.exe</B>. Zu den 
+CrypTool-Einstellungen gelangen Sie über den folgenden Pfad:</P>
+
+<P>HKEY_CURRENT_USER\Software\CrypTool\Settings</P>
+
+<P>Die oben genannte Registry-Variable <B>NoTipps</B> finden Sie unter <B>Options\StartingOptions</B>. 
+Den Wert der Variablen können Sie mit der rechten Maustaste verändern (sinnvoll sind nur die Werte 
+<B>1</B> und <B>0</B> für anzeigen beziehungsweise nicht anzeigen).</P>
+
+<P>Nachfolgend werden die von CrypTool definierten Registry-Variablen aufgeführt und deren 
+Default-Einstellungen und Wertebereiche beschrieben:</P>
+
+
+<P><U><B><a href="hid_hill.html">Hill-Verschlüsselungsverfahren</a></B></U></P>
+
+<P><B>OrdChrOffset</B> (<B>0</B> oder <B>1</B>, Default = <B>0</B>):</P>
+<UL>
+<LI><B>0</B>: Die Ordnung des ersten Alphabet-Zeichens (in der Regel <B>A</B>) ist <B>0</B>.</LI>
+<LI><B>1</B>: Die Ordnung des ersten Alphabet-Zeichens ist <B>1</B>.</LI>
+</UL>
+
+<P><B>PaddingDefaultChr</B> (<B>0</B> oder <B>1</B>, Default = <B>1</B>):</P>
+<UL>
+<LI><B>0</B>: Das Padding erfolgt mit einem benutzerdefinierten Zeichen (siehe PaddingOwnChr).</LI>
+<LI><B>1</B>: Das Padding erfolgt mit dem Alphabetzeichen <B>A</B>.</LI>
+</UL>
+
+<P><B>PaddingOwnChr</B> (ein ASCII-Zeichen, nur berücksichtigt für PaddingDefaultChr = <B>1</B>):<br>
+Verwendet das vom Benutzer eingegebene Alphabetzeichen zum Auffüllen (Padding) des Hill-Klartextes 
+vor der eigentlichen Hill-Verschlüsselung.</P>
+
+<P><B>EditKeyChrMatrix</B> (<B>0</B> oder <B>1</B>, Default = <B>1</B>):</P>
+<UL>
+<LI><B>0</B>: Die Hill-Schlüsselmatrix wird durch Buchstaben definiert.</LI>
+<LI><B>1</B>: Die Hill-Schlüsselmatrix wird durch Zahlen definiert.</LI>
+</UL>
+
+
+<P><U><B><a href="dh-verfahren.html">Diffie-Hellman-Schlüsselaustauschverfahren</a></B></U></P>
+
+<P><B>ShowIntro</B> (<B>0</B> oder <B>1</B>, Default = <B>1</B>):</P>
+<UL>
+<LI><B>0</B>: Der Einführungsdialog wird vor dem Start der Visualisierung nicht angezeigt.</LI>
+<LI><B>1</B>: Der Einführungsdialog wird vor dem Start der Visualisierung angezeigt.</LI>
+</UL>
+
+<P><B>ShowInfo</B> (<B>0</B> oder <B>1</B>, Default = <B>1</B>):</P>
+<UL>
+<LI><B>0</B>: Interaktive Informationen zur Visualisierung werden nicht angezeigt.</LI>
+<LI><B>1</B>: Interaktive Informationen zur Visualisierung werden angezeigt.</LI>
+</UL>
+
+
+<P><U><B><a href="hidd_signature_attack.html">Angriff auf den Hashwert der digitalen Signatur</a></B></U></P>
+
+<P><B>HashAlgorithmID</B> (<B>0</B> bis <B>5</B>, Default = <B>0</B>):</P>
+<UL>
+<LI><B>0</B>: MD2</LI>
+<LI><B>1</B>: MD4</LI>
+<LI><B>2</B>: MD5</LI>
+<LI><B>3</B>: SHA</LI>
+<LI><B>4</B>: SHA-1</LI>
+<LI><B>5</B>: RIPEMD-160</LI>
+</UL>
+
+<P><B>SignificantBitLength</B> (<B>1</B> bis <B>Bitlänge der selektierten Hashfunktion</B>):<br>
+Anzahl der Bits, die im Anschluss an eine Kollisionssuche bei den Hashwerten unterschiedlicher 
+Dokumente übereinstimmen sollen.</P>
+
+<P><B>ModificationMethod</B> (<B>0</B> oder <B>1</B>, Default = <B>1</B>):</P>
+<UL>
+<LI><B>0</B>: Die Dokument-Modifikationen erfolgen innerhalb der Texte.</LI>
+<LI><B>1</B>: Die Dokument-Modifikationen werden an das Ende der Texte angehängt.</LI>
+</UL>
+
+<P><B>ModifyBlankEOL</B> (<B>0</B> oder <B>1</B>, Default = <B>1</B>, nur relevant wenn ModificationMethod = <B>0</B>):</P>
+<UL>
+<LI><B>0</B>: Keine Modifikationen durch Anhängen von Leerzeichen am Zeilenende.</LI>
+<LI><B>1</B>: Modifikationen durch Anhängen von Leerzeichen am Zeilenende.</LI>
+</UL>
+
+<P><B>ModifyDoubleBlank</B> (<B>0</B> oder <B>1</B>, Default = <B>1</B>, nur relevant wenn ModificationMethod = <B>0</B>):</P>
+<UL>
+<LI><B>0</B>: Keine Modifikationen durch die Verdopplung von Leerzeichen.</LI>
+<LI><B>1</B>: Modifikationen durch die Verdopplung von Leerzeichen.</LI>
+</UL>
+
+<P><B>ModifyCharSet</B> (<B>0</B> oder <B>1</B>, Default = <B>0</B>, nur relevant wenn ModificationMethod = <B>1</B>):</P>
+<UL>
+<LI><B>0</B>: Modifikationen durch nicht sichtbare Zeichen (wie TAB).</LI>
+<LI><B>1</B>: Modifikationen durch sichtbare Zeichen.</LI>
+</UL>
+
+<P><B>HarmlessFile</B> (Dateipfad, Default = %cryptool%\Original.txt):<br>
+Dateipfad des harmlosen Dokuments.</P>
+
+<P><B>DangerousFile</B> (Dateipfad, Default = %cryptool%\Faelschung.txt):<br>
+Dateipfad des gefährlichen Dokuments.</P>
+
+<P><B>PerformTestRun</B> (<B>0</B> oder <B>1</B>, Default = <B>0</B>, <U>nur</U> in der Registry änderbar):</P>
+<UL>
+<LI><B>0</B>: Keine Testreihen für den Signaturangriff.</LI>
+<LI><B>1</B>: Testreihen für den Signaturangriff.</LI>
+</UL>
+
+<P>Wenn Testreihen ausgeführt werden sollen, dann sind noch folgende Variablen relevant:</P>
+
+<UL>
+<LI><B>SignificantBitLengthMin</B>: Zahl aus dem Wertebereich von SignificantBitLength; Default = <B>10</B>.</LI>
+<LI><B>SignificantBitLengthMax</B>: Zahl aus dem Wertebereich von SignificantBitLength; Default = <B>20</B>.</LI>
+<LI><B>SignificantBitLengthJump</B>: Schrittgröße zwischen den Werten aus SignificantBitLengthMin und SignificantBitLengthMax; Default = <B>1</B>.</LI>
+<LI><B>HashAlgorithmIDMin</B>: Zahl aus dem Wertebereich von HashAlgorithmID; Default = <B>0</B> (MD2).</LI>
+<LI><B>HashAlgorithmIDMax</B>: Zahl aus dem Wertebereich von HashAlgorithmID; Default = <B>0</B> (MD2).</LI>
+<LI><B>Attempts</B>: Anzahl der Versuche; Default = <B>8</B>.</LI>
+<LI><B>AttemptsMax</B>: Maximalzahl der erfolglosen Versuche; Default = <B>32</B>.</LI>
+</UL>
+
+
+<P><U><B><a href="hidd_password_guidelines.html">Passwort-Richtlinien</a></B></U></P>
+
+<P><B>MinimumLength</B> (Zahl, Default = <B>8</B>): Minimale Passwortlänge.</P>
+
+<P><B>MinimumDigits</B> (Zahl, Default = <B>1</B>): Minimalzahl der Ziffern im Passwort.</P>
+
+<P><B>MinimumSpecial</B> (Zahl, Default = <B>1</B>): Minimalzahl der Sonderzeichen im Passwort.</P>
+
+<P><B>SpecialGroup</B> (Zeichenkette, Default = <B>^&deg;!&quot;&sect;$%&amp;/()=?&acute;`\&lt;&gt;|,;:.-_#'+*~@</B>): Zeichensatz der Sonderzeichen.</P>
+
+
+<P><U><B><a href="hid_zufall_generatoren.html">Zufallsdaten erzeugen</a></B></U></P>
+
+<P><B>GenerateBytes</B> (Zahl, Default = <B>2500</B>): Länge der Zufallsausgabe in Bytes.</P>
+
+<P><B>ShowInternalRandState</B> (<B>0</B> oder <B>1</B>, Default = <B>0</B>):</P>
+<UL>
+<LI><B>0</B>: Keine Ausgabe der internen Zufallsgenerator-Zustände.</LI>
+<LI><B>1</B>: Ausgabe der internen Zufallsgenerator-Zustände.</LI>
+</UL>
+
+<P><B>RandSeed</B> (Zeichenkette, Default = <B>314159</B>): Saat für die Initialisierung der Pseudozufallsgeneratoren.</P>
+
+<P><B>SelGenerator</B> (Zahl zwischen <B>0</B> und <B>4</B>, Default = <B>1</B>): TODO</P>
+
+<P><B>Pseudozufallsgeneratorspezifische Parameter</B></P>
+<UL>
+<LI><B>ParamICG_N</B> (Zahl): Inverser Kongruenzgenerator N.</LI>
+<LI><B>ParamICG_P1</B> (Zahl): Inverser Kongruenzgenerator P1.</LI>
+<LI><B>ParamICG_P2</B> (Zahl): Inverser Kongruenzgenerator P2.</LI>
+<LI><B>ParamLCG_N</B> (Zahl): Linearer Kongruenzgenerator N.</LI>
+<LI><B>ParamLCG_P1</B> (Zahl): Linearer Kongruenzgenerator P1.</LI>
+<LI><B>ParamLCG_P2</B> (Zahl): Linearer Kongruenzgenerator P2.</LI>
+<LI><B>ParamX2MODN_N</B> (Zahl): x^2 (mod N) Pseudozufallsgenerator.</LI>
+</UL>
+
+
+<P><U><B><a href="hid_individual_procedures_secretsharing.html">Secret-Sharing-Demo</a></B></U></P>
+
+<P><B>ShowIntro</B> (<B>0</B> oder <B>1</B>, Default = <B>1</B>):</P>
+<UL>
+<LI><B>0</B>: Der Einführungsdialog wird vor dem Start der Visualisierung nicht angezeigt.</LI>
+<LI><B>1</B>: Der Einführungsdialog wird vor dem Start der Visualisierung angezeigt.</LI>
+</UL>
+
+
+<P><U><B><a href="hid_einzelverfahren_sidechannelattack_on_hybridencryption.html">Seitenkanalangriff auf "Textbook-RSA"</a></B></U></P>
+
+<P><B>BitlengthSecret</B> (Zahl, Default = <B>128</B>): Bitlänge des RSA-verschlüsselten Geheimnisses.</P>
+
+<P><B>Keyword</B> (Zeichenkette, Default = <B>Alice</B>): Schlüsselwort, durch das eine korrekte Entschlüsselung identifiziert wird.</P>
+
+
+<P><U><B><a href="hid_permutation_asc.html">Verschlüsselung durch Permutation</a></B></U></P>
+
+<P><B>ShowPermutationKey</B> (<B>0</B> oder <B>1</B>, Default = <B>1</B>):</P>
+<UL>
+<LI><B>0</B>: Der Permutationsschlüssel wird vor der eigentlichen Verschlüsselung nicht angezeigt.</LI>
+<LI><B>1</B>: Der Permutationsschlüssel wird vor der eigentlichen Verschlüsselung angezeigt.</LI>
+</UL>
+
+
+<P><U><B><a href="hid_indiv_crt_secretsharing.html">Secret Sharing mittels CRT</a></B></U></P>
+
+<P><B>ShowIntro</B> (<B>0</B> oder <B>1</B>, Default = <B>1</B>):</P>
+<UL>
+<LI><B>0</B>: Der Einführungsdialog wird vor dem Start der Visualisierung nicht angezeigt.</LI>
+<LI><B>1</B>: Der Einführungsdialog wird vor dem Start der Visualisierung angezeigt.</LI>
+</UL>
+
+
+<P><U><B><a href="hid_encrypt_adfgvx.html">ADFGVX-Verschlüsselung</a></B></U></P>
+
+<P><B>ShowIntro</B> (<B>0</B> oder <B>1</B>, Default = <B>1</B>):</P>
+<UL>
+<LI><B>0</B>: Der Einführungsdialog wird vor dem Start der Visualisierung nicht angezeigt.</LI>
+<LI><B>1</B>: Der Einführungsdialog wird vor dem Start der Visualisierung angezeigt.</LI>
+</UL>
+
+
+<P><U><B><a href="hid_options_startoptions.html">Startoptionen</a></B></U></P>
+
+<P><B>NoTipps</B> (<B>0</B> oder <B>1</B>, Default = <B>1</B>):</P>
+<UL>
+<LI><B>0</B>: Beim Starten von CrypTool werden keine Tipps angezeigt.</LI>
+<LI><B>1</B>: Beim Starten von CrypTool werden Tipps angezeigt.</LI>
+</UL>
+
+<P><B>SampleTextFile</B> (<B>0</B> oder <B>1</B>, Default = <B>1</B>):</P>
+<UL>
+<LI><B>0</B>: Beim Starten von CrypTool wird keine Beispieldatei geöffnet.</LI>
+<LI><B>1</B>: Beim Starten von CrypTool wird eine Beispieldatei geöffnet.</LI>
+</UL>
 
 </BODY>
 </HTML>
