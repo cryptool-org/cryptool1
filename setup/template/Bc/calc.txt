@@ -1,3 +1,3 @@
-quadsieb(p*q)
+primteiler(p*q)
 
 quit

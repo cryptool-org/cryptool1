@@ -1,3 +1,3 @@
-bc -lq prims.txt polynom.txt
+bc -lq prims.txt dislog.txt polynom.txt
 
 

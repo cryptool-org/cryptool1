@@ -19,3 +19,76 @@ define mal  (az, an, bz, bn) { auto h; h = kuerze( az*bz, an*bn ) }
 define showb () { print bruch_res[1], "/", bruch_res[2], "\n" }
 
 
+define cfrac (a, b, grad) {
+
+  auto sc, h, i	# global: out[]
+
+  if (scale) {
+    sc = scale
+    scale = 0
+    a = a*sc
+    b = b*sc
+  }
+
+  for (i=1; i<=grad; i++) {
+
+    if (!b) {cfrac[0] = i-1; scale=sc; return}
+
+    cfrac[i] = a / b
+    print cfrac[i], " "
+
+    h = plus(a, b, -cfrac[i], 1)
+    a = bruch_res[2]
+    b = bruch_res[1]
+  }
+  cfrac[0] = i
+  scale = sc
+}
+
+#cfrac(43,30, 10)
+
+
+define nfrac (n) {
+
+  auto p, p0, q, q0, i 
+
+  p0 = 1
+  q0 = 0
+  p = cfrac[1]
+  q = 1
+
+  if (n > cfrac[0]) n = cfrac[0]
+
+  for (i=2; i<=n; i++) {
+    ph = p
+    qh = q
+    p = cfrac[i] * p + p0
+    q = cfrac[i] * q + q0
+    p0 = ph
+    q0 = qh
+  }
+  print p, " / ", q, "\n"
+  return p/q
+}
+
+
+
+
+define fak(n) {		# Fakultät n!
+  auto p;
+  p = 1
+  while(n>1) p = p*n--
+  return p
+}
+
+define bin(n,k) { 	# Binomialkoeffizienten n über k
+  auto a,b
+
+  a=1
+  b=1
+  while(k) {
+    b=b*k--
+    a=a*n--
+  }
+  return a/b
+}

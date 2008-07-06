@@ -1,6 +1,6 @@
 /*
     BC-Funktionen zum Berechnen des ggT, modularer Potenzen, Primzahlen, Teiler etc.
-    Copyright (C) 2006 Martin Ramberger (rambo@uni-koblenz.de)
+    Copyright (C) 2006, 2007, 2008 Martin Ramberger (rambo@uni-koblenz.de)
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Lesser General Public
@@ -26,6 +26,9 @@ scale = 0	# Nachkommastellen - würden die Funktionen durcheinander bringen.
 maxp = 1	# global (nextprime, faktbas, primteiler) 	# Anzahl gespeicherter Primzahlen
 prims[1] = 2	# global (nextprime, faktbas, primteiler) 	# erste  gespeicherte  Primzahl
 								# Pfuscherei im Array prims[] verfälscht "alles"
+sqrp = 4	# global (nextprime, primteiler)		# prims[maxp]^2
+erat[0] = 0	# global (nextprime, erat, erat_next)		# Sieb des Eratosthenes
+erat_bas = 1	# global (nextprime, erat, erat_next)		# Zahl, die erat[0] repräsentiert
 faktbasi = 0	# global (faktbas, ecm)
 
 
@@ -41,14 +44,13 @@ iter_pollard = 30000 # global (pollrho)
 
 
 
-
 # Funktionen:
 
-define sig (a) {if (a<0) return(-1) else if (a>0) return (1) else return (0)}	# Vorzeichen
-define abs (a) {if (a<0) return(-a) else return(a)}				# Betrag
+define sig (a) {if (a<0) return -1 else if (a>0) return 1 else return 0}	# Vorzeichen
+define abs (a) {if (a<0) return -a else return a}				# Betrag
 
-define min (a,b) {if (a<=b) return(a) else return(b)}				# Minimum
-define max (a,b) {if (a>=b) return(a) else return(b)}				# Maximum
+define min (a,b) {if (a<=b) return a else return b}				# Minimum
+define max (a,b) {if (a>=b) return a else return b}				# Maximum
 
 define bot (x) {								# nächste ganze Zahl <= x
   auto s, x0
@@ -57,7 +59,7 @@ define bot (x) {								# nächste ganze Zahl <= x
   } else {
     s=scale; scale=0 
     x0=x/1; scale=s
-    if (x==x0) return(x0) else {if (sig(x)>=0) return(x0) else return(x0-1)}
+    if (x==x0) return x0 else {if (sig(x)>=0) return x0 else return x0-1}
   }
 }
 
@@ -68,7 +70,7 @@ define top (x) {								# nächste ganze Zahl >= x
   } else {
     s=scale; scale=0 
     x0=x/1; scale=s
-    if (x==x0) return(x0) else {if (sig(x)>=0) return(x0+1) else return(x0)}
+    if (x==x0) return x0 else {if (sig(x)>=0) return x0+1 else return x0}
   }
 }
 
@@ -77,7 +79,7 @@ define top (x) {								# nächste ganze Zahl >= x
 define mod (a,b) {		# schneller als % (vgl. Doku und teste)
 
   quotient = a/b		# quotient ist global (erspart schon bei euklid doppeltes Rechnen)
-  return( a-quotient*b )
+  return a-quotient*b
 }
 
 
@@ -92,7 +94,7 @@ define euklid1 (a, b) {		# Euklid berechnet ggT
     a = b
     b = r
   }
-  return (abs(a))		# ggT
+  return abs(a)			# ggT
 }
 
 
@@ -125,7 +127,7 @@ define euklid (a, b) {		# Euklid mit Vielfachsummen-Berechnung
   }
   koeff_x = x0 * vora		# Koeffizient bei a
   koeff_y = y0 * vorb		# Koeffizient bei b
-  return (a)			# ggT
+  return a			# ggT
 }
 
 
@@ -136,15 +138,15 @@ define powermod (bas, exp, modul) {		# schnelle Potenz bas^exp mod modul
 
   auto y					# global: koeff_x, quotient
 
-  if (modul < 1) return(-1)
-  if (modul == 1) return(0)
+  if (modul < 1) return -1
+  if (modul == 1) return 0
   if (exp < 0) {     				# a^-x = (a^-1)^x
-    if ( euklid(bas, modul) > 1 ) return (-1)	# undefiniert
+    if ( euklid(bas, modul) > 1 ) return -1	# undefiniert
     bas = koeff_x				# koeffx ist global
     exp = -exp
   }
-  if (exp == 0) return(1)			# x^0 = 1
-  if (bas == 0) return(0)			# 0^x = 0, falls x > 0
+  if (exp == 0) return 1			# x^0 = 1
+  if (bas == 0) return 0			# 0^x = 0, falls x > 0
   if (bas < 0) bas = mod(bas, modul) + modul
 
   y = 1      					# Ergebnis
@@ -153,12 +155,12 @@ define powermod (bas, exp, modul) {		# schnelle Potenz bas^exp mod modul
     if ( mod(exp,2) ) {
       exp = quotient
       y = mod( y * bas, modul )			# "multiply"
-      if (y == 0) return (0)
+      if (y == 0) return 0
     } else exp = quotient
 
     bas = mod( bas * bas, modul)		# "square"
   }
-  return (y)
+  return y
 }
 
 
@@ -170,7 +172,7 @@ define kong (a, b, m) { 			# löse Kongruenz a*x = b mod m
   auto ggt, x, i				# global: koeff_x, a[]
 
   m = abs(m)
-  if (m < 1) return (0)
+  if (m < 1) return 0
 
   b = mod(b, m)
   if (b < 0) b = mod(b, m) + m			# Standardvertreter
@@ -202,7 +204,7 @@ define kong (a, b, m) { 			# löse Kongruenz a*x = b mod m
     a[i+1] = 0
   }
   print "Anzahl Loesungen: "
-  return (ggt)
+  return ggt
 }
 
 
@@ -223,7 +225,7 @@ define random (a, b) {					# Zufallszahl aus {a, ..., b}
   a = mod((powermod(rbas,seed,m) + seed), m) + a	# seed addieren: trifft auch außerhalb Zm*
   rbas = a
  
-  return (a)
+  return a
 }
 
 
@@ -237,7 +239,7 @@ define probe (n, a, b) {	# n Zufallszahlen aus {a, ..., b} unsortiert
   for (i=1; i<n; i++) {
     print random(a, b), "\n"
   }
-  return(random(a, b))
+  return random(a, b)
 }
 
 
@@ -274,29 +276,32 @@ define showij (a[],anf,end) {	# zeige Inhalt des angegebenen Arrays von Feld anf
 
 define erat (n) {		# Sieb des Eratosthenes
 
-  auto i, j, k, p, lim				# global: prims[], erat[], maxp
+  auto i, j, k, p, lim				# global: prims[], erat[], erat_bas, maxp, sqrp
 
   k = 1; prims[k] = 2				# erste Primzahl
-  if (n < 3) return(0)
+  if (n < 3) return 0
+  if (n > 131070) n = 131070
 
-  lim = bot( sqrt(n) )				# Grenze
-  n=n/2
+  lim = sqrt(n)					# Grenze
+  n = n/2
   for(i=1; i < n; i++) erat[i] = 2*i+1		# nur die ungeraden Zahlen betrachten
   j = 1
   for(p=3; p<=lim; p=erat[j]) {			# solange Primzahl p kleiner Wurzel(n)
 
     prims[++k] = p				# p in lückenlose Liste
 
-    for (i=j+p; i < n; i+=p) erat[i] = 0	# Vielfache von p streichen
+    for (i=p*p/2; i < n; i+=p) erat[i] = 0	# Vielfache von p streichen
 
     j = j+1; while (erat[j] == 0) j = j+1	# Index der nächsten Primzahl
   }
+  erat_bas = 1					# global: erat[0] repräsentiert 1
 
   for(i=j; i<=n; i++) if (erat[i]) prims[++k] = erat[i]		# lückenlose Liste
   prims[k+1] = 0				# Ende markieren
   maxp = k					# global
+  sqrp = prims[maxp]^2				# global
 
-  return(k)					# Anzahl gesammelter Primzahlen
+  return maxp					# Anzahl gesammelter Primzahlen
 }
 
 maxp = erat(130000) # prims[] füllen
@@ -308,7 +313,7 @@ maxp = erat(130000) # prims[] füllen
 define maxabstand () {		# größte Lücke zwischen den gesammelten Primzahlen 
   auto ab, p0, p, i
   ab=0; p0=0; for(i=1;i<maxp;i++) {p=prims[i]; if((p-p0)>ab) ab=p-p0; p0=p}
-  return(ab)
+  return ab
 }
 
 
@@ -316,20 +321,25 @@ define maxabstand () {		# größte Lücke zwischen den gesammelten Primzahlen
 
 define erat_next (n) {		# ab n sieben mit vorhandenen Primzahlen
 
-  auto i, j, p, lim				# global: erat[], prims[]
+  auto i, j, p, lim				# global: erat[], prims[], erat_bas
 
-  for(i=1; i<65535; i++) erat[i] = 1		# 65535 ungerade Zahlen betrachten
+  for(i=0; i<65535; i++) erat[i] = 1		# 65534 ungerade Zahlen betrachten
   j = 2
+  if (n < 1) n = 1
+  if (!mod(n,2)) n = n + 1			# ungerade!
   lim = sqrt(n + 131070)
 
   for(p=3; p && p<=lim; p=prims[j]) {		# für 3 und weitere gespeicherte Primzahlen
 
     i = p - mod(n-1,p)				# erste zu streichende Zahl:
+    if (p >= n) i = i + p
+
     if (mod(i,2)) {i=(i-1)/2} else {i=(i+p-1)/2}
 
     for (; i<65535; i+=p) erat[i] = 0		# Vielfache von p streichen
     j = j+1
   }
+  erat_bas = n					# global: erat[0] repräsentiert n
 
   return j					# Anzahl benutzter Primzahlen
 }
@@ -345,17 +355,17 @@ define mrkern (a,d,s) {		# Kern des Miller-Rabin-Primzahltests
 
   bas = random(2,a-2)				# Zufallsbasis, a >= 4 ist gewährleistet
 
-  if (euklid1(bas,a) > 1) return(0)		# a keine Primzahl
+  if (euklid1(bas,a) > 1) return 0		# a keine Primzahl
 
   c = powermod(bas,d,a)
-  if ( c == 1 || c == a-1 ) return(1)		# a scheint Primzahl (bei dieser Basis)
+  if ( c == 1 || c == a-1 ) return 1		# a scheint Primzahl (bei dieser Basis)
 
   while (s > 1) {
     c = mod( c * c, a)
-    if ( c == a-1 ) return(1)			# a scheint Primzahl (bei dieser Basis)
+    if ( c == a-1 ) return 1			# a scheint Primzahl (bei dieser Basis)
     s = s - 1
   }
-  return(0)					# a keine Primzahl
+  return 0					# a keine Primzahl
 }
 
 
@@ -367,8 +377,8 @@ define mr (a) {		# Miller-Rabin-Primzahltest, max. Anzahl Durchläufe: iter_mr
   auto d, s, i					# global: quotient, iter_mr
 
   a = abs(a)
-  if (a < 2) return(0)				# keine Primzahl
-  if (a < 4) return(a)				# Primzahl, kleinste Kandidatin ist also 4
+  if (a < 2) return 0				# keine Primzahl
+  if (a < 4) return a				# Primzahl, kleinste Kandidatin ist also 4
  
   d = a - 1					# Wie oft kann man a-1 halbieren?
   s = 0
@@ -380,10 +390,10 @@ define mr (a) {		# Miller-Rabin-Primzahltest, max. Anzahl Durchläufe: iter_mr
   if (iter_mr < 1) iter_mr = 1			# mindestens eine Iteration
 
   for (i=1; i<=iter_mr; i++) {
-    if ( mrkern(a,d,s) == 0 ) return(0)		# keine Primzahl
+    if ( mrkern(a,d,s) == 0 ) return 0		# keine Primzahl
   }
 
-  return(a)					# wahrscheinlich Primzahl
+  return a					# wahrscheinlich Primzahl
 }
 
 
@@ -392,29 +402,36 @@ define mr (a) {		# Miller-Rabin-Primzahltest, max. Anzahl Durchläufe: iter_mr
 
 define nextprime (n) {		# nächste Primzahl >= n
 
-  auto i
+  auto i, a					# global erat_bas
 
-  if (mod(n,2)==0) n = n + 1
+  if (n < 3) return 2
+  if (!mod(n,2)) n = n + 1			# ungerade!
 
-  if (n > 10^10) {					# vorsieben
-
-    i = erat_next(n)					# füllt erat[]
+  if (n < erat_bas || n > erat_bas + 130000) {
+    i = erat_next(n)				# füllt erat[], setzt erat_bas
     i = 0
-    while (!mr(n+2*i)) {i=i+1; while (i<65535 && !erat[i]) {i=i+1}; print "|"}
-    if (i >= 65535) return 0
-    n = n + 2*i
-
   } else {
-
-    while (!mr(n)) {n = n+2; print "|"}
+    i = (n - erat_bas) / 2
+    n = erat_bas
   }
-  print "\n"
-  return(n)
+
+  while (i<65535) {
+    if (erat[i]) {
+      a = n + 2*i
+      if (a < sqrp) return a
+      if (mr(a)) return a
+    }
+    i = i + 1
+  }    
+  return nextprime(n+2*i)
 }
 
 
 
-
+# http://www.primath.homepage.t-online.de/Homepagedateien/Fakt2.pdf (Karl Schwalen)
+for(i=0;i<10080;i++) {
+  quads10080[mod(i*i,10080)] = 1	# alle 336 Quadrate mod 10080
+}
 
 
 define fermat (n) {	# Fermat Faktorisierung
@@ -424,31 +441,38 @@ define fermat (n) {	# Fermat Faktorisierung
   n = abs(n)
   if ( mod(n,2) == 0 ) return(2)
 
-print "Fermat ", n, "\n"
+  print "Fermat ", n, "\n"
   w = sqrt(n)
   q = w*w
   if (q == n) return(w) 
   if (q < n) w = w+1			# top(sqrt(n)) ungenau wegen endlichem scale
   
-  lim = (n + 9) / 6			 
-  if (in_rekpt) lim = min(lim, w+10000)	# w+10000 zu klein für 100895598169 (Mersenne)
-  p = prims[maxp]			# größte Primzahl in der Liste
+  lim = (n + 9) / 6
+		 
+  if (in_rekpt) {
+    lim = min(lim, w+10000)		# w+10000 zu klein für 100895598169 (Mersenne)
+    p = prims[maxp]			# größte Primzahl in der Liste
+    lim = min(lim, (n/p+p)/2) 		# Reich der Probedivision (a-w <= p)
 
+  } else if (fermat_limit > 0) {
+    lim = min(lim, (n/fermat_limit + fermat_limit)/2)
+  }
   h = w*w - n 				# erstes b-Quadrat
   d = 2*w+1				# erster Abstand zum nächsten b-Quadrat
 
   for (a=w; a<=lim; a++) {
 
-    w = sqrt(h)
-    if ( w*w == h) return(a-w)
-    #print h, " ", a-w, "\n"
-    if (in_rekpt) if ( a-w <= p ) return(0)	# Reich der Probedivision
+    if (quads10080[mod(h,10080)]) {	# kein Quadrat
+      w = sqrt(h)
+      if ( w*w == h) return(a-w)
+      #print h, " ", a-w, "\n"
+    }
     h = h+d
     d = d+2
 
   }
 
-  return(0)
+  return 0
 }
 
 
@@ -457,11 +481,11 @@ print "Fermat ", n, "\n"
 
 define nroot(a,n) {	# n-te Wurzel, negativ falls nicht ganzzahlig
 
-  auto anf, end, mitte, pot
+  auto len, anf, end, mitte, pot
 
-  if (n < 1 || a < 0) return(-1)
-  if (a == 0) return(0)
-  if (n == 1) return(a)
+  if (n < 1 || a < 0) return -1
+  if (a == 0) return 0
+  if (n == 1) return a
 
   len = length(a)-1			# Stellenzahl-1
   anf = 10^(len/n)			# 10er-Potenz <= a
@@ -470,14 +494,14 @@ define nroot(a,n) {	# n-te Wurzel, negativ falls nicht ganzzahlig
   while (anf <= end) {			# Intervallschachtelungen
     mitte = (anf + end) / 2
     pot = mitte^n
-    if (pot == a) return(mitte)		# geht auf
+    if (pot == a) return mitte		# geht auf
     if (pot < a) {
       anf = mitte + 1
     } else {
       end = mitte - 1
     } 
   }
-  return(-mitte)			# geht nicht auf
+  return -mitte				# geht nicht auf
 }
 
 
@@ -488,14 +512,14 @@ define ispp (a, lim) {	# echte (Primzahl-) Potenz?
 
   a = abs(a)
   if (lim < 2) lim = 2
-  if (a <= lim) return(0)
+  if (a <= lim) return 0
   pot = 0
   scale = 1
   lim = l(a) / l(lim)			# natürlicher Logarithmus
   scale = 0
   for (i=2; i<=lim; i++) {
     w = nroot(a, i)
-    if (w >= 0) {if ( mr(w) ) return(w) else pot = -w}	# + Primzahl, - zusammengesetzt
+    if (w >= 0) {if ( mr(w) ) return w else pot = -w}	# + Primzahl, - zusammengesetzt
   } 
   return(pot)						# 0, - zusammengesetzt
 }
@@ -523,7 +547,7 @@ define faktbas (b) {	# Faktorbasis für Pollards p-1 Faktorisierung und ECM
     pollardk = pollardk * pot
   }
   faktbasi = i					# global
-  return(pollardk)
+  return pollardk
 }
 
 
@@ -537,7 +561,7 @@ define pollardp1 (a) {		# Pollards p-1 Faktorisierung
   print "\nPollard p-1 ", a, "\n"
 
   a = abs(a)
-  if (a < 4) return(0)
+  if (a < 4) return 0
 
   pollardb = 10
 
@@ -553,7 +577,7 @@ define pollardp1 (a) {		# Pollards p-1 Faktorisierung
     bas = random(2, a-2)			# Zufallsbasis
     #print bas, "\n"    
     d = euklid1(bas,a)
-    if (d > 1) return(d)			# Glück! echter Teiler
+    if (d > 1) return d				# Glück! echter Teiler
 
     pollardb = pollardb * 2
     pollardk = faktbas(pollardb)		# größerer Exponent pollardk
@@ -563,17 +587,11 @@ define pollardp1 (a) {		# Pollards p-1 Faktorisierung
     #print d, "\n\n"
     d = euklid1( mod( d, a), a)
 
-    if (d > 1 && d < a) return (d)		# echter Teiler
+    if (d > 1 && d < a) return d		# echter Teiler
 
   }
-  return(0)					# nichts gefunden
+  return 0					# nichts gefunden
 }
-
-aus = 92478562934562956234950246246872068927111
-aus1 = 29345613495695611 # schafft Mupad und pollardrho
-aus2 = 293345613495695611 # schafft Mupad
-aus3 = 278218430085289734806642953 # schafft Mupads pollard(..., 10^5)
-#pollardp1( aus ) # harte Nuss
 
 
 
@@ -586,8 +604,8 @@ define pollardrho (n) {		# Pollards Rho Faktorisierung
 print "\nPollard Rho ", n, "\n"
 
   n = abs(n)
-  if (n < 4) return(0)
-  if ( mod(n, 2) == 0 ) return(2)
+  if (n < 4) return 0
+  if ( mod(n, 2) == 0 ) return 2
 
   lim = min( iter_pollard, sqrt(sqrt(n))+20000 )
   #lim = sqrt(sqrt(n))+1000
@@ -612,17 +630,17 @@ print "\nPollard Rho ", n, "\n"
 
       x = mod( x * x + 1, n )			# x durchläuft eine Quasi-Zufallsfolge
       i = i+1
-      if (x == y || i > lim) return(0)		# neuen Startwert x probieren
+      if (x == y || i > lim) return 0		# neuen Startwert x probieren
 
       #ggt = euklid1( x-y, n )
       #ggt = euklid1( (x-y)*(x-y1), n )
       #ggt = euklid1( (x-y)*(x-y1)*(x-y2), n )
       ggt = euklid1( (x-y)*(x-y1)*(x-y2)*(x-y3)*(x-y4), n )
 
-      if (ggt > 1) return (ggt)			# Teiler gefunden
+      if (ggt > 1) return ggt			# Teiler gefunden
     }
   }
-  return(0)					# nichts gefunden
+  return 0					# nichts gefunden
 }
 
 
@@ -645,7 +663,7 @@ define rekpt(n, anzn, step) {			# rekursive Suche nach Primteilern
     }
     a[j] = 0
     a[0] = j
-    return(1)
+    return 1
   } 
 
   p = abs( ispp(n, prims[maxp])	)		# echte (Primzahl-) Potenz?
@@ -713,7 +731,7 @@ define rekpt(n, anzn, step) {			# rekursive Suche nach Primteilern
     b[k] = 0
     b[0] = k
 
-    return(0)
+    return 0
   }
 
   anzp = 1
@@ -726,9 +744,9 @@ define rekpt(n, anzn, step) {			# rekursive Suche nach Primteilern
 
   ret = rekpt( p, anzn * anzp, step)
 
-  if (n == 1) return( ret )		# n muss nicht mehr zerlegt werden
+  if (n == 1) return ret		# n muss nicht mehr zerlegt werden
 
-  return( ret * rekpt( n, anzn, step) )	# 0 wenn unzerlegter Brocken dabei
+  return ret * rekpt( n, anzn, step)	# 0 wenn unzerlegter Brocken dabei
 }
 
 
@@ -738,7 +756,7 @@ define primteiler (n) {		# sucht alle Primteiler, gibt sie mehrfach aus
 
   auto i, j, p			# global: a[], b[]
 
-  if (n == 0) return(0)
+  if (n == 0) return 0
   n = abs(n)
 
   j = 1
@@ -756,7 +774,15 @@ define primteiler (n) {		# sucht alle Primteiler, gibt sie mehrfach aus
   a[0] = j;  a[j] = 0		# Ende markieren
   b[0] = 1;  b[1] = 0		# b[] sammelt harte Brocken: nicht prim, aber unzerlegt
 
-  if (n > 1) n = rekpt(n,1,1) 	# rekursiv nach größeren Primteilern suchen
+  if (n >= sqrp) {
+  #if (sqrt(n) > prims[maxp]) {
+    n = rekpt(n,1,1) 		# rekursiv nach größeren Primteilern suchen
+  } else if (n > 1) {
+    a[j] = n	 		# Primzahl
+    a[++j] = 0
+    a[0] = j
+    n = 1
+  }
 
   print "\nPrimteiler: "
   p = zeil			# zeil ist global
@@ -769,7 +795,7 @@ define primteiler (n) {		# sucht alle Primteiler, gibt sie mehrfach aus
   }
   zeil = p			# zeil ist global
 
-  return(n)			# 0 (nicht fertig) oder größer (fertig)
+  return n			# 0 (nicht fertig) oder größer (fertig)
 }
 
 
@@ -820,7 +846,7 @@ define teiler (n) {		# erzeugt die Teiler systematisch aus den Primteilern
   }
   print "Summe: ", sum
   print "\nAnzahl: "
-  return(anz)
+  return anz
 }
 
 
@@ -832,8 +858,8 @@ define phi (n) {		# Euler-Funktion
   auto i, x, y, phi
 
   n = abs(n)
-  if (n < 2) return(n)
-  if (primteiler(n) == 0) return(0)
+  if (n < 2) return n
+  if (primteiler(n) == 0) return 0
 
   phi = 1
   y = 0
@@ -845,7 +871,7 @@ define phi (n) {		# Euler-Funktion
     y = x
     i = i + 1
   }  
-  return( phi )
+  return phi
 }
 
 
@@ -872,16 +898,16 @@ define testpt () {		# multipliziere Primteiler und harte Brocken
   prod = 1
   for (i=1; a[i]>0; i++) prod = prod * a[i]
   for (i=1; b[i]>0; i++) prod = prod * b[i]
-  return(prod)
+  return prod
 }
 
-define pprod(n) {if(n==0) return(1); return( prims[n]*pprod(n-1) )}	# Produkt der ersten Primzahlen
+define pprod(n) {if(n==0) return 1; return prims[n]*pprod(n-1)}		# Produkt der ersten Primzahlen
 
 
 
 define hart(von, bis) {		# suche harte Nuss zufällig im Bereich von..bis
   auto i; 
-  while(1) {x=random(von, bis); if(x%2==0) x=x+1; if(primteiler(x)==0) return(x); i++}
+  while(1) {x=random(von, bis); if(x%2==0) x=x+1; if(primteiler(x)==0) return x; i++}
 }
 
 
@@ -952,7 +978,7 @@ define zahl () {
 
     x = read()
 
-    if (x>27 || x<0) return(y)
+    if (x>27 || x<0) return y
 
     y = y*27 + x
     print y, " beenden: -1\n"

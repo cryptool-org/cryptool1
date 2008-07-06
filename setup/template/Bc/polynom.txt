@@ -1,7 +1,7 @@
 /*
     BC-Funktionen zum Rechnen mit Polynomen, Fast-Fourier-Transformation, Primzahlbeweis nach Agrawal,
-    braucht BC-Funktionen der Datei prims.txt
-    Copyright (C) 2006 Martin Ramberger (rambo@uni-koblenz.de)
+    braucht BC-Funktionen der Datei prims.txt und (für Primzahlbeweis) dislog.txt
+    Copyright (C) 2006, 2007, 2008 Martin Ramberger (rambo@uni-koblenz.de)
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Lesser General Public
@@ -252,8 +252,8 @@ define multp(p1[], p2[]) {	# multipliziere: aus[] = p1[] * p2[]
   n1 = p1[0]
   n2 = p2[0]
 
-  if (n1+n2 > lim_fft) {
-    h = multpfft( p1[], p2[] )		# FFT
+  if (n1+n2 > lim_fft && n1+n2 <= 65536) {
+    h = multpfft( p1[], p2[], 0 )	# FFT
     return
   }
 
@@ -280,8 +280,8 @@ define quadp(p[]) {		# quadriere: aus[] = p[] * p[]
 
   n = p[0]
 
-  if (n > lim_fft/2) {
-    h = multpfft( p[], p[] )		# FFT
+  if (n > lim_fft/2 && n <= 32768) {
+    h = multpfft( p[], p[], 1 )		# FFT
     return
   }
 
@@ -454,7 +454,7 @@ define powermodp (bas[], exp, modul[]) {	# schnelle Potenz bas^exp mod modul
 
   auto h					
 
-  if (!modul[0] && !modul[0]) return(-1)
+  if (!modul[0] && !modul[0]) return -1
 
   pol1[0] = 0; pol1[1] = 1			# y = 1
   h = copyp(bas[], 2)				# pol2[] = bas[]
@@ -532,14 +532,14 @@ define randomp (p, n, voll) {			# Zufalls-Polynom über Zp vom Grad <=n, nicht 0
 
   for (i=1; i<=n+1; i++) {
 
-    aus[i] = mod( random(1,1000007), p)
+    aus[i] = random(0, p-1)
   }
 
   aus[0] = grad(aus[], i-1)
 
   if (voll && !aus[n+1]) {
     aus[n+1] = 1 
-    aus[0] = aus[0] + 1
+    aus[0] = n
   }
   if (!aus[0] && !aus[1])  aus[1] = 1
 }
@@ -558,20 +558,20 @@ define mrpkern (a[],d,s) {		# Kern des Miller-Rabin-Tests für Polynome
   for (i=0; i<=aus[0]+1; i++) bas[i] = aus[i]	# bas[]
 
 
-  if ( euklidp(bas[],a[]) == 0 ) return(0)	# a[] reduzibel
+  if ( euklidp(bas[],a[]) == 0 ) return 0	# a[] reduzibel
 
   i = powermodp(bas[],d,a[])
-  if ( !aus[0] && ( aus[1] == 1 || aus[1] == me )) return(1)	# a[] scheint irreduzibel (bei dieser Basis)
+  if ( !aus[0] && ( aus[1] == 1 || aus[1] == me )) return 1	# a[] scheint irreduzibel (bei dieser Basis)
 
   while (s > 1) {
 
     i = multp( aus[], aus[])
     i = modp ( aus[], a[], 1, 0)
-    if ( !pol1[0] && pol1[1] == me ) return(1)	# a[] scheint irreduzibel (bei dieser Basis)
+    if ( !pol1[0] && pol1[1] == me ) return 1	# a[] scheint irreduzibel (bei dieser Basis)
     s = s - 1
 
   }
-  return(0)					# a[] reduzibel
+  return 0					# a[] reduzibel
 }
 
 
@@ -582,7 +582,7 @@ define mrp (a[]) {		# Miller-Rabin-Test, ob Polynom irreduzibel, max. Anzahl Dur
 
   auto d, s, i					# global: quotient, iter_mr
 
-  if (a[0] <= 1) return(1)			# nicht mal Quadrat, also irreduzibel
+  if (a[0] <= 1) return 1			# nicht mal Quadrat, also irreduzibel
  
   d = modulp ^ a[0] - 1				# Wie oft kann man modulp^a[0]-1 halbieren?
   s = 0
@@ -594,10 +594,10 @@ define mrp (a[]) {		# Miller-Rabin-Test, ob Polynom irreduzibel, max. Anzahl Dur
   if (iter_mrp < 1) iter_mrp = 1		# mindestens eine Iteration
 
   for (i=1; i<=iter_mrp; i++) {
-    if ( mrpkern(a[],d,s) == 0 ) return(0)	# a[] reduzibel
+    if ( mrpkern(a[],d,s) == 0 ) return 0	# a[] reduzibel
   }
 
-  return(1)					# wahrscheinlich ist a[] irreduzibel
+  return 1					# wahrscheinlich ist a[] irreduzibel
 }
 
 
@@ -605,9 +605,9 @@ define mrp (a[]) {		# Miller-Rabin-Test, ob Polynom irreduzibel, max. Anzahl Dur
 
 
 
-define aks (n) {		# Agrawal-Primzahl-Test    (http://primes.utm.edu/prove/prove4_3.html)
+define aks (n) {		# Agrawal-Primzahl-Test    (www.math.princeton.edu/~annals/issues/2004/Sept2004/Agrawal.pdf)
 
-  auto a, ln, r, q, h, i, s
+  auto a, ln, ln2, r, q, h, i, s
 
   if( ispp(n, prims[maxp]) ) return 0		# echte (Primzahl-) Potenz
 
@@ -617,58 +617,46 @@ define aks (n) {		# Agrawal-Primzahl-Test    (http://primes.utm.edu/prove/prove4
   ln = l(n)
   scale = 0
   print "ln: ", ln, "\n"
+  ln2 = ln^2
 
-  i = 2
-  r = prims[i]	# 3
+  # Find the smallest r such that ord(n mod r) > (log n)^2:
+  i = 1
+  r = prims[i]
   while (r < n) {
 
     if (!r || r > 65000) return -2		# 0 oder zu groß für BC-Arrays
-						# n = nextprime(10^7)  => r =  16547 (verletzt Array bei FFT)
-						# n = nextprime(10^8)  => r =  21563
-						# n = nextprime(10^12) => r =  48947
-						# n = nextprime(10^13) => r =  56999
-						# n = nextprime(10^14) => r >  65000 (Arraygrenze)
-						# n = nextprime(10^18) => r = 109547
-						# n = nextprime(10^20) => r > 130000
-    if (mod(n, r) == 0) return 0
-    #if (mr(r)) {
-        if( primteiler(r-1) == 0 ) return -1	# r-1 hat unbekannte Primteiler
-        q = a[a[0]-1]				# größter Primteiler
-
-        if (q > 4*sqrt(r)*ln && powermod(n, (r-1)/q, r) != 1) break
-    #}
-    
-    r = prims[++i]	# r + 2
+    if (!mod(n, r)) return 0
+    if (ord(n, r) > ln2) break
+    r = prims[++i]
   }
 
   print "r: ", r, "\n"
-  if (r == n) return 1
+  if (r >= n) return 1
 
-  q = 2*sqrt(r)*ln
+  q = sqrt( r-1 )*ln
   modulp = n
 
+  /* Basis: x - a */
   a[0] = 1
-  a[1] = 1	# vorerst
-  a[2] = 1
+  a[a[0]+1] = 1
 
+  /* Modul: x^r - 1 */
   m[0] = r
   m[1] = -1
-  for (i=2; i<=r; i++) m[i] = 0
-  m[r+1] = 1
+  for (i=2; i<=m[0]; i++) m[i] = 0
+  m[m[0]+1] = 1
 
   print "m[]: "; h=showp(m[])
 
-  # [a^(n DIV r) * x^(n MOD r) - a] = (x^n - a) = mod (x^r - a)
-  # Polynom b[]:  [x^(n MOD r) - a] = (x^n - a) = mod (x^r - 1)
+  # [a^(n DIV r) * x^(n MOD r) - a] = (x^n - a) mod (x^r - a)
+  # Polynom b[]:  [x^(n MOD r) - a] = (x^n - a) mod (x^r - 1)
 
-  s = mod(n, r)
-  b[0] = s
-  for (i=2; i<=s; i++) b[i] = 0
-
-
+  /* Soll: (x^n - a) mod (x^r - 1) */
+  b[0] = mod(n, r)
+  for (i=1; i<=b[0]; i++) b[i] = 0
+  b[b[0]+1] = 1
 
   for (a=1; a<=q; a++) {
-  #for (a=814; a<=q; a++) {
 
     print "\na: ", a, " von ", q
 
@@ -679,9 +667,7 @@ define aks (n) {		# Agrawal-Primzahl-Test    (http://primes.utm.edu/prove/prove4
     h = powermodp( a[], n, m[] )		# Polynom-Potenz (langsam, FFT verwenden!)
     print "\n  =  "; h=showp(aus[])
 
-    b[1] = 0
-    b[s+1] = 1
-    b[1] = mod( b[1] -a, n)
+    b[1] = -a
     print "b[]: "; h=showp(b[])
 
     if (!gleichp( aus[], b[] )) return 0
@@ -690,7 +676,7 @@ define aks (n) {		# Agrawal-Primzahl-Test    (http://primes.utm.edu/prove/prove4
 
 }
 
-
+#aks(5003)
 
 
 
@@ -718,37 +704,35 @@ Die folgende Prozedur berechnet die Fouriertransformation eines komplexen Vektor
 
 
 
-define fft (n, lo, wr, wi)	# global ar[], ai[] enthalten jeweils Real- und Imaginärteile
-{
-    auto i, m, h, m2, m3, m4,  zr, zi, vr, vi, dr, di
 
+define fft (n, lo, dw)	# global ar[], ai[] enthalten jeweils Real- und Imaginärteile
+{
+    auto m, i, j, dr, di			# global wr[], wi[] Einheitswurzeln
+
+    #print n, " ", lo, "  "
+    #print dw, " "
     if (n>1)
     {
         m = n/2
-        zr = 1				# Einheitswurzel 1
-        zi = 0
 
         for (i=lo; i<lo+m; i++)
         {
-            dr = ar[i] - ar[i+m]	# Differenz
+            dr = ar[i] - ar[i+m]		# Differenz
             di = ai[i] - ai[i+m]
 
-            ar[i] = ar[i] + ar[i+m]	# obere Hälfte: Summe
+            ar[i] = ar[i] + ar[i+m]		# obere Hälfte: Summe
             ai[i] = ai[i] + ai[i+m]
 
-            ar[i+m] = dr*zr - di*zi	# untere Hälfte: Differenz mal Einheitswurzel
-            ai[i+m] = dr*zi + di*zr
-
-            h = multc(zr, zi, wr, wi)	# nächste Einheitswurzel
-            zr = prodr
-            zi = prodi
+            ar[i+m] = dr*wr[j] - di*wi[j]	# untere Hälfte: Differenz mal Einheitswurzel
+            ai[i+m] = dr*wi[j] + di*wr[j]
+            j = j + dw
+          
         }
-        h = quadc(wr, wi)		# Quadrat der primitiven Einheitswurzel w
-        wr = prodr
-        wi = prodi
-        h = fft(m, lo,   wr, wi)
-        h = fft(m, lo+m, wr, wi)
-        h = shuffle (n, lo)
+
+        i = fft(m, lo,   dw * 2)
+        i = fft(m, lo+m, dw * 2)
+
+        i = shuffle (m, lo)
     }
 }
 
@@ -765,26 +749,23 @@ Zur Ausführung der Permutation wird ein Hilfsarray b verwendet, in das zunächst 
 
 
 
-define shuffle (n, lo)
+define shuffle (m, lo)
 {
-    auto i, m, br[], bi[]	# ar[], ai[] global
-
-    m = n/2
+    auto i, br[], bi[]		# ar[], ai[] global
 
     for (i=0; i<m; i++) {
         br[i] = ar[lo+i]
         bi[i] = ai[lo+i]
     }
     for (i=0; i<m; i++) {
-        ar[lo+i+i+1] = ar[lo+i+m]
-        ai[lo+i+i+1] = ai[lo+i+m]
+        ar[lo+2*i+1] = ar[lo+i+m]
+        ai[lo+2*i+1] = ai[lo+i+m]
     }
     for (i=0; i<m; i++) {
-        ar[lo+i+i] = br[i]
-        ai[lo+i+i] = bi[i]
+        ar[lo+2*i] = br[i]
+        ai[lo+2*i] = bi[i]
     }
 }
-
 
 
 /*
@@ -827,24 +808,6 @@ define quadc (ar, ai) {			# komplexe Quadratur
 
 
 
-
-define wc(n) {				# primitive komplexe Einheitswurzel
-
-  auto i
-
-  scale = 10
-  for (i=2000; i<n; i*=2) scale = scale + 15
-
-  wr = rnd( c(2*pi/n), scale-1)	# cosinus
-  wi = rnd( s(2*pi/n), scale-1)	# sinus
-
-  scale = 0
-
-  #print "(", wr, ", ", wi, ")\n"
-}
-
-
-
 define rnd (a, n) {			# runde a auf n Stellen hinterm Komma
 
   auto h, b, c
@@ -870,11 +833,59 @@ define rnd (a, n) {			# runde a auf n Stellen hinterm Komma
 
 
 
-
 scale = 100
 pi    = 2*a(10^100)			# pi auf 99 Stellen genau (arcus tangens)
 scale = 0
 
+
+
+
+define wc(n) {				# primitive komplexe Einheitswurzel
+
+  auto i
+
+  scale = 30
+  for (i=2000; i<n; i*=2) scale = scale + 20	#15
+
+  wr = rnd( c(2*pi/n), scale-1)	# cosinus
+  wi = rnd( s(2*pi/n), scale-1)	# sinus
+
+  scale = 0
+
+  #print "(", wr, ", ", wi, ")\n"
+}
+
+
+
+define einheitswurzeln (n) {		# berechnet wr[], wi[]
+
+  auto i, wr, wi, n2, n4, n8
+
+  h = wc(n)				# n-te primitive Einheitswurzel
+  
+  wr[0] = 1				# Einheitswurzel 1
+  wi[0] = 0
+
+  n2 = n/2
+  n4 = n/4
+  n8 = n/8
+
+  for (i=0; i<=n8; i++)
+  {
+      #h = multc(zr, zi, wr, wi)	# nächste Einheitswurzel
+      wr[i+1] = wr[i] * wr - wi[i] * wi
+      wi[i+1] = wr[i] * wi + wi[i] * wr
+
+      wr[n4+i] = -wi[i]
+      wi[n4+i] = wr[i]
+
+      wr[n4-i] = wi[i]
+      wi[n4-i] = wr[i]
+
+      wr[n2-i] = -wr[i]
+      wi[n2-i] =  wi[i]
+  }
+}
 
 
 
@@ -883,34 +894,21 @@ define invfft (n) {			# inverses fft (benutzt ar[], ai[])
 
   auto i, h
 
-  scale = 10
-  for (i=2000; i<n; i*=2) scale = scale + 15
+  scale = 30
+  for (i=2000; i<n; i*=2) scale = scale + 20	#15
 
   for (i=1; i<=n; i++) {
 
-    h = multc(ar[i], ai[i], 1/n, 0)	# komplexe Werte durch n teilen
-    ar[i] = prodr
-    ai[i] = prodi
+    #h = multc(ar[i], ai[i], 1/n, 0)	# komplexe Werte durch n teilen
+    ar[i] = ar[i] / n
+    ai[i] = ai[i] / n
 
   }
   scale = 0
-
-  i = wc(n)
-  wi = -wi
-  i = fft(n, 1, wr, wi)
+  
+  for (i=0; i<n/2; i++) wi[i] *= -1	# Imaginärteil spiegeln
+  i = fft(n, 1, 1)
 }
-
-
-
-
-/*
-ar[1] = 1
-ar[2] = 1
-ar[3] = 1
-ar[4] = 0
-
-wc(4)
-*/
 
 
 
@@ -924,14 +922,14 @@ define testfft (ar[]) {		# FFT hin und zurück
   while (n<=ar[0]) n=2*n	# nächste 2er-Potenz > Grad des Polynoms
 
   print "test FFT(", n, ")\n"
-  h = wc(n)			# n-te primitive Einheitswurzel
+  h = einheitswurzeln (n)
 
   for (i=ar[0]+2; i<=n; i++) ar[i] = 0	# ar[] reinigen
 
   #showp(ar[])
   h = copyp(ar[], 1)		# aufheben zum späteren Vergleich
 
-  h = fft(n, 1, wr, wi)		# fft(ar[])
+  h = fft(n, 1, 1)		# fft(ar[])
   print "  1 fertig\n"
 
 #showij(ar[],0,n+5)
@@ -962,40 +960,50 @@ define testfft (ar[]) {		# FFT hin und zurück
 
 
 
-define multpfft (ar[], br[]) {		# Polynom-Multiplikation mit FFT
+define multpfft (ar[], br[], quad) {	# Polynom-Multiplikation mit FFT
 
   auto h, i, n, ai[], cr[], ci[]
 
   n = 2
   while (n<=ar[0]+br[0]) n=2*n		# Grad des Produkts
   print "FFT(", n, ")\n"
-  h = wc(n)				# n-te primitive Einheitswurzel
+  h = einheitswurzeln (n)
+
   for (i=ar[0]+2; i<=n; i++) ar[i] = 0	# ar[] reinigen
 
 
-  h = fft(n, 1, wr, wi)			# fft(ar[])
+  h = fft(n, 1, 1)			# fft(ar[])
   print "  1 fertig\n"
 
+  if (quad) {	# quadrieren
 
-  for (i=1; i<=n; i++) {		# Arrays umkopieren (leider nötig)
-    cr[i] = ar[i]
-    ci[i] = ai[i]
-    ai[i] = 0
-  }
-  for (i=1; i<=br[0]+1; i++) ar[i] = br[i]
-  while (i<=n) ar[i++] = 0		# ar[] reinigen
+    for (i=1; i<=n; i++) {		# Polynom komplex quadrieren
 
+      h = quadc (ar[i], ai[i])
+      ar[i] = prodr
+      ai[i] = prodi
+    }
 
-  h = fft(n, 1, wr, wi)			# fft(br[])
-  print "  2 fertig\n"
+  } else {	# nicht quadrieren:
 
+    for (i=1; i<=n; i++) {		# Arrays umkopieren (leider nötig)
+      cr[i] = ar[i]
+      ci[i] = ai[i]
+      ai[i] = 0
+    }
 
-  for (i=1; i<=n; i++) {		# Polynome komplex multiplizieren
+    for (i=1; i<=br[0]+1; i++) ar[i] = br[i]
+    while (i<=n) ar[i++] = 0		# ar[] reinigen
 
-    h = multc(ar[i], ai[i], cr[i], ci[i])
-    ar[i] = prodr
-    ai[i] = prodi
+    h = fft(n, 1, 1)			# fft(br[])
+    print "  2 fertig\n"
 
+    for (i=1; i<=n; i++) {		# Polynome komplex multiplizieren
+
+      h = multc(ar[i], ai[i], cr[i], ci[i])
+      ar[i] = prodr
+      ai[i] = prodi
+    }
   }
   print "  Produkt fertig\n"
 
@@ -1013,20 +1021,33 @@ define multpfft (ar[], br[]) {		# Polynom-Multiplikation mit FFT
 
 
 
-/* # Tests:
-x=15000
-randomp(x,x,1)
-testfft(aus[])
+define test (n) {
+auto h, l
+h=randomp( modulp, n, 1)
 
-copyp(aus[],1)
-randomp(x,x,1)
-copyp(aus[],2)
-lim_fft = 3*x
-multp(pol1[],pol2[])
-copyp(aus[],3)
-multpfft(pol1[],pol2[])
-copyp(aus[],4)
-gleichp(pol3[],pol4[])
-*/
+testfft(aus[])
+#h=showp(aus[])
+h=copyp(aus[],1)
+
+h=randomp(modulp, n, 1)
+#h=showp(aus[])
+h=copyp(aus[],2)
+
+l = lim_fft
+lim_fft = 3*n
+h=multp(pol1[],pol2[])
+#h=showp(aus[])
+h=copyp(aus[],3)
+lim_fft = l
+
+h=multpfft( pol1[], pol2[], 0)
+#h=showp(aus[])
+h=copyp(aus[],4)
+
+return gleichp(pol3[],pol4[])
+}
+
+test(10)
+
 
 

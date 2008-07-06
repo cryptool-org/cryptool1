@@ -12,7 +12,8 @@ define vieta (g) {
   pi = 1;
 
   for( i=1; i<=g; i++) {
-    a = sqrt( (1+a)/2 );
+    #a = sqrt( (1+a)/2 );
+    a = heron( (1+a)/2 );
     pi *= a;
   }
 
@@ -70,5 +71,35 @@ define leibniz (g) {
 }
 
 
+
+
+define heron (c) {	# sqrt(c)
+
+  auto a, b, s, i
+
+  if (c < 0) return
+  if (c >= 1) {
+    a = 1
+    b = c
+  } else {
+    a = c
+    b = 1
+  }
+  s = 1/10^scale
+
+  while (b-a > s) {
+    #print i, ") a: ", a, " b: ", b, "\n"
+    b = (a+b)/2
+    a = c/b
+    i = i+1
+  }
+  #print i, ") a: ", a, " b: ", b, "\n"
+
+  a = (a+b)/2
+  return a
+}
+
+
+#heron(2)
 
 

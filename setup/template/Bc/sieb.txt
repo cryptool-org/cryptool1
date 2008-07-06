@@ -1,7 +1,7 @@
 /*
     BC-Funktionen zum Faktorisieren mit dem Quadratischen Sieb,
     braucht BC-Funktionen der Dateien prims.txt und quadRest.txt
-    Copyright (C) 2006 Martin Ramberger (rambo@uni-koblenz.de)
+    Copyright (C) 2006, 2007, 2008 Martin Ramberger (rambo@uni-koblenz.de)
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Lesser General Public
@@ -20,11 +20,161 @@
 
 
 sieb_geladen = 1
+array_limit = 2^16	# max. Array-Länge 65536 - nicht vergrößern!
 sieb_limit = 100000
 
 
 
-define sieb_mit_p (p, c, offset, n, m) {
+define quadsieb (n) {
+
+  auto m, ziel, b, z, i, h, q, r, s, a, lim, ip, basis[], p1, p2, i2, s[]
+
+  if (n == 0) return 0
+  if (qr_geladen == 0) {
+    print "\nDatei quadRest ist nicht geladen.\n"
+    return 0
+  }
+  n = abs(n)
+  m = sqrt(n)
+  ziel = 8		# Anzahl gesuchter Kongruenzen
+  q = -1		# Quadratzahl gefunden?
+  ip = 0		# Zeiger in prims[]
+
+  while (ziel <= array_limit) {
+
+    b = max( ziel*7/8, ziel-10) - 1		# Anzahl zu benutzender Primzahlen
+
+    z = sieb( ziel, b, min(ziel^2,array_limit), n, m)	# Kongruenzen sammeln
+    if (z < 0) return -z			# Teiler
+    z = min(z, array_limit)
+
+    if (z >= ziel) {				# genug Kongruenzen
+
+      b = b + 1					# für Faktor -1
+      q = smatrix( s[], z, b, n, m)		# Matrix der Kongruenzen
+      if (q < -1) return 0			# Fehler
+      if (q > 1) return q			# Teiler
+      
+      for (h=0; h<z; h++) sperr[h] = 0		# init sperr[]
+      #h = showm (m[], z, b); h=read()
+      #s = singletons(z, b);  h=read()
+      #h = showm (m[], z, b); h=read()
+      r = gauss( z, b, 0, s, sperr[])		# Matrix umformen
+      print "Rang: ", r, "\n"
+
+      if (r > z-s) return 0
+
+      a = 2^(z - s - r)
+      for (i=1; i<=s; i++) s1[index[z-i]] = 0	# gesperrte Variablen auf 0 setzen
+      for (i=1; i<a; i++) {			# verschiedene Belegungen versuchen
+        h = belegung(r, s, z, i)
+        h = baue_xy( z, s[], s1[], n, m)
+        if (h>1 && h<n) return h/1		# Teiler
+      }
+      z = 0					# mehr Kongruenzen nötig
+    }
+    ziel = 2*ziel				# mehr Primzahlen benutzen
+  }
+}
+
+
+
+
+define sieb (ziel, b, platz, n, m) {
+
+  auto p, h, i, j, z, z0, z1, z2, z3, offset, cnt, lim, slot[], dslot[]
+  # global: 	maxp, prims[], sieb1[], sieb2[], s[], sb[]
+  # global: 	big[], sh[], next[], back[], dbig[], dsh[], dnext[], dback[]
+  # quadsieb: 	ip, basis[], p1, p2, i2
+
+  print "sieb(",ziel,",",b,",",platz,",",n,")\n"
+  scale = 1
+  lim = ziel / 20
+  scale = 0
+
+  big[0] = 0
+  dbig[0] = 0
+
+  while (z < ziel) {
+
+    scale=2
+    for (i=0; i<platz; i++) {			# init Siebe
+      sieb1[i] = (m+i+offset)^2 - n
+      sieb2[i] = (m+i-offset-platz)^2 - n
+    }
+    scale=0
+    #h = showij(sieb1[],0,platz-1)
+    #h = showij(sieb2[],0,platz-1)
+
+    i = 1
+    for (p=basis[i]; i<=b; ) {			# bp = Anzahl zu benutzender Primzahlen < b - 1
+
+      if (p == 0) {				# Primzahl-Basis erweitern (init in quadsieb())
+
+        if (ip == maxp) {			# prims[] verlängern (möglichst)
+          maxp = prims_next()
+          print "maxp: ", maxp, "\n"
+          p1 = prims[maxp]
+          if (maxp > 65530) ip = maxp+1
+        }
+
+        if (ip < maxp) {
+          p = prims[++ip]			# init ip = 0 in quadsieb()
+        } else {
+          p = nextprime(p1+2)
+        }
+        basis[i] = p
+        basis[i+1] = 0
+      }
+
+      if (h = sieb_mit_p(p, platz, offset, n, m) < 2 && p>2) {	# x^2-n hat < 2 Nullstellen mod p
+
+        if (h == 1) return -p			# Teiler
+        p = 0					# mit größerer Primzahl wiederholen
+
+      } else {
+
+        p = basis[++i]
+      }
+    }
+    z0 = z
+    z = collect_s(ziel, platz, z, offset, basis[b])	# Kongruenzen einsammeln
+
+    if (offset) print "Offset: ", offset, "\n"
+    print "Kongruenzen bis jetzt: ", z, " (Ziel: ",ziel,")\n"
+    if (z1) print "Big-Paare: ", z1, "\n"
+    if (z2) print "Kreise:    ", z2, "\n"
+    if (z3) print "Schlangen: ", z3, "\n"
+
+    if ((ziel-z) > (lim-(++cnt))*(z-z0)) break	# zu langsam: ziel erhöhen
+    offset = offset + platz
+  }
+  return z
+}
+
+
+
+
+define prims_next () {		# prims[] weiter füllen (max. 65535 Elemente)
+
+  auto i, lastp					# global: maxp, erat[], prims[], sqrp
+
+  if (maxp >= 65535) return maxp
+
+  lastp = prims[maxp]
+  i = erat_next(lastp)				# füllt erat[]
+
+  for(i=1; i<=65535 && maxp<65534; i++) if (erat[i]) prims[++maxp] = lastp + 2*i
+  prims[maxp+1] = 0				# Ende markieren
+  sqrp = prims[maxp]^2
+
+  return maxp
+}
+
+
+
+
+define sieb_mit_p (p, platz, offset, n, m) {
 
   auto z, s, i, h			# global: sieb[], quotient
 
@@ -37,10 +187,10 @@ define sieb_mit_p (p, c, offset, n, m) {
   s = mod(z-m-offset, p)		# erste Nullstelle benutzen
   if (s < 0) s = s + p
 
-  for (i=s; i<c; i=i+p) {
+  for (i=s; i<platz; i=i+p) {
     while (!mod(sieb1[i],p)) sieb1[i] = quotient
   }
-  for (i=mod(2*offset+c+s, p); i<c; i=i+p) {
+  for (i=mod(2*offset+platz+s, p); i<platz; i=i+p) {
     while (!mod(sieb2[i],p)) sieb2[i] = quotient
   }
 
@@ -48,65 +198,413 @@ define sieb_mit_p (p, c, offset, n, m) {
     s = mod(-z-m-offset, p)		# zweite Nullstelle benutzen
     if (s < 0) s = s + p
 
-    for (i=s; i<c; i=i+p) {
+    for (i=s; i<platz; i=i+p) {
       while (!mod(sieb1[i],p)) sieb1[i] = quotient
     }
-    for (i=mod(2*offset+c+s, p); i<c; i=i+p) {
+    for (i=mod(2*offset+platz+s, p); i<platz; i=i+p) {
       while (!mod(sieb2[i],p)) sieb2[i] = quotient
     }
   }
-  #h = showij(sieb1[],0,2*c)
-  #h = showij(sieb2[],0,2*c)
+  #h = showij(sieb1[],0,2*platz)
+  #h = showij(sieb2[],0,2*platz)
   return 2				# 2 Nullstellen
 }
 
 
 
 
-define delete (i) {
+define collect_s(ziel, platz, z, offset, q) {	# s-Werte auflesen
 
-  auto end, b, n, bi, ni	# global: big[], sh[], next[], back[]	# sieb: slot[]
+  auto s, h, p, i,hh,q2,q3,q4, di[], dh[], ih, pp	# global: sieb[], s[], sb[]
 
-  end = big[0]
+  q2 = q*q+1
+  q3 = q2*q+1
+  q4 = q2*q2+1
+  if (ziel > array_limit) ziel = array_limit
 
-  # Liste verkürzen: (schiebe end nach i, korrigiere Zeiger)
+  for (s=0; s<platz && z<ziel; s++) {
 
-  ni = next[i]
-  bi = back[i]
+    if (p = abs(sieb1[s]) == 1) {
+      sb[z] = 0
+      s[z++] = s+offset
+    } else if (p < q2) {
+      z = big(p, s+offset, z, 0)	# Bigprimes (aus {q..q2})
 
-  if (i != end) {
-
-    n = next[end]
-    b = back[end]
-
-    if (n) back[n] = i		# end-Nachfolger zeigt auf i
-    if (b > 0) {		# end-Vorgänger zeigt auf i
-      next[b] = i
-    } else {
-      slot[-b] = i
+    } else if (ziel>sieb_limit) {	# p = Produkt von Bigprimes?
+      #if (p<q3) {
+      #  if(primteiler(p) && a[0]==3) {
+      if (p<q4) {
+        print s
+        if(primteiler(p) && a[0]==3 && a[1]<q2 && a[2] < q2) {
+          di[0] = 0
+          di[1] = 0
+          pp = 100000
+          z = dbig(a[1], a[2], s+offset, z, 0)
+        }
+/*    } else if (p<q4) {
+        if (!mr(p)) {
+         fermat_limit = p/q2
+         if(h = fermat(p)) {		# zu langsam
+          print s,") ", h, " ", p/h
+          if (h<q2 && p/h < q2){
+            di[0] = 0
+            di[1] = 0
+            pp = 100000
+            print " - ok\n"
+            ok++
+            z = dbig(h, p/h, s+offset, z, 0)
+          } else {
+            print " - nicht ok\n" # Fermat umsonst
+            nok++
+          }
+        } else zukurz++
+       }
+*/    }
     }
 
-    next[i] = n
-    back[i] = b
-    big[i] = big[end]
-    sh [i] = sh[end]
+    if (p = abs(sieb2[s]) == 1) {
+      sb[z] = 0
+      s[z++] = s-offset-platz
+    } else if (p < q2) {
+      z = big(p, s-offset-platz, z, 0)	# Bigprimes (aus {q..q2})
 
+    } else if (ziel>sieb_limit) {	# p = Produkt von Bigprimes?
+      #if (p<q3) {
+      #  if(primteiler(p) && a[0]==3) {
+      if (p<q4) {
+        print s
+        if(primteiler(p) && a[0]==3 && a[1]<q2 && a[2] < q2) {
+          di[0] = 0
+          di[1] = 0
+          pp = 100000
+          z = dbig(a[1], a[2], s-offset-platz, z, 0)
+        }
+/*    } else if (p<q4) {
+        if (!mr(p)) {
+         fermat_limit = p/q2
+         if(h = fermat(p)) {		# zu langsam
+          print s,") ", h, " ", p/h
+          if (h<q2 && p/h < q2){
+            di[0] = 0
+            di[1] = 0
+            pp = 100000
+            print " - ok\n"
+            ok++
+            z = dbig(h, p/h, s-offset-platz, z, 0)
+          } else {
+            print " - nicht ok\n" # Fermat umsonst
+            nok++
+          }
+        } else zukurz++
+       }
+*/    }
+    }
   }
-
-  if (ni) back[ni] = bi		# i-Nachfolger zeigt vor i
-  if (bi > 0) {			# i-Vorgänger zeigt hinter i
-    next[bi] = ni
-  } else {
-    slot[-bi] = ni
-  }
-
-  big[0] = end - 1		# Liste ist geschrumpft
-
-  return i
+  #h = showij(s[],0,z-1)
+  return z
 }
 
 
 
+
+define smatrix (s[], z, b, n, m) {	# Zeilen als Zahlen kodiert
+
+  auto h, i, j, f, ff, p, q, flag, pot, c, b2 	# global: m[], basis[]
+
+  print "smatrix(s[],",z,",",b,",",n,",",m,")\n"
+  if (b-1 > maxp) return -2
+
+  for (i=0; i<b; i++) m[i] = 0		# init Matrix
+
+  b2 = b - 2
+  pot = 1
+  for (i=z-1; i>=0; i--) {		# jede Spalte i füllen:
+
+    q = 1
+    if (scale(s[i])) {			# "Domino"-Kreis
+      #print i," Kreis: ", s[i], "\n"
+      f = s[i]
+    } else {
+      f = (s[i]+m)^2 - n
+      if (sb[i]) {			# Bigprime
+        h = (sb[i]+m)^2 - n
+        f = f*h
+      }
+    }
+    if (f < 0) {			# -1 rausziehen (letzte Zeile)
+      f = -f
+      m[b-1] = m[b-1] + pot		# letzte Zeile der Matrix am dichtesten
+      q = 0				# f kein Quadrat
+      c = c + 1
+    }
+    ff = f				# aufheben
+    j = b - 1
+    while (f > 1 && j) {		# Primfaktor j rausziehen (Zeile j):
+      p = basis[j--]
+      flag = 0
+      while (!mod(f,p)) {f = quotient; flag = !flag}
+      if (flag) {
+        m[b2-j] = m[b2-j] + pot		# Dichte der Matrix wächst nach unten
+        q = 0				# f kein Quadrat
+        c = c + 1
+      }
+    }
+    if (f > 1 && !sb[i]) {print "s[",i,"] nicht glatt\n"; return -2}
+    if (q) {
+      print "s[",i,"] bildet ein Quadrat"
+      if (scale(s[i])) {
+        h = sb[i]/1
+      } else {
+        h = s[i] + m
+        if (sb[i]) h = h * (sb[i] + m)
+      }
+      if ( h = euklid1( sqrt(ff)-h, n) > 1 && h < n ) {print "\n"; return h/1}
+      print " - nutzlos\n"
+    }
+
+    pot = 2*pot
+  }  
+  #h = showm(m[],z,b)
+  scale = 1
+  print "Anzahl Einsen: ", c, " (ca. ", c*100/(b*z), "% und ca. ", c/b, " pro Zeile)\n"
+  scale = 0
+  return -1
+}
+
+
+
+
+define showm (m[], breit, hoch) {	# zeigt Matrix
+
+  auto i, j, m, pot
+
+  obase = 2
+  pot = 2^(breit-1)
+
+  for (i=0; i<hoch; i++) {
+
+    m = m[i]
+    for (j=1; m<pot && j<breit; j++) {
+      m = 2*m
+      print "0"
+    }
+    print m[i], "\n"
+  }
+  obase = 10
+}
+
+
+
+
+define singletons (breit, hoch) {	# behandle Zeilen mit nur einer 1
+
+  auto h, s, z, pot, count		# global: m[], sperr[]
+
+  print "Singletons raus\n"
+
+  pot = 1
+  for (s=1; s<=breit; s++) {
+
+    if (!sperr[breit-s]) {
+
+      for (z=0; z<hoch; z++) {
+        if (m[z] == pot) {		# Singleton gefunden
+          sperr[breit-s] = 1		# Spalte sperren
+          for (z=0; z<hoch; z++) {	#    und löschen:
+            if (mod(m[z], 2*pot) / pot) m[z] = m[z]-pot
+          }
+          count = count + 1
+          pot = -1
+          break
+        }
+      }
+      if (pot < 0) {			# von vorn durchkämmen
+        s = 0
+        pot = 1
+        continue
+      } 
+    }
+    pot = pot * 2
+  }
+  print count, " gefunden\n"
+  return count
+}
+
+
+
+
+define ztausch (hoch, a, b) {	# Zeilentausch
+
+  auto h, s
+
+  #print "zta(",a,",",b,") "
+  if (a==b) return
+  h = m[a-1]
+  m[a-1] = m[b-1]
+  m[b-1] = h
+  #h = showij(m[],0,hoch-1)
+}
+
+
+
+define bit (i, n) {		# i-tes Bit in der Binärdarstellung von n (rückwärts)
+
+  auto h
+
+  h = 2^i
+  return mod(n, 2*h) / h
+}
+
+
+
+define zeilvekt (a) { 		# a zerlegen in 2er-Potenzen
+
+  auto i, pot			# global: z1[], z2[], quotient
+
+  pot = 1
+  quotient = a
+
+  while (quotient) {
+    if (mod(quotient, 2)) {
+      z1[i] = pot		# z1[] enthält die 2er-Potenzen
+      pot = pot*2
+      z2[i++] = pot		# z2[] enthält die Doppelten (spart beim Addieren Zeit)
+    } else {
+      pot = pot*2
+    }
+  }
+  return i-1			# höchster Exponent
+}
+
+
+
+define addzeile (i, b) {	# addiere Zeile z1[] zu Zeile b (mod 2)
+
+  auto rb			# global: m[], z1[], z2[]
+
+  rb = m[--b]
+
+  while (i>=0 && rb) {
+    if (rb = mod(rb, z2[i]) >= z1[i]) {m[b] = m[b] - z1[i--]} else {m[b] = m[b] + z1[i--]}
+  }
+  while (i>=0) m[b] = m[b] + z1[i--]
+}
+
+
+
+
+define gauss (breit, hoch, jordan, sing, sperr[]) {	# Gauss-Elimination
+
+  auto h, z, sp, zp, pot, f, r, s, v		# global: m[], s[], index[]
+
+  print "gauss(",breit,",",hoch,",",sing,")\n"
+  sp = 1					# Pivotspalte
+  pot = 2^(breit-sp)
+
+  print "  Pivot-Zeile: "
+  for (zp=1; zp<=hoch; zp++) {  
+
+    print zp, " "
+    for (; sp<=breit; sp++) {
+      for (z=zp; z<=hoch; z++) if (m[z-1] >= pot) {h=ztausch(hoch, zp, z); break}
+      if (z <= hoch) break
+      pot = pot / 2
+      if (sperr[sp-1]) {
+        index[breit-(++s)] = sp - 1		# Zeiger auf gesperrte Variable (mit 0 belegen)
+      } else {
+        index[breit-sing-(++f)] = sp - 1	# Zeiger auf freie Variable 
+      }
+    }
+    if (sp > breit) break			# Restmatrix nur noch 0
+    index[r++] = sp - 1				# Zeiger auf abhängige Variable
+
+    v = zeilvekt(m[zp-1]-pot)
+    if (jordan) {
+      for (z=1; z<zp; z++) { 			# 0 über Diagonale
+        if (bit(breit-sp, m[z-1])) {
+          m[z-1] = m[z-1] - pot
+          h=addzeile(v, z)
+        }
+      }
+    }
+    for (z=zp+1; z<=hoch; z++) {	 	# Gauß
+      if (m[z-1] >= pot) {
+        m[z-1] = m[z-1] - pot
+        h = addzeile(v, z)
+      }
+    }
+    sp = sp + 1
+    pot = pot / 2
+  }
+  print "\n"
+  #h = showm(m[],breit,hoch)
+
+  return r					# Rang
+}
+
+
+
+
+define belegung (r, s, z, num) {
+
+  auto h, i, j, x, v[]		# global: m[], s[], s1[], index[], quotient, sperr[]
+
+  print "Variablen belegen\n"
+
+  quotient = num
+  for (i=z-s-1; i>=r; i--) {	# freie Variablen: Bit-Kombinationen zu num
+    h = mod(quotient, 2)
+    s1[index[i]] = h
+  }
+
+  for (i=r-1; i>=0; i--) {	# abhängige Variablen berechnen:
+    x = 0
+    quotient = m[i]
+    for (j=z-1; quotient>1; j--) x = (x != mod(quotient,2)*s1[j])
+    s1[index[i]] = x		# Anzahl belegter Variablen in Zeile i (mod 2)
+  }
+  zeil = 30
+  h = showij(s1[],0,z-1)
+  zeil = 10
+}
+
+
+
+
+define baue_xy (z, s[], s1[], n, m) {
+
+  auto h, i, f, neg	#, global: x, y, sb[]
+
+  x = 1
+  y = 1
+  for (i=0; i<z; i++) {
+    if (s1[i]) {
+      if (scale(s[i])) {			# "Domino"-Kreis
+        f = s[i]
+        x = mod( x*sb[i], n)
+      } else {
+        f = (m+s[i])^2-n
+        x = mod( x*(m+s[i]), n)
+
+        if (sb[i]) {				# Bigprime
+          f = f * ((m+sb[i])^2 - n)
+          x = mod( x*(m+sb[i]), n)
+        }
+      }
+      if (f < 0) neg = neg + 1
+      y = y*f
+    }
+  }
+  y = sqrt(y)
+  if (mod(neg, 4) == 2) y = -y
+  return euklid1( x-y, n)
+}
+
+
+
+
+
+###### for Bigprimes: ######################################################
 
 define big(p, s, z, fix) {	# paart s-Werte, die die gleiche Bigprime bilden
 
@@ -170,54 +668,55 @@ define big(p, s, z, fix) {	# paart s-Werte, die die gleiche Bigprime bilden
 
 
 
+define delete (i) {		# verkürzt Liste der Bigprimes
 
-define ddelete (i) {
+  auto end, b, n, bi, ni	# global: big[], sh[], next[], back[]	# sieb: slot[]
 
-  auto ni, bi, n, b		# global: dnext[], dback[], dbig[], dsh[]
-				# sieb: dslot[]		# dbig: end (sic!)
+  end = big[0]
 
   # Liste verkürzen: (schiebe end nach i, korrigiere Zeiger)
 
-  ni = dnext[i]
-  bi = dback[i]
+  ni = next[i]
+  bi = back[i]
 
   if (i != end) {
 
-    n = dnext[end]
-    b = dback[end]
+    n = next[end]
+    b = back[end]
 
-    if (n) dback[n] = i		# end-Nachfolger zeigt auf i
+    if (n) back[n] = i		# end-Nachfolger zeigt auf i
     if (b > 0) {		# end-Vorgänger zeigt auf i
-      dnext[b] = i
+      next[b] = i
     } else {
-      dslot[-b] = i
+      slot[-b] = i
     }
 
-    dnext[i] = n
-    dback[i] = b
-    dbig[i] = abs(dbig[end])
-    dsh [i] = abs(dsh[end])
+    next[i] = n
+    back[i] = b
+    big[i] = big[end]
+    sh [i] = sh[end]
 
   }
 
-  if (ni) dback[ni] = bi	# i-Nachfolger zeigt vor i
+  if (ni) back[ni] = bi		# i-Nachfolger zeigt vor i
   if (bi > 0) {			# i-Vorgänger zeigt hinter i
-    dnext[bi] = ni
+    next[bi] = ni
   } else {
-    dslot[-bi] = ni
+    slot[-bi] = ni
   }
 
-  dbig[0] = --end		# Liste ist geschrumpft
+  big[0] = end - 1		# Liste ist geschrumpft
+
+  return i
 }
 
 
 
-
+###### for Double-Bigprimes: ######################################################
 
 # Domino:   Produkt aus zwei Primzahlen pq, das beim Sieben übrig blieb
 # Kreis:    z.B. 12 23 35 51 (lauter Dominos)
 # Schlange: z.B. 1 12 23 35 5 (beide Ende Primzahlen, innen Dominos)
-
 
 
 
@@ -449,566 +948,49 @@ define dbig(p, q, s, z, p0) {	# sammelt Double-Bigprimes ("Dominos"), sucht Krei
 
 
 
-define s(b, c, z, offset, q) {	# s-Werte auflesen
+define ddelete (i) {		# verkürzt Liste der Double-Bigprimes
 
-  auto s, h, p	,i,hh,q2,q3,q4, di[], dh[], ih, pp	# global: sieb[], s[], sb[]
+  auto ni, bi, n, b		# global: dnext[], dback[], dbig[], dsh[]
+				# sieb: dslot[]		# dbig: end (sic!)
 
-  q2 = q*q+1
-  q3 = q2*q+1
-  q4 = q2*q2+1
-  q5 = q4 * 5
+  # Liste verkürzen: (schiebe end nach i, korrigiere Zeiger)
 
-  for (s=0; s<c && z<65534; s++) {
+  ni = dnext[i]
+  bi = dback[i]
 
-    if (p = abs(sieb1[s]) == 1) {
-      sb[z] = 0
-      s[z++] = s + offset
-    } else if (p < q2) {
-      z = big(p, s+offset, z, 0)		# Bigprimes (aus {q..q2})
+  if (i != end) {
 
-    } else if (b>sieb_limit) {			# p = Produkt von Bigprimes?
-      if (p<q3) {
-        if(primteiler(p) && a[0]==3) {
-          di[0] = 0
-          di[1] = 0
-          pp = 100000
-          print s,")\n"
-          z = dbig(a[1], a[2], s+offset, z, 0)
-        }
-      } else if (p<q4) {
-        if (!mr(p)) if(h = lehman(p, 1, q5/p )) {
-          print s,") ", h, " ", p/h
-          if (h<q2 && p/h < q2){
-            di[0] = 0
-            di[1] = 0
-            pp = 100000
-            print " - ok\n"
-            z = dbig(h, p/h, s+offset, z, 0)
-          } else print "\a - nicht ok\n" # Lehman umsonst
-        }
-      }
-    }
+    n = dnext[end]
+    b = dback[end]
 
-    if (p = abs(sieb2[s]) == 1) {
-      sb[z] = 0
-      s[z++] = s - offset - c
-    } else if (p < q2) {
-      z = big(p, s-offset-c, z, 0)		# Bigprimes (aus {q..q2})
-
-    } else if (b>sieb_limit) {			# p = Produkt von Bigprimes?
-      if (p<q3) {
-        if(primteiler(p) && a[0]==3) {
-          di[0] = 0
-          di[1] = 0
-          pp = 100000
-          print s,")\n"
-          z = dbig(a[1], a[2], s-offset-c, z, 0)
-        }
-      } else if (p<q4) {
-        if (!mr(p)) if(h = lehman(p, 1, q5/p )) {
-          print s,") ", h, " ", p/h
-          if (h<q2 && p/h < q2){
-            di[0] = 0
-            di[1] = 0
-            pp = 100000
-            print " - ok\n"
-            z = dbig(h, p/h, s-offset-c, z, 0)
-          } else print "\a - nicht ok\n" # Lehman umsonst
-        }
-      }
-    }
-    if (z > b + 10) break
-  }
-  #h = showij(s[],0,z-1)
-  return z
-}
-
-
-
-
-define prims_next () {		# prims[] weiter füllen (max. 65535 Elemente)
-
-  auto i, lastp					# global: maxp, erat[], prims[]
-
-  if (maxp >= 65535) return maxp
-
-  lastp = prims[maxp]
-  i = erat_next(lastp)				# füllt erat[]
-
-  for(i=1; i<=65535 && maxp<65534; i++) if (erat[i]) prims[++maxp] = lastp + 2*i
-  prims[maxp+1] = 0				# Ende markieren
-
-  return maxp
-}
-
-
-
-define prims1_next (n) {	# prims1[] enthält die nächsten Primzahlen > n
-
-  auto i, j, p, lim				# global: maxp, erat[], prims[]
-
-  lim = maxp*maxp
-
-  if (mod(n,2)==0) n = n+1
-  i = erat_next(n)				# füllt erat[]
-
-  for(i=1; i<=65535 && j<65534; i++) if (erat[i]) {
-
-    p = n + 2*i
-    if (p > lim) if (!mr(p)) continue
-    prims1[++j] = p
-  }
-  prims1[j+1] = 0				# Ende markieren
-
-  return j					# Anzahl gefundener Primzahlen
-}
-
-
-
-
-define sieb (b, c, n, m) {
-
-  auto p, h, i, j, z, z0, z1, z2, z3, offset, cnt, lim, slot[], dslot[]
-					 	# global: maxp, prims[], sieb1[], sieb2[], s[], sb[]
-						# global: big[], sh[], next[], back[], dbig[], dsh[], dnext[], dback[]
-						# quadsieb: ip, basis[], p1, p2, i2
-
-  print "sieb(",b,",",c,",",n,")\n"
-  scale = 1
-  lim = b / 20
-  scale = 0
-
-  big[0] = 0
-  dbig[0] = 0
-
-  while (z < b+10) {
-
-    scale=2
-    for (i=0; i<c; i++) {			# init Siebe
-      sieb1[i] = (m+i+offset)^2 - n
-      sieb2[i] = (m+i-offset-c)^2 - n
-    }
-    scale=0
-    #h = showij(sieb1[],0,c-1)
-    #h = showij(sieb2[],0,c-1)
-
-    i = 1
-    for (p=basis[i]; i<=b; ) {
-
-      if (p == 0) {				# Primzahl-Basis erweitern (init in quadsieb())
-
-        if (ip == maxp) {			# prims[] verlängern (möglichst)
-          maxp = prims_next()
-          print "maxp: ", maxp, "\n"
-          p1 = prims[maxp]
-          if (maxp > 65530) ip = maxp+1
-        }
-
-        if (ip < maxp) {
-          p = prims[++ip]			# init ip = 0 in quadsieb()
-        } else {
-          #p = nextprime(p1+2) schneller:
-
-          if (p1 >= p2) {
-            h  = prims1_next(p1+2)		# Primzahlen ab p1 + 2
-            p2 = prims1[h]
-            print "p2: ", p2, "\n"
-            i2 = 0
-          }
-          p = prims1[++i2]
-
-          p1 = p
-          #print p1, " "
-        }
-        basis[i] = p
-        basis[i+1] = 0
-      }
-
-      if (h = sieb_mit_p(p, c, offset, n, m) < 2 && p>2) {	# x^2-n hat < 2 Nullstellen mod p
-
-        if (h == 1) return -p			# Teiler
-        p = 0					# mit größerer Primzahl wiederholen
-
-      } else {
-
-        p = basis[++i]
-      }
-    }
-    z0 = z
-    z = s(b, c, z, offset, basis[b])		# Kongruenzen einsammeln
-    if (offset) print "Offset: ", offset, "\n"
-    print "Kongruenzen bis jetzt: ", z, " (Ziel: ",b+10,")\n"
-    if (z1) print "Big-Paare: ", z1, "\n"
-    if (z2) print "Kreise:    ", z2, "\n"
-    if (z3) print "Schlangen: ", z3, "\n"
-
-    if ((b-z) > (lim-(++cnt))*(z-z0)) break	# zu langsam: b erhöhen
-    offset = offset + c
-  }
-  return z
-}
-
-
-
-
-define smatrix (s[], z, b, n, m) {	# Zeilen als Zahlen kodiert
-
-  auto h, i, j, f, ff, p, q, flag, pot, c, bb 	# global: m[], basis[]
-
-  print "smatrix(s[],",z,",",b,",",n,",",m,")\n"
-  if (b-1 > maxp) return -2
-
-  for (i=0; i<b; i++) m[i] = 0		# init Matrix
-
-  bb = b - 2
-  pot = 1
-  for (i=z-1; i>=0; i--) {		# jede Spalte i füllen:
-
-    q = 1
-    if (scale(s[i])) {			# "Domino"-Kreis
-      #print i," Kreis: ", s[i], "\n"
-      f = s[i]
+    if (n) dback[n] = i		# end-Nachfolger zeigt auf i
+    if (b > 0) {		# end-Vorgänger zeigt auf i
+      dnext[b] = i
     } else {
-      f = (s[i]+m)^2 - n
-      if (sb[i]) {			# Bigprime
-        h = (sb[i]+m)^2 - n
-        f = f*h
-      }
-    }
-    if (f < 0) {			# -1 rausziehen (letzte Zeile)
-      f = -f
-      m[b-1] = m[b-1] + pot		# letzte Zeile der Matrix am dichtesten
-      q = 0				# f kein Quadrat
-      c = c + 1
-    }
-    ff = f				# aufheben
-    j = b - 1
-    while (f > 1 && j) {		# Primfaktor j rausziehen (Zeile j):
-      p = basis[j--]
-      flag = 0
-      while (!mod(f,p)) {f = quotient; flag = !flag}
-      if (flag) {
-        m[bb-j] = m[bb-j] + pot		# Dichte der Matrix wächst nach unten
-        q = 0				# f kein Quadrat
-        c = c + 1
-      }
-    }
-    if (f > 1 && !sb[i]) {print "s[",i,"] nicht glatt\n"; return -2}
-    if (q) {
-      print "s[",i,"] bildet ein Quadrat"
-      if (scale(s[i])) {
-        h = sb[i]/1
-      } else {
-        h = s[i] + m
-        if (sb[i]) h = h * (sb[i] + m)
-      }
-      if ( h = euklid1( sqrt(ff)-h, n) > 1 && h < n ) {print "\n"; return h/1}
-      print " - nutzlos\n"
+      dslot[-b] = i
     }
 
-    pot = 2*pot
-  }  
-  #h = showm(m[],z,b)
-  scale = 1
-  print "Anzahl Einsen: ", c, " (ca. ", c*100/(b*z), "% und ca. ", c/b, " pro Zeile)\n"
-  scale = 0
-  return -1
-}
+    dnext[i] = n
+    dback[i] = b
+    dbig[i] = abs(dbig[end])
+    dsh [i] = abs(dsh[end])
 
-
-
-
-
-define singletons (breit, hoch) {	# behandle Zeilen mit nur einer 1
-
-  auto h, s, z, pot, count		# global: m[], sperr[]
-
-  print "Singletons raus\n"
-
-  pot = 1
-  for (s=1; s<=breit; s++) {
-
-    if (!sperr[breit-s]) {
-
-      for (z=0; z<hoch; z++) {
-        if (m[z] == pot) {		# Singleton gefunden
-          sperr[breit-s] = 1		# Spalte sperren
-          for (z=0; z<hoch; z++) {	#    und löschen:
-            if (mod(m[z], 2*pot) / pot) m[z] = m[z]-pot
-          }
-          count = count + 1
-          pot = -1
-          break
-        }
-      }
-      if (pot < 0) {			# von vorn durchkämmen
-        s = 0
-        pot = 1
-        continue
-      } 
-    }
-    pot = pot * 2
-  }
-  print count, " gefunden\n"
-  return count
-}
-
-
-
-
-
-define ztausch (hoch, a, b) {	# Zeilentausch
-
-  auto h, s
-
-  #print "zta(",a,",",b,") "
-  if (a==b) return
-  h = m[a-1]
-  m[a-1] = m[b-1]
-  m[b-1] = h
-  #h = showij(m[],0,hoch-1)
-}
-
-
-
-define bit (i, n) {		# i-tes Bit in der Binärdarstellung von n (rückwärts)
-
-  auto h
-
-  h = 2^i
-  return mod(n, 2*h) / h
-}
-
-
-
-define zeilvekt (a) { 		# a zerlegen in 2er-Potenzen
-
-  auto i, pot			# global: z1[], z2[], quotient
-
-  pot = 1
-  quotient = a
-
-  while (quotient) {
-    if (mod(quotient, 2)) {
-      z1[i] = pot		# z1[] enthält die 2er-Potenzen
-      pot = pot*2
-      z2[i++] = pot		# z2[] enthält die Doppelten (spart beim Addieren Zeit)
-    } else {
-      pot = pot*2
-    }
-  }
-  return i-1			# höchster Exponent
-}
-
-
-
-define addzeile (i, b) {	# addiere Zeile z1[] zu Zeile b (mod 2)
-
-  auto rb			# global: m[], z1[], z2[]
-
-  rb = m[--b]
-
-  while (i>=0 && rb) {
-    if (rb = mod(rb, z2[i]) >= z1[i]) {m[b] = m[b] - z1[i--]} else {m[b] = m[b] + z1[i--]}
-  }
-  while (i>=0) m[b] = m[b] + z1[i--]
-}
-
-
-
-
-define gauss (breit, hoch, jordan, sing, sperr[]) {	# Gauss-Elimination
-
-  auto h, z, sp, zp, pot, f, r, s, v		# global: m[], s[], index[]
-
-  print "gauss(",breit,",",hoch,",",sing,")\n"
-  sp = 1					# Pivotspalte
-  pot = 2^(breit-sp)
-
-  print "  Pivot-Zeile: "
-  for (zp=1; zp<=hoch; zp++) {  
-
-    print zp, " "
-    for (; sp<=breit; sp++) {
-      for (z=zp; z<=hoch; z++) if (m[z-1] >= pot) {h=ztausch(hoch, zp, z); break}
-      if (z <= hoch) break
-      pot = pot / 2
-      if (sperr[sp-1]) {
-        index[breit-(++s)] = sp - 1		# Zeiger auf gesperrte Variable (mit 0 belegen)
-      } else {
-        index[breit-sing-(++f)] = sp - 1	# Zeiger auf freie Variable 
-      }
-    }
-    if (sp > breit) break			# Restmatrix nur noch 0
-    index[r++] = sp - 1				# Zeiger auf abhängige Variable
-
-    v = zeilvekt(m[zp-1]-pot)
-    if (jordan) {
-      for (z=1; z<zp; z++) { 			# 0 über Diagonale
-        if (bit(breit-sp, m[z-1])) {
-          m[z-1] = m[z-1] - pot
-          h=addzeile(v, z)
-        }
-      }
-    }
-    for (z=zp+1; z<=hoch; z++) {	 	# Gauß
-      if (m[z-1] >= pot) {
-        m[z-1] = m[z-1] - pot
-        h = addzeile(v, z)
-      }
-    }
-    sp = sp + 1
-    pot = pot / 2
-  }
-  print "\n"
-  #h = showm(m[],breit,hoch)
-
-  return r					# Rang
-}
-
-
-
-
-
-define belegung (r, s, z, num) {
-
-  auto h, i, j, x, v[]		# global: m[], s[], s1[], index[], quotient, sperr[]
-
-  print "Variablen belegen\n"
-
-  quotient = num
-  for (i=z-s-1; i>=r; i--) {	# freie Variablen: Bit-Kombinationen zu num
-    h = mod(quotient, 2)
-    s1[index[i]] = h
   }
 
-  for (i=r-1; i>=0; i--) {	# abhängige Variablen berechnen:
-    x = 0
-    quotient = m[i]
-    for (j=z-1; quotient>1; j--) x = (x != mod(quotient,2)*s1[j])
-    s1[index[i]] = x		# Anzahl belegter Variablen in Zeile i (mod 2)
+  if (ni) dback[ni] = bi	# i-Nachfolger zeigt vor i
+  if (bi > 0) {			# i-Vorgänger zeigt hinter i
+    dnext[bi] = ni
+  } else {
+    dslot[-bi] = ni
   }
-  zeil = 30
-  h = showij(s1[],0,z-1)
-  zeil = 10
+
+  dbig[0] = --end		# Liste ist geschrumpft
 }
 
 
+###### End (Double-)Bigprimes ######################################################
 
 
-define baue_xy (z, s[], s1[], n, m) {
-
-  auto h, i, f, neg	#, global: x, y, sb[]
-
-  x = 1
-  y = 1
-  for (i=0; i<z; i++) {
-    if (s1[i]) {
-      if (scale(s[i])) {			# "Domino"-Kreis
-        f = s[i]
-        x = mod( x*sb[i], n)
-      } else {
-        f = (m+s[i])^2-n
-        x = mod( x*(m+s[i]), n)
-
-        if (sb[i]) {				# Bigprime
-          f = f * ((m+sb[i])^2 - n)
-          x = mod( x*(m+sb[i]), n)
-        }
-      }
-      if (f < 0) neg = neg + 1
-      y = y*f
-    }
-  }
-  y = sqrt(y)
-  if (mod(neg, 4) == 2) y = -y
-  return( euklid1( x-y, n))
-}
-
-
-
-
-
-define quadsieb (n) {
-
-  auto m, b, c, z, i, h, q, r, s, a, lim, lim1, ip, basis[], p1, p2, i2	# s[]
-
-  if (n == 0) return 0
-  if (qr_geladen == 0) {
-    print "\nDatei quadRest ist nicht geladen.\n"
-    return 0
-  }
-  lim1 = 2^15
-  lim = 2*lim1		# max. Array-Länge
-  n = abs(n)
-  m = sqrt(n)
-  b = 2			# Anzahl benutzter Sieb-Primzahlen
-  q = -1		# Quadratzahl gefunden?
-  ip = 0		# Zeiger in prims[]
-
-  while (b <= lim1) {
-
-    while (z <= b && b <= lim1) {	# Kongruenzen sammeln
-
-      b = 2*b
-      z = sieb( min(b,lim-2), min(b*b,lim), n, m)
-
-      if (z < 0) return -z		# Teiler gefunden
-      if (b == lim) b = lim-1
-    }
-
-    z = min(z,lim)
-    if(z > b) if (q = smatrix(s[], z, b+1, n, m) < -1) return 0	# Matrix der Kongruenzen
-
-    if (q > 1) return q			# q ist echter Teiler
-
-    if (z >= b) {			# genug Kongruenzen
-      
-      for (h=0; h<z; h++) sperr[h] = 0	# init sperr[]
-#      h = showm (m[], z, b+1)
-      #h=read()
-      #s = singletons(z, b+1)
-#      h=read()
-#      h = showm (m[], z, b+1)
-#      h=read()
-      r = gauss(z,b+1,0,s,sperr[])	# Matrix umformen
-      print "Rang: ", r, "\n"
-
-      if (r > z-s) return 0
-
-      a = 2^(z - s - r)
-      for (i=1; i<=s; i++) s1[index[z-i]] = 0	# gesperrte Variablen auf 0 setzen
-      for (i=1; i<a; i++) {		# verschiedene Belegungen versuchen
-        h = belegung(r, s, z, i)
-        h = baue_xy( z, s[],s1[], n, m)
-        if (h>1 && h<n) return h/1
-      }
-      z = 0				# mehr Kongruenzen nötig
-    }
-  }
-}
-
-
-
-
-define showm (m[], breit, hoch) {
-
-  auto i, j, m, pot
-
-  obase = 2
-  pot = 2^(breit-1)
-
-  for (i=0; i<hoch; i++) {
-
-    m = m[i]
-    for (j=1; m<pot && j<breit; j++) {
-      m = 2*m
-      print "0"
-    }
-    print m[i], "\n"
-  }
-  obase = 10
-}
 
 
 
@@ -1109,7 +1091,7 @@ define lanczos (a[], b[], n, m) {		# löse Ax = b (mod m) (A symmetrisch, n-dim)
 p=prims[2002]
 q=prims[1001]
 #p=nextprime(10^5+1000)
-#p=nextprime(10^6+1000)
+#q=nextprime(10^6-1000)
 #p=nextprime(10^7)
 #q=nextprime(10^8)
 
@@ -1171,10 +1153,12 @@ for (i=0; i<n; i++) {if (x[i] = mod(x[i],modul) < 0) x[i] = x[i] + modul}
 h=showij( x[],0,n-1)
 
 */
+
 /*
-sieb_limit=1000
-iter_pollard=1000
-p=nextprime(10^19)
-q=nextprime(10^20)
+iter_mr=2
+sieb_limit=100
+p=nextprime(10^11)
+q=nextprime(10^12)
+
 quadsieb(p*q)
 */
