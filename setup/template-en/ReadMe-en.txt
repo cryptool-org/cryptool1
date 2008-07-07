@@ -374,9 +374,9 @@ encouraged us with their code or who build code we can use, e.g.
 - the Hex Control (www.codeguru.com/Cpp/controls/controls/article.php/c5287).
 
 I also want to thank
-- Mr. Bartosz Sawicki from the university of Warsaw, who did with his team
+- Mr. Bartosz Sawicki from the University of Warsaw, who did with his team
   the complete Polish version.
-- Mr. Gonzalo Alvarez from the university of Madrid, who did with his
+- Mr. Gonzalo Alvarez from the University of Madrid, who did with his
   colleagues the Spanish version.
 
 
@@ -543,7 +543,7 @@ The general properties and functions of CrypTool are:
   programs. So you can encrypt any file with the AES algorithm,
   protected by a password (entered as a hexadecimal key).
   Full functionality also when calling from the command line.
-  A self-extracting archive may not be biggers as 4 GB. But if you one
+  A self-extracting archive may not be bigger as 4 GB. But if you one
   create the encrypted AES file the original file maybe significantly
   larger than 4 GB.
 
@@ -654,7 +654,7 @@ which have been added since CrypTool 1.4.10.
 
 a) Developer-relevant changes (more technically oriented):
 
-- Clearance of source code, better reusage.
+- Clearance of source code, better re-usage.
 
 - Update to OpenSSL 0.9.8g, ANIMAL 2.3.14 and NSIS 2.37
 
@@ -973,7 +973,7 @@ who prefer to keep on developing in C/C++.
   as text (with an alphabet defined by you) or as a number (with 4
   different base numbers); compared with that the primes here can 
   only be entered as decimal numbers or as terms of decimal numbers.
-  Alternatively an a-modal window for interchanging the the bases could
+  Alternatively an a-modal window for interchanging the bases could
   be used.
 
 - It would be useful if a calculator can be called from within 
@@ -1222,7 +1222,7 @@ a) Program Directory:
    will be enabled for writing for everybody who is in the group "Users".
 
 b) Registry:
-   To enable the registration of .aes and other file extensions for AESTool,
+   To enable the registration of .aes and other file extensions for AES-Tool,
    the following part of the registry needs to be writable during installation:
    HKEY_CLASSES_ROOT
    HKEY_CLASSES_ROOT\Applications
@@ -1571,14 +1571,16 @@ secude.xml ....... Is used by the secude.dll.
 libeay32.dll ..... Library from OpenSSL.
 SciLexer.dll ..... Library with the routines for the Scintilla text
                    editor.
+cracklib_Win32.dll .. Supports PQM tests.
 
 Rijndael-Animation.exe .. Animation (Flash) of the AES algorithm.
 Rijndael-Inspector.exe .. Animation (Flash) of the changes within the
-                          data block when processing the AES algorithu.
+                          data block when processing the AES algorithm.
 Enigma_en.exe .... Animation (Flash) of the 3-rotor Enigma machine.
 Enigma_de.exe .... The German version of "Enigma_en.exe".
 Enigma-Help_en.html .. HTML online help of "Enigma_en.exe" (English).
 Enigma-Help_de.html .. The German version of "Enigma-Help_en.html".
+enigma_screenshot1.png .. Screenshot used by the Enigma help file.
 
 eccdemo.jar ...... Demonstration (Java) of adding points on elliptic curves.
 
@@ -1605,12 +1607,14 @@ CrypToolPresentation_1_4_20_de.pdf .. German version of presentation.
 DialogueSisters.pdf ... Fantasy story by Dr. Elsner describing a
                         variant of the RSA cryptosystem.
 DialogSchwestern.pdf .. German version of DialogueSisters.pdf.
-ChinLab-en.pdf.pdf .. Story by Dr. Elsner about basic number theory
-                      problems assigned to Marco Polo by the Great
-                      Khan.
-ChinLab-de.pdf.pdf .. German version of ChinLab-en.pdf.
+ChinLab-en.pdf ... Story by Dr. Elsner about basic number theory
+                   problems assigned to Marco Polo by the Great
+                   Khan.
+ChinLab-de.pdf ... German version of ChinLab-en.pdf.
 
-Uninstall.exe .... Part of the NSIS installer. 
+Uninstall.exe .... Part of the NSIS installer.
+license-en.rtf ... Used from the installer. 
+license-de.rtf ... German version of license-en.rtf. 
 
 
 examples\ ........ This directory contains various sample files
@@ -1668,19 +1672,28 @@ cryptochallenges\Schmeh01-Dorabella-enc.txt
 
 
 
-references\ ...... This directory contains text files in the
-                   languages German, English, French, Spanish and
-                   Latin. These files are routinely used as
-                   references for the analysis of encrypted
-                   texts. These files are write-protected.
+reference\ ...... This directory contains text files in the
+                  languages German, English, French, Spanish and
+                  Latin. These files are routinely used as
+                  references for the analysis of encrypted
+                  texts. These files are write-protected.
 
-references\deutsch.txt   // Extract from the German value-added tax law
-          \english.txt   // Extract from Agenda 21 [UN document]
-          \genesis-de.txt  // Book of Genesis in the
-          \genesis-en.txt  // languages German, English
-          \genesis-es.txt  // French, Spanish and Latin.
-          \genesis-fr.txt  // The 2-letter codes are according
-          \genesis-la.txt  // to the ISO 639 language codes.
+reference\deutsch.txt   // Extract from the German value-added tax law
+         \english.txt   // Extract from Agenda 21 [UN document]
+         \genesis-de.txt  // Book of Genesis in the
+         \genesis-en.txt  // languages German, English
+         \genesis-es.txt  // French, Spanish and Latin.
+         \genesis-fr.txt  // The 2-letter codes are according
+         \genesis-la.txt  // to the ISO 639 language codes.
+
+
+words\ ........... This directory contains the files used to
+                   perform the tests recognizing password patterns.
+
+words\cracklib-words
+      cracklib_dict.hwm
+      cracklib_dict.pwd
+      cracklib_dict.pwi
 
 
 pse\ ............. This directory and its subdirectory pseca\ are
@@ -1688,6 +1701,8 @@ pse\ ............. This directory and its subdirectory pseca\ are
                    certificates that have been generated.
 
 pse\[SideChannelAttack][Bob][RSA-512][1152179494][PIN=1234].pse
+    [HybridEncryption][Bob][EC-prime239v1][1178702474][PIN=1234]
+    [HybridEncryption][Bob][EC-prime239v1][1178702474][PIN=1234].pse
 
 pse\pseca\calog    These files are necessary for the administration of 
          \capse    the key database.
@@ -1755,6 +1770,7 @@ Bc\bc.1.txt
   \bc.deutsch.txt ... German translation of bc.1.txt
   \Bc.exe
   \BCmax.bat
+  \BCmin.bat
   \bruch.txt
   \calc.txt
   \dislog.txt
@@ -1764,11 +1780,13 @@ Bc\bc.1.txt
   \Prims.txt
   \quadRest.txt
   \res.txt
+  \RSA.txt
   \seed
   \sieb.txt
   \testBruch.bat
   \testPi.bat
   \testPolynom.bat
+  \testRSA.bat
   \testSieb.bat
 
 Bc\contrib\Authors
@@ -1864,7 +1882,7 @@ Version   Date		Size of Windows Setup  Needed Size  Released
 1.3.05    Aug. 2003	 8.2 MB       8.6 MB	-            DB
 1.4.00    July 2006	18.2 MB      18.4 MB	-            DB
 1.4.10    July 2007	26.7 MB	     27.5 MB	47 MB        DB
-1.4.20    July 2008	36.0 MB	     36.7 MB	71 MB        DB
+1.4.20    July 2008	36.1 MB	     37.1 MB	73 MB        DB
 
 Remarks about the versions:
 1.3.02   Many new functions compared to 1.3.00.
@@ -1958,17 +1976,22 @@ CrypTool].
 10.1.6. Report Touch Briefing Information Security (October 2006)
         ---------------------------------------------------------
 The "Touch Briefing Information Security" report 2006 contains the article
-"The CrypTool Project – Improving Awareness and Education for Cryptology".
+"The CrypTool Project -- Improving Awareness and Education for Cryptology".
 Accessable via: http://www.touchbriefings.com/pdf/2259/esslinger.pdf
 Using the search keyswords "awareness cryptology" both google.de and
 google.com afterwards listed this article at the top ranking.
 
-10.1.7. DFN-Mitteilungen, Edition 73 (December 2007)
+10.1.7. DFN-News, Edition 73 (April 2008)
         ---------------------------------------------------------
 This edition of the German Research Net organization (DFN) contains the
-4-page article "CrypTool -- Ein E-Learning-Programm für Kryptologie".
-Accessable via: http://www.dfn.de/fileadmin/5Presse/DFNMitteilungen/heft73.pdf
-[The Title means "CrypTool -- An elearning program for cryptology].
+4-page article "CrypTool -- An e-learning programme for cryptology".
+Accessable via: http://www.cryptool.org/images/dfn_article_en_final.pdf
+
+10.1.8. KES 3/2008 (July 2008)
+        ----------------------
+In the German technical journal "KES - Zeitschrift für Informations-Sicherheit"
+(journal for information security) in the issue 3/2008 an article about
+CrypTool is published.
 
 
 10.2. Further references

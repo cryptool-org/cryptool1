@@ -697,7 +697,7 @@ c) Funktionale Erweiterungen:
 
 - Bugfixes:
   - Viele kleine Verbesserungen in den Masken:
-    Benutzerführung; Refesh; Cursor korrekt auch nach Dialogwechsel;
+    Benutzerführung; Refresh; Cursor korrekt auch nach Dialogwechsel;
     bei DH, Hill und Seitenkanalangriff einheitlich Häkchen für die Anzeige
     von Detaildialogen und die Erstellung von Logfiles.
   - AML-Datei für die DES-Animation mit ANIMAL korrigiert (in der Matrix
@@ -789,7 +789,7 @@ Mitwirkenden aufgenommen, die weiter in C/C++ implementieren wollen.
        - Symmetrische Verfahren:
            Camellia (RFC3713), RC5 und Gost (http://vipul.net/gost),
            Radio Gatun, SOSEMANUK, VSH, ...
-       - Public Key-Verfahren: McEliece, Rabin, NTRU.
+       - Public-Key-Verfahren: McEliece, Rabin, NTRU.
        - Demonstration der Visuellen Kryptographie
        - Neue Verfahren von Ecrypt (Network of Excellence in Cryptology)
          integrieren. Siehe http://www.ecrypt.eu.org/.
@@ -1350,7 +1350,7 @@ Installationsprogramm (Setup).
   Explorer (IE) auf. Version IE 6 hat manchmal Probleme, mathematische
   Zeichen wie die Gauss-Klammer darzustellen.
   Wenn bei Ihnen der IE7 voreingestellt ist, funktioniert es korrekt.
-  Die zugrundeliegenden, in das CHM-File eingebundenen HTML-Dateien
+  Die zugrunde liegenden, in das CHM-File eingebundenen HTML-Dateien
   werden von IE7 und Firefox 1.5 und höher korrekt dargestellt.
   Die Gauss-Klammer wird in der Onlinehilfe zum Modulo-Operator als
   Symbol für die nächstniedrigere ganze Zahl verwendet.
@@ -1466,7 +1466,7 @@ Verzeichnis kopiert. Die Nutzer-individuellen Schlüssel und Zertifikate
 bieten die Vorteile, dass
 - auf das Programmverzeichnis nicht mehr schreibend zugegriffen werden muss,
 - die meisten Lese- und Schreibrechtprobleme beim Betrieb in Mehrbenutzer-
-  systemen gelöst sind [siehe Abschnit 5.5.b)], und
+  systemen gelöst sind [siehe Abschnitt 5.5.b)], und
 - bei einer Neu-Installation die Nutzer-individuellen Schlüssel nicht mehr 
   automatisch überschrieben werden.  
 
@@ -1615,7 +1615,7 @@ CrypTool-de.chm .. HTML-Hilfe-Archiv für die CrypTool-Onlinehilfe in
 CrypTool-en.chm .. Die englische Version von "CrypTool-de.chm".
 
 EC-Param.ini ..... Initialisierungsdatei für auf Elliptischen
-                   Kurven basierende Public Key-Verfahren.
+                   Kurven basierende Public-Key-Verfahren.
 TEST-Param.ini ... Initialisierungsdatei für die Zufallstests.
 secude.dll ....... Bibliothek kryptographischer Funktionen von der
                    Secude IT Security GmbH.
@@ -1631,6 +1631,7 @@ secude.xml ....... Wird benötigt von der secude.dll.
 libeay32.dll...... Bibliothek aus OpenSSL.
 SciLexer.dll ..... Bibliothek mit den Routinen für den 
                    Scintilla-Texteditor.
+cracklib_Win32.dll .. Unterstützt die PQM-Tests.
 
 Rijndael-Animation.exe .. Animation (Flash) des AES-Algorithmus.
 Rijndael-Inspector.exe .. Animation (Flash) zu den Änderung des Datenblock
@@ -1639,6 +1640,7 @@ Enigma_de.exe .... Animation (Flash) der 3-Rotor Enigma-Maschine.
 Enigma_en.exe .... Die englische Version von "Enigma_de.exe".
 Enigma-Help_de.html .. HTML-Onlinehilfe für  "Enigma_de.exe" (deutsch).
 Enigma-Help_en.html .. Die englische Version von "Enigma-Help_de.html".
+enigma_screenshot1.png .. Screenshot für die Enigma-Hilfedatei.
 
 eccdemo.jar ...... Demo (Java) zur Punktaddition auf Elliptischen Kurven.
 
@@ -1666,12 +1668,14 @@ DialogSchwestern.pdf .. Fantasy-Geschichte von Dr. Elsner, in der
                         eine Variante des RSA-Kryptosystems
                         beschrieben wird.
 DialogueSisters.pdf ... Englische Fassung von DialogSchwestern.pdf.
-ChinLab-de.pdf.pdf .. Geschichte von Dr. Elsner über zahlentheoretische
-                      Probleme, die Marco Polo vom Großen Khan gestellt
-                      werden.
-ChinLab-en.pdf.pdf .. Englische Fassung von ChinLab-de.pdf.
+ChinLab-de.pdf ... Geschichte von Dr. Elsner über zahlentheoretische
+                   Probleme, die Marco Polo vom Großen Khan gestellt
+                   werden.
+ChinLab-en.pdf ... Englische Fassung von ChinLab-de.pdf.
 
 Uninstall.exe .... Teil des NSIS-Installers.
+license-de.rtf ... Benutzt vom Installationsprogramm. 
+license-en.rtf ... Englische Fassung von license-de.rtf. 
 
 
 examples\ ........ Dieses Verzeichnis enthält unterschiedliche
@@ -1746,11 +1750,22 @@ reference\deutsch.txt  // Auszug aus dem dt. Umsatzsteuergesetz
          \genesis-la.txt  // den ISO 639 Language Codes.
 
 
+words\ ........... In diesem Verzeichnis liegen die Dateien, mit
+                   denen die Tests auf Passwortmuster gemacht werden.
+
+words\cracklib-words
+      cracklib_dict.hwm
+      cracklib_dict.pwd
+      cracklib_dict.pwi
+
+
 pse\ ............. In diesem Verzeichnis und in seinem
                    Unterverzeichnis pseca\ werden erzeugte
                    (asymmetrische) Schlüssel und Zertifikate abgelegt.
 
 pse\[SideChannelAttack][Bob][RSA-512][1152179494][PIN=1234].pse
+    [HybridEncryption][Bob][EC-prime239v1][1178702474][PIN=1234]
+    [HybridEncryption][Bob][EC-prime239v1][1178702474][PIN=1234].pse
 
 pse\pseca\calog    Diese Dateien sind für die Verwaltung der
          \capse    Schlüsseldatenbank notwendig.
@@ -1819,6 +1834,7 @@ Bc\bc.1.txt
   \bc.deutsch.txt ... Übersetzung von bc.1.txt
   \Bc.exe
   \BCmax.bat
+  \BCmin.bat
   \bruch.txt
   \calc.txt
   \dislog.txt
@@ -1828,11 +1844,13 @@ Bc\bc.1.txt
   \Prims.txt
   \quadRest.txt
   \res.txt
+  \RSA.txt
   \seed
   \sieb.txt
   \testBruch.bat
   \testPi.bat
   \testPolynom.bat
+  \testRSA.bat
   \testSieb.bat
 
 Bc\contrib\Authors
@@ -1933,7 +1951,7 @@ Version   Datum         Größe des Windows-Setups  Plattenplatz  Freigabe
 1.3.05    Aug. 2003       8,6 MB      8,1 MB         -            DB
 1.4.00    Juli 2006      18,4 MB     18,2 MB         -            DB
 1.4.10    Juli 2007      27,5 MB     26,7 MB         47 MB        DB
-1.4.20    Juli 2008      36,7 MB     36,0 MB         72 MB        DB
+1.4.20    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 
 Bemerkungen zu den Versionen:
 1.3.02   Viele neue Funktionen gegenüber 1.3.00.
@@ -2029,7 +2047,7 @@ http://www.interest.de/DP/ausgaben.php?art=188&ID=587903635588.
 10.1.6. Report Touch Briefing Information Security (Oktober 2006)
         ---------------------------------------------------------
 Der "Touch Briefing Information Security"-Report 2006 enthält den Artikel
-"The CrypTool Project – Improving Awareness and Education for Cryptology".
+"The CrypTool Project -- Improving Awareness and Education for Cryptology".
 Abrufbar im Internet unter:
   http://www.touchbriefings.com/pdf/2259/esslinger.pdf
 Mit den Suchbegriffen "awareness cryptology" listeten danach sowohl
@@ -2041,6 +2059,12 @@ Diese Mitteilungen des Deutschen Forschungsnetzes (DFN) enthalten den
 4-seitigen Artikel "CrypTool -- Ein E-Learning-Programm für Kryptologie".
 Abrufbar im Internet unter:
   http://www.dfn.de/fileadmin/5Presse/DFNMitteilungen/heft73.pdf
+
+10.1.8. KES 3/2008 (Juli 2008)
+        ----------------------
+In der deutsch-sprachigen Fachzeitschrift "KES - Zeitschrift für
+Informations-Sicherheit", Ausgabe 3/2008 erscheint ein Artikel
+über CrypTool.
 
 
 10.2. Sonstige Referenzen auf CrypTool
