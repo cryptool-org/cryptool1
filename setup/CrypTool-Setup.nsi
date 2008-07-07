@@ -52,6 +52,20 @@
   !insertmacro MUI_UNPAGE_FINISH
 
 ;--------------------------------
+;Macros
+ 
+  !macro RegUpdate value_old key_new value_new
+
+  ReadRegDWORD $0 HKCU Software\Cryptool\Settings\${key_new} ${value_new}
+  IfErrors 0 +5 
+  ReadRegDWORD $0 HKCU Software\Cryptool\Settings ${value_old}
+  IfErrors +3 
+  WriteRegDWORD  HKCU Software\Cryptool\Settings\${key_new} ${value_new} $0
+  DeleteRegValue HKCU Software\Cryptool\Settings ${value_old}
+
+  !macroend
+
+;--------------------------------
 ;Select Language  
 
 !ifndef LANGUAGE_STR
@@ -193,8 +207,58 @@ startMenuDone:
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$ShortCutName" \
                  "UninstallString" "$INSTDIR\uninstall.exe"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$ShortCutName" \
-                 "DisplayIcon" "$INSTDIR\CrypTool.exe,0"
- 
+                 "DisplayIcon" "$INSTDIR\CrypTool.exe,0"  
+
+  !insertmacro RegUpdate NoTipps Options\StartingOptions NoTipps
+  !insertmacro RegUpdate SampleTextFile Options\StartingOptions SampleTextFile
+  !insertmacro RegUpdate ADFGVX_IntroDialogue Cryptool\Settings\ADFGVX ShowIntro
+  !insertmacro RegUpdate CRT_IntroDialogue Cryptool\Settings\CrtSecretSharing ShowIntro
+  !insertmacro RegUpdate firstPosNull Cryptool\Settings\Hill OrdChrOffset
+  !insertmacro RegUpdate useFirstCharFromAlph Cryptool\Settings\Hill PaddingDefaultChr
+  !insertmacro RegUpdate ownCharForPadding Cryptool\Settings\Hill PaddingOwnChr
+  !insertmacro RegUpdate alphCode Cryptool\Settings\Hill EditKeyChrMatrix
+  !insertmacro RegUpdate DH_IntroDialogue Cryptool\Settings\DiffieHellman ShowIntro
+  !insertmacro RegUpdate DH_InfoDialogue Crytool\Settings\DiffieHellman ShowInfo
+  !insertmacro RegUpdate SignatureAttackHashAlgorithmID Cryptool\Settings\SignatureAttack HashAlgorithmID
+  !insertmacro RegUpdate SignatureAttackSignificantBitLength Cryptool\Settings\SignatureAttack SignificantBitLength
+  !insertmacro RegUpdate SignatureAttackModificationMethod Cryptool\Settings\SignatureAttack ModificationMethod
+  !insertmacro RegUpdate SignatureAttackCheck1 Cryptool\Settings\SignatureAttack ModfiyBlankEOL
+  !insertmacro RegUpdate SignatureAttackCheck3 Cryptool\Settings\SignatureAttack ModifyDoubleBlank
+  !insertmacro RegUpdate SignatureAttackAttMethod Cryptool\Settings\SignatureAttack ModifyCharSet
+  !insertmacro RegUpdate SignatureAttackTestMode Cryptool\Settings\SignatureAttack PerformTestRun
+  !insertmacro RegUpdate SignificantBitLengthMIN Cryptool\Settings\SignatureAttack SignificantBitLengthMin
+  !insertmacro RegUpdate SignificantBitLengthMAX Cryptool\Settings\SignatureAttack SignificantBitLengthMax
+  !insertmacro RegUpdate SignificantBitLengthJump Cryptool\Settings\SignatureAttack SignificantBitLengthJump
+  !insertmacro RegUpdate HashAlgorithmIDMIN Cryptool\Settings\SignatureAttack HashAlgorithmIDMin
+  !insertmacro RegUpdate HashAlgorithmIDMAX Cryptool\Settings\SignatureAttack HashAlgorithmIDMax
+  !insertmacro RegUpdate Attempts Cryptool\Settings\SignatureAttack Attempts
+  !insertmacro RegUpdate AttemptsMAX Cryptool\Settings\SignatureAttack AttemptsMax 
+  !insertmacro RegUpdate SignatureAttackHarmlessFile Cryptool\Settings\SignatureAttack HarmlessFile
+  !insertmacro RegUpdate SignatureAttackDangerousFile Cryptool\Settings\SignatureAttack DangerousFile
+  !insertmacro RegUpdate PQM_GL_MinimumLength Cryptool\Settings\PasswordGuidelines MinimumLength
+  !insertmacro RegUpdate PQM_GL_MinimumDigits Cryptool\Settings\PasswordGuidelines MinimumDigits 
+  !insertmacro RegUpdate PQM_GL_MinimumSpecial Cryptool\Settings\PasswordGuidelines MinimumSpecial
+  !insertmacro RegUpdate PQM_GL_SpecialGroup Cryptool\Settings\PasswordGuidelines SpecialGroup
+  !insertmacro RegUpdate RANDOM_GENERATOR_DATASIZE Cryptool\Settings\RandomGenerator GenerateBytes
+  !insertmacro RegUpdate RANDOM_GENERATOR_ICG_N Cryptool\Settings\RandomGenerator ParamICG_N
+  !insertmacro RegUpdate RANDOM_GENERATOR_ICG_P1 Cryptool\Settings\RandomGenerator ParamICG_P1
+  !insertmacro RegUpdate RANDOM_GENERATOR_ICG_P2 Cryptool\Settings\RandomGenerator ParamICG_P2
+  !insertmacro RegUpdate RANDOM_GENERATOR_OUTPUT_INTERNALSTATE Cryptool\Settings\RandomGenerator ShowInternalRandState
+  !insertmacro RegUpdate RANDOM_GENERATOR_SEED Cryptool\Settings\RandomGenerator RandSeed
+  !insertmacro RegUpdate RANDOM_GENERATOR_TYPE_ID Cryptool\Settings\RandomGenerator SelGenerator
+  !insertmacro RegUpdate RANDOM_GENERATOR_LCG_P1 Cryptool\Settings\RandomGenerator ParamLCG_P1
+  !insertmacro RegUpdate RANDOM_GENERATOR_LCG_P2 Cryptool\Settings\RandomGenerator ParamLCG_P2
+  !insertmacro RegUpdate RANDOM_GENERATOR_LCG_N Cryptool\Settings\RandomGenerator ParamLCG_N
+  !insertmacro RegUpdate RANDOM_GENERATOR_X2MODN_N Cryptool\Settings\RandomGenerator ParamX2MODN_N
+  !insertmacro RegUpdate SecretSharing_Intro CrypTool\Settings\SecretSharing ShowIntro
+  !insertmacro RegUpdate HybridEncryptionSCASignificantBits Cryptool\Settings\SideChannelAttack BitlengthSecret
+  !insertmacro RegUpdate SCA_Keyword Cryptool\Settings\SideChannelAttack Keyword
+  !insertmacro RegUpdate CreateReport_Top Cryptool\Settings\SizingDialog CreateReportTop
+  !insertmacro RegUpdate CreateReport_Left Cryptool\Settings\SizingDialog CreateReportLeft
+  !insertmacro RegUpdate CreateReport_Bottom Cryptool\Settings\SizingDialog CreateReportBottom
+  !insertmacro RegUpdate CreateReport_Right Cryptool\Settings\SizingDialog CreateReportRight
+  !insertmacro RegUpdate ShowPermutationKey Cryptool\Settings\Permutation ShowPermutationKey
+
   ;Create uninstaller
   WriteUninstaller "$INSTDIR\Uninstall.exe"
 
