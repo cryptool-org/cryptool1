@@ -15,8 +15,8 @@ Die Startseite selbst erreichen Sie über das Menü "Hilfe \ Startseite" oder inde
 4) Weitere Features können Sie z.B. auf folgende Weise erkunden:
 - Sie klicken sich spielerisch durch die Menüs. Mit F1 erhalten Sie die Hilfe zu dem ausgewählten Menüeintrag.
 - Sie schauen sich unter dem "Hilfe"-Menü die Readme-Datei an.
-- Sie schauen sich die beiliegende Präsentation an (siehe Abschnitt "Dokumentation" auf der Startseite der Online-Hilfe).
+- Sie schauen sich die beiliegende bunte Präsentation an (sie ist ebenfalls unter dem "Hilfe"-Menü zu finden; oder über den Abschnitt "Dokumentation" auf der Startseite der Online-Hilfe).
 - Sie schauen sich die Webseite www.cryptool.de an.
 
-Juni 2008
+Juli 2008
 

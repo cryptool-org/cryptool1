@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -5455,13 +5455,13 @@ BEGIN
                     IDC_STATIC,7,7,205,32
 END
 
-IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 325, 374
+IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 325, 385
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Sprawdzenie jakoœci has³a"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    PUSHBUTTON      "Anuluj",IDCANCEL,268,353,50,14
+    PUSHBUTTON      "Anuluj",IDCANCEL,268,364,50,14
     CONTROL         "",IDC_PROGRESS_KEEPASS,"msctls_progress32",WS_BORDER | 
                     0x1,68,160,130,8
     LTEXT           "KeePass:",IDC_STATIC,31,160,30,8
@@ -5490,9 +5490,9 @@ BEGIN
     LTEXT           "Prezentujemy kilka ró¿nych wskaŸników jakoœci has³a. Dziêki nim mo¿esz\noszacowaæ jego bezpieczeñstwo.",
                     IDC_STATIC,20,44,285,16
     GROUPBOX        "Resistance against dictionary attacks (evaluates only the first 32 characters)",
-                    IDC_STATIC,7,240,311,110
-    EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,253,285,90,ES_MULTILINE | 
-                    ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
+                    IDC_STATIC,7,235,311,123
+    EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,247,285,103,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
     CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",WS_BORDER | 
                     0x1,68,206,130,8
     LTEXT           "CrypTool:",IDC_STATIC,29,206,32,8
@@ -5503,7 +5503,7 @@ BEGIN
     EDITTEXT        IDC_EDIT1,280,123,25,12,ES_AUTOHSCROLL | ES_READONLY | 
                     ES_NUMBER
     DEFPUSHBUTTON   "Password guidelines",ID_CONFIGURE_PASSWORD_GUIDELINES,
-                    110,353,80,14
+                    110,364,80,14
 END
 
 IDD_LIST_RESULTS DIALOGEX 0, 0, 434, 211
@@ -9387,7 +9387,7 @@ BEGIN
         VERTGUIDE, 285
         VERTGUIDE, 305
         TOPMARGIN, 7
-        BOTTOMMARGIN, 367
+        BOTTOMMARGIN, 378
         HORZGUIDE, 20
         HORZGUIDE, 72
         HORZGUIDE, 85
@@ -11936,12 +11936,12 @@ BEGIN
     IDS_PSE_FILES_READONLY  "The keystore files are read only.\nPlease check the access rights of\n%s."
 END
 
-#endif    // Polish resources
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -17480,13 +17480,13 @@ BEGIN
                     IDC_STATIC,7,7,205,32
 END
 
-IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 325, 374
+IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 325, 385
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Passwort-Qualitätsmesser"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    PUSHBUTTON      "Schließen",IDCANCEL,268,353,50,14
+    PUSHBUTTON      "Schließen",IDCANCEL,268,364,50,14
     GROUPBOX        "Beschreibung",IDC_STATIC,7,7,311,60
     GROUPBOX        "Eingabe des Passworts",IDC_STATIC,7,72,311,70
     GROUPBOX        "Qualität des Passworts basierend auf Hypothesen (und Entropie des Passworts in Bits)",
@@ -17516,11 +17516,11 @@ BEGIN
     LTEXT           "Hier sind verschiedene Beispiele für Passwort-Qualitätsmesser aufgeführt, die Ihnen dabei helfen, die Sicherheit Ihres Passworts einzuschätzen.",
                     IDC_STATIC,20,44,285,16
     GROUPBOX        "Resistenz gegen Wörterbuch-Attacken  (bewertet nur die ersten 32 Zeichen)",
-                    IDC_STATIC,7,235,311,110
-    EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,247,285,90,ES_MULTILINE | 
-                    ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
+                    IDC_STATIC,7,235,311,123
+    EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,247,285,103,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
     DEFPUSHBUTTON   "Passwort-Richtlinien",ID_CONFIGURE_PASSWORD_GUIDELINES,
-                    110,353,80,14
+                    110,364,80,14
     CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",WS_BORDER | 
                     0x1,68,206,130,8
     LTEXT           "CrypTool:",IDC_STATIC,29,206,32,8
@@ -21367,7 +21367,7 @@ BEGIN
         VERTGUIDE, 285
         VERTGUIDE, 305
         TOPMARGIN, 7
-        BOTTOMMARGIN, 367
+        BOTTOMMARGIN, 378
         HORZGUIDE, 20
         HORZGUIDE, 72
         HORZGUIDE, 85
@@ -24068,12 +24068,12 @@ BEGIN
     IDS_PSE_FILES_READONLY  "Die Dateien im Schlüsselspeicher können nicht geschrieben werden.\nBitte überprüfen Sie die Zugriffsrechte im Verzeichnis\n%s."
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -29536,13 +29536,13 @@ BEGIN
                     IDC_STATIC,7,7,205,32
 END
 
-IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 325, 374
+IDD_PASSWORDQUALITYMETER DIALOGEX 0, 0, 325, 385
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Password Quality Meter"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    PUSHBUTTON      "Cancel",IDCANCEL,268,353,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,268,364,50,14
     CONTROL         "",IDC_PROGRESS_KEEPASS,"msctls_progress32",WS_BORDER | 
                     0x1,68,160,130,8
     LTEXT           "KeePass:",IDC_STATIC,31,160,30,8
@@ -29572,11 +29572,11 @@ BEGIN
     LTEXT           "Here you can see different examples for password quality meters, helping you to estimate the security of your password.",
                     IDC_STATIC,20,44,285,16
     GROUPBOX        "Resistance against dictionary attacks (evaluates only the first 32 characters)",
-                    IDC_STATIC,7,235,311,110
-    EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,247,285,90,ES_MULTILINE | 
-                    ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
+                    IDC_STATIC,7,235,311,123
+    EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,247,285,103,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
     DEFPUSHBUTTON   "Password guidelines",ID_CONFIGURE_PASSWORD_GUIDELINES,
-                    110,353,80,14
+                    110,364,80,14
     CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",WS_BORDER | 
                     0x1,68,206,130,8
     LTEXT           "CrypTool:",IDC_STATIC,29,206,32,8
@@ -33639,7 +33639,7 @@ BEGIN
         VERTGUIDE, 285
         VERTGUIDE, 305
         TOPMARGIN, 7
-        BOTTOMMARGIN, 367
+        BOTTOMMARGIN, 378
         HORZGUIDE, 20
         HORZGUIDE, 72
         HORZGUIDE, 85
@@ -36281,7 +36281,7 @@ BEGIN
     IDS_PSE_FILES_READONLY  "The keystore files are read only.\nPlease check the access rights of\n%s."
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
