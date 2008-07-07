@@ -112,7 +112,7 @@ Jedem Teilnehmer $ T $ des Systems wird ein privater \index{Schlüssel!privat}
 \index{Schlüssel!öffentlich} Schlüssel $d_T$~\mbox{und} ein sogenannter öffentlicher Schlüssel $ e_T $   zugeordnet. Dabei muss die folgende Eigenschaft (Public Key-Eigenschaft) gelten:\\
 Für einen Gegner, der den öffentlichen Schlüssel $ e_T $  kennt, ist es praktisch unmöglich, den privaten Schlüssel  $ d_T $ zu bestimmen.\par
 
-Zur Konstruktion nützlicher Public Key-Verfahren sucht man also eine Einwegfunktion, die in einer Richtung \glqq einfach\grqq {} zu berechnen, die in der anderen Richtung jedoch \glqq schwer\grqq {} (praktisch unmöglich) zu berechnen ist, solange eine bestimmte zusätzliche Information \index{Einwegfunktion!mit Falltür} (Falltür) nicht zur Verfügung steht. Mit der zusätzlichen Information kann die Umkehrung effizient gelöst werden. Solche Funktionen nennt man {\bf Einwegfunktionen mit Falltür} (trapdoor one-way function). Im obigen Fall ist $ d_T $ die Falltür-In"-for"-ma"-tion. \par
+Zur Konstruktion nützlicher Public-Key-Verfahren sucht man also eine Einwegfunktion, die in einer Richtung \glqq einfach\grqq {} zu berechnen, die in der anderen Richtung jedoch \glqq schwer\grqq {} (praktisch unmöglich) zu berechnen ist, solange eine bestimmte zusätzliche Information \index{Einwegfunktion!mit Falltür} (Falltür) nicht zur Verfügung steht. Mit der zusätzlichen Information kann die Umkehrung effizient gelöst werden. Solche Funktionen nennt man {\bf Einwegfunktionen mit Falltür} (trapdoor one-way function). Im obigen Fall ist $ d_T $ die Falltür-In"-for"-ma"-tion. \par
 
 Dabei bezeichnet man ein Problem als \glqq einfach\grqq, wenn es in \index{Laufzeit!polynomial} \index{Polynom} polynomialer Zeit als Funktion der Länge der Eingabe lösbar ist, d.h. wenn es so gelöst werden kann, dass der Zeitaufwand sich als polynomiale Funktion in Abhängigkeit der Länge der Eingabe darstellen lässt. 
 Wenn die Länge der Eingabe $ n $ Bits beträgt, so ist die Zeit der Berechnung der Funktion proportional zu $ n^{a}, $ wobei $ a $  eine Konstante ist. Man sagt, dass die \index{Komplexität} Komplexität solcher Probleme $ O(n^{a}) $ beträgt (Landau- oder Big-O-Notation). 
@@ -139,7 +139,7 @@ und die Zeit zur Berechnung der Funktion proportional zu $ 2^n $ ist,
 so gilt gegenwärtig: die Funktion ist für $n > 80$ praktisch nicht zu 
 berechnen.
 
-Die Entwicklung eines praktisch einsetzbaren Public Key-Verfahrens hängt daher von der Entdeckung einer geeigneten Einwegfunktion mit Falltür ab.\par
+Die Entwicklung eines praktisch einsetzbaren Public-Key-Verfahrens hängt daher von der Entdeckung einer geeigneten Einwegfunktion mit Falltür ab.\par
 
 Um Ordnung in die verwirrende Vielfalt von möglichen Problemen und ihre Komplexitäten zu bringen, fasst man Probleme mit ähnlicher Komplexität zu Klassen zusammen.
 
@@ -166,13 +166,13 @@ Es gab immer wieder die Aussage, jemand habe die Äquivalenz bewiesen, z.B.
 
 aber bisher erwiesen sich diese Aussagen stets als falsch.
 
-Es wurden eine Reihe von Algorithmen für Public Key-Verfahren vorgeschlagen. Einige davon erwiesen sich, obwohl sie zunächst vielversprechend erschienen, als polynomial \index{Polynom} lösbar. Der berühmteste durchgefallene Bewerber ist der von Ralph Merkle \cite{Merkle1978} vorgeschlagen Knapsack mit Falltür.
+Es wurden eine Reihe von Algorithmen für Public-Key-Verfahren vorgeschlagen. Einige davon erwiesen sich, obwohl sie zunächst vielversprechend erschienen, als polynomial \index{Polynom} lösbar. Der berühmteste durchgefallene Bewerber ist der von Ralph Merkle \cite{Merkle1978} vorgeschlagen Knapsack mit Falltür.
 
 
 %\newpage
 \vskip +20 pt
 %--------------------------------------------------------------------
-\subsection{Knapsackproblem als Basis für Public Key-Verfahren}
+\subsection{Knapsackproblem als Basis für Public-Key-Verfahren}
 \index{Kryptographie!Public Key}
 %--------------------------------------------------------------------
 
@@ -290,7 +290,7 @@ Einwegfunktion, deren Falltür-In"-for"-ma"-tion (Verfremden des
 
 
 %---------------------------------------------------------------------
-\subsection{Primfaktorzerlegung als Basis für Public Key-Verfahren}
+\subsection{Primfaktorzerlegung als Basis für Public-Key-Verfahren}
 \index{Primfaktor!Zerlegung}
 %--------------------------------------------------------------------
 
@@ -413,13 +413,13 @@ Durchbrüche''.}
 
 
 %--------------------------------------------------------------------
-\subsubsection{Rabin-Public Key-Verfahren (1979)}
+\subsubsection{Rabin-Public-Key-Verfahren (1979)}
 
-Für \index{Rabin, Michael O.} \index{Rabin!Public-Key Verfahren} 
+Für \index{Rabin, Michael O.} \index{Rabin!Public-Key-Verfahren} 
 dieses Verfahren konnte gezeigt werden, dass es äquivalent zum Brechen
 des Faktorisierungsproblems ist. Leider ist dieses Verfahren anfällig
-gegen chosen-ciphertext-Angriffe.
-\index{Angriff!Chosen-ciphertext}
+gegen Chosen-Ciphertext-Angriffe.
+\index{Angriff!Chosen-Ciphertext}
 \begin{center}
 \fbox{\parbox{12cm}{        
 Seien $ p $ und $ q $ zwei verschiedene Primzahlen mit $ p,q\equiv 3 \mod 4 $ und $ n = pq.$ Sei $ 0\leq B \leq n-1.$ \\
@@ -448,8 +448,8 @@ Hintertür-Information ist die Primfaktorzerlegung von $ n = pq. $
 \vskip +20 pt
 %--------------------------------------------------------------------
 \hypertarget{HT-Discrete-Logarithm-as-Basis}{}
-\subsection[Der diskrete Logarithmus als Basis für Public Key-Verfahren]
-           {Der diskrete Logarithmus als Basis für Public Key-Verfahren\footnotemark}
+\subsection[Der diskrete Logarithmus als Basis für Public-Key-Verfahren]
+           {Der diskrete Logarithmus als Basis für Public-Key-Verfahren\footnotemark}
 \footnotetext{%
     \index{ZT, Lernprogramm Zahlentheorie}%
     \index{Lernprogramm ZT}%
@@ -463,7 +463,7 @@ Hintertür-Information ist die Primfaktorzerlegung von $ n = pq. $
     Siehe Anhang \ref{s:appendix-Learn-NT}.
 }
 \label{L-Discrete-Logarithm-as-Basis}
-Diskrete Logarithmen\index{Logarithmusproblem!diskret} sind die Grundlage für eine große Anzahl von Algorithmen von Public Key-Verfahren.
+Diskrete Logarithmen\index{Logarithmusproblem!diskret} sind die Grundlage für eine große Anzahl von Algorithmen von Public-Key-Verfahren.
 
 %--------------------------------------------------------------------
 \subsubsection{Der diskrete Logarithmus in $ \Z_p^* $}

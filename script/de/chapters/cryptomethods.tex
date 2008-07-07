@@ -93,7 +93,7 @@ Er wurde 1975 als Standard veröffentlicht. Trotz seines relativ hohen
 Alters ist jedoch bis heute kein  ~\glqq effektiver\grqq~ Angriff auf
 ihn gefunden worden. Der effektivste Angriff besteht aus dem Durchprobieren
 (fast) aller möglichen Schlüssel, bis der richtige gefunden wird 
-({\em brute-force-attack})\index{Angriff!Brute-force}. Aufgrund der relativ
+({\em brute-force-attack})\index{Angriff!Brute-Force}. Aufgrund der relativ
 kurzen Schlüssellänge von effektiv 56 Bits (64 Bits, die allerdings 8
 Paritätsbits enthalten), sind in der Vergangenheit schon mehrfach mit dem
 DES verschlüsselte Nachrichten gebrochen worden, so dass er heute als nur
@@ -126,7 +126,7 @@ angegebenen Originalarbeiten und auf \cite{Wobst-iX2002} und
 \cite{Lucks-DuD2002}.
 
 Der AES bietet mit einer Mindestschlüssellänge von 128 Bit gegen
-Brute-force-Angriffe auch auf längere Sicht genügend Sicherheit -- es sei
+Brute-Force-Angriffe auch auf längere Sicht genügend Sicherheit -- es sei
 denn, es stünden entsprechend leistungsfähige Quantencomputer zur
 Verfügung. Der AES war immun gegen alle bis dahin bekannten
 Kryptoanalyse-Verfahren, die vor allem auf statistischen
@@ -138,7 +138,7 @@ Dazu waren aber unrealistische Mengen an abgehörten Daten nötig.
 Bei Kryptoverfahren bezeichnet man solche Kryptoanalyseverfahren als
 ''akademischen Erfolg'' oder als ''kryptoanalytischen Angriff'', da sie
 theoretisch schneller sind als das Durchprobieren aller Schlüssel, das
-beim Brute-force-Angriff\index{Angriff!Brute-force} verwendet wird. Im
+beim Brute-Force-Angriff\index{Angriff!Brute-Force} verwendet wird. Im
 Fall des AES mit maximaler Schlüssellänge (256 Bit) braucht die
 erschöpfende Schlüsselsuche im Durchschnitt $2^{255}$
 Verschlüsselungsoperationen. Ein kryptoanalytischer Angriff muss diesen
@@ -183,7 +183,7 @@ geringe Mengen von Geheimtext brauchen. Zweitens steigt damit die Sicherheit
 eines Produktalgorithmus\index{Produktalgorithmus}%
 \footnote{%
 Ein Geheimtext kann selbst wieder Eingabe für eine Chiffrierung sein. Eine
-Mehrfachverschlüsselung (cascade cipher)\index{Mehrfachverschlüsselung}
+Mehrfachverschlüsselung (cascade cipher)\index{Verschlüsselung!Mehrfachverschlüsselung}\index{Mehrfachverschlüsselung}
 entsteht aus einer Komposition von mehreren Verschlüsselungstransformationen.
 Die Gesamtchiffrierung wird Produktalgorithmus oder Kaskadenalgorithmus
 genannt (manchmal ist die Namensgebung abhängig davon, ob die verwendeten
@@ -220,8 +220,8 @@ Weitere Details dazu stehen unter:
                {\texttt{http://www.minrank.org/aes/}}
 \end{itemize}
 
-Für 256-AES wäre der Angriff ebenfalls viel besser als Brute-force
-\index{Angriff!Brute-force}, aber auch noch weiter außerhalb der
+Für 256-AES wäre der Angriff ebenfalls viel besser als Brute-Force
+\index{Angriff!Brute-Force}, aber auch noch weiter außerhalb der
 Reichweite realisierbarer Rechenpower.
 
 \begin{sloppypar}
@@ -232,17 +232,17 @@ Murphy und Robshaw \cite{Robshaw2002b} nicht greifen.
 \end{sloppypar}
 
 % --------------------------------------------------------------------------
-\subsubsection{Aktueller Stand der Brute-force-Angriffe auf 
+\subsubsection{Aktueller Stand der Brute-Force-Angriffe auf 
 symmetrische Verfahren (RC5)}
-\index{Angriff!Brute-force}
+\index{Angriff!Brute-Force}
 \index{RC5}
 \label{Brute-force-gegen-Symmetr}
 
-Anhand der Blockchiffre RC5 kann der aktuelle Stand von Brute-force-Angriffen
+Anhand der Blockchiffre RC5 kann der aktuelle Stand von Brute-Force-Angriffen
 auf symmetrische Verschlüsselungsverfahren gut erläutert werden.
 
 \begin{sloppypar}
-Als Brute-force-Angriff (exhaustive search, trial-and-error) bezeichnet
+Als Brute-Force-Angriff (exhaustive search, trial-and-error) bezeichnet
 man das vollständige Durchsuchen des Schlüsselraumes: dazu müssen
 keine besonderen Analysetechniken eingesetzt werden. Stattdessen wird
 der Ciphertext mit allen möglichen Schlüsseln des Schlüsselraums
@@ -253,7 +253,7 @@ $2^{64}$ = 18.446.744.073.709.551.616 oder rund 18 Trillionen zu
 \footnote{%
 Mit CrypTool\index{CrypTool} können Sie über das Menü
 {\bf Analyse \textbackslash{} Symmetrische Verschlüsselung (modern)}
-ebenfalls Brute-force-Analysen von modernen symmetrischen Verfahren
+ebenfalls Brute-Force-Analysen von modernen symmetrischen Verfahren
 durchführen (unter der schwächsten aller möglichen Annahmen: der
 Angreifer kennt nur den Geheimtext, er führt also einen Ciphertext
 only-Angriff durch). 
