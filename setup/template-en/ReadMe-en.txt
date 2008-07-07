@@ -2,8 +2,8 @@
     CrypTool, Version 1.4.20 for Win32, May 2008 - Beta 03
     (c) Contributors
         including
-        Deutsche Bank AG, Frankfurt/Main
-        University of Siegen, Darmstadt, Bochum and Duisburg-Essen
+        Deutsche Bank AG, Frankfurt/Main,
+        the Universities of Siegen, Darmstadt, Bochum and Duisburg-Essen.
         1998-2008
     www.cryptool.org
     Bernhard Esslinger
@@ -34,11 +34,14 @@
  4.4. .... Support for different languages
  4.5. .... Restrictions / Features
  4.6. .... Using certificates and keys created with older CrypTool versions
- 5. .... Installation / de-installation / operating
- 5.1. .... Installation and further usage of keys of previous versions
- 5.2. .... Installation under multi-user operating systems
- 5.3. .... De-installation of CrypTool
- 5.4. .... Operating under multi-user operating systems
+ 5. .... Installation / de-installation / key usage / operating
+ 5.1. .... Installation
+ 5.2. .... Repeated usage of keys
+ 5.2.1. .... Keys of previous versions
+ 5.2.2. .... Keys stored in the PSE directory
+ 5.3. .... Installation under multi-user operating systems
+ 5.4. .... De-installation of CrypTool
+ 5.5. .... Operating under multi-user operating systems
  6. .... List of delivered files
  6.1. .... Checking the integrity of downloaded files
  7. .... Brief history of the released main versions of CrypTool
@@ -389,7 +392,7 @@ from Mrs. Prof. Dr. Claudia Eckert at the Technical University of Darmstadt,
 Germany still hosts the Subversion repository system for the program sources
 of the release version CrypTool 1.x.
 
-The CrypTool developer group around Bernhard Esslinger continues
+The CrypTool developer group around Prof. Bernhard Esslinger continues
 to act the maintainer: This means they take care about the source
 code, they publish CrypTool as open source and freeware, and they
 co-ordinate the further development. Current steps of the roadmap
@@ -594,7 +597,7 @@ The general properties and functions of CrypTool are:
        --username anonymous --password anonymous
 
 To get an impression of the size of the project here is a statistics created
-in May 2008 using the most important files for the English and the German
+in June 2008 using the most important files for the English and the German
 version).
 
     FILE SUMMARY
@@ -602,24 +605,24 @@ version).
               5 .rc files
              38 .c files
             308 .cpp files
-            369 .h files
+            368 .h files
               8 .java files
               9 .pl files
-           1604 .html files
-            108 .txt files
+           1609 .html files
+            110 .txt files
               9 .tex files
   
     LINES OF CODE (LoC) SUMMARY
     ---------------------------
-         39,149 MFC resource code (rc)
-        238,731 C/C++ source code (h c cpp)
+         39,311 MFC resource code (rc)
+        239,252 C/C++ source code (h c cpp)
           3,247 Java source code (java)
-          1,262 Perl files (pl)
-         94,794 HTML code (html hpp)
-          4,392 Text files (txt)
+          1,259 Perl files (pl)
+         93,147 HTML code (html hpp)
+          4,396 Text files (txt)
           1,632 LaTex code (tex)
 
-    TOTAL: 383,207 lines of code (plus of 19.8 % from 319,771 with v1.4.10)
+    TOTAL: 382,244 lines of code (plus of 19.5 % from 319,771 with v1.4.10)
 
    Snapshot about the number of files and the number of lines of code
 
@@ -669,7 +672,7 @@ b) Changes within the user documentation:
 - Within the script: minor bug-fixes, menu tree within appendix A2 adapted
                      to the new version of CrypTool.
 
-- Updated and enhanced presentation (around 120 pages now).
+- Updated and enhanced presentation (106 pages now).
 
 - New CrypTool website using Joomla since April 2008.
 
@@ -716,13 +719,15 @@ c) New functionality:
     search of a possible correct key.
   - Showing a choice of the 50 plaintexts with the lowest entropy values.
 
-- The AES-Tool in version 2.5 checks is faster when handling large files.
+- The AES-Tool in version 2.5 is faster when handling large files.
+  The files extension AES is linked to this application during the
+  installation process.
 
 - The educational program/game "Number Shark" in version 1.1.5 was corrected
   a little bit and the online help was enhanced.
 
-- SHA2 family (SHA-256, SHA-384, SHA-512) added for calculating the hash
-  value of a file
+- SHA2 family (SHA-256, SHA-512) added for calculating the hash value of
+  the shown document or of a file
   http://csrc.nist.gov/publications/fips/fips180-2/fips180-2.pdf
 
 - Improving of the password-quality-meter: In addition to the known PQM
@@ -733,8 +738,9 @@ c) New functionality:
     only from single independent characters).
   - All methods are normalized: 100 % means 128 bit entropy.
     If 100 % is achieved, further entries in the password field are ignored.
-  - Restrictions in this beta version:
-    - In the password field no blanks can be entered (ascii code <= 32).
+  - Restrictions in this version:
+    - In the password field no blanks can be entered (all ascii codes <= 32
+      are ignored).
     - The new PQM method rates at most 32 Zeichen of the entered password.
 
 - The password entropy dialog offers to create random passwords which offer
@@ -1070,7 +1076,7 @@ b)  Java-CrypTool (JCrypTool, JCT):
    - A Secude library, Bouncy Castle and FlexiProvider are available.
    - Milestone 1, published in August 2007, was dedicated to developers,
      showing that the concepts work.
-     Milestone 2, planned to come in July 2008, will already offer enough
+     Milestone 2, planned to come end of July 2008, will already offer enough
      functionality to be used by end users.
    - Further developers, architects and designers for this project are very
      welcome.
@@ -1088,9 +1094,9 @@ c) Cryptool 2.0 (CT 2)
      for C#.
    - Available are the .NET crypto provider, and libraries like GMP and
      Crypto++ via wrappers.
-   - The alpha version, published in April 2008, is dedicated to developers.
-     The first beta version (for developers and end users) is planned for
-     late summer 2008.
+   - The first alpha version, published in April 2008, is dedicated to developers.
+     The first alpha version (for developers and end users) is planned for
+     end of July 2008.
      With the release version of CT2 the development of CrypTool 1.x
      will be discontinued.
    - Further developers and ambitious graphical designers are more
@@ -1339,14 +1345,14 @@ Please see chapter 5.1, describing this when doing the installation.
 
 
 
-5. Installation / de-installation / operating
-   -----------------------------------------
+5. Installation / de-installation / key usage / operating
+   ------------------------------------------------------
 
-5.1. Installation and further usage of keys of previous versions
-     -----------------------------------------------------------
+5.1. Installation
+     ------------
 To install CrypTool on your PC, copy the CrypTool setup executable
 to a suitable place in the file system and double-click on it.
-The default target directory is "C:\Program Files\CrypTool".
+The default target directory is  "C:\Program Files\CrypTool".
 The target directory can be altered in the installation routine.
 You need access rights for the target directory.
 
@@ -1357,6 +1363,12 @@ If you change the name of the target directory "CrypTool" e.g. in
 "CrypTool-1.4.20-Final-E", then the entry in the start menu of the
 Windows task bar will adapted accordingly.
 
+
+5.2. Repeated usage of keys
+     ----------------------
+
+5.2.1. Keys of previous versions
+       -----------------------------------------------------------
 If you already possess an earlier version of CrypTool, the installation
 program tries to de-install the old version of CrypTool before
 installing the new one.
@@ -1392,7 +1404,31 @@ structure becomes inconsistent, it may be necessary to completely
 reinstall CrypTool in order to use the certificate based methods.
 
 
-5.2. Installation under multi-user operating systems
+5.2.2. Keys stored in the PSE directory
+       --------------------------------
+The RSA and ECC key created in the menu "PKI" are stored in the directory
+PSE (the keys of the classic methods are not permanently stored).
+From version 1.4.20 a user-specific directory is used as PSE directory
+(not the actual installation directory any more), to avoid access problems
+im multi-user environments.
+So CrypTool accesses its asymmetric keys and certificates by default from
+the user-application directory. When a user calls CrypTool the first time,
+it determines this directory using the environment variable APPDATA, and
+then the CrypTool programm directory pse\ is copied completely into the
+user-application directory. These user-individual keys have the following
+benefits
+- there is no need anymore for write access to parts of the program directory,
+- most (all) read and write problems in multi-user environments should be
+  solved so [see chapter 5.5.b)], and
+- when a new installation is done, the user-individual keys are not overwritten.
+
+You can enforce the old behavior if you set the registry entry
+HKEY_CURRENT_USER\Software\CrypTool\Settings\UserKeyStore\UseUserKeyStore
+to the value ‘0’ (this registry variable is visible after the first call of
+CrypTool).
+
+
+5.3. Installation under multi-user operating systems
      -----------------------------------------------
 In multi-user systems like Windows XP the administrator has full
 access to the whole file system; the other users are normally
@@ -1421,7 +1457,7 @@ are on your disk by entering in the Windows Explorer %ALLUSERSPROFILE% or
 %userprofile%.
 
 
-5.3. De-installation of CrypTool
+5.4. De-installation of CrypTool
      ---------------------------
 To de-install use the "Start" menu entry in the windows task bar.
 Go for "All programs" \ "CrypTool".
@@ -1434,13 +1470,11 @@ After rebooting the system the JAR file and the whole directory can be
 deleted.
 
 
-5.4. Operating under multi-user operating systems
+5.5. Operating under multi-user operating systems
      --------------------------------------------
-a) All user-specific parameters are stored in the local registry
-   (including the files lastly opened): So no ini-file in the
-   Windows directory is needed any more and operating for multi-users
-   is supported. 
-
+a) All user-specific parameters are stored in the local user-specific registry
+   (including the files lastly opened or the algorithm options you changed):
+   
 b) If the user wants to create (or change) files from within CrypTool in
    multi-user systems like Windows XP, then he needs writing access for
    the appropriate target directory (or for the appropriate files). 
@@ -1830,24 +1864,24 @@ Version   Date		Size of Windows Setup  Needed Size  Released
 1.3.05    Aug. 2003	 8.2 MB       8.6 MB	-            DB
 1.4.00    July 2006	18.2 MB      18.4 MB	-            DB
 1.4.10    July 2007	26.7 MB	     27.5 MB	47 MB        DB
-1.4.20    June 2008	36.0 MB	     36.7 MB	71 MB        DB
+1.4.20    July 2008	36.0 MB	     36.7 MB	71 MB        DB
 
 Remarks about the versions:
-1.3.02    Many new functions compared to 1.3.00.
-1.3.03    Many minor bug fixes and documentation improvements.
-1.3.04    Some new functionality, some minor bug fixes, and major
-          documentation improvements and enhancements (online help, script).
-1.3.05    Some minor bug fixes.
+1.3.02   Many new functions compared to 1.3.00.
+1.3.03   Many minor bug fixes and documentation improvements.
+1.3.04   Some new functionality, some minor bug fixes, and major
+         documentation improvements and enhancements (online help, script).
+1.3.05   Some minor bug fixes.
 1.4.00 Beta10  Dec. 2005  First public beta of version 1.4.00.
 1.4.00 Beta12  Mar. 2006  Second public beta of version 1.4.00.
 1.4.00 Beta14  July 2006  Third public beta of version 1.4.00.
-1.4.00    Many new functions compared to 1.3.05.
+1.4.00   Many new functions compared to 1.3.05.
 1.4.10 Beta04  May  2007  First public beta of version 1.4.10.
 1.4.10 Beta06  July 2007  Second public beta of version 1.4.10.
-1.4.10    Set of functions and online help heavily enhanced compared to 1.4.00.
+1.4.10   Set of functions and online help heavily enhanced compared to 1.4.00.
 1.4.20-Beta03  May  2008  First public beta of version 1.4.20.
-1.4.20     Set of functions and online help enhanced compared to 1.4.10;
-           Mostly fine tuning and code stabilization.
+1.4.20    Set of functions and online help enhanced compared to 1.4.10;
+          Mostly fine tuning and code stabilization (quality release).
 
 
 
