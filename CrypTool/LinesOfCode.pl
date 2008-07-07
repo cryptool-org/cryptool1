@@ -31,7 +31,7 @@ my @fileTypes = (
     "Perl code" => "pl",
     "HTML code" => "html hpp",
     "Text files" => "txt",
-    "LaTex code" => "tex",
+    "LaTeX code" => "tex",
 );
 my %fileTypes = @fileTypes; 
 my @fileTypesKeys = @fileTypes[grep { $_ % 2 == 0 } (0 .. $#fileTypes)];
