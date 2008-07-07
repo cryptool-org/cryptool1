@@ -19,7 +19,7 @@
 session are saved in the Windows registry.</P>
 
 <P>If you start CrypTool for the first time, the dialog <a href="hidd_tipps_and_tricks.html">How to start</a> 
-appears. If you don't want to see this dialog in the future, you can use the check bix <B>Don't 
+appears. If you don't want to see this dialog in the future, you can use the check box <B>Don't 
 show this dialog again</B>. This way the registry variable <B>NoTipps</B> is set to zero, and 
 the dialog is not shown anymore when CrypTool is started.</P>
 
@@ -28,7 +28,7 @@ the dialog is not shown anymore when CrypTool is started.</P>
 <P>Below it is shown how you can access the Windows registry, and the various CrypTool options 
 are explained.</P>
 
-<P><U><B>Access to the Windows registry</B></U></P>
+<P><B>Access to the Windows registry</B></U></P>
 
 <P><B>Please note:</B> The windows registry contains critical data. Alteration can lead to 
 instabilites of the operating system or the applications.</P>
@@ -45,7 +45,7 @@ You can change the value of this variable using the right mouse button (reasonab
 <B>In the following, the registry values used by CrypTool are listed as well as their default 
 settings and their range of values:</B>
 
-<P><U><B><a href="hid_hill.html">Hill encryption algorithm</a></B></U></P>
+<P><U><B><a href="hid_hill.html">1. Hill encryption algorithm</a></B></U></P>
 
 <P><B>OrdChrOffset</B> (<B>0</B> or <B>1</B>, default = <B>0</B>):</P>
 <UL>
@@ -69,7 +69,7 @@ Uses the user-defined alphabet character for padding the Hill clear text before 
 </UL>
 
 
-<P><U><B><a href="dh-verfahren.html">Diffie-Hellman Key Exchange Protocol</a></B></U></P>
+<P><U><B><a href="dh-verfahren.html">2. Diffie-Hellman Key Exchange Protocol</a></B></U></P>
 
 <P><B>ShowIntro</B> (<B>0</B> or <B>1</B>, default = <B>1</B>):</P>
 <UL>
@@ -84,7 +84,7 @@ Uses the user-defined alphabet character for padding the Hill clear text before 
 </UL>
 
 
-<P><U><B><a href="hidd_signature_attack.html">Attack on the hash value of the digital signature</a></B></U></P>
+<P><U><B><a href="hidd_signature_attack.html">3. Attack on the hash value of the digital signature</a></B></U></P>
 
 <P><B>HashAlgorithmID</B> (<B>0</B> to <B>5</B>, default = <B>0</B>):</P>
 <UL>
@@ -148,7 +148,7 @@ Path of the vicious file.</P>
 </UL>
 
 
-<P><U><B><a href="hidd_password_guidelines.html">Password Guidelines</a></B></U></P>
+<P><U><B><a href="hidd_password_guidelines.html">4. Password Guidelines</a></B></U></P>
 
 <P><B>MinimumLength</B> (Number, default = <B>8</B>): Minimum password length.</P>
 
@@ -159,7 +159,7 @@ Path of the vicious file.</P>
 <P><B>SpecialGroup</B> (String, default = <B>^&deg;!&quot;&sect;$%&amp;/()=?&acute;`\&lt;&gt;|,;:.-_#'+*~@</B>): Special character set.</P>
 
 
-<P><U><B><a href="hid_zufall_generatoren.html">Generation of Random Numbers</a></B></U></P>
+<P><U><B><a href="hid_zufall_generatoren.html">5. Generation of Random Numbers</a></B></U></P>
 
 <P><B>GenerateBytes</B> (Number, default = <B>2500</B>): Length of the random output in byte.</P>
 
@@ -171,7 +171,13 @@ Path of the vicious file.</P>
 
 <P><B>RandSeed</B> (String, default = <B>314159</B>): Seed for initializing the number generators.</P>
 
-<P><B>SelGenerator</B> (Number between <B>0</B> and <B>4</B>, default = <B>1</B>): TODO</P>
+<P><B>SelGenerator</B> (Number between <B>0</B> and <B>3</B>, default = <B>0</B>):
+<UL>
+<LI><B>0</B>: Secude Library random number generator.</LI>
+<LI><B>1</B>: X^2(mod N) random number generator.</LI>
+<LI><B>2</B>: Linear Congruence Generator (LCG).</LI>
+<LI><B>3</B>: Inverse Congruence Generator (ICG).</LI>
+</UL>
 
 <P><B>Paramaters of the pseudorandom number generators</B></P>
 <UL>
@@ -185,7 +191,7 @@ Path of the vicious file.</P>
 </UL>
 
 
-<P><U><B><a href="hid_individual_procedures_secretsharing.html">Secret Sharing Demonstration</a></B></U></P>
+<P><U><B><a href="hid_individual_procedures_secretsharing.html">6. Secret Sharing Demonstration</a></B></U></P>
 
 <P><B>ShowIntro</B> (<B>0</B> or <B>1</B>, default = <B>1</B>):</P>
 <UL>
@@ -194,14 +200,14 @@ Path of the vicious file.</P>
 </UL>
 
 
-<P><U><B><a href="hid_einzelverfahren_sidechannelattack_on_hybridencryption.html">Side-channel attack against "Textbook-RSA"</a></B></U></P>
+<P><U><B><a href="hid_einzelverfahren_sidechannelattack_on_hybridencryption.html">7. Side-channel attack against "Textbook-RSA"</a></B></U></P>
 
 <P><B>BitlengthSecret</B> (Number, default = <B>128</B>): Bit length of the RSA-encrypted secret.</P>
 
 <P><B>Keyword</B> (String, default = <B>Alice</B>): Keyword used to recognize successful decryptions.</P>
 
 
-<P><U><B><a href="hid_permutation_asc.html">Encryption by Permutation</a></B></U></P>
+<P><U><B><a href="hid_permutation_asc.html">8. Encryption by Permutation</a></B></U></P>
 
 <P><B>ShowPermutationKey</B> (<B>0</B> or <B>1</B>, default = <B>1</B>):</P>
 <UL>
@@ -210,7 +216,7 @@ Path of the vicious file.</P>
 </UL>
 
 
-<P><U><B><a href="hid_indiv_crt_secretsharing.html">Secret Sharing by CRT</a></B></U></P>
+<P><U><B><a href="hid_indiv_crt_secretsharing.html">9. Secret Sharing by CRT</a></B></U></P>
 
 <P><B>ShowIntro</B> (<B>0</B> or <B>1</B>, default = <B>1</B>):</P>
 <UL>
@@ -219,7 +225,7 @@ Path of the vicious file.</P>
 </UL>
 
 
-<P><U><B><a href="hid_encrypt_adfgvx.html">ADFGVX encryption</a></B></U></P>
+<P><U><B><a href="hid_encrypt_adfgvx.html">10. ADFGVX encryption</a></B></U></P>
 
 <P><B>ShowIntro</B> (<B>0</B> or <B>1</B>, default = <B>1</B>):</P>
 <UL>
@@ -228,7 +234,7 @@ Path of the vicious file.</P>
 </UL>
 
 
-<P><U><B><a href="hid_options_startoptions.html">Starting options</a></B></U></P>
+<P><U><B><a href="hid_options_startoptions.html">11. Starting options</a></B></U></P>
 
 <P><B>NoTipps</B> (<B>0</B> or <B>1</B>, default = <B>1</B>):</P>
 <UL>

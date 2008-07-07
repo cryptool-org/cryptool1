@@ -18,7 +18,7 @@
 <P>Die Default-Einstellungen für einige in CrypTool benutzte Optionen, die eine Sitzung 
 überdauern sollen (Persistenz), werden in der Windows-Registry abgespeichert.</P>
 
-<P>Wenn Sie CrypTool zum ersten Mal aufrufen, erscheint der Dialog 
+<P>Wenn Sie CrypTool zum ersten Mal aufrufen erscheint der Dialog 
 <a href="hidd_tipps_and_tricks.html">Wie Sie starten</a>. Wenn Sie diesen Dialog zukünftig nicht 
 mehr sehen wollen, können Sie die Checkbox <B>Diesen Dialog in Zukunft nicht mehr anzeigen</B> 
 benutzen. Dadurch wird in der Registry die Variable <B>NoTipps</B> auf null gesetzt, sodass der 
@@ -29,7 +29,7 @@ Dialog beim Starten nicht mehr angezeigt wird.</P>
 <P>Im Folgenden wird beschrieben, wie Sie auf die Windows-Registry zugreifen können. Darüber 
 hinaus werden die einzelnen CrypTool-Parameter kurz erklärt.</P>
 
-<P><U><B>Zugriff auf die Windows-Registry</B></U></P>
+<P><B>Zugriff auf die Windows-Registry</B></U></P>
 
 <P><B>Bitte beachten Sie:</B> Die Windows-Registry enthält kritische Informationen, deren 
 Änderung zu Instabilitäten des Betriebssystems oder von Anwendungen führen kann.</P>
@@ -47,7 +47,7 @@ Den Wert der Variablen können Sie mit der rechten Maustaste verändern (sinnvoll 
 Default-Einstellungen und Wertebereiche beschrieben:</P>
 
 
-<P><U><B><a href="hid_hill.html">Hill-Verschlüsselungsverfahren</a></B></U></P>
+<P><U><B><a href="hid_hill.html">1. Hill-Verschlüsselungsverfahren</a></B></U></P>
 
 <P><B>OrdChrOffset</B> (<B>0</B> oder <B>1</B>, Default = <B>0</B>):</P>
 <UL>
@@ -72,7 +72,7 @@ vor der eigentlichen Hill-Verschlüsselung.</P>
 </UL>
 
 
-<P><U><B><a href="dh-verfahren.html">Diffie-Hellman-Schlüsselaustauschverfahren</a></B></U></P>
+<P><U><B><a href="dh-verfahren.html">2. Diffie-Hellman-Schlüsselaustauschverfahren</a></B></U></P>
 
 <P><B>ShowIntro</B> (<B>0</B> oder <B>1</B>, Default = <B>1</B>):</P>
 <UL>
@@ -87,7 +87,7 @@ vor der eigentlichen Hill-Verschlüsselung.</P>
 </UL>
 
 
-<P><U><B><a href="hidd_signature_attack.html">Angriff auf den Hashwert der digitalen Signatur</a></B></U></P>
+<P><U><B><a href="hidd_signature_attack.html">3. Angriff auf den Hashwert der digitalen Signatur</a></B></U></P>
 
 <P><B>HashAlgorithmID</B> (<B>0</B> bis <B>5</B>, Default = <B>0</B>):</P>
 <UL>
@@ -152,7 +152,7 @@ Dateipfad des gefährlichen Dokuments.</P>
 </UL>
 
 
-<P><U><B><a href="hidd_password_guidelines.html">Passwort-Richtlinien</a></B></U></P>
+<P><U><B><a href="hidd_password_guidelines.html">4. Passwort-Richtlinien</a></B></U></P>
 
 <P><B>MinimumLength</B> (Zahl, Default = <B>8</B>): Minimale Passwortlänge.</P>
 
@@ -163,7 +163,7 @@ Dateipfad des gefährlichen Dokuments.</P>
 <P><B>SpecialGroup</B> (Zeichenkette, Default = <B>^&deg;!&quot;&sect;$%&amp;/()=?&acute;`\&lt;&gt;|,;:.-_#'+*~@</B>): Zeichensatz der Sonderzeichen.</P>
 
 
-<P><U><B><a href="hid_zufall_generatoren.html">Zufallsdaten erzeugen</a></B></U></P>
+<P><U><B><a href="hid_zufall_generatoren.html">5. Zufallsdaten erzeugen</a></B></U></P>
 
 <P><B>GenerateBytes</B> (Zahl, Default = <B>2500</B>): Länge der Zufallsausgabe in Bytes.</P>
 
@@ -175,7 +175,13 @@ Dateipfad des gefährlichen Dokuments.</P>
 
 <P><B>RandSeed</B> (Zeichenkette, Default = <B>314159</B>): Saat für die Initialisierung der Pseudozufallsgeneratoren.</P>
 
-<P><B>SelGenerator</B> (Zahl zwischen <B>0</B> und <B>4</B>, Default = <B>1</B>): TODO</P>
+<P><B>SelGenerator</B> (Zahl zwischen <B>0</B> und <B>3</B>, Default = <B>0</B>):
+<UL>
+<LI><B>0</B>: Zufallsgenerator der Secude-Bibliothek.</LI>
+<LI><B>1</B>: X^2(mod N) Zufallsgenerator.</LI>
+<LI><B>2</B>: Linearer Kongruenz Generator (LCG).</LI>
+<LI><B>3</B>: Inverser Kongruenz Generator (ICG).</LI>
+</UL>
 
 <P><B>Pseudozufallsgeneratorspezifische Parameter</B></P>
 <UL>
@@ -189,7 +195,7 @@ Dateipfad des gefährlichen Dokuments.</P>
 </UL>
 
 
-<P><U><B><a href="hid_individual_procedures_secretsharing.html">Secret-Sharing-Demo</a></B></U></P>
+<P><U><B><a href="hid_individual_procedures_secretsharing.html">6. Secret-Sharing-Demo</a></B></U></P>
 
 <P><B>ShowIntro</B> (<B>0</B> oder <B>1</B>, Default = <B>1</B>):</P>
 <UL>
@@ -198,14 +204,14 @@ Dateipfad des gefährlichen Dokuments.</P>
 </UL>
 
 
-<P><U><B><a href="hid_einzelverfahren_sidechannelattack_on_hybridencryption.html">Seitenkanalangriff auf "Textbook-RSA"</a></B></U></P>
+<P><U><B><a href="hid_einzelverfahren_sidechannelattack_on_hybridencryption.html">7. Seitenkanalangriff auf "Textbook-RSA"</a></B></U></P>
 
 <P><B>BitlengthSecret</B> (Zahl, Default = <B>128</B>): Bitlänge des RSA-verschlüsselten Geheimnisses.</P>
 
 <P><B>Keyword</B> (Zeichenkette, Default = <B>Alice</B>): Schlüsselwort, durch das eine korrekte Entschlüsselung identifiziert wird.</P>
 
 
-<P><U><B><a href="hid_permutation_asc.html">Verschlüsselung durch Permutation</a></B></U></P>
+<P><U><B><a href="hid_permutation_asc.html">8. Verschlüsselung durch Permutation</a></B></U></P>
 
 <P><B>ShowPermutationKey</B> (<B>0</B> oder <B>1</B>, Default = <B>1</B>):</P>
 <UL>
@@ -214,7 +220,7 @@ Dateipfad des gefährlichen Dokuments.</P>
 </UL>
 
 
-<P><U><B><a href="hid_indiv_crt_secretsharing.html">Secret Sharing mittels CRT</a></B></U></P>
+<P><U><B><a href="hid_indiv_crt_secretsharing.html">9. Secret Sharing mittels CRT</a></B></U></P>
 
 <P><B>ShowIntro</B> (<B>0</B> oder <B>1</B>, Default = <B>1</B>):</P>
 <UL>
@@ -223,7 +229,7 @@ Dateipfad des gefährlichen Dokuments.</P>
 </UL>
 
 
-<P><U><B><a href="hid_encrypt_adfgvx.html">ADFGVX-Verschlüsselung</a></B></U></P>
+<P><U><B><a href="hid_encrypt_adfgvx.html">10. ADFGVX-Verschlüsselung</a></B></U></P>
 
 <P><B>ShowIntro</B> (<B>0</B> oder <B>1</B>, Default = <B>1</B>):</P>
 <UL>
@@ -232,7 +238,7 @@ Dateipfad des gefährlichen Dokuments.</P>
 </UL>
 
 
-<P><U><B><a href="hid_options_startoptions.html">Startoptionen</a></B></U></P>
+<P><U><B><a href="hid_options_startoptions.html">11. Startoptionen</a></B></U></P>
 
 <P><B>NoTipps</B> (<B>0</B> oder <B>1</B>, Default = <B>1</B>):</P>
 <UL>
