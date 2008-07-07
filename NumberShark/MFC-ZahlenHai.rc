@@ -1445,7 +1445,7 @@ BEGIN
     IDS_MAX_POINTS_INFORMATION 
                             "The highest attainable score at %s numbers is %s.\r\n\r\nWe can show you the highest possible score, because this value has already been calculated and is stored in the program.\r\n\r\nHint:\r\nThe highest prime with %s numbers is %s. You have to start the game with this prime to be able to reach the maximum score.\r\n\r\nDo you want to see an optimal way to achieve this score?\r\n"
     IDS_QUESTION            "\r\nDo you want the program to calculate the highest possible score?\r\n"
-    IDS_WARNING             "%s numbers... This will take a long time.\r\n\r\nFor 20 numbers, a 3 GHz PC had to calculate about 9 hours.\r\nFor 20 numbers the calculation took about 9 days. And we think for 30 numbers it will take weeks or months.\r\n\r\nIf you get some new results for %s numbers, we would appreciate it if you could send them to us.\r\n\r\nDo you really want the calculation to be performed now?\r\n"
+    IDS_WARNING             "%s numbers... This will take a long time.\r\n\r\nFor 20 numbers, a 3 GHz PC had to calculate about 9 hours.\r\nFor 22 numbers the calculation took about 9 days. And we think for 30 numbers it will take weeks or months.\r\n\r\nIf you get some new results for %s numbers, we would appreciate it if you could send them to us.\r\n\r\nDo you really want the calculation to be performed now?\r\n"
     IDS_INVALID_INPUT       "In the Number Shark game you can/r/nplay with numbers between 1 and %s!"
 END
 
