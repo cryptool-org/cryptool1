@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -11932,18 +11932,18 @@ BEGIN
     IDS_PSE_FILESTRUCT_COULD_NOT_COPY_PSE 
                             "The keystore files could not be copied.\nPlease check the access rights of\n%s."
     IDS_PSE_FILESTRUCT_NO_APPLICATION_DATA_PATH 
-                            "The environment APPDATA does not exist.\nPlease define this environment variable."
+                            "The environment variable APPDATA does not exist.\nPlease define this variable."
     IDS_PSE_FILES_READONLY  "The keystore files are read only.\nPlease check the access rights of\n%s."
     IDS_PSE_FILESTRUCT_TRY_TO_REWRITE_PSE 
-                            "The user key filestructure at the path\n%s\nseems corrupted!\n\nShould CrypTool try to re-write this filestructure (yes/cancel)?\n\nPlease note: In case of re-write old keys are not usable anymore!\nFor further informationen please refer to the CrypTool readme."
+                            "The user key file structure at the path\n%s\nseems to be corrupted!\n\nShould CrypTool try to re-write this file structure?\n\nPlease note: In case of re-write old keys are not usable anymore!\nFor further information please refer to the CrypTool readme."
 END
 
-#endif    // Polish resources
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -15929,7 +15929,7 @@ BEGIN
                     ES_READONLY
 END
 
-IDD_ADFGVX DIALOGEX 0, 0, 265, 422
+IDD_ADFGVX DIALOGEX 0, 0, 265, 466
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Schlüsseleingabe: ADFGVX"
@@ -16007,14 +16007,14 @@ BEGIN
                     ES_AUTOHSCROLL
     EDITTEXT        IDC_M55,100,102,12,12,ES_CENTER | ES_UPPERCASE | 
                     ES_AUTOHSCROLL
-    PUSHBUTTON      "Standardmatrix",IDC_MATRIX_STANDARD,17,133,53,19
-    PUSHBUTTON      "Zufallsmatrix",IDC_MATRIX_SHUFFLE,76,133,49,19
+    PUSHBUTTON      "Standardmatrix",IDC_MATRIX_STANDARD,17,132,53,20
+    PUSHBUTTON      "Zufallsmatrix",IDC_MATRIX_SHUFFLE,76,132,53,20
     CONTROL         "Paste",IDC_BUTTON_INSERT_KEY,"Button",BS_OWNERDRAW | 
-                    WS_TABSTOP,227,261,22,18
-    EDITTEXT        IDC_TEXTFIELD_PASSWORD,16,187,233,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "Verschlüsseln",IDC_BUTTON_ENCRYPT,7,397,66,18
-    PUSHBUTTON      "Entschlüsseln",IDC_BUTTON_DECRYPT,80,397,66,18
-    PUSHBUTTON      "Abbrechen",IDC_CANCEL,192,397,66,18
+                    WS_TABSTOP,227,300,22,18
+    EDITTEXT        IDC_TEXTFIELD_PASSWORD,16,219,233,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Verschlüsseln",IDC_BUTTON_ENCRYPT,7,441,66,18
+    PUSHBUTTON      "Entschlüsseln",IDC_BUTTON_DECRYPT,80,441,66,18
+    PUSHBUTTON      "Abbrechen",IDC_CANCEL,192,441,66,18
     CTEXT           "A",IDC_STATIC,40,30,12,12
     CTEXT           "D",IDC_STATIC,52,30,11,10
     CTEXT           "F",IDC_STATIC,64,30,11,10
@@ -16027,45 +16027,47 @@ BEGIN
     CTEXT           "G",IDC_STATIC,28,78,11,10
     CTEXT           "V",IDC_STATIC,28,90,11,10
     CTEXT           "X",IDC_STATIC,28,102,11,10
-    GROUPBOX        "Substitutionsmatrix",IDC_STATIC,16,18,111,108
-    GROUPBOX        "Stufe 2: Transposition",IDC_STATIC,7,166,251,88
+    GROUPBOX        "Substitutionsmatrix",IDC_STATIC,16,18,113,108
+    GROUPBOX        "Stufe 2: Transposition",IDC_STATIC,7,166,251,125
     LTEXT           "Die Substitutionsmatrix ersetzt jeden Klartext- buchstaben durch ein Paar aus den Buchstaben A,D,F,G,V und X.\n\nDie Matrix muss jeden Buchstaben A-Z sowie jede Ziffer 0-9 genau einmal enthalten.",
                     IDC_STATIC,149,30,90,90
-    GROUPBOX        "",IDC_STATIC,137,18,112,108
+    GROUPBOX        "",IDC_STATIC,136,18,113,108
     GROUPBOX        "Stufe 1: Substitution",IDC_STATIC,7,7,251,153
-    LTEXT           "Transpositionspasswort",IDC_STATIC,16,176,76,8
-    GROUPBOX        "Ausgabeoptionen",IDC_STATIC,7,279,251,112
+    LTEXT           "Transpositionspasswort",IDC_STATIC,16,208,76,8
+    GROUPBOX        "Ausgabeoptionen",IDC_STATIC,7,323,251,112
     CONTROL         "Zwischenergebnis ausgeben",IDC_CHECK_OUTPUT,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,27,340,106,10
-    EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE2,221,299,21,14,ES_CENTER | 
+                    BS_AUTOCHECKBOX | WS_TABSTOP,27,384,106,10
+    EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE2,221,343,21,14,ES_CENTER | 
                     ES_AUTOHSCROLL | ES_NUMBER | WS_DISABLED
-    LTEXT           "Blocklänge (1-26):",IDC_STATIC,160,302,59,8
-    EDITTEXT        IDC_TEXTFIELD_NUMBERS,16,212,233,14,ES_AUTOHSCROLL | 
+    LTEXT           "Blocklänge (1-26):",IDC_STATIC,160,346,59,8
+    EDITTEXT        IDC_TEXTFIELD_NUMBERS,16,246,233,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    LTEXT           "Reihenfolge der Spalten",IDC_STATIC,16,203,78,8
-    EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE1,221,350,21,14,ES_CENTER | 
+    LTEXT           "Reihenfolge der Spalten",IDC_STATIC,16,235,78,8
+    EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE1,221,394,21,14,ES_CENTER | 
                     ES_AUTOHSCROLL | ES_NUMBER | WS_DISABLED
-    LTEXT           "Blocklänge (1-26):",IDC_STATIC,160,353,59,8
+    LTEXT           "Blocklänge (1-26):",IDC_STATIC,160,397,59,8
     CONTROL         "Zusätzlicher Zeilenumbruch nach jedem Block",
                     IDC_CHECK_NEWLINE_STAGE2,"Button",BS_AUTOCHECKBOX | 
-                    WS_DISABLED | WS_TABSTOP,27,313,159,10
+                    WS_DISABLED | WS_TABSTOP,27,357,159,10
     CONTROL         "Zusätzlicher Zeilenumbruch nach jedem Block",
                     IDC_CHECK_NEWLINE_STAGE1,"Button",BS_AUTOCHECKBOX | 
-                    WS_DISABLED | WS_TABSTOP,27,367,159,10
-    PUSHBUTTON      "Matrix leeren",IDC_ERASEMATRIX,138,133,53,19
+                    WS_DISABLED | WS_TABSTOP,27,411,159,10
+    PUSHBUTTON      "Matrix leeren",IDC_ERASEMATRIX,136,132,53,20
     GROUPBOX        "Endergebnis: Ciphertext nach Stufe 2",
-                    IDC_BOX_OUT_STAGE2,16,291,233,36
+                    IDC_BOX_OUT_STAGE2,16,335,233,36
     CONTROL         "Leerzeichen zwischen den Blöcken",
                     IDC_CHECK_BLOCK_STAGE2,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,27,301,125,10
+                    WS_TABSTOP,27,345,125,10
     GROUPBOX        "Zwischenergebnis: Ciphertext nach Stufe 1",IDC_STATIC,
-                    16,331,233,51
+                    16,375,233,51
     CONTROL         "Leerzeichen zwischen den Blöcken",
                     IDC_CHECK_BLOCK_STAGE1,"Button",BS_AUTOCHECKBOX | 
-                    WS_DISABLED | WS_TABSTOP,27,352,125,10
-    PUSHBUTTON      "Zeichenkette eingeben",IDC_BUTTON_STRINGBOX,196,133,53,
-                    19,BS_MULTILINE
-    PUSHBUTTON      "Textoptionen",IDC_BUTTON_TEXT_OPTIONS,16,230,233,18
+                    WS_DISABLED | WS_TABSTOP,27,396,125,10
+    PUSHBUTTON      "Zeichenkette eingeben",IDC_BUTTON_STRINGBOX,196,132,53,
+                    20,BS_MULTILINE
+    PUSHBUTTON      "Textoptionen",IDC_BUTTON_TEXT_OPTIONS,16,265,233,18
+    LTEXT           "Für das Transpositionspasswort werden bei der Verschlüsselung nur die Zeichen verwendet, die im eingestellten Alphabet (siehe Textoptionen) vorhanden sind.",
+                    IDC_STATIC,16,178,233,24
 END
 
 IDD_ADFGVX_MANUAL DIALOGEX 0, 0, 262, 350
@@ -21190,17 +21192,10 @@ BEGIN
 
     IDD_ADFGVX, DIALOG
     BEGIN
-        VERTGUIDE, 7
-        VERTGUIDE, 16
-        VERTGUIDE, 125
-        VERTGUIDE, 138
-        VERTGUIDE, 160
-        VERTGUIDE, 242
-        VERTGUIDE, 249
-        VERTGUIDE, 258
-        HORZGUIDE, 133
-        HORZGUIDE, 152
-        HORZGUIDE, 397
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 258
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 459
     END
 
     IDD_ADFGVX_MANUAL, DIALOG
@@ -24069,15 +24064,15 @@ BEGIN
                             "Die Umgebungsvariable APPDATA existiert nicht.\nBitte definieren Sie diese Variable."
     IDS_PSE_FILES_READONLY  "Die Dateien im Schlüsselspeicher können nicht geschrieben werden.\nBitte überprüfen Sie die Zugriffsrechte im Verzeichnis\n%s."
     IDS_PSE_FILESTRUCT_TRY_TO_REWRITE_PSE 
-                            "Die Dateistruktur Ihrer Benutzer-Schlüssel im Pfad \n%s\nscheint fehlerhaft zu sein!\n\nSoll CrypTool versuchen, die Datenstruktur neu zu schreiben\n\nBitte beachten Sie, dass beim Neu-Schreiben bisherige Schlüssel nicht mehr nutzbar sind!\nWeitere Informationen zum Schlüsselspeicher finden Sie im CrypTool-Readme."
+                            "Die Dateistruktur Ihrer Benutzer-Schlüssel im Pfad \n%s\nscheint fehlerhaft zu sein!\n\nSoll CrypTool versuchen, die Datenstruktur neu zu schreiben?\n\nBitte beachten Sie, dass beim Neu-Schreiben bisherige Schlüssel nicht mehr nutzbar sind!\nWeitere Informationen zum Schlüsselspeicher finden Sie im CrypTool-Readme."
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -27999,7 +27994,7 @@ BEGIN
                     ES_READONLY
 END
 
-IDD_ADFGVX DIALOGEX 0, 0, 266, 431
+IDD_ADFGVX DIALOGEX 0, 0, 265, 466
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Key Entry: ADFGVX"
@@ -28077,17 +28072,17 @@ BEGIN
                     ES_AUTOHSCROLL
     EDITTEXT        IDC_M55,100,102,12,12,ES_CENTER | ES_UPPERCASE | 
                     ES_AUTOHSCROLL
-    PUSHBUTTON      "Standard matrix",IDC_MATRIX_STANDARD,17,134,53,19,
+    PUSHBUTTON      "Standard matrix",IDC_MATRIX_STANDARD,17,132,53,20,
                     BS_MULTILINE
-    PUSHBUTTON      "Random matrix",IDC_MATRIX_SHUFFLE,74,134,53,19,
+    PUSHBUTTON      "Random matrix",IDC_MATRIX_SHUFFLE,76,132,53,20,
                     BS_MULTILINE
-    PUSHBUTTON      "Erase matrix",IDC_ERASEMATRIX,133,134,53,19
+    PUSHBUTTON      "Erase matrix",IDC_ERASEMATRIX,136,132,53,20
     CONTROL         "Paste",IDC_BUTTON_INSERT_KEY,"Button",BS_OWNERDRAW | 
-                    WS_TABSTOP,219,264,20,18
-    EDITTEXT        IDC_TEXTFIELD_PASSWORD,17,189,232,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "Encrypt",IDC_BUTTON_ENCRYPT,10,405,66,18
-    PUSHBUTTON      "Decrypt",IDC_BUTTON_DECRYPT,85,405,66,18
-    PUSHBUTTON      "Cancel",IDC_CANCEL,191,405,66,18
+                    WS_TABSTOP,227,300,22,18
+    EDITTEXT        IDC_TEXTFIELD_PASSWORD,16,219,233,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Encrypt",IDC_BUTTON_ENCRYPT,7,441,66,18
+    PUSHBUTTON      "Decrypt",IDC_BUTTON_DECRYPT,80,441,66,18
+    PUSHBUTTON      "Cancel",IDC_CANCEL,192,441,66,18
     CTEXT           "A",IDC_STATIC,40,30,12,12
     CTEXT           "D",IDC_STATIC,52,30,11,10
     CTEXT           "F",IDC_STATIC,64,30,11,10
@@ -28100,44 +28095,46 @@ BEGIN
     CTEXT           "G",IDC_STATIC,28,78,11,10
     CTEXT           "V",IDC_STATIC,28,90,11,10
     CTEXT           "X",IDC_STATIC,28,102,11,10
-    GROUPBOX        "Substitution matrix",IDC_STATIC,17,18,110,108
-    GROUPBOX        "Step 2: Transposition",IDC_STATIC,10,168,247,88
+    GROUPBOX        "Substitution matrix",IDC_STATIC,16,18,113,108
+    GROUPBOX        "Step 2: Transposition",IDC_STATIC,7,166,251,125
     LTEXT           "The substitution matrix replaces each plaintext letter by a pair of the letters A,D,F,G,V,X.\n\nThe matrix must contain each letter A-Z and each cipher 0-9 exactly once. ",
-                    IDC_STATIC,148,30,90,90
-    GROUPBOX        "",IDC_STATIC,135,18,114,108
-    GROUPBOX        "Step 1: Substitution",IDC_STATIC,10,7,247,153
-    LTEXT           "Transposition password",IDC_STATIC,17,178,76,8
-    EDITTEXT        IDC_TEXTFIELD_NUMBERS,17,216,232,14,ES_AUTOHSCROLL | 
+                    IDC_STATIC,149,30,90,90
+    GROUPBOX        "",IDC_STATIC,136,18,113,108
+    GROUPBOX        "Step 1: Substitution",IDC_STATIC,7,7,251,153
+    LTEXT           "Transposition password",IDC_STATIC,16,208,76,8
+    EDITTEXT        IDC_TEXTFIELD_NUMBERS,16,246,233,14,ES_AUTOHSCROLL | 
                     ES_READONLY
-    LTEXT           "Column sequence",IDC_STATIC,17,205,57,8
-    GROUPBOX        "Output options",IDC_STATIC,10,284,247,112
+    LTEXT           "Column sequence",IDC_STATIC,16,235,57,8
+    GROUPBOX        "Output options",IDC_STATIC,7,323,251,112
     CONTROL         "Print out intermediate result",IDC_CHECK_OUTPUT,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,27,345,106,10
-    EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE2,218,304,21,14,ES_CENTER | 
+                    BS_AUTOCHECKBOX | WS_TABSTOP,27,384,106,10
+    EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE2,218,343,21,14,ES_CENTER | 
                     ES_AUTOHSCROLL | ES_NUMBER | WS_DISABLED
-    LTEXT           "Block length (1-26):",IDC_STATIC,151,307,64,8
-    EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE1,218,355,21,14,ES_CENTER | 
+    LTEXT           "Block length (1-26):",IDC_STATIC,151,346,64,8
+    EDITTEXT        IDC_EDIT_BLOCKSIZE_STAGE1,218,394,21,14,ES_CENTER | 
                     ES_AUTOHSCROLL | ES_NUMBER | WS_DISABLED
-    LTEXT           "Block length (1-26):",IDC_STATIC,151,358,63,8
+    LTEXT           "Block length (1-26):",IDC_STATIC,151,397,63,8
     CONTROL         "New line after each block",IDC_CHECK_NEWLINE_STAGE2,
                     "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,27,
-                    318,159,10
+                    357,159,10
     CONTROL         "New line after each block",IDC_CHECK_NEWLINE_STAGE1,
                     "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,27,
-                    372,159,10
-    GROUPBOX        "Result: Ciphertext after step 2",IDC_BOX_OUT_STAGE2,17,
-                    296,232,36
+                    411,159,10
+    GROUPBOX        "Result: Ciphertext after step 2",IDC_BOX_OUT_STAGE2,16,
+                    335,233,36
     CONTROL         "Separate output blocks by blanks",
                     IDC_CHECK_BLOCK_STAGE2,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,27,306,124,10
+                    WS_TABSTOP,27,345,124,10
     GROUPBOX        "Intermediate result: Ciphertext after step 1",
-                    IDC_STATIC,17,336,232,51
+                    IDC_STATIC,16,375,233,51
     CONTROL         "Separate output blocks by blanks",
                     IDC_CHECK_BLOCK_STAGE1,"Button",BS_AUTOCHECKBOX | 
-                    WS_DISABLED | WS_TABSTOP,27,357,124,10
-    PUSHBUTTON      "Enter string",IDC_BUTTON_STRINGBOX,196,134,53,19,
+                    WS_DISABLED | WS_TABSTOP,27,396,124,10
+    PUSHBUTTON      "Enter string",IDC_BUTTON_STRINGBOX,196,132,53,20,
                     BS_MULTILINE
-    PUSHBUTTON      "Textoptionen",IDC_BUTTON_TEXT_OPTIONS,16,234,233,18
+    PUSHBUTTON      "Text options",IDC_BUTTON_TEXT_OPTIONS,16,265,233,18
+    LTEXT           "The encryption only uses the characters of the transposition password that are part of the current alphabet (see text options).",
+                    IDC_STATIC,16,178,233,24
 END
 
 IDD_ADFGVX_MANUAL DIALOGEX 0, 0, 269, 351
@@ -33459,18 +33456,9 @@ BEGIN
 
     IDD_ADFGVX, DIALOG
     BEGIN
-        VERTGUIDE, 10
-        VERTGUIDE, 17
-        VERTGUIDE, 127
-        VERTGUIDE, 135
-        VERTGUIDE, 151
-        VERTGUIDE, 239
-        VERTGUIDE, 249
-        VERTGUIDE, 257
-        HORZGUIDE, 134
-        HORZGUIDE, 153
-        HORZGUIDE, 349
-        HORZGUIDE, 423
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 258
+        BOTTOMMARGIN, 459
     END
 
     IDD_ADFGVX_MANUAL, DIALOG
@@ -36281,13 +36269,13 @@ BEGIN
     IDS_PSE_FILESTRUCT_COULD_NOT_COPY_PSE 
                             "The keystore files could not be copied.\nPlease check the access rights of\n%s."
     IDS_PSE_FILESTRUCT_NO_APPLICATION_DATA_PATH 
-                            "The environment APPDATA does not exist.\nPlease define this environment variable."
+                            "The environment variable APPDATA does not exist.\nPlease define this variable."
     IDS_PSE_FILES_READONLY  "The keystore files are read only.\nPlease check the access rights of\n%s."
     IDS_PSE_FILESTRUCT_TRY_TO_REWRITE_PSE 
-                            "The user key filestructure at the path\n%s\nseems corrupted!\n\nShould CrypTool try to re-write this filestructure (yes/cancel)?\n\nPlease note: In case of re-write old keys are not usable anymore!\nFor further informationen please refer to the CrypTool readme."
+                            "The user key file structure at the path\n%s\nseems to be corrupted!\n\nShould CrypTool try to re-write this file structure?\n\nPlease note: In case of re-write old keys are not usable anymore!\nFor further information please refer to the CrypTool readme."
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
