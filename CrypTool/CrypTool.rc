@@ -18788,7 +18788,7 @@ BEGIN
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
             MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER
             MENUITEM "Passwort-&Entropie...",       ID_PASSWORDENTROPY
-            MENUITEM "&Textdokument formatieren...", 33366
+            MENUITEM "&Textdokument formatieren...", ID_FORMAT_TEXT_DOCUMENT
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -19660,7 +19660,7 @@ BEGIN
             MENUITEM "&Zufallsdaten erzeugen...",   ID_ZUFALL_GENERATOREN
             MENUITEM "&Passwort-Qualitätsmesser...", ID_PASSWORDQUALITYMETER
             MENUITEM "Passwort-&Entropie...",       ID_PASSWORDENTROPY
-            MENUITEM "&Textdokument formatieren...", 33366
+            MENUITEM "&Textdokument formatieren...", ID_FORMAT_TEXT_DOCUMENT
         END
         MENUITEM SEPARATOR
         POPUP "&Lernspiele"
@@ -30831,7 +30831,7 @@ BEGIN
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Password Quality Meter...",  ID_PASSWORDQUALITYMETER
             MENUITEM "Password &Entropy...",        ID_PASSWORDENTROPY
-            MENUITEM "&Format Text Document...",    33366
+            MENUITEM "&Format Text Document...",    ID_FORMAT_TEXT_DOCUMENT
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"
@@ -31695,7 +31695,7 @@ BEGIN
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Password Quality Meter...",  ID_PASSWORDQUALITYMETER
             MENUITEM "Password &Entropy...",        ID_PASSWORDENTROPY
-            MENUITEM "&Format Text Document...",    33366
+            MENUITEM "&Format Text Document...",    ID_FORMAT_TEXT_DOCUMENT
         END
         MENUITEM SEPARATOR
         POPUP "&Educational Games"

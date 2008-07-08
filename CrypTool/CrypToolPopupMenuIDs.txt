@@ -133,8 +133,8 @@ GERMAN Ansicht_Schriftart # &Ansicht|S&chriftart
 GERMAN PopUp # PopUp
 GERMAN Einzelverfahren_Tools # &Einzelverfahren|&Tools
 GERMAN Einzelverfahren_Tools_Codierungen # &Einzelverfahren|&Tools|C&odierungen
-GERMAN Einzelverfahren_Tools_Codierungen_Base64CodierungBase64Decodierung # &Einzelverfahren|&Tools|C&odierungen|&Base64-Codierung/Base64-Decodierung
-GERMAN Einzelverfahren_Tools_Codierungen_UUCodierungUUDecodierung # &Einzelverfahren|&Tools|C&odierungen|&UU-Codierung/UU-Decodierung
+GERMAN Einzelverfahren_Tools_Codierungen_Base64CodierungDecodierung # &Einzelverfahren|&Tools|C&odierungen|&Base64-Codierung/Decodierung
+GERMAN Einzelverfahren_Tools_Codierungen_UUCodierungDecodierung # &Einzelverfahren|&Tools|C&odierungen|&UU-Codierung/Decodierung
 GERMAN Einzelverfahren_Tools_Komprimieren # &Einzelverfahren|&Tools|&Komprimieren
 GERMAN Einzelverfahren_VisualisierungvonAlgorithmen # &Einzelverfahren|&Visualisierung von Algorithmen
 GERMAN Einzelverfahren_VisualisierungvonAlgorithmen_AES # &Einzelverfahren|&Visualisierung von Algorithmen|&AES
