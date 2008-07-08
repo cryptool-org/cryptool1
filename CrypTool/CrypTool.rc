@@ -11932,10 +11932,10 @@ BEGIN
     IDS_PSE_FILESTRUCT_COULD_NOT_COPY_PSE 
                             "The keystore files could not be copied.\nPlease check the access rights of\n%s."
     IDS_PSE_FILESTRUCT_NO_APPLICATION_DATA_PATH 
-                            "The environment APPDATA does not exist.\nPlease define this environment."
+                            "The environment APPDATA does not exist.\nPlease define this environment variable."
     IDS_PSE_FILES_READONLY  "The keystore files are read only.\nPlease check the access rights of\n%s."
     IDS_PSE_FILESTRUCT_TRY_TO_REWRITE_PSE 
-                            "The user key filestructure at the path\n%s\nseems corrupted!\n\nSchould CrypTool try to re-write this filestructure (yes/cancel)?\n\nPlease note: In case of re-write old keys are not usable anymore!\nFor further informationen please refer to the CrypTool readme."
+                            "The user key filestructure at the path\n%s\nseems corrupted!\n\nShould CrypTool try to re-write this filestructure (yes/cancel)?\n\nPlease note: In case of re-write old keys are not usable anymore!\nFor further informationen please refer to the CrypTool readme."
 END
 
 #endif    // Polish resources
@@ -24069,7 +24069,7 @@ BEGIN
                             "Die Umgebungsvariable APPDATA existiert nicht.\nBitte definieren Sie diese Variable."
     IDS_PSE_FILES_READONLY  "Die Dateien im Schlüsselspeicher können nicht geschrieben werden.\nBitte überprüfen Sie die Zugriffsrechte im Verzeichnis\n%s."
     IDS_PSE_FILESTRUCT_TRY_TO_REWRITE_PSE 
-                            "Die Dateistruktur Ihrer Benutzer Schlüssel im Pfad \n%s\nscheint fehlerhaft zu sein!\n\nSoll CrypTool versuchen die Datenstruktur neu zu schreiben\n\nBitte beachten Sie, dass beim neu-schreiben bisherige Schlüssel nicht mehr nutzbar sind!\nWeitere Informationen zum Schlüsselspeicher finden Sie im CrypTool Readme."
+                            "Die Dateistruktur Ihrer Benutzer-Schlüssel im Pfad \n%s\nscheint fehlerhaft zu sein!\n\nSoll CrypTool versuchen, die Datenstruktur neu zu schreiben\n\nBitte beachten Sie, dass beim Neu-Schreiben bisherige Schlüssel nicht mehr nutzbar sind!\nWeitere Informationen zum Schlüsselspeicher finden Sie im CrypTool-Readme."
 END
 
 #endif    // German (Germany) resources
@@ -36281,10 +36281,10 @@ BEGIN
     IDS_PSE_FILESTRUCT_COULD_NOT_COPY_PSE 
                             "The keystore files could not be copied.\nPlease check the access rights of\n%s."
     IDS_PSE_FILESTRUCT_NO_APPLICATION_DATA_PATH 
-                            "The environment APPDATA does not exist.\nPlease define this environment."
+                            "The environment APPDATA does not exist.\nPlease define this environment variable."
     IDS_PSE_FILES_READONLY  "The keystore files are read only.\nPlease check the access rights of\n%s."
     IDS_PSE_FILESTRUCT_TRY_TO_REWRITE_PSE 
-                            "The user key filestructure at the path\n%s\nseems corrupted!\n\nSchould CrypTool try to re-write this filestructure (yes/cancel)?\n\nPlease note: In case of re-write old keys are not usable anymore!\nFor further informationen please refer to the CrypTool readme."
+                            "The user key filestructure at the path\n%s\nseems corrupted!\n\nShould CrypTool try to re-write this filestructure (yes/cancel)?\n\nPlease note: In case of re-write old keys are not usable anymore!\nFor further informationen please refer to the CrypTool readme."
 END
 
 #endif    // English (U.K.) resources
