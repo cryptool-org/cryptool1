@@ -1219,15 +1219,14 @@ kommerziellen Anwendungen.
 4.2. Win32-Umgebung, Rechte bei Installation und Betrieb, Java-Runtime
      -----------------------------------------------------------------
 CrypTool erfordert eine Win32-Umgebung.
-
-Einige Funktionen (ANIMAL, ECC-Demo) erfordern zusätzlich eine Java
-Runtime-Umgebung JRE 1.5.
-
-Die minimale Rechnerausstattung liegt bei 300 MHz CPU, 256 MByte RAM,
-40 MByte Festplattenplatz (geringe Anforderungen).
-
 CrypTool 1.4.20 ist geschrieben für die Betriebssysteme Windows XP
 und Windows Vista.
+
+Einige Funktionen (ANIMAL, ECC-Demo) erfordern zusätzlich eine Java
+Runtime-Umgebung JRE (>=1.5).
+
+Die minimale Rechnerausstattung liegt bei 300 MHz CPU, 256 MByte RAM,
+80 MByte Festplattenplatz (geringe Anforderungen).
 
 Verschiedene Sprachversionen von CrypTool kann man parallel auf einem
 Rechner installieren.
@@ -1992,7 +1991,6 @@ CrypTool einsetzen.
 - esslinger@fb5.uni-siegen.de
 - joerg-cornelius.schneider@db.com
 - henrik.koy@db.com
-- cryptool-list@sec.informatik.tu-darmstadt.de
 
 
 
@@ -2308,7 +2306,7 @@ CrypTool erhielt u.a. folgende explizite Auszeichnungen (s. Webseite):
   Wirtschaftsinformatik Siegen vorangetriebene CrypTool-Projekt.
 
 - Ausgewählter Ort 2008 im Land-der-Ideen
-  Das Cryptool-Projekt wurde bei dem bundesweiten Wettbewerb "365 Orte im
+  Das CrypTool-Projekt wurde bei dem bundesweiten Wettbewerb "365 Orte im
   Land der Ideen" in der Kategorie Wissenschaft und Technik ausgewählt.
   Dazu findet am 22.7.08 an der Universität Siegen ein großer
   Tag-der-offenen-Tür statt.

@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.20 for Win32, May 2008 - Beta 03
+    CrypTool, Version 1.4.20 for Win32, July 2008
     (c) Contributors
         including
         Deutsche Bank AG, Frankfurt/Main,
@@ -773,7 +773,7 @@ who prefer to keep on developing in C/C++.
        - Symmetric procedures:
            Camellia (RFC3713), RC5 and Gost (http://vipul.net/gost),
            Radio Gatun, SOSEMANUK, VSH, ...
-       - Public key methods: McEliece, Rabin, NTRU.
+       - Public-key methods: McEliece, Rabin, NTRU.
        - Demonstration of visual cryptography
        - Integrate new methods developed at Ecrypt (Network of Excellence
          in Cryptology). See http://www.ecrypt.eu.org/.
@@ -825,7 +825,7 @@ who prefer to keep on developing in C/C++.
 
 - Reveal the link between CrypTool (PKCS#12) and PGP by enabling the
   use of PGP keys within CrypTool.
-    Idea: Open private key ring via a given password, analyse its 
+    Idea: Open private-key ring via a given password, analyse its 
     structure, get the private key (PGP sources are available) and 
     use this key, to decrypt PGP files with the algorithms implemented
     in CrypTool. This shows, that PGP also uses the standard algorithms.
@@ -1182,14 +1182,13 @@ as "well" as in productive applications.
 4.2. Win32 environment, rights for installation and usage, Java-Runtime
      ------------------------------------------------------------------
 CrypTool requires a Win32 environment.
+CrypTool 1.4.20 is supported to run under Windows XP and Windows Vista.
 
 Some functions (ANIMAL, ECC demonstration) require an installed Java Runtime
-Environment JRE 1.5.
+Environment JRE (version >=1.5).
 
 The computer equipment should have at least a 300 MHz CPU, 256 MByte RAM,
-and 40 MByte free space on the hard drive (low requirements).
-
-CrypTool 1.4.20 is supported to run under Windows XP and Windows Vista.
+and 80 MByte free space on the hard drive (low requirements).
 
 Different language versions (localizations) can be used in parallel at one
 computer.
@@ -1556,7 +1555,7 @@ CrypTool-en.chm .. HTML help archive containing the CrypTool online help
                    system in English.
 CrypTool-de.chm .. The German version of "CrypTool-en.chm".
 
-EC-Param.ini ..... Initialisation file for public key procedures
+EC-Param.ini ..... Initialisation file for public-key procedures
                    based on elliptic curves.
 TEST-Param.ini ... Initialisation file for random number tests. 
 secude.dll ....... Library of cryptographic functions provided by
@@ -1923,7 +1922,6 @@ CrypTool.
 - esslinger@fb5.uni-siegen.de
 - joerg-cornelius.schneider@db.com
 - henrik.koy@db.com
-- cryptool-list@sec.informatik.tu-darmstadt.de
 
 
 
