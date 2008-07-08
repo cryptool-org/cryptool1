@@ -1954,7 +1954,7 @@ die Grundlagen der Internetsicherheit" in the German technical
 journal "KES - Zeitschrift für Informations-Sicherheit" (journal
 for information security) in the issue 2/2003.
 [The Title means "Experience cryptography -- CrypTool improves the
-understanding of information security].
+understanding of information security"].
 
 10.1.4. Proceedings 8th German IT-Security Congress of GISA (May 2003)
         --------------------------------------------------------------
@@ -1971,7 +1971,7 @@ A 2-page article on CrypTool was published under the title
 Dr. Rainer W. Gerling,  in the German journal "Datenschutz PRAXIS",
 in the issue June 2005
 [The Title means "Learn playfully how to encrypt with the free software
-CrypTool].
+CrypTool"].
 
 10.1.6. Report Touch Briefing Information Security (October 2006)
         ---------------------------------------------------------
@@ -1985,13 +1985,17 @@ google.com afterwards listed this article at the top ranking.
         ---------------------------------------------------------
 This edition of the German Research Net organization (DFN) contains the
 4-page article "CrypTool -- An e-learning programme for cryptology".
-Accessable via: http://www.cryptool.org/images/dfn_article_en_final.pdf
+Accessible via: http://www.cryptool.org/images/dfn_article_en_final.pdf
 
 10.1.8. KES 3/2008 (July 2008)
         ----------------------
-In the German technical journal "KES - Zeitschrift für Informations-Sicherheit"
-(journal for information security) in the issue 3/2008 an article about
-CrypTool is published.
+A 3 1/3-page article on CrypTool was published under the title
+"(Ver)Schlüsselerlebnisse NG" in the German technical
+journal "KES - Zeitschrift für Informations-Sicherheit" (journal
+for information security) in the issue 3/2008.
+[The Title means "Experience cryptography Next Generation"].
+It deals with the 10th anniversary of CrypTool and the upcoming new
+versions.
 
 
 10.2. Further references

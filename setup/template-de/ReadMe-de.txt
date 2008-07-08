@@ -1226,7 +1226,7 @@ Runtime-Umgebung JRE 1.5.
 Die minimale Rechnerausstattung liegt bei 300 MHz CPU, 256 MByte RAM,
 40 MByte Festplattenplatz (geringe Anforderungen).
 
-Die Lauffähigkeit von CrypTool 1.4.20 wird unterstützt für Windows XP
+CrypTool 1.4.20 ist geschrieben für die Betriebssysteme Windows XP
 und Windows Vista.
 
 Verschiedene Sprachversionen von CrypTool kann man parallel auf einem
@@ -2063,8 +2063,9 @@ Abrufbar im Internet unter:
 10.1.8. KES 3/2008 (Juli 2008)
         ----------------------
 In der deutsch-sprachigen Fachzeitschrift "KES - Zeitschrift für
-Informations-Sicherheit", Ausgabe 3/2008 erscheint ein Artikel
-über CrypTool.
+Informations-Sicherheit", Ausgabe 3/2008 erschien unter dem Titel
+"(Ver)Schlüsselerlebnisse NG" ein 3 1/3-seitiger Artikel zum
+10-jährigen Jubiläum von CrypTool und zu den neuen Versionen.
 
 
 10.2. Sonstige Referenzen auf CrypTool
