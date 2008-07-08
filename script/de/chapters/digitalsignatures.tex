@@ -289,7 +289,7 @@ Beide Signaturverfahren, RSA und DSA, werden in den folgenden beiden
 Abschnitten näher beleuchtet. Anschließend gehen wir einen Schritt weiter
 und zeigen, wie basierend auf der elektronischen Unterschrift das digitale
 Pendant zum Personalausweis entwickelt wurde. Dieses Verfahren nennt man
-Public Key-Zertifizierung.
+Public-Key-Zertifizierung.
 
 
 % --------------------------------------------------------------------------
@@ -311,7 +311,7 @@ verwenden.
 Eine RSA-Signatur $S$ zur die Nachricht $M$ wird durch folgende Operation
 mit dem privaten Schlüssel erzeugt:
 $$ S \equiv M^d \Mod{N} $$
-Zur Verifikation wird die korrespondierende Public Key-Operation auf der
+Zur Verifikation wird die korrespondierende Public-Key-Operation auf der
 Signatur $S$ ausgeführt und das Ergebnis mit der Nachricht $M$ verglichen:
 $$
 S^e \equiv (M^d)^e \equiv (M^e)^d \equiv M \Mod{N}$$
@@ -407,10 +407,10 @@ sind, nach RSA bzw. ElGamal zu verschlüsseln.
 
 % --------------------------------------------------------------------------
 \vskip + 15pt
-\subsection{Public Key-Zertifizierung}
-\index{Zertifizierung!Public Key}
+\subsection{Public-Key-Zertifizierung}
+\index{Zertifizierung!Public-Key}
 \index{PKI}
-Ziel der Public Key-Zertifizierung ist es, die Bindung eines 
+Ziel der Public-Key-Zertifizierung ist es, die Bindung eines 
 öffentlichen Schlüssels an einen Benutzers zu garantieren und nach außen
 nachvollziehbar zu machen. In Fällen, in denen nicht sichergestellt werden
 kann, dass ein öffentlicher Schlüssel auch wirklich zu einer bestimmten
@@ -457,7 +457,7 @@ auch, wenn Charlie nur ein Schlüsselpaar hat.
 Ein anderer Name für diese Art von Angriffen ist 
 \index{Angriff!Man-in-the-Middle-Attack}
 \glqq Man-in-the-Middle-Attack\grqq. Hilfe gegen diese Art von Angriffen
-verspricht die Public Key-Zertifizierung, die die \index{Authentizität}
+verspricht die Public-Key-Zertifizierung, die die \index{Authentizität}
 Authentizität öffentlicher Schlüssel garantieren kann. Die am weitesten
 verbreitete Zertifizierungsmethode ist der X.509-Standard.
 

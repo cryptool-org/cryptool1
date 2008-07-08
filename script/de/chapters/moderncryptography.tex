@@ -106,10 +106,10 @@ Etwas genauer formuliert:  Eine Einwegfunktion ist eine Abbildung $ f $ einer Me
 
 Ein alltägliches Beispiel für eine Einwegfunktion ist ein Telefonbuch: die auszuführende Funktion ist die, einem Namen die entsprechende Telefonnummer zuzuordnen. Da die Namen alphabetisch geordnet sind, ist diese Zuordnung einfach auszuführen. Aber ihre Invertierung, also die Zuordnung eines Namens zu einer gegebenen Nummer, ist offensichtlich schwierig, wenn man nur ein Telefonbuch zur Verfügung hat. \par
 
-Einwegfunktionen spielen in der Kryptographie eine entscheidende Rolle. Fast alle kryptographischen Begriffe kann man durch Verwendung des Begriffs Einwegfunktion umformulieren. Als Beispiel betrachten wir die Public Key-Verschlüsselung \index{Verschlüsselung!Public Key} (asymmetrische Kryptographie):\par
+Einwegfunktionen spielen in der Kryptographie eine entscheidende Rolle. Fast alle kryptographischen Begriffe kann man durch Verwendung des Begriffs Einwegfunktion umformulieren. Als Beispiel betrachten wir die Public-Key-Verschlüsselung \index{Verschlüsselung!Public-Key} (asymmetrische Kryptographie):\par
 
 Jedem Teilnehmer $ T $ des Systems wird ein privater \index{Schlüssel!privat}
-\index{Schlüssel!öffentlich} Schlüssel $d_T$~\mbox{und} ein sogenannter öffentlicher Schlüssel $ e_T $   zugeordnet. Dabei muss die folgende Eigenschaft (Public Key-Eigenschaft) gelten:\\
+\index{Schlüssel!öffentlich} Schlüssel $d_T$~\mbox{und} ein sogenannter öffentlicher Schlüssel $ e_T $   zugeordnet. Dabei muss die folgende Eigenschaft (Public-Key-Eigenschaft) gelten:\\
 Für einen Gegner, der den öffentlichen Schlüssel $ e_T $  kennt, ist es praktisch unmöglich, den privaten Schlüssel  $ d_T $ zu bestimmen.\par
 
 Zur Konstruktion nützlicher Public-Key-Verfahren sucht man also eine Einwegfunktion, die in einer Richtung \glqq einfach\grqq {} zu berechnen, die in der anderen Richtung jedoch \glqq schwer\grqq {} (praktisch unmöglich) zu berechnen ist, solange eine bestimmte zusätzliche Information \index{Einwegfunktion!mit Falltür} (Falltür) nicht zur Verfügung steht. Mit der zusätzlichen Information kann die Umkehrung effizient gelöst werden. Solche Funktionen nennt man {\bf Einwegfunktionen mit Falltür} (trapdoor one-way function). Im obigen Fall ist $ d_T $ die Falltür-In"-for"-ma"-tion. \par
@@ -173,7 +173,7 @@ Es wurden eine Reihe von Algorithmen für Public-Key-Verfahren vorgeschlagen. Ein
 \vskip +20 pt
 %--------------------------------------------------------------------
 \subsection{Knapsackproblem als Basis für Public-Key-Verfahren}
-\index{Kryptographie!Public Key}
+\index{Kryptographie!Public-Key}
 %--------------------------------------------------------------------
 
 %--------------------------------------------------------------------
@@ -239,7 +239,7 @@ Der folgende Algorithmus löst das Knapsackproblem mit superwachsender Folge im Z
 \subsubsection{Merkle-Hellman Knapsack-Verschlüsselung}
 \index{Hellman, Martin} \index{Merkle, Ralph} 
 
-1978 gaben Merkle und Hellman \cite{Merkle1978} \index{Verschlüsselung!Merkle-Hellman} ein Public Key-Verschlüsselungs-Verfahren an, das darauf beruht, das leichte 0-1-Knapsackproblem mit einer superwachsenden Folge in ein kongruentes mit einer nicht superwachsenden Folge zu \glqq verfremden\grqq. Es ist eine Blockchiffrierung, die bei jedem Durchgang einen $n$ Bit langen Klartext chiffriert.
+1978 gaben Merkle und Hellman \cite{Merkle1978} \index{Verschlüsselung!Merkle-Hellman} ein Public-Key-Verschlüsselungs-Verfahren an, das darauf beruht, das leichte 0-1-Knapsackproblem mit einer superwachsenden Folge in ein kongruentes mit einer nicht superwachsenden Folge zu \glqq verfremden\grqq. Es ist eine Blockchiffrierung, die bei jedem Durchgang einen $n$ Bit langen Klartext chiffriert.
 \index{Knapsack!Merkle-Hellman}
 Genauer:
 \newpage
@@ -565,11 +565,11 @@ Die Sicherheit des {\bf Diffie-Hellman-Protokolls} hängt eng mit der Berechnung 
 
 
 %--------------------------------------------------------------------
-\subsubsection{ElGamal-Public Key-Verschlüsselungsverfahren in $ \Z_p^\ast$}
+\subsubsection{ElGamal-Public-Key-Verschlüsselungsverfahren in $ \Z_p^\ast$}
 
-\index{ElGamal!Public Key}
+\index{ElGamal!Public-Key}
 Indem man das Diffie-Hellman Schlüsselvereinbarungsprotokoll 
-\index{Diffie-Hellman} \index{Verschlüsselung!ElGamal-Public Key} 
+\index{Diffie-Hellman} \index{Verschlüsselung!ElGamal-Public-Key} 
 leicht variiert, kann man einen asymmetrischen Verschlüsselungsalgorithmus
 erhalten. Diese Beobachtung geht auf Taher ElGamal zurück.
 \begin{center}
@@ -598,7 +598,7 @@ und
 
 
 %--------------------------------------------------------------------
-\subsubsection{Verallgemeinertes ElGamal-Public Key-Verschlüsselungsverfahren }
+\subsubsection{Verallgemeinertes ElGamal-Public-Key-Verschlüsselungsverfahren }
 
 Den diskreten Logarithmus kann man in beliebigen endlichen \index{Gruppen} Gruppen $ (G, \circ) $ verallgemeinern. Im folgenden geben wir einige Eigenschaften über die Gruppe $G$ an, damit das diskrete Logarithmusproblem schwierig wird. \\
 \index{Exponentialfunktion!Berechnung}
@@ -688,7 +688,7 @@ und
 {\bf Verallgemeinertes ElGamal Verfahren} (auf das diskrete Logarithmusproblem basierend).
 \vskip +20 pt
 
-\hyperlink{ellcurve}{Elliptische Kurven}{} liefern nützliche Gruppen für Public Key-Verschlüsselungsverfahren.
+\hyperlink{ellcurve}{Elliptische Kurven}{} liefern nützliche Gruppen für Public-Key-Verschlüsselungsverfahren.
 
 
 
