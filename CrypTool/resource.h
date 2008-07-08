@@ -2913,6 +2913,7 @@
 #define IDS_PSE_FILESTRUCT_NO_APPLICATION_DATA_PATH 39064
 #define IDS_STRING39065                 39065
 #define IDS_PSE_FILES_READONLY          39065
+#define IDS_PSE_FILESTRUCT_TRY_TO_REWRITE_PSE 39066
 #define ID_INDICATOR_LINE               59142
 #define IDS_DH_LOG_1                    61889
 #define IDS_DH_LOG_2                    61890

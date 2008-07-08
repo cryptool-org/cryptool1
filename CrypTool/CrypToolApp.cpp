@@ -327,6 +327,7 @@ const int pse_filestruct_could_not_create_directory = IDS_PSE_FILESTRUCT_COULD_N
 const int pse_filestruct_could_not_copy_pse         = IDS_PSE_FILESTRUCT_COULD_NOT_COPY_PSE;
 const int pse_filestruct_no_application_data_path   = IDS_PSE_FILESTRUCT_NO_APPLICATION_DATA_PATH;
 const int pse_filestruct_orig_corrupted             = IDS_PSE_FILESTRUCT_ORIG_CORRUPTED;
+const int pse_filestruct_try_to_rewrite_user_pse    = IDS_PSE_FILESTRUCT_TRY_TO_REWRITE_PSE;
 
 const char pse_folder[]     = "PSE";
 const char pse_ca_folder[]  = "PSE\\PSECA";
@@ -341,8 +342,8 @@ int check_keystore_path( const char *key_store_path )
 	PseV  = key_store_path + CString(pse_folder);
 	CaPseD= key_store_path + CString(pse_ca_keyfile);
 	CaPseV= key_store_path + CString(pse_ca_folder);
-	if ( FILE_ATTRIBUTE_DIRECTORY == GetFileAttributes( key_store_path ) )
-	{ // PSE-Store Already exists? -- do Nothing!
+	if ( FILE_ATTRIBUTE_DIRECTORY & GetFileAttributes( key_store_path ) )
+	{ 
 		if ( !( ( INVALID_FILE_ATTRIBUTES != GetFileAttributes( PseV ) ) &&  
 				( INVALID_FILE_ATTRIBUTES != GetFileAttributes( CaPseD ) ) &&
 				( INVALID_FILE_ATTRIBUTES != GetFileAttributes( CaPseV ) ) ) )
@@ -529,6 +530,20 @@ BOOL CCrypToolApp::InitInstance()
 			else
 			{
 				if ( pse_filestruct_valid != check_keystore_path( key_store_path ) )
+					error = pse_filestruct_try_to_rewrite_user_pse;
+			}
+
+			// Try to rewrite PSE to local KEYSTORE
+			if ( error == pse_filestruct_try_to_rewrite_user_pse )
+			{
+				char error_caption[128];
+				char error_message_template[1024];
+				char error_message[2048];
+				LoadString(AfxGetInstanceHandle(),IDS_ERROR_LOAD_LOCAL_PSE_CAPTION,error_caption,STR_LAENGE_STRING_TABLE);
+				LoadString(AfxGetInstanceHandle(),error,error_message_template,STR_LAENGE_STRING_TABLE);
+				error = pse_filestruct_does_not_exist;
+				sprintf(error_message, error_message_template, key_store_path);
+				if ( IDOK == MessageBox(NULL,error_message,error_caption,MB_ICONWARNING|MB_OKCANCEL) )
 					error = copy_keystore_path( Pfad2, key_store_path );
 			}
 
@@ -553,13 +568,14 @@ BOOL CCrypToolApp::InitInstance()
 				_tcscpy(help4, PseV);
 				PseVerzeichnis=help4;
 			}
-			else
+			else if ( error != pse_filestruct_does_not_exist )  // pse_filestruct_does_not_exist is already handled
 			{
 				char error_caption[128];
 				char error_message_template[1024];
 				char error_message[2048];
 				LoadString(AfxGetInstanceHandle(),IDS_ERROR_LOAD_LOCAL_PSE_CAPTION,error_caption,STR_LAENGE_STRING_TABLE);
 				LoadString(AfxGetInstanceHandle(),error,error_message_template,STR_LAENGE_STRING_TABLE);
+
 				switch ( error )
 				{
 					case IDS_PSE_FILESTRUCT_CORRUPTED:
