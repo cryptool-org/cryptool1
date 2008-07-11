@@ -14,7 +14,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polnisch resources
+// Polish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -7642,8 +7642,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,4,0,0
- PRODUCTVERSION 1,4,0,0
+ FILEVERSION 1,4,21,0
+ PRODUCTVERSION 1,4,21,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -7659,12 +7659,12 @@ BEGIN
         BLOCK "040704b0"
         BEGIN
             VALUE "FileDescription", "www.cryptool.org"
-            VALUE "FileVersion", "1.4.20"
+            VALUE "FileVersion", "1.4.21"
             VALUE "InternalName", "CrypTool"
             VALUE "LegalCopyright", "Copyright © 1999-2008"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "1.4.20"
+            VALUE "ProductVersion", "1.4.21"
         END
     END
     BLOCK "VarFileInfo"
@@ -9581,7 +9581,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.20 (PL)"
+    IDR_MAINFRAME           "CrypTool 1.4.21 (PL)"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nPliki HEX\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nPliki ASCII\n"
@@ -11938,12 +11938,12 @@ BEGIN
                             "The user key file structure at the path\n%s\nseems to be corrupted!\n\nShould CrypTool try to re-write this file structure?\nPlease select OK for re-write or Cancel if you try to resolve this problem manually.\n\nPlease note: In case of re-write old keys are not usable anymore!\nFor further information please refer to the CrypTool readme."
 END
 
-#endif    // Polnisch resources
+#endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -19850,8 +19850,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,4,1,0
- PRODUCTVERSION 1,4,1,0
+ FILEVERSION 1,4,21,0
+ PRODUCTVERSION 1,4,21,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -19866,14 +19866,14 @@ BEGIN
     BEGIN
         BLOCK "040704b0"
         BEGIN
-            VALUE "CompanyName", "Deutsche Bank AG"
+            VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.de"
-            VALUE "FileVersion", "1.4.20"
+            VALUE "FileVersion", "1.4.21"
             VALUE "InternalName", "CrypTool"
             VALUE "LegalCopyright", "Copyright © 1999-2008"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "1.4.20"
+            VALUE "ProductVersion", "1.4.21"
         END
     END
     BLOCK "VarFileInfo"
@@ -21604,7 +21604,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.20 (DE)"
+    IDR_MAINFRAME           "CrypTool 1.4.21 (DE)"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Datei (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnbenannt\n\nBinäre Datei (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnbenannt\n\nASCII-Datei (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -24067,12 +24067,12 @@ BEGIN
                             "Die Dateistruktur Ihrer Benutzer-Schlüssel im Pfad \n%s\nscheint fehlerhaft zu sein!\n\nSoll CrypTool versuchen, die Datenstruktur neu zu schreiben?\nBitte wählen Sie OK für das Neu-Schreiben oder Abbruch, wenn Sie das Problem manuell lösen wollen.\n\nBitte beachten Sie, dass beim Neu-Schreiben bisherige Schlüssel nicht mehr nutzbar sind!\nWeitere Informationen zum Schlüsselspeicher finden Sie im CrypTool-Readme."
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -31879,8 +31879,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,4,1,0
- PRODUCTVERSION 1,4,1,0
+ FILEVERSION 1,4,21,0
+ PRODUCTVERSION 1,4,21,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -31895,14 +31895,14 @@ BEGIN
     BEGIN
         BLOCK "040704b0"
         BEGIN
-            VALUE "CompanyName", "Deutsche Bank AG"
+            VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.org"
-            VALUE "FileVersion", "1.4.20"
+            VALUE "FileVersion", "1.4.21"
             VALUE "InternalName", "CrypTool"
             VALUE "LegalCopyright", "Copyright © 1999-2008"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "1.4.20"
+            VALUE "ProductVersion", "1.4.21"
         END
     END
     BLOCK "VarFileInfo"
@@ -33870,7 +33870,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.20 (EN)"
+    IDR_MAINFRAME           "CrypTool 1.4.21 (EN)"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -36275,7 +36275,7 @@ BEGIN
                             "The user key file structure at the path\n%s\nseems to be corrupted!\n\nShould CrypTool try to re-write this file structure?\nPlease select OK for re-write or Cancel if you try to resolve this problem manually.\n\nPlease note: In case of re-write old keys are not usable anymore!\nFor further information please refer to the CrypTool readme."
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

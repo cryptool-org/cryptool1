@@ -10,7 +10,7 @@
 
   ;Name and file
   !define ProgramName "CrypTool"
-  !define VersionInfo "1.4.20"
+  !define VersionInfo "1.4.21"
   
   Name "${ProgramName} ${VersionInfo}"
   OutFile "SetupCrypTool_${LANGUAGE_STR}.exe"
