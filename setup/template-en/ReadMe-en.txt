@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.20 for Win32, July 2008
+    CrypTool, Version 1.4.21 for Win32, July 2008
     (c) Contributors
         including
         Deutsche Bank AG, Frankfurt/Main,
@@ -38,7 +38,7 @@
  5.1. .... Installation
  5.2. .... Repeated usage of keys
  5.2.1. .... Keys of previous versions
- 5.2.2. .... Keys stored in the PSE directory
+ 5.2.2. .... Keys stored in the files of the PSE directory
  5.3. .... Installation under multi-user operating systems
  5.4. .... De-installation of CrypTool
  5.5. .... Operating under multi-user operating systems
@@ -651,6 +651,8 @@ You can get a good overview of what CrypTool offers
      ----------------------------
 This chapter lists the enhancements and bug fixes in CrypTool 1.4.20,
 which have been added since CrypTool 1.4.10.
+Version 1.4.21 is only a patch without any new function compared to 1.4.20.
+
 
 a) Developer-relevant changes (more technically oriented):
 
@@ -682,8 +684,8 @@ c) New functionality:
 - Bug fixes:
   - Many small improvements in the masks (user interface):
     user guidance; refresh; cursor correctly set again after dialog change;
-    at DH, Hill and side-channel-attack dialogs consistently offered a
-    checkmark to show detail dialogs or to create log files.
+    DH, Hill and side-channel-attack dialogs consistently offer a checkmark
+    to show detail dialogs or to create log files.
   - Corrected the AML file for the DES animation with ANIMAL (in the matrix
     K[1] a bit was set to 1 instead to 0). Thanks to attentive users!
   - The installer now handles previously installed versions better.
@@ -698,7 +700,7 @@ c) New functionality:
 - Within the text option dialog there now is a check mark for German Umlauts
   in order to build the used alphabet by clicking.
 
-- Text file now can be shown in any given fixed block length:
+- A text file now can be shown in any given fixed block length:
   e.g. formats xxx xxx xxx  or  xxxxx xxxxx xxxxx ...
   Also you can convert everything into small or capital letters.
 
@@ -710,8 +712,9 @@ c) New functionality:
      - Search and replace can be done with synchronized ascii and hex strings
      - Redo.
 
-- The ADFGVX cipher now can deal with variable alphabets defined by the
-  text options dialog (not only the 26 capital letters).
+- The ADFGVX cipher now can deal with variable alphabets for the
+  transposition password defined by the text options dialog (not
+  only the 26 capital letters).
 
 - Enhancement of the brute-force analysis for symmetric ciphers (Henk --
   thanks for the practical and educational suggestions):
@@ -746,9 +749,7 @@ c) New functionality:
 - The password entropy dialog offers to create random passwords which offer
   a similar high security as randomly generated binary keys for symmetric
   ciphers using a given bit length.
-  Additionally you can specify the alphabet used for the password: besides
-  the normal text options there is e.g. the predetermined WLAN password
-  alphabet.
+  Additionally you can specify the alphabet used for the password.
 
 
 
@@ -1159,10 +1160,10 @@ is contained directly within the software (source and binary) and
 it is protected with a very simple PIN for the CA-PSE (personal 
 security environment).
 
-The root key of the CA built in CrypTool 1.4.20 has a length of 2048
+The root key of the CA built in CrypTool 1.4.21 has a length of 2048
 bit and it is valid for 20 years (July 6th, 2006 - July 6th, 2026).
 Certificates issued with the root key of older CrypTool versions 
-(1.3.05 and older) cannot be imported in version 1.4.20.
+(1.3.05 and older) cannot be imported in version 1.4.21.
 
 Please notice when creating user certificates with CrypTool, that each
 CrypTool program contains a root CA with the same key pair. 
@@ -1182,7 +1183,7 @@ as "well" as in productive applications.
 4.2. Win32 environment, rights for installation and usage, Java-Runtime
      ------------------------------------------------------------------
 CrypTool requires a Win32 environment.
-CrypTool 1.4.20 is supported to run under Windows XP and Windows Vista.
+CrypTool 1.4.21 is supported to run under Windows XP and Windows Vista.
 
 Some functions (ANIMAL, ECC demonstration) require an installed Java Runtime
 Environment JRE (version >=1.5).
@@ -1279,7 +1280,7 @@ The PDF files are still added in English.
 The Polsih version has translated the exhaustive online help;
 the Spanish version adds the English online help.
 
-For each supported language CrypTool 1.4.20 comes with an extra installation
+For each supported language CrypTool 1.4.21 comes with an extra installation
 program (setup).
 
 
@@ -1359,7 +1360,7 @@ If you install it as administrator in "C:\Program Files\CrypTool"
 then you still can run CrypTool later as a normal user.
 
 If you change the name of the target directory "CrypTool" e.g. in
-"CrypTool-1.4.20-Final-E", then the entry in the start menu of the
+"CrypTool-1.4.21-Final-E", then the entry in the start menu of the
 Windows task bar will adapted accordingly.
 
 
@@ -1403,8 +1404,8 @@ structure becomes inconsistent, it may be necessary to completely
 reinstall CrypTool in order to use the certificate based methods.
 
 
-5.2.2. Keys stored in the PSE directory
-       --------------------------------
+5.2.2. Keys stored in the files of the PSE directory
+       ---------------------------------------------
 The RSA and ECC key created in the menu "PKI" are stored in the directory
 PSE (the keys of the classic methods are not permanently stored).
 From version 1.4.20 a user-specific directory is used as PSE directory
@@ -1882,6 +1883,7 @@ Version   Date		Size of Windows Setup  Needed Size  Released
 1.4.00    July 2006	18.2 MB      18.4 MB	-            DB
 1.4.10    July 2007	26.7 MB	     27.5 MB	47 MB        DB
 1.4.20    July 2008	36.1 MB	     37.1 MB	73 MB        DB
+1.4.21    July 2008	36.1 MB	     37.1 MB	73 MB        DB
 
 Remarks about the versions:
 1.3.02   Many new functions compared to 1.3.00.
@@ -1899,6 +1901,8 @@ Remarks about the versions:
 1.4.20-Beta03  May  2008  First public beta of version 1.4.20.
 1.4.20    Set of functions and online help enhanced compared to 1.4.10;
           Mostly fine tuning and code stabilization (quality release).
+1.4.21    Patch containing also MSVCR71.dll. This DLL is used by the current
+          OpenSSL library, but not available by default on blank Windows systems.
 
 
 

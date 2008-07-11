@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.20 für Win32, Juli 2008
+    CrypTool, Version 1.4.21 für Win32, Juli 2008
     (c) Contributors
         Dazu gehören z.B.
         Deutsche Bank AG, Frankfurt am Main,
@@ -667,6 +667,8 @@ Eine gute Übersicht, was CrypTool bietet, finden Sie auch
      ----------------------------
 Dieses Kapitel listet die Erweiterungen und Bugfixes auf, die in
 CrypTool 1.4.20 seit CrypTool 1.4.10 hinzugefügt wurden.
+Version 1.4.21 ist nur ein Bugfix, ohne neue Funktionen im Vergleich
+zu 1.4.20.
 
 a) Entwickler-relevante Änderungen (eher programm-technisch):
 
@@ -688,7 +690,7 @@ b) Änderungen in der Benutzer-Dokumentation / Web-Darstellung:
 - Skript: Behebung kleinerer Fehler, Menübaum in Anhang A2 der neuen
           CrypTool-Version angepasst.
 
-- Aktualisierte und auf rund 106 Seiten erweiterte Präsentation.
+- Aktualisierte und auf 106 Seiten erweiterte Präsentation.
 
 - Neue CrypTool-Webseite mit Joomla seit April 2008.
 
@@ -727,7 +729,8 @@ c) Funktionale Erweiterungen:
      - Redo.
 
 - Die ADFGVX-Chiffre kann nun das durch die Textoptionen definierte
-  variable Alphabet nutzen (nicht mehr nur die 26 Großbuchstaben).
+  variable Alphabet für das Transpositionspasswort nutzen (nicht mehr
+  nur die 26 Großbuchstaben).
 
 - Erweiterung der Brute-Force-Analyse symmetrischer Verfahren (Henk -- danke
   für die praktischen und didaktischen Anregungen):
@@ -763,8 +766,7 @@ c) Funktionale Erweiterungen:
 - Der Passwort-Entropie-Dialog erlaubt es, zufällige Passworte zu erzeugen,
   die eine ähnlich hohe Sicherheit bieten wie zufällig erzeugte
   Binärschlüssel für symmetrische Verfahren bei einer vorgegebenen Bitlänge.
-  Außerdem kann man das Alphabet des Passwortes vorgeben: Neben den
-  bisherigen Textoptionen gibt es z.B. das WLAN-Passwort-Alphabet.
+  Außerdem kann man das Alphabet des Passwortes vorgeben.
 
 
 
@@ -1194,10 +1196,10 @@ das CA-Schlüsselpaar fest in der Software (Source und Binary) und es
 ist geschützt mit einer ebenfalls bewusst sehr einfachen PIN für die
 CA-PSE (Personal Security Environment).
 
-Der Rootschlüssel der in CrypTool 1.4.20 eingebauten CA hat eine Länge
+Der Rootschlüssel der in CrypTool 1.4.21 eingebauten CA hat eine Länge
 von 2048 Bit und ist 20 Jahre gültig (06.07.2006 - 06.07.2026).
 Zertifikate, die mit dem alten Rootkey aus früheren CrypTool-Versionen
-(1.3.05 und älter) ausgestellt wurden, können nicht in Version 1.4.20
+(1.3.05 und älter) ausgestellt wurden, können nicht in Version 1.4.21
 importiert werden.
 
 Beachten Sie also beim Umgang mit Zertifikaten, dass jedes CrypTool-
@@ -1219,7 +1221,7 @@ kommerziellen Anwendungen.
 4.2. Win32-Umgebung, Rechte bei Installation und Betrieb, Java-Runtime
      -----------------------------------------------------------------
 CrypTool erfordert eine Win32-Umgebung.
-CrypTool 1.4.20 ist geschrieben für die Betriebssysteme Windows XP
+CrypTool 1.4.21 ist geschrieben für die Betriebssysteme Windows XP
 und Windows Vista.
 
 Einige Funktionen (ANIMAL, ECC-Demo) erfordern zusätzlich eine Java
@@ -1321,7 +1323,7 @@ aller Masken und Menüs übersetzt. Die PDF-Dateien sind noch in Englisch.
 In der polnischen Version ist auch die umfangreiche Onlinehilfe übersetzt;
 in der spanischen Version liegt die englische Onlinehilfe bei.
 
-Für jede unterstützte Sprache gibt es bei CrypTool 1.4.20 ein eigenes
+Für jede unterstützte Sprache gibt es bei CrypTool 1.4.21 ein eigenes
 Installationsprogramm (Setup).
 
 
@@ -1401,7 +1403,7 @@ Wenn Sie es als Administrator in "C:\Programme\CrypTool" installieren,
 können Sie CrypTool danach trotzdem als normaler Benutzer ausführen.
 
 Wenn Sie den Zielverzeichnis-Namen "CrypTool" ändern, z.B. in
-"CrypTool-1.4.20-Final-D", so wird auch der Eintrag im Startmenü
+"CrypTool-1.4.21-Final-D", so wird auch der Eintrag im Startmenü
 der Windows-Taskleiste entsprechend geändert.
 
 
@@ -1951,6 +1953,7 @@ Version   Datum         Größe des Windows-Setups  Plattenplatz  Freigabe
 1.4.00    Juli 2006      18,4 MB     18,2 MB         -            DB
 1.4.10    Juli 2007      27,5 MB     26,7 MB         47 MB        DB
 1.4.20    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
+1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 
 Bemerkungen zu den Versionen:
 1.3.02   Viele neue Funktionen gegenüber 1.3.00.
@@ -1968,7 +1971,9 @@ Bemerkungen zu den Versionen:
 1.4.20-Beta03  Mai  2008  Erste öffentliche Beta von Version 1.4.20.
 1.4.20   Funktionsumfang und Onlinehilfe erweitert i.Vgl. zu 1.4.10;
          Vor allem Feinschliff und Code stabilisiert (Qualitätsrelease).
-
+1.4.21   Patch, das auch die MSVCR71.dll enthält, da diese Datei von der
+         neuen aktuellen OpenSSL-Bibliothek benutzt wird und nicht auf
+         frischen Windows-Umgebungen (ohne Office) enthalten ist.
 
 
 8. Feedback
