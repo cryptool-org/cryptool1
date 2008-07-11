@@ -48,9 +48,7 @@ statement from your version.
 
 const CString constStringNonConfusableCharactersWrittenTransmission = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPRSTUVWXYZ23456789";
 const CString constStringNonConfusableCharactersTelephonicTransmission = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
-// BEGIN FIXME/TODO
-	const CString constStringWLANAlphabet = "WLAN FIXME";
-// END FIXME/TODO
+const CString constStringWLANAlphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+,-./:=?@[]^_{}~";
 
 // CDlgPasswordEntropy-Dialogfeld
 
