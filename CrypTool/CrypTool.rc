@@ -6399,7 +6399,7 @@ END
 MENUITEM "Tworzenie liczb losowych", ID_ZUFALL_GENERATOREN
 MENUITEM "&Miernik jakoœci has³a", ID_PASSWORDQUALITYMETER
 MENUITEM "&Entropia has³a...", ID_PASSWORDENTROPY
-MENUITEM "Formatowanie dokumentu tekstowego...", ID_FORMAT_TEXT_DOCUMENT
+MENUITEM "&Formatowanie dokumentu tekstowego...", ID_FORMAT_TEXT_DOCUMENT
 END
         MENUITEM SEPARATOR
 POPUP "Gry &edukacyjne"
