@@ -1177,8 +1177,9 @@ String common_prefix(const String& x, const String& y, int startpos)
   const char* topx = &(xchars[x.length()]);
   const char* ys = &(ychars[startpos]);
   const char* topy = &(ychars[y.length()]);
-  //int l;
-  for (int l=0; xs < topx && ys < topy && *xs++ == *ys++; ++l);
+  
+  int l;
+  for (l=0; xs < topx && ys < topy && *xs++ == *ys++; ++l);
   r.rep = Salloc(r.rep, ss, l, l);
   return r;
 }
@@ -1192,8 +1193,9 @@ String common_suffix(const String& x, const String& y, int startpos)
   const char* botx = xchars;
   const char* ys = &(ychars[y.length() + startpos]);
   const char* boty = ychars;
-  //int l;
-  for (int l=0; xs >= botx && ys >= boty && *xs == *ys ; --xs, --ys, ++l);
+ 
+  int l;
+  for (l=0; xs >= botx && ys >= boty && *xs == *ys ; --xs, --ys, ++l);
   r.rep = Salloc(r.rep, ++xs, l, l);
   return r;
 }

@@ -43,7 +43,7 @@ int ilog2(unsigned long l)	// returns min {r|2^r>=l}
 	int r=0;
 	if (l--==0) return -1;
 	while (l) {l>>=1; r++;}
-	ASSERT(pow(2,r)>=(long)ll && (r==0 || pow(2,r-1)<(long)ll));
+	ASSERT(pow((long)2,(int)r)>=(long)ll && (r==0 || pow((long)2,(int)(r-1))<(long)ll));
 	return r;
 }
 
