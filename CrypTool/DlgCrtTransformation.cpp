@@ -398,7 +398,8 @@ CString CDlgCrtTransformation::BigVektorToCString(Big myarray[],int anzahl)
 { 		
 			CString ausgabe="(";
 			CString text="";
-			for (int i=0;i<anzahl-1;i++) {
+			int i;
+			for (i=0;i<anzahl-1;i++) {
 				BigToCString(myarray[i],text);
 				ausgabe=ausgabe+text+", ";
 				}

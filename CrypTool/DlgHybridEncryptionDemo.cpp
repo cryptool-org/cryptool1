@@ -95,7 +95,8 @@ CDlgHybridEncryptionDemo::CDlgHybridEncryptionDemo(CWnd* pParent /*=NULL*/)
 	m_strTitle = _T("");
 	//}}AFX_DATA_INIT
 	
-	for(int i=0;i<11;i++)
+	int i;
+	for(i=0;i<11;i++)
 	{
 		m_ButtonStatus[i] = inactive;
 		m_ActionPerformed[i] = false;
@@ -288,7 +289,8 @@ void CDlgHybridEncryptionDemo::OnButtonGenSymKey()
 	m_strTitle="";
 	unsigned char o;
 
-	for ( int j=0; j<symKeyByteLength; j++ )
+	int j;
+	for (j=0; j<symKeyByteLength; j++ )
 	{
 		o=0;
 		for(int i=0;i<8;i++)
@@ -823,7 +825,9 @@ void CDlgHybridEncryptionDemo::OnButtonShowAsymKey()
 	unsigned char* buf = (unsigned char*) ki->part1.octets;
 	L_NUMBER temp[MAXLGTH];
 	sprintf(pc_str,"0x");
-	for (int i=0;i<mlen;i++)
+
+	int i;
+	for (i=0;i<mlen;i++)
 	{
 		sprintf(pc_str+2+(2*i),"%02X",buf[i]);
 	

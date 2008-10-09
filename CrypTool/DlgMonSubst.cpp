@@ -120,7 +120,9 @@ void CDlgMonSubst::ComputeSubstKeyMapping()
 	key[26] = '\0';
 
 	bool schonda[26];//Ist der i-te Buchstabe bereits im Schlüsselwort aufgetreten??
-	for (int i=0; i<=25; i++){
+
+	int i;
+	for (i=0; i<=25; i++){
 		key[i]=' ';
 		schonda[i]=FALSE;}
 	

@@ -89,7 +89,8 @@ char *checkPasswordAgainstPatterns(char *password) {
 		strncpy(pattern, password, i);
 		char *ptr = password+i;
 		int   steps = pwd_len / i;
-		for ( int j = 1; (j < steps) && !strncmp(ptr, pattern, i); j++ )
+		int j;
+		for (j = 1; (j < steps) && !strncmp(ptr, pattern, i); j++ )
 			ptr += i;
 		if ( pwd_len % i )
 		{

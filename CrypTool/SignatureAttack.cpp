@@ -381,7 +381,8 @@ UINT SignatureAttack::Do_Floyd()
 		}
 	}
 
-	m_ResSigAtt->SetEffectiveTime(CalculateTimeSpan(time_start, time_finish));
+	double timeSpan = CalculateTimeSpan(time_start, time_finish);
+	m_ResSigAtt->SetEffectiveTime(timeSpan);
 
 	if (true == DocumentsFound)
 	{
@@ -420,7 +421,7 @@ HASHTOKEN:
 	return 0;
 }
 
-double SignatureAttack::CalculateTimeSpan(const struct _timeb Start, const struct _timeb Finish) const
+double SignatureAttack::CalculateTimeSpan(_timeb &Start, _timeb &Finish) 
 {
 	long Seconds = Finish.time - Start.time, Milliseconds = Finish.millitm - Start.millitm;
 	// Dauer der Floyd-Suche wird aus der Differenz der Start- und Endzeit ermittelt

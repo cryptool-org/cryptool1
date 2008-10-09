@@ -854,17 +854,16 @@ CString adfgvx::LettersToNumbers(CString password)
 
 int adfgvx::CheckStringBox(CString input)
 {
-	CString temp="";
 	// !=36 Zeichen? =>1
 	if(input.GetLength()!=36)
 		return 1;
 
 	for (int i=0;i<input.GetLength();i++)	
 	{
-		temp=input.GetAt(i);
+		char temp = input.GetAt(i);
 		
 		//invalid characters? =>2
-		if(('A'<=temp&&temp<='z') || ('0'<=temp&&temp<='9'));
+		if(('A'<=temp && temp<='z') || ('0'<=temp && temp<='9'));
 		else
 			return 2;
 

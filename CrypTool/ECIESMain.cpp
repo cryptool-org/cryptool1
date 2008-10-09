@@ -549,7 +549,7 @@ void ShowPrivateKey(CString &UserKeyId, CString &passwd, CString &privKey)
 
 
 
-int encrypt(act::Blob &encBlob, const CString &sName, const CString &sVorname, const CString &rName, const CString &rVorname, const char* &sS, const CString &curveS, const char* &xR, const char* &yR, const CString curveR, const char* &ifile)
+int encrypt(act::Blob &encBlob, const CString &sName, const CString &sVorname, const CString &rName, const CString &rVorname, const char* sS, const CString &curveS, const char* xR, const char* yR, const CString curveR, const char* ifile)
 {
 	//error-values: 0=key ok, 1=no curve found, 2=not on curve (invalid key)
 	//return-values: 0=ok, 11=no curve found (sender), 12=invalid key (sender), 21=no curve found (receiver) 22=invalid key (receiver)
@@ -610,7 +610,7 @@ int encrypt(act::Blob &encBlob, const CString &sName, const CString &sVorname, c
 	
 }
 
-int decrypt(act::Blob &decBlob,const CString &rName, const CString &rVorname, const char* &sR, const CString &curveR, const char* &ifile)
+int decrypt(act::Blob &decBlob,const CString &rName, const CString &rVorname, const char* sR, const CString &curveR, const char* ifile)
 {
 	int error;
 

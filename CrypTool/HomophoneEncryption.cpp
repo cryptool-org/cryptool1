@@ -74,7 +74,8 @@ BOOL HomophoneData::Init( const int Size )
 void HomophoneData::Init_Data()
 // setzt die Daten der Klasse auf vernünftige Eingangswerte
 {
-	for(int i=0;i<SizeHomophoneKey;i++)
+	int i;
+	for(i=0;i<SizeHomophoneKey;i++)
 	{
 		decryptionData[i]	= 32;
 		key[i]				= -1;
@@ -322,7 +323,8 @@ char CHomophoneEncryption::GetIndex(const int value)
 {
 	int index;
 
-	for(int i=0;i<data.SizeHomophoneKey;i++)
+	int i;
+	for(i=0;i<data.SizeHomophoneKey;i++)
 	{
 		if(value==data.key[i])
 		{

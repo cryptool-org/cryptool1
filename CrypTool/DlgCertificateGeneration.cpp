@@ -171,7 +171,7 @@ void CDlgCertificateGeneration::OnChangeEdit()
 
 	// eine ODER-Operation mit dem Attribut ENM_CHANGE und der Maske erfolgt.
 	UpdateData(TRUE);
-	time(&m_lTime);
+	time((time_t*)&m_lTime);
 
 	
 	m_sUserID = m_Cert->CreateUserKeyID(m_sName, m_sFirstName, m_sKeyID, m_lTime);

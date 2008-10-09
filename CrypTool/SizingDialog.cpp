@@ -194,7 +194,8 @@ void CCtrlInfo::GetCoefficientAndWord(LPCTSTR lpszSection,
 		return;
 	}
 
-	for (int i = 0; i < nLen; i++)
+	int i;
+	for (i = 0; i < nLen; i++)
 	{
 		ch = str.GetAt(i);
 		if (::isdigit(ch) || ch == '.' || ch == 'E'
@@ -257,7 +258,7 @@ BEGIN_MESSAGE_MAP(CSizingDialog, CDialog)
 	ON_WM_CREATE()
 	ON_WM_SIZE()
 	ON_WM_GETMINMAXINFO()
-	ON_WM_NCHITTEST()
+//	ON_WM_NCHITTEST()
 	ON_WM_CLOSE()
 END_MESSAGE_MAP()
 
@@ -459,6 +460,7 @@ void CSizingDialog::OnGetMinMaxInfo(MINMAXINFO* lpMMI)
 	CDialog::OnGetMinMaxInfo(lpMMI);
 }
 
+/*
 UINT CSizingDialog::OnNcHitTest(CPoint point)
 {
 	// XR: move the window when click.
@@ -468,6 +470,7 @@ UINT CSizingDialog::OnNcHitTest(CPoint point)
 
 	return nHitTest;
 }
+*/
 
 void CSizingDialog::OnSize(UINT nType, int cx, int cy)
 {

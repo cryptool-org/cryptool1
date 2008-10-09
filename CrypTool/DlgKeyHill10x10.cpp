@@ -3158,7 +3158,7 @@ CString CDlgKeyHill10x10::getAlphChar(CString alphPos)
 		if(pos < 0 || pos > theApp.TextOptions.getAlphabet().GetLength())
 			return "";
 		else
-			return theApp.TextOptions.getAlphabet()[pos];
+			return theApp.TextOptions.getAlphabet().Mid(pos,1);
 }
 void CDlgKeyHill10x10::setFeldAlphCode(CEdit *feld,CEdit *feldAlph)
 {

@@ -198,7 +198,8 @@ void CaesarAuto(const char *infile, const char *OldTitle)
 	GetTmpName(name,"cry",".tmp");
 	text.Write(name);
 	ForceReformat(infile,name, FALSE);
-	CString csKey = theApp.TextOptions.getAlphabet()[shift];
+	// CString csKey = theApp.TextOptions.getAlphabet()[shift];
+	CString csKey = theApp.TextOptions.getAlphabet().Mid(shift, 1);
 
     NewDoc = theApp.OpenDocumentFileNoMRU(name, csKey);
     remove(name);
@@ -316,7 +317,8 @@ UINT VigenereAuto(PVOID p)
 	}
 	
 	// == Einzelne Caesars Brechen	
-	for (int i=0; i<periode;i++) {
+	int i;
+	for (i=0; i<periode;i++) {
 		SymbolArray s=text.Extract(i,periode);
 		if (Opt.m_VBase) { // 
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_MSG_ON_CAESAR,pc_str,STR_LAENGE_STRING_TABLE);
@@ -468,7 +470,8 @@ void HillPlain(const char *infile, const char *OldTitle)
 		// (falls viele nicht zu verschluesselnde Zeichen in der Datei vorhanden sind)
 		long laenge_str = 0;
 		
-		for (int i=0; i<laenge; i++)
+		int i;
+		for (i=0; i<laenge; i++)
 		{
 			// Kleinbuchstaben wurden schon zu Grossbuchstaben konvertiert, sofern erforderlich;
 			// deshalb muss dies hier nicht mehr beruecksichtigt werden.
@@ -738,7 +741,8 @@ UINT XorAuto(PVOID p)
 	}
 	
 // == Partition the ciphertext and evaluete the assumed XOR-Key
-	for (int i=0; i<periode;i++) {
+	int i;
+	for (i=0; i<periode;i++) {
 		SymbolArray s=text.Extract(i,periode);
 		if (Opt.m_VBase) {
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_XOR_MSG_OF,pc_str,STR_LAENGE_STRING_TABLE);
@@ -896,7 +900,8 @@ UINT AddAuto(PVOID p)
 	
 	
 // == Partition the ciphertext and evaluate the assumed ADD-Key
-	for (int i=0; i<periode;i++) {
+	int i;
+	for (i=0; i<periode;i++) {
 		SymbolArray s=text.Extract(i,periode);
 		if (Opt.m_VBase) {
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_ADD_MSG_OF,pc_str,STR_LAENGE_STRING_TABLE);

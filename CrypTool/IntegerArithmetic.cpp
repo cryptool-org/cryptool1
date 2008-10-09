@@ -542,7 +542,9 @@ int decode( const char *StrNumber, char *data, size_t datalen, int blockLength, 
        	tmp[sizeof(tmp)-(i+1)] = ch;
 	}
 	ASSERT(i + 1 < datalen);
-	for (int j=sizeof(tmp)-i; j<sizeof(tmp); j++ )
+
+	int j;
+	for (j=sizeof(tmp)-i; j<sizeof(tmp); j++ )
 	{
 	    data[j-(sizeof(tmp)-i)] = tmp[j];
 	}

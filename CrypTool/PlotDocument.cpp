@@ -194,11 +194,11 @@ void  CPlotDocument::y_axis_add(double y, double y_inc){
 void CPlotDocument::Load_AxisInfo(){
 	double x_0, x_1, x_inc, t;
 	double y_0, y_1, y_inc, s;
-	int x_n, y_n, k, l;
+	int x_n, y_n, k, l, j;
 
 	int deltas[]={1,2,5,10,20,25,50,100,200,250,500,1000,2000,2500,5000,10000,20000,25000,50000,100000,200000,250000,500000,1000000,2000000,2500000,5000000};
 
-	for(int j=0;j<27;j++) if ((m_xmax+1)/deltas[j]<12) break;
+	for(j=0;j<27;j++) if ((m_xmax+1)/deltas[j]<12) break;
 
 	x_0 = m_xmin;
 	t = (int) ceil((x_0 + ((deltas[j]+1)/2)) / deltas[j]);
@@ -241,7 +241,8 @@ void CPlotDocument::Load_AxisInfo(){
 
 	x_axis_add(x_0);
 
-	for (int i=0; i<x_n; i++){
+	int i;
+	for (i=0; i<x_n; i++){
 		x_axis_add(x_1);
 		x_1 += x_inc;
 	}

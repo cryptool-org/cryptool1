@@ -8,8 +8,8 @@ void ECCDec(char* infile, const char *OldTitle);
 void ShowPrivateKey(CString &UserKeyId, CString &passwd, CString &privKey);
 void ShowPublicKey(CString &UserKeyId, CString &pubKey_xcoord, CString &pubKey_ycoord);
 
-int encrypt(act::Blob &encBlob, const CString &sName, const CString &sVorname, const CString &rName, const CString &rVorname, const char* &sS, const CString &curveS, const char* &xR, const char* &yR, const CString curveR, const char* &ifile);
-int decrypt(act::Blob &decBlob, const CString &rName, const CString &rVorname, const char* &sR, const CString &curveR, const char* &ifile);
+int encrypt(act::Blob &encBlob, const CString &sName, const CString &sVorname, const CString &rName, const CString &rVorname, const char* sS, const CString &curveS, const char* xR, const char* yR, const CString curveR, const char* ifile);
+int decrypt(act::Blob &decBlob, const CString &rName, const CString &rVorname, const char* sR, const CString &curveR, const char* ifile);
 int importKey(act::Key& key, const CString kurve, const char* x, const char* y, const char* s);
 void encryptSessionKey(const act::Key &pubRecECIES, const act::Key &privSendECIES,  const act::Blob &sessionKey, act::Blob &encryptedSessionKey);
 int decryptSessionKey(const act::Key &privRecECIES, const act::Blob &encryptedSessionKey, act::Blob &sessionKey);

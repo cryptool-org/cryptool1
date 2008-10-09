@@ -358,7 +358,9 @@ void CDlgKeyAsym::OnShowPubParamButton()
 		L_NUMBER temp[MAXLGTH];
 		char temphex[sizeof("0x") + (MAXKEYLENGTH+3)/4];
 		sprintf(temphex,"0x");
-		for (int i=0;i<mlen;i++)
+
+		int i;
+		for (i=0;i<mlen;i++)
 		{
 			sprintf(temphex+2+(2*i),"%02X",buf[i]);	
 		}

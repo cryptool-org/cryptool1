@@ -637,7 +637,7 @@ int createInitialKey(char *key, float *stats)
 int initializeStandardDMatrix(float *stats, MonoSubstCrackerParameters *parameters)
 {
 	char *message = NULL;		// error message
-	register	i, j;			// indexes
+	int   	    i, j;			// indexes
 	int			stat[27][27];	// holds the statistic
 	int			di_count=0;		// digram counter
 	char		last, current;	// first and second letter of a digram
@@ -847,7 +847,8 @@ void encryptText (char *key, char *plain, char *cipher)
 {
 	char	temp;
 
-	for (unsigned int i=0; i<strlen(plain); i++)
+	unsigned int i;
+	for (i=0; i<strlen(plain); i++)
 	{
 		temp = plain[i];
 		if (temp>='A' && temp<='Z')

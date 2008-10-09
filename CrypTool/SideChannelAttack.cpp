@@ -1485,7 +1485,9 @@ void getPublicKey(const char *_f, const char *_l, const char *_t, char *publicKe
 	int mlen = ki->part1.noctets;
 	unsigned char* buf = (unsigned char*) ki->part1.octets;
 	sprintf(pc_str,"0x");
-	for (int i=0;i<mlen;i++)
+
+	int i;
+	for (i=0;i<mlen;i++)
 	{
 		sprintf(pc_str+2+(2*i),"%02X",buf[i]);
 

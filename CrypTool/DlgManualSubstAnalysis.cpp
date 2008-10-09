@@ -611,7 +611,9 @@ void CDlgManualSubstAnalysis::OnChange(int Feldnummer){
 	// Auf Kollisionen überprüfen
 	bool Kollision=false;
 	int kollidiert_mit=-1;
-	for (int i=0; i<26; i++){
+
+	int i;
+	for (i=0; i<26; i++){
 		if (i!=Feldnummer){
 			if (Eingabe[i]==Eingabe[Feldnummer]){
 				if (Eingabe[i]!='*'){

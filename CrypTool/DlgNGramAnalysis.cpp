@@ -525,7 +525,7 @@ CNGram::CNGram(const unsigned long fileSize, const unsigned short _N, const unsi
 	AlphabetSize = alphabetSize;
 	if ( N <= 2 ) 
 	{
-		unsigned long Sz = unsigned long(pow(AlphabetSize, N));
+		unsigned long Sz = unsigned long(pow((long)AlphabetSize, (int)N));
 		HashTableSize = min(Sz+Sz/8, Size+Size/8);
 	}
 	else
@@ -636,7 +636,9 @@ void CNGram::get( char *SubStr, unsigned long &cnt, double &rel )
 	hashEntry *hPtr;
 	char *charPtr = NGramHashTable + ((4+N)*iterator);
 	hPtr = (hashEntry*)charPtr;
-	for (int i=0; i<N; i++) SubStr[i] = hPtr->SubStr[i];
+
+	int i;
+	for (i=0; i<N; i++) SubStr[i] = hPtr->SubStr[i];
 	SubStr[i] = 0;
 	cnt = hPtr->count;
 	rel = (double)cnt / hashed;

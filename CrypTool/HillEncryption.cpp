@@ -103,7 +103,9 @@ void CHillEncryption::init_zahlen_zeichen (char* erlaubte_zeichen)
 	modul = (int) hilf;
 
 	// Felder auf "leer" initialisieren
-	for (int i=0; i<256; i++)
+
+	int i;
+	for (i=0; i<256; i++)
 	{
 		zeichen[i] = 0; // = '\0' = Stringendezeichen
 		zahlen[i] = -1; // 0 wird die interne Darstellung des ersten Zeichens
@@ -158,15 +160,14 @@ void CHillEncryption::init_zahlen_zeichen (char* erlaubte_zeichen)
 
 	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "Hill") == ERROR_SUCCESS)
 	{
-		char cFirstCharFromAlph[1024];
-		CString strAlph = zeichen[0];
-		strncpy(cFirstCharFromAlph,strAlph.GetBuffer(0),strAlph.GetLength());
-		cFirstCharFromAlph[strAlph.GetLength()] = '\0';
-		unsigned long u_length = 1024;
-
 		CT_READ_REGISTRY_DEFAULT(useFirstCharFromAlph, "PaddingDefaultChr", useFirstCharFromAlph);
-		CT_READ_REGISTRY(cFirstCharFromAlph,"PaddingOwnChr",u_length);
 
+		unsigned long u_length = 2; 
+		char cFirstCharFromAlph[3];
+		cFirstCharFromAlph[1] = '\0';
+		if ( strlen( zeichen ) );
+			cFirstCharFromAlph[0] = zeichen[0];
+		CT_READ_REGISTRY_DEFAULT(cFirstCharFromAlph,"PaddingOwnChr",cFirstCharFromAlph, u_length);
 		strOwnCharForPadding = cFirstCharFromAlph;
 
 		CT_CLOSE_REGISTRY();
@@ -178,18 +179,8 @@ void CHillEncryption::init_zahlen_zeichen (char* erlaubte_zeichen)
 	if(useFirstCharFromAlph == 0)
 		strCharForPadding = strOwnCharForPadding;
 	
-	//fuellzeichen = zeichen[0];
-
-	
 	fuellzeichen = *(LPCTSTR)strCharForPadding;
 
-	//for (i=0; i<modul; i++)
-	//{
-	//	if ((unsigned char)zeichen[i] < (unsigned char)fuellzeichen)
-	//	{
-	//		fuellzeichen = zeichen[i];
-	//	}
-	//}
 }
 
 
@@ -511,7 +502,8 @@ BOOL CHillEncryption::verschluesseln()
 
 #ifdef _DEBUG
 		TRACE("Plaintext:\n");
-		for (int my_i=0; (my_i<20) && (my_i<laenge_plain); my_i++)
+		int my_i;
+		for (my_i=0; (my_i<20) && (my_i<laenge_plain); my_i++)
 		{
 			TRACE("%3d ", plaintext[my_i]);
 		}
@@ -567,7 +559,8 @@ BOOL CHillEncryption::entschluesseln()
 		laenge_plain = laenge_cipher;
 		plaintext = new int[laenge_plain];
 		
-		for (long i=0; i<laenge_cipher/dim; i++)
+		long i;
+		for (i=0; i<laenge_cipher/dim; i++)
 		{
 			for (int j=0; j<dim; j++)
 			{
@@ -587,7 +580,9 @@ BOOL CHillEncryption::entschluesseln()
 		
 #ifdef _DEBUG
 		TRACE("Plaintext:\n");
-		for (int my_i=0; (my_i<20) && (my_i<laenge_plain); my_i++)
+
+		int my_i;
+		for (my_i=0; (my_i<20) && (my_i<laenge_plain); my_i++)
 		{
 			TRACE("%3d ", plaintext[my_i]);
 		}
@@ -882,7 +877,7 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 
 		// CIPHERTEXT VECTOR
 		tmpStr = "C[n] = \t[\t";
-		for (i=0; i<dim; i++)
+		for (int i=0; i<dim; i++)
 		{
 			my_sprintf(num, getPositionOfCharForOutput(i_act_example[i]));
 			tmpStr = tmpStr + num + '\t';
@@ -1056,7 +1051,9 @@ int CHillEncryption::angriff(int min, int max, CSquareMatrixModN** mat, int rc_a
 		
 #ifdef _DEBUG
 		TRACE("Plaintext:\n");
-		for (int my_i=0; (my_i<20) && (my_i<local_laenge); my_i++)
+		int my_i;
+
+		for (my_i=0; (my_i<20) && (my_i<local_laenge); my_i++)
 		{
 			TRACE("%3d ", plain[my_i]);
 		}
@@ -1307,7 +1304,7 @@ void CHillEncryption::SucheSchluessel (int iRekursionsStufe,	// aktuelle Rekursi
 			// Bilden aller Linearkombinationen, dabei muss ein Element auch mit sich
 			// selbst linearkombiniert werden.
 			// Die Linearkombinationen werden durch sukzessive Addition zweier Zahlen gebildet.
-			for (i=0; (i<modul) && (! inverses_element); i++)
+			for (long i=0; (i<modul) && (! inverses_element); i++)
 			{
 				for (j=i; (j<modul) && (! inverses_element); j++)
 				{
@@ -1410,6 +1407,7 @@ void CHillEncryption::SucheSchluessel (int iRekursionsStufe,	// aktuelle Rekursi
 		
 		// iInvertierbaresElement kann nicht gleich 0 sein !
 		ASSERT ( (1 <= iInvertierbaresElement) && (iInvertierbaresElement < modul));
+		long i;
 		for (i=0; i<modul; i++)
 		{
 			iaFaktoren[i] = 0;

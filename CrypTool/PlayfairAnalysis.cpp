@@ -121,7 +121,9 @@ void playfair_letter::clear_letter()
     my_cnt_roworbelow   = 0;
     my_cnt_roworabove   = 0;
     my_cnt_roworcol     = 0;
-	for (int i=0; i<my_maxsetsize; i++) {
+
+	int i;
+	for (i=0; i<my_maxsetsize; i++) {
 	    my_row_sure[i] = NULL;
 		my_col_sure[i] = NULL;
 		my_rightorbelow[i] = NULL;
@@ -602,9 +604,10 @@ playfair_letter* playfair_alphabet::addLetter(char let)
 
 playfair_letter* playfair_alphabet::getLetter(char let)
 {
+	int i;
 	assert (let>=0);
 	if (let=='\0') return &my_pfletters[0];
-	for (int i=0; i<=my_max_count; i++)
+	for (i=0; i<=my_max_count; i++)
 		if ((my_validletters[i]) && ((my_pfletters[i].getValue()==let)||(my_pfletters[i].getValue()==toupper(let))))
 			return &my_pfletters[i];
 	switch (let) {
@@ -721,8 +724,9 @@ playfair_letter* playfair_letterlist::getLetter(int i)
 
 void playfair_letterlist::getString (char *buf, int len)
 {
+	int i;
 	len = (len<=0) ? my_len : min (len-1, my_len);
-	for (int i = 0; i < len; i++)
+	for (i = 0; i < len; i++)
 		buf[i] = my_pfletters[i]->getValue();
 	buf[i] = '\0';
 }

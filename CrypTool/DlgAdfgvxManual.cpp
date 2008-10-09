@@ -548,7 +548,7 @@ CString CDlgAdfgvxManual::CheckInput(CString oldEntry, CString input)
 	counter=0;
 	if(input==' '|| input=='*' || input.GetLength()==0)
 		return "*";
-	if (('A'<=input&&input<='z')|('0'<=input&&input<='9'))
+	if (('A'<=input.GetAt(0)&&input.GetAt(0)<='z')|('0'<=input.GetAt(0)&&input.GetAt(0)<='9'))
 	{
 		//checks, if the matrix contains the input more than once, 
 		//the "unnecessary" brackets: 
@@ -566,7 +566,7 @@ CString CDlgAdfgvxManual::CheckInput(CString oldEntry, CString input)
 		if(counter>1)
 		{
 			//option dialog: keep new & delete old or cancel entry?
-			if('0'<=input&&input<='9')
+			if('0'<=input.GetAt(0)&&input.GetAt(0)<='9')
 				LoadString (AfxGetInstanceHandle(), IDS_STRING_ADFGVX_CHAR_EXISTS_1B, pc_str, STR_LAENGE_STRING_TABLE);
 			else
 				LoadString (AfxGetInstanceHandle(), IDS_STRING_ADFGVX_CHAR_EXISTS_1A, pc_str, STR_LAENGE_STRING_TABLE);

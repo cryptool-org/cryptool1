@@ -60,7 +60,9 @@ BOOL CListResults::OnInitDialog()
 		sprintf(str, "%3.4f", clist[i].entropy);
 		resultListCtrl.InsertItem(i, str);
 		str[0] = strhex[0] = '\0';
-		for (int j=0; j<clist[i].plain_size && j<256; j++)
+
+		int j;
+		for (j=0; j<clist[i].plain_size && j<256; j++)
 		{
 			str[j] = ( (unsigned char)clist[i].plain[j] >= 32 
 				    && (unsigned char)clist[i].plain[j] < 128 ) 

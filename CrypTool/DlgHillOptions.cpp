@@ -35,18 +35,23 @@ BOOL DlgHillOptions::OnInitDialog()
 	useFirstCharFromAlph = 1;
 	if(CT_OPEN_REGISTRY_SETTINGS(KEY_READ, IDS_REGISTRY_SETTINGS, "Hill") == ERROR_SUCCESS)
 	{
-		char cFirstCharFromAlph[1024];
-		CString strAlph = theApp.TextOptions.getAlphabet()[0];
-		strncpy(cFirstCharFromAlph,strAlph.GetBuffer(0),strAlph.GetLength());
-		cFirstCharFromAlph[strAlph.GetLength()] = '\0';
-		unsigned long u_length = 1024;
-		
 		CT_READ_REGISTRY_DEFAULT(firstPosNull, "OrdChrOffset", firstPosNull);
 		CT_READ_REGISTRY_DEFAULT(useFirstCharFromAlph, "PaddingDefaultChr", useFirstCharFromAlph);
-		CT_READ_REGISTRY(cFirstCharFromAlph,"PaddingOwnChr",u_length);
 
-		m_ownCharForPadding = cFirstCharFromAlph;
-
+		CString strAlph = theApp.TextOptions.getAlphabet();
+		if ( strAlph.GetLength() )
+		{
+			unsigned long u_length = 2; 
+			char cFirstCharFromAlph[3];
+			cFirstCharFromAlph[1] = '\0';
+			cFirstCharFromAlph[0] = strAlph.GetAt(0);
+			CT_READ_REGISTRY_DEFAULT(cFirstCharFromAlph,"PaddingOwnChr",cFirstCharFromAlph, u_length);
+			m_ownCharForPadding = cFirstCharFromAlph;
+		}
+		else
+		{
+			m_ownCharForPadding = _T("A");
+		}
 		UpdateData(false);
 
 		CT_CLOSE_REGISTRY();

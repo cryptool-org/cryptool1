@@ -24,14 +24,16 @@ const ZZXY ZZXY::operator +(ZZXY &B)
 		return retval;
 	}
 	if(m>=n){
+		int i;
 		retval.data.SetLength(m+1);
-		for(int i=m; i>n; i--)
+		for(i=m; i>n; i--)
 			retval.data[i]=data[i];
 		for(i=n; i>=0; i--)
 			retval.data[i]=data[i]+B.data[i];
 	}else{
+		int i;
 		retval.data.SetLength(n+1);
-		for(int i=n; i>m; i--)
+		for(i=n; i>m; i--)
 			retval.data[i]=B.data[i];
 		for(i=m; i>=0; i--)
 			retval.data[i]=data[i]+B.data[i];
@@ -51,13 +53,15 @@ const ZZXY ZZXY::operator -(ZZXY &B)
 	}
 	if(m>=n){
 		retval.data.SetLength(m+1);
-		for(int i=m; i>n; i--)
+		int i;
+		for(i=m; i>n; i--)
 			retval.data[i]=data[i];
 		for(i=n; i>=0; i--)
 			retval.data[i]=data[i]-B.data[i];
 	}else{
 		retval.data.SetLength(n+1);
-		for(int i=n; i>m; i--)
+		int i;
+		for(i=n; i>m; i--)
 			retval.data[i]=(-1)*B.data[i];
 		for(i=m; i>=0; i--)
 			retval.data[i]=data[i]-B.data[i];
@@ -350,3 +354,4 @@ int ZZXY::monomCount()
 				c++;
 	return c;
 }
+

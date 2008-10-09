@@ -57,17 +57,15 @@ statement from your version.
 #include "HashingOperations.h"
 #include "OptionsForSignatureAttack.h"
 #include "ResultsOfSignatureAttack.h"
+#include "sys\timeb.h"
 
 class SignatureAttack  
 {
-public:
-	SignatureAttack();
-	SignatureAttack(OptionsForSignatureAttack *m_OptSigAtt);
-	SignatureAttack(OptionsForSignatureAttack *m_OptSigAtt, FILE *SigAttTest, int TotalAttemptsCounter);
-	virtual ~SignatureAttack();
-	UINT Do_Floyd();
-	ResultsOfSignatureAttack *GetResults() const { return m_ResSigAtt; }
-	
+	double CalculateTimeSpan(_timeb &Start, _timeb &Finish);
+	bool CollisionConfirmation(char *HashValue_single_step, char *HashValue_init);
+	bool HashEqual(const char *HashValue_single_step, const char *HashValue_double_step) const;
+	void InternalStep(int &HashValueParity, char *HashValue);
+
 protected:
 	virtual void SignalEnd() { ; }
 	virtual bool CheckCanceledProgress() { return false; }
@@ -79,12 +77,14 @@ protected:
 	FILE *m_TestFile;
 	int m_TotalAttemptsCounter;
 
-private:
-	double CalculateTimeSpan(const struct _timeb Start, const struct _timeb Finish) const;
-	bool CollisionConfirmation(char *HashValue_single_step, char *HashValue_init);
-	bool HashEqual(const char *HashValue_single_step, const char *HashValue_double_step) const;
-	void InternalStep(int &HashValueParity, char *HashValue);
-		
+public:
+	SignatureAttack();
+	SignatureAttack(OptionsForSignatureAttack *m_OptSigAtt);
+	SignatureAttack(OptionsForSignatureAttack *m_OptSigAtt, FILE *SigAttTest, int TotalAttemptsCounter);
+	virtual ~SignatureAttack();
+	UINT Do_Floyd();
+	ResultsOfSignatureAttack *GetResults() const { return m_ResSigAtt; }
+	
 };
 
 #endif // !defined(AFX_SIGNATUREATTACK_H__C4452B93_B590_11D6_9DD3_000629718A52__INCLUDED_)

@@ -123,7 +123,8 @@ CSquareMatrixModN::CSquareMatrixModN(int dimension, int alphabetgroesse)
 		if (! inverse_elemente[i]) // noch nicht gefunden -> also suchen
 		{
 			// Inverses Element suchen
-			for (int j=1; (j<modul) && (((i*j)%modul) != 1); j++); 
+			int j;
+			for (j=1; (j<modul) && (((i*j)%modul) != 1); j++); 
 			if (((i*j)%modul) == 1)
 			{
 				inverse_elemente[i] = j;

@@ -465,7 +465,8 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 		
 		// Bis zum Erreichen des Dateiendes (EOF) wird die gesamte Datei durchsucht
 		// und jedes Zeichen einzeln auf Gültigkeit überprüft.
-		for( int i=0; feof( stream ) == 0; i++ )
+		int i;
+		for(i=0; feof( stream ) == 0; i++ )
 		{
 			c = (char)ch;
 
@@ -508,7 +509,9 @@ void PlayfairBin(const char *infile, const char *OldTitle)
 		GetTmpName(preform,"cry",".txt");
 		KeyDialog.m_Alg->ApplyPlayfairPreformat(KeyDialog.getDec(),preform,outfile);
 		char tmpStr[128];
-		for (int i=0; i<KeyDialog.m_text.GetLength(); i++ )
+
+		int i;
+		for (i=0; i<KeyDialog.m_text.GetLength(); i++ )
 			tmpStr[i] = KeyDialog.m_text.GetAt(i);
 		tmpStr[i]=0;
 		NewDoc = theApp.OpenDocumentFileNoMRU(preform, tmpStr /* KeyDialog.GetData()*/ );
@@ -2789,8 +2792,8 @@ void compare_score (int *Permu[26], int *MaxScore, int score, int *MaxPermu[26])
    konsistent überprüft, ob diese beiden Permutationen verträglich sind */
 bool konsistent (int *Permu[26], int *PermuNeu[26], char *w, char *x){
 
-	
-	for (int i=0; i<26; i++){
+	int i;
+	for (i=0; i<26; i++){
 		*PermuNeu[i]=*Permu[i];}
 	for (i=0; i<(int)strlen(w); i++){
 		if ((*Permu[w[i]-65]!=-1)&&(*Permu[w[i]-65]!=x[i])){
@@ -2818,7 +2821,9 @@ void solve (int Tiefe, int DMax, int *Permu[26], int Perm[], int score, char *Pa
 	else{
 		int i=0;
 		int *PermuNeu[26];
-		for (int k=0; k<26; k++){
+		int k;
+
+		for (k=0; k<26; k++){
 			PermuNeu[k]=(int*)malloc(sizeof(int));
 			*PermuNeu[k]=-1;}
 		while (Cipher[Perm[Tiefe]][i]!=NULL){
@@ -2963,7 +2968,9 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 					value <<= offsetResiduum;
 					value |= residuum;
 					offsetResiduum += bitLength;
-					for (int j=0; offsetResiduum >= 8; j++ )
+
+					int j;
+					for (j=0; offsetResiduum >= 8; j++ )
 					{
 						outbuffer[outbuffsize]= p_value[j];
 						outbuffsize++;
@@ -3877,7 +3884,8 @@ UINT SymmetricBruteForce(PVOID p)
 	double *xlogx = new double[datalen + 1];
 	if (!xlogx) return 0;
 	xlogx[0] = 0.0;
-	for (int i = 1; i <= datalen; i++) 
+	int i;
+	for (i = 1; i <= datalen; i++) 
 		xlogx[i] = -1.0 * i * log(i/double(datalen))/log(2.0);
 
 

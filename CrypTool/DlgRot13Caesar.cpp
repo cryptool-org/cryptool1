@@ -186,7 +186,9 @@ void CDlgRot13Caesar::OnPasteKey()
 		controlRadioButtonAlphabetic.EnableWindow(TRUE);
 		controlRadioButtonNumeric.EnableWindow(FALSE);
 		controlEditAlphabeticKey.SetWindowText(CString(theKey.key));
-		controlEditNumericKey.SetWindowText(calculateNumericKeyFromAlphabeticKey(theKey.key));
+		CString key = _T(" ");
+		key.SetAt(0, theKey.key);
+		controlEditNumericKey.SetWindowText(calculateNumericKeyFromAlphabeticKey(key));
 		if(theKey.offset) {
 			controlRadioButtonKeyOffsetZero.SetCheck(0);
 			controlRadioButtonKeyOffsetOne.SetCheck(1);

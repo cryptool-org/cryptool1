@@ -87,7 +87,8 @@ void StereotypedAttack::buildPoly(){
 	ZZ a1 = to_ZZ(power(to_ZZ(256), rightLength));
 	
 	// now we have to exponentiate the bracket term by e
-	for(int i=0; i<=e; i++)
+	int i;
+	for(i=0; i<=e; i++)
 		SetCoeff(poly,i, 
 		binom(to_int(e),i)*power(a0,to_int(e-i))*power(a1,i));
 
@@ -161,7 +162,8 @@ void StereotypedAttack::reduceLattice(){
 void StereotypedAttack::findSolution(){
 	ZZX result;
 	vec_ZZ roots;
-	for(int i=0; i< HGMatrix.NumCols(); i++)
+	int i;
+	for(i=0; i< HGMatrix.NumCols(); i++)
 		SetCoeff(result,i,HGMatrix[0][i]);
 	if (FindRoots(result, roots))
 		for(i=0; i < roots.length(); i++){
