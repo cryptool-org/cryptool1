@@ -492,4 +492,4 @@ MA 02111-1307, USA. */
 
 /* Define as `__restrict' if that's what the C compiler calls it, or to
    nothing if it is not supported. */
-#define restrict __restrict__
+/* #define restrict __restrict__ */
