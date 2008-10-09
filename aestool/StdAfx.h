@@ -46,17 +46,31 @@ statement from your version.
 //  oder projektspezifische Include-Dateien, die häufig benutzt, aber
 //      in unregelmäßigen Abständen geändert werden.
 //
-
-#if !defined(AFX_STDAFX_H__A8D430F6_1896_11D5_8ACA_0010A4F6E7D5__INCLUDED_)
-#define AFX_STDAFX_H__A8D430F6_1896_11D5_8ACA_0010A4F6E7D5__INCLUDED_
-
-#if _MSC_VER > 1000
-#pragma once
-#endif // _MSC_VER > 1000
+// Ändern Sie folgende Definitionen für Plattformen, die älter als die unten angegebenen sind.
+// Unter MSDN finden Sie die neuesten Informationen über die entsprechenden Werte für die unterschiedlichen Plattformen.
 
 #define VC_EXTRALEAN		// Selten verwendete Teile der Windows-Header nicht einbinden
-// 0x500 = Win2k
-#define WINVER 0x400
+
+#ifndef WINVER				// Lassen Sie die Verwendung von Features spezifisch für Windows 95 und Windows NT 4 oder später zu.
+#define WINVER 0x0400		// Ändern Sie den entsprechenden Wert, um auf Windows 98 und mindestens Windows 2000 abzuzielen.
+#endif
+
+#ifndef _WIN32_WINNT		// Lassen Sie die Verwendung von Features spezifisch für Windows NT 4 oder später zu.
+#define _WIN32_WINNT 0x0400		// Ändern Sie den entsprechenden Wert, um auf Windows 98 und mindestens Windows 2000 abzuzielen.
+#endif						
+
+#ifndef _WIN32_WINDOWS		// Lassen Sie die Verwendung von Features spezifisch für Windows 98 oder später zu.
+#define _WIN32_WINDOWS 0x0410 // Ändern Sie den entsprechenden Wert, um auf mindestens Windows Me abzuzielen.
+#endif
+
+#ifndef _WIN32_IE			// Lassen Sie die Verwendung von Features spezifisch für IE 4.0 oder später zu.
+#define _WIN32_IE 0x0500	// Ändern Sie den entsprechenden Wert, um auf mindestens IE 5.0 abzuzielen.
+#endif
+
+#define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS	// einige CString-Konstruktoren sind explizit
+
+// Deaktiviert das Ausblenden von einigen häufigen und oft ignorierten Warnungen
+#define _AFX_ALL_WARNINGS
 
 #include <afxwin.h>         // MFC-Kern- und -Standardkomponenten
 #include <afxext.h>         // MFC-Erweiterungen
@@ -70,4 +84,3 @@ statement from your version.
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ fügt unmittelbar vor der vorhergehenden Zeile zusätzliche Deklarationen ein.
 
-#endif // !defined(AFX_STDAFX_H__A8D430F6_1896_11D5_8ACA_0010A4F6E7D5__INCLUDED_)
