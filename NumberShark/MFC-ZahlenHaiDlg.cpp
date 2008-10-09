@@ -680,6 +680,7 @@ void CMFCZahlenHaiDlg::updateButtons()
 	
 	//Immer wenn eine nicht teilbare Zahl im Zahlen Block vorhanden ist erscheint der Button
 	//"Zahlen ohne Teiler für den Zahlenhai"
+	int i;
 	for(i= upperLimit; i > upperLimit/2; i--)
 	{
 		found=false;
@@ -1259,6 +1260,7 @@ void CMFCZahlenHaiDlg::writeLogFile()
 
 	CString allNumbers="";
 	//allNumbers = upperLimitNumbers + ": ";
+	int i;
 	for(i =0;i <ListControl.GetItemCount();i++)
 	{
 		CString line="\r\n";
@@ -1658,7 +1660,7 @@ void CMFCZahlenHaiDlg::arrowKeyPressed(WPARAM wParam)
 						}
 					}
 					//alle Buttons rechts von dem bereits vergebenne werden durchsucht, bis ein freier gefunden wurde
-					for(i=0; i<maxStepsRight; i++)
+					for(int i=0; i<maxStepsRight; i++)
 					{
 						//+i+1, da i bei 0 anfängt zu zählen
 						if(numbersTemp[buttonID-IDC_BUTTON01+20+tab*MAX_ZAHLENHAI_BUTTON + i+2] == FREE)
@@ -1742,7 +1744,8 @@ void CMFCZahlenHaiDlg::arrowKeyPressed(WPARAM wParam)
 				else
 				{
 					//alle Buttons rechts von dem bereits vergebenen werden durchsucht, bis ein freier gefunden wurde
-					for(int i=0; i<maxStepsRight;i++)
+					int i;
+					for(i=0; i<maxStepsRight;i++)
 					{
 						if(numbersTemp[buttonID-IDC_BUTTON01-19+tab*MAX_ZAHLENHAI_BUTTON+i+1]==FREE)
 						{
@@ -1802,7 +1805,8 @@ void CMFCZahlenHaiDlg::nextFreeButtonAbove(int buttonID, int maxStepsLeft, int m
 	int tab = tabControl.GetCurSel();
 	int *numbersTemp=hai.getNumbers();
 
-	for(int i=0; i<maxStepsLeft; i++)
+	int i;
+	for(i=0; i<maxStepsLeft; i++)
 	{
 		//-i-1, da i bei 0 anfängt zu zählen
 		if(numbersTemp[buttonID-IDC_BUTTON01-9+tab*MAX_ZAHLENHAI_BUTTON - i-1] == FREE)
@@ -1839,7 +1843,8 @@ void CMFCZahlenHaiDlg::nextFreeButtonBelow(int buttonID, int maxStepsLeft, int m
 	int tab=tabControl.GetCurSel();
 	int *numbersTemp=hai.getNumbers();
 
-	for(int i=0; i<maxStepsLeft; i++)
+	int i;
+	for(i=0; i<maxStepsLeft; i++)
 	{
 		//-i-1, da i bei 0 anfängt zu zählen
 		if(numbersTemp[buttonID-IDC_BUTTON01+11+tab*MAX_ZAHLENHAI_BUTTON-i-1]==FREE)

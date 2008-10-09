@@ -24,6 +24,7 @@ EvoZahlenHai::EvoZahlenHai(void)
 //Wenn 
 EvoZahlenHai::EvoZahlenHai(CString serStr)
 {
+	int i;
 	//upperLimit
 	upperLimit = getNextIntValue(serStr);
 		
@@ -39,7 +40,7 @@ EvoZahlenHai::EvoZahlenHai(CString serStr)
 	//numbers
 	numbers = new int[upperLimit+1];
 	
-	for(int i=1; i<=upperLimit; i++)
+	for(i=1; i<=upperLimit; i++)
 	{
 		if(i < upperLimit)
 		{
@@ -342,6 +343,7 @@ CString EvoZahlenHai::getBestWay()
 //Speichern der aktuellen Werte der Suche in einem String
 CString EvoZahlenHai::toString()
 {
+	int i;
 	CString writeBuffer;
 	char charWriteBuffer[25];
 

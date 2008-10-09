@@ -117,9 +117,10 @@ BOOL DynTabCtrl::DeleteItem(int nItem)
 	{
 		if(CTabCtrl::DeleteItem(nItem))
 		{
+			// delete m_tabs[nItem];
+			m_tabs.erase( m_tabs.begin() + nItem /* &m_tabs[nItem] */);
+			m_titel.erase( m_titel.begin() + nItem /* &m_titel[nItem] */);
 			delete m_tabs[nItem];
-			m_tabs.erase(&m_tabs[nItem]);
-			m_titel.erase(&m_titel[nItem]);
 			if(!m_tabs.empty())
 			{
 				SetCurFocus(0);

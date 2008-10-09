@@ -1007,7 +1007,8 @@ void CDigiStatic::OnPaint()
 
 	// Calculate resizing factors...
 	BuildString();
-	for (int iChar = 0; iChar < m_CharArray.GetSize(); iChar++)
+	int iChar;
+	for (iChar = 0; iChar < m_CharArray.GetSize(); iChar++)
 	{
 		iTotWidth += m_CharArray[iChar].GetNormWidth();
 	}
