@@ -30,7 +30,7 @@ extern char *CaPseDatei, *CaPseVerzeichnis, *Pfad, *PseVerzeichnis;
 Funktion zur Verschlüsselung der Daten im aktuellen Fenster mittels ECC
 */
 void ECCEnc(char* infile, const char *OldTitle){
-
+#ifndef DISABLE_CV
 //Initialisierung der Library
 act::Init();
 
@@ -217,6 +217,7 @@ CDlgECCEncSender ECCEncDialogSender;
 			}
 			
 		}
+#endif
 	}
 //}
 
@@ -225,6 +226,7 @@ Funktion zur Entschlüsselung der Daten im aktuellen Fenster mittels ECC
 */
 void ECCDec(char* infile, const char *OldTitle)
 {
+#ifndef DISABLE_CV
 //Initialisierung der Library
 act::Init();
 
@@ -388,6 +390,7 @@ int error;
 		Receiverpasswd="";
 		
 	}
+#endif
 }
 //////////////////////////////////////////////////////////////////////////////////////
 // Öffentliche Schlüsselparameter anzeigen für
@@ -396,6 +399,7 @@ int error;
 
 void ShowPublicKey(CString &UserKeyId, CString &pubKey_xcoord, CString &pubKey_ycoord) 
 {
+#ifndef DISABLE_CV
 
 		EcDomParam_ac_ptr curveParameter;
 		
@@ -466,7 +470,7 @@ void ShowPublicKey(CString &UserKeyId, CString &pubKey_xcoord, CString &pubKey_y
 		free (curveParameter->G);
 		free (curveParameter->E);
 		free (curveParameter);
-		
+#endif		
 }
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -476,6 +480,7 @@ void ShowPublicKey(CString &UserKeyId, CString &pubKey_xcoord, CString &pubKey_y
 
 void ShowPrivateKey(CString &UserKeyId, CString &passwd, CString &privKey) 
 {
+#ifndef DISABLE_CV
 
 	EcDomParam_ac_ptr curveParameter;
 	
@@ -545,9 +550,11 @@ void ShowPrivateKey(CString &UserKeyId, CString &passwd, CString &privKey)
 	free (curveParameter->G);
 	free (curveParameter->E);
 	free (curveParameter);
+#endif
 }
 
 
+#ifndef DISABLE_CV
 
 int encrypt(act::Blob &encBlob, const CString &sName, const CString &sVorname, const CString &rName, const CString &rVorname, const char* sS, const CString &curveS, const char* xR, const char* yR, const CString curveR, const char* ifile)
 {
@@ -972,3 +979,4 @@ void newWindow(const bool &plain, const act::Blob &output, const char* &OldTitle
 	act::blob2file(outfile,output);
 	OpenNewDoc(outfile,ReceiverName+", "+ReceiverFirstname+", "+ReceiverKeyType,OldTitle,IDS_ECIES_CRYPT,plain,0);
 }
+#endif
