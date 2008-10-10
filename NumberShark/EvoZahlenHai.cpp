@@ -368,7 +368,7 @@ CString EvoZahlenHai::toString()
 	writeBuffer += " | ";
 	
 	//numbers
-	for(int i=1; i<=upperLimit; i++)
+	for(i=1; i<=upperLimit; i++)
 	{
 		itoa(numbers[i], charWriteBuffer, 10);
 		writeBuffer += charWriteBuffer;
