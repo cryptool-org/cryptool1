@@ -1,16 +1,17 @@
-
 //cvact-Library
+
+#ifndef DISABLE_CV
 #include "actInit.h"
 #include "actAlgorithm.h"
 #include "actTools.h"
 #include "actDate.h"
 #include "actIRNGAlg.h"
+#endif
 
 #include "stdafx.h"
 #include "CrypToolApp.h"
 #include "ECIESMain.h"
 #include "DlgECCEncReceiver.h"
-//#include "DlgECCEncSender.h"
 #include "DlgECCDecReceiver.h"
 #include "FileTools.h"
 #include "CrypToolTools.h"
@@ -32,104 +33,34 @@ Funktion zur Verschlüsselung der Daten im aktuellen Fenster mittels ECC
 void ECCEnc(char* infile, const char *OldTitle){
 #ifndef DISABLE_CV
 //Initialisierung der Library
-act::Init();
+	act::Init();
 
 // Variablen des Senders
-	
-CString SenderName="";
-CString SenderFirstname="";
-CString SenderKeyType="";
-CString Senderpasswd="";
-CString SenderUserKeyId="";
-CString SenderprivKey="";
+	CString SenderName="";
+	CString SenderFirstname="";
+	CString SenderKeyType="";
+	CString Senderpasswd="";
+	CString SenderUserKeyId="";
+	CString SenderprivKey="";
 
 // Variablen des Empängers
-CString ReceiverName="";
-CString ReceiverFirstname="";
-CString ReceiverKeyType="";	
-CString ReceiverUserKeyId="";
-CString ReceiverpubKey_xcoord="";
-CString ReceiverpubKey_ycoord="";
-	
-clock_t sigStart;
-clock_t sigFinish;
-double duration;
-int error;
-	
+	CString ReceiverName="";
+	CString ReceiverFirstname="";
+	CString ReceiverKeyType="";	
+	CString ReceiverUserKeyId="";
+	CString ReceiverpubKey_xcoord="";
+	CString ReceiverpubKey_ycoord="";
+		
+	clock_t sigStart;
+	clock_t sigFinish;
+	double duration;
+	int error;
+		
 
-
-	//########################## Dialog Sender #################################
-/*
-CDlgECCEncSender ECCEncDialogSender;
-	if(ECCEncDialogSender.DoModal()==IDOK)
-	
-		{
-
-		// *********************** Sender Key ermitteln 
-		
-		
-		//Konvertieren der Pin-Nummer von CString nach char *
-		LPTSTR string1 = new TCHAR[ECCEncDialogSender.m_PinCode.GetLength()+1];
-		_tcscpy(string1, ECCEncDialogSender.m_PinCode);
-		char *PIN=string1;
-			
-		
-		// SenderName,SenderVorname,SenderKeyType und Sender Pin speichern
-		SenderName=ECCEncDialogSender.Name;
-		SenderFirstname=ECCEncDialogSender.Firstname;
-		SenderKeyType=ECCEncDialogSender.KeyType;
-		Senderpasswd=ECCEncDialogSender.m_PinCode;
-		SenderUserKeyId=ECCEncDialogSender.UserKeyId;
-		
-		//Pfad mit Dateinamen der PSE des Entschlüsselers in char * konvertieren
-		CString help2=(CString)PseVerzeichnis+((CString)"/")+ECCEncDialogSender.UserKeyId+((CString)PSE_FILE_SUFFIX);
-		LPTSTR string2 = new TCHAR[help2.GetLength()+1];
-		_tcscpy(string2, help2);
-		char *PfadNeu=string2;
-		
-		//Öffnen der PSE des Entschlüsselers
-
-		PSE PseHandle;
-		PseHandle = theApp.SecudeLib.af_open(PfadNeu, NULL, PIN, NULL);
-		if (PseHandle==NULL)
-		{
-			if (theApp.SecudeLib.LASTERROR==EPIN)
-			{
-				// falsche PIN-Nummer benutzt
-				Message(IDS_STRING_PRIVKEY_WRONG_PIN, MB_ICONEXCLAMATION);
-				// Freigeben von dynamisch angelegtem Speicher
-			//	theApp.SecudeLib.aux_free_OctetString(&help);
-			//	free(out.octets);
-				delete string1;
-				delete string2;
-				return;
-			}
-			Message(IDS_STRING_ASYMKEY_ERR_OPEN_PSE, MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
-			// Freigeben von dynamisch angelegtem Speicher
-		//	theApp.SecudeLib.aux_free_OctetString(&help);
-		//	free(out.octets);
-			delete string1;
-			delete string2;
-			return;
-		}
-		
-		// PSE des Senders wurde erfolgreich ermittelt
-
-		//Besorgen des privaten Schlüssels
-		
-		ShowPrivateKey(SenderUserKeyId,Senderpasswd,SenderprivKey);
-
-		Senderpasswd="+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
-		Senderpasswd="";
-		
-		
-		//########################## Dialog Empfänger #################################
-
-		*/
-		CDlgECCEncReceiver ECCEncDialogReceiver;
-		ECCEncDialogReceiver.SenderKeyType=SenderKeyType;
-		if(ECCEncDialogReceiver.DoModal()==IDOK)
-		{
+	CDlgECCEncReceiver ECCEncDialogReceiver;
+	ECCEncDialogReceiver.SenderKeyType=SenderKeyType;
+	if(ECCEncDialogReceiver.DoModal()==IDOK)
+	{
 
 		// ReceiverName,ReceiverVorname,ReceiverKeyType und ReceiverUserKeyId speichern
 		ReceiverName=ECCEncDialogReceiver.Name;
@@ -139,87 +70,86 @@ CDlgECCEncSender ECCEncDialogSender;
 		
 		// NEU
 		SenderKeyType=ECCEncDialogReceiver.KeyType;
-			// PSE des Empfängers  wurde erfogreich ermittelt
+		// PSE des Empfängers  wurde erfogreich ermittelt
 
-			//Besorgen des öffentlichen Schlüssels
-			ShowPublicKey(ReceiverUserKeyId,ReceiverpubKey_xcoord,ReceiverpubKey_ycoord);
+		//Besorgen des öffentlichen Schlüssels
+		ShowPublicKey(ReceiverUserKeyId,ReceiverpubKey_xcoord,ReceiverpubKey_ycoord);
+		
+		SHOW_HOUR_GLASS
+		
+		sigStart = clock();
+
+		//Verschlüsseln der Daten 
+		
+		SenderprivKey.AppendChar('\0');
+		char* sS=new char[SenderprivKey.GetLength()];
+		for(int i= 0;i<SenderprivKey.GetLength();i++)
+			sS[i]=SenderprivKey.GetAt(i);
+		ReceiverpubKey_xcoord.AppendChar('\0');
+		char* R_xcoord=new char[ReceiverpubKey_xcoord.GetLength()];
+		for(int i= 0;i<ReceiverpubKey_xcoord.GetLength();i++)
+			R_xcoord[i]=ReceiverpubKey_xcoord.GetAt(i);
+		ReceiverpubKey_ycoord.AppendChar('\0');
+		char* R_ycoord=new char[ReceiverpubKey_ycoord.GetLength()];
+		for(int i= 0;i<ReceiverpubKey_ycoord.GetLength();i++)
+			R_ycoord[i]=ReceiverpubKey_ycoord.GetAt(i);
+
+		act::Blob output;
+
+		error=encrypt(output,SenderName,SenderFirstname,ReceiverName,ReceiverFirstname,sS,SenderKeyType,R_xcoord,R_ycoord,ReceiverKeyType,infile);
+		//error-values: 0=ok, 11=no curve found (sender), 12=not on curve (sender), 21=no curve found (receiver) 22=not on curve (receiver)
+		//encrypt terminated normally
+		if (error==0)
+		{
+			newWindow(false,output, OldTitle,ReceiverName,ReceiverFirstname,ReceiverKeyType);
+
 			
-			SHOW_HOUR_GLASS
+			//   **** Ende Verschlüsselung ****
+
+			sigFinish = clock();
+			duration = (double)(sigFinish - sigStart) / CLOCKS_PER_SEC;			
+
+
+			HIDE_HOUR_GLASS 
 			
-			sigStart = clock();
-
-			//Verschlüsseln der Daten 
-			
-			SenderprivKey.AppendChar('\0');
-			char* sS=new char[SenderprivKey.GetLength()];
-			for(int i= 0;i<SenderprivKey.GetLength();i++)
-				sS[i]=SenderprivKey.GetAt(i);
-			ReceiverpubKey_xcoord.AppendChar('\0');
-			char* R_xcoord=new char[ReceiverpubKey_xcoord.GetLength()];
-			for(int i= 0;i<ReceiverpubKey_xcoord.GetLength();i++)
-				R_xcoord[i]=ReceiverpubKey_xcoord.GetAt(i);
-			ReceiverpubKey_ycoord.AppendChar('\0');
-			char* R_ycoord=new char[ReceiverpubKey_ycoord.GetLength()];
-			for(int i= 0;i<ReceiverpubKey_ycoord.GetLength();i++)
-				R_ycoord[i]=ReceiverpubKey_ycoord.GetAt(i);
-
-			act::Blob output;
-
-			error=encrypt(output,SenderName,SenderFirstname,ReceiverName,ReceiverFirstname,sS,SenderKeyType,R_xcoord,R_ycoord,ReceiverKeyType,infile);
-			//error-values: 0=ok, 11=no curve found (sender), 12=not on curve (sender), 21=no curve found (receiver) 22=not on curve (receiver)
-			//encrypt terminated normally
-			if (error==0)
+			// Benötigte Zeit zum verschlüsseln ausgeben, falls gewünscht
+			if (ECCEncDialogReceiver.m_ShowDuration==TRUE)
 			{
-				newWindow(false,output, OldTitle,ReceiverName,ReceiverFirstname,ReceiverKeyType);
-
-				
-				//   **** Ende Verschlüsselung ****
-
-				sigFinish = clock();
-				duration = (double)(sigFinish - sigStart) / CLOCKS_PER_SEC;			
-
-
-				HIDE_HOUR_GLASS 
-				
-				// Benötigte Zeit zum verschlüsseln ausgeben, falls gewünscht
-				if (ECCEncDialogReceiver.m_ShowDuration==TRUE)
-				{
-					LoadString(AfxGetInstanceHandle(),IDS_ECIES_ENC_TIME,pc_str1,STR_LAENGE_STRING_TABLE);
-					char strDuration[20];
-					double_fmt( duration, strDuration, 3 );
-					sprintf(pc_str, pc_str1, strDuration);
-					AfxMessageBox (((CString)pc_str),MB_ICONINFORMATION|MB_OK);
-				}
+				LoadString(AfxGetInstanceHandle(),IDS_ECIES_ENC_TIME,pc_str1,STR_LAENGE_STRING_TABLE);
+				char strDuration[20];
+				double_fmt( duration, strDuration, 3 );
+				sprintf(pc_str, pc_str1, strDuration);
+				AfxMessageBox (((CString)pc_str),MB_ICONINFORMATION|MB_OK);
+			}
 //				theApp.SecudeLib.af_close (PseHandle);
-			}
-
-			//11=no curve found (sender)
-			
-			else if(error==11)
-			{
-				LoadString(AfxGetInstanceHandle(),IDS_ECIES_ENC_ERROR_11,pc_str,STR_LAENGE_STRING_TABLE);
-				AfxMessageBox(pc_str);
-			}
-			else if(error==12)
-			{
-				LoadString(AfxGetInstanceHandle(),IDS_ECIES_ENC_ERROR_12,pc_str,STR_LAENGE_STRING_TABLE);
-				AfxMessageBox(pc_str);
-			}
-			else if(error==21)
-			{
-				LoadString(AfxGetInstanceHandle(),IDS_ECIES_ENC_ERROR_21,pc_str,STR_LAENGE_STRING_TABLE);
-				AfxMessageBox(pc_str);
-			}
-			else if(error==22)
-			{
-				LoadString(AfxGetInstanceHandle(),IDS_ECIES_ENC_ERROR_22,pc_str,STR_LAENGE_STRING_TABLE);
-				AfxMessageBox(pc_str);
-			}
-			
 		}
-#endif
+
+		//11=no curve found (sender)
+		
+		else if(error==11)
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_ECIES_ENC_ERROR_11,pc_str,STR_LAENGE_STRING_TABLE);
+			AfxMessageBox(pc_str);
+		}
+		else if(error==12)
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_ECIES_ENC_ERROR_12,pc_str,STR_LAENGE_STRING_TABLE);
+			AfxMessageBox(pc_str);
+		}
+		else if(error==21)
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_ECIES_ENC_ERROR_21,pc_str,STR_LAENGE_STRING_TABLE);
+			AfxMessageBox(pc_str);
+		}
+		else if(error==22)
+		{
+			LoadString(AfxGetInstanceHandle(),IDS_ECIES_ENC_ERROR_22,pc_str,STR_LAENGE_STRING_TABLE);
+			AfxMessageBox(pc_str);
+		}
+		
 	}
-//}
+#endif
+}
 
 /*
 Funktion zur Entschlüsselung der Daten im aktuellen Fenster mittels ECC
@@ -227,26 +157,21 @@ Funktion zur Entschlüsselung der Daten im aktuellen Fenster mittels ECC
 void ECCDec(char* infile, const char *OldTitle)
 {
 #ifndef DISABLE_CV
-//Initialisierung der Library
-act::Init();
+	//Initialisierung der Library
+	act::Init();
 
-// Variablen des Empängers
-CString ReceiverName="";
-CString ReceiverFirstname="";
-CString ReceiverKeyType="";	
-CString ReceiverUserKeyId="";
-CString Receiverpasswd="";
-CString ReceiverprivKey="";
-	
-//	char outfile[128], title[128];
-//    CAppDocument *NewDoc;
-//	GetTmpName(outfile,"cry",".tmp");
-
-clock_t sigStart;
-clock_t sigFinish;
-double duration;
-int error;
-
+	// Variablen des Empängers
+	CString ReceiverName="";
+	CString ReceiverFirstname="";
+	CString ReceiverKeyType="";	
+	CString ReceiverUserKeyId="";
+	CString Receiverpasswd="";
+	CString ReceiverprivKey="";
+		
+	clock_t sigStart;
+	clock_t sigFinish;
+	double duration;
+	int error;
 	
 	//########################## Dialog Empfänger #################################
 	CDlgECCDecReceiver ECCDecDialogReceiver;
@@ -353,26 +278,8 @@ int error;
 		sigFinish = clock();
 		duration = (double)(sigFinish - sigStart) / CLOCKS_PER_SEC;			
 
-		//theApp.SecudeLib.aux_free_OctetString(&help);
-		
-		//Ausgabe der verschluesselten Daten
-		//theApp.SecudeLib.aux_OctetString2file(&out, outfile, 2);
-		//free(out.octets);
-		
-		//theApp.SecudeLib.aux_free_BitString(&in);
-		//free(in.bits);
-		
-		//NewDoc = theApp.OpenDocumentFileNoMRU(outfile);
-		//remove(outfile);
-		
 		HIDE_HOUR_GLASS // theApp.DoWaitCursor(0);
 		
-		//if(NewDoc) {
-		//	LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_RSA_DECRYPTION_OF,pc_str,STR_LAENGE_STRING_TABLE);
-		//	MakeNewName(title,sizeof(title),pc_str,OldTitle);
-		//	NewDoc->SetTitle(title);
-		//}
-
 		// Benötigte Zeit zum entschlüsseln ausgeben, falls gewünscht
 		if (ECCDecDialogReceiver.m_ShowDuration==TRUE)
 		{
@@ -774,12 +681,12 @@ void encryptData(const act::Blob &plaintext, act::Blob &sessionKey, act::Blob &c
 	}
 
 	catch(act::Exception & e)
-			{
-				cout << "Exception: " << typeid(e).name() << endl;
-				cout << "what: " << e.what() << endl;
-				cout << "where: " << e.where() << endl;
-				
-			}
+	{
+		cout << "Exception: " << typeid(e).name() << endl;
+		cout << "what: " << e.what() << endl;
+		cout << "where: " << e.where() << endl;
+		
+	}
 }
 
 int decryptData(const act::Blob &ciphertext, const act::Blob &sessionKey, act::Blob &plaintext)
@@ -799,10 +706,10 @@ int decryptData(const act::Blob &ciphertext, const act::Blob &sessionKey, act::B
 	}
 	
 	catch(act::Exception & e)
-			{
-				//bad ciphertext or bad AES-key
-				return 5;	
-			}
+	{
+		//bad ciphertext or bad AES-key
+		return 5;	
+	}
 }
 
 act::Blob writeEncFile(const CString &ofile, const CString &sName, const CString &sVorname, const CString &rName, const CString &rVorname, const CString curveR, const act::Blob &encryptedSessionKey, const act::Blob &ciphertext)

@@ -206,6 +206,8 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_UPDATE_COMMAND_UI(ID_HASH_OFAFILE, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SIGN, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN, OnUpdateNeedSecudeTicket)
+	ON_UPDATE_COMMAND_UI(ID_HYBRID_ECCENC, OnUpdateHybridEnc)
+	ON_UPDATE_COMMAND_UI(ID_HYBRID_ECCDEC, OnUpdateHybridDec)
 	ON_COMMAND(ID_INDIVIDUAL_PROCEDURES_SECRETSHARING, OnIndividualProceduresSecretsharing)
 	//}}AFX_MSG_MAP
 
@@ -221,13 +223,13 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_COMMAND(ID_DEFAULT_HELP, CWinApp::OnHelpFinder)
 
 // ENDE
-ON_COMMAND(ID_PRIMENUMBER_TEST, OnPrimenumberTest)
-ON_COMMAND(ID_AES_SELFEXTRACT, OnAesSelfextract)
-ON_COMMAND(ID_INDIV_POINTADDITIONONELLIPTICCURVES, OnIndivPointadditiononellipticcurves)
-ON_COMMAND(ID_FLASH_AESDEMO, OnFlashAesdemo)
-ON_COMMAND(ID_FLASH_RIJNDAEL_INSPECTOR, OnFlashRijndaelInspector)
-ON_COMMAND(ID_FLASH_ENIGMADEMO, OnFlashEnigmademo)
-ON_COMMAND(ID_INTERACTIVE_NUMBER_THEORY, OnInteractiveNumberTheory)
+	ON_COMMAND(ID_PRIMENUMBER_TEST, OnPrimenumberTest)
+	ON_COMMAND(ID_AES_SELFEXTRACT, OnAesSelfextract)
+	ON_COMMAND(ID_INDIV_POINTADDITIONONELLIPTICCURVES, OnIndivPointadditiononellipticcurves)
+	ON_COMMAND(ID_FLASH_AESDEMO, OnFlashAesdemo)
+	ON_COMMAND(ID_FLASH_RIJNDAEL_INSPECTOR, OnFlashRijndaelInspector)
+	ON_COMMAND(ID_FLASH_ENIGMADEMO, OnFlashEnigmademo)
+	ON_COMMAND(ID_INTERACTIVE_NUMBER_THEORY, OnInteractiveNumberTheory)
 END_MESSAGE_MAP()
 
 
@@ -711,6 +713,16 @@ BOOL CCrypToolApp::InitInstance()
 	else
 		m_Selfextract_EXE = NULL;
 
+	// in case of VISTA decativate Cryptovision 
+	{
+		m_DISABLE_CV = 0;
+		OSVERSIONINFO m_info;
+		ZeroMemory(&m_info, sizeof(OSVERSIONINFO));
+		m_info.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
+		GetVersionEx(&m_info);
+		if ( m_info.dwMajorVersion >= 0x06 )
+			m_DISABLE_CV = 1;
+	}
 
 	// nach Zahlenhai suchen
 	CString numberSharkExe;
@@ -1593,4 +1605,21 @@ void CCrypToolApp::OnFlashEnigmademo()
 		message.Format(IDS_ERROPEN_ENIGMA_FLASH, Pfad);
 		AfxMessageBox(message, MB_ICONSTOP);
 	}
+}
+
+
+void CCrypToolApp::OnUpdateHybridEnc(CCmdUI* pCmdUI) 
+{
+	if(theApp.m_DISABLE_CV)
+		pCmdUI->Enable(FALSE);
+	else
+		pCmdUI->Enable(TRUE);
+}
+
+void CCrypToolApp::OnUpdateHybridDec(CCmdUI* pCmdUI) 
+{
+	if(theApp.m_DISABLE_CV)
+		pCmdUI->Enable(FALSE);
+	else
+		pCmdUI->Enable(TRUE);
 }

@@ -1,9 +1,7 @@
 
 #include "s_ecFp.h" // elliptic curve stuff
+#ifndef DISABLE_CV
 #include "actKey.h"//beinhaltet Blob
-
-#if WINVER >= 0x0600
-#define DISABLE_CV
 #endif
 
 void ECCEnc(char* infile, const char *OldTitle);

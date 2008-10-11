@@ -78,6 +78,7 @@ statement from your version.
 #define _WIN32_IE 0x0500	// Ändern Sie den entsprechenden Wert, um auf mindestens IE 5.0 abzuzielen.
 #endif
 
+
 #define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS	// einige CString-Konstruktoren sind explizit
 
 // Deaktiviert das Ausblenden von einigen häufigen und oft ignorierten Warnungen
@@ -100,3 +101,4 @@ statement from your version.
 #include "libanalyse\la_string.h"
 #include "libanalyse\analyse.h"
 #include <afxdhtml.h>
+

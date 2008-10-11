@@ -169,11 +169,14 @@ class CCrypToolApp : public CWinApp
 	afx_msg void OnNumberShark();
 	afx_msg void OnUpdateNumberShark(CCmdUI* pCmdUI);
 	afx_msg void OnIndividualProceduresSecretsharing();
+	afx_msg void OnUpdateHybridEnc(CCmdUI* pCmdUI);
+	afx_msg void OnUpdateHybridDec(CCmdUI* pCmdUI);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 public:
 	char *m_Selfextract_EXE;
 	char *m_NumberShark_Selfextract_EXE;
+	int   m_DISABLE_CV;
 	int m_HexFormat;
 	CSecudeLib SecudeLib;
 	int SecudeStatus;
