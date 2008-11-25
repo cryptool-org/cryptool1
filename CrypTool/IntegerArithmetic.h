@@ -177,6 +177,7 @@ class GeneratePrimes
 	Big p;
 	Big upperBound;
 	Big lowerBound;
+	BOOL PrimalityKnownAfterTrialDivision(const Big& p);
 public:
 	BOOL IsBlumNumber();
 	BOOL RandP();

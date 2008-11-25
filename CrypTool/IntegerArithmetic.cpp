@@ -959,20 +959,8 @@ int GeneratePrimes::SetLimits( CString &LowerLimitStr, CString &UpperLimitStr )
 
 BOOL GeneratePrimes::SolvayStrassenTest(unsigned long probabilityThreshold)
 {
-	if ( p <= 10 )
-	{  // Für Zahlen <= 10 erfolgt die Auswertung über die PZ-Tabelle
-		if ( 2 == p || 3 == p || 5 == p || 7 == p ) Error &= 0xFFFFFFFF ^ GP_ERROR_NOPRIME;
-		else                                        Error |= GP_ERROR_NOPRIME;
-	}
-	else
-	{  // Pre-Computing ...
-		if ( 0 == p % 2 || 0 == p % 3 ||
-			 0 == p % 5 || 0 == p % 7 ||
-			 0 == p % 11 || 0 == p % 13 ||
-			 0 == p % 17 || 0 == p % 19 ||
-			 0 == p % 23 || 0 == p % 29 ||
-			 0 == p % 31 || 0 == p % 37 ) return FALSE;
-		Error &= 0xFFFFFFFF ^ GP_ERROR_NOPRIME;
+	if (!PrimalityKnownAfterTrialDivision(p))
+	{	
 		Big a, r, r1, _s;
 
 		for (unsigned long i=1; i<=probabilityThreshold; i++)
@@ -1006,21 +994,8 @@ BOOL GeneratePrimes::SolvayStrassenTest(unsigned long probabilityThreshold)
 
 BOOL GeneratePrimes::MillerRabinTest(unsigned long probabilityThreshold)
 {
-	if ( p <= 40 )
-	{ // Für Zahlen <= 40 erfolgt die Auswertung über die PZ-Tabelle
-		if ( 2 == p || 3 == p  || 5 == p || 7 == p || 11 == p || 13 == p || 17 == p || 
-			19 == p || 23 == p || 29 == p || 31 == p || 37 ==  p ) Error &= 0xFFFFFFFF ^ GP_ERROR_NOPRIME;
-		else                                        Error |= GP_ERROR_NOPRIME;
-	}
-	else
-	{  // pre-computing ....
-		if ( 0 == p % 2 || 0 == p % 3 ||
-			 0 == p % 5 || 0 == p % 7 ||
-			 0 == p % 11 || 0 == p % 13 ||
-			 0 == p % 17 || 0 == p % 19 ||
-			 0 == p % 23 || 0 == p % 29 ||
-			 0 == p % 31 || 0 == p % 37 ) return FALSE;
-		Error &= 0xFFFFFFFF ^ GP_ERROR_NOPRIME;
+	if (!PrimalityKnownAfterTrialDivision(p))
+	{	
 		long i, v = 0;
 		Big a, b, w = p-1;
 		while(0==w%2)
@@ -1058,27 +1033,34 @@ BOOL GeneratePrimes::MillerRabinTest(unsigned long probabilityThreshold)
 	return ( (0 == (Error &= GP_ERROR_NOPRIME)) );
 }
 
-
+//////////////////////////////////////////////////////////////////////////////////////
+// Test primality of p by trial division with some small factors and set Error & GP_ERROR_NOPRIME 
+// accordingly.
+// Return TRUE if (non-)primality of p is known
+BOOL GeneratePrimes::PrimalityKnownAfterTrialDivision(const Big& p)
+{
+	Error &= 0xFFFFFFFF ^ GP_ERROR_NOPRIME; // clear GP_ERROR_NOPRIME;
+	if (2 == p  || 3 == p  || 5 == p  || 7 == p || 
+			11 == p || 13 == p || 17 == p || 19 == p || 
+			23 == p || 29 == p || 31 == p || 37 == p) {
+		return TRUE; // primality of p is known (p is a prime)
+	}
+	if (0 == p % 2  || 0 == p % 3  || 0 == p % 5  || 0 == p % 7 ||
+			 0 == p % 11 || 0 == p % 13 || 0 == p % 17 || 0 == p % 19 ||
+			 0 == p % 23 || 0 == p % 29 || 0 == p % 31 || 0 == p % 37 ) {
+		Error |= GP_ERROR_NOPRIME; // p is composite
+		return TRUE; // primality of p is known (p is composite)
+	}
+	return (p <= 37*37); // primality of p is known if it is smaller the the square of the largest factor tested
+}
 //////////////////////////////////////////////////////////////////////////////////////
 // Fermat Test
 //
 
 BOOL GeneratePrimes::FermatTest(unsigned long probabilityThreshold)
 {
-	if ( p <= 10 )
-	{ // Für Zahlen <= 10 erfolgt die Auswertung über die PZ-Tabelle
-		if ( 2 == p || 3 == p || 5 == p || 7 == p ) Error &= 0xFFFFFFFF ^ GP_ERROR_NOPRIME;
-		else                                        Error |= GP_ERROR_NOPRIME;
-	}
-	else
-	{  // pre computing ....
-		if ( 0 == p % 2 || 0 == p % 3 ||
-			 0 == p % 5 || 0 == p % 7 ||
-			 0 == p % 11 || 0 == p % 13 ||
-			 0 == p % 17 || 0 == p % 19 ||
-			 0 == p % 23 || 0 == p % 29 ||
-			 0 == p % 31 || 0 == p % 37 ) return FALSE;
-		Error &= 0xFFFFFFFF ^ GP_ERROR_NOPRIME;
+	if (!PrimalityKnownAfterTrialDivision(p))
+	{	
 		Big a, r;
 		for(unsigned long i=1;i<=probabilityThreshold;i++)
 		{
