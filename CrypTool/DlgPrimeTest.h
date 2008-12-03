@@ -35,12 +35,14 @@ public:
   afx_msg void OnBnClickedAlgo();
   afx_msg void OnBnClickedPrimetestRadio();
   afx_msg void OnEnChangePrimetestEditNumber();
+  afx_msg void OnBnClickedButtonJumpToFactorization();
 
   virtual BOOL OnInitDialog();
 
   CEdit m_Result;               // member field for CEditResult
   CEdit m_control_editName;     
   CString m_editNumber;         // member field for CEditNumber
+  CButton m_control_buttonJumpToFactorization;
   int m_radio;                  // member field for CRadio
   int m_algo;                   // holds chosen algorithm (set by radio buttons)
   
@@ -54,5 +56,4 @@ public:
   // Time required by the prime test algo
   double algoTime;
 #endif
-
 };

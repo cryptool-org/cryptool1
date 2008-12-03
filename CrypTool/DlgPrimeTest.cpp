@@ -6,6 +6,7 @@
 #include "DialogeMessage.h"
 #include "DlgPrimeTest.h"
 #include ".\dlgprimetest.h"
+#include "DlgFactorisationDemo.h"
 
 #include "PrimeTest.h"
 #include "PrimeTestAKS.h"
@@ -92,6 +93,7 @@ void CDlgPrimeTest::DoDataExchange(CDataExchange* pDX)
   DDX_Text(pDX, IDC_PRIMETEST_EDIT_NUMBER, m_editNumber);
   DDX_Control(pDX, IDC_STATIC_PRIM_RES, m_picPrime);
   DDX_Control(pDX, IDC_STATIC_PRIM_RES2, m_picNotPrime);
+  DDX_Control(pDX, IDC_BUTTON_JUMP_TO_FACTORIZATION, m_control_buttonJumpToFactorization);
 }
 
 
@@ -105,6 +107,7 @@ BEGIN_MESSAGE_MAP(CDlgPrimeTest, CDialog)
   ON_BN_CLICKED(IDC_PRIMETEST_RADIO_SOLOVAY, OnBnClickedPrimetestRadio)
   ON_BN_CLICKED(IDC_PRIMETEST_RADIO_MILLERRABIN, OnBnClickedPrimetestRadio)
   ON_BN_CLICKED(IDC_PRIMETEST_RADIO_AKS, OnBnClickedPrimetestRadio)
+  ON_BN_CLICKED(IDC_BUTTON_JUMP_TO_FACTORIZATION, CDlgPrimeTest::OnBnClickedButtonJumpToFactorization)
 END_MESSAGE_MAP()
 
 
@@ -314,6 +317,9 @@ void CDlgPrimeTest::UpdateResultField(int result, CString text)
   //UpdateData(true);
   CString strResult = "";
 
+  // by default, disable button "jump to factorization"
+  this->m_control_buttonJumpToFactorization.EnableWindow(false);
+
 #ifdef PRIMETEST_TIME_MEASUREMENT
   // ----------------------------------
   // Output time required by algo
@@ -331,6 +337,9 @@ void CDlgPrimeTest::UpdateResultField(int result, CString text)
         // Show not prime image
         m_picNotPrime.ShowWindow(TRUE);
         m_picPrime.ShowWindow(FALSE);
+        
+        // enable button "jump to factorization"
+        this->m_control_buttonJumpToFactorization.EnableWindow(true);
     break;
     case(1):    // prim
         LoadString(AfxGetInstanceHandle(),IDS_STRING_PRIMETEST_RESULT_PRIME,pc_str,STR_LAENGE_STRING_TABLE);
@@ -482,6 +491,9 @@ void CDlgPrimeTest::OnEnChangePrimetestEditNumber()
   // Clear result field
   SetDlgItemText(IDC_PRIMETEST_EDIT_RESULT, "");
 
+  // disable button "jump to factorization"
+  this->m_control_buttonJumpToFactorization.EnableWindow(false);
+
   // Hide result fields
   m_picPrime.ShowWindow(FALSE);
   m_picNotPrime.ShowWindow(FALSE);
@@ -501,4 +513,13 @@ void CDlgPrimeTest::OnBnClickedPrimetestRadio()
   m_picPrime.ShowWindow(FALSE);
 
 	UpdateData(false);
+}
+
+void CDlgPrimeTest::OnBnClickedButtonJumpToFactorization()
+{
+  // show factorization demo dialog with the current number
+  CDlgFactorisationDemo dlg;
+  dlg.m_CompositeNoStr = this->m_editNumber;
+  AfxInitRichEdit();
+  dlg.DoModal();
 }
