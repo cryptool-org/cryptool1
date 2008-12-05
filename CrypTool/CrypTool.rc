@@ -3464,14 +3464,14 @@ CAPTION "Dzielenie Tajemnic przez ChTR: sprawdzenie warunków podstawowych"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     EDITTEXT        IDC_CRT_SECRETSHARINGEDIT1,94,14,20,15,ES_NUMBER
-    EDITTEXT        IDC_CRT_SECRETSHARINGEDIT2,203,14,20,15,ES_NUMBER
-    EDITTEXT        IDC_CRT_SECRETSHARINGEDIT3,203,32,38,15
-    EDITTEXT        IDC_CRT_SECRETSHARINGEDIT4,247,32,39,15
+    EDITTEXT        IDC_CRT_SECRETSHARINGEDIT2,201,14,20,15,ES_NUMBER
+    EDITTEXT        IDC_CRT_SECRETSHARINGEDIT3,201,32,38,15
+    EDITTEXT        IDC_CRT_SECRETSHARINGEDIT4,249,32,39,15
     DEFPUSHBUTTON   "OK",IDOK,295,7,50,14
     PUSHBUTTON      "Anuluj",IDCANCEL,295,40,50,14
-    LTEXT           "-",IDC_STATIC,243,35,8,8
+    CTEXT           "-",IDC_STATIC,240,35,8,8
     LTEXT           "Ustaw interwa³ dla identyfikatorów, które maj¹ zostaæ wygenerowane:",IDC_CRT_SECRETSHARING_OPT_T2,20,31,174,18
-    LTEXT           "Min. liczba osów (k):",IDC_STATIC,134,16,62,8
+    LTEXT           "Min. liczba osów (k):",IDC_STATIC,132,16,62,8
     LTEXT           "Liczba osób (n):",IDC_STATIC,19,16,73,9
     GROUPBOX        "Podaj informacje potrzebne do stworzenia n kluczy",IDC_STATIC,8,3,284,51
 END
@@ -13966,13 +13966,13 @@ CAPTION "Secret Sharing mittels CRT: Optionen festlegen"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     EDITTEXT        IDC_CRT_SECRETSHARINGEDIT1,94,14,20,15,ES_NUMBER
-    EDITTEXT        IDC_CRT_SECRETSHARINGEDIT2,203,14,20,15,ES_NUMBER
-    EDITTEXT        IDC_CRT_SECRETSHARINGEDIT3,203,32,38,15
+    EDITTEXT        IDC_CRT_SECRETSHARINGEDIT2,201,14,20,15,ES_NUMBER
+    EDITTEXT        IDC_CRT_SECRETSHARINGEDIT3,201,32,38,15
     EDITTEXT        IDC_CRT_SECRETSHARINGEDIT4,249,32,39,15
     DEFPUSHBUTTON   "OK",IDOK,295,7,50,14
     PUSHBUTTON      "Abbrechen",IDCANCEL,295,40,50,14
-    LTEXT           "-",IDC_STATIC,243,35,8,8
-    LTEXT           "Benötigte Parteien (k):",IDC_STATIC,128,16,74,8
+    CTEXT           "-",IDC_STATIC,240,35,8,8
+    LTEXT           "Benötigte Parteien (k):",IDC_STATIC,126,16,74,8
     LTEXT           "Anzahl Parteien (n):",IDC_STATIC,28,16,64,9
     GROUPBOX        "Notwendige Angaben zum Generieren der n Schlüssel",IDC_STATIC,8,3,284,51
     LTEXT           "Geben Sie ein geschlossenes Intervall für die zu erzeugenden Primzahl-Kennungen vor:",IDC_CRT_SECRETSHARING_OPT_T2,28,31,153,17
@@ -20864,6 +20864,8 @@ BEGIN
     IDS_SCA_ATTACK_FAILED_BECAUSE_OF_MISSING_KEYWORD 
                             "Der Seitenkanalangriff ist fehlgeschlagen!\n\nVermutlich enthielt die Originaldatei vor der Verschlüsselung nicht das Schlüsselwort ""%s"".\n\nIn der Online-Hilfe des Seitenkanalangriffs erfahren Sie, weshalb das Schlüsselwort für einen erfolgreichen Angriff notwendig ist."
     IDS_PQM_BIT             "Bits"
+    IDS_STRING_SECRET_SHARING_K_EQUALS_N 
+                            "Bitte wählen Sie k<n (hier: k<%d).\n\nSind k und n bei diesem speziellen Secret-Sharing-Verfahren identisch, dann gleicht das Geheimnis dem Passwort des ersten Teilnehmers."
 END
 
 STRINGTABLE 
@@ -24349,14 +24351,14 @@ CAPTION "Secret Sharing by CRT: controlling the basic conditions"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     EDITTEXT        IDC_CRT_SECRETSHARINGEDIT1,94,14,20,15,ES_NUMBER
-    EDITTEXT        IDC_CRT_SECRETSHARINGEDIT2,203,14,20,15,ES_NUMBER
-    EDITTEXT        IDC_CRT_SECRETSHARINGEDIT3,203,32,38,15
-    EDITTEXT        IDC_CRT_SECRETSHARINGEDIT4,247,32,39,15
+    EDITTEXT        IDC_CRT_SECRETSHARINGEDIT2,201,14,20,15,ES_NUMBER
+    EDITTEXT        IDC_CRT_SECRETSHARINGEDIT3,201,32,38,15
+    EDITTEXT        IDC_CRT_SECRETSHARINGEDIT4,249,32,39,15
     DEFPUSHBUTTON   "OK",IDOK,295,7,50,14
     PUSHBUTTON      "Cancel",IDCANCEL,295,40,50,14
-    LTEXT           "-",IDC_STATIC,243,35,8,8
+    CTEXT           "-",IDC_STATIC,240,35,8,8
     LTEXT           "Set a closed interval for the prime identifiers that have to be generated :",IDC_CRT_SECRETSHARING_OPT_T2,20,31,174,18
-    LTEXT           "Parties needed (k):",IDC_STATIC,134,16,62,8
+    LTEXT           "Parties needed (k):",IDC_STATIC,132,16,62,8
     LTEXT           "Number of parties (n):",IDC_STATIC,19,16,73,9
     GROUPBOX        "Necessary indications for generating the n keys",IDC_STATIC,8,3,284,51
 END
@@ -31383,6 +31385,8 @@ BEGIN
     IDS_SCA_ATTACK_FAILED_BECAUSE_OF_MISSING_KEYWORD 
                             "The side-channel attack failed!\n\nProbably the original file did not contain the keyword ""%s"" before it was encrypted.\n\nIn the online help of the side-channel attack you can learn why this keyword is necessary for a successful attack."
     IDS_PQM_BIT             "bit"
+    IDS_STRING_SECRET_SHARING_K_EQUALS_N 
+                            "Please choose k<n (here: k<%d).\n\nIf k and n are identical in this secret sharing procedure, the secret equals the password of the first participant."
 END
 
 STRINGTABLE 
@@ -31421,3 +31425,4 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
+

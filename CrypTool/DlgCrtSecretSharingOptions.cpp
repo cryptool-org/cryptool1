@@ -74,6 +74,16 @@ void CDlgCrtSecretSharingOptions::OnBnClickedOk()
 	GeneratePrimes P;
 	int PSet;
 
+  // flomar, 12/04/2008
+  // here we catch the special case k=n
+  if(m_anzahl == m_need) {
+    char temp[STR_LAENGE_STRING_TABLE];
+    LoadString(AfxGetInstanceHandle(), IDS_STRING_SECRET_SHARING_K_EQUALS_N, pc_str, STR_LAENGE_STRING_TABLE);
+    sprintf(temp, pc_str, m_anzahl);
+    MessageBox(temp, "CrypTool", MB_ICONINFORMATION);
+    return;
+  }	
+
 if ( (m_anzahl >= 2) && (m_need <= m_anzahl) && (m_need>=2)&&(m_anzahl <=7)) {
 	
 	if (calcmode==1) {

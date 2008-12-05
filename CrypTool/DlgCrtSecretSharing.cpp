@@ -1196,7 +1196,10 @@ HIDE_HOUR_GLASS			// deaktiviert die Sanduhr
 UpdateData(false);
 }
 void CDlgCrtSecretSharing::OnBnClickedSecretsharingOptions()
-{	
+{
+  // flomar, 12/04/2008
+  UpdateData(true);
+
 	// neues Dialog-Objekt initialisieren
 	CDlgCrtSecretSharingOptions* newdialog= new CDlgCrtSecretSharingOptions();
 	//Werte aus diesem Dialog in Optionen-Dialog übernehmen
@@ -1206,18 +1209,56 @@ void CDlgCrtSecretSharing::OnBnClickedSecretsharingOptions()
 	newdialog->m_need=m_need;
 	newdialog->calcmode=m_calcmode;
 
-	UpdateData(false);
+  // flomar, 12/04/2008
+  // this call is a bit weird: you loose ANY INFORMATION the user has 
+  // entered in the dialog fields by calling "UpdateData(false)" here;
+  // instead, we should (and will) call "UpdateData(true)" (see above)
+  // UpdateData(false);
 
 	if (IDOK == newdialog->DoModal()) {
 		UpdateData(true);
 		
 		if ((m_x !=newdialog->m_x)||(m_y !=newdialog->m_y)||(m_anzahl !=newdialog->m_anzahl)||(m_need !=newdialog->m_need)) {
 
-			m_diverse="";m_maxkminus1="";m_w="";m_s="";m_faktorA="";
-			m_m0="";m_m1="";m_m2="";m_m3="";m_m4="";
-			m_m5="";m_m6="";m_a0="";m_a1="";m_a2="";m_a3="";m_a4="";m_a5="";
-			m_a6="";m_reka0="";m_reka1="";m_reka2="";m_reka3="";m_reka4="";
-			m_reka5="";m_reka6="";
+      // flomar, 12/04/2008
+      // the variables for the prime numbers (m_m0...m_m6) should not be deleted unless it is 
+      // necessary due to a change of options (i.e. smaller n chosen by the user) 
+      m_diverse="";m_maxkminus1="";m_w="";m_s="";m_faktorA="";
+      //m_m0="";m_m1="";m_m2="";m_m3="";m_m4="";m_m5="";m_m6="";
+      m_a0="";m_a1="";m_a2="";m_a3="";m_a4="";m_a5="";
+      m_a6="";m_reka0="";m_reka1="";m_reka2="";m_reka3="";m_reka4="";
+      m_reka5="";m_reka6="";
+
+      // flomar, 12/04/2008
+      // based on how many prime numbers we need, delete the remaining ones
+      if(newdialog->m_anzahl < 1) {
+        // delete all prime numbers
+        m_m0 = m_m1 = m_m2 = m_m3 = m_m4 = m_m5 = m_m6 = "";
+      }
+      if(newdialog->m_anzahl < 2) {
+        // delete all prime numbers but the first one
+        m_m1 = m_m2 = m_m3 = m_m4 = m_m5 = m_m6 = "";
+      }
+      if(newdialog->m_anzahl < 3) {
+        // delete all prime numbers but the two first ones
+        m_m2 = m_m3 = m_m4 = m_m5 = m_m6 = "";
+      }
+      if(newdialog->m_anzahl < 4) {
+        // delete all prime numbers but the three first ones
+        m_m3 = m_m4 = m_m5 = m_m6 = "";
+      }
+      if(newdialog->m_anzahl < 5) {
+        // delete all prime numbers but the four first ones
+        m_m4 = m_m5 = m_m6 = "";
+      }
+      if(newdialog->m_anzahl < 6) {
+        // delete all prime numbers but the five first ones
+        m_m5 = m_m6 = "";
+      }
+      if(newdialog->m_anzahl < 7) {
+        // delete all prime numbers but the six first ones
+        m_m6 = "";
+      }
 
 			// Eingetragene Daten aus Optionen-Dialog in Variablen übernehmen
 			m_x = newdialog->m_x;
