@@ -131,6 +131,8 @@ protected:
 	afx_msg void OnRadioHexadezimal();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnBnClickedExtractSignatureVerify();
 };
 
 //{{AFX_INSERT_LOCATION}}

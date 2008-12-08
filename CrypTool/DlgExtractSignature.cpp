@@ -53,6 +53,7 @@ statement from your version.
 #include "stdafx.h"
 #include "CrypToolApp.h"
 #include "DlgExtractSignature.h"
+#include "AsymmetricEncryption.h"
 #include "DialogeMessage.h"
 
 #include "AsymmetricEncryption.h"
@@ -142,6 +143,7 @@ BEGIN_MESSAGE_MAP(CDlgExtractSignature, CDialog)
 	ON_BN_CLICKED(IDC_RADIO3, OnRadioDezimal)
 	ON_BN_CLICKED(IDC_RADIO4, OnRadioHexadezimal)
 	//}}AFX_MSG_MAP
+	ON_BN_CLICKED(ID_EXTRACT_SIGNATURE_VERIFY, &CDlgExtractSignature::OnBnClickedExtractSignatureVerify)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -600,4 +602,13 @@ void CDlgExtractSignature::OnRadioHexadezimal()
 	UpdateData(TRUE);
 	base = 16;
 	UpdateSigEditBox();		
+}
+
+void CDlgExtractSignature::OnBnClickedExtractSignatureVerify()
+{
+	// flomar, 12/08/2008
+	// it's a bit ugly to ignore the second argument of the Verify() function;
+	// but we're lacking the correct context here, and since the argument isn't 
+	// used internally by the Verify() function, it shouldn't be a problem
+	Verify(this->inFileName, "TODO: DYNAMICALLY GENERATED TITLE");
 }
