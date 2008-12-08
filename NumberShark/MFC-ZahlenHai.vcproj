@@ -1,533 +1,349 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="8,00"
+	Version="7.10"
 	Name="MFC-ZahlenHai"
 	ProjectGUID="{67EF14F1-A4D3-4DCE-9356-333CDC1C0E43}"
 	RootNamespace="MFC-ZahlenHai"
-	Keyword="MFCProj"
-	>
+	Keyword="MFCProj">
 	<Platforms>
 		<Platform
-			Name="Win32"
-		/>
+			Name="Win32"/>
 	</Platforms>
-	<ToolFiles>
-	</ToolFiles>
 	<Configurations>
 		<Configuration
 			Name="Debug_en|Win32"
 			OutputDirectory="..\$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="1"
-			CharacterSet="2"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-				PreprocessorDefinitions="_DEBUG"
-				MkTypLibCompatible="false"
-			/>
+			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG"
-				MinimalRebuild="true"
+				MinimalRebuild="TRUE"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
-				TreatWChar_tAsBuiltInType="true"
-				UsePrecompiledHeader="2"
+				TreatWChar_tAsBuiltInType="TRUE"
+				UsePrecompiledHeader="3"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="true"
-				DebugInformationFormat="4"
-			/>
+				Detect64BitPortabilityProblems="TRUE"
+				DebugInformationFormat="4"/>
 			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="_DEBUG,AFX_RESOURCE_DLL,AFX_TARG_ENG"
-				Culture="2057"
-				AdditionalIncludeDirectories="$(IntDir)"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
+				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="htmlhelp.lib"
 				OutputFile="../$(ConfigurationName)/Number Shark.exe"
 				LinkIncremental="2"
-				GenerateDebugInformation="true"
+				GenerateDebugInformation="TRUE"
 				SubSystem="2"
-				TargetMachine="1"
-			/>
+				TargetMachine="1"/>
 			<Tool
-				Name="VCALinkTool"
-			/>
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="_DEBUG"
+				MkTypLibCompatible="FALSE"/>
 			<Tool
-				Name="VCManifestTool"
-			/>
+				Name="VCPostBuildEventTool"/>
 			<Tool
-				Name="VCXDCMakeTool"
-			/>
+				Name="VCPreBuildEventTool"/>
 			<Tool
-				Name="VCBscMakeTool"
-			/>
+				Name="VCPreLinkEventTool"/>
 			<Tool
-				Name="VCFxCopTool"
-			/>
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_DEBUG,AFX_RESOURCE_DLL,AFX_TARG_ENG"
+				Culture="2057"
+				AdditionalIncludeDirectories="$(IntDir)"/>
 			<Tool
-				Name="VCAppVerifierTool"
-			/>
+				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
-				Name="VCWebDeploymentTool"
-			/>
+				Name="VCXMLDataGeneratorTool"/>
 			<Tool
-				Name="VCPostBuildEventTool"
-			/>
+				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Debug_de|Win32"
 			OutputDirectory="..\$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="1"
-			CharacterSet="2"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-				PreprocessorDefinitions="_DEBUG"
-				MkTypLibCompatible="false"
-			/>
+			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG"
-				MinimalRebuild="true"
+				MinimalRebuild="TRUE"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
-				TreatWChar_tAsBuiltInType="true"
-				UsePrecompiledHeader="2"
+				TreatWChar_tAsBuiltInType="TRUE"
+				UsePrecompiledHeader="3"
 				WarningLevel="4"
-				Detect64BitPortabilityProblems="true"
-				DebugInformationFormat="4"
-			/>
+				Detect64BitPortabilityProblems="TRUE"
+				DebugInformationFormat="4"/>
 			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="_DEBUG,AFX_RESOURCE_DLL,AFX_TARG_DEU"
-				Culture="1031"
-				AdditionalIncludeDirectories="$(IntDir)"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
+				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="htmlhelp.lib"
 				OutputFile="../$(ConfigurationName)/Zahlenhai.exe"
 				LinkIncremental="2"
-				GenerateDebugInformation="true"
+				GenerateDebugInformation="TRUE"
 				SubSystem="2"
-				TargetMachine="1"
-			/>
+				TargetMachine="1"/>
 			<Tool
-				Name="VCALinkTool"
-			/>
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="_DEBUG"
+				MkTypLibCompatible="FALSE"/>
 			<Tool
-				Name="VCManifestTool"
-			/>
+				Name="VCPostBuildEventTool"/>
 			<Tool
-				Name="VCXDCMakeTool"
-			/>
+				Name="VCPreBuildEventTool"/>
 			<Tool
-				Name="VCBscMakeTool"
-			/>
+				Name="VCPreLinkEventTool"/>
 			<Tool
-				Name="VCFxCopTool"
-			/>
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_DEBUG,AFX_RESOURCE_DLL,AFX_TARG_DEU"
+				Culture="1031"
+				AdditionalIncludeDirectories="$(IntDir)"/>
 			<Tool
-				Name="VCAppVerifierTool"
-			/>
+				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
-				Name="VCWebDeploymentTool"
-			/>
+				Name="VCXMLDataGeneratorTool"/>
 			<Tool
-				Name="VCPostBuildEventTool"
-			/>
+				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Release_en|Win32"
 			OutputDirectory="..\$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="1"
-			CharacterSet="2"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG"
-				MkTypLibCompatible="false"
-			/>
+			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
 				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG"
-				MinimalRebuild="false"
+				MinimalRebuild="FALSE"
 				RuntimeLibrary="0"
-				DisableLanguageExtensions="false"
-				TreatWChar_tAsBuiltInType="true"
-				UsePrecompiledHeader="2"
+				DisableLanguageExtensions="FALSE"
+				TreatWChar_tAsBuiltInType="TRUE"
+				UsePrecompiledHeader="3"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="true"
-				DebugInformationFormat="3"
-			/>
+				Detect64BitPortabilityProblems="TRUE"
+				DebugInformationFormat="3"/>
 			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG,AFX_RESOURCE_DLL,AFX_TARG_ENG"
-				Culture="1031"
-				AdditionalIncludeDirectories="$(IntDir)"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
+				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="htmlhelp.lib"
 				OutputFile="../$(ConfigurationName)/Number Shark.exe"
 				LinkIncremental="1"
-				IgnoreAllDefaultLibraries="false"
-				GenerateDebugInformation="true"
+				IgnoreAllDefaultLibraries="FALSE"
+				GenerateDebugInformation="TRUE"
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				TargetMachine="1"
-			/>
+				TargetMachine="1"/>
 			<Tool
-				Name="VCALinkTool"
-			/>
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="NDEBUG"
+				MkTypLibCompatible="FALSE"/>
 			<Tool
-				Name="VCManifestTool"
-			/>
+				Name="VCPostBuildEventTool"/>
 			<Tool
-				Name="VCXDCMakeTool"
-			/>
+				Name="VCPreBuildEventTool"/>
 			<Tool
-				Name="VCBscMakeTool"
-			/>
+				Name="VCPreLinkEventTool"/>
 			<Tool
-				Name="VCFxCopTool"
-			/>
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="NDEBUG,AFX_RESOURCE_DLL,AFX_TARG_ENG"
+				Culture="1031"
+				AdditionalIncludeDirectories="$(IntDir)"/>
 			<Tool
-				Name="VCAppVerifierTool"
-			/>
+				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
-				Name="VCWebDeploymentTool"
-			/>
+				Name="VCXMLDataGeneratorTool"/>
 			<Tool
-				Name="VCPostBuildEventTool"
-			/>
+				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Release_de|Win32"
 			OutputDirectory="..\$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="1"
-			CharacterSet="2"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG"
-				MkTypLibCompatible="false"
-			/>
+			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
 				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG"
-				MinimalRebuild="false"
+				MinimalRebuild="FALSE"
 				RuntimeLibrary="0"
-				DisableLanguageExtensions="false"
-				TreatWChar_tAsBuiltInType="true"
-				UsePrecompiledHeader="2"
+				DisableLanguageExtensions="FALSE"
+				TreatWChar_tAsBuiltInType="TRUE"
+				UsePrecompiledHeader="3"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="true"
-				DebugInformationFormat="3"
-			/>
+				Detect64BitPortabilityProblems="TRUE"
+				DebugInformationFormat="3"/>
 			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG,AFX_RESOURCE_DLL,AFX_TARG_DEU"
-				Culture="1031"
-				AdditionalIncludeDirectories="$(IntDir)"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
+				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="htmlhelp.lib"
 				OutputFile="../$(ConfigurationName)/Zahlenhai.exe"
 				LinkIncremental="1"
-				GenerateDebugInformation="true"
+				GenerateDebugInformation="TRUE"
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				TargetMachine="1"
-			/>
+				TargetMachine="1"/>
 			<Tool
-				Name="VCALinkTool"
-			/>
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="NDEBUG"
+				MkTypLibCompatible="FALSE"/>
 			<Tool
-				Name="VCManifestTool"
-			/>
+				Name="VCPostBuildEventTool"/>
 			<Tool
-				Name="VCXDCMakeTool"
-			/>
+				Name="VCPreBuildEventTool"/>
 			<Tool
-				Name="VCBscMakeTool"
-			/>
+				Name="VCPreLinkEventTool"/>
 			<Tool
-				Name="VCFxCopTool"
-			/>
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="NDEBUG,AFX_RESOURCE_DLL,AFX_TARG_DEU"
+				Culture="1031"
+				AdditionalIncludeDirectories="$(IntDir)"/>
 			<Tool
-				Name="VCAppVerifierTool"
-			/>
+				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
-				Name="VCWebDeploymentTool"
-			/>
+				Name="VCXMLDataGeneratorTool"/>
 			<Tool
-				Name="VCPostBuildEventTool"
-			/>
+				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Release_pl|Win32"
 			OutputDirectory="..\$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="1"
-			CharacterSet="2"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-				PreprocessorDefinitions="_DEBUG"
-				MkTypLibCompatible="false"
-			/>
+			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG"
-				MinimalRebuild="true"
+				MinimalRebuild="TRUE"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
-				TreatWChar_tAsBuiltInType="true"
-				UsePrecompiledHeader="2"
+				TreatWChar_tAsBuiltInType="TRUE"
+				UsePrecompiledHeader="3"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="true"
-				DebugInformationFormat="4"
-			/>
+				Detect64BitPortabilityProblems="TRUE"
+				DebugInformationFormat="4"/>
 			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;AFX_RESOURCE_DLL;AFX_TARG_PLK"
-				Culture="1045"
-				AdditionalIncludeDirectories="$(IntDir)"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
+				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="htmlhelp.lib"
 				OutputFile="..\$(ConfigurationName)\Number Shark.exe"
 				LinkIncremental="2"
-				GenerateDebugInformation="true"
+				GenerateDebugInformation="TRUE"
 				SubSystem="2"
-				TargetMachine="1"
-			/>
+				TargetMachine="1"/>
 			<Tool
-				Name="VCALinkTool"
-			/>
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="_DEBUG"
+				MkTypLibCompatible="FALSE"/>
 			<Tool
-				Name="VCManifestTool"
-			/>
+				Name="VCPostBuildEventTool"/>
 			<Tool
-				Name="VCXDCMakeTool"
-			/>
+				Name="VCPreBuildEventTool"/>
 			<Tool
-				Name="VCBscMakeTool"
-			/>
+				Name="VCPreLinkEventTool"/>
 			<Tool
-				Name="VCFxCopTool"
-			/>
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="NDEBUG;AFX_RESOURCE_DLL;AFX_TARG_PLK"
+				Culture="1045"
+				AdditionalIncludeDirectories="$(IntDir)"/>
 			<Tool
-				Name="VCAppVerifierTool"
-			/>
+				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
-				Name="VCWebDeploymentTool"
-			/>
+				Name="VCXMLDataGeneratorTool"/>
 			<Tool
-				Name="VCPostBuildEventTool"
-			/>
+				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Debug_pl|Win32"
 			OutputDirectory="..\$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="1"
-			CharacterSet="2"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-				PreprocessorDefinitions="_DEBUG"
-				MkTypLibCompatible="false"
-			/>
+			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG"
-				MinimalRebuild="true"
+				MinimalRebuild="TRUE"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
-				TreatWChar_tAsBuiltInType="true"
-				UsePrecompiledHeader="2"
+				TreatWChar_tAsBuiltInType="TRUE"
+				UsePrecompiledHeader="3"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="true"
-				DebugInformationFormat="4"
-			/>
+				Detect64BitPortabilityProblems="TRUE"
+				DebugInformationFormat="4"/>
 			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="_DEBUG,AFX_RESOURCE_DLL,AFX_TARG_PLK"
-				Culture="1045"
-				AdditionalIncludeDirectories="$(IntDir)"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
+				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="htmlhelp.lib"
 				OutputFile="../$(ConfigurationName)/Number Shark.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="&quot;C:\program files\html help workshop\lib&quot;"
-				GenerateDebugInformation="true"
+				GenerateDebugInformation="TRUE"
 				SubSystem="2"
-				TargetMachine="1"
-			/>
+				TargetMachine="1"/>
 			<Tool
-				Name="VCALinkTool"
-			/>
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="_DEBUG"
+				MkTypLibCompatible="FALSE"/>
 			<Tool
-				Name="VCManifestTool"
-			/>
+				Name="VCPostBuildEventTool"/>
 			<Tool
-				Name="VCXDCMakeTool"
-			/>
+				Name="VCPreBuildEventTool"/>
 			<Tool
-				Name="VCBscMakeTool"
-			/>
+				Name="VCPreLinkEventTool"/>
 			<Tool
-				Name="VCFxCopTool"
-			/>
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_DEBUG,AFX_RESOURCE_DLL,AFX_TARG_PLK"
+				Culture="1045"
+				AdditionalIncludeDirectories="$(IntDir)"/>
 			<Tool
-				Name="VCAppVerifierTool"
-			/>
+				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
-				Name="VCWebDeploymentTool"
-			/>
+				Name="VCXMLDataGeneratorTool"/>
 			<Tool
-				Name="VCPostBuildEventTool"
-			/>
+				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 	</Configurations>
 	<References>
@@ -536,364 +352,240 @@
 		<Filter
 			Name="Quelldateien"
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx"
-			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
-			>
+			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}">
 			<File
-				RelativePath=".\AutoFont.cpp"
-				>
+				RelativePath=".\AutoFont.cpp">
 			</File>
 			<File
-				RelativePath=".\ColoredListCtrl.cpp"
-				>
+				RelativePath=".\ColoredListCtrl.cpp">
 			</File>
 			<File
-				RelativePath=".\Curvefit.cpp"
-				>
+				RelativePath=".\Curvefit.cpp">
 			</File>
 			<File
-				RelativePath=".\Digistatic.cpp"
-				>
+				RelativePath=".\Digistatic.cpp">
 			</File>
 			<File
-				RelativePath=".\DynTabCtrl.cpp"
-				>
+				RelativePath=".\DynTabCtrl.cpp">
 			</File>
 			<File
-				RelativePath=".\EvoZahlenHai.cpp"
-				>
+				RelativePath=".\EvoZahlenHai.cpp">
 			</File>
 			<File
-				RelativePath=".\GameRules.cpp"
-				>
+				RelativePath=".\GameRules.cpp">
 			</File>
 			<File
-				RelativePath=".\GameSummary.cpp"
-				>
+				RelativePath=".\GameSummary.cpp">
 			</File>
 			<File
-				RelativePath=".\HeaderCtrlExt.cpp"
-				>
+				RelativePath=".\HeaderCtrlExt.cpp">
 			</File>
 			<File
-				RelativePath=".\MFC-ZahlenHai.cpp"
-				>
+				RelativePath=".\MFC-ZahlenHai.cpp">
 			</File>
 			<File
-				RelativePath=".\MFC-ZahlenHaiDlg.cpp"
-				>
+				RelativePath=".\MFC-ZahlenHaiDlg.cpp">
 			</File>
 			<File
-				RelativePath=".\propPage1.cpp"
-				>
+				RelativePath=".\propPage1.cpp">
 			</File>
 			<File
-				RelativePath=".\stdafx.cpp"
-				>
+				RelativePath=".\stdafx.cpp">
 				<FileConfiguration
-					Name="Debug_en|Win32"
-					>
+					Name="Debug_en|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"
-					/>
+						UsePrecompiledHeader="1"/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug_de|Win32"
-					>
+					Name="Debug_de|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"
-					/>
+						UsePrecompiledHeader="1"/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release_en|Win32"
-					>
+					Name="Release_en|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"
-					/>
+						UsePrecompiledHeader="1"/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release_de|Win32"
-					>
+					Name="Release_de|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"
-					/>
+						UsePrecompiledHeader="1"/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release_pl|Win32"
-					>
+					Name="Release_pl|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"
-					/>
+						UsePrecompiledHeader="1"/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug_pl|Win32"
-					>
+					Name="Debug_pl|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"
-					/>
+						UsePrecompiledHeader="1"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\WBButton.cpp"
-				>
+				RelativePath=".\WBButton.cpp">
 			</File>
 			<File
-				RelativePath=".\zahl.cpp"
-				>
+				RelativePath=".\zahl.cpp">
 			</File>
 			<File
-				RelativePath=".\ZahlenHaiOptionen.cpp"
-				>
+				RelativePath=".\ZahlenHaiOptionen.cpp">
 			</File>
 		</Filter>
 		<Filter
 			Name="Headerdateien"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
-			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
-			>
+			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}">
 			<File
-				RelativePath=".\AutoFont.h"
-				>
+				RelativePath=".\AutoFont.h">
 			</File>
 			<File
-				RelativePath=".\ColoredListCtrl.h"
-				>
+				RelativePath=".\ColoredListCtrl.h">
 			</File>
 			<File
-				RelativePath=".\Curvefit.h"
-				>
+				RelativePath=".\Curvefit.h">
 			</File>
 			<File
-				RelativePath=".\Digistatic.h"
-				>
+				RelativePath=".\Digistatic.h">
 			</File>
 			<File
-				RelativePath=".\DynTabCtrl.h"
-				>
+				RelativePath=".\DynTabCtrl.h">
 			</File>
 			<File
-				RelativePath=".\EvoZahlenHai.h"
-				>
+				RelativePath=".\EvoZahlenHai.h">
 			</File>
 			<File
-				RelativePath=".\GameRules.h"
-				>
+				RelativePath=".\GameRules.h">
 			</File>
 			<File
-				RelativePath=".\GameSummary.h"
-				>
+				RelativePath=".\GameSummary.h">
 			</File>
 			<File
-				RelativePath=".\HeaderCtrlExt.h"
-				>
+				RelativePath=".\HeaderCtrlExt.h">
 			</File>
 			<File
-				RelativePath=".\MemDC.h"
-				>
+				RelativePath=".\MemDC.h">
 			</File>
 			<File
-				RelativePath=".\MFC-ZahlenHai.h"
-				>
+				RelativePath=".\MFC-ZahlenHai.h">
 			</File>
 			<File
-				RelativePath=".\MFC-ZahlenHaiDlg.h"
-				>
+				RelativePath=".\MFC-ZahlenHaiDlg.h">
 			</File>
 			<File
-				RelativePath=".\propPage1.h"
-				>
+				RelativePath=".\propPage1.h">
 			</File>
 			<File
-				RelativePath=".\Resource.h"
-				>
+				RelativePath=".\Resource.h">
 			</File>
 			<File
-				RelativePath=".\resource.hm"
-				>
+				RelativePath=".\resource.hm">
 			</File>
 			<File
-				RelativePath=".\Rgbcolor.h"
-				>
+				RelativePath=".\Rgbcolor.h">
 			</File>
 			<File
-				RelativePath=".\stdafx.h"
-				>
+				RelativePath=".\stdafx.h">
 			</File>
 			<File
-				RelativePath=".\WBButton.h"
-				>
+				RelativePath=".\WBButton.h">
 			</File>
 			<File
-				RelativePath=".\zahl.h"
-				>
+				RelativePath=".\zahl.h">
 			</File>
 			<File
-				RelativePath=".\ZahlenHaiOptionen.h"
-				>
+				RelativePath=".\ZahlenHaiOptionen.h">
 			</File>
 		</Filter>
 		<Filter
 			Name="Ressourcendateien"
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx"
-			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
-			>
+			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}">
 			<File
-				RelativePath=".\Bilder\backward-engl.bmp"
-				>
+				RelativePath=".\Bilder\backward-engl.bmp">
 			</File>
 			<File
-				RelativePath=".\Bilder\backward.bmp"
-				>
+				RelativePath=".\Bilder\backward.bmp">
 			</File>
 			<File
-				RelativePath=".\Bilder\foreward-engl.bmp"
-				>
+				RelativePath=".\Bilder\foreward-engl.bmp">
 			</File>
 			<File
-				RelativePath=".\Bilder\foreward.bmp"
-				>
+				RelativePath=".\Bilder\foreward.bmp">
 			</File>
 			<File
-				RelativePath=".\Bilder\hai01-engl.bmp"
-				>
+				RelativePath=".\Bilder\hai01-engl.bmp">
 			</File>
 			<File
-				RelativePath=".\Bilder\hai01.bmp"
-				>
+				RelativePath=".\Bilder\hai01.bmp">
 			</File>
 			<File
-				RelativePath=".\Bilder\Hai04-vers5-engl.bmp"
-				>
+				RelativePath=".\Bilder\Hai04-vers5-engl.bmp">
 			</File>
 			<File
-				RelativePath=".\Bilder\Hai04-vers5.bmp"
-				>
+				RelativePath=".\Bilder\Hai04-vers5.bmp">
 			</File>
 			<File
-				RelativePath=".\Bilder\HaiAnAngel-engl.bmp"
-				>
+				RelativePath=".\Bilder\HaiAnAngel-engl.bmp">
 			</File>
 			<File
-				RelativePath=".\Bilder\HaiAnAngel.bmp"
-				>
+				RelativePath=".\Bilder\HaiAnAngel.bmp">
 			</File>
 			<File
-				RelativePath=".\MFC-ZahlenHai.rc"
-				>
+				RelativePath=".\MFC-ZahlenHai.rc">
 			</File>
 			<File
-				RelativePath=".\Bilder\muschel-zweifarbig-5-engl.bmp"
-				>
+				RelativePath=".\Bilder\muschel-zweifarbig-5-engl.bmp">
 			</File>
 			<File
-				RelativePath=".\Bilder\muschel-zweifarbig-5.bmp"
-				>
+				RelativePath=".\Bilder\muschel-zweifarbig-5.bmp">
 			</File>
 			<File
-				RelativePath=".\Bilder\muschel-zweifarbig-5.jpg"
-				>
+				RelativePath=".\Bilder\muschel-zweifarbig-5.jpg">
 			</File>
 			<File
-				RelativePath=".\res\NumberShark.ico"
-				>
+				RelativePath=".\res\NumberShark.ico">
 			</File>
 			<File
-				RelativePath=".\Bilder\NumberShark.ico"
-				>
+				RelativePath=".\Bilder\NumberShark.ico">
 			</File>
 			<File
-				RelativePath=".\Bilder\shark-engl.bmp"
-				>
+				RelativePath=".\Bilder\shark-engl.bmp">
 			</File>
 			<File
-				RelativePath=".\Bilder\shark.bmp"
-				>
+				RelativePath=".\Bilder\shark.bmp">
 			</File>
 			<File
-				RelativePath=".\res\Zahlenhai.ico"
-				>
+				RelativePath=".\Bilder\Zahlenhai.ico">
 			</File>
 			<File
-				RelativePath=".\Bilder\Zahlenhai.ico"
-				>
+				RelativePath=".\res\Zahlenhai.ico">
 			</File>
 		</Filter>
 		<File
 			RelativePath=".\GameRules2.htm"
-			DeploymentContent="true"
-			>
+			DeploymentContent="TRUE">
 		</File>
 		<File
 			RelativePath=".\GameSummary.htm"
-			DeploymentContent="true"
-			>
+			DeploymentContent="TRUE">
 		</File>
 		<File
-			RelativePath=".\res\MFC-ZahlenHai.manifest"
-			>
-			<FileConfiguration
-				Name="Debug_en|Win32"
-				ExcludedFromBuild="true"
-				>
-				<Tool
-					Name="VCCustomBuildTool"
-				/>
-			</FileConfiguration>
-			<FileConfiguration
-				Name="Debug_de|Win32"
-				ExcludedFromBuild="true"
-				>
-				<Tool
-					Name="VCCustomBuildTool"
-				/>
-			</FileConfiguration>
-			<FileConfiguration
-				Name="Release_en|Win32"
-				ExcludedFromBuild="true"
-				>
-				<Tool
-					Name="VCCustomBuildTool"
-				/>
-			</FileConfiguration>
-			<FileConfiguration
-				Name="Release_de|Win32"
-				ExcludedFromBuild="true"
-				>
-				<Tool
-					Name="VCCustomBuildTool"
-				/>
-			</FileConfiguration>
-			<FileConfiguration
-				Name="Release_pl|Win32"
-				ExcludedFromBuild="true"
-				>
-				<Tool
-					Name="VCCustomBuildTool"
-				/>
-			</FileConfiguration>
-			<FileConfiguration
-				Name="Debug_pl|Win32"
-				ExcludedFromBuild="true"
-				>
-				<Tool
-					Name="VCCustomBuildTool"
-				/>
-			</FileConfiguration>
+			RelativePath=".\res\MFC-ZahlenHai.manifest">
 		</File>
 		<File
-			RelativePath=".\ReadMe.txt"
-			>
+			RelativePath=".\ReadMe.txt">
 		</File>
 	</Files>
 	<Globals>
 		<Global
 			Name="RESOURCE_FILE"
-			Value="MFC-ZahlenHai.rc"
-		/>
+			Value="MFC-ZahlenHai.rc"/>
 	</Globals>
 </VisualStudioProject>

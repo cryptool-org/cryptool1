@@ -1,661 +1,511 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="8,00"
+	Version="7.10"
 	Name="LibEc"
-	ProjectGUID="{5EAE4FD1-DCD7-4CE8-A988-1700249BBF04}"
-	Keyword="MFCProj"
-	>
+	SccProjectName=""
+	SccLocalPath=""
+	Keyword="MFCProj">
 	<Platforms>
 		<Platform
-			Name="Win32"
-		/>
+			Name="Win32"/>
 	</Platforms>
-	<ToolFiles>
-	</ToolFiles>
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
 			OutputDirectory=".\Debug"
 			IntermediateDirectory=".\Debug"
 			ConfigurationType="4"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="1"
-			ATLMinimizesCRunTimeLibraryUsage="false"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
+			ATLMinimizesCRunTimeLibraryUsage="FALSE">
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="..\Secude,include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
 				RuntimeLibrary="1"
-				UsePrecompiledHeader="0"
+				UsePrecompiledHeader="2"
 				PrecompiledHeaderFile=".\Debug/LibEc.pch"
 				AssemblerListingLocation=".\Debug/"
 				ObjectFile=".\Debug/"
 				ProgramDataBaseFileName=".\Debug/"
 				BrowseInformation="1"
 				WarningLevel="3"
-				SuppressStartupBanner="true"
+				SuppressStartupBanner="TRUE"
 				DebugInformationFormat="1"
-				CompileAs="0"
-			/>
+				CompileAs="0"/>
 			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-				Culture="1031"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
+				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLibrarianTool"
 				OutputFile="lib\EcBibV2D.lib"
-				SuppressStartupBanner="true"
-			/>
+				SuppressStartupBanner="TRUE"/>
 			<Tool
-				Name="VCALinkTool"
-			/>
+				Name="VCMIDLTool"/>
 			<Tool
-				Name="VCXDCMakeTool"
-			/>
+				Name="VCPostBuildEventTool"/>
 			<Tool
-				Name="VCBscMakeTool"
-			/>
+				Name="VCPreBuildEventTool"/>
 			<Tool
-				Name="VCFxCopTool"
-			/>
+				Name="VCPreLinkEventTool"/>
 			<Tool
-				Name="VCPostBuildEventTool"
-			/>
+				Name="VCResourceCompilerTool"
+				Culture="1031"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory=".\Release"
 			IntermediateDirectory=".\Release"
 			ConfigurationType="4"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="1"
-			ATLMinimizesCRunTimeLibraryUsage="false"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
+			ATLMinimizesCRunTimeLibraryUsage="FALSE">
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				InlineFunctionExpansion="1"
 				AdditionalIncludeDirectories="..\Secude,include"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
-				StringPooling="true"
+				StringPooling="TRUE"
 				RuntimeLibrary="0"
-				EnableFunctionLevelLinking="true"
-				UsePrecompiledHeader="0"
+				EnableFunctionLevelLinking="TRUE"
+				UsePrecompiledHeader="2"
 				PrecompiledHeaderFile=".\Release/LibEc.pch"
 				AssemblerListingLocation=".\Release/"
 				ObjectFile=".\Release/"
 				ProgramDataBaseFileName=".\Release/"
 				WarningLevel="3"
-				SuppressStartupBanner="true"
-				CompileAs="0"
-			/>
+				SuppressStartupBanner="TRUE"
+				CompileAs="0"/>
 			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-				Culture="1031"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
+				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLibrarianTool"
 				OutputFile="lib\EcBibV2.lib"
-				SuppressStartupBanner="true"
-			/>
+				SuppressStartupBanner="TRUE"/>
 			<Tool
-				Name="VCALinkTool"
-			/>
+				Name="VCMIDLTool"/>
 			<Tool
-				Name="VCXDCMakeTool"
-			/>
+				Name="VCPostBuildEventTool"/>
 			<Tool
-				Name="VCBscMakeTool"
-			/>
+				Name="VCPreBuildEventTool"/>
 			<Tool
-				Name="VCFxCopTool"
-			/>
+				Name="VCPreLinkEventTool"/>
 			<Tool
-				Name="VCPostBuildEventTool"
-			/>
+				Name="VCResourceCompilerTool"
+				Culture="1031"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 	</Configurations>
 	<References>
 	</References>
 	<Files>
 		<File
-			RelativePath="sources\ECsecude.c"
-			>
+			RelativePath="sources\ECsecude.c">
 			<FileConfiguration
-				Name="Debug|Win32"
-				>
+				Name="Debug|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="0"
 					AdditionalIncludeDirectories=""
 					PreprocessorDefinitions=""
-					BrowseInformation="1"
-				/>
+					BrowseInformation="1"/>
 			</FileConfiguration>
 			<FileConfiguration
-				Name="Release|Win32"
-				>
+				Name="Release|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="2"
 					AdditionalIncludeDirectories=""
-					PreprocessorDefinitions=""
-				/>
+					PreprocessorDefinitions=""/>
 			</FileConfiguration>
 		</File>
 		<File
-			RelativePath="include\ECsecude.h"
-			>
+			RelativePath="include\ECsecude.h">
 		</File>
 		<File
-			RelativePath="sources\Ecssa.c"
-			>
+			RelativePath="sources\Ecssa.c">
 			<FileConfiguration
-				Name="Debug|Win32"
-				>
+				Name="Debug|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="0"
 					AdditionalIncludeDirectories=""
 					PreprocessorDefinitions=""
-					BrowseInformation="1"
-				/>
+					BrowseInformation="1"/>
 			</FileConfiguration>
 			<FileConfiguration
-				Name="Release|Win32"
-				>
+				Name="Release|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="2"
 					AdditionalIncludeDirectories=""
-					PreprocessorDefinitions=""
-				/>
+					PreprocessorDefinitions=""/>
 			</FileConfiguration>
 		</File>
 		<File
-			RelativePath="include\ECSSA.H"
-			>
+			RelativePath="include\ECSSA.H">
 		</File>
 		<File
-			RelativePath="sources\EMSA1.C"
-			>
+			RelativePath="sources\EMSA1.C">
 			<FileConfiguration
-				Name="Debug|Win32"
-				>
+				Name="Debug|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="0"
 					AdditionalIncludeDirectories=""
 					PreprocessorDefinitions=""
-					BrowseInformation="1"
-				/>
+					BrowseInformation="1"/>
 			</FileConfiguration>
 			<FileConfiguration
-				Name="Release|Win32"
-				>
+				Name="Release|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="2"
 					AdditionalIncludeDirectories=""
-					PreprocessorDefinitions=""
-				/>
+					PreprocessorDefinitions=""/>
 			</FileConfiguration>
 		</File>
 		<File
-			RelativePath="include\EMSA1.H"
-			>
+			RelativePath="include\EMSA1.H">
 		</File>
 		<File
-			RelativePath="sources\s_bithdl.c"
-			>
+			RelativePath="sources\s_bithdl.c">
 			<FileConfiguration
-				Name="Debug|Win32"
-				>
+				Name="Debug|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="0"
 					AdditionalIncludeDirectories=""
 					PreprocessorDefinitions=""
-					BrowseInformation="1"
-				/>
+					BrowseInformation="1"/>
 			</FileConfiguration>
 			<FileConfiguration
-				Name="Release|Win32"
-				>
+				Name="Release|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="2"
 					AdditionalIncludeDirectories=""
-					PreprocessorDefinitions=""
-				/>
+					PreprocessorDefinitions=""/>
 			</FileConfiguration>
 		</File>
 		<File
-			RelativePath="include\s_bithdl.h"
-			>
+			RelativePath="include\s_bithdl.h">
 		</File>
 		<File
-			RelativePath="sources\s_ecconv.c"
-			>
+			RelativePath="sources\s_ecconv.c">
 			<FileConfiguration
-				Name="Debug|Win32"
-				>
+				Name="Debug|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="0"
 					AdditionalIncludeDirectories=""
 					PreprocessorDefinitions=""
-					BrowseInformation="1"
-				/>
+					BrowseInformation="1"/>
 			</FileConfiguration>
 			<FileConfiguration
-				Name="Release|Win32"
-				>
+				Name="Release|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="2"
 					AdditionalIncludeDirectories=""
-					PreprocessorDefinitions=""
-				/>
+					PreprocessorDefinitions=""/>
 			</FileConfiguration>
 		</File>
 		<File
-			RelativePath="include\s_ecconv.h"
-			>
+			RelativePath="include\s_ecconv.h">
 		</File>
 		<File
-			RelativePath="sources\s_ecDSA.c"
-			>
+			RelativePath="sources\s_ecDSA.c">
 			<FileConfiguration
-				Name="Debug|Win32"
-				>
+				Name="Debug|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="0"
 					AdditionalIncludeDirectories=""
 					PreprocessorDefinitions=""
-					BrowseInformation="1"
-				/>
+					BrowseInformation="1"/>
 			</FileConfiguration>
 			<FileConfiguration
-				Name="Release|Win32"
-				>
+				Name="Release|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="2"
 					AdditionalIncludeDirectories=""
-					PreprocessorDefinitions=""
-				/>
+					PreprocessorDefinitions=""/>
 			</FileConfiguration>
 		</File>
 		<File
-			RelativePath="include\s_ecDSA.h"
-			>
+			RelativePath="include\s_ecDSA.h">
 		</File>
 		<File
-			RelativePath="include\s_ecFp.h"
-			>
+			RelativePath="include\s_ecFp.h">
 		</File>
 		<File
-			RelativePath="sources\s_ecmath.c"
-			>
+			RelativePath="sources\s_ecmath.c">
 			<FileConfiguration
-				Name="Debug|Win32"
-				>
+				Name="Debug|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="0"
 					AdditionalIncludeDirectories=""
 					PreprocessorDefinitions=""
-					BrowseInformation="1"
-				/>
+					BrowseInformation="1"/>
 			</FileConfiguration>
 			<FileConfiguration
-				Name="Release|Win32"
-				>
+				Name="Release|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="2"
 					AdditionalIncludeDirectories=""
-					PreprocessorDefinitions=""
-				/>
+					PreprocessorDefinitions=""/>
 			</FileConfiguration>
 		</File>
 		<File
-			RelativePath="include\s_ecmath.h"
-			>
+			RelativePath="include\s_ecmath.h">
 		</File>
 		<File
-			RelativePath="sources\s_ecNR.c"
-			>
+			RelativePath="sources\s_ecNR.c">
 			<FileConfiguration
-				Name="Debug|Win32"
-				>
+				Name="Debug|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="0"
 					AdditionalIncludeDirectories=""
 					PreprocessorDefinitions=""
-					BrowseInformation="1"
-				/>
+					BrowseInformation="1"/>
 			</FileConfiguration>
 			<FileConfiguration
-				Name="Release|Win32"
-				>
+				Name="Release|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="2"
 					AdditionalIncludeDirectories=""
-					PreprocessorDefinitions=""
-				/>
+					PreprocessorDefinitions=""/>
 			</FileConfiguration>
 		</File>
 		<File
-			RelativePath="include\s_ecNR.h"
-			>
+			RelativePath="include\s_ecNR.h">
 		</File>
 		<File
-			RelativePath="sources\s_ecpara.c"
-			>
+			RelativePath="sources\s_ecpara.c">
 			<FileConfiguration
-				Name="Debug|Win32"
-				>
+				Name="Debug|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="0"
 					AdditionalIncludeDirectories=""
 					PreprocessorDefinitions=""
-					BrowseInformation="1"
-				/>
+					BrowseInformation="1"/>
 			</FileConfiguration>
 			<FileConfiguration
-				Name="Release|Win32"
-				>
+				Name="Release|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="2"
 					AdditionalIncludeDirectories=""
-					PreprocessorDefinitions=""
-				/>
+					PreprocessorDefinitions=""/>
 			</FileConfiguration>
 		</File>
 		<File
-			RelativePath="sources\s_ecparp.c"
-			>
+			RelativePath="sources\s_ecparp.c">
 			<FileConfiguration
-				Name="Debug|Win32"
-				>
+				Name="Debug|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="0"
 					AdditionalIncludeDirectories=""
 					PreprocessorDefinitions=""
-					BrowseInformation="1"
-				/>
+					BrowseInformation="1"/>
 			</FileConfiguration>
 			<FileConfiguration
-				Name="Release|Win32"
-				>
+				Name="Release|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="2"
 					AdditionalIncludeDirectories=""
-					PreprocessorDefinitions=""
-				/>
+					PreprocessorDefinitions=""/>
 			</FileConfiguration>
 		</File>
 		<File
-			RelativePath="sources\s_ecpcur.c"
-			>
+			RelativePath="sources\s_ecpcur.c">
 			<FileConfiguration
-				Name="Debug|Win32"
-				>
+				Name="Debug|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="0"
 					AdditionalIncludeDirectories=""
 					PreprocessorDefinitions=""
-					BrowseInformation="1"
-				/>
+					BrowseInformation="1"/>
 			</FileConfiguration>
 			<FileConfiguration
-				Name="Release|Win32"
-				>
+				Name="Release|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="2"
 					AdditionalIncludeDirectories=""
-					PreprocessorDefinitions=""
-				/>
+					PreprocessorDefinitions=""/>
 			</FileConfiguration>
 		</File>
 		<File
-			RelativePath="sources\s_ecppta.c"
-			>
+			RelativePath="sources\s_ecppta.c">
 			<FileConfiguration
-				Name="Debug|Win32"
-				>
+				Name="Debug|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="0"
 					AdditionalIncludeDirectories=""
 					PreprocessorDefinitions=""
-					BrowseInformation="1"
-				/>
+					BrowseInformation="1"/>
 			</FileConfiguration>
 			<FileConfiguration
-				Name="Release|Win32"
-				>
+				Name="Release|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="2"
 					AdditionalIncludeDirectories=""
-					PreprocessorDefinitions=""
-				/>
+					PreprocessorDefinitions=""/>
 			</FileConfiguration>
 		</File>
 		<File
-			RelativePath="sources\s_ecpptc.c"
-			>
+			RelativePath="sources\s_ecpptc.c">
 			<FileConfiguration
-				Name="Debug|Win32"
-				>
+				Name="Debug|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="0"
 					AdditionalIncludeDirectories=""
 					PreprocessorDefinitions=""
-					BrowseInformation="1"
-				/>
+					BrowseInformation="1"/>
 			</FileConfiguration>
 			<FileConfiguration
-				Name="Release|Win32"
-				>
+				Name="Release|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="2"
 					AdditionalIncludeDirectories=""
-					PreprocessorDefinitions=""
-				/>
+					PreprocessorDefinitions=""/>
 			</FileConfiguration>
 		</File>
 		<File
-			RelativePath="sources\s_ecpptp.c"
-			>
+			RelativePath="sources\s_ecpptp.c">
 			<FileConfiguration
-				Name="Debug|Win32"
-				>
+				Name="Debug|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="0"
 					AdditionalIncludeDirectories=""
 					PreprocessorDefinitions=""
-					BrowseInformation="1"
-				/>
+					BrowseInformation="1"/>
 			</FileConfiguration>
 			<FileConfiguration
-				Name="Release|Win32"
-				>
+				Name="Release|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="2"
 					AdditionalIncludeDirectories=""
-					PreprocessorDefinitions=""
-				/>
+					PreprocessorDefinitions=""/>
 			</FileConfiguration>
 		</File>
 		<File
-			RelativePath="sources\s_ecprpt.c"
-			>
+			RelativePath="sources\s_ecprpt.c">
 			<FileConfiguration
-				Name="Debug|Win32"
-				>
+				Name="Debug|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="0"
 					AdditionalIncludeDirectories=""
 					PreprocessorDefinitions=""
-					BrowseInformation="1"
-				/>
+					BrowseInformation="1"/>
 			</FileConfiguration>
 			<FileConfiguration
-				Name="Release|Win32"
-				>
+				Name="Release|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="2"
 					AdditionalIncludeDirectories=""
-					PreprocessorDefinitions=""
-				/>
+					PreprocessorDefinitions=""/>
 			</FileConfiguration>
 		</File>
 		<File
-			RelativePath="sources\s_ecpX9c.c"
-			>
+			RelativePath="sources\s_ecpX9c.c">
 			<FileConfiguration
-				Name="Debug|Win32"
-				>
+				Name="Debug|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="0"
 					AdditionalIncludeDirectories=""
 					PreprocessorDefinitions=""
-					BrowseInformation="1"
-				/>
+					BrowseInformation="1"/>
 			</FileConfiguration>
 			<FileConfiguration
-				Name="Release|Win32"
-				>
+				Name="Release|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="2"
 					AdditionalIncludeDirectories=""
-					PreprocessorDefinitions=""
-				/>
+					PreprocessorDefinitions=""/>
 			</FileConfiguration>
 		</File>
 		<File
-			RelativePath="sources\s_ecvali.c"
-			>
+			RelativePath="sources\s_ecvali.c">
 			<FileConfiguration
-				Name="Debug|Win32"
-				>
+				Name="Debug|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="0"
 					AdditionalIncludeDirectories=""
 					PreprocessorDefinitions=""
-					BrowseInformation="1"
-				/>
+					BrowseInformation="1"/>
 			</FileConfiguration>
 			<FileConfiguration
-				Name="Release|Win32"
-				>
+				Name="Release|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="2"
 					AdditionalIncludeDirectories=""
-					PreprocessorDefinitions=""
-				/>
+					PreprocessorDefinitions=""/>
 			</FileConfiguration>
 		</File>
 		<File
-			RelativePath="include\s_ecvali.h"
-			>
+			RelativePath="include\s_ecvali.h">
 		</File>
 		<File
-			RelativePath="sources\s_prng.c"
-			>
+			RelativePath="sources\s_prng.c">
 			<FileConfiguration
-				Name="Debug|Win32"
-				>
+				Name="Debug|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="0"
 					AdditionalIncludeDirectories=""
 					PreprocessorDefinitions=""
-					BrowseInformation="1"
-				/>
+					BrowseInformation="1"/>
 			</FileConfiguration>
 			<FileConfiguration
-				Name="Release|Win32"
-				>
+				Name="Release|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					Optimization="2"
 					AdditionalIncludeDirectories=""
-					PreprocessorDefinitions=""
-				/>
+					PreprocessorDefinitions=""/>
 			</FileConfiguration>
 		</File>
 		<File
-			RelativePath="include\s_prng.h"
-			>
+			RelativePath="include\s_prng.h">
 		</File>
 	</Files>
 	<Globals>

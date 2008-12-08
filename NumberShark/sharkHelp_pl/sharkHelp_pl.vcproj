@@ -1,70 +1,45 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="8,00"
+	Version="7.10"
 	Name="sharkHelp_pl"
-	ProjectGUID="{E1DCAF49-0EA8-4317-A30A-6B6E4AEA0C47}"
-	Keyword="Win32Proj"
-	>
+	ProjectGUID="{068B2C5B-4AA8-459C-B0B9-0B0EE768B793}"
+	Keyword="Win32Proj">
 	<Platforms>
 		<Platform
-			Name="Win32"
-		/>
+			Name="Win32"/>
 	</Platforms>
-	<ToolFiles>
-	</ToolFiles>
 	<Configurations>
 		<Configuration
 			Name="Debug_pl|Win32"
 			OutputDirectory="$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="0"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
-			CharacterSet="2"
-			>
+			CharacterSet="2">
 			<Tool
 				Name="VCNMakeTool"
 				BuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; LANG=pl OUTDIR=..\..\$(ConfigurationName)"
 				ReBuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; /a LANG=pl OUTDIR=..\..\$(ConfigurationName)"
-				CleanCommandLine=""
-				Output="NumberShark-pl.chm"
-				PreprocessorDefinitions=""
-				IncludeSearchPath=""
-				ForcedIncludes=""
-				AssemblySearchPath=""
-				ForcedUsingAssemblies=""
-				CompileAsManaged=""
-			/>
+				Output="NumberShark-pl.chm"/>
 		</Configuration>
 		<Configuration
 			Name="Release_pl|Win32"
 			OutputDirectory="..\$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="0"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
-			CharacterSet="2"
-			>
+			CharacterSet="2">
 			<Tool
 				Name="VCNMakeTool"
 				BuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; LANG=pl OUTDIR=..\..\$(ConfigurationName)"
 				ReBuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; /a LANG=pl OUTDIR=..\..\$(ConfigurationName)"
-				CleanCommandLine=""
-				Output="NumberShark-pl.chm"
-				PreprocessorDefinitions=""
-				IncludeSearchPath=""
-				ForcedIncludes=""
-				AssemblySearchPath=""
-				ForcedUsingAssemblies=""
-				CompileAsManaged=""
-			/>
+				Output="NumberShark-pl.chm"/>
 		</Configuration>
 	</Configurations>
 	<References>
 	</References>
 	<Files>
 		<File
-			RelativePath=".\hlp_pl.mak"
-			>
+			RelativePath=".\hlp_pl.mak">
 		</File>
 	</Files>
 	<Globals>

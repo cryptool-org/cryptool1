@@ -1,73 +1,50 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="8,00"
+	Version="7.10"
 	Name="hlp_de"
 	ProjectGUID="{B835E875-5E34-46B9-B507-D0462C92D87A}"
 	RootNamespace="hlp_de"
-	Keyword="MakeFileProj"
-	>
+	SccProjectName=""
+	SccLocalPath=""
+	Keyword="MakeFileProj">
 	<Platforms>
 		<Platform
-			Name="Win32"
-		/>
+			Name="Win32"/>
 	</Platforms>
-	<ToolFiles>
-	</ToolFiles>
 	<Configurations>
 		<Configuration
 			Name="Release_de|Win32"
 			OutputDirectory=".\..\Release_de"
 			IntermediateDirectory=".\..\Release_de"
 			ConfigurationType="0"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="0"
-			ATLMinimizesCRunTimeLibraryUsage="false"
-			>
+			ATLMinimizesCRunTimeLibraryUsage="FALSE">
 			<Tool
 				Name="VCNMakeTool"
 				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot; LANG=de OUTDIR=..\..\$(ConfigurationName)"
 				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a LANG=de OUTDIR=..\..\$(ConfigurationName)"
-				CleanCommandLine=""
-				Output="CrypTool-de.chm"
-				PreprocessorDefinitions=""
-				IncludeSearchPath=""
-				ForcedIncludes=""
-				AssemblySearchPath=""
-				ForcedUsingAssemblies=""
-				CompileAsManaged=""
-			/>
+				Output="CrypTool-de.chm"/>
 		</Configuration>
 		<Configuration
 			Name="Debug_de|Win32"
 			OutputDirectory="$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="0"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="0"
-			ATLMinimizesCRunTimeLibraryUsage="false"
-			>
+			ATLMinimizesCRunTimeLibraryUsage="FALSE">
 			<Tool
 				Name="VCNMakeTool"
 				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot; LANG=de OUTDIR=..\..\$(ConfigurationName)"
 				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a LANG=de OUTDIR=..\..\$(ConfigurationName)"
-				CleanCommandLine=""
-				Output="CrypTool-de.chm"
-				PreprocessorDefinitions=""
-				IncludeSearchPath=""
-				ForcedIncludes=""
-				AssemblySearchPath=""
-				ForcedUsingAssemblies=""
-				CompileAsManaged=""
-			/>
+				Output="CrypTool-de.chm"/>
 		</Configuration>
 	</Configurations>
 	<References>
 	</References>
 	<Files>
 		<File
-			RelativePath="hlp_de.mak"
-			>
+			RelativePath="hlp_de.mak">
 		</File>
 	</Files>
 	<Globals>

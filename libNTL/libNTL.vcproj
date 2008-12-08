@@ -1,119 +1,77 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="8,00"
+	Version="7.10"
 	Name="libNTL"
 	ProjectGUID="{D11F006A-BAEF-43B8-8EF6-FED5021E17F2}"
-	Keyword="MFCProj"
-	>
+	SccProjectName=""
+	SccLocalPath=""
+	Keyword="MFCProj">
 	<Platforms>
 		<Platform
-			Name="Win32"
-		/>
+			Name="Win32"/>
 	</Platforms>
-	<ToolFiles>
-	</ToolFiles>
 	<Configurations>
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory=".\Release"
 			IntermediateDirectory=".\Release"
 			ConfigurationType="4"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="1"
-			ATLMinimizesCRunTimeLibraryUsage="false"
-			CharacterSet="2"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
+			ATLMinimizesCRunTimeLibraryUsage="FALSE"
+			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				InlineFunctionExpansion="1"
 				AdditionalIncludeDirectories=".\include"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
-				StringPooling="true"
+				StringPooling="TRUE"
 				RuntimeLibrary="0"
-				EnableFunctionLevelLinking="true"
-				UsePrecompiledHeader="0"
+				EnableFunctionLevelLinking="TRUE"
+				UsePrecompiledHeader="2"
 				PrecompiledHeaderFile=".\Release/libNTL.pch"
 				AssemblerListingLocation=".\Release/"
 				ObjectFile=".\Release/"
 				ProgramDataBaseFileName=".\Release/"
 				WarningLevel="3"
-				SuppressStartupBanner="true"
-				CompileAs="0"
-			/>
+				SuppressStartupBanner="TRUE"
+				CompileAs="0"/>
 			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG"
-				Culture="1031"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
+				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLibrarianTool"
 				OutputFile=".\Release\libNTL.lib"
-				SuppressStartupBanner="true"
-			/>
+				SuppressStartupBanner="TRUE"/>
 			<Tool
-				Name="VCALinkTool"
-			/>
+				Name="VCMIDLTool"/>
 			<Tool
-				Name="VCXDCMakeTool"
-			/>
+				Name="VCPostBuildEventTool"/>
 			<Tool
-				Name="VCBscMakeTool"
-			/>
+				Name="VCPreBuildEventTool"/>
 			<Tool
-				Name="VCFxCopTool"
-			/>
+				Name="VCPreLinkEventTool"/>
 			<Tool
-				Name="VCPostBuildEventTool"
-			/>
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="NDEBUG"
+				Culture="1031"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Debug|Win32"
 			OutputDirectory=".\Debug"
 			IntermediateDirectory=".\Debug"
 			ConfigurationType="4"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="1"
-			ATLMinimizesCRunTimeLibraryUsage="false"
-			CharacterSet="2"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
+			ATLMinimizesCRunTimeLibraryUsage="FALSE"
+			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
@@ -121,47 +79,41 @@
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
-				UsePrecompiledHeader="0"
+				UsePrecompiledHeader="2"
 				PrecompiledHeaderFile=".\Debug/libNTL.pch"
 				AssemblerListingLocation=".\Debug/"
 				ObjectFile=".\Debug/"
 				ProgramDataBaseFileName=".\Debug/"
 				WarningLevel="3"
-				SuppressStartupBanner="true"
+				SuppressStartupBanner="TRUE"
 				DebugInformationFormat="4"
-				CompileAs="0"
-			/>
+				CompileAs="0"/>
 			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="_DEBUG"
-				Culture="1031"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
+				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLibrarianTool"
 				OutputFile=".\Debug\libNTL.lib"
-				SuppressStartupBanner="true"
-			/>
+				SuppressStartupBanner="TRUE"/>
 			<Tool
-				Name="VCALinkTool"
-			/>
+				Name="VCMIDLTool"/>
 			<Tool
-				Name="VCXDCMakeTool"
-			/>
+				Name="VCPostBuildEventTool"/>
 			<Tool
-				Name="VCBscMakeTool"
-			/>
+				Name="VCPreBuildEventTool"/>
 			<Tool
-				Name="VCFxCopTool"
-			/>
+				Name="VCPreLinkEventTool"/>
 			<Tool
-				Name="VCPostBuildEventTool"
-			/>
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_DEBUG"
+				Culture="1031"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 	</Configurations>
 	<References>
@@ -169,2722 +121,2160 @@
 	<Files>
 		<Filter
 			Name="Quellcodedateien"
-			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
-			>
+			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat">
 			<File
-				RelativePath="src\ctools.cpp"
-				>
+				RelativePath="src\ctools.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\FacVec.cpp"
-				>
+				RelativePath="src\FacVec.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\FFT.cpp"
-				>
+				RelativePath="src\FFT.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\fileio.cpp"
-				>
+				RelativePath="src\fileio.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\G_LLL_FP.cpp"
-				>
+				RelativePath="src\G_LLL_FP.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\G_LLL_QP.cpp"
-				>
+				RelativePath="src\G_LLL_QP.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\G_LLL_RR.cpp"
-				>
+				RelativePath="src\G_LLL_RR.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\G_LLL_XD.cpp"
-				>
+				RelativePath="src\G_LLL_XD.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\GetTime.cpp"
-				>
+				RelativePath="src\GetTime.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\GF2.cpp"
-				>
+				RelativePath="src\GF2.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\GF2E.cpp"
-				>
+				RelativePath="src\GF2E.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\GF2EX.cpp"
-				>
+				RelativePath="src\GF2EX.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\GF2EXFactoring.cpp"
-				>
+				RelativePath="src\GF2EXFactoring.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\GF2X.cpp"
-				>
+				RelativePath="src\GF2X.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\GF2X1.cpp"
-				>
+				RelativePath="src\GF2X1.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\GF2XFactoring.cpp"
-				>
+				RelativePath="src\GF2XFactoring.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\GF2XVec.cpp"
-				>
+				RelativePath="src\GF2XVec.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\HNF.cpp"
-				>
+				RelativePath="src\HNF.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\lip.cpp"
-				>
+				RelativePath="src\lip.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\LLL.cpp"
-				>
+				RelativePath="src\LLL.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\LLL_FP.cpp"
-				>
+				RelativePath="src\LLL_FP.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\LLL_QP.cpp"
-				>
+				RelativePath="src\LLL_QP.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\LLL_RR.cpp"
-				>
+				RelativePath="src\LLL_RR.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\LLL_XD.cpp"
-				>
+				RelativePath="src\LLL_XD.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\lzz_p.cpp"
-				>
+				RelativePath="src\lzz_p.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\lzz_pE.cpp"
-				>
+				RelativePath="src\lzz_pE.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\lzz_pEX.cpp"
-				>
+				RelativePath="src\lzz_pEX.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\lzz_pEXFactoring.cpp"
-				>
+				RelativePath="src\lzz_pEXFactoring.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\lzz_pX.cpp"
-				>
+				RelativePath="src\lzz_pX.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\lzz_pX1.cpp"
-				>
+				RelativePath="src\lzz_pX1.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\lzz_pXCharPoly.cpp"
-				>
+				RelativePath="src\lzz_pXCharPoly.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\lzz_pXFactoring.cpp"
-				>
+				RelativePath="src\lzz_pXFactoring.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\mat_GF2.cpp"
-				>
+				RelativePath="src\mat_GF2.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\mat_GF2E.cpp"
-				>
+				RelativePath="src\mat_GF2E.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\mat_lzz_p.cpp"
-				>
+				RelativePath="src\mat_lzz_p.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\mat_lzz_pE.cpp"
-				>
+				RelativePath="src\mat_lzz_pE.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\mat_poly_lzz_p.cpp"
-				>
+				RelativePath="src\mat_poly_lzz_p.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\mat_poly_ZZ.cpp"
-				>
+				RelativePath="src\mat_poly_ZZ.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\mat_poly_ZZ_p.cpp"
-				>
+				RelativePath="src\mat_poly_ZZ_p.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\mat_RR.cpp"
-				>
+				RelativePath="src\mat_RR.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\mat_ZZ.cpp"
-				>
+				RelativePath="src\mat_ZZ.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\mat_ZZ_p.cpp"
-				>
+				RelativePath="src\mat_ZZ_p.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\mat_ZZ_pE.cpp"
-				>
+				RelativePath="src\mat_ZZ_pE.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\pair_GF2EX_long.cpp"
-				>
+				RelativePath="src\pair_GF2EX_long.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\pair_GF2X_long.cpp"
-				>
+				RelativePath="src\pair_GF2X_long.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\pair_lzz_pEX_long.cpp"
-				>
+				RelativePath="src\pair_lzz_pEX_long.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\pair_lzz_pX_long.cpp"
-				>
+				RelativePath="src\pair_lzz_pX_long.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\pair_ZZ_pEX_long.cpp"
-				>
+				RelativePath="src\pair_ZZ_pEX_long.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\pair_ZZ_pX_long.cpp"
-				>
+				RelativePath="src\pair_ZZ_pX_long.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\pair_ZZX_long.cpp"
-				>
+				RelativePath="src\pair_ZZX_long.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\quad_float.cpp"
-				>
+				RelativePath="src\quad_float.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\RR.cpp"
-				>
+				RelativePath="src\RR.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\tools.cpp"
-				>
+				RelativePath="src\tools.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\vec_double.cpp"
-				>
+				RelativePath="src\vec_double.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\vec_GF2.cpp"
-				>
+				RelativePath="src\vec_GF2.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\vec_GF2E.cpp"
-				>
+				RelativePath="src\vec_GF2E.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\vec_GF2XVec.cpp"
-				>
+				RelativePath="src\vec_GF2XVec.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\vec_long.cpp"
-				>
+				RelativePath="src\vec_long.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\vec_lzz_p.cpp"
-				>
+				RelativePath="src\vec_lzz_p.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\vec_lzz_pE.cpp"
-				>
+				RelativePath="src\vec_lzz_pE.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\vec_quad_float.cpp"
-				>
+				RelativePath="src\vec_quad_float.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\vec_RR.cpp"
-				>
+				RelativePath="src\vec_RR.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\vec_ulong.cpp"
-				>
+				RelativePath="src\vec_ulong.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\vec_vec_GF2.cpp"
-				>
+				RelativePath="src\vec_vec_GF2.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\vec_vec_GF2E.cpp"
-				>
+				RelativePath="src\vec_vec_GF2E.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\vec_vec_long.cpp"
-				>
+				RelativePath="src\vec_vec_long.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\vec_vec_lzz_p.cpp"
-				>
+				RelativePath="src\vec_vec_lzz_p.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\vec_vec_lzz_pE.cpp"
-				>
+				RelativePath="src\vec_vec_lzz_pE.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\vec_vec_RR.cpp"
-				>
+				RelativePath="src\vec_vec_RR.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\vec_vec_ulong.cpp"
-				>
+				RelativePath="src\vec_vec_ulong.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\vec_vec_ZZ.cpp"
-				>
+				RelativePath="src\vec_vec_ZZ.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\vec_vec_ZZ_p.cpp"
-				>
+				RelativePath="src\vec_vec_ZZ_p.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\vec_vec_ZZ_pE.cpp"
-				>
+				RelativePath="src\vec_vec_ZZ_pE.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\vec_xdouble.cpp"
-				>
+				RelativePath="src\vec_xdouble.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\vec_ZZ.cpp"
-				>
+				RelativePath="src\vec_ZZ.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\vec_ZZ_p.cpp"
-				>
+				RelativePath="src\vec_ZZ_p.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\vec_ZZ_pE.cpp"
-				>
+				RelativePath="src\vec_ZZ_pE.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\vec_ZZVec.cpp"
-				>
+				RelativePath="src\vec_ZZVec.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\WordVector.cpp"
-				>
+				RelativePath="src\WordVector.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\xdouble.cpp"
-				>
+				RelativePath="src\xdouble.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\ZZ.cpp"
-				>
+				RelativePath="src\ZZ.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\ZZ_p.cpp"
-				>
+				RelativePath="src\ZZ_p.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\ZZ_pE.cpp"
-				>
+				RelativePath="src\ZZ_pE.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\ZZ_pEX.cpp"
-				>
+				RelativePath="src\ZZ_pEX.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\ZZ_pEXFactoring.cpp"
-				>
+				RelativePath="src\ZZ_pEXFactoring.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\ZZ_pX.cpp"
-				>
+				RelativePath="src\ZZ_pX.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\ZZ_pX1.cpp"
-				>
+				RelativePath="src\ZZ_pX1.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\ZZ_pXCharPoly.cpp"
-				>
+				RelativePath="src\ZZ_pXCharPoly.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\ZZ_pXFactoring.cpp"
-				>
+				RelativePath="src\ZZ_pXFactoring.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\ZZVec.cpp"
-				>
+				RelativePath="src\ZZVec.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\ZZX.cpp"
-				>
+				RelativePath="src\ZZX.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\ZZX1.cpp"
-				>
+				RelativePath="src\ZZX1.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\ZZXCharPoly.cpp"
-				>
+				RelativePath="src\ZZXCharPoly.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\ZZXFactoring.cpp"
-				>
+				RelativePath="src\ZZXFactoring.cpp">
 				<FileConfiguration
-					Name="Release|Win32"
-					>
+					Name="Release|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="2"
 						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
+						PreprocessorDefinitions=""/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|Win32"
-					>
+					Name="Debug|Win32">
 					<Tool
 						Name="VCCLCompilerTool"
 						Optimization="0"
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-					/>
+						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
 		</Filter>
 		<Filter
 			Name="Header-Dateien"
-			Filter="h;hpp;hxx;hm;inl"
-			>
+			Filter="h;hpp;hxx;hm;inl">
 			<File
-				RelativePath="include\NTL\c_lip.h"
-				>
+				RelativePath="include\NTL\c_lip.h">
 			</File>
 			<File
-				RelativePath="src\c_lip_impl.h"
-				>
+				RelativePath="src\c_lip_impl.h">
 			</File>
 			<File
-				RelativePath="include\NTL\config.h"
-				>
+				RelativePath="include\NTL\config.h">
 			</File>
 			<File
-				RelativePath="include\NTL\ctools.h"
-				>
+				RelativePath="include\NTL\ctools.h">
 			</File>
 			<File
-				RelativePath="include\NTL\def_config.h"
-				>
+				RelativePath="include\NTL\def_config.h">
 			</File>
 			<File
-				RelativePath="include\NTL\FacVec.h"
-				>
+				RelativePath="include\NTL\FacVec.h">
 			</File>
 			<File
-				RelativePath="include\NTL\FFT.h"
-				>
+				RelativePath="include\NTL\FFT.h">
 			</File>
 			<File
-				RelativePath="include\NTL\fileio.h"
-				>
+				RelativePath="include\NTL\fileio.h">
 			</File>
 			<File
-				RelativePath="include\NTL\g_lip.h"
-				>
+				RelativePath="include\NTL\g_lip.h">
 			</File>
 			<File
-				RelativePath="src\g_lip_impl.h"
-				>
+				RelativePath="src\g_lip_impl.h">
 			</File>
 			<File
-				RelativePath="include\NTL\GF2.h"
-				>
+				RelativePath="include\NTL\GF2.h">
 			</File>
 			<File
-				RelativePath="include\NTL\GF2E.h"
-				>
+				RelativePath="include\NTL\GF2E.h">
 			</File>
 			<File
-				RelativePath="include\NTL\GF2EX.h"
-				>
+				RelativePath="include\NTL\GF2EX.h">
 			</File>
 			<File
-				RelativePath="include\NTL\GF2EXFactoring.h"
-				>
+				RelativePath="include\NTL\GF2EXFactoring.h">
 			</File>
 			<File
-				RelativePath="include\NTL\GF2X.h"
-				>
+				RelativePath="include\NTL\GF2X.h">
 			</File>
 			<File
-				RelativePath="include\NTL\GF2XFactoring.h"
-				>
+				RelativePath="include\NTL\GF2XFactoring.h">
 			</File>
 			<File
-				RelativePath="include\NTL\GF2XVec.h"
-				>
+				RelativePath="include\NTL\GF2XVec.h">
 			</File>
 			<File
-				RelativePath="include\NTL\HNF.h"
-				>
+				RelativePath="include\NTL\HNF.h">
 			</File>
 			<File
-				RelativePath="include\NTL\lip.h"
-				>
+				RelativePath="include\NTL\lip.h">
 			</File>
 			<File
-				RelativePath="include\NTL\LLL.h"
-				>
+				RelativePath="include\NTL\LLL.h">
 			</File>
 			<File
-				RelativePath="include\NTL\lzz_p.h"
-				>
+				RelativePath="include\NTL\lzz_p.h">
 			</File>
 			<File
-				RelativePath="include\NTL\lzz_pE.h"
-				>
+				RelativePath="include\NTL\lzz_pE.h">
 			</File>
 			<File
-				RelativePath="include\NTL\lzz_pEX.h"
-				>
+				RelativePath="include\NTL\lzz_pEX.h">
 			</File>
 			<File
-				RelativePath="include\NTL\lzz_pEXFactoring.h"
-				>
+				RelativePath="include\NTL\lzz_pEXFactoring.h">
 			</File>
 			<File
-				RelativePath="include\NTL\lzz_pX.h"
-				>
+				RelativePath="include\NTL\lzz_pX.h">
 			</File>
 			<File
-				RelativePath="include\NTL\lzz_pXFactoring.h"
-				>
+				RelativePath="include\NTL\lzz_pXFactoring.h">
 			</File>
 			<File
-				RelativePath="include\NTL\mach_desc.h"
-				>
+				RelativePath="include\NTL\mach_desc.h">
 			</File>
 			<File
-				RelativePath="include\NTL\mat_GF2.h"
-				>
+				RelativePath="include\NTL\mat_GF2.h">
 			</File>
 			<File
-				RelativePath="include\NTL\mat_GF2E.h"
-				>
+				RelativePath="include\NTL\mat_GF2E.h">
 			</File>
 			<File
-				RelativePath="include\NTL\mat_lzz_p.h"
-				>
+				RelativePath="include\NTL\mat_lzz_p.h">
 			</File>
 			<File
-				RelativePath="include\NTL\mat_lzz_pE.h"
-				>
+				RelativePath="include\NTL\mat_lzz_pE.h">
 			</File>
 			<File
-				RelativePath="include\NTL\mat_poly_lzz_p.h"
-				>
+				RelativePath="include\NTL\mat_poly_lzz_p.h">
 			</File>
 			<File
-				RelativePath="include\NTL\mat_poly_ZZ.h"
-				>
+				RelativePath="include\NTL\mat_poly_ZZ.h">
 			</File>
 			<File
-				RelativePath="include\NTL\mat_poly_ZZ_p.h"
-				>
+				RelativePath="include\NTL\mat_poly_ZZ_p.h">
 			</File>
 			<File
-				RelativePath="include\NTL\mat_RR.h"
-				>
+				RelativePath="include\NTL\mat_RR.h">
 			</File>
 			<File
-				RelativePath="include\NTL\mat_ZZ.h"
-				>
+				RelativePath="include\NTL\mat_ZZ.h">
 			</File>
 			<File
-				RelativePath="include\NTL\mat_ZZ_p.h"
-				>
+				RelativePath="include\NTL\mat_ZZ_p.h">
 			</File>
 			<File
-				RelativePath="include\NTL\mat_ZZ_pE.h"
-				>
+				RelativePath="include\NTL\mat_ZZ_pE.h">
 			</File>
 			<File
-				RelativePath="include\NTL\matrix.h"
-				>
+				RelativePath="include\NTL\matrix.h">
 			</File>
 			<File
-				RelativePath="include\NTL\new.h"
-				>
+				RelativePath="include\NTL\new.h">
 			</File>
 			<File
-				RelativePath="include\NTL\pair.h"
-				>
+				RelativePath="include\NTL\pair.h">
 			</File>
 			<File
-				RelativePath="include\NTL\pair_GF2EX_long.h"
-				>
+				RelativePath="include\NTL\pair_GF2EX_long.h">
 			</File>
 			<File
-				RelativePath="include\NTL\pair_GF2X_long.h"
-				>
+				RelativePath="include\NTL\pair_GF2X_long.h">
 			</File>
 			<File
-				RelativePath="include\NTL\pair_lzz_pEX_long.h"
-				>
+				RelativePath="include\NTL\pair_lzz_pEX_long.h">
 			</File>
 			<File
-				RelativePath="include\NTL\pair_lzz_pX_long.h"
-				>
+				RelativePath="include\NTL\pair_lzz_pX_long.h">
 			</File>
 			<File
-				RelativePath="include\NTL\pair_ZZ_pEX_long.h"
-				>
+				RelativePath="include\NTL\pair_ZZ_pEX_long.h">
 			</File>
 			<File
-				RelativePath="include\NTL\pair_ZZ_pX_long.h"
-				>
+				RelativePath="include\NTL\pair_ZZ_pX_long.h">
 			</File>
 			<File
-				RelativePath="include\NTL\pair_ZZX_long.h"
-				>
+				RelativePath="include\NTL\pair_ZZX_long.h">
 			</File>
 			<File
-				RelativePath="include\NTL\quad_float.h"
-				>
+				RelativePath="include\NTL\quad_float.h">
 			</File>
 			<File
-				RelativePath="include\NTL\RR.h"
-				>
+				RelativePath="include\NTL\RR.h">
 			</File>
 			<File
-				RelativePath="include\NTL\tools.h"
-				>
+				RelativePath="include\NTL\tools.h">
 			</File>
 			<File
-				RelativePath="include\NTL\vec_double.h"
-				>
+				RelativePath="include\NTL\vec_double.h">
 			</File>
 			<File
-				RelativePath="include\NTL\vec_GF2.h"
-				>
+				RelativePath="include\NTL\vec_GF2.h">
 			</File>
 			<File
-				RelativePath="include\NTL\vec_GF2E.h"
-				>
+				RelativePath="include\NTL\vec_GF2E.h">
 			</File>
 			<File
-				RelativePath="include\NTL\vec_GF2XVec.h"
-				>
+				RelativePath="include\NTL\vec_GF2XVec.h">
 			</File>
 			<File
-				RelativePath="include\NTL\vec_long.h"
-				>
+				RelativePath="include\NTL\vec_long.h">
 			</File>
 			<File
-				RelativePath="include\NTL\vec_lzz_p.h"
-				>
+				RelativePath="include\NTL\vec_lzz_p.h">
 			</File>
 			<File
-				RelativePath="include\NTL\vec_lzz_pE.h"
-				>
+				RelativePath="include\NTL\vec_lzz_pE.h">
 			</File>
 			<File
-				RelativePath="include\NTL\vec_quad_float.h"
-				>
+				RelativePath="include\NTL\vec_quad_float.h">
 			</File>
 			<File
-				RelativePath="include\NTL\vec_RR.h"
-				>
+				RelativePath="include\NTL\vec_RR.h">
 			</File>
 			<File
-				RelativePath="include\NTL\vec_ulong.h"
-				>
+				RelativePath="include\NTL\vec_ulong.h">
 			</File>
 			<File
-				RelativePath="include\NTL\vec_vec_GF2.h"
-				>
+				RelativePath="include\NTL\vec_vec_GF2.h">
 			</File>
 			<File
-				RelativePath="include\NTL\vec_vec_GF2E.h"
-				>
+				RelativePath="include\NTL\vec_vec_GF2E.h">
 			</File>
 			<File
-				RelativePath="include\NTL\vec_vec_long.h"
-				>
+				RelativePath="include\NTL\vec_vec_long.h">
 			</File>
 			<File
-				RelativePath="include\NTL\vec_vec_lzz_p.h"
-				>
+				RelativePath="include\NTL\vec_vec_lzz_p.h">
 			</File>
 			<File
-				RelativePath="include\NTL\vec_vec_lzz_pE.h"
-				>
+				RelativePath="include\NTL\vec_vec_lzz_pE.h">
 			</File>
 			<File
-				RelativePath="include\NTL\vec_vec_RR.h"
-				>
+				RelativePath="include\NTL\vec_vec_RR.h">
 			</File>
 			<File
-				RelativePath="include\NTL\vec_vec_ulong.h"
-				>
+				RelativePath="include\NTL\vec_vec_ulong.h">
 			</File>
 			<File
-				RelativePath="include\NTL\vec_vec_ZZ.h"
-				>
+				RelativePath="include\NTL\vec_vec_ZZ.h">
 			</File>
 			<File
-				RelativePath="include\NTL\vec_vec_ZZ_p.h"
-				>
+				RelativePath="include\NTL\vec_vec_ZZ_p.h">
 			</File>
 			<File
-				RelativePath="include\NTL\vec_vec_ZZ_pE.h"
-				>
+				RelativePath="include\NTL\vec_vec_ZZ_pE.h">
 			</File>
 			<File
-				RelativePath="include\NTL\vec_xdouble.h"
-				>
+				RelativePath="include\NTL\vec_xdouble.h">
 			</File>
 			<File
-				RelativePath="include\NTL\vec_ZZ.h"
-				>
+				RelativePath="include\NTL\vec_ZZ.h">
 			</File>
 			<File
-				RelativePath="include\NTL\vec_ZZ_p.h"
-				>
+				RelativePath="include\NTL\vec_ZZ_p.h">
 			</File>
 			<File
-				RelativePath="include\NTL\vec_ZZ_pE.h"
-				>
+				RelativePath="include\NTL\vec_ZZ_pE.h">
 			</File>
 			<File
-				RelativePath="include\NTL\vec_ZZVec.h"
-				>
+				RelativePath="include\NTL\vec_ZZVec.h">
 			</File>
 			<File
-				RelativePath="include\NTL\vector.h"
-				>
+				RelativePath="include\NTL\vector.h">
 			</File>
 			<File
-				RelativePath="include\NTL\version.h"
-				>
+				RelativePath="include\NTL\version.h">
 			</File>
 			<File
-				RelativePath="include\NTL\WordVector.h"
-				>
+				RelativePath="include\NTL\WordVector.h">
 			</File>
 			<File
-				RelativePath="include\NTL\xdouble.h"
-				>
+				RelativePath="include\NTL\xdouble.h">
 			</File>
 			<File
-				RelativePath="include\NTL\ZZ.h"
-				>
+				RelativePath="include\NTL\ZZ.h">
 			</File>
 			<File
-				RelativePath="include\NTL\ZZ_p.h"
-				>
+				RelativePath="include\NTL\ZZ_p.h">
 			</File>
 			<File
-				RelativePath="include\NTL\ZZ_pE.h"
-				>
+				RelativePath="include\NTL\ZZ_pE.h">
 			</File>
 			<File
-				RelativePath="include\NTL\ZZ_pEX.h"
-				>
+				RelativePath="include\NTL\ZZ_pEX.h">
 			</File>
 			<File
-				RelativePath="include\NTL\ZZ_pEXFactoring.h"
-				>
+				RelativePath="include\NTL\ZZ_pEXFactoring.h">
 			</File>
 			<File
-				RelativePath="include\NTL\ZZ_pX.h"
-				>
+				RelativePath="include\NTL\ZZ_pX.h">
 			</File>
 			<File
-				RelativePath="include\NTL\ZZ_pXFactoring.h"
-				>
+				RelativePath="include\NTL\ZZ_pXFactoring.h">
 			</File>
 			<File
-				RelativePath="include\NTL\ZZVec.h"
-				>
+				RelativePath="include\NTL\ZZVec.h">
 			</File>
 			<File
-				RelativePath="include\NTL\ZZX.h"
-				>
+				RelativePath="include\NTL\ZZX.h">
 			</File>
 			<File
-				RelativePath="include\NTL\ZZXFactoring.h"
-				>
+				RelativePath="include\NTL\ZZXFactoring.h">
 			</File>
 		</Filter>
 	</Files>
