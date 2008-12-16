@@ -4124,16 +4124,6 @@ BEGIN
     CONTROL         251,IDC_STATIC_PRIM_RES2,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,15,13
 END
 
-IDD_PRIME_TEST_RUNNING DIALOGEX 0, 0, 187, 90
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Test pierwszoœci liczby"
-FONT 8, "MS Shell Dlg", 400, 0, 0x1
-BEGIN
-    PUSHBUTTON      "&Anuluj",IDCANCEL,69,69,50,14
-    CTEXT           "Sprawdzanie, czy liczba jest pierwsza...",IDC_PRIMETEST_RUNNING_LABEL1,7,18,173,8
-    CTEXT           " proszê czekaæ ",IDC_PRIMETEST_RUNNING_LABEL2,7,37,173,8
-END
-
 IDD_ADFGVX_STRINGBOX DIALOGEX 0, 0, 179, 44
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Has³o zastêpcze"
@@ -8450,6 +8440,9 @@ BEGIN
     IDS_STRING_ANALYSE_ON   "Analiza brutalnej si³y %s"
     IDS_STRING_MSG_SEARCHING_COMPLETE 
                             "%d bit poszukiwanie brute-force %%d%%%% zakoñczone.\nRemaining time: %%s"
+    IDS_STRING_MSG_AKS_TEST_COMPLETE 
+                            "%d bit AKS test %%d%%%% completed.\nRemaining time: %%s"
+    IDS_STRING_MSG_AKS_TEST "AKS Test"
     IDS_STRING_AUTOMATIC_ANALYSE "Autmatyczna %s Analiza <%s>, klucz: <%s>"
     IDS_STRING_MSG_SIGNED_MESSAGE_TO_BIG 
                             "Podpisana wiadomoœæ jest bardzo du¿a. Nie mo¿e zostaæ wyœwietlona w oknie CrypToola.\nDlatego zosta³a zapisana w tymczasowym pliku  '%s'."
@@ -14679,16 +14672,6 @@ BEGIN
     DEFPUSHBUTTON   "Zahl &faktorisieren",IDC_BUTTON_JUMP_TO_FACTORIZATION,110,240,100,20,WS_DISABLED
 END
 
-IDD_PRIME_TEST_RUNNING DIALOGEX 0, 0, 187, 90
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Primzahltest"
-FONT 8, "MS Shell Dlg", 400, 0, 0x1
-BEGIN
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,69,69,50,14
-    CTEXT           "Primzahlentest wird durchgeführt.",IDC_PRIMETEST_RUNNING_LABEL1,7,18,173,8
-    CTEXT           "... bitte warten ...",IDC_PRIMETEST_RUNNING_LABEL2,7,37,173,8
-END
-
 IDD_ADFGVX_STRINGBOX DIALOGEX 0, 0, 178, 44
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Substitutionspasswort"
@@ -18804,6 +18787,9 @@ BEGIN
     IDS_STRING_ANALYSE_ON   "Brute-Force-Analyse von %s"
     IDS_STRING_MSG_SEARCHING_COMPLETE 
                             "Vollständige %d Bit-Suche zu %%d%%%% erledigt.\nRestzeit: %%s"
+    IDS_STRING_MSG_AKS_TEST_COMPLETE 
+                            "%d  Bit AKS-Test zu %%d%%%% erledigt.\nRestzeit: %%s"
+    IDS_STRING_MSG_AKS_TEST "AKS Test"
     IDS_STRING_AUTOMATIC_ANALYSE "%s-Analyse von <%s>, Schlüssel <%s>"
     IDS_STRING_MSG_SIGNED_MESSAGE_TO_BIG 
                             "Die signierte Nachricht ist sehr gross. Sie kann nicht in dem Hex-Editor von CrypTool angezeigt werden.\nDeshalb wurde die Nachricht in der temporären Datei '%s' zwischengespeichert."
@@ -25021,16 +25007,6 @@ BEGIN
     DEFPUSHBUTTON   "&Factorize number",IDC_BUTTON_JUMP_TO_FACTORIZATION,110,241,100,20,WS_DISABLED
 END
 
-IDD_PRIME_TEST_RUNNING DIALOGEX 0, 0, 187, 90
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Prime Number Test"
-FONT 8, "MS Shell Dlg", 400, 0, 0x1
-BEGIN
-    PUSHBUTTON      "&Cancel",IDCANCEL,69,69,50,14
-    CTEXT           "Prime number test in progress.",IDC_PRIMETEST_RUNNING_LABEL1,7,18,173,8
-    CTEXT           "... please wait ...",IDC_PRIMETEST_RUNNING_LABEL2,7,37,173,8
-END
-
 IDD_ADFGVX_STRINGBOX DIALOGEX 0, 0, 179, 44
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Substitution password"
@@ -29383,6 +29359,9 @@ BEGIN
     IDS_STRING_ANALYSE_ON   "Brute-Force Analysis of %s"
     IDS_STRING_MSG_SEARCHING_COMPLETE 
                             "%d bit brute-force search %%d%%%% completed.\nRemaining time: %%s"
+    IDS_STRING_MSG_AKS_TEST_COMPLETE 
+                            "%d bit AKS test %%d%%%% completed.\nRemaining time: %%s"
+    IDS_STRING_MSG_AKS_TEST "AKS Test"
     IDS_STRING_AUTOMATIC_ANALYSE "%s Analysis of <%s>, key: <%s>"
     IDS_STRING_MSG_SIGNED_MESSAGE_TO_BIG 
                             "The signed message is very large. It cannot be displayed in the CrypTool hex editor.\nThe message has therefore been provisionally stored in the temporary file '%s'."

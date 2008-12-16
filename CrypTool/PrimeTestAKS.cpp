@@ -2,6 +2,7 @@
 #include <vector>
 #include <math.h>
 #include <time.h>
+#include <iostream>
 
 
 #include "PrimeTestAKS.h"
@@ -10,50 +11,59 @@
 /*******************************************************
   Konstruktor erzeugt Zahl aus String.
  ******************************************************/
-PrimeTestAKS::PrimeTestAKS()
+PrimeTestAKS::PrimeTestAKS(int *cancel) : n(0), pcancelled(cancel), aks_index(0), aks_limit(0)
 {
-  stopProcessing = 1;
-  n = 0;
 }
 
 /*******************************************************
   Konstruktor erzeugt Zahl aus String.
  ******************************************************/
-PrimeTestAKS::PrimeTestAKS(string s)
+PrimeTestAKS::PrimeTestAKS(string s, int *cancel) : n(s), pcancelled(cancel), aks_index(0), aks_limit(0)
 {
-  stopProcessing = 1;
-  n = s;
 }
 
 /*******************************************************
   Konstruktor erzeugt Zahl aus integer.
  ******************************************************/
-PrimeTestAKS::PrimeTestAKS(int s)
+PrimeTestAKS::PrimeTestAKS(int s, int *cancel) : n(s), pcancelled(cancel), aks_index(0), aks_limit(0)
 {
-  stopProcessing = 1;
-  n = s;
 }
 
 /*******************************************************
   Konstruktor erzeugt Zahl aus integer.
  ******************************************************/
-PrimeTestAKS::PrimeTestAKS(mpz_class s)
+PrimeTestAKS::PrimeTestAKS(mpz_class s, int *cancel) : n(s), pcancelled(cancel), aks_index(0), aks_limit(0)
 {
-  stopProcessing = 1;
-  n = s;
 }
 
+double PrimeTestAKS::getProgress()
+{
+	if (aks_limit == 0) { // first loop not yet finished
+		return 0.0;
+	} else { // second loop
+		return double(aks_index) / double(aks_limit);
+	}
+}
 /*******************************************************
   Fuehrt den Primzahltest AKS auf n aus.
+  Basiert auf 
+  [1] Agrawal, Kayal, Saxena, "PRIMES is in P", 2002, v6
+      http://www.cse.iitk.ac.in/~manindra/algebra/primality_v6.pdf
+  Bugfixes: Joerg Schneider
 
   Return: 1 = prime
           0 = not prime
+	      2 = too large
+	      3 = aborted
  ******************************************************/
 int PrimeTestAKS::aks()
 {
-  int size = (*this).loga();
-  int lim1,lim2;
-  int r,gcd;
+  int size = loga();
+  int r; // r <= size^5 according to [1 p.3] =>  r will not overflow if size <= 73; overflow is checked below
+  int gcd; // <= r
+  int lim1 = 0; // lim1 = size^2  =>  will overflow if size > 46340; overflow checked below
+  aks_limit = 0; // aks_limit = sqrt(r)*size <= size^3.5 <= r
+  aks_index = 0;
   std::vector<mpz_class> v1(2);
   std::vector<mpz_class> v2;
   std::vector<mpz_class>::iterator v2_it;
@@ -66,40 +76,44 @@ int PrimeTestAKS::aks()
   }
 
   // test ob n = a^b
-  if ((*this).perf_pow() == 1)
+  if (perf_pow())
   {
     return 0;
   }
 
   r=1;
-  lim1 = 4*size^2;
+  if (size > 46340) // size > sqrt(2^32-1)  =>  lim1 overflow?
+  	return 2; 
+  lim1 = size*size;
 
   // ...
   do{
       r++;
-      gcd = (*this).euclid(r);
+      if (r < 0) // overflow?
+      	return 2; // this cannot happen if size <= 73; will take a *very* long time... 
+      gcd = euclid(r);
       if( 1 < gcd && gcd < n)
       {
         return 0;
       }
       if(r >= n)
         return 1;
-  }while (((*this).small_ord(r,lim1))  && (stopProcessing != 0));
-
+  }while (small_ord(r,lim1)  && !cancelled());
   PrimePolynom::set_field(r);
-  
-  int sqrt_r = (*this).int_sqrt(r,2);
-  lim2 = 2 * size * sqrt_r;
+  int sqrt_r = int_sqrt(r-1,2); // should be sqrt(phi(r)) according to [1], larger value should not hurt
+  aks_limit = size * sqrt_r;
+  //std::cout << "r: " << r << " aks_limit: " << aks_limit << endl;
   v1[1] = 1;
 
   v2 = PrimePolynom::create_rhs();
   mpz_class val_0 = v2[0];
 
+  //std::cout << "r=" << r << "\tlim1=" << lim1 << "\taks_limit=" << aks_limit << "\n";
   // ... 
-  for( int a = 1 ; (a <= lim1) && (stopProcessing != 0) ; a++)
+  for( aks_index = 1 ; aks_index <= aks_limit && !cancelled() ; aks_index++)
   { 
-    v1[0] = a;
-    v2[0] = val_0 + a;
+    v1[0] = aks_index;
+    v2[0] = val_0 + aks_index;
     if (v2[0] >= n)
       v2[0] -= n;
     PrimePolynom p1(v1);
@@ -111,7 +125,8 @@ int PrimeTestAKS::aks()
       return 0; // not prime
     }
   }
-
+  if (cancelled())
+	  return 3;
   return 1;     // number n is prime
 }
 
@@ -192,7 +207,7 @@ int PrimeTestAKS::perf_pow()
   mpz_class c = 1;
   while (c <= n)
   {
-    if ((*this).is_int_sqrt(b))
+    if (is_int_sqrt(b))
       return 1;
     b++;
     c <<= 1;
@@ -235,7 +250,7 @@ int PrimeTestAKS::int_sqrt(int r,int b)
   while (v-u >= 2)
   {
     a = (u+v)>>1;
-    mpz_class help = (*this).pow(a,b);
+    mpz_class help = pow(a,b);
     w = mpz_get_si(help.get_mpz_t());
     if (w == r) 
     {
@@ -266,7 +281,7 @@ int PrimeTestAKS::is_int_sqrt(int b)
   while (v-u >= 2)
   {
     a = (u+v)>>1;
-    w = (*this).pow(a,b);
+    w = pow(a,b);
     if (w == n) 
     {
       return 1;
@@ -304,16 +319,19 @@ int PrimeTestAKS::euclid(int m)
 }
 
 /*******************************************************
-  Testet ob ord(n)<lim modulo r. Dabei werden die 
+  Testet ob ord(n)<=lim modulo r. Dabei werden die 
   Potenzen sukzessive durchgegangen, bis sie 1 sind
   oder lim ueberschreiten.
  ******************************************************/
 int PrimeTestAKS::small_ord(int r, int lim)
 {
+  // ord_r(n) <= r-1
+  if (r-1 <= lim)
+  	return 1;
   mpz_class n2 = n % r;
   mpz_class n3 = n2;
-  int i = 0;
-  while (n2 != 1 && i < lim)
+  int i = 1;
+  while (n2 != 1 && i <= lim)
   { 
     n2 = (n3*n2) % r;
     i++;
@@ -327,3 +345,37 @@ int PrimeTestAKS::small_ord(int r, int lim)
     return 0;
   }
 }
+
+#if 0
+
+#include <iostream>
+#include "PrimeTestAKS.h"
+
+using namespace std;
+
+int isprime(int n)
+{
+	for (int i = 2; i*i <=n; i++)
+		if (n % i == 0)
+			return 0;
+	return 1;
+}
+int main(int argc, char *argv[])
+{
+	mpz_class a(argv[1]);
+	mpz_class b(argc == 3 ? argv[2] : argv[1]);
+	for (mpz_class n = a; n <= b; n++) {
+		int prime = n.fits_sint_p() ? isprime(n.get_si()) : 2;
+		PrimeTestAKS aks(n);
+		int primeaks = aks.aks();
+		//if (n % 100 == 0)
+			cerr << n << "\r";
+		cerr.flush();
+		if (prime != primeaks) 
+			cerr << n << "\tprime: " << prime << "\taks: " << primeaks << endl;
+	}
+	return 0;
+
+}
+
+#endif

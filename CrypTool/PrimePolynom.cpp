@@ -1,6 +1,7 @@
 #include "PrimePolynom.h"
 #include <vector>
 #include <stdio.h>
+#include <iostream>
 #include "gmp.h"
 // #include "gmpxx.h"
 
@@ -330,11 +331,11 @@ PrimePolynom PrimePolynom::operator^(mpz_class b)
         }
       b >>= 1;
       p = p*p;
-      if (field != 0 && p.degree > field)
+      if (field != 0 && p.degree >= field)
       {
         p = p.mod_pol(field);
       }
-      if (field != 0 && res.degree > field)
+      if (field != 0 && res.degree >= field)
       {
         res = res.mod_pol(field);
       }
@@ -446,21 +447,22 @@ int PrimePolynom::print()
         //cout << " +";
         plus = 0;
       }
-     // gmp_printf(" %Zd", (*vec_it).mpz_class::get_mpz_t ());
+      gmp_printf(" %Zd", (*vec_it).mpz_class::get_mpz_t ());
       plus = 1;
       if (i == 0);
       else if (i == 1)
       {
-        //cout << "x";
+        std::cout << "x";
       }
       else 
       {
-        //cout << "x^" << i ;
+        std::cout << "x^" << i ;
       }
     }
     i++;
   }
-  //cout << endl;
+  cout << endl;
 
   return 0;
 }
+

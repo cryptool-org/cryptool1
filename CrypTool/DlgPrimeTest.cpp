@@ -29,10 +29,31 @@ CDlgPrimeTest::~CDlgPrimeTest()
 }
 
 //////////////////////////////////////////////////////////////////////////////
-UINT singleThreadAKS( PVOID x )
+UINT runAKShelper( PVOID x )
 {
   CDlgPrimeTest *dlg;
   dlg = (CDlgPrimeTest*)x;
+  dlg->runAKS();
+  return 0;
+}
+
+double CDlgPrimeTest::getProgress()
+{
+	return pAKS->getProgress();
+}
+
+void CDlgPrimeTest::runAKS()
+{
+	PrimeTestAKS AKS((const char*)inputNumber, &theApp.fs.m_canceled);
+	pAKS = &AKS;
+
+	// AKS thread
+	CString title;
+	CString message;
+	message.Format(IDS_STRING_MSG_AKS_TEST_COMPLETE,AKS.loga());
+	title.Format(IDS_STRING_MSG_AKS_TEST);
+	theApp.fs.setModelTitleFormat(this, title, message);
+	theApp.fs.Display();
 
 #ifdef PRIMETEST_TIME_MEASUREMENT
   // ----------------------------------
@@ -45,9 +66,11 @@ UINT singleThreadAKS( PVOID x )
   // ----------------------------------
 #endif
 
-  // Perform AKS
-  int res = dlg->primAKS.aks();
+	// Perform AKS
 
+	int res = AKS.aks();
+	if (res == 2) // overflow
+		res = 4; // error
 #ifdef PRIMETEST_TIME_MEASUREMENT
   // ----------------------------------
   // Time measurement
@@ -58,21 +81,13 @@ UINT singleThreadAKS( PVOID x )
   test_time = ((double)time2 - (double)time1)/1000;
   
   // Set result to member field
-  dlg->algoTime = test_time;
+  algoTime = test_time;
   // ----------------------------------
 #endif
-
-  // stopProcessing = 1 -> aks finished
-  // stopProcessing = 0 -> aks canceled
-  if(dlg->primAKS.stopProcessing != 0)
-  {
-    // Close Running dialog
-    dlg->dlgRun->EndDialog(IDCANCEL);
-        
-    // AKS delivered result
-    dlg->SetThreadResult(res);
-  }
-	return 0;
+	theApp.fs.cancel(); // remove progress dialog
+	WaitForSingleObject( theApp.fs.pEvent.m_hObject, INFINITE ); // wait until dialog gone
+	UpdateResultField(res, inputNumber);
+	pAKS = 0;
 }
 
 void CDlgPrimeTest::SetThreadResult(int res)
@@ -235,51 +250,10 @@ void CDlgPrimeTest::OnBnClickedPrimetestButtonTest()
       }
       case(3):  // AKS
       {
-        // Set number to AKS 
-        primAKS = PrimeTestAKS(strBigNum.GetBuffer(strBigNum.GetLength()+1));
 
-		    MSG AKSMessage;
-		    UINT MessageID;
-
-        // Define message to cancel AKS
-        MessageID = RegisterWindowMessage("AKS_Terminate");
-
-        // Start dialogue and show window befor start of thread
-        dlgRun = new CDlgPrimeTestRunning;
-        dlgRun->SetMessageParam(MessageID);
-        dlgRun->ShowWindow(SW_SHOWNORMAL);
-        
         // Start AKS in seperate Thread
-        CWinThread* pThread = AfxBeginThread(singleThreadAKS, this, THREAD_PRIORITY_NORMAL);
-        
-        // wait for cancel or result of aks
-        while(1)
-        {
-          // Check if AKS hasn't finished already
-          if(primAKS.stopProcessing != 1)
-          {
-            dlgRun->EndDialog(IDCANCEL);
-          }
-
-					if (PeekMessage(&AKSMessage, NULL, 0, 0, PM_NOREMOVE))
-					{
-						GetMessage(&AKSMessage, NULL, 0, 0);
-						if (MessageID == AKSMessage.message)
-						{
-              primAKS.stopProcessing = 0;
-              res = 3;
-							break;	// nur wenn der Floyd-Algorithmus beendet wurde, Schleife verlassen - 
-						}			// andere Messages werden ignoriert
-
-						TranslateMessage(&AKSMessage); 
-						DispatchMessage(&AKSMessage);
-					}
-
-					else WaitMessage();
-        }
-                
-        // end wait 
-        break;
+		AfxBeginThread(runAKShelper, this, THREAD_PRIORITY_NORMAL);
+		return;
       }
       default:
         // No provided algorithm has been chosen
