@@ -194,6 +194,13 @@ BOOL CDlgPrimesGeneratorDemo::GetRandomPrime(CString &OutStr, GeneratePrimes &P)
 		if (0==m_radio1) flag = P.MillerRabinTest(100);
 		if (1==m_radio1) flag = P.SolvayStrassenTest(100);
 		if (2==m_radio1) flag = P.FermatTest(100);
+		
+		// BEGIN flomar, 12/17/2008
+		if (3==m_radio1) {
+			AfxMessageBox("TODO: AKS not implemented yet\n");
+			return FALSE;
+		}
+		// END flomar, 12/17/2008
 	}
     if (flag)
 	{
