@@ -15,7 +15,6 @@ public:
 
   CDlgPrimeTest(CWnd* pParent = NULL);   // Standardkonstruktor
 	virtual ~CDlgPrimeTest();
-  void SetThreadResult(int res);
 
 // Dialogfelddaten
 	enum { IDD = IDD_PRIME_TEST };

@@ -1,6 +1,6 @@
 // DlgPrimeTest.cpp : Implementierungsdatei
 //
-
+//#define PRIMETEST_TIME_MEASUREMENT
 #include "stdafx.h"
 #include "CrypToolApp.h"
 #include "DialogeMessage.h"
@@ -88,12 +88,6 @@ void CDlgPrimeTest::runAKS()
 	WaitForSingleObject( theApp.fs.pEvent.m_hObject, INFINITE ); // wait until dialog gone
 	UpdateResultField(res, inputNumber);
 	pAKS = 0;
-}
-
-void CDlgPrimeTest::SetThreadResult(int res)
-{
-  // Update result field after AKS succeeded
-  UpdateResultField(res, inputNumber);
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -269,15 +263,6 @@ void CDlgPrimeTest::OnBnClickedPrimetestButtonTest()
     
     // Set duration to member field 
     algoTime = test_time;
-
-    // Prepare text output of time in edit field
-    CString strTime;
-    strTime.Format("(time2[%i]-time1[%i])=testtime[%f] ",
-                    time2,
-                    time1,
-                    test_time);
-
-    strBigNum = strTime + strBigNum;
     // ----------------------------------
 #endif
 
