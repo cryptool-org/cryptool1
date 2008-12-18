@@ -324,6 +324,11 @@ void CDlgADFGVX::OnBnClickedButtonEncrypt()
 			if(restart)
 			{
 				CString message="";
+
+				// notify user that the password was corrected
+				LoadString(AfxGetInstanceHandle(), IDS_STRING_ADFGVX_PASSWORD_CORRECTED, pc_str, STR_LAENGE_STRING_TABLE);
+				message.Append(pc_str);
+
 				if(pwdInvalid)
 				{
 					LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_4,pc_str,STR_LAENGE_STRING_TABLE);

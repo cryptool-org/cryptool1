@@ -4267,13 +4267,13 @@ BEGIN
     LTEXT           "Static",IDC_HEADER,7,7,420,38
 END
 
-IDD_ADFGVX_SHORTENED_PASSWORD DIALOGEX 0, 0, 235, 150
+IDD_ADFGVX_SHORTENED_PASSWORD DIALOGEX 0, 0, 235, 175
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Dalej",IDOK,178,129,50,14
-    PUSHBUTTON      "&Powrót",IDCANCEL,7,129,50,14
+    DEFPUSHBUTTON   "&Dalej",IDOK,178,154,50,14
+    PUSHBUTTON      "&Powrót",IDCANCEL,7,154,50,14
     LTEXT           "Statisch",IDC_TEXT_INFO,7,7,221,112
 END
 
@@ -7868,7 +7868,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 228
         TOPMARGIN, 7
-        BOTTOMMARGIN, 143
+        BOTTOMMARGIN, 168
     END
 
     IDD_PASSWORD_GUIDELINES, DIALOG
@@ -14809,13 +14809,13 @@ BEGIN
     LTEXT           "Static",IDC_HEADER,7,7,420,47
 END
 
-IDD_ADFGVX_SHORTENED_PASSWORD DIALOGEX 0, 0, 235, 150
+IDD_ADFGVX_SHORTENED_PASSWORD DIALOGEX 0, 0, 235, 175
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Fortsetzen",IDOK,178,129,50,14
-    PUSHBUTTON      "&Zurück",IDCANCEL,7,129,50,14
+    DEFPUSHBUTTON   "&Fortsetzen",IDOK,178,154,50,14
+    PUSHBUTTON      "&Zurück",IDCANCEL,7,154,50,14
     LTEXT           "Statisch",IDC_TEXT_INFO,7,7,221,112
 END
 
@@ -18179,7 +18179,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 228
         TOPMARGIN, 7
-        BOTTOMMARGIN, 143
+        BOTTOMMARGIN, 168
     END
 
     IDD_PASSWORD_GUIDELINES, DIALOG
@@ -20861,6 +20861,8 @@ BEGIN
     IDS_PQM_BIT             "Bits"
     IDS_STRING_SECRET_SHARING_K_EQUALS_N 
                             "Bitte wählen Sie k<n (hier: k<%d).\n\nSind k und n bei diesem speziellen Secret-Sharing-Verfahren identisch, dann gleicht das Geheimnis dem Passwort des ersten Teilnehmers."
+    IDS_STRING_ADFGVX_PASSWORD_CORRECTED 
+                            "Das eingegebene Transpositionspasswort wurde korrigiert:\n\n"
 END
 
 STRINGTABLE 
@@ -24986,12 +24988,12 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     EDITTEXT        IDC_PRIMETEST_EDIT_NUMBER,79,189,262,14,ES_AUTOHSCROLL
     DEFPUSHBUTTON   "T&est number",IDC_PRIMETEST_BUTTON_TEST,7,241,100,20
-    CONTROL         "&Miller-Rabin Test",IDC_PRIMETEST_RADIO_MILLERRABIN,
+    CONTROL         "&Miller-Rabin test",IDC_PRIMETEST_RADIO_MILLERRABIN,
                     "Button",BS_AUTORADIOBUTTON | WS_GROUP,17,84,71,10
-    CONTROL         "&Fermat Test",IDC_PRIMETEST_RADIO_FERMAT,"Button",BS_AUTORADIOBUTTON,17,98,56,10
-    CONTROL         "&Solovay-Strassen Test",IDC_PRIMETEST_RADIO_SOLOVAY,
+    CONTROL         "&Fermat test",IDC_PRIMETEST_RADIO_FERMAT,"Button",BS_AUTORADIOBUTTON,17,98,56,10
+    CONTROL         "&Solovay-Strassen test",IDC_PRIMETEST_RADIO_SOLOVAY,
                     "Button",BS_AUTORADIOBUTTON,17,112,89,10
-    CONTROL         "A&KS Test (deterministic procedure)",IDC_PRIMETEST_RADIO_AKS,
+    CONTROL         "A&KS test (deterministic procedure)",IDC_PRIMETEST_RADIO_AKS,
                     "Button",BS_AUTORADIOBUTTON,17,126,171,10
     PUSHBUTTON      "&Load number from file",IDC_PRIMETEST_BUTTON_LOADNUMBER,235,162,106,20
     EDITTEXT        IDC_PRIMETEST_EDIT_RESULT,79,209,262,14,ES_AUTOHSCROLL | ES_READONLY
@@ -25002,7 +25004,7 @@ BEGIN
     GROUPBOX        "Prime number test",IDC_PRIMETEST_GROUPBOX_RESULT,7,151,345,79
     LTEXT           "Number to test",IDC_PRIMETEST_LABEL_NUMBER,17,191,50,8
     LTEXT           "Result",IDC_PRIMETEST_LABEL_RESULT,17,211,21,8,SS_ENDELLIPSIS
-    LTEXT           "Usually probablistic methods are applied: They are very fast, but can only determine with a certain (adjustable small) amount of probability if a number is prime.",IDC_PRIMETEST_LABEL_TEXT2,17,28,324,17
+    LTEXT           "Usually probabilistic methods are applied: They are very fast, but can only determine with a certain adjustable big probability if a number is prime.",IDC_PRIMETEST_LABEL_TEXT2,17,28,324,17
     LTEXT           "Besides that there are also deterministic methods: A provided result is of 100 % correctness (from the mathematical point of view).",IDC_PRIMETEST_LABEL_TEXT3,17,44,324,19
     CONTROL         250,IDC_STATIC_PRIM_RES,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,15,13
     CONTROL         251,IDC_STATIC_PRIM_RES2,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,15,13
@@ -25153,13 +25155,13 @@ BEGIN
     LTEXT           "Static",IDC_HEADER,7,7,420,38
 END
 
-IDD_ADFGVX_SHORTENED_PASSWORD DIALOGEX 0, 0, 235, 150
+IDD_ADFGVX_SHORTENED_PASSWORD DIALOGEX 0, 0, 235, 175
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "CrypTool"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Continue",IDOK,178,129,50,14
-    PUSHBUTTON      "&Back",IDCANCEL,7,129,50,14
+    DEFPUSHBUTTON   "&Continue",IDOK,178,154,50,14
+    PUSHBUTTON      "&Back",IDCANCEL,7,154,50,14
     LTEXT           "Statisch",IDC_TEXT_INFO,7,7,221,112
 END
 
@@ -28762,7 +28764,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 228
         TOPMARGIN, 7
-        BOTTOMMARGIN, 143
+        BOTTOMMARGIN, 168
     END
 
     IDD_PASSWORD_GUIDELINES, DIALOG
@@ -31385,6 +31387,8 @@ BEGIN
     IDS_PQM_BIT             "bit"
     IDS_STRING_SECRET_SHARING_K_EQUALS_N 
                             "Please choose k<n (here: k<%d).\n\nIf k and n are identical in this secret sharing procedure, the secret equals the password of the first participant."
+    IDS_STRING_ADFGVX_PASSWORD_CORRECTED 
+                            "The entered transposition password was corrected:\n\n"
 END
 
 STRINGTABLE 
