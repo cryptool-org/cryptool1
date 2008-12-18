@@ -354,6 +354,15 @@ PrimePolynom PrimePolynom::mod_pol(int r)
   PrimePolynom res(vec);
   int a = degree - r;
   
+	// flomar and Joerg Schneider, 12/18/2008: bug fix
+	// if the degree of our polynom (degree) is smaller than the degree of the 
+	// divisor polynom (r), we should directly return; proceeding regardless 
+	// of the difference in degrees leads to an invalid vector and thus 
+	// to a program crash (at least under Vista)
+	if(degree < r) {
+		return res;
+	}
+
   vector<mpz_class>::reverse_iterator vec_it = res.vec.rbegin();
 
   /*vec_it2 zeigt auf x^(degree-r), die zweite Stelle von der abgezogen *
