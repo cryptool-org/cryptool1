@@ -110,7 +110,6 @@ BEGIN_MESSAGE_MAP(CDlgPrimeTest, CDialog)
   ON_BN_CLICKED(IDC_PRIMETEST_BUTTON_TEST, OnBnClickedPrimetestButtonTest)
   ON_BN_CLICKED(IDC_PRIMETEST_BUTTON_CANCEL, OnBnClickedPrimetestButtonCancel)
   ON_BN_CLICKED(IDC_PRIMETEST_BUTTON_LOADNUMBER, OnBnClickedPrimetestButtonLoadnumber)
-  ON_BN_CLICKED(IDC_PRIMETEST_RADIO_MILLERRABIN, OnBnClickedAlgo)
   ON_EN_CHANGE(IDC_PRIMETEST_EDIT_NUMBER, OnEnChangePrimetestEditNumber)
   ON_BN_CLICKED(IDC_PRIMETEST_RADIO_FERMAT, OnBnClickedPrimetestRadio)
   ON_BN_CLICKED(IDC_PRIMETEST_RADIO_SOLOVAY, OnBnClickedPrimetestRadio)
@@ -414,20 +413,6 @@ void CDlgPrimeTest::OnBnClickedPrimetestButtonLoadnumber()
 	}
 }
 
-void CDlgPrimeTest::OnBnClickedAlgo()
-{
-  UpdateData(true);
-
-  // Clear result field
-  SetDlgItemText(IDC_PRIMETEST_EDIT_RESULT, "");
-  
-  // hide result pictures
-  m_picNotPrime.ShowWindow(FALSE);
-  m_picPrime.ShowWindow(FALSE);
-
-	UpdateData(false);
-}
-
 BOOL CDlgPrimeTest::OnInitDialog()
 {
   CDialog::OnInitDialog();
@@ -466,6 +451,9 @@ void CDlgPrimeTest::OnBnClickedPrimetestRadio()
 
   // Clear result field
   SetDlgItemText(IDC_PRIMETEST_EDIT_RESULT, "");
+
+	// deactivate factorization button
+	m_control_buttonJumpToFactorization.EnableWindow(false);
 
   // hide result pictures
   m_picNotPrime.ShowWindow(FALSE);

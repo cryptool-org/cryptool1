@@ -31,7 +31,6 @@ public:
   afx_msg void OnBnClickedPrimetestButtonTest();
   afx_msg void OnBnClickedPrimetestButtonCancel();
   afx_msg void OnBnClickedPrimetestButtonLoadnumber();
-  afx_msg void OnBnClickedAlgo();
   afx_msg void OnBnClickedPrimetestRadio();
   afx_msg void OnEnChangePrimetestEditNumber();
   afx_msg void OnBnClickedButtonJumpToFactorization();
