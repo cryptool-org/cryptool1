@@ -26,7 +26,8 @@
 			in der Matrix keine zwei gleichen Buchstaben auftauchen dürfen, werden doppelte 
 			Zeichen im Passwort durch das nächste freie Zeichen im Alphabet ersetzt.</P>
 		<P>Die übrigen Zellen der Matrix werden dann mit den restlichen Zeichen des 
-			Alphabets aufgefüllt. Schon vorhandene Buchstaben werden dabei weggelassen.</P>
+			Alphabets aufgefüllt. Schon eingesetzte Buchstaben werden dabei weggelassen, 
+			da jedes Zeichen des Alphabets nur einmal verwendet werden kann.</P>
 		<P>Im Fall der 5x5-Matrix wird im Alphabet das J weggelassen.</P>
 		<div class="indent">
 			<P><IMG SRC="images/playfairkeydialog.gif" ALT="playfairkeydialog.gif" BORDER="0"></P>
@@ -52,11 +53,11 @@
 		<P>Um die Sicherheit zu erhöhen, kann man vor dem Verschlüsseln 
 			Zeichenverdopplungen durch Einfügen von zum Beispiel X auflösen, da diese eine 
 			leichte Angriffsmöglichkeit bieten.</P>
-		<P>Durch die Verwendung von Zeichenpaaren ist das Brechen des Algorithmus‘ im 
-			Vergleich zu Verfahren, die nur einzelne Zeichen verwenden, schwieriger. So ist 
-			zum Beispiel eine Häufigkeitsanalyse weniger aussagekräftig und das Erstellen 
-			von Codebüchern aufwändiger. Moderne Verfahren benutzen deshalb nicht nur zwei 
-			Zeichen, so arbeitet etwa IDEA auf 64 Bit (also 8 Zeichen) Blöcken.</P>
+		<P>Durch die Verwendung von Zeichenpaaren ist das Brechen des Algorithmus schwieriger 
+		    im Vergleich zu Verfahren, die nur einzelne Zeichen verwenden. So ist zum Beispiel 
+		    eine Häufigkeitsanalyse weniger aussagekräftig und das Erstellen von Codebüchern 
+		    aufwändiger. Moderne Verfahren benutzen deshalb nicht nur zwei Zeichen pro Block, 
+		    sondern arbeiten wie etwa IDEA auf 64 Bit (also 8 Zeichen)-Blöcken.</P>
 		<P>Ein ausführliches <A href="szenarien_playfair.html">Beispiel</A> zum 
 			Playfair-Verschlüsselungsverfahren befindet sich im Kapitel <A href="hid_hilfe_szenarien.html">
 				Szenarien</A>.</P>
