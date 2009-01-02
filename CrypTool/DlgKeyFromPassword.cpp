@@ -111,6 +111,9 @@ BEGIN_MESSAGE_MAP(CDlgKeyFromPassword, CDialog)
 	ON_EN_UPDATE(IDC_EDIT4, OnUpdateEdit4)
 	ON_EN_UPDATE(IDC_EDIT5, OnUpdateEdit5)
 	//}}AFX_MSG_MAP
+	ON_BN_CLICKED(IDC_RADIO1, &CDlgKeyFromPassword::OnBnClickedRadio1)
+	ON_BN_CLICKED(IDC_RADIO2, &CDlgKeyFromPassword::OnBnClickedRadio2)
+	ON_BN_CLICKED(IDC_RADIO3, &CDlgKeyFromPassword::OnBnClickedRadio3)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -246,4 +249,25 @@ void CDlgKeyFromPassword::OnUpdateEdit5()
 	CheckEdit(m_dkLen,sels,sele);
 	UpdateData(false);
 	m_control_dkLen.SetSel(sels,sele);
+}
+
+void CDlgKeyFromPassword::OnBnClickedRadio1()
+{
+	m_radio1 = 0;
+	m_dkLen = "16";
+	UpdateData(false);
+}
+
+void CDlgKeyFromPassword::OnBnClickedRadio2()
+{
+	m_radio1 = 1;
+	m_dkLen = "16";
+	UpdateData(false);
+}
+
+void CDlgKeyFromPassword::OnBnClickedRadio3()
+{
+	m_radio1 = 2;
+	m_dkLen = "20";
+	UpdateData(false);
 }
