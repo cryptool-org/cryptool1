@@ -221,6 +221,7 @@ int CKeyFromPasswordPKCS5::password_based_key_deriv_funct(CString Passwort, CStr
 						for(int i=0; i<missingZeros; i++)
 							strncat(tempString + 2, "0", 1);
 						memcpy(tempString + 2 + missingZeros, str + 2, strlen(str) - 2);
+						memset(str, 0, strlen(tempString) + 1);
 						memcpy(str, tempString, strlen(tempString));
 					}
 
