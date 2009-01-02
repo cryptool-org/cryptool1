@@ -210,15 +210,17 @@ int CKeyFromPasswordPKCS5::password_based_key_deriv_funct(CString Passwort, CStr
 					// flomar, 01/02/2009
 					// at this point we have a hash value with a leading "0x", but unfortunately leading 
 					// zeros of the hash value itself are omitted (i.e. "0x0E" is displayed as "0xE");
-					// an easy solution for this problem is to insert an additional zero if the length of 
-					// the output string is odd
-					if(strlen(str) % 2) {
+					// so we prepend leading zeros to the hash value until the length of the result 
+					// equals length of hash value + 2
+					int missingZeros = (atoi(dkLen) * 2 + 2) - strlen(str);
+					if(missingZeros > 0) {
 						// this is ugly, but 1k should be enough
 						char tempString[1024];
 						memset(tempString, 0, 1024);
 						memcpy(tempString + 0, str, 2);
-						memcpy(tempString + 2, "0", 1);
-						memcpy(tempString + 3, str + 2, strlen(str) - 2);
+						for(int i=0; i<missingZeros; i++)
+							strncat(tempString + 2, "0", 1);
+						memcpy(tempString + 2 + missingZeros, str + 2, strlen(str) - 2);
 						memcpy(str, tempString, strlen(tempString));
 					}
 
