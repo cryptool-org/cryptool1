@@ -2,7 +2,7 @@
 <HTML>
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Scenario illustrating the Playfair encryption algorithm</TITLE>
+<TITLE>Example illustrating the Playfair encryption algorithm</TITLE>
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
@@ -16,7 +16,7 @@
 
 <BODY>
 
-<h3>Scenario illustrating the Playfair encryption algorithm</h3>
+<h3>Example illustrating the Playfair encryption algorithm</h3>
 
 <P>This section provides an <A href="hid_hilfe_szenarien.html">example</A> illustrating the use of the <A href="hid_playfair_bin.html">Playfair encryption algorithm</A>. To make it easier to follow the steps that need to be performed with <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>, the example is illustrated with a number of screenshots.</P>
 
@@ -533,12 +533,15 @@ is closed and the cleartext is displayed.</P>
 password cannot be concluded from the calculated matrix.</p>
 
 <br><br>
-<P><B><a name="manualcalculationplayfair"></a>Manual calculation of the key matrix</B></P>
+<P><B><a name="manualcalculationplayfair"></a>4. Manual calculation of the key matrix</B></P>
 
 <P>We now show how the complete key matrix can be determined manually based on guessed clear text fragments and the Playfair encryption rules.</P>
 
 <UL>
-	<LI>From ER &gt; RG one can see that the sequence ERG must occur in the matrix either as a column or row. Let us assume it occurs in a column, in which case, given RT &gt; EF, T and F must be in the same column and, given GE &gt; HR, H must also occur, but this would produce 6 letters, which is too many. Therefore ERG must occur in a row.</LI>
+	<LI>From ER &gt; RG one can see that the sequence ERG must occur in the matrix either within 
+	one column or one row.<br>Let us assume it occurs in a column, in which case, given RT &gt; EF, 
+	T and F must be in the same column too. Given GE &gt; HR, H must also occur in this column, 
+	but this would produce 6 letters, which is too many. Therefore ERG must occur in a row.</LI>
 
 	<LI>Given EH &gt; RI, I must occur in the same row, likewise H (GE &gt; HR). Let us now write ERGHI e.g. in the bottom row (the sequence HI is correct because of EH &gt; RI).</LI>
 

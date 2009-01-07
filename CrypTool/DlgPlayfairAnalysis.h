@@ -215,6 +215,13 @@ private:
 
 	bool is6x6possible;
 	bool isinvalidoccured;
+
+	afx_msg void OnSize(UINT nType, int cx, int cy);
+	RECT initialRectDialog;
+	RECT initialRectListLetterInformation;
+	RECT initialRectFieldResult;
+	RECT initialRectFieldPlaintext;
+	RECT initialRectButtonCancel;
 };
 
 

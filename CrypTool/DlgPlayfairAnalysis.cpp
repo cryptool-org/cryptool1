@@ -255,6 +255,7 @@ BEGIN_MESSAGE_MAP(CDlgPlayfairAnalysis, CDialog)
 	ON_EN_UPDATE(IDC_PASSWORD, OnUpdate)
 	ON_WM_HSCROLL()
 	ON_EN_CHANGE(IDC_MYTXT, OnChangeEditPlaintext)
+	ON_WM_SIZE(this, OnSize)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -630,6 +631,14 @@ BOOL CDlgPlayfairAnalysis::OnInitDialog()
 	InitListBox();
 	SetupListBox();
 	SetupAnalysisWindow();
+
+	// read window rects at dialog initialization
+	GetWindowRect(&initialRectDialog);
+	GetDlgItem(IDC_PLAYFAIR_LIST)->GetWindowRect(&initialRectListLetterInformation);
+	GetDlgItem(IDC_LIST)->GetWindowRect(&initialRectFieldResult);
+	GetDlgItem(IDC_MYTXT)->GetWindowRect(&initialRectFieldPlaintext);
+	GetDlgItem(IDCANCEL)->GetWindowRect(&initialRectButtonCancel);
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
@@ -893,6 +902,82 @@ void CDlgPlayfairAnalysis::OnUpdate()
 	m_pwfeld.SetSel(sels,sele);
 } 
 
+// flomar, 01/07/09
+// this function is a quick hack (compare ListResults.cpp) 
+// to make the dialog window scalable along the x-axis
+void CDlgPlayfairAnalysis::OnSize(UINT nType, int cx, int cy)
+{
+	CWnd *windowListLetterInformation = GetDlgItem(IDC_PLAYFAIR_LIST);
+	CWnd *windowFieldResult = GetDlgItem(IDC_LIST);
+	CWnd *windowFieldPlaintext = GetDlgItem(IDC_MYTXT);
+	CWnd *windowButtonCancel = GetDlgItem(IDCANCEL);
+
+	// make sure we have valid pointers; if not, return
+	if(!windowListLetterInformation || !windowFieldResult || !windowFieldPlaintext || !windowButtonCancel)
+		return;
+
+	// read the new dialog rect
+	RECT newRectDialog;
+	this->GetWindowRect(&newRectDialog);
+
+	// return if the new dialog rect is smaller then the initial one, 
+	int widthOld = initialRectDialog.right - initialRectDialog.left;
+	int widthNew = newRectDialog.right - newRectDialog.left;
+	int heightOld = initialRectDialog.bottom - initialRectDialog.top;
+	int heightNew = newRectDialog.bottom - newRectDialog.top;
+	if(widthNew < widthOld || heightNew != heightOld) {
+		this->MoveWindow(newRectDialog.left, newRectDialog.top, widthOld, heightOld);
+		return;
+	}
+
+	// compute how much wider the dialog is compared to its original state
+	int widthIncrement = widthNew - widthOld;
+
+	// in order to deal with Microsoft's weird behaviour here, we need some 
+	// correctional parameters to make the dialog look less weird (WTF?) 
+	int correctionX = -4;
+	int correctionY = +7;
+
+	// compute new list letter information rect
+	int widthListLetterInformation = initialRectListLetterInformation.right - initialRectListLetterInformation.left + widthIncrement;
+	int heightListLetterInformation = initialRectListLetterInformation.bottom - initialRectListLetterInformation.top;
+	int marginRightListLetterInformation = initialRectDialog.right - initialRectListLetterInformation.right;
+	int marginBottomListLetterInformation = initialRectDialog.bottom - initialRectListLetterInformation.bottom;
+	int xListLetterInformation = cx - widthListLetterInformation - marginRightListLetterInformation + correctionX;
+	int yListLetterInformation = cy - heightListLetterInformation - marginBottomListLetterInformation + correctionY;
+
+	// compute new field result rect
+	int widthFieldResult = initialRectFieldResult.right - initialRectFieldResult.left + widthIncrement;
+	int heightFieldResult = initialRectFieldResult.bottom - initialRectFieldResult.top;
+	int marginRightFieldResult = initialRectDialog.right - initialRectFieldResult.right;
+	int marginBottomFieldResult = initialRectDialog.bottom - initialRectFieldResult.bottom;
+	int xFieldResult = cx - widthFieldResult - marginRightFieldResult + correctionX;
+	int yFieldResult = cy - heightFieldResult - marginBottomFieldResult + correctionY;
+
+	// compute new field plaintext rect
+	int widthFieldPlaintext = initialRectFieldPlaintext.right - initialRectFieldPlaintext.left + widthIncrement;
+	int heightFieldPlaintext = initialRectFieldPlaintext.bottom - initialRectFieldPlaintext.top;
+	int marginRightFieldPlaintext = initialRectDialog.right - initialRectFieldPlaintext.right;
+	int marginBottomFieldPlaintext = initialRectDialog.bottom - initialRectFieldPlaintext.bottom;
+	int xFieldPlaintext = cx - widthFieldPlaintext - marginRightFieldPlaintext + correctionX;
+	int yFieldPlaintext = cy - heightFieldPlaintext - marginBottomFieldPlaintext + correctionY;
+
+	// compute new CANCEL button rect
+	int widthButtonCancel = initialRectButtonCancel.right - initialRectButtonCancel.left;
+	int heightButtonCancel = initialRectButtonCancel.bottom - initialRectButtonCancel.top;
+	int marginRightButtonCancel = initialRectDialog.right - initialRectButtonCancel.right;
+	int marginBottomButtonCancel = initialRectDialog.bottom - initialRectButtonCancel.bottom;
+	int xButtonCancel = cx - widthButtonCancel - marginRightButtonCancel;
+	int yButtonCancel = cy - heightButtonCancel - marginBottomButtonCancel;
+
+	// align dialog components
+	windowListLetterInformation->MoveWindow(xListLetterInformation, yListLetterInformation, widthListLetterInformation, heightListLetterInformation);
+	windowFieldResult->MoveWindow(xFieldResult, yFieldResult, widthFieldResult, heightFieldResult);
+	windowFieldPlaintext->MoveWindow(xFieldPlaintext, yFieldPlaintext, widthFieldPlaintext, heightFieldPlaintext);
+	windowButtonCancel->MoveWindow(xButtonCancel, yButtonCancel, widthButtonCancel, heightButtonCancel);
+
+	Invalidate();
+}
 
 
 
