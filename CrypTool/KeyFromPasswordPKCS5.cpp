@@ -105,7 +105,7 @@ int CKeyFromPasswordPKCS5::password_based_key_deriv_funct(CString Passwort, CStr
 		Message(IDS_STRING_PKCS5_KEYGEN_KEYLENGTH_EXCCEDED, MB_ICONEXCLAMATION, 20, 20);
 		return -1;
 	}
-	else if (atoi(zaehler) >10000)
+	else if (atoi(zaehler) > 100000)
 	{
 		Message(IDS_STRING_PKCS5_KEYGEN_ITERATIONS_EXCEEDED, MB_ICONEXCLAMATION );
 		return -1;

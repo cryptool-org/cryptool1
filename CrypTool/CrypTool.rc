@@ -9157,7 +9157,7 @@ STRINGTABLE
 BEGIN
     IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE_DIALOG "Z³a d³ugoœæ Long Run !"
     IDS_STRING_PKCS5_KEYGEN_ITERATIONS_EXCEEDED 
-                            "Maksymalna liczba iteracji-hasz jest ograniczona do 10,000!\nProszê dla 'Liczby iteracji' wybraæ mniejsz¹ liczbê."
+                            "Maksymalna liczba iteracji-hasz jest ograniczona do 100,000!\nProszê dla 'Liczby iteracji' wybraæ mniejsz¹ liczbê."
     IDS_STRING_PKCS5_KEYGEN_ITERATIONS_NEGATIVE 
                             "Liczba iteracji - hasz musi byæ liczb¹ dodatni¹!\nProszê wybraæ liczbê iteracji z zakresu od 1 do 10,000."
     IDS_STRING_PKCS5_KEYGEN_KEYLENGTH_NEGATIVE 
@@ -19527,7 +19527,7 @@ STRINGTABLE
 BEGIN
     IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE_DIALOG "Falsche Longrun-Länge!"
     IDS_STRING_PKCS5_KEYGEN_ITERATIONS_EXCEEDED 
-                            "Die maximale Anzahl der Hash-Iterationen ist beschränkt auf 10.000 Iterationen ! \nBitte wählen Sie unter 'Anzahl der Iterationen' eine kleinere Zahl."
+                            "Die maximale Anzahl der Hash-Iterationen ist beschränkt auf 100.000 Iterationen!\nBitte wählen Sie unter 'Anzahl der Iterationen' eine kleinere Zahl."
     IDS_STRING_PKCS5_KEYGEN_ITERATIONS_NEGATIVE 
                             "Die Anzahl der Hash-Iterationen muss größer als Null sein !\nBitte wählen Sie unter 'Anzahl Iterationen' eine Zahl zwischen 1 und 10.000."
     IDS_STRING_PKCS5_KEYGEN_KEYLENGTH_NEGATIVE 
@@ -30079,7 +30079,7 @@ STRINGTABLE
 BEGIN
     IDS_STRING_TESTS_FALSCHE_LONGRUNLAENGE_DIALOG "Wrong long runs length !"
     IDS_STRING_PKCS5_KEYGEN_ITERATIONS_EXCEEDED 
-                            "The maximum count of hash-iterations is limited to 10,000 ! \nPlease select for 'Number of iterations' a smaller number."
+                            "The maximum count of hash-iterations is limited to 100,000!\nPlease select for 'Number of iterations' a smaller number."
     IDS_STRING_PKCS5_KEYGEN_ITERATIONS_NEGATIVE 
                             "The count of hash iterations must be a positive number !\nPlease select for 'Number of iterations' a number between 1 and 10,000."
     IDS_STRING_PKCS5_KEYGEN_KEYLENGTH_NEGATIVE 
