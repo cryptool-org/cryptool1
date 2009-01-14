@@ -9,6 +9,10 @@
 <!-- multiple keywords for CrypTool HTML help index -->
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
 	<PARAM NAME="Keyword" VALUE="Padding">
+	<PARAM NAME="Keyword" VALUE="Zero padding">
+	<PARAM NAME="Keyword" VALUE="PKCS#7 padding">
+	<PARAM NAME="Keyword" VALUE="01-00 padding">
+	<PARAM NAME="Keyword" VALUE="X.923 padding">
 </OBJECT>
 
 <BODY>
@@ -28,5 +32,26 @@ block size. Two examples for these algorithms are <a href="HID_CRYPT_DES_DESCBC.
 <P>Depending on the encryption mode used, it is possible that a document of zero byte length is longer 
 after encryption.</P>
 
+<p>CrypTool uses the following padding methods for block ciphers. As an example we assume that the message 61 62 63 shall be padded to 8 bytes.</p>
+<dl>
+<dt><a name="p7">PKCS#7</a></dt>
+<dd>The number of required padding bytes (&gt; 0) is encoded with binary encoding in one byte. This byte is used to pad the message.<br>
+Example: 61 62 63 05 05 05 05 05</dd>
+</dl>
+<dl>
+<dt><a name="null">Zero</a></dt>
+<dd>Appends (if required) zero bytes until the message is padded to a multiple of the block length. This padding method can only be inverted unambiguously if the message does not end in zero bytes.<br>
+Example: 61 62 63 00 00 00 00</dd>
+</dl>
+<dl>
+<dt><a name="x923">ANSI X.923</a></dt>
+<dd>Appends zero bytes, followed by a byte containing the number of message bytes in the final block in binary encoding. In a different variant the last byte contains the number of padding bytes. CrypTool uses the former alternative.<br>
+Example: 61 62 63 00 00 00 00 03</dd>
+</dl>
+<dl>
+<dt><a name="0100">01 00 ...</a></dt>
+<dd>Appends the byte 01 and fills the rest of the the block with zero bytes.<br>
+Example: 61 62 63 01 00 00 00 00</dd>
+</dl>
 </BODY>
 </HTML>

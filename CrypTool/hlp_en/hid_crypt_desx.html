@@ -25,9 +25,11 @@
 
 <P>The simplicity of DESX is one of its main advantages: Just two simple XOR gates are additionally required. XOR gates can be implemented very efficiently both in hardware and in software without a significant loss of performance. Furthermore, when K<span style="vertical-align:text-bottom;font-size:0.6em">1</span> = K<span style="vertical-align:text-bottom;font-size:0.6em">2</span> = 0 is chosen, DESX is compliant to DES.</P>
 
-<P>DESX is used with a slightly modified key in the SAFER security toolkit by RSA. The 64-bit pre-whitening key K<span style="vertical-align:text-bottom;font-size:0.6em">1</span> and the DES key K<span style="vertical-align:text-bottom;font-size:0.6em">DES</span> are concatenated and fed into a one-way function. The output of this one-way function serves as the post-whitening key K<span style="vertical-align:text-bottom;font-size:0.6em">2</span>.</P>
+<P>DESX is used with a slightly modified key in the SAFER security toolkit by RSA. The 64-bit pre-whitening key K<span style="vertical-align:text-bottom;font-size:0.6em">1</span> and the DES key K<span style="vertical-align:text-bottom;font-size:0.6em">DES</span> are concatenated and fed into a one-way function. The 64-bit output of this one-way function serves as the post-whitening key K<span style="vertical-align:text-bottom;font-size:0.6em">2</span>.</P>
 
 <P>For further information see: <A href="http://www.crypto.rub.de/en_publications.html">http://www.crypto.rub.de/en_publications.html</A></P>
+
+<P>CrypTool uses DESX in <A href="cbcmodus.html">CBC mode</A> mit zero initialization vector and <a href="padding.html#0100">01-00 padding</a>.</P>
 
 <P>References:</P>
 

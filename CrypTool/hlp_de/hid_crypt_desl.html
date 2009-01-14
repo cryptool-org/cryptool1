@@ -25,15 +25,17 @@
 <LI>die Davies-Murphy Attacke (1993).</LI>
 </UL>
 
-<P>Des weiteren ist DES, im Gegensatz zu fast allen anderen symmetrischen Chiffren, mit dem Ziel einer guten Hardware-Performanz entworfen wurde. Dabei muss bedacht werden, dass die Hardware zur Zeit der Entwicklung von DES (Anfang der 1970er Jahre) im Vergleich zu heutiger Hardware extrem leistungsschwach war. Dieses spiegelt sich auch in der extrem niedriegen Anzahl an Transistoren wider, die bei einer Hardware-Realisierung von DES benötigt werden.</P>
+<P>Des weiteren ist DES, im Gegensatz zu fast allen anderen symmetrischen Chiffren, mit dem Ziel einer guten Hardware-Performanz entworfen wurde. Dabei muss bedacht werden, dass die Hardware zur Zeit der Entwicklung von DES (Anfang der 1970er Jahre) im Vergleich zu heutiger Hardware extrem leistungsschwach war. Dieses spiegelt sich auch in der extrem niedrigen Anzahl an Transistoren wider, die bei einer Hardware-Realisierung von DES benötigt werden.</P>
 
 <P>Um die Anzahl der Transistoren weiter zu verringern, wurden die 8 verschiedenen S-Boxen des DES durch 8 identische S-Boxen ausgetauscht. Dabei wurde eine kryptografisch extrem starke S-Box ausgewählt, die gegen die Davies-Murphy Attacke sowie die Lineare und die Differentielle Kryptanalyse immun ist. Desweiteren wurden die Initiale Permutation (IP) und ihre Inverse (IP<span style="vertical-align:text-top;font-size:0.6em">-1</span>) weggelassen, weil beide keinen Einfluss auf die kryptografischen Eigenschaften des Algorithmus haben.</P>
 
-<P>Mögliche Einsatzgebiete von DESL sind RFID-Tags, sowie sämtliche ressourcenbeschränkte Geräte.</P>
+<P>Mögliche Einsatzgebiete von DESL sind RFID-Tags sowie sämtliche ressourcenbeschränkte Geräte.</P>
 
 <P>Ein Problem von DESL ist seine kurze Schlüssellänge von 56 Bits. Um dieses Manko auszugleichen, wurde analog zu <A href="hid_crypt_desx.html">DESX</A> eine Variante <A href="hid_crypt_desxl.html">DESXL</A> entwickelt.</P>
 
 <P>Für weitere Informationen siehe auch: <A href="http://www.crypto.rub.de/publications.html">http://www.crypto.rub.de/publications.html</A></P>
+
+<P>CrypTool verwendet DESL im <A href="cbcmodus.html">CBC-Modus</A> mit Null-Initialisierungsvektor und <a href="padding.html#0100">01-00-Padding</a>.</P>
 
 <P>Siehe auch: <A href="hid_crypt_desx.html">DESX</A>, <A href="hid_crypt_desxl.html">DESXL</A></P>
 

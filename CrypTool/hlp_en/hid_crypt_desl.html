@@ -20,7 +20,7 @@
 <P>The <A href="des_info.html">DES</A> variant DESL was first presented at the workshop on RFID security (RFIDSec) in 2006. DESL was designed by the <A href="http://www.crypto.rub.de/en_news.html">Communication Security Group</A> at the Ruhr University Bochum with a minimal footprint of the cipher in hardware in mind. The designer decided to adapt DES since it is probably the best investigated cipher in existence. In the last three decades since DES was first announced only three analytical attacks have been found:</P>
 
 <UL>
-<LI>The linear cryptanalysis by Matsui (1993),</LI>
+<LI>the linear cryptanalysis by Matsui (1993),</LI>
 <LI>the differential cryptanalysis by Biham and Shamir (the "S" in <A href="hid_crypt_rsaenc.html">RSA</A>) (1990) and</LI>
 <LI>the Davies-Murphy attack (1993).</LI>
 </UL>
@@ -34,6 +34,8 @@
 <P>One problem of DESL is its short key length of 56 bit. To cope with this, analog to <A href="hid_crypt_desx.html">DESX</A> the variant <A href="hid_crypt_desxl.html">DESXL</A> was proposed. </P>
 
 <P>For further information see: <A href="http://www.crypto.rub.de/en_publications.html">http://www.crypto.rub.de/en_publications.html</A></P>
+
+<P>CrypTool uses DESL in <A href="cbcmodus.html">CBC mode</A> mit zero initialization vector and <a href="padding.html#0100">01-00 padding</a>.</P>
 
 <P>Also see: <A href="hid_crypt_desx.html">DESX</A>, <A href="hid_crypt_desxl.html">DESXL</A></P>
 
