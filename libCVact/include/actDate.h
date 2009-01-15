@@ -8,13 +8,16 @@
 // Licence:   The conditions for the use of this software are regulated 
 //            in the cv act library licence agreement.
 //////////////////////////////////////////////////////////////////////////////////
+
 #ifndef ACT_Date_h
 #define ACT_Date_h
 
-#ifdef __unix__
-#include <time.h>
+#if defined(__unix__) || (defined(__APPLE__) && defined(__MACH__))
+#	include <time.h>
+
 #endif
-#include <actBasics.h>
+
+#include "actBasics.h"
 
 namespace act
 {
@@ -27,8 +30,8 @@ namespace act
 		Date(int day, int month ,int year);		
 		Date(int day, int month, int year, int hour, int minute, int sec);
 		Date(const Blob& der);
-		//AME
-		Date::Date(const unsigned char* ch, const unsigned int size);
+
+		Date(const unsigned char* ch, const unsigned int size);
 
 		Date& SetToday();
 		
@@ -78,10 +81,10 @@ namespace act
 
 		int GetDayFromWeekDay (int weekday, int year, int month, int which);
 
-		#ifdef __unix__
+#if defined(__unix__) || (defined(__APPLE__) && defined(__MACH__))
 		static void copyDatetm (act::Date a, struct tm& b);
 		static void copytmDate (struct tm a, act::Date& b);
-		#endif //  __unix__
+#endif //  __unix__
 	
 	private:
 		
@@ -101,5 +104,5 @@ namespace act
 	};
 
 } // namespace act
-#endif
 
+#endif // ACT_Date_h

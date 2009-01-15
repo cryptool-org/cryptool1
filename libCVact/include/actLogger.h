@@ -12,8 +12,11 @@
 #ifndef ACT_LOGGER_h
 #define ACT_LOGGER_h
 
+#include "actDebug.h"
+
 #include "actBlob.h"
 #include "SyncObject.h"
+
 
 // for convenience:
 #ifdef WIN32
@@ -22,22 +25,36 @@
 	#define ACT_SNPRINTF snprintf
 #endif
 
-#define ACT_LOGERROR(error)	{ if (act::Logger::LogInit()) act::Logger::Log(act::Logger::LEVEL_ERROR, error);}
-#define ACT_LOGEXCEPTION(e) { if (act::Logger::LogInit()) { char buf[256]; ACT_SNPRINTF(buf, 256, "Exception:\t '%s' in '%s'", e##.what(), e##.where()); ACT_LOGERROR(buf)}}
-#define ACT_LOGWARN(warn) { if (act::Logger::LogInit()) act::Logger::Log(act::Logger::LEVEL_WARNING, warn);}
-#define ACT_LOGINFO(info) { if (act::Logger::LogInit()) act::Logger::Log(act::Logger::LEVEL_INFO, info);}
+//
+// MTE [11/1/2006]: Added addtional accessing macros.
+// NOTE: Redefine to use another Logger.
+#define	ACT_LOGGER(x)		act::Logger::x
 
-#define ACT_LOGERRORDATA(error, data)	{ if (act::Logger::LogInit()) act::Logger::Log(act::Logger::LEVEL_ERROR, error, data);}
-#define ACT_LOGWARNDATA(warn, data)		{ if (act::Logger::LogInit()) act::Logger::Log(act::Logger::LEVEL_WARNING, warn, data);}
-#define ACT_LOGINFODATA(info, data)		{ if (act::Logger::LogInit()) act::Logger::Log(act::Logger::LEVEL_INFO, info, data);}
+// 
+// MTE [11/1/2006]: Added to replace direct usage of ACT_LOGGER(LogInit)().
+#define ACT_LOGISENABLED()	(ACT_DEBUG != 0 || ACT_LOGGER(LogInit)())
 
-#define ACT_LOGBLOB(blob) { if (act::Logger::LogInit()) act::Logger::Log(act::Logger::LEVEL_INFO, #blob, blob);}
-#define ACT_LOGINT(intvalue) { if (act::Logger::LogInit()) { char buf[256]; ACT_SNPRINTF(buf, 256, #intvalue " :\t %i", intvalue); ACT_LOGINFO(buf)}}
-#define ACT_LOGHEX(hexvalue) { if (act::Logger::LogInit()) { char buf[256]; ACT_SNPRINTF(buf, 256, #hexvalue " :\t 0x%08x", hexvalue); ACT_LOGINFO(buf)}}
-#define ACT_LOGSTRING(stringvalue) { if (act::Logger::LogInit()) { char buf[256]; ACT_SNPRINTF(buf, 256, #stringvalue ":\t %s", stringvalue); ACT_LOGINFO(buf)}}
+//
+// MTE [11/1/2006]: Changed to use ACT_LOGISENABLED().
+#define ACT_LOGINFO(info)	{ if(ACT_LOGISENABLED()) ACT_LOGGER(Log)(ACT_LOGGER(LEVEL_INFO), info); }
+#define ACT_LOGWARN(warn)	{ if(ACT_LOGISENABLED()) ACT_LOGGER(Log)(ACT_LOGGER(LEVEL_WARN), warn); }
+#define ACT_LOGERROR(error)	{ if(ACT_LOGISENABLED()) ACT_LOGGER(Log)(ACT_LOGGER(LEVEL_ERROR), error); }
+#define ACT_LOGEXCEPTION(e)	{ if(ACT_LOGISENABLED()) { char buf[1024]; ACT_SNPRINTF(buf, 1024, "Exception:\t '%s' in '%s'", e.what(), e.where()); ACT_LOGERROR(buf) }}
 
-#define ACT_LOGPOINTER(p) { if (act::Logger::LogInit()) {	if (p != 0)	{ACT_LOGINT(*p);} else {ACT_LOGHEX(p);}}}
-#define ACT_LOGISNULL(p)  { if (act::Logger::LogInit()) { char buf[256]; if (p !=0) ACT_SNPRINTF(buf, 256, #p " :\t *"); else ACT_SNPRINTF(buf, 256, #p " :\t 0"); ACT_LOGINFO(buf)}}
+#define ACT_LOGINFODATA(info, data)	  { if(ACT_LOGISENABLED()) ACT_LOGGER(Log)(ACT_LOGGER(LEVEL_INFO), info, data); }
+#define ACT_LOGWARNDATA(warn, data)   { if(ACT_LOGISENABLED()) ACT_LOGGER(Log)(ACT_LOGGER(LEVEL_WARN), warn, data); }
+#define ACT_LOGERRORDATA(error, data) { if(ACT_LOGISENABLED()) ACT_LOGGER(Log)(ACT_LOGGER(LEVEL_ERROR), error, data); }
+
+#define ACT_LOGBLOB(blob)			  { if(ACT_LOGISENABLED()) ACT_LOGGER(Log)(ACT_LOGGER(LEVEL_INFO), #blob, blob); }
+#define ACT_LOGVALUE(value, format)	  { if(ACT_LOGISENABLED()) { char buf[256]; ACT_SNPRINTF(buf, 256, #value " :\t " format, value); ACT_LOGINFO(buf) }}
+
+#define ACT_LOGINT(value)	 ACT_LOGVALUE(value, "%i")
+#define ACT_LOGHEX(value)	 ACT_LOGVALUE(value, "0x%08x")
+#define ACT_LOGSTRING(value) ACT_LOGVALUE(value, "%s")
+
+// TODO: MTE: What about this "nice" construct ?
+#define ACT_LOGPOINTER(p) { if(ACT_LOGISENABLED()) { if(p != 0) ACT_LOGINT(*p) else ACT_LOGHEX(p) }}
+#define ACT_LOGISNULL(p)  { if(ACT_LOGISENABLED()) { char buf[256]; if(p != 0) ACT_SNPRINTF(buf, 256, #p " :\t *"); else ACT_SNPRINTF(buf, 256, #p " :\t 0"); ACT_LOGINFO(buf) }}
 
 
 namespace act
@@ -50,6 +67,7 @@ namespace act
 			LEVEL_OFF		=  0,
 			LEVEL_ERROR		= 30,
 			LEVEL_WARNING	= 50,
+			LEVEL_WARN		= LEVEL_WARNING,
 			LEVEL_INFO		= 80,
 			LEVEL_MAX		= 99
 		};
@@ -60,7 +78,10 @@ namespace act
 		static void Log(short level, const Blob& blobmsg);
 		static void Log(short level, const char* msg, const Blob& blobmsg);
 		static void SetLoglevel(short level);
-		static bool LogInit() { if (s_pLogger) return true; else return false;}
+		static bool LogInit()
+		{
+			return(s_pLogger != 0 ? true : false);
+		}
 
 	protected:
 		Logger(){}

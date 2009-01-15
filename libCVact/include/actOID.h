@@ -725,6 +725,8 @@ static const unsigned char cvOID_encryptedFileSystem [] = {  0x2B, 0x06, 0x01, 0
 static const unsigned char cvOID_yesnoTrustAttr [] = {  0x2B, 0x06, 0x01, 0x04, 0x01, 0x82, 0x37, 0x0A, 0x04, 0x01};
 //1.3.6.1.4.1.311.16.4		Microsoft S/MIME cert attribute microsoftEncryptionCert 
 static const unsigned char cvOID_microsoftEncryptionCert [] = {  0x2B, 0x06, 0x01, 0x04, 0x01, 0x82, 0x37, 0x10, 0x04};
+//1.3.6.1.4.1.311.20.2.2		Microsoft enhanced key usage smartcardLogon
+static const unsigned char cvOID_smartcardLogon [] = {  0x2B, 0x06, 0x01, 0x04, 0x01, 0x82, 0x37, 0x14, 0x02, 0x02};
 //1.3.6.1.4.1.311.21.1		Microsoft attribute cAKeyCertIndexPair 
 static const unsigned char cvOID_cAKeyCertIndexPair [] = {  0x2B, 0x06, 0x01, 0x04, 0x01, 0x82, 0x37, 0x15, 0x01};
 //1.3.6.1.4.1.311.13.2.2		Microsoft attribute Unknown MS CryptoAPI-related extension 

@@ -4,7 +4,7 @@
 // Purpose:   This interface provides a shared secret key (the last step in 
 //            a Key Agreement Scheme).
 //
-// Copyright: (c) 2000 cv cryptovision GmbH
+// Copyright: (c) 2006 cv cryptovision GmbH
 //            all rights reserved
 // Licence:   The conditions for the use of this software are regulated 
 //            in the cv act library licence agreement.
@@ -34,7 +34,6 @@ namespace act
 		virtual int  GetParam(paramid_t) const=0;
 
 		virtual void Derive(const Blob& secret, const Blob& salt, Blob& keymat) const=0;
-		virtual size_t GetDerivationSize() const = 0;
 
 		virtual void* GetCreatePointer() const =0;
 		virtual ~IDerivator() {}

@@ -3,7 +3,7 @@
 // Product:   cv act library
 // Purpose:   class Blob written for Visual C++ 6.0, CodeWarrior 4.0,
 //            Borland C++ Builder 4
-//            The datatype Blob (Binary Large OBject) is a universal type, which
+//            The datatype Blob (Binary Large Object) is a universal type, which
 //            can be used for any data. The class Blob almost behaves like 
 //            std::vector<unsigned char> with the difference that freed memory 
 //            is filled with zeros to enhance security.
@@ -20,14 +20,13 @@
 #include "actBasics.h"
 #include "actException.h"
 
-#ifndef UNDER_CE
-#include <iostream>
-#endif // UNDER_CE
-
+#ifndef UNDER_CE_30
+#	include <iostream>
+#endif // UNDER_CE_30
 
 #ifndef NO_STL_SUPPORT
-	#include <utility>	// used for reserve_iterator
-	#include <string>	// used for string
+#	include <utility>	// used for reserve_iterator
+#	include <string>	// used for string
 #else
 	// --------------------------------------------------------------------------------
 	// if there is no STL support, we define reverse_iterator here.
@@ -84,37 +83,37 @@
 			explicit reverse_iterator(_RI _X)
 				: current(_X) {}
 			_RI base() const
-				{return (current); }
+				{return(current); }
 			_Rt operator*() const
-				{return (*(current - 1)); }
+				{return(*(current - 1)); }
 		//	_Pt operator->() const
-		//		{return (&**this); }
+		//		{return(&**this); }
 			_Myt& operator++()
 				{--current;
-				return (*this); }
+				return(*this); }
 			_Myt operator++(int)
 				{_Myt _Tmp = *this;
 				--current;
-				return (_Tmp); }
+				return(_Tmp); }
 			_Myt& operator--()
 				{++current;
-				return (*this); }
+				return(*this); }
 			_Myt operator--(int)
 				{_Myt _Tmp = *this;
 				++current;
-				return (_Tmp); }
+				return(_Tmp); }
 			_Myt& operator+=(_D _N)
 				{current -= _N;
-				return (*this); }
+				return(*this); }
 			_Myt operator+(_D _N) const
-				{return (_Myt(current - _N)); }
+				{return(_Myt(current - _N)); }
 			_Myt& operator-=(_D _N)
 				{current += _N;
-				return (*this); }
+				return(*this); }
 			_Myt operator-(_D _N) const
-				{return (_Myt(current + _N)); }
+				{return(_Myt(current + _N)); }
 			_Rt operator[](_D _N) const
-				{return (*(*this + _N)); }
+				{return(*(*this + _N)); }
 		protected:
 			_RI current;
 			};
@@ -123,48 +122,48 @@
 			bool __cdecl operator==(
 				const reverse_iterator<_RI, _Ty, _Rt, _Pt, _D>& _X,
 				const reverse_iterator<_RI, _Ty, _Rt, _Pt, _D>& _Y)
-			{return (get_base(_X) == get_base(_Y)); }
+			{return(get_base(_X) == get_base(_Y)); }
 		template<class _RI, class _Ty, class _Rt, class _Pt,
 			class _D> inline
 			bool __cdecl operator!=(
 				const reverse_iterator<_RI, _Ty, _Rt, _Pt, _D>& _X,
 				const reverse_iterator<_RI, _Ty, _Rt, _Pt, _D>& _Y)
-			{return (!(_X == _Y)); }
+			{return(!(_X == _Y)); }
 		template<class _RI, class _Ty, class _Rt, class _Pt,
 			class _D> inline
 			bool __cdecl operator<(
 				const reverse_iterator<_RI, _Ty, _Rt, _Pt, _D>& _X,
 				const reverse_iterator<_RI, _Ty, _Rt, _Pt, _D>& _Y)
-			{return (get_base(_Y) < get_base(_X)); }
+			{return(get_base(_Y) < get_base(_X)); }
 		template<class _RI, class _Ty, class _Rt, class _Pt,
 			class _D> inline
 			bool __cdecl operator>(
 				const reverse_iterator<_RI, _Ty, _Rt, _Pt, _D>& _X,
 				const reverse_iterator<_RI, _Ty, _Rt, _Pt, _D>& _Y)
-			{return (_Y < _X); }
+			{return(_Y < _X); }
 		template<class _RI, class _Ty, class _Rt, class _Pt,
 			class _D> inline
 			bool __cdecl operator<=(
 				const reverse_iterator<_RI, _Ty, _Rt, _Pt, _D>& _X,
 				const reverse_iterator<_RI, _Ty, _Rt, _Pt, _D>& _Y)
-			{return (!(_Y < _X)); }
+			{return(!(_Y < _X)); }
 		template<class _RI, class _Ty, class _Rt, class _Pt,
 			class _D> inline
 			bool __cdecl operator>=(
 				const reverse_iterator<_RI, _Ty, _Rt, _Pt, _D>& _X,
 				const reverse_iterator<_RI, _Ty, _Rt, _Pt, _D>& _Y)
-			{return (!(_X < _Y)); }
+			{return(!(_X < _Y)); }
 		template<class _RI, class _Ty, class _Rt, class _Pt,
 			class _D> inline
 			_D __cdecl operator-(
 				const reverse_iterator<_RI, _Ty, _Rt, _Pt, _D>& _X,
 				const reverse_iterator<_RI, _Ty, _Rt, _Pt, _D>& _Y)
-			{return (get_base(_Y) - get_base(_X)); }
+			{return(get_base(_Y) - get_base(_X)); }
 		template<class _RI, class _Ty, class _Rt, class _Pt,
 			class _D> inline
 			reverse_iterator<_RI, _Ty, _Rt, _Pt, _D> __cdecl operator+(_D _N,
 				const reverse_iterator<_RI, _Ty, _Rt, _Pt, _D>& _Y)
-			{return (reverse_iterator<_RI, _Ty, _Rt, _Pt, _D>(
+			{return(reverse_iterator<_RI, _Ty, _Rt, _Pt, _D>(
 				get_base(_Y) - _N)); }
 	}	// namespace std
 
@@ -175,189 +174,217 @@
 // --------------------------------------------------------------------------------
 namespace act
 {	
-#if (_MSC_VER >= 1300)
-	template<class _Ty,
-	class _Diff,
-	class _Pointer,
-	class _Reference,
-	class _Pointer2,
-	class _Reference2>
-	class _Ptrit
-		: public std::iterator<std::random_access_iterator_tag, _Ty, _Diff,
-			_Pointer, _Reference>
+#if(_MSC_VER >= 1300)
+	template
+	<
+		class _Ty,
+		class _Diff,
+		class _Pointer,
+		class _Reference,
+		class _Pointer2,
+		class _Reference2
+	>
+	class _Ptrit : 
+		public std::iterator<std::random_access_iterator_tag, _Ty, _Diff, _Pointer, _Reference>
 	{	// wrap pointer as random-access iterator
-public:
-	typedef _Ptrit<_Ty, _Diff, _Pointer, _Reference,
-		_Pointer2, _Reference2> _Myt;
-	_Ptrit()
+	public:
+		typedef _Ptrit<_Ty, _Diff, _Pointer, _Reference, _Pointer2, _Reference2> _Myt;
+
+		_Ptrit()
 		{	// construct with uninitialized wrapped pointer
 		}
 
-	_Ptrit(_Pointer _Ptr)
-		: current(_Ptr)
+		_Ptrit(_Pointer _Ptr) : current(_Ptr)
 		{	// construct wrapped pointer from _Ptr
 		}
 
-	_Ptrit(const _Ptrit<_Ty, _Diff, _Pointer2, _Reference2,
-		_Pointer2, _Reference2>& _Iter)
-		: current(_Iter.base())
+		_Ptrit(const _Ptrit<_Ty, _Diff, _Pointer2, _Reference2, _Pointer2, _Reference2>& _Iter)
+			: current(_Iter.base())
 		{	// const converter or copy constructor
 		}
 
-	_Pointer base() const
+		_Pointer base() const
 		{	// return wrapped pointer
-		return (current);
+			return(current);
 		}
 
-	_Reference operator*() const
+		_Reference operator*() const
 		{	// return designated value
-		return (*current);
+			return(*current);
 		}
 
-	_Pointer operator->() const
+		_Pointer operator->() const
 		{	// return pointer to class object
-		return (&**this);
+			return(&**this);
 		}
 
-	_Myt& operator++()
+		_Myt& operator++()
 		{	// preincrement
-		++current;
-		return (*this);
+			++current;
+			return(*this);
 		}
 
-	_Myt operator++(int)
+		_Myt operator++(int)
 		{	// postincrement
-		_Myt _Tmp = *this;
-		++current;
-		return (_Tmp);
+			_Myt _Tmp = *this;
+			++current;
+			return(_Tmp);
 		}
 
-	_Myt& operator--()
+		_Myt& operator--()
 		{	// predecrement
-		--current;
-		return (*this);
+			--current;
+			return(*this);
 		}
 
-	_Myt operator--(int)
+		_Myt operator--(int)
 		{	// postdecrement
-		_Myt _Tmp = *this;
-		--current;
-		return (_Tmp);
+			_Myt _Tmp = *this;
+			--current;
+			return(_Tmp);
 		}
 
-	bool operator==(int _Right) const
+		bool operator==(size_t _Right) const
 		{	// test if wrapped pointer == integer (null pointer constant)
-		return (current == (_Pointer)_Right);
+			return(current == (_Pointer)_Right);
 		}
 
-	bool operator==(const _Myt& _Right) const
+		bool operator==(const _Myt& _Right) const
 		{	// test for iterator equality
-		return (current == _Right.current);
+			return(current == _Right.current);
 		}
 
-	bool operator!=(const _Myt& _Right) const
+		bool operator!=(const _Myt& _Right) const
 		{	// test for iterator inequality
-		return (!(*this == _Right));
+			return(!(*this == _Right));
 		}
 
-	_Myt& operator+=(_Diff _Off)
+		_Myt& operator+=(_Diff _Off)
 		{	// increment by integer
-		current += _Off;
-		return (*this);
+			current += _Off;
+			return(*this);
 		}
 
-	_Myt operator+(_Diff _Off) const
+		_Myt operator+(_Diff _Off) const
 		{	// return this + integer
-		return (_Myt(current + _Off));
+			return(_Myt(current + _Off));
 		}
 
-	_Myt& operator-=(_Diff _Off)
+		_Myt& operator-=(_Diff _Off)
 		{	// decrement by integer
-		current -= _Off;
-		return (*this);
+			current -= _Off;
+			return(*this);
 		}
 
-	_Myt operator-(_Diff _Off) const
+		_Myt operator-(_Diff _Off) const
 		{	// return this - integer
-		return (_Myt(current - _Off));
+			return(_Myt(current - _Off));
 		}
 
-	_Reference operator[](_Diff _Off) const
+		_Reference operator[](_Diff _Off) const
 		{	// subscript
-		return (*(*this + _Off));
+			return(*(*this + _Off));
 		}
 
-	bool operator<(const _Myt& _Right) const
+		bool operator<(const _Myt& _Right) const
 		{	// test if this < _Right
-		return (current < _Right.current);
+			return(current < _Right.current);
 		}
 
-	bool operator>(const _Myt& _Right) const
+		bool operator>(const _Myt& _Right) const
 		{	// test if this > _Right
-		return (_Right < *this);
+			return(_Right < *this);
 		}
 
-	bool operator<=(const _Myt& _Right) const
+		bool operator<=(const _Myt& _Right) const
 		{	// test if this <= _Right
-		return (!(_Right < *this));
+			return(!(_Right < *this));
 		}
 
-	bool operator>=(const _Myt& _Right) const
+		bool operator>=(const _Myt& _Right) const
 		{	// test if this >= _Right
-		return (!(*this < _Right));
+			return(!(*this < _Right));
 		}
 
-	_Diff operator-(const _Myt& _Right) const
+		_Diff operator-(const _Myt& _Right) const
 		{	// return difference of iterators
-		return (current - _Right.current);
+			return(current - _Right.current);
 		}
 
-protected:
-	_Pointer current;	// the wrapped pointer
+	protected:
+		_Pointer current;	// the wrapped pointer
 	};
-#endif
+
+#endif // _MSC_VER >= 1300
+
 	class Blob
 	{
 		public:		
-			 // types
-			typedef unsigned char			byte;
-			typedef byte&					reference;
-			typedef const byte&				const_reference;
-			typedef size_t					size_type;
-			typedef ptrdiff_t				difference_type;
-			typedef byte					value_type;
-			typedef byte*					pointer;
-			typedef const byte*				const_pointer;			
-			#if (_MSC_VER >= 1300)
-				typedef _Ptrit<value_type, difference_type, pointer,
-					reference, pointer, reference> iterator;
-				typedef _Ptrit<value_type, difference_type, const_pointer,
-					const_reference, pointer, reference> const_iterator;
-				static inline pointer get_base(iterator it) { return it.base();}
-				static inline const_pointer get_base(const_iterator it) { return it.base();}
+			typedef unsigned char	byte;
+			typedef byte&			reference;
+			typedef const byte&		const_reference;
+			typedef size_t			size_type;
+			typedef ptrdiff_t		difference_type;
+			typedef byte			value_type;
+			typedef byte*			pointer;
+			typedef const byte*		const_pointer;
+
+			#if(_MSC_VER >= 1300)
+				typedef _Ptrit
+				<	value_type, difference_type, pointer, reference, pointer, reference
+				>	iterator;
+
+				typedef _Ptrit
+				<	value_type, difference_type, const_pointer, const_reference, pointer, reference
+				>	const_iterator;
+
+				inline static pointer get_base(iterator it)
+				{
+					return(it.base());
+				}
+
+				inline static const_pointer get_base(const_iterator it)
+				{
+					return(it.base());
+				}
+
 			#else
-				typedef byte*					iterator;
-				typedef const byte*				const_iterator;			
-				static inline pointer get_base(iterator it) { return it;}
-				static inline const_pointer get_base(const_iterator it) { return it;}
+				typedef byte*		iterator;
+				typedef const byte*	const_iterator;
+
+				inline static pointer get_base(iterator it)
+				{
+					return(it);
+				}
+
+				inline static const_pointer get_base(const_iterator it)
+				{
+					return(it);
+				}
+
 			#endif
 
 			
 			#if (_MSC_VER >= 1200) && (_MSC_VER < 1300)
-				typedef std::reverse_iterator<iterator, value_type,
-				reference, pointer, difference_type> reverse_iterator;
-				typedef std::reverse_iterator<const_iterator, value_type,
-				const_reference, const_pointer, difference_type> const_reverse_iterator;
+				typedef std::reverse_iterator
+				<	iterator, value_type, reference, pointer, difference_type
+				>	reverse_iterator;
+
+				typedef std::reverse_iterator
+				<	const_iterator, value_type, const_reference, const_pointer, difference_type
+				>	const_reverse_iterator;
+
 			#else
 				typedef std::reverse_iterator<iterator>	reverse_iterator;
 				typedef std::reverse_iterator<const_iterator> const_reverse_iterator;
+
 			#endif			
 			
 			// construct/copy/destroy
 			explicit Blob(const char* str);
 #ifndef NO_STL_SUPPORT
 			explicit Blob(std::string& str);
-#endif //NO_STL_SUPPORT
+#endif // NO_STL_SUPPORT
 
 			Blob();
 
@@ -422,7 +449,7 @@ protected:
 			{
 				size_type m = 0;
 				_distance(f, l, m);
-				if (size_type(mEnd - mLast) < m) 
+				if(size_type(mEnd - mLast) < m) 
 				{
 					size_type n = size() + (m < size() ? size() : m);
 					iterator s = allocate(n, (void *)0);
@@ -434,13 +461,15 @@ protected:
 					mEnd = s + n;
 					mLast = s + size() + m;
 					mFirst = s; 
-				} else if (size_type(mLast - p) < m) 
+				}
+				else if(size_type(mLast - p) < m) 
 				{
 					ucopy(p, mLast, p + m);
 					ucopy(f + (mLast - p), l, mLast);
 					copy(f, f + (mLast - p), p);
 					mLast += m; 
-				} else if (0 < m) 
+				}
+				else if(0 < m) 
 				{
 					ucopy(mLast - m, mLast, mLast);
 					copy_backward(p, mLast - m, mLast);
@@ -449,7 +478,12 @@ protected:
 				}
 			}
 
-
+			void					append(const Blob& x);
+			void					append(size_type m, byte x);
+			template<class inputit> void append(inputit f, inputit l)
+			{
+				insert(end(), f, l); 
+			}
 
 			iterator				erase(iterator p);
 			iterator				erase(iterator f, iterator l);
@@ -461,15 +495,30 @@ protected:
 			bool					_lt(const Blob& x) const; 
 		private:
 
-			iterator				copy(const_iterator f, const_iterator l, iterator x);
+			template<typename inputit,typename outputit> outputit copy(inputit f, inputit l, outputit x)
+			{
+				for(; f != l; ++x, ++f)
+					*x = *f;
+				return(x); 
+			}
+
 			iterator				copy_backward(const_iterator f, const_iterator l, iterator  x);
-			iterator				ucopy(const_iterator f, const_iterator l, iterator p);
+			template<typename inputit,typename outputit> outputit ucopy(inputit f, inputit l, outputit p)
+			{
+				for(; f != l; ++p, ++f)
+					construct(get_base(p), *f);
+				return(p); 
+			}
 
 			void					fill(iterator f, const_iterator l, byte x);
 			void					ufill(iterator f, size_type n, byte x);
 
 			size_type				distance(const_iterator f, const_iterator l) const;
-			void					_distance(const_iterator f, const_iterator l, size_type& n) const;
+			template<typename inputit> void _distance(inputit f, inputit l, size_type& n) const
+			{
+				for(; f != l; ++f)
+					++n;
+			}
 
 			bool					equal(const_iterator f, const_iterator l, const_iterator x) const;
 			bool					lexicographical_compare(const_iterator f1, const_iterator l1,
@@ -488,15 +537,15 @@ protected:
 	};
 
 
-#ifndef UNDER_CE
+#ifndef UNDER_CE_30
 	std::ostream &operator<<(std::ostream& os, const Blob& blob);
-#endif // UNDER_CE
+#endif // UNDER_CE_30
 
 
 	// --------------------------------------------------------------------------------
 	inline bool operator==(const Blob& x, const Blob&y)
 	{
-		return (x._eq(y));
+		return(x._eq(y));
 	}
 
 	inline bool operator!=(const Blob& x, const Blob&y)
@@ -506,7 +555,7 @@ protected:
 
 	inline bool operator<(const Blob& x, const Blob&y)
 	{
-		return (x._lt(y));
+		return(x._lt(y));
 	}
 
 	inline bool operator>=(const Blob& x, const Blob&y)
@@ -516,7 +565,7 @@ protected:
 
 	inline bool operator<=(const Blob& x, const Blob&y)
 	{
-		return (x._eq(y) || x._lt(y));
+		return(x._eq(y) || x._lt(y));
 	}
 
 	inline bool operator>(const Blob& x, const Blob&y)
@@ -541,7 +590,7 @@ protected:
 		: mFirst(0), mLast(0), mEnd(0)
 	{
 		const char *end=str;
-		while (*end) 
+		while(*end) 
 			end++;
 		insert(begin(), const_iterator(reinterpret_cast<const_pointer>(str)), const_iterator(reinterpret_cast<const_pointer>(end))); 
 	}
@@ -588,20 +637,22 @@ protected:
 	// --------------------------------------------------------------------------------
 	inline Blob& Blob::operator=(const Blob& x)
 	{
-		if (this == &x)
+		if(this == &x)
 			;
-		else if (x.size() <= size())
+		else if(x.size() <= size())
 		{
 			iterator s = copy(x.begin(), x.end(), mFirst);
 			_destroy(s, mLast);
 			mLast = mFirst + x.size(); 
-		} else if (x.size() <= capacity())
+		}
+		else if(x.size() <= capacity())
 		{
 			const_iterator s = x.begin() + size();
 			copy(x.begin(), s, mFirst);
 			ucopy(s, x.end(), mLast);
 			mLast = mFirst + x.size(); 
-		} else
+		}
+		else
 		{
 			_destroy(mFirst, mLast);
 			deallocate(get_base(mFirst), mEnd - mFirst);
@@ -609,13 +660,14 @@ protected:
 			mLast = ucopy(x.begin(), x.end(), mFirst);
 			mEnd = mLast; 
 		}
-		return (*this); 
+
+		return(*this); 
 	}
 
 	// --------------------------------------------------------------------------------
 	inline void Blob::reserve(size_type n)
 	{
-		if (capacity() < n)
+		if(capacity() < n)
 		{
 			iterator s = allocate(n, (void *)0);
 			ucopy(mFirst, mLast, s);
@@ -630,135 +682,135 @@ protected:
 	// --------------------------------------------------------------------------------
 	inline Blob::size_type Blob::capacity() const
 	{
-		return (mFirst == 0 ? 0 : mEnd - mFirst); 
+		return(mFirst == 0 ? 0 : mEnd - mFirst); 
 	}
 
 	// --------------------------------------------------------------------------------			
 	inline Blob::iterator Blob::begin()
 	{
-		return (mFirst); 
+		return(mFirst); 
 	}
 
 	// --------------------------------------------------------------------------------			
 	inline Blob::const_iterator Blob::begin() const
 	{
-		return ((const_iterator)mFirst); 
+		return((const_iterator)mFirst); 
 	}
 
 	// --------------------------------------------------------------------------------			
 	inline Blob::iterator Blob::end()
 	{
-		return (mLast); 
+		return(mLast); 
 	}
 
 	// --------------------------------------------------------------------------------			
 	inline Blob::const_iterator Blob::end() const
 	{
-		return ((const_iterator)mLast); 
+		return((const_iterator)mLast); 
 	}
 
 	// --------------------------------------------------------------------------------			
 	inline Blob::reverse_iterator Blob::rbegin()
 	{
-		return (reverse_iterator(end())); 
+		return(reverse_iterator(end())); 
 	}
 
 	// --------------------------------------------------------------------------------			
 	inline Blob::const_reverse_iterator Blob::rbegin() const
 	{
-		return (const_reverse_iterator(end())); 
+		return(const_reverse_iterator(end())); 
 	}
 
 	// --------------------------------------------------------------------------------			
 	inline Blob::reverse_iterator Blob::rend()
 	{
-		return (reverse_iterator(begin())); 
+		return(reverse_iterator(begin())); 
 	}
 
 	// --------------------------------------------------------------------------------			
 	inline Blob::const_reverse_iterator Blob::rend() const
 	{
-		return (const_reverse_iterator(begin())); 
+		return(const_reverse_iterator(begin())); 
 	}
 
 	// --------------------------------------------------------------------------------
 	inline void Blob::resize(size_type n, byte x)
 	{
-		if (size() < n)
+		if(size() < n)
 			insert(end(), n - size(), x);
-		else if (n < size())
+		else if(n < size())
 			erase(begin() + n, end()); 
 	}
 	
 	// --------------------------------------------------------------------------------
 	inline Blob::size_type Blob::size() const
 	{
-		return (mFirst == 0 ? 0 : mLast - mFirst);
+		return(mFirst == 0 ? 0 : mLast - mFirst);
 	}
 
 	// --------------------------------------------------------------------------------
 	inline Blob::size_type Blob::max_size() const
 	{
-		size_type n = (size_type)(-1) / sizeof (byte);
-		return (0 < n ? n : 1); 
+		size_type n = (size_type)(-1) / sizeof(byte);
+		return(0 < n ? n : 1); 
 	}
 
 	// --------------------------------------------------------------------------------
 	inline bool Blob::empty() const
 	{
-		return (size() == 0); 
+		return(size() == 0); 
 	}
 
 	// --------------------------------------------------------------------------------
 	inline Blob::const_reference Blob::at(size_type p) const
 	{
-		if (size() <= p)
+		if(size() <= p)
 			outofrange();
-		return (*(begin() + p)); 
+		return(*(begin() + p)); 
 	}
 
 	// --------------------------------------------------------------------------------
 	inline Blob::reference Blob::at(size_type p)
 	{
-		if (size() <= p)
+		if(size() <= p)
 			outofrange();
-		return (*(begin() + p)); 
+		return(*(begin() + p)); 
 	}
 
 	// --------------------------------------------------------------------------------
 	inline Blob::const_reference Blob::operator[](size_type p) const
 	{
-		return (*(begin() + p)); 
+		return(*(begin() + p)); 
 	}
 
 	// --------------------------------------------------------------------------------
 	inline Blob::reference Blob::operator[](size_type p)
 	{
-		return (*(begin() + p)); 
+		return(*(begin() + p)); 
 	}
 
 	// --------------------------------------------------------------------------------
 	inline Blob::reference Blob::front()
 	{
-		return (*begin()); 
+		return(*begin()); 
 	}
 
 	// --------------------------------------------------------------------------------
 	inline Blob::const_reference Blob::front() const
 	{
-		return (*begin()); 
+		return(*begin()); 
 	}
 
 	// --------------------------------------------------------------------------------
 	inline Blob::reference Blob::back()
 	{
-		return (*(end() - 1)); 
+		return(*(end() - 1)); 
 	}
 
 	// --------------------------------------------------------------------------------
 	inline Blob::const_reference Blob::back() const
 	{
-		return (*(end() - 1)); 
+		return(*(end() - 1)); 
 	}
 
 	// --------------------------------------------------------------------------------
@@ -773,12 +825,14 @@ protected:
 		erase(end() - 1); 
 	}
 
+	/*
 	// --------------------------------------------------------------------------------
-	/*inline void Blob::assign(const_iterator f, const_iterator l)
+	inline void Blob::assign(const_iterator f, const_iterator l)
 	{
 		erase(begin(), end());
 		insert(begin(), f, l); 
-	}*/
+	}
+	*/
 
 	// --------------------------------------------------------------------------------
 	inline void Blob::assign(size_type n, byte x)
@@ -787,19 +841,18 @@ protected:
 		insert(begin(), n, x); 
 	}
 
-
 	// --------------------------------------------------------------------------------
 	inline Blob::iterator Blob::insert(iterator p, byte x)
 	{
 		size_type o = p - begin();
 		insert(p, 1, x);
-		return (begin() + o); 
+		return(begin() + o); 
 	}
 
 	// --------------------------------------------------------------------------------
 	inline void Blob::insert(iterator p, size_type m, byte x)
 	{
-		if (size_type(mEnd - mLast) < m)
+		if(size_type(mEnd - mLast) < m)
 		{
 			size_type n = size() + (m < size() ? size() : m);
 			iterator s = allocate(n, (void *)0);
@@ -811,13 +864,15 @@ protected:
 			mEnd = s + n;
 			mLast = s + size() + m;
 			mFirst = s; 
-		} else if (size_type(mLast - p) < m)
+		}
+		else if(size_type(mLast - p) < m)
 		{
 			ucopy(p, mLast, p + m);
 			ufill(mLast, m - (mLast - p), x);
 			fill(p, mLast, x);
 			mLast += m; 
-		} else if (0 < m)
+		}
+		else if(0 < m)
 		{
 			ucopy(mLast - m, mLast, mLast);
 			copy_backward(p, mLast - m, mLast);
@@ -826,12 +881,13 @@ protected:
 		}
 	}
 
+	/*
 	// --------------------------------------------------------------------------------
-	/*inline void Blob::insert(iterator p, const_iterator f, const_iterator l)
+	inline void Blob::insert(iterator p, const_iterator f, const_iterator l)
 	{
 		size_type m = 0;
 		_distance(f, l, m);
-		if (size_type(mEnd - mLast) < m) 
+		if(size_type(mEnd - mLast) < m) 
 		{
 			size_type n = size() + (m < size() ? size() : m);
 			iterator s = allocate(n, (void *)0);
@@ -843,13 +899,15 @@ protected:
 			mEnd = s + n;
 			mLast = s + size() + m;
 			mFirst = s; 
-		} else if (size_type(mLast - p) < m) 
+		}
+		else if(size_type(mLast - p) < m) 
 		{
 			ucopy(p, mLast, p + m);
 			ucopy(f + (mLast - p), l, mLast);
 			copy(f, f + (mLast - p), p);
 			mLast += m; 
-		} else if (0 < m) 
+		}
+		else if(0 < m) 
 		{
 			ucopy(mLast - m, mLast, mLast);
 			copy_backward(p, mLast - m, mLast);
@@ -860,12 +918,24 @@ protected:
 	*/
 
 	// --------------------------------------------------------------------------------
+	inline void Blob::append(const Blob& x)
+	{
+		insert(end(), x.begin(), x.end());
+	}
+
+	// --------------------------------------------------------------------------------
+	inline void Blob::append(size_type m, byte x)
+	{
+		insert(end(), m, x);
+	}
+
+	// --------------------------------------------------------------------------------
 	inline Blob::iterator Blob::erase(iterator p)
 	{
 		copy(p + 1, end(), p);
 		_destroy(mLast - 1, mLast);
 		--mLast;
-		return (p); 
+		return(p); 
 	}
 
 	// --------------------------------------------------------------------------------
@@ -874,7 +944,7 @@ protected:
 		iterator s = copy(l, end(), f);
 		_destroy(s, end());
 		mLast = s;
-		return (f); 
+		return(f); 
 	}
 
 	// --------------------------------------------------------------------------------
@@ -886,42 +956,46 @@ protected:
 	// --------------------------------------------------------------------------------
 	inline bool Blob::_eq(const Blob& x) const	
 	{
-		return (size() == x.size()	&& equal(begin(), end(), x.begin())); 
+		return(size() == x.size()	&& equal(begin(), end(), x.begin())); 
 	}
 
 	// --------------------------------------------------------------------------------
 	inline bool Blob::_lt(const Blob& x) const	
 	{
-		return (lexicographical_compare(begin(), end(), x.begin(), x.end())); 
+		return(lexicographical_compare(begin(), end(), x.begin(), x.end())); 
 	}
 
 	// --------------------------------------------------------------------------------
 	inline void Blob::swap(Blob& x)	
 	{
-		Blob Ts = *this; 
-		*this = x, 
-		x = Ts; 
+		if(/*get_allocator() == x.get_allocator()*/ true) 
+		{
+			// swap control information
+			std::swap(mFirst, x.mFirst);
+			std::swap(mLast, x.mLast);
+			std::swap(mEnd, x.mEnd);
+		}
+		else
+		{
+			// different allocator, do multiple assigns
+			Blob Ts = *this; 
+			*this = x, 
+			x = Ts;
+		}
 	}
 
 	// --------------------------------------------------------------------------------
 	inline void Blob::_destroy(iterator f, iterator l)
 	{
-		for (; f != l; ++f)
+		for(; f != l; ++f)
 			destroy(get_base(f));
 	}
 
-	// --------------------------------------------------------------------------------
-	inline Blob::iterator Blob::ucopy(const_iterator f, const_iterator l,	iterator p)
-	{
-		for (; f != l; ++p, ++f)
-			construct(get_base(p), *f);
-		return (p); 
-	}
 
 	// --------------------------------------------------------------------------------
 	inline void Blob::ufill(iterator f, size_type n, byte x)
 	{
-		for (; 0 < n; --n, ++f)
+		for(; 0 < n; --n, ++f)
 			construct(get_base(f), x); 
 	}
 
@@ -931,27 +1005,18 @@ protected:
 		throw( OutOfRangeException("invalid Blob subscript","Blob::outofrange"));
 	}
 
-
-	// --------------------------------------------------------------------------------
-	inline Blob::iterator Blob::copy(const_iterator f, const_iterator l, iterator x)
-	{
-		for (; f != l; ++x, ++f)
-			*x = *f;
-		return (x); 
-	}
-
 	// --------------------------------------------------------------------------------
 	inline Blob::iterator Blob::copy_backward(const_iterator f, const_iterator l, iterator  x)
 	{
-		while (f != l)
+		while(f != l)
 			*--x = *--l;
-		return (x); 
+		return(x); 
 	}
 
 	// --------------------------------------------------------------------------------
 	inline void Blob::fill(iterator f, const_iterator l, byte x)
 	{
-		for (; get_base(f) != get_base(l); ++f)
+		for(; get_base(f) != get_base(l); ++f)
 			*f = x; 
 	}
 
@@ -960,20 +1025,14 @@ protected:
 	{
 		size_type n = 0;
 		_distance(f, l, n);
-		return (n); 
+		return(n); 
 	}
 
-	// --------------------------------------------------------------------------------
-	inline void Blob::_distance(const_iterator f, const_iterator l, size_type& n) const 
-	{
-		for (; f != l; ++f)
-			++n;
-	}
 
 	// --------------------------------------------------------------------------------
 	inline bool Blob::equal(const_iterator f, const_iterator l, const_iterator x) const
 	{
-		for (; f != l && *f == *x; ++f, ++x)
+		for(; f != l && *f == *x; ++f, ++x)
 			;
 		return f == l;
 	}
@@ -982,12 +1041,12 @@ protected:
 	inline bool Blob::lexicographical_compare(const_iterator f1, const_iterator l1,
 											  const_iterator f2, const_iterator l2) const
 	{
-		for (; f1 != l1 && f2 != l2; ++f1, ++f2)
-			if (*f1 < *f2)
-				return (true);
-			else if (*f2 < *f1)
-				return (false);
-		return (f1 == l1 && f2 != l2); 
+		for(; f1 != l1 && f2 != l2; ++f1, ++f2)
+			if(*f1 < *f2)
+				return(true);
+			else if(*f2 < *f1)
+				return(false);
+		return(f1 == l1 && f2 != l2); 
 	}
 
 
@@ -1003,9 +1062,7 @@ protected:
 	{
 		*p = 0;
 	}
-	// --------------------------------------------------------------------------------
 
-}
+} // namespace act
 
-#endif
-
+#endif // ACT_BLOB_H

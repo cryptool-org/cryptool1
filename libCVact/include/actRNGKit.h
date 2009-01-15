@@ -21,7 +21,7 @@ namespace act
 	IRNGAlg* CreateFIPS186();
 	IRNGAlg* CreateFIPS186DES();
 	IRNGAlg* CreateARC4RNG();
-#ifndef UNDER_CE
+#ifndef UNDER_CE_30
 	IRNGAlg* CreateWinRNG();
 #endif
 	IRNGAlg* CreateDummyPRNG();

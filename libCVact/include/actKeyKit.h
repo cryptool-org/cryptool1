@@ -35,10 +35,6 @@ namespace act
 	IKey* CreateECDHKey();
 
 	IKey* CreateIESKey();
-
-#if !defined (NO_SMARTCARD) && !defined (NO_SMARTCARD)
-	IKey* CreateSCardKey();
-#endif
 }
 #endif
 

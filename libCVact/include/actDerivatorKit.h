@@ -3,7 +3,7 @@
 // Product:   cv act library
 // Purpose:   declaration of all factory functions
 //
-// Copyright: (c) 2000 cv cryptovision GmbH
+// Copyright: (c) 2006 cv cryptovision GmbH
 //            all rights reserved
 // Licence:   The conditions for the use of this software are regulated 
 //            in the cv act library licence agreement.
@@ -18,6 +18,9 @@ namespace act
 	class Blob;
 
 	IDerivator* CreateKDF1();
+	IDerivator* CreateX963KDF();
+	IDerivator* CreatePBKDF1();
+	IDerivator* CreatePBKDF2();
 }
 #endif
 

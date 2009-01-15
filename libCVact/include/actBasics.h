@@ -12,8 +12,15 @@
 #ifndef ACT_Basics_h
 #define ACT_Basics_h
 
+//
+// Disable specific VC6 warnings here.
+#if defined(_MSC_VER) & _MSC_VER < 1300
+	#pragma warning(disable:4786)
+#endif
+
+
 #ifdef __sun__
-	#undef LITTLE_ENDIAN
+	#undef	LITTLE_ENDIAN
 #else
 	#ifndef LITTLE_ENDIAN
 	#define LITTLE_ENDIAN
@@ -76,5 +83,3 @@ namespace act
 } // namespace act
 
 #endif // ACT_Basics_h
-
-

@@ -40,12 +40,6 @@ namespace act
 	void ECDHGetAlgID(const IKey* key, Blob& algid);
 	void ECDHSetAlgID(const Blob& algid, IKey* key );
 
-#ifndef UNDER_CE
-	void SCardToX509(const IKey* key, Blob& pkinfo);
-	void SCardGetAlgID(const IKey* key, Blob& algid);
-	void SCardSetAlgID(const Blob& algid, IKey* key );
-#endif // UNDER_CE
-
 }
 #endif
 

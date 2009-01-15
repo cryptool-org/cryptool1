@@ -20,6 +20,8 @@ namespace act
 	IBlockCipherMode* CreateECBMode();
 	IBlockCipherMode* CreateCBCMode();
 	IBlockCipherMode* CreateCFBMode();
+	IBlockCipherMode* CreateOFBMode();
+	IBlockCipherMode* CreateCTRMode();
 }
 #endif
 

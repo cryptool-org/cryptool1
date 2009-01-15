@@ -3,7 +3,7 @@
 // Product:   cv act library
 // Purpose:   enumerations
 //
-// Copyright: (c) 2000 cv cryptovision GmbH
+// Copyright: (c) 2006 cv cryptovision GmbH
 //            all rights reserved
 // Licence:   The conditions for the use of this software are regulated 
 //            in the cv act library licence agreement.
@@ -23,8 +23,8 @@ namespace act
 		MAC,
 
 		PRIVATE =200,
-		PUBLIC ,
-		SECRET ,
+		PUBLIC,
+		SECRET,
 		DOMAINPARAMS,
 		PKCS8_TYPE,
 
@@ -36,8 +36,13 @@ namespace act
 		RAWKEY,
 		IV,
 		BLOCKSIZE,
+		CHAINING_VALUE,
+		CHAINING_BITCOUNT,
 		EFFECTIVE_KEYSIZE,
-		LABEL,
+		SHAREDDATA_1,
+		SHAREDDATA_2,
+		KEYDATALEN,
+		ITERATIONCOUNT,
 
 		ENCODER=400,
 		PRIVATEKEY,
@@ -53,6 +58,9 @@ namespace act
 		MODULOSIZE,
 		PRIME_P_SIZE,
 		PRIME_Q_SIZE,
+		CRT_EXPONENT_1,
+		CRT_EXPONENT_2,
+		CRT_COEFFICIENT,
 
 		CURVE=600,
 		PUBLIC_X,
@@ -62,10 +70,12 @@ namespace act
 		EPHEMERALPUBLIC_X,
 		EPHEMERALPUBLIC_Y,
 		CURVEPARAM,
+		PUBLICKEY_EXPORT_TYPE,
+		BASEPOINT_EXPORT_TYPE,
 		COMPRESSED,
 		UNCOMPRESSED,
 		HYBRID,
-		IMPLICITYCA,
+		IMPLICITLYCA,
 		GF2CURVE, 
 		PRIMECURVE,
 	
@@ -109,11 +119,13 @@ namespace act
 		NULLPIN,
 		SELECTKEY,
 		ALLCERTIFICATE,
-		APPLICATION,//For TCOS
+		APPLICATION,
 		KEYUSAGE,
 		MECHANISM,
 		CERTIFICATE,
 		KEYTYPE,
+		LABEL,
+		ID,
 
 		CTAPI_PORT = 900, 
 		PCSC_PORT,
