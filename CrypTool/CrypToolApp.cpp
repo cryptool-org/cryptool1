@@ -206,8 +206,6 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_UPDATE_COMMAND_UI(ID_HASH_OFAFILE, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SIGN, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN, OnUpdateNeedSecudeTicket)
-	ON_UPDATE_COMMAND_UI(ID_HYBRID_ECCENC, OnUpdateHybridEnc)
-	ON_UPDATE_COMMAND_UI(ID_HYBRID_ECCDEC, OnUpdateHybridDec)
 	ON_COMMAND(ID_INDIVIDUAL_PROCEDURES_SECRETSHARING, OnIndividualProceduresSecretsharing)
 	//}}AFX_MSG_MAP
 
@@ -643,6 +641,7 @@ BOOL CCrypToolApp::InitInstance()
 		LocalFree( lpMsgBuf );
 		exit(0);
 	}
+
 #if 0
 	// try to get version from lexer dll
 	if (m_hDll != NULL)
@@ -657,6 +656,7 @@ BOOL CCrypToolApp::InitInstance()
 		ver.Close();
 	}
 #endif
+
 	m_pMainWnd = new CMainFrame;
 	m_MainWnd = m_pMainWnd;
 	((CFrameWnd*)m_pMainWnd)->LoadFrame(IDR_MAINFRAME);
@@ -712,17 +712,6 @@ BOOL CCrypToolApp::InitInstance()
 	}
 	else
 		m_Selfextract_EXE = NULL;
-
-	// in case of VISTA decativate Cryptovision 
-	{
-		m_DISABLE_CV = 0;
-		OSVERSIONINFO m_info;
-		ZeroMemory(&m_info, sizeof(OSVERSIONINFO));
-		m_info.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
-		GetVersionEx(&m_info);
-		if ( m_info.dwMajorVersion >= 0x06 )
-			m_DISABLE_CV = 1;
-	}
 
 	// nach Zahlenhai suchen
 	CString numberSharkExe;
@@ -1605,21 +1594,4 @@ void CCrypToolApp::OnFlashEnigmademo()
 		message.Format(IDS_ERROPEN_ENIGMA_FLASH, Pfad);
 		AfxMessageBox(message, MB_ICONSTOP);
 	}
-}
-
-
-void CCrypToolApp::OnUpdateHybridEnc(CCmdUI* pCmdUI) 
-{
-	if(theApp.m_DISABLE_CV)
-		pCmdUI->Enable(FALSE);
-	else
-		pCmdUI->Enable(TRUE);
-}
-
-void CCrypToolApp::OnUpdateHybridDec(CCmdUI* pCmdUI) 
-{
-	if(theApp.m_DISABLE_CV)
-		pCmdUI->Enable(FALSE);
-	else
-		pCmdUI->Enable(TRUE);
 }

@@ -1,44 +1,70 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.10"
+	Version="9,00"
 	Name="hlp_pl"
 	ProjectGUID="{3D9B8B0A-2A43-47C5-B553-09BB3D74FDFC}"
 	RootNamespace="hlp_pl"
-	Keyword="MakeFileProj">
+	Keyword="MakeFileProj"
+	TargetFrameworkVersion="131072"
+	>
 	<Platforms>
 		<Platform
-			Name="Win32"/>
+			Name="Win32"
+		/>
 	</Platforms>
+	<ToolFiles>
+	</ToolFiles>
 	<Configurations>
 		<Configuration
 			Name="Debug_pl|Win32"
 			OutputDirectory="$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
-			ConfigurationType="0">
+			ConfigurationType="0"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
+			>
 			<Tool
 				Name="VCNMakeTool"
 				BuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; LANG=pl OUTDIR=..\..\$(ConfigurationName)"
 				ReBuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; /a LANG=pl OUTDIR=..\..\$(ConfigurationName)"
-				Output="CrypTool-pl.chm"/>
+				CleanCommandLine=""
+				Output="CrypTool-pl.chm"
+				PreprocessorDefinitions=""
+				IncludeSearchPath=""
+				ForcedIncludes=""
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
 		</Configuration>
 		<Configuration
 			Name="Release_pl|Win32"
 			OutputDirectory="$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
-			ConfigurationType="0">
+			ConfigurationType="0"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
+			>
 			<Tool
 				Name="VCNMakeTool"
 				BuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; LANG=pl OUTDIR=..\..\$(ConfigurationName)"
 				ReBuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; /a LANG=pl OUTDIR=..\..\$(ConfigurationName)"
-				Output="CrypTool-pl.chm"/>
+				CleanCommandLine=""
+				Output="CrypTool-pl.chm"
+				PreprocessorDefinitions=""
+				IncludeSearchPath=""
+				ForcedIncludes=""
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
 		</Configuration>
 	</Configurations>
 	<References>
 	</References>
 	<Files>
 		<File
-			RelativePath="hlp_pl.mak">
+			RelativePath="hlp_pl.mak"
+			>
 		</File>
 	</Files>
 	<Globals>
