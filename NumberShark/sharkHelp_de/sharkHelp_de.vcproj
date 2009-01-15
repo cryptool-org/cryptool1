@@ -1,45 +1,71 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.10"
+	Version="9,00"
 	Name="sharkHelp_de"
 	ProjectGUID="{13F98398-B0A6-4F32-82D9-9C4F24A0C07A}"
-	Keyword="Win32Proj">
+	Keyword="Win32Proj"
+	TargetFrameworkVersion="131072"
+	>
 	<Platforms>
 		<Platform
-			Name="Win32"/>
+			Name="Win32"
+		/>
 	</Platforms>
+	<ToolFiles>
+	</ToolFiles>
 	<Configurations>
 		<Configuration
 			Name="Debug_de|Win32"
 			OutputDirectory="$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="0"
-			CharacterSet="2">
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
+			CharacterSet="2"
+			>
 			<Tool
 				Name="VCNMakeTool"
 				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot; LANG=de OUTDIR=..\..\$(ConfigurationName)"
 				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a LANG=de OUTDIR=..\..\$(ConfigurationName)"
-				Output="NumberShark-de.chm"/>
+				CleanCommandLine=""
+				Output="NumberShark-de.chm"
+				PreprocessorDefinitions=""
+				IncludeSearchPath=""
+				ForcedIncludes=""
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
 		</Configuration>
 		<Configuration
 			Name="Release_de|Win32"
 			OutputDirectory="..\$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="0"
-			CharacterSet="2">
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
+			CharacterSet="2"
+			>
 			<Tool
 				Name="VCNMakeTool"
 				BuildCommandLine="nmake /f &quot;hlp_de.mak&quot; LANG=de OUTDIR=..\..\$(ConfigurationName)"
 				ReBuildCommandLine="nmake /f &quot;hlp_de.mak&quot; /a LANG=de OUTDIR=..\..\$(ConfigurationName)"
-				Output="NumberShark-de.chm"/>
+				CleanCommandLine=""
+				Output="NumberShark-de.chm"
+				PreprocessorDefinitions=""
+				IncludeSearchPath=""
+				ForcedIncludes=""
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
 		</Configuration>
 	</Configurations>
 	<References>
 	</References>
 	<Files>
 		<File
-			RelativePath=".\hlp_de.mak">
+			RelativePath=".\hlp_de.mak"
+			>
 		</File>
 	</Files>
 	<Globals>
