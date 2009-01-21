@@ -103,9 +103,10 @@
 #define IDS_PQM_BIT                     69
 #define IDS_STRING_SECRET_SHARING_K_EQUALS_N 70
 #define IDS_STRING_ADFGVX_PASSWORD_CORRECTED 71
-#define IDS_BIT_FMT                     72
-#define IDS_BIT_EFFECTIVE               73
-#define IDS_BIT_EFFECTIVE_FMT           73
+#define IDS_STRING_ABOUT_CONTACT_INFORMATION 72
+#define IDS_BIT_FMT                     73
+#define IDS_BIT_EFFECTIVE               74
+#define IDS_BIT_EFFECTIVE_FMT           75
 #define IDD_PLAYFAIR_ANALYSIS           102
 #define IDD_ICG_RANDOMPARAMETER         103
 #define IDR_HTML_SELECTPASTEENCODING    107
@@ -1608,7 +1609,9 @@
 #define IDC_RADIO_TEXT_MODE             2017
 #define IDC_RADIO_HEX_MODE              2018
 #define IDC_EDIT_FIND_HEX               2019
+#define IDC_EDIT_CONTACT_INFORMATION    2020
 #define IDC_EDIT_REPLACE_HEX            2021
+#define IDC_EDIT_RELEASE_INFORMATION    2021
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -3047,7 +3050,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        872
 #define _APS_NEXT_COMMAND_VALUE         33372
-#define _APS_NEXT_CONTROL_VALUE         2020
+#define _APS_NEXT_CONTROL_VALUE         2021
 #define _APS_NEXT_SYMED_VALUE           109
 #endif
 #endif

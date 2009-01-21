@@ -13555,23 +13555,21 @@ BEGIN
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,44,50,105,37,WS_EX_TRANSPARENT
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,40,82,143,37,WS_EX_TRANSPARENT
     CTEXT           "haben es die Universitäten Siegen und Darmstadt\nund viele freiwillige Entwickler in einem Open-Source-Projekt entwickelt.",IDC_STATIC,9,130,223,24
-    CTEXT           "CRYPTOOL RELEASE INFO",IDC_ABOUTBOX_CRYPTOOL,1,163,241,11
     CTEXT           "CrypTool nutzt folgende Bibliotheken:",IDC_STATIC,0,219,241,8
-    CTEXT           "Kontakt:",IDC_STATIC,0,322,241,10
+    CTEXT           "Kontakt:",IDC_STATIC,0,315,241,10
     CTEXT           "Copyright (C) 1998-2008 Deutsche Bank AG\nFrankfurt am Main, Germany",IDC_STATIC,0,389,242,17
-    LTEXT           "esslinger@fb5.uni-siegen.de\njoerg-cornelius.schneider@db.com\nhenrik.koy@db.com\ncryptool-list@sec.informatik.tu-darmstadt.de",IDC_STATIC,63,331,152,42
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,10,46,222,79
     CTEXT           "CrypTool ist ein kostenloses und umfangreiches Lernprogramm\nzu klassischer und moderner Kryptographie/Kryptoanalyse.\n\nGemeinsam mit den Sponsoren",IDC_STATIC,1,12,241,33
-    LTEXT           "Internet: http://www.cryptool.de",IDC_STATIC,63,373,175,8
     CTEXT           "MIRACL",IDC_EDIT_MIRACL,1,255,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
     CTEXT           "SECUDE1",IDC_EDIT_SECUDE1,1,231,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
     CTEXT           "OPENSSL",IDC_EDIT_OPENSSL,1,266,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
     CTEXT           "NTL",IDC_EDIT_NTL,1,276,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
     CTEXT           "SCINTILLA",IDC_EDIT_SCINTILLA,1,286,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
     CTEXT           "GMP",IDC_EDIT_GMP,0,296,241,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "BUILD INFO",IDC_EDIT_BUILD_INFO,0,174,241,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
     CTEXT           "CrypTool wird weltweit zur Lehre an Schulen und Hochschulen, und zur Ausbildung und Mitarbeiter-Awareness in Firmen und Behörden eingesetzt.",IDC_STATIC,3,193,236,19,WS_TABSTOP
     CTEXT           "CRYPTOVISION",IDC_EDIT_CRYPTOVISION,0,243,241,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,7,326,228,60,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,7,158,228,30,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
 END
 
 IDD_HMAC DIALOGEX 0, 0, 325, 505
@@ -17951,7 +17949,6 @@ BEGIN
 
     IDD_ABOUT, DIALOG
     BEGIN
-        VERTGUIDE, 63
         BOTTOMMARGIN, 434
     END
 
@@ -20852,6 +20849,8 @@ BEGIN
                             "Bitte wählen Sie k<n (hier: k<%d).\n\nSind k und n bei diesem speziellen Secret-Sharing-Verfahren identisch, dann gleicht das Geheimnis dem Passwort des ersten Teilnehmers."
     IDS_STRING_ADFGVX_PASSWORD_CORRECTED 
                             "Das eingegebene Transpositionspasswort wurde korrigiert:\n\n"
+    IDS_STRING_ABOUT_CONTACT_INFORMATION 
+                            "esslinger@fb5.uni-siegen.de\r\njoerg-cornelius.schneider@db.com\r\nhenrik.koy@db.com\r\ncryptool-list@sec.informatik.tu-darmstadt.de\r\n\r\nInternet: http://www.cryptool.de"
     IDS_BIT_FMT             "%d Bit%s"
     IDS_BIT_EFFECTIVE_FMT   " (%d Bit effektiv)"
 END
@@ -21270,26 +21269,24 @@ CAPTION "About CrypTool"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,70,415,90,19,WS_GROUP
-    CTEXT           "the universities Siegen and Darmstadt developed it within an\nopen source project thanks to the help of many voluntary developers.",IDC_STATIC,0,125,242,17
-    CTEXT           "CrypTool uses the following libraries:",IDC_STATIC,1,220,241,8
-    CTEXT           "Contact:",IDC_STATIC,0,322,241,10
-    LTEXT           "esslinger@fb5.uni-siegen.de\nhenrik.koy@db.com\njoerg-cornelius.schneider@db.com\ncryptool-list@sec.informatik.tu-darmstadt.de",IDC_STATIC,67,330,145,40
+    CTEXT           "the universities Siegen and Darmstadt developed it within an\nopen source project thanks to the help of many voluntary developers.",IDC_STATIC,0,130,242,17
+    CTEXT           "CrypTool uses the following libraries:",IDC_STATIC,1,219,241,8
+    CTEXT           "Contact:",IDC_STATIC,0,315,241,10
     CTEXT           "Copyright (C) 1998-2008 Deutsche Bank AG\nFrankfurt am Main, Germany",IDC_STATIC,0,389,242,17
     CTEXT           "CrypTool is a free and comprehensive e-learning program about\nclassic and contemporary cryptography and cryptanalysis.\n\nIn a joint effort of the sponsors",IDC_STATIC,1,10,241,32
-    CTEXT           "CRYPTOOL RELEASE INFO",IDC_ABOUTBOX_CRYPTOOL,1,157,241,11
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,41,48,105,37,WS_EX_TRANSPARENT
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,40,80,143,37,WS_EX_TRANSPARENT
-    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,10,44,222,79
-    LTEXT           "Internet: http://www.cryptool.org",IDC_STATIC,67,374,175,8
+    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,10,46,222,79
     CTEXT           "MIRACL",IDC_EDIT_MIRACL,1,257,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
     CTEXT           "SECUDE1",IDC_EDIT_SECUDE1,1,234,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
     CTEXT           "OPENSSL",IDC_EDIT_OPENSSL,1,268,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
     CTEXT           "NTL",IDC_EDIT_NTL,1,278,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
     CTEXT           "SCINTILLA",IDC_EDIT_SCINTILLA,1,288,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
     CTEXT           "GMP",IDC_EDIT_GMP,0,298,241,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "BUILD INFO",IDC_EDIT_BUILD_INFO,0,168,241,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "CrypTool is used world wide for education in schools and universities, and for apprenticeship and employee awareness in companies and government organizations.",IDC_STATIC,3,188,236,24
+    CTEXT           "CrypTool is used world wide for education in schools and universities, and for apprenticeship and employee awareness in companies and government organizations.",IDC_STATIC,3,185,236,24
     CTEXT           "CRYPTOVISION",IDC_EDIT_CRYPTOVISION,0,246,241,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,7,150,228,30,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,7,326,228,60,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
 END
 
 IDD_SHOW_PROGRESS DIALOG  0, 0, 187, 105
@@ -27983,8 +27980,6 @@ BEGIN
 
     IDD_ABOUT, DIALOG
     BEGIN
-        VERTGUIDE, 67
-        VERTGUIDE, 76
         TOPMARGIN, 1
         BOTTOMMARGIN, 440
     END
@@ -31375,6 +31370,8 @@ BEGIN
                             "Please choose k<n (here: k<%d).\n\nIf k and n are identical in this secret sharing procedure, the secret equals the password of the first participant."
     IDS_STRING_ADFGVX_PASSWORD_CORRECTED 
                             "The entered transposition password was corrected:\n\n"
+    IDS_STRING_ABOUT_CONTACT_INFORMATION 
+                            "esslinger@fb5.uni-siegen.de\r\njoerg-cornelius.schneider@db.com\r\nhenrik.koy@db.com\r\ncryptool-list@sec.informatik.tu-darmstadt.de\r\n\r\nInternet: http://www.cryptool.com"
     IDS_BIT_FMT             "%d bit%s"
     IDS_BIT_EFFECTIVE_FMT   " (%d bit effective)"
 END

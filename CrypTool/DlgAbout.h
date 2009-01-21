@@ -64,8 +64,7 @@ public:
 	// Dialogfelddaten
 	//{{AFX_DATA(CDlgAbout)
 	enum { IDD = IDD_ABOUT };
-	CStatic	m_cryptoolTxt_ctrl;
-	CString	m_cryptoolTxt;
+
 	// Versionsstring der Secude Bibliothek
 	CString strVersionSecude1;
 	CString strVersionSecude2;
@@ -79,6 +78,8 @@ public:
 	CString strVersionScintilla;
 	// Versionsstring der cryptovision Bibliothek
 	CString strVersionCryptovision;
+	// Versionsstring der GMP Bibliothek
+	CString strVersionGMP;
 	//}}AFX_DATA
 	
 	
@@ -102,9 +103,6 @@ protected:
 private:
 	// Funktion zur Ermittlung der verschiedenen Bibliotheksversionen
 	void determineLibraryVersions();
-public:
-	CStatic CStatInformAboutGMP;
-	CStatic m_ctrlBuildInfo;
 };
 
 //{{AFX_INSERT_LOCATION}}

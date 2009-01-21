@@ -98,18 +98,15 @@ void CDlgAbout::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgAbout)
-	DDX_Control(pDX, IDC_ABOUTBOX_CRYPTOOL, m_cryptoolTxt_ctrl);
 	DDX_Text(pDX, IDC_EDIT_SECUDE1, strVersionSecude1);
 	// DDX_Text(pDX, IDC_EDIT_SECUDE2, strVersionSecude2);
 	DDX_Text(pDX, IDC_EDIT_MIRACL, strVersionMiracl);
 	DDX_Text(pDX, IDC_EDIT_OPENSSL, strVersionOpenSSL);
 	DDX_Text(pDX, IDC_EDIT_NTL, strVersionNTL);
 	DDX_Text(pDX, IDC_EDIT_SCINTILLA, strVersionScintilla);
-	DDX_Text(pDX, IDC_ABOUTBOX_CRYPTOOL, m_cryptoolTxt);
 	DDX_Text(pDX, IDC_EDIT_CRYPTOVISION, strVersionCryptovision);
+	DDX_Text(pDX, IDC_EDIT_GMP, strVersionGMP);
 	//}}AFX_DATA_MAP
-	DDX_Control(pDX, IDC_EDIT_GMP, CStatInformAboutGMP);
-	DDX_Control(pDX, IDC_EDIT_BUILD_INFO, m_ctrlBuildInfo);
 }
 
 
@@ -137,41 +134,42 @@ BOOL CDlgAbout::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-#if 0
-	CFont m_Font_small;
-	LOGFONT LogFont_small;
-	CFont *defaultFont_small = m_cryptoolTxt_ctrl.GetFont();
-	defaultFont_small->GetLogFont( &LogFont_small ); // Default Systemschrift ermitteln
-	LogFont_small.lfHeight = -8;
-	m_Font_small.CreateFontIndirect( &LogFont_small ); // Font initialisieren
-	m_ctrlBuildInfo.SetFont(&m_Font_small);
-#endif
-
-	CFont m_Font;
-	LOGFONT LogFont;
-	CFont *defaultFont = m_cryptoolTxt_ctrl.GetFont();
-	defaultFont->GetLogFont( &LogFont ); // Default Systemschrift ermitteln
-	LogFont.lfWeight = FW_BOLD; // Auf Fettdruck umstellen
-	m_Font.CreateFontIndirect( &LogFont ); // Font initialisieren
-	m_cryptoolTxt_ctrl.SetFont(&m_Font);
-
-
-	// hole Information zu CrypTool-Version
-	LoadString(AfxGetInstanceHandle(),IDR_MAINFRAME,pc_str,STR_LAENGE_STRING_TABLE);
-	m_cryptoolTxt = pc_str;
-
-	// Buid-Info
-	CString buildDate;
-	buildDate.Format("%d-%02d-%02d",YEAR, MONTH + 1, DAY);
-	CString version;
-	version.Format("MSC %d.%02d",_MSC_VER/100,_MSC_VER%100);
-	CString StrBuildInfo;
-	StrBuildInfo.Format(IDS_BUILD_INFO, buildDate, version);
-	m_ctrlBuildInfo.SetWindowText(StrBuildInfo);
-
-
 	// hole Bibliotheksinformationen
 	determineLibraryVersions();
+
+	// flomar, 01/20/2009
+	// release information as well as contact information is
+	// displayed in a text field now to allow copy-and-paste
+	CWnd *windowReleaseInformation = GetDlgItem(IDC_EDIT_RELEASE_INFORMATION);
+	CWnd *windowContactInformation = GetDlgItem(IDC_EDIT_CONTACT_INFORMATION);
+
+	if(windowReleaseInformation) {
+		CString stringReleaseInformation;
+		// get CrypTool version
+		LoadString(AfxGetInstanceHandle(),IDR_MAINFRAME,pc_str,STR_LAENGE_STRING_TABLE);
+		stringReleaseInformation.Append(pc_str);
+		stringReleaseInformation.Append("\r\n\r\n");
+		// get build information
+		CString buildDate;
+		buildDate.Format("%d-%02d-%02d",YEAR, MONTH + 1, DAY);
+		CString version;
+		version.Format("MSC %d.%02d",_MSC_VER/100,_MSC_VER%100);
+		CString StrBuildInfo;
+		StrBuildInfo.Format(IDS_BUILD_INFO, buildDate, version);
+		stringReleaseInformation.Append(StrBuildInfo);
+		// display information
+		windowReleaseInformation->SetWindowText(stringReleaseInformation);
+
+	}
+	if(windowContactInformation) {
+		CString stringContactInformation;
+		// get contact information
+		LoadString(AfxGetInstanceHandle(),IDS_STRING_ABOUT_CONTACT_INFORMATION,pc_str,STR_LAENGE_STRING_TABLE);
+		stringContactInformation.Append(pc_str);
+		// display information
+		windowContactInformation->SetWindowText(stringContactInformation);
+	} 
+
 
 	// Anzeige aktualisieren
 	UpdateData(false);
@@ -237,7 +235,7 @@ void CDlgAbout::determineLibraryVersions()
 	// GMP (dynamisch)
 	CString StrGMPWindowText;
 	StrGMPWindowText.Format("GMP %s", gmp_version);
-	this->CStatInformAboutGMP.SetWindowText(StrGMPWindowText);
+	this->strVersionGMP = StrGMPWindowText;
 
 	// CRYPTOVISION (statisch)
 	this->strVersionCryptovision = "1.3.0";
