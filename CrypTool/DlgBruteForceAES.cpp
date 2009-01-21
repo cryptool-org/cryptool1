@@ -50,9 +50,13 @@ statement from your version.
 
 #include "stdafx.h"
 #include "CrypToolApp.h"
+#include "Cryptography.h"
 #include "HexEdit.h"
 #include "DlgBruteForceAES.h"
 #include ".\dlgbruteforceaes.h"
+
+// nibble i contains a parity bit if m_parity == CRYPT_PARITY_DES*: in low nibble (i & 1) and for DESX* in the first 64 bit only
+#define parity_in_nibble(i) (m_parity_check && (i & 1) && (m_parity_check != CRYPT_PARITY_DESX || i < 64/4))
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -143,7 +147,7 @@ int CDlgBruteForceAES::GetSearchBitLen()
 	int n;
 	int bits = 0;
 	for (n = 0; m_mask[n] >= 0; n++)
-		bits += (m_parity_check && m_mask[n]%2) ? 3 : 4;
+		bits += parity_in_nibble(m_mask[n]) ? 3 : 4;
 	return bits;
 }
 
@@ -171,7 +175,7 @@ double CDlgBruteForceAES::getProgress()
 		//char c = *(m_mask[i++]);
 		char c = m_data[m_mask[i]];
 		//  p += c >= 'A' ? c - 'A' + 10 : c - '0';
-		if ( m_parity_check && (m_mask[i] % 2) )
+		if ( parity_in_nibble(m_mask[i]) )
 		{
 			p += (c >= 'A' ? c - 'A' + 10 : c - '0')/2;
 			p /= 8.0;
@@ -188,7 +192,6 @@ double CDlgBruteForceAES::getProgress()
 
 
 #define incWithCarry(p) (((p) = m_hexinc[(p)]) == '0')
-		
 int CDlgBruteForceAES::Step()
 {
 	if (m_state < 0) {
@@ -200,21 +203,14 @@ int CDlgBruteForceAES::Step()
 	if (m_parity_check) // For DES variants
 	{  // note: 1. lower half byte ((m_mask[i] %2) == TRUE) contains the parity bit (least significant bit)
 	   //       2. Step() ignores parity checks as the des implementations ignores them too
-#if 0
-		while ( ((j = m_mask[i]) >= 0)
-			&& (   ( !(m_mask[i] % 2) &&  incWithCarry(m_data[j]) )
-			    || (  (m_mask[i] % 2) && (incWithCarry(m_data[j]) || incWithCarry(m_data[j])) ) ) )
-			i++;
-#else
 		while ( (j = m_mask[i]) >= 0
-			&&  j % 2 == 0 
-				? incWithCarry(m_data[j]) 
-				: (incWithCarry(m_data[j]) || incWithCarry(m_data[j])) )
+			&&  parity_in_nibble(j) 
+				? (incWithCarry(m_data[j]), incWithCarry(m_data[j]))
+				: incWithCarry(m_data[j]) )
 		{
 			ASSERT( j < sizeof(m_data));
 			i++;
 		}
-#endif
 	}
 	else
 	{
@@ -257,7 +253,11 @@ BOOL CDlgBruteForceAES::OnInitDialog()
 	m_keylen_ctl.ResetContent();
 	for (int b = m_keylenmin; b <= m_keylenmax; b += m_keylenstep) {
 		CString s;
-		s.Format("%d", m_parity_check ? 7*b/8 : b);
+		CString eff;
+		int beff =m_parity_check == CRYPT_PARITY_DES ? 7*b/8 : m_parity_check == CRYPT_PARITY_DESX ? 184 : b;
+		if (m_parity_check) 
+			eff.Format(IDS_BIT_EFFECTIVE_FMT, beff);
+		s.Format(IDS_BIT_FMT, b, (const char*)eff);
 		m_keylen_ctl.AddString(s);
 	}
 	m_keylen_ctl.SetCurSel(0);

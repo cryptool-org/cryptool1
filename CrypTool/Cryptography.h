@@ -83,7 +83,9 @@ typedef struct  {
 #define CRYPT_ASCII				0x020
 #define CRYPT_DONE				0x080000000
 
-
+#define CRYPT_PARITY_NONE				0
+#define CRYPT_PARITY_DES				1
+#define CRYPT_PARITY_DESX				2
 
 void CaesarAsc(const char *infile, const char *OldTitle);	
 void VigenereAsc(const char *infile, const char *OldTitle);	

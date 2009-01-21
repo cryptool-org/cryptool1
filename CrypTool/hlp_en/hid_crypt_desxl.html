@@ -33,6 +33,8 @@ K<span style="vertical-align:text-bottom;font-size:0.6em">2</span>. </P>
 
 <P>CrypTool uses DESXL in <A href="cbcmodus.html">CBC mode</A> mit zero initialization vector and <a href="padding.html#0100">01-00 padding</a>.</P>
 
+<p>It expects key entry in the order K<span style="vertical-align:text-bottom;font-size:0.6em">DES</span>, K<span style="vertical-align:text-bottom;font-size:0.6em">1</span>, K<span style="vertical-align:text-bottom;font-size:0.6em">2</span>. E. g. the input <blockquote>00 00 00 00 00 00 00 00 11 11 11 11 11 11 11 11 22 22 22 22 22 22 22 22</blockquote> is interpreted as K<span style="vertical-align:text-bottom;font-size:0.6em">DES</span> = 00 ... 00, K<span style="vertical-align:text-bottom;font-size:0.6em">1</span> = 11 ... 11 and K<span style="vertical-align:text-bottom;font-size:0.6em">2</span> = 22 ... 22. </p>
+
 <P>Also see: <A href="hid_crypt_desl.html">DESL</A>, <A href="hid_crypt_desx.html">DESX</A></P>
 
 </BODY>

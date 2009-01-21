@@ -47,6 +47,7 @@ statement from your version.
 
 #include "stdafx.h"
 #include "CrypToolApp.h"
+#include "Cryptography.h"
 #include "HexEdit.h"
 #include "KeyRepository.h"
 #include "DlgKeyHexFixedLen.h"
@@ -131,7 +132,11 @@ BOOL CDlgKeyHexFixedLen::OnInitDialog()
 	m_key_len_ctl.ResetContent();
 	for (int b = m_keylenmin; b <= m_keylenmax; b += m_keylenstep) {
 		CString s;
-		s.Format("%d", m_parity_check ? 7*b/8 : b);
+		CString eff;
+		int beff = m_parity_check == CRYPT_PARITY_DES ? 7*b/8 : m_parity_check == CRYPT_PARITY_DESX ? 184 : b;
+		if (m_parity_check) 
+			eff.Format(IDS_BIT_EFFECTIVE_FMT, beff);
+		s.Format(IDS_BIT_FMT, b, (const char*)eff);
 		m_key_len_ctl.AddString(s);
 	}
 	m_key_len_ctl.SetCurSel(0);

@@ -103,6 +103,9 @@
 #define IDS_PQM_BIT                     69
 #define IDS_STRING_SECRET_SHARING_K_EQUALS_N 70
 #define IDS_STRING_ADFGVX_PASSWORD_CORRECTED 71
+#define IDS_BIT_FMT                     72
+#define IDS_BIT_EFFECTIVE               73
+#define IDS_BIT_EFFECTIVE_FMT           73
 #define IDD_PLAYFAIR_ANALYSIS           102
 #define IDD_ICG_RANDOMPARAMETER         103
 #define IDR_HTML_SELECTPASTEENCODING    107

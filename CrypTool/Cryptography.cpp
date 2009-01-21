@@ -3713,15 +3713,15 @@ void SymmetricEncryption(int AlgId, cryptProvider provider,
 		case IDS_CRYPT_DESL:
 		case IDS_CRYPT_DES_CBC:
 		case IDS_CRYPT_DES_ECB:
-			KeyDialog.Init(Title,64,64,64,1);
+			KeyDialog.Init(Title,64,64,64,CRYPT_PARITY_DES);
 			break;
 		case IDS_CRYPT_TRIPLE_DES_CBC:
 		case IDS_CRYPT_TRIPLE_DES_ECB:
-			KeyDialog.Init(Title,128,128,128,1);
+			KeyDialog.Init(Title,128,128,128,CRYPT_PARITY_DES);
 			break;
 		case IDS_CRYPT_DESX:
 		case IDS_CRYPT_DESXL:
-			KeyDialog.Init(Title,192,192,192,1);
+			KeyDialog.Init(Title,192,192,192,CRYPT_PARITY_DESX);
 			break;
 		case IDS_CRYPT_IDEA:
 			KeyDialog.Init(Title,128,128,128);
@@ -3729,6 +3729,7 @@ void SymmetricEncryption(int AlgId, cryptProvider provider,
 		case IDS_CRYPT_RC2:
 		case IDS_CRYPT_RC4:
 			KeyDialog.Init(Title,8,128,8);
+			break;
 		default:
 			ASSERT(0);
 	}
@@ -3822,10 +3823,12 @@ UINT SymmetricBruteForce(PVOID p)
 		 info->AlgId == IDS_CRYPT_DES_ECB ||
 		 info->AlgId == IDS_CRYPT_TRIPLE_DES_CBC ||
 		 info->AlgId == IDS_CRYPT_TRIPLE_DES_ECB ||
-		 info->AlgId == IDS_CRYPT_DESL ||
-		 info->AlgId == IDS_CRYPT_DESX ||
-		 info->AlgId == IDS_CRYPT_DESXL )
-		skip_parity = 1;
+		 info->AlgId == IDS_CRYPT_DESL )
+		skip_parity = CRYPT_PARITY_DES;
+	else if ( info->AlgId == IDS_CRYPT_DESX || info->AlgId == IDS_CRYPT_DESXL )
+		skip_parity = CRYPT_PARITY_DESX;
+	else
+		skip_parity = CRYPT_PARITY_NONE;
 
 	if(KeyDialog.Display(AlgTitle.GetBuffer(),par->keylenmin,par->keylenmax,par->keylenstep,skip_parity)!=IDOK)
 	{

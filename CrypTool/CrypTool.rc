@@ -8,7 +8,8 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -1450,7 +1451,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Analiza Brutalnej Si³y"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    COMBOBOX        IDC_KEY_LEN,56,78,30,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_KEY_LEN,56,78,96,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT1,10,97,257,24,ES_MULTILINE
     DEFPUSHBUTTON   "&Start",IDOK,10,131,68,17
     PUSHBUTTON      "&Anuluj",IDCANCEL,199,131,68,17
@@ -1460,7 +1461,6 @@ BEGIN
     LTEXT           "Wskazówka:",IDC_STATIC,10,57,22,8
     LTEXT           "Czas poszukiwañ zostanie podane w kolejnoœci: minuty, godziny, jeœli u¿yjesz nie wiêcej ni¿ 6 * (=24 bity).",IDC_STATIC,42,57,225,18
     LTEXT           "Wprowad¿ <00 ** AB **  **> aby przeszukaæ wszystkie klucze rozpoczynaj¹ce siê bajtem zerowym, pó¿niej bajtem nieznanym, bajtem <AB>, i ostatnim - nieznanym.",IDC_STATIC,42,33,225,18
-    LTEXT           "bit",IDC_STATIC,87,82,8,8
     DEFPUSHBUTTON   "Analysis &Options",IDOK2,104,131,68,17
 END
 
@@ -2338,20 +2338,19 @@ BEGIN
     PUSHBUTTON      "&Opcje tekstu",IDC_BUTTON_TEXTOPTIONS,140,61,55,19
 END
 
-IDD_KEY_HEX_FIXED_LEN DIALOG  0, 0, 310, 108
+IDD_KEY_HEX_FIXED_LEN DIALOGEX 0, 0, 310, 108
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Wprowadzenie klucza"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_KEY,10,43,257,24,ES_MULTILINE
     CONTROL         "Wklej",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,278,44,22,20
     DEFPUSHBUTTON   "&Szyfruj",IDC_ENCRYPT,10,79,58,19
     PUSHBUTTON      "&Deszyfruj",IDC_DECRYPT,126,79,57,19
     PUSHBUTTON      "&Anuluj",IDCANCEL,245,79,55,19
-    COMBOBOX        IDC_KEY_LEN,51,24,30,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_KEY_LEN,51,24,95,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "WprowadŸ klucz u¿ywaj¹c wartoœci hexsadecymalnych  (09, AF).",IDC_MESSAGE,10,10,290,9
     LTEXT           "D³ugoœæ klucza:",IDC_STATIC,10,28,36,8
-    LTEXT           "bitów",IDC_STATIC,83,28,8,8
 END
 
 IDD_DIFFIEHELLMAN_EXCHANGESHAREDKEYS DIALOG  0, 0, 200, 101
@@ -2714,7 +2713,7 @@ BEGIN
     GROUPBOX        "Atak krok-po-kroku",IDC_CONTROLFRAME,7,7,140,350
     CONTROL         "",IDC_LIGHTS,"Static",SS_BLACKRECT,489,52,20,20
     CONTROL         "",IDC_ABARROW,"Static",SS_BLACKRECT,186,121,20,20
-    CONTROL         "Progress1",IDC_PROGRESS_ATTACK,"msctls_progress32",WS_BORDER | 0x1,339,341,130,12
+    CONTROL         "Progress1",IDC_PROGRESS_ATTACK,"msctls_progress32",PBS_SMOOTH | WS_BORDER,339,341,130,12
     LTEXT           "Postêp ataku:",IDC_ATTACKPROGRESSLABEL,339,330,52,8
     PUSHBUTTON      "&WyjdŸ",IDCLOSE,7,364,50,14
     PUSHBUTTON      "&Nastêpny krok",IDC_BUTTON_NEXTSINGLESTEP,225,296,100,25
@@ -4226,12 +4225,12 @@ CAPTION "Sprawdzenie jakoœci has³a"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     PUSHBUTTON      "Anuluj",IDCANCEL,268,364,50,14
-    CONTROL         "",IDC_PROGRESS_KEEPASS,"msctls_progress32",WS_BORDER | 0x1,68,160,130,8
+    CONTROL         "",IDC_PROGRESS_KEEPASS,"msctls_progress32",PBS_SMOOTH | WS_BORDER,68,160,130,8
     LTEXT           "KeePass:",IDC_STATIC,31,160,30,8
     LTEXT           "Mozilla:",IDC_STATIC,37,174,24,8
     LTEXT           "PGP:",IDC_STATIC,45,188,16,8
-    CONTROL         "",IDC_PROGRESS_MOZILLA,"msctls_progress32",WS_BORDER | 0x1,68,174,130,8
-    CONTROL         "",IDC_PROGRESS_PGP,"msctls_progress32",WS_BORDER | 0x1,68,188,130,8
+    CONTROL         "",IDC_PROGRESS_MOZILLA,"msctls_progress32",PBS_SMOOTH | WS_BORDER,68,174,130,8
+    CONTROL         "",IDC_PROGRESS_PGP,"msctls_progress32",PBS_SMOOTH | WS_BORDER,68,188,130,8
     LTEXT           "100 % (128 bit)",IDC_QUALITY_KEEPASS,205,160,55,8
     LTEXT           "100 %",IDC_QUALITY_MOZILLA,205,174,55,8
     LTEXT           "100 % (128 bit)",IDC_QUALITY_PGP,205,188,55,8
@@ -4248,7 +4247,7 @@ BEGIN
     GROUPBOX        "Odpornoœæ na ataki s³ownikowe (sprawdza tylko pierwsze 32 znaki)",IDC_STATIC,7,235,311,123
     EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,247,285,103,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
     DEFPUSHBUTTON   "Wskazówki dla has³a",ID_CONFIGURE_PASSWORD_GUIDELINES,110,364,80,14
-    CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",WS_BORDER | 0x1,68,206,130,8
+    CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",PBS_SMOOTH | WS_BORDER,68,206,130,8
     LTEXT           "CrypTool:",IDC_STATIC,29,206,32,8
     LTEXT           "100 % (128 bit)",IDC_QUALITY_CRYPTOOL,205,206,55,8
     LTEXT           "(Miernik jakoœci has³a CrypToola sprawdza tylko pierwsze 32 znaki)",IDC_STATIC,68,216,237,8
@@ -6587,23 +6586,17 @@ END
 
 IDD_BRUTEFORCE DLGINIT
 BEGIN
-    IDC_KEY_LEN, 0x403, 4, 0
-0x3231, 0x0038, 
-    IDC_KEY_LEN, 0x403, 4, 0
-0x3931, 0x0032, 
-    IDC_KEY_LEN, 0x403, 4, 0
-0x3532, 0x0036, 
+    IDC_KEY_LEN, 0x403, 28, 0
+0x3931, 0x2032, 0x6962, 0x2074, 0x3128, 0x3836, 0x6220, 0x7469, 0x6520, 
+0x6666, 0x6365, 0x6974, 0x6576, 0x0029, 
     0
 END
 
 IDD_KEY_HEX_FIXED_LEN DLGINIT
 BEGIN
-    IDC_KEY_LEN, 0x403, 4, 0
-0x3231, 0x0038, 
-    IDC_KEY_LEN, 0x403, 4, 0
-0x3931, 0x0032, 
-    IDC_KEY_LEN, 0x403, 4, 0
-0x3532, 0x0036, 
+    IDC_KEY_LEN, 0x403, 28, 0
+0x3931, 0x2032, 0x6962, 0x2074, 0x3128, 0x3836, 0x6220, 0x7469, 0x6520, 
+0x6666, 0x6365, 0x6974, 0x6576, 0x0029, 
     0
 END
 
@@ -10486,6 +10479,8 @@ BEGIN
     IDS_SCA_ATTACK_FAILED_BECAUSE_OF_MISSING_KEYWORD 
                             "Atak side-channel zakoñczony niepowodzeniem! \r\n Prawdopodobnie oryginalny plik nie zawiera³ s³owa kluczowego ""%s"" zanim zosta³ zaszyfrowany. \n\n W pomocy on-line mo¿esz dowiedzieæ siê, dlaczego s³owo kluczowe jest tak wa¿ne dla pomyœlnego ataku."
     IDS_PQM_BIT             "bitów"
+    IDS_BIT_FMT             "%d bit%s"
+    IDS_BIT_EFFECTIVE_FMT   " (%d bit effective)"
 END
 
 STRINGTABLE 
@@ -11906,7 +11901,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Brute-Force-Analyse"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    COMBOBOX        IDC_KEY_LEN,69,82,30,82,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_KEY_LEN,69,82,92,82,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT1,10,100,257,24,ES_MULTILINE
     DEFPUSHBUTTON   "&Starten",IDOK,10,133,68,17
     PUSHBUTTON      "&Abbrechen",IDCANCEL,199,133,68,17
@@ -11916,7 +11911,6 @@ BEGIN
     LTEXT           "Tipp:",IDC_STATIC,10,60,22,8
     LTEXT           "Die Suchzeit bewegt sich im Bereich von Minuten oder Stunden, wenn Sie höchstens 6 Sterne (*) (= 24 Bit) verwenden.",IDC_STATIC,40,60,227,18
     LTEXT           "Mit der Eingabe <00 ** AB ** ... **>  durchsuchen Sie alle Schlüssel, die mit einem Nullbyte beginnen, gefolgt von einem unbekannten Byte, dem Byte <AB>, und einem unbekannten Rest.",IDC_STATIC,40,33,227,26
-    LTEXT           "Bit",IDC_STATIC,100,86,9,8
     DEFPUSHBUTTON   "Analyse&optionen",IDOK2,104,133,68,17
 END
 
@@ -12770,20 +12764,19 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,36,247,10
 END
 
-IDD_KEY_HEX_FIXED_LEN DIALOG  0, 0, 307, 111
+IDD_KEY_HEX_FIXED_LEN DIALOGEX 0, 0, 307, 111
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_KEY,10,43,257,24,ES_MULTILINE
     CONTROL         "Paste",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,275,44,22,20
     DEFPUSHBUTTON   "&Verschlüsseln",IDC_ENCRYPT,10,82,58,19
     PUSHBUTTON      "&Entschlüsseln",IDC_DECRYPT,126,82,57,19
     PUSHBUTTON      "&Abbrechen",IDCANCEL,242,82,55,19
-    COMBOBOX        IDC_KEY_LEN,64,24,30,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_KEY_LEN,64,24,92,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Geben Sie den Schlüssel mit Hexadezimalzeichen (0..9, A..F) ein.",IDC_MESSAGE,10,10,287,9
     LTEXT           "Schlüssellänge:",IDC_STATIC,10,28,50,8
-    LTEXT           "Bit",IDC_STATIC,96,28,9,8
 END
 
 IDD_ASN1_PSE_PIN_PROMPT DIALOG  0, 0, 229, 81
@@ -13160,7 +13153,7 @@ BEGIN
     GROUPBOX        "Angriff Schritt für Schritt",IDC_CONTROLFRAME,7,7,140,350
     CONTROL         "",IDC_LIGHTS,"Static",SS_BLACKRECT,489,52,20,20
     CONTROL         "",IDC_ABARROW,"Static",SS_BLACKRECT,186,121,20,20
-    CONTROL         "Progress1",IDC_PROGRESS_ATTACK,"msctls_progress32",WS_BORDER | 0x1,339,341,130,12
+    CONTROL         "Progress1",IDC_PROGRESS_ATTACK,"msctls_progress32",PBS_SMOOTH | WS_BORDER,339,341,130,12
     LTEXT           "Fortschritt des Angriffs:",IDC_ATTACKPROGRESSLABEL,339,330,72,8
     PUSHBUTTON      "&Beenden",IDCLOSE,7,364,50,14
     PUSHBUTTON      "&Nächster Einzelschritt",IDC_BUTTON_NEXTSINGLESTEP,225,296,100,25
@@ -14778,12 +14771,12 @@ BEGIN
     LTEXT           "Passwort:",IDC_STATIC,28,106,33,8
     CONTROL         "Passwort im Klartext anzeigen",IDC_CHECK_SHOWPASSWORD,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,68,124,110,9
-    CONTROL         "",IDC_PROGRESS_KEEPASS,"msctls_progress32",WS_BORDER | 0x1,68,160,130,8
+    CONTROL         "",IDC_PROGRESS_KEEPASS,"msctls_progress32",PBS_SMOOTH | WS_BORDER,68,160,130,8
     LTEXT           "KeePass:",IDC_STATIC,31,160,30,8
     LTEXT           "Mozilla:",IDC_STATIC,37,174,24,8
     LTEXT           "PGP:",IDC_STATIC,45,188,16,8
-    CONTROL         "",IDC_PROGRESS_MOZILLA,"msctls_progress32",WS_BORDER | 0x1,68,174,130,8
-    CONTROL         "",IDC_PROGRESS_PGP,"msctls_progress32",WS_BORDER | 0x1,68,188,130,8
+    CONTROL         "",IDC_PROGRESS_MOZILLA,"msctls_progress32",PBS_SMOOTH | WS_BORDER,68,174,130,8
+    CONTROL         "",IDC_PROGRESS_PGP,"msctls_progress32",PBS_SMOOTH | WS_BORDER,68,188,130,8
     LTEXT           "100 % (128 Bits)",IDC_QUALITY_KEEPASS,205,160,55,8
     LTEXT           "100 %",IDC_QUALITY_MOZILLA,205,174,55,8
     LTEXT           "100 % (128 Bits)",IDC_QUALITY_PGP,205,188,55,8
@@ -14792,7 +14785,7 @@ BEGIN
     GROUPBOX        "Resistenz gegen Wörterbuch-Attacken  (bewertet nur die ersten 32 Zeichen)",IDC_STATIC,7,235,311,123
     EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,247,285,103,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
     DEFPUSHBUTTON   "Passwort-Richtlinien",ID_CONFIGURE_PASSWORD_GUIDELINES,110,364,80,14
-    CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",WS_BORDER | 0x1,68,206,130,8
+    CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",PBS_SMOOTH | WS_BORDER,68,206,130,8
     LTEXT           "CrypTool:",IDC_STATIC,29,206,32,8
     LTEXT           "100 % (128 Bits)",IDC_QUALITY_CRYPTOOL,205,206,55,8
     LTEXT           "Passwortlänge:",IDC_STATIC,229,124,50,9
@@ -17131,23 +17124,17 @@ END
 
 IDD_BRUTEFORCE DLGINIT
 BEGIN
-    IDC_KEY_LEN, 0x403, 4, 0
-0x3231, 0x0038, 
-    IDC_KEY_LEN, 0x403, 4, 0
-0x3931, 0x0032, 
-    IDC_KEY_LEN, 0x403, 4, 0
-0x3532, 0x0036, 
+    IDC_KEY_LEN, 0x403, 27, 0
+0x3931, 0x2032, 0x6942, 0x2074, 0x3128, 0x3836, 0x4220, 0x7469, 0x6520, 
+0x6666, 0x6b65, 0x6974, 0x2976, "\000" 
     0
 END
 
 IDD_KEY_HEX_FIXED_LEN DLGINIT
 BEGIN
-    IDC_KEY_LEN, 0x403, 4, 0
-0x3231, 0x0038, 
-    IDC_KEY_LEN, 0x403, 4, 0
-0x3931, 0x0032, 
-    IDC_KEY_LEN, 0x403, 4, 0
-0x3532, 0x0036, 
+    IDC_KEY_LEN, 0x403, 27, 0
+0x3931, 0x2032, 0x6942, 0x2074, 0x3128, 0x3836, 0x4220, 0x7469, 0x6520, 
+0x6666, 0x6b65, 0x6974, 0x2976, "\000" 
     0
 END
 
@@ -20865,6 +20852,8 @@ BEGIN
                             "Bitte wählen Sie k<n (hier: k<%d).\n\nSind k und n bei diesem speziellen Secret-Sharing-Verfahren identisch, dann gleicht das Geheimnis dem Passwort des ersten Teilnehmers."
     IDS_STRING_ADFGVX_PASSWORD_CORRECTED 
                             "Das eingegebene Transpositionspasswort wurde korrigiert:\n\n"
+    IDS_BIT_FMT             "%d Bit%s"
+    IDS_BIT_EFFECTIVE_FMT   " (%d Bit effektiv)"
 END
 
 STRINGTABLE 
@@ -22333,7 +22322,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Brute-Force Analysis"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    COMBOBOX        IDC_KEY_LEN,56,78,30,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_KEY_LEN,56,78,96,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT1,10,97,257,24,ES_MULTILINE
     DEFPUSHBUTTON   "&Start",IDOK,10,131,68,17
     PUSHBUTTON      "&Cancel",IDCANCEL,199,131,68,17
@@ -22343,7 +22332,6 @@ BEGIN
     LTEXT           "Hint:",IDC_STATIC,10,57,22,8
     LTEXT           "The search time will be in the order of minutes to hours  if you use not more than 6 asterisks (*) (= 24 bit).",IDC_STATIC,42,57,225,18
     LTEXT           "Enter <00 ** AB ** ... **>  to search all keys starting with a zero byte, followed by an unknown byte, the byte <AB> and an unknown tail.",IDC_STATIC,42,33,225,18
-    LTEXT           "bit",IDC_STATIC,87,82,8,8
     DEFPUSHBUTTON   "Analysis &Options",IDOK2,104,131,68,17
 END
 
@@ -23222,20 +23210,19 @@ BEGIN
     PUSHBUTTON      "&Text options",IDC_BUTTON_TEXTOPTIONS,140,61,55,19
 END
 
-IDD_KEY_HEX_FIXED_LEN DIALOG  0, 0, 310, 108
+IDD_KEY_HEX_FIXED_LEN DIALOGEX 0, 0, 310, 108
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Key Entry"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_KEY,10,43,257,24,ES_MULTILINE
     CONTROL         "Paste",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,278,44,22,20
     DEFPUSHBUTTON   "&Encrypt",IDC_ENCRYPT,10,79,58,19
     PUSHBUTTON      "&Decrypt",IDC_DECRYPT,126,79,57,19
     PUSHBUTTON      "&Cancel",IDCANCEL,245,79,55,19
-    COMBOBOX        IDC_KEY_LEN,51,24,30,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_KEY_LEN,51,24,96,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Enter the key using hexadecimal characters (0..9, A..F).",IDC_MESSAGE,10,10,290,9
     LTEXT           "Key length:",IDC_STATIC,10,28,36,8
-    LTEXT           "bit",IDC_STATIC,83,28,8,8
 END
 
 IDD_DIFFIEHELLMAN_EXCHANGESHAREDKEYS DIALOG  0, 0, 200, 101
@@ -23602,7 +23589,7 @@ BEGIN
     GROUPBOX        "Attack step by step",IDC_CONTROLFRAME,7,7,140,350
     CONTROL         "",IDC_LIGHTS,"Static",SS_BLACKRECT,489,52,20,20
     CONTROL         "",IDC_ABARROW,"Static",SS_BLACKRECT,186,121,20,20
-    CONTROL         "Progress1",IDC_PROGRESS_ATTACK,"msctls_progress32",WS_BORDER | 0x1,339,341,130,12
+    CONTROL         "Progress1",IDC_PROGRESS_ATTACK,"msctls_progress32",PBS_SMOOTH | WS_BORDER,339,341,130,12
     LTEXT           "Attack progress:",IDC_ATTACKPROGRESSLABEL,339,330,52,8
     PUSHBUTTON      "&Quit",IDCLOSE,7,364,50,14
     PUSHBUTTON      "&Next step",IDC_BUTTON_NEXTSINGLESTEP,225,296,100,25
@@ -25116,12 +25103,12 @@ CAPTION "Password Quality Meter"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     PUSHBUTTON      "Cancel",IDCANCEL,268,364,50,14
-    CONTROL         "",IDC_PROGRESS_KEEPASS,"msctls_progress32",WS_BORDER | 0x1,68,160,130,8
+    CONTROL         "",IDC_PROGRESS_KEEPASS,"msctls_progress32",PBS_SMOOTH | WS_BORDER,68,160,130,8
     LTEXT           "KeePass:",IDC_STATIC,31,160,30,8
     LTEXT           "Mozilla:",IDC_STATIC,37,174,24,8
     LTEXT           "PGP:",IDC_STATIC,45,188,16,8
-    CONTROL         "",IDC_PROGRESS_MOZILLA,"msctls_progress32",WS_BORDER | 0x1,68,174,130,8
-    CONTROL         "",IDC_PROGRESS_PGP,"msctls_progress32",WS_BORDER | 0x1,68,188,130,8
+    CONTROL         "",IDC_PROGRESS_MOZILLA,"msctls_progress32",PBS_SMOOTH | WS_BORDER,68,174,130,8
+    CONTROL         "",IDC_PROGRESS_PGP,"msctls_progress32",PBS_SMOOTH | WS_BORDER,68,188,130,8
     LTEXT           "100 % (128 bit)",IDC_QUALITY_KEEPASS,205,160,55,8
     LTEXT           "100 %",IDC_QUALITY_MOZILLA,205,174,55,8
     LTEXT           "100 % (128 bit)",IDC_QUALITY_PGP,205,188,55,8
@@ -25138,7 +25125,7 @@ BEGIN
     GROUPBOX        "Resistance against dictionary attacks (evaluates only the first 32 characters)",IDC_STATIC,7,235,311,123
     EDITTEXT        IDC_EDIT_PASSWORD_RESISTANCE,20,247,285,103,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
     DEFPUSHBUTTON   "Password guidelines",ID_CONFIGURE_PASSWORD_GUIDELINES,110,364,80,14
-    CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",WS_BORDER | 0x1,68,206,130,8
+    CONTROL         "",IDC_PROGRESS_CRYPTOOL,"msctls_progress32",PBS_SMOOTH | WS_BORDER,68,206,130,8
     LTEXT           "CrypTool:",IDC_STATIC,29,206,32,8
     LTEXT           "100 % (128 bit)",IDC_QUALITY_CRYPTOOL,205,206,55,8
     LTEXT           "(The CrypTool-PQM method evaluates only the first 32 characters)",IDC_STATIC,68,216,237,8
@@ -27477,23 +27464,17 @@ END
 
 IDD_BRUTEFORCE DLGINIT
 BEGIN
-    IDC_KEY_LEN, 0x403, 4, 0
-0x3231, 0x0038, 
-    IDC_KEY_LEN, 0x403, 4, 0
-0x3931, 0x0032, 
-    IDC_KEY_LEN, 0x403, 4, 0
-0x3532, 0x0036, 
+    IDC_KEY_LEN, 0x403, 28, 0
+0x3931, 0x2032, 0x6962, 0x2074, 0x3128, 0x3836, 0x6220, 0x7469, 0x6520, 
+0x6666, 0x6365, 0x6974, 0x6576, 0x0029, 
     0
 END
 
 IDD_KEY_HEX_FIXED_LEN DLGINIT
 BEGIN
-    IDC_KEY_LEN, 0x403, 4, 0
-0x3231, 0x0038, 
-    IDC_KEY_LEN, 0x403, 4, 0
-0x3931, 0x0032, 
-    IDC_KEY_LEN, 0x403, 4, 0
-0x3532, 0x0036, 
+    IDC_KEY_LEN, 0x403, 28, 0
+0x3931, 0x2032, 0x6962, 0x2074, 0x3128, 0x3836, 0x6220, 0x7469, 0x6520, 
+0x6666, 0x6365, 0x6974, 0x6576, 0x0029, 
     0
 END
 
@@ -31394,6 +31375,8 @@ BEGIN
                             "Please choose k<n (here: k<%d).\n\nIf k and n are identical in this secret sharing procedure, the secret equals the password of the first participant."
     IDS_STRING_ADFGVX_PASSWORD_CORRECTED 
                             "The entered transposition password was corrected:\n\n"
+    IDS_BIT_FMT             "%d bit%s"
+    IDS_BIT_EFFECTIVE_FMT   " (%d bit effective)"
 END
 
 STRINGTABLE 
