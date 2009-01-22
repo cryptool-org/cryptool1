@@ -67,16 +67,16 @@ public class BedienungsPanelFp extends Panel implements AdjustmentListener, Acti
         
         //Größe und Ausrichtung anpassen
         LabelA.setAlignment(Label.RIGHT);
-        ScrollbarA.setPreferredSize(new Dimension(90,20));
+        ScrollbarA.setSize(new Dimension(90,20));
         LabelB.setAlignment(Label.RIGHT);
-        ScrollbarB.setPreferredSize(new Dimension(90,20));
+        ScrollbarB.setSize(new Dimension(90,20));
         LabelC.setAlignment(Label.RIGHT);
-        ScrollbarC.setPreferredSize(new Dimension(90,20));
+        ScrollbarC.setSize(new Dimension(90,20));
                 
-        ButtonP.setPreferredSize(new Dimension(90,20));
-        ButtonPQ.setPreferredSize(new Dimension(90,20));
-        ButtonDelete.setPreferredSize(new Dimension(90,20));
-        ButtonLog.setPreferredSize(new Dimension(90,20));   
+        ButtonP.setSize(new Dimension(90,20));
+        ButtonPQ.setSize(new Dimension(90,20));
+        ButtonDelete.setSize(new Dimension(90,20));
+        ButtonLog.setSize(new Dimension(90,20));   
 
         add(LabelA);
         add(ScrollbarA);
@@ -261,7 +261,7 @@ public class BedienungsPanelFp extends Panel implements AdjustmentListener, Acti
 				return;}
 				
 		if(eccframe.dpx == eccframe.dqx && eccframe.dpy == eccframe.dqy)
-			lambda = (3 * Math.pow(eccframe.dpx, 2) + eccframe.a) * berechneInverse(2 * eccframe.dpy);
+			lambda = (3 * Math.pow(eccframe.dpx, 2) + eccframe.a) * berechneInverse(2 * eccframe.dpy)%eccframe.p[eccframe.pIndex];
 			else lambda = berechneModular(eccframe.dpy - eccframe.dqy) * berechneInverse(berechneModular(eccframe.dpx - eccframe.dqx))%eccframe.p[eccframe.pIndex];
        
         eccframe.drx=berechneModular(Math.pow(lambda,2) - eccframe.dpx - eccframe.dqx)%eccframe.p[eccframe.pIndex];
@@ -364,7 +364,7 @@ public class BedienungsPanelFp extends Panel implements AdjustmentListener, Acti
 		if(eccframe.np==1)
 		{	
 			
-			double lambda = (3 * Math.pow(eccframe.dpx, 2) + eccframe.a) * berechneInverse(2 * eccframe.dpy);
+			double lambda = ((3 * Math.pow(eccframe.dpx, 2) + eccframe.a) * berechneInverse(2 * eccframe.dpy))%eccframe.p[eccframe.pIndex];
 			eccframe.drx=berechneModular(Math.pow(lambda,2) - eccframe.dpx - eccframe.dpx)%eccframe.p[eccframe.pIndex];
 	        eccframe.dry=berechneModular(lambda * berechneModular(eccframe.dpx - eccframe.drx) - eccframe.dpy)%eccframe.p[eccframe.pIndex];
 	        eccframe.rx=eccframe.grafikFp.xWertToXPixel(eccframe.drx);
