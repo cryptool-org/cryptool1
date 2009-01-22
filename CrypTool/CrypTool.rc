@@ -9874,6 +9874,8 @@ BEGIN
                             "listOdAlicjiDoBoba-Zaszyfrowany-pl.hex"
     IDS_ANIMAL_FILE_LOCALE  """-locale=en_EN"" ""animation/animal-ascii-compressed"""
     IDS_SCA_KEYWORDPROBLEM  "Dla p³ynnego wykonania ataku side-channel otwarty dokument musi zawieraæ s³owo kluczowe ""%s""\nCzy chcesz dodaæ to s³owo kluczowe do dokumentu?"
+    IDS_SIGATT_STAT_HEADER  "Partial %s-Collision Search"
+    IDS_SIGATT_STAT_ORIGINAL_FILE "Filename original: %s"
 END
 
 STRINGTABLE 
@@ -10503,6 +10505,11 @@ BEGIN
     IDS_PSE_FILES_READONLY  "The keystore files are read only.\nPlease check the access rights of\n%s."
     IDS_PSE_FILESTRUCT_TRY_TO_REWRITE_PSE 
                             "The user key file structure at the path\n%s\nseems to be corrupted!\n\nShould CrypTool try to re-write this file structure?\nPlease select OK for re-write or Cancel if you try to resolve this problem manually.\n\nPlease note: In case of re-write old keys are not usable anymore!\nFor further information please refer to the CrypTool readme."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_SIGATT_STAT_FAKE_FILE "Filename fake: %s"
 END
 
 #endif    // Polish resources
@@ -19919,14 +19926,14 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_SIG_ATT_STA_SUM "Gesamtschritte"
-    IDS_STRING_SIG_ATT_STA_EXPENSE "VERMUTETER AUFWAND"
+    IDS_STRING_SIG_ATT_STA_EXPENSE "PROJEKTIERTER AUFWAND"
     IDS_STRING_SIG_ATT_STA_STEPS "Benötigte Schritte"
     IDS_STRING_SIG_ATT_STA_CALCTIME "Rechenzeit"
     IDS_STRING_SIG_ATT_STA_EFFEXPENSE "TATSÄCHLICH GELEISTETER AUFWAND"
     IDS_STRING_SIG_ATT_STA_PERFORMED "Ausgeführte Hash-Operationen"
     IDS_STRING_SIG_ATT_STA_TITLE 
                             "RunNr.     Schritte bis Kollision     Überprüfung der Kollision     Gesamtschritte\n\n"
-    IDS_STRING_SIG_ATT_STA_ADDEDBYTES "HINZUGEFÜGTE BYTES"
+    IDS_STRING_SIG_ATT_STA_ADDEDBYTES "TEXT MODIFIKATION"
     IDS_STRING_SIG_ATT_STA_DOCTITLE "Statistik des Angriffs"
     IDS_STRING_SIG_ATT_STA_TEST_SERIES_STOPPED 
                             "Die Versuchsreihe wurde abgebrochen."
@@ -20238,6 +20245,8 @@ BEGIN
                             "examples/letterFromAliceToBob-ENCRYPTED-de.hex"
     IDS_ANIMAL_FILE_LOCALE  """-locale=de_DE"" ""animation/animal-ascii-compressed"""
     IDS_SCA_KEYWORDPROBLEM  "Für einen reibungslosen Ablauf des Seitenkanalangriffs muss das geöffnete Dokument das Schlüsselwort ""%s"" enthalten.\nWollen Sie dieses Schlüsselwort an die Datei anfügen?"
+    IDS_SIGATT_STAT_HEADER  "Partielle %s-Kollisionssuche"
+    IDS_SIGATT_STAT_ORIGINAL_FILE "Dateiname Original: %s"
 END
 
 STRINGTABLE 
@@ -20875,6 +20884,11 @@ BEGIN
     IDS_PSE_FILES_READONLY  "Die Dateien im Schlüsselspeicher können nicht geschrieben werden.\nBitte überprüfen Sie die Zugriffsrechte im Verzeichnis\n%s."
     IDS_PSE_FILESTRUCT_TRY_TO_REWRITE_PSE 
                             "Die Dateistruktur Ihrer Benutzer-Schlüssel im Pfad \n%s\nscheint fehlerhaft zu sein!\n\nSoll CrypTool versuchen, die Datenstruktur neu zu schreiben?\nBitte wählen Sie OK für das Neu-Schreiben oder Abbruch, wenn Sie das Problem manuell lösen wollen.\n\nBitte beachten Sie, dass beim Neu-Schreiben bisherige Schlüssel nicht mehr nutzbar sind!\nWeitere Informationen zum Schlüsselspeicher finden Sie im CrypTool-Readme."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_SIGATT_STAT_FAKE_FILE "Dateiname Fälschung: %s"
 END
 
 #endif    // German (Germany) resources
@@ -30429,14 +30443,14 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_SIG_ATT_STA_SUM "Total steps"
-    IDS_STRING_SIG_ATT_STA_EXPENSE "ASSUMED EFFORTS"
+    IDS_STRING_SIG_ATT_STA_EXPENSE "PROJECTED EFFORTS"
     IDS_STRING_SIG_ATT_STA_STEPS "Steps required"
     IDS_STRING_SIG_ATT_STA_CALCTIME "Calculating time"
     IDS_STRING_SIG_ATT_STA_EFFEXPENSE "COMPUTING EFFORTS"
     IDS_STRING_SIG_ATT_STA_PERFORMED "Hash operations performed"
     IDS_STRING_SIG_ATT_STA_TITLE 
                             "RunNo.     Steps until collision     Check of the collision     Total steps\n\n"
-    IDS_STRING_SIG_ATT_STA_ADDEDBYTES "ADDED BYTES"
+    IDS_STRING_SIG_ATT_STA_ADDEDBYTES "TEXT MODIFICATION"
     IDS_STRING_SIG_ATT_STA_DOCTITLE "Statistics of the attack"
     IDS_STRING_SIG_ATT_STA_TEST_SERIES_STOPPED "The test series was aborted."
     IDS_DH_STEP1            "Step 1"
@@ -30769,6 +30783,8 @@ BEGIN
                             "examples/letterFromAliceToBob-ENCRYPTED-en.hex"
     IDS_ANIMAL_FILE_LOCALE  """-locale=en_EN"" ""animation/animal-ascii-compressed"""
     IDS_SCA_KEYWORDPROBLEM  "For a smooth execution of the side-channel attack the opened document must contain the keyword ""%s"".\nDo you want to append this keyword to the document?"
+    IDS_SIGATT_STAT_HEADER  "Partial %s-Collision Search"
+    IDS_SIGATT_STAT_ORIGINAL_FILE "Filename original: %s"
 END
 
 STRINGTABLE 
@@ -31396,6 +31412,11 @@ BEGIN
     IDS_PSE_FILES_READONLY  "The keystore files are read only.\nPlease check the access rights of\n%s."
     IDS_PSE_FILESTRUCT_TRY_TO_REWRITE_PSE 
                             "The user key file structure at the path\n%s\nseems to be corrupted!\n\nShould CrypTool try to re-write this file structure?\nPlease select OK for re-write or Cancel if you try to resolve this problem manually.\n\nPlease note: In case of re-write old keys are not usable anymore!\nFor further information please refer to the CrypTool readme."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_SIGATT_STAT_FAKE_FILE "Filename fake: %s"
 END
 
 #endif    // English (U.K.) resources

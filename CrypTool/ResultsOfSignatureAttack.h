@@ -60,6 +60,26 @@ class ResultsOfSignatureAttack
 // enthält zahlreiche Get- und Set-Methoden, um statistische Daten über den Floyd-Algorithmus zu speichern bzw. für den
 // Auswertungs-Dialog zur Verfügung zu stellen
 {
+	int m_Runs;
+	struct Steps
+	{
+		long long StepsUntilCollision;
+		long long StepsUntilConfirmation;
+		long long TotalSteps;
+	} m_StepsPerRun[_MAX_RUNS_SIG_ATT];
+
+	long long	m_TotalSteps;
+	double		m_ExpectedTime;
+	double		m_EffectiveTime;
+	long long	m_ExpectedSteps;
+	long long	m_HashOperationsPerformed;
+	int			m_FloydResult;
+	int			m_BitLength;
+	int         m_HashAlgorithmID;
+	char	   *m_MatchingHashBytes;
+	char	   *c_filename_original;
+	char	   *c_filename_fake;
+
 public:
 	ResultsOfSignatureAttack ();
 	ResultsOfSignatureAttack (const int HashAlgorithmID, const int BitLength);
@@ -76,6 +96,7 @@ public:
 	double GetEffectiveTime () const							{ return m_EffectiveTime; }
 	int GetFloydResult () const									{ return m_FloydResult; }
 	char *GetMatchingHashBytes() const							{ return m_MatchingHashBytes; }
+	int GetHashAlgorithmID() const								{ return m_HashAlgorithmID; }
 
 	void IncreaseRuns ()										{ m_Runs ++; }
 	void IncreaseHashOperationsPerformed ()						{ m_HashOperationsPerformed ++; }
@@ -95,24 +116,12 @@ public:
 	void SetEffectiveTime (const double EffectiveTime)			{ m_EffectiveTime = EffectiveTime; }
 	void SetFloydResult (const int Errorcode)					{ m_FloydResult = Errorcode; }
 	void SetMatchingHashBytes (const char *MatchingHashBytes, const int CompleteByteLength);
-
+	void SetStrHashFunction(int id);
+	void SetFilenames(const char *filenameOriginal, const char *filenameFake);
+	const char *getStrFilenameFake()		const { return c_filename_fake; }
+	const char *getStrFilenameOriginal()	const { return c_filename_original; }
 private:
 	void SetData (const int &HashAlgorithmID, const int &BitLength);
-	int m_Runs;
-	struct Steps
-	{
-		long long StepsUntilCollision;
-		long long StepsUntilConfirmation;
-		long long TotalSteps;
-	} m_StepsPerRun[_MAX_RUNS_SIG_ATT];
-
-	long long m_TotalSteps;
-	double m_ExpectedTime;
-	double m_EffectiveTime;
-	long long m_ExpectedSteps;
-	long long m_HashOperationsPerformed;
-	int m_FloydResult;
-	char *m_MatchingHashBytes;
 };
 
 #endif // !defined(AFX_RESULTSOFSIGNATUREATTACK_H__DBD92911_D1DB_11D6_9DEE_000629718A52__INCLUDED_)

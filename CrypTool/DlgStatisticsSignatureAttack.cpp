@@ -52,6 +52,7 @@ statement from your version.
 #include "ErrorcodesForSignatureAttack.h"
 #include "FileTools.h"
 #include "CrypToolTools.h"
+#include "HashingOperations.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -112,23 +113,17 @@ BOOL CDlgStatisticsSignatureAttack::OnInitDialog()
 	TimeCalculation ExpectedTC(m_ResSigAtt->GetExpectedTime()), EffectiveTC(m_ResSigAtt->GetEffectiveTime());
 
 #ifndef _SIG_ATT_HASH_ONLY
-
 	char strDuration[20];
 	double_fmt( ExpectedTC.GetSeconds(), strDuration, 2 );
 	m_ExpectedTime.Format(IDS_STRING_SIG_ATT_STA_TIME, ExpectedTC.GetYears(),
 		ExpectedTC.GetDays(), ExpectedTC.GetHours(), ExpectedTC.GetMinutes(), strDuration);
-
 #endif
 
 #ifdef _SIG_ATT_HASH_ONLY
-
 	_snprintf(string, sizeof(string) - 1, "Rate: %.0f Hashes / sec", m_ResSigAtt->GetExpectedTime());
 	m_ExpectedTime = string;
-
 #endif
 
-	_snprintf(string, sizeof(string) - 1, "%I64i", m_ResSigAtt->GetExpectedSteps());
-	m_ExpectedSteps = string;
 	m_control_ListOfRuns.SetExtendedStyle(LVS_EX_FULLROWSELECT);
 	LoadString(AfxGetInstanceHandle(), IDS_STRING_SIG_ATT_RUN_NUMBER, pc_str, STR_LAENGE_STRING_TABLE);
 	m_control_ListOfRuns.InsertColumn(1, pc_str, LVCFMT_CENTER, colWidth - 30, 1);
@@ -144,23 +139,18 @@ BOOL CDlgStatisticsSignatureAttack::OnInitDialog()
 	{
 		_snprintf(string, sizeof(string) - 1, "%i", ii + 1);
 		jj = m_control_ListOfRuns.InsertItem(ii, string);
-		_snprintf(string, sizeof(string) - 1, "%.12I64i", m_ResSigAtt->GetCollisionStepsOfRun(ii));
-		m_control_ListOfRuns.SetItemText(jj, 1, string);
-		_snprintf(string, sizeof(string) - 1, "%.12I64i", m_ResSigAtt->GetConfirmationStepsOfRun(ii));
-		m_control_ListOfRuns.SetItemText(jj, 2, string);
-		_snprintf(string, sizeof(string) - 1, "%.12I64i", m_ResSigAtt->GetTotalStepsOfRun(ii));
-		m_control_ListOfRuns.SetItemText(jj, 3, string);
+		m_control_ListOfRuns.SetItemText(jj, 1, itoa_fmt((__int64)m_ResSigAtt->GetCollisionStepsOfRun(ii)));
+		m_control_ListOfRuns.SetItemText(jj, 2, itoa_fmt((__int64)m_ResSigAtt->GetConfirmationStepsOfRun(ii)));
+		m_control_ListOfRuns.SetItemText(jj, 3, itoa_fmt((__int64)m_ResSigAtt->GetTotalStepsOfRun(ii)));
 	}
 
 	double_fmt( EffectiveTC.GetSeconds(), strDuration, 2 );
 	m_EffectiveTime.Format(IDS_STRING_SIG_ATT_STA_TIME, EffectiveTC.GetYears(),
-		EffectiveTC.GetDays(), EffectiveTC.GetHours(), EffectiveTC.GetMinutes(), strDuration);
+			EffectiveTC.GetDays(), EffectiveTC.GetHours(), EffectiveTC.GetMinutes(), strDuration);
 
-	_snprintf(string, sizeof(string) - 1, "%I64i", m_ResSigAtt->GetTotalSteps());
-	m_TotalSteps = string;
-
-	_snprintf(string, sizeof(string) - 1, "%I64i", m_ResSigAtt->GetHashOperationsPerformed());
-	m_HashOperationsPerformed = string;
+	m_ExpectedSteps = itoa_fmt(m_ResSigAtt->GetExpectedSteps());
+	m_TotalSteps              = itoa_fmt((__int64)m_ResSigAtt->GetTotalSteps());
+	m_HashOperationsPerformed = itoa_fmt((__int64)m_ResSigAtt->GetHashOperationsPerformed());
 
 	msg.Format(IDS_STRING_SIG_ATT_STA_HARMLESS, m_ModifiedBytesHarmless);
 	m_control_harmless.SetWindowText(msg);
@@ -168,16 +158,15 @@ BOOL CDlgStatisticsSignatureAttack::OnInitDialog()
 	m_control_dangerous.SetWindowText(msg);
 
 	UpdateData(FALSE);
-
 	return(TRUE);
 }
 
 void CDlgStatisticsSignatureAttack::SetData(ResultsOfSignatureAttack *ResSigAtt,
-											const int ModifiedBytesHarmless, const int ModifiedBytesDangerous)
+									const int ModifiedBytesHarmless, const int ModifiedBytesDangerous)
 {
-	m_ResSigAtt = ResSigAtt;
-	m_ModifiedBytesHarmless = ModifiedBytesHarmless;
-	m_ModifiedBytesDangerous = ModifiedBytesDangerous;
+	m_ResSigAtt					= ResSigAtt;
+	m_ModifiedBytesHarmless		= ModifiedBytesHarmless;
+	m_ModifiedBytesDangerous	= ModifiedBytesDangerous;
 }
 
 void CDlgStatisticsSignatureAttack::OnPrintStatistics() 
@@ -196,7 +185,6 @@ void CDlgStatisticsSignatureAttack::PrintStatistics()
 	TimeCalculation ExpectedTC(m_ResSigAtt->GetExpectedTime()), EffectiveTC(m_ResSigAtt->GetEffectiveTime());
 
 	SHOW_HOUR_GLASS
-	
 	GetTmpName(outfile, "cry", ".tmp");
 	StatisticsFile.open(outfile, ios::out | ios::binary);
 	if (!StatisticsFile)
@@ -204,6 +192,15 @@ void CDlgStatisticsSignatureAttack::PrintStatistics()
 		//GenerateMessageText(IDS_STRING_FILE_NOT_OPEN);
 		return;
 	}
+
+	HashingOperations HO(m_ResSigAtt->GetHashAlgorithmID());
+	msg.Format(IDS_SIGATT_STAT_HEADER, HO.GetHashAlgorithmName());
+	strlen += _snprintf(doctext + strlen, sizeof(doctext) -1, "%s\n\n", msg);
+	
+	msg.Format(IDS_SIGATT_STAT_ORIGINAL_FILE, m_ResSigAtt->getStrFilenameOriginal());
+	strlen += _snprintf(doctext + strlen, sizeof(doctext) -1, "%s\n", msg);
+	msg.Format(IDS_SIGATT_STAT_FAKE_FILE, m_ResSigAtt->getStrFilenameFake());
+	strlen += _snprintf(doctext + strlen, sizeof(doctext) -1, "%s\n", msg);
 
 	msg.Format(IDS_STRING_SIG_ATT_STA_EXPENSE);
 	strlen += _snprintf(doctext + strlen, sizeof(doctext) - 1, "\n%s\n\n", msg);
@@ -216,8 +213,8 @@ void CDlgStatisticsSignatureAttack::PrintStatistics()
 		ExpectedTC.GetDays(), ExpectedTC.GetHours(), ExpectedTC.GetMinutes(), strDuration);
 	strlen += _snprintf(doctext + strlen, sizeof(doctext) - 1, "%s:  %s\n", msg, Time);
 	msg.Format(IDS_STRING_SIG_ATT_STA_STEPS);
-	strlen += _snprintf(doctext + strlen, sizeof(doctext) - 1, "%s:  %I64i\n\n\n\n",
-		msg, m_ResSigAtt->GetExpectedSteps());
+	strlen += _snprintf(doctext + strlen, sizeof(doctext) - 1, "%s:  %s\n\n\n",
+		msg, itoa_fmt((__int64)m_ResSigAtt->GetExpectedSteps()));
 
 	msg.Format(IDS_STRING_SIG_ATT_STA_EFFEXPENSE);
 	strlen += _snprintf(doctext + strlen, sizeof(doctext) - 1, "%s\n\n", msg);
@@ -259,7 +256,6 @@ void CDlgStatisticsSignatureAttack::PrintStatistics()
 	msg.Format(IDS_STRING_SIG_ATT_STA_DOCTITLE);
 	_snprintf(doctitle, sizeof(doctitle) - 1, "%s", msg);
 	Statistics->SetTitle(doctitle);
-	
 	HIDE_HOUR_GLASS
 }
 

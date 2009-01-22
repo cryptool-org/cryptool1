@@ -137,6 +137,35 @@ char* itoa_fmt(int i_num, char *c_buffer, int i_base )
 	return c_buffer;
 }
 
+char* itoa_fmt(__int64 i_num, char *c_buffer, int i_base )
+{
+	char c_tmp[68];
+	_i64toa(i_num, c_tmp, i_base );
+
+	int l = strlen(c_tmp);
+	int set_pt = (!(l % 3)) ? 3 : l % 3; 
+
+	int i_buffer_length = l+1+l/3;
+	if ( !c_buffer) 
+		c_buffer = new char[i_buffer_length];
+
+	char strPT[128];
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_PT,strPT,STR_LAENGE_STRING_TABLE);
+	char c_pt = strPT[0];
+
+	int i,j = 0;
+	for (i = 0; i<l; )
+	{
+		c_buffer[j++] = c_tmp[i++];
+		if ( i<l && i == set_pt ) { c_buffer[j++] = c_pt; set_pt += 3; }
+	}
+	c_buffer[j] = '\0';
+
+	return c_buffer;
+}
+
+
+
 char* double_fmt(double d_num, char *c_buffer, int prec )
 {
 	char c_tmp[60];

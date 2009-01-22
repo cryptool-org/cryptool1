@@ -64,17 +64,36 @@ static char THIS_FILE[]=__FILE__;
 
 ResultsOfSignatureAttack::ResultsOfSignatureAttack()
 {
-
+	c_filename_fake = c_filename_original = m_MatchingHashBytes = NULL;
 }
 
 ResultsOfSignatureAttack::ResultsOfSignatureAttack(const int HashAlgorithmID, const int BitLength)
 {
+	c_filename_fake = c_filename_original = m_MatchingHashBytes = NULL;
 	SetData(HashAlgorithmID, BitLength);	
+}
+
+void ResultsOfSignatureAttack::SetFilenames(const char *filenameOriginal, const char *filenameFake)
+{
+	if ( filenameFake )
+	{
+		if (c_filename_fake) delete []c_filename_fake;
+		c_filename_fake = new char[strlen(filenameFake)+1];
+		strcpy(c_filename_fake, filenameFake);
+	}	
+	if ( filenameOriginal )
+	{
+		if (c_filename_original) delete []c_filename_original;
+		c_filename_original = new char[strlen(filenameOriginal)+1];
+		strcpy(c_filename_original, filenameOriginal);
+	}
 }
 
 ResultsOfSignatureAttack::~ResultsOfSignatureAttack()
 {
 	delete []m_MatchingHashBytes;
+	delete []c_filename_fake;
+	delete []c_filename_original;
 }
 
 void ResultsOfSignatureAttack::SetData(const int &HashAlgorithmID, const int &BitLength)
@@ -82,25 +101,24 @@ void ResultsOfSignatureAttack::SetData(const int &HashAlgorithmID, const int &Bi
 	int ii;
 
 	m_FloydResult = _SIG_ATT_NO_DOCUMENTS_FOUND;
-
 	for (ii = 0; ii < _MAX_RUNS_SIG_ATT; ii ++)
 	{
-		m_StepsPerRun[ii].StepsUntilCollision = 0;
-		m_StepsPerRun[ii].StepsUntilConfirmation = 0;
-		m_StepsPerRun[ii].TotalSteps = 0;
+		m_StepsPerRun[ii].StepsUntilCollision		= 0;
+		m_StepsPerRun[ii].StepsUntilConfirmation	= 0;
+		m_StepsPerRun[ii].TotalSteps				= 0;
 	}
 
-	m_Runs = 0;
-	m_TotalSteps = 0;
-	m_EffectiveTime = 0.0;
-	m_HashOperationsPerformed = 0;
-
 	m_ExpectedSteps = (long long)ceil((double)(pow((double)2, ((double) BitLength / 2)) * 1.25 * 2));	// stimmt 1.25 ?
-
+	m_Runs						= 0;
+	m_TotalSteps				= 0;
+	m_EffectiveTime				= 0.0;
+	m_HashOperationsPerformed	= 0;
 	HashingOperations HO(HashAlgorithmID);
-	m_ExpectedTime = (double) m_ExpectedSteps * 5 / HO.GetHashOpsPerSecond();	// rechnerabhängig!
+	m_HashAlgorithmID			= HashAlgorithmID;
 
-	m_MatchingHashBytes = new char[BitLength / 8];
+	m_ExpectedTime				= (double) m_ExpectedSteps * 5 / HO.GetHashOpsPerSecond();	// rechnerabhängig!
+	m_BitLength					= BitLength;
+	m_MatchingHashBytes			= new char[BitLength / 8];
 }
 
 void ResultsOfSignatureAttack::SetMatchingHashBytes(const char *MatchingHashBytes, const int CompleteByteLength)

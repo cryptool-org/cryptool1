@@ -61,7 +61,7 @@ public:
 	bool GetPrintStatistics() const;
 	void PrintStatistics();
 	void SetData(ResultsOfSignatureAttack *ResSigAtt,
-		const int ModifiedBytesHarmless, const int ModifiedBytesDangerous);
+	const int ModifiedBytesHarmless, const int ModifiedBytesDangerous);
 	CDlgStatisticsSignatureAttack(CWnd* pParent = NULL);   // Standardkonstruktor
 	/*CDlgStatisticsSignatureAttack(CWnd* pParent = NULL, ResultsOfSignatureAttack *ResSigAtt = NULL);*/
 
@@ -77,7 +77,6 @@ public:
 	CString	m_EffectiveTime;
 	CString	m_HashOperationsPerformed;
 	//}}AFX_DATA
-
 
 // Überschreibungen
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen

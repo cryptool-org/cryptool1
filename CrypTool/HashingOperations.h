@@ -75,39 +75,30 @@ struct HashAlgorithmsFP HAFP[];
 
 class HashingOperations  
 {
-public:
-	int GetHashAlgorithmBitLength() const;
-	char *GetHashAlgorithmName() const;
-	int GetHashOpsPerSecond() const;
-
-	int GetErrorcode() const
-// Beschreibung:	liefert den Fehlercode zurück, der in SetData() bestimmt wurde und sollte nach Anlegen eines
-//					HashingOperations-Objekts aufgerufen werden: wenn das Ergebnis ungleich 0 ist, kann das Aufrufen
-//					der Get-Methoden zu einem Absturt führen!;
-// Parameter:		keine;
-// Rückgabewert:	Fehlercode [out]: 0 = OK, 1 = kein Hash-Algorithmus implementiert, 2 = ungültige Hash-Algorithmus-ID;
-	{
-		return m_Errorcode;
-	}
-
-	int GetHashAlgorithmID() const { return m_HashAlgorithmID; }
-	HashingOperations(int HashAlgorithmID) { SetData(HashAlgorithmID); }
-	virtual ~HashingOperations();
-	void DoHash(char *OriginalDocument, const int OriginalDocumentLength, char *ResultingHashValue) const;
-	
-	HashAlgorithmsFP *getHashAlgorithmsFP() { return &(HAFP[m_HashAlgorithmID]); };	
-
-	// these three functions provide a public access for hashing in chunks
-	void chunkHashInit();
-	void chunkHashUpdate(void *_message, const int _messageLength);
-	void chunkHashFinal(char *_messageDigest);
-
-private:
 	void *m_HashContext;
 	int m_HashAlgorithmID;
 	void SetData(int HashAlgorithmID);
 	int m_Errorcode;
 	int m_AlgorithmCounter;
+
+public:
+			 HashingOperations(int HashAlgorithmID) { SetData(HashAlgorithmID); }
+	virtual ~HashingOperations();
+
+	int		GetHashAlgorithmBitLength() const;
+	char   *GetHashAlgorithmName() const;
+	int		GetHashOpsPerSecond() const;
+	int		GetErrorcode() const
+	{ // 0 = OK, 1 = kein Hash-Algorithmus implementiert, 2 = ungültige Hash-Algorithmus-ID;
+		return m_Errorcode;
+	}
+	int		GetHashAlgorithmID() const { return m_HashAlgorithmID; }
+	void	DoHash(char *OriginalDocument, const int OriginalDocumentLength, char *ResultingHashValue) const;
+	HashAlgorithmsFP *getHashAlgorithmsFP() { return &(HAFP[m_HashAlgorithmID]); };	
+	// these three functions provide a public access for hashing in chunks
+	void	chunkHashInit();
+	void	chunkHashUpdate(void *_message, const int _messageLength);
+	void	chunkHashFinal(char *_messageDigest);
 };
 
 #endif // !defined(AFX_HASHINGOPERATIONS_H__94B56021_D434_11D6_9DEF_000629718A52__INCLUDED_)

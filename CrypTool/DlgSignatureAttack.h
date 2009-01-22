@@ -97,6 +97,7 @@ protected:
 private:
 	void GenerateMessageText(int Errorcode, UINT MessageBoxStyle = MB_ICONEXCLAMATION);
 	void BrowseDocument(CString &);
+	void batchAttack();
 	bool AreValidPaths();
 
 	/* this function checks whether the values for harmless and dangerous file entered by the user 

@@ -51,6 +51,7 @@ statement from your version.
 #include "SecudeCryptography.h"
 #include "CrypToolTools.h"
 #include "FileTools.h"
+#include "ChrTools.h"
 
 #include "HashingOperations.h"
 
@@ -484,15 +485,20 @@ void CDlgHMAC::calculateMACAndUpdateGUI()
 			}
 			strText = m_key + m_originalMessage + m_key;
 			break;//Schlüssel vorne und hinten
-	case 3: if (m_key == "")
+	case 3: 
 			{
-				LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_Double, pc_str, 150);
-				AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
-				// no return because of auto-update implementation
-				//return;
+				if (m_key == "")
+				{
+					LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_Double, pc_str, 150);
+					AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
+					// no return because of auto-update implementation
+					//return;
+				}			
+				CString m_key_hex = _T("");
+				tempRes = m_key + m_originalMessage;
+				dataToHexDump(m_key, m_key.GetLength(), m_key_hex);
+				strText = m_key_hex + _T(" ") + CalculateMac(tempRes);
 			}
-			tempRes = m_key + m_originalMessage;
-			strText = m_key + CalculateMac(tempRes);
 			break;//doppelte Ausführung der Hashfunktion
 	case 4: if ((m_key == "") && (m_secondkey == ""))
 			{
