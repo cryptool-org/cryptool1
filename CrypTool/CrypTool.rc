@@ -8,8 +8,7 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -13564,8 +13563,8 @@ BEGIN
     CTEXT           "haben es die Universitäten Siegen und Darmstadt\nund viele freiwillige Entwickler in einem Open-Source-Projekt entwickelt.",IDC_STATIC,9,130,223,24
     CTEXT           "CrypTool nutzt folgende Bibliotheken:",IDC_STATIC,0,219,241,8
     CTEXT           "Kontakt:",IDC_STATIC,0,315,241,10
-    CTEXT           "Copyright (C) 1998-2008 Deutsche Bank AG\nFrankfurt am Main, Germany",IDC_STATIC,0,389,242,17
-    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,10,46,222,79
+    CTEXT           "Copyright (C) 1998-2009 Deutsche Bank AG\nFrankfurt am Main, Germany",IDC_STATIC,0,389,242,17
+    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,46,228,79
     CTEXT           "CrypTool ist ein kostenloses und umfangreiches Lernprogramm\nzu klassischer und moderner Kryptographie/Kryptoanalyse.\n\nGemeinsam mit den Sponsoren",IDC_STATIC,1,12,241,33
     CTEXT           "MIRACL",IDC_EDIT_MIRACL,1,255,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
     CTEXT           "SECUDE1",IDC_EDIT_SECUDE1,1,231,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
@@ -17956,6 +17955,8 @@ BEGIN
 
     IDD_ABOUT, DIALOG
     BEGIN
+        VERTGUIDE, 7
+        VERTGUIDE, 235
         BOTTOMMARGIN, 434
     END
 
@@ -20859,7 +20860,7 @@ BEGIN
     IDS_STRING_ADFGVX_PASSWORD_CORRECTED 
                             "Das eingegebene Transpositionspasswort wurde korrigiert:\n\n"
     IDS_STRING_ABOUT_CONTACT_INFORMATION 
-                            "esslinger@fb5.uni-siegen.de\r\njoerg-cornelius.schneider@db.com\r\nhenrik.koy@db.com\r\ncryptool-list@sec.informatik.tu-darmstadt.de\r\n\r\nInternet: http://www.cryptool.de"
+                            "esslinger@fb5.uni-siegen.de\r\njoerg-cornelius.schneider@db.com\r\nhenrik.koy@db.com\r\n\r\n\r\nInternet: http://www.cryptool.de"
     IDS_BIT_FMT             "%d Bit%s"
     IDS_BIT_EFFECTIVE_FMT   " (%d Bit effektiv)"
 END
@@ -21286,11 +21287,11 @@ BEGIN
     CTEXT           "the universities Siegen and Darmstadt developed it within an\nopen source project thanks to the help of many voluntary developers.",IDC_STATIC,0,130,242,17
     CTEXT           "CrypTool uses the following libraries:",IDC_STATIC,1,219,241,8
     CTEXT           "Contact:",IDC_STATIC,0,315,241,10
-    CTEXT           "Copyright (C) 1998-2008 Deutsche Bank AG\nFrankfurt am Main, Germany",IDC_STATIC,0,389,242,17
+    CTEXT           "Copyright (C) 1998-2009 Deutsche Bank AG\nFrankfurt am Main, Germany",IDC_STATIC,0,389,242,17
     CTEXT           "CrypTool is a free and comprehensive e-learning program about\nclassic and contemporary cryptography and cryptanalysis.\n\nIn a joint effort of the sponsors",IDC_STATIC,1,10,241,32
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,41,48,105,37,WS_EX_TRANSPARENT
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,40,80,143,37,WS_EX_TRANSPARENT
-    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,10,46,222,79
+    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,46,228,79
     CTEXT           "MIRACL",IDC_EDIT_MIRACL,1,257,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
     CTEXT           "SECUDE1",IDC_EDIT_SECUDE1,1,234,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
     CTEXT           "OPENSSL",IDC_EDIT_OPENSSL,1,268,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
@@ -27994,6 +27995,8 @@ BEGIN
 
     IDD_ABOUT, DIALOG
     BEGIN
+        VERTGUIDE, 7
+        VERTGUIDE, 235
         TOPMARGIN, 1
         BOTTOMMARGIN, 440
     END
@@ -31387,7 +31390,7 @@ BEGIN
     IDS_STRING_ADFGVX_PASSWORD_CORRECTED 
                             "The entered transposition password was corrected:\n\n"
     IDS_STRING_ABOUT_CONTACT_INFORMATION 
-                            "esslinger@fb5.uni-siegen.de\r\njoerg-cornelius.schneider@db.com\r\nhenrik.koy@db.com\r\ncryptool-list@sec.informatik.tu-darmstadt.de\r\n\r\nInternet: http://www.cryptool.com"
+                            "esslinger@fb5.uni-siegen.de\r\njoerg-cornelius.schneider@db.com\r\nhenrik.koy@db.com\r\n\r\n\r\nInternet: http://www.cryptool.com"
     IDS_BIT_FMT             "%d bit%s"
     IDS_BIT_EFFECTIVE_FMT   " (%d bit effective)"
 END
