@@ -11949,7 +11949,6 @@ BEGIN
     CONTROL         "&Miller-Rabin-Test",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,23,54,69,10
     CONTROL         "&Solovay-Strassen-Test",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,23,69,87,10
     CONTROL         "&Fermat-Test",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,23,84,53,10
-    CONTROL         "&AKS-Test",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,23,99,46,10
     CONTROL         "&unabhängig voneinander",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | WS_GROUP,184,54,95,10
     CONTROL         "beide gleich (nur einen eingeben)",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,184,76,121,10
     PUSHBUTTON      "&Abbrechen",IDC_ENDDIALOG,254,217,59,20
@@ -22376,7 +22375,6 @@ BEGIN
     CONTROL         "&Miller-Rabin Test",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,23,54,69,10
     CONTROL         "&Solovay-Strassen Test",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,23,69,87,10
     CONTROL         "&Fermat Test",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,23,84,53,10
-    CONTROL         "&AKS Test",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,23,99,46,10
     CONTROL         "&To be entered independently",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | WS_GROUP,184,54,121,10
     CONTROL         "&Both are equal (just enter one)",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,184,76,118,10
     PUSHBUTTON      "&Cancel",IDC_ENDDIALOG,254,217,59,20
