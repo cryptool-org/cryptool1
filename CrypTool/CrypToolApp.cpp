@@ -1039,6 +1039,8 @@ void CCrypToolApp::OnEinzelverfahrenTutorialPrimzahlengenerieren()
 {
 	CDlgPrimesGeneratorDemo DPG;
 	DPG.m_hide_button_accept = true;
+	// enable the generation of sets of prime numbers
+	DPG.enableGenerateASetOfPrimeNumbersFunctionality();
 	DPG.DoModal();
 }
 

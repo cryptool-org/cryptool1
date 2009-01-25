@@ -53,6 +53,7 @@ statement from your version.
 #include "DlgPrimesGeneratorDemo.h"
 #include "Keyrepository.h"
 #include "DialogeMessage.h"
+#include "FileTools.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -63,6 +64,9 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgPrimesGeneratorDemo 
 
+// flomar, 01/24/09
+// this function is used to generate multiple prime numbers
+UINT singleThreadGenerateMultiplePrimeNumbers(PVOID argument);
 
 CDlgPrimesGeneratorDemo::CDlgPrimesGeneratorDemo(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgPrimesGeneratorDemo::IDD, pParent)
@@ -78,6 +82,9 @@ CDlgPrimesGeneratorDemo::CDlgPrimesGeneratorDemo(CWnd* pParent /*=NULL*/)
 	m_edit5 = _T("0");
 	m_edit6 = _T("0");
 	//}}AFX_DATA_INIT
+	generateMultiplePrimeNumbersEnabled = false;
+	generateMultiplePrimeNumbers = false;
+	abortGenerationMultiplePrimeNumbers = false;
 }
 
 CDlgPrimesGeneratorDemo::CDlgPrimesGeneratorDemo(CString lower, CString upper, CWnd *pParent)
@@ -94,6 +101,9 @@ CDlgPrimesGeneratorDemo::CDlgPrimesGeneratorDemo(CString lower, CString upper, C
 	m_edit5 = _T("0");
 	m_edit6 = _T("0");
 	//}}AFX_DATA_INIT
+	generateMultiplePrimeNumbersEnabled = false;
+	generateMultiplePrimeNumbers = false;
+	abortGenerationMultiplePrimeNumbers = false;
 }
 
 void CDlgPrimesGeneratorDemo::DoDataExchange(CDataExchange* pDX)
@@ -115,6 +125,7 @@ void CDlgPrimesGeneratorDemo::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT5, m_edit5);
 	DDX_Text(pDX, IDC_EDIT6, m_edit6);
 	//}}AFX_DATA_MAP
+	DDX_Check(pDX, IDC_CHECK_GENERATE_MULTIPLE_PRIME_NUMBERS, generateMultiplePrimeNumbers);
 }
 
 
@@ -178,6 +189,19 @@ BOOL CDlgPrimesGeneratorDemo::OnInitDialog()
 
 	if (m_hide_button_accept)
 		m_control_button_accept.ShowWindow(SW_HIDE);
+
+	// enable/disable generation of multiple prime numbers check box
+	CWnd *generateMultiplePrimeNumbersWindow = GetDlgItem(IDC_CHECK_GENERATE_MULTIPLE_PRIME_NUMBERS);
+	if(generateMultiplePrimeNumbersEnabled) {
+		if(generateMultiplePrimeNumbersWindow) {
+			generateMultiplePrimeNumbersWindow->EnableWindow(true);
+		}
+	}
+	else {
+		if(generateMultiplePrimeNumbersWindow) {
+			generateMultiplePrimeNumbersWindow->EnableWindow(false);
+		}
+	}
 
 	return FALSE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
@@ -266,6 +290,56 @@ void CDlgPrimesGeneratorDemo::OnButtonGenerate()
 		return;
 	}
 	
+
+	// normally, we would either create one or two prime numbers at this point; but if the 
+	// "create a set of prime numbers" check box is selected, we need to generate a set (1 to n) 
+	// of prime numbers in a separate thread that needs to be manually interrupted by the user
+	if(generateMultiplePrimeNumbers) {
+		// we need this initialization to allow multiple generation threads
+		abortGenerationMultiplePrimeNumbers = false;
+		mapGeneratedPrimeNumbers.clear();
+		// start the prime number generation thread
+		AfxBeginThread(singleThreadGenerateMultiplePrimeNumbers, PVOID(this));
+		// show the progress dialog
+		theApp.fs.Set(0);
+		theApp.fs.setTitle(IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_TITLE);
+		if(theApp.fs.DoModal()) {
+			// as soon as the user cancels the progress dialog, 
+			// abort the prime number generation thread
+			abortGenerationMultiplePrimeNumbers = true;
+		}
+
+		// write the prime numbers to a file
+		char filename[CRYPTOOL_PATH_LENGTH];
+		GetTmpName(filename, "cry", ".txt");
+		ofstream outfile(filename);
+		if(outfile) {
+			for(	mapGeneratedPrimeNumbersIterator = mapGeneratedPrimeNumbers.begin();
+						mapGeneratedPrimeNumbersIterator != mapGeneratedPrimeNumbers.end();
+						mapGeneratedPrimeNumbersIterator++) {
+				// write prime numbers separated by white spaces
+				CString primeNumber = (*mapGeneratedPrimeNumbersIterator).first;
+				primeNumber.Append(" ");
+				outfile.write(primeNumber, primeNumber.GetLength());
+			}
+			outfile.close();
+		}
+		// show the prime numbers in a new document
+		theApp.OpenDocumentFileNoMRU(filename);
+		// display a notification message
+		CString message;
+		char temp[1024];
+		// display the search interval (m_edit1, m_edit2) and the amount of prime numbers found
+		LoadString(AfxGetInstanceHandle(), IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION, pc_str, STR_LAENGE_STRING_TABLE);
+		sprintf(temp, pc_str, m_edit1, m_edit2, mapGeneratedPrimeNumbers.size());
+		message.Append(temp);
+		MessageBox(message, "CrypTool", MB_ICONINFORMATION);
+		// leave this function cleanly
+		UpdateData(false);
+		return;
+	}
+
+
 	if(0==m_radio4)
 	{
 		//if((0==m_edit1.IsEmpty())&&(0==m_edit2.IsEmpty()) &&
@@ -417,4 +491,67 @@ void CDlgPrimesGeneratorDemo::OnUpdateEdit()
 		m_edit4 = m_edit2;
 		UpdateData(false);
 	}	
+}
+
+// use this function to enable the generation of muliple prime numbers;
+// by default, the generation of multiple prime numbers is not possible
+void CDlgPrimesGeneratorDemo::enableGenerateASetOfPrimeNumbersFunctionality() {
+	generateMultiplePrimeNumbersEnabled = true;
+}
+
+// we need this threaded function to generate multiple prime numbers;
+// they are stored in "mapGeneratedPrimeNumbers"
+UINT singleThreadGenerateMultiplePrimeNumbers(PVOID argument)
+{
+	// get the parent dialog
+	CDlgPrimesGeneratorDemo *dlg = (CDlgPrimesGeneratorDemo*)(argument);
+	if(!dlg) return 0;
+	// see which algorithm was chosen for prime generation
+	int chosenAlgorithm = dlg->m_radio1;
+	// we consider only the first choice for the value range (m_edit1, m_edit2)
+	Big valueRangeStart;
+	Big valueRangeEnd;
+	// TODO: error checking
+	if(!evaluate::CEvalIntExpr(valueRangeStart, dlg->m_edit1))
+		return 0;
+	if(!evaluate::CEvalIntExpr(valueRangeEnd, dlg->m_edit2))
+		return 0;
+	Big value = valueRangeStart;
+	Big range = valueRangeEnd - valueRangeStart;
+	GeneratePrimes generator;
+	// a counter for the progress bar (0-100)
+	int progress = 0;
+	// now, as long as the user does not abort the thread, keep testing for prime numbers
+	for(value = valueRangeStart; value < valueRangeEnd && !dlg->abortGenerationMultiplePrimeNumbers; value = value+1) 
+	{
+		CString stringPrimeNumber;
+		generator.SetP(value);
+		// result of the prime generation
+		int result = 0;
+		// now, use the correct algorithm
+		if(chosenAlgorithm == 0)
+			result = generator.MillerRabinTest(100);
+		if(chosenAlgorithm == 1)
+			result = generator.SolvayStrassenTest(100);
+		if(chosenAlgorithm == 2)
+			result = generator.FermatTest(100);
+		// if there was a positive result, add the prime numer to the result string
+		if(result) {
+			if(generator.GetPrime(stringPrimeNumber)) {
+				if(!dlg->mapGeneratedPrimeNumbers.count(stringPrimeNumber)) {
+					dlg->mapGeneratedPrimeNumbers[stringPrimeNumber] = "generated";	
+				}
+			}	
+		}
+		// we increase the progress bar if necessary
+		Big step = (valueRangeEnd - valueRangeStart) / 100;
+		if((value - valueRangeStart) >= (step + step * progress))
+			progress++;
+		theApp.fs.Set(progress);
+	}
+	// end the progress bar
+	theApp.fs.cancel();
+	// end the thread
+	AfxEndThread(0);
+	return 0;
 }

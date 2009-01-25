@@ -52,6 +52,7 @@ statement from your version.
 //
 
 #include "IntegerArithmetic.h"
+#include <map>
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgPrimesGeneratorDemo 
@@ -63,6 +64,9 @@ public:
 	CDlgPrimesGeneratorDemo(CWnd* pParent = NULL);   // Standardkonstruktor
 	CDlgPrimesGeneratorDemo(CString,CString,CWnd* pParent = NULL);
 	BOOL GetRandomPrime( CString &OutStr, GeneratePrimes &P );
+
+	// call this function to enable the "generate a set of prime numbers" functionality
+	void enableGenerateASetOfPrimeNumbersFunctionality();
 	
 	bool m_hide_button_accept;
 // Dialogfelddaten
@@ -105,6 +109,18 @@ protected:
 	afx_msg void OnUpdateEdit();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+
+public:
+	// this variable indicates if the generation of multiple prime numbers is possible
+	BOOL generateMultiplePrimeNumbersEnabled;
+	// this variable indicates if the generation of multiple prime numbers was chosen by the user
+	BOOL generateMultiplePrimeNumbers;
+	// this variable indicates that the prime number generation thread is to be aborted
+	BOOL abortGenerationMultiplePrimeNumbers;
+	// this variable holds all generated prime numbers
+	std::map<CString, CString> mapGeneratedPrimeNumbers;
+	// this is a map iterator (see above)
+	std::map<CString, CString>::iterator mapGeneratedPrimeNumbersIterator;
 };
 
 //{{AFX_INSERT_LOCATION}}
