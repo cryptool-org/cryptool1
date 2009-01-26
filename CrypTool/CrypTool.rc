@@ -8,7 +8,8 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -10509,6 +10510,8 @@ END
 STRINGTABLE 
 BEGIN
     IDS_SIGATT_STAT_FAKE_FILE "Filename fake: %s"
+    IDS_PQMERROR_NO_SPECIALCHARACTERS 
+                            "The special character list is empty!\nPlease provide some spechial characters or reduce the minimal number of special characters to 0."
 END
 
 #endif    // Polish resources
@@ -20895,6 +20898,8 @@ END
 STRINGTABLE 
 BEGIN
     IDS_SIGATT_STAT_FAKE_FILE "Dateiname Fälschung: %s"
+    IDS_PQMERROR_NO_SPECIALCHARACTERS 
+                            "Die Liste der Sonderzeichen ist Leer!\nBitte gebe Sonderzeichen an, oder veringere die Minimalzahl der Sonderzeichen auf 0."
 END
 
 #endif    // German (Germany) resources
@@ -31430,6 +31435,8 @@ END
 STRINGTABLE 
 BEGIN
     IDS_SIGATT_STAT_FAKE_FILE "Filename fake: %s"
+    IDS_PQMERROR_NO_SPECIALCHARACTERS 
+                            "The special character list is empty!\nPlease provide some spechial characters or reduce the minimal number of special characters to 0."
 END
 
 #endif    // English (U.K.) resources

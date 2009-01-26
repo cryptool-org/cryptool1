@@ -48,6 +48,7 @@ statement from your version.
 #include "DlgPasswordGuidelines.h"
 #include "CrypToolTools.h"
 #include ".\dlgpasswordguidelines.h"
+#include "DialogeMessage.h"
 
 CDlgPasswordGuidelines::CDlgPasswordGuidelines(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgPasswordGuidelines::IDD, pParent)
@@ -120,7 +121,13 @@ void CDlgPasswordGuidelines::OnBnClickedOk()
 	int minimumLength = atoi(stringMinimumLength.GetBuffer());
 	int minimumDigits = atoi(stringMinimumDigits.GetBuffer());
 	int minimumSpecial = atoi(stringMinimumSpecial.GetBuffer());
-	
+
+	if ( minimumSpecial > 0 && !stringSpecialGroup.GetLength() )
+	{
+		Message(IDS_PQMERROR_NO_SPECIALCHARACTERS, MB_ICONSTOP);
+		return;
+	}
+
 	// try to write guidelines into registry
 	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS, "PasswordGuidelines" ) == ERROR_SUCCESS )
 	{

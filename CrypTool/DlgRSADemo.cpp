@@ -2104,3 +2104,5 @@ void CDlgRSADemo::OnOK()
   	i = i*2;
 	// CDialog::OnOK();
 }
+
+

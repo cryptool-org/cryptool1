@@ -3049,6 +3049,7 @@
 #define IDS_SIGATT_STAT_HEADER          62014
 #define IDS_SIGATT_STAT_ORIGINAL_FILE   62015
 #define IDS_SIGATT_STAT_FAKE_FILE       62016
+#define IDS_PQMERROR_NO_SPECIALCHARACTERS 62017
 
 // Next default values for new objects
 // 
