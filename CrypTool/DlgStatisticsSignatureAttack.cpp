@@ -212,9 +212,8 @@ void CDlgStatisticsSignatureAttack::PrintStatistics()
 	Time.Format(IDS_STRING_SIG_ATT_STA_TIME, ExpectedTC.GetYears(),
 		ExpectedTC.GetDays(), ExpectedTC.GetHours(), ExpectedTC.GetMinutes(), strDuration);
 	strlen += _snprintf(doctext + strlen, sizeof(doctext) - 1, "%s:  %s\n", msg, Time);
-	msg.Format(IDS_STRING_SIG_ATT_STA_STEPS);
-	strlen += _snprintf(doctext + strlen, sizeof(doctext) - 1, "%s:  %s\n\n\n",
-		msg, itoa_fmt((__int64)m_ResSigAtt->GetExpectedSteps()));
+	msg.Format(IDS_STRING_SIG_ATT_STA_STEPS, itoa_fmt((__int64)m_ResSigAtt->GetExpectedSteps()));
+	strlen += _snprintf(doctext + strlen, sizeof(doctext) - 1, "%s\n\n\n", msg);
 
 	msg.Format(IDS_STRING_SIG_ATT_STA_EFFEXPENSE);
 	strlen += _snprintf(doctext + strlen, sizeof(doctext) - 1, "%s\n\n", msg);
@@ -223,23 +222,21 @@ void CDlgStatisticsSignatureAttack::PrintStatistics()
 	Time.Format(IDS_STRING_SIG_ATT_STA_TIME, EffectiveTC.GetYears(),
 		EffectiveTC.GetDays(), EffectiveTC.GetHours(), EffectiveTC.GetMinutes(), strDuration);
 	strlen += _snprintf(doctext + strlen, sizeof(doctext) - 1, "%s:  %s\n", msg, Time);
-	msg.Format(IDS_STRING_SIG_ATT_STA_STEPS);
-	strlen += _snprintf(doctext + strlen, sizeof(doctext) - 1, "%s:  %I64i\n",
-		msg, m_ResSigAtt->GetTotalSteps());
-	msg.Format(IDS_STRING_SIG_ATT_STA_PERFORMED);
-	strlen += _snprintf(doctext + strlen, sizeof(doctext) - 1, "%s:  %I64i\n\n",
-		msg, m_ResSigAtt->GetHashOperationsPerformed());
+	msg.Format(IDS_STRING_SIG_ATT_STA_STEPS, itoa_fmt((__int64)m_ResSigAtt->GetTotalSteps()));
+	strlen += _snprintf(doctext + strlen, sizeof(doctext) - 1, "%s\n",msg);
+	msg.Format(IDS_STRING_SIG_ATT_STA_PERFORMED, itoa_fmt((__int64)m_ResSigAtt->GetHashOperationsPerformed()));
+	strlen += _snprintf(doctext + strlen, sizeof(doctext) - 1, "%s\n\n", msg);
 	msg.Format(IDS_STRING_SIG_ATT_STA_TITLE);
 	strlen += _snprintf(doctext + strlen, sizeof(doctext) - 1, "%s", msg);
 
 	for (ii = 0; ii < m_ResSigAtt->GetRuns(); ii ++)
 	{
 		strlen += _snprintf(doctext + strlen, sizeof(doctext) - 1,
-			"       %.2i            %.12I64i                         %.12I64i         %.12I64i\n",
+			"   %.2i      %22s     %25s     %20s\n",
 			ii + 1,
-			m_ResSigAtt->GetCollisionStepsOfRun(ii),
-			m_ResSigAtt->GetConfirmationStepsOfRun(ii),
-			m_ResSigAtt->GetTotalStepsOfRun(ii));
+			itoa_fmt((__int64)m_ResSigAtt->GetCollisionStepsOfRun(ii)),
+			itoa_fmt((__int64)m_ResSigAtt->GetConfirmationStepsOfRun(ii)),
+			itoa_fmt((__int64)m_ResSigAtt->GetTotalStepsOfRun(ii)));
 	}
 
 	msg.Format(IDS_STRING_SIG_ATT_STA_ADDEDBYTES);
