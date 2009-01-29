@@ -9,7 +9,7 @@ public class ECCFrame extends Frame //implements KeyListener
  	/*****  DEFINITIONEN   *****/
  	 
  	//0=deutsch, 1=englisch
-    static protected int sprache=0;
+    static protected int sprache=1;
     
     //0=Fr, 1=Fp
     static protected int raum=0;
@@ -139,9 +139,9 @@ public class ECCFrame extends Frame //implements KeyListener
     	eccframe=new ECCFrame(sprache,raum);
     	
     	if (sprache==0)
-    		eccframe.setTitle("Punktaddition auf Elliptischen Kurven über den reellen Zahlenraum R");
+    		eccframe.setTitle("ECC-Demo, v1.0: Punktaddition auf Elliptischen Kurven über den reellen Zahlenraum R");
     	else
-    		eccframe.setTitle("Point addition on elliptic curves over the real number space R");
+    		eccframe.setTitle("ECC Demonstration, v1.0: Point addition on elliptic curves over the real number space R");
     	eccframe.setLocation(50,50);
     }
 

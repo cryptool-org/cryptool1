@@ -30,8 +30,8 @@ class Texte
 	{
 		if(sprache==0)//deutsch
 		{
-			this.frameTitleFr="Punktaddition auf Elliptischen Kurven über den reellen Zahlenraum R";
-			this.frameTitleFp="Punktaddition auf Elliptischen Kurven über diskreten Gruppen Fp";
+			this.frameTitleFr="ECC-Demo, v1.0: Punktaddition auf Elliptischen Kurven über den reellen Zahlenraum R";
+			this.frameTitleFp="ECC-Demo, v1.0: Punktaddition auf Elliptischen Kurven über diskreten Gruppen Fp";
 			//long title with authors
 			//this.frameTitle="Punktaddition auf Elliptischen Kurven                                                                                           © D.Laupichler, M.Kraft 2005";
 			this.helpButton="Hilfe";
@@ -125,8 +125,8 @@ class Texte
 		
 		if(sprache==1)//english
 		{
-			this.frameTitleFr="Point addition on elliptic curves over the real number space R";
-			this.frameTitleFp="Point addition on elliptic curves over discrete groups of prime numbers";	
+			this.frameTitleFr="ECC Demonstration, v1.0: Point addition on elliptic curves over the real number space R";
+			this.frameTitleFp="ECC Demonstration, v1.0: Point addition on elliptic curves over discrete groups of prime numbers";	
 			//long title with authors
 			//this.frameTitle="Point addition over elliptic curves                                                                                             © D.Laupichler, M.Kraft 2005";
 			this.helpButton="Help";

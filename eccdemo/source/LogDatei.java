@@ -32,7 +32,7 @@ public class LogDatei extends Dialog implements ActionListener
 	   	ButtonOK = new Button (" OK ");
 	   	ButtonOK.setEnabled(true);
 		ButtonOK.addActionListener(this);
-	    ButtonOK.setPreferredSize(new Dimension(40,20));
+	    ButtonOK.setSize(new Dimension(40,20));
 	    add("South",ButtonOK);
 		//myTextArea.setFocusable(false);
 		ButtonOK.setFocusable(true);

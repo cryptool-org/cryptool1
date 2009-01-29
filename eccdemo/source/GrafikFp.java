@@ -410,11 +410,22 @@ text="";
 	    		DecimalFormat df=new DecimalFormat("0");
         		String ax=df.format(eccframe.dax);
        			String ay=df.format(eccframe.day);	
-                if(eccframe.day>0)
-                    g.drawString("("+ax+"/"+ay+")",eccframe.ax+10,eccframe.ay+13);
-                else
-                    g.drawString("("+ax+"/"+ay+")",eccframe.ax+10,eccframe.ay-4);
-    		}
+                
+                if (eccframe.dax<=(eccframe.maxwert/2)) {
+                	
+                   if(eccframe.day>0) g.drawString("("+ax+"/"+ay+")",eccframe.ax+10,eccframe.ay+13);
+           	       else g.drawString("("+ax+"/"+ay+")",eccframe.ax+10,eccframe.ay-4);
+                }
+                
+
+                if (eccframe.dax>(eccframe.maxwert/2)) {
+                	
+                   if(eccframe.day>0) g.drawString("("+ax+"/"+ay+")",eccframe.ax-30,eccframe.ay+23);
+           	       else g.drawString("("+ax+"/"+ay+")",eccframe.ax-30,eccframe.ay-4);
+                }
+                
+                
+	   		}
         	  		
 	   	}
 	
@@ -543,12 +554,13 @@ text="";
 				if ((eccframe.punkt[treffer][0]!=eccframe.dax)||(eccframe.punkt[treffer][1]!=eccframe.day)) 
 				{
 				
-				grafikFp.repaint(eccframe.ax-3, eccframe.ay-3, 100, 20);
+				grafikFp.repaint(eccframe.ax-30, eccframe.ay-30, 120, 56);
 		       	eccframe.ax=xWertToXPixel(eccframe.punkt[treffer][0]);
 				eccframe.ay=yWertToYPixel(eccframe.punkt[treffer][1]);
 				eccframe.dax=eccframe.punkt[treffer][0];
 				eccframe.day=eccframe.punkt[treffer][1];
-				grafikFp.repaint(eccframe.ax-3, eccframe.ay-3, 100, 20);
+				grafikFp.repaint(eccframe.ax-30, eccframe.ay-30, 120, 56);
+				
 				}
 			
 	      	}
@@ -558,6 +570,7 @@ text="";
   
      
     
+
 //Rechenfunktionen
 
     //liegt die pixel-koordinate auf dem graph??

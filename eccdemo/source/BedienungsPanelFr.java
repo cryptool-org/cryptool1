@@ -70,15 +70,15 @@ public class BedienungsPanelFr extends Panel implements AdjustmentListener, Acti
         
         //Größe und Ausrichtung anpassen
         LabelA.setAlignment(Label.RIGHT);
-        ScrollbarA.setPreferredSize(new Dimension(90,20));
+        ScrollbarA.setSize(new Dimension(90,20));
         LabelB.setAlignment(Label.RIGHT);
-        ScrollbarB.setPreferredSize(new Dimension(90,20));
+        ScrollbarB.setSize(new Dimension(90,20));
         LabelC.setAlignment(Label.RIGHT);
-        ScrollbarC.setPreferredSize(new Dimension(90,20));
-        ButtonP.setPreferredSize(new Dimension(90,20));
-        ButtonPQ.setPreferredSize(new Dimension(90,20));
-        ButtonDelete.setPreferredSize(new Dimension(90,20));
-        ButtonLog.setPreferredSize(new Dimension(90,20));        
+        ScrollbarC.setSize(new Dimension(90,20));
+        ButtonP.setSize(new Dimension(90,20));
+        ButtonPQ.setSize(new Dimension(90,20));
+        ButtonDelete.setSize(new Dimension(90,20));
+        ButtonLog.setSize(new Dimension(90,20));        
         add(LabelA);
         add(ScrollbarA);
     	add(LabelB);
