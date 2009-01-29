@@ -20899,7 +20899,7 @@ STRINGTABLE
 BEGIN
     IDS_SIGATT_STAT_FAKE_FILE "Dateiname Fälschung: %s"
     IDS_PQMERROR_NO_SPECIALCHARACTERS 
-                            "Die Liste der Sonderzeichen ist Leer!\nBitte gebe Sonderzeichen an, oder veringere die Minimalzahl der Sonderzeichen auf 0."
+                            "Die Liste der Sonderzeichen ist leer!\nBitte geben Sie Sonderzeichen an, oder veringern Sie die Minimalzahl der Sonderzeichen auf Null."
 END
 
 #endif    // German (Germany) resources
@@ -31436,7 +31436,7 @@ STRINGTABLE
 BEGIN
     IDS_SIGATT_STAT_FAKE_FILE "Filename fake: %s"
     IDS_PQMERROR_NO_SPECIALCHARACTERS 
-                            "The special character list is empty!\nPlease provide some spechial characters or reduce the minimal number of special characters to 0."
+                            "The special character list is empty!\nPlease provide some spechial characters or reduce the minimal number of special characters to zero."
 END
 
 #endif    // English (U.K.) resources
