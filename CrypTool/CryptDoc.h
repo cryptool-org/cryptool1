@@ -192,6 +192,7 @@ protected:
 	afx_msg void OnGotoVater();
 	afx_msg void OnAnalysisRandom3dVisualization();
 	afx_msg void OnSymclassicSolitaire();
+	afx_msg void OnEncryptionSimpleTranspositions();
 	afx_msg void OnAnalyseSymmclassicCiphertextolySolitaire();
 	afx_msg void OnIndivproceduresBase64Encode();
 	afx_msg void OnIndivproceduresBase64Decode();

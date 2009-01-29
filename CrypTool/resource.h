@@ -378,6 +378,7 @@
 #define IDD_PASSWORD_GUIDELINES         869
 #define IDD_PASSWORDENTROPY             871
 #define IDD_FORMAT_TEXT_DOCUMENT        872
+#define IDD_SIMPLE_TRANSPOSITIONS       873
 #define IDS_CRYPT_DESX                  1000
 #define IDS_CRYPT_DESL                  1001
 #define IDS_CRYPT_DESXL                 1002
@@ -2012,6 +2013,7 @@
 #define ID_TOOLS_FORMATTEXTDOCUMENT     33367
 #define ID_CRYPT_HASH_SHA256            33368
 #define ID_CRYPT_HASH_SHA512            33369
+#define ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS 33370
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -3055,8 +3057,8 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        872
-#define _APS_NEXT_COMMAND_VALUE         33372
+#define _APS_NEXT_RESOURCE_VALUE        874
+#define _APS_NEXT_COMMAND_VALUE         33371
 #define _APS_NEXT_CONTROL_VALUE         2022
 #define _APS_NEXT_SYMED_VALUE           109
 #endif

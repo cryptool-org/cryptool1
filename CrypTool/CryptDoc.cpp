@@ -94,6 +94,7 @@ statement from your version.
 #include "ECIESMain.h"
 #include "bruteforceheap.h"
 #include "DlgFormatTextDocument.h"
+#include "DlgSimpleTranspositions.h"
 
 extern char *CaPseDatei, *CaPseVerzeichnis, *Pfad, *PseVerzeichnis;
 
@@ -266,6 +267,7 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CAppDocument)
 	ON_COMMAND(ID_GOTO_VATER, OnGotoVater)
 	ON_COMMAND(ID_ANALYSIS_RANDOM_3D_VISUALIZATION, OnAnalysisRandom3dVisualization)
 	ON_COMMAND(ID_SYMCLASSIC_SOLITAIRE, OnSymclassicSolitaire)
+	ON_COMMAND(ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS, OnEncryptionSimpleTranspositions)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_3DES_ECB, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESCBC, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_CRYPT_DES_DESECB, OnUpdateNeedSecude)
@@ -1821,6 +1823,13 @@ void CCryptDoc::OnSymclassicSolitaire()
 	UpdateContent();
 	CDlgSolitaire mySol(ContentName, GetTitle(), NULL);
 	mySol.DoModal();	
+}
+
+void CCryptDoc::OnEncryptionSimpleTranspositions()
+{
+	UpdateContent();
+	CDlgSimpleTranspositions dlg(ContentName, GetTitle(), NULL);
+	dlg.DoModal();
 }
 
 void CCryptDoc::OnAnalyseSymmclassicCiphertextolySolitaire() 

@@ -8,8 +8,7 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -14898,6 +14897,15 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,97,50,14
 END
 
+IDD_SIMPLE_TRANSPOSITIONS DIALOGEX 0, 0, 316, 184
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Einfache Transpositionen"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,163,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,259,163,50,14
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -14982,6 +14990,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC, GRAYED
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
+            MENUITEM "Einfache Transpositionen...", ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetrisch (&modern)"
         BEGIN
@@ -15325,6 +15334,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
+            MENUITEM "Einfache Transpositionen...", ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetrisch (&modern)"
         BEGIN
@@ -15668,6 +15678,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC, GRAYED
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
+            MENUITEM "Einfache Transpositionen...", ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetrisch (&modern)"
         BEGIN
@@ -16011,6 +16022,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
+            MENUITEM "Einfache Transpositionen...", ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetrisch (&modern)"
         BEGIN
@@ -16381,6 +16393,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC, GRAYED
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
+            MENUITEM "Einfache Transpositionen...", ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetrisch (&modern)"
         BEGIN
@@ -18216,6 +18229,14 @@ BEGIN
         BOTTOMMARGIN, 111
         HORZGUIDE, 20
     END
+
+    IDD_SIMPLE_TRANSPOSITIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 309
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 177
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -18466,6 +18487,7 @@ BEGIN
     ID_FORMAT_TEXT_DOCUMENT "Formatiert ein Textdokument mit bestimmten Parametern"
     ID_CRYPT_HASH_SHA256    "Berechnet den SHA-256-Hashwert des aktiven Dokuments"
     ID_CRYPT_HASH_SHA512    "Berechnet den SHA-512-Hashwert des aktiven Dokuments"
+    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS "Einfache Transpositionen"
 END
 
 STRINGTABLE 
@@ -25253,6 +25275,15 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,97,50,14
 END
 
+IDD_SIMPLE_TRANSPOSITIONS DIALOGEX 0, 0, 316, 184
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Simple Transpositions"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,163,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,259,163,50,14
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -25337,6 +25368,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC, GRAYED
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
+            MENUITEM "Simple Transpositions...",    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetric (&modern)"
         BEGIN
@@ -25680,6 +25712,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
+            MENUITEM "Simple Transpositions...",    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetric (&modern)"
         BEGIN
@@ -26023,6 +26056,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC, GRAYED
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
+            MENUITEM "Simple Transpositions...",    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetric (&modern)"
         BEGIN
@@ -26366,6 +26400,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
+            MENUITEM "Simple Transpositions...",    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetric (&modern)"
         BEGIN
@@ -26736,6 +26771,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC, GRAYED
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
+            MENUITEM "Simple Transpositions...",    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetric (&modern)"
         BEGIN
@@ -28812,6 +28848,14 @@ BEGIN
         BOTTOMMARGIN, 111
         HORZGUIDE, 20
     END
+
+    IDD_SIMPLE_TRANSPOSITIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 309
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 177
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -29061,6 +29105,7 @@ BEGIN
     ID_FORMAT_TEXT_DOCUMENT "Formats a text document with specific parameters"
     ID_CRYPT_HASH_SHA256    "Calculates the SHA-256 hash value of the active document"
     ID_CRYPT_HASH_SHA512    "Calculates the SHA-512 hash value of the active document"
+    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS "Simple transpositions"
 END
 
 STRINGTABLE 
