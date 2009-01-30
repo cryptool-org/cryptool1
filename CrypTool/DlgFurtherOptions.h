@@ -65,6 +65,7 @@ public:
 	enum { IDD = IDD_OPTIONS_FURTHEROPTIONS };
 	BOOL	m_ShowIntroDialogue;
 	CString	m_SCAKeyword;
+	CString m_primeNumberSeparator;
 	//}}AFX_DATA
 
 

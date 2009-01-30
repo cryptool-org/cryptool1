@@ -78,8 +78,9 @@ public:
 	CButton	m_control_button_accept;
 	CEdit	m_control_edit4;
 	CEdit	m_control_edit3;
-	int		m_radio1;
-	int		m_radio4;
+	int m_radio1;
+	int m_radio4;
+	int m_radio6;
 	CString	m_edit1;
 	CString	m_edit2;
 	CString	m_edit3;
@@ -102,6 +103,8 @@ protected:
 	//{{AFX_MSG(CDlgPrimesGeneratorDemo)
 	afx_msg void OnRadio4();
 	afx_msg void OnRadio5();
+	afx_msg void OnRadio6();
+	afx_msg void OnRadio7();
 	virtual BOOL OnInitDialog();
 	afx_msg void OnButtonGenerate();
 	afx_msg void OnButtonAccept();
@@ -113,14 +116,28 @@ protected:
 public:
 	// this variable indicates if the generation of multiple prime numbers is possible
 	BOOL generateMultiplePrimeNumbersEnabled;
-	// this variable indicates if the generation of multiple prime numbers was chosen by the user
-	BOOL generateMultiplePrimeNumbers;
 	// this variable indicates that the prime number generation thread is to be aborted
 	BOOL abortGenerationMultiplePrimeNumbers;
-	// this variable holds all generated prime numbers
-	std::map<CString, CString> mapGeneratedPrimeNumbers;
+	// this struct holds the comparison function to sort the map filled with primes
+	struct primeComparison {
+		bool operator()(const CString &one, const CString &two) const {
+			if(one.GetLength() > two.GetLength())
+				return false;
+			if(one.GetLength() < two.GetLength())
+				return true;
+			for(int i=0; i<one.GetLength(); i++) {
+				if(one[i] > two[i])
+					return false;
+				if(one[i] < two[i])
+					return true;
+			}
+			return false;
+		}
+	};
+	// this map variable holds all generated prime numbers
+	std::map<CString, CString, primeComparison> mapGeneratedPrimeNumbers;
 	// this is a map iterator (see above)
-	std::map<CString, CString>::iterator mapGeneratedPrimeNumbersIterator;
+	std::map<CString, CString, primeComparison>::iterator mapGeneratedPrimeNumbersIterator;
 };
 
 //{{AFX_INSERT_LOCATION}}

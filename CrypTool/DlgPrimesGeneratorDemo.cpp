@@ -54,6 +54,7 @@ statement from your version.
 #include "Keyrepository.h"
 #include "DialogeMessage.h"
 #include "FileTools.h"
+#include "CrypToolTools.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -75,6 +76,7 @@ CDlgPrimesGeneratorDemo::CDlgPrimesGeneratorDemo(CWnd* pParent /*=NULL*/)
 	//{{AFX_DATA_INIT(CDlgPrimesGeneratorDemo)
 	m_radio1 = 0;
 	m_radio4 = 0;
+	m_radio6 = 0;
 	m_edit1 = _T("2^7");
 	m_edit2 = _T("2^8");
 	m_edit3 = _T("2^7");
@@ -83,7 +85,6 @@ CDlgPrimesGeneratorDemo::CDlgPrimesGeneratorDemo(CWnd* pParent /*=NULL*/)
 	m_edit6 = _T("0");
 	//}}AFX_DATA_INIT
 	generateMultiplePrimeNumbersEnabled = false;
-	generateMultiplePrimeNumbers = false;
 	abortGenerationMultiplePrimeNumbers = false;
 }
 
@@ -94,6 +95,7 @@ CDlgPrimesGeneratorDemo::CDlgPrimesGeneratorDemo(CString lower, CString upper, C
 	//{{AFX_DATA_INIT(CDlgPrimesGeneratorDemo)
 	m_radio1 = 0;
 	m_radio4 = 0;
+	m_radio6 = 0;
 	m_edit1 = lower;
 	m_edit2 = upper;
 	m_edit3 = _T("2^7");
@@ -102,7 +104,6 @@ CDlgPrimesGeneratorDemo::CDlgPrimesGeneratorDemo(CString lower, CString upper, C
 	m_edit6 = _T("0");
 	//}}AFX_DATA_INIT
 	generateMultiplePrimeNumbersEnabled = false;
-	generateMultiplePrimeNumbers = false;
 	abortGenerationMultiplePrimeNumbers = false;
 }
 
@@ -118,6 +119,7 @@ void CDlgPrimesGeneratorDemo::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT3, m_control_edit3);
 	DDX_Radio(pDX, IDC_RADIO1, m_radio1);
 	DDX_Radio(pDX, IDC_RADIO4, m_radio4);
+	DDX_Radio(pDX, IDC_RADIO6, m_radio6);
 	DDX_Text(pDX, IDC_EDIT1, m_edit1);
 	DDX_Text(pDX, IDC_EDIT2, m_edit2);
 	DDX_Text(pDX, IDC_EDIT3, m_edit3);
@@ -125,7 +127,6 @@ void CDlgPrimesGeneratorDemo::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT5, m_edit5);
 	DDX_Text(pDX, IDC_EDIT6, m_edit6);
 	//}}AFX_DATA_MAP
-	DDX_Check(pDX, IDC_CHECK_GENERATE_MULTIPLE_PRIME_NUMBERS, generateMultiplePrimeNumbers);
 }
 
 
@@ -133,6 +134,8 @@ BEGIN_MESSAGE_MAP(CDlgPrimesGeneratorDemo, CDialog)
 	//{{AFX_MSG_MAP(CDlgPrimesGeneratorDemo)
 	ON_BN_CLICKED(IDC_RADIO4, OnRadio4)
 	ON_BN_CLICKED(IDC_RADIO5, OnRadio5)
+	ON_BN_CLICKED(IDC_RADIO6, OnRadio6)
+	ON_BN_CLICKED(IDC_RADIO7, OnRadio7)
 	ON_BN_CLICKED(IDC_BUTTON_GENERATE, OnButtonGenerate)
 	ON_BN_CLICKED(IDC_BUTTON_ACCEPT, OnButtonAccept)
 	ON_BN_CLICKED(IDC_ENDDIALOG, OnEndDialog)
@@ -163,6 +166,36 @@ void CDlgPrimesGeneratorDemo::OnRadio5()
 	OnUpdateEdit();
 }
 
+void CDlgPrimesGeneratorDemo::OnRadio6() 
+{
+	UpdateData(true);
+	
+	// enable group boxes (and contents) on the right side of the dialog
+	CWnd *window1 = GetDlgItem(IDC_RADIO4);
+	if(window1) window1->EnableWindow(true);
+	CWnd *window2 = GetDlgItem(IDC_RADIO5);
+	if(window2) window2->EnableWindow(true);
+	m_control_edit3.EnableWindow(true);
+	m_control_edit4.EnableWindow(true);
+
+	UpdateData(false);
+}
+
+void CDlgPrimesGeneratorDemo::OnRadio7() 
+{
+	UpdateData(true);
+	
+	// disable group boxes (and contents) on the right side of the dialog
+	CWnd *window1 = GetDlgItem(IDC_RADIO4);
+	if(window1) window1->EnableWindow(false);
+	CWnd *window2 = GetDlgItem(IDC_RADIO5);
+	if(window2) window2->EnableWindow(false);
+	m_control_edit3.EnableWindow(false);
+	m_control_edit4.EnableWindow(false);
+
+	UpdateData(false);
+}
+
 BOOL CDlgPrimesGeneratorDemo::OnInitDialog() 
 {
 	CDialog::OnInitDialog();	
@@ -190,8 +223,8 @@ BOOL CDlgPrimesGeneratorDemo::OnInitDialog()
 	if (m_hide_button_accept)
 		m_control_button_accept.ShowWindow(SW_HIDE);
 
-	// enable/disable generation of multiple prime numbers check box
-	CWnd *generateMultiplePrimeNumbersWindow = GetDlgItem(IDC_CHECK_GENERATE_MULTIPLE_PRIME_NUMBERS);
+	// enable/disable generation of multiple prime numbers radio button
+	CWnd *generateMultiplePrimeNumbersWindow = GetDlgItem(IDC_RADIO7);
 	if(generateMultiplePrimeNumbersEnabled) {
 		if(generateMultiplePrimeNumbersWindow) {
 			generateMultiplePrimeNumbersWindow->EnableWindow(true);
@@ -294,7 +327,7 @@ void CDlgPrimesGeneratorDemo::OnButtonGenerate()
 	// normally, we would either create one or two prime numbers at this point; but if the 
 	// "create a set of prime numbers" check box is selected, we need to generate a set (1 to n) 
 	// of prime numbers in a separate thread that needs to be manually interrupted by the user
-	if(generateMultiplePrimeNumbers) {
+	if(m_radio6 == 1) {
 		// we need this initialization to allow multiple generation threads
 		abortGenerationMultiplePrimeNumbers = false;
 		mapGeneratedPrimeNumbers.clear();
@@ -303,6 +336,12 @@ void CDlgPrimesGeneratorDemo::OnButtonGenerate()
 		// show the progress dialog
 		theApp.fs.Set(0);
 		theApp.fs.setTitle(IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_TITLE);
+		// display value range in progress dialog
+		char temp[1024];
+		LoadString(AfxGetInstanceHandle(), IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_TEXT, pc_str, STR_LAENGE_STRING_TABLE);
+		sprintf(temp, pc_str, m_edit1, m_edit2);
+		theApp.fs.setFormat(temp);
+		// show the progress dialog
 		if(theApp.fs.DoModal()) {
 			// as soon as the user cancels the progress dialog, 
 			// abort the prime number generation thread
@@ -317,20 +356,40 @@ void CDlgPrimesGeneratorDemo::OnButtonGenerate()
 			for(	mapGeneratedPrimeNumbersIterator = mapGeneratedPrimeNumbers.begin();
 						mapGeneratedPrimeNumbersIterator != mapGeneratedPrimeNumbers.end();
 						mapGeneratedPrimeNumbersIterator++) {
-				// write prime numbers separated by white spaces
+				// write prime numbers separated by separator specified in further options dialog
 				CString primeNumber = (*mapGeneratedPrimeNumbersIterator).first;
-				primeNumber.Append(" ");
+				// get separator from options dialog
+				if(CT_OPEN_REGISTRY_SETTINGS(KEY_READ, IDS_REGISTRY_SETTINGS, "PrimeNumberGeneration") == ERROR_SUCCESS)
+				{
+					unsigned long u_length = 1024;
+					char c_primeNumberSeparator[1025] = " ";
+					CT_READ_REGISTRY(c_primeNumberSeparator, "Separator", u_length);
+					primeNumber.Append(c_primeNumberSeparator);
+					CT_CLOSE_REGISTRY();
+				}
+				else
+				{
+					// TODO: this is ugly, but there's just too much work right now to fix this immediately
+				}
+				// write the prime number (and the separator)
 				outfile.write(primeNumber, primeNumber.GetLength());
 			}
 			outfile.close();
 		}
 		// show the prime numbers in a new document
 		theApp.OpenDocumentFileNoMRU(filename);
+
 		// display a notification message
 		CString message;
-		char temp[1024];
-		// display the search interval (m_edit1, m_edit2) and the amount of prime numbers found
-		LoadString(AfxGetInstanceHandle(), IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION, pc_str, STR_LAENGE_STRING_TABLE);
+		// display the search interval (m_edit1, m_edit2) and the amount of prime numbers found;
+		// moreover, display a different message if the generation process was cancelled by the user, 
+		// thus rendering the set of generated prime numbers incomplete for the given value range
+		if(theApp.fs.m_canceled == 0) {
+			LoadString(AfxGetInstanceHandle(), IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION, pc_str, STR_LAENGE_STRING_TABLE);
+		}
+		else 
+			LoadString(AfxGetInstanceHandle(), IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION_CANCELLED, pc_str, STR_LAENGE_STRING_TABLE);
+		// build the notification message
 		sprintf(temp, pc_str, m_edit1, m_edit2, mapGeneratedPrimeNumbers.size());
 		message.Append(temp);
 		MessageBox(message, "CrypTool", MB_ICONINFORMATION);
@@ -551,6 +610,14 @@ UINT singleThreadGenerateMultiplePrimeNumbers(PVOID argument)
 	}
 	// end the progress bar
 	theApp.fs.cancel();
+
+	// this is a very dirty hack, but it should work: if "value" is smaller than "valueRangeEnd",
+	// we have an indication that the progress bar was cancelled purposely by the user
+	if(value < valueRangeEnd)
+		theApp.fs.m_canceled = 1;
+	else
+		theApp.fs.m_canceled = 0;
+	
 	// end the thread
 	AfxEndThread(0);
 	return 0;

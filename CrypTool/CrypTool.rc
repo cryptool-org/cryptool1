@@ -8074,7 +8074,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.30 Beta02 (PL)"
+    IDR_MAINFRAME           "CrypTool 1.4.30 Beta03 (PL)"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nPliki HEX\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nPliki ASCII\n"
@@ -11937,40 +11937,41 @@ BEGIN
     EDITTEXT        IDC_TITEL,15,3,285,19,ES_MULTILINE | ES_READONLY | ES_WANTRETURN | NOT WS_BORDER
 END
 
-IDD_PRIMES_GENERATOR_DEMO DIALOGEX 0, 0, 326, 246
+IDD_PRIMES_GENERATOR_DEMO DIALOGEX 0, 0, 326, 265
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Primzahlen generieren"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Primzahlen &generieren",IDC_BUTTON_GENERATE,10,217,100,20
-    PUSHBUTTON      "&Primzahlen übernehmen",IDC_BUTTON_ACCEPT,130,217,95,20
-    EDITTEXT        IDC_EDIT1,63,149,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,63,168,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT3,224,149,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT4,224,168,81,12,ES_AUTOHSCROLL
-    CONTROL         "&Miller-Rabin-Test",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,23,74,69,10
-    CONTROL         "&Solovay-Strassen-Test",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,23,89,87,10
-    CONTROL         "&Fermat-Test",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,23,104,53,10
-    CONTROL         "&unabhängig voneinander",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | WS_GROUP,184,74,95,10
-    CONTROL         "beide gleich (nur einen eingeben)",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,184,96,121,10
-    PUSHBUTTON      "&Abbrechen",IDC_ENDDIALOG,254,217,59,20
-    GROUPBOX        "",IDC_STATIC,11,0,303,52
+    DEFPUSHBUTTON   "Primzahlen &generieren",IDC_BUTTON_GENERATE,10,236,100,20
+    PUSHBUTTON      "&Primzahlen übernehmen",IDC_BUTTON_ACCEPT,130,236,95,20
+    EDITTEXT        IDC_EDIT1,63,168,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,63,187,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,224,168,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,224,187,81,12,ES_AUTOHSCROLL
+    CONTROL         "&Miller-Rabin-Test",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,23,98,69,10
+    CONTROL         "&Solovay-Strassen-Test",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,23,113,87,10
+    CONTROL         "&Fermat-Test",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,23,128,53,10
+    CONTROL         "&Unabhängig voneinander einzugeben",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | BS_TOP | BS_MULTILINE | WS_GROUP,184,98,126,18
+    CONTROL         "Beide gleich (nur einen eingeben)",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,184,120,121,10
+    PUSHBUTTON      "&Abbrechen",IDC_ENDDIALOG,254,236,59,20
+    GROUPBOX        "",IDC_STATIC,11,0,303,30
     LTEXT           "Primzahlen spielen in der modernen Kryptographie eine wichtige Rolle. Hier erzeugen Sie sich zwei oder mehr zufällige Primzahlen aus dem Wertebereich [Untergrenze, Obergrenze].",IDC_STATIC,19,9,289,17
-    GROUPBOX        "Algorithmen zur Generierung",IDC_STATIC,11,59,142,60
-    GROUPBOX        "Wertebereich der Primzahlen",IDC_STATIC,172,59,142,60
-    GROUPBOX        "Primzahl p",IDC_STATIC,11,129,142,80
-    LTEXT           "Untergrenze",IDC_STATIC,17,151,40,9
-    LTEXT           "Obergrenze",IDC_STATIC,18,170,44,8
-    LTEXT           "Ergebnis",IDC_STATIC,18,191,37,10
-    LTEXT           "Untergrenze",IDC_STATIC,178,151,40,9
-    LTEXT           "Obergrenze",IDC_STATIC,178,170,44,8
-    LTEXT           "Ergebnis",IDC_STATIC,179,191,35,10
-    LTEXT           "einzugeben",IDC_STATIC,196,84,53,8
-    EDITTEXT        IDC_EDIT5,63,189,81,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
-    GROUPBOX        "Primzahl q",IDC_STATIC,172,129,142,80
-    EDITTEXT        IDC_EDIT6,224,189,81,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
-    CONTROL         "eine Menge von Primzahlen generieren",IDC_CHECK_GENERATE_MULTIPLE_PRIME_NUMBERS,
-                    "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,19,34,279,10
+    GROUPBOX        "Algorithmen zur Generierung",IDC_STATIC,11,83,142,60
+    GROUPBOX        "Wertebereich der Primzahlen p und q",IDC_STATIC,172,83,142,60
+    GROUPBOX        "Primzahl p",IDC_STATIC,11,148,142,80
+    LTEXT           "Untergrenze",IDC_STATIC,17,170,40,9
+    LTEXT           "Obergrenze",IDC_STATIC,18,189,44,8
+    LTEXT           "Ergebnis",IDC_STATIC,18,210,37,10
+    LTEXT           "Untergrenze",IDC_STATIC,178,170,40,9
+    LTEXT           "Obergrenze",IDC_STATIC,178,189,44,8
+    LTEXT           "Ergebnis",IDC_STATIC,179,210,35,10
+    EDITTEXT        IDC_EDIT5,63,208,81,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    GROUPBOX        "Primzahl q",IDC_STATIC,172,148,142,80
+    EDITTEXT        IDC_EDIT6,224,208,81,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    GROUPBOX        "Anzahl der zu generierenden Primzahlen",IDC_STATIC,11,36,302,40
+    CONTROL         "Eine oder zwei Primzahlen generieren",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON | WS_GROUP,23,49,133,10
+    CONTROL         "Alle Primzahlen in einem Wertebereich generieren",IDC_RADIO7,
+                    "Button",BS_AUTORADIOBUTTON,23,62,171,10
 END
 
 IDD_RSA_DEMO DIALOGEX 0, 0, 391, 399
@@ -13013,19 +13014,22 @@ BEGIN
     GROUPBOX        "Damit ist das Ziel erreicht",IDC_STATIC,7,184,410,68
 END
 
-IDD_OPTIONS_FURTHEROPTIONS DIALOG  0, 0, 291, 156
+IDD_OPTIONS_FURTHEROPTIONS DIALOGEX 0, 0, 291, 185
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Weitere Optionen"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,135,50,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,234,135,50,14
+    DEFPUSHBUTTON   "&OK",IDOK,7,164,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,234,164,50,14
     CONTROL         "Einleitungsdialog beim &Start anzeigen",IDC_CHECK1,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,26,133,10
     GROUPBOX        "Optionen für die Diffie-Hellman-Demonstration",IDC_STATIC,7,7,277,40
-    GROUPBOX        "Optionen für die Seitenkanalangriff-Demonstration",IDC_STATIC,7,55,277,70
+    GROUPBOX        "Optionen für die Seitenkanalangriff-Demonstration",IDC_STATIC,7,55,277,65
     EDITTEXT        IDC_EDIT_SCAKEYWORD,20,95,120,14,ES_AUTOHSCROLL
     LTEXT           "Bob kann erkennen, ob die erhaltene Nachricht von Alice gesendet wurde, wenn die Nachricht das folgende Schlüsselwort enthält:",IDC_STATIC,20,74,253,16
+    GROUPBOX        "Optionen für die Generation von Primzahlmengen",IDC_STATIC,7,126,277,30
+    LTEXT           "Trennzeichen zwischen Primzahlen:",IDC_STATIC,20,140,114,8
+    EDITTEXT        IDC_EDIT_PRIME_NUMBER_SEPARATOR,141,138,20,14,ES_CENTER | ES_AUTOHSCROLL
 END
 
 IDD_DIFFIEHELLMANVISUALIZATION DIALOG  0, 0, 525, 345
@@ -17696,6 +17700,12 @@ BEGIN
         HORZGUIDE, 150
     END
 
+    IDD_PRIMES_GENERATOR_DEMO, DIALOG
+    BEGIN
+        VERTGUIDE, 11
+        BOTTOMMARGIN, 246
+    END
+
     IDD_KEY_HOMOPHONE, DIALOG
     BEGIN
         VERTGUIDE, 14
@@ -17771,6 +17781,7 @@ BEGIN
         VERTGUIDE, 7
         VERTGUIDE, 20
         VERTGUIDE, 284
+        BOTTOMMARGIN, 178
     END
 
     IDD_SIGATTMODIFICDEMO, DIALOG
@@ -18436,7 +18447,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.30 Beta02 (DE)"
+    IDR_MAINFRAME           "CrypTool 1.4.30 Beta03 (DE)"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Datei (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnbenannt\n\nBinäre Datei (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnbenannt\n\nASCII-Datei (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -20893,6 +20904,10 @@ BEGIN
     IDS_BIT_EFFECTIVE_FMT   " (%d Bit effektiv)"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_TITLE 
                             "Generation einer Menge von Primzahlen"
+    IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_TEXT 
+                            "Generiere Primzahlen im Bereich [%s, %s]..."
+    IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION_CANCELLED 
+                            "Der Vorgang wurde abgebrochen. Im ausgewählten Wertebereich [%s, %s] wurden bisher %d Primzahlen gefunden."
 END
 
 STRINGTABLE 
@@ -22394,40 +22409,42 @@ BEGIN
     EDITTEXT        IDC_TITEL,15,6,285,16,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
 END
 
-IDD_PRIMES_GENERATOR_DEMO DIALOGEX 0, 0, 326, 246
+IDD_PRIMES_GENERATOR_DEMO DIALOGEX 0, 0, 326, 265
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Prime Number Generation"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Generate prime numbers",IDC_BUTTON_GENERATE,10,217,100,20
-    PUSHBUTTON      "&Apply primes",IDC_BUTTON_ACCEPT,130,217,95,20
-    EDITTEXT        IDC_EDIT1,63,149,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,63,168,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT3,224,149,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT4,224,168,81,12,ES_AUTOHSCROLL
-    CONTROL         "&Miller-Rabin Test",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,23,74,69,10
-    CONTROL         "&Solovay-Strassen Test",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,23,89,87,10
-    CONTROL         "&Fermat Test",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,23,104,53,10
-    CONTROL         "&To be entered independently",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | WS_GROUP,184,74,121,10
-    CONTROL         "&Both are equal (just enter one)",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,184,96,118,10
-    PUSHBUTTON      "&Cancel",IDC_ENDDIALOG,254,217,59,20
-    EDITTEXT        IDC_EDIT5,63,189,81,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
-    EDITTEXT        IDC_EDIT6,224,189,81,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
-    GROUPBOX        "",IDC_STATIC,11,0,303,52
+    DEFPUSHBUTTON   "&Generate prime numbers",IDC_BUTTON_GENERATE,10,236,100,20
+    PUSHBUTTON      "&Apply primes",IDC_BUTTON_ACCEPT,130,236,95,20
+    EDITTEXT        IDC_EDIT1,63,168,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,63,187,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,224,168,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,224,187,81,12,ES_AUTOHSCROLL
+    CONTROL         "&Miller-Rabin Test",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,23,98,69,10
+    CONTROL         "&Solovay-Strassen Test",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,23,113,87,10
+    CONTROL         "&Fermat Test",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,23,128,53,10
+    CONTROL         "&To be entered independently of each other",IDC_RADIO4,
+                    "Button",BS_AUTORADIOBUTTON | BS_TOP | BS_MULTILINE | WS_GROUP,184,98,121,18
+    CONTROL         "&Both are equal (just enter one)",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,184,120,118,10
+    PUSHBUTTON      "&Cancel",IDC_ENDDIALOG,254,236,59,20
+    EDITTEXT        IDC_EDIT5,63,208,81,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT6,224,208,81,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    GROUPBOX        "",IDC_STATIC,11,0,303,30
     LTEXT           "Prime numbers play an important role in modern cryptography. Generate two or more random prime numbers within the value range [lower limit, upper limit].",IDC_STATIC,19,9,289,17
-    GROUPBOX        "Algorithms for prime number generation",IDC_STATIC,11,59,142,60
-    GROUPBOX        "Value range of the prime numbers",IDC_STATIC,172,59,142,60
-    LTEXT           "Lower limit",IDC_STATIC,17,151,40,9
-    LTEXT           "Upper limit",IDC_STATIC,18,170,44,8
-    LTEXT           "Result",IDC_STATIC,18,191,37,10
-    LTEXT           "of each other",IDC_STATIC,196,84,53,8
-    GROUPBOX        "Prime number p",IDC_STATIC,11,129,142,80
-    GROUPBOX        "Prime number q",IDC_STATIC,172,129,142,80
-    LTEXT           "Lower limit",IDC_STATIC,178,151,40,9
-    LTEXT           "Upper limit",IDC_STATIC,178,170,44,8
-    LTEXT           "Result",IDC_STATIC,179,191,35,10
-    CONTROL         "generate a set of prime numbers",IDC_CHECK_GENERATE_MULTIPLE_PRIME_NUMBERS,
-                    "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,19,34,279,10
+    GROUPBOX        "Algorithms for prime number generation",IDC_STATIC,11,83,142,60
+    GROUPBOX        "Value range of the prime numbers p and q",IDC_STATIC,172,83,142,60
+    LTEXT           "Lower limit",IDC_STATIC,17,170,40,9
+    LTEXT           "Upper limit",IDC_STATIC,18,189,44,8
+    LTEXT           "Result",IDC_STATIC,18,210,37,10
+    GROUPBOX        "Prime number p",IDC_STATIC,11,148,142,80
+    GROUPBOX        "Prime number q",IDC_STATIC,172,148,142,80
+    LTEXT           "Lower limit",IDC_STATIC,178,170,40,9
+    LTEXT           "Upper limit",IDC_STATIC,178,189,44,8
+    LTEXT           "Result",IDC_STATIC,179,210,35,10
+    GROUPBOX        "Amount of prime numbers to be generated",IDC_STATIC,11,36,302,40
+    CONTROL         "Generate one or two prime numbers",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON | WS_GROUP,23,49,128,10
+    CONTROL         "Generate all prime numbers in a value range",IDC_RADIO7,
+                    "Button",BS_AUTORADIOBUTTON,23,62,154,10
 END
 
 IDD_RSA_DEMO DIALOGEX 0, 0, 391, 399
@@ -23414,18 +23431,21 @@ BEGIN
     LTEXT           "An eavesdropper cannot gain knowledge of the secret if the used parameters are big enough. The Session Key can now be used for a symmetric encryption.",IDC_STATIC,20,222,384,24
 END
 
-IDD_OPTIONS_FURTHEROPTIONS DIALOG  0, 0, 291, 156
+IDD_OPTIONS_FURTHEROPTIONS DIALOGEX 0, 0, 291, 185
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Further Options"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,135,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,234,135,50,14
+    DEFPUSHBUTTON   "&OK",IDOK,7,164,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,234,164,50,14
     CONTROL         "&Show introduction dialog on startup",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,26,135,10
     GROUPBOX        "Options for the Diffie-Hellman Demonstration",IDC_STATIC,7,7,277,40
-    GROUPBOX        "Options for the Side-Channel Attack Demonstration",IDC_STATIC,7,55,277,70
+    GROUPBOX        "Options for the Side-Channel Attack Demonstration",IDC_STATIC,7,55,277,65
     EDITTEXT        IDC_EDIT_SCAKEYWORD,20,95,120,14,ES_AUTOHSCROLL
     LTEXT           "Bob can recognize a message as sent by Alice by finding the following keyword within the message (i.e. ""Yours Alice""):",IDC_STATIC,20,74,253,16
+    GROUPBOX        "Options for the generation of sets of prime numbers",IDC_STATIC,7,126,277,30
+    LTEXT           "Separator between prime numbers:",IDC_STATIC,20,140,110,8
+    EDITTEXT        IDC_EDIT_PRIME_NUMBER_SEPARATOR,141,138,20,14,ES_CENTER | ES_AUTOHSCROLL
 END
 
 IDD_SIGNATURE_ATTACK DIALOGEX 0, 0, 328, 319
@@ -28130,6 +28150,11 @@ BEGIN
         BOTTOMMARGIN, 148
     END
 
+    IDD_PRIMES_GENERATOR_DEMO, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 246
+    END
+
     IDD_RSA_DEMO, DIALOG
     BEGIN
         LEFTMARGIN, 10
@@ -28391,7 +28416,7 @@ BEGIN
         RIGHTMARGIN, 284
         VERTGUIDE, 20
         TOPMARGIN, 7
-        BOTTOMMARGIN, 149
+        BOTTOMMARGIN, 178
     END
 
     IDD_STATISTICS_SIGNATURE_ATTACK, DIALOG
@@ -29054,7 +29079,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.30 Beta02 (EN)"
+    IDR_MAINFRAME           "CrypTool 1.4.30 Beta03 (EN)"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -31453,6 +31478,10 @@ BEGIN
     IDS_BIT_EFFECTIVE_FMT   " (%d bit effective)"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_TITLE 
                             "Generating a set of prime numbers"
+    IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_TEXT 
+                            "Generating prime numbers in the value range [%s, %s]..."
+    IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION_CANCELLED 
+                            "The process was cancelled. In the given value range [%s, %s], %d prime numbers were found yet."
 END
 
 STRINGTABLE 

@@ -66,6 +66,7 @@ CDlgFurtherOptions::CDlgFurtherOptions(CWnd* pParent /*=NULL*/)
 	//{{AFX_DATA_INIT(CDlgFurtherOptions)
 	m_ShowIntroDialogue = FALSE;
 	m_SCAKeyword = _T("");
+	m_primeNumberSeparator = _T("");
 	//}}AFX_DATA_INIT
 }
 
@@ -76,6 +77,7 @@ void CDlgFurtherOptions::DoDataExchange(CDataExchange* pDX)
 	//{{AFX_DATA_MAP(CDlgFurtherOptions)
 	DDX_Check(pDX, IDC_CHECK1, m_ShowIntroDialogue);
 	DDX_Text(pDX, IDC_EDIT_SCAKEYWORD, m_SCAKeyword);
+	DDX_Text(pDX, IDC_EDIT_PRIME_NUMBER_SEPARATOR, m_primeNumberSeparator);
 	//}}AFX_DATA_MAP
 }
 
@@ -127,6 +129,24 @@ BOOL CDlgFurtherOptions::OnInitDialog()
 		// FIXME
 	}
 
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_READ, IDS_REGISTRY_SETTINGS, "PrimeNumberGeneration") == ERROR_SUCCESS)
+	{
+		unsigned long u_length = 1024;
+		char c_primeNumberSeparator[1025] = " ";
+
+		CT_READ_REGISTRY(c_primeNumberSeparator, "Separator", u_length);
+
+		UpdateData();
+		m_primeNumberSeparator = c_primeNumberSeparator;
+		UpdateData(FALSE);
+
+		CT_CLOSE_REGISTRY();
+	}
+	else
+	{
+
+	}
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
@@ -161,6 +181,17 @@ void CDlgFurtherOptions::OnOK()
 		// FIXME
 	}
 
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_WRITE, IDS_REGISTRY_SETTINGS, "PrimeNumberGeneration") == ERROR_SUCCESS)
+	{
+		if(m_primeNumberSeparator == "")
+			m_primeNumberSeparator = " ";
+		CT_WRITE_REGISTRY(m_primeNumberSeparator, "Separator");
+		CT_CLOSE_REGISTRY();
+	}
+	else
+	{
+
+	}
 
 	UpdateData(FALSE);
 	
