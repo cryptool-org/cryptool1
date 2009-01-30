@@ -31481,7 +31481,7 @@ STRINGTABLE
 BEGIN
     IDS_SIGATT_STAT_FAKE_FILE "Filename fake: %s"
     IDS_PQMERROR_NO_SPECIALCHARACTERS 
-                            "The special character list is empty!\nPlease provide some spechial characters or reduce the minimal number of special characters to zero."
+                            "The special character list is empty!\nPlease provide some special characters or reduce the minimal number of special characters to zero."
 END
 
 #endif    // English (U.K.) resources
