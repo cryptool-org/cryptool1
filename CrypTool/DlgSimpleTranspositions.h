@@ -61,8 +61,31 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	virtual BOOL OnInitDialog();
 
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnBnClickedEncrypt();
+	afx_msg void OnBnClickedDecrypt();
+
+	afx_msg void OnRadioScytale();
+	afx_msg void OnRadioRailFence();
+
+protected:
+	// which transposition was chosen by the user?
+	int radioTransposition;
+
+	// internal function to update the GUI
+	void updateGUI();
+
+	// the control for the image
+	CStatic controlImage;
+
+	// bitmap for scytale
+	CBitmap bitmapScytale;
+	CBitmap bitmapRailFence;
+public:
+	int key;
 };
 
 #endif

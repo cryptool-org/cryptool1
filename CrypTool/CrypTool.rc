@@ -14901,13 +14901,23 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,97,50,14
 END
 
-IDD_SIMPLE_TRANSPOSITIONS DIALOGEX 0, 0, 316, 184
+IDD_SIMPLE_TRANSPOSITIONS DIALOGEX 0, 0, 280, 165
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Einfache Transpositionen"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,163,50,14
-    PUSHBUTTON      "Abbrechen",IDCANCEL,259,163,50,14
+    DEFPUSHBUTTON   "Verschlüsseln",ID_ENCRYPT,7,139,60,19
+    PUSHBUTTON      "Entschlüsseln",ID_DECRYPT,73,139,60,19
+    PUSHBUTTON      "Abbrechen",IDCANCEL,213,139,60,19
+    CONTROL         "Skytale",IDC_RADIO_SCYTALE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,63,110,10
+    CONTROL         "Gartenzaun",IDC_RADIO_RAIL_FENCE,"Button",BS_AUTORADIOBUTTON,20,75,110,10
+    EDITTEXT        IDC_EDIT_KEY,135,111,23,14,ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "Beschreibung",IDC_STATIC,7,7,266,36
+    LTEXT           "Transpositionen vertauschen die Buchstaben im Klartext. Zwei bekannte, klassische Varianten sind die Skytale und die Gartenzaunverschlüsselung.",IDC_STATIC,20,20,240,16
+    GROUPBOX        "Auswahl der Transposition",IDC_STATIC,7,50,160,40
+    GROUPBOX        "Auswahl des Schlüssels",IDC_STATIC,7,100,160,31
+    LTEXT           "SIMPLE_TRANSPOSITION_KEY",IDC_SIMPLE_TRANSPOSITION_KEY,20,113,99,8
+    CONTROL         "",IDC_SIMPLE_TRANSPOSITION_IMAGE,"Static",SS_BITMAP,187,53,67,62
 END
 
 
@@ -17046,6 +17056,8 @@ IDB_CRT_CR_LEFT         BITMAP                  "res\\CRT\\CrtLeft.bmp"
 IDB_CRT_BASIS           BITMAP                  "res\\CRT\\CrtBasis.bmp"
 IDB_CRT_DOWN_F          BITMAP                  "res\\CRT\\CrtDownf.bmp"
 IDB_CRT_DOWN_FSTR       BITMAP                  "res\\CRT\\CrtDownfstr.bmp"
+IDB_SIMPLE_TRANSPOSITION_SCYTALE BITMAP                  "res\\Bitmaps\\simple_transposition_scytale.bmp"
+IDB_SIMPLE_TRANSPOSITION_RAIL_FENCE BITMAP                  "res\\Bitmaps\\simple_transposition_rail_fence.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -18244,9 +18256,12 @@ BEGIN
     IDD_SIMPLE_TRANSPOSITIONS, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 309
+        RIGHTMARGIN, 273
+        VERTGUIDE, 20
+        VERTGUIDE, 260
         TOPMARGIN, 7
-        BOTTOMMARGIN, 177
+        BOTTOMMARGIN, 158
+        HORZGUIDE, 20
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -20908,6 +20923,7 @@ BEGIN
                             "Generiere Primzahlen im Bereich [%s, %s]..."
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION_CANCELLED 
                             "Der Vorgang wurde abgebrochen. Im ausgewählten Wertebereich [%s, %s] wurden bisher %d Primzahlen gefunden."
+    IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_SCYTALE "Anzahl der Kanten:"
 END
 
 STRINGTABLE 
@@ -20937,6 +20953,13 @@ BEGIN
     IDS_SIGATT_STAT_FAKE_FILE "Dateiname Fälschung: %s"
     IDS_PQMERROR_NO_SPECIALCHARACTERS 
                             "Die Liste der Sonderzeichen ist leer!\nBitte geben Sie Sonderzeichen an, oder veringern Sie die Minimalzahl der Sonderzeichen auf Null."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_RAIL_FENCE "Anzahl der Zeilen:"
+    IDS_SIMPLE_TRANSPOSITION_KEY_INVALID 
+                            "Der Schlüssel ist ungültig. Er muss größer oder gleich 1 sein."
 END
 
 #endif    // German (Germany) resources
@@ -25295,13 +25318,23 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,97,50,14
 END
 
-IDD_SIMPLE_TRANSPOSITIONS DIALOGEX 0, 0, 316, 184
+IDD_SIMPLE_TRANSPOSITIONS DIALOGEX 0, 0, 280, 165
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Simple Transpositions"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,163,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,259,163,50,14
+    DEFPUSHBUTTON   "Encrypt",ID_ENCRYPT,7,139,60,19
+    PUSHBUTTON      "Decrypt",ID_DECRYPT,73,139,60,19
+    PUSHBUTTON      "Cancel",IDCANCEL,213,139,60,19
+    CONTROL         "Scytale",IDC_RADIO_SCYTALE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,63,110,10
+    CONTROL         "Rail Fence",IDC_RADIO_RAIL_FENCE,"Button",BS_AUTORADIOBUTTON,20,75,110,10
+    EDITTEXT        IDC_EDIT_KEY,135,111,23,14,ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "Description",IDC_STATIC,7,7,266,36
+    LTEXT           "Transpositions exchange letters in the clear text. Two well-known, classic variants are the Scytale and Rail Fence encryption.",IDC_STATIC,20,20,240,16
+    GROUPBOX        "Choose the transposition",IDC_STATIC,7,50,160,40
+    GROUPBOX        "Choose the key",IDC_STATIC,7,100,160,31
+    LTEXT           "SIMPLE_TRANSPOSITION_KEY",IDC_SIMPLE_TRANSPOSITION_KEY,20,113,99,8
+    CONTROL         "",IDC_SIMPLE_TRANSPOSITION_IMAGE,"Static",SS_BITMAP,187,53,67,62
 END
 
 
@@ -27440,6 +27473,8 @@ IDB_CRT_CR_LEFT         BITMAP                  "res\\CRT\\crtright.bmp"
 IDB_CRT_BASIS           BITMAP                  "res\\CRT\\crtbasis.bmp"
 IDB_CRT_DOWN_F          BITMAP                  "res\\CRT\\crtdownf.bmp"
 IDB_CRT_DOWN_FSTR       BITMAP                  "res\\CRT\\crtdownfstr.bmp"
+IDB_SIMPLE_TRANSPOSITION_SCYTALE BITMAP                  "res\\Bitmaps_en\\simple_transposition_scytale.bmp"
+IDB_SIMPLE_TRANSPOSITION_RAIL_FENCE BITMAP                  "res\\Bitmaps_en\\simple_transposition_rail_fence.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -28877,9 +28912,9 @@ BEGIN
     IDD_SIMPLE_TRANSPOSITIONS, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 309
+        RIGHTMARGIN, 273
         TOPMARGIN, 7
-        BOTTOMMARGIN, 177
+        BOTTOMMARGIN, 158
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -31482,6 +31517,7 @@ BEGIN
                             "Generating prime numbers in the value range [%s, %s]..."
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION_CANCELLED 
                             "The process was cancelled. In the given value range [%s, %s], %d prime numbers were found yet."
+    IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_SCYTALE "Number of edges:"
 END
 
 STRINGTABLE 
@@ -31511,6 +31547,13 @@ BEGIN
     IDS_SIGATT_STAT_FAKE_FILE "Filename fake: %s"
     IDS_PQMERROR_NO_SPECIALCHARACTERS 
                             "The special character list is empty!\nPlease provide some special characters or reduce the minimal number of special characters to zero."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_RAIL_FENCE "Number of rows:"
+    IDS_SIMPLE_TRANSPOSITION_KEY_INVALID 
+                            "The key is invalid. It must be greater than or equal to 1."
 END
 
 #endif    // English (U.K.) resources

@@ -52,8 +52,16 @@ IMPLEMENT_DYNAMIC(CDlgSimpleTranspositions, CDialog)
 
 CDlgSimpleTranspositions::CDlgSimpleTranspositions(char* infile, CString oldTitle, CWnd* pParent)
 	: CDialog(CDlgSimpleTranspositions::IDD, pParent)
+	, key(0)
 {
+	// we are going with Scytale by default (0)
+	radioTransposition = 0;
+	// the default key is 1
+	key = 1;
 
+	// init the bitmaps
+	bitmapScytale.LoadBitmapA(IDB_SIMPLE_TRANSPOSITION_SCYTALE);
+	bitmapRailFence.LoadBitmapA(IDB_SIMPLE_TRANSPOSITION_RAIL_FENCE);
 }
 
 CDlgSimpleTranspositions::~CDlgSimpleTranspositions()
@@ -64,11 +72,105 @@ CDlgSimpleTranspositions::~CDlgSimpleTranspositions()
 void CDlgSimpleTranspositions::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
+
+	DDX_Radio(pDX, IDC_RADIO_SCYTALE, radioTransposition);
+	DDX_Control(pDX, IDC_SIMPLE_TRANSPOSITION_IMAGE, controlImage);
+	DDX_Text(pDX, IDC_EDIT_KEY, key);
 }
 
 
 BEGIN_MESSAGE_MAP(CDlgSimpleTranspositions, CDialog)
+	ON_BN_CLICKED(ID_ENCRYPT, &CDlgSimpleTranspositions::OnBnClickedEncrypt)
+	ON_BN_CLICKED(ID_DECRYPT, &CDlgSimpleTranspositions::OnBnClickedDecrypt)
+	ON_BN_CLICKED(IDC_RADIO_SCYTALE, OnRadioScytale)
+	ON_BN_CLICKED(IDC_RADIO_RAIL_FENCE, OnRadioRailFence)
 END_MESSAGE_MAP()
 
+BOOL CDlgSimpleTranspositions::OnInitDialog() 
+{
+	CDialog::OnInitDialog();
+
+	// update the GUI
+	updateGUI();
+
+	return TRUE;  // return TRUE unless you set the focus to a control
+	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
+}
 
 // CDlgSimpleTranspositions message handlers
+
+void CDlgSimpleTranspositions::OnBnClickedEncrypt()
+{
+	UpdateData(true);
+
+	// check if the key is valid
+	if(key < 1) {
+		LoadString(AfxGetInstanceHandle(), IDS_SIMPLE_TRANSPOSITION_KEY_INVALID, pc_str, STR_LAENGE_STRING_TABLE);
+		MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
+		return;
+	}
+
+	// read infile, encrypt it and display it in a new document
+	AfxMessageBox("TODO: ENCRYPT");
+
+	EndDialog(IDOK);
+}
+
+void CDlgSimpleTranspositions::OnBnClickedDecrypt()
+{
+	UpdateData(true);
+
+	// check if the key is valid
+	if(key < 1) {
+		LoadString(AfxGetInstanceHandle(), IDS_SIMPLE_TRANSPOSITION_KEY_INVALID, pc_str, STR_LAENGE_STRING_TABLE);
+		MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
+		return;
+	}
+
+	// read infile, decrypt it and display it in a new document
+	AfxMessageBox("TODO: DECRYPT");
+
+	EndDialog(IDOK);
+}
+
+void CDlgSimpleTranspositions::OnRadioScytale()
+{
+	// we want to update the GUI depending on the state we're in
+	updateGUI();
+}
+
+void CDlgSimpleTranspositions::OnRadioRailFence()
+{
+	// we want to update the GUI depending on the state we're in
+	updateGUI();
+}
+
+void CDlgSimpleTranspositions::updateGUI() 
+{
+	UpdateData(true);
+
+	// the first thing we want to do is find out which mode we're running in
+	if(radioTransposition == 0) {				// SCYTALE
+		// update the key description
+		CWnd *windowKeyDescription = GetDlgItem(IDC_SIMPLE_TRANSPOSITION_KEY);
+		if(windowKeyDescription) {
+			LoadString(AfxGetInstanceHandle(), IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_SCYTALE, pc_str, STR_LAENGE_STRING_TABLE);
+			windowKeyDescription->SetWindowTextA(pc_str); 
+		}
+		// update the image
+		controlImage.SetBitmap(bitmapScytale);
+
+	}
+	if(radioTransposition == 1) {				// RAIL FENCE
+		// update the key description
+		CWnd *windowKeyDescription = GetDlgItem(IDC_SIMPLE_TRANSPOSITION_KEY);
+		if(windowKeyDescription) {
+			LoadString(AfxGetInstanceHandle(), IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_RAIL_FENCE, pc_str, STR_LAENGE_STRING_TABLE);
+			windowKeyDescription->SetWindowTextA(pc_str);
+		}
+		// update the image
+		controlImage.SetBitmap(bitmapRailFence);
+	}
+
+	UpdateData(false);
+}
