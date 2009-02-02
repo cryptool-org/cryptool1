@@ -86,6 +86,7 @@ CDlgPrimesGeneratorDemo::CDlgPrimesGeneratorDemo(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 	generateMultiplePrimeNumbersEnabled = false;
 	abortGenerationMultiplePrimeNumbers = false;
+	primeNumberGenerationAborted = false;
 }
 
 CDlgPrimesGeneratorDemo::CDlgPrimesGeneratorDemo(CString lower, CString upper, CWnd *pParent)
@@ -105,6 +106,7 @@ CDlgPrimesGeneratorDemo::CDlgPrimesGeneratorDemo(CString lower, CString upper, C
 	//}}AFX_DATA_INIT
 	generateMultiplePrimeNumbersEnabled = false;
 	abortGenerationMultiplePrimeNumbers = false;
+	primeNumberGenerationAborted = false;
 }
 
 void CDlgPrimesGeneratorDemo::DoDataExchange(CDataExchange* pDX)
@@ -117,6 +119,8 @@ void CDlgPrimesGeneratorDemo::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_BUTTON_ACCEPT, m_control_button_accept);
 	DDX_Control(pDX, IDC_EDIT4, m_control_edit4);
 	DDX_Control(pDX, IDC_EDIT3, m_control_edit3);
+	DDX_Control(pDX, IDC_EDIT5, m_control_edit5);
+	DDX_Control(pDX, IDC_EDIT6, m_control_edit6);
 	DDX_Radio(pDX, IDC_RADIO1, m_radio1);
 	DDX_Radio(pDX, IDC_RADIO4, m_radio4);
 	DDX_Radio(pDX, IDC_RADIO6, m_radio6);
@@ -154,6 +158,7 @@ void CDlgPrimesGeneratorDemo::OnRadio4()
 	UpdateData(true);
 	m_control_edit3.EnableWindow(true);
 	m_control_edit4.EnableWindow(true);
+	m_control_edit6.EnableWindow(true);
 	UpdateData(false);
 }
 
@@ -162,6 +167,7 @@ void CDlgPrimesGeneratorDemo::OnRadio5()
 	UpdateData(true);
 	m_control_edit3.EnableWindow(false);
 	m_control_edit4.EnableWindow(false);
+	m_control_edit6.EnableWindow(false);
 	UpdateData(false);
 	OnUpdateEdit();
 }
@@ -175,8 +181,15 @@ void CDlgPrimesGeneratorDemo::OnRadio6()
 	if(window1) window1->EnableWindow(true);
 	CWnd *window2 = GetDlgItem(IDC_RADIO5);
 	if(window2) window2->EnableWindow(true);
-	m_control_edit3.EnableWindow(true);
-	m_control_edit4.EnableWindow(true);
+	// make sure we enable the gui stuff on the right side only if radio button 4 is enabled; 
+	// because if button 4 is not enabled, the user obviously wants only one value range
+	if(m_radio4 == 0) {
+		m_control_edit3.EnableWindow(true);
+		m_control_edit4.EnableWindow(true);
+		m_control_edit6.EnableWindow(true);
+	}
+	// also, enable the result field on the left side 
+	m_control_edit5.EnableWindow(true);
 
 	UpdateData(false);
 }
@@ -192,6 +205,11 @@ void CDlgPrimesGeneratorDemo::OnRadio7()
 	if(window2) window2->EnableWindow(false);
 	m_control_edit3.EnableWindow(false);
 	m_control_edit4.EnableWindow(false);
+	m_control_edit6.EnableWindow(false);
+
+	// also, disable the result field on the left side 
+	//(since we don't display primes in there anyway)
+	m_control_edit5.EnableWindow(false);
 
 	UpdateData(false);
 }
@@ -367,9 +385,18 @@ void CDlgPrimesGeneratorDemo::OnButtonGenerate()
 					primeNumber.Append(c_primeNumberSeparator);
 					CT_CLOSE_REGISTRY();
 				}
+				// if we cannot find a separator, we create the registry key and use a blank as default
 				else
 				{
-					// TODO: this is ugly, but there's just too much work right now to fix this immediately
+					if(CT_OPEN_REGISTRY_SETTINGS(KEY_WRITE, IDS_REGISTRY_SETTINGS, "PrimeNumberGeneration") == ERROR_SUCCESS)
+					{
+						CT_WRITE_REGISTRY(" ", "Separator");
+						CT_CLOSE_REGISTRY();
+					}
+					else
+					{
+						// TODO: handle errors
+					}
 				}
 				// write the prime number (and the separator)
 				outfile.write(primeNumber, primeNumber.GetLength());
@@ -384,11 +411,12 @@ void CDlgPrimesGeneratorDemo::OnButtonGenerate()
 		// display the search interval (m_edit1, m_edit2) and the amount of prime numbers found;
 		// moreover, display a different message if the generation process was cancelled by the user, 
 		// thus rendering the set of generated prime numbers incomplete for the given value range
-		if(theApp.fs.m_canceled == 0) {
+		if(primeNumberGenerationAborted == false)
 			LoadString(AfxGetInstanceHandle(), IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION, pc_str, STR_LAENGE_STRING_TABLE);
-		}
-		else 
+		else
 			LoadString(AfxGetInstanceHandle(), IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION_CANCELLED, pc_str, STR_LAENGE_STRING_TABLE);
+		// either way, reset the abortion flag (otherwise we'll get weird errors)
+		primeNumberGenerationAborted = false;
 		// build the notification message
 		sprintf(temp, pc_str, m_edit1, m_edit2, mapGeneratedPrimeNumbers.size());
 		message.Append(temp);
@@ -614,9 +642,9 @@ UINT singleThreadGenerateMultiplePrimeNumbers(PVOID argument)
 	// this is a very dirty hack, but it should work: if "value" is smaller than "valueRangeEnd",
 	// we have an indication that the progress bar was cancelled purposely by the user
 	if(value < valueRangeEnd)
-		theApp.fs.m_canceled = 1;
+		dlg->primeNumberGenerationAborted = true;
 	else
-		theApp.fs.m_canceled = 0;
+		dlg->primeNumberGenerationAborted = false;
 	
 	// end the thread
 	AfxEndThread(0);

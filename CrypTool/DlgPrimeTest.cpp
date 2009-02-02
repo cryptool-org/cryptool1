@@ -297,7 +297,11 @@ void CDlgPrimeTest::UpdateResultField(int result, CString text)
         m_picPrime.ShowWindow(FALSE);
         
         // enable button "jump to factorization"
-        this->m_control_buttonJumpToFactorization.EnableWindow(true);
+        m_control_buttonJumpToFactorization.EnableWindow(true);
+
+				// set the focus onto the number to be tested and select the existing input
+				m_control_editName.SetSel(0, -1);
+				m_control_editName.SetFocus();
     break;
     case(1):    // prim
         LoadString(AfxGetInstanceHandle(),IDS_STRING_PRIMETEST_RESULT_PRIME,pc_str,STR_LAENGE_STRING_TABLE);
@@ -307,7 +311,10 @@ void CDlgPrimeTest::UpdateResultField(int result, CString text)
         // Show prime image
         m_picPrime.ShowWindow(TRUE);
         m_picNotPrime.ShowWindow(FALSE);
-        //strResult.Format("(%i) ist eine Primzahl",m_algo);
+
+				// set the focus onto the number to be tested and select the existing input
+				m_control_editName.SetSel(0, -1);
+				m_control_editName.SetFocus();
     break;
     case(2):    // vermutlich
         LoadString(AfxGetInstanceHandle(),IDS_STRING_PRIMETEST_RESULT_PROBABLEPRIME,pc_str,STR_LAENGE_STRING_TABLE);

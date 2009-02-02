@@ -11955,7 +11955,7 @@ BEGIN
     CONTROL         "Beide gleich (nur einen eingeben)",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,184,120,121,10
     PUSHBUTTON      "&Abbrechen",IDC_ENDDIALOG,254,236,59,20
     GROUPBOX        "",IDC_STATIC,11,0,303,30
-    LTEXT           "Primzahlen spielen in der modernen Kryptographie eine wichtige Rolle. Hier erzeugen Sie sich zwei oder mehr zufällige Primzahlen aus dem Wertebereich [Untergrenze, Obergrenze].",IDC_STATIC,19,9,289,17
+    LTEXT           "Primzahlen spielen in der modernen Kryptographie eine wichtige Rolle. Hier können Sie sich Primzahlen aus einem vorzugebenden Wertebereich [Untergrenze, Obergrenze] erzeugen.",IDC_STATIC,19,9,289,17
     GROUPBOX        "Algorithmen zur Generierung",IDC_STATIC,11,83,142,60
     GROUPBOX        "Wertebereich der Primzahlen p und q",IDC_STATIC,172,83,142,60
     GROUPBOX        "Primzahl p",IDC_STATIC,11,148,142,80
@@ -11969,9 +11969,10 @@ BEGIN
     GROUPBOX        "Primzahl q",IDC_STATIC,172,148,142,80
     EDITTEXT        IDC_EDIT6,224,208,81,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     GROUPBOX        "Anzahl der zu generierenden Primzahlen",IDC_STATIC,11,36,302,40
-    CONTROL         "Eine oder zwei Primzahlen generieren",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON | WS_GROUP,23,49,133,10
-    CONTROL         "Alle Primzahlen in einem Wertebereich generieren",IDC_RADIO7,
-                    "Button",BS_AUTORADIOBUTTON,23,62,171,10
+    CONTROL         "Eine oder zwei Primzahlen zufällig aus dem Wertebereich generieren",IDC_RADIO6,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,23,49,230,10
+    CONTROL         "Alle Primzahlen in dem (für p vorgegebenen) Wertebereich generieren",IDC_RADIO7,
+                    "Button",BS_AUTORADIOBUTTON,23,62,234,10
 END
 
 IDD_RSA_DEMO DIALOGEX 0, 0, 391, 399
@@ -14901,23 +14902,23 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,97,50,14
 END
 
-IDD_SIMPLE_TRANSPOSITIONS DIALOGEX 0, 0, 280, 165
+IDD_SIMPLE_TRANSPOSITIONS DIALOGEX 0, 0, 270, 175
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Einfache Transpositionen"
+CAPTION "Schlüsseleingabe: Einfache Transpositionen"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Verschlüsseln",ID_ENCRYPT,7,139,60,19
-    PUSHBUTTON      "Entschlüsseln",ID_DECRYPT,73,139,60,19
-    PUSHBUTTON      "Abbrechen",IDCANCEL,213,139,60,19
-    CONTROL         "Skytale",IDC_RADIO_SCYTALE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,63,110,10
-    CONTROL         "Gartenzaun",IDC_RADIO_RAIL_FENCE,"Button",BS_AUTORADIOBUTTON,20,75,110,10
-    EDITTEXT        IDC_EDIT_KEY,135,111,23,14,ES_AUTOHSCROLL | ES_NUMBER
-    GROUPBOX        "Beschreibung",IDC_STATIC,7,7,266,36
-    LTEXT           "Transpositionen vertauschen die Buchstaben im Klartext. Zwei bekannte, klassische Varianten sind die Skytale und die Gartenzaunverschlüsselung.",IDC_STATIC,20,20,240,16
-    GROUPBOX        "Auswahl der Transposition",IDC_STATIC,7,50,160,40
-    GROUPBOX        "Auswahl des Schlüssels",IDC_STATIC,7,100,160,31
-    LTEXT           "SIMPLE_TRANSPOSITION_KEY",IDC_SIMPLE_TRANSPOSITION_KEY,20,113,99,8
-    CONTROL         "",IDC_SIMPLE_TRANSPOSITION_IMAGE,"Static",SS_BITMAP,187,53,67,62
+    DEFPUSHBUTTON   "Verschlüsseln",ID_ENCRYPT,7,149,60,19
+    PUSHBUTTON      "Entschlüsseln",ID_DECRYPT,73,149,60,19
+    PUSHBUTTON      "Abbrechen",IDCANCEL,203,149,60,19
+    CONTROL         "Skytale",IDC_RADIO_SCYTALE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,71,110,10
+    CONTROL         "Gartenzaun",IDC_RADIO_RAIL_FENCE,"Button",BS_AUTORADIOBUTTON,20,83,110,10
+    EDITTEXT        IDC_EDIT_KEY,135,119,23,14,ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "Beschreibung",IDC_STATIC,7,7,256,44
+    LTEXT           "Transpositionen vertauschen die Reihenfolge der Buchstaben im Klartext. Zwei bekannte, klassische Varianten sind die Skytale und die Gartenzaunverschlüsselung.",IDC_STATIC,20,20,230,24
+    GROUPBOX        "Auswahl der Transposition",IDC_STATIC,7,58,160,40
+    GROUPBOX        "Auswahl des Schlüssels",IDC_STATIC,7,108,160,31
+    LTEXT           "SIMPLE_TRANSPOSITION_KEY",IDC_SIMPLE_TRANSPOSITION_KEY,20,121,99,8
+    CONTROL         "",IDC_SIMPLE_TRANSPOSITION_IMAGE,"Static",SS_BITMAP,177,61,67,62
 END
 
 
@@ -18256,11 +18257,11 @@ BEGIN
     IDD_SIMPLE_TRANSPOSITIONS, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 273
+        RIGHTMARGIN, 263
         VERTGUIDE, 20
-        VERTGUIDE, 260
+        VERTGUIDE, 250
         TOPMARGIN, 7
-        BOTTOMMARGIN, 158
+        BOTTOMMARGIN, 168
         HORZGUIDE, 20
     END
 END
@@ -22453,7 +22454,7 @@ BEGIN
     EDITTEXT        IDC_EDIT5,63,208,81,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     EDITTEXT        IDC_EDIT6,224,208,81,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     GROUPBOX        "",IDC_STATIC,11,0,303,30
-    LTEXT           "Prime numbers play an important role in modern cryptography. Generate two or more random prime numbers within the value range [lower limit, upper limit].",IDC_STATIC,19,9,289,17
+    LTEXT           "Prime numbers play an important role in modern cryptography. Here you can generate primes within a given value range [lower limit, upper limit].",IDC_STATIC,19,9,289,17
     GROUPBOX        "Algorithms for prime number generation",IDC_STATIC,11,83,142,60
     GROUPBOX        "Value range of the prime numbers p and q",IDC_STATIC,172,83,142,60
     LTEXT           "Lower limit",IDC_STATIC,17,170,40,9
@@ -22465,9 +22466,10 @@ BEGIN
     LTEXT           "Upper limit",IDC_STATIC,178,189,44,8
     LTEXT           "Result",IDC_STATIC,179,210,35,10
     GROUPBOX        "Amount of prime numbers to be generated",IDC_STATIC,11,36,302,40
-    CONTROL         "Generate one or two prime numbers",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON | WS_GROUP,23,49,128,10
-    CONTROL         "Generate all prime numbers in a value range",IDC_RADIO7,
-                    "Button",BS_AUTORADIOBUTTON,23,62,154,10
+    CONTROL         "Generate one or two primes randomly from within the value range",IDC_RADIO6,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,23,49,219,10
+    CONTROL         "Generate all primes within the value range set for p",IDC_RADIO7,
+                    "Button",BS_AUTORADIOBUTTON,23,62,175,10
 END
 
 IDD_RSA_DEMO DIALOGEX 0, 0, 391, 399
@@ -25318,23 +25320,23 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,97,50,14
 END
 
-IDD_SIMPLE_TRANSPOSITIONS DIALOGEX 0, 0, 280, 165
+IDD_SIMPLE_TRANSPOSITIONS DIALOGEX 0, 0, 280, 175
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Simple Transpositions"
+CAPTION "Key Entry: Simple Transpositions"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Encrypt",ID_ENCRYPT,7,139,60,19
-    PUSHBUTTON      "Decrypt",ID_DECRYPT,73,139,60,19
-    PUSHBUTTON      "Cancel",IDCANCEL,213,139,60,19
-    CONTROL         "Scytale",IDC_RADIO_SCYTALE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,63,110,10
-    CONTROL         "Rail Fence",IDC_RADIO_RAIL_FENCE,"Button",BS_AUTORADIOBUTTON,20,75,110,10
-    EDITTEXT        IDC_EDIT_KEY,135,111,23,14,ES_AUTOHSCROLL | ES_NUMBER
-    GROUPBOX        "Description",IDC_STATIC,7,7,266,36
-    LTEXT           "Transpositions exchange letters in the clear text. Two well-known, classic variants are the Scytale and Rail Fence encryption.",IDC_STATIC,20,20,240,16
-    GROUPBOX        "Choose the transposition",IDC_STATIC,7,50,160,40
-    GROUPBOX        "Choose the key",IDC_STATIC,7,100,160,31
-    LTEXT           "SIMPLE_TRANSPOSITION_KEY",IDC_SIMPLE_TRANSPOSITION_KEY,20,113,99,8
-    CONTROL         "",IDC_SIMPLE_TRANSPOSITION_IMAGE,"Static",SS_BITMAP,187,53,67,62
+    DEFPUSHBUTTON   "Encrypt",ID_ENCRYPT,7,149,60,19
+    PUSHBUTTON      "Decrypt",ID_DECRYPT,73,149,60,19
+    PUSHBUTTON      "Cancel",IDCANCEL,213,149,60,19
+    CONTROL         "Scytale",IDC_RADIO_SCYTALE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,71,110,10
+    CONTROL         "Rail Fence",IDC_RADIO_RAIL_FENCE,"Button",BS_AUTORADIOBUTTON,20,83,110,10
+    EDITTEXT        IDC_EDIT_KEY,135,119,23,14,ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "Description",IDC_STATIC,7,7,266,44
+    LTEXT           "Transpositions scramble the order of the letters in the clear text. Two well-known, classic variants are the Scytale and the Rail Fence encryption.",IDC_STATIC,20,20,230,24
+    GROUPBOX        "Choose the transposition",IDC_STATIC,7,58,160,40
+    GROUPBOX        "Choose the key",IDC_STATIC,7,108,160,31
+    LTEXT           "SIMPLE_TRANSPOSITION_KEY",IDC_SIMPLE_TRANSPOSITION_KEY,20,121,99,8
+    CONTROL         "",IDC_SIMPLE_TRANSPOSITION_IMAGE,"Static",SS_BITMAP,177,61,67,62
 END
 
 
@@ -28913,8 +28915,11 @@ BEGIN
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 273
+        VERTGUIDE, 20
+        VERTGUIDE, 250
         TOPMARGIN, 7
-        BOTTOMMARGIN, 158
+        BOTTOMMARGIN, 168
+        HORZGUIDE, 20
     END
 END
 #endif    // APSTUDIO_INVOKED

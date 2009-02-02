@@ -78,6 +78,8 @@ public:
 	CButton	m_control_button_accept;
 	CEdit	m_control_edit4;
 	CEdit	m_control_edit3;
+	CEdit m_control_edit5;
+	CEdit m_control_edit6;
 	int m_radio1;
 	int m_radio4;
 	int m_radio6;
@@ -118,6 +120,8 @@ public:
 	BOOL generateMultiplePrimeNumbersEnabled;
 	// this variable indicates that the prime number generation thread is to be aborted
 	BOOL abortGenerationMultiplePrimeNumbers;
+	// this variable indicates if the generation thread was aborted by the user
+	BOOL primeNumberGenerationAborted;
 	// this struct holds the comparison function to sort the map filled with primes
 	struct primeComparison {
 		bool operator()(const CString &one, const CString &two) const {
