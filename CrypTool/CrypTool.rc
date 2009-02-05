@@ -11969,8 +11969,8 @@ BEGIN
     GROUPBOX        "Primzahl q",IDC_STATIC,172,148,142,80
     EDITTEXT        IDC_EDIT6,224,208,81,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     GROUPBOX        "Anzahl der zu generierenden Primzahlen",IDC_STATIC,11,36,302,40
-    CONTROL         "Eine oder zwei Primzahlen zufällig aus dem Wertebereich generieren",IDC_RADIO6,
-                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,23,49,230,10
+    CONTROL         "Zwei Primzahlen zufällig aus dem Wertebereich (den Wertebereichen) generieren",IDC_RADIO6,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,23,49,270,10
     CONTROL         "Alle Primzahlen in dem (für p vorgegebenen) Wertebereich generieren",IDC_RADIO7,
                     "Button",BS_AUTORADIOBUTTON,23,62,234,10
 END
@@ -12631,15 +12631,15 @@ BEGIN
     DEFPUSHBUTTON   "Zertifkat und PSE erzeugen",IDOK,7,248,112,14
 END
 
-IDD_FACTORISATION_LIST DIALOG  0, 0, 383, 348
+IDD_FACTORISATION_LIST DIALOGEX 0, 0, 383, 348
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Details zur Faktorisierung"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "S&chließen",IDOK,318,321,58,20
     PUSHBUTTON      "&Liste im Hauptfenster anzeigen",IDCANCEL,178,321,112,20
     LTEXT           "Eingabe-Zahl:",IDC_STATIC,7,7,57,10
-    GROUPBOX        "Informationen zur gewählten Faktorisierung (selektieren durch doppelklick auf die Zeile) ",IDC_STATIC,7,202,369,112
+    GROUPBOX        "Informationen zur gewählten Faktorisierung (Selektieren einer Zahl durch Doppelklick auf die Zeile) ",IDC_STATIC,7,202,369,112
     LTEXT           "Faktorisierte Zahl:",IDC_STATIC,19,218,57,8
     LTEXT           "Erster Faktor:",IDC_STATIC,19,249,57,8
     LTEXT           "Zweiter Faktor:",IDC_STATIC,19,280,57,8
@@ -13560,18 +13560,18 @@ BEGIN
     LTEXT           "für Dokumente:",IDC_STATIC,13,106,89,9,0,WS_EX_RIGHT
 END
 
-IDD_ABOUT DIALOGEX 34, 22, 242, 443
+IDD_ABOUT DIALOGEX 34, 22, 242, 445
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Über CrypTool"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,70,415,90,19,WS_GROUP
+    DEFPUSHBUTTON   "OK",IDOK,76,419,90,19,WS_GROUP
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,44,50,105,37,WS_EX_TRANSPARENT
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,40,82,143,37,WS_EX_TRANSPARENT
     CTEXT           "haben es die Universitäten Siegen und Darmstadt\nund viele freiwillige Entwickler in einem Open-Source-Projekt entwickelt.",IDC_STATIC,9,130,223,24
     CTEXT           "CrypTool nutzt folgende Bibliotheken:",IDC_STATIC,0,219,241,8
     CTEXT           "Kontakt:",IDC_STATIC,0,315,241,10
-    CTEXT           "Copyright (C) 1998-2009 Deutsche Bank AG\nFrankfurt am Main, Germany",IDC_STATIC,0,389,242,17
+    CTEXT           "Copyright (C) 1998-2009\nDeutsche Bank AG und Mitwirkende\nFrankfurt am Main, Deutschland",IDC_STATIC,0,380,242,24
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,46,228,79
     CTEXT           "CrypTool ist ein kostenloses und umfangreiches Lernprogramm\nzu klassischer und moderner Kryptographie/Kryptoanalyse.\n\nGemeinsam mit den Sponsoren",IDC_STATIC,1,12,241,33
     CTEXT           "MIRACL",IDC_EDIT_MIRACL,1,255,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
@@ -13582,8 +13582,8 @@ BEGIN
     CTEXT           "GMP",IDC_EDIT_GMP,0,296,241,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
     CTEXT           "CrypTool wird weltweit zur Lehre an Schulen und Hochschulen, und zur Ausbildung und Mitarbeiter-Awareness in Firmen und Behörden eingesetzt.",IDC_STATIC,3,193,236,19,WS_TABSTOP
     CTEXT           "CRYPTOVISION",IDC_EDIT_CRYPTOVISION,0,243,241,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,7,326,228,60,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,7,158,228,30,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,7,326,228,44,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,7,159,228,28,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
 END
 
 IDD_HMAC DIALOGEX 0, 0, 325, 505
@@ -14677,7 +14677,7 @@ BEGIN
     LTEXT           "Daneben gibt es noch deterministische Verfahren: Wenn diese ein Ergebnis liefern, ist es mit 100% Wahrscheinlichkeit korrekt (aus mathematischer Sicht).",IDC_PRIMETEST_LABEL_TEXT3,17,44,324,20
     CONTROL         250,IDC_STATIC_PRIM_RES,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,15,13
     CONTROL         251,IDC_STATIC_PRIM_RES2,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,15,13
-    DEFPUSHBUTTON   "Zahl &faktorisieren",IDC_BUTTON_JUMP_TO_FACTORIZATION,110,240,100,20,WS_DISABLED
+    PUSHBUTTON      "Zahl &faktorisieren",IDC_BUTTON_JUMP_TO_FACTORIZATION,110,240,100,20,WS_DISABLED
 END
 
 IDD_ADFGVX_STRINGBOX DIALOGEX 0, 0, 178, 44
@@ -17998,7 +17998,7 @@ BEGIN
     BEGIN
         VERTGUIDE, 7
         VERTGUIDE, 235
-        BOTTOMMARGIN, 434
+        BOTTOMMARGIN, 438
     END
 
     IDD_HMAC, DIALOG
@@ -20913,7 +20913,7 @@ BEGIN
     IDS_STRING_ADFGVX_PASSWORD_CORRECTED 
                             "Das eingegebene Transpositionspasswort wurde korrigiert:\n\n"
     IDS_STRING_ABOUT_CONTACT_INFORMATION 
-                            "esslinger@fb5.uni-siegen.de\r\njoerg-cornelius.schneider@db.com\r\nhenrik.koy@db.com\r\n\r\n\r\nInternet: http://www.cryptool.de"
+                            "esslinger@fb5.uni-siegen.de\r\njoerg-cornelius.schneider@db.com\r\nhenrik.koy@db.com\r\n\r\nInternet: http://www.cryptool.de"
     IDS_BIT_FMT             "%d Bit%s"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION 
                             "Im ausgewählten Wertebereich [%s, %s] wurden %d Primzahlen gefunden."
@@ -21349,16 +21349,16 @@ BEGIN
     EDITTEXT        IDC_EDIT2,10,180,35,12,ES_READONLY | WS_DISABLED | NOT WS_BORDER
 END
 
-IDD_ABOUT DIALOGEX 34, 22, 242, 443
+IDD_ABOUT DIALOGEX 34, 22, 242, 445
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About CrypTool"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,70,415,90,19,WS_GROUP
+    DEFPUSHBUTTON   "OK",IDOK,76,419,90,19,WS_GROUP
     CTEXT           "the universities Siegen and Darmstadt developed it within an\nopen source project thanks to the help of many voluntary developers.",IDC_STATIC,0,130,242,17
     CTEXT           "CrypTool uses the following libraries:",IDC_STATIC,1,219,241,8
     CTEXT           "Contact:",IDC_STATIC,0,315,241,10
-    CTEXT           "Copyright (C) 1998-2009 Deutsche Bank AG\nFrankfurt am Main, Germany",IDC_STATIC,0,389,242,17
+    CTEXT           "Copyright (C) 1998-2009\nDeutsche Bank AG and Contributors\nFrankfurt am Main, Germany",IDC_STATIC,0,380,242,24
     CTEXT           "CrypTool is a free and comprehensive e-learning program about\nclassic and contemporary cryptography and cryptanalysis.\n\nIn a joint effort of the sponsors",IDC_STATIC,1,10,241,32
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,41,48,105,37,WS_EX_TRANSPARENT
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,40,80,143,37,WS_EX_TRANSPARENT
@@ -21371,8 +21371,8 @@ BEGIN
     CTEXT           "GMP",IDC_EDIT_GMP,0,298,241,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
     CTEXT           "CrypTool is used world wide for education in schools and universities, and for apprenticeship and employee awareness in companies and government organizations.",IDC_STATIC,3,185,236,24
     CTEXT           "CRYPTOVISION",IDC_EDIT_CRYPTOVISION,0,246,241,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,7,150,228,30,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,7,326,228,60,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,7,151,228,28,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,7,326,228,44,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
 END
 
 IDD_SHOW_PROGRESS DIALOG  0, 0, 187, 105
@@ -22466,8 +22466,8 @@ BEGIN
     LTEXT           "Upper limit",IDC_STATIC,178,189,44,8
     LTEXT           "Result",IDC_STATIC,179,210,35,10
     GROUPBOX        "Amount of prime numbers to be generated",IDC_STATIC,11,36,302,40
-    CONTROL         "Generate one or two primes randomly from within the value range",IDC_RADIO6,
-                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,23,49,219,10
+    CONTROL         "Generate two primes randomly from within the value range(s)",IDC_RADIO6,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,23,49,205,10
     CONTROL         "Generate all primes within the value range set for p",IDC_RADIO7,
                     "Button",BS_AUTORADIOBUTTON,23,62,175,10
 END
@@ -25066,7 +25066,7 @@ CAPTION "Prime Number Test"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     EDITTEXT        IDC_PRIMETEST_EDIT_NUMBER,79,189,262,14,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "T&est number",IDC_PRIMETEST_BUTTON_TEST,7,241,100,20
+    DEFPUSHBUTTON   "T&est number",IDC_PRIMETEST_BUTTON_TEST,7,240,100,20
     CONTROL         "&Miller-Rabin test",IDC_PRIMETEST_RADIO_MILLERRABIN,
                     "Button",BS_AUTORADIOBUTTON | WS_GROUP,17,84,71,10
     CONTROL         "&Fermat test",IDC_PRIMETEST_RADIO_FERMAT,"Button",BS_AUTORADIOBUTTON,17,98,56,10
@@ -25076,7 +25076,7 @@ BEGIN
                     "Button",BS_AUTORADIOBUTTON,17,126,171,10
     PUSHBUTTON      "&Load number from file",IDC_PRIMETEST_BUTTON_LOADNUMBER,235,162,106,20
     EDITTEXT        IDC_PRIMETEST_EDIT_RESULT,79,209,262,14,ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "&Cancel",IDC_PRIMETEST_BUTTON_CANCEL,252,241,100,20
+    PUSHBUTTON      "&Cancel",IDC_PRIMETEST_BUTTON_CANCEL,252,240,100,20
     GROUPBOX        "",IDC_PRIMETEST_GROUPBOX_TEXT,7,4,345,62
     GROUPBOX        "Algorithms for prime number test",IDC_PRIMETEST_GROUPBOX_ALGO,7,72,345,73
     LTEXT           "There are various methods to check if a number is a prime number (mathematicians also say, to check if a number is prime).",IDC_PRIMETEST_LABEL_TEXT1,17,12,324,17
@@ -25087,7 +25087,7 @@ BEGIN
     LTEXT           "Besides that there are also deterministic methods: A provided result is of 100 % correctness (from the mathematical point of view).",IDC_PRIMETEST_LABEL_TEXT3,17,44,324,19
     CONTROL         250,IDC_STATIC_PRIM_RES,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,15,13
     CONTROL         251,IDC_STATIC_PRIM_RES2,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,15,13
-    DEFPUSHBUTTON   "&Factorize number",IDC_BUTTON_JUMP_TO_FACTORIZATION,110,241,100,20,WS_DISABLED
+    PUSHBUTTON      "&Factorize number",IDC_BUTTON_JUMP_TO_FACTORIZATION,110,240,100,20,WS_DISABLED
 END
 
 IDD_ADFGVX_STRINGBOX DIALOGEX 0, 0, 179, 44
@@ -28102,7 +28102,7 @@ BEGIN
         VERTGUIDE, 7
         VERTGUIDE, 235
         TOPMARGIN, 1
-        BOTTOMMARGIN, 440
+        BOTTOMMARGIN, 438
     END
 
     IDD_SHOW_PROGRESS, DIALOG
@@ -31511,7 +31511,7 @@ BEGIN
     IDS_STRING_ADFGVX_PASSWORD_CORRECTED 
                             "The entered transposition password was corrected:\n\n"
     IDS_STRING_ABOUT_CONTACT_INFORMATION 
-                            "esslinger@fb5.uni-siegen.de\r\njoerg-cornelius.schneider@db.com\r\nhenrik.koy@db.com\r\n\r\n\r\nInternet: http://www.cryptool.com"
+                            "esslinger@fb5.uni-siegen.de\r\njoerg-cornelius.schneider@db.com\r\nhenrik.koy@db.com\r\n\r\nInternet: http://www.cryptool.com"
     IDS_BIT_FMT             "%d bit%s"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION 
                             "In the given value range [%s, %s], %d prime numbers were found."

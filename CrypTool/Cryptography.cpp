@@ -3994,3 +3994,16 @@ UINT SymmetricBruteForce(PVOID p)
 	return r;
 }
 
+// Rail Fence encryption (part of the simple transpositions dialog)
+void RailFenceEncryption(const char *infile, const char *oldTitle, int key, bool encrypt) {
+	AfxMessageBox("RAIL FENCE: NOT IMPLEMENTED YET!");
+
+	// TODO: read file, DO THE OPERATION, create new title, open new document
+}
+
+// Scytale encryption (part of the simple transpositions dialog)
+void ScytaleEncryption(const char *infile, const char *oldTitle, int key, bool encrypt) {
+	AfxMessageBox("SCYTALE: NOT IMPLEMENTED YET!");
+
+	// TODO: read file, DO THE OPERATION, create new title, open new document
+}

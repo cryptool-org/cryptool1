@@ -125,6 +125,9 @@ UINT SymmetricBruteForce(PVOID p);
 BOOL Rot13CaesarAsc(SymbolArray & text, const char *infile);
 void Rot13CaesarAscFinish(SymbolArray & text, const char * infile, char * sKey, BOOL bDecrypt, const char *OldTitle, UINT type, bool keyOffsetZero);
 
-
+// Rail Fence encryption (part of the simple transpositions dialog)
+void RailFenceEncryption(const char *infile, const char *oldTitle, int key, bool encrypt = true);
+// Scytale encryption (part of the simple transpositions dialog)
+void ScytaleEncryption(const char *infile, const char *oldTitle, int key, bool encrypt = true);
 
 #endif // __CRYPT_H

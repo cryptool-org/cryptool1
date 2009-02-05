@@ -72,6 +72,11 @@ public:
 	afx_msg void OnRadioRailFence();
 
 protected:
+	// file name of the file to be encrypted/decrypted
+	CString fileName;
+	// title of the file to be encrypted/decrypted
+	CString fileNameTitle;
+
 	// which transposition was chosen by the user?
 	int radioTransposition;
 

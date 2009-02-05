@@ -47,6 +47,7 @@ statement from your version.
 #include "stdafx.h"
 #include "CrypToolApp.h"
 #include "DlgSimpleTranspositions.h"
+#include "Cryptography.h"
 
 IMPLEMENT_DYNAMIC(CDlgSimpleTranspositions, CDialog)
 
@@ -54,6 +55,9 @@ CDlgSimpleTranspositions::CDlgSimpleTranspositions(char* infile, CString oldTitl
 	: CDialog(CDlgSimpleTranspositions::IDD, pParent)
 	, key(0)
 {
+	fileName = infile;
+	fileNameTitle = oldTitle;
+
 	// we are going with Scytale by default (0)
 	radioTransposition = 0;
 	// the default key is 1
@@ -110,8 +114,11 @@ void CDlgSimpleTranspositions::OnBnClickedEncrypt()
 		return;
 	}
 
-	// read infile, encrypt it and display it in a new document
-	AfxMessageBox("TODO: ENCRYPT");
+	// now, do the actual encryption
+	if(radioTransposition == 0) // SCYTALE
+		ScytaleEncryption(fileName.GetBuffer(), fileNameTitle.GetBuffer(), key, true);
+	if(radioTransposition == 1) // RAIL FENCE
+		RailFenceEncryption(fileName.GetBuffer(), fileNameTitle.GetBuffer(), key, true);
 
 	EndDialog(IDOK);
 }
@@ -127,8 +134,11 @@ void CDlgSimpleTranspositions::OnBnClickedDecrypt()
 		return;
 	}
 
-	// read infile, decrypt it and display it in a new document
-	AfxMessageBox("TODO: DECRYPT");
+	// now, do the actual encryption
+	if(radioTransposition == 0) // SCYTALE
+		ScytaleEncryption(fileName.GetBuffer(), fileNameTitle.GetBuffer(), key, false);
+	if(radioTransposition == 1) // RAIL FENCE
+		RailFenceEncryption(fileName.GetBuffer(), fileNameTitle.GetBuffer(), key, false);
 
 	EndDialog(IDOK);
 }

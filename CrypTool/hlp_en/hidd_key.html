@@ -15,8 +15,8 @@
 		</OBJECT>
 		<h3>Dialog Key Entry</h3>
 		<P>This dialog is used to enter the <!--ZZZPOPUP--><A href="schluessel.html">key</A>
-			for the following classic and symmetric <!--ZZZPOPUP--><A href="verschlverfahren.html">encryption 
-				algorithms</A>:</P>
+			for the following symmetric <!--ZZZPOPUP--><A href="verschlverfahren.html">encryption 
+				algorithms</A> (classic and modern):</P>
 		<P>
 		<b>Text input</b>:<br>
 		<A href="hid_rot13caesar_asc.html">ROT-13 / Caesar</A><BR>
@@ -62,6 +62,12 @@
 			The current file is encrypted with the DES key 12 AB 00 00 00 00 00 00 (according to the set key length the DES algorithm is expecting a key comprising 64 bits and the default value to hex keys is 0).</P>
 		<P>Typical key lengths and their presentations are listed in the table <A href="key_representation.html">
 				Key presentation</A>.<br><br></P>
+				
+		<P>The hex strings (128 and 192 bit) entered for the Triple DES and DESX variants are internally 
+		considered as a sequence of 2 or 3 different shorter keys used in the different algorithm 
+		parts.</P>
+		
+		<br>
 				
 				<p><b>Example 2</b>: Entering text characters with Vigenère.<br>As Vigenère key you choose TESTER.</p>
 				<IMG SRC="images/vigenere-keydialog.gif" ALT="vigenere-keydialog.gif" BORDER="0">
