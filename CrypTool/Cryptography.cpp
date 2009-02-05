@@ -3996,14 +3996,136 @@ UINT SymmetricBruteForce(PVOID p)
 
 // Rail Fence encryption (part of the simple transpositions dialog)
 void RailFenceEncryption(const char *infile, const char *oldTitle, int key, bool encrypt) {
-	AfxMessageBox("RAIL FENCE: NOT IMPLEMENTED YET!");
+	// create a handle for the input file
+	std::ifstream fileInput;
+	fileInput.open(infile);
+	if(!fileInput) return;
 
-	// TODO: read file, DO THE OPERATION, create new title, open new document
+	// store the contents of the file in bufferString
+	std::string bufferString;
+	char buffer[4096 + 1];
+	memset(buffer, 0, 4096 + 1);
+	do {
+		memset(buffer, 0, 4096 + 1);
+		fileInput.read(buffer, 4096);
+		bufferString.append(buffer);
+	}
+	while(!fileInput.eof());
+
+	// *** BEGIN ENCRYPTION/DECRYPTION PROCESS ***
+	int textLength = bufferString.length();
+	char *clearText = new char[textLength + 1];
+	memset(clearText, 0, textLength + 1);
+	memcpy(clearText, bufferString.c_str(), textLength);
+	char *cipherText = new char[textLength + 1];
+	memset(cipherText, 0, textLength + 1);
+
+	// TODO
+	// regardless of whether we have encryption or decryption,
+	// work on "clearText", store result in "cipherText"
+
+	std::string cipherTextString = cipherText;
+	delete clearText;
+	delete cipherText;
+	// *** END ENCRYPTION/DECRYPTION PROCESS ***
+
+	// create a name for the outfile
+	char outfile[4096];
+	GetTmpName(outfile, "cry", ".txt");
+
+	// create a file handle for the output file
+	std::ofstream fileOutput;
+	fileOutput.open(outfile, ios::out);
+	if(!fileOutput) return;
+
+	// write the output file
+	fileOutput.write(cipherTextString.c_str(), cipherTextString.length());
+	fileOutput.close();
+
+	// key as string
+	char keyString[4096 + 1];
+	memset(keyString, 0, 4096 + 1);
+	itoa(key, keyString, 10);
+
+	// open the new document
+	CDocument *document = theApp.OpenDocumentFileNoMRU(outfile, keyString);
+	if(document) {
+		char title[4096];
+		memset(title, 0, 4096);
+		// set the document title depending on whether we have an encryption or a decryption
+		if(encrypt) LoadString(AfxGetInstanceHandle(), IDS_STRING_RAIL_FENCE_ENCRYPTION_OF, pc_str, STR_LAENGE_STRING_TABLE);
+		else LoadString(AfxGetInstanceHandle(), IDS_STRING_RAIL_FENCE_DECRYPTION_OF, pc_str, STR_LAENGE_STRING_TABLE);
+		// now add the old title and the key into the new title
+		sprintf(title, pc_str, oldTitle, keyString);
+		// set the new document title
+		document->SetTitle(title);
+	}
 }
 
 // Scytale encryption (part of the simple transpositions dialog)
 void ScytaleEncryption(const char *infile, const char *oldTitle, int key, bool encrypt) {
-	AfxMessageBox("SCYTALE: NOT IMPLEMENTED YET!");
+	// create a handle for the input file
+	std::ifstream fileInput;
+	fileInput.open(infile);
+	if(!fileInput) return;
 
-	// TODO: read file, DO THE OPERATION, create new title, open new document
+	// store the contents of the file in bufferString
+	std::string bufferString;
+	char buffer[4096 + 1];
+	memset(buffer, 0, 4096 + 1);
+	do {
+		memset(buffer, 0, 4096 + 1);
+		fileInput.read(buffer, 4096);
+		bufferString.append(buffer);
+	}
+	while(!fileInput.eof());
+
+	// *** BEGIN ENCRYPTION/DECRYPTION PROCESS ***
+	int textLength = bufferString.length();
+	char *clearText = new char[textLength + 1];
+	memset(clearText, 0, textLength + 1);
+	memcpy(clearText, bufferString.c_str(), textLength);
+	char *cipherText = new char[textLength + 1];
+	memset(cipherText, 0, textLength + 1);
+
+	// TODO
+	// regardless of whether we have encryption or decryption,
+	// work on "clearText", store result in "cipherText"
+
+	std::string cipherTextString = cipherText;
+	delete clearText;
+	delete cipherText;
+	// *** END ENCRYPTION/DECRYPTION PROCESS ***
+
+	// create a name for the outfile
+	char outfile[4096];
+	GetTmpName(outfile, "cry", ".txt");
+
+	// create a file handle for the output file
+	std::ofstream fileOutput;
+	fileOutput.open(outfile, ios::out);
+	if(!fileOutput) return;
+
+	// write the output file
+	fileOutput.write(bufferString.c_str(), bufferString.length());
+	fileOutput.close();
+
+	// key as string
+	char keyString[4096 + 1];
+	memset(keyString, 0, 4096 + 1);
+	itoa(key, keyString, 10);
+
+	// open the new document
+	CDocument *document = theApp.OpenDocumentFileNoMRU(outfile, keyString);
+	if(document) {
+		char title[4096];
+		memset(title, 0, 4096);
+		// set the document title depending on whether we have an encryption or a decryption
+		if(encrypt) LoadString(AfxGetInstanceHandle(), IDS_STRING_SCYTALE_ENCRYPTION_OF, pc_str, STR_LAENGE_STRING_TABLE);
+		else LoadString(AfxGetInstanceHandle(), IDS_STRING_SCYTALE_DECRYPTION_OF, pc_str, STR_LAENGE_STRING_TABLE);
+		// now add the old title and the key into the new title
+		sprintf(title, pc_str, oldTitle, keyString);
+		// set the new document title
+		document->SetTitle(title);
+	}
 }

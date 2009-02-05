@@ -20961,6 +20961,14 @@ BEGIN
     IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_RAIL_FENCE "Anzahl der Zeilen:"
     IDS_SIMPLE_TRANSPOSITION_KEY_INVALID 
                             "Der Schlüssel ist ungültig. Er muss größer oder gleich 1 sein."
+    IDS_STRING_RAIL_FENCE_ENCRYPTION_OF 
+                            "Gartenzaun-Verschlüsselung von <%s>, Schlüssel <%s>"
+    IDS_STRING_RAIL_FENCE_DECRYPTION_OF 
+                            "Gartenzaun-Entschlüsselung von <%s>, Schlüssel <%s>"
+    IDS_STRING_SCYTALE_ENCRYPTION_OF 
+                            "Skytale-Verschlüsselung von <%s>, Schlüssel <%s>"
+    IDS_STRING_SCYTALE_DECRYPTION_OF 
+                            "Skytale-Entschlüsselung von <%s>, Schlüssel <%s>"
 END
 
 #endif    // German (Germany) resources
@@ -31559,6 +31567,12 @@ BEGIN
     IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_RAIL_FENCE "Number of rows:"
     IDS_SIMPLE_TRANSPOSITION_KEY_INVALID 
                             "The key is invalid. It must be greater than or equal to 1."
+    IDS_STRING_RAIL_FENCE_ENCRYPTION_OF 
+                            "Rail Fence encryption of <%s>, key <%s>"
+    IDS_STRING_RAIL_FENCE_DECRYPTION_OF 
+                            "Rail Fence decryption of <%s>, key <%s>"
+    IDS_STRING_SCYTALE_ENCRYPTION_OF "Scytale encryption of <%s>, key <%s>"
+    IDS_STRING_SCYTALE_DECRYPTION_OF "Scytale decryption of <%s>, key <%s>"
 END
 
 #endif    // English (U.K.) resources
