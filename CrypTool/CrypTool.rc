@@ -8,7 +8,8 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -10513,6 +10514,11 @@ BEGIN
                             "The special character list is empty!\nPlease provide some spechial characters or reduce the minimal number of special characters to 0."
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_FACTORS_FOUND       "Found %d factors in %s"
+END
+
 #endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -20969,6 +20975,7 @@ BEGIN
                             "Skytale-Verschlüsselung von <%s>, Schlüssel <%s>"
     IDS_STRING_SCYTALE_DECRYPTION_OF 
                             "Skytale-Entschlüsselung von <%s>, Schlüssel <%s>"
+    IDS_FACTORS_FOUND       "%d Faktoren gefunden in %s"
 END
 
 #endif    // German (Germany) resources
@@ -31573,6 +31580,7 @@ BEGIN
                             "Rail Fence decryption of <%s>, key <%s>"
     IDS_STRING_SCYTALE_ENCRYPTION_OF "Scytale encryption of <%s>, key <%s>"
     IDS_STRING_SCYTALE_DECRYPTION_OF "Scytale decryption of <%s>, key <%s>"
+    IDS_FACTORS_FOUND       "Found %d factors in %s"
 END
 
 #endif    // English (U.K.) resources

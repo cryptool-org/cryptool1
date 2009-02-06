@@ -369,7 +369,7 @@ void CDlgFactorisationDemo::OnButtonFactorisation()
 			dlg.m_totalThreads = started;
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_FACTORISATION_TIMER,pc_str,STR_LAENGE_STRING_TABLE);
 			dlg.SetCaption(pc_str);
-			if ( IDOK != (l_dlg_return = dlg.DoModal()) )
+			if ( started && IDOK != (l_dlg_return = dlg.DoModal()) )
 			{
 				if (l_dlg_return == IDCANCEL) l_factorisation_aborted = true;
 			}
@@ -420,33 +420,22 @@ void CDlgFactorisationDemo::OnButtonFactorisation()
 			zeit_condtruct2.sec= (int) (temp - zeit_condtruct2.day*86400- zeit_condtruct2.hour*3600-zeit_condtruct2.min*60);
 			zeit_condtruct2.msec= (int) floor((duration2-temp)*1000);
 			
-			char line1[256], line2[256], timeStr1[64],timeStr2[64];
+			char line2[256], timeStr2[64];
+			CString timeStr1;
 			
 			if ( zeit_condtruct1.day >= 1)
-			{	
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_FMT_DAYS,pc_str,STR_LAENGE_STRING_TABLE);
-				sprintf(timeStr1,pc_str, zeit_condtruct1.day,zeit_condtruct1.hour, zeit_condtruct1.min,zeit_condtruct1.sec);
-			}
+				timeStr1.Format(IDS_STRING_FMT_DAYS, zeit_condtruct1.day,zeit_condtruct1.hour, zeit_condtruct1.min,zeit_condtruct1.sec);
 			else if (zeit_condtruct1.hour >= 1)
-			{	
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_FMT_HRS,pc_str,STR_LAENGE_STRING_TABLE);
-				sprintf(timeStr1,pc_str, zeit_condtruct1.hour, zeit_condtruct1.min,zeit_condtruct1.sec);
-			}
+				timeStr1.Format(IDS_STRING_FMT_HRS, zeit_condtruct1.hour, zeit_condtruct1.min,zeit_condtruct1.sec);
 			else if (zeit_condtruct1.min >= 1)
-			{	
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_FMT_MIN,pc_str,STR_LAENGE_STRING_TABLE);
-				sprintf(timeStr1,pc_str, zeit_condtruct1.min,zeit_condtruct1.sec);
-			}
+				timeStr1.Format(IDS_STRING_FMT_MIN, zeit_condtruct1.min,zeit_condtruct1.sec);
 			else
-			{	
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_FMT_SEC,pc_str,STR_LAENGE_STRING_TABLE);
-				sprintf(timeStr1,pc_str, zeit_condtruct1.sec, zeit_condtruct1.msec);
-			}
-			
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_BENOETIGTE_ZEIT_FAKT,pc_str,STR_LAENGE_STRING_TABLE);		
-			sprintf( line1, pc_str, timeStr1 );
-			m_benoetigte_zeit_global = line1;	
-
+				timeStr1.Format(IDS_STRING_FMT_SEC, zeit_condtruct1.sec, zeit_condtruct1.msec);
+			timeStr1.TrimLeft();
+			int nfactors = 0;
+			for (NumFactor *factor = factorList; factor ; factor = factor->next)
+				nfactors += factor->exponent;
+			m_benoetigte_zeit_global.Format(IDS_FACTORS_FOUND, nfactors, timeStr1);
 			if ( zeit_condtruct2.day >= 1)
 			{	
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_FMT_DAYS,pc_str,STR_LAENGE_STRING_TABLE);
