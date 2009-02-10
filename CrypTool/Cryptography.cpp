@@ -4020,9 +4020,33 @@ void RailFenceEncryption(const char *infile, const char *oldTitle, int key, bool
 	char *cipherText = new char[textLength + 1];
 	memset(cipherText, 0, textLength + 1);
 
-	// TODO
-	// regardless of whether we have encryption or decryption,
-	// work on "clearText", store result in "cipherText"
+	// IMPORTANT:
+	// if the key is "1" or >= the length of the clear text,
+	// simply return the clear text without further processing
+	if(key == 1 || key >= textLength) {
+		memcpy(cipherText, bufferString.c_str(), textLength);
+	}
+	// in any other case, do the encryption/decryption
+	else {
+		// ENCRYPTION
+		if(encrypt) {
+			int charactersProcessed = 0;
+			for(int row=0; row<key; row++) {
+				for(int index=row; index<textLength; index+=key) {
+					cipherText[charactersProcessed++] = clearText[index];
+				}
+			}
+		}
+		// DECRYPTION
+		else {
+			int charactersProcessed = 0;
+			for(int row=0; row<key; row++) {
+				for(int index=row; index<textLength; index+=key) {
+					cipherText[index] = clearText[charactersProcessed++];
+				}
+			}
+		}
+	}
 
 	std::string cipherTextString = cipherText;
 	delete clearText;
@@ -4088,9 +4112,37 @@ void ScytaleEncryption(const char *infile, const char *oldTitle, int key, bool e
 	char *cipherText = new char[textLength + 1];
 	memset(cipherText, 0, textLength + 1);
 
-	// TODO
-	// regardless of whether we have encryption or decryption,
-	// work on "clearText", store result in "cipherText"
+	// IMPORTANT:
+	// if the key is "1" or >= the length of the clear text,
+	// simply return the clear text without further processing
+	if(key == 1 || key >= textLength) {
+		memcpy(cipherText, bufferString.c_str(), textLength);
+	}
+	// in any other case, do the encryption/decryption
+	else {
+		// ENCRYPTION
+		if(encrypt) {
+			int numberOfColumns = textLength / key;
+			if(textLength % key) numberOfColumns++;
+			int charactersProcessed = 0;
+			for(int column=0; column<numberOfColumns && charactersProcessed<textLength; column++) {
+				for(int index=column; index<textLength && charactersProcessed<textLength; index+=numberOfColumns) {
+					cipherText[charactersProcessed++] = clearText[index];
+				}
+			}
+		}
+		// DECRYPTION
+		else {
+			int numberOfColumns = textLength / key;
+			if(textLength % key) numberOfColumns++;
+			int charactersProcessed = 0;
+			for(int column=0; column<numberOfColumns && charactersProcessed<textLength; column++) {
+				for(int index=column; index<textLength && charactersProcessed<textLength; index+=numberOfColumns) {
+					cipherText[index] = clearText[charactersProcessed++];
+				}
+			}
+		}
+	}
 
 	std::string cipherTextString = cipherText;
 	delete clearText;
@@ -4107,7 +4159,7 @@ void ScytaleEncryption(const char *infile, const char *oldTitle, int key, bool e
 	if(!fileOutput) return;
 
 	// write the output file
-	fileOutput.write(bufferString.c_str(), bufferString.length());
+	fileOutput.write(cipherTextString.c_str(), cipherTextString.length());
 	fileOutput.close();
 
 	// key as string
