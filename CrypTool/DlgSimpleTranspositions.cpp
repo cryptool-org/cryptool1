@@ -60,8 +60,8 @@ CDlgSimpleTranspositions::CDlgSimpleTranspositions(char* infile, CString oldTitl
 
 	// we are going with Scytale by default (0)
 	radioTransposition = 0;
-	// the default key is 1
-	key = 1;
+	// the default key is 2
+	key = 2;
 
 	// init the bitmaps
 	bitmapScytale.LoadBitmapA(IDB_SIMPLE_TRANSPOSITION_SCYTALE);
@@ -107,18 +107,23 @@ void CDlgSimpleTranspositions::OnBnClickedEncrypt()
 {
 	UpdateData(true);
 
-	// check if the key is valid
-	if(key < 1) {
-		LoadString(AfxGetInstanceHandle(), IDS_SIMPLE_TRANSPOSITION_KEY_INVALID, pc_str, STR_LAENGE_STRING_TABLE);
-		MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
-		return;
-	}
-
 	// now, do the actual encryption
-	if(radioTransposition == 0) // SCYTALE
-		ScytaleEncryption(fileName.GetBuffer(), fileNameTitle.GetBuffer(), key, true);
-	if(radioTransposition == 1) // RAIL FENCE
-		RailFenceEncryption(fileName.GetBuffer(), fileNameTitle.GetBuffer(), key, true);
+	if(radioTransposition == 0) { // SCYTALE
+		int result = ScytaleEncryption(fileName.GetBuffer(), fileNameTitle.GetBuffer(), key, true);
+		if(result == -1) {
+			LoadString(AfxGetInstanceHandle(), IDS_SIMPLE_TRANSPOSITION_KEY_INVALID, pc_str, STR_LAENGE_STRING_TABLE);
+			MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);	
+			return;
+		}
+	}
+	if(radioTransposition == 1) { // RAIL FENCE
+		int result = RailFenceEncryption(fileName.GetBuffer(), fileNameTitle.GetBuffer(), key, true);
+		if(result == -1) {
+			LoadString(AfxGetInstanceHandle(), IDS_SIMPLE_TRANSPOSITION_KEY_INVALID, pc_str, STR_LAENGE_STRING_TABLE);
+			MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);	
+			return;
+		}
+	}
 
 	EndDialog(IDOK);
 }

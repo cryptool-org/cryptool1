@@ -8,12 +8,11 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polnisch resources
+// Polish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -10524,12 +10523,12 @@ BEGIN
     IDS_FACTORS_FOUND       "Found %d factors in %s"
 END
 
-#endif    // Polnisch resources
+#endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -20988,7 +20987,7 @@ STRINGTABLE
 BEGIN
     IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_RAIL_FENCE "Anzahl der Zeilen:"
     IDS_SIMPLE_TRANSPOSITION_KEY_INVALID 
-                            "Der Schlüssel ist ungültig. Er muss größer oder gleich 1 sein."
+                            "Der Schlüssel ist ungültig. Er muss größer als 1 und kleiner als die Länge des Eingabetexts sein."
     IDS_STRING_RAIL_FENCE_ENCRYPTION_OF 
                             "Gartenzaun-Verschlüsselung von <%s>, Schlüssel <%s>"
     IDS_STRING_RAIL_FENCE_DECRYPTION_OF 
@@ -21000,12 +20999,12 @@ BEGIN
     IDS_FACTORS_FOUND       "%d Faktoren gefunden in %s"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -31599,7 +31598,7 @@ STRINGTABLE
 BEGIN
     IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_RAIL_FENCE "Number of rows:"
     IDS_SIMPLE_TRANSPOSITION_KEY_INVALID 
-                            "The key is invalid. It must be greater than or equal to 1."
+                            "The key is invalid. It must be greater than 1 and smaller than the length of the input text."
     IDS_STRING_RAIL_FENCE_ENCRYPTION_OF 
                             "Rail Fence encryption of <%s>, key <%s>"
     IDS_STRING_RAIL_FENCE_DECRYPTION_OF 
@@ -31609,7 +31608,7 @@ BEGIN
     IDS_FACTORS_FOUND       "Found %d factors in %s"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

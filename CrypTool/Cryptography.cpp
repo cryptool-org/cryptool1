@@ -3995,11 +3995,12 @@ UINT SymmetricBruteForce(PVOID p)
 }
 
 // Rail Fence encryption (part of the simple transpositions dialog)
-void RailFenceEncryption(const char *infile, const char *oldTitle, int key, bool encrypt) {
+// RETURN VALUES:		1 (success), -1 (invalid key), -2 (invalid file handle)
+int RailFenceEncryption(const char *infile, const char *oldTitle, int key, bool encrypt) {
 	// create a handle for the input file
 	std::ifstream fileInput;
 	fileInput.open(infile);
-	if(!fileInput) return;
+	if(!fileInput) return -2;
 
 	// store the contents of the file in bufferString
 	std::string bufferString;
@@ -4011,6 +4012,12 @@ void RailFenceEncryption(const char *infile, const char *oldTitle, int key, bool
 		bufferString.append(buffer);
 	}
 	while(!fileInput.eof());
+	fileInput.close();
+
+	// IMPORTANT: the key is invalid if it is "1" or >= the length of the clear text
+	if(key <= 1 || key >= bufferString.length()) {
+		return -1;
+	}
 
 	// *** BEGIN ENCRYPTION/DECRYPTION PROCESS ***
 	int textLength = bufferString.length();
@@ -4020,30 +4027,21 @@ void RailFenceEncryption(const char *infile, const char *oldTitle, int key, bool
 	char *cipherText = new char[textLength + 1];
 	memset(cipherText, 0, textLength + 1);
 
-	// IMPORTANT:
-	// if the key is "1" or >= the length of the clear text,
-	// simply return the clear text without further processing
-	if(key == 1 || key >= textLength) {
-		memcpy(cipherText, bufferString.c_str(), textLength);
-	}
-	// in any other case, do the encryption/decryption
-	else {
-		// ENCRYPTION
-		if(encrypt) {
-			int charactersProcessed = 0;
-			for(int row=0; row<key; row++) {
-				for(int index=row; index<textLength; index+=key) {
-					cipherText[charactersProcessed++] = clearText[index];
-				}
+	// ENCRYPTION
+	if(encrypt) {
+		int charactersProcessed = 0;
+		for(int row=0; row<key; row++) {
+			for(int index=row; index<textLength; index+=key) {
+				cipherText[charactersProcessed++] = clearText[index];
 			}
 		}
-		// DECRYPTION
-		else {
-			int charactersProcessed = 0;
-			for(int row=0; row<key; row++) {
-				for(int index=row; index<textLength; index+=key) {
-					cipherText[index] = clearText[charactersProcessed++];
-				}
+	}
+	// DECRYPTION
+	else {
+		int charactersProcessed = 0;
+		for(int row=0; row<key; row++) {
+			for(int index=row; index<textLength; index+=key) {
+				cipherText[index] = clearText[charactersProcessed++];
 			}
 		}
 	}
@@ -4060,7 +4058,7 @@ void RailFenceEncryption(const char *infile, const char *oldTitle, int key, bool
 	// create a file handle for the output file
 	std::ofstream fileOutput;
 	fileOutput.open(outfile, ios::out);
-	if(!fileOutput) return;
+	if(!fileOutput) return -2;
 
 	// write the output file
 	fileOutput.write(cipherTextString.c_str(), cipherTextString.length());
@@ -4084,14 +4082,17 @@ void RailFenceEncryption(const char *infile, const char *oldTitle, int key, bool
 		// set the new document title
 		document->SetTitle(title);
 	}
+
+	return 1;
 }
 
 // Scytale encryption (part of the simple transpositions dialog)
-void ScytaleEncryption(const char *infile, const char *oldTitle, int key, bool encrypt) {
+// RETURN VALUES:		1 (success), -1 (invalid key), -2 (invalid file handle)
+int ScytaleEncryption(const char *infile, const char *oldTitle, int key, bool encrypt) {
 	// create a handle for the input file
 	std::ifstream fileInput;
 	fileInput.open(infile);
-	if(!fileInput) return;
+	if(!fileInput) return -2;
 
 	// store the contents of the file in bufferString
 	std::string bufferString;
@@ -4103,6 +4104,12 @@ void ScytaleEncryption(const char *infile, const char *oldTitle, int key, bool e
 		bufferString.append(buffer);
 	}
 	while(!fileInput.eof());
+	fileInput.close();
+
+	// IMPORTANT: the key is invalid if it is "1" or >= the length of the clear text
+	if(key <= 1 || key >= bufferString.length()) {
+		return -1;
+	}
 
 	// *** BEGIN ENCRYPTION/DECRYPTION PROCESS ***
 	int textLength = bufferString.length();
@@ -4112,34 +4119,25 @@ void ScytaleEncryption(const char *infile, const char *oldTitle, int key, bool e
 	char *cipherText = new char[textLength + 1];
 	memset(cipherText, 0, textLength + 1);
 
-	// IMPORTANT:
-	// if the key is "1" or >= the length of the clear text,
-	// simply return the clear text without further processing
-	if(key == 1 || key >= textLength) {
-		memcpy(cipherText, bufferString.c_str(), textLength);
-	}
-	// in any other case, do the encryption/decryption
-	else {
-		// ENCRYPTION
-		if(encrypt) {
-			int numberOfColumns = textLength / key;
-			if(textLength % key) numberOfColumns++;
-			int charactersProcessed = 0;
-			for(int column=0; column<numberOfColumns && charactersProcessed<textLength; column++) {
-				for(int index=column; index<textLength && charactersProcessed<textLength; index+=numberOfColumns) {
-					cipherText[charactersProcessed++] = clearText[index];
-				}
+	// ENCRYPTION
+	if(encrypt) {
+		int numberOfColumns = textLength / key;
+		if(textLength % key) numberOfColumns++;
+		int charactersProcessed = 0;
+		for(int column=0; column<numberOfColumns && charactersProcessed<textLength; column++) {
+			for(int index=column; index<textLength && charactersProcessed<textLength; index+=numberOfColumns) {
+				cipherText[charactersProcessed++] = clearText[index];
 			}
 		}
-		// DECRYPTION
-		else {
-			int numberOfColumns = textLength / key;
-			if(textLength % key) numberOfColumns++;
-			int charactersProcessed = 0;
-			for(int column=0; column<numberOfColumns && charactersProcessed<textLength; column++) {
-				for(int index=column; index<textLength && charactersProcessed<textLength; index+=numberOfColumns) {
-					cipherText[index] = clearText[charactersProcessed++];
-				}
+	}
+	// DECRYPTION
+	else {
+		int numberOfColumns = textLength / key;
+		if(textLength % key) numberOfColumns++;
+		int charactersProcessed = 0;
+		for(int column=0; column<numberOfColumns && charactersProcessed<textLength; column++) {
+			for(int index=column; index<textLength && charactersProcessed<textLength; index+=numberOfColumns) {
+				cipherText[index] = clearText[charactersProcessed++];
 			}
 		}
 	}
@@ -4156,7 +4154,7 @@ void ScytaleEncryption(const char *infile, const char *oldTitle, int key, bool e
 	// create a file handle for the output file
 	std::ofstream fileOutput;
 	fileOutput.open(outfile, ios::out);
-	if(!fileOutput) return;
+	if(!fileOutput) return -2;
 
 	// write the output file
 	fileOutput.write(cipherTextString.c_str(), cipherTextString.length());
@@ -4180,4 +4178,6 @@ void ScytaleEncryption(const char *infile, const char *oldTitle, int key, bool e
 		// set the new document title
 		document->SetTitle(title);
 	}
+
+	return 1;
 }
