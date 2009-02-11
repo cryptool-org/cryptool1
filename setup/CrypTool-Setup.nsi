@@ -10,11 +10,11 @@
 
   ;Name and file
   !define ProgramName "CrypTool"
-  !define VersionInfo "1.4.21"
+  !define VersionInfo "1.4.30"
   
   Name "${ProgramName} ${VersionInfo}"
   OutFile "SetupCrypTool_${LANGUAGE_STR}.exe"
-  BrandingText "(c) 1998-2008 Contributors"
+  BrandingText "(c) 1998-2009 Contributors"
 ;  Icon "..\CrypTool\res\idr_main.ico" ; does not work for some reason
 
   ;Default installation folder
