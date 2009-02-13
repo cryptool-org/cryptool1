@@ -97,7 +97,7 @@
    !define UNINSTALL_PROMPT	"ist bereits installiert.$\n$\nBitte 'OK' klicken, um die vorherige Installation zu ersetzen; oder 'Abbrechen', um ein anderes Installationsverzeichnis zu wählen."
    !define UNINSTALL_PROMPT2    "Das Verzeichnis existiert bereits.$\n$\nBitte wählen Sie ein anderes, oder deinstallieren Sie das Programm in diesem Verzeichnis."
    !define UNINSTALL_CONFIRM	"Bei der Deinstallation werden alle Dateien im Programmverzeichnis gelöscht - auch von Ihnen erzeugte asymmetrische Schlüssel und gespeicherte Beispieldateien.$\n$\nWenn Sie die Deinstallation hier abbrechen, können Sie erzeugte Schlüssel mit dem bisher installierten CrypTool exportieren.$\n$\nSoll CrypTool wirklich deinstalliert werden?"
-   !define UNINSTALL_RMPROGDIR_FAILED "Das Programmverzeichnisses konnte nicht (vollständig) gelöscht werden.$\n$\nBitte löschen Sie es manuell."
+   !define UNINSTALL_RMPROGDIR_FAILED "Das Programmverzeichnis konnte nicht (vollständig) gelöscht werden.$\n$\nBitte löschen Sie es manuell."
 !else if ${LANGUAGE_STR} == 'en'
    !insertmacro MUI_LANGUAGE "English"
    !define SCN_CRYPTOOL		"CrypTool"
