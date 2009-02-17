@@ -11795,8 +11795,9 @@ BEGIN
     EDITTEXT        IDC_EDIT7,7,292,200,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
 END
 
-IDD_PLAYFAIR_ANALYSIS DIALOGEX 0, 0, 432, 353
-STYLE DS_SETFONT | WS_POPUP | WS_SYSMENU | WS_THICKFRAME
+IDD_PLAYFAIR_ANALYSIS DIALOGEX 0, 0, 433, 353
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Playfair-Analyse"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     GROUPBOX        "Schlüsselmatrix",IDC_STATIC,6,32,134,196
@@ -14177,7 +14178,7 @@ BEGIN
     EDITTEXT        IDC_FROM,45,272,245,14,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_TO,45,293,245,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "",IDC_DIST,84,239,8,8
-    GROUPBOX        "Variante auswählen",IDC_STATIC,13,114,91,45
+    GROUPBOX        "Variante auswählen",IDC_STATIC,13,114,80,45
     GROUPBOX        "Informationen zur Verschlüsselung",IDC_STATIC,13,222,294,94
     LTEXT           "Verschiebung um",IDC_TEXT0,24,239,58,8
     LTEXT           "von:",IDC_TEXT2,24,274,15,8
@@ -14192,11 +14193,11 @@ BEGIN
     LTEXT           "Rot-13 ist ein Spezialfall, bei dem der Schlüssel fest auf den Wert der halben Länge",IDC_STATIC,23,72,262,8
     LTEXT           "des Klartext-Alphabets gesetzt wird. Diese Variante ist nur wählbar, wenn die Länge",IDC_STATIC,23,83,262,8
     LTEXT           "des Alphabets eine gerade Zahl ist.",IDC_STATIC,23,94,112,8
-    GROUPBOX        "Interpretation des ersten Alphabetzeichens",IDC_STATIC,113,114,194,45
+    GROUPBOX        "Interpretation des ersten Alphabetzeichens",IDC_STATIC,99,114,208,45
     CONTROL         "Wert des ersten Alphabetzeichens = 0 (z.B. ""A""=0)",IDC_RADIO3,
-                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,124,129,175,10
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,114,129,175,10
     CONTROL         "Wert des ersten Alphabetzeichens = 1 (z.B. ""A""=1)",IDC_RADIO4,
-                    "Button",BS_AUTORADIOBUTTON,124,144,175,10
+                    "Button",BS_AUTORADIOBUTTON,114,144,175,10
     CONTROL         "Alphabetzeichen",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON | WS_GROUP,28,179,69,10
     CONTROL         "Zahlenwerte",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,28,197,55,10
     GROUPBOX        "Schlüsseleingabe",IDC_STATIC,14,164,293,51
@@ -21405,7 +21406,7 @@ BEGIN
     CTEXT           "NTL",IDC_EDIT_NTL,1,278,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
     CTEXT           "SCINTILLA",IDC_EDIT_SCINTILLA,1,288,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
     CTEXT           "GMP",IDC_EDIT_GMP,0,298,241,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "CrypTool is used world wide for education in schools and universities, and for apprenticeship and employee awareness in companies and government organizations.",IDC_STATIC,3,185,236,24
+    CTEXT           "CrypTool is used world wide for education in schools and universities, and for eduction and employee awareness in companies and government organizations.",IDC_STATIC,3,185,236,24
     CTEXT           "CRYPTOVISION",IDC_EDIT_CRYPTOVISION,0,246,241,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
     EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,7,151,228,28,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,7,326,228,44,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
@@ -24611,7 +24612,7 @@ BEGIN
     DEFPUSHBUTTON   "&Encrypt",ID_ENCRYPT,14,317,58,19
     PUSHBUTTON      "&Decrypt",ID_DECRYPT,85,317,58,19
     PUSHBUTTON      "&Cancel",IDCANCEL,250,317,57,19
-    GROUPBOX        "Select variant",IDC_STATIC,13,105,93,45
+    GROUPBOX        "Select variant",IDC_STATIC,13,105,80,45
     GROUPBOX        "Properties of the choosen encryption",IDC_STATIC,14,213,293,94
     LTEXT           "Shift of",IDC_TEXT0,25,230,58,8
     LTEXT           "from:",IDC_TEXT2,25,265,15,8
@@ -24629,11 +24630,11 @@ BEGIN
     LTEXT           "alphabet are mapped to the ciphertext alphabet by shifting. This shifting value is the key.",IDC_STATIC,23,39,278,8
     LTEXT           "You can enter the key as a number or as a single character of the alphabet.",IDC_STATIC,23,50,238,8
     LTEXT           "Rot-13 is a special variant, where the key has the fixed value of half the length",IDC_STATIC,23,61,247,8
-    GROUPBOX        "Options to interpret the alphabet characters",IDC_STATIC,115,105,191,45
+    GROUPBOX        "Options to interpret the alphabet characters",IDC_STATIC,98,105,208,45
     CONTROL         "Value of the first alphabet character = 0 (e.g. ""A""=0)",IDC_RADIO3,
-                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,126,120,179,10
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,114,120,179,10
     CONTROL         "Value of the first alphabet character = 1 (e.g. ""A""=1)",IDC_RADIO4,
-                    "Button",BS_AUTORADIOBUTTON,126,135,179,10
+                    "Button",BS_AUTORADIOBUTTON,114,135,179,10
     CONTROL         "Alphabet character",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON | WS_GROUP,30,172,76,10
     CONTROL         "Number value",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,30,188,60,10
     GROUPBOX        "Key entry as",IDC_STATIC,13,155,294,51
