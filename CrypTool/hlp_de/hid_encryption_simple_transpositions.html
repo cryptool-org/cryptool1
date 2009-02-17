@@ -16,7 +16,73 @@
 
 <h3>Einfache Transpositionen (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Symmetrisch (klassisch))</h3>
 
-<P>Informationen zu Transpositionen finden Sie <a href="http://de.wikipedia.org/wiki/Transposition_(Kryptographie)" target="_blank">hier</a>.</P>
+<P>Bei Transpositions-Chiffren werden nur die Positionen der Buchstaben im Klartext durcheinander 
+gewürfelt.</P>
+
+<P>Zwei einfache Transpositionen sind die Gartenzaun-Verschlüsselung und die Skytale.</P>
+
+<P>1) Bei der Gartenzaun-Verschlüsselung werden die Buchstaben des Texts abwechselnd auf zwei 
+oder mehr Zeilen geschrieben. Die Geheimbotschaft erhält man, indem man die Buchstaben 
+zeilenweise abliest.</P>
+
+<!--
+<P><IMG SRC="images/railfenceencryptionexample.gif" ALT="railfenceencryptionexample.gif"></P>
+-->
+
+<P>Der Empfänger kann die Nachricht entschlüsseln, indem er dieses Verfahren einfach umkehrt. 
+Er muss dazu wissen, auf wie viele Zeilen die Nachricht verteilt wurde.</P>
+
+<P>Varianten davon sind z.B.</P>
+
+<UL>
+<LI>ein zusätzliches Offset (d.h. der erste Buchstabe des Klartextes wird nicht in die erste, 
+sondern z.B. in die dritte Zeile geschrieben und von da an geht es normal nach unten weiter 
+bis zur untersten Zeile). Dieses Offset ist dann auch ein Teil des Schlüssels.</LI>
+<LI>Statt Einzelbuchstaben werden Buchstabenpaare versetzt. Das ist sehr schwach.</LI>
+<LI>Man kann auch Buchstabengruppen fester Länge bilden und darin die Buchstaben nach einem 
+festen Muster (Permutation) vertauschen. Besteht die Buchstabengruppe jeweils aus einem Paar, 
+so wechseln der erste und der zweite Buchstabe die Plätze, der dritte und der vierte 
+und so weiter. Dies können Sie im Menü <a href="menu_crypt.html">Ver-/Entschlüsseln</a> \ 
+<a href="menu_crypt_symmetricclassic.html">Symmetrisch (klassisch)</a> \ 
+<a href="HID_PERMUTATION_ASC.html">Permutation/Transposition</a> ausprobieren.</LI>
+</UL>
+
+<P>2) Die Skytale ist ebenfalls eine einfache Transpositions-Verschlüsselung. Sie war das das erste 
+militärische Kryptographie-Verfahren, das die Spartaner schon im 5. Jahrhundert gebrauchten. 
+Die Skytale ist ein Holzstab, um den ein Streifen Leder oder Pergament gewickelt wird. Der 
+Sender schreibt die Nachricht der Länge des Stabes nach auf den Streifen und wickelt ihn dann 
+ab. Danach scheint er nur eine sinnlose Aufreihung von Buchstaben zu enthalten. Evtl. benutzte 
+der Bote den Streifen auch als Gürtel mit nach innen gekehrten Buchstaben. Um die Nachricht 
+wiederherzustellen, wickelte der Empfänger den Lederstreifen einfach um eine Skytale mit 
+demselben Durchmesser, den der Sender benutzt hatte. Im Jahre 404 v. Chr. traf Lysander von 
+Sparta auf einen blutig geschundenen Boten, einen von nur fünfen, die den Kräfte zehrenden 
+Marsch von Persien überlebt hatten. Der Bote überreichte Lysander seinen Gürtel, der ihn um 
+seine Skytale wickelte. Dadurch erfuhr er, dass Pharnabasus von Persien einen Angriff gegen 
+ihn plante. Dank der Skytale konnte sich Lysander auf den Angriff vorbereiten und wehrte ihn 
+ab.</P>
+
+<P><IMG src="images/scytale.gif" alt="scytale.gif"><br>
+[Quelle: <a href="http://commons.wikimedia.org/wiki/File:Skytale3d_de.png" ALT="http://commons.wikimedia.org/wiki/File:Skytale3d_de.png">http://commons.wikimedia.org/wiki/File:Skytale3d_de.png</a>]</P>
+
+<P>Der Schlüssel ist also eine Skytale mit dem richtigen Durchmesser bzw. der richtigen 
+Anzahl von Kanten. Wenn man das Verfahren errät ist die Skytale ein sehr unsicheres Verfahren, 
+da die Schlüsselzahl sehr begrenzt ist.</P>
+
+<P>Eine Variante davon ist, ein zusätzliches Offset zu benutzen: Bei einem Offset von 1 wird 
+der Klartextes wird nicht auf der ersten Wicklung in der ersten Zeile begonnen, sondern auf der 
+zweiten Wicklung. Damit steht der Klartextanfang nicht am Anfang des Gürtels. Dieses Offset ist 
+dann auch ein Teil des Schlüssels.</P>
+
+<P>Weitere Informationen zu Transpositionen finden Sie hier:</P>
+<UL>
+<LI><a href="http://de.wikipedia.org/wiki/Transposition_(Kryptographie)" target="_blank">http://de.wikipedia.org/wiki/Transposition_(Kryptographie)</a></LI>
+<LI><a href="http://www.math.cornell.edu/~mec/2003-2004/cryptography/transposition/transposition.html" target="_blank">http://www.math.cornell.edu/~mec/2003-2004/cryptography/transposition/transposition.html</a></LI>
+<LI><a href="http://teacher.schule.at/abc/edv/uue/coolschool/botschaften.htm#zaun" target="_blank">http://teacher.schule.at/abc/edv/uue/coolschool/botschaften.htm#zaun</a></LI>
+<LI><a href="http://de.wikipedia.org/wiki/Skytale" target="_blank">http://de.wikipedia.org/wiki/Skytale</a></LI>
+<LI><a href="http://en.wikipedia.org/wiki/Scytale" target="_blank">http://en.wikipedia.org/wiki/Scytale</a></LI>
+<LI><a href="http://en.wikipedia.org/wiki/Rail_Fence_Cipher" target="_blank">http://en.wikipedia.org/wiki/Rail_Fence_Cipher</a></LI>
+<LI><a href="http://www.purplehell.com/riddletools/railfence.htm" target="_blank">http://www.purplehell.com/riddletools/railfence.htm</a></LI>
+</UL>
 
 </BODY>
 </HTML>

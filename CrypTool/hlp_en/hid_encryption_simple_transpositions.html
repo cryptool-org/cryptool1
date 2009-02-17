@@ -16,7 +16,69 @@
 
 <h3>Simple Transpositions (Menu <A href="menu_crypt.html">Crypt/Decrypt</A> \ Symmetric (classic))</h3>
 
-<P><a href="http://en.wikipedia.org/wiki/Transposition_cipher" target="_blank">Here</a> you can find information on transpositions.</P>
+<P>Transposition ciphers scramble the order of the letters in the clear text.</P>
+
+<P>Two simple transpositions are the Rail-Fence encryption and the Scytale.</P>
+
+<P>1) The Rail-Fence encryption writes the letters of the clear text alternately in two or 
+more rows. One can retrieve the encrypted message by reading out the letters row by row.</P>
+
+<!--
+<P><IMG SRC="images/railfenceencryptionexample.gif" ALT="railfenceencryptionexample.gif"></P>
+-->
+
+<P>The receiver can decrypt the message by simply inverting the procedure. In order to do that, 
+the receiver needs to know over how many rows the message was spread.</P>
+
+<P>Variations thereof are for example</P>
+
+<UL>
+<LI>an additional offset (that means the first letter of the clear text is not written in the 
+first, but in the third row for example, and from there the procedure continues as usual). In 
+this case, the offset is part of the key.</LI>
+<LI>Pairs of letters are transformed instead of single letters. This is very weak.</LI>
+<LI>Also, you can create groups of letters of a fixed size and scramble the letters within 
+these groups according to a certain pattern (permutation). If each of the groups consists of 
+only one pair of letters, the first and the second letter switch places, the third and the 
+fourth and so on. You can try this using the menu <a href="menu_crypt.html">Crypt/Decrypt</a> \ 
+<a href="menu_crypt_symmetricclassic.html">Symmetric (classic)</a> \ 
+<a href="HID_PERMUTATION_ASC.html">Permutation/Transposition</a>.</LI>
+</UL>
+
+<P>2) The Scytale is a transposition cipher as well. It was the first military encryption 
+algorithm, and it was used by the Spartans as early as the fifth century. The Scytale is a 
+wooden stick wrapped by a strip of leather or parchment. The sender writes his message along the 
+wooden stick and then unwraps the strip. After that the strip seems to contain only a pointless 
+series of letters. Possibly, the strip was used by the messenger as a belt with the letters 
+facing the inside. In order to recover the message, the receiver simply wrapped the strip around 
+a Scytale of the same diameter as the Scytale of the sender. In 404 A.D., Lysander of Sparta 
+ran into a dying messenger, one of only five who survived the strenuous march from Persia. The 
+messenger gave Lysander his belt, and Lysander wrapped it around his Scytale. Thus he learned that 
+Pharnabasus of Persia planned an attack against him. Thanks to the Scytale, Lysander could prepare 
+for the attack and successfully defend it.</P>
+
+<P><IMG src="images/scytale.gif" alt="scytale.gif"><br>
+[Quelle: <a href="http://commons.wikimedia.org/wiki/File:Skytale3d_de.png" ALT="http://commons.wikimedia.org/wiki/File:Skytale3d_de.png">http://commons.wikimedia.org/wiki/File:Skytale3d_de.png</a>]</P>
+
+<P>Therefore, the key is a Scytale with the correct diameter or the correct number of edges, 
+respectively. If you can guess the procedure, the Scytale is a very insecure algorithm since 
+the amount of possible keys is limited.</P>
+
+<P>A variant thereof is to use an additional offset: Using an offset of 1, the wrapping of the 
+clear text is not started on the first winding in the first row, but on the second winding. 
+Consequently, the clear text does not start at the beginning of the belt. This offset is a 
+part of the key, too.</P>
+
+<P>You can obtain further information on transpositions here:</P>
+<UL>
+<LI><a href="http://de.wikipedia.org/wiki/Transposition_(Kryptographie)" target="_blank">http://de.wikipedia.org/wiki/Transposition_(Kryptographie)</a></LI>
+<LI><a href="http://www.math.cornell.edu/~mec/2003-2004/cryptography/transposition/transposition.html" target="_blank">http://www.math.cornell.edu/~mec/2003-2004/cryptography/transposition/transposition.html</a></LI>
+<LI><a href="http://teacher.schule.at/abc/edv/uue/coolschool/botschaften.htm#zaun" target="_blank">http://teacher.schule.at/abc/edv/uue/coolschool/botschaften.htm#zaun</a></LI>
+<LI><a href="http://de.wikipedia.org/wiki/Skytale" target="_blank">http://de.wikipedia.org/wiki/Skytale</a></LI>
+<LI><a href="http://en.wikipedia.org/wiki/Scytale" target="_blank">http://en.wikipedia.org/wiki/Scytale</a></LI>
+<LI><a href="http://en.wikipedia.org/wiki/Rail_Fence_Cipher" target="_blank">http://en.wikipedia.org/wiki/Rail_Fence_Cipher</a></LI>
+<LI><a href="http://www.purplehell.com/riddletools/railfence.htm" target="_blank">http://www.purplehell.com/riddletools/railfence.htm</a></LI>
+</UL>
 
 </BODY>
 </HTML>
