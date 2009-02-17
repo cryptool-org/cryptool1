@@ -21406,7 +21406,7 @@ BEGIN
     CTEXT           "NTL",IDC_EDIT_NTL,1,278,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
     CTEXT           "SCINTILLA",IDC_EDIT_SCINTILLA,1,288,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
     CTEXT           "GMP",IDC_EDIT_GMP,0,298,241,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "CrypTool is used world wide for education in schools and universities, and for eduction and employee awareness in companies and government organizations.",IDC_STATIC,3,185,236,24
+    CTEXT           "CrypTool is used world wide for education in schools and universities, and for education and employee awareness in companies and government organizations.",IDC_STATIC,3,185,236,24
     CTEXT           "CRYPTOVISION",IDC_EDIT_CRYPTOVISION,0,246,241,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
     EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,7,151,228,28,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,7,326,228,44,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
