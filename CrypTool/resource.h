@@ -1634,6 +1634,7 @@
 #define IDC_RADIO_RAIL_FENCE            2024
 #define IDC_SIMPLE_TRANSPOSITION_KEY    2025
 #define IDC_SIMPLE_TRANSPOSITION_IMAGE  2026
+#define IDC_EDIT_OFFSET                 2027
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -3077,7 +3078,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        876
 #define _APS_NEXT_COMMAND_VALUE         33371
-#define _APS_NEXT_CONTROL_VALUE         2027
+#define _APS_NEXT_CONTROL_VALUE         2028
 #define _APS_NEXT_SYMED_VALUE           109
 #endif
 #endif

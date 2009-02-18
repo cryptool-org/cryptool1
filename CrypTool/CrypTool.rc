@@ -14913,23 +14913,25 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,97,50,14
 END
 
-IDD_SIMPLE_TRANSPOSITIONS DIALOGEX 0, 0, 270, 175
+IDD_SIMPLE_TRANSPOSITIONS DIALOGEX 0, 0, 285, 180
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsseleingabe: Einfache Transpositionen"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Verschlüsseln",ID_ENCRYPT,7,149,60,19
-    PUSHBUTTON      "Entschlüsseln",ID_DECRYPT,73,149,60,19
-    PUSHBUTTON      "Abbrechen",IDCANCEL,203,149,60,19
-    CONTROL         "Skytale",IDC_RADIO_SCYTALE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,71,110,10
-    CONTROL         "Gartenzaun",IDC_RADIO_RAIL_FENCE,"Button",BS_AUTORADIOBUTTON,20,83,110,10
-    EDITTEXT        IDC_EDIT_KEY,135,119,23,14,ES_AUTOHSCROLL | ES_NUMBER
-    GROUPBOX        "Beschreibung",IDC_STATIC,7,7,256,44
-    LTEXT           "Transpositionen vertauschen die Reihenfolge der Buchstaben im Klartext. Zwei bekannte, klassische Varianten sind die Skytale und die Gartenzaunverschlüsselung.",IDC_STATIC,20,20,230,24
-    GROUPBOX        "Auswahl der Transposition",IDC_STATIC,7,58,160,40
-    GROUPBOX        "Auswahl des Schlüssels",IDC_STATIC,7,108,160,31
-    LTEXT           "SIMPLE_TRANSPOSITION_KEY",IDC_SIMPLE_TRANSPOSITION_KEY,20,121,99,8
-    CONTROL         "",IDC_SIMPLE_TRANSPOSITION_IMAGE,"Static",SS_BITMAP,177,61,67,62
+    DEFPUSHBUTTON   "Verschlüsseln",ID_ENCRYPT,7,154,60,19
+    PUSHBUTTON      "Entschlüsseln",ID_DECRYPT,73,154,60,19
+    PUSHBUTTON      "Abbrechen",IDCANCEL,218,154,60,19
+    CONTROL         "Skytale",IDC_RADIO_SCYTALE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,63,110,10
+    CONTROL         "Gartenzaun",IDC_RADIO_RAIL_FENCE,"Button",BS_AUTORADIOBUTTON,20,75,110,10
+    EDITTEXT        IDC_EDIT_KEY,135,111,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "Beschreibung",IDC_STATIC,7,7,271,36
+    LTEXT           "Transpositionen vertauschen die Reihenfolge der Buchstaben im Klartext. Zwei bekannte, klassische Varianten sind die Skytale und die Gartenzaunverschlüsselung.",IDC_STATIC,20,20,245,16
+    GROUPBOX        "Auswahl der Transposition",IDC_STATIC,7,50,160,40
+    GROUPBOX        "Auswahl des Schlüssels",IDC_STATIC,7,100,160,45
+    LTEXT           "SIMPLE_TRANSPOSITION_KEY",IDC_SIMPLE_TRANSPOSITION_KEY,20,113,99,8
+    CONTROL         "",IDC_SIMPLE_TRANSPOSITION_IMAGE,"Static",SS_BITMAP,177,53,67,62
+    LTEXT           "Offset:",IDC_STATIC,20,129,24,8
+    EDITTEXT        IDC_EDIT_OFFSET,136,127,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
 END
 
 
@@ -18285,11 +18287,11 @@ BEGIN
     IDD_SIMPLE_TRANSPOSITIONS, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 263
+        RIGHTMARGIN, 278
         VERTGUIDE, 20
-        VERTGUIDE, 250
+        VERTGUIDE, 265
         TOPMARGIN, 7
-        BOTTOMMARGIN, 168
+        BOTTOMMARGIN, 173
         HORZGUIDE, 20
     END
 END
@@ -25357,23 +25359,25 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,97,50,14
 END
 
-IDD_SIMPLE_TRANSPOSITIONS DIALOGEX 0, 0, 280, 175
+IDD_SIMPLE_TRANSPOSITIONS DIALOGEX 0, 0, 285, 180
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Key Entry: Simple Transpositions"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Encrypt",ID_ENCRYPT,7,149,60,19
-    PUSHBUTTON      "Decrypt",ID_DECRYPT,73,149,60,19
-    PUSHBUTTON      "Cancel",IDCANCEL,213,149,60,19
-    CONTROL         "Scytale",IDC_RADIO_SCYTALE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,71,110,10
-    CONTROL         "Rail Fence",IDC_RADIO_RAIL_FENCE,"Button",BS_AUTORADIOBUTTON,20,83,110,10
-    EDITTEXT        IDC_EDIT_KEY,135,119,23,14,ES_AUTOHSCROLL | ES_NUMBER
-    GROUPBOX        "Description",IDC_STATIC,7,7,266,44
-    LTEXT           "Transpositions scramble the order of the letters in the clear text. Two well-known, classic variants are the Scytale and the Rail Fence encryption.",IDC_STATIC,20,20,230,24
-    GROUPBOX        "Choose the transposition",IDC_STATIC,7,58,160,40
-    GROUPBOX        "Choose the key",IDC_STATIC,7,108,160,31
-    LTEXT           "SIMPLE_TRANSPOSITION_KEY",IDC_SIMPLE_TRANSPOSITION_KEY,20,121,99,8
-    CONTROL         "",IDC_SIMPLE_TRANSPOSITION_IMAGE,"Static",SS_BITMAP,177,61,67,62
+    DEFPUSHBUTTON   "Encrypt",ID_ENCRYPT,7,154,60,19
+    PUSHBUTTON      "Decrypt",ID_DECRYPT,73,154,60,19
+    PUSHBUTTON      "Cancel",IDCANCEL,218,154,60,19
+    CONTROL         "Scytale",IDC_RADIO_SCYTALE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,63,110,10
+    CONTROL         "Rail Fence",IDC_RADIO_RAIL_FENCE,"Button",BS_AUTORADIOBUTTON,20,75,110,10
+    EDITTEXT        IDC_EDIT_KEY,135,111,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "Description",IDC_STATIC,7,7,271,36
+    LTEXT           "Transpositions scramble the order of the letters in the clear text. Two well-known, classic variants are the Scytale and the Rail Fence encryption.",IDC_STATIC,20,20,245,16
+    GROUPBOX        "Choose the transposition",IDC_STATIC,7,50,160,40
+    GROUPBOX        "Choose the key",IDC_STATIC,7,100,160,45
+    LTEXT           "SIMPLE_TRANSPOSITION_KEY",IDC_SIMPLE_TRANSPOSITION_KEY,20,113,99,8
+    CONTROL         "",IDC_SIMPLE_TRANSPOSITION_IMAGE,"Static",SS_BITMAP,177,53,67,62
+    LTEXT           "Offset:",IDC_STATIC,20,129,24,8
+    EDITTEXT        IDC_EDIT_OFFSET,136,127,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
 END
 
 
@@ -28955,11 +28959,11 @@ BEGIN
     IDD_SIMPLE_TRANSPOSITIONS, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 273
+        RIGHTMARGIN, 278
         VERTGUIDE, 20
-        VERTGUIDE, 250
+        VERTGUIDE, 265
         TOPMARGIN, 7
-        BOTTOMMARGIN, 168
+        BOTTOMMARGIN, 173
         HORZGUIDE, 20
     END
 END
