@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Automatische Analyse für das einstufige Permutation-Verschlüsselungsverfahren</TITLE>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Analyse">
+	<PARAM NAME="Keyword" VALUE="Permutation-Verschlüsselungsverfahren">
+	<PARAM NAME="Keyword" VALUE="Permutationsanalyse">
+</OBJECT>
+
+<BODY>
+
+<h3>Automatische Analyse für das einstufige Permutation-Verschlüsselungsverfahren (Menü <A href="menu_analyze.html">Analyse</A> \ Symmetrische Verschlüsselung (klassisch) \ Known Plaintext)</h3>
+
+		<p>
+		Für das Permutation-Verschlüsselungsverfahren steht ein Angriff (Known-Plaintext-Angriff) zur Verfügung. 
+		Das bedeutet, man muss der Funktion sowohl einen Klartext als auch den dazugehörigen, mittels Permutationsverschlüsselung verschlüsselten Text übergeben. 
+		Daraufhin ermittelt CrypTool den zur Verschlüsselung verwendeten Schlüssel.<br>
+		<br>
+		Für die automatische Analyse müssen also sowohl der Klartext als auch der Geheimtext bekannt sein. Beide Texte müssen im 
+		<!--ZZZPOPUP--><A href="hid_permutation_asc.html">Dialog Analyse Permutation-Verschlüsselungsverfahren</A> ausgewählt werden.
+		Korrespondierende Texte haben immer gleiche Länge.<br>
+		<br>Die Analyse funktioniert wie folgt: Je nach Angabe der Parameter zum Einlesen werden sowohl der Klar- als auch der Geheimtext
+		in eine Tabelle der Breite n (=Länge der Permutation) entweder zeilenweise oder spaltenweise eingelesen. 
+		Im Anschluss vergleicht CrypTool die jeweiligen Spalten beider Texttabellen und ermittelt so die Permutation, 
+		also die Vertauschung der Spalten. Daraufhin kann CrypTool nun den Schlüssel zur angewandten Permutation bestimmen.<br>
+		<br>Werden vom Benutzer keine genauen Angaben zur Berechnung des Schlüssels getroffen, so durchläuft CrypTool eine automatische Analyse. 
+		Hierbei können auch mehrere Schlüssel gefunden werden. Es wird allerdings nur der erste gefundene Schlüssel 
+		neben den Parametern zum Permutationsverfahren im <!--ZZZPOPUP--><A href="hidd_key_permutation.html">
+		Dialog Schlüsselausgabe: Permutation</A> angezeigt. Bei einer Eingrenzung der Schlüssellänge durch den Benutzer muss die Länge der ausgewählten Texte
+		ein Vielfaches der Schlüssellänge sein.</p>
+		<p><u>Beispiel zur Berechnung des Permutationsschlüssels:</u></p>
+		<TABLE cols="2" width="0*" class="pad10">
+			<TR VALIGN="top">
+				<TD>Der Klartext lautet:</TD>
+				<TD>ABCDEFGHIJKL.</TD>
+			</TR>
+			<TR VALIGN="top">
+				<TD>Der Geheimtext ist:</TD>
+				<TD>IEAJFBKGCLHD.</TD>
+			</TR>
+		</TABLE><br>
+		Für die beispielhafte Analyse des Permutation-Verschlüsselungsverfahrens werden hier im Folgenden diese Parameter angenommen:<br>
+		<br>
+		<TABLE cols="2" width="0*" class="pad10">
+			<TR VALIGN="top">
+				<TD>Einlesen:</TD>
+				<TD>Spaltenweise</TD>
+			</TR>
+			<TR VALIGN="top">
+				<TD>Permutieren:</TD>
+				<TD>Spaltenweise</TD>
+			</TR>
+			<TR VALIGN="top">
+				<TD>Auslesen:</TD>
+				<TD>Zeilenweise</TD>
+			</TR>
+			<TR VALIGN="top">
+				<TD>Schlüssellänge:</TD>
+				<TD>3</TD>
+			</TR>
+		</TABLE><br>
+		Wie oben beschrieben beginnt die Analyse mit dem Einlesen des Klar- und Geheimtextes in eine Tabelle. Aufgrund der Schlüssellänge von 3
+		und der spaltenweisen Permutation müssen beide Tabellen aus genau 3 Spalten bestehen. Wie groß die jeweiligen Spalten sind ermittelt sich
+		aus der Textgröße und der Schlüssellänge. <br>
+		In unserem Beispiel bestehen die 3 Spalten damit jeweils aus 4 Zeichen, womit man auch auf die Textlänge von 12 kommt.<br>
+		<br>
+		Zuerst wird der Klartext in eine Tabelle spaltenweise eingelesen.
+		&nbsp;</FONT></p>
+		<table border="1" cellpadding="0" cellspacing="0" style="BORDER-COLLAPSE: collapse" bordercolor="#111111"
+			width="10%" id="AutoNumber1">
+			<tr>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">A</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">E</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">I</font></td>
+			</tr>
+			<tr>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">B</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">F</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">J</font></td>
+			</tr>
+			<tr>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">C</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">G</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">K</font></td>
+			</tr>
+			<tr>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">D</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">H</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">L</font></td>
+			</tr>
+		</table>
+        	<br>
+       	Dann wird auch vom Geheimtext eine Tabelle erstellt. 
+        	Da laut der angegebenen Parameter spaltenweise permutiert und zeilenweise der Klartext ausgelesen werden soll, 
+       	muss der Geheimtext demzufolge zeilenweise eingelesen werden. Die Tabelle des eingelesen Geheimtextes sieht dann wie folgt aus:
+       	&nbsp;</p>
+		<table border="1" cellpadding="0" cellspacing="0" style="BORDER-COLLAPSE: collapse" bordercolor="#111111"
+			width="10%" id="Table1">
+			<tr>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">I</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">E</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">A</font></td>
+			</tr>
+			<tr>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">J</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">F</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">B</font></td>
+			</tr>
+			<tr>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">K</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">G</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">C</font></td>
+			</tr>
+			<tr>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">L</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">H</font></td>
+				<td width="10%" align="center" bgcolor="#ffefd5"><font face="Arial">D</font></td>
+
+			</tr>
+		</table>
+		<br>
+                CrypTool vergleicht nun die Spalten beider Tabellen miteinander. Anhand dieser ist zu erkennen, 
+                dass sich die in der Klartexttabelle an erster Stelle befindliche Spalte nun in der Tabelle des 
+                Geheimtextes an dritter Position befindet. Die Spalte an zweiter Position behielt ihren Platz, 
+                die dritte wurde jedoch an die erste Stelle im Geheimtext verschoben.<br>
+                Damit ergibt die Analyse der Permutationsverschlüsselung den Permutationsschlüssel: 3,2,1.
+		&nbsp;</p>
+	</BODY>
+</HTML>
