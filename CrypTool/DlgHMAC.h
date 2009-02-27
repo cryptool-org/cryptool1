@@ -57,6 +57,9 @@ statement from your version.
 class CDlgHMAC : public CDialog
 {
 // Konstruktion
+	void hash(OctetString *data, char *digest, int &len);
+	void hash(CString &data, char *digest, int &len);
+	CString hex_dump( const char *data, int len );
 public:
 	CString MacToHex(OctetString *hash);
 	void String2Octets(OctetString *osTarget,const char* Source, const int Length);

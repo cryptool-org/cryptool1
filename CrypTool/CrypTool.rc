@@ -8,7 +8,8 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -3056,7 +3057,8 @@ BEGIN
     CONTROL         "Na pocz¹tku wiadomoœci: H(k, m)",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | WS_GROUP,133,156,102,8
     CONTROL         "Na koñcu wiadomoœci: H(m, k)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,133,170,117,8
     CONTROL         "Na pocz¹tku i na koñcu: H(k, m, k)",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,133,184,124,8
-    CONTROL         "Podwójny hasz: H(k, H(k, m))",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON,133,198,108,8
+    CONTROL         "Podwójny hasz: H(k, H(k, m)) (RFC 2104)",IDC_RADIO10,
+                    "Button",BS_AUTORADIOBUTTON,133,198,177,8
     CONTROL         "Ró¿ne klucze: H(k, m, k')",IDC_RADIO11,"Button",BS_AUTORADIOBUTTON,133,212,94,8
     EDITTEXT        IDC_EDIT_KEY2,7,314,311,12,ES_AUTOHSCROLL | WS_DISABLED
     EDITTEXT        IDC_SHOW_MAC,7,437,311,32,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
@@ -13615,7 +13617,8 @@ BEGIN
     CONTROL         "H(m, k): hinter der Nachricht",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,133,170,126,8
     CONTROL         "H(k, m, k): vor und hinter der Nachricht",IDC_RADIO9,
                     "Button",BS_AUTORADIOBUTTON,133,184,147,8
-    CONTROL         "H(k, H(k, m)): doppeltes Hashing",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON,133,198,140,8
+    CONTROL         "H(k, H(k, m)): doppeltes Hashing (RFC 2104)",IDC_RADIO10,
+                    "Button",BS_AUTORADIOBUTTON,133,198,177,8
     CONTROL         "H(k, m, k'): zwei verschiedene Schlüssel",IDC_RADIO11,
                     "Button",BS_AUTORADIOBUTTON,133,212,150,8
     EDITTEXT        IDC_EDIT_KEY2,7,314,310,12,ES_AUTOHSCROLL | WS_DISABLED
@@ -24061,7 +24064,8 @@ BEGIN
     CONTROL         "H(k, m): in front of message",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | WS_GROUP,133,156,102,8
     CONTROL         "H(m, k): at the back of message",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,133,170,117,8
     CONTROL         "H(k, m, k): in front and at the back",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,133,184,124,8
-    CONTROL         "H(k, H(k, m)): double hashing",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON,133,198,108,8
+    CONTROL         "H(k, H(k, m)): double hashing (RFC 2104)",IDC_RADIO10,
+                    "Button",BS_AUTORADIOBUTTON,133,198,177,8
     CONTROL         "H(k, m, k'): different keys",IDC_RADIO11,"Button",BS_AUTORADIOBUTTON,133,212,94,8
     EDITTEXT        IDC_EDIT_KEY2,7,314,311,12,ES_AUTOHSCROLL | WS_DISABLED
     EDITTEXT        IDC_SHOW_MAC,7,437,311,32,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY

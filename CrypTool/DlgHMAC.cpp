@@ -64,6 +64,8 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgHMAC 
 
+const int hashIDmapping[8] = { 0,   1,  2,  3,  4,  6,  7,  5 };
+const int hashSize[8]      = { 16, 16, 16, 20, 20, 32, 64, 20 };
 
 CDlgHMAC::CDlgHMAC(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgHMAC::IDD, pParent)
@@ -137,159 +139,47 @@ BOOL CDlgHMAC::OnInitDialog()
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
 
+void CDlgHMAC::hash(OctetString *data, char *digest, int &len)
+{
+	HashingOperations hashOp(hashIDmapping[m_alg]);
+	// NOTE: make sure digest has enough memeory
+	hashOp.DoHash(data->octets, data->noctets, digest);
+	len = hashSize[m_alg];
+}
+
+void CDlgHMAC::hash(CString &data, char *digest, int &len)
+{
+	OctetString os;
+	os.octets  = 0;
+	os.noctets = 0;
+	String2Octets(&os, LPCSTR(data), data.GetLength());
+	hash(&os, digest, len);
+}
 
 
 CString CDlgHMAC::CalculateMac(CString tmpStr)
 {
-	OctetString os, macHash;
-	os.octets = 0x00000000;
-	os.noctets = 0;
-	const char* None = new char[0];
-	macHash.octets = 0x000000000;
-	macHash.noctets = 0;
-	String2Octets(&macHash, None, 0);
-	String2Octets(&os, LPCSTR(tmpStr), tmpStr.GetLength());
-
-	// some extra variables for the SHA-2 implementation
-	char hashValueSHA256[32+1];
-	memset(hashValueSHA256, 0, 32+1);
-	HashingOperations hashingOperationsSHA256(6);
-	char hashValueSHA512[64+1];
-	memset(hashValueSHA512, 0, 64+1);
-	HashingOperations hashingOperationsSHA512(7);
-
-	//hashen mit dem gewählten Algorithmus
-	macHash.noctets = 0;
-	switch (m_alg)
-	{
-	case 0:	theApp.SecudeLib.sec_hash_all(&os, &macHash, theApp.SecudeLib.md2_aid, NULL);
-			break;//MD2
-	case 1:	theApp.SecudeLib.sec_hash_all(&os, &macHash, theApp.SecudeLib.md4_aid, NULL);
-			break;//MD4
-	case 2:	theApp.SecudeLib.sec_hash_all(&os, &macHash, theApp.SecudeLib.md5_aid, NULL);
-			break;//MD5
-	case 3:	theApp.SecudeLib.sec_hash_all(&os, &macHash, theApp.SecudeLib.sha_aid, NULL);
-			break;//SHA
-	case 4:	theApp.SecudeLib.sec_hash_all(&os, &macHash, theApp.SecudeLib.sha1_aid, NULL);
-			break;//SHA1
-	case 5: hashingOperationsSHA256.DoHash(os.octets, os.noctets, hashValueSHA256);
-			macHash.octets = hashValueSHA256;
-			macHash.noctets = 32;
-			break;//SHA256
-	case 6: hashingOperationsSHA512.DoHash(os.octets, os.noctets, hashValueSHA512);
-			macHash.octets = hashValueSHA512;
-			macHash.noctets = 64;
-			break;//SHA512
-	case 7:	theApp.SecudeLib.sec_hash_all(&os, &macHash, theApp.SecudeLib.ripemd160_aid, NULL);
-			break;//RIPEMD 160
-	}
-	CString tmpRes = MacToHex(&macHash);
-	return tmpRes;
+	char digest[64];
+	int  digest_length;
+	hash(tmpStr, digest, digest_length);
+	return hex_dump( digest, digest_length );
 }
 
 void CDlgHMAC::SetMac(CString input)
 {
-	//Umwandeln in OctetString
-	OctetString os, macHash;
-	os.octets = 0x00000000;
-	os.noctets = 0;
-	const char* None = new char[0];
-	macHash.octets = 0x000000000;
-	macHash.noctets = 0;
-	String2Octets(&os, LPCSTR(input), input.GetLength());
-	String2Octets(&macHash, None, 0);
-
-	// some extra variables for the SHA-2 implementation
-	char hashValueSHA256[32+1];
-	memset(hashValueSHA256, 0, 32+1);
-	HashingOperations hashingOperationsSHA256(6);
-	char hashValueSHA512[64+1];
-	memset(hashValueSHA512, 0, 64+1);
-	HashingOperations hashingOperationsSHA512(7);
-	
-	//hashen mit dem gewählten Algorithmus	
-	switch (m_alg)
-	{
-	case 0:	theApp.SecudeLib.sec_hash_all(&os, &macHash, theApp.SecudeLib.md2_aid, NULL);
-			break;//MD2
-	case 1:	theApp.SecudeLib.sec_hash_all(&os, &macHash, theApp.SecudeLib.md4_aid, NULL);
-			break;//MD4
-	case 2:	theApp.SecudeLib.sec_hash_all(&os, &macHash, theApp.SecudeLib.md5_aid, NULL);
-			break;//MD5
-	case 3:	theApp.SecudeLib.sec_hash_all(&os, &macHash, theApp.SecudeLib.sha_aid, NULL);
-			break;//SHA
-	case 4:	theApp.SecudeLib.sec_hash_all(&os, &macHash, theApp.SecudeLib.sha1_aid, NULL);
-			break;//SHA1
-	case 5: hashingOperationsSHA256.DoHash(os.octets, os.noctets, hashValueSHA256);
-			macHash.octets = hashValueSHA256;
-			macHash.noctets = 32;
-			break;//SHA256
-	case 6: hashingOperationsSHA512.DoHash(os.octets, os.noctets, hashValueSHA512);
-			macHash.octets = hashValueSHA512;
-			macHash.noctets = 64;
-			break;//SHA512
-	case 7:	theApp.SecudeLib.sec_hash_all(&os, &macHash, theApp.SecudeLib.ripemd160_aid, NULL);
-			break;//RIPEMD 160
-	}
-	m_str_mac = MacToHex(&macHash);
-	UpdateData(false);
-
-	// only free the memory if we used non-SHA2 hash functions before
-	if(m_alg != 5 && m_alg != 6) theApp.SecudeLib.aux_free(macHash.octets);
-
-	// implicitly update result for outer hash function after setting the MAC
+	char digest[64];
+	int  digest_length;
+	hash(input, digest, digest_length);
+	m_str_mac = hex_dump( digest, digest_length );
 	SetOuterHash();
 }
 
 void CDlgHMAC::SetOuterHash()
 {
-	//Umwandeln in OctetString
-	OctetString os, macHash;
-	os.octets = 0x00000000;
-	os.noctets = 0;
-	const char* None = new char[0];
-	macHash.octets = 0x000000000;
-	macHash.noctets = 0;
-	String2Octets(&os, LPCSTR(m_originalMessage), m_originalMessage.GetLength());
-	String2Octets(&macHash, None, 0);
-
-	// some extra variables for the SHA-2 implementation
-	char hashValueSHA256[32+1];
-	memset(hashValueSHA256, 0, 32+1);
-	HashingOperations hashingOperationsSHA256(6);
-	char hashValueSHA512[64+1];
-	memset(hashValueSHA512, 0, 64+1);
-	HashingOperations hashingOperationsSHA512(7);
-	
-	//hashen mit dem gewählten Algorithmus	
-	switch (m_alg)
-	{
-	case 0:	theApp.SecudeLib.sec_hash_all(&os, &macHash, theApp.SecudeLib.md2_aid, NULL);
-			break;//MD2
-	case 1:	theApp.SecudeLib.sec_hash_all(&os, &macHash, theApp.SecudeLib.md4_aid, NULL);
-			break;//MD4
-	case 2:	theApp.SecudeLib.sec_hash_all(&os, &macHash, theApp.SecudeLib.md5_aid, NULL);
-			break;//MD5
-	case 3:	theApp.SecudeLib.sec_hash_all(&os, &macHash, theApp.SecudeLib.sha_aid, NULL);
-			break;//SHA
-	case 4:	theApp.SecudeLib.sec_hash_all(&os, &macHash, theApp.SecudeLib.sha1_aid, NULL);
-			break;//SHA1
-	case 5: hashingOperationsSHA256.DoHash(os.octets, os.noctets, hashValueSHA256);
-			macHash.octets = hashValueSHA256;
-			macHash.noctets = 32;
-			break;//SHA256
-	case 6: hashingOperationsSHA512.DoHash(os.octets, os.noctets, hashValueSHA512);
-			macHash.octets = hashValueSHA512;
-			macHash.noctets = 64;
-			break;//SHA512
-	case 7:	theApp.SecudeLib.sec_hash_all(&os, &macHash, theApp.SecudeLib.ripemd160_aid, NULL);
-			break;//RIPEMD 160
-	}
-	m_outerHash = MacToHex(&macHash);
-	UpdateData(false);
-
-	// only free the memory if we used non-SHA2 hash functions before
-	if(m_alg != 5 && m_alg != 6) theApp.SecudeLib.aux_free(macHash.octets);
+	char digest[64];
+	int  digest_length;
+	hash(m_originalMessage, digest, digest_length);
+	m_outerHash = hex_dump( digest, digest_length );
 }
 
 void CDlgHMAC::String2Octets(OctetString *osTarget, const char *Source, const int Length)
@@ -301,12 +191,12 @@ void CDlgHMAC::String2Octets(OctetString *osTarget, const char *Source, const in
 	osTarget->octets = Buffer;
 }
 
-CString CDlgHMAC::MacToHex(OctetString *hash)
+CString CDlgHMAC::hex_dump( const char *data, int len )
 {
 	CString hexaString;
-	for (unsigned int i=0; i<hash->noctets; i++)
+	for (unsigned int i=0; i<len; i++)
 	{
-		unsigned char x = hash->octets[i];
+		unsigned char x = data[i];
 		char c1, c2;
 		if (( x % 16 ) < 10 ) 
 		{
@@ -327,12 +217,18 @@ CString CDlgHMAC::MacToHex(OctetString *hash)
 		}
 		hexaString += c1;
 		hexaString += c2;
-		if (i < hash->noctets+1) 
+		if (i < len+1) 
 		{
 			hexaString += ' ';
 		}
 	}
 	return hexaString;
+}
+
+
+CString CDlgHMAC::MacToHex(OctetString *hash)
+{
+	return hex_dump( (char*)hash->octets, hash->noctets );
 }
 
 void CDlgHMAC::OnBUTTONSecondKey() 
@@ -486,18 +382,55 @@ void CDlgHMAC::calculateMACAndUpdateGUI()
 			strText = m_key + m_originalMessage + m_key;
 			break;//Schlüssel vorne und hinten
 	case 3: 
-			{
+			{ 
 				if (m_key == "")
 				{
 					LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_Double, pc_str, 150);
 					AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
 					// no return because of auto-update implementation
 					//return;
-				}			
-				CString m_key_hex = _T("");
-				tempRes = m_key + m_originalMessage;
-				dataToHexDump(m_key, m_key.GetLength(), m_key_hex);
-				strText = m_key_hex + _T(" ") + CalculateMac(tempRes);
+				}
+				// acoording RFC 2104
+				unsigned char k_ipad[64];
+				unsigned char k_opad[64];
+				unsigned char keyData[64];
+				int keyLen;
+				if ( m_key.GetLength() > 64 )
+					hash(m_key, (char*)keyData, keyLen);
+				else
+				{
+					keyLen = m_key.GetLength();
+					memcpy(keyData, m_key.GetBuffer(), keyLen);
+				}
+				memset(k_ipad, '\0', 64);
+				memset(k_opad, '\0', 64);
+				memcpy(k_ipad, keyData, keyLen);
+				memcpy(k_opad, keyData, keyLen);
+				for (int i=0; i<64; i++) { 
+					k_ipad[i] ^= 0x36;
+					k_opad[i] ^= 0x5c;
+				}
+
+				char digest[64];
+				int  digest_length;
+
+				// inner hashing
+				HashingOperations hashOp(hashIDmapping[m_alg]);
+				hashOp.chunkHashInit();
+				hashOp.chunkHashUpdate(k_ipad, 64);
+				hashOp.chunkHashUpdate(m_originalMessage.GetBuffer(), m_originalMessage.GetLength());
+				hashOp.chunkHashFinal(digest);
+				digest_length = hashSize[m_alg];
+				tempRes = hex_dump((char*)k_opad, 64) + hex_dump( digest, digest_length );
+				m_text.SetWindowText(tempRes);
+
+				// outer hashing
+				hashOp.chunkHashInit();
+				hashOp.chunkHashUpdate(k_opad, 64);				
+				hashOp.chunkHashUpdate(digest, digest_length);				
+				hashOp.chunkHashFinal(digest);
+
+				m_str_mac = hex_dump( digest, digest_length );
 			}
 			break;//doppelte Ausführung der Hashfunktion
 	case 4: if ((m_key == "") && (m_secondkey == ""))
@@ -524,7 +457,10 @@ void CDlgHMAC::calculateMACAndUpdateGUI()
 			strText = m_key + m_originalMessage + m_secondkey;
 			break;//zwei Schlüssel
 	}
-	SetMac(strText);
-	m_text.SetWindowText(strText);
+	if ( m_position != 3 )
+	{
+		SetMac(strText);
+		m_text.SetWindowText(strText);
+	}
 	UpdateData(false);	
 }
