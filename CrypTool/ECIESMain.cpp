@@ -21,6 +21,7 @@
 
 #include "DialogeMessage.h" // ## Später Ersetzen durch Tools.h
 
+#pragma warning(disable : 4996)
 
 extern char *Pfad; // Directory Path of the main programm
 extern char pc_str[STR_LAENGE_STRING_TABLE]; // from multipad.cpp

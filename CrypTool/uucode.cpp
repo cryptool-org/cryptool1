@@ -396,7 +396,8 @@ ssize_t UUDecode(
 		ASSERT((acc >> 18) == 0);
 		ASSERT(0 <= ai && ai <= 3);
 		ASSERT(0 <= codecharsleft && codecharsleft < 87);
-		*state = (((u_int32_t)lfexpected) << 27) | (((u_int32_t)codecharsleft)<<20) | (((u_int32_t)ai)<<18) 
+		*state = (((u_int32_t)lfexpected) << 27) | (((u_int32_t)codecharsleft)<<20) | (((u_int32_t)ai)<<18) 
+
 | acc ;
 
 	}
@@ -440,7 +441,8 @@ void douuenc(const char *infile, const char *OldTitle)
 	{
 		uucodeerror(outfile,NULL,UU_FILE_OPEN_ERROR,NULL,NULL,NULL);
 		return;
-	}														
+	}														
+
 								
 
 	
@@ -572,7 +574,8 @@ void douudec(const char *infile, const char *OldTitle)
 	while(count-offset && rv>=0)
 	{
 		
-		rv=UUDecode(buffer+offset,count-offset,ob,STREAM_OUT_BLOCKLENGTH_DEC,&state, &outchars, &inchars, 
+		rv=UUDecode(buffer+offset,count-offset,ob,STREAM_OUT_BLOCKLENGTH_DEC,&state, &outchars, &inchars, 
+
 &lines);
 			linesold=linesold+lines;
 			unprocessed=offset+inchars;

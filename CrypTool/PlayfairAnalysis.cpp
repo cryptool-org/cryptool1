@@ -66,6 +66,7 @@ using namespace std;
 
 //#include <Wxdebug.h>
 
+#pragma warning(disable : 4996)
 
 /*--------------------------------------------------------------------*/
 /* class playfair_letter                                              */

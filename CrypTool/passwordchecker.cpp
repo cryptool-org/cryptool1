@@ -56,6 +56,8 @@ statement from your version.
 #include "CrypToolTools.h"
 #include "passwordqualitymeter.h"
 
+#pragma warning(disable : 4996)
+
 // these are the patterns a password is checked against
 static char *pwd_patterns[] = {
 	"ddpddpdddd",

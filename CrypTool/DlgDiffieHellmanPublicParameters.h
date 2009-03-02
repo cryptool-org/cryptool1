@@ -48,15 +48,33 @@ statement from your version.
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
+
+#include <list>
+
+
 // DlgDiffieHellmanPublicParameters.h : Header-Datei
 //
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgDiffieHellmanPublicParameters 
+struct factor {
+	int		exp;
+	int     isPrime;
+	CString strNum;
+
+	factor(CString STRNUM, int ISPRIME)
+	{ exp = 1; isPrime = ISPRIME; strNum = STRNUM; }
+	void incExp() { exp++; }
+};
+
 
 class CDlgDiffieHellmanPublicParameters : public CDialog
 {
 // Konstruktion
+	std::list<factor> factorlistPhiOfP;
+
+	int PrimeParameterGenerationRFC2631(int bitlengthP, int bitlengthQ);
+
 public:
 	CDlgDiffieHellmanPublicParameters(CWnd* pParent = NULL);				// Standardkonstruktor
 	CDlgDiffieHellmanPublicParameters(std::string,std::string,CWnd* pParent = NULL);	// Zusatzkonstruktor

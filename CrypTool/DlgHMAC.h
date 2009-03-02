@@ -57,12 +57,12 @@ statement from your version.
 class CDlgHMAC : public CDialog
 {
 // Konstruktion
-	void hash(OctetString *data, char *digest, int &len);
+	void hash(char *data, int data_len, char *digest, int &len);
 	void hash(CString &data, char *digest, int &len);
 	CString hex_dump( const char *data, int len );
+	void keyEmpty(int IDS);
+
 public:
-	CString MacToHex(OctetString *hash);
-	void String2Octets(OctetString *osTarget,const char* Source, const int Length);
 	void SetMac(CString input);
 	void SetOuterHash();
 	CString CalculateMac(CString tmpStr);

@@ -130,30 +130,24 @@ BOOL CDlgHMAC::OnInitDialog()
 	
 	UpdateData(true);
 	m_text.SetWindowText(strText);
-
 	m_originalMessage = strText;
-
 	UpdateData(false);
 	
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
 
-void CDlgHMAC::hash(OctetString *data, char *digest, int &len)
+void CDlgHMAC::hash(char *data, int data_len, char *digest, int &len)
 {
 	HashingOperations hashOp(hashIDmapping[m_alg]);
 	// NOTE: make sure digest has enough memeory
-	hashOp.DoHash(data->octets, data->noctets, digest);
+	hashOp.DoHash(data, data_len, digest);
 	len = hashSize[m_alg];
 }
 
 void CDlgHMAC::hash(CString &data, char *digest, int &len)
 {
-	OctetString os;
-	os.octets  = 0;
-	os.noctets = 0;
-	String2Octets(&os, LPCSTR(data), data.GetLength());
-	hash(&os, digest, len);
+	hash(data.GetBuffer(), data.GetLength(), digest, len);
 }
 
 
@@ -182,54 +176,20 @@ void CDlgHMAC::SetOuterHash()
 	m_outerHash = hex_dump( digest, digest_length );
 }
 
-void CDlgHMAC::String2Octets(OctetString *osTarget, const char *Source, const int Length)
-{
-	osTarget->noctets = Length;
-	char* Buffer = new char[Length];
-	for(int i=0; i<Length; i++) Buffer[i] = Source[i];
-	delete[] osTarget->octets;
-	osTarget->octets = Buffer;
-}
-
 CString CDlgHMAC::hex_dump( const char *data, int len )
 {
-	CString hexaString;
-	for (unsigned int i=0; i<len; i++)
+	CString hexaString = _T("");
+	char str[3];
+	str[2] = '\0';
+	for (int i=0; i<len; i++)
 	{
-		unsigned char x = data[i];
-		char c1, c2;
-		if (( x % 16 ) < 10 ) 
-		{
-			c2 = '0' + (x % 16);
-		}
-		else 
-		{
-			c2 = 'A' + (x % 16) -10;
-		}
-		x /= 16;
-		if ( x < 10 ) 
-		{
-			c1 = '0' + x; 
-		}
-		else 
-		{
-			c1 = 'A' + x -10;
-		}
-		hexaString += c1;
-		hexaString += c2;
-		if (i < len+1) 
-		{
-			hexaString += ' ';
-		}
+		sprintf(str, "%02X", (unsigned char)data[i]);
+		hexaString += str;
+		if (i < len+1) hexaString += ' ';
 	}
 	return hexaString;
 }
 
-
-CString CDlgHMAC::MacToHex(OctetString *hash)
-{
-	return hex_dump( (char*)hash->octets, hash->noctets );
-}
 
 void CDlgHMAC::OnBUTTONSecondKey() 
 {
@@ -257,14 +217,12 @@ void CDlgHMAC::OnEditText()
 void CDlgHMAC::OnEditKey() 
 {
 	UpdateData(true);
-
 	calculateMACAndUpdateGUI();
 }
 
 void CDlgHMAC::OnEditOriginalMessage()
 {
 	UpdateData(true);
-
 	// if there is at least one key...
 	if(m_key.GetLength() > 0)
 		calculateMACAndUpdateGUI();
@@ -337,125 +295,89 @@ void CDlgHMAC::OnBUTTONDouble()
 void CDlgHMAC::OnEditSecondKey() 
 {
 	UpdateData(true);
-
 	calculateMACAndUpdateGUI();
 }
 
 void CDlgHMAC::OnBUTTONHashFunction() 
 {
 	UpdateData(true);
-
 	calculateMACAndUpdateGUI();
 }
+
+void CDlgHMAC::keyEmpty(int IDS)
+{
+	LoadString(AfxGetInstanceHandle(), IDS, pc_str, 150);
+	AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
+}
+
 
 void CDlgHMAC::calculateMACAndUpdateGUI()
 {
 	UpdateData(true);
 	CString tempRes;
+
 	switch (m_position)
 	{
-	case 0: if (m_key == "")
-			{
-				LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_NoKey, pc_str, 100);
-				AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
-				// no return because of auto-update implementation
-				//return;
-			}
-			strText = m_key + m_originalMessage;
-			break;//Schlüssel vorne
-	case 1:	if (m_key == "")
-			{
-				LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_NoKey, pc_str, 100);
-				AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
-				// no return because of auto-update implementation
-				//return;
-			}
-			strText = m_originalMessage + m_key;
-			break;//Schlüssel hinten
-	case 2:	if (m_key == "")
-			{
-				LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_NoKey, pc_str, 100);
-				AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
-				// no return because of auto-update implementation
-				//return;
-			}
-			strText = m_key + m_originalMessage + m_key;
-			break;//Schlüssel vorne und hinten
-	case 3: 
-			{ 
-				if (m_key == "")
-				{
-					LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_Double, pc_str, 150);
-					AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
-					// no return because of auto-update implementation
-					//return;
+		case 0: if (m_key == "") keyEmpty(IDS_STRING_MAC_NoKey);
+				strText = m_key + m_originalMessage;
+				break;//Schlüssel vorne
+		case 1:	if (m_key == "") keyEmpty(IDS_STRING_MAC_NoKey);
+				strText = m_originalMessage + m_key;
+				break;//Schlüssel hinten
+		case 2:	if (m_key == "") keyEmpty(IDS_STRING_MAC_NoKey);
+				strText = m_key + m_originalMessage + m_key;
+				break;//Schlüssel vorne und hinten
+		case 3: 
+				{ 
+					if (m_key == "") keyEmpty(IDS_STRING_MAC_Double); 
+					// acoording RFC 2104
+					unsigned char k_ipad[64];
+					unsigned char k_opad[64];
+					unsigned char keyData[64];
+					int keyLen;
+					if ( m_key.GetLength() > 64 )
+						hash(m_key, (char*)keyData, keyLen);
+					else
+					{
+						keyLen = m_key.GetLength();
+						memcpy(keyData, m_key.GetBuffer(), keyLen);
+					}
+					memset(k_ipad, '\0', 64);
+					memset(k_opad, '\0', 64);
+					memcpy(k_ipad, keyData, keyLen);
+					memcpy(k_opad, keyData, keyLen);
+					for (int i=0; i<64; i++) { 
+						k_ipad[i] ^= 0x36;
+						k_opad[i] ^= 0x5c;
+					}
+
+					char digest[64];
+					int  digest_length;
+
+					// inner hashing
+					HashingOperations hashOp(hashIDmapping[m_alg]);
+					hashOp.chunkHashInit();
+					hashOp.chunkHashUpdate(k_ipad, 64);
+					hashOp.chunkHashUpdate(m_originalMessage.GetBuffer(), m_originalMessage.GetLength());
+					hashOp.chunkHashFinal(digest);
+					digest_length = hashSize[m_alg];
+					tempRes = hex_dump((char*)k_opad, 64) + hex_dump( digest, digest_length );
+					m_text.SetWindowText(tempRes);
+
+					// outer hashing
+					hashOp.chunkHashInit();
+					hashOp.chunkHashUpdate(k_opad, 64);				
+					hashOp.chunkHashUpdate(digest, digest_length);				
+					hashOp.chunkHashFinal(digest);
+
+					m_str_mac = hex_dump( digest, digest_length );
 				}
-				// acoording RFC 2104
-				unsigned char k_ipad[64];
-				unsigned char k_opad[64];
-				unsigned char keyData[64];
-				int keyLen;
-				if ( m_key.GetLength() > 64 )
-					hash(m_key, (char*)keyData, keyLen);
-				else
-				{
-					keyLen = m_key.GetLength();
-					memcpy(keyData, m_key.GetBuffer(), keyLen);
-				}
-				memset(k_ipad, '\0', 64);
-				memset(k_opad, '\0', 64);
-				memcpy(k_ipad, keyData, keyLen);
-				memcpy(k_opad, keyData, keyLen);
-				for (int i=0; i<64; i++) { 
-					k_ipad[i] ^= 0x36;
-					k_opad[i] ^= 0x5c;
-				}
-
-				char digest[64];
-				int  digest_length;
-
-				// inner hashing
-				HashingOperations hashOp(hashIDmapping[m_alg]);
-				hashOp.chunkHashInit();
-				hashOp.chunkHashUpdate(k_ipad, 64);
-				hashOp.chunkHashUpdate(m_originalMessage.GetBuffer(), m_originalMessage.GetLength());
-				hashOp.chunkHashFinal(digest);
-				digest_length = hashSize[m_alg];
-				tempRes = hex_dump((char*)k_opad, 64) + hex_dump( digest, digest_length );
-				m_text.SetWindowText(tempRes);
-
-				// outer hashing
-				hashOp.chunkHashInit();
-				hashOp.chunkHashUpdate(k_opad, 64);				
-				hashOp.chunkHashUpdate(digest, digest_length);				
-				hashOp.chunkHashFinal(digest);
-
-				m_str_mac = hex_dump( digest, digest_length );
-			}
-			break;//doppelte Ausführung der Hashfunktion
-	case 4: if ((m_key == "") && (m_secondkey == ""))
-			{
-				LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_NoKey, pc_str, 100);
-				AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
-				// no return because of auto-update implementation
-				//return;
-			}
-			else if ((m_key == "") && (m_secondkey != ""))
-			{
-				LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_OnlyOneKey, pc_str, 150);
-				AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
-				// no return because of auto-update implementation
-				//return;
-			}
-			else if ((m_key != "") && (m_secondkey == ""))
-			{
-				LoadString(AfxGetInstanceHandle(), IDS_STRING_MAC_OnlyOneKey, pc_str, 150);
-				AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
-				// no return because of auto-update implementation
-				//return;
-			}
-			strText = m_key + m_originalMessage + m_secondkey;
-			break;//zwei Schlüssel
+				break;//doppelte Ausführung der Hashfunktion
+		case 4: if ((m_key == "") && (m_secondkey == ""))		keyEmpty(IDS_STRING_MAC_NoKey);
+				else if ((m_key == "") && (m_secondkey != ""))  keyEmpty(IDS_STRING_MAC_OnlyOneKey);
+				else if ((m_key != "") && (m_secondkey == ""))  keyEmpty(IDS_STRING_MAC_OnlyOneKey);
+				strText = m_key + m_originalMessage + m_secondkey;
+				break;//zwei Schlüssel
 	}
 	if ( m_position != 3 )
 	{

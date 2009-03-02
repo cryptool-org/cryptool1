@@ -41,11 +41,12 @@ statement from your version.
 
 **********************************************************************/
 
-
-
 #include "MakeNewName.h"
 #include "string.h"
 #include "stdio.h"
+
+#pragma warning(disable : 4996)
+
 
 /* Die folgende Funktionen generieren aus dem Namen des Fensters mit den zu bearbeitenden
    Daten einen Namen für das Fenster, in dem die Ausgabe dargestellt wird		*/

@@ -55,8 +55,10 @@ statement from your version.
 #include "AsymmetricEncryption.h"
 
 #include <time.h>
-
 #include <afxtempl.h>
+
+#pragma warning(disable : 4996)
+
 
 #define PSE_FILE_SUFFIX ".pse"
 #define P12_FILE_SUFFIX ".p12"

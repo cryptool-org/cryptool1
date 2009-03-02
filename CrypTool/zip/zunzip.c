@@ -6,6 +6,8 @@
 
   ---------------------------------------------------------------------------*/
 
+#pragma warning(disable : 4996)
+
 #include <setjmp.h>
 #include <io.h>
 #include "zip.h"

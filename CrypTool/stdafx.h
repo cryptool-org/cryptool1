@@ -78,6 +78,7 @@ statement from your version.
 #define _WIN32_IE 0x0500	// Ändern Sie den entsprechenden Wert, um auf mindestens IE 5.0 abzuzielen.
 #endif
 
+#define _CRT_SECURE_NO_WARNINGS
 
 #define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS	// einige CString-Konstruktoren sind explizit
 

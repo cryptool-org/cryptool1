@@ -50,6 +50,9 @@ statement from your version.
 #include "DlgDiffieHellmanPublicParameters.h"
 
 #include "DlgGeneratePrime.h"
+#include "IntegerArithmetic.h"
+#include <math.h>
+
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -153,6 +156,8 @@ void CDlgDiffieHellmanPublicParameters::OnOK()
 		}
 	}
 
+	// FIXME
+	// if ( p-1 = p_1^e_1 * ... * p_l^e_l, p_i prime ) check g^p_i != 1 for (i= 1, ..., l)
 	// Überprüfung für Generator (g)
 	if( g < 0 ||  (g%p)==0 || g==1 || g==(p-1))
 	{
@@ -224,3 +229,17 @@ void CDlgDiffieHellmanPublicParameters::OnGenerateGenerator()
 	delete s;
 	UpdateData(false);
 }
+
+#if 0
+int DlgDiffieHellmanPublicParameters::PrimeParameterGenerationRFC2631(int bitlengthP, int bitlengthQ)
+{
+	int m_dash, L_dash, N_dash;
+	m_dash = (int)ceil(bitlengthP/160.0);
+	L_dash = (int)ceil(bitlengthQ/160.0);
+	N_dash = (int)ceil(bitlengthQ/1024.0);
+
+	
+
+
+}
+#endif 

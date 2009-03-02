@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -4353,6 +4353,26 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,97,50,14
 END
 
+IDD_SIMPLE_TRANSPOSITIONS DIALOGEX 0, 0, 285, 180
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Key Entry: Simple Transpositions"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Encrypt",ID_ENCRYPT,7,154,60,19
+    PUSHBUTTON      "Decrypt",ID_DECRYPT,73,154,60,19
+    PUSHBUTTON      "Cancel",IDCANCEL,218,154,60,19
+    CONTROL         "Scytale",IDC_RADIO_SCYTALE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,63,110,10
+    CONTROL         "Rail Fence",IDC_RADIO_RAIL_FENCE,"Button",BS_AUTORADIOBUTTON,20,75,110,10
+    EDITTEXT        IDC_EDIT_KEY,135,111,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "Description",IDC_STATIC,7,7,271,36
+    LTEXT           "Transpositions scramble the order of the letters in the clear text. Two well-known, classic variants are the Scytale and the Rail Fence encryption.",IDC_STATIC,20,20,245,16
+    GROUPBOX        "Choose the transposition",IDC_STATIC,7,50,160,40
+    GROUPBOX        "Choose the key",IDC_STATIC,7,100,160,45
+    LTEXT           "SIMPLE_TRANSPOSITION_KEY",IDC_SIMPLE_TRANSPOSITION_KEY,20,113,99,8
+    CONTROL         "",IDC_SIMPLE_TRANSPOSITION_IMAGE,"Static",SS_BITMAP,177,53,67,62
+    LTEXT           "Offset:",IDC_STATIC,20,129,24,8
+    EDITTEXT        IDC_EDIT_OFFSET,136,127,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
+END
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -6484,6 +6504,8 @@ IDB_CRT_CR_LEFT         BITMAP                  "res\\CRT\\crtright.bmp"
 IDB_CRT_BASIS           BITMAP                  "res\\CRT\\crtbasis.bmp"
 IDB_CRT_DOWN_F          BITMAP                  "res\\CRT\\crtdownf.bmp"
 IDB_CRT_DOWN_FSTR       BITMAP                  "res\\CRT\\crtdownfstr.bmp"
+IDB_SIMPLE_TRANSPOSITION_RAIL_FENCE BITMAP      "res\\Bitmaps\\simple_transposition_rail_fence.bmp"
+IDB_SIMPLE_TRANSPOSITION_SCYTALE BITMAP                  "res\\Bitmaps_en\\simple_transposition_scytale.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -10525,12 +10547,12 @@ BEGIN
     IDS_FACTORS_FOUND       "Found %d factors in %s"
 END
 
-#endif    // Polish resources
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -12816,22 +12838,27 @@ BEGIN
     LTEXT           "PIN:",IDC_STATIC,69,35,15,14,SS_CENTERIMAGE
 END
 
-IDD_DIFFIEHELLMAN_PUBLICPARAMETERS DIALOG  0, 0, 393, 172
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+IDD_DIFFIEHELLMAN_PUBLICPARAMETERS DIALOGEX 0, 0, 393, 240
+STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Öffentliche Parameter setzen"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    EDITTEXT        IDC_PRIME,75,53,200,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_GENERATOR,75,109,200,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "&Primzahl erzeugen...",IDC_GENERATE_PRIME,277,53,100,14
-    PUSHBUTTON      "&Generator erzeugen",IDC_GENERATE_GENERATOR,278,109,100,14
-    DEFPUSHBUTTON   "Parameter über&nehmen",IDOK,15,137,100,20
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,278,137,100,20
-    LTEXT           "Als Generator (g) bezeichnet man eine natürliche Zahl, die nach Möglichkeit nicht Null oder Eins und kein Vielfaches des Primzahlmoduls (p) sein sollte.",IDC_STATIC,15,84,363,16
-    LTEXT           "Generator:",IDC_STATIC,25,109,50,14,SS_CENTERIMAGE
+    EDITTEXT        IDC_PRIME,75,59,200,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_GENERATOR,75,152,200,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Primzahl erzeugen...",IDC_GENERATE_PRIME,277,59,100,14
+    PUSHBUTTON      "&Generator erzeugen",IDC_GENERATE_GENERATOR,278,152,100,14
+    DEFPUSHBUTTON   "Parameter über&nehmen",IDOK,15,208,100,20
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,278,208,100,20
+    LTEXT           "Als Generator (g) bezeichnet man eine natürliche Zahl, die nach Möglichkeit nicht Null oder Eins und kein Vielfaches des Primzahlmoduls (p) sein sollte.",IDC_STATIC,15,129,362,16
+    LTEXT           "Generator:",IDC_STATIC,25,152,50,14,SS_CENTERIMAGE
     LTEXT           "Beide Parameter - sowohl der Generator (g) als auch der Primzahlmodul (p) - dürfen öffentlich bekannt sein.",IDC_STATIC,15,7,363,8
-    LTEXT           "Der Primzahlmodul (p) sollte eine Primzahl sein. Falls Sie keine große Primzahl kennen, so erzeugen Sie eine durch Klicken des Buttons 'Primzahl erzeugen'.",IDC_STATIC,15,28,363,16
-    LTEXT           "Primzahlmodul:",IDC_STATIC,25,53,50,14,SS_CENTERIMAGE
+    LTEXT           "Der Primzahlmodul (p) sollte eine Primzahl sein. Für die spätere Wahl des Generators g ist es notwendig, dass die Faktorisierung von Phi(p) bekannt ist.",IDC_STATIC,15,34,362,16
+    LTEXT           "Primzahlmodul:",IDC_STATIC,25,59,50,14,SS_CENTERIMAGE
+    GROUPBOX        "Primzahlmodul",IDC_STATIC,10,22,373,89
+    GROUPBOX        "Generator",IDC_STATIC,10,117,373,82
+    PUSHBUTTON      "Prüfe g",IDC_BUTTON1,75,175,99,14
+    PUSHBUTTON      "Prüfe p",IDC_BUTTON2,75,85,97,15
+    PUSHBUTTON      "Optionen",IDC_BUTTON3,278,85,99,15
 END
 
 IDD_DIFFIEHELLMAN_SETSECRETS DIALOG  0, 0, 200, 101
@@ -17073,8 +17100,8 @@ IDB_CRT_CR_LEFT         BITMAP                  "res\\CRT\\CrtLeft.bmp"
 IDB_CRT_BASIS           BITMAP                  "res\\CRT\\CrtBasis.bmp"
 IDB_CRT_DOWN_F          BITMAP                  "res\\CRT\\CrtDownf.bmp"
 IDB_CRT_DOWN_FSTR       BITMAP                  "res\\CRT\\CrtDownfstr.bmp"
-IDB_SIMPLE_TRANSPOSITION_SCYTALE BITMAP                  "res\\Bitmaps\\simple_transposition_scytale.bmp"
-IDB_SIMPLE_TRANSPOSITION_RAIL_FENCE BITMAP                  "res\\Bitmaps\\simple_transposition_rail_fence.bmp"
+IDB_SIMPLE_TRANSPOSITION_SCYTALE BITMAP         "res\\Bitmaps\\simple_transposition_scytale.bmp"
+IDB_SIMPLE_TRANSPOSITION_RAIL_FENCE BITMAP       "res\\Bitmaps\\simple_transposition_rail_fence.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -17814,6 +17841,20 @@ BEGIN
         LEFTMARGIN, 12
         RIGHTMARGIN, 265
         BOTTOMMARGIN, 82
+    END
+
+    IDD_DIFFIEHELLMAN_PUBLICPARAMETERS, DIALOG
+    BEGIN
+        VERTGUIDE, 10
+        VERTGUIDE, 15
+        VERTGUIDE, 75
+        VERTGUIDE, 172
+        VERTGUIDE, 275
+        VERTGUIDE, 278
+        VERTGUIDE, 377
+        VERTGUIDE, 383
+        HORZGUIDE, 100
+        HORZGUIDE, 228
     END
 
     IDD_STATISTICS_SIGNATURE_ATTACK, DIALOG
@@ -21005,12 +21046,12 @@ BEGIN
     IDS_FACTORS_FOUND       "%d Faktoren gefunden in %s"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -31617,7 +31658,7 @@ BEGIN
     IDS_FACTORS_FOUND       "Found %d factors in %s"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

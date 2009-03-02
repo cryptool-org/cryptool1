@@ -118,6 +118,7 @@ statement from your version.
 #include "CrypToolTools.h"
 // #endif
 
+#pragma warning(disable : 4996)
 
 // globale Variablen fuer Zugriff auf Stringtable
 // Deklariert in CrypTool.h
