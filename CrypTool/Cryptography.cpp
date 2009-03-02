@@ -3996,7 +3996,7 @@ UINT SymmetricBruteForce(PVOID p)
 
 // Rail Fence encryption (part of the simple transpositions dialog)
 // RETURN VALUES:		1 (success), -1 (invalid key), -2 (invalid file handle)
-int RailFenceEncryption(const char *infile, const char *oldTitle, int key, bool encrypt) {
+int RailFenceEncryption(const char *infile, const char *oldTitle, int key, int offset, bool encrypt) {
 	// create a handle for the input file
 	std::ifstream fileInput;
 	fileInput.open(infile);
@@ -4014,6 +4014,15 @@ int RailFenceEncryption(const char *infile, const char *oldTitle, int key, bool 
 	while(!fileInput.eof());
 	fileInput.close();
 
+	// ignore non-alphabet characters
+	CString bufferStringValid;
+	for(int i=0; i<bufferString.length(); i++) {
+		if(theApp.TextOptions.getAlphabet().Find(bufferString[i]) != -1) {
+			bufferStringValid.AppendChar(bufferString[i]);
+		}
+	}
+	bufferString = bufferStringValid;
+
 	// IMPORTANT: the key is invalid if it is "1" or >= the length of the clear text
 	if(key <= 1 || key >= bufferString.length()) {
 		return -1;
@@ -4021,29 +4030,105 @@ int RailFenceEncryption(const char *infile, const char *oldTitle, int key, bool 
 
 	// *** BEGIN ENCRYPTION/DECRYPTION PROCESS ***
 	int textLength = bufferString.length();
-	char *clearText = new char[textLength + 1];
-	memset(clearText, 0, textLength + 1);
-	memcpy(clearText, bufferString.c_str(), textLength);
-	char *cipherText = new char[textLength + 1];
-	memset(cipherText, 0, textLength + 1);
+	char *clearText = new char[textLength + offset + 1];
+	memset(clearText, 0, textLength + offset + 1);
+	char *cipherText = new char[textLength + offset + 1];
+	memset(cipherText, 0, textLength + offset + 1);
 
-	// ENCRYPTION
+	// ******************
+	// *** ENCRYPTION ***
+	// ******************
 	if(encrypt) {
+		// the period of the encryption
+		int n = 2 * key - 2; 
+		if(offset > 0) offset = (offset % n);
+		if(offset < 0) offset = (offset % n) + n;
+		// get the clear text and respect leading zeros (thus, the offset variable)
+		memcpy(clearText + offset, bufferString.c_str(), textLength);
+		// now, process all characters of the clear text
 		int charactersProcessed = 0;
-		for(int row=0; row<key; row++) {
-			for(int index=row; index<textLength; index+=key) {
-				cipherText[charactersProcessed++] = clearText[index];
+		for(int d=0; d<=n/2; d++) {
+			for(int j=0; j<textLength+offset; j++) {
+				if(j%n == d || j%n == n-d) {
+					cipherText[charactersProcessed++] = clearText[j];
+				}	
 			}
 		}
+		// remove zeros
+		char *cipherTextTemp = new char[textLength + 1];
+		memset(cipherTextTemp, 0, textLength + 1);
+		for(int i=0; i<textLength+offset; i++) {
+			if(cipherText[i] != 0) {
+				strncat(cipherTextTemp, cipherText + i, 1);
+			}
+		}
+		// store the result in "cipherText"
+		memset(cipherText, 0, textLength + 1);
+		memcpy(cipherText, cipherTextTemp, textLength);
 	}
-	// DECRYPTION
+	// ******************
+	// *** DECRYPTION ***
+	// ******************
 	else {
-		int charactersProcessed = 0;
-		for(int row=0; row<key; row++) {
-			for(int index=row; index<textLength; index+=key) {
-				cipherText[index] = clearText[charactersProcessed++];
+		// the period of the encryption
+		int n = 2 * key - 2;
+		offset = (offset % n);
+		if(offset < 0) offset = (offset + n);
+		// get the cipher text
+		memcpy(cipherText, bufferString.c_str(), textLength);
+		// process all characters of the cipher text
+		int *charactersInRow = new int[key];
+		memset(charactersInRow, 0, key * 4);
+		int currentRow = 0;
+		memset(charactersInRow, 0, 3);
+		std::string *rows = new std::string[key];
+		// flatten out the cipher text
+		for(int index=offset; index<textLength+offset; index++) {
+			// determine which row we're in (zero-based, from top down)
+			int localOffset = index % n;
+			// is it going up or down the fence?
+			if(localOffset < key) { // *down*
+				currentRow = localOffset;
 			}
+			else {									// *up*
+				currentRow = (key - 1);
+				int steps = localOffset - (key - 1);
+				currentRow -= steps;
+			}	
+			charactersInRow[currentRow]++;
 		}
+		// now, assemble each row
+		int charactersProcessed = 0;
+		for(int i=0; i<key; i++) {
+			char *temp = new char[textLength + 1];
+			memset(temp, 0, textLength + 1);
+			memcpy(temp, cipherText + charactersProcessed, charactersInRow[i]);
+			rows[i].append(temp);
+			charactersProcessed += charactersInRow[i];
+		}
+		// transform flattened out cipher text into clear text
+		int *charactersInRowProcessed = new int[key];
+		memset(charactersInRowProcessed, 0, key * 4);
+		charactersProcessed = 0;
+		for(int index=offset; index<textLength+offset; index++) {
+			// determine which row we're in (zero-based, from top down)
+			int localOffset = index % n;
+			// is it going up or down the fence?
+			if(localOffset < key) { // *down*
+				currentRow = localOffset;
+			}
+			else {									// *up*
+				currentRow = (key - 1);
+				int steps = localOffset - (key - 1);
+				currentRow -= steps;
+			}	
+			// construct the clear text character by character
+			clearText[charactersProcessed++] = rows[currentRow].c_str()[charactersInRowProcessed[currentRow]++];
+		}
+		// this is ugly, but we're working on "cipherText" in the lines below; thus we copy from 
+		// "clearText" to "cipherText" although we were actually decrypting here
+		memset(cipherText, 0, textLength + 1);
+		memcpy(cipherText, clearText, strlen(clearText));
 	}
 
 	std::string cipherTextString = cipherText;
@@ -4064,13 +4149,20 @@ int RailFenceEncryption(const char *infile, const char *oldTitle, int key, bool 
 	fileOutput.write(cipherTextString.c_str(), cipherTextString.length());
 	fileOutput.close();
 
-	// key as string
-	char keyString[4096 + 1];
-	memset(keyString, 0, 4096 + 1);
-	itoa(key, keyString, 10);
+	// key as string including offset
+	CString stringKeyAndOffset;
+	char stringKey[4096 + 1];
+	char stringOffset[4096 + 1];
+	memset(stringKey, 0, 4096 + 1);
+	memset(stringOffset, 0, 4096 + 1);
+	itoa(key, stringKey, 10);
+	itoa(offset, stringOffset, 10);
+	stringKeyAndOffset.Append(stringKey);
+	stringKeyAndOffset.Append(", KEY OFFSET: ");
+	stringKeyAndOffset.Append(stringOffset);
 
 	// open the new document
-	CDocument *document = theApp.OpenDocumentFileNoMRU(outfile, keyString);
+	CDocument *document = theApp.OpenDocumentFileNoMRU(outfile, stringKeyAndOffset);
 	if(document) {
 		char title[4096];
 		memset(title, 0, 4096);
@@ -4078,7 +4170,7 @@ int RailFenceEncryption(const char *infile, const char *oldTitle, int key, bool 
 		if(encrypt) LoadString(AfxGetInstanceHandle(), IDS_STRING_RAIL_FENCE_ENCRYPTION_OF, pc_str, STR_LAENGE_STRING_TABLE);
 		else LoadString(AfxGetInstanceHandle(), IDS_STRING_RAIL_FENCE_DECRYPTION_OF, pc_str, STR_LAENGE_STRING_TABLE);
 		// now add the old title and the key into the new title
-		sprintf(title, pc_str, oldTitle, keyString);
+		sprintf(title, pc_str, oldTitle, stringKeyAndOffset);
 		// set the new document title
 		document->SetTitle(title);
 	}
@@ -4088,7 +4180,7 @@ int RailFenceEncryption(const char *infile, const char *oldTitle, int key, bool 
 
 // Scytale encryption (part of the simple transpositions dialog)
 // RETURN VALUES:		1 (success), -1 (invalid key), -2 (invalid file handle)
-int ScytaleEncryption(const char *infile, const char *oldTitle, int key, bool encrypt) {
+int ScytaleEncryption(const char *infile, const char *oldTitle, int key, int offset, bool encrypt) {
 	// create a handle for the input file
 	std::ifstream fileInput;
 	fileInput.open(infile);
@@ -4106,6 +4198,15 @@ int ScytaleEncryption(const char *infile, const char *oldTitle, int key, bool en
 	while(!fileInput.eof());
 	fileInput.close();
 
+	// ignore non-alphabet characters
+	CString bufferStringValid;
+	for(int i=0; i<bufferString.length(); i++) {
+		if(theApp.TextOptions.getAlphabet().Find(bufferString[i]) != -1) {
+			bufferStringValid.AppendChar(bufferString[i]);
+		}
+	}
+	bufferString = bufferStringValid;
+
 	// IMPORTANT: the key is invalid if it is "1" or >= the length of the clear text
 	if(key <= 1 || key >= bufferString.length()) {
 		return -1;
@@ -4118,6 +4219,8 @@ int ScytaleEncryption(const char *infile, const char *oldTitle, int key, bool en
 	memcpy(clearText, bufferString.c_str(), textLength);
 	char *cipherText = new char[textLength + 1];
 	memset(cipherText, 0, textLength + 1);
+
+	AfxMessageBox("TODO: implement offset for Scytale encryption; as of now, the offset is ignored");
 
 	// ENCRYPTION
 	if(encrypt) {
@@ -4160,13 +4263,20 @@ int ScytaleEncryption(const char *infile, const char *oldTitle, int key, bool en
 	fileOutput.write(cipherTextString.c_str(), cipherTextString.length());
 	fileOutput.close();
 
-	// key as string
-	char keyString[4096 + 1];
-	memset(keyString, 0, 4096 + 1);
-	itoa(key, keyString, 10);
+	// key as string including offset
+	CString stringKeyAndOffset;
+	char stringKey[4096 + 1];
+	char stringOffset[4096 + 1];
+	memset(stringKey, 0, 4096 + 1);
+	memset(stringOffset, 0, 4096 + 1);
+	itoa(key, stringKey, 10);
+	itoa(offset, stringOffset, 10);
+	stringKeyAndOffset.Append(stringKey);
+	stringKeyAndOffset.Append(", KEY OFFSET: ");
+	stringKeyAndOffset.Append(stringOffset);
 
 	// open the new document
-	CDocument *document = theApp.OpenDocumentFileNoMRU(outfile, keyString);
+	CDocument *document = theApp.OpenDocumentFileNoMRU(outfile, stringKeyAndOffset);
 	if(document) {
 		char title[4096];
 		memset(title, 0, 4096);
@@ -4174,7 +4284,7 @@ int ScytaleEncryption(const char *infile, const char *oldTitle, int key, bool en
 		if(encrypt) LoadString(AfxGetInstanceHandle(), IDS_STRING_SCYTALE_ENCRYPTION_OF, pc_str, STR_LAENGE_STRING_TABLE);
 		else LoadString(AfxGetInstanceHandle(), IDS_STRING_SCYTALE_DECRYPTION_OF, pc_str, STR_LAENGE_STRING_TABLE);
 		// now add the old title and the key into the new title
-		sprintf(title, pc_str, oldTitle, keyString);
+		sprintf(title, pc_str, oldTitle, stringKeyAndOffset);
 		// set the new document title
 		document->SetTitle(title);
 	}

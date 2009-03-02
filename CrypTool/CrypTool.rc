@@ -21044,6 +21044,8 @@ BEGIN
     IDS_STRING_SCYTALE_DECRYPTION_OF 
                             "Skytale-Entschlüsselung von <%s>, Schlüssel <%s>"
     IDS_FACTORS_FOUND       "%d Faktoren gefunden in %s"
+    IDS_SIMPLE_TRANSPOSITION_OFFSET_INVALID 
+                            "Das eingestellte Offset ist ungültig. Es darf nicht kleiner als 0 sein."
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -31656,6 +31658,8 @@ BEGIN
     IDS_STRING_SCYTALE_ENCRYPTION_OF "Scytale encryption of <%s>, key <%s>"
     IDS_STRING_SCYTALE_DECRYPTION_OF "Scytale decryption of <%s>, key <%s>"
     IDS_FACTORS_FOUND       "Found %d factors in %s"
+    IDS_SIMPLE_TRANSPOSITION_OFFSET_INVALID 
+                            "The offset is invalid. It must not be smaller than 0."
 END
 
 #endif    // Englisch (GB) resources

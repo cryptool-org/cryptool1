@@ -91,6 +91,7 @@ protected:
 	CBitmap bitmapRailFence;
 public:
 	int key;
+	int offset;
 };
 
 #endif

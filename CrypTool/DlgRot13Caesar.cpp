@@ -311,8 +311,6 @@ void CDlgRot13Caesar::onUpdateGUI()
 
 		// set numeric key to half the size of the alphabet
 		int integerNumericKey = theApp.TextOptions.getAlphabet().GetLength() / 2;
-		// we're zero-based here, so increase the key by one
-		integerNumericKey--;
 		numericKey.Format("%d", integerNumericKey);
 		// set alphabetic key accordingly
 		alphabeticKey = calculateAlphabeticKeyFromNumericKey(numericKey);

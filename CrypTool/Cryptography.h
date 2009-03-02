@@ -126,8 +126,8 @@ BOOL Rot13CaesarAsc(SymbolArray & text, const char *infile);
 void Rot13CaesarAscFinish(SymbolArray & text, const char * infile, char * sKey, BOOL bDecrypt, const char *OldTitle, UINT type, bool keyOffsetZero);
 
 // Rail Fence encryption (part of the simple transpositions dialog)
-int RailFenceEncryption(const char *infile, const char *oldTitle, int key, bool encrypt = true);
+int RailFenceEncryption(const char *infile, const char *oldTitle, int key, int offset, bool encrypt = true);
 // Scytale encryption (part of the simple transpositions dialog)
-int ScytaleEncryption(const char *infile, const char *oldTitle, int key, bool encrypt = true);
+int ScytaleEncryption(const char *infile, const char *oldTitle, int key, int offset, bool encrypt = true);
 
 #endif // __CRYPT_H

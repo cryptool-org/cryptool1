@@ -62,6 +62,8 @@ CDlgSimpleTranspositions::CDlgSimpleTranspositions(char* infile, CString oldTitl
 	radioTransposition = 0;
 	// the default key is 2
 	key = 2;
+	// the default offset is 0
+	offset = 0;
 
 	// init the bitmaps
 	bitmapScytale.LoadBitmapA(IDB_SIMPLE_TRANSPOSITION_SCYTALE);
@@ -80,6 +82,7 @@ void CDlgSimpleTranspositions::DoDataExchange(CDataExchange* pDX)
 	DDX_Radio(pDX, IDC_RADIO_SCYTALE, radioTransposition);
 	DDX_Control(pDX, IDC_SIMPLE_TRANSPOSITION_IMAGE, controlImage);
 	DDX_Text(pDX, IDC_EDIT_KEY, key);
+	DDX_Text(pDX, IDC_EDIT_OFFSET, offset);
 }
 
 
@@ -117,7 +120,7 @@ void CDlgSimpleTranspositions::OnBnClickedEncrypt()
 		}
 	}
 	if(radioTransposition == 1) { // RAIL FENCE
-		int result = RailFenceEncryption(fileName.GetBuffer(), fileNameTitle.GetBuffer(), key, true);
+		int result = RailFenceEncryption(fileName.GetBuffer(), fileNameTitle.GetBuffer(), key, offset, true);
 		if(result == -1) {
 			LoadString(AfxGetInstanceHandle(), IDS_SIMPLE_TRANSPOSITION_KEY_INVALID, pc_str, STR_LAENGE_STRING_TABLE);
 			MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);	
@@ -139,11 +142,18 @@ void CDlgSimpleTranspositions::OnBnClickedDecrypt()
 		return;
 	}
 
+	// check if the offset is valid
+	if(offset < 0) {
+		LoadString(AfxGetInstanceHandle(), IDS_SIMPLE_TRANSPOSITION_OFFSET_INVALID, pc_str, STR_LAENGE_STRING_TABLE);
+		MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
+		return;
+	}
+
 	// now, do the actual encryption
 	if(radioTransposition == 0) // SCYTALE
-		ScytaleEncryption(fileName.GetBuffer(), fileNameTitle.GetBuffer(), key, false);
+		ScytaleEncryption(fileName.GetBuffer(), fileNameTitle.GetBuffer(), key, offset, false);
 	if(radioTransposition == 1) // RAIL FENCE
-		RailFenceEncryption(fileName.GetBuffer(), fileNameTitle.GetBuffer(), key, false);
+		RailFenceEncryption(fileName.GetBuffer(), fileNameTitle.GetBuffer(), key, offset, false);
 
 	EndDialog(IDOK);
 }
