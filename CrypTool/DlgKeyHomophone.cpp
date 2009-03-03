@@ -450,7 +450,7 @@ void CDlgKeyHomophone::LoadListBox()
 			
 	// Insert list of Homophones
 			char	num[64];
-			string[0] = '´\0';
+			string[0] = '\0';
 
 			for(k=0;k<HB.GetEncryptionData1(i);k++)
 			{

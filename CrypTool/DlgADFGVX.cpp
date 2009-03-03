@@ -1006,7 +1006,6 @@ void CDlgADFGVX::Decrypt()
 	SHOW_HOUR_GLASS
 		char outfile[256];
 		char stage1[256];
-		char* temp;
 		//saves the password and serialized matrix 
 		CString pwdString;
 		pwdString += password;
@@ -1021,21 +1020,14 @@ void CDlgADFGVX::Decrypt()
 				pwdString += matrix[row][col][0];
 			}
 		
-		/*notification about not separating the plaintext is not necessary
-		if (blockSizeStage2>0)
-		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_BLOCK_NOTIFY,pc_str,STR_LAENGE_STRING_TABLE);
-			MessageBox(pc_str);
-		}
-		*/
-		
 		//if the block.output-box for the stage ist unchecked, set the block length to zero
 		if(boxBlockOutput2==false)
 			blockSizeStage2=0;
 		if(boxBlockOutput1==false)
 			blockSizeStage1=0;
 
-		int rtn = cipher->decrypt(this->infile, outfile, password, blockSizeStage2, newLineStage2, printStage1, blockSizeStage1, newLineStage1, stage1);
+		int rtn = cipher->decrypt(this->infile, outfile, password, blockSizeStage2, 
+			(BOOL)(newLineStage2), (BOOL)(printStage1), blockSizeStage1, (BOOL)(newLineStage1), stage1);
 		//if no error occured
 		if (rtn == 0)
 		{
@@ -1054,28 +1046,7 @@ void CDlgADFGVX::Decrypt()
 			this->GetDlgItem(IDC_BUTTON_DECRYPT)->EnableWindow(false);
 
 		}
-		/*now in CheckProgress()
-		//if matrix has double entries
-		else if (rtn == 2){
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_2,pc_str,STR_LAENGE_STRING_TABLE);
-			MessageBox(pc_str);
-		}
-		//if matrix has invalid characters
-		else if (rtn == 3){
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_3,pc_str,STR_LAENGE_STRING_TABLE);
-			MessageBox(pc_str);
-		}
-		//if ciphertext contains invalid characters
-		else if (rtn == 4){
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_10,pc_str,STR_LAENGE_STRING_TABLE);
-			MessageBox(pc_str);
-		}
-		//if ciphertext has odd number of characters
-		else if (rtn == 5){
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_5,pc_str,STR_LAENGE_STRING_TABLE);
-			MessageBox(pc_str);
-		}
-		*/
+
 		//if anything else happens
 		else
 			MessageBox("Unbekannter Fehler");
@@ -1087,7 +1058,6 @@ void CDlgADFGVX::Encrypt()
 	SHOW_HOUR_GLASS
 		char outfile[256];
 		char stage1[256];
-		char* temp;
 		//saves the password and serialized matrix 
 		CString pwdString;
 		pwdString += password;
@@ -1099,7 +1069,6 @@ void CDlgADFGVX::Encrypt()
 		for (int row=0;row<6;row++)
 			for(int col=0;col<6;col++) 
 			{
-				//cipher->setMatrix(row,col,matrix[row][col][0]);
 				pwdString += matrix[row][col][0];
 			}
 
@@ -1110,7 +1079,8 @@ void CDlgADFGVX::Encrypt()
 			blockSizeStage1=0;
 
 		//execute encryption function 
-		int rtn = cipher->encrypt(this->infile, outfile, password, blockSizeStage2, newLineStage2, printStage1, blockSizeStage1, newLineStage1, stage1);
+		int rtn = cipher->encrypt(this->infile, outfile, password, blockSizeStage2, 
+			(BOOL)(newLineStage2), (BOOL)(printStage1), blockSizeStage1, (BOOL)(newLineStage1), stage1);
 		//handle error or show result
 
 		//encrypt and exit dialog
@@ -1134,17 +1104,6 @@ void CDlgADFGVX::Encrypt()
 			this->GetDlgItem(IDC_BUTTON_DECRYPT)->EnableWindow(false);
 
 		}
-		/* now done while entering the password: CheckProgress()
-		//if matrix has double entries
-		else if (rtn == 2){
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_2,pc_str,STR_LAENGE_STRING_TABLE);
-			MessageBox(pc_str);
-		}
-		//if matrix has unvalid characters
-		else if (rtn == 3){
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_3,pc_str,STR_LAENGE_STRING_TABLE);
-			MessageBox(pc_str);
-		}*/
 		//if anything else happens
 		else
 			MessageBox("Unbekannter Fehler");

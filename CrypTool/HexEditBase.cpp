@@ -2397,7 +2397,7 @@ void CHexEditBase::Serialize(CArchive& ar)
 		pFile->Write(m_pData, m_nLength);
 	} else {
 		ReInitialize();
-		if (Allocate(ar.GetFile()->GetLength())) {
+		if (Allocate((UINT)ar.GetFile()->GetLength())) {
 			ASSERT(m_nLength < MAXHEXEDITLENGTH);
 			pFile->Read(m_pData, m_nLength);
 		} else { // Alllocate failed

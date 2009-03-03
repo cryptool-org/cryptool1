@@ -522,30 +522,30 @@ void CDlgCrtSecretSharing::PrepareManual(Big primes[])
 		// primes-Array mit gegebenen Primzahlen füllen und pruefen, ob die Zahlen prim sind
 		// Erstes Element auf prim pruefen
 		CStringToBig(m_m0,primes[0],10);
-		P.SetP(m_m0); correctprimes[0]=P.MillerRabinTest(100);
+		P.SetP(m_m0); correctprimes[0]=(BOOL)(P.MillerRabinTest(100));
 		// Zweites Element auf prim pruefen
 		CStringToBig(m_m1,primes[1],10);
-		P.SetP(m_m1); correctprimes[1]=P.MillerRabinTest(100);
+		P.SetP(m_m1); correctprimes[1]=(BOOL)(P.MillerRabinTest(100));
 		
 		if (m_anzahl >=3) {
 			CStringToBig(m_m2,primes[2],10);
-			P.SetP(m_m2); correctprimes[2]=P.MillerRabinTest(100);
+			P.SetP(m_m2); correctprimes[2]=(BOOL)(P.MillerRabinTest(100));
 		}
 		if (m_anzahl >=4) {
 			CStringToBig(m_m3,primes[3],10);
-			P.SetP(m_m3); correctprimes[3]=P.MillerRabinTest(100);
+			P.SetP(m_m3); correctprimes[3]=(BOOL)(P.MillerRabinTest(100));
 		}
 		if (m_anzahl >=5) {
 			CStringToBig(m_m4,primes[4],10);
-			P.SetP(m_m4); correctprimes[4]=P.MillerRabinTest(100);
+			P.SetP(m_m4); correctprimes[4]=(BOOL)(P.MillerRabinTest(100));
 		}
 		if (m_anzahl >=6) {
 			CStringToBig(m_m5,primes[5],10);
-			P.SetP(m_m5); correctprimes[5]=P.MillerRabinTest(100);
+			P.SetP(m_m5); correctprimes[5]=(BOOL)(P.MillerRabinTest(100));
 		}
 		if (m_anzahl ==7) {
 			CStringToBig(m_m6,primes[6],10);
-			P.SetP(m_m6); correctprimes[6]=P.MillerRabinTest(100);
+			P.SetP(m_m6); correctprimes[6]=(BOOL)(P.MillerRabinTest(100));
 		}
 		// nachhalten, ob nicht-prime zahlen eingegeben wurden
 		for (int i=0;i<t;i++)

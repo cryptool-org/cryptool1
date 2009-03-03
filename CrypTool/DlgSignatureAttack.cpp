@@ -249,7 +249,7 @@ void CDlgSignatureAttack::batchAttack()
 				ifstr_Harmless.read(HarmlessText, HarmlessDocLength);
 				ifstr_Harmless.close();
 				ofstr_Harmless.open(m_file_harmless, ios::out | ios::binary);
-				HarmlessText[HarmlessDocLength-1] = AttemptsCounter + 32;
+				HarmlessText[HarmlessDocLength-1] = AttemptsCounter + 32; // FIXME: only less then 96 attempts allowed ???
 				ofstr_Harmless.write(HarmlessText, HarmlessDocLength);
 				ofstr_Harmless.close();
 
@@ -265,7 +265,7 @@ void CDlgSignatureAttack::batchAttack()
 				ifstr_Dangerous.read(DangerousText, DangerousDocLength);
 				ifstr_Dangerous.close();
 				ofstr_Dangerous.open(m_file_dangerous, ios::out | ios::binary);
-				DangerousText[DangerousDocLength-1] = AttemptsCounter + 32;
+				DangerousText[DangerousDocLength-1] = AttemptsCounter + 32;  // FIXME: only less then 96 attempts allowed ???
 				ofstr_Dangerous.write(DangerousText, DangerousDocLength);
 				ofstr_Dangerous.close();
 #endif

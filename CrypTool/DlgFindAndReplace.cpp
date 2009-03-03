@@ -77,7 +77,7 @@ void convertHexToAscii(const char *_hex, char **_ascii, int &_asciiLength)
 	*_ascii = new char[_asciiLength + 1];
 	memset(*_ascii, 0, _asciiLength+1);
 	// convert from hex to ascii
-	for(int i=0; i<strlen(_hex); i+=2) {
+	for(unsigned int i=0; i<strlen(_hex); i+=2) {
 		char buffer[5];
 		buffer[0] = '0';
 		buffer[1] = 'x';

@@ -119,14 +119,14 @@ int StreamToVolume::analyzeFile(char *filename)
 // analyze the specified file
 int StreamToVolume::analyzeFile(char *filename, unsigned int mode)
 {
-	if (mode & mode_AutoDensity != 0) {
+	if ((mode & mode_AutoDensity) != 0) {
 		// get input file size
-		int filesize = 0;
+		__int64 filesize = 0;
 		CFile rawfile;
 		if(!rawfile.Open(filename,CFile::modeRead | CFile::typeBinary )) {
 			return false;
 		}
-		filesize = rawfile.GetLength();
+		filesize = (__int64)rawfile.GetLength();
 		rawfile.Close();
 
 		// compute display density
@@ -162,7 +162,7 @@ int StreamToVolume::analyzeBuf(unsigned char* buffer, unsigned int size)
 		// left shift operator only works with 
 		// 32 bit, so leave out the last 8 bit and multiply by 256 afterwards
 		// similar to: (1 << (sampleBytes * 8)); (which won't work on 32 bit processors)
-		tmp64 = (1 << ((sampleBytes - 1) * 8));  // don't optimize
+		tmp64 = (__int64)((int)1 << ((sampleBytes - 1) * 8));  // don't optimize
 		tmp64 *= 256;                            // this into one line!
 		scale[jj] = (unsigned int) (tmp64 / dim[jj]);
 

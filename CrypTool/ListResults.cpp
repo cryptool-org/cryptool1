@@ -33,7 +33,7 @@ void CListResults::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CListResults, CDialog)
 	ON_BN_CLICKED(IDOK, OnBnClickedOk)
-	ON_WM_SIZE(this, OnSize)
+	ON_WM_SIZE()
 END_MESSAGE_MAP()
 
 

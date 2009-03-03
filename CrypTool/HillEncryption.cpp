@@ -165,7 +165,7 @@ void CHillEncryption::init_zahlen_zeichen (char* erlaubte_zeichen)
 		unsigned long u_length = 2; 
 		char cFirstCharFromAlph[3];
 		cFirstCharFromAlph[1] = '\0';
-		if ( strlen( zeichen ) );
+		if ( strlen( zeichen ) )
 			cFirstCharFromAlph[0] = zeichen[0];
 		CT_READ_REGISTRY_DEFAULT(cFirstCharFromAlph,"PaddingOwnChr",cFirstCharFromAlph, u_length);
 		strOwnCharForPadding = cFirstCharFromAlph;

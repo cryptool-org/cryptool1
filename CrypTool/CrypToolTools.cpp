@@ -52,6 +52,8 @@ statement from your version.
 #include "MakeNewName.h"
 #include <stdlib.h>
 
+#pragma warning(disable : 4996)
+
 BOOL CheckAlphabet( int minSize )
 {
 	if (theApp.TextOptions.getAlphabet().GetLength() < minSize )

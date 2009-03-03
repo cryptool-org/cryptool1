@@ -100,13 +100,13 @@ double SignatureAttackMFC::getProgress()
 	int run = m_ResSigAtt->GetRuns() - 1;
 	if (IDS_STRING_SIG_ATT_PROGRESS_CYCLE_SEARCH == m_SearchMode)
 	{
-		res =  m_ResSigAtt->GetCollisionStepsOfRun(run);
-		res /= m_ResSigAtt->GetExpectedSteps();
+		res =  (double)m_ResSigAtt->GetCollisionStepsOfRun(run);
+		res /= (double)m_ResSigAtt->GetExpectedSteps();
 	}
 	else
 	{
-		res =  m_ResSigAtt->GetConfirmationStepsOfRun(run);
-		res /= m_ResSigAtt->GetCollisionStepsOfRun(run);
+		res =  (double)m_ResSigAtt->GetConfirmationStepsOfRun(run);
+		res /= (double)m_ResSigAtt->GetCollisionStepsOfRun(run);
 	}
 	if ( res < 1e-100 ) res = 1e-100;
 	CString f;

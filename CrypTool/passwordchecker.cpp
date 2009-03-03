@@ -245,12 +245,12 @@ int checkPasswordForCompliance(char *password) {
 		pwd_chr_families[3] = specialGroup;
 	}
 
-	int _APLHA   = 0,		 
-		_alpha   = 0, 
-		_number  = 0, 
-		_special = 0,
-		_other   = 0,
-		_char_set = 0;
+	unsigned long	_APLHA   = 0,		 
+					_alpha   = 0, 
+					_number  = 0, 
+					_special = 0,
+					_other   = 0,
+					_char_set = 0;
 
 	for (int i=0; i<(int)strlen(password); i++)
 	{

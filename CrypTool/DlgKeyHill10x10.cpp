@@ -3123,7 +3123,7 @@ void CDlgKeyHill10x10::OnKleinereSchluessel()
 	}
 
 	iHillSchluesselFensterGroesse = HILL_SCHLUESSEL_KLEIN;
-	bGlobVerbose = m_Verbose;
+	bGlobVerbose = bool(m_Verbose);
 
 	//save matrix entries for hill5x5
 	for(int i=0;i<dim;i++)

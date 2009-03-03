@@ -193,7 +193,7 @@ BOOL CDlgSideChannelAttackVisualizationHE::OnInitDialog()
 			unsigned long u_significantBits = 128;
 			CT_READ_REGISTRY_DEFAULT(u_significantBits, "BitlengthSecret", u_significantBits);
 			if(!u_significantBits) throw SCA_Error(E_SCA_INTERNAL_ERROR);
-			m_ControlAttackProgress.SetRange(0,u_significantBits+2);
+			m_ControlAttackProgress.SetRange(0,(short)(u_significantBits+2));
 			m_ControlAttackProgress.SetStep(1);
 			m_ControlAttackProgress.SetPos(0);
 

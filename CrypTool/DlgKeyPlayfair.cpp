@@ -51,8 +51,8 @@ statement from your version.
 // Menüfolge: Ver-/entschlüsseln -> Klassisch -> Playfair...
 //
 
-#include "assert.h"
 #include "stdafx.h"
+#include "assert.h"
 #include "CrypToolApp.h"
 #include "DlgKeyPlayfair.h"
 #include "PlayfairAnalysis.h"

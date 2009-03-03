@@ -569,7 +569,7 @@ BOOL CPictureExLoop::Load(LPCTSTR szFileName)
 		return FALSE;
 	};
 
-	dwSize = file.GetLength();
+	dwSize = (DWORD)file.GetLength();
 	hGlobal = GlobalAlloc(GMEM_MOVEABLE | GMEM_NODISCARD,dwSize);
 	if (!hGlobal)
 	{

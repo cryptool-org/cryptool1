@@ -423,7 +423,7 @@ HASHTOKEN:
 
 double SignatureAttack::CalculateTimeSpan(_timeb &Start, _timeb &Finish) 
 {
-	long Seconds = Finish.time - Start.time, Milliseconds = Finish.millitm - Start.millitm;
+	__int64 Seconds = Finish.time - Start.time, Milliseconds = Finish.millitm - Start.millitm;
 	// Dauer der Floyd-Suche wird aus der Differenz der Start- und Endzeit ermittelt
 
 	if (Milliseconds < 0)

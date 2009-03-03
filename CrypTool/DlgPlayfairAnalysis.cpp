@@ -255,7 +255,7 @@ BEGIN_MESSAGE_MAP(CDlgPlayfairAnalysis, CDialog)
 	ON_EN_UPDATE(IDC_PASSWORD, OnUpdate)
 	ON_WM_HSCROLL()
 	ON_EN_CHANGE(IDC_MYTXT, OnChangeEditPlaintext)
-	ON_WM_SIZE(this, OnSize)
+	ON_WM_SIZE()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 

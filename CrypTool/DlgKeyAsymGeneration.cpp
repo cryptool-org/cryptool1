@@ -802,7 +802,7 @@ void CDlgKeyAsymGeneration::CreateAsymKeys()
 		char buffer[20];
 		time_t aclock;
 		time( &aclock ); // Get time in seconds
-		_itoa(aclock, buffer, 10);
+		_itoa((int)aclock, buffer, 10);
 		time_of_creat = (CString) buffer; // time_of_creat: Time in seconds since UTC 1/1/70
 
 		UserKeyId = KeyHandling.CreateFilename(UserName, UserFirstName, EC_KEYFILE_IDSTRING, m_ec_dom_par_str, time_of_creat, m_user_keyinfo);
@@ -846,7 +846,7 @@ void CDlgKeyAsymGeneration::CreateAsymKeys()
 		char buffer[20];
 		time_t aclock;
 		time( &aclock ); // Get time in seconds
-		_itoa(aclock, buffer, 10);
+		_itoa((int)aclock, buffer, 10);
 		time_of_creat = (CString) buffer; // time_of_creat: Time in seconds since UTC 1/1/70
 
 		// Anlegen der PSE mit den Daten aus den Eingabefeldern der Dialogbox, dabei werden zusätzliche

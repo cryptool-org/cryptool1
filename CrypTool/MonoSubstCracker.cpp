@@ -751,7 +751,7 @@ int initializeStandardDMatrix(float *stats, MonoSubstCrackerParameters *paramete
 
 	for (i=0; i<number; i++) 
 		for (j=0; j<number; j++) 
-			*(stats + number*i +j) = (double)stat[i][j]/(double)di_count;
+			*(stats + number*i +j) = (float)stat[i][j]/(float)di_count;
 
 	fclose(in_file);
 	// Finished
@@ -996,7 +996,7 @@ int guessLanguage(char *ciphertext)
 void prepareText(char *text)
 {
 
-	int		count;
+	unsigned int count;
 	if (space_in_alphabet)
 		for (count=0; count<strlen(text); count++)
 		{

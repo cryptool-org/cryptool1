@@ -21,6 +21,9 @@
 #include "zip.h"
 #include "zrevisio.h"
 
+
+#pragma warning(disable : 4996)
+
 /* Use the raw functions for MSDOS and Unix to save on buffer space.
    They're not used for VMS since it doesn't work (raw is weird on VMS).
    (This sort of stuff belongs in fileio.c, but oh well.) */

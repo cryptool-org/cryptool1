@@ -881,8 +881,7 @@ int readEncFile(const CString &ifile, CString &sName, CString &sVorname, CString
 }
 void newWindow(const bool &plain, const act::Blob &output, const char* &OldTitle, const CString &ReceiverName, const CString &ReceiverFirstname, const CString &ReceiverKeyType)
 {
-	char outfile[128], title[128];
-    CAppDocument *NewDoc;
+	char outfile[128];
 	GetTmpName(outfile,"cry",".tmp");
 	act::blob2file(outfile,output);
 	OpenNewDoc(outfile,ReceiverName+", "+ReceiverFirstname+", "+ReceiverKeyType,OldTitle,IDS_ECIES_CRYPT,plain,0);

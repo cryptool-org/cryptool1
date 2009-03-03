@@ -50,6 +50,8 @@ statement from your version.
 #include "CrypToolApp.h"
 #include <sys/stat.h>
 
+#pragma warning(disable : 4996)
+
 int cnt=0;
 
 void GetTmpName( char *dest, const char *prefix, const char *ext )

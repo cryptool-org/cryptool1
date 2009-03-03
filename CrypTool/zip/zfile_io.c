@@ -14,6 +14,8 @@
 #include <io.h>
 #include "zunzip.h"
 
+#pragma warning(disable : 4996)
+
 #if 0
 /****************************/
 /* Function FillBitBuffer() */

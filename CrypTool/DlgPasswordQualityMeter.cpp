@@ -185,7 +185,7 @@ void CDlgPasswordQualityMeter::UpdateUserInterface()
 	if(intQualityMozilla >= 100) intQualityMozilla = 100;
 	if(intQualityPGP >= 100) intQualityPGP = 100;
 	// for the CrypTool approach we assume an entropy of 128 bits equals a quality of 100
-	intQualityCrypTool = (theCrypToolPasswordEntropy / 128) * 100;
+	intQualityCrypTool = (int)floor((theCrypToolPasswordEntropy / 128) * 100);
 	if(intQualityCrypTool >= 100) intQualityCrypTool = 100;
 		
 	// update (string) quality display
