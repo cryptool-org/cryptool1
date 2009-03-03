@@ -6505,7 +6505,7 @@ IDB_CRT_BASIS           BITMAP                  "res\\CRT\\crtbasis.bmp"
 IDB_CRT_DOWN_F          BITMAP                  "res\\CRT\\crtdownf.bmp"
 IDB_CRT_DOWN_FSTR       BITMAP                  "res\\CRT\\crtdownfstr.bmp"
 IDB_SIMPLE_TRANSPOSITION_RAIL_FENCE BITMAP                  "res\\Bitmaps\\simple_transposition_rail_fence.bmp"
-IDB_SIMPLE_TRANSPOSITION_SCYTALE BITMAP                  "res\\Bitmaps_en\\simple_transposition_scytale.bmp"
+IDB_SIMPLE_TRANSPOSITION_SCYTALE BITMAP                  "res\\Bitmaps\\simple_transposition_scytale.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -27563,8 +27563,8 @@ IDB_CRT_CR_LEFT         BITMAP                  "res\\CRT\\crtright.bmp"
 IDB_CRT_BASIS           BITMAP                  "res\\CRT\\crtbasis.bmp"
 IDB_CRT_DOWN_F          BITMAP                  "res\\CRT\\crtdownf.bmp"
 IDB_CRT_DOWN_FSTR       BITMAP                  "res\\CRT\\crtdownfstr.bmp"
-IDB_SIMPLE_TRANSPOSITION_SCYTALE BITMAP                  "res\\Bitmaps_en\\simple_transposition_scytale.bmp"
-IDB_SIMPLE_TRANSPOSITION_RAIL_FENCE BITMAP                  "res\\Bitmaps_en\\simple_transposition_rail_fence.bmp"
+IDB_SIMPLE_TRANSPOSITION_SCYTALE BITMAP                  "res\\Bitmaps\\simple_transposition_scytale.bmp"
+IDB_SIMPLE_TRANSPOSITION_RAIL_FENCE BITMAP                  "res\\Bitmaps\\simple_transposition_rail_fence.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
