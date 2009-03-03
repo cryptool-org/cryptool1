@@ -8,12 +8,11 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polnisch resources
+// Polish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -4374,6 +4373,7 @@ BEGIN
     EDITTEXT        IDC_EDIT_OFFSET,136,127,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
 END
 
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // Menu
@@ -6137,8 +6137,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,4,21,0
- PRODUCTVERSION 1,4,21,0
+ FILEVERSION 1,4,30,0
+ PRODUCTVERSION 1,4,30,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -6155,12 +6155,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.org"
-            VALUE "FileVersion", "1.4.21"
+            VALUE "FileVersion", "1.4.30"
             VALUE "InternalName", "CrypTool"
-            VALUE "LegalCopyright", "Copyright © 1999-2008"
+            VALUE "LegalCopyright", "Copyright © 1999-2009"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "1.4.21"
+            VALUE "ProductVersion", "1.4.30"
         END
     END
     BLOCK "VarFileInfo"
@@ -6504,7 +6504,7 @@ IDB_CRT_CR_LEFT         BITMAP                  "res\\CRT\\crtright.bmp"
 IDB_CRT_BASIS           BITMAP                  "res\\CRT\\crtbasis.bmp"
 IDB_CRT_DOWN_F          BITMAP                  "res\\CRT\\crtdownf.bmp"
 IDB_CRT_DOWN_FSTR       BITMAP                  "res\\CRT\\crtdownfstr.bmp"
-IDB_SIMPLE_TRANSPOSITION_RAIL_FENCE BITMAP      "res\\Bitmaps\\simple_transposition_rail_fence.bmp"
+IDB_SIMPLE_TRANSPOSITION_RAIL_FENCE BITMAP                  "res\\Bitmaps\\simple_transposition_rail_fence.bmp"
 IDB_SIMPLE_TRANSPOSITION_SCYTALE BITMAP                  "res\\Bitmaps_en\\simple_transposition_scytale.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
@@ -10547,12 +10547,12 @@ BEGIN
     IDS_FACTORS_FOUND       "Found %d factors in %s"
 END
 
-#endif    // Polnisch resources
+#endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -16733,8 +16733,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,4,21,0
- PRODUCTVERSION 1,4,21,0
+ FILEVERSION 1,4,30,0
+ PRODUCTVERSION 1,4,30,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -16751,12 +16751,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.de"
-            VALUE "FileVersion", "1.4.21"
+            VALUE "FileVersion", "1.4.30"
             VALUE "InternalName", "CrypTool"
-            VALUE "LegalCopyright", "Copyright © 1999-2008"
+            VALUE "LegalCopyright", "Copyright © 1999-2009"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "1.4.21"
+            VALUE "ProductVersion", "1.4.30"
         END
     END
     BLOCK "VarFileInfo"
@@ -17100,8 +17100,8 @@ IDB_CRT_CR_LEFT         BITMAP                  "res\\CRT\\CrtLeft.bmp"
 IDB_CRT_BASIS           BITMAP                  "res\\CRT\\CrtBasis.bmp"
 IDB_CRT_DOWN_F          BITMAP                  "res\\CRT\\CrtDownf.bmp"
 IDB_CRT_DOWN_FSTR       BITMAP                  "res\\CRT\\CrtDownfstr.bmp"
-IDB_SIMPLE_TRANSPOSITION_SCYTALE BITMAP         "res\\Bitmaps\\simple_transposition_scytale.bmp"
-IDB_SIMPLE_TRANSPOSITION_RAIL_FENCE BITMAP       "res\\Bitmaps\\simple_transposition_rail_fence.bmp"
+IDB_SIMPLE_TRANSPOSITION_SCYTALE BITMAP                  "res\\Bitmaps\\simple_transposition_scytale.bmp"
+IDB_SIMPLE_TRANSPOSITION_RAIL_FENCE BITMAP                  "res\\Bitmaps\\simple_transposition_rail_fence.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -21048,12 +21048,12 @@ BEGIN
                             "Das eingestellte Offset ist ungültig. Es darf nicht kleiner als 0 sein."
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -27196,8 +27196,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,4,21,0
- PRODUCTVERSION 1,4,21,0
+ FILEVERSION 1,4,30,0
+ PRODUCTVERSION 1,4,30,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -27214,12 +27214,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Contributors"
             VALUE "FileDescription", "www.cryptool.org"
-            VALUE "FileVersion", "1.4.21"
+            VALUE "FileVersion", "1.4.30"
             VALUE "InternalName", "CrypTool"
-            VALUE "LegalCopyright", "Copyright © 1999-2008"
+            VALUE "LegalCopyright", "Copyright © 1999-2009"
             VALUE "OriginalFilename", "CrypTool.exe"
             VALUE "ProductName", "CrypTool"
-            VALUE "ProductVersion", "1.4.21"
+            VALUE "ProductVersion", "1.4.30"
         END
     END
     BLOCK "VarFileInfo"
@@ -31662,7 +31662,7 @@ BEGIN
                             "The offset is invalid. It must not be smaller than 0."
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

@@ -64,6 +64,11 @@ protected:
 	virtual BOOL OnInitDialog();
 
 	DECLARE_MESSAGE_MAP()
+
+	// load/save settings from/to windows registry (key and offset)
+	void loadSettings();
+	void saveSettings();
+
 public:
 	afx_msg void OnBnClickedEncrypt();
 	afx_msg void OnBnClickedDecrypt();
@@ -77,19 +82,17 @@ protected:
 	// title of the file to be encrypted/decrypted
 	CString fileNameTitle;
 
-	// which transposition was chosen by the user?
-	int radioTransposition;
-
 	// internal function to update the GUI
 	void updateGUI();
 
 	// the control for the image
 	CStatic controlImage;
 
-	// bitmap for scytale
+	// bitmaps for scytale and rail fence
 	CBitmap bitmapScytale;
 	CBitmap bitmapRailFence;
-public:
+
+	int type;
 	int key;
 	int offset;
 };
