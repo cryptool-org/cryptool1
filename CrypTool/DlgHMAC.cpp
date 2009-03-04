@@ -327,7 +327,12 @@ void CDlgHMAC::calculateMACAndUpdateGUI()
 		case 2:	if (m_key == "") keyEmpty(IDS_STRING_MAC_NoKey);
 				strText = m_key + m_originalMessage + m_key;
 				break;//Schlüssel vorne und hinten
-		case 3: 
+		case 3: if ((m_key == "") && (m_secondkey == ""))		keyEmpty(IDS_STRING_MAC_NoKey);
+				else if ((m_key == "") && (m_secondkey != ""))  keyEmpty(IDS_STRING_MAC_OnlyOneKey);
+				else if ((m_key != "") && (m_secondkey == ""))  keyEmpty(IDS_STRING_MAC_OnlyOneKey);
+				strText = m_key + m_originalMessage + m_secondkey;
+				break;//zwei Schlüssel
+		case 4: 
 				{ 
 					if (m_key == "") keyEmpty(IDS_STRING_MAC_Double); 
 					// acoording RFC 2104
@@ -373,13 +378,8 @@ void CDlgHMAC::calculateMACAndUpdateGUI()
 					m_str_mac = hex_dump( digest, digest_length );
 				}
 				break;//doppelte Ausführung der Hashfunktion
-		case 4: if ((m_key == "") && (m_secondkey == ""))		keyEmpty(IDS_STRING_MAC_NoKey);
-				else if ((m_key == "") && (m_secondkey != ""))  keyEmpty(IDS_STRING_MAC_OnlyOneKey);
-				else if ((m_key != "") && (m_secondkey == ""))  keyEmpty(IDS_STRING_MAC_OnlyOneKey);
-				strText = m_key + m_originalMessage + m_secondkey;
-				break;//zwei Schlüssel
 	}
-	if ( m_position != 3 )
+	if ( m_position != 4 )
 	{
 		SetMac(strText);
 		m_text.SetWindowText(strText);

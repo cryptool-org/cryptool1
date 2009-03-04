@@ -8,7 +8,8 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -3053,12 +3054,12 @@ BEGIN
     CONTROL         "SHA-256",IDC_RADIO12,"Button",BS_AUTORADIOBUTTON,19,226,65,8
     CONTROL         "SHA-512",IDC_RADIO13,"Button",BS_AUTORADIOBUTTON,19,240,65,8
     CONTROL         "RIPEMD-160",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,19,254,58,8
-    CONTROL         "Na pocz¹tku wiadomoœci: H(k, m)",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | WS_GROUP,133,156,102,8
-    CONTROL         "Na koñcu wiadomoœci: H(m, k)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,133,170,117,8
-    CONTROL         "Na pocz¹tku i na koñcu: H(k, m, k)",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,133,184,124,8
+    CONTROL         "Na pocz¹tku wiadomoœci: H(k, m)",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | WS_GROUP,133,156,177,8
+    CONTROL         "Na koñcu wiadomoœci: H(m, k)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,133,170,177,8
+    CONTROL         "Na pocz¹tku i na koñcu: H(k, m, k)",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,133,184,177,8
+    CONTROL         "Ró¿ne klucze: H(k, m, k')",IDC_RADIO11,"Button",BS_AUTORADIOBUTTON,133,198,177,8
     CONTROL         "Podwójny hasz: H(k, H(k, m)) (RFC 2104)",IDC_RADIO10,
-                    "Button",BS_AUTORADIOBUTTON,133,198,177,8
-    CONTROL         "Ró¿ne klucze: H(k, m, k')",IDC_RADIO11,"Button",BS_AUTORADIOBUTTON,133,212,94,8
+                    "Button",BS_AUTORADIOBUTTON,133,212,177,8
     EDITTEXT        IDC_EDIT_KEY2,7,314,311,12,ES_AUTOHSCROLL | WS_DISABLED
     EDITTEXT        IDC_SHOW_MAC,7,437,311,32,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_SHOW_TEXT,7,343,311,32,ES_MULTILINE | ES_READONLY
@@ -7681,10 +7682,16 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 318
         VERTGUIDE, 15
+        VERTGUIDE, 133
         VERTGUIDE, 310
         TOPMARGIN, 7
         BOTTOMMARGIN, 498
         HORZGUIDE, 20
+        HORZGUIDE, 164
+        HORZGUIDE, 178
+        HORZGUIDE, 192
+        HORZGUIDE, 206
+        HORZGUIDE, 220
     END
 
     IDD_ADFGVX, DIALOG
@@ -13628,41 +13635,42 @@ END
 
 IDD_HMAC DIALOGEX 0, 0, 325, 505
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Message Authentication Code"
+CAPTION "Keyed-Hash Message Authentication Code (HMAC)"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT_KEY,7,285,310,12,ES_AUTOHSCROLL | ES_WANTRETURN
     CONTROL         "MD2",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,19,156,31,8
     CONTROL         "MD4",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,19,170,31,8
-    CONTROL         "MD5",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,19,184,31,8
+    CONTROL         "MD5",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,19,183,31,8
     CONTROL         "SHA",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,19,198,31,8
     CONTROL         "SHA-1",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,19,212,37,8
     CONTROL         "SHA-256",IDC_RADIO12,"Button",BS_AUTORADIOBUTTON,19,226,65,8
     CONTROL         "SHA-512",IDC_RADIO13,"Button",BS_AUTORADIOBUTTON,19,240,65,8
     CONTROL         "RIPEMD-160",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,19,254,58,8
-    CONTROL         "H(k, m): vor der Nachricht",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | WS_GROUP,133,156,98,8
-    CONTROL         "H(m, k): hinter der Nachricht",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,133,170,126,8
-    CONTROL         "H(k, m, k): vor und hinter der Nachricht",IDC_RADIO9,
-                    "Button",BS_AUTORADIOBUTTON,133,184,147,8
-    CONTROL         "H(k, H(k, m)): doppeltes Hashing (RFC 2104)",IDC_RADIO10,
-                    "Button",BS_AUTORADIOBUTTON,133,198,177,8
+    CONTROL         "H(k, m): Schlüssel vor der Nachricht",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | WS_GROUP,132,156,178,8
+    CONTROL         "H(m, k): Schlüssel hinter der Nachricht",IDC_RADIO8,
+                    "Button",BS_AUTORADIOBUTTON,132,170,178,8
+    CONTROL         "H(k, m, k): Schlüssel vor und hinter der Nachricht",IDC_RADIO9,
+                    "Button",BS_AUTORADIOBUTTON,132,183,178,8
     CONTROL         "H(k, m, k'): zwei verschiedene Schlüssel",IDC_RADIO11,
-                    "Button",BS_AUTORADIOBUTTON,133,212,150,8
+                    "Button",BS_AUTORADIOBUTTON,132,197,150,8
+    CONTROL         "H(k, H(k, m)): doppeltes Hashing (RFC 2104)",IDC_RADIO10,
+                    "Button",BS_AUTORADIOBUTTON,132,212,177,8
     EDITTEXT        IDC_EDIT_KEY2,7,314,310,12,ES_AUTOHSCROLL | WS_DISABLED
     EDITTEXT        IDC_SHOW_MAC,7,437,311,32,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_SHOW_TEXT,7,343,311,32,ES_MULTILINE | ES_READONLY
     PUSHBUTTON      "Schließen",IDCANCEL,7,478,90,20
     LTEXT           "Geben Sie den Schlüssel (k) ein:",IDC_STATIC,7,273,104,8
     LTEXT           "Geben Sie den zweiten Schlüssel (k') ein:",IDC_STATIC,7,303,131,8
-    LTEXT           "Erzeugter MAC:",IDC_STATIC,7,426,50,8
+    LTEXT           "Erzeugter HMAC:",IDC_STATIC,7,426,56,8
     GROUPBOX        "Hashfunktion wählen",IDC_STATIC,7,143,102,126
-    GROUPBOX        "MAC-Variante (Position der Schlüssel; Verschachtelung)",IDC_STATIC,123,143,195,126
-    LTEXT           "Mit Hilfe eines MACs kann der Empfänger einer Nachricht ihre Integrität und die Authentizität ihres Ursprungs (Senders) überprüfen. Hierzu verwenden beide Parteien ein gemeinsames Geheimnis (symmetrischer Schlüssel). ",IDC_STATIC,15,20,295,24
-    LTEXT           "Um den MAC einer Nachricht zu erzeugen, wird eine kryptographische Hashfunktion auf eine Verknüpfung aus der Nachricht m und dem geheimen Schlüssel k angewendet. Je nach MAC-Variante können auch zwei geheime Schlüssel k und k' verwendet werden. ",IDC_STATIC,15,48,295,24
+    GROUPBOX        "HMAC-Variante (Position der Schlüssel; Verschachtelung)",IDC_STATIC,123,143,195,126
+    LTEXT           "Mit Hilfe eines HMACs kann der Empfänger einer Nachricht auf ihre Integrität und Authentizität des Senders überprüfen. Hierzu verwenden beide Parteien ein gemeinsames Geheimnis (symmetrischer Schlüssel). ",IDC_STATIC,15,20,295,24
+    LTEXT           "Um den HMAC einer Nachricht zu erzeugen, wird eine kryptographische Hashfunktion auf eine Verknüpfung aus der Nachricht m und dem geheimen Schlüssel k angewendet. Je nach HMAC-Variante können auch zwei geheime Schlüssel k und k' verwendet werden. ",IDC_STATIC,15,48,295,24
     EDITTEXT        IDC_EDIT_ORIGINAL_MESSAGE,15,93,295,42,ES_AUTOHSCROLL
     GROUPBOX        "Beschreibung",IDC_STATIC,7,7,310,70
     GROUPBOX        "Nachricht",IDC_STATIC,7,80,311,60
-    LTEXT           "Eingabe für äußere Hashfunktion (abhängig von der oben gewählten MAC-Variante):",IDC_STATIC,7,331,310,8
+    LTEXT           "Eingabe für äußere Hashfunktion (abhängig von der oben gewählten HMAC-Variante):",IDC_STATIC,7,331,310,8
     LTEXT           "Hashwert der Nachricht m:",IDC_STATIC,7,379,85,8
     EDITTEXT        IDC_SHOW_HASH,7,390,311,32,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
 END
@@ -18080,10 +18088,16 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 318
         VERTGUIDE, 15
+        VERTGUIDE, 132
         VERTGUIDE, 310
         TOPMARGIN, 7
         BOTTOMMARGIN, 498
         HORZGUIDE, 20
+        HORZGUIDE, 164
+        HORZGUIDE, 178
+        HORZGUIDE, 191
+        HORZGUIDE, 205
+        HORZGUIDE, 220
     END
 
     IDD_ADFGVX, DIALOG
@@ -24092,7 +24106,7 @@ END
 
 IDD_HMAC DIALOGEX 0, 0, 325, 505
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Message Authentication Code"
+CAPTION "Keyed-Hash Message Authentication Code (HMAC)"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT_KEY,7,285,311,12,ES_AUTOHSCROLL | ES_WANTRETURN
@@ -24104,24 +24118,25 @@ BEGIN
     CONTROL         "SHA-256",IDC_RADIO12,"Button",BS_AUTORADIOBUTTON,19,226,65,8
     CONTROL         "SHA-512",IDC_RADIO13,"Button",BS_AUTORADIOBUTTON,19,240,65,8
     CONTROL         "RIPEMD-160",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,19,254,58,8
-    CONTROL         "H(k, m): in front of message",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | WS_GROUP,133,156,102,8
-    CONTROL         "H(m, k): at the back of message",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,133,170,117,8
-    CONTROL         "H(k, m, k): in front and at the back",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,133,184,124,8
+    CONTROL         "H(k, m): key in front of message",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | WS_GROUP,133,156,177,8
+    CONTROL         "H(m, k): key at the back of message",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,133,170,177,8
+    CONTROL         "H(k, m, k): key in front and at the back",IDC_RADIO9,
+                    "Button",BS_AUTORADIOBUTTON,133,184,177,8
+    CONTROL         "H(k, m, k'): different keys",IDC_RADIO11,"Button",BS_AUTORADIOBUTTON,133,198,94,8
     CONTROL         "H(k, H(k, m)): double hashing (RFC 2104)",IDC_RADIO10,
-                    "Button",BS_AUTORADIOBUTTON,133,198,177,8
-    CONTROL         "H(k, m, k'): different keys",IDC_RADIO11,"Button",BS_AUTORADIOBUTTON,133,212,94,8
+                    "Button",BS_AUTORADIOBUTTON,133,212,177,8
     EDITTEXT        IDC_EDIT_KEY2,7,314,311,12,ES_AUTOHSCROLL | WS_DISABLED
     EDITTEXT        IDC_SHOW_MAC,7,437,311,32,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_SHOW_TEXT,7,343,311,32,ES_MULTILINE | ES_READONLY
     PUSHBUTTON      "Close",IDCANCEL,7,478,90,20
     LTEXT           "Enter your key (k):",IDC_STATIC,7,273,58,8
     LTEXT           "Enter second key (k'):",IDC_STATIC,7,303,70,8
-    LTEXT           "MAC generated from message and key:",IDC_STATIC,7,426,125,8
-    LTEXT           "Input for outer hash function (depends on the MAC variant chosen above):",IDC_STATIC,7,331,311,8
+    LTEXT           "HMAC generated from message and key:",IDC_STATIC,7,426,130,8
+    LTEXT           "Input for outer hash function (depends on the HMAC variant chosen above):",IDC_STATIC,7,331,311,8
     GROUPBOX        "Choose hash function",IDC_STATIC,7,143,102,126
-    GROUPBOX        "MAC variant (position of the keys; nesting)",IDC_STATIC,123,143,195,126
-    LTEXT           "By means of a MAC the recipient of a message is able to verify its integrity and the authenticity of its origin (sender). Therefore both parties use a shared secret (symmetric key).",IDC_STATIC,15,20,295,16
-    LTEXT           "To create a MAC, a cryptographic hash function is applied to a combination of the message m and the secret key k. According to the variation chosen below, two different keys k and k' can be used.",IDC_STATIC,15,40,295,24
+    GROUPBOX        "HMAC variant (position of the keys; nesting)",IDC_STATIC,123,143,195,126
+    LTEXT           "By means of a HMAC the recipient of a message is able to verify its integrity and the authenticity of its sender. Therefore both parties use a shared secret (symmetric key).",IDC_STATIC,15,20,295,16
+    LTEXT           "To create a HMAC, a cryptographic hash function is applied to a combination of the message m and the secret key k. According to the variation chosen below, two different keys k and k' can be used.",IDC_STATIC,15,40,295,24
     GROUPBOX        "Description",IDC_STATIC,7,7,311,70
     EDITTEXT        IDC_EDIT_ORIGINAL_MESSAGE,15,93,295,42,ES_AUTOHSCROLL
     GROUPBOX        "Message",IDC_STATIC,7,80,311,60
@@ -28752,10 +28767,16 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 318
         VERTGUIDE, 15
+        VERTGUIDE, 133
         VERTGUIDE, 310
         TOPMARGIN, 7
         BOTTOMMARGIN, 498
         HORZGUIDE, 20
+        HORZGUIDE, 160
+        HORZGUIDE, 178
+        HORZGUIDE, 192
+        HORZGUIDE, 206
+        HORZGUIDE, 220
     END
 
     IDD_ADFGVX, DIALOG
