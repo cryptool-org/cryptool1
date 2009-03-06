@@ -6,6 +6,7 @@ import java.awt.event.*;
 
 class TextPanel extends Panel implements ItemListener, ActionListener
 {
+	private static final long serialVersionUID = 1962013459858047635L;
 	protected ECCFrame eccframe;
 	protected Label LabelRaum;
 	protected CheckboxGroup zahlenraum =new CheckboxGroup();
@@ -67,7 +68,7 @@ class TextPanel extends Panel implements ItemListener, ActionListener
         add(LabelRaum);
         
         
-        if(eccframe.raum==0)
+        if(ECCFrame.raum==0)
         	fr=new Checkbox (eccframe.text.buttonFr,zahlenraum,true);
         else
         	fr=new Checkbox (eccframe.text.buttonFr,zahlenraum,false);
@@ -80,7 +81,7 @@ class TextPanel extends Panel implements ItemListener, ActionListener
         gl.setConstraints(fr,gc);
         add(fr);
         
-        if(eccframe.raum==1)
+        if(ECCFrame.raum==1)
         	fp=new Checkbox (eccframe.text.buttonFp,zahlenraum,true);
         else
         	fp=new Checkbox (eccframe.text.buttonFp,zahlenraum,false);
@@ -426,20 +427,20 @@ class TextPanel extends Panel implements ItemListener, ActionListener
 
     	eccframe.reset();
     	
-        if(source==fr&&eccframe.raum==1) 
+        if(source==fr&&ECCFrame.raum==1) 
         {
-        	eccframe.raum=0;
+        	ECCFrame.raum=0;
         	resetPanel();
         	eccframe.reset();
-        	eccframe.makeFr(eccframe,true);
+        	eccframe.makeFr(true);
         }
         
-        if(source==fp&&eccframe.raum==0)
+        if(source==fp&&ECCFrame.raum==0)
         {
-        	eccframe.raum=1;
+        	ECCFrame.raum=1;
         	resetPanel();
         	eccframe.reset();
-        	eccframe.makeFp(eccframe,true);
+        	eccframe.makeFp(true);
         }
     }
     

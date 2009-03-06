@@ -6,6 +6,7 @@ import java.text.DecimalFormat;
 
 public class GrafikFp extends Canvas implements MouseListener, MouseMotionListener
 {	
+	private static final long serialVersionUID = 6472885893885917160L;
 	GrafikFp grafikFp;
 	Panel bPanelFp;
 	ECCFrame eccframe;
@@ -20,6 +21,8 @@ public class GrafikFp extends Canvas implements MouseListener, MouseMotionListen
        this.eccframe=eccframe;	
        
 		df=new DecimalFormat("0");
+		
+		berechnePunkte(eccframe.maxwert);
     }
     
     public void paint (Graphics gold)
@@ -91,11 +94,11 @@ public class GrafikFp extends Canvas implements MouseListener, MouseMotionListen
 	private void zeichneKoordinatensystem(Graphics g)
     {
 
-        int width = eccframe.canvasGroesse;
+//        int width = eccframe.canvasGroesse;
         int height = eccframe.canvasGroesse;
 
         int maxwert=eccframe.maxwert;
-       	int abstand=eccframe.abstand;
+//       	int abstand=eccframe.abstand;
         
         Color ganzhellgrau=new Color(230,230,230);
         g.setColor(ganzhellgrau);
@@ -277,7 +280,7 @@ text="";
 		x+=fontmetricsklein.stringWidth(text);
 		
 		g.setColor(Color.blue);
-		text=eccframe.text.graph2+(eccframe.zaehlerpunkte)+eccframe.text.graph3;
+		text=eccframe.text.graph2+((eccframe.zaehlerpunkte)+1)+eccframe.text.graph3;
 		g.setFont(fontgross);			
         g.drawString(text, x, y);
         x+=fontmetricsgross.stringWidth(text);
@@ -289,8 +292,8 @@ text="";
     private void zeichneElliptischeKurve(Graphics g)
     {
 
-        int width=eccframe.canvasGroesse;
-        int height = eccframe.canvasGroesse;
+//        int width=eccframe.canvasGroesse;
+//        int height = eccframe.canvasGroesse;
         int xwert=0;
         int ywert=0;
         
@@ -326,7 +329,7 @@ text="";
 	    // Zeichnungsstift= dick 
 	    g.setStroke(roundStroke);
 	    	
-	   	int height = eccframe.canvasGroesse;
+//	   	int height = eccframe.canvasGroesse;
 	   	boolean pgleichq=false;
 	   	pgleichq=((eccframe.pset)&& (eccframe.qset)&&(eccframe.px==eccframe.qx) && (eccframe.py==eccframe.qy));
 	   	
@@ -338,9 +341,9 @@ text="";
 		   	g.setColor(new Color(255,0,255));
 		   	
 			if(eccframe.np>1)
-		    	g.drawString("R = "+eccframe.np+"P", eccframe.rx + 8, eccframe.ry+8);
+		    	drawString(g,"R = "+eccframe.np+"P", eccframe.rx, eccframe.ry);
 		    else	
-		    	g.drawString("R", eccframe.rx + 8, eccframe.ry+8); 
+		    	drawString(g,"R", eccframe.rx, eccframe.ry); 
 
 		    
 		    g.setColor(Color.black);
@@ -355,14 +358,14 @@ text="";
 	    if (eccframe.rset && !eccframe.qset&&eccframe.np<=2) 
 	    {
 		    g.setStroke(roundStroke2);
-		    Color lila=new Color(148,3,148);		    			
+//		    Color lila=new Color(148,3,148);		    			
 			
 		   	
 		   	g.setColor(Color.black);
 	    	g.fillArc(eccframe.rx - 2,eccframe.ry - 2, 5, 5, 0, 360);
 		   	g.setColor(new Color(255,0,255));	
 			g.fillArc(eccframe.rx - 1,eccframe.ry - 1, 3, 3, 0, 360);
-		    g.drawString("R = 2P", eccframe.rx + 8, eccframe.ry+8); 
+		    drawString(g,"R = 2P", eccframe.rx, eccframe.ry); 
 		   	
 		   	g.setStroke(roundStroke);
 	    }
@@ -371,14 +374,14 @@ text="";
 	    if (eccframe.rset && !eccframe.qset&&eccframe.np>2) 
 	    {
 		    g.setStroke(roundStroke2);
-		    Color lila=new Color(148,3,148);		    			
+//		    Color lila=new Color(148,3,148);		    			
 			
 		   	
 		   	g.setColor(Color.black);
 	    	g.fillArc(eccframe.rx - 2,eccframe.ry - 2, 5, 5, 0, 360);
 		   	g.setColor(Color.red);	
 			g.fillArc(eccframe.rx - 1,eccframe.ry - 1, 3, 3, 0, 360);
-		    g.drawString("R = P = "+eccframe.np+"P", eccframe.rx + 8, eccframe.ry+8); 
+		    drawString(g,"R = P = "+eccframe.np+"P", eccframe.rx, eccframe.ry); 
 		   	
 		   	g.setStroke(roundStroke);
 	    }
@@ -411,18 +414,20 @@ text="";
         		String ax=df.format(eccframe.dax);
        			String ay=df.format(eccframe.day);	
                 
-                if (eccframe.dax<=(eccframe.maxwert/2)) {
-                	
-                   if(eccframe.day>0) g.drawString("("+ax+"/"+ay+")",eccframe.ax+10,eccframe.ay+13);
-           	       else g.drawString("("+ax+"/"+ay+")",eccframe.ax+10,eccframe.ay-4);
-                }
+//                if (eccframe.dax<=(eccframe.maxwert/2)) {
+//                	
+//                   if(eccframe.day>0) drawString(g,"("+ax+"/"+ay+")",eccframe.ax,eccframe.ay);
+//           	       else 
+//           	    	   drawString(g,"("+ax+"/"+ay+")",eccframe.ax,eccframe.ay);
+//                }
                 
 
-                if (eccframe.dax>(eccframe.maxwert/2)) {
-                	
-                   if(eccframe.day>0) g.drawString("("+ax+"/"+ay+")",eccframe.ax-30,eccframe.ay+23);
-           	       else g.drawString("("+ax+"/"+ay+")",eccframe.ax-30,eccframe.ay-4);
-                }
+//                if (eccframe.dax>(eccframe.maxwert/2)) {
+//                	
+//                   if(eccframe.day>0) drawString(g,"("+ax+"/"+ay+")",eccframe.ax,eccframe.ay);
+//           	       else 
+                	drawString(g,"("+ax+"/"+ay+")",eccframe.ax,eccframe.ay);
+//                }
                 
                 
 	   		}
@@ -435,7 +440,7 @@ text="";
 	    	g.fillArc(eccframe.px - 2,eccframe.py - 2, 5, 5, 0, 360);
 		    g.setColor(Color.red);
 		    g.fillArc(eccframe.px - 1,eccframe.py - 1, 3, 3, 0, 360);
-		    g.drawString("P", eccframe.px + 8, eccframe.py+8);
+		    drawString(g,"P", eccframe.px, eccframe.py);
 	    }
 	    
 	    if ((!pgleichq)&&(eccframe.qset)) 
@@ -445,9 +450,9 @@ text="";
 		   	g.setColor(Color.red);
 		    g.fillArc(eccframe.qx - 1,eccframe.qy - 1, 3, 3, 0, 360);
 		    if(eccframe.np>1)
-		    	g.drawString(""+(eccframe.np-1)+"P", eccframe.qx + 8, eccframe.qy+8);
+		    	drawString(g,""+(eccframe.np-1)+"P", eccframe.qx, eccframe.qy);
 		    else	
-		    	g.drawString("Q", eccframe.qx + 8, eccframe.qy+8); 
+		    	drawString(g,"Q", eccframe.qx, eccframe.qy); 
 	    }
 	    
 	    if (pgleichq&&eccframe.np==1) 
@@ -456,7 +461,7 @@ text="";
 	    	g.fillArc(eccframe.qx - 2,eccframe.qy - 2, 5, 5, 0, 360);
 		   	g.setColor(Color.red);
 		    g.fillArc(eccframe.qx - 1,eccframe.qy - 1, 3, 3, 0, 360);
-		    g.drawString("P = Q", eccframe.qx + 8, eccframe.qy+8); 
+		    drawString(g,"P = Q", eccframe.qx, eccframe.qy); 
 	
 	    }  
 	    
@@ -466,21 +471,38 @@ text="";
 	    	g.fillArc(eccframe.qx - 2,eccframe.qy - 2, 5, 5, 0, 360);
 		   	g.setColor(Color.red);
 		    g.fillArc(eccframe.qx - 1,eccframe.qy - 1, 3, 3, 0, 360);
-		    g.drawString("P = "+(eccframe.np-1)+"P", eccframe.qx + 8, eccframe.qy+8); 
+		    drawString(g,"P = "+(eccframe.np-1)+"P", eccframe.qx, eccframe.qy); 
 	
 	    } 
 	    
 	    
     }
     
-
+	private void drawString(Graphics2D g, String text, int x, int y){
+		if(x > eccframe.canvasGroesse / 2){
+			x = x - 8;
+			for(byte c : text.getBytes()){
+				x -= 7;
+			}
+		}
+		else
+			x = x + 8; 
+		
+		if(y > eccframe.canvasGroesse / 2)
+			y = y - 8;
+		else
+			y = y + 14;
+		
+		g.drawString(text, x, y);
+	}
+	
 //Actionhandler
 
 	// Maus wurde geklickt
 	public void mouseClicked(MouseEvent event)
 	{
-		int xmouse = event.getX();
-        int ymouse = event.getY();
+//		int xmouse = event.getX();
+//        int ymouse = event.getY();
         
 		if(!eccframe.pset&&eccframe.ax!=0)//&&punktAufKurve(xmouse, ymouse))
 		{
@@ -498,6 +520,7 @@ text="";
 	    	eccframe.bPanelFp.ButtonP.setEnabled(true);
 	    	eccframe.bPanelFp.ButtonDelete.setEnabled(true);
 	       	eccframe.LogText=eccframe.LogText+"\n"+eccframe.tPanel.LabelP.getText();
+	       	if(ECCFrame.log != null) ECCFrame.log.setText(eccframe.LogText);
 	       	grafikFp.repaint();
 		}
 		else if(eccframe.pset&&!eccframe.rset&&!eccframe.qset&&eccframe.ax!=0&&!eccframe.rNaN)//&&punktAufKurve(xmouse, ymouse))
@@ -513,10 +536,12 @@ text="";
 	        String sy=df.format(eccframe.dqy);
 	        eccframe.tPanel.LabelQ.setText("Q= ("+sx+"/"+sy+")");
 	       	eccframe.LogText=eccframe.LogText+"\n"+eccframe.tPanel.LabelQ.getText();
+	       	if(ECCFrame.log != null) ECCFrame.log.setText(eccframe.LogText);
 	       	eccframe.tPanel.qGewaehlt();
 	       	eccframe.bPanelFp.ButtonP.setEnabled(false);
 	       	eccframe.bPanelFp.ButtonPQ.setEnabled(true);
 	    	eccframe.bPanelFp.ButtonDelete.setEnabled(true);
+	    	
 	       	grafikFp.repaint();
 		}
 	}
@@ -540,7 +565,7 @@ text="";
   	
     public void mouseMoved(MouseEvent event)
     {
-    	int height=eccframe.canvasGroesse;
+//    	int height=eccframe.canvasGroesse;
         int xmouse = event.getX();
         int ymouse = event.getY();
 		
@@ -554,12 +579,12 @@ text="";
 				if ((eccframe.punkt[treffer][0]!=eccframe.dax)||(eccframe.punkt[treffer][1]!=eccframe.day)) 
 				{
 				
-				grafikFp.repaint(eccframe.ax-30, eccframe.ay-30, 120, 56);
+				grafikFp.repaint(eccframe.ax-100, eccframe.ay-100, 200, 200);
 		       	eccframe.ax=xWertToXPixel(eccframe.punkt[treffer][0]);
 				eccframe.ay=yWertToYPixel(eccframe.punkt[treffer][1]);
 				eccframe.dax=eccframe.punkt[treffer][0];
 				eccframe.day=eccframe.punkt[treffer][1];
-				grafikFp.repaint(eccframe.ax-30, eccframe.ay-30, 120, 56);
+				grafikFp.repaint(eccframe.ax-100, eccframe.ay-100, 200, 200);
 				
 				}
 			
@@ -577,7 +602,7 @@ text="";
     int punktAufKurve(int xPixel, int yPixel)
     {
     	double xWert,yWert;
-    	int height=eccframe.canvasGroesse;
+//    	int height=eccframe.canvasGroesse;
     	
 		xWert=xPixelToXWert(xPixel);
 		yWert=yPixelToYWert(yPixel);

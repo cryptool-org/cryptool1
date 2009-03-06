@@ -6,13 +6,14 @@ import java.awt.event.*;
 public class LogDatei extends Dialog implements ActionListener
 {
 	
+	private static final long serialVersionUID = -3737366206000100569L;
 	protected Button ButtonOK;
 	protected TextArea myTextArea;
 	protected boolean exit;
 	
 	public LogDatei(ECCFrame eccframe, String myLogText) // Konstruktor 
 	{
-		super(eccframe, eccframe.text.logTitle, true);
+		super(eccframe, eccframe.text.logTitle, false);
 	 			
 		addWindowListener(new WindowAdapter() 
 	    {
@@ -27,6 +28,8 @@ public class LogDatei extends Dialog implements ActionListener
 		myTextArea = new TextArea();
 		myTextArea.setEditable(false);
 		myTextArea.setText(myLogText);
+		myTextArea.setSelectionStart(myTextArea.getText().length());
+		myTextArea.setSelectionEnd(myTextArea.getText().length());
 	    add("Center",myTextArea);
 	   	
 	   	ButtonOK = new Button (" OK ");
@@ -45,6 +48,12 @@ public class LogDatei extends Dialog implements ActionListener
 		pack();
 	}
  
+	public void setText(String myLogText){
+		myTextArea.setText(myLogText);
+		myTextArea.setSelectionStart(myTextArea.getText().length());
+		myTextArea.setSelectionEnd(myTextArea.getText().length());
+	}
+	
     public void actionPerformed(ActionEvent actionevent)
     {
 	    Object obj = actionevent.getSource();

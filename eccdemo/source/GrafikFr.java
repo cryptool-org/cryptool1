@@ -6,6 +6,7 @@ import java.text.DecimalFormat;
 
 public class GrafikFr extends Canvas implements MouseListener, MouseMotionListener
 {	
+	private static final long serialVersionUID = 5809793260799259274L;
 	GrafikFr grafikFr;
 	Panel bPanelFr;
 	ECCFrame eccframe;
@@ -575,8 +576,8 @@ public class GrafikFr extends Canvas implements MouseListener, MouseMotionListen
 	// Maus wurde geklickt
 	public void mouseClicked(MouseEvent event)
 	{
-		int xmouse = event.getX();
-        int ymouse = event.getY();
+//		int xmouse = event.getX();
+//        int ymouse = event.getY();
         
 		if(!eccframe.pset&&eccframe.ax!=0)//&&punktAufKurve(xmouse, ymouse))
 		{
@@ -594,6 +595,7 @@ public class GrafikFr extends Canvas implements MouseListener, MouseMotionListen
 	        String sy=df.format(eccframe.dpy);
 	        eccframe.tPanel.LabelP.setText("P= ("+sx+"/"+sy+")");
 	        eccframe.LogText=eccframe.LogText+"\n"+eccframe.tPanel.LabelP.getText();
+	        if(ECCFrame.log != null) ECCFrame.log.setText(eccframe.LogText);
 	        
 	        eccframe.tPanel.pGewaehlt();
 	    	eccframe.bPanelFr.ButtonP.setEnabled(true);
@@ -613,6 +615,7 @@ public class GrafikFr extends Canvas implements MouseListener, MouseMotionListen
 	        String sy=df.format(eccframe.dqy);
 	        eccframe.tPanel.LabelQ.setText("Q= ("+sx+"/"+sy+")");
 	        eccframe.LogText=eccframe.LogText+"\n"+eccframe.tPanel.LabelQ.getText();
+	        if(ECCFrame.log != null) ECCFrame.log.setText(eccframe.LogText);
 	       	eccframe.tPanel.qGewaehlt();
 	       	eccframe.bPanelFr.ButtonP.setEnabled(false);
 	       	eccframe.bPanelFr.ButtonPQ.setEnabled(true);
@@ -643,8 +646,8 @@ public class GrafikFr extends Canvas implements MouseListener, MouseMotionListen
     	int height=eccframe.canvasGroesse;
         int xmouse = event.getX();
         int ymouse = event.getY();
-	    int yPixel=yWertToYPixel(xWertToYWert(xPixelToXWert(xmouse)));
-		int y2= height-yPixel;
+//	    int yPixel=yWertToYPixel(xWertToYWert(xPixelToXWert(xmouse)));
+//		int y2= height-yPixel;
 		boolean unten=false;
 	
 		if (!eccframe.rset&&!eccframe.rNaN&&punktAufKurve(xmouse, ymouse))

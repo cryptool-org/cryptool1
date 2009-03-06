@@ -1,74 +1,79 @@
 package eccdemo;
 
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.Frame;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class ECCFrame extends Frame //implements KeyListener
 {
  	
- 	/*****  DEFINITIONEN   *****/
+ 	private static final long serialVersionUID = -1076165377082193067L;
+
+	/*****  DEFINITIONEN   *****/
  	 
  	//0=deutsch, 1=englisch
-    static protected int sprache=1;
+    protected static int sprache=0;
     
     //0=Fr, 1=Fp
-    static protected int raum=0;
+    protected static int raum=0;
     
  	//Startwerte der Kurvenparameter
-	static protected double a;
-    static protected double b;
+	protected double a;
+    protected double b;
     //Scrollrad-Schieber
-    static protected int a_scroll;
-    static protected int b_scroll;
+    protected int a_scroll;
+    protected int b_scroll;
     //nachkommastellen: 10=1, 100=2 etc.
-    static protected int nks;
+    protected int nks;
     
     
     protected int [] c={6,8,11,12,22,24,33,44,66,88}; 
-    static protected int amin;	// Werte für Panel a
-    static protected int amax;
-    static protected int bmin;	// Werte für Panel b
-    static protected int bmax;
+    protected int amin;	// Werte für Panel a
+    protected int amax;
+    protected int bmin;	// Werte für Panel b
+    protected int bmax;
    
-    static protected int px;			// x-Pixelkoordinate Punkt P
-	static protected int py;			// y-Pixelkoordinate Punkt P
-	static protected double dpx;		// double-Wert von px
-	static protected double dpy;		// double-Wert von py
-	static protected boolean pset;// Wurde ein Punkt P gewählt?false=nein;
+    protected int px;			// x-Pixelkoordinate Punkt P
+	protected int py;			// y-Pixelkoordinate Punkt P
+	protected double dpx;		// double-Wert von px
+	protected double dpy;		// double-Wert von py
+	protected boolean pset;// Wurde ein Punkt P gewählt?false=nein;
   
-    static protected int qx;			// x-Pixelkoordinate Punkt Q
-	static protected int qy;			// y-Pixelkoordinate Punkt Q
-	static protected double dqx;		// double-Wert von qx
-	static protected double dqy;		// double-Wert von qy
-	static protected boolean qset; 	// Wurde ein Punkt Q gewählt?false=nein;
+    protected int qx;			// x-Pixelkoordinate Punkt Q
+	protected int qy;			// y-Pixelkoordinate Punkt Q
+	protected double dqx;		// double-Wert von qx
+	protected double dqy;		// double-Wert von qy
+	protected boolean qset; 	// Wurde ein Punkt Q gewählt?false=nein;
 	
-	static protected int rx;			// x-Pixelkoordinate Punkt R
-	static protected int ry;			// y-Pixelkoordinate Punkt R
-	static protected double drx;		// double-Wert von rx
-	static protected double dry;		// double-Wert von ry
-	static protected boolean rset; 	// Wurde ein Punkt R berechnet?false=nein;
-	static protected boolean rNaN; 	// Ist R unendlich?false=nein;
-    static protected int np;				// bei welchem vielfachen von P befindet sich das Programm? 
+	protected int rx;			// x-Pixelkoordinate Punkt R
+	protected int ry;			// y-Pixelkoordinate Punkt R
+	protected double drx;		// double-Wert von rx
+	protected double dry;		// double-Wert von ry
+	protected boolean rset; 	// Wurde ein Punkt R berechnet?false=nein;
+	protected boolean rNaN; 	// Ist R unendlich?false=nein;
+    protected int np;				// bei welchem vielfachen von P befindet sich das Programm? 
     
-    static protected int ax;			// x-Pixelkoordinate AuswahlPunkt A
-	static protected int ay;			// y-Pixelkoordinate AuswahlPunkt A
-	static protected double dax;		// double-Wert von ax
-	static protected double day;		// double-Wert von ay
-	static protected boolean aset; 	// Wurde ein AuswahlPunkt gewählt, aber noch nicht mit
+    protected int ax;			// x-Pixelkoordinate AuswahlPunkt A
+	protected int ay;			// y-Pixelkoordinate AuswahlPunkt A
+	protected double dax;		// double-Wert von ax
+	protected double day;		// double-Wert von ay
+	protected boolean aset; 	// Wurde ein AuswahlPunkt gewählt, aber noch nicht mit
     										// Maus geklickt
-    static protected int maxwert;    //standardwerte= maxwert=15, pixelPro=15
+    protected int maxwert;    //standardwerte= maxwert=15, pixelPro=15
    
-   	static protected int abstand;
-    static protected int zeichenfenster; /// Pixel des Zeichenfensters
-    static protected int pixelProZelle;
+   	protected int abstand;
+    protected int zeichenfenster; /// Pixel des Zeichenfensters
+    protected int pixelProZelle;
     
-    static protected int canvasGroesse;//grösse +1, damit immer genau eine mitte existiert; immer quadratisch
+    protected int canvasGroesse;//grösse +1, damit immer genau eine mitte existiert; immer quadratisch
     
 
-    static protected int frameBreite;
-    static protected int frameHoehe;
+    protected int frameBreite;
+    protected int frameHoehe;
     
-    static protected String LogText=""; // Leere LogDatei
+    protected String LogText=""; // Leere LogDatei
     
     protected GrafikFp grafikFp;
     protected GrafikFr grafikFr;
@@ -78,15 +83,17 @@ public class ECCFrame extends Frame //implements KeyListener
     protected GridBagLayout gl;
     protected GridBagConstraints gc;
     protected Texte text;
-    static protected ECCFrame eccframe;
+    protected static ECCFrame eccframe;
+
+	public static LogDatei log;
     
     protected int[][] punkt;
-    static protected int zaehlerpunkte=0;
+    protected int zaehlerpunkte=0;
     
     protected int [] p={3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97};  
 
-   static protected int pIndex=7;
-   static protected int cIndex=1; 
+   protected int pIndex=7;
+   protected int cIndex=1; 
     
     private void exitForm(java.awt.event.WindowEvent evt) {                          
         System.exit(0);
@@ -101,8 +108,8 @@ public class ECCFrame extends Frame //implements KeyListener
         
         //Nachkommsstellen
         this.nks=100;
-        this.raum=raum;
-        this.sprache=sprache;
+        ECCFrame.raum=raum;
+        ECCFrame.sprache=sprache;
         text=new Texte(sprache);
         
     	// Layout wird eingerichtet
@@ -116,10 +123,10 @@ public class ECCFrame extends Frame //implements KeyListener
         
 		//Fr
     	if(raum==0)
-     		makeFr(this, false);
+     		makeFr(false);
      		
      	if(raum==1)
-     		makeFp(this, false);
+     		makeFp(false);
 		
 		// Window beenden
         addWindowListener(new WindowAdapter() 
@@ -133,15 +140,15 @@ public class ECCFrame extends Frame //implements KeyListener
     }
     
     // Start
-    //public static void main (String args [])
+    //public void main (String args [])
     public static void main (String args [])
     {
     	eccframe=new ECCFrame(sprache,raum);
     	
     	if (sprache==0)
-    		eccframe.setTitle("ECC-Demo, v1.0: Punktaddition auf Elliptischen Kurven über den reellen Zahlenraum R");
+    		eccframe.setTitle("ECC-Demo 1.1: Punktaddition auf Elliptischen Kurven über den reellen Zahlenraum R");
     	else
-    		eccframe.setTitle("ECC Demonstration, v1.0: Point addition on elliptic curves over the real number space R");
+    		eccframe.setTitle("ECC Demonstration 1.1: Point addition on elliptic curves over the real number space R");
     	eccframe.setLocation(50,50);
     }
 
@@ -178,27 +185,27 @@ public class ECCFrame extends Frame //implements KeyListener
 	     zeichenfenster=529; /// Pixel des Zeichenfensters
 	}
 	
-	protected void makeFr(ECCFrame eccframe, boolean checkbox)
+	protected void makeFr(boolean checkbox)
 	{
-			eccframe.setTitle(text.frameTitleFr);
+			this.setTitle(Texte.frameTitleFr);
      		a=-10;
      		b=15;
-     		a_scroll=(int)a*eccframe.nks;
-     		b_scroll=(int)b*eccframe.nks;
+     		a_scroll=(int)a*this.nks;
+     		b_scroll=(int)b*this.nks;
      		cIndex=3; 
      		amin=-50;
      		amax=50;
      		bmin=-50;
      		bmax=50;
 	        maxwert=c[cIndex];    //standardwerte= maxwert=15, pixelPro=15
-	        pixelProZelle=264/eccframe.maxwert;//anzahl sollte gerade sein, damit das raster genau auf den achsen liegt
+	        pixelProZelle=264/this.maxwert;//anzahl sollte gerade sein, damit das raster genau auf den achsen liegt
 	        canvasGroesse=(11*2*24)+1;//grösse +1, damit immer genau eine mitte existiert; immer quadratisch
 			frameBreite=900;//canvasGroesse+300;
 	        frameHoehe=650;//canvasGroesse+100;
 	        // Grafikbereich wird erzeugt
-	        grafikFr= new GrafikFr(canvasGroesse,eccframe);
+	        grafikFr= new GrafikFr(canvasGroesse,this);
 	        // Bedieungspanel wird erzeugt 
-	        bPanelFr = new BedienungsPanelFr(eccframe); 
+	        bPanelFr = new BedienungsPanelFr(this); 
 	        
 	        gc.gridx=0;
 	        gc.gridy=0;
@@ -215,7 +222,7 @@ public class ECCFrame extends Frame //implements KeyListener
         	// Textpanel wird erzeugt
         	if(checkbox)
 				remove(tPanel);	
-		    tPanel = new TextPanel(eccframe);            
+		    tPanel = new TextPanel(this);            
 		    
 		    gc.gridx=6;
 		    gc.gridy=0;
@@ -239,11 +246,12 @@ public class ECCFrame extends Frame //implements KeyListener
 	       	setSize (frameBreite, frameHoehe);
         	setResizable(false);
         	setVisible(true);
+        	bPanelFr.startLogDatei();
 	    }
 	    
-	protected void makeFp(ECCFrame eccframe, boolean checkbox)
+	protected void makeFp(boolean checkbox)
 	{
-			eccframe.setTitle(text.frameTitleFp);
+			this.setTitle(Texte.frameTitleFp);
 	    	a=11;
 	    	b=20;
 	    	a_scroll=(int)a;
@@ -257,9 +265,9 @@ public class ECCFrame extends Frame //implements KeyListener
 	        frameBreite=900;//canvasGroesse+300;
 	     	frameHoehe=650;//canvasGroesse+100;
 	        // Grafikbereich wird erzeugt
-	        grafikFp= new GrafikFp(canvasGroesse,eccframe);
-	        // Bedieungspanel wird erzeugt 
-	        bPanelFp = new BedienungsPanelFp(eccframe); 
+	        grafikFp= new GrafikFp(canvasGroesse,this);
+	    	// Bedieungspanel wird erzeugt 
+	        bPanelFp = new BedienungsPanelFp(this); 
 	        
 	        gc.gridx=0;
 	        gc.gridy=0;
@@ -275,7 +283,7 @@ public class ECCFrame extends Frame //implements KeyListener
         	if(checkbox)
 				remove(tPanel);
         	// Textpanel wird erzeugt
-		    tPanel = new TextPanel(eccframe);            
+		    tPanel = new TextPanel(this);            
 		    
 		    gc.gridx=6;
 		    gc.gridy=0;
@@ -297,7 +305,8 @@ public class ECCFrame extends Frame //implements KeyListener
 	        
 	        setSize (frameBreite, frameHoehe);
         	setResizable(false);
-        	setVisible(true);			
+        	setVisible(true);
+        	bPanelFp.startLogDatei();
 	        
     }
 	

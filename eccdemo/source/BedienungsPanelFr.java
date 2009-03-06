@@ -1,8 +1,16 @@
 package eccdemo;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.lang.*;
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Label;
+import java.awt.Panel;
+import java.awt.Scrollbar;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
 import java.text.DecimalFormat;
 
 
@@ -10,6 +18,7 @@ public class BedienungsPanelFr extends Panel implements AdjustmentListener, Acti
 {
     
 
+	private static final long serialVersionUID = -4151351382513485560L;
 	protected ECCFrame eccframe;
 	protected Scrollbar ScrollbarA;
     protected Scrollbar ScrollbarB;
@@ -21,7 +30,6 @@ public class BedienungsPanelFr extends Panel implements AdjustmentListener, Acti
 	protected Button ButtonPQ;
 	protected Button ButtonDelete;
 	protected Button ButtonLog;
-	protected LogDatei log;
 	protected DecimalFormat df;
 	protected String a_string;
 	protected String b_string;
@@ -183,10 +191,10 @@ public class BedienungsPanelFr extends Panel implements AdjustmentListener, Acti
         if(obj == ButtonLog) 
         {
         // Funktion Log-Datei
- 		log = new LogDatei(eccframe, eccframe.LogText);
+        ECCFrame.log = new LogDatei(eccframe, eccframe.LogText);
  		 		// Window beenden
        
-        if (log.exit==true) {log.setVisible(false);log.dispose();}
+        if (ECCFrame.log.exit==true) {ECCFrame.log.setVisible(false);ECCFrame.log.dispose();}
      
          }           
         
@@ -205,8 +213,8 @@ public class BedienungsPanelFr extends Panel implements AdjustmentListener, Acti
         if(eccframe.b < 0) eccframe.LogText = eccframe.LogText+" - "+Math.abs(eccframe.b);
         else if(eccframe.b > 0) eccframe.LogText = eccframe.LogText + " + " + eccframe.b;
  
- 		eccframe.LogText=eccframe.LogText+"\n";
- 		
+        eccframe.LogText=eccframe.LogText+"\n";		
+ 		if(ECCFrame.log != null)ECCFrame.log.setText(eccframe.LogText);
  		}
     
     
@@ -252,6 +260,7 @@ public class BedienungsPanelFr extends Panel implements AdjustmentListener, Acti
         		eccframe.tPanel.rAusPQNaN();
         		eccframe.tPanel.LabelR.setText("R = O");
         		eccframe.LogText=eccframe.LogText+"\n"+eccframe.tPanel.LabelR.getText(); 
+        		if(ECCFrame.log != null)ECCFrame.log.setText(eccframe.LogText);
 				eccframe.grafikFr.repaint();
 				return;}
 			
@@ -270,6 +279,7 @@ public class BedienungsPanelFr extends Panel implements AdjustmentListener, Acti
         		eccframe.tPanel.rAusPQNaN();
         		eccframe.tPanel.LabelR.setText("R = O"); 
         		eccframe.LogText=eccframe.LogText+"\n"+eccframe.tPanel.LabelR.getText();
+        		if(ECCFrame.log != null)ECCFrame.log.setText(eccframe.LogText);
 				eccframe.grafikFr.repaint();
 				return;}
 				
@@ -288,13 +298,15 @@ public class BedienungsPanelFr extends Panel implements AdjustmentListener, Acti
         if(eccframe.np==1)
         	{
         		eccframe.tPanel.LabelR.setText("R = ("+sx+"/"+sy+")");
-        		eccframe.LogText=eccframe.LogText+"\n"+eccframe.tPanel.LabelR.getText(); 
+        		eccframe.LogText=eccframe.LogText+"\n"+eccframe.tPanel.LabelR.getText();
+        		if(ECCFrame.log != null)ECCFrame.log.setText(eccframe.LogText);
         		eccframe.tPanel.rAusPplusQ();
         	}
         else
         {
         	eccframe.tPanel.LabelR.setText("R = "+(eccframe.np-1)+"P + P = ("+sx+"/"+sy+")");
         	eccframe.LogText=eccframe.LogText+"\n"+eccframe.tPanel.LabelR.getText();
+        	if(ECCFrame.log != null)ECCFrame.log.setText(eccframe.LogText);
         	eccframe.tPanel.rAus2P();
         }
 		eccframe.grafikFr.repaint();
@@ -319,6 +331,7 @@ public class BedienungsPanelFr extends Panel implements AdjustmentListener, Acti
 	        String sy=df.format(eccframe.dqy);
    			eccframe.tPanel.LabelQ.setText(""+(eccframe.np-1)+"P = ("+sx+"/"+sy+")");
    			eccframe.LogText=eccframe.LogText+"\n"+eccframe.tPanel.LabelQ.getText();
+   			if(ECCFrame.log != null)ECCFrame.log.setText(eccframe.LogText);
    			ButtonAddierenPQClicked();
    			
    		}
@@ -334,10 +347,11 @@ public class BedienungsPanelFr extends Panel implements AdjustmentListener, Acti
 	        eccframe.drx=0;
 	        eccframe.dry=0;
 	        eccframe.np=1;
-	        String sx=df.format(eccframe.drx);
-	        String sy=df.format(eccframe.dry);
+//	        String sx=df.format(eccframe.drx);
+//	        String sy=df.format(eccframe.dry);
 	        eccframe.tPanel.LabelR.setText("R = O");
 	        eccframe.LogText=eccframe.LogText+"\n"+eccframe.tPanel.LabelR.getText();
+	        if(ECCFrame.log != null)ECCFrame.log.setText(eccframe.LogText);
 	        eccframe.tPanel.rAus2PNaN();
 			eccframe.grafikFr.repaint();
 			return;
@@ -358,6 +372,7 @@ public class BedienungsPanelFr extends Panel implements AdjustmentListener, Acti
 	        String sy=df.format(eccframe.dry);
 	        eccframe.tPanel.LabelR.setText("R = 2P = ("+sx+"/"+sy+")");
 	        eccframe.LogText=eccframe.LogText+"\n"+eccframe.tPanel.LabelR.getText();
+	        if(ECCFrame.log != null)ECCFrame.log.setText(eccframe.LogText);
 	        eccframe.tPanel.rAus2P();
 			eccframe.grafikFr.repaint();
 		}

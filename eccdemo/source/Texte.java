@@ -1,40 +1,43 @@
 package eccdemo;
 class Texte
 {
-	static String frameTitleFr, frameTitleFp;
-	static String titel, text1,text2,text3,text4,text5,text6,text7;
-	static String text8,text9,text10,text11,text12,text13,text14;
-	static String text15,text16,text17;
-	static String labelSpace,buttonFr, buttonFp, buttonLog, buttonDelete;
-	static String p1, p2, p3, p4, p5;
-	static String q1,q2,q3;
-	static String rp1, rp2,rp3,rp4,rp5,rp6;
-	static String rpq1,rpq2,rpq3,rpq4;
-	static String rAus2PNaN1,rAus2PNaN2,rAus2PNaN3;
-	static String rAusPQNaN1,rAusPQNaN2,rAusPQNaN3;
+	static String frameTitleFr;
+	static String frameTitleFp;
+	String titel, text1,text2,text3,text4,text5,text6,text7;
+	String text8,text9,text10,text11,text12,text13,text14;
+	String text15,text16,text17;
+	String labelSpace,buttonFr, buttonFp, buttonLog, buttonDelete;
+	String p1, p2, p3, p4, p5;
+	String q1,q2,q3;
+	String rp1, rp2,rp3,rp4,rp5,rp6;
+	String rpq1,rpq2,rpq3,rpq4;
+	String rAus2PNaN1,rAus2PNaN2,rAus2PNaN3;
+	String rAusPQNaN1,rAusPQNaN2,rAusPQNaN3;
 	//finite number space
-	static String frp1, frp2,frp3,frp4,frp5,frp6;
-	static String frpq1,frpq2,frpq3,frpq4;
-	static String frAus2PNaN1,frAus2PNaN2,frAus2PNaN3;
-	static String frAusPQNaN1,frAusPQNaN2,frAusPQNaN3;
-	static String graph1, graph2, graph3;
+	String frp1, frp2,frp3,frp4,frp5,frp6;
+	String frpq1,frpq2,frpq3,frpq4;
+	String frAus2PNaN1,frAus2PNaN2,frAus2PNaN3;
+	String frAusPQNaN1,frAusPQNaN2,frAusPQNaN3;
+	String graph1, graph2, graph3;
 	//Log-File
-	static String logTitle, logCurve;
-	static String logFrNumberSpace;
-	static String logFpNumberSpace;
+	String logTitle, logCurve;
+	String logFrNumberSpace;
+	String logFpNumberSpace;
 	//Help-Dialog
-	static String helpTitle;
-	static String helpButton;
+	String helpTitle;
+	String helpButton;
+	static String pointsText;
 	
 	Texte (int sprache)
 	{
 		if(sprache==0)//deutsch
 		{
-			this.frameTitleFr="ECC-Demo, v1.0: Punktaddition auf Elliptischen Kurven über den reellen Zahlenraum R";
-			this.frameTitleFp="ECC-Demo, v1.0: Punktaddition auf Elliptischen Kurven über diskreten Gruppen Fp";
+			Texte.frameTitleFr="ECC-Demo 1.1: Punktaddition auf Elliptischen Kurven über den reellen Zahlenraum R";
+			Texte.frameTitleFp="ECC-Demo 1.1: Punktaddition auf Elliptischen Kurven über diskreten Gruppen Fp";
 			//long title with authors
 			//this.frameTitle="Punktaddition auf Elliptischen Kurven                                                                                           © D.Laupichler, M.Kraft 2005";
 			this.helpButton="Hilfe";
+			Texte.pointsText="Punkte:";
 			this.labelSpace="Wählen Sie den Zahlenraum";
 			this.buttonFr="Reeller Zahlenraum R";
 			this.buttonFp="Diskrete Gruppe über Fp";
@@ -102,12 +105,12 @@ class Texte
 			this.frpq4="finden Sie in der Hilfe zu dieser Demo.";
 			
 			this.frAus2PNaN1="Das Ergebnis der Verdopplung des Punktes P";
-			this.frAus2PNaN2="ist kein Element der Kurve.";
-			this.frAus2PNaN3="Der Punkt R ist der Punkt im Unendlichen O.";
+			this.frAus2PNaN2="ist der Punkt im Unendlichen O, welcher sich";
+			this.frAus2PNaN3="nicht im Koordinatensystem darstellen lässt.";
 			
 			this.frAusPQNaN1="Das Ergebnis der Addition der Punkte P und Q";
-			this.frAusPQNaN2="ist kein Element der Kurve.";
-			this.frAusPQNaN3="Der Punkt R ist der Punkt im Unendlichen O.";
+			this.frAusPQNaN2="ist der Punkt im Unendlichen O, welcher sich";
+			this.frAusPQNaN3="nicht im Koordinatensystem darstellen lässt.";
 			
 			this.graph1=" mit ";
 			this.graph2=" über ";
@@ -125,11 +128,12 @@ class Texte
 		
 		if(sprache==1)//english
 		{
-			this.frameTitleFr="ECC Demonstration, v1.0: Point addition on elliptic curves over the real number space R";
-			this.frameTitleFp="ECC Demonstration, v1.0: Point addition on elliptic curves over discrete groups of prime numbers";	
+			Texte.frameTitleFr="ECC Demonstration 1.1: Point addition on elliptic curves over the real number space R";
+			Texte.frameTitleFp="ECC Demonstration 1.1: Point addition on elliptic curves over discrete groups of prime numbers";	
 			//long title with authors
 			//this.frameTitle="Point addition over elliptic curves                                                                                             © D.Laupichler, M.Kraft 2005";
 			this.helpButton="Help";
+			Texte.pointsText="Points:";
 			this.labelSpace="Choose the number space";
 			this.buttonFr="Real number space R";
 			this.buttonFp="Discrete group over Fp";
@@ -187,9 +191,9 @@ class Texte
 			this.frp1="Doubling the point P results in the point R";
 			this.frp2="By clicking the button again, you can continue";
 			this.frp3="the point addition with the point P.";
-			this.frp4="An explanation of the mathematical procedure";
-			this.frp5="can be found in the help texts of this program.";
-			this.frp6="";
+			this.frp4="";
+			this.frp5="An explanation of the mathematical procedure";
+			this.frp6="can be found in the help texts of this program.";
 			
 			this.frpq1="The addition of the points P and Q results";
 			this.frpq2="in the point R.";
@@ -197,12 +201,12 @@ class Texte
 			this.frpq4="can be found in the help texts of this program.";
 			
 			this.frAus2PNaN1="The result of the doubling of the point P";
-			this.frAus2PNaN2="is not an element of this curve.";
-			this.frAus2PNaN3="The point R is the point at infinity O.";
+			this.frAus2PNaN2="is the point at infinity O which is not";
+			this.frAus2PNaN3="drawable on the grid.";
 			
 			this.frAusPQNaN1="The result of the addition of P and Q";
-			this.frAusPQNaN2="is not an element of this curve.";
-			this.frAusPQNaN3="The point R is the point at infinity O.";
+			this.frAusPQNaN2="is the point at infinity O which is not";
+			this.frAusPQNaN3="drawable on the grid.";
 
 			this.graph1=" with ";
 			this.graph2=" over ";
