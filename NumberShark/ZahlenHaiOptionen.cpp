@@ -314,10 +314,10 @@ void ZahlenHaiOptionen::drawStartTab()
 void ZahlenHaiOptionen::drawOptionsTab()
 {
 	int tab = dialogOptionsTab.GetCurSel();
-	int seeOptionsStandard;
-	int seeOptionsMaximum;
-	int seeOptionsWelcome;
-	int seeAccelerators;
+	int seeOptionsStandard = 1;
+	int seeOptionsMaximum  = 0;
+	int seeOptionsWelcome  = 0;
+	int seeAccelerators    = 0;
 
 	if(tab==0)
 	{

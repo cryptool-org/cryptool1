@@ -62,7 +62,7 @@ BOOL readSearchState(int &startTime, __int64 &numberOfRounds, int &StackPointer,
 	title.Empty();
 	CString buffer="";
 	buffer.LoadString(IDS_SEARCH1);
-	itoa(upperLimit, charUpperLimit, 10);
+	_itoa(upperLimit, charUpperLimit, 10);
 	title +=buffer;
 	title += charUpperLimit;
 	buffer.LoadString(IDS_SEARCH2);
@@ -103,14 +103,14 @@ CString writeSearchValue(__int64 numberOfRounds, int StackPointer, int startTime
 	int stopTime = clock();
 	endTime = stopTime - startTime;
 	endTime = endTime/1000;
-	itoa(endTime, charWriteBuffer, 10);
+	_itoa(endTime, charWriteBuffer, 10);
 	stringBuffer += charWriteBuffer;
 	
 	stringBuffer+= " | ";
 	_ui64toa(numberOfRounds, charWriteBuffer, 10);
 	stringBuffer+= charWriteBuffer;
 	stringBuffer+= " | ";
-	itoa(StackPointer, charWriteBuffer, 10);
+	_itoa(StackPointer, charWriteBuffer, 10);
 	stringBuffer+= charWriteBuffer;
 	stringBuffer+= " | ";
 	stringBuffer+="\r\n";
@@ -124,7 +124,7 @@ void writeStack(item *Stack, int StackPointer, CStdioFile &file)
 	{
 		CString writeBuffer=Stack[i].Spiel.toString();
 		char charIndex[6];
-		itoa(Stack[i].index, charIndex, 10);
+		_itoa(Stack[i].index, charIndex, 10);
 		file.WriteString(charIndex);
 		file.WriteString(" | " +writeBuffer+"\r\n");
 	}
@@ -139,7 +139,7 @@ void writeSearchState(item *Stack, int StackPointer, int upperLimit, __int64 num
 	title.Empty();
 	CString buffer="";
 	buffer.LoadString(IDS_SEARCH1);
-	itoa(upperLimit, charUpperLimit, 10);
+	_itoa(upperLimit, charUpperLimit, 10);
 	title +=buffer;
 	title += charUpperLimit;
 	buffer.LoadString(IDS_SEARCH2);
@@ -193,7 +193,7 @@ void SucheNRek(EvoZahlenHai &Spiel, int startTime)
 		title.Empty();
 		CString buffer="";
 		buffer.LoadString(IDS_SEARCH1);
-		itoa(Spiel.getUpperLimit(), charUpperLimit, 10);
+		_itoa(Spiel.getUpperLimit(), charUpperLimit, 10);
 		title +=buffer;
 		title += charUpperLimit;
 		buffer.LoadString(IDS_SEARCH2);
@@ -213,7 +213,7 @@ void SucheNRek(EvoZahlenHai &Spiel, int startTime)
 	else
 	{
 		file.Close();
-		unlink("Test");	
+		_unlink("Test");	
 		doSearch=1;
 	}
 
@@ -349,7 +349,7 @@ int maxPoints(int upperLimit)
 
 	for(int i=1; i<=n; i++)
 	{
-		itoa(nos[i], bestWayBuffer, 10);
+		_itoa(nos[i], bestWayBuffer, 10);
 		bestWay += bestWayBuffer;
 		if(i < n)
 			bestWay += " , ";
@@ -363,7 +363,7 @@ int maxPoints(int upperLimit)
 
 UINT maxPointsStatic(LPVOID param)
 {
-	int upperLimit = (int)(LPVOID)(param);
+	int upperLimit = (int)((LPVOID)(param));
 
 	CWaitCursor wait;
 	maxEndPoints = 0;
@@ -398,7 +398,7 @@ UINT maxPointsStatic(LPVOID param)
 
 	for(int i=1; i<=n; i++)
 	{
-		itoa(nos[i], bestWayBuffer, 10);
+		_itoa(nos[i], bestWayBuffer, 10);
 		bestWay += bestWayBuffer;
 		if(i < n)
 			bestWay += " , ";

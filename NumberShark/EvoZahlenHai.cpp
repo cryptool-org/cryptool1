@@ -332,7 +332,7 @@ CString EvoZahlenHai::getBestWay()
 
 	for(int i=1; i<=n; i++)
 	{
-		itoa(nos[i], bestWayBuffer, 10);
+		_itoa(nos[i], bestWayBuffer, 10);
 		bestWay += bestWayBuffer;
 		if(i < n)
 			bestWay += ", ";
@@ -348,29 +348,29 @@ CString EvoZahlenHai::toString()
 	char charWriteBuffer[25];
 
 	//upperLimit
-	itoa(upperLimit, charWriteBuffer, 10);
+	_itoa(upperLimit, charWriteBuffer, 10);
 	writeBuffer += charWriteBuffer;
 	writeBuffer += " | ";
 
 	//currentRound
-	itoa(currentRound, charWriteBuffer, 10);
+	_itoa(currentRound, charWriteBuffer, 10);
 	writeBuffer += charWriteBuffer;
 	writeBuffer += " | ";
 
 	//pointsPlayer
-	itoa(pointsplayer, charWriteBuffer, 10);
+	_itoa(pointsplayer, charWriteBuffer, 10);
 	writeBuffer += charWriteBuffer;
 	writeBuffer += " | ";
 
 	//pointsComputer
-	itoa(pointscomputer, charWriteBuffer, 10);
+	_itoa(pointscomputer, charWriteBuffer, 10);
 	writeBuffer += charWriteBuffer;
 	writeBuffer += " | ";
 	
 	//numbers
 	for(i=1; i<=upperLimit; i++)
 	{
-		itoa(numbers[i], charWriteBuffer, 10);
+		_itoa(numbers[i], charWriteBuffer, 10);
 		writeBuffer += charWriteBuffer;
 		if(i < upperLimit)
 			writeBuffer += " , ";
@@ -378,19 +378,19 @@ CString EvoZahlenHai::toString()
 	writeBuffer += " | ";
 	
 	//usableNumbersLeft
-	itoa(usablenumbersleft, charWriteBuffer, 10);
+	_itoa(usablenumbersleft, charWriteBuffer, 10);
 	writeBuffer += charWriteBuffer;
 	writeBuffer += " | ";
 
 	//optimalNumbersCount
-	itoa(optimalNumbersCount, charWriteBuffer, 10);
+	_itoa(optimalNumbersCount, charWriteBuffer, 10);
 	writeBuffer += charWriteBuffer;
 	writeBuffer += " | ";
 	
 	//optimalNumbers
 	for(i=1; i<=optimalNumbersCount; i++)
 	{
-		itoa(optimalNumbers[i], charWriteBuffer, 10);
+		_itoa(optimalNumbers[i], charWriteBuffer, 10);
 		writeBuffer += charWriteBuffer;
 		if(i < optimalNumbersCount)
 			writeBuffer += " , ";
@@ -398,13 +398,13 @@ CString EvoZahlenHai::toString()
 	writeBuffer += " | ";
 
 	//computerNumbers.n
-	itoa(computerNumbers.n, charWriteBuffer, 10);
+	_itoa(computerNumbers.n, charWriteBuffer, 10);
 	writeBuffer += charWriteBuffer;
 	writeBuffer += " | ";
 	//computerNumbers.pnumbers
 	for(i=1; i<=computerNumbers.n; i++)
 	{
-		itoa(computerNumbers.pNumbers[i], charWriteBuffer, 10);
+		_itoa(computerNumbers.pNumbers[i], charWriteBuffer, 10);
 		writeBuffer += charWriteBuffer;
 		if(i <upperLimit-1)
 			writeBuffer += " , ";

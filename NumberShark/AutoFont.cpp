@@ -237,7 +237,7 @@ BOOL CAutoFont::SetItalic(BOOL i)
 	BOOL b=(BOOL)lf.lfItalic;
 
 	DeleteObject();
-	lf.lfItalic=i;
+	lf.lfItalic=(BYTE)i;
 	CreateFontIndirect(&lf);
 
 	return b;
@@ -248,7 +248,7 @@ BOOL CAutoFont::SetUnderline(BOOL u)
 	BOOL b=(BOOL)lf.lfUnderline;
 
 	DeleteObject();
-	lf.lfUnderline=u;
+	lf.lfUnderline=(BYTE)u;
 	CreateFontIndirect(&lf);
 
 	return b;
@@ -259,7 +259,7 @@ BOOL CAutoFont::SetStrikeOut(BOOL s)
 	BOOL b=(BOOL)lf.lfStrikeOut;
 
 	DeleteObject();
-	lf.lfStrikeOut=s;
+	lf.lfStrikeOut=(BYTE)s;
 	CreateFontIndirect(&lf);
 
 	return b;
@@ -375,19 +375,19 @@ CString CAutoFont::ContractFont()
 
 void CAutoFont::ExtractFont(CString& str)
 {
-	lf.lfHeight=atol((LPCTSTR)GetToken(str, ","));
-	lf.lfWidth=atol((LPCTSTR)GetToken(str, ","));
-	lf.lfEscapement=atol((LPCTSTR)GetToken(str, ","));
-	lf.lfOrientation=atol((LPCTSTR)GetToken(str, ","));
-	lf.lfWeight=atol((LPCTSTR)GetToken(str, ","));
-	lf.lfItalic=atoi((LPCTSTR)GetToken(str, ","));
-	lf.lfUnderline=atoi((LPCTSTR)GetToken(str, ","));
-	lf.lfStrikeOut=atoi((LPCTSTR)GetToken(str, ","));
-	lf.lfCharSet=atoi((LPCTSTR)GetToken(str, ","));
-	lf.lfOutPrecision=atoi((LPCTSTR)GetToken(str, ","));
-	lf.lfClipPrecision=atoi((LPCTSTR)GetToken(str, ","));
-	lf.lfQuality=atoi((LPCTSTR)GetToken(str, ","));
-	lf.lfPitchAndFamily=atoi((LPCTSTR)GetToken(str, ","));
+	lf.lfHeight			=atol((LPCTSTR)GetToken(str, ","));
+	lf.lfWidth			=atol((LPCTSTR)GetToken(str, ","));
+	lf.lfEscapement		=atol((LPCTSTR)GetToken(str, ","));
+	lf.lfOrientation	=atol((LPCTSTR)GetToken(str, ","));
+	lf.lfWeight			=atol((LPCTSTR)GetToken(str, ","));
+	lf.lfItalic			=(BYTE)atoi((LPCTSTR)GetToken(str, ","));
+	lf.lfUnderline		=(BYTE)atoi((LPCTSTR)GetToken(str, ","));
+	lf.lfStrikeOut		=(BYTE)atoi((LPCTSTR)GetToken(str, ","));
+	lf.lfCharSet		=(BYTE)atoi((LPCTSTR)GetToken(str, ","));
+	lf.lfOutPrecision	=(BYTE)atoi((LPCTSTR)GetToken(str, ","));
+	lf.lfClipPrecision	=(BYTE)atoi((LPCTSTR)GetToken(str, ","));
+	lf.lfQuality		=(BYTE)atoi((LPCTSTR)GetToken(str, ","));
+	lf.lfPitchAndFamily	=(BYTE)atoi((LPCTSTR)GetToken(str, ","));
 	strcpy(lf.lfFaceName, (LPCTSTR)GetToken(str, ","));
 
 	DeleteObject();

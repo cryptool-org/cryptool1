@@ -61,7 +61,7 @@ void CHeaderCtrlEx::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
 
 	UINT uFormat = DT_CENTER;
 	//DRAW THE TEXT
-   ::DrawText(lpDrawItemStruct->hDC, lpBuffer, strlen(lpBuffer), 
+   ::DrawText(lpDrawItemStruct->hDC, lpBuffer, (int)strlen(lpBuffer), 
       &lpDrawItemStruct->rcItem, uFormat);
 
    pDC->SelectStockObject(SYSTEM_FONT);

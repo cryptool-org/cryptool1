@@ -21,7 +21,7 @@ DynTabCtrl::DynTabCtrl(bool deltab):delete_tab(deltab)
 {
 	if(!m_tabs.empty())
 	{
-		for(int i =0; i < m_tabs.size(); i++)//vector freigeben
+		for(unsigned int i =0; i < m_tabs.size(); i++)//vector freigeben
 		{
 			if(!m_tabs[i]->DestroyWindow())
 				MessageBox("Freigeben des Tabsheets fehlgeschlagen");
@@ -62,13 +62,12 @@ int DynTabCtrl::InsertItem(CDialog * dlg, CString titel, UINT ID)
 	m_tabs.push_back(dlg);
 	m_titel.push_back(titel);
 	SetRec();
-	return CTabCtrl::InsertItem(m_tabs.size()-1,titel);
-	
+	return (int)CTabCtrl::InsertItem(m_tabs.size()-1,titel);
 }
 
 CDialog* DynTabCtrl::GetTab(int itab)
 {
-	if(m_tabs.size() > itab && itab > -1)
+	if((int)m_tabs.size() > itab && itab > -1)
 		return m_tabs[itab];
 	return NULL;
 }
@@ -113,7 +112,7 @@ void DynTabCtrl::OnLButtonDown(UINT nFlags, CPoint point)
 
 BOOL DynTabCtrl::DeleteItem(int nItem)
 {
-	if(nItem > -1 && nItem < m_tabs.size())
+	if(nItem > -1 && nItem < (int)m_tabs.size())
 	{
 		if(CTabCtrl::DeleteItem(nItem))
 		{
@@ -134,21 +133,11 @@ BOOL DynTabCtrl::DeleteItem(int nItem)
 	}
 	return FALSE;
 }
+
 void DynTabCtrl::OnRButtonDown(UINT nFlags, CPoint point) 
 {
 	if(delete_tab)
 	{
-		// Beliebiges Tab schliessen
-		/*CRect rect;
-		for(int i =0,n = GetItemCount();i < n; i++)
-		{
-			GetItemRect(i,&rect);
-			if(rect.PtInRect(point))
-			{
-				SetCurFocus(i);
-				break;
-			}
-		}*/
 		CRect c;
 		GetItemRect(GetCurFocus(),&c);
 		if(c.PtInRect(point))
@@ -160,9 +149,6 @@ void DynTabCtrl::OnRButtonDown(UINT nFlags, CPoint point)
 			m.TrackPopupMenu(TPM_LEFTALIGN + TPM_LEFTBUTTON,point.x, point.y, this, NULL);
 		}
 	}
-		/*MessageBox("test");
-	if(MessageBox("Tab "+ m_titel[GetCurFocus()] +" schliessen ?","Tab wird geschlossen",MB_YESNO)==IDYES)
-		DeleteItem(GetCurFocus());*/
 }
 
 BOOL DynTabCtrl::OnCommand(WPARAM wParam, LPARAM lParam) 

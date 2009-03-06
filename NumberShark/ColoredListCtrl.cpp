@@ -42,8 +42,8 @@ void CColoredListCtrl::OnCustomDraw(NMHDR* pNMHDR, LRESULT* pResult)
   *pResult = 0;
 
   LPNMLVCUSTOMDRAW  lplvcd = (LPNMLVCUSTOMDRAW)pNMHDR;
-  int iRow = lplvcd->nmcd.dwItemSpec;
-
+  int iRow = lplvcd->nmcd.dwItemSpec; // FIXME 
+ 
   switch(lplvcd->nmcd.dwDrawStage)
   {
     case CDDS_PREPAINT :

@@ -63,7 +63,7 @@ listenHeader columnheader[NUM_COLUMNS]={
 //Array enhält die bereits berechneten maximalen Punktezahlen 
 //Das muss noch weg. Dafür soll die Anzahl der Zelen aus der Spieldaten.txt herausgelesen werden
 int maxPossiblePoints[] = {0,2,3,7,9,15,17,21,30,40,44,50,52,66,81,89,93,111,113,124,144,166};
-int timer=0;
+UINT_PTR timer=0;
 int sekunden=0;
 int minuten=0;
 int a=1;
@@ -479,19 +479,19 @@ void CMFCZahlenHaiDlg::CSetList(int playerchoice)
 
 	primeInfo.LoadString(IDS_PRIME_INFO);
 	
-	stringRounds=itoa(currentRound, buffer, 10);
-	stringFinalPointsPlayer=itoa(hai.getPointsPlayer(), buffer, 10);
-	stringFinalPointsComputer=itoa(hai.getPointsComputer(), buffer, 10);
+	stringRounds = _itoa(currentRound, buffer, 10);
+	stringFinalPointsPlayer = _itoa(hai.getPointsPlayer(), buffer, 10);
+	stringFinalPointsComputer = _itoa(hai.getPointsComputer(), buffer, 10);
 	
 	if(hai.getComputerNumbers().n == 0 || rest>0)
 	{
-		stringNumberscomputer=itoa(player, buffer,10);
+		stringNumberscomputer=_itoa(player, buffer,10);
 		if(isPrime(player))
 				stringNumberscomputer+=primeInfo;
 		stringNumbersPlayer="0";
 	}
 	
-	stringNumbersPlayer=itoa(player, buffer, 10);
+	stringNumbersPlayer=_itoa(player, buffer, 10);
 	if(isPrime(player))
 		stringNumbersPlayer+=primeInfo;
 		
@@ -499,20 +499,20 @@ void CMFCZahlenHaiDlg::CSetList(int playerchoice)
 	{
 		if(i == 0) 
 		{
-			stringNumberscomputer+=itoa(hai.getComputerNumbers().pNumbers[i],buffer,10);
+			stringNumberscomputer+=_itoa(hai.getComputerNumbers().pNumbers[i],buffer,10);
 			if(isPrime(hai.getComputerNumbers().pNumbers[i]))
 				stringNumberscomputer+=primeInfo;
 		}
 		else
 		{
 			stringNumberscomputer+=", ";		
-			stringNumberscomputer+=itoa(hai.getComputerNumbers().pNumbers[i],buffer,10);
+			stringNumberscomputer+=_itoa(hai.getComputerNumbers().pNumbers[i],buffer,10);
 			if(isPrime(hai.getComputerNumbers().pNumbers[i]))
 				stringNumberscomputer+=primeInfo;
 		}
 	}
 	
-	stringUsableNumbersLeft=itoa(hai.usableNumbersLeft(),buffer,10);
+	stringUsableNumbersLeft=_itoa(hai.usableNumbersLeft(),buffer,10);
 	//Die Zahlen, die jede Runde von dem Spieler und dem Computer gezogen werden, werden in die Liste eingetragen
     ListControl.InsertItem(currentRound-1, stringRounds);
 	if(!hai.getComputerNumbers().n == 0 && rest==0)
@@ -558,7 +558,9 @@ void CMFCZahlenHaiDlg::updateButtons()
 	
 	char Buffer[100];
 
-	for(int i=0; i<MAX_ZAHLENHAI_BUTTON; i++)
+	int i;
+
+	for(i=0; i<MAX_ZAHLENHAI_BUTTON; i++)
 	{
 		//Die Nummer des ausgewählten Reiters wird zurückgegeben
 		int tab = tabControl.GetCurSel();
@@ -583,7 +585,7 @@ void CMFCZahlenHaiDlg::updateButtons()
 				arrayButtonControl[i].SetFontColor(RGB(255,255,0));
 			}
 					
-			stringBeschriftung=itoa(number, Buffer, 10);
+			stringBeschriftung=_itoa(number, Buffer, 10);
 		    arrayButtonControl[i].SetWindowText(stringBeschriftung);
 
 			//Durch diese Abfrage werden die ToolTips nur geschrieben wenn sie auch aktiviert sind
@@ -603,7 +605,7 @@ void CMFCZahlenHaiDlg::updateButtons()
 						//wenn j ein Teiler von number ist
 						if((!(number % j)) && (number != j))
 						{
-							stringNumber=itoa(j, Buffer, 10);
+							stringNumber=_itoa(j, Buffer, 10);
 							stringNumber+=", ";
 							factor += stringNumber;
                     	}
@@ -619,7 +621,7 @@ void CMFCZahlenHaiDlg::updateButtons()
 							if(!(j%number))
 							{
 								counter++;
-								stringNumber=itoa(j,Buffer,10);
+								stringNumber=_itoa(j,Buffer,10);
 								stringNumber+=", ";
 								
 								if(counter==10)
@@ -680,7 +682,6 @@ void CMFCZahlenHaiDlg::updateButtons()
 	
 	//Immer wenn eine nicht teilbare Zahl im Zahlen Block vorhanden ist erscheint der Button
 	//"Zahlen ohne Teiler für den Zahlenhai"
-	int i;
 	for(i= upperLimit; i > upperLimit/2; i--)
 	{
 		found=false;
@@ -695,6 +696,7 @@ void CMFCZahlenHaiDlg::updateButtons()
 					found=true;
 			}
 		}
+
 		if(found==false && numbersTemp[i]==FREE)
 		{
 			((CEdit*)GetDlgItem(IDC_BUTTON_REST))->EnableWindow(true);
@@ -723,7 +725,7 @@ void CMFCZahlenHaiDlg::updateButtons()
 			counter++;
 			if(counter<=10)
 			{
-                numbersForShark+=itoa(i,Buffer,10);
+                numbersForShark+=_itoa(i,Buffer,10);
 				numbersForShark+=", ";
 			}
 			if(counter==10)
@@ -785,9 +787,9 @@ void CMFCZahlenHaiDlg::updatePoints()
 
 	char buffer[30];
 	CString strPointsPlayer="";
-	strPointsPlayer=itoa(pointsPlayer,buffer,10);
+	strPointsPlayer=_itoa(pointsPlayer,buffer,10);
 	CString strPointsComputer="";
-	strPointsComputer=itoa(pointsComputer,buffer,10);
+	strPointsComputer=_itoa(pointsComputer,buffer,10);
 	m_LedText.SetText(strPointsPlayer + ":" + strPointsComputer);
 
 	CString sepValueUpperLimit=hai.setSeperator(upperLimit);
@@ -814,9 +816,9 @@ void CMFCZahlenHaiDlg::updateTab()
 		if(b > upperLimit)
 			b=upperLimit;
 		//Beschriftung der Reiter
-		stringTabCount=itoa(a,Buffer,10);
+		stringTabCount=_itoa(a,Buffer,10);
 		stringTabCount+="-";
-		stringTabCount+=itoa(b,Buffer,10);
+		stringTabCount+=_itoa(b,Buffer,10);
 		tabControl.InsertItem(i, stringTabCount);
 	}
 	
@@ -1136,10 +1138,10 @@ void CMFCZahlenHaiDlg::writeLogFile()
 	showWinner=1;
 	char Buffer[1000];
 	
-	CString upperLimitNumbers = itoa(hai.getUpperLimit(),Buffer,10);
+	CString upperLimitNumbers = _itoa(hai.getUpperLimit(),Buffer,10);
 	CString playerName = optionen.playername;
 	CString SpielerPunkte;
-	SpielerPunkte=itoa(hai.getPointsPlayer(),Buffer,10);
+	SpielerPunkte=_itoa(hai.getPointsPlayer(),Buffer,10);
 
 	CStdioFile file;
 	//Je nach Sprachversion heißt die Datei, in welcher das Spiel gespeichert wird anders.
@@ -1297,9 +1299,9 @@ void CMFCZahlenHaiDlg::writeLogFile()
 	}
 	
 		
-	CString pointsPlayer = itoa(hai.getPointsPlayer(),Buffer,10);
-	CString pointsComputer = itoa(hai.getPointsComputer(),Buffer,10);
-	CString currentRound = itoa(hai.getCurrentRound(),Buffer,10);
+	CString pointsPlayer = _itoa(hai.getPointsPlayer(),Buffer,10);
+	CString pointsComputer = _itoa(hai.getPointsComputer(),Buffer,10);
+	CString currentRound = _itoa(hai.getCurrentRound(),Buffer,10);
 	
 	CString logfilePointsPlayer;
 	CString logfilePointsComputer;
@@ -1320,7 +1322,7 @@ void CMFCZahlenHaiDlg::writeLogFile()
 	{
 		LogText.LoadString(IDS_LOG_LEAD);
 		int lead = hai.getPointsPlayer()-hai.getPointsComputer();
-		file.WriteString(LogText+(itoa(lead,Buffer,10)));
+		file.WriteString(LogText+(_itoa(lead,Buffer,10)));
 	}
 	else
 	{
@@ -1328,7 +1330,7 @@ void CMFCZahlenHaiDlg::writeLogFile()
 		{
 			LogText.LoadString(IDS_LOG_BEHIND);
 			int behind = hai.getPointsComputer()-hai.getPointsPlayer();
-			file.WriteString(LogText+(itoa(behind,Buffer,10)));
+			file.WriteString(LogText+(_itoa(behind,Buffer,10)));
 		}
 	}
 	int upperLimit=hai.getUpperLimit();
@@ -1374,8 +1376,8 @@ int CMFCZahlenHaiDlg::winner()
 	int pos = exePathSummary.ReverseFind( '\\');
 	exePathSummary = exePathSummary.Mid(1, pos-1);
 
-	CString upperLimitSummary=itoa(hai.getUpperLimit(),Buffer,10);
-	CString SpielerPunkte=itoa(pointsPlayer, Buffer, 10);
+	CString upperLimitSummary=_itoa(hai.getUpperLimit(),Buffer,10);
+	CString SpielerPunkte=_itoa(pointsPlayer, Buffer, 10);
 	CString playerName = optionen.playername;
 	CString filename;
 	filename.LoadString(IDS_FILE_NAME);
@@ -1491,48 +1493,13 @@ void CMFCZahlenHaiDlg::addOnInformation()
 //wird für die maxPoints benötigt
 void CMFCZahlenHaiDlg::addOn()
 {
-	/*int tempUpperLimit = hai.getUpperLimit();
-	int maxPts = maxPoints(tempUpperLimit);*/
-
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//Multithreading
 	int tempUpperLimit = hai.getUpperLimit();
-    int maxPts = 0;
-	//globalPoints = 0;
-	AfxBeginThread(maxPointsStatic, (LPVOID)(int)(tempUpperLimit),THREAD_PRIORITY_BELOW_NORMAL);
+	AfxBeginThread(maxPointsStatic, (LPVOID)((int)(tempUpperLimit)),THREAD_PRIORITY_BELOW_NORMAL);
 	int r=AfxMessageBox("Soll die Berechnung unterbrochen werden?",MB_OK,MB_ICONQUESTION);
 	if(r==IDOK)
 		endSearch=-1;
-    
-	
-	//maxPts = globalPoints;
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-	/*if(maxPts != -1)
-	{
-	
-		CString result;
-  		CString headline;
-		
-		headline.LoadString(IDS_MAX_POINTS_HEADLINE);
-
-		CString sepTempUpperLimit = hai.setSeperator(tempUpperLimit);
-		CString sepMaxPts = hai.setSeperator(maxPts);
-		if(tempUpperLimit <= MAX_POINTS_CALC)
-			result.Format(IDS_MAX_POINTS_NEW_2, sepTempUpperLimit, sepMaxPts, hai.setSeperator(getTime()), hai.setSeperator(getNumberOfRounds()), hai.setSeperator(maxPrime(tempUpperLimit)), bestWay);	
-		else
-			result.Format(IDS_MAX_POINTS_NEW, sepTempUpperLimit, sepMaxPts, hai.setSeperator(getTime()), hai.setSeperator(getNumberOfRounds()), hai.setSeperator(maxPrime(tempUpperLimit)), bestWay);
-		
-		MessageBox(result,headline, MB_ICONINFORMATION);
-	}*/
-
-/*
-	// flomar
-	int tempUpperLimit = hai.getUpperLimit();
-    int maxPts = 0;
-	globalPoints = 0;
-	AfxBeginThread(maxPointsStatic, (LPVOID)(int)(tempUpperLimit),THREAD_PRIORITY_NORMAL);
-*/
 }
 
 //Wenn sich der Fokus über einem der Zahlenbuttons befindet und der Benutzer die Enter Taste drückt, wird dieser Button ausgewählt
@@ -2106,7 +2073,7 @@ void CMFCZahlenHaiDlg::writeRegistry()
 	strcpy(valueName, "Startnummer");
 	regKey.SetStringValue(valueName, startNumberSetting);
 	strcpy(valueName,"Startzahl");
-	regKey.SetStringValue(valueName, itoa(regUpperLimit,charUpperLimit,10));
+	regKey.SetStringValue(valueName, _itoa(regUpperLimit,charUpperLimit,10));
 	
 	regKey.Close();
 
@@ -2251,8 +2218,8 @@ void CMFCZahlenHaiDlg::OnTimer(UINT nIDEvent)
    
    sekunden++;
    if(sekunden==60){ minuten++; sekunden=0;}
-   CString sek = itoa(sekunden,Buffer,10);
-   CString min = itoa(minuten,Buffer,10);
+   CString sek = _itoa(sekunden,Buffer,10);
+   CString min = _itoa(minuten,Buffer,10);
 
    if(sek.GetLength()==1)
    {
@@ -2303,12 +2270,12 @@ void CMFCZahlenHaiDlg::writeSaveGame()
 	filename.LoadString(IDS_NUMBER_SHARK);
 	filename+=".save";
 
-	save+=itoa(hai.getUpperLimit(),Buffer,10);
+	save+=_itoa(hai.getUpperLimit(),Buffer,10);
 	save+=seperator;
 
 	for(int i=0; i< hai.getCurrentRound(); i++)
 	{
-		save+=itoa(undoRedo[i],Buffer,10);
+		save+=_itoa(undoRedo[i],Buffer,10);
 		save+=seperator;
 	}
 	
