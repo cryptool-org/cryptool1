@@ -1,6 +1,8 @@
 /* rijndael-alg-fst.h   v2.0   August '99
  * Optimised ANSI C code
  */
+#define _CRT_SECURE_NO_WARNINGS
+
 #ifndef __RIJNDAEL_ALG_H
 #define __RIJNDAEL_ALG_H
 

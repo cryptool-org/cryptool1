@@ -39,6 +39,8 @@
 #include "serpent.h"
 #include "serpentsboxes.h"
 
+#pragma warning(disable : 4996)
+
 int serpent_convert_from_string(int len, char *str, unsigned long *val);
 
 /*  The functions  */

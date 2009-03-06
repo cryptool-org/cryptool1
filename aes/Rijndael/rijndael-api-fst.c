@@ -10,6 +10,8 @@
 #include "rijndael-alg-fst.h"
 #include "rijndael-api-fst.h"
 
+#pragma warning(disable : 4996)
+
 int makeKeyRijndael(keyInstanceRijndael *key, BYTE direction, int keyLen, char *keyMaterial)
 {
 	word8 k[MAXKC][4];
