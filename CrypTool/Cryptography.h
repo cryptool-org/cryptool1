@@ -53,6 +53,8 @@ statement from your version.
 #include "MakeNewName.h"
 #include "symEncBase.h"
 
+#define _CRT_SECURE_NO_WARNINGS
+
 /////////////////////////////////////////////////////////////////
 //
 //

@@ -109,6 +109,8 @@ char *Eingabedatei;
 int *MaxPermu[26];
 float Fortschritt=20.0;
 
+#pragma warning(disable : 4996)
+
 
 #if 0
 ///////////////////////////////////////////////////////////////////////
@@ -1528,10 +1530,10 @@ void HistogramBin(const char *infile, const char *OldTitle)
 
 int AnalyseMonoManual(const char *infile, const char *OldTitle)
 {
-	char *common[135];
-	int Grenze;
+	// char *common[135]; // FIXME: not used?! 
+	// int Grenze; // FIXME: not used?!
 	//Eingabedatei=infile;
-	int vore[26], nache[26], anfang[26], ende[26],i,j;
+	int vore[26], nache[26], i; //  anfang[26], ende[26], j; // FIXME: not used ?!
 	for (i=0; i<26; i++){
 		nache[i]=0;
 		vore[i]=0;
@@ -1590,7 +1592,7 @@ int AnalyseMonoManual(const char *infile, const char *OldTitle)
 	SymbolArray text(AlphaSpaceConv);
 	text.Read(outfile2);
 	int Laenge=text.GetSize(); // Länge des eingelesenen Textes
-	int Leerzeichen;		// Position des nächsten Leerzeichens
+	// int Leerzeichen;		// FIXME: not used (Position des nächsten Leerzeichens)
 	int Start=0;			// Merkt sich, wo das letzte Leerezichen gefunden wurde
 	char *current=(char*) malloc (50);
 
@@ -4016,7 +4018,7 @@ int RailFenceEncryption(const char *infile, const char *oldTitle, int key, int o
 
 	// ignore non-alphabet characters
 	CString bufferStringValid;
-	for(int i=0; i<bufferString.length(); i++) {
+	for(unsigned int i=0; i<bufferString.length(); i++) {
 		if(theApp.TextOptions.getAlphabet().Find(bufferString[i]) != -1) {
 			bufferStringValid.AppendChar(bufferString[i]);
 		}
@@ -4024,7 +4026,7 @@ int RailFenceEncryption(const char *infile, const char *oldTitle, int key, int o
 	bufferString = bufferStringValid;
 
 	// IMPORTANT: the key is invalid if it is "1" or >= the length of the clear text
-	if(key <= 1 || key >= bufferString.length()) {
+	if(key <= 1 || key >= (int)bufferString.length()) {
 		return -1;
 	}
 
@@ -4200,7 +4202,7 @@ int ScytaleEncryption(const char *infile, const char *oldTitle, int key, int off
 
 	// ignore non-alphabet characters
 	CString bufferStringValid;
-	for(int i=0; i<bufferString.length(); i++) {
+	for(unsigned int i=0; i<bufferString.length(); i++) {
 		if(theApp.TextOptions.getAlphabet().Find(bufferString[i]) != -1) {
 			bufferStringValid.AppendChar(bufferString[i]);
 		}
@@ -4208,7 +4210,7 @@ int ScytaleEncryption(const char *infile, const char *oldTitle, int key, int off
 	bufferString = bufferStringValid;
 
 	// IMPORTANT: the key is invalid if it is "1" or >= the length of the clear text
-	if(key <= 1 || key >= bufferString.length()) {
+	if(key <= 1 || key >= (int)bufferString.length()) {
 		return -1;
 	}
 

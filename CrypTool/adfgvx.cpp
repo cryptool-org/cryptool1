@@ -316,7 +316,7 @@ void adfgvx::writePlaintext(const char* ofile) {
 	//open outputfile (ciphertext)
 	std::ofstream output(ofile);
 	
-	for (int i = 0; i < plaintext.length(); i++)
+	for (unsigned int i = 0; i < plaintext.length(); i++)
 		output.put(this->plaintext[i]);
 			
 	//Streams schlieﬂen
@@ -363,7 +363,7 @@ void adfgvx::writeCiphertext(const char* ofile, int blockSizeStage2, bool newLin
 	//open outputfile (ciphertext)
 	std::ofstream output(ofile);
 	
-	for (int i = 0; i < ciphertext.length(); i++)
+	for (unsigned int i = 0; i < ciphertext.length(); i++)
 	{
 		output.put(ciphertext[i]);
 		//old version: if ((i+1)%blockSize==0&&blockSize>0)
@@ -386,7 +386,7 @@ void adfgvx::writeCiphertext(const char* ofile, int blockSizeStage2, bool newLin
 void adfgvx::substitution(const char* pass) 
 {	
 	//initialize list and iterator 
-	int i=0;
+	unsigned int i=0;
 
 	//insert elements with characters of the password and pointers to the empty queue
 	//number of passwordcharacters equals number of columns
@@ -436,7 +436,7 @@ void adfgvx::writeStage1(const char* stage1, int blockSizeStage1, bool newLineSt
 	//open outputfile (ciphertext)
 	std::ofstream output(stage1);
 	
-	for (int i=0;i<this->stage1String.length();i++)
+	for (unsigned int i=0;i<this->stage1String.length();i++)
 	{
 		output.put(this->stage1String[i]);
 		
@@ -512,7 +512,7 @@ void adfgvx::permutation() {
 	//Read column by column in new order
 	permMatrixIterator = permMatrix.begin();
 	for (permMatrixIterator = permMatrix.begin(); permMatrixIterator!=permMatrix.end(); permMatrixIterator++) {
-		for(int i=0; i<permMatrixIterator->column.size();i++)
+		for(unsigned int i=0; i<permMatrixIterator->column.size();i++)
 			this->ciphertext += permMatrixIterator->column[i];
 	}
 }
@@ -684,14 +684,14 @@ CString adfgvx::nextPassword(int minlength, int maxlength, CString start) {
 
 		do {
 			pwd.Delete(0,pwd.GetLength());
-			for (int i=0; i<password.size(); i++)
+			for (unsigned int i=0; i<password.size(); i++)
 				pwd += password[i];
 			this->repermutation(pwd);
 			this->countBigram();
 	
-		} while (!this->goodenough(false) && next_permutation(password.begin(),password.end()));
+		} while (!(this->goodenough(false)) && next_permutation(password.begin(),password.end()));
 	
-	} while (!this->goodenough(false) && password.size() < maxlength);
+	} while ( !(this->goodenough(false)) && ((int)password.size() < maxlength) );
 
 	if (this->goodenough(false)) {
 		this->lastPasswordFound = pwd;
