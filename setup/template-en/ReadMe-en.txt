@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.30 for Win32, Jan. 2009
+    CrypTool, Version 1.4.30 Beta 03 for Win32, Mar. 2009--
     (c) Contributors
         including
         Deutsche Bank AG, Frankfurt/Main,
@@ -47,12 +47,12 @@
  8.4. .... Awards
 A. .... Appendix
 A.1. .... Hints for using CrypTool on Linux with Wine
-A.2. .... New features, Roadmap, Successor projects using Java/Eclipse + C#/.NET
+A.2. .... New features, Roadmap, Successor projects using Java/Eclipse and C#/.NET
 
 
 1. Brief description of the CrypTool package
    -----------------------------------------
-This ReadMe file is part of the free distribution of CrypTool,
+This ReadMe file is part of the free distribution of CrypTool 1,
 a program by means of which cryptographic functions can be easily
 demonstrated and known and unknown algorithms can be analyzed.
 Already in the ancient ages such methods have been used for privacy
@@ -69,10 +69,10 @@ can be understood without deep knowledge in cryptography.
 
 CrypTool is available in the four languages English, German, Polish and
 Spanish. In English and German the CrypTool package is there completely.
-The Polish program version has the same functionality [the program itself
+The Spanish program version has the same functionality [the program itself
 i.e. the GUI (menus, dialogs, ...) and the online help are translated.
-The PDF documentation delivered with the Polish version is still in English].
-With the Spanish version we have a similar case.
+The PDF documentation delivered with the Spanish version is still in English].
+With the Polish version we have a similar case.
 
 It is required that the user is able to use typical applications
 under Windows.
@@ -82,9 +82,10 @@ available at the following internet addresses (without registration):
                 http://www.CrypTool.org
                 http://www.CrypTool.com
                 http://www.CrypTool.de
+                http://www.CrypTool.es
                 http://www.CrypTool.pl
 
-Since mid 2007 more than 3000 CrypTool packages are downloaded per
+Since mid 2007 more than 3000 CrypTool-1 packages are downloaded per
 month -- with a growing trend (more than 1/3 of the current downloads
 request the English version).
 
@@ -106,8 +107,9 @@ non-liability for any damage arising from the use of CrypTool. These
 conditions are described e.g. at the web page, during the installation
 process and at the introduction page of the online help for CrypTool.
 
-Previous users of CrypTool may find especially chapter 2.4 (What's new)
-and chapter 3 (Further development, Roadmap) of this ReadMe interesting.
+Previous users of CrypTool may find interesting especially chapter 2.5
+(What's new in version CT 1.4.30) and chapter A.2 (Further development,
+Roadmap) of this ReadMe.
 
 We welcome very much everybody willing to further develop CrypTool
 or to give feedback. We are also glad about hints telling us about
@@ -116,7 +118,7 @@ be integrated into CrypTool.
 Especially young developers should have the heart to participate -- as
 proven in the past they'll learn a lot about professional software
 development from the experienced developers.
-Contacts: Please see chapter 9 below.
+Contacts: Please see chapter 7 below.
 
 
 1.1. How to start - An introduction to CrypTool
@@ -147,7 +149,7 @@ to do within a dialog window, please press F1. If the according
 online help isn't satisfactory please give us feedback.
 
 You can find a 1-page overview over all menus in CrypTool (menu tree)
-within the included PDF script (see appendix A1).
+within the included PDF script (see appendix A1 of this PDF).
 
 We hope you enjoy learning about cryptography and trying out all the
 functionality within CrypTool.
@@ -189,8 +191,8 @@ CrypTool is a demonstration primarily used for training purposes:
   The analysis of modern techniques is limited so that CrypTool
   is not a hacker's tool.
 
-CrypTool is not intended as an application to be used as a 
-Certification Authority (CA) or to encrypt or otherwise protect 
+CrypTool is not intended as an application to be used as a Certification
+Authority (CA) [see chapter 3.1] or to encrypt or otherwise protect 
 real-world data.
 
 
@@ -225,7 +227,7 @@ a) The program AES-Tool v 2.5 (developed within the CrypTool project):
    At the installation the file extension "AES" is associated with this
    program.
 
-b) The educational game "Number Shark" v 1.1.5 (by the CrypTool project):
+b) The educational game "Number Shark" v 1.1.6 (by the CrypTool project):
    This game helps pupils to get acquainted with divisors and prime
    factors.
 
@@ -256,7 +258,7 @@ f) The Authorware application "NT" (Number Theory) introduces elementary
    Where appropriate, the mathematical formulas are shown.
    It allows to dynamically check out the mathematical methods with own
    number examples.
-   Part of it is the program bc.exe by the Free Software Foundation,
+   Part of it is the program bc.exe by the Free Software Foundation (FSF),
    which allows to calculate with arbitrary precision from the command line.
 
 
@@ -273,7 +275,7 @@ b) Cipher Challenges:
    Also enclosed are 13 files with encrypted texts, which we got by courtesy
    of Klaus Schmeh, the author of the book "Codebreaker and Codemaker":
    Klaus Schmeh: "Codeknacker gegen Codemacher. Die faszinierende Geschichte
-                 der Verschlüsselung", 2. Auflage, Dezember 2007, W3L-Verlag
+                 der Verschluesselung", 2nd edition, December 2007, W3L
 
    These files contain some historically interesting (solved and unsolved)
    ciphertexts, which are appropriate as exercise or simply as pastime:
@@ -295,7 +297,7 @@ b) Cipher Challenges:
 
 
 All the single files included in the package are listed within
-chapter 6 (see below in this ReadMe file).
+chapter 5 (see below in this ReadMe file).
 
 
 
@@ -305,7 +307,7 @@ A big number of individuals (more than 100) have contributed to CrypTool,
 normally complimentarily in their free time (some are listed in the dialog
 box you get after double clicking the "About" dialog box).
 Where some of the developers/contributors live can be found at the new
-CrypTool website in the Google map.
+CrypTool website in the Google map (menu About -> Contributors).
 We are extremely grateful to these persons.
 
 I'd like to mention some outstanding software developers / architects
@@ -315,11 +317,11 @@ durable, agile and successful open source projects:
 Joerg, Henrik, Florian, Peer.
 
 I also want to thank some outstanding software developers / architects
-within the future projects CT2 and JCT. They showed great endurance and
-expertise, necessary to overcome the difficulties of the brand new
+within the successor projects CT2 and JCT. They showed great endurance
+and expertise, necessary to overcome the difficulties of the brand new
 development environments and software architectures:
-- Sebastian, Philipp, Arno, Martin, Thomas, Timo, Soeren
-- Dominik, Tobias, Al-Akkad, David
+- Philipp, Thomas, Sebastian, Arno, Martin, Timo, Soeren
+- Dominik, Matthias, Tobias, Simon, Amro, David
 
 And needless to say the many undisclosed ones, especially students and
 interns who contributed a lot and thereby learned even more by the experts
@@ -369,16 +371,17 @@ encouraged us with their code or who build code we can use, e.g.
 I also want to thank
 - Mr. Bartosz Sawicki from the University of Warsaw, who did with his team
   the complete Polish version.
-- Mr. Gonzalo Alvarez from the University of Madrid, who did with his
+- Dr. Gonzalo Alvarez from the University of Madrid, who did with his
   colleagues the Spanish version.
 
 
 1.4. Maintainer and hosting
      ----------------------
 Since April 2008 the chair "Division for distributed systems", Engineering
-department from Prof. Dr. Weis at the University of Duisburg-Essen, Germany
-hosts the English and German web page of CrypTool and the Subversion
-repository system for the program sources of the future version CrypTool 2.
+department of Prof. Dr. Torben Weis at the University of Duisburg-Essen,
+Germany hosts the English, German and Spanish web page of CrypTool and the
+Subversion repository system for the program sources of the successor
+version CrypTool 2.
 
 The chair "Security in Information Technology", faculty computer science
 from Mrs. Prof. Dr. Claudia Eckert at the Technical University of Darmstadt,
@@ -386,16 +389,16 @@ Germany still hosts the Subversion repository system for the program sources
 of the release version CrypTool 1.x.
 
 The CrypTool developer group around Prof. Bernhard Esslinger continues
-to act the maintainer: This means they take care about the source
+to act as maintainer: This means they take care about the source
 code, they publish CrypTool as open source and freeware, and they
 co-ordinate the further development. Current steps of the roadmap
-are also published at the web page.
+are published in chapter A.2 and at the web page.
 
 Homepage of CrypTool: www.cryptool.org.
 
 We would be very glad about every new developer, who joins to help
 to enhance the functionality and usability of CrypTool.
-Ideas for further development can be found in chapter 3.
+Ideas for further development can be found in chapter A.2.
 
 Also very welcome are ideas and information, how CrypTool is used in
 lectures, school and education, so that we can help to share this
@@ -420,8 +423,9 @@ The general properties and functions of CrypTool are:
 - CrypTool is fully available in both English and German.
   The program itself also available in Polish and Spanish.
 
-- Many classical encryption methods, and for them either a manual
-  cryptanalysis or an automatic analysis is offered (known-plaintext attack).
+- Many classic encryption methods, and for them either a manual
+  cryptanalysis or an automatic analysis is offered (known-plaintext
+  or ciphertext-only attack).
 
 - Codes like Base64 and UU-Encode.
 
@@ -527,7 +531,7 @@ The general properties and functions of CrypTool are:
 - CrypTool can be installed and used without having administrator access
   rights.
   Different users at the same PC can have different settings.
-  See chapter 3.2 for details.
+  See chapter 3.2 and 4.4 for details.
 
 - The same menu structure is permanently visible: Items which cannot
   be clicked for special document types are dynamically made grey.
@@ -590,7 +594,7 @@ The general properties and functions of CrypTool are:
        --username anonymous --password anonymous
 
 To get an impression of the size of the project here is a statistics created
-in Jan 2009 using the most important files for the English and the German
+in Feb. 2009 using the most important files for the English and the German
 version).
 
     FILE SUMMARY xxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -623,10 +627,14 @@ version).
 - Details about compilation, linking and about a consistent development
   can be found in the sources in the file "readme-source".
 
-- The sources have been compiled with Microsoft development environment
-  Visual Studio 2008 Professional (VC++ vxxxxxxxxxxxxx7.1).
-  The professional version of VS2008 is necessary, because CT 1.x is based
-  on the old MFC for the GUI.
+- The sources have been compiled with the Microsoft development environment
+  Visual Studio 2008 Standard Edition (VC++ v9.0).
+  The Express Edition of VS2008 is not sufficient, because this does not
+  support the old MFC library for the GUI, which is still used in CT 1.x.
+  We had to change from VS2003 to VS2008, because some libraries can only
+  well linked for Vista with this version. xxxxxxxxx
+  Compiling all versions (4 languages, each in debug and release mode)
+  lasts about 2 h on a modern PC.
 
 
 
@@ -634,11 +642,11 @@ version).
 2.3. Where can you get another overview about CrypTool
      -------------------------------------------------
 You can get a good overview of what CrypTool offers
-- at the attached PDF presentation
-   (title: "Cryptology with CrypTool") and
+- at the attached PDF presentation (title: "Cryptology with CrypTool") and
 - at the web site of CrypTool 
-   (use the item "CT Introduction" within the left frame),
-- using the menu tree in appendix A within the attached CrypTool scripts, or
+  (use the Menus "Features -> CrypTool Features" and "Media -> Screenshots"),
+- using the menu tree in appendix A.1 within the attached CrypTool scripts,
+  or
 - within the online help (see "starting page").
 
 
@@ -671,6 +679,7 @@ b) Changes within the user documentation:
 - Updated and enhanced presentation (106 pages now).
 
 - New CrypTool website using Joomla since April 2008.
+xxxxxxxxx(CHECK, was schon im letzten REadme drin war) xxxxxxxxxx
 
 
 c) New functionality:
@@ -738,7 +747,7 @@ c) New functionality:
   - Restrictions in this version:
     - In the password field no blanks can be entered (all ascii codes <= 32
       are ignored).
-    - The new PQM method rates at most 32 Zeichen of the entered password.
+    - The new PQM method rates at most 32 characters of the entered password.
 
 - The password entropy dialog offers to create random passwords which offer
   a similar high security as randomly generated binary keys for symmetric
@@ -754,17 +763,18 @@ which have been added since CrypTool 1.4.21.
 
 a) Developer-relevant changes (more technically oriented):
 
-- Clearance of source code, better re-usage.
+- Clearance of source code, better re-usage, eliminate many warnings.
 
 - Update to OpenSSL 0.9.8g, ANIMAL 2.3.14 and NSIS 2.37.xxxxxxxxxxxx
 
 
 b) Changes within the user documentation:
 
-- Online help: enhanced.
+- Online help: enhanced (e.g. modi and padding variants used for block
+  ciphers have been described explicitely).
 
-- From the CrypTool website links are set to the sites of the future versions
-  JCT 1 and CT2, which always offer their current beta for download.
+- From the CrypTool website links are set to the sites of the successor
+  versions JCT1 and CT2, which always offer their current beta for download.
 
 
 c) New functionality / Usability:
@@ -780,50 +790,71 @@ c) New functionality / Usability:
     wrong calculations.
   - The ECC-AES hybrid encryption and decryption now also runs under
     MS Vista (thanks to a new cv act lib from cryptovision).
-  - The Secret Sharing application using the CRT now doesn't allow, that
+  - The Secret Sharing application using the CRT now disallows, that
     n=k (all share holders are necessary) in order to avoid that the
     algorithm then would make the whole secret evident to the first
     share holder.
-  - Key-Entry for the DESL variants no request all  keys. xxxxxxxxx
   - RSA demonstration: Keep the entered e after calling options ?  xxxxxxxxx
+  - Fix for the discrete ECC demonstration which sometimes calculated by point
+    addition a result outside the curve; coordinates at the right border are
+    completely visible and version number 1.0 is shown in the title.
+  - Fix for DESX/DESXL: Now the effective bit length is displayed in encryption
+    and brute force dialogs.
+  - Fix for DESX/DESXL brute force analysis, which skipped keys when searching
+    in the last 128 bit of the key (brute-force analysis ignores correctly the
+    parity bit of the DES key for performance reasons; this can be done so only
+    for the DES key part of the whole key).
+  - The result of the attack on the hash value of the electronic signature
+    previously showed a wrong number of steps (always ca. 4.x*10^18).
+  xxxxxxxxxxxxx
+
+- For all DES based methods now the dialogs show both the effectively used
+  key length and the key length which the user has to enter.
 
 - Many small improvements in the masks (user interface), e.g. elapsed-time
-  dialog for the AKS test.
+  dialog for the AKS test; text in about box can be marked and copied.
 
-- All available hash methods offered in the dialogs for: xxxxxxxxxxxxxxxxxx
+- All available hash methods offered in the dialogs for:
   - Key generation from password (according to PKSC #5)
-  - Message Authentication Code (MAC)
-  - 
+  - Hashed Message Authentication Code (HMAC)
+  - xxxxxxx
 
-- Within the PKCS#5 dialog now at most 100,000 iterations can be calculated.
+- Within the HMAC dialog the names are related to the literature and the
+  according online help contains the corresponding references.
+  Variant 4 of the HMAC sample constructions is now exactly according to
+  RFC 2104.
+  Details:
+  CrypTool contains five HMAC variants (H = hash function, k = key, m = message):
+  1.  H ( k, m )
+  2.  H ( m, k )
+  3.  H ( k, m, k )
+  4.  H ( k, m, k' )
+  5.  H ( k , H (k, m) )
+  Only variant 5 is specified by a standard (RFC 2104, FIPS PUB 198).
+  This HMAC is calculated via: H ( k XOR opad, H(k XOR ipad, m) )
+  where ipad = 64 bytes each 0x36, opad = 64 bytes each 0x5C.
+  If the key k is longer than the block length of the hash function, then k
+  will be substituted by H(k).
+  All this functions are implemented using OpenSSL.
+
+- Within the PKCS #5 dialog now at most 100,000 iterations can be calculated.
   Additionally more hash methods are supported than described in the original
   standard.
 
-- Till 1.4.21 with the dialog "Generate Primes" one could create one or two
-  randomly selected primes within a given order of magnitude.
-  Now all primes within a given range can be generated (Generation of
-  prime sets). xxxxxxxxx
-
-- Additional randomness tests (coming from the Spanish version)  xxxxxxxxx
-
-- Ted: GNFS                xxxxxxxxxxxxxxx
-
-- Generator-Erzeugung korr. bei DH -> Gonzalo     xxxxxxxxxxxxxxx
-
-- Erzeugung aller Hashwerte aus regulärem PW-Ausdruck (Hartmann)
-
-- Pawel/Rietsch: Analyse einfacher Spaltentransposition
-
-- If the result in the dialog primality testing is, that the given number
-  is NOT prime, then you can directly (via a new button) call the
-  factorisation dialog.
-
-- The Secret Sharing application using the CRT now doesn't allow, that
-  n=k (all share holders are necessary) in order to avoid that the algorithm
-  then would make the whole secret evident to the first share holder.
+- Added the classic transposition ciphers scytale and rail fence (combined
+  in one dialog). 
 
 - The educational program/game "Number Shark" in version 1.1.6 was corrected
   a little bit and the online help was enhanced.
+
+- If the result in the dialog primality testing says, that the given number
+  is NOT prime, then you can directly (via a new button) call the
+  factorisation dialog.
+
+- Until 1.4.21 the dialog "Generate Primes" created two randomly
+  selected primes within a given range.
+  Now all primes within a given range can be generated (generation of
+  prime sets).
 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
@@ -901,7 +932,7 @@ Remark 1: Where the TEMP directory of Windows is, can be seen by
 entering %TEMP% in the Windows Explorer. The value can also be seen
 and adjusted under Windows XP via "System --> System properties 
 --> Tab Enhanced --> Environment variables".
-Or by entereing "echo %TEMP%" at the command line prompt.
+Or by entering "echo %TEMP%" at the command line prompt.
 
 Remark 2 -- Details concerning access rights:
 a) Program Directory:
@@ -911,7 +942,7 @@ a) Program Directory:
    will be enabled for writing for everybody who is in the group "Users".
 
 b) Registry:
-   To enable the registration of .aes and other file extensions for AES-Tool,
+   To enable the registration of ".aes" and other file extensions for AES-Tool,
    the following part of the registry needs to be writable during installation:
    HKEY_CLASSES_ROOT
    HKEY_CLASSES_ROOT\Applications
@@ -926,13 +957,6 @@ c) Start menu:
    %allusersprofile%\Start Menu\Programs
    If this directory is not writable CrypTool will be installed in:
    %userprofile%\Start Menu\Programs.
-
-CrypTool also works basically under FreeBSD/Linux with Wine
-(with reservations on functionality and stability).
-See appendix 11.1.
-
-Future goals are to port CrypTool to Linux or Java, and to create a
-version 2.0 using Windows WPF (see chapter 3.5).
 
 
 3.3. Interactive online help under Windows XP
@@ -966,7 +990,7 @@ in more than one language (currently in English and German).
 
 The Polish and the Spanish program has all its menus and dialogs translated.
 The PDF files are still added in English.
-The Polsih version has translated the exhaustive online help;
+The Polish version has translated the exhaustive online help;
 the Spanish version adds the English online help.
 
 For each supported language CrypTool 1.4.30 comes with an extra installation
@@ -1116,7 +1140,7 @@ im multi-user environments.
 So CrypTool accesses its asymmetric keys and certificates by default from
 the user-application directory. When a user calls CrypTool the first time,
 it determines this directory using the environment variable APPDATA, and
-then the CrypTool programm directory pse\ is copied completely into the
+then the CrypTool program directory pse\ is copied completely into the
 user-application directory. These user-individual keys have the following
 benefits
 - there is no need anymore for write access to parts of the program directory,
@@ -1124,7 +1148,7 @@ benefits
   solved so [see chapter 4.5.b)], and
 - when a new installation is done, the user-individual keys are not overwritten.
 
-You can enforce the old behavior if you set the registry entry
+You can enforce the old behaviour if you set the registry entry
 HKEY_CURRENT_USER\Software\CrypTool\Settings\UserKeyStore\UseUserKeyStore
 to the value ‘0’ (this registry variable is visible after the first call of
 CrypTool).
@@ -1144,7 +1168,8 @@ directory in which CrypTool should be installed:
   if this already exists.
 If he does not have these rights, the installation program stops.
 
-Therefore as a normal user without admin access rights, you should specify astarget directory a so called "local directory" (instead of "C:\Programme").
+Therefore as a normal user without admin access rights, you should specify as
+target directory a so called "local directory" (instead of "C:\Programme").
 "Local" and accessible for any user could be e.g.: %ALLUSERSPROFILE%
 (The default of the English Windows XP is: 
 "C:\Documents and Settings\All Users").
@@ -1224,10 +1249,10 @@ c) Central installation on a Windows network server:
 The package is distributed as a compressed, self extracting archive
 in three different language versions:
 
-SetupCrypTool_1_4_20_en.exe   English language support only.
-SetupCrypTool_1_4_20_de.exe   German language support only.
-The files, additionally delivered with the Polish version are not yet
-considered here.
+SetupCrypTool_1_4_30_en.exe   English language support only.
+SetupCrypTool_1_4_30_de.exe   German language support only.
+The files, additionally delivered additionally with the Polish and Spanish
+version are not yet considered here.
 
 The self-extracting archives contain the following files:
 
@@ -1290,8 +1315,8 @@ script-en.pdf .... A script on cryptography, prime numbers,
                    behind certain algorithms.
 script-de.pdf .... The German version of script-en.pdf.
 
-CrypToolPresentation_1_4_20_en.pdf .. Slides presentation
-CrypToolPresentation_1_4_20_de.pdf .. German version of presentation.
+CrypToolPresentation_1_4_30_en.pdf .. Slides presentation
+CrypToolPresentation_1_4_30_de.pdf .. German version of presentation.
 
 DialogueSisters.pdf ... Fantasy story by Dr. Elsner describing a
                         variant of the RSA cryptosystem.
@@ -1573,7 +1598,7 @@ Version   Date		Size of Windows Setup  Needed Size  Released
 1.4.10    July 2007	26.7 MB	     27.5 MB	47 MB        DB
 1.4.20    July 2008	36.1 MB	     37.1 MB	73 MB        DB
 1.4.21    July 2008	36.1 MB	     37.1 MB	73 MB        DB
-1.4.30    Jan. 2009	36.x MB	     37.x MB	7x MB        DB   xxxxxxxx
+1.4.30    Feb. 2009	35.6 MB	     36.7 MB	71 MB        DB   xxxxxxxx
 
 Remarks about the versions:
 1.3.02   Many new functions compared to 1.3.00.
@@ -1593,7 +1618,7 @@ Remarks about the versions:
          Mostly fine tuning and code stabilization (quality release).
 1.4.21   Patch containing also MSVCR71.dll. This DLL is used by the current
          OpenSSL library, but not available by default on blank Windows systems.
-1.4.30   Many Bugfixes, slightly enhanced functionality compared to 1.4.2x.
+1.4.30   Many bug fixes, slightly enhanced functionality compared to 1.4.2x.
 
 
 
@@ -1699,6 +1724,22 @@ An article by Dominik Schadow about JCrypTool was published under the title
 This article is available for free as reprint via the direct download link:
 http://www.trivadis.com/fileadmin/user_upload/PDFs/Trivadis_in_der_Presse/EclipseMagazin_Kryptisch_gesagt_Schadow.pdf
 
+8.1.11. ep-Elektropraktiker January 2009
+        --------------------------------
+A 2-page article on CrypTool was published under the title
+"CrypTool - sichere Kommunikation" in the German technical journal
+"ep-Elektropraktiker" (Practical Electronics) in the issue 1/2009 by H. Moebus.
+http://www.elektropraktiker.de/download/luk-2009-1-06-46867.html
+
+8.1.12. DuD March 2009
+        --------------
+A 6-page article on CrypTool was published under the title
+"CrypTool - Ein Open-Source-Projekt in der Praxis. Erfahrungsbericht eines
+erfolgreichen Open-Source-Projektes" in the German technical journal
+"DuD Datenschutz und Datensicherheit" (Privacy and Data Protection) in the
+issue 3/2009.
+
+
 
 8.2. Further references
      ------------------
@@ -1730,16 +1771,22 @@ as part of the software suite "BSI OSS Security Suite 2.0 (BOSS)".
 See http://www.bsi.de/produkte/boss/index.htm
 
 
-8.2.4. Usage in further education / courses
-       ------------------------------------
-- xxxxxxxxxxxxxx CISSP
+8.2.4. Usage in further education / courses (examples)
+       -----------------------------------------------
+- CISSP, T.I.S.P. - TeleTrusT Information Security Professional, ...
 
+- http://www.logicalsecurity.com/education/se_PN-CPTS-01.html
+  Certified Penetration Testing Specialist (CPTS)
+
+- http://www.careeracademy.com/index.asp?PageAction=VIEWPROD&ProdID=265
+  https://www.cccure.com/scp/security-certified-network-professional-scnp-strategic-infrastructure-security-sis-training/prod_11.html
+  Security Certified Network Professional (SCNP) - Strategic Infrastructure Security (SIS) Training
+  
 - http://www.cdachyd.in/cnss/cnss_ebrochure.htm   (Dec. 2008)
   A 22 week Course on Networking & System Security (CNSS) offered by C-DAC
   Hyderabad, India where CrypTool is used for educational purposes.
   The Centre for Development of Advanced Computing (C-DAC) is primarily an
   R & D institution for Information Technology (IT) based solutions.
-
 
 
 
@@ -1781,13 +1828,18 @@ c) Wikipedia:
      - http://de.wikipedia.org/wiki/CrypTool
      - http://de.wikipedia.org/wiki/Kryptographie
      - http://de.wikipedia.org/wiki/Wikipedia:WikiProjekt_Kryptologie
-  - French:
-     - fr.wikipedia.org/wiki/CrypTool
-  - Polish:
+   - Spanish:
+     - http://es.wikipedia.org/wiki/CrypTool
+   - Polish:
      - http://pl.wikipedia.org/wiki/CrypTool
      - http://pl.wikipedia.org/wiki/Kryptografia
-  - Thailändisch:
+   - French:
+     - http://fr.wikipedia.org/wiki/CrypTool
+   - Thai:
      - http://th.wikipedia.org/wiki/CrypTool
+   - Italian:
+     - http://it.wikipedia.org/wiki/CrypTool
+
 
 d) A small selection of further pages:
    http://www.pki-page.org/
@@ -1873,7 +1925,7 @@ Available with complete source code are:
   designed to aid in the decryption of historical ciphers by providing
   statistical data and algorithmic analysis on encrypted messages. 
   It was developed in a university project by 6 (?) students in 2000.
-
+  The Website contains the source files, but not the executables.
 
 
 The only other programs known to us, which usefully combine
@@ -1981,7 +2033,7 @@ A.1.1. .... Installing CrypTool
 A.1.2. .... Wine configuration
 A.1.3. .... Running CrypTool
 
-A.2. .... Future features, Roadmap
+A.2. .... Future features, Roadmap, Successor projects using Java/Eclipse and C#/.NET
 A.2.1. .... Possible areas for further development -- ideas, requests
 A.2.1.1. .... Functionality: Algorithms / Methods
 A.2.1.2. .... Functionality: Analysis
@@ -1996,7 +2048,8 @@ A.2.2.2. .... Features, planned for the successor projects CT2 and JCT1
 A.1. Hints for using CrypTool on Linux with Wine
      -------------------------------------------
 Generally we do not aim to support Wine.
-Instead of that with JCT there is Linux support (see chapter 3.5).
+Instead of that the platform independant version JCT also run under Linux
+(see chapter 3.5).
 
 The following hints are based on tests with Wine 0.9.9.
 
@@ -2058,8 +2111,8 @@ A.1.3.2. Bugs and workarounds
 
 
 
-A.2. Future features, Roadmap
-     ------------------------
+A.2. Future features, Roadmap, Successor projects using Java/Eclipse and C#/.NET
+     ---------------------------------------------------------------------------
 In general all bigger new developments will go directly to the new successor
 projects (see chapter A.2.2).
 
@@ -2101,6 +2154,13 @@ A.2.1.1. Functionality: Algorithms / Methods
   dialog box instead of using menus (and making all parameters of these
   algorithms customizable) (see CryptoBench).
 
+- GNFS for factorization (Ted)
+
+- Correct the creation of the DH generator (Gonzalo)
+
+- Generation of all hash values using a regular expression as password
+  pattern (Hartmann)
+
 - Generate cryptographically strong elliptic curves and use these
   to implement a cryptosystem based on elliptic curves.
   Here, one could take the cryptosystem developed by Menezes and
@@ -2129,6 +2189,11 @@ A.2.1.1. Functionality: Algorithms / Methods
     It would be a meaningful enhancement of CrypTool, to implement
     these requirements on evaluating random number generators 
     and also to visualize them.
+  - Usage of the already integrated 3-D visualization of random numbers
+    in order to emphasize weaknesses of random number generators
+    (like with LCG) by showing the hyper planes you can see when turning
+    the cube.
+  - Additional randomness tests (coming from the Spanish version)
 
 - Implement further standards and refer to all places, where
   they (e.g. PKCS#5) are used, from a menu and from the online
@@ -2141,8 +2206,6 @@ A.2.1.1. Functionality: Algorithms / Methods
     use this key, to decrypt PGP files with the algorithms implemented
     in CrypTool. This shows, that PGP also uses the standard algorithms.
 
-- Usage of CrypTool as a demonstrator for XML signatures.
-
 - Create a test suite with examples and solutions, in order to
   automate testing and to make sure, that program changes do not
   negatively influence old and running functionality:
@@ -2151,11 +2214,9 @@ A.2.1.1. Functionality: Algorithms / Methods
      dialog boxes.
      Maybe build a script language to control all dialogues or
      use automated test tools off-the-shelf.
-  c) create command line interface (best after within the source
-     pure crypto functionality is separated from user-interaction)
-     so test cases can be read from a file without using
-     dialog boxes (without user interface), solved and the result
-     again written to a file:
+  c) create command line interface, so test cases can be read from a
+     file without using dialog boxes (no user interface), solved
+     and the result again written to a file:
      -> automatic comparison of the solution possible
      -> new version can be tested easier.
 
@@ -2183,6 +2244,9 @@ A.2.1.2. Functionality: Analysis
 - Analysis to be newly implemented for:
    * homophone encryption
    * permutations/transpositions
+     - starting with known-plaintext analysis of single column
+       transpositions (Pawel/Rietsch)
+     - Ciphertext-only analysis of the double-column transposition.
    * Playfair encryption
       - C sources from Gunnar-Andresson are available.
 
@@ -2192,8 +2256,13 @@ A.2.1.2. Functionality: Analysis
         double-characters like "tt".
       - Show the characters which have been substituted not only 
         capitalized but also in red to enhance readability.
-   * Use word lists (dictionary) for all attacks, not only for the
-     substitution.
+   * Vigenère
+      - Another cryptanalysis method, which is especially valid for short
+        ciphertexts (according to the article of Tobias Schroedel in
+        Cryptologia)
+
+- Use word lists (dictionary) for all attacks, not only for the
+  substitution.
 
 - Usage of algorithms from the area of AI (artificial intelligence) and
   GP/GA (Genetic Programming/Algorithms) in order to analyse automatically
@@ -2270,7 +2339,8 @@ A.2.1.3. Internal interfaces / Editors
   format for the internal key storage.
 
 - Libraries for arbitrary length numbers and cryptography:
-   - Support further libraries (LiDIA, FLINT/C, Wei Dai's Crypto++, ...)
+   - Support further libraries (LiDIA, FLINT/C, Wei Dai's Crypto++,
+     APFLOAT, ...)
 
 - Extend existing limitations of the N-Gram analysis concerning
   the file size (evtl. give user feedback and allow to stop calculation,
@@ -2300,6 +2370,20 @@ A.2.1.4. User interface / Visualizations
 
 - An interface for calling the CAS system SAGE would be interesting
   (http://www.sagemath.org/).
+
+- Visualize generally the according mathematical basics, e.g.:
+  - using a text book
+  - using SAGE notebooks like the ones for ECC introduction at:
+    https://sage.mathematik.uni-siegen.de:8000/home/pub/45/
+    This cover page contains no calculations, but the links to the
+    remaining parts; in order to execute the calculations within the
+    remeining parts you have to make copies as SAGE user.
+  - like PascGalois Software (http://www.pascgalois.org/software.html)
+  - see http://www.martindalecenter.com/Calculators2_6_NZ.html
+  - http://world.std.com/~reinhold/BigNumCalc.html
+  - http://mathforum.org/library/resource_types/calculators/?keyid=28652723&start_at=301&num_to_see=50
+  - http://www.hbmeyer.de/pythagen.htm
+  - http://www.filebuzz.com/files/calculator_number_prime/1.html
 
 - Offer a customizing feature to the user, so that he can choose that
   all new windows appear within the main windows (as right now) or
@@ -2357,7 +2441,6 @@ A.2.1.4. User interface / Visualizations
      CrypTool yet. To attack Diffie-Hellman, DSA or EC-DSA, one 
      has to calculate "discrete logarithms". After implementing
      this it also could be visualized.
-   - Visual composition of protocols and workflows (part of CrypTool 2).
 
 
 
@@ -2369,7 +2452,7 @@ current layout techniques and modern software architectures.
 A.2.2.1. Design of the successor projects
          --------------------------------
 a) General wish list according to the user feedback.
-   This is the basis for both successor projectss Java-CrypTool and CrypTool 2:
+   This is the basis for both successor projects, Java-CrypTool and CrypTool 2:
    - Modern pure-plugin architecture.
    - All languages supported by one program, one setup.
    - More modern layout, less dialog changes.
@@ -2393,8 +2476,8 @@ b)  Java-CrypTool (JCrypTool, JCT):
    - A Secude library, Bouncy Castle and FlexiProvider are available.
    - Milestone 1 (published in August 2007) was dedicated to developers,
      showing that the new architecture concepts work.
-     Milestone 2 (August 2008) and 3 (December 2008) already offer enough
-     functionality to be applied by end users.
+     Milestone 2 (August 2008), 3 (December 2008) and 4 (February 2009)
+     already offer enough functionality to be applied by end users.
    - Further developers, architects and designers for this project are very
      welcome.
    - For newbies, plus with an expert mode.
@@ -2412,13 +2495,13 @@ c) CrypTool 2.0 (CT 2)
    - Available are the .NET crypto provider, and libraries like GMP and
      Crypto++ via wrappers.
    - The alpha version, published in April 2008, was dedicated to developers.
-     Beta versions (for developers and end users) are published regularily
+     Beta versions (for developers and end users) are published regularly
      since July 2008.
      With the release version of CT2 the development of CrypTool 1.x
      will be discontinued.
    - Further developers and ambitious graphical designers are more
      than welcome in this new project.
-   - Steep learning curve for newbies by visual prgramming.
+   - Steep learning curve for newbies by visual programming.
    - The update web site for JCT is hosted by the university Duisburg-Essen.
    - Close cooperation with the chair of Prof. Weis in Duisburg-Essen.
    - Usage of Subversion for source code version management.
@@ -2435,7 +2518,7 @@ c) CrypTool 2.0 (CT 2)
        - online help in HTML: ok.
    - The first beta was released in November 2007.
      Die second beta ("still no full functional version", 11 % of the
-     planned tasks) was published mid December 2009.
+     planned tasks) was published mid December 2008.
    - http://www.cryptoolinux.net/
 
 
@@ -2447,27 +2530,39 @@ The new versions are (see chapter A.2.2.1):
 - CrypTool 2.0  (http://cryptool2.vs.uni-due.de)   and
 - JCrypTool 1.0 (http://jcryptool.sourceforge.net).
 
-Features already implemented and integrated in the current beta versions:
-- CT2  Visual programming
+
+Features already implemented and integrated in the current beta versions
+                 (CT2 Beta01-2.0.3313 and JCT1 Milestone4):
+- CT2  Visual programming (composition of protocols and workflows)
 - CT2  Prime number visualizations
 - CT2  WEP encryption and analysis of WEP encrypted messages
+- CT2  Smartcard plugin (it sends commands to a smartcard using
+                         the PC/SC interface in Windows)
 
+- JCT  Adaptive navigation pane, optionally as tree or palette,
+       with filtering
 - JCT  Vigenère autokey encryption
-- JCT  Multi-partite key exchange
 - JCT  Visualisation of classic (analysis) methods
 - JCT  Adjusting of all detail parameters of modern algorithms
+       in the FlexiProvider perspective
+- JCT  Dragon cipher & LFSR
+
 
 Features planned for the release version of the successor projects:
 - CT2  Virtual Credit Card Numbers (VCC) and check sums
 - CT2  Bleichenbacher attack
+- CT2  NIST Random number test suite
+- CT2  GNFS
 - CT2  Extend the alphabets of the classic ciphers to 256 characters
 - CT2  Cube attack on symmetric ciphers
 
+- JCT  Multi-partite key exchange
+- JCT  Visualization of S/MIME mails (encryption and signature)
 - JCT  PGP-S/MIME interoperability
 - JCT  Entropy investigations
-- JCT  Dragon cipher & LFSR
 - JCT  Further stream ciphers
 - JCT  Commandline functionalty
 - JCT  Powerful action history and cascading possibility
+- JCT  Usage as a demonstrator for XML signatures
 
 ################################################################
