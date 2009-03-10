@@ -17,4 +17,4 @@ Press F1 to start the online help.
 - Viewing the included presentation (See "Documentation" section found in the "Starting" page of the online help).
 - Viewing the webpage – www.cryptool.org.
 
-June 2008
+March 2009

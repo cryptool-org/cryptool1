@@ -132,7 +132,7 @@ void CDlgSimpleTranspositions::OnBnClickedEncrypt()
 
 	// now, do the actual encryption
 	if(type == 0) { // SCYTALE
-		int result = ScytaleEncryption(fileName.GetBuffer(), fileNameTitle.GetBuffer(), key, true);
+		int result = ScytaleEncryption(fileName.GetBuffer(), fileNameTitle.GetBuffer(), key, offset, true);
 		if(result == -1) {
 			LoadString(AfxGetInstanceHandle(), IDS_SIMPLE_TRANSPOSITION_KEY_INVALID, pc_str, STR_LAENGE_STRING_TABLE);
 			MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);	

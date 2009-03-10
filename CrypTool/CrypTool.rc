@@ -4355,7 +4355,7 @@ END
 
 IDD_SIMPLE_TRANSPOSITIONS DIALOGEX 0, 0, 285, 180
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Key Entry: Simple Transpositions"
+CAPTION "Key Entry: Scytale / Rail Fence"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Encrypt",ID_ENCRYPT,7,154,60,19
@@ -14951,25 +14951,25 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,97,50,14
 END
 
-IDD_SIMPLE_TRANSPOSITIONS DIALOGEX 0, 0, 285, 180
+IDD_SIMPLE_TRANSPOSITIONS DIALOGEX 0, 0, 285, 185
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Schlüsseleingabe: Einfache Transpositionen"
+CAPTION "Schlüsseleingabe: Skytale / Gartenzaun"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Verschlüsseln",ID_ENCRYPT,7,154,60,19
-    PUSHBUTTON      "Entschlüsseln",ID_DECRYPT,73,154,60,19
-    PUSHBUTTON      "Abbrechen",IDCANCEL,218,154,60,19
-    CONTROL         "Skytale",IDC_RADIO_SCYTALE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,63,110,10
-    CONTROL         "Gartenzaun",IDC_RADIO_RAIL_FENCE,"Button",BS_AUTORADIOBUTTON,20,75,110,10
-    EDITTEXT        IDC_EDIT_KEY,135,111,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
-    GROUPBOX        "Beschreibung",IDC_STATIC,7,7,271,36
-    LTEXT           "Transpositionen vertauschen die Reihenfolge der Buchstaben im Klartext. Zwei bekannte, klassische Varianten sind die Skytale und die Gartenzaunverschlüsselung.",IDC_STATIC,20,20,245,16
-    GROUPBOX        "Auswahl der Transposition",IDC_STATIC,7,50,160,40
-    GROUPBOX        "Auswahl des Schlüssels",IDC_STATIC,7,100,160,45
-    LTEXT           "SIMPLE_TRANSPOSITION_KEY",IDC_SIMPLE_TRANSPOSITION_KEY,20,113,99,8
-    CONTROL         "",IDC_SIMPLE_TRANSPOSITION_IMAGE,"Static",SS_BITMAP,177,53,67,62
-    LTEXT           "Offset:",IDC_STATIC,20,129,24,8
-    EDITTEXT        IDC_EDIT_OFFSET,136,127,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
+    DEFPUSHBUTTON   "Verschlüsseln",ID_ENCRYPT,7,159,60,19
+    PUSHBUTTON      "Entschlüsseln",ID_DECRYPT,73,159,60,19
+    PUSHBUTTON      "Abbrechen",IDCANCEL,218,159,60,19
+    CONTROL         "Skytale",IDC_RADIO_SCYTALE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,68,110,10
+    CONTROL         "Gartenzaun",IDC_RADIO_RAIL_FENCE,"Button",BS_AUTORADIOBUTTON,20,80,110,10
+    EDITTEXT        IDC_EDIT_KEY,135,116,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "Beschreibung",IDC_STATIC,7,7,271,41
+    LTEXT           "Transpositionen vertauschen die Reihenfolge der Buchstaben im Klartext. Zwei bekannte, klassische Varianten sind die Skytale und die Gartenzaunverschlüsselung.",IDC_STATIC,20,20,245,24
+    GROUPBOX        "Auswahl der Transpositionsvariante",IDC_STATIC,7,55,160,40
+    GROUPBOX        "Auswahl des Schlüssels",IDC_STATIC,7,105,160,45
+    LTEXT           "SIMPLE_TRANSPOSITION_KEY",IDC_SIMPLE_TRANSPOSITION_KEY,20,118,99,8
+    CONTROL         "",IDC_SIMPLE_TRANSPOSITION_IMAGE,"Static",SS_BITMAP,177,58,67,62
+    LTEXT           "Offset:",IDC_STATIC,20,134,24,8
+    EDITTEXT        IDC_EDIT_OFFSET,136,132,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
 END
 
 
@@ -15057,7 +15057,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC, GRAYED
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
-            MENUITEM "Einfache Transpositionen...", ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
+            MENUITEM "Skytale / Gartenzaun...", ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetrisch (&modern)"
         BEGIN
@@ -15401,7 +15401,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
-            MENUITEM "Einfache Transpositionen...", ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
+            MENUITEM "Skytale / Gartenzaun...", ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetrisch (&modern)"
         BEGIN
@@ -15745,7 +15745,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
-            MENUITEM "Einfache Transpositionen...", ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
+            MENUITEM "Skytale / Gartenzaun...", ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetrisch (&modern)"
         BEGIN
@@ -16089,7 +16089,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
-            MENUITEM "Einfache Transpositionen...", ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
+            MENUITEM "Skytale / Gartenzaun...", ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetrisch (&modern)"
         BEGIN
@@ -16460,7 +16460,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC, GRAYED
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
-            MENUITEM "Einfache Transpositionen...", ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
+            MENUITEM "Skytale / Gartenzaun...", ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetrisch (&modern)"
         BEGIN
@@ -18349,7 +18349,7 @@ BEGIN
         VERTGUIDE, 20
         VERTGUIDE, 265
         TOPMARGIN, 7
-        BOTTOMMARGIN, 173
+        BOTTOMMARGIN, 178
         HORZGUIDE, 20
     END
 END
@@ -18602,7 +18602,7 @@ BEGIN
     ID_FORMAT_TEXT_DOCUMENT "Formatiert ein Textdokument mit bestimmten Parametern"
     ID_CRYPT_HASH_SHA256    "Berechnet den SHA-256-Hashwert des aktiven Dokuments"
     ID_CRYPT_HASH_SHA512    "Berechnet den SHA-512-Hashwert des aktiven Dokuments"
-    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS "Einfache Transpositionen"
+    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS "Skytale / Gartenzaun"
 END
 
 STRINGTABLE 
@@ -25421,25 +25421,25 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,97,50,14
 END
 
-IDD_SIMPLE_TRANSPOSITIONS DIALOGEX 0, 0, 285, 180
+IDD_SIMPLE_TRANSPOSITIONS DIALOGEX 0, 0, 285, 185
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Key Entry: Simple Transpositions"
+CAPTION "Key Entry: Scytale / Rail Fence"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Encrypt",ID_ENCRYPT,7,154,60,19
-    PUSHBUTTON      "Decrypt",ID_DECRYPT,73,154,60,19
-    PUSHBUTTON      "Cancel",IDCANCEL,218,154,60,19
-    CONTROL         "Scytale",IDC_RADIO_SCYTALE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,63,110,10
-    CONTROL         "Rail Fence",IDC_RADIO_RAIL_FENCE,"Button",BS_AUTORADIOBUTTON,20,75,110,10
-    EDITTEXT        IDC_EDIT_KEY,135,111,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
-    GROUPBOX        "Description",IDC_STATIC,7,7,271,36
+    DEFPUSHBUTTON   "Encrypt",ID_ENCRYPT,7,159,60,19
+    PUSHBUTTON      "Decrypt",ID_DECRYPT,73,159,60,19
+    PUSHBUTTON      "Cancel",IDCANCEL,218,159,60,19
+    CONTROL         "Scytale",IDC_RADIO_SCYTALE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,68,110,10
+    CONTROL         "Rail Fence",IDC_RADIO_RAIL_FENCE,"Button",BS_AUTORADIOBUTTON,20,80,110,10
+    EDITTEXT        IDC_EDIT_KEY,135,116,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "Description",IDC_STATIC,7,7,271,41
     LTEXT           "Transpositions scramble the order of the letters in the clear text. Two well-known, classic variants are the Scytale and the Rail Fence encryption.",IDC_STATIC,20,20,245,16
-    GROUPBOX        "Choose the transposition",IDC_STATIC,7,50,160,40
-    GROUPBOX        "Choose the key",IDC_STATIC,7,100,160,45
-    LTEXT           "SIMPLE_TRANSPOSITION_KEY",IDC_SIMPLE_TRANSPOSITION_KEY,20,113,99,8
-    CONTROL         "",IDC_SIMPLE_TRANSPOSITION_IMAGE,"Static",SS_BITMAP,177,53,67,62
-    LTEXT           "Offset:",IDC_STATIC,20,129,24,8
-    EDITTEXT        IDC_EDIT_OFFSET,136,127,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "Choose the transposition variant",IDC_STATIC,7,55,160,40
+    GROUPBOX        "Choose the key",IDC_STATIC,7,105,160,45
+    LTEXT           "SIMPLE_TRANSPOSITION_KEY",IDC_SIMPLE_TRANSPOSITION_KEY,20,118,99,8
+    CONTROL         "",IDC_SIMPLE_TRANSPOSITION_IMAGE,"Static",SS_BITMAP,177,58,67,62
+    LTEXT           "Offset:",IDC_STATIC,20,134,24,8
+    EDITTEXT        IDC_EDIT_OFFSET,136,132,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
 END
 
 
@@ -25527,7 +25527,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC, GRAYED
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
-            MENUITEM "Simple Transpositions...",    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
+            MENUITEM "Scytale / Rail Fence...",    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetric (&modern)"
         BEGIN
@@ -25871,7 +25871,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
-            MENUITEM "Simple Transpositions...",    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
+            MENUITEM "Scytale / Rail Fence...",    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetric (&modern)"
         BEGIN
@@ -26215,7 +26215,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC, GRAYED
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
-            MENUITEM "Simple Transpositions...",    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
+            MENUITEM "Scytale / Rail Fence...",    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetric (&modern)"
         BEGIN
@@ -26559,7 +26559,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
-            MENUITEM "Simple Transpositions...",    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
+            MENUITEM "Scytale / Rail Fence...",    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetric (&modern)"
         BEGIN
@@ -26930,7 +26930,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC, GRAYED
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
-            MENUITEM "Simple Transpositions...",    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
+            MENUITEM "Scytale / Rail Fence...",    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetric (&modern)"
         BEGIN
@@ -29031,7 +29031,7 @@ BEGIN
         VERTGUIDE, 20
         VERTGUIDE, 265
         TOPMARGIN, 7
-        BOTTOMMARGIN, 173
+        BOTTOMMARGIN, 178
         HORZGUIDE, 20
     END
 END
@@ -29283,7 +29283,7 @@ BEGIN
     ID_FORMAT_TEXT_DOCUMENT "Formats a text document with specific parameters"
     ID_CRYPT_HASH_SHA256    "Calculates the SHA-256 hash value of the active document"
     ID_CRYPT_HASH_SHA512    "Calculates the SHA-512 hash value of the active document"
-    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS "Simple transpositions"
+    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS "Scytale / Rail Fence"
 END
 
 STRINGTABLE 
@@ -31627,7 +31627,7 @@ BEGIN
                             "esslinger@fb5.uni-siegen.de\r\njoerg-cornelius.schneider@db.com\r\nhenrik.koy@db.com\r\n\r\nInternet: http://www.cryptool.com"
     IDS_BIT_FMT             "%d bit%s"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION 
-                            "In the given value range [%s, %s], %d prime numbers were found."
+                            "In the given value range [%s, %s] %d prime numbers were found."
     IDS_BIT_EFFECTIVE_FMT   " (%d bit effective)"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_TITLE 
                             "Generating a set of prime numbers"

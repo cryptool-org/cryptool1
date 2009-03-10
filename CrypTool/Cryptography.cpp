@@ -4222,29 +4222,60 @@ int ScytaleEncryption(const char *infile, const char *oldTitle, int key, int off
 	char *cipherText = new char[textLength + 1];
 	memset(cipherText, 0, textLength + 1);
 
-	AfxMessageBox("TODO: implement offset for Scytale encryption; as of now, the offset is ignored");
+	// in the context of the Scytale encryption "the offset" works as follows:
+	// an offset of 1 means we don't start writing on the first line, but on the second instead;
+	// an offset of 2 means we don't start writing on the first line, but on the third instead;
+	// if the offset is bigger than the key (number of edges), it is reduced modulo the key; thus,
+	// the following applies: 0 < offset < key
+	offset = offset % key;
 
 	// ENCRYPTION
 	if(encrypt) {
+
 		int numberOfColumns = textLength / key;
 		if(textLength % key) numberOfColumns++;
 		int charactersProcessed = 0;
-		for(int column=0; column<numberOfColumns && charactersProcessed<textLength; column++) {
-			for(int index=column; index<textLength && charactersProcessed<textLength; index+=numberOfColumns) {
-				cipherText[charactersProcessed++] = clearText[index];
+
+		// declare a vector of rows (size: key)
+		std::vector<std::string> rows(key);
+
+		// fill the rows
+		for(int i=0; i<key; i++) {
+			int indexRow = (i + offset) % key;
+			int charactersLeft = textLength - charactersProcessed;
+			if(charactersLeft > numberOfColumns) 
+				charactersLeft = numberOfColumns;
+			if(charactersLeft > 0) {
+				rows[indexRow].append(clearText + charactersProcessed, charactersLeft);
+				charactersProcessed += charactersLeft;
 			}
 		}
+
+		int *charactersInRowProcessed = new int[key];
+		memset(charactersInRowProcessed, 0, key * 4);
+		charactersProcessed = 0;
+
+		// build the cipher text
+		for(int column=0; column<numberOfColumns; column++) {
+			for(int row=0; row<key; row++) {
+				// don't do anything if row was already processed
+				if(column >= rows[row].length())
+					continue;
+				const char *character = rows[row].c_str();
+				character += charactersInRowProcessed[row]++;
+				memcpy(cipherText + charactersProcessed++, character, 1);
+			}
+		}
+
+		/* TODO */
+		
+		AfxMessageBox("TODO: implement scytale offset");
 	}
 	// DECRYPTION
 	else {
-		int numberOfColumns = textLength / key;
-		if(textLength % key) numberOfColumns++;
-		int charactersProcessed = 0;
-		for(int column=0; column<numberOfColumns && charactersProcessed<textLength; column++) {
-			for(int index=column; index<textLength && charactersProcessed<textLength; index+=numberOfColumns) {
-				cipherText[index] = clearText[charactersProcessed++];
-			}
-		}
+		
+		/* TODO */
+
 	}
 
 	std::string cipherTextString = cipherText;
