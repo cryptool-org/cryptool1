@@ -3996,6 +3996,9 @@ UINT SymmetricBruteForce(PVOID p)
 	return r;
 }
 
+//
+// TODO due to lack of time: make sure dynamically allocated memory is freed 
+//
 // Rail Fence encryption (part of the simple transpositions dialog)
 // RETURN VALUES:		1 (success), -1 (invalid key), -2 (invalid file handle)
 int RailFenceEncryption(const char *infile, const char *oldTitle, int key, int offset, bool encrypt) {
@@ -4180,6 +4183,9 @@ int RailFenceEncryption(const char *infile, const char *oldTitle, int key, int o
 	return 1;
 }
 
+//
+// TODO due to lack of time: make sure dynamically allocated memory is freed 
+//
 // Scytale encryption (part of the simple transpositions dialog)
 // RETURN VALUES:		1 (success), -1 (invalid key), -2 (invalid file handle)
 int ScytaleEncryption(const char *infile, const char *oldTitle, int key, int offset, bool encrypt) {
@@ -4216,65 +4222,92 @@ int ScytaleEncryption(const char *infile, const char *oldTitle, int key, int off
 
 	// *** BEGIN ENCRYPTION/DECRYPTION PROCESS ***
 	int textLength = bufferString.length();
-	char *clearText = new char[textLength + 1];
-	memset(clearText, 0, textLength + 1);
+	char *clearText = new char[textLength + offset + 1];
+	memset(clearText, 0, textLength + offset + 1);
 	memcpy(clearText, bufferString.c_str(), textLength);
-	char *cipherText = new char[textLength + 1];
-	memset(cipherText, 0, textLength + 1);
+	char *cipherText = new char[textLength + offset + 1];
+	memset(cipherText, 0, textLength + offset + 1);
 
-	// in the context of the Scytale encryption "the offset" works as follows:
-	// an offset of 1 means we don't start writing on the first line, but on the second instead;
-	// an offset of 2 means we don't start writing on the first line, but on the third instead;
-	// if the offset is bigger than the key (number of edges), it is reduced modulo the key; thus,
-	// the following applies: 0 < offset < key
-	offset = offset % key;
+	// we need this check to make sure too big offsets don't mess up the encryption; thus, 
+	// by convention, offsets bigger than the text length are reduced modulo the text length
+	if(offset > textLength) offset = textLength;
+
+	// we need to know how many columns ("windings") we have on our Scytale
+	int numberOfColumns = (textLength + offset) / key;
+	if((textLength + offset) % key) numberOfColumns++;
+
+	// in the context of the Scytale encryption "the offset" indicates which winding 
+	// we're starting to write on (0 = the first winding, 1 = the second winding...)
+	offset = offset % numberOfColumns;
 
 	// ENCRYPTION
 	if(encrypt) {
 
-		int numberOfColumns = textLength / key;
-		if(textLength % key) numberOfColumns++;
 		int charactersProcessed = 0;
 
 		// declare a vector of rows (size: key)
-		std::vector<std::string> rows(key);
+		char **rows = new char*[key];
+		for(int row=0; row<key; row++) {
+			rows[row] = new char[numberOfColumns + 1];
+			memset(rows[row], 0, numberOfColumns + 1);
+		}
+		int *charactersInRowProcessed = new int[key];
+		memset(charactersInRowProcessed, 0, 4 * key);
 
 		// fill the rows
-		for(int i=0; i<key; i++) {
-			int indexRow = (i + offset) % key;
-			int charactersLeft = textLength - charactersProcessed;
-			if(charactersLeft > numberOfColumns) 
-				charactersLeft = numberOfColumns;
-			if(charactersLeft > 0) {
-				rows[indexRow].append(clearText + charactersProcessed, charactersLeft);
-				charactersProcessed += charactersLeft;
-			}
+		for(int index=0; index<textLength+offset; index++) {
+			int row = index / numberOfColumns;
+			if(offset > index) memset(rows[row] + charactersInRowProcessed[row]++, 0, 1);
+			else memcpy(rows[row] + charactersInRowProcessed[row]++, clearText + charactersProcessed++, 1);
 		}
-
-		int *charactersInRowProcessed = new int[key];
-		memset(charactersInRowProcessed, 0, key * 4);
+		
+		// create the ciphertext
 		charactersProcessed = 0;
-
-		// build the cipher text
 		for(int column=0; column<numberOfColumns; column++) {
 			for(int row=0; row<key; row++) {
-				// don't do anything if row was already processed
-				if(column >= rows[row].length())
-					continue;
-				const char *character = rows[row].c_str();
-				character += charactersInRowProcessed[row]++;
-				memcpy(cipherText + charactersProcessed++, character, 1);
+				// ignore zero bytes
+				if(rows[row][column] == 0) continue;
+				memcpy(cipherText + charactersProcessed++, rows[row] + column, 1);
 			}
 		}
 
-		/* TODO */
-		
-		AfxMessageBox("TODO: implement scytale offset");
 	}
 	// DECRYPTION
 	else {
 		
-		/* TODO */
+		int charactersProcessed = 0;
+
+		// declare a vector of rows (size: key)
+		char **rows = new char*[key];
+		for(int row=0; row<key; row++) {
+			rows[row] = new char[numberOfColumns + 1];
+			memset(rows[row], 0, numberOfColumns + 1);
+		}
+		int *charactersInRowProcessed = new int[key];
+		memset(charactersInRowProcessed, 0, 4 * key);
+
+		// fill the rows
+		charactersProcessed = 0;
+		for(int column=0; column<numberOfColumns; column++) {
+			for(int row=0; row<key; row++) {
+				// ignore zero bytes
+				if(offset > column && row == 0) continue;
+				// make sure we end rows correctly (that is, not copy too much)
+				if(row*numberOfColumns + column - offset >= textLength) continue;
+				memcpy(rows[row] + charactersInRowProcessed[row]++, clearText + charactersProcessed++, 1); 
+			}
+		}	
+
+		// create the clear text
+		charactersProcessed = 0;
+		for(int row=0; row<key; row++) {
+			memcpy(cipherText + charactersProcessed, rows[row], strlen(rows[row]));
+			charactersProcessed += strlen(rows[row]);
+		}
+
+		// flomar, 03/10/2009
+		// again, it's ugly that we're storing the result in cipherText instead of clearText 
+		// although we're executing a decryption; this will be fixed when there's more time
 
 	}
 
