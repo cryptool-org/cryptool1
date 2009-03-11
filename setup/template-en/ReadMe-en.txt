@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.30 Beta 03 for Win32, Mar. 2009--
+    CrypTool, Version 1.4.30 Beta 03 for Win32, Mar. 2009   x-xxxx
     (c) Contributors
         including
         Deutsche Bank AG, Frankfurt/Main,
@@ -36,6 +36,7 @@
  4.3.2. .... Keys stored in the files of the PSE directory
  4.4. .... Installation under multi-user operating systems
  4.5. .... Operating under multi-user operating systems
+ 4.6. .... Installation on a network drive --> Online help problem
  5. .... List of delivered files
  5.1. .... Checking the integrity of downloaded files
  6. .... Brief history of the released main versions of CrypTool
@@ -243,8 +244,9 @@ c) The animation program ANIMAL (see http://www.algoanim.info/Animal2):
    http://www.algoanim.info/Animal2/?q=node/284
    To run it JRE 1.5 is required (see chapter 3.2).
 
-d) As well as ANIMAL the ECC demonstration is stand-alone Java application
-   (JAR file). To run it also JRE 1.5 is required (see chapter 3.2).
+d) As well as ANIMAL the ECC demonstration v 1.1 is a stand-alone
+   Java application (JAR file).
+   To run it also JRE 1.5 is required (see chapter 3.2).
 
 e) The Flash applications:
    - "Rijndael Animation" (visualizes the AES encryption method),
@@ -628,11 +630,13 @@ version).
   can be found in the sources in the file "readme-source".
 
 - The sources have been compiled with the Microsoft development environment
-  Visual Studio 2008 Standard Edition (VC++ v9.0).
+  Visual Studio 2008 Standard Edition (VC++ v9.0), in order to support the
+  most-modern Microsoft development environment.
   The Express Edition of VS2008 is not sufficient, because this does not
   support the old MFC library for the GUI, which is still used in CT 1.x.
-  We had to change from VS2003 to VS2008, because some libraries can only
-  well linked for Vista with this version. xxxxxxxxx
+  Additionally there was a need to change from VS2003 to VS2008, because
+  some libraries could only compiled with VS2008 in a way, that they run
+  well under both Windows XP and Vista.
   Compiling all versions (4 languages, each in debug and release mode)
   lasts about 2 h on a modern PC.
 
@@ -679,7 +683,6 @@ b) Changes within the user documentation:
 - Updated and enhanced presentation (106 pages now).
 
 - New CrypTool website using Joomla since April 2008.
-xxxxxxxxx(CHECK, was schon im letzten REadme drin war) xxxxxxxxxx
 
 
 c) New functionality:
@@ -765,13 +768,13 @@ a) Developer-relevant changes (more technically oriented):
 
 - Clearance of source code, better re-usage, eliminate many warnings.
 
-- Update to OpenSSL 0.9.8g, ANIMAL 2.3.14 and NSIS 2.37.xxxxxxxxxxxx
+- Update to cv act library v. 1.3.0 for Vista.
 
 
 b) Changes within the user documentation:
 
-- Online help: enhanced (e.g. modi and padding variants used for block
-  ciphers have been described explicitely).
+- Online help: well enhanced (e.g. modi and padding variants used for block
+               ciphers now are described explicitely).
 
 - From the CrypTool website links are set to the sites of the successor
   versions JCT1 and CT2, which always offer their current beta for download.
@@ -780,24 +783,28 @@ b) Changes within the user documentation:
 c) New functionality / Usability:
 
 - Bug fixes --> Thanks to the many attentive users!
-  - Bug fixed in AKS which appeared with 2^8+1 and 2^16+1.
+  - Bug fixed in AKS which appeared with the numbers 2^8+1 and 2^16+1.
     The corrected version of AKS is slower.
   - Bug fixed in further primality tests which appeared when the tested
     number had prime factors < 39.
-  - In the dialog "Key generation from password (according to PKSC #5)
+  - In the dialog "Key generation from password (according to PKSC #5)"
     now hash values with leading zeros are presented correctly.
-  - The ECC demonstration for a discrete group over F(p) corrected some
-    wrong calculations.
   - The ECC-AES hybrid encryption and decryption now also runs under
     MS Vista (thanks to a new cv act lib from cryptovision).
   - The Secret Sharing application using the CRT now disallows, that
-    n=k (all share holders are necessary) in order to avoid that the
+    n=k (so all share holders are necessary) in order to avoid that the
     algorithm then would make the whole secret evident to the first
     share holder.
-  - RSA demonstration: Keep the entered e after calling options ?  xxxxxxxxx
-  - Fix for the discrete ECC demonstration which sometimes calculated by point
-    addition a result outside the curve; coordinates at the right border are
-    completely visible and version number 1.0 is shown in the title.
+  - RSA demonstration: Keep the entered parameter e after calling options.
+  - Fix for the ECC demonstration:
+    - The old version calculated under special circumstances a point outside
+      the curve when adding points over the discrete group over F(p).
+    - The coordinates dynamically shown at the points near the mouse cursor
+      are now completely visible also at the right border.
+    - The point in inifinity is now added in the overall number of points.
+    - The log window now is amodal, resizable and the content is more
+      well-arranged.
+    - The version number now is 1.1 and it is shown in the title.
   - Fix for DESX/DESXL: Now the effective bit length is displayed in encryption
     and brute force dialogs.
   - Fix for DESX/DESXL brute force analysis, which skipped keys when searching
@@ -806,7 +813,6 @@ c) New functionality / Usability:
     for the DES key part of the whole key).
   - The result of the attack on the hash value of the electronic signature
     previously showed a wrong number of steps (always ca. 4.x*10^18).
-  xxxxxxxxxxxxx
 
 - For all DES based methods now the dialogs show both the effectively used
   key length and the key length which the user has to enter.
@@ -814,15 +820,15 @@ c) New functionality / Usability:
 - Many small improvements in the masks (user interface), e.g. elapsed-time
   dialog for the AKS test; text in about box can be marked and copied.
 
-- All available hash methods offered in the dialogs for:
-  - Key generation from password (according to PKSC #5)
-  - Hashed Message Authentication Code (HMAC)
-  - xxxxxxx
+- All available 8 hash methods offered in the dialogs for:
+  - Key generation from password (according to PKSC #5),
+  - Generation of a hashed Message Authentication Code (HMAC),
+  - Generation of the hash value of a file.
+  Hash demonstration will follow. xxxxxxx->M
 
 - Within the HMAC dialog the names are related to the literature and the
   according online help contains the corresponding references.
-  Variant 4 of the HMAC sample constructions is now exactly according to
-  RFC 2104.
+  Variant 5 of the HMAC sample constructions now exactly follows RFC 2104.
   Details:
   CrypTool contains five HMAC variants (H = hash function, k = key, m = message):
   1.  H ( k, m )
@@ -856,6 +862,10 @@ c) New functionality / Usability:
   Now all primes within a given range can be generated (generation of
   prime sets).
 
+- For the simple (single) column transposition now a known-plaintext analysis
+  is implemented to calculate the transposition key.
+
+- Evtl. S/MIME-Demo xxxxxxxxxxxxxxx
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
@@ -1199,10 +1209,12 @@ b) If the user wants to create (or change) files from within CrypTool in
    - the sub-directory "CrypTool\pse", where the created asymmetric keys
      and certificates are stored in.
 
-c) Central installation on a Windows network server:
 
+4.6. Installation on a network drive --> Online help problem
+     -------------------------------------------------------
    Especially in courses at schools educational software is only installed
-   at the central machine; the client PCs are calling the program from there.
+   at the central machine like a Windows network server; the client PCs
+   are calling the program from there.
 
    This works with the program CrypTool itself. But if the online help is
    called from a client PC, then it will not be displayed according to the
@@ -1223,17 +1235,28 @@ c) Central installation on a Windows network server:
    content, index or search words are displayed correctly], if you want
    to access from a client help files stored at a server.
 
-   Workaround:
+   WORKAROUND:
    Because de-installing a patch is no good idea and because in this scenario
    it is not wanted to store the CHM files locally, you can change or add
    a special registry entry:
-   Assuming that the CHM files are stored at a server partition X: With the
-   UNC path "\\dir-1\\dir-2" , you can allow the client PC to access
-   the server partition by adding the following entry at all client PCs:
-   [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HTMLHelp\1.x\ItssRestrictions]
-   "UrlAllowList"="\\dir-1\\dir-2;file://\\dir-1\\dir-2;X:\\dir-1\\dir-2;file://X:\\dir-1\\dir-2"
 
-   ATTENTION: Changing the registry can cause Windows to stop working. You are
+   Assuming that the CHM files are stored at "X:\program\CrypTool"
+   where "X"  is a server partition with the UNC path "\\server\user".
+   Therefore, the full UNC path to the CHM files would be:
+   "\\server\user\program\CrypTool".
+
+   Open the Registry Editor (Start > Run... > "regedit") and navigate 
+   to "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HTMLHelp\1.x".
+   Create a new key "ItssRestrictions", and in this key create a new string
+   with the name "UrlAllowList" and the value
+   "\\server\user\program\CrypTool;file://\\server\user\program\CrypTool;
+    X:\program\CrypTool;file://X:\program\CrypTool".
+
+   By adding these entries in the registry of all client PCs all clients
+   have access to the server partition.
+
+   ATTENTION:
+   Changing the registry can cause Windows to stop working. You are
    solely responsible for such changes.
    To change the client's registry you probably need administrator rights.
 
@@ -1598,7 +1621,7 @@ Version   Date		Size of Windows Setup  Needed Size  Released
 1.4.10    July 2007	26.7 MB	     27.5 MB	47 MB        DB
 1.4.20    July 2008	36.1 MB	     37.1 MB	73 MB        DB
 1.4.21    July 2008	36.1 MB	     37.1 MB	73 MB        DB
-1.4.30    Feb. 2009	35.6 MB	     36.7 MB	71 MB        DB   xxxxxxxx
+1.4.30    Apr. 2009	35.6 MB	     36.7 MB	71 MB        DB   xxxxxxxx
 
 Remarks about the versions:
 1.3.02   Many new functions compared to 1.3.00.
@@ -1618,6 +1641,7 @@ Remarks about the versions:
          Mostly fine tuning and code stabilization (quality release).
 1.4.21   Patch containing also MSVCR71.dll. This DLL is used by the current
          OpenSSL library, but not available by default on blank Windows systems.
+1.4.30-Beta03  Mar. 2009  First public beta of version 1.4.30.
 1.4.30   Many bug fixes, slightly enhanced functionality compared to 1.4.2x.
 
 
@@ -2476,7 +2500,7 @@ b)  Java-CrypTool (JCrypTool, JCT):
    - A Secude library, Bouncy Castle and FlexiProvider are available.
    - Milestone 1 (published in August 2007) was dedicated to developers,
      showing that the new architecture concepts work.
-     Milestone 2 (August 2008), 3 (December 2008) and 4 (February 2009)
+     Milestone 2 (August 2008), 3 (December 2008), 4 and 4a (February 2009)
      already offer enough functionality to be applied by end users.
    - Further developers, architects and designers for this project are very
      welcome.
@@ -2532,7 +2556,7 @@ The new versions are (see chapter A.2.2.1):
 
 
 Features already implemented and integrated in the current beta versions
-                 (CT2 Beta01-2.0.3313 and JCT1 Milestone4):
+                 (CT2 Beta01-2.0.3349 and JCT1 Milestone 4a):
 - CT2  Visual programming (composition of protocols and workflows)
 - CT2  Prime number visualizations
 - CT2  WEP encryption and analysis of WEP encrypted messages
@@ -2564,5 +2588,10 @@ Features planned for the release version of the successor projects:
 - JCT  Commandline functionalty
 - JCT  Powerful action history and cascading possibility
 - JCT  Usage as a demonstrator for XML signatures
+
+Also compare the roadmap at the website https://www.cryptool.org/content/view/21/46/lang,english.
+Further details:
+- für CT2: https://www.cryptool.org/trac/CrypTool2
+- für JCT: http://jcryptool.wiki.sourceforge.net/ReleasePlan
 
 ################################################################
