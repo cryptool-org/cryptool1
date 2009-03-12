@@ -4415,6 +4415,7 @@ BEGIN
     LTEXT           "This permutation analysis is a known-plaintext analysis for which both plaintext and ciphertext are needed. It computes the permutation key which was used for encrypt. ",IDC_LBL_INFOTEXT,7,7,293,32
 END
 
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // Menu
@@ -4566,7 +4567,7 @@ BEGIN
             MENUITEM "Wartoœæ hasz dla pliku",      ID_HASH_OFAFILE
             MENUITEM "Demonstracja funkcji haszuj¹cej", ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, GRAYED
             MENUITEM "Generowanie klucza z has³a (PKCS #5)", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
-            MENUITEM "&Generowanie MAC",            ID_GENERATE_MACS, GRAYED
+            MENUITEM "&Generowanie HMAC",           ID_GENERATE_MACS, GRAYED
         END
         POPUP "Kryptosystem RSA"
         BEGIN
@@ -4909,7 +4910,7 @@ BEGIN
             MENUITEM "Wartoœæ hasz dla pliku",      ID_HASH_OFAFILE
             MENUITEM "Demonstracja funkcji haszuj¹cej", ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
             MENUITEM "Generowanie klucza z has³a (PKCS #5)", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
-            MENUITEM "&Generowanie MAC",            ID_GENERATE_MACS
+            MENUITEM "&Generowanie HMAC",           ID_GENERATE_MACS
         END
         POPUP "Kryptosystem RSA"
         BEGIN
@@ -5252,7 +5253,7 @@ BEGIN
             MENUITEM "Wartoœæ hasz dla pliku",      ID_HASH_OFAFILE
             MENUITEM "Demonstracja funkcji haszuj¹cej", ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, GRAYED
             MENUITEM "Generowanie klucza z has³a (PKCS #5)", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
-            MENUITEM "&Generowanie MAC",            ID_GENERATE_MACS, GRAYED
+            MENUITEM "&Generowanie HMAC",           ID_GENERATE_MACS, GRAYED
         END
         POPUP "Kryptosystem RSA"
         BEGIN
@@ -5595,7 +5596,7 @@ BEGIN
             MENUITEM "Wartoœæ hasz dla pliku",      ID_HASH_OFAFILE
             MENUITEM "Demonstracja funkcji haszuj¹cej", ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
             MENUITEM "Generowanie klucza z has³a (PKCS #5)", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
-            MENUITEM "&Generowanie MAC",            ID_GENERATE_MACS
+            MENUITEM "&Generowanie HMAC",           ID_GENERATE_MACS
         END
         POPUP "Kryptosystem RSA"
         BEGIN
@@ -5965,7 +5966,7 @@ BEGIN
             MENUITEM "Wartoœæ hasz dla pliku",      ID_HASH_OFAFILE
             MENUITEM "Demonstracja funkcji haszuj¹cej", ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, GRAYED
             MENUITEM "Generowanie klucza z has³a (PKCS #5)", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
-            MENUITEM "&Generowanie MAC",            ID_GENERATE_MACS, GRAYED
+            MENUITEM "&Generowanie HMAC",           ID_GENERATE_MACS, GRAYED
         END
         POPUP "Kryptosystem RSA"
         BEGIN
@@ -15172,7 +15173,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC, GRAYED
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
-            MENUITEM "Skytale / Gartenzaun...", ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
+            MENUITEM "Skytale / Gartenzaun...",     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetrisch (&modern)"
         BEGIN
@@ -15241,7 +15242,7 @@ BEGIN
             MENUITEM "&Hashwert einer Datei...",    ID_HASH_OFAFILE
             MENUITEM "Hash-&Demo...",               ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, GRAYED
             MENUITEM "Schlüssel aus &Passwort generieren (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
-            MENUITEM "&Generieren von MACs...",     ID_GENERATE_MACS, GRAYED
+            MENUITEM "&Generieren von HMACs...",    ID_GENERATE_MACS, GRAYED
         END
         POPUP "&RSA-Kryptosystem"
         BEGIN
@@ -15516,7 +15517,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
-            MENUITEM "Skytale / Gartenzaun...", ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
+            MENUITEM "Skytale / Gartenzaun...",     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetrisch (&modern)"
         BEGIN
@@ -15585,7 +15586,7 @@ BEGIN
             MENUITEM "&Hashwert einer Datei...",    ID_HASH_OFAFILE
             MENUITEM "Hash-&Demo...",               ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
             MENUITEM "Schlüssel aus &Passwort generieren (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
-            MENUITEM "&Generieren von MACs...",     ID_GENERATE_MACS
+            MENUITEM "&Generieren von HMACs...",    ID_GENERATE_MACS
         END
         POPUP "&RSA-Kryptosystem"
         BEGIN
@@ -15860,7 +15861,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
-            MENUITEM "Skytale / Gartenzaun...", ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
+            MENUITEM "Skytale / Gartenzaun...",     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetrisch (&modern)"
         BEGIN
@@ -15929,7 +15930,7 @@ BEGIN
             MENUITEM "&Hashwert einer Datei...",    ID_HASH_OFAFILE
             MENUITEM "Hash-&Demo...",               ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
             MENUITEM "Schlüssel aus &Passwort generieren (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
-            MENUITEM "&Generieren von MACs...",     ID_GENERATE_MACS
+            MENUITEM "&Generieren von HMACs...",    ID_GENERATE_MACS
         END
         POPUP "&RSA-Kryptosystem"
         BEGIN
@@ -16204,7 +16205,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
-            MENUITEM "Skytale / Gartenzaun...", ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
+            MENUITEM "Skytale / Gartenzaun...",     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetrisch (&modern)"
         BEGIN
@@ -16273,7 +16274,7 @@ BEGIN
             MENUITEM "&Hashwert einer Datei...",    ID_HASH_OFAFILE
             MENUITEM "Hash-&Demo...",               ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
             MENUITEM "Schlüssel aus &Passwort generieren (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
-            MENUITEM "&Generieren von MACs...",     ID_GENERATE_MACS
+            MENUITEM "&Generieren von HMACs...",    ID_GENERATE_MACS
         END
         POPUP "&RSA-Kryptosystem"
         BEGIN
@@ -16576,7 +16577,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC, GRAYED
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
-            MENUITEM "Skytale / Gartenzaun...", ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
+            MENUITEM "Skytale / Gartenzaun...",     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetrisch (&modern)"
         BEGIN
@@ -16645,7 +16646,7 @@ BEGIN
             MENUITEM "&Hashwert einer Datei...",    ID_HASH_OFAFILE
             MENUITEM "Hash-&Demo...",               ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, GRAYED
             MENUITEM "Schlüssel aus &Passwort generieren (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
-            MENUITEM "&Generieren von MACs...",     ID_GENERATE_MACS, GRAYED
+            MENUITEM "&Generieren von HMACs...",    ID_GENERATE_MACS, GRAYED
         END
         POPUP "&RSA-Kryptosystem"
         BEGIN
@@ -20276,7 +20277,7 @@ BEGIN
     ID_RSA_BLOEMERMAY       "Angriff auf RSA mit Gitterreduktionsverfahren, sofern d im Verhältnis zu N zu klein gewählt ist"
     ID_FILEPROPERTIES       "Zeigt die Eigenschaften das aktuellen Dokuments an."
     ID_ENCRYPT_ADFGVX       "ADFGVX-Verschlüsselung"
-    ID_GENERATE_MACS        "Erzeugt verschiedene Message Authentication Codes (MACs)"
+    ID_GENERATE_MACS        "Erzeugt verschiedene Keyed-Hash Message Authentication Codes (HMACs)"
     ID_MASS_PATTERN_SEARCH  "Sucht vorgegebene Muster in einem Dokument"
 END
 
@@ -20510,10 +20511,10 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_MAC_ZuLang   "Die Länge einer Nachricht ist auf 16.000 Zeichen begrenzt.\nZeichen, die darüber hinausgehen, werden ignoriert."
-    IDS_STRING_MAC_NoKey    "Sie haben keinen Schlüssel eingegeben!\nDer MAC entspricht daher dem Hashwert der Nachricht."
+    IDS_STRING_MAC_NoKey    "Sie haben keinen Schlüssel eingegeben!\nDer HMAC entspricht daher dem Hashwert der Nachricht."
     IDS_STRING_MAC_OnlyOneKey 
-                            "Sie haben nur einen Schlüssel eingegeben!\nDer MAC wird daher nur aus der Nachricht \nund einem Schlüssel berechnet."
-    IDS_STRING_MAC_Double   "Sie haben keinen Schlüssel eingegeben!\nDer innere Hashwert entspricht daher dem Hashwert\nder Datei, der MAC dem Hashwert dieses Wertes."
+                            "Sie haben nur einen Schlüssel eingegeben!\nDer HMAC wird daher nur aus der Nachricht \nund einem Schlüssel berechnet."
+    IDS_STRING_MAC_Double   "Sie haben keinen Schlüssel eingegeben!\nDer innere Hashwert entspricht daher dem Hashwert\nder Datei, der HMAC dem Hashwert dieses Wertes."
     IDS_ERROPEN_ANIM        "Die Animationsdatei kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob das Animationstool Animal mit den nötigen Animationsdateien installiert wurde."
     IDS_ANIMAL_PATH         "animal\\"
     IDS_ANIMAL_EXECUTABLE   "animal.bat"
@@ -25705,7 +25706,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC, GRAYED
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
-            MENUITEM "Scytale / Rail Fence...",    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
+            MENUITEM "Scytale / Rail Fence...",     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetric (&modern)"
         BEGIN
@@ -25774,7 +25775,7 @@ BEGIN
             MENUITEM "Hash Value of a File...",     ID_HASH_OFAFILE
             MENUITEM "Hash &Demonstration...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, GRAYED
             MENUITEM "&Key Generation from Password (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
-            MENUITEM "&Generation of MACs...",      ID_GENERATE_MACS, GRAYED
+            MENUITEM "&Generation of HMACs...",     ID_GENERATE_MACS, GRAYED
         END
         POPUP "&RSA Cryptosystem"
         BEGIN
@@ -26049,7 +26050,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
-            MENUITEM "Scytale / Rail Fence...",    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
+            MENUITEM "Scytale / Rail Fence...",     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetric (&modern)"
         BEGIN
@@ -26118,7 +26119,7 @@ BEGIN
             MENUITEM "Hash Value of a File...",     ID_HASH_OFAFILE
             MENUITEM "Hash &Demonstration...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
             MENUITEM "&Key Generation from Password (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
-            MENUITEM "&Generation of MACs...",      ID_GENERATE_MACS
+            MENUITEM "&Generation of HMACs...",     ID_GENERATE_MACS
         END
         POPUP "&RSA Cryptosystem"
         BEGIN
@@ -26393,7 +26394,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC, GRAYED
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
-            MENUITEM "Scytale / Rail Fence...",    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
+            MENUITEM "Scytale / Rail Fence...",     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetric (&modern)"
         BEGIN
@@ -26462,7 +26463,7 @@ BEGIN
             MENUITEM "Hash Value of a File...",     ID_HASH_OFAFILE
             MENUITEM "Hash &Demonstration...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, GRAYED
             MENUITEM "&Key Generation from Password (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
-            MENUITEM "&Generation of MACs...",      ID_GENERATE_MACS, GRAYED
+            MENUITEM "&Generation of HMACs...",     ID_GENERATE_MACS, GRAYED
         END
         POPUP "&RSA Cryptosystem"
         BEGIN
@@ -26737,7 +26738,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
-            MENUITEM "Scytale / Rail Fence...",    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
+            MENUITEM "Scytale / Rail Fence...",     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetric (&modern)"
         BEGIN
@@ -26806,7 +26807,7 @@ BEGIN
             MENUITEM "Hash Value of a File...",     ID_HASH_OFAFILE
             MENUITEM "Hash &Demonstration...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
             MENUITEM "&Key Generation from Password (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
-            MENUITEM "&Generation of MACs...",      ID_GENERATE_MACS
+            MENUITEM "&Generation of HMACs...",     ID_GENERATE_MACS
         END
         POPUP "&RSA Cryptosystem"
         BEGIN
@@ -27108,7 +27109,7 @@ BEGIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC, GRAYED
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
-            MENUITEM "Scytale / Rail Fence...",    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
+            MENUITEM "Scytale / Rail Fence...",     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetric (&modern)"
         BEGIN
@@ -27177,7 +27178,7 @@ BEGIN
             MENUITEM "Hash Value of a File...",     ID_HASH_OFAFILE
             MENUITEM "Hash &Demonstration...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, GRAYED
             MENUITEM "&Key Generation from Password (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
-            MENUITEM "&Generation of MACs...",      ID_GENERATE_MACS, GRAYED
+            MENUITEM "&Generation of HMACs...",     ID_GENERATE_MACS, GRAYED
         END
         POPUP "&RSA Cryptosystem"
         BEGIN
@@ -30964,7 +30965,7 @@ BEGIN
     ID_RSA_BLOEMERMAY       "Attacks RSA with lattice reduction algorthms, if d is too small compared to N"
     ID_FILEPROPERTIES       "Shows the properties of the document in the active window"
     ID_ENCRYPT_ADFGVX       "ADFGVX encryption"
-    ID_GENERATE_MACS        "Creates different Message Authentication Codes (MACs)"
+    ID_GENERATE_MACS        "Creates different Keyed-Hash Message Authentication Codes (HMACs)"
     ID_MASS_PATTERN_SEARCH  "Searches for predefined patterns within a file"
 END
 
@@ -31191,10 +31192,10 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_MAC_ZuLang   "The size of a message is limited to 16,000 characters.\nFurther characters are ignored."
-    IDS_STRING_MAC_NoKey    "You did not enter a key!\nThe MAC of your message corresponds to its hash value."
+    IDS_STRING_MAC_NoKey    "You did not enter a key!\nThe HMAC of your message corresponds to its hash value."
     IDS_STRING_MAC_OnlyOneKey 
-                            "You did only enter one key!\nConsequently, the MAC will be determined by your message \nand one key only."
-    IDS_STRING_MAC_Double   "You did not enter a key!\nThe inner hash value therefore corresponds to the hash value\nof the message, the MAC to this values' hash value."
+                            "You did only enter one key!\nConsequently, the HMAC will be determined by your message \nand one key only."
+    IDS_STRING_MAC_Double   "You did not enter a key!\nThe inner hash value therefore corresponds to the hash value\nof the message, the HMAC to this values' hash value."
     IDS_ERROPEN_ANIM        "The Animation-Tool 'Animal' could not be found. Please check whether all necessary files were installed with CrypTool."
     IDS_ANIMAL_PATH         "animal\\"
     IDS_ANIMAL_EXECUTABLE   "animal.bat"

@@ -8,9 +8,9 @@
 
 <!-- multiple keywords for CrypTool HTML help index -->
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
-	<PARAM NAME="Keyword" VALUE="Keyed-Hash Message Authentication Code (HMAC)">
-	<PARAM NAME="Keyword" VALUE="Hashfunktion">
-	<PARAM NAME="Keyword" VALUE="Dialog (Übersicht aller Dialoge)">
+       <PARAM NAME="Keyword" VALUE="Keyed-Hash Message Authentication Code (HMAC)">
+       <PARAM NAME="Keyword" VALUE="Dialog (Übersicht aller Dialoge)">
+       <PARAM NAME="Keyword" VALUE="Hashfunktion">
 </OBJECT>
 
 <BODY>
@@ -34,17 +34,17 @@
   <li>H ( k , H (k, m) )</li>
  </ol>
 
-<P>Der für die Erstellung des HMAC benötigte geheime Schlüssel kann über das Eingabefeld festgelegt werden. Zusätzlich kann eine von fünf Formen der Verknüpfung (HMAC-Variante) von Datei und Schlüssel gewählt werden [Siehe Menezes, Alfred J.; van Oorschot, Paul C.; Vanstone, Scott A.: Hand-book of Applied Cryptography]. Die Variable m bezeichnet dabei die Nachricht, k den Schlüssel und H die Hashfunktion.</P>
+<P>Der für die Erstellung des HMAC benötigte geheime Schlüssel kann über das Eingabefeld festgelegt werden. Zusätzlich kann eine von fünf Formen der Verknüpfung (HMAC-Variante) von Datei und Schlüssel gewählt werden. Die Variable m bezeichnet dabei die Nachricht, k den Schlüssel und H die Hashfunktion.</P>
 
-<P>Die erste HMAC-Variante bezeichnet man als "Secret Prefix Method", die zweite als "Secret Suffix Method". Die dritte und die vierte Verknüpfung bezeichnet man als "Envelope Method" mit einem beziehungsweise zwei Schlüsseln. Nur Variante fünf ist in einem Standard (RFC 2104, FIPS PUB 198) spezifiziert. Dieser HMAC berechnet sich wie folgt: H ( k XOR opad, H(k XOR ipad, m) ) mit ipad = 64 Bytes je 0x36, opad = 64 Bytes je 0x5C. Falls der Schlüssel k länger als die Blocklänge der Hash-Funktion ist, wird k durch H(k) ersetzt. </P>
+<P>Die erste HMAC-Variante bezeichnet man als "Secret Prefix Method", die zweite als "Secret Suffix Method". Die dritte und die vierte Verknüpfung bezeichnet man als "Envelope Method" mit einem beziehungsweise zwei Schlüsseln. Nur Variante fünf ist in einem Standard (RFC 2104, FIPS PUB 198) spezifiziert. Dieser HMAC berechnet sich wie folgt: H ( k XOR opad, H(k XOR ipad, m) ) mit ipad = 64 Bytes je 0x36, opad = 64 Bytes je 0x5C. Falls der Schlüssel k länger als die Blocklänge der Hash-Funktion ist, wird k durch H(k) ersetzt. [Siehe Menezes, Alfred J.; van Oorschot, Paul C.; Vanstone, Scott A.: Hand-book of Applied Cryptography]</P>
 
 <P>
-Alle Hash-Funktionen sind mit Hilfe von OpenSSL implementiert.
+Alle hier benutzte Hash-Funktionen sind mit Hilfe von <A HREF="http://www.openssl.org/">OpenSSL</A> implementiert. 
 </P>
 
 <P><B>Bemerkung:</B></P>
 
-<P>Bitte beachten Sie, dass dieser Dialog nur für Textdateien zur Verfügung steht und dass die Dateilänge auf 16.000 Zeichen begrenzt ist. Zeichen, die darüber hinausgehen, fließen nicht in den MAC ein.</P>
+<P>Bitte beachten Sie, dass diese Demonstration nur für Textdateien zur Verfügung steht und dass die Dateilänge auf 16.000 Zeichen begrenzt ist. Zeichen, die darüber hinausgehen, fließen nicht in den HMAC ein.</P>
 
 </BODY>
 </HTML>

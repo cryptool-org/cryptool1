@@ -8,9 +8,9 @@
 
 <!-- multiple keywords for CrypTool HTML help index -->
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
-	<PARAM NAME="Keyword" VALUE="Keyed-hash message authentication code (HMAC)">
-	<PARAM NAME="Keyword" VALUE="Hash function">
-	<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
+       <PARAM NAME="Keyword" VALUE="Keyed-hash message authentication code (HMAC)">
+       <PARAM NAME="Keyword" VALUE="Hash function">
+       <PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
 </OBJECT>
 
 <BODY>
@@ -34,17 +34,18 @@
   <li>H ( k , H (k, m) )</li>
  </ol>
  
- <P>The secret key used for the HMAC generation can be specified in the respective input box. Additionally, one out of five combination (HMAC variant) of document and key can be chosen [see Menezes, Alfred J.; van Oorschot, Paul C.; Vanstone, Scott A.: Hand-book of Applied Cryptography]. The variable m refers to the message, k and H refer to the key and the hash function, respectively.</P>
+<P>The secret key used for the HMAC generation can be specified in the respective input box. Additionally, one out of five combinations (HMAC variants) of document and key can be chosen. The variable m refers to the message, k and H refer to the key and the hash function, respectively.</P>
 
-<P>The first combination is called "Secret Prefix Method", the second combination is called "Secret Suffix Method". The third and fourth combination are called "Envelope Method" using one or two keys, respectively. Only variant five is specified by a standard (RFC 2104, FIPS PUB 198). This HMAC is calculated via: H ( k XOR opad, H(k XOR ipad, m) )  where ipad = 64 bytes each 0x36, opad = 64 bytes each 0x5C.  If the key k is longer than the block length of the hash function, then k will be substituted by H(k).</P>
+<P>The first combination is called "Secret Prefix Method", the second combination is called "Secret Suffix Method". The third and fourth combination are called "Envelope Method" using one or two keys, respectively. Only variant five is specified by a standard (RFC 2104, FIPS PUB 198). This HMAC is calculated via: H ( k XOR opad, H(k XOR ipad, m) )  where ipad = 64 bytes each 0x36, opad = 64 bytes each 0x5C.  If the key k is longer than the block length of the hash function, then k will be substituted by H(k). [See Menezes, Alfred J.; van Oorschot, Paul C.; Vanstone, Scott A.: Hand-book of Applied Cryptography]
+</P>
     
 <P>
-All hash functions are implemented using OpenSSL.
+All hash functions used here are implemented with <A HREF="http://www.openssl.org/">OpenSSL</A>.
 </P>
 
 <P><B>Remark:</B></P>
 
-<P>Please note that this dialog is available for text documents only, and the text length is restricted to 16.000 bytes. Further bytes do not affect the generated HMAC.</P>
+<P>Please note that this demonstration is available for text documents only, and the text length is restricted to 16,000 bytes. Further bytes do not affect the generated HMAC.</P>
 
 </BODY>
 </HTML>

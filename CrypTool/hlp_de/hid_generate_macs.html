@@ -2,28 +2,29 @@
 <HTML>
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Message Authentication Code</TITLE>
+<TITLE>Keyed-Hash Message Authentication Code (HMAC)</TITLE>
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
 <!-- multiple keywords for CrypTool HTML help index -->
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
-	<PARAM NAME="Keyword" VALUE="Message Authentication Code (MAC)">
-	<PARAM NAME="Keyword" VALUE="Einzelverfahren">
-	<PARAM NAME="Keyword" VALUE="Hashfunktion">
+       <PARAM NAME="Keyword" VALUE="Keyed-Hash Message Authentication Code (HMAC)">
+       <PARAM NAME="Keyword" VALUE="Einzelverfahren">
+       <PARAM NAME="Keyword" VALUE="Hashfunktion">
 </OBJECT>
+
 
 <BODY>
 	
-<h3><P><A NAME="hid_generate_macs"></A><B>Generieren von MACs (Menü <A href="menu_related_methods.html">Einzelverfahren</A> \ Hashverfahren)</B></P></h3>
+<h3><P><A NAME="hid_generate_macs"></A><B>Generieren von HMACs (Menü <A href="menu_related_methods.html">Einzelverfahren</A> \ Hashverfahren)</B></P></h3>
 
-<P>Der Dialog <A href="hidd_hmac.html">Message Authentication Code</A> (MAC) soll veranschaulichen, wie mit Hilfe einer schlüsselabhängigen <A href="hashfunktion.html">Hashfunktion</A> der digitale Fingerabdruck einer Datei erstellt wird. Ziel eines MACs ist die Gewährleistung von <A href="authentizitaet.html">Authentizität</A>.</P>
+<P>Der Dialog <A href="hidd_hmac.html">Keyed-Hash Message Authentication Code (HMAC)</A> soll veranschaulichen, wie mit Hilfe einer schlüsselabhängigen <A href="hashfunktion.html">Hashfunktion</A> der digitale Fingerabdruck einer Datei erstellt wird. Ziel eines HMACs ist die Gewährleistung von <A href="authentizitaet.html">Authentizität</A>.</P>
 
 <P>Sender und Empfänger einigen sich im Vorfeld auf einen gemeinsamen geheimen Schlüssel und eine kryptographische Hashfunktion. Der Sender verknüpft Nachricht und Schlüssel miteinander (z.B. durch Anhängen) und hasht die neu entstandene Datei. Der Hashwert wird zusammen mit der Originaldatei übertragen.</P>
 
-<P>Durch die Verwendung einer kryptographischen Hashfunktion wird die <A href="authentizitaet.html">Integrität</A> (Unverändertheit) der Daten überprüfbar, denn bereits die Änderung eines einzelnen Zeichens würde zu einem anderen MAC führen. Der geheime Schlüssel, der in die Berechnung des MAC einfliesst, authentifiziert den Ersteller.</P>
+<P>Durch die Verwendung einer kryptographischen Hashfunktion wird die <A href="authentizitaet.html">Integrität</A> (Unverändertheit) der Daten überprüfbar, denn bereits die Änderung eines einzelnen Zeichens würde zu einem anderen HMAC führen. Der geheime Schlüssel, der in die Berechnung des HMAC einfliesst, authentifiziert den Ersteller.</P>
 
-<P>Zur Prüfung der Authentizität führt der Empfänger die gleichen Operationen aus wie zuvor der Sender, allerdings verwendet er dazu die ihm übermittelte Nachricht. Stimmt das errechnete Ergebnis mit dem empfangenen MAC überein, kann der Empfänger davon ausgehen, dass die Nachricht vom angegebenen Sender stammt und bei der Übertragung nicht verändert wurde.</P>
+<P>Zur Prüfung der Authentizität führt der Empfänger die gleichen Operationen aus wie zuvor der Sender, allerdings verwendet er dazu die ihm übermittelte Nachricht. Stimmt das errechnete Ergebnis mit dem empfangenen HMAC überein, kann der Empfänger davon ausgehen, dass die Nachricht vom angegebenen Sender stammt und bei der Übertragung nicht verändert wurde.</P>
 
 </BODY>
 </HTML>
