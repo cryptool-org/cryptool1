@@ -215,6 +215,7 @@ public:
 	afx_msg void OnHybridEccDec();
 	afx_msg void OnEditRepeat();
 	afx_msg void OnUpdateEditRepeat(CCmdUI *pCmdUI);
+	afx_msg void OnKnownAnalysisSinglePermutation();
 };
 
 

@@ -152,7 +152,7 @@ CString CDlgCaesarAnalysis::createKeyOffsetRemark()
 	int pos = theApp.TextOptions.getAlphabet().Find(derivedKey);
 	// take the "next" character in the alphabet after the derived key
 	int newPos = (pos + 1) % theApp.TextOptions.getAlphabet().GetLength();
-	memcpy(alternativeKey, theApp.TextOptions.getAlphabet().GetBuffer() + newPos, 1);
+	memcpy(alternativeKey, (const char*)theApp.TextOptions.getAlphabet() + newPos, 1);
 
 	// mix it all together
 	sprintf(result, pc_str, derivedKey, alternativeKey);

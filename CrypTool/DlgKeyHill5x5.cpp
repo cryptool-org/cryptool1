@@ -67,7 +67,7 @@ CDlgKeyHill5x5::CDlgKeyHill5x5(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgKeyHill5x5::IDD, pParent)
 	, m_pHillAlphInfo(_T(""))
 {
-	hillklasse = new CHillEncryption(theApp.TextOptions.getAlphabet().GetBuffer(0));;
+	hillklasse = new CHillEncryption((const char*)theApp.TextOptions.getAlphabet());;
 	m_decrypt = 0;
 	//{{AFX_DATA_INIT(CDlgKeyHill5x5)
 	m_Verbose = FALSE;
@@ -1617,7 +1617,7 @@ void CDlgKeyHill5x5::OnTextOptions()
 	if(theApp.TextOptions.DoModal() != IDOK) return;
 
 	//if(hillklasse) delete hillklasse;
-	hillklasse = new CHillEncryption(theApp.TextOptions.getAlphabet().GetBuffer(0));
+	hillklasse = new CHillEncryption((const char*)theApp.TextOptions.getAlphabet());
 	
 	int len = theApp.TextOptions.getAlphabet().GetLength();
 	LoadString(AfxGetInstanceHandle(),IDS_HILL_CASE,pc_str,STR_LAENGE_STRING_TABLE);

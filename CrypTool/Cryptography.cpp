@@ -569,7 +569,7 @@ void Hill(const char *infile, const char *OldTitle)
 
 	// Die Hillklasse wird zur Ueberpruefung der erlaubten Zeichen benoetigt
 	CHillEncryption *hillklasse;
-	hillklasse = new CHillEncryption(theApp.TextOptions.getAlphabet().GetBuffer(0));
+	hillklasse = new CHillEncryption((const char*)theApp.TextOptions.getAlphabet());
 
     char outfile[128];
 
@@ -2893,11 +2893,11 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 
 	if(IDOK!=DH.DoModal()) 
 	{
-		theApp.TextOptions.getAlphabet() = DH.m_AlphabetBackup;
+		theApp.TextOptions.refAlphabet() = DH.m_AlphabetBackup;
 		in.close();
 		return;
 	}
-	theApp.TextOptions.getAlphabet() = DH.m_AlphabetBackup;
+	theApp.TextOptions.refAlphabet() = DH.m_AlphabetBackup;
 
 // Routine zur Homophonen Verschlüsselung
 	char outbuffer[17000];
@@ -3373,7 +3373,7 @@ void PermutationAsc(const char *infile, const char *OldTitle)
 	CFile datei(infile, CFile::modeRead);
 	bool laenge_groesser_0 = FALSE;
 	char c;
-	char *b1=NULL, *b2=NULL, *b3, *CPlayfairAlphabet;
+	char *b1=NULL, *b2=NULL, *b3;
 	unsigned long l1, l2, i, ignoreCase;;
 
 	ASSERT(datei.GetLength() < ULONG_MAX);
@@ -3382,16 +3382,14 @@ void PermutationAsc(const char *infile, const char *OldTitle)
 	l1 = datei.Read(b1, l1);
 	datei.Close();
 	b1[l1]=0;
-	CPlayfairAlphabet = theApp.TextOptions.getAlphabet().GetBuffer(0);
 	ignoreCase = theApp.TextOptions.getIgnoreCase();
 	for(l2=i=0;i<l1;i++) {
 		c = b1[i];
 		if(ignoreCase && 'a'<=c && c<='z')
 			c += 'A' - 'a';
-		if(strchr(CPlayfairAlphabet, c))
+		if (theApp.TextOptions.getAlphabet().Find(c))
 			b1[l2++] = c;
 	}
-	theApp.TextOptions.getAlphabet().ReleaseBuffer();
 	b1[l2]=0;
 	if(l2<1) {
 		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 1);

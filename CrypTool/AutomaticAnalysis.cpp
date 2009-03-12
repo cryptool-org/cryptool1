@@ -422,7 +422,7 @@ UINT VigenereAuto(PVOID p)
 void HillPlain(const char *infile, const char *OldTitle)
 {
 	// Hill Klasse anlegen und Daten in Hill-Klasse fuellen
-	CHillEncryption hillklasse(theApp.TextOptions.getAlphabet().GetBuffer(0));
+	CHillEncryption hillklasse((const char*)theApp.TextOptions.getAlphabet());
 	
 	// Überprüfung, ob Eingabedatei mindestens ein Zeichen enthält. 
 	CFile datei(infile, CFile::modeRead);

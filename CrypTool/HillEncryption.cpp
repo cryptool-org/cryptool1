@@ -94,7 +94,7 @@ void CHillEncryption::freigeben_mat (void)
 // Funktion zum Fuellen der Felder zahlen und zeichen und 
 // Berechnung von modul
 // also darf modul erst nach Aufruf von init_zahlen_zeichen benutzt werden.
-void CHillEncryption::init_zahlen_zeichen (char* erlaubte_zeichen)
+void CHillEncryption::init_zahlen_zeichen (const char* erlaubte_zeichen)
 {
 	size_t hilf = strlen(erlaubte_zeichen);
 	ASSERT (1 <= hilf); // ein Zeichen brauchen wir mindestens
@@ -191,7 +191,7 @@ void CHillEncryption::init_zahlen_zeichen (char* erlaubte_zeichen)
 // Konstruktor 
 // Dimension muss spaeter mittels Methode set_dim() gesetzt werden
 // (Die Dimension wird standardmaessig auf 1 gesetzt.)
-CHillEncryption::CHillEncryption(char* erlaubte_zeichen)
+CHillEncryption::CHillEncryption(const char* erlaubte_zeichen)
 {
 		//read from registry
 	firstPosNull = 1;
@@ -214,7 +214,7 @@ CHillEncryption::CHillEncryption(char* erlaubte_zeichen)
 }
 
 // Konstruktor mit Dimension
-CHillEncryption::CHillEncryption(char* erlaubte_zeichen, int d)
+CHillEncryption::CHillEncryption(const char* erlaubte_zeichen, int d)
 {
 		//read from registry
 	firstPosNull = 1;

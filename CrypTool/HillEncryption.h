@@ -144,7 +144,7 @@ private:
 	void freigeben_mat (void);
 	
 	// Funktion zum fuellen der Felder zahlen und zeichen und Berechnung von modul
-	void init_zahlen_zeichen (char*);
+	void init_zahlen_zeichen (const char*);
 	
 	// Die Funktion wird von der Funktion angriff benoetigt
 	void SucheSchluessel (int,int,long,int*,int*,BOOL*,int*,CSquareMatrixModN*,
@@ -158,9 +158,9 @@ private:
 	void my_sprintf(char *str, int i);
 	
 public:
-	CHillEncryption(char*);
+	CHillEncryption(const char*);
 	// Konstruktor mit Dimension
-	CHillEncryption(char*,int);
+	CHillEncryption(const char*,int);
 	~CHillEncryption();
 	
 	// Abbildung [erlaubte Zeichen] <-> [0..modul-1]

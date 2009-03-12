@@ -82,10 +82,11 @@ protected:
 
 public:
 	// access methods
-	CString getTitle() { return title; };
-	CString getReferenceFile() { return referenceFile; };
-	CString getAlphabet() { return alphabet; };
-	CString getSeparator() { return separator; };
+	CString getTitle() { return title; }
+	CString getReferenceFile() { return referenceFile; }
+	const CString &getAlphabet() { return alphabet; }
+	CString &refAlphabet() { return alphabet; }
+	CString getSeparator() { return separator; }
 	BOOL getSeparateLetters() { return separateLetters; };
 	BOOL getDistinguishUpperLowerCase() { return distinguishUpperLowerCase; };
 	BOOL getKeepCharactersNotPresentInAlphabetUnchanged() { return keepCharactersNotPresentInAlphabetUnchanged; };

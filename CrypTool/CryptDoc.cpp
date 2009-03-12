@@ -95,6 +95,7 @@ statement from your version.
 #include "bruteforceheap.h"
 #include "DlgFormatTextDocument.h"
 #include "DlgSimpleTranspositions.h"
+#include "DlgAutomatedPermAnalysis.h"
 
 extern char *CaPseDatei, *CaPseVerzeichnis, *Pfad, *PseVerzeichnis;
 
@@ -316,6 +317,7 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CAppDocument)
 	ON_COMMAND(ID_HYBRID_ECCDEC, OnHybridEccDec)
 	ON_COMMAND(ID_EDIT_REPEAT, OnEditRepeat)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_REPEAT, OnUpdateEditRepeat)
+	ON_COMMAND(ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION, &CCryptDoc::OnKnownAnalysisSinglePermutation)
 	END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -1936,4 +1938,11 @@ void CCryptDoc::OnUpdateEditRepeat(CCmdUI *pCmdUI)
 
 	BOOL enable = theApp.findAndReplaceDialog.m_hWnd != 0 && theApp.findAndReplaceDialog.textFind.GetLength() != 0;
 	pCmdUI->Enable(enable);
+}
+
+void CCryptDoc::OnKnownAnalysisSinglePermutation()
+{
+	CDlgAutomatedPermAnalysis dlg;
+	dlg.DoModal();
+	// TODO: Add your command handler code here
 }
