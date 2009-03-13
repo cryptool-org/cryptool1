@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
 <HEAD>
-<TITLE>Automatische Analyse für das einstufige Permutation-Verschlüsselungsverfahren</TITLE>
+<TITLE>Automatische Analyse einer einstufigen Spaltentransposition</TITLE>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
@@ -15,24 +15,24 @@
 
 <BODY>
 
-<h3>Automatische Analyse für das einstufige Permutation-Verschlüsselungsverfahren (Menü <A href="menu_analyze.html">Analyse</A> \ Symmetrische Verschlüsselung (klassisch) \ Known Plaintext)</h3>
+<h3>Automatische Analyse einer einstufigen Spaltentransposition(Menü <A href="menu_analyze.html">Analyse</A> \ Symmetrische Verschlüsselung (klassisch) \ Known-Plaintext)</h3>
 
 		<p>
-		Für das Permutation-Verschlüsselungsverfahren steht ein Angriff (Known-Plaintext-Angriff) zur Verfügung. 
-		Das bedeutet, man muss der Funktion sowohl einen Klartext als auch den dazugehörigen, mittels Permutationsverschlüsselung verschlüsselten Text übergeben. 
-		Daraufhin ermittelt CrypTool den zur Verschlüsselung verwendeten Schlüssel.<br>
+		Für die einstufige Spaltentransposition steht ein Known-Plaintext-Angriff zur Verfügung. 
+		Dieser Angriff ermittelt aus einem Klartext und dem, mittels Permutationsverschlüsselung erzeugten Geheimtext den Schlüssel, 
+		mit dem der Klartext verschlüsselt worden ist. <br>
 		<br>
-		Für die automatische Analyse müssen also sowohl der Klartext als auch der Geheimtext bekannt sein. Beide Texte müssen im 
-		<!--ZZZPOPUP--><A href="hid_permutation_asc.html">Dialog Analyse Permutation-Verschlüsselungsverfahren</A> ausgewählt werden.
+		Für die automatische Analyse müssen sowohl der Klartext als auch der Geheimtext bekannt sein. Beide Texte müssen im 
+		<!--ZZZPOPUP--><A href="hidd_perm_auto.html">Dialog Analyse Spaltentransposition</A> ausgewählt werden.
 		Korrespondierende Texte haben immer gleiche Länge.<br>
 		<br>Die Analyse funktioniert wie folgt: Je nach Angabe der Parameter zum Einlesen werden sowohl der Klar- als auch der Geheimtext
-		in eine Tabelle der Breite n (=Länge der Permutation) entweder zeilenweise oder spaltenweise eingelesen. 
+		in eine Tabelle der Breite n (=Länge der Permutation = Schlüssellänge) entweder zeilenweise oder spaltenweise eingelesen. 
 		Im Anschluss vergleicht CrypTool die jeweiligen Spalten beider Texttabellen und ermittelt so die Permutation, 
 		also die Vertauschung der Spalten. Daraufhin kann CrypTool nun den Schlüssel zur angewandten Permutation bestimmen.<br>
 		<br>Werden vom Benutzer keine genauen Angaben zur Berechnung des Schlüssels getroffen, so durchläuft CrypTool eine automatische Analyse. 
 		Hierbei können auch mehrere Schlüssel gefunden werden. Es wird allerdings nur der erste gefundene Schlüssel 
-		neben den Parametern zum Permutationsverfahren im <!--ZZZPOPUP--><A href="hidd_key_permutation.html">
-		Dialog Schlüsselausgabe: Permutation</A> angezeigt. Bei einer Eingrenzung der Schlüssellänge durch den Benutzer muss die Länge der ausgewählten Texte
+		neben den Parametern zum Permutationsverfahren im <!--ZZZPOPUP--><A href="hidd_perm_key.html">
+		Dialog Schlüsselausgabe: Spaltentransposition</A> angezeigt. Bei einer Eingrenzung der Schlüssellänge durch den Benutzer muss die Länge der ausgewählten Texte
 		ein Vielfaches der Schlüssellänge sein.</p>
 		<p><u>Beispiel zur Berechnung des Permutationsschlüssels:</u></p>
 		<TABLE cols="2" width="0*" class="pad10">
@@ -45,7 +45,7 @@
 				<TD>IEAJFBKGCLHD.</TD>
 			</TR>
 		</TABLE><br>
-		Für die beispielhafte Analyse des Permutation-Verschlüsselungsverfahrens werden hier im Folgenden diese Parameter angenommen:<br>
+		Für die beispielhafte Analyse der einstufigen Spaltentransposition werden hier im Folgenden diese Parameter angenommen:<br>
 		<br>
 		<TABLE cols="2" width="0*" class="pad10">
 			<TR VALIGN="top">
@@ -65,7 +65,7 @@
 				<TD>3</TD>
 			</TR>
 		</TABLE><br>
-		Wie oben beschrieben beginnt die Analyse mit dem Einlesen des Klar- und Geheimtextes in eine Tabelle. Aufgrund der Schlüssellänge von 3
+		Wie oben beschrieben beginnt die Analyse mit dem Einlesen des Klar- und Geheimtextes in eine eigene Tabelle. Aufgrund der Schlüssellänge von 3
 		und der spaltenweisen Permutation müssen beide Tabellen aus genau 3 Spalten bestehen. Wie groß die jeweiligen Spalten sind ermittelt sich
 		aus der Textgröße und der Schlüssellänge. <br>
 		In unserem Beispiel bestehen die 3 Spalten damit jeweils aus 4 Zeichen, womit man auch auf die Textlänge von 12 kommt.<br>
@@ -125,11 +125,20 @@
 			</tr>
 		</table>
 		<br>
-                CrypTool vergleicht nun die Spalten beider Tabellen miteinander. Anhand dieser ist zu erkennen, 
+                CrypTool vergleicht nun die Spalten beider Tabellen miteinander. Man erkennt, 
                 dass sich die in der Klartexttabelle an erster Stelle befindliche Spalte nun in der Tabelle des 
                 Geheimtextes an dritter Position befindet. Die Spalte an zweiter Position behielt ihren Platz, 
                 die dritte wurde jedoch an die erste Stelle im Geheimtext verschoben.<br>
-                Damit ergibt die Analyse der Permutationsverschlüsselung den Permutationsschlüssel: 3,2,1.
+                Damit ergibt die Analyse der Spaltentransposition den Permutationsschlüssel: 3,2,1.
 		&nbsp;</p>
+		<p><u>Bemerkungen:</u></p>
+		<p>1) Für einen Known-Plaintext-Angriff müssen Klar- und Geheimtext angegeben werden. 
+		Der Geheimtext kann einfach in CrypTool im Menü Ver-/Entschlüsseln / Symmetrisch (klassisch) / Permutation/Transposition erstellt werden. 
+		Die Analyse der einstufigen Spaltentransposition ermittelt dann den Permutationsschlüssel, mit dem der Klartext verschlüsselt worden ist.
+		</p>
+		<p>2) Die Größe der angegebenen Texte darf maximal 2 Gigabyte betragen. Das ergibt sich aus dem Wertebereich eines 32-Bit Integers. 
+		Dieser Datentyp wurde für die Dateigröße(=Textlänge) verwendet und bestimmt somit auch die Maximalgrenze der Textgröße. 
+		Weil die maximale Schlüssellänge die maximale Textlänge nicht überschreiten kann, gilt für die Länge des Permutationsschlüssels dieselbe Obergrenze. 
+		</p>
 	</BODY>
 </HTML>
