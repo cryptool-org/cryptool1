@@ -4403,7 +4403,7 @@ BEGIN
     GROUPBOX        "Wyczytaæ",IDC_GB_AUSLESEN,214,122,86,65
     CONTROL         "Liniowa",IDC_RB_PERM_SW,"Button",BS_AUTORADIOBUTTON | WS_GROUP,134,136,39,10
     GROUPBOX        "Wczytaæ",IDC_GB_EINLESEN,19,123,86,65
-    GROUPBOX        "Permutacia",IDC_GB_PERMUTIEREN,117,123,86,65
+    GROUPBOX        "Permutacja",IDC_GB_PERMUTIEREN,117,123,86,65
     GROUPBOX        "Jaka wariante zastosowaæ?",IDC_GB_VERFAHREN,7,109,306,84
     PUSHBUTTON      "Szukaj",IDC_BTN_KLARTEXT,241,51,59,16
     PUSHBUTTON      "Szukaj",IDC_BTN_GEHEIMTEXT,241,79,59,16
@@ -4412,7 +4412,7 @@ BEGIN
     LTEXT           "Tekst orginalny",IDC_LBL_KLARTEXT,19,41,59,10
     EDITTEXT        IDC_TB_KLARTEXT,19,51,216,16,ES_AUTOHSCROLL
     GROUPBOX        "Wprowadzenie plikow",IDC_GB_TEXTE,6,31,307,71
-    LTEXT           "This permutation analysis is a known-plaintext analysis for which both plaintext and ciphertext are needed. It computes the permutation key which was used for encrypt. ",IDC_LBL_INFOTEXT,7,8,293,32,0,WS_EX_TRANSPARENT
+    LTEXT           "This permutation analysis is a known-plaintext analysis, so both plaintext and ciphertext are needed to compute the key. ",IDC_LBL_INFOTEXT,7,8,293,22,0,WS_EX_TRANSPARENT
 END
 
 
@@ -15071,18 +15071,18 @@ BEGIN
     LTEXT           "Einlesen:",IDC_STATIC,17,56,35,9
     LTEXT           "Permutieren:",IDC_STATIC,17,77,54,10
     LTEXT           "Auslesen:",IDC_STATIC,17,97,54,13
-    LTEXT           "",IDC_STATIC,83,53,92,14,WS_BORDER
-    LTEXT           "",IDC_STATIC,83,74,92,14,WS_BORDER
-    LTEXT           "",IDC_STATIC,83,94,92,14,WS_BORDER
-    LTEXT           "",IDC_STATIC,17,30,209,12,WS_BORDER
+    LTEXT           "",IDC_inDir1,83,53,92,14,WS_BORDER
+    LTEXT           "",IDC_permDir1,83,74,92,14,WS_BORDER
+    LTEXT           "",IDC_OUTDIR1,83,94,92,14,WS_BORDER
+    LTEXT           "",IDC_PERMKEY1,17,30,209,12,WS_BORDER
     GROUPBOX        "2. Permutation",IDC_STATIC,7,123,228,109,WS_DISABLED
     LTEXT           "Einlesen:",IDC_STATIC,17,173,35,9,WS_DISABLED
     LTEXT           "Permutieren:",IDC_STATIC,17,194,54,10,WS_DISABLED
     LTEXT           "Auslesen:",IDC_STATIC,17,214,54,13,WS_DISABLED
-    LTEXT           "",IDC_STATIC,83,170,92,14,WS_DISABLED | WS_BORDER
-    LTEXT           "",IDC_STATIC,83,190,92,14,WS_DISABLED | WS_BORDER
-    LTEXT           "",IDC_STATIC,83,211,92,14,WS_DISABLED | WS_BORDER
-    LTEXT           "",IDC_STATIC,17,147,209,12,WS_DISABLED | WS_BORDER
+    LTEXT           "",IDC_INDIR2,83,170,92,14,WS_DISABLED | WS_BORDER
+    LTEXT           "",IDC_PERMDIR2,83,190,92,14,WS_DISABLED | WS_BORDER
+    LTEXT           "",IDC_OUTDIR2,83,211,92,14,WS_DISABLED | WS_BORDER
+    LTEXT           "",IDC_PERMKEY2,17,147,209,12,WS_DISABLED | WS_BORDER
     PUSHBUTTON      "Schlüssel kopieren",IDC_BUTTON1,7,246,76,15
     CTEXT           "Gefundener Schlüssel:",IDC_STATIC,68,17,107,13
     CTEXT           "Gefundener Schlüssel:",IDC_STATIC,68,134,107,13,WS_DISABLED
@@ -21181,6 +21181,8 @@ BEGIN
     IDS_SIGATT_STAT_FAKE_FILE "Dateiname Fälschung: %s"
     IDS_PQMERROR_NO_SPECIALCHARACTERS 
                             "Die Liste der Sonderzeichen ist leer!\nBitte geben Sie Sonderzeichen an, oder veringern Sie die Minimalzahl der Sonderzeichen auf Null."
+    IDS_IOP_COL             "Spaltenweise"
+    IDS_IOP_ROW             "Zeilenweise"
 END
 
 STRINGTABLE 
@@ -25618,7 +25620,34 @@ BEGIN
     LTEXT           "Plaintext",IDC_LBL_KLARTEXT,19,41,43,10
     EDITTEXT        IDC_TB_KLARTEXT,19,51,216,16,ES_AUTOHSCROLL
     GROUPBOX        "Input data",IDC_GB_TEXTE,6,31,307,71
-    LTEXT           "This permutation analysis is a known-plaintext analysis for which both plaintext and ciphertext are needed. It computes the permutation key which was used for encrypt. ",IDC_LBL_INFOTEXT,7,8,293,32,0,WS_EX_TRANSPARENT
+    LTEXT           "This permutation analysis is a known-plaintext analysis, so both plaintext and ciphertext are needed to compute the key. ",IDC_LBL_INFOTEXT,7,8,293,21,0,WS_EX_TRANSPARENT
+END
+
+IDD_AUTOMATED_PERM_ANALYSIS_OUTPUT DIALOGEX 0, 0, 242, 268
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Schlüsselausgabe: Einstufige Spaltentransposition"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Schließen",IDOK,185,247,50,14
+    GROUPBOX        "1. Permutation",IDC_STATIC,7,7,228,109
+    LTEXT           "Einlesen:",IDC_STATIC,17,56,35,9
+    LTEXT           "Permutieren:",IDC_STATIC,17,77,54,10
+    LTEXT           "Auslesen:",IDC_STATIC,17,97,54,13
+    LTEXT           "",IDC_STATIC,83,53,92,14,WS_BORDER
+    LTEXT           "",IDC_STATIC,83,74,92,14,WS_BORDER
+    LTEXT           "",IDC_STATIC,83,94,92,14,WS_BORDER
+    LTEXT           "",IDC_STATIC,17,30,209,12,WS_BORDER
+    GROUPBOX        "2. Permutation",IDC_STATIC,7,123,228,109,WS_DISABLED
+    LTEXT           "Einlesen:",IDC_STATIC,17,173,35,9,WS_DISABLED
+    LTEXT           "Permutieren:",IDC_STATIC,17,194,54,10,WS_DISABLED
+    LTEXT           "Auslesen:",IDC_STATIC,17,214,54,13,WS_DISABLED
+    LTEXT           "",IDC_STATIC,83,170,92,14,WS_DISABLED | WS_BORDER
+    LTEXT           "",IDC_STATIC,83,190,92,14,WS_DISABLED | WS_BORDER
+    LTEXT           "",IDC_STATIC,83,211,92,14,WS_DISABLED | WS_BORDER
+    LTEXT           "",IDC_STATIC,17,147,209,12,WS_DISABLED | WS_BORDER
+    PUSHBUTTON      "Schlüssel kopieren",IDC_BUTTON1,7,246,76,15
+    CTEXT           "Gefundener Schlüssel:",IDC_STATIC,68,17,107,13
+    CTEXT           "Gefundener Schlüssel:",IDC_STATIC,68,134,107,13,WS_DISABLED
 END
 
 
@@ -29220,6 +29249,16 @@ BEGIN
         RIGHTMARGIN, 313
         TOPMARGIN, 7
         BOTTOMMARGIN, 303
+    END
+
+    IDD_AUTOMATED_PERM_ANALYSIS_OUTPUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 235
+        VERTGUIDE, 175
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 261
+        HORZGUIDE, 247
     END
 END
 #endif    // APSTUDIO_INVOKED

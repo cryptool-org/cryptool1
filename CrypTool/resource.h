@@ -1673,6 +1673,14 @@
 #define IDC_SIMPLE_TRANSPOSITION_KEY    2025
 #define IDC_SIMPLE_TRANSPOSITION_IMAGE  2026
 #define IDC_EDIT_OFFSET                 2027
+#define IDC_PERMKEY1                    2028
+#define IDC_inDir1                      2029
+#define IDC_permDir1                    2030
+#define IDC_OUTDIR1                     2031
+#define IDC_PERMKEY2                    2032
+#define IDC_INDIR2                      2033
+#define IDC_PERMDIR2                    2034
+#define IDC_OUTDIR2                     2035
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -3111,6 +3119,8 @@
 #define IDS_SIGATT_STAT_ORIGINAL_FILE   62015
 #define IDS_SIGATT_STAT_FAKE_FILE       62016
 #define IDS_PQMERROR_NO_SPECIALCHARACTERS 62017
+#define IDS_IOP_COL                     62018
+#define IDS_IOP_ROW                     62019
 
 // Next default values for new objects
 // 
@@ -3118,7 +3128,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        878
 #define _APS_NEXT_COMMAND_VALUE         33373
-#define _APS_NEXT_CONTROL_VALUE         2028
+#define _APS_NEXT_CONTROL_VALUE         2036
 #define _APS_NEXT_SYMED_VALUE           109
 #endif
 #endif

@@ -4,7 +4,7 @@
 #include "stdafx.h"
 #include "DlgAutomatedPermAnalysis.h"
 #include "automated_permanalysis.h"
-
+#include "DlgPermKey.h"
 
 // CDlgAutomatedPermAnalysis dialog
 
@@ -74,13 +74,10 @@ void CDlgAutomatedPermAnalysis::OnBnClickedBtnBerechnen()
 	int lowerLimit, upperLimit;
 
 	if(tb_klartext == "")
-	{
 		MessageBoxA("Bitte geben Sie eine Klartext-Datei an!","Fehler",MB_ICONSTOP);
-	}
+	
 	if(tb_geheimtext == "")
-	{
 		MessageBoxA("Bitte geben Sie eine Geheimtext-Datei an!","Fehler",MB_ICONSTOP);
-	}
 
 	if(rb_permsize == 0)
 	{
@@ -105,7 +102,16 @@ void CDlgAutomatedPermAnalysis::OnBnClickedBtnBerechnen()
 	analysis.setFilenames(tb_klartext, tb_geheimtext);
 	analysis.setAnalyseParam(lowerLimit, upperLimit, rb_einlesen, rb_permutation, rb_auslesen);
 
-	analysis.iterate_key_param();
+	if ( analysis.iterate_key_param() )
+	{
+		CDlgPermKey dlg;
+		dlg.setPermKey1(analysis.getKeyList());
+		dlg.DoModal();
+	}
+	else
+	{
+		MessageBoxA("Es wurde kein Schlüssel gefunden!","BLA",MB_OK);
+	}
 
 }
 

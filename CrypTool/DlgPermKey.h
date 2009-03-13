@@ -1,6 +1,7 @@
 /*********************************************************************
 
-Copyright (C) CrypTool project contributors, 1998-2009
+Copyright (C) Deutsche Bank AG 1998-2003, Frankfurt am Main
+Copyright (C) Universität Siegen und Darmstadt
 
 This file is part of CrypTool.
 
@@ -9,7 +10,7 @@ under the terms of the GNU General Public License as published by the
 Free Software Foundation; either version 2 of the License, or (at your
 option) any later version.
 
-CrypTool is distributed in the hope that it will be useful, but WITHOUT
+Foobar is distributed in the hope that it will be useful, but WITHOUT
 ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
 FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 for more details.
@@ -38,58 +39,42 @@ extend this exception to your version of the file, but you are not
 obligated to do so. If you do not wish to do so, delete this exception
 statement from your version.
 
-TODO Cryptovision 
-
 **********************************************************************/
 
 
-#pragma once
-#include "stdafx.h"
+//////////////////////////////////////////////////////////////////
+// Copyright 1998-2000 Deutsche Bank AG, Frankfurt am Main
+//////////////////////////////////////////////////////////////////
+#ifndef _DLG_PERMKEY_H
+#define _DLG_PERMKEY_H
 
-enum direction { col_dir = 0, row_dir = 1, both_dir = 2 };
+#include "afxwin.h"
+#include "resource.h"
+#include "automated_permanalysis.h"
 
-struct perm_table {
-	char  **table;
-	int	permSize;
-	int	colSize;
-	int dir; 
+// CDlgPermKey dialog
 
-	perm_table();
-	~perm_table();
-	void remove();
-	int  realloc( int FILESIZE, int PERMSIZE );
-	int  readFile( ifstream &fin, int DIR );
-};
+class CDlgPermKey : public CDialog
+{
+	DECLARE_DYNAMIC(CDlgPermKey)
 
-struct permkey {
-	permkey *next;
-	int  permSize;
-	int *permKey;
-	int  dirPlain, dirCipher, dirPerm;
-	permkey(int *perm_key, int perm_size, 
-		int dir_plain, int dir_cipher, int dir_perm, permkey *nxt );
-	~permkey();
-};
-
-
-class automated_permanalysis {
-	ifstream     plainFile, cipherFile;
-	int		     fileSize;
-	int			 psUpperLimit, psLowerLimit;
-	int    	     rangePlain, rangeCipher, rangePerm;
-	permkey     *keyList;
-	perm_table   ptPlain, ptCipher;
-
-	int get_file_size(ifstream &fstrm);
-	int read_file_in_table(ifstream &fstrm, perm_table &pt, int permSize, int DIR);
-	int get_key(int permSize, int it_perm);
-	int analyse(int permSize, int it_plain, int it_perm, int it_cipher);
 public:
-	automated_permanalysis();
-	~automated_permanalysis();
-	int setFilenames( const char *fn_plain, const char *fn_cipher );
-	int setAnalyseParam( int ps_lowerLimit, int ps_upperLimit,
-						 int range_plain, int range_perm, int range_cipher); 
-	const permkey *getKeyList() { return keyList; }
-	int iterate_key_param();
+	CDlgPermKey(CWnd* pParent = NULL);   // standard constructor
+	virtual ~CDlgPermKey();
+	void setPermKey1(const permkey *key);
+
+// Dialog Data
+	enum { IDD = IDD_AUTOMATED_PERM_ANALYSIS_OUTPUT };
+
+protected:
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+
+	DECLARE_MESSAGE_MAP()
+public:
+	CString m_permKey1;
+	CString m_inDir1;
+	CString m_permDir1;
+	CString m_outDir1;
 };
+
+#endif

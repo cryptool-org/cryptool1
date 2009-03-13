@@ -87,6 +87,7 @@ int  perm_table::readFile( ifstream &fin, int DIR)
 {
 	char c;
 	fin.clear();
+	fin.seekg(0, ios::beg);
 	dir = DIR;
 	for(int i=0; ;i++)
 	{
@@ -210,11 +211,10 @@ int automated_permanalysis::get_key(int permSize, int it_perm)
 	for(i = 0; i < permSize; i++)// "i" goes through the column table_plain
 	{
 		for(j = 0; j < permSize; j++)// "j" goes through the column in table_cipher
-
 		{
 		// Column "i" from table "table_plain" is compared with column "j" in "table_cipher"
 		// We check if "j" is already entered into the array "used_in_key[]"
-			if(!used_in_key[j] && !(memcmp(ptPlain.table[i], ptCipher.table[j], permSize)))
+			if(!used_in_key[j] && !(memcmp(ptPlain.table[i], ptCipher.table[j], ptCipher.colSize)))
 				break;
 		}
 		// The result "j" is saved in the array "key[]" 
@@ -224,7 +224,7 @@ int automated_permanalysis::get_key(int permSize, int it_perm)
 			break;
 		}
 		used_in_key[j] = true;
-		key[i] = j;
+		key[i] = j+1;
 	}
 
 	if ( found )
@@ -236,7 +236,6 @@ int automated_permanalysis::get_key(int permSize, int it_perm)
 	}
 	else
 		delete []key;
-	
 
 	delete []used_in_key;
 
@@ -260,22 +259,13 @@ int check( int it, int ref)
 int automated_permanalysis::iterate_key_param()
 {
 	int permSize;
-	int it_plain, it_perm, it_cipher;
+	int it_perm, it_cipher;
 
-	for(permSize=psLowerLimit; permSize<=psUpperLimit; permSize++) if ( !( fileSize % permSize ) )
-	{
-		for ( it_plain = col_dir; it_plain <= row_dir; it_plain++ ) if (check(it_plain, rangePlain))
-		{
-			for ( it_perm = col_dir; it_perm <= row_dir; it_perm++ ) if (check(it_perm, rangePerm))
-			{
-				for (it_cipher = col_dir; it_cipher <= row_dir; it_cipher++ ) if (check(it_cipher, rangeCipher ))
-				{
-					// FIXME: avoid symmetry
-					analyse(permSize, it_plain, it_perm, it_cipher);
-				}
-			}
-		}
-	}
+	for(permSize=psUpperLimit; permSize>=psLowerLimit; permSize--) if ( !( fileSize % permSize ) )
+		for ( it_perm = col_dir; it_perm <= row_dir; it_perm++ ) if (check(it_perm, rangePerm))
+			for (it_cipher = col_dir; it_cipher <= row_dir; it_cipher++ ) if (check(it_cipher, rangeCipher ))
+				analyse(permSize, ( it_perm == col_dir ) ? col_dir : row_dir, it_perm, it_cipher);
+
 	return (int)(keyList);
 }
 
