@@ -2,30 +2,33 @@
 <HTML>
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Dialog Analyse Permutation-Verschlüsselungsverfahren</TITLE>
+<TITLE>Dialog Analysis of a Simple Column Transposition (Known Plaintext)</TITLE>
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
 
 <!-- multiple keywords for CrypTool HTML help index -->
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
-	<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
+	<PARAM NAME="Keyword" VALUE="Dialog"
 	<PARAM NAME="Keyword" VALUE="Analysis">
+	<PARAM NAME="Keyword" VALUE="column transposition">
+	<PARAM NAME="Keyword" VALUE="Known Plaintext">
+	<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
 	<PARAM NAME="Keyword" VALUE="Pemutation encryption algorithm">
 </OBJECT>
 <BODY>
-<h3>Dialog Permutation Analysis (Known Plaintext)</h3>
+<h3>Dialog Analysis of a Simple Column Transposition (Known Plaintext)</h3>
 
-<P>You can reach this dialog via the menu entry <a href="menu_analyze.html">Analysis</a> \ <a href="menu_analysis_symmetricclassic.html">Symmetric Encryption(classic)</a> \ <a href="menu_analysis_symmetricclassic_knownplaintext.html">Known Plaintext</a> \ <a href="HID_PERM_AUTO.html">Permutation/Transposition(one-level)</a>.</P>
+<P>You can reach this dialog via the menu entry <a href="menu_analyze.html">Analysis</a> \ <a href="menu_analysis_symmetricclassic.html">Symmetric Encryption (classic)</a> \ <a href="menu_analysis_symmetricclassic_knownplaintext.html">Known Plaintext</a> \ <a href="hid_perm_auto.html">Simple Column Transposition</a>.</P>
 
-<P>This dialog is used to enter the needed data for automatic analysis (<!--ZZZPOPUP--><A href="knownplaintextangriff.html">Known Plaintext Attack</A>) 
-for <A href="hid_perm.html">Encryption by permutation</A>.</P>
+<P>This dialog is used to enter the needed data for automatic analysis (<!--ZZZPOPUP--><A href="knownplaintextangriff.html">known-plaintext attack</A>) 
+for <A href="hid_permutation_asc.html">encryption by permutation</A>.</P>
 
 <P>You have to select the plaintext and ciphertext into this dialog.</P>
 
 <P>Using permutation encryption the text is normally entered row by row in a table of width n (= length of permutation). 
 The ciphertext is now read column by column in the sequence defined by the permutation. Compared to the classic variant, 
 in CrypTool it is possible to read in and read out the plaintext in either columns or rows. Additionally it is possible to determine
- if the permutation itself is to be carried out line by line or column by column. Column by column is the default here. 
+if the permutation itself is to be carried out line by line or column by column. Column by column is the default here. 
 In the literature sometimes a line by line notation is used. If all three options are toggled the result does not change, as this constitutes an equivalent setting.</p>
 
 <p>You have the option of limiting the dimension of the key to be searched for. If you know the length of the key, 
@@ -34,6 +37,6 @@ However, you should note, this means e.g. a key of dimension 3 will not be found
 
 <p>To start the analysis, click on <b>Continue</b>; to terminate the analysis click on <b>Cancel</b>.</p>
 
-<p>If CrypTool was able to work out the key, it will be displayed in the <A href="hidd_perm_key_en.html">Key for Permutation cipher</A> ; otherwise a message that the key could not be found will appear.
+<p>If CrypTool was able to find the key, it will be displayed in the dialog <A href="hidd_perm_key.html"> Simple Column Transposition Key</A>; otherwise a message that the key could not be found will appear.
 </BODY>
 </HTML>
