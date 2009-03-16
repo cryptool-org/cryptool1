@@ -15,23 +15,23 @@
 
 <BODY>
 
-<h3>Automatische Analyse einer einstufigen Spaltentransposition(Menü <A href="menu_analyze.html">Analyse</A> \ Symmetrische Verschlüsselung (klassisch) \ Known-Plaintext)</h3>
+<h3>Spaltentransposition (einstufig) (Menü <A href="menu_analyze.html">Analyse</A> \ Symmetrische Verschlüsselung (klassisch) \ Known-Plaintext)</h3>
 
 		<p>
 		Für die einstufige Spaltentransposition steht ein Known-Plaintext-Angriff zur Verfügung. 
-		Dieser Angriff ermittelt aus einem Klartext und dem, mittels Permutationsverschlüsselung erzeugten Geheimtext den Schlüssel, 
+		Dieser Angriff ermittelt aus einem Klartext und dem, mittels <a href="hid_permutation_asc.html">Permutationsverschlüsselung</a> erzeugten Geheimtext den Schlüssel, 
 		mit dem der Klartext verschlüsselt worden ist. <br>
 		<br>
 		Für die automatische Analyse müssen sowohl der Klartext als auch der Geheimtext bekannt sein. Beide Texte müssen im 
 		<!--ZZZPOPUP--><A href="hidd_perm_auto.html">Dialog Analyse Spaltentransposition</A> ausgewählt werden.
 		Korrespondierende Texte haben immer gleiche Länge.<br>
-		<br>Die Analyse funktioniert wie folgt: Je nach Angabe der Parameter zum Einlesen werden sowohl der Klar- als auch der Geheimtext
-		in eine Tabelle der Breite n (=Länge der Permutation = Schlüssellänge) entweder zeilenweise oder spaltenweise eingelesen. 
+		<br>Die Analyse funktioniert wie folgt: Sowohl der Klar- als auch der Geheimtext werden jeweils
+		in eine Tabelle eingelesen. Abhängig von den Parametern (Verfahrensvarianten) hat die jeweilige Tabelle n Spalten oder n Zeilen (n = Länge der Permutation = Schlüssellänge).
 		Im Anschluss vergleicht CrypTool die jeweiligen Spalten beider Texttabellen und ermittelt so die Permutation, 
-		also die Vertauschung der Spalten. Daraufhin kann CrypTool nun den Schlüssel zur angewandten Permutation bestimmen.<br>
-		<br>Werden vom Benutzer keine genauen Angaben zur Berechnung des Schlüssels getroffen, so durchläuft CrypTool eine automatische Analyse. 
+		also die Vertauschung der Spalten. Diese Permutation ist der gesuchte Schlüssel (zusammen mit den Parametern des Permutationsverfahrens).<br>
+		<br>Werden vom Benutzer keine genauen Angaben zur Länge des Schlüssels und zu den Parametern getroffen, so durchläuft CrypTool eine automatische Analyse. 
 		Hierbei können auch mehrere Schlüssel gefunden werden. Es wird allerdings nur der erste gefundene Schlüssel 
-		neben den Parametern zum Permutationsverfahren im <!--ZZZPOPUP--><A href="hidd_perm_key.html">
+		im <!--ZZZPOPUP--><A href="hidd_perm_key.html">
 		Dialog Schlüsselausgabe: Spaltentransposition</A> angezeigt. Bei einer Eingrenzung der Schlüssellänge durch den Benutzer muss die Länge der ausgewählten Texte
 		ein Vielfaches der Schlüssellänge sein.</p>
 		<p><u>Beispiel zur Berechnung des Permutationsschlüssels:</u></p>
@@ -45,7 +45,7 @@
 				<TD>IEAJFBKGCLHD.</TD>
 			</TR>
 		</TABLE><br>
-		Für die beispielhafte Analyse der einstufigen Spaltentransposition werden hier im Folgenden diese Parameter angenommen:<br>
+		Für die beispielhafte Analyse der einstufigen Spaltentransposition werden im Folgenden diese Parameter angenommen:<br>
 		<br>
 		<TABLE cols="2" width="0*" class="pad10">
 			<TR VALIGN="top">
@@ -66,7 +66,7 @@
 			</TR>
 		</TABLE><br>
 		Wie oben beschrieben beginnt die Analyse mit dem Einlesen des Klar- und Geheimtextes in eine eigene Tabelle. Aufgrund der Schlüssellänge von 3
-		und der spaltenweisen Permutation müssen beide Tabellen aus genau 3 Spalten bestehen. Wie groß die jeweiligen Spalten sind ermittelt sich
+		und der spaltenweisen Permutation müssen beide Tabellen aus genau 3 Spalten bestehen. Wie groß die jeweiligen Spalten sind, ermittelt sich
 		aus der Textgröße und der Schlüssellänge. <br>
 		In unserem Beispiel bestehen die 3 Spalten damit jeweils aus 4 Zeichen, womit man auch auf die Textlänge von 12 kommt.<br>
 		<br>
@@ -96,9 +96,9 @@
 			</tr>
 		</table>
         	<br>
-       	Dann wird auch vom Geheimtext eine Tabelle erstellt. 
+       	Danach wird auch vom Geheimtext eine Tabelle erstellt. 
         	Da laut der angegebenen Parameter spaltenweise permutiert und zeilenweise der Klartext ausgelesen werden soll, 
-       	muss der Geheimtext demzufolge zeilenweise eingelesen werden. Die Tabelle des eingelesen Geheimtextes sieht dann wie folgt aus:
+       	muss der Geheimtext zeilenweise eingelesen werden. Die Tabelle des eingelesen Geheimtextes sieht dann wie folgt aus:
        	&nbsp;</p>
 		<table border="1" cellpadding="0" cellspacing="0" style="BORDER-COLLAPSE: collapse" bordercolor="#111111"
 			width="10%" id="Table1">
@@ -133,11 +133,11 @@
 		&nbsp;</p>
 		<p><u>Bemerkungen:</u></p>
 		<p>1) Für einen Known-Plaintext-Angriff müssen Klar- und Geheimtext angegeben werden. 
-		Der Geheimtext kann einfach in CrypTool im Menü Ver-/Entschlüsseln / Symmetrisch (klassisch) / Permutation/Transposition erstellt werden. 
+		Der Geheimtext kann einfach in CrypTool im Menü Ver-/Entschlüsseln \ Symmetrisch (klassisch) \ <a href="hid_permutation_asc.html">Permutation/Transposition</a> erstellt werden. 
 		Die Analyse der einstufigen Spaltentransposition ermittelt dann den Permutationsschlüssel, mit dem der Klartext verschlüsselt worden ist.
 		</p>
 		<p>2) Die Größe der angegebenen Texte darf maximal 2 Gigabyte betragen. Das ergibt sich aus dem Wertebereich eines 32-Bit Integers. 
-		Dieser Datentyp wurde für die Dateigröße(=Textlänge) verwendet und bestimmt somit auch die Maximalgrenze der Textgröße. 
+		Dieser Datentyp wurde für die Dateigröße (= Textlänge) verwendet und bestimmt somit auch die Maximalgrenze der Textgröße. 
 		Weil die maximale Schlüssellänge die maximale Textlänge nicht überschreiten kann, gilt für die Länge des Permutationsschlüssels dieselbe Obergrenze. 
 		</p>
 	</BODY>

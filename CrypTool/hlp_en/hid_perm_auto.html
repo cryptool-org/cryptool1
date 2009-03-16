@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3,2 Final//EN">
 <HTML>
 <HEAD>
 <TITLE>Automatic Analysis of a Simple Column Transposition</TITLE>
@@ -15,22 +15,21 @@
 
 <BODY>
 
-<h3>Automatic Analysis of a Simple Column Transposition (Menu Analysis \ Symmetric Encryption (classic) \ Known Plaintext) </h3>
+<h3>Simple Column Transposition (Menu Analysis \ Symmetric Encryption (classic) \ Known Plaintext) </h3>
 
 		<p>A known-plaintext attack is available for the <!--ZZZPOPUP--><A href="hid_permutation_asc.html">Permutation encryption algorithm</A>.
 		<br> This means that it is necessary to enter not only the text encrypted by the permutation encryption algorithm but also the according
 		plaintext.
 		CrypTool then works out the key used to encrypt the plaintext. </p>
-		<p>For the automatic analysis using the plaintext and the encrypted text are required. Therefore you have to upload both texts using 
+		<p>For the automatic analysis both the plaintext and the encrypted text are required. Therefore you have to upload both texts using 
 		<!--ZZZPOPUP--><A href="hidd_perm_auto.html">Dialog Analysis of a Simple Column Transposition (Known Plaintext)</A>. 
 		Corresponding texts have always the same length.</p>
-		<p>The analysis operates as follows: Depending on the chosen parameters, how the texts should be read in, 
-		both the plaintext and the ciphertext will be read either row by row or column by column in a table of width n 
-		(=length of permutation). CrypTool compares the columns of both tables and determines the transposition of the columns. 
-		Subsequently CrypTool determines the key that was used for permutation encryption.</p>
-		<p>CrypTool runs through an automatic analysis when the user does not specify the data for computing the key. 
-		Several keys could be found with it. However, only the first key which is found will be displayed together with the used parameters 
-		in <!--ZZZPOPUP--><A href="hidd_perm_key.html"> Dialog Simple Column Transposition Key</A>. The cryptanalysis program assumes, that all rows are filled completely.
+		<p>The analysis operates as follows: The plaintext as well as the ciphertext will be read into a table. Depending on the parameters
+	        (variant) the respective table has n columns or n rows (n = length of permutation). CrypTool compares the columns of both tables and determines the transposition of the columns. 
+		This permutation is the key that was used for permutation encryption (together with the parameters of the method).</p>
+		<p>CrypTool runs through an automatic analysis when the user does not specify the key length and parameters for computing the key. 
+		Several keys could be found with it. However, only the first key which is found will be displayed 
+		in <!--ZZZPOPUP--><A href="hidd_perm_key,html">Dialog Simple Column Transposition Key</A>. The cryptanalysis program assumes, that all rows are filled completely.
 		So if a user limits the key size, only such keys can be considered, where the texts have a length of an integer multiple of the keys.
 		<p><u>Exemplary computation of the permutation key:</u></p>
 		<TABLE cols="2" width="0*" class="pad10">
@@ -93,7 +92,7 @@
 		</table>
         	<br>
        	After that, a table of the ciphertext will be created. Because the assumed parameters say the plaintext will be permuted 
-		column by column and read out row by row, the ciphertext has to be read in row by row consequently. The ciphertext table looks as follows:
+		column by column and read out row by row, the ciphertext has to be read in row by row, The ciphertext table looks as follows:
        	&nbsp;</p>
 		<table border="1" cellpadding="0" cellspacing="0" style="BORDER-COLLAPSE: collapse" bordercolor="#111111"
 			width="10%" id="Table1">
@@ -126,13 +125,12 @@
 		Thereby the analysis of permutation encryption gives the permutation key: 3,2,1.
 		&nbsp;</p>
 		<p><u>Remarks:</u></p>
-		<p>1) The known-plaintext attack requires the plaintext and the encrypted text. 
-		The encrypted text can be generated in cryptool via the menu De-/Encrypt / Symmetric (classic) / Permutation/Transposition. 
+		<p>1) The known-plaintext attack requires both the plaintext and the encrypted text. 
+		The encrypted text can be generated in CrypTool via the menu De-/Encrypt \ Symmetric (classic) \ <A href="hid_permutation_asc.html">Permutation/Transposition</a>. 
 		The automatic analysis of a simple column transposition computes the key used to encrypt the plaintext. 
 		<p>2) The maximum length of both texts is limited to 2 Gigabyte. 
 		This comes from the range of values of a 32-bit integer. 
-		This data type was used to declare the file size(=text length) and it also determines the limit of the file size. 
-		Due to the fact that the key length can not exceed the text length, the permutation size have the same upper limit.
-		</p>
+		This data type was used to declare the file size (= text length) and it also determines the limit of the file size. 
+		Due to the fact that the key length can not exceed the text length, the permutation size have the same upper limit.  </p>
 	</BODY>
 </HTML>
