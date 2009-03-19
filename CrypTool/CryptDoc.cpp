@@ -1935,7 +1935,6 @@ void CCryptDoc::OnEditRepeat()
 
 void CCryptDoc::OnUpdateEditRepeat(CCmdUI *pCmdUI)
 {
-
 	BOOL enable = theApp.findAndReplaceDialog.m_hWnd != 0 && theApp.findAndReplaceDialog.textFind.GetLength() != 0;
 	pCmdUI->Enable(enable);
 }
@@ -1943,6 +1942,13 @@ void CCryptDoc::OnUpdateEditRepeat(CCmdUI *pCmdUI)
 void CCryptDoc::OnKnownAnalysisSinglePermutation()
 {
 	CDlgAutomatedPermAnalysis dlg;
-	dlg.DoModal();
-	// TODO: Add your command handler code here
+	if ( dlg.setSourceFilename(ContentName) )
+	{
+		// FIXME ERROR MESSAGE
+		return;
+	}
+	if (IDOK == dlg.DoModal())
+	{
+		// DO SOMETHING???		
+	}
 }

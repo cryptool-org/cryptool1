@@ -71,10 +71,13 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
+	int inDir1, permDir1, outDir1;
+	int inDir2, permDir2, outDir2;
 	CString m_permKey1;
 	CString m_inDir1;
 	CString m_permDir1;
 	CString m_outDir1;
+	afx_msg void OnBnClickedCopyKey();
 };
 
 #endif

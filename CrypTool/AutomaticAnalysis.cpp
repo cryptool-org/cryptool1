@@ -85,7 +85,7 @@ extern char *Pfad; // Directory Path of the main programm
 // Automatic Caesar "ciphertext-only" analysis
 void CaesarAuto(const char *infile, const char *OldTitle)
 {
-	char name[256], name2[256], line[256], key[256];
+	char name[1024], name2[256], line[256], key[256];
 	CFile f;
 	CAppDocument *NewDoc;
 

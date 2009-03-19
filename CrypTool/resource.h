@@ -459,6 +459,7 @@
 #define IDC_CHECK2                      1030
 #define IDC_EDIT35                      1030
 #define IDC_GB_PERMUTATION              1030
+#define IDC_GB_AUSLESEN2                1030
 #define IDC_CHECK3                      1031
 #define IDC_EDIT41                      1031
 #define IDC_LBL_FEST_INFO               1031
@@ -493,12 +494,17 @@
 #define IDC_CHECK4                      1044
 #define IDC_EDIT63                      1044
 #define IDC_EDIT64                      1045
+#define IDC_CHECK11                     1045
 #define IDC_DECRYPT                     1046
 #define IDC_EDIT65                      1046
+#define IDC_CHECK12                     1046
 #define IDC_EDIT66                      1047
+#define IDC_CHECK13                     1047
 #define IDC_LIST1                       1048
 #define IDC_EDIT67                      1048
+#define IDC_CHECK14                     1048
 #define IDC_EDIT68                      1049
+#define IDC_CHECK15                     1049
 #define IDC_EDIT70                      1050
 #define IDC_EDIT_5_6                    1050
 #define IDC_EDIT71                      1051
@@ -1681,6 +1687,9 @@
 #define IDC_INDIR2                      2033
 #define IDC_PERMDIR2                    2034
 #define IDC_OUTDIR2                     2035
+#define IDC_EDIT_RANGE_FROM             2036
+#define IDC_EDIT_RANGE_TO               2037
+#define IDC_REFERENCE_HEADER            2038
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -3121,14 +3130,23 @@
 #define IDS_PQMERROR_NO_SPECIALCHARACTERS 62017
 #define IDS_IOP_COL                     62018
 #define IDS_IOP_ROW                     62019
+#define IDS_PA_COULDNOTOPEN_PLAINFILE   62020
+#define IDS_PA_COULDNOTOPEN_CIPHERFILE  62021
+#define IDS_PA_FILESIZES_DIFFERENT      62022
+#define IDS_PA_EMPTYFILE                62023
+#define IDS_PA_LIMITRANGE_ERROR         62024
+#define IDS_PA_DIRECTION_ERROR          62025
+#define ID_PA_NOKEYFOUND                62026
+#define IDS_PLAINTEXT                   62027
+#define IDS_CIPHERTEXT                  62028
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        878
+#define _APS_NEXT_RESOURCE_VALUE        879
 #define _APS_NEXT_COMMAND_VALUE         33373
-#define _APS_NEXT_CONTROL_VALUE         2036
+#define _APS_NEXT_CONTROL_VALUE         2039
 #define _APS_NEXT_SYMED_VALUE           109
 #endif
 #endif

@@ -57,9 +57,24 @@ statement from your version.
 class CDlgAutomatedPermAnalysis : public CDialog
 {
 	DECLARE_DYNAMIC(CDlgAutomatedPermAnalysis)
+private:
+	HWND hWndEditReference;
+
+	automated_permanalysis permanalysis;
+	char *fn_source;
+	int   source_filesize;
+	char *fn_reference;
+
+	void OpenFile(const char *fileName);
+	void SaveFile();
+
+	LRESULT ScinMSG(UINT Msg, WPARAM wParam=0, LPARAM lParam=0) {
+		return FromHandle(hWndEditReference)->SendMessage(Msg, wParam, lParam);
+	}
+
+	void setRefCaption();
 
 public:
-	automated_permanalysis permanalysis;
 	CDlgAutomatedPermAnalysis(CWnd* pParent = NULL);   // standard constructor
 	virtual ~CDlgAutomatedPermAnalysis();
 
@@ -70,25 +85,30 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
 	DECLARE_MESSAGE_MAP()
+	void check_dir(int &rowByRow, int &colByCol, int isRowByRow);
 public:
 	virtual BOOL OnInitDialog();
-	afx_msg void OnBnClickedBtnBerechnen();
-	afx_msg void OnBnClickedRbFest();
-	afx_msg void OnBnClickedBtnAbbruch();
-	afx_msg void OnBnClickedGbEinlesen();
-	afx_msg void OnBnClickedRbIntervall();
-	afx_msg void OnBnClickedRbSuchen();
-	afx_msg void OnBnClickedBtnKlartext();
-	afx_msg void OnBnClickedBtnGeheimtext();
-	int rb_einlesen;
-	int rb_permutation;
-	int rb_auslesen;
-	CString tb_klartext;
-	CString tb_geheimtext;
-	int rb_permsize;
-	CString tb_fest;
-	CString tb_lowerLimit;
-	CString tb_upperLimit;
+	int setSourceFilename(const char *filename);
+	afx_msg void OnBnClickedLoadFile();
+	int m_refTextType;
+	int m_chk_inRowbyRow;
+	int m_chk_permRowbyRow;
+	int m_chk_outRowbyRow;
+	int m_chk_inColbyCol;
+	int m_chk_permColbyCol;
+	int m_chk_outColbyCol;
+	CString m_editRangeFrom;
+	CString m_editRangeTo;
+	CEdit   m_ctrlRefernceHeader;
+	afx_msg void OnBnClickedCompute();
+	afx_msg void OnBnClickedinRowByRow();
+	afx_msg void OnBnClickedinColByCol();
+	afx_msg void OnBnClickedPermRowByRow();
+	afx_msg void OnBnClickedPermColByCol();
+	afx_msg void OnBnClickedOutRowByRow();
+	afx_msg void OnBnClickedOutColByCol();
+	afx_msg void OnBnClickedRadioSourceIsCiphertext();
+	afx_msg void OnBnClickedRadioSourceIsPlaintext();
 };
 
 

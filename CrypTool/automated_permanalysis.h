@@ -46,7 +46,7 @@ TODO Cryptovision
 #pragma once
 #include "stdafx.h"
 
-enum direction { col_dir = 0, row_dir = 1, both_dir = 2 };
+enum direction { row_dir = 0, col_dir = 1, both_dir = 2 };
 
 struct perm_table {
 	char  **table;
@@ -80,7 +80,7 @@ class automated_permanalysis {
 	permkey     *keyList;
 	perm_table   ptPlain, ptCipher;
 
-	int get_file_size(ifstream &fstrm);
+	int get_file_size(ifstream &fstrm, int &filesize);
 	int read_file_in_table(ifstream &fstrm, perm_table &pt, int permSize, int DIR);
 	int get_key(int permSize, int it_perm);
 	int analyse(int permSize, int it_plain, int it_perm, int it_cipher);

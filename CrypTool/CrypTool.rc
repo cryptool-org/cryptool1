@@ -4676,6 +4676,7 @@ BEGIN
             POPUP "Tekst jawny"
             BEGIN
                 MENUITEM "H&ill",                       ID_HILL_AUTO, GRAYED
+                MENUITEM "Single &Column Transpsition", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "Analiza &manualna"
             BEGIN
@@ -5019,6 +5020,7 @@ BEGIN
             POPUP "Tekst jawny"
             BEGIN
                 MENUITEM "H&ill",                       ID_HILL_AUTO
+                MENUITEM "Single &Column Transpsition", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "Analiza &manualna"
             BEGIN
@@ -5362,6 +5364,7 @@ BEGIN
             POPUP "Tekst jawny"
             BEGIN
                 MENUITEM "H&ill",                       ID_HILL_AUTO
+                MENUITEM "Single &Column Transpsition", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "Analiza &manualna"
             BEGIN
@@ -5705,6 +5708,7 @@ BEGIN
             POPUP "Tekst jawny"
             BEGIN
                 MENUITEM "H&ill",                       ID_HILL_AUTO
+                MENUITEM "Single &Column Transpsition", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "Analiza &manualna"
             BEGIN
@@ -6075,6 +6079,7 @@ BEGIN
             POPUP "Tekst jawny"
             BEGIN
                 MENUITEM "H&ill",                       ID_HILL_AUTO, GRAYED
+                MENUITEM "Single &Column Transpsition", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "Analiza &manualna"
             BEGIN
@@ -10776,21 +10781,21 @@ BEGIN
     LTEXT           "Siehe Menü: Analyse / Symmetrische Verschlüsselung (modern)",IDC_STATIC,20,165,258,8
 END
 
-IDD_HILL_ANALYSIS DIALOG  0, 0, 301, 221
+IDD_HILL_ANALYSIS DIALOGEX 0, 0, 301, 221
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Hill-Analyse (Known Plaintext)"
-FONT 8, "MS Sans Serif"
+CAPTION "Hill-Analyse (Known-Plaintext)"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&Weiter",IDOK,7,197,71,17
     PUSHBUTTON      "&Abbrechen",IDCANCEL,222,197,62,17
     EDITTEXT        IDC_EDIT1,7,38,287,128,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
-    COMBOBOX        IDC_DIM_VON,98,175,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_DIM_BIS,156,175,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_DIM_VON,130,175,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_DIM_BIS,188,175,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     CONTROL         "&Klartext im Eingabefeld",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,165,6,87,10
     CONTROL         "&Verschlüsselter Text im Eingabefeld",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,165,19,127,10
     LTEXT           "Klartext oder verschlüsselter Text",IDC_STATIC,7,19,133,10
-    LTEXT           "Dimension: Analyse von",IDC_STATIC,7,179,83,8
-    CTEXT           "bis",IDC_STATIC,126,179,30,8
+    LTEXT           "Durchsuchen der Dimensionen von",IDC_STATIC,8,179,115,8
+    CTEXT           "bis",IDC_STATIC,158,179,30,8
 END
 
 IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 299, 233
@@ -15021,71 +15026,62 @@ BEGIN
     PUSHBUTTON      "Textoptionen",ID_TEXTOPTIONS,144,159,60,19
 END
 
-IDD_AUTOMATED_PERM_ANALYSIS DIALOGEX 0, 0, 320, 310
+IDD_AUTOMATED_PERM_ANALYSIS DIALOGEX 0, 0, 320, 339
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Analyse einer einstufigen Spaltentransposition"
+CAPTION "Analyse einer einstufigen Spaltentransposition (Known-Plaintext)"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    EDITTEXT        IDC_TB_KLARTEXT,19,51,216,16,ES_AUTOHSCROLL
-    PUSHBUTTON      "Durchsuchen",IDC_BTN_KLARTEXT,241,51,59,16
-    EDITTEXT        IDC_TB_GEHEIMTEXT,19,79,216,16,ES_AUTOHSCROLL
-    PUSHBUTTON      "Durchsuchen",IDC_BTN_GEHEIMTEXT,241,79,59,16
-    CONTROL         "Spaltenweise",IDC_RB_EIN_SW,"Button",BS_AUTORADIOBUTTON | WS_GROUP,36,136,58,10
-    CONTROL         "Zeilenweise",IDC_RB_EIN_ZW,"Button",BS_AUTORADIOBUTTON,36,151,53,13
-    CONTROL         "Spalten- und zeilenweise",IDC_RB_EIN_SW_ZW,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,36,167,57,17
-    GROUPBOX        "Einlesen",IDC_GB_EINLESEN,19,124,86,65
-    CONTROL         "Spaltenweise",IDC_RB_PERM_SW,"Button",BS_AUTORADIOBUTTON | WS_GROUP,134,137,58,10
-    CONTROL         "Zeilenweise",IDC_RB_PERM_ZW,"Button",BS_AUTORADIOBUTTON,134,153,53,10
-    CONTROL         "Spalten- und zeilenweise",IDC_RB_PERM_SW_ZW,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,134,163,57,23
-    GROUPBOX        "Permutieren",IDC_GB_PERMUTIEREN,117,124,86,65
-    CONTROL         "Spaltenweise",IDC_RB_AUS_SW,"Button",BS_AUTORADIOBUTTON | WS_GROUP,230,136,58,10
-    CONTROL         "Zeilenweise",IDC_RB_AUS_ZW,"Button",BS_AUTORADIOBUTTON,230,153,53,10
-    CONTROL         "Spalten- und zeilenweise",IDC_RB_AUS_SW_ZW,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,230,163,57,23
-    GROUPBOX        "Auslesen",IDC_GB_AUSLESEN,214,123,86,65
-    CONTROL         "Feste Länge",IDC_RB_FEST,"Button",BS_AUTORADIOBUTTON | WS_GROUP,36,221,55,10
-    CONTROL         "Intervall",IDC_RB_INTERVALL,"Button",BS_AUTORADIOBUTTON,36,242,43,10
-    CONTROL         "Suchen (von 1 bis Textlänge)",IDC_RB_SUCHEN,"Button",BS_AUTORADIOBUTTON,36,262,109,10
-    GROUPBOX        "Vorgaben zum Permutationsschlüssel ( Permutationsgröße = Schlüssellänge n )",IDC_GB_PERMUTATION,7,203,306,76
-    EDITTEXT        IDC_TB_FEST,105,219,40,14,ES_AUTOHSCROLL | WS_DISABLED
-    LTEXT           "(bitte Wert eingeben)",IDC_LBL_FEST_INFO,159,220,69,12,WS_DISABLED
-    EDITTEXT        IDC_TB_INTERVALL_MIN,105,240,40,14,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_TB_INTERVALL_MAX,174,240,40,14,ES_AUTOHSCROLL | WS_DISABLED
-    DEFPUSHBUTTON   "Schlüssel berechnen",ID_BTN_BERECHNEN,7,286,75,17
-    PUSHBUTTON      "Abbrechen",ID_BTN_ABBRUCH,241,286,72,17
-    GROUPBOX        "Eingabedateien",IDC_GB_TEXTE,6,31,307,71
-    GROUPBOX        "Welche Varianten des Permutationsverfahrens sollen analysiert werden?",IDC_GB_VERFAHREN,7,110,306,84
-    LTEXT           "bis",IDC_LBL_INTERVALL,155,241,15,13,WS_DISABLED
-    LTEXT           "Klartextdatei",IDC_LBL_KLARTEXT,19,41,43,10
-    LTEXT           "Geheimtextdatei",IDC_LBL_GEHEIMTEXT,19,67,58,10
+    CONTROL         "Geheimtext",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | WS_GROUP,250,36,54,10
+    CONTROL         "Klartext",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,250,48,42,10
+    DEFPUSHBUTTON   "&Schlüssel suchen",ID_BTN_BERECHNEN,7,312,75,17
+    CONTROL         "Zeilenweise",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,267,53,10
+    CONTROL         "Spaltenweise",IDC_CHECK13,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,283,54,10
+    CONTROL         "Zeilenweise",IDC_CHECK11,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,93,267,53,10
+    CONTROL         "Spaltenweise",IDC_CHECK14,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,93,283,54,10
+    CONTROL         "Zeilenweise",IDC_CHECK12,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,267,53,10
+    CONTROL         "Spaltenweise",IDC_CHECK15,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,283,54,10
+    EDITTEXT        IDC_EDIT_RANGE_FROM,250,265,42,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_RANGE_TO,250,281,42,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Datei laden",IDC_BUTTON1,15,77,54,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,248,312,65,17
+    GROUPBOX        "Einlesen",IDC_GB_EINLESEN,15,254,67,43
+    GROUPBOX        "Permutieren",IDC_GB_PERMUTIEREN,87,254,66,43
+    GROUPBOX        "Auslesen",IDC_GB_AUSLESEN,157,254,66,43
+    GROUPBOX        "Welche Varianten des Permutationsverfahrens sollen analysiert werden?",IDC_GB_VERFAHREN,7,241,306,63
     LTEXT           "Diese Permutationsanalyse ist eine Known-Plaintext-Analyse, mit deren Hilfe Sie aus dem Klartext und dem Geheimtext den Permutationsschlüssel berechnen können.",IDC_LBL_INFOTEXT,7,8,306,15,0,WS_EX_TRANSPARENT
-    LTEXT           "(bitte Werte eingeben)",IDC_LBL_INTERVALL_INFO,229,242,78,12,WS_DISABLED
+    GROUPBOX        "Klartext oder verschlüsselter Text",IDC_REFERENCE_HEADER,7,64,306,171
+    GROUPBOX        "Permutationsgröße",IDC_GB_AUSLESEN2,228,254,76,43
+    LTEXT           "von",IDC_STATIC,234,268,14,9
+    LTEXT           "bis",IDC_STATIC,234,284,14,9
+    GROUPBOX        "Aktives Dokument",IDC_STATIC,7,27,306,34
+    LTEXT           "Bitte legen Sie fest, ob das vor dem Aufruf dieses Dialogs aktive Dokument den Klartext oder den Geheimtext enthält.",IDC_STATIC,15,38,208,19
 END
 
-IDD_AUTOMATED_PERM_ANALYSIS_OUTPUT DIALOGEX 0, 0, 242, 268
+IDD_AUTOMATED_PERM_ANALYSIS_OUTPUT DIALOGEX 0, 0, 242, 241
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Schlüsselausgabe: Einstufige Spaltentransposition"
+CAPTION "Schlüsselausgabe: Permutation / Transposition"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Schließen",IDOK,185,247,50,14
-    GROUPBOX        "1. Permutation",IDC_STATIC,7,7,228,109
-    LTEXT           "Einlesen:",IDC_STATIC,17,56,35,9
-    LTEXT           "Permutieren:",IDC_STATIC,17,77,54,10
-    LTEXT           "Auslesen:",IDC_STATIC,17,97,54,13
-    LTEXT           "",IDC_inDir1,83,53,92,14,WS_BORDER
-    LTEXT           "",IDC_permDir1,83,74,92,14,WS_BORDER
-    LTEXT           "",IDC_OUTDIR1,83,94,92,14,WS_BORDER
+    DEFPUSHBUTTON   "Schließen",IDOK,185,219,50,15
+    GROUPBOX        "1. Permutation (einfache Spaltentransposition)",IDC_STATIC,7,7,228,94
+    LTEXT           "Einlesen:",IDC_STATIC,17,53,35,10
+    LTEXT           "Permutieren:",IDC_STATIC,17,70,54,10
+    LTEXT           "Auslesen:",IDC_STATIC,17,86,54,10
+    LTEXT           "",IDC_inDir1,63,52,112,11,WS_BORDER
+    LTEXT           "",IDC_permDir1,63,69,112,11,WS_BORDER
+    LTEXT           "",IDC_OUTDIR1,63,85,112,11,WS_BORDER
     LTEXT           "",IDC_PERMKEY1,17,30,209,12,WS_BORDER
-    GROUPBOX        "2. Permutation",IDC_STATIC,7,123,228,109,WS_DISABLED
-    LTEXT           "Einlesen:",IDC_STATIC,17,173,35,9,WS_DISABLED
-    LTEXT           "Permutieren:",IDC_STATIC,17,194,54,10,WS_DISABLED
-    LTEXT           "Auslesen:",IDC_STATIC,17,214,54,13,WS_DISABLED
-    LTEXT           "",IDC_INDIR2,83,170,92,14,WS_DISABLED | WS_BORDER
-    LTEXT           "",IDC_PERMDIR2,83,190,92,14,WS_DISABLED | WS_BORDER
-    LTEXT           "",IDC_OUTDIR2,83,211,92,14,WS_DISABLED | WS_BORDER
-    LTEXT           "",IDC_PERMKEY2,17,147,209,12,WS_DISABLED | WS_BORDER
-    PUSHBUTTON      "Schlüssel kopieren",IDC_BUTTON1,7,246,76,15
-    CTEXT           "Gefundener Schlüssel:",IDC_STATIC,68,17,107,13
-    CTEXT           "Gefundener Schlüssel:",IDC_STATIC,68,134,107,13,WS_DISABLED
+    GROUPBOX        "2. Permutation (doppelte Spaltentransposition)",IDC_STATIC,7,108,228,99,WS_DISABLED
+    LTEXT           "Einlesen:",IDC_STATIC,17,153,35,12,WS_DISABLED
+    LTEXT           "Permutieren:",IDC_STATIC,17,171,46,10,WS_DISABLED
+    LTEXT           "Auslesen:",IDC_STATIC,17,188,46,10,WS_DISABLED
+    LTEXT           "",IDC_INDIR2,63,154,112,11,WS_DISABLED | WS_BORDER
+    LTEXT           "",IDC_PERMDIR2,63,170,112,11,WS_DISABLED | WS_BORDER
+    LTEXT           "",IDC_OUTDIR2,63,187,112,11,WS_DISABLED | WS_BORDER
+    LTEXT           "",IDC_PERMKEY2,17,132,209,12,WS_DISABLED | WS_BORDER
+    PUSHBUTTON      "Schlüssel kopieren",IDC_BUTTON1,7,219,69,15
+    LTEXT           "Schlüssel",IDC_STATIC,17,20,107,8
+    LTEXT           "Schlüssel",IDC_STATIC,17,122,158,8,WS_DISABLED
 END
 
 
@@ -15351,6 +15347,7 @@ BEGIN
             POPUP "Known-&Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO, GRAYED
+                MENUITEM "Einstufige &Permutation",     ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "&Manuelle Analyse"
             BEGIN
@@ -15695,6 +15692,7 @@ BEGIN
             POPUP "Known-&Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO
+                MENUITEM "Einstufige &Permutationsanalyse", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "&Manuelle Analyse"
             BEGIN
@@ -16039,6 +16037,7 @@ BEGIN
             POPUP "Known-&Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO
+                MENUITEM "Einstufige &Permutationsanalyse", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "&Manuelle Analyse"
             BEGIN
@@ -16755,6 +16754,7 @@ BEGIN
             POPUP "Known-&Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO, GRAYED
+                MENUITEM "Einstufige &Permutationsanalyse", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "&Manuelle Analyse"
             BEGIN
@@ -18474,22 +18474,42 @@ BEGIN
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 313
-        VERTGUIDE, 36
+        VERTGUIDE, 15
+        VERTGUIDE, 21
+        VERTGUIDE, 82
+        VERTGUIDE, 88
+        VERTGUIDE, 157
+        VERTGUIDE, 234
+        VERTGUIDE, 248
+        VERTGUIDE, 250
+        VERTGUIDE, 292
+        VERTGUIDE, 304
         TOPMARGIN, 7
-        BOTTOMMARGIN, 303
-        HORZGUIDE, 164
-        HORZGUIDE, 179
-        HORZGUIDE, 286
+        BOTTOMMARGIN, 329
+        HORZGUIDE, 217
+        HORZGUIDE, 240
+        HORZGUIDE, 256
+        HORZGUIDE, 277
+        HORZGUIDE, 293
+        HORZGUIDE, 312
     END
 
     IDD_AUTOMATED_PERM_ANALYSIS_OUTPUT, DIALOG
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 235
+        VERTGUIDE, 17
+        VERTGUIDE, 63
         VERTGUIDE, 175
         TOPMARGIN, 7
-        BOTTOMMARGIN, 261
-        HORZGUIDE, 247
+        BOTTOMMARGIN, 234
+        HORZGUIDE, 63
+        HORZGUIDE, 80
+        HORZGUIDE, 96
+        HORZGUIDE, 165
+        HORZGUIDE, 181
+        HORZGUIDE, 198
+        HORZGUIDE, 219
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -21184,6 +21204,18 @@ BEGIN
                             "Die Liste der Sonderzeichen ist leer!\nBitte geben Sie Sonderzeichen an, oder veringern Sie die Minimalzahl der Sonderzeichen auf Null."
     IDS_IOP_COL             "Spaltenweise"
     IDS_IOP_ROW             "Zeilenweise"
+    IDS_PA_COULDNOTOPEN_PLAINFILE 
+                            "Die Klartextdatei konnte nicht geöffnet werden."
+    IDS_PA_COULDNOTOPEN_CIPHERFILE 
+                            "Die Chiffretextdatei konnte nicht geöffnet werden."
+    IDS_PA_FILESIZES_DIFFERENT 
+                            "Klartext und Chiffretextdatei haben unterschiedliche Größen."
+    IDS_PA_EMPTYFILE        "Beide Dateien (Klartext und Chiffretextdatei) sind leer. "
+    IDS_PA_LIMITRANGE_ERROR "Die untere Grenze der Permutationsschlüssel ist größer als die obere Grenze."
+    IDS_PA_DIRECTION_ERROR  "Sollte nie auftreten."
+    ID_PA_NOKEYFOUND        "Es wurde kein Permutationsschlüssel gefunden."
+    IDS_PLAINTEXT           "Klartext im Eingabefeld"
+    IDS_CIPHERTEXT          "Geheimtext im Eingabefeld"
 END
 
 STRINGTABLE 
@@ -21443,10 +21475,10 @@ BEGIN
     CONTROL         "&Plaintext in input box",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,165,6,87,10
     CONTROL         "&Ciphertext in input box",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,165,19,127,10
     EDITTEXT        IDC_EDIT1,7,38,287,128,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
-    LTEXT           "Dimension: analysis from",IDC_STATIC,7,179,83,8
-    COMBOBOX        IDC_DIM_VON,98,175,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    CTEXT           "to",IDC_STATIC,126,179,30,8
-    COMBOBOX        IDC_DIM_BIS,156,175,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Search through the dimensions from",IDC_STATIC,7,179,117,8
+    COMBOBOX        IDC_DIM_VON,126,175,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CTEXT           "to",IDC_STATIC,154,179,30,8
+    COMBOBOX        IDC_DIM_BIS,184,175,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
 END
 
 IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 302, 252
@@ -25587,7 +25619,7 @@ END
 
 IDD_AUTOMATED_PERM_ANALYSIS DIALOGEX 0, 0, 320, 310
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Analysis of a simple column transposition"
+CAPTION "Analysis of a simple column transposition (Known Plaintext)"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     PUSHBUTTON      "Cancel",ID_BTN_ABBRUCH,241,285,72,18
@@ -25915,6 +25947,7 @@ BEGIN
             POPUP "Known-&Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO, GRAYED
+                MENUITEM "Single &Column Transpsition", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "&Manual Analysis"
             BEGIN
@@ -26259,6 +26292,7 @@ BEGIN
             POPUP "Known-&Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO
+                MENUITEM "Single &Column Transpsition", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "&Manual Analysis"
             BEGIN
@@ -26603,6 +26637,7 @@ BEGIN
             POPUP "Known-&Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO
+                MENUITEM "Single &Column Transpsition", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "&Manual Analysis"
             BEGIN
@@ -26947,6 +26982,7 @@ BEGIN
             POPUP "Known-&Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO
+                MENUITEM "Single &Column Transpsition", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "&Manual Analysis"
             BEGIN
@@ -27318,6 +27354,7 @@ BEGIN
             POPUP "Known-&Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO, GRAYED
+                MENUITEM "Single &Column Transpsition", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "&Manual Analysis"
             BEGIN
@@ -31894,6 +31931,16 @@ BEGIN
     IDS_SIGATT_STAT_FAKE_FILE "Filename fake: %s"
     IDS_PQMERROR_NO_SPECIALCHARACTERS 
                             "The special character list is empty!\nPlease provide some special characters or reduce the minimal number of special characters to zero."
+    IDS_IOP_COL             "Column by column"
+    IDS_IOP_ROW             "Row by row"
+    IDS_PA_COULDNOTOPEN_PLAINFILE "Could not open the plaintext file."
+    IDS_PA_COULDNOTOPEN_CIPHERFILE "Could not open the ciphertext file."
+    IDS_PA_FILESIZES_DIFFERENT 
+                            "The lower limit of the key search range is bigger than the upper limit."
+    IDS_PA_EMPTYFILE        "Both files (plaintext and ciphertext) are empty."
+    IDS_PA_LIMITRANGE_ERROR "Die untere Grenze der Permutationsschlüssel ist größer als die obere Grenze."
+    IDS_PA_DIRECTION_ERROR  "Should never occur."
+    ID_PA_NOKEYFOUND        "No single transposition key was found."
 END
 
 STRINGTABLE 

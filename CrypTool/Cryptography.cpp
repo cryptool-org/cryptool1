@@ -3387,7 +3387,7 @@ void PermutationAsc(const char *infile, const char *OldTitle)
 		c = b1[i];
 		if(ignoreCase && 'a'<=c && c<='z')
 			c += 'A' - 'a';
-		if (theApp.TextOptions.getAlphabet().Find(c))
+		if (0 <= theApp.TextOptions.getAlphabet().Find(c))
 			b1[l2++] = c;
 	}
 	b1[l2]=0;
