@@ -4,11 +4,16 @@
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Verschlüsselung</TITLE>
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+<script language="JScript" src="helper.js"></script>
 </HEAD>
 
 <!-- multiple keywords for CrypTool HTML help index -->
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT ID="Object1">
-	<PARAM NAME="Keyword" VALUE="Verschlüsselung">
+    <PARAM NAME="Keyword" VALUE="Verschlüsselung">
+	<PARAM NAME="Keyword" VALUE="Symmetrisch">
+	<PARAM NAME="Keyword" VALUE="Asymmetrisch">
+	<PARAM NAME="Keyword" VALUE="Blockchiffre">
+	<PARAM NAME="Keyword" VALUE="Stromchiffre">
 </OBJECT>
 
 <BODY>
@@ -18,6 +23,40 @@
 <P>Mit Hilfe eines <!--ZZZPOPUP--><A href="schluessel.html">Verschlüsselungsschlüssels</A> wird ein <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> verschlüsselt und ist dann nicht mehr lesbar. Um das Dokument wieder lesen zu können, muss es <!--ZZZPOPUP--><A href="entschluesselung.html">entschlüsselt</A> werden.</P>
 
 <P>In <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A> sind verschiedene <B>Verschlüsselungsverfahren</B> vorhanden; sie sind über das Menü <A href="menu_crypt.html"><B>Ver-/Entschlüsseln</B></A> erreichbar.</P>
+
+<h3>Verschlüsselungsverfahren</h3>
+
+<P>Ein Verschlüsselungsverfahren wird benötigt, um vertrauliche Informationen über unsichere Informationskanäle, zum Beispiel ein Netzwerk, zu übertragen. Die Information wird vor der Übertragung vom Sender <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselt</A> und nach der Übertragung vom Empfänger <!--ZZZPOPUP--><A href="entschluesselung.html">entschlüsselt</A>.</P>
+
+<P>Man spricht von einem symmetrischen Verschlüsselungsverfahren, wenn der <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A> des Senders und der des Empfängers identisch sind. Verschlüsselungsverfahren mit unterschiedlichen Schlüsseln von Sender und Empfänger nennt man asymmetrisch.</P>
+
+<P>Bei modernen symmetrischen Verschlüsselungsverfahren unterscheidet man zwischen Blockchiffren 
+und Stromchiffren:</P>
+
+<UL>
+<LI><a href="http://de.wikipedia.org/wiki/Blockchiffre">Blockchiffren</a> verschlüsseln Blöcke 
+fester Länge (z. B. 64 oder 128 bit).<br>In CrypTool verfügbare Blockchiffren sind
+<A href="hid_crypt_idea.html">IDEA</A>, 
+<A href="hid_crypt_rc2.html">RC2</a>, 
+<A href="hid_crypt_des_desecb.html">DES&nbsp;(ECB)</A>, 
+<A href="hid_crypt_des_descbc.html">DES&nbsp;(CBC)</A>,
+<A href="hid_crypt_3des_ecb.html">Triple&nbsp;DES&nbsp;(ECB)</A>,
+<A href="hid_crypt_3des_cbc.html">Triple&nbsp;DES&nbsp;(CBC)</A>,
+<A href="hid_crypt_aes_rijndael.html">Rijndael (AES)</A>,
+<A href="hid_crypt_aes_mars.html">MARS</A>,
+<A href="hid_crypt_aes_rc6.html">RC6</A>,
+<A href="hid_crypt_aes_serpent.html">Serpent</A>,
+<A href="hid_crypt_aes_twofish.html">Twofish</A>,
+<A href="hid_crypt_desx.html">DESX</A>,
+<A href="hid_crypt_desl.html">DESL</A> und
+<A href="hid_crypt_desxl.html">DESXL</A>.</LI>
+<LI><a href="http://de.wikipedia.org/wiki/Stromchiffre">Stromchiffren</a> verschlüsseln die 
+Nachricht bitweise.<br>Aus dieser Kategorie ist <A href="hid_crypt_rc4.html">RC4</A> verfügbar.</LI>
+</UL>
+
+<P>Eine Übersicht über alle Verschlüsselungsverfahren in CrypTool befindet sich auf der Hilfeseite zum Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A>.</P>
+
+<P>Weitere Informationen zu Verschlüsselungsverfahren befinden sich im <A class="filelink" onclick="parser('script-de.pdf')">Skript</A> im Kapitel Verschlüsselungsverfahren.</P>
 
 </BODY>
 </HTML>
