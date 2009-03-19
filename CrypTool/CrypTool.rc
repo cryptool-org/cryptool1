@@ -8,8 +8,7 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -15006,7 +15005,7 @@ CAPTION "Schlüsseleingabe: Skytale / Gartenzaun"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Verschlüsseln",ID_ENCRYPT,7,159,60,19
-    PUSHBUTTON      "Entschlüsseln",ID_DECRYPT,73,159,60,19
+    PUSHBUTTON      "Entschlüsseln",ID_DECRYPT,70,159,60,19
     PUSHBUTTON      "Abbrechen",IDCANCEL,218,159,60,19
     CONTROL         "Skytale",IDC_RADIO_SCYTALE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,68,110,10
     CONTROL         "Gartenzaun",IDC_RADIO_RAIL_FENCE,"Button",BS_AUTORADIOBUTTON,20,80,110,10
@@ -15019,6 +15018,7 @@ BEGIN
     CONTROL         "",IDC_SIMPLE_TRANSPOSITION_IMAGE,"Static",SS_BITMAP,177,58,67,62
     LTEXT           "Offset:",IDC_STATIC,20,134,24,8
     EDITTEXT        IDC_EDIT_OFFSET,136,132,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "Textoptionen",ID_TEXTOPTIONS,144,159,60,19
 END
 
 IDD_AUTOMATED_PERM_ANALYSIS DIALOGEX 0, 0, 320, 310
@@ -18741,7 +18741,8 @@ BEGIN
     ID_FORMAT_TEXT_DOCUMENT "Formatiert ein Textdokument mit bestimmten Parametern"
     ID_CRYPT_HASH_SHA256    "Berechnet den SHA-256-Hashwert des aktiven Dokuments"
     ID_CRYPT_HASH_SHA512    "Berechnet den SHA-512-Hashwert des aktiven Dokuments"
-    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS "Skytale / Gartenzaun"
+    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS 
+                            "Verschlüsseln mit einfachen Transpositionen (Skytale, Gartenzaun)"
 END
 
 STRINGTABLE 
@@ -25568,7 +25569,7 @@ CAPTION "Key Entry: Scytale / Rail Fence"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Encrypt",ID_ENCRYPT,7,159,60,19
-    PUSHBUTTON      "Decrypt",ID_DECRYPT,73,159,60,19
+    PUSHBUTTON      "Decrypt",ID_DECRYPT,70,159,60,19
     PUSHBUTTON      "Cancel",IDCANCEL,218,159,60,19
     CONTROL         "Scytale",IDC_RADIO_SCYTALE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,68,110,10
     CONTROL         "Rail Fence",IDC_RADIO_RAIL_FENCE,"Button",BS_AUTORADIOBUTTON,20,80,110,10
@@ -25581,6 +25582,7 @@ BEGIN
     CONTROL         "",IDC_SIMPLE_TRANSPOSITION_IMAGE,"Static",SS_BITMAP,177,58,67,62
     LTEXT           "Offset:",IDC_STATIC,20,134,24,8
     EDITTEXT        IDC_EDIT_OFFSET,136,132,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "Text options",ID_TEXTOPTIONS,144,159,60,19
 END
 
 IDD_AUTOMATED_PERM_ANALYSIS DIALOGEX 0, 0, 320, 310
@@ -29509,7 +29511,8 @@ BEGIN
     ID_FORMAT_TEXT_DOCUMENT "Formats a text document with specific parameters"
     ID_CRYPT_HASH_SHA256    "Calculates the SHA-256 hash value of the active document"
     ID_CRYPT_HASH_SHA512    "Calculates the SHA-512 hash value of the active document"
-    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS "Scytale / Rail Fence"
+    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS 
+                            "Encryption using simple transpositions (Scytale, Rail Fence)"
 END
 
 STRINGTABLE 

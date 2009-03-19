@@ -72,6 +72,7 @@ protected:
 public:
 	afx_msg void OnBnClickedEncrypt();
 	afx_msg void OnBnClickedDecrypt();
+	afx_msg void OnBnClickedTextoptions();
 
 	afx_msg void OnRadioScytale();
 	afx_msg void OnRadioRailFence();

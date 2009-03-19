@@ -92,6 +92,7 @@ BEGIN_MESSAGE_MAP(CDlgSimpleTranspositions, CDialog)
 	ON_BN_CLICKED(ID_DECRYPT, &CDlgSimpleTranspositions::OnBnClickedDecrypt)
 	ON_BN_CLICKED(IDC_RADIO_SCYTALE, OnRadioScytale)
 	ON_BN_CLICKED(IDC_RADIO_RAIL_FENCE, OnRadioRailFence)
+	ON_BN_CLICKED(ID_TEXTOPTIONS, &CDlgSimpleTranspositions::OnBnClickedTextoptions)
 END_MESSAGE_MAP()
 
 BOOL CDlgSimpleTranspositions::OnInitDialog() 
@@ -182,6 +183,12 @@ void CDlgSimpleTranspositions::OnBnClickedDecrypt()
 	saveSettings();
 
 	EndDialog(IDOK);
+}
+
+void CDlgSimpleTranspositions::OnBnClickedTextoptions()
+{
+	// allow the user to change the CrypTool alphabet
+	theApp.TextOptions.DoModal();
 }
 
 void CDlgSimpleTranspositions::OnRadioScytale()
