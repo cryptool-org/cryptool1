@@ -538,15 +538,14 @@ void CScintillaView::OnSize(
 void CScintillaView::OnInitialUpdate() 
 {
 	CView::OnInitialUpdate();
-    CDocument *pDoc = GetDocument();
+    CCryptDoc *pDoc = (CCryptDoc*)GetDocument();
     CString strTitle = pDoc->GetPathName();
 
 	m_wndScintilla.Init();
 
-	// Schriftgrösse in Scintilla-Fenster per Default auf "Arial 10" setzen
-	setTextFont(10, "Arial");
+	// set the Scintilla window's font according to what's stored in the document
+	setTextFont(pDoc->fontSize, pDoc->fontFace);
 
-	//m_wndScintilla.LoadFile(strTitle);
 	this->SetFocus();
 
 	CWnd *pActiveWindow = this->GetTopWindow();
@@ -880,6 +879,10 @@ void CScintillaView::setTextFont(int size, const char* fontClass)
 		pActiveWindow->SendMessage(SCI_STYLESETSIZE, style, size);
 		pActiveWindow->SendMessage(SCI_STYLESETFONT, style, reinterpret_cast<LPARAM>(fontClass));
 	}
+
+	// we need to store font size and font face if it is changed
+	this->GetDocument()->fontSize = size;
+	this->GetDocument()->fontFace = fontClass;
 }
 
 void CScintillaView::OnViewFontArial08()
@@ -931,8 +934,8 @@ void CScintillaView::OnTohex()
 	pDoc->OnSaveDocument(outfile);
 	CString key = pDoc->csSchluessel;
 
-	// NewDoc = (CAppDocument*)theApp.OpenDocumentFile(outfile);
-	NewDoc = theApp.OpenDocumentFileNoMRU(outfile, key /* pDoc->csSchluessel */);
+	// we open a new document file
+	NewDoc = theApp.OpenDocumentFileNoMRU(outfile, pDoc->csSchluessel, SCHLUESSEL_LINEAR, pDoc->fontSize, pDoc->fontFace);
 	NewDoc->SetModifiedFlag(Modified);
 	NewDoc->SetTitle(pDoc->GetTitle());
 	NewDoc->CWndVaterFenster = pDoc->CWndVaterFenster;

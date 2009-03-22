@@ -193,7 +193,7 @@ public:
 	CDlgOptionsAnalysis Options;
 	CDlgFindAndReplace findAndReplaceDialog;
 	plot_opt_dlg PlotOptions;
-	CAppDocument * OpenDocumentFileNoMRU(const char *name, CString Key = "", int KeyType = SCHLUESSEL_LINEAR);
+	CAppDocument * OpenDocumentFileNoMRU(const char *name, CString Key = "", int KeyType = SCHLUESSEL_LINEAR, int fontSize = 10, CString fontFace = "Arial");
 	BOOL MRU_Flag;
 	CWnd *m_MainWnd;
 	virtual void AddToRecentFileList(LPCTSTR lpszPathName);

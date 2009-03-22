@@ -64,6 +64,9 @@ CAppDocument::CAppDocument()
 {
 	hWndVaterFenster = NULL;
 	CWndVaterFenster = NULL;
+	// go with "Arial 10" as default font
+	fontSize = 10;
+	fontFace = "Arial";
 }
 
 BOOL CAppDocument::OnNewDocument()

@@ -887,7 +887,7 @@ void CCrypToolApp::AddToRecentFileList(LPCTSTR lpszPathName)
 // Parameter: Dateiname der zu oeffnenden Datei
 //				schluessel (vorbelegt mit "")
 //				Type des Schluessels (vorbelegt mit SCHLUESSEL_LINEAR)
-CAppDocument * CCrypToolApp::OpenDocumentFileNoMRU(const char *name, CString Key, int KeyType)
+CAppDocument * CCrypToolApp::OpenDocumentFileNoMRU(const char *name, CString Key, int KeyType, int fontSize, CString fontFace)
 {
     BOOL oldflag;
     CAppDocument *doc;
@@ -908,6 +908,9 @@ CAppDocument * CCrypToolApp::OpenDocumentFileNoMRU(const char *name, CString Key
 	doc->csSchluessel = Key;
 	doc->iSchluesselTyp = KeyType;
 	doc->ClearPathName();
+	// set font size and font face
+	doc->fontSize = fontSize;
+	doc->fontFace = fontFace;
 
     MRU_Flag = oldflag;
     return doc;

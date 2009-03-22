@@ -93,6 +93,10 @@ protected:
 	afx_msg void OnUpdateShowKey(CCmdUI* pCmdUI);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+
+public:
+	int fontSize;
+	CString fontFace;
 };
 
 //{{AFX_INSERT_LOCATION}}

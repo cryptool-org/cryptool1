@@ -210,7 +210,8 @@ void CHexEditCtrlView::OnTotxt()
 	Modified = pDoc->IsModified();
 	pDoc->OnSaveDocument(outfile);
  
- 	NewDoc = theApp.OpenDocumentFileNoMRU(outfile,pDoc->csSchluessel);
+	// we open a new document file
+ 	NewDoc = theApp.OpenDocumentFileNoMRU(outfile,pDoc->csSchluessel,SCHLUESSEL_LINEAR,pDoc->fontSize,pDoc->fontFace);
  	CWnd_hilf = ((CMDIFrameWnd*)theApp.m_pMainWnd)->MDIGetActive();
  	CWnd_hilf->SetWindowPlacement( &place );
  	remove(outfile);
@@ -219,6 +220,9 @@ void CHexEditCtrlView::OnTotxt()
  	NewDoc->hWndVaterFenster = pDoc->hWndVaterFenster;
  	NewDoc->SetModifiedFlag(Modified);
  	pDoc->OnCloseDocument();
+
+	// this is necessary to deal with a ScintillaView-related quirk
+	NewDoc->SendInitialUpdate();
 }
 
 BOOL CHexEditCtrlView::OnCommand( WPARAM wParam, LPARAM lParam )

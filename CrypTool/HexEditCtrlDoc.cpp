@@ -108,7 +108,7 @@ void CHexEditCtrlDoc::OnTotxt()
  	Modified = IsModified();
  	OnSaveDocument(outfile);
  
- 	NewDoc = theApp.OpenDocumentFileNoMRU(outfile,csSchluessel);
+ 	NewDoc = theApp.OpenDocumentFileNoMRU(outfile,csSchluessel,SCHLUESSEL_LINEAR,fontSize,fontFace);
  	CWnd_hilf = ((CMDIFrameWnd*)theApp.m_pMainWnd)->MDIGetActive();
  	CWnd_hilf->SetWindowPlacement( &place );
  	remove(outfile);
