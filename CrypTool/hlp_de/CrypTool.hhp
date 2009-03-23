@@ -540,9 +540,9 @@ hidd_format_text_document.html
 cryptochallenges.html
 hid_encryption_simple_transpositions.html
 hidd_simple_transpositions.html
-hid_perm_auto.html
-hidd_perm_auto.html
-hidd_perm_key.html
+hid_known_analysis_single_permutation.html
+hidd_automated_perm_analysis.html
+hidd_automated_perm_analysis_output.html
 
 [ALIAS]
 #include CrypTool_Alias.h

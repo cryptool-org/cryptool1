@@ -19,7 +19,7 @@
 
 <P>You can reach this dialog via the menu entry <a href="menu_analyze.html">Analysis</a> \ <a href="menu_analysis_symmetricclassic.html">Symmetric Encryption (classic)</a> \ <a href="menu_analysis_symmetricclassic_manualanalysis.html">Manual Analysis</a> \ <a href="HID_PLAYFAIR_ANALYSE.html">Playfair</a>.</P>
 
-<P>The analysis tool for the Playfair algorithm supports the manual analysis of a text encrypted with the Playfair algorithm. As a pre-condition, parts of the plain text must be available in addition to the cipher text. Based on this information the key matrix can be constructed.</P>
+<P>The analysis tool for the Playfair algorithm supports the manual analysis of a text encrypted with the Playfair algorithm. As a pre-condition, parts of the plain text must be available in addition to the ciphertext. Based on this information the key matrix can be constructed.</P>
 
 <P>Using intermediate results the matrix can be guessed or CrypTool can be asked for a suggestion. You can watch the results closely, correct them if necessary and finally try a decryption. </P>
 
@@ -42,7 +42,7 @@
 <P>The table <B>Letter information</B> displays the following information for all letters in the alphabet based on the content of the field `Expected plaintext´:</P>
 
 <UL>
-	<LI><B>LROU:</B> These column shows which neighbours the letter has definitely. If there is the combination‘S*V*‚ in the row for letter ‘H‚, then it‚s sure that ‘S‚ stands on the left side of ‘H‚. Otherwise no matrix can match the cipher text and stipulation. Correspondingly ‘V‚ is definitely over ‘H‚. The other neighbours are not determined yet.</LI>
+	<LI><B>LROU:</B> These column shows which neighbours the letter has definitely. If there is the combination‘S*V*‚ in the row for letter ‘H‚, then it‚s sure that ‘S‚ stands on the left side of ‘H‚. Otherwise no matrix can match the ciphertext and stipulation. Correspondingly ‘V‚ is definitely over ‘H‚. The other neighbours are not determined yet.</LI>
 
 	<LI><B>Nb?:</B> The letters before the delimiter ‘/‚ stand left or above the letter, the letters behind the delimiter are on the right side or below of the letter.</LI>
 
@@ -55,7 +55,7 @@
 
 <P><B>Hint</B>: Normally letters which are listed in ‘row or col‚ but not in ‘horizontal‚ are often in the same column as the given letter.</P>
 
-<P>Clicking the button `<B>Create matrix</B>´ suggest a matrix, which respects the constraints and therefore the stipulation based on the cipher text. The resulting matrix can be modified. Please note that changes to the matrix get lost, if you click on the button.</P>
+<P>Clicking the button `<B>Create matrix</B>´ suggest a matrix, which respects the constraints and therefore the stipulation based on the ciphertext. The resulting matrix can be modified. Please note that changes to the matrix get lost, if you click on the button.</P>
 
 <P>In the case that your stipulation does not begin on the first position or contains gaps you can put in a placeholder (‘*‚) by typing the space bar. CrypTool ignores all di-grams which contains at least one star in the stipulation.</P>
 
@@ -76,7 +76,7 @@ In this case one of the neighbours was already calculated and the following calc
 
 </UL>
 
-<P>Finally, the Button <B>Output results of analysis</B> uses the current key matrix to decrypt the cipher text and creates a new document window from the result. It also closes the dialog.</P>
+<P>Finally, the Button <B>Output results of analysis</B> uses the current key matrix to decrypt the ciphertext and creates a new document window from the result. It also closes the dialog.</P>
 
 </BODY>
 </HTML>

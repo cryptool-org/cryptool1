@@ -15347,7 +15347,7 @@ BEGIN
             POPUP "Known-&Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO, GRAYED
-                MENUITEM "Einstufige &Permutation",     ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
+                MENUITEM "Einstufige &Permutationsanalyse...",     ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "&Manuelle Analyse"
             BEGIN
@@ -15692,7 +15692,7 @@ BEGIN
             POPUP "Known-&Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO
-                MENUITEM "Einstufige &Permutationsanalyse", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
+                MENUITEM "Einstufige &Permutationsanalyse...", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "&Manuelle Analyse"
             BEGIN
@@ -16037,7 +16037,7 @@ BEGIN
             POPUP "Known-&Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO
-                MENUITEM "Einstufige &Permutationsanalyse", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
+                MENUITEM "Einstufige &Permutationsanalyse...", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "&Manuelle Analyse"
             BEGIN
@@ -16382,7 +16382,7 @@ BEGIN
             POPUP "Known-&Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO
-                MENUITEM "Einstufige &Permutationsanalyse", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
+                MENUITEM "Einstufige &Permutationsanalyse...", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "&Manuelle Analyse"
             BEGIN
@@ -16754,7 +16754,7 @@ BEGIN
             POPUP "Known-&Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO, GRAYED
-                MENUITEM "Einstufige &Permutationsanalyse", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
+                MENUITEM "Einstufige &Permutationsanalyse...", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "&Manuelle Analyse"
             BEGIN
@@ -18763,6 +18763,8 @@ BEGIN
     ID_CRYPT_HASH_SHA512    "Berechnet den SHA-512-Hashwert des aktiven Dokuments"
     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS 
                             "Verschlüsseln mit einfachen Transpositionen (Skytale, Gartenzaun)"
+    ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION 
+                            "Klartext-Angriff auf eine Permutations-Verschlüsselung"
 END
 
 STRINGTABLE 
@@ -20707,7 +20709,7 @@ BEGIN
                             "Bitte warten, Schlüssel werden zusammengefügt!"
     IDS_CRT_SECRETSHARING_REK5 "Benutze Passwörter zu den %d Kennungen  "
     IDS_CRT_SECRETSHARING_REK6 
-                            "Sie haben %d Schlüssel eingegeben. Es werden aber mindestens %d richtige Schlüssel für eine eindeutige \r\nBerechnung benötigt. Mit diesen Schlüsseln bleiben %f Möglichkeiten offen."
+                            "Sie haben %d Schlüssel eingegeben. Es werden aber mindestens %d richtige Schlüssel für eine eindeutige \r\nBerechnung benötigt. Mit diesen Schlüsseln bleiben %d Möglichkeiten offen."
     IDS_CRT_SECRETSHARING_REK7 
                             "Es wurden zu wenige Schlüssel benutzt.\r\n Mit diesen Schlüsseln bleiben %d Möglichkeiten offen.\r\n\r\n----- Rekonstruktion gescheitert -----\r\n\r\n"
     IDS_CRT_SECRETSHARING_REK8 
@@ -21222,7 +21224,7 @@ STRINGTABLE
 BEGIN
     IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_RAIL_FENCE "Anzahl der Zeilen:"
     IDS_SIMPLE_TRANSPOSITION_KEY_INVALID 
-                            "Der Schlüssel ist ungültig. Er muss größer als 1 und kleiner als die Länge des Eingabetexts sein."
+                            "Der Schlüssel ist ungültig. Er muss größer als 1 und kleiner als die Länge des Eingabetexts sein.\n\nVor der Ver-/Entschlüsselung werden alle Zeichen aus dem Eingabetext entfernt, die nicht zum eingestellten CrypTool-Alphabet gehören. Wenn Sie den Eingabetext nicht verändern möchten, passen Sie bitte über den Button ""Textoptionen"" das CrypTool-Alphabet an, um fortzufahren."
     IDS_STRING_RAIL_FENCE_ENCRYPTION_OF 
                             "Gartenzaun-Verschlüsselung von <%s>, Schlüssel <%s>"
     IDS_STRING_RAIL_FENCE_DECRYPTION_OF 
@@ -23537,8 +23539,8 @@ BEGIN
     EDITTEXT        IDC_EDIT2,71,49,218,14,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT3,71,103,218,14,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT4,71,125,218,14,ES_AUTOHSCROLL | ES_READONLY
-    GROUPBOX        "1. Permutation",IDC_STATIC,17,13,283,59
-    GROUPBOX        "2. Permutation",IDC_STATIC,17,89,283,59
+    GROUPBOX        "1st Permutation",IDC_STATIC,17,13,283,59
+    GROUPBOX        "2nd Permutation",IDC_STATIC,17,89,283,59
     PUSHBUTTON      "&Cancel",IDCANCEL,245,161,55,19
     PUSHBUTTON      "&Back",IDBACK,17,161,55,19
 END
@@ -25947,7 +25949,7 @@ BEGIN
             POPUP "Known-&Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO, GRAYED
-                MENUITEM "Single &Column Transpsition", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
+                MENUITEM "Single &Column Transposition...", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "&Manual Analysis"
             BEGIN
@@ -26292,7 +26294,7 @@ BEGIN
             POPUP "Known-&Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO
-                MENUITEM "Single &Column Transpsition", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
+                MENUITEM "Single &Column Transposition...", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "&Manual Analysis"
             BEGIN
@@ -26637,7 +26639,7 @@ BEGIN
             POPUP "Known-&Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO
-                MENUITEM "Single &Column Transpsition", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
+                MENUITEM "Single &Column Transposition...", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "&Manual Analysis"
             BEGIN
@@ -26982,7 +26984,7 @@ BEGIN
             POPUP "Known-&Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO
-                MENUITEM "Single &Column Transpsition", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
+                MENUITEM "Single &Column Transposition...", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "&Manual Analysis"
             BEGIN
@@ -27354,7 +27356,7 @@ BEGIN
             POPUP "Known-&Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO, GRAYED
-                MENUITEM "Single &Column Transpsition", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
+                MENUITEM "Single &Column Transposition...", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "&Manual Analysis"
             BEGIN
@@ -29550,6 +29552,8 @@ BEGIN
     ID_CRYPT_HASH_SHA512    "Calculates the SHA-512 hash value of the active document"
     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS 
                             "Encryption using simple transpositions (Scytale, Rail Fence)"
+    ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION 
+                            "Plaintext attack against a transposition cipher"
 END
 
 STRINGTABLE 
@@ -29875,7 +29879,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_PERMUTATION_CLEAR   "&Display clear text"
-    IDS_PERMUTATION_CIPHER  "&Display cipher text"
+    IDS_PERMUTATION_CIPHER  "&Display ciphertext"
     IDS_STRING_DAYS         "days"
     IDS_STRING_YEARS        "years"
     IDS_PERMUTATION_DECRYPT_INV "Decrypt text with inverse permutation"
@@ -31445,7 +31449,7 @@ BEGIN
     IDS_CRT_SECRETSHARING_REK4 "Please wait, while keys are fit together."
     IDS_CRT_SECRETSHARING_REK5 "Using the %d passwords to identifiers    "
     IDS_CRT_SECRETSHARING_REK6 
-                            "You've entered %d keys.\r\nAt least %d correct keys are needed for a defnite calculation.\r\nWith the given keys, there are %f possibilities remaining."
+                            "You've entered %d keys.\r\nAt least %d correct keys are needed for a definite calculation.\r\nWith the given keys, there are %d possibilities remaining."
     IDS_CRT_SECRETSHARING_REK7 
                             "Number of keys used is to small.\r\n\r\n----- Reconstruction failed -----\r\n\r\n"
     IDS_CRT_SECRETSHARING_REK8 "The following secret was rebuilt:\r\n%s"
@@ -31456,7 +31460,7 @@ BEGIN
     IDS_CRT_SECRETSHARING_NOSUCCESS2 
                             "At least one wrong key has been entered.\r\n\r\n----- Reconstruction failed -----\r\n\r\n"
     IDS_MONO_SUBST_AUTO_SHORT_TEXT_WARNING 
-                            "Input text is too short to produce reliable results. \nAs experiments show, the Jakobsen algorithm needs at least 300 characters. \nIf the automatic analysis fails, you can try to analyse this cipher text manually."
+                            "Input text is too short to produce reliable results. \nAs experiments show, the Jakobsen algorithm needs at least 300 characters. \nIf the automatic analysis fails, you can try to analyse this ciphertext manually."
     IDS_MONO_SUBST_AUTO_STAT_ANALYSIS_IS_RUNNING 
                             "The statistic analysis of the text is running. Please wait..."
     IDS_MONO_SUBST_AUTO_FILE_CONTENT_ERROR "Error in the statisitc file: \n"
@@ -31947,7 +31951,7 @@ STRINGTABLE
 BEGIN
     IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_RAIL_FENCE "Number of rows:"
     IDS_SIMPLE_TRANSPOSITION_KEY_INVALID 
-                            "The key is invalid. It must be greater than 1 and smaller than the length of the input text."
+                            "The key is invalid. It must be greater than 1 and smaller than the length of the input text.\n\nCharacters that are not part of the CrypTool-Alphabet are deleted before encryption/decryption. If you don't want to change the input text, please use the button ""Text options"" to alter the CrypTool alphabet in order to proceed."
     IDS_STRING_RAIL_FENCE_ENCRYPTION_OF 
                             "Rail Fence encryption of <%s>, key <%s>"
     IDS_STRING_RAIL_FENCE_DECRYPTION_OF 
