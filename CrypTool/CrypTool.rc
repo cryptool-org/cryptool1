@@ -4364,7 +4364,7 @@ BEGIN
     CONTROL         "Rail Fence",IDC_RADIO_RAIL_FENCE,"Button",BS_AUTORADIOBUTTON,20,75,110,10
     EDITTEXT        IDC_EDIT_KEY,135,111,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
     GROUPBOX        "Description",IDC_STATIC,7,7,271,36
-    LTEXT           "Transpositions scramble the order of the letters in the clear text. Two well-known, classic variants are the Scytale and the Rail Fence encryption.",IDC_STATIC,20,20,245,16
+    LTEXT           "Transpositions scramble the order of the letters in the cleartext. Two well-known, classic variants are the Scytale and the Rail Fence encryption.",IDC_STATIC,20,20,245,16
     GROUPBOX        "Choose the transposition",IDC_STATIC,7,50,160,40
     GROUPBOX        "Choose the key",IDC_STATIC,7,100,160,45
     LTEXT           "SIMPLE_TRANSPOSITION_KEY",IDC_SIMPLE_TRANSPOSITION_KEY,20,113,99,8
@@ -15344,10 +15344,10 @@ BEGIN
                 MENUITEM "Byteweise A&ddition",         ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
             END
-            POPUP "Known-&Plaintext"
+            POPUP "Known &Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO, GRAYED
-                MENUITEM "Einstufige &Permutationsanalyse...",     ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
+                MENUITEM "Einstufige &Spaltentransposition...",     ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "&Manuelle Analyse"
             BEGIN
@@ -15689,10 +15689,10 @@ BEGIN
                 MENUITEM "Byteweise A&ddition",         ID_ADD_AUTO
                 MENUITEM "&XOR",                        ID_XOR_AUTO
             END
-            POPUP "Known-&Plaintext"
+            POPUP "Known &Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO
-                MENUITEM "Einstufige &Permutationsanalyse...", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
+                MENUITEM "Einstufige &Spaltentransposition...", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "&Manuelle Analyse"
             BEGIN
@@ -16034,10 +16034,10 @@ BEGIN
                 MENUITEM "Byteweise A&ddition",         ID_ADD_AUTO
                 MENUITEM "&XOR",                        ID_XOR_AUTO
             END
-            POPUP "Known-&Plaintext"
+            POPUP "Known &Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO
-                MENUITEM "Einstufige &Permutationsanalyse...", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
+                MENUITEM "Einstufige &Spaltentransposition...", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "&Manuelle Analyse"
             BEGIN
@@ -16379,10 +16379,10 @@ BEGIN
                 MENUITEM "Byteweise A&ddition",         ID_ADD_AUTO
                 MENUITEM "&XOR",                        ID_XOR_AUTO
             END
-            POPUP "Known-&Plaintext"
+            POPUP "Known &Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO
-                MENUITEM "Einstufige &Permutationsanalyse...", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
+                MENUITEM "Einstufige &Spaltentransposition...", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "&Manuelle Analyse"
             BEGIN
@@ -16751,10 +16751,10 @@ BEGIN
                 MENUITEM "Byteweise A&ddition",         ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
             END
-            POPUP "Known-&Plaintext"
+            POPUP "Known &Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO, GRAYED
-                MENUITEM "Einstufige &Permutationsanalyse...", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
+                MENUITEM "Einstufige &Spaltentransposition...", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "&Manuelle Analyse"
             BEGIN
@@ -18764,7 +18764,7 @@ BEGIN
     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS 
                             "Verschlüsseln mit einfachen Transpositionen (Skytale, Gartenzaun)"
     ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION 
-                            "Klartext-Angriff auf eine Permutations-Verschlüsselung"
+                            "Klartext-Angriff auf eine einfache Spaltentransposition"
 END
 
 STRINGTABLE 
@@ -25609,7 +25609,7 @@ BEGIN
     CONTROL         "Rail Fence",IDC_RADIO_RAIL_FENCE,"Button",BS_AUTORADIOBUTTON,20,80,110,10
     EDITTEXT        IDC_EDIT_KEY,135,116,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
     GROUPBOX        "Description",IDC_STATIC,7,7,271,41
-    LTEXT           "Transpositions scramble the order of the letters in the clear text. Two well-known, classic variants are the Scytale and the Rail Fence encryption.",IDC_STATIC,20,20,245,16
+    LTEXT           "Transpositions scramble the order of the letters in the cleartext. Two well-known, classic variants are the Scytale and the Rail Fence encryption.",IDC_STATIC,20,20,245,16
     GROUPBOX        "Choose the transposition variant",IDC_STATIC,7,55,160,40
     GROUPBOX        "Choose the key",IDC_STATIC,7,105,160,45
     LTEXT           "SIMPLE_TRANSPOSITION_KEY",IDC_SIMPLE_TRANSPOSITION_KEY,20,118,99,8
@@ -25946,7 +25946,7 @@ BEGIN
                 MENUITEM "Byte A&ddition",              ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
             END
-            POPUP "Known-&Plaintext"
+            POPUP "Known &Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO, GRAYED
                 MENUITEM "Single &Column Transposition...", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
@@ -26291,7 +26291,7 @@ BEGIN
                 MENUITEM "Byte A&ddition",              ID_ADD_AUTO
                 MENUITEM "&XOR",                        ID_XOR_AUTO
             END
-            POPUP "Known-&Plaintext"
+            POPUP "Known &Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO
                 MENUITEM "Single &Column Transposition...", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
@@ -26636,7 +26636,7 @@ BEGIN
                 MENUITEM "Byte A&ddition",              ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
             END
-            POPUP "Known-&Plaintext"
+            POPUP "Known &Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO
                 MENUITEM "Single &Column Transposition...", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
@@ -26981,7 +26981,7 @@ BEGIN
                 MENUITEM "Byte A&ddition",              ID_ADD_AUTO
                 MENUITEM "&XOR",                        ID_XOR_AUTO
             END
-            POPUP "Known-&Plaintext"
+            POPUP "Known &Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO
                 MENUITEM "Single &Column Transposition...", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
@@ -27353,7 +27353,7 @@ BEGIN
                 MENUITEM "Byte A&ddition",              ID_ADD_AUTO, GRAYED
                 MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
             END
-            POPUP "Known-&Plaintext"
+            POPUP "Known &Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO, GRAYED
                 MENUITEM "Single &Column Transposition...", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
@@ -29553,7 +29553,7 @@ BEGIN
     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS 
                             "Encryption using simple transpositions (Scytale, Rail Fence)"
     ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION 
-                            "Plaintext attack against a transposition cipher"
+                            "Plaintext attack against a single column transposition"
 END
 
 STRINGTABLE 
@@ -29878,7 +29878,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_PERMUTATION_CLEAR   "&Display clear text"
+    IDS_PERMUTATION_CLEAR   "&Display cleartext"
     IDS_PERMUTATION_CIPHER  "&Display ciphertext"
     IDS_STRING_DAYS         "days"
     IDS_STRING_YEARS        "years"
@@ -30870,7 +30870,7 @@ BEGIN
     IDS_STRING_HYB_ENC_KEY_ASYM 
                             "This button is currently inactive!\nPlease select the public key of the recipient.\n\nUse F1 to get information about the sequence you\nshould follow to activate this button."
     IDS_STRING_RSADEMO_ERR_NO_VALID_CHARS 
-                            "The plain text you entered does not contain a single character of the given alphabet.\nPlease correct your plain text."
+                            "The plaintext you entered does not contain a single character of the given alphabet.\nPlease correct your plaintext."
     IDS_TITLE_NGRAMANALYSIS "%sAnalysis of <%s>"
 END
 

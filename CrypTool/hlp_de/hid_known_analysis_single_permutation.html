@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
 <HEAD>
-<TITLE>Automatische Analyse einer einstufigen Spaltentransposition</TITLE>
+<TITLE>Einstufige Spaltentransposition</TITLE>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
@@ -15,7 +15,7 @@
 
 <BODY>
 
-<h3>Spaltentransposition (einstufig) (Menü <A href="menu_analyze.html">Analyse</A> \ Symmetrische Verschlüsselung (klassisch) \ Known-Plaintext)</h3>
+<h3>Einstufige Spaltentransposition (Menü <A href="menu_analyze.html">Analyse</A> \ Symmetrische Verschlüsselung (klassisch) \ Known-Plaintext)</h3>
 
 		<p>
 		Für die einstufige Spaltentransposition steht ein Known-Plaintext-Angriff zur Verfügung. 
@@ -23,15 +23,15 @@
 		mit dem der Klartext verschlüsselt worden ist. <br>
 		<br>
 		Für die automatische Analyse müssen sowohl der Klartext als auch der Geheimtext bekannt sein. Beide Texte müssen im 
-		<!--ZZZPOPUP--><A href="hidd_perm_auto.html">Dialog Analyse Spaltentransposition</A> ausgewählt werden.
-		Korrespondierende Texte haben immer gleiche Länge.<br>
+		<!--ZZZPOPUP--><A href="hidd_automated_perm_analysis.html">Dialog Analyse einer einfachen Spaltentransposition (Known-Plaintext)</A> ausgewählt werden.
+		Korrespondierende Texte haben immer die gleiche Länge.<br>
 		<br>Die Analyse funktioniert wie folgt: Sowohl der Klar- als auch der Geheimtext werden jeweils
 		in eine Tabelle eingelesen. Abhängig von den Parametern (Verfahrensvarianten) hat die jeweilige Tabelle n Spalten oder n Zeilen (n = Länge der Permutation = Schlüssellänge).
 		Im Anschluss vergleicht CrypTool die jeweiligen Spalten beider Texttabellen und ermittelt so die Permutation, 
 		also die Vertauschung der Spalten. Diese Permutation ist der gesuchte Schlüssel (zusammen mit den Parametern des Permutationsverfahrens).<br>
 		<br>Werden vom Benutzer keine genauen Angaben zur Länge des Schlüssels und zu den Parametern getroffen, so durchläuft CrypTool eine automatische Analyse. 
 		Hierbei können auch mehrere Schlüssel gefunden werden. Es wird allerdings nur der erste gefundene Schlüssel 
-		im <!--ZZZPOPUP--><A href="hidd_perm_key.html">
+		im <!--ZZZPOPUP--><A href="hidd_automated_perm_analysis_output.html">
 		Dialog Schlüsselausgabe: Spaltentransposition</A> angezeigt. Bei einer Eingrenzung der Schlüssellänge durch den Benutzer muss die Länge der ausgewählten Texte
 		ein Vielfaches der Schlüssellänge sein.</p>
 		<p><u>Beispiel zur Berechnung des Permutationsschlüssels:</u></p>
