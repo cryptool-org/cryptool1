@@ -1942,9 +1942,10 @@ void CCryptDoc::OnUpdateEditRepeat(CCmdUI *pCmdUI)
 void CCryptDoc::OnKnownAnalysisSinglePermutation()
 {
 	CDlgAutomatedPermAnalysis dlg;
+	UpdateContent();
 	if ( dlg.setSourceFilename(ContentName) )
 	{
-		// FIXME ERROR MESSAGE
+		Message( IDS_PA_EMPTYREFFILE, MB_ICONSTOP );
 		return;
 	}
 	if (IDOK == dlg.DoModal())

@@ -48,6 +48,7 @@ statement from your version.
 #include "stdafx.h"
 #include "CrypToolApp.h"
 
+int getFileSize(const char *filename, __int64 &size);
 BOOL CheckAlphabet (int minSize = 1);
 BOOL CheckTextSize (SymbolArray &text, int Threshold = 1);
 void LoadText      (const char *infile, SymbolArray &text);

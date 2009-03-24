@@ -3367,6 +3367,73 @@ void DoInvPerm(char *dest, char *src, int len, int *p, int plen, int Zin, int Zo
 		}
 }
 
+#if 0
+void Permutation(const char *infile, const char *OldTitle, BOOL TEXTMODE)
+{
+	char *mSrc = NULL, *mDest = NULL; 
+	int   lSrc = 0,     lDest = 0;
+	if ( !readSource( infile, mSrc, lSrc, TEXTMODE ) )
+	{
+		// ERROR
+		return;
+	}
+	if (!lSrc )
+	{
+		// ERROR
+		return;
+	}
+    if (Perm.DoModal()==IDOK)
+	{
+		mDest = (char *) malloc(lSrc+1);
+		char *ptr1, *ptr2, *ptr3;
+
+		if ( !Perm.m_Invert )
+		{
+			ptr1 = mDest;
+			ptr2 = mSrc;
+		}
+		else
+		{
+			ptr1 = mDest;
+			ptr2 = mSrc;
+		}
+
+		if(Perm.m_Dec) 
+		{  // DECRYPTION
+			DoInvPerm(ptr1, ptr2, lSrc, Perm.m_P2, Perm.m_P2len, Perm.m_P2InSeq ^ Perm.m_P2Perm  ^ 1, Perm.m_P2OutSeq ^ Perm.m_P2Perm  ^ 1);
+			if(Perm.m_P2len) 
+			{ // double permutation
+				DoInvPerm(ptr2, ptr1, lSrc, Perm.m_P1, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
+				ptr3 = ptr1;
+			}
+			else
+				ptr3 = ptr2
+		}
+		else 
+		{  // ENCRYPTION
+			DoPerm(ptr1, ptr2, lSrc, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
+			if(Perm.m_P2len)
+			{
+				DoPerm(ptr2, ptr1, lSrc, Perm.m_P2inv, Perm.m_P2len, Perm.m_P2InSeq ^ Perm.m_P2Perm  ^ 1, Perm.m_P2OutSeq ^ Perm.m_P2Perm  ^ 1);
+				ptr3 = ptr1;
+			}
+			else 
+				ptr3 = ptr2;
+		}
+
+		if ( !writeDest(ptr3, ....) )
+		{
+			// ERROR
+		}
+		else
+		{
+			displayDest(....)
+		}
+	}  // IDOK == DoModal()
+}
+#endif
+
+
 void PermutationAsc(const char *infile, const char *OldTitle)
 {
     char outfile[1024], key[1024], title[1024];

@@ -51,8 +51,24 @@ statement from your version.
 #include "DialogeMessage.h"
 #include "MakeNewName.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 #pragma warning(disable : 4996)
+
+int getFileSize(const char *filename, __int64 &size)
+{
+	FILE *stream;
+	if ( (stream = fopen(filename, "rb")) )
+	{
+		_fseeki64(stream, (__int64)0, SEEK_END);
+		size = _ftelli64(stream);
+		fclose(stream);
+		return 1;
+	}
+	size = (__int64)-1;
+	return 0;
+}
+
 
 BOOL CheckAlphabet( int minSize )
 {

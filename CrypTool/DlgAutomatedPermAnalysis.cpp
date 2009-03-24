@@ -13,6 +13,7 @@
 #include "ScintillaView.h"
 #include "HexEditCtrlView.h"
 #include "FileTools.h"
+#include "CrypToolTools.h"
 
 #define BLOCK_SIZE 1024
 
@@ -39,17 +40,15 @@ CDlgAutomatedPermAnalysis::CDlgAutomatedPermAnalysis(CWnd* pParent /*=NULL*/)
 
 int CDlgAutomatedPermAnalysis::setSourceFilename(const char *filename)
 {
-	fn_source = new char[strlen(filename)+1];
-	strcpy(fn_source, filename);
-	ifstream fstrm;
-	fstrm.open(fn_source);
-	if(!fstrm.is_open())
-		return -1;
-	fstrm.clear(); // Go to the beginning of the file
-	fstrm.seekg(0, ios::end);
-	source_filesize = fstrm.tellg();
-	fstrm.close();
-	m_editRangeTo.Format("%i", source_filesize);
+	if ( getFileSize(filename, source_filesize) && ( source_filesize > 0 ) )
+	{
+		delete []fn_source;
+		fn_source = new char[strlen(filename)+1];
+		strcpy(fn_source, filename);
+		return 0;
+	}
+	return -1;
+	m_editRangeTo.Format("%I64i", source_filesize);
 	return 0;
 }
 

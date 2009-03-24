@@ -8,7 +8,8 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -4373,45 +4374,35 @@ BEGIN
     EDITTEXT        IDC_EDIT_OFFSET,136,127,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
 END
 
-IDD_AUTOMATED_PERM_ANALYSIS DIALOGEX 0, 0, 320, 310
+IDD_AUTOMATED_PERM_ANALYSIS DIALOGEX 0, 0, 320, 339
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Analiza jednostopniowej permutacji"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    PUSHBUTTON      "Zakoncz",ID_BTN_ABBRUCH,241,285,72,18
-    DEFPUSHBUTTON   "Oblicz klucz",ID_BTN_BERECHNEN,7,285,75,18
-    CONTROL         "Liniowo",IDC_RB_EIN_SW,"Button",BS_AUTORADIOBUTTON | WS_GROUP,36,135,39,10
-    CONTROL         "Kolumnowo",IDC_RB_EIN_ZW,"Button",BS_AUTORADIOBUTTON,36,151,52,10
-    CONTROL         "Liniowo i kolumnowo",IDC_RB_EIN_SW_ZW,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,36,161,57,23
-    CONTROL         "Kolumnowa",IDC_RB_PERM_ZW,"Button",BS_AUTORADIOBUTTON,134,152,52,10
-    CONTROL         "Liniowa i kolumnowa",IDC_RB_PERM_SW_ZW,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,134,162,57,23
-    CONTROL         "Liniowo",IDC_RB_AUS_SW,"Button",BS_AUTORADIOBUTTON | WS_GROUP,230,135,39,10
-    CONTROL         "Kolumnowo",IDC_RB_AUS_ZW,"Button",BS_AUTORADIOBUTTON,230,152,52,10
-    CONTROL         "Sta³a d³ugoœæ",IDC_RB_FEST,"Button",BS_AUTORADIOBUTTON | WS_GROUP,36,220,59,10
-    CONTROL         "Interval",IDC_RB_INTERVALL,"Button",BS_AUTORADIOBUTTON,36,241,41,10
-    CONTROL         "Szukaæ (od 1 do glugosci tekstu..)",IDC_RB_SUCHEN,
-                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,36,261,124,10
-    CONTROL         "Liniowo i kolumnowo",IDC_RB_AUS_SW_ZW,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,230,162,57,23
-    EDITTEXT        IDC_TB_INTERVALL_MIN,105,239,40,14,ES_AUTOHSCROLL | WS_DISABLED
-    LTEXT           "(Wprowadz wartosc)",IDC_LBL_FEST_INFO,159,219,82,12,WS_DISABLED
-    LTEXT           "do",IDC_LBL_INTERVALL,155,241,18,13,WS_DISABLED
-    EDITTEXT        IDC_TB_INTERVALL_MAX,174,239,40,14,ES_AUTOHSCROLL | WS_DISABLED
-    LTEXT           "(Wprowadz wartosc)",IDC_LBL_INTERVALL_INFO,229,241,78,12,WS_DISABLED
-    EDITTEXT        IDC_TB_FEST,105,218,40,14,ES_AUTOHSCROLL | WS_DISABLED
-    GROUPBOX        "Specifications for the permutation key (key size)",IDC_GB_PERMUTATION,7,202,306,76
-    GROUPBOX        "Wyczytaæ",IDC_GB_AUSLESEN,214,122,86,65
-    CONTROL         "Liniowa",IDC_RB_PERM_SW,"Button",BS_AUTORADIOBUTTON | WS_GROUP,134,136,39,10
-    GROUPBOX        "Wczytaæ",IDC_GB_EINLESEN,19,123,86,65
-    GROUPBOX        "Permutacja",IDC_GB_PERMUTIEREN,117,123,86,65
-    GROUPBOX        "Jaka wariante zastosowaæ?",IDC_GB_VERFAHREN,7,109,306,84
-    PUSHBUTTON      "Szukaj",IDC_BTN_KLARTEXT,241,51,59,16
-    PUSHBUTTON      "Szukaj",IDC_BTN_GEHEIMTEXT,241,79,59,16
-    EDITTEXT        IDC_TB_GEHEIMTEXT,19,79,216,16,ES_AUTOHSCROLL
-    LTEXT           "Tekst szyfrowy",IDC_LBL_GEHEIMTEXT,19,69,58,10
-    LTEXT           "Tekst orginalny",IDC_LBL_KLARTEXT,19,41,59,10
-    EDITTEXT        IDC_TB_KLARTEXT,19,51,216,16,ES_AUTOHSCROLL
-    GROUPBOX        "Wprowadzenie plikow",IDC_GB_TEXTE,6,31,307,71
-    LTEXT           "This permutation analysis is a known-plaintext analysis, so both plaintext and ciphertext are needed to compute the key. ",IDC_LBL_INFOTEXT,7,8,293,22,0,WS_EX_TRANSPARENT
+    CONTROL         "Geheimtext",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | WS_GROUP,250,36,54,10
+    CONTROL         "Klartext",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,250,48,42,10
+    DEFPUSHBUTTON   "&Schlüssel suchen",ID_BTN_BERECHNEN,7,312,75,17
+    CONTROL         "Zeilenweise",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,267,53,10
+    CONTROL         "Spaltenweise",IDC_CHECK13,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,283,54,10
+    CONTROL         "Zeilenweise",IDC_CHECK11,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,93,267,53,10
+    CONTROL         "Spaltenweise",IDC_CHECK14,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,93,283,54,10
+    CONTROL         "Zeilenweise",IDC_CHECK12,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,267,53,10
+    CONTROL         "Spaltenweise",IDC_CHECK15,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,283,54,10
+    EDITTEXT        IDC_EDIT_RANGE_FROM,250,265,42,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_RANGE_TO,250,281,42,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Datei laden",IDC_BUTTON1,15,77,54,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,248,312,65,17
+    GROUPBOX        "Einlesen",IDC_GB_EINLESEN,15,254,67,43
+    GROUPBOX        "Permutieren",IDC_GB_PERMUTIEREN,87,254,66,43
+    GROUPBOX        "Auslesen",IDC_GB_AUSLESEN,157,254,66,43
+    GROUPBOX        "Welche Varianten des Permutationsverfahrens sollen analysiert werden?",IDC_GB_VERFAHREN,7,241,306,63
+    LTEXT           "Diese Permutationsanalyse ist eine Known-Plaintext-Analyse, mit deren Hilfe Sie aus dem Klartext und dem Geheimtext den Permutationsschlüssel berechnen können.",IDC_LBL_INFOTEXT,7,8,306,15,0,WS_EX_TRANSPARENT
+    GROUPBOX        "Klartext oder verschlüsselter Text",IDC_REFERENCE_HEADER,7,64,306,171
+    GROUPBOX        "Permutationsgröße",IDC_GB_AUSLESEN2,228,254,76,43
+    LTEXT           "von",IDC_STATIC,234,268,14,9
+    LTEXT           "bis",IDC_STATIC,234,284,14,9
+    GROUPBOX        "Aktives Dokument",IDC_STATIC,7,27,306,34
+    LTEXT           "Bitte legen Sie fest, ob das vor dem Aufruf dieses Dialogs aktive Dokument den Klartext oder den Geheimtext enthält.",IDC_STATIC,15,38,208,19
 END
 
 
@@ -7989,7 +7980,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 313
         TOPMARGIN, 7
-        BOTTOMMARGIN, 303
+        BOTTOMMARGIN, 332
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -21218,6 +21209,7 @@ BEGIN
     ID_PA_NOKEYFOUND        "Es wurde kein Permutationsschlüssel gefunden."
     IDS_PLAINTEXT           "Klartext im Eingabefeld"
     IDS_CIPHERTEXT          "Geheimtext im Eingabefeld"
+    IDS_PA_EMPTYREFFILE     "Die im Desktop geöffnete Datei ist leer!"
 END
 
 STRINGTABLE 
@@ -25619,44 +25611,35 @@ BEGIN
     PUSHBUTTON      "Text options",ID_TEXTOPTIONS,144,159,60,19
 END
 
-IDD_AUTOMATED_PERM_ANALYSIS DIALOGEX 0, 0, 320, 310
+IDD_AUTOMATED_PERM_ANALYSIS DIALOGEX 0, 0, 320, 339
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Analysis of a simple column transposition (Known Plaintext)"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    PUSHBUTTON      "Cancel",ID_BTN_ABBRUCH,241,285,72,18
-    DEFPUSHBUTTON   "Calculate key",ID_BTN_BERECHNEN,7,285,75,18
-    CONTROL         "Rows",IDC_RB_EIN_SW,"Button",BS_AUTORADIOBUTTON | WS_GROUP,36,135,33,10
-    CONTROL         "Cols",IDC_RB_EIN_ZW,"Button",BS_AUTORADIOBUTTON,36,151,29,10
-    CONTROL         "Rows and cols",IDC_RB_EIN_SW_ZW,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,36,161,57,23
-    CONTROL         "Cols",IDC_RB_PERM_ZW,"Button",BS_AUTORADIOBUTTON,134,152,29,10
-    CONTROL         "Rows and cols",IDC_RB_PERM_SW_ZW,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,134,162,57,23
-    CONTROL         "Rows",IDC_RB_AUS_SW,"Button",BS_AUTORADIOBUTTON | WS_GROUP,230,135,33,10
-    CONTROL         "Cols",IDC_RB_AUS_ZW,"Button",BS_AUTORADIOBUTTON,230,152,29,10
-    CONTROL         "Fixed length",IDC_RB_FEST,"Button",BS_AUTORADIOBUTTON | WS_GROUP,36,219,55,10
-    CONTROL         "Interval",IDC_RB_INTERVALL,"Button",BS_AUTORADIOBUTTON,36,240,41,10
-    CONTROL         "Search  (from 1 to text length)",IDC_RB_SUCHEN,"Button",BS_AUTORADIOBUTTON | WS_GROUP,36,260,114,10
-    CONTROL         "Rows and cols",IDC_RB_AUS_SW_ZW,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,230,162,57,23
-    EDITTEXT        IDC_TB_INTERVALL_MIN,105,238,40,14,ES_AUTOHSCROLL | WS_DISABLED
-    LTEXT           "(please enter a value)",IDC_LBL_FEST_INFO,159,218,82,12,WS_DISABLED
-    LTEXT           "up to",IDC_LBL_INTERVALL,152,239,18,13,WS_DISABLED
-    EDITTEXT        IDC_TB_INTERVALL_MAX,174,238,40,14,ES_AUTOHSCROLL | WS_DISABLED
-    LTEXT           "(please enter a value)",IDC_LBL_INTERVALL_INFO,229,240,78,12,WS_DISABLED
-    EDITTEXT        IDC_TB_FEST,105,217,40,14,ES_AUTOHSCROLL | WS_DISABLED
-    GROUPBOX        "Specifications for the permutation key (key size)",IDC_GB_PERMUTATION,7,201,306,76
-    GROUPBOX        "Read out",IDC_GB_AUSLESEN,214,122,86,65
-    CONTROL         "Rows",IDC_RB_PERM_SW,"Button",BS_AUTORADIOBUTTON | WS_GROUP,134,136,33,10
-    GROUPBOX        "Read in",IDC_GB_EINLESEN,19,123,86,65
-    GROUPBOX        "Permutation",IDC_GB_PERMUTIEREN,117,123,86,65
-    GROUPBOX        "Which variant should be applied?",IDC_GB_VERFAHREN,7,109,306,84
-    PUSHBUTTON      "Browse",IDC_BTN_KLARTEXT,241,51,59,16
-    PUSHBUTTON      " Browse",IDC_BTN_GEHEIMTEXT,241,79,59,16
-    EDITTEXT        IDC_TB_GEHEIMTEXT,19,79,216,16,ES_AUTOHSCROLL
-    LTEXT           "Ciphertext",IDC_LBL_GEHEIMTEXT,19,69,58,10
-    LTEXT           "Plaintext",IDC_LBL_KLARTEXT,19,41,43,10
-    EDITTEXT        IDC_TB_KLARTEXT,19,51,216,16,ES_AUTOHSCROLL
-    GROUPBOX        "Input data",IDC_GB_TEXTE,6,31,307,71
-    LTEXT           "This permutation analysis is a known-plaintext analysis, so both plaintext and ciphertext are needed to compute the key. ",IDC_LBL_INFOTEXT,7,8,293,21,0,WS_EX_TRANSPARENT
+    CONTROL         "Geheimtext",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | WS_GROUP,250,36,54,10
+    CONTROL         "Klartext",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,250,48,42,10
+    DEFPUSHBUTTON   "&Schlüssel suchen",ID_BTN_BERECHNEN,7,312,75,17
+    CONTROL         "Zeilenweise",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,267,53,10
+    CONTROL         "Spaltenweise",IDC_CHECK13,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,283,54,10
+    CONTROL         "Zeilenweise",IDC_CHECK11,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,93,267,53,10
+    CONTROL         "Spaltenweise",IDC_CHECK14,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,93,283,54,10
+    CONTROL         "Zeilenweise",IDC_CHECK12,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,267,53,10
+    CONTROL         "Spaltenweise",IDC_CHECK15,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,283,54,10
+    EDITTEXT        IDC_EDIT_RANGE_FROM,250,265,42,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_RANGE_TO,250,281,42,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Datei laden",IDC_BUTTON1,15,77,54,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,248,312,65,17
+    GROUPBOX        "Einlesen",IDC_GB_EINLESEN,15,254,67,43
+    GROUPBOX        "Permutieren",IDC_GB_PERMUTIEREN,87,254,66,43
+    GROUPBOX        "Auslesen",IDC_GB_AUSLESEN,157,254,66,43
+    GROUPBOX        "Welche Varianten des Permutationsverfahrens sollen analysiert werden?",IDC_GB_VERFAHREN,7,241,306,63
+    LTEXT           "Diese Permutationsanalyse ist eine Known-Plaintext-Analyse, mit deren Hilfe Sie aus dem Klartext und dem Geheimtext den Permutationsschlüssel berechnen können.",IDC_LBL_INFOTEXT,7,8,306,15,0,WS_EX_TRANSPARENT
+    GROUPBOX        "Klartext oder verschlüsselter Text",IDC_REFERENCE_HEADER,7,64,306,171
+    GROUPBOX        "Permutationsgröße",IDC_GB_AUSLESEN2,228,254,76,43
+    LTEXT           "von",IDC_STATIC,234,268,14,9
+    LTEXT           "bis",IDC_STATIC,234,284,14,9
+    GROUPBOX        "Aktives Dokument",IDC_STATIC,7,27,306,34
+    LTEXT           "Bitte legen Sie fest, ob das vor dem Aufruf dieses Dialogs aktive Dokument den Klartext oder den Geheimtext enthält.",IDC_STATIC,15,38,208,19
 END
 
 IDD_AUTOMATED_PERM_ANALYSIS_OUTPUT DIALOGEX 0, 0, 242, 268
@@ -29289,7 +29272,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 313
         TOPMARGIN, 7
-        BOTTOMMARGIN, 303
+        BOTTOMMARGIN, 332
     END
 
     IDD_AUTOMATED_PERM_ANALYSIS_OUTPUT, DIALOG

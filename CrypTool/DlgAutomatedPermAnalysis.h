@@ -62,8 +62,8 @@ private:
 
 	automated_permanalysis permanalysis;
 	char *fn_source;
-	int   source_filesize;
 	char *fn_reference;
+	__int64 source_filesize;
 
 	void OpenFile(const char *fileName);
 	void SaveFile();

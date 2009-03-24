@@ -3139,12 +3139,13 @@
 #define ID_PA_NOKEYFOUND                62026
 #define IDS_PLAINTEXT                   62027
 #define IDS_CIPHERTEXT                  62028
+#define IDS_PA_EMPTYREFFILE             62029
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        879
+#define _APS_NEXT_RESOURCE_VALUE        880
 #define _APS_NEXT_COMMAND_VALUE         33373
 #define _APS_NEXT_CONTROL_VALUE         2039
 #define _APS_NEXT_SYMED_VALUE           109
