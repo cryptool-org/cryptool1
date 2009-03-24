@@ -80,6 +80,7 @@ public:
 	CEdit	m_control_edit3;
 	CEdit m_control_edit5;
 	CEdit m_control_edit6;
+	CEdit m_control_separator;
 	int m_radio1;
 	int m_radio4;
 	int m_radio6;
@@ -89,6 +90,7 @@ public:
 	CString	m_edit4;
 	CString	m_edit5;
 	CString	m_edit6;
+	CString separator;
 	//}}AFX_DATA
 
 

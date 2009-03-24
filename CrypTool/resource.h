@@ -1024,6 +1024,7 @@
 #define IDC_SESSIONKEY                  1454
 #define IDC_CHECK_DISABLEHELP           1455
 #define IDC_ARROWS                      1456
+#define IDC_CHECK_DISABLEINTRODUCTION   1456
 #define IDC_OPTIONS                     1457
 #define IDC_BROWSE_HARMLESS             1458
 #define IDC_BROWSE_DANGEROUS            1459
@@ -1690,6 +1691,7 @@
 #define IDC_EDIT_RANGE_FROM             2036
 #define IDC_EDIT_RANGE_TO               2037
 #define IDC_REFERENCE_HEADER            2038
+#define IDC_EDIT_KEYWORD                2039
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -3147,7 +3149,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        880
 #define _APS_NEXT_COMMAND_VALUE         33373
-#define _APS_NEXT_CONTROL_VALUE         2039
+#define _APS_NEXT_CONTROL_VALUE         2040
 #define _APS_NEXT_SYMED_VALUE           109
 #endif
 #endif

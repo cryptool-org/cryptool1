@@ -90,7 +90,6 @@ statement from your version.
 #include "DlgOptionsStartoptions.h"
 #include "DlgSignatureAttack.h"
 #include "DlgSigAttModificDemo.h"
-#include "DlgFurtherOptions.h"
 #include "DlgDiffieHellmanVisualization.h"
 #include "DialogeMessage.h"
 #include "DlgSideChannelAttackVisualizationHE.h"
@@ -178,7 +177,6 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_COMMAND(ID_HILFE_STARTSEITE, OnHilfeStartseite)
 	ON_COMMAND(ID_HILFE_SZENARIEN, OnHilfeSzenarien)
 	ON_COMMAND(ID_SIGNATUR_ATTACK, OnSignaturAttack)
-	ON_COMMAND(ID_OPTIONS_FURTHEROPTIONS, OnOptionsFurtheroptions)
 	ON_COMMAND(ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO, OnEinzelverfahrenDiffiehellmandemo)
 	ON_COMMAND(ID_SIGATTMODIFICDEMO, OnSigattmodificdemo)
 	ON_COMMAND(ID_LOAD_README, OnLoadReadme)
@@ -1257,12 +1255,6 @@ void CCrypToolApp::OnSignaturAttack()
 {
 	CDlgSignatureAttack DlgSA;
 	DlgSA.DoModal();
-}
-
-void CCrypToolApp::OnOptionsFurtheroptions() 
-{
-	CDlgFurtherOptions dlg;
-	dlg.DoModal();
 }
 
 void CCrypToolApp::OnEinzelverfahrenDiffiehellmandemo() 

@@ -82,14 +82,17 @@ public:
 
 // Implementierung
 protected:
+	virtual void OnOK();
 
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgSideChannelAttackVisualizationHEBob)
 	virtual BOOL OnInitDialog();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+
 private:
 	CWnd* parent;
+	CString keyword;
 };
 
 //{{AFX_INSERT_LOCATION}}

@@ -2496,20 +2496,6 @@ BEGIN
     LTEXT           "Osoba pods³uchuj¹ca nie mo¿e uzyskaæ informacji o tajemnicy, jeœli u¿yte parametry s¹ wystarczaj¹co d³ugie. Klucz sesji mo¿e teraz zostaæ u¿yty dla szyfrowania symetrycznego.",IDC_STATIC,20,222,384,24
 END
 
-IDD_OPTIONS_FURTHEROPTIONS DIALOG  0, 0, 291, 156
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Dalsze opcje"
-FONT 8, "MS Sans Serif"
-BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,135,50,14
-    PUSHBUTTON      "&Anuluj",IDCANCEL,234,135,50,14
-    CONTROL         "Pokazuj okno wprowadzaj¹ce.",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,26,135,10
-    GROUPBOX        "Opcje demonstracji protoko³u Diffie'ego-Hellmana",IDC_STATIC,7,7,277,40
-    GROUPBOX        "Opcje dla prezentacji ataku Side-Channel",IDC_STATIC,7,55,277,70
-    EDITTEXT        IDC_EDIT_SCAKEYWORD,20,95,120,14,ES_AUTOHSCROLL
-    LTEXT           "Bob mo¿e rozpoznaæ wiadomoœæ jako wys³an¹ przez Alicjê znajduj¹c nastêpuj¹ce s³owa kluczowe w wiadomoœci (np.: Twoja Alicja):",IDC_STATIC,20,74,253,16
-END
-
 IDD_SIGNATURE_ATTACK DIALOGEX 0, 0, 328, 319
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Atak na wartoœæ hasz podpisu cyfrowego"
@@ -4732,7 +4718,6 @@ BEGIN
         MENUITEM "Opcje &analizy",              ID_OPTIONS_ANALYSIS
         MENUITEM "&Opcje tekstu",               ID_OPTTEXT
         MENUITEM "Opcje pocz¹tkowe",            ID_OPTIONS_STARTOPTIONS
-        MENUITEM "&Dalsze opcje",               ID_OPTIONS_FURTHEROPTIONS
     END
     POPUP "&Okno"
     BEGIN
@@ -5076,7 +5061,6 @@ BEGIN
         MENUITEM "Opcje &analizy",              ID_OPTIONS_ANALYSIS
         MENUITEM "&Opcje tekstu",               ID_OPTTEXT
         MENUITEM "Opcje pocz¹tkowe",            ID_OPTIONS_STARTOPTIONS
-        MENUITEM "&Dalsze opcje",               ID_OPTIONS_FURTHEROPTIONS
     END
     POPUP "&Okno"
     BEGIN
@@ -5420,7 +5404,6 @@ BEGIN
         MENUITEM "Opcje &analizy",              ID_OPTIONS_ANALYSIS
         MENUITEM "&Opcje tekstu",               ID_OPTTEXT
         MENUITEM "Opcje pocz¹tkowe",            ID_OPTIONS_STARTOPTIONS
-        MENUITEM "&Dalsze opcje",               ID_OPTIONS_FURTHEROPTIONS
     END
     POPUP "&Okno"
     BEGIN
@@ -5764,7 +5747,6 @@ BEGIN
         MENUITEM "Opcje &analizy",              ID_OPTIONS_ANALYSIS
         MENUITEM "&Opcje tekstu",               ID_OPTTEXT
         MENUITEM "Opcje pocz¹tkowe",            ID_OPTIONS_STARTOPTIONS
-        MENUITEM "&Dalsze opcje",               ID_OPTIONS_FURTHEROPTIONS
     END
     POPUP "&Okno"
     BEGIN
@@ -6135,7 +6117,6 @@ BEGIN
         MENUITEM "Opcje &analizy",              ID_OPTIONS_ANALYSIS
         MENUITEM "&Opcje tekstu",               ID_OPTTEXT
         MENUITEM "Opcje pocz¹tkowe",            ID_OPTIONS_STARTOPTIONS
-        MENUITEM "&Dalsze opcje",               ID_OPTIONS_FURTHEROPTIONS
     END
     POPUP "&Okno"
     BEGIN
@@ -7503,15 +7484,6 @@ BEGIN
         VERTGUIDE, 180
         TOPMARGIN, 7
         BOTTOMMARGIN, 288
-    END
-
-    IDD_OPTIONS_FURTHEROPTIONS, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 284
-        VERTGUIDE, 20
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 149
     END
 
     IDD_STATISTICS_SIGNATURE_ATTACK, DIALOG
@@ -9667,8 +9639,6 @@ BEGIN
     IDS_STRING_SIG_ATT_DOCUMENT_TITLE_HARMLESS "Nieszkodliwa wiadomoœæ:"
     IDS_STRING_SIG_ATT_PROGRESS_CYCLE_START 
                             "Bieg %d\nPoszukiwanie kolizi (%d bit)\nPostêp: %%d%%%%  pozosta³y czas: %%s"
-    ID_OPTIONS_FURTHEROPTIONS 
-                            "Umo¿liwia zmianê na przyk³ad ustawieñ dla ró¿nych demonstracji (wizualizacji)"
     ID_LOAD_README          "Otwiera plik ReadMe CrypToola"
 END
 
@@ -12023,42 +11993,44 @@ BEGIN
     EDITTEXT        IDC_TITEL,15,3,285,19,ES_MULTILINE | ES_READONLY | ES_WANTRETURN | NOT WS_BORDER
 END
 
-IDD_PRIMES_GENERATOR_DEMO DIALOGEX 0, 0, 326, 265
+IDD_PRIMES_GENERATOR_DEMO DIALOGEX 0, 0, 326, 280
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Primzahlen generieren"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Primzahlen &generieren",IDC_BUTTON_GENERATE,10,236,100,20
-    PUSHBUTTON      "&Primzahlen übernehmen",IDC_BUTTON_ACCEPT,130,236,95,20
-    EDITTEXT        IDC_EDIT1,63,168,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,63,187,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT3,224,168,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT4,224,187,81,12,ES_AUTOHSCROLL
-    CONTROL         "&Miller-Rabin-Test",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,23,98,69,10
-    CONTROL         "&Solovay-Strassen-Test",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,23,113,87,10
-    CONTROL         "&Fermat-Test",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,23,128,53,10
-    CONTROL         "&Unabhängig voneinander einzugeben",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | BS_TOP | BS_MULTILINE | WS_GROUP,184,98,126,18
-    CONTROL         "Beide gleich (nur einen eingeben)",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,184,120,121,10
-    PUSHBUTTON      "&Abbrechen",IDC_ENDDIALOG,254,236,59,20
+    DEFPUSHBUTTON   "Primzahlen &generieren",IDC_BUTTON_GENERATE,10,251,100,20
+    PUSHBUTTON      "&Primzahlen übernehmen",IDC_BUTTON_ACCEPT,130,251,95,20
+    EDITTEXT        IDC_EDIT1,63,183,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,63,202,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,224,183,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,224,202,81,12,ES_AUTOHSCROLL
+    CONTROL         "&Miller-Rabin-Test",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,23,113,69,10
+    CONTROL         "&Solovay-Strassen-Test",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,23,128,87,10
+    CONTROL         "&Fermat-Test",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,23,143,53,10
+    CONTROL         "&Unabhängig voneinander einzugeben",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | BS_TOP | BS_MULTILINE | WS_GROUP,184,113,126,18
+    CONTROL         "Beide gleich (nur einen eingeben)",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,184,135,121,10
+    PUSHBUTTON      "&Abbrechen",IDC_ENDDIALOG,254,251,59,20
     GROUPBOX        "",IDC_STATIC,11,0,303,30
     LTEXT           "Primzahlen spielen in der modernen Kryptographie eine wichtige Rolle. Hier können Sie sich Primzahlen aus einem vorzugebenden Wertebereich [Untergrenze, Obergrenze] erzeugen.",IDC_STATIC,19,9,289,17
-    GROUPBOX        "Algorithmen zur Generierung",IDC_STATIC,11,83,142,60
-    GROUPBOX        "Wertebereich der Primzahlen p und q",IDC_STATIC,172,83,142,60
-    GROUPBOX        "Primzahl p",IDC_STATIC,11,148,142,80
-    LTEXT           "Untergrenze",IDC_STATIC,17,170,40,9
-    LTEXT           "Obergrenze",IDC_STATIC,18,189,44,8
-    LTEXT           "Ergebnis",IDC_STATIC,18,210,37,10
-    LTEXT           "Untergrenze",IDC_STATIC,178,170,40,9
-    LTEXT           "Obergrenze",IDC_STATIC,178,189,44,8
-    LTEXT           "Ergebnis",IDC_STATIC,179,210,35,10
-    EDITTEXT        IDC_EDIT5,63,208,81,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
-    GROUPBOX        "Primzahl q",IDC_STATIC,172,148,142,80
-    EDITTEXT        IDC_EDIT6,224,208,81,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
-    GROUPBOX        "Anzahl der zu generierenden Primzahlen",IDC_STATIC,11,36,302,40
+    GROUPBOX        "Algorithmen zur Generierung",IDC_STATIC,11,98,142,60
+    GROUPBOX        "Wertebereich der Primzahlen p und q",IDC_STATIC,172,98,142,60
+    GROUPBOX        "Primzahl p",IDC_STATIC,11,163,142,80
+    LTEXT           "Untergrenze",IDC_STATIC,17,185,40,9
+    LTEXT           "Obergrenze",IDC_STATIC,18,204,44,8
+    LTEXT           "Ergebnis",IDC_STATIC,18,225,37,10
+    LTEXT           "Untergrenze",IDC_STATIC,178,185,40,9
+    LTEXT           "Obergrenze",IDC_STATIC,178,204,44,8
+    LTEXT           "Ergebnis",IDC_STATIC,179,225,35,10
+    EDITTEXT        IDC_EDIT5,63,223,81,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    GROUPBOX        "Primzahl q",IDC_STATIC,172,163,142,80
+    EDITTEXT        IDC_EDIT6,224,223,81,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    GROUPBOX        "Anzahl der zu generierenden Primzahlen",IDC_STATIC,11,36,302,55
     CONTROL         "Zwei Primzahlen zufällig aus dem Wertebereich (den Wertebereichen) generieren",IDC_RADIO6,
                     "Button",BS_AUTORADIOBUTTON | WS_GROUP,23,49,270,10
     CONTROL         "Alle Primzahlen in dem (für p vorgegebenen) Wertebereich generieren",IDC_RADIO7,
                     "Button",BS_AUTORADIOBUTTON,23,62,234,10
+    EDITTEXT        IDC_EDIT_SEPARATOR,181,73,16,12,ES_CENTER | ES_AUTOHSCROLL | WS_DISABLED
+    LTEXT           "Trennzeichen für die Ausgabe der Primzahlen:",IDC_STATIC,34,75,146,8
 END
 
 IDD_RSA_DEMO DIALOGEX 0, 0, 391, 399
@@ -13106,29 +13078,11 @@ BEGIN
     GROUPBOX        "Damit ist das Ziel erreicht",IDC_STATIC,7,184,410,68
 END
 
-IDD_OPTIONS_FURTHEROPTIONS DIALOGEX 0, 0, 291, 185
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Weitere Optionen"
-FONT 8, "MS Sans Serif", 0, 0, 0x0
-BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,164,50,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,234,164,50,14
-    CONTROL         "Einleitungsdialog beim &Start anzeigen",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,26,133,10
-    GROUPBOX        "Optionen für die Diffie-Hellman-Demonstration",IDC_STATIC,7,7,277,40
-    GROUPBOX        "Optionen für die Seitenkanalangriff-Demonstration",IDC_STATIC,7,55,277,65
-    EDITTEXT        IDC_EDIT_SCAKEYWORD,20,95,120,14,ES_AUTOHSCROLL
-    LTEXT           "Bob kann erkennen, ob die erhaltene Nachricht von Alice gesendet wurde, wenn die Nachricht das folgende Schlüsselwort enthält:",IDC_STATIC,20,74,253,16
-    GROUPBOX        "Optionen für die Generation von Primzahlmengen",IDC_STATIC,7,126,277,30
-    LTEXT           "Trennzeichen zwischen Primzahlen:",IDC_STATIC,20,140,114,8
-    EDITTEXT        IDC_EDIT_PRIME_NUMBER_SEPARATOR,141,138,20,14,ES_CENTER | ES_AUTOHSCROLL
-END
-
-IDD_DIFFIEHELLMANVISUALIZATION DIALOG  0, 0, 525, 345
+IDD_DIFFIEHELLMANVISUALIZATION DIALOGEX 0, 0, 525, 345
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION 
 "Diffie-Hellman-Demo - Visualisierung des Schlüsselaustauschverfahrens nach Diffie-Hellman"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     CONTROL         "IDB_DH_BUTTON1_R_",IDC_SETPUBLICPARAMETERS,"Button",BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,7,11,108,31
     CONTROL         "IDB_DH_BUTTON2_R_",IDC_SETSECRETS,"Button",BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,7,80,108,31
@@ -13149,8 +13103,8 @@ BEGIN
     EDITTEXT        IDC_FINALALICE,170,257,100,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     EDITTEXT        IDC_FINALBOB,405,257,100,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     CONTROL         544,IDC_STATIC,"Static",SS_BITMAP,70,276,58,42
-    CONTROL         "&Informationsdialoge anzeigen",IDC_CHECK_DISABLEHELP,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,406,327,107,10
+    CONTROL         "Informationsdialoge anzeigen",IDC_CHECK_DISABLEHELP,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,403,327,110,10
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,226,8,5
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,176,8,5
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,126,8,5
@@ -13174,6 +13128,8 @@ BEGIN
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,62,8,5
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,57,8,5
     CONTROL         "",IDC_ANIMGIF,"Static",SS_BLACKRECT,281,159,20,20
+    CONTROL         "Einleitungsdialog anzeigen",IDC_CHECK_DISABLEINTRODUCTION,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,403,315,110,10
 END
 
 IDD_SIGATTMODIFICDEMO DIALOG  0, 0, 293, 215
@@ -13265,7 +13221,7 @@ BEGIN
     PUSHBUTTON      "&Alle Schritte auf einmal",IDC_BUTTON_ALLREMAININGSTEPS,225,325,100,26
     GROUPBOX        "Steuerung des Angriffs:",IDC_ATTACKCONTROL,220,282,111,75
     CONTROL         "&Informationsdialoge anzeigen",IDC_CHECK_DISABLEHELP,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,536,368,107,10
+                    "Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,536,368,107,10
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_INTRODUCTION DIALOG  0, 0, 250, 198
@@ -13355,18 +13311,20 @@ BEGIN
     LTEXT           "Aktionsprotokoll:",IDC_STATIC,80,7,53,8
 END
 
-IDD_SIDECHANNELATTACKVISUALIZATION_HE_BOB DIALOG  0, 0, 375, 260
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_BOB DIALOGEX 0, 0, 375, 260
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Aktueller Status von Bob"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,149,239,50,14
-    CONTROL         "List1",IDC_LIST_RECEIVEDSESSIONKEYS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,7,120,361,100
+    CONTROL         "List1",IDC_LIST_RECEIVEDSESSIONKEYS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,7,132,361,100
     CONTROL         762,IDC_BOB,"Static",SS_BITMAP | WS_BORDER,7,7,68,63
-    LTEXT           "Empfangene Sessionkeys mit Entschlüsselungsergebnissen:",IDC_STATIC,7,105,190,8
+    LTEXT           "Empfangene Sessionkeys mit Entschlüsselungsergebnissen:",IDC_STATIC,7,117,190,8
     LISTBOX         IDC_LIST_TASKS,80,18,288,52,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Aktionsprotokoll:",IDC_STATIC,80,7,53,8
-    LTEXT           "Bob kann nicht entscheiden, ob die empfangenen Nachrichten von Alice oder Trudy gesendet wurden.",IDC_STATIC,7,79,361,8
+    LTEXT           "Eigentlich kann Bob nicht entscheiden, ob die empfangenen Nachrichten von Alice oder Trudy gesendet wurden. Allerdings kann Bob anhand eines bestimmten Schlüsselworts entscheiden, ob eine Nachricht von Alice stammt.",IDC_STATIC,7,79,361,16
+    LTEXT           "Schlüsselwort:",IDC_STATIC,7,99,46,8
+    EDITTEXT        IDC_EDIT_KEYWORD,55,98,50,12,ES_AUTOHSCROLL
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_TRUDY DIALOG  0, 0, 375, 350
@@ -15338,7 +15296,7 @@ BEGIN
             POPUP "Known &Plaintext"
             BEGIN
                 MENUITEM "H&ill...",                    ID_HILL_AUTO, GRAYED
-                MENUITEM "Einstufige &Spaltentransposition...",     ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
+                MENUITEM "Einstufige &Spaltentransposition...", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "&Manuelle Analyse"
             BEGIN
@@ -15403,7 +15361,6 @@ BEGIN
         MENUITEM "&Analyseoptionen...",         ID_OPTIONS_ANALYSIS
         MENUITEM "&Textoptionen...",            ID_OPTTEXT
         MENUITEM "&Startoptionen...",           ID_OPTIONS_STARTOPTIONS
-        MENUITEM "&Weitere Optionen...",        ID_OPTIONS_FURTHEROPTIONS
     END
     POPUP "&Fenster"
     BEGIN
@@ -15748,7 +15705,6 @@ BEGIN
         MENUITEM "&Analyseoptionen...",         ID_OPTIONS_ANALYSIS
         MENUITEM "&Textoptionen...",            ID_OPTTEXT
         MENUITEM "&Startoptionen...",           ID_OPTIONS_STARTOPTIONS
-        MENUITEM "&Weitere Optionen...",        ID_OPTIONS_FURTHEROPTIONS
     END
     POPUP "&Fenster"
     BEGIN
@@ -16093,7 +16049,6 @@ BEGIN
         MENUITEM "&Analyseoptionen...",         ID_OPTIONS_ANALYSIS
         MENUITEM "&Textoptionen...",            ID_OPTTEXT
         MENUITEM "&Startoptionen...",           ID_OPTIONS_STARTOPTIONS
-        MENUITEM "&Weitere Optionen...",        ID_OPTIONS_FURTHEROPTIONS
     END
     POPUP "&Fenster"
     BEGIN
@@ -16438,7 +16393,6 @@ BEGIN
         MENUITEM "&Analyseoptionen...",         ID_OPTIONS_ANALYSIS
         MENUITEM "&Textoptionen...",            ID_OPTTEXT
         MENUITEM "&Startoptionen...",           ID_OPTIONS_STARTOPTIONS
-        MENUITEM "&Weitere Optionen...",        ID_OPTIONS_FURTHEROPTIONS
     END
     POPUP "&Fenster"
     BEGIN
@@ -16810,7 +16764,6 @@ BEGIN
         MENUITEM "&Analyseoptionen...",         ID_OPTIONS_ANALYSIS
         MENUITEM "&Textoptionen...",            ID_OPTTEXT
         MENUITEM "&Startoptionen...",           ID_OPTIONS_STARTOPTIONS
-        MENUITEM "&Weitere Optionen...",        ID_OPTIONS_FURTHEROPTIONS
     END
     POPUP "&Fenster"
     BEGIN
@@ -17875,7 +17828,7 @@ BEGIN
     IDD_PRIMES_GENERATOR_DEMO, DIALOG
     BEGIN
         VERTGUIDE, 11
-        BOTTOMMARGIN, 246
+        BOTTOMMARGIN, 261
     END
 
     IDD_KEY_HOMOPHONE, DIALOG
@@ -17977,14 +17930,6 @@ BEGIN
     BEGIN
         VERTGUIDE, 11
         VERTGUIDE, 329
-    END
-
-    IDD_OPTIONS_FURTHEROPTIONS, DIALOG
-    BEGIN
-        VERTGUIDE, 7
-        VERTGUIDE, 20
-        VERTGUIDE, 284
-        BOTTOMMARGIN, 178
     END
 
     IDD_SIGATTMODIFICDEMO, DIALOG
@@ -20027,8 +19972,6 @@ BEGIN
     IDS_STRING_SIG_ATT_DOCUMENT_TITLE_HARMLESS "Harmlose Nachricht: "
     IDS_STRING_SIG_ATT_PROGRESS_CYCLE_START 
                             "Run %d\nKollisionssuche (%d Bit)\nFortschritt: %%d%%%%  Restzeit: %%s"
-    ID_OPTIONS_FURTHEROPTIONS 
-                            "Erlaubt es z.B., die Einstellungen bei einzelnen Demonstrationen (Visualisierungen) zu ändern"
     ID_LOAD_README          "Öffnet die CrypTool Readme-Datei"
 END
 
@@ -21298,7 +21241,6 @@ BEGIN
     EDITTEXT        IDC_FINALALICE,170,257,100,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     EDITTEXT        IDC_FINALBOB,405,257,100,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     CONTROL         544,IDC_STATIC,"Static",SS_BITMAP,70,276,58,42
-    CONTROL         "Show &information dialogs",IDC_CHECK_DISABLEHELP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,411,327,94,10
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,226,8,5
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,176,8,5
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,126,8,5
@@ -21310,7 +21252,7 @@ BEGIN
     LTEXT           "Generator g:",IDC_GENERATORLABEL,160,40,70,14,SS_CENTERIMAGE
     LTEXT           "Prime module p:",IDC_PRIMELABEL,160,20,70,14,SS_CENTERIMAGE
     GROUPBOX        "Public parameters:",IDC_PUBLICFRAME,152,10,361,50
-    CONTROL         "IDB_DH_KEY_",IDC_KEY,"Button",BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,244,284,50,14
+    CONTROL         "IDB_DH_KEY_",IDC_KEY,"Button",BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,237,280,50,14
     LTEXT           "a:",IDC_ALICESECRETLABEL,160,107,10,14,SS_CENTERIMAGE
     LTEXT           "b:",IDC_BOBSECRETLABEL,395,107,10,14,SS_CENTERIMAGE
     LTEXT           "A:",IDC_ALICESHAREDLABEL,160,157,10,14,SS_CENTERIMAGE
@@ -21323,6 +21265,9 @@ BEGIN
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,67,8,5
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,71,8,5
     CONTROL         "",IDC_ANIMGIF,"Static",SS_GRAYRECT,281,159,20,20
+    CONTROL         "Show information dialogs",IDC_CHECK_DISABLEHELP,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,403,327,110,10
+    CONTROL         "Show introduction dialog",IDC_CHECK_DISABLEINTRODUCTION,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,403,315,110,10
 END
 
 IDD_DIALOG_PLOT_PARAM DIALOG  0, 0, 159, 118
@@ -22700,43 +22645,45 @@ BEGIN
     EDITTEXT        IDC_TITEL,15,6,285,16,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
 END
 
-IDD_PRIMES_GENERATOR_DEMO DIALOGEX 0, 0, 326, 265
+IDD_PRIMES_GENERATOR_DEMO DIALOGEX 0, 0, 326, 280
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Prime Number Generation"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Generate prime numbers",IDC_BUTTON_GENERATE,10,236,100,20
-    PUSHBUTTON      "&Apply primes",IDC_BUTTON_ACCEPT,130,236,95,20
-    EDITTEXT        IDC_EDIT1,63,168,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,63,187,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT3,224,168,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT4,224,187,81,12,ES_AUTOHSCROLL
-    CONTROL         "&Miller-Rabin Test",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,23,98,69,10
-    CONTROL         "&Solovay-Strassen Test",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,23,113,87,10
-    CONTROL         "&Fermat Test",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,23,128,53,10
+    DEFPUSHBUTTON   "&Generate prime numbers",IDC_BUTTON_GENERATE,10,251,100,20
+    PUSHBUTTON      "&Apply primes",IDC_BUTTON_ACCEPT,130,251,95,20
+    EDITTEXT        IDC_EDIT1,63,183,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,63,202,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,224,183,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,224,202,81,12,ES_AUTOHSCROLL
+    CONTROL         "&Miller-Rabin Test",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,23,113,69,10
+    CONTROL         "&Solovay-Strassen Test",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,23,128,87,10
+    CONTROL         "&Fermat Test",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,23,143,53,10
     CONTROL         "&To be entered independently of each other",IDC_RADIO4,
-                    "Button",BS_AUTORADIOBUTTON | BS_TOP | BS_MULTILINE | WS_GROUP,184,98,121,18
-    CONTROL         "&Both are equal (just enter one)",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,184,120,118,10
-    PUSHBUTTON      "&Cancel",IDC_ENDDIALOG,254,236,59,20
-    EDITTEXT        IDC_EDIT5,63,208,81,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
-    EDITTEXT        IDC_EDIT6,224,208,81,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+                    "Button",BS_AUTORADIOBUTTON | BS_TOP | BS_MULTILINE | WS_GROUP,184,113,121,18
+    CONTROL         "&Both are equal (just enter one)",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,184,135,118,10
+    PUSHBUTTON      "&Cancel",IDC_ENDDIALOG,254,251,59,20
+    EDITTEXT        IDC_EDIT5,63,223,81,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT6,224,223,81,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     GROUPBOX        "",IDC_STATIC,11,0,303,30
     LTEXT           "Prime numbers play an important role in modern cryptography. Here you can generate primes within a given value range [lower limit, upper limit].",IDC_STATIC,19,9,289,17
-    GROUPBOX        "Algorithms for prime number generation",IDC_STATIC,11,83,142,60
-    GROUPBOX        "Value range of the prime numbers p and q",IDC_STATIC,172,83,142,60
-    LTEXT           "Lower limit",IDC_STATIC,17,170,40,9
-    LTEXT           "Upper limit",IDC_STATIC,18,189,44,8
-    LTEXT           "Result",IDC_STATIC,18,210,37,10
-    GROUPBOX        "Prime number p",IDC_STATIC,11,148,142,80
-    GROUPBOX        "Prime number q",IDC_STATIC,172,148,142,80
-    LTEXT           "Lower limit",IDC_STATIC,178,170,40,9
-    LTEXT           "Upper limit",IDC_STATIC,178,189,44,8
-    LTEXT           "Result",IDC_STATIC,179,210,35,10
-    GROUPBOX        "Amount of prime numbers to be generated",IDC_STATIC,11,36,302,40
+    GROUPBOX        "Algorithms for prime number generation",IDC_STATIC,11,98,142,60
+    GROUPBOX        "Value range of the prime numbers p and q",IDC_STATIC,172,98,142,60
+    LTEXT           "Lower limit",IDC_STATIC,17,185,40,9
+    LTEXT           "Upper limit",IDC_STATIC,18,204,44,8
+    LTEXT           "Result",IDC_STATIC,18,225,37,10
+    GROUPBOX        "Prime number p",IDC_STATIC,11,163,142,80
+    GROUPBOX        "Prime number q",IDC_STATIC,172,163,142,80
+    LTEXT           "Lower limit",IDC_STATIC,178,185,40,9
+    LTEXT           "Upper limit",IDC_STATIC,178,204,44,8
+    LTEXT           "Result",IDC_STATIC,179,225,35,10
+    GROUPBOX        "Amount of prime numbers to be generated",IDC_STATIC,11,36,302,55
     CONTROL         "Generate two primes randomly from within the value range(s)",IDC_RADIO6,
                     "Button",BS_AUTORADIOBUTTON | WS_GROUP,23,49,205,10
     CONTROL         "Generate all primes within the value range set for p",IDC_RADIO7,
                     "Button",BS_AUTORADIOBUTTON,23,62,175,10
+    EDITTEXT        IDC_EDIT_SEPARATOR,156,73,16,12,ES_CENTER | ES_AUTOHSCROLL | WS_DISABLED
+    LTEXT           "Separator for the display of the primes:",IDC_STATIC,34,75,121,8
 END
 
 IDD_RSA_DEMO DIALOGEX 0, 0, 391, 399
@@ -23723,23 +23670,6 @@ BEGIN
     LTEXT           "An eavesdropper cannot gain knowledge of the secret if the used parameters are big enough. The Session Key can now be used for a symmetric encryption.",IDC_STATIC,20,222,384,24
 END
 
-IDD_OPTIONS_FURTHEROPTIONS DIALOGEX 0, 0, 291, 185
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Further Options"
-FONT 8, "MS Sans Serif", 0, 0, 0x0
-BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,164,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,234,164,50,14
-    CONTROL         "&Show introduction dialog on startup",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,26,135,10
-    GROUPBOX        "Options for the Diffie-Hellman Demonstration",IDC_STATIC,7,7,277,40
-    GROUPBOX        "Options for the Side-Channel Attack Demonstration",IDC_STATIC,7,55,277,65
-    EDITTEXT        IDC_EDIT_SCAKEYWORD,20,95,120,14,ES_AUTOHSCROLL
-    LTEXT           "Bob can recognize a message as sent by Alice by finding the following keyword within the message (i.e. ""Yours Alice""):",IDC_STATIC,20,74,253,16
-    GROUPBOX        "Options for the generation of sets of prime numbers",IDC_STATIC,7,126,277,30
-    LTEXT           "Separator between prime numbers:",IDC_STATIC,20,140,110,8
-    EDITTEXT        IDC_EDIT_PRIME_NUMBER_SEPARATOR,141,138,20,14,ES_CENTER | ES_AUTOHSCROLL
-END
-
 IDD_SIGNATURE_ATTACK DIALOGEX 0, 0, 328, 319
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Attack on the Hash Value of the Digital Signature"
@@ -23952,7 +23882,7 @@ BEGIN
     PUSHBUTTON      "&Next step",IDC_BUTTON_NEXTSINGLESTEP,225,296,100,25
     PUSHBUTTON      "&All steps at once",IDC_BUTTON_ALLREMAININGSTEPS,225,325,100,26
     GROUPBOX        "Attack control:",IDC_ATTACKCONTROL,220,282,111,75
-    CONTROL         "Show &information dialog",IDC_CHECK_DISABLEHELP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,541,368,102,10
+    CONTROL         "Show &information dialog",IDC_CHECK_DISABLEHELP,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,541,368,102,10
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_ALICE DIALOG  0, 0, 375, 250
@@ -23968,18 +23898,20 @@ BEGIN
     LTEXT           "Action log:",IDC_STATIC,80,7,34,8
 END
 
-IDD_SIDECHANNELATTACKVISUALIZATION_HE_BOB DIALOG  0, 0, 375, 260
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_BOB DIALOGEX 0, 0, 375, 260
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Current Status of Bob"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,149,239,50,14
-    CONTROL         "List1",IDC_LIST_RECEIVEDSESSIONKEYS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,7,120,361,100
+    CONTROL         "List1",IDC_LIST_RECEIVEDSESSIONKEYS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,7,132,361,100
     CONTROL         762,IDC_BOB,"Static",SS_BITMAP | WS_BORDER,7,7,68,63
-    LTEXT           "Received session keys and decryption results:",IDC_STATIC,7,105,146,8
+    LTEXT           "Received session keys and decryption results:",IDC_STATIC,7,117,146,8
     LISTBOX         IDC_LIST_TASKS,80,18,288,52,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Action log:",IDC_STATIC,80,7,34,8
-    LTEXT           "Bob cannot decide whether the messages he received were sent by Alice or Trudy.",IDC_STATIC,7,79,361,8
+    LTEXT           "Actually, Bob cannot decide whether the messages he received were sent by Alice or Trudy. However, given a certain keyword, Bob can decide if a message was sent by Alice. Please specify the keyword below:",IDC_STATIC,7,79,361,16
+    LTEXT           "Keyword:",IDC_STATIC,7,99,30,8
+    EDITTEXT        IDC_EDIT_KEYWORD,55,98,50,12,ES_AUTOHSCROLL
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_FINISHED DIALOG  0, 0, 215, 98
@@ -25997,7 +25929,6 @@ BEGIN
         MENUITEM "&Analysis Options...",        ID_OPTIONS_ANALYSIS
         MENUITEM "&Text Options...",            ID_OPTTEXT
         MENUITEM "&Starting Options...",        ID_OPTIONS_STARTOPTIONS
-        MENUITEM "&Further Options...",         ID_OPTIONS_FURTHEROPTIONS
     END
     POPUP "&Window"
     BEGIN
@@ -26342,7 +26273,6 @@ BEGIN
         MENUITEM "&Analysis Options...",        ID_OPTIONS_ANALYSIS
         MENUITEM "&Text Options...",            ID_OPTTEXT
         MENUITEM "&Starting Options...",        ID_OPTIONS_STARTOPTIONS
-        MENUITEM "&Further Options...",         ID_OPTIONS_FURTHEROPTIONS
     END
     POPUP "&Window"
     BEGIN
@@ -26687,7 +26617,6 @@ BEGIN
         MENUITEM "&Analysis Options...",        ID_OPTIONS_ANALYSIS
         MENUITEM "&Text Options...",            ID_OPTTEXT
         MENUITEM "&Starting Options...",        ID_OPTIONS_STARTOPTIONS
-        MENUITEM "&Further Options...",         ID_OPTIONS_FURTHEROPTIONS
     END
     POPUP "&Window"
     BEGIN
@@ -27032,7 +26961,6 @@ BEGIN
         MENUITEM "&Analysis Options...",        ID_OPTIONS_ANALYSIS
         MENUITEM "&Text Options...",            ID_OPTTEXT
         MENUITEM "&Starting Options...",        ID_OPTIONS_STARTOPTIONS
-        MENUITEM "&Further Options...",         ID_OPTIONS_FURTHEROPTIONS
     END
     POPUP "&Window"
     BEGIN
@@ -27404,7 +27332,6 @@ BEGIN
         MENUITEM "&Analysis Options...",        ID_OPTIONS_ANALYSIS
         MENUITEM "&Text Options...",            ID_OPTTEXT
         MENUITEM "&Starting Options...",        ID_OPTIONS_STARTOPTIONS
-        MENUITEM "&Further Options...",         ID_OPTIONS_FURTHEROPTIONS
     END
     POPUP "&Window"
     BEGIN
@@ -28524,7 +28451,7 @@ BEGIN
 
     IDD_PRIMES_GENERATOR_DEMO, DIALOG
     BEGIN
-        BOTTOMMARGIN, 246
+        BOTTOMMARGIN, 261
     END
 
     IDD_RSA_DEMO, DIALOG
@@ -28784,15 +28711,6 @@ BEGIN
         VERTGUIDE, 180
         TOPMARGIN, 7
         BOTTOMMARGIN, 288
-    END
-
-    IDD_OPTIONS_FURTHEROPTIONS, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 284
-        VERTGUIDE, 20
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 178
     END
 
     IDD_STATISTICS_SIGNATURE_ATTACK, DIALOG
@@ -30990,8 +30908,6 @@ BEGIN
     IDS_STRING_SIG_ATT_DOCUMENT_TITLE_HARMLESS "Harmless message: "
     IDS_STRING_SIG_ATT_PROGRESS_CYCLE_START 
                             "Run %d\nCollision search (%d bit)\nProgress: %%d%%%%  remaining time: %%s"
-    ID_OPTIONS_FURTHEROPTIONS 
-                            "Offers to change e.g. the settings for different demonstrations (visualizations)"
     ID_LOAD_README          "Opens the CrypTool readme file"
 END
 

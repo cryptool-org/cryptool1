@@ -83,6 +83,7 @@ CDlgPrimesGeneratorDemo::CDlgPrimesGeneratorDemo(CWnd* pParent /*=NULL*/)
 	m_edit4 = _T("2^8");
 	m_edit5 = _T("0");
 	m_edit6 = _T("0");
+	separator = _T(" ");
 	//}}AFX_DATA_INIT
 	generateMultiplePrimeNumbersEnabled = false;
 	abortGenerationMultiplePrimeNumbers = false;
@@ -103,6 +104,7 @@ CDlgPrimesGeneratorDemo::CDlgPrimesGeneratorDemo(CString lower, CString upper, C
 	m_edit4 = _T("2^8");
 	m_edit5 = _T("0");
 	m_edit6 = _T("0");
+	separator = _T(" ");
 	//}}AFX_DATA_INIT
 	generateMultiplePrimeNumbersEnabled = false;
 	abortGenerationMultiplePrimeNumbers = false;
@@ -121,6 +123,7 @@ void CDlgPrimesGeneratorDemo::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT3, m_control_edit3);
 	DDX_Control(pDX, IDC_EDIT5, m_control_edit5);
 	DDX_Control(pDX, IDC_EDIT6, m_control_edit6);
+	DDX_Control(pDX, IDC_EDIT_SEPARATOR, m_control_separator);
 	DDX_Radio(pDX, IDC_RADIO1, m_radio1);
 	DDX_Radio(pDX, IDC_RADIO4, m_radio4);
 	DDX_Radio(pDX, IDC_RADIO6, m_radio6);
@@ -130,6 +133,7 @@ void CDlgPrimesGeneratorDemo::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT4, m_edit4);
 	DDX_Text(pDX, IDC_EDIT5, m_edit5);
 	DDX_Text(pDX, IDC_EDIT6, m_edit6);
+	DDX_Text(pDX, IDC_EDIT_SEPARATOR, separator);
 	//}}AFX_DATA_MAP
 }
 
@@ -190,6 +194,8 @@ void CDlgPrimesGeneratorDemo::OnRadio6()
 	}
 	// also, enable the result field on the left side 
 	m_control_edit5.EnableWindow(true);
+	// disable the separator input field
+	m_control_separator.EnableWindow(false);
 
 	UpdateData(false);
 }
@@ -206,10 +212,11 @@ void CDlgPrimesGeneratorDemo::OnRadio7()
 	m_control_edit3.EnableWindow(false);
 	m_control_edit4.EnableWindow(false);
 	m_control_edit6.EnableWindow(false);
-
 	// also, disable the result field on the left side 
 	//(since we don't display primes in there anyway)
 	m_control_edit5.EnableWindow(false);
+	// enable the separator input field
+	m_control_separator.EnableWindow(true);
 
 	UpdateData(false);
 }
@@ -252,6 +259,21 @@ BOOL CDlgPrimesGeneratorDemo::OnInitDialog()
 		if(generateMultiplePrimeNumbersWindow) {
 			generateMultiplePrimeNumbersWindow->EnableWindow(false);
 		}
+	}
+
+	// fetch the separator for the prime number display from the registry
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_READ, IDS_REGISTRY_SETTINGS, "PrimeNumberGeneration") == ERROR_SUCCESS)
+	{
+		unsigned long u_length = 1024;
+		char c_primeNumberSeparator[1025] = " ";
+
+		CT_READ_REGISTRY(c_primeNumberSeparator, "Separator", u_length);
+
+		UpdateData();
+		separator.SetString(c_primeNumberSeparator);
+		UpdateData(FALSE);
+
+		CT_CLOSE_REGISTRY();
 	}
 
 	return FALSE;  // return TRUE unless you set the focus to a control
@@ -374,30 +396,10 @@ void CDlgPrimesGeneratorDemo::OnButtonGenerate()
 			for(	mapGeneratedPrimeNumbersIterator = mapGeneratedPrimeNumbers.begin();
 						mapGeneratedPrimeNumbersIterator != mapGeneratedPrimeNumbers.end();
 						mapGeneratedPrimeNumbersIterator++) {
-				// write prime numbers separated by separator specified in further options dialog
+				// write prime number
 				CString primeNumber = (*mapGeneratedPrimeNumbersIterator).first;
-				// get separator from options dialog
-				if(CT_OPEN_REGISTRY_SETTINGS(KEY_READ, IDS_REGISTRY_SETTINGS, "PrimeNumberGeneration") == ERROR_SUCCESS)
-				{
-					unsigned long u_length = 1024;
-					char c_primeNumberSeparator[1025] = " ";
-					CT_READ_REGISTRY(c_primeNumberSeparator, "Separator", u_length);
-					primeNumber.Append(c_primeNumberSeparator);
-					CT_CLOSE_REGISTRY();
-				}
-				// if we cannot find a separator, we create the registry key and use a blank as default
-				else
-				{
-					if(CT_OPEN_REGISTRY_SETTINGS(KEY_WRITE, IDS_REGISTRY_SETTINGS, "PrimeNumberGeneration") == ERROR_SUCCESS)
-					{
-						CT_WRITE_REGISTRY(" ", "Separator");
-						CT_CLOSE_REGISTRY();
-					}
-					else
-					{
-						// TODO: handle errors
-					}
-				}
+				// append separator
+				primeNumber.Append(separator);
 				// write the prime number (and the separator)
 				outfile.write(primeNumber, primeNumber.GetLength());
 			}
@@ -421,6 +423,12 @@ void CDlgPrimesGeneratorDemo::OnButtonGenerate()
 		sprintf(temp, pc_str, m_edit1, m_edit2, mapGeneratedPrimeNumbers.size());
 		message.Append(temp);
 		MessageBox(message, "CrypTool", MB_ICONINFORMATION);
+		// write the separator to the registry
+		if(CT_OPEN_REGISTRY_SETTINGS(KEY_WRITE, IDS_REGISTRY_SETTINGS, "PrimeNumberGeneration") == ERROR_SUCCESS) {	
+			if(separator == "") separator = " ";
+			CT_WRITE_REGISTRY(separator, "Separator");
+			CT_CLOSE_REGISTRY();
+		}
 		// leave this function cleanly
 		UpdateData(false);
 		return;

@@ -81,7 +81,8 @@ public:
 	CString	m_SharedKeyBob;
 	CString	m_SessionKeyAlice;
 	CString	m_SessionKeyBob;
-	BOOL	m_bShowInfoDialogues;
+	BOOL m_bShowInfoDialogues;
+	BOOL m_bShowIntroDialog;
 	//}}AFX_DATA
 
 
@@ -133,6 +134,7 @@ protected:
 	afx_msg void OnButtonalice3();
 	afx_msg void OnButtonbob3();
 	afx_msg void OnCheckDisablehelp();
+	afx_msg void OnCheckDisableIntroDialog();
 	afx_msg void OnKey();
 	afx_msg void OnPaint();
 	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);

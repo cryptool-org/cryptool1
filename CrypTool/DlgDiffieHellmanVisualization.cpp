@@ -85,6 +85,7 @@ CDlgDiffieHellmanVisualization::CDlgDiffieHellmanVisualization(CWnd* pParent /*=
 	m_SessionKeyAlice = _T("");
 	m_SessionKeyBob = _T("");
 	m_bShowInfoDialogues = FALSE;
+	m_bShowIntroDialog = FALSE;
 	//}}AFX_DATA_INIT
 
 	// Initialisierungen
@@ -127,6 +128,7 @@ void CDlgDiffieHellmanVisualization::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_FINALALICE, m_SessionKeyAlice);
 	DDX_Text(pDX, IDC_FINALBOB, m_SessionKeyBob);
 	DDX_Check(pDX, IDC_CHECK_DISABLEHELP, m_bShowInfoDialogues);
+	DDX_Check(pDX, IDC_CHECK_DISABLEINTRODUCTION, m_bShowIntroDialog);
 	//}}AFX_DATA_MAP
 }
 
@@ -145,6 +147,7 @@ BEGIN_MESSAGE_MAP(CDlgDiffieHellmanVisualization, CDialog)
 	ON_BN_CLICKED(IDC_BUTTONALICE3, OnButtonalice3)
 	ON_BN_CLICKED(IDC_BUTTONBOB3, OnButtonbob3)
 	ON_BN_CLICKED(IDC_CHECK_DISABLEHELP, OnCheckDisablehelp)
+	ON_BN_CLICKED(IDC_CHECK_DISABLEINTRODUCTION, OnCheckDisableIntroDialog)
 	ON_BN_CLICKED(IDC_KEY, OnKey)
 	ON_WM_PAINT()
 	ON_WM_CTLCOLOR()
@@ -481,26 +484,28 @@ BOOL CDlgDiffieHellmanVisualization::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "DifieHellman" ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "DiffieHellman" ) == ERROR_SUCCESS )
 	{
-		unsigned long u_noInfo = FALSE;
-		CT_READ_REGISTRY(u_noInfo, "ShowIntro");
+		UpdateData(true);
+
+		unsigned long u_noInfo = TRUE;
+		CT_READ_REGISTRY(u_noInfo, "ShowIntroDialog");
 		if ( u_noInfo )
 		{
 			CDlgDiffieHellmanIntro dlg;
 			dlg.m_Check_NoShow = u_noInfo;
 			dlg.DoModal();			
-			u_noInfo=dlg.m_Check_NoShow;
+			u_noInfo = !dlg.m_Check_NoShow;
 		}
-		CT_WRITE_REGISTRY(u_noInfo, "ShowIntro" );
+		m_bShowIntroDialog = u_noInfo;
 
 		unsigned long u_showInfoDialogues = TRUE;
 		CT_READ_REGISTRY_DEFAULT(u_showInfoDialogues, "ShowInfo", u_showInfoDialogues);
-		UpdateData();
-		m_bShowInfoDialogues = u_showInfoDialogues;
-		UpdateData(false);		
+		m_bShowInfoDialogues = u_showInfoDialogues;		
 
 		CT_CLOSE_REGISTRY();
+
+		UpdateData(false);
 	}
 	else
 	{
@@ -705,15 +710,22 @@ void CDlgDiffieHellmanVisualization::OnCheckDisablehelp()
 {
 	UpdateData(true);
 
-	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS, "DifieHellman" ) == ERROR_SUCCESS )
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS, "DiffieHellman" ) == ERROR_SUCCESS )
 	{
 		CT_WRITE_REGISTRY((unsigned long)m_bShowInfoDialogues, "ShowInfo" );
 		CT_CLOSE_REGISTRY();
 	}
-	else
+}
+
+void CDlgDiffieHellmanVisualization::OnCheckDisableIntroDialog() 
+{
+	UpdateData(true);
+
+	if ( CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS, "DiffieHellman" ) == ERROR_SUCCESS )
 	{
-		// FIXME
-	}	
+		CT_WRITE_REGISTRY((unsigned long)m_bShowIntroDialog, "ShowIntroDialog" );
+		CT_CLOSE_REGISTRY();
+	}
 }
 
 // Der User verlangt nach weiteren Informationen zum Session Key. Also wird der entsprechende
@@ -785,6 +797,7 @@ HBRUSH CDlgDiffieHellmanVisualization::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCt
 			case IDC_ALICEFINALLABEL:
 			case IDC_BOBFINALLABEL:
 			case IDC_CHECK_DISABLEHELP:
+			case IDC_CHECK_DISABLEINTRODUCTION:
 			case IDOK:
 			// put your own CONTROL ID here    
 			pDC->SetBkColor(m_greycolor); // change the background color

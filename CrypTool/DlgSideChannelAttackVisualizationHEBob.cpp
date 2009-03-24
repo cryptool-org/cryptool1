@@ -48,6 +48,7 @@ statement from your version.
 #include "stdafx.h"
 #include "CrypToolApp.h"
 #include "DlgSideChannelAttackVisualizationHEBob.h"
+#include "CrypToolTools.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -76,6 +77,7 @@ void CDlgSideChannelAttackVisualizationHEBob::DoDataExchange(CDataExchange* pDX)
 	//{{AFX_DATA_MAP(CDlgSideChannelAttackVisualizationHEBob)
 	DDX_Control(pDX, IDC_LIST_TASKS, m_ControlTasks);
 	DDX_Control(pDX, IDC_LIST_RECEIVEDSESSIONKEYS, m_ListReceivedSessionKeys);
+	DDX_Text(pDX, IDC_EDIT_KEYWORD, keyword);
 	//}}AFX_DATA_MAP
 }
 
@@ -92,7 +94,15 @@ BOOL CDlgSideChannelAttackVisualizationHEBob::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	
-	// ** TODO **		
+	// load the keyword from the registry
+	if(CT_OPEN_REGISTRY_SETTINGS( KEY_READ, IDS_REGISTRY_SETTINGS, "SideChannelAttack" ) == ERROR_SUCCESS ) {
+		unsigned long u_length = 1024;
+		char c_SCA_keyWord[1025] = "Alice";
+		CT_READ_REGISTRY(c_SCA_keyWord, "Keyword", u_length);
+		keyword = c_SCA_keyWord;
+		CT_CLOSE_REGISTRY();
+		UpdateData(FALSE);
+	}
 
 	// Anzeige aktualisieren
 	updateDisplay();
@@ -201,4 +211,20 @@ void CDlgSideChannelAttackVisualizationHEBob::updateDisplay()
 	}
 
 	UpdateData(false);
+}
+
+void CDlgSideChannelAttackVisualizationHEBob::OnOK()
+{
+	UpdateData(true);
+
+	// store the keyword in the registry
+	if(CT_OPEN_REGISTRY_SETTINGS( KEY_WRITE, IDS_REGISTRY_SETTINGS, "SideChannelAttack" ) == ERROR_SUCCESS ) {
+		if(keyword == "") keyword = "Alice";	
+		CT_WRITE_REGISTRY(keyword, "Keyword");
+		CT_CLOSE_REGISTRY();
+	}
+
+	UpdateData(false);
+
+	CDialog::OnOK();
 }
