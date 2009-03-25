@@ -140,6 +140,12 @@ int HexVal(const unsigned char c);
 
 // ermitteln der Läne der Datei name. Falls die Datei nicht geöffnet weden kann wird "0" zurückgegeben
 int filesize( const char *name );
+int getFileSize(const char *filename, __int64 &size);
+
+int readSource(const char* infile, char *&mSrc, int &lSrc, BOOL TEXTMODE );
+int writeDest (const char* pData, int lData, char *&outFileName, BOOL TEXTMODE, const char *refFileName );
+
+
 
 // Konstanten für die Formatierung von Hexdumps
 // nach MAX_ADR_LEN-Zeichen kommt das erste Hexdigit

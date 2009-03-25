@@ -472,6 +472,19 @@ int filesize( const char *name )
 
 }
 
+int getFileSize(const char *filename, __int64 &size)
+{
+	FILE *stream;
+	if ( (stream = fopen(filename, "rb")) )
+	{
+		_fseeki64(stream, (__int64)0, SEEK_END);
+		size = _ftelli64(stream);
+		fclose(stream);
+		return 1;
+	}
+	size = (__int64)-1;
+	return 0;
+}
 
 void Add2OString(OctetString*	osTarget, 
 				 const char*	Source,
@@ -483,4 +496,65 @@ void Add2OString(OctetString*	osTarget,
 	delete[] osTarget->octets;
 	osTarget->octets = Buffer;
 	osTarget->noctets += Length;
+}
+
+int readSource(const char* infile, char *&mSrc, int &lSrc, BOOL TEXTMODE )
+{
+	__int64 fileSize;
+	if ( !getFileSize(infile, fileSize ) )
+		return -1; // FIXME: ERROR could not determine file size
+	if ( fileSize >= (__int64)INT_MAX )
+		return -2; // FIXME: ERROR file too large (> 2 GB)
+	
+	FILE *fstrm;
+	if ( fstrm = fopen(infile, "rb") )
+	{
+		lSrc = (int)fileSize;
+		mSrc = (char*)malloc( lSrc+1 );
+		fread(mSrc, sizeof(char), (size_t)filesize, fstrm );
+		mSrc[lSrc] = '\0';
+		fclose(fstrm);
+	}
+	else
+		return -3; // FIXME: ...
+
+	if ( TEXTMODE )
+	{
+		BOOL ignoreCase = theApp.TextOptions.getIgnoreCase();
+		int l = lSrc, i;
+		
+		for(lSrc=i=0; i<l; i++) {
+			char c = mSrc[i];
+			if(ignoreCase && 'a'<=c && c<='z')
+				c += 'A' - 'a';
+			if (0 <= theApp.TextOptions.getAlphabet().Find(c))
+				mSrc[lSrc++] = c;
+		}
+		mSrc[lSrc]='\0';
+	}
+
+	return 0;
+}
+
+int writeDest (const char* pData, int lData, char *&outFileName, BOOL TEXTMODE, const char *refFileName )
+{
+	char outfile[1024];
+	GetTmpName(outfile,"cry",".tmp");
+
+	outFileName = new char[strlen(outfile)+1];
+	strcpy(outFileName, outfile);
+
+	FILE *fstrm;
+	if ( fstrm = fopen(outFileName, "wb" ) )
+	{
+		fwrite(pData, sizeof(char), lData, fstrm);
+		fclose(fstrm);
+	}
+	else
+	{
+		return -1; // FIXME: could not open tmp file
+	}
+	if ( TEXTMODE ) 
+		Reformat(refFileName,outFileName, FALSE);
+	return 0;
 }
