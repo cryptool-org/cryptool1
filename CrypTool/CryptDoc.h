@@ -216,6 +216,7 @@ public:
 	afx_msg void OnEditRepeat();
 	afx_msg void OnUpdateEditRepeat(CCmdUI *pCmdUI);
 	afx_msg void OnKnownAnalysisSinglePermutation();
+	afx_msg void OnPermutationHex();
 };
 
 

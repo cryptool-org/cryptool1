@@ -81,6 +81,7 @@ CDlgKeyPermutation::CDlgKeyPermutation(CWnd* pParent /*=NULL*/)
 	m_P1Perm = -1;
 	m_P2Perm = -1;
 	m_Invert = FALSE;
+	m_DataType = 0;
 	//}}AFX_DATA_INIT
 }
 
@@ -103,6 +104,7 @@ void CDlgKeyPermutation::DoDataExchange(CDataExchange* pDX)
 	DDX_Radio(pDX, IDC_RADIO7, m_P2OutSeq);
 	DDX_Radio(pDX, IDC_RADIO10, m_P1Perm);
 	DDX_Radio(pDX, IDC_RADIO12, m_P2Perm);
+	DDX_Radio(pDX, IDC_RADIO9, m_DataType);
 	DDX_Check(pDX, IDC_CHECK1, m_Invert);
 	DDX_Control(pDX, IDC_CHECK2, chk_showPermutations);
 	//}}AFX_DATA_MAP

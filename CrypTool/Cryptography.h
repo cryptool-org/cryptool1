@@ -114,7 +114,8 @@ void AESCrypt (const char* infile, const char *OldTitle, int AlgId, bool Enc_Or_
 void HomophoneAsc(const char *infile, const char *OldTitle);
 void NGramAsc(const char *infile, const char *OldTitle);
 void NGramBin(const char *infile, const char *OldTitle);
-void PermutationAsc(const char *infile, const char *OldTitle);
+// void PermutationAsc(const char *infile, const char *OldTitle);
+void Permutation(const char *infile, const char *OldTitle, BOOL TEXTMODE);
 void Hashdemo(const char *infile,const char *OldTitle);
 void HashOfAFile();
 void SignatureTutorial(const char *infile, const char* OldTitle);

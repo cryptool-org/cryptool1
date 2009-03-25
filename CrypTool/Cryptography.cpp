@@ -3370,62 +3370,80 @@ void DoInvPerm(char *dest, char *src, int len, int *p, int plen, int Zin, int Zo
 
 void Permutation(const char *infileName, const char *OldTitle, BOOL TEXTMODE)
 {
-	char *mSrc = NULL, *mDest = NULL; 
-	int   lSrc = 0,     lDest = 0;
-	if ( 0 > readSource( infileName, mSrc, lSrc, TEXTMODE ) )
-	{
-		// ERROR
-		return;
-	}
-
-	if (!lSrc )
-	{
-		// ERROR
-		return;
-	}
-
 	CDlgKeyPermutation Perm;
+	Perm.m_DataType = ( TEXTMODE ) ? 0 : 1;
     if (Perm.DoModal()==IDOK)
 	{
+		char *mSrc = NULL, *mDest = NULL; 
+		int   lSrc = 0,     lDest = 0;
+		TEXTMODE = ( Perm.m_DataType ) ? FALSE :  TRUE;
+		if ( 0 > readSource( infileName, mSrc, lSrc, TEXTMODE ) )
+		{
+			// ERROR
+			return;
+		}
+
+		if (!lSrc )
+		{
+			// ERROR
+			return;
+		}
+
 		mDest = (char *) malloc(lSrc+1);
-		char *ptr1, *ptr2, *ptr3;
+		char *pData;
 
-		if ( !Perm.m_Invert )
-		{
-			ptr1 = mDest;
-			ptr2 = mSrc;
-		}
-		else
-		{
-			ptr1 = mDest;
-			ptr2 = mSrc;
-		}
-
+		// PERMUTATION
 		if(Perm.m_Dec) 
-		{  // DECRYPTION
-			DoInvPerm(ptr1, ptr2, lSrc, Perm.m_P2, Perm.m_P2len, Perm.m_P2InSeq ^ Perm.m_P2Perm  ^ 1, Perm.m_P2OutSeq ^ Perm.m_P2Perm  ^ 1);
-			if(Perm.m_P2len) 
-			{ // double permutation
-				DoInvPerm(ptr2, ptr1, lSrc, Perm.m_P1, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
-				ptr3 = ptr1;
+		{ // DECRYPTION
+			if(Perm.m_P2len)
+			{
+				if ( !Perm.m_Invert )
+				{
+					DoInvPerm(mDest, mSrc, lSrc, Perm.m_P2inv, Perm.m_P2len, Perm.m_P2InSeq ^ Perm.m_P2Perm  ^ 1, Perm.m_P2OutSeq ^ Perm.m_P2Perm  ^ 1);
+					DoInvPerm(mSrc, mDest, lSrc, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
+					pData = mSrc;
+				}
+				else
+				{
+					DoInvPerm(mDest, mSrc, lSrc, Perm.m_P2, Perm.m_P2len, Perm.m_P2InSeq ^ Perm.m_P2Perm  ^ 1, Perm.m_P2OutSeq ^ Perm.m_P2Perm  ^ 1);
+					DoInvPerm(mSrc, mDest, lSrc, Perm.m_P1, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
+					pData = mSrc;
+				}
 			}
 			else
-				ptr3 = ptr2;
+			{
+				if ( !Perm.m_Invert )
+				{
+					DoInvPerm(mDest, mSrc, lSrc, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
+					pData = mDest;
+				}
+				else
+				{
+					DoInvPerm(mDest, mSrc, lSrc, Perm.m_P1, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
+					pData = mDest;
+				}
+			}
 		}
 		else 
-		{  // ENCRYPTION
-			DoPerm(ptr1, ptr2, lSrc, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
+		{ // ENCRYPTION
+			if ( !Perm.m_Invert )
+				DoPerm(mDest, mSrc, lSrc, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
+			else
+				DoPerm(mDest, mSrc, lSrc, Perm.m_P1, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
+
 			if(Perm.m_P2len)
-			{ // double permutation
-				DoPerm(ptr2, ptr1, lSrc, Perm.m_P2inv, Perm.m_P2len, Perm.m_P2InSeq ^ Perm.m_P2Perm  ^ 1, Perm.m_P2OutSeq ^ Perm.m_P2Perm  ^ 1);
-				ptr3 = ptr1;
+			{
+				pData = mSrc;
+				if ( !Perm.m_Invert )
+					DoPerm(mSrc, mDest, lSrc, Perm.m_P2inv, Perm.m_P2len, Perm.m_P2InSeq ^ Perm.m_P2Perm  ^ 1, Perm.m_P2OutSeq ^ Perm.m_P2Perm  ^ 1);
+				else
+					DoPerm(mSrc, mDest, lSrc, Perm.m_P2, Perm.m_P2len, Perm.m_P2InSeq ^ Perm.m_P2Perm  ^ 1, Perm.m_P2OutSeq ^ Perm.m_P2Perm  ^ 1);
 			}
-			else 
-				ptr3 = ptr2;
+			else pData = mDest;
 		}
 
 		char *outFileName = NULL;
-		if ( 0 > writeDest(ptr3, lSrc, outFileName, TEXTMODE, infileName) )
+		if ( 0 > writeDest(pData, lSrc, outFileName, TEXTMODE, infileName) )
 		{
 			// ERROR
 		}
@@ -3434,7 +3452,10 @@ void Permutation(const char *infileName, const char *OldTitle, BOOL TEXTMODE)
 			char *Invert = new char[strlen(INV_TOKEN)+1];
 			char *key    = new char[6*16+Perm.m_Perm1.GetLength()+Perm.m_Perm2.GetLength() + strlen(INV_TOKEN) + strlen(PARAM_TOKEN)+20];
 			char *title  = NULL; 
-			(Perm.m_Invert) ? Invert= INV_TOKEN : Invert="";
+			if (Perm.m_Invert) 
+				strcpy(Invert, INV_TOKEN); 
+			else
+				Invert[0] = '\0';
 
 			if(Perm.m_P2len)
 				sprintf(key,"%s;%s %s%s%i,%i,%i,%i,%i,%i", Perm.m_Perm1, Perm.m_Perm2, PARAM_TOKEN, Invert,
@@ -3454,9 +3475,10 @@ void Permutation(const char *infileName, const char *OldTitle, BOOL TEXTMODE)
 				else
 					LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
 				LoadString(AfxGetInstanceHandle(),IDS_CRYPT_PERMUTATION,pc_str,STR_LAENGE_STRING_TABLE);
-
-				title = new char[sizeof(key) + strlen(pc_str) + strlen(pc_str1) + strlen(OldTitle) +1];
-				MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,key);
+				
+				int titlelength = strlen(key) + strlen(pc_str) + strlen(pc_str1) + strlen(OldTitle) +1;
+				title = new char[titlelength];
+				MakeNewName3(title,titlelength,pc_str1,pc_str,OldTitle,key);
 				NewDoc->SetTitle(title);
 			}			
 			delete []title;
@@ -3466,8 +3488,8 @@ void Permutation(const char *infileName, const char *OldTitle, BOOL TEXTMODE)
 		}
 
 		free (mDest);
+		free(mSrc);
 	}  // IDOK == DoModal()
-	free(mSrc);
 }
 
 

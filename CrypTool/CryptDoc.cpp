@@ -296,7 +296,6 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CAppDocument)
 	ON_UPDATE_COMMAND_UI(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SIGN_DOC, OnUpdateNeedSecude)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, OnUpdateNeedSecude)
-	ON_COMMAND(ID_PERMUTATION_ASC, OnPermutationAsc)
 	ON_COMMAND(ID_CIPHERTEXT_ONLY_SUBSTITUTION, OnCiphertextOnlySubstitution)
 	ON_COMMAND(ID_ROT13CAESAR_ASC, OnRot13caesarAsc)
 	ON_COMMAND(ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, OnAnalyseSymmclassicCiphertextolySolitaire)
@@ -318,6 +317,7 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CAppDocument)
 	ON_COMMAND(ID_EDIT_REPEAT, OnEditRepeat)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_REPEAT, OnUpdateEditRepeat)
 	ON_COMMAND(ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION, &CCryptDoc::OnKnownAnalysisSinglePermutation)
+	ON_COMMAND(ID_PERMUTATION_HEX, &CCryptDoc::OnPermutationHex)
 	END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -1259,7 +1259,9 @@ void CCryptDoc::OnAnalyseNGramBin()
 void CCryptDoc::OnPermutationAsc() 
 {
     UpdateContent();
-    PermutationAsc(ContentName, GetTitle());
+	Permutation(ContentName, GetTitle(), TRUE);
+    // PermutationAsc(ContentName, GetTitle());
+
 }
 
 void CCryptDoc::OnAnalyseZufallstestsFrequencytest() 
@@ -1952,4 +1954,10 @@ void CCryptDoc::OnKnownAnalysisSinglePermutation()
 	{
 		// DO SOMETHING???		
 	}
+}
+
+void CCryptDoc::OnPermutationHex()
+{
+    UpdateContent();
+	Permutation(ContentName, GetTitle(), FALSE);
 }

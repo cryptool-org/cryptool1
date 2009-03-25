@@ -500,18 +500,18 @@ void Add2OString(OctetString*	osTarget,
 
 int readSource(const char* infile, char *&mSrc, int &lSrc, BOOL TEXTMODE )
 {
-	__int64 fileSize;
-	if ( !getFileSize(infile, fileSize ) )
+	__int64 m_fileSize;
+	if ( !getFileSize(infile, m_fileSize ) )
 		return -1; // FIXME: ERROR could not determine file size
-	if ( fileSize >= (__int64)INT_MAX )
+	if ( m_fileSize >= (__int64)INT_MAX )
 		return -2; // FIXME: ERROR file too large (> 2 GB)
 	
 	FILE *fstrm;
 	if ( fstrm = fopen(infile, "rb") )
 	{
-		lSrc = (int)fileSize;
+		lSrc = (int)m_fileSize;
 		mSrc = (char*)malloc( lSrc+1 );
-		fread(mSrc, sizeof(char), (size_t)filesize, fstrm );
+		fread(mSrc, sizeof(char), (size_t)m_fileSize, fstrm );
 		mSrc[lSrc] = '\0';
 		fclose(fstrm);
 	}

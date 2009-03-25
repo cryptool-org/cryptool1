@@ -84,23 +84,24 @@ public:
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgKeyPermutation)
 	enum { IDD = IDD_KEY_PERMUTATION };
-	CButton	m_Decrypt;
-	CButton	m_Encrypt;
-	CAscEdit	m_CPerm2;
-	CAscEdit	m_CPerm1;
-	CString	m_Perm1;
-	CString	m_Perm2;
-	CString	m_P1out;
-	CString	m_P2out;
-	int		m_P1InSeq;
-	int		m_P1OutSeq;
-	int		m_P2InSeq;
-	int		m_P2OutSeq;
-	int		m_P1Perm;
-	int		m_P2Perm;
-	BOOL	m_Invert;
+	CButton	 m_Decrypt;
+	CButton	 m_Encrypt;
+	CButton  chk_showPermutations;
+	CAscEdit m_CPerm2;
+	CAscEdit m_CPerm1;
+	CString  m_Perm1;
+	CString	 m_Perm2;
+	CString	 m_P1out;
+	CString	 m_P2out;
+	int		 m_P1InSeq;
+	int		 m_P1OutSeq;
+	int		 m_P2InSeq;
+	int		 m_P2OutSeq;
+	int		 m_P1Perm;
+	int		 m_P2Perm;
+	int		 m_DataType;
+	BOOL	 m_Invert;
 	//}}AFX_DATA
-
 
 // Überschreibungen
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
@@ -127,7 +128,6 @@ private:
 	// Required because of BACK-Button from CDlgKeyPermutationInfo !!!
 public:
 	int ShowPermutations();
-	CButton chk_showPermutations;
 };
 
 //{{AFX_INSERT_LOCATION}}

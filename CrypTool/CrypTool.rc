@@ -8,11 +8,12 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -4823,7 +4824,7 @@ BEGIN
             MENUITEM "&XOR",                        ID_XOR_BIN
             MENUITEM "V&ernam",                     ID_VERNAM_BIN
             MENUITEM "H&omofony",                   ID_HOMOPHONE_ASC
-            MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION_ASC
+            MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION_HEX
             MENUITEM "Soli&taire",                  ID_SYMCLASSIC_SOLITAIRE
         END
         POPUP "Symetryczne"
@@ -10576,12 +10577,12 @@ BEGIN
     IDS_FACTORS_FOUND       "Found %d factors in %s"
 END
 
-#endif    // Polish resources
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -15476,7 +15477,7 @@ BEGIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
-            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
+            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_HEX
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
             MENUITEM "Skytale / Gartenzaun...",     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
@@ -21176,12 +21177,12 @@ BEGIN
                             "Dieser Faktor konnte mit dem Brute-Force-Verfahren nicht zerlegt werden. Das Brute-Force-Verfahren ist hier so implementiert, dass es nur Faktoren kleiner %d findet."
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -26039,7 +26040,7 @@ BEGIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
-            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
+            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_HEX
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
             MENUITEM "Scytale / Rail Fence...",     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
@@ -31876,7 +31877,7 @@ BEGIN
                             "This factor could not be factorized using brute-force. Here, brute-force is implemented to find only factors smaller than %d."
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
