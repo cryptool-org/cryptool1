@@ -392,15 +392,29 @@ void CDlgFactorisationDemo::OnButtonFactorisation()
 			else if ( l_factorisation_aborted )
 				{
 					Message(IDS_STRING_FAKTORISATION_ABORTED, MB_ICONEXCLAMATION);
-					m_Name = "";
+					//m_Name = "";
 				}
+				// Hier wird man angefordert mit einem anderen Algorithmus zu arbeiten!!
 				else
 				{
-					// Hier wird man angefordert mit einem anderen Algorithmus zu arbeiten!!
-					Message(IDS_STRING_FAKTORISATION_NEU_WAEHLEN, MB_ICONEXCLAMATION);
-					m_Name = "";
+					// special case: if the user selected only the brute-force method,
+					// tell him about the limit up to which this method is looking for primes
+					if(	m_bruteForce == TRUE && m_Brent == FALSE && m_Pollard == FALSE && 
+							m_Williams == FALSE && m_Lenstra == FALSE && m_QSieve == FALSE) {
+						char bruteForcePrimeLimit[2048];
+						memset(bruteForcePrimeLimit, 0, 2048);
+						LoadString(AfxGetInstanceHandle(),IDS_STRING_FACTORIZATION_BRUTE_FORCE_LIMIT,pc_str,STR_LAENGE_STRING_TABLE);
+						sprintf(bruteForcePrimeLimit, pc_str, LIMIT1);
+						AfxMessageBox(bruteForcePrimeLimit, MB_ICONEXCLAMATION);
+						//m_Name = "";
+					}
+					else {
+						// this is the normal "use another algorithm" notification
+						Message(IDS_STRING_FAKTORISATION_NEU_WAEHLEN, MB_ICONEXCLAMATION);
+						//m_Name = "";
 				}
-			
+			}
+
 			FactFinish = clock();
 			duration1 =((double) (FactFinish - FactStart) / CLOCKS_PER_SEC) + duration1; //gesamte Laufzeit
 			duration2 =((double) (FactFinish - FactStart) / CLOCKS_PER_SEC) ; //einzelne Laufzeit

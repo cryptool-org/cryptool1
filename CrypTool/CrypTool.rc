@@ -8,12 +8,11 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polnisch resources
+// Polish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -10577,12 +10576,12 @@ BEGIN
     IDS_FACTORS_FOUND       "Found %d factors in %s"
 END
 
-#endif    // Polnisch resources
+#endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -12323,12 +12322,12 @@ BEGIN
     PUSHBUTTON      "Vollständig &faktorisieren",IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,249,156,93,16,NOT WS_VISIBLE | WS_DISABLED
     PUSHBUTTON      "&Schließen",IDC_BUTTON_cancel,259,307,94,18
     GROUPBOX        "Algorithmen zur Faktorisierung",IDC_STATIC,13,6,123,107
-    CONTROL         "Brute-force Methode",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,23,81,10
-    CONTROL         "Algorithmus nach Brent",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,38,89,10
-    CONTROL         "Pollard Methode",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,53,67,10
-    CONTROL         "Williams Methode",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,68,71,10
-    CONTROL         "Algorithmus nach Lenstra",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,83,95,10
-    CONTROL         "Quadratische Sieb Methode",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,98,104,10
+    CONTROL         "Brute-force",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,23,51,10
+    CONTROL         "Brent",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,38,33,10
+    CONTROL         "Pollard",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,53,37,10
+    CONTROL         "Williams",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,68,41,10
+    CONTROL         "Lenstra",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,83,39,10
+    CONTROL         "Quadratische Sieb",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,98,74,10
     GROUPBOX        "Eingabe",IDC_STATIC,146,6,207,107
     LTEXT           "Geben Sie die zu faktorisierende Zahl ein:",IDC_STATIC,177,34,165,8
     GROUPBOX        "Faktorisierung (schrittweise)",IDC_STATIC,13,118,340,64
@@ -21173,14 +21172,16 @@ BEGIN
     IDS_FACTORS_FOUND       "%d Faktoren gefunden in %s"
     IDS_SIMPLE_TRANSPOSITION_OFFSET_INVALID 
                             "Das eingestellte Offset ist ungültig. Es darf nicht kleiner als 0 sein."
+    IDS_STRING_FACTORIZATION_BRUTE_FORCE_LIMIT 
+                            "Dieser Faktor konnte mit dem Brute-Force-Verfahren nicht zerlegt werden. Das Brute-Force-Verfahren ist hier so implementiert, dass es nur Faktoren kleiner %d findet."
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -23217,12 +23218,12 @@ BEGIN
     PUSHBUTTON      "Complete &factorisation into primes",IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,224,156,118,16,NOT WS_VISIBLE | WS_DISABLED
     PUSHBUTTON      "&Close",IDC_BUTTON_cancel,259,313,94,18
     GROUPBOX        "Algorithms for factorisation",-1,13,6,140,107
-    CONTROL         "Brute-force method",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,23,76,10
-    CONTROL         "Brent algorithm",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,38,63,10
-    CONTROL         "Pollard method",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,53,63,10
-    CONTROL         "Williams method",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,68,67,10
-    CONTROL         "Lenstra algorithm",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,83,69,10
-    CONTROL         "Quadratic sieve method",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,98,83,10
+    CONTROL         "Brute-force",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,23,51,10
+    CONTROL         "Brent",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,38,33,10
+    CONTROL         "Pollard",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,53,37,10
+    CONTROL         "Williams",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,68,41,10
+    CONTROL         "Lenstra",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,83,39,10
+    CONTROL         "Quadratic sieve",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,98,83,10
     GROUPBOX        "Input",-1,166,6,187,107
     LTEXT           "Enter the number to be factorised:",-1,177,34,165,8
     GROUPBOX        "Factorisation (stepwise)",-1,13,118,340,64
@@ -31871,9 +31872,11 @@ BEGIN
     IDS_FACTORS_FOUND       "Found %d factors in %s"
     IDS_SIMPLE_TRANSPOSITION_OFFSET_INVALID 
                             "The offset is invalid. It must not be smaller than 0."
+    IDS_STRING_FACTORIZATION_BRUTE_FORCE_LIMIT 
+                            "This factor could not be factorized using brute-force. Here, brute-force is implemented to find only factors smaller than %d."
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
