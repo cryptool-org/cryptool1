@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.30 Beta 03 für Win32, März 2009  x-xxxx
+    CrypTool, Version 1.4.30 Beta 03 für Win32, März 2009  xx-xxxx
     (c) Contributors
         Dazu gehören z.B.
         Deutsche Bank AG, Frankfurt am Main,
@@ -798,36 +798,39 @@ b) Änderungen in der Benutzer-Dokumentation / Web-Darstellung:
 c) Neue Funktionalität / Bedienung:
 
 - Bugfixes  --> Danke an die vielen aufmerksamen Benutzer!
-  - Fehler in AKS behoben, der mit den Eingaben 2^8+1 und 2^16+1 auftrat.
-    Die korrekte Fassung von AKS braucht länger.
-  - Fehler behoben bei weiteren Primzahltests, wenn Primfaktoren < 39
-    vorkamen.
-  - In der Maske "Schlüssel aus Passwort generieren (nach PKSC #5)" werden
-    nun auch die Hashwerte mit führenden Nullen korrekt angezeigt.
-  - Die ECC-AES-Hybrid-Ver-/Entschlüsselung läuft nun dank einer neuen
-    cv act lib von cryptovision auch unter MS Vista.
-  - Die auf dem CRT beruhende Secret-Sharing-Anwendung verbietet nun, dass
-    n=k (somit sind alle Shareholder notwendig). Ohne diese Einschränkung
-    macht der Algorithmus das ganze Geheimnis dem ersten Teilnehmer bekannt.
-  - RSA-Demo: Ein eingegebener Wert für e wird auch nach Aufruf des
-    Optionendialogs beibehalten.
-  - Korrektur der ECC-Demo:
-    - Die Vorgängerversion lieferte über der Gruppe F(p) bei der Punktaddition
-      unter bestimmten Umständen einen Punkt außerhalb der Kurve.
-    - Die Koordinaten der Punkte, die dynamisch in der Nähe des Mauszeigers
-      erscheinen, sind nun auch am rechten Rand ganz sichtbar.
-    - Der Punkt im Unendlichen wird zur Gesamtzahl der Punkte hinzugezählt.
-    - Das Log-Fenster ist nun amodal, größenveränderlich und der Inhalt
-      ist übersichtlicher gestaltet.
-    - Die Versionsnummer wurde auf 1.1 erhöht und wird nun im Titel angezeigt.
-  - Korrektur bei DESX/DESXL: Nun wird die effektive Bitlänge in den
-    Dialogen zur Verschlüsselung und zur Brute-force-Analyse angezeigt.
-  - Korrektur bei der DESX/DESXL-Brute-force-Analyse, die Schlüssel überging,
-    wenn die obersten 128 Bit des Schlüssels durchsucht wurden (das Parity-
-    Bit wird bei der Brute-force-Analyse aus Performancegründen ignoriert;
-    diese geht aber nur beim DES-Key-Teil des Gesamtschlüssels).
-  - Beim Angriff auf den Hashwert einer elektronischen Signatur wurde bisher
-    die benötigte Schrittzahl falsch ausgegeben (immer ca. 4,x*10^18).
+   - Fehler in AKS behoben, der mit den Eingaben 2^8+1 und 2^16+1 auftrat.
+     Die korrekte Fassung von AKS braucht länger.
+   - Fehler behoben bei weiteren Primzahltests, wenn Primfaktoren < 39
+     vorkamen.
+   - In der Maske "Schlüssel aus Passwort generieren (nach PKSC #5)" werden
+     nun auch die Hashwerte mit führenden Nullen korrekt angezeigt.
+   - Die ECC-AES-Hybrid-Ver-/Entschlüsselung läuft nun dank einer neuen
+     cv act lib von cryptovision auch unter MS Vista.
+   - Die auf dem CRT beruhende Secret-Sharing-Anwendung verbietet nun, dass
+     n=k (somit sind alle Shareholder notwendig). Ohne diese Einschränkung
+     macht der Algorithmus das ganze Geheimnis dem ersten Teilnehmer bekannt.
+   - RSA-Demo: Ein eingegebener Wert für e wird auch nach Aufruf des
+     Optionendialogs beibehalten.
+   - Korrektur der ECC-Demo:
+     - Die Vorgängerversion lieferte über der Gruppe F(p) bei der Punktaddition
+       unter bestimmten Umständen einen Punkt außerhalb der Kurve.
+     - Die Koordinaten der Punkte, die dynamisch in der Nähe des Mauszeigers
+       erscheinen, sind nun auch am rechten Rand ganz sichtbar.
+     - Der Punkt im Unendlichen wird zur Gesamtzahl der Punkte hinzugezählt.
+     - Das Log-Fenster ist nun amodal, größenveränderlich und der Inhalt
+       ist übersichtlicher gestaltet.
+     - Die Versionsnummer wurde auf 1.1 erhöht und wird nun im Titel angezeigt.
+   - Korrektur bei DESX/DESXL: Nun wird die effektive Bitlänge in den
+     Dialogen zur Verschlüsselung und zur Brute-force-Analyse angezeigt.
+   - Korrektur bei der DESX/DESXL-Brute-force-Analyse, die Schlüssel überging,
+     wenn die obersten 128 Bit des Schlüssels durchsucht wurden (das Parity-
+     Bit wird bei der Brute-force-Analyse aus Performancegründen ignoriert;
+     diese geht aber nur beim DES-Key-Teil des Gesamtschlüssels).
+   - Beim Angriff auf den Hashwert einer elektronischen Signatur wurde bisher
+     die benötigte Schrittzahl falsch ausgegeben (immer ca. 4,x*10^18).
+   - Absturz gefixt, der auftrat, wenn man in den Textoptionen als Alphabet die
+     Großbuchstaben plus die kleinen Umlaute definierte und dann die
+     Caesar-Verschlüsselung aufrief.
 
 - Bei allen DES-basierten Verfahren wird nun sowohl die effektiv genutzte als
   auch die einzugebende Schlüssellänge angezeigt.
@@ -866,6 +869,9 @@ c) Neue Funktionalität / Bedienung:
 - Die klassischen Transpositions-Chiffren Skytale und Gartenzaun hinzugefügt
   (angeboten innerhalb eines Dialogs).
 
+- Die Permutationsverschlüsselung kann nun auch auf Hexdateien angewandt
+  werden.
+
 - Das Lernprogramm/Lernspiel "Zahlenhai" in der Version 1.1.6 wurde etwas
   korrigiert und vor allem wurde die Onlinehilfe erweitert.
 
@@ -878,10 +884,15 @@ c) Neue Funktionalität / Bedienung:
   Nun kann man damit auch alle Primzahlen innerhalb eines vorgegebenen
   Bereiches ausgeben (Primzahlmenge generieren).
 
-- Für die einfache Spaltentransposition ist eine Known-Plaintext-Analyse
-  zum Finden des Transpositionsschlüssels implementiert.
+- Alle spezifischen Optionen befinden sich nun in den Dialogen der zugehörigen
+  Methoden. Somit konnte man den Menüeintrag "Weitere Optionen" entfernen.
 
-- Evtl. S/MIME-Demo xxxxxxxxxxxxxxx
+- Für die einfache Spaltentransposition ist eine Known-Plaintext-Analyse
+  zum Finden des Transpositionsschlüssels neu hinzugekommen.
+  Diese Known-Plaintext-Analyse ist deutlich besser integriert als die
+  bisherige Known-Plaintext-Analyse für Hill. xxx
+
+- In der 1.4.30-Releaseversion kommt die S/MIME-Demo hinzu. xxxxxxxxxxxxxxx
 xxxxxxxxxxxxxxxxxxxxx
 
 

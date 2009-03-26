@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.30 Beta 03 for Win32, Mar. 2009   x-xxxx
+    CrypTool, Version 1.4.30 Beta 03 for Win32, Mar. 2009   xx-xxxx
     (c) Contributors
         including
         Deutsche Bank AG, Frankfurt/Main,
@@ -783,36 +783,39 @@ b) Changes within the user documentation:
 c) New functionality / Usability:
 
 - Bug fixes --> Thanks to the many attentive users!
-  - Bug fixed in AKS which appeared with the numbers 2^8+1 and 2^16+1.
-    The corrected version of AKS is slower.
-  - Bug fixed in further primality tests which appeared when the tested
-    number had prime factors < 39.
-  - In the dialog "Key generation from password (according to PKSC #5)"
-    now hash values with leading zeros are presented correctly.
-  - The ECC-AES hybrid encryption and decryption now also runs under
-    MS Vista (thanks to a new cv act lib from cryptovision).
-  - The Secret Sharing application using the CRT now disallows, that
-    n=k (so all share holders are necessary) in order to avoid that the
-    algorithm then would make the whole secret evident to the first
-    share holder.
-  - RSA demonstration: Keep the entered parameter e after calling options.
-  - Fix for the ECC demonstration:
-    - The old version calculated under special circumstances a point outside
-      the curve when adding points over the discrete group over F(p).
-    - The coordinates dynamically shown at the points near the mouse cursor
-      are now completely visible also at the right border.
-    - The point in inifinity is now added in the overall number of points.
-    - The log window now is amodal, resizable and the content is more
-      well-arranged.
-    - The version number now is 1.1 and it is shown in the title.
-  - Fix for DESX/DESXL: Now the effective bit length is displayed in encryption
-    and brute force dialogs.
-  - Fix for DESX/DESXL brute force analysis, which skipped keys when searching
-    in the last 128 bit of the key (brute-force analysis ignores correctly the
-    parity bit of the DES key for performance reasons; this can be done so only
-    for the DES key part of the whole key).
-  - The result of the attack on the hash value of the electronic signature
-    previously showed a wrong number of steps (always ca. 4.x*10^18).
+   - Bug fixed in AKS which appeared with the numbers 2^8+1 and 2^16+1.
+     The corrected version of AKS is slower.
+   - Bug fixed in further primality tests which appeared when the tested
+     number had prime factors < 39.
+   - In the dialog "Key generation from password (according to PKSC #5)"
+     now hash values with leading zeros are presented correctly.
+   - The ECC-AES hybrid encryption and decryption now also runs under
+     MS Vista (thanks to a new cv act lib from cryptovision).
+   - The Secret Sharing application using the CRT now disallows, that
+     n=k (so all share holders are necessary) in order to avoid that the
+     algorithm then would make the whole secret evident to the first
+     share holder.
+   - RSA demonstration: Keep the entered parameter e after calling options.
+   - Fix for the ECC demonstration:
+     - The old version calculated under special circumstances a point outside
+       the curve when adding points over the discrete group over F(p).
+     - The coordinates dynamically shown at the points near the mouse cursor
+       are now completely visible also at the right border.
+     - The point in inifinity is now added in the overall number of points.
+     - The log window now is amodal, resizable and the content is more
+       well-arranged.
+     - The version number now is 1.1 and it is shown in the title.
+   - Fix for DESX/DESXL: Now the effective bit length is displayed in encryption
+     and brute force dialogs.
+   - Fix for DESX/DESXL brute force analysis, which skipped keys when searching
+     in the last 128 bit of the key (brute-force analysis ignores correctly the
+     parity bit of the DES key for performance reasons; this can be done so only
+     for the DES key part of the whole key).
+   - The result of the attack on the hash value of the electronic signature
+     previously showed a wrong number of steps (always ca. 4.x*10^18).
+   - Fixed a crash which happened when first defining within the text options as
+     alphabet the capital letters plus the small umlauts, and then calling
+     the Caesar cipher.
 
 - For all DES based methods now the dialogs show both the effectively used
   key length and the key length which the user has to enter.
@@ -850,6 +853,8 @@ c) New functionality / Usability:
 - Added the classic transposition ciphers scytale and rail fence (combined
   in one dialog). 
 
+- The permutation cipher now also can be applied to hex files.
+
 - The educational program/game "Number Shark" in version 1.1.6 was corrected
   a little bit and the online help was enhanced.
 
@@ -862,10 +867,15 @@ c) New functionality / Usability:
   Now all primes within a given range can be generated (generation of
   prime sets).
 
-- For the simple (single) column transposition now a known-plaintext analysis
-  is implemented to calculate the transposition key.
+- All specific options are now within the dialogs of the according methods.
+  So we could get rid of the menu item "Further Options".
 
-- Evtl. S/MIME-Demo xxxxxxxxxxxxxxx
+- For the simple (single) column transposition now a known-plaintext analysis
+  is added to calculate the transposition key.
+  This known-plaintext analysis is much better integrated than the previous
+  known-plaintext analysis for Hill.
+
+- The 1.4.30 release version will contain an S/MIME visualization. xxxxxxxxxxxxx
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
