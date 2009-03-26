@@ -1131,9 +1131,11 @@ void CScintillaWnd::SetShowAlphabet(BOOL show)
 	// we do not check if show == m_bShowAlphabet, because this method is also 
 	// used to refresh the alphabet after changes to the text options
 	if (show) {
+		CString Alphabet;
+		theApp.TextOptions.getAlphabetWithOptions(Alphabet);
 		SendMessage(SCI_STYLESETFORE, atoi(STYLE_NONEALPHABET), RGB(192,192,192));
 		SendMessage(SCI_SETPROPERTY, (WPARAM)_T("cryptool.nonalphabetstyle"), (LPARAM)STYLE_NONEALPHABET);
-		SendMessage(SCI_SETPROPERTY, (WPARAM)_T("cryptool.alphabet"), (LPARAM)(LPCTSTR)theApp.TextOptions.getAlphabet());
+		SendMessage(SCI_SETPROPERTY, (WPARAM)_T("cryptool.alphabet"), (LPARAM)(LPCTSTR)Alphabet);
 		SendMessage(SCI_SETSTYLEBITS, 5, 0);
 		SendMessage(SCI_SETLEXERLANGUAGE,0,(LPARAM)CT_LEXER_LANGUAGE );
 		if (SCLEX_NULL == SendMessage(SCI_GETLEXER)) {

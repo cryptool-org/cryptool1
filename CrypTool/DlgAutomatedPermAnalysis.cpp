@@ -14,6 +14,7 @@
 #include "HexEditCtrlView.h"
 #include "FileTools.h"
 #include "CrypToolTools.h"
+#include "DlgTextOptions.h"
 
 #define BLOCK_SIZE 1024
 
@@ -35,6 +36,7 @@ CDlgAutomatedPermAnalysis::CDlgAutomatedPermAnalysis(CWnd* pParent /*=NULL*/)
 	, source_filesize(0)
 	, m_editRangeFrom(_T("1"))
 	, m_editRangeTo(_T("1"))
+	, m_DataType(0)
 {
 }
 
@@ -73,6 +75,7 @@ void CDlgAutomatedPermAnalysis::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	DDX_Radio(pDX, IDC_RADIO2, m_refTextType);
+	DDX_Radio(pDX, IDC_RADIO9, m_DataType);
 	DDX_Check(pDX, IDC_CHECK4,  m_chk_inRowbyRow);
 	DDX_Check(pDX, IDC_CHECK13, m_chk_inColbyCol);
 	DDX_Check(pDX, IDC_CHECK11, m_chk_permRowbyRow);
@@ -96,6 +99,9 @@ BEGIN_MESSAGE_MAP(CDlgAutomatedPermAnalysis, CDialog)
 	ON_BN_CLICKED(IDC_CHECK15, &CDlgAutomatedPermAnalysis::OnBnClickedOutColByCol)
 	ON_BN_CLICKED(IDC_RADIO2, &CDlgAutomatedPermAnalysis::setRefCaption)
 	ON_BN_CLICKED(IDC_RADIO1, &CDlgAutomatedPermAnalysis::setRefCaption)
+	ON_BN_CLICKED(IDC_RADIO9, &CDlgAutomatedPermAnalysis::OnBnClickedRadioText)
+	ON_BN_CLICKED(IDC_RADIO14, &CDlgAutomatedPermAnalysis::OnBnClickedRadioBinary)
+	ON_BN_CLICKED(IDC_BUTTON2, &CDlgAutomatedPermAnalysis::OnBnClickedTextOptions)
 END_MESSAGE_MAP()
 
 
@@ -111,7 +117,6 @@ BOOL CDlgAutomatedPermAnalysis::OnInitDialog()
 	ScinMSG(SCI_SETREADONLY, (WPARAM)FALSE);
 	ScinMSG(SCI_SETMODEVENTMASK, (WPARAM)SC_MOD_INSERTTEXT|SC_MOD_DELETETEXT);
 	ScinMSG(SCI_SETEOLMODE, 0, 0);
-	ScinMSG(SCI_SETVIEWEOL, TRUE, 0);
 	ScinMSG(SCI_MARKERDEFINE, 0, SC_MARK_CIRCLE);
 	ScinMSG(SCI_SETWRAPMODE,1);
     ScinMSG(SCI_SETWRAPVISUALFLAGS,1);
@@ -132,6 +137,7 @@ BOOL CDlgAutomatedPermAnalysis::OnInitDialog()
 	ScinMSG(SCI_MARKERDEFINE, SC_MARKNUM_FOLDEREND, SC_MARK_EMPTY);
     ScinMSG(SCI_MARKERDEFINE, SC_MARKNUM_FOLDEROPENMID, SC_MARK_EMPTY);
     ScinMSG(SCI_MARKERDEFINE, SC_MARKNUM_FOLDERMIDTAIL, SC_MARK_EMPTY);
+	setViewOptions();
 	setRefCaption();
 	return TRUE;  // return TRUE unless you set the focus to a control
 }
@@ -290,118 +296,6 @@ void CDlgAutomatedPermAnalysis::OnBnClickedOutColByCol()
 	check_dir( m_chk_outRowbyRow, m_chk_outColbyCol, 0 );
 }
 
-#if 0
-void CDlgAutomatedPermAnalysis::OnBnClickedBtnBerechnen()
-{
-	UpdateData(true);
-	automated_permanalysis analysis;
-	int id_error;
-	if ( (id_error = analysis.setFilenames(tb_klartext, tb_geheimtext)) )
-	{
-		Message(id_error, MB_ICONSTOP);
-		return;
-	}
-	int lowerLimit, upperLimit;
-
-	switch (rb_permsize) {
-		case 0:
-			lowerLimit = atoi(tb_fest);
-			upperLimit = lowerLimit;
-			break;
-		case 1:
-			lowerLimit = atoi(tb_lowerLimit);
-			upperLimit = atoi(tb_upperLimit);
-			break;
-		case 2:
-			lowerLimit = 1;
-			upperLimit = -1;
-			break;
-		default:
-			break;
-	}
-
-	if ( (id_error = analysis.setAnalyseParam(lowerLimit, upperLimit, rb_einlesen, rb_permutation, rb_auslesen)) ) 
-	{
-		Message(id_error, MB_ICONSTOP);
-		return;
-	}
-
-	if ( analysis.iterate_key_param() )
-	{
-		CDlgPermKey dlg;
-		dlg.setPermKey1(analysis.getKeyList());
-		dlg.DoModal();
-	}
-	else
-	{
-		Message(ID_PA_NOKEYFOUND, MB_ICONINFORMATION);
-	}
-}
-
-void CDlgAutomatedPermAnalysis::OnBnClickedBtnAbbruch()
-{
-	OnCancel();
-}
-
-void CDlgAutomatedPermAnalysis::OnBnClickedRbFest()
-{	
-	//Objekte Ausgrauen
-	((CButton*)GetDlgItem(IDC_TB_FEST))->EnableWindow(true);
-	((CButton*)GetDlgItem(IDC_LBL_FEST_INFO))->EnableWindow(true);
-
-	//Eingrauen nicht dazugehöriger Objekte
-	((CButton*)GetDlgItem(IDC_TB_INTERVALL_MIN))->EnableWindow(false);
-	((CButton*)GetDlgItem(IDC_TB_INTERVALL_MAX))->EnableWindow(false);
-	((CButton*)GetDlgItem(IDC_LBL_INTERVALL))->EnableWindow(false);
-	((CButton*)GetDlgItem(IDC_LBL_INTERVALL_INFO))->EnableWindow(false);
-}	
-
-void CDlgAutomatedPermAnalysis::OnBnClickedRbIntervall()
-{
-	//Objekte Ausgrauen
-	((CButton*)GetDlgItem(IDC_TB_INTERVALL_MIN))->EnableWindow(true);
-	((CButton*)GetDlgItem(IDC_TB_INTERVALL_MAX))->EnableWindow(true);
-	((CButton*)GetDlgItem(IDC_LBL_INTERVALL))->EnableWindow(true);
-	((CButton*)GetDlgItem(IDC_LBL_INTERVALL_INFO))->EnableWindow(true);
-	
-	//Eingrauen nicht dazugehöriger Objekte
-	((CButton*)GetDlgItem(IDC_TB_FEST))->EnableWindow(false);
-	((CButton*)GetDlgItem(IDC_LBL_FEST_INFO))->EnableWindow(false);
-}
-
-void CDlgAutomatedPermAnalysis::OnBnClickedRbSuchen()
-{
-	//Eingrauen nicht dazugehöriger Objekte
-	((CButton*)GetDlgItem(IDC_TB_INTERVALL_MIN))->EnableWindow(false);
-	((CButton*)GetDlgItem(IDC_TB_INTERVALL_MAX))->EnableWindow(false);
-	((CButton*)GetDlgItem(IDC_LBL_INTERVALL))->EnableWindow(false);
-	((CButton*)GetDlgItem(IDC_LBL_INTERVALL_INFO))->EnableWindow(false);
-	((CButton*)GetDlgItem(IDC_TB_FEST))->EnableWindow(false);
-	((CButton*)GetDlgItem(IDC_LBL_FEST_INFO))->EnableWindow(false);
-}
-
-void CDlgAutomatedPermAnalysis::OnBnClickedBtnKlartext()
-{
-	CFileDialog dlg(TRUE, NULL, NULL);
-	if (IDOK == dlg.DoModal() )
-	{
-		tb_klartext = dlg.GetPathName();
-		UpdateData(false);
-	}
-}
-
-void CDlgAutomatedPermAnalysis::OnBnClickedBtnGeheimtext()
-{
-	CFileDialog dlg(TRUE, NULL, NULL);
-	if ( IDOK == dlg.DoModal() )
-	{
-		tb_geheimtext = dlg.GetPathName();
-		UpdateData(false);
-	}
-}
-#endif
-
-
 void CDlgAutomatedPermAnalysis::OnBnClickedRadioSourceIsCiphertext()
 {
 	setRefCaption();
@@ -410,4 +304,63 @@ void CDlgAutomatedPermAnalysis::OnBnClickedRadioSourceIsCiphertext()
 void CDlgAutomatedPermAnalysis::OnBnClickedRadioSourceIsPlaintext()
 {
 	setRefCaption();
+}
+
+#define CT_LEXER_LANGUAGE	"CrypTool"
+#define CT_LEXER_LIB		"LexCrypTool"
+#define STYLE_NONEALPHABET	"2"
+
+void CDlgAutomatedPermAnalysis::setViewOptions()
+{
+	if (!m_DataType) 
+	{
+		CString Alphabet;
+		theApp.TextOptions.getAlphabetWithOptions(Alphabet);
+		ScinMSG(SCI_STYLESETFORE, atoi(STYLE_NONEALPHABET), RGB(192,192,192));
+		ScinMSG(SCI_SETPROPERTY, (WPARAM)_T("cryptool.nonalphabetstyle"), (LPARAM)STYLE_NONEALPHABET);
+		ScinMSG(SCI_SETPROPERTY, (WPARAM)_T("cryptool.alphabet"), (LPARAM)(LPCTSTR)Alphabet);
+		ScinMSG(SCI_SETSTYLEBITS, 5, 0);
+		ScinMSG(SCI_SETLEXERLANGUAGE,0,(LPARAM)CT_LEXER_LANGUAGE );
+		if (SCLEX_NULL == ScinMSG(SCI_GETLEXER)) {
+#ifdef BUILD_AS_EXTERNAL_LEXER
+			SendMessage(SCI_LOADLEXERLIBRARY,0,(LPARAM)CT_LEXER_LIB);
+			SendMessage(SCI_SETLEXERLANGUAGE,0,(LPARAM)CT_LEXER_LANGUAGE );
+#endif
+			if (SCLEX_NULL == ScinMSG(SCI_GETLEXER)) {
+				CString msg;
+				msg.Format(IDS_SCINTILLA_LEXER_ERROR,CT_LEXER_LIB);
+				MessageBox(msg);
+			}
+		}
+		ScinMSG(SCI_CLEARDOCUMENTSTYLE, 0, 0);
+		ScinMSG(SCI_COLOURISE,0,(LPARAM)1); // trigger re-lexing
+	} 
+	else 
+	{
+		ScinMSG(SCI_SETVIEWEOL, TRUE, 0); // if omitted and word wrap is active only the first line of a paragraph is shown
+		ScinMSG(SCI_SETLEXER, SCLEX_NULL);
+		ScinMSG(SCI_CLEARDOCUMENTSTYLE, 0, 0);
+	}
+	ScinMSG(SCI_SETVIEWEOL, m_DataType ? 1 : 0);
+}
+
+void CDlgAutomatedPermAnalysis::OnBnClickedRadioText()
+{
+	UpdateData();
+	setViewOptions();
+}
+
+void CDlgAutomatedPermAnalysis::OnBnClickedRadioBinary()
+{
+	UpdateData();
+	setViewOptions();
+}
+
+void CDlgAutomatedPermAnalysis::OnBnClickedTextOptions()
+{
+//	CDlgTextOptions dlg;
+//	dlg.DoModal();
+	theApp.TextOptions.DoModal();
+	UpdateData();
+	setViewOptions();
 }

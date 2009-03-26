@@ -73,6 +73,7 @@ private:
 	}
 
 	void setRefCaption();
+	void setViewOptions();
 
 public:
 	CDlgAutomatedPermAnalysis(CWnd* pParent = NULL);   // standard constructor
@@ -97,6 +98,7 @@ public:
 	int m_chk_inColbyCol;
 	int m_chk_permColbyCol;
 	int m_chk_outColbyCol;
+	int m_DataType;
 	CString m_editRangeFrom;
 	CString m_editRangeTo;
 	CEdit   m_ctrlRefernceHeader;
@@ -109,6 +111,9 @@ public:
 	afx_msg void OnBnClickedOutColByCol();
 	afx_msg void OnBnClickedRadioSourceIsCiphertext();
 	afx_msg void OnBnClickedRadioSourceIsPlaintext();
+	afx_msg void OnBnClickedRadioText();
+	afx_msg void OnBnClickedRadioBinary();
+	afx_msg void OnBnClickedTextOptions();
 };
 
 

@@ -71,18 +71,18 @@ CDlgKeyPermutation::CDlgKeyPermutation(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgKeyPermutation::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CDlgKeyPermutation)
-	m_Perm1 = _T("");
-	m_Perm2 = _T("");
-	m_P1out = _T("");
-	m_P2out = _T("");
-	m_P1InSeq = 0;
-	m_P1OutSeq = 1;
-	m_P2InSeq = 0;
-	m_P2OutSeq = 1;
-	m_P1Perm = -1;
-	m_P2Perm = -1;
-	m_Invert = FALSE;
-	m_DataType = 0;
+	m_Perm1		= _T("");
+	m_Perm2		= _T("");
+	m_P1out		= _T("");
+	m_P2out		= _T("");
+	m_P1InSeq	= 0;
+	m_P1OutSeq	= 1;
+	m_P2InSeq	= 0;
+	m_P2OutSeq	= 1;
+	m_P1Perm	= -1;
+	m_P2Perm	= -1;
+	m_Invert	= FALSE;
+	m_DataType	= 0;
 	//}}AFX_DATA_INIT
 }
 
@@ -124,6 +124,36 @@ END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // Behandlungsroutinen für Nachrichten CDlgKeyPermutation 
+void CDlgKeyPermutation::strKeyParam()
+{
+	LoadString(AfxGetInstanceHandle(),IDS_PARAM_PERMUTATION,pc_str,STR_LAENGE_STRING_TABLE);
+	CString Primes = CString(PARAM_TOKEN)
+		+ char(m_DataType+ '0') + ' ' + char((int)m_Invert + '0') + ' '
+		+ char(m_P1InSeq + '0') + ' ' + char(m_P1Perm + '0') + ' ' + char(m_P1OutSeq + '0') + ' '
+		+ char(m_P2InSeq + '0') + ' ' + char(m_P2Perm + '0') + ' ' + char(m_P2OutSeq + '0');
+	CopyKey ( pc_str, Primes );
+}
+
+void CDlgKeyPermutation::writeRegistry()
+{
+	if (ERROR_SUCCESS == CT_OPEN_REGISTRY_SETTINGS	(KEY_WRITE, IDS_REGISTRY_SETTINGS, "Permutation"))
+	{
+		CT_WRITE_REGISTRY((unsigned long)chk_showPermutations.GetCheck(), "ShowPermutationKey");
+		CT_CLOSE_REGISTRY();
+	}
+}
+
+int CDlgKeyPermutation::chekPermInput(CString &m_Perm, CAscEdit &cInput, int MSG_ID )
+{
+	if( m_Perm.GetLength() && ((m_Perm[0]=='0') || (m_Perm.Find(",0",0)!=(-1))) )
+	{
+		LoadString(AfxGetInstanceHandle(), MSG_ID, pc_str, STR_LAENGE_STRING_TABLE);
+		MessageBox(pc_str,"CrypTool",MB_ICONWARNING|MB_OK);
+		cInput.SetFocus();
+		return 0;
+	}
+	return 1;
+}
 
 void CDlgKeyPermutation::OnDecrypt() 
 {
@@ -131,21 +161,9 @@ void CDlgKeyPermutation::OnDecrypt()
 
 	// Nullen dürfen nicht eingegeben werden
 	// Überprüfung IDC_EDIT1
-	if( m_Perm1.GetLength() && ((m_Perm1[0]=='0') || (m_Perm1.Find(",0",0)!=(-1))) )
-	{
-		LoadString(AfxGetInstanceHandle(), IDS_STRING_MSG_PERM_ZERO_INVALID_INPUT, pc_str, STR_LAENGE_STRING_TABLE);
-		MessageBox(pc_str,"CrypTool",MB_ICONWARNING|MB_OK);
-		m_CPerm1.SetFocus();
+	if ( !chekPermInput(m_Perm1, m_CPerm1, IDS_STRING_MSG_PERM_ZERO_INVALID_INPUT) ||
+		 !chekPermInput(m_Perm2, m_CPerm2, IDS_STRING_MSG_PERM_ZERO_INVALID_INPUT2) )
 		return;
-	}
-	// Überprüfung IDC_EDIT2
-	if( m_Perm2.GetLength() && ((m_Perm2[0]=='0') || (m_Perm2.Find(",0",0)!=(-1))) )
-	{
-		LoadString(AfxGetInstanceHandle(), IDS_STRING_MSG_PERM_ZERO_INVALID_INPUT2, pc_str, STR_LAENGE_STRING_TABLE);
-		MessageBox(pc_str, "CrypTool", MB_ICONWARNING|MB_OK);
-		m_CPerm2.SetFocus();
-		return;
-	}
 
 	m_P1len = MakePerm(&m_Perm1, m_P1, m_P1inv);
 	if(m_P1len <= 0) {
@@ -159,23 +177,10 @@ void CDlgKeyPermutation::OnDecrypt()
 	}
 	m_Dec = 1;
 
-	bool doDecrypt = true;
-	if ( chk_showPermutations.GetCheck() && IDOK != ShowPermutations() )
-		doDecrypt = false;
-
-	if ( doDecrypt )
+	if ( !(chk_showPermutations.GetCheck() && IDOK != ShowPermutations()) )
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_PARAM_PERMUTATION,pc_str,STR_LAENGE_STRING_TABLE);
-		CString Primes = CString(PARAM_TOKEN)
-			+ char((int)m_Invert + '0') + ' '
-			+ char(m_P1InSeq + '0') + ' ' + char(m_P1Perm + '0') + ' ' + char(m_P1OutSeq + '0')	+ ' '
-			+ char(m_P2InSeq + '0') + ' ' + char(m_P2Perm + '0') + ' ' + char(m_P2OutSeq + '0');
-		CopyKey ( pc_str, Primes );
-		if (ERROR_SUCCESS == CT_OPEN_REGISTRY_SETTINGS	(KEY_WRITE, IDS_REGISTRY_SETTINGS, "Permutation"))
-		{
-			CT_WRITE_REGISTRY((unsigned long)chk_showPermutations.GetCheck(), "ShowPermutationKey");
-			CT_CLOSE_REGISTRY();
-		}
+		strKeyParam();
+		writeRegistry();
 		OnOK();
 	}
 }
@@ -186,21 +191,9 @@ void CDlgKeyPermutation::OnEncrypt()
 
 	// Nullen dürfen nicht eingegeben werden
 	// Überprüfung IDC_EDIT1
-	if( m_Perm1.GetLength() && ((m_Perm1[0]=='0') || (m_Perm1.Find(",0",0)!=(-1))) )
-	{
-		LoadString(AfxGetInstanceHandle(), IDS_STRING_MSG_PERM_ZERO_INVALID_INPUT, pc_str, STR_LAENGE_STRING_TABLE);
-		MessageBox(pc_str,"CrypTool",MB_ICONWARNING|MB_OK);
-		m_CPerm1.SetFocus();
+	if ( !chekPermInput(m_Perm1, m_CPerm1, IDS_STRING_MSG_PERM_ZERO_INVALID_INPUT) ||
+		 !chekPermInput(m_Perm2, m_CPerm2, IDS_STRING_MSG_PERM_ZERO_INVALID_INPUT2) )
 		return;
-	}
-	// Überprüfung IDC_EDIT2
-	if( m_Perm2.GetLength() && ((m_Perm2[0]=='0') || (m_Perm2.Find(",0",0)!=(-1))) )
-	{
-		LoadString(AfxGetInstanceHandle(), IDS_STRING_MSG_PERM_ZERO_INVALID_INPUT2, pc_str, STR_LAENGE_STRING_TABLE);
-		MessageBox(pc_str, "CrypTool", MB_ICONWARNING|MB_OK);
-		m_CPerm2.SetFocus();
-		return;
-	}
 	
 	m_P1len = MakePerm(&m_Perm1, m_P1, m_P1inv);
 	if(m_P1len <= 0)
@@ -216,29 +209,13 @@ void CDlgKeyPermutation::OnEncrypt()
 	}
 	m_Dec = 0;
 
-
-	bool doEncrypt = true;
-	if ( chk_showPermutations.GetCheck() && IDOK != ShowPermutations() )
-		doEncrypt = false;
-
-	if ( doEncrypt )
+	if ( !(chk_showPermutations.GetCheck() && IDOK != ShowPermutations()) )
 	{
-		LoadString(AfxGetInstanceHandle(),IDS_PARAM_PERMUTATION,pc_str,STR_LAENGE_STRING_TABLE);
-		CString Primes = CString(PARAM_TOKEN)
-			+ char((int)m_Invert + '0') + ' '
-			+ char(m_P1InSeq + '0') + ' ' + char(m_P1Perm + '0') + ' ' + char(m_P1OutSeq + '0') + ' '
-			+ char(m_P2InSeq + '0') + ' ' + char(m_P2Perm + '0') + ' ' + char(m_P2OutSeq + '0');
-		CopyKey ( pc_str, Primes );
-		if (ERROR_SUCCESS == CT_OPEN_REGISTRY_SETTINGS	(KEY_WRITE, IDS_REGISTRY_SETTINGS, "Permutation"))
-		{
-			CT_WRITE_REGISTRY((unsigned long)chk_showPermutations.GetCheck(), "ShowPermutationKey");
-			CT_CLOSE_REGISTRY();
-		}
+		strKeyParam();
+		writeRegistry();
 		OnOK();
 	}
 }
-
-
 
 int CDlgKeyPermutation::MakePerm( CString *Pin, int p[], int pinv[])
 {
@@ -337,29 +314,29 @@ BOOL CDlgKeyPermutation::OnInitDialog()
 	{
 		UpdateData(true);
 		int d = strlen(PARAM_TOKEN);
-		m_Invert =	+ (int)(Primes[d] - '0');
-		m_P1InSeq  = (int)(Primes[d+2]   - '0');
-		m_P1Perm = (int)(Primes[d+4] - '0');
-		m_P1OutSeq = (int)(Primes[d+6] - '0');
-		m_P2InSeq  = (int)(Primes[d+8] - '0');
-		m_P2Perm = (int)(Primes[d+10] - '0');
-		m_P2OutSeq = (int)(Primes[d+12] - '0');
+		m_DataType	= (int)(Primes[d]	 - '0');
+		m_Invert	= (int)(Primes[d+2]	 - '0');
+		m_P1InSeq	= (int)(Primes[d+4]  - '0');
+		m_P1Perm	= (int)(Primes[d+6]  - '0');
+		m_P1OutSeq	= (int)(Primes[d+8]  - '0');
+		m_P2InSeq	= (int)(Primes[d+10] - '0');
+		m_P2Perm	= (int)(Primes[d+12] - '0');
+		m_P2OutSeq	= (int)(Primes[d+14] - '0');
 		UpdateData(false);
 	}
 	else
 	{
 		UpdateData(true);
 		int d = Primes.Find(PARAM_TOKEN, 0);
-		m_Invert = false;
-		m_P1InSeq  = 0;
-		m_P1Perm = 1;
-		m_P1OutSeq = 1;
-		m_P2InSeq  = 0;
-		m_P2Perm = 1;
-		m_P2OutSeq = 1;
+		m_Invert	= false;
+		m_P1InSeq   = 0;
+		m_P1Perm	= 1;
+		m_P1OutSeq	= 1;
+		m_P2InSeq	= 0;
+		m_P2Perm	= 1;
+		m_P2OutSeq	= 1;
 		UpdateData(false);
 	}
-	
 
 	m_Decrypt.EnableWindow(FALSE);
 	m_Encrypt.EnableWindow(FALSE);
@@ -413,6 +390,39 @@ int CDlgKeyPermutation::PrintPerm(char *dest, int *perm, int len)
 	return strlen(dest);
 }
 
+int CDlgKeyPermutation::readKeyParam(CString &buffer)
+{
+	int k, t = buffer.Find(PARAM_TOKEN, 0);
+	if ( t > 0 )
+	{
+		k = t + strlen(PARAM_TOKEN);
+		m_DataType = 0;
+		if ( 0<= buffer.Find(TEXT_TOKEN) )
+			k += strlen(TEXT_TOKEN);
+		else if ( 0<= buffer.Find(BINARY_TOKEN) )
+		{
+			k += strlen(BINARY_TOKEN);
+			m_DataType = 1;
+		}
+		if ( 0 <= buffer.Find(INV_TOKEN) )
+		{
+			m_Invert = TRUE;
+			k += strlen(INV_TOKEN);
+		}
+		else
+		{
+			m_Invert = FALSE;
+		}
+		m_P1InSeq	= (int)(buffer[k] - '0');
+		m_P1Perm	= (int)(buffer[k+2] - '0');
+		m_P1OutSeq	= (int)(buffer[k+4] - '0');
+		m_P2InSeq	= (int)(buffer[k+6] - '0');
+		m_P2Perm	= (int)(buffer[k+8] - '0');
+		m_P2OutSeq	= (int)(buffer[k+10] - '0');
+	}
+	return t;
+}
+
 
 void CDlgKeyPermutation::OnPasteKey() 
 {
@@ -422,64 +432,19 @@ void CDlgKeyPermutation::OnPasteKey()
 	{
 		UpdateData(TRUE);
 		int k = buffer.Find(';');
-		if(k==-1)
+		if( k < 0 )
 		{
-			int k = buffer.Find(PARAM_TOKEN, 0);
-			if ( k > 0 )
-			{
-				m_Perm1 = makeASCII(buffer.Left(k));
-				k += strlen(PARAM_TOKEN);
-				if ( 0 <= buffer.Find(INV_TOKEN) )
-				{
-					m_Invert = TRUE;
-					k += strlen(INV_TOKEN);
-				}
-				else
-				{
-					m_Invert = FALSE;
-				}
-				m_P1InSeq  = (int)(buffer[k] - '0');
-				m_P1Perm = (int)(buffer[k+2] - '0');
-				m_P1OutSeq = (int)(buffer[k+4] - '0');
-				m_P2InSeq  = (int)(buffer[k+6] - '0');
-				m_P2Perm = (int)(buffer[k+8] - '0');
-				m_P2OutSeq = (int)(buffer[k+10] - '0');
-			}
-			else
-			{
-				m_Perm1 = makeASCII(buffer);
-			}
+			int t = readKeyParam( buffer );
+			if ( t > 0 ) m_Perm1 = makeASCII(buffer.Left(t));
+			else         m_Perm1 = makeASCII(buffer);
 			m_Perm2.Empty();
-
 		}
 		else
 		{
 			m_Perm1 = makeASCII(buffer.Left(k));
-			int d = buffer.Find(PARAM_TOKEN, 0);
-			if ( d > 0 )
-			{
-				m_Perm2 = makeASCII(buffer.Mid(k+1,(d-k)-1));
-				d += strlen(PARAM_TOKEN);
-				if ( 0 <= buffer.Find(INV_TOKEN) )
-				{
-					m_Invert = TRUE;
-					d += strlen(INV_TOKEN);
-				}
-				else
-				{
-					m_Invert = FALSE;
-				}
-				m_P1InSeq  = (int)(buffer[d] - '0');
-				m_P1Perm = (int)(buffer[d+2] - '0');
-				m_P1OutSeq = (int)(buffer[d+4] - '0');
-				m_P2InSeq  = (int)(buffer[d+6] - '0');
-				m_P2Perm = (int)(buffer[d+8] - '0');
-				m_P2OutSeq = (int)(buffer[d+10] - '0');
-			}
-			else
-			{
-				m_Perm2 = makeASCII(buffer.Right(buffer.GetLength()-k-1));
-			}
+			int t = readKeyParam( buffer );
+			if ( t > 0 ) m_Perm2 = makeASCII(buffer.Mid(k+1,(t-k)-1));
+			else		 m_Perm2 = makeASCII(buffer.Right(buffer.GetLength()-k-1));
 		}
 		UpdateData(FALSE);
 		OnChangeEdit1();

@@ -60,8 +60,10 @@ statement from your version.
 
 // #define MAX_PERM_LENGTH <Innerhalb der Datei AscEdit.h defniert>
 
-#define INV_TOKEN "INV, "
-#define PARAM_TOKEN "PARAMETER: "
+#define INV_TOKEN		"INV, "
+#define PARAM_TOKEN		"PARAMETER: "
+#define TEXT_TOKEN		"TEXT, "
+#define BINARY_TOKEN	"BINARY, "
 
 class CDlgKeyPermutation : public CDialog
 {
@@ -126,6 +128,10 @@ protected:
 private:
 
 	// Required because of BACK-Button from CDlgKeyPermutationInfo !!!
+	int  readKeyParam(CString &buffer); // TRUE, if Parameters were found
+	void strKeyParam();
+	void writeRegistry();
+	int  chekPermInput(CString &m_Perm, CAscEdit &cInput, int MSG_ID );
 public:
 	int ShowPermutations();
 };

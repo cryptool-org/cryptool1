@@ -84,8 +84,9 @@ public:
 	// access methods
 	CString getTitle() { return title; }
 	CString getReferenceFile() { return referenceFile; }
-	const CString &getAlphabet() { return alphabet; }
-	CString &refAlphabet() { return alphabet; }
+	const CString &getAlphabet(); 
+	CString &refAlphabet(); 
+	void getAlphabetWithOptions(CString &AlphabetWithOptions);
 	CString getSeparator() { return separator; }
 	BOOL getSeparateLetters() { return separateLetters; };
 	BOOL getDistinguishUpperLowerCase() { return distinguishUpperLowerCase; };

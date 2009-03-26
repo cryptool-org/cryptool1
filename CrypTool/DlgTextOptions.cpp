@@ -135,6 +135,31 @@ END_MESSAGE_MAP()
 
 #define ALLOWED_CHARS "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz 1234567890-.,_:;+*!\"ß$%&/()=?‰ˆ¸ƒ÷‹"
 
+const CString &CDlgTextOptions::getAlphabet()
+{
+	return alphabet;
+}
+
+CString &CDlgTextOptions::refAlphabet()
+{
+	return alphabet;
+}
+
+void CDlgTextOptions::getAlphabetWithOptions(CString &AlphabetWithOptions)
+{
+	AlphabetWithOptions = alphabet;
+	if ( !distinguishUpperLowerCase )
+	{
+		for (int i=0; i<alphabet.GetLength(); i++)
+		{
+			if ( (alphabet[i] >= 'A' && alphabet[i] <= 'Z') && (0 > alphabet.Find(alphabet[i] + ('a'-'A'))) )
+				AlphabetWithOptions += (char)(alphabet[i] + ('a'-'A'));
+			if ( (alphabet[i] >= 'a' && alphabet[i] <= 'z') && (0 > alphabet.Find(alphabet[i] - ('a'-'A'))) )
+				AlphabetWithOptions += (char)(alphabet[i] - ('a'-'A'));
+		}
+	}
+}
+
 void CDlgTextOptions::OnUpdateEditSeparator() 
 {
 	UpdateData(TRUE);

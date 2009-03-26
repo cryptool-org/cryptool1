@@ -3379,13 +3379,13 @@ void Permutation(const char *infileName, const char *OldTitle, BOOL TEXTMODE)
 		TEXTMODE = ( Perm.m_DataType ) ? FALSE :  TRUE;
 		if ( 0 > readSource( infileName, mSrc, lSrc, TEXTMODE ) )
 		{
-			// ERROR
+			// FIXME: ERROR
 			return;
 		}
 
 		if (!lSrc )
 		{
-			// ERROR
+			// FIXME: ERROR
 			return;
 		}
 
@@ -3445,24 +3445,23 @@ void Permutation(const char *infileName, const char *OldTitle, BOOL TEXTMODE)
 		char *outFileName = NULL;
 		if ( 0 > writeDest(pData, lSrc, outFileName, TEXTMODE, infileName) )
 		{
-			// ERROR
+			// FIXME: ERROR
 		}
 		else
 		{
-			char *Invert = new char[strlen(INV_TOKEN)+1];
-			char *key    = new char[6*16+Perm.m_Perm1.GetLength()+Perm.m_Perm2.GetLength() + strlen(INV_TOKEN) + strlen(PARAM_TOKEN)+20];
+			char Invert[20];
+			char dType[20];
+			char *key    = new char[6*16+Perm.m_Perm1.GetLength()+Perm.m_Perm2.GetLength() + strlen(PARAM_TOKEN)+60];
 			char *title  = NULL; 
-			if (Perm.m_Invert) 
-				strcpy(Invert, INV_TOKEN); 
-			else
-				Invert[0] = '\0';
+			strcpy(Invert, Perm.m_Invert   ? INV_TOKEN : "");
+			strcpy(dType , Perm.m_DataType ? BINARY_TOKEN : TEXT_TOKEN);
 
 			if(Perm.m_P2len)
-				sprintf(key,"%s;%s %s%s%i,%i,%i,%i,%i,%i", Perm.m_Perm1, Perm.m_Perm2, PARAM_TOKEN, Invert,
+				sprintf(key,"%s;%s %s%s%s%i,%i,%i,%i,%i,%i", Perm.m_Perm1, Perm.m_Perm2, PARAM_TOKEN, dType, Invert,
 						Perm.m_P1InSeq, Perm.m_P1Perm, Perm.m_P1OutSeq,
 						Perm.m_P2InSeq, Perm.m_P2Perm, Perm.m_P2OutSeq);
 			else
-				sprintf(key,"%s %s%s%i,%i,%i,%i,%i,%i", Perm.m_Perm1, PARAM_TOKEN, Invert,
+				sprintf(key,"%s %s%s%s%i,%i,%i,%i,%i,%i", Perm.m_Perm1, PARAM_TOKEN, dType, Invert,
 						Perm.m_P1InSeq, Perm.m_P1Perm, Perm.m_P1OutSeq,
 						Perm.m_P2InSeq, Perm.m_P2Perm, Perm.m_P2OutSeq);
 			CAppDocument *NewDoc;
@@ -3482,7 +3481,6 @@ void Permutation(const char *infileName, const char *OldTitle, BOOL TEXTMODE)
 				NewDoc->SetTitle(title);
 			}			
 			delete []title;
-			delete []Invert;
 			delete []key;
 			delete []outFileName;
 		}
@@ -3492,130 +3490,6 @@ void Permutation(const char *infileName, const char *OldTitle, BOOL TEXTMODE)
 	}  // IDOK == DoModal()
 }
 
-
-void PermutationAsc(const char *infile, const char *OldTitle)
-{
-    char outfile[1024], key[1024], title[1024];
-	CFile datei(infile, CFile::modeRead);
-	bool laenge_groesser_0 = FALSE;
-	char c;
-	char *b1=NULL, *b2=NULL, *b3;
-	unsigned long l1, l2, i, ignoreCase;;
-
-	ASSERT(datei.GetLength() < ULONG_MAX);
-	l1 = (unsigned long)datei.GetLength();
-	b1 = (char *) malloc(l1+1);
-	l1 = datei.Read(b1, l1);
-	datei.Close();
-	b1[l1]=0;
-	ignoreCase = theApp.TextOptions.getIgnoreCase();
-	for(l2=i=0;i<l1;i++) {
-		c = b1[i];
-		if(ignoreCase && 'a'<=c && c<='z')
-			c += 'A' - 'a';
-		if (0 <= theApp.TextOptions.getAlphabet().Find(c))
-			b1[l2++] = c;
-	}
-	b1[l2]=0;
-	if(l2<1) {
-		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 1);
-		free(b1);
-		return;
-	}
-			
-	// Dialogbox zur Schlüsseleingabe anzeigen
-	CDlgKeyPermutation Perm;
-
-    if (Perm.DoModal()==IDOK)
-	{
-		b2 = (char *) malloc(l2+1);
-
-		if(Perm.m_Dec) 
-		{
-			if(Perm.m_P2len)
-			{
-				if ( !Perm.m_Invert )
-				{
-					DoInvPerm(b2, b1, l2, Perm.m_P2inv, Perm.m_P2len, Perm.m_P2InSeq ^ Perm.m_P2Perm  ^ 1, Perm.m_P2OutSeq ^ Perm.m_P2Perm  ^ 1);
-					DoInvPerm(b1, b2, l2, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
-					b3 = b1;
-				}
-				else
-				{
-					DoInvPerm(b2, b1, l2, Perm.m_P2, Perm.m_P2len, Perm.m_P2InSeq ^ Perm.m_P2Perm  ^ 1, Perm.m_P2OutSeq ^ Perm.m_P2Perm  ^ 1);
-					DoInvPerm(b1, b2, l2, Perm.m_P1, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
-					b3 = b1;
-				}
-			}
-			else
-			{
-				if ( !Perm.m_Invert )
-				{
-					DoInvPerm(b2, b1, l2, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
-					b3 = b2;
-				}
-				else
-				{
-					DoInvPerm(b2, b1, l2, Perm.m_P1, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
-					b3 = b2;
-				}
-			}
-		}
-		else // Perm Dec == FALSE
-		{
-			if ( !Perm.m_Invert )
-				DoPerm(b2, b1, l2, Perm.m_P1inv, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
-			else
-				DoPerm(b2, b1, l2, Perm.m_P1, Perm.m_P1len, Perm.m_P1InSeq ^ Perm.m_P1Perm  ^ 1, Perm.m_P1OutSeq ^ Perm.m_P1Perm  ^ 1);
-
-			if(Perm.m_P2len)
-			{
-				b3 = b1;
-				if ( !Perm.m_Invert )
-					DoPerm(b1, b2, l2, Perm.m_P2inv, Perm.m_P2len, Perm.m_P2InSeq ^ Perm.m_P2Perm  ^ 1, Perm.m_P2OutSeq ^ Perm.m_P2Perm  ^ 1);
-				else
-					DoPerm(b1, b2, l2, Perm.m_P2, Perm.m_P2len, Perm.m_P2InSeq ^ Perm.m_P2Perm  ^ 1, Perm.m_P2OutSeq ^ Perm.m_P2Perm  ^ 1);
-			}
-			else b3 = b2;
-		}
-
-
-		GetTmpName(outfile,"cry",".tmp");
-		
-		CFile outf(outfile,CFile::modeWrite | CFile::modeCreate);
-		outf.Write(b3,l2);
-		outf.Close();
-		Reformat(infile,outfile, FALSE);
-
-		char *Invert = new char[];
-		(Perm.m_Invert) ? Invert= INV_TOKEN : Invert="";
-
-		if(Perm.m_P2len)
-			sprintf(key,"%s;%s %s%s%i,%i,%i,%i,%i,%i", Perm.m_Perm1, Perm.m_Perm2, PARAM_TOKEN, Invert,
-					Perm.m_P1InSeq, Perm.m_P1Perm, Perm.m_P1OutSeq,
-					Perm.m_P2InSeq, Perm.m_P2Perm, Perm.m_P2OutSeq);
-		else
-			sprintf(key,"%s %s%s%i,%i,%i,%i,%i,%i", Perm.m_Perm1, PARAM_TOKEN, Invert,
-					Perm.m_P1InSeq, Perm.m_P1Perm, Perm.m_P1OutSeq,
-					Perm.m_P2InSeq, Perm.m_P2Perm, Perm.m_P2OutSeq);
-		CAppDocument *NewDoc;
-		NewDoc = theApp.OpenDocumentFileNoMRU(outfile,key);
-		remove(outfile);	
-		if(NewDoc) 
-		{
-			if(Perm.m_Dec)
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-			else
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-			LoadString(AfxGetInstanceHandle(),IDS_CRYPT_PERMUTATION,pc_str,STR_LAENGE_STRING_TABLE);
-			MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,key);
-			NewDoc->SetTitle(title);
-		}
-	}
-
-	if(b1) free(b1);
-	if(b2) free(b2);
-}
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 // Hashwert einer Datei berechnen, ohne dass die Datei selbst in den Dialog geöffnet werden 
