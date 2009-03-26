@@ -83,8 +83,8 @@ statement from your version.
 #define NUMWORDS		16
 #define MAXWORDLEN		32
 
-#define CRACK_TOLOWER(a)	(isupper(a)?tolower(a):(a)) 
-#define CRACK_TOUPPER(a)	(islower(a)?toupper(a):(a)) 
+#define CRACK_TOLOWER(a)	(MyIsUpper(a)?MyToLower(a):(a)) 
+#define CRACK_TOUPPER(a)	(MyIsLower(a)?MyToUpper(a):(a)) 
 #define STRCMP(a,b) 	strcmp((a),(b))
 
 struct pi_header {

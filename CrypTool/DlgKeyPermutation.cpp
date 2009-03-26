@@ -55,6 +55,7 @@ statement from your version.
 #include "DialogeMessage.h"
 #include ".\dlgkeypermutation.h"
 #include "CrypToolTools.h"
+#include "ChrTools.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -281,7 +282,7 @@ void CDlgKeyPermutation::OnChangeEdit1()
 	if(l>1) {
 		m_Decrypt.EnableWindow(TRUE);
 		m_Encrypt.EnableWindow(TRUE);
-		if(isalpha((unsigned char)m_Perm1[0])) {
+		if(MyIsAlpha(m_Perm1[0])) {
 			m_P1len = MakePerm(&m_Perm1, m_P1, m_P1inv);
 			if(m_P1len > 0) PrintPerm(buffer, m_P1, m_P1len);
 			m_P1out = buffer;
@@ -309,7 +310,7 @@ void CDlgKeyPermutation::OnChangeEdit2()
 	m_CPerm2.EmptyUndoBuffer();
 	l= m_Perm2.GetLength();
 	if(l>1) {
-		if(isalpha((unsigned char)m_Perm2[0])) {
+		if(MyIsAlpha(m_Perm2[0])) {
 			m_P2len = MakePerm(&m_Perm2, m_P2, m_P2inv);
 			if(m_P2len > 0) PrintPerm(buffer, m_P2, m_P2len);
 			m_P2out = buffer;
@@ -492,7 +493,7 @@ CString CDlgKeyPermutation::makeASCII(CString &line)
 
 	l = line.GetLength();
 	if(l==0) return line;
-	if(isalpha((unsigned char)line[0])) { // Alpha mode
+	if(MyIsAlpha(line[0])) { // Alpha mode
 		for(p = 0; p<l; p++) {
 			if(!strchr("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", line[p])) {
 				line.Delete(p);

@@ -1045,7 +1045,7 @@ StrRep* Supcase(const StrRep* src, StrRep* dest)
   if (src != dest) dest = Salloc(dest, src->s, n, n);
   char* p = dest->s;
   char* e = &(p[n]);
-  for (; p < e; ++p) if (islower(*p)) *p = toupper(*p);
+  for (; p < e; ++p) if (islower((unsigned char)*p)) *p = toupper((unsigned char)*p);
   return dest;
 }
 
@@ -1055,7 +1055,7 @@ StrRep* Sdowncase(const StrRep* src, StrRep* dest)
   if (src != dest) dest = Salloc(dest, src->s, n, n);
   char* p = dest->s;
   char* e = &(p[n]);
-  for (; p < e; ++p) if (isupper(*p)) *p = tolower(*p);
+  for (; p < e; ++p) if (isupper((unsigned char)*p)) *p = tolower((unsigned char)*p);
   return dest;
 }
 
@@ -1069,20 +1069,20 @@ StrRep* Scapitalize(const StrRep* src, StrRep* dest)
   for (; p < e; ++p)
   {
     int at_word;
-    if (at_word = islower(*p))
-      *p = toupper(*p);
+    if (at_word = islower((unsigned char)*p))
+      *p = toupper((unsigned char)*p);
     else 
-      at_word = isupper(*p) || isdigit(*p);
+      at_word = isupper((unsigned char)*p) || isdigit((unsigned char)*p);
 
     if (at_word)
     {
       while (++p < e)
       {
-        if (isupper(*p))
-          *p = tolower(*p);
+        if (isupper((unsigned char)*p))
+          *p = tolower((unsigned char)*p);
 	/* A '\'' does not break a word, so that "Nathan's" stays
 	   "Nathan's" rather than turning into "Nathan'S". */
-        else if (!islower(*p) && !isdigit(*p) && (*p != '\''))
+        else if (!islower((unsigned char)*p) && !isdigit((unsigned char)*p) && (*p != '\''))
           break;
       }
     }

@@ -119,7 +119,7 @@ void CPlayfairEdit::OnEditPaste()
 			if ( m_TextWasPreformatted )
 			{ // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
 				if(!m_Alg->myisalpha2(p[i]))  
-					p[i] = m_Alg->getAlphabet()->replaceInvalidLetter(true, toupper(p[i]));
+					p[i] = m_Alg->getAlphabet()->replaceInvalidLetter(true, MyToUpper(p[i]));
 				if ( p[i] >= 32 && m_Alg->myisalpha2(p[i]) )
 				{
 					/*********** ToDo TrennZeichen + Zeichenweise Upcase: ********/

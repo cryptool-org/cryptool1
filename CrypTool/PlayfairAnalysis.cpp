@@ -609,7 +609,7 @@ playfair_letter* playfair_alphabet::getLetter(char let)
 	assert (let>=0);
 	if (let=='\0') return &my_pfletters[0];
 	for (i=0; i<=my_max_count; i++)
-		if ((my_validletters[i]) && ((my_pfletters[i].getValue()==let)||(my_pfletters[i].getValue()==toupper(let))))
+		if ((my_validletters[i]) && ((my_pfletters[i].getValue()==let)||(my_pfletters[i].getValue()==MyToUpper(let))))
 			return &my_pfletters[i];
 	switch (let) {
 	case 'Ä': case 'ä': case 'Á': case 'á': case 'À': case 'à': case 'Â': case 'â': case '@':
@@ -1427,7 +1427,7 @@ void CPlayfairAnalysis::ApplyPlayfairPreformat( bool DecEnc,char *prename,char *
 		Daher können immer noch  falsche Buchstaben erscheinen */
 		if(myisalpha2(c))
 		{
-			c=toupper(c);
+			c=MyToUpper(c);
 			if(c==old&&theApp.TextOptions.getSeparateLetters())// soll getrennt werden
 				prebuf[j++]=(old==ex)?aex:ex;    // falls zwei X
 			prebuf[j++]=c;                       // ein Q einfügen
@@ -1480,8 +1480,8 @@ void CPlayfairAnalysis::ApplyPlayfairToInput( bool DecEnc)
 			inbuf[i] = myAlphabet->replaceInvalidLetter(false, inbuf[i]);
 		if(myisalpha2(inbuf[i]))
 		{
-			if(islower(inbuf[i])&&ConvertCase)
-				inbuf[i] = tolower(outbuf[j]);
+			if(MyIsLower(inbuf[i])&&ConvertCase)
+				inbuf[i] = MyToLower(outbuf[j]);
 			else
 				inbuf[i] = outbuf[j];
 			j++;
@@ -1539,14 +1539,14 @@ bool CPlayfairAnalysis::DoCipher( bool withConvert, bool Dec, int len, char *sti
 			i++;
 		if(i<len)
 		{
-			ib1=toupper(theinbuf[i]);
+			ib1=MyToUpper(theinbuf[i]);
 			i++;
 			if(withConvert && !myisalpha2(theinbuf[i]))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
 				theinbuf[i] = getAlphabet()->replaceInvalidLetter(withConvert, theinbuf[i]);
 			while(!myisalpha2(theinbuf[i])&&i<len)
 				i++;
 			if(i<len)
-				ib2=toupper(theinbuf[i]);
+				ib2=MyToUpper(theinbuf[i]);
 			else
 				ib2=theinbuf[theinbuflen++]=theApp.TextOptions.getSeparator()[0];
 		}
@@ -1731,13 +1731,13 @@ bool CPlayfairAnalysis::CreateMatrixStandalone (char *stipulation, int len)
 	// copy inbuf to tmp_inbuf, but only the valid chars
 	i=0; j=0; flag=false;
 	while ((i<=MAXSHOWLETTER+1) && (i<len) && (stipulation[j]) && (inbuf[j]) && (i<inbuflen)) {
-		if (myisalpha2(toupper(inbuf[j]))) {
+		if (myisalpha2(MyToUpper(inbuf[j]))) {
 			if (flag) {  // gehört zum Workaround (s.u.)
 				flag = false; j++; continue;
 			}
-			tmp_inbuf [i] = toupper(inbuf[j]);
-			if (myisalpha2(toupper(stipulation[j]))) {
-				tmp_stip  [i] = toupper(stipulation[j]);
+			tmp_inbuf [i] = MyToUpper(inbuf[j]);
+			if (myisalpha2(MyToUpper(stipulation[j]))) {
+				tmp_stip  [i] = MyToUpper(stipulation[j]);
 				if (tmp_inbuf [i] == tmp_stip [i])  // ist Vorgabe = Chiffre, dann kann es keine Matrix geben
 					return false;
 			} else {

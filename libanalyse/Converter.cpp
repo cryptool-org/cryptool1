@@ -145,7 +145,7 @@ char IdConverter::Conv(symbol_arg s) const
 
 int AlphaConverter::Filter(char c) const
 {
-	c=toupper(c)-'A';
+	c=toupper((unsigned char)c)-'A';
 	if (c>=0 && c<26) return c; // only A..Z
 	return -1;
 }
@@ -173,14 +173,11 @@ char AlphaSpaceConverter::Conv(symbol_arg s) const
 // ApplicationConverter
 int AppConverter::Filter(char c) const
 {
-	unsigned char d;
-
-	d = c;
-	return Alphabet[d];
+	return Alphabet[(unsigned char)c];
 }
 char AppConverter::Conv(symbol_arg s) const
 {
-	return InvAlphabet[(char)s];
+	return InvAlphabet[(unsigned char)s];
 }
 
 void AppConverter::SetAlphabet(char *NewAlphabet, int CaseMode)
@@ -193,18 +190,18 @@ void AppConverter::SetAlphabet(char *NewAlphabet, int CaseMode)
 	if(CaseMode) { // Case insensitive
 		_strlwr(NewAlphabet);
 		for(i=0;i<((int)m_Modulus);i++) {
-			Alphabet[NewAlphabet[i]] = i;
+			Alphabet[(unsigned char)NewAlphabet[i]] = i;
 			InvAlphabet[i] = NewAlphabet[i];
 		}
 		_strupr(NewAlphabet);
 		for(i=0;i<((int)m_Modulus);i++) {
-			Alphabet[NewAlphabet[i]] = i;
+			Alphabet[(unsigned char)NewAlphabet[i]] = i;
 			InvAlphabet[i] = NewAlphabet[i];
 		}
 	}
 	else { // Case sensitive
 		for(i=0;i<((int)m_Modulus);i++) {
-			Alphabet[NewAlphabet[i]] = i;
+			Alphabet[(unsigned char)NewAlphabet[i]] = i;
 			InvAlphabet[i] = NewAlphabet[i];
 		}
 	}

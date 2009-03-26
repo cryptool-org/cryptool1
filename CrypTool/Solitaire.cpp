@@ -1,5 +1,6 @@
 
 #include "Solitaire.h"
+#include "ChrTools.h"
 #include "resource.h"
 
 
@@ -1144,7 +1145,7 @@ void Deck::verschluesseln(CString plaintext)
 	
 	int Deck::umwandelninzahl(char k)
 	{
-		k = toupper(k);
+		k = MyToUpper(k);
 		if ('A' <= k && k <= 'Z')
 			return k - 'A' + 1;
 		return 0;

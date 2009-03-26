@@ -176,7 +176,7 @@ char adfgvx::getMatrix(int row, int col) {
 }
 //function to set a character of the permMatrix
 void adfgvx::setMatrix(int row, int col, char c) {
-	this->codeMatrix[row][col]=toupper(c);
+	this->codeMatrix[row][col]=MyToUpper(c);
 }
 //function to check if permMatrix is valid 
 int adfgvx::checkMatrix() 
@@ -340,7 +340,7 @@ int adfgvx::readCiphertext(const char* ifile) {
 		//if the input is set in blocks, ignore the blanks and newLines
 		if(ch!=(' ')&&ch!=10)
 		{
-			ch = toupper(ch);
+			ch = MyToUpper(ch);
 			if (ch!='A' && ch!='D' && ch!='F' && ch!='G' && ch!='V' && ch!='X') 
 			return 4;
 			this->ciphertext+=ch;
@@ -409,7 +409,7 @@ void adfgvx::substitution(const char* pass)
 		if( ( ( 'A' <= plaintext[i] ) && ( 'z' >= plaintext[i] ) ) 
 			|| ( ( '0' <= plaintext[i] ) && ( '9' >= plaintext[i] ) ) )
 		{
-			substitute(toupper(plaintext[i]));
+			substitute(MyToUpper(plaintext[i]));
 			//only characters, that can be substituted via the matrix, are encoded
 			if (subChars!=0)
 			{
@@ -496,7 +496,7 @@ void adfgvx::resubstitution() {
 			this->plaintext += bigram[1];
 		}
 		else
-			this->plaintext += tolower(resub);
+			this->plaintext += MyToLower(resub);
 		//store substituted and repermutated text for separate output
 		this->stage1String += bigram[0];
 		this->stage1String += bigram[1];

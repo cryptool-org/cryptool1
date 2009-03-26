@@ -47,6 +47,7 @@ statement from your version.
 //////////////////////////////////////////////////////////////////
 #include "CryptDocTemplate.h"
 #include "FileTools.h"
+#include "ChrTools.h"
 
 CCryptDocTemplate::CCryptDocTemplate(UINT nIDResource, CRuntimeClass* pDocClass,
 		CRuntimeClass* pFrameClass, CRuntimeClass* pViewClass)
@@ -124,8 +125,8 @@ CDocTemplate::Confidence CCryptDocTemplate::MatchDocType(LPCTSTR lpszPathName,
 		do {
 	      l = fread(buffer, 1, sizeof(buffer), fi);
 		    for(i=0;i<l;i++) {
-				if(islower(buffer[i])) ok=min(ok,2);
-				if(isalpha((unsigned char)buffer[i])) continue;
+				if(MyIsLower(buffer[i])) ok=min(ok,2);
+				if(MyIsAlpha((unsigned char)buffer[i])) continue;
 				ok=0;
 				break;
 			}

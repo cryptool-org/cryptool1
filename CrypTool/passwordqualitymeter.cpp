@@ -50,8 +50,9 @@ statement from your version.
 // Implementierung eines Passwortqualitätsmessers
 //
 // ****************************************************************************
-
+#include "stdafx.h"
 #include "passwordqualitymeter.h"
+#include "ChrTools.h"
 
 // ****************************************************************************
 //
@@ -89,7 +90,7 @@ void stringToLowerCase(char *s)
   if(!s) return;
 
   for(unsigned int i=0; i<strlen(s); i++)
-    s[i] = (char)(int)(tolower(s[i]));
+    s[i] = (char)(int)(MyToLower(s[i]));
 }
 
 void stringCapitalize(char *s)
@@ -98,7 +99,7 @@ void stringCapitalize(char *s)
 
   stringToLowerCase(s);
 
-  s[0] = (char)(int)(toupper(s[0]));
+  s[0] = (char)(int)(MyToUpper(s[0]));
 }
 
 

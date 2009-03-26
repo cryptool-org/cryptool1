@@ -289,7 +289,7 @@ void CDlgPlayfairAnalysis::OnManAnalyse()
 		if ( m_TextWasPreformatted )
 		{
 			if (NULLELEMENT != nChar && !m_Alg->myisalpha2(nChar))  
-				nChar = m_Alg->getAlphabet()->replaceInvalidLetter(true, toupper(nChar));
+				nChar = m_Alg->getAlphabet()->replaceInvalidLetter(true, MyToUpper(nChar));
 			if ((NULLELEMENT==nChar) || (m_Alg->myisalpha2(nChar))) 
 			{
 				if ( i > 0 && NULLELEMENT != nChar && buf[i-1] == nChar )
@@ -572,7 +572,7 @@ void CDlgPlayfairAnalysis::InitListBox()
 	{
 		c=m_Alg->inbuf[i++];
 		if(!m_Alg->myisalpha2(c))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
-			if (('J'==toupper(c)) || (('0'<=c) && (c<='9')))
+			if (('J'==MyToUpper(c)) || (('0'<=c) && (c<='9')))
 				is6x6possible = true;
 			else
 				isinvalidoccured = true;
@@ -779,7 +779,7 @@ int CDlgPlayfairAnalysis::SetupAnalysisWindow()
 		if(!m_Alg->myisalpha2(c) && !isinvalidoccured)  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
 			c = m_Alg->getAlphabet()->replaceInvalidLetter(true, c);
 		if(m_Alg->myisalpha2(c)) {
-			ibuf[i] = toupper(c);
+			ibuf[i] = MyToUpper(c);
 			dbuf[i] = digbuf[k];
 			obuf[i] = m_Alg->outbuf[k];
 			k++;
@@ -1026,14 +1026,14 @@ void CChEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 	char b1[2],b2[2];
 
 	if(!m_Alg->myisalpha2(nChar))  // TG, Umlaute oder französische Zeichen zu etwas ähnlichem ersetzen.
-		nChar = m_Alg->getAlphabet()->replaceInvalidLetter(true, toupper(nChar));
+		nChar = m_Alg->getAlphabet()->replaceInvalidLetter(true, MyToUpper(nChar));
 	if (m_Alg->myisalpha2(nChar))
 	{
 		int i,j,s,a,b,c,d;
 
 		a=-1; c =-1;
 		b2[1]=0;
-		b2[0]=toupper(nChar);
+		b2[0]=MyToUpper(nChar);
 		SetSel(0, 1);
 		GetLine(0,b1,2);
 		ReplaceSel(b2);

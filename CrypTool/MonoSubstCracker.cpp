@@ -61,6 +61,7 @@ statement from your version.
  
 #include "stdafx.h"
 #include "MonoSubstCracker.h" 
+#include "ChrTools.h"
 
 
 // Do not optimize this code
@@ -386,7 +387,7 @@ UINT AutoAnaSubst(PVOID p)
 		// Count valid characters in input
 		characterNumber = 0;
 		while(--count>=0)
-			if (isalpha((unsigned char)ciphertext[count]) || (space_in_alphabet && ciphertext[count]==0x20))
+			if (MyIsAlpha(ciphertext[count]) || (space_in_alphabet && ciphertext[count]==0x20))
 				characterNumber++;
 		char tempbuffer[20];
 		_itoa(characterNumber, tempbuffer, 10);
@@ -543,10 +544,10 @@ int createStatistics(char *text, float *single, float *digram)
 		}
 
 		// check first character
-		c = toupper(text[0]);
+		c = MyToUpper(text[0]);
 		if (isInAlphabet(c))
 		{
-			single[toupper(c)-'A']++;
+			single[MyToUpper(c)-'A']++;
 			single_total++;
 		}
 
@@ -554,7 +555,7 @@ int createStatistics(char *text, float *single, float *digram)
 		for (i=1; i<length; i++) 
 		{
 			di = c;	// last single character is begin of the new digram
-			c = toupper(text[i]);
+			c = MyToUpper(text[i]);
 			if (!isInAlphabet(c))
 				continue;
 
@@ -622,7 +623,7 @@ int createInitialKey(char *key, float *stats)
 	// create the resulting initial key
 	freq = getSortedLetters();
 	for (i=0; i<chnum; i++)
-		key[toupper(freq[i])-'A'] = key_temp[i];
+		key[MyToUpper(freq[i])-'A'] = key_temp[i];
 
 	free (key_temp);
 
@@ -674,7 +675,7 @@ int initializeStandardDMatrix(float *stats, MonoSubstCrackerParameters *paramete
 	////////////////////////////////
 	// Count digrams
 	last = '\0';
-	while ( (current = toupper(fgetc(in_file))) != EOF)
+	while ( (current = MyToUpper(fgetc(in_file))) != EOF)
 	{
 		//////////////////////////////////////
 		// Spaces and German "Umlaute" have to be 
@@ -826,7 +827,7 @@ int invertKey(char *source, char *target)
     
 	for (int i=0; i<chnum; i++)
 	{
-		temp = toupper(source[i]);
+		temp = MyToUpper(source[i]);
 		if ( isInAlphabet(temp) )
 			target[temp-'A'] = i+'A';
 		else
@@ -852,11 +853,11 @@ void encryptText (char *key, char *plain, char *cipher)
 	{
 		temp = plain[i];
 		if (temp>='A' && temp<='Z')
-			cipher[i] = toupper(key[toupper(temp)-'A']);
+			cipher[i] = MyToUpper(key[MyToUpper(temp)-'A']);
 		else if (temp>='a' && temp<='z')
-			cipher[i] = tolower(key[toupper(temp)-'A']);
+			cipher[i] = MyToLower(key[MyToUpper(temp)-'A']);
 		else if (temp==91 && space_in_alphabet) // '['
-			cipher[i] = tolower(key[temp-'A']);
+			cipher[i] = MyToLower(key[temp-'A']);
 		else
 			cipher[i] = plain[i];
 	}
@@ -932,7 +933,7 @@ int guessLanguage(char *ciphertext)
 	// Go through the text and calculate freq statistic
     for (i=0; i<length; i++)
 	{
-		c = toupper(ciphertext[i]);
+		c = MyToUpper(ciphertext[i]);
 		if (c>='A' && c<='Z')
 		{
 			stat[c-'A']++;
@@ -1091,7 +1092,7 @@ void ManualAnaSubst(char* infile, const char* old_title, const char* key)
 ******************************************************************************/
 bool isInAlphabet(char c)
 {
-	c = toupper(c);
+	c = MyToUpper(c);
 	if (space_in_alphabet)
 		return (c>='A' && c<='[')?true:false;
 	else

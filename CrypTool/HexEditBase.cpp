@@ -56,6 +56,7 @@ statement from your version.
 #include "stdafx.h"
 #include "SelectCopyEncoding.h"
 #include "SelectPasteDecoding.h"
+#include "ChrTools.h"
 
 class CHexEditAction {
 public:
@@ -1601,7 +1602,7 @@ bool CHexEditBase::OnEditInput(WORD nInput)
 	}
 	
 	BYTE nValue = 255;
-	char nKey = (char)tolower(nInput);	
+	char nKey = (char)MyToLower((char)nInput);	
 	if (m_bCaretAscii) {
 		if (nInput <= 256)
 			nValue = (BYTE)nInput;

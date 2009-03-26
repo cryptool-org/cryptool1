@@ -64,6 +64,11 @@ BOOL MyIsUpper(char c)
 	return isupper((unsigned char)c);
 }
 
+BOOL MyIsAlpha(char c)
+{
+	return isalpha((unsigned char)c);
+}
+
 char MyToUpper(char c)
 {
 	return toupper((unsigned char)c);

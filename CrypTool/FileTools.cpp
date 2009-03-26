@@ -47,6 +47,7 @@ statement from your version.
 //////////////////////////////////////////////////////////////////
 #include "stdafx.h"
 #include "FileTools.h"
+#include "ChrTools.h"
 #include "CrypToolApp.h"
 #include <sys/stat.h>
 
@@ -414,9 +415,9 @@ BOOL ForceReformat(const char *reffile, const char *newfile, BOOL FixedAlphabet)
 
 	if(FixedAlphabet) { // use standard CPlayfairAlphabet
 		for(i=p=0;i<lr;i++) {
-			if(isalpha((unsigned char)bufr[i])) {
-				if(islower(bufr[i]))
-					bufr[i] = tolower(bufn[p]);
+			if(MyIsAlpha(bufr[i])) {
+				if(MyIsLower(bufr[i]))
+					bufr[i] = MyToLower(bufn[p]);
 				else
 					bufr[i] = bufn[p];
 				p++;
@@ -428,8 +429,8 @@ BOOL ForceReformat(const char *reffile, const char *newfile, BOOL FixedAlphabet)
 		if(theApp.TextOptions.getKeepUpperLowerCaseInformation()) { // case insensitive
 			for(i=p=0;i<lr;i++) {
 				if(AppConv.IsInAlphabet(bufr[i])) {
-					if(islower(bufr[i]))
-						bufr[i] = tolower(bufn[p]);
+					if(MyIsLower(bufr[i]))
+						bufr[i] = MyToLower(bufn[p]);
 					else
 						bufr[i] = bufn[p];
 					p++;

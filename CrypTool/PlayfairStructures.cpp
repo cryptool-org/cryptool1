@@ -127,7 +127,7 @@ CPlayfairLetter CPlayfairAlphabet::getLetter(char let, bool isConvert, bool isDi
 	let = replaceInvalidLetter (isConvert, let, isDigitsOk, isPlayfairTypical);
 	if (let=='\0') 	return NULL;
 	for (int i=0; i<my_max_count; i++)
-		if ((my_validletters[i]) && ((my_letters[i].getValue()==let)||(my_letters[i].getValue()==toupper(let))))
+		if ((my_validletters[i]) && ((my_letters[i].getValue()==let)||(my_letters[i].getValue()==MyToUpper(let))))
 			return my_letters[i];
 	return NULL;
 }

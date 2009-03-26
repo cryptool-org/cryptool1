@@ -49,9 +49,9 @@ statement from your version.
 #ifndef __CHRTOOLS_H
 #define __CHRTOOLS_H
 
-
 BOOL MyIsLower(char c);
 BOOL MyIsUpper(char c);
+BOOL MyIsAlpha(char c);
 char MyToUpper(char c);
 char MyToLower(char c);
 char *MyToUpper(char *str);

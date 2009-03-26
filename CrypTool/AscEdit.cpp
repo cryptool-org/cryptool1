@@ -51,6 +51,7 @@ statement from your version.
 #include "stdafx.h"
 #include "CrypToolApp.h"
 #include "AscEdit.h"
+#include "ChrTools.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -93,7 +94,7 @@ void CAscEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 	if((VK_BACK == nChar) || (3 == nChar) || (22 == nChar)) // Backspace
 		CEdit::OnChar(nChar, nRepCnt, nFlags);
 	else if(m_mode == 0) { // start mode 
-		if(isalpha((unsigned char)nChar)) {
+		if(MyIsAlpha(nChar)) {
 			CEdit::OnChar(nChar, nRepCnt, nFlags);
 			m_mode = 1;
 		}
@@ -106,11 +107,11 @@ void CAscEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		if ( MAX_PERM_LENGTH <= LineLength() )
 		{
 			LimitText(MAX_PERM_LENGTH);
-			if(isalpha((unsigned char)nChar))
+			if(MyIsAlpha(nChar))
 				CEdit::OnChar(nChar, nRepCnt, nFlags);
 			LimitText(0);
 		}
-		else if(isalpha((unsigned char)nChar))
+		else if(MyIsAlpha(nChar))
 			CEdit::OnChar(nChar, nRepCnt, nFlags);
 	}
 	else { // Numeric Mode
