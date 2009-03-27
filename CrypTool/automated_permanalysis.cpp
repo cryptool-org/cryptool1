@@ -45,62 +45,76 @@ TODO Cryptovision
 
 #include "automated_permanalysis.h"
 #include "resource.h"
+#include "FileTools.h"
 
-perm_table::perm_table()
+perm_table::perm_table() :
+	data(0),
+	permSize(0),
+	size(0),
+	readDir(row_dir),
+	permDir(row_dir)
 {
-	table	 = 0;
-	permSize = 0;
-	colSize  = 0;
-	dir		 = both_dir;
+}
+
+int  perm_table::loadFile(const char *filename, int TEXTMODE, int REFSIZE)
+{
+	if ( data )
+	{
+		delete []data; data = 0; size = 0;
+	}
+	int ret = readSource( filename, data, size, TEXTMODE );
+	if ( REFSIZE ) 
+	{
+		if ( size > REFSIZE )
+			ret = -1;
+		else
+			refSize = REFSIZE;
+	}
+	else refSize = size;
+	return ret;
 }
 
 perm_table::~perm_table()
 {
-	remove();
+	delete []data;
 }
 
-void perm_table::remove()
+int  perm_table::setParam(int READDIR, int PERMDIR, int PERMSIZE) 
+{ 
+	readDir = READDIR; permDir = PERMDIR; permSize = PERMSIZE; 
+	return 1; // FIXME 
+}
+
+int perm_table::get(int r, int c)
 {
-	if ( table ) 
-	{
-		for (int i=0; i<permSize; i++)
-			delete []table[i];
-		delete []table;
+	int ndx = 0;
+	int dRowCol, rc, cr;
+	if ( permDir == col_dir )
+	{ 
+		dRowCol = col_dir; rc = r; cr = c;
 	}
-}
-
-int perm_table::realloc( int FILESIZE, int PERMSIZE )
-{
-	if ( FILESIZE % PERMSIZE )
-		return -1;
-
-	remove();
-	permSize = PERMSIZE;
-	colSize = FILESIZE / permSize;
-	table = new char*[permSize];
-	for (int i=0; i<permSize; i++)
-		table[i] = new char[colSize];
-
-	return 0;
-}
-
-int  perm_table::readFile( ifstream &fin, int DIR)
-{
-	char c;
-	fin.clear();
-	fin.seekg(0, ios::beg);
-	dir = DIR;
-	for(int i=0; ;i++)
-	{
-		fin.get(c);
-		if (!fin.gcount())
-			break;
-		if (dir == col_dir)
-			table[i/colSize][i%colSize] = c;
-		else
-			table[i%permSize][i/permSize] = c;
+	else
+	{	
+		dRowCol = row_dir; rc = c; cr = r;
 	}
-	return 0;
+
+	if ( readDir == dRowCol )
+		ndx = (rc-1)*permSize + (cr-1);
+	else
+	{
+		ndx = size % permSize;
+		if ( ndx && cr <= ndx ) ndx = cr;
+		ndx += (cr-1) * (size/permSize) + rc-1;
+	}
+
+	ASSERT( 0 <= ndx && ndx < refSize );
+	return (ndx < size) ? data[ndx] : CHR_UNDEFINED;
+}
+
+int perm_table::get(int c)
+{
+	ASSERT( 1<=c && c<=refSize );
+	return (c<=size) ? data[c-1] : CHR_UNDEFINED;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -128,7 +142,7 @@ permkey::~permkey()
 automated_permanalysis::automated_permanalysis()
 {
 	keyList		= 0;
-	fileSize	= 0;
+	refSize	= 0;
 	rangePlain	= both_dir;
 	rangePerm	= both_dir;
 	rangeCipher = both_dir;
@@ -144,44 +158,21 @@ automated_permanalysis::~automated_permanalysis()
 	}
 }
 
-int automated_permanalysis::get_file_size(ifstream &fstrm, int &filesize)
+int automated_permanalysis::setFilenames( const char *fn_plain, const char *fn_cipher, int TEXTMODE, int refPlain )
 {
-	if(!fstrm.is_open())
-		return -1;
-
-	fstrm.clear(); // Go to the beginning of the file
-	fstrm.seekg(0, ios::end);
-	filesize = fstrm.tellg();
-	return 0;
-}
-
-int automated_permanalysis::setFilenames( const char *fn_plain, const char *fn_cipher )
-{
-	int error = 0, s1, s2;
-	plainFile.open( fn_plain );
-	if ( (error = get_file_size( plainFile, s1 )) )
-		return IDS_PA_COULDNOTOPEN_PLAINFILE;
-
-	cipherFile.open( fn_cipher );
-	if ( (error = get_file_size( plainFile, s2 )) )
-	{
-		cipherFile.close();
-		return IDS_PA_COULDNOTOPEN_CIPHERFILE;
-	}
-	
-	if ( s1 != s2 )
-		error = IDS_PA_FILESIZES_DIFFERENT;
-	if ( !s1 )
-		error = IDS_PA_EMPTYFILE;
-	if ( error )
-	{
-		cipherFile.close();
-		plainFile.close();
+	if ( refPlain )
+	{ // FIXME ERROR
+		ptPlain.loadFile(fn_plain, TEXTMODE);
+		refSize = ptPlain.getSize();
+		ptCipher.loadFile(fn_cipher, TEXTMODE, refSize);
 	}
 	else
-		fileSize = s1;
-
-	return error; // SUCCESS 
+	{ // FIXME ERROR
+		ptCipher.loadFile(fn_plain, TEXTMODE);
+		refSize = ptCipher.getSize();
+		ptPlain.loadFile(fn_cipher, TEXTMODE, refSize);
+	}
+	return 1; // FIXME 
 }
 
 int automated_permanalysis::setAnalyseParam(int ps_lowerLimit, int ps_upperLimit, int range_plain, int range_perm, int range_cipher)
@@ -196,7 +187,7 @@ int automated_permanalysis::setAnalyseParam(int ps_lowerLimit, int ps_upperLimit
 		return IDS_PA_DIRECTION_ERROR; //ERROR Muss hier ein ERROR geworfen werden wenn wir eh nur die 3 zur auswahl haben und 2 der default ist und wir nicht unter 0 kommen???
 
 	if (ps_upperLimit == -1)
-		psUpperLimit = fileSize;
+		psUpperLimit = refSize;
 	else
 		psUpperLimit = ps_upperLimit;
 
@@ -207,20 +198,10 @@ int automated_permanalysis::setAnalyseParam(int ps_lowerLimit, int ps_upperLimit
 	return 0;
 }
 
-int automated_permanalysis::read_file_in_table(ifstream &fstrm, perm_table &pt, int permSize, int DIR )
-{
-	if ( 0 > pt.realloc( fileSize, permSize ) )
-		return -1; // FIXME: ErrorCode
-	if ( 0 > pt.readFile( fstrm, DIR ) )
-		return -1; // FIXME: ErrorCode
-
-	return 0;
-}
-
 int automated_permanalysis::get_key(int permSize, int it_perm)
 {
 	int found = 1;
-
+#if 0
 	int* key = new int[permSize];
 	bool* used_in_key = new bool [permSize];
 
@@ -257,14 +238,14 @@ int automated_permanalysis::get_key(int permSize, int it_perm)
 		delete []key;
 
 	delete []used_in_key;
-
+#endif 
 	return found;
 }
 
 int automated_permanalysis::analyse(int permSize, int it_plain, int it_perm, int it_cipher)
 {
-	read_file_in_table(plainFile, ptPlain, permSize, it_plain);
-	read_file_in_table(cipherFile, ptCipher, permSize, it_cipher);
+	ptPlain.setParam(it_plain, it_perm, permSize);
+	ptCipher.setParam(it_cipher, it_perm, permSize);
 	return get_key( permSize, it_perm );
 }
 
@@ -279,7 +260,7 @@ int automated_permanalysis::iterate_key_param()
 	int permSize;
 	int it_perm, it_cipher;
 
-	for(permSize=psUpperLimit; permSize>=psLowerLimit; permSize--) if ( !( fileSize % permSize ) )
+	for(permSize=psUpperLimit; permSize>=psLowerLimit; permSize--)
 		for ( it_perm = row_dir; it_perm <= col_dir; it_perm++ ) if (check(it_perm, rangePerm))
 			for (it_cipher = row_dir; it_cipher <= col_dir; it_cipher++ ) if (check(it_cipher, rangeCipher ))
 				analyse(permSize, ( it_perm == col_dir ) ? col_dir : row_dir, it_perm, it_cipher);

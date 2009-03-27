@@ -45,20 +45,30 @@ TODO Cryptovision
 
 #pragma once
 #include "stdafx.h"
+#define CHR_UNDEFINED 0x0100
+
 
 enum direction { row_dir = 0, col_dir = 1, both_dir = 2 };
 
-struct perm_table {
-	char  **table;
-	int	permSize;
-	int	colSize;
-	int dir; 
+class perm_table {
+	char  *data;
+	int    size;
+	int    refSize;
 
+	int    readDir;
+	int    permDir;
+	int    permSize;
+
+public: 
 	perm_table();
 	~perm_table();
-	void remove();
-	int  realloc( int FILESIZE, int PERMSIZE );
-	int  readFile( ifstream &fin, int DIR );
+
+	int  loadFile(const char *filename, int TEXTMODE, int REFSIZE = 0);
+	int  setParam(int READDIR, int PERMDIR, int PERMSIZE);
+	int  getSize() { return size; }
+
+	int get     (int i, int j);
+	int get     (int i);
 };
 
 struct permkey {
@@ -73,21 +83,17 @@ struct permkey {
 
 
 class automated_permanalysis {
-	ifstream     plainFile, cipherFile;
-	int		     fileSize;
 	int			 psUpperLimit, psLowerLimit;
-	int    	     rangePlain, rangeCipher, rangePerm;
+	int    	     rangePlain, rangeCipher, rangePerm, refSize;
 	permkey     *keyList;
 	perm_table   ptPlain, ptCipher;
 
-	int get_file_size(ifstream &fstrm, int &filesize);
-	int read_file_in_table(ifstream &fstrm, perm_table &pt, int permSize, int DIR);
 	int get_key(int permSize, int it_perm);
 	int analyse(int permSize, int it_plain, int it_perm, int it_cipher);
 public:
 	automated_permanalysis();
 	~automated_permanalysis();
-	int setFilenames( const char *fn_plain, const char *fn_cipher );
+	int setFilenames( const char *fn_plain, const char *fn_cipher, int TEXTMODE, int refPlain = 0 );
 	int setAnalyseParam( int ps_lowerLimit, int ps_upperLimit,
 						 int range_plain, int range_perm, int range_cipher); 
 	const permkey *getKeyList() { return keyList; }
