@@ -52,17 +52,20 @@ perm_table::perm_table() :
 	permSize(0),
 	size(0),
 	readDir(row_dir),
-	permDir(row_dir)
+	permDir(row_dir),
+	ofsList(0)
 {
 }
 
-int  perm_table::loadFile(const char *filename, int TEXTMODE, int REFSIZE)
+int  perm_table::loadFile(const char *filename, int TEXTMODE, unsigned int REFSIZE)
 {
 	if ( data )
 	{
 		delete []data; data = 0; size = 0;
 	}
-	int ret = readSource( filename, data, size, TEXTMODE );
+	int tSize;
+	int ret = readSource( filename, data, tSize, TEXTMODE );
+	size = (int)tSize;
 	if ( REFSIZE ) 
 	{
 		if ( size > REFSIZE )
@@ -77,16 +80,30 @@ int  perm_table::loadFile(const char *filename, int TEXTMODE, int REFSIZE)
 perm_table::~perm_table()
 {
 	delete []data;
+	delete []ofsList;
 }
 
-int  perm_table::setParam(int READDIR, int PERMDIR, int PERMSIZE) 
+void perm_table::setParam(int READDIR, int PERMDIR, unsigned int PERMSIZE, int ofsKnown) 
 { 
-	readDir = READDIR; permDir = PERMDIR; permSize = PERMSIZE; 
-	return 1; // FIXME 
+	readDir		= READDIR; 
+	permDir		= PERMDIR; 
+	permSize	= PERMSIZE;
+
+	delete []ofsList;
+	ofsList = new unsigned int[permSize+1];
+
+	ofsList[0] = (ofsKnown) ? permSize : 0;
+	ofsList[1] = 0;
+	for (int i=2; i<=permSize; i++)
+		ofsList[i] = (ofsKnown) ? ofsList[i-1] + size/permSize + (i <= size%permSize) : 0;
 }
 
 int perm_table::get(int r, int c)
 {
+#if 0
+	if ( ofsList < permSize ) 
+		return TABLE_ERROR;
+
 	int ndx = 0;
 	int dRowCol, rc, cr;
 	if ( permDir == col_dir )
@@ -101,14 +118,12 @@ int perm_table::get(int r, int c)
 	if ( readDir == dRowCol )
 		ndx = (rc-1)*permSize + (cr-1);
 	else
-	{
-		ndx = size % permSize;
-		if ( ndx && cr <= ndx ) ndx = cr;
-		ndx += (cr-1) * (size/permSize) + rc-1;
-	}
+		ndx = ofsList[cr] + (rc-1);
 
 	ASSERT( 0 <= ndx && ndx < refSize );
 	return (ndx < size) ? data[ndx] : CHR_UNDEFINED;
+#endif
+	return 0;
 }
 
 int perm_table::get(int c)
@@ -244,9 +259,9 @@ int automated_permanalysis::get_key(int permSize, int it_perm)
 
 int automated_permanalysis::analyse(int permSize, int it_plain, int it_perm, int it_cipher)
 {
-	ptPlain.setParam(it_plain, it_perm, permSize);
-	ptCipher.setParam(it_cipher, it_perm, permSize);
-	return get_key( permSize, it_perm );
+	// ptPlain.setParam(it_plain, it_perm, permSize);
+	// ptCipher.setParam(it_cipher, it_perm, permSize);
+	return 0; // get_key( permSize, it_perm );
 }
 
 inline 

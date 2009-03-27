@@ -46,29 +46,33 @@ TODO Cryptovision
 #pragma once
 #include "stdafx.h"
 #define CHR_UNDEFINED 0x0100
+#define TABLE_ERROR   0x0101
 
 
 enum direction { row_dir = 0, col_dir = 1, both_dir = 2 };
 
 class perm_table {
-	char  *data;
-	int    size;
-	int    refSize;
+	char		   *data;
+	unsigned int    size;
+	unsigned int    refSize;
 
-	int    readDir;
-	int    permDir;
-	int    permSize;
+	unsigned int    permSize;
+	unsigned int   *ofsList;
+
+	int				readDir;
+	int				permDir;
 
 public: 
 	perm_table();
 	~perm_table();
 
-	int  loadFile(const char *filename, int TEXTMODE, int REFSIZE = 0);
-	int  setParam(int READDIR, int PERMDIR, int PERMSIZE);
-	int  getSize() { return size; }
+	int  loadFile(const char *filename, int TEXTMODE, unsigned int REFSIZE = 0);
+	void setParam(int READDIR, int PERMDIR, unsigned int PERMSIZE, int ofsKnown);
+	unsigned int  getSize() { return size; }
 
-	int get     (int i, int j);
-	int get     (int i);
+	int get		(int r, int c);
+	int get		(int c);
+	int findStr (const char *str, int len);
 };
 
 struct permkey {
