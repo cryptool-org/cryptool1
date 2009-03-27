@@ -1079,19 +1079,18 @@ void CDlgCrtSecretSharing::OnBnClickedSecretsharingSolve()
 				HIDE_HOUR_GLASS		// deaktiviert die Sanduhr
 				
 				// Berechne noch offene Möglichkeiten
-				Big temp1;
-				double temp2;
+				// FIXME BEGIN
+				Big temp1 = min_k / M;
+				// FIXME END
 				CString Ctemp3;
-				temp1=min_k - M;
 				BigToCString(temp1,Ctemp3,10);
-				temp2 = atof(Ctemp3);
 				dum.LoadString(IDS_CRT_SECRETSHARING_REK6);
-				helper.Format(dum,anzahl,m_need, temp2);
+				helper.Format(dum,anzahl,m_need, Ctemp3);
 				AfxMessageBox( helper, MB_ICONINFORMATION );
 
 				// Log-Datei
 				helpme.LoadString(IDS_CRT_SECRETSHARING_REK7);
-				helper.Format(helpme,temp2);
+				helper.Format(helpme,Ctemp3);
 				m_log=m_log+helper;
 			}
 	

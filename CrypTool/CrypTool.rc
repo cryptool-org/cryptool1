@@ -12323,12 +12323,12 @@ BEGIN
     PUSHBUTTON      "Vollständig &faktorisieren",IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,249,156,93,16,NOT WS_VISIBLE | WS_DISABLED
     PUSHBUTTON      "&Schließen",IDC_BUTTON_cancel,259,307,94,18
     GROUPBOX        "Algorithmen zur Faktorisierung",IDC_STATIC,13,6,123,107
-    CONTROL         "Brute-force",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,23,51,10
+    CONTROL         "Brute-Force",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,23,53,10
     CONTROL         "Brent",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,38,33,10
     CONTROL         "Pollard",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,53,37,10
     CONTROL         "Williams",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,68,41,10
     CONTROL         "Lenstra",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,83,39,10
-    CONTROL         "Quadratische Sieb",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,98,74,10
+    CONTROL         "Quadratisches Sieb",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,98,77,10
     GROUPBOX        "Eingabe",IDC_STATIC,146,6,207,107
     LTEXT           "Geben Sie die zu faktorisierende Zahl ein:",IDC_STATIC,177,34,165,8
     GROUPBOX        "Faktorisierung (schrittweise)",IDC_STATIC,13,118,340,64
@@ -20645,9 +20645,9 @@ BEGIN
                             "Bitte warten, Schlüssel werden zusammengefügt!"
     IDS_CRT_SECRETSHARING_REK5 "Benutze Passwörter zu den %d Kennungen  "
     IDS_CRT_SECRETSHARING_REK6 
-                            "Sie haben %d Schlüssel eingegeben. Es werden aber mindestens %d richtige Schlüssel für eine eindeutige \r\nBerechnung benötigt. Mit diesen Schlüsseln bleiben %d Möglichkeiten offen."
+                            "Sie haben %d Schlüssel eingegeben. Es werden aber mindestens %d richtige Schlüssel für eine eindeutige \r\nBerechnung benötigt. Mit diesen Schlüsseln bleiben %s Möglichkeiten offen."
     IDS_CRT_SECRETSHARING_REK7 
-                            "Es wurden zu wenige Schlüssel benutzt.\r\n Mit diesen Schlüsseln bleiben %d Möglichkeiten offen.\r\n\r\n----- Rekonstruktion gescheitert -----\r\n\r\n"
+                            "Es wurden zu wenige Schlüssel benutzt.\r\n Mit diesen Schlüsseln bleiben %s Möglichkeiten offen.\r\n\r\n----- Rekonstruktion gescheitert -----\r\n\r\n"
     IDS_CRT_SECRETSHARING_REK8 
                             "Folgendes Geheimnis wurde rekonstruiert:\r\n%s"
     IDS_CRT_SECRETSHARING_SUCCESS 
@@ -31361,9 +31361,9 @@ BEGIN
     IDS_CRT_SECRETSHARING_REK4 "Please wait, while keys are fit together."
     IDS_CRT_SECRETSHARING_REK5 "Using the %d passwords to identifiers    "
     IDS_CRT_SECRETSHARING_REK6 
-                            "You've entered %d keys.\r\nAt least %d correct keys are needed for a definite calculation.\r\nWith the given keys, there are %d possibilities remaining."
+                            "You've entered %d keys.\r\nAt least %d correct keys are needed for a definite calculation.\r\nWith the given keys, there are %s possibilities remaining."
     IDS_CRT_SECRETSHARING_REK7 
-                            "Number of keys used is to small.\r\n\r\n----- Reconstruction failed -----\r\n\r\n"
+                            "Number of keys used is too small. With these keys, there are %s possibilities remaining.\r\n\r\n----- Reconstruction failed -----\r\n\r\n"
     IDS_CRT_SECRETSHARING_REK8 "The following secret was rebuilt:\r\n%s"
     IDS_CRT_SECRETSHARING_SUCCESS 
                             "The following secret was rebuilt:\r\n%s\r\n\r\n----- Reconstruction successfully finished -----"
