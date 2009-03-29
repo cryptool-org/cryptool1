@@ -3300,9 +3300,9 @@ void DoPerm(char *dest, char *src, int len, int *p, int plen, int Zin, int Zout)
 		else {//zeilenweise einlesen, zeilenweise auslesen
 			for(pt=i=0;i<Zeilenzahl;i++,pt+=plen) // ganze Zeilen
 				for(k=0;k<plen;k++)
-					dest[pt+p[k]]=src[pt+k];
+					dest[pt+k]=src[pt+p[k]];
 			for(i=0;i<LetzteZLen;i++) // letzte Zeile
-				dest[pt+pres[i]]=src[pt+i];
+				dest[pt+i]=src[pt+pres[i]];
 		}
 	else	// spaltenweise einlesen
 		if(Zout == 1) // spaltenweise einlesen, spaltenweise auslesen
@@ -3344,13 +3344,13 @@ void DoInvPerm(char *dest, char *src, int len, int *p, int plen, int Zin, int Zo
 		if(Zout == 1) // zeilenweise einlesen, spaltenweise auslesen
 			for(pt=i=0;i<plen;i++)
 				for(k=p[i];k<len;k+=plen)
-					dest[k]=src[pt++];
+					dest[k]=src[pt++]; 
 		else {//zeilenweise einlesen, zeilenweise auslesen
 			for(pt=i=0;i<Zeilenzahl;i++,pt+=plen) // ganze Zeilen
 				for(k=0;k<plen;k++)
-					dest[pt+k]=src[pt+p[k]];
+					dest[pt+p[k]]=src[pt+k];
 			for(i=0;i<LetzteZLen;i++) // letzte Zeile
-				dest[pt+i]=src[pt+pres[i]];
+				dest[pt+pres[i]]=src[pt+i];
 		}
 	else	// spaltenweise einlesen
 		if(Zout == 1) // spaltenweise einlesen, spaltenweise auslesen

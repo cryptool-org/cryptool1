@@ -94,17 +94,16 @@ void perm_table::setParam(int READDIR, int PERMDIR, unsigned int PERMSIZE, int o
 
 	ofsList[0] = (ofsKnown) ? permSize : 0;
 	ofsList[1] = 0;
-	for (int i=2; i<=permSize; i++)
+	for (unsigned int i=2; i<=permSize; i++)
 		ofsList[i] = (ofsKnown) ? ofsList[i-1] + size/permSize + (i <= size%permSize) : 0;
 }
 
 int perm_table::get(int r, int c)
 {
-#if 0
-	if ( ofsList < permSize ) 
+	if ( ofsList[0] < permSize ) 
 		return TABLE_ERROR;
 
-	int ndx = 0;
+	unsigned int ndx = 0;
 	int dRowCol, rc, cr;
 	if ( permDir == col_dir )
 	{ 
@@ -122,14 +121,60 @@ int perm_table::get(int r, int c)
 
 	ASSERT( 0 <= ndx && ndx < refSize );
 	return (ndx < size) ? data[ndx] : CHR_UNDEFINED;
-#endif
-	return 0;
 }
 
-int perm_table::get(int c)
+int perm_table::get(unsigned int c)
 {
 	ASSERT( 1<=c && c<=refSize );
 	return (c<=size) ? data[c-1] : CHR_UNDEFINED;
+}
+
+int perm_table::findStr (const int *str, int *permTable)
+{
+	unsigned int i, j;
+	int marker = 0;
+	for (j=1; j<=permSize; j++) if ( permTable[j] <= 0 )
+	{
+		int found = 1;
+		for (i=1; i<=refSize/permSize + (unsigned int)(j <= (refSize%permSize)) && found; i++)
+		{
+			unsigned int jj, ii;
+			jj = ( permDir == row_dir ) ? j : i;
+			ii = ( permDir == row_dir ) ? i : j;
+			if ( (get( jj, ii ) != str[i-1]) )
+			{
+				if ( get(jj, ii) == CHR_UNDEFINED || str[i-1] == CHR_UNDEFINED )
+					found = -1;
+				else
+					found = 0; 
+			}
+		}
+		if ( found == 1 )
+			return j;
+		if ( found == -1 && !marker )
+			marker = -1*((int)j);
+	}
+	return marker;
+}
+
+void perm_table::buildStr(int *str, unsigned int ofs, unsigned int lastStep)
+{
+	unsigned int i;
+	if ( readDir == permDir )
+	{
+		for (i=ofs; i<ofs+(refSize/permSize); i++)
+			str[i-ofs] = get(i);
+		if ( (i<refSize) && (refSize%permSize) )
+			str[i-ofs] = get(i);
+	}
+	else
+	{
+		unsigned int k = ofs;
+		for (i=0; i<(refSize/permSize); i++,k+=permSize)
+			str[i] = get(k);
+		if ( lastStep ) 
+			str[i] = get(k + lastStep);
+	}
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -213,9 +258,31 @@ int automated_permanalysis::setAnalyseParam(int ps_lowerLimit, int ps_upperLimit
 	return 0;
 }
 
-int automated_permanalysis::get_key(int permSize, int it_perm)
+int automated_permanalysis::get_key(unsigned int permSize, int it_perm)
 {
 	int found = 1;
+
+	unsigned int j, ofs = 0, lastStep = permSize, incr = 1;
+	int *str  = new int[ptPlain.getSize()/permSize +1];
+	int *perm = new int[permSize+1];
+	for ( j=1; j<=permSize; j++ )
+	{
+		ptCipher.buildStr(str, ofs, lastStep);
+		int index = ptPlain.findStr(str, perm);
+		if ( index != 0 )
+		{
+			perm[j] = index;
+			if ( index < 0 )
+				index *= -1;
+			if ( index <= (int)permSize )
+				lastStep--;
+			ASSERT(lastStep >= 0);
+		}
+		else
+			break;
+		ofs += incr + ( (ptCipher.permDir != ptCipher.readDir) && (index <= (int)permSize) );
+	}
+
 #if 0
 	int* key = new int[permSize];
 	bool* used_in_key = new bool [permSize];
@@ -257,11 +324,12 @@ int automated_permanalysis::get_key(int permSize, int it_perm)
 	return found;
 }
 
-int automated_permanalysis::analyse(int permSize, int it_plain, int it_perm, int it_cipher)
+int automated_permanalysis::analyse(unsigned int permSize, int it_plain, int it_perm, int it_cipher)
 {
-	// ptPlain.setParam(it_plain, it_perm, permSize);
-	// ptCipher.setParam(it_cipher, it_perm, permSize);
-	return 0; // get_key( permSize, it_perm );
+	ptPlain.setParam (it_plain, it_perm, permSize, 1);
+	ptCipher.setParam(it_cipher, it_perm, permSize, 0);
+	get_key( permSize, it_perm );
+	return 0; 
 }
 
 inline 

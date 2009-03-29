@@ -52,6 +52,8 @@ TODO Cryptovision
 enum direction { row_dir = 0, col_dir = 1, both_dir = 2 };
 
 class perm_table {
+
+public:
 	char		   *data;
 	unsigned int    size;
 	unsigned int    refSize;
@@ -68,11 +70,12 @@ public:
 
 	int  loadFile(const char *filename, int TEXTMODE, unsigned int REFSIZE = 0);
 	void setParam(int READDIR, int PERMDIR, unsigned int PERMSIZE, int ofsKnown);
-	unsigned int  getSize() { return size; }
+	unsigned int  getSize() { return refSize; }
 
-	int get		(int r, int c);
-	int get		(int c);
-	int findStr (const char *str, int len);
+	int  get		(int r, int c);
+	int  get		(unsigned int c);
+	int  findStr (const int *str, int *permTable);
+	void buildStr(int *str, unsigned int ofs, unsigned int lastStep);
 };
 
 struct permkey {
@@ -92,8 +95,8 @@ class automated_permanalysis {
 	permkey     *keyList;
 	perm_table   ptPlain, ptCipher;
 
-	int get_key(int permSize, int it_perm);
-	int analyse(int permSize, int it_plain, int it_perm, int it_cipher);
+	int get_key(unsigned int permSize, int it_perm);
+	int analyse(unsigned int permSize, int it_plain, int it_perm, int it_cipher);
 public:
 	automated_permanalysis();
 	~automated_permanalysis();
