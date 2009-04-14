@@ -125,6 +125,7 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // Behandlungsroutinen für Nachrichten CDlgProgressFactorisation 
 
+#if 0
 void CDlgProgressFactorisation::Display(const char * title, int totalThreads)
 {
 	m_totalThreads = totalThreads;
@@ -133,7 +134,7 @@ void CDlgProgressFactorisation::Display(const char * title, int totalThreads)
 	DoModal();
 	while(!m_displayed) Sleep(100); // wartet bis das Fenster existiert 
 } 
-
+#endif
 
 BOOL CDlgProgressFactorisation::OnInitDialog() 
 {
@@ -151,7 +152,7 @@ BOOL CDlgProgressFactorisation::OnInitDialog()
 	if ( m_Caption != _T("") )
 		SetWindowText( m_Caption );
 	Lock.Unlock();
-	while(m_totalThreads > m_registeredThreads) Sleep(2);
+	while(m_totalThreads > m_registeredThreads) Sleep(2); 
 	mTimerDisplay =  SetTimer(45,1000,NULL);
 	if(m_totalThreads == 0) {
 		EndDialog(m_retcode);
@@ -204,8 +205,8 @@ void CDlgProgressFactorisation::OnTimer(UINT nIDEvent)
 		{
 			int t = m_retcode;
 			KillTimer(mTimerCancel);
-			m_curThread = 0;
-			m_numThreads = 0;
+			m_curThread = 0; // FIXME Lock?
+			m_numThreads = 0; 
 			m_displayed = 0;
 			m_OldThread = -1;
 			m_registeredThreads = 0;
@@ -231,7 +232,7 @@ void CDlgProgressFactorisation::SetCaption( const char * Caption)
 int CDlgProgressFactorisation::EnterSchedule(int index)
 {
 	m_Factorisations[index]->m_iterations = 0;
-	m_Factorisations[index]->status = THREAD_RUNNING;
+	m_Factorisations[index]->status = THREAD_RUNNING; // FIXME Lock required
 	while(!m_displayed) Sleep(2);
 	Lock.Lock();
 
@@ -248,7 +249,7 @@ int CDlgProgressFactorisation::EnterSchedule(int index)
 	}
 	Lock.Unlock();
 	while(m_Factorisations[index]->status & THREAD_SUSPENDED) Sleep(1);
-	if(m_OldThread != -1) {
+	if(m_OldThread != -1) { // FIXME Lock required?
 		m_Factorisations[m_OldThread]->m_Thread->SuspendThread();
 		m_OldThread = -1;
 	}
@@ -266,6 +267,7 @@ int CDlgProgressFactorisation::Schedule(int index)
 	if (m_Factorisations[index]->status & THREAD_REQUEST_ABORT) return 1;
 	if(m_timeout < 10) return 0;
 	m_timeout = 0;
+	while(m_totalThreads > m_registeredThreads) Sleep(2); 
 	Lock.Lock();
 	if(m_numThreads > 1) {
 		m_Factorisations[index]->status |= THREAD_SUSPENDED;
@@ -283,7 +285,7 @@ int CDlgProgressFactorisation::Schedule(int index)
 		Lock.Unlock();
 	}
 	while(m_Factorisations[index]->status & THREAD_SUSPENDED) Sleep(1);
-	if(m_OldThread != -1) {
+	if(m_OldThread != -1) { // FIXME Lock required?
 		m_Factorisations[m_OldThread]->m_Thread->SuspendThread();
 		m_OldThread = -1;
 	}
@@ -306,6 +308,8 @@ int CDlgProgressFactorisation::ExitSchedule(int index)
 			}
 		}
 	}
+	while(m_totalThreads > m_registeredThreads) Sleep(2); 
+	ASSERT(m_registeredThreads == m_totalThreads);
 	Lock.Lock();
 	m_numThreads--;
 	if((m_numThreads == 0) && (m_registeredThreads == m_totalThreads)) { // all threads exited, shutdown window
