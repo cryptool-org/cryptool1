@@ -217,7 +217,6 @@ void CDlgRot13Caesar::OnDecrypt()
 
 void CDlgRot13Caesar::onTextOptions()
 {
-
 	theApp.TextOptions.DoModal();
 	
 	controlEditSourceAlphabet.SetWindowText(theApp.TextOptions.getAlphabet());
@@ -280,10 +279,20 @@ void CDlgRot13Caesar::onUpdateGUI()
 			// enable alphabetic key input field, disable numeric key input field
 			controlEditAlphabeticKey.EnableWindow(TRUE);
 			controlEditNumericKey.EnableWindow(FALSE);
-			// in case we only use upper case letters, capitalize the user input
-			if(theApp.TextOptions.getKeepUpperLowerCaseInformation()) alphabeticKey.MakeUpper();
-			// in case the given alphabetic key is invalid (not found in alphabet or empty), default to an empty key
-			if(theApp.TextOptions.getAlphabet().Find(alphabeticKey) == -1 || alphabeticKey.IsEmpty()) alphabeticKey = "";
+			// in case the given alphabetic key is invalid (not found in alphabet), we have two options:
+			//   option 1: we check if the upper/lower case equivalent of the key is valid
+			//   option 2: we default to an empty key
+			if(theApp.TextOptions.getAlphabet().Find(alphabeticKey) == -1) {
+				CString tempKey = alphabeticKey;
+				if(theApp.TextOptions.getAlphabet().Find(tempKey.MakeUpper()) != -1) alphabeticKey.MakeUpper();
+				else if(theApp.TextOptions.getAlphabet().Find(tempKey.MakeLower()) != -1) alphabeticKey.MakeLower();
+				else alphabeticKey = "";
+
+			}
+			// in case the given alphabetic key is invalid (missing), we default to an empty key
+			if(alphabeticKey.IsEmpty()) {
+				alphabeticKey = "";
+			}
 			// calculate the according numeric key
 			numericKey = calculateNumericKeyFromAlphabeticKey(alphabeticKey);
 		}
