@@ -29466,14 +29466,14 @@ BEGIN
     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS 
                             "Encryption using simple transpositions (Scytale, Rail Fence)"
     ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION 
-                            "Known-plaintext attack against a document ecrypted using the single column transposition algorithm"
+                            "Known-plaintext attack against a document encrypted with the single column transposition algorithm"
 END
 
 STRINGTABLE 
 BEGIN
     ID_CRYPT_VERIFY         "Verify signature on the active document"
     ID_CRYPT_EXTRACT        "Extract the actual signature from the output generated through ""Sign document"""
-    ID_ANALYZE_SUBST        "Manual analysis of a document encrypted using the substitution algorithm"
+    ID_ANALYZE_SUBST        "Manual analysis of a document encrypted with the substitution algorithm"
     IDS_STRING_CUT_NULLS    "The Text contains an endeing section of Null characters. This section will be cut from the text. Proceed to show as text?"
     IDS_STRING_EC_ERROR_LOADING_KEYFILE 
                             "Error! File %s cannot be opened or does not exist.\nWithout this file it is not possible to display any key pairs for elliptic curves."
@@ -29529,16 +29529,16 @@ END
 STRINGTABLE 
 BEGIN
     ID_CRYPT_DES_DESCBC     "Encryption / decryption with DES (CBC mode)"
-    ID_CAESAR_AUTO          "Automatic analysis of a document encrypted using the Caesar algorithm"
-    ID_VIGENERE_AUTO        "Automatic analysis of a document encrypted using the Vigenère algorithm"
-    ID_XOR_AUTO             "Automatic analysis of a document encrypted using the XOR algorithm"
-    ID_ADD_AUTO             "Automatic analysis of a document encrypted using the byte-by-byte addition algorithm"
+    ID_CAESAR_AUTO          "Automatic analysis of a document encrypted with the Caesar algorithm"
+    ID_VIGENERE_AUTO        "Automatic analysis of a document encrypted with the Vigenère algorithm"
+    ID_XOR_AUTO             "Automatic analysis of a document encrypted with the XOR algorithm"
+    ID_ADD_AUTO             "Automatic analysis of a document encrypted with the byte-by-byte addition algorithm"
     ID_OPTIONS_PLOT         "Offers to change the settings for graphical display"
     ID_OPTIONS_ANALYSIS     "Offers to change the settings for automatic analysis"
     ID_ZIP                  "Compresses the active document using the ZIP algorithm"
     ID_UNZIP                "Decompresses the active document if it is the result of being compressed by CrypTool with the ZIP algorithm"
     ID_WINDOW_CLOSE_ALL     "Closes all windows"
-    ID_HILL_AUTO            "Known-plaintext attack against a document encrypted using the Hill algorithm"
+    ID_HILL_AUTO            "Known-plaintext attack against a document encrypted with the Hill algorithm"
     ID_CRYPT_KeyGen         "Generate (or import from PKCS#12) a key pair for different asymmetric algorithms"
     ID_CRYPT_RsaEnc         "Encrypts a file using the RSA algorithm"
     ID_CRYPT_RsaDec         "Decrypts a file encrypted with the RSA algorithm"
@@ -29863,7 +29863,7 @@ STRINGTABLE
 BEGIN
     ID_TOTXT                "Shows current window as text"
     ID_TOHEX                "Shows current window as hexdump"
-    ID_PLAYFAIR_ANALYSE     "Manual analysis of a document encrypted using the Playfair algorithm"
+    ID_PLAYFAIR_ANALYSE     "Manual analysis of a document encrypted with the Playfair algorithm"
     IDS_STRING_VITANY_ANALYSE "Vitany Analyse"
     ID_ANALYSE_VITANY       "Checks the statistic independence of the active document"
     IDS_STRING_KEY_GENERATION_DATE "Date key created:"
@@ -31166,7 +31166,7 @@ BEGIN
     ID_CODE_BASE64          "The base64 code is used to represent the binary data of the active document by printable ASCII characters"
     ID_CODE_UU              "UU encoding is used to represent the binary data of the active document by printable ASCII characters"
     ID_ANALYSE_SYMMCLASSIC_ADFGVX 
-                            "Automatic analysis of a document encrypted using the ADFGVX algorithm"
+                            "Automatic analysis of a document encrypted with the ADFGVX algorithm"
     ID_HELP_ANIMAL_DES      "The animation program ANIMAL demonstrates the data flow of the DES algorithm"
     ID_HELP_ANIMAL_VIGENERE "The animation program ANIMAL demonstrates the data flow of the Vigenère algorithm"
     ID_HELP_ANIMAL_NIHILIST "The animation program ANIMAL demonstrates the data flow of the Nihilist algorithm"
@@ -31177,10 +31177,10 @@ BEGIN
     ID_INDIV_CRT_SECRETSHARING 
                             "Illustrates the shared secret method using CRT (opening a vault with any 3 out of 5 key owners)"
     ID_HELP_ANIMAL_CAESAR   "The animation program ANIMAL demonstrates the data flow of the Caesar algorithm"
-    ID_ADFGVX               "Semi-automatic analysis of a document encrypted using the substitution algorithm"
+    ID_ADFGVX               "Semi-automatic analysis of a document encrypted with the substitution algorithm"
     ID_ADFGVX_MANUAL        "Solitaire encryption"
     ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE 
-                            "Semi automatic analysis of a document encrypted using the Solitaire algorithm"
+                            "Semi automatic analysis of a document encrypted with the Solitaire algorithm"
 END
 
 STRINGTABLE 
@@ -31873,7 +31873,7 @@ BEGIN
     IDS_SIMPLE_TRANSPOSITION_OFFSET_INVALID 
                             "The offset is invalid. It must not be smaller than 0."
     IDS_STRING_FACTORIZATION_BRUTE_FORCE_LIMIT 
-                            "This factor could not be factorized using brute-force. Here, brute-force is implemented to find only factors smaller than %d."
+                            "This number could not be factorized using brute-force. Here, brute-force is implemented in a way to find only factors smaller than %d."
 END
 
 #endif    // English (U.K.) resources
