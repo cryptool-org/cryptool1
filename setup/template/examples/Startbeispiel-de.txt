@@ -4,19 +4,18 @@ CrypTool ist ein umfangreiches Lernprogramm zu den Themen Kryptographie und Kryp
 
 Dies ist eine Textdatei, mit der Sie Ihre ersten Schritte mit CrypTool machen können.
 
-1) Sie können diese Datei z.B. über das Menü "Ver-/Entschlüsseln \ Symmetrisch (klassisch)" mit dem Caesar-Verfahren verschlüsseln.
-
-2) Den besten Überblick über die Möglichkeiten von CrypTool bietet die Startseite in der Windows Online-Hilfe zu CrypTool. Von der Startseite aus können Sie alle wesentlichen Funktionen über Links erreichen.
-Die Startseite selbst erreichen Sie über das Menü "Hilfe \ Startseite" oder indem Sie in der Online-Hilfe im Index den Begriff "Startseite" eingeben.
+1) Den besten Überblick über die Möglichkeiten von CrypTool bietet die Startseite in der Windows Online-Hilfe zu CrypTool. Von der Startseite aus können Sie alle wesentlichen Funktionen über Links erreichen. Die Startseite selbst erreichen Sie über das Menü "Hilfe \ Startseite" oder indem Sie in der Online-Hilfe im Index den Begriff "Startseite" eingeben.
 Öffnen Sie die Online-Hilfe mit F1.
 
-3) Insbesondere mit den Szenarien (Tutorials) in der Online-Hilfe finden Sie einen schnellen Einstieg. Auch die Szenarien können Sie direkt über das Menü "Hilfe" erreichen.
+2) Als nächstes könnten Sie eine Datei z.B. mit dem Caesar-Verfahren verschlüsseln -- über das Menü "Ver-/Entschlüsseln \ Symmetrisch (klassisch)". Ein Tutorial dazu finden Sie in der Online-Hilfe.
 
-4) Weitere Features können Sie z.B. auf folgende Weise erkunden:
+3) Die Online-Hilfe enthält verschiedene Szenarien (Tutorials), die einen schnellen Einstieg in die Kryptologie ermöglichen. Die Szenarien finden Sie über das Menü "Hilfe \ Szenarien (Tutorials)".
+
+4) Weitere Funktionen können Sie z.B. auf folgende Weise erkunden:
 - Sie klicken sich spielerisch durch die Menüs. Mit F1 erhalten Sie die Hilfe zu dem ausgewählten Menüeintrag.
-- Sie schauen sich unter dem "Hilfe"-Menü die Readme-Datei an.
+- Sie schauen sich die Readme-Datei an (siehe Menü "Hilfe \ Readme").
 - Sie schauen sich die beiliegende bunte Präsentation an (sie ist ebenfalls unter dem "Hilfe"-Menü zu finden; oder über den Abschnitt "Dokumentation" auf der Startseite der Online-Hilfe).
 - Sie schauen sich die Webseite www.cryptool.de an.
 
-März 2009
+Mai 2009
 
