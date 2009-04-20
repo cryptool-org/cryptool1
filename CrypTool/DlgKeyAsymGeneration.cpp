@@ -1039,7 +1039,7 @@ void CDlgKeyAsymGeneration::CreateAsymKeys()
 		if (PseHandle2==NULL)
 		{
 			// Fehler beim Öffnen der CA-PSE
-			Message(IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE, MB_ICONSTOP);
+			Message(IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE, MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
 			// Lösche die neu angelegte PSE
 			remove(string3);
 			// Freigeben von dynamisch angelegtem Speicher
@@ -1048,7 +1048,39 @@ void CDlgKeyAsymGeneration::CreateAsymKeys()
 			delete string7;
 			return;
 		}
-
+		unsigned long random_serial_number_bytes = 8;
+		if ( ERROR_SUCCESS == CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "UserKeyStore") )
+		{
+			CT_READ_REGISTRY_DEFAULT(random_serial_number_bytes, "RandomSerialNumberBytes", random_serial_number_bytes);
+			CT_CLOSE_REGISTRY();
+		}
+		if (random_serial_number_bytes >= 2) {
+			SerialNumber *serial = theApp.SecudeLib.sec_random_ostr(random_serial_number_bytes, 1);
+			if (serial == NULL) {
+				// Fehler beim zufaelligen Waehlen der Seriennummer
+				Message(IDS_STRING_ASYMKEY_ERR_ON_OPEN_PSE, MB_ICONSTOP, theApp.SecudeLib.LASTTEXT); 
+				// Lösche die neu angelegte PSE
+				remove(string3);
+				// Freigeben von dynamisch angelegtem Speicher
+				delete string2;
+				delete string4;
+				delete string7;
+				return;
+			}
+			Certificate *excert = theApp.SecudeLib.af_cadb_get_Certificate(PseHandle2, serial);
+			if (excert) {
+				Message(IDS_STRING_ASYMKEY_ERR_CERT_SERIAL_EXISTS, MB_ICONSTOP);
+				theApp.SecudeLib.aux_free_OctetString(&serial);
+				remove(string3);
+				// Freigeben von dynamisch angelegtem Speicher
+				delete string2;
+				delete string4;
+				delete string7;
+				return;
+			}
+			theApp.SecudeLib.af_pse_update_SerialNumber(PseHandle2, serial);
+			theApp.SecudeLib.aux_free_OctetString(&serial);
+		}
 		// Übergabe des Prototyp-Zertifikates an die CA, die den enthaltenen Schlüssel
 		// zertifiziert
 		Certificate *Zert2;
@@ -1408,12 +1440,23 @@ void CDlgKeyAsymGeneration::OnButtonP12import()
 		return;
 	}
 
-
+	Certificate *excert = theApp.SecudeLib.af_cadb_get_Certificate(capse, cert->tbs->serialnumber);
+	if (excert) {
+		Message(IDS_STRING_ASYMKEY_ERR_CERT_SERIAL_EXISTS, MB_ICONSTOP);
+		// remove newly created PSE
+		remove(PSEName);
+		free(PSEName);
+		theApp.SecudeLib.aux_free_Certificate(&excert);
+		theApp.SecudeLib.aux_free_Certificate(&cert);
+		theApp.SecudeLib.af_close(capse);
+		theApp.SecudeLib.aux_free_OctetString(&input);
+		return;
+	}
 	rc = theApp.SecudeLib.af_cadb_add_Certificate (capse, SIGNATURE, cert);
 	if (rc)
 	{
 		// Fehler beim Einfügen des Zertifikats in die CA-Datenbank
-		Message(IDS_STRING_ASYMKEY_ERR_ADD_CERT, MB_ICONSTOP);
+		Message(IDS_STRING_ASYMKEY_ERR_ADD_CERT, MB_ICONSTOP, theApp.SecudeLib.LASTTEXT);
 		// remove newly created PSE
 		remove(PSEName);
 		free(PSEName);

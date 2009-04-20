@@ -78,6 +78,7 @@ statement from your version.
 	DoOneFn(SET_OF_Name SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV,  af_cadb_list_user, SEC_PROTOTYPE_1(PSE, pse_handle))\
 	DoOneFn(void SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV,  af_pse_get, SEC_PROTOTYPE_3(PSE ,pse_handle,char*, objname,ObjId*	, objtype))\
 	DoOneFn(RC SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, af_pse_update, SEC_PROTOTYPE_4(PSE , pse_handle,char*, objname,void *, opaque,ObjId*, opaque_type))\
+	DoOneFn(RC SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, af_pse_update_SerialNumber, SEC_PROTOTYPE_2(PSE, pse_handle, SerialNumber *, serial))\
 	DoOneFn(OctetString SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV, e_OctetString, SEC_PROTOTYPE_1(OctetString*	, ostr))\
 	DoOneFn(int SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, lngtouse, SEC_PROTOTYPE_1(L_NUMBER_ARRAY, modul))\
 	DoOneFn(RC SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, aux_OctetString2LN2, SEC_PROTOTYPE_2(L_NUMBER*, lnum, OctetString*, ostr))\
@@ -218,6 +219,7 @@ statement from your version.
 	DoOneFn(void SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, shs1Init, SEC_PROTOTYPE_1(SHS_INFO *, shsInfo))\
 	DoOneFn(void SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, shs1Update, SEC_PROTOTYPE_3(SHS_INFO *, shsInfo, unsigned char *, buffer, sec_int4, count))\
 	DoOneFn(void SEC_GLOBAL_FUNC_PREFIX, SEC_API_CALLING_CONV, shs1Final, SEC_PROTOTYPE_1(SHS_INFO *, shsInfo))\
+	DoOneFn(OctetString SEC_GLOBAL_FUNC_PREFIX *, SEC_API_CALLING_CONV, sec_random_ostr, SEC_PROTOTYPE_2(sec_uint4, noctects, int, security))\
 	DoOneData(AlgId, ripemd160WithRSASignature_aid)\
 	DoOneData(AlgId, shaWithRSASignature_aid)\
 	DoOneData(AlgId, md2WithRsaEncryption_aid)\

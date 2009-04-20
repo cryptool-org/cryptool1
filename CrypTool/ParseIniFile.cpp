@@ -134,8 +134,6 @@ int CParseIniFile::GetEcDomParam(CString curveID, EcDomParam_ac_ptr ecParam)
 
 	inputfile = (CString) Pfad + initializing_file; // this is the full path of the location of initializing_file
 
-	LPTSTR str_a, str_b, str_p, str_G, str_k, str_r;
-
 	L_NUMBER G_compressed[MAXLGTH];
 
 	start_block = keyword_prefix1 + curveID + keyword_suffix;
@@ -157,58 +155,31 @@ int CParseIniFile::GetEcDomParam(CString curveID, EcDomParam_ac_ptr ecParam)
 					//... ändern Sie lpsz nach Belieben
 				*/
 				if (Line.Find("a=")>-1){
-					str_a = new TCHAR[Line.GetLength()+1];
-					_tcscpy(str_a, Line);
-					
-					//AfxMessageBox(&str_a[2],MB_ICONINFORMATION, 0 );
-
-					error += string_to_ln(&str_a[2], ecParam->E->a); 
-					// &str_a[2] means ignore the first two characters (i.e. ignore 'a=')
+					error += string_to_ln(((LPCTSTR)Line) + 2, ecParam->E->a); 
 				}
 				
 				if (Line.Find("b=")>-1){
-					str_b = new TCHAR[Line.GetLength()+1];
-					_tcscpy(str_b, Line);
-					error += string_to_ln(&str_b[2], ecParam->E->b);
-					// &str_b[2] means ignore the first two characters (i.e. ignore 'b=')
+					error += string_to_ln(((LPCTSTR)Line) + 2, ecParam->E->b);
 				}
 				if (Line.Find("p=")>-1){
-					str_p = new TCHAR[Line.GetLength()+1];
-					_tcscpy(str_p, Line);
-					error += string_to_ln(&str_p[2], ecParam->E->p);
-					// &str_p[2] means ignore the first two characters (i.e. ignore 'p=')
+					error += string_to_ln(((LPCTSTR)Line) + 2, ecParam->E->p);
 				}
 				if (Line.Find("G=")>-1){
-					str_G = new TCHAR[Line.GetLength()+1];
-					_tcscpy(str_G, Line);
-					error += string_to_ln(&str_G[2], G_compressed);
-					// &str_G[2] means ignore the first two characters (i.e. ignore 'G=')
+					error += string_to_ln(((LPCTSTR)Line) + 2, G_compressed);
 				}
 				if (Line.Find("k=")>-1){
-					str_k = new TCHAR[Line.GetLength()+1];
-					_tcscpy(str_k, Line);
-					error += string_to_ln(&str_k[2], ecParam->k);
-					// &str_k[2] means ignore the first two characters (i.e. ignore 'k=')
+					error += string_to_ln(((LPCTSTR)Line) + 2, ecParam->k);
 				}
 				if (Line.Find("r=")>-1){
-					str_r = new TCHAR[Line.GetLength()+1];
-					_tcscpy(str_r, Line);
-
-					//AfxMessageBox(&str_r[2],MB_ICONINFORMATION, 0 );
-
-					error += string_to_ln(&str_r[2], ecParam->r);
-					// &str_r[2]means ignore the first two characters (i.e. ignore 'r=')
+					error += string_to_ln(((LPCTSTR)Line) + 2, ecParam->r);
 				}
 			}
 		}
 	}
 	IniDataFile.Close(); // close inputfile
 
-	// sprintf(pc_str, "\n str_a = %s \n",&str_a[2]);
-	// AfxMessageBox (pc_str);
-
 	if (error > 0){
-		// error: curve E could not been initialized with parameters str_a, str_b, str_p
+		// error: curve E could not been initialized with parameters 
 		Message(IDS_STRING_ERR_EC_FILE_READING,MB_ICONERROR, inputfile);
 		return -1; // error
 	}
