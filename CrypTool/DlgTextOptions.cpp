@@ -49,6 +49,9 @@ statement from your version.
 #include "ScintillaDoc.h"
 #include "ScintillaView.h"
 
+// we will need this below
+char *defaultSpecialCharacters = ".,:;!?()-+*/[]{}@_><#~=\\\"&%$§";
+
 CDlgTextOptions::CDlgTextOptions(CWnd* pParent)
 	: CDialog(CDlgTextOptions::IDD, pParent)
 {
@@ -133,7 +136,7 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // Behandlungsroutinen für Nachrichten CDlgTextOptions  
 
-#define ALLOWED_CHARS "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz 1234567890-.,_:;+*!\"§$%&/()=?הצüִײÜ"
+#define ALLOWED_CHARS "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz 1234567890.,:;!?()-+*/[]{}@_><#~=\\\"&%$§הצüִײÜ"
 
 const CString &CDlgTextOptions::getAlphabet()
 {
@@ -430,14 +433,14 @@ void CDlgTextOptions::OnCheckPunctuation()
 	int i;
 
 	if(punctuation != 1) {
-		for(s=".,:;!?()" ;*s;s++) {
+		for(s=defaultSpecialCharacters ;*s;s++) {
 			if(-1 == alphabet.Find(*s))
 				alphabet += *s;
 		}
 		punctuation = 1;
 	}
 	else {
-		for(s=".,:;!?()" ;*s;s++) {
+		for(s=defaultSpecialCharacters;*s;s++) {
 			if(-1 != (i=alphabet.Find(*s)))
 				alphabet = alphabet.Left(i) + alphabet.Right(alphabet.GetLength() - i - 1); // ein Zeichen gefunden
 		}
@@ -494,7 +497,7 @@ void CDlgTextOptions::updateCheckState()
 
 	// update punctuation
 	OK = 0;
-	for(s=".,:;!?()" ;*s;s++) {
+	for(s=defaultSpecialCharacters;*s;s++) {
 		if(-1 == alphabet.Find(*s))
 			OK |= 1;
 		else
