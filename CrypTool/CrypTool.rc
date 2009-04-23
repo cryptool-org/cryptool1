@@ -4351,15 +4351,17 @@ BEGIN
     PUSHBUTTON      "Cancel",IDCANCEL,218,154,60,19
     CONTROL         "Scytale",IDC_RADIO_SCYTALE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,63,110,10
     CONTROL         "Rail Fence",IDC_RADIO_RAIL_FENCE,"Button",BS_AUTORADIOBUTTON,20,75,110,10
-    EDITTEXT        IDC_EDIT_KEY,135,111,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT_KEY,110,111,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
     GROUPBOX        "Description",IDC_STATIC,7,7,271,36
     LTEXT           "Transpositions scramble the order of the letters in the cleartext. Two well-known, classic variants are the Scytale and the Rail Fence encryption.",IDC_STATIC,20,20,245,16
     GROUPBOX        "Choose the transposition",IDC_STATIC,7,50,160,40
     GROUPBOX        "Choose the key",IDC_STATIC,7,100,160,45
-    LTEXT           "SIMPLE_TRANSPOSITION_KEY",IDC_SIMPLE_TRANSPOSITION_KEY,20,113,99,8
+    LTEXT           "Key:",IDC_SIMPLE_TRANSPOSITION_KEY,20,113,80,8
     CONTROL         "",IDC_SIMPLE_TRANSPOSITION_IMAGE,"Static",SS_BITMAP,177,53,67,62
-    LTEXT           "Offset:",IDC_STATIC,20,129,24,8
-    EDITTEXT        IDC_EDIT_OFFSET,136,127,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Offset:",IDC_STATIC,20,129,80,8
+    EDITTEXT        IDC_EDIT_OFFSET,110,127,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "Text options",ID_TEXTOPTIONS,144,154,60,19
+    CONTROL         "Paste",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,138,116,22,20
 END
 
 IDD_AUTOMATED_PERM_ANALYSIS DIALOGEX 0, 0, 320, 362
@@ -10171,6 +10173,8 @@ BEGIN
     ID_ROT13CAESAR_ASC      "Szyfrowanie Cezar / ROT-13"
     IDS_SCA_HYBRIDENCRYPTION_BY_USER 
                             "Czy chcesz teraz osobiœcie dokonaæ szyfrowania hybrydowego?"
+    IDS_SIMPLETRANSPOSITION_BAD_KEY 
+                            "The key stored in the clipboard is not part of the actual alphabet\nthus the key is currently not usable!"
     IDS_SCA_ERROR_CERTINFOEXTRACTION "B³¹d! Plik nie móg³ zostaæ otwarty:\n%s"
 END
 
@@ -10574,6 +10578,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_FACTORS_FOUND       "Found %d factors in %s"
+    IDS_CRYPT_SIMPLETRANSPOSITION "Simple Transposition"
     IDS_STRING_ASYMKEY_ERR_CERT_SERIAL_EXISTS 
                             "The certificate cannot be imported, because a certificate with the same serial number already exists."
 END
@@ -10962,7 +10967,7 @@ BEGIN
     CONTROL         "Großbuchstaben",IDC_CHECK_UPPER_CASE,"Button",BS_AUTO3STATE | WS_TABSTOP,20,107,69,10
     CONTROL         "Leerzeichen",IDC_CHECK_SPACE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,122,55,10
     CONTROL         "Ziffern",IDC_CHECK_DIGITS,"Button",BS_AUTO3STATE | WS_TABSTOP,20,137,36,10
-    CONTROL         "Satzzeichen",IDC_CHECK_PUNCTUATION,"Button",BS_AUTO3STATE | WS_TABSTOP,105,107,55,10
+    CONTROL         "Sonderzeichen",IDC_CHECK_PUNCTUATION,"Button",BS_AUTO3STATE | WS_TABSTOP,105,107,63,10
     CONTROL         "Kleinbuchstaben",IDC_CHECK_LOWER_CASE,"Button",BS_AUTO3STATE | WS_TABSTOP,105,122,69,10
     EDITTEXT        IDC_EDIT_ALPHABET,20,162,237,13,ES_AUTOHSCROLL
     PUSHBUTTON      "&Suchen ...",IDC_BUTTON_SEARCH_REFERENCE_FILE,202,206,55,14
@@ -14976,16 +14981,17 @@ BEGIN
     PUSHBUTTON      "Abbrechen",IDCANCEL,218,159,60,19
     CONTROL         "Skytale",IDC_RADIO_SCYTALE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,68,110,10
     CONTROL         "Gartenzaun",IDC_RADIO_RAIL_FENCE,"Button",BS_AUTORADIOBUTTON,20,80,110,10
-    EDITTEXT        IDC_EDIT_KEY,135,116,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT_KEY,110,116,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
     GROUPBOX        "Beschreibung",IDC_STATIC,7,7,271,41
     LTEXT           "Transpositionen vertauschen die Reihenfolge der Buchstaben im Klartext. Zwei bekannte, klassische Varianten sind die Skytale und die Gartenzaunverschlüsselung.",IDC_STATIC,20,20,245,24
     GROUPBOX        "Auswahl der Transpositionsvariante",IDC_STATIC,7,55,160,40
     GROUPBOX        "Auswahl des Schlüssels",IDC_STATIC,7,105,160,45
-    LTEXT           "SIMPLE_TRANSPOSITION_KEY",IDC_SIMPLE_TRANSPOSITION_KEY,20,118,99,8
+    LTEXT           "Key:",IDC_SIMPLE_TRANSPOSITION_KEY,20,118,80,8
     CONTROL         "",IDC_SIMPLE_TRANSPOSITION_IMAGE,"Static",SS_BITMAP,177,58,67,62
-    LTEXT           "Offset:",IDC_STATIC,20,134,24,8
-    EDITTEXT        IDC_EDIT_OFFSET,136,132,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Offset:",IDC_STATIC,20,134,80,8
+    EDITTEXT        IDC_EDIT_OFFSET,110,132,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
     PUSHBUTTON      "Textoptionen",ID_TEXTOPTIONS,144,159,60,19
+    CONTROL         "Paste",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,138,122,22,20
 END
 
 IDD_AUTOMATED_PERM_ANALYSIS DIALOGEX 0, 0, 320, 362
@@ -20726,6 +20732,8 @@ BEGIN
     ID_ROT13CAESAR_ASC      "Caesar- / ROT-13-Verschlüsselung"
     IDS_SCA_HYBRIDENCRYPTION_BY_USER 
                             "Wollen Sie die Hybridverschlüsselung selbst durchführen?"
+    IDS_SIMPLETRANSPOSITION_BAD_KEY 
+                            "Der in die Zwischenablage kopierte Schlüssel ist nicht im\naktuell eingestellten Alphabet enthalten und kann daher\nnicht verwendet werden!"
     IDS_SCA_ERROR_CERTINFOEXTRACTION 
                             "Fehler! Das Öffnen folgender Datei ist nicht möglich:\n%s"
 END
@@ -21164,18 +21172,19 @@ BEGIN
     IDS_SIMPLE_TRANSPOSITION_KEY_INVALID 
                             "Der Schlüssel ist ungültig. Er muss größer als 1 und kleiner als die Länge des Eingabetexts sein.\n\nVor der Ver-/Entschlüsselung werden alle Zeichen aus dem Eingabetext entfernt, die nicht zum eingestellten CrypTool-Alphabet gehören. Wenn Sie den Eingabetext nicht verändern möchten, passen Sie bitte über den Button ""Textoptionen"" das CrypTool-Alphabet an, um fortzufahren."
     IDS_STRING_RAIL_FENCE_ENCRYPTION_OF 
-                            "Gartenzaun-Verschlüsselung von <%s>, Schlüssel <%s>"
+                            "Gartenzaun-Verschlüsselung (Einfache Transposition) von <%s>, Schlüssel <%s>"
     IDS_STRING_RAIL_FENCE_DECRYPTION_OF 
-                            "Gartenzaun-Entschlüsselung von <%s>, Schlüssel <%s>"
+                            "Gartenzaun-Entschlüsselung (Einfache Transposition) von <%s>, Schlüssel <%s>"
     IDS_STRING_SCYTALE_ENCRYPTION_OF 
-                            "Skytale-Verschlüsselung von <%s>, Schlüssel <%s>"
+                            "Skytale-Verschlüsselung (Einfache Transposition) von <%s>, Schlüssel <%s>"
     IDS_STRING_SCYTALE_DECRYPTION_OF 
-                            "Skytale-Entschlüsselung von <%s>, Schlüssel <%s>"
+                            "Skytale-Entschlüsselung (Einfache Transposition) von <%s>, Schlüssel <%s>"
     IDS_FACTORS_FOUND       "%d Faktoren gefunden in %s"
     IDS_SIMPLE_TRANSPOSITION_OFFSET_INVALID 
                             "Das eingestellte Offset ist ungültig. Es darf nicht kleiner als 0 sein."
     IDS_STRING_FACTORIZATION_BRUTE_FORCE_LIMIT 
                             "Dieser Faktor konnte mit dem Brute-Force-Verfahren nicht zerlegt werden. Das Brute-Force-Verfahren ist hier so implementiert, dass es nur Faktoren kleiner %d findet."
+    IDS_CRYPT_SIMPLETRANSPOSITION "Einfache Transposition"
     IDS_STRING_ASYMKEY_ERR_CERT_SERIAL_EXISTS 
                             "Das Zertfikat kann nicht importiert werden, da bereits eines mit der gleichen Seriennummber vorhanden ist."
 END
@@ -25541,16 +25550,17 @@ BEGIN
     PUSHBUTTON      "Cancel",IDCANCEL,218,159,60,19
     CONTROL         "Scytale",IDC_RADIO_SCYTALE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,68,110,10
     CONTROL         "Rail Fence",IDC_RADIO_RAIL_FENCE,"Button",BS_AUTORADIOBUTTON,20,80,110,10
-    EDITTEXT        IDC_EDIT_KEY,135,116,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT_KEY,110,116,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
     GROUPBOX        "Description",IDC_STATIC,7,7,271,41
     LTEXT           "Transpositions scramble the order of the letters in the cleartext. Two well-known, classic variants are the Scytale and the Rail Fence encryption.",IDC_STATIC,20,20,245,16
     GROUPBOX        "Choose the transposition variant",IDC_STATIC,7,55,160,40
     GROUPBOX        "Choose the key",IDC_STATIC,7,105,160,45
-    LTEXT           "SIMPLE_TRANSPOSITION_KEY",IDC_SIMPLE_TRANSPOSITION_KEY,20,118,99,8
+    LTEXT           "Key:",IDC_SIMPLE_TRANSPOSITION_KEY,20,118,80,8
     CONTROL         "",IDC_SIMPLE_TRANSPOSITION_IMAGE,"Static",SS_BITMAP,177,58,67,62
-    LTEXT           "Offset:",IDC_STATIC,20,134,24,8
-    EDITTEXT        IDC_EDIT_OFFSET,136,132,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Offset:",IDC_STATIC,20,134,80,8
+    EDITTEXT        IDC_EDIT_OFFSET,110,132,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
     PUSHBUTTON      "Text options",ID_TEXTOPTIONS,144,159,60,19
+    CONTROL         "Paste",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,138,122,22,20
 END
 
 IDD_AUTOMATED_PERM_ANALYSIS DIALOGEX 0, 0, 320, 362
@@ -31442,6 +31452,8 @@ BEGIN
     ID_ROT13CAESAR_ASC      "Caesar- / ROT-13 encryption"
     IDS_SCA_HYBRIDENCRYPTION_BY_USER 
                             "Do you want to execute the hybrid encryption on your own?"
+    IDS_SIMPLETRANSPOSITION_BAD_KEY 
+                            "The key stored in the clipboard is not part of the actual alphabet\nthus the key is currently not usable!"
     IDS_SCA_ERROR_CERTINFOEXTRACTION 
                             "Error! The following file cannot be opened:\n%s"
 END
@@ -31868,16 +31880,19 @@ BEGIN
     IDS_SIMPLE_TRANSPOSITION_KEY_INVALID 
                             "The key is invalid. It must be greater than 1 and smaller than the length of the input text.\n\nCharacters that are not part of the CrypTool-Alphabet are deleted before encryption/decryption. If you don't want to change the input text, please use the button ""Text options"" to alter the CrypTool alphabet in order to proceed."
     IDS_STRING_RAIL_FENCE_ENCRYPTION_OF 
-                            "Rail Fence encryption of <%s>, key <%s>"
+                            "Rail Fence encryption (Simple Transposition) of <%s>, key <%s>"
     IDS_STRING_RAIL_FENCE_DECRYPTION_OF 
-                            "Rail Fence decryption of <%s>, key <%s>"
-    IDS_STRING_SCYTALE_ENCRYPTION_OF "Scytale encryption of <%s>, key <%s>"
-    IDS_STRING_SCYTALE_DECRYPTION_OF "Scytale decryption of <%s>, key <%s>"
+                            "Rail Fence decryption (Simple Transposition) of <%s>, key <%s>"
+    IDS_STRING_SCYTALE_ENCRYPTION_OF 
+                            "Scytale encryption (Simple Transposition) of <%s>, key <%s>"
+    IDS_STRING_SCYTALE_DECRYPTION_OF 
+                            "Scytale decryption (Simple Transposition) of <%s>, key <%s>"
     IDS_FACTORS_FOUND       "Found %d factors in %s"
     IDS_SIMPLE_TRANSPOSITION_OFFSET_INVALID 
                             "The offset is invalid. It must not be smaller than 0."
     IDS_STRING_FACTORIZATION_BRUTE_FORCE_LIMIT 
                             "This number could not be factorized using brute-force. Here, brute-force is implemented in a way to find only factors smaller than %d."
+    IDS_CRYPT_SIMPLETRANSPOSITION "Simple Transposition"
     IDS_STRING_ASYMKEY_ERR_CERT_SERIAL_EXISTS 
                             "The certificate cannot be imported, because a certificate with the same serial number already exists."
 END

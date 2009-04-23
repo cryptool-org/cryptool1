@@ -93,13 +93,17 @@ BEGIN_MESSAGE_MAP(CDlgSimpleTranspositions, CDialog)
 	ON_BN_CLICKED(IDC_RADIO_SCYTALE, OnRadioScytale)
 	ON_BN_CLICKED(IDC_RADIO_RAIL_FENCE, OnRadioRailFence)
 	ON_BN_CLICKED(ID_TEXTOPTIONS, &CDlgSimpleTranspositions::OnBnClickedTextoptions)
+	ON_BN_CLICKED(IDC_PASTE_KEY, OnPasteKey)
 END_MESSAGE_MAP()
 
 BOOL CDlgSimpleTranspositions::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
 
-	// load stored settings (key and offset)
+	// some assertions for debug mode
+	VERIFY(controlBitmapButtonPaste.AutoLoad(IDC_PASTE_KEY,this));
+
+	// load stored settings (key and offset) from registry
 	loadSettings();
 
 	UpdateData(false);
@@ -230,6 +234,11 @@ void CDlgSimpleTranspositions::updateGUI()
 		controlImage.SetBitmap(bitmapRailFence);
 	}
 
+	// display the paste key button only if there's a valid key in the key store
+	if(checkPasteKeyVariant(IDS_CRYPT_SIMPLETRANSPOSITION).key)
+		controlBitmapButtonPaste.EnableWindow(TRUE);
+	else controlBitmapButtonPaste.EnableWindow(FALSE);
+
 	UpdateData(false);
 }
 
@@ -257,4 +266,45 @@ void CDlgSimpleTranspositions::saveSettings() {
 		CT_WRITE_REGISTRY((unsigned long)offset, "Offset");
 		CT_CLOSE_REGISTRY();
 	}
+}
+
+void CDlgSimpleTranspositions::OnPasteKey() 
+{
+	SimpleTranspositionKey theKey;
+	// check for simple transposition key
+	theKey = checkPasteKeyVariant(IDS_CRYPT_SIMPLETRANSPOSITION);
+	
+	// display error message if it's not a simple transposition key
+	if(!theKey.key) {
+		LoadString(AfxGetInstanceHandle(),IDS_SIMPLETRANSPOSITION_BAD_KEY,pc_str,255);
+		AfxMessageBox(pc_str,MB_ICONEXCLAMATION);
+	}
+	// if the key is valid, enable/disable the respective GUI elements ("simulate" user input)...
+	else {
+		this->key = theKey.key;
+		this->offset = theKey.offset;
+	}
+
+	// this is ugly, but without this line the pasted key gets overwritten
+	UpdateData(false);
+
+	// ...and update the GUI
+	updateGUI();
+}
+
+SimpleTranspositionKey CDlgSimpleTranspositions::checkPasteKeyVariant(int SID)
+{
+	SimpleTranspositionKey theKey;
+	CString theKeyString;
+	LoadString(AfxGetInstanceHandle(),SID,pc_str,STR_LAENGE_STRING_TABLE);
+	if (PasteKey(pc_str, theKeyString)) {
+		// what we get here is a string of the form "3, KEY OFFSET: 0" or "5, KEY OFFSET: 1" (and so 
+		// on), so we separate the actual key (i.e. "3" or "5") from the key offset (i.e. "0" or "1").
+		CString key = theKeyString; key.Delete(1, key.GetLength()-1);
+		CString offset = theKeyString; offset.Delete(0, offset.GetLength()-1);
+		// copy key and offset into key structure
+		theKey.key = _ttoi(key);
+		theKey.offset = _ttoi(offset);
+	}
+	return theKey;
 }

@@ -45,8 +45,18 @@ statement from your version.
 #define _DLG_SIMPLE_TRANSPOSITIONS_H_
 
 #include "afxwin.h"
+#include "KeyRepository.h"
 
-// CDlgSimpleTranspositions dialog
+// this struct implements the "new" Caesar key with the added key offset
+struct SimpleTranspositionKey {
+	unsigned int key;
+	unsigned int offset;
+
+	SimpleTranspositionKey() {
+		key = 0;
+		offset = 0;
+	};
+};
 
 class CDlgSimpleTranspositions : public CDialog
 {
@@ -73,6 +83,7 @@ public:
 	afx_msg void OnBnClickedEncrypt();
 	afx_msg void OnBnClickedDecrypt();
 	afx_msg void OnBnClickedTextoptions();
+	afx_msg void OnPasteKey();
 
 	afx_msg void OnRadioScytale();
 	afx_msg void OnRadioRailFence();
@@ -92,6 +103,11 @@ protected:
 	// bitmaps for scytale and rail fence
 	CBitmap bitmapScytale;
 	CBitmap bitmapRailFence;
+
+	// bitmap button for pasting keys from the key store
+	CBitmapButton controlBitmapButtonPaste;
+	// this function checks if there's a valid key in the key store
+	SimpleTranspositionKey checkPasteKeyVariant(int SID);
 
 	int type;
 	int key;

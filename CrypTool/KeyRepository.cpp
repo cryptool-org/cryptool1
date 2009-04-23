@@ -91,6 +91,7 @@ const int CryptMethods[] =  {
 		IDS_CRYPT_DESL,
 		IDS_CRYPT_DESXL,
 		IDS_CRYPT_DESX,
+		IDS_CRYPT_SIMPLETRANSPOSITION,
 		0
 };
 

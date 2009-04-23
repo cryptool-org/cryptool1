@@ -55,8 +55,9 @@ statement from your version.
 // dia1.h : header file
 //
 
-#include "KeyRepository.h"
 #include "afxwin.h"
+#include "KeyRepository.h"
+
 #define MAX_VIGENERE	1024
 #define MAX_DISPLAY		40
 #define MAX_EXTRA		3
@@ -119,7 +120,7 @@ protected:
 	
 private:
 	// edit field for álphabetic key input
-    CEdit controlEditAlphabeticKey;
+	CEdit controlEditAlphabeticKey;
 	// edit field for numeric key input
 	CEdit controlEditNumericKey;
 	// edit field for the Caesar distance
@@ -157,8 +158,8 @@ private:
 	void onUpdateGUI();
 
 	// this function returns the number of digits used to display the alphabet length
-    int getDigitsOfAlphabetLength();
-    // this function checks if there's a valid key in the key store
+	int getDigitsOfAlphabetLength();
+	// this function checks if there's a valid key in the key store
 	CaesarKey checkPasteKeyVariant(int SID);
 	// this function is called when the user clicks on the text options button
 	void onTextOptions();
