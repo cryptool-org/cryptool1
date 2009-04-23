@@ -4000,6 +4000,9 @@ UINT SymmetricBruteForce(PVOID p)
 // Rail Fence encryption (part of the simple transpositions dialog)
 // RETURN VALUES:		1 (success), -1 (invalid key), -2 (invalid file handle)
 int RailFenceEncryption(const char *infile, const char *oldTitle, int key, int offset, bool encrypt) {
+	// since this is the rail fence encryption, the type is: 1
+	const int type = 1;
+	
 	// create a handle for the input file
 	std::ifstream fileInput;
 	fileInput.open(infile);
@@ -4152,20 +4155,26 @@ int RailFenceEncryption(const char *infile, const char *oldTitle, int key, int o
 	fileOutput.write(cipherTextString.c_str(), cipherTextString.length());
 	fileOutput.close();
 
-	// key as string including offset
-	CString stringKeyAndOffset;
+	// complete key as string (TYPE, KEY, KEY OFFSET)
+	CString stringCompleteKey;
+	char stringType[4096 + 1];
 	char stringKey[4096 + 1];
 	char stringOffset[4096 + 1];
+	memset(stringType, 0, 4096 + 1);
 	memset(stringKey, 0, 4096 + 1);
 	memset(stringOffset, 0, 4096 + 1);
+	itoa(type, stringType, 10);
 	itoa(key, stringKey, 10);
 	itoa(offset, stringOffset, 10);
-	stringKeyAndOffset.Append(stringKey);
-	stringKeyAndOffset.Append(", KEY OFFSET: ");
-	stringKeyAndOffset.Append(stringOffset);
+	stringCompleteKey.Append("TYPE: ");
+	stringCompleteKey.Append(stringType);
+	stringCompleteKey.Append(", KEY: ");
+	stringCompleteKey.Append(stringKey);
+	stringCompleteKey.Append(", KEY OFFSET: ");
+	stringCompleteKey.Append(stringOffset);
 
 	// open the new document
-	CDocument *document = theApp.OpenDocumentFileNoMRU(outfile, stringKeyAndOffset);
+	CDocument *document = theApp.OpenDocumentFileNoMRU(outfile, stringCompleteKey);
 	if(document) {
 		char title[4096];
 		memset(title, 0, 4096);
@@ -4173,7 +4182,7 @@ int RailFenceEncryption(const char *infile, const char *oldTitle, int key, int o
 		if(encrypt) LoadString(AfxGetInstanceHandle(), IDS_STRING_RAIL_FENCE_ENCRYPTION_OF, pc_str, STR_LAENGE_STRING_TABLE);
 		else LoadString(AfxGetInstanceHandle(), IDS_STRING_RAIL_FENCE_DECRYPTION_OF, pc_str, STR_LAENGE_STRING_TABLE);
 		// now add the old title and the key into the new title
-		sprintf(title, pc_str, oldTitle, stringKeyAndOffset);
+		sprintf(title, pc_str, oldTitle, stringCompleteKey);
 		// set the new document title
 		document->SetTitle(title);
 	}
@@ -4187,6 +4196,9 @@ int RailFenceEncryption(const char *infile, const char *oldTitle, int key, int o
 // Scytale encryption (part of the simple transpositions dialog)
 // RETURN VALUES:		1 (success), -1 (invalid key), -2 (invalid file handle)
 int ScytaleEncryption(const char *infile, const char *oldTitle, int key, int offset, bool encrypt) {
+	// since this is the Scytale encryption, the type is: 0
+	const int type = 0;
+
 	// create a handle for the input file
 	std::ifstream fileInput;
 	fileInput.open(infile);
@@ -4327,20 +4339,26 @@ int ScytaleEncryption(const char *infile, const char *oldTitle, int key, int off
 	fileOutput.write(cipherTextString.c_str(), cipherTextString.length());
 	fileOutput.close();
 
-	// key as string including offset
-	CString stringKeyAndOffset;
+	// complete key as string (TYPE, KEY, KEY OFFSET)
+	CString stringCompleteKey;
+	char stringType[4096 + 1];
 	char stringKey[4096 + 1];
 	char stringOffset[4096 + 1];
+	memset(stringType, 0, 4096 + 1);
 	memset(stringKey, 0, 4096 + 1);
 	memset(stringOffset, 0, 4096 + 1);
+	itoa(type, stringType, 10);
 	itoa(key, stringKey, 10);
 	itoa(offset, stringOffset, 10);
-	stringKeyAndOffset.Append(stringKey);
-	stringKeyAndOffset.Append(", KEY OFFSET: ");
-	stringKeyAndOffset.Append(stringOffset);
+	stringCompleteKey.Append("TYPE: ");
+	stringCompleteKey.Append(stringType);
+	stringCompleteKey.Append(", KEY: ");
+	stringCompleteKey.Append(stringKey);
+	stringCompleteKey.Append(", KEY OFFSET: ");
+	stringCompleteKey.Append(stringOffset);
 
 	// open the new document
-	CDocument *document = theApp.OpenDocumentFileNoMRU(outfile, stringKeyAndOffset);
+	CDocument *document = theApp.OpenDocumentFileNoMRU(outfile, stringCompleteKey);
 	if(document) {
 		char title[4096];
 		memset(title, 0, 4096);
@@ -4348,7 +4366,7 @@ int ScytaleEncryption(const char *infile, const char *oldTitle, int key, int off
 		if(encrypt) LoadString(AfxGetInstanceHandle(), IDS_STRING_SCYTALE_ENCRYPTION_OF, pc_str, STR_LAENGE_STRING_TABLE);
 		else LoadString(AfxGetInstanceHandle(), IDS_STRING_SCYTALE_DECRYPTION_OF, pc_str, STR_LAENGE_STRING_TABLE);
 		// now add the old title and the key into the new title
-		sprintf(title, pc_str, oldTitle, stringKeyAndOffset);
+		sprintf(title, pc_str, oldTitle, stringCompleteKey);
 		// set the new document title
 		document->SetTitle(title);
 	}

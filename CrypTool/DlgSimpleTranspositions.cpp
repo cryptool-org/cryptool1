@@ -281,6 +281,7 @@ void CDlgSimpleTranspositions::OnPasteKey()
 	}
 	// if the key is valid, enable/disable the respective GUI elements ("simulate" user input)...
 	else {
+		this->type = theKey.type;
 		this->key = theKey.key;
 		this->offset = theKey.offset;
 	}
@@ -298,11 +299,15 @@ SimpleTranspositionKey CDlgSimpleTranspositions::checkPasteKeyVariant(int SID)
 	CString theKeyString;
 	LoadString(AfxGetInstanceHandle(),SID,pc_str,STR_LAENGE_STRING_TABLE);
 	if (PasteKey(pc_str, theKeyString)) {
-		// what we get here is a string of the form "3, KEY OFFSET: 0" or "5, KEY OFFSET: 1" (and so 
-		// on), so we separate the actual key (i.e. "3" or "5") from the key offset (i.e. "0" or "1").
-		CString key = theKeyString; key.Delete(1, key.GetLength()-1);
-		CString offset = theKeyString; offset.Delete(0, offset.GetLength()-1);
+		// what we get here is a string of the form "TYPE: 0, KEY: 3, KEY OFFSET: 0" or 
+		// "TYPE: 1, KEY: 4, KEY OFFSET: 2" (and so on), so we separate the key type 
+		// (here: "0" or "1") from the actual key (here: "3" or "4") and the key offset 
+		// (here: "0" or "2").
+		CString type = extractValueFromStringByKey("TYPE", theKeyString);
+		CString key = extractValueFromStringByKey("KEY", theKeyString);
+		CString offset = extractValueFromStringByKey("KEY OFFSET", theKeyString);
 		// copy key and offset into key structure
+		theKey.type = _ttoi(type);
 		theKey.key = _ttoi(key);
 		theKey.offset = _ttoi(offset);
 	}

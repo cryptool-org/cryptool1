@@ -71,6 +71,9 @@ BOOL CT_READ_REGISTRY_DEFAULT	(char *value,				const char *ID, const char *defau
 BOOL CT_WRITE_REGISTRY			(const unsigned long value, const char *ID);
 BOOL CT_WRITE_REGISTRY			(const char *value,			const char *ID);
 
+// see implementation
+CString extractValueFromStringByKey(CString _key, CString _string);
+
 #endif
 
 

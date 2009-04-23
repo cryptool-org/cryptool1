@@ -285,3 +285,35 @@ BOOL CT_WRITE_REGISTRY			(const char *value,	const char *ID)
 		return FALSE;
 	return TRUE;
 }
+
+// This function expects a string of KEY/VALUE pairs as follows:
+// "key0: value0, key1: value1, key2: value2..."
+// Taking a key as argument, the function returns the respective value 
+// (if successful) or an empty string (if unsuccessful).
+// ***CAUTION***: Of course you should not use this function if
+// keys or values might contain separators (here: ":" or ",")
+CString extractValueFromStringByKey(CString _key, CString _string) {
+	CString result;
+	int startKey = _string.Find(_key);
+	if(startKey >= 0) {
+		// determine where the value begins
+		// (don't forget ":" and " ", thus the "+2")
+		int startValue = startKey + _key.GetLength() + 2;
+		// determine where the value ends
+		// (either on a "," or it's the end of the string)
+		int endValue = _string.Find(",", startValue);
+		if(endValue >= 0) {
+			// obviously we've separated our value successfully
+			CString value = _string;
+			value.Delete(endValue, _string.GetLength() - endValue);
+			value.Delete(0, startValue);
+			result = value;
+		}
+		else {
+			CString value = _string;
+			value.Delete(0, startValue);
+			result = value;
+		}
+	}
+	return result;
+}

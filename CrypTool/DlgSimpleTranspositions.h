@@ -49,10 +49,12 @@ statement from your version.
 
 // this struct implements the "new" Caesar key with the added key offset
 struct SimpleTranspositionKey {
-	unsigned int key;
-	unsigned int offset;
+	int type;
+	int key;
+	int offset;
 
 	SimpleTranspositionKey() {
+		type = 0;
 		key = 0;
 		offset = 0;
 	};
