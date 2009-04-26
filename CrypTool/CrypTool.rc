@@ -18823,7 +18823,8 @@ STRINGTABLE
 BEGIN
     IDS_STRING_ENCRYPTION_ERROR 
                             "Fehler beim Verschlüsseln der Daten.\nInterne Fehlermeldung:\n"
-    IDS_STRING_ASYMKEY_RSA_ENCRYPTION_OF "RSA-Verschlüsselung von <%s>"
+    IDS_STRING_ASYMKEY_RSA_ENCRYPTION_OF 
+                            "RSA-Verschlüsselung von <%s> für <%s>"
     IDS_STRING_ENCRYPTION_ERROR_2 
                             "Fehler beim Entschlüsseln der Daten.\nInterne Fehlermeldung:\n"
     IDS_STRING_ASYMKEY_RSA_DECRYPTION_OF "RSA-Entschlüsselung von <%s>"
@@ -19267,7 +19268,7 @@ BEGIN
     IDS_STRING_HYBRID_LENGTH_ENC_KEY 
                             "     Länge des verschlüsselten Session-Key:    "
     IDS_STRING_HYBRID_DEC_TITLE "Hybridentschlüsselung von <%s>"
-    IDS_STRING_HYBRID_ENC_TITLE "Hybridverschlüsselung von <%s>"
+    IDS_STRING_HYBRID_ENC_TITLE "Hybridverschlüsselung von <%s> für <%s>"
     IDS_STRING_RSA_DLG_TITLE "RSA-Schlüssel für die Hybridentschlüsselung"
     IDS_STRING_HYBRID_DEC_MSG12 "Klicken Sie auf Weiter...\r\n"
     IDS_STRING_HYBRID_DEC_MSG13 
@@ -29592,7 +29593,7 @@ STRINGTABLE
 BEGIN
     IDS_STRING_ENCRYPTION_ERROR 
                             "An error occurred during encryption of the data.\nInternal error message:\n"
-    IDS_STRING_ASYMKEY_RSA_ENCRYPTION_OF "RSA encryption of <%s>"
+    IDS_STRING_ASYMKEY_RSA_ENCRYPTION_OF "RSA encryption of <%s> for <%s>"
     IDS_STRING_ENCRYPTION_ERROR_2 
                             "An error occurred during decryption of the data.\nInternal error message:\n"
     IDS_STRING_ASYMKEY_RSA_DECRYPTION_OF "RSA decryption of <%s>"
@@ -30022,7 +30023,7 @@ BEGIN
     IDS_STRING_HYBRID_LENGTH_ENC_KEY 
                             "     Length of encrypted session key:    "
     IDS_STRING_HYBRID_DEC_TITLE "Hybrid decryption of <%s>"
-    IDS_STRING_HYBRID_ENC_TITLE "Hybrid encryption of <%s>"
+    IDS_STRING_HYBRID_ENC_TITLE "Hybrid encryption of <%s> for <%s>"
     IDS_STRING_RSA_DLG_TITLE "RSA key for Hybrid decryption"
     IDS_STRING_HYBRID_DEC_MSG12 "Click Continue > ...\r\n"
     IDS_STRING_HYBRID_DEC_MSG13 

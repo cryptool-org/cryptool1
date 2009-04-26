@@ -49,5 +49,7 @@ void MakeNewName (char *dest, unsigned int len, const char *format, const char *
 void MakeNewName2(char *dest, int len, const char *format, const char *old, const char *alg);
 void MakeNewName3(char *dest, unsigned int len, const char *format, const char *alg, const char *old, const char *key);
 
+// see implementation
+void MakeNewNameIncludingReceiver(char *dest, unsigned int len, const char *format, const char *old, const char *receiver);
 
 #endif

@@ -477,16 +477,13 @@ void CDlgHybridEncryptionDemo::OnButtonGetAsymKey()
 
 	if ( IDOK == rsaDlg.DoModal() ) 
 	{
-		// Zunächst NACHNAME, VORNAME und ZEIT in einer Struktur ablegen, die später
-		// nach Schliessen des Dialogs verwendet wird
-		if(isSCABehaviourActivated)
-		{
-			this->scaCertInfo.firstname = rsaDlg.Firstname;
-			this->scaCertInfo.lastname = rsaDlg.Name;
-			this->scaCertInfo.keytype = rsaDlg.KeyType;
-			this->scaCertInfo.time = rsaDlg.CreatTime;
-			this->scaCertInfo.keyid = rsaDlg.KeyInfo;
-		}
+		// the information stored in this struct is used after closing the dialog
+		this->scaCertInfo.firstname = rsaDlg.Firstname;
+		this->scaCertInfo.lastname = rsaDlg.Name;
+		this->scaCertInfo.keytype = rsaDlg.KeyType;
+		this->scaCertInfo.time = rsaDlg.CreatTime;
+		this->scaCertInfo.keyid = rsaDlg.KeyInfo;
+		
 
 		CKeyFile KeyHandling;
 		CString caDB_entry_name = KeyHandling.CreateDistName(rsaDlg.Name, rsaDlg.Firstname, rsaDlg.CreatTime);
@@ -1292,7 +1289,9 @@ void CDlgHybridEncryptionDemo::OnButtonDatenausgabe()
 	if(NewDoc)
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_STRING_HYBRID_ENC_TITLE,pc_str,STR_LAENGE_STRING_TABLE);
-		MakeNewName(title,sizeof(title),pc_str,m_strBuffTitle);
+		// add the name of the receiver to the document title ("FOO encrypted for BAR")
+		CString receiverName = scaCertInfo.firstname + " " + scaCertInfo.lastname;
+		MakeNewNameIncludingReceiver(title,sizeof(title),pc_str,m_strBuffTitle,(const char*)receiverName);
 		NewDoc->SetTitle(title);
 	}
 

@@ -52,14 +52,13 @@ statement from your version.
    Daten einen Namen für das Fenster, in dem die Ausgabe dargestellt wird		*/
 
 void MakeNewName(char *dest, unsigned int len, const char *format, const char *old)
-{
-    if(strlen(format)+strlen(old)<(size_t)len)
-        sprintf(dest,format,old);
-    else
-	{
+{	
+	if(strlen(format)+strlen(old)<(size_t)len) {
+		sprintf(dest,format,old);
+	}
+  else {
 		int lenRemain = (size_t)len - (strlen(format) +4);
-		if (lenRemain > 0)
-		{
+		if (lenRemain > 0) {
 			char *tmp_str;
 			tmp_str = new char[lenRemain+4];
 			memcpy(tmp_str, old, lenRemain);
@@ -68,8 +67,9 @@ void MakeNewName(char *dest, unsigned int len, const char *format, const char *o
 			sprintf(dest, format, tmp_str);
 			delete []tmp_str;
 		}
-		else
+		else {
 			sprintf(dest,format,"...");
+		}
 	}
 }
 
@@ -131,6 +131,36 @@ void MakeNewName3(char *dest, unsigned int len, const char *format, const char *
 			}
 			else
 				sprintf(dest,format,alg,"...","...");
+		}
+	}
+}
+
+// this function is very similar to "MakeNewName"; the only difference is that you can specify
+// the name of the receiver (see last argument) that is added to the resulting document title
+void MakeNewNameIncludingReceiver(char *dest, unsigned int len, const char *format, const char *old, const char *receiver) {
+	if(strlen(format) + strlen(old) + strlen(receiver) < (size_t)len) {
+		sprintf(dest, format, old, receiver);
+	}
+  else {
+		// those seven extra characters consist of two "..." sequences and a binary null
+		size_t lenRemain = (size_t)len - (strlen(format) + 7);
+		// if we do have space left, try to add the receiver name first
+		if(lenRemain > strlen(receiver)) {
+			lenRemain -= strlen(receiver);
+			// if there is still space left, try to add the old document title
+			if(lenRemain > 0) {
+				char *tmp_str;
+				tmp_str = new char[lenRemain+4];
+				memcpy(tmp_str, old, lenRemain);
+				memcpy(tmp_str+lenRemain, "...", 3);
+				tmp_str[lenRemain+3] = '\0';
+				sprintf(dest, format, tmp_str, receiver);
+				delete []tmp_str;
+			}
+		}
+		// if there is no space left, go with two "..." sequences
+		else {
+			sprintf(dest, format, "...", "...");
 		}
 	}
 }

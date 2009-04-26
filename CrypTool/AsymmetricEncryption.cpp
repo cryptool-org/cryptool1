@@ -329,9 +329,11 @@ void RsaEnc(char* infile, const char *OldTitle){
 		HIDE_HOUR_GLASS // theApp.DoWaitCursor(0);
 		
 		if(NewDoc)
-		{
+		{	
 			LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_RSA_ENCRYPTION_OF,pc_str,STR_LAENGE_STRING_TABLE);
-			MakeNewName(title,sizeof(title),pc_str,OldTitle);
+			// add the name of the receiver to the document title ("FOO encrypted for BAR")
+			CString receiverName = RsaDialog1.Firstname + " " + RsaDialog1.Name;
+			MakeNewNameIncludingReceiver(title,sizeof(title),pc_str,OldTitle,(const char*)(receiverName));
 			NewDoc->SetTitle(title);
 		}
 		
