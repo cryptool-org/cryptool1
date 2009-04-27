@@ -4020,14 +4020,17 @@ int RailFenceEncryption(const char *infile, const char *oldTitle, int key, int o
 	while(!fileInput.eof());
 	fileInput.close();
 
-	// ignore non-alphabet characters
-	CString bufferStringValid;
-	for(unsigned int i=0; i<bufferString.length(); i++) {
-		if(theApp.TextOptions.getAlphabet().Find(bufferString[i]) != -1) {
-			bufferStringValid.AppendChar(bufferString[i]);
+	// ignore non-alphabet characters if the according option is not set in the text options dialog
+	if(theApp.TextOptions.getKeepCharactersNotPresentInAlphabetUnchanged() == false) {
+		// ignore non-alphabet characters
+		CString bufferStringValid;
+		for(unsigned int i=0; i<bufferString.length(); i++) {
+			if(theApp.TextOptions.getAlphabet().Find(bufferString[i]) != -1) {
+				bufferStringValid.AppendChar(bufferString[i]);
+			}
 		}
+		bufferString = bufferStringValid;
 	}
-	bufferString = bufferStringValid;
 
 	// IMPORTANT: the key is invalid if it is "1" or >= the length of the clear text
 	if(key <= 1 || key >= (int)bufferString.length()) {
@@ -4216,14 +4219,17 @@ int ScytaleEncryption(const char *infile, const char *oldTitle, int key, int off
 	while(!fileInput.eof());
 	fileInput.close();
 
-	// ignore non-alphabet characters
-	CString bufferStringValid;
-	for(unsigned int i=0; i<bufferString.length(); i++) {
-		if(theApp.TextOptions.getAlphabet().Find(bufferString[i]) != -1) {
-			bufferStringValid.AppendChar(bufferString[i]);
+	// ignore non-alphabet characters if the according option is not set in the text options dialog
+	if(theApp.TextOptions.getKeepCharactersNotPresentInAlphabetUnchanged() == false) {
+		// ignore non-alphabet characters
+		CString bufferStringValid;
+		for(unsigned int i=0; i<bufferString.length(); i++) {
+			if(theApp.TextOptions.getAlphabet().Find(bufferString[i]) != -1) {
+				bufferStringValid.AppendChar(bufferString[i]);
+			}
 		}
+		bufferString = bufferStringValid;
 	}
-	bufferString = bufferStringValid;
 
 	// IMPORTANT: the key is invalid if it is "1" or >= the length of the clear text
 	if(key <= 1 || key >= (int)bufferString.length()) {

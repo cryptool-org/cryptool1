@@ -30,8 +30,16 @@ gewürfelt.</P>
 oder mehr Zeilen geschrieben. Die Geheimbotschaft erhält man, indem man die Buchstaben 
 zeilenweise abliest.</P>
 
-<P>Der Empfänger kann die Nachricht entschlüsseln, indem er dieses Verfahren einfach umkehrt. 
-Er muss dazu wissen, auf wie viele Zeilen die Nachricht verteilt wurde.</P>
+<P>Nachfolgend sehen Sie ein Beispiel für eine Gartenzaun-Verschlüsselung mit drei Zeilen. 
+Der Klartext wird von oben nach unten Zeichen für Zeichen in die jeweiligen Zeilen geschrieben. 
+Ist die letzte Zeile erreicht, wird der Klartext von unten nach oben fortgesetzt. In diesem 
+Beispiel benutzen wir den Klartext "SECRETMESSAGE":</P>
+
+<P><IMG SRC="images/railfenceexample.png" ALT="railfenceexample.png" BORDER=0></P>
+
+<P>Durch zeilenweises Ablesen entsteht die Nachricht "SESEERTESGCMA". Der Empfänger kann die 
+Nachricht entschlüsseln, indem er dieses Verfahren einfach umkehrt. Er muss dazu wissen, auf wie 
+viele Zeilen die Nachricht verteilt wurde.</P>
 
 <P>Varianten davon sind zum Beispiel:</P>
 
@@ -73,6 +81,9 @@ da die Schlüsselzahl sehr begrenzt ist.</P>
 der Klartext nicht auf der ersten Wicklung in der ersten Zeile begonnen, sondern auf der 
 zweiten Wicklung. Damit steht der Klartextanfang nicht am Anfang des Gürtels. Der Offset ist 
 ein Teil des Schlüssels.</P>
+
+<P>Eine Skytale ohne Offset mit n Kanten ist äquivalent zu einer Transposition mit dem Schlüssel 
+1,2,3 ... n, wenn spaltenweise eingelesen und permutiert sowie zeilenweise ausgelesen wird.</P>
 
 <P>Weitere Informationen zu Transpositionen finden Sie hier:</P>
 <UL>
