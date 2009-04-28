@@ -22,23 +22,9 @@
 
 <P>Anhand eines <!--ZZZPOPUP--><A href="dokument.html">Textdokuments</A> wird die <!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselung</A> und die <!--ZZZPOPUP--><A href="entschluesselung.html">Entschlüsselung</A> mittels des <A href="hid_crypt_rsaenc.html">RSA-Verschlüsselungsverfahren</A> vorgestellt.</P>
 
-<P>Zunächst muss (wie bei der <!--ZZZPOPUP--><A href="signatur.html">Signatur</A> mit dem <A href="hid_crypt_sign.html">RSA-Verfahren</A>) ein asymmetrisches <!--ZZZPOPUP--><A href="schluesselpaar.html">Schlüsselpaar</A> erzeugt werden. Über den Befehl <A href="hid_crypt_keygen.html">Schlüssel erzeugen/importieren</A> im Menü <A href="menu_digitalsignaturespki.html">Digitale Signaturen/PKI</A> \ <A href="menu_digitalsignaturespkipki.html">PKI</A> öffnet sich der folgende Dialog.</P>
 
-<P><IMG SRC="images/szenariorsa_ver1.gif" ALT="szenariorsa_ver1.gif" BORDER=0></P>
 
-<P>Als Namen haben wir<CODE> Max Müller</CODE> eingegeben, die optionale Schlüsselkennung wählten wir als<CODE> Müllers Schlüssel</CODE> und als Pin-Code (zweimal)<CODE> 1234</CODE>. Die Länge des Moduls soll<CODE> 768</CODE> Bit betragen. Nach der Betätigung der <B>Eingabetaste</B> oder einen Klick auf den <B>OK</B>-Knopf wird die Erzeugung des <!--ZZZPOPUP--><A href="schluesselpaar.html">Schlüsselpaars</A> gestartet. </P>
-
-<P>Im nächsten Fenster erscheinen die öffentlichen RSA-Parameter: der aus zwei Primzahlen zusammengesetzte Modul und der öffentliche Exponent (öffentlicher Schlüssel).</P>
-
-<P><IMG SRC="images/szenariorsaoeffentlicheparameter.gif" ALT="szenariorsaoeffentlicheparameter.gif" BORDER=0></P>
-
-<P>Nach Klick auf <b>Schlüssel übernehmen</b> zeigt der folgende Dialog, unter welchem Schlüsselbezeichner der Schlüssel in der internen Datenbank abgelegt ist, und die zur Schlüsselerzeugung benötigte Rechenzeit.</P>
-
-<P><IMG SRC="images/szenariorsa_ver2.gif" ALT="szenariorsa_ver2.gif" BORDER=0></P>
-
-<P>Nach dem Schließen dieses Dialoges muss auch der Dialog <A href="hidd_keyasym_generation.html">Erzeugung eines asymmetrischen Schlüsselpaares</A> durch <B>Abbrechen</B> geschlossen werden.</P>
-
-<P>Nun laden wir die <!--ZZZPOPUP--><A href="datei.html">Datei</A><CODE> CrypTool-de.txt.</CODE> Dieses <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> wird in CrypTool (über das Menü <A href="menu_file.html">Datei</A> \ <A href="hid_file_open.html">Öffnen</A>) geöffnet.</P>
+<P>Zunächst laden wir die <!--ZZZPOPUP--><A href="datei.html">Datei</A><CODE> CrypTool-de.txt.</CODE> Dieses <!--ZZZPOPUP--><A href="dokument.html">Dokument</A> wird in CrypTool (über das Menü <A href="menu_file.html">Datei</A> \ <A href="hid_file_open.html">Öffnen</A>) geöffnet.</P>
 
 <P><IMG SRC="images/szenariorsa_ver3.gif" ALT="szenariorsa_ver3.gif" BORDER=0></P>
 
@@ -46,7 +32,7 @@
 
 <P><IMG SRC="images/szenariorsa_ver4.gif" ALT="szenariorsa_ver4.gif" BORDER=0></P>
 
-<P>Die <!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselung</A> wird durch Auswahl des <!--ZZZPOPUP--><A href="schluessel.html">Schlüssels</A> des Empfängers und Klick auf den <B>Verschlüsseln</B>-Knopf gestartet. Für die <!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselung</A> ist die Eingabe des Pin-Codes also nicht erforderlich.</P>
+<P>Die <!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselung</A> wird durch Auswahl des <!--ZZZPOPUP--><A href="schluessel.html">Schlüssels</A> des Empfängers und Klick auf den <B>Verschlüsseln</B>-Knopf gestartet. Für die <!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselung</A> ist die Eingabe des Pin-Codes nicht erforderlich.</P>
 
 <P>Das folgende Fenster zeigt das Ergebnis der Verschlüsselung:</P>
 
