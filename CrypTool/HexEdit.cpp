@@ -327,6 +327,19 @@ BOOL CHexEdit::OnUpdate()
 	b2 = (char *) malloc(2*l+2);
 	GetWindowText(b1,l+1);
 	_strupr(b1);
+
+	// flomar, 04/28/2009: remove non-hex characters 
+	CString finalString = "";
+	CString tempString = b1;
+	for(int i=0; i<tempString.GetLength(); i++) {
+		char c = tempString[i];
+		if((c >= '0' && c <= '9') || (c >= 'A' && c <= 'F')) {
+			finalString.AppendChar(c);
+		}
+	}
+	memset(b1, 0, l+2);
+	memcpy(b1, finalString.GetBuffer(), finalString.GetLength());
+
 	GetSel(ss1,se1);
 
 	ss2 = se2 = 0;

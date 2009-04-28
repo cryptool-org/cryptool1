@@ -2015,6 +2015,31 @@ static void hexEncode(BYTE *pDest, UINT nDestLength, BYTE *pData, UINT nDataLeng
 	pDest[ascii++] = '\0';
 }
 
+// flomar, 04/28/2009: this is a temporary fix (see flomar tags below)
+static UINT hexEncodeLengthWithoutNewlines(UINT nLength)
+{
+	return 3 * nLength;
+}
+
+// flomar, 04/28/2009: this is a temporary fix (see flomar tags below)
+static void hexEncodeWithoutNewlines(BYTE *pDest, UINT nDestLength, BYTE *pData, UINT nDataLength)
+{
+	BYTE *pDataEnd = pData + nDataLength - 1;
+	UINT ascii = 0; // index into pDest
+	while( pData <= pDataEnd ) {
+		if(ascii > 0) {
+			ASSERT(ascii + 1 <= nDestLength);
+			pDest[ascii++] = ' ';
+		}
+		ASSERT(ascii + 2 <= nDestLength);
+		pDest[ascii++] = tabHexCharacters[*pData >> 4];
+		pDest[ascii++] = tabHexCharacters[*pData & 0xf];
+		pData++;
+	}
+	ASSERT(ascii + 1 == nDestLength);
+	pDest[ascii++] = '\0';
+}
+
 void CHexEditBase::OnEditCopyCutDelete(bool cutdel,bool clipboard) 
 {
 	if( (m_nSelectionBegin == NOSECTION_VAL) || (m_nSelectionEnd == NOSECTION_VAL) )
@@ -2041,12 +2066,18 @@ void CHexEditBase::OnEditCopyCutDelete(bool cutdel,bool clipboard)
 			if (doHexEncode) {
 				// copy ascii
 				clipformat = CF_TEXT;
-				UINT asciiLength = hexEncodeLength(nLength, m_tPaintDetails.nBytesPerRow);
+				// flomar, 04/28/2009: due to problems with the cut-and-paste functionality in the 
+				// find-and-replace dialog, I removed the new lines from the hexadecimal output
+				// UINT asciiLength = hexEncodeLength(nLength, m_tPaintDetails.nBytesPerRow);
+				UINT asciiLength = hexEncodeLengthWithoutNewlines(nLength);
 				hMem = ::GlobalAlloc(GMEM_MOVEABLE|GMEM_DDESHARE|GMEM_ZEROINIT, asciiLength);
 				if(hMem == NULL)
 					throw 0;
 				BYTE *pPtr = (BYTE*)::GlobalLock(hMem);
-				hexEncode(pPtr, asciiLength, m_pData + m_nSelectionBegin, nLength, m_tPaintDetails.nBytesPerRow);
+				// flomar, 04/28/2009: due to problems with the cut-and-paste functionality in the 
+				// find-and-replace dialog, I removed the new lines from the hexadecimal output
+				// hexEncode(pPtr, asciiLength, m_pData + m_nSelectionBegin, nLength, m_tPaintDetails.nBytesPerRow);
+				hexEncodeWithoutNewlines(pPtr, asciiLength, m_pData + m_nSelectionBegin, nLength);
 				::GlobalUnlock(hMem);
 			} else {
 				// copy binary
