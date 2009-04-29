@@ -79,6 +79,7 @@ BEGIN_MESSAGE_MAP(CHexEdit, CEdit)
 	//{{AFX_MSG_MAP(CHexEdit)
 	ON_WM_CHAR()
 	ON_WM_KEYDOWN()
+	ON_MESSAGE(WM_PASTE, OnPaste)
 	ON_CONTROL_REFLECT_EX(EN_UPDATE, OnUpdate)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
@@ -313,6 +314,44 @@ int CHexEdit::SetAscii(CString c)
 	return j;
 }
 
+LRESULT CHexEdit::OnPaste(WPARAM wparam, LPARAM lparam)
+{
+	CString clipboardText;
+
+	// at first we try to get the contents of the clipboard
+  if(::IsClipboardFormatAvailable(CF_TEXT)) {
+    // open the clipboard to get clipboard text
+    if(::OpenClipboard(m_hWnd)) {
+      HANDLE  hClipBrdData = NULL;
+      if((hClipBrdData = ::GetClipboardData(CF_TEXT)) != NULL) {
+        LPTSTR  lpClipBrdText = (LPTSTR)::GlobalLock(hClipBrdData);
+        if(lpClipBrdText) {
+          clipboardText = lpClipBrdText;
+          ::GlobalUnlock(hClipBrdData);
+        }
+      }
+			VERIFY(::CloseClipboard());
+		}
+	
+		// now we should have the contents of the clipboard;
+		// however, we need to replace the line breaks with spaces 
+		// to prevent the input field from getting messed up
+		int lineBreakIndex = 0;
+		while((lineBreakIndex = clipboardText.Find("\r\n")) != -1) {
+			clipboardText.Delete(lineBreakIndex, 2);
+			clipboardText.Insert(lineBreakIndex, " ");
+		}
+	}
+
+	// set the new window text
+	SetWindowTextA(clipboardText);
+	
+	CString res;
+	GetWindowText(res);
+
+	return 0;
+}
+
 BOOL CHexEdit::OnUpdate() 
 {
 	int l,ss1,se1,ss2,se2,i,p;
@@ -327,19 +366,6 @@ BOOL CHexEdit::OnUpdate()
 	b2 = (char *) malloc(2*l+2);
 	GetWindowText(b1,l+1);
 	_strupr(b1);
-
-	// flomar, 04/28/2009: remove non-hex characters 
-	CString finalString = "";
-	CString tempString = b1;
-	for(int i=0; i<tempString.GetLength(); i++) {
-		char c = tempString[i];
-		if((c >= '0' && c <= '9') || (c >= 'A' && c <= 'F')) {
-			finalString.AppendChar(c);
-		}
-	}
-	memset(b1, 0, l+2);
-	memcpy(b1, finalString.GetBuffer(), finalString.GetLength());
-
 	GetSel(ss1,se1);
 
 	ss2 = se2 = 0;

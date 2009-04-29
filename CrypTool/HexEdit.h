@@ -89,6 +89,7 @@ protected:
 	afx_msg void OnChar(UINT nChar, UINT nRepCnt, UINT nFlags);
 	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
 	afx_msg BOOL OnUpdate();
+	afx_msg LRESULT OnPaste(WPARAM wparam, LPARAM lparam);
 	//}}AFX_MSG
 
 	DECLARE_MESSAGE_MAP()
