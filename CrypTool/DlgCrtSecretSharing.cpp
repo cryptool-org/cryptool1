@@ -1078,15 +1078,46 @@ void CDlgCrtSecretSharing::OnBnClickedSecretsharingSolve()
 				}
 				HIDE_HOUR_GLASS		// deaktiviert die Sanduhr
 				
-				// Berechne noch offene Möglichkeiten
-				// FIXME BEGIN
-				Big temp1 = min_k / M;
-				// FIXME END
+				// flomar, 05/05/2009
+				// in order to compute the remaining possibilities we multiply 
+				// the n smallest primes that were not chosen by the user
+				int n = m_need - anzahl;
+				// we store the result in remainingPossibilites
+				Big remainingPossibilities = "1";
+				// the following is rather ugly and could be implemented way more elegantly, 
+				// but I don't have the time to mess with the other code right now;
+				// basically, we go through all primes (sorted in ascending order) and 
+				// multiply "remainingPossibilities" with the current prime if the 
+				// user hasn't chosen this prime for reconstruction
+				for(int i=0; i<6 && n>0; i++) {
+					if(i == 0 && m_reka0 == "") {
+						Big prime = m_m0.GetBuffer(); remainingPossibilities *= prime; n--;
+					}
+					else if(i == 1 && m_reka1 == "") { 
+						Big prime = m_m1.GetBuffer(); remainingPossibilities *= prime; n--;
+					}
+					else if(i == 2 && m_reka2 == "") { 
+						Big prime = m_m2.GetBuffer(); remainingPossibilities *= prime; n--;
+					}
+					else if(i == 3 && m_reka3 == "") { 
+						Big prime = m_m3.GetBuffer(); remainingPossibilities *= prime; n--;
+					}
+					else if(i == 4 && m_reka4 == "") { 
+						Big prime = m_m4.GetBuffer(); remainingPossibilities *= prime; n--;
+					}
+					else if(i == 5 && m_reka5 == "") { 
+						Big prime = m_m5.GetBuffer(); remainingPossibilities *= prime; n--;
+					}
+					else if(i == 6 && m_reka6 == "") { 
+						Big prime = m_m6.GetBuffer(); remainingPossibilities *= prime; n--;
+					}
+				}
+				// now display the amount of remaining possibilities for the user
 				CString Ctemp3;
-				BigToCString(temp1,Ctemp3,10);
+				BigToCString(remainingPossibilities, Ctemp3, 10);
 				dum.LoadString(IDS_CRT_SECRETSHARING_REK6);
-				helper.Format(dum,anzahl,m_need, Ctemp3);
-				AfxMessageBox( helper, MB_ICONINFORMATION );
+				helper.Format(dum, anzahl, m_need, Ctemp3);
+				AfxMessageBox(helper, MB_ICONINFORMATION);
 
 				// Log-Datei
 				helpme.LoadString(IDS_CRT_SECRETSHARING_REK7);
