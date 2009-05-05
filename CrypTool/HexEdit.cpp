@@ -208,11 +208,18 @@ void CHexEdit::postproc( char *oldstring, int start, int end )
 
 	b1 = oldstring;
 	la = GetWindowTextLength();
-	lt = m_fixedbytelength ? 2 * m_fixedbytelength : la;
 	b3 = (char *) malloc(la+1);
+	GetWindowText(b3,la+1);
+	if (m_fixedbytelength) {
+		lt = 2 * m_fixedbytelength;
+	} else { // count valid hex chars (^V can insert non hex chars just before postproc is called)
+		lt = 0;
+		for (i = 0; i < la; i++)
+			if (HexVal(b3[i]) != -1)
+				lt++;
+	}
 	int ltspace = lt + (lt - 1) / 2 ;
 	b2 = (char *) malloc(ltspace + 1); // make room for ' '
-	GetWindowText(b3,la+1);
 	_strupr(b3);
 	if(BinBuffLen * 2 < lt)
 	{
@@ -221,9 +228,9 @@ void CHexEdit::postproc( char *oldstring, int start, int end )
 		BinData = (char *) calloc(BinBuffLen,1);
 	}
 	GetSel(s2,e2);
-	for(i=j=0;i<lt;i++)
+	for(i = j = 0; i < la; i++)
 	{
-		char c = (i < la) ? b3[i] : m_fillchar;
+		char c = b3[i];
 		if(strchr(m_validchars,c))
 		{
 			ASSERT(j < ltspace);
@@ -313,7 +320,6 @@ int CHexEdit::SetAscii(CString c)
 	BinLen = j;
 	return j;
 }
-
 LRESULT CHexEdit::OnPaste(WPARAM wparam, LPARAM lparam)
 {
 	CString clipboardText;
