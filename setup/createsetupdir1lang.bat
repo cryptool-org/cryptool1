@@ -25,6 +25,9 @@ echo Copying ..\script\%lang%\script-%lang%.pdf  ...
 copy ..\script\%lang%\script-%lang%.pdf setup-%lang%
 echo Copying ..\dialoguesisters\%lang%\*.pdf setup-%lang%  ...
 copy ..\dialoguesisters\%lang%\*.pdf setup-%lang%
+echo Copying ..\smimedemo\*.* setup-%lang% ...
+xcopy /s/q /EXCLUDE:\docs\+\fla\+\src\+start-??.bat ..\smimedemo\*.* setup-%lang%
+copy ..\smimedemo\start-%lang%.bat setup-%lang% 
 
 cd setup-%lang%
 
