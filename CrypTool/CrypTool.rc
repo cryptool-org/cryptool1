@@ -4400,6 +4400,33 @@ BEGIN
     PUSHBUTTON      "Textoptionen",IDC_BUTTON2,95,338,59,17
 END
 
+IDD_AUTOMATED_PERM_ANALYSIS_OUTPUT DIALOGEX 0, 0, 242, 241
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Schlüsselausgabe: Einstufige Spaltentransposition"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Schließen",IDOK,185,219,50,15
+    GROUPBOX        "1. Permutation (einfache Spaltentransposition)",IDC_STATIC,7,7,228,94
+    LTEXT           "Einlesen:",IDC_STATIC,17,53,35,10
+    LTEXT           "Permutieren:",IDC_STATIC,17,70,54,10
+    LTEXT           "Auslesen:",IDC_STATIC,17,86,54,10
+    LTEXT           "",IDC_INDIR,63,52,112,11,WS_BORDER
+    LTEXT           "",IDC_permDir1,63,69,112,11,WS_BORDER
+    LTEXT           "",IDC_OUTDIR1,63,85,112,11,WS_BORDER
+    LTEXT           "",IDC_PERMKEY1,17,30,209,12,WS_BORDER
+    GROUPBOX        "2. Permutation (doppelte Spaltentransposition)",IDC_STATIC,7,108,228,99,WS_DISABLED
+    LTEXT           "Einlesen:",IDC_STATIC,17,153,35,12,WS_DISABLED
+    LTEXT           "Permutieren:",IDC_STATIC,17,171,46,10,WS_DISABLED
+    LTEXT           "Auslesen:",IDC_STATIC,17,188,46,10,WS_DISABLED
+    LTEXT           "",IDC_INDIR2,63,154,112,11,WS_DISABLED | WS_BORDER
+    LTEXT           "",IDC_PERMDIR2,63,170,112,11,WS_DISABLED | WS_BORDER
+    LTEXT           "",IDC_OUTDIR2,63,187,112,11,WS_DISABLED | WS_BORDER
+    LTEXT           "",IDC_PERMKEY2,17,132,209,12,WS_DISABLED | WS_BORDER
+    PUSHBUTTON      "Schlüssel kopieren",IDC_BUTTON1,7,219,69,15
+    LTEXT           "Schlüssel",IDC_STATIC,17,20,107,8
+    LTEXT           "Schlüssel",IDC_STATIC,17,122,158,8,WS_DISABLED
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -7964,6 +7991,15 @@ BEGIN
         BOTTOMMARGIN, 355
         HORZGUIDE, 338
     END
+
+    IDD_AUTOMATED_PERM_ANALYSIS_OUTPUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 235
+        VERTGUIDE, 175
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 234
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -8187,6 +8223,10 @@ BEGIN
     ID_FORMAT_TEXT_DOCUMENT "Formatuje dokument tekstowy u¿ywaj¹c specyficznych parametrów"
     ID_CRYPT_HASH_SHA256    "Oblicza wartoœæ hasz SHA-256 aktywnego dokumentu"
     ID_CRYPT_HASH_SHA512    "Oblicza wartoœæ hasz SHA-512 aktywnego dokumentu"
+    ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS 
+                            "Encryption using simple transpositions (Scytale, Rail Fence)"
+    ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION 
+                            "Plaintext attack against a single column transposition"
 END
 
 STRINGTABLE 
@@ -10542,8 +10582,23 @@ BEGIN
     IDS_SCA_ATTACK_FAILED_BECAUSE_OF_MISSING_KEYWORD 
                             "Atak side-channel zakoñczony niepowodzeniem! \r\n Prawdopodobnie oryginalny plik nie zawiera³ s³owa kluczowego ""%s"" zanim zosta³ zaszyfrowany. \n\n W pomocy on-line mo¿esz dowiedzieæ siê, dlaczego s³owo kluczowe jest tak wa¿ne dla pomyœlnego ataku."
     IDS_PQM_BIT             "bitów"
+    IDS_STRING_SECRET_SHARING_K_EQUALS_N 
+                            "Please choose k<n (here: k<%d).\n\nIf k and n are identical in this secret sharing procedure, the secret equals the password of the first participant."
+    IDS_STRING_ADFGVX_PASSWORD_CORRECTED 
+                            "The entered transposition password was corrected:\n\n"
+    IDS_STRING_ABOUT_CONTACT_INFORMATION 
+                            "esslinger@fb5.uni-siegen.de\r\njoerg-cornelius.schneider@db.com\r\nhenrik.koy@db.com\r\n\r\nInternet: http://www.cryptool.com"
     IDS_BIT_FMT             "%d bit%s"
+    IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION 
+                            "In the given value range [%s, %s] %d prime numbers were found."
     IDS_BIT_EFFECTIVE_FMT   " (%d bit effective)"
+    IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_TITLE 
+                            "Generating a set of prime numbers"
+    IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_TEXT 
+                            "Generating prime numbers in the value range [%s, %s]..."
+    IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION_CANCELLED 
+                            "The process was cancelled. In the given value range [%s, %s], %d prime numbers were found yet."
+    IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_SCYTALE "Number of edges:"
 END
 
 STRINGTABLE 
@@ -10573,11 +10628,37 @@ BEGIN
     IDS_SIGATT_STAT_FAKE_FILE "Filename fake: %s"
     IDS_PQMERROR_NO_SPECIALCHARACTERS 
                             "The special character list is empty!\nPlease provide some spechial characters or reduce the minimal number of special characters to 0."
+    IDS_IOP_COL             "Column by column"
+    IDS_IOP_ROW             "Row by row"
+    IDS_PA_COULDNOTOPEN_PLAINFILE "Could not open the plaintext file."
+    IDS_PA_COULDNOTOPEN_CIPHERFILE "Could not open the ciphertext file."
+    IDS_PA_FILESIZES_DIFFERENT 
+                            "The lower limit of the key search range is bigger than the upper limit."
+    IDS_PA_EMPTYFILE        "Both files (plaintext and ciphertext) are empty."
+    IDS_PA_LIMITRANGE_ERROR "Die untere Grenze der Permutationsschlüssel ist größer als die obere Grenze."
+    IDS_PA_DIRECTION_ERROR  "Should never occur."
+    ID_PA_NOKEYFOUND        "No single transposition key was found."
+    IDS_PLAINTEXT           "Enter Plaintext"
+    IDS_CIPHERTEXT          "Enter Ciphertext"
+    IDS_PA_EMPTYREFFILE     "The active document is empty!"
 END
 
 STRINGTABLE 
 BEGIN
+    IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_RAIL_FENCE "Number of rows:"
+    IDS_SIMPLE_TRANSPOSITION_KEY_INVALID 
+                            "The key is invalid. It must be greater than 1 and smaller than the length of the input text.\n\nCharacters that are not part of the CrypTool-Alphabet are deleted before encryption/decryption. If you don't want to change the input text, please use the button ""Text options"" to alter the CrypTool alphabet in order to proceed."
+    IDS_STRING_RAIL_FENCE_ENCRYPTION_OF 
+                            "Rail Fence encryption of <%s>, key <%s>"
+    IDS_STRING_RAIL_FENCE_DECRYPTION_OF 
+                            "Rail Fence decryption of <%s>, key <%s>"
+    IDS_STRING_SCYTALE_ENCRYPTION_OF "Scytale encryption of <%s>, key <%s>"
+    IDS_STRING_SCYTALE_DECRYPTION_OF "Scytale decryption of <%s>, key <%s>"
     IDS_FACTORS_FOUND       "Found %d factors in %s"
+    IDS_SIMPLE_TRANSPOSITION_OFFSET_INVALID 
+                            "The offset is invalid. It must not be smaller than 0."
+    IDS_STRING_FACTORIZATION_BRUTE_FORCE_LIMIT 
+                            "This factor could not be factorized using brute-force. Here, brute-force is implemented to find only factors smaller than %d."
     IDS_CRYPT_SIMPLETRANSPOSITION "Simple Transposition"
     IDS_STRING_ASYMKEY_ERR_CERT_SERIAL_EXISTS 
                             "The certificate cannot be imported, because a certificate with the same serial number already exists."
@@ -15040,7 +15121,7 @@ BEGIN
     LTEXT           "Einlesen:",IDC_STATIC,17,53,35,10
     LTEXT           "Permutieren:",IDC_STATIC,17,70,54,10
     LTEXT           "Auslesen:",IDC_STATIC,17,86,54,10
-    LTEXT           "",IDC_inDir1,63,52,112,11,WS_BORDER
+    LTEXT           "",IDC_INDIR,63,52,112,11,WS_BORDER
     LTEXT           "",IDC_permDir1,63,69,112,11,WS_BORDER
     LTEXT           "",IDC_OUTDIR1,63,85,112,11,WS_BORDER
     LTEXT           "",IDC_PERMKEY1,17,30,209,12,WS_BORDER
@@ -25600,31 +25681,31 @@ BEGIN
     PUSHBUTTON      "Textoptionen",IDC_BUTTON2,101,338,59,17
 END
 
-IDD_AUTOMATED_PERM_ANALYSIS_OUTPUT DIALOGEX 0, 0, 242, 268
+IDD_AUTOMATED_PERM_ANALYSIS_OUTPUT DIALOGEX 0, 0, 242, 241
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Schlüsselausgabe: Einstufige Spaltentransposition"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Schließen",IDOK,185,247,50,14
-    GROUPBOX        "1. Permutation",IDC_STATIC,7,7,228,109
-    LTEXT           "Einlesen:",IDC_STATIC,17,56,35,9
-    LTEXT           "Permutieren:",IDC_STATIC,17,77,54,10
-    LTEXT           "Auslesen:",IDC_STATIC,17,97,54,13
-    LTEXT           "",IDC_STATIC,83,53,92,14,WS_BORDER
-    LTEXT           "",IDC_STATIC,83,74,92,14,WS_BORDER
-    LTEXT           "",IDC_STATIC,83,94,92,14,WS_BORDER
-    LTEXT           "",IDC_STATIC,17,30,209,12,WS_BORDER
-    GROUPBOX        "2. Permutation",IDC_STATIC,7,123,228,109,WS_DISABLED
-    LTEXT           "Einlesen:",IDC_STATIC,17,173,35,9,WS_DISABLED
-    LTEXT           "Permutieren:",IDC_STATIC,17,194,54,10,WS_DISABLED
-    LTEXT           "Auslesen:",IDC_STATIC,17,214,54,13,WS_DISABLED
-    LTEXT           "",IDC_STATIC,83,170,92,14,WS_DISABLED | WS_BORDER
-    LTEXT           "",IDC_STATIC,83,190,92,14,WS_DISABLED | WS_BORDER
-    LTEXT           "",IDC_STATIC,83,211,92,14,WS_DISABLED | WS_BORDER
-    LTEXT           "",IDC_STATIC,17,147,209,12,WS_DISABLED | WS_BORDER
-    PUSHBUTTON      "Schlüssel kopieren",IDC_BUTTON1,7,246,76,15
-    CTEXT           "Gefundener Schlüssel:",IDC_STATIC,68,17,107,13
-    CTEXT           "Gefundener Schlüssel:",IDC_STATIC,68,134,107,13,WS_DISABLED
+    DEFPUSHBUTTON   "Schließen",IDOK,185,219,50,15
+    GROUPBOX        "1. Permutation (einfache Spaltentransposition)",IDC_STATIC,7,7,228,94
+    LTEXT           "Einlesen:",IDC_STATIC,17,53,35,10
+    LTEXT           "Permutieren:",IDC_STATIC,17,70,54,10
+    LTEXT           "Auslesen:",IDC_STATIC,17,86,54,10
+    LTEXT           "",IDC_INDIR,63,52,112,11,WS_BORDER
+    LTEXT           "",IDC_permDir1,63,69,112,11,WS_BORDER
+    LTEXT           "",IDC_OUTDIR1,63,85,112,11,WS_BORDER
+    LTEXT           "",IDC_PERMKEY1,17,30,209,12,WS_BORDER
+    GROUPBOX        "2. Permutation (doppelte Spaltentransposition)",IDC_STATIC,7,108,228,99,WS_DISABLED
+    LTEXT           "Einlesen:",IDC_STATIC,17,153,35,12,WS_DISABLED
+    LTEXT           "Permutieren:",IDC_STATIC,17,171,46,10,WS_DISABLED
+    LTEXT           "Auslesen:",IDC_STATIC,17,188,46,10,WS_DISABLED
+    LTEXT           "",IDC_INDIR2,63,154,112,11,WS_DISABLED | WS_BORDER
+    LTEXT           "",IDC_PERMDIR2,63,170,112,11,WS_DISABLED | WS_BORDER
+    LTEXT           "",IDC_OUTDIR2,63,187,112,11,WS_DISABLED | WS_BORDER
+    LTEXT           "",IDC_PERMKEY2,17,132,209,12,WS_DISABLED | WS_BORDER
+    PUSHBUTTON      "Schlüssel kopieren",IDC_BUTTON1,7,219,69,15
+    LTEXT           "Schlüssel",IDC_STATIC,17,20,107,8
+    LTEXT           "Schlüssel",IDC_STATIC,17,122,158,8,WS_DISABLED
 END
 
 
@@ -29226,8 +29307,7 @@ BEGIN
         RIGHTMARGIN, 235
         VERTGUIDE, 175
         TOPMARGIN, 7
-        BOTTOMMARGIN, 261
-        HORZGUIDE, 247
+        BOTTOMMARGIN, 234
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -31873,6 +31953,9 @@ BEGIN
     IDS_PA_LIMITRANGE_ERROR "Die untere Grenze der Permutationsschlüssel ist größer als die obere Grenze."
     IDS_PA_DIRECTION_ERROR  "Should never occur."
     ID_PA_NOKEYFOUND        "No single transposition key was found."
+    IDS_PLAINTEXT           "Enter Plaintext"
+    IDS_CIPHERTEXT          "Enter Ciphertext"
+    IDS_PA_EMPTYREFFILE     "The active document is empty!"
 END
 
 STRINGTABLE 

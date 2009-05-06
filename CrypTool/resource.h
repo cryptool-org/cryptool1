@@ -1685,6 +1685,7 @@
 #define IDC_EDIT_OFFSET                 2027
 #define IDC_PERMKEY1                    2028
 #define IDC_inDir1                      2029
+#define IDC_INDIR                       2029
 #define IDC_permDir1                    2030
 #define IDC_OUTDIR1                     2031
 #define IDC_PERMKEY2                    2032

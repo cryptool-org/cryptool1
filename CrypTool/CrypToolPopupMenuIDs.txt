@@ -64,7 +64,7 @@ ENGLISH Analysis_Hash # &Analysis|&Hash
 ENGLISH Analysis_ToolsforAnalysis # &Analysis|&Tools for Analysis
 ENGLISH Analysis_SymmetricEncryptionclassic # &Analysis|Symmetric Encryption (classic)
 ENGLISH Analysis_SymmetricEncryptionclassic_CiphertextOnly # &Analysis|Symmetric Encryption (classic)|&Ciphertext-Only
-ENGLISH Analysis_SymmetricEncryptionclassic_KnownPlaintext # &Analysis|Symmetric Encryption (classic)|Known-&Plaintext
+ENGLISH Analysis_SymmetricEncryptionclassic_KnownPlaintext # &Analysis|Symmetric Encryption (classic)|Known &Plaintext
 ENGLISH Analysis_SymmetricEncryptionclassic_ManualAnalysis # &Analysis|Symmetric Encryption (classic)|&Manual Analysis
 ENGLISH Analysis_SymmetricEncryptionmodern # &Analysis|Symmetric Encryption (modern)
 ENGLISH CryptDecrypt # &Crypt/Decrypt
@@ -109,7 +109,7 @@ GERMAN Analyse_AsymmetrischeVerfahren_GitterbasierteAngriffeaufRSA # A&nalyse|&A
 GERMAN Analyse_Hashverfahren # A&nalyse|&Hashverfahren
 GERMAN Analyse_SymmetrischeVerschlsselungklassisch # A&nalyse|Symmetrische Verschlüsselung (&klassisch)
 GERMAN Analyse_SymmetrischeVerschlsselungklassisch_CiphertextOnly # A&nalyse|Symmetrische Verschlüsselung (&klassisch)|&Ciphertext-Only
-GERMAN Analyse_SymmetrischeVerschlsselungklassisch_KnownPlaintext # A&nalyse|Symmetrische Verschlüsselung (&klassisch)|Known-&Plaintext
+GERMAN Analyse_SymmetrischeVerschlsselungklassisch_KnownPlaintext # A&nalyse|Symmetrische Verschlüsselung (&klassisch)|Known &Plaintext
 GERMAN Analyse_SymmetrischeVerschlsselungklassisch_ManuelleAnalyse # A&nalyse|Symmetrische Verschlüsselung (&klassisch)|&Manuelle Analyse
 GERMAN Analyse_SymmetrischeVerschlsselungmodern # A&nalyse|Symmetrische Verschlüsselung (&modern)
 GERMAN Analyse_WerkzeugezurAnalyse # A&nalyse|&Werkzeuge zur Analyse
