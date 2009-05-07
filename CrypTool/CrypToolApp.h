@@ -221,6 +221,7 @@ public:
 	afx_msg void OnInteractiveNumberTheory();
 	afx_msg void OnFlashEnigmademo();
 	afx_msg void OnIndividualPINEncryption();
+	afx_msg void OnProtokolSMIME();
 };
 
 class CMainFrame : public CMDIFrameWnd

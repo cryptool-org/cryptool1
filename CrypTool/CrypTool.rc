@@ -8,11 +8,12 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -4599,6 +4600,7 @@ BEGIN
         BEGIN
             MENUITEM "Demonstracja Diffie-Hellmana", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "Uwierzytelnianie w sieci",    ID_CHALLENGE_RESPONSE
+            MENUITEM "&Secure E-Mail with S/MIME",  ID_PROTOKOL_SMIME
         END
         POPUP "Zastosowania ChTR"
         BEGIN
@@ -4942,6 +4944,7 @@ BEGIN
         BEGIN
             MENUITEM "Demonstracja Diffie-Hellmana", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "Uwierzytelnianie w sieci",    ID_CHALLENGE_RESPONSE
+            MENUITEM "&Secure E-Mail with S/MIME",  ID_PROTOKOL_SMIME
         END
         POPUP "Zastosowania ChTR"
         BEGIN
@@ -5285,6 +5288,7 @@ BEGIN
         BEGIN
             MENUITEM "Demonstracja Diffie-Hellmana", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "Uwierzytelnianie w sieci",    ID_CHALLENGE_RESPONSE
+            MENUITEM "&Secure E-Mail with S/MIME",  ID_PROTOKOL_SMIME
         END
         POPUP "Zastosowania ChTR"
         BEGIN
@@ -5628,6 +5632,7 @@ BEGIN
         BEGIN
             MENUITEM "Demonstracja Diffie-Hellmana", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "Uwierzytelnianie w sieci",    ID_CHALLENGE_RESPONSE
+            MENUITEM "&Secure E-Mail with S/MIME",  ID_PROTOKOL_SMIME
         END
         POPUP "Zastosowania ChTR"
         BEGIN
@@ -5998,6 +6003,7 @@ BEGIN
         BEGIN
             MENUITEM "Demonstracja Diffie-Hellmana", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "Uwierzytelnianie w sieci",    ID_CHALLENGE_RESPONSE
+            MENUITEM "&Secure E-Mail with S/MIME",  ID_PROTOKOL_SMIME
         END
         POPUP "Zastosowania ChTR"
         BEGIN
@@ -10641,6 +10647,8 @@ BEGIN
     IDS_PLAINTEXT           "Enter Plaintext"
     IDS_CIPHERTEXT          "Enter Ciphertext"
     IDS_PA_EMPTYREFFILE     "The active document is empty!"
+    IDS_ERROPEN_SMIMEDEMO   "Die S/MIME Flash-Animation kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob das Programm SMIME_Animation.exe im CrypTool-Heimatverzeichnis installiert wurde\n(""%s"")."
+    IDS_SMIMEDEMO_EXE       "SMIME_Animation.exe"
 END
 
 STRINGTABLE 
@@ -10664,12 +10672,12 @@ BEGIN
                             "The certificate cannot be imported, because a certificate with the same serial number already exists."
 END
 
-#endif    // Polish resources
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -15312,6 +15320,7 @@ BEGIN
         BEGIN
             MENUITEM "&Diffie-Hellman-Demo...",     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "&Authentisierungsverfahren im Netz...", ID_CHALLENGE_RESPONSE
+            MENUITEM "&Sichere E-Mail mit S/MIME",  ID_PROTOKOL_SMIME
         END
         POPUP "Anwendungen des &Chinesischen Restsatzes"
         BEGIN
@@ -15656,6 +15665,7 @@ BEGIN
         BEGIN
             MENUITEM "&Diffie-Hellman-Demo...",     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "&Authentisierungsverfahren im Netz...", ID_CHALLENGE_RESPONSE
+            MENUITEM "&Sichere E-Mail mit S/MIME",  ID_PROTOKOL_SMIME
         END
         POPUP "Anwendungen des &Chinesischen Restsatzes"
         BEGIN
@@ -16000,6 +16010,7 @@ BEGIN
         BEGIN
             MENUITEM "&Diffie-Hellman-Demo...",     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "&Authentisierungsverfahren im Netz...", ID_CHALLENGE_RESPONSE
+            MENUITEM "&Sichere E-Mail mit S/MIME",  ID_PROTOKOL_SMIME
         END
         POPUP "Anwendungen des &Chinesischen Restsatzes"
         BEGIN
@@ -16344,6 +16355,7 @@ BEGIN
         BEGIN
             MENUITEM "&Diffie-Hellman-Demo...",     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "&Authentisierungsverfahren im Netz...", ID_CHALLENGE_RESPONSE
+            MENUITEM "&Sichere E-Mail mit S/MIME",  ID_PROTOKOL_SMIME
         END
         POPUP "Anwendungen des &Chinesischen Restsatzes"
         BEGIN
@@ -16715,6 +16727,7 @@ BEGIN
         BEGIN
             MENUITEM "&Diffie-Hellman-Demo...",     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "&Authentisierungsverfahren im Netz...", ID_CHALLENGE_RESPONSE
+            MENUITEM "&Sichere E-Mail mit S/MIME",  ID_PROTOKOL_SMIME
         END
         POPUP "Anwendungen des &Chinesischen Restsatzes"
         BEGIN
@@ -21246,6 +21259,8 @@ BEGIN
     IDS_PLAINTEXT           "Klartext im Eingabefeld"
     IDS_CIPHERTEXT          "Geheimtext im Eingabefeld"
     IDS_PA_EMPTYREFFILE     "Die im Desktop geöffnete Datei ist leer!"
+    IDS_ERROPEN_SMIMEDEMO   "Die S/MIME Flash-Animation kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob das Programm SMIME_Animation.exe im CrypTool-Heimatverzeichnis installiert wurde\n(""%s"")."
+    IDS_SMIMEDEMO_EXE       "SMIME_Animation.exe"
 END
 
 STRINGTABLE 
@@ -21271,12 +21286,12 @@ BEGIN
                             "Das Zertfikat kann nicht importiert werden, da bereits eines mit der gleichen Seriennummber vorhanden ist."
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -25882,6 +25897,7 @@ BEGIN
         BEGIN
             MENUITEM "&Diffie-Hellman Demonstration...", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "Network &Authentication...",  ID_CHALLENGE_RESPONSE
+            MENUITEM "&Secure E-Mail with S/MIME",  ID_PROTOKOL_SMIME
         END
         POPUP "Chinese Remainder &Theorem Applications"
         BEGIN
@@ -26226,6 +26242,7 @@ BEGIN
         BEGIN
             MENUITEM "&Diffie-Hellman Demonstration...", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "Network &Authentication...",  ID_CHALLENGE_RESPONSE
+            MENUITEM "&Secure E-Mail with S/MIME",  ID_PROTOKOL_SMIME
         END
         POPUP "Chinese Remainder &Theorem Applications"
         BEGIN
@@ -26570,6 +26587,7 @@ BEGIN
         BEGIN
             MENUITEM "&Diffie-Hellman Demonstration...", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "Network &Authentication...",  ID_CHALLENGE_RESPONSE
+            MENUITEM "&Secure E-Mail with S/MIME",  ID_PROTOKOL_SMIME
         END
         POPUP "Chinese Remainder &Theorem Applications"
         BEGIN
@@ -26914,6 +26932,7 @@ BEGIN
         BEGIN
             MENUITEM "&Diffie-Hellman Demonstration...", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "Network &Authentication...",  ID_CHALLENGE_RESPONSE
+            MENUITEM "&Secure E-Mail with S/MIME",  ID_PROTOKOL_SMIME
         END
         POPUP "Chinese Remainder &Theorem Applications"
         BEGIN
@@ -27285,6 +27304,7 @@ BEGIN
         BEGIN
             MENUITEM "&Diffie-Hellman Demonstration...", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "Network &Authentication...",  ID_CHALLENGE_RESPONSE
+            MENUITEM "&Secure E-Mail with S/MIME",  ID_PROTOKOL_SMIME
         END
         POPUP "Chinese Remainder &Theorem Applications"
         BEGIN
@@ -31956,6 +31976,8 @@ BEGIN
     IDS_PLAINTEXT           "Enter Plaintext"
     IDS_CIPHERTEXT          "Enter Ciphertext"
     IDS_PA_EMPTYREFFILE     "The active document is empty!"
+    IDS_ERROPEN_SMIMEDEMO   "Die S/MIME Flash-Animation kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob das Programm SMIME_Animation.exe im CrypTool-Heimatverzeichnis installiert wurde\n(""%s"")."
+    IDS_SMIMEDEMO_EXE       "SMIME_Animation.exe"
 END
 
 STRINGTABLE 
@@ -31981,7 +32003,7 @@ BEGIN
                             "The certificate cannot be imported, because a certificate with the same serial number already exists."
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

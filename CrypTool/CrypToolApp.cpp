@@ -227,6 +227,7 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_COMMAND(ID_FLASH_RIJNDAEL_INSPECTOR, OnFlashRijndaelInspector)
 	ON_COMMAND(ID_FLASH_ENIGMADEMO, OnFlashEnigmademo)
 	ON_COMMAND(ID_INTERACTIVE_NUMBER_THEORY, OnInteractiveNumberTheory)
+	ON_COMMAND(ID_PROTOKOL_SMIME, &CCrypToolApp::OnProtokolSMIME)
 END_MESSAGE_MAP()
 
 
@@ -1590,6 +1591,21 @@ void CCrypToolApp::OnFlashEnigmademo()
 		// display error message stating where the desired executable is expected
 		CString message;
 		message.Format(IDS_ERROPEN_ENIGMA_FLASH, Pfad);
+		AfxMessageBox(message, MB_ICONSTOP);
+	}
+}
+
+void CCrypToolApp::OnProtokolSMIME()
+{
+	CString SMIMEDemoFlashExecStr;
+	SMIMEDemoFlashExecStr.LoadString(IDS_SMIMEDEMO_EXE);
+
+
+	HINSTANCE hInst = ShellExecute(NULL,NULL, SMIMEDemoFlashExecStr, " ", Pfad, SW_SHOW);
+	if ( reinterpret_cast<int>(hInst) <= 32 ) {
+		// display error message stating where the desired executable is expected
+		CString message;
+		message.Format(IDS_ERROPEN_SMIMEDEMO, Pfad);
 		AfxMessageBox(message, MB_ICONSTOP);
 	}
 }
