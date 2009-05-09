@@ -3152,6 +3152,7 @@
 #define IDS_PA_EMPTYREFFILE             62029
 #define IDS_ERROPEN_SMIMEDEMO           62030
 #define IDS_SMIMEDEMO_EXE               62031
+#define IDS_SMIMEDEMO_PARAM             62032
 
 // Next default values for new objects
 // 

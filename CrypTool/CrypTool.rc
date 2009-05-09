@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polnisch resources
+// Polish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -10648,7 +10648,7 @@ BEGIN
     IDS_CIPHERTEXT          "Enter Ciphertext"
     IDS_PA_EMPTYREFFILE     "The active document is empty!"
     IDS_ERROPEN_SMIMEDEMO   "Die S/MIME Flash-Animation kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob das Programm SMIME_Animation.exe im CrypTool-Heimatverzeichnis installiert wurde\n(""%s"")."
-    IDS_SMIMEDEMO_EXE       "SMIME_Animation.exe"
+    IDS_SMIMEDEMO_EXE       "java"
 END
 
 STRINGTABLE 
@@ -10672,12 +10672,17 @@ BEGIN
                             "The certificate cannot be imported, because a certificate with the same serial number already exists."
 END
 
-#endif    // Polnisch resources
+STRINGTABLE 
+BEGIN
+    IDS_SMIMEDEMO_PARAM     "-cp "".;./lib/*"" main.Programm EN"
+END
+
+#endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -21260,7 +21265,7 @@ BEGIN
     IDS_CIPHERTEXT          "Geheimtext im Eingabefeld"
     IDS_PA_EMPTYREFFILE     "Die im Desktop geöffnete Datei ist leer!"
     IDS_ERROPEN_SMIMEDEMO   "Die S/MIME Flash-Animation kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob das Programm SMIME_Animation.exe im CrypTool-Heimatverzeichnis installiert wurde\n(""%s"")."
-    IDS_SMIMEDEMO_EXE       "SMIME_Animation.exe"
+    IDS_SMIMEDEMO_EXE       "java"
 END
 
 STRINGTABLE 
@@ -21286,12 +21291,17 @@ BEGIN
                             "Das Zertfikat kann nicht importiert werden, da bereits eines mit der gleichen Seriennummber vorhanden ist."
 END
 
-#endif    // Deutsch (Deutschland) resources
+STRINGTABLE 
+BEGIN
+    IDS_SMIMEDEMO_PARAM     "-cp "".;./lib/*"" main.Programm"
+END
+
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -31977,7 +31987,7 @@ BEGIN
     IDS_CIPHERTEXT          "Enter Ciphertext"
     IDS_PA_EMPTYREFFILE     "The active document is empty!"
     IDS_ERROPEN_SMIMEDEMO   "Die S/MIME Flash-Animation kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob das Programm SMIME_Animation.exe im CrypTool-Heimatverzeichnis installiert wurde\n(""%s"")."
-    IDS_SMIMEDEMO_EXE       "SMIME_Animation.exe"
+    IDS_SMIMEDEMO_EXE       "java"
 END
 
 STRINGTABLE 
@@ -32003,7 +32013,12 @@ BEGIN
                             "The certificate cannot be imported, because a certificate with the same serial number already exists."
 END
 
-#endif    // Englisch (GB) resources
+STRINGTABLE 
+BEGIN
+    IDS_SMIMEDEMO_PARAM     "-cp "".;./lib/*"" main.Programm EN"
+END
+
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

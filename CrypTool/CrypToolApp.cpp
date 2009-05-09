@@ -1597,11 +1597,11 @@ void CCrypToolApp::OnFlashEnigmademo()
 
 void CCrypToolApp::OnProtokolSMIME()
 {
-	CString SMIMEDemoFlashExecStr;
-	SMIMEDemoFlashExecStr.LoadString(IDS_SMIMEDEMO_EXE);
+	CString smimeParamStr, smimeDemoExecStr;
+	smimeParamStr.LoadString(IDS_SMIMEDEMO_PARAM);
+	smimeDemoExecStr.LoadString (IDS_SMIMEDEMO_EXE);
 
-
-	HINSTANCE hInst = ShellExecute(NULL,NULL, SMIMEDemoFlashExecStr, " ", Pfad, SW_SHOW);
+	HINSTANCE hInst = ShellExecute(NULL,NULL, smimeDemoExecStr, smimeParamStr, Pfad, SW_SHOW);
 	if ( reinterpret_cast<int>(hInst) <= 32 ) {
 		// display error message stating where the desired executable is expected
 		CString message;
