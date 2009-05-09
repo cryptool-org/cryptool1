@@ -141,6 +141,28 @@ BOOL CDlgAutomatedPermAnalysis::OnInitDialog()
 	setRefCaption();
 
 // Registry Access ....
+	UpdateData();
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "PermutationAnalysis") == ERROR_SUCCESS)
+	{
+		unsigned long ul_inRowbyRow, ul_permRowbyRow, ul_outRowbyRow, ul_inColbyCol, ul_permColbyCol, ul_outColbyCol;
+		char numStr[64]; 
+		unsigned long l = 63;
+		CT_READ_REGISTRY_DEFAULT(ul_inRowbyRow,   "inRowbyRow",   1);
+		CT_READ_REGISTRY_DEFAULT(ul_permRowbyRow, "permRowbyRow", 1);
+		CT_READ_REGISTRY_DEFAULT(ul_outRowbyRow,  "outRowbyRow",  1);
+		CT_READ_REGISTRY_DEFAULT(ul_inColbyCol,   "inColbyCol",   1);
+		CT_READ_REGISTRY_DEFAULT(ul_permColbyCol, "permColbyCol", 1);
+		CT_READ_REGISTRY_DEFAULT(ul_outColbyCol,  "outColbyCol",  1);
+		CT_READ_REGISTRY_DEFAULT(numStr, "EditRangeFrom", "1", l); m_editRangeFrom = numStr;
+		CT_READ_REGISTRY_DEFAULT(numStr,   "EditRangeTo", "", l);  m_editRangeTo   = numStr;
+		CT_READ_REGISTRY_DEFAULT(l, "DataType", 0); m_DataType = l;
+
+		m_chk_inRowbyRow   = ul_inRowbyRow;   m_chk_inColbyCol   = ul_inColbyCol;
+		m_chk_outRowbyRow  = ul_outRowbyRow;  m_chk_outColbyCol  = ul_outColbyCol;
+		m_chk_permRowbyRow = ul_permRowbyRow; m_chk_permColbyCol = ul_permColbyCol;
+		CT_CLOSE_REGISTRY();
+	}
+	UpdateData(FALSE);
 
 
 	return TRUE;  // return TRUE unless you set the focus to a control
