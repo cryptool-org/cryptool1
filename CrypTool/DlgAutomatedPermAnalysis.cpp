@@ -139,6 +139,10 @@ BOOL CDlgAutomatedPermAnalysis::OnInitDialog()
     ScinMSG(SCI_MARKERDEFINE, SC_MARKNUM_FOLDERMIDTAIL, SC_MARK_EMPTY);
 	setViewOptions();
 	setRefCaption();
+
+// Registry Access ....
+
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 }
 
