@@ -4020,17 +4020,17 @@ int RailFenceEncryption(const char *infile, const char *oldTitle, int key, int o
 	while(!fileInput.eof());
 	fileInput.close();
 
-	// ignore non-alphabet characters if the according option is not set in the text options dialog
-	if(theApp.TextOptions.getKeepCharactersNotPresentInAlphabetUnchanged() == false) {
-		// ignore non-alphabet characters
-		CString bufferStringValid;
-		for(unsigned int i=0; i<bufferString.length(); i++) {
-			if(theApp.TextOptions.getAlphabet().Find(bufferString[i]) != -1) {
-				bufferStringValid.AppendChar(bufferString[i]);
-			}
+	// we use this later to restore characters that were not to be touched
+	std::string originalBufferString = bufferString;
+
+	// ignore non-alphabet characters
+	CString bufferStringValid;
+	for(unsigned int i=0; i<bufferString.length(); i++) {
+		if(theApp.TextOptions.getAlphabet().Find(bufferString[i]) != -1) {
+			bufferStringValid.AppendChar(bufferString[i]);
 		}
-		bufferString = bufferStringValid;
 	}
+	bufferString = bufferStringValid;
 
 	// IMPORTANT: the key is invalid if it is "1" or >= the length of the clear text
 	if(key <= 1 || key >= (int)bufferString.length()) {
@@ -4145,6 +4145,25 @@ int RailFenceEncryption(const char *infile, const char *oldTitle, int key, int o
 	delete cipherText;
 	// *** END ENCRYPTION/DECRYPTION PROCESS ***
 
+	// now, after encryption/decryption, restore characters that were not to be touched
+	CString finalCipherTextString;
+	if(theApp.TextOptions.getKeepCharactersNotPresentInAlphabetUnchanged() == true) {
+		for(int i=0, j=0; i<originalBufferString.length() && j<cipherTextString.length(); i++) {
+			// if we do have a character here that was NOT part of the alphabet, leave it 
+			// alone and store it in the finalCipherTextString variable
+			if(theApp.TextOptions.getAlphabet().Find(originalBufferString[i]) == -1) {
+				finalCipherTextString.Append((CString)originalBufferString.c_str()[i]);
+			}
+			else {
+				finalCipherTextString.Append((CString)cipherTextString.c_str()[j++]);
+			}
+		}
+	}
+	else {
+		finalCipherTextString = (CString)cipherTextString.c_str();
+	}
+	cipherTextString = finalCipherTextString;
+
 	// create a name for the outfile
 	char outfile[4096];
 	GetTmpName(outfile, "cry", ".txt");
@@ -4219,17 +4238,17 @@ int ScytaleEncryption(const char *infile, const char *oldTitle, int key, int off
 	while(!fileInput.eof());
 	fileInput.close();
 
-	// ignore non-alphabet characters if the according option is not set in the text options dialog
-	if(theApp.TextOptions.getKeepCharactersNotPresentInAlphabetUnchanged() == false) {
-		// ignore non-alphabet characters
-		CString bufferStringValid;
-		for(unsigned int i=0; i<bufferString.length(); i++) {
-			if(theApp.TextOptions.getAlphabet().Find(bufferString[i]) != -1) {
-				bufferStringValid.AppendChar(bufferString[i]);
-			}
+	// we use this later to restore characters that were not to be touched
+	std::string originalBufferString = bufferString;
+
+	// ignore non-alphabet characters
+	CString bufferStringValid;
+	for(unsigned int i=0; i<bufferString.length(); i++) {
+		if(theApp.TextOptions.getAlphabet().Find(bufferString[i]) != -1) {
+			bufferStringValid.AppendChar(bufferString[i]);
 		}
-		bufferString = bufferStringValid;
 	}
+	bufferString = bufferStringValid;
 
 	// IMPORTANT: the key is invalid if it is "1" or >= the length of the clear text
 	if(key <= 1 || key >= (int)bufferString.length()) {
@@ -4331,6 +4350,25 @@ int ScytaleEncryption(const char *infile, const char *oldTitle, int key, int off
 	delete clearText;
 	delete cipherText;
 	// *** END ENCRYPTION/DECRYPTION PROCESS ***
+
+	// now, after encryption/decryption, restore characters that were not to be touched
+	CString finalCipherTextString;
+	if(theApp.TextOptions.getKeepCharactersNotPresentInAlphabetUnchanged() == true) {
+		for(int i=0, j=0; i<originalBufferString.length() && j<cipherTextString.length(); i++) {
+			// if we do have a character here that was NOT part of the alphabet, leave it 
+			// alone and store it in the finalCipherTextString variable
+			if(theApp.TextOptions.getAlphabet().Find(originalBufferString[i]) == -1) {
+				finalCipherTextString.Append((CString)originalBufferString.c_str()[i]);
+			}
+			else {
+				finalCipherTextString.Append((CString)cipherTextString.c_str()[j++]);
+			}
+		}
+	}
+	else {
+		finalCipherTextString = (CString)cipherTextString.c_str();
+	}
+	cipherTextString = finalCipherTextString;
 
 	// create a name for the outfile
 	char outfile[4096];
