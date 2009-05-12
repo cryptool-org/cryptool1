@@ -1266,7 +1266,7 @@ END
 
 IDD_ECSIGNATRURE_STEPBYSTEP DIALOG  0, 0, 392, 316
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Generowanie podpisu - kro po kroku"
+CAPTION "Generowanie podpisu - krok po kroku"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Wyœwietl  dane podpisu",IDOK,9,290,93,18
@@ -1700,7 +1700,7 @@ BEGIN
     PUSHBUTTON      "&Anuluj",IDCANCEL,214,243,68,19
     GROUPBOX        "",IDC_STATIC,9,0,273,36
     LTEXT           "Liczby losowe w komputerze tworzone s¹ za pomoc¹ algorytmów zwanych\ngeneratorami liczb pseudolosowych. Przedstawiamy algorytmy\nkryptograficznie bezpieczne, a tak¿e takie, które produkuj¹ liczby\nlosowe o ni¿szej jakoœci.",IDC_STATIC,18,8,256,24
-    GROUPBOX        "Wybó algorytmu",IDC_STATIC,9,42,273,79
+    GROUPBOX        "Wybór algorytmu",IDC_STATIC,9,42,273,79
     GROUPBOX        "Parametry",IDC_STATIC,9,126,273,58
     LTEXT           "Ziarno",IDC_STATIC,18,141,18,9
     GROUPBOX        "Opcje wyjœcia",IDC_STATIC,9,189,273,48
@@ -2173,7 +2173,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Stwórz klucz RSA"
 FONT 8, "MS Sans Serif"
 BEGIN
-    LTEXT           "Wybierz dwa parametry p i q. Numer N = p*q jest publicznym modulusem RSA, a phi(N) = (p-1)(q-1) jest liczb¹ Eulera. Klucz publiczny e jest pierwszy wzglêdem phi(N). Z tych parametrów wyliczany jest klucz prytatny d = e ^ (-1) (mod phi(N)).",IDC_STATIC_TEXT,9,7,333,24
+    LTEXT           "Wybierz dwa parametry p i q. Numer N = p*q jest publicznym modulusem RSA, a phi(N) = (p-1)(q-1) jest liczb¹ Eulera. Klucz publiczny e jest pierwszy wzglêdem phi(N). Z tych parametrów wyliczany jest klucz prywatny d = e ^ (-1) (mod phi(N)).",IDC_STATIC_TEXT,9,7,333,24
     GROUPBOX        "WprowadŸ liczbê pierwsz¹:",IDC_STATIC_PRIME,9,33,333,48
     LTEXT           "Liczba pierwsza p",IDC_STATIC_PRIME1,19,49,75,8
     EDITTEXT        IDC_EDIT_PRIME_P,100,48,128,12,ES_AUTOHSCROLL
@@ -2221,7 +2221,7 @@ BEGIN
     LTEXT           "(opcja)",IDC_STATIC,244,128,30,8
     LTEXT           "PIN:",IDC_STATIC,15,147,75,8
     EDITTEXT        IDC_EDIT_CERT_PIN,97,146,138,12,ES_PASSWORD | ES_AUTOHSCROLL
-    LTEXT           "Sprawdzenie PINU:",IDC_STATIC,15,168,75,8
+    LTEXT           "Weyifikacja PINu:",IDC_STATIC,15,168,75,8
     EDITTEXT        IDC_EDIT_CERT_PIN_VERIFY,97,165,138,12,ES_PASSWORD | ES_AUTOHSCROLL
     GROUPBOX        "Wygenerowane nazwy pliku PSE i certyfikatu",IDC_STATIC,7,192,340,49
     LTEXT           "ID klucza u¿ytkownika:",IDC_STATIC,15,206,75,8
@@ -2791,7 +2791,7 @@ END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_PSEPINPROMPT DIALOGEX 0, 0, 226, 124
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "¯¹danie PINU dla Boba"
+CAPTION "¯¹danie PINu dla Boba"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_PIN,87,74,50,14,ES_PASSWORD | ES_AUTOHSCROLL
@@ -4347,22 +4347,22 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "Key Entry: Scytale / Rail Fence"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Encrypt",ID_ENCRYPT,7,154,60,19
-    PUSHBUTTON      "Decrypt",ID_DECRYPT,73,154,60,19
-    PUSHBUTTON      "Cancel",IDCANCEL,218,154,60,19
+    DEFPUSHBUTTON   "Zaszyfruj",ID_ENCRYPT,7,154,60,19
+    PUSHBUTTON      "Deszyfruj",ID_DECRYPT,73,154,60,19
+    PUSHBUTTON      "Anuluj",IDCANCEL,218,154,60,19
     CONTROL         "Scytale",IDC_RADIO_SCYTALE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,63,110,10
-    CONTROL         "Rail Fence",IDC_RADIO_RAIL_FENCE,"Button",BS_AUTORADIOBUTTON,20,75,110,10
+    CONTROL         "P³ot",IDC_RADIO_RAIL_FENCE,"Button",BS_AUTORADIOBUTTON,20,75,110,10
     EDITTEXT        IDC_EDIT_KEY,110,111,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
-    GROUPBOX        "Description",IDC_STATIC,7,7,271,36
-    LTEXT           "Transpositions scramble the order of the letters in the cleartext. Two well-known, classic variants are the Scytale and the Rail Fence encryption.",IDC_STATIC,20,20,245,16
-    GROUPBOX        "Choose the transposition",IDC_STATIC,7,50,160,40
-    GROUPBOX        "Choose the key",IDC_STATIC,7,100,160,45
-    LTEXT           "Key:",IDC_SIMPLE_TRANSPOSITION_KEY,20,113,80,8
+    GROUPBOX        "Opis",IDC_STATIC,7,7,271,36
+    LTEXT           "Transpozycja zmienia kolejnoœæ liter tekstu oryginalnego. Dwa znane, klasyczne warianty szyfrowania s¹ Scrytale i P³ot.",IDC_STATIC,20,20,245,16
+    GROUPBOX        "Wybierz transposycje",IDC_STATIC,7,50,160,40
+    GROUPBOX        "Wybierz klucz",IDC_STATIC,7,100,160,45
+    LTEXT           "Klucz:",IDC_SIMPLE_TRANSPOSITION_KEY,20,113,80,8
     CONTROL         "",IDC_SIMPLE_TRANSPOSITION_IMAGE,"Static",SS_BITMAP,177,53,67,62
     LTEXT           "Offset:",IDC_STATIC,20,129,80,8
     EDITTEXT        IDC_EDIT_OFFSET,110,127,23,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
-    PUSHBUTTON      "Text options",ID_TEXTOPTIONS,144,154,60,19
-    CONTROL         "Paste",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,138,117,22,20
+    PUSHBUTTON      "Opcje tekstu",ID_TEXTOPTIONS,144,154,60,19
+    CONTROL         "Wklej",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,138,117,22,20
 END
 
 IDD_AUTOMATED_PERM_ANALYSIS DIALOGEX 0, 0, 320, 362
@@ -4370,62 +4370,62 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "Analiza jednostopniowej permutacji"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    CONTROL         "Geheimtext",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | WS_GROUP,250,36,54,10
-    CONTROL         "Klartext",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,250,48,42,10
-    DEFPUSHBUTTON   "&Schlüssel suchen",ID_BTN_BERECHNEN,7,338,75,17
-    CONTROL         "Zeilenweise",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,267,53,10
-    CONTROL         "Spaltenweise",IDC_CHECK13,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,283,54,10
-    CONTROL         "Zeilenweise",IDC_CHECK11,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,93,267,53,10
-    CONTROL         "Spaltenweise",IDC_CHECK14,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,93,283,54,10
-    CONTROL         "Zeilenweise",IDC_CHECK12,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,267,53,10
-    CONTROL         "Spaltenweise",IDC_CHECK15,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,283,54,10
+    CONTROL         "Tekst tajny",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | WS_GROUP,250,36,54,10
+    CONTROL         "Tekst oryginalny",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,250,48,63,10
+    DEFPUSHBUTTON   "&Szukaj klucz",ID_BTN_BERECHNEN,7,338,75,17
+    CONTROL         "Wierszami",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,267,53,10
+    CONTROL         "Kolumnami",IDC_CHECK13,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,283,54,10
+    CONTROL         "Wierszami",IDC_CHECK11,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,93,267,53,10
+    CONTROL         "Kolumnami",IDC_CHECK14,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,93,283,54,10
+    CONTROL         "Wierszami",IDC_CHECK12,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,267,53,10
+    CONTROL         "Kolumnami",IDC_CHECK15,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,283,54,10
     EDITTEXT        IDC_EDIT_RANGE_FROM,250,265,42,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_RANGE_TO,250,281,42,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "Datei laden",IDC_BUTTON1,15,77,54,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,248,338,65,17
-    GROUPBOX        "Einlesen",IDC_GB_EINLESEN,15,254,67,43
-    GROUPBOX        "Permutieren",IDC_GB_PERMUTIEREN,87,254,66,43
-    GROUPBOX        "Auslesen",IDC_GB_AUSLESEN,157,254,66,43
-    GROUPBOX        "Welche Varianten des Permutationsverfahrens sollen analysiert werden?",IDC_GB_VERFAHREN,7,241,306,63
-    LTEXT           "Diese Permutationsanalyse ist eine Known-Plaintext-Analyse, mit deren Hilfe Sie aus dem Klartext und dem Geheimtext den Permutationsschlüssel berechnen können.",IDC_LBL_INFOTEXT,7,8,306,15,0,WS_EX_TRANSPARENT
-    GROUPBOX        "Klartext oder verschlüsselter Text",IDC_REFERENCE_HEADER,7,64,306,171
-    GROUPBOX        "Permutationsgröße",IDC_GB_AUSLESEN2,228,254,76,43
-    LTEXT           "von",IDC_STATIC,234,268,14,9
-    LTEXT           "bis",IDC_STATIC,234,284,14,9
-    GROUPBOX        "Aktives Dokument",IDC_STATIC,7,27,306,34
-    LTEXT           "Bitte legen Sie fest, ob das vor dem Aufruf dieses Dialogs aktive Dokument den Klartext oder den Geheimtext enthält.",IDC_STATIC,15,38,208,19
-    GROUPBOX        "Optionen",IDC_STATIC,7,304,306,26
-    CONTROL         "Text",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,129,315,30,10
-    CONTROL         "Binäre Daten",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,161,315,59,10
-    LTEXT           "Betrachte Eingabedokument als:",IDC_STATIC,17,315,110,10
-    PUSHBUTTON      "Textoptionen",IDC_BUTTON2,95,338,59,17
+    PUSHBUTTON      "Szukaj plik",IDC_BUTTON1,15,77,54,14
+    PUSHBUTTON      "&Anuluj",IDCANCEL,248,338,65,17
+    GROUPBOX        "Wczytaæ",IDC_GB_EINLESEN,15,254,67,43
+    GROUPBOX        "Permutacja",IDC_GB_PERMUTIEREN,87,254,66,43
+    GROUPBOX        "Odczytaæ",IDC_GB_AUSLESEN,157,254,66,43
+    GROUPBOX        "Jakie zastosowaæ metody do analizy permutacji?",IDC_GB_VERFAHREN,7,241,306,63
+    LTEXT           "Ta analiza permutacji jest analiz¹ Known-Plaintext, która z tekstu oryginalnego i z tekstu tajnego oblicza klucz permutacji.",IDC_LBL_INFOTEXT,7,8,306,16,0,WS_EX_TRANSPARENT
+    GROUPBOX        "Tekst oryginalny lub tajny",IDC_REFERENCE_HEADER,7,64,306,171
+    GROUPBOX        "Rozmiar permutacji",IDC_GB_AUSLESEN2,228,254,76,43
+    LTEXT           "od",IDC_STATIC,234,268,14,9
+    LTEXT           "do",IDC_STATIC,234,284,14,9
+    GROUPBOX        "Aktywny dokument",IDC_STATIC,7,27,306,34
+    LTEXT           "Proszê ustaliæ czy aktywny dokument przed otwarciem tego okna zawiera³ tekst oryginalny lub tajny.",IDC_STATIC,15,38,208,19
+    GROUPBOX        "Opcje",IDC_STATIC,7,304,306,26
+    CONTROL         "Tekst",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,129,315,30,10
+    CONTROL         "Dane binarne",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,161,315,59,10
+    LTEXT           "Uwarzaæ dokument wejœciowy jako:",IDC_STATIC,17,312,110,15
+    PUSHBUTTON      "Opcje tekstu",IDC_BUTTON2,95,338,59,17
 END
 
 IDD_AUTOMATED_PERM_ANALYSIS_OUTPUT DIALOGEX 0, 0, 242, 241
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Schlüsselausgabe: Einstufige Spaltentransposition"
+CAPTION "Wyprowadzenie klucza: jednostopniowa permutacja kolumnowa"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Schließen",IDOK,185,219,50,15
-    GROUPBOX        "1. Permutation (einfache Spaltentransposition)",IDC_STATIC,7,7,228,94
-    LTEXT           "Einlesen:",IDC_STATIC,17,53,35,10
-    LTEXT           "Permutieren:",IDC_STATIC,17,70,54,10
-    LTEXT           "Auslesen:",IDC_STATIC,17,86,54,10
+    DEFPUSHBUTTON   "Zamknij",IDOK,185,219,50,15
+    GROUPBOX        "1. Permutacja (prosta permutacja kolumnowa)",IDC_STATIC,7,7,228,94
+    LTEXT           "Wczytaæ:",IDC_STATIC,17,53,35,10
+    LTEXT           "Permutacja:",IDC_STATIC,17,70,54,10
+    LTEXT           "Odczytaæ:",IDC_STATIC,17,86,54,10
     LTEXT           "",IDC_INDIR,63,52,112,11,WS_BORDER
     LTEXT           "",IDC_permDir1,63,69,112,11,WS_BORDER
     LTEXT           "",IDC_OUTDIR1,63,85,112,11,WS_BORDER
     LTEXT           "",IDC_PERMKEY1,17,30,209,12,WS_BORDER
-    GROUPBOX        "2. Permutation (doppelte Spaltentransposition)",IDC_STATIC,7,108,228,99,WS_DISABLED
-    LTEXT           "Einlesen:",IDC_STATIC,17,153,35,12,WS_DISABLED
-    LTEXT           "Permutieren:",IDC_STATIC,17,171,46,10,WS_DISABLED
-    LTEXT           "Auslesen:",IDC_STATIC,17,188,46,10,WS_DISABLED
+    GROUPBOX        "2. Permutacja (podwójna permutacja kolumnowa)",IDC_STATIC,7,108,228,99,WS_DISABLED
+    LTEXT           "Wczytaæ:",IDC_STATIC,17,153,35,12,WS_DISABLED
+    LTEXT           "Permutacja:",IDC_STATIC,17,171,46,10,WS_DISABLED
+    LTEXT           "Odczytaæ:",IDC_STATIC,17,188,46,10,WS_DISABLED
     LTEXT           "",IDC_INDIR2,63,154,112,11,WS_DISABLED | WS_BORDER
     LTEXT           "",IDC_PERMDIR2,63,170,112,11,WS_DISABLED | WS_BORDER
     LTEXT           "",IDC_OUTDIR2,63,187,112,11,WS_DISABLED | WS_BORDER
     LTEXT           "",IDC_PERMKEY2,17,132,209,12,WS_DISABLED | WS_BORDER
-    PUSHBUTTON      "Schlüssel kopieren",IDC_BUTTON1,7,219,69,15
-    LTEXT           "Schlüssel",IDC_STATIC,17,20,107,8
-    LTEXT           "Schlüssel",IDC_STATIC,17,122,158,8,WS_DISABLED
+    PUSHBUTTON      "Kopiuj klucz",IDC_BUTTON1,7,219,69,15
+    LTEXT           "Klucz",IDC_STATIC,17,20,107,8
+    LTEXT           "Klucz",IDC_STATIC,17,122,158,8,WS_DISABLED
 END
 
 
@@ -4455,7 +4455,7 @@ BEGIN
     POPUP "&Edycja"
     BEGIN
         MENUITEM "&Cofnij \t Ctrl + Z",         ID_EDIT_UNDO, GRAYED
-        MENUITEM "[i18n]&Redo \t Ctrl + Y",     ID_EDIT_REDO, GRAYED
+        MENUITEM "&Powtórz \t Ctrl + Y",     ID_EDIT_REDO, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Wy&tnij \t Ctrl + X",         ID_EDIT_CUT, GRAYED
         MENUITEM "&Kopiuj \t Ctrl + C",         ID_EDIT_COPY, GRAYED
@@ -4799,7 +4799,7 @@ BEGIN
     POPUP "&Edycja"
     BEGIN
         MENUITEM "&Cofnij \t Ctrl + Z",         ID_EDIT_UNDO
-        MENUITEM "[i18n]&Redo \t Ctrl + Y",     ID_EDIT_REDO
+        MENUITEM "&Powtórz \t Ctrl + Y",     ID_EDIT_REDO
         MENUITEM SEPARATOR
         MENUITEM "Wy&tnij \t Ctrl + X",         ID_EDIT_CUT
         MENUITEM "&Kopiuj \t Ctrl + C",         ID_EDIT_COPY
@@ -5143,7 +5143,7 @@ BEGIN
     POPUP "&Edycja"
     BEGIN
         MENUITEM "&Cofnij \t Ctrl + Z",         ID_EDIT_UNDO
-        MENUITEM "[i18n]&Redo \t Ctrl + Y",     ID_EDIT_REDO
+        MENUITEM "&Powtórz \t Ctrl + Y",     ID_EDIT_REDO
         MENUITEM SEPARATOR
         MENUITEM "Wy&tnij \t Ctrl + X",         ID_EDIT_CUT, GRAYED
         MENUITEM "&Kopiuj \t Ctrl + C",         ID_EDIT_COPY, GRAYED
@@ -5487,7 +5487,7 @@ BEGIN
     POPUP "&Edycja"
     BEGIN
         MENUITEM "&Cofnij \t Ctrl + Z",         ID_EDIT_UNDO
-        MENUITEM "[i18n]&Redo \t Ctrl + Y",     ID_EDIT_REDO
+        MENUITEM "&Powtórz \t Ctrl + Y",     ID_EDIT_REDO
         MENUITEM SEPARATOR
         MENUITEM "Wy&tnij \t Ctrl + X",         ID_EDIT_CUT
         MENUITEM "&Kopiuj \t Ctrl + C",         ID_EDIT_COPY
@@ -5815,7 +5815,7 @@ BEGIN
     POPUP " "
     BEGIN
         MENUITEM "&Cofnij",                     ID_EDIT_UNDO
-        MENUITEM "[i18n]&Redo",                 ID_EDIT_REDO
+        MENUITEM "&Powtórz",                 ID_EDIT_REDO
         MENUITEM SEPARATOR
         MENUITEM "&Wytnij",                     ID_EDIT_CUT
         MENUITEM "&Kopiuj",                     ID_EDIT_COPY
@@ -5858,7 +5858,7 @@ BEGIN
     POPUP "&Edycja"
     BEGIN
         MENUITEM "&Cofnij \t Ctrl + Z",         ID_EDIT_UNDO, GRAYED
-        MENUITEM "[i18n]&Redo \t Ctrl + Y",     ID_EDIT_REDO
+        MENUITEM "&Powtórz \t Ctrl + Y",     ID_EDIT_REDO
         MENUITEM SEPARATOR
         MENUITEM "Wy&tnij \t Ctrl + X",         ID_EDIT_CUT, GRAYED
         MENUITEM "&Kopiuj \t Ctrl + C",         ID_EDIT_COPY, GRAYED
@@ -8143,7 +8143,7 @@ BEGIN
     ID_EDIT_REPLACE         "Okreœlony tekst jest zamieniony przez inny tekst."
     ID_EDIT_SELECT_ALL      "Ca³y aktywny dokument zostaje zaznaczony"
     ID_EDIT_UNDO            "Powtarza ostatni¹ akcjê."
-    ID_EDIT_REDO            "[i18n]Restores the last undone action"
+    ID_EDIT_REDO            "Przywraca ostatnio undone dzia³ania"
 END
 
 STRINGTABLE 
@@ -8352,7 +8352,7 @@ BEGIN
                             "Wybrane przez ciebie w³aœciwoœci\noraz nowa para kluczy zosta³y pomyœlnie zapisane.\n\nPrzypisany klucz identyfikuj¹cy to \n\n'%s'"
     IDS_STRING_MSG_FLOATING_FREQ_OF "Zmienna czêstotliwoœæ <%s>"
     IDS_STRING_FLOATING_ENTROPY_SEQUENCE_POSITION "Przesuniêcie sekcji"
-    IDS_STRING_TITLE_ENTROPY "Entropy"
+    IDS_STRING_TITLE_ENTROPY "Entropii"
     IDS_STRING_MSG_CHOSEN_TEXT_TO_LARGE 
                             "Zaznaczony tekst jest zbyt du¿y dla modu³u wyœwietlaj¹cego. Zostanie on obciêty przed koñcem. D³ugoœæ tekstu przed zamian¹ bêdzie znacz¹ca w nastêpnych procesach, gdy tekst bêdzie zmieniany"
     IDS_STRING_ERR_COULD_NOT_OPEN_TMP_FILE 
@@ -8544,7 +8544,7 @@ BEGIN
     IDS_STRING_MSG_SEARCHING_COMPLETE 
                             "%d bit poszukiwanie brute-force %%d%%%% zakoñczone.\nRemaining time: %%s"
     IDS_STRING_MSG_AKS_TEST_COMPLETE 
-                            "%d bit AKS test %%d%%%% completed.\nRemaining time: %%s"
+                            "%d bit AKS test %%d%%%% zakoñczony.\nPozosta³y czas: %%s"
     IDS_STRING_MSG_AKS_TEST "AKS Test"
     IDS_STRING_AUTOMATIC_ANALYSE "Autmatyczna %s Analiza <%s>, klucz: <%s>"
     IDS_STRING_MSG_SIGNED_MESSAGE_TO_BIG 
@@ -8642,7 +8642,7 @@ BEGIN
                             "Czas tworzenia podpisu: %d sekund."
     IDS_STRING_MSG_SIGNATURE_VERIFICATION_TIME 
                             "Czas trwania weryfikacji podpisu: %s sekund."
-    IDS_STRING_BAD_SIGNATURE "NIeprawid³owy podpis!\\%s"
+    IDS_STRING_BAD_SIGNATURE "Nieprawid³owy podpis!\\%s"
     IDS_STRING_CORRECT_SIGNATURE "Podpis prawid³owy!\n%s"
     IDS_STRING_MSG_KEY_GENERATION_TIME "Tworzenie klucza zajê³o %s sekund."
     IDS_STRING_RSA_ENCRYPTION_TIME "Czas szyfrowania RSA: %s sekund."
@@ -8809,7 +8809,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_RANGE_DSA_BITLENGTH 
-                            "For bit length L of the DSA prime number the following must be true:\n\n%d < L < %d i  L podzielne przez 64.\n\nProszê jeszcze raz wprowadziæ d³ugoœæ bitow¹."
+                            "Dla podstawowej d³ugoœci bitowej L DSA nastêpuj¹ce liczby musz¹ byæ prawdziwe:\n\n%d < L < %d i  L podzielne przez 64.\n\nProszê jeszcze raz wprowadziæ d³ugoœæ bitow¹."
     IDS_STRING_MODUL        "Modulus"
     IDS_STRING_EXPONENT     "Wyk³adnik"
     IDS_STRING_DSA_SHOW_PUBLIC_PARAMETER "Poka¿ publiczne parametry dla %s"
@@ -9060,7 +9060,7 @@ BEGIN
     AFX_IDP_FILE_SHARING    "Sharing Violation podczas dostêpu do %1."
     AFX_IDP_FILE_LOCKING    "Naruszenie blokady podczas dostêpu do %1."
     AFX_IDP_FILE_DISKFULL   "Pe³ny dysk podczas dostêpu do %1."
-    AFX_IDP_FILE_EOF        "An attempt was made to access %1 past its end."
+    AFX_IDP_FILE_EOF        "Podjêto próbê dostêpu %1 zakoñczeniu jego przesz³oœci."
 END
 
 STRINGTABLE 
@@ -9979,8 +9979,8 @@ BEGIN
                             "listOdAlicjiDoBoba-Zaszyfrowany-pl.hex"
     IDS_ANIMAL_FILE_LOCALE  """-locale=en_EN"" ""animation/animal-ascii-compressed"""
     IDS_SCA_KEYWORDPROBLEM  "Dla p³ynnego wykonania ataku side-channel otwarty dokument musi zawieraæ s³owo kluczowe ""%s""\nCzy chcesz dodaæ to s³owo kluczowe do dokumentu?"
-    IDS_SIGATT_STAT_HEADER  "Partial %s-Collision Search"
-    IDS_SIGATT_STAT_ORIGINAL_FILE "Filename original: %s"
+    IDS_SIGATT_STAT_HEADER  "Czêœciowe wyszukiwanie %s-Collision"
+    IDS_SIGATT_STAT_ORIGINAL_FILE "Nazwa pliku oryginalnego: %s"
 END
 
 STRINGTABLE 
@@ -10236,7 +10236,7 @@ BEGIN
     IDS_SOLITAIRE_MESSAGE_7 "Joker B zosta³ od³o¿ony."
     IDS_SOLITAIRE_MESSAGE_8 "Joker A zosta³ od³o¿ony."
     IDS_SOLITAIRE_MESSAGE_9 "Czy chcesz po³o¿yæ Jokera B z przodu?"
-    IDS_SOLITAIRE_MESSAGE_10 "Putting Jokers"
+    IDS_SOLITAIRE_MESSAGE_10 "Wykorzystanie Jokera"
 END
 
 STRINGTABLE 
@@ -10308,7 +10308,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_FINDANDREPLACE_HEXNOTIMPLEMENTED 
-                            "TODO: Opcja jeszcze nie zaimplementowana w systemie HEX!"
+                            "Opcja jeszcze nie zaimplementowana w systemie HEX!"
     IDS_FINDANDREPLACE_TEXTNOTFOUND "Po¿¹dany tekst nie zosta³ znaleziony!"
     IDS_FINDANDREPLACE_TEXTOCCURANCESREPLACED 
                             "Po¿¹dany tekst zosta³ zamieniony %d razy."
@@ -10566,7 +10566,7 @@ BEGIN
                             "Prezentacja nie mog³a zostaæ otwarta!\n\n Proszê sprawdziæ, czy plik ""CrypToolPresentation-en.pdf"" znajduje siê w tym samym folderze, co plik ""CrypTool.exe""."
     IDS_PQM_ENTROPY_NOT_ALL_INPUT_PARAMETERS_SET 
                             "Upewnij siê, ¿e poda³eœ oczekiwan¹ wartoœæ entropii i d³ugoœæ alfabetu."
-    IDS_CANT_UNDO           "[i18n]Cannot undo last text change.\n\nFree some memory and try again."
+    IDS_CANT_UNDO           "Nie mo¿na cofn¹æ ostatniej zmiany tekstu. \n\nUwolnij trochê pamiêci i spróbuj ponownie."
 END
 
 STRINGTABLE 
@@ -10579,8 +10579,8 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_CANT_REDO           "[i18n]Cannot revert last undo.\n\nFree some memory and try again."
-    IDS_CANT_SAVE_UNDO      "[i18n]Could not save information to later undo the last text change."
+    IDS_CANT_REDO           "Nie mo¿na cofn¹æ ostatniego undo.\n\nUwolnij trochê pamiêci i spróbuj ponownie."
+    IDS_CANT_SAVE_UNDO      "Nie mo¿na zapisaæ informacji aby móc póŸniej cofn¹æ ostatnie zmiany tekstu."
     IDS_FIND_AND_REPLACE_NULL_BYTE_IN_FIND_STRING 
                             "Podany wzorzec wyszukiwan ia zawiera pusty bajt. \n Poszukiwanie pustych bajtów jest mo¿liwe jedynie w dokumentach heksadecymalnych."
     IDS_FIND_AND_REPLACE_NULL_BYTE_IN_REPLACE_STRING 
@@ -10589,87 +10589,86 @@ BEGIN
                             "Atak side-channel zakoñczony niepowodzeniem! \r\n Prawdopodobnie oryginalny plik nie zawiera³ s³owa kluczowego ""%s"" zanim zosta³ zaszyfrowany. \n\n W pomocy on-line mo¿esz dowiedzieæ siê, dlaczego s³owo kluczowe jest tak wa¿ne dla pomyœlnego ataku."
     IDS_PQM_BIT             "bitów"
     IDS_STRING_SECRET_SHARING_K_EQUALS_N 
-                            "Please choose k<n (here: k<%d).\n\nIf k and n are identical in this secret sharing procedure, the secret equals the password of the first participant."
+                            "Proszê wybraæ k<n (tutaj: k<%d).\n\nJeœli k i n s¹ identyczne w tej procedurze tajnego podzia³u, secret równa siê do has³a pierwszego uczestnika."
     IDS_STRING_ADFGVX_PASSWORD_CORRECTED 
-                            "The entered transposition password was corrected:\n\n"
+                            "Wprowadzone has³o transpozycji zosta³ rozwi¹zany:\n\n"
     IDS_STRING_ABOUT_CONTACT_INFORMATION 
                             "esslinger@fb5.uni-siegen.de\r\njoerg-cornelius.schneider@db.com\r\nhenrik.koy@db.com\r\n\r\nInternet: http://www.cryptool.com"
     IDS_BIT_FMT             "%d bit%s"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION 
-                            "In the given value range [%s, %s] %d prime numbers were found."
+                            "W podanym zakresie wartoœci [%s, %s] %d znaleziono liczby pierwsze."
     IDS_BIT_EFFECTIVE_FMT   " (%d bit effective)"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_TITLE 
-                            "Generating a set of prime numbers"
+                            "Tworzenie zbioru liczb pierwszych"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_TEXT 
-                            "Generating prime numbers in the value range [%s, %s]..."
+                            "Generowanie liczb pierwszych w zakresie wartoœci [%s, %s]..."
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION_CANCELLED 
-                            "The process was cancelled. In the given value range [%s, %s], %d prime numbers were found yet."
-    IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_SCYTALE "Number of edges:"
+                            "Proces zosta³ odwo³any. W podanym zakresie wartoœci  [%s, %s], %d znaleziono jeszcze liczby pierwsze."
+    IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_SCYTALE "Liczba krawêdzi:"
 END
 
 STRINGTABLE 
 BEGIN
     IDS_REGISTRY_SETTINGS   "Software\\CrypTool\\Settings"
     IDS_REGISTRY_SETTINGS_OPTIONS "Software\\CrypTool\\Settings\\Options"
-    IDS_ERROR_LOAD_LOCAL_PSE_CAPTION "Error on loading PSE keys!"
+    IDS_ERROR_LOAD_LOCAL_PSE_CAPTION "B³¹d ³adowania kluczy PSE!"
     IDS_ERROR_LOAD_LOCAL_PSE_MESSAGE 
-                            "Please remove the directory\n%s\nand then restart CrypTool!   "
+                            "Proszê usun¹æ katalog\n% s\n, a nastêpnie ponownie uruchomiæ CrypTool!   "
     IDS_PSE_FILESTRUCT_CORRUPTED 
-                            "Please remove the directory\n%s\nand then restart CrypTool.   "
+                            "Proszê usun¹æ katalog\n% s\n, a nastêpnie ponownie uruchomiæ CrypTool!   "
     IDS_PSE_FILESTRUCT_ORIG_CORRUPTED 
-                            "The original CrypTool keystore is corrupted please review the path\n%s .\nYou may reinstall CrypTool."
+                            "Oryginalny keystore CrypToola jest uszkodzony, zapoznaj siê ze œcie¿k¹ \n% s.\n Powinieneœ zainstalowaæ CrypTool ponownie."
     IDS_PSE_FILESTRUCT_COULD_NOT_CREATE_DIRECTORY 
-                            "The keystore path could not be created.\nPlease check the access right of\n%s ."
+                            "Œcie¿ka keystore mo¿e nie byæ utworzona.\nNale¿y sprawdziæ prawa dostêpu do\n%s ."
     IDS_PSE_FILESTRUCT_COULD_NOT_COPY_PSE 
-                            "The keystore files could not be copied.\nPlease check the access rights of\n%s."
+                            "Œcie¿ka keystore mo¿e nie byæ skopiowana.\nNale¿y sprawdziæ prawa dostêpu do\n%s."
     IDS_PSE_FILESTRUCT_NO_APPLICATION_DATA_PATH 
-                            "The environment variable APPDATA does not exist.\nPlease define this variable."
-    IDS_PSE_FILES_READONLY  "The keystore files are read only.\nPlease check the access rights of\n%s."
+                            "Zmienna œrodowiskowa APPDATA nie istnieje.\nProszê zdefiniowaæ tê zmienn¹."
+    IDS_PSE_FILES_READONLY  "Istnieje tylko mo¿liwoœæ odczytu pliki keystore.\nNale¿y sprawdziæ prawa dostêpu do\n%s."
     IDS_PSE_FILESTRUCT_TRY_TO_REWRITE_PSE 
-                            "The user key file structure at the path\n%s\nseems to be corrupted!\n\nShould CrypTool try to re-write this file structure?\nPlease select OK for re-write or Cancel if you try to resolve this problem manually.\n\nPlease note: In case of re-write old keys are not usable anymore!\nFor further information please refer to the CrypTool readme."
+                            "Œcie¿ka user key file structure\n%s\nwydaje siê byæ uszkodzona!\n\nCzy CrypTool ma spróbowaæ ponownie napisaæ ten plik struktury?\nProszê wybraæ przycisk OK w celu ponownego zapisu lub Anuluj, jeœli problem ma byæ rozwi¹zany rêcznie.\n\nUwaga: W przypadnu ponownego zapisu stare klucze juz siê nie nadaj¹!\nW celu uzyskania dalszych informacji prosimy zapoznaæ siê z readme CrypTool."
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_SIGATT_STAT_FAKE_FILE "Filename fake: %s"
+    IDS_SIGATT_STAT_FAKE_FILE "Nieprawid³owa nazwa pliku: %s"
     IDS_PQMERROR_NO_SPECIALCHARACTERS 
-                            "The special character list is empty!\nPlease provide some spechial characters or reduce the minimal number of special characters to 0."
-    IDS_IOP_COL             "Column by column"
-    IDS_IOP_ROW             "Row by row"
-    IDS_PA_COULDNOTOPEN_PLAINFILE "Could not open the plaintext file."
-    IDS_PA_COULDNOTOPEN_CIPHERFILE "Could not open the ciphertext file."
+                            "Lista specjalnych znaków jest pusta!\nProszê podaæ kilka znaków specjalnych lub zmniejszyæ minimaln¹ liczbê znaków specjalnych do 0"
+    IDS_IOP_COL             "Kolumna przez kolumnê"
+    IDS_IOP_ROW             "Wiersz przez wiersz"
+    IDS_PA_COULDNOTOPEN_PLAINFILE "Nie mo¿na otworzyæ pliku tekstu oryginalnego."
+    IDS_PA_COULDNOTOPEN_CIPHERFILE"Nie mo¿na otworzyæ pliku tekstu tajnego."
     IDS_PA_FILESIZES_DIFFERENT 
-                            "The lower limit of the key search range is bigger than the upper limit."
-    IDS_PA_EMPTYFILE        "Both files (plaintext and ciphertext) are empty."
-    IDS_PA_LIMITRANGE_ERROR "Die untere Grenze der Permutationsschlüssel ist größer als die obere Grenze."
-    IDS_PA_DIRECTION_ERROR  "Should never occur."
-    ID_PA_NOKEYFOUND        "No single transposition key was found."
-    IDS_PLAINTEXT           "Enter Plaintext"
-    IDS_CIPHERTEXT          "Enter Ciphertext"
-    IDS_PA_EMPTYREFFILE     "The active document is empty!"
-    IDS_ERROPEN_SMIMEDEMO   "Die S/MIME Flash-Animation kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob das Programm SMIME_Animation.exe im CrypTool-Heimatverzeichnis installiert wurde\n(""%s"")."
+                            "Dolna granica zakresu wyszukiwania klucza jest wiêksza ni¿ górna granica."
+    IDS_PA_EMPTYFILE        "Oba pliki (tekst oryginalny i tajny) s¹ puste."
+    IDS_PA_LIMITRANGE_ERROR "Dolna granica zakresu wyszukiwania klucza jest wiêksza ni¿ górna granica."
+    IDS_PA_DIRECTION_ERROR  "Nigdy nie powinien siê pojawiæ."
+    ID_PA_NOKEYFOUND        "Nie znaleziono ¿adnego klucza pojedynczej transpozycji."
+    IDS_PLAINTEXT           "WprowadŸ tekst oryginalny"
+    IDS_CIPHERTEXT          "WprowadŸ tekst tajny"
+    IDS_PA_EMPTYREFFILE     "Aktywny dokument jest pusty!"
+    IDS_ERROPEN_SMIMEDEMO   "Animacja flash S/MIME nie mo¿e byæ odtworzona.\n\nProszê sprawdziæ czy program SMIME_Animation.exe zosta³ zainstalowany w katalogu g³ównym CrypTool\n(""%s"")."
     IDS_SMIMEDEMO_EXE       "java"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_RAIL_FENCE "Number of rows:"
+    IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_RAIL_FENCE "Liczba wierszy:"
     IDS_SIMPLE_TRANSPOSITION_KEY_INVALID 
-                            "The key is invalid. It must be greater than 1 and smaller than the length of the input text.\n\nCharacters that are not part of the CrypTool-Alphabet are deleted before encryption/decryption. If you don't want to change the input text, please use the button ""Text options"" to alter the CrypTool alphabet in order to proceed."
+                            "Klucz jest nieprawid³owy. Musi byæ wiêkszy ni¿ 1, a mniejszy od d³ugoœci tekstu wejœciowego.\n\n Znaki, które nie s¹ zawarte w alfabecie CrypTool zostan¹ usuniête przed szyfrowaniem / deszyfrowaniem. Jeœli nie chcesz, ¿eby tekst wejœciowy zosta³ zmieniony, nale¿y u¿yæ przycisku 'Opcje tekstu' i zmieniæ alfabet CrypTool."
     IDS_STRING_RAIL_FENCE_ENCRYPTION_OF 
-                            "Rail Fence encryption of <%s>, key <%s>"
+                            "Zaszyfrowanie p³otu <%s>, key <%s>"
     IDS_STRING_RAIL_FENCE_DECRYPTION_OF 
-                            "Rail Fence decryption of <%s>, key <%s>"
-    IDS_STRING_SCYTALE_ENCRYPTION_OF "Scytale encryption of <%s>, key <%s>"
-    IDS_STRING_SCYTALE_DECRYPTION_OF "Scytale decryption of <%s>, key <%s>"
-    IDS_FACTORS_FOUND       "Found %d factors in %s"
-    IDS_SIMPLE_TRANSPOSITION_OFFSET_INVALID 
-                            "The offset is invalid. It must not be smaller than 0."
+                            "Deszyfrowanie p³otu <%s>, key <%s>"
+    IDS_STRING_SCYTALE_ENCRYPTION_OF "Zaszyfrowanie scytali <%s>, klucz <%s>"
+    IDS_STRING_SCYTALE_DECRYPTION_OF "Deszyfrowanie scrytali <%s>, klucz <%s>"
+    IDS_FACTORS_FOUND       "Znaleziono %d czynników w %s"
+    IDS_SIMPLE_TRANSPOSITION_OFFSET_INVALID "Offset jest nieprawid³owy. Nie mo¿e byæ mniejszy ni¿ 0."
+                            
     IDS_STRING_FACTORIZATION_BRUTE_FORCE_LIMIT 
                             "This factor could not be factorized using brute-force. Here, brute-force is implemented to find only factors smaller than %d."
-    IDS_CRYPT_SIMPLETRANSPOSITION "Simple Transposition"
-    IDS_STRING_ASYMKEY_ERR_CERT_SERIAL_EXISTS 
-                            "The certificate cannot be imported, because a certificate with the same serial number already exists."
+    IDS_CRYPT_SIMPLETRANSPOSITION "Prosta transpozycja"
+    IDS_STRING_ASYMKEY_ERR_CERT_SERIAL_EXISTS "Import certyfikatu siê nie uda³ poniewa¿ istnieje ju¿ certyfikat z tym samym numerem seryjnym."
 END
 
 STRINGTABLE 
