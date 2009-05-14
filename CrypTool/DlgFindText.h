@@ -1,3 +1,23 @@
+/**************************************************************************
+
+  Copyright [2009] [CrypTool Team]
+
+  This file is part of CrypTool.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+**************************************************************************/
+
 #if !defined(AFX_DLGFINDTEXT_H__94A7CB7E_6FAC_4CA5_B549_AFACBF9F2AC8__INCLUDED_)
 #define AFX_DLGFINDTEXT_H__94A7CB7E_6FAC_4CA5_B549_AFACBF9F2AC8__INCLUDED_
 
