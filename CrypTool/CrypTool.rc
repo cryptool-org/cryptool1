@@ -8,8 +8,7 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -4263,7 +4262,7 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Dalej",IDOK,178,154,50,14
     PUSHBUTTON      "&Powrót",IDCANCEL,7,154,50,14
-    LTEXT           "Statisch",IDC_TEXT_INFO,7,7,221,112
+    LTEXT           "Statisch",IDC_TEXT_INFO,7,7,221,145
 END
 
 IDD_PASSWORD_GUIDELINES DIALOGEX 0, 0, 250, 185
@@ -4455,7 +4454,7 @@ BEGIN
     POPUP "&Edycja"
     BEGIN
         MENUITEM "&Cofnij \t Ctrl + Z",         ID_EDIT_UNDO, GRAYED
-        MENUITEM "&Powtórz \t Ctrl + Y",     ID_EDIT_REDO, GRAYED
+        MENUITEM "&Powtórz \t Ctrl + Y",        ID_EDIT_REDO, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "Wy&tnij \t Ctrl + X",         ID_EDIT_CUT, GRAYED
         MENUITEM "&Kopiuj \t Ctrl + C",         ID_EDIT_COPY, GRAYED
@@ -4799,7 +4798,7 @@ BEGIN
     POPUP "&Edycja"
     BEGIN
         MENUITEM "&Cofnij \t Ctrl + Z",         ID_EDIT_UNDO
-        MENUITEM "&Powtórz \t Ctrl + Y",     ID_EDIT_REDO
+        MENUITEM "&Powtórz \t Ctrl + Y",        ID_EDIT_REDO
         MENUITEM SEPARATOR
         MENUITEM "Wy&tnij \t Ctrl + X",         ID_EDIT_CUT
         MENUITEM "&Kopiuj \t Ctrl + C",         ID_EDIT_COPY
@@ -5143,7 +5142,7 @@ BEGIN
     POPUP "&Edycja"
     BEGIN
         MENUITEM "&Cofnij \t Ctrl + Z",         ID_EDIT_UNDO
-        MENUITEM "&Powtórz \t Ctrl + Y",     ID_EDIT_REDO
+        MENUITEM "&Powtórz \t Ctrl + Y",        ID_EDIT_REDO
         MENUITEM SEPARATOR
         MENUITEM "Wy&tnij \t Ctrl + X",         ID_EDIT_CUT, GRAYED
         MENUITEM "&Kopiuj \t Ctrl + C",         ID_EDIT_COPY, GRAYED
@@ -5487,7 +5486,7 @@ BEGIN
     POPUP "&Edycja"
     BEGIN
         MENUITEM "&Cofnij \t Ctrl + Z",         ID_EDIT_UNDO
-        MENUITEM "&Powtórz \t Ctrl + Y",     ID_EDIT_REDO
+        MENUITEM "&Powtórz \t Ctrl + Y",        ID_EDIT_REDO
         MENUITEM SEPARATOR
         MENUITEM "Wy&tnij \t Ctrl + X",         ID_EDIT_CUT
         MENUITEM "&Kopiuj \t Ctrl + C",         ID_EDIT_COPY
@@ -5815,7 +5814,7 @@ BEGIN
     POPUP " "
     BEGIN
         MENUITEM "&Cofnij",                     ID_EDIT_UNDO
-        MENUITEM "&Powtórz",                 ID_EDIT_REDO
+        MENUITEM "&Powtórz",                    ID_EDIT_REDO
         MENUITEM SEPARATOR
         MENUITEM "&Wytnij",                     ID_EDIT_CUT
         MENUITEM "&Kopiuj",                     ID_EDIT_COPY
@@ -5858,7 +5857,7 @@ BEGIN
     POPUP "&Edycja"
     BEGIN
         MENUITEM "&Cofnij \t Ctrl + Z",         ID_EDIT_UNDO, GRAYED
-        MENUITEM "&Powtórz \t Ctrl + Y",     ID_EDIT_REDO
+        MENUITEM "&Powtórz \t Ctrl + Y",        ID_EDIT_REDO
         MENUITEM SEPARATOR
         MENUITEM "Wy&tnij \t Ctrl + X",         ID_EDIT_CUT, GRAYED
         MENUITEM "&Kopiuj \t Ctrl + C",         ID_EDIT_COPY, GRAYED
@@ -10636,8 +10635,9 @@ BEGIN
                             "Lista specjalnych znaków jest pusta!\nProszê podaæ kilka znaków specjalnych lub zmniejszyæ minimaln¹ liczbê znaków specjalnych do 0"
     IDS_IOP_COL             "Kolumna przez kolumnê"
     IDS_IOP_ROW             "Wiersz przez wiersz"
-    IDS_PA_COULDNOTOPEN_PLAINFILE "Nie mo¿na otworzyæ pliku tekstu oryginalnego."
-    IDS_PA_COULDNOTOPEN_CIPHERFILE"Nie mo¿na otworzyæ pliku tekstu tajnego."
+    IDS_PA_COULDNOTOPEN_PLAINFILE 
+                            "Nie mo¿na otworzyæ pliku tekstu oryginalnego."
+    IDS_PA_COULDNOTOPEN_CIPHERFILE "Nie mo¿na otworzyæ pliku tekstu tajnego."
     IDS_PA_FILESIZES_DIFFERENT 
                             "Dolna granica zakresu wyszukiwania klucza jest wiêksza ni¿ górna granica."
     IDS_PA_EMPTYFILE        "Oba pliki (tekst oryginalny i tajny) s¹ puste."
@@ -10656,19 +10656,18 @@ BEGIN
     IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_RAIL_FENCE "Liczba wierszy:"
     IDS_SIMPLE_TRANSPOSITION_KEY_INVALID 
                             "Klucz jest nieprawid³owy. Musi byæ wiêkszy ni¿ 1, a mniejszy od d³ugoœci tekstu wejœciowego.\n\n Znaki, które nie s¹ zawarte w alfabecie CrypTool zostan¹ usuniête przed szyfrowaniem / deszyfrowaniem. Jeœli nie chcesz, ¿eby tekst wejœciowy zosta³ zmieniony, nale¿y u¿yæ przycisku 'Opcje tekstu' i zmieniæ alfabet CrypTool."
-    IDS_STRING_RAIL_FENCE_ENCRYPTION_OF 
-                            "Zaszyfrowanie p³otu <%s>, key <%s>"
-    IDS_STRING_RAIL_FENCE_DECRYPTION_OF 
-                            "Deszyfrowanie p³otu <%s>, key <%s>"
+    IDS_STRING_RAIL_FENCE_ENCRYPTION_OF "Zaszyfrowanie p³otu <%s>, key <%s>"
+    IDS_STRING_RAIL_FENCE_DECRYPTION_OF "Deszyfrowanie p³otu <%s>, key <%s>"
     IDS_STRING_SCYTALE_ENCRYPTION_OF "Zaszyfrowanie scytali <%s>, klucz <%s>"
     IDS_STRING_SCYTALE_DECRYPTION_OF "Deszyfrowanie scrytali <%s>, klucz <%s>"
     IDS_FACTORS_FOUND       "Znaleziono %d czynników w %s"
-    IDS_SIMPLE_TRANSPOSITION_OFFSET_INVALID "Offset jest nieprawid³owy. Nie mo¿e byæ mniejszy ni¿ 0."
-                            
+    IDS_SIMPLE_TRANSPOSITION_OFFSET_INVALID 
+                            "Offset jest nieprawid³owy. Nie mo¿e byæ mniejszy ni¿ 0."
     IDS_STRING_FACTORIZATION_BRUTE_FORCE_LIMIT 
                             "This factor could not be factorized using brute-force. Here, brute-force is implemented to find only factors smaller than %d."
     IDS_CRYPT_SIMPLETRANSPOSITION "Prosta transpozycja"
-    IDS_STRING_ASYMKEY_ERR_CERT_SERIAL_EXISTS "Import certyfikatu siê nie uda³ poniewa¿ istnieje ju¿ certyfikat z tym samym numerem seryjnym."
+    IDS_STRING_ASYMKEY_ERR_CERT_SERIAL_EXISTS 
+                            "Import certyfikatu siê nie uda³ poniewa¿ istnieje ju¿ certyfikat z tym samym numerem seryjnym."
 END
 
 STRINGTABLE 
@@ -14492,7 +14491,7 @@ BEGIN
     EDITTEXT        IDC_EDIT4,227,72,132,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Initialisieren",IDC_BUTTON1,371,72,50,14
     GROUPBOX        "Schlüsselstrom-Ausgabe",IDC_STATIC,6,240,612,54
-    LTEXT           "Initialdeck:",IDC_STATIC,29,162,36,8
+    LTEXT           "Initialdeck [der eigentliche Schlüssel]:",IDC_STATIC,29,162,120,8
     LTEXT           "Abschlussdeck:",IDC_STATIC,29,198,50,8
     GROUPBOX        "3. Auswahl Schlüsselerzeugung",IDC_STATIC,6,108,204,40
     GROUPBOX        "3a. Einzelschritte",IDC_STATIC,221,108,216,40
@@ -14985,7 +14984,7 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Fortsetzen",IDOK,178,154,50,14
     PUSHBUTTON      "&Zurück",IDCANCEL,7,154,50,14
-    LTEXT           "Statisch",IDC_TEXT_INFO,7,7,221,112
+    LTEXT           "Statisch",IDC_TEXT_INFO,7,7,221,145
 END
 
 IDD_PASSWORD_GUIDELINES DIALOGEX 0, 0, 250, 185
@@ -21060,8 +21059,7 @@ STRINGTABLE
 BEGIN
     IDS_FINDANDREPLACE_NOREGULAREXPRESSIONS_IN_HEX 
                             "Die Suche nach regulären Ausdrücken ist für hexadezimale Daten nicht verfügbar."
-    IDS_STRING_ADFGVX_OPTION_BACK 
-                            "- den Eigabevorgang erneut vornehmen (und gegebenenfalls die Blocklänge anpassen)."
+    IDS_STRING_ADFGVX_OPTION_BACK "- den Eigabevorgang erneut vornehmen."
     IDS_STRING_ADFGVX_OPTION_CONTINUE 
                             "\n\nSie können nun entweder\n- mit dem verkürzten Transpositionspasswort die Verschlüsselung fortsetzen oder\n"
     IDS_CLIPBORD_COPY_ERROR "Fehler beim Kopieren in die Zwischenablage."
@@ -21288,6 +21286,8 @@ BEGIN
     IDS_CRYPT_SIMPLETRANSPOSITION "Einfache Transposition"
     IDS_STRING_ASYMKEY_ERR_CERT_SERIAL_EXISTS 
                             "Das Zertfikat kann nicht importiert werden, da bereits eines mit der gleichen Seriennummber vorhanden ist."
+    IDS_STRING_ADFGVX_PASSWORD_EMPTY_REPEAT_INPUT_PROCESS 
+                            "Das Passwort enthält keine gültigen Zeichen. Bitte wiederholen Sie die Eingabe."
 END
 
 STRINGTABLE 
@@ -25065,7 +25065,7 @@ BEGIN
     EDITTEXT        IDC_EDIT4,228,72,132,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Initialize",IDC_BUTTON1,372,72,50,14
     GROUPBOX        "Keystream output",IDC_STATIC,7,240,612,54
-    LTEXT           "Initial deck:",IDC_STATIC,16,162,38,8
+    LTEXT           "Initial deck [the actual key]:",IDC_STATIC,16,162,90,8
     LTEXT           "Final deck:",IDC_STATIC,16,198,36,8
     GROUPBOX        "3. Choose type of key generation",IDC_STATIC,7,108,204,40
     GROUPBOX        "3a. Manual steps",IDC_STATIC,222,108,216,40
@@ -25567,7 +25567,7 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Continue",IDOK,178,154,50,14
     PUSHBUTTON      "&Back",IDCANCEL,7,154,50,14
-    LTEXT           "Statisch",IDC_TEXT_INFO,7,7,221,112
+    LTEXT           "Statisch",IDC_TEXT_INFO,7,7,221,145
 END
 
 IDD_PASSWORD_GUIDELINES DIALOGEX 0, 0, 250, 185
@@ -31773,8 +31773,7 @@ STRINGTABLE
 BEGIN
     IDS_FINDANDREPLACE_NOREGULAREXPRESSIONS_IN_HEX 
                             "The search for regular expressions is not available for hexadecimal data."
-    IDS_STRING_ADFGVX_OPTION_BACK 
-                            "- repeat the input process (and alter the block length, if necessary)."
+    IDS_STRING_ADFGVX_OPTION_BACK "- repeat the input process."
     IDS_STRING_ADFGVX_OPTION_CONTINUE 
                             "\n\nNow, you can either\n- continue the encryption with the shortened transposition password or\n"
     IDS_CLIPBORD_COPY_ERROR "Cannot copy to clipboard."
@@ -32010,6 +32009,8 @@ BEGIN
     IDS_CRYPT_SIMPLETRANSPOSITION "Simple Transposition"
     IDS_STRING_ASYMKEY_ERR_CERT_SERIAL_EXISTS 
                             "The certificate cannot be imported, because a certificate with the same serial number already exists."
+    IDS_STRING_ADFGVX_PASSWORD_EMPTY_REPEAT_INPUT_PROCESS 
+                            "The password doesn't contain any valid characters. Please repeat the input process."
 END
 
 STRINGTABLE 

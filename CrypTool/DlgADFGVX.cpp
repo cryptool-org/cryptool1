@@ -300,47 +300,62 @@ void CDlgADFGVX::OnBnClickedButtonEncrypt()
 			{
 				CString message="";
 
-				// notify user that the password was corrected
-				LoadString(AfxGetInstanceHandle(), IDS_STRING_ADFGVX_PASSWORD_CORRECTED, pc_str, STR_LAENGE_STRING_TABLE);
-				message.Append(pc_str);
-
-				if(pwdInvalid)
-				{
-					LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_4,pc_str,STR_LAENGE_STRING_TABLE);
-					message.Append(pc_str);
+				// special case: the password is empty because ALL characters were invalid
+				if(password.GetLength() == 0) {
+					// notify user that the password was contained invalid characters only
+					LoadString(AfxGetInstanceHandle(), IDS_STRING_ADFGVX_PASSWORD_EMPTY_REPEAT_INPUT_PROCESS, pc_str, STR_LAENGE_STRING_TABLE);
+					MessageBox(pc_str, "CrypTool", MB_OK);
 				}
-				if(pwdDouble)
-				{
-					if(pwdInvalid) message.Append("\n");
-					LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_7,pc_str,STR_LAENGE_STRING_TABLE);
+				// else: notify user that the password was corrected
+				else {
+					LoadString(AfxGetInstanceHandle(), IDS_STRING_ADFGVX_PASSWORD_CORRECTED, pc_str, STR_LAENGE_STRING_TABLE);
 					message.Append(pc_str);
-				}
-				
-				LoadString (AfxGetInstanceHandle(), IDS_STRING_ADFGVX_NEWPWD, pc_str, STR_LAENGE_STRING_TABLE);
-				message.Append(pc_str);
-				message.Append(password);
 
-				// append user option 1: continue encryption with shortened password
-				LoadString(AfxGetInstanceHandle(), IDS_STRING_ADFGVX_OPTION_CONTINUE, pc_str, STR_LAENGE_STRING_TABLE);
-				message.Append(pc_str);
-				// append user option 2: go back to input process and alter block length if necessary
-				LoadString(AfxGetInstanceHandle(), IDS_STRING_ADFGVX_OPTION_BACK, pc_str, STR_LAENGE_STRING_TABLE);
-				message.Append(pc_str);	
-				// show option dialog to user
-                CDlgADFGVXShortenedPassword dlg(message);
-				int userChoice = dlg.DoModal();
+					if(pwdInvalid)
+					{
+						LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_4,pc_str,STR_LAENGE_STRING_TABLE);
+						message.Append(pc_str);
+					}
+					if(pwdDouble)
+					{
+						if(pwdInvalid) message.Append("\n");
+						LoadString(AfxGetInstanceHandle(),IDS_STRING_ADFGVX_ERROR_7,pc_str,STR_LAENGE_STRING_TABLE);
+						message.Append(pc_str);
+					}
+					
+					LoadString (AfxGetInstanceHandle(), IDS_STRING_ADFGVX_NEWPWD, pc_str, STR_LAENGE_STRING_TABLE);
+					message.Append(pc_str);
+					message.Append(password);
+
+					// append user option 1: continue encryption with shortened password
+					LoadString(AfxGetInstanceHandle(), IDS_STRING_ADFGVX_OPTION_CONTINUE, pc_str, STR_LAENGE_STRING_TABLE);
+					message.Append(pc_str);
+					// append user option 2: go back to input process and alter block length if necessary
+					LoadString(AfxGetInstanceHandle(), IDS_STRING_ADFGVX_OPTION_BACK, pc_str, STR_LAENGE_STRING_TABLE);
+					message.Append(pc_str);	
 				
-				if(userChoice == IDOK)
-				{
-                    // continue encryption with shortened password...
-					Encrypt();
-					return;
+					// show option dialog to user
+					CDlgADFGVXShortenedPassword dlg(message);
+					int userChoice = dlg.DoModal();
+					
+					if(userChoice == IDOK)
+					{
+											// continue encryption with shortened password...
+						Encrypt();
+						return;
+					}
 				}
 
 				// else: actually, do nothing and go back to input process...
 				restart=false;
 				pwdInvalid=false;
 				pwdDouble=false;
+
+				// set the focus onto the password input field
+				CWnd *window = GetDlgItem(IDC_TEXTFIELD_PASSWORD);
+				if(window) {
+					window->SetFocus();
+				}
 			}
 			else
                 Encrypt();
