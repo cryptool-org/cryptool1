@@ -10042,7 +10042,7 @@ BEGIN
     IDS_CRT_ASTRONOMY_PLANETALL 
                             "Okresy  %s (%s) i %s (%s) nie s¹ wzglêdnie pierwsze.\n\n"
     IDS_CRT_ASTRONOMY_PLANETALL2 
-                            "\n\nCoprime modules are a pre-condition to apply the Chinese remainder theorem. \n\n\n\nBecause of this, the brute force method is searching for a solution .\n\n"
+                            "\n\nCoprime modules are a pre-condition to apply the Chinese remainder theorem. \n\n\n\nBecause of this, the brute-force method is searching for a solution .\n\n"
 END
 
 STRINGTABLE 
@@ -13974,11 +13974,11 @@ BEGIN
     LTEXT           "Die gefundenen Transpositionspasswörter und die jeweilige Substitutionsmatrix werden im Dropdownfeld gespeichert. Die Speicherung der Passwörter erfolgt automatisch, die Matrix wird durch Klick auf den Knopf ""Aktuelle Lösung anzeigen"" hinzugefügt.",IDC_STATIC,8,129,251,39
 END
 
-IDD_CRT_ASTRONOMY DIALOG  0, 0, 506, 322
+IDD_CRT_ASTRONOMY DIALOGEX 0, 0, 506, 322
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION 
 "Anwendungsbeispiel des Chinesischen Restsatze aus der Astronomie: Planetenumlaufbahn"
-FONT 8, "MS Shell Dlg"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_CRT_ASTRONOMY_EDITA0,35,56,101,15,ES_NUMBER
     EDITTEXT        IDC_CRT_ASTRONOMY_EDITM0,156,56,101,15,ES_NUMBER
@@ -14034,9 +14034,7 @@ BEGIN
     GROUPBOX        "Simultane Kongruenzen/ Modulare lineare Gleichungssysteme",IDC_STATIC,7,46,258,167
     LTEXT           "x",IDC_STATIC,16,59,8,8
     GROUPBOX        "",IDC_STATIC,7,3,491,39
-    LTEXT           "Mit dem Chinesischen Restsatz (CRT) kann man lineare modulare Gleichungssysteme lösen. Unten können Sie 9 Gleichungen der Form x = a[i] mod m[i] (i=1, ..., 9) eingeben und anschließend lösen. ",IDC_STATIC,35,11,427,16
-    LTEXT           "Solche Gleichungssysteme kann man z.B. nutzen, um herauszufinden, ",IDC_STATIC,240,19,227,9
-    LTEXT           "in wie viel Tagen bestimmte Planeten aufgereiht wie auf einer Perlenschnur hintereinander in einer Linie (Strahl) stehen.",IDC_STATIC,35,27,386,9
+    LTEXT           "Mit dem Chinesischen Restsatz (CRT) kann man lineare modulare Gleichungssysteme lösen. Unten können Sie 9 Gleichungen der Form x = a[i] mod m[i] (i=1, ..., 9) eingeben und anschließend lösen. Solche Gleichungssysteme kann man z.B. nutzen, um herauszufinden, in wie viel Tagen bestimmte Planeten aufgereiht wie auf einer Perlenschnur hintereinander in einer Linie (Strahl) stehen.",IDC_STATIC,13,12,477,24
     LTEXT           "x",IDC_STATIC,16,77,8,8
     LTEXT           "x",IDC_STATIC,16,92,8,8
     LTEXT           "x",IDC_STATIC,16,111,8,8
@@ -18291,7 +18289,9 @@ BEGIN
 
     IDD_CRT_ASTRONOMY, DIALOG
     BEGIN
+        VERTGUIDE, 13
         VERTGUIDE, 25
+        VERTGUIDE, 490
     END
 
     IDD_ROT13_CAESAR, DIALOG
@@ -18752,7 +18752,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.30 Beta03 (DE)"
+    IDR_MAINFRAME           "CrypTool 1.4.30 Beta04 (DE)"
     IDR_TEXTTYPE            "\nUnbenannt\nTEXT Dokument\nText Datei (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnbenannt\n\nBinäre Datei (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnbenannt\n\nASCII-Datei (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
@@ -21693,7 +21693,7 @@ BEGIN
     CTEXT           "CrypTool uses the following libraries:",IDC_STATIC,1,219,241,8
     CTEXT           "Contact:",IDC_STATIC,0,315,241,10
     CTEXT           "Copyright (C) 1998-2009\nDeutsche Bank AG and Contributors\nFrankfurt am Main, Germany",IDC_STATIC,0,380,242,24
-    CTEXT           "CrypTool is a free and comprehensive e-learning program about\nclassic and contemporary cryptography and cryptanalysis.\n\nIn a joint effort of the sponsors",IDC_STATIC,1,10,241,32
+    CTEXT           "CrypTool is a free and comprehensive e-learning program about\nclassic and contemporary cryptography and cryptanalysis.\n\nIn a joint effort with the sponsors",IDC_STATIC,1,10,241,32
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,41,48,105,37,WS_EX_TRANSPARENT
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,40,80,143,37,WS_EX_TRANSPARENT
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,46,228,79
@@ -24555,11 +24555,11 @@ BEGIN
     LTEXT           "The valid transposition passwords and the correspondent substitution matrixes are stored in the drop down box. Passwords are stored automatically, the matrix is added by clicking the button ""Update current solution"".",IDC_STATIC,8,130,251,39
 END
 
-IDD_CRT_ASTRONOMY DIALOG  0, 0, 506, 322
+IDD_CRT_ASTRONOMY DIALOGEX 0, 0, 506, 322
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION 
 "Example of use: Visualization of the Chinese Remainder Theorem in Astronomy - Planetary motion"
-FONT 8, "MS Shell Dlg"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_CRT_ASTRONOMY_EDITA0,35,56,101,15,ES_NUMBER
     EDITTEXT        IDC_CRT_ASTRONOMY_EDITM0,156,56,101,15,ES_NUMBER
@@ -24595,7 +24595,7 @@ BEGIN
     GROUPBOX        "Solution",IDC_STATIC,7,217,258,33
     GROUPBOX        "Example of use in astronomy/ visualization fix",IDC_STATIC,275,46,223,271
     LTEXT           "The period of the planets mercury and earth around the sun is 88 and 365 days. Up to reaching a certain radius vector s (red), it takes",IDC_STATIC,283,164,176,26
-    LTEXT           "Can it occur, that mercury and earth are sometime once on the ray s?",IDC_STATIC,283,205,211,18
+    LTEXT           "Is it possible, that mercury and earth are once both on this radius vector s?",IDC_STATIC,283,205,211,18
     LTEXT           "In which time interval (days) does this incident repeat itself?",IDC_STATIC,283,283,204,10
     EDITTEXT        IDC_CRT_ASTRONOMY_EDITREPEAT,283,293,207,15,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER | NOT WS_TABSTOP
     GROUPBOX        "Choose a planet",IDC_STATIC,283,223,207,54
@@ -24615,9 +24615,7 @@ BEGIN
     GROUPBOX        "Simultaneous congruences/ modular linear equation systems",IDC_STATIC,7,46,258,167
     LTEXT           "x",IDC_STATIC,16,59,8,8
     GROUPBOX        "",IDC_STATIC,7,3,491,39
-    LTEXT           "By using the Chinese Remainder Theorem (CRT) you are able to solve linear modular equation systems. You can enter up to 9 equations x = a[i] mod m[i] (i=1, ..., 9) below and compute a solution. ",IDC_STATIC,35,11,432,16
-    LTEXT           "One can use such equation systems to determine the",IDC_STATIC,262,19,227,9
-    LTEXT           "number of days until certain planets become aligned.",IDC_STATIC,35,27,386,9
+    LTEXT           "By using the Chinese Remainder Theorem (CRT) you are able to solve linear modular equation systems. You can enter up to 9 equations x = a[i] mod m[i] (i=1, ..., 9) below and compute a solution. One can use such equation systems to determine the number of days until certain planets become aligned.",IDC_STATIC,13,12,477,24
     LTEXT           "x",IDC_STATIC,16,77,8,8
     LTEXT           "x",IDC_STATIC,16,92,8,8
     LTEXT           "x",IDC_STATIC,16,111,8,8
@@ -29083,7 +29081,9 @@ BEGIN
 
     IDD_CRT_ASTRONOMY, DIALOG
     BEGIN
+        VERTGUIDE, 13
         VERTGUIDE, 25
+        VERTGUIDE, 490
     END
 
     IDD_CRT_SECRETSHARING, DIALOG
@@ -29536,7 +29536,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "CrypTool 1.4.30 Beta03 (EN)"
+    IDR_MAINFRAME           "CrypTool 1.4.30 Beta04 (EN)"
     IDR_TEXTTYPE            "\nUnnamed\nTEXT document\nText file (*.txt)\n.txt\nTextFileType\nTEXT File Type\nTEXT\nText Files\n"
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
@@ -31385,12 +31385,12 @@ BEGIN
     IDS_CRT_ASTRONOMY_PLANET8 "Neptune"
     IDS_CRT_ASTRONOMY_PLANET9 "Pluto"
     IDS_CRT_ASTRONOMY_BRUTEFORCE 
-                            "The brute force method was not able to find a solution.\r\n"
+                            "The brute-force method was not able to find a solution.\r\n"
     IDS_CRT_ASTRONOMY_NOSOLUTION "There is no solution!"
     IDS_CRT_ASTRONOMY_PLANETALL 
                             "The periods of %s (%s) and %s (%s) are not coprime.\r\n"
     IDS_CRT_ASTRONOMY_PLANETALL2 
-                            "\r\nCoprime modules are a pre-condition to apply the Chinese remainder theorem. \r\n\r\nBecause of this, the brute force method is searching for a solution .\r\n"
+                            "\r\nCoprime modules are a pre-condition to apply the Chinese remainder theorem. \r\n\r\nBecause of this, the brute-force method is searching for a solution .\r\n"
 END
 
 STRINGTABLE 
