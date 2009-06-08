@@ -205,7 +205,7 @@ void CHexEdit::postproc( char *oldstring, int start, int end )
 		BinData = (char *) calloc(BinBuffLen,1);
 	}
 	GetSel(s2,e2);
-	for(i = j = 0; i < la; i++)
+	for(i = j = 0; i < la && j < ltspace; i++)
 	{
 		char c = b3[i];
 		if(strchr(m_validchars,c))
