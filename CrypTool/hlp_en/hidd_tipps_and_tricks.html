@@ -47,7 +47,7 @@
 By pressing <b>F1</b> or using the <A href="hid_context_help.html">context-sensitive help</A> via mouse you can get help everywhere in the program. Help is available for
 <ul>
 <li>any selected (end) menu item.</li>
-<li>any open dialog window.</li>
+<li>any opened dialog window.</li>
 </ul>
 
 <P>If you are not familiar with using online help under Windows, click on <A href="hilfeueberhilfe.html">How to use the CrypTool online help</A>.</P>
@@ -92,13 +92,21 @@ On the other hand, the functions in the menu <A href="menu_related_methods.html"
 For example:</P>
 <UL>
 	<LI>calculate <!--ZZZPOPUP--><A href="hashwert.html">hash values</A> (see menu Indiv. Procedures \ <A href="menu_individualprocedures_hashprocedures.html">Hash</A>) and show their sensitivity.</LI>
-	<LI>create <A href="hid_generate_macs.html">Message Authentication Codes (MACs).</A></LI>
+
+	<LI>create <A href="hid_generate_macs.html">Message Authentication Codes (MACs)</A>.</LI>
+
 	<LI>find out how "strong" keys can be generated from passwords according to the <A href="hid_einzelverfahren_schluesselgenerieren.html">PKCS #5</A> standard.</LI>
+
 	<LI><A href="hid_zip.html">compress</A> and <A href="hid_unzip.html">decompress</A> documents. This enables the study of file compression prior to the actual encryption of a given document.</LI>
-	<LI>generate or analyse <A href="hid_zufall_generatoren.html">random numbers.</A></LI>
-	<LI>demonstrate protocols for <A href="hid_cr_overview.html">authentication</A> und <A href="hid_einzelverfahren_diffiehellmandemo.html">key exchange (DH).</A></LI>
+
+	<LI>generate or analyse <A href="hid_zufall_generatoren.html">random numbers</A>.</LI>
+
+	<LI>demonstrate protocols for <A href="hid_cr_overview.html">authentication</A>, for <A href="hid_einzelverfahren_diffiehellmandemo.html">key exchange (DH)</A> and for secure e-mail.</LI>
+
 	<LI>step through some ciphers forward and backwards (using the animation software ANIMAL).</LI>
-	<LI>apply common encodings like <A href="hid_encode_base64.html">base64</A> and <A href="hid_encode_uu.html">uuencode.</A></LI>
+
+	<LI>apply common encodings like <A href="hid_encode_base64.html">base64</A> and <A href="hid_encode_uu.html">uuencode</A>.</LI>
+
 </UL>
 
 <P>The remaining menu items in the main menu "Individual Procedures" are described below (see <a href="#rsa">RSA Cryptosystem</a> and <a href="#demo">Visualizations</a>). </P>
@@ -109,7 +117,7 @@ For example:</P>
 
 <p>Within CrypTool the modern algorithms are implemented according to international standards.</p>
 
-<P>The authors of CrypTool did not implement cryptographic functionality where very good free programs were available in the internet: So dictionary attacks against password files (see John-the-Ripper, <a href="http://www.openwall.com/john/">http://www.openwall.com/john/</a>) are not part of CrypTool yet.</P>
+<P>The authors of CrypTool did not implement cryptographic functionality where very good free programs were available in the internet: So dictionary attacks against password files (see John-the-Ripper, <a href="http://www.openwall.com/john/">http://www.openwall.com/john/</a>) are not part of CrypTool.</P>
 
 <br><P><B><a name="rsa">The RSA Cryptosystem</a></B></P>
 
@@ -120,23 +128,36 @@ For example:</P>
 <br><P><B><a name="demo">Interactive Demonstrations / Visualizations</a></B></P>
 <p>These interactive demonstrations (<A href="visualizations.html">visualizations</a>) are helpful for improving the understanding of the following topics: 
 <ul>
-<li>creating an <A href="hid_einzelverfahren_sign_doc.html">electronic signature.</a></li>
-<li>processing <A href="hid_verentschlsseln_hybridverfahren_hybridverschlsselung.html">hybrid encryption.</a></li>
-<li>how changes to a document change the hash value
+	<li>creating an <A href="hid_einzelverfahren_sign_doc.html">electronic signature</a>.</li>
+
+	<li>processing <A href="hid_verentschlsseln_hybridverfahren_hybridverschlsselung.html">hybrid encryption</a>.</li>
+
+	<li>how changes to a document change the hash value
 	<ul>
-	<li><A href="hid_einzelverfahren_hashwerte_hashdemo.html">sensitivity of hash algorithms.</a></li>
+	<li><A href="hid_einzelverfahren_hashwerte_hashdemo.html">sensitivity of hash algorithms</a>.</li>
 	<li>generation of <A href="hid_signatur_attack.html">hash value collisions</a> (birthday paradox).</li>
-	</ul>
-<li>processing the <A href="hid_einzelverfahren_diffiehellmandemo.html">Diffie-Hellman key exchange</a> (DH).</li>
-</li>
-<li><A href="hid_einzelverfahren_sidechannelattack_on_hybridencryption.html">side-channel attack.</a></li>
-<li><A href="hid_cr_overview.html">authentication protocols.</a></li>
-<LI>find out how an ancient number theorem (<A href="menu_individualprocedures_chineseremaindertheorem.html">Chinese Remainder Theorem</A>) can be applied (e.g. When are the planets of our solar system positioned in one straight line?).</LI>
-<LI><a href="menu_individualprocedures_visualizations.html">visualizations of some algorithms</a> (e.g. Vigenère, AES, Enigma).</LI>
-<li>shared secrets using <A href="hid_indiv_crt_secretsharing.html">Chinese Remainder Theorem</a> and <A href="hid_individual_procedures_secretsharing.html">Shamir</A>.</li>
-<li><a href="hid_analysis_random_3d_visualization.html">3D visualization</a> of big sets of random numbers.</li>
-<LI><a href="hid_interactive_number_theory.html">computer based training for number theory</a>.</LI>
-<LI><a href="HID_INDIV_POINTADDITIONONELLIPTICCURVES.html">point addition on elliptic curves</a>.</LI>
+	</ul></li>
+
+	<li>processing the <A href="hid_einzelverfahren_diffiehellmandemo.html">Diffie-Hellman key exchange (DH)</a>.</li>
+
+<li>	<A href="hid_xxxxxxxxxx">Secure E-Mail using S/MIME</a>.</li>
+
+	<li><A href="hid_einzelverfahren_sidechannelattack_on_hybridencryption.html">side-channel attack</a>.</li>
+
+	<li><A href="hid_cr_overview.html">authentication protocols</a>.</li>
+
+	<LI>find out how an ancient number theorem (<A href="menu_individualprocedures_chineseremaindertheorem.html">Chinese Remainder Theorem</A>) can be applied (e.g. When are the planets of our solar system positioned in one straight line?).</LI>
+
+	<LI><a href="menu_individualprocedures_visualizations.html">visualizations of some algorithms</a> (e.g. Vigenère, AES, Enigma).</LI>
+
+	<li>shared secrets using <A href="hid_indiv_crt_secretsharing.html">Chinese Remainder Theorem</a> and <A href="hid_individual_procedures_secretsharing.html">Shamir</A>.</li>
+
+	<li><a href="hid_analysis_random_3d_visualization.html">3D visualization</a> of big sets of random numbers.</li>
+
+	<LI><a href="hid_interactive_number_theory.html">computer based training for number theory</a>.</LI>
+
+	<LI><a href="HID_INDIV_POINTADDITIONONELLIPTICCURVES.html">point addition on elliptic curves</a>.</LI>
+
 </ul>
 </p>
 
@@ -150,7 +171,7 @@ Besides the interactive demonstrations the CrypTool package contains the educati
 <ul>
 <li>explains all basic cryptographic terms. </li>
 <li>contains a short <A href="literatur.html">list of references</A> from the area of cryptology.</li>
-<li>provides a historic overview of the development of cryptography within the <A href="menu_zeittafel.html">time-table.</A></li>
+<li>provides a historic overview of the development of cryptography within the <A href="menu_zeittafel.html">time-table</A> and further references.</li>
 <li>contains <A href="hid_hilfe_szenarien.html">examples</A> (tutorials) making it easy for you to get up to speed.</li>
 <li>has a well sorted index of cryptographic topics.</li>
 </ul></p>
@@ -211,9 +232,9 @@ Authorware computer based training about elementary number theory.</P>
 
 <p>The GMP library (<a href="http://www.swox.com/gmp/">http://www.swox.com/gmp/</a>) for arbitrary precision arithmetic is used for prime number tests.</p>
 
-<p>Information about the future roadmap can be found on the <a href="www.cryptool.org">CrypTool web site</a>, within the <a class="filelink" onclick="parser('readme-en.txt')">Readme file</a> and in the <A class="filelink" onclick="parser('CrypToolPresentation-en.pdf')">CrypTool presentation</a>.
+<p>Information about the future roadmap can be found on the <a href="www.cryptool.org">CrypTool web site</a>, within the <a class="filelink" onclick="parser('readme-en.txt')">Readme file</a> and in the <A class="filelink" onclick="parser('CrypToolPresentation-en.pdf')">CrypTool presentation</a>. Here the successor projects CT2 and JCT are introduced too.
 
-<p>CrypTool is hosted by the "IT Security" department of the Technical University of Darmstadt, headed by Professor Claudia Eckert.</p>
+<p>The source code of CrypTool 1.4.x is hosted by the University of Duisburg-Essen, Germany.</p>
 
 <br><P><A NAME="licence_terms"></A><B>Terms of the Licence / Non-Liability / Copyright</B></P>
 
