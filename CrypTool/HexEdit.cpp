@@ -326,12 +326,22 @@ LRESULT CHexEdit::OnPaste(WPARAM wparam, LPARAM lparam)
 		}
 	}
 
-	// set the new window text
-	SetWindowTextA(clipboardText);
+	// replace existing selection (don't replace text that was not selected)
+	CString oldText;
+	GetWindowText(oldText);
 	
-	CString res;
-	GetWindowText(res);
+	int selectionStart = 0;
+	int selectionEnd = 0;
+	this->GetSel(selectionStart, selectionEnd);
 
+	CString newText;
+	newText.Append(oldText.GetBuffer(), selectionStart);
+	newText.Append(clipboardText);
+	newText.Append(oldText.GetBuffer() + selectionEnd, oldText.GetLength() - selectionEnd);
+
+	// set the new window text
+	SetWindowTextA(newText);
+	
 	return 0;
 }
 
