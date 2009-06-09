@@ -4,7 +4,7 @@ CrypTool jest programem do nauki kryptografii i kryptoanalizy.
 
 Ten plik ma pomóc uzytkownikowi w wykonaniu pierwszych kroków z programem.
 
-1) Jako pierwszy krok zaleca sie zapoznanie sie z wlaczone pomoce online, stanowi to uzyteczny przeglad wszystkich dostepnych funkcji w obrebie tej aplikacji. Dostep na strone startowa pomocy online mozna uzyskac poprzez menu "Pomoc / Strona startowa" w prawym górnym rogu ekranu, lub korzystajac z wyszukiwania slów kluczowych "Strona startowa" w indeksie pomocy online. 
+1) Jako pierwszy krok zaleca sie zapoznanie sie z wlaczona pomoca online, stanowi to uzyteczny przeglad wszystkich dostepnych funkcji w obrebie tej aplikacji. Dostep na strone startowa pomocy online mozna uzyskac poprzez menu "Pomoc / Strona startowa" w prawym górnym rogu ekranu, lub korzystajac z wyszukiwania slów kluczowych "Strona startowa" w indeksie pomocy online. 
 Nacisnij F1, aby rozpoczac pomoc online.
 
 2) Warto tez wypróbowac zaszyfrowanie tekstu np. za pomoca algorytmu 
