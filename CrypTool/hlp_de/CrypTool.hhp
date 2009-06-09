@@ -541,7 +541,6 @@ hidd_simple_transpositions.html
 hid_known_analysis_single_permutation.html
 hidd_automated_perm_analysis.html
 hidd_automated_perm_analysis_output.html
-sage.html
 
 [ALIAS]
 #include CrypTool_Alias.h
