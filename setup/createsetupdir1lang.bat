@@ -26,8 +26,18 @@ copy ..\script\%lang%\script-%lang%.pdf setup-%lang%
 echo Copying ..\dialoguesisters\%lang%\*.pdf setup-%lang%  ...
 copy ..\dialoguesisters\%lang%\*.pdf setup-%lang%
 echo Copying ..\smimedemo\*.* setup-%lang% ...
-xcopy /s/q /EXCLUDE:\docs\+\fla\+\src\+start-??.bat ..\smimedemo\*.* setup-%lang%
-copy ..\smimedemo\start-%lang%.bat setup-%lang% 
+REM FIXME: SMIMEDEMO selective copying ...
+xcopy /q ..\smimedemo\*.* setup-%lang%
+xcopy /s/q/i ..\smimedemo\font          setup-%lang%\font
+xcopy /s/q/i ..\smimedemo\images        setup-%lang%\images
+xcopy /s/q/i ..\smimedemo\krypto        setup-%lang%\krypto
+xcopy /s/q/i ..\smimedemo\lib           setup-%lang%\lib
+xcopy /s/q/i ..\smimedemo\mail          setup-%lang%\mail
+xcopy /s/q/i ..\smimedemo\main          setup-%lang%\main
+xcopy /s/q/i ..\smimedemo\texte         setup-%lang%\texte
+xcopy /s/q/i ..\smimedemo\userinterface setup-%lang%\userinterface
+xcopy /s/q/i ..\smimedemo\utils         setup-%lang%\utils
+
 
 cd setup-%lang%
 
