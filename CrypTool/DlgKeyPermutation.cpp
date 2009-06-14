@@ -304,6 +304,7 @@ BOOL CDlgKeyPermutation::OnInitDialog()
 	{
 		UpdateData(true);
 		int d = Primes.Find(PARAM_TOKEN, 0);
+		m_DataType  = 0;
 		m_Invert	= false;
 		m_P1InSeq   = 0;
 		m_P1Perm	= 1;
@@ -374,11 +375,14 @@ int CDlgKeyPermutation::readKeyParam(CString &buffer)
 		k = t + strlen(PARAM_TOKEN);
 		m_DataType = 0;
 		if ( 0<= buffer.Find(TEXT_TOKEN) )
+		{
 			k += strlen(TEXT_TOKEN);
+			m_DataType = 1;
+		}
 		else if ( 0<= buffer.Find(BINARY_TOKEN) )
 		{
 			k += strlen(BINARY_TOKEN);
-			m_DataType = 1;
+			m_DataType = 0;
 		}
 		if ( 0 <= buffer.Find(INV_TOKEN) )
 		{

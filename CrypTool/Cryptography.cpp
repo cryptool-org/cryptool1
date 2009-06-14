@@ -3349,7 +3349,7 @@ void Permutation(const char *infileName, const char *OldTitle, BOOL TEXTMODE)
 	{
 		char *mSrc = NULL, *mDest = NULL; 
 		int   lSrc = 0,     lDest = 0;
-		TEXTMODE = ( Perm.m_DataType ) ? FALSE :  TRUE;
+		TEXTMODE = ( Perm.m_DataType );
 		if ( 0 > readSource( infileName, mSrc, lSrc, TEXTMODE ) )
 		{
 			// FIXME: ERROR
@@ -3427,7 +3427,7 @@ void Permutation(const char *infileName, const char *OldTitle, BOOL TEXTMODE)
 			char *key    = new char[6*16+Perm.m_Perm1.GetLength()+Perm.m_Perm2.GetLength() + strlen(PARAM_TOKEN)+60];
 			char *title  = NULL; 
 			strcpy(Invert, Perm.m_Invert   ? INV_TOKEN : "");
-			strcpy(dType , Perm.m_DataType ? BINARY_TOKEN : TEXT_TOKEN);
+			strcpy(dType , (Perm.m_DataType) ? TEXT_TOKEN : BINARY_TOKEN );
 
 			if(Perm.m_P2len)
 				sprintf(key,"%s;%s %s%s%s%i,%i,%i,%i,%i,%i", Perm.m_Perm1, Perm.m_Perm2, PARAM_TOKEN, dType, Invert,

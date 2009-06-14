@@ -12,7 +12,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -1841,8 +1841,8 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,267,234,10
     CONTROL         "Pokazuj poœredni dialog permutacji odwrotnej",IDC_CHECK2,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,281,185,10
-    CONTROL         "Text",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,135,297,26,10
-    CONTROL         "Binary data",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,166,297,72,10
+    CONTROL         "Dane binarne",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,135,297,58,10
+    CONTROL         "Tekst",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,196,297,59,10
     DEFPUSHBUTTON   "&Szyfruj",IDOK,11,317,58,19,WS_DISABLED
     PUSHBUTTON      "&Deszyfruj",IDC_BUTTON1,86,317,57,19,WS_DISABLED
     CONTROL         "Wklej",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,162,316,22,20
@@ -4394,8 +4394,8 @@ BEGIN
     GROUPBOX        "Aktywny dokument",IDC_STATIC,7,27,306,34
     LTEXT           "Proszê ustaliæ czy aktywny dokument przed otwarciem tego okna zawiera³ tekst oryginalny lub tajny.",IDC_STATIC,15,38,208,19
     GROUPBOX        "Opcje",IDC_STATIC,7,304,306,26
-    CONTROL         "Tekst",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,129,315,30,10
-    CONTROL         "Dane binarne",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,161,315,59,10
+    CONTROL         "Dane binarne",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,129,315,57,10
+    CONTROL         "Tekst",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,189,315,33,10
     LTEXT           "Uwarzaæ dokument wejœciowy jako:",IDC_STATIC,17,312,110,15
     PUSHBUTTON      "Opcje tekstu",IDC_BUTTON2,95,338,59,17
 END
@@ -10675,12 +10675,12 @@ BEGIN
     IDS_SMIMEDEMO_PARAM     "-cp "".;./lib/*"" main.Programm EN"
 END
 
-#endif    // Polish resources
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -12498,8 +12498,8 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,267,149,10
     CONTROL         "Zwischendialog mit der inversen Permutation anzeigen",IDC_CHECK2,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,281,187,10
-    CONTROL         "Text",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,135,297,30,10
-    CONTROL         "Binäre Daten",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,166,297,72,10
+    CONTROL         "Binäre Daten",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,135,297,57,10
+    CONTROL         "Text",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,194,297,37,10
     DEFPUSHBUTTON   "&Verschlüsseln",IDOK,12,319,58,19,WS_DISABLED
     PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,88,319,57,19,WS_DISABLED
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,165,318,22,20
@@ -15114,8 +15114,8 @@ BEGIN
     GROUPBOX        "Aktives Dokument",IDC_STATIC,7,27,306,34
     LTEXT           "Bitte legen Sie fest, ob das vor dem Aufruf dieses Dialogs aktive Dokument den Klartext oder den Geheimtext enthält.",IDC_STATIC,15,38,208,19
     GROUPBOX        "Optionen",IDC_STATIC,7,304,306,26
-    CONTROL         "Text",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,129,315,30,10
-    CONTROL         "Binäre Daten",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,160,315,59,10
+    CONTROL         "Binäre Daten",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,129,315,54,10
+    CONTROL         "Text",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,189,315,59,10
     LTEXT           "Betrachte Eingabedokument als:",IDC_STATIC,17,315,110,10
     PUSHBUTTON      "Textoptionen",IDC_BUTTON2,100,335,59,17
 END
@@ -21295,12 +21295,12 @@ BEGIN
     IDS_SMIMEDEMO_PARAM     "-cp "".;./lib/*"" main.Programm"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -23137,8 +23137,8 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,267,234,10
     CONTROL         "Show intermediate dialog with the inverse permutation",IDC_CHECK2,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,281,185,10
-    CONTROL         "Text",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,135,297,30,10
-    CONTROL         "Binary data",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,166,297,72,10
+    CONTROL         "Binary data",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,135,297,51,10
+    CONTROL         "Text",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,188,297,28,10
     DEFPUSHBUTTON   "&Encrypt",IDOK,11,318,58,19,WS_DISABLED
     PUSHBUTTON      "&Decrypt",IDC_BUTTON1,86,318,57,19,WS_DISABLED
     CONTROL         "Paste",IDC_BUTTON2,"Button",BS_OWNERDRAW | WS_TABSTOP,162,317,22,20
@@ -25697,8 +25697,8 @@ BEGIN
     GROUPBOX        "Aktives Dokument",IDC_STATIC,7,27,306,34
     LTEXT           "Bitte legen Sie fest, ob das vor dem Aufruf dieses Dialogs aktive Dokument den Klartext oder den Geheimtext enthält.",IDC_STATIC,15,38,208,19
     GROUPBOX        "Optionen",IDC_STATIC,7,304,306,26
-    CONTROL         "Text",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,129,315,30,10
-    CONTROL         "Binäre Daten",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,162,315,59,10
+    CONTROL         "Binary data",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,129,315,51,10
+    CONTROL         "Text",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,182,315,59,10
     LTEXT           "Betrachte Eingabedokument als:",IDC_STATIC,17,315,110,10
     PUSHBUTTON      "Textoptionen",IDC_BUTTON2,101,338,59,17
 END
@@ -32018,7 +32018,7 @@ BEGIN
     IDS_SMIMEDEMO_PARAM     "-cp "".;./lib/*"" main.Programm EN"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
