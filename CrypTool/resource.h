@@ -2100,6 +2100,8 @@
 #define ID_PERMUTATION_HEX              33373
 #define ID_PROTOKOLLE_SICHEREE          33374
 #define ID_PROTOKOL_SMIME               33375
+#define ID_AES_RIJNDAEL33376            33376
+#define ID_AES_RIJNDAEL_FLOWVISUALISATION 33377
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -3154,13 +3156,15 @@
 #define IDS_ERROPEN_SMIMEDEMO           62030
 #define IDS_SMIMEDEMO_EXE               62031
 #define IDS_SMIMEDEMO_PARAM             62032
+#define IDS_AES_FLOWVISUALIZATION_PARAM 62033
+#define IDS_ERR_AES_FLOWVISUALIZATION   62034
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        880
-#define _APS_NEXT_COMMAND_VALUE         33376
+#define _APS_NEXT_COMMAND_VALUE         33378
 #define _APS_NEXT_CONTROL_VALUE         2040
 #define _APS_NEXT_SYMED_VALUE           109
 #endif

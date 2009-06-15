@@ -199,6 +199,7 @@ public:
 	afx_msg void OnFlashEnigmademo();
 	afx_msg void OnIndividualPINEncryption();
 	afx_msg void OnProtokolSMIME();
+	afx_msg void OnAesRijndaelFlowvisualisation();
 };
 
 class CMainFrame : public CMDIFrameWnd

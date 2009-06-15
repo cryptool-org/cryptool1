@@ -8,7 +8,8 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -4618,6 +4619,7 @@ BEGIN
             BEGIN
                 MENUITEM "Rijndael &Animacja",          ID_FLASH_AESDEMO
                 MENUITEM "Rijndael &Inspector",         ID_FLASH_RIJNDAEL_INSPECTOR
+                MENUITEM "Rijndael &Flow Visualization...", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
             MENUITEM "&Enigma",                     ID_FLASH_ENIGMADEMO
         END
@@ -4962,6 +4964,7 @@ BEGIN
             BEGIN
                 MENUITEM "Rijndael &Animacja",          ID_FLASH_AESDEMO
                 MENUITEM "Rijndael &Inspector",         ID_FLASH_RIJNDAEL_INSPECTOR
+                MENUITEM "Rijndael &Flow Visualization...", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
             MENUITEM "&Enigma",                     ID_FLASH_ENIGMADEMO
         END
@@ -5306,6 +5309,7 @@ BEGIN
             BEGIN
                 MENUITEM "Rijndael &Animacja",          ID_FLASH_AESDEMO
                 MENUITEM "Rijndael &Inspector",         ID_FLASH_RIJNDAEL_INSPECTOR
+                MENUITEM "Rijndael &Flow Visualization...", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
             MENUITEM "&Enigma",                     ID_FLASH_ENIGMADEMO
         END
@@ -5650,6 +5654,7 @@ BEGIN
             BEGIN
                 MENUITEM "Rijndael &Animacja",          ID_FLASH_AESDEMO
                 MENUITEM "Rijndael &Inspector",         ID_FLASH_RIJNDAEL_INSPECTOR
+                MENUITEM "Rijndael &Flow Visualization...", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
             MENUITEM "&Enigma",                     ID_FLASH_ENIGMADEMO
         END
@@ -6021,6 +6026,7 @@ BEGIN
             BEGIN
                 MENUITEM "Rijndael &Animacja",          ID_FLASH_AESDEMO
                 MENUITEM "Rijndael &Inspector",         ID_FLASH_RIJNDAEL_INSPECTOR
+                MENUITEM "Rijndael &Flow Visualization...", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
             MENUITEM "&Enigma",                     ID_FLASH_ENIGMADEMO
         END
@@ -10673,6 +10679,9 @@ END
 STRINGTABLE 
 BEGIN
     IDS_SMIMEDEMO_PARAM     "-cp "".;./lib/*"" main.Programm EN"
+    IDS_AES_FLOWVISUALIZATION_PARAM "-jar AES_Flussvisualisierung.jar EN"
+    IDS_ERR_AES_FLOWVISUALIZATION 
+                            "Die AES Flussvisualisierung kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob die Datei AES_Flussvisualisierung.jar im CrypTool-Heimatverzeichnis installiert wurde\n(""%s"")."
 END
 
 #endif    // Polnisch resources
@@ -14034,7 +14043,7 @@ BEGIN
     GROUPBOX        "Simultane Kongruenzen/ Modulare lineare Gleichungssysteme",IDC_STATIC,7,46,258,167
     LTEXT           "x",IDC_STATIC,16,59,8,8
     GROUPBOX        "",IDC_STATIC,7,3,491,39
-    LTEXT           "Mit dem Chinesischen Restsatz (CRT) kann man lineare modulare Gleichungssysteme lösen. Unten können Sie 9 Gleichungen der Form x = a[i] mod m[i] (i=1, ..., 9) eingeben und anschließend lösen. Solche Gleichungssysteme kann man z.B. nutzen, um herauszufinden, in wie viel Tagen bestimmte Planeten aufgereiht wie auf einer Perlenschnur hintereinander in einer Linie (Strahl) stehen.",IDC_STATIC,13,12,477,24
+    LTEXT           "Mit dem Chinesischen Restsatz (CRT) kann man lineare modulare Gleichungssysteme lösen. Unten können Sie 9 Gleichungen der Form x = a[i] mod m[i] (i=1, ..., 9) eingeben und anschließend lösen. Solche Gleichungssysteme kann man z.B. nutzen, um herauszufinden",IDC_STATIC,13,12,477,24
     LTEXT           "x",IDC_STATIC,16,77,8,8
     LTEXT           "x",IDC_STATIC,16,92,8,8
     LTEXT           "x",IDC_STATIC,16,111,8,8
@@ -15340,6 +15349,7 @@ BEGIN
             BEGIN
                 MENUITEM "Rijndael-&Animation...",      ID_FLASH_AESDEMO
                 MENUITEM "Rijndael-&Inspektor...",      ID_FLASH_RIJNDAEL_INSPECTOR
+                MENUITEM "Rijndael-&Flussvisualisierung...", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
@@ -15685,6 +15695,7 @@ BEGIN
             BEGIN
                 MENUITEM "Rijndael-&Animation...",      ID_FLASH_AESDEMO
                 MENUITEM "Rijndael-&Inspektor...",      ID_FLASH_RIJNDAEL_INSPECTOR
+                MENUITEM "Rijndael-&Flussvisualisierung...", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
@@ -16030,6 +16041,7 @@ BEGIN
             BEGIN
                 MENUITEM "Rijndael-&Animation...",      ID_FLASH_AESDEMO
                 MENUITEM "Rijndael-&Inspektor...",      ID_FLASH_RIJNDAEL_INSPECTOR
+                MENUITEM "Rijndael-&Flussvisualisierung...", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
@@ -16375,6 +16387,7 @@ BEGIN
             BEGIN
                 MENUITEM "Rijndael-&Animation...",      ID_FLASH_AESDEMO
                 MENUITEM "Rijndael-&Inspektor...",      ID_FLASH_RIJNDAEL_INSPECTOR
+                MENUITEM "Rijndael-&Flussvisualisierung...", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
@@ -16747,6 +16760,7 @@ BEGIN
             BEGIN
                 MENUITEM "Rijndael-&Animation...",      ID_FLASH_AESDEMO
                 MENUITEM "Rijndael-&Inspektor...",      ID_FLASH_RIJNDAEL_INSPECTOR
+                MENUITEM "Rijndael-&Flussvisualisierung...", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
@@ -21293,6 +21307,9 @@ END
 STRINGTABLE 
 BEGIN
     IDS_SMIMEDEMO_PARAM     "-cp "".;./lib/*"" main.Programm"
+    IDS_AES_FLOWVISUALIZATION_PARAM "-jar AES_Flussvisualisierung.jar DE"
+    IDS_ERR_AES_FLOWVISUALIZATION 
+                            "Die AES Flussvisualisierung kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob die Datei AES_Flussvisualisierung.jar im CrypTool-Heimatverzeichnis installiert wurde\n(""%s"")."
 END
 
 #endif    // Deutsch (Deutschland) resources
@@ -24615,7 +24632,7 @@ BEGIN
     GROUPBOX        "Simultaneous congruences/ modular linear equation systems",IDC_STATIC,7,46,258,167
     LTEXT           "x",IDC_STATIC,16,59,8,8
     GROUPBOX        "",IDC_STATIC,7,3,491,39
-    LTEXT           "By using the Chinese Remainder Theorem (CRT) you are able to solve linear modular equation systems. You can enter up to 9 equations x = a[i] mod m[i] (i=1, ..., 9) below and compute a solution. One can use such equation systems to determine the number of days until certain planets become aligned.",IDC_STATIC,13,12,477,24
+    LTEXT           "By using the Chinese Remainder Theorem (CRT) you are able to solve linear modular equation systems. You can enter up to 9 equations x = a[i] mod m[i] (i=1, ..., 9) below and compute a solution. One can use such equation systems to determine the number of di????ctls_updown3c:\\Users??",IDC_STATIC,13,12,477,24
     LTEXT           "x",IDC_STATIC,16,77,8,8
     LTEXT           "x",IDC_STATIC,16,92,8,8
     LTEXT           "x",IDC_STATIC,16,111,8,8
@@ -25923,6 +25940,7 @@ BEGIN
             BEGIN
                 MENUITEM "Rijndael &Animation...",      ID_FLASH_AESDEMO
                 MENUITEM "Rijndael &Inspector...",      ID_FLASH_RIJNDAEL_INSPECTOR
+                MENUITEM "Rijndael &Flow Visualization...", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
@@ -26268,6 +26286,7 @@ BEGIN
             BEGIN
                 MENUITEM "Rijndael &Animation...",      ID_FLASH_AESDEMO
                 MENUITEM "Rijndael &Inspector...",      ID_FLASH_RIJNDAEL_INSPECTOR
+                MENUITEM "Rijndael &Flow Visualization...", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
@@ -26613,6 +26632,7 @@ BEGIN
             BEGIN
                 MENUITEM "Rijndael &Animation...",      ID_FLASH_AESDEMO
                 MENUITEM "Rijndael &Inspector...",      ID_FLASH_RIJNDAEL_INSPECTOR
+                MENUITEM "Rijndael &Flow Visualization...", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
@@ -26958,6 +26978,7 @@ BEGIN
             BEGIN
                 MENUITEM "Rijndael &Animation...",      ID_FLASH_AESDEMO
                 MENUITEM "Rijndael &Inspector...",      ID_FLASH_RIJNDAEL_INSPECTOR
+                MENUITEM "Rijndael &Flow Visualization...", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
@@ -27330,6 +27351,7 @@ BEGIN
             BEGIN
                 MENUITEM "Rijndael &Animation...",      ID_FLASH_AESDEMO
                 MENUITEM "Rijndael &Inspector...",      ID_FLASH_RIJNDAEL_INSPECTOR
+                MENUITEM "Rijndael &Flow Visualization...", ID_AES_RIJNDAEL_FLOWVISUALISATION
             END
             MENUITEM "&Enigma...",                  ID_FLASH_ENIGMADEMO
         END
@@ -32016,6 +32038,9 @@ END
 STRINGTABLE 
 BEGIN
     IDS_SMIMEDEMO_PARAM     "-cp "".;./lib/*"" main.Programm EN"
+    IDS_AES_FLOWVISUALIZATION_PARAM "-jar AES_Flussvisualisierung.jar EN"
+    IDS_ERR_AES_FLOWVISUALIZATION 
+                            "Die AES Flussvisualisierung kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob die Datei AES_Flussvisualisierung.jar im CrypTool-Heimatverzeichnis installiert wurde\n(""%s"")."
 END
 
 #endif    // Englisch (GB) resources

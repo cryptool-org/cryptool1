@@ -204,6 +204,7 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_COMMAND(ID_FLASH_ENIGMADEMO, OnFlashEnigmademo)
 	ON_COMMAND(ID_INTERACTIVE_NUMBER_THEORY, OnInteractiveNumberTheory)
 	ON_COMMAND(ID_PROTOKOL_SMIME, &CCrypToolApp::OnProtokolSMIME)
+	ON_COMMAND(ID_AES_RIJNDAEL_FLOWVISUALISATION, &CCrypToolApp::OnAesRijndaelFlowvisualisation)
 END_MESSAGE_MAP()
 
 
@@ -1584,4 +1585,19 @@ void CCrypToolApp::OnProtokolSMIME()
 		message.Format(IDS_ERROPEN_SMIMEDEMO, Pfad);
 		AfxMessageBox(message, MB_ICONSTOP);
 	}
+}
+
+void CCrypToolApp::OnAesRijndaelFlowvisualisation()
+{
+	CString ParamStr, ExecStr;
+	ParamStr.LoadString(IDS_AES_FLOWVISUALIZATION_PARAM);
+	ExecStr.LoadString (IDS_SMIMEDEMO_EXE);
+
+	HINSTANCE hInst = ShellExecute(NULL,NULL, ExecStr, ParamStr, Pfad, SW_SHOW);
+	if ( reinterpret_cast<int>(hInst) <= 32 ) {
+		// display error message stating where the desired executable is expected
+		CString message;
+		message.Format(IDS_ERROPEN_SMIMEDEMO, Pfad);
+		AfxMessageBox(message, MB_ICONSTOP);
+	}	// TODO: Fügen Sie hier Ihren Befehlsbehandlungscode ein.
 }
