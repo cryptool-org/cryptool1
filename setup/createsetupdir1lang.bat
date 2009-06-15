@@ -37,7 +37,9 @@ xcopy /s/q/i ..\smimedemo\main          setup-%lang%\main
 xcopy /s/q/i ..\smimedemo\texte         setup-%lang%\texte
 xcopy /s/q/i ..\smimedemo\userinterface setup-%lang%\userinterface
 xcopy /s/q/i ..\smimedemo\utils         setup-%lang%\utils
-
+echo Copying ..\AES_flow_visualisation\*.* setup-%lang%
+xcopy /q ..\AES_flow_visualisation\AES_Flussvisualisierung.jar setup-%lang%
+xcopy /s/q/i ..\AES_flow_visualisation\bin setup-%lang%\bin
 
 cd setup-%lang%
 
