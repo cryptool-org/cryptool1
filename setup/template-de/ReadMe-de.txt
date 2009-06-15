@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.30 Beta 03 für Win32, März 2009  xx-xxxx
+    CrypTool, Version 1.4.30 Beta 04 für Win32, Juni 2009  xx-xxxx
     (c) Contributors
         Dazu gehören z.B.
         Deutsche Bank AG, Frankfurt am Main,
@@ -247,8 +247,14 @@ c) Das Animationsprogramm ANIMAL (siehe http://www.algoanim.info/Animal2):
    http://www.algoanim.info/Animal2/?q=node/284
    Hierzu wird die JRE 1.5 benötigt (siehe Kapitel 3.2).
 
-d) Ebenso wie ANIMAL ist die ECC-Demo v 1.1 eine eigenständige Java-Anwendung
-   (JAR-Datei). Hierzu wird auch die JRE 1.5 benötigt (siehe Kapitel 3.2).
+d) Ebenso wie ANIMAL sind die ff. Programme eigenständige Java-Anwendungen
+   (JAR-Dateien):
+   - ECC-Demo v 1.1
+     Hierzu wird auch die JRE 1.5 benötigt (siehe Kapitel 3.2).
+   - AES-Flussvisualisierung
+   - Das Control-Center zur Steuerung der S/MIME-Demo (diese erstellt anhand
+     der Parameter eine XML-Datei, die zur Steuerung der aufgerufenen
+     Flash-Animation dient).
 
 e) Die Flash-Anwendungen:
    - "Rijndael-Animation" (visualisiert das Verschlüsselungsverfahren AES),
@@ -378,9 +384,9 @@ mit ihrem Code Anregungen gaben oder deren Code wir nutzen dürfen, z.B.
 
 Bedanken möchte ich mich auch bei
 - Herrn Bartosz Sawicki von der Universität Warschau, der mit seinem
-  Team die polnische Version erstellte.
+  Team die erste polnische Version erstellte.
 - Herrn Dr. Gonzalo Alvarez von der Universität Madrid, der mit seinen
-  Kollegen die spanische Version erstellte und erweiterte.
+  Kollegen die spanischen Versionen erstellte und erweiterte.
 
 
 1.4. Maintainer, Hosting, Webseite und Welcome
@@ -482,9 +488,11 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
   - Animationen 
      - mit ANIMAL: für die Verschlüsselungsverfahren Caesar, Vigenère,
                    Nihilist und DES,
-     - mit Flash:  für AES und Enigma,
+     - mit Flash:  für AES, Enigma und S/MIME,
      - mit Java/SWT: Punkteaddition auf Elliptischen Kurven (sowohl auf
-                     diskreten wie auf reellen Kurven).
+                     diskreten wie auf reellen Kurven),
+                     Flussvisualisierung von AES,
+                     Control-Center von S/MIME.
 
 - Demo zu Authentisierungsmöglichkeiten im Netz (Visualisierung von
   Challenge-Response-Verfahren):
@@ -609,7 +617,7 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
       --username anonymous --password anonymous
 
 - Einen Eindruck von der Größe des Projekts liefert die folgende, im Februar
-  2009 erstellte Statistik (anhand der wichtigsten Dateien für die
+  xxxx 2009 erstellte Statistik (anhand der wichtigsten Dateien für die
   deutsche und englische Version):
 
     FILE SUMMARY xxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -781,9 +789,12 @@ CrypTool 1.4.30 seit CrypTool 1.4.21 hinzugefügt wurden.
 a) Entwickler-relevante Änderungen (eher programm-technisch):
 
 - Aufräumen des Source-Code, höhere Wiederverwendung,
-  Beseitigeen vieler Warnungen.
+  Beseitigen vieler Warnungen.
 
-- Update auf cv act library v. 1.3.0 für Vista.
+- Nun mit VS2008 compiliert.
+
+- Update auf Scintilla 1.7.7, auf cv act library v. 1.3.0 für Vista, und
+  auf OpenSSL 0.9.8k.  xxxxxxxxxx
 
 
 b) Änderungen in der Benutzer-Dokumentation / Web-Darstellung:
@@ -793,6 +804,11 @@ b) Änderungen in der Benutzer-Dokumentation / Web-Darstellung:
 
 - Von der CT-Webseite wird auf die Websites der Nachfolger-Versionen JCT1
   und CT2 verwiesen, die jeweils die aktuelle Beta zum Download anbieten.
+
+- Die zusätzliche Webseite CrypTool-Online ging live (www.cryptool-online.org).
+
+- Quellcode und die Applikation CrypTool 1.x stehen nun unter der Lizenz
+  Apache 2.0 (siehe http://www.apache.org/licenses/LICENSE-2.0).
 
 
 c) Neue Funktionalität / Bedienung:
@@ -831,18 +847,34 @@ c) Neue Funktionalität / Bedienung:
    - Absturz gefixt, der auftrat, wenn man in den Textoptionen als Alphabet die
      Großbuchstaben plus die kleinen Umlaute definierte und dann die
      Caesar-Verschlüsselung aufrief.
+   - Nun kann man in Feldern für Hexeingaben auch Hexfolgen aus dem Clipboard
+     korrekt eingeben (Einfügen nur an den markierten Stellen).
+   - Der in der Textanzeige eingestellte Font wird beibehalten, auch wenn man
+     zwischendurch in die Hex-Ansicht wechselt.
+   - Konflikte mit den Zertifikats-Seriennummer: Bisher wurden die Seriennummern
+     fortlaufend vergeben und beim Importieren eines Zertifikats in den
+     Schlüsselspeicher wurde nicht geprüft, ob diese Nummer schon vergeben ist.
+     Dies konnte dazu führen, dass beim Validieren das falsche Zertifikat benutzt
+     wurde.
+     Beides ist behoben: Die Nummern werden zufällig erzeugt und beim Import
+     weiterer Zertifikate werden die mit Nummern, die schon erzeugt wurden,
+     abgelehnt.
 
 - Bei allen DES-basierten Verfahren wird nun sowohl die effektiv genutzte als
   auch die einzugebende Schlüssellänge angezeigt.
 
 - Viele kleine Verbesserungen in den Masken, z.B. Elapsed-Time-Anzeige beim
-  AKS-Test; der Text in der Aboutbox kann markiert und kopiert werden.
+  AKS-Test; der Text in der Aboutbox kann markiert und kopiert werden; sofortige
+  Anzeige der Zeit und der Anzahl der bisherigen Faktoren bei der Faktorisierung.
+
+- Auch externe PDFs können nun direkt aus der Onlinehilfe aufgerufen werden.
 
 - Alle acht verfügbaren Hashverfahren werden nun angeboten in den Masken für:
   - Schlüssel aus Passwort generieren (nach PKSC #5),
   - Generieren eines Hashed Message Authentication Code (HMAC),
   - Generieren des Hashwertes einer Datei.
-  Die Hash-Demo wird folgen. xxxxxxx->M
+  Die Hash-Demo wird folgen (hier stehen bisher 6 Hashverfahren zur Auswahl).
+  xxxxxxx->M
 
 - Im HMAC-Dialog sind die Bezeichnungen der Literatur angepasst und in der 
   Onlinehilfe sind nun die entsprechenden Quellen angegeben.
@@ -867,7 +899,7 @@ c) Neue Funktionalität / Bedienung:
   Standard vorsieht.
 
 - Die klassischen Transpositions-Chiffren Skytale und Gartenzaun hinzugefügt
-  (angeboten innerhalb eines Dialogs).
+  (angeboten innerhalb eines Dialogs) incl. Schlüssel anzeigen/einfügen per Ikone.
 
 - Die Permutationsverschlüsselung kann nun auch auf Hexdateien angewandt
   werden.
@@ -884,15 +916,25 @@ c) Neue Funktionalität / Bedienung:
   Nun kann man damit auch alle Primzahlen innerhalb eines vorgegebenen
   Bereiches ausgeben (Primzahlmenge generieren).
 
+- Die Checkbox "Sonderzeichen" in der Dialogbox "Textoptionen" bietet nun
+  standardmäßig mehr Sonderzeichen an.
+
 - Alle spezifischen Optionen befinden sich nun in den Dialogen der zugehörigen
-  Methoden. Somit konnte man den Menüeintrag "Weitere Optionen" entfernen.
+  Methoden. Somit konnten wir den Menüeintrag "Weitere Optionen" entfernen.
 
 - Für die einfache Spaltentransposition ist eine Known-Plaintext-Analyse
   zum Finden des Transpositionsschlüssels neu hinzugekommen.
   Diese Known-Plaintext-Analyse ist deutlich besser integriert als die
-  bisherige Known-Plaintext-Analyse für Hill. xxx
+  bisherige Known-Plaintext-Analyse für Hill. xxxxx-Ko
 
-- In der 1.4.30-Releaseversion kommt die S/MIME-Demo hinzu. xxxxxxxxxxxxxxx
+- Eine Visualisierung der Abläufe bei sicherer E-Mail kam hinzu: Der Benutzer
+  kann Daten eingeben, die signiert oder verschlüsselt werden mit Hilfe des
+  S/MIME-Protokolls.
+
+- Eine weitere Visualisierung des AES-Algorithmus kam hinzu: Flussvisualisierung
+  zur Veranschaulichung der Veränderung der Bits nach jeder Runde.
+
+- Vigenère-Analyse nach Schrödel ? xxxxxxxx
 xxxxxxxxxxxxxxxxxxxxx
 
 
@@ -1681,7 +1723,7 @@ Version   Datum         Größe des Windows-Setups  Plattenplatz  Freigabe
 1.4.10    Juli 2007      27,5 MB     26,7 MB         47 MB        DB
 1.4.20    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
-1.4.30    Apr. 2009      36,7 MB     35,6 MB         73 MB        DB   xxxxxxxx
+1.4.30    Juli 2009      xx,7 MB     xx,6 MB         xx MB        DB   xxxxxxxx
 
 Bemerkungen zu den Versionen:
 1.3.02   Viele neue Funktionen gegenüber 1.3.00.
@@ -1703,6 +1745,7 @@ Bemerkungen zu den Versionen:
          neuen aktuellen OpenSSL-Bibliothek benutzt wird und nicht auf
          frischen Windows-Umgebungen (ohne Office) enthalten ist.
 1.4.30-Beta03  März 2009  Erste öffentliche Beta von Version 1.4.30.
+1.4.30-Beta04  Juni 2009  Zweite öffentliche Beta von Version 1.4.30.
 1.4.30   Viele Bugfixes, leicht erweiterter Funktionsumfang i.Vgl. zu 1.4.2x.
 
 
@@ -1823,6 +1866,8 @@ Datensicherheit", Ausgabe 03/2009 erschien unter dem Titel
 "CrypTool - Ein Open-Source-Projekt in der Praxis. Erfahrungsbericht
 eines erfolgreichen Open-Source-Projektes" ein 6-seitiger Artikel über
 CrypTool.
+Abrufbar im Internet unter:
+  http://www.cryptool.org/images/Artikel_in_DuD_%20Maerz2009_Final.pdf
 
 
 
@@ -2240,8 +2285,11 @@ A.2.1.1. Funktionalität: Algorithmen / Verfahren
          integrieren. Siehe http://www.ecrypt.eu.org/.
     * Hashverfahren:
        - Tiger (http://www.cs.technion.ac.il/~biham/Reports/Tiger/)
+       - Alle SHA-3-Kandidaten
+         (http://csrc.nist.gov/groups/ST/hash/sha-3/index.html)
     * Protokolle / Protokollschwächen:
        - Visualisierung von Man-in-the-Middle-Angriffen
+       - Visualisierung von SSL
        - Blind Signatures
        - Elektronische Wahlen
        - Tripartite Schlüsselvereinbarung (geplant für Java-CrypTool)
@@ -2253,7 +2301,7 @@ A.2.1.1. Funktionalität: Algorithmen / Verfahren
 
 - GNFS zur Faktorisierung (Ted)
 
-- Erzeugung des generators bei DH korrigieren (Gonzalo)
+- Erzeugung des Generators bei DH korrigieren (Gonzalo)(Ko)
 
 - Erzeugung aller Hashwerte aus regulärem PW-Ausdruck (Hartmann)
 
@@ -2289,7 +2337,7 @@ A.2.1.1. Funktionalität: Algorithmen / Verfahren
   - Nutzung der schon eingebauten 3-D-Darstellung von Zufallsdaten,
     um dem Nutzer m.H. der beim Drehen sichtbaren Hyperebenen die
     Schwächen von Zufallsgeneratoren (z.B. bei LCG) zu verdeutlichen.
-  - Weitere Zufallstests (stammen aus der Spanischen Version)
+  - Weitere Zufallstests (aus der Spanischen Version?)
 
 - Weitere Standards implementieren und direkt über die Menüs bzw.
   aus der Online-Hilfe heraus an alle Stellen verzweigen, wo diese
@@ -2590,6 +2638,7 @@ b) Java-CrypTool (JCrypTool, JCT):
      neuen Architektur-Konzepte umsetzbar sind.
      Milestone 2 (August 2008), 3 (Dezember 2008), 4 und 4a (Februar 2009)
      können auch schon von Endbenutzern sinnvoll verwendet werden.
+   - Meilenstein 5 ist geplant für August 2009.
    - Weitere Entwickler, Architekten und Designer sind in diesem Projekt
      herzlich willkommen.
    - Für Einsteiger und zusätzlich mit Expertenmodus.
@@ -2610,7 +2659,7 @@ c) CrypTool 2.0 (CT 2)
    - Die Alphaversion, veröffentlicht im April 2008, war für Entwickler.
      Beta-Versionen (für Entwickler und Nutzer) werden seit Juli 2008
      regelmäßig veröffentlicht.
-     Mit der Releaseversion von CT2 wird die Entwicklung von CrypTool 1.x
+     Mit der Releaseversion von CT2 wird die Weiter-Entwicklung von CrypTool 1.x
      eingestellt.
    - Weitere Entwickler und graphisch anspruchsvolle Designer sind
      in diesem neuen Projekt sehr herzlich willkommen.
@@ -2644,7 +2693,7 @@ Die neuen Versionen (siehe Kapitel A.2.2.1) sind:
 
 
 Funktionen, die schon in den jetzigen Betaversionen
-            (CT2 Beta01-2.0.3349 and JCT1 Milestone 4a)
+            (CT2 Beta-2.0.3377 and JCT1 Milestone 4a)
             implementiert und integriert sind:
 - CT2  Visuelle Programmierung (Komposition von Protokollen und Workflows)
 - CT2  Primzahlen-Visualisierungen
@@ -2662,21 +2711,24 @@ Funktionen, die schon in den jetzigen Betaversionen
 
 
 Funktionen, die für die Release-Versionen der Nachfolger-Projekte geplant sind:
-- CT2  Virtuelle Kreditkartennummer (VCC) und Prüfziffern
+- CT2  Virtuelle Kreditkartennummern (VCC) und Prüfziffern
 - CT2  Bleichenbacher Angriff
 - CT2  NIST Zufalls-Testsuite
 - CT2  GNFS
 - CT2  Alphabete auch für die klassischen Verfahren ausdehnen auf 256 Zeichen
-- CT2  Cube attack gegen symmetrische Chiffren
+- CT2  Massenmustersuche
+- CT2  SOA-Security (SOAP-Nachrichten nach WS-Security zwischen den Beteiligten)
+- CT2  Framework zum Bau und zur Analyse von LFSR-Stromchiffren
 
 - JCT  Multi-partite Schlüsselvereinbarung
-- JCT  Visualisierung von S/MIME-Mails (Verschlüsselung + Signatur)
 - JCT  PGP-S/MIME Interoperabilität
 - JCT  Entropie-Untersuchungen
-- JCT  Weitere Stromchiffren
+- JCT  Analyse von Transpositionschiffren mit dem ACO-Algorithmus
+- JCT  Visualisierung von Zero-Knowledge-Beweisen
 - JCT  Commandline-Funktionalität
 - JCT  Mächtige Action-History und Kaskadierungs-Unterstützung
 - JCT  Demonstrator für XML-Signaturen
+- JCT  Cube attack gegen symmetrische Chiffren
 
 Vergleiche auch die Roadmap auf der Webseite https://www.cryptool.org/content/view/21/46/lang,german.
 Weitere Details:
