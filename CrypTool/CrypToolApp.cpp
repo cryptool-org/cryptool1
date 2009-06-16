@@ -1497,19 +1497,13 @@ void CCrypToolApp::OnAesSelfextract()
 
 void CCrypToolApp::OnIndivPointadditiononellipticcurves()
 {
-	CString ECCPath, ECCFile, ECCExecutable;
-	HINSTANCE hInst;
+	CString javaProgram;
+	CString javaProgramCompleteCall;
 
+	javaProgram.LoadStringA(IDS_ECCDemo_EXECUTABLE);
+	javaProgramCompleteCall.LoadStringA(IDS_ECCDemo_FILE);
 
-	LoadString(AfxGetInstanceHandle(),IDS_ECCDemo_EXECUTABLE,pc_str,STR_LAENGE_STRING_TABLE);
-	ECCExecutable = pc_str; //IDS_ECCDemo_EXECUTABLE     java.exe
-
-	LoadString(AfxGetInstanceHandle(),IDS_ECCDemo_FILE,pc_str,STR_LAENGE_STRING_TABLE);
-	ECCFile = pc_str; // ECCDemo.jar
-
-	hInst=ShellExecute(NULL,NULL, ECCExecutable, ECCFile, Pfad, SW_HIDE);
-
-	if ( reinterpret_cast<int>(hInst) <= 32 ) Message(IDS_ERROPEN_ECCDemo, MB_ICONSTOP);
+	ShellExecuteJava(javaProgram, javaProgramCompleteCall);
 }
 
 void CCrypToolApp::OnFlashAesdemo()
@@ -1574,6 +1568,18 @@ void CCrypToolApp::OnFlashEnigmademo()
 
 void CCrypToolApp::OnProtokolSMIME()
 {
+	/*
+	flomar, 06/16/2009: TODO/FIXME
+
+	CString javaProgram;
+	CString javaProgramCompleteCall;
+
+	javaProgram.LoadStringA(IDS_STRING_SMIME_DEMO_PROGRAM);
+	javaProgramCompleteCall.LoadStringA(IDS_STRING_SMIME_DEMO_PROGRAM_COMPLETE_CALL);
+
+	ShellExecuteJava(javaProgram, javaProgramCompleteCall);
+	*/
+	
 	CString smimeParamStr, smimeDemoExecStr;
 	smimeParamStr.LoadString(IDS_SMIMEDEMO_PARAM);
 	smimeDemoExecStr.LoadString (IDS_SMIMEDEMO_EXE);
@@ -1589,15 +1595,11 @@ void CCrypToolApp::OnProtokolSMIME()
 
 void CCrypToolApp::OnAesRijndaelFlowvisualisation()
 {
-	CString ParamStr, ExecStr;
-	ParamStr.LoadString(IDS_AES_FLOWVISUALIZATION_PARAM);
-	ExecStr.LoadString (IDS_SMIMEDEMO_EXE);
+	CString javaProgram;
+	CString javaProgramCompleteCall;
 
-	HINSTANCE hInst = ShellExecute(NULL,NULL, ExecStr, ParamStr, Pfad, SW_SHOW);
-	if ( reinterpret_cast<int>(hInst) <= 32 ) {
-		// display error message stating where the desired executable is expected
-		CString message;
-		message.Format(IDS_ERROPEN_SMIMEDEMO, Pfad);
-		AfxMessageBox(message, MB_ICONSTOP);
-	}	// TODO: Fügen Sie hier Ihren Befehlsbehandlungscode ein.
+	javaProgram.LoadStringA(IDS_AES_FLOWVISUALIZATION_JAVA_FILE);
+	javaProgramCompleteCall.LoadStringA(IDS_AES_FLOWVISUALIZATION_PARAM);
+
+	ShellExecuteJava(javaProgram, javaProgramCompleteCall);
 }

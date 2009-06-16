@@ -50,6 +50,9 @@ BOOL CT_WRITE_REGISTRY			(const char *value,			const char *ID);
 // see implementation
 CString extractValueFromStringByKey(CString _key, CString _string);
 
+// see implementation
+void ShellExecuteJava(CString _javaProgram, CString _javaProgramCompleteCall);
+
 #endif
 
 

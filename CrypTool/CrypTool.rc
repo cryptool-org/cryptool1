@@ -4599,7 +4599,7 @@ BEGIN
         BEGIN
             MENUITEM "Demonstracja Diffie-Hellmana", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "Uwierzytelnianie w sieci",    ID_CHALLENGE_RESPONSE
-            MENUITEM "&Secure E-Mail with S/MIME",  ID_PROTOKOL_SMIME
+            MENUITEM "&Secure E-Mail with S/MIME...", ID_PROTOKOL_SMIME
         END
         POPUP "Zastosowania ChTR"
         BEGIN
@@ -4944,7 +4944,7 @@ BEGIN
         BEGIN
             MENUITEM "Demonstracja Diffie-Hellmana", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "Uwierzytelnianie w sieci",    ID_CHALLENGE_RESPONSE
-            MENUITEM "&Secure E-Mail with S/MIME",  ID_PROTOKOL_SMIME
+            MENUITEM "&Secure E-Mail with S/MIME...", ID_PROTOKOL_SMIME
         END
         POPUP "Zastosowania ChTR"
         BEGIN
@@ -5289,7 +5289,7 @@ BEGIN
         BEGIN
             MENUITEM "Demonstracja Diffie-Hellmana", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "Uwierzytelnianie w sieci",    ID_CHALLENGE_RESPONSE
-            MENUITEM "&Secure E-Mail with S/MIME",  ID_PROTOKOL_SMIME
+            MENUITEM "&Secure E-Mail with S/MIME...", ID_PROTOKOL_SMIME
         END
         POPUP "Zastosowania ChTR"
         BEGIN
@@ -5634,7 +5634,7 @@ BEGIN
         BEGIN
             MENUITEM "Demonstracja Diffie-Hellmana", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "Uwierzytelnianie w sieci",    ID_CHALLENGE_RESPONSE
-            MENUITEM "&Secure E-Mail with S/MIME",  ID_PROTOKOL_SMIME
+            MENUITEM "&Secure E-Mail with S/MIME...", ID_PROTOKOL_SMIME
         END
         POPUP "Zastosowania ChTR"
         BEGIN
@@ -6006,7 +6006,7 @@ BEGIN
         BEGIN
             MENUITEM "Demonstracja Diffie-Hellmana", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "Uwierzytelnianie w sieci",    ID_CHALLENGE_RESPONSE
-            MENUITEM "&Secure E-Mail with S/MIME",  ID_PROTOKOL_SMIME
+            MENUITEM "&Secure E-Mail with S/MIME...", ID_PROTOKOL_SMIME
         END
         POPUP "Zastosowania ChTR"
         BEGIN
@@ -15331,7 +15331,7 @@ BEGIN
         BEGIN
             MENUITEM "&Diffie-Hellman-Demo...",     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "&Authentisierungsverfahren im Netz...", ID_CHALLENGE_RESPONSE
-            MENUITEM "&Sichere E-Mail mit S/MIME",  ID_PROTOKOL_SMIME
+            MENUITEM "&Sichere E-Mail mit S/MIME...", ID_PROTOKOL_SMIME
         END
         POPUP "Anwendungen des &Chinesischen Restsatzes"
         BEGIN
@@ -15677,7 +15677,7 @@ BEGIN
         BEGIN
             MENUITEM "&Diffie-Hellman-Demo...",     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "&Authentisierungsverfahren im Netz...", ID_CHALLENGE_RESPONSE
-            MENUITEM "&Sichere E-Mail mit S/MIME",  ID_PROTOKOL_SMIME
+            MENUITEM "&Sichere E-Mail mit S/MIME...", ID_PROTOKOL_SMIME
         END
         POPUP "Anwendungen des &Chinesischen Restsatzes"
         BEGIN
@@ -16369,7 +16369,7 @@ BEGIN
         BEGIN
             MENUITEM "&Diffie-Hellman-Demo...",     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "&Authentisierungsverfahren im Netz...", ID_CHALLENGE_RESPONSE
-            MENUITEM "&Sichere E-Mail mit S/MIME",  ID_PROTOKOL_SMIME
+            MENUITEM "&Sichere E-Mail mit S/MIME...", ID_PROTOKOL_SMIME
         END
         POPUP "Anwendungen des &Chinesischen Restsatzes"
         BEGIN
@@ -16742,7 +16742,7 @@ BEGIN
         BEGIN
             MENUITEM "&Diffie-Hellman-Demo...",     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "&Authentisierungsverfahren im Netz...", ID_CHALLENGE_RESPONSE
-            MENUITEM "&Sichere E-Mail mit S/MIME",  ID_PROTOKOL_SMIME
+            MENUITEM "&Sichere E-Mail mit S/MIME...", ID_PROTOKOL_SMIME
         END
         POPUP "Anwendungen des &Chinesischen Restsatzes"
         BEGIN
@@ -21118,7 +21118,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_ECCDemo_PATH        ".\\ECCDemo\\"
-    IDS_ECCDemo_EXECUTABLE  "java.exe"
+    IDS_ECCDemo_EXECUTABLE  "eccdemo.jar"
     IDS_ECCDemo_FILE        " -jar eccdemo.jar"
 END
 
@@ -21303,6 +21303,12 @@ BEGIN
                             "Das Zertfikat kann nicht importiert werden, da bereits eines mit der gleichen Seriennummber vorhanden ist."
     IDS_STRING_ADFGVX_PASSWORD_EMPTY_REPEAT_INPUT_PROCESS 
                             "Das Passwort enthält keine gültigen Zeichen. Bitte wiederholen Sie die Eingabe."
+    IDS_STRING_JAVA_JRE_NOT_INSTALLED 
+                            "Es wurde keine Java-Installation gefunden. Bitte installieren Sie eine aktuelle Java-Laufzeitumgebung (JRE)."
+    IDS_STRING_JAVA_PROGRAM_NOT_FOUND 
+                            "Das Java-Programm wurde nicht gefunden! (Kompletter Pfad: ""%s"")"
+    IDS_STRING_JAVA_PROGRAM_EXECUTION_FAILED 
+                            "Das Java-Programm konnte nicht ausgeführt werden. Bitte kontaktieren Sie das Entwickler-Team."
 END
 
 STRINGTABLE 
@@ -21317,6 +21323,11 @@ STRINGTABLE
 BEGIN
     ID_AES_RIJNDAEL_FLOWVISUALISATION 
                             "Zeigt den Rijndael-Algorithmus in einer Flussvisualisierung"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_AES_FLOWVISUALIZATION_JAVA_FILE "AES_Flussvisualisierung.jar"
 END
 
 #endif    // German (Germany) resources
@@ -25930,7 +25941,7 @@ BEGIN
         BEGIN
             MENUITEM "&Diffie-Hellman Demonstration...", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "Network &Authentication...",  ID_CHALLENGE_RESPONSE
-            MENUITEM "&Secure E-Mail with S/MIME",  ID_PROTOKOL_SMIME
+            MENUITEM "&Secure E-Mail with S/MIME...", ID_PROTOKOL_SMIME
         END
         POPUP "Chinese Remainder &Theorem Applications"
         BEGIN
@@ -26276,7 +26287,7 @@ BEGIN
         BEGIN
             MENUITEM "&Diffie-Hellman Demonstration...", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "Network &Authentication...",  ID_CHALLENGE_RESPONSE
-            MENUITEM "&Secure E-Mail with S/MIME",  ID_PROTOKOL_SMIME
+            MENUITEM "&Secure E-Mail with S/MIME...", ID_PROTOKOL_SMIME
         END
         POPUP "Chinese Remainder &Theorem Applications"
         BEGIN
@@ -26968,7 +26979,7 @@ BEGIN
         BEGIN
             MENUITEM "&Diffie-Hellman Demonstration...", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "Network &Authentication...",  ID_CHALLENGE_RESPONSE
-            MENUITEM "&Secure E-Mail with S/MIME",  ID_PROTOKOL_SMIME
+            MENUITEM "&Secure E-Mail with S/MIME...", ID_PROTOKOL_SMIME
         END
         POPUP "Chinese Remainder &Theorem Applications"
         BEGIN
@@ -27341,7 +27352,7 @@ BEGIN
         BEGIN
             MENUITEM "&Diffie-Hellman Demonstration...", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "Network &Authentication...",  ID_CHALLENGE_RESPONSE
-            MENUITEM "&Secure E-Mail with S/MIME",  ID_PROTOKOL_SMIME
+            MENUITEM "&Secure E-Mail with S/MIME...", ID_PROTOKOL_SMIME
         END
         POPUP "Chinese Remainder &Theorem Applications"
         BEGIN
@@ -31848,7 +31859,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_ECCDemo_PATH        ".\\ECCDemo\\"
-    IDS_ECCDemo_EXECUTABLE  "java.exe"
+    IDS_ECCDemo_EXECUTABLE  "eccdemo.jar"
     IDS_ECCDemo_FILE        " -jar eccdemo.jar"
 END
 
@@ -32042,6 +32053,12 @@ BEGIN
                             "The certificate cannot be imported, because a certificate with the same serial number already exists."
     IDS_STRING_ADFGVX_PASSWORD_EMPTY_REPEAT_INPUT_PROCESS 
                             "The password doesn't contain any valid characters. Please repeat the input process."
+    IDS_STRING_JAVA_JRE_NOT_INSTALLED 
+                            "No Java installation found! Please install a Java runtime environment (JRE)."
+    IDS_STRING_JAVA_PROGRAM_NOT_FOUND 
+                            "The Java program was not found! (Full path: ""%s"")"
+    IDS_STRING_JAVA_PROGRAM_EXECUTION_FAILED 
+                            "The Java program could not be executed. Please contact the development team."
 END
 
 STRINGTABLE 
@@ -32056,6 +32073,11 @@ STRINGTABLE
 BEGIN
     ID_AES_RIJNDAEL_FLOWVISUALISATION 
                             "Shows the Rijndael algorithm in a flow visualization"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_AES_FLOWVISUALIZATION_JAVA_FILE "AES_Flussvisualisierung.jar"
 END
 
 #endif    // English (U.K.) resources
