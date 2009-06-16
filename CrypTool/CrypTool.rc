@@ -8,12 +8,11 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polnisch resources
+// Polish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -10684,12 +10683,12 @@ BEGIN
                             "Die AES Flussvisualisierung kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob die Datei AES_Flussvisualisierung.jar im CrypTool-Heimatverzeichnis installiert wurde\n(""%s"")."
 END
 
-#endif    // Polnisch resources
+#endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -14043,7 +14042,7 @@ BEGIN
     GROUPBOX        "Simultane Kongruenzen/ Modulare lineare Gleichungssysteme",IDC_STATIC,7,46,258,167
     LTEXT           "x",IDC_STATIC,16,59,8,8
     GROUPBOX        "",IDC_STATIC,7,3,491,39
-    LTEXT           "Mit dem Chinesischen Restsatz (CRT) kann man lineare modulare Gleichungssysteme lösen. Unten können Sie 9 Gleichungen der Form x = a[i] mod m[i] (i=1, ..., 9) eingeben und anschließend lösen. Solche Gleichungssysteme kann man z.B. nutzen, um herauszufinden",IDC_STATIC,13,12,477,24
+    LTEXT           "Mit dem Chinesischen Restsatz (CRT) kann man lineare modulare Gleichungssysteme lösen. Unten können Sie 9 Gleichungen der Form x = a[i] mod m[i] (i=1, ..., 9) eingeben und anschließend lösen.",IDC_STATIC,13,12,477,16
     LTEXT           "x",IDC_STATIC,16,77,8,8
     LTEXT           "x",IDC_STATIC,16,92,8,8
     LTEXT           "x",IDC_STATIC,16,111,8,8
@@ -14063,6 +14062,8 @@ BEGIN
     CONTROL         830,IDC_STATIC,"Static",SS_BITMAP,25,181,5,4
     CONTROL         830,IDC_STATIC,"Static",SS_BITMAP,25,196,5,4
     CONTROL         "",IDC_GIF_CRT_ASTRONOMY,"Static",SS_BLACKRECT,288,60,20,20
+    LTEXT           "Solche Gleichungssysteme kann man z.B. nutzen, um herauszufinden, in wie viel Tagen bestimmte",IDC_STATIC,175,20,313,8
+    LTEXT           "Planeten aufgereiht wie auf einer Perlenschnur hintereinander in einer Linie (Strahl) stehen.",IDC_STATIC,13,28,294,8
 END
 
 IDD_CRT_SECRETSHARING DIALOGEX 0, 0, 386, 423
@@ -16022,7 +16023,7 @@ BEGIN
         BEGIN
             MENUITEM "&Diffie-Hellman-Demo...",     ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "&Authentisierungsverfahren im Netz...", ID_CHALLENGE_RESPONSE
-            MENUITEM "&Sichere E-Mail mit S/MIME",  ID_PROTOKOL_SMIME
+            MENUITEM "&Sichere E-Mail mit S/MIME...", ID_PROTOKOL_SMIME
         END
         POPUP "Anwendungen des &Chinesischen Restsatzes"
         BEGIN
@@ -21312,12 +21313,18 @@ BEGIN
                             "Die AES Flussvisualisierung kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob die Datei AES_Flussvisualisierung.jar im CrypTool-Heimatverzeichnis installiert wurde\n(""%s"")."
 END
 
-#endif    // Deutsch (Deutschland) resources
+STRINGTABLE 
+BEGIN
+    ID_AES_RIJNDAEL_FLOWVISUALISATION 
+                            "Zeigt den Rijndael-Algorithmus in einer Flussvisualisierung"
+END
+
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -24632,7 +24639,7 @@ BEGIN
     GROUPBOX        "Simultaneous congruences/ modular linear equation systems",IDC_STATIC,7,46,258,167
     LTEXT           "x",IDC_STATIC,16,59,8,8
     GROUPBOX        "",IDC_STATIC,7,3,491,39
-    LTEXT           "By using the Chinese Remainder Theorem (CRT) you are able to solve linear modular equation systems. You can enter up to 9 equations x = a[i] mod m[i] (i=1, ..., 9) below and compute a solution. One can use such equation systems to determine the number of di????ctls_updown3c:\\Users??",IDC_STATIC,13,12,477,24
+    LTEXT           "By using the Chinese Remainder Theorem (CRT) you are able to solve linear modular equation systems. You can enter up to 9 equations x = a[i] mod m[i] (i=1, ..., 9) below and compute a solution.",IDC_STATIC,13,12,477,16
     LTEXT           "x",IDC_STATIC,16,77,8,8
     LTEXT           "x",IDC_STATIC,16,92,8,8
     LTEXT           "x",IDC_STATIC,16,111,8,8
@@ -24652,6 +24659,8 @@ BEGIN
     CONTROL         830,IDC_STATIC,"Static",SS_BITMAP,25,181,5,4
     CONTROL         830,IDC_STATIC,"Static",SS_BITMAP,25,196,5,4
     CONTROL         "",IDC_GIF_CRT_ASTRONOMY,"Static",SS_BLACKRECT,288,60,20,20
+    LTEXT           "aligned.",IDC_STATIC,13,28,26,8
+    LTEXT           "One can use such equation systems to determine the number of days until certain planets become",IDC_STATIC,166,20,314,8
 END
 
 IDD_CRT_SECRETSHARING DIALOGEX 0, 0, 386, 423
@@ -26613,7 +26622,7 @@ BEGIN
         BEGIN
             MENUITEM "&Diffie-Hellman Demonstration...", ID_EINZELVERFAHREN_DIFFIEHELLMANDEMO
             MENUITEM "Network &Authentication...",  ID_CHALLENGE_RESPONSE
-            MENUITEM "&Secure E-Mail with S/MIME",  ID_PROTOKOL_SMIME
+            MENUITEM "&Secure E-Mail with S/MIME...", ID_PROTOKOL_SMIME
         END
         POPUP "Chinese Remainder &Theorem Applications"
         BEGIN
@@ -32043,7 +32052,13 @@ BEGIN
                             "Die AES Flussvisualisierung kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob die Datei AES_Flussvisualisierung.jar im CrypTool-Heimatverzeichnis installiert wurde\n(""%s"")."
 END
 
-#endif    // Englisch (GB) resources
+STRINGTABLE 
+BEGIN
+    ID_AES_RIJNDAEL_FLOWVISUALISATION 
+                            "Shows the Rijndael algorithm in a flow visualization"
+END
+
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
