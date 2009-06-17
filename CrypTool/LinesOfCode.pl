@@ -8,7 +8,9 @@ use File::Find;
 # Directories to be included in source code search: (below "trunk")
 my @subdirectories = (
     "aes",
+    "AES_flow_visualisation",
     "aestool",
+    "ChallengeResponse",
     "CrypTool",
     "dialoguesisters",
     "eccdemo",
@@ -16,7 +18,9 @@ my @subdirectories = (
     "libec",
     "libVolRen",
     "NumberShark",
-    "RijndaelAnimation"
+    "Rijndael-Animation",
+    "smimedemo",
+    "script",
 );
 
 # this is the root directory from where the search is started (deprecated)
