@@ -223,15 +223,15 @@ BEGIN
     GROUPBOX        "Cezar",IDC_STATIC,20,35,118,105
     GROUPBOX        "Vigenere, XOR, Dodawanie",IDC_STATIC,150,35,136,105
     GROUPBOX        "Opcje wyjœciowe dla analizy automatycznej",IDC_STATIC,13,16,280,132
-    GROUPBOX        "Opcje dla ataku brute-force",IDC_STATIC,13,155,280,114
-    LTEXT           "Liczba bajtów dla testu entropii:",IDC_STATIC,28,186,118,8
-    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,150,183,30,14,ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "Opcje dla ataku brute-force",IDC_STATIC,13,160,280,109
+    LTEXT           "Liczba bajtów dla testu entropii:",IDC_STATIC,28,191,118,8
+    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,150,188,30,14,ES_AUTOHSCROLL | ES_NUMBER
     LTEXT           "Opcje alfabetu:",IDC_STATIC,29,212,118,8
     CONTROL         "Wszystkie 256 znaków",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,224,245,10
     CONTROL         "Znaki drukowalne (ASCII 32 - 256)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,29,235,245,10
-    CONTROL         "Znaki zdefiniowane w menu: Opcje -> Opcje Tekstu",IDC_RADIO3,
+    CONTROL         "Znaki zdefiniowane w menu: Opcje \\ Opcje Tekstu",IDC_RADIO3,
                     "Button",BS_AUTORADIOBUTTON,29,245,245,11
-    LTEXT           "Zobacz menu: Kryptoanaliza / Algorytmy Symetryczne",IDC_STATIC,19,165,258,8
+    LTEXT           "Zobacz menu: Kryptoanaliza \\ Algorytmy Symetryczne",IDC_STATIC,19,170,258,8
 END
 
 IDD_HILL_ANALYSIS DIALOGEX 0, 0, 301, 221
@@ -3253,10 +3253,10 @@ BEGIN
     LTEXT           "Wa¿ne has³o transpozycji i odpowiadaj¹ca mu macierz zastêpcza, s¹ przechowywane w drop-down boxie. Has³a zachowywane s¹ automatycznie.",IDC_STATIC,8,130,251,39
 END
 
-IDD_CRT_ASTRONOMY DIALOG  0, 0, 506, 322
+IDD_CRT_ASTRONOMY DIALOGEX 0, 0, 506, 322
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Przyk³ad u¿ycia: Wizualizacja ChTR w Astronomii - ruch planet."
-FONT 8, "MS Shell Dlg"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_CRT_ASTRONOMY_EDITA0,35,56,101,15,ES_NUMBER
     EDITTEXT        IDC_CRT_ASTRONOMY_EDITM0,156,56,101,15,ES_NUMBER
@@ -3312,9 +3312,8 @@ BEGIN
     GROUPBOX        "Jednoczesna zgodnoœæ / modular linear equation systems",IDC_STATIC,7,46,258,167
     LTEXT           "x",IDC_STATIC,16,59,8,8
     GROUPBOX        "",IDC_STATIC,7,3,491,39
-    LTEXT           "U¿ywaj¹c ChTR mo¿esz rozwi¹zaæ uk³ad równañ liniowych modularnych. Mo¿esz wprowadziæ do 9 równañ postaci: x = a[i] mod m[i] (i=1,  9) i obliczyæ rozwi¹zanie.",IDC_STATIC,35,11,432,16
-    LTEXT           "Mo¿na u¿ywaæ takich równañ do obliczenia",IDC_STATIC,262,19,227,9
-    LTEXT           "liczby dni do chwili znalezienia siê wybranych planet na linii prostej.",IDC_STATIC,35,27,386,9
+    LTEXT           "U¿ywaj¹c ChTR mo¿esz rozwi¹zaæ uk³ad równañ liniowych modularnych. Mo¿esz wprowadziæ do 9 równañ postaci: x = a[i] mod m[i] (i=1,  9) i obliczyæ rozwi¹zanie.",IDC_STATIC,35,15,432,16
+    LTEXT           "Mo¿na u¿ywaæ takich równañ do obliczenia liczby dni do chwili znalezienia siê wybranych planet na linii prostej.",IDC_STATIC,135,23,356,9
     LTEXT           "x",IDC_STATIC,16,77,8,8
     LTEXT           "x",IDC_STATIC,16,92,8,8
     LTEXT           "x",IDC_STATIC,16,111,8,8
@@ -10845,16 +10844,16 @@ BEGIN
     CONTROL         "Analysen der Basischiffren ausgeben",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,125,132,10
     GROUPBOX        "Caesar",IDC_STATIC,20,33,120,109
     GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,147,33,140,109
-    GROUPBOX        "Optionen für Brute-Force Angriffe gegen moderne symmetrische Algorithmen",IDC_STATIC,13,155,281,110
-    LTEXT           "Anzahl Bytes für den Entropietest:",IDC_STATIC,29,188,109,8
-    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,139,185,30,14,ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "Optionen für Brute-Force Angriffe gegen moderne symmetrische Algorithmen",IDC_STATIC,13,160,281,105
+    LTEXT           "Anzahl Bytes für den Entropietest:",IDC_STATIC,29,193,109,8
+    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,139,190,30,14,ES_AUTOHSCROLL | ES_NUMBER
     GROUPBOX        "Umfang der Ausgabe bei der automatischen Analyse",IDC_STATIC,13,15,281,132
     LTEXT           "Zeichensatz für den zu erwartenden Klartext",IDC_STATIC,29,210,210,8
     CONTROL         "Alle 256 Zeichen",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,221,245,10
     CONTROL         "Druckbare Zeichen (ASCII 32 - 256)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,29,232,245,10
-    CONTROL         "Zeichensatz, wie in Menü: Optionen -->Textoptionen definiert",IDC_RADIO3,
+    CONTROL         "Zeichensatz, wie in Menü: Optionen \\ Textoptionen definiert",IDC_RADIO3,
                     "Button",BS_AUTORADIOBUTTON,29,242,245,11
-    LTEXT           "Siehe Menü: Analyse / Symmetrische Verschlüsselung (modern)",IDC_STATIC,20,165,258,8
+    LTEXT           "Siehe Menü: Analyse \\ Symmetrische Verschlüsselung (modern)",IDC_STATIC,20,170,258,8
 END
 
 IDD_HILL_ANALYSIS DIALOGEX 0, 0, 301, 221
@@ -21548,16 +21547,16 @@ BEGIN
     GROUPBOX        "Caesar",IDC_STATIC,20,35,118,105
     GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,150,35,136,105
     GROUPBOX        "Output options for automatic analysis",IDC_STATIC,13,16,280,132
-    GROUPBOX        "Options for brute-force attacks against modern symmetric algorithms",IDC_STATIC,13,155,280,114
-    LTEXT           "Number of bytes for the entropy test:",IDC_STATIC,28,186,118,8
-    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,150,183,30,14,ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "Options for brute-force attacks against modern symmetric algorithms",IDC_STATIC,13,160,280,109
+    LTEXT           "Number of bytes for the entropy test:",IDC_STATIC,28,191,118,8
+    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,150,188,30,14,ES_AUTOHSCROLL | ES_NUMBER
     LTEXT           "Alphabet for the expected cleartext:",IDC_STATIC,29,212,118,8
     CONTROL         "All 256 characters",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,224,245,10
     CONTROL         "Printable characters (ascii 32 - 256)",IDC_RADIO2,
                     "Button",BS_AUTORADIOBUTTON,29,235,245,10
-    CONTROL         "Charcters as defined in menu: Options -->Textoptions",IDC_RADIO3,
+    CONTROL         "Charcters as defined in menu: Options \\ Textoptions",IDC_RADIO3,
                     "Button",BS_AUTORADIOBUTTON,29,245,245,11
-    LTEXT           "See Menu: Analysis / Symmetric Encryption (modern)",IDC_STATIC,19,165,258,8
+    LTEXT           "See menu: Analysis \\ Symmetric Encryption (modern)",IDC_STATIC,19,170,258,8
 END
 
 IDD_HILL_ANALYSIS DIALOGEX 0, 0, 301, 221
