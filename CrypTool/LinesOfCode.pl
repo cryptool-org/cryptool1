@@ -4,6 +4,7 @@
 
 use strict;
 use File::Find;
+use Pod::Usage;
 
 # Directories to be included in source code search: (below "trunk")
 my @subdirectories = (
@@ -22,6 +23,16 @@ my @subdirectories = (
     "smimedemo",
     "script",
 );
+
+my $verbose;
+if ($ARGV[0] && $ARGV[0] eq '-h') {
+	pod2usage();
+	exit;
+}
+if ($ARGV[0] && $ARGV[0] eq '-v') {
+	shift;
+	$verbose = 1;
+}
 
 # this is the root directory from where the search is started (deprecated)
 my $directory = $ARGV[0] || "../.";
@@ -103,7 +114,8 @@ sub countLOC() {
 
 # dumps the result to STDOUT
 sub dumpResult() {
-    foreach my $key ( keys %fileLOC ) {
+    foreach my $key ( sort keys %fileLOC ) {
+	print "$fileLOC{$key}\t$key\n" if $verbose;
         foreach my $fileType ( @fileTypesKeys ) {
             my @extensions = split ( " ", $fileTypes{ $fileType } );
             foreach my $extension ( @extensions ) {
@@ -146,10 +158,8 @@ LinesOfCode.pl - Count source lines of code for various file types and source fo
 
 =head1 SYNOPSIS
 
-TODO TODO TODO
+LinesOfCode.pl [-h|-v] ...\trunk
 
-LinesOfCode.pl -e extensions -f folders
+-h	usage help
 
- Options:
-   -e extensions	a string of (file) extensions to search for
-   -f folders		a string of folders to search in
+-v	verbose, i.e. output all files with their 
