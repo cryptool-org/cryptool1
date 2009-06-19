@@ -603,32 +603,38 @@ The general properties and functions of CrypTool are:
        --username anonymous --password anonymous
 
 To get an impression of the size of the project here is a statistics created
-in xxxFeb. 2009 using the most important files for the English and the German
-version).
+in June 2009 using the files for the English, German and Polish version.
 
     FILE SUMMARY xxxxxxxxxxxxxxxxxxxxxxxxxxxx
     ------------
               5 .rc files
              38 .c files
-            308 .cpp files
-            368 .h files
-              8 .java files
-              9 .pl files
-           1609 .html files
-            110 .txt files
-              9 .tex files
+            318 .cpp files
+            376 .h files
+             36 .java files
+             10 .pl files
+           1615 .html files
+             18 .txt files
+             35 .tex files
+
   
     LINES OF CODE (LoC) SUMMARY
     ---------------------------
-         39,311 MFC resource code (rc)
-        239,252 C/C++ source code (h c cpp)
-          3,247 Java source code (java)
-          1,259 Perl files (pl)
-         93,147 HTML code (html hpp)
-          4,396 Text files (txt)
-          1,632 LaTex code (tex)
+         35,110 MFC resource code (rc)
+        232,622 C/C++ source code (c cpp h)
+          9,256 Java source code (java)
+          1,654 Perl code (pl)
+         89,683 HTML code (html hpp)
+          4,118 Text files (txt)
+         26,738 LaTeX code (tex)
+        399,181 TOTAL
 
-    TOTAL: 382,244 lines of code (plus of 19.5 % from 319,771 with v1.4.10)
+    TOTAL: 399,181 lines of code (plus of 4.4 % from 382,244 with v1.4.21)
+    - Here only code written within the CrypTool project or explicitely
+      dedicated to the CrypTool project is counted. Any sources used
+      within the CrypTool project coming from other open source projects
+      like OpenSSL, NTL, Scintilla, ... are not listed here.
+      Also any automatically created files are not counted.
 
    Snapshot about the number of files and the number of lines of code
 
@@ -1668,7 +1674,7 @@ Version   Date		Size of Windows Setup  Needed Size  Released
 1.4.10    July 2007	26.7 MB	     27.5 MB	47 MB        DB
 1.4.20    July 2008	36.1 MB	     37.1 MB	73 MB        DB
 1.4.21    July 2008	36.1 MB	     37.1 MB	73 MB        DB
-1.4.30    July 2009	xx.6 MB	     xx.7 MB	xx MB        DB   xxxxxx
+1.4.30    July 2009	41.6 MB	     42,5 MB	77 MB        DB   xxxxxx
 
 Remarks about the versions:
 1.3.02   Many new functions compared to 1.3.00.
@@ -1690,7 +1696,7 @@ Remarks about the versions:
          OpenSSL library, but not available by default on blank Windows systems.
 1.4.30-Beta03  Mar. 2009  First public beta of version 1.4.30.
 1.4.30-Beta04  June 2009  Second public beta of version 1.4.30.
-1.4.30   Many bug fixes, slightly enhanced functionality compared to 1.4.2x.
+1.4.30   Many bug fixes, enhanced functionality compared to 1.4.21.
 
 
 

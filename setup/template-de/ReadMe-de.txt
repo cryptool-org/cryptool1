@@ -616,33 +616,40 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
   svn checkout https://file.sec-tud.de/svn/CrypTool/trunk
       --username anonymous --password anonymous
 
-- Einen Eindruck von der Größe des Projekts liefert die folgende, im Februar
-  xxxx 2009 erstellte Statistik (anhand der wichtigsten Dateien für die
-  deutsche und englische Version):
+- Einen Eindruck von der Größe des Projekts liefert die folgende, im
+  Juni 2009 erstellte Statistik (anhand der Dateien für die deutsche,
+  englische und polnische Version):
 
-    FILE SUMMARY xxxxxxxxxxxxxxxxxxxxxxxxxx
+    FILE SUMMARY xxxxxxxxxxxxxxxxxxxxxxxxxxxx
     ------------
               5 .rc files
              38 .c files
-            308 .cpp files
-            368 .h files
-              8 .java files
-              9 .pl files
-           1609 .html files
-            110 .txt files
-              9 .tex files
+            318 .cpp files
+            376 .h files
+             36 .java files
+             10 .pl files
+           1615 .html files
+             18 .txt files
+             35 .tex files
+
   
     LINES OF CODE (LoC) SUMMARY
     ---------------------------
-         39.311 MFC resource code (rc)
-        239.252 C/C++ source code (h c cpp)
-          3.247 Java source code (java)
-          1.259 Perl files (pl)
-         93.147 HTML code (html hpp)
-          4.396 Text files (txt)
-          1.632 LaTex code (tex)
+         35.110 MFC resource code (rc)
+        232.622 C/C++ source code (c cpp h)
+          9.256 Java source code (java)
+          1.654 Perl code (pl)
+         89.683 HTML code (html hpp)
+          4.118 Text files (txt)
+         26.738 LaTeX code (tex)
+        399.181 TOTAL
 
-    TOTAL: 382.244 lines of code (plus of 19,5 % from 319.771 with v1.4.10)
+    TOTAL: 399.181 lines of code (plus of 4,4 % from 382.244 with v1.4.21)
+    - Here only code written within the CrypTool project or explicitely
+      dedicated to the CrypTool project is counted. Any sources used
+      within the CrypTool project coming from other open source projects
+      like OpenSSL, NTL, Scintilla, ... are not listed here.
+      Also any automatically created files are not counted.
 
    Snapshot zur Anzahl von Dateien und zur Anzahl der Source-Code-Zeilen
 
@@ -1723,7 +1730,7 @@ Version   Datum         Größe des Windows-Setups  Plattenplatz  Freigabe
 1.4.10    Juli 2007      27,5 MB     26,7 MB         47 MB        DB
 1.4.20    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
-1.4.30    Juli 2009      xx,7 MB     xx,6 MB         xx MB        DB   xxxxxxxx
+1.4.30    Juli 2009      42,5 MB     41,6 MB         79 MB        DB   xxxxxxxx
 
 Bemerkungen zu den Versionen:
 1.3.02   Viele neue Funktionen gegenüber 1.3.00.
@@ -1746,7 +1753,7 @@ Bemerkungen zu den Versionen:
          frischen Windows-Umgebungen (ohne Office) enthalten ist.
 1.4.30-Beta03  März 2009  Erste öffentliche Beta von Version 1.4.30.
 1.4.30-Beta04  Juni 2009  Zweite öffentliche Beta von Version 1.4.30.
-1.4.30   Viele Bugfixes, leicht erweiterter Funktionsumfang i.Vgl. zu 1.4.2x.
+1.4.30   Viele Bugfixes, erweiterter Funktionsumfang i.Vgl. zu 1.4.21.
 
 
 
