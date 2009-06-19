@@ -8,7 +8,8 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -3308,10 +3309,10 @@ BEGIN
     EDITTEXT        IDC_CRT_ASTRONOMY_EDITAMERCURY,283,190,53,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     EDITTEXT        IDC_CRT_ASTRONOMY_EDITAEARTH,353,190,55,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     LTEXT           "i",IDC_STATIC,339,191,14,9
-    LTEXT           "dni",IDC_STATIC,410,191,18,11
+    LTEXT           "dni",IDC_STATIC,411,192,18,11
     GROUPBOX        "Jednoczesna zgodnoœæ / modular linear equation systems",IDC_STATIC,7,46,258,167
     LTEXT           "x",IDC_STATIC,16,59,8,8
-    GROUPBOX        "",IDC_STATIC,7,3,491,39
+    GROUPBOX        "",IDC_STATIC,7,5,491,39
     LTEXT           "U¿ywaj¹c ChTR mo¿esz rozwi¹zaæ uk³ad równañ liniowych modularnych. Mo¿esz wprowadziæ do 9 równañ postaci: x = a[i] mod m[i] (i=1,  9) i obliczyæ rozwi¹zanie.",IDC_STATIC,35,15,432,16
     LTEXT           "Mo¿na u¿ywaæ takich równañ do obliczenia liczby dni do chwili znalezienia siê wybranych planet na linii prostej.",IDC_STATIC,135,23,356,9
     LTEXT           "x",IDC_STATIC,16,77,8,8
