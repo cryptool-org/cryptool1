@@ -8,8 +8,7 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -10673,6 +10672,7 @@ BEGIN
     IDS_CRYPT_SIMPLETRANSPOSITION "Prosta transpozycja"
     IDS_STRING_ASYMKEY_ERR_CERT_SERIAL_EXISTS 
                             "Import certyfikatu siê nie uda³ poniewa¿ istnieje ju¿ certyfikat z tym samym numerem seryjnym."
+    IDS_STRING_SMIME_DEMO_PROGRAM "main\\Programm.class"
 END
 
 STRINGTABLE 
@@ -10681,6 +10681,12 @@ BEGIN
     IDS_AES_FLOWVISUALIZATION_PARAM "-jar AES_Flussvisualisierung.jar EN"
     IDS_ERR_AES_FLOWVISUALIZATION 
                             "Die AES Flussvisualisierung kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob die Datei AES_Flussvisualisierung.jar im CrypTool-Heimatverzeichnis installiert wurde\n(""%s"")."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STRING_SMIME_DEMO_PROGRAM_COMPLETE_CALL 
+                            "-cp "".;./lib/*"" main.Programm"
 END
 
 #endif    // Polish resources
@@ -21309,6 +21315,7 @@ BEGIN
                             "Das Java-Programm wurde nicht gefunden! (Kompletter Pfad: ""%s"")"
     IDS_STRING_JAVA_PROGRAM_EXECUTION_FAILED 
                             "Das Java-Programm konnte nicht ausgeführt werden. Bitte kontaktieren Sie das Entwickler-Team."
+    IDS_STRING_SMIME_DEMO_PROGRAM "main\\Programm.class"
 END
 
 STRINGTABLE 
@@ -21328,6 +21335,8 @@ END
 STRINGTABLE 
 BEGIN
     IDS_AES_FLOWVISUALIZATION_JAVA_FILE "AES_Flussvisualisierung.jar"
+    IDS_STRING_SMIME_DEMO_PROGRAM_COMPLETE_CALL 
+                            "-cp "".;./lib/*"" main.Programm"
 END
 
 #endif    // German (Germany) resources
@@ -32059,6 +32068,7 @@ BEGIN
                             "The Java program was not found! (Full path: ""%s"")"
     IDS_STRING_JAVA_PROGRAM_EXECUTION_FAILED 
                             "The Java program could not be executed. Please contact the development team."
+    IDS_STRING_SMIME_DEMO_PROGRAM "main\\Programm.class"
 END
 
 STRINGTABLE 
@@ -32078,6 +32088,8 @@ END
 STRINGTABLE 
 BEGIN
     IDS_AES_FLOWVISUALIZATION_JAVA_FILE "AES_Flussvisualisierung.jar"
+    IDS_STRING_SMIME_DEMO_PROGRAM_COMPLETE_CALL 
+                            "-cp "".;./lib/*"" main.Programm"
 END
 
 #endif    // English (U.K.) resources

@@ -1568,9 +1568,6 @@ void CCrypToolApp::OnFlashEnigmademo()
 
 void CCrypToolApp::OnProtokolSMIME()
 {
-	/*
-	flomar, 06/16/2009: TODO/FIXME
-
 	CString javaProgram;
 	CString javaProgramCompleteCall;
 
@@ -1578,19 +1575,6 @@ void CCrypToolApp::OnProtokolSMIME()
 	javaProgramCompleteCall.LoadStringA(IDS_STRING_SMIME_DEMO_PROGRAM_COMPLETE_CALL);
 
 	ShellExecuteJava(javaProgram, javaProgramCompleteCall);
-	*/
-	
-	CString smimeParamStr, smimeDemoExecStr;
-	smimeParamStr.LoadString(IDS_SMIMEDEMO_PARAM);
-	smimeDemoExecStr.LoadString (IDS_SMIMEDEMO_EXE);
-
-	HINSTANCE hInst = ShellExecute(NULL,NULL, smimeDemoExecStr, smimeParamStr, Pfad, SW_SHOW);
-	if ( reinterpret_cast<int>(hInst) <= 32 ) {
-		// display error message stating where the desired executable is expected
-		CString message;
-		message.Format(IDS_ERROPEN_SMIMEDEMO, Pfad);
-		AfxMessageBox(message, MB_ICONSTOP);
-	}
 }
 
 void CCrypToolApp::OnAesRijndaelFlowvisualisation()
