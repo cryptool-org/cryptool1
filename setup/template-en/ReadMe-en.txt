@@ -484,7 +484,7 @@ The general properties and functions of CrypTool are:
                       control center of the S/MIME demonstration.
 
 - Demonstration for different ways of authentication in the net
-  (Visualisation of challenge response methods):
+  (Visualization of challenge response methods):
   * from UID/PW and One-Time-Password
   * over (unidirectional) challenge response (symmetric + asymmetric)
   * to asymmetric mutual authentication.
@@ -516,7 +516,7 @@ The general properties and functions of CrypTool are:
     entropy by mouse moves and keyboard entries.
     This is the default, when calling it the first time, because it shows,
     that you need a random source in order to get good random data.
-  - 3-D visualisation of big sets of random numbers with the rendering
+  - 3-D visualization of big sets of random numbers with the rendering
     engine from OpenQVis (http://openqvis.sourceforge.net/).
 
 - Export and import RSA and DSA PSEs with the keys stored in there
@@ -854,7 +854,7 @@ c) New functionality / Usability:
 
 - Many small improvements in the masks (user interface), e.g. elapsed-time
   dialog for the AKS test; text in about box can be marked and copied; time and
-  numberof found factors are shown at one in the factorisation dialog.
+  numberof found factors are shown at one in the factorization dialog.
 
 - External PDFs on the internet now can be opened directly within the online help.
 
@@ -896,7 +896,7 @@ c) New functionality / Usability:
 
 - If the result in the dialog primality testing says, that the given number
   is NOT prime, then you can directly (via a new button) call the
-  factorisation dialog.
+  factorization dialog.
 
 - Until 1.4.21 the dialog "Generate Primes" created two randomly
   selected primes within a given range.
@@ -917,7 +917,7 @@ c) New functionality / Usability:
 - A visualization for secure e-mail was added: The user can enter dynamically
   data which is signed or encrypted using the S/MIME protocol.
 
-- Another visualization for the AES algorithm was added: flow_visualisation
+- Another visualization for the AES algorithm was added: flow_visualization
   showing how the bits are changed round-by-round.
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
@@ -2225,8 +2225,8 @@ A.2.1.1. Functionality: Algorithms / Methods
         - All SHA-3 candidates
           (http://csrc.nist.gov/groups/ST/hash/sha-3/index.html)
     * Protocols / weaknesses in protocols:
-       - Visualisation of man-in-the-middle attacks.
-       - Visualisation of SSL.
+       - Visualization of man-in-the-middle attacks.
+       - Visualization of SSL.
        - Blind signatures.
        - Electronic voting.
        - Tripartite key exchange.
@@ -2517,7 +2517,7 @@ A.2.1.4. User interface / Visualizations
    - Attacks on weak RSA keys are described in CrypTool's 
      online help at Help \ Scenarios \ RSA cryptosystem (demonstration),
      under the topic "3. Attack on the RSA algorithm", which explains
-     that factorisation of the module can break the method.
+     that factorization of the module can break the method.
      This is implemented, but not visualized.
    - Attacks on other asymmetric methods are not implemented in
      CrypTool yet. To attack Diffie-Hellman, DSA or EC-DSA, one 
@@ -2625,7 +2625,7 @@ Features already implemented and integrated in the current beta versions
 - JCT  Adaptive navigation pane, optionally as tree or palette,
        with filtering
 - JCT  Vigenère autokey encryption
-- JCT  Visualisation of classic (analysis) methods
+- JCT  Visualization of classic (analysis) methods
 - JCT  Adjusting of all detail parameters of modern algorithms
        in the FlexiProvider perspective
 - JCT  Dragon cipher & LFSR

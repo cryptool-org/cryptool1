@@ -13345,7 +13345,7 @@ BEGIN
     PUSHBUTTON      "&Alle Schritte auf einmal",IDC_BUTTON_ALLREMAININGSTEPS,225,325,100,26
     GROUPBOX        "Steuerung des Angriffs:",IDC_ATTACKCONTROL,220,282,111,75
     CONTROL         "&Informationsdialoge anzeigen",IDC_CHECK_DISABLEHELP,
-                    "Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,536,368,107,10
+                    "Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,540,368,103,10
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_INTRODUCTION DIALOG  0, 0, 250, 198
@@ -22531,7 +22531,7 @@ BEGIN
     LTEXT           "160 bits",IDC_STATIC,86,97,35,10
     LTEXT           "160 bits",IDC_STATIC,86,114,35,10
     GROUPBOX        "Choose signature algorithm",IDC_STATIC,163,6,215,130
-    LTEXT           "Factorisation based algorithms",IDC_STATIC,175,22,189,10
+    LTEXT           "Factorization based algorithms",IDC_STATIC,175,22,189,10
     LTEXT           "Discrete logarithm based algorithms",IDC_STATIC,175,49,189,10
     LTEXT           "Elliptic curve based algorithms",IDC_STATIC,175,78,189,10
     GROUPBOX        "Presentation format",IDC_STATIC,267,90,105,40,BS_LEFT
@@ -22896,7 +22896,7 @@ BEGIN
     LTEXT           "(public)",IDC_STATIC,284,134,34,8
     LTEXT           "(secret)",IDC_STATIC,284,152,30,8
     LTEXT           "Input as",IDC_STATIC,19,225,31,8
-    LTEXT           "You may try to factorise the public RSA modulus N into its primes p and q.",IDC_RSA_MODE_FACTORISATION,19,81,257,30,NOT WS_VISIBLE
+    LTEXT           "You may try to factorize the public RSA modulus N into its primes p and q.",IDC_RSA_MODE_FACTORISATION,19,81,257,30,NOT WS_VISIBLE
     PUSHBUTTON      "Button1",IDOK,204,377,37,15,NOT WS_VISIBLE
 END
 
@@ -23357,7 +23357,7 @@ BEGIN
     LTEXT           "Quadratic sieve",IDC_STATIC,11,129,60,8
     EDITTEXT        IDC_EDIT5,75,126,58,14,ES_RIGHT | ES_AUTOHSCROLL | ES_NUMBER | WS_DISABLED
     PUSHBUTTON      "Cancel",IDCANCEL6,152,126,50,14,WS_DISABLED
-    LTEXT           "Input for factorisation",IDC_STATIC,11,7,79,12
+    LTEXT           "Input for factorization",IDC_STATIC,11,7,79,12
     EDITTEXT        IDC_EDIT6,114,5,88,14,ES_AUTOHSCROLL | WS_DISABLED
 END
 
@@ -23373,14 +23373,14 @@ END
 
 IDD_FACTORISATION_DEMO DIALOGEX 0, 0, 366, 338
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Factorisation of a Number"
+CAPTION "Factorization of a Number"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT1,177,49,165,14,ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&Continue",IDC_BUTTON_Faktorisieren,24,156,77,16
-    PUSHBUTTON      "Complete &factorisation into primes",IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,224,156,118,16,NOT WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "Complete &factorization into primes",IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,224,156,118,16,NOT WS_VISIBLE | WS_DISABLED
     PUSHBUTTON      "&Close",IDC_BUTTON_cancel,259,313,94,18
-    GROUPBOX        "Algorithms for factorisation",-1,13,6,140,107
+    GROUPBOX        "Algorithms for factorization",-1,13,6,140,107
     CONTROL         "Brute-force",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,23,51,10
     CONTROL         "Brent",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,38,33,10
     CONTROL         "Pollard",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,53,37,10
@@ -23388,15 +23388,15 @@ BEGIN
     CONTROL         "Lenstra",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,83,39,10
     CONTROL         "Quadratic sieve",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,98,83,10
     GROUPBOX        "Input",-1,166,6,187,107
-    LTEXT           "Enter the number to be factorised:",-1,177,34,165,8
-    GROUPBOX        "Factorisation (stepwise)",-1,13,118,340,64
-    LTEXT           "On clicking the button ""Continue"" at first the number of the input field, and then the next composite number of the field ""Factorisation result"" will be factorised into two factors.",-1,24,132,318,17
-    GROUPBOX        "Factorisation",-1,13,192,340,111
-    LTEXT           "The factorisation is represented in the format <z1^a1 * z2^a2 *.... * zn^an>.\nComposite numbers are appearing in red color.",-1,24,208,318,19
-    LTEXT           "Last factorisation through:",-1,24,230,83,14
+    LTEXT           "Enter the number to be factorized:",-1,177,34,165,8
+    GROUPBOX        "Factorization (stepwise)",-1,13,118,340,64
+    LTEXT           "On clicking the button ""Continue"" at first the number of the input field, and then the next composite number of the field ""Factorization result"" will be factorized into two factors.",-1,24,132,318,17
+    GROUPBOX        "Factorization",-1,13,192,340,111
+    LTEXT           "The factorization is represented in the format <z1^a1 * z2^a2 *.... * zn^an>.\nComposite numbers are appearing in red color.",-1,24,208,318,19
+    LTEXT           "Last factorization through:",-1,24,230,83,14
     EDITTEXT        IDC_EDIT2,112,229,71,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Bearbeiten",IDS_STRING_BENOETIGTE_ZEIT_FAKT,191,231,151,14
-    LTEXT           "Factorisation result:",-1,24,245,219,9
+    LTEXT           "Factorization result:",-1,24,245,219,9
     CONTROL         "",IDC_RICHEDIT2,"RICHEDIT",TCS_VERTICAL | TCS_RAGGEDRIGHT | WS_BORDER | WS_TABSTOP,24,257,318,16
     PUSHBUTTON      "&Details",IDC_BUTTON1,24,280,76,16
 END
@@ -23461,7 +23461,7 @@ END
 
 IDD_FACTORISATION_LIST DIALOG  0, 0, 383, 346
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Details for the current factorisation"
+CAPTION "Details for the current factorization"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "&Close",IDOK,326,319,50,20
@@ -23469,8 +23469,8 @@ BEGIN
     LTEXT           "Input number:",IDC_STATIC,7,7,47,10
     EDITTEXT        IDC_EDIT1,7,19,369,12,ES_AUTOHSCROLL | ES_READONLY
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,7,41,368,155
-    GROUPBOX        "Information on the selected factorisation (select by doubleclick on the row)",IDC_STATIC,7,205,369,108
-    LTEXT           "Factorised number:",IDC_STATIC,18,218,73,8
+    GROUPBOX        "Information on the selected factorization (select by doubleclick on the row)",IDC_STATIC,7,205,369,108
+    LTEXT           "Factorized number:",IDC_STATIC,18,218,73,8
     EDITTEXT        IDC_EDIT2,18,229,348,12,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "First factor:",IDC_STATIC,18,248,57,8
     EDITTEXT        IDC_EDIT6,18,261,348,12,ES_AUTOHSCROLL | ES_READONLY
@@ -23614,7 +23614,7 @@ END
 
 IDD_HYBRID_ENCRYPTION_DEMO DIALOGEX 0, 0, 555, 429
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Hybrid Encryption with RSA-AES - Visualisation with a Flow Chart"
+CAPTION "Hybrid Encryption with RSA-AES - Visualization with a Flow Chart"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     CONTROL         "Sechseck1_R_",IDC_BUTTON1_TXT_EINFUEGEN,"Button",BS_OWNERDRAW | BS_BITMAP | WS_TABSTOP,34,14,89,14
@@ -24051,7 +24051,7 @@ BEGIN
     PUSHBUTTON      "&Next step",IDC_BUTTON_NEXTSINGLESTEP,225,296,100,25
     PUSHBUTTON      "&All steps at once",IDC_BUTTON_ALLREMAININGSTEPS,225,325,100,26
     GROUPBOX        "Attack control:",IDC_ATTACKCONTROL,220,282,111,75
-    CONTROL         "Show &information dialog",IDC_CHECK_DISABLEHELP,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,541,368,102,10
+    CONTROL         "Show &information dialogs",IDC_CHECK_DISABLEHELP,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,553,368,90,10
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_ALICE DIALOG  0, 0, 375, 250
@@ -25936,7 +25936,7 @@ BEGIN
         BEGIN
             MENUITEM "Prime Number &Test...",       ID_PRIMENUMBER_TEST
             MENUITEM "Generate &Prime Numbers...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
-            MENUITEM "&Factorisation of a Number...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+            MENUITEM "&Factorization of a Number...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             MENUITEM "&RSA Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
             MENUITEM "&Signature Demonstration (Signature Generation)...", ID_EINZELVERFAHREN_SIGN_DOC
             POPUP "&Lattice Based Attacks on RSA"
@@ -26074,7 +26074,7 @@ BEGIN
         END
         POPUP "&Asymmetric Encryption"
         BEGIN
-            MENUITEM "&Factorisation of a Number...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+            MENUITEM "&Factorization of a Number...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             POPUP "&Lattice Based Attacks on RSA"
             BEGIN
                 MENUITEM "&Factoring with a Hint...",   ID_RSA_FACTORHINT
@@ -26282,7 +26282,7 @@ BEGIN
         BEGIN
             MENUITEM "Prime Number &Test...",       ID_PRIMENUMBER_TEST
             MENUITEM "Generate &Prime Numbers...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
-            MENUITEM "&Factorisation of a Number...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+            MENUITEM "&Factorization of a Number...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             MENUITEM "&RSA Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
             MENUITEM "&Signature Demonstration (Signature Generation)...", ID_EINZELVERFAHREN_SIGN_DOC
             POPUP "&Lattice Based Attacks on RSA"
@@ -26420,7 +26420,7 @@ BEGIN
         END
         POPUP "&Asymmetric Encryption"
         BEGIN
-            MENUITEM "&Factorisation of a Number...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+            MENUITEM "&Factorization of a Number...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             POPUP "&Lattice Based Attacks on RSA"
             BEGIN
                 MENUITEM "&Factoring with a Hint...",   ID_RSA_FACTORHINT
@@ -26628,7 +26628,7 @@ BEGIN
         BEGIN
             MENUITEM "Prime Number &Test...",       ID_PRIMENUMBER_TEST
             MENUITEM "Generate &Prime Numbers...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
-            MENUITEM "&Factorisation of a Number...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+            MENUITEM "&Factorization of a Number...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             MENUITEM "&RSA Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
             MENUITEM "&Signature Demonstration (Signature Generation)...", ID_EINZELVERFAHREN_SIGN_DOC
             POPUP "&Lattice Based Attacks on RSA"
@@ -26766,7 +26766,7 @@ BEGIN
         END
         POPUP "&Asymmetric Encryption"
         BEGIN
-            MENUITEM "&Factorisation of a Number...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+            MENUITEM "&Factorization of a Number...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             POPUP "&Lattice Based Attacks on RSA"
             BEGIN
                 MENUITEM "&Factoring with a Hint...",   ID_RSA_FACTORHINT
@@ -26974,7 +26974,7 @@ BEGIN
         BEGIN
             MENUITEM "Prime Number &Test...",       ID_PRIMENUMBER_TEST
             MENUITEM "Generate &Prime Numbers...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
-            MENUITEM "&Factorisation of a Number...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+            MENUITEM "&Factorization of a Number...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             MENUITEM "&RSA Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
             MENUITEM "&Signature Demonstration (Signature Generation)...", ID_EINZELVERFAHREN_SIGN_DOC
             POPUP "&Lattice Based Attacks on RSA"
@@ -27112,7 +27112,7 @@ BEGIN
         END
         POPUP "&Asymmetric Encryption"
         BEGIN
-            MENUITEM "&Factorisation of a Number...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+            MENUITEM "&Factorization of a Number...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             POPUP "&Lattice Based Attacks on RSA"
             BEGIN
                 MENUITEM "&Factoring with a Hint...",   ID_RSA_FACTORHINT
@@ -27347,7 +27347,7 @@ BEGIN
         BEGIN
             MENUITEM "Prime Number &Test...",       ID_PRIMENUMBER_TEST
             MENUITEM "Generate &Prime Numbers...",  ID_EINZELVERFAHREN_TUTORIAL_PRIMZAHLENGENERIEREN
-            MENUITEM "&Factorisation of a Number...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+            MENUITEM "&Factorization of a Number...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             MENUITEM "&RSA Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
             MENUITEM "&Signature Demonstration (Signature Generation)...", ID_EINZELVERFAHREN_SIGN_DOC
             POPUP "&Lattice Based Attacks on RSA"
@@ -27485,7 +27485,7 @@ BEGIN
         END
         POPUP "&Asymmetric Encryption"
         BEGIN
-            MENUITEM "&Factorisation of a Number...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
+            MENUITEM "&Factorization of a Number...", ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP
             POPUP "&Lattice Based Attacks on RSA"
             BEGIN
                 MENUITEM "&Factoring with a Hint...",   ID_RSA_FACTORHINT
@@ -30074,7 +30074,7 @@ BEGIN
                             "Tutorial for the RSA cryptosystem: generating keys, encryption and decryption of data"
     ID_HOMOPHONE_ASC        "Homophonic encryption"
     ID_EINZELVERFAHREN_TUTORIALFRKLEINEZAHLEN_FAKTORISIERENIFP 
-                            "Factorises an integer into its prime factors"
+                            "Factorizes an integer into its prime factors"
     ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN "Derives a key from a password"
     ID_ANALYSE_NGRAM        "Calculates the most frequent N-grams within the active document depending on the current alphabet (1 <= N <= 16)"
     ID_ANALYSE_NGRAM_BIN    "Calculates the most frequent N-grams within the active document over all 256 ASCII characters (1 <= N <= 16)"
@@ -30324,13 +30324,13 @@ BEGIN
                             "The Secude library could not be loaded !\n""Secude.dll"" is deliverd with the CrypTool package.\nPlease check whether this file is available in your CrypTool directory."
     IDS_NGRAM_TITLE         "N-Gram List of %s"
     IDS_FACTORISATION_LIST_DESCRIPTION 
-                            "The respective next composite number will be factorised into two factors:"
+                            "The respective next composite number will be factorized into two factors:"
     IDS_FACTORISATION_LIST_TOTAL_TIME 
-                            "Total time of the single factorisations: %s"
-    IDS_FACTORISATION_LIST_CURRENT_FACTORISATION "Factorisation"
-    IDS_FACTORISATION_LIST_TIME "Total factorisation time: %s"
+                            "Total time of the single factorizations: %s"
+    IDS_FACTORISATION_LIST_CURRENT_FACTORISATION "Factorization"
+    IDS_FACTORISATION_LIST_TIME "Total factorization time: %s"
     IDS_FACTORISATION_LIST_RESULT 
-                            "The input integer has been factorised into the following factors:"
+                            "The input integer has been factorized into the following factors:"
 END
 
 STRINGTABLE 
@@ -30674,18 +30674,18 @@ BEGIN
     IDS_STRING_HORIZ        "Horizontal"
     IDS_STRING_VERT         "Vertical"
     IDS_STRING_FAKTORISATION_NEU_WAEHLEN 
-                            "The present factorisation still contains at least one composite factor, which could not be factorised further with the algorithms you selected.\n Please try one other procedure. "
+                            "The present factorization still contains at least one composite factor, which could not be factorized further with the algorithms you selected.\n Please try one other procedure. "
     IDS_STRING_FAKTORISATION_PRIMZAHL "The input is a prime number. "
     IDS_STRING_FAKTORISATION_VOLLSTAENDIG 
-                            "The input is now completely factorised."
+                            "The input is now completely factorized."
     IDS_STRING_FAKTORISATION_NICHT_VOLLSTAENDIG 
-                            "The input could not be completely factorised into its prime factors using the selected algorithms.\nPlease try one other procedure. "
+                            "The input could not be completely factorized into its prime factors using the selected algorithms.\nPlease try one other procedure. "
     IDS_STRING_FAKTORISATION_VERFAHREN 
-                            "Please select at least one factorisation algorithm. "
+                            "Please select at least one factorization algorithm. "
     IDS_STRING_FAKTORISATION_FALSCHE_EINGABE 
                             "The input is not a positiv integer."
     IDS_STRING_FAKTORISATION_ABORTED 
-                            "The factorisation has been aborted.\nThe present factorisation still contains at least one composite factor."
+                            "The factorization has been aborted.\nThe present factorization still contains at least one composite factor."
     IDS_STRING_FAKTORISATION_ABORT_MSG "aborted"
     IDS_STRING_FAKTORISATION_STOP_MSG "without success"
 END
@@ -30713,7 +30713,7 @@ BEGIN
     IDS_STRING_MSG_PERM     "Input of the permutation"
     IDS_STRING_MSG_PERM_ZERO_INVALID_INPUT 
                             "The permutation key must not contain zeros. Please correct your input in the first input field!"
-    IDS_NUMBER_RSA_MODUL    "The RSA modulus N has been successfully factorised into the primes p and q!\nYou can now perform the RSA operation with the secret key d:\nFor this purpose just click the button Decrypt."
+    IDS_NUMBER_RSA_MODUL    "The RSA modulus N has been successfully factorized into the primes p and q!\nYou can now perform the RSA operation with the secret key d:\nFor this purpose just click the button Decrypt."
     IDS_NUMBER_NOT_FACTORIZED "The integer N is not factorized until yet."
     IDS_NUMBER_NOT_RSA_MODUL 
                             "The integer N is not an RSA modulus:\n- either N has been factorized into more than two numbers\n- or N = p^2 is a quadratic number.\n\nPlease correct the input of N."
@@ -30750,7 +30750,7 @@ BEGIN
                             "The encrypted message could not be decoded into a textmessage !"
     IDS_CRYPT_RSADEMO_MSG_DECRYPTION_NOTEXT 
                             "The decrypted message could not be decoded into a textmessage !"
-    IDS_DETFACTORISATION_HLNUMBER "Factorised number"
+    IDS_DETFACTORISATION_HLNUMBER "Factorized number"
     IDS_DETFACTORISATION_HLFACTOR "Factor %i"
     IDS_DETFACTORISATION_HLMETHOD "Method"
     IDS_DETFACTORISATION_HLTIME "Time"
@@ -30816,7 +30816,7 @@ BEGIN
                             "The RSA encryption of numbers into text is incorrect, since the number of characters in the alphabet (here %i) is larger than the size of the RSA Modul (here N=%s).\nPlease modify the alphabet in ""options for alphabet and number-system..."" or chooses larger prime nunmbers."
     IDS_CRYPT_RSADEMO_HEADER_ENTERPRIME "Prime number entry"
     IDS_CRYPT_RSADEMO_HEADER_GENERATEPRIMES "Generate prime numbers..."
-    IDS_CRYPT_RSADEMO_HEADER_FACTORISERSAMODUL "Factorisation attack"
+    IDS_CRYPT_RSADEMO_HEADER_FACTORISERSAMODUL "Factorization attack"
 END
 
 STRINGTABLE 
@@ -30855,7 +30855,7 @@ BEGIN
                             "Please enter a positive integer greater than 1."
     IDS_STRING_MODUL_NOT_PRIME 
                             "Your input for the modulus P is not a prime number."
-    IDS_STRING_FACTORISATION_TIMER "Factorisation timer"
+    IDS_STRING_FACTORISATION_TIMER "Factorization timer"
     IDS_OPEN_DOCUMENT_FILTER 
                             "TEXT files (*.txt) |*.txt|ASCII files (*.asc)|*.asc|all files (*.*) |*.*||"
 END
@@ -30865,11 +30865,11 @@ BEGIN
     IDS_DETFACTORISATION_FACTORPRIME "Bit length = %i,  prime number."
     IDS_DETFACTORISATION_FACTORCOMPOSITE "Bit length = %i,  composite number."
     IDS_DETFACTORISATION_HL_INPUT 
-                            "Details for the factorisation of the \nInput number = "
-    IDS_DETFACTORISATION_HL_FACTORISEDNUMBER "Factorised number = "
+                            "Details for the factorization of the \nInput number = "
+    IDS_DETFACTORISATION_HL_FACTORISEDNUMBER "Factorized number = "
     IDS_DETFACTORISATION_HL_FACTOR1 "First factor = "
     IDS_DETFACTORISATION_HL_FACTOR2 "Second factor = "
-    IDS_DETFACTORISATION_HL_OUTPUT "Factorisation of the integer %s."
+    IDS_DETFACTORISATION_HL_OUTPUT "Factorization of the integer %s."
     IDS_FACTORISATION_OVERFLOW 
                             "Due to memory overflow, the quadratic sieve method could not be executed."
     IDS_FACTORISATION_MEMORY_REQUEST 
@@ -30942,7 +30942,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_CRYPT_RSADEMO_HEADER_FACTORISEATTACK "Factorise RSA modulus..."
+    IDS_CRYPT_RSADEMO_HEADER_FACTORISEATTACK "Factorize RSA modulus..."
     IDS_TEXTOPTIONS_HEADER_ALPHABET "Alphabet to use (%i characters):"
     IDS_STRING_HYB_ENC_DOC_SYM 
                             "This button is currently inactive!\n\nUse F1 to get information about the sequence you\nshould follow to activate this button."
@@ -31410,7 +31410,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_SOLITAIRE_MESSAGE_11 "Do you want to put Joker A to the front?"
-    IDS_TITLE_3D_VISUALISATION "3-D Visualisation: %s"
+    IDS_TITLE_3D_VISUALISATION "3-D Visualization: %s"
     IDS_ROT13_INFO_NEGATIVE "Rot-13 encryption is deactivated because the alphabet does not consist of an even number of letters!"
     IDS_CRYPT_ROT13         "ROT 13"
     IDS_FILENAME_NOT_YET    "New file (not yet stored)"
@@ -32029,13 +32029,13 @@ BEGIN
     IDS_PA_FILESIZES_DIFFERENT 
                             "The lower limit of the key search range is bigger than the upper limit."
     IDS_PA_EMPTYFILE        "Both files (plaintext and ciphertext) are empty."
-    IDS_PA_LIMITRANGE_ERROR "Die untere Grenze der Permutationsschlüssel ist größer als die obere Grenze."
+    IDS_PA_LIMITRANGE_ERROR "The lower bound of the permutation key is bigger than the upper bound."
     IDS_PA_DIRECTION_ERROR  "Should never occur."
     ID_PA_NOKEYFOUND        "No single transposition key was found."
     IDS_PLAINTEXT           "Enter Plaintext"
     IDS_CIPHERTEXT          "Enter Ciphertext"
     IDS_PA_EMPTYREFFILE     "The active document is empty!"
-    IDS_ERROPEN_SMIMEDEMO   "Die S/MIME Flash-Animation kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob das Programm SMIME_Animation.exe im CrypTool-Heimatverzeichnis installiert wurde\n(""%s"")."
+    IDS_ERROPEN_SMIMEDEMO   "The S/MIME Flash animation cannot be opened!\n\nPlease check if the program SMIME_Animation.exe was installed in the CrypTool home folder\n(""%s"")."
     IDS_SMIMEDEMO_EXE       "java"
 END
 
@@ -32076,7 +32076,7 @@ BEGIN
     IDS_SMIMEDEMO_PARAM     "-cp "".;./lib/*"" main.Programm EN"
     IDS_AES_FLOWVISUALIZATION_PARAM "-jar AES_Flussvisualisierung.jar EN"
     IDS_ERR_AES_FLOWVISUALIZATION 
-                            "Die AES Flussvisualisierung kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob die Datei AES_Flussvisualisierung.jar im CrypTool-Heimatverzeichnis installiert wurde\n(""%s"")."
+                            "The AES flow visualization cannot be opened! Please check if the file AES_Flussvisualisierung.jar was installed in the CrypTool home folder\n(""%s"")."
 END
 
 STRINGTABLE 

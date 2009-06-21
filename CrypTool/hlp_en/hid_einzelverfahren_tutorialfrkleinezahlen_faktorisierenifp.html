@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
 	<HEAD>
-		<TITLE>Dialog Factorisation of a number</TITLE>
+		<TITLE>Dialog Factorization of a number</TITLE>
 		<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 		<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 			<script language="JScript" src="helper.js"></script>
@@ -10,35 +10,35 @@
 	<BODY>
 		<OBJECT id="Object1" type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"
 			VIEWASTEXT>
-			<PARAM NAME="Keyword" VALUE="Factorisation">
+			<PARAM NAME="Keyword" VALUE="Factorization">
 			<PARAM NAME="Keyword" VALUE="Demonstrations / Scenarios">
 			<PARAM NAME="Keyword" VALUE="Dialog (overview of all dialogs)">
 			<PARAM NAME="Keyword" VALUE="Individual procedures">
 		</OBJECT>
-		<h3>Dialog Factorisation of a Number</h3>
+		<h3>Dialog Factorization of a Number</h3>
 		<P>This dialog can be called via <A href="menu_related_methods.html">Individual 
 				Procedures</A> \ <a href="menu_individualprocedures_rsacryptosystem.html">RSA 
 				Cryptosystem</a> \ <a href="hid_einzelverfahren_tutorialfrkleinezahlen_faktorisierenifp.html">
-				Factorisation of a number</a>.</P>
+				Factorization of a number</a>.</P>
 		<P>The procedure for splitting up natural numbers into their prime factors is 
-			referred to as <B>prime factorisation</B>. Every natural number (which is 
+			referred to as <B>prime factorization</B>. Every natural number (which is 
 			bigger than 1) can be broken down uniquely into its prime factors (apart from 
 			the sequence of prime number factors).
 		</P>
-		<P>The factorisation problem constitutes an important interface between 
+		<P>The factorization problem constitutes an important interface between 
 			mathematics, information science and technology, because this theoretical 
 			problem is also relevant to cryptography, as in the <B>Rabin-Williams algorithm</B> and <A href="hid_crypt_rsaenc.html">
 					RSA algorithms</A>.</P>
-		<P>This tutorial is intended to give you an idea of how factorisation problems are 
+		<P>This tutorial is intended to give you an idea of how factorization problems are 
 			tackled in practice.</P>
 		<P><IMG SRC="images/faktorisierungsalgorithmen.gif" ALT="faktorisierungsalgorithmen.gif"
 				BORDER="0"></P>
-		<P>You have various factorisation algorithms to choose from to break down your 
+		<P>You have various factorization algorithms to choose from to break down your 
 			input.</P>
 		<P>If you press the <B>Continue</B> button, the system attempts to split the input 
-			into two factors using the selected algorithms. When the factorisation results 
+			into two factors using the selected algorithms. When the factorization results 
 			are displayed, the two factors are shown in red.</P>
-		<P>In this dialog efficient factorisation algorithms are implemented.
+		<P>In this dialog efficient factorization algorithms are implemented.
 		</P>
 		<P>We recommend that you start off using the <B>Brute-force</B> and <B>Brent</B> algorithms, 
 			as these methods discover relatively small factors very quickly. If you want to 
@@ -53,7 +53,7 @@
 			likely to be successful if the number N to be factorised has a prime number p 
 			such that (p-1) and (p+1) consists of only small prime factors. They are used 
 			to split off factors that are relatively small and therefore naturally come 
-			before the stronger factorisation methods.</P>
+			before the stronger factorization methods.</P>
 		<P>Example: 233333330996666690033333333</P>
 		<P><IMG SRC="images/pollard.gif" ALT="pollard.gif" BORDER="0"></P>
 		<P>The <B>Lenstra</B> algorithm is based on a generalisation of Pollard‚s (p-1) 
@@ -82,23 +82,23 @@
 		<P><IMG SRC="images/qsieb.gif" ALT="qsieb.gif" BORDER="0"></P>
 		<P>The computing time here is not dependent on the smallest factor but on the 
 			number to be factorised itself. The quadratic sieve is, albeit with slight 
-			deviations, one of the fastest factorisation methods yet been discovered by 
+			deviations, one of the fastest factorization methods yet been discovered by 
 			mathematicians.</P>
 		<P>Although apparently numbers up to 139 decimal places can be factorised using 
 			this method, even this method contains too many places in which one has to 
 			guess and search. And this guessing and searching (or giving up on guessing in 
-			favour of searching) simply lasts too long to be an efficient factorisation 
+			favour of searching) simply lasts too long to be an efficient factorization 
 			method.</P>
-		<P>The quadratic sieve was for many years considered the fastest factorisation 
+		<P>The quadratic sieve was for many years considered the fastest factorization 
 			method until a few years ago the <B>Number Field Sieve (NFS) </B>was 
 			discovered. NFS, like the quadratic sieve, is a method for factorising large 
 			numbers. NFS is potentially up to ten times faster than the Quadratic Sieve. 
 			However, the algorithms implemented yet cannot fully utilise this potential 
 			speed advantage. It is expected that over the next few years further 
 			optimisation will take place.</P>
-		<P><B>The factorisation of RSA-155</B></P>
+		<P><B>The factorization of RSA-155</B></P>
 		<P>On 22 Aug 1999, a research group co-ordinated by Herman te Riele of the CWI 
-			Amsterdam, published the factorisation of the 512-bit number <B>RSA-155</B> with 
+			Amsterdam, published the factorization of the 512-bit number <B>RSA-155</B> with 
 			the NFS algorithm. RSA-155 comes from the "RSA challenge list" produced by RSA 
 			inc.
 		</P>
@@ -109,7 +109,7 @@
 			106603488380168454820927220360012878679207958575989291522270608237193062808643
 		</P>
 		<P>It took 7.4 months (9 weeks‚ preparation and 5.2 months for the actual 
-			factorisation) to carry out all the steps.</P>
+			factorization) to carry out all the steps.</P>
 		<OL type="a">
 			<LI>
 		Application of the <B>sieve step</B> took 35.7 CPU years. The following 
@@ -125,12 +125,12 @@
 		<P>The resulting matrix had 6,699,191 lines and 6,711,336 columns. The matrix was 
 			worked off in around 224 CPU hours with a main memory requirement of 2GB on a 
 			Cray C916 belonging to the SARA Amsterdam Academic Computer Centre. The 
-			factorisation took from 17 March to 22 August.
+			factorization took from 17 March to 22 August.
 		</P></li></ol>
 		<P>&nbsp;</P>
 		<P>The sieve stage can in practice be run in parallel on an arbitrary number of 
 			computers. In particular, organisations with unrestricted hardware budgets can 
-			significantly speed up the factorisation task with
+			significantly speed up the factorization task with
 		</P>
 		<P>See&nbsp; <A href="http://web.hamline.edu/~wnk/rsa/rsa.html">http://web.hamline.edu/~wnk/rsa/rsa.html 
 				(Factorization of a 512-bits RSA key using the Number Field Sieve)</A></P>

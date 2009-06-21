@@ -123,7 +123,7 @@
 
 <P>We illustrate a possible attack on the RSA cryptosystem using already published ”challenges” to crack ciphertexts. As well as the ciphertext, the attacker also has access to the public key e and the RSA modulus N.</P>
 
-<P>The following examples describe attacks for the factorisation of public RSA modulus N. If the factorisation is successful, then all the secret parameters of the RSA cryptosystem can be calculated, and these can then be used to crack the ciphertext challenge. The most well-known crypto challenges are published by RSA Security Lab (<U>www.rsa.com</U>).</P>
+<P>The following examples describe attacks for the factorization of public RSA modulus N. If the factorization is successful, then all the secret parameters of the RSA cryptosystem can be calculated, and these can then be used to crack the ciphertext challenge. The most well-known crypto challenges are published by RSA Security Lab (<U>www.rsa.com</U>).</P>
 
 <BR>
 
@@ -167,23 +167,23 @@
 
 <P><B>Cryptanalysis using CrypTool</B></P>
 
-<P>The analysis is performed in two stages: first of all the prime factorisation of the RSA modulus is calculated using factorisation, and then in the second stage the secret key for encryption of the message is determined. After this, the ciphertext can be decrypted with the cracked secret key.</P>
+<P>The analysis is performed in two stages: first of all the prime factorization of the RSA modulus is calculated using factorization, and then in the second stage the secret key for encryption of the message is determined. After this, the ciphertext can be decrypted with the cracked secret key.</P>
 
 <OL>
-	<LI>Factorisation of the RSA modulus with the aid of prime factorisation:</LI>
+	<LI>Factorization of the RSA modulus with the aid of prime factorization:</LI>
 
 
-<P>To break down the natural number, select menu sequence <B>Indiv. Procedures \ RSA Cryptosystem \ <A href="hid_einzelverfahren_tutorialfrkleinezahlen_faktorisierenifp.html">Factorisation of a Number</A></B></P>
+<P>To break down the natural number, select menu sequence <B>Indiv. Procedures \ RSA Cryptosystem \ <A href="hid_einzelverfahren_tutorialfrkleinezahlen_faktorisierenifp.html">Factorization of a Number</A></B></P>
 
 <P><I>N </I>= 31313 into its prime factors p and q.</P>
 
 <P><IMG SRC="images/dialogfactorisation1.gif" ALT="dialogfactorisation1.gif" BORDER=0><BR>
 </P>
 
-<P>It is interesting to see which procedure broke down the RSA modulus the fastest (in this case it is the brute-force method). Copy the results of factorisation to a text field (mark the output and then use Ctrl+C to copy it to the clipboard).</P>
+<P>It is interesting to see which procedure broke down the RSA modulus the fastest (in this case it is the brute-force method). Copy the results of factorization to a text field (mark the output and then use Ctrl+C to copy it to the clipboard).</P>
 
 
-	<LI>Calculate the secret key d from the prime factorisation of N and the public key e:</LI>
+	<LI>Calculate the secret key d from the prime factorization of N and the public key e:</LI>
 
 
 <P>With knowledge of the prime factors p = 173 and q = 181 and the public key <I>e </I>= 4913, you are now in a position to decrypt the ciphertext:</P>
@@ -259,18 +259,18 @@ WLIFETURNEDOUTTOBEALOTLIKETHEOLDEXCEPTTHEWINTERSAREWORSEZ</CODE></PRE>
 
 <P><B><U>Cryptanalysis using CrypTool</U></B></P>
 
-<P>The analysis is performed in two stages: first of all the prime factorisation of the RSA modulus is calculated using factorisation, and then in the second stage the secret key for encryption of the message is determined. After this, the ciphertext can be decrypted with the cracked secret key.</P>
+<P>The analysis is performed in two stages: first of all the prime factorization of the RSA modulus is calculated using factorization, and then in the second stage the secret key for encryption of the message is determined. After this, the ciphertext can be decrypted with the cracked secret key.</P>
 
 <OL>
 
-<LI> Factorisation of the RSA modulus with the aid of prime factorisation:<BR>
-To break down the natural number, select menu sequence <B>Indiv. Procedures \ RSA Cryptosystem \ <A href="hid_einzelverfahren_tutorialfrkleinezahlen_faktorisierenifp.html">Factorisation of a Number</A></B><I> N </I>= 63978486879527143858831415041 into its prime factors p and q.<BR>
+<LI> Factorization of the RSA modulus with the aid of prime factorization:<BR>
+To break down the natural number, select menu sequence <B>Indiv. Procedures \ RSA Cryptosystem \ <A href="hid_einzelverfahren_tutorialfrkleinezahlen_faktorisierenifp.html">Factorization of a Number</A></B><I> N </I>= 63978486879527143858831415041 into its prime factors p and q.<BR>
 <BR>
 <IMG SRC="images/dialogfactorisation2.gif" ALT="dialogfactorisation2.gif" BORDER=0><BR>
 <BR>
-It is interesting to see which procedure broke down the RSA modulus the fastest (in this case it is the Quadratic Sieve). Copy the results of factorisation to a text field (mark the output and then use Ctrl+C to copy it to the clipboard).<BR><BR></LI>
+It is interesting to see which procedure broke down the RSA modulus the fastest (in this case it is the Quadratic Sieve). Copy the results of factorization to a text field (mark the output and then use Ctrl+C to copy it to the clipboard).<BR><BR></LI>
 
-<LI> Calculate the secret key d from the prime factorisation of N and the public key e:<br><BR>
+<LI> Calculate the secret key d from the prime factorization of N and the public key e:<br><BR>
 With knowledge of the prime factors p = 145295143558111 and q = 440334654777631 and the public key <I>e </I>= 17579, you are now in a position to decrypt the ciphertext: <BR><BR></LI>
 
 <OL type="a">
