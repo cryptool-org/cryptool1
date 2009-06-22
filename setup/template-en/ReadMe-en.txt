@@ -13,7 +13,7 @@
  1. .... Brief description of the CrypTool package
  1.1. .... How to start - An introduction to CrypTool
  1.2. .... Components of the CrypTool distribution
- 1.3. .... Acknowledgements
+ 1.3. .... Acknowledgments
  1.4. .... Maintainer and hosting
  2. .... What does CrypTool offer in detail
  2.1. .... What can you do with CrypTool
@@ -308,10 +308,10 @@ chapter 5 (see below in this ReadMe file).
 
 
 
-1.3. Acknowledgements
+1.3. Acknowledgments
      ----------------
 A big number of individuals (more than 100) have contributed to CrypTool,
-normally complimentarily in their free time (some are listed in the dialog
+normally complimentary in their free time (some are listed in the dialog
 box you get after double clicking the "About" dialog box).
 Where some of the developers/contributors live can be found at the new
 CrypTool website in the Google map (menu About -> Contributors).
@@ -543,7 +543,7 @@ The general properties and functions of CrypTool are:
   See chapter 3.2 and 4.4 for details.
 
 - The same menu structure is permanently visible: Items which cannot
-  be clicked for special document types are dynamically made grey.
+  be clicked for special document types are dynamically made gray.
 
 - The self-contained program AES-Tool can create self-extracting
   programs. So you can encrypt any file with the AES algorithm,
@@ -586,7 +586,7 @@ The general properties and functions of CrypTool are:
   The online help has HTML format.
   The online help contains explanations about the handling and about all
   the cryptographic methods, a historic overview and the integration into
-  further scientific and organisational topics plus how cryptography should
+  further scientific and organizational topics plus how cryptography should
   be used.
 
 - CrypTool is used world-wide in schools, universities, agencies and
@@ -630,7 +630,7 @@ in June 2009 using the files for the English, German and Polish version.
         399,181 TOTAL
 
     TOTAL: 399,181 lines of code (plus of 4.4 % from 382,244 with v1.4.21)
-    - Here only code written within the CrypTool project or explicitely
+    - Here only code written within the CrypTool project or explicitly
       dedicated to the CrypTool project is counted. Any sources used
       within the CrypTool project coming from other open source projects
       like OpenSSL, NTL, Scintilla, ... are not listed here.
@@ -781,7 +781,7 @@ a) Developer-relevant changes (more technically oriented):
 
 - Clearance of source code, better re-usage, many warnings eliminated.
 
-- Now compiled with VS2008 compiliert.
+- Now compiled with VS2008.
 
 - Update to Scintilla 1.7.7, to cv act library v. 1.3.0 for Vista, and
   to OpenSSL 0.9.8k.  xxxxxxxxxx
@@ -790,7 +790,7 @@ a) Developer-relevant changes (more technically oriented):
 b) Changes within the user documentation:
 
 - Online help: well enhanced (e.g. modi and padding variants used for block
-               ciphers now are described explicitely).
+               ciphers now are described explicitly).
 
 - From the CrypTool website links are set to the sites of the successor
   versions JCT1 and CT2, which always offer their current beta for download.
@@ -822,7 +822,7 @@ c) New functionality / Usability:
        the curve when adding points over the discrete group over F(p).
      - The coordinates dynamically shown at the points near the mouse cursor
        are now completely visible also at the right border.
-     - The point in inifinity is now added in the overall number of points.
+     - The point in infinity is now added in the overall number of points.
      - The log window now is amodal, resizable and the content is more
        well-arranged.
      - The version number now is 1.1 and it is shown in the title.
@@ -846,7 +846,7 @@ c) New functionality / Usability:
      was imported into the key store.
      This could involve using the wrong certificate when validating a message.
      Both are fixed: The serial numbers are no generated randomly and if a new
-     certificate is to be imported, first it is chcked whether its number is
+     certificate is to be imported, first it is checked whether its number is
      already generated. If so its rejected.
 
 - For all DES based methods now the dialogs show both the effectively used
@@ -854,7 +854,7 @@ c) New functionality / Usability:
 
 - Many small improvements in the masks (user interface), e.g. elapsed-time
   dialog for the AKS test; text in about box can be marked and copied; time and
-  numberof found factors are shown at one in the factorization dialog.
+  number of found factors are shown at one in the factorization dialog.
 
 - External PDFs on the internet now can be opened directly within the online help.
 
@@ -1199,7 +1199,7 @@ The RSA and ECC key created in the menu "PKI" are stored in the directory
 PSE (the keys of the classic methods are not permanently stored).
 From version 1.4.20 a user-specific directory is used as PSE directory
 (not the actual installation directory any more), to avoid access problems
-im multi-user environments.
+in multi-user environments.
 So CrypTool accesses its asymmetric keys and certificates by default from
 the user-application directory. When a user calls CrypTool the first time,
 it determines this directory using the environment variable APPDATA, and
@@ -1211,7 +1211,7 @@ benefits
   solved so [see chapter 4.5.b)], and
 - when a new installation is done, the user-individual keys are not overwritten.
 
-You can enforce the old behaviour if you set the registry entry
+You can enforce the old behavior if you set the registry entry
 HKEY_CURRENT_USER\Software\CrypTool\Settings\UserKeyStore\UseUserKeyStore
 to the value ‘0’ (this registry variable is visible after the first call of
 CrypTool).
@@ -1346,9 +1346,9 @@ CrypTool-en.chm .. HTML help archive containing the CrypTool online help
                    system in English.
 CrypTool-de.chm .. The German version of "CrypTool-en.chm".
 
-EC-Param.ini ..... Initialisation file for public-key procedures
+EC-Param.ini ..... Initialization file for public-key procedures
                    based on elliptic curves.
-TEST-Param.ini ... Initialisation file for random number tests. 
+TEST-Param.ini ... Initialization file for random number tests. 
 secude.dll ....... Library of cryptographic functions provided by
                    Secude IT Security GmbH.
 ticket ........... License for the Secude library.
@@ -1769,7 +1769,7 @@ CrypTool"].
 The "Touch Briefing Information Security" report 2006 contains the article
 "The CrypTool Project -- Improving Awareness and Education for Cryptology".
 Accessable via: http://www.touchbriefings.com/pdf/2259/esslinger.pdf
-Using the search keyswords "awareness cryptology" both google.de and
+Using the search keywords "awareness cryptology" both google.de and
 google.com afterwards listed this article at the top ranking.
 
 8.1.7. DFN-News, Edition 73 (April 2008)
@@ -1982,7 +1982,7 @@ Available with complete source code are:
   It is a GUI (looking like Microsoft's Visual Studio) offering 
   functions of the general purpose cryptographic open source library
   OpenSSL and using its command line tools. So the web page states: 
-  "Many of the CryptoStudio functionalities are a mere GUI wrapper of
+  "Many of the CryptoStudio functionality are a mere GUI wrapper of
   OpenSSL tools, intended to make those tools available also to 
   uninitiated users".
   Users can also find utilities for file encryption, basic s/mime mail
@@ -2076,7 +2076,7 @@ In general the biggest award for us is, if CrypTool is broadly used in
 education and training. Additionally we have been very glad about the many
 positive feedback we got so far.
 
-CrypTool was honoured with the following awards (see web page):
+CrypTool was honored with the following awards (see web page):
 
 - TeleTrusT Special Award
   The TeleTrusT Special Award for education about cryptography and 
@@ -2127,7 +2127,7 @@ A.2.2.2. .... Features, planned for the successor projects CT2 and JCT1
 A.1. Hints for using CrypTool on Linux with Wine
      -------------------------------------------
 Generally we do not aim to support Wine.
-Instead of that the platform independant version JCT also run under Linux
+Instead of that the platform independent version JCT also run under Linux
 (see chapter 3.5).
 
 The following hints are based on tests with Wine 0.9.9.
@@ -2283,7 +2283,7 @@ A.2.1.1. Functionality: Algorithms / Methods
 
 - Reveal the link between CrypTool (PKCS#12) and PGP by enabling the
   use of PGP keys within CrypTool.
-    Idea: Open private-key ring via a given password, analyse its 
+    Idea: Open private-key ring via a given password, analyze its 
     structure, get the private key (PGP sources are available) and 
     use this key, to decrypt PGP files with the algorithms implemented
     in CrypTool. This shows, that PGP also uses the standard algorithms.
@@ -2347,7 +2347,7 @@ A.2.1.2. Functionality: Analysis
   substitution.
 
 - Usage of algorithms from the area of AI (artificial intelligence) and
-  GP/GA (Genetic Programming/Algorithms) in order to analyse automatically
+  GP/GA (Genetic Programming/Algorithms) in order to analyze automatically
   (classical) encryption ciphers.
 
 - Mass pattern search: Implementation of an enhanced high performance
@@ -2382,7 +2382,7 @@ A.2.1.2. Functionality: Analysis
     key. Eventually show the top-10 most likely keys for a given length.
     Clicking at the displayed key proceeds the according
     decryption. Clicking an additional button performs the
-    decryptions for all displayed keys.
+    decryption for all displayed keys.
   - The analysis option "Show base ciphers" currently shows for
     each "column Caesar" the graphics correlation and histogram.
     Additionally the text for each column Caesar could be
@@ -2413,11 +2413,11 @@ A.2.1.3. Internal interfaces / Editors
 - At least in the successor projects: Make sure a separation of cryptographic
   functions from the user interface (this makes ports and debugging easier).
 
-- Enable customisation wherever possible:
+- Enable customization wherever possible:
   Offer an option to set e.g. initial vector, number of rounds, key
   length, word size or the kind of padding (e.g. for the RC5 algorithm,
   see RFC2040).
-  Then these additional customisations must become part of the
+  Then these additional customizations must become part of the
   format for the internal key storage.
 
 - Libraries for arbitrary length numbers and cryptography:
@@ -2560,7 +2560,7 @@ b)  Java-CrypTool (JCrypTool, JCT):
      showing that the new architecture concepts work.
      Milestone 2 (August 2008), 3 (December 2008), 4 and 4a (February 2009)
      already offer enough functionality to be applied by end users.
-   - Milenstone 5 is planned for August 2009.
+   - Milestone 5 is planned for August 2009.
    - Further developers, architects and designers for this project are very
      welcome.
    - For newbies, plus with an expert mode.
@@ -2646,7 +2646,7 @@ Features planned for the release version of the successor projects:
 - JCT  Entropy investigations
 - JCT  Analysis of transposition ciphers using the ACO algorithm
 - JCT  Visualization of zero-knowledge proofs
-- JCT  Commandline functionalty
+- JCT  Commandline functionality
 - JCT  Powerful action history and cascading possibility
 - JCT  Usage as a demonstrator for XML signatures
 - JCT  Cube attack on symmetric ciphers
