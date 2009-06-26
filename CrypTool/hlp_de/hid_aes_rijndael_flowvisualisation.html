@@ -1,9 +1,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
 <HEAD>
-<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Rijndael-Flussvisualisierung</TITLE>
-<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+	<TITLE>Rijndael-Flussvisualisierung</TITLE>
+	<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+	<script language="JScript" src="helper.js"></script>
 </HEAD>
 
 <!-- multiple keywords for CrypTool HTML help index -->
@@ -17,7 +18,30 @@
 
 <h3>Rijndael-Flussvisualisierung (Menü <a href="menu_related_methods.html">Einzelverfahren</a> \ Visualisierung von Algorithmen \ AES)</h3>
 
-<P>FIXME</P>
+<P>
+Die AES-Flussvisualisierung stellt die einzelnen Runden der AES-Verschlüsselung graphisch dar. Jedes Byte des 16-Bytes-Blocks, welcher mit einem 16 Byte Schlüssel (128 Bit) verschlüsselt wird, ist durch einen Farbstrom dargestellt, wobei die Farbe den aktuellen Wert wiederspiegelt (durch direkte Ableitung der RGB-Werte aus dem Zahlwert des Bytes). So kann man z.B. leicht verfolgen, wie ein Block aus lauter Nullen selbst bei einem Schlüssel aus lauter Nullen sehr schnell "bunt" wird. 
+</P>
+<P>
+Das Programm hat im oberen Teil Bedienköpfe, mit denen ein zufälliger Schlüssel und auch die Eingabedaten erzeugt werden können. Durch einen Klick auf die "Berechnen"-Schaltfläche wird die Visualisierung im unteren Bereich gestartet. Dort wird jeweils eine Runde von AES auf dem Bildschirm angezeigt, der nach Vollendung zur nächten Runde weiterscrollt.
+</P>
+</br>
+
+Die einzelnen Schritte, die visualisiert werden, sind:
+<ol>
+	<li>Addition der Rundenschlüssel</li>
+	<li>Ersetzungen mit Hilfe von S-Boxen</li>
+	<li>Vertauschungen innerhalb der Zeilen (ShiftRow)</li>
+	<li>Vermischungen innerhalb der Spalten (MixColumn)</li>
+</ol>
+
+</br>
+Eine genauere Beschreibung der einzelnen Schritte sowie weitere Dokumentation finden Sie unter:
+<ul>
+	<li>http://www-math.uni-paderborn.de/~aggathen/rijndael/2002/experimente.html</li>
+	<li>http://de.wikipedia.org/wiki/Advanced_Encryption_Standard</li>
+	<li>oder im beigelegten <A class="filelink" onclick="parser('rijndael-poster-a4.pdf')">Poster.</A>
+	    (Quelle: www-math.uni-paderborn.de/~aggathen/rijndael/2002/experimente.html)</li>
+</ul>
 
 </BODY>
 </HTML>
