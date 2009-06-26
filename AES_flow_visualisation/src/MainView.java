@@ -2,6 +2,7 @@ import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Checkbox;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Label;
@@ -26,7 +27,9 @@ public class MainView extends Container implements ActionListener, FinishListene
         Panel pi = new Panel();
         pi.setLayout( new FlowLayout() );
 
-        pi.add( new Label( Test.language.equalsIgnoreCase("DE") ? "Daten:" : "Data:") );
+        Label label = new Label( Test.language.equalsIgnoreCase("DE") ? "Daten:" : "Data:", Label.RIGHT);
+        label.setPreferredSize(new Dimension(65, 25));
+        pi.add( label );
         input = new TextField[16];
         int i;
         
@@ -44,7 +47,9 @@ public class MainView extends Container implements ActionListener, FinishListene
 
         Panel keyPanel = new Panel();
         keyPanel.setLayout( new FlowLayout() );
-        keyPanel.add( new Label( Test.language.equalsIgnoreCase("DE") ? "Schlüssel:" : "Key:") );
+        label = new Label( Test.language.equalsIgnoreCase("DE") ? "Schlüssel:" : "Key:", Label.RIGHT);
+        label.setPreferredSize(new Dimension(65, 25));
+        keyPanel.add( label );
 
         key = new TextField[16];
         int[] k = new int[16];

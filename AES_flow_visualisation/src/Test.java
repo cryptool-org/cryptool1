@@ -35,7 +35,7 @@ public class Test {
     		language = arg[0];
     	}
     	
-    	Frame frame = new Frame( language.equalsIgnoreCase("DE") ? "AES Flussvisualisierung" : "AES Flowvisualisation");
+    	Frame frame = new Frame( language.equalsIgnoreCase("DE") ? "AES-Flussvisualisierung" : "AES Flow Visualisation");
     	frame.setLayout( new BorderLayout() ); 
         frame.add( new MainView(), "Center" );  
         frame.setSize( 800, (int) (((float)800)*DrawScheme.HEIGHT/DrawScheme.WIDTH) );
