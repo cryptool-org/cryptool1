@@ -22,15 +22,15 @@
 				Angriff</A> (<!--ZZZPOPUP--><A href="knownplaintextangriff.html">Known-Plaintext-Angriff</A>) 
 			zur Verfügung. Das heißt, man muss der Funktion sowohl einen <!--ZZZPOPUP--><A href="klartext.html">Klartext</A>
 			als auch den mittels Hill-Verschlüsselungsverfahren <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A>
-			Text eingeben. Daraufhin ermittelt <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>
+			Geheimtext übergeben. Daraufhin ermittelt <!--ZZZPOPUP--><A href="cryptool.html">CrypTool</A>
 			den <!--ZZZPOPUP--><A href="schluessel.html">Schlüssel</A>, mit dem der 
 			Klartext verschlüsselt worden ist.
 		</P>
 		<P>Wie oben erwähnt, muss der automatischen Analyse sowohl der Klartext als auch 
 			der verschlüsselte Text bekannt sein. Einer der Texte muss im aktiven Fenster 
 			vor dem Aufruf der Funktion zur automatischen Analyse des 
-			Hill-Verschlüsselungsverfahrens vorhanden sein, der andere Text muss im <A href="hidd_hill_analysis.html">
-				Dialog Analyse Hill-Verschlüsselungsverfahren</A> eingegeben werden.</P>
+			Hill-Verschlüsselungsverfahrens vorhanden sein, der andere Text muss im Dialog <A href="hidd_hill_analysis.html">
+			Analyse Hill-Verschlüsselungsverfahren</A> eingegeben werden.</P>
 		<P>Die Analyse funktioniert wie folgt: CrypTool nimmt an, dass der Schlüssel die 
 			Dimension n x n (aus dem im Dialog <A href="hidd_hill_analysis.html">Analyse 
 				Hill-Verschlüsselungsverfahren</A> gewählten Bereich) hat. Nun werden der 
@@ -94,7 +94,7 @@
 			</TR>
 		</TABLE>
 		<BR>
-		<P>Da diese Matrix K invertierbar ist, kann das Produkt der Inversen Matrix von K 
+		<P>Da diese Matrix K invertierbar ist, kann das Produkt der inversen Matrix von K 
 			und der Matrix V berechnet werden und man erhält sofort den Schlüssel der 
 			Dimension 2 x 2:</P>
 		<TABLE cols="2" width="0*" class="pad10">
@@ -108,8 +108,9 @@
 			</TR>
 		</TABLE>
 		<BR>
-		<P>Damit erfolgt eine Ausgabe dieses Schlüssels im Dialog Schlüssel für Hill 
-			Verschlüsselungsverfahren.</P>
+		<P>Damit erfolgt eine Ausgabe dieses Schlüssels im Dialog Schlüssel 
+		für Hill-Verschlüsselungsverfahren.</P>
+		
 		<P>Die letzte mögliche Kombination von Blöcken wäre bei diesem Klartext und diesem 
 			verschlüsselten Text:</P>
 		<TABLE cols="4" width="0*" class="pad10">

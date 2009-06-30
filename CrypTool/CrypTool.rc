@@ -3605,7 +3605,7 @@ BEGIN
     EDITTEXT        IDC_FROM,46,263,245,14,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_TO,46,284,245,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "",IDC_DIST,85,230,8,8
-    CONTROL         "Ceasar",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,120,38,10
+    CONTROL         "Caesar",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,120,38,10
     CONTROL         "Rot-13",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,29,135,37,10
     EDITTEXT        IDC_MESSAGE_ROT13,188,166,114,30,ES_MULTILINE | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
     EDITTEXT        IDC_EDIT1,25,246,184,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
@@ -21303,7 +21303,7 @@ BEGIN
     IDS_SIMPLE_TRANSPOSITION_OFFSET_INVALID 
                             "Das eingestellte Offset ist ungültig. Es darf nicht kleiner als 0 sein."
     IDS_STRING_FACTORIZATION_BRUTE_FORCE_LIMIT 
-                            "Dieser Faktor konnte mit dem Brute-Force-Verfahren nicht zerlegt werden. Das Brute-Force-Verfahren ist hier so implementiert, dass es nur Faktoren kleiner %d findet."
+                            "Diese Zahl konnte mit dem Brute-Force-Verfahren nicht zerlegt werden. Das Brute-Force-Verfahren ist hier so implementiert, dass es nur Faktoren kleiner %d findet."
     IDS_CRYPT_SIMPLETRANSPOSITION "Einfache Transposition"
     IDS_STRING_ASYMKEY_ERR_CERT_SERIAL_EXISTS 
                             "Das Zertfikat kann nicht importiert werden, da bereits eines mit der gleichen Seriennummber vorhanden ist."
