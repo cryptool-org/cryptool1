@@ -1,7 +1,7 @@
 % $Id$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[a4paper,11pt]{article}
+\documentclass[a4paper,11pt,oneside]{book}
 \setlength{\fboxrule}{.5mm}
 \setlength{\fboxsep}{1.75mm}
 \setlength{\footnotesep}{6pt}
@@ -13,7 +13,7 @@
 \usepackage[pdftex]{graphicx}
 
 \usepackage[flushmargin]{footmisc}
-
+\usepackage{fullpage}
 % Literaturverzeichnis kapitelweise
 \usepackage[labelstoglobalaux]{bibunits} % ohne labelstoglobalaux scheint man thebibilograpy und bibtex nicht mischen zu können
 %\bibliographyunit[\section] % bibunits für das ganze Dokument aktivieren
@@ -23,8 +23,8 @@
 \makeindex
 \hypersetup{colorlinks=true}
 
-\setlength{\textwidth}{460 pt}
-\hoffset-0.7in
+% \setlength{\textwidth}{460 pt}
+% \hoffset-0.7in
 \newtheorem{definition}{Definition}[section]
 %\newcommand{\href}[2]{#2}
 \newcommand{\hypertag}[2]{#1}
@@ -40,15 +40,15 @@
 % Hack, damit Aufruf von \tableofcontents auch gleich \addcontentsline
 % enthält. Damit steht im Inhaltsverzeichnis das Inhaltsverzeichnis
 % mit korrekter Seitenzahl und Hyperlink.
-\makeatletter
-\renewcommand\tableofcontents{%
-    \section*{\contentsname
-        \@mkboth{%
-           \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
-    \addcontentsline{toc}{section}{\contentsname}
-    \@starttoc{toc}%
-    }
-\makeatother
+% \makeatletter
+% \renewcommand\tableofcontents{%
+%     \section*{\contentsname
+%         \@mkboth{%
+%            \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
+%     \addcontentsline{toc}{section}{\contentsname}
+%     \@starttoc{toc}%
+%     }
+% \makeatother
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -73,6 +73,8 @@ www.cryptool.org
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
+
+\frontmatter
 
 \pagestyle{plain}
 \setlength{\fboxrule}{.5mm}
@@ -121,6 +123,9 @@ documents. This licence is abutted on the GNU Free Documentation Licence.
 \parskip 4pt
 
 \input{chapters/introduction.tex}
+
+\mainmatter
+
 \input{chapters/cryptomethods.tex}
 \input{chapters/paper_and_pencil.tex}
 \input{chapters/primes.tex}
@@ -128,7 +133,7 @@ documents. This licence is abutted on the GNU Free Documentation Licence.
 \input{chapters/moderncryptography.tex}
 \input{chapters/digitalsignatures.tex}
 \input{chapters/ellipticcurves.tex}
-\bibliographyunit[\section]
+\bibliographyunit[\chapter]
 \bibliography*{../de/references}
 \bibliographystyle*{plain}
 \input{chapters/crypto2020.tex}
@@ -143,5 +148,3 @@ documents. This licence is abutted on the GNU Free Documentation Licence.
 \printindex
 
 \end{document}
-
-

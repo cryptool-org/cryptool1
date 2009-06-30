@@ -91,7 +91,7 @@
 \newpage
 %********************************************************************
 \hypertarget{Chapter_ModernCryptography}{}
-\section[The Mathematical Ideas behind Modern Cryptograph]
+\chapter[The Mathematical Ideas behind Modern Cryptograph]
         {The Mathematical Ideas behind Modern Cryptograph\footnotemark}
 \footnotetext{%
     \index{NT, Learning Tool for Number Theory}%
@@ -129,7 +129,7 @@
 
 %--------------------------------------------------------------------
 \hypertarget{OneWayFunktion1}{}
-\subsection{One way functions with trapdoor and complexity classes}
+\section{One way functions with trapdoor and complexity classes}
 \label{OneWayFunktion1}
 %--------------------------------------------------------------------
 \index{Cryptography!modern} \index{One way function}
@@ -256,12 +256,12 @@ with trapdoor, suggested by Ralph Merkle \cite{Merkle1978}.
 %\newpage
 \vskip +20 pt
 %--------------------------------------------------------------------
-\subsection{Knapsack problem as a basis for public key procedures}%
+\section{Knapsack problem as a basis for public key procedures}%
 \index{Cryptography!public key}
 %--------------------------------------------------------------------
 
 %--------------------------------------------------------------------
-\subsubsection{Knapsack problem}
+\subsection{Knapsack problem}
 \index{Knapsack}
 
 You are given $ n $ objects $ G_1, \dots, G_n $ with the weights $ g_1, \dots 
@@ -338,7 +338,7 @@ sequence in the timeframe of $ O(n). $
 
 \vskip +40 pt
 %--------------------------------------------------------------------
-\subsubsection{Merkle-Hellman knapsack encryption}
+\subsection{Merkle-Hellman knapsack encryption}
 %--------------------------------------------------------------------
 \index{Hellman, Martin} \index{Merkle, Ralph} 
 
@@ -399,13 +399,13 @@ by an evesdropper.
 
 
 %--------------------------------------------------------------------
-\subsection{Decomposition into prime factors as a basis for public key 
+\section{Decomposition into prime factors as a basis for public key
 procedures}\index{Prime factor!decomposition}
 
 
 %--------------------------------------------------------------------
 \hypertarget{RSAVerfahren}{}
-\subsubsection[The RSA procedure]
+\subsection[The RSA procedure]
 {The RSA procedure\footnote{%
 Please compare chapters \ref{rsabeweis}, ff.
 }$^,$\footnote{%
@@ -551,7 +551,7 @@ How easy it is to guess the future wrong is shown by the
 
 
 %--------------------------------------------------------------------
-\subsubsection{Rabin public key procedure (1979)}
+\subsection{Rabin public key procedure (1979)}
 
 In this case it has been shown that the procedure \index{Rabin, Michael O.} 
 \index{Rabin!public key procedure} is equivalent to breaking the factorisation problem. 
@@ -593,7 +593,7 @@ Backdoor information is the decomposition into prime numbers of $ n = pq. $
 \vskip +20 pt
 %--------------------------------------------------------------------
 \hypertarget{HT-Discrete-Logarithm-as-Basis}{}
-\subsection[The discrete logarithm as basis for public key procedures]
+\section[The discrete logarithm as basis for public key procedures]
            {The discrete logarithm as basis for public key procedures\footnotemark}
 \footnotetext{%
     \index{NT, Learning Tool for Number Theory}%
@@ -613,7 +613,7 @@ number of algorithms for public-key procedures.
 \index{Logarithm problem!discrete}
 
 %--------------------------------------------------------------------
-\subsubsection{The discrete logarithm in $ \Z_p $}
+\subsection{The discrete logarithm in $ \Z_p $}
 \label{L_Discrete_Logarithm}  %Die Kapitelnr von \label wird per per \ref geholt.
 
 Let $ p $ be a prime number and let $ g \in \Z_p^\ast=\{0,1,\ldots,p-1\} $. Then 
@@ -681,7 +681,7 @@ Index-Calculus) \index{General Number Field Sieve (GNFS)} and took about 17 CPU
 years on 3.2 GHz Xeon machines.
  
 %--------------------------------------------------------------------
-\subsubsection[Diffie-Hellman key agreement]
+\subsection[Diffie-Hellman key agreement]
 {Diffie-Hellman key agreement\footnotemark}
 \footnotetext{%
 With CrypTool\index{CrypTool} this exchange protocol has been
@@ -733,7 +733,7 @@ calculating the discrete logarithm mod $p$\index{Logarithm}. It is even thought 
 problems are equivalent.
 
 %--------------------------------------------------------------------
-\subsubsection{ElGamal public key encryption procedure in $ \Z_p^\ast$}
+\subsection{ElGamal public key encryption procedure in $ \Z_p^\ast$}
 \index{ElGamal!public key}
 By varying the Diffie-Hellman key agreement protocol \index{Diffie-Hellman} 
 \index{Encryption!ElGamal public key} slightly, you can obtain an 
@@ -767,7 +767,7 @@ and
 
 
 %--------------------------------------------------------------------
-\subsubsection{Generalised ElGamal public key encryption procedure}
+\subsection{Generalised ElGamal public key encryption procedure}
 
 The discrete logarithm can be generalised in any number of finite \index{Group} 
 groups $ (G, \circ) $. The following provides several properties of $ G, $ that 
@@ -897,7 +897,7 @@ encryption procedures.
 %--------------------------------------------------------------------
 \newpage
 \begin{thebibliography}{99}
-\addcontentsline{toc}{subsection}{Bibliography}
+\addcontentsline{toc}{section}{Bibliography}
 
    \bibitem[Adleman1982]{Adleman1982} \index{Adleman 1982}
        Adleman L.: \\ 
@@ -951,7 +951,8 @@ encryption procedures.
 
 
 %--------------------------------------------------------------------
-\section*{Web links} \addcontentsline{toc}{subsection}{Web links}
+\section*{Web links}
+\addcontentsline{toc}{section}{Web links}
 \begin{enumerate}
    \item \href{http://www.geocities.com/st_busygin/clipat.html}
               {http://www.geocities.com/st\_busygin/clipat.html }

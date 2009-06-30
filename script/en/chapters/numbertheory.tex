@@ -11,7 +11,7 @@
 
 \newpage
 \hypertarget{Chapter_ElementaryNT}{}
-\section{Introduction to Elementary Number Theory with Examples}
+\chapter{Introduction to Elementary Number Theory with Examples}
 \label{Chapter_ElementaryNT}
 (Bernhard Esslinger, July 2001; Updates: Dec. 2001, June 2002, May 2003,
  May 2005, March 2006, June 2007) \\
@@ -27,7 +27,7 @@ purpose to deliver all information that special monographs can be read.
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\subsection{Mathematics and cryptography}
+\section{Mathematics and cryptography}
 A large proportion of modern, asymmetric cryptography\index{Encryption!asymmetric} is based on mathematical knowledge -- on the properties 
 (``laws'') of whole numbers, which are investigated in elementary \index{Number theory!elementary} number 
 theory. Here, the word ``elementary'' means that questions raised in number theory are essentially rooted in the set 
@@ -117,7 +117,7 @@ mathematics.}}
 %\end{quote}
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\subsection{Introduction to number theory} \index{Number theory!introduction} 
+\section{Introduction to number theory} \index{Number theory!introduction}
 
 Number theory arose from interest in positive whole numbers $1, 2, 3, 4, \cdots$, also referred to as the set of natural numbers 
 \index{Number!natural} {\em natural numbers} $\mathbb{N}$. These are the first mathematical constructs 
@@ -175,7 +175,7 @@ This article only deals with the area of elementary number theory.
 
 % --------------------------------------------------------------------------
 \newpage
-\subsubsection{Convention}
+\subsection{Convention}
 Unless stated otherwise: 
 \begin{itemize}
 \item The letters $a, b, c, d, e, k, n, m, p, q$ are used to present whole numbers.
@@ -207,7 +207,7 @@ wizards haven't got an ounce of logic.}}
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\subsection{Prime numbers and the first fundamental theorem of elementary number theory}
+\section{Prime numbers and the first fundamental theorem of elementary number theory}
 \index{Number theory!elementary} Many of the problems in elementary number theory are concerned with prime 
 numbers.
 
@@ -311,7 +311,7 @@ chapter \ref{Label_Kapitel_2}} in this script.
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\subsection[Divisibility, modulus and remainder classes]
+\section[Divisibility, modulus and remainder classes]
            {Divisibility, modulus and remainder classes\footnotemark}
 \footnotetext{%
     \index{NT, Learning Tool for Number Theory}%
@@ -351,7 +351,7 @@ In our example therefore: $10 \!\!\not| 158$ but $2 | 158$.
 
 
 % --------------------------------------------------------------------------
-\subsubsection{The modulo operation -- working with congruence} \index{Congruence}
+\subsection{The modulo operation -- working with congruence} \index{Congruence}
 
 When we investigate divisibility, it is only the remainder of the division that is important. When dividing a 
 number $n$ by $m$, we often use the following notation:
@@ -450,10 +450,10 @@ the remainder when this number is divided by $m$. The result is that all results
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\subsection{Calculations with finite sets}
+\section{Calculations with finite sets}
 
 % --------------------------------------------------------------------------
-\subsubsection{Laws of modular calculations}
+\subsection{Laws of modular calculations}
 
 From algebra theorems it follows that essential parts of the conventional
 calculation rules are kept when we proceed to modular calculations over
@@ -510,7 +510,7 @@ $
 
 % --------------------------------------------------------------------------
 \hypertarget{Chapter_ElementaryNT_5_2}{}
-\subsubsection{Patterns and structures}
+\subsection{Patterns and structures}
 \label{Label_Chapter_ElementaryNT_5_2}
 
 In general mathematicians investigate ``Structures''\index{Structure}. They ask e.g. at $ a * x \equiv b $ mod $m$,
@@ -535,7 +535,7 @@ $x$ is the inverse of $a$ regarding this operation.
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 % \pagebreak
-\subsection{Examples of modular calculations}
+\section{Examples of modular calculations}
 
 As we have already seen:
 
@@ -554,7 +554,7 @@ when we divide $8$ by $5$.
 
 
 % --------------------------------------------------------------------------
-\subsubsection{Addition and multiplication} \index{Addition} \index{Multiplication}
+\subsection{Addition and multiplication} \index{Addition} \index{Multiplication}
 \label{addmult}
 
 The following shows
@@ -572,7 +572,7 @@ for mod $5$ and mod $6$.
 \end{itemize}
 
 % --------------------------------------------------------------------------
-\subsubsection*{Example of an addition table}
+\subsection*{Example of an addition table}
 The result when we add $3$ and $4 {\rm ~(mod~ } 5)$ is calculated as follows: Calculate $3 + 4 = 7$ and keep 
 subtracting $5$ from the result until the result is less than the modulo:  $7 - 5 = 2$. 
 Therefore:  $3 + 4 \equiv 2 {\rm ~(mod~ } 5)$.
@@ -592,7 +592,7 @@ Addition table modulo 5: \quad + &  0 & 1 & 2 & 3 & 4  \\
 \end{table}
 
 % --------------------------------------------------------------------------
-\subsubsection*{Example of a multiplication table:}
+\subsection*{Example of a multiplication table:}
 The result of the multiplication $4 * 4 {\rm ~(mod~ } 5)$ is calculated as follows: $4 * 4 = 
 16$ and subtract $5$ until the result is less than the modulus.
 $$16 - 5 = 11;~ 11 - 5 = 6;~6- 5 = 1.$$
@@ -614,7 +614,7 @@ Multiplication table modulo 5: \quad * & 1& 2 & 3 & 4  \\
 
 
 % --------------------------------------------------------------------------
-\subsubsection{Additive and multiplicative inverses}
+\subsection{Additive and multiplicative inverses}
 
 You can use the tables to read the inverses for each number in relation to addition and multiplication.
 
@@ -731,7 +731,7 @@ In the multiplication table mod $17$, the following was calculated for $i = 1, 2
 We need to {\bf find} the $i$ for which the product remainder $a*i$ modulo $17$
 with $a=5$ or $a=6$ has the value $1$. 
 
-\subsubsection*{Table 1: Multiplication table modulo $17$ (for $a=5$ and $a=6$)}\label{SrcArith1a}
+\subsection*{Table 1: Multiplication table modulo $17$ (for $a=5$ and $a=6$)}\label{SrcArith1a}
 \begin{center}
 \begin{tabular}{|l||@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}||@{\:}c@{\:}|@{\:}c@{\:}|}
 \hline 
@@ -754,7 +754,7 @@ also relatively prime\index{Relatively prime} to the modulus $m=17$.
 
 \vskip +20 pt
 
-\subsubsection*{Table 2: Multiplication table modulo $13$ (for $a=5$ and $a=6$)}\label{SrcArith1b}
+\subsection*{Table 2: Multiplication table modulo $13$ (for $a=5$ and $a=6$)}\label{SrcArith1b}
 \begin{center}                                                                          
 \begin{tabular}{|l||@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}||@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|}
 \hline 
@@ -779,7 +779,7 @@ $6$ are relatively prime to the modulus $m=13$.
 
 The following table contains an example, where the modulus $m$ and the number $a=6$ are {\em not} relatively prime.
 
-\subsubsection*{Table 3: Multiplication table modulo $12$ (for $a=5$ and $a=6$)}
+\subsection*{Table 3: Multiplication table modulo $12$ (for $a=5$ and $a=6$)}
 \begin{center}                                                                          
 \begin{tabular}{|l||@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}||@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|}
 \hline 
@@ -803,7 +803,7 @@ because $6$ and the modulus $m=12$ are not co-prime\index{Number!co-prime}.
 
 
 % --------------------------------------------------------------------------
-\subsubsection{Raising to the power} \index{Raising to the power} 
+\subsection{Raising to the power} \index{Raising to the power} 
 In modular arithmetic, raising to the power is defined as repeated multiplication -- as usual except that 
 multiplication is now slightly different.  We can even apply the usual rules, such as:
 \begin{eqnarray*}
@@ -869,7 +869,7 @@ $$
 % --------------------------------------------------------------------------
 \vskip +10pt
 \hypertarget{hohpot}{}
-\subsubsection{Fast calculation of high powers} \label{hohpot}\index{Power}
+\subsection{Fast calculation of high powers} \label{hohpot}\index{Power}
 %\subsubsection*{3.6.3.1 ~~~Fast calculation of high powers} \hypertarget{hohpot}{} \index{Power}
 %\addcontentsline{toc}{subsubsection}{~~~~~~~~~~3.6.3.1 ~Fast calculation of high powers}
 RSA encryption and decryption\footnote{See chapter \ref{rsabeweis} (Proof of the
@@ -926,7 +926,7 @@ This frequently used algorithm is called ``Square and Multiply''\index{Square an
 
 
 % --------------------------------------------------------------------------
-\subsubsection{Roots and logarithms} \index{Root} \index{Logarithm}
+\subsection{Roots and logarithms} \index{Root} \index{Logarithm}
 
 The inverses of the powers are also defined. The roots and logarithms are again whole numbers. Yet in contrast 
 to the usual situation, they are not only difficult to calculate but, in the case of large numbers, cannot be 
@@ -980,7 +980,7 @@ calculate $a^x$ with $a$ fixed) are therefore typical one way functions
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\subsection{Groups and modular arithmetic in $\mathbb{Z}_n$ and $\mathbb{Z}_n^*$}
+\section{Groups and modular arithmetic in $\mathbb{Z}_n$ and $\mathbb{Z}_n^*$}
 \index{Group}
 Mathematical ``{\em groups}'' play a decisive role in number theory and cryptography. We only talk of groups if, for a 
 defined set and a defined relation (an operation such as addition or multiplication), the following properties are fulfilled:
@@ -1007,7 +1007,7 @@ This value range is equivalent to the set $\mathbb{Z}_{2^{32}}$.
 
 
 % --------------------------------------------------------------------------
-\subsubsection{Addition in a group}\index{Addition} 
+\subsection{Addition in a group}\index{Addition} 
 
 If we define the operation mod+ on such a set where
 $$ a {\rm ~mod+~} b := (a + b){\rm ~(mod~}n) , $$
@@ -1025,7 +1025,7 @@ a)$, this structure \index{Structure} is actually a ``commutative group''.
 
 
 % --------------------------------------------------------------------------
-\subsubsection{Multiplication in a group}\index{Multiplication}
+\subsection{Multiplication in a group}\index{Multiplication}
 
 If we define the operation mod* on the set $\mathbb{Z}_n$ where
 $$ a {\rm ~mod*~} b := (a * b){\rm ~(mod~}n), $$
@@ -1113,11 +1113,11 @@ not rational, perhaps even {\bf irrational and thereby closer to reality}.}}
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \hypertarget{Chapter_ElementaryNT_8}{}
-\subsection{Euler function, Fermat's little theorem and Euler-Fermat}
+\section{Euler function, Fermat's little theorem and Euler-Fermat}
 
 % --------------------------------------------------------------------------
 \hypertarget{patternsandstructures}{}
-\subsubsection{Patterns and structures} \index{Structure}
+\subsection{Patterns and structures} \index{Structure}
 \label{patternsandstructures}
 As mathematicians investigate the structure $a *x \equiv b$ mod $m$
 (see \hyperlink{Chapter_ElementaryNT_5_2}
@@ -1130,7 +1130,7 @@ fixpoint\index{Fixpoint}).
 
 
 % --------------------------------------------------------------------------
-\subsubsection{The Euler function\index{Euler!(phi) function}}
+\subsection{The Euler function\index{Euler!(phi) function}}
 \label{L-Euler-Function}
 Given $n$, the number of numbers from the set $\{1, \cdots, n-1\}$ that are relatively prime to $n$ is equal to the value of 
 the Euler\footnote{Leonhard Euler, Swiss mathematician, Apr 15, 1707 -- Sep 18, 1783\index{Euler, Leonhard}
@@ -1181,7 +1181,7 @@ $$J(n) = [3^1 * 2] * [5^2 * 4] * [7^3 * 6] = 1,234,800.$$
 
 
 % --------------------------------------------------------------------------
-\subsubsection{The theorem of Euler-Fermat}\index{Euler, Leonhard}\index{RSA}
+\subsection{The theorem of Euler-Fermat}\index{Euler, Leonhard}\index{RSA}
 \label{Label_KleinerSatzFermat-chap3}
 In order to prove the RSA procedure, we need Fermat's theorem and its 
 generalisation (Euler-Fermat theorem) -- 
@@ -1227,7 +1227,7 @@ of a modular power very quickly. We have: $a^{(p-1)*(q-1)} \equiv 1 {\rm ~(mod~}
 
 
 % --------------------------------------------------------------------------
-\subsubsection{Calculation of the multiplicative inverse}
+\subsection{Calculation of the multiplicative inverse}
 
 Another interesting application is a special case of determining the multiplicative inverses using the Euler-Fermat 
 theorem (multiplicative inverses are otherwise determined using the extended Euclidean algorithm\index{Euclidean algorithm!extended}).
@@ -1253,7 +1253,7 @@ By cleverly breaking down the exponent, we can calculate this power relatively e
 
 
 % --------------------------------------------------------------------------
-\subsubsection{Fixpoints\index{Fixpoint} modulo 26}
+\subsection{Fixpoints\index{Fixpoint} modulo 26}
 
 According to theorem \ref{thm-zth-pot}, the arithmetic operations of modular expressions are performed in the exponents modulo $J(n)$ 
 rather than modulo $n$\footnote{For the following example, we will adopt the usual practice for the RSA procedure 
@@ -1299,7 +1299,7 @@ $$} (please compare requisition 3 in \hyperlink{Chapter_ElementaryNT_10_1}
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 %\pagebreak
 \hypertarget{Chapter_ElementaryNT_9}{}
-\subsection[Multiplicative order and primitive roots]
+\section[Multiplicative order and primitive roots]
            {Multiplicative order and primitive roots\footnotemark}
 \footnotetext{%
     \index{NT, Learning Tool for Number Theory}%
@@ -1345,7 +1345,7 @@ the table using Mathematica and Pari-GP.
 shows the values $a^i$ mod $11$ for the exponents $i = 1, 2, \cdots, 10$ and for the bases 
 $a =  1, 2, \cdots, 10$ as well as the resulting value $ord_{11}(a)$ for each $a$:
 
-\subsubsection*{Table 4: Values of $a^i {\rm ~mod~} 11,  1 \leq a,i<11$ and according order of $a$ mod $m$:}\label{SrcArith3a}
+\subsection*{Table 4: Values of $a^i {\rm ~mod~} 11,  1 \leq a,i<11$ and according order of $a$ mod $m$:}\label{SrcArith3a}
 \begin{center}
 \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
@@ -1397,7 +1397,7 @@ the table using Mathematica and Pari-GP.
 $a =  1, 2, \cdots, 12$ as well as the resulting value $ord_{45}(a)$ for each $a$:
 
 
-\subsubsection*{Table 5: Values of $a^i{\rm ~mod~}45, 1\leq a,i<13$:}\label{SrcArith3b}
+\subsection*{Table 5: Values of $a^i{\rm ~mod~}45, 1\leq a,i<13$:}\label{SrcArith3b}
 \begin{center}
 \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
@@ -1454,7 +1454,7 @@ The requirement/condition $gcd(7,46)=1$ is fulfilled.
 
 %\newpage
 \pagebreak
-\subsubsection*{Table 6: Values of $a^i{\rm ~mod~}46, 1\leq a,i<23$:}
+\subsection*{Table 6: Values of $a^i{\rm ~mod~}46, 1\leq a,i<23$:}
 \label{SrcArith3c}
 {\textmd \small
 \begin{center}  
@@ -1539,7 +1539,7 @@ The multiplicative group $Z_n^*$ contains all values from $1$ to $n-1$.
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \hypertarget{Chapter_ElementaryNT_10}{}
 \hypertarget{RSABeweis}{}
-\subsection{Proof of the RSA procedure with Euler-Fermat}
+\section{Proof of the RSA procedure with Euler-Fermat}
 \index{RSA}\label{rsabeweis}
 Using the Euler-Fermat theorem, we can ``prove'' the
 RSA\footnote{The RSA procedure\index{RSA!RSA procedure} is the most
@@ -1567,7 +1567,7 @@ procedure in the group $\mathbb{Z}_n^*$.
 
 % --------------------------------------------------------------------------
 \hypertarget{Chapter_ElementaryNT_10_1}{}
-\subsubsection{Basic idea of public key cryptography}
+\subsection{Basic idea of public key cryptography}
 \label{Label_Chapter_ElementaryNT_10_1}
 \index{Cryptography!public key}
 
@@ -1611,7 +1611,7 @@ discovered later by Rivest, Shamir and Adleman.
 
 % --------------------------------------------------------------------------
 \hypertarget{RSA}{}
-\subsubsection{How the RSA procedure works}
+\subsection{How the RSA procedure works}
 \label{RSA}
 The individual steps for implementing the \index{RSA} RSA procedure can be described as follows (see \cite[p. 213 ff]{Eckert2003}\index{Eckert 2003} and 
 \cite[p. 338 ff]{Sedgewick1990}\index{Sedgewick 1990}). 
@@ -1706,7 +1706,7 @@ Concrete for the RSA method does this mean:
 
 % --------------------------------------------------------------------------
 \hypertarget{RSAproof}{}
-\subsubsection{Proof of requirement 1 (invertibility)}
+\subsection{Proof of requirement 1 (invertibility)}
 \label{RSAproof}
 
 For pairs of keys $(n, e)$ and $(n, d)$ that possess fixed properties in steps 1 to 3 of the RSA procedure, 
@@ -1779,7 +1779,7 @@ $$
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \hypertarget{SecurityRSA}{}
-\subsection[Considerations regarding the security of the RSA algorithm]
+\section[Considerations regarding the security of the RSA algorithm]
 {Considerations regarding the security of the RSA algorithm\footnotemark}
     \footnotetext{Major
     parts of chapters \ref{complexity} and \ref{chptSecurityParam} follow
@@ -1811,7 +1811,7 @@ two points.
 
 
 % --------------------------------------------------------------------------
-\subsubsection{Complexity}\label{complexity}\index{Complexity}
+\subsection{Complexity}\label{complexity}\index{Complexity}
 
 Successful decryption or forgery of a signature --- without knowing the
 private key --- requires calculating the $e$-th root mod $n$.  The private
@@ -1864,7 +1864,7 @@ Please refer to: {\em Handbook of Applied Cryptography} \cite{Menezes2001}.
 
 % --------------------------------------------------------------------------
 \vskip +40pt
-\subsubsection{Security parameters because of new algorithms}
+\subsection{Security parameters because of new algorithms}
 \label{chptSecurityParam}
 
 %\vskip +15 pt
@@ -1951,7 +1951,7 @@ can be found in the diploma thesis of Matthias Schneider \cite{SchneiderM2004}.
 
 % --------------------------------------------------------------------------
 \vskip +40pt
-\subsubsection{Forecasts about factorization of large integers}
+\subsection{Forecasts about factorization of large integers}
 \index{Factorisation!forecast}
 
 Within the last 20 years a lot of progress has been made. Estimations about
@@ -2024,7 +2024,7 @@ of 1024 bit can be expected in 15 years.
   Hermann Hesse, German/Swiss writer and Nobel Prize winner, July 2, 1877 $-$ August 9, 1962.}
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-\subsubsection{Status regarding factorisation of concrete large numbers}
+\subsection{Status regarding factorisation of concrete large numbers}
 \label{NoteFactorisation}
 
 An exhaustive overview about the factoring records
@@ -2476,7 +2476,7 @@ $$ 663 ~~ \longleftrightarrow{} ~~ 30,402,457 ~~~~~$$
 
 % --------------------------------------------------------------------------
 \vskip +60pt
-\subsubsection{Further current research about primes and factorisation}
+\subsection{Further current research about primes and factorisation}
 \label{FactorisationResearch}
 Prime numbers are part of very many topical research areas in number theory
 and computer science. Progress made with factorisation is bigger than was
@@ -2696,7 +2696,7 @@ last chapter ``Dobby's reward'', p.~245, by Dumbledore.}
 %\end{quote}
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\subsection{Applications of asymmetric cryptography using numerical examples}
+\section{Applications of asymmetric cryptography using numerical examples}
 
 The results of modular arithmetic are used extensively in \index{Cryptography!modern} modern cryptography. Here we will provide a few examples from 
 cryptography using small\footnote{In the RSA procedure, we call numbers ``small'' if the bit lengths are much less than $1024$ 
@@ -2719,7 +2719,7 @@ The essential reason for this is that subtraction is just as simple an operation
 
 % --------------------------------------------------------------------------
 \hypertarget{OneWayFunktion2}{}%
-\subsubsection{One way functions}\index{One way function}
+\subsection{One way functions}\index{One way function}
 \label{OneWayFunktion2}%
 If the key is to be impossible to determine even with knowledge of both the 
 plaintext and the cipher text, we need a function that is, on the one hand, 
@@ -2741,7 +2741,7 @@ us much about the function as a whole (in contrast to addition and multiplicatio
 
 
 % --------------------------------------------------------------------------
-\subsubsection{The Diffie-Hellman key exchange protocol}
+\subsection{The Diffie-Hellman key exchange protocol}
 \index{Diffie, Whitfield} 
 \index{Hellman, Martin} 
 \index{Key agreement (key exchange)!Diffie-Hellman}
@@ -2887,13 +2887,13 @@ For Bob: $11 ^ y \equiv 285 {\rm ~(mod~}347)$, that means $\log_{11}(285){\rm ~(
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \hypertarget{Chapter_ElementaryNT_12}{}
-\subsection{The RSA procedure with actual numbers}
+\section{The RSA procedure with actual numbers}
 \label{rsaconcrete}\index{RSA}
 Having described above \hyperlink{RSA}{how the RSA procedure works}, we will now work through the steps using actual, but small, numbers.
 
 
 % --------------------------------------------------------------------------
-\subsubsection{RSA with small prime numbers and with a number as message}
+\subsection{RSA with small prime numbers and with a number as message}
 
 Before applying the RSA procedure to a text, we will first demonstrate it
 directly using a single number as message\footnote{Using CrypTool\index{CrypTool} you can solve this with the menu 
@@ -2923,7 +2923,7 @@ We will now apply the RSA procedure to a text, first using the upper case alphab
 
 
 % --------------------------------------------------------------------------
-\subsubsection[RSA with slightly larger primes and an upper-case message]{RSA with slightly larger primes and a text of upper case letters}
+\subsection[RSA with slightly larger primes and an upper-case message]{RSA with slightly larger primes and a text of upper case letters}
 \label{rsaex2}
 
 We have the text ``ATTACK AT DAWN'' and the characters are coded in the following simple manner\footnote{Using
@@ -3001,7 +3001,7 @@ If $n$ is a $768$-bit number, there is, according to present knowledge, little c
 
 
 % --------------------------------------------------------------------------
-\subsubsection{RSA with even larger primes and a text made up of ASCII characters}
+\subsection{RSA with even larger primes and a text made up of ASCII characters}
 
 In real life, the ASCII alphabet is used to code the individual characters of the message as $8$-bit numbers.
 
@@ -3043,7 +3043,7 @@ Factorisation of a Number}.}. \\
 
 
 % --------------------------------------------------------------------------
-\subsubsection*{Variant 1: All ASCII characters are en-/decrypted separately (no blocks\index{Block length} are formed).}
+\subsection*{Variant 1: All ASCII characters are en-/decrypted separately (no blocks\index{Block length} are formed).}
 
 {\bf 4. Encryption}:\\
 {\tt
@@ -3086,7 +3086,7 @@ Each character is decrypted using: $M \equiv C^{231,953}{\rm ~mod~}256,027$: \\
 
 
 % --------------------------------------------------------------------------
-\subsubsection*{Variant 2: The ASCII characters are en-/decrypted two at a time as blocks.}
+\subsection*{Variant 2: The ASCII characters are en-/decrypted two at a time as blocks.}
 
 In variant 2 the block formation is done in two different sub-variants: (4./5. and 4'./5'.).
 
@@ -3157,7 +3157,7 @@ Each block is decrypted using: $M \equiv C^{2473}{\rm ~(mod~}67,519)$: \\
 
 
 % --------------------------------------------------------------------------
-\subsubsection{A small RSA cipher challenge (1)} \index{RSA!cipher challenge}
+\subsection{A small RSA cipher challenge (1)} \index{RSA!cipher challenge}
 
 The task is taken from \cite[Exercise 4.6]{Stinson1995}\index{Stinson 1995}:
 The pure solution has been published by Prof. Stinson at 
@@ -3264,7 +3264,7 @@ TABLE 4.2\footnote{The numbers of this table are in the online-help ``Example il
 
 
 % --------------------------------------------------------------------------
-\subsubsection{A small RSA cipher challenge (2)} \index{RSA!cipher challenge}
+\subsection{A small RSA cipher challenge (2)} \index{RSA!cipher challenge}
 
 The following task is a corrected version from the book written by Prof. Yan 
 \cite[Example 3.3.7, p. 318]{Yan2000}\index{Yan 2000}.
@@ -3321,7 +3321,7 @@ This needs to be stressed because the type of padding is extremely important dur
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
 \begin{thebibliography}{99999}
-\addcontentsline{toc}{subsection}{Bibliography}
+\addcontentsline{toc}{section}{Bibliography}
 
 \bibitem[Agrawal2002]{Agrawal2002}  \index{Agrawal 2002} 
     M. Agrawal, N. Kayal, N. Saxena, \\
@@ -3525,7 +3525,8 @@ This needs to be stressed because the type of padding is extremely important dur
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
-\subsection*{Web links}\addcontentsline{toc}{subsection}{Web links}
+\section*{Web links}
+\addcontentsline{toc}{section}{Web links}
 
 \begin{enumerate}
    \item \hypertarget{knott}{}  \index{Knott, Ron}
@@ -3618,7 +3619,8 @@ This needs to be stressed because the type of padding is extremely important dur
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \vskip +20 pt
-\subsection*{Acknowledgments} \addcontentsline{toc}{subsection}{Acknowledgments}
+\section*{Acknowledgments}
+\addcontentsline{toc}{section}{Acknowledgments}
 
 I would like to take this opportunity to thank 
 \begin{itemize}
@@ -3641,7 +3643,7 @@ I would like to take this opportunity to thank
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
 \hypertarget{Appendix_A}{}
-\subsection*{Appendix A: The greatest common divisor (gcd) of whole
+\section*{Appendix A: The greatest common divisor (gcd) of whole
              numbers \index{gcd} and the two algorithms of Euclid%
 \footnote{%
     \index{NT, Learning Tool for Number Theory}%
@@ -3656,7 +3658,7 @@ b) how Euklid's enhanced algorithm finds the multiplicative inverse
     See appendix \ref{s:appendix-Learn-NT}.
 }}
 \label{Appendix_A}
-\addcontentsline{toc}{subsection}{Appendix A: gcd of whole numbers and the two
+\addcontentsline{toc}{section}{Appendix A: gcd of whole numbers and the two
 algorithms of Euclid}\index{Euclidean algorithm!extended}\index{Gcd}
 
 \begin{enumerate}
@@ -3754,8 +3756,8 @@ Thus
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
 \hypertarget{Appendix_B}{}
-\subsection*{Appendix B: Forming closed sets}
-\addcontentsline{toc}{subsection}{Appendix B: Forming closed sets}
+\section*{Appendix B: Forming closed sets}
+\addcontentsline{toc}{section}{Appendix B: Forming closed sets}
 
 The property of closeness \index{Closeness} is always defined in relation to an operation in a set.
 The following shows how to construct the ``closed set'' $G$ with respect to the operation $+ {\rm ~(mod~} 8)$ for a given initial set $G_0$:
@@ -3777,8 +3779,8 @@ G_3 & = & G_2 {\rm --- we~say:~} G_2 {\rm~is~closed~for~addition~~(mod~}8). \non
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \vskip +60pt
 \hypertarget{Appendix_C}{}
-\subsection*{Appendix C: Comments on modulo subtraction}
-\addcontentsline{toc}{subsection}{Appendix C: Comments on modulo subtraction}
+\section*{Appendix C: Comments on modulo subtraction}
+\addcontentsline{toc}{section}{Appendix C: Comments on modulo subtraction}
 Comment on subtraction modulo 5: $2 - 4 = -2 \equiv 3{\rm ~mod~}2$.
 It is therefore not true modulo $5$ that $-2 = 2$ ! People often make the mistake of equating this. You can show this clearly if you place the permutation $(0, 1, 2, 3, 4)$ in $\mathbb{Z}_5$, for example from $-11$ to $+11$, over the range of numbers in $\mathbb{Z}$.
 
@@ -3789,9 +3791,9 @@ It is therefore not true modulo $5$ that $-2 = 2$ ! People often make the mistak
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
 \hypertarget{Appendix_D}{}
-\subsection*{Appendix D: Base representation of numbers,
+\section*{Appendix D: Base representation of numbers,
              estimation of length of digits}
-\addcontentsline{toc}{subsection}{Appendix D: Base representation and base
+\addcontentsline{toc}{section}{Appendix D: Base representation and base
                  transformation of numbers, estimation of length of digits}
 
 For a given number $z$ one may ask how to represent such a number. In general
@@ -3810,7 +3812,7 @@ any positive integer and how to determine the number of required digits
 via the logarithm function.
 
 
-\subsubsection*{$b$-adic sum representation of positive integers}
+\subsection*{$b$-adic sum representation of positive integers}
 Given base $b$, each positive integer $z$ can be represented as a $b$-adic
 sum  $$ z = a_nb^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0, $$ where
 $a_i \in \{0, 1, \dots, b-1\}, \; i=0,1,\dots, n$ are called {\em digits}.
@@ -3833,7 +3835,7 @@ Base $b = 16$: $FE70A = 15\cdot16^4 + 14\cdot 16^3 + 7\cdot 16^2 + 0\cdot 16^1 +
 
 
 \vskip +20 pt
-\subsubsection*{Number of digits to represent a positive integer}
+\subsection*{Number of digits to represent a positive integer}
 For a positive integer $z$ the length of the $b$-adic representation can be determined via the 
 following steps. Starting from the inequality $b^{n+1} > z \ge b^n$ 
 we have --- after applying the logarithm function on basis $b$\footnote{%
@@ -3862,7 +3864,7 @@ $$l_{10}(z) = \lfloor \log_{10}(z) \rfloor + 1 = \lfloor \ln (z) / \ln(10) \rflo
 
 
 \vskip + 20 pt
-\subsubsection*{Algorithm to compute the base representation}
+\subsection*{Algorithm to compute the base representation}
 Given the number $z$ one can compute the base $b$ representation of $z$ using the following algorithm
 
 \begin{tabbing}
@@ -3901,8 +3903,8 @@ therefore $z = 35189$.
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
 \hypertarget{Appendix_E}{}
-\subsection*{Appendix E: Examples using Mathematica and Pari-GP}
-\addcontentsline{toc}{subsection}{Appendix E: Examples using Mathematica and Pari-GP}
+\section*{Appendix E: Examples using Mathematica and Pari-GP}
+\addcontentsline{toc}{section}{Appendix E: Examples using Mathematica and Pari-GP}
 \index{Mathematica}\index{Pari-GP}
 
 This appendix contains the source code to compute the tables and examples using
@@ -3910,7 +3912,7 @@ the computer algebra systems\index{CAS} Mathematica and Pari-GP (free software).
 
 
 \hypertarget{AppArith1}{}
-\subsubsection*{Multiplication table modulus $m$}
+\subsection*{Multiplication table modulus $m$}
 The multiplication tables modulo $m = 17$ for $a=5$ and $a=6$ on page \pageref{SrcArith1a} 
 can be computed in Mathematica with the following commands: 
 \begin{verbatim}
@@ -3958,7 +3960,7 @@ and {\tt m=12} respectively.
 
 
 \hypertarget{AppArith2}{}
-\subsubsection*{Fast exponentiation}
+\subsection*{Fast exponentiation}
 
 The fast exponentiation modulo $m$ belongs to the built in functions of Mathematica and Pari-GP.
 Using those programs you can comprehend the idea of the square and multiply method. With Mathematica
@@ -4048,7 +4050,7 @@ matrix(23,24, x,y,
 
 
 
-\subsubsection*{RSA examples}
+\subsection*{RSA examples}
 
 This section list the source code of the RSA examples in
 section~\ref{rsaconcrete} (``The RSA procedure with actual numbers'') using
@@ -4109,8 +4111,8 @@ RSA encryption with Pari-GP: \\
 % \vskip +12pt
 \newpage
 \hypertarget{Appendix_F}{}  %\hypertarget{AppendixListAndDef}{}
-\subsection*{Appendix F: List of the formulated definitions and theorems}
-\addcontentsline{toc}{subsection}{Appendix F: List of the formulated definitions and theorems}
+\section*{Appendix F: List of the formulated definitions and theorems}
+\addcontentsline{toc}{section}{Appendix F: List of the formulated definitions and theorems}
 \vskip +8 pt
 \begin{center}
 \begin{tabular}{|l|l|l|}\hline

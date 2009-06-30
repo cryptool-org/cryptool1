@@ -6,7 +6,7 @@
 \newpage
 % --------------------------------------------------------------------------
 \hypertarget{Chapter_Hashes-and-Digital-Signatures}{}
-\section{Hash Functions and Digital Signatures}
+\chapter{Hash Functions and Digital Signatures}
 \label{Chapter_Hashes-and-Digital-Signatures}
 \index{Signature!digital}
 (Schneider J. / Esslinger B. / Koy H., June 2002;
@@ -98,7 +98,7 @@ artificial intelligence.\\}
 
 % --------------------------------------------------------------------------
 \hypertarget{Hash-functions-ht}{}
-\subsection{Hash functions}
+\section{Hash functions}
 \index{Hash function}
 A {\em hash function}\footnote{%
 Hash algorithms compute a condensed representation of electronic data
@@ -118,7 +118,7 @@ the \index{Hash value} hash value.
 
 % --------------------------------------------------------------------------
 \vskip + 15pt
-\subsubsection{Requirements for hash functions}
+\subsection{Requirements for hash functions}
 
 Cryptographically secure hash functions fulfill the following requirements
 (the order is in a way that the requirements increase):
@@ -146,7 +146,7 @@ Cryptographically secure hash functions fulfill the following requirements
 
 % --------------------------------------------------------------------------
 \vskip + 15pt
-\subsubsection{Current attacks against hash functions like SHA-1}
+\subsection{Current attacks against hash functions like SHA-1}
 \label{collision-attacks-against-sha-1}
 
 So far, no formal proof has been found that perfectly secure cryptographic
@@ -240,7 +240,7 @@ by Reinhard Wobst and J\"urgen Schmidt\footnote{%
 
 % --------------------------------------------------------------------------
 \vskip + 15pt
-\subsubsection{Signing with hash functions}
+\subsection{Signing with hash functions}
 The signature procedure with hash functions is as follows:\footnote{% 
 Compare: \href{http://en.wikipedia.org/wiki/Digital\_signature}
       {\texttt{http://en.wikipedia.org/wiki/Digital\_signature}}.
@@ -271,7 +271,7 @@ is called Public Key Certification.
 
 % --------------------------------------------------------------------------
 \vskip + 15pt
-\subsection{RSA signatures}
+\section{RSA signatures}
 \index{Signature!digital}
 \index{RSA!signature}
 
@@ -305,7 +305,7 @@ to get the details of cryptography right.
 
 % --------------------------------------------------------------------------
 \vskip + 15pt
-\subsection{DSA signatures}
+\section{DSA signatures}
 \index{Signature!digital}
 \index{DSA!signature}
 
@@ -369,7 +369,7 @@ used to emulate RSA and ElGamal encryption.
 
 % --------------------------------------------------------------------------
 \vskip + 15pt
-\subsection{Public key certification}
+\section{Public key certification}
 \index{Certification!public key}
 \index{PKI}
 The aim of public key certification is to guarantee the connection between a
@@ -381,7 +381,7 @@ cryptographic modules cannot be broken.
 
 % --------------------------------------------------------------------------
 \vskip + 15pt
-\subsubsection{Impersonation attacks}\label{Impersonalisierungsattacke}
+\subsection{Impersonation attacks}\label{Impersonalisierungsattacke}
 \index{Impersonation attack}
 Assume Charlie has two pairs of keys (PK1, SK1) and (PK2, SK2), where SK denotes
 the secret key and PK the public key. Further assume that he manages to palm off
@@ -417,7 +417,7 @@ certification method is the X.509 standard.
 
 % --------------------------------------------------------------------------
 \vskip + 15pt
-\subsubsection{X.509 certificate}
+\subsection{X.509 certificate}
 \index{X.509} 
 Each participant who wants to have an X.509 certificate (\cite{X.509})
 verifying that his public key belongs to a real person consults what is
@@ -451,7 +451,7 @@ available publicly.
 
 \newpage
 \begin{thebibliography}{99999}
-\addcontentsline{toc}{subsection}{Bibliography}
+\addcontentsline{toc}{section}{Bibliography}
 
 \bibitem[FIPS180-2]{FIPS180-2} U.S. Department of Commerce/N.I.S.T. ,
     \index{FIPS180-2} \\
