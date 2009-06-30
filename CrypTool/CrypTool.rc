@@ -30811,7 +30811,7 @@ BEGIN
     IDS_STRING_FMT_HRS      " %2i:%02.2i:%02.2i hours."
     IDS_STRING_FMT_MIN      " %2i:%02.2i minutes."
     IDS_STRING_FMT_DAYS     " %4i days, %02.2i:%02.2i:%02.2i hours."
-    IDS_STRING_FMT_SEC      " %2i,%03.3i seconds."
+    IDS_STRING_FMT_SEC      " %2i.%03.3i seconds."
     IDS_STRING_RSADEMO_MODUL_KLEIN_NUM 
                             "The RSA encryption of numbers into text is incorrect, since the number of characters in the alphabet (here %i) is larger than the size of the RSA Modul (here N=%s).\nPlease modify the alphabet in ""options for alphabet and number-system..."" or chooses larger prime nunmbers."
     IDS_CRYPT_RSADEMO_HEADER_ENTERPRIME "Prime number entry"
