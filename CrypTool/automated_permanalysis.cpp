@@ -24,139 +24,77 @@
 #include "resource.h"
 #include "FileTools.h"
 
+int compare(perm_table &ptPlain, perm_table &ptCipher, unsigned int px, unsigned int cx)
+{
+	if ( ptCipher.getSize() - cx < ptPlain.getSize(px) -1 )
+		return 0;
+	for ( unsigned int i=1; i<=ptPlain.getSize(px); i++ )
+		if ( ptPlain.permDir == row_dir ) { if ( ptPlain.get(px, i) != ptCipher.get(cx-1+i) ) return 0; }
+		else                              { if ( ptPlain.get(i, px) != ptCipher.get(cx-1+i) ) return 0; }
+	return 1;
+}
+
+int compare(perm_table &ptPlain, perm_table &ptCipher, unsigned int px, unsigned int rx, unsigned int ur)
+{
+	for ( unsigned int i=1; i<=ptPlain.getSize(px); i++ )
+	{
+		unsigned int p, o = ptPlain.size/ptPlain.permSize ;
+		p = ( i > o ) ? o*ptPlain.permSize + ur : rx+(i-1)*ptPlain.permSize;
+		if ( p > ptCipher.size ) return 0;
+		if ( ptPlain.permDir == row_dir ) { if ( ptPlain.get(px, i) != ptCipher.get(p) ) return 0; }
+		else                              { if ( ptPlain.get(i, px) != ptCipher.get(p) ) return 0; }
+	}
+	return 1;
+}
+
+//////////////////////////////////////////////////////////////////////
+// Precheck: Check if Histogram(data1) == Histogram(data2)
+int  cmpHistogram(char *data1, char *data2, size_t size)
+{
+	size_t hist1[256], hist2[256], i;
+	memset(hist1, '\0', 256*sizeof(size_t));
+	memset(hist2, '\0', 256*sizeof(size_t));
+	for (i=0; i<size; i++)
+	{
+		hist1[(unsigned char)data1[i]]++;
+		hist2[(unsigned char)data2[i]]++;
+	}
+	return memcmp(hist1, hist2, 256*sizeof(size_t));
+}
+
+///////////////////////////////////////////////////////////////////////
+//
 perm_table::perm_table() :
 	data(0),
 	permSize(0),
 	size(0),
 	readDir(row_dir),
-	permDir(row_dir),
-	ofsList(0)
+	permDir(row_dir)
 {
 }
 
-int  perm_table::loadFile(const char *filename, int TEXTMODE, unsigned int REFSIZE)
+int  perm_table::loadFile(const char *filename, int TEXTMODE)
 {
 	if ( data )
 	{
 		delete []data; data = 0; size = 0;
 	}
+
 	int tSize;
 	int ret = readSource( filename, data, tSize, TEXTMODE );
-	size = (int)tSize;
-	if ( REFSIZE ) 
-	{
-		if ( size > REFSIZE )
-			ret = -1;
-		else
-			refSize = REFSIZE;
-	}
-	else refSize = size;
+	size = (unsigned int)tSize;
+
 	return ret;
 }
 
 perm_table::~perm_table()
 {
 	delete []data;
-	delete []ofsList;
-}
-
-void perm_table::setParam(int READDIR, int PERMDIR, unsigned int PERMSIZE, int ofsKnown) 
-{ 
-	readDir		= READDIR; 
-	permDir		= PERMDIR; 
-	permSize	= PERMSIZE;
-
-	delete []ofsList;
-	ofsList = new unsigned int[permSize+1];
-
-	ofsList[0] = (ofsKnown) ? permSize : 0;
-	ofsList[1] = 0;
-	for (unsigned int i=2; i<=permSize; i++)
-		ofsList[i] = (ofsKnown) ? ofsList[i-1] + size/permSize + (i <= size%permSize) : 0;
-}
-
-int perm_table::get(int r, int c)
-{
-	if ( ofsList[0] < permSize ) 
-		return TABLE_ERROR;
-
-	unsigned int ndx = 0;
-	int dRowCol, rc, cr;
-	if ( permDir == col_dir )
-	{ 
-		dRowCol = col_dir; rc = r; cr = c;
-	}
-	else
-	{	
-		dRowCol = row_dir; rc = c; cr = r;
-	}
-
-	if ( readDir == dRowCol )
-		ndx = (rc-1)*permSize + (cr-1);
-	else
-		ndx = ofsList[cr] + (rc-1);
-
-	ASSERT( 0 <= ndx && ndx < refSize );
-	return (ndx < size) ? data[ndx] : CHR_UNDEFINED;
-}
-
-int perm_table::get(unsigned int c)
-{
-	ASSERT( 1<=c && c<=refSize );
-	return (c<=size) ? data[c-1] : CHR_UNDEFINED;
-}
-
-int perm_table::findStr (const int *str, int *permTable)
-{
-	unsigned int i, j;
-	int marker = 0;
-	for (j=1; j<=permSize; j++) if ( permTable[j] <= 0 )
-	{
-		int found = 1;
-		for (i=1; i<=refSize/permSize + (unsigned int)(j <= (refSize%permSize)) && found; i++)
-		{
-			unsigned int jj, ii;
-			jj = ( permDir == row_dir ) ? j : i;
-			ii = ( permDir == row_dir ) ? i : j;
-			if ( (get( jj, ii ) != str[i-1]) )
-			{
-				if ( get(jj, ii) == CHR_UNDEFINED || str[i-1] == CHR_UNDEFINED )
-					found = -1;
-				else
-					found = 0; 
-			}
-		}
-		if ( found == 1 )
-			return j;
-		if ( found == -1 && !marker )
-			marker = -1*((int)j);
-	}
-	return marker;
-}
-
-void perm_table::buildStr(int *str, unsigned int ofs, unsigned int lastStep)
-{
-	unsigned int i;
-	if ( readDir == permDir )
-	{
-		for (i=ofs; i<ofs+(refSize/permSize); i++)
-			str[i-ofs] = get(i);
-		if ( (i<refSize) && (refSize%permSize) )
-			str[i-ofs] = get(i);
-	}
-	else
-	{
-		unsigned int k = ofs;
-		for (i=0; i<(refSize/permSize); i++,k+=permSize)
-			str[i] = get(k);
-		if ( lastStep ) 
-			str[i] = get(k + lastStep);
-	}
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
-permkey::permkey(int *perm_key, int perm_size, 
+permkey::permkey(unsigned int *perm_key, unsigned int perm_size, 
 		int dir_plain, int dir_cipher, int dir_perm, permkey *nxt ) 
 {
 	next		= nxt;
@@ -175,11 +113,112 @@ permkey::~permkey()
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
+// FIXME 
+int automated_permanalysis::found( unsigned long t_ndx, unsigned long p_ndx, char *rem, unsigned int *pk, unsigned int extra )
+{
+	if ( extra && !(ptPlain.size % ptPlain.permSize) )
+		return 0;
+	unsigned int i = (extra) ? 1                               : ptPlain.size % ptPlain.permSize +1;
+	unsigned int j = (extra) ? ptPlain.size % ptPlain.permSize : ptPlain.permSize;
+	for ( ; i<=j; i++ )
+		if ( rem[i] && compare( ptPlain, ptCipher, i, t_ndx ) )
+		{
+			pk[i]  = p_ndx;
+			rem[i] = 0;
+			return i;
+		}
+	return 0;
+}
+
+int automated_permanalysis::seek_linear( int f, unsigned long t_ndx, unsigned long p_ndx, char *rem, unsigned int *pk )
+{	
+	if ( !f )
+		return 0;
+	unsigned int el = ptPlain.size / ptPlain.permSize;
+	if ( t_ndx > ptPlain.size ) 
+		if ( p_ndx > ptPlain.permSize ) return 1;
+		else	                        return 0;
+	if ( seek_linear( found( t_ndx, p_ndx, rem, pk, 0), t_ndx+el  , p_ndx+1, rem, pk) )
+		return 1;
+	if ( seek_linear( found( t_ndx, p_ndx, rem, pk, 1), t_ndx+el+1, p_ndx+1, rem, pk) )
+		return 1;
+	rem[f] = 1;
+
+	return 0;
+}
+
+int automated_permanalysis::found_s( unsigned long p_ndx, unsigned long ur, char *rem, unsigned int *pk, unsigned int extra )
+{
+	if ( extra && !(ptPlain.size % ptPlain.permSize) )
+		return 0;
+	unsigned int i = (extra) ? 1                               : ptPlain.size % ptPlain.permSize +1;
+	unsigned int j = (extra) ? ptPlain.size % ptPlain.permSize : ptPlain.permSize;
+	for ( ; i<=j; i++ )
+		if ( rem[i] && compare( ptPlain, ptCipher, p_ndx, i, ur) )
+		{
+			pk[i]  = p_ndx;
+			rem[i] = 0;
+			return i;
+		}
+	return 0;
+}
+
+int automated_permanalysis::seek_scattered( int f, unsigned long p_ndx, unsigned long ur, char *rem, unsigned int *pk )
+{	
+	if ( !f )
+		return 0;
+	unsigned int el = ptPlain.size / ptPlain.permSize;
+	if ( p_ndx > ptPlain.permSize ) 
+		return 1;
+	if ( seek_scattered( found_s( p_ndx, ur, rem, pk, 0), ur,   p_ndx+1, rem, pk) )
+		return 1;
+	if ( seek_scattered( found_s( p_ndx, ur, rem, pk, 1), ur+1, p_ndx+1, rem, pk) )
+		return 1;
+	rem[f] = 1;
+
+	return 0;
+}
+
+
+
+int automated_permanalysis::analyse(unsigned int permSize, int it_plain, int it_perm, int it_cipher)
+{
+	ptPlain.setParam (it_plain,  it_perm, permSize, 1);
+	ptCipher.setParam(it_cipher, it_perm, permSize, 0);
+
+	char			*rem = new char[permSize+1];
+	unsigned int	*pk  = new unsigned int[permSize+1];
+	memset(rem, 1, permSize+1);
+	memset(pk,  0, (permSize+1)*sizeof(unsigned int));
+
+	if ( it_perm == it_cipher )
+	{
+		if ( seek_linear( 1, 1, 1, rem, pk ) )
+		{
+			keyList = new permkey(pk, permSize, it_plain, it_cipher, it_perm, keyList);
+			delete []rem;
+			return 1;
+		}
+	}
+	else
+	{
+		if ( seek_scattered( 1, 1, 1, rem, pk ) )
+		{
+			keyList = new permkey(pk, permSize, it_plain, it_cipher, it_perm, keyList);
+			delete []rem;
+			return 1;
+		}
+	}
+
+	delete []rem;
+	delete []pk;
+	return 0; 
+}
 
 automated_permanalysis::automated_permanalysis()
 {
 	keyList		= 0;
-	refSize	= 0;
+	size	    = 0;
 	rangePlain	= both_dir;
 	rangePerm	= both_dir;
 	rangeCipher = both_dir;
@@ -197,19 +236,29 @@ automated_permanalysis::~automated_permanalysis()
 
 int automated_permanalysis::setFilenames( const char *fn_plain, const char *fn_cipher, int TEXTMODE, int refPlain )
 {
+	int error = 0;
 	if ( refPlain )
 	{ // FIXME ERROR
-		ptPlain.loadFile(fn_plain, TEXTMODE);
-		refSize = ptPlain.getSize();
-		ptCipher.loadFile(fn_cipher, TEXTMODE, refSize);
+		error = ptPlain.loadFile(fn_plain, TEXTMODE);
+		if ( error ) return error;
+		size = ptPlain.getSize();
+		error = ptCipher.loadFile(fn_cipher, TEXTMODE);
 	}
 	else
 	{ // FIXME ERROR
-		ptCipher.loadFile(fn_plain, TEXTMODE);
-		refSize = ptCipher.getSize();
-		ptPlain.loadFile(fn_cipher, TEXTMODE, refSize);
+		error = ptCipher.loadFile(fn_plain, TEXTMODE);
+		if ( error ) return error;
+		size = ptCipher.getSize();
+		error = ptPlain.loadFile(fn_cipher, TEXTMODE);
 	}
-	return 1; // FIXME 
+	if ( !error )
+	{
+		if (ptCipher.getSize() != ptPlain.getSize() ) 
+			return 1; // different file sizes
+		if ( cmpHistogram(ptPlain.data, ptCipher.data, ptCipher.getSize()) )
+			return 2; // different histograms
+	}
+	return error;  
 }
 
 int automated_permanalysis::setAnalyseParam(int ps_lowerLimit, int ps_upperLimit, int range_plain, int range_perm, int range_cipher)
@@ -224,7 +273,7 @@ int automated_permanalysis::setAnalyseParam(int ps_lowerLimit, int ps_upperLimit
 		return IDS_PA_DIRECTION_ERROR; //ERROR Muss hier ein ERROR geworfen werden wenn wir eh nur die 3 zur auswahl haben und 2 der default ist und wir nicht unter 0 kommen???
 
 	if (ps_upperLimit == -1)
-		psUpperLimit = refSize;
+		psUpperLimit = size;
 	else
 		psUpperLimit = ps_upperLimit;
 
@@ -233,80 +282,6 @@ int automated_permanalysis::setAnalyseParam(int ps_lowerLimit, int ps_upperLimit
 	rangePerm	 = range_perm;
 	rangeCipher	 = range_cipher;
 	return 0;
-}
-
-int automated_permanalysis::get_key(unsigned int permSize, int it_perm)
-{
-	int found = 1;
-
-	unsigned int j, ofs = 0, lastStep = permSize, incr = 1;
-	int *str  = new int[ptPlain.getSize()/permSize +1];
-	int *perm = new int[permSize+1];
-	for ( j=1; j<=permSize; j++ )
-	{
-		ptCipher.buildStr(str, ofs, lastStep);
-		int index = ptPlain.findStr(str, perm);
-		if ( index != 0 )
-		{
-			perm[j] = index;
-			if ( index < 0 )
-				index *= -1;
-			if ( index <= (int)permSize )
-				lastStep--;
-			ASSERT(lastStep >= 0);
-		}
-		else
-			break;
-		ofs += incr + ( (ptCipher.permDir != ptCipher.readDir) && (index <= (int)permSize) );
-	}
-
-#if 0
-	int* key = new int[permSize];
-	bool* used_in_key = new bool [permSize];
-
-	memset(used_in_key, false, permSize*sizeof(bool));// If not used = false
-
-	int i, j;
-	for (i=0; i<permSize; i++)// "i" goes through the column table_plain
-	{
-		for (j=0; j<permSize; j++)// "j" goes through the column in table_cipher
-		{
-		// Column "i" from table "table_plain" is compared with column "j" in "table_cipher"
-		// We check if "j" is already entered into the array "used_in_key[]"
-			if(!used_in_key[j] && !(memcmp(ptPlain.table[i], ptCipher.table[j], ptCipher.colSize)))
-				break;
-		}
-		// The result "j" is saved in the array "key[]" 
-		if(j == permSize)// If with go through to the table no column are found
-		{
-			found = 0;
-			break;
-		}
-		used_in_key[j] = true;
-		key[i] = j+1;
-	}
-
-	if ( found )
-	{
-		permkey *newKey;
-		newKey = new permkey(key, permSize, ptPlain.dir, ptCipher.dir, it_perm, keyList);
-		keyList = newKey;
-		
-	}
-	else
-		delete []key;
-
-	delete []used_in_key;
-#endif 
-	return found;
-}
-
-int automated_permanalysis::analyse(unsigned int permSize, int it_plain, int it_perm, int it_cipher)
-{
-	ptPlain.setParam (it_plain, it_perm, permSize, 1);
-	ptCipher.setParam(it_cipher, it_perm, permSize, 0);
-	get_key( permSize, it_perm );
-	return 0; 
 }
 
 inline 
@@ -320,7 +295,7 @@ int automated_permanalysis::iterate_key_param()
 	int permSize;
 	int it_perm, it_cipher;
 
-	for(permSize=psUpperLimit; permSize>=psLowerLimit; permSize--)
+	for(permSize=psLowerLimit; permSize<=psUpperLimit; permSize++)
 		for ( it_perm = row_dir; it_perm <= col_dir; it_perm++ ) if (check(it_perm, rangePerm))
 			for (it_cipher = row_dir; it_cipher <= col_dir; it_cipher++ ) if (check(it_cipher, rangeCipher ))
 				analyse(permSize, ( it_perm == col_dir ) ? col_dir : row_dir, it_perm, it_cipher);

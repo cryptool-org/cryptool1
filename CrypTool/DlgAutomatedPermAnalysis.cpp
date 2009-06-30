@@ -270,8 +270,8 @@ void CDlgAutomatedPermAnalysis::OnBnClickedCompute()
 
 	automated_permanalysis analysis;
 	int id_error;
-	if ( (id_error = analysis.setFilenames( (m_refTextType) ? fn_source : fn_reference,
-											(m_refTextType) ? fn_reference : fn_source, m_DataType, m_refTextType)) )
+	if ( (id_error = analysis.setFilenames( (!m_refTextType) ? fn_source : fn_reference,
+											(!m_refTextType) ? fn_reference : fn_source, m_DataType, m_refTextType)) )
 	{
 		Message(id_error, MB_ICONSTOP);
 		return;

@@ -28,15 +28,14 @@
 
 enum direction { row_dir = 0, col_dir = 1, both_dir = 2 };
 
+//////////////////////////////////////////////////////////////////////
+// virtual permutation table
 class perm_table {
 
 public:
 	char		   *data;
 	unsigned int    size;
-	unsigned int    refSize;
-
 	unsigned int    permSize;
-	unsigned int   *ofsList;
 
 	int				readDir;
 	int				permDir;
@@ -44,36 +43,68 @@ public:
 public: 
 	perm_table();
 	~perm_table();
+	int  loadFile(const char *filename, int TEXTMODE);
 
-	int  loadFile(const char *filename, int TEXTMODE, unsigned int REFSIZE = 0);
-	void setParam(int READDIR, int PERMDIR, unsigned int PERMSIZE, int ofsKnown);
-	unsigned int  getSize() { return refSize; }
+	void setParam(int READDIR, int PERMDIR, unsigned int PERMSIZE, int noPermutation)
+	{ readDir = READDIR; permDir = PERMDIR; permSize = PERMSIZE; }
+	unsigned int getSize() 
+	{ return size; }
+	unsigned int getSize(unsigned int ndx)
+	{
+		unsigned int l = size/permSize;
+		if (ndx <= size % permSize) l++;
+		return l;
+	}
 
-	int  get		(int r, int c);
-	int  get		(unsigned int c);
-	int  findStr (const int *str, int *permTable);
-	void buildStr(int *str, unsigned int ofs, unsigned int lastStep);
+	unsigned int  get(unsigned int c)
+	{ 
+		ASSERT( 1<=c && c<=size ); 
+		unsigned int ret = data[c-1]; 
+		return ret;
+	}
+	int  get(unsigned int r, unsigned int c)
+	{
+		unsigned int x, p = size/permSize, q = size % permSize;
+		if ( permDir == row_dir )
+			if ( readDir == row_dir ) { x = (r <= q) ? r-1 : q; x += (r-1)*p + c; }
+			else                      { x = (c-1)*permSize + r; }
+		else
+		{
+			if ( readDir == col_dir ) { x = (c <= q) ? c : q; x += (c-1)*p + r; }
+			else                      { x = (r-1)*permSize + c; }
+		}
+		return get(x);
+	}
 };
 
+///////////////////////////////////////////////////////////////////////////
+// List of permutation key candidates
 struct permkey {
 	permkey *next;
-	int  permSize;
-	int *permKey;
+	unsigned int  permSize;
+	unsigned int *permKey;
 	int  dirPlain, dirCipher, dirPerm;
-	permkey(int *perm_key, int perm_size, 
+	permkey(unsigned int *perm_key, unsigned int perm_size, 
 		int dir_plain, int dir_cipher, int dir_perm, permkey *nxt );
 	~permkey();
 };
 
-
+//////////////////////////////////////////////////////////////////////////
+//
 class automated_permanalysis {
 	int			 psUpperLimit, psLowerLimit;
-	int    	     rangePlain, rangeCipher, rangePerm, refSize;
+	int    	     rangePlain, rangeCipher, rangePerm, size;
 	permkey     *keyList;
 	perm_table   ptPlain, ptCipher;
 
-	int get_key(unsigned int permSize, int it_perm);
 	int analyse(unsigned int permSize, int it_plain, int it_perm, int it_cipher);
+
+	int found( unsigned long t_ndx, unsigned long p_ndx, char *rem, unsigned int *pk, unsigned int extra );
+	int seek_linear   ( int f, unsigned long t_ndx, unsigned long p_ndx, char *rem, unsigned int *pk );
+
+	int found_s( unsigned long p_ndx, unsigned long ur, char *rem, unsigned int *pk, unsigned int extra );
+	int seek_scattered( int f, unsigned long p_ndx, unsigned long ur,    char *rem, unsigned int *pk );
+
 public:
 	automated_permanalysis();
 	~automated_permanalysis();
