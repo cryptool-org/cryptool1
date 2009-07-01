@@ -36,10 +36,10 @@ methods\footnote{Always added with links to further information.} each with
 references to deeper information.
 All techniques that people can apply manually to en- and decipher a message are 
 embraced by this term. These methods were and still are especially popular with
-secret services, as a writing pad and a pencil -- in contrast to electronical
+secret services, as a writing pad and a pencil -- in contrast to electronic
 aids -- are totally unsuspicious.
 
-The first paper- and pencilmethods already arose about 3000 years ago, but new
+The first paper- and pencil methods already arose about 3000 years ago, but new
 procedures were developed during the past century, too. All paper and pencil 
 methods are a matter of symmetric methods\index{Encryption!symmetric}. 
 Even the earliest encryption algorithms use the basic principles such as 
@@ -47,7 +47,7 @@ transposition, substitution, block construction and their combinations.
 Hence it is worthwhile to closely consider this ``ancient'' methods especially
 under didactic aspects.
 
-Methods to be successful and wide-spreaded had to fulfill some attributes which are equally required for modern algorithms:
+Methods to be successful and wide-spread had to fulfill some attributes which are equally required for modern algorithms:
 \begin{itemize}
 \item Exhaustive description, almost standardisation (including special cases,
       padding, etc.).
@@ -63,11 +63,11 @@ Methods to be successful and wide-spreaded had to fulfill some attributes which 
 
 Encrypting a message by means of transposition\index{Transposition} does not 
 change the original characters of this message, only their order is modified
-(transposition = exchange)\footnote{Another name uesed for transposition is
+(transposition = exchange)\footnote{Another name used for transposition is
 permutation\index{Permutation}.}.
 
 %------------------------------------------------------------------------------
-\subsection{Introductionary samples of different transposition ciphers}
+\subsection{Introductory samples of different transposition ciphers}
 \label{introsamplesTranspositionCiphers}
 
 \begin{itemize}
@@ -76,14 +76,14 @@ permutation\index{Permutation}.}.
    you can simulate this method under the menu {\bf Crypt/Decrypt \textbackslash{} 
    Symmetric (classic) \textbackslash{} Permutation}: for a railfence with
    2 lines use as key ``B,A'' and accept the default settings (only one
-   permutation, where your input is done line-by-line and the ouput is
+   permutation, where your input is done line-by-line and the output is
    taken column-by-column). 
    Using the key ``A,B'' would start the zigzag pattern below in the
    way, that the first letter is written into the first line instead of the
    second line.}
    \cite{Singh2001}\index{Railfence cipher}:
    The characters of a message are alternately written in two (or more) lines,
-   creating a zigzag pattern. The resulting cihpertext is read out 
+   creating a zigzag pattern. The resulting ciphertext is read out 
    line by line.\\
    This is more a children's method.
 
@@ -103,7 +103,7 @@ permutation\index{Permutation}.}.
 
    Ciphertext\footnote{The letters of the cleartext are -- as used 
    historically -- grouped within blocks of 5 letters. It does not matter
-   if the (constant) blocklength is different or no blank is inserted.}%
+   if the (constant) block length is different or no blank is inserted.}%
    : NXMLO TASOI INAEA PEFRN PSTO\\
 
 
@@ -121,7 +121,7 @@ permutation\index{Permutation}.}.
    once it is a simple (and no double) permutation.}
    \cite{Singh2001}\index{Scytale}%
    : 
-   This metod was probably used since 600 B.C. -- a description
+   This method was probably used since 600 B.C. -- a description
    of how it operated is not known from before Plutarch (50-120 B.C.).\\
    A long strip of paper is wrapped around a wooden cylinder and then the 
    message is written along the length of this strip. The ciphertext is 
@@ -293,7 +293,7 @@ under the menu {\bf Crypt/Decrypt \textbackslash{} Symmetric (classic)
    substituted by codewords which are recorded in codebooks together with
    the existing routes.
    A route determines the size of a grille and the pattern that is used to 
-   read out the ciphertext. Aditionally, a number of filler words is defined.
+   read out the ciphertext. In addition, a number of filler words is defined.
 
 \item {\bf Nihilist Transposition} \cite{ACA2002}\index{Nihilist transposition}: 
    Insert the plaintext into 
@@ -576,7 +576,7 @@ remains unchanged during the whole process of encryption.
    A grille is filled with the alphabet (number of columns = length of
    keyword), and two arbitrary digits are chosen as reserved to indicate the
    second and third line of a 3x10-matrix (see above). Now the grille is
-   traversed column by column and the single letters are transfered row by
+   traversed column by column and the single letters are transferred row by
    row into the matrix: 
    For a faster encryption, the eight most common letters (ENIRSATO) are 
    assigned the digits from 0 to 9, the reserved 2 digits are not assigned. 
@@ -645,7 +645,7 @@ remains unchanged during the whole process of encryption.
    The different letters of a keyword are inserted first, followed by the
    remaining letters. The last column is left out. Plaintext characters
    are substituted with numbers, the number of the last column is used to
-   seperate words.\\
+   separate words.\\
 
 
 \item {\bf Baconian Cipher} \cite{ACA2002}\index{Baconian Cipher}: 
@@ -721,7 +721,7 @@ character of the plaintext alphabet is assigned several ciphertext characters.
 \subsection{Polygraphic substitution ciphers}
 \label{polygraphicSubstitutionCiphers}
 
-Polygraphic techniques\index{Substitution!polygraphic} do not work by replacing single characters, but by replacing whole groups of characters. In most cases, these groups are digramms, trigramms or syllables.
+Polygraphic techniques\index{Substitution!polygraphic} do not work by replacing single characters, but by replacing whole groups of characters. In most cases, these groups are diagrams, trigrams or syllables.
 
 \begin{itemize}
 \item {\bf ``Great Chiffre''} \cite{Singh2001}: This cipher was used by 
@@ -751,8 +751,8 @@ Polygraphic techniques\index{Substitution!polygraphic} do not work by replacing 
            the replacement letters are obtained by scanning along the row of 
            the first letter up to the column where the other letter occurs 
            and vice versa.
-	\item Double letters are treated by special rules, if they apear in one
- 	   diagraph. They can be seperated by a filler, for example.
+	\item Double letters are treated by special rules, if they appear in one
+ 	   diagraph. They can be separated by a filler, for example.
    \end{enumerate}
 
    See table \ref{Playfair-table-reference}.
@@ -915,7 +915,7 @@ Concerning polyalphabetic substitution\index{Substitution!polyalphabetic}, the a
 
 
 \begin{itemize}
-	\item {\bf Interrupted key:} The key is not repeated continously,
+	\item {\bf Interrupted key:} The key is not repeated continuously,
 	 but starts again with every new word of the message. \\
 
 	\item {\bf Autokey} \cite{Savard1999}: After using the agreed key,
@@ -986,7 +986,7 @@ Concerning polyalphabetic substitution\index{Substitution!polyalphabetic}, the a
    Then number the plaintext characters, starting the numeration of the first
    word with ``1'', the numeration of the second one with ``2'' and so forth.
    Number 25 corresponds to number 1. Each letter of the message is encrypted
-   by shifting it the corresponding postions to the right.
+   by shifting it the corresponding positions to the right.
 
    alphabet: KEYWORDABCFGHILMNPSTUVXZ\\
    \begin{table}[h]
@@ -1138,7 +1138,7 @@ previous mentioned methods.
    and write down the column number. Then look up the second letter in the
    vertical alphabet and write down the corresponding line number. Between
    these two numbers, the number at the intersection point is set. Afterwards,
-   the tripel are written vertically underneath the digraphs that are arranged
+   the triple are written vertically underneath the digraphs that are arranged
    in groups of three. The three digit numbers arising horizontally are 
    transformed back into digraphs.
 
@@ -1146,7 +1146,7 @@ previous mentioned methods.
    cleartext characters. For a complete description, it is necessary to
    explain how sender and receiver handle texts which fill in the last block
    only 1-5 characters. The possibilities range from ignoring a last and
-   incomplete block to padding it with randome characters or with characters
+   incomplete block to padding it with random characters or with characters
    predefined in advance.
 
    See table \ref{Digrafid-table-reference}.
@@ -1203,7 +1203,7 @@ previous mentioned methods.
 
    See table \ref{Nicodemus-table-reference}.
 	
-   Plaintext: combining substitution and transpositio
+   Plaintext: combining substitution and transposition
 
    \begin{table}[h]
    \begin{center}
@@ -1255,8 +1255,8 @@ previous mentioned methods.
 
 \item {\bf Card games} \cite{Savard1999}: The key is created by means of a
    pack of cards and rules that are agreed upon in advance. All methods
-   mentioned in this paragraph are designed as paper- and pencilmethods,
-   i.e. they are applicable without electronical aid. A pack of cards is
+   mentioned in this paragraph are designed as paper- and pencil methods,
+   i.e. they are applicable without electronic aid. A pack of cards is
    unsuspicious to outsiders, shuffling the deck provides a certain amount
    of coincidence, cards can be transformed into numbers easily and a
    transposition cipher can be carried out without any further aid.
@@ -1292,11 +1292,11 @@ previous mentioned methods.
                your first keystream character. As we need numbers from 1 to 26
                to match the letters of our alphabet, clubs and hearts
                correspond to the numbers 1 to 13, diamonds and spades to 14
-               to 26. If your output card is a jocker, start again.
+               to 26. If your output card is a joker, start again.
          \end{enumerate}
 	 For each keystream character you like to generate, these six steps 
          have to be carried out. This procedure is -- manually -- very lengthy
-         (4 h for 300 characters, dependant on your excercise) and requires
+         (4 h for 300 characters, dependant on your exercise) and requires
          high concentration.
 
          Encryption takes place by addition modulo 26. Encryption is
@@ -1338,7 +1338,7 @@ previous mentioned methods.
    \end{itemize}
 
 \item {\bf VIC cipher} \cite{Savard1999}: This is a highly complicated but
-   relatively secure paper- and pencilmethod. It has been developed and
+   relatively secure paper- and pencil method. It has been developed and
    applied by Soviet spies. Amongst other things, the user had to create
    ten pseudo-random numbers out of a date, the first words of a sentence
    and any five-digit number. A straddling checkerboard is part of the

@@ -91,7 +91,7 @@ meant. However, it is not yet clear whether the ASC-curves will become a de
 facto standard.
 
 Although we see no need to replace RSA in any application today\footnote{%
-Current informationen about the security of the RSA algorithm can be found in 
+Current information about the security of the RSA algorithm can be found in 
 chapter \ref{SecurityRSA}.}, one should
 take the usage of ECC-based tools into consideration whenever a new system
 is set up --- in particular, when the tool should be available beyond 2005\footnote{%
@@ -292,7 +292,7 @@ b & 0 & b & 1 & a \\
 $  \\
 }.
 
-One can show that the order of any field is a prime power (i.e. the power of a prime number). On the other hand, we can construct a field with $p^n$ elements for any given prime $p$ and positive integer $n$. Since two fields that have the same number of elements can not be distinguished\footnote{If $K,K'$ are fields with $k=p^n$ elements, then there is a one-to-one map $\varphi:K\to K'$, that respects the arithmetic of the field. Such a map is called an isomorphy. Isomorphic fields mathematically behave in the same way so that dass it makes no sense to distinguish between them. For example, ${\mathbb Z}_2$ und $K'=\{ ZERO,ONE\}$ with zero-element $ZERO$ and one-element $ONE$ are isomorphic. We note that mathematical objects are only defined by their mathematical properties.}, we say that there is {\bf the field with $p^n$ elements} and denote it by $GF(p^n)$. Here $GF$ stands for {\it Galois Field} to commemorate the French Mathematician Galois.
+One can show that the order of any field is a prime power (i.e. the power of a prime number). On the other hand, we can construct a field with $p^n$ elements for any given prime $p$ and positive integer $n$. Since two fields that have the same number of elements can not be distinguished\footnote{If $K,K'$ are fields with $k=p^n$ elements, then there is a one-to-one map $\varphi:K\to K'$, that respects the arithmetic of the field. Such a map is called an isomorphy. Isomorphic fields mathematically behave in the same way so that   it makes no sense to distinguish between them. For example, ${\mathbb Z}_2$ und $K'=\{ ZERO,ONE\}$ with zero-element $ZERO$ and one-element $ONE$ are isomorphic. We note that mathematical objects are only defined by their mathematical properties.}, we say that there is {\bf the field with $p^n$ elements} and denote it by $GF(p^n)$. Here $GF$ stands for {\it Galois Field} to commemorate the French Mathematician Galois.
 
 The fields $GF(p)$ of prime order play a prominent role. They are called prime fields and often denoted by ${\mathbb Z}_p$\footnote{For prime fields additive as well as multiplicative group are cyclic. Furthermore, each field $GF(p^n)$ contains a subfield that is isomorphic to the prime field ${\mathbb Z}_p$.}.
 
@@ -425,7 +425,7 @@ We note that the point infinity ${\cal O}$ cannot be shown in the affine plane.
 As mentioned above in section \ref{ECC-Crypto}, we only consider elliptic curves over the finite\footnote{Discrete in contrast to continuous.} fields $GF(2^n)$ or $GF(p)$ (for a large prime $p$). This means that all parameters that describe the curve are taken from this underlying field. If $E$ is an elliptic curve over such a field and $P$ is a point on the curve $E$, then we can derive for all positive integers $m$
 $$ mP := \underbrace{P+P+\dots+P}_{\hbox{$m$ times}} \, .
 $$
-Looking on this operation from the cryptographic point of view, it turns out to be very interesting by the following reason: On the one hand one needs only $\log m$ operations to calculate $mP$ --- one simply has to calculate $P$, $2P$, $2^2P$, $2^3P$, \dots, write $m$ in a binary form and finally add all these multilples $2^kP$ of $P$ with respect to the binary representation of $m$ --- on the other hand it seems to be very hard to find $m$ given $P$ and $Q=mP$ on $E$. Of course, we may simply calculate $P,2P,3P,4P,5P,\dots$ and compare each of them with $Q$. But this will take as much as $m$ operations.
+Looking on this operation from the cryptographic point of view, it turns out to be very interesting by the following reason: On the one hand one needs only $\log m$ operations to calculate $mP$ --- one simply has to calculate $P$, $2P$, $2^2P$, $2^3P$, \dots, write $m$ in a binary form and finally add all these multiples $2^kP$ of $P$ with respect to the binary representation of $m$ --- on the other hand it seems to be very hard to find $m$ given $P$ and $Q=mP$ on $E$. Of course, we may simply calculate $P,2P,3P,4P,5P,\dots$ and compare each of them with $Q$. But this will take as much as $m$ operations.
 
 Yet there is no algorithm known that efficiently derives $m$ given $P$ and $G$. The best algorithms known so far need about $\sqrt{q}$ operations where $q$ is the (largest) prime factor of $p-1$, in case the underlying field is $GF(p)$; here $m$ should be between $1$ and $q$ liegen so that one needs at most $\log q$ operations to calculate $mP$. However, the quotient ${\sqrt{q}\over\log q}$ tends to $+\infty$ very fast for large $q$.
 
@@ -582,9 +582,9 @@ In order to achieve maximal gain in efficiency, one may choose a field that allo
 
 Sometimes only the first component and one additional bit is used as representation of a point on the elliptic curve instead of the full two components. Since the first component together with the additional bit is sufficient to derive the full point, this representation minimizes the memory capacity needed. In particular, for normal basis this point compression can be implemented efficiently. In addition, the cryptographic protocols themselves become more effective. A disadvantage is, however, that {\it point compression} can be used for about half of all elliptic curves only and is protected under
 US patent (US Patent 6141420, Certicon), causing additional costs.
-In the gerenal case $GF(p^n)$ (and also in case $n=1$) often so called affine or projective co-ordinates are used. Depending on the application, these co-ordinates may result in a gain in efficiency as well.
+In the general case $GF(p^n)$ (and also in case $n=1$) often so called affine or projective co-ordinates are used. Depending on the application, these co-ordinates may result in a gain in efficiency as well.
 
-A comprehensive description of all implementations and their advantages and disadvantages would go far beyond the scope of this paper. We only want to state that there is a variety of possible implementations for elliptic curve cryptography, much more than for RSA. Therefore, there are serious efforts to reduce this large to a small number of standard implementations. Some standardization committees even try to reduce the complexity by focussing on a small number of (prescribed) curves (ASC-approach).
+A comprehensive description of all implementations and their advantages and disadvantages would go far beyond the scope of this paper. We only want to state that there is a variety of possible implementations for elliptic curve cryptography, much more than for RSA. Therefore, there are serious efforts to reduce this large to a small number of standard implementations. Some standardization committees even try to reduce the complexity by focusing on a small number of (prescribed) curves (ASC-approach).
 
 Today it is still not clear whether these standardization initiatives will be
 successful or not. However, without agreed standards, ECC is not likely to

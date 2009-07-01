@@ -1573,7 +1573,7 @@ procedure in the group $\mathbb{Z}_n^*$.
 
 The basic idea behind public key cryptography is that all participants possess a different pair of keys ($P$ and $S$) and the 
 public keys for all recipients are published. You can retrieve the public key $P$ for a recipient from a directory just as you 
-would look up someone's phone number in the phone book. Furthermore, each recipient has a secret key $S$ that is needed in order 
+would look up some one's phone number in the phone book. Furthermore, each recipient has a secret key $S$ that is needed in order 
 to decrypt the message and that is not known to anyone else. If the sender wishes to send a message $M$, he encrypts it using 
 the public key $P$ of the recipient before sending it:
 
@@ -1938,8 +1938,8 @@ Theses attacks can be structured into the following four categories:
 \begin{itemize}
    \item Attacks against very small public keys e (e.g. $e = 3$). 
    \item Attacks against relatively small private exponents d(e.g. $d < N ^ {0.5}$).
-   \item Factorization of the modul N, if one of the factors p or q is {\em partly} known.
-   \item Attacks requireing, that a {\em part} of the private key d is known.
+   \item Factorization of the modulus N, if one of the factors p or q is {\em partly} known.
+   \item Attacks requiring, that a {\em part} of the private key d is known.
 \end{itemize}
 
 A good overview about the current status of publications concerning these attacks
@@ -1991,11 +1991,11 @@ if all influencing factors are included: Each year the module length feasible fo
 factorisation increases by 20 bit on average. So his forecast was below the
 more optimistic estimations of GISA and NIST.
 
-This forcast by Dirk Fox\index{Fox, Dirk} from the year 2001 seems to prove true
+This forecast by Dirk Fox\index{Fox, Dirk} from the year 2001 seems to prove true
 by the factorisation record of RSA-200 (see chapter \ref{RSA-200}). His estimation for the year 2005,
 to achieve a bit length of 660 bit, was almost a precision landing  (compare 
 figure~\ref{secorvo-factorisation-forecast}). \\
-If the forecast withstand in the future then the factorization of an RSA modul
+If the forecast withstand in the future then the factorization of an RSA modulus
 of 1024 bit can be expected in 15 years.
 
 \begin{figure}[!hb]
@@ -2635,7 +2635,7 @@ progress is made, to factorize numbers.
 At GNFS we can distinguish 2 general steps: 
 The sieve step (relation collecting) and the matrix reduction.
 Besides the sieve step is highly parallelizable, it dominates the overall
-calculation burdon. Shamir and Tromer haven't built a TWIRL device yet,
+calculation burden. Shamir and Tromer haven't built a TWIRL device yet,
 but the estimated costs of 10 till 50 million Euro (in order to factorise
 a 1024-bit number) is not prohibitive for secret agencies or big criminal
 organizations, because the ``costs for a single espionage satellite is
@@ -3823,7 +3823,7 @@ For this sum, it follows that:\\
 2) There exist digits $a_0, a_1, \dots, a_n$
    ~(namely $a_i = b-1$ for $i=0, \dots, n$), following that  
    $b^{n+1} -1 \le a_nb^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0$.\\
-(Using these inequalities it can be shown that each positve integer can be
+(Using these inequalities it can be shown that each positive integer can be
 represented by a $b$-adic sum).
 
 By writing the digits $a_na_{n-1} \cdots a_1a_0$ in a row directly after each other (without the $b^i$) 
@@ -3938,7 +3938,7 @@ with {\tt m = 13} and {\tt m = 12} respectively.
 
 The fast exponentiation modulo $m$ can be computed using the Sage
 function \verb!power_mod()!. The result of this function is an
-integer. We can compute the exponentiations in the example on page
+integer. We can compute the exponentiation in the example on page
 \pageref{SrcArith2} as follows:
 
 \begin{Verbatim}%
@@ -3956,7 +3956,7 @@ sage: [power_mod(a, e, m) for e in exp]
 The order $\text{ord}_m(a)$ of a number $a$ in the multiplicative
 group $\mathbf{Z}_m^{\ast}$ is the smallest number $i \geq 1$ such that
 $a^i \equiv 1 \pmod{m}$ holds. For the example on page~\pageref{SrcArith3a}
-we can print all exponentiations $a^i \pmod{11}$ as follows:
+we can print all exponentiation $a^i \pmod{11}$ as follows:
 
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
@@ -4020,7 +4020,7 @@ block we append the string \verb!"None"! to the row as represented by
 the object \verb!lst!.
 
 \hypertarget{AppArith3c}{}
-The third example on page~\pageref{SrcArith3c} displays exponentiations
+The third example on page~\pageref{SrcArith3c} displays exponentiation
 $a^i \pmod{46}$ as well as the order $\text{ord}_{46}(a)$. Sage can
 create that table as follows:
 
