@@ -8,8 +8,7 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -21236,7 +21235,7 @@ BEGIN
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_TITLE 
                             "Generation einer Menge von Primzahlen"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_TEXT 
-                            "Generiere Primzahlen im Bereich [%s, %s]..."
+                            "Generiere Primzahlen im folgenden Bereich:\n[%s, %s]"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION_CANCELLED 
                             "Der Vorgang wurde abgebrochen. Im ausgewählten Wertebereich [%s, %s] wurden bisher %d Primzahlen gefunden."
     IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_SCYTALE "Anzahl der Kanten:"
@@ -31986,12 +31985,12 @@ BEGIN
                             "esslinger@fb5.uni-siegen.de\r\njoerg-cornelius.schneider@db.com\r\nhenrik.koy@db.com\r\n\r\nInternet: http://www.cryptool.com"
     IDS_BIT_FMT             "%d bit%s"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION 
-                            "In the given value range [%s, %s] %d prime numbers were found."
+                            "In the given value range [%s, %s], %d prime numbers were found."
     IDS_BIT_EFFECTIVE_FMT   " (%d bit effective)"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_TITLE 
                             "Generating a set of prime numbers"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_TEXT 
-                            "Generating prime numbers in the value range [%s, %s]..."
+                            "Generating prime numbers in the following value range:\n[%s, %s]"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION_CANCELLED 
                             "The process was cancelled. In the given value range [%s, %s], %d prime numbers were found yet."
     IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_SCYTALE "Number of edges:"

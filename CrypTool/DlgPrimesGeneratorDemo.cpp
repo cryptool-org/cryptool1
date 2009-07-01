@@ -125,6 +125,8 @@ BEGIN_MESSAGE_MAP(CDlgPrimesGeneratorDemo, CDialog)
 	ON_BN_CLICKED(IDC_ENDDIALOG, OnEndDialog)
 	ON_EN_UPDATE(IDC_EDIT1, OnUpdateEdit)
 	ON_EN_UPDATE(IDC_EDIT2, OnUpdateEdit)
+	ON_EN_UPDATE(IDC_EDIT3, OnUpdateEdit)
+	ON_EN_UPDATE(IDC_EDIT4, OnUpdateEdit)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -148,8 +150,11 @@ void CDlgPrimesGeneratorDemo::OnRadio5()
 	m_control_edit3.EnableWindow(false);
 	m_control_edit4.EnableWindow(false);
 	m_control_edit6.EnableWindow(false);
+	// don't forget to copy from P to Q
+	m_edit3 = m_edit1;
+	m_edit4 = m_edit2;
+	m_edit6 = m_edit5;
 	UpdateData(false);
-	OnUpdateEdit();
 }
 
 void CDlgPrimesGeneratorDemo::OnRadio6() 
@@ -473,7 +478,10 @@ void CDlgPrimesGeneratorDemo::OnButtonGenerate()
 			{
 				SHOW_HOUR_GLASS				// aktiviert die Sanduhr (statt des Mauszeigers)
 				if ( !GetRandomPrime( m_edit5, P ) ) Message( IDS_STRING_MSG_LEFT_PRIMES_NOT_FOUND, MB_ICONSTOP );
-				if ( !GetRandomPrime( m_edit6, Q ) ) Message( IDS_STRING_MSG_RIGHT_PrIMES_NOT_FOUND, MB_ICONSTOP );
+				//if ( !GetRandomPrime( m_edit6, Q ) ) Message( IDS_STRING_MSG_RIGHT_PrIMES_NOT_FOUND, MB_ICONSTOP );
+				// flomar, 06/30/2009: we want consistency for primes P and Q in case 
+				// the "both are equal" checkbox (m_radio4) is checked, thus just copy from P to Q
+				m_edit6 = m_edit5;
 				HIDE_HOUR_GLASS			// deaktiviert die Sanduhr
 			}
 			else if ( PSet == 3)
@@ -555,11 +563,20 @@ void CDlgPrimesGeneratorDemo::OnEndDialog()
 
 void CDlgPrimesGeneratorDemo::OnUpdateEdit() 
 {
+	UpdateData(true);
+
+	// empty result fields (m_edit5, m_edit6) by default
+	m_edit5 = "";
+	m_edit6 = "";
+	UpdateData(false);
+
+	// if the "both are equal" checkbox is marked, copy from P to Q
 	if(m_radio4)
 	{
 		UpdateData(true);
 		m_edit3 = m_edit1;
 		m_edit4 = m_edit2;
+		m_edit6 = m_edit5;
 		UpdateData(false);
 	}	
 }
