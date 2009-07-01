@@ -3899,212 +3899,233 @@ $11 = 11$ (mod $1010) \Longrightarrow a_4 = 3$ \\
 therefore $z = 35189$. 
 
 
-
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
 \hypertarget{Appendix_E}{}
-\section*{Appendix E: Examples using Mathematica and Pari-GP}
-\addcontentsline{toc}{section}{Appendix E: Examples using Mathematica and Pari-GP}
-\index{Mathematica}\index{Pari-GP}
+\section*{Appendix E: Examples using Sage}
+\addcontentsline{toc}{section}{Appendix E: Examples using Sage}
+\index{Sage}
 
-This appendix contains the source code to compute the tables and examples using
-the computer algebra systems\index{CAS} Mathematica and Pari-GP (free software).
+This appendix contains Sage source code to compute the multiplication
+table for $a \times i \pmod{m}$, where $a = 5, 6$ and $m = 17$ and $i$
+ranges over all integers from $0$ to $16$.
 
 
 \hypertarget{AppArith1}{}
-\subsection*{Multiplication table modulus $m$}
-The multiplication tables modulo $m = 17$ for $a=5$ and $a=6$ on page \pageref{SrcArith1a} 
-can be computed in Mathematica with the following commands: 
-\begin{verbatim}
-m = 17; iWidth = 18; iFactor1 = 5; iFactor2 = 6; 
-Print[ ''i '', Table[ i, {i, 1, iWidth} ] ]; 
-Print[ iFactor1, ''*i '', Table[ iFactor1*i, {i, 1, iWidth } ] ]; 
-Print[ ''Remainder '', Table[ Mod[iFaktor1*i, m], {i, 1, iWidth } ] ]; 
-Print[ iFactor2, ''*i '', Table[ iFactor2*i, {i, 1, iWidth } ] ]; 
-Print[ ''Remainder '', Table[ Mod[iFactor2*i, m], {i, 1, iWidth } ] ]; 
-\end{verbatim}
-Pari-GP computes the tables via:
+\subsection*{Multiplication table modulo $m$}
+The multiplication tables modulo $m = 17$ for $a=5$ and $a=6$ on page
+\pageref{SrcArith1a} can be computed using Sage as follows:
 
-{\tt m=17; iWidth=18; iFactor1=5; iFactor2=6;}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: m = 17; a = 5; b = 6
+sage: [mod(a * i, m).lift() for i in xrange(m)]
+[0, 5, 10, 15, 3, 8, 13, 1, 6, 11, 16, 4, 9, 14, 2, 7, 12]
+sage: [mod(b * i, m).lift() for i in xrange(m)]
+[0, 6, 12, 1, 7, 13, 2, 8, 14, 3, 9, 15, 4, 10, 16, 5, 11]
+\end{Verbatim}
 
-{\tt matrix(1,iWidth, x,y, iFactor1*y)} yields \\
-{\tt [5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90]}
-
-{\tt matrix(1,iWidth, x,y, (iFactor1*y)\%m )} yields \\
-{\tt [5 10 15 3 8 13 1 6 11 16 4 9 14 2 7 12 0 5]}
-\vskip +12pt
-
-Note: Pari-GP generates when using the {\tt Mod} function compound {\tt
-  Mod} objects, which are displayed as shown below: \vspace{-2ex}
-\begin{verbatim}
-matrix(1,iWidth, x,y, Mod(iFactor1*y, m))
-[Mod(5, 17) Mod(10, 17) Mod(15, 17) Mod(3, 17) Mod(8, 17) Mod(13, 17) Mod(1, 17)
- Mod(6, 17) Mod(11, 17) Mod(16, 17) Mod(4, 17) Mod(9, 17) Mod(14, 17) Mod(2, 17)
- Mod(7, 17) Mod(12, 17) Mod(0, 17) Mod(5, 17)]
-\end{verbatim}
-
-From a {\tt Mod} object you can get back the components with
-the \texttt{component} or \texttt{lift} function:  
-
-\texttt{%
-  component(Mod(5, 17),1) $\rightarrow$ 17 \\
-  component(Mod(5, 17),2) $\rightarrow$ 5 \\
-  component(Mod(17,5), 1) $\rightarrow$ 5 \\
-  component(Mod(17,5), 2) $\rightarrow$ 2 \\
-  lift(Mod(17,5))         $\rightarrow$ 2  
-}
-
-The other multiplication table examples modulo $13$ and modulo $12$ on page 
-\pageref{SrcArith1b} can computed by replacing {\tt m=17} with {\tt m=13}
-and {\tt m=12} respectively.
+\noindent The function \verb!mod()! returns an object that represents
+integers modulo $m$, in our case $m = 17$. We use the method
+\verb!lift()! to convert that object to an integer representation.
+The other multiplication table examples modulo $13$ and modulo $12$ on page
+\pageref{SrcArith1b} can similarly be computed by replacing {\tt m = 17}
+with {\tt m = 13} and {\tt m = 12} respectively.
 
 
 \hypertarget{AppArith2}{}
 \subsection*{Fast exponentiation}
 
-The fast exponentiation modulo $m$ belongs to the built in functions of Mathematica and Pari-GP.
-Using those programs you can comprehend the idea of the square and multiply method. With Mathematica
-you can compute the exponentiations of the example on page \pageref{SrcArith2}
-as follows:
-\begin{verbatim}
-Mod[{87^43, 87^2, 87^4, 87^8, 87^16, 87^32}, 103] = {85, 50, 28, 63, 55, 38}.
-\end{verbatim}
-and in Pari-GP the syntax is:
-\begin{verbatim}
-Mod([87^43,87^2,87^4,87^8,87^16,87^32],103)
-\end{verbatim}
+The fast exponentiation modulo $m$ can be computed using the Sage
+function \verb!power_mod()!. The result of this function is an
+integer. We can compute the exponentiations in the example on page
+\pageref{SrcArith2} as follows:
+
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: a = 87; m = 103
+sage: exp = [2, 4, 8, 16, 32, 43]
+sage: [power_mod(a, e, m) for e in exp]
+[50, 28, 63, 55, 38, 85]
+\end{Verbatim}
 
 
 \hypertarget{AppArith3a}{}
 \subsubsection*{Multiplicative order and primitive roots}
-The order $ord_m(a)$ of a number $a$ in the
-multiplicative group $Z_m^*$ is the smallest number $i \ge 1$, for with
-$a^i \equiv 1$ mod $m$ holds. For the example on page~\pageref{SrcArith3a}
-you can make Mathematica print all exponentiations $a^i$ mod $11$ using the
-following syntax:
-\begin{verbatim}
-m=11;  Table[ Mod[a^i, m], {a, 1, m-1}, {i, 1, m-1} ]
-\end{verbatim}
-Equivalent Pari-GP syntax:
-\begin{verbatim}
-m=11; matrix(10,10, x,y, (x^y)%m )
-\end{verbatim}
+
+The order $\text{ord}_m(a)$ of a number $a$ in the multiplicative
+group $\mathbf{Z}_m^{\ast}$ is the smallest number $i \geq 1$ such that
+$a^i \equiv 1 \pmod{m}$ holds. For the example on page~\pageref{SrcArith3a}
+we can print all exponentiations $a^i \pmod{11}$ as follows:
+
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: m = 11
+sage: for a in xrange(1, m):
+....:     print [power_mod(a, i, m) for i in xrange(1, m)]
+....:
+[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2, 4, 8, 5, 10, 9, 7, 3, 6, 1]
+[3, 9, 5, 4, 1, 3, 9, 5, 4, 1]
+[4, 5, 9, 3, 1, 4, 5, 9, 3, 1]
+[5, 3, 4, 9, 1, 5, 3, 4, 9, 1]
+[6, 3, 7, 9, 10, 5, 8, 4, 2, 1]
+[7, 5, 2, 3, 10, 4, 6, 9, 8, 1]
+[8, 9, 6, 4, 10, 3, 2, 5, 7, 1]
+[9, 4, 3, 5, 1, 9, 4, 3, 5, 1]
+[10, 1, 10, 1, 10, 1, 10, 1, 10, 1]
+\end{Verbatim}
+
+
 \hypertarget{AppArith3b}{}
 The table on page~\pageref{SrcArith3b} gives examples for the order modulo
-45 $ord_{45}(a)$ and the Euler number $J(45)$. Mathematica can be used to
-create this table with the following program (please note that Print cannot
-be used inside of Do-loops and each Print outputs a newline).
+45 $\text{ord}_{45}(a)$ and the Euler number $J(45)$. The following
+Sage code constructs a table similar to that on page~\pageref{SrcArith3b}.
 
-\begin{verbatim}
-m = 45; 
-Do[ Print[ Table[ Mod[a^i, m], {i, 1, 12} ],
-'', '', MultiplicativeOrder[a, m, 1],
-'', '', EulerPhi[m] ], 
-{a, 1, 12} ]; 
-\end{verbatim}
-Here is the corresponding Pari-GP syntax:
-\begin{verbatim}
-m=45; 
-matrix(12,14, x,y, 
-       if( y<=12, (x^y)%m, 
-       if( y==13, if( gcd(x,m)==1, znorder(Mod(x,m)), "--"), 
-       eulerphi(m))))
-\end{verbatim}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: m = 45
+sage: for a in xrange(1, 13):
+....:     lst = [power_mod(a, i, m) for i in xrange(1, 13)]
+....:     try:
+....:         lst.append(multiplicative_order(mod(a, m)))
+....:     except:
+....:         lst.append("None")
+....:     lst.append(euler_phi(45))
+....:     print lst
+....:
+[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 24]
+[2, 4, 8, 16, 32, 19, 38, 31, 17, 34, 23, 1, 12, 24]
+[3, 9, 27, 36, 18, 9, 27, 36, 18, 9, 27, 36, 'None', 24]
+[4, 16, 19, 31, 34, 1, 4, 16, 19, 31, 34, 1, 6, 24]
+[5, 25, 35, 40, 20, 10, 5, 25, 35, 40, 20, 10, 'None', 24]
+[6, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 'None', 24]
+[7, 4, 28, 16, 22, 19, 43, 31, 37, 34, 13, 1, 12, 24]
+[8, 19, 17, 1, 8, 19, 17, 1, 8, 19, 17, 1, 4, 24]
+[9, 36, 9, 36, 9, 36, 9, 36, 9, 36, 9, 36, 'None', 24]
+[10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 'None', 24]
+[11, 31, 26, 16, 41, 1, 11, 31, 26, 16, 41, 1, 6, 24]
+[12, 9, 18, 36, 27, 9, 18, 36, 27, 9, 18, 36, 'None', 24]
+\end{Verbatim}
 
-{\tt znorder(Mod(x,m))} can only be calculated if $x$ is relatively prime
-to $m$, which can be checked with {\tt gcd(x,m)}.
+The number $\text{ord}_m(a)$ only exists if $a$ is relatively prime
+to $m$, which can be checked with \verb!gcd(a, m)!. In the above code
+example, we put the calculation of the multiplicative order within a
+\verb!try!-\verb!except! block. This allows Sage to catch any
+exceptions or errors raised by the function
+\verb!multiplicative_order()!. If an exception or error is raised in
+the \verb!try! block, then we know that $\text{ord}_m(a)$ does not
+exist for that particular value of $a$, hence in the \verb!except!
+block we append the string \verb!"None"! to the row as represented by
+the object \verb!lst!.
 
-Performance can be improved by using \index{Performance} {\tt
-  Mod(x,m)${}^\wedge$y} instead of {\tt (x${}^\wedge$y)\%m}.
-
-Loops are also supported by Pari-GP. When you remove the table formatting
-the result looks like this:
-\begin{verbatim}
-for( x=1,12, 
-     for(y=1,12, print(Mod(x^y,m))); 
-     if(gcd(x,m)==1, print(znorder(Mod(x,m))), print("--"));
-     print(eulerphi(m)))
-\end{verbatim}
-
-
-\vskip +12 pt \hypertarget{AppArith3c}{}
+\hypertarget{AppArith3c}{}
 The third example on page~\pageref{SrcArith3c} displays exponentiations
-$a^i$ mod $46$ as well as the order $ord_{46}(a)$.
+$a^i \pmod{46}$ as well as the order $\text{ord}_{46}(a)$. Sage can
+create that table as follows:
 
-Mathematica can create this table with the following loop:
-\vskip -10 pt
-\begin{verbatim}
-m = 46; 
-Do[ Print[ Table[ Mod[a^i, m], {i, 1, 23} ], 
-'', '', MultiplicativeOrder[a, m, 1]
-{a, 1, 23} ] ];
-\end{verbatim}
-In Pari-GP the syntax looks like this:
-\vskip -10 pt
-\begin{verbatim}
-m=46; 
-matrix(23,24, x,y, 
-       if( y<=23, (x^y)%m,
-       if( y==24, if( gcd(x,m)==1, znorder(Mod(x,m)), "--"))))
-\end{verbatim}
-
-
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: m = 46
+sage: for a in xrange(1, 24):
+....:     lst = [power_mod(a, i, m) for i in xrange(1, 24)]
+....:     try:
+....:         lst.append(multiplicative_order(mod(a, m)))
+....:     except:
+....:         lst.append("None")
+....:     print lst
+....:
+[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2, 4, 8, 16, 32, 18, 36, 26, 6, 12, 24, 2, 4, 8, 16, 32, 18, 36, 26, 6, 12, 24, 2, 'None']
+[3, 9, 27, 35, 13, 39, 25, 29, 41, 31, 1, 3, 9, 27, 35, 13, 39, 25, 29, 41, 31, 1, 3, 11]
+[4, 16, 18, 26, 12, 2, 8, 32, 36, 6, 24, 4, 16, 18, 26, 12, 2, 8, 32, 36, 6, 24, 4, 'None']
+[5, 25, 33, 27, 43, 31, 17, 39, 11, 9, 45, 41, 21, 13, 19, 3, 15, 29, 7, 35, 37, 1, 5, 22]
+[6, 36, 32, 8, 2, 12, 26, 18, 16, 4, 24, 6, 36, 32, 8, 2, 12, 26, 18, 16, 4, 24, 6, 'None']
+[7, 3, 21, 9, 17, 27, 5, 35, 15, 13, 45, 39, 43, 25, 37, 29, 19, 41, 11, 31, 33, 1, 7, 22]
+[8, 18, 6, 2, 16, 36, 12, 4, 32, 26, 24, 8, 18, 6, 2, 16, 36, 12, 4, 32, 26, 24, 8, 'None']
+[9, 35, 39, 29, 31, 3, 27, 13, 25, 41, 1, 9, 35, 39, 29, 31, 3, 27, 13, 25, 41, 1, 9, 11]
+[10, 8, 34, 18, 42, 6, 14, 2, 20, 16, 22, 36, 38, 12, 28, 4, 40, 32, 44, 26, 30, 24, 10, 'None']
+[11, 29, 43, 13, 5, 9, 7, 31, 19, 25, 45, 35, 17, 3, 33, 41, 37, 39, 15, 27, 21, 1, 11, 22]
+[12, 6, 26, 36, 18, 32, 16, 8, 4, 2, 24, 12, 6, 26, 36, 18, 32, 16, 8, 4, 2, 24, 12, 'None']
+[13, 31, 35, 41, 27, 29, 9, 25, 3, 39, 1, 13, 31, 35, 41, 27, 29, 9, 25, 3, 39, 1, 13, 11]
+[14, 12, 30, 6, 38, 26, 42, 36, 44, 18, 22, 32, 34, 16, 40, 8, 20, 4, 10, 2, 28, 24, 14, 'None']
+[15, 41, 17, 25, 7, 13, 11, 27, 37, 3, 45, 31, 5, 29, 21, 39, 33, 35, 19, 9, 43, 1, 15, 22]
+[16, 26, 2, 32, 6, 4, 18, 12, 8, 36, 24, 16, 26, 2, 32, 6, 4, 18, 12, 8, 36, 24, 16, 'None']
+[17, 13, 37, 31, 21, 35, 43, 41, 7, 27, 45, 29, 33, 9, 15, 25, 11, 3, 5, 39, 19, 1, 17, 22]
+[18, 2, 36, 4, 26, 8, 6, 16, 12, 32, 24, 18, 2, 36, 4, 26, 8, 6, 16, 12, 32, 24, 18, 'None']
+[19, 39, 5, 3, 11, 25, 15, 9, 33, 29, 45, 27, 7, 41, 43, 35, 21, 31, 37, 13, 17, 1, 19, 22]
+[20, 32, 42, 12, 10, 16, 44, 6, 28, 8, 22, 26, 14, 4, 34, 36, 30, 2, 40, 18, 38, 24, 20, 'None']
+[21, 27, 15, 39, 37, 41, 33, 3, 17, 35, 45, 25, 19, 31, 7, 9, 5, 13, 43, 29, 11, 1, 21, 22]
+[22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 'None']
+[23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 'None']
+\end{Verbatim}
 
 \subsection*{RSA examples}
 
-This section list the source code of the RSA examples in
-section~\ref{rsaconcrete} (``The RSA procedure with actual numbers'') using
-Mathematica and Pari-GP syntax.
+This section list Sage source code for the RSA examples in
+section~\ref{rsaconcrete} (``The RSA procedure with actual numbers'').
 
 \vskip +10 pt \hypertarget{AppArith4a}{%
-\textbf{Example on page~\pageref{SrcArith4a}.}} \\
-The RSA exponentiation $M^{37}$ mod $3713$ on message $M = 120$ can be
-calculated in Mathematica like this: {\tt PowerMod[120, 37, 3713]}.\\
-Here is the corresponding Pari-GP syntax:  \\
-{\tt Mod(120,3713)\^{}37 or Mod(120\^{}37,3713)}.
+\noindent \textbf{Example on page~\pageref{SrcArith4a}.}} \\
+The RSA exponentiation $M^{37} \pmod{3713}$ on message $M = 120$ can be
+calculated in Sage as follows:
+
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: power_mod(120, 37, 3713)
+1404
+\end{Verbatim}
+
 
 \vskip +10 pt \hypertarget{AppArith4b}{%
-{\bf Example on page~\pageref{SrcArith4b}.}} \\
-The factorisation of $J(256,027) = 255,016 = 2^3 * 127 * 251$ can be
-calculated with Mathematica like this: 
-{\tt FactorInteger[255016]= \{\{2,3\}, \{127,1\}, \{251,1\}\}}. \\
-Pari-GP does the same with: \\
-{\tt factor(255016)}.
+\noindent {\bf Example on page~\pageref{SrcArith4b}.}} \\
+The factorisation of $J(256027) = 255016 = 2^3 * 127 * 251$ can be
+calculated using Sage as follows:
+
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: factor(255016)
+2^3 * 127 * 251
+\end{Verbatim}
+
 
 \vskip +10 pt \hypertarget{AppArith4c}{%
-{\bf Example on page~\pageref{SrcArith4c}.}} \\
-Mathematica can do RSA encryption with the command:\\
-{\tt PowerMod[\{82, 83, 65, 32, 119, 111, 114, 107, 115, 33\}, 65537, 256027]\}}  \\
-Pari-GP needs the following syntax:\\
-{\tt vecextract( [Mod(82,256027)\^{}65537, Mod(83,256027)\^{}65537, Mod(65,256027)\^{}65537, \\
-                 Mod(32,256027)\^{}65537, Mod(119,256027)\^{}65537, ...])
-}
+\noindent {\bf Example on page~\pageref{SrcArith4c}.}} \\
+Sage can do RSA encryption as follows:
 
-\vskip +10 pt
-{\bf Remarks on using {\tt Mod} in Pari-GP:} \\
-{\tt Mod(82,256027)\^{}65537} is much faster than \\
---  {\tt Mod(82\^{}65537, 256027)} and \\
---  {\tt (82\^{}65537) \% 256027}.
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: A = [82, 83, 65, 32, 119, 111, 114, 107, 115, 33]
+sage: e = 65537; m = 256027
+sage: [power_mod(a, e, m) for a in A]
+[212984, 25546, 104529, 31692, 248407, 100412, 54196, 100184, 58179, 227433]
+\end{Verbatim}
+
 
 \vskip +10 pt \hypertarget{AppArith4d}{%
-{\bf Example on page~\pageref{SrcArith4d}.}} \\
-Mathematica can do RSA encryption with the following command:\\
-{\tt PowerMod[\{21075, 16672, 30575, 29291, 29473\}, 65537, 256027]}  \\
-The same calculation with Pari-GP: \\
-{\tt vecextract( [Mod(21075,256027)\^{}65537, Mod(16672,256027)\^{}65537, \\
-             Mod(30575,256027)\^{}65537, Mod(29291,256027)\^{}65537, \\
-             Mod(29473,256027)\^{}65537], 31) 
-}
+\noindent {\bf Example on page~\pageref{SrcArith4d}.}} \\
+Sage can do RSA encryption as follows:
+
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: A = [21075, 16672, 30575, 29291, 29473]
+sage: e = 65537; m = 256027
+sage: [power_mod(a, e, m) for a in A]
+[158721, 137346, 37358, 240130, 112898]
+\end{Verbatim}
+
 
 \vskip +10 pt \hypertarget{AppArith4e}{%
-{\bf Example on page~\pageref{SrcArith4e}.}} \\
-RSA encryption using Mathematica:\\
-{\tt PowerMod[\{82083, 65032, 119111, 114107, 115033\}, 65537, 256027]} \\
-RSA encryption with Pari-GP: \\
-{\tt vecextract( [Mod(82083,256027)\^{}65537, Mod(65032,256027)\^{}65537, \\
-             Mod(119111,256027)\^{}65537, Mod(114107,256027)\^{}65537, \\
-             Mod(115033,256027)\^{}65537], 31)
-}
+\noindent {\bf Example on page~\pageref{SrcArith4e}.}} \\
+RSA encryption using Sage:
+
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: A = [82083, 65032, 119111, 114107, 115033]
+sage: e = 65537; m = 256027
+sage: [power_mod(a, e, m) for a in A]
+[198967, 51405, 254571, 115318, 14251]
+\end{Verbatim}
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
