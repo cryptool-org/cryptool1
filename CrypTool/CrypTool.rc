@@ -8,7 +8,8 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -2029,7 +2030,7 @@ BEGIN
     EDITTEXT        IDC_EDIT1,7,16,227,15,ES_AUTOHSCROLL | ES_READONLY
 END
 
-IDD_FACTORISATION_DEMO DIALOGEX 0, 0, 366, 338
+IDD_FACTORISATION_DEMO DIALOGEX 0, 0, 366, 339
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Rozk³ad na czynniki pierwsze"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
@@ -2037,7 +2038,7 @@ BEGIN
     EDITTEXT        IDC_EDIT1,162,49,180,14,ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&Kontynuuj",IDC_BUTTON_Faktorisieren,24,156,77,16
     PUSHBUTTON      "Komplteny rozk³ad na czynniki pierwsze",IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,206,156,136,16,NOT WS_VISIBLE | WS_DISABLED
-    PUSHBUTTON      "&Zamknij",IDC_BUTTON_cancel,259,313,94,18
+    PUSHBUTTON      "&Zamknij",IDC_BUTTON_cancel,259,315,94,18
     GROUPBOX        "Algorytmy faktoryzacji (rozk³adu)",-1,13,6,129,107
     CONTROL         "Metoda brutalnej si³y",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,23,108,10
     CONTROL         "Algorytm Brenta",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,38,63,10
@@ -2049,14 +2050,14 @@ BEGIN
     LTEXT           "WprowadŸ liczbê do rozk³adu na czynniki pierwsze:",-1,162,34,180,8
     GROUPBOX        "Rozk³ad na czynniki pierwsze (krokowo)",-1,13,118,340,64
     LTEXT           "Klikaj¹c na przycisk ""Kontynuuj"" liczba z wejœcia, a potem nastêpna liczba z³o¿ona w polu ""Rezultat rozk³adu"" zostan¹ roz³o¿one na dwa czynniki.",-1,24,132,318,17
-    GROUPBOX        "Rozk³ad",-1,13,192,340,113
+    GROUPBOX        "Rozk³ad",-1,13,192,340,119
     LTEXT           "Rozk³ad mo¿e byæ reprezentowany w formacie <z1^a1+z2^a2**zn^an>\nLiczby sk³adowe zostan¹ podœwietlone na czerwono.",-1,24,208,318,19
     LTEXT           "Ostatni rozk³ad przez:",-1,24,232,72,14
     EDITTEXT        IDC_EDIT2,96,231,84,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Opracjuj",IDS_STRING_BENOETIGTE_ZEIT_FAKT,189,233,153,14
     LTEXT           "Rezultat rozk³adu:",-1,24,246,219,9
-    CONTROL         "",IDC_RICHEDIT2,"RICHEDIT",TCS_VERTICAL | TCS_RAGGEDRIGHT | WS_BORDER | WS_TABSTOP,24,258,318,16
-    PUSHBUTTON      "&Szczegó³y",IDC_BUTTON1,24,280,77,16
+    PUSHBUTTON      "&Szczegó³y",IDC_BUTTON1,24,288,77,16
+    CONTROL         "",IDC_RICHEDIT2,"RICHEDIT",TCS_VERTICAL | TCS_RAGGEDRIGHT | TCS_OWNERDRAWFIXED | TCS_MULTISELECT | WS_BORDER | WS_HSCROLL | WS_TABSTOP,24,257,318,23
 END
 
 IDD_CHANGE_PIN DIALOG  0, 0, 173, 209
@@ -12433,7 +12434,7 @@ BEGIN
     EDITTEXT        IDC_EDIT1,157,49,185,14,ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&Weiter",IDC_BUTTON_Faktorisieren,24,156,77,16
     PUSHBUTTON      "Vollständig &faktorisieren",IDC_BUTTON_VOLLSTAENDIG_FAKTORISATION,249,156,93,16,NOT WS_VISIBLE | WS_DISABLED
-    PUSHBUTTON      "&Schließen",IDC_BUTTON_cancel,259,307,94,18
+    PUSHBUTTON      "&Schließen",IDC_BUTTON_cancel,259,308,94,18
     GROUPBOX        "Algorithmen zur Faktorisierung",IDC_STATIC,13,6,123,107
     CONTROL         "Brute-Force",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,23,53,10
     CONTROL         "Brent",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,24,38,33,10
@@ -12445,14 +12446,14 @@ BEGIN
     LTEXT           "Geben Sie die zu faktorisierende Zahl ein:",IDC_STATIC,177,34,165,8
     GROUPBOX        "Faktorisierung (schrittweise)",IDC_STATIC,13,118,340,64
     LTEXT           "Durch das Anklicken des Buttons ""Weiter"" wird initial die Zahl im Eingabefeld und dann jeweils die nächste zusammengesetzte Zahl im Feld ""Produktdarstellung"" in zwei Faktoren zerlegt.",IDC_STATIC,24,132,318,17
-    GROUPBOX        "Faktorisierungsergebnis",IDC_STATIC,13,192,340,108
+    GROUPBOX        "Faktorisierungsergebnis",IDC_STATIC,13,192,340,112
     LTEXT           "Die Faktorisierung wird in dem Format   <z1^a1 * z2^a2 * .... * zn^an>  dargestellt.\nZusammengesetzte Zahlen sind rot markiert.",IDC_STATIC,24,208,318,19
     LTEXT           "Letzte Faktorisierung durch:",IDC_STATIC,24,231,89,14
     EDITTEXT        IDC_EDIT2,114,229,73,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Bearbeiten",IDS_STRING_BENOETIGTE_ZEIT_FAKT,194,231,148,8
     LTEXT           "Produktdarstellung der Faktorisierung:",IDC_STATIC,24,246,219,9
-    CONTROL         "",IDC_RICHEDIT2,"RICHEDIT",TCS_VERTICAL | TCS_RAGGEDRIGHT | WS_BORDER | WS_TABSTOP,24,258,318,16
-    PUSHBUTTON      "&Details",IDC_BUTTON1,24,279,76,16
+    PUSHBUTTON      "&Details",IDC_BUTTON1,24,283,76,16
+    CONTROL         "",IDC_RICHEDIT2,"RICHEDIT",TCS_VERTICAL | TCS_RAGGEDRIGHT | TCS_OWNERDRAWFIXED | TCS_MULTISELECT | WS_BORDER | WS_HSCROLL | WS_TABSTOP,24,257,318,23
 END
 
 IDD_OPTIONS_RSA_DEMO DIALOGEX 0, 0, 292, 300
@@ -18010,7 +18011,8 @@ BEGIN
         VERTGUIDE, 342
         VERTGUIDE, 353
         HORZGUIDE, 236
-        HORZGUIDE, 321
+        HORZGUIDE, 299
+        HORZGUIDE, 326
     END
 
     IDD_KEY_PERMUTATION, DIALOG
@@ -23391,14 +23393,14 @@ BEGIN
     LTEXT           "Enter the number to be factorized:",-1,177,34,165,8
     GROUPBOX        "Factorization (stepwise)",-1,13,118,340,64
     LTEXT           "On clicking the button ""Continue"" at first the number of the input field, and then the next composite number of the field ""Factorization result"" will be factorized into two factors.",-1,24,132,318,17
-    GROUPBOX        "Factorization",-1,13,192,340,111
+    GROUPBOX        "Factorization",-1,13,192,340,116
     LTEXT           "The factorization is represented in the format <z1^a1 * z2^a2 *.... * zn^an>.\nComposite numbers are appearing in red color.",-1,24,208,318,19
     LTEXT           "Last factorization through:",-1,24,230,83,14
     EDITTEXT        IDC_EDIT2,112,229,71,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Bearbeiten",IDS_STRING_BENOETIGTE_ZEIT_FAKT,191,231,151,14
     LTEXT           "Factorization result:",-1,24,245,219,9
-    CONTROL         "",IDC_RICHEDIT2,"RICHEDIT",TCS_VERTICAL | TCS_RAGGEDRIGHT | WS_BORDER | WS_TABSTOP,24,257,318,16
-    PUSHBUTTON      "&Details",IDC_BUTTON1,24,280,76,16
+    CONTROL         "",IDC_RICHEDIT2,"RICHEDIT",TCS_VERTICAL | TCS_RAGGEDRIGHT | TCS_OWNERDRAWFIXED | TCS_MULTISELECT | WS_BORDER | WS_HSCROLL | WS_TABSTOP,24,257,318,23
+    PUSHBUTTON      "&Details",IDC_BUTTON1,24,286,76,16
 END
 
 IDD_CHANGE_PIN DIALOG  0, 0, 173, 209
@@ -28769,7 +28771,7 @@ BEGIN
         HORZGUIDE, 175
         HORZGUIDE, 237
         HORZGUIDE, 277
-        HORZGUIDE, 296
+        HORZGUIDE, 302
     END
 
     IDD_OPTIONS_SUBSTITUTION_ANALYSIS, DIALOG

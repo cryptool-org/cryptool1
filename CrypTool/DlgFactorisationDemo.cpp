@@ -653,7 +653,7 @@ void CDlgFactorisationDemo::Set_NonPrime_Factor_Red()
 	NumFactor *ndx = factorList;
 	if ( !ndx ) return;
 	int anfang = 0, ende = 0, expLen;
-
+	int firstcomposite = -1;
 	while ( ndx )
 	{
 		if ( ndx->exponent > 1 ) 
@@ -669,7 +669,7 @@ void CDlgFactorisationDemo::Set_NonPrime_Factor_Red()
 		{
 			expLen = 0;
 		}
-		ende = anfang + strlen(ndx->factorStr.GetBuffer(128));
+		ende = anfang + ndx->factorStr.GetLength();
 		// Markiere Text ....
 		if ( !ndx->isPrime )
 		{
@@ -678,13 +678,18 @@ void CDlgFactorisationDemo::Set_NonPrime_Factor_Red()
 			cf.crTextColor =RGB(250,0,0);
 			m_FactorisationCtrl.SetSel(anfang, ende);
 			m_FactorisationCtrl.SetSelectionCharFormat(cf);
+			if (firstcomposite == -1)
+				firstcomposite = anfang;
 		}
 		ndx = ndx->next;
 		anfang = ende + 3 + expLen;
 	}
 	
-	// remove the selection 
-	m_FactorisationCtrl.SetSel(0,0);	
+	// scroll to first composite factor (or to the beginning if completely factorized)
+	m_FactorisationCtrl.HideSelection(FALSE,TRUE);
+	if (firstcomposite == -1)
+		firstcomposite = 0;
+	m_FactorisationCtrl.SetSel(firstcomposite, firstcomposite);	
 
 
 }
