@@ -718,9 +718,8 @@ also theorem \ref{thm-zth-ordp} in \hyperlink{Chapter_ElementaryNT_9}
 \end{theorem}
 \vskip +10 pt
 The following three examples\footnote{%
-See \hyperlink{AppArith1}{Appendix E of this chapter} for the source code to compute
-the tables using Mathematica\index{Mathematica} and Pari-GP.\index{Pari-GP}
-}
+See \hyperlink{AppArith1}{Appendix E of this chapter} for the source
+code to compute the tables using Sage.}
 illustrate the properties of multiplicative inverses.
 
 In the multiplication table mod $17$, the following was calculated for $i = 1, 2, \cdots, 18$:
@@ -907,9 +906,9 @@ and the squares (mod $103$) can be calculated beforehand
 87^{32} & \equiv & 55^2 \equiv 38 {\rm ~(mod~}103).
 \end{eqnarray*}
 we have\footnote{%
-  See \hyperlink{AppArith2}{Appendix E of this chapter} for source code implementing the
-  square and multiply method in Mathematica and Pari-GP, which can be used
-  to reproduce the calculations above. }:
+See \hyperlink{AppArith2}{Appendix E of this chapter} for source code
+implementing the square and multiply method in Sage, which can be used
+to reproduce the calculations above.}:
 \label{SrcArith2}
 \begin{eqnarray*}
 87^{43} & \equiv & 87^{32+8+2+1}{\rm ~(mod~}103) \nonumber \\
@@ -1339,9 +1338,8 @@ $10$ and we notice that:
 
 {\bf Example 1:} \\
 The following table\footnote{%
-See \hyperlink{AppArith3a}{Appendix E of this chapter} for the source code to generate
-the table using Mathematica and Pari-GP.
-} 
+See \hyperlink{AppArith3a}{Appendix E of this chapter} for the source
+code to generate the table using Sage.} 
 shows the values $a^i$ mod $11$ for the exponents $i = 1, 2, \cdots, 10$ and for the bases 
 $a =  1, 2, \cdots, 10$ as well as the resulting value $ord_{11}(a)$ for each $a$:
 
@@ -1391,9 +1389,8 @@ The following two tables show the multiplicative orders and primitive roots modu
 
 {\bf Example 2:} \\
 The following table\footnote{%
-See \hyperlink{AppArith3b}{Appendix E of this chapter} for the source code to generate
-the table using Mathematica and Pari-GP.
-} shows the values $a^i$ mod $45$ for the exponents $i = 1, 2, \cdots, 12$ and for the bases 
+See \hyperlink{AppArith3b}{Appendix E of this chapter} for the source
+code to generate the table using Sage.} shows the values $a^i$ mod $45$ for the exponents $i = 1, 2, \cdots, 12$ and for the bases 
 $a =  1, 2, \cdots, 12$ as well as the resulting value $ord_{45}(a)$ for each $a$:
 
 
@@ -1446,9 +1443,9 @@ The table 'values of $a^{i}$ mod $45$' shows that the number $7$ is not a primit
 
 {\bf Example 4:} \\
 The following table\footnote{%
-See \hyperlink{AppArith3c}{Appendix E of this chapter} for the source code to generate
-the table using Mathematica and Pari-GP.
-} answers the question as to whether the number $7$ is a primitive root of $46$.
+See \hyperlink{AppArith3c}{Appendix E of this chapter} for the source
+code to generate the table using Sage.} answers the question as to
+whether the number $7$ is a primitive root of $46$. 
 The requirement/condition $gcd(7,46)=1$ is fulfilled.
 
 
@@ -2981,8 +2978,8 @@ This $28$-digit number is divided into $4$-digit parts
 
 \label{SrcArith4a}
 All 7 parts are encrypted using: $C \equiv M^{37}{\rm ~(mod~}3713)$\footnote{%
-See \hyperlink{AppArith4a}{Appendix E of this chapter} for source code to do RSA
-encryption using Mathematica and Pari-GP. \\
+See \hyperlink{AppArith4a}{Appendix E of this chapter} for source code
+to do RSA encryption using Sage. \\
 You can also encrypt the message with CrypTool\index{CrypTool} via the menu path 
 {\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} RSA Demonstration}.}: \\
 {\tt 1404 2932 3536 0001 3284 2280 2235}
@@ -3021,8 +3018,8 @@ Coded in decimal notation, the text ``RSA works!'' is as follows: \\
 We will work through the example in 2 variants. The steps 1 to 3 are common for both.\par
 {\bf Key generation (steps 1 to 3)}: \label{SrcArith4b} \\
 {\bf 1.} $p=503,~q=509 \quad (n= 256,027; \; J(n)=(p-1)(q-1)=255,016=2^3*127*251)$\footnote{%
-See \hyperlink{AppArith4b}{Appendix E of this chapter} for the source code to factorise
-the number $J(n)$ using Mathematica and Pari-GP.
+See \hyperlink{AppArith4b}{Appendix E of this chapter} for the source
+code to factorise the number $J(n)$ using Sage.
 Using CrypTool\index{CrypTool} you can solve this with the 
 {\bf Indiv.Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} 
 Factorisation of a Number}.}. \\
@@ -3063,8 +3060,8 @@ digits in decimal notation above and were then to obtain the sequence
 
 \label{SrcArith4c}
 Each character is encrypted using: $C = M^{65,537} {\rm ~(mod~} 256,027)$\footnote{%
-See \hyperlink{AppArith4c}{Appendix E of this chapter} for the source code for RSA 
-exponentiation using Mathematica and Pari-GP.
+See \hyperlink{AppArith4c}{Appendix E of this chapter} for the source
+code for RSA exponentiation using Sage.
 }: \\
 {\tt
 \begin{tabular}{lllll}
@@ -3118,8 +3115,8 @@ with the following options: all 256 ASCII characters, b-adic, block length\index
 
 \label{SrcArith4d}
 Each block is encrypted using: $C \equiv M^{65,537}{\rm ~(mod~}256,027)$\footnote{%
-See \hyperlink{AppArith4d}{Appendix E of this chapter} for the source code for RSA 
-exponentiation using Mathematica and Pari-GP.
+See \hyperlink{AppArith4d}{Appendix E of this chapter} for the source
+code for RSA exponentiation using Sage.
 }: \\
 {\tt 158721 137346 37358 240130 112898}
 
@@ -3143,8 +3140,8 @@ the number $255,255$.  }
 
 \label{SrcArith4e}
 Each block is encrypted using: $C \equiv M^{65,537}{\rm ~(mod~}256,027)$\footnote{%
-See \hyperlink{AppArith4e}{Appendix E of this chapter} for the source code for RSA 
-exponentiation using Mathematica and Pari-GP.
+See \hyperlink{AppArith4e}{Appendix E of this chapter} for the source
+code for RSA exponentiation using Sage.
 }: \\
 {\tt 198967 051405 254571 115318 014251}
 
@@ -3951,7 +3948,7 @@ sage: [power_mod(a, e, m) for e in exp]
 
 
 \hypertarget{AppArith3a}{}
-\subsubsection*{Multiplicative order and primitive roots}
+\subsubsection*{Multiplicative order}
 
 The order $\text{ord}_m(a)$ of a number $a$ in the multiplicative
 group $\mathbf{Z}_m^{\ast}$ is the smallest number $i \geq 1$ such that
@@ -4059,6 +4056,166 @@ sage: for a in xrange(1, 24):
 [22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 'None']
 [23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 'None']
 \end{Verbatim}
+
+
+\subsection*{Primitive roots}
+
+Computing a primitive root in Sage is very straightforward. If
+\verb!n! is an integer, the command \verb!primitive_root(n)! computes
+a primitive root of the multiplicative group
+$(\mathbf{Z} / n \mathbf{Z})^{\ast}$, if one exists. Where $n$ is
+prime, then this is the same as calculating a primitive root of
+$\mathbf{Z} / n \mathbf{Z}$. Here, we calculate some primitive roots
+of a few integers.
+
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: primitive_root(4)
+3
+sage: primitive_root(22)
+13
+sage: for p in primes(1, 50):
+....:     print p, primitive_root(p)
+....:     
+2 1
+3 2
+5 2
+7 3
+11 2
+13 2
+17 3
+19 2
+23 5
+29 2
+31 3
+37 2
+41 6
+43 3
+47 5
+\end{Verbatim}
+
+If $p$ is prime, then $\mathbf{Z} / p \mathbf{Z}$ has at least one
+primitive root. Sometimes we want to compute all the primitive roots
+of $\mathbf{Z} / p \mathbf{Z}$, not just any primitive root of
+$\mathbf{Z} / p \mathbf{Z}$. The following function can do this.
+
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: def enum_primroots(M):
+....:     r"""
+....:     Return all the primitive roots of M.
+....:     """
+....:     g = primitive_root(M)
+....:     targetOrder = euler_phi(M)
+....:     L = []
+....:     # Stepping through all odd integers from 1 up to M, not including
+....:     # M. So this loop only considers values of i where 1 <= i < M.
+....:     for i in xrange(1, M, 2):
+....:         testGen = Mod(g^i, M)
+....:         if testGen.multiplicative_order() == targetOrder:
+....:             L.append(testGen.lift())
+....:     # removing duplicates
+....:     return Set(L)
+\end{Verbatim}
+
+\noindent For example, here is a list of all primitive roots of the prime 541.
+
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: enum_primroots(541)
+{2, 517, 10, 523, 13, 14, 527, 528, 18, 531, 24, 539, 30, 37, 40, 51,
+54, 55, 59, 62, 65, 67, 68, 72, 73, 77, 83, 86, 87, 91, 94, 96, 98,
+99, 107, 113, 114, 116, 117, 126, 127, 128, 131, 132, 138, 150, 152,
+153, 156, 158, 163, 176, 181, 183, 184, 195, 197, 199, 206, 208,
+210, 213, 218, 220, 223, 224, 244, 248, 250, 257, 258, 259, 260,
+261, 263, 267, 269, 270, 271, 272, 274, 278, 280, 281, 282, 283,
+284, 291, 293, 297, 317, 318, 321, 323, 328, 331, 333, 335, 342,
+344, 346, 357, 358, 360, 365, 378, 383, 385, 388, 389, 391, 403,
+409, 410, 413, 414, 415, 424, 425, 427, 428, 434, 442, 443, 445,
+447, 450, 454, 455, 458, 464, 468, 469, 473, 474, 476, 479, 482,
+486, 487, 490, 501, 504, 511}
+\end{Verbatim}
+
+\noindent With a little bit of programming, we can find out how long
+it takes to compute all the primitive roots of some number of primes.
+
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: def primroots_iter(start, end):
+....:     r"""
+....:     Compute all primitive roots of all primes between start and end,
+....:     inclusive. This uses a primes iterator.
+....:     """
+....:     for p in primes(start, end+1):
+....:         enum_primroots(p)
+....:         
+sage: %time primroots_iter(1, 1500)
+CPU times: user 2.04 s, sys: 0.17 s, total: 2.21 s
+Wall time: 2.21 s
+\end{Verbatim}
+
+\noindent And we can count how many primes for which to enumerate all
+their primitive roots.
+
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: def primroots_primetest(start, end):
+....:     r"""
+....:     Compute all primitive roots of all primes between start and end,
+....:     inclusive. This actually perform primality tests, so it allows us
+....:     to count the number of primes from start to end, inclusive.
+....:     """
+....:     nPrimes = 0
+....:     for n in xrange(start, end+1):
+....:         if is_prime(n):
+....:             nPrimes += 1
+....:             enum_primroots(n)
+....:     print "Enumerate all primitive roots of %s primes." % nPrimes
+....:     
+sage: %time primroots_primetest(1, 1500)
+Enumerate all primitive roots of 239 primes.
+CPU times: user 2.35 s, sys: 0.03 s, total: 2.38 s
+Wall time: 2.39 s
+\end{Verbatim}
+
+Using our custom-defined function \verb!enum_primroots!, we can find
+all primitive roots of a prime integer $p$. From this list of primitive
+roots, we can determine the smallest and largest primitive root for
+$\mathbf{Z} / p \mathbf{Z}$, as well as count the number of primitive
+roots of $\mathbf{Z} / p \mathbf{Z}$.
+Figure~\ref{fig:primitive_roots_all} graphs the number of primitive
+roots for each prime between 1 and 100000. The $x$-axis represents
+primes between 1 and 100000, while the $y$-axis counts the number of
+primitive roots for each prime within that interval.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics{figures/primitive-roots-all}
+\caption{The number of primitive roots of all primes between 1 and 100,000.}
+\label{fig:primitive_roots_all}
+\end{figure}
+
+Figure~\ref{fig:primitive_roots_smallest} graphs the smallest
+primitive roots of all primes between 1 and 100000. The $x$-axis
+represents primes between 1 and 100000. The $y$-axis represents the
+smallest primitive root of each prime within that
+interval. Figure~\ref{fig:primitive_roots_largest} shows a
+corresponding graph for the largest primitive root of each prime
+within the above interval.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics{figures/primitive-roots-smallest}
+\caption{The smallest primitive roots of all primes between 1 and 100,000.}
+\label{fig:primitive_roots_smallest}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics{figures/primitive-roots-largest}
+\caption{The largest primitive roots of all primes between 1 and 100,000.}
+\label{fig:primitive_roots_largest}
+\end{figure}
 
 \subsection*{RSA examples}
 
