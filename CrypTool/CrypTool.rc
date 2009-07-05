@@ -12015,7 +12015,7 @@ BEGIN
     CONTROL         "Doppelte wurden ignoriert",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,56,111,8
     EDITTEXT        IDC_MYTXT,6,304,419,15,ES_UPPERCASE | ES_AUTOHSCROLL
     PUSHBUTTON      "Erzeuge &Matrix",IDC_BUTTON5,38,206,72,15
-    LTEXT           "Analyseergebnis: Die folgenden Zeilen enthalten Chiffrat, Eingabe bzw. Ergebnis der Häufigkeitsanalyse, ermittelter Klartext",IDC_STATIC,6,233,419,8
+    LTEXT           "Analyseergebnis: Die folgenden drei Zeilen enthalten Chiffrat, Eingabe bzw. Ergebnis der Häufigkeitsanalyse, ermittelter Klartext.",IDC_STATIC,6,233,419,8
     LTEXT           "Vermuteter Klartext:",IDC_STATIC,6,295,63,8
     SCROLLBAR       IDC_SCROLLBAR1,6,279,419,11
     CONTROL         "Text wurde vorformatiert",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,43,92,10
@@ -22713,7 +22713,7 @@ BEGIN
     LTEXT           "Password:",IDC_STATIC,7,2,32,9
     LTEXT           "Letter information",IDC_STATIC,147,2,187,9
     PUSHBUTTON      "&Generate matix",IDC_BUTTON5,39,208,72,16
-    LTEXT           "Analysis result: The following rows contains ciphertext, input or result of the frequency analysis, found plaintext",IDC_STATIC,7,235,407,8
+    LTEXT           "Analysis result: The following three rows contain ciphertext, input or result of the frequency analysis, found plaintext.",IDC_STATIC,7,235,407,8
     LTEXT           "Expected plaintext:",IDC_STATIC,7,297,85,8
     SCROLLBAR       IDC_SCROLLBAR1,6,281,418,11
     CONTROL         "&Text was pre-formatted",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,47,111,8

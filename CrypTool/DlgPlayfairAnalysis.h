@@ -198,6 +198,7 @@ private:
 	RECT initialRectFieldResult;
 	RECT initialRectFieldPlaintext;
 	RECT initialRectButtonCancel;
+	RECT initialRectScrollbar;
 };
 
 

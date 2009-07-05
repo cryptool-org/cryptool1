@@ -612,6 +612,7 @@ BOOL CDlgPlayfairAnalysis::OnInitDialog()
 	GetDlgItem(IDC_LIST)->GetWindowRect(&initialRectFieldResult);
 	GetDlgItem(IDC_MYTXT)->GetWindowRect(&initialRectFieldPlaintext);
 	GetDlgItem(IDCANCEL)->GetWindowRect(&initialRectButtonCancel);
+	GetDlgItem(IDC_SCROLLBAR1)->GetWindowRect(&initialRectScrollbar);
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
@@ -885,9 +886,10 @@ void CDlgPlayfairAnalysis::OnSize(UINT nType, int cx, int cy)
 	CWnd *windowFieldResult = GetDlgItem(IDC_LIST);
 	CWnd *windowFieldPlaintext = GetDlgItem(IDC_MYTXT);
 	CWnd *windowButtonCancel = GetDlgItem(IDCANCEL);
+	CWnd *windowScrollbar = GetDlgItem(IDC_SCROLLBAR1);
 
 	// make sure we have valid pointers; if not, return
-	if(!windowListLetterInformation || !windowFieldResult || !windowFieldPlaintext || !windowButtonCancel)
+	if(!windowListLetterInformation || !windowFieldResult || !windowFieldPlaintext || !windowButtonCancel || !windowScrollbar)
 		return;
 
 	// read the new dialog rect
@@ -944,11 +946,20 @@ void CDlgPlayfairAnalysis::OnSize(UINT nType, int cx, int cy)
 	int xButtonCancel = cx - widthButtonCancel - marginRightButtonCancel;
 	int yButtonCancel = cy - heightButtonCancel - marginBottomButtonCancel;
 
+	// compute new SCROLLBAR rect
+	int marginRightScrollbar = initialRectDialog.right - initialRectScrollbar.right;
+	int marginBottomScrollbar = initialRectDialog.bottom - initialRectScrollbar.bottom;
+	int widthScrollbar = cx - marginRightScrollbar;
+	int heightScrollbar = initialRectScrollbar.bottom - initialRectScrollbar.top;
+	int xScrollbar = cx - widthScrollbar - marginRightScrollbar;
+	int yScrollbar = cy - heightScrollbar - marginBottomScrollbar;
+
 	// align dialog components
 	windowListLetterInformation->MoveWindow(xListLetterInformation, yListLetterInformation, widthListLetterInformation, heightListLetterInformation);
 	windowFieldResult->MoveWindow(xFieldResult, yFieldResult, widthFieldResult, heightFieldResult);
 	windowFieldPlaintext->MoveWindow(xFieldPlaintext, yFieldPlaintext, widthFieldPlaintext, heightFieldPlaintext);
 	windowButtonCancel->MoveWindow(xButtonCancel, yButtonCancel, widthButtonCancel, heightButtonCancel);
+	windowScrollbar->MoveWindow(xScrollbar, yScrollbar, widthScrollbar, heightScrollbar);
 
 	Invalidate();
 }
