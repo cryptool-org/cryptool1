@@ -358,7 +358,7 @@ void CDlgAutomatedPermAnalysis::OnBnClickedRadioSourceIsPlaintext()
 
 void CDlgAutomatedPermAnalysis::setViewOptions()
 {
-	if (!m_DataType) 
+	if (m_DataType) 
 	{
 		CString Alphabet;
 		theApp.TextOptions.getAlphabetWithOptions(Alphabet);

@@ -63,7 +63,7 @@ void CDlgPermKey::setPermKey1(const permkey *key)
 {
 	int i;
 	char num[20];
-	for (i=0; i<key->permSize-1; i++)
+	for (i=1; i<key->permSize; i++)
 	{
 		_itoa(key->permKey[i], num, 10);
 		m_permKey1 += num;
