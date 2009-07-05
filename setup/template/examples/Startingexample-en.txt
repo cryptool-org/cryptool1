@@ -15,6 +15,6 @@ Press F1 to start the online help.
 - Navigating through the menus. You can press F1 to get help on the selected menu item.
 - Reading the included Readme file (see menu "Help \ Readme" menu).
 - Viewing the included colourful presentation (it also can be found in the "Help" menu of this application; or via the "Documentation" section found in the "Starting" page of the online help).
-- Viewing the webpage – www.cryptool.org.
+- Viewing the webpage www.cryptool.org.
 
-June 2009
+July 2009

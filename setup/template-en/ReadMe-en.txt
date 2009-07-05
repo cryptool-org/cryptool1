@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.30 Beta 04 for Win32, June 2009   xx-xxxx
+    CrypTool, Version 1.4.30 Beta 04 for Win32, July 2009   xx-xxxx
     (c) Contributors
         including
         Deutsche Bank AG, Frankfurt/Main,
@@ -366,7 +366,7 @@ for their input:
   allowed us gratefully to use their cryptographic libraries.
   These libraries distributed with CrypTool are not allowed to be
   used in another context than CrypTool without contacting the
-  mentioned companies and asking for their current terms of licence.
+  mentioned companies and asking for their current terms of license.
 
 Also we want to cordially thank the open source developers, who
 encouraged us with their code or who build code we can use, e.g.
@@ -783,9 +783,13 @@ a) Developer-relevant changes (more technically oriented):
 
 - Now compiled with VS2008.
 
-- Update to Scintilla 1.7.7, to cv act library v. 1.3.0 for Vista, and
-  to OpenSSL 0.9.8k.  xxxxxxxxxx
-
+- Update of used libraries and other software to the following versions:
+  - Scintilla 1.7.7
+  - cv act library v. 1.3.0 for Vista
+  - OpenSSL 0.9.8k
+  - GMP ? xxxxx
+  - Animal 2.3.21.
+  xxxxxxxxxx
 
 b) Changes within the user documentation:
 
@@ -798,7 +802,7 @@ b) Changes within the user documentation:
 - The additional website CrypTool-Online went live (www.cryptool-online.org).
 
 - Source code and application of CrypTool 1.x are now subject to the Apache
-  licence 2.0 (see http://www.apache.org/licenses/LICENSE-2.0).
+  license 2.0 (see http://www.apache.org/licenses/LICENSE-2.0).
 
 
 c) New functionality / Usability:
@@ -837,7 +841,7 @@ c) New functionality / Usability:
    - Fixed a crash which happened when first defining within the text options as
      alphabet the capital letters plus the small umlauts, and then calling
      the Caesar cipher.
-   - Fixed a bug when entering hexstrings from the clipboard (now its inserted
+   - Fixed a bug when entering hex strings from the clipboard (now its inserted
      only at the marked places).
    - Switching between text and hex view does not loose the font selected for
      the text view of a document.
@@ -911,7 +915,7 @@ c) New functionality / Usability:
 
 - For the simple (single) column transposition now a known-plaintext analysis
   is added to calculate the transposition key.
-  This known-plaintext analysis is much better integrated than the previous
+  This known-plaintext analysis now is better integrated together with the previous
   known-plaintext analysis for Hill. xxxx-Ko
 
 - A visualization for secure e-mail was added: The user can enter dynamically
@@ -919,6 +923,10 @@ c) New functionality / Usability:
 
 - Another visualization for the AES algorithm was added: flow_visualization
   showing how the bits are changed round-by-round.
+
+- Further Vigenère Analysis according to Schroedel for very short cryptograms.
+  xxxxxxxx
+
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
@@ -1075,7 +1083,7 @@ program (setup).
 
 - Reading and saving text file always uses the two characters CR/NL
   (so usual under Windows) to characterize the begin of a new line.
-  This means that documents you get from unix, where a new line is
+  This means that documents you get from Unix, where a new line is
   characterized only with the character LF) are getting longer [LF
   is changed into CR/NL]. So the validation of a signature could fail.
 
@@ -1206,7 +1214,7 @@ it determines this directory using the environment variable APPDATA, and
 then the CrypTool program directory pse\ is copied completely into the
 user-application directory. These user-individual keys have the following
 benefits
-- there is no need anymore for write access to parts of the program directory,
+- there is no need any more for write access to parts of the program directory,
 - most (all) read and write problems in multi-user environments should be
   solved so [see chapter 4.5.b)], and
 - when a new installation is done, the user-individual keys are not overwritten.
@@ -1348,7 +1356,7 @@ CrypTool-de.chm .. The German version of "CrypTool-en.chm".
 
 EC-Param.ini ..... Initialization file for public-key procedures
                    based on elliptic curves.
-TEST-Param.ini ... Initialization file for random number tests. 
+TEST-Param.ini ... Initialization file for random number tests.
 secude.dll ....... Library of cryptographic functions provided by
                    Secude IT Security GmbH.
 ticket ........... License for the Secude library.
@@ -1403,7 +1411,7 @@ ChinLab-en.pdf ... Story by Dr. Elsner about basic number theory
 ChinLab-de.pdf ... German version of ChinLab-en.pdf.
 
 Uninstall.exe .... Part of the NSIS installer.
-license-en.rtf ... Used from the installer. 
+license-en.rtf ... Used from the installer.
 license-de.rtf ... German version of license-en.rtf. 
 
 
@@ -1444,7 +1452,8 @@ cryptochallenges\ ... This directory contains files with ciphertext.
                       Most of them are historically interesting, some are
                       still unsolved.
                       Two special challenges are also included: the
-                      Doppelwuerfel cipher and the HarryPotter cipher.
+                      Doppelwuerfel (double column transposition) cipher
+                      and the HarryPotter cipher.
 
 cryptochallenges\Schmeh01-Dorabella-enc.txt
                  Schmeh02-Agapeyeff-enc.txt
@@ -1494,7 +1503,7 @@ pse\[SideChannelAttack][Bob][RSA-512][1152179494][PIN=1234].pse
     [HybridEncryption][Bob][EC-prime239v1][1178702474][PIN=1234]
     [HybridEncryption][Bob][EC-prime239v1][1178702474][PIN=1234].pse
 
-pse\pseca\calog    These files are necessary for the administration of 
+pse\pseca\calog    These files are necessary for the administration of
          \capse    the key database.
          \CA_exts  
          \cert.dir
@@ -1535,7 +1544,7 @@ animal\Animal-2.3.14.jar
       \txtTypes.dat
       \types.dat
 
-animal\anims ..... This directory contains AML files. 
+animal\anims ..... This directory contains AML files.
                    Each AML file contains the description of an
                    animation for an encryption method.
 
@@ -1612,6 +1621,7 @@ cry*.* ........... CrypTool writes temporary files to the \temp
                   ogl -> OpenGL graphics view
                   org -> copy of an original file after file open
                   tmp -> temporary file for intermediate results
+xxxxxxxxxxxx
 
 
 
@@ -1695,8 +1705,8 @@ Remarks about the versions:
 1.4.21   Patch containing also MSVCR71.dll. This DLL is used by the current
          OpenSSL library, but not available by default on blank Windows systems.
 1.4.30-Beta03  Mar. 2009  First public beta of version 1.4.30.
-1.4.30-Beta04  June 2009  Second public beta of version 1.4.30.
-1.4.30   Many bug fixes, enhanced functionality compared to 1.4.21.
+1.4.30-Beta04  July 2009  Second public beta of version 1.4.30.
+1.4.30   Many bug fixes and enhanced functionality compared to 1.4.21.
 
 
 
@@ -1768,7 +1778,7 @@ CrypTool"].
        ---------------------------------------------------------
 The "Touch Briefing Information Security" report 2006 contains the article
 "The CrypTool Project -- Improving Awareness and Education for Cryptology".
-Accessable via: http://www.touchbriefings.com/pdf/2259/esslinger.pdf
+Accessible via: http://www.touchbriefings.com/pdf/2259/esslinger.pdf
 Using the search keywords "awareness cryptology" both google.de and
 google.com afterwards listed this article at the top ranking.
 
@@ -2459,7 +2469,7 @@ A.2.1.4. User interface / Visualizations
     https://sage.mathematik.uni-siegen.de:8000/home/pub/45/
     This cover page contains no calculations, but the links to the
     remaining parts; in order to execute the calculations within the
-    remeining parts you have to make copies as SAGE user.
+    remaining parts you have to make copies as SAGE user.
   - like PascGalois Software (http://www.pascgalois.org/software.html)
   - see http://www.martindalecenter.com/Calculators2_6_NZ.html
   - http://world.std.com/~reinhold/BigNumCalc.html
@@ -2500,7 +2510,7 @@ A.2.1.4. User interface / Visualizations
   following way:
   Within the hexadecimal key input dialogs a button should be added,
   calling the dialog "Indiv. Procedures \ Hash \ Key Generation from
-  Password (PKCS#5)". 
+  Password (PKCS#5)".
   The called dialog then is already customized with the right key length
   and after pushing "Back" the generated key will be used as hex 
   input for the encryption method. AES-256 needs SHA-256.
@@ -2551,9 +2561,9 @@ a) General wish list according to the user feedback.
    - Control of all functionality also from the command line.
 
 b)  Java-CrypTool (JCrypTool, JCT):
-   - Completely new designed CrypTool in Java using Eclipse/RCP 3.4.
+   - Completely new designed CrypTool in Java using Eclipse/RCP.
    - Platform independent.
-   - Strictly using the standards from Eclipse.
+   - Strictly using the standards from Eclipse 3.5.
    - Usage SWT (and Jigloo) for the GUI.
    - A Secude library, Bouncy Castle and FlexiProvider are available.
    - Milestone 1 (published in August 2007) was dedicated to developers,
@@ -2590,7 +2600,7 @@ c) CrypTool 2.0 (CT 2)
    - Usage of Subversion for source code version management.
 
 - Remark: Porting to Linux 
-   A portation of CrypTool 1.4.x to Linux using GCC 4.x and Qt 4.x
+   A porting of CrypTool 1.4.x to Linux using GCC 4.x and Qt 4.x
    was started outside of the actual CrypTool project by single persons,
    but unfortunately not finished because lack of time.
    - The libraries from Secude, Miracl, NTL, OpenSSL and GMP are
@@ -2615,7 +2625,7 @@ The new versions are (see chapter A.2.2.1):
 
 
 Features already implemented and integrated in the current beta versions
-                 (CT2 Beta-2.0.3377 and JCT1 Milestone 4a):
+                 (CT2 Beta-2.0.3465 and JCT1 Milestone 4a):
 - CT2  Visual programming (composition of protocols and workflows)
 - CT2  Prime number visualizations
 - CT2  WEP encryption and analysis of WEP encrypted messages
@@ -2653,7 +2663,7 @@ Features planned for the release version of the successor projects:
 
 Also compare the roadmap at the website https://www.cryptool.org/content/view/21/46/lang,english.
 Further details:
-- für CT2: https://www.cryptool.org/trac/CrypTool2
-- für JCT: http://jcryptool.wiki.sourceforge.net/ReleasePlan
+- for CT2: https://www.cryptool.org/trac/CrypTool2
+- for JCT: http://jcryptool.wiki.sourceforge.net/ReleasePlan
 
 ################################################################

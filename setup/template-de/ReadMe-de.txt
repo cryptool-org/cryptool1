@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.30 Beta 04 für Win32, Juni 2009  xx-xxxx
+    CrypTool, Version 1.4.30 Beta 04 für Win32, Juli 2009  xx-xxxx
     (c) Contributors
         Dazu gehören z.B.
         Deutsche Bank AG, Frankfurt am Main,
@@ -48,7 +48,7 @@
  8.4. .... Auszeichnungen
 A. .... Anhang
 A.1. .... CrypTool unter Linux mit Wine
-A.2. .... Neue Funktionen, Roadmap, Nachfolger-Projekte mit Java/Eclipse and C#/.NET
+A.2. .... Neue Funktionen, Roadmap, Nachfolger-Projekte mit Java/Eclipse und C#/.NET
 
 
 1. Kurzbeschreibung des CrypTool-Paketes
@@ -72,16 +72,16 @@ ohne tiefes Kryptowissen verstanden werden kann.
 CrypTool existiert in den vier Sprachen Deutsch, Englisch, Polnisch
 und Spanisch. In Deutsch und Englisch ist das CrypTool-Paket komplett
 vorhanden.
-Die Spanische Programm-Version hat die gleiche Funktionalität [übersetzt
-sind im Moment das Programm selbst, also die Oberfläche (Menüs, Dialoge,
-...) und die Onlinehilfe.  Die der spanischen Version beigelegte
-PDF-Dokumentation ist noch in Englisch]. Ähnlich ist es bei der
-Polnischen Version.
+Die Spanische Programm-Version hat die gleiche Funktionalität
+[übersetzt sind im Moment das Programm selbst, also die
+Oberfläche (Menüs, Dialoge, ...) und die Onlinehilfe.
+Die der spanischen Version beigelegte PDF-Dokumentation ist
+noch in Englisch]. Ähnlich ist es bei der Polnischen Version.
 
 Vorausgesetzt wird, dass der Benutzer mit Anwendungen in einer
 Windows-Umgebung umgehen kann.
 
-Die aktuelle Release-Version von CrypTool und die Sourcen dazu
+Die aktuelle Release-Version von CrypTool und den Quellcode dazu
 finden Sie unter den Internet-Adressen (keine Registrierung nötig):
                 http://www.CrypTool.de
                 http://www.CrypTool.com
@@ -363,7 +363,7 @@ besondere Bedingungen gelten:
   - der Flash-Animation zur Enigma von Dr. Frank Spieß,
   - dem Zahlentheorie-Lernprogramm von Martin Ramberger.
   Die über eine Verwendung außerhalb des freien CrypTool-Contextes
-  hinausgehenden Rechte verbleiben beim jeweiligen Autor.
+  hinaus gehenden Rechte verbleiben beim jeweiligen Autor.
 
 - Die Firmen (siehe Kapitel 1.2)
   - Secude IT Security GmbH, 
@@ -688,7 +688,7 @@ Eine gute Übersicht, was CrypTool bietet, finden Sie auch
 Dieses Kapitel listet die Erweiterungen und Bugfixes auf, die in
 CrypTool 1.4.20 seit CrypTool 1.4.10 hinzugefügt wurden.
 
-a) Entwickler-relevante Änderungen (eher programm-technisch):
+a) Entwickler-relevante Änderungen (eher Programm-technisch):
 
 - Aufräumen des Source-Code, höhere Wiederverwendung.
 
@@ -750,14 +750,14 @@ c) Funktionale Änderungen / Erweiterungen:
   variable Alphabet für das Transpositionspasswort nutzen (nicht mehr
   nur die 26 Großbuchstaben).
 
-- Erweiterung der Brute-Force-Analyse symmetrischer Verfahren (Henk -- danke
+- Erweiterung der Brute-force-Analyse symmetrischer Verfahren (Henk -- danke
   für die praktischen und didaktischen Anregungen):
   - Einstellen des Alphabets für den erwarteten Klartext, um die Suche
     nach einem möglichen richtigen Schlüssel einzuschränken.
-  - Anbieten der 50 Klartexte mit den niedrigsten Entropiewerten zur Auswahl.
+  - Anbieten der 50 Klartexte mit den niedrigsten Entropie-Werten zur Auswahl.
 
 - Das AES-Tool in der Version 2.5 ist bei großen Dateien schneller.
-  Die Dateieindung AES wird bei der Installation diesem Programm zugeordnet.
+  Die Datei-Endung AES wird bei der Installation diesem Programm zugeordnet.
 
 - Das Lernprogramm/Lernspiel "Zahlenhai" in der Version 1.1.5 wurde etwas
   korrigiert und vor allem wurde die Onlinehilfe erweitert.
@@ -793,15 +793,20 @@ c) Funktionale Änderungen / Erweiterungen:
 Dieses Kapitel listet die Erweiterungen und Bugfixes auf, die in
 CrypTool 1.4.30 seit CrypTool 1.4.21 hinzugefügt wurden.
 
-a) Entwickler-relevante Änderungen (eher programm-technisch):
+a) Entwickler-relevante Änderungen (eher Programm-technisch):
 
 - Aufräumen des Source-Code, höhere Wiederverwendung,
   Beseitigen vieler Warnungen.
 
 - Nun mit VS2008 compiliert.
 
-- Update auf Scintilla 1.7.7, auf cv act library v. 1.3.0 für Vista, und
-  auf OpenSSL 0.9.8k.  xxxxxxxxxx
+- Update der Bibliotheken und genutzten Fremdsoftware auf ff. Versionen:
+  - Scintilla 1.7.7
+  - cv act library v. 1.3.0 für Vista
+  - OpenSSL 0.9.8k
+  - GMP ? xxxxx
+  - Animal 2.3.21.
+  xxxxxxxxxx
 
 
 b) Änderungen in der Benutzer-Dokumentation / Web-Darstellung:
@@ -833,7 +838,7 @@ c) Neue Funktionalität / Bedienung:
      n=k (somit sind alle Shareholder notwendig). Ohne diese Einschränkung
      macht der Algorithmus das ganze Geheimnis dem ersten Teilnehmer bekannt.
    - RSA-Demo: Ein eingegebener Wert für e wird auch nach Aufruf des
-     Optionendialogs beibehalten.
+     Optionen-Dialogs beibehalten.
    - Korrektur der ECC-Demo:
      - Die Vorgängerversion lieferte über der Gruppe F(p) bei der Punktaddition
        unter bestimmten Umständen einen Punkt außerhalb der Kurve.
@@ -855,7 +860,7 @@ c) Neue Funktionalität / Bedienung:
      Großbuchstaben plus die kleinen Umlaute definierte und dann die
      Caesar-Verschlüsselung aufrief.
    - Nun kann man in Feldern für Hexeingaben auch Hexfolgen aus dem Clipboard
-     korrekt eingeben (Einfügen nur an den markierten Stellen).
+     korrekt eingeben (wenn markiert, wird nur da eingefügt).
    - Der in der Textanzeige eingestellte Font wird beibehalten, auch wenn man
      zwischendurch in die Hex-Ansicht wechselt.
    - Konflikte mit den Zertifikats-Seriennummer: Bisher wurden die Seriennummern
@@ -931,8 +936,8 @@ c) Neue Funktionalität / Bedienung:
 
 - Für die einfache Spaltentransposition ist eine Known-Plaintext-Analyse
   zum Finden des Transpositionsschlüssels neu hinzugekommen.
-  Diese Known-Plaintext-Analyse ist deutlich besser integriert als die
-  bisherige Known-Plaintext-Analyse für Hill. xxxxx-Ko
+  Diese Known-Plaintext-Analyse wurde zusammen mit der bisherigen
+  Known-Plaintext-Analyse für Hill besser integriert. xxxxx-Ko
 
 - Eine Visualisierung der Abläufe bei sicherer E-Mail kam hinzu: Der Benutzer
   kann Daten eingeben, die signiert oder verschlüsselt werden mit Hilfe des
@@ -941,7 +946,8 @@ c) Neue Funktionalität / Bedienung:
 - Eine weitere Visualisierung des AES-Algorithmus kam hinzu: Flussvisualisierung
   zur Veranschaulichung der Veränderung der Bits nach jeder Runde.
 
-- Vigenère-Analyse nach Schrödel ? xxxxxxxx
+- Vigenère-Analyse nach Schrödel für sehr kurze Chiffrate. xxxxxxxx
+
 xxxxxxxxxxxxxxxxxxxxx
 
 
@@ -1400,13 +1406,13 @@ ticket ........... Lizenz für die Secude-Bibliothek.
 libxml2.dll ...... Wird benötigt von der secude.dll.
 secidea.dll ...... Wird benötigt von der secude.dll für die 
                    IDEA-Verschlüsselung.
-srndmskb.dll ..... Wird benötigt von der secude.dll für den 
-                   Entropiesammler zur Initialisierung des 
+srndmskb.dll ..... Wird benötigt von der secude.dll für den
+                   Entropie-Sammler zur Initialisierung des
                    Secude-Zufallsgenerators.
 db.dll ........... Wird benötigt von der secude.dll.
 secude.xml ....... Wird benötigt von der secude.dll.
 libeay32.dll...... Bibliothek aus OpenSSL.
-SciLexer.dll ..... Bibliothek mit den Routinen für den 
+SciLexer.dll ..... Bibliothek mit den Routinen für den
                    Scintilla-Texteditor.
 cracklib_Win32.dll .. Unterstützt die PQM-Tests.
 
@@ -1665,6 +1671,7 @@ cry*.* ........... CrypTool schreibt temporäre Dateien mit dem
                   ogl -> OpenGL-Graphics-Ansicht
                   org -> Kopie der Originaldatei nach dem Laden
                   tmp -> Temporäre Datei für Zwischenberechnungen
+xxxxxxxxxxxx
 
 
 5.1. Überprüfen der Integrität der heruntergeladenen Dateien
@@ -1676,7 +1683,7 @@ Informationsmenge kann man ein viel größeres Objekt identifizieren.
 Die Dateien vom CrypTool-Projekt kommen normalerweise dadurch auf
 Ihren Computer, dass das Archiv (Setup-Datei) heruntergeladen und
 die darin enthaltenen Dateien entpackt werden:
-a) Herunterladbare Dateien:
+a) Herunter ladbare Dateien:
    Auf der Homepage von CrypTool www.cryptool.de finden Sie
    die Hashwerte aller von der deutschen Webseite direkt
    herunterladbaren Dateien in den Dateien md5sum.txt bzw.
@@ -1752,8 +1759,8 @@ Bemerkungen zu den Versionen:
          neuen aktuellen OpenSSL-Bibliothek benutzt wird und nicht auf
          frischen Windows-Umgebungen (ohne Office) enthalten ist.
 1.4.30-Beta03  März 2009  Erste öffentliche Beta von Version 1.4.30.
-1.4.30-Beta04  Juni 2009  Zweite öffentliche Beta von Version 1.4.30.
-1.4.30   Viele Bugfixes, erweiterter Funktionsumfang i.Vgl. zu 1.4.21.
+1.4.30-Beta04  Juli 2009  Zweite öffentliche Beta von Version 1.4.30.
+1.4.30   Viele Bugfixes und erweiterter Funktionsumfang i.Vgl. zu 1.4.21.
 
 
 
@@ -1924,7 +1931,7 @@ Siehe http://www.bsi.de/produkte/boss/index.htm
   Security Certified Network Professional (SCNP) - Strategic Infrastructure Security (SIS) Training
   
 - http://www.cdachyd.in/cnss/cnss_ebrochure.htm   (Dez. 2008)
-  Ein 22-wöchiger Kurs über Netwerk- und Systemsicherheit (CNSS) angeboten
+  Ein 22-wöchiger Kurs über Netzwerk- und Systemsicherheit (CNSS) angeboten
   von C-DAC Hyderabad, Indien, wo auch CrypTool zum Einsatz kommt.
   Das Centre for Development of Advanced Computing (C-DAC) ist eine
   regierungsnahe Forschungs- und Entwicklungseinrichtung im EDV-Bereich.
@@ -2381,7 +2388,7 @@ A.2.1.2. Funktionalität: Analyse
   samt Visualisierung weiter ausgebaut werden könnte.
 
 - Zu allen Verschlüsselungsverfahren eine (gute) Analyse anbieten, die
-  (zumindest für die klassischen Verfahren besser ist als Brute-Force).
+  (zumindest für die klassischen Verfahren besser ist als Brute-force).
 
 - Angriff auf symmetrische Verschlüsselungsverfahren, bei denen die
   Parameter der Verschlüsselungsverfahren flexibel reduziert werden
@@ -2500,7 +2507,7 @@ A.2.1.3. Interne Schnittstellen / Editoren
   Diese Parameter müssen dann auch in das Format für den internen
   Schlüsselspeicher aufgenommen werden.
 
-- Langzahl- und Kryptobibliotheken:
+- Langzahl- und Krypto-Bibliotheken:
    - Unterstützung weiterer Libraries (LiDIA, FLINT/C, 
      Wei Dai's Crypto++, APFLOAT, ...).
 
@@ -2636,9 +2643,9 @@ a) Generelle Wunschliste anhand des Benutzerfeedbacks.
    - Steuerung auch von der Kommandozeile.
 
 b) Java-CrypTool (JCrypTool, JCT):
-   - Komplett neu designtes CrypTool in Java mit Eclipse/RCP 3.4.
+   - Komplett neu designtes CrypTool in Java mit Eclipse/RCP.
    - Plattform-unabhängig.
-   - Nutzt strikt die Standards von Eclipse.
+   - Nutzt strikt die Standards von Eclipse 3.5.
    - Nutzung von SWT (und Jigloo) für die GUI.
    - Verfügbar sind eine Secude-Lib, Bouncy-Castle und FlexiProvider.
    - Meilenstein 1 (August 2007) war für Entwickler und zeigte, dass die
@@ -2700,7 +2707,7 @@ Die neuen Versionen (siehe Kapitel A.2.2.1) sind:
 
 
 Funktionen, die schon in den jetzigen Betaversionen
-            (CT2 Beta-2.0.3377 and JCT1 Milestone 4a)
+            (CT2 Beta-2.0.3465 and JCT1 Milestone 4a)
             implementiert und integriert sind:
 - CT2  Visuelle Programmierung (Komposition von Protokollen und Workflows)
 - CT2  Primzahlen-Visualisierungen
