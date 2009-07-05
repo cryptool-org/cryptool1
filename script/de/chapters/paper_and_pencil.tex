@@ -11,6 +11,11 @@
 %------------------------------------------------------------------------------
 \hypertarget{Kapitel_PaperandPencil}{}
 
+\chapter{Papier- und Bleistift-Verschlüsselungsverfahren}
+\label{Kapitel_PaperandPencil}
+(Christine Stötzel, April 2004; Updates B.+C. Esslinger, Juni 2005)
+\index{Papier- und Bleistiftverfahren}
+
 \begin{center}
 \fbox{\parbox{15cm}{%
 {\em Edgar Allan Poe\index{Poe, Edgar Allan}: 
@@ -20,11 +25,6 @@ eine Geheimschrift zu erdenken, die sich der Untersuchung widersetzt.
 Dennoch kann man rundheraus annehmen, dass menschlicher Scharfsinn
 keine Chiffre erdenken kann, die menschlicher Scharfsinn nicht lösen kann.}}
 \end{center}
-
-\section{Papier- und Bleistift-Verschlüsselungsverfahren}
-\label{Kapitel_PaperandPencil}
-(Christine Stötzel, April 2004; Updates B.+C. Esslinger, Juni 2005)
-\index{Papier- und Bleistiftverfahren}
 
 Das folgende Kapitel bietet einen recht vollständigen Überblick über Papier- 
 und Bleistiftverfahren\footnote{Jeweils mit Verweisen zu vertiefenden Informationen.}.
@@ -58,7 +58,7 @@ Merkmale erfüllen wie moderne Verfahren:
 
 \vskip +30 pt
 %------------------------------------------------------------------------------
-\subsection{Transpositionsverfahren}
+\section{Transpositionsverfahren}
 
 Bei der Verschlüsselung durch Transposition\index{Transposition} 
 bleiben die ursprünglichen Zeichen der Nachricht erhalten,
@@ -67,7 +67,7 @@ Vertauschung)\footnote{Ein anderer Begriff für eine Transposition
 ist Permutation\index{Permutation}.}.
 
 %------------------------------------------------------------------------------
-\subsubsection{Einführungs-Beispiele unterschiedlicher
+\subsection{Einführungs-Beispiele unterschiedlicher
                Transpositionsverfahren}
 \label{introsamplesTranspositionCiphers}  %be_2006 so ist es gut.
 
@@ -188,7 +188,7 @@ ist Permutation\index{Permutation}.}.
 
 
 %------------------------------------------------------------------------------
-\subsubsection[Spalten- und Zeilentranspositionsverfahren]
+\subsection[Spalten- und Zeilentranspositionsverfahren]
     {Spalten- und Zeilentranspositionsverfahren\footnotemark}
     \footnotetext{%
 Die meisten der folgenden Verfahren können in CrypTool\index{CrypTool}
@@ -297,12 +297,12 @@ Symmetrisch (klassisch) \textbackslash{} Permutation} abgebildet werden.}
    zeilenweise einlesen, spaltenweise permutieren und zeilenweise auslesen.}.
 
 \end{itemize}
-% Ende \subsubsection{Spalten- und Zeilentranspositionsverfahren}
+% Ende \subsection{Spalten- und Zeilentranspositionsverfahren}
 
 
 
 %------------------------------------------------------------------------------
-\subsubsection{Weitere Transpositionsverfahren}
+\subsection{Weitere Transpositionsverfahren}
 
 \begin{itemize}
 
@@ -415,12 +415,12 @@ Symmetrisch (klassisch) \textbackslash{} Permutation} abgebildet werden.}
 
 
 %------------------------------------------------------------------------------
-\subsection{Substitutionsverfahren}
+\section{Substitutionsverfahren}
 \index{Substitution}
 
 
 %------------------------------------------------------------------------------
-\subsubsection{Monoalphabetische Substitutionsverfahren}
+\subsection{Monoalphabetische Substitutionsverfahren}
 Monoalphabetische Substitutionsverfahren\index{Substitution!monoalphabetisch}
 ordnen jedem Klartextzeichen ein Geheimtextzeichen fest zu, d.h. diese
 Zuordnung ist während des ganzen Verschlüsselungsprozesses dieselbe.
@@ -734,7 +734,7 @@ Zuordnung ist während des ganzen Verschlüsselungsprozesses dieselbe.
 
 
 %------------------------------------------------------------------------------
-\subsubsection{Homophone Substitutionsverfahren}
+\subsection{Homophone Substitutionsverfahren}
 
 Homophone Verfahren\index{Substitution!homophon} stellen eine Sonderform der
 monoalphabetischen Substitution dar. Jedem Klartextzeichen werden mehrere
@@ -778,7 +778,7 @@ Geheimtextzeichen zugeordnet.
 
 
 %------------------------------------------------------------------------------
-\subsubsection{Polygraphische Substitutionsverfahren}
+\subsection{Polygraphische Substitutionsverfahren}
 \label{polygraphicSubstitutionCiphers}
 
 Bei der polygraphische Substitution\index{Substitution!polygraphisch} werden 
@@ -933,7 +933,7 @@ in Trigramme auf. Für die Verschlüsselung gelten folgende Regeln:
 
 
 %------------------------------------------------------------------------------
-\subsubsection{Polyalphabetische Substitutionsverfahren}
+\subsection{Polyalphabetische Substitutionsverfahren}
 
 Bei der polyalphabetischen Substitution\index{Substitution!polyalphabetisch}
 ist die Zuordnung Klartext-/Geheimtextzeichen nicht fest, sondern variabel
@@ -1103,7 +1103,7 @@ ist die Zuordnung Klartext-/Geheimtextzeichen nicht fest, sondern variabel
 
 
 %------------------------------------------------------------------------------
-\subsection{Kombination aus Substitution und Transposition}
+\section{Kombination aus Substitution und Transposition}
 
 In der Geschichte der Kryptographie sind häufig Kombinationen der oben 
 angeführten Verfahrensklassen anzutreffen. Diese haben sich - im Durchschnitt - 
@@ -1347,7 +1347,7 @@ als sicherer erwiesen als Verfahren, die nur auf einem der Prinzipien Transposit
              % Leider dann Tab. 19 allein auf der Folgeseite und 2.4 beginnt
              % auf übernächster Seite.
 %------------------------------------------------------------------------------
-\subsection{Andere Verfahren}
+\section{Andere Verfahren}
 \label{Further-PaP-methods}
 
 \begin{itemize}
@@ -1476,7 +1476,7 @@ als sicherer erwiesen als Verfahren, die nur auf einem der Prinzipien Transposit
 %------------------------------------------------------------------------------
 \newpage
 \begin{thebibliography}{99999}
-\addcontentsline{toc}{subsection}{Literaturverzeichnis}
+\addcontentsline{toc}{section}{Literaturverzeichnis}
 
 \bibitem[ACA2002]{ACA2002} \index{ACA 2002}
    American Cryptogram Association, \\

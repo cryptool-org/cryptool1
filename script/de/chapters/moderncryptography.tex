@@ -50,7 +50,7 @@
 \newpage
 %********************************************************************
 \hypertarget{Chapter_ModernCryptography}{}
-\section[Die mathematischen Ideen hinter der modernen Kryptographie]
+\chapter[Die mathematischen Ideen hinter der modernen Kryptographie]
         {Die mathematischen Ideen hinter der modernen Kryptographie\footnotemark}
 \footnotetext{%
     \index{ZT, Lernprogramm Zahlentheorie}%
@@ -94,7 +94,7 @@
 
 %--------------------------------------------------------------------
 \hypertarget{OneWayFunktion1}{}
-\subsection{Einwegfunktionen mit Falltür und Komplexitätsklassen}
+\section{Einwegfunktionen mit Falltür und Komplexitätsklassen}
 \label{OneWayFunktion1}
 %--------------------------------------------------------------------
 \index{Kryptographie!moderne} \index{Einwegfunktion}
@@ -172,12 +172,12 @@ Es wurden eine Reihe von Algorithmen für Public-Key-Verfahren vorgeschlagen. Ein
 %\newpage
 \vskip +20 pt
 %--------------------------------------------------------------------
-\subsection{Knapsackproblem als Basis für Public-Key-Verfahren}
+\section{Knapsackproblem als Basis für Public-Key-Verfahren}
 \index{Kryptographie!Public-Key}
 %--------------------------------------------------------------------
 
 %--------------------------------------------------------------------
-\subsubsection{Knapsackproblem} \index{Knapsack}
+\subsection{Knapsackproblem} \index{Knapsack}
 
 Gegeben $ n $ Gegenstände $ G_1, \dots, G_n $ mit den Gewichten $ g_1, \dots g_n $ und den Werten $w_1, \cdots, w_n. $ Man soll wertmäßig so viel wie möglich unter Beachtung einer oberen Gewichtsschranke $ g $ davontragen. Gesucht ist also eine Teilmenge von $ \{ G_1, \cdots,G_n\}, $ etwa $ \{G_{i_1}, \dots ,G_{i_k} \}, $ so dass  $ w_{i_1}+ \cdots +w_{i_k} $ maximal wird unter der Bedingung $  g_{i_1}+ \cdots +g_{i_k} \leq g. $ \par
 Derartige Fragen sind sogenannte {\bf NP}-vollständige Probleme (nicht \index{Laufzeit!nicht polynomial NP} deterministisch polynomial\index{Polynom}), die aufwendig zu berechnen sind.\index{Knapsack}
@@ -236,7 +236,7 @@ Der folgende Algorithmus löst das Knapsackproblem mit superwachsender Folge im Z
 
 
 %--------------------------------------------------------------------
-\subsubsection{Merkle-Hellman Knapsack-Verschlüsselung}
+\subsection{Merkle-Hellman Knapsack-Verschlüsselung}
 \index{Hellman, Martin} \index{Merkle, Ralph} 
 
 1978 gaben Merkle und Hellman \cite{Merkle1978} \index{Verschlüsselung!Merkle-Hellman} ein Public-Key-Verschlüsselungs-Verfahren an, das darauf beruht, das leichte 0-1-Knapsackproblem mit einer superwachsenden Folge in ein kongruentes mit einer nicht superwachsenden Folge zu \glqq verfremden\grqq. Es ist eine Blockchiffrierung, die bei jedem Durchgang einen $n$ Bit langen Klartext chiffriert.
@@ -290,13 +290,13 @@ Einwegfunktion, deren Falltür-In"-for"-ma"-tion (Verfremden des
 
 
 %---------------------------------------------------------------------
-\subsection{Primfaktorzerlegung als Basis für Public-Key-Verfahren}
+\section{Primfaktorzerlegung als Basis für Public-Key-Verfahren}
 \index{Primfaktor!Zerlegung}
 %--------------------------------------------------------------------
 
 %--------------------------------------------------------------------
 \hypertarget{RSAVerfahren}{}
-\subsubsection[Das RSA-Verfahren]
+\subsection[Das RSA-Verfahren]
 {Das RSA-Verfahren\footnote{%
 Vergleiche auch die Kapitel \ref{rsabeweis}, ff.
 }$^,$\footnote{%
@@ -413,7 +413,7 @@ Durchbrüche''.}
 
 
 %--------------------------------------------------------------------
-\subsubsection{Rabin-Public-Key-Verfahren (1979)}
+\subsection{Rabin-Public-Key-Verfahren (1979)}
 
 Für \index{Rabin, Michael O.} \index{Rabin!Public-Key-Verfahren} 
 dieses Verfahren konnte gezeigt werden, dass es äquivalent zum Brechen
@@ -448,7 +448,7 @@ Hintertür-Information ist die Primfaktorzerlegung von $ n = pq. $
 \vskip +20 pt
 %--------------------------------------------------------------------
 \hypertarget{HT-Discrete-Logarithm-as-Basis}{}
-\subsection[Der diskrete Logarithmus als Basis für Public-Key-Verfahren]
+\section[Der diskrete Logarithmus als Basis für Public-Key-Verfahren]
            {Der diskrete Logarithmus als Basis für Public-Key-Verfahren\footnotemark}
 \footnotetext{%
     \index{ZT, Lernprogramm Zahlentheorie}%
@@ -466,7 +466,7 @@ Hintertür-Information ist die Primfaktorzerlegung von $ n = pq. $
 Diskrete Logarithmen\index{Logarithmusproblem!diskret} sind die Grundlage für eine große Anzahl von Algorithmen von Public-Key-Verfahren.
 
 %--------------------------------------------------------------------
-\subsubsection{Der diskrete Logarithmus in $ \Z_p^* $}
+\subsection{Der diskrete Logarithmus in $ \Z_p^* $}
 \label{L_Discrete_Logarithm}  %Die Kapitelnr von \label wird per per \ref geholt.
 
 Sei $ p $ eine Primzahl, und sei $g$ ein Erzeuger der zyklischen multiplikativen Gruppe $ \Z_p^\ast=\{1,\ldots,p-1\} $. Dann ist die diskrete Exponentialfunktion zur Basis $ g $  definiert durch
@@ -527,7 +527,7 @@ Index-Calculus) \index{General Number Field Sieve (GNFS)} durchgeführt und
 benötigte ca.~17 CPU-Jahre auf 3.2 GHz Xeon Maschinen.
 
 %--------------------------------------------------------------------
-\subsubsection[Diffie-Hellman-Schlüsselvereinbarung]
+\subsection[Diffie-Hellman-Schlüsselvereinbarung]
 {Diffie-Hellman-Schlüsselvereinbarung\footnotemark}
 \footnotetext{%
 In CrypTool\index{CrypTool} ist dieses Austauschprotokoll visualisiert:
@@ -565,7 +565,7 @@ Die Sicherheit des {\bf Diffie-Hellman-Protokolls} hängt eng mit der Berechnung 
 
 
 %--------------------------------------------------------------------
-\subsubsection{ElGamal-Public-Key-Verschlüsselungsverfahren in $ \Z_p^\ast$}
+\subsection{ElGamal-Public-Key-Verschlüsselungsverfahren in $ \Z_p^\ast$}
 
 \index{ElGamal!Public-Key}
 Indem man das Diffie-Hellman Schlüsselvereinbarungsprotokoll 
@@ -598,7 +598,7 @@ und
 
 
 %--------------------------------------------------------------------
-\subsubsection{Verallgemeinertes ElGamal-Public-Key-Verschlüsselungsverfahren }
+\subsection{Verallgemeinertes ElGamal-Public-Key-Verschlüsselungsverfahren }
 
 Den diskreten Logarithmus kann man in beliebigen endlichen \index{Gruppen} Gruppen $ (G, \circ) $ verallgemeinern. Im folgenden geben wir einige Eigenschaften über die Gruppe $G$ an, damit das diskrete Logarithmusproblem schwierig wird. \\
 \index{Exponentialfunktion!Berechnung}
@@ -694,7 +694,7 @@ und
 
 %--------------------------------------------------------------------
 \newpage
-\addcontentsline{toc}{subsection}{Literaturverzeichnis}
+\addcontentsline{toc}{section}{Literaturverzeichnis}
 \begin{thebibliography}{99}
 
    \bibitem[Adleman1982]{Adleman1982} \index{Adleman 1982}
@@ -750,8 +750,8 @@ und
 
 
 %--------------------------------------------------------------------
-\section*{Web-Links}
-\addcontentsline{toc}{subsection}{Web-Links}
+\chapter*{Web-Links}
+\addcontentsline{toc}{section}{Web-Links}
 \begin{enumerate}
    \item \href{http://www.geocities.com/st\_busygin/clipat.html}
               {http://www.geocities.com/st\_busygin/clipat.html }

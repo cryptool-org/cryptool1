@@ -1,7 +1,7 @@
 % $Id$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[a4paper,11pt]{article}
+\documentclass[a4paper,11pt,oneside]{book}
 \usepackage[latin1]{inputenc} % Umlaute
 % \usepackage[dvips]{graphics}
 % \usepackage{graphicx}
@@ -25,12 +25,9 @@
 
 % Formatierung der Fußnoten
 \usepackage[flushmargin]{footmisc}
-
+\usepackage{fullpage}
 % Literaturverzeichnis kapitelweise
 \usepackage[labelstoglobalaux]{bibunits} % ohne labelstoglobalaux scheint man thebibilograpy und bibtex nicht mischen zu können
-%\bibliographyunit[\section] % bibunits für das ganze Dokument aktivieren
-\defaultbibliography{references}
-\defaultbibliographystyle{abbrv}
 
 \makeindex
 \hypersetup{colorlinks=true}
@@ -39,8 +36,8 @@
 %\newlength{\myFootnoteLabel}
 %\setlength{\myFootnoteLabel}{2.2em}%  <-- can be changed to any valid value
 
-\setlength{\textwidth}{460 pt}
-\hoffset-0.7in
+% \setlength{\textwidth}{460 pt}
+% \hoffset-0.7in
 \newtheorem{definition}{Definition}[section]
 \newtheorem{satz}{Satz}[section]
 \newenvironment{Beweis}[1]
@@ -66,15 +63,15 @@
 %   \addcontentsline{toc}{section}{Inhaltsverzeichnis}  ==> USED, da Springen
 %       --> -   springt eine Zeile zu weit,                       wichtiger.
 %       --> -   zeigt S. 8 statt S. 3 (also das Ende des Verzeichnisses)
-\makeatletter
-\renewcommand\tableofcontents{%
-    \section*{\contentsname
-        \@mkboth{%
-           \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
-    \addcontentsline{toc}{section}{\contentsname}
-    \@starttoc{toc}%
-    }
-\makeatother
+% \makeatletter
+% \renewcommand\tableofcontents{%
+%     \section*{\contentsname
+%         \@mkboth{%
+%            \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
+%     \addcontentsline{toc}{section}{\contentsname}
+%     \@starttoc{toc}%
+%     }
+% \makeatother
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -99,6 +96,9 @@ www.cryptool.org
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
+
+\frontmatter
+
 \pagestyle{plain}
 \setlength{\fboxrule}{.5mm}
 \setlength{\fboxsep}{1.75mm}
@@ -147,6 +147,9 @@ die GNU-Lizenz für freie Dokumentation.
 \parskip 4pt
 
 \input{chapters/introduction.tex}
+
+\mainmatter
+
 \input{chapters/cryptomethods.tex}
 \input{chapters/paper_and_pencil.tex}
 \input{chapters/primes.tex}
@@ -154,9 +157,11 @@ die GNU-Lizenz für freie Dokumentation.
 \input{chapters/moderncryptography.tex}
 \input{chapters/digitalsignatures.tex}
 \input{chapters/ellipticcurves.tex}
-\begin{bibunit}
+\bibliographyunit[\chapter]
+\bibliography*{references}
+\bibliographystyle*{plain}
 \input{chapters/crypto2020.tex}
-\end{bibunit}
+\bibliographyunit
 
 %\appendix \addcontentsline{toc}{section}{Appendix} %be_2005 raus
 \begin{appendix}

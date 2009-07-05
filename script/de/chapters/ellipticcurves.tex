@@ -4,14 +4,14 @@
 
 \newpage
 \hypertarget{ellcurve}{}
-\section{Elliptische Kurven}
+\chapter{Elliptische Kurven}
 \label{Chapter_EllipticCurves}
 \index{Elliptische Kurven}
 (Filipovics B. / Büger M. / Esslinger B. / Oyono R., April 2000,
  Updates: Dez. 2001, Juni 2002, März 2003)
 
 % -----------------------------------------------------------------------------
-\subsection{Elliptische Kurven -- ein effizienter Ersatz für RSA?}
+\section{Elliptische Kurven -- ein effizienter Ersatz für RSA?}
 \index{Performance}
 \label{ECAlternative}
 
@@ -122,7 +122,7 @@ BSI-Empfehlung: ``Geeignete Kryptoalgorithmen'' vom 24. Oktober 2002.
 
 
 % -----------------------------------------------------------------------------
-\subsection{Elliptische Kurven -- Historisches}
+\section{Elliptische Kurven -- Historisches}
 
 Auf dem Gebiet der Elliptischen Kurven wird seit über 100 Jahren geforscht. Im Laufe der Zeit hat man
 viele weitläufige und mathematisch tiefgründige Resultate im Zusammenhang mit Elliptischen Kurven gefunden
@@ -193,14 +193,14 @@ wird.
 
 
 % -----------------------------------------------------------------------------
-\subsection{Elliptische Kurven -- Mathematische Grundlagen}
+\section{Elliptische Kurven -- Mathematische Grundlagen}
 
 In diesem Abschnitt erhalten Sie Informationen über
 \index{Gruppen} {\em Gruppen} und \index{Körper} {\em Körper}.
 
 
 % -----------------------------------------------------------------------------
-\subsubsection{Gruppen}
+\subsection{Gruppen}
 
 Da der Begriff der {\em Gruppe} umgangssprachlich anders als in der Mathematik eingesetzt wird, soll der
 Vollständigkeit halber an dieser Stelle die wesentliche Aussage der formalen Definition einer Gruppe
@@ -245,7 +245,7 @@ Die {\it Ordnung der Gruppe} ist die Anzahl der Elemente in der Menge $G$. Ist d
 
 
 % -----------------------------------------------------------------------------
-\subsubsection{Körper}
+\subsection{Körper}
 
 In praktischen Anwendungen betrachtet man häufig Mengen, auf denen nicht nur eine \mbox{(Gruppen-)}
 Verknüpfung, sondern zwei Verknüpfungen definiert sind. Diese nennt man oft Addition und Multiplikation. Die mathematisch interessantesten Mengen dieser Art sind sogenannte Körper, wie z.B. die Menge der reellen Zahlen.
@@ -326,7 +326,7 @@ Eine besondere Rolle spielen die Körper $GF(p)$, deren Ordnung eine Primzahl ist
  
 
 % -----------------------------------------------------------------------------
-\subsection{Elliptische Kurven in der Kryptographie} \label{ECC-Crypto}
+\section{Elliptische Kurven in der Kryptographie} \label{ECC-Crypto}
 
 In der Kryptographie betrachten wir Elliptische Kurven. Solche Kurven ergeben sich als Lösungen einer Gleichung der Form\footnote{Die hier verwendete Kurve erhält man als Nullstellen des {\it Polynoms}\index{Polynom} $F$ vom Grad drei in drei Variablen. Dabei bezeichnet man allgemein Ausdrücke der Form
 $P=\sum_{i_1,\dots,i_n\in\N_0} a_{i_1\dots i_n} x_1^{i_1}\dots x_n^{i_n}$ mit Koeffizienten $a_{i_1\dots i_n}\in K$ als Polynome in $n$ Variablen $x_1,\dots,x_n$ über dem Körper $K$, wenn ${\rm grad\,} P:=\max\{i_1+\dots +i_n: a_{i_1\dots i_n}\ne 0\}$ einen endlichen Wert hat, die Summe also nur aus endlich vielen Summanden (Monomen) besteht. Die Summe der Exponenten der Variablen jedes einzelnen Summanden ist maximal $3$, bei mindestens einem Summanden kommt $3$ als Exponentwert einer Variablen auch wirklich vor.}
@@ -399,7 +399,7 @@ Für die Anzahl $|E|$ der Elemente einer Elliptischen Kurve $E$ über einem Körper
 
 
 % -----------------------------------------------------------------------------
-\subsection{Verknüpfung auf Elliptischen Kurven}
+\section{Verknüpfung auf Elliptischen Kurven}
 
 Um mit Elliptischen Kurven arbeiten zu können, definiert man eine Verknüpfung (meist additiv als $+$ geschrieben) auf den Punkten der Elliptischen Kurve. Dabei definiert man bei Elliptischen Kurven über $GF(p)$ die kommutative Verknüpfung durch
 \begin{enumerate}
@@ -439,7 +439,7 @@ Abschnitt zeigt.
 
 % \newpage
 \begin{figure}[htbp]
-\subsubsection*{Addieren von Punkten auf einer Elliptischen Kurve}
+\subsection*{Addieren von Punkten auf einer Elliptischen Kurve}
 Die zwei folgenden Abbildungen zeigen, wie bei einer Elliptischen Kurve über den reellen Zahlen in affinen Koordinaten
 zwei Punkte addiert werden. Der unendlich ferne Punkt ${\cal O}$ kann nicht in der affinen 
 Ebene dargestellt werden.  
@@ -458,7 +458,7 @@ Ebene dargestellt werden.
 
 
 % -----------------------------------------------------------------------------
-\subsection{Sicherheit der Elliptischen-Kurven-Kryptographie: Das ECDLP}
+\section{Sicherheit der Elliptischen-Kurven-Kryptographie: Das ECDLP}
 
 Wie bereits in Abschnitt \ref{ECC-Crypto} erwähnt, betrachten wir in der Kryptographie Elliptische Kurven über diskreten\footnote{Diskret im Gegensatz zu kontinuierlich.} Körpern $GF(2^n)$ oder $GF(p)$ (für große Primzahlen $p$). Dies bedeutet, dass alle Parameter, die zur Beschreibung der Elliptischen Kurve notwendig sind, aus diesem zugrunde liegenden Körper stammen. Ist nun $E$ eine Elliptische Kurve über einem solchen Körper und $P$ ein Punkt auf der Kurve $E$, so kann man für jede natürliche Zahl $m$
 $$ mP := \underbrace{P+P+\dots+P}_{\hbox{$m$ mal}}
@@ -507,7 +507,7 @@ die Parameter von Kryptoverfahren, die auf dem ECDL-Problem basieren.
 
 
 % -----------------------------------------------------------------------------
-\subsection{Verschlüsseln und Signieren mit Hilfe Elliptischer Kurven}
+\section{Verschlüsseln und Signieren mit Hilfe Elliptischer Kurven}
 
 \begin{sloppypar}
   Das {\em Elliptische Kurven Diskreter Logarithmus
@@ -525,7 +525,7 @@ Signaturverfahren eingesetzt  wurde.
 \par
 %\smallskip
 %{\bf Verschlüsselung:}
-\subsubsection{Verschlüsselung}
+\subsection{Verschlüsselung}
 
 Mit Hilfe Elliptischer Kurven kann ein sicherer Schlüsselaustausch nach dem \hyperlink{DH-KeyExch}{Diffie-Hellman} Protokoll \index{Diffie-Hellman} erfolgen (siehe Kapitel \ref{DH-KeyExch}). Dieser Schlüssel kann dann für eine anschließende symmetrische Verschlüsselung verwendet werden. Ein Schlüsselpaar mit privatem und öffentlichem Schlüssel wird im Gegensatz zum RSA-Algorithmus hingegen nicht erzeugt!
 
@@ -537,7 +537,7 @@ Um einen ``Man-in-the-Middle''-Angriff zu verhindern, kann man auch hier wie sch
 \par
 %\smallskip 
 %{\bf Signatur-Erstellung:}
-\subsubsection{Signatur-Erstellung}
+\subsection{Signatur-Erstellung}
 
 Überträgt man den \index{DSA} DSA auf Elliptische Kurve, so kann man wie folgt eine digitale Signatur erzeugen: Man wählt vorab eine (nicht-triviale) Zahl $s\in{\mathbb Z}_q$. Diese bildet den privaten Schlüssel. Hingegen werden $q$, $G$ und $R=sG$ veröffentlicht. Aus $G$ und $R$ lässt sich jedoch $s$ nicht ermitteln, worauf die Sicherheit des Signaturverfahrens beruht.
 
@@ -549,7 +549,7 @@ Das Tripel $(m,r_1,x)$ bildet nun die digitale Signatur.
 \par
 %\smallskip 
 %{\bf Signatur-Verifikation:}
-\subsubsection{Signatur-Verifikation}
+\subsection{Signatur-Verifikation}
 
 Zur Verifikation muss zunächst $u_1=h(m)/x$, $u_2=\bar r_1/x$ (in ${\mathbb Z}_q$ gebildet werden). Dann bestimmt man
 $$ V=u_1G+u_2Q .
@@ -563,7 +563,7 @@ Nun ist $R=rG$. Also folgt hier $\bar v_1=\bar r_1$, d.h. $R$ und $V$ stimmen mo
 
 % -----------------------------------------------------------------------------
 \hypertarget{faktell}{}
-\subsection{Faktorisieren mit Elliptischen Kurven} \label{ECC-Factorisation} 
+\section{Faktorisieren mit Elliptischen Kurven} \label{ECC-Factorisation} 
 
 Es gibt Faktorisierungsalgorithmen%
 \footnote{Insbesondere John M. Pollard \index{Pollard, John M.} war an der 
@@ -615,7 +615,7 @@ Daher eignen sich diese Verfahren auch sehr gut für eine Parallelisierung.
 
 
 % -----------------------------------------------------------------------------
-\subsection{Implementierung Elliptischer Kurven}
+\section{Implementierung Elliptischer Kurven}
 
 CrypTool kann digitale Signaturen auch mit Hilfe von Elliptischen Kurven erzeugen%
 \footnote{%
@@ -654,7 +654,7 @@ sich erheblich beschleunigen müssen, wenn sich abzeichnet, dass die aktuellen
 Forschungsprojekte im Bereich der Faktorisierung einen Durchbruch erzielen.
 
 % -----------------------------------------------------------------------------
-\subsection{Elliptische Kurven im praktischen Einsatz}
+\section{Elliptische Kurven im praktischen Einsatz}
 
 Bereits heute werden Elliptische Kurven in der Praxis eingesetzt. Als prominentes Beispiel ist hier der Informationsverbund Bonn-Berlin (IVBB)\footnote{Der IVBB verbindet Regierungsstellen in der alten und neuen deutschen Hauptstadt.}\index{IVBB} zu nennen, bei dem streng vertrauliche Dokumente der deutschen Bundesregierung zwischen Regierungsstellen mit Sitz in Berlin und Bonn ausgetauscht werden. Durch den Einsatz von ECC konnte eine Hochsicherheitslösung realisiert werden. Fragen der Interoperabilität spielten hingegen eine untergeordnete Rolle.
 
@@ -665,7 +665,7 @@ Beide Beispiele zeigen gut die typischen Einsatzgebiete Elliptischer Kurven: Als
 
 \newpage
 \begin{thebibliography}{99999}
-\addcontentsline{toc}{subsection}{Literaturverzeichnis}
+\addcontentsline{toc}{section}{Literaturverzeichnis}
     \bibitem[Cassels1991]{Cassels1991} J. W. S. Cassels,
 	\index{Cassels 1991} \\ 
 	{\em Lectures on elliptic curves}, \\
@@ -710,7 +710,7 @@ Beide Beispiele zeigen gut die typischen Einsatzgebiete Elliptischer Kurven: Als
 \end{thebibliography}
 
 
-% \section*{Bücher über Elliptische Kurven (Auswahl)}\addcontentsline{toc}{subsection}{Bücher über Elliptische Kurven (Auswahl)}
+% \chapter*{Bücher über Elliptische Kurven (Auswahl)}\addcontentsline{toc}{section}{Bücher über Elliptische Kurven (Auswahl)}
 % \begin{itemize}
 %    \item[]\hskip -25 pt [{\sc Cas}] J. W. S. Cassels, {\em Lectures on elliptic curves}, Cambridge University Press, 1991, 143 Seiten.
 %    \item[]\hskip -25 pt  [{\sc Kob}] N. Koblitz, {\em Introduction to elliptic curves and modular forms}, Graduate Texts in Mathemathics, Springer-Verlag, 1984.
@@ -721,7 +721,7 @@ Beide Beispiele zeigen gut die typischen Einsatzgebiete Elliptischer Kurven: Als
 % \end{itemize}
 
 
-\section*{Web-Links}\addcontentsline{toc}{subsection}{Web-Links}
+\chapter*{Web-Links}\addcontentsline{toc}{section}{Web-Links}
 
 \begin{enumerate}
   \item Online-Tutorial über Elliptische Kurven der Firma Certicom\index{Certicom}\\
