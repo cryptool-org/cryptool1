@@ -59,7 +59,7 @@ BEGIN_MESSAGE_MAP(CDlgPermKey, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON1, &CDlgPermKey::OnBnClickedCopyKey)
 END_MESSAGE_MAP()
 
-void CDlgPermKey::setPermKey1(const permkey *key)
+void CDlgPermKey::setPermKey1(const permkey *key, int dataType)
 {
 	int i;
 	char num[20];
@@ -71,6 +71,7 @@ void CDlgPermKey::setPermKey1(const permkey *key)
 	}
 	_itoa(key->permKey[i], num, 10);
 	m_permKey1 += num;
+	m_dataType = dataType;
 
 	inDir1   = key->dirPlain;
 	permDir1 = key->dirPerm;
@@ -89,8 +90,8 @@ void CDlgPermKey::OnBnClickedCopyKey()
 {
 	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_PERMUTATION,pc_str,STR_LAENGE_STRING_TABLE);
 	CString strKey;
-	strKey.Format("%s %s%i,%i,%i,%i,%i,%i", 
-		m_permKey1, PARAM_TOKEN, inDir1, permDir1, outDir1, inDir2, permDir2, outDir2);
+	strKey.Format("%s %s%i, %i,%i,%i,%i,%i,%i", 
+		m_permKey1, PARAM_TOKEN, m_dataType, inDir1, permDir1, outDir1, inDir2, permDir2, outDir2);
 	CopyKey ( pc_str, strKey );
 	// TODO: Add your control notification handler code here
 }

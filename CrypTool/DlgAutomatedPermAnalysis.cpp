@@ -295,7 +295,7 @@ void CDlgAutomatedPermAnalysis::OnBnClickedCompute()
 	if ( analysis.iterate_key_param() )
 	{
 		CDlgPermKey dlg;
-		dlg.setPermKey1(analysis.getKeyList());
+		dlg.setPermKey1(analysis.getKeyList(), m_DataType);
 		dlg.DoModal();
 	}
 	else

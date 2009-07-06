@@ -154,7 +154,7 @@ int automated_permanalysis::found_s( unsigned long p_ndx, unsigned long ur, char
 	unsigned int i = (extra) ? 1                               : ptPlain.size % ptPlain.permSize +1;
 	unsigned int j = (extra) ? ptPlain.size % ptPlain.permSize : ptPlain.permSize;
 	for ( ; i<=j; i++ )
-		if ( rem[i] && compare( ptPlain, ptCipher, p_ndx, i, ur) )
+		if ( rem[i] && compare( ptPlain, ptCipher, i, p_ndx, ur) )
 		{
 			pk[i]  = p_ndx;
 			rem[i] = 0;

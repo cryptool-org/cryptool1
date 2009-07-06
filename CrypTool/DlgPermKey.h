@@ -35,7 +35,7 @@ class CDlgPermKey : public CDialog
 public:
 	CDlgPermKey(CWnd* pParent = NULL);   // standard constructor
 	virtual ~CDlgPermKey();
-	void setPermKey1(const permkey *key);
+	void setPermKey1(const permkey *key, int dataType);
 
 // Dialog Data
 	enum { IDD = IDD_AUTOMATED_PERM_ANALYSIS_OUTPUT };
@@ -47,6 +47,7 @@ protected:
 public:
 	int inDir1, permDir1, outDir1;
 	int inDir2, permDir2, outDir2;
+	int m_dataType;
 	CString m_permKey1;
 	CString m_inDir1;
 	CString m_permDir1;
