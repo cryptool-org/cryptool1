@@ -7,8 +7,9 @@
 % --------------------------------------------------------------------------
 \newpage
 %\addcontentsline{toc}{chapter}{Vorwort zur 8. Auflage des CrypTool-Skripts} % be_2006: So springt er auf S. 3 statt auf S. 9 !!
-\chapter*{Vorwort zur 8. Auflage des CrypTool-Skripts\footnote{Zur 9. Auflage wurde kein extra Vorwort verfasst.}}
-\addcontentsline{toc}{chapter}{Vorwort zur 8. Auflage des CrypTool-Skripts}
+%\chapter*{Vorwort zur 10. Auflage des CrypTool-Skripts\footnote{Zur 9. Auflage wurde kein extra Vorwort verfasst.}}
+\chapter*{Vorwort zur 10. Auflage des CrypTool-Skripts}}
+\addcontentsline{toc}{chapter}{Vorwort zur 10. Auflage des CrypTool-Skripts}
 
 Ab dem Jahr 2000 wurde mit dem CrypTool-Paket\index{CrypTool} auch ein
 Skript ausgeliefert, das die Mathematik einzelner Themen genauer, aber doch 
@@ -34,25 +35,11 @@ der Kryptographie gibt es viele neue Erkenntnisse.
 %In dieser Ausgabe des Skripts wurden einige Themen ergänzt und andere auf
 %den aktuellen Stand gebracht (z.B. die Zusammenfassungen zu aktuellen 
 %Forschungsergebnissen):                   
-In dieser Ausgabe des Skripts wurden wieder einige Themen ergänzt und auf
-den aktuellen Stand gebracht, z.B.:
+In dieser Ausgabe des Skripts wurden wieder einige Themen korrigiert,
+ergänzt und auf den aktuellen Stand gebracht, z.B.:
 \vspace{-7pt}
 \begin{itemize}
-  \item die Suche nach den größten Primzahlen (Mersenne- und Fermatzahlen, 
-        \glqq M44\grqq~ oder die im März 2007 gefundene größte
-        Nicht-Mersenne-Primzahl, die sich bei
-        der Untersuchung der Sierpinski-Zahlen ergab)
-	(Kap. \ref{spezialzahlentypen}, \ref{RecordPrimes};
-         Tab. \ref{L_n_Largest_Known-Primes}, 
-         Seite \pageref{L_n_Largest_Known-Primes}),
-  \item die Faktorisierung großer Zahlen, wie \glqq C307\grqq\index{C307}
-        (Kap. \ref{C307}),
-  \item der aktuelle Rekord (April 2007) in der Berechnung des diskreten
-        Logarithmus 
-        (Die als Beispielzahl benutzte Potenz bestand aus den ersten 160 Stellen
-        der Euler-Zahl e und es wurde modulo einer 160-stelligen Primzahl
-        gerechnet)
-        (Kap. \ref{L_Discrete_Logarithm}),
+  \item die Suche nach den größten Primzahlen,
 %  \item Fortschritte bei der Kryptoanalyse von Hashverfahren 
 %        (Kap. \ref{collision-attacks-against-sha-1}) und
 %  \item Fortschritte bei den Ideen für neue Kryptoverfahren (RSA-Nachfolger)
@@ -61,20 +48,17 @@ den aktuellen Stand gebracht, z.B.:
         wesentliche Rolle spielt (siehe Anhang \ref{s:appendix-movies}),
         und Kurioses zu Primzahlen (siehe \ref{HT-Quaint-curious-Primes-usage}).
 \end{itemize}
-Neu hinzu gekommen sind Kapitel \ref{Chapter_Crypto2020} {\bf Krypto 2020}
-von Prof. Buchman et al. und der Anhang \ref{s:appendix-Learn-NT} 
-zum {\bf Lernprogramm Zahlentheorie}.
 
+Neu hinzu gekommen ist der Anhang über die Benutzung des Computer-Algebra-Systems
+Sage \ref{s:appendix-using-sage}. Dieses wurde ergänzt, weil Sage mehr und mehr
+zum Standard-Open-Source CAS wird. Entsprechend wurden alle Codebeispiele, die
+vorher in PARI-GP und Mathematica geschrieben waren, durch Sage-Code ersetzt.
+Außerdem kamen dank Minh Van Nguyen etliche neue Code-Beispiele hinzu.
 
 \vspace{8pt}
 Seit das Skript dem CrypTool-Paket in Version 1.2.01 das erste Mal beigelegt
-wurde, ist es mit fast jeder neuen Version von CrypTool (1.2.02, 1.3.00,
-1.3.02, 1.3.03, 1.3.04, 1.4.00 und nun 1.4.10) ebenfalls erweitert
+wurde, ist es mit fast jeder neuen Version von CrypTool ebenfalls erweitert
 und aktualisiert worden.
-
-Ich würde mich sehr freuen, wenn sich dies auch innerhalb der folgenden
-Open Source-Versionen\index{Open Source} von CrypTool\index{CrypTool}
-so weiter fortsetzt.
 
 Herzlichen Dank nochmal an alle, die mit Ihrem großem Einsatz zum 
 Erfolg und zur weiten Verbreitung dieses Projekts beigetragen haben.
@@ -86,8 +70,9 @@ Verständnis für dieses moderne und zugleich uralte Thema finden.\\[1.5\baselines
 \nopagebreak
 Bernhard Esslinger\\[\baselineskip]
 \nopagebreak
-Frankfurt, Juni 2007
+Frankfurt, July 2009
 \vspace{-12pt}
+
 % --------------------------------------------------------------------------
 \newpage
 %\addcontentsline{toc}{chapter}{Einführung -- Zusammenspiel von Skript
@@ -126,19 +111,9 @@ standardisierter, moderner Kryptographie zu fördern.
 
 \textbf{Das Programm CrypTool\index{CrypTool}}
 
-CrypTool\index{CrypTool} ist ein Programm mit sehr umfangreicher Online-Hilfe,
+CrypTool\index{CrypTool} ist ein Lernprogramm mit umfangreicher Online-Hilfe,
 mit dem Sie unter einer einheitlichen Oberfläche
 kryptographische Verfahren anwenden und analysieren können.
-\par \vskip + 3pt
-
-CrypTool\index{CrypTool} wurde entwickelt, um die Sensibilität der 
-Mitarbeiter für IT-Sicherheit zu erhöhen und um ein tieferes Verständnis
-für Sicherheit zu ermöglichen. 
-Ein weiteres Anliegen war die Nachvollziehbarkeit der in der Deutschen Bank
-eingesetzten kryptographischen Verfahren. So ist es mit CrypTool als 
-verlässlicher Referenzimplementierung der verschiedenen 
-Verschlüsselungsverfahren auch mög\-lich, die in
-anderen Programmen eingesetzte Verschlüsselung zu testen.
 \par \vskip + 3pt
 
 Inzwischen wird CrypTool\index{CrypTool} vielerorts
@@ -168,7 +143,7 @@ Auch allen hier nicht namentlich Genannten ganz herzlichen Dank für das
 
 Bernhard Esslinger
 
-Frankfurt, Juli 2008
+Frankfurt, Juli 2009
 
 % Local Variables:
 % TeX-master: "../script-de.tex"

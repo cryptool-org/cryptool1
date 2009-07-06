@@ -5,8 +5,8 @@
 
 
 % --------------------------------------------------------------------------
-\chapter*{Preface to the 8th Edition of the CrypTool Script\footnote{For the 9th edition no extra preface was written.}}
-\addcontentsline{toc}{chapter}{Preface to the 8th Edition of the CrypTool Script}
+\chapter*{Preface to the 10th Edition of the CrypTool Script}
+\addcontentsline{toc}{chapter}{Preface to the 10th Edition of the CrypTool Script}
 
 Starting in the year 2000 this script became a part of the 
 CrypTool\index{CrypTool} package. It is designed to accompany the program 
@@ -25,28 +25,16 @@ Naturally there are many more interesting topics in mathematics and
 cryptography which could be discussed in greater depth -- therefore this
 is only one of many ways to do it.
 
-\vspace{12pt}
 The rapid spread of the Internet has also lead to intensified research in the
 technologies involved, especially within the area of cryptography where a good
 deal of new knowledge has arisen.
 
 %This edition of the script adds some topics, but mainly updates areas (e.g. the
 %summaries of topical research areas):
-Again this edition of the script amended and updated some topics, e.g.:
+Again this edition of the script corrected, amended and updated some topics, e.g.:
 \vspace{-7pt}
 \begin{itemize}
-  \item the search for the largest prime numbers
-        (Mersenne and Fermat primes, ``M44'' or the biggest non-Mersenne prime
-         found in March 2007 when investigating Sierpinski numbers) \\ 
-	(chap. \ref{spezialzahlentypen}, \ref{RecordPrimes};
-         table \ref{L_n_Largest_Known-Primes}, 
-         page \pageref{L_n_Largest_Known-Primes}), 
-  \item the factorisation of big numbers like ``C307''\index{C307} 
-        (chap. \ref{C307}),
-  \item the current record (April 2007) calculating the discrete logarithm 
-        (The used sample power consisted of the first 160 digits of Euler's
-        number e and the calculation was done modulo a 160 digit prime)
-        (chap. \ref{L_Discrete_Logarithm}),
+  \item the search for the largest prime numbers, 
 %  \item progress in cryptanalysis of hash algorithms 
 %        (chap. \ref{collision-attacks-against-sha-1}) and
 %  \item progress in ideas for new crypto methods (RSA successor) 
@@ -56,18 +44,17 @@ Again this edition of the script amended and updated some topics, e.g.:
         and where primes are used as hangers  
         (see curiouses in \ref{HT-Quaint-curious-Primes-usage}).
 \end{itemize}
-Newly added is chapter \ref{Chapter_Crypto2020} {\bf Crypto 2020}
-by Prof. Buchman et al. and the appendix \ref{s:appendix-Learn-NT} 
-about the {\bf learning tool for number theory}.
+
+Newly added is the appendix about using the computer algebra system
+Sage \ref{s:appendix-using-sage}. This was added because Sage becomes
+more and more the standard open-source CAS system. Accordingly all
+samples written before in PARI-GP and Mathematica have been substituted
+with Sage code. Thanks to Minh Van Nguyen a lot of new code samples could be added.
 
 \vspace{8pt}
 The first time the document was delivered with CrypTool\index{CrypTool} 
 was in version 1.2.01. Since then it has been expanded and revised in almost
-every new version of CrypTool (1.2.02, 1.3.00, 1.3.02, 1.3.03, 1.3.04, 1.4.00
-and now 1.4.10).
-
-I'd be more than happy if this also continues in the further open-source
-versions of CrypTool\index{CrypTool}.
+every new version of CrypTool.
 
 I am deeply grateful to all the people helping with their impressive
 commitment who have made this global project so successful.
@@ -83,7 +70,7 @@ also very ancient topic.
 \nopagebreak
 Bernhard Esslinger
 \\[\baselineskip]
-Frankfurt (Germany), June 2007
+Frankfurt (Germany), July 2009
 \vspace{-12pt}
 
 % --------------------------------------------------------------------------
@@ -118,17 +105,9 @@ security and the readiness to use standardised modern cryptography.
 
 \textbf{The program CrypTool\index{CrypTool}}
 
-CrypTool\index{CrypTool} is a program with an extremely comprehensive online
+CrypTool\index{CrypTool} is an educational program with a comprehensive online
 help enabling you to use and analyse cryptographic procedures within a
 unified graphical user interface.\par \vskip + 3pt
-
-CrypTool\index{CrypTool} was developed during the end-user awareness program
-at Deutsche Bank in order to increase employee awareness of IT security and provide them with
-a deeper understanding of the term security.
-A further aim has been to enable users to understand the cryptographic
-procedures. In this way, using CrypTool
-as a reliable reference implementation of the various encryption procedures,
-you can test the encryption implemented in other programs. \par \vskip + 3pt
 
 CrypTool\index{CrypTool} is currently been used for 
 training in companies and teaching at school and universities, and
@@ -139,8 +118,8 @@ moreover several universities are helping to further develop the project.
 \textbf{Acknowledgment}
 
 At this point I'd like to thank explicitly the following people who
-particularly contributed to CrypTool\index{CrypTool}. Without their special
-talents and engagement CrypTool would not be what it is today:
+particularly contributed to CrypTool\index{CrypTool}. They applied their
+very special talents and showed really great engagement:
 \vspace{-7pt}
 %\begin{itemize}
 \begin{list}{\textbullet}{\addtolength{\itemsep}{-0.5\baselineskip}}
@@ -157,7 +136,7 @@ hard work (mostly carried out in their spare time).
 
 Bernhard Esslinger
 
-Frankfurt (Germany), July 2008
+Frankfurt (Germany), July 2009
 
 % Local Variables:
 % TeX-master: "../script-en.tex"
