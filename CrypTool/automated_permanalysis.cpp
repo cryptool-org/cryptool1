@@ -170,9 +170,9 @@ int automated_permanalysis::seek_scattered( int f, unsigned long p_ndx, unsigned
 	unsigned int el = ptPlain.size / ptPlain.permSize;
 	if ( p_ndx > ptPlain.permSize ) 
 		return 1;
-	if ( seek_scattered( found_s( p_ndx, ur, rem, pk, 0), ur,   p_ndx+1, rem, pk) )
+	if ( seek_scattered( found_s( p_ndx, ur, rem, pk, 0), p_ndx+1, ur,   rem, pk) )
 		return 1;
-	if ( seek_scattered( found_s( p_ndx, ur, rem, pk, 1), ur+1, p_ndx+1, rem, pk) )
+	if ( seek_scattered( found_s( p_ndx, ur, rem, pk, 1), p_ndx+1, ur+1, rem, pk) )
 		return 1;
 	rem[f] = 1;
 
