@@ -2855,7 +2855,7 @@ PrimeQ[347] = True; EulerPhi[347] = 346; GCD[11, 347] = 1;
 MultiplicativeOrder[11, 347] = 173}\\
 The syntax with Pari-GP is: \texttt{isprime(347); eulerphi(347);
   gcd(11,347); znorder(Mod(11,347))}.\index{Pari-GP}
-\vskip +10 pt
+\vskip +6 pt  % \vskip +10 pt
 \begin{tabular}{|c|c|l|}
 \hline
 i  & $11^i{\rm ~mod~}347$ & \\
@@ -2873,7 +2873,7 @@ i  & $11^i{\rm ~mod~}347$ & \\
     240  &         49   & searched exponent \\
 \hline
 \end{tabular}
-\vskip +6 pt
+\vskip +18 pt
 } is extremely difficult to solve. 
 
 Here, we need to calculate:\\
@@ -2884,7 +2884,18 @@ For Bob: $11 ^ y \equiv 285 {\rm ~(mod~}347)$, that means $\log_{11}(285){\rm ~(
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \hypertarget{Chapter_ElementaryNT_12}{}
-\section{The RSA procedure with actual numbers}
+\section{The RSA procedure with actual numbers\footnotemark}
+\footnotetext{%
+    \index{Sage}%
+    \index{Minh Van Nguyen}%
+    Additional material: Minh Van Nguyen: "Number Theory and the RSA Public Key
+    Cryptosystem. Introductory tutorial on using Sage to study elementary number theory
+    and public key cryptography", 2009.
+    Didactically very clear article about some basics in NT and in Sage usage.
+    \href{http://nguyenminh2.googlepages.com/sage_numtheory-rsa.pdf}
+       {\texttt{http://nguyenminh2.googlepages.com/sage\_numtheory-rsa.pdf}}.
+    \vskip +3 pt
+}
 \label{rsaconcrete}\index{RSA}
 Having described above \hyperlink{RSA}{how the RSA procedure works}, we will now work through the steps using actual, but small, numbers.
 
@@ -3322,9 +3333,12 @@ This needs to be stressed because the type of padding is extremely important dur
 
 \bibitem[Agrawal2002]{Agrawal2002}  \index{Agrawal 2002} 
     M. Agrawal, N. Kayal, N. Saxena, \\
-    {\em PRIMES in P}, August 2002 \\
-    \href{http://www.cse.iitk.ac.in/news/primality.html}
-    {\texttt{http://www.cse.iitk.ac.in/news/primality.html}}
+    {\em PRIMES in P}, August 2002, revised paper: \\
+       \href{http://www.cse.iitk.ac.in/~manindra/algebra/primality_v6.pdf}
+    {\texttt{http://www.cse.iitk.ac.in/~manindra/algebra/primality\_v6.pdf}} \\
+    See also the website "The AKS "PRIMES in P" Algorithm Resource":
+       \href{http://fatphil.org/maths/AKS/}
+    {\texttt{http://fatphil.org/maths/AKS/}}
 
 \bibitem[Bartholome1996]{3Bartholome1996}  \index{Bartholome 1996} 
     A. Bartholome, J. Rung, H. Kern, \\
