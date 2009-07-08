@@ -1704,6 +1704,8 @@
 #define IDC_EDIT_RANGE_TO               2037
 #define IDC_REFERENCE_HEADER            2038
 #define IDC_EDIT_KEYWORD                2039
+#define IDC_EDIT_CIPHERTEXT             2040
+#define IDC_EDIT_PLAINTEXT              2041
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -3172,7 +3174,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        881
 #define _APS_NEXT_COMMAND_VALUE         33378
-#define _APS_NEXT_CONTROL_VALUE         2040
+#define _APS_NEXT_CONTROL_VALUE         2042
 #define _APS_NEXT_SYMED_VALUE           109
 #endif
 #endif

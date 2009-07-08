@@ -200,6 +200,7 @@ public:
 	afx_msg void OnIndividualPINEncryption();
 	afx_msg void OnProtokolSMIME();
 	afx_msg void OnAesRijndaelFlowvisualisation();
+	afx_msg void OnVigenereAnalysisSchroedel();
 };
 
 class CMainFrame : public CMDIFrameWnd

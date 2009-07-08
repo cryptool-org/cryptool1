@@ -25,6 +25,60 @@
 #pragma once
 #endif
 
+// forward declaration
+class CDlgVigenereAnalysisSchroedel;
+
+// 06/24/2009, flomar: Vigenere analysis class
+// (originally written by Schroedel in Pascal, ported to C++ by flomar)
+class VigenereAnalysisSchroedel {
+
+private:
+	// this is ugly, but it's the simplest way to connect GUI and model (sort of)
+	CDlgVigenereAnalysisSchroedel *theDialog;
+
+public:
+	// constructor initializing the dialog object
+	VigenereAnalysisSchroedel(CDlgVigenereAnalysisSchroedel *dlg);
+	// destructor
+	~VigenereAnalysisSchroedel();
+
+private:
+	// internal variables
+	unsigned int startzeit, endezeit;
+	int cDigram[26][26];
+	int cTrigram[26][26][26];
+	CString pairs[26*26*26][2];
+	unsigned int score[26*26*26][2];
+	CString _pairs[26*26*26][2];
+	unsigned int _score[26*26*26][2];
+	int remain, maxDi, maxTri, maxProzent, xDict, xlDict, cPairs;
+	CString vigenere;
+	CString solvers[1000][4];  
+	CString dict[100000];
+	int solveCount, maxRating, dictCount;
+	int solveRating;
+	CString solveText, solveKey;
+	//ui, fg : Textfile;
+  int subRate;
+	int cipherPos, aktPos, Pos2, Pos3, Remain2, Remain3;
+
+public:
+	// various functions
+	void setStatus(CString str);
+	void output(CString str);
+	void readTriDigrams();
+	void firstChar();
+	void secondChar();
+	void solveTrigram();
+	void readDict();
+	void outputSave(CString a1, CString a2, CString a3, CString a4, CString a5, CString a6, CString a7);
+	CString encryptText(CString text, CString key);
+	CString decryptText(CString text, CString key);
+	int rateString(CString str, CString key);
+	CString fillLeft(CString was, int wie);
+
+};
+
 // CDlgVigenereAnalysisSchroedel dialog
 
 class CDlgVigenereAnalysisSchroedel : public CDialog
@@ -42,6 +96,18 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
 	DECLARE_MESSAGE_MAP()
+
+	CString ciphertext;
+	CString plaintext;
+	CString key;
+	CString edit1;
+
+	VigenereAnalysisSchroedel *theAnalysis;
+
+public:
+	afx_msg void OnBnClickedButton1();
+	afx_msg void OnBnClickedButton2();
+	afx_msg void OnBnClickedButton3();
 };
 
 #endif

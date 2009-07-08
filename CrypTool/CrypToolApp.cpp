@@ -82,6 +82,7 @@
 #include "DlgCrtSecretSharing.h"
 #include "DlgSecretSharingSetup.h"
 #include "DlgPrimeTest.h"
+#include "DlgVigenereAnalysisSchroedel.h"
 
 #include "HillEncryption.h"
 
@@ -1586,4 +1587,10 @@ void CCrypToolApp::OnAesRijndaelFlowvisualisation()
 	javaProgramCompleteCall.LoadStringA(IDS_AES_FLOWVISUALIZATION_PARAM);
 
 	ShellExecuteJava(javaProgram, javaProgramCompleteCall);
+}
+
+void CCrypToolApp::OnVigenereAnalysisSchroedel()
+{
+	CDlgVigenereAnalysisSchroedel dlg;
+	dlg.DoModal();
 }
