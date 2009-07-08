@@ -105,4 +105,46 @@ int RailFenceEncryption(const char *infile, const char *oldTitle, int key, int o
 // Scytale encryption (part of the simple transpositions dialog)
 int ScytaleEncryption(const char *infile, const char *oldTitle, int key, int offset, bool encrypt = true);
 
+// 06/24/2009, flomar: Vigenere analysis class
+// (originally written by Schroedel in Pascal, ported to C++ by flomar)
+class VigenereAnalysisSchroedel {
+
+private:
+
+	// internal variables
+	unsigned int startzeit, endezeit;
+	int cDigram[26][26];
+	int cTrigram[26][26][26];
+	CString pairs[26*26*26][2];
+	unsigned int score[26*26*26][2];
+	CString _pairs[26*26*26][2];
+	unsigned int _score[26*26*26][2];
+	int remain, maxDi, maxTri, maxProzent, xDict, xlDict, cPairs;
+	CString vigenere;
+	CString solvers[1000][4];  
+	CString dict[100000];
+	int solveCount, maxRating, dictCount;
+	int solveRating;
+	CString solveText, solveKey;
+	//ui, fg : Textfile;
+  int subRate;
+	int cipherPos, aktPos, Pos2, Pos3, Remain2, Remain3;
+
+public:
+	// various functions
+	void setStatus(CString str);
+	void output(CString str);
+	void readTriDigrams();
+	void firstChar();
+	void secondChar();
+	void solveTrigram();
+	void readDict();
+	void outputSave(CString a1, CString a2, CString a3, CString a4, CString a5, CString a6, CString a7);
+	CString encryptText(CString text, CString key);
+	CString decryptText(CString text, CString key);
+	int rateString(CString str, CString key);
+	CString fillLeft(CString was, int wie);
+
+};
+	
 #endif // __CRYPT_H

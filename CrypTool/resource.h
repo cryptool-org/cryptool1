@@ -406,6 +406,7 @@
 #define IDD_AUTOMATED_PERM_ANALYSIS     876
 #define IDD_DlgAutomatedPermAnalysis_OUTPUT 877
 #define IDD_AUTOMATED_PERM_ANALYSIS_OUTPUT 877
+#define IDD_VIGENERE_ANALYSIS_SCHROEDEL 880
 #define IDS_CRYPT_DESX                  1000
 #define IDC_BTN_KLARTEXT                1000
 #define IDS_CRYPT_DESL                  1001
@@ -3169,7 +3170,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        880
+#define _APS_NEXT_RESOURCE_VALUE        881
 #define _APS_NEXT_COMMAND_VALUE         33378
 #define _APS_NEXT_CONTROL_VALUE         2040
 #define _APS_NEXT_SYMED_VALUE           109
