@@ -413,9 +413,340 @@ void VigenereAnalysisSchroedel::firstChar() {
 }
 
 void VigenereAnalysisSchroedel::secondChar() {
-	// TODO
+
+	char actChar, lText, lKey, fText, fKey;
+	int i,o,l,n,m;
+	CString s, sText, sKey;
+	int tDigramFactor, kDigramFactor;
+
+	Pos2 = 0;
+	Pos3 = 0;
+	Remain2 = 0;
+	Remain3 = 0;
+
+	for(int n=1; n<3; n++) {
+		actChar = this->theDialog->ciphertext[n];
+		CString nStr; nStr.Format("%d", n+1);
+		output(nStr + ". character of cipher: " + actChar);
+		output("================");
+		output("Possible pairs:");
+		
+		i=0;
+		for(l=0; l<cPairs; l++) {
+			s = "";
+			for(o=0; o<26; o++) {
+				fText = cPosAlphabet[o];
+				fKey = cPosVigenere[cPosAlphabet.Find(actChar) + 26 - o];
+
+				sText = _pairs[l][0];
+				sKey = _pairs[l][1];
+
+				if(l>0) {
+					lText = sText[sText.GetLength()];
+					lKey = sKey[sKey.GetLength()];
+			
+					if(n == 2) {
+						tDigramFactor = cDigram[cPosAlphabet.Find(sText)][cPosAlphabet.Find(fText)];
+						kDigramFactor = cDigram[cPosAlphabet.Find(sKey)][cPosAlphabet.Find(fKey)];
+
+						if(tDigramFactor == 0) {
+							if(sText == 'A') tDigramFactor = 20;
+							if(sText == 'I') tDigramFactor = 20;
+							CString temp = "AM AN AS AT BE BY DO GO HE IF IN IS IT ME MY NO OF OK ON SO TO UP US";
+							if(temp.Find(sText + fText) != -1) tDigramFactor = 100;
+						}
+
+						if(kDigramFactor == 0) {
+							if(sKey == 'A') kDigramFactor = 20;
+							if(sKey == 'I') kDigramFactor = 20;
+							CString temp = "AM AN AS AT BE BY DO GO HE IF IN IS IT ME MY NO OF OK ON SO TO UP US";
+							if(temp.Find(sKey + fKey) != -1) kDigramFactor = 100;
+						}
+					}
+
+					if(n == 3) {
+						tDigramFactor = cTrigram[cPosAlphabet.Find(sText[0])][cPosAlphabet.Find(sText[1])][cPosAlphabet.Find(fText)];
+						kDigramFactor = cTrigram[cPosAlphabet.Find(sKey[0])][cPosAlphabet.Find(sKey[1])][cPosAlphabet.Find(fKey)];
+			
+						if(tDigramFactor = 0) {
+							if(sText[0] == 'A') {
+								CString temp = "AM AN AS AT BE BY DO GO HE IF IN IS IT ME MY NO OF OK ON SO TO UP US";
+								if(temp.Find(sText[1] + fText) != -1) tDigramFactor = 100;
+							}
+							if(sText[0] == 'I') {
+								CString temp = "AM AN AS AT BE BY DO GO HE IF IN IS IT ME MY NO OF OK ON SO TO UP US";
+								if(temp.Find(sText[1] + fText) != -1) tDigramFactor = 100;
+							}
+							CString temp = "AM AN AS AT BE BY DO GO HE IF IN IS IT ME MY NO OF OK ON SO TO UP US";
+							if(temp.Find(sKey[1] + fKey) != -1) kDigramFactor = 100;
+						}
+
+						if(kDigramFactor == 0) {
+							if(sKey[0] == 'A') {
+								CString temp = "AM AN AS AT BE BY DO GO HE IF IN IS IT ME MY NO OF OK ON SO TO UP US";
+								if(temp.Find(sKey[1] + fKey) != -1) kDigramFactor = 100;
+							}
+							if(sKey[0] == 'I') {
+								CString temp = "AM AN AS AT BE BY DO GO HE IF IN IS IT ME MY NO OF OK ON SO TO UP US";
+								if(temp.Find(sKey[1] + fKey) != -1) kDigramFactor = 100;
+							}
+						}	
+					}
+
+					pairs[i][0] = sText + fText;
+					pairs[i][1] = sKey + fKey;
+					score[i][0] = tDigramFactor;
+					score[i][1] = kDigramFactor;
+				}
+
+				i++;
+
+				s = s + sText + fText + "-" + sKey + fKey + (char)(9);
+			}
+
+			output(s);
+		}
+
+		CString iStr; iStr.Format("%d", i);
+		output("Count: " + iStr);
+    cPairs = i;
+
+		if(n == 2) {
+			remain = cPairs;
+			output("Remove dups:");
+			for(l=0; l<cPairs; l++) {
+				for(o=l+1; o<cPairs; o++) {
+					if(pairs[l][0] == pairs[o][1]) {
+						score[o][0] = -1;
+						score[o][1] = -1;
+					}
+				}
+			}
+
+			s = "";
+			i = 0;
+
+			for(o=0; o<cPairs; o++) {
+				if(score[o][0] == -1) {
+					i++;
+					s = s + pairs[o][0] + "-" + pairs[o][1] + (char)(9);
+				}
+			}
+			output(s);
+			CString iStr; iStr.Format("%d", i);
+			output("Count: " + iStr);
+			CString remainStr; remainStr.Format("%d", remain-i);
+			output("Remain: " + remainStr);
+
+			setStatus("Deleting dups from internal list...");
+
+			o = 0;
+			for(int l=0; l<cPairs;l++) {
+				if(score[l][0] != -1) {
+					o++;
+					_pairs[o][0] = pairs[l][0];
+					_pairs[o][1] = pairs[l][1];
+					_score[o][0] = _score[l][0];
+					_score[o][1] = _score[l][1];
+				}
+			}
+
+			for(int i=0; i<cPairs; i++) {
+				pairs[i][0] = "";
+				pairs[i][1] = "";
+				score[i][0] = 0;
+				score[i][1] = 0;
+			}
+
+			cPairs = o;
+
+			for(int i=0; i<cPairs; i++) {
+				pairs[i][0] = _pairs[i][0];
+				pairs[i][1] = _pairs[i][1];
+				score[i][0] = _score[i][0];
+				score[i][1] = _score[i][1];
+			}
+
+			if(n == 2) Remain2 = cPairs;
+		}
+
+		setStatus("Sorting");
+		for(int i=0; i<cPairs; i++) {
+			for(int o=0; o<cPairs-1; o++) {
+				if(score[o][0] + score[o][1] < score[o+1][0] + score[o+1][1]) {
+					s = pairs[o][0];
+					pairs[o][0] = pairs[o+1][0];
+					pairs[o+1][0] = s;
+					s = pairs[o][1];
+					pairs[o][1] = pairs[o+1][1];
+					pairs[o+1][1] = s;
+					l = score[o][0];
+					score[o][0] = score[o+1][0];
+					score[o+1][0] = l;
+					l = score[o][1];
+					score[o][1] = score[o+1][1];
+					score[o+1][1] = l;
+				}
+			}
+		}
+
+		setStatus("Sorting");
+		for(int i=0; i<cPairs; i++) {
+			for(int o=0; o<cPairs-1; o++) {
+				if(score[o][0] + score[o][1] < score[o+1][0] + score[o+1][1]) {
+					s = pairs[o][0];
+					pairs[o][0] = pairs[o+1][0];
+					pairs[o+1][0] = s;
+					s = pairs[o][1];
+					pairs[o][1] = pairs[o+1][1];
+					pairs[o+1][1] = s;
+					l = score[o][0];
+					score[o][0] = score[o+1][0];
+					score[o+1][0] = l;
+					l = score[o][1];
+					score[o][1] = score[o+1][1];
+					score[o+1][1] = l;
+				}
+			}
+		}
+
+		output("Sorted list by score - all remaining");
+		s = "";
+		for(int i=0; i<cPairs; i++) {
+			CString score1Str; score1Str.Format("%d", score[i][0]);
+			CString score2Str; score2Str.Format("%d", score[i][1]);
+			s = s + pairs[i][0] + "-" + pairs[i][1] + "/" + score1Str + "-" + score2Str + (char)(9);
+			output(s);
+		}
+
+		// weight and sort
+		o = 0;
+
+		if(n == 2) {
+			maxProzent = 10;
+		}
+		if(n == 3) {
+			maxProzent = 10;
+		}
+
+		setStatus("Discard underperformer");
+		for(int l=0; l<cPairs; l++) {
+			// sort out
+			if(score[l][0] >= maxProzent && score[l][1] >= maxProzent) {
+				o++;
+				_pairs[o][0] = pairs[l][0];
+				_pairs[o][1] = pairs[l][1];
+				_score[o][0] = score[l][0];
+				_score[o][1] = score[l][1];
+			}
+		}
+
+		for(int i=0; i<cPairs; i++) {
+			pairs[i][0] = "";
+			pairs[i][1] = "";
+			score[i][0] = 0;
+			score[i][1] = 0;
+		}
+
+		cPairs = o;
+
+		for(int i=0; i<cPairs; i++) {
+			pairs[i][0] = _pairs[i][0];
+			pairs[i][1] = _pairs[i][1];
+			score[i][0] = _score[i][0];
+			score[i][1] = _score[i][1];
+		}
+
+		if(n == 2) Remain2 = cPairs;
+
+		setStatus("Sorting");
+
+		for(int i=0; i<cPairs; i++) {
+			for(int o=0; o<cPairs-1; o++) {
+				if(score[o][0] + score[o][1] < score[o+1][0] + score[o+1][1]) {
+					s = pairs[o][0];
+					pairs[o][0] = pairs[o+1][0];
+					pairs[o+1][0] = s;
+					s = pairs[o][1];
+					pairs[o][1] = pairs[o+1][1];
+					pairs[o+1][1] = s;
+					l = score[o][0];
+					score[o][0] = score[o+1][0];
+					score[o+1][0] = l;
+					l = score[o][1];
+					score[o][1] = score[o+1][1];
+					score[o+1][1] = l;
+				}
+			}
+		}
+
+		output("Sorted list by score - after discarding");
+		s = "";
+
+		for(int i=0; i<cPairs; i++) {
+			CString score1Str; score1Str.Format(score[i][0]);
+			CString score2Str; score2Str.Format(score[i][1]);
+			s = s + pairs[i][0] + "-" + pairs[i][1] + "/" + score1Str + "-" + score2Str + (char)(9);
+			output(s);
+		}
+
+		output("Scorers in leading digram/trigram statistic - sorted");
+		s = "";
+		aktPos = 0;
+
+		for(int o=0; o<cPairs; o++) {
+			// TODO If AnsiUpperCase( pairs[o,1]) = AnsiUpperCase( Copy( Form1.plainText.Text, 1, n )) Then aktPos := o;
+      // TODO If AnsiUpperCase( pairs[o,1]) = AnsiUpperCase( Copy( Form1.cipherKey.Text, 1, n )) Then aktPos := o;
+			// TODO s := s + inttostr(o) + '. ' + pairs[o, 1] + '-' + pairs[o, 2] + #9;
+		}
+
+		if(n == 2) Pos2 = aktPos;
+		if(n == 3) Pos3 = aktPos;
+
+		output(s);
+		CString cPairsStr; cPairsStr.Format("%d", cPairs);
+		output("Remain: " + cPairsStr);
+		Remain3 = cPairs;
+
+		// print current position
+		if(!this->theDialog->plaintext.IsEmpty()) {
+			CString aktPosStr; aktPosStr.Format("%d", aktPos);
+			output("Current position in ranking: " + aktPosStr);
+		}
+
+		output("########################");
+	}
+
+		/* TODO ********** OUTPUT ***************
 
 
+  outPut( Form1.cipher.Text );
+  outPut( AnsiUpperCase( Form1.plainText.Text ));
+  output( AnsiUpperCase( Form1.cipherKey.Text ));
+  output( 'Length : ' + IntToStr( Length( form1.cipher.Text )));
+  output( 'Digram : ' + inttoStr( pos2 ) + '/' + inttoStr( remain2 ));
+  output( 'Trigram: ' + inttoStr( pos3 ) + '/' + inttoStr( remain3 ));
+
+  outputSave( Form1.cipher.Text,
+              AnsiUpperCase( Form1.plainText.Text ),
+              AnsiUpperCase( Form1.cipherKey.Text ),
+              inttoStr( pos2 ),
+              inttoStr( remain2 ),
+              inttoStr( pos3 ),
+              inttoStr( remain3 ));
+
+  form1.listbox1.Items.Add( inttoStr( pos2 ) +'/' +
+              inttoStr( remain2 ) + ' -- ' +
+              inttoStr( pos3 ) + '/' +
+              inttoStr( remain3 ));
+
+  form1.ListBox1.Selected[ form1.ListBox1.Items.Count -1 ] := TRUE;
+
+
+End;
+
+
+		*/
 }
 
 void VigenereAnalysisSchroedel::solveTrigram() {
