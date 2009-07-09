@@ -42,7 +42,7 @@ public:
 	// destructor
 	~VigenereAnalysisSchroedel();
 
-private:
+public:
 	// internal variables
 	unsigned int startzeit, endezeit;
 	int cDigram[26][26];
@@ -97,12 +97,14 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 
+	VigenereAnalysisSchroedel *theAnalysis;
+
+public:
 	CString ciphertext;
 	CString plaintext;
 	CString key;
 	CString edit1;
-
-	VigenereAnalysisSchroedel *theAnalysis;
+	CString autorunFileName;
 
 public:
 	afx_msg void OnBnClickedButton1();

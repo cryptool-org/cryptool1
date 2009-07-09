@@ -29,6 +29,10 @@
 #include <fstream>
 #include <string>
 
+#include <cstdlib>
+#include <time.h>
+
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -46,6 +50,7 @@ CDlgVigenereAnalysisSchroedel::CDlgVigenereAnalysisSchroedel(CWnd* pParent /*=NU
 	, plaintext(_T(""))
 	, key(_T(""))
 	, edit1(_T(""))
+	, autorunFileName(_T(""))
 	, theAnalysis(0)
 {
 	theAnalysis = new VigenereAnalysisSchroedel(this);
@@ -64,6 +69,7 @@ void CDlgVigenereAnalysisSchroedel::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_PLAINTEXT, plaintext);
 	DDX_Text(pDX, IDC_EDIT_KEY, key);
 	DDX_Text(pDX, IDC_EDIT1, edit1);
+	DDX_Text(pDX, IDC_EDIT_AUTORUN_FILE_NAME, autorunFileName);
 }
 
 
@@ -78,7 +84,35 @@ END_MESSAGE_MAP()
 
 void CDlgVigenereAnalysisSchroedel::OnBnClickedButton1()
 {
-	// TODO
+
+	// TODO theAnalysis->startzeit = Date + Time;
+	
+	theAnalysis->maxRating = 0;
+	theAnalysis->solveCount = 0;
+
+	if(ciphertext.GetLength() >= 3) {
+		// Memo1.Clear
+		ciphertext = ciphertext.MakeUpper();
+		theAnalysis->readTriDigrams();
+
+		theAnalysis->setStatus("Initializing");
+		for(int i=0; i<17575; i++) {
+			theAnalysis->pairs[i][0] = "";
+			theAnalysis->pairs[i][1] = "";
+			theAnalysis->score[i][0] = 0;
+			theAnalysis->score[i][1] = 0;
+		}
+
+		theAnalysis->output("Cipher to break: " + ciphertext);
+		theAnalysis->output(" ");
+
+		theAnalysis->firstChar();
+		theAnalysis->secondChar();
+		
+		// TODO if not shortRun.checked Then solveTrigram;
+		// TODO Memo1.Lines.SaveToFile("result.txt");
+
+	}
 }
 
 void CDlgVigenereAnalysisSchroedel::OnBnClickedButton2()
@@ -89,26 +123,100 @@ void CDlgVigenereAnalysisSchroedel::OnBnClickedButton2()
 
 	s = edit1;
 
-	// TODO
+	ciphertext = s.Left(s.Find(';'));
+	s.Delete(0, s.Find(';') + 1);
+	
+	plaintext = s.Left(s.Find(';'));
+	s.Delete(0, s.Find(';') + 1);
 
-	/*
-	procedure TForm1.Button2Click(Sender: TObject);
-var s : String;
-begin
-  s := edit1.Text;
-  cipher.Text := Copy( s, 1, Pos( ';', s )-1);
-  delete( s, 1, Pos( ';', s ));
-  plaintext.Text := Copy( s, 1, Pos( ';', s )-1);
-  delete( s, 1, Pos( ';', s ));
-  cipherkey.Text := s;
+	key = s;
 
-end;
-	*/
+	UpdateData(false);
 }
 
 void CDlgVigenereAnalysisSchroedel::OnBnClickedButton3()
 {
-	// TODO
+	UpdateData(true);
+
+	CString s;
+	CString t;
+	std::string tTemp;
+
+	// create a handle for autorun file
+	std::ifstream fileAutorun;
+	fileAutorun.open(autorunFileName);
+	if(!fileAutorun) return;
+
+	while(!fileAutorun.eof()) {
+		getline(fileAutorun, tTemp);
+		t = tTemp.c_str();
+		theAnalysis->setStatus("PREPARING AUTORUN TEXT: " + t);
+		t.MakeUpper();
+		for(int i=t.GetLength(); i>0; i--) {
+			if(CString("ABCDEFGHIJKLMNOPQRSTUVWXYZ ").Find(t[i]) == -1) {
+				t.SetAt(i, ' ');
+			}	
+		}
+		while(t.Find(' ') != -1) {
+			t.Delete(t.Find(' '), 1);
+			s = s + " " + t.Trim();
+		}
+	}
+	
+	s.Delete(0, 1);
+
+	// close autorun file
+	fileAutorun.close();
+
+	CString p;
+	int o;
+	CString k;
+
+	p = s;
+	o = s.GetLength();
+
+	// TODO progressbar1.Max = o;
+
+	while(s.Find(' ') != - 1) {
+		// do autorun
+		do {
+			
+			k.Delete(0, k.Find(' '));
+			k.Delete(k.Find(' '), 100);
+
+			k = (char*)(p.GetBuffer()) + rand() % p.GetLength();
+			k.Delete(50, k.GetLength() - 50);
+			k.Delete(0, k.Find(' '));
+			k.Delete(k.Find(' '), 100);
+			k.Trim();
+
+		} while(k.GetLength() < 5);
+	}
+
+	k = theAnalysis->dict[rand() % theAnalysis->dictCount];
+
+	t = s;
+	t.Delete(20, t.GetLength() - 20);
+
+	// only full words
+	while(t[t.GetLength()] != ' ') {
+		t.Delete(t.GetLength(), 1);
+	}
+	t.Trim();
+
+	ciphertext = "";
+
+	// TODO progressbar1.Position := o - Length( s );
+
+	theAnalysis->setStatus("Autorun: " + k + "/" + t);
+
+	if(k.GetLength() > 4 && s.Find(' ') > 2) {
+		plaintext = t;
+		key = k;
+		OnBnClickedButton1();
+	}
+
+	s.Delete(0, s.Find(' '));
 }
 
 
@@ -124,6 +232,9 @@ const CString alphabet     = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWX
 
 VigenereAnalysisSchroedel::VigenereAnalysisSchroedel(CDlgVigenereAnalysisSchroedel *dlg) {
 	theDialog = dlg;
+	time_t seconds;
+	time(&seconds);
+	srand((unsigned int)seconds);
 }
 
 VigenereAnalysisSchroedel::~VigenereAnalysisSchroedel() {
@@ -203,11 +314,108 @@ void VigenereAnalysisSchroedel::readTriDigrams() {
 }
 
 void VigenereAnalysisSchroedel::firstChar() {
-	// TODO
+	
+	char actChar;
+	char fText, fKey;
+	CString s;
+	int i, o;
+
+	setStatus("Create all pairs for the first cipher");
+	actChar = this->theDialog->ciphertext[0];
+	output("First character of cipher: " + actChar);
+  output("============================");
+  output(" ");
+  output("Possible pairs:");
+
+	s = "";
+	o = 0;
+
+	for(int i=0; i<26; i++) {
+		fText = cPosAlphabet[i];
+		fKey = cPosVigenere[ cPosAlphabet.Find(actChar) + 26 - i];
+		cipherPos = cPosAlphabet.Find(actChar) + 26 - i;
+
+		while(cipherPos > 25) {
+			cipherPos = cipherPos - 25;
+		}
+
+		s = s + fText + '-' + fKey + (char)(9);
+		o++;
+		pairs[o][0] = fText;
+		pairs[o][1] = fKey;
+		score[o][0] = 0;
+		score[o][1] = 0;
+		cPairs = o;
+	}
+
+	output(s);
+	CString sStr; sStr.Format("%d", o);
+	output("Count: " + sStr);
+	output(" ");
+
+	remain = cPairs;
+	output("Remove dups:");
+	for(int l=0; l<cPairs-1; l++) {
+		for(o=l+1; o<cPairs; o++) {
+			if(pairs[l][0] == pairs[o][1]) {
+				score[o][0] = -1;
+				score[o][1] = -1;
+			}
+		}
+	}
+
+	s = "";
+	i = 0;
+
+	for(o=0; o<cPairs; o++) {
+		if(score[o][0] == -1) {
+			i++;
+			s = s + pairs[o][0] + "-" + pairs[o][1] + (char)(9);
+		}
+	}
+	output(s);
+	CString iStr; iStr.Format("%d", i);
+	output("Count: " + iStr);
+	CString remainStr; remainStr.Format("%d", remain);
+	output("Remain: " + remainStr);
+	output(" ");
+
+	setStatus("Deleting dups from internal list...");
+	o = 0;
+	for(int l=0; l<cPairs; l++) {
+		if(score[l][1] != -1) {
+			_pairs[o][0] = pairs[l][0];
+			_pairs[o][1] = pairs[l][1];
+			_score[o][0] = score[l][0];
+			_score[o][1] = score[l][1];
+		}
+	}
+
+	for(int i=0; i<cPairs; i++) {
+		pairs[i][0] = "";
+		pairs[i][1] = "";
+		score[i][0] = 0;
+		score[i][1] = 0;
+	}
+
+	cPairs = 0;
+
+	for(int i=0; i<cPairs; i++) {
+		pairs[i][0] = _pairs[i][0];
+		pairs[i][1] = _pairs[i][1];
+		score[i][0] = _score[i][0];
+		score[i][1] = _score[i][1];
+	}
+
+	output(" ");
+	output("###############");
+	output(" ");
 }
 
 void VigenereAnalysisSchroedel::secondChar() {
 	// TODO
+
+
 }
 
 void VigenereAnalysisSchroedel::solveTrigram() {
@@ -227,7 +435,7 @@ void VigenereAnalysisSchroedel::solveTrigram() {
 	for(int i=0; i<cPairs; i++) {
 		key = pairs[i][0];
 		text = pairs[i][1];
-    // TODO: cipher := Form1.cipher.Text;
+		cipher = theDialog->ciphertext;
 
     // Try first key
     cKey = "";
@@ -271,7 +479,7 @@ void VigenereAnalysisSchroedel::readDict() {
 		getline(fileInput, s2);
 		s = s2.c_str();
 		s.Trim();
-		// TODO: s= trim(ansiuppercase(s));
+		s.MakeUpper();
 		if(s.Find('%') == 0) {
 			for(int i=s.GetLength(); i>0; i--) {
 				CString temp = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
