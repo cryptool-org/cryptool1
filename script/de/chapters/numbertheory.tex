@@ -9,7 +9,6 @@
 %              E l e m e n t a r e  Z a h l e n t h e o r i e
 % /~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-\newpage
 \hypertarget{Chapter_ElementaryNT}{}
 \chapter{Einführung in die elementare Zahlentheorie mit Beispielen}
 \label{Chapter_ElementaryNT}
@@ -1475,7 +1474,7 @@ haben: Die Ordnungen sind $1, 2, 5$ und $10$. Dabei bemerkt man:
 
 {\bf Beispiel 1:}\\
 Die folgende Tabelle\footnote{%
-In \hyperlink{AppArith3a}{Anhang E zu diesem Kapitel} finden Sie den Quelltext
+In \hyperlink{AppArith3a1}{Anhang E zu diesem Kapitel} finden Sie den Quelltext
 zur Bestimmung der Tabelle mit Sage.
 } zeigt die Werte $a^i{\rm ~mod~}11$ für die Exponenten $i = 1, 2, \cdots, 10$ und für 
 die Basen $a = 1, 2, \cdots, 10$ sowie den sich für jedes a daraus ergebenden Wert $ord_{11}(a)$:
@@ -3200,7 +3199,8 @@ Von Bob: $11 ^ y \equiv 285 {\rm ~(mod~}347)$, also $\log_{11}(285){\rm ~(mod~}3
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \hypertarget{RSAKonkret}{}%
 \hypertarget{Chapter_ElementaryNT_12}{}%ist wahrscheinlich redundant !
-\section{Das RSA-Verfahren mit konkreten Zahlen\footnotemark}
+\section[Das RSA-Verfahren mit konkreten Zahlen]
+	{Das RSA-Verfahren mit konkreten Zahlen\footnotemark}
 \footnotetext{%
     \index{Sage}%
     \index{Minh Van Nguyen}%
@@ -4425,9 +4425,8 @@ sage: for a in xrange(1, m):
 [9, 4, 3, 5, 1, 9, 4, 3, 5, 1]
 [10, 1, 10, 1, 10, 1, 10, 1, 10, 1]
 \end{Verbatim}
-\hypertarget{AppArith3a}{}
-\subsection*{Multiplikative Ordnung und Primitivwurzel}
-\index{Primitivwurzel}
+\hypertarget{AppArith3a1}{}
+\subsection*{Multiplikative Ordnung}
 
 Die Ordnung $ord_m(a)$ einer Zahl $a$ in der multiplikativen Gruppe $Z_m^*$ ist
 die kleinste natürliche Zahl $i \ge 1$ für die gilt $a^i \equiv 1$ mod $m$.
@@ -4553,6 +4552,169 @@ sage: for a in xrange(1, 24):
 [23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 'None']
 \end{Verbatim}
 
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\hypertarget{AppArith3a2}{}
+\subsection*{Primitivwurzeln}
+\index{Primitivwurzel}
+TODO
+Computing a primitive root in Sage is very straightforward. If
+\verb!n! is an integer, the command \verb!primitive_root(n)! computes
+a primitive root of the multiplicative group
+$(\mathbf{Z} / n \mathbf{Z})^{\ast}$, if one exists. Where $n$ is
+prime, then this is the same as calculating a primitive root of
+$\mathbf{Z} / n \mathbf{Z}$. Here, we calculate some primitive roots
+of a few integers.
+
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: primitive_root(4)
+3
+sage: primitive_root(22)
+13
+sage: for p in primes(1, 50):
+....:     print p, primitive_root(p)
+....:     
+2 1
+3 2
+5 2
+7 3
+11 2
+13 2
+17 3
+19 2
+23 5
+29 2
+31 3
+37 2
+41 6
+43 3
+47 5
+\end{Verbatim}
+
+If $p$ is prime, then $\mathbf{Z} / p \mathbf{Z}$ has at least one
+primitive root. Sometimes we want to compute all the primitive roots
+of $\mathbf{Z} / p \mathbf{Z}$, not just any primitive root of
+$\mathbf{Z} / p \mathbf{Z}$. The following function can do this.
+
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: def enum_primroots(M):
+....:     r"""
+....:     Return all the primitive roots of M.
+....:     """
+....:     g = primitive_root(M)
+....:     targetOrder = euler_phi(M)
+....:     L = []
+....:     # Stepping through all odd integers from 1 up to M, not including
+....:     # M. So this loop only considers values of i where 1 <= i < M.
+....:     for i in xrange(1, M, 2):
+....:         testGen = Mod(g^i, M)
+....:         if testGen.multiplicative_order() == targetOrder:
+....:             L.append(testGen.lift())
+....:     # removing duplicates
+....:     return Set(L)
+\end{Verbatim}
+
+\noindent For example, here is a list of all primitive roots of the prime 541.
+
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: enum_primroots(541)
+{2, 517, 10, 523, 13, 14, 527, 528, 18, 531, 24, 539, 30, 37, 40, 51,
+54, 55, 59, 62, 65, 67, 68, 72, 73, 77, 83, 86, 87, 91, 94, 96, 98,
+99, 107, 113, 114, 116, 117, 126, 127, 128, 131, 132, 138, 150, 152,
+153, 156, 158, 163, 176, 181, 183, 184, 195, 197, 199, 206, 208,
+210, 213, 218, 220, 223, 224, 244, 248, 250, 257, 258, 259, 260,
+261, 263, 267, 269, 270, 271, 272, 274, 278, 280, 281, 282, 283,
+284, 291, 293, 297, 317, 318, 321, 323, 328, 331, 333, 335, 342,
+344, 346, 357, 358, 360, 365, 378, 383, 385, 388, 389, 391, 403,
+409, 410, 413, 414, 415, 424, 425, 427, 428, 434, 442, 443, 445,
+447, 450, 454, 455, 458, 464, 468, 469, 473, 474, 476, 479, 482,
+486, 487, 490, 501, 504, 511}
+\end{Verbatim}
+
+\noindent With a little bit of programming, we can find out how long
+it takes to compute all the primitive roots of some number of primes.
+
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: def primroots_iter(start, end):
+....:     r"""
+....:     Compute all primitive roots of all primes between start and end,
+....:     inclusive. This uses a primes iterator.
+....:     """
+....:     for p in primes(start, end+1):
+....:         enum_primroots(p)
+....:         
+sage: %time primroots_iter(1, 1500)
+CPU times: user 2.04 s, sys: 0.17 s, total: 2.21 s
+Wall time: 2.21 s
+\end{Verbatim}
+
+\noindent And we can count how many primes for which to enumerate all
+their primitive roots.
+
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: def primroots_primetest(start, end):
+....:     r"""
+....:     Compute all primitive roots of all primes between start and end,
+....:     inclusive. This actually perform primality tests, so it allows us
+....:     to count the number of primes from start to end, inclusive.
+....:     """
+....:     nPrimes = 0
+....:     for n in xrange(start, end+1):
+....:         if is_prime(n):
+....:             nPrimes += 1
+....:             enum_primroots(n)
+....:     print "Enumerate all primitive roots of %s primes." % nPrimes
+....:     
+sage: %time primroots_primetest(1, 1500)
+Enumerate all primitive roots of 239 primes.
+CPU times: user 2.35 s, sys: 0.03 s, total: 2.38 s
+Wall time: 2.39 s
+\end{Verbatim}
+
+Using our custom-defined function \verb!enum_primroots!, we can find
+all primitive roots of a prime integer $p$. From this list of primitive
+roots, we can determine the smallest and largest primitive root for
+$\mathbf{Z} / p \mathbf{Z}$, as well as count the number of primitive
+roots of $\mathbf{Z} / p \mathbf{Z}$.
+Figure~\ref{fig:primitive_roots_all} graphs the number of primitive
+roots for each prime between 1 and 100000. The $x$-axis represents
+primes between 1 and 100000, while the $y$-axis counts the number of
+primitive roots for each prime within that interval.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics{figures/primitive-roots-all}
+\caption{The number of primitive roots of all primes between 1 and 100,000.}
+\label{fig:primitive_roots_all}
+\end{figure}
+
+Figure~\ref{fig:primitive_roots_smallest} graphs the smallest
+primitive roots of all primes between 1 and 100000. The $x$-axis
+represents primes between 1 and 100000. The $y$-axis represents the
+smallest primitive root of each prime within that
+interval. Figure~\ref{fig:primitive_roots_largest} shows a
+corresponding graph for the largest primitive root of each prime
+within the above interval.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics{figures/primitive-roots-smallest}
+\caption{The smallest primitive roots of all primes between 1 and 100,000.}
+\label{fig:primitive_roots_smallest}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics{figures/primitive-roots-largest}
+\caption{The largest primitive roots of all primes between 1 and 100,000.}
+\label{fig:primitive_roots_largest}
+\end{figure}
+
+
 \subsection*{RSA-Beispiele}
 
 In diesem Abschnitt sind die Quelltexte für die RSA-Beispiele im
@@ -4572,8 +4734,8 @@ sage: power_mod(120, 37, 3713)
 1404
 \end{Verbatim}
 
-\vskip +10 pt \hypertarget{AppArith4b}
-{{\bf Beispiel auf Seite}} \pageref{SrcArith4b}. \\
+\vskip +10 pt \hypertarget{AppArith4b}{%
+\noindent {\bf Beispiel auf Seite \pageref{SrcArith4b}.}} \\
 Die Faktorisierung von $J(256.027) = 255.016 = 2^3 * 127 * 251$ bestimmt Mathematica mit 
 {\tt FactorInteger[255016]= \{\{2,3\}, \{127,1\}, \{251,1\}\}}. \\
 In Sage lautet die Syntax: \\
@@ -4593,8 +4755,8 @@ sage: factor(255016)
 2^3 * 127 * 251
 \end{Verbatim}
 
-\vskip +10 pt \hypertarget{AppArith4c}{}
-{{\bf Beispiel auf Seite}} \pageref{SrcArith4c}. \\ 
+\vskip +10 pt \hypertarget{AppArith4c}{%
+\noindent {\bf Beispiel auf Seite \pageref{SrcArith4c}.}} \\ 
 Mit Mathematica kann die RSA-Verschlüsselung durch den Befehl \\
 {\tt PowerMod[\{82, 83, 65, 32, 119, 111, 114, 107, 115, 33\}, 65537, 256027]\}}  \\
 berechnet werden.  \\ 
@@ -4619,8 +4781,8 @@ sage: [power_mod(a, e, m) for a in A]
 --  {\tt Mod(82\^{}65537, 256027)} oder \\
 --  {\tt (82\^{}65537) \% 256027}.
 
-\vskip +10 pt \hypertarget{AppArith4d}{}
-{{\bf Beispiel auf Seite}} \pageref{SrcArith4d}.  \\
+\vskip +10 pt \hypertarget{AppArith4d}{%
+\noindent {\bf Beispiel auf Seite \pageref{SrcArith4d}.}} \\
 Die RSA-Verschlüsselung kann mit Mathematica per \\
 {\tt PowerMod[\{21075, 16672, 30575, 29291, 29473\}, 65537, 256027]}  \\
 berechnet werden.\\
@@ -4630,7 +4792,7 @@ In Sage lautet die Syntax: \\
              Mod(29473,256027)\^{}65537], 31) 
 }
 TODO
-\noindent {\bf Example on page~\pageref{SrcArith4d}.}} \\
+\noindent {\bf Example on page~\pageref{SrcArith4d}.} \\
 Sage can do RSA encryption as follows:
 
 \begin{Verbatim}%
@@ -4642,8 +4804,8 @@ sage: [power_mod(a, e, m) for a in A]
 \end{Verbatim}
 
 
-\vskip +10 pt \hypertarget{AppArith4e}{}
-{{\bf Beispiel auf Seite}} \pageref{SrcArith4e}. \\
+\vskip +10 pt \hypertarget{AppArith4e}{%
+\noindent {\bf Beispiel auf Seite \pageref{SrcArith4e}.}} \\
 Die RSA-Verschlüsselung kann mit Mathematica per \\
 {\tt PowerMod[\{82083, 65032, 119111, 114107, 115033\}, 65537, 256027]} \\
 berechnet werden. \\
@@ -4653,7 +4815,7 @@ In Sage lautet die Syntax: \\
              Mod(115033,256027)\^{}65537], 31)
 }
 TODO
-\noindent {\bf Example on page~\pageref{SrcArith4e}.}} \\
+\noindent {\bf Example on page~\pageref{SrcArith4e}.} \\
 RSA encryption using Sage:
 
 \begin{Verbatim}%
