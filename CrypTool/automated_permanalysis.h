@@ -70,7 +70,7 @@ public:
 			else                      { x = (c-1)*permSize + r; }
 		else
 		{
-			if ( readDir == col_dir ) { x = (c <= q) ? c : q; x += (c-1)*p + r; }
+			if ( readDir == col_dir ) { x = (c <= q) ? c-1 : q; x += (c-1)*p + r; }
 			else                      { x = (r-1)*permSize + c; }
 		}
 		return get(x);

@@ -293,12 +293,13 @@ int check( int it, int ref)
 int automated_permanalysis::iterate_key_param()
 {
 	int permSize;
-	int it_perm, it_cipher;
+	int it_perm, it_cipher, it_plain;
 
 	for(permSize=psLowerLimit; permSize<=psUpperLimit; permSize++)
 		for ( it_perm = row_dir; it_perm <= col_dir; it_perm++ ) if (check(it_perm, rangePerm))
 			for (it_cipher = row_dir; it_cipher <= col_dir; it_cipher++ ) if (check(it_cipher, rangeCipher ))
-				analyse(permSize, ( it_perm == col_dir ) ? col_dir : row_dir, it_perm, it_cipher);
+				for (it_plain = row_dir; it_plain <= col_dir; it_plain++) if (check(it_plain, rangePlain))
+					analyse(permSize, it_plain, it_perm, it_cipher);
 
 	return (int)(keyList);
 }
