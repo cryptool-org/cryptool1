@@ -472,12 +472,11 @@ Zuordnung ist während des ganzen Verschlüsselungsprozesses dieselbe.
      {\bf Einzelverfahren \textbackslash{} Visualisierung von Algorithmen 
      \textbackslash{} Nihilist}. }
    \cite{ACA2002}\index{Nihilist-Substitution}: Das Alphabet wird in 
-   eine 5x5-Matrix eingetragen und jeder Klartextbuchstabe durch das 
-   entsprechende Ziffernpaar ersetzt. Die so entstandenen zweistelligen 
-   Zahlen werden in eine Tabelle eingetragen. Dazu wird zunächst ein
-   Schlüsselwort gewählt und über die Tabelle geschrieben,
-   wobei die Zeichen des Schlüsselwor"-tes ebenfalls durch Zahlenpaare
-   substituiert werden. Die Geheimtextzeichen sind die Summen aus den
+   eine 5x5-Matrix eingetragen und bei der Verarbeitung wird jedem Klartextbuchstaben 
+   die aus Zeilen- und Spaltennummer gebildete Zahl zugeordnet. 
+   Dann wird ein Schlüsselwort gewählt und über eine zweite Tabelle geschrieben.
+   In diese wird der Klartext zeilenweise eingetragen. 
+   Die Geheimtextzeichen sind die Summen aus den
    Zahlen des Klartextes und den Zahlen des Schlüsselwortes. Bei Zahlen
    zwischen 100 und 110 wird die führende "`1"' ignoriert, so dass jeder
    Buchstabe durch eine zweistellige Zahl repräsentiert wird.
@@ -1000,7 +999,6 @@ ist die Zuordnung Klartext-/Geheimtextzeichen nicht fest, sondern variabel
       % die Tabelle auf die kommende Seite kommt.
 
 
-\newpage % Damit die Tables immer direkt nach dem zugehörigen Item. 
 \begin{itemize}
    \item {\bf Unterbrochener Schlüssel}: 
      Der Schlüssel wird nicht fortlaufend wiederholt, sondern beginnt mit 
@@ -1303,7 +1301,6 @@ als sicherer erwiesen als Verfahren, die nur auf einem der Prinzipien Transposit
 
    \end{table}
 
-\clearpage   % Damit Tabelle 19 (Nicodemus) noch vor Kapitel 2.4. kommt.
 \item {\bf Nicodemus} \cite{ACA2002}: 
    Zunächst wird eine einfache Spaltentransposition durchgeführt. Noch vor 
    dem Auslesen erfolgt eine Vigen\`ere-Verschlüsselung (die Buchstaben einer
@@ -1343,9 +1340,7 @@ als sicherer erwiesen als Verfahren, die nur auf einem der Prinzipien Transposit
 \end{itemize}
 
 
-% \clearpage  % Damit Tabelle 19 (Nicodemus) noch vor Kapitel 2.4. kommt.
-             % Leider dann Tab. 19 allein auf der Folgeseite und 2.4 beginnt
-             % auf übernächster Seite.
+\clearpage 
 %------------------------------------------------------------------------------
 \section{Andere Verfahren}
 \label{Further-PaP-methods}
