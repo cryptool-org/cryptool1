@@ -344,7 +344,7 @@ sequence in the timeframe of $ O(n). $
 
 In 1978, Merkle and Hellman 
 \cite{Merkle1978} \index{Encryption!Merkle-Hellman} specified a public key 
-encryption procedure that is based on ``defamiliarising'' the easy 0-1 
+encryption procedure that is based on ``defamiliarizing'' the easy 0-1 
 knapsack problem with a super-increasing sequence into a congruent one with a 
 super-increasing sequence. It is a block ciphering that ciphers an $n$-bit 
 plaintext each time it runs.
@@ -394,7 +394,7 @@ polynomial time. Ernst Brickell \index{Brickell, Ernst} \cite{Brickell1985} then
 specified an algorithm for breaking multiply iterated Merkle-Hellman knapsack 
 encryption procedures in polynomial time. This made this procedure unsuitable as 
 an encryption procedure. It therefore delivers a one way function whose trapdoor 
-information (defamiliarisation of the 0-1 knapsack problem) could be discovered 
+information (defamiliarization of the 0-1 knapsack problem) could be discovered 
 by an eavesdropper.
 
 
@@ -464,9 +464,9 @@ binary value $ x^{(j)} \leq N $. \vskip + 5 pt
 \end{center}
 
 %\vskip +10 pt
-{\bf RSA procedure} (based on the factorisation problem).
+{\bf RSA procedure} (based on the factorization problem).
 \vskip +20 pt
-\index{Factorisation!factorisation problem}
+\index{Factorization!factorization problem}
 \index{Euler!(phi) function}
 {\bf Comment:} 
 The Euler phi function is defined as: $ \phi (N)$ is the number of natural 
@@ -511,11 +511,11 @@ to $ n $ and less than $ n. $ \\ \hline
 The function $ e_T $  is a one way function whose trapdoor information is the 
 decomposition into primes of $ N $.
 
-At the moment, no algorithm is known that can factorise two prime numbers 
+At the moment, no algorithm is known that can factorize two prime numbers 
 sufficiently quickly for extremely large values (e.g. for several hundred 
 decimal places). The quickest algorithms known today
 \cite{4Stinson1995}\index{Stinson 1995} 
-factorise a compound whole number $ N $ in a time period proportional to $ L(N)= 
+factorize a compound whole number $ N $ in a time period proportional to $ L(N)= 
 e^{\sqrt{\ln (N) \ln (\ln (N))}}. $ 
 \vskip +5 pt
 \begin{center}
@@ -530,21 +530,21 @@ $L(N)$ & $ 1.42 \cdot 10^{10} $ &  $ 2.34  \cdot 10^{15} $ &  $ 3.26 \cdot
 \vskip +5 pt
 
 To this date, it has not been proved that the problem of breaking RSA is 
-equivalent to the factorisation problem. Nevertheless, it is clear that
-the RSA procedure will no longer be safe if the factorisation problem is
+equivalent to the factorization problem. Nevertheless, it is clear that
+the RSA procedure will no longer be safe if the factorization problem is
 ``solved''.\footnote{%
 In 2000 the authors assumed that values of the order magnitude $ 100 $ to $ 200 $
 decimal places are currently safe. They estimates that the current computer
 technology indicates that a number with $100$ decimal places could be
-factorised in approximately two weeks at justifiable costs, and using an 
+factorized in approximately two weeks at justifiable costs, and using an 
 expensive configuration (e.g. of around 10 million US dollars), a number with 
-$150$ decimal places could be factorised in about a year, and a $200-$digit
-number should remain impossible to factorise for a long time to come, unless
+$150$ decimal places could be factorized in about a year, and a $200-$digit
+number should remain impossible to factorize for a long time to come, unless
 there is a mathematical breakthrough. However, you can never be sure that
 there won't be a mathematical breakthrough tomorrow.\\
 How easy it is to guess the future wrong is shown by the
 \hyperlink{RSA-200-chap3}{Factorization of RSA-200} 
-(see chapter \ref{NoteFactorisation}) -- completely without a
+(see chapter \ref{NoteFactorization}) -- completely without a
 ``mathematical breakthrough''.}
 
 
@@ -554,7 +554,7 @@ How easy it is to guess the future wrong is shown by the
 \subsection{Rabin public key procedure (1979)}
 
 In this case it has been shown that the procedure \index{Rabin, Michael O.} 
-\index{Rabin!public key procedure} is equivalent to breaking the factorisation problem. 
+\index{Rabin!public key procedure} is equivalent to breaking the factorization problem. 
 Unfortunately, this procedure is susceptible to chosen-cipher text attacks.
 \index{Attack!chosen-cipher text}
 \begin{center}
@@ -573,7 +573,7 @@ and $ n = pq.$ Let $ 0\leq B \leq n-1.$ \\
 \end{center}
 
 %\vskip +10 pt
-{\bf Rabin procedure} (based on the factorisation problem).
+{\bf Rabin procedure} (based on the factorization problem).
 \vskip +20 pt
 
 Caution:
@@ -761,7 +761,7 @@ and
 \end{center}
 
 %\vskip +10 pt
-{\bf ElGamal procedure} (based on the factorisation problem).
+{\bf ElGamal procedure} (based on the factorization problem).
 \vskip +20 pt
 
 
@@ -887,7 +887,7 @@ and
 
 
 %\vskip +10 pt
-{\bf Generalised ElGamal procedure} (based on the factorisation problem).
+{\bf Generalized ElGamal procedure} (based on the factorization problem).
 \vskip +20 pt
 
 \hyperlink{ellcurve}{Elliptic curves} {} provide useful groups for public key 

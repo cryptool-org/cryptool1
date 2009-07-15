@@ -53,7 +53,7 @@ by Carl Friedrich Gauss\footnote{%
 elementary features include the greatest common divisor\footnote{This 
 article deals with the gcd (greatest common 
 divisor)\index{Gcd} in \hyperlink{Appendix_A}{Appendix A of this chapter}.}
-(gcd), congruence (remainder classes), factorisation, the Euler-Fermat theorem
+(gcd), congruence (remainder classes), factorization, the Euler-Fermat theorem
 and primitive roots. However, the most important 
 aspect is prime numbers and their multiplicative operation.
 
@@ -121,7 +121,7 @@ mathematics.}}
 
 Number theory arose from interest in positive whole numbers $1, 2, 3, 4, \cdots$, also referred to as the set of natural numbers 
 \index{Number!natural} {\em natural numbers} $\mathbb{N}$. These are the first mathematical constructs 
-used by human civilisation. According to Kronecker\footnote{Leopold
+used by human civilization. According to Kronecker\footnote{Leopold
   Kronecker, German mathematician, Dec 7, 1823 $-$ Dec 29, 1891}\index{Kronecker, Leopold}, they are a creation of God. 
 In Dedekind's\footnote{Julius Wilhelm Richard Dedekind,
   German mathematician, Oct 6, 1831 $-$ Feb 12, 1916.}\index{Dedekind, Julius} opinion, they are a creation of the human intellect. Dependent upon one's ideology,
@@ -154,7 +154,7 @@ Up until the mid 20th century, number theory was considered to be the purest are
 had no practical use in the real world. This changed with the development of computers and digital 
 communication, as number theory was able to provide several unexpected solutions to real-life tasks. At the same 
 time, advances in information technology allowed specialists in number theory to make huge progress in 
-factorising large numbers, finding new prime numbers, testing (old) conjectures and solving numerical problems 
+factorizing large numbers, finding new prime numbers, testing (old) conjectures and solving numerical problems 
 that were previously impossible to solve. Modern number theory \index{Number theory!modern} is made up of 
 areas such as:
 \begin{itemize}
@@ -235,7 +235,7 @@ We come across whole numbers that are prime fairly often. In the last decade onl
 $1993, 1997$ and $1999$. If they were rare, cryptography would not be able to work with them to the extent it 
 does.
 
-Prime numbers can be factorised in a unique (``{\em trivial}'') way:
+Prime numbers can be factorized in a unique (``{\em trivial}'') way:
 \begin{eqnarray*}
 5 & = & 1 * 5 \nonumber \\
 17 & =  & 1 * 17 \nonumber \\
@@ -284,9 +284,9 @@ one way, if we ignore the order of the factors. The factors are therefore unique
 of factors'' is unique)!
 
 For example, $60 = 2*2*3*5 = 2^2*3*5$. And this --- other than changing the order of the factors --- is the only 
-way in which the number $60$ can be factorised\index{Prime factor}.
+way in which the number $60$ can be factorized\index{Prime factor}.
 
-If you allow numbers other than primes as factors, there are several ways of factorising integers and the {\em 
+If you allow numbers other than primes as factors, there are several ways of factorizing integers and the {\em 
 uniqueness} is lost:
 $$60 = 1*60 = 2*30 = 4*15 = 5*12 = 6*10 = 2*3*10 = 2*5*6 = 3*4*5 = \cdots$$
 The 1st fundamental theorem only appears to be obvious. We can construct numerous other sets of 
@@ -888,7 +888,7 @@ $$
 (a^5) \equiv (((a^2{\rm ~(mod~}m))^2 {\rm ~(mod~}m)) * a){\rm ~(mod~}m).
 $$
 
-We can generalise this by representing the exponent as a binary number.
+We can generalize this by representing the exponent as a binary number.
 For example, the naive method would require $36$ multiplications in order to calculate $a^n$ for $n = 37$. 
 However, if we write $n$ in the binary representation as $100101 = 1*2^5 + 1*2^2 + 1*2^0$, then we can rewrite 
 the expression as: $a^{37} = a^{2^5 + 2^2 + 2^0} = a^{2^5} * a^{2^2} * a^1$
@@ -1154,7 +1154,7 @@ This case is important for the RSA procedure.
 
 \begin{theorem}\label{thm-zth-phimultprime}\label{J_of_p1..pk}
 If $n = p_1 * p_2 * \cdots * p_k$ where $p_1$ to $p_k$ are distinct prime numbers (i.e. no factor occurs more than once), 
-then the following is true (as a generalisation of theorem \ref{thm-zth-phipq}):
+then the following is true (as a generalization of theorem \ref{thm-zth-phipq}):
 $$J(n) = (p_1 - 1)*(p_2 - 1)* \cdots *(p_k - 1).$$
 \end{theorem}
 
@@ -1199,7 +1199,7 @@ Let $p$ be a prime number and $a$ be a random whole number that is relatively pr
 $$      a^{p-1} \equiv 1 {\rm ~(mod~} p).$$ 
 
 \begin{theorem}\label{thm-zth-fermateuler}{\bf Euler-Fermat theorem
-                         (generalisation of Fermat's Little Theorem)}
+                         (generalization of Fermat's Little Theorem)}
 For all elements $a$ in the group $\mathbb{Z}_n^*$ (i.e. $a$ and $n$
 are natural numbers that are co-prime\index{Number!co-prime}):
 $$a^{J(n)} \equiv 1 {\rm ~(mod~} n). $$
@@ -1281,7 +1281,7 @@ $$ d \equiv  e^{-1}   {\rm ~(mod~} J(n))
     \equiv  e^{J(J(n))-1}  {\rm ~(mod~} J(n)).
 $$
 
-The problems of \index{Factorisation} factorising\index{Factorisation!factorisation problem} $n=pq$ with $q\neq p$ and finding $J(n)$ have a similar degree of difficulty 
+The problems of \index{Factorization} factorizing\index{Factorization!factorization problem} $n=pq$ with $q\neq p$ and finding $J(n)$ have a similar degree of difficulty 
 and if we find a solution for one of the two problems, we also have a solution for the
 other\footnote{If we know the factors of $n=p*q$ with $p\neq q$, then $J(n)=(p-1)*(q-1) = n-(p+q)+1$. Additionally the factors $p$ and $q$ are
 solutions of the quadratic equation
@@ -1696,7 +1696,7 @@ Concrete for the RSA method does this mean:
 \vskip - 1em
 \begin{enumerate}
 \item it is hard to calculate $J(n)$ for big compounds $n$ and
-\item it is hard to calculate the prime factors of big compounds $n$ (Factorisation!factorisation problem).
+\item it is hard to calculate the prime factors of big compounds $n$ (Factorization!factorization problem).
 \end{enumerate}
 \vskip +1em
 
@@ -1786,7 +1786,7 @@ $$
 
 There have always been discussions about the suitability of the RSA
 algorithm for digital signatures and encryption, e.~g.\ after publications
-of breakthroughs in factorisation. Nevertheless the RSA algorithm has
+of breakthroughs in factorization. Nevertheless the RSA algorithm has
 become a de-facto standard since it was published more than 20 years ago
 (compare~\ref{ECAlternative}).
 
@@ -1794,7 +1794,7 @@ The security of the RSA algorithm rests --- as with all cryptographic
 methods --- on the following 4 central pillars:
 \begin{itemize}
 \item the complexity of the number theoretical problem on which the
-  algorithm is based (here factorisation of big numbers),
+  algorithm is based (here factorization of big numbers),
 \item the election of fitting parameters (here the length of the module $N$),
 \item the adequate usage of the algorithm and key generation and
 \item the correct implementation of the algorithm.
@@ -1815,12 +1815,12 @@ private key --- requires calculating the $e$-th root mod $n$.  The private
 key, this is the multiplicative inverse of $e$ mod $J(n)$, can be easily
 determined if $J(n)$ is known.  $J(n)$ again can be calculated from the
 prime factors of $n$.  Breaking of RSA therefore cannot be more difficult
-than factorisation of the module $n$.
+than factorization of the module $n$.
 
-The best factorisation method known today is a further development of the
+The best factorization method known today is a further development of the
 General Number Field Sieve (GNFS) \index{General Number Field Sieve (GNFS)},
 which was originally devised to factor only numbers of a special form 
-(like Fermat numbers).  The complexity of solving the factorisation problem
+(like Fermat numbers).  The complexity of solving the factorization problem
 with the GNFS is asymptotically
 $$
 O(l) = e^{c \cdot (l \cdot \ln 2)^{1/3} \cdot  (\ln(l \cdot \ln(2))^{2/3} + o(l)}
@@ -1838,21 +1838,21 @@ Please refer to:
 \end{itemize}
 
 
-This formula shows, that the factorisation problem belongs to the class of
+This formula shows, that the factorization problem belongs to the class of
 problems with sub-exponential time complexity (i.~e.\ time complexity grows
 asymptotically not as fast as exponential functions like $e^l$ or $2^l$,
 but strictly slower, e.~g.\ like $e^{\sqrt{l}}$).  This classification is
 all that is currently known; it does not preclude the possibility that the
-factorisation problem can be solved in polynomial\index{Polynomial} time 
+factorization problem can be solved in polynomial\index{Polynomial} time 
 (see~\ref{RSABernstein}).
 
 $O(l)$ is the average number of processor steps depending on the bit length
-$l$ of the number $n$ to be factorised.  For the best currently known
-factorisation algorithm the constant $c = (64/9)^{1/173} = 1923$.
+$l$ of the number $n$ to be factorized.  For the best currently known
+factorization algorithm the constant $c = (64/9)^{1/173} = 1923$.
 
 The inverse proposition, that the RSA algorithm can be broken only by
-factorisation of $n$, is still not proven.  Most number theorists consider
-the ``RSA problem'' and the factorisation problem equivalent in terms of
+factorization of $n$, is still not proven.  Most number theorists consider
+the ``RSA problem'' and the factorization problem equivalent in terms of
 time complexity.
 
 Please refer to: {\em Handbook of Applied Cryptography} \cite{Menezes2001}.
@@ -1865,9 +1865,9 @@ Please refer to: {\em Handbook of Applied Cryptography} \cite{Menezes2001}.
 \label{chptSecurityParam}
 \nopagebreak
 %\vskip +15 pt
-%\paragraph{Factorisation algorithms\footnotemark}
-\paragraph[Factorisation algorithms]
-          {Factorisation algorithms\footnotemark}
+%\paragraph{Factorization algorithms\footnotemark}
+\paragraph[Factorization algorithms]
+          {Factorization algorithms\footnotemark}
 \footnotetext{%
     \index{NT, Learning Tool for Number Theory}%
     \index{Educational tool NT}%
@@ -1885,7 +1885,7 @@ Higher values for this major parameter are oriented at the possibilities of the
 current algorithms for factorization:
 
 \begin{itemize}
-\item In 1994 a 129-digit RSA module (428 bit), published in 1977, was factorised
+\item In 1994 a 129-digit RSA module (428 bit), published in 1977, was factorized
       by a distributed implementation of the Quadratic Sieve algorithm (QS),
       developed 1982 by Pomerance. This effort took 8 months.
 
@@ -1948,7 +1948,7 @@ can be found in the diploma thesis of Matthias Schneider \cite{SchneiderM2004}.
 % --------------------------------------------------------------------------
 \vskip +40pt
 \subsection{Forecasts about factorization of large integers}
-\index{Factorisation!forecast}
+\index{Factorization!forecast}
 
 Within the last 20 years a lot of progress has been made. Estimations about
 the future development of the ability to factor RSA modules vary and depend
@@ -1959,7 +1959,7 @@ on some assumptions:
       computing power will double) and in grid computing\index{Grid computing}.
   \item development of new algorithms.
 \end{itemize}
-Within the last years the module bit length feasible for factorisation
+Within the last years the module bit length feasible for factorization
 increased --- even without new algorithms --- by 10 bit per year. Larger
 numbers require not only more time to be factored, but also huge RAM
 storage for the solutions matrix being used by the best algorithms known
@@ -1984,13 +1984,13 @@ exists -- to my knowledge -- only in German):\\
 }
 published his prognosis of an almost linear factorization progression,
 if all influencing factors are included: Each year the module length feasible for
-factorisation increases by 20 bit on average. So his forecast was below the
+factorization increases by 20 bit on average. So his forecast was below the
 more optimistic estimations of GISA and NIST.
 
 This forecast by Dirk Fox\index{Fox, Dirk} from the year 2001 seems to prove true
-by the factorisation record of RSA-200 (see chapter \ref{RSA-200}). His estimation for the year 2005,
+by the factorization record of RSA-200 (see chapter \ref{RSA-200}). His estimation for the year 2005,
 to achieve a bit length of 660 bit, was almost a precision landing  (compare 
-figure~\ref{secorvo-factorisation-forecast}). \\
+figure~\ref{secorvo-factorization-forecast}). \\
 If the forecast withstand in the future then the factorization of an RSA modulus
 of 1024 bit can be expected in 15 years.
 
@@ -1999,9 +1999,9 @@ of 1024 bit can be expected in 15 years.
 \frame{
 \includegraphics[scale=0.65, clip, viewport=-20 0 680 520]{figures/PrognoseRSAFaktorisierungSecorvo.pdf}
 }
-\caption{Forecast about future factorisation records compared with current results
+\caption{Forecast about future factorization records compared with current results
 (from Secorvo)}
-\label{secorvo-factorisation-forecast}
+\label{secorvo-factorization-forecast}
 \end{center}
 \end{figure}
 
@@ -2020,11 +2020,11 @@ of 1024 bit can be expected in 15 years.
   Hermann Hesse, German/Swiss writer and Nobel Prize winner, July 2, 1877 $-$ August 9, 1962.}
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-\subsection{Status regarding factorisation of concrete large numbers}
-\label{NoteFactorisation}
+\subsection{Status regarding factorization of concrete large numbers}
+\label{NoteFactorization}
 
 An exhaustive overview about the factoring records
-\index{Factorisation!factoring records} of composed integers using different
+\index{Factorization!factoring records} of composed integers using different
 methods can be found on the following web pages:
 \vspace{-10pt}
 \begin{itemize}
@@ -2040,7 +2040,7 @@ methods can be found on the following web pages:
 %This site was not quite up-to-date end of May 2005: RSA-200 was missing.}
 
 The current record (as of May 2005) obtained using the GNFS method
-(General Number Field Sieve) factorised a general 200 decimal digit into its
+(General Number Field Sieve) factorized a general 200 decimal digit into its
 both prime factors.
 
 \vskip +10pt
@@ -2049,15 +2049,15 @@ The 'RSA numbers' are certain large semiprime numbers (i.e., numbers with
 exactly two prime factors)\index{Number!semi prime}. 
 They were generated and published by the 
 company RSA Security and they form the basis of the RSA Factoring 
-Challenge, in which factorisations for these numbers are sought.
+Challenge, in which factorizations for these numbers are sought.
 See \href{http://www.rsa.com/rsalabs/node.asp?id=2092}
  {\texttt{http://www.rsa.com/rsalabs/node.asp?id=2092}}.
 
-The first RSA Factoring Challenge labelled the numbers, from RSA-100 
+The first RSA Factoring Challenge labeled the numbers, from RSA-100 
 to RSA-500, according to their number of decimal digits; the second 
-RSA Factoring Challenge labelled the numbers according to their number 
+RSA Factoring Challenge labeled the numbers according to their number 
 of binary digits. Within the second challenge cash prizes have been 
-offered for successful factorisations of RSA576 to RSA2048 (RSA576, 
+offered for successful factorizations of RSA576 to RSA2048 (RSA576, 
 RSA640 etc. using 64 bit steps upwards).
 An exception to this is RSA617, which was created prior to the 
 change in the numbering scheme.
@@ -2071,7 +2071,7 @@ The 'C-numbers' originate from the Cunningham project:
 \href{http://www.cerias.purdue.edu/homes/ssw/cun/}
      {\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/}}
                                                                }
-with factorisation algorithms for composed numbers are
+with factorization algorithms for composed numbers are
 listed in the following table:
 
 \begin{table}[h]
@@ -2129,7 +2129,7 @@ following web pages:
 \paragraph{RSA-155} \label{RSA-155} \index{RSA-155}\mbox{}
 
 On August 22, 1999 researchers from the Netherlands found the solution of this
-RSA challenge. They factorised a 155-digit number into its both 78-digit primes
+RSA challenge. They factorized a 155-digit number into its both 78-digit primes
 (see chapter \ref{chptSecurityParam}). 
 
 This 512 bit RSA-155 meant to reach a kind of {\em magic} border.
@@ -2143,7 +2143,7 @@ This 512 bit RSA-155 meant to reach a kind of {\em magic} border.
 On January 18, 2002 researchers at the German University of Bonn\footnote{%
 \href{http://www.ercim.org/publication/Ercim\_News/enw49/franke.html, 2002-01}
 {\texttt{http://www.ercim.org/publication/Ercim\_News/enw49/franke.html, 2002-01}}}
-factorised a 158-digit decimal number into its both prime factors (these are
+factorized a 158-digit decimal number into its both prime factors (these are
 build with 73 and 86 decimal digits) using the GNFS method (General Number
 Field Sieve)\index{General Number Field Sieve (GNFS)}.
 
@@ -2168,14 +2168,14 @@ $$
 The first 3 factors can be easily computed\footnote{%
 E.g. using CrypTool\index{CrypTool} via menu 
 {\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} 
-Factorisation of a Number}. \\
+Factorization of a Number}. \\
 CrypTool can factorize in a reasonable time numbers no longer than 250 bit.
 Numbers bigger than 1024 bits are currently not accepted by CrypTool.
 }.
 The next three prime factors were found by P.~Zimmerman\footnote{%
 \href{http://www.loria.fr/~zimmerma/ecmnet}{\tt http://www.loria.fr/\~{}zimmerma/ecmnet}}, 
 T.~Grandlund\footnote{\href{http://www.swox.se/gmp/}{\tt http://www.swox.se/gmp/}}
-and R. Harley during the years 1999 and 2000 using the elliptic curve factorisation method.
+and R. Harley during the years 1999 and 2000 using the elliptic curve factorization method.
 
 The last remaining factor, called ``C158'', was known to be composite by
 then, but its factors were not known (the following 3 lines contain one number):
@@ -2186,7 +2186,7 @@ $$
 4305870490251995655335710209799226484977949442955603
 \end{array}
 $$
-The factorisation of C158 resulted in the following two 73- and 86-digit prime factors:
+The factorization of C158 resulted in the following two 73- and 86-digit prime factors:
 $$
 \begin{array}{c}
 3388495837466721394368393204672181522815830368604993048084925840555281177
@@ -2231,7 +2231,7 @@ On January 18, 2002 researchers at the German University of Bonn\footnote{%
           \href{http://www.crypto-world.com/FactorWorld.html}
        {\texttt{http://www.crypto-world.com/FactorWorld.html}}
 } 
-factorised a 160-digit number into its both prime factors (these are build
+factorized a 160-digit number into its both prime factors (these are build
 with each 80 decimal digits) using the GNFS method (General Number Field
 Sieve)\index{General Number Field Sieve (GNFS)}.
 
@@ -2241,7 +2241,7 @@ Every year the GISA\index{GISA} creates a paper to describe which
 crypto algorithms are feasible to generate digital signatures according
 to the German signature law -- under participation of experts from
 economy and science. To review signature methods based on the
-factorisation problem the GISA also co-operates with researchers from the
+factorization problem the GISA also co-operates with researchers from the
 University of Bonn.
 Further information about crypto algorithms can be found on the web page of GISA:
    \href{http://www.bsi.bund.de/esig/basics/techbas/krypto/index.htm}
@@ -2263,7 +2263,7 @@ $$
 2079314665202840140619946994927570407753
 \end{array}
 $$
-The factorisation of RSA-160 resulted in the following two prime factors:
+The factorization of RSA-160 resulted in the following two prime factors:
 $$
 \begin{array}{c}
 p = 45427892858481394071686190649738831 \\         
@@ -2298,7 +2298,7 @@ that they achieved a new world record in number factorization
 together with their colleagues of the Amsterdam Centrum voor Wiskunde
 en Informatica. 
 
-They factorised a 200-digit number into its both prime factors 
+They factorized a 200-digit number into its both prime factors 
 (these are build with each 100 decimal digits) using the GNFS method 
 (General Number Field Sieve)\index{General Number Field Sieve (GNFS)}.
 
@@ -2311,7 +2311,7 @@ $$
 576775098580557613579098734950144178863178946295187237869221823983
 \end{array}
 $$
-The factorisation of RSA-200 resulted in the following two prime factors:
+The factorization of RSA-200 resulted in the following two prime factors:
 $$
 \begin{array}{c}
 p = 35324619344027701212726049781984643686711974001976 \\         
@@ -2385,7 +2385,7 @@ The number $2^{1039}-1$ consists of 3 prime factors: The smallest one,
 $p7 = 5080711$ was already known.\footnote{%
 This one can also be found using CrypTool\index{CrypTool}  via menu 
 {\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} 
-Factorisation of a Number} --- with the algorithms of Brent, Williams or
+Factorization of a Number} --- with the algorithms of Brent, Williams or
 Lenstra, which are ``relativ'' good to separate small factors. \\
 CrypTool can factorize in a reasonable time numbers no longer than 250 bit.
 }
@@ -2404,7 +2404,7 @@ C307 =1159420574072573064369807148876894640753899791702017724986868353538\\
 822002935201806074755451541370711023817
 \end{array}
 $$
-The factorisation of C307 resulted in the following two 80- and 2276-digit prime factors:
+The factorization of C307 resulted in the following two 80- and 2276-digit prime factors:
 $$
 \begin{array}{c}
 p80 = 558536666199362912607492046583159449686465270184\\
@@ -2450,7 +2450,7 @@ Links:
 \paragraph{Size of factorized numbers compared to primality proven numbers}
 \mbox{}
 
-As you notice the factorised compound numbers built of 2 prime factors are
+As you notice the factorized compound numbers built of 2 prime factors are
 much smaller than the especially structured numbers, for which primality 
 tests\index{Primality testing} are able to decide whether these numbers are prime 
 or not (see chapters \ref{search_for_very_big_primes}, \ref{primality_tests}
@@ -2470,10 +2470,10 @@ $$ 663 ~~ \longleftrightarrow{} ~~ 30,402,457 ~~~~~$$
 
 % --------------------------------------------------------------------------
 \vskip +60pt
-\subsection{Further current research about primes and factorisation}
-\label{FactorisationResearch}
+\subsection{Further current research about primes and factorization}
+\label{FactorizationResearch}
 Prime numbers are part of very many topical research areas in number theory
-and computer science. Progress made with factorisation is bigger than was
+and computer science. Progress made with factorization is bigger than was
 estimated 5 years ago -- this is not only due to faster computers but
 also new knowledge.
 
@@ -2484,23 +2484,23 @@ $q$ (typically, 500$-$600 bit each), by calculating $n=pq$. However, it is
 a hard problem to extract $p$, $q$ from $n$.  Without knowing $p$ or $q$,
 the private key cannot be calculated.
 
-Thus, any progress in efficiency of factorising large integers will effect the
+Thus, any progress in efficiency of factorizing large integers will effect the
 security of the RSA. As a consequence, the underlying primes $p$, $q$ and,
 thus, the module n (1024 bit as of today) have to be increased. In case of a
-quantum leap in factorisation, the RSA algorithm might be compromised.
+quantum leap in factorization, the RSA algorithm might be compromised.
 
 
 % --------------------------------------------------------------------------
 \vskip +20pt
 \paragraph{Bernstein's paper and its implication on the
   security of the RSA algorithm}
-\label{RSABernstein} \index{Factorisation!factorisation problem}\mbox{}
+\label{RSABernstein} \index{Factorization!factorization problem}\mbox{}
 
-In his paper ``Circuits for integer factorisation: a proposal'' 
+In his paper ``Circuits for integer factorization: a proposal'' 
 (\href{http://cr.yp.to/djb.html}{\texttt{http://cr.yp.to/djb.html}}),
 published November 2001, D.~J.\ Bernstein \cite{Bernstein2001} 
 addresses the problem of
-factorising large integers. Therefore, his results are of relevance from a
+factorizing large integers. Therefore, his results are of relevance from a
 RSA point of view.  As a main result Bernstein claims that the
 implementation of the General Number Field Sieve algorithm (GNFS)
  \index{General Number Field Sieve (GNFS)} can be improved to factor, with
@@ -2509,7 +2509,7 @@ the same effort as before, integers with three times more digits.
 We note that the definition of \emph{effort} is a crucial point: Bernstein
 claims that effort is the product of time and costs of the machine
 (including the memory used). The gist of the paper lies in the fact that he
-can reduce a big part of factorising to sorting. Using Schimmler's scheme,
+can reduce a big part of factorizing to sorting. Using Schimmler's scheme,
 sorting can be optimized by massive parallel computing.  At the end of
 section 3 Bernstein explains this effect: The costs of $m^2$ parallel
 computers with a constant amount of memory is a constant times $m^2$.  The
@@ -2520,7 +2520,7 @@ scheme) can be achieved in time $m$, while a $m^2$-memory computer needs
 time of the order of $m^2$. Decreasing memory and increasing the number of
 processors, the computing time can be reduced by a factor $1/m$ without
 additional effort in terms of total costs.  In section 5 it is said that
-massive parallel computing can also increase efficiency of factorising
+massive parallel computing can also increase efficiency of factorizing
 using Lenstra's elliptic-curve-method (a search algorithm has costs that
 increase in a quadratic square manner instead of cubically).
 
@@ -2529,7 +2529,7 @@ that they only hold in the limit n to infinity. Unfortunately, there is no
 upper limit for the residual error (i.e. the difference between the real
 and the asymptotic value) for finite n --- a problem which has already been
 addressed by the author. As a consequence, one cannot conclude whether the
-costs (in the sense of Bernstein) for factorising 1024$-$2048-bit RSA modules
+costs (in the sense of Bernstein) for factorizing 1024$-$2048-bit RSA modules
 can be significantly reduced.
 
 There is no doubt that Bernstein's approach is innovative. However, the
@@ -2552,7 +2552,7 @@ could lead to a significant improvement (in the sense of the asymptotic
 result). 
 
 Arjen Lenstra, Adi Shamir et. al. analyzed the paper of Bernstein
-\cite{Lenstra2002}.  In summary they expect a factorisation improvement on
+\cite{Lenstra2002}.  In summary they expect a factorization improvement on
 how much longer the bit length of the keys could be with a factor of 1.17
 (instead of factor 3 as proposed by Bernstein).
 
@@ -2560,13 +2560,13 @@ The abstract of their paper ``Analysis of Bernstein's Factorization
 Circuit'' says:
 
 ``... Bernstein proposed a circuit-based implementation of the matrix
-step of the number field sieve factorisation algorithm. We show that under
+step of the number field sieve factorization algorithm. We show that under
 the non-standard cost function used in [1], these circuits indeed offer an
 asymptotic improvement over other methods but to a lesser degree than
 previously claimed: for a given cost, the new method can factor integers
 that are 1.17 times larger (rather than 3.01).  We also propose an improved
 circuit design based on a new mesh routing algorithm, and show that for
-factorisation of 1024-bit integers the matrix step can, under an optimistic
+factorization of 1024-bit integers the matrix step can, under an optimistic
 assumption about the matrix size, be completed within a day by a device
 that costs a few thousand dollars.  We conclude that from a practical
 standpoint, the security of RSA relies exclusively on the hardness of the
@@ -2630,7 +2630,7 @@ At GNFS we can distinguish 2 general steps:
 The sieve step (relation collecting) and the matrix reduction.
 Besides the sieve step is highly parallelizable, it dominates the overall
 calculation burden. Shamir and Tromer haven't built a TWIRL device yet,
-but the estimated costs of 10 till 50 million Euro (in order to factorise
+but the estimated costs of 10 till 50 million Euro (in order to factorize
 a 1024-bit number) is not prohibitive for secret agencies or big criminal
 organizations, because the ``costs for a single espionage satellite is
 estimated e.g. to be several billion USD''. The authors therefore
@@ -2750,7 +2750,7 @@ menu {\bf Indiv. Procedures \textbackslash{} Protocols
 }.
 
 Alice and Bob\footnote{Bob\index{Bob} and Alice\index{Alice} are the default
-names used for the two authorised participants in a protocol (see
+names used for the two authorized participants in a protocol (see
 \cite[p. 23]{Schneier1996nt}).
 } use a one way function to obtain a key $S$, the session key, for subsequent
 correspondence. This is then a secret that is only known to the two of them.
@@ -3027,10 +3027,10 @@ We will work through the example in 2 variants. The steps 1 to 3 are common for 
 {\bf Key generation (steps 1 to 3)}: \label{SrcArith4b} \\
 {\bf 1.} $p=503,~q=509 \quad (n= 256,027; \; J(n)=(p-1)(q-1)=255,016=2^3*127*251)$\footnote{%
 See \hyperlink{AppArith4b}{Appendix E of this chapter} for the source
-code to factorise the number $J(n)$ using Sage.
+code to factorize the number $J(n)$ using Sage.
 Using CrypTool\index{CrypTool} you can solve this with the 
 {\bf Indiv.Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} 
-Factorisation of a Number}.}. \\
+Factorization of a Number}.}. \\
 {\bf 2.} $e=65,537$ \\
 \strut\quad\ (should\footnote{%
                 See footnote \ref{foot:Selection-of-e} on page
@@ -3038,7 +3038,7 @@ Factorisation of a Number}.}. \\
                 lie between $509$ and $255,015$ and must\footnote{%
        $e$ cannot, therefore, be $2, 127$ or $251$
        ($65,537 = 2^{16}+1$) ($255,016 = 2^{3}*127*251$).\\
-       In real life, $J(n)$ is not factorised but rather the Euclidean
+       In real life, $J(n)$ is not factorized but rather the Euclidean
        algorithm is used for the selected e to guarantee that
        ${\rm gcd}(e,J(n))=1$.
                  } be relatively prime to $255,016$).\\
@@ -3284,7 +3284,7 @@ and the public key $(e,n)$:
 \begin{itemize}
 \item[{\bf (a)}] Known plaintext: \index{Attack!known plaintext} find the secret key $d$ using the additionally known original message.
 \item[{\bf (b)}] Cipher text only: \index{Attack!cipher text only} find $d$ and the plaintext.
-\item[{\bf (c)}] Calculate the RSA modulus, in other words factorisation (with no knowledge of the message). \index{Factorisation!factorisation problem}
+\item[{\bf (c)}] Calculate the RSA modulus, in other words factorization (with no knowledge of the message). \index{Factorization!factorization problem}
 \end{itemize}
 
 \newpage
@@ -3320,7 +3320,7 @@ raised to the power of $e$.
 
 When you decrypt the message you must fill the calculated numbers with leading zeros in order to obtain plaintext.
 
-This needs to be stressed because the type of padding is extremely important during implementation and standardisation for interoperable algorithms.
+This needs to be stressed because the type of padding is extremely important during implementation and standardization for interoperable algorithms.
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -3596,7 +3596,7 @@ This needs to be stressed because the type of padding is extremely important dur
           \href{http://www.bsi.bund.de}{\texttt{http://www.bsi.bund.de}}
          
 	 
-   \item Factorisation records and challenges\index{Factorisation!factoring records},\\
+   \item Factorization records and challenges\index{Factorization!factoring records},\\
          \href{http://www.crypto-world.com/}
            {\texttt{http://www.crypto-world.com/}} \\
          \href{http://www.crypto-world.com/FactorWorld.html}
@@ -3701,7 +3701,7 @@ or, in matrix notation:
 $$ \left(\begin{array}{c}a \\ b\end{array}\right) = 
    \left(\begin{array}{cc} 1 & 0 \\ 0 & 1 \end{array}\right) *
    \left(\begin{array}{c} a \\ b \end{array} \right).$$
-We summarise this information in the extended matrix:
+We summarize this information in the extended matrix:
 $$\left(\begin{array}{cccc} a & | & 1 & 0 \\ b & | & 0 & 1 \end{array} \right)$$
 If we apply the above gcd algorithm to this matrix, we obtain the extended gcd algorithm: 
 
@@ -4248,7 +4248,7 @@ sage: power_mod(120, 37, 3713)
 
 \vskip +10 pt \hypertarget{AppArith4b}{%
 \noindent {\bf Example on page~\pageref{SrcArith4b}.}} \\
-The factorisation of $J(256027) = 255016 = 2^3 * 127 * 251$ can be
+The factorization of $J(256027) = 255016 = 2^3 * 127 * 251$ can be
 calculated using Sage as follows:
 
 \begin{Verbatim}%

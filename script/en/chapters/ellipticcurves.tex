@@ -69,7 +69,7 @@ secret key and have to process a digital signature rather than verify one.
 Therefore, there is a clear advantage in using ECC in terms of efficiency.
 \par
 \smallskip
-Nowadays, the major problem with ECC-implementations is the lack of standardization.
+Nowadays, the major problem with ECC implementations is the lack of standardization.
 There is only one way to implement RSA, but there are many ways for ECC: One can work with
 different sets of numbers, different (elliptic) curves --- described by parameters\footnote{%
 see chapter \ref{ECC-Crypto}
@@ -87,7 +87,7 @@ Certicom have recently started standardization initiatives. While the IEEE
 only describes the different implementations, the ASC has explicitly stated
 10 elliptic curves and recommends their usage. The advantage of the ASC
 approach is that one needs only a single byte to indicate which curve is
-meant. However, it is not yet clear whether the ASC-curves will become a de
+meant. However, it is not yet clear whether the ASC curves will become a de
 facto standard.
 
 Although we see no need to replace RSA in any application today\footnote{%
@@ -146,11 +146,11 @@ In 1985 Neal Koblitz\index{Koblitz, Neal} and Victor Miller\index{Miller, Victor
 independently suggested using elliptic curves in cryptography. Elliptic 
 curves have thus also found a concrete practical application. 
 Another interesting area of application for elliptic curves is for
-factorising whole numbers \index{Factorisation} (the RSA cryptographic system
+factorizing whole numbers \index{Factorization} (the RSA cryptographic system
 is based on the \index{Complexity} difficulty/complexity of finding prime
 factors of an extremely large number;  compare section \ref{SecurityRSA}.).
 In this area, procedures based on elliptic curves have been investigated and
-used since 1987 (compare section \ref{ECC-Factorisation}). \\
+used since 1987 (compare section \ref{ECC-Factorization}). \\
 There are also prime number tests\index{Prime number!test} based on elliptic
 curves.
 % (s. Anmerkung U. Kuehn)
@@ -158,10 +158,10 @@ curves.
 Elliptic curves are used differently in the various areas. Encryption
 procedures based on elliptic curves are based on the difficulty of a problem
 known as elliptic curve discrete logarithm\index{Logarithm problem!discrete}.
-The factorisation of whole numbers uses the fact that a large number of
+The factorization of whole numbers uses the fact that a large number of
 elliptic curves can be generated for a natural composite number $n$ with
 several prime factors; however, these curves are not then groups for composite
-$n$. More information about this can be found under the chapter \ref{ECC-Factorisation}.
+$n$. More information about this can be found under the chapter \ref{ECC-Factorization}.
 
 \section{Elliptic curves -- mathematical basics}
 
@@ -500,12 +500,12 @@ Since $R=rG$, we obtain $\bar v_1=\bar r_1$, i.e. $R$ and $V$ coincide modulo th
 
 % -----------------------------------------------------------------------------
 \hypertarget{faktell}{}
-\section{Factorisation using elliptic curves} \label{ECC-Factorisation}
+\section{Factorization using elliptic curves} \label{ECC-Factorization}
 
-There are factorisation%
+There are factorization%
 \footnote{Especially John M. Pollard \index{Pollard, John M.} was involved
-in the development of many different factorisation algorithms; also at
-factorisation with ECC he was one of the leading heads. As an employee
+in the development of many different factorization algorithms; also at
+factorization with ECC he was one of the leading heads. As an employee
 of British Telekom he never published much. At the RSA data Security Conference
 in 1999 he was awarded for his ``outstanding contributions in mathematics'':
 \href{http://www.eff.org/Privacy/Crypto_misc/DESCracker/HTML/19990118_rsa_awards.html}
@@ -515,7 +515,7 @@ algorithms based on elliptic curves%
 \footnote{In 1987 H.W. Lenstra published
 a factorization algorithm, based on elliptic curves (see \cite{Lenstra1987}).
 The biggest compound number currently 
-factorised\index{Factorisation!factoring records} with elliptic curves is 
+factorized\index{Factorization!factoring records} with elliptic curves is 
 the number $ 628^{59}-1, $ which has 55 decimal digits. It was
 found Oct. 6th, 2001 by M. Izumi 
 (See \hyperlink{Lenstra2}{ECMNET}\index{ECMNET}).
@@ -539,15 +539,15 @@ gives an element in ${\mathbb Z}_n$ that does not have an inverse element in
 ${\mathbb Z}_n$, then the extended Euclidean algorithm delivers a genuine factor
 of $n$.
 
-Factorisation using elliptic curves thus principally works as follows: 
+Factorization using elliptic curves thus principally works as follows: 
 Random curves over ${\mathbb Z}_n$ are selected, as well as random points
 (that lie on this curve) and add them; you thus obtain points that also
 lie on the curve or find a factor of $n$. 
-Factorisation algorithms based on elliptic curves
+Factorization algorithms based on elliptic curves
 therefore work probabilistically. The opportunity of defining large number of
 elliptic curves over ${\mathbb Z}_n$ allows you to increase the probability of
 finding two points which you can add to obtain a factor of $n$. These procedures
-are therefore highly suitable for parallelisation.
+are therefore highly suitable for parallelization.
 
 
 % -----------------------------------------------------------------------------
@@ -674,10 +674,10 @@ Both examples show the typical range of application for elliptic curve cryptogra
       {\texttt{http://grouper.ieee.org/groups/1363}}
 
    \item \hypertarget{Lenstra2}{}
-         An informative web page about factorisation with elliptic curves, \\
+         An informative web page about factorization with elliptic curves, \\
          \href{http://www.loria.fr/~zimmerma/records/ecmnet.html}
 	 {\texttt{http://www.loria.fr/\~{}zimmerma/records/ecmnet.html}} \\
-         It contains literature related to the topic factorisation with 
+         It contains literature related to the topic factorization with 
 	 elliptic curves as well as links to other web page. 
 
    \item Key length comparison by Arjen Lenstra and Eric Verheul,\\

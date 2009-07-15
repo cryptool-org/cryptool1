@@ -5,6 +5,7 @@
 % Writing rule: Capitel header with all nouns/verbs-words capitalized,
 %               All other headers in the normal lower/upper case manner
 %               like sentences (without a dot at the end).
+% Writing rule: Use American English instead of British English consistently.
 %
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % ``primenet''
@@ -49,7 +50,7 @@ under didactic aspects.
 
 Methods to be successful and wide-spread had to fulfill some attributes which are equally required for modern algorithms:
 \begin{itemize}
-\item Exhaustive description, almost standardisation (including special cases,
+\item Exhaustive description, almost standardization (including special cases,
       padding, etc.).
 \item Good balance between security and usability 
       (because methods being too complicated were error-prone or
@@ -72,7 +73,7 @@ permutation\index{Permutation}.}.
 
 \begin{itemize}
 
-\item {\bf Railfence}\footnote{In CrypTool\index{CrypTool} 
+\item {\bf Rail Fence}\footnote{In CrypTool\index{CrypTool} 
    you can simulate this method under the menu {\bf Crypt/Decrypt \textbackslash{} 
    Symmetric (classic) \textbackslash{} Permutation}: for a railfence with
    2 lines use as key ``B,A'' and accept the default settings (only one
@@ -81,7 +82,7 @@ permutation\index{Permutation}.}.
    Using the key ``A,B'' would start the zigzag pattern below in the
    way, that the first letter is written into the first line instead of the
    second line.}
-   \cite{Singh2001}\index{Railfence cipher}:
+   \cite{Singh2001}\index{Rail Fence cipher}:
    The characters of a message are alternately written in two (or more) lines,
    creating a zigzag pattern. The resulting ciphertext is read out 
    line by line.\\
@@ -97,7 +98,7 @@ permutation\index{Permutation}.}.
 	  & n &   & x &   & m &   & l &   & o &   & t &   & a &   & s &   & o &   & i &   & i &   & n \\
 	a &   & e &   & a &   & p &   & e &   & f &   & r &   & n &   & p &   & s &   & t &   & o &   \\
 \end{tabular}
-\caption{Railfence cipher}
+\caption{Rail Fence cipher}
 \end{center} 
 \end{table}
 
@@ -334,7 +335,7 @@ under the menu {\bf Crypt/Decrypt \textbackslash{} Symmetric (classic)
    this 2nd keyword is a permutation of the used alphabet. This permutation
    is written on the left of the first column.
    Afterwards, each column is moved (wrap-around) so that it begins with the
-   letter, which is in the the same line as the key letter of the first 
+   letter, which is in the same line as the key letter of the first 
    keyword within the second keyword.\\
    Ciphertext is read out line by line.
 
@@ -751,7 +752,7 @@ Polygraphic techniques\index{Substitution!polygraphic} do not work by replacing 
            the first letter up to the column where the other letter occurs 
            and vice versa.
 	\item Double letters are treated by special rules, if they appear in one
- 	   diagraph. They can be separated by a filler, for example.
+ 	   digraph. They can be separated by a filler, for example.
    \end{enumerate}
 
    See table \ref{Playfair-table-reference}.
@@ -1018,7 +1019,7 @@ previous mentioned methods.
    \cite{Singh2001}\index{ADFGVX}%
    : 
    ADFG(V)X-encryption was developed in Germany during WW1. The alphabet 
-   is filled into a 5x5- or 6x6-matrix, and columns and rows are marked with
+   is filled into a 5x5 or 6x6 matrix, and columns and rows are marked with
    the letters ADFGX and V, depending on the size of the grille. Each 
    plaintext character is substituted by the corresponding pair of letters. 
    Finally, a (row-) transposition cipher is performed on the resulting text.
@@ -1031,7 +1032,7 @@ previous mentioned methods.
    
    \begin{itemize}
       \item {\bf Bifid/Polybius square/checkerboard} \cite{Goebel2003}: 
-         Bifid encryption is the basic form of fractionation. A 5x5-matrix 
+         Bifid encryption is the basic form of fractionation. A 5x5 matrix 
          is filled with the plaintext alphabet (see Playfair encryption), 
          rows and columns are numbered, so that each cleartext character can be
          substituted by a pair of digits. Mostly the plaintext is divided into 
@@ -1196,7 +1197,7 @@ previous mentioned methods.
 \newpage % Damit die Tables immer direkt nach dem zugehörigen Item. 
 \item {\bf Nicodemus} \cite{ACA2002}: First of all, a simple columnar 
    transposition is carried out. Before reading out the columns, the message
-   is encrypted aditionally by Vigen\`ere (all letters of a column are
+   is encrypted additionally by Vigen\`ere (all letters of a column are
    enciphered with the corresponding keyword letter). The ciphertext is read
    out in vertical blocks.
 
