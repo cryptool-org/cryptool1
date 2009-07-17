@@ -1451,11 +1451,10 @@ previous mentioned methods.
 
 % ---------------------------------------------------------------------------
 \newpage
-\section*{Appendix A: Examples using Sage}
-\addcontentsline{toc}{section}{Appendix A: Examples using Sage}
+\section{Examples using Sage}
 \index{Sage}
 
-\subsection*{Transposition ciphers using Sage}
+\subsection{Transposition ciphers using Sage}
 
 \begin{figure}[h]
 \begin{center}
@@ -1470,8 +1469,8 @@ Tranposition ciphers are implemented in the class
 \verb!sage.crypto.classical.TranspositionCryptosystem!
 \end{center}
 To construct and work with a transposition cipher, we first need to
-determine the alphabet that contains our plaintext and ciphertext
-spaces. Typically, this alphabet will be the upper-case letters of the
+determine the alphabet that contains our plaintext and ciphertext. 
+Typically, this alphabet will be the upper-case letters of the
 English alphabet, which can be accessed via the function
 \begin{center}
 \verb!sage.monoids.string_monoid.AlphabeticStrings!
@@ -1487,6 +1486,7 @@ around. That is the encryption process. The decryption process is
 shifting to the left by $14 - 1 = 13$ characters in order to recover
 the plaintext.
 
+\begin{sagecode}
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
 sage: # transposition cipher of block length 14
@@ -1505,12 +1505,15 @@ sage: D = T(keyInv)
 sage: D(C)
 ABCDEFGHIJKLMN
 \end{Verbatim}
+\caption{Caption 1}
+\end{sagecode}
 
 The encryption key can also be such that it shifts each letter of the
 plaintext to the left by two characters, with wrap around. Then we
 need to shift each letter of the ciphertext to the left by $14 - 2 =
 12$ characters in order to obtain the plaintext.
 
+\begin{sagecode}
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
 sage: T = TranspositionCryptosystem(AlphabeticStrings(), 14)
@@ -1526,6 +1529,8 @@ sage: D = T(keyInv)
 sage: D(C)
 ABCDEFGHIJKLMN
 \end{Verbatim}
+\caption{Caption 2}
+\end{sagecode}
 
 As a more complicated example, we can use a permutation in the
 encryption and decryption processes. If the block length of our
@@ -1558,7 +1563,7 @@ ABCDEFGHIJKLMN
 
 % ---------------------------------------------------------------------------
 
-\subsection*{Substitution ciphers}
+\subsection{Substitution ciphers}
 
 Substitution cryptosystems are implemented in Sage in the class
 
@@ -1569,7 +1574,7 @@ Substitution cryptosystems are implemented in Sage in the class
 \noindent The following code sample uses Sage to construct a substitution
 cipher with a random key. A random key can be generated using the
 method \verb!random_key()! of the class
-\verb!SubstitutionCryptosystem!. Different keys determine different
+\texttt{SubstitutionCrypto\-system}. Different keys determine different
 substitution ciphers. So each call to \verb!random_key()! returns
 different results. First, we perform the encryption process with a
 random key.
@@ -1605,7 +1610,7 @@ True
 
 % ---------------------------------------------------------------------------
 
-\subsection*{Caesar cipher}
+\subsection{Caesar cipher}
 
 The following example uses Sage to construct a Caesar
 cipher. First, we demonstrate encryption using this cipher.
@@ -1645,7 +1650,7 @@ True
 
 % ---------------------------------------------------------------------------
 
-\subsection*{Substitution with symbols}
+\subsection{Substitution with symbols}
 
 Here is a Sage example where the symbols are from the binary number
 system. There is very little security when using this system as
@@ -1707,7 +1712,7 @@ True
 
 % ---------------------------------------------------------------------------
 
-\subsection*{Vigen{\`e}re cipher}
+\subsection{Vigen{\`e}re cipher}
 
 The Vigen{\`e}re cipher is implemented in the Sage class
 
@@ -1747,7 +1752,7 @@ True
 
 % ---------------------------------------------------------------------------
 
-\subsection*{Hill cipher}
+\subsection{Hill cipher}
 
 The Hill~\cite{Hill1929,Hill1931} or matrix cipher is more
 mathematically sophisticated than other ciphers mentioned in this
