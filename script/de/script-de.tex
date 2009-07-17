@@ -30,6 +30,11 @@
 \usepackage{url}
 % Literaturverzeichnis kapitelweise
 \usepackage[labelstoglobalaux]{bibunits} % ohne labelstoglobalaux scheint man thebibilograpy und bibtex nicht mischen zu können
+\usepackage{float}
+\floatstyle{ruled}
+\newfloat{sagecode}{h}{loc}[chapter]
+\floatname{sagecode}{Sample}
+
 
 \makeindex
 \hypersetup{colorlinks=true}
@@ -175,7 +180,12 @@ die GNU-Lizenz für freie Dokumentation.
 \listoftables
 \addcontentsline{toc}{chapter}{\listtablename}
 
+\clearpage
+\listof{sagecode}{Verzeichnis der Sage-Programmbeispiele}
+\addcontentsline{toc}{chapter}{Sage-Programmbeispiele}
+
 %\addcontentsline{toc}{section}{Index} %moved to style.ist
+
 \printindex
 
 \end{document}

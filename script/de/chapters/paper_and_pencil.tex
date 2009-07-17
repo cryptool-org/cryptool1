@@ -13,7 +13,7 @@
 
 \chapter{Papier- und Bleistift-Verschlüsselungsverfahren}
 \label{Kapitel_PaperandPencil}
-(Christine Stötzel, April 2004; Updates B.+C. Esslinger, Juni 2005)
+(Christine Stötzel, April 2004; Updates B.+C. Esslinger, Juni 2005; Updates B. Esslinger, Juli 2009)
 \index{Papier- und Bleistiftverfahren}
 
 \begin{center}
@@ -1580,25 +1580,45 @@ als sicherer erwiesen als Verfahren, die nur auf einem der Prinzipien Transposit
 
 % ddddddddddddddddddddddddddddddddddddddddx
 
-
-
 \end{thebibliography}
+
+
+
+
 
 
 % ---------------------------------------------------------------------------
 \newpage
-\section{Examples using Sage}
+\section{Beispiele mit Sage}
 \index{Sage}
 
-\subsection{Transposition ciphers using Sage}
+Im Folgenden werden einige der klassischen Verfahren mit dem Computer-Algebra-System Sage implementiert. Der Code ist lauffähig und getestet mit Sage Version 4.1.
+
+Eine erste Einführung in das CAS Sage finden Sie im Anhang \ref{s:appendix-using-sage}.
+
+Um die Beispielprogramme leichter lesbar zu machen, hielten wir uns an die in der folgenden
+Grafik aufgeführten Bezeichnungen und Abläufe:
+\begin{itemize}
+  \item Die Verschlüsselung besteht aus den Schritten codieren und verschlüsseln.
+  \item Beim Codieren werden in dem gegebenen Klartext P die Zeichen auf Groß- bzw.
+        Kleinbuchstaben angepasst (je nach gegebenem Alphabet), und alle
+	Nichtalphabetzeichen werden entfernt.
+  \item Durch die Verschlüsselung wird das Chiffrat C erzeugt.
+  \item Die Entschlüsselung besteht ebenfalls aus den zwei Schritten entschlüsseln und decodieren.
+  \item Decodieren ist nur nötig, wenn die benutzten Symbole im Alphabet nicht die ASCII-Zeichen
+        sind ????????????????.
+\end{itemize}
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[scale=0.5]{figures/encryption-decryption-de}
-\caption{XXX} 
+\caption{Struktur und Namenskonventionen in den Sage Programmbeispielen} 
 \label{XXX}
 \end{center}
 \end{figure}
+
+
+\subsection{Transposition ciphers using Sage}
 
 Tranposition ciphers are implemented in the class
 \begin{center}

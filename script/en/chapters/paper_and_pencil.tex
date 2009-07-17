@@ -19,7 +19,7 @@
 
 \chapter{Paper and Pencil Encryption Methods}
 \label{Kapitel_PaperandPencil}
-(Christine St\"otzel, April 2004; Updates: B.+C. Esslinger, June 2005)
+(Christine St\"otzel, April 2004; Updates: B.+C. Esslinger, June 2005; Updates B. Esslinger, July 2009)
 \index{Paper- and pencil methods}
 
 \begin{center}
@@ -1449,27 +1449,49 @@ previous mentioned methods.
 \end{thebibliography}
 
 
+
+
+
+
+
 % ---------------------------------------------------------------------------
 \newpage
 \section{Examples using Sage}
 \index{Sage}
 
-\subsection{Transposition ciphers using Sage}
+In the following chapter some classic ciphers are implemented using the computer algebra system
+Sage. The code was tested with Sage vrsion 4.1.
+
+A first introduction to the CAS Sage can be found in the appendix \ref{s:appendix-using-sage}.
+
+To make the sample code easier to understand, we used the structure and the naming conventions
+shown in the graphics below:
+\begin{itemize}
+  \item Encryption consists of the two steps encoding and enciphering.
+  \item Encoding adapts the letters in the given plaintext P to the case defined in the
+        given alphabet, and all non-alphabet characters are filtered out.
+  \item Enciphering creates the ciphertext C.
+  \item Decryption also consists of two steps: deciphering and decoding.
+  \item Decoding is only necessary if the symbols in the alphabet are no ASCII characters ???????????????? xxxxxxxxxxxxx.
+\end{itemize}
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[scale=0.5]{figures/encryption-decryption-en}
-\caption{XXX} 
+\caption{Structure and naming convention of the Sage code examples} 
 \label{XXX}
 \end{center}
 \end{figure}
+
+
+\subsection{Transposition ciphers using Sage}
 
 Tranposition ciphers are implemented in the class
 \begin{center}
 \verb!sage.crypto.classical.TranspositionCryptosystem!
 \end{center}
 To construct and work with a transposition cipher, we first need to
-determine the alphabet that contains our plaintext and ciphertext. 
+determine the alphabet that contains the symbols used to build our plaintext and ciphertext. 
 Typically, this alphabet will be the upper-case letters of the
 English alphabet, which can be accessed via the function
 \begin{center}
@@ -1481,55 +1503,97 @@ decryption. This row vector is our key, and it specifies a permutation
 of a plaintext.
 
 Here is a transposition cipher of block length 14, where every letter
-in the plaintext is shifted to the left by one character, with wrap
+in the plaintext is shifted to the left by two characters, with wrap
 around. That is the encryption process. The decryption process is
-shifting to the left by $14 - 1 = 13$ characters in order to recover
-the plaintext.
+shifting each letter of the ciphertext to the left by $14 - 2 = 12$
+characters in order to recover the plaintext.
 
 \begin{sagecode}
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
-sage: # transposition cipher of block length 14
+sage: # transposition cipher using a block length of 14
 sage: T = TranspositionCryptosystem(AlphabeticStrings(), 14)
-sage: # our encryption/decryption key
-sage: key = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1]
-sage:
-sage: # encrypt a plaintext
-sage: E = T(key)
-sage: C = E(T.encoding("a b c d e f g h i j k l m n")); C
-BCDEFGHIJKLMNA
-sage:
-sage: # decrypt ciphertext
-sage: keyInv = [14, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-sage: D = T(keyInv)
-sage: D(C)
-ABCDEFGHIJKLMN
-\end{Verbatim}
-\caption{Caption 1}
-\end{sagecode}
-
-The encryption key can also be such that it shifts each letter of the
-plaintext to the left by two characters, with wrap around. Then we
-need to shift each letter of the ciphertext to the left by $14 - 2 =
-12$ characters in order to obtain the plaintext.
-
-\begin{sagecode}
-\begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
-sage: T = TranspositionCryptosystem(AlphabeticStrings(), 14)
-sage: # encrypt by shifting to the left by 2 letters
+sage: # given plaintext
+sage: P   = "a b c d e f g h i j k l m n"
+sage: # encryption key
 sage: key = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1, 2]
-sage: E = T(key)
-sage: C = E(T.encoding("a b c d e f g h i j k l m n")); C
+sage:
+sage: # encode plaintext (get rid of non-alphabet chars, convert lower-case into upper-case)
+sage: msg = T.encoding(P)
+sage: # encrypt plaintext by shifting to the left by 2 letters (do it in two steps)
+sage: E   = T(key)
+sage: C   = E(msg); C
 CDEFGHIJKLMNAB
 sage:
-sage: # decrypt by shifting to the left by 12 letters
+sage: # decrypt ciphertext by shifting to the left by 12 letters
 sage: keyInv = [13, 14, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-sage: D = T(keyInv)
+sage: D   = T(keyInv)
 sage: D(C)
 ABCDEFGHIJKLMN
+sage:
+sage: # Representation of key and inverse key as permutations
+sage: E
+(1,3,5,7,9,11,13)(2,4,6,8,10,12,14)
+sage: D
+(1,13,11,9,7,5,3)(2,14,12,10,8,6,4)
 \end{Verbatim}
-\caption{Caption 2}
+\caption{Simple Transposition by shifting (key and inverse key explicitely given)}
+\end{sagecode}
+
+The next sample is also a simple column transposition. But now the code is a little bit more automated in generating the keys from the shift parameter.
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: # transposition cipher using a block length of 14, code more variable
+sage: keylen = 14
+sage: shift = 2
+sage: A = AlphabeticStrings()
+sage: T = TranspositionCryptosystem(A, keylen)
+sage:
+sage: # construct the plaintext string from the first 14 letters of the alphabet plus blanks
+sage: # plaintext   = "A B C D E F G H I J K L M N"
+sage: A.gens()
+(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z)
+sage: P=''
+sage: for i in range(keylen): P=P + " " + str(A.gen(i))
+....:
+sage: P
+' A B C D E F G H I J K L M N'
+sage:
+sage: # encryption key
+sage: # key = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1, 2]
+sage: key = [(i+shift).mod(keylen) + 1 for i in range(keylen)]; key
+[3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1, 2]
+sage:
+sage: # encode plaintext (get rid of non-alphabet chars)
+sage: # Rem: Encoding is not necessary, if P only contains capital letters
+sage: msg = T.encoding(P)
+sage: # encrypt plaintext by shifting to the left by 2 letters (do it in one step)
+sage: C   = T.enciphering(key, msg); C
+CDEFGHIJKLMNAB
+sage:
+sage: # decrypt ciphertext by shifting to the left by 12 letters
+sage: # keyInv = [13, 14, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+sage: shiftInv=keylen-shift;
+sage: keyInv = [(i+shiftInv).mod(keylen) + 1 for i in range(keylen)]; keyInv
+[13, 14, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+sage: DC   = T.enciphering(keyInv, C); DC
+ABCDEFGHIJKLMN
+sage:
+sage: # using the deciphering method requires to change the type of the variable key
+sage: DC  = T.deciphering(T(key).key(), C); DC
+ABCDEFGHIJKLMN
+sage:
+sage: # representation of key and inverse key as permutations
+sage: T(key)
+(1,3,5,7,9,11,13)(2,4,6,8,10,12,14)
+sage: T(key).key()
+(1,3,5,7,9,11,13)(2,4,6,8,10,12,14)
+sage: T(keyInv)
+(1,13,11,9,7,5,3)(2,14,12,10,8,6,4)
+\end{Verbatim}
+\caption{Simple Transposition by shifting (key and inverse key constructed with "range")}
 \end{sagecode}
 
 As a more complicated example, we can use a permutation in the
@@ -1542,23 +1606,38 @@ example uses the method \verb!random_key()! of the class
 affects the ciphertext. Note that your results may be different from
 the following example.
 
+\begin{sagecode}
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
-sage: T = TranspositionCryptosystem(AlphabeticStrings(), 14)
+sage: # Remark: Enciphering here requires, that the length of msg is a multiple of keylen
+sage: keylen = 14   # length of key
+sage: A = AlphabeticStrings()
+sage: T = TranspositionCryptosystem(A, keylen); T
+Transposition cryptosystem on Free alphabetic string monoid on A-Z of block length 14
 sage:
-sage: # encryption
+sage: P = "a b c d e f g h i j k l m n o p q r s t u v w x y z a b"
 sage: key = T.random_key(); key
-(1,2,7)(3,9)(4,5,10,12,8,13,11)(6,14)
-sage: P = T.encoding("a b c d e f g h i j k l m n")
-sage: C = T.enciphering(key, P); C
-BGIEJNAMCLDHKF
+(1,2,3,13,6,5,4,12,7)(11,14)
+sage: msg = T.encoding(P); msg
+ABCDEFGHIJKLMNOPQRSTUVWXYZAB
+sage: C   = T.enciphering(key, msg); C
+BCMLDEAHIJNGFKPQAZRSOVWXBUTY
+sage: DC  = T.deciphering(key, C); DC
+ABCDEFGHIJKLMNOPQRSTUVWXYZAB
 sage:
-sage: # decryption
-sage: T.deciphering(key, C)
-ABCDEFGHIJKLMN
-sage: T.deciphering(key, T.enciphering(key, P))
-ABCDEFGHIJKLMN
+sage: # Just another way of decryption: Using "enciphering" with the inverse key
+sage: keyInv = T.inverse_key(key); keyInv
+(1,7,12,4,5,6,13,3,2)(11,14)
+sage: DC     = T.enciphering(keyInv, C); DC
+ABCDEFGHIJKLMNOPQRSTUVWXYZAB
+sage:
+sage: # Test correctness of decryption
+sage: msg == DC
+True
 \end{Verbatim}
+\caption{Simple Column Transposition with randomly generated (permutation) key}
+\end{sagecode}
+
 
 
 % ---------------------------------------------------------------------------
@@ -1579,33 +1658,33 @@ substitution ciphers. So each call to \verb!random_key()! returns
 different results. First, we perform the encryption process with a
 random key.
 
+\begin{sagecode}
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
-sage: # the plaintext/ciphertext alphabet
-sage: A = AlphabeticStrings()
+sage: # plaintext/ciphertext alphabet
+sage: A   = AlphabeticStrings()
+sage: S   = SubstitutionCryptosystem(A)
 sage:
-sage: # substitution cipher with random key
-sage: S = SubstitutionCryptosystem(A)
+sage: P   = "Substitute this with something else better."
 sage: key = S.random_key(); key
-CMPGOWFIJRESXNYBKUDALQHTVZ
+INZDHFUXJPATQOYLKSWGVECMRB
 sage:
-sage: # encryption
-sage: msg = A.encoding("Substitute this with something else better."); msg
+sage: # method encoding can be called from A or from T
+sage: msg = A.encoding(P); msg
 SUBSTITUTETHISWITHSOMETHINGELSEBETTER
-sage: S.enciphering(key, msg)
-DLMDAJALAOAIJDHJAIDYXOAIJNFOSDOMOAAOU
-\end{Verbatim}
-
-We now decrypt the ciphertext to recover our plaintext.
-
-\begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
-sage: # decryption
-sage: plaintext = S.deciphering(key, ciphertext); plaintext
+sage: C   = S.enciphering(key, msg); C
+WVNWGJGVGHGXJWCJGXWYQHGXJOUHTWHNHGGHS
+sage:
+sage: #.# We now decrypt the ciphertext to recover our plaintext.
+sage:
+sage: DC  = S.deciphering(key, C); DC
 SUBSTITUTETHISWITHSOMETHINGELSEBETTER
-sage: plaintext == msg
+sage: msg == DC
 True
 \end{Verbatim}
+\caption{Monoalphabetic Substitution with randomly generated key}
+\end{sagecode}
+
 
 
 % ---------------------------------------------------------------------------
@@ -1615,37 +1694,91 @@ True
 The following example uses Sage to construct a Caesar
 cipher. First, we demonstrate encryption using this cipher.
 
+\begin{sagecode}
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
 sage: # plaintext/ciphertext alphabet
 sage: A = AlphabeticStrings()
+sage: P = "Shift the alphabet three positions to the right."
 sage:
 sage: # construct Caesar cipher
 sage: S = SubstitutionCryptosystem(A)
 sage: key = A([3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, \
-....: 20, 21, 22, 23, 24, 25, 0, 1, 2])
+....:          20, 21, 22, 23, 24, 25, 0, 1, 2])
 sage:
 sage: # encrypt message
-sage: encrypt = S(key)
-sage: msg = A.encoding("Shift three positions to the right."); msg
-SHIFTTHREEPOSITIONSTOTHERIGHT
-sage: ciphertext = encrypt(msg); ciphertext
-VKLIWWKUHHSRVLWLRQVWRWKHULJKW
-\end{Verbatim}
-
-Next, we recover the plaintext.
-
-\begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
+sage: msg     = A.encoding(P); msg
+SHIFTTHEALPHABETTHREEPOSITIONSTOTHERIGHT
+sage: encrypt = S(key); encrypt
+DEFGHIJKLMNOPQRSTUVWXYZABC
+sage: C       = encrypt(msg); C
+VKLIWWKHDOSKDEHWWKUHHSRVLWLRQVWRWKHULJKW
+sage:
+sage: #.# Next, we recover the plaintext.
+sage:
 sage: # decrypt message
 sage: keyInv = A([23, 24, 25, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, \
-....: 14, 15, 16, 17, 18, 19, 20, 21, 22])
-sage: decrypt = S(keyInv)
-sage: plaintext = decrypt(ciphertext); plaintext
-SHIFTTHREEPOSITIONSTOTHERIGHT
-sage: plaintext == msg
+....:             14, 15, 16, 17, 18, 19, 20, 21, 22])
+sage: decrypt = S(keyInv); decrypt
+XYZABCDEFGHIJKLMNOPQRSTUVW
+sage: DC      = decrypt(C); DC
+SHIFTTHEALPHABETTHREEPOSITIONSTOTHERIGHT
+sage: msg == DC
 True
 \end{Verbatim}
+\caption{Caesar (substitution by shifting the alphabet; key explicitely given, step-by-step approach)}
+\end{sagecode}
+
+The next sample does the same, but the code is more sophisticated/automated.
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: # plaintext/ciphertext alphabet
+sage: A = AlphabeticStrings()
+sage: keylen = len(A.gens()); keylen
+26
+sage: shift  = 3
+sage: P = "Shift the alphabet three positions to the right."
+sage:
+sage: # construct Caesar cipher
+sage: S = SubstitutionCryptosystem(A)
+sage: ## IDEE: key mit Range (26).shift(3) konstruieren statt wie in Sample02
+sage: ## Shift und Map gabe es nicht als interne Methode, also wie in Sample 2
+sage: # key = A([3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, \
+sage: #          20, 21, 22, 23, 24, 25, 0, 1, 2])
+sage: key = [(i+shift).mod(keylen) for i in range(keylen)];
+sage: key = A(key); key
+DEFGHIJKLMNOPQRSTUVWXYZABC
+sage:
+sage: # encrypt message
+sage: msg     = A.encoding(P); msg
+SHIFTTHEALPHABETTHREEPOSITIONSTOTHERIGHT
+sage: C       = S.enciphering(key, msg); C
+VKLIWWKHDOSKDEHWWKUHHSRVLWLRQVWRWKHULJKW
+sage:
+sage: #.# Next, we recover the plaintext.
+sage:
+sage: # decrypt message
+sage: # keyInv = A([23, 24, 25, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, \
+sage: #             14, 15, 16, 17, 18, 19, 20, 21, 22])
+sage: shiftInv=keylen-shift;
+sage: keyInv = [(i+shiftInv).mod(keylen) for i in range(keylen)];
+sage: keyInv = A(keyInv); keyInv
+XYZABCDEFGHIJKLMNOPQRSTUVW
+sage: DC     = S.enciphering(keyInv, C); DC
+SHIFTTHEALPHABETTHREEPOSITIONSTOTHERIGHT
+sage:
+sage: # Just another way of decryption: Using "deciphering" with the key
+sage: DC     = S.deciphering(key, C); DC
+SHIFTTHEALPHABETTHREEPOSITIONSTOTHERIGHT
+sage:
+sage: msg == DC
+True
+\end{Verbatim}
+\caption{Caesar (substitution by shifting the alphabet; keys generated)}
+\end{sagecode}
+
 
 
 % ---------------------------------------------------------------------------
@@ -1657,9 +1790,10 @@ system. There is very little security when using this system as
 our plaintext/ciphertext alphabet because the binary number system
 only has two elements: 0 and 1.
 
+\begin{sagecode}
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
-sage: # the plaintext/ciphertext alphabet
+sage: # the plaintext/ciphertext alphabet   xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 sage: A = BinaryStrings()
 sage: # substitution cipher over the alphabet A
 sage: S = SubstitutionCryptosystem(A); S
@@ -1688,13 +1822,18 @@ sage: plaintext = S.deciphering(key, ciphertext); plaintext
 sage: plaintext == msg
 True
 \end{Verbatim}
+\caption{xxxxx}
+\end{sagecode}
+
 
 However, our plaintext/ciphertext space  can be over a larger
 alphabet, say the hexadecimal number system. Here is an example
 using the hexadecimal number system as our substitution alphabet.
 
+\begin{sagecode}
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
+xxxxxxxxxxxxxxxxxxxxxxxxxx
 sage: A = HexadecimalStrings()
 sage: S = SubstitutionCryptosystem(A)
 sage: key = S.random_key(); key
@@ -1708,6 +1847,9 @@ sage: plaintext = S.deciphering(key, ciphertext); plaintext
 sage: plaintext == msg
 True
 \end{Verbatim}
+\caption{xxxxx}
+\end{sagecode}
+
 
 
 % ---------------------------------------------------------------------------
@@ -1726,8 +1868,10 @@ octal number system, or the hexadecimal number system. Here is an
 example using the class \verb!AlphabeticStrings!, which implements
 the English capital letters.
 
+\begin{sagecode}
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 sage: # construct Vigenere cipher
 sage: A = AlphabeticStrings()
 sage: V = VigenereCryptosystem(A, 19); V
@@ -1748,6 +1892,10 @@ THEVIGENERECIPHERISPOLYALPHABETIC
 sage: plaintext == msg
 True
 \end{Verbatim}
+\caption{xxxxx}
+\end{sagecode}
+
+
 
 
 % ---------------------------------------------------------------------------
@@ -1769,8 +1917,10 @@ Here is an example where our plaintext/ciphertext space is the
 capital letters of the English alphabet. In the Hill cipher, each
 letter of this alphabet is assigned a unique integer modulo 26.
 
+\begin{sagecode}
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
+xxxxxxxxxxxxxxxxxxxxxx
 sage: # construct a Hill cipher
 sage: A = AlphabeticStrings()
 sage: H = HillCryptosystem(A, 19); H
@@ -1809,6 +1959,10 @@ HILLORMATRIXCIPHERUSESMATRIXOPERATIONS
 sage: plaintext == msg
 True
 \end{Verbatim}
+\caption{xxxxx}
+\end{sagecode}
+
+
 
 % Local Variables:
 % TeX-master: "../script-en.tex"
