@@ -23,7 +23,7 @@
 \defaultbibliographystyle{abbrv}
 \usepackage{float}
 \floatstyle{ruled}
-\newfloat{sagecode}{h}{loc}
+\newfloat{sagecode}{h}{loc}[chapter]
 \floatname{sagecode}{Sample}
 
 
@@ -176,6 +176,10 @@ document is the GNU Free Documentation Licence.
 \clearpage
 \listoftables
 \addcontentsline{toc}{chapter}{\listtablename}
+
+\clearpage
+\listof{sagecode}{List of Sage Code Examples}
+\addcontentsline{toc}{chapter}{List of Sage Code Examples}
 
 \printindex
 
