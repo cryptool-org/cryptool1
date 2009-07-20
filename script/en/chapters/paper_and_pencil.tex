@@ -35,8 +35,13 @@ cipher which human ingenuity cannot resolve.}}
 \end{center}
 
 The following chapter provides a broad overview of paper and pencil 
-methods\footnote{Always added with links to further information.} each with
-references to deeper information.
+methods\footnote{%
+The footnotes to this chapter describe how the methods can be
+performd using CrypTool CrypTool 1.
+Additionally the last sub chapter (\ref{PaP_Sage_samples})
+contains example code using the computer algebra system Sage\index{Sage}.
+                 }
+each with references to deeper information.
 All techniques that people can apply manually to en- and decipher a message are 
 embraced by this term. These methods were and still are especially popular with
 secret services, as a writing pad and a pencil -- in contrast to electronic
@@ -60,9 +65,11 @@ Methods to be successful and wide-spread had to fulfill some attributes which ar
 \end{itemize}
 
 
-\vskip +20 pt
+\newpage
 %------------------------------------------------------------------------------
 \section{Transposition ciphers}
+\label{PaP_transposition_ciphers}
+\index{Transposition}
 
 Encrypting a message by means of transposition\index{Transposition} does not 
 change the original characters of this message, only their order is modified
@@ -181,7 +188,6 @@ permutation\index{Permutation}.}.
 
 %------------------------------------------------------------------------------
 % {\bf Column and row transposition}
-\newpage % Damit die Tables immer direkt nach dem zugehörigen Item. 
 \subsection[Column and row transposition ciphers]
     {Column and row transposition\footnotemark}
     \footnotetext{%
@@ -387,9 +393,10 @@ under the menu {\bf Crypt/Decrypt \textbackslash{} Symmetric (classic)
 \end{itemize}
 
 
+
 %------------------------------------------------------------------------------
-\newpage % Damit die Tables immer direkt nach dem zugehörigen Item. 
 \section{Substitution ciphers}
+\label{PaP_substitution_ciphers}
 \index{Substitution}
 
 
@@ -1011,6 +1018,9 @@ Concerning polyalphabetic substitution\index{Substitution!polyalphabetic}, the a
 
 %------------------------------------------------------------------------------
 \section{Combining substitution and transposition}
+\label{PaP_combined_ciphers}
+\index{Cascades}
+
 
 In the history of cryptography one often comes across combinations of the 
 previous mentioned methods.
@@ -1355,18 +1365,25 @@ previous mentioned methods.
 
 
 
-
+% ---------------------------------------------------------------------------
 % ---------------------------------------------------------------------------
 \newpage
 \section{Examples using Sage}
+\label{PaP_Sage_samples}
+\index{Sage!Code examples}
 \index{Sage}
 
 In the following chapter some classic ciphers are implemented using the open source computer
 algebra system Sage. The code was tested with Sage version 4.1.
 
-A first introduction to the CAS Sage can be found in the appendix \ref{s:appendix-using-sage}.
+\noindent A first introduction to the CAS Sage can be found in the appendix \ref{s:appendix-using-sage}.
 
-To make the sample code easier to understand, we used the structure and the naming conventions
+\noindent To make the sample code\footnote{%
+     Further examples with Sage can be found e.g. at:\\
+     \href{http://www.sagemath.org/doc/constructions/linear_codes.html\#classical-ciphers}{\tt
+           http://www.sagemath.org/doc/constructions/linear\_codes.html\#classical-ciphers}
+                                          }
+easier to understand, we used the structure and the naming conventions
 shown in the graphics below:
 \begin{itemize}
   \item Encryption consists of the two steps encoding and enciphering.
@@ -1374,7 +1391,7 @@ shown in the graphics below:
         given alphabet, and all non-alphabet characters are filtered out.
   \item Enciphering creates the ciphertext C.
   \item Decryption also consists of two steps: deciphering and decoding.
-  \item Decoding is only necessary if the symbols in the alphabet are no ASCII characters ???????????????? xxxxxxxxxxxxx.
+  \item Decoding is only necessary if the symbols in the alphabet are no ASCII characters.
 \end{itemize}
 
 \begin{figure}[h]
@@ -1387,15 +1404,16 @@ shown in the graphics below:
 
 
 
+% ---------------------------------------------------------------------------
 \newpage
 \subsection{Transposition ciphers}
 
-Tranposition ciphers are implemented in the class
+Tranposition ciphers are implemented in the Sage class
 \begin{center}
 \verb!sage.crypto.classical.TranspositionCryptosystem!
 \end{center}
 To construct and work with a transposition cipher, we first need to
-determine the alphabet that contains the symbols used to build the spave of our plaintext
+determine the alphabet that contains the symbols used to build the space of our plaintext
 and ciphertext. 
 Typically, this alphabet will be the upper-case letters of the
 English alphabet, which can be accessed via the function
@@ -1403,15 +1421,15 @@ English alphabet, which can be accessed via the function
 \verb!sage.monoids.string_monoid.AlphabeticStrings!
 \end{center}
 We then need to decide on the block length of a block permutation,
-which is the length of the row vector to be used in encryption and
-decryption. This row vector is our key, and it specifies a permutation
+which is the length of the row vector to be used in the simple columns
+transposition. This row vector is our key, and it specifies a permutation
 of a plaintext.
 
-Here is a transposition cipher of block length 14, where every letter
-in the plaintext is shifted to the left by two characters, with wrap
-around. That is the encryption process. The decryption process is
-shifting each letter of the ciphertext to the left by $14 - 2 = 12$
-characters in order to recover the plaintext.
+The following first example of transposition ciphers has block length 14,
+and the key is build in a way, that every letter
+in the plaintext is shifted to the right by two characters, with wrap
+around at the end of the block. That is the encryption process. The decryption process is
+shifting each letter of the ciphertext to the left by $14 - 2 = 12$.
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -1446,7 +1464,8 @@ sage: D
 \end{sagecode}
 
 \newpage
-The next sample is also a simple column transposition. But now the code is a little bit more automated in generating the keys from the shift parameter.
+The second example of transposition ciphers is also a simple shifting column transposition.
+But now the code is a little bit more automated: The keys are generated from the shift parameter.
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -1503,15 +1522,14 @@ sage: T(keyInv)
 \end{sagecode}
 
 \newpage
-As a more complicated example, we can use a permutation in the
-encryption and decryption processes. If the block length of our
-transposition cipher is $n$, then the encryption/decryption
-key must be a permutation on $n$ symbols. The following
-example uses the method \verb!random_key()! of the class
-\verb!TranspositionCryptosystem!. So each call to
-\verb!random_key()! produces a different key for encryption, which
-affects the ciphertext. Note that your results may be different from
-the following example.
+In the third example of transposition ciphers we use an arbitrary permutation as key in the
+encryption and decryption processes in order to scramble the characters within each
+block (block length = number of columns in a simple column transposition).
+If the block length is $n$, then the key must be a permutation on $n$ symbols.
+The following example uses the method \verb!random_key()! of the class
+\verb!TranspositionCryptosystem!. Each call to \verb!random_key()! produces a
+different key. Note that therefore your results (key and ciphertext) may be different
+from the following example.
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -1548,7 +1566,8 @@ True
 
 
 \newpage
-The following example shows the key space of a transpositon cipher.
+The fourth example of transposition ciphers additionally shows the key space of a simple
+column transpositon.
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -1590,7 +1609,6 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZAB
 \subsection{Substitution ciphers}
 
 Substitution cryptosystems are implemented in Sage in the class
-
 \begin{center}
 \verb!sage.crypto.classical.SubstitutionCryptosystem!
 \end{center}
@@ -1600,8 +1618,7 @@ cipher with a random key. A random key can be generated using the
 method \verb!random_key()! of the class
 \texttt{SubstitutionCrypto\-system}. Different keys determine different
 substitution ciphers. So each call to \verb!random_key()! returns
-different results. First, we perform the encryption process with a
-random key.
+different results.
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -1620,7 +1637,7 @@ SUBSTITUTETHISWITHSOMETHINGELSEBETTER
 sage: C   = S.enciphering(key, msg); C
 WVNWGJGVGHGXJWCJGXWYQHGXJOUHTWHNHGGHS
 sage:
-sage: #.# We now decrypt the ciphertext to recover our plaintext.
+sage: #### We now decrypt the ciphertext to recover our plaintext.
 sage:
 sage: DC  = S.deciphering(key, C); DC
 SUBSTITUTETHISWITHSOMETHINGELSEBETTER
@@ -1637,7 +1654,7 @@ True
 \subsection{Caesar cipher}
 
 The following example uses Sage to construct a Caesar
-cipher. First, we demonstrate encryption using this cipher.
+cipher.
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -1659,7 +1676,7 @@ DEFGHIJKLMNOPQRSTUVWXYZABC
 sage: C       = encrypt(msg); C
 VKLIWWKHDOSKDEHWWKUHHSRVLWLRQVWRWKHULJKW
 sage:
-sage: #.# Next, we recover the plaintext.
+sage: #### Next, we recover the plaintext.
 sage:
 sage: # decrypt message
 sage: keyInv = A([23, 24, 25, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, \
@@ -1674,8 +1691,9 @@ True
 \caption{Caesar (substitution by shifting the alphabet; key explicitely given, step-by-step approach)}
 \end{sagecode}
 
+
 \newpage
-The next sample does the same, but the code is more sophisticated/automated/variable.
+The second Caesar sample does the same, but the code is more sophisticated/automated/variable.
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -1705,7 +1723,7 @@ SHIFTTHEALPHABETTHREEPOSITIONSTOTHERIGHT
 sage: C       = S.enciphering(key, msg); C
 VKLIWWKHDOSKDEHWWKUHHSRVLWLRQVWRWKHULJKW
 sage:
-sage: #.# Next, we recover the plaintext.
+sage: #### Next, we recover the plaintext.
 sage:
 sage: # decrypt message
 sage: # keyInv = A([23, 24, 25, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, \
@@ -1724,7 +1742,7 @@ sage:
 sage: msg == DC
 True
 \end{Verbatim}
-\caption{Caesar (substitution by shifting the alphabet; keys generated)}
+\caption{Caesar (substitution by shifting the alphabet; substitution keys are generated)}
 \end{sagecode}
 
 
@@ -1733,10 +1751,11 @@ True
 \newpage
 \subsection{Substitution with symbols}
 
-Here is a Sage example where the symbols are from the binary number
+In the following Sage example the symbols are from the binary number
 system. A monoalphabetic substitution cipher with a binary alphabet has very little
 security: Because the plaintext/ciphertext alphabet has only the two elements
-0 and 1, there are only two keys possible: (0 1) and (1 0).
+0 and 1, there are only two keys possible: (0 1) and (1 0). Remark: In each key of a
+substitution cipher all symbols of the alphabet have to appear once.
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -1775,9 +1794,9 @@ True
 
 
 \newpage
-However, our plaintext/ciphertext space  can be over a larger
-alphabet, say the hexadecimal number system. Here is an example
-using the hexadecimal number system as our substitution alphabet.
+The second sample of a monoalphabetic substitution with symbols uses  a larger alphabet
+as plaintext/ciphertext space as the first sample. Here the hexadecimal number system
+is used as substitution alphabet.
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -1802,7 +1821,6 @@ sage: DC  = S.deciphering(key, C); DC
 sage: msg == DC
 True
 sage:
-sage: #.# Geht das auch mit den Methoden des Alphabets oder der Chiffren ?????
 sage: # Conversion hex back to ASCII:
 sage: # - AlphabeticStrings() and HexadecimalStrings() don't have according methods.
 sage: # - So we used Python:
@@ -1826,7 +1844,6 @@ True
 \subsection{Vigen{\`e}re cipher}
 
 The Vigen{\`e}re cipher is implemented in the Sage class
-
 \begin{center}
 \verb!sage.crypto.classical.VigenereCryptosystem!
 \end{center}
@@ -1845,7 +1862,6 @@ sage: keylen = 14
 sage: A = AlphabeticStrings()
 sage: V = VigenereCryptosystem(A, keylen); V
 Vigenere cryptosystem on Free alphabetic string monoid on A-Z of period 14
-sage: #.# V.key_space() lieferte keinen Fehler, aber auch kein Ergebnis.
 sage:
 sage: # alternative: given key: key = A('ABCDEFGHIJKLMN'); key
 sage: key = V.random_key(); key
@@ -1885,15 +1901,14 @@ True
 The Hill~\cite{Hill1929,Hill1931} or matrix cipher is more
 mathematically sophisticated than other ciphers mentioned in this
 chapter. The encryption/decryption key of this cipher is an invertible
-square matrix, and the plaintext/ciphertext is also a matrix. The
-encryption and decryption processes use matrix operations. The Hill
+square matrix, and the plaintext/ciphertext is processed also as a matrix.
+The encryption and decryption processes use matrix operations. The Hill
 cipher is implemented in the Sage class
-
 \begin{center}
 \verb!sage.crypto.classical.HillCryptosystem!
 \end{center}
 
-Here is an example where our plaintext/ciphertext space is the
+In the following example our plaintext/ciphertext space is the
 capital letters of the English alphabet. In the Hill cipher, each
 letter of this alphabet is assigned a unique integer modulo 26.
 
