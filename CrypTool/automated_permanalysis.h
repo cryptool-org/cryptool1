@@ -108,7 +108,7 @@ class automated_permanalysis {
 public:
 	automated_permanalysis();
 	~automated_permanalysis();
-	int setFilenames( const char *fn_plain, const char *fn_cipher, int TEXTMODE, int refPlain = 0 );
+	int setFilenames( const char *fn_plain, const char *fn_cipher, int TEXTMODE );
 	int setAnalyseParam( int ps_lowerLimit, int ps_upperLimit,
 						 int range_plain, int range_perm, int range_cipher); 
 	const permkey *getKeyList() { return keyList; }

@@ -234,23 +234,15 @@ automated_permanalysis::~automated_permanalysis()
 	}
 }
 
-int automated_permanalysis::setFilenames( const char *fn_plain, const char *fn_cipher, int TEXTMODE, int refPlain )
+int automated_permanalysis::setFilenames( const char *fn_plain, const char *fn_cipher, int TEXTMODE )
 {
 	int error = 0;
-	if ( refPlain )
-	{ // FIXME ERROR
-		error = ptPlain.loadFile(fn_plain, TEXTMODE);
-		if ( error ) return error;
-		size = ptPlain.getSize();
-		error = ptCipher.loadFile(fn_cipher, TEXTMODE);
-	}
-	else
-	{ // FIXME ERROR
-		error = ptCipher.loadFile(fn_plain, TEXTMODE);
-		if ( error ) return error;
-		size = ptCipher.getSize();
-		error = ptPlain.loadFile(fn_cipher, TEXTMODE);
-	}
+
+	error = ptPlain.loadFile(fn_plain, TEXTMODE);
+	if ( error ) return error;
+	size = ptPlain.getSize();
+	error = ptCipher.loadFile(fn_cipher, TEXTMODE);
+
 	if ( !error )
 	{
 		if (ptCipher.getSize() != ptPlain.getSize() ) 

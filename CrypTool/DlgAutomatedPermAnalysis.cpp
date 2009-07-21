@@ -44,57 +44,52 @@ IMPLEMENT_DYNAMIC(CDlgAutomatedPermAnalysis, CDialog)
 
 CDlgAutomatedPermAnalysis::CDlgAutomatedPermAnalysis(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgAutomatedPermAnalysis::IDD, pParent)
-	, m_refTextType(0)
 	, m_chk_inRowbyRow(1)
 	, m_chk_permRowbyRow(1)
 	, m_chk_outRowbyRow(1)
 	, m_chk_inColbyCol(1)
 	, m_chk_permColbyCol(1)
 	, m_chk_outColbyCol(1)
-	, fn_source(0)
-	, fn_reference(0)
-	, source_filesize(0)
 	, m_editRangeFrom(_T("1"))
 	, m_editRangeTo(_T("1"))
 	, m_DataType(0)
+	, m_edTab(0)
+	, s_activeDocument(0)
+	, s_plaintext(0)
+	, s_ciphertext(0)
+	, fn_activeDocument(0)
+	, fn_plaintext(0)
+	, fn_ciphertext(0)
 {
 }
 
-int CDlgAutomatedPermAnalysis::setSourceFilename(const char *filename)
+int CDlgAutomatedPermAnalysis::setSourceFilename(const char *filename, char *&fn, __int64 &sz )
 {
-	if ( getFileSize(filename, source_filesize) && ( source_filesize > 0 ) )
+	if ( getFileSize(filename, sz) && ( sz > 0 ) )
 	{
-		delete []fn_source;
-		fn_source = new char[strlen(filename)+1];
-		strcpy(fn_source, filename);
-		return 0;
+		delete []fn;
+		fn = new char[strlen(filename)+1];
+		strcpy(fn, filename);
 	}
-	return -1;
-	m_editRangeTo.Format("%I64i", source_filesize);
+	else
+		return -1;
+
+	m_editRangeTo.Format("%I64i", sz);
 	return 0;
 }
 
 
 CDlgAutomatedPermAnalysis::~CDlgAutomatedPermAnalysis()
 {
-	delete []fn_source;
-	delete []fn_reference;
+	delete []fn_activeDocument;
+	delete []fn_plaintext;
+	delete []fn_ciphertext;
 }
 
-void CDlgAutomatedPermAnalysis::setRefCaption()
-{
-	UpdateData();
-	CString strTmp;
-	strTmp.Format( (m_refTextType) ? IDS_CIPHERTEXT : IDS_PLAINTEXT );
-	m_ctrlRefernceHeader.SetWindowTextA(strTmp);
-
-	UpdateData(FALSE);
-}
 
 void CDlgAutomatedPermAnalysis::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
-	DDX_Radio(pDX, IDC_RADIO2, m_refTextType);
 	DDX_Radio(pDX, IDC_RADIO9, m_DataType);
 	DDX_Check(pDX, IDC_CHECK4,  m_chk_inRowbyRow);
 	DDX_Check(pDX, IDC_CHECK13, m_chk_inColbyCol);
@@ -104,7 +99,7 @@ void CDlgAutomatedPermAnalysis::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_CHECK15, m_chk_outColbyCol);
 	DDX_Text(pDX, IDC_EDIT_RANGE_FROM, m_editRangeFrom);
 	DDX_Text(pDX, IDC_EDIT_RANGE_TO, m_editRangeTo);
-	DDX_Control(pDX, IDC_REFERENCE_HEADER, m_ctrlRefernceHeader);
+	DDX_Control(pDX, IDC_TAB1, m_TC_textspace);
 }
 
 
@@ -117,22 +112,16 @@ BEGIN_MESSAGE_MAP(CDlgAutomatedPermAnalysis, CDialog)
 	ON_BN_CLICKED(IDC_CHECK14, &CDlgAutomatedPermAnalysis::OnBnClickedPermColByCol)
 	ON_BN_CLICKED(IDC_CHECK12, &CDlgAutomatedPermAnalysis::OnBnClickedOutRowByRow)
 	ON_BN_CLICKED(IDC_CHECK15, &CDlgAutomatedPermAnalysis::OnBnClickedOutColByCol)
-	ON_BN_CLICKED(IDC_RADIO2, &CDlgAutomatedPermAnalysis::setRefCaption)
-	ON_BN_CLICKED(IDC_RADIO1, &CDlgAutomatedPermAnalysis::setRefCaption)
 	ON_BN_CLICKED(IDC_RADIO9, &CDlgAutomatedPermAnalysis::OnBnClickedRadioText)
 	ON_BN_CLICKED(IDC_RADIO14, &CDlgAutomatedPermAnalysis::OnBnClickedRadioBinary)
 	ON_BN_CLICKED(IDC_BUTTON2, &CDlgAutomatedPermAnalysis::OnBnClickedTextOptions)
+	ON_NOTIFY(TCN_SELCHANGE, IDC_TAB1, &CDlgAutomatedPermAnalysis::OnTcnSelchangeTabEditor)
+	ON_BN_CLICKED(IDC_BUTTON70, &CDlgAutomatedPermAnalysis::OnBnClickedLoadActiveDocument)
 END_MESSAGE_MAP()
 
 
-// CDlgAutomatedPermAnalysis message handlers
-
-BOOL CDlgAutomatedPermAnalysis::OnInitDialog()
+void CDlgAutomatedPermAnalysis::initSCEdit()
 {
-	CDialog::OnInitDialog();
-	hWndEditReference = CreateWindowEx(WS_EX_CLIENTEDGE, "Scintilla", "", 
-		WS_CHILD | WS_VISIBLE | WS_TABSTOP | WS_CLIPCHILDREN, 23, 155, 434, 216, *this, NULL, NULL, NULL);
-
 	// Initialize Edit Window
 	ScinMSG(SCI_SETREADONLY, (WPARAM)FALSE);
 	ScinMSG(SCI_SETMODEVENTMASK, (WPARAM)SC_MOD_INSERTTEXT|SC_MOD_DELETETEXT);
@@ -158,7 +147,20 @@ BOOL CDlgAutomatedPermAnalysis::OnInitDialog()
     ScinMSG(SCI_MARKERDEFINE, SC_MARKNUM_FOLDEROPENMID, SC_MARK_EMPTY);
     ScinMSG(SCI_MARKERDEFINE, SC_MARKNUM_FOLDERMIDTAIL, SC_MARK_EMPTY);
 	setViewOptions();
-	setRefCaption();
+}
+
+// CDlgAutomatedPermAnalysis message handlers
+BOOL CDlgAutomatedPermAnalysis::OnInitDialog()
+{
+	CDialog::OnInitDialog();
+
+	hWndEditPlain = CreateWindowEx(WS_EX_CLIENTEDGE, "Scintilla", "", 
+		WS_CHILD | WS_VISIBLE | WS_TABSTOP | WS_CLIPCHILDREN, 21, 86, 438, 260, *this, NULL, NULL, NULL);
+	hWndEditCipher = CreateWindowEx(WS_EX_CLIENTEDGE, "Scintilla", "", 
+		WS_CHILD | WS_VISIBLE | WS_TABSTOP | WS_CLIPCHILDREN, 21, 86, 438, 260, *this, NULL, NULL, NULL);
+
+	::ShowWindow(hWndEditCipher, SW_HIDE);
+
 
 // Registry Access ....
 	UpdateData();
@@ -182,7 +184,23 @@ BOOL CDlgAutomatedPermAnalysis::OnInitDialog()
 		m_chk_permRowbyRow = ul_permRowbyRow; m_chk_permColbyCol = ul_permColbyCol;
 		CT_CLOSE_REGISTRY();
 	}
+
 	UpdateData(FALSE);
+
+	DWORD dwExStyle= m_TC_textspace.GetExtendedStyle();
+	m_TC_textspace.SetExtendedStyle(dwExStyle | TCS_EX_FLATSEPARATORS);
+
+	CString tabHeader = _T("");
+	tabHeader.LoadString(IDS_PLAINTEXT);
+	m_TC_textspace.InsertItem(0,tabHeader);
+
+	tabHeader=_T("");
+	tabHeader.LoadString(IDS_CIPHERTEXT);
+	m_TC_textspace.InsertItem(1,tabHeader);
+
+	m_TC_textspace.ShowWindow(TRUE);
+
+	UpdateData(TRUE);
 
 
 	return TRUE;  // return TRUE unless you set the focus to a control
@@ -216,7 +234,8 @@ void CDlgAutomatedPermAnalysis::OpenFile(const char *fileName)
 		*/
 	}
 	ScinMSG(SCI_SETUNDOCOLLECTION, 1);
-	::SetFocus(hWndEditReference);
+	assert(m_edTab < 2);
+	::SetFocus(!( m_edTab ) ? hWndEditPlain : hWndEditCipher );
 	ScinMSG(EM_EMPTYUNDOBUFFER);
 	ScinMSG(SCI_SETSAVEPOINT);
 	ScinMSG(SCI_GOTOPOS, 0);
@@ -227,15 +246,17 @@ void CDlgAutomatedPermAnalysis::SaveFile()
 	char name[BLOCK_SIZE];
 	GetTmpName(name,"cry",".tmp");
 	FILE *fp = fopen(name, "wb");
+	__int64 sz;
+	char *fn = 0;
+
 	if (fp) 
 	{
-		delete []fn_reference;
-		fn_reference = new char[strlen(name)+1];
-		strcpy(fn_reference, name);
+		fn = new char[strlen(name)+1];
+		strcpy(fn, name);
 		char data[BLOCK_SIZE + 1];
-		int lengthDoc = ScinMSG(SCI_GETLENGTH);
-		for (int i = 0; i < lengthDoc; i += BLOCK_SIZE) {
-			int grabSize = lengthDoc - i;
+		sz = ScinMSG(SCI_GETLENGTH);
+		for (int i = 0; i < sz; i += BLOCK_SIZE) {
+			int grabSize = sz - i;
 			if (grabSize > BLOCK_SIZE)
 				grabSize = BLOCK_SIZE;
 
@@ -243,12 +264,15 @@ void CDlgAutomatedPermAnalysis::SaveFile()
 			tr.chrg.cpMin = i;
 			tr.chrg.cpMax = i+grabSize;
 			tr.lpstrText = data;
-			::SendMessage(hWndEditReference, EM_GETTEXTRANGE, 0, reinterpret_cast<LPARAM>(&tr));
+			assert(m_edTab < 2);
+			::SendMessage(!( m_edTab ) ? hWndEditPlain : hWndEditCipher, EM_GETTEXTRANGE, 0, reinterpret_cast<LPARAM>(&tr));
 
 			fwrite(data, grabSize, 1, fp);
 		}
 		fclose(fp);
 		ScinMSG(SCI_SETSAVEPOINT);
+		if ( !m_edTab ) { delete []fn_plaintext;  fn_plaintext = fn;  s_plaintext = sz;  }
+		else 	        { delete []fn_ciphertext; fn_ciphertext = fn; s_ciphertext = sz; }
 	}
 }
 
@@ -266,12 +290,16 @@ void CDlgAutomatedPermAnalysis::OnBnClickedLoadFile()
 void CDlgAutomatedPermAnalysis::OnBnClickedCompute()
 {
 	UpdateData();
-	SaveFile();
+
+	int tmp = m_edTab;
+	m_edTab = 0; SaveFile();
+	m_edTab = 1; SaveFile();
+	m_edTab = tmp;
 
 	automated_permanalysis analysis;
 	int id_error;
-	if ( (id_error = analysis.setFilenames( (!m_refTextType) ? fn_source : fn_reference,
-											(!m_refTextType) ? fn_reference : fn_source, m_DataType, m_refTextType)) )
+
+	if ( (id_error = analysis.setFilenames( fn_plaintext,  fn_ciphertext, m_DataType)) )
 	{
 		Message(id_error, MB_ICONSTOP);
 		return;
@@ -342,16 +370,6 @@ void CDlgAutomatedPermAnalysis::OnBnClickedOutColByCol()
 	check_dir( m_chk_outRowbyRow, m_chk_outColbyCol, 0 );
 }
 
-void CDlgAutomatedPermAnalysis::OnBnClickedRadioSourceIsCiphertext()
-{
-	setRefCaption();
-}
-
-void CDlgAutomatedPermAnalysis::OnBnClickedRadioSourceIsPlaintext()
-{
-	setRefCaption();
-}
-
 #define CT_LEXER_LANGUAGE	"CrypTool"
 #define CT_LEXER_LIB		"LexCrypTool"
 #define STYLE_NONEALPHABET	"2"
@@ -409,4 +427,32 @@ void CDlgAutomatedPermAnalysis::OnBnClickedTextOptions()
 	theApp.TextOptions.DoModal();
 	UpdateData();
 	setViewOptions();
+}
+
+void CDlgAutomatedPermAnalysis::OnTcnSelchangeTabEditor(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	// TODO: Fügen Sie hier Ihren Kontrollbehandlungscode für die Benachrichtigung ein.
+	m_edTab = m_TC_textspace.GetCurSel();
+
+	switch ( m_edTab ) {
+		case 0:
+			::ShowWindow(hWndEditCipher, SW_HIDE);
+			::ShowWindow(hWndEditPlain,  SW_SHOW);
+			break;
+		case 1:
+			::ShowWindow(hWndEditCipher, SW_SHOW);
+			::ShowWindow(hWndEditPlain,  SW_HIDE);
+			break;
+		default: assert( 0 );
+	};
+
+	UpdateData();
+	setViewOptions();
+
+	*pResult = 0;
+}
+
+void CDlgAutomatedPermAnalysis::OnBnClickedLoadActiveDocument()
+{
+	OpenFile(fn_activeDocument);
 }

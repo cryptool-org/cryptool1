@@ -712,6 +712,7 @@
 #define IDC_EDIT_6_6                    1162
 #define IDC_BUTTON_Uebernehmen          1162
 #define IDC_EDIT144                     1162
+#define IDC_BUTTON70                    1162
 #define IDC_EDIT_6_1                    1163
 #define IDC_EDIT145                     1163
 #define IDC_EDIT_6_2                    1164
@@ -1707,6 +1708,7 @@
 #define IDC_EDIT_CIPHERTEXT             2040
 #define IDC_EDIT_PLAINTEXT              2041
 #define IDC_EDIT_AUTORUN_FILE_NAME      2042
+#define IDC_TAB1                        2043
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -3175,7 +3177,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        881
 #define _APS_NEXT_COMMAND_VALUE         33378
-#define _APS_NEXT_CONTROL_VALUE         2043
+#define _APS_NEXT_CONTROL_VALUE         2044
 #define _APS_NEXT_SYMED_VALUE           109
 #endif
 #endif
