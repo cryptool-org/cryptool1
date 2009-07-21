@@ -8,11 +8,12 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -4368,8 +4369,6 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "Analiza jednostopniowej permutacji"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    CONTROL         "Tekst tajny",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | WS_GROUP,250,36,54,10
-    CONTROL         "Tekst oryginalny",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,250,48,63,10
     DEFPUSHBUTTON   "&Szukaj klucz",ID_BTN_BERECHNEN,7,338,75,17
     CONTROL         "Wierszami",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,267,53,10
     CONTROL         "Kolumnami",IDC_CHECK13,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,283,54,10
@@ -4379,24 +4378,23 @@ BEGIN
     CONTROL         "Kolumnami",IDC_CHECK15,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,283,54,10
     EDITTEXT        IDC_EDIT_RANGE_FROM,250,265,42,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_RANGE_TO,250,281,42,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "Szukaj plik",IDC_BUTTON1,15,77,54,14
+    PUSHBUTTON      "Szukaj plik",IDC_BUTTON1,250,218,54,14
     PUSHBUTTON      "&Anuluj",IDCANCEL,248,338,65,17
     GROUPBOX        "Wczytaæ",IDC_GB_EINLESEN,15,254,67,43
     GROUPBOX        "Permutacja",IDC_GB_PERMUTIEREN,87,254,66,43
     GROUPBOX        "Odczytaæ",IDC_GB_AUSLESEN,157,254,66,43
     GROUPBOX        "Jakie zastosowaæ metody do analizy permutacji?",IDC_GB_VERFAHREN,7,241,306,63
     LTEXT           "Ta analiza permutacji jest analiz¹ Known-Plaintext, która z tekstu oryginalnego i z tekstu tajnego oblicza klucz permutacji.",IDC_LBL_INFOTEXT,7,8,306,16,0,WS_EX_TRANSPARENT
-    GROUPBOX        "Tekst oryginalny lub tajny",IDC_REFERENCE_HEADER,7,64,306,171
     GROUPBOX        "Rozmiar permutacji",IDC_GB_AUSLESEN2,228,254,76,43
     LTEXT           "od",IDC_STATIC,234,268,14,9
     LTEXT           "do",IDC_STATIC,234,284,14,9
-    GROUPBOX        "Aktywny dokument",IDC_STATIC,7,27,306,34
-    LTEXT           "Proszê ustaliæ czy aktywny dokument przed otwarciem tego okna zawiera³ tekst oryginalny lub tajny.",IDC_STATIC,15,38,208,19
     GROUPBOX        "Opcje",IDC_STATIC,7,304,306,26
     CONTROL         "Dane binarne",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,129,315,57,10
     CONTROL         "Tekst",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,189,315,33,10
     LTEXT           "Uwarzaæ dokument wejœciowy jako:",IDC_STATIC,17,312,110,15
     PUSHBUTTON      "Opcje tekstu",IDC_BUTTON2,95,338,59,17
+    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,31,306,206
+    PUSHBUTTON      "Load active document",IDC_BUTTON70,157,218,81,14
 END
 
 IDD_AUTOMATED_PERM_ANALYSIS_OUTPUT DIALOGEX 0, 0, 242, 241
@@ -10648,8 +10646,8 @@ BEGIN
     IDS_PA_LIMITRANGE_ERROR "Dolna granica zakresu wyszukiwania klucza jest wiêksza ni¿ górna granica."
     IDS_PA_DIRECTION_ERROR  "Nigdy nie powinien siê pojawiæ."
     ID_PA_NOKEYFOUND        "Nie znaleziono ¿adnego klucza pojedynczej transpozycji."
-    IDS_PLAINTEXT           "WprowadŸ tekst oryginalny"
-    IDS_CIPHERTEXT          "WprowadŸ tekst tajny"
+    IDS_PLAINTEXT           "Tekst oryginalny"
+    IDS_CIPHERTEXT          "Tekst tajny"
     IDS_PA_EMPTYREFFILE     "Aktywny dokument jest pusty!"
     IDS_ERROPEN_SMIMEDEMO   "Animacja flash S/MIME nie mo¿e byæ odtworzona.\n\nProszê sprawdziæ czy program SMIME_Animation.exe zosta³ zainstalowany w katalogu g³ównym CrypTool\n(""%s"")."
     IDS_SMIMEDEMO_EXE       "java"
@@ -10689,12 +10687,12 @@ BEGIN
                             "-cp "".;./lib/*"" main.Programm"
 END
 
-#endif    // Polish resources
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -15105,8 +15103,6 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "Analyse einer einstufigen Spaltentransposition (Known-Plaintext)"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    CONTROL         "Geheimtext",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | WS_GROUP,250,36,54,10
-    CONTROL         "Klartext",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,250,48,42,10
     DEFPUSHBUTTON   "&Schlüssel suchen",ID_BTN_BERECHNEN,7,335,75,17
     CONTROL         "Zeilenweise",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,267,53,10
     CONTROL         "Spaltenweise",IDC_CHECK13,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,283,54,10
@@ -15116,24 +15112,23 @@ BEGIN
     CONTROL         "Spaltenweise",IDC_CHECK15,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,283,54,10
     EDITTEXT        IDC_EDIT_RANGE_FROM,250,265,42,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_RANGE_TO,250,281,42,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "Datei laden",IDC_BUTTON1,15,77,54,14
+    PUSHBUTTON      "Datei laden",IDC_BUTTON1,252,218,54,14
     PUSHBUTTON      "Schließen",IDCANCEL,248,335,65,17
-    GROUPBOX        "Einlesen",IDC_GB_EINLESEN,15,254,67,43
+    GROUPBOX        "Einlesen",IDC_GB_EINLESEN,14,254,67,43
     GROUPBOX        "Permutieren",IDC_GB_PERMUTIEREN,87,254,66,43
     GROUPBOX        "Auslesen",IDC_GB_AUSLESEN,157,254,66,43
     GROUPBOX        "Welche Varianten des Permutationsverfahrens sollen analysiert werden?",IDC_GB_VERFAHREN,7,241,306,63
     LTEXT           "Diese Permutationsanalyse ist eine Known-Plaintext-Analyse, mit deren Hilfe Sie aus dem Klartext und dem Geheimtext den Permutationsschlüssel berechnen können.",IDC_LBL_INFOTEXT,7,8,306,15,0,WS_EX_TRANSPARENT
-    GROUPBOX        "Klartext oder verschlüsselter Text",IDC_REFERENCE_HEADER,7,64,306,171
-    GROUPBOX        "Permutationsgröße",IDC_GB_AUSLESEN2,228,254,76,43
+    GROUPBOX        "Permutationsgröße",IDC_GB_AUSLESEN2,230,254,76,43
     LTEXT           "von",IDC_STATIC,234,268,14,9
     LTEXT           "bis",IDC_STATIC,234,284,14,9
-    GROUPBOX        "Aktives Dokument",IDC_STATIC,7,27,306,34
-    LTEXT           "Bitte legen Sie fest, ob das vor dem Aufruf dieses Dialogs aktive Dokument den Klartext oder den Geheimtext enthält.",IDC_STATIC,15,38,208,19
     GROUPBOX        "Optionen",IDC_STATIC,7,304,306,26
     CONTROL         "Binäre Daten",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,129,315,54,10
     CONTROL         "Text",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,189,315,59,10
     LTEXT           "Betrachte Eingabedokument als:",IDC_STATIC,17,315,110,10
     PUSHBUTTON      "Textoptionen",IDC_BUTTON2,100,335,59,17
+    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,31,306,206
+    PUSHBUTTON      "Aktive Datei laden",IDC_BUTTON70,165,218,73,14
 END
 
 IDD_AUTOMATED_PERM_ANALYSIS_OUTPUT DIALOGEX 0, 0, 242, 241
@@ -18574,8 +18569,11 @@ BEGIN
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 313
+        VERTGUIDE, 14
+        VERTGUIDE, 306
         TOPMARGIN, 7
         BOTTOMMARGIN, 352
+        HORZGUIDE, 218
         HORZGUIDE, 335
     END
 
@@ -21312,8 +21310,8 @@ BEGIN
     IDS_PA_LIMITRANGE_ERROR "Die untere Grenze der Permutationsschlüssel ist größer als die obere Grenze."
     IDS_PA_DIRECTION_ERROR  "Sollte nie auftreten."
     ID_PA_NOKEYFOUND        "Es wurde kein Permutationsschlüssel gefunden."
-    IDS_PLAINTEXT           "Klartext im Eingabefeld"
-    IDS_CIPHERTEXT          "Geheimtext im Eingabefeld"
+    IDS_PLAINTEXT           "Klartext"
+    IDS_CIPHERTEXT          "Geheimtext"
     IDS_PA_EMPTYREFFILE     "Die im Desktop geöffnete Datei ist leer!"
     IDS_ERROPEN_SMIMEDEMO   "Die S/MIME Flash-Animation kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob das Programm SMIME_Animation.exe im CrypTool-Heimatverzeichnis installiert wurde\n(""%s"")."
     IDS_SMIMEDEMO_EXE       "java"
@@ -21372,12 +21370,12 @@ BEGIN
                             "-cp "".;./lib/*"" main.Programm"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -25751,8 +25749,6 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "Analysis of a simple column transposition (Known Plaintext)"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    CONTROL         "Geheimtext",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | WS_GROUP,250,36,54,10
-    CONTROL         "Klartext",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,250,48,42,10
     DEFPUSHBUTTON   "&Schlüssel suchen",ID_BTN_BERECHNEN,7,338,75,17
     CONTROL         "Zeilenweise",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,267,53,10
     CONTROL         "Spaltenweise",IDC_CHECK13,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,283,54,10
@@ -25762,24 +25758,23 @@ BEGIN
     CONTROL         "Spaltenweise",IDC_CHECK15,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,283,54,10
     EDITTEXT        IDC_EDIT_RANGE_FROM,250,265,42,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_RANGE_TO,250,281,42,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "Datei laden",IDC_BUTTON1,15,77,54,14
+    PUSHBUTTON      "Datei laden",IDC_BUTTON1,252,218,54,14
     PUSHBUTTON      "&Abbrechen",IDCANCEL,248,338,65,17
     GROUPBOX        "Einlesen",IDC_GB_EINLESEN,15,254,67,43
     GROUPBOX        "Permutieren",IDC_GB_PERMUTIEREN,87,254,66,43
     GROUPBOX        "Auslesen",IDC_GB_AUSLESEN,157,254,66,43
     GROUPBOX        "Welche Varianten des Permutationsverfahrens sollen analysiert werden?",IDC_GB_VERFAHREN,7,241,306,63
     LTEXT           "Diese Permutationsanalyse ist eine Known-Plaintext-Analyse, mit deren Hilfe Sie aus dem Klartext und dem Geheimtext den Permutationsschlüssel berechnen können.",IDC_LBL_INFOTEXT,7,8,306,15,0,WS_EX_TRANSPARENT
-    GROUPBOX        "Klartext oder verschlüsselter Text",IDC_REFERENCE_HEADER,7,64,306,171
     GROUPBOX        "Permutationsgröße",IDC_GB_AUSLESEN2,228,254,76,43
     LTEXT           "von",IDC_STATIC,234,268,14,9
     LTEXT           "bis",IDC_STATIC,234,284,14,9
-    GROUPBOX        "Aktives Dokument",IDC_STATIC,7,27,306,34
-    LTEXT           "Bitte legen Sie fest, ob das vor dem Aufruf dieses Dialogs aktive Dokument den Klartext oder den Geheimtext enthält.",IDC_STATIC,15,38,208,19
     GROUPBOX        "Optionen",IDC_STATIC,7,304,306,26
     CONTROL         "Binary data",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,129,315,51,10
     CONTROL         "Text",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,182,315,59,10
     LTEXT           "Betrachte Eingabedokument als:",IDC_STATIC,17,315,110,10
     PUSHBUTTON      "Textoptionen",IDC_BUTTON2,101,338,59,17
+    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,31,306,205
+    PUSHBUTTON      "Load active document",IDC_BUTTON70,157,218,81,14
 END
 
 IDD_AUTOMATED_PERM_ANALYSIS_OUTPUT DIALOGEX 0, 0, 242, 241
@@ -32065,8 +32060,8 @@ BEGIN
     IDS_PA_LIMITRANGE_ERROR "The lower bound of the permutation key is bigger than the upper bound."
     IDS_PA_DIRECTION_ERROR  "Should never occur."
     ID_PA_NOKEYFOUND        "No single transposition key was found."
-    IDS_PLAINTEXT           "Enter Plaintext"
-    IDS_CIPHERTEXT          "Enter Ciphertext"
+    IDS_PLAINTEXT           "Plaintext"
+    IDS_CIPHERTEXT          "Ciphertext"
     IDS_PA_EMPTYREFFILE     "The active document is empty!"
     IDS_ERROPEN_SMIMEDEMO   "The S/MIME Flash animation cannot be opened!\n\nPlease check if the program SMIME_Animation.exe was installed in the CrypTool home folder\n(""%s"")."
     IDS_SMIMEDEMO_EXE       "java"
@@ -32125,7 +32120,7 @@ BEGIN
                             "-cp "".;./lib/*"" main.Programm"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
