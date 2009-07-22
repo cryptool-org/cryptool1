@@ -160,7 +160,7 @@ in their structure in practice
   (by NIST), ANSI X9.30 Part 2 and \cite{FIPS186}.\\
   SHA means Secure Hash Algorithm, and is widely used, 
   e.g. with DSA, RSA or ECDSA.\\
-  The current standard \cite{FIPS180-2} defines four secure hash algorithms
+  The current standard \cite{FIPS180-3} defines four secure hash algorithms
   -- SHA-1, SHA-256, SHA-384, and SHA-512.
   For these hash algorithms there are also validation tests defined in the
   test suite FIPS 140-2.
@@ -202,15 +202,12 @@ Chinese researchers published collision attacks against MD4, SHA-0 and
 parts of SHA-1. This globally caused new motivation to engage in
 new hash attack methods.
 
-Right now the details of the results of the Chinese cryptographers are
-only announced, but not revealed completely: They stated that collision
-attacks on SHA-1 can be found with a work load of $2^{69}$.
-This would mean that SHA-1 has cryptographic weaknesses, 
-because the design of SHA-1 should ensure a work load for collision search
-of about $2^{80}$.
-The value of $2^{69}$ is currently a prognosis based on theoretic forecasts. 
-The security of already created digital signatures is not affected by the
-described attacks. 
+The initially published result reduce the expected complexity for one SHA-1
+collision search from $2^{80}$ (brute force) to $2^{69}$
+\cite{Wang2005}. More recent announcements claim to futher reduce the required
+effort to $2^{63}$ \cite{Wang2005b} and $2^{52}$ \cite{McDonald2009}. This would
+bring collision attacks into the practial real, as similar efforts have been
+mastered in the past (s.\ \ref{Brute-force-gegen-Symmetr}).
 
 
 % be_2005_UPDATEN_if-hash-attacks-make-progress
@@ -218,9 +215,13 @@ According to our current knowledge there is no need to run scared.
 But in the future digital signatures should use longer hash values and/or
 other hash algorithms.
 
-Already before Crypto 2004 NIST announced, to discontinue SHA-1 
-in the next few years. So it is recommended not to use SHA-1 for
-new products generating digital signatures.
+Already before Crypto 2004 the U.S. National Institute of Standards and
+Technology (NIST)\index{NIST} announced, to discontinue SHA-1 in the next few
+years. So it is recommended not to use SHA-1 for new products generating digital
+signatures. The SHA-2 family \cite{FIPS180-3} provides stronger algorithms. To
+address new findings in crytanalysis, NIST has opened a competition to develop a
+new cryptographic hash algorithm ``SHA-3'' in 2008. The competition is expected
+to end in 2012.\footnote{\url{http://csrc.nist.gov/groups/ST/hash/sha-3/}}
 
 Further information about this topic can be found in the article
 ``Hash cracked -- The consequences of the successful attacks on SHA-1''
@@ -453,11 +454,11 @@ available publicly.
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{section}{Bibliography}
 
-\bibitem[FIPS180-2]{FIPS180-2} U.S. Department of Commerce/N.I.S.T. ,
-    \index{FIPS180-2} \\
+\bibitem[FIPS180-3]{FIPS180-3} U.S. Department of Commerce/N.I.S.T. ,
+    \index{FIPS180-3} \\
     {\em Secure Hash Standard (SHS)}, \\
-    August 1, 2002.\\
-    (FIPS 180-2 will supersede FIPS 180-1 beginning February 1, 2003.)
+    October 2008.\\
+    (FIPS 180-3 supersedes FIPS 180-2.)
 
 \bibitem[FIPS186]{FIPS186} U.S. Department of Commerce/N.I.S.T. ,
     \index{FIPS186} \\
@@ -472,6 +473,11 @@ available publicly.
   \href{http://csrc.nist.gov/publications/fips/fips186-2/fips186-2-change1.pdf}
    {\tt http://csrc.nist.gov/publications/fips/fips186-2/fips186-2-change1.pdf}
 
+\bibitem[McDonald2009]{McDonald2009} Cameron McDonald, Philip Hawkes, Josef Pieprzyk, 
+    \index{McDonald 2009} \\
+    {\em Differential Path for SHA-1 with complexity $O(2^{52})$}, \\
+    \url{http://eprint.iacr.org/2009/259}
+
 \bibitem[PKCS1]{PKCS1} RSA Laboratories,
     \index{PKCS\#1} \index{RSA Laboratories} \\
     {\em PKCS \#1 v2.1 Draft 3: RSA Cryptography Standard}, \\
@@ -481,6 +487,17 @@ available publicly.
     Bruce Schneier, \\
     {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C}, \\
     Wiley, 2nd edition, 1996.
+
+\bibitem[Wang2005]{Wang2005} Xiaoyun Wang, Yiqun Yin, Hongbo Yu, 
+    \index{Wang 2005} \\
+    {\em Finding Collisions in the Full SHA-1}, \\
+    Advances in Cryptology-Crypto 2005, LNCS 3621: 17-36, 2005.
+
+\bibitem[Wang2005b]{Wang2005b}  Xiaoyun Wang, Andrew Yao and Frances Yao, 
+    \index{Wang 2005} \\
+    {\em New Collision Search for SHA-1}, \\
+    Crypto 2005 Rump Session \\
+    \url{http://www.iacr.org/conferences/crypto2005/rumpSchedule.html}
 
 \bibitem[Wobst2005]{Wobst2005} \index{Wobst 2005} 
     Reinhard Wobst, \\

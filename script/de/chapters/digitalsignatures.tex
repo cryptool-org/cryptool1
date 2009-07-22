@@ -170,7 +170,7 @@ Schwächen in ihrer Struktur gezeigt hatten
   \cite{FIPS186} spezifizierte 160-Bit Hashfunktion.\\
   SHA bedeutet ``Secure Hash Algorithm'' und wird häufig benutzt, z.B. 
   mit DSA, RSA oder ECDSA.\\
-  Der aktuelle Standard \cite{FIPS180-2} definiert vier sichere Hashverfahren
+  Der aktuelle Standard \cite{FIPS180-3} definiert vier sichere Hashverfahren
   -- SHA-1, SHA-256, SHA-384 und SHA-512.
   Für diese Hashalgorithmen sind in der Testsuite FIPS 140-2 auch
   Validierungstests definiert.
@@ -214,15 +214,14 @@ Kollisionsangriffe gegen MD4, SHA-0 und Teile von SHA-1, die
 weltweit zu einer starken Beschäftigung mit neuen Hash-Angriffen
 führte.
 
-Die Veröffentlichung von Details zu den Resultaten der
-chinesischen Kryptologen wurde bisher nur angekündet: Nach ihren 
-Angaben kann man
-Kollisionen von SHA-1 mit einem Arbeitsaufwand von $2^{69}$ finden.
-Damit wäre gezeigt, dass SHA-1 kryptographische Schwächen besitzt, 
-da die Konstruktion von SHA-1 an sich einen Mindestarbeitsaufwand 
-für die Kollisionssuche von etwa $2^{80}$ gewährleisten sollte.
-Der Wert $2^{69}$ ist dabei eine auf theoretischen Hochrechnungen 
-beruhende Vorhersage. 
+Die zunächst veröffentlichten Resultate reduzierten den erwarteten Aufwand für
+die Suche nach einer SHA-1 Kollision von $2^{80}$ (brute force) auf $2^{69}$
+\cite{Wang2005}.  In der Folge wurden Verfahren angekündigt, die den Aufwand
+weiter auf $2^{63}$ \cite{Wang2005b} und $2^{52}$ \cite{McDonald2009} reduzieren
+sollen.  Damit wäre der Kollisionsangriff in den Bereich des praktisch möglichen
+gerückt, denn ähnliche Aufwände wurde in der Vergangenheit schon realisiert (s.\
+\ref{Brute-force-gegen-Symmetr}).
+
 Die Sicherheit bereits erstellter Signaturen wird durch den geschilderten
 Kollisionsangriff aber nicht gefährdet. 
 
@@ -231,10 +230,16 @@ Nach dem aktuellen Kenntnisstand ist keine Panik angesagt, aber für
 digitale Signaturen sollten zumindest in Zukunft längere Hashwerte und/oder
 andere Verfahren benutzt werden.
 
-Das NIST hat schon vor Bekanntwerden der neuen Ergebnisse angekündigt,
-SHA-1 in den näch"-sten Jahren auslaufen zu lassen. Es ist daher zu
-empfehlen, für neue Produkte zur Erstellung von Sig"-naturen SHA-1 nicht
-mehr zu verwenden.
+Das U.S. National Institute of Standards and Technology (NIST)\index{NIST} hat
+schon vor Bekanntwerden der neuen Ergebnisse angekündigt, SHA-1 in den
+näch"-sten Jahren auslaufen zu lassen. Es ist daher zu empfehlen, für neue
+Produkte zur Erstellung von Sig"-naturen SHA-1 nicht mehr zu verwenden. Die
+SHA-2 Familie \cite{FIPS180-3} bietet stärkere Verfahren.  Um den neuen
+Erkenntnisse in der Kryptoanalyse von Hashfunktionen Rechnung zu tragen hat das
+NIST 2008 einen Wettbewerb gestartet, in dem eine neue Hashfunktion ``SHA-3''
+ausgewählt werden
+soll.\footnote{\url{http://csrc.nist.gov/groups/ST/hash/sha-3/}} Der Wettbewerb
+soll im Jahr 2012 enden.
 
 Weitere Informationen zu diesem Thema finden sich z.B. in dem Artikel
 \glqq Hash mich -- Konsequenzen der erfolgreichen Angriffe auf SHA-1\grqq\
@@ -505,11 +510,11 @@ gesichert übermittelt werden.
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{section}{Literaturverzeichnis}
 
-\bibitem[FIPS180-2]{FIPS180-2} U.S. Department of Commerce/N.I.S.T. ,
-    \index{FIPS180-2} \\
+\bibitem[FIPS180-3]{FIPS180-3} U.S. Department of Commerce/N.I.S.T. ,
+    \index{FIPS180-3} \\
     {\em Secure Hash Standard (SHS)}, \\
-    August 1, 2002.\\
-    (FIPS 180-2 will supersede FIPS 180-1 beginning February 1, 2003.)
+    October 2008.\\
+    (FIPS 180-3 supersedes FIPS 180-2.)
 
 \bibitem[FIPS186]{FIPS186} U.S. Department of Commerce/N.I.S.T. ,
     \index{FIPS186} \\
@@ -524,6 +529,11 @@ gesichert übermittelt werden.
   \href{http://csrc.nist.gov/publications/fips/fips186-2/fips186-2-change1.pdf}
    {\tt http://csrc.nist.gov/publications/fips/fips186-2/fips186-2-change1.pdf}
 
+\bibitem[McDonald2009]{McDonald2009} Cameron McDonald, Philip Hawkes, Josef Pieprzyk, 
+    \index{McDonald 2009} \\
+    {\em Differential Path for SHA-1 with complexity $O(2^{52})$}, \\
+    \url{http://eprint.iacr.org/2009/259}
+
 \bibitem[PKCS1]{PKCS1} RSA Laboratories,  
     \index{PKCS\#1} \index{RSA Laboratories} \\
     {\em PKCS \#1 v2.1 Draft 3: RSA Cryptography Standard}, \\
@@ -533,6 +543,17 @@ gesichert übermittelt werden.
     Bruce Schneier, \\
     {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C}, \\
     Wiley, 2nd edition, 1996.
+
+\bibitem[Wang2005]{Wang2005} Xiaoyun Wang, Yiqun Yin, Hongbo Yu, 
+    \index{Wang 2005} \\
+    {\em Finding Collisions in the Full SHA-1}, \\
+    Advances in Cryptology-Crypto 2005, LNCS 3621: 17-36, 2005.
+
+\bibitem[Wang2005b]{Wang2005b}  Xiaoyun Wang, Andrew Yao and Frances Yao, 
+    \index{Wang 2005} \\
+    {\em New Collision Search for SHA-1}, \\
+    Crypto 2005 Rump Session \\
+    \url{http://www.iacr.org/conferences/crypto2005/rumpSchedule.html}
 
 \bibitem[Wobst2005]{Wobst2005} \index{Wobst 2005} 
     Reinhard Wobst, \\
