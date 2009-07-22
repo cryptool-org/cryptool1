@@ -21,6 +21,9 @@
 //////////////////////////////////////////////////////////////////
 #ifndef AFX_TEXTEINGABEHILLANGRIFF_H__154D9E9D_8504_11D2_8D33_00C04F795E36__INCLUDED_
 #define AFX_TEXTEINGABEHILLANGRIFF_H__154D9E9D_8504_11D2_8D33_00C04F795E36__INCLUDED_
+#include "afxwin.h"
+#include "afxcmn.h"
+#include "assert.h"
 
 // TextEingabeHillAngriff.h : Header-Datei
 //
@@ -30,42 +33,57 @@
 
 class CDlgHillAnaylsis : public CDialog
 {
-// Konstruktion
+	HWND hWndEditPlain;
+	HWND hWndEditCipher;
+	int  m_edTab;
+
+	LRESULT ScinMSG(UINT Msg, WPARAM wParam=0, LPARAM lParam=0) {
+		assert(m_edTab < 2 );
+		return FromHandle( !( m_edTab ) ? hWndEditPlain : hWndEditCipher )->SendMessage(Msg, wParam, lParam);
+	}
+	void OpenFile(const char *fileName);
+	void SaveFile();
+	void setViewOptions();
+	void initSCEdit();
+	int  setSourceFilename(const char *filename, char *&fn, __int64 &sz);
+
 public:
 	int bis;
 	int von;
+
+	char *fn_activeDocument;
+	char *fn_plaintext;
+	char *fn_ciphertext;
+	__int64 s_activeDocument, s_plaintext, s_ciphertext;
+
+
 	CDlgHillAnaylsis(CWnd* pParent = NULL);   // Standardkonstruktor
+	~CDlgHillAnaylsis();
 
 // Dialogfelddaten
-	//{{AFX_DATA(CDlgHillAnaylsis)
 	enum { IDD = IDD_HILL_ANALYSIS };
-	CComboBox	m_DimensionVon;
-	CComboBox	m_DimensionBis;
-	CString	m_EingabeFeld;
-	int		m_Klartext;
-	//}}AFX_DATA
-
 
 // Überschreibungen
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
-	//{{AFX_VIRTUAL(CDlgHillAnaylsis)
-	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV-Unterstützung
-	//}}AFX_VIRTUAL
-
-// Implementierung
 protected:
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV-Unterstützung
+	DECLARE_MESSAGE_MAP()
 
-	// Generierte Nachrichtenzuordnungsfunktionen
-	//{{AFX_MSG(CDlgHillAnaylsis)
 	virtual BOOL OnInitDialog();
 	afx_msg void OnSelchangeDimVon();
 	afx_msg void OnSelchangeDimBis();
-	//}}AFX_MSG
-	DECLARE_MESSAGE_MAP()
+
+public:
+	CComboBox	m_DimensionVon;
+	CComboBox	m_DimensionBis;
+	afx_msg void OnBnClickedButtonLoadActiveDocument();
+	CButton m_ctrl_loadActiveDocument;
+	afx_msg void OnBnClickedButtonOpenfile();
+	CTabCtrl m_TC_textspace;
+	afx_msg void OnTcnSelchangeTab1(NMHDR *pNMHDR, LRESULT *pResult);
+	int setSourceFilename(const char *filename) 
+	{ return setSourceFilename(filename, fn_activeDocument, s_activeDocument); }
 };
 
-//{{AFX_INSERT_LOCATION}}
-// Microsoft Developer Studio fügt zusätzliche Deklarationen unmittelbar vor der vorhergehenden Zeile ein.
 
 #endif // AFX_TEXTEINGABEHILLANGRIFF_H__154D9E9D_8504_11D2_8D33_00C04F795E36__INCLUDED_

@@ -425,6 +425,7 @@ void HillPlain(const char *infile, const char *OldTitle)
 	
 	if (EingabeDialog.DoModal() == IDOK)
 	{
+#if 0
 		SHOW_HOUR_GLASS
 		
 		// Falls Gross-/Kleinschreibung ignoriert werden soll:
@@ -628,6 +629,7 @@ void HillPlain(const char *infile, const char *OldTitle)
 		}
 		
 		HIDE_HOUR_GLASS
+#endif
 	}
 }
 

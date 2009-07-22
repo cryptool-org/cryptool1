@@ -284,7 +284,6 @@ void CDlgAutomatedPermAnalysis::OnBnClickedLoadFile()
 	{
 		OpenFile(dlg.GetPathName().GetBuffer());
 	}
-	// TODO: Add your control notification handler code here
 }
 
 void CDlgAutomatedPermAnalysis::OnBnClickedCompute()

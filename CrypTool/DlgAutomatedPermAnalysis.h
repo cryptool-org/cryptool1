@@ -50,7 +50,6 @@ private:
 
 	void OpenFile(const char *fileName);
 	void SaveFile();
-	void setRefCaption();
 	void setViewOptions();
 	void initSCEdit();
 	int setSourceFilename(const char *filename, char *&fn, __int64 &sz);
