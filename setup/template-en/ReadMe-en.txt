@@ -252,7 +252,6 @@ d) As well as ANIMAL the following programs are stand-alone Java applications
      parameters it creates an XML file, which is used to control the called
      Flash animation).
 
-
 e) The Flash applications:
    - "Rijndael Animation" (visualizes the AES encryption method),
    - "Rijndael Inspector" (visualizes the changes in the state matrix after
@@ -655,7 +654,6 @@ in June 2009 using the files for the English, German and Polish version.
 
 
 
-
 2.3. Where can you get another overview about CrypTool
      -------------------------------------------------
 You can get a good overview of what CrypTool offers
@@ -690,7 +688,7 @@ b) Changes within the user documentation:
 
 - Online help: enhanced.
 
-- Within the script: minor bug-fixes, menu tree within appendix A2 adapted
+- Within the script: minor bug-fixes, menu tree within appendix A.1 adapted
                      to the new version of CrypTool.
 
 - Updated and enhanced presentation (106 pages now).
@@ -785,19 +783,27 @@ a) Developer-relevant changes (more technically oriented):
 
 - Update of used libraries and other software to the following versions:
   - Scintilla 1.7.7
-  - cv act library v. 1.3.0 for Vista
+  - cv act library v. 1.4.6 (supporting Vista too)
   - OpenSSL 0.9.8k
   - GMP ? xxxxx
   - Animal 2.3.21.
-  xxxxxxxxxx
 
-b) Changes within the user documentation:
+
+b) Changes within the user documentation / on the websites:
 
 - Online help: well enhanced (e.g. modi and padding variants used for block
                ciphers now are described explicitly).
 
+- CrypTool Script: Update to status quo,
+                   inclusion of Sage sample code,
+                   minor bug-fixes,
+                   menu tree within appendix A.1 adapted to the new version
+                   of CrypTool.
+
+- Updated and enhanced presentation (112 pages now).
+
 - From the CrypTool website links are set to the sites of the successor
-  versions JCT1 and CT2, which always offer their current beta for download.
+  versions JCT1 and CT2, which already offer their current beta for download.
 
 - The additional website CrypTool-Online went live (www.cryptool-online.org).
 
@@ -867,7 +873,6 @@ c) New functionality / Usability:
   - Generation of a hashed Message Authentication Code (HMAC),
   - Generation of the hash value of a file.
   Hash demonstration will follow (here are currently 6 method available).
-  xxxxxxx->M
 
 - Within the HMAC dialog the names are related to the literature and the
   according online help contains the corresponding references.
@@ -891,7 +896,7 @@ c) New functionality / Usability:
   standard.
 
 - Added the classic transposition ciphers scytale and rail fence (combined
-  in one dialog) including the view and insertion of the key via icon.. 
+  in one dialog) including the view and insertion of the key via icon.
 
 - The permutation cipher now also can be applied to hex files.
 
@@ -913,20 +918,19 @@ c) New functionality / Usability:
 - All specific options are now within the dialogs of the according methods.
   So we could get rid of the menu item "Further Options".
 
-- For the simple (single) column transposition now a known-plaintext analysis
-  is added to calculate the transposition key.
-  This known-plaintext analysis now is better integrated together with the previous
-  known-plaintext analysis for Hill. xxxx-Ko
-
 - A visualization for secure e-mail was added: The user can enter dynamically
   data which is signed or encrypted using the S/MIME protocol.
 
 - Another visualization for the AES algorithm was added: flow_visualization
   showing how the bits are changed round-by-round.
 
-- Further Vigenère Analysis according to Schroedel for very short cryptograms.
-  xxxxxxxx
+- For the simple column transposition now a known-plaintext analysis
+  is added to calculate the transposition key.
+  This known-plaintext analysis is now better integrated together with the
+  previous known-plaintext analysis for the Hill cipher.
 
+- Further Vigenère analysis (according to Schroedel, for very short cryptograms).
+  xxxxxxxx
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
@@ -1405,6 +1409,7 @@ CrypToolPresentation_1_4_30_de.pdf .. German version of presentation.
 DialogueSisters.pdf ... Fantasy story by Dr. Elsner describing a
                         variant of the RSA cryptosystem.
 DialogSchwestern.pdf .. German version of DialogueSisters.pdf.
+rijndael-poster-a4.pdf ... Procedures of the AES algorithm (German)
 ChinLab-en.pdf ... Story by Dr. Elsner about basic number theory
                    problems assigned to Marco Polo by the Great
                    Khan.
@@ -2327,7 +2332,7 @@ A.2.1.2. Functionality: Analysis
 - Differential cryptanalysis on symmetric ciphers (DES, ...).
 
 - Enhance the brute-force possibilities: Use knowledge about
-  - parts of the cleartext
+  - parts of the cleartext,
   - parts of the key.
 
 - Demonstration, how long an exhaustive key search lasts (depending
@@ -2336,8 +2341,7 @@ A.2.1.2. Functionality: Analysis
 - Analysis to be newly implemented for:
    * homophone encryption
    * permutations/transpositions
-     - starting with known-plaintext analysis of single column
-       transpositions (Pawel/Rietsch)
+     - Known-plaintext analysis of the double column transposition,
      - Ciphertext-only analysis of the double-column transposition.
    * Playfair encryption
       - C sources from Gunnar-Andresson are available.
@@ -2650,6 +2654,7 @@ Features planned for the release version of the successor projects:
 - CT2  Mass pattern search
 - CT2  SOA-Security (SOAP messages according WS Security between the participants)
 - CT2  Framework to create and analyze LFSR stream ciphers
+- CT2  Cube attack on symmetric ciphers (I. Dinur and A. Shamir)
 
 - JCT  Multi-partite key exchange
 - JCT  PGP-S/MIME interoperability
@@ -2659,7 +2664,6 @@ Features planned for the release version of the successor projects:
 - JCT  Commandline functionality
 - JCT  Powerful action history and cascading possibility
 - JCT  Usage as a demonstrator for XML signatures
-- JCT  Cube attack on symmetric ciphers
 
 Also compare the roadmap at the website https://www.cryptool.org/content/view/21/46/lang,english.
 Further details:

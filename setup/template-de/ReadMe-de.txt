@@ -705,7 +705,7 @@ b) Änderungen in der Benutzer-Dokumentation / Web-Darstellung:
 
 - Online-Hilfe: erweitert.
 
-- Skript: Behebung kleinerer Fehler, Menübaum in Anhang A2 der neuen
+- Skript: Behebung kleinerer Fehler, Menübaum in Anhang A.1 der neuen
           CrypTool-Version angepasst.
 
 - Aktualisierte und auf 106 Seiten erweiterte Präsentation.
@@ -802,20 +802,26 @@ a) Entwickler-relevante Änderungen (eher Programm-technisch):
 
 - Update der Bibliotheken und genutzten Fremdsoftware auf ff. Versionen:
   - Scintilla 1.7.7
-  - cv act library v. 1.3.0 für Vista
+  - cv act library v. 1.4.6 (unterstützt auch Vista)
   - OpenSSL 0.9.8k
   - GMP ? xxxxx
   - Animal 2.3.21.
-  xxxxxxxxxx
 
 
-b) Änderungen in der Benutzer-Dokumentation / Web-Darstellung:
+b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
 
 - Online-Hilfe: deutlich erweitert (z.B. sind nun bei allen Blockchiffren
                 explizit die benutzten Modi und Padding-Varianten erläutert).
 
+- CrypTool- Skript: Update auf aktuellen Stand,
+                    Aufnahme von Sage-Programmbeispielen,
+                    Behebung kleinerer Fehler,
+                    Menübaum in Anhang A.1 an neue CrypTool-Version angepasst.
+
+- Aktualisierte und auf 112 Seiten erweiterte Präsentation.
+
 - Von der CT-Webseite wird auf die Websites der Nachfolger-Versionen JCT1
-  und CT2 verwiesen, die jeweils die aktuelle Beta zum Download anbieten.
+  und CT2 verwiesen, die schon die jeweils aktuelle Beta zum Download anbieten.
 
 - Die zusätzliche Webseite CrypTool-Online ging live (www.cryptool-online.org).
 
@@ -886,7 +892,6 @@ c) Neue Funktionalität / Bedienung:
   - Generieren eines Hashed Message Authentication Code (HMAC),
   - Generieren des Hashwertes einer Datei.
   Die Hash-Demo wird folgen (hier stehen bisher 6 Hashverfahren zur Auswahl).
-  xxxxxxx->M
 
 - Im HMAC-Dialog sind die Bezeichnungen der Literatur angepasst und in der 
   Onlinehilfe sind nun die entsprechenden Quellen angegeben.
@@ -911,7 +916,8 @@ c) Neue Funktionalität / Bedienung:
   Standard vorsieht.
 
 - Die klassischen Transpositions-Chiffren Skytale und Gartenzaun hinzugefügt
-  (angeboten innerhalb eines Dialogs) incl. Schlüssel anzeigen/einfügen per Ikone.
+  (angeboten innerhalb eines Dialogs) incl. Schlüssel anzeigen und
+  Schlüssel einfügen per Ikone.
 
 - Die Permutationsverschlüsselung kann nun auch auf Hexdateien angewandt
   werden.
@@ -934,11 +940,6 @@ c) Neue Funktionalität / Bedienung:
 - Alle spezifischen Optionen befinden sich nun in den Dialogen der zugehörigen
   Methoden. Somit konnten wir den Menüeintrag "Weitere Optionen" entfernen.
 
-- Für die einfache Spaltentransposition ist eine Known-Plaintext-Analyse
-  zum Finden des Transpositionsschlüssels neu hinzugekommen.
-  Diese Known-Plaintext-Analyse wurde zusammen mit der bisherigen
-  Known-Plaintext-Analyse für Hill besser integriert. xxxxx-Ko
-
 - Eine Visualisierung der Abläufe bei sicherer E-Mail kam hinzu: Der Benutzer
   kann Daten eingeben, die signiert oder verschlüsselt werden mit Hilfe des
   S/MIME-Protokolls.
@@ -946,8 +947,12 @@ c) Neue Funktionalität / Bedienung:
 - Eine weitere Visualisierung des AES-Algorithmus kam hinzu: Flussvisualisierung
   zur Veranschaulichung der Veränderung der Bits nach jeder Runde.
 
-- Vigenère-Analyse nach Schrödel für sehr kurze Chiffrate. xxxxxxxx
+- Für die einfache Spaltentransposition ist eine Known-Plaintext-Analyse
+  zum Finden des Transpositionsschlüssels neu hinzugekommen.
+  Diese Known-Plaintext-Analyse wurde zusammen mit der bisherigen
+  Known-Plaintext-Analyse für Hill besser integriert.
 
+- Weitere Vigenère-Analyse (nach Schrödel, für sehr kurze Chiffrate). xxxxxxxx
 xxxxxxxxxxxxxxxxxxxxx
 
 
@@ -1451,6 +1456,7 @@ DialogSchwestern.pdf .. Fantasy-Geschichte von Dr. Elsner, in der
                         eine Variante des RSA-Kryptosystems
                         beschrieben wird.
 DialogueSisters.pdf ... Englische Fassung von DialogSchwestern.pdf.
+rijndael-poster-a4.pdf ... Darstellung der Abläufe beim AES-Algorithmus.
 ChinLab-de.pdf ... Geschichte von Dr. Elsner über zahlentheoretische
                    Probleme, die Marco Polo vom Großen Khan gestellt
                    werden.
@@ -2397,7 +2403,7 @@ A.2.1.2. Funktionalität: Analyse
 - Differentielle Kryptoanalyse auf symmetrische Chiffren (DES, ...).
 
 - Die Brute-force-Möglichkeiten erweitern: Nutzen von Wissen
-  - um Teile des Klartextes
+  - um Teile des Klartextes,
   - um Teile des Schlüssels.
 
 - Demo, wie lange eine vollständige Schlüsselsuche dauert (in Abhängigkeit
@@ -2406,8 +2412,7 @@ A.2.1.2. Funktionalität: Analyse
 - Analyse neu implementieren für:
    * homophone Verschlüsselung
    * Permutationen/Transpositionen
-      - erstmal Known-Plaintext-Analyse der einfachen Spaltentransposition
-        (Pawel/Rietsch)
+      - Known-Plaintext-Analyse der doppelten Spaltentransposition,
       - Ciphertext-only-Analyse des Doppelwürfels
    * Playfair-Verschlüsselung
       - C-Sourcen (Gunnar-Andresson) liegen uns vor.
@@ -2733,6 +2738,7 @@ Funktionen, die für die Release-Versionen der Nachfolger-Projekte geplant sind:
 - CT2  Massenmustersuche
 - CT2  SOA-Security (SOAP-Nachrichten nach WS-Security zwischen den Beteiligten)
 - CT2  Framework zum Bau und zur Analyse von LFSR-Stromchiffren
+- CT2  Cube Attack gegen symmetrische Chiffren (I. Dinur und A. Shamir)
 
 - JCT  Multi-partite Schlüsselvereinbarung
 - JCT  PGP-S/MIME Interoperabilität
@@ -2742,7 +2748,6 @@ Funktionen, die für die Release-Versionen der Nachfolger-Projekte geplant sind:
 - JCT  Commandline-Funktionalität
 - JCT  Mächtige Action-History und Kaskadierungs-Unterstützung
 - JCT  Demonstrator für XML-Signaturen
-- JCT  Cube attack gegen symmetrische Chiffren
 
 Vergleiche auch die Roadmap auf der Webseite https://www.cryptool.org/content/view/21/46/lang,german.
 Weitere Details:
