@@ -11,7 +11,8 @@
 
 \hypertarget{Kapitel_1}{}
 \chapter{Encryption Procedures}
-(Bernhard Esslinger, May 1999; Updates Dec. 2001, Feb. 2003, June 2005, July 2007)
+(Bernhard Esslinger, May 1999; Updates Dec. 2001, Feb. 2003, June 2005, July
+2007, July 2009)
 
 \begin{center}
 \fbox{\parbox{15cm}{%
@@ -185,6 +186,17 @@ inventors of DES) for example queries the practicability of the attack because
 XLS would provide no solution for AES \cite{Coppersmith2002}. This implies that
 then the optimization of Murphy and Robshaw \cite{Robshaw2002b} would not work.
 
+In 2009 Biryukov und Khovratovich \cite{Biryukov2009} published another
+theoretical attack on AES. This attack uses different methods from the ones
+described above. They applied methods from hash function cryptanalysis (local
+collisions and boomerang switching) to construct a related-key attack on
+AES-256. I.~e.\ the attacker not only needs to be able to encrypt arbitrary data
+(chosen plain text), in addition he needs to be able to manipulate the unknown key
+(related-key). 
+
+Based on those assumptions, the effort to find a AES-256 key is reduced to
+$2^{119}$ time and $2^{77}$ memory. In the case of AES-192 the attack is even less
+practical, for AES-128 the authors do not provide an attack.
 
 % --------------------------------------------------------------------------
 \subsection{Current status of brute-force attacks on
@@ -351,6 +363,12 @@ symmetric and asymmetric encryption methods.
 \newpage
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{section}{Bibliography}
+
+\bibitem[Biryukov2009]{Biryukov2009} \index{Biryukov 2009}
+	Alex Biryukov, Dmitry Khovratovich \\
+	{\em Related-key Cryptanalysis of the Full AES-192 and AES-256}, \\
+	2009 \\
+	\url{http://eprint.iacr.org/2009/317}
 
 \bibitem[Coppersmith2002]{Coppersmith2002}  \index{Coppersmith 2002}
         Don Coppersmith, \\

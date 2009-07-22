@@ -5,7 +5,8 @@
 
 \hypertarget{Kapitel_1}{}
 \chapter{Verschlüsselungsverfahren}
-(Bernhard Esslinger, Mai 1999; Updates: Dez. 2001, Feb. 2003, Juni 2005, Juli 2007)
+(Bernhard Esslinger, Mai 1999; Updates: Dez. 2001, Feb. 2003, Juni 2005, Juli
+2007, Juli 2009)
 
 
 \begin{center}
@@ -129,14 +130,14 @@ Der AES bietet mit einer Mindestschlüssellänge von 128 Bit gegen
 Brute-Force-Angriffe auch auf längere Sicht genügend Sicherheit -- es sei
 denn, es stünden entsprechend leistungsfähige Quantencomputer zur
 Verfügung. Der AES war immun gegen alle bis dahin bekannten
-Kryptoanalyse-Verfahren, die vor allem auf statistischen
+Krypto"-analyse-Verfahren, die vor allem auf statistischen
 Überlegungen beruhen und auf DES angewandt wurden: man konstruiert aus
 Geheim- und Klartextpaaren Ausdrücke, die sich nicht rein zufällig
 verhalten, sondern Rückschlüsse auf den verwendeten Schlüssel zulassen.
 Dazu waren aber unrealistische Mengen an abgehörten Daten nötig.
 
 Bei Kryptoverfahren bezeichnet man solche Kryptoanalyseverfahren als
-''akademischen Erfolg'' oder als ''kryptoanalytischen Angriff'', da sie
+"`akademischen Erfolg"' oder als "`kryptoanalytischen Angriff"', da sie
 theoretisch schneller sind als das Durchprobieren aller Schlüssel, das
 beim Brute-Force-Angriff\index{Angriff!Brute-Force} verwendet wird. Im
 Fall des AES mit maximaler Schlüssellänge (256 Bit) braucht die
@@ -149,7 +150,7 @@ Verschlüsselungsoperationen.
 Eine neue Vorgehensweise wurde in der Arbeit von Ferguson, Schroeppel
 und Whiting im Jahre 2001 \cite{Ferguson2001} beschrieben: sie stellten
 AES als geschlossene Formel (in der Form einer Art Kettenbruch) dar,
-was aufgrund seiner ''relativ'' übersichtlichen Struktur gelang. Da
+was aufgrund seiner "`relativ"' übersichtlichen Struktur gelang. Da
 diese Formel aus rund 1 Billiarde Summanden besteht, taugt sie zunächst
 nicht für die Kryptoanalyse. Dennoch war die wissenschaftliche Neugier
 geweckt. Bereits bekannt war, dass sich der 128-Bit-AES als ein
@@ -157,7 +158,7 @@ geweckt. Bereits bekannt war, dass sich der 128-Bit-AES als ein
 (über algebraischen Zahlkörpern) mit rund 1600 Variablen (einige
 Unbekannte sind die Schlüsselbits) darstellen lässt -- solch große
 Gleichungssysteme sind praktisch nicht lösbar. Dieses Gleichungssystem
-ist relativ dünn besetzt (''sparse''), d.h. von den insgesamt etwa
+ist relativ dünn besetzt (``sparse''), d.h. von den insgesamt etwa
 1.280.000 möglichen quadratischen Termen tauchen nur relativ wenige
 überhaupt im Gleichungssystem auf.
 
@@ -191,7 +192,7 @@ Schlüssel statistisch abhängig oder unabhängig sind).\\
 Nicht immer wird die Sicherheit eines Verfahrens durch Produktbildung 
 erhöht.\\
 Diese Vorgehen wird auch {\em innerhalb} moderner Algorithmen angewandt:
-Sie kombinieren in der Regel einfache und, für sich genommen, kryptologisch
+Sie kombinieren in der Regel einfacheund, für sich genommen, kryptologisch
 relativ unsichere Einzelschritte in mehreren Runden zu einem leistungsfähigen
 Gesamtverfahren. Die meisten modernen Blockchiffrierungen (z.B. DES, IDEA)
 sind Produktalgorithmen.\\
@@ -205,7 +206,7 @@ Murphy und Robshaw auf der Crypto 2002 ein Papier vor \cite{Robshaw2002a},
 das die Kryptoanalyse drastisch verbessern könnte: der Aufwand für
 128-Bit-Schlüssel wurde auf $2^{100}$ geschätzt, indem sie AES als
 Spezialfall eines Algorithmus BES (Big Encryption System) darstellten,
-der eine besonders ''runde'' Struktur hat. Aber auch $2^{100}$
+der eine besonders "`runde"' Struktur hat. Aber auch $2^{100}$
 Rechenschritte liegen jenseits dessen, was praktisch in absehbarer Zeit
 realisierbar ist. Bei 256 Bit Schlüssellänge schätzen die Autoren
 den Aufwand für den XSL-Angriff auf $2^{200}$ Operationen.
@@ -220,8 +221,8 @@ Weitere Details dazu stehen unter:
                {\texttt{http://www.minrank.org/aes/}}
 \end{itemize}
 
-Für 256-AES wäre der Angriff ebenfalls viel besser als Brute-Force
-\index{Angriff!Brute-Force}, aber auch noch weiter außerhalb der
+Für 256-AES wäre der Angriff ebenfalls viel besser als
+Brute-Force\index{Angriff!Brute-Force}, aber auch noch weiter außerhalb der
 Reichweite realisierbarer Rechenpower.
 
 \begin{sloppypar}
@@ -230,6 +231,20 @@ z.B. bezweifelt die generelle Durchführbarkeit des Angriffs: XLS liefere für
 AES gar keine Lösung \cite{Coppersmith2002}. Dann würde auch die Optimierung von 
 Murphy und Robshaw \cite{Robshaw2002b} nicht greifen.
 \end{sloppypar}
+
+2009 veröffentlichten Biryukov und Khovratovich \cite{Biryukov2009} einen
+weiteren theoretischen Angriff auf AES, der sich anderer Techniken bedient, als
+die oben vorgestellten. Sie verwenden Methoden aus der Kryptoanalyse von
+Hashfunktionen (lokale Kollisionen und das Boomerang-Verfahren) und
+konstruierten daraus einen Related-Key-Angriff auf AES-256. D.~h.\ der Angreifer
+muss nicht nur in der Lage sein, beliebige Daten zu verschlüsseln (chosen plain
+text), sondern auch den ihm unbekannten Schlüssel manipulieren können (related
+key).
+
+Unter diesen Angriffs-Voraussetzungen reduziert der Angriff den Aufwand, einen
+AES-256-Schlüssel zu ermitteln, auf $2^{119}$ Zeit und $2^{77}$ Speicher. Bei
+AES-192 ist der Angriff noch weniger praktikabel, für AES-128 geben die Autoren
+keinen Angriff an.
 
 % --------------------------------------------------------------------------
 \subsection{Aktueller Stand der Brute-Force-Angriffe auf 
@@ -459,6 +474,12 @@ einzelnen symmetrischen und asymmetrischen Verschlüsselungsverfahren.
 \newpage
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{section}{Literaturverzeichnis}
+
+\bibitem[Biryukov2009]{Biryukov2009} \index{Biryukov 2009}
+	Alex Biryukov, Dmitry Khovratovich \\
+	{\em Related-key Cryptanalysis of the Full AES-192 and AES-256}, \\
+	2009 \\
+	\url{http://eprint.iacr.org/2009/317}
 
 \bibitem[Coppersmith2002]{Coppersmith2002}  \index{Coppersmith 2002}
         Don Coppersmith, \\
