@@ -32,6 +32,8 @@
 #include <cstdlib>
 #include <time.h>
 
+// for file locations relativ to CrypTool
+extern char *Pfad;
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -54,6 +56,23 @@ CDlgVigenereAnalysisSchroedel::CDlgVigenereAnalysisSchroedel(CWnd* pParent /*=NU
 	, theAnalysis(0)
 {
 	theAnalysis = new VigenereAnalysisSchroedel(this);
+
+	// fill Vigenere array
+	CString s;
+	CString t;
+	s = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  s = s + s;
+	for(int i=0; i<26; i++) {
+		t = s;
+		t.Delete(0, i+1);
+		this->theAnalysis->vigenere[i] = t.Left(26);
+	}
+
+	// specify autorun filename
+	autorunFileName = CString(Pfad) + "autorun.txt";
+
+	// read dictionary
+	this->theAnalysis->readDict();
 }
 
 CDlgVigenereAnalysisSchroedel::~CDlgVigenereAnalysisSchroedel()
@@ -84,6 +103,7 @@ END_MESSAGE_MAP()
 
 void CDlgVigenereAnalysisSchroedel::OnBnClickedButton1()
 {
+	UpdateData(true);
 
 	// TODO theAnalysis->startzeit = Date + Time;
 	
@@ -109,10 +129,14 @@ void CDlgVigenereAnalysisSchroedel::OnBnClickedButton1()
 		theAnalysis->firstChar();
 		theAnalysis->secondChar();
 		
+		theAnalysis->solveTrigram();
+
 		// TODO if not shortRun.checked Then solveTrigram;
 		// TODO Memo1.Lines.SaveToFile("result.txt");
 
 	}
+
+	UpdateData(false);
 }
 
 void CDlgVigenereAnalysisSchroedel::OnBnClickedButton2()
@@ -157,10 +181,8 @@ void CDlgVigenereAnalysisSchroedel::OnBnClickedButton3()
 				t.SetAt(i, ' ');
 			}	
 		}
-		while(t.Find(' ') != -1) {
-			t.Delete(t.Find(' '), 1);
-			s = s + " " + t.Trim();
-		}
+		t.Remove(' ');
+		s = s + " " + t.Trim();
 	}
 	
 	s.Delete(0, 1);
@@ -177,48 +199,37 @@ void CDlgVigenereAnalysisSchroedel::OnBnClickedButton3()
 
 	// TODO progressbar1.Max = o;
 
-	while(s.Find(' ') != - 1) {
-		// do autorun
-		do {
-			
-			k.Delete(0, k.Find(' '));
-			k.Delete(k.Find(' '), 100);
+	while(s.Find(' ') != -1) {
+		k = theAnalysis->dict[rand() % theAnalysis->dictCount];
 
-			k = (char*)(p.GetBuffer()) + rand() % p.GetLength();
-			k.Delete(50, k.GetLength() - 50);
-			k.Delete(0, k.Find(' '));
-			k.Delete(k.Find(' '), 100);
-			k.Trim();
+		t = s.Left(20);
+		t.Trim();
 
-		} while(k.GetLength() < 5);
+		// TODO: does this make sense? (besides being unstable anyway)
+
+		// only full words
+//		while(t[t.GetLength()-1] != ' ') {
+//			t.Delete(t.GetLength()-1, 1);
+//		}
+		
+
+		//ciphertext = "";
+
+		// TODO progressbar1.Position := o - Length( s );
+
+		theAnalysis->setStatus("Autorun: " + k + "/" + t);
+
+		if(s.Find(' ') > 2) {
+			plaintext = t;
+			key = k;
+			OnBnClickedButton1();
+		}
+
+		s.Delete(0, s.Find(' ') + 1);
 	}
 
-	k = theAnalysis->dict[rand() % theAnalysis->dictCount];
-
-	t = s;
-	t.Delete(20, t.GetLength() - 20);
-
-	// only full words
-	while(t[t.GetLength()] != ' ') {
-		t.Delete(t.GetLength(), 1);
-	}
-	t.Trim();
-
-	ciphertext = "";
-
-	// TODO progressbar1.Position := o - Length( s );
-
-	theAnalysis->setStatus("Autorun: " + k + "/" + t);
-
-	if(k.GetLength() > 4 && s.Find(' ') > 2) {
-		plaintext = t;
-		key = k;
-		OnBnClickedButton1();
-	}
-
-	s.Delete(0, s.Find(' '));
+	UpdateData(false);
 }
-
 
 
 /****************************************
@@ -235,10 +246,26 @@ VigenereAnalysisSchroedel::VigenereAnalysisSchroedel(CDlgVigenereAnalysisSchroed
 	time_t seconds;
 	time(&seconds);
 	srand((unsigned int)seconds);
+
+	// some init stuff
+	memset(cDigram, 0, 4*26*26);
+	memset(cTrigram, 0, 4*26*26*26);
+	memset(score, 0, 4*26*26*26*2);
+	memset(_score, 0, 4*26*26*26*2);
+
+	// open result file
+	CString pathToFileResult;
+	pathToFileResult = Pfad;
+	pathToFileResult += "result.txt";
+	fileResult.open(pathToFileResult, ios_base::trunc);
+	if(!fileResult) return;
 }
 
 VigenereAnalysisSchroedel::~VigenereAnalysisSchroedel() {
 	theDialog = 0;
+
+	// close the result file
+	fileResult.close();
 }
 
 void VigenereAnalysisSchroedel::setStatus(CString str) {
@@ -257,6 +284,9 @@ void VigenereAnalysisSchroedel::output(CString str) {
 		informs the user about all sorts of status messages via the GUI; we have 
 		to figure out a way to transform this into the C++ (dialog) world.
 	*/
+
+	fileResult.write(str.GetBuffer(), str.GetLength());
+	fileResult.write("\r\n", 2);
 }
 
 void VigenereAnalysisSchroedel::readTriDigrams() {
@@ -268,7 +298,10 @@ void VigenereAnalysisSchroedel::readTriDigrams() {
 
 	// create a handle for the input file
 	std::ifstream fileInputDigrams;
-	fileInputDigrams.open("digramsAtBeginningOfWords.txt");
+	CString pathToDigrams;
+	pathToDigrams = Pfad;
+	pathToDigrams += "digramsAtBeginningOfWords.txt";
+	fileInputDigrams.open(pathToDigrams);
 	if(!fileInputDigrams) return;
 
 	for(int i=0; i<26; i++) {
@@ -276,7 +309,7 @@ void VigenereAnalysisSchroedel::readTriDigrams() {
 			std::string s2;
 			getline(fileInputDigrams, s2);
 			s = s2.c_str();
-			s.Delete(s.Find(';'));
+			s.Delete(0, s.Find(';') + 1);
 			cDigram[i][o] = atoi(s.GetBuffer());
 			maxDi = maxDi + atoi(s.GetBuffer());
 		}
@@ -291,7 +324,10 @@ void VigenereAnalysisSchroedel::readTriDigrams() {
 
 	// create a handle for the input file
 	std::ifstream fileInputTrigrams;
-	fileInputTrigrams.open("trigramsAtBeginningOfWords.txt");
+	CString pathToTrigrams;
+	pathToTrigrams = Pfad;
+	pathToTrigrams += "trigramsAtBeginningOfWords.txt";
+	fileInputTrigrams.open(pathToTrigrams);
 	if(!fileInputTrigrams) return;
 
 	for(int i=0; i<26; i++) {
@@ -300,7 +336,7 @@ void VigenereAnalysisSchroedel::readTriDigrams() {
 				std::string s2;
 				getline(fileInputTrigrams, s2);
 				s = s2.c_str();
-				s.Delete(s.Find(';'));
+				s.Delete(0, s.Find(';') + 1);
 				cTrigram[i][o][l] = atoi(s.GetBuffer());
 				maxTri = maxTri + atoi(s.GetBuffer());
 			}
@@ -339,12 +375,14 @@ void VigenereAnalysisSchroedel::firstChar() {
 			cipherPos = cipherPos - 25;
 		}
 
-		s = s + fText + '-' + fKey + (char)(9);
-		o++;
+		s = s + fText + "-" + fKey + " ";
+
+
 		pairs[o][0] = fText;
 		pairs[o][1] = fKey;
 		score[o][0] = 0;
 		score[o][1] = 0;
+		o++;
 		cPairs = o;
 	}
 
@@ -360,6 +398,7 @@ void VigenereAnalysisSchroedel::firstChar() {
 			if(pairs[l][0] == pairs[o][1]) {
 				score[o][0] = -1;
 				score[o][1] = -1;
+				remain--;
 			}
 		}
 	}
@@ -370,7 +409,7 @@ void VigenereAnalysisSchroedel::firstChar() {
 	for(o=0; o<cPairs; o++) {
 		if(score[o][0] == -1) {
 			i++;
-			s = s + pairs[o][0] + "-" + pairs[o][1] + (char)(9);
+			s = s + pairs[o][0] + "-" + pairs[o][1] + " ";
 		}
 	}
 	output(s);
@@ -388,8 +427,12 @@ void VigenereAnalysisSchroedel::firstChar() {
 			_pairs[o][1] = pairs[l][1];
 			_score[o][0] = score[l][0];
 			_score[o][1] = score[l][1];
+			o++;
 		}
 	}
+
+	// flomar: HACK: that way we avoid the endless loop
+	cPairs = remain;
 
 	for(int i=0; i<cPairs; i++) {
 		pairs[i][0] = "";
@@ -398,7 +441,7 @@ void VigenereAnalysisSchroedel::firstChar() {
 		score[i][1] = 0;
 	}
 
-	cPairs = 0;
+	// TODO cPairs = 0;
 
 	for(int i=0; i<cPairs; i++) {
 		pairs[i][0] = _pairs[i][0];
@@ -441,11 +484,11 @@ void VigenereAnalysisSchroedel::secondChar() {
 				sText = _pairs[l][0];
 				sKey = _pairs[l][1];
 
-				if(l>0) {
-					lText = sText[sText.GetLength()];
-					lKey = sKey[sKey.GetLength()];
+				if(l>=0) {
+					lText = sText[sText.GetLength() - 1];
+					lKey = sKey[sKey.GetLength() - 1];
 			
-					if(n == 2) {
+					if(n == 1) {
 						tDigramFactor = cDigram[cPosAlphabet.Find(sText)][cPosAlphabet.Find(fText)];
 						kDigramFactor = cDigram[cPosAlphabet.Find(sKey)][cPosAlphabet.Find(fKey)];
 
@@ -464,11 +507,11 @@ void VigenereAnalysisSchroedel::secondChar() {
 						}
 					}
 
-					if(n == 3) {
+					if(n == 2) {
 						tDigramFactor = cTrigram[cPosAlphabet.Find(sText[0])][cPosAlphabet.Find(sText[1])][cPosAlphabet.Find(fText)];
 						kDigramFactor = cTrigram[cPosAlphabet.Find(sKey[0])][cPosAlphabet.Find(sKey[1])][cPosAlphabet.Find(fKey)];
 			
-						if(tDigramFactor = 0) {
+						if(tDigramFactor == 0) {
 							if(sText[0] == 'A') {
 								CString temp = "AM AN AS AT BE BY DO GO HE IF IN IS IT ME MY NO OF OK ON SO TO UP US";
 								if(temp.Find(sText[1] + fText) != -1) tDigramFactor = 100;
@@ -497,11 +540,11 @@ void VigenereAnalysisSchroedel::secondChar() {
 					pairs[i][1] = sKey + fKey;
 					score[i][0] = tDigramFactor;
 					score[i][1] = kDigramFactor;
-				}
+				}				
 
 				i++;
 
-				s = s + sText + fText + "-" + sKey + fKey + (char)(9);
+				s = s + sText + fText + "-" + sKey + fKey + " ";
 			}
 
 			output(s);
@@ -511,10 +554,10 @@ void VigenereAnalysisSchroedel::secondChar() {
 		output("Count: " + iStr);
     cPairs = i;
 
-		if(n == 2) {
+		if(n == 1) {
 			remain = cPairs;
 			output("Remove dups:");
-			for(l=0; l<cPairs; l++) {
+			for(l=0; l<cPairs-1; l++) {
 				for(o=l+1; o<cPairs; o++) {
 					if(pairs[l][0] == pairs[o][1]) {
 						score[o][0] = -1;
@@ -529,13 +572,14 @@ void VigenereAnalysisSchroedel::secondChar() {
 			for(o=0; o<cPairs; o++) {
 				if(score[o][0] == -1) {
 					i++;
-					s = s + pairs[o][0] + "-" + pairs[o][1] + (char)(9);
+					remain--;
+					s = s + pairs[o][0] + "-" + pairs[o][1] + " ";
 				}
 			}
 			output(s);
 			CString iStr; iStr.Format("%d", i);
 			output("Count: " + iStr);
-			CString remainStr; remainStr.Format("%d", remain-i);
+			CString remainStr; remainStr.Format("%d", remain);
 			output("Remain: " + remainStr);
 
 			setStatus("Deleting dups from internal list...");
@@ -543,11 +587,11 @@ void VigenereAnalysisSchroedel::secondChar() {
 			o = 0;
 			for(int l=0; l<cPairs;l++) {
 				if(score[l][0] != -1) {
-					o++;
 					_pairs[o][0] = pairs[l][0];
 					_pairs[o][1] = pairs[l][1];
-					_score[o][0] = _score[l][0];
-					_score[o][1] = _score[l][1];
+					_score[o][0] = score[l][0];
+					_score[o][1] = score[l][1];
+					o++;
 				}
 			}
 
@@ -567,7 +611,7 @@ void VigenereAnalysisSchroedel::secondChar() {
 				score[i][1] = _score[i][1];
 			}
 
-			if(n == 2) Remain2 = cPairs;
+			if(n == 1) Remain2 = cPairs;
 		}
 
 		setStatus("Sorting");
@@ -615,17 +659,17 @@ void VigenereAnalysisSchroedel::secondChar() {
 		for(int i=0; i<cPairs; i++) {
 			CString score1Str; score1Str.Format("%d", score[i][0]);
 			CString score2Str; score2Str.Format("%d", score[i][1]);
-			s = s + pairs[i][0] + "-" + pairs[i][1] + "/" + score1Str + "-" + score2Str + (char)(9);
+			s = pairs[i][0] + "-" + pairs[i][1] + "/" + score1Str + "-" + score2Str + " ";
 			output(s);
 		}
 
 		// weight and sort
 		o = 0;
 
-		if(n == 2) {
+		if(n == 1) {
 			maxProzent = 10;
 		}
-		if(n == 3) {
+		if(n == 2) {
 			maxProzent = 10;
 		}
 
@@ -633,11 +677,11 @@ void VigenereAnalysisSchroedel::secondChar() {
 		for(int l=0; l<cPairs; l++) {
 			// sort out
 			if(score[l][0] >= maxProzent && score[l][1] >= maxProzent) {
-				o++;
 				_pairs[o][0] = pairs[l][0];
 				_pairs[o][1] = pairs[l][1];
 				_score[o][0] = score[l][0];
 				_score[o][1] = score[l][1];
+				o++;
 			}
 		}
 
@@ -657,7 +701,7 @@ void VigenereAnalysisSchroedel::secondChar() {
 			score[i][1] = _score[i][1];
 		}
 
-		if(n == 2) Remain2 = cPairs;
+		if(n == 1) Remain2 = cPairs;
 
 		setStatus("Sorting");
 
@@ -684,9 +728,9 @@ void VigenereAnalysisSchroedel::secondChar() {
 		s = "";
 
 		for(int i=0; i<cPairs; i++) {
-			CString score1Str; score1Str.Format(score[i][0]);
-			CString score2Str; score2Str.Format(score[i][1]);
-			s = s + pairs[i][0] + "-" + pairs[i][1] + "/" + score1Str + "-" + score2Str + (char)(9);
+			CString score1Str; score1Str.Format("%d", score[i][0]);
+			CString score2Str; score2Str.Format("%d", score[i][1]);
+			s = pairs[i][0] + "-" + pairs[i][1] + "/" + score1Str + "-" + score2Str + " ";
 			output(s);
 		}
 
@@ -695,13 +739,15 @@ void VigenereAnalysisSchroedel::secondChar() {
 		aktPos = 0;
 
 		for(int o=0; o<cPairs; o++) {
-			// TODO If AnsiUpperCase( pairs[o,1]) = AnsiUpperCase( Copy( Form1.plainText.Text, 1, n )) Then aktPos := o;
-      // TODO If AnsiUpperCase( pairs[o,1]) = AnsiUpperCase( Copy( Form1.cipherKey.Text, 1, n )) Then aktPos := o;
-			// TODO s := s + inttostr(o) + '. ' + pairs[o, 1] + '-' + pairs[o, 2] + #9;
+			// *** TODO *** CHECK THIS SECTION!!!! (THINK ABOUT THE "n+1" THINGY)
+			if(pairs[o][0].MakeUpper() == this->theDialog->plaintext.Left(n+1).MakeUpper()) aktPos = o;
+			if(pairs[o][0].MakeUpper() == this->theDialog->ciphertext.Left(n+1).MakeUpper()) aktPos = o;
+			CString oStr; oStr.Format("%d", o);
+			s = s + oStr + ". " + pairs[o][0] + "-" + pairs[o][1] + " ";
 		}
 
-		if(n == 2) Pos2 = aktPos;
-		if(n == 3) Pos3 = aktPos;
+		if(n == 1) Pos2 = aktPos;
+		if(n == 2) Pos3 = aktPos;
 
 		output(s);
 		CString cPairsStr; cPairsStr.Format("%d", cPairs);
@@ -754,6 +800,12 @@ void VigenereAnalysisSchroedel::solveTrigram() {
 	CString s;
 	CString key, text, cipher;
 	CString cKey, cText;
+	CString rKey, rText;
+
+	int x = 0;
+	int theRate = 0;
+
+	bool found = false;
 
 	// FIXME: isn't this unnecessary in C++?
 	for(int i=0; i<1000; i++) {
@@ -791,16 +843,139 @@ void VigenereAnalysisSchroedel::solveTrigram() {
 				}
 			}
 		}
+
+
+
+		if(cKey.GetLength() > 0 && cText.GetLength() > 0) {
+			for(int o=0; o<cKey.GetLength(); o++) {
+				for(int l=0; l<cText.GetLength(); l++) {
+					CString cTextStr; cTextStr.AppendChar(cText[l]);
+					CString cKeyStr; cKeyStr.AppendChar(cKey[o]);
+					CString cCipherStr; cCipherStr.AppendChar(cipher[3]);
+					if(encryptText(cTextStr, cKeyStr) == cCipherStr) {
+						rKey = "";
+						rText = "";
+						for(xDict=0; xDict<dictCount; xDict++) {
+							if(dict[xDict].GetLength() <= this->theDialog->ciphertext.GetLength()) {
+								if(dict[xDict].Find(key + cKey[o]) == 0 || dict[xDict].Find(text + cText[l]) == 0) {
+									theRate = rateString(decryptText(this->theDialog->ciphertext, dict[xDict]), dict[xDict]);
+									if(theRate >= decryptText(this->theDialog->ciphertext, dict[xDict]).GetLength() * 0.01) {
+										
+										CString strTheRate; strTheRate.Format("%d", theRate);
+										CString strTheSubRate; strTheSubRate = "0";
+
+										CString outputStr;
+										outputStr += "-----> [";
+										outputStr.AppendChar(cKey[o]);
+										outputStr += "]+[";
+										outputStr.AppendChar(cText[l]);
+										outputStr += "]=";
+										outputStr.AppendChar(cipher[3]);
+										outputStr += " => ";
+										outputStr.Append(key);
+										outputStr.AppendChar(cKey[o]);
+										outputStr += " / ";
+										outputStr.Append(text);
+										outputStr.AppendChar(cText[l]);
+										outputStr += " => ";
+										outputStr.Append(dict[xDict]);
+										outputStr += " <=> ";
+										outputStr.Append(decryptText(this->theDialog->ciphertext, dict[xDict]));
+										outputStr += " (";
+										outputStr.Append(strTheRate);
+										outputStr += ")";
+
+										output(outputStr);
+										
+										solvers[x][0] = dict[xDict];
+										solvers[x][1] = decryptText(this->theDialog->ciphertext, dict[xDict]);
+										solvers[x][2] = strTheRate;
+                    solvers[x][3] = strTheSubRate;
+										x++;
+										
+										if(maxRating < theRate) maxRating = theRate;
+
+										if(theRate >= 10) {
+											output("-------> Key (Rate " + strTheRate + "): " + dict[xDict] + " = " + decryptText(this->theDialog->ciphertext, dict[xDict]));
+											output("### POSSIBLE SOLVER ###");
+										}
+									}
+								}
+							}
+							if(found) break;
+						}
+						if(found) break;
+					}
+					if(found) break;
+				}
+				if(found) break;
+			}
+			if(found) break;
+		}
 	}
+
+	// TODO: endezeit = Date + Time
+	if(!found) {
+		output(" ");
+		output("Checking all possible solutions with dictionary for heighest rating:");
+		output(" ");
+		output("############################################");
+		output("HIGHEST RATING");
+		output("############################################");
+		CString strLength; strLength.Format("%d", this->theDialog->ciphertext.GetLength());
+		CString strCipher; strCipher = this->theDialog->ciphertext;
+		CString strRating; strRating.Format("%d", maxRating);
+		for(int i=0; i<x; i++) {
+			if(solveRating < atoi(solvers[i][2].GetBuffer())) {
+				solveRating = atoi(solvers[i][2].GetBuffer());
+				solveKey = solvers[i][0];
+				solveText = solvers[i][1];
+			}
+			if(maxRating == atoi(solvers[i][2])) {
+				output(solvers[i][3] + " " + solvers[i][0] + " / " + solvers[i][1]);
+			}
+		}
+
+		for(int i=0; i<cPairs; i++) {
+			key = pairs[i][0];
+			text = pairs[i][1];
+
+			if(solveKey.Find(key) == 0 || solveText.Find(key) == 0) {
+				output(" ");
+				CString iStr; iStr.Format("%d", i);
+				output("Position after sorting was: " + iStr);
+			}
+		}
+
+		// TODO		output( 'TIME: ' + formatDateTime( 'nn:ss', endezeit - startzeit ));
+
+		for(int i=0; i<x; i++) {
+			if(solvers[i][0] == this->theDialog->ciphertext) {
+				solveKey = solvers[i][0];
+			}
+			if(solvers[i][1] == this->theDialog->ciphertext) {
+				solveKey = solvers[i][1];
+			}
+		}
+    output(" ");
+	}
+
+	// TODO: see original delphi code
+
 }
 
 void VigenereAnalysisSchroedel::readDict() {
+
+	setStatus("Reading dictionary");
 
 	CString s;
 
 	// create a handle for the input file
 	std::ifstream fileInput;
-	fileInput.open("dict.txt");
+	CString pathToDictionary;
+	pathToDictionary = Pfad;
+	pathToDictionary += "dict.txt";
+	fileInput.open(pathToDictionary);
 	if(!fileInput) return;
 
 	dictCount = 0;
@@ -811,18 +986,17 @@ void VigenereAnalysisSchroedel::readDict() {
 		s = s2.c_str();
 		s.Trim();
 		s.MakeUpper();
-		if(s.Find('%') == 0) {
+		if(s.Find('%') == -1) {
 			for(int i=s.GetLength(); i>0; i--) {
 				CString temp = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
-				if(temp.Find(s[i]) == 0) {
+				if(temp.Find(s[i]) == -1) {
 					s.Delete(i);
 					s.Insert(i, ' ');
 				}
-				if(!s.IsEmpty()) {
-					dictCount++;
-					dict[dictCount] = s.Trim();
-				}
 			}
+		}
+		if(!s.IsEmpty()) {
+			dict[dictCount++] = s.Trim();
 		}
 	}
 
@@ -874,8 +1048,9 @@ CString VigenereAnalysisSchroedel::encryptText(CString text, CString key) {
 
 	for(int i=0; i<text.GetLength(); i++) {
 		for(int o=0; o<26; o++) {
-			if(key[i] == vigenere[o]) {
-				encryptedText = encryptedText + vigenere[o + klartext.Find(text[i])];
+			if(key[i] == vigenere[o][0]) {
+				// TODO flomar encryptedText = encryptedText + vigenere[o + klartext.Find(text[i])];
+				encryptedText.AppendChar(vigenere[o][klartext.Find(text[i])]);
 			}
 		}
 	}
@@ -895,7 +1070,7 @@ CString VigenereAnalysisSchroedel::decryptText(CString text, CString key) {
 	for(int i=0; i<text.GetLength(); i++) {
 		for(int o=0; o<26; o++) {
 			if(key[i] == vigenere[o]) {
-				decryptedText = decryptedText + klartext[o + vigenere.Find(text[i])];
+				decryptedText = decryptedText + klartext[vigenere[o].Find(text[i])];
 			}
 		}
 	}
@@ -926,8 +1101,7 @@ int VigenereAnalysisSchroedel::rateString(CString str, CString key) {
 	for(int i=0, o=0; i<dictCount; i++) {
 		s = dict[i];
 		if(str.Find(s) > 0) {
-			o++;
-			words[o] = s;
+			words[o++] = s;
 			lowords = lowords + (char)(13) + s;
 		}
 	}

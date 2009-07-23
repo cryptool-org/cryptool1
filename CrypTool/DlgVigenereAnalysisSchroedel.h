@@ -52,7 +52,7 @@ public:
 	CString _pairs[26*26*26][2];
 	unsigned int _score[26*26*26][2];
 	int remain, maxDi, maxTri, maxProzent, xDict, xlDict, cPairs;
-	CString vigenere;
+	CString vigenere[30];
 	CString solvers[1000][4];  
 	CString dict[100000];
 	int solveCount, maxRating, dictCount;
@@ -77,6 +77,8 @@ public:
 	int rateString(CString str, CString key);
 	CString fillLeft(CString was, int wie);
 
+	// file handle for result file
+	std::ofstream fileResult;
 };
 
 // CDlgVigenereAnalysisSchroedel dialog
