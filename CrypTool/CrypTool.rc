@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polnisch resources
+// Polish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -235,22 +235,29 @@ BEGIN
     LTEXT           "Zobacz menu: Kryptoanaliza \\ Algorytmy Symetryczne",IDC_STATIC,19,170,258,8
 END
 
-IDD_HILL_ANALYSIS DIALOGEX 0, 0, 300, 325
+IDD_HILL_ANALYSIS DIALOGEX 0, 0, 302, 361
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Analiza Hilla (Tekst Jawny)"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "&Kontynuuj",IDOK,9,299,71,17
-    PUSHBUTTON      "&Anuluj",IDCANCEL,222,299,62,17
-    LTEXT           "Wymiar: analiza od",IDC_STATIC,22,276,83,8
-    COMBOBOX        IDC_DIM_VON,113,274,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    CTEXT           "do",IDC_STATIC,141,277,30,8
-    COMBOBOX        IDC_DIM_BIS,171,274,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "&Kontynuuj",IDOK,9,333,71,19
+    PUSHBUTTON      "&Anuluj",IDCANCEL,231,333,62,19
+    LTEXT           "Wymiar: analiza od",IDC_STATIC,19,310,83,8
+    COMBOBOX        IDC_DIM_VON,139,306,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CTEXT           "do",IDC_STATIC,169,310,8,8
+    COMBOBOX        IDC_DIM_BIS,181,306,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,9,26,284,233
     PUSHBUTTON      "Datei öffnen",IDC_BUTTON_OPENFILE,232,237,50,14
     PUSHBUTTON      "Aktive Datei laden",IDC_BUTTON2,154,237,71,14
     LTEXT           "Diese Hill-Analyse ist eine Known-Plaintext-Analyse, mit deren Hilfe Sie aus dem Klartext und dem Geheimtext den Hill-Schlüssel berechnen können.",IDC_LBL_INFOTEXT,9,5,284,17,0,WS_EX_TRANSPARENT
-    GROUPBOX        "Welche Schlüsseldimensionen kommen in Frage",IDC_STATIC,9,263,284,30
+    GROUPBOX        "Welche Varianten der Hill-Verschlüsselung sollen analysiert werden",IDC_STATIC,9,263,284,63
+    PUSHBUTTON      "Textoptionen",IDC_BUTTON1,154,333,71,19
+    LTEXT           "Multiplikationsart",IDC_STATIC,20,276,53,8
+    CONTROL         "(Vektorreihe) x (Matrix)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,86,276,87,8
+    CONTROL         "(Matrix) x (Vektorreihe)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,182,276,87,8
+    LTEXT           "Wert des ersten Alphabetzeichens:",IDC_STATIC,20,293,119,8
+    CONTROL         "0",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,152,293,18,8
+    CONTROL         "1",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,182,293,19,8
 END
 
 IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 302, 252
@@ -7174,9 +7181,14 @@ BEGIN
 
     IDD_HILL_ANALYSIS, DIALOG
     BEGIN
+        RIGHTMARGIN, 300
         VERTGUIDE, 9
-        VERTGUIDE, 292
-        HORZGUIDE, 316
+        VERTGUIDE, 19
+        VERTGUIDE, 293
+        BOTTOMMARGIN, 352
+        HORZGUIDE, 318
+        HORZGUIDE, 333
+        HORZGUIDE, 352
     END
 
     IDD_KEYASYM_GENERATION, DIALOG
@@ -10689,12 +10701,12 @@ BEGIN
                             "-cp "".;./lib/*"" main.Programm"
 END
 
-#endif    // Polnisch resources
+#endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -10863,22 +10875,29 @@ BEGIN
     LTEXT           "Siehe Menü: Analyse \\ Symmetrische Verschlüsselung (modern)",IDC_STATIC,20,170,258,8
 END
 
-IDD_HILL_ANALYSIS DIALOGEX 0, 0, 302, 322
+IDD_HILL_ANALYSIS DIALOGEX 0, 0, 302, 361
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hill-Analyse (Known-Plaintext)"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "Schlüssel suchen",IDOK,9,297,76,17
-    PUSHBUTTON      "Schließen",IDCANCEL,231,297,62,17
-    COMBOBOX        IDC_DIM_VON,141,274,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_DIM_BIS,199,274,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Durchsuchen der Dimensionen von",IDC_STATIC,20,278,115,8
-    CTEXT           "bis",IDC_STATIC,169,278,30,8
+    DEFPUSHBUTTON   "Schlüssel suchen",IDOK,9,335,76,18
+    PUSHBUTTON      "Schließen",IDCANCEL,231,335,62,18
+    COMBOBOX        IDC_DIM_VON,136,305,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_DIM_BIS,182,305,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Durchsuchen der Dimensionen von",IDC_STATIC,20,309,115,8
+    CTEXT           "bis",IDC_STATIC,163,309,18,8
     CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,9,26,284,233
     PUSHBUTTON      "Datei öffnen",IDC_BUTTON_OPENFILE,232,237,50,14
     PUSHBUTTON      "Aktive Datei laden",IDC_BUTTON2,154,237,71,14
     LTEXT           "Diese Hill-Analyse ist eine Known-Plaintext-Analyse, mit deren Hilfe Sie aus dem Klartext und dem Geheimtext den Hill-Schlüssel berechnen können.",IDC_LBL_INFOTEXT,9,5,284,17,0,WS_EX_TRANSPARENT
-    GROUPBOX        "Welche Schlüsseldimensionen kommen in Frage",IDC_STATIC,9,263,284,30
+    GROUPBOX        "Welche Varianten der Hill-Verschlüsselung sollen analysiert werden",IDC_STATIC,9,263,284,63
+    PUSHBUTTON      "Textoptionen",IDC_BUTTON1,91,335,71,18
+    LTEXT           "Multiplikationsart",IDC_STATIC,20,276,53,8
+    CONTROL         "(Vektorreihe) x (Matrix)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,86,276,87,8
+    CONTROL         "(Matrix) x (Vektorreihe)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,182,276,87,8
+    LTEXT           "Wert des ersten Alphabetzeichens:",IDC_STATIC,20,292,119,8
+    CONTROL         "0",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,152,292,18,8
+    CONTROL         "1",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,182,292,19,8
 END
 
 IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 299, 233
@@ -15130,7 +15149,7 @@ BEGIN
     CONTROL         "Text",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,189,315,59,10
     LTEXT           "Betrachte Eingabedokument als:",IDC_STATIC,17,315,110,10
     PUSHBUTTON      "Textoptionen",IDC_BUTTON2,100,335,59,17
-    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,31,306,206
+    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,30,306,208
     PUSHBUTTON      "Aktive Datei laden",IDC_BUTTON70,165,218,73,14
 END
 
@@ -17939,9 +17958,11 @@ BEGIN
         VERTGUIDE, 225
         VERTGUIDE, 282
         VERTGUIDE, 293
-        BOTTOMMARGIN, 314
+        BOTTOMMARGIN, 353
         HORZGUIDE, 251
-        HORZGUIDE, 286
+        HORZGUIDE, 284
+        HORZGUIDE, 317
+        HORZGUIDE, 335
     END
 
     IDD_SHOW_KEY_HILL5x5, DIALOG
@@ -21384,12 +21405,12 @@ BEGIN
                             "-cp "".;./lib/*"" main.Programm"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -21614,22 +21635,29 @@ BEGIN
     LTEXT           "See menu: Analysis \\ Symmetric Encryption (modern)",IDC_STATIC,19,170,258,8
 END
 
-IDD_HILL_ANALYSIS DIALOGEX 0, 0, 300, 325
+IDD_HILL_ANALYSIS DIALOGEX 0, 0, 302, 361
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hill Analysis (Known Plaintext)"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "C&ontinue",IDOK,9,299,71,17
-    PUSHBUTTON      "&Cancel",IDCANCEL,222,299,62,17
-    LTEXT           "Search through the dimensions from",IDC_STATIC,16,278,117,8
-    COMBOBOX        IDC_DIM_VON,135,274,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    CTEXT           "to",IDC_STATIC,163,278,30,8
-    COMBOBOX        IDC_DIM_BIS,193,274,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "C&ontinue",IDOK,9,335,71,18
+    PUSHBUTTON      "&Cancel",IDCANCEL,231,335,62,18
+    LTEXT           "Search through the dimensions from",IDC_STATIC,16,310,117,8
+    COMBOBOX        IDC_DIM_VON,139,306,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CTEXT           "to",IDC_STATIC,169,310,9,8
+    COMBOBOX        IDC_DIM_BIS,182,306,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,9,26,284,233
     PUSHBUTTON      "Datei öffnen",IDC_BUTTON_OPENFILE,232,237,50,14
     PUSHBUTTON      "Aktive Datei laden",IDC_BUTTON2,154,237,71,14
     LTEXT           "Diese Hill-Analyse ist eine Known-Plaintext-Analyse, mit deren Hilfe Sie aus dem Klartext und dem Geheimtext den Hill-Schlüssel berechnen können.",IDC_LBL_INFOTEXT,9,5,284,17,0,WS_EX_TRANSPARENT
-    GROUPBOX        "Welche Schlüsseldimensionen kommen in Frage",IDC_STATIC,9,263,284,30
+    GROUPBOX        "Welche Varianten der Hill-Verschlüsselung sollen analysiert werden",IDC_STATIC,9,263,284,63
+    PUSHBUTTON      "Textoptionen",IDC_BUTTON1,154,335,71,18
+    LTEXT           "Multiplikationsart",IDC_STATIC,16,276,57,8
+    CONTROL         "(Vektorreihe) x (Matrix)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,86,276,87,8
+    CONTROL         "(Matrix) x (Vektorreihe)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,182,276,87,8
+    LTEXT           "Wert des ersten Alphabetzeichens:",IDC_STATIC,16,293,123,8
+    CONTROL         "0",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,152,293,18,8
+    CONTROL         "1",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,182,293,19,8
 END
 
 IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 302, 252
@@ -25774,7 +25802,7 @@ BEGIN
     EDITTEXT        IDC_EDIT_RANGE_FROM,250,265,42,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_RANGE_TO,250,281,42,12,ES_AUTOHSCROLL
     PUSHBUTTON      "Datei laden",IDC_BUTTON1,252,218,54,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,248,338,65,17
+    PUSHBUTTON      "Close",IDCANCEL,248,338,65,17
     GROUPBOX        "Einlesen",IDC_GB_EINLESEN,15,254,67,43
     GROUPBOX        "Permutieren",IDC_GB_PERMUTIEREN,87,254,66,43
     GROUPBOX        "Auslesen",IDC_GB_AUSLESEN,157,254,66,43
@@ -28573,9 +28601,14 @@ BEGIN
 
     IDD_HILL_ANALYSIS, DIALOG
     BEGIN
+        RIGHTMARGIN, 300
         VERTGUIDE, 9
-        VERTGUIDE, 291
-        BOTTOMMARGIN, 221
+        VERTGUIDE, 16
+        VERTGUIDE, 293
+        BOTTOMMARGIN, 353
+        HORZGUIDE, 257
+        HORZGUIDE, 318
+        HORZGUIDE, 335
     END
 
     IDD_KEYASYM_GENERATION, DIALOG
@@ -32136,7 +32169,7 @@ BEGIN
                             "-cp "".;./lib/*"" main.Programm"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

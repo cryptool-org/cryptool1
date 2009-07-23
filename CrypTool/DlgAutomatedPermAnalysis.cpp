@@ -65,7 +65,14 @@ CDlgAutomatedPermAnalysis::CDlgAutomatedPermAnalysis(CWnd* pParent /*=NULL*/)
 
 int CDlgAutomatedPermAnalysis::setSourceFilename(const char *filename, char *&fn, __int64 &sz )
 {
-	if ( getFileSize(filename, sz) && ( sz > 0 ) )
+	if ( !filename )
+	{
+		delete []fn;
+		fn = NULL;
+		sz = 0;
+		return -1;
+	}
+	if ( getFileSize(filename, sz) )
 	{
 		delete []fn;
 		fn = new char[strlen(filename)+1];
@@ -100,6 +107,7 @@ void CDlgAutomatedPermAnalysis::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_RANGE_FROM, m_editRangeFrom);
 	DDX_Text(pDX, IDC_EDIT_RANGE_TO, m_editRangeTo);
 	DDX_Control(pDX, IDC_TAB1, m_TC_textspace);
+	DDX_Control(pDX, IDC_BUTTON70, m_ctrl_LoadActiveDocument);
 }
 
 
@@ -117,6 +125,7 @@ BEGIN_MESSAGE_MAP(CDlgAutomatedPermAnalysis, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON2, &CDlgAutomatedPermAnalysis::OnBnClickedTextOptions)
 	ON_NOTIFY(TCN_SELCHANGE, IDC_TAB1, &CDlgAutomatedPermAnalysis::OnTcnSelchangeTabEditor)
 	ON_BN_CLICKED(IDC_BUTTON70, &CDlgAutomatedPermAnalysis::OnBnClickedLoadActiveDocument)
+	ON_BN_CLICKED(IDCANCEL, &CDlgAutomatedPermAnalysis::OnBnClickedClose)
 END_MESSAGE_MAP()
 
 
@@ -197,11 +206,11 @@ BOOL CDlgAutomatedPermAnalysis::OnInitDialog()
 	tabHeader=_T("");
 	tabHeader.LoadString(IDS_CIPHERTEXT);
 	m_TC_textspace.InsertItem(1,tabHeader);
-
 	m_TC_textspace.ShowWindow(TRUE);
 
 	UpdateData(TRUE);
 
+	if ( !fn_activeDocument ) m_ctrl_LoadActiveDocument.EnableWindow(FALSE);
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 }
@@ -454,4 +463,26 @@ void CDlgAutomatedPermAnalysis::OnTcnSelchangeTabEditor(NMHDR *pNMHDR, LRESULT *
 void CDlgAutomatedPermAnalysis::OnBnClickedLoadActiveDocument()
 {
 	OpenFile(fn_activeDocument);
+}
+
+void CDlgAutomatedPermAnalysis::OnBnClickedClose()
+{
+	UpdateData();
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "PermutationAnalysis") == ERROR_SUCCESS)
+	{
+		CT_WRITE_REGISTRY((unsigned long)m_chk_inRowbyRow,   "inRowbyRow");
+		CT_WRITE_REGISTRY((unsigned long)m_chk_permRowbyRow, "permRowbyRow");
+		CT_WRITE_REGISTRY((unsigned long)m_chk_outRowbyRow,  "outRowbyRow");
+		CT_WRITE_REGISTRY((unsigned long)m_chk_inColbyCol,   "inColbyCol");
+		CT_WRITE_REGISTRY((unsigned long)m_chk_permColbyCol, "permColbyCol");
+		CT_WRITE_REGISTRY((unsigned long)m_chk_outColbyCol,  "outColbyCol");
+		CT_WRITE_REGISTRY(               m_editRangeFrom,	 "EditRangeFrom"); 
+		CT_WRITE_REGISTRY(               m_editRangeTo,		 "EditRangeTo"); 
+		CT_WRITE_REGISTRY((unsigned long)m_DataType,		 "DataType");
+
+		CT_CLOSE_REGISTRY();
+	}
+
+	UpdateData(FALSE);
+	OnCancel();
 }

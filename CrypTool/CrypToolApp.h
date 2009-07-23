@@ -201,6 +201,7 @@ public:
 	afx_msg void OnProtokolSMIME();
 	afx_msg void OnAesRijndaelFlowvisualisation();
 	afx_msg void OnVigenereAnalysisSchroedel();
+	afx_msg void OnKnownAnalysisSinglePermutation();
 };
 
 class CMainFrame : public CMDIFrameWnd

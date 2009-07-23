@@ -83,7 +83,7 @@
 #include "DlgSecretSharingSetup.h"
 #include "DlgPrimeTest.h"
 #include "DlgVigenereAnalysisSchroedel.h"
-
+#include "DlgAutomatedPermAnalysis.h"
 #include "HillEncryption.h"
 
 // #if !defined(_MSC_VER) || _MSC_VER <= 1200
@@ -206,6 +206,7 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_COMMAND(ID_INTERACTIVE_NUMBER_THEORY, OnInteractiveNumberTheory)
 	ON_COMMAND(ID_PROTOKOL_SMIME, &CCrypToolApp::OnProtokolSMIME)
 	ON_COMMAND(ID_AES_RIJNDAEL_FLOWVISUALISATION, &CCrypToolApp::OnAesRijndaelFlowvisualisation)
+	ON_COMMAND(ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION, &CCrypToolApp::OnKnownAnalysisSinglePermutation)
 END_MESSAGE_MAP()
 
 
@@ -1593,4 +1594,13 @@ void CCrypToolApp::OnVigenereAnalysisSchroedel()
 {
 	CDlgVigenereAnalysisSchroedel dlg;
 	dlg.DoModal();
+}
+void CCrypToolApp::OnKnownAnalysisSinglePermutation()
+{
+	CDlgAutomatedPermAnalysis dlg;
+	dlg.setSourceFilename(NULL);
+	if (IDOK == dlg.DoModal())
+	{
+		// DO SOMETHING???		
+	}
 }

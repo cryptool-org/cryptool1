@@ -99,6 +99,8 @@ public:
 	CTabCtrl m_TC_textspace;
 	afx_msg void OnTcnSelchangeTabEditor(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnBnClickedLoadActiveDocument();
+	CButton m_ctrl_LoadActiveDocument;
+	afx_msg void OnBnClickedClose();
 };
 
 

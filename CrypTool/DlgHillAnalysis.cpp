@@ -83,6 +83,8 @@ BEGIN_MESSAGE_MAP(CDlgHillAnaylsis, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON2, &CDlgHillAnaylsis::OnBnClickedButtonLoadActiveDocument)
 	ON_BN_CLICKED(IDC_BUTTON_OPENFILE, &CDlgHillAnaylsis::OnBnClickedButtonOpenfile)
 	ON_NOTIFY(TCN_SELCHANGE, IDC_TAB1, &CDlgHillAnaylsis::OnTcnSelchangeTab1)
+	ON_BN_CLICKED(IDOK, &CDlgHillAnaylsis::OnBnClickedSearchKey)
+	ON_BN_CLICKED(IDCANCEL, &CDlgHillAnaylsis::OnBnClickedCancel)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -116,6 +118,29 @@ void CDlgHillAnaylsis::initSCEdit()
     ScinMSG(SCI_MARKERDEFINE, SC_MARKNUM_FOLDERMIDTAIL, SC_MARK_EMPTY);
 	setViewOptions();
 }
+
+int CDlgHillAnaylsis::setSourceFilename(const char *filename, char *&fn, __int64 &sz )
+{
+	if ( !filename )
+	{
+		delete []fn;
+		fn = NULL;
+		sz = 0;
+		return -1;
+	}
+	if ( getFileSize(filename, sz) )
+	{
+		delete []fn;
+		fn = new char[strlen(filename)+1];
+		strcpy(fn, filename);
+	}
+	else
+		return -1;
+
+	return 0;
+}
+
+
 
 void CDlgHillAnaylsis::setViewOptions()
 {
@@ -236,10 +261,30 @@ BOOL CDlgHillAnaylsis::OnInitDialog()
 		WS_CHILD | WS_VISIBLE | WS_TABSTOP | WS_CLIPCHILDREN, 22, 75, 410, 300, *this, NULL, NULL, NULL);
 	::ShowWindow(hWndEditCipher, SW_HIDE);
 
-	
-	// TODO: Zusätzliche Initialisierung hier einfügen
+	UpdateData();
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "HillAnalysis") == ERROR_SUCCESS)
+	{
+/*
+		unsigned long ul_inRowbyRow, ul_permRowbyRow, ul_outRowbyRow, ul_inColbyCol, ul_permColbyCol, ul_outColbyCol;
+		char numStr[64]; 
+		unsigned long l = 63;
+		CT_READ_REGISTRY_DEFAULT(ul_inRowbyRow,   "inRowbyRow",   1);
+		CT_READ_REGISTRY_DEFAULT(ul_permRowbyRow, "permRowbyRow", 1);
+		CT_READ_REGISTRY_DEFAULT(ul_outRowbyRow,  "outRowbyRow",  1);
+		CT_READ_REGISTRY_DEFAULT(ul_inColbyCol,   "inColbyCol",   1);
+		CT_READ_REGISTRY_DEFAULT(ul_permColbyCol, "permColbyCol", 1);
+		CT_READ_REGISTRY_DEFAULT(ul_outColbyCol,  "outColbyCol",  1);
+		CT_READ_REGISTRY_DEFAULT(numStr, "EditRangeFrom", "1", l); m_editRangeFrom = numStr;
+		CT_READ_REGISTRY_DEFAULT(numStr,   "EditRangeTo", "", l);  m_editRangeTo   = numStr;
+		CT_READ_REGISTRY_DEFAULT(l, "DataType", 0); m_DataType = l;
 
-	// Combo-Boxen fuer Bereich der Schluesselsuche initialisieren
+		m_chk_inRowbyRow   = ul_inRowbyRow;   m_chk_inColbyCol   = ul_inColbyCol;
+		m_chk_outRowbyRow  = ul_outRowbyRow;  m_chk_outColbyCol  = ul_outColbyCol;
+		m_chk_permRowbyRow = ul_permRowbyRow; m_chk_permColbyCol = ul_permColbyCol;
+*/
+		CT_CLOSE_REGISTRY();
+	}
+
 	for (int i=1; i<=HILL_MAX_DIM_GROSS; i++)
 	{
 		CString cs;
@@ -265,6 +310,8 @@ BOOL CDlgHillAnaylsis::OnInitDialog()
 	tabHeader.LoadString(IDS_CIPHERTEXT);
 	m_TC_textspace.InsertItem(1,tabHeader);
 	m_TC_textspace.ShowWindow(TRUE);
+
+	if ( !fn_activeDocument ) m_ctrl_loadActiveDocument.EnableWindow(FALSE);
 
 	UpdateData(TRUE);
 
@@ -331,4 +378,32 @@ void CDlgHillAnaylsis::OnTcnSelchangeTab1(NMHDR *pNMHDR, LRESULT *pResult)
 	setViewOptions();
 
 	*pResult = 0;
+}
+
+void CDlgHillAnaylsis::OnBnClickedSearchKey()
+{
+
+}
+
+void CDlgHillAnaylsis::OnBnClickedCancel()
+{
+	UpdateData();
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "PermutationAnalysis") == ERROR_SUCCESS)
+	{
+/*
+		CT_WRITE_REGISTRY((unsigned long)m_chk_inRowbyRow,   "inRowbyRow");
+		CT_WRITE_REGISTRY((unsigned long)m_chk_permRowbyRow, "permRowbyRow");
+		CT_WRITE_REGISTRY((unsigned long)m_chk_outRowbyRow,  "outRowbyRow");
+		CT_WRITE_REGISTRY((unsigned long)m_chk_inColbyCol,   "inColbyCol");
+		CT_WRITE_REGISTRY((unsigned long)m_chk_permColbyCol, "permColbyCol");
+		CT_WRITE_REGISTRY((unsigned long)m_chk_outColbyCol,  "outColbyCol");
+		CT_WRITE_REGISTRY(               m_editRangeFrom,	 "EditRangeFrom"); 
+		CT_WRITE_REGISTRY(               m_editRangeTo,		 "EditRangeTo"); 
+		CT_WRITE_REGISTRY((unsigned long)m_DataType,		 "DataType");
+*/
+		CT_CLOSE_REGISTRY();
+	}
+	UpdateData(FALSE);
+
+	OnCancel();
 }
