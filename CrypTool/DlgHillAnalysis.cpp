@@ -33,6 +33,7 @@
 #include "HexEditCtrlView.h"
 #include "FileTools.h"
 #include "CrypToolTools.h"
+#include "HillAnalysis.h"
 
 #define BLOCK_SIZE 1024
 
@@ -56,6 +57,8 @@ CDlgHillAnaylsis::CDlgHillAnaylsis(CWnd* pParent /*=NULL*/)
 	, fn_activeDocument(0)
 	, fn_plaintext(0)
 	, fn_ciphertext(0)
+	, m_multDir(0)
+	, m_ofs(0)
 {
 }
 
@@ -70,6 +73,8 @@ CDlgHillAnaylsis::~CDlgHillAnaylsis()
 void CDlgHillAnaylsis::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
+	DDX_Radio(pDX, IDC_RADIO1, m_multDir);
+	DDX_Radio(pDX, IDC_RADIO3, m_ofs);
 	DDX_Control(pDX, IDC_DIM_VON, m_DimensionVon);
 	DDX_Control(pDX, IDC_DIM_BIS, m_DimensionBis);
 	DDX_Control(pDX, IDC_BUTTON2, m_ctrl_loadActiveDocument);
@@ -85,6 +90,7 @@ BEGIN_MESSAGE_MAP(CDlgHillAnaylsis, CDialog)
 	ON_NOTIFY(TCN_SELCHANGE, IDC_TAB1, &CDlgHillAnaylsis::OnTcnSelchangeTab1)
 	ON_BN_CLICKED(IDOK, &CDlgHillAnaylsis::OnBnClickedSearchKey)
 	ON_BN_CLICKED(IDCANCEL, &CDlgHillAnaylsis::OnBnClickedCancel)
+	ON_BN_CLICKED(IDC_BUTTON1, &CDlgHillAnaylsis::OnBnClickedTextOptions)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -140,42 +146,32 @@ int CDlgHillAnaylsis::setSourceFilename(const char *filename, char *&fn, __int64
 	return 0;
 }
 
-
+#define CT_LEXER_LANGUAGE	"CrypTool"
+#define CT_LEXER_LIB		"LexCrypTool"
+#define STYLE_NONEALPHABET	"2"
 
 void CDlgHillAnaylsis::setViewOptions()
 {
-#if 0
-	if (m_DataType) 
-	{
-		CString Alphabet;
-		theApp.TextOptions.getAlphabetWithOptions(Alphabet);
-		ScinMSG(SCI_STYLESETFORE, atoi(STYLE_NONEALPHABET), RGB(192,192,192));
-		ScinMSG(SCI_SETPROPERTY, (WPARAM)_T("cryptool.nonalphabetstyle"), (LPARAM)STYLE_NONEALPHABET);
-		ScinMSG(SCI_SETPROPERTY, (WPARAM)_T("cryptool.alphabet"), (LPARAM)(LPCTSTR)Alphabet);
-		ScinMSG(SCI_SETSTYLEBITS, 5, 0);
-		ScinMSG(SCI_SETLEXERLANGUAGE,0,(LPARAM)CT_LEXER_LANGUAGE );
-		if (SCLEX_NULL == ScinMSG(SCI_GETLEXER)) {
+	CString Alphabet;
+	theApp.TextOptions.getAlphabetWithOptions(Alphabet);
+	ScinMSG(SCI_STYLESETFORE, atoi(STYLE_NONEALPHABET), RGB(192,192,192));
+	ScinMSG(SCI_SETPROPERTY, (WPARAM)_T("cryptool.nonalphabetstyle"), (LPARAM)STYLE_NONEALPHABET);
+	ScinMSG(SCI_SETPROPERTY, (WPARAM)_T("cryptool.alphabet"), (LPARAM)(LPCTSTR)Alphabet);
+	ScinMSG(SCI_SETSTYLEBITS, 5, 0);
+	ScinMSG(SCI_SETLEXERLANGUAGE,0,(LPARAM)CT_LEXER_LANGUAGE );
+	if (SCLEX_NULL == ScinMSG(SCI_GETLEXER)) {
 #ifdef BUILD_AS_EXTERNAL_LEXER
-			SendMessage(SCI_LOADLEXERLIBRARY,0,(LPARAM)CT_LEXER_LIB);
-			SendMessage(SCI_SETLEXERLANGUAGE,0,(LPARAM)CT_LEXER_LANGUAGE );
+		SendMessage(SCI_LOADLEXERLIBRARY,0,(LPARAM)CT_LEXER_LIB);
+		SendMessage(SCI_SETLEXERLANGUAGE,0,(LPARAM)CT_LEXER_LANGUAGE );
 #endif
-			if (SCLEX_NULL == ScinMSG(SCI_GETLEXER)) {
-				CString msg;
-				msg.Format(IDS_SCINTILLA_LEXER_ERROR,CT_LEXER_LIB);
-				MessageBox(msg);
-			}
+		if (SCLEX_NULL == ScinMSG(SCI_GETLEXER)) {
+			CString msg;
+			msg.Format(IDS_SCINTILLA_LEXER_ERROR,CT_LEXER_LIB);
+			MessageBox(msg);
 		}
-		ScinMSG(SCI_CLEARDOCUMENTSTYLE, 0, 0);
-		ScinMSG(SCI_COLOURISE,0,(LPARAM)1); // trigger re-lexing
-	} 
-	else 
-	{
-		ScinMSG(SCI_SETVIEWEOL, TRUE, 0); // if omitted and word wrap is active only the first line of a paragraph is shown
-		ScinMSG(SCI_SETLEXER, SCLEX_NULL);
-		ScinMSG(SCI_CLEARDOCUMENTSTYLE, 0, 0);
 	}
-	ScinMSG(SCI_SETVIEWEOL, m_DataType ? 1 : 0);
-#endif
+	ScinMSG(SCI_CLEARDOCUMENTSTYLE, 0, 0);
+	ScinMSG(SCI_COLOURISE,0,(LPARAM)1); // trigger re-lexing
 }
 
 void CDlgHillAnaylsis::OpenFile(const char *fileName) 
@@ -261,30 +257,6 @@ BOOL CDlgHillAnaylsis::OnInitDialog()
 		WS_CHILD | WS_VISIBLE | WS_TABSTOP | WS_CLIPCHILDREN, 22, 75, 410, 300, *this, NULL, NULL, NULL);
 	::ShowWindow(hWndEditCipher, SW_HIDE);
 
-	UpdateData();
-	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "HillAnalysis") == ERROR_SUCCESS)
-	{
-/*
-		unsigned long ul_inRowbyRow, ul_permRowbyRow, ul_outRowbyRow, ul_inColbyCol, ul_permColbyCol, ul_outColbyCol;
-		char numStr[64]; 
-		unsigned long l = 63;
-		CT_READ_REGISTRY_DEFAULT(ul_inRowbyRow,   "inRowbyRow",   1);
-		CT_READ_REGISTRY_DEFAULT(ul_permRowbyRow, "permRowbyRow", 1);
-		CT_READ_REGISTRY_DEFAULT(ul_outRowbyRow,  "outRowbyRow",  1);
-		CT_READ_REGISTRY_DEFAULT(ul_inColbyCol,   "inColbyCol",   1);
-		CT_READ_REGISTRY_DEFAULT(ul_permColbyCol, "permColbyCol", 1);
-		CT_READ_REGISTRY_DEFAULT(ul_outColbyCol,  "outColbyCol",  1);
-		CT_READ_REGISTRY_DEFAULT(numStr, "EditRangeFrom", "1", l); m_editRangeFrom = numStr;
-		CT_READ_REGISTRY_DEFAULT(numStr,   "EditRangeTo", "", l);  m_editRangeTo   = numStr;
-		CT_READ_REGISTRY_DEFAULT(l, "DataType", 0); m_DataType = l;
-
-		m_chk_inRowbyRow   = ul_inRowbyRow;   m_chk_inColbyCol   = ul_inColbyCol;
-		m_chk_outRowbyRow  = ul_outRowbyRow;  m_chk_outColbyCol  = ul_outColbyCol;
-		m_chk_permRowbyRow = ul_permRowbyRow; m_chk_permColbyCol = ul_permColbyCol;
-*/
-		CT_CLOSE_REGISTRY();
-	}
-
 	for (int i=1; i<=HILL_MAX_DIM_GROSS; i++)
 	{
 		CString cs;
@@ -293,13 +265,31 @@ BOOL CDlgHillAnaylsis::OnInitDialog()
 		m_DimensionBis.AddString(cs);
 	}
 
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "HillAnalysis") == ERROR_SUCCESS)
+	{
+
+		unsigned long ul_ofs, ul_multDir, ul_dimFrom, ul_dimTo;
+		CT_READ_REGISTRY_DEFAULT(ul_ofs,     "alphabetOffset",          0);
+		CT_READ_REGISTRY_DEFAULT(ul_multDir, "multiplicationDirection", 0);
+		CT_READ_REGISTRY_DEFAULT(ul_dimFrom, "dimensionFrom",           1);
+		CT_READ_REGISTRY_DEFAULT(ul_dimTo,   "dimensionTo",             10);
+
+		UpdateData();
+		m_ofs     = ul_ofs;
+		m_multDir = ul_multDir;
+		m_DimensionVon.SetCurSel(ul_dimFrom -1);
+		m_DimensionBis.SetCurSel(ul_dimTo   -1);
+		UpdateData(FALSE);
+
+		CT_CLOSE_REGISTRY();
+	}
+
 	// Standartmaessig alle Dimensionen beruecksichtigen
 	m_DimensionVon.SetCurSel(0);
 	m_DimensionBis.SetCurSel(HILL_MAX_DIM_GROSS-1);
 	von = 1;
 	bis = HILL_MAX_DIM_GROSS;
 	
-	UpdateData(FALSE);
 	DWORD dwExStyle= m_TC_textspace.GetExtendedStyle();
 	m_TC_textspace.SetExtendedStyle(dwExStyle | TCS_EX_FLATSEPARATORS);
 
@@ -312,6 +302,7 @@ BOOL CDlgHillAnaylsis::OnInitDialog()
 	m_TC_textspace.ShowWindow(TRUE);
 
 	if ( !fn_activeDocument ) m_ctrl_loadActiveDocument.EnableWindow(FALSE);
+	setViewOptions();
 
 	UpdateData(TRUE);
 
@@ -382,28 +373,41 @@ void CDlgHillAnaylsis::OnTcnSelchangeTab1(NMHDR *pNMHDR, LRESULT *pResult)
 
 void CDlgHillAnaylsis::OnBnClickedSearchKey()
 {
+	UpdateData();
+	int tmp = m_edTab;
+	m_edTab = 0; SaveFile();
+	m_edTab = 1; SaveFile();
+	m_edTab = tmp;
 
+	CHillAnalysis ha;
+	ha.init(fn_plaintext, fn_ciphertext, von, bis, m_ofs, m_multDir);
+
+	UpdateData(FALSE);
+
+	SHOW_HOUR_GLASS
+		ha.analyze();
+	HIDE_HOUR_GLASS
 }
 
 void CDlgHillAnaylsis::OnBnClickedCancel()
 {
 	UpdateData();
-	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "PermutationAnalysis") == ERROR_SUCCESS)
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "HillAnalysis") == ERROR_SUCCESS)
 	{
-/*
-		CT_WRITE_REGISTRY((unsigned long)m_chk_inRowbyRow,   "inRowbyRow");
-		CT_WRITE_REGISTRY((unsigned long)m_chk_permRowbyRow, "permRowbyRow");
-		CT_WRITE_REGISTRY((unsigned long)m_chk_outRowbyRow,  "outRowbyRow");
-		CT_WRITE_REGISTRY((unsigned long)m_chk_inColbyCol,   "inColbyCol");
-		CT_WRITE_REGISTRY((unsigned long)m_chk_permColbyCol, "permColbyCol");
-		CT_WRITE_REGISTRY((unsigned long)m_chk_outColbyCol,  "outColbyCol");
-		CT_WRITE_REGISTRY(               m_editRangeFrom,	 "EditRangeFrom"); 
-		CT_WRITE_REGISTRY(               m_editRangeTo,		 "EditRangeTo"); 
-		CT_WRITE_REGISTRY((unsigned long)m_DataType,		 "DataType");
-*/
+		CT_WRITE_REGISTRY((unsigned long)m_ofs,                          "alphabetOffset");
+		CT_WRITE_REGISTRY((unsigned long)m_multDir,                      "multiplicationDirection");
+		CT_WRITE_REGISTRY((unsigned long)m_DimensionVon.GetCurSel() + 1, "dimensionFrom");
+		CT_WRITE_REGISTRY((unsigned long)m_DimensionBis.GetCurSel() + 1, "dimensionTo");
 		CT_CLOSE_REGISTRY();
 	}
 	UpdateData(FALSE);
 
 	OnCancel();
+}
+
+void CDlgHillAnaylsis::OnBnClickedTextOptions()
+{
+	theApp.TextOptions.DoModal();
+	UpdateData();
+	setViewOptions();
 }

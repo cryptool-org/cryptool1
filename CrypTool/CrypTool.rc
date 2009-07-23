@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -10701,12 +10701,12 @@ BEGIN
                             "-cp "".;./lib/*"" main.Programm"
 END
 
-#endif    // Polish resources
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -10893,10 +10893,10 @@ BEGIN
     GROUPBOX        "Welche Varianten der Hill-Verschlüsselung sollen analysiert werden",IDC_STATIC,9,263,284,63
     PUSHBUTTON      "Textoptionen",IDC_BUTTON1,91,335,71,18
     LTEXT           "Multiplikationsart",IDC_STATIC,20,276,53,8
-    CONTROL         "(Vektorreihe) x (Matrix)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,86,276,87,8
+    CONTROL         "(Vektorreihe) x (Matrix)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,86,276,87,8
     CONTROL         "(Matrix) x (Vektorreihe)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,182,276,87,8
     LTEXT           "Wert des ersten Alphabetzeichens:",IDC_STATIC,20,292,119,8
-    CONTROL         "0",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,152,292,18,8
+    CONTROL         "0",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,152,292,18,8
     CONTROL         "1",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,182,292,19,8
 END
 
@@ -21405,12 +21405,12 @@ BEGIN
                             "-cp "".;./lib/*"" main.Programm"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -32169,7 +32169,7 @@ BEGIN
                             "-cp "".;./lib/*"" main.Programm"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

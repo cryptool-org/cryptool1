@@ -85,6 +85,7 @@
 #include "DlgVigenereAnalysisSchroedel.h"
 #include "DlgAutomatedPermAnalysis.h"
 #include "HillEncryption.h"
+#include "DlgHillAnalysis.h"
 
 // #if !defined(_MSC_VER) || _MSC_VER <= 1200
 #include "RSABloemerMayDlg.h"
@@ -207,6 +208,7 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_COMMAND(ID_PROTOKOL_SMIME, &CCrypToolApp::OnProtokolSMIME)
 	ON_COMMAND(ID_AES_RIJNDAEL_FLOWVISUALISATION, &CCrypToolApp::OnAesRijndaelFlowvisualisation)
 	ON_COMMAND(ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION, &CCrypToolApp::OnKnownAnalysisSinglePermutation)
+	ON_COMMAND(ID_HILL_AUTO, &CCrypToolApp::OnHillAuto)
 END_MESSAGE_MAP()
 
 
@@ -1598,6 +1600,16 @@ void CCrypToolApp::OnVigenereAnalysisSchroedel()
 void CCrypToolApp::OnKnownAnalysisSinglePermutation()
 {
 	CDlgAutomatedPermAnalysis dlg;
+	dlg.setSourceFilename(NULL);
+	if (IDOK == dlg.DoModal())
+	{
+		// DO SOMETHING???		
+	}
+}
+
+void CCrypToolApp::OnHillAuto()
+{
+	CDlgHillAnaylsis dlg;
 	dlg.setSourceFilename(NULL);
 	if (IDOK == dlg.DoModal())
 	{

@@ -83,8 +83,11 @@ public:
 	afx_msg void OnTcnSelchangeTab1(NMHDR *pNMHDR, LRESULT *pResult);
 	int setSourceFilename(const char *filename) 
 	{ return setSourceFilename(filename, fn_activeDocument, s_activeDocument); }
-		afx_msg void OnBnClickedSearchKey();
+	afx_msg void OnBnClickedSearchKey();
 	afx_msg void OnBnClickedCancel();
+	int m_multDir;
+	int m_ofs;
+	afx_msg void OnBnClickedTextOptions();
 };
 
 

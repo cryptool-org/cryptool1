@@ -430,8 +430,6 @@ void CDlgAutomatedPermAnalysis::OnBnClickedRadioBinary()
 
 void CDlgAutomatedPermAnalysis::OnBnClickedTextOptions()
 {
-//	CDlgTextOptions dlg;
-//	dlg.DoModal();
 	theApp.TextOptions.DoModal();
 	UpdateData();
 	setViewOptions();

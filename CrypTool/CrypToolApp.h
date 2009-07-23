@@ -202,6 +202,7 @@ public:
 	afx_msg void OnAesRijndaelFlowvisualisation();
 	afx_msg void OnVigenereAnalysisSchroedel();
 	afx_msg void OnKnownAnalysisSinglePermutation();
+	afx_msg void OnHillAuto();
 };
 
 class CMainFrame : public CMDIFrameWnd
