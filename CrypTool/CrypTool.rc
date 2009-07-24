@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polnisch resources
+// Polish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -247,15 +247,15 @@ BEGIN
     CTEXT           "do",IDC_STATIC,169,310,8,8
     COMBOBOX        IDC_DIM_BIS,181,306,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,9,26,284,233
-    PUSHBUTTON      "Datei öffnen",IDC_BUTTON_OPENFILE,232,237,50,14
-    PUSHBUTTON      "Aktive Datei laden",IDC_BUTTON2,154,237,71,14
-    LTEXT           "Diese Hill-Analyse ist eine Known-Plaintext-Analyse, mit deren Hilfe Sie aus dem Klartext und dem Geheimtext den Hill-Schlüssel berechnen können.",IDC_LBL_INFOTEXT,9,5,284,17,0,WS_EX_TRANSPARENT
+    PUSHBUTTON      "Szukaj plik",IDC_BUTTON_OPENFILE,232,237,50,14
+    PUSHBUTTON      "Zaladuj aktywny dokument",IDC_BUTTON2,121,237,104,14
+    LTEXT           "Ta analiza Hilla jest analiz¹ Known-Plaintext, która z tekstu oryginalnego i z tekstu tajnego oblicza klucz Hilla.",IDC_LBL_INFOTEXT,9,5,284,17,0,WS_EX_TRANSPARENT
     GROUPBOX        "Welche Varianten der Hill-Verschlüsselung sollen analysiert werden",IDC_STATIC,9,263,284,63
-    PUSHBUTTON      "Textoptionen",IDC_BUTTON1,154,333,71,19
-    LTEXT           "Multiplikationsart",IDC_STATIC,20,276,53,8
-    CONTROL         "(Vektorreihe) x (Matrix)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,86,276,87,8
-    CONTROL         "(Matrix) x (Vektorreihe)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,182,276,87,8
-    LTEXT           "Wert des ersten Alphabetzeichens:",IDC_STATIC,20,293,119,8
+    PUSHBUTTON      "&Opcje tekstu",IDC_BUTTON1,154,333,71,19
+    LTEXT           "Wariant mno¿enia",IDC_STATIC,20,276,58,8
+    CONTROL         "(wekt. wiersza)*(macierz)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,86,276,87,8
+    CONTROL         "(mac.)*(wektor kolumny)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,182,276,87,8
+    LTEXT           "Wartoœæ pierwszego znaku alfabetu",IDC_STATIC,20,293,119,8
     CONTROL         "0",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,152,293,18,8
     CONTROL         "1",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,182,293,19,8
 END
@@ -707,12 +707,12 @@ BEGIN
     EDITTEXT        IDC_EDIT1,124,17,16,12
     LTEXT           "Klucz Cezara:",IDC_STATIC,32,19,72,8
     GROUPBOX        "Uwaga",IDC_STATIC,7,42,171,68
-    LTEXT           "Statisch",IDC_EDIT_KEY_OFFSET_REMARK,15,54,155,50
+    LTEXT           "Statyczne",IDC_EDIT_KEY_OFFSET_REMARK,15,54,155,50
 END
 
 IDD_SHOW_KEY_HILL10x10 DIALOGEX 0, 0, 523, 337
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Macierz kluczy HIlla"
+CAPTION "Macierz kluczy Hilla"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "&Kopiuj klucz",IDC_BUTTON1,9,309,96,20
@@ -1870,18 +1870,18 @@ BEGIN
     CONTROL         "Wyjœcie",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,187,226,47,10
     EDITTEXT        IDC_EDIT3,23,68,234,12,ES_UPPERCASE | ES_AUTOHSCROLL | ES_READONLY
     GROUPBOX        "Pierwsza permutacja (prosta transpozycja kolumn)",IDC_STATIC,12,13,256,108
-    LTEXT           "Klucz (litery lub oddzielone przecinkami liczby)",IDC_STATIC,23,29,234,8
-    LTEXT           "Prezentacja jako permutacji jeœli klucz podany jest literowo",IDC_STATIC,23,59,234,8
+    LTEXT           "Klucz (litery lub liczby oddzielone przecinkami)",IDC_STATIC,23,29,234,8
+    LTEXT           "Prezentacja jako permutacja jeœli klucz podany jest literowo",IDC_STATIC,23,59,234,8
     EDITTEXT        IDC_EDIT4,23,190,234,12,ES_UPPERCASE | ES_AUTOHSCROLL | ES_READONLY
     GROUPBOX        "Druga permutacja (podwójna transpozycja kolumn)",IDC_STATIC,12,134,256,109
-    LTEXT           "Klucz (litery lub oddzielone przecinkami liczby)",IDC_STATIC,23,151,234,8
-    LTEXT           "Prezentacja jako permutacji jeœli klucz podany jest literowo",IDC_STATIC,23,180,234,8
+    LTEXT           "Klucz (litery lub liczby oddzielone przecinkami)",IDC_STATIC,23,151,234,8
+    LTEXT           "Prezentacja jako permutacja jeœli klucz podany jest literowo",IDC_STATIC,23,180,234,8
     RTEXT           "linia po linii:",IDC_STATIC,26,210,59,8
     RTEXT           "kolumna po kolumnie",IDC_STATIC,26,226,59,8
     RTEXT           "linia po linii:",IDC_STATIC,26,87,59,8
     RTEXT           "kolumna po kolumnie:",IDC_STATIC,26,103,59,8
     GROUPBOX        "Opcje",IDC_STATIC,12,254,256,57
-    LTEXT           "Consider input document as",IDC_STATIC,23,297,103,10
+    LTEXT           "Rozwaz dokument wejsciowy",IDC_STATIC,23,297,103,10
 END
 
 IDD_ICG_RANDOMPARAMETER DIALOG  0, 0, 294, 150
@@ -4397,12 +4397,12 @@ BEGIN
     LTEXT           "od",IDC_STATIC,234,268,14,9
     LTEXT           "do",IDC_STATIC,234,284,14,9
     GROUPBOX        "Opcje",IDC_STATIC,7,304,306,26
-    CONTROL         "Dane binarne",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,129,315,57,10
-    CONTROL         "Tekst",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,189,315,33,10
-    LTEXT           "Uwarzaæ dokument wejœciowy jako:",IDC_STATIC,17,312,110,15
+    CONTROL         "Dane binarne",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,139,315,57,10
+    CONTROL         "Tekst",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,199,315,33,10
+    LTEXT           "Uwarzaæ dokument wejœciowy jako:",IDC_STATIC,17,315,115,9
     PUSHBUTTON      "Opcje tekstu",IDC_BUTTON2,95,338,59,17
-    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,31,306,206
-    PUSHBUTTON      "Load active document",IDC_BUTTON70,157,218,81,14
+    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,32,306,206
+    PUSHBUTTON      "Zaladuj aktywny dokument",IDC_BUTTON70,140,218,98,14
 END
 
 IDD_AUTOMATED_PERM_ANALYSIS_OUTPUT DIALOGEX 0, 0, 242, 241
@@ -4696,7 +4696,7 @@ BEGIN
             POPUP "Tekst jawny"
             BEGIN
                 MENUITEM "H&ill",                       ID_HILL_AUTO, GRAYED
-                MENUITEM "Single &Column Transpsition", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
+                MENUITEM "&Transpozycja pojedynczej kolumny", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "Analiza &manualna"
             BEGIN
@@ -5041,7 +5041,7 @@ BEGIN
             POPUP "Tekst jawny"
             BEGIN
                 MENUITEM "H&ill",                       ID_HILL_AUTO
-                MENUITEM "Single &Column Transpsition", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
+                MENUITEM "&Transpozycja pojedynczej kolumny", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "Analiza &manualna"
             BEGIN
@@ -5386,7 +5386,7 @@ BEGIN
             POPUP "Tekst jawny"
             BEGIN
                 MENUITEM "H&ill",                       ID_HILL_AUTO
-                MENUITEM "Single &Column Transpsition", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
+                MENUITEM "&Transpozycja pojedynczej kolumny", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "Analiza &manualna"
             BEGIN
@@ -5731,7 +5731,7 @@ BEGIN
             POPUP "Tekst jawny"
             BEGIN
                 MENUITEM "H&ill",                       ID_HILL_AUTO
-                MENUITEM "Single &Column Transpsition", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
+                MENUITEM "&Transpozycja pojedynczej kolumny", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "Analiza &manualna"
             BEGIN
@@ -6103,7 +6103,7 @@ BEGIN
             POPUP "Tekst jawny"
             BEGIN
                 MENUITEM "H&ill",                       ID_HILL_AUTO, GRAYED
-                MENUITEM "Single &Column Transpsition", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
+                MENUITEM "&Transpozycja pojedynczej kolumny", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "Analiza &manualna"
             BEGIN
@@ -8247,7 +8247,7 @@ BEGIN
     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS 
                             "Encryption using simple transpositions (Scytale, Rail Fence)"
     ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION 
-                            "Plaintext attack against a single column transposition"
+                            "Atak pojedynczej transpozycji kolumnowej na tekst oryginalny"
 END
 
 STRINGTABLE 
@@ -10656,12 +10656,12 @@ BEGIN
     IDS_PA_COULDNOTOPEN_CIPHERFILE "Nie mo¿na otworzyæ pliku tekstu tajnego."
     IDS_PA_FILESIZES_DIFFERENT 
                             "Dolna granica zakresu wyszukiwania klucza jest wiêksza ni¿ górna granica."
-    IDS_PA_EMPTYFILE        "Oba pliki (tekst oryginalny i tajny) s¹ puste."
+    IDS_PA_EMPTYFILE        "Oba pliki (tekst oryginalny i szyfrowany) s¹ puste."
     IDS_PA_LIMITRANGE_ERROR "Dolna granica zakresu wyszukiwania klucza jest wiêksza ni¿ górna granica."
     IDS_PA_DIRECTION_ERROR  "Nigdy nie powinien siê pojawiæ."
     ID_PA_NOKEYFOUND        "Nie znaleziono ¿adnego klucza pojedynczej transpozycji."
     IDS_PLAINTEXT           "Tekst oryginalny"
-    IDS_CIPHERTEXT          "Tekst tajny"
+    IDS_CIPHERTEXT          "Tekst szyfrowany"
     IDS_PA_EMPTYREFFILE     "Aktywny dokument jest pusty!"
     IDS_ERROPEN_SMIMEDEMO   "Animacja flash S/MIME nie mo¿e byæ odtworzona.\n\nProszê sprawdziæ czy program SMIME_Animation.exe zosta³ zainstalowany w katalogu g³ównym CrypTool\n(""%s"")."
     IDS_SMIMEDEMO_EXE       "java"
@@ -10701,12 +10701,12 @@ BEGIN
                             "-cp "".;./lib/*"" main.Programm"
 END
 
-#endif    // Polnisch resources
+#endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -21405,12 +21405,12 @@ BEGIN
                             "-cp "".;./lib/*"" main.Programm"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -32169,7 +32169,7 @@ BEGIN
                             "-cp "".;./lib/*"" main.Programm"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
