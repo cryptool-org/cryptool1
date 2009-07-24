@@ -41,9 +41,8 @@
 \newenvironment{Proof}[1]
   {\textbf{Proof #1} \\}
   {\hfill$\Box$ \\}
-\theoremstyle{definition}
-\newtheorem{example}{Example}[section]
-
+\newenvironment{example}{\noindent\textbf{Example.}}{}
+\newenvironment{remark}{\noindent\textbf{Comment.}}{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title{ % Keine Leerzeilen, sonst Meldung: "Paragraph ended before \title was complete."

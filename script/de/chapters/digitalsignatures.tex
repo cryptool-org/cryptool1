@@ -365,8 +365,9 @@ $h^{(p-1)/q} > 1  \Mod{p}$ \\
 $y$ & $\strut \equiv  g^x  \mbox{ mod } p$ 
 \end{tabular}
 
-\emph{Bemerkung:} Die Parameter $p,q$ und $g$ können von einer Gruppe von
+\begin{remark} Die Parameter $p,q$ und $g$ können von einer Gruppe von
 Benutzern gemeinsam genutzt werden.
+\end{remark}
 
 \paragraph{Privater Schlüssel}\strut\\
 \begin{tabular}{l@{ }l}
@@ -381,15 +382,15 @@ $r$ & $= (g^k \; \mbox{ mod } p) \mbox{ mod } q$\\
 $s$ & $= (k^{-1}(\mbox{SHA-1}(m) + xr)) \mbox{ mod } q$
 \end{tabular}
 
-\emph{Bemerkung:}
+\begin{remark}
 \begin{itemize}
 \item $(s,r)$ ist die Signatur.
 \item Die Sicherheit der Signatur hängt nicht nur von der Mathematik ab,
 sondern auch von der Verfügbarkeit einer guten Zufallsquelle\index{Zufall}
 für $k$.
 \item SHA-1 \index{SHA-1} ist eine 160-Bit Hashfunktion.
-
 \end{itemize}
+\end{remark}
 \paragraph{Verifikation}\strut\\
 \begin{tabular}{l@{ }l}
 $w$ & $= s^{-1} \;  \mbox{ mod } q$\\
@@ -399,7 +400,8 @@ $v$ & $= (g^{u_1}y^{u_2}) \mbox{ mod } p)  \mbox{ mod } q$\\
 
 \end{tabular}
 
-\emph{Bemerkung:} Wenn $v = r$, dann ist die Signatur gültig.
+\begin{remark} Wenn $v = r$, dann ist die Signatur gültig.
+\end{remark}
 
 Obwohl DSA unabhängig von einem Verschlüsselungsverfahren so spezifiziert
 wurde, dass es aus Länder exportiert werden kann, die den Export von

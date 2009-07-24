@@ -200,9 +200,10 @@ gibt, so dass
 
 \end{enumerate}
  
-{\bf Bemerkung:}
+\begin{remark}
 Kongruente 0-1-Knapsackprobleme haben dieselben Lösungen.
 Ein schneller Algorithmus zur Klärung der Frage, ob zwei 0-1-Knapsackprobleme kongruent sind, ist nicht bekannt.
+\end{remark}
 
 Das Lösen eines 0-1-Knapsackproblems kann durch Probieren der $ 2^n $   Möglichkeiten für $ x_1, \dots, x_n $   erfolgen. Die beste Methode erfordert $ O(2^{n/2}) $  Operationen, was für $ n=100 $  mit $ 2^{100} \approx 1,27 \cdot 10^{30} $  und  $ 2^{n/2} \approx 1,13 \cdot 10^{15} $ für Computer eine unüberwindbare Hürde darstellt.
 Allerdings ist die Lösung für spezielle $ a_1, \dots, a_n $   recht einfach zu finden, etwa für $ a_i = 2^{i-1}. $  Die binäre Darstellung von $ g $ liefert unmittelbar $ x_1, \dots, x_n$. Allgemein ist die Lösung des 0-1-Knapsackproblems leicht zu finden, falls eine \index{Permutation} Permutation\footnote{Eine Permutation\index{Permutation} $\pi$ der Zahlen $1, \dots, n$ ist die Vertauschung der Reihenfolge, in der
@@ -338,11 +339,12 @@ Der Ausgangstext wird in Blöcke zerlegt und verschlüsselt, wobei jeder Block ein
 {\bf RSA-Verfahren} (auf dem Faktorisierungsproblem basierend).
 \vskip +20 pt
 
-{\bf Bemerkung:} 
+\begin{remark} 
 Die Eulersche Phi-Funktion ist definiert duch:
 $ \phi (N)$ ist die Anzahl der zu $ N $ {} teilerfremden natürlichen
 Zahlen $ x \leq N. $ Zwei natürliche Zahlen $ a $ und $ b $ sind
 teilerfremd\index{Zahlen!teilerfremd (co-prime)}, falls $ \ggt (a,b)=1. $
+\end{remark}
 
 Für die Eulersche Phi-Funktion gilt: $ \phi (1)=1,~\phi(2)=1,
 ~\phi(3)=2, ~\phi (4)=2, ~\phi(6)=2, ~\phi (10)= 4, ~\phi (15)=8. $
