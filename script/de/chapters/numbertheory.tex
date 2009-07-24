@@ -787,7 +787,6 @@ In \hyperlink{AppArith1}{Anhang E zu diesem Kapitel} finden Sie den Quellcode zu
 mehr die vollständigen Multiplikationstabellen angegeben, sondern nur die Zeilen
 für die Faktoren $5$ und $6$).
 
-\pagebreak
 In der Multiplikationstabelle mod $17$ wurde für $i = 1, 2, \cdots, 18$ berechnet:
 \begin{itemize}
    \item[] $(5*i)/17 = a$ Rest $r$ und hervorgehoben $5*i \equiv 1$ (mod $17$),
@@ -1132,7 +1131,8 @@ $$ a {\rm ~mod*~} b := (a * b){\rm ~(mod~}n), $$
 so ist $\mathbb{Z}_n$ zusammen mit dieser Operation {\bf normalerweise keine} Gruppe, weil
 nicht für jedes $n$ alle Eigenschaften erfüllt sind.
 
-{\bf Beispiele:}
+\begin{example}
+\mbox{}
 \begin{itemize}
 \item[a)] In $\mathbb{Z}_{15}$ besitzt z.B. das Element $5$ kein Inverses.
 Es gibt nämlich kein $a$ mit \\ $5 * a \equiv 1 ({\rm ~mod~}15).$
@@ -1145,6 +1145,7 @@ teilerfremd\index{Zahlen!teilerfremd (co-prime)} zu $55$ sind.
 Jedes Modulo-Produkt mit $5$ ergibt auf dieser Menge $5, 10, 15, \cdots, 50$ oder $0$.
 Jedes Modulo-Produkt mit $11$ ergibt auf dieser Menge $11, 22, 33, 44$ oder $0$.
 \end{itemize}
+\end{example}
 Dagegen gibt es Teilmengen von $\mathbb{Z}_n$, die bezüglich mod* eine Gruppe bilden.
 Wählt man sämtliche Elemente aus $\mathbb{Z}_n$ aus, die teilerfremd zu $n$ sind, so ist
 diese Menge eine Gruppe bezüglich mod*. Diese Menge bezeichnet man mit $\mathbb{Z}_n^*$ .
@@ -1528,8 +1529,6 @@ Mit Hilfe der Primitivwurzel\index{Primitivwurzel} kann man die Bedingungen klar
 wann Potenzen modulo $m$ {\em eindeutig invertierbar}\index{invertierbar}
 und die Berechnung in den Exponenten handhabbar sind.
 
-
-\newpage
 Die folgenden beiden Tabellen zeigen multiplikative Ordnung und Primitivwurzel\index{Primitivwurzel}
 modulo $45$ und modulo $46$.
 
@@ -1899,10 +1898,9 @@ Das heißt, der oben angegebene Dechiffrieralgorithmus arbeitet korrekt.
 
 Zu zeigen ist also:   $M^{e * d}  = M$  (mod $n$):
 
-Wir zeigen das in 3 Schritten (s. \cite[S. 131ff]{Beutelspacher1996}).
+\noindent Wir zeigen das in 3 Schritten (s. \cite[S. 131ff]{Beutelspacher1996}).
 
-\newpage
-{\bf Schritt 1:} 
+\noindent {\bf Schritt 1:} 
 
 Im ersten Schritt zeigen wir: 
 $$M^{e * d} \equiv M{\rm ~(mod~}p).$$
@@ -1930,11 +1928,11 @@ Da $p$ sowohl $M$ als auch $M^{e * d}$ teilt, teilt er auch ihre Differenz:
 $$ (M^{e * d} - M ) \equiv 0 {\rm ~(mod~}p).$$
 Und damit gilt auch in diesem Spezialfall unsere zu beweisende Behauptung.
 
-{\bf Schritt 2:} 
+\noindent {\bf Schritt 2:} 
 
 Völlig analog beweist man:  $M^{e * d} \equiv M{\rm ~(mod~}q)$.
 
-{\bf Schritt 3:} 
+\noindent {\bf Schritt 3:} 
 
 Nun führen wir die Behauptungen aus Schritt 1 und 2 zusammen für $n=p*q$, um
 zu zeigen:
@@ -1948,7 +1946,7 @@ $$
 $$
 \hfill$\Box$
 
-{\bf 1. Bemerkung:} \\
+\noindent {\bf 1. Bemerkung:} \\
 Man kann die 3 Schritte auch kürzer zusammenfassen, wenn man Satz \ref{thm-zth-fermateuler} 
 (Euler-Fermat) benutzt (also nicht den vereinfachten Satz, wo $n = p$ gilt):
 $$
@@ -1957,7 +1955,7 @@ $$
     \equiv 1^k * M \equiv M {\rm ~(mod~}n).
 $$
 
-{\bf 2. Bemerkung:} \\
+\noindent {\bf 2. Bemerkung:} \\
 Beim Signieren werden die gleichen Operationen durchgeführt, aber zuerst mit
 dem geheimen Schlüssel $d$, und dann mit dem öffentlichen Schlüssel $e$. Das
 RSA-Verfahren ist auch für die Erstellung von digitalen
