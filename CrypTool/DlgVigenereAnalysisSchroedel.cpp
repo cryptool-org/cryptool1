@@ -32,7 +32,7 @@
 #include <cstdlib>
 #include <time.h>
 
-// for file locations relativ to CrypTool
+// for file locations relative to CrypTool
 extern char *Pfad;
 
 #ifdef _DEBUG

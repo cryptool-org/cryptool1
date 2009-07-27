@@ -1,0 +1,82 @@
+#
+# authors.txt
+#
+# This file contains a list of the most important people 
+# helping to create CrypTool from the very beginning.
+#
+# CrypTool reads this file, extracts the authors, sorts them 
+# by name and displays them in the author's dialog.
+#
+# Authors are to be added line by line.
+#
+# Note that there are two different sections:
+#   a) IMPLEMENTATION, DOCUMENTATION, TRANSLATION
+#   b) REVIEW, FEEDBACK
+#
+
+#
+# [IMPLEMENTATION DOCUMENTATION TRANSLATION]
+#
+
+Martin Bartosch
+Lars Dülfer
+Thomas Gauweiler
+Jan Hofmann
+Matthias Kraft
+Matej Matejicek
+Roger Oyono
+Mark Santiago
+Christian Tobias
+Thilo Zieschang
+Christof Rezk Salama
+Enrique Zabala
+Frank Spieß
+Markus Diett
+Sören Rinne
+Thorsten Krüger
+Jan Blumenstein
+Klaus Esslinger
+Peter Gruber
+Jens Liebehenschel
+Michael Linden
+Christian Mletzko
+Markus Ruhs
+Matthias Schneider
+Myriam Zeuner-Guerrier
+Hendrik Lennarz
+Sebastian Przybylski
+Martin Ramberger
+Marco Verch
+Axel Poschmann
+Gonzalo Alvarez
+Richard Christensen
+Bartol Filipovic
+Jörg Hambamer
+Dennis Laupichler
+Florian Marchal
+Lowell Montgomery
+Daniel Saffran
+Christine Stötzel
+Thomas Thiele
+Andre Beunink
+Elmar Kubitz
+Bartosz Sawicki
+Denis Döll
+Pawel Polewski
+Alexander Klink
+
+#
+# [REVIEW FEEDBACK]
+#
+
+Ariane Büger
+Karsten Schaar
+Sibylle Müller
+Peter Schartner
+Matthias Büger
+Wolfgang Scondo
+Gerhard Kramarz
+Tom Riegel
+Wolfgang Patzewitz
+Gary Tagg
+Dirk Fox

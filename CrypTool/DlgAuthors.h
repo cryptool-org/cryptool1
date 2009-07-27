@@ -48,6 +48,7 @@ public:
 	//{{AFX_VIRTUAL(CDlgAuthors)
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV-Unterstützung
+	virtual BOOL OnInitDialog();
 	//}}AFX_VIRTUAL
 	
 	// Implementierung
@@ -57,6 +58,13 @@ protected:
 	//{{AFX_MSG(CDlgAuthors)
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+
+protected:
+	// this function reads all authors from "authors.txt"
+	void readAuthors();
+	// these two strings hold all the authors for each category
+	CString authorsImplementationDocumentationTranslation;
+	CString authorsReviewFeedback;
 };
 
 //{{AFX_INSERT_LOCATION}}
