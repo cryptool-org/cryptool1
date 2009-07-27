@@ -184,6 +184,7 @@ BEGIN_MESSAGE_MAP(CCrypToolApp, CWinApp)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SIGN, OnUpdateNeedSecudeTicket)
 	ON_UPDATE_COMMAND_UI(ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN, OnUpdateNeedSecudeTicket)
 	ON_COMMAND(ID_INDIVIDUAL_PROCEDURES_SECRETSHARING, OnIndividualProceduresSecretsharing)
+	ON_COMMAND(ID_ANALYSIS_VIGENERE_SCHROEDEL, OnVigenereAnalysisSchroedel)
 	//}}AFX_MSG_MAP
 
 	//ON_COMMAND(ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG, OnVerentschlsselnHybridverfahrenHybridverschlsselung)
@@ -1597,6 +1598,7 @@ void CCrypToolApp::OnVigenereAnalysisSchroedel()
 	CDlgVigenereAnalysisSchroedel dlg;
 	dlg.DoModal();
 }
+
 void CCrypToolApp::OnKnownAnalysisSinglePermutation()
 {
 	CDlgAutomatedPermAnalysis dlg;

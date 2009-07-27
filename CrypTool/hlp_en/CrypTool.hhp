@@ -543,6 +543,8 @@ hidd_automated_perm_analysis.html
 hidd_automated_perm_analysis_output.html
 hid_aes_rijndael_flowvisualisation.html
 hid_protokol_smime.html
+hid_analysis_vigenere_schroedel.html
+hidd_vigenere_analysis_schroedel.html
 
 [ALIAS]
 #include CrypTool_Alias.h

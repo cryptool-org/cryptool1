@@ -36,11 +36,10 @@
  
 <P>The secret key used for the HMAC generation can be specified in the respective input box. Additionally, one out of five combinations (HMAC variants) of document and key can be chosen. The variable m refers to the message, k and H refer to the key and the hash function, respectively.</P>
 
-<P>The first combination is called "Secret Prefix Method", the second combination is called "Secret Suffix Method". The third and fourth combination are called "Envelope Method" using one or two keys, respectively. Only variant five is specified by a standard (RFC 2104, FIPS PUB 198). This HMAC is calculated via: H ( k XOR opad, H(k XOR ipad, m) )  where ipad = 64 bytes each 0x36, opad = 64 bytes each 0x5C.  If the key k is longer than the block length of the hash function, then k will be substituted by H(k). [See Menezes, Alfred J.; van Oorschot, Paul C.; Vanstone, Scott A.: Hand-book of Applied Cryptography]
-</P>
+<P>The first combination is called "Secret Prefix Method", the second combination is called "Secret Suffix Method". The third and fourth combination are called "Envelope Method" using one or two keys, respectively. Only variant five is specified by a standard (RFC 2104, FIPS PUB 198). This HMAC is calculated via: H ( k XOR opad, H(k XOR ipad, m) )  where ipad = 64 bytes each 0x36, opad = 64 bytes each 0x5C.  If the key k is longer than the block length of the hash function, then k will be substituted by H(k). [See Menezes; van Oorschot; Vanstone: <a href="literatur.html">Handbook of Applied Cryptography</a>]</P>
     
 <P>
-All hash functions used here are implemented with <A HREF="http://www.openssl.org/">OpenSSL</A>.
+All hash functions used here are implemented with <A HREF="cryptolibraries.html">OpenSSL</A>.
 </P>
 
 <P><B>Remark:</B></P>

@@ -1069,7 +1069,8 @@ CString VigenereAnalysisSchroedel::decryptText(CString text, CString key) {
 
 	for(int i=0; i<text.GetLength(); i++) {
 		for(int o=0; o<26; o++) {
-			if(key[i] == vigenere[o]) {
+			// FLOMAR TODO CHANGE **********
+			if(key[i] == vigenere[o][0]) {
 				decryptedText = decryptedText + klartext[vigenere[o].Find(text[i])];
 			}
 		}
@@ -1090,37 +1091,36 @@ int VigenereAnalysisSchroedel::rateString(CString str, CString key) {
 
 	// check the first 100 characters only
 	if(str.GetLength() > 100) {
-		str.Delete(100, str.GetLength() - 100);
+		str = str.Left(100);
 	}
 
 	// find all words matching somehow
 	for(int i=0; i<1000; i++) {
 		words[i] = "";
+		check[i] = 0;
 	}
 
 	for(int i=0, o=0; i<dictCount; i++) {
 		s = dict[i];
-		if(str.Find(s) > 0) {
+		if(str.Find(s) > -1) {
 			words[o++] = s;
 			lowords = lowords + (char)(13) + s;
 		}
 	}
 
-	for(int i=0; i<1000; i++) {
-		check[i] = 0;
-	}
-
 	for(int i=0; i<o; i++) {
 		tmp = str;
 		do {
-			if(tmp.Find(words[i]) > 0) {
+			if(tmp.Find(words[i]) > -1) {
 				z = tmp.Find(words[i]);
 				for(int l=0; l<words[i].GetLength(); l++) {
-					check[tmp.Find(words[i]) + l - 1]++;
+					// + l - 1 entfernt
+					check[tmp.Find(words[i]) + l]++;
 				}
 				for(int l=0; l<words[i].GetLength(); l++) {
-					tmp.Delete(z + l - 1, 1);
-					tmp.Insert(z + l - 1, '~');
+					// + l - 1 entfernt (2x)
+					tmp.Delete(z + l, 1);
+					tmp.Insert(z + l, '~');
 				}
 			}
 		}
@@ -1138,29 +1138,33 @@ int VigenereAnalysisSchroedel::rateString(CString str, CString key) {
 
 	for(int i=0; i<str.GetLength(); i++) {
 		subRate = subRate + check[i];
+		
 		if(check[i] > 0) {
-			start = start + itoa(check[i], 0, 10);
+			CString iStr; iStr.Format("%d", check[i]);
+			start.Append(iStr);
 		}
 		else {
-			start = start + " ";
+			start.Append(" ");
 		}
+
 		if(check[i] == 0) {
 			o -= 2;
 		}
 		if(check[i] > 0) {
 			o += 1;
 		}
+	
 	}
 
+	// TODO flomar: this statement seems to cause problems for the debugger (WTF?)
 	if(o > maxRating) {
-		for(int l=0; l<100; l++) {
-			solveRating = 0;
-			solveText = "";
-			solveKey = "";
-			solveCount = 0;
-		}
+		solveRating = 0;
+		solveText = "";
+		solveKey = "";
+		solveCount = 0;
 	}
 
+	// TODO flomar: this statement seems to cause problems for the debugger (WTF?)
 	if(o >= maxRating) {
 		solveCount++;
 		maxRating = o;
