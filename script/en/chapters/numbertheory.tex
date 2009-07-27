@@ -52,7 +52,7 @@ by Carl Friedrich Gauss\footnote{%
 \index{Gauss, Carl Friedrich} as a special mathematical discipline. Its 
 elementary features include the greatest common divisor\footnote{This 
 article deals with the gcd (greatest common 
-divisor)\index{Gcd} in \hyperlink{Appendix_A}{Appendix A of this chapter}.}
+divisor)\index{Gcd} in \hyperlink{NumberTheory_Appendix_A}{Appendix A of this chapter}.}
 (gcd), congruence (remainder classes), factorization, the Euler-Fermat theorem
 and primitive roots. However, the most important 
 aspect is prime numbers and their multiplicative operation.
@@ -504,7 +504,7 @@ such that: \\
     $(a * a^{-1}) {\rm ~(mod~ } p) \equiv 1 {\rm ~(mod~}p)$ \quad (multiplicative inverse). 
 \index{Inverse!multiplicative}
 \item[\bf 7.] \index{Closeness} {\bf Closeness}\footnote{\label{ftn-zth-closed}The property of closeness is always defined in relation to an operation in a set. See 
-\hyperlink{Appendix_B}{Appendix B of this chapter}.}:   \\
+\hyperlink{NumberTheory_Appendix_B}{Appendix B of this chapter}.}:   \\
      $a, b \in G  \Longrightarrow  ( a + b ) \in G.$ \\
     $a, b \in G  \Longrightarrow  ( a * b ) \in G.$
 \item[\bf 8.] \index{Transitivity} {\bf Transitivity}:
@@ -568,7 +568,7 @@ The following shows
 \begin{itemize}
 \item the addition table\footnote{Comment on subtraction modulo 5: \\
 $2 - 4 = -2 \equiv 3{\rm ~mod~}5.$\\
-It is therefore not true modulo $5$ that $-2 = 2$ (see also \hyperlink{Appendix_C}{Appendix C of this chapter}). }
+It is therefore not true modulo $5$ that $-2 = 2$ (see also \hyperlink{NumberTheory_Appendix_C}{Appendix C of this chapter}). }
 ${\rm ~(mod~ } 5)$ and
 \item the multiplication tables\footnote{\label{ftn-mod6}Comment on division modulo $6$:\index{Division modulo $n$}\\
 Due to the special role of zero as the identity for addition, division by zero is not permitted:\\
@@ -714,7 +714,7 @@ Although it may seem difficult to calculate the table of multiplicative inverses
 to the areas of the table shaded dark grey), we can use Fermat's Little Theorem\index{Fermat!little theorem}
 to create a simple algorithm for this \cite[p. 80]{Pfleeger1997}. Quicker algorithms are described, for instance, in 
 \cite{Knuth1998}\footnote{Using Euclid's extended theorem\index{Euclidean algorithm!extended}  (extended gcd), we can calculate the 
-multiplicative inverse and determine whether numbers have an inverse (see \hyperlink{Appendix_A}{appendix A of this chapter}). Alternatively, we can also use the primitive roots.}.
+multiplicative inverse and determine whether numbers have an inverse (see \hyperlink{NumberTheory_Appendix_A}{appendix A of this chapter}). Alternatively, we can also use the primitive roots.}.
 
 Cryptographically not only the unique nature of the inverse is important, but
 also that the set of possible values has been exhausted.
@@ -959,7 +959,7 @@ knowledge is proportional to ${\rm exp}\left( C*( \log m [\log \log m]^2)^{1/3}\
 
 The situation is similar if 
 $b$ is the unknown variable and we know the values of $a$ and $c$: \\
-If we know the Euler function \index{Euler!(phi) function} of $m, J(m)$, then we can easily\footnote{See \hyperlink{Appendix_A}{Appendix A of this chapter}:
+If we know the Euler function \index{Euler!(phi) function} of $m, J(m)$, then we can easily\footnote{See \hyperlink{NumberTheory_Appendix_A}{Appendix A of this chapter}:
 the greatest common divisor (gcd) of whole numbers.}\index{Gcd} calculate $d$ with $c*d \equiv 1 {\rm ~(mod~} J(m))$ and 
 use theorem \ref{thm-zth-pot} to obtain:
 $$
@@ -2790,7 +2790,7 @@ determine $a, b$ or $S$.
 
 {\bf Procedure:}
 
-Alice and Bob want to negotiate a secret session key $S$ via a channel that may be intercepted. 
+\noindent Alice and Bob want to negotiate a secret session key $S$ via a channel that may be intercepted. 
 \begin{itemize}
 \item[{\bf 1.}] They select a prime number $p$ and a random number $g$ and exchange this information openly.
 \item[{\bf 2.}] Alice now selects $a$, a random number less than $p$ and keeps it secret.
@@ -2820,7 +2820,7 @@ can be found in chapter~\ref{L-Discrete-Logarithm-as-Basis}.
 }
 
 \vskip + 5pt
-We will now use an example with (unrealistically) small numbers to illustrate this.
+\noindent We will now use an example with (unrealistically) small numbers to illustrate this.
 \vskip +1em
 
 %\pagebreak
@@ -2917,7 +2917,7 @@ Having described above \hyperlink{RSA}{how the RSA procedure works}, we will now
 
 Before applying the RSA procedure to a text, we will first demonstrate it
 directly using a single number as message\footnote{Using CrypTool\index{CrypTool} you can solve this with the menu 
-{\bf Indiv.Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} RSA Demonstration}.}.
+{\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} RSA Demonstration}.}.
 \begin{itemize}
 \item[{\bf 1.}] Let the selected prime numbers be $p=5$ and $q=11$. \\
 Thus, $n=55$ and $J(n)=(p-1)*(q-1)=40$.
@@ -2948,7 +2948,7 @@ We will now apply the RSA procedure to a text, first using the upper case alphab
 
 We have the text ``ATTACK AT DAWN'' and the characters are coded in the following simple manner\footnote{Using
 CrypTool\index{CrypTool} you can solve this with the menu 
-{\bf Indiv.Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} RSA Demonstration}.
+{\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} RSA Demonstration}.
 This is also described in the tutorial/scenario in CrypTool's online help [Options, specify alphabet, number system, block length\index{Block length} 2 and decimal representation].}:
 
 \hypertarget{Grossbuchstaben-Alphabet}{}    
@@ -2977,7 +2977,7 @@ L       & 12   & Y    & 25 \\
 
 \vskip +20 pt
 
-{\bf Key generation (steps 1 to 3)}:\\
+\noindent {\bf Key generation (steps 1 to 3)}:\\
 {\bf 1.} $p=47, q=79$ $( n= 3713; ~J(n) = (p-1)*(q-1)=3588).$ \\
 {\bf 2.} $e = 37$ (should\footnote{%
                 See footnote \ref{foot:Selection-of-e} on page
@@ -2985,9 +2985,9 @@ L       & 12   & Y    & 25 \\
                 lie between $79$ and $3587$ and must be relatively prime
                 to $3588$). \\
 {\bf 3.} $d=97$ (since $e*d=1{\rm ~mod~}J(n); 37*97 \equiv 3589 \equiv 1{\rm ~(mod~}3588) \;$)\footnote{How
-to compute $d = 97$ using the {\em extended} gcd algorithm is shown in \hyperlink{Appendix_A}{appendix A of this chapter}}. \\
+to compute $d = 97$ using the {\em extended} gcd algorithm is shown in \hyperlink{NumberTheory_Appendix_A}{appendix A of this chapter}}. \\
 
-{\bf 4. Encryption}:\\
+\noindent {\bf 4. Encryption}:\\
 {\tt
 \begin{tabular}{rcccccccccccccccccccc}
 {\rm Text:} & A & T & T & A & C & K & & A & T &  & D & A & W & N \\
@@ -2995,29 +2995,33 @@ to compute $d = 97$ using the {\em extended} gcd algorithm is shown in \hyperlin
 \end{tabular}
 }
 
-This $28$-digit number is divided into $4$-digit parts
+\noindent This $28$-digit number is divided into $4$-digit parts
 (because $2626$ is still smaller than $n=3713$):\\
 {\tt 0120 2001 0311 0001 2000 0401 2314}
 
 \label{SrcArith4a}
-All 7 parts are encrypted using: $C \equiv M^{37}{\rm ~(mod~}3713)$\footnote{%
+\noindent All 7 parts are encrypted using: $C \equiv M^{37}{\rm ~(mod~}3713)$\footnote{%
 See \hyperlink{AppArith4a}{Appendix E of this chapter} for source code
 to do RSA encryption using Sage. \\
 You can also encrypt the message with CrypTool\index{CrypTool} via the menu path 
 {\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} RSA Demonstration}.}: \\
 {\tt 1404 2932 3536 0001 3284 2280 2235}
 
-{\bf 5. Decryption}: \\
-Cipher text: {\tt 1404 2932 3536 0001 3284 2280 2235 }\\
-This $28$-digit number is divided into $4$-digit parts.\\
-All 7 parts are decrypted using:  $M \equiv C^{97}{\rm ~(mod~}3713)$: \\
-{\tt 0120 2001 0311 0001 2000 0401 2314} \\
-The 2-digit numbers are transformed into capital letters and blanks.
+\noindent {\bf 5. Decryption}: \\
+Cipher text: {\tt 1404 2932 3536 0001 3284 2280 2235 }
 
-Using the selected values it is easy for a cryptanalyst\index{Cryptanalysis}
+\noindent This $28$-digit number is divided into $4$-digit parts.
+
+\noindent All 7 parts are decrypted using:  $M \equiv C^{97}{\rm ~(mod~}3713)$: \\
+{\tt 0120 2001 0311 0001 2000 0401 2314}
+
+\noindent The 2-digit numbers are transformed into capital letters and blanks.
+
+\noindent Using the selected values it is easy for a cryptanalyst\index{Cryptanalysis}
 to derive the secret values from the public 
-parameters $n=3713$ and $e=37$ by revealing that $3713 = 47 * 79$.\\  
-If $n$ is a $768$-bit number, there is, according to present knowledge, little chance of this.
+parameters $n=3713$ and $e=37$ by revealing that $3713 = 47 * 79$.
+
+\noindent If $n$ is a $768$-bit number, there is, according to present knowledge, little chance of this.
 
 
 % --------------------------------------------------------------------------
@@ -3025,26 +3029,26 @@ If $n$ is a $768$-bit number, there is, according to present knowledge, little c
 
 In real life, the ASCII alphabet is used to code the individual characters of the message as $8$-bit numbers.
 
-The idea for this task\footnote{Using CrypTool\index{CrypTool} you can 
+\noindent The idea for this task\footnote{Using CrypTool\index{CrypTool} you can 
 solve this via the menu path
-{\bf Indiv.Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} RSA Demonstration}.} 
+{\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} RSA Demonstration}.} 
 is taken from the example in \cite[p. 271]{Eckert2003}\index{Eckert 2003}.
 
-Coded in decimal notation, the text ``RSA works!'' is as follows: \\
+\noindent Coded in decimal notation, the text ``RSA works!'' is as follows: \\
 {\tt
 \begin{tabular}{rcccccccccccccccccccc}
 {\rm Text:} & R & S & A &   & w & o & r & k & s & ! \\
 {\rm Number:} & 82 & 83 & 65 & 32 & 119 & 111 & 114 & 107 & 115 & 33 
 \end{tabular} } % \tt
 
-
-We will work through the example in 2 variants. The steps 1 to 3 are common for both.\par
-{\bf Key generation (steps 1 to 3)}: \label{SrcArith4b} \\
+\noindent We will work through the example in 2 variants. The steps 1 to 3 are common for both.
+\par
+\noindent {\bf Key generation (steps 1 to 3)}: \label{SrcArith4b} \\
 {\bf 1.} $p=503,~q=509 \quad (n= 256,027; \; J(n)=(p-1)(q-1)=255,016=2^3*127*251)$\footnote{%
 See \hyperlink{AppArith4b}{Appendix E of this chapter} for the source
 code to factorize the number $J(n)$ using Sage.
 Using CrypTool\index{CrypTool} you can solve this with the 
-{\bf Indiv.Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} 
+{\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} 
 Factorization of a Number}.}. \\
 {\bf 2.} $e=65,537$ \\
 \strut\quad\ (should\footnote{%
@@ -3072,7 +3076,7 @@ Factorization of a Number}.}. \\
 {\rm Number:} & 82 & 83 & 65 & 32 & 119 & 111 & 114 & 107 & 115 & 33 
 \end{tabular} } % \tt
 
-The letters are not combined\footnote{For secure procedures we need large numbers that assume -- as far as possible -- all 
+\noindent The letters are not combined\footnote{For secure procedures we need large numbers that assume -- as far as possible -- all 
 values up to $n-1$. If the possible value set for the numbers in the message is too small, even large prime numbers 
 cannot make the procedure secure.  An ASCII character is represented by $8$ bits. If we want larger values we must 
 combine several numbers. Two characters need $16$ bits, whereby the maximum value that can be represented is $65536$. 
@@ -3082,7 +3086,7 @@ digits in decimal notation above and were then to obtain the sequence
 {\tt 082 083,  065 032, 119 111,  114 107,  115 033}).}!
 
 \label{SrcArith4c}
-Each character is encrypted using: $C = M^{65,537} {\rm ~(mod~} 256,027)$\footnote{%
+\noindent Each character is encrypted using: $C = M^{65,537} {\rm ~(mod~} 256,027)$\footnote{%
 See \hyperlink{AppArith4c}{Appendix E of this chapter} for the source
 code for RSA exponentiation using Sage.
 }: \\
@@ -3092,7 +3096,7 @@ code for RSA exponentiation using Sage.
 100412 & 054196 & 100184 & 058179 & 227433\\
 \end{tabular} }
 
-{\bf 5. Decryption}:\\
+\noindent {\bf 5. Decryption}:\\
 Cipher text: 
 
 {\tt
@@ -3101,7 +3105,7 @@ Cipher text:
 100412 & 054196 & 100184 & 058179 & 227433\\
 \end{tabular} } 
 
-Each character is decrypted using: $M \equiv C^{231,953}{\rm ~mod~}256,027$: \\
+\noindent Each character is decrypted using: $M \equiv C^{231,953}{\rm ~mod~}256,027$: \\
 {\tt 82 83 65 32 119 111 114 107 115 33}
 
 
@@ -3116,8 +3120,7 @@ In variant 2 the block formation is done in two different sub-variants: (4./5. a
 {\rm Number:} & 82 & 83 & 65 & 32 & 119 & 111 & 114 & 107 & 115 & 33 
 \end{tabular} } % \tt
 
-{\bf 4. Encryption}:
-
+\noindent {\bf 4. Encryption:}\\
 Blocks are formed\footnote{\vskip +3 pt \tt \begin{tabular}{ll@{ }l@{ }l}
 single character& binary representation  && decimal representation\\
 01010010, 82 & 01010010 01010011 & = &21075 \\
@@ -3137,17 +3140,17 @@ you can solve this with the menu
 with the following options: all 256 ASCII characters, b-adic, block length\index{Block length} 2 and decimal representation.}
 
 \label{SrcArith4d}
-Each block is encrypted using: $C \equiv M^{65,537}{\rm ~(mod~}256,027)$\footnote{%
+\noindent Each block is encrypted using: $C \equiv M^{65,537}{\rm ~(mod~}256,027)$\footnote{%
 See \hyperlink{AppArith4d}{Appendix E of this chapter} for the source
 code for RSA exponentiation using Sage.
 }: \\
 {\tt 158721 137346 37358 240130 112898}
 
-{\bf 5. Decryption:} \\
+\noindent {\bf 5. Decryption:} \\
 Cipher text:\\
 {\tt 158721 137346 37358 240130 112898}
 
-Each block is decrypted using: $M \equiv C^{231,953}{\rm ~(mod~}256,027)$: \\
+\noindent Each block is decrypted using: $M \equiv C^{231,953}{\rm ~(mod~}256,027)$: \\
 {\tt 21075 16672 30575 29291 29473}
 
 
@@ -3155,24 +3158,24 @@ Each block is decrypted using: $M \equiv C^{231,953}{\rm ~(mod~}256,027)$: \\
 %   Divide each block into $2$ numbers using binary.
 %   Then convert each number to ASCII characters.
 
-{\bf 4'. Encryption:} \\
+\noindent {\bf 4'. Encryption:} \\
 Blocks are formed: (each ASCII character is encoded into a 3 digit decimal number below):\\
  {\tt 82083 65032 119111 114107 115033}\footnote{The RSA encryption works correctly with the
 modulus $n=256.027$ because each ASCII block of two characters will be encoded into a number that is smaller or equal than
 the number $255,255$.  } 
 
 \label{SrcArith4e}
-Each block is encrypted using: $C \equiv M^{65,537}{\rm ~(mod~}256,027)$\footnote{%
+\noindent Each block is encrypted using: $C \equiv M^{65,537}{\rm ~(mod~}256,027)$\footnote{%
 See \hyperlink{AppArith4e}{Appendix E of this chapter} for the source
 code for RSA exponentiation using Sage.
 }: \\
 {\tt 198967 051405 254571 115318 014251}
 
-{\bf 5'. Decryption:} \\
+\noindent {\bf 5'. Decryption:} \\
 Cipher text:\\
  {\tt 198967 051405 254571 115318 014251}
 
-Each block is decrypted using: $M \equiv C^{2473}{\rm ~(mod~}67,519)$: \\
+\noindent Each block is decrypted using: $M \equiv C^{2473}{\rm ~(mod~}67,519)$: \\
 {\tt 82083 65032 119111 114107 115033}
 
 
@@ -3183,7 +3186,6 @@ The task is taken from \cite[Exercise 4.6]{Stinson1995}\index{Stinson 1995}:
 The pure solution has been published by Prof. Stinson at 
 \href{http://www.cacr.math.uwaterloo.ca/~dstinson/solns.html}{\texttt{http://www.cacr.math.uwaterloo.ca/\~{}dstinson/solns.html}}.\footnote{or
 \href{http://bibd.unl/~stinson/solns.html}{\texttt{http://bibd.unl/\~{}stinson/solns.html}}.}
-
 
 However, it is not the result that is important here but rather the
 individual steps of the solution, that is, the explanation of the 
@@ -3196,8 +3198,8 @@ we would be pleased to include it in the documentation.}:
 Two samples of RSA cipher text are presented in Tables 4.1 and 4.2. 
 Your task is to decrypt them. The public parameters of the system are 
 
-$n = 18,923$ and $e = 1261$ (for Table 4.1) and \\
-$n = 31,313$ and $e = 4913$ (for Table 4.2). 
+\noindent $n = 18,923$ and $e = 1261$ (for Table 4.1) and \\
+\noindent $n = 31,313$ and $e = 4913$ (for Table 4.2). 
 
 This can be accomplished as follows. First, factor $n$ (which is easy
 because it is so small). Then compute the exponent $d$ from $J(n)$, and,
@@ -3665,7 +3667,7 @@ I would like to take this opportunity to thank
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
-\hypertarget{Appendix_A}{}
+\hypertarget{NumberTheory_Appendix_A}{}
 \section*{Appendix A: The greatest common divisor (gcd) of whole
              numbers \index{gcd} and the two algorithms of Euclid%
 \footnote{%
@@ -3680,7 +3682,7 @@ b) how Euklid's enhanced algorithm finds the multiplicative inverse
     \textbackslash{} Learning Tool for Number Theory}.
     See appendix \ref{s:appendix-Learn-NT}.
 }}
-\label{Appendix_A}
+\label{NumberTheory_Appendix_A}
 \addcontentsline{toc}{section}{Appendix A: gcd of whole numbers and the two
 algorithms of Euclid}\index{Euclidean algorithm!extended}\index{Gcd}
 
@@ -3778,7 +3780,7 @@ Thus
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
-\hypertarget{Appendix_B}{}
+\hypertarget{NumberTheory_Appendix_B}{}
 \section*{Appendix B: Forming closed sets}
 \addcontentsline{toc}{section}{Appendix B: Forming closed sets}
 
@@ -3801,7 +3803,7 @@ G_3 & = & G_2 {\rm --- we~say:~} G_2 {\rm~is~closed~for~addition~~(mod~}8). \non
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \vskip +60pt
-\hypertarget{Appendix_C}{}
+\hypertarget{NumberTheory_Appendix_C}{}
 \section*{Appendix C: Comments on modulo subtraction}
 \addcontentsline{toc}{section}{Appendix C: Comments on modulo subtraction}
 Comment on subtraction modulo 5: $2 - 4 = -2 \equiv 3{\rm ~mod~}2$.
@@ -3813,7 +3815,7 @@ It is therefore not true modulo $5$ that $-2 = 2$ ! People often make the mistak
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
-\hypertarget{Appendix_D}{}
+\hypertarget{NumberTheory_Appendix_D}{}
 \section*{Appendix D: Base representation of numbers,
              estimation of length of digits}
 \addcontentsline{toc}{section}{Appendix D: Base representation and base
@@ -3924,7 +3926,7 @@ therefore $z = 35189$.
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
-\hypertarget{Appendix_E}{}
+\hypertarget{NumberTheory_Appendix_E}{}
 \section*{Appendix E: Examples using Sage}
 \addcontentsline{toc}{section}{Appendix E: Examples using Sage}
 \index{Sage}
@@ -4315,7 +4317,7 @@ sage: [power_mod(a, e, m) for a in A]
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 % \vskip +12pt
 \newpage
-\hypertarget{Appendix_F}{}  %\hypertarget{AppendixListAndDef}{}
+\hypertarget{NumberTheory_Appendix_F}{}  %\hypertarget{AppendixListAndDef}{}
 \section*{Appendix F: List of the formulated definitions and theorems}
 \addcontentsline{toc}{section}{Appendix F: List of the formulated definitions and theorems}
 \vskip +8 pt

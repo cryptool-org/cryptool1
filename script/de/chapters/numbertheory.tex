@@ -53,7 +53,7 @@ mit Zahlen betont) wurde von Carl Friedrich Gauss\footnote{%
 als besondere mathematische Disziplin begründet. Zu ihren elementaren
 Gegenständen gehören: größter gemeinsamer Teiler\footnote{%
 Auf ggT\index{ggT}, englisch gcd (greatest common divisor), geht dieser
-Artikel im \hyperlink{Appendix_A}{Anhang A zu diesem Kapitel} ein.
+Artikel im \hyperlink{NumberTheory_Appendix_A}{Anhang A zu diesem Kapitel} ein.
 } (ggT), Kongruenzen (Restklassen), Faktorisierung, Satz von Euler-Fermat und
 primitive Wurzeln. Kernbegriff sind jedoch die Primzahlen und ihre
 multiplikative Verknüpfung.
@@ -534,7 +534,7 @@ Assoziativgesetz und Kommutativgesetz gelten sowohl für die Addition als auch fü
     $(a * a^{-1}) {\rm ~(mod~ } p) \equiv 1 {\rm ~(mod~}p)$ \quad (multiplikative Inverse). \index{Inverse!multiplikative}
 \item[\bf 7.] \index{Abgeschlossenheit} {\bf Abgeschlossenheit:}\footnote{%
 \label{ftn-closed}Diese Eigenschaft wird innerhalb einer Menge immer bezüglich einer Operation definiert. 
-Siehe \hyperlink{Appendix_B}{Anhang B zu diesem Kapitel}.
+Siehe \hyperlink{NumberTheory_Appendix_B}{Anhang B zu diesem Kapitel}.
 } \\
 $a, b \in G  \Longrightarrow  ( a + b ) \in G.$ \\
 $a, b \in G  \Longrightarrow  ( a * b ) \in G.$
@@ -602,7 +602,7 @@ Im folgenden werden
 \item die Additionstabelle\footnote{%
 Bemerkung zur Subtraktion modulo 5: \\
       $2 - 4 = -2 \equiv 3{\rm ~mod~}5.$\\
-      Es gilt modulo $5$ also nicht, dass $-2 = 2$ (siehe auch \hyperlink{Appendix_C}{Anhang C zu diesem Kapitel}). 
+      Es gilt modulo $5$ also nicht, dass $-2 = 2$ (siehe auch \hyperlink{NumberTheory_Appendix_C}{Anhang C zu diesem Kapitel}). 
       } für ${\rm mod~ } 5$ und
 \item die Multiplikationstabellen\footnote{\label{ftn-mod6}%
 Bemerkung zur Division modulo 6:\index{Division modulo $n$}
@@ -776,7 +776,7 @@ werden z.B. in \cite{Knuth1998} \index{Euklidscher Algorithmus!erweiterter}
 beschrieben\footnote{%
 Mit dem erweiterten Satz von Euklid \index{ggT}(erweiterter ggT) kann man die
 multiplikative Inverse berechnen und die Invertierbarkeit bestimmen
-(siehe \hyperlink{Appendix_A}{Anhang A zu diesem Kapitel}).
+(siehe \hyperlink{NumberTheory_Appendix_A}{Anhang A zu diesem Kapitel}).
 Alternativ kann auch die Primitivwurzel\index{Primitivwurzel} genutzt werden. 
 }.
 
@@ -1067,7 +1067,7 @@ Konstanten $C > 1$.
 Ähnliches gilt, wenn $b$ die Unbekannte ist und die Zahlen $a$ und $c$ bekannt sind. \\
 Wenn die Eulerfunktion \index{Eulersche Phi-Funktion} $J(m)$ bekannt ist,
 findet man leicht\footnote{%
-Siehe \hyperlink{Appendix_A}{Anhang A zu diesem Kapitel}: der größte gemeinsame Teiler (ggT) von ganzen Zahlen.
+Siehe \hyperlink{NumberTheory_Appendix_A}{Anhang A zu diesem Kapitel}: der größte gemeinsame Teiler (ggT) von ganzen Zahlen.
 } $d$ mit $c*d \equiv 1 {\rm ~(mod~} J(m))$ und erhält mit Satz \ref{thm-zth-pot} 
 $$
    a^d \equiv (b^c)^d \equiv b^{c*d} \equiv b^{c*d~(mod~J(m))} \equiv b^1 \equiv b {\rm ~(mod~} m)
@@ -3103,7 +3103,7 @@ mitgelesen hat, vermag daraus weder $a$ noch $b$ noch $S$ zu berechnen.
 \vskip +10 pt
 
 {\bf Ablauf:}\par
-Alice und Bob wollen also einen geheimen Sessionkey $S$ über einen
+\noindent Alice und Bob wollen also einen geheimen Sessionkey $S$ über einen
 abhörbaren Kanal aushandeln.
 \begin{itemize}
    \item[\bf 1.] Sie wählen eine Primzahl $p$ und eine Zufallszahl $g$, und tauschen diese
@@ -3135,7 +3135,7 @@ finden sie in Kapitel~\ref{L-Discrete-Logarithm-as-Basis}.
 }
 
 \vskip +10 pt
-Das ganze soll an einem Beispiel mit (unrealistisch) kleinen Zahlen gezeigt
+\noindent Das ganze soll an einem Beispiel mit (unrealistisch) kleinen Zahlen gezeigt
 werden.\vskip +1em
 
 \begin{example} in Zahlen: 
@@ -3314,7 +3314,7 @@ L       & 12   & Y    & 25 \\
 
 \vskip +20 pt
 
-{\bf Schlüsselerzeugung (Schritt 1 bis 3):} \\
+\noindent {\bf Schlüsselerzeugung (Schritt 1 bis 3):} \\
 %\vskip 5 pt
 {\bf 1.} $p=47, q=79$ $( n= 3713;~ J(n) = (p-1)*(q-1)=3588).$ \\
 {\bf 2.} $e=37$ (sollte\footnote{%
@@ -3325,10 +3325,10 @@ L       & 12   & Y    & 25 \\
                 zu $3588$ sein). \\
 {\bf 3.} $d=97$ (denn $e*d=1{\rm ~mod~}J(n); 37*97 \equiv 3589 
 \equiv 1{\rm ~(mod~}3588) \;$)\footnote{%
-Wie man $d = 97$ mit Hilfe des erweiterten ggT berechnet, wird im \hyperlink{Appendix_A}{Anhang A zu diesem Kapitel} gezeigt.
+Wie man $d = 97$ mit Hilfe des erweiterten ggT berechnet, wird im \hyperlink{NumberTheory_Appendix_A}{Anhang A zu diesem Kapitel} gezeigt.
 }.
 
-{\bf 4. Verschlüsselung:} \\ 
+\noindent {\bf 4. Verschlüsselung:} \\ 
 {\tt
 \begin{tabular}{rcccccccccccccccccccc}
 {\rm Text:} & A & T & T & A & C & K & & A & T &  & D & A & W & N \\
@@ -3337,13 +3337,13 @@ Wie man $d = 97$ mit Hilfe des erweiterten ggT berechnet, wird im \hyperlink{App
 }
 \index{Blocklänge}
 
-Aufteilung dieser 28-stelligen Zahl in 4-stellige Teile (denn $2626$ ist noch kleiner als $n=3713$), d.h. dass
+\noindent Aufteilung dieser 28-stelligen Zahl in 4-stellige Teile (denn $2626$ ist noch kleiner als $n=3713$), d.h. dass
 die Blocklänge 2 beträgt.\\
 {\tt 0120 2001 0311 0001 2000 0401 2314}
 
 \label{SrcArith4a}
 %Verschlüsselung aller 7 Teile jeweils per: $C \equiv M^{37}{\rm ~(mod~}$3713)\footnote{%
-Verschlüsselung aller 7 Teile jeweils per: $C \equiv M^{37}{\rm ~(mod~3713)}$\footnote{%
+\noindent Verschlüsselung aller 7 Teile jeweils per: $C \equiv M^{37}{\rm ~(mod~3713)}$\footnote{%
 In \hyperlink{AppArith4a}{Anhang E zu diesem Kapitel} finden Sie den 
 Beispiel-Quelltext zur RSA-Verschlüsselung mit Sage. \\
 Mit CrypTool\index{CrypTool} können Sie dies per Menü
@@ -3351,21 +3351,22 @@ Mit CrypTool\index{CrypTool} können Sie dies per Menü
 }: \\
 {\tt 1404 2932 3536 0001 3284 2280 2235}
 
-
-{\bf 5. Entschlüsselung:} \\ 
+\noindent {\bf 5. Entschlüsselung:} \\ 
 Chiffrat: {\tt 1404 2932 3536 0001 3284 2280 2235 }
 
-Aufteilung dieser 28-stelligen Zahl in 4-stellige Teile.\\
-Entschlüsselung aller $7$ Teile jeweils per: $M \equiv C^{97}{\rm ~(mod~}3713)$: \\
+\noindent Aufteilung dieser 28-stelligen Zahl in 4-stellige Teile.
+
+\noindent Entschlüsselung aller $7$ Teile jeweils per: $M \equiv C^{97}{\rm ~(mod~}3713)$: \\
 {\tt 0120 2001 0311 0001 2000 0401 2314}
 
-Umwandeln von 2-stelligen Zahlen in Großbuchstaben und Blanks.\\
-Bei den gewählten Werten ist es für einen Kryptoanalytiker
+\noindent Umwandeln von 2-stelligen Zahlen in Großbuchstaben und Blanks.
+
+\noindent Bei den gewählten Werten ist es für einen Kryptoanalytiker
 \index{Kryptoanalyse} einfach, aus den öffentlichen Parametern
 $n=3713$ und $e=37$ die geheimen Werte zu finden, indem
 er offenlegt, dass $3713 = 47 * 79$.
 
-Wenn $n$ eine $768$-Bit-Zahl ist, bestehen dafür -- nach heutigen Kenntnissen -- wenig Chancen.
+\noindent Wenn $n$ eine $768$-Bit-Zahl ist, bestehen dafür -- nach heutigen Kenntnissen -- wenig Chancen.
 
 
 % --------------------------------------------------------------------------
@@ -3374,7 +3375,7 @@ Wenn $n$ eine $768$-Bit-Zahl ist, bestehen dafür -- nach heutigen Kenntnissen --
 Real wird das ASCII-Alphabet benutzt, um die Einzelzeichen der Nachricht in
 8-Bit lange Zahlen zu codieren. 
 
-Diese Aufgabe\footnote{%
+\noindent Diese Aufgabe\footnote{%
 Mit CrypTool\index{CrypTool} können Sie dies per Menü 
 {\bf Einzelverfahren \textbackslash{} RSA-Kryptosystem \textbackslash{} RSA-Demo}
 lösen.} 
@@ -3387,7 +3388,7 @@ ist angeregt durch das Beispiel aus \cite[S. 271]{Eckert2003}.
 % wählte bei gl. Text. In Eckert 2003 sind nochmal andere Zahlen,
 % aber ich ließ das Skript unverändert.
 
-Der Text \glqq RSA works!'' bedeutet in Dezimalschreibweise codiert: 
+\noindent Der Text \glqq RSA works!'' bedeutet in Dezimalschreibweise codiert: 
 
 {\tt
 \begin{tabular}{rcccccccccccccccccccc}
@@ -3395,9 +3396,9 @@ Der Text \glqq RSA works!'' bedeutet in Dezimalschreibweise codiert:
 {\rm Zahl:} & 82 & 83 & 65 & 32 & 119 & 111 & 114 & 107 & 115 & 33 
 \end{tabular} } % \tt
 
-Das Beispiel wird in 2 Varianten durchgespielt. Gemeinsam für beide sind die Schritte $1$ bis $3$.
+\noindent Das Beispiel wird in 2 Varianten durchgespielt. Gemeinsam für beide sind die Schritte $1$ bis $3$.
 \vskip +10pt
-{\bf Schlüsselerzeugung (Schritt 1 bis 3):} \\\label{SrcArith4b}%
+\noindent {\bf Schlüsselerzeugung (Schritt 1 bis 3):} \\\label{SrcArith4b}%
 {\bf 1.} $p=509,~q=503 \quad (n= 256.027; \; ~J(n)=(p-1)*(q-1)=255.016=2^3*127*251)$\footnote{%
 In \hyperlink{AppArith4b}{Anhang E zu diesem Kapitel} finden Sie den Quelltext zur Faktorisierung 
 von $J(n)$ mit Sage. \\
@@ -3432,7 +3433,7 @@ Andere mögliche Kombinationen von (e,d) sind z.B.: (3, 170.011), (5, 204.013), (
 {\rm Zahl:} & 82 & 83 & 65 & 32 & 119 & 111 & 114 & 107 & 115 & 33 
 \end{tabular} } % \tt
 
-Keine Zusammenfassung der Buchstaben\footnote{%
+\noindent Keine Zusammenfassung der Buchstaben\footnote{%
 Für sichere Verfahren braucht man große Zahlen, die möglichst alle Werte bis
 $n-1$ annehmen. Wenn die mögliche Wertemenge der Zahlen in der Nachricht zu
 klein ist, nutzen auch große Primzahlen nichts für die Sicherheit.
@@ -3447,7 +3448,7 @@ erhalten (genauso wie wenn man oben in der Dezimalschreibweise alle Zahlen
 }!
 
 \label{SrcArith4c}
-Verschlüsselung pro Zeichen per: $C \equiv M^{65.537}{\rm ~(mod~}256.027)$\footnote{%
+\noindent Verschlüsselung pro Zeichen per: $C \equiv M^{65.537}{\rm ~(mod~}256.027)$\footnote{%
 In \hyperlink{AppArith4c}{Anhang E zu diesem Kapitel} finden Sie den Quelltext zur RSA-Exponentiation mit Sage.
 }:
 
@@ -3458,7 +3459,7 @@ In \hyperlink{AppArith4c}{Anhang E zu diesem Kapitel} finden Sie den Quelltext z
 \end{tabular} 
 }
 
-{\bf 5. Entschlüsselung:}\\
+\noindent {\bf 5. Entschlüsselung:}\\
 Chiffrat: \\ 
 {\tt
 \begin{tabular}{lllll}
@@ -3466,8 +3467,8 @@ Chiffrat: \\
 100412 & 054196 & 100184 & 058179 & 227433\\
 \end{tabular} }
 
-Entschlüsselung pro Zeichen per: $M \equiv C^{231.953}{\rm ~mod~}256.027$: \\
-{\tt 82 83 65 32 119 111 114 107 115 33}
+\noindent Entschlüsselung pro Zeichen per: $M \equiv C^{231.953}{\rm ~mod~}256.027$: \\
+{\tt 82 83 65 32 119 111 114 107 115 33}\\
 
 
 % --------------------------------------------------------------------------
@@ -3480,7 +3481,8 @@ Bei der Variante 2 wird die Blockbildung in zwei verschiedenen Untervarianten 4.
 {\rm Text:} & R & S & A &   & w & o & r & k & s & ! \\
 {\rm Zahl:} & 82 & 83 & 65 & 32 & 119 & 111 & 114 & 107 & 115 & 33 
 \end{tabular} } % \tt
-{\bf 4. Verschlüsselung:} \\
+
+\noindent {\bf 4. Verschlüsselung:} \\
 Blockbildung\footnote{%
 \\ \tt \begin{tabular}{ll@{ }l@{ }l}
 Einzelzeichen& Binärdarstellung  &&Dezimaldarstellung\\
@@ -3503,23 +3505,22 @@ mit den folgenden Optionen lösen: alle $256$ Zeichen, b-adisch, Blocklänge 2, de
 }
 
 \label{SrcArith4d}
-Verschlüsselung pro Block per: $C \equiv M^{65.537}{\rm ~(mod~}256027)$\footnote{%
+\noindent Verschlüsselung pro Block per: $C \equiv M^{65.537}{\rm ~(mod~}256027)$\footnote{%
 In \hyperlink{AppArith4d}{Anhang E zu diesem Kapitel} finden Sie den Quelltext zur RSA-Exponentiation mit Sage.
 }: \\
 {\tt 158721 137346 37358 240130 112898}
 
-{\bf 5. Entschlüsselung:} \\
+\noindent {\bf 5. Entschlüsselung:} \\
 Chiffrat: \\
 {\tt 158721 137346 37358 240130 112898}
 
-Entschlüsselung pro Block per: $M \equiv C^{231.953}{\rm ~(mod~}256.027)$: \\
+\noindent Entschlüsselung pro Block per: $M \equiv C^{231.953}{\rm ~(mod~}256.027)$: \\
 {\tt 21075 16672 30575 29291 29473}
 
 \vskip +10 pt
 %{\bf Umwandeln:} jeden Block binär in 2 Zahlen; danach jede Zahl in ASCII-Zeichen.
 
-{\bf 4`. Verschlüsselung:} 
-
+\noindent {\bf 4'. Verschlüsselung:} \\
 Blockbildung (die ASCII-Zeichen werden als 3-stellige Dezimalzahlen hintereinander geschrieben): \\
 {\tt 82083 65032 119111 114107 115033}\footnote{%
 Die RSA-Verschlüsselung mit dem Modul $n=256.027$ ist bei dieser Einstellung korrekt,
@@ -3527,16 +3528,16 @@ da die ASCII-Blöcke in Zahlen kleiner oder gleich $255.255$ kodiert werden.
 } 
 
 \label{SrcArith4e}
-Verschlüsselung pro Block per: $C \equiv M^{65537}{\rm ~(mod~}256.027)$\footnote{%
+\noindent Verschlüsselung pro Block per: $C \equiv M^{65537}{\rm ~(mod~}256.027)$\footnote{%
 In \hyperlink{AppArith4e}{Anhang E zu diesem Kapitel} finden Sie den Quelltext zur RSA-Exponentiation mit Sage.
 }: \\ 
 {\tt 198967 051405 254571 115318 014251}
 
-{\bf 5'. Entschlüsselung:} \\
+\noindent {\bf 5'. Entschlüsselung:} \\
 Chiffrat: \\
 {\tt 198967 051405 254571 115318 014251}
 
-Entschlüsselung pro Block per: $M \equiv C^{231.953}{\rm ~(mod~}256.027)$: \\
+\noindent Entschlüsselung pro Block per: $M \equiv C^{231.953}{\rm ~(mod~}256.027)$: \\
 {\tt 82083 65032 119111 114107 115033} 
 
 
@@ -3554,7 +3555,7 @@ oder
      {\texttt{http://bibd.unl/\~{}stinson/solns.html}}.
 }
 
-veröffentlicht. Es geht aber nicht nur um das Ergebnis, sondern vor allem
+\noindent veröffentlicht. Es geht aber nicht nur um das Ergebnis, sondern vor allem
 um die Einzelschritte der Lösung, also um die Darlegung der
 Kryptoanalyse\index{Kryptoanalyse}\footnote{%
 Im Szenario der Online-Hilfe zu CrypTool\index{CrypTool} und in der
@@ -3563,13 +3564,13 @@ Wenn uns jemand einen (weiteren) gut aufbereiteten konkreten Lösungsweg
 schickt, nehmen wir ihn gerne in die Dokumentation auf.
 }.
 
-Hier die Aufgabe im Originaltext:
+\noindent Hier die Aufgabe im Originaltext:
 
 Two samples of RSA ciphertext are presented in Tables 4.1 and 4.2. Your task
 is to decrypt them. The public parameters of the system are 
 
-$n = 18.923$ and $e = 1261$ (for Table 4.1) and \\
-$n = 31.313$ and $e = 4913$ (for Table 4.2).
+\noindent $n = 18.923$ and $e = 1261$ (for Table 4.1) and \\
+\noindent $n = 31.313$ and $e = 4913$ (for Table 4.2).
 
 This can be accomplished as follows. First, factor $n$ (which is easy
 because it is so small). Then compute the exponent $d$ from $J(n)$, and,
@@ -4074,7 +4075,7 @@ herzlich zu danken:
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage 
-\hypertarget{Appendix_A}{}
+\hypertarget{NumberTheory_Appendix_A}{}
 \section*{%
 Anhang A: Der größte gemeinsame Teiler (ggT) von ganzen 
 Zahlen \index{ggT} und die beiden Algorithmen von Euklid%
@@ -4089,8 +4090,8 @@ ZT können Sie in CrypTool\index{CrypTool} über das Menü
 Lernprogramm für Zahlentheorie} aufrufen.
     Siehe Anhang \ref{s:appendix-Learn-NT}.
 }}
-%\hypertarget{Appendix_A}{}
-\label{Appendix_A}
+%\hypertarget{NumberTheory_Appendix_A}{}
+\label{NumberTheory_Appendix_A}
 \addcontentsline{toc}{section}{Anhang A: ggT und die beiden Algorithmen von Euklid}
 \begin{enumerate}
 \item Der größte gemeinsame Teiler zweier natürlicher Zahlen $a$ und $b$ ist eine wichtige und 
@@ -4198,7 +4199,7 @@ Es folgt
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
-\hypertarget{Appendix_B}{}
+\hypertarget{NumberTheory_Appendix_B}{}
 \section*{Anhang B: Abschlussbildung}
 \addcontentsline{toc}{section}{Anhang B: Abschlussbildung}
 Die Eigenschaft der Abgeschlossenheit\index{Abgeschlossenheit} wird innerhalb einer Menge immer
@@ -4223,7 +4224,7 @@ G_3 & = & G_2 {\rm -- man~sagt:~} G_2 \mbox{~ist~abgeschlossen~bezüglich~der~Add
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \vskip +60pt
-\hypertarget{Appendix_C}{}
+\hypertarget{NumberTheory_Appendix_C}{}
 \section*{Anhang C: Bemerkungen zur modulo Subtraktion}
 \addcontentsline{toc}{section}{Anhang C: Bemerkungen zur modulo Subtraktion}
 Beispielweise gilt für die Subtraktion modulo 5: $2 - 4 = -2 \equiv 3{\rm ~mod~}2$.
@@ -4237,7 +4238,7 @@ gemachter Fehler. Dies kann man sich gut verdeutlichen, wenn man die Permutation
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
-\hypertarget{Appendix_D}{}
+\hypertarget{NumberTheory_Appendix_D}{}
 \section*{Anhang D: Basisdarstellung von Zahlen,
              Abschätzung der Ziffernlänge}
 \addcontentsline{toc}{section}{Anhang D: Basisdarstellung und -umwandlung
@@ -4367,7 +4368,7 @@ also $z = 35189$.
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
-\hypertarget{Appendix_E}{}
+\hypertarget{NumberTheory_Appendix_E}{}
 \section*{Anhang E: Beispiele mit Sage }
 \addcontentsline{toc}{section}{Anhang E: Beispiele mit Sage}
 \index{Sage}
@@ -4863,7 +4864,7 @@ sage: [power_mod(a, e, m) for a in A]
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
-\hypertarget{Appendix_F}{}  %\hypertarget{AppendixListAndDef}{}
+\hypertarget{NumberTheory_Appendix_F}{}  %\hypertarget{AppendixListAndDef}{}
 \section*{Anhang F: Liste der hier formulierten Definitionen und Sätze}
 \addcontentsline{toc}{section}{Anhang F: Liste der hier formulierten Definitionen und Sätze}
 \vskip +8 pt
