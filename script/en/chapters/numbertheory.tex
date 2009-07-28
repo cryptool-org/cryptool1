@@ -359,7 +359,7 @@ $$\frac{n}{m} = c + \frac{r}{m} ,$$
 where $c$ is a whole number and $r$ is a number with the values $0,1,\cdots, m-1$. This notation is called division 
 with remainder, whereby $c$ is called the whole-number ``quotient'' and $r$ is the ``remainder'' of the division.
 
-\begin{example}
+\begin{example}{:}
 $$\frac{19}{7} = 2 + \frac{5}{7} \quad (m=7, ~c = 2, ~r = 5)$$
 \end{example}
 
@@ -377,7 +377,7 @@ divided by $m$.
 \end{definition}
 
 \newpage
-\begin{example}
+\begin{example}{:}
 \begin{itemize}
 \item[] Remainder class $0$ modulo 
         4 = \\ 
@@ -400,7 +400,7 @@ means that $a$ and $b$ belong to the same remainder class. The modulo is therefo
 divisor. This notation was introduced by Gauss. Although the divisor is usually positive, $a$ and $b$ can also be any 
 whole numbers.
 
-\begin{example}
+\begin{example}{:}
 \begin{itemize}
    \item[] $19 \equiv 12 {\rm ~(mod~} 7)$,         
            because the remainders are equal:  $19 / 7 = 2$ remainder $5$  and  $12 / 7 = 1$ remainder $5$.
@@ -421,11 +421,11 @@ As an alternative to the congruence notation, we can also use the divisibility n
 $35 \equiv 11$ (mod $3) \Longleftrightarrow  35 - 11 \equiv 0$ (mod $3)$, 
 where $35 - 11 = 24$ is divisible by $3$ without remainder while $35:3$ and $11:3$ leave the remainder $2$.
 
-\begin{remark}
+\begin{remark}{:}\\
 The above equivalence does not apply to the sum $(a + b)$!
 \end{remark}
 
-\begin{example}
+\begin{example}{:}\\
 $11 \equiv 2$ (mod $3$), therefore $11 - 2 = 9 \equiv 0$ (mod $3$); but $11 + 2 = 13$ is not divisible by $3$.
 The statement in theorem \ref{thm-zth-div} does not even apply to sums in one direction. It is correct for sums only if the 
 remainder is 0 and only in the following direction:  if a divisor divides both summands with no remainder, it also 
@@ -435,7 +435,7 @@ divides the sum with no remainder.
 We can apply the above equivalence in theorem \ref{thm-zth-div} if we need a quick and easy method of determining whether 
 large numbers are divisible by a certain number.
 
-\begin{example}
+\begin{example}{:}
 Is $69,993$ divisible by $7$? \\
 The number can be written in the form of a difference in which it is clear that each operand is divisible by $7$: 
 $69,993 = 70,000 - 7$. Therefore, the difference is also divisible by $7$.
@@ -639,7 +639,7 @@ $x + y + (-y) \equiv x{\rm ~(mod~}m)$  [$(-y)$ = additive inverse of $y{\rm ~(mo
 corresponding inverse ($1$ or $4$) to the interim result ($1$ or $3$), then the end result is the same as the initial 
 value.
 
-\begin{example}
+\begin{example}{:}
 \begin{eqnarray*}
 2 + 4 \equiv 6 \equiv 1 {\rm ~(mod~ } 5) ; \quad 1 + 1 \equiv 2 \equiv 2 {\rm ~(mod~ } 5),  \nonumber \\
 2 * 4 \equiv 8 \equiv 3 {\rm ~(mod~ } 5) ; \quad 3 * 4 \equiv 12 \equiv 2 {\rm ~(mod~ } 5). \nonumber
@@ -668,7 +668,8 @@ Further name to the topic co-prime (with $a_i \in \mathbb{Z}, i=1, \cdots, n$):
                 $a_1, \cdots , a_n$ are {\em in pairs relatively prime}, if for all $i=1, \cdots, n$ and 
 $j=1, \cdots , n$ with $ i \neq j $: $ \mbox{gcd} (a_i, a_j) =1. $
 \end{enumerate}
-\begin{example} $2,3,6 $ are relatively prime, because $ \mbox{gcd} (2,3,6)=1.$
+\begin{example}{:}\\
+$2,3,6 $ are relatively prime, because $ \mbox{gcd} (2,3,6)=1.$
 \end{example}
 They are not in pairs relatively prime, because $ \mbox{gcd} (2,6)=2>1.$}\index{Gcd}, in other words if $a$ and $m$ have 
 no common prime factors.
@@ -1036,7 +1037,7 @@ If we define the operation mod* on the set $\mathbb{Z}_n$ where
 $$ a {\rm ~mod*~} b := (a * b){\rm ~(mod~}n), $$
 then  $\mathbb{Z}_n$ together with this operation is {\bf usually not a group} because not all properties are fulfilled for each $n$.
 
-\begin{example}
+\begin{example}{:}
 \begin{itemize}
 \item[a)] In $\mathbb{Z}_{15}$, for example, the element $5$ does not have an inverse.
           That is to say, there is no $a$ with \\ $5 * a \equiv 1 {\rm ~(mod~}15).$
@@ -1057,7 +1058,7 @@ $$\mathbb{Z}_n^* = \{ a \in \mathbb{Z}_n  | {\rm gcd}(a,n) = 1 \}.$$
 \end{definition} 
 $\mathbb{Z}_n^*$ is sometimes also called the reduced remainder set $R'$ modulo $n$.
 
-\begin{example}
+\begin{example}{:}
 For $n=10=2*5$ the following applies:
 \end{example}
 \begin{itemize}
@@ -1065,7 +1066,7 @@ For $n=10=2*5$ the following applies:
   \item[] \index{Remainder set!reduced} reduced remainder set $R' = \mathbb{Z}_n^* = \{ 1, 3, 7, 9 \} \longrightarrow J(n)=4$.
 \end{itemize}
 
-\begin{remark}
+\begin{remark}{:}\\
 $R'$ or $\mathbb{Z}_n^*$ is always a genuine subset of $R$ or $\mathbb{Z}_n$ because $0$ is always an element of $R$ but never 
 an element of $R'$. Since $1$ and $n-1$ are always relatively prime to $n$, they are always elements of both sets.
 \end{remark}
@@ -1082,7 +1083,8 @@ is always an element of $\mathbb{Z}_n^*$, there is a unique ``partner'' in this 
 Each element in $\mathbb{Z}_n^*$ has a multiplicative inverse.
 \end{theorem}
 
-\begin{example} $a = 3$ modulo $10$ with $\mathbb{Z}_n^* = \{ 1, 3, 7, 9 \}$ it holds that $a^{-1} = 7$:
+\begin{example}{:}\\
+$a = 3$ modulo $10$ with $\mathbb{Z}_n^* = \{ 1, 3, 7, 9 \}$ it holds that $a^{-1} = 7$:
 \end{example}
 \begin{eqnarray*}
 3 & \equiv & 3 * 1{\rm ~(mod~}10), \nonumber \\
@@ -1180,7 +1182,7 @@ $$
 \end{enumerate}
 \end{theorem}
 
-\begin{example} 
+\begin{example}{:}
 \begin{itemize}
 \item  $n=70=2*5*7 \Longrightarrow $ using theorem \ref{J_of_p1..pk}: $ J(n)= 1\cdot 4 \cdot 6 =24.$
 \item  $n=9=3^2 \Longrightarrow$ using theorem \ref{J_of_n}: $ J(n)= 3^1\cdot 2 =6,$ because  $\mathbb{Z}_9^* =\{ 1,2,4,5,7,8\}.$
@@ -1242,8 +1244,7 @@ of a modular power very quickly. We have: $a^{(p-1)*(q-1)} \equiv 1 {\rm ~(mod~}
 Another interesting application is a special case of determining the multiplicative inverses using the Euler-Fermat 
 theorem (multiplicative inverses are otherwise determined using the extended Euclidean algorithm\index{Euclidean algorithm!extended}).
 
-\begin{example}
-\par
+\begin{example}{:}\\
 Find the multiplicative inverse of $1579$ modulo $7351$.\\
 \end{example}
 According to Euler-Fermat:  $a^{J(n)} = 1 {\rm ~(mod~} n)$ for all $a$ in $\mathbb{Z}_n^*$.
@@ -1641,7 +1642,8 @@ a patent for a special case (3 factors) of an algorithm (RSA), although
 the patent for the general case was almost expired.}$^,$\footnote{If the
 two primes $p$ and $q$ are equal then $ (m^{e})^{d} \equiv m $ mod $n$ is
 not true for all $ m<n$ (although $ e*d \equiv 1$ mod $J(n)$ is fulfilled). 
-\begin{example} If $ n=5^2$ then according to theorem \ref{thm-zth-phinum} it 
+\begin{example}{:}\\
+If $ n=5^2$ then according to theorem \ref{thm-zth-phinum} it 
 is $J(n)=5*4=20, ~ e=3, ~ d=7, ~e*d=21\equiv 1$ mod $J(n).$
 \end{example}
 But it is $ (5^3)^7\equiv 0 $ mod $ 25$. } $p$ and $q$ and calculate 
@@ -1700,8 +1702,7 @@ In CrypTool\index{CrypTool} the RSA modulo is denoted with a capital ``$N$'' .}.
 \end{itemize}
 The numbers $d, e$ and $n$ are usually extremely large (e.~g.\ $d$ and $e$ $300$ bits, $n$ $600$ bits).
 
-\begin{remark}\par
-
+\begin{remark}{:}\\
 The security of the RSA algorithm depends as with all public key methods on the difficulty to calculate the private
 key $d$ from the public key $(n,e)$.
 \end{remark}
@@ -2839,7 +2840,7 @@ Alice and Bob can now communicate securely using their shared session key. Even 
 transferred via the connection:
 $g = 11, p = 347, A = 49$ and $B = 285$, they would not be able to calculate the secret key.
 
-\begin{remark}
+\begin{remark}{:}\\
 In this example using such small numbers, it would be possible, but with large numbers the discrete logarithm\index{Discrete logarithm}
 problem\footnote{
 You can use Sage to determine the discrete logarithm $x$ that solves the
@@ -3745,7 +3746,7 @@ the program variables $a$ and $b$ contain the values $a= 0$ and $b=gcd(a,b)$. Pl
 variables are different to the numbers $a$ and $b$ and that they are only relevant for the scope of the algorithm.}:
 $$gcd(a,b) = a*x_{2,1} + b*x_{2,2}.$$
 
-\begin{example}
+\begin{example}{:}\\
 Using the extended gcd we can determine for $e = 37$ the multiplicative inverse number $d$ to modulo $3588$ (i.e.
 $37*d \equiv 1 {\rm ~(mod~} 3588$)): 
 \end{example}

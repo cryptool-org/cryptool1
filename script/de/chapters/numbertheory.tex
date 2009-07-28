@@ -263,8 +263,7 @@ Faktoren.
 \end{definition}
 
 
-\begin{example} Primfaktorzerlegung\index{Primfaktor!Zerlegung} solcher
-Zahlen:
+\begin{example}{ Primfaktorzerlegung\index{Primfaktor!Zerlegung} solcher Zahlen:}
 \begin{eqnarray*}
 4 & = & 2*2  \nonumber \\
 6 & = & 2*3  \nonumber \\
@@ -380,7 +379,7 @@ wobei $c$ eine ganze Zahl ist und $r$ eine Zahl mit den Werten $0,1,\cdots, m-1$
 Diese Schreibweise heißt Division mit Rest. Dabei heißt $c$ der ganzzahlige 
 \glqq Quotient'' und $r$ der \glqq Rest'' der Division.
 
-\begin{example}
+\begin{example}{:}
 $$\frac{19}{7} = 2 + \frac{5}{7} \quad (m=7, c = 2, r = 5)$$
 \end{example}
 Was haben die Zahlen $5, 12, 19, 26, \cdots$ bei der Division durch $7$ gemeinsam?
@@ -398,7 +397,7 @@ Als {\bf Restklasse $r$ modulo $m$} bezeichnet man alle ganzen Zahlen $a$, die b
 durch $m$ denselben Rest $r$ haben.
 \end{definition}
 \newpage
-\begin{example}
+\begin{example}{:}
 \begin{itemize}
 \item[] Restklasse $0$ modulo $4 = \{ x | x = 4*n; \; n \in \mathbb{Z} \} = \{ \dots, -16, -12, -8, -4, 0, 4, 8, 12, 16, \dots \}$
 \item[] Restklasse $3$ modulo $4 = \{ x | x = 4*n + 3;\; n \in \mathbb{Z} \} = \{ \dots, -13, -9, -5, -1, 3, 7, 11, 15, \dots \}$
@@ -417,7 +416,7 @@ Man schreibt: $a \equiv b {\rm ~(mod~} m)$. Und sagt:  {\em $a$ ist kongruent $b
 dass $a$ und $b$ zur gleichen Restklasse gehören. Der Modul ist also der Teiler. Diese Schreibweise wurde von 
 Gauss eingeführt. Gewöhnlich ist der Teiler positiv, aber $a$ und $b$ können auch beliebige ganze Zahlen sein.
 
-\begin{example}
+\begin{example}{:}
 \begin{itemize}
    \item[] $19 \equiv 12 {\rm ~(mod~} 7)$,         
            denn die Reste sind gleich:  $19 / 7 = 2$ Rest $5$  und  $12 / 7 = 1$ Rest $5$.
@@ -434,17 +433,16 @@ Diese beiden Aussagen sind also äquivalent.
 Daraus ergibt sich: Wenn $m$ die Differenz teilt, gibt es eine ganze Zahl $q$, so dass gilt: $a = b + q*m$.
 Alternativ zur Kongruenzschreibweise kann man auch die Teilbarkeitsschreibweise verwenden: $m | (a - b)$.
 
-\begin{example}
-Äquivalente Aussagen: \\
+\begin{example}{ für äquivalente Aussagen:} \\
 $35 \equiv 11$ (mod $3) \Longleftrightarrow  35 - 11 \equiv 0$ (mod $3)$, 
 wobei $35 - 11 = 24$ sich ohne Rest durch $3$ teilen lässt, während $35:3$ und $11:3$ beide den Rest $2$ ergeben.
 \end{example}
 
-\begin{remark}
+\begin{remark}{:}\\
 Für die Summe $(a + b)$ gilt die obige Äquivalenz nicht!
 \end{remark}
 
-\begin{example}
+\begin{example}{:}
 $11 \equiv 2$ (mod $3$), also ist $11 - 2 = 9 \equiv 0$ (mod $3$); aber $11 + 2 = 13$ ist nicht durch $3$ teilbar.
 \end{example}
 
@@ -459,15 +457,13 @@ geschickt für große Zahlen entscheiden will, ob sie durch eine bestimmte
 Zahl teilbar sind.
 
 \newpage
-\begin{example}
+\begin{example}{:}
 Ist $69.993$ durch $7$ teilbar? \\
-\end{example}
 
 Da die Zahl in eine Differenz zerlegt werden kann, wo einfach zu ersehen
 ist, dass jeder Operand durch $7$ teilbar ist, ist auch die Differenz durch $7$
 teilbar: $69.993 = 70.000 - 7$.
-
-
+\end{example}
 
 Diese Überlegungen und Definitionen mögen recht theoretisch erscheinen, sind
 uns im Alltag aber so vertraut, dass wir die formale Vorgehensweise gar nicht
@@ -686,7 +682,7 @@ Allgemein: $x + y + (-y) \equiv x{\rm ~(mod~}m)$ [$(-y)$ = additive Inverse zu $
 } bzw. multipliziert,
 ist das Gesamtergebnis gleich dem Ausgangswert.
 
-\begin{example}
+\begin{example}{:}
 \begin{eqnarray*}
 2 + 4 \equiv 6 \equiv 1 {\rm ~(mod~ } 5) ; \quad 1 + 1 \equiv 2 \equiv 2 {\rm ~(mod~ } 5)  \nonumber \\
 2 * 4 \equiv 8 \equiv 3 {\rm ~(mod~ } 5) ; \quad 3 * 4 \equiv 12 \equiv 2 {\rm ~(mod~ } 5) \nonumber
@@ -716,7 +712,8 @@ Weitere Bezeichnungen zum Thema Teilerfremdheit (mit $a_i \in \mathbb{Z}, i=1, \
       $a_1, \cdots , a_n$ heißen {\em paarweise relativ prim}, wenn für alle $i=1, \cdots, n$ und 
       $j=1, \cdots , n$ mit $ i \neq j $ gilt: $ {\rm ggT} (a_i, a_j) =1. $
 \end{enumerate}
-\begin{example} $2,3,6 $ sind relativ prim, da $ {\rm~ggT} (2,3,6)=1.$ 
+\begin{example}{:}\\
+$2,3,6 $ sind relativ prim, da $ {\rm~ggT} (2,3,6)=1.$ 
 Sie sind nicht paarweise prim, da $ {\rm~ggT} (2,6)=2>1.$
 \end{example}
 } ist, d.h. wenn $a$ und $m$ keine gemeinsamen Primfaktoren haben.
@@ -919,7 +916,7 @@ das modulare Potenzieren:
 $$ 3^2 = 9 \equiv 4 {\rm ~(mod~} 5). $$
 Auch aufeinanderfolgendes Potenzieren geht analog: 
 
-\begin{example} 1:\\
+\begin{example}{ 1:}\\
 \begin{quote}
 $$ (4^3)^2 = 64^2 \equiv 4096 \equiv 1 {\rm ~(mod~} 5). $$
 
@@ -965,7 +962,7 @@ Das liefert das richtige Ergebnis.
 $(a^b)^c \equiv a^{b*c{\rm ~(mod~}J(m))}{\rm ~(mod~}m)$.
 \end{satz}
 
-\begin{example} 2:\\
+\begin{example}{ 2:}\\
 $$
 3^{28} = 3^{4\:*\:7} \equiv 3^{4\:*\:7{\rm ~(mod~}10)} \equiv 3^8 \equiv 6561 \equiv 5 {\rm ~(mod~}11).
 $$
@@ -1002,7 +999,8 @@ Multiplikationen erfordern.
 Schreibt man jedoch $n$ in der Binärdarstellung als $100101 = 1*2^5 + 1*2^2 + 1*2^0$,
 so kann man umformen: $a^{37} = a^{2^5 + 2^2 + 2^0} = a^{2^5} * a^{2^2} * a^1$.
 
-\begin{example} 3: $87^{43}{\rm ~(mod~}103)$. \\
+\begin{example}{ 3:}\\
+$87^{43}{\rm ~(mod~}103)$. \\
 Da $43 = 32+8+2+1$, $103$ prim , $43<J(103)$ ist und
 
 die Quadrate (mod $103$) vorab berechnet werden können \\
@@ -1149,7 +1147,7 @@ $$ a {\rm ~mod*~} b := (a * b){\rm ~(mod~}n), $$
 so ist $\mathbb{Z}_n$ zusammen mit dieser Operation {\bf normalerweise keine} Gruppe, weil
 nicht für jedes $n$ alle Eigenschaften erfüllt sind.
 
-\begin{example}
+\begin{example}{:}
 \mbox{}
 \begin{itemize}
 \item[a)] In $\mathbb{Z}_{15}$ besitzt z.B. das Element $5$ kein Inverses.
@@ -1174,7 +1172,7 @@ $$ \mathbb{Z}_n^* := \{ a \in \mathbb{Z}_n \big| {\rm ggT}(a,n) = 1 \}.$$
 \end{definition}
 $\mathbb{Z}_n^*$ wird manchmal auch als \index{Restmenge!reduzierte} {\em reduzierte Restemenge} $R'$ modulo $n$ bezeichnet.
 
-\begin{example}
+\begin{example}{:}
 Für $n = 10=2*5$ gilt: \index{Restmenge!vollständige}
 \begin{itemize}
   \item[] vollständige Restmenge $R = \mathbb{Z}_n = \{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 \}.$
@@ -1182,7 +1180,7 @@ Für $n = 10=2*5$ gilt: \index{Restmenge!vollständige}
 \end{itemize}
 \end{example}
 
-\begin{remark}
+\begin{remark}{:}\\
 $R'$ bzw. $\mathbb{Z}_n^*$ ist immer eine echte Teilmenge von $R$ bzw. $\mathbb{Z}_n$, da $0$ immer
 Element von $\mathbb{Z}_n$, aber nie Element von $\mathbb{Z}_n^*$ ist. Da $1$ (per Definition) und $n-1$ immer teilerfremd\index{Zahlen!teilerfremd (co-prime)}
 zu $n$ sind, sind sie stets Elemente beider Mengen.
@@ -1204,7 +1202,8 @@ Produkt $1$ ergibt. Mit anderen Worten:
 Jedes Element in $\mathbb{Z}_n^*$ hat eine multiplikative Inverse.
 \end{satz}
 
-\begin{example} $a = 3$ modulo $10$ mit $\mathbb{Z}_n^* = \{ 1, 3, 7, 9 \}$ gilt $a^{-1} = 7$:
+\begin{example}{:}\\
+$a = 3$ modulo $10$ mit $\mathbb{Z}_n^* = \{ 1, 3, 7, 9 \}$ gilt $a^{-1} = 7$:
 \end{example}
 \begin{eqnarray*}
 3 & \equiv & 3 * 1{\rm ~(mod~}10), \nonumber \\
@@ -1298,7 +1297,7 @@ Verallgemeinert gilt für jede Primzahl $p$ und jedes $n$ aus $\mathbb{N}$:
 \end{itemize}      
 \end{satz}
 
-\begin{example} 
+\begin{example}{:}
 \begin{itemize}
 \item  $n=70=2*5*7 \Longrightarrow $ nach Satz \ref{J_of_p1..pk}: $ J(n)= 1\cdot 4 \cdot 6 =24.$ 
 \item  $n=9=3^2 \Longrightarrow$ nach Satz \ref{J_of_n}: $ J(n)= 3^1\cdot 2 =6,$ weil  $\mathbb{Z}_9^* =\{ 1,2,4,5,7,8\}.$
@@ -1350,7 +1349,7 @@ modularen Potenz berechnen.
 Es gilt: $a^{(p-1)*(q-1)} \equiv 1 {\rm ~(mod~}pq)$.
 \vskip +7 pt
 
-\begin{example} Berechnung einer modularen Potenz: 
+\begin{example}{ Berechnung einer modularen Potenz:}
 \vskip -4pt
 \begin{itemize}
    \item Mit $2 = 1 * 2$ und $6 = 2*3$, wobei $2$ und $3$ jeweils prim;
@@ -1371,7 +1370,7 @@ multiplikativen Inverse mit Hilfe des Satzes von Euler-Fermat
 (multiplikative Inverse werden ansonsten mit dem \index{Euklidscher Algorithmus!erweiterter} erweiterten Euklid'schen
 Algorithmus ermittelt).
 
-\begin{example}
+\begin{example}{:}\\
 Finde die multiplikative Inverse von $1579$ modulo $7351$.
 
 Nach Euler-Fermat gilt: $a^{J(n)}= 1$ mod $n$ für alle $a$ aus $\mathbb{Z}_n^*$.
@@ -1405,8 +1404,7 @@ Für das folgende Beispiel wird der Modul wie beim RSA-Verfahren üblich mit
 Wenn man in $a^{e*d} \equiv a^1$ (mod $n$) die Inverse z.B. für den Faktor $e$ 
 im Exponenten bestimmen will, muss man modulo $J(n)$ rechnen.
 
-\begin{example} (mit Bezug zum RSA-Algorithmus)\index{RSA}
-
+\begin{example}{:} (mit Bezug zum RSA-Algorithmus)\index{RSA}\\
 Wenn man modulo $26$ rechnet, aus welcher Menge können $e$ und $d$ kommen?
 
 Lösung: Es gilt $e*d \equiv 1$ (mod $J(26)$).
@@ -1494,7 +1492,7 @@ haben: Die Ordnungen sind $1, 2, 5$ und $10$. Dabei bemerkt man:
         {\bf maximale Ordnung} \index{Ordnung!maximale}.
 \end{enumerate}
 
-\begin{example} 1:
+\begin{example}{ 1:}\\
 Die folgende Tabelle\footnote{%
 In \hyperlink{AppArith3a1}{Anhang E zu diesem Kapitel} finden Sie den Quelltext
 zur Bestimmung der Tabelle mit Sage.
@@ -1553,7 +1551,7 @@ und die Berechnung in den Exponenten handhabbar sind.
 Die folgenden beiden Tabellen zeigen multiplikative Ordnung und Primitivwurzel\index{Primitivwurzel}
 modulo $45$ und modulo $46$.
 
-\begin{example} 2:
+\begin{example}{ 2:}\\
 Die folgende Tabelle\footnote{%
 In \hyperlink{AppArith3b}{Anhang E zu diesem Kapitel} finden Sie den Quelltext
 zur Berechnung der Tabelle mit Sage.
@@ -1612,7 +1610,7 @@ Da $45$ keine Primzahl ist, gibt es nicht für alle Werte von $a$ eine
 teilerfremden\index{Zahlen!teilerfremd (co-prime)} Zahlen 
 $3, 5, 6, 9, 10, 12, \cdots,$ da $45 = 3^2*5$).\vskip +1em
 
-\begin{example}
+\begin{example}{:}\\
 Hat $7$ eine Primitivwurzel\index{Primitivwurzel} modulo $45$?\par
 
 Die Voraussetzung/Bedingung ggT$(7,45)=1$ ist erfüllt.
@@ -1621,7 +1619,7 @@ Zahl $7$ keine Primitivwurzel\index{Primitivwurzel} von $45$ ist,
 denn $ord_{45}(7) = 12 \not= 24 = J(45)$.\vskip + 1em
 \end{example}
 \newpage
-\begin{example}
+\begin{example}{:}\\
 Die folgende Tabelle\footnote{%
 In \hyperlink{AppArith3c}{Anhang E zu diesem Kapitel} finden Sie den
 Quelltext zur Berechnung der Tabelle mit Sage.
@@ -1895,8 +1893,7 @@ bezeichnet.
 \end{itemize}
 Die Zahlen $d, e, n$ sind normalerweise sehr groß (z.B. $d$ und $e$ $300$ Bit, $n$ $600$ Bit).
 
-\begin{remark}
-\par
+\begin{remark}{:}\\
 Die Sicherheit des RSA-Verfahrens hängt wie bei allen Public-Key-Verfahren davon ab,
 dass man den privaten Key $d$ nicht aus  dem öffentlichen Key $(n,e)$ berechnen kann.
 \end{remark}
@@ -1970,7 +1967,7 @@ $$
 \hfill$\Box$
 
 \noindent 
-\begin{remark} 1: \\
+\begin{remark}{ 1:}\\
 Man kann die 3 Schritte auch kürzer zusammenfassen, wenn man Satz \ref{thm-zth-fermateuler} 
 (Euler-Fermat) benutzt (also nicht den vereinfachten Satz, wo $n = p$ gilt):
 $$
@@ -1981,7 +1978,7 @@ $$
 \end{remark}
 
 \noindent 
-\begin{remark} 2:\\
+\begin{remark}{ 2:}\\
 Beim Signieren werden die gleichen Operationen durchgeführt, aber zuerst mit
 dem geheimen Schlüssel $d$, und dann mit dem öffentlichen Schlüssel $e$. Das
 RSA-Verfahren ist auch für die Erstellung von digitalen
@@ -3138,7 +3135,7 @@ finden sie in Kapitel~\ref{L-Discrete-Logarithm-as-Basis}.
 \noindent Das ganze soll an einem Beispiel mit (unrealistisch) kleinen Zahlen gezeigt
 werden.\vskip +1em
 
-\begin{example} in Zahlen: 
+\begin{example}{ in Zahlen:}
 \begin{itemize}
    \item[\bf 1.] Alice und Bob wählen $g = 11$, $p = 347$.
    \item[\bf 2.] Alice wählt $a = 240$, Bob wählt $b = 39$ und behalten $a$ und $b$ geheim.
@@ -3155,7 +3152,7 @@ $g = 11, p = 347, A = 49$ und $B = 285$, den geheimen Schlüssel kann er nicht
 berechnen.
 \end{example}
 
-\begin{remark}
+\begin{remark}{:}\\
 In diesem Beispiel mit den kleinen Zahlen ist das Diskrete Logarithmusproblem\index{Logarithmusproblem!diskret} lösbar,
 aber mit großen Zahlen ist es kaum zu lösen\footnote{%
 Versucht man mit Mathematica, den diskreten Logarithmus\index{Logarithmusproblem!diskret} $x$, der die Gleichung
@@ -3712,7 +3709,7 @@ Geheimtext:
 \end{tabular} } % tt
 \vskip +8pt
 
-\begin{remark}
+\begin{remark}{:}\\
 Die ursprüngliche Nachricht bestand aus einem Satz mit 31 Zeichen (codiert
 mit dem Großbuchstabenalphabet\index{Großbuchstabenalphabet} aus Abschnitt \ref{rsaex2}). Dann wurden je 16 Dezimalziffern zu
 einer Zahl zusammengefasst (die letzte Zahl wurde mit Nullen aufgefüllt).
@@ -4157,7 +4154,7 @@ $${\rm ggT}(a,b) = a*x_{2,1} + b*x_{2,2}.$$
 
 \vskip +8 pt
 
-\begin{example}
+\begin{example}{:}\\
 Mit dem erweiterten ggT lässt sich für $e = 37$ die modulo $3588$ multiplikativ inverse Zahl $d$ bestimmen (d.h 
 $37*d \equiv 1 {\rm ~(mod~} 3588$)): 
 
@@ -4284,7 +4281,7 @@ Wenn man diese Ziffern $a_na_{n-1} \cdots a_1a_0$ direkt hintereinander
 schreibt und die Gewichte $b^i$ weg"-lässt, so erhält man die gewohnte
 Schreibweise für Zahlen.
 
-\begin{example}
+\begin{example}{:}\\
 Basis $b = 10$: $10278 =  1\cdot10^4 +  0\cdot 10^3 + 2\cdot 10^2 + 7\cdot 10^1 + 8$\\
 Basis $b = 16$: $FE70A = 15\cdot16^4 + 14\cdot 16^3 + 7\cdot 16^2 + 0\cdot 16^1 + 10$.
 \end{example}
@@ -4306,21 +4303,21 @@ der Zahl einfach abgeschnitten). Man sagt auch {\em untere Gaußklammer von} $x$.
 der Zahl $z$ in $b$-adischer Schreibweise. Es gilt die Gleichung $$l_b(z) = \lfloor \log_b z \rfloor +1. $$
 
 \vskip +10 pt
-\begin{example} 1 (dezimal$\rightarrow$hex):
+\begin{example}{ 1 (dezimal$\rightarrow$hex):}\\
 Für die Zahl $z = 234$ in Dezimalschreibweise (EA in hex) bestimmt man die
 Länge in Hexadezimalschreibweise durch
 $$l_{16}(z) = \lfloor \log_{16}(z) \rfloor + 1 = \lfloor \ln (z) / \ln(16) \rfloor + 1 = \lfloor 1,96... \rfloor + 1 = 1 + 1 = 2.$$
 \end{example}
 
 \vskip +10 pt 
-\begin{example} 2 (dezimal$\rightarrow$binär):
+\begin{example}{ 2 (dezimal$\rightarrow$binär):}\\
 Für die Zahl $z = 234$ in Dezimalschreibweise (11101010 in binär) bestimmt
 man die Länge in Binärschreibweise durch
 $$l_{2}(z) = \lfloor \log_{2}(z) \rfloor + 1 = \lfloor \ln (z) / \ln(2) \rfloor + 1 = \lfloor 7,87... \rfloor + 1 = 7 + 1 = 8.$$
 \end{example}
 
 \vskip +10 pt 
-\begin{example} 3 (binär$\rightarrow$dezimal):
+\begin{example}{ 3 (binär$\rightarrow$dezimal):}\\
 Für die Zahl $z = 11101010$ in Binärschreibweise (234 dezimal) bestimmt
 man die Länge in Dezimalschreibweise durch
 $$l_{10}(z) = \lfloor \log_{10}(z) \rfloor + 1 = \lfloor \ln (z) / \ln(10) \rfloor + 1 = \lfloor 2,36... \rfloor + 1 = 2 + 1 = 3.$$
@@ -4344,7 +4341,7 @@ $n := 0, z' := z$ \\
 \end{tabbing}
 
 \vskip +10 pt
-\begin{example} 1 (dezimal$\rightarrow$hex):
+\begin{example}{ 1 (dezimal$\rightarrow$hex):}\\
 Die Zahl $z = 234$ in Dezimalschreibweise wird umgewandelt in 
 Hexadezimalschreibweise:\\
 $a_0 = 234 {\rm ~mod~} 16 = 10 = A$, $234 / 16 = 14 = E$,\\
@@ -4353,7 +4350,7 @@ also $EA$.
 \end{example} 
 
 \vskip +10 pt
-\begin{example} 2 (binär$\rightarrow$dezimal):
+\begin{example}{ 2 (binär$\rightarrow$dezimal):}\\
 Die Binärzahl $z = 1000100101110101$ wird in die Dezimaldarstellung durch
 die folgenden Rechnungen umgewandelt: 
 
@@ -4398,10 +4395,8 @@ sage: [mod(b * i, m).lift() for i in xrange(m)]
 [0, 6, 12, 1, 7, 13, 2, 8, 14, 3, 9, 15, 4, 10, 16, 5, 11]
 \end{Verbatim}
 
-\vspace{3ex}
-Beachte: Sage erzeugt bei Verwendung von {\tt Mod} das Objekt {\tt Mod}
+\noindent Beachte: Sage erzeugt bei Verwendung von {\tt Mod} das Objekt {\tt Mod}
 und gibt es auch aus:
-\vspace{-2ex}
 
 \noindent The function \verb!mod()! returns an object that represents
 integers modulo $m$, in our case $m = 17$. We use the method
@@ -4808,7 +4803,7 @@ sage: [power_mod(a, e, m) for a in A]
 \end{Verbatim}
 
 \vskip +10 pt \noindent
-\begin{remark} Verwendung von {\tt Mod} in Sage: \\
+\begin{remark}{: Verwendung von {\tt Mod} in Sage:}\\
 {\tt Mod(82,256027)\^{}65537} ist wesentlich schneller als \\
 --  {\tt Mod(82\^{}65537, 256027)} oder \\
 --  {\tt (82\^{}65537) \% 256027}.
