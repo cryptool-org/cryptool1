@@ -2841,35 +2841,37 @@ $g = 11, p = 347, A = 49$ and $B = 285$, they would not be able to calculate the
 
 \begin{remark}
 In this example using such small numbers, it would be possible, but with large numbers the discrete logarithm\index{Discrete logarithm}
-problem\footnote{If you try to determine the discrete logarithm $x$ that solves the equation $11^x \equiv 49 {\rm ~(mod~} 347) $ with 
-Mathematica by means of Solve, you obtain the {em tdep message} ``The equations appear to involve the variables to be solved for 
-in an essentially non-algebraic way''. Mathematica therefore claims not to know a direct algebraic procedure for solving the equation.
-Yet Mathematica is able to calculate this with the general function for the multiplicative order (here for Alice)\index{Mathematica}:
-{\tt MultiplicativeOrder[11, 347, 49]} delivers the value $67$.\\
-The syntax with Pari-GP is: \texttt{znlog(Mod(49,347),Mod(11,347))}.\index{Pari-GP}\\
-Such number-theory tasks can also be solved using other tools such as the
-LiDIA\index{LiDIA} or \index{BC} BC package (see web links in appendix).
-The dl function in the {\bf LC} user interface for LiDIA also delivers the value $67$ for {\tt dl(11,49,347)}.
-}${}^,$\footnote{Why have the functions delivered the value $67$ rather than $240$ for the dl problem for Alice?
-The discrete logarithm is the smallest natural exponent that solves the equation $11^x\equiv49 {\rm ~(mod~} 347)$. Both $x=67$ 
-and $x=240$ (the number selected in the example) satisfy the equation and can therefore be used to calculate the session key: 
-$285^{240} \equiv 285^{67}\equiv 268 {\rm ~(mod~} 347)$.
-If Alice and Bob had selected a primitive root modulo $p$ as base $g$, then for every remainder from the set 
-$\{1, 2, \cdots, p-1\}$ there is exactly one exponent from the set $\{0, 1, \cdots, p-2\}$.\\
-For info: there are 
-$172$ different primitive roots for modulo $347$, $32$ of which are prime (not necessary).
-Since the number $11$ selected for $g$ in the example is not a primitive root of $347$, the remainders do not take all 
-values from the set $\{1, 2, \cdots, 346\}$. Thus, for a particular remainder there may be more than one exponent or 
-even no exponent at all in the set $\{0, 1, \cdots, 345\}$ that satisfies the equation.\index{Mathematica}\\
-{\tt 
-PrimeQ[347] = True; EulerPhi[347] = 346; GCD[11, 347] = 1;
-MultiplicativeOrder[11, 347] = 173}\\
-The syntax with Pari-GP is: \texttt{isprime(347); eulerphi(347);
-  gcd(11,347); znorder(Mod(11,347))}.\index{Pari-GP}
-\vskip +6 pt  % \vskip +10 pt
+problem\footnote{
+You can use Sage to determine the discrete logarithm $x$ that solves the
+equation $11^x \equiv 49 \pmod{347}$ (here for Alice)\index{Sage}:
+\texttt{discrete\_log(mod(49, 347), mod(11, 347))}. The returned value
+is $67$. Such number theoretic tasks can also be solved using other
+tools such as the LiDIA\index{LiDIA} or \index{BC} BC packages (see
+the list of web sites in the appendix at the end of this chapter). The
+\texttt{dl} function in the {\bf LC} user interface for LiDIA also
+delivers the value $67$ for \texttt{dl(11,49,347)}.}${}^,$\footnote{
+Why have the functions delivered the value $67$ rather than $240$ for
+the discrete logarithm problem for Alice? The discrete logarithm is
+the smallest natural exponent that solves the equation 
+$11^x \equiv 49 \pmod{347}$. Both $x = 67$ and $x = 240$ (the number
+selected in the example) satisfy the equation and can therefore be
+used to calculate the session key: 
+$285^{240} \equiv 285^{67} \equiv 268 \pmod{347}$. If Alice and Bob
+had selected a primitive root modulo $p$ as base $g$, then for every
+remainder from the set $\{1, 2, \dots, p-1 \}$ there is exactly one
+exponent from the set $\{0, 1, \dots, p-2 \}$. \\
+\indent As an aside, there are $172$ different primitive roots modulo $347$,
+$32$ of which are prime (not necessary). Since the number $11$
+selected for $g$ in the example is not a primitive root of $347$, the
+remainders do not take all values from the set $\{1, 2, \dots, 346 \}$. 
+Thus, for a particular remainder there may be more than one exponent
+or even no exponent at all in the set $\{0, 1, \dots, 345 \}$ that
+satisfies the equation. The relevant Sage\index{Sage} commands are:
+\texttt{is\_prime(347)}, \texttt{euler\_phi(347)}, \texttt{gcd(11,347)} and 
+\texttt{multiplicative\_order(mod(11, 347))}. \\\\
 \begin{tabular}{|c|c|l|}
 \hline
-i  & $11^i{\rm ~mod~}347$ & \\
+i  & $11^i \bmod 347$ & \\
 \hline
       0  &          1   &  \\
       1  &         11   &  \\                                     
@@ -2877,7 +2879,7 @@ i  & $11^i{\rm ~mod~}347$ & \\
       3  &        290   &  \\                                     
      67  &         49   & searched exponent \\                    
     172  &        284   &  \\                                                  
-    173  &          1   &= multiplicative order of $11 {\rm  ~(mod~} 347)$ \\ 
+    173  &          1   &= multiplicative order of $11 \bmod 347$ \\ 
     174  &         11   &  \\                                                     
     175  &        121   &  \\                                     
     176  &        290   &  \\                                     
@@ -2900,13 +2902,13 @@ For Bob: $11 ^ y \equiv 285 {\rm ~(mod~}347)$, that means $\log_{11}(285){\rm ~(
 \footnotetext{%
     \index{Sage}%
     \index{Minh Van Nguyen}%
-    Additional material: Minh Van Nguyen: "Number Theory and the RSA Public Key
-    Cryptosystem. Introductory tutorial on using Sage to study elementary number theory
-    and public key cryptography", 2009.
-    Didactically very clear article about some basics in NT and in Sage usage.
-    \href{http://nguyenminh2.googlepages.com/sage_numtheory-rsa.pdf}
-       {\texttt{http://nguyenminh2.googlepages.com/sage\_numtheory-rsa.pdf}}.
-    \vskip +3 pt
+    Additional material: Minh Van Nguyen, ``Number Theory and the RSA
+    Public Key Cryptosystem'', 2009. An introductory tutorial on using
+    Sage to study elementary number theory and public key
+    cryptography. A didactically very clear article about some basic
+    number theory and Sage usage. 
+    \href{http://nguyenminh2.googlepages.com/numtheory-crypto-sage.pdf}
+    {\url{http://nguyenminh2.googlepages.com/numtheory-crypto-sage.pdf}}.
 }
 \label{rsaconcrete}\index{RSA}
 Having described above \hyperlink{RSA}{how the RSA procedure works}, we will now work through the steps using actual, but small, numbers.
