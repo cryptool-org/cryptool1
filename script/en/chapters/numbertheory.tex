@@ -414,12 +414,16 @@ $a \equiv b$ (mod $m$) if and only if, the difference $(a - b)$ is divisible by 
 \end{theorem}
 These two statements are therefore equivalent.
 
-Therefore: If $m$ divides the difference, there exists a whole number $q$ such that: $a = b + q*m$.
-As an alternative to the congruence notation, we can also use the divisibility notation: $m | (a - b)$.
+Therefore: If $m$ divides the difference, there exists a whole number
+$q$ such that: $a = b + q*m$.
+As an alternative to the congruence notation, we can also use the divisibility
+notation: $m | (a - b)$.
 
-{\bf Example of equivalent statements:} \\
+\begin{example}{ Example of equivalent statements:}\\
 $35 \equiv 11$ (mod $3) \Longleftrightarrow  35 - 11 \equiv 0$ (mod $3)$, 
-where $35 - 11 = 24$ is divisible by $3$ without remainder while $35:3$ and $11:3$ leave the remainder $2$.
+where $35 - 11 = 24$ is divisible by $3$ without remainder while $35:3$ and $11:3$
+leave the remainder $2$.
+\end{example}
 
 \begin{remark}{:}\\
 The above equivalence does not apply to the sum $(a + b)$!
@@ -427,9 +431,9 @@ The above equivalence does not apply to the sum $(a + b)$!
 
 \begin{example}{:}\\
 $11 \equiv 2$ (mod $3$), therefore $11 - 2 = 9 \equiv 0$ (mod $3$); but $11 + 2 = 13$ is not divisible by $3$.
-The statement in theorem \ref{thm-zth-div} does not even apply to sums in one direction. It is correct for sums only if the 
-remainder is 0 and only in the following direction:  if a divisor divides both summands with no remainder, it also 
-divides the sum with no remainder.
+The statement in theorem \ref{thm-zth-div} does not even apply to sums in one direction.
+It is correct for sums only if the remainder is 0 and only in the following direction:
+If a divisor divides both summands with no remainder, it also divides the sum with no remainder.
 \end{example}
 
 We can apply the above equivalence in theorem \ref{thm-zth-div} if we need a quick and easy method of determining whether 
@@ -758,7 +762,7 @@ Between $i=1, \cdots, m$, all values between $0, \cdots, m-1$ occur for the rema
 also relatively prime\index{Relatively prime} to the modulus $m=17$.
 \enlargethispage{0.5cm}
 
-{\bf The multiplicative inverse of $5$ (mod $17$) is $7$, while the inverse of $6$ (mod $17$) is $3$.}
+\noindent {\bf The multiplicative inverse of $5$ (mod $17$) is $7$, while the inverse of $6$ (mod $17$) is $3$.}
 
 \vskip +20 pt
 
@@ -781,7 +785,7 @@ remainder                 & 6  & 12  & 5  & 11  & 4  & 10  & 3  & 9  & 2  & 8  &
 Between $i=1, \cdots, m$, all values between $0, \cdots, m-1$ occur for the remainders, because both $5$ and 
 $6$ are relatively prime to the modulus $m=13$.
 
-{\bf The multiplicative inverse of $5$ (mod $13$) is $8$, while the inverse of $6$ (mod $13$) is $11$.}
+\noindent {\bf The multiplicative inverse of $5$ (mod $13$) is $8$, while the inverse of $6$ (mod $13$) is $11$.}
 
 \vskip +20 pt
 
@@ -806,7 +810,7 @@ We have calculated $(5 * i)$ (mod $12$)  and  $(6*i)$ (mod $12$).
 Between $i=1, \cdots, m$, not all values between $0, \cdots, m-1$ occur and $6$ does not have an inverse mod $12$, 
 because $6$ and the modulus $m=12$ are not co-prime\index{Number!co-prime}.
 
-{\bf The multiplicative inverse of $5$ (mod $12$) is $5$. The number $6$ has no inverse (mod $12$).}
+\noindent {\bf The multiplicative inverse of $5$ (mod $12$) is $5$. The number $6$ has no inverse (mod $12$).}
 
 
 
@@ -824,7 +828,7 @@ Modular powers work in the same way as modular addition and modular multiplicati
 $$ 3^2 = 9 \equiv 4 {\rm ~(mod~} 5). $$
 Even consecutive powers work in the same way: 
 
-{\bf Example 1:}
+\begin{example}{ 1:}
 $$ (4^3)^2 = 64^2 \equiv 4096 \equiv 1 {\rm ~(mod~} 5). $$
 \begin{quote}
 (1) We can speed up\footnote{The time required to calculate the multiplication 
@@ -861,17 +865,20 @@ $$
 ~(mod~}5).
 $$
 This delivers the correct result.
-\vskip + 5pt
 \end{quote}
+\end{example}
+\vskip + 10 pt
+
 
 \begin{theorem}\label{thm-zth-pot}
 $(a^b)^c \equiv a^{b*c{\rm ~(mod~}J(m))}{\rm ~(mod~}m)$.
 \end{theorem}
 
-{\bf Example 2:}
+\begin{example}{ 2:}
 $$
 3^{28} = 3^{4\:*\:7} \equiv 3^{4\:*\:7{\rm ~(mod~}10)} \equiv 3^8 \equiv 6561 \equiv 5 {\rm ~(mod~}11).
 $$
+\end{example}
 
 
 % --------------------------------------------------------------------------
@@ -896,11 +903,14 @@ $$
 $$
 
 We can generalize this by representing the exponent as a binary number.
-For example, the naive method would require $36$ multiplications in order to calculate $a^n$ for $n = 37$. 
-However, if we write $n$ in the binary representation as $100101 = 1*2^5 + 1*2^2 + 1*2^0$, then we can rewrite 
-the expression as: $a^{37} = a^{2^5 + 2^2 + 2^0} = a^{2^5} * a^{2^2} * a^1$
+For example, the naive method would require $36$ multiplications in order
+to calculate $a^n$ for $n = 37$. 
+However, if we write $n$ in the binary representation as
+$100101 = 1*2^5 + 1*2^2 + 1*2^0$, then we can rewrite 
+the expression as: $a^{37} = a^{2^5 + 2^2 + 2^0} = a^{2^5} * a^{2^2} * a^1$\\
 
-{\bf Example 3:} $87^{43}{\rm ~(mod~}103)$. 
+
+\begin{example}{ 3:} $87^{43}{\rm ~(mod~}103)$. 
 
 Since $43 = 32+8+2+1$ , $103$ is prime, $43<J(103)$
 
@@ -912,7 +922,7 @@ and the squares (mod $103$) can be calculated beforehand
 87^{16} & \equiv & 63^2 \equiv 55 {\rm ~(mod~}103),\\
 87^{32} & \equiv & 55^2 \equiv 38 {\rm ~(mod~}103).
 \end{eqnarray*}
-we have\footnote{%
+We have\footnote{%
 See \hyperlink{AppArith2}{Appendix E of this chapter} for source code
 implementing the square and multiply method in Sage, which can be used
 to reproduce the calculations above.}:
@@ -922,11 +932,14 @@ to reproduce the calculations above.}:
         & \equiv & 87^{32} * 87^8 * 87^2 * 87 {\rm ~(mod~}103) \nonumber \\ 
     & \equiv & 38 * 63 * 50 * 87 \equiv 85 {\rm ~(mod~}103). \nonumber
 \end{eqnarray*}
+\end{example}
 
-The powers $(a^2)^k$ can be determined easily by means of repeated squaring. As long as $a$ does not change, a computer 
-can calculate them beforehand and -- if enough memory is available -- save them. In order to then find $a^n$ in each 
-individual case, it now only needs to multiply those $(a^{2})^k$ for which there is a one in the k-th position of the binary 
-representation of $n$. The typical effort is then reduced from $2^{600}$ to $2*600$ multiplications!
+The powers $(a^2)^k$ can be determined easily by means of repeated squaring.
+As long as $a$ does not change, a computer can calculate them beforehand
+and -- if enough memory is available -- save them. In order to then find $a^n$
+in each individual case, it now only needs to multiply those $(a^{2})^k$ for
+which there is a one in the k-th position of the binary representation of $n$.
+The typical effort is then reduced from $2^{600}$ to $2*600$ multiplications!
 This frequently used algorithm is called ``Square and Multiply''\index{Square and multiply}.
 
 
@@ -1040,7 +1053,7 @@ then  $\mathbb{Z}_n$ together with this operation is {\bf usually not a group} b
 \begin{example}{:}
 \begin{itemize}
 \item[a)] In $\mathbb{Z}_{15}$, for example, the element $5$ does not have an inverse.
-          That is to say, there is no $a$ with \\ $5 * a \equiv 1 {\rm ~(mod~}15).$
+          That is to say, there is no $a$ with $5 * a \equiv 1 {\rm ~(mod~}15).$
           Each modulo product with $5$ on this set gives $5, 10$ or $0$.
 \item[b)] In $\mathbb{Z}_{55} \setminus \{0\}$, for example, the elements $5$ and $11$ do not have multiplicative inverses.
           That is to say, there is no $a \in \mathbb{Z}_{55}$ such that $5 * a\equiv 1~(~mod~55~) $ and no $a$ such that $11*a \equiv 1~(~mod~55~)$. 
@@ -1083,7 +1096,7 @@ is always an element of $\mathbb{Z}_n^*$, there is a unique ``partner'' in this 
 Each element in $\mathbb{Z}_n^*$ has a multiplicative inverse.
 \end{theorem}
 
-\begin{example}{:}\\
+\begin{example}{:} 
 $a = 3$ modulo $10$ with $\mathbb{Z}_n^* = \{ 1, 3, 7, 9 \}$ it holds that $a^{-1} = 7$:
 \end{example}
 \begin{eqnarray*}
@@ -1162,7 +1175,7 @@ For a prime number, the following is true: $J(p) = p - 1.$
 If $m$ is the product of two distinct primes, then:
 $$J(p*q) = (p - 1) * (q - 1) \quad  {\rm or} \quad  J(p * q) = J(p) * J(q).$$
 \end{theorem}
-This case is important for the RSA procedure.
+\noindent This case is important for the RSA procedure.
 
 \begin{theorem}\label{thm-zth-phimultprime}\label{J_of_p1..pk}
 If $n = p_1 * p_2 * \cdots * p_k$ where $p_1$ to $p_k$ are distinct prime numbers (i.e. no factor occurs more than once), 
@@ -1171,6 +1184,7 @@ $$J(n) = (p_1 - 1)*(p_2 - 1)* \cdots *(p_k - 1).$$
 \end{theorem}
 
 \begin{theorem}\label{thm-zth-phinum}\label{J_of_n}
+
 In general, the following is true for every prime number $p$ and every $n$ in $\mathbb{N}$:
 \begin{enumerate}
 \item $J(p^n) = p^{n-1} * (p-1).$
@@ -1275,10 +1289,10 @@ of using ``$n$'' rather than ``$m$'' to denote the modulus.}.
 In $a^{e*d} \equiv a^1 {\rm ~(mod~} n)$, if we wish to determine the 
 inverses for the factor $e$ in the exponent, we need to calculate modulo $J(n)$.
 
-{\bf Example (with reference to the RSA algorithm):}\index{RSA}\\
+\begin{example}{:} (with reference to the RSA algorithm\index{RSA})\\
 If we calculate modulo $26$, which set can $e$ and $d$ come from?
 
-Solution: we have $e*d \equiv 1 {\rm ~(mod~} J(26))$.
+Solution: We have $e*d \equiv 1 {\rm ~(mod~} J(26))$.
 \begin{itemize}
 \item[] The reduced remainder set $R' = \mathbb{Z}_{26}^* = \{ 1, 3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25 \}$ are
 the elements in $\mathbb{Z}_{26},$ which have a multiplicative inverse, that is which are relatively prime\index{Relatively prime} to $26$.
@@ -1294,6 +1308,7 @@ For $a^{J(n)} \equiv 1 {\rm ~(mod~} n)$ is the same as saying $ a^{J(n)-1} \equi
 $$ d \equiv  e^{-1}   {\rm ~(mod~} J(n)) 
     \equiv  e^{J(J(n))-1}  {\rm ~(mod~} J(n)).
 $$
+\end{example}
 
 The problems of \index{Factorization} factorizing\index{Factorization!factorization problem} $n=pq$ with $q\neq p$ and finding $J(n)$ have a similar degree of difficulty 
 and if we find a solution for one of the two problems, we also have a solution for the
@@ -1350,12 +1365,13 @@ $10$ and we notice that:
       {\bf maximum order} \index{Order!maximum} in $\mathbb{Z}_{11}^*$.
 \end{enumerate}
 
-{\bf Example 1:} \\
+\begin{example}{ 1:}\\
 The following table\footnote{%
 See \hyperlink{AppArith3a1}{Appendix E of this chapter} for the source
 code to generate the table using Sage.} 
 shows the values $a^i$ mod $11$ for the exponents $i = 1, 2, \cdots, 10$ and for the bases 
 $a =  1, 2, \cdots, 10$ as well as the resulting value $ord_{11}(a)$ for each $a$:
+\end{example}
 
 \subsection*{Table 4: Values of $a^i {\rm ~mod~} 11,  1 \leq a,i<11$ and according order of $a$ mod $m$:}\label{SrcArith3a}
 \begin{center}
@@ -1398,14 +1414,15 @@ is a primitive root with respect to mod $11$ ($J(11) = 10$).
 
 Using the primitive roots, we can clearly establish the conditions for which powers modulo $m$ have a unique inverse and the calculation in the exponents is manageable.
 
-The following two tables show the multiplicative orders and primitive roots modulo $45$ and modulo $46$.
+The following two tables show the multiplicative orders and primitive roots
+modulo $45$ and modulo $46$.
 
-{\bf Example 2:} \\
+\begin{example}{ 2:}\\
 The following table\footnote{%
 See \hyperlink{AppArith3b}{Appendix E of this chapter} for the source
 code to generate the table using Sage.} shows the values $a^i$ mod $45$ for the exponents $i = 1, 2, \cdots, 12$ and for the bases 
 $a =  1, 2, \cdots, 12$ as well as the resulting value $ord_{45}(a)$ for each $a$:
-
+\end{example}
 
 \subsection*{Table 5: Values of $a^i{\rm ~mod~}45, 1\leq a,i<13$:}\label{SrcArith3b}
 \begin{center}
@@ -1449,17 +1466,20 @@ $J(45)$ is calculated using theorem \ref{thm-zth-phinum}: $J(45) = J(3^2*5) = 3^
 Since $45$ is not a prime, there is no ``multiplicative order'' for all values of $a$ (for all numbers that are not 
 relatively prime to $45: 3, 5, 6, 9, 10, 12, \cdots,$ because $45 = 3^2*5$).
 
-{\bf Example 3:} \\
-Is $7$ a primitive root modulo $45$?\\
-The requirement/condition $gcd(7,45)=1$ is fulfilled.
-The table 'values of $a^{i}$ mod $45$' shows that the number $7$ is not a primitive root of $45$, because $ord_{45}(7) = 12 \not= 24 = J(45)$.
+\begin{example}{ 3:}\\
+Is $7$ a primitive root modulo $45$?
 
-{\bf Example 4:} \\
+\noindent The requirement/condition $gcd(7,45)=1$ is fulfilled.
+The table 'values of $a^{i}$ mod $45$' shows that the number $7$ is not a primitive root of $45$, because $ord_{45}(7) = 12 \not= 24 = J(45)$.
+\end{example}
+
+\begin{example}{ 4:}\\
 The following table\footnote{%
 See \hyperlink{AppArith3c}{Appendix E of this chapter} for the source
 code to generate the table using Sage.} answers the question as to
 whether the number $7$ is a primitive root of $46$. 
 The requirement/condition $gcd(7,46)=1$ is fulfilled.
+\end{example}
 
 
 %\newpage
@@ -1707,7 +1727,7 @@ The security of the RSA algorithm depends as with all public key methods on the 
 key $d$ from the public key $(n,e)$.
 \end{remark}
 
-Concrete for the RSA method does this mean:
+\noindent Concretely for the RSA method does this mean:
 \vskip - 1em
 \begin{enumerate}
 \item it is hard to calculate $J(n)$ for big compounds $n$ and
@@ -1728,9 +1748,9 @@ This means that the deciphering algorithm above works correctly.
 
 We therefore need to show that:   $$M^{e * d} \equiv M  {\rm ~(mod~} n).$$
 
-We will show this in 3 steps (see \cite[p. 131ff]{Beutelspacher1996}).
+\noindent {We will show this in 3 steps (see \cite[p. 131ff]{Beutelspacher1996}).
 
-{\bf Step 1}:
+\noindent {{\bf Step 1}:
 
 In the first step we show that: $M^{e * d} \equiv M{\rm ~(mod~}p)$.
 This results from the requirements and from Euler-Fermat (theorem \ref{thm-zth-fermateuler}).
@@ -1754,11 +1774,11 @@ Since $p$ is a factor of both $M$ and $Me * d$, it is also a factor of their dif
 $$ (M^{e * d} - M ) \equiv 0 {\rm ~(mod~}p).$$
 And therefore our conjecture is also true in this special case.
 
-{\bf Step 2}:
+\noindent {{\bf Step 2}:
 
 In exactly the same way we prove that: $M^{e * d} \equiv M{\rm ~(mod~}q)$.
 
-{\bf Step 3}:
+\noindent {{\bf Step 3}:
 
 We now combine the conjectures from step 1 and 2 for $n=p*q$ to show that:
 $$ M^{e * d} \equiv M{\rm ~(mod~}n) {\rm ~for~all~} M < n. $$
@@ -1771,21 +1791,26 @@ $$
 $$
 \hfill$\Box$
 
-{\bf 1st comment:} \\
-We can also condense the three steps if we use the theorem \ref{thm-zth-fermateuler} (Euler-Fermat) - i.e. not the simplified theorem where $n = p$ and 
+
+\begin{remark}{ 1:}\\
+We can also condense the three steps if we use the theorem \ref{thm-zth-fermateuler}
+(Euler-Fermat) - i.e. not the simplified theorem where $n = p$ and 
 which corresponds to Fermat's Little Theorem:
 $$
 (M^e)^d \equiv M^{e*d} \equiv M^{(p-1)(q-1)*k + 1} \equiv 
         (\underbrace{M^{(p-1)(q-1)}}_{\equiv M^{J(n)} \equiv 1 {\rm ~(mod~}n)})^k * M
     \equiv 1^k * M \equiv M {\rm ~(mod~}n).
 $$
+\end{remark}
 
-{\bf 2nd comment:} \\
-When it comes to signing messages, we perform the same operations but first use the secret key $d$, followed by the 
-public key $e$. The RSA procedure can also be used to create digital signatures\index{Signature!digital}, because: 
+\begin{remark}{ 2:}\\
+When it comes to signing messages, we perform the same operations but first use
+the secret key $d$, followed by the public key $e$. The RSA procedure can also be
+used to create digital signatures\index{Signature!digital}, because: 
 $$
 M \equiv (M^d)^e{\rm ~(mod~}n).
 $$
+\end{remark}
 
 
 
@@ -2670,7 +2695,7 @@ The importance of this discovery is that it provides number theorists with new i
 
 But even its authors note that other known algorithms may be faster (for example ECPP). The new algorithm works on any integer. For example the GIMPS project uses the Lucas-Lehmer primality test which takes advantage of the special properties of Mersenne numbers. This makes the Lucas-Lehmer test much faster, allowing to test numbers with millions of digits while general purpose algorithms are limited to numbers with a few thousand digits.
 
-Current research results on this topic can be found at:
+\noindent Current research results on this topic can be found at:
 \vspace{-10pt}
 \begin{itemize}
   \item[] \href{http://www.mersenne.org/}
@@ -2824,8 +2849,7 @@ can be found in chapter~\ref{L-Discrete-Logarithm-as-Basis}.
 \noindent We will now use an example with (unrealistically) small numbers to illustrate this.
 \vskip +1em
 
-%\pagebreak
-{\bf Example using numbers:} 
+\begin{example}{ using small numbers:}
 \begin{itemize}
 \item[{\bf 1.}] Alice and Bob select $g = 11, p = 347$.
 \item[{\bf 2.}] Alice selects $a = 240$, Bob selects $b = 39$ and they keep $a$ and $b$ secret.
@@ -2839,37 +2863,51 @@ can be found in chapter~\ref{L-Discrete-Logarithm-as-Basis}.
 Alice and Bob can now communicate securely using their shared session key. Even if spies were to intercept everything 
 transferred via the connection:
 $g = 11, p = 347, A = 49$ and $B = 285$, they would not be able to calculate the secret key.
+\end{example}
 
 \begin{remark}{:}\\
-In this example using such small numbers, it would be possible, but with large numbers the discrete logarithm\index{Discrete logarithm}
-problem\footnote{
+In this example using such small numbers, it is easily possible to calculate the discrete
+logarithms, but with large numbers the discrete logarithm\index{Discrete logarithm}
+problem\footnote{%
 You can use Sage to determine the discrete logarithm $x$ that solves the
 equation $11^x \equiv 49 \pmod{347}$ (here for Alice)\index{Sage}:
 \texttt{discrete\_log(mod(49, 347), mod(11, 347))}. The returned value
-is $67$. Such number theoretic tasks can also be solved using other
-tools such as the LiDIA\index{LiDIA} or \index{BC} BC packages (see
-the list of web sites in the appendix at the end of this chapter). The
-\texttt{dl} function in the {\bf LC} user interface for LiDIA also
-delivers the value $67$ for \texttt{dl(11,49,347)}.}${}^,$\footnote{
-Why have the functions delivered the value $67$ rather than $240$ for
-the discrete logarithm problem for Alice? The discrete logarithm is
+is $67$.\\
+Such number theoretic tasks can also be solved using other
+tools like PariGP\index{Pari-GP}, LiDIA\index{LiDIA}, BC\index{BC} or
+Mathematica\index{Mathematica}
+(see the list of web sites in the appendix at the end of this chapter):\\
+- Pari-GP: \texttt{znlog(Mod(49,347),Mod(11,347))}.\\
+- LiDIA:   \texttt{dl(11,49,347)}.\\
+- Mathematica: The general Solve function delivers the {em tdep message} ``The equations
+  appear to involve the variables to be solved for in an essentially non-algebraic way''.\\
+- Mathematica: {\tt MultiplicativeOrder[11, 347, 49]}.\\
+All deliver the result $67$.
+}${}^,$\footnote{%
+Why have the functions delivered the value $67$ for the discrete
+logarithm\index{Discrete logarithm} of Alice rather than $240$ which Alice
+selected as exponent $a$?\\
+The discrete logarithm is
 the smallest natural exponent that solves the equation 
 $11^x \equiv 49 \pmod{347}$. Both $x = 67$ and $x = 240$ (the number
 selected in the example) satisfy the equation and can therefore be
 used to calculate the session key: 
-$285^{240} \equiv 285^{67} \equiv 268 \pmod{347}$. If Alice and Bob
-had selected a primitive root modulo $p$ as base $g$, then for every
+$285^{240} \equiv 285^{67} \equiv 268 \pmod{347}$.
+If Alice and Bob
+had selected a primitive root\index{Primitive root} modulo $p$ as base $g$, then for every
 remainder from the set $\{1, 2, \dots, p-1 \}$ there is exactly one
 exponent from the set $\{0, 1, \dots, p-2 \}$. \\
 \indent As an aside, there are $172$ different primitive roots modulo $347$,
 $32$ of which are prime (not necessary). Since the number $11$
-selected for $g$ in the example is not a primitive root of $347$, the
+selected for $g$ in the example is not a primitive root\index{Primitive root} of $347$, the
 remainders do not take all values from the set $\{1, 2, \dots, 346 \}$. 
 Thus, for a particular remainder there may be more than one exponent
 or even no exponent at all in the set $\{0, 1, \dots, 345 \}$ that
-satisfies the equation. The relevant Sage\index{Sage} commands are:
-\texttt{is\_prime(347)}, \texttt{euler\_phi(347)}, \texttt{gcd(11,347)} and 
-\texttt{multiplicative\_order(mod(11, 347))}. \\\\
+satisfies the equation.\\
+With the relevant Sage\index{Sage} commands you find:\\
+\texttt{is\_prime(347)=True}, \texttt{euler\_phi(347)=346}, \texttt{gcd(11,347)=1} and 
+\texttt{multiplicative\_order(mod(11, 347))=173}.
+
 \begin{tabular}{|c|c|l|}
 \hline
 i  & $11^i \bmod 347$ & \\
@@ -2887,17 +2925,23 @@ i  & $11^i \bmod 347$ & \\
     240  &         49   & searched exponent \\
 \hline
 \end{tabular}
-\vskip +18 pt
+\vskip +6 pt
+
+Further information concerning \hyperlink{AppArith3a2}{primitive roots\index{Primitive root}}
+can be found in appendix E of this chapter. %\ref{primitive-roots-with-sage}. xxxxxprro
+% appendix E eigentlichnicht gut, aber \ref{primitive-roots-with-sage}. liefert 4.13.5!  xxxxxprro
+
 } is extremely difficult to solve.
 \end{remark}
 
-Here, we need to calculate:\\
+\noindent To get the discrete logarithms, here we need to calculate:\\
 For Alice: $11 ^ x \equiv 49 {\rm ~(mod~}347)$, that means $\log_{11}(49) {\rm ~(mod~}347).$\\
 For Bob: $11 ^ y \equiv 285 {\rm ~(mod~}347)$, that means $\log_{11}(285){\rm ~(mod~}347)$.
 
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\newpage
 \hypertarget{Chapter_ElementaryNT_12}{}
 \section[The RSA procedure with actual numbers]{The RSA procedure with actual numbers\footnotemark}
 \footnotetext{%
@@ -3310,8 +3354,10 @@ and the public key $(e,n)$:
 \newpage
 $n = 63978486879527143858831415041, ~e = 17579$
 
-{\bf Message\footnote{The numbers of this table are in the online help 
-``Example illustrating the RSA demonstration'' of CrypTool\index{CrypTool}.}:}
+Message\footnote{%
+The numbers of this table are in the online help 
+``Example illustrating the RSA demonstration'' of CrypTool\index{CrypTool}.
+}:
 
 {\tt
 \begin{tabular}{l}
@@ -3321,7 +3367,8 @@ $n = 63978486879527143858831415041, ~e = 17579$
 0002250007150400 
 \end{tabular} } % tt
 
-{\bf Cipher:} \\
+Cipher:
+
 {\tt
 \begin{tabular}{l}
 45411667895024938209259253423, \\
@@ -3329,18 +3376,21 @@ $n = 63978486879527143858831415041, ~e = 17579$
 46468979279750354732637631044, \\
 32870167545903741339819671379
 \end{tabular} } % tt
+\vskip +8pt
 
-
-{\bf Comments:} \\
+\begin{remark}{:}\\
 The original message consisted of a sentence containing $31$ characters (coded
 with the capital letters alphabet \index{Capital letters alphabet} from
 section~\ref{rsaex2}).  Each group of $16$ decimal numbers is then combined to
 form one number (the last number is filled with zeros). These numbers are
 raised to the power of $e$.
+\end{remark}
 
-When you decrypt the message you must fill the calculated numbers with leading zeros in order to obtain plaintext.
+When you decrypt the message you must fill the calculated numbers with leading
+zeros in order to obtain plaintext.
 
-This needs to be stressed because the type of padding is extremely important during implementation and standardization for interoperable algorithms.
+This needs to be stressed because the type of padding is extremely important
+during implementation and standardization for interoperable algorithms.
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -3857,9 +3907,10 @@ represented by a $b$-adic sum).
 By writing the digits $a_na_{n-1} \cdots a_1a_0$ in a row directly after each other (without the $b^i$) 
 the usual writing for numbers comes to hand.
 
-{\bf Examples}: \\
+\begin{example}{:}\\
 Base $b = 10$: $10278 =  1\cdot10^4 +  0\cdot 10^3 + 2\cdot 10^2 + 7\cdot 10^1 + 8$\\
 Base $b = 16$: $FE70A = 15\cdot16^4 + 14\cdot 16^3 + 7\cdot 16^2 + 0\cdot 16^1 + 10$.
+\end{example}
 
 
 \vskip +20 pt
@@ -3874,21 +3925,25 @@ The function $\lfloor x \rfloor$ determines the next integer smaller than $x$ (i
 }. We call $l_b(z)$ {\em the number of required digits to represent the number $z$ on the base $b$}. We have
 $$l_b(z) := \lfloor log_b z \rfloor +1.$$
 
+
 \vskip +10 pt
-{\bf Example 1 (decimal$\rightarrow$hex)}:
+\begin{example}{ 1 (decimal$\rightarrow$hex):}\\
 We compute for the decimal number $z = 234$ (EA in hex) the hexadecimal representation (number base $b = 16$)
 $$l_{16}(z) = \lfloor \log_{16}(z) \rfloor + 1 = \lfloor \ln (z) / \ln(16) \rfloor + 1 = \lfloor 1.96... \rfloor + 1 = 1 + 1 = 2.$$
+\end{example}
 
 \vskip +10 pt
-{\bf Example 2 (decimal$\rightarrow$binary)}:
+\begin{example}{ 2 (decimal$\rightarrow$binary):}\\
 We compute for the decimal number $z = 234$ (11101010 in binary) the binary representation (number base $b = 2$)
 $$l_{2}(z) = \lfloor \log_{2}(z) \rfloor + 1 = \lfloor \ln (z) / \ln(2) \rfloor + 1 = \lfloor 7.87... \rfloor + 1 = 7 + 1 = 8.$$
+\end{example}
 
 \vskip +10 pt 
-{\bf Example 3 (binary$\rightarrow$decimal)}:
+\begin{example}{ 3 (binary$\rightarrow$decimal):}\\
 We compute for the decimal number $z = 11101010$ (234 decimal) the decimal
 representation (number base $b = 10$)
 $$l_{10}(z) = \lfloor \log_{10}(z) \rfloor + 1 = \lfloor \ln (z) / \ln(10) \rfloor + 1 = \lfloor 2,36... \rfloor + 1 = 2 + 1 = 3.$$
+\end{example}
 
 
 \vskip + 20 pt
@@ -3908,14 +3963,15 @@ $n := 0, z' := z$ \\
 \end{tabbing}
 
 
-{\bf Example 1 (decimal$\rightarrow$hex)}:
+\begin{example}{ 1 (decimal$\rightarrow$hex):}\\
 The integer $z = 234$ on the number base $10$ will be transformed into the hex representation via
 $a_0 = 234 {\rm ~mod~} 16 = 10 = A$, $234 / 16 = 14 = E$,\\
 $a_1 = 14 {\rm ~mod~} 16 = E$\\
 and therefore we have $EA$. 
+\end{example}
 
 \vskip +10 pt
-{\bf Example 2 (binary$\rightarrow$decimal)}:
+\begin{example}{ 2 (binary$\rightarrow$decimal):}\\
 The binary number $z = 1000100101110101$ is transformed into the decimal
 representation via the following steps:
 
@@ -3925,6 +3981,7 @@ $101011111 = 1$ (mod $1010) \Longrightarrow a_2 = 1$, $10101111 / 1010 = 100011$
 $100011 =  101$ (mod $1010) \Longrightarrow a_3 = 5$, $100011 / 1010 = 1$ \\
 $11 = 11$ (mod $1010) \Longrightarrow a_4 = 3$ \\
 therefore $z = 35189$. 
+\end{example}
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -4089,8 +4146,10 @@ sage: for a in xrange(1, 24):
 \end{Verbatim}
 
 
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \hypertarget{AppArith3a2}{}
 \subsection*{Primitive roots}
+\label{primitive-roots-with-sage}\index{Primitive root}
 
 Computing a primitive root in Sage is very straightforward. If
 \verb!n! is an integer, the command \verb!primitive_root(n)! computes

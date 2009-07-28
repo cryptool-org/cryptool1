@@ -442,7 +442,7 @@ wobei $35 - 11 = 24$ sich ohne Rest durch $3$ teilen lässt, während $35:3$ und $
 Für die Summe $(a + b)$ gilt die obige Äquivalenz nicht!
 \end{remark}
 
-\begin{example}{:}
+\begin{example}{:}\\
 $11 \equiv 2$ (mod $3$), also ist $11 - 2 = 9 \equiv 0$ (mod $3$); aber $11 + 2 = 13$ ist nicht durch $3$ teilbar.
 \end{example}
 
@@ -457,9 +457,8 @@ geschickt für große Zahlen entscheiden will, ob sie durch eine bestimmte
 Zahl teilbar sind.
 
 \newpage
-\begin{example}{:}
-Ist $69.993$ durch $7$ teilbar? \\
-
+\begin{example}{:} \\
+Ist $69.993$ durch $7$ teilbar?\\
 Da die Zahl in eine Differenz zerlegt werden kann, wo einfach zu ersehen
 ist, dass jeder Operand durch $7$ teilbar ist, ist auch die Differenz durch $7$
 teilbar: $69.993 = 70.000 - 7$.
@@ -501,7 +500,7 @@ zu $m$ sind, definiert, da andere Zahlen die gleiche Eigenschaft wie Null haben.
 Vergleiche Fußsnote \ref{ftn-mod6} in Kapitel \ref{addmult}.
 } ist kein Bruch, sondern eine ganze Zahl zwischen $0$ und $m-1$.
 
-Es gelten die bekannten Gesetze:
+\noindent Es gelten die bekannten Gesetze:
 \begin{itemize}
 \item[\bf 1.] {\bf Assoziativgesetz:}\index{Assoziativgesetz} \\ 
     $((a+b) + c) {\rm ~(mod~ } m) \equiv  (a + (b+c)) {\rm ~(mod~ } m).$ \\
@@ -833,7 +832,7 @@ zwischen $0, \cdots, m-1$ vor (vollständige $m$-Permutation\index{Permutation}).
 % \enlargethispage{0.5cm}
 
 {
-    {\bf Die multiplikative Inverse von $5$ (mod $17$) ist $7$, die Inverse von $6$ (mod $17$) ist $3$.}
+    \noindent {\bf Die multiplikative Inverse von $5$ (mod $17$) ist $7$, die Inverse von $6$ (mod $17$) ist $3$.}
 
     \vskip +20 pt
 
@@ -863,7 +862,7 @@ zwischen $i=1, \cdots, m$ für die Reste alle Werte zwischen
 $0, \cdots, m-1$ vor.
 
 
-{\bf Die multiplikative Inverse von $5$ (mod $13$) ist $8$, die Inverse von $6$ (mod $13$) ist $11$.}
+\noindent {\bf Die multiplikative Inverse von $5$ (mod $13$) ist $8$, die Inverse von $6$ (mod $13$) ist $11$.}
 \vskip +15 pt
 \pagebreak
 Die folgende Tabelle enthält ein Beispiel dafür, wo der Modul $m$ und die Zahl $(a=6)$
@@ -895,7 +894,7 @@ sind, kommen zwischen $i=1, \cdots, m$ nicht alle Werte zwischen
 $0, \cdots, m-1$ vor und $6$ hat mod $12$ auch keine Inverse!
 \index{Inverse!additive} \index{Inverse!multiplikative}
 
-{\bf Die multiplikative Inverse von $5$ (mod $12$) ist $5$. Die Zahl $6$ hat keine Inverse (mod $12$). }
+\noindent {\bf Die multiplikative Inverse von $5$ (mod $12$) ist $5$. Die Zahl $6$ hat keine Inverse (mod $12$). }
 
 
 
@@ -916,10 +915,9 @@ das modulare Potenzieren:
 $$ 3^2 = 9 \equiv 4 {\rm ~(mod~} 5). $$
 Auch aufeinanderfolgendes Potenzieren geht analog: 
 
-\begin{example}{ 1:}\\
-\begin{quote}
+\begin{example}{ 1:}
 $$ (4^3)^2 = 64^2 \equiv 4096 \equiv 1 {\rm ~(mod~} 5). $$
-
+\begin{quote}
 (1) Reduziert man bereits {\bf Zwischenergebnisse} modulo $5$, kann man
 schneller\footnote{%
 Die Rechenzeit der Multiplikation zweier Zahlen hängt normalerweise von der
@@ -962,7 +960,7 @@ Das liefert das richtige Ergebnis.
 $(a^b)^c \equiv a^{b*c{\rm ~(mod~}J(m))}{\rm ~(mod~}m)$.
 \end{satz}
 
-\begin{example}{ 2:}\\
+\begin{example}{ 2:}
 $$
 3^{28} = 3^{4\:*\:7} \equiv 3^{4\:*\:7{\rm ~(mod~}10)} \equiv 3^8 \equiv 6561 \equiv 5 {\rm ~(mod~}11).
 $$
@@ -980,7 +978,8 @@ Kapitel \ref{rsakonkret} (Das RSA-Verfahren mit konkreten Zahlen).
 } müssen hohe Potenzen modulo $m$ berechnet werden. Schon die Berechnung $(100^5)
 {\rm ~mod~}3$ sprengt den $32$ Bit langen \index{Long-Integer}
 Long-Integer-Zahlenbereich, sofern man zur Berechnung von $a^n$ getreu der
-Definition $a$ tatsächlich $n$-mal mit sich selbst multipliziert. Bei sehr großen Zahlen wäre selbst ein
+Definition $a$ tatsächlich $n$-mal mit sich selbst multipliziert. Bei sehr
+großen Zahlen wäre selbst ein
 schneller Computerchip mit einer einzigen Exponentiation länger beschäftigt
 als das Weltall existiert. Glücklicherweise gibt es für die Exponentiation
 (nicht aber für das Logarithmieren) eine sehr wirksame Abkürzung.
@@ -997,13 +996,14 @@ Dies kann man verallgemeinern, indem man den Exponenten binär darstellt.
 Beispielsweise würde die Berechnung von $a^n$ für $n = 37$ auf dem naiven Wege $36$
 Multiplikationen erfordern.
 Schreibt man jedoch $n$ in der Binärdarstellung als $100101 = 1*2^5 + 1*2^2 + 1*2^0$,
-so kann man umformen: $a^{37} = a^{2^5 + 2^2 + 2^0} = a^{2^5} * a^{2^2} * a^1$.
+so kann man umformen: $a^{37} = a^{2^5 + 2^2 + 2^0} = a^{2^5} * a^{2^2} * a^1$.\\
 
-\begin{example}{ 3:}\\
-$87^{43}{\rm ~(mod~}103)$. \\
+
+\begin{example}{ 3:} $87^{43}{\rm ~(mod~}103)$.
+
 Da $43 = 32+8+2+1$, $103$ prim , $43<J(103)$ ist und
 
-die Quadrate (mod $103$) vorab berechnet werden können \\
+die Quadrate (mod $103$) vorab berechnet werden können
 \begin{eqnarray*}
 87^2 & \equiv & 50 {\rm ~(mod~}103),\\
 87^4 & \equiv & 50^2 \equiv 28 {\rm ~(mod~}103), \\
@@ -1012,8 +1012,8 @@ die Quadrate (mod $103$) vorab berechnet werden können \\
 87^{32} & \equiv & 55^2 \equiv 38 {\rm ~(mod~}103),
 \end{eqnarray*}
 gilt\footnote{%
-In \hyperlink{AppArith2}{Appendix D} finden Sie den Beispielcode zum Nachrechnen der Square-and-Multiply Methode
-mit Sage.
+In \hyperlink{AppArith2}{Appendix D} finden Sie den Beispielcode
+zum Nachrechnen der Square-and-Multiply Methode mit Sage.
 }: \label{SrcArith2}
 \begin{eqnarray*}
 87^{43} & \equiv & 87^{32+8+2+1}{\rm ~(mod~}103) \nonumber \\
@@ -1021,6 +1021,7 @@ mit Sage.
     & \equiv & 38 * 63 * 50 * 87 \equiv 85 {\rm ~(mod~}103). \nonumber
 \end{eqnarray*} 
 \end{example}
+
 Die Potenzen $(a^2)^k$ sind durch fortgesetztes Quadrieren leicht zu bestimmen.
 Solange sich $a$ nicht ändert, kann ein Computer sie vorab berechnen und --
 bei ausreichend Speicherplatz -- abspeichern. Um dann im Einzelfall $a^n$ zu
@@ -1278,7 +1279,7 @@ Für eine Primzahl gilt: $J(p) = p - 1.$
 Ist $n$ das Produkt zweier verschiedenen Primzahlen $p$ und $q$, so gilt:
 $$J(p*q) = (p - 1) * (q - 1) \quad {\rm oder} \quad J(p * q) = J(p) * J(q).$$
 \end{satz}
-Dieser Fall ist für das RSA-Verfahren wichtig.
+\noindent Dieser Fall ist für das RSA-Verfahren wichtig.
 
 \begin{satz}\label{thm-zth-phimultprime} \label{J_of_p1..pk}
 Ist $n = p_1 * p_2 * \cdots * p_k$, wobei $p_1$ bis $p_k$ verschiedene Primzahlen
@@ -1288,6 +1289,7 @@ $$J(n) = (p_1 - 1)*(p_2 - 1)* \cdots *(p_k - 1).$$
  
 
 \begin{satz}\label{thm-zth-phinum} \label{J_of_n}
+
 Verallgemeinert gilt für jede Primzahl $p$ und jedes $n$ aus $\mathbb{N}$:
 \begin{itemize}
  \item[1.] $J(p^n) = p^{n-1} * (p-1)$. 
@@ -1499,7 +1501,7 @@ zur Bestimmung der Tabelle mit Sage.
 } zeigt die Werte $a^i{\rm ~mod~}11$ für die Exponenten $i = 1, 2, \cdots, 10$ und für 
 die Basen $a = 1, 2, \cdots, 10$ sowie den sich für jedes a daraus ergebenden Wert $ord_{11}(a)$:
 \end{example}
-%\newpage
+
 {
 \subsection*{Tabelle 4: Werte von $a^i{\rm ~mod~}11, 1\leq a,i<11$ und zugehörige Ordnung von $a$ modulo $m.$}
 \begin{center} \label{SrcArith3a}
@@ -1548,8 +1550,8 @@ Mit Hilfe der Primitivwurzel\index{Primitivwurzel} kann man die Bedingungen klar
 wann Potenzen modulo $m$ {\em eindeutig invertierbar}\index{invertierbar}
 und die Berechnung in den Exponenten handhabbar sind.
 
-Die folgenden beiden Tabellen zeigen multiplikative Ordnung und Primitivwurzel\index{Primitivwurzel}
-modulo $45$ und modulo $46$.
+Die folgenden beiden Tabellen zeigen multiplikative Ordnung und
+Primitivwurzel\index{Primitivwurzel} modulo $45$ und modulo $46$.
 
 \begin{example}{ 2:}\\
 Die folgende Tabelle\footnote{%
@@ -1560,7 +1562,7 @@ zeigt die Werte $a^i{\rm ~mod~}45$ für die Exponenten $i = 1, 2, \cdots, 12$
 und für die Basen $a = 1, 2, \cdots, 12$ sowie den sich für jedes $a$ daraus
 ergebenden Wert $ord_{45}(a)$.
 \end{example}
-%\newpage
+
 { % \small
 \subsection*{Tabelle 5: Werte von $a^i{\rm ~mod~}45, 1\leq a,i<13$:}
 \begin{center} \label{SrcArith3b}
@@ -1610,16 +1612,17 @@ Da $45$ keine Primzahl ist, gibt es nicht für alle Werte von $a$ eine
 teilerfremden\index{Zahlen!teilerfremd (co-prime)} Zahlen 
 $3, 5, 6, 9, 10, 12, \cdots,$ da $45 = 3^2*5$).\vskip +1em
 
-\begin{example}{:}\\
-Hat $7$ eine Primitivwurzel\index{Primitivwurzel} modulo $45$?\par
+\begin{example}{ 3:}\\
+Hat $7$ eine Primitivwurzel\index{Primitivwurzel} modulo $45$?
 
-Die Voraussetzung/Bedingung ggT$(7,45)=1$ ist erfüllt.
+\noindent Die Voraussetzung/Bedingung ggT$(7,45)=1$ ist erfüllt.
 Aus der Tabelle (Werte von $a^{i}$ mod $45$) kann man ersehen, dass die
 Zahl $7$ keine Primitivwurzel\index{Primitivwurzel} von $45$ ist,
 denn $ord_{45}(7) = 12 \not= 24 = J(45)$.\vskip + 1em
 \end{example}
+
 \newpage
-\begin{example}{:}\\
+\begin{example}{ 4:}\\
 Die folgende Tabelle\footnote{%
 In \hyperlink{AppArith3c}{Anhang E zu diesem Kapitel} finden Sie den
 Quelltext zur Berechnung der Tabelle mit Sage.
@@ -1898,7 +1901,7 @@ Die Sicherheit des RSA-Verfahrens hängt wie bei allen Public-Key-Verfahren davon
 dass man den privaten Key $d$ nicht aus  dem öffentlichen Key $(n,e)$ berechnen kann.
 \end{remark}
 
-Beim RSA-Verfahren bedeutet dies, dass
+\noindent Beim RSA-Verfahren bedeutet dies, dass
 \begin{enumerate}
   \item $J(n)$ für große zusammengesetzte $n$ schwer zu berechnen ist, und
   \item  $n$ für große $n$ nur schwer in seine Primfaktoren zerlegt werden kann (Faktorisierungsproblem).
@@ -1966,7 +1969,7 @@ $$
 $$
 \hfill$\Box$
 
-\noindent 
+
 \begin{remark}{ 1:}\\
 Man kann die 3 Schritte auch kürzer zusammenfassen, wenn man Satz \ref{thm-zth-fermateuler} 
 (Euler-Fermat) benutzt (also nicht den vereinfachten Satz, wo $n = p$ gilt):
@@ -1977,7 +1980,7 @@ $$
 $$
 \end{remark}
 
-\noindent 
+ 
 \begin{remark}{ 2:}\\
 Beim Signieren werden die gleichen Operationen durchgeführt, aber zuerst mit
 dem geheimen Schlüssel $d$, und dann mit dem öffentlichen Schlüssel $e$. Das
@@ -1989,6 +1992,8 @@ M \equiv (M^d)^e{\rm ~(mod~}n).
 $$
 \vspace{0ex}
 \end{remark}
+
+
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \hypertarget{SecurityRSA}{}
@@ -2083,7 +2088,8 @@ Siehe: {\em Handbook of Applied Cryptography} \cite{Menezes2001}.
 
 
 % --------------------------------------------------------------------------
-\vskip +40pt
+%\vskip +40pt
+\pagebreak
 \subsection{Sicherheitsparameter aufgrund neuer Algorithmen}
 
 \label{chptSecurityParam}
@@ -2968,7 +2974,7 @@ Die Bedeutung dieser Entdeckung liegt darin, dass sie Zahlentheoretiker mit neue
 Aber selbst die Autoren merken an, dass andere bekannte Algorithmen (z.B. ECPP) schneller sein können. Der neue Algorithmus funktioniert für alle positiven ganzen Zahlen. Dagegen verwendet das GIMPS-Projekt den Lucas-Lehmer-Primzahltest, der besondere Eigenschaften der Mersennezahlen ausnutzt. Dadurch ist der Lucas-Lehmer-Test viel schneller und erlaubt, Zahlen mit Millionen von Stellen zu testen, während generische Algorithmen auf Zahlen mit einigen tausend Stellen beschränkt sind. Nachteil der bisherigen schnellen Verfahren ist, dass sie probabilistisch sind, also ihr Ergebnis höchstwahrscheinlich, aber nicht ganz sicher ist.
 
 \enlargethispage{20pt}
-Aktuelle Forschungsergebnisse dazu finden sich z.B. auf: 
+\noindent Aktuelle Forschungsergebnisse dazu finden sich z.B. auf: 
 \vspace{-10pt}
 \begin{itemize}
   \item[] \href{http://www.mersenne.org/}
@@ -3135,7 +3141,7 @@ finden sie in Kapitel~\ref{L-Discrete-Logarithm-as-Basis}.
 \noindent Das ganze soll an einem Beispiel mit (unrealistisch) kleinen Zahlen gezeigt
 werden.\vskip +1em
 
-\begin{example}{ in Zahlen:}
+\begin{example}{ mit kleinen Zahlen:}
 \begin{itemize}
    \item[\bf 1.] Alice und Bob wählen $g = 11$, $p = 347$.
    \item[\bf 2.] Alice wählt $a = 240$, Bob wählt $b = 39$ und behalten $a$ und $b$ geheim.
@@ -3153,45 +3159,46 @@ berechnen.
 \end{example}
 
 \begin{remark}{:}\\
-In diesem Beispiel mit den kleinen Zahlen ist das Diskrete Logarithmusproblem\index{Logarithmusproblem!diskret} lösbar,
-aber mit großen Zahlen ist es kaum zu lösen\footnote{%
-Versucht man mit Mathematica, den diskreten Logarithmus\index{Logarithmusproblem!diskret} $x$, der die Gleichung
-$11^x \equiv 49 {\rm ~(mod~}347)$ löst, mit Hilfe von Solve zu bestimmen, erhält man die
-{\em tdep}-Message ''The equations appear to involve the variables to be solved for
-in an essentially non-algebraic way''. Mathematica meint also, keine
-algebraisch direkten Verfahren zu kennen, um die Gleichung zu lösen.
-Doch mit der verallgemeinerten Funktion für die multiplikative Ordnung kann
-es Mathematica (hier für Alice)\index{Mathematica}: 
-{\texttt{MultiplicativeOrder[11, 347, 49]}} liefert den Wert $67$. \\
-In Sage lautet die Syntax: {\texttt{znlog(Mod(49,347),Mod(11,347))}}.\index{Sage}
-\\
-Auch mit anderen Tools wie dem \index{LiDIA} LiDIA- oder \index{BC} BC-Paket (siehe Anhang Web-Links)
+In diesem Beispiel mit den kleinen Zahlen ist das Diskrete
+Logarithmusproblem\index{Logarithmusproblem!diskret} leicht lösbar, aber mit großen
+Zahlen ist es kaum zu lösen\footnote{%
+Mit Sage\index{Sage} kann man den diskreten Logarithmus\index{Logarithmusproblem!diskret} $x$,
+der die Gleichung $11^x \equiv 49 {\rm ~(mod~}347)$ löst, folgendermaßen bestimmen
+                % $11^x \equiv 49 \pmod{347}$
+(hier für Allice):
+\texttt{discrete\_log(mod(49, 347), mod(11, 347))}. Als Ergebnis erhält man $67$.\\
+Solche zahlentheoretischen Aufgaben können auch mit anderen Tools wie PariGP\index{Pari-GP},
+LiDIA\index{LiDIA}, BC\index{BC} oder Mathematica\index{Mathematica}
+(siehe Anhang Web-Links) gelöst werden:\\
 können solche zahlentheoretischen Aufgaben gelöst werden.
-Die Funktion {\tt dl} im Userinterface {\bf LC} zu LiDIA liefert mit {\tt dl(11,49,347)}
-ebenfalls den Wert $67$.
+- Pari-GP: \texttt{znlog(Mod(49,347),Mod(11,347))}.\\
+- LiDIA:   \texttt{dl(11,49,347)}.\\
+- Mathematica: Die allgemeine Funktion ``Solve'' liefert die {em tdep}-Meldung
+  ``The equations appear to involve the variables to be solved for in an essentially
+    non-algebraic way''.\\
+- Mathematica\index: {\tt MultiplicativeOrder[11, 347, 49]}.\\
+Alle liefern das Ergebnis $67$.
 }${}^,$\footnote{%
-Warum haben die Funktionen bei dem DL-Problem\index{DL-Problem} für Alice den Wert $67$ und nicht den Wert 240 geliefert?
+Warum haben die Funktionen für den diskreten Logarithmus\index{DL-Problem} für Alice
+den Wert $67$ geliefert und nicht den Wert 240, den Alice als Exponent $a$ wählte?\\
 Der diskrete Logarithmus ist der kleinste natürliche Exponent, der die
 Gleichung $11^x \equiv 49{\rm ~(mod~}347)$ löst. Sowohl $x=67$ als auch $x=240$ (die im Beispiel
 gewählte Zahl) erfüllen die Gleichung und können damit zur Berechnung des
 Sessionkeys benutzt werden: $285^{240}  \equiv 285^{67} \equiv 268 {\rm ~(mod~}347)$.
-Hätten Alice und Bob als Basis $g$ eine Primitivwurzel\index{Primitivwurzel} modulo $p$ gewählt, dann
-gibt es für jeden Rest aus der Menge
+Hätten Alice und Bob als Basis $g$ eine Primitivwurzel\index{Primitivwurzel} modulo $p$ gewählt,
+dann gibt es für jeden Rest aus der Menge
 $\{1, 2, \cdots, p-1\}$ genau einen Exponenten aus der Menge $\{0, 1, \cdots, p-2\}.$ \\
 Info: Zum Modul $347$ gibt es $172$ verschiedene Primitivwurzeln, davon sind $32$
 prim (ist nicht notwendig).
-Da die im Beispiel für $g$ gewählte Zahl $11$ keine Primitivwurzel\index{Primitivwurzel} von $347$ ist,
-nehmen die Reste nicht alle Werte aus der Menge $\{1, 2, \cdots, 346\}$ an. Somit
-kann es für einen bestimmten Rest mehr als einen oder auch gar keinen
+Da die im Beispiel für $g$ gewählte Zahl $11$ keine Primitivwurzel\index{Primitivwurzel}
+von $347$ ist, nehmen die Reste nicht alle Werte aus der Menge $\{1, 2, \cdots, 346\}$ an.
+Somit kann es für einen bestimmten Rest mehr als einen oder auch gar keinen
 Exponenten aus der Menge $\{0, 1, \cdots, 345\}$ geben, der die Gleichung
 erfüllt. \\
-Mit Mathematica\index{Mathematica} findet man:\\
-{\tt 
-PrimeQ[347] = True; EulerPhi[347] = 346; GCD[11, 347] = 1;
-MultiplicativeOrder[11, 347] = 173} \\
-In Sage lautet die Syntax:\index{Sage} \\
-{\tt isprime(347); eulerphi(347); gcd(11,347); znorder(Mod(11,347))}.
-\vskip +10 pt
+Mit den entsprechenden Sage-Funktionen\index{Sage} findet man: \\
+\texttt{is\_prime(347)=True}, \texttt{euler\_phi(347)=346}, \texttt{gcd(11,347)=1} und 
+\texttt{multiplicative\_order(mod(11, 347))=173}.
+
 \begin{tabular}{|c|c|l|}
 \hline
 i  & $11^i{\rm ~mod~}347$ & \\
@@ -3210,16 +3217,21 @@ i  & $11^i{\rm ~mod~}347$ & \\
 \hline
 \end{tabular}
 \vskip +6 pt
-m'gv``}.
+
+Weitere Details zu \hyperlink{AppArith3a2}{Primitivwurzeln\index{Primitivwurzel}}
+finden Sie im Anhang E.  %\ref{primitive-roots-with-sage}. xxxxxxxxxxxxprro
+
+}.
 \end{remark}
 
-Zu berechnen ist hier: \\
+\noindent Um die diskreten Logarithen zu erhalten, ist hier Folgendes zu berechnen: \\
 Von Alice: $11 ^ x \equiv 49 {\rm ~(mod~}347)$, also $\log_{11}(49) {\rm ~(mod~}347).$\\
 Von Bob: $11 ^ y \equiv 285 {\rm ~(mod~}347)$, also $\log_{11}(285){\rm ~(mod~}347)$.
 
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\newpage
 \hypertarget{RSAKonkret}{}%
 \hypertarget{Chapter_ElementaryNT_12}{}%ist wahrscheinlich redundant !
 \section[Das RSA-Verfahren mit konkreten Zahlen]
@@ -3682,6 +3694,7 @@ zusätzlich bekannten Ursprungsnachricht.
 \item \index{Angriff!Ciphertext-only} Ciphertext-only: finde $d$ und die Klartextnachricht.
 \item \index{Faktorisierung!Faktorisierungsproblem} RSA-Modul knacken, d.h. faktorisieren (ohne Kenntnis der Nachrichten).
 \end{itemize}
+
 \newpage
 $n = 63978486879527143858831415041, ~e = 17579$
 
@@ -3711,7 +3724,8 @@ Geheimtext:
 
 \begin{remark}{:}\\
 Die ursprüngliche Nachricht bestand aus einem Satz mit 31 Zeichen (codiert
-mit dem Großbuchstabenalphabet\index{Großbuchstabenalphabet} aus Abschnitt \ref{rsaex2}). Dann wurden je 16 Dezimalziffern zu
+mit dem Großbuchstabenalphabet\index{Großbuchstabenalphabet} aus Abschnitt \ref{rsaex2}).
+ann wurden je 16 Dezimalziffern zu
 einer Zahl zusammengefasst (die letzte Zahl wurde mit Nullen aufgefüllt).
 Diese Zahlen wurden mit $e$ potenziert.
 \end{remark}
@@ -4302,6 +4316,7 @@ der Zahl einfach abgeschnitten). Man sagt auch {\em untere Gaußklammer von} $x$.
 }. Man bezeichnet mit $l_b(z)$ die Zahl der benötigten Ziffern zur Darstellung
 der Zahl $z$ in $b$-adischer Schreibweise. Es gilt die Gleichung $$l_b(z) = \lfloor \log_b z \rfloor +1. $$
 
+
 \vskip +10 pt
 \begin{example}{ 1 (dezimal$\rightarrow$hex):}\\
 Für die Zahl $z = 234$ in Dezimalschreibweise (EA in hex) bestimmt man die
@@ -4577,10 +4592,12 @@ sage: for a in xrange(1, 24):
 [23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 'None']
 \end{Verbatim}
 
+
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \hypertarget{AppArith3a2}{}
 \subsection*{Primitivwurzeln}
-\index{Primitivwurzel}
+\label{primitive-roots-with-sage}\index{Primitivwurzel}
+
 TODO
 Computing a primitive root in Sage is very straightforward. If
 \verb!n! is an integer, the command \verb!primitive_root(n)! computes
