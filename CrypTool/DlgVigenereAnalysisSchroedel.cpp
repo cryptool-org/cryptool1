@@ -1071,7 +1071,10 @@ CString VigenereAnalysisSchroedel::decryptText(CString text, CString key) {
 		for(int o=0; o<26; o++) {
 			// FLOMAR TODO CHANGE **********
 			if(key[i] == vigenere[o][0]) {
-				decryptedText = decryptedText + klartext[vigenere[o].Find(text[i])];
+				// make sure we don't run into segmentation faults when the find process was not successful
+				if(vigenere[o].Find(text[i]) != -1) {
+					decryptedText = decryptedText + klartext[vigenere[o].Find(text[i])];
+				}
 			}
 		}
 	}

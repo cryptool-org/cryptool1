@@ -199,9 +199,4 @@ void CDlgAuthors::readAuthors()
 			}
 		}
 	}
-
-	// remove trailing commas
-	authorsImplementationDocumentationTranslation.Delete(authorsImplementationDocumentationTranslation.GetLength() - 1, 1);
-	authorsReviewFeedback.Delete(authorsReviewFeedback.GetLength() - 1, 1);
-
 }
