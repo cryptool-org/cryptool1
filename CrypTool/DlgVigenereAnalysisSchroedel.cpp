@@ -617,27 +617,7 @@ void VigenereAnalysisSchroedel::secondChar() {
 		setStatus("Sorting");
 		for(int i=0; i<cPairs; i++) {
 			for(int o=0; o<cPairs-1; o++) {
-				if(score[o][0] + score[o][1] < score[o+1][0] + score[o+1][1]) {
-					s = pairs[o][0];
-					pairs[o][0] = pairs[o+1][0];
-					pairs[o+1][0] = s;
-					s = pairs[o][1];
-					pairs[o][1] = pairs[o+1][1];
-					pairs[o+1][1] = s;
-					l = score[o][0];
-					score[o][0] = score[o+1][0];
-					score[o+1][0] = l;
-					l = score[o][1];
-					score[o][1] = score[o+1][1];
-					score[o+1][1] = l;
-				}
-			}
-		}
-
-		setStatus("Sorting");
-		for(int i=0; i<cPairs; i++) {
-			for(int o=0; o<cPairs-1; o++) {
-				if(score[o][0] + score[o][1] < score[o+1][0] + score[o+1][1]) {
+				if(score[o][0] * score[o][1] < score[o+1][0] * score[o+1][1]) {
 					s = pairs[o][0];
 					pairs[o][0] = pairs[o+1][0];
 					pairs[o+1][0] = s;
@@ -707,7 +687,7 @@ void VigenereAnalysisSchroedel::secondChar() {
 
 		for(int i=0; i<cPairs; i++) {
 			for(int o=0; o<cPairs-1; o++) {
-				if(score[o][0] + score[o][1] < score[o+1][0] + score[o+1][1]) {
+				if(score[o][0] * score[o][1] < score[o+1][0] * score[o+1][1]) {
 					s = pairs[o][0];
 					pairs[o][0] = pairs[o+1][0];
 					pairs[o+1][0] = s;
