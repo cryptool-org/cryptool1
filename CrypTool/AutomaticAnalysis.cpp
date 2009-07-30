@@ -25,8 +25,6 @@
 #include "Cryptography.h"
 #include "AutomaticAnalysis.h"
 #include "DlgHillAnalysis.h"
-#include "DlgShowKeyHill5x5.h"
-#include "DlgShowKeyHill10x10.h"
 #include "DlgKeyLength.h"
 #include "DialogLaengeBin.h"
 #include "DlgKeyVigenere.h"
