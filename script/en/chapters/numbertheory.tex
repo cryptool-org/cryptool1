@@ -14,7 +14,7 @@
 \chapter{Introduction to Elementary Number Theory with Examples}
 \label{Chapter_ElementaryNT}
 (Bernhard Esslinger, July 2001; Updates: Dec. 2001, June 2002, May 2003,
- May 2005, March 2006, June 2007) \\
+ May 2005, March 2006, June 2007, July 2009) \\
 
 This ``introduction'' is for people with a mathematical interest. There is no
 more pre-knowledge necessary than what you learn in the secondary school.\par
@@ -3393,6 +3393,799 @@ This needs to be stressed because the type of padding is extremely important
 during implementation and standardization for interoperable algorithms.
 
 
+
+
+
+
+
+% ---------------------------------------------------------------------------
+% ---------------------------------------------------------------------------
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\newpage
+\hypertarget{NumberTheory_Appendix_GCD}{}
+\section[Appendix: gcd and the two algorithms of Euclid]
+        {Appendix: The greatest common divisor (gcd) of whole numbers
+         and the two algorithms of Euclid\footnotemark}
+\footnotetext{%
+    \index{NT, Learning Tool for Number Theory}%
+    \index{Educational tool NT}%
+With the educational tool for number theory {\bf NT} you can see\\
+a) how Euklid's algorithm calculates the gcd (learning unit 1.3, pages 14-19/21)    and \\
+b) how Euklid's enhanced algorithm finds the multiplicative inverse
+   (learning unit 2.2, page 13/40).\\
+NT can be called in CrypTool\index{CrypTool} via the menu path
+{\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
+\textbackslash{} Learning Tool for Number Theory}.
+See appendix \ref{s:appendix-Learn-NT}.
+}
+\label{l:NumberTheory_Appendix_GCD}
+% \addcontentsline{toc}{section}{Appendix A: gcd of whole numbers and the two
+%  algorithms of Euclid}\index{Euclidean algorithm!extended}\index{Gcd}
+\index{Euclidean algorithm!extended} \index{Gcd}
+
+%%%\begin{enumerate}
+%%%\item
+The greatest common divisor of two natural numbers $a$ and $b$ is an important value that can be calculated 
+very quickly. Here we make use of the fact that if a number $c$ divides the numbers $a$ and $b$ 
+(i.e. there exists an $a'$ and a $b'$ such that $a = a'*c$ and $b = b'*c$), then $c$ also divides 
+the remainder $r$ of $a/b$. In short notion we can write: If $c$ divides $a$ and $b$ it follows that 
+$c$ divides $r =  a - \lfloor a/b \rfloor * b$\footnote{The Gauss\index{Gauss bracket} bracket  $\lfloor x \rfloor $
+of a real number $x$ is defined via: $\lfloor x \rfloor $ is the next integer less or equal $x$.
+}.
+As the latter statement is valid for each common divisor $c$ of $a$ and $b$ it follows that:
+$$gcd(a,b) = gcd(a - \lfloor a/b \rfloor * b, b).$$
+Using this information, the algorithm for calculating the gcd of two numbers can be written as follows (in pseudo code):
+
+\begin{verbatim}
+INPUT: a,b != 0
+1. if ( a < b ) then  x = a; a = b; b = x; // Swap a and b (a > b)
+2. a = a - int(a/b) * b                    // a is smaller than b, the 
+                                           // gcd(a, b) is unchanged 
+3. if ( a != 0 ) then goto 1.              // a falls after each step and 
+                                           // the algorithm ends when a==0.
+OUTPUT "gcd(a,b) = " b    // b is the gcd of the original a and b
+\end{verbatim}
+
+%%%\item 
+However, to other relationships can be derived from the gcd:
+For this, we need the set of equations for $a$ and $b$:
+\begin{eqnarray*}
+ a & = & 1*a + 0*b \nonumber \\
+ b & = & 0*a + 1*b, \nonumber
+\end{eqnarray*}
+or, in matrix notation:
+$$ \left(\begin{array}{c}a \\ b\end{array}\right) = 
+   \left(\begin{array}{cc} 1 & 0 \\ 0 & 1 \end{array}\right) *
+   \left(\begin{array}{c} a \\ b \end{array} \right).$$
+We summarize this information in the extended matrix:
+$$\left(\begin{array}{cccc} a & | & 1 & 0 \\ b & | & 0 & 1 \end{array} \right)$$
+If we apply the above gcd algorithm to this matrix, we obtain the extended gcd algorithm: 
+
+\newpage
+\noindent {\tt INPUT:} $a,b \not= 0$
+\begin{itemize}
+  \item[\tt 0.] $x_{1,1} := 1, x_{1,2} := 0, x_{2,1} := 0, x_{2,2} := 1$
+  \item[\tt 1.] $ \left(\begin{array}{cccc} a & | & x_{1,1} & x_{1,2} \\ b & | & x_{2,1} & x_{2,2} \end{array} \right) := 
+                   \left(\begin{array}{cc} 0 & 1  \\ 1 & - \lfloor a/b \rfloor * b \end{array} \right)*
+           \left(\begin{array}{cccc} a & | & x_{1,1} & x_{1,2} \\ b & | & x_{2,1} & x_{2,2} \end{array} \right).$
+  \item[\tt 2.] {\tt if (b != 0) then goto 1.}
+\end{itemize}
+{\tt OUTPUT:} ``gcd$(a,b) = a*x +b*y$: '', ``gcd$(a,b) =$ '' $b$, ``$x = $'' $x_{2,1}$, ``$y = $'' $x_{2,2}$
+
+Since this algorithm only performs linear transformations, the same equations always apply
+\begin{eqnarray*}
+ a & = & x_{1,1}*a + x_{1,2}*b \nonumber \\
+ b & = & x_{2,1}*a + x_{2,2}*b, \nonumber
+\end{eqnarray*}
+and we have the extended gcd equation at the end of the algorithm\footnote{By termination of the gcd algorithm,
+the program variables $a$ and $b$ contain the values $a= 0$ and $b=gcd(a,b)$. Please keep in mind, that the program
+variables are different to the numbers $a$ and $b$ and that they are only relevant for the scope of the algorithm.}:
+$$gcd(a,b) = a*x_{2,1} + b*x_{2,2}.$$
+
+\begin{example}{:}\\
+Using the extended gcd we can determine for $e = 37$ the multiplicative inverse number $d$ to modulo $3588$ (i.e.
+$37*d \equiv 1 {\rm ~(mod~} 3588$)): 
+\end{example}
+{\tt 0.}
+ $ \left(\begin{array}{cccc} 3588 & | & 1 & 0 \\ 37 & | & 0 & 1 \end{array} \right)$ 
+ 
+{\tt 1.}
+ $ \left(\begin{array}{cccc} 37 & | & 1 & 0 \\ 36 & | & 0 & -96 \end{array} \right) = 
+   \left(\begin{array}{cc} 0 & 1  \\ 1 & - (\lfloor 3588/36 \rfloor = 96) * 37 \end{array} \right)*
+   \left(\begin{array}{cccc} 3588 & | & 1 & 0 \\ 37 & | & 0 & 1 \end{array} \right).$
+   
+{\tt 2.}
+ $ \left(\begin{array}{cccc} 36 & | & 1 & -96 \\ 1 & | & -1 & 97 \end{array} \right) = 
+   \left(\begin{array}{cc} 0 & 1  \\ 1 & - (\lfloor 37/36 \rfloor = 1) * 36 \end{array} \right)*
+   \left(\begin{array}{cccc} 37 & | & 1 & 0 \\ 36 & | & 0 & -96 \end{array} \right).$
+   
+{\tt 3.}
+ $ \left(\begin{array}{cccc} {\bf 1} & | & {\bf -1} & {\bf 97} \\ 0 & | & 37 & -3588 \end{array} \right) = 
+   \left(\begin{array}{cc} 0 & 1  \\ 1 & - (\lfloor 36/1 \rfloor = 36) * 1 \end{array} \right)*
+   \left(\begin{array}{cccc} 36 & | & 1 & -96 \\ 1 & | & -1 & 97 \end{array} \right).$\\
+
+\noindent {\tt OUTPUT:} \\
+gcd($37,3588) = a*x + b*y$: gcd($37,3588$) = 1, $x = -1$, $y=97$.
+
+\noindent Thus 
+\begin{enumerate}
+
+\item $37$ and $3588$ are relatively prime ($37$ has an inverse modulo $3588$).
+\item $37*97 = (1 * 3588) + 1$ in other words $37*97 \equiv 1 {\rm ~(mod~} 3588).$ 
+                 and therefore the number $97$ is the multiplicative inverse to $37$ modulo $3588$.
+\end{enumerate}
+%%% \end{enumerate}
+
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\newpage
+\hypertarget{NumberTheory_Appendix_B}{}
+\section{Appendix: Forming closed sets}
+\label{l:NumberTheory_Appendix_B}{}
+
+The property of closeness \index{Closeness} is always defined in relation to an operation in a set.
+The following shows how to construct the ``closed set'' $G$ with respect to the operation $+ {\rm ~(mod~} 8)$ for a given initial set $G_0$:
+\begin{eqnarray*}
+G_0 & = & \{ 2, 3 \} {\rm --- addition~of~the~numbers~in~} G_0 {\rm ~determines~further~numbers:} \nonumber \\
+    & &    2 + 3 \equiv 5{\rm ~(mod~}8) = 5 \nonumber \\
+    & &    2 + 2 \equiv 4{\rm ~(mod~}8) = 4 \nonumber \\
+    & &    3 + 3 \equiv 6{\rm ~(mod~}8) = 6 \nonumber \\ 
+G_1 & = & \{ 2, 3, 4, 5, 6 \} {\rm --- addition~of~the~numbers~in~} G_1 {\rm ~determines:}\nonumber \\
+    & &    3 + 4 \equiv 7{\rm ~(mod~}8) = 7 \nonumber \\
+    & &    3 + 5 \equiv 8{\rm ~(mod~}8) = 0 \nonumber \\
+    & &    3 + 6 \equiv 9{\rm ~(mod~}8) = 1 \nonumber \\ 
+G_2 & = & \{ 0, 1, 2, 3, 4, 5, 6, 7 \} {\rm --- addition~of~the~numbers~in~} G_2 {~does~not~extend~the~set!} \nonumber \\
+G_3 & = & G_2 {\rm --- we~say:~} G_2 {\rm~is~closed~for~addition~~(mod~}8). \nonumber 
+\end{eqnarray*}
+% End of forming a closed set.
+
+
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\vskip +60pt
+\hypertarget{NumberTheory_Appendix_C}{}
+\section{Appendix: Comments on modulo subtraction}
+\label{l:NumberTheory_Appendix_C}{}
+
+Comment on subtraction modulo 5: $2 - 4 = -2 \equiv 3{\rm ~mod~}2$.
+It is therefore not true modulo $5$ that $-2 = 2$ ! People often make the mistake of equating this. You can show this clearly if you place the permutation $(0, 1, 2, 3, 4)$ in $\mathbb{Z}_5$, for example from $-11$ to $+11$, over the range of numbers in $\mathbb{Z}$.
+
+\vskip +10 pt
+\input{figures/line-en.latex}
+
+
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\newpage
+\hypertarget{NumberTheory_Appendix_D}{}
+\section{Appendix: Base representation and base transformation of numbers,
+            estimation of length of digits}
+\label{l:NumberTheory_Appendix_D}{}
+
+For a given number $z$ one may ask how to represent such a number. In general
+we use representations like $z = 2374$ or $z = \sqrt{2}$. The second number
+consists of an infinite number of digits and therefore it can never be
+described precisely by the first representation. In this case the number
+must be rounded.
+
+We represent numbers usually in the decimal system (base 10). Computers
+are working with the binary representation of numbers --- only for the
+display numbers are represented in decimal or sometimes hexadecimal (base 16)
+form.
+
+This appendix describes how to generate arbitrary base representations of
+any positive integer and how to determine the number of required digits
+via the logarithm function.
+
+
+\subsection*{$b$-adic sum representation of positive integers}
+Given base $b$, each positive integer $z$ can be represented as a $b$-adic
+sum  $$ z = a_nb^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0, $$ where
+$a_i \in \{0, 1, \dots, b-1\}, \; i=0,1,\dots, n$ are called {\em digits}.
+
+For this sum, it follows that:\\
+1) For arbitrary digits $a_0, a_1, \dots, a_n$ it is:
+   $b^{n+1} > a_nb^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0$.\\
+2) There exist digits $a_0, a_1, \dots, a_n$
+   ~(namely $a_i = b-1$ for $i=0, \dots, n$), following that  
+   $b^{n+1} -1 \le a_nb^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0$.\\
+(Using these inequalities it can be shown that each positive integer can be
+represented by a $b$-adic sum).
+
+By writing the digits $a_na_{n-1} \cdots a_1a_0$ in a row directly after each other (without the $b^i$) 
+the usual writing for numbers comes to hand.
+
+\begin{example}{:}\\
+Base $b = 10$: $10278 =  1\cdot10^4 +  0\cdot 10^3 + 2\cdot 10^2 + 7\cdot 10^1 + 8$\\
+Base $b = 16$: $FE70A = 15\cdot16^4 + 14\cdot 16^3 + 7\cdot 16^2 + 0\cdot 16^1 + 10$.
+\end{example}
+
+
+\vskip +20 pt
+\subsection*{Number of digits to represent a positive integer}
+For a positive integer $z$ the length of the $b$-adic representation can be determined via the 
+following steps. Starting from the inequality $b^{n+1} > z \ge b^n$ 
+we have --- after applying the logarithm function on basis $b$\footnote{%
+Applying the logarithm formula on base $b$ and $b'$ we have $\log_b z = \log_{b'} z / \log_{b'} (b)$. 
+It is therefore easy using e.g. logarithm tables for the base $b' = 10$ to compute the logarithm of base $b = 2$.
+}:~$n+1 > log_b z \ge n$. Therefore we have $n = \lfloor log_b z \rfloor$\footnote{%
+The function $\lfloor x \rfloor$ determines the next integer smaller than $x$ (in case $x \ge 0$ the digits after the decimal point are truncated). 
+}. We call $l_b(z)$ {\em the number of required digits to represent the number $z$ on the base $b$}. We have
+$$l_b(z) := \lfloor log_b z \rfloor +1.$$
+
+
+\vskip +10 pt
+\begin{example}{ 1 (decimal$\rightarrow$hex):}\\
+We compute for the decimal number $z = 234$ (EA in hex) the hexadecimal representation (number base $b = 16$)
+$$l_{16}(z) = \lfloor \log_{16}(z) \rfloor + 1 = \lfloor \ln (z) / \ln(16) \rfloor + 1 = \lfloor 1.96... \rfloor + 1 = 1 + 1 = 2.$$
+\end{example}
+
+\vskip +10 pt
+\begin{example}{ 2 (decimal$\rightarrow$binary):}\\
+We compute for the decimal number $z = 234$ (11101010 in binary) the binary representation (number base $b = 2$)
+$$l_{2}(z) = \lfloor \log_{2}(z) \rfloor + 1 = \lfloor \ln (z) / \ln(2) \rfloor + 1 = \lfloor 7.87... \rfloor + 1 = 7 + 1 = 8.$$
+\end{example}
+
+\vskip +10 pt 
+\begin{example}{ 3 (binary$\rightarrow$decimal):}\\
+We compute for the decimal number $z = 11101010$ (234 decimal) the decimal
+representation (number base $b = 10$)
+$$l_{10}(z) = \lfloor \log_{10}(z) \rfloor + 1 = \lfloor \ln (z) / \ln(10) \rfloor + 1 = \lfloor 2,36... \rfloor + 1 = 2 + 1 = 3.$$
+\end{example}
+
+
+\vskip + 20 pt
+\subsection*{Algorithm to compute the base representation}
+Given the number $z$ one can compute the base $b$ representation of $z$ using the following algorithm
+
+\begin{tabbing}
+bla\= \kill
+{\bf input}: $z, b$ \\
+$n := 0, z' := z$ \\
+{\bf while} $z' > 0$ {\bf do} \\
+ \> $a_n := z' {\rm ~mod~} b$,\\
+ \> $z' := \lfloor z' / b \rfloor$  \\
+ \> $n := n+1$ \\
+{\bf end do} \\
+{\bf output}:  $a_n a_{n-1} \cdots a_1 a_0$ in base $b$ representation. 
+\end{tabbing}
+
+
+\begin{example}{ 1 (decimal$\rightarrow$hex):}\\
+The integer $z = 234$ on the number base $10$ will be transformed into the hex representation via
+$a_0 = 234 {\rm ~mod~} 16 = 10 = A$, $234 / 16 = 14 = E$,\\
+$a_1 = 14 {\rm ~mod~} 16 = E$\\
+and therefore we have $EA$. 
+\end{example}
+
+\vskip +10 pt
+\begin{example}{ 2 (binary$\rightarrow$decimal):}\\
+The binary number $z = 1000100101110101$ is transformed into the decimal
+representation via the following steps:
+
+$1000100101110101 = 1001$ (mod $1010)  \Longrightarrow a_0 = 9$, ~ ~ $1000100101110101 / 1010 = 110110111110$ \\
+$110110111110 = 1000$ (mod $1010) \Longrightarrow a_1 = 8$, $110110111110 / 1010 = 101011111$ \\
+$101011111 = 1$ (mod $1010) \Longrightarrow a_2 = 1$, $10101111 / 1010 = 100011$ \\
+$100011 =  101$ (mod $1010) \Longrightarrow a_3 = 5$, $100011 / 1010 = 1$ \\
+$11 = 11$ (mod $1010) \Longrightarrow a_4 = 3$ \\
+therefore $z = 35189$. 
+\end{example}
+
+
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\newpage
+\hypertarget{NumberTheory_Appendix_E}{}
+\section{Appendix: Examples using Sage}
+\label{NumberTheory_Appendix_E}{}
+\index{Sage}
+\index{Sage!Code examples}
+
+\noindent Below is Sage source code related to contents of the
+chapter~\ref{Chapter_ElementaryNT} (``\nameref{Chapter_ElementaryNT}''). 
+
+
+% ---------------------------------------------------------------------------
+\hypertarget{AppArith1}{}
+\subsection{Multiplication table modulo $m$}
+\label{l:AppArith1}{}
+
+The multiplication tables (from page \pageref{SrcArith1a})
+for $a \times i \pmod{m}$, where
+$m = 17$, $a=5$ and $a=6$, and $i$ ranges over all integers from $0$ to $16$
+can be computed using Sage as follows:
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: m = 17; a = 5; b = 6
+sage: [mod(a * i, m).lift() for i in xrange(m)]
+[0, 5, 10, 15, 3, 8, 13, 1, 6, 11, 16, 4, 9, 14, 2, 7, 12]
+sage: [mod(b * i, m).lift() for i in xrange(m)]
+[0, 6, 12, 1, 7, 13, 2, 8, 14, 3, 9, 15, 4, 10, 16, 5, 11]
+\end{Verbatim}
+\caption{Multiplication tables for $a \times i \pmod{m}$ with $m = 17$, $a=5$ and $a=6$}
+\end{sagecode}
+
+\noindent The function \verb!mod()! returns an object that represents
+integers modulo $m$, in our case $m = 17$. We use the method
+\verb!lift()! to convert that object to an integer representation.
+The other multiplication table examples modulo $13$ and modulo $12$ on page
+\pageref{SrcArith1b} can similarly be computed by replacing {\tt m = 17}
+with {\tt m = 13} and {\tt m = 12} respectively.
+
+
+% ---------------------------------------------------------------------------
+\vskip +25 pt
+\hypertarget{AppArith2}{}
+\subsection{Fast exponentiation}
+\label{l:AppArith2}{}
+
+The fast exponentiation modulo $m$ can be computed using the Sage
+function \verb!power_mod()!. The result of this function is an
+integer. We can compute the exponentiation in the example on page
+\pageref{SrcArith2} as follows:
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: a = 87; m = 103
+sage: exp = [2, 4, 8, 16, 32, 43]
+sage: [power_mod(a, e, m) for e in exp]
+[50, 28, 63, 55, 38, 85]
+\end{Verbatim}
+\caption{Fast exponentiation mod $m = 103$}
+\end{sagecode}
+
+
+% ---------------------------------------------------------------------------
+\newpage
+\hypertarget{AppArith3a1}{}
+\subsection{Multiplicative order}
+\label{l:AppArith3a1}{}
+
+The order $\text{ord}_m(a)$ of a number $a$ in the multiplicative
+group $\mathbf{Z}_m^{\ast}$ is the smallest number $i \geq 1$ such that
+$a^i \equiv 1 \pmod{m}$ holds. For the example on page~\pageref{SrcArith3a}
+we can print all exponentiation $a^i \pmod{11}$ as follows:
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: m = 11
+sage: for a in xrange(1, m):
+....:     print [power_mod(a, i, m) for i in xrange(1, m)]
+....:
+[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2, 4, 8, 5, 10, 9, 7, 3, 6, 1]
+[3, 9, 5, 4, 1, 3, 9, 5, 4, 1]
+[4, 5, 9, 3, 1, 4, 5, 9, 3, 1]
+[5, 3, 4, 9, 1, 5, 3, 4, 9, 1]
+[6, 3, 7, 9, 10, 5, 8, 4, 2, 1]
+[7, 5, 2, 3, 10, 4, 6, 9, 8, 1]
+[8, 9, 6, 4, 10, 3, 2, 5, 7, 1]
+[9, 4, 3, 5, 1, 9, 4, 3, 5, 1]
+[10, 1, 10, 1, 10, 1, 10, 1, 10, 1]
+\end{Verbatim}
+\caption{Table with all powers $a^i \pmod{11}$ for $m=11$, $a=1,...,10$}
+\end{sagecode}
+
+
+
+\hypertarget{AppArith3b}{}
+\label{l:AppArith3b}{}
+
+The table on page~\pageref{SrcArith3b} gives examples for the order modulo
+45 $\text{ord}_{45}(a)$ and the Euler number $J(45)$. The following
+Sage code constructs a table similar to that on page~\pageref{SrcArith3b}.
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: m = 45
+sage: for a in xrange(1, 13):
+....:     lst = [power_mod(a, i, m) for i in xrange(1, 13)]
+....:     try:
+....:         lst.append(multiplicative_order(mod(a, m)))
+....:     except:
+....:         lst.append("None")
+....:     lst.append(euler_phi(m))
+....:     print lst
+....:
+[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 24]
+[2, 4, 8, 16, 32, 19, 38, 31, 17, 34, 23, 1, 12, 24]
+[3, 9, 27, 36, 18, 9, 27, 36, 18, 9, 27, 36, 'None', 24]
+[4, 16, 19, 31, 34, 1, 4, 16, 19, 31, 34, 1, 6, 24]
+[5, 25, 35, 40, 20, 10, 5, 25, 35, 40, 20, 10, 'None', 24]
+[6, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 'None', 24]
+[7, 4, 28, 16, 22, 19, 43, 31, 37, 34, 13, 1, 12, 24]
+[8, 19, 17, 1, 8, 19, 17, 1, 8, 19, 17, 1, 4, 24]
+[9, 36, 9, 36, 9, 36, 9, 36, 9, 36, 9, 36, 'None', 24]
+[10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 'None', 24]
+[11, 31, 26, 16, 41, 1, 11, 31, 26, 16, 41, 1, 6, 24]
+[12, 9, 18, 36, 27, 9, 18, 36, 27, 9, 18, 36, 'None', 24]
+\end{Verbatim}
+\caption{Table with all powers $a^i \pmod{11}$ for $m=45$, $a=1,...,12$ plus the order of a}
+\end{sagecode}
+
+The number $\text{ord}_m(a)$ only exists if $a$ is relatively prime
+to $m$, which can be checked with \verb!gcd(a, m)!. In the above code
+example, we put the calculation of the multiplicative order within a
+\verb!try!-\verb!except! block. This allows Sage to catch any
+exceptions or errors raised by the function
+\verb!multiplicative_order()!. If an exception or error is raised in
+the \verb!try! block, then we know that $\text{ord}_m(a)$ does not
+exist for that particular value of $a$, hence in the \verb!except!
+block we append the string \verb!"None"! to the row as represented by
+the object \verb!lst!.
+
+
+
+\hypertarget{AppArith3c}{}
+\label{l:AppArith3c}{}
+
+The third example on page~\pageref{SrcArith3c} displays exponentiation
+$a^i \pmod{46}$ as well as the order $\text{ord}_{46}(a)$. Sage can
+create that table as follows:
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: m = 46
+sage: for a in xrange(1, 24):
+....:     lst = [power_mod(a, i, m) for i in xrange(1, 24)]
+....:     try:
+....:         lst.append(multiplicative_order(mod(a, m)))
+....:     except:
+....:         lst.append("None")
+....:     print lst
+....:
+[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2, 4, 8, 16, 32, 18, 36, 26, 6, 12, 24, 2, 4, 8, 16, 32, 18, 36, 26, 6, 12, 24, 2, 'None']
+[3, 9, 27, 35, 13, 39, 25, 29, 41, 31, 1, 3, 9, 27, 35, 13, 39, 25, 29, 41, 31, 1, 3, 11]
+[4, 16, 18, 26, 12, 2, 8, 32, 36, 6, 24, 4, 16, 18, 26, 12, 2, 8, 32, 36, 6, 24, 4, 'None']
+[5, 25, 33, 27, 43, 31, 17, 39, 11, 9, 45, 41, 21, 13, 19, 3, 15, 29, 7, 35, 37, 1, 5, 22]
+[6, 36, 32, 8, 2, 12, 26, 18, 16, 4, 24, 6, 36, 32, 8, 2, 12, 26, 18, 16, 4, 24, 6, 'None']
+[7, 3, 21, 9, 17, 27, 5, 35, 15, 13, 45, 39, 43, 25, 37, 29, 19, 41, 11, 31, 33, 1, 7, 22]
+[8, 18, 6, 2, 16, 36, 12, 4, 32, 26, 24, 8, 18, 6, 2, 16, 36, 12, 4, 32, 26, 24, 8, 'None']
+[9, 35, 39, 29, 31, 3, 27, 13, 25, 41, 1, 9, 35, 39, 29, 31, 3, 27, 13, 25, 41, 1, 9, 11]
+[10, 8, 34, 18, 42, 6, 14, 2, 20, 16, 22, 36, 38, 12, 28, 4, 40, 32, 44, 26, 30, 24, 10, 'None']
+[11, 29, 43, 13, 5, 9, 7, 31, 19, 25, 45, 35, 17, 3, 33, 41, 37, 39, 15, 27, 21, 1, 11, 22]
+[12, 6, 26, 36, 18, 32, 16, 8, 4, 2, 24, 12, 6, 26, 36, 18, 32, 16, 8, 4, 2, 24, 12, 'None']
+[13, 31, 35, 41, 27, 29, 9, 25, 3, 39, 1, 13, 31, 35, 41, 27, 29, 9, 25, 3, 39, 1, 13, 11]
+[14, 12, 30, 6, 38, 26, 42, 36, 44, 18, 22, 32, 34, 16, 40, 8, 20, 4, 10, 2, 28, 24, 14, 'None']
+[15, 41, 17, 25, 7, 13, 11, 27, 37, 3, 45, 31, 5, 29, 21, 39, 33, 35, 19, 9, 43, 1, 15, 22]
+[16, 26, 2, 32, 6, 4, 18, 12, 8, 36, 24, 16, 26, 2, 32, 6, 4, 18, 12, 8, 36, 24, 16, 'None']
+[17, 13, 37, 31, 21, 35, 43, 41, 7, 27, 45, 29, 33, 9, 15, 25, 11, 3, 5, 39, 19, 1, 17, 22]
+[18, 2, 36, 4, 26, 8, 6, 16, 12, 32, 24, 18, 2, 36, 4, 26, 8, 6, 16, 12, 32, 24, 18, 'None']
+[19, 39, 5, 3, 11, 25, 15, 9, 33, 29, 45, 27, 7, 41, 43, 35, 21, 31, 37, 13, 17, 1, 19, 22]
+[20, 32, 42, 12, 10, 16, 44, 6, 28, 8, 22, 26, 14, 4, 34, 36, 30, 2, 40, 18, 38, 24, 20, 'None']
+[21, 27, 15, 39, 37, 41, 33, 3, 17, 35, 45, 25, 19, 31, 7, 9, 5, 13, 43, 29, 11, 1, 21, 22]
+[22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 'None']
+[23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 'None']
+\end{Verbatim}
+\caption{Table with all powers $a^i \pmod{11}$ for $m=46$, $a=1,...,23$ plus the order of a}
+\end{sagecode}
+
+
+% ---------------------------------------------------------------------------
+\newpage
+\hypertarget{AppArith3a2}{}
+\subsection{Primitive roots}
+\label{primitive-roots-with-sage}\index{Primitive root}
+
+Computing a primitive root in Sage is very straightforward. If
+\verb!n! is an integer, the command \verb!primitive_root(n)! computes
+a primitive root of the multiplicative group
+$(\mathbf{Z} / n \mathbf{Z})^{\ast}$, if one exists. Where $n$ is
+prime, then this is the same as calculating a primitive root of
+$\mathbf{Z} / n \mathbf{Z}$. Here, we calculate some primitive roots
+of a few integers.
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: primitive_root(4)
+3
+sage: primitive_root(22)
+13
+sage: for p in primes(1, 50):
+....:     print p, primitive_root(p)
+....:     
+2 1
+3 2
+5 2
+7 3
+11 2
+13 2
+17 3
+19 2
+23 5
+29 2
+31 3
+37 2
+41 6
+43 3
+47 5
+\end{Verbatim}
+\caption{Calculating one primitive root for some primes}
+\end{sagecode}
+
+If $p$ is prime, then $\mathbf{Z} / p \mathbf{Z}$ has at least one
+primitive root. Sometimes we want to compute all the primitive roots
+of $\mathbf{Z} / p \mathbf{Z}$, not just any primitive root of
+$\mathbf{Z} / p \mathbf{Z}$. The following function can do this.
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: def enum_primroots(M):
+....:     r"""
+....:     Return all the primitive roots of M.
+....:     """
+....:     g = primitive_root(M)
+....:     targetOrder = euler_phi(M)
+....:     L = []
+....:     # Stepping through all odd integers from 1 up to M, not including
+....:     # M. So this loop only considers values of i where 1 <= i < M.
+....:     for i in xrange(1, M, 2):
+....:         testGen = Mod(g^i, M)
+....:         if testGen.multiplicative_order() == targetOrder:
+....:             L.append(testGen.lift())
+....:     # removing duplicates
+....:     return Set(L)
+\end{Verbatim}
+\caption{Function to calculate all primitive roots for a given number}
+\end{sagecode}
+
+\noindent For example, here is a list of all primitive roots of the prime 541.
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: enum_primroots(541)
+{2, 517, 10, 523, 13, 14, 527, 528, 18, 531, 24, 539, 30, 37, 40, 51,
+54, 55, 59, 62, 65, 67, 68, 72, 73, 77, 83, 86, 87, 91, 94, 96, 98,
+99, 107, 113, 114, 116, 117, 126, 127, 128, 131, 132, 138, 150, 152,
+153, 156, 158, 163, 176, 181, 183, 184, 195, 197, 199, 206, 208,
+210, 213, 218, 220, 223, 224, 244, 248, 250, 257, 258, 259, 260,
+261, 263, 267, 269, 270, 271, 272, 274, 278, 280, 281, 282, 283,
+284, 291, 293, 297, 317, 318, 321, 323, 328, 331, 333, 335, 342,
+344, 346, 357, 358, 360, 365, 378, 383, 385, 388, 389, 391, 403,
+409, 410, 413, 414, 415, 424, 425, 427, 428, 434, 442, 443, 445,
+447, 450, 454, 455, 458, 464, 468, 469, 473, 474, 476, 479, 482,
+486, 487, 490, 501, 504, 511}
+\end{Verbatim}
+\caption{Table with all primitive roots for a given prime}
+\end{sagecode}
+
+
+\noindent With a little bit of programming, we can find out how long
+it takes to compute all the primitive roots of some number of primes.
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: def primroots_iter(start, end):
+....:     r"""
+....:     Compute all primitive roots of all primes between start and end,
+....:     inclusive. This uses a primes iterator.
+....:     """
+....:     for p in primes(start, end+1):
+....:         enum_primroots(p)
+....:         
+sage: %time primroots_iter(1, 1500)
+CPU times: user 2.04 s, sys: 0.17 s, total: 2.21 s
+Wall time: 2.21 s
+\end{Verbatim}
+\caption{Function to calculate all primitive roots for some given primes}
+\end{sagecode}
+
+
+\noindent And we can count how many primes for which to enumerate all
+their primitive roots.
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: def primroots_primetest(start, end):
+....:     r"""
+....:     Compute all primitive roots of all primes between start and end,
+....:     inclusive. This actually performs primality tests, so it allows us
+....:     to count the number of primes from start to end, inclusive.
+....:     """
+....:     nPrimes = 0
+....:     for n in xrange(start, end+1):
+....:         if is_prime(n):
+....:             nPrimes += 1
+....:             enum_primroots(n)
+....:     print "Enumerate all primitive roots of %s primes." % nPrimes
+....:     
+sage: %time primroots_primetest(1, 1500)
+Enumerate all primitive roots of 239 primes.
+CPU times: user 2.35 s, sys: 0.03 s, total: 2.38 s
+Wall time: 2.39 s
+\end{Verbatim}
+\caption{Another function to calculate all primitive roots for some given primes}
+\end{sagecode}
+
+Using our custom-defined function \verb!enum_primroots!, we can find
+all primitive roots of a prime integer $p$. From this list of primitive
+roots, we can determine the smallest and largest primitive root for
+$\mathbf{Z} / p \mathbf{Z}$, as well as count the number of primitive
+roots of $\mathbf{Z} / p \mathbf{Z}$.
+Figure~\ref{fig:primitive_roots_all} graphs the number of primitive
+roots for each prime between 1 and 100,000. The $x$-axis represents
+primes between 1 and 100,000, while the $y$-axis counts the number of
+primitive roots for each prime within that interval.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics{figures/primitive-roots-all}
+\caption{The number of primitive roots of all primes between 1 and 100,000.}
+\label{fig:primitive_roots_all}
+\end{figure}
+
+Figure~\ref{fig:primitive_roots_smallest} graphs the smallest
+primitive roots of all primes between 1 and 100,000. The $x$-axis
+represents primes between 1 and 100,000. The $y$-axis represents the
+smallest primitive root of each prime within that
+interval. Figure~\ref{fig:primitive_roots_largest} shows a
+corresponding graph for the largest primitive root of each prime
+within the above interval.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics{figures/primitive-roots-smallest}
+\caption{The smallest primitive roots of all primes between 1 and 100,000.}
+\label{fig:primitive_roots_smallest}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics{figures/primitive-roots-largest}
+\caption{The largest primitive roots of all primes between 1 and 100,000.}
+\label{fig:primitive_roots_largest}
+\end{figure}
+\pagebreak
+
+
+
+
+% ---------------------------------------------------------------------------
+\newpage
+\hypertarget{NumberTheory_Sage_RSA sample}{}
+\subsection{RSA examples with Sage}
+\label{l:NumberTheory_Sage_RSA sample}}{}
+
+\noindent Below is Sage source code for the RSA examples in
+section~\ref{rsaconcrete} (``\nameref{rsaconcrete}''). 
+
+\vskip +10 pt 
+\hypertarget{AppArith4a}{%
+\noindent \textbf{Example on page~\pageref{SrcArith4a}.}} \\
+The RSA exponentiation $M^{37} \pmod{3713}$ on message $M = 120$ can be
+calculated in Sage as follows:
+
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: power_mod(120, 37, 3713)
+1404
+\end{Verbatim}
+
+
+\vskip +10 pt 
+\hypertarget{AppArith4b}{%
+\noindent {\bf Example on page~\pageref{SrcArith4b}.}} \\
+The factorization of $J(256027) = 255016 = 2^3 * 127 * 251$ can be
+calculated using Sage as follows:
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: factor(255016)
+2^3 * 127 * 251
+\end{Verbatim}
+\caption{Factoring a number}
+\end{sagecode}
+
+
+\vskip +10 pt 
+\hypertarget{AppArith4c}{%
+\noindent {\bf Example on page~\pageref{SrcArith4c}.}} \\
+Sage can do RSA encryption as follows:
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: A = [82, 83, 65, 32, 119, 111, 114, 107, 115, 33]
+sage: e = 65537; m = 256027
+sage: [power_mod(a, e, m) for a in A]
+[212984, 25546, 104529, 31692, 248407, 100412, 54196, 100184, 58179, 227433]
+\end{Verbatim}
+\caption{RSA encryption by modular exponentiation of a number (used as message)}
+\end{sagecode}
+
+
+\vskip +10 pt 
+\hypertarget{AppArith4d}{%
+\noindent {\bf Example on page~\pageref{SrcArith4d}.}} \\
+RSA encryption using Sage:
+
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: A = [21075, 16672, 30575, 29291, 29473]
+sage: e = 65537; m = 256027
+sage: [power_mod(a, e, m) for a in A]
+[158721, 137346, 37358, 240130, 112898]
+\end{Verbatim}
+
+
+\vskip +10 pt 
+\hypertarget{AppArith4e}{%
+\noindent {\bf Example on page~\pageref{SrcArith4e}.}} \\
+RSA encryption using Sage:
+
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: A = [82083, 65032, 119111, 114107, 115033]
+sage: e = 65537; m = 256027
+sage: [power_mod(a, e, m) for a in A]
+[198967, 51405, 254571, 115318, 14251]
+\end{Verbatim}
+
+
+
+
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% \vskip +12pt
+\newpage
+\hypertarget{NumberTheory_Appendix_F}{}  %\hypertarget{AppendixListAndDef}{}
+\section{Appendix: List of the formulated definitions and theorems}
+\label{l:NumberTheory_Appendix_F}{}  %\label{l:AppendixListAndDef}{}
+
+% \vskip +8 pt
+\begin{center}
+\begin{tabular}{|l|l|l|}\hline
+ & Short description ~~ & Page \\ \hline
+Definition \ref{def-zth-prime} & prime numbers &  \pageref{def-zth-prime} \\
+Definition \ref{def-zth-composite} & composite numbers & \pageref{def-zth-composite}  \\ \hline
+Theorem \ref{thm-zth-cnum} & factors of composite numbers~~~~~~~ & \pageref{thm-zth-cnum}\\
+Theorem \ref{thm-zth-mthm} &  1. fundamental theorem of number theory &  \pageref{thm-zth-mthm} \\  \hline
+Definition \ref{def-zth-divisibility} & divisibility & \pageref{def-zth-divisibility} \\
+Definition \ref{def-zth-remainder} & remainder class $r$ modulo $m$ & \pageref{def-zth-remainder} \\
+Definition \ref{def-zth-congruence} & congruent & \pageref{def-zth-congruence} \\ \hline
+Theorem \ref{thm-zth-div} & congruence with difference  & \pageref{thm-zth-div} \\
+Theorem \ref{thm-zth-multinv} & multiplicative inverse & \pageref{thm-zth-multinv}  \\
+Theorem \ref{thm-zth-exhperm} & exhaustive permutation & \pageref{thm-zth-exhperm} \\
+Theorem \ref{thm-zth-pot} & power mod $m$ & \pageref{thm-zth-pot} \\ \hline
+Definition \ref{def-zth-zn} & $\mathbb{Z}_n$  & \pageref{def-zth-zn}\\
+Definition \ref{def-zth-znmult} &   $\mathbb{Z}_n^*$ & \pageref{def-zth-znmult} \\ \hline
+Theorem \ref{thm-zth-znmult} & multiplicative inverse in $\mathbb{Z}_n^*$& \pageref{thm-zth-znmult} \\ \hline
+Definition \ref{def-zth-phiofn} & Euler function $J(n)$ & \pageref{def-zth-phiofn} \\
+Theorem \ref{thm-zth-phiprime} & $J(p)$ &  \pageref{thm-zth-phiprime}\\
+Theorem \ref{thm-zth-phipq} & $J(p*q)$ &  \pageref{thm-zth-phipq}\\
+Theorem \ref{thm-zth-phimultprime} & $J(p_1 * \cdots *p_k)$ & \pageref{thm-zth-phimultprime} \\
+Theorem \ref{thm-zth-phinum} & $J(p_1^{e_1} * \cdots *p_k^{e_k})$ & \pageref{thm-zth-phinum} \\
+Theorem \ref{thm-zth-fermat1} & little Fermat  &  \pageref{thm-zth-fermat1}\\
+Theorem \ref{thm-zth-fermateuler} & Euler-Fermat theorem & \pageref{thm-zth-fermateuler} \\ \hline
+Definition \ref{def-zth-ordn} & multiplicative order $ {\rm ord}_{m} (a)$ & \pageref{def-zth-ordn} \\
+Definition \ref{def-zth-primitiveroot} & primitive root of $m$ &  \pageref{def-zth-primitiveroot}\\
+Theorem \ref{thm-zth-ordp} & exhausting of all possible values & \pageref{thm-zth-ordp} \\ \hline
+\end{tabular}
+\end{center}
+\vskip +6 pt
+
+
+
+
+
+
+
+
+
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
 \begin{thebibliography}{99999}
@@ -3718,701 +4511,6 @@ I would like to take this opportunity to thank
 \end{itemize}
 
 
-% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\newpage
-\hypertarget{NumberTheory_Appendix_A}{}
-\section*{Appendix A: The greatest common divisor (gcd) of whole
-             numbers \index{gcd} and the two algorithms of Euclid%
-\footnote{%
-    \index{NT, Learning Tool for Number Theory}%
-    \index{Educational tool NT}%
-    With the educational tool for number theory {\bf NT} you can see
-a) how Euklid's algorithm calculates the gcd (learning unit 1.3, pages 14-19/21)    and \\
-b) how Euklid's enhanced algorithm finds the multiplicative inverse
-   (learning unit 2.2, page 13/40).\\
-    NT can be called in CrypTool\index{CrypTool} via the menu path
-    {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
-    \textbackslash{} Learning Tool for Number Theory}.
-    See appendix \ref{s:appendix-Learn-NT}.
-}}
-\label{NumberTheory_Appendix_A}
-\addcontentsline{toc}{section}{Appendix A: gcd of whole numbers and the two
-algorithms of Euclid}\index{Euclidean algorithm!extended}\index{Gcd}
-
-\begin{enumerate}
-\item The greatest common divisor of two natural numbers $a$ and $b$ is an important value that can be calculated 
-very quickly. Here we make use of the fact that if a number $c$ divides the numbers $a$ and $b$ 
-(i.e. there exists an $a'$ and a $b'$ such that $a = a'*c$ and $b = b'*c$), then $c$ also divides 
-the remainder $r$ of $a/b$. In short notion we can write: If $c$ divides $a$ and $b$ it follows that 
-$c$ divides $r =  a - \lfloor a/b \rfloor * b$\footnote{The Gauss\index{Gauss bracket} bracket  $\lfloor x \rfloor $
-of a real number $x$ is defined via: $\lfloor x \rfloor $ is the next integer less or equal $x$.
-}.
-As the latter statement is valid for each common divisor $c$ of $a$ and $b$ it follows that:
-$$gcd(a,b) = gcd(a - \lfloor a/b \rfloor * b, b).$$
-Using this information, the algorithm for calculating the gcd of two numbers can be written as follows (in pseudo code):
-
-\begin{verbatim}
-INPUT: a,b != 0
-1. if ( a < b ) then  x = a; a = b; b = x; // Swap a and b (a > b)
-2. a = a - int(a/b) * b                    // a is smaller than b, the 
-                                           // gcd(a, b) is unchanged 
-3. if ( a != 0 ) then goto 1.              // a falls after each step and 
-                                           // the algorithm ends when a==0.
-OUTPUT "gcd(a,b) = " b    // b is the gcd of the original a and b
-\end{verbatim}
-
-\item However, to other relationships can be derived from the gcd:
-For this, we need the set of equations for $a$ and $b$:
-\begin{eqnarray*}
- a & = & 1*a + 0*b \nonumber \\
- b & = & 0*a + 1*b, \nonumber
-\end{eqnarray*}
-or, in matrix notation:
-$$ \left(\begin{array}{c}a \\ b\end{array}\right) = 
-   \left(\begin{array}{cc} 1 & 0 \\ 0 & 1 \end{array}\right) *
-   \left(\begin{array}{c} a \\ b \end{array} \right).$$
-We summarize this information in the extended matrix:
-$$\left(\begin{array}{cccc} a & | & 1 & 0 \\ b & | & 0 & 1 \end{array} \right)$$
-If we apply the above gcd algorithm to this matrix, we obtain the extended gcd algorithm: 
-
-\newpage
-{\tt INPUT:} $a,b \not= 0$
-\begin{itemize}
-  \item[\tt 0.] $x_{1,1} := 1, x_{1,2} := 0, x_{2,1} := 0, x_{2,2} := 1$
-  \item[\tt 1.] $ \left(\begin{array}{cccc} a & | & x_{1,1} & x_{1,2} \\ b & | & x_{2,1} & x_{2,2} \end{array} \right) := 
-                   \left(\begin{array}{cc} 0 & 1  \\ 1 & - \lfloor a/b \rfloor * b \end{array} \right)*
-           \left(\begin{array}{cccc} a & | & x_{1,1} & x_{1,2} \\ b & | & x_{2,1} & x_{2,2} \end{array} \right).$
-  \item[\tt 2.] {\tt if (b != 0) then goto 1.}
-\end{itemize}
-{\tt OUTPUT:} ``gcd$(a,b) = a*x +b*y$: '', ``gcd$(a,b) =$ '' $b$, ``$x = $'' $x_{2,1}$, ``$y = $'' $x_{2,2}$
-
-Since this algorithm only performs linear transformations, the same equations always apply
-\begin{eqnarray*}
- a & = & x_{1,1}*a + x_{1,2}*b \nonumber \\
- b & = & x_{2,1}*a + x_{2,2}*b, \nonumber
-\end{eqnarray*}
-and we have the extended gcd equation at the end of the algorithm\footnote{By termination of the gcd algorithm,
-the program variables $a$ and $b$ contain the values $a= 0$ and $b=gcd(a,b)$. Please keep in mind, that the program
-variables are different to the numbers $a$ and $b$ and that they are only relevant for the scope of the algorithm.}:
-$$gcd(a,b) = a*x_{2,1} + b*x_{2,2}.$$
-
-\begin{example}{:}\\
-Using the extended gcd we can determine for $e = 37$ the multiplicative inverse number $d$ to modulo $3588$ (i.e.
-$37*d \equiv 1 {\rm ~(mod~} 3588$)): 
-\end{example}
-{\tt 0.}
- $ \left(\begin{array}{cccc} 3588 & | & 1 & 0 \\ 37 & | & 0 & 1 \end{array} \right)$ 
- 
-{\tt 1.}
- $ \left(\begin{array}{cccc} 37 & | & 1 & 0 \\ 36 & | & 0 & -96 \end{array} \right) = 
-   \left(\begin{array}{cc} 0 & 1  \\ 1 & - (\lfloor 3588/36 \rfloor = 96) * 37 \end{array} \right)*
-   \left(\begin{array}{cccc} 3588 & | & 1 & 0 \\ 37 & | & 0 & 1 \end{array} \right).$
-   
-{\tt 2.}
- $ \left(\begin{array}{cccc} 36 & | & 1 & -96 \\ 1 & | & -1 & 97 \end{array} \right) = 
-   \left(\begin{array}{cc} 0 & 1  \\ 1 & - (\lfloor 37/36 \rfloor = 1) * 36 \end{array} \right)*
-   \left(\begin{array}{cccc} 37 & | & 1 & 0 \\ 36 & | & 0 & -96 \end{array} \right).$
-   
-{\tt 3.}
- $ \left(\begin{array}{cccc} {\bf 1} & | & {\bf -1} & {\bf 97} \\ 0 & | & 37 & -3588 \end{array} \right) = 
-   \left(\begin{array}{cc} 0 & 1  \\ 1 & - (\lfloor 36/1 \rfloor = 36) * 1 \end{array} \right)*
-   \left(\begin{array}{cccc} 36 & | & 1 & -96 \\ 1 & | & -1 & 97 \end{array} \right).$
-
-{\tt OUTPUT:} \\
-gcd($37,3588) = a*x + b*y$: gcd($37,3588$) = 1, $x = -1$, $y=97$.
-
-Thus 
-\begin{enumerate}
-
-\item $37$ and $3588$ are relatively prime ($37$ has an inverse modulo $3588$).
-\item $37*97 = (1 * 3588) + 1$ in other words $37*97 \equiv 1 {\rm ~(mod~} 3588).$ 
-                 and therefore the number $97$ is the multiplicative inverse to $37$ modulo $3588$.
-\end{enumerate}
-\end{enumerate}
-
-
-% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\newpage
-\hypertarget{NumberTheory_Appendix_B}{}
-\section*{Appendix B: Forming closed sets}
-\addcontentsline{toc}{section}{Appendix B: Forming closed sets}
-
-The property of closeness \index{Closeness} is always defined in relation to an operation in a set.
-The following shows how to construct the ``closed set'' $G$ with respect to the operation $+ {\rm ~(mod~} 8)$ for a given initial set $G_0$:
-\begin{eqnarray*}
-G_0 & = & \{ 2, 3 \} {\rm --- addition~of~the~numbers~in~} G_0 {\rm ~determines~further~numbers:} \nonumber \\
-    & &    2 + 3 \equiv 5{\rm ~(mod~}8) = 5 \nonumber \\
-    & &    2 + 2 \equiv 4{\rm ~(mod~}8) = 4 \nonumber \\
-    & &    3 + 3 \equiv 6{\rm ~(mod~}8) = 6 \nonumber \\ 
-G_1 & = & \{ 2, 3, 4, 5, 6 \} {\rm --- addition~of~the~numbers~in~} G_1 {\rm ~determines:}\nonumber \\
-    & &    3 + 4 \equiv 7{\rm ~(mod~}8) = 7 \nonumber \\
-    & &    3 + 5 \equiv 8{\rm ~(mod~}8) = 0 \nonumber \\
-    & &    3 + 6 \equiv 9{\rm ~(mod~}8) = 1 \nonumber \\ 
-G_2 & = & \{ 0, 1, 2, 3, 4, 5, 6, 7 \} {\rm --- addition~of~the~numbers~in~} G_2 {~does~not~extend~the~set!} \nonumber \\
-G_3 & = & G_2 {\rm --- we~say:~} G_2 {\rm~is~closed~for~addition~~(mod~}8). \nonumber 
-\end{eqnarray*}
-% End of forming a closed set.
-
-
-% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\vskip +60pt
-\hypertarget{NumberTheory_Appendix_C}{}
-\section*{Appendix C: Comments on modulo subtraction}
-\addcontentsline{toc}{section}{Appendix C: Comments on modulo subtraction}
-Comment on subtraction modulo 5: $2 - 4 = -2 \equiv 3{\rm ~mod~}2$.
-It is therefore not true modulo $5$ that $-2 = 2$ ! People often make the mistake of equating this. You can show this clearly if you place the permutation $(0, 1, 2, 3, 4)$ in $\mathbb{Z}_5$, for example from $-11$ to $+11$, over the range of numbers in $\mathbb{Z}$.
-
-\vskip +10 pt
-\input{figures/line-en.latex}
-
-
-% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\newpage
-\hypertarget{NumberTheory_Appendix_D}{}
-\section*{Appendix D: Base representation of numbers,
-             estimation of length of digits}
-\addcontentsline{toc}{section}{Appendix D: Base representation and base
-                 transformation of numbers, estimation of length of digits}
-
-For a given number $z$ one may ask how to represent such a number. In general
-we use representations like $z = 2374$ or $z = \sqrt{2}$. The second number
-consists of an infinite number of digits and therefore it can never be
-described precisely by the first representation. In this case the number
-must be rounded.
-
-We represent numbers usually in the decimal system (base 10). Computers
-are working with the binary representation of numbers --- only for the
-display numbers are represented in decimal or sometimes hexadecimal (base 16)
-form.
-
-This appendix describes how to generate arbitrary base representations of
-any positive integer and how to determine the number of required digits
-via the logarithm function.
-
-
-\subsection*{$b$-adic sum representation of positive integers}
-Given base $b$, each positive integer $z$ can be represented as a $b$-adic
-sum  $$ z = a_nb^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0, $$ where
-$a_i \in \{0, 1, \dots, b-1\}, \; i=0,1,\dots, n$ are called {\em digits}.
-
-For this sum, it follows that:\\
-1) For arbitrary digits $a_0, a_1, \dots, a_n$ it is:
-   $b^{n+1} > a_nb^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0$.\\
-2) There exist digits $a_0, a_1, \dots, a_n$
-   ~(namely $a_i = b-1$ for $i=0, \dots, n$), following that  
-   $b^{n+1} -1 \le a_nb^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0$.\\
-(Using these inequalities it can be shown that each positive integer can be
-represented by a $b$-adic sum).
-
-By writing the digits $a_na_{n-1} \cdots a_1a_0$ in a row directly after each other (without the $b^i$) 
-the usual writing for numbers comes to hand.
-
-\begin{example}{:}\\
-Base $b = 10$: $10278 =  1\cdot10^4 +  0\cdot 10^3 + 2\cdot 10^2 + 7\cdot 10^1 + 8$\\
-Base $b = 16$: $FE70A = 15\cdot16^4 + 14\cdot 16^3 + 7\cdot 16^2 + 0\cdot 16^1 + 10$.
-\end{example}
-
-
-\vskip +20 pt
-\subsection*{Number of digits to represent a positive integer}
-For a positive integer $z$ the length of the $b$-adic representation can be determined via the 
-following steps. Starting from the inequality $b^{n+1} > z \ge b^n$ 
-we have --- after applying the logarithm function on basis $b$\footnote{%
-Applying the logarithm formula on base $b$ and $b'$ we have $\log_b z = \log_{b'} z / \log_{b'} (b)$. 
-It is therefore easy using e.g. logarithm tables for the base $b' = 10$ to compute the logarithm of base $b = 2$.
-}:~$n+1 > log_b z \ge n$. Therefore we have $n = \lfloor log_b z \rfloor$\footnote{%
-The function $\lfloor x \rfloor$ determines the next integer smaller than $x$ (in case $x \ge 0$ the digits after the decimal point are truncated). 
-}. We call $l_b(z)$ {\em the number of required digits to represent the number $z$ on the base $b$}. We have
-$$l_b(z) := \lfloor log_b z \rfloor +1.$$
-
-
-\vskip +10 pt
-\begin{example}{ 1 (decimal$\rightarrow$hex):}\\
-We compute for the decimal number $z = 234$ (EA in hex) the hexadecimal representation (number base $b = 16$)
-$$l_{16}(z) = \lfloor \log_{16}(z) \rfloor + 1 = \lfloor \ln (z) / \ln(16) \rfloor + 1 = \lfloor 1.96... \rfloor + 1 = 1 + 1 = 2.$$
-\end{example}
-
-\vskip +10 pt
-\begin{example}{ 2 (decimal$\rightarrow$binary):}\\
-We compute for the decimal number $z = 234$ (11101010 in binary) the binary representation (number base $b = 2$)
-$$l_{2}(z) = \lfloor \log_{2}(z) \rfloor + 1 = \lfloor \ln (z) / \ln(2) \rfloor + 1 = \lfloor 7.87... \rfloor + 1 = 7 + 1 = 8.$$
-\end{example}
-
-\vskip +10 pt 
-\begin{example}{ 3 (binary$\rightarrow$decimal):}\\
-We compute for the decimal number $z = 11101010$ (234 decimal) the decimal
-representation (number base $b = 10$)
-$$l_{10}(z) = \lfloor \log_{10}(z) \rfloor + 1 = \lfloor \ln (z) / \ln(10) \rfloor + 1 = \lfloor 2,36... \rfloor + 1 = 2 + 1 = 3.$$
-\end{example}
-
-
-\vskip + 20 pt
-\subsection*{Algorithm to compute the base representation}
-Given the number $z$ one can compute the base $b$ representation of $z$ using the following algorithm
-
-\begin{tabbing}
-bla\= \kill
-{\bf input}: $z, b$ \\
-$n := 0, z' := z$ \\
-{\bf while} $z' > 0$ {\bf do} \\
- \> $a_n := z' {\rm ~mod~} b$,\\
- \> $z' := \lfloor z' / b \rfloor$  \\
- \> $n := n+1$ \\
-{\bf end do} \\
-{\bf output}:  $a_n a_{n-1} \cdots a_1 a_0$ in base $b$ representation. 
-\end{tabbing}
-
-
-\begin{example}{ 1 (decimal$\rightarrow$hex):}\\
-The integer $z = 234$ on the number base $10$ will be transformed into the hex representation via
-$a_0 = 234 {\rm ~mod~} 16 = 10 = A$, $234 / 16 = 14 = E$,\\
-$a_1 = 14 {\rm ~mod~} 16 = E$\\
-and therefore we have $EA$. 
-\end{example}
-
-\vskip +10 pt
-\begin{example}{ 2 (binary$\rightarrow$decimal):}\\
-The binary number $z = 1000100101110101$ is transformed into the decimal
-representation via the following steps:
-
-$1000100101110101 = 1001$ (mod $1010)  \Longrightarrow a_0 = 9$, ~ ~ $1000100101110101 / 1010 = 110110111110$ \\
-$110110111110 = 1000$ (mod $1010) \Longrightarrow a_1 = 8$, $110110111110 / 1010 = 101011111$ \\
-$101011111 = 1$ (mod $1010) \Longrightarrow a_2 = 1$, $10101111 / 1010 = 100011$ \\
-$100011 =  101$ (mod $1010) \Longrightarrow a_3 = 5$, $100011 / 1010 = 1$ \\
-$11 = 11$ (mod $1010) \Longrightarrow a_4 = 3$ \\
-therefore $z = 35189$. 
-\end{example}
-
-
-% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\newpage
-\hypertarget{NumberTheory_Appendix_E}{}
-\section*{Appendix E: Examples using Sage}
-\addcontentsline{toc}{section}{Appendix E: Examples using Sage}
-\index{Sage}
-
-This appendix contains Sage source code to compute the multiplication
-table for $a \times i \pmod{m}$, where $a = 5, 6$ and $m = 17$ and $i$
-ranges over all integers from $0$ to $16$.
-
-
-\hypertarget{AppArith1}{}
-\subsection*{Multiplication table modulo $m$}
-The multiplication tables modulo $m = 17$ for $a=5$ and $a=6$ on page
-\pageref{SrcArith1a} can be computed using Sage as follows:
-
-\begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
-sage: m = 17; a = 5; b = 6
-sage: [mod(a * i, m).lift() for i in xrange(m)]
-[0, 5, 10, 15, 3, 8, 13, 1, 6, 11, 16, 4, 9, 14, 2, 7, 12]
-sage: [mod(b * i, m).lift() for i in xrange(m)]
-[0, 6, 12, 1, 7, 13, 2, 8, 14, 3, 9, 15, 4, 10, 16, 5, 11]
-\end{Verbatim}
-
-\noindent The function \verb!mod()! returns an object that represents
-integers modulo $m$, in our case $m = 17$. We use the method
-\verb!lift()! to convert that object to an integer representation.
-The other multiplication table examples modulo $13$ and modulo $12$ on page
-\pageref{SrcArith1b} can similarly be computed by replacing {\tt m = 17}
-with {\tt m = 13} and {\tt m = 12} respectively.
-
-
-\hypertarget{AppArith2}{}
-\subsection*{Fast exponentiation}
-
-The fast exponentiation modulo $m$ can be computed using the Sage
-function \verb!power_mod()!. The result of this function is an
-integer. We can compute the exponentiation in the example on page
-\pageref{SrcArith2} as follows:
-
-\begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
-sage: a = 87; m = 103
-sage: exp = [2, 4, 8, 16, 32, 43]
-sage: [power_mod(a, e, m) for e in exp]
-[50, 28, 63, 55, 38, 85]
-\end{Verbatim}
-
-
-\hypertarget{AppArith3a1}{}
-\subsection*{Multiplicative order}
-
-The order $\text{ord}_m(a)$ of a number $a$ in the multiplicative
-group $\mathbf{Z}_m^{\ast}$ is the smallest number $i \geq 1$ such that
-$a^i \equiv 1 \pmod{m}$ holds. For the example on page~\pageref{SrcArith3a}
-we can print all exponentiation $a^i \pmod{11}$ as follows:
-
-\begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
-sage: m = 11
-sage: for a in xrange(1, m):
-....:     print [power_mod(a, i, m) for i in xrange(1, m)]
-....:
-[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-[2, 4, 8, 5, 10, 9, 7, 3, 6, 1]
-[3, 9, 5, 4, 1, 3, 9, 5, 4, 1]
-[4, 5, 9, 3, 1, 4, 5, 9, 3, 1]
-[5, 3, 4, 9, 1, 5, 3, 4, 9, 1]
-[6, 3, 7, 9, 10, 5, 8, 4, 2, 1]
-[7, 5, 2, 3, 10, 4, 6, 9, 8, 1]
-[8, 9, 6, 4, 10, 3, 2, 5, 7, 1]
-[9, 4, 3, 5, 1, 9, 4, 3, 5, 1]
-[10, 1, 10, 1, 10, 1, 10, 1, 10, 1]
-\end{Verbatim}
-
-
-\hypertarget{AppArith3b}{}
-The table on page~\pageref{SrcArith3b} gives examples for the order modulo
-45 $\text{ord}_{45}(a)$ and the Euler number $J(45)$. The following
-Sage code constructs a table similar to that on page~\pageref{SrcArith3b}.
-
-\begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
-sage: m = 45
-sage: for a in xrange(1, 13):
-....:     lst = [power_mod(a, i, m) for i in xrange(1, 13)]
-....:     try:
-....:         lst.append(multiplicative_order(mod(a, m)))
-....:     except:
-....:         lst.append("None")
-....:     lst.append(euler_phi(45))
-....:     print lst
-....:
-[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 24]
-[2, 4, 8, 16, 32, 19, 38, 31, 17, 34, 23, 1, 12, 24]
-[3, 9, 27, 36, 18, 9, 27, 36, 18, 9, 27, 36, 'None', 24]
-[4, 16, 19, 31, 34, 1, 4, 16, 19, 31, 34, 1, 6, 24]
-[5, 25, 35, 40, 20, 10, 5, 25, 35, 40, 20, 10, 'None', 24]
-[6, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 'None', 24]
-[7, 4, 28, 16, 22, 19, 43, 31, 37, 34, 13, 1, 12, 24]
-[8, 19, 17, 1, 8, 19, 17, 1, 8, 19, 17, 1, 4, 24]
-[9, 36, 9, 36, 9, 36, 9, 36, 9, 36, 9, 36, 'None', 24]
-[10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 'None', 24]
-[11, 31, 26, 16, 41, 1, 11, 31, 26, 16, 41, 1, 6, 24]
-[12, 9, 18, 36, 27, 9, 18, 36, 27, 9, 18, 36, 'None', 24]
-\end{Verbatim}
-
-The number $\text{ord}_m(a)$ only exists if $a$ is relatively prime
-to $m$, which can be checked with \verb!gcd(a, m)!. In the above code
-example, we put the calculation of the multiplicative order within a
-\verb!try!-\verb!except! block. This allows Sage to catch any
-exceptions or errors raised by the function
-\verb!multiplicative_order()!. If an exception or error is raised in
-the \verb!try! block, then we know that $\text{ord}_m(a)$ does not
-exist for that particular value of $a$, hence in the \verb!except!
-block we append the string \verb!"None"! to the row as represented by
-the object \verb!lst!.
-
-\hypertarget{AppArith3c}{}
-The third example on page~\pageref{SrcArith3c} displays exponentiation
-$a^i \pmod{46}$ as well as the order $\text{ord}_{46}(a)$. Sage can
-create that table as follows:
-
-\begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
-sage: m = 46
-sage: for a in xrange(1, 24):
-....:     lst = [power_mod(a, i, m) for i in xrange(1, 24)]
-....:     try:
-....:         lst.append(multiplicative_order(mod(a, m)))
-....:     except:
-....:         lst.append("None")
-....:     print lst
-....:
-[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-[2, 4, 8, 16, 32, 18, 36, 26, 6, 12, 24, 2, 4, 8, 16, 32, 18, 36, 26, 6, 12, 24, 2, 'None']
-[3, 9, 27, 35, 13, 39, 25, 29, 41, 31, 1, 3, 9, 27, 35, 13, 39, 25, 29, 41, 31, 1, 3, 11]
-[4, 16, 18, 26, 12, 2, 8, 32, 36, 6, 24, 4, 16, 18, 26, 12, 2, 8, 32, 36, 6, 24, 4, 'None']
-[5, 25, 33, 27, 43, 31, 17, 39, 11, 9, 45, 41, 21, 13, 19, 3, 15, 29, 7, 35, 37, 1, 5, 22]
-[6, 36, 32, 8, 2, 12, 26, 18, 16, 4, 24, 6, 36, 32, 8, 2, 12, 26, 18, 16, 4, 24, 6, 'None']
-[7, 3, 21, 9, 17, 27, 5, 35, 15, 13, 45, 39, 43, 25, 37, 29, 19, 41, 11, 31, 33, 1, 7, 22]
-[8, 18, 6, 2, 16, 36, 12, 4, 32, 26, 24, 8, 18, 6, 2, 16, 36, 12, 4, 32, 26, 24, 8, 'None']
-[9, 35, 39, 29, 31, 3, 27, 13, 25, 41, 1, 9, 35, 39, 29, 31, 3, 27, 13, 25, 41, 1, 9, 11]
-[10, 8, 34, 18, 42, 6, 14, 2, 20, 16, 22, 36, 38, 12, 28, 4, 40, 32, 44, 26, 30, 24, 10, 'None']
-[11, 29, 43, 13, 5, 9, 7, 31, 19, 25, 45, 35, 17, 3, 33, 41, 37, 39, 15, 27, 21, 1, 11, 22]
-[12, 6, 26, 36, 18, 32, 16, 8, 4, 2, 24, 12, 6, 26, 36, 18, 32, 16, 8, 4, 2, 24, 12, 'None']
-[13, 31, 35, 41, 27, 29, 9, 25, 3, 39, 1, 13, 31, 35, 41, 27, 29, 9, 25, 3, 39, 1, 13, 11]
-[14, 12, 30, 6, 38, 26, 42, 36, 44, 18, 22, 32, 34, 16, 40, 8, 20, 4, 10, 2, 28, 24, 14, 'None']
-[15, 41, 17, 25, 7, 13, 11, 27, 37, 3, 45, 31, 5, 29, 21, 39, 33, 35, 19, 9, 43, 1, 15, 22]
-[16, 26, 2, 32, 6, 4, 18, 12, 8, 36, 24, 16, 26, 2, 32, 6, 4, 18, 12, 8, 36, 24, 16, 'None']
-[17, 13, 37, 31, 21, 35, 43, 41, 7, 27, 45, 29, 33, 9, 15, 25, 11, 3, 5, 39, 19, 1, 17, 22]
-[18, 2, 36, 4, 26, 8, 6, 16, 12, 32, 24, 18, 2, 36, 4, 26, 8, 6, 16, 12, 32, 24, 18, 'None']
-[19, 39, 5, 3, 11, 25, 15, 9, 33, 29, 45, 27, 7, 41, 43, 35, 21, 31, 37, 13, 17, 1, 19, 22]
-[20, 32, 42, 12, 10, 16, 44, 6, 28, 8, 22, 26, 14, 4, 34, 36, 30, 2, 40, 18, 38, 24, 20, 'None']
-[21, 27, 15, 39, 37, 41, 33, 3, 17, 35, 45, 25, 19, 31, 7, 9, 5, 13, 43, 29, 11, 1, 21, 22]
-[22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 'None']
-[23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 'None']
-\end{Verbatim}
-
-
-% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\hypertarget{AppArith3a2}{}
-\subsection*{Primitive roots}
-\label{primitive-roots-with-sage}\index{Primitive root}
-
-Computing a primitive root in Sage is very straightforward. If
-\verb!n! is an integer, the command \verb!primitive_root(n)! computes
-a primitive root of the multiplicative group
-$(\mathbf{Z} / n \mathbf{Z})^{\ast}$, if one exists. Where $n$ is
-prime, then this is the same as calculating a primitive root of
-$\mathbf{Z} / n \mathbf{Z}$. Here, we calculate some primitive roots
-of a few integers.
-
-\begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
-sage: primitive_root(4)
-3
-sage: primitive_root(22)
-13
-sage: for p in primes(1, 50):
-....:     print p, primitive_root(p)
-....:     
-2 1
-3 2
-5 2
-7 3
-11 2
-13 2
-17 3
-19 2
-23 5
-29 2
-31 3
-37 2
-41 6
-43 3
-47 5
-\end{Verbatim}
-
-If $p$ is prime, then $\mathbf{Z} / p \mathbf{Z}$ has at least one
-primitive root. Sometimes we want to compute all the primitive roots
-of $\mathbf{Z} / p \mathbf{Z}$, not just any primitive root of
-$\mathbf{Z} / p \mathbf{Z}$. The following function can do this.
-
-\begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
-sage: def enum_primroots(M):
-....:     r"""
-....:     Return all the primitive roots of M.
-....:     """
-....:     g = primitive_root(M)
-....:     targetOrder = euler_phi(M)
-....:     L = []
-....:     # Stepping through all odd integers from 1 up to M, not including
-....:     # M. So this loop only considers values of i where 1 <= i < M.
-....:     for i in xrange(1, M, 2):
-....:         testGen = Mod(g^i, M)
-....:         if testGen.multiplicative_order() == targetOrder:
-....:             L.append(testGen.lift())
-....:     # removing duplicates
-....:     return Set(L)
-\end{Verbatim}
-
-\noindent For example, here is a list of all primitive roots of the prime 541.
-
-\begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
-sage: enum_primroots(541)
-{2, 517, 10, 523, 13, 14, 527, 528, 18, 531, 24, 539, 30, 37, 40, 51,
-54, 55, 59, 62, 65, 67, 68, 72, 73, 77, 83, 86, 87, 91, 94, 96, 98,
-99, 107, 113, 114, 116, 117, 126, 127, 128, 131, 132, 138, 150, 152,
-153, 156, 158, 163, 176, 181, 183, 184, 195, 197, 199, 206, 208,
-210, 213, 218, 220, 223, 224, 244, 248, 250, 257, 258, 259, 260,
-261, 263, 267, 269, 270, 271, 272, 274, 278, 280, 281, 282, 283,
-284, 291, 293, 297, 317, 318, 321, 323, 328, 331, 333, 335, 342,
-344, 346, 357, 358, 360, 365, 378, 383, 385, 388, 389, 391, 403,
-409, 410, 413, 414, 415, 424, 425, 427, 428, 434, 442, 443, 445,
-447, 450, 454, 455, 458, 464, 468, 469, 473, 474, 476, 479, 482,
-486, 487, 490, 501, 504, 511}
-\end{Verbatim}
-
-\noindent With a little bit of programming, we can find out how long
-it takes to compute all the primitive roots of some number of primes.
-
-\begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
-sage: def primroots_iter(start, end):
-....:     r"""
-....:     Compute all primitive roots of all primes between start and end,
-....:     inclusive. This uses a primes iterator.
-....:     """
-....:     for p in primes(start, end+1):
-....:         enum_primroots(p)
-....:         
-sage: %time primroots_iter(1, 1500)
-CPU times: user 2.04 s, sys: 0.17 s, total: 2.21 s
-Wall time: 2.21 s
-\end{Verbatim}
-
-\noindent And we can count how many primes for which to enumerate all
-their primitive roots.
-
-\begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
-sage: def primroots_primetest(start, end):
-....:     r"""
-....:     Compute all primitive roots of all primes between start and end,
-....:     inclusive. This actually perform primality tests, so it allows us
-....:     to count the number of primes from start to end, inclusive.
-....:     """
-....:     nPrimes = 0
-....:     for n in xrange(start, end+1):
-....:         if is_prime(n):
-....:             nPrimes += 1
-....:             enum_primroots(n)
-....:     print "Enumerate all primitive roots of %s primes." % nPrimes
-....:     
-sage: %time primroots_primetest(1, 1500)
-Enumerate all primitive roots of 239 primes.
-CPU times: user 2.35 s, sys: 0.03 s, total: 2.38 s
-Wall time: 2.39 s
-\end{Verbatim}
-
-Using our custom-defined function \verb!enum_primroots!, we can find
-all primitive roots of a prime integer $p$. From this list of primitive
-roots, we can determine the smallest and largest primitive root for
-$\mathbf{Z} / p \mathbf{Z}$, as well as count the number of primitive
-roots of $\mathbf{Z} / p \mathbf{Z}$.
-Figure~\ref{fig:primitive_roots_all} graphs the number of primitive
-roots for each prime between 1 and 100000. The $x$-axis represents
-primes between 1 and 100000, while the $y$-axis counts the number of
-primitive roots for each prime within that interval.
-
-\begin{figure}[!htbp]
-\centering
-\includegraphics{figures/primitive-roots-all}
-\caption{The number of primitive roots of all primes between 1 and 100,000.}
-\label{fig:primitive_roots_all}
-\end{figure}
-
-Figure~\ref{fig:primitive_roots_smallest} graphs the smallest
-primitive roots of all primes between 1 and 100000. The $x$-axis
-represents primes between 1 and 100000. The $y$-axis represents the
-smallest primitive root of each prime within that
-interval. Figure~\ref{fig:primitive_roots_largest} shows a
-corresponding graph for the largest primitive root of each prime
-within the above interval.
-
-\begin{figure}[!htbp]
-\centering
-\includegraphics{figures/primitive-roots-smallest}
-\caption{The smallest primitive roots of all primes between 1 and 100,000.}
-\label{fig:primitive_roots_smallest}
-\end{figure}
-
-\begin{figure}[!htbp]
-\centering
-\includegraphics{figures/primitive-roots-largest}
-\caption{The largest primitive roots of all primes between 1 and 100,000.}
-\label{fig:primitive_roots_largest}
-\end{figure}
-
-\subsection*{RSA examples}
-
-This section list Sage source code for the RSA examples in
-section~\ref{rsaconcrete} (``The RSA procedure with actual numbers'').
-
-\vskip +10 pt \hypertarget{AppArith4a}{%
-\noindent \textbf{Example on page~\pageref{SrcArith4a}.}} \\
-The RSA exponentiation $M^{37} \pmod{3713}$ on message $M = 120$ can be
-calculated in Sage as follows:
-
-\begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
-sage: power_mod(120, 37, 3713)
-1404
-\end{Verbatim}
-
-
-\vskip +10 pt \hypertarget{AppArith4b}{%
-\noindent {\bf Example on page~\pageref{SrcArith4b}.}} \\
-The factorization of $J(256027) = 255016 = 2^3 * 127 * 251$ can be
-calculated using Sage as follows:
-
-\begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
-sage: factor(255016)
-2^3 * 127 * 251
-\end{Verbatim}
-
-
-\vskip +10 pt \hypertarget{AppArith4c}{%
-\noindent {\bf Example on page~\pageref{SrcArith4c}.}} \\
-Sage can do RSA encryption as follows:
-
-\begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
-sage: A = [82, 83, 65, 32, 119, 111, 114, 107, 115, 33]
-sage: e = 65537; m = 256027
-sage: [power_mod(a, e, m) for a in A]
-[212984, 25546, 104529, 31692, 248407, 100412, 54196, 100184, 58179, 227433]
-\end{Verbatim}
-
-
-\vskip +10 pt \hypertarget{AppArith4d}{%
-\noindent {\bf Example on page~\pageref{SrcArith4d}.}} \\
-Sage can do RSA encryption as follows:
-
-\begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
-sage: A = [21075, 16672, 30575, 29291, 29473]
-sage: e = 65537; m = 256027
-sage: [power_mod(a, e, m) for a in A]
-[158721, 137346, 37358, 240130, 112898]
-\end{Verbatim}
-
-
-\vskip +10 pt \hypertarget{AppArith4e}{%
-\noindent {\bf Example on page~\pageref{SrcArith4e}.}} \\
-RSA encryption using Sage:
-
-\begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
-sage: A = [82083, 65032, 119111, 114107, 115033]
-sage: e = 65537; m = 256027
-sage: [power_mod(a, e, m) for a in A]
-[198967, 51405, 254571, 115318, 14251]
-\end{Verbatim}
-
-
-% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-% \vskip +12pt
-\newpage
-\hypertarget{NumberTheory_Appendix_F}{}  %\hypertarget{AppendixListAndDef}{}
-\section*{Appendix F: List of the formulated definitions and theorems}
-\addcontentsline{toc}{section}{Appendix F: List of the formulated definitions and theorems}
-\vskip +8 pt
-\begin{center}
-\begin{tabular}{|l|l|l|}\hline
- & Short description ~~ & Page \\ \hline
-Definition \ref{def-zth-prime} & prime numbers &  \pageref{def-zth-prime} \\
-Definition \ref{def-zth-composite} & composite numbers & \pageref{def-zth-composite}  \\ \hline
-Theorem \ref{thm-zth-cnum} & factors of composite numbers~~~~~~~ & \pageref{thm-zth-cnum}\\
-Theorem \ref{thm-zth-mthm} &  1. fundamental theorem of number theory &  \pageref{thm-zth-mthm} \\  \hline
-Definition \ref{def-zth-divisibility} & divisibility & \pageref{def-zth-divisibility} \\
-Definition \ref{def-zth-remainder} & remainder class $r$ modulo $m$ & \pageref{def-zth-remainder} \\
-Definition \ref{def-zth-congruence} & congruent & \pageref{def-zth-congruence} \\ \hline
-Theorem \ref{thm-zth-div} & congruence with difference  & \pageref{thm-zth-div} \\
-Theorem \ref{thm-zth-multinv} & multiplicative inverse & \pageref{thm-zth-multinv}  \\
-Theorem \ref{thm-zth-exhperm} & exhaustive permutation & \pageref{thm-zth-exhperm} \\
-Theorem \ref{thm-zth-pot} & power mod $m$ & \pageref{thm-zth-pot} \\ \hline
-Definition \ref{def-zth-zn} & $\mathbb{Z}_n$  & \pageref{def-zth-zn}\\
-Definition \ref{def-zth-znmult} &   $\mathbb{Z}_n^*$ & \pageref{def-zth-znmult} \\ \hline
-Theorem \ref{thm-zth-znmult} & multiplicative inverse in $\mathbb{Z}_n^*$& \pageref{thm-zth-znmult} \\ \hline
-Definition \ref{def-zth-phiofn} & Euler function $J(n)$ & \pageref{def-zth-phiofn} \\
-Theorem \ref{thm-zth-phiprime} & $J(p)$ &  \pageref{thm-zth-phiprime}\\
-Theorem \ref{thm-zth-phipq} & $J(p*q)$ &  \pageref{thm-zth-phipq}\\
-Theorem \ref{thm-zth-phimultprime} & $J(p_1 * \cdots *p_k)$ & \pageref{thm-zth-phimultprime} \\
-Theorem \ref{thm-zth-phinum} & $J(p_1^{e_1} * \cdots *p_k^{e_k})$ & \pageref{thm-zth-phinum} \\
-Theorem \ref{thm-zth-fermat1} & little Fermat  &  \pageref{thm-zth-fermat1}\\
-Theorem \ref{thm-zth-fermateuler} & Euler-Fermat theorem & \pageref{thm-zth-fermateuler} \\ \hline
-Definition \ref{def-zth-ordn} & multiplicative order $ {\rm ord}_{m} (a)$ & \pageref{def-zth-ordn} \\
-Definition \ref{def-zth-primitiveroot} & primitive root of $m$ &  \pageref{def-zth-primitiveroot}\\
-Theorem \ref{thm-zth-ordp} & exhausting of all possible values & \pageref{thm-zth-ordp} \\ \hline
-\end{tabular}
-\end{center}
-\vskip +6 pt
 
 % Local Variables:
 % TeX-master: "../script-en.tex"
