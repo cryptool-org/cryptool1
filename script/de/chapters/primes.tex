@@ -2213,6 +2213,161 @@ for e in E:
 \end{sagecode}
 
 
+
+
+
+
+
+
+% ---------------------------------------------------------------------------
+% ---------------------------------------------------------------------------
+\newpage
+\hypertarget{Primes_Appendix_A}{}
+\section{Beispiele mit Sage}
+% \section*{Appendix A: Beispiele mit Sage}
+% \addcontentsline{toc}{section}{Appendix A: Beispiele mit Sage}
+\label{Primes_Sage_samples}
+\index{Sage!Programmbeispiele}
+\index{Sage}
+
+Der folgende Abschnitt enthält Sage Source-Code, der sich auf den Inhalt des
+Kapitels ``\nameref{Label_Kapitel_2}'' (Kapitelnummer \ref{Label_Kapitel_2}) bezieht.
+
+% ---------------------------------------------------------------------------
+% \newpage
+\subsection{Primalitäts-Check der von einer quadratischen Funktion erzeugten Zahlen}
+
+In diesem Anhang finden Sie den Quellcode für Sage, mit dem man
+z.B.\ prüfen kann, ob die von der Funktion $f(n) = n^2 - 9n + 61$ 
+erzeugten Zahlen prim sind. 
+Der Quellcode definiert eine Funktion namens \verb!quadratic_prime_formula()!,
+die die folgenden drei Argumente hat:
+\begin{itemize}
+\item \verb!start! --- Ein natürliche Zahl, die die Untergrenze der Folge
+  $\texttt{start}, \texttt{start} + 1,
+  \texttt{start} + 2, \dots, \texttt{end} - 1, \texttt{end}$ darstellt.
+
+\item \verb!end! --- Ein natürliche Zahl, die die Obergrenze der Folge
+  $\texttt{start}, \texttt{start} + 1,
+  \texttt{start} + 2, \dots, \texttt{end} - 1, \texttt{end}$ darstellt.
+
+\item \verb!verbose! --- (Standardwert: \verb!True!) Ein Schalter, der festlegt,
+  ob für jede erzeugte Einzelzahl $f(n)$ eine Ausgabe zur Primalität erfolgen soll.
+\end{itemize}
+
+\noindent Eine sinnvolle Änderung dieses Codes besteht darin, eine andere Funktion anzugeben,
+deren Funktionswerte auf Primalität geprüft werden sollen.
+
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+def quadratic_prime_formula(start, end, verbose=True):
+    print "N -- N^2 - 9*N + 61"
+    P = 0 # the number of primes between start and end
+    for n in xrange(start, end + 1):
+        X = n^2 - 9*n + 61
+        if is_prime(X):
+            P += 1
+            if verbose:
+                 print str(n) + " -- " + str(X) + " is prime"
+        else:
+            if verbose:
+                 print str(n) + " -- " + str(X) + " is NOT prime"
+    print "Number of primes: " + str(P)
+    print "Percentage of primes: " + str(float((P * 100) / (end - start + 1)))
+\end{Verbatim}
+\caption{Testen der Primalität von Funktionswerten, erzeugt von einer quadratischen Funktion}
+\end{sagecode}
+
+\vspace{12pt}
+Mit dem folgenden Funktionsaufruf berechnen wir die Werte von $f(n) = n^2 - 9n + 61$
+für $n = 0, 1, 2, \dots, 50$ und verifizieren die Primalität der erzeugten Funktionswerte:
+
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: quadratic_prime_formula(0, 50)
+ N -- N^2 - 9*N + 61
+0 -- 61 is prime
+1 -- 53 is prime
+2 -- 47 is prime
+3 -- 43 is prime
+4 -- 41 is prime
+5 -- 41 is prime
+6 -- 43 is prime
+7 -- 47 is prime
+8 -- 53 is prime
+9 -- 61 is prime
+10 -- 71 is prime
+11 -- 83 is prime
+12 -- 97 is prime
+13 -- 113 is prime
+14 -- 131 is prime
+15 -- 151 is prime
+16 -- 173 is prime
+17 -- 197 is prime
+18 -- 223 is prime
+19 -- 251 is prime
+20 -- 281 is prime
+21 -- 313 is prime
+22 -- 347 is prime
+23 -- 383 is prime
+24 -- 421 is prime
+25 -- 461 is prime
+26 -- 503 is prime
+27 -- 547 is prime
+28 -- 593 is prime
+29 -- 641 is prime
+30 -- 691 is prime
+31 -- 743 is prime
+32 -- 797 is prime
+33 -- 853 is prime
+34 -- 911 is prime
+35 -- 971 is prime
+36 -- 1033 is prime
+37 -- 1097 is prime
+38 -- 1163 is prime
+39 -- 1231 is prime
+40 -- 1301 is prime
+41 -- 1373 is prime
+42 -- 1447 is prime
+43 -- 1523 is prime
+44 -- 1601 is prime
+45 -- 1681 is NOT prime
+46 -- 1763 is NOT prime
+47 -- 1847 is prime
+48 -- 1933 is prime
+49 -- 2021 is NOT prime
+50 -- 2111 is prime
+Number of primes: 48
+Percentage of primes: 94.1176470588
+\end{Verbatim}
+
+\noindent Die letzten beiden Zeilen enthalten eine kleine Statistik.
+Man sieht, dass $f(n)$ 48 Primzahlen erzeugte für $0 \leq n \leq 50$,
+was ca. 94\% der von $f(n)$ für $n = 0, 1, 2, 3, \dots, 50$ erzeugten Werte darstellt.\\
+
+Bei längeren Sequenzen ist die Einzelausgabe der erzeugten Zahl und ihrer Primalität
+ziemlich unpraktisch. Deshalb wird in der folgenden Sage-Session nur die Statistik am
+Ende ausgegeben: die Gesamtzahl und der prozentuale Anteil der Primzahlen, die von
+$f(n)$ im Bereich $0 \leq n \leq 1000$ erzeugt wurde.
+
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: quadratic_prime_formula(0, 1000, verbose=False)
+N -- N^2 - 9*N + 61
+Number of primes: 584
+Percentage of primes: 58.3416583417
+\end{Verbatim}
+
+
+
+
+
+
+
+
+
 % --------------------------------------------------------------------------
 \newpage
 \begin{thebibliography}{99999}
@@ -2414,137 +2569,6 @@ dieses Artikels: Hr. Henrik Koy und Hr. Roger Oyono.
 
 
 
-
-% --------------------------------------------------------------------------
-\newpage
-\hypertarget{Primes_Appendix_A}{}
-\section*{Anhang A: Beispiele mit Sage }
-\addcontentsline{toc}{section}{Anhang A: Beispiele mit Sage}
-\index{Sage}
-
-In diesem Anhang finden Sie den Quellcode für Sage, mit dem man
-z.B.\ prüfen kann, ob die von der Funktion $f(n) = n^2 - 9n + 61$ 
-erzeugten Zahlen prim sind. 
-Der Quellcode definiert eine Funktion namens \verb!quadratic_prime_formula()!,
-die die folgenden drei Argumente hat:
-\begin{itemize}
-\item \verb!start! --- Ein natürliche Zahl, die die Untergrenze der Folge
-  $\texttt{start}, \texttt{start} + 1,
-  \texttt{start} + 2, \dots, \texttt{end} - 1, \texttt{end}$ darstellt.
-
-\item \verb!end! --- Ein natürliche Zahl, die die Obergrenze der Folge
-  $\texttt{start}, \texttt{start} + 1,
-  \texttt{start} + 2, \dots, \texttt{end} - 1, \texttt{end}$ darstellt.
-
-\item \verb!verbose! --- (Standardwert: \verb!True!) Ein Schalter, der festlegt,
-  ob für jede erzeugte Einzelzahl $f(n)$ eine Ausgabe zur Primalität erfolgen soll.
-\end{itemize}
-
-\noindent Eine sinnvolle Änderung dieses Codes besteht darin, eine andere Funktion anzugeben,
-deren Funktionswerte auf Primalität geprüft werden sollen.
-
-
-\begin{sagecode}
-\begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
-def quadratic_prime_formula(start, end, verbose=True):
-    print "N -- N^2 - 9*N + 61"
-    P = 0 # the number of primes between start and end
-    for n in xrange(start, end + 1):
-        X = n^2 - 9*n + 61
-        if is_prime(X):
-            P += 1
-            if verbose:
-                 print str(n) + " -- " + str(X) + " is prime"
-        else:
-            if verbose:
-                 print str(n) + " -- " + str(X) + " is NOT prime"
-    print "Number of primes: " + str(P)
-    print "Percentage of primes: " + str(float((P * 100) / (end - start + 1)))
-\end{Verbatim}
-\caption{Testen der Primalität von Funktionswerten, erzeugt von einer quadratischen Funktion}
-\end{sagecode}
-
-\vspace{12pt}
-Mit dem folgenden Funktionsaufruf berechnen wir die Werte von $f(n) = n^2 - 9n + 61$
-für $n = 0, 1, 2, \dots, 50$ und verifizieren die Primalität der erzeugten Funktionswerte:
-
-\begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
-sage: quadratic_prime_formula(0, 50)
- N -- N^2 - 9*N + 61
-0 -- 61 is prime
-1 -- 53 is prime
-2 -- 47 is prime
-3 -- 43 is prime
-4 -- 41 is prime
-5 -- 41 is prime
-6 -- 43 is prime
-7 -- 47 is prime
-8 -- 53 is prime
-9 -- 61 is prime
-10 -- 71 is prime
-11 -- 83 is prime
-12 -- 97 is prime
-13 -- 113 is prime
-14 -- 131 is prime
-15 -- 151 is prime
-16 -- 173 is prime
-17 -- 197 is prime
-18 -- 223 is prime
-19 -- 251 is prime
-20 -- 281 is prime
-21 -- 313 is prime
-22 -- 347 is prime
-23 -- 383 is prime
-24 -- 421 is prime
-25 -- 461 is prime
-26 -- 503 is prime
-27 -- 547 is prime
-28 -- 593 is prime
-29 -- 641 is prime
-30 -- 691 is prime
-31 -- 743 is prime
-32 -- 797 is prime
-33 -- 853 is prime
-34 -- 911 is prime
-35 -- 971 is prime
-36 -- 1033 is prime
-37 -- 1097 is prime
-38 -- 1163 is prime
-39 -- 1231 is prime
-40 -- 1301 is prime
-41 -- 1373 is prime
-42 -- 1447 is prime
-43 -- 1523 is prime
-44 -- 1601 is prime
-45 -- 1681 is NOT prime
-46 -- 1763 is NOT prime
-47 -- 1847 is prime
-48 -- 1933 is prime
-49 -- 2021 is NOT prime
-50 -- 2111 is prime
-Number of primes: 48
-Percentage of primes: 94.1176470588
-\end{Verbatim}
-
-\noindent Die letzten beiden Zeilen enthalten eine kleine Statistik.
-Sie zeigt, dass $f(n)$ 48 Primzahlen erzeugte für $0 \leq n \leq 50$,
-was ca. 94\% der von $f(n)$ für $n = 0, 1, 2, 3, \dots, 50$ erzeugten Werte darstellt.\\
-
-
-Bei längeren Sequenzen ist die Einzelausgabe der erzeugten Zahl und ihrer Primalität
-ziemlich unpraktisch. Deshalb wird in der folgenden Sage-Session nur die Statistik am
-Ende ausgegeben: die Gesamtzahl und der prozentuale Anteil der Primzahlen, die von
-$f(n)$ im Bereich $0 \leq n \leq 1000$ erzeugt wurde.
-
-\begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
-sage: quadratic_prime_formula(0, 1000, verbose=False)
-N -- N^2 - 9*N + 61
-Number of primes: 584
-Percentage of primes: 58.3416583417
-\end{Verbatim}
 
 % Local Variables:
 % TeX-master: "../script-de.tex"
