@@ -51,11 +51,20 @@ CDlgVigenereAnalysisSchroedel::CDlgVigenereAnalysisSchroedel(CWnd* pParent /*=NU
 	, ciphertext(_T(""))
 	, plaintext(_T(""))
 	, key(_T(""))
-	, edit1(_T(""))
 	, autorunFileName(_T(""))
 	, theAnalysis(0)
 {
 	theAnalysis = new VigenereAnalysisSchroedel(this);
+}
+
+CDlgVigenereAnalysisSchroedel::~CDlgVigenereAnalysisSchroedel()
+{
+	if(theAnalysis) delete theAnalysis;
+}
+
+BOOL CDlgVigenereAnalysisSchroedel::OnInitDialog() 
+{
+	CDialog::OnInitDialog();
 
 	// fill Vigenere array
 	CString s;
@@ -73,11 +82,8 @@ CDlgVigenereAnalysisSchroedel::CDlgVigenereAnalysisSchroedel(CWnd* pParent /*=NU
 
 	// read dictionary
 	this->theAnalysis->readDict();
-}
 
-CDlgVigenereAnalysisSchroedel::~CDlgVigenereAnalysisSchroedel()
-{
-	if(theAnalysis) delete theAnalysis;
+	return TRUE;
 }
 
 void CDlgVigenereAnalysisSchroedel::DoDataExchange(CDataExchange* pDX)
@@ -87,21 +93,18 @@ void CDlgVigenereAnalysisSchroedel::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_CIPHERTEXT, ciphertext);
 	DDX_Text(pDX, IDC_EDIT_PLAINTEXT, plaintext);
 	DDX_Text(pDX, IDC_EDIT_KEY, key);
-	DDX_Text(pDX, IDC_EDIT1, edit1);
-	DDX_Text(pDX, IDC_EDIT_AUTORUN_FILE_NAME, autorunFileName);
+	DDX_Control(pDX, IDC_LIST_STATUS, listBoxStatus);
 }
 
 
 BEGIN_MESSAGE_MAP(CDlgVigenereAnalysisSchroedel, CDialog)
-	ON_BN_CLICKED(IDC_BUTTON1, &CDlgVigenereAnalysisSchroedel::OnBnClickedButton1)
-	ON_BN_CLICKED(IDC_BUTTON2, &CDlgVigenereAnalysisSchroedel::OnBnClickedButton2)
-	ON_BN_CLICKED(IDC_BUTTON3, &CDlgVigenereAnalysisSchroedel::OnBnClickedButton3)
+	ON_BN_CLICKED(IDOK, &CDlgVigenereAnalysisSchroedel::OnBnClickedOk)
 END_MESSAGE_MAP()
 
 
 // CDlgVigenereAnalysisSchroedel message handlers
 
-void CDlgVigenereAnalysisSchroedel::OnBnClickedButton1()
+void CDlgVigenereAnalysisSchroedel::OnBnClickedOk()
 {
 	UpdateData(true);
 
@@ -139,25 +142,7 @@ void CDlgVigenereAnalysisSchroedel::OnBnClickedButton1()
 	UpdateData(false);
 }
 
-void CDlgVigenereAnalysisSchroedel::OnBnClickedButton2()
-{
-	UpdateData(true);
-
-	CString s;
-
-	s = edit1;
-
-	ciphertext = s.Left(s.Find(';'));
-	s.Delete(0, s.Find(';') + 1);
-	
-	plaintext = s.Left(s.Find(';'));
-	s.Delete(0, s.Find(';') + 1);
-
-	key = s;
-
-	UpdateData(false);
-}
-
+/*
 void CDlgVigenereAnalysisSchroedel::OnBnClickedButton3()
 {
 	UpdateData(true);
@@ -230,7 +215,7 @@ void CDlgVigenereAnalysisSchroedel::OnBnClickedButton3()
 
 	UpdateData(false);
 }
-
+*/
 
 /****************************************
 		BEGIN VIGENERE ANALYSIS SCHROEDEL
@@ -275,6 +260,9 @@ void VigenereAnalysisSchroedel::setStatus(CString str) {
 		informs the user about all sorts of status messages via the GUI; we have 
 		to figure out a way to transform this into the C++ (dialog) world.
 	*/
+
+	// flomar, 07/30/2009: the following is terribly slow, so for now we don't have status messages
+	// this->theDialog->listBoxStatus.AddString(str);
 }
 
 void VigenereAnalysisSchroedel::output(CString str) {
@@ -1029,8 +1017,10 @@ CString VigenereAnalysisSchroedel::encryptText(CString text, CString key) {
 	for(int i=0; i<text.GetLength(); i++) {
 		for(int o=0; o<26; o++) {
 			if(key[i] == vigenere[o][0]) {
-				// TODO flomar encryptedText = encryptedText + vigenere[o + klartext.Find(text[i])];
-				encryptedText.AppendChar(vigenere[o][klartext.Find(text[i])]);
+				// make sure we don't run into segmentation faults when the find process was not successful
+				if(klartext.Find(text[i]) != -1) {
+					encryptedText.AppendChar(vigenere[o][klartext.Find(text[i])]);
+				}
 			}
 		}
 	}
@@ -1168,4 +1158,4 @@ CString VigenereAnalysisSchroedel::fillLeft(CString was, int wie) {
 
 /****************************************
 		END VIGENERE ANALYSIS SCHROEDEL
-****************************************/
+		****************************************/

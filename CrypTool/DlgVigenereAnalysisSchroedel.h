@@ -20,6 +20,7 @@
 
 #ifndef _DLGVIGENEREANALYSISSCHROEDEL_
 #define _DLGVIGENEREANALYSISSCHROEDEL_
+#include "afxwin.h"
 
 #if _MSC_VER > 1000
 #pragma once
@@ -96,6 +97,7 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	virtual BOOL OnInitDialog();
 
 	DECLARE_MESSAGE_MAP()
 
@@ -105,13 +107,12 @@ public:
 	CString ciphertext;
 	CString plaintext;
 	CString key;
-	CString edit1;
 	CString autorunFileName;
 
 public:
-	afx_msg void OnBnClickedButton1();
-	afx_msg void OnBnClickedButton2();
-	afx_msg void OnBnClickedButton3();
+	afx_msg void OnBnClickedOk();
+
+	CListBox listBoxStatus;
 };
 
 #endif
