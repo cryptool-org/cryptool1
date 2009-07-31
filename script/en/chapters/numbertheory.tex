@@ -1415,14 +1415,15 @@ a=10         & 10  & {\bf 1}   & 10  & 1   & 10    & 1   & 10  & 1   & 10  & 1  
 \label{SrcArith3a}\label{expmod11}
 \end{table}
 
-Table~\ref{expmod11} shows, for example, that the order of $3$ modulo $11$ has the value $5$.
+\noindent Table~\ref{expmod11} shows, for example, that the order of $3$ modulo $11$
+has the value $5$.
 
 \begin{definition}\label{def-zth-primitiveroot}
 If $a$ and $m$ are co-prime\index{Number!co-prime} and if $ord_m(a) = J(m)$
 (i.e. a has maximum order), then we say that $a$ is a {\bf primitive root} of $m$.
 \end{definition}
-A number $a$ is not a primitive root for every modulo $m$. In the table~\ref{expmod11}, only $a = 2, 6, 7$ and $8$ 
-is a primitive root with respect to mod $11$ ($J(11) = 10$).
+A number $a$ is not a primitive root for every modulo $m$. In the table~\ref{expmod11},
+only $a = 2, 6, 7$ and $8$ is a primitive root with respect to mod $11$ ($J(11) = 10$).
 
 Using the primitive roots, we can clearly establish the conditions for which powers modulo $m$ have a unique inverse and the calculation in the exponents is manageable.
 
@@ -3731,9 +3732,11 @@ sage: [mod(b * i, m).lift() for i in xrange(m)]
 \end{sagecode}
 
 \noindent The function \verb!mod()! returns an object that represents
-integers modulo $m$, in our case $m = 17$. We use the method
+integers modulo $m$ (in our case $m = 17$). We use the method
 \verb!lift()! to convert that object to an integer representation.
-The other multiplication table examples modulo $13$ (table~\ref{mulmod13}) and modulo $12$ (table~\ref{mulmod12}) on page
+
+The other multiplication table examples modulo $13$ (table~\ref{mulmod13})
+and modulo $12$ (table~\ref{mulmod12}) on page
 \pageref{SrcArith1b} can similarly be computed by replacing {\tt m = 17}
 with {\tt m = 13} and {\tt m = 12} respectively.
 
@@ -3746,8 +3749,8 @@ with {\tt m = 13} and {\tt m = 12} respectively.
 
 The fast exponentiation modulo $m$ can be computed using the Sage
 function \verb!power_mod()!. The result of this function is an
-integer. We can compute the exponentiation in the example on page
-\pageref{SrcArith2} as follows:
+integer. We can compute the exponentiation in the example in chapter
+``\nameref{hohpot}'' on page \pageref{SrcArith2} as follows:
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -3769,8 +3772,9 @@ sage: [power_mod(a, e, m) for e in exp]
 
 The order $\text{ord}_m(a)$ of a number $a$ in the multiplicative
 group $\mathbf{Z}_m^{\ast}$ is the smallest number $i \geq 1$ such that
-$a^i \equiv 1 \pmod{m}$ holds. For the example on page~\pageref{SrcArith3a}
-we can print all exponentiation $a^i \pmod{11}$ as follows:
+$a^i \equiv 1 \pmod{m}$ holds (see chapter ``\nameref{MultOrdPrimitveRoot}'').
+To create table~\ref{expmod11} on page~\pageref{SrcArith3a} we can print
+all exponentiation $a^i \pmod{11}$ as follows:
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -3789,12 +3793,31 @@ sage: for a in xrange(1, m):
 [8, 9, 6, 4, 10, 3, 2, 5, 7, 1]
 [9, 4, 3, 5, 1, 9, 4, 3, 5, 1]
 [10, 1, 10, 1, 10, 1, 10, 1, 10, 1]
+
+and including the last column with the order of each a mod (11)
+
+sage: m = 11
+sage: for a in xrange(1, m):
+....:     lst= [power_mod(a, i, m) for i in xrange(1, m)]
+....:     lst.append(multiplicative_order(mod(a,m)))
+....:     print lst
+....:
+[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[2, 4, 8, 5, 10, 9, 7, 3, 6, 1, 10]
+[3, 9, 5, 4, 1, 3, 9, 5, 4, 1, 5]
+[4, 5, 9, 3, 1, 4, 5, 9, 3, 1, 5]
+[5, 3, 4, 9, 1, 5, 3, 4, 9, 1, 5]
+[6, 3, 7, 9, 10, 5, 8, 4, 2, 1, 10]
+[7, 5, 2, 3, 10, 4, 6, 9, 8, 1, 10]
+[8, 9, 6, 4, 10, 3, 2, 5, 7, 1, 10]
+[9, 4, 3, 5, 1, 9, 4, 3, 5, 1, 5]
+[10, 1, 10, 1, 10, 1, 10, 1, 10, 1, 2]
 \end{Verbatim}
-\caption{Table with all powers $a^i \pmod{11}$ for $m=11$, $a=1,...,10$}
+\caption{Table with all powers $a^i \pmod{m}$ for $m=11$, $a=1,...,10$}
 \end{sagecode}
 
 
-
+\newpage
 \hypertarget{AppArith3b}{}
 \label{l:AppArith3b}{}
 
@@ -3828,7 +3851,7 @@ sage: for a in xrange(1, 13):
 [11, 31, 26, 16, 41, 1, 11, 31, 26, 16, 41, 1, 6, 24]
 [12, 9, 18, 36, 27, 9, 18, 36, 27, 9, 18, 36, 'None', 24]
 \end{Verbatim}
-\caption{Table with all powers $a^i \pmod{11}$ for $m=45$, $a=1,...,12$ plus the order of a}
+\caption{Table with all powers $a^i \pmod{45}$ for $a=1,...,12$ plus the order of a}
 \end{sagecode}
 
 The number $\text{ord}_m(a)$ only exists if $a$ is relatively prime
@@ -3843,18 +3866,20 @@ block we append the string \verb!"None"! to the row as represented by
 the object \verb!lst!.
 
 
-
+\newpage
 \hypertarget{AppArith3c}{}
 \label{l:AppArith3c}{}
 
-The third example on page~\pageref{SrcArith3c} displays exponentiation
-$a^i \pmod{46}$ as well as the order $\text{ord}_{46}(a)$ (table~\ref{expmod46}). Sage can
+Table~\ref{modexp46} on page~\pageref{SrcArith3c} displays exponentiation
+$a^i \pmod{46}$ as well as the order $\text{ord}_{46}(a)$. Sage can
 create that table as follows:
 
 \begin{sagecode}
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
 sage: m = 46
+sage: euler_phi(m)
+22
 sage: for a in xrange(1, 24):
 ....:     lst = [power_mod(a, i, m) for i in xrange(1, 24)]
 ....:     try:
@@ -3887,7 +3912,7 @@ sage: for a in xrange(1, 24):
 [22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 24, 22, 'None']
 [23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 'None']
 \end{Verbatim}
-\caption{Table with all powers $a^i \pmod{11}$ for $m=46$, $a=1,...,23$ plus the order of a}
+\caption{Table with all powers $a^i \pmod{46}$ for $a=1,...,23$ plus the order of a}
 \end{sagecode}
 
 
@@ -3897,7 +3922,8 @@ sage: for a in xrange(1, 24):
 \subsection{Primitive roots}
 \label{primitive-roots-with-sage}\index{Primitive root}
 
-Computing a primitive root in Sage is very straightforward. If
+Computing a primitive root (see chapter ``\nameref{MultOrdPrimitveRoot}'')
+in Sage is very straightforward. If
 \verb!n! is an integer, the command \verb!primitive_root(n)! computes
 a primitive root of the multiplicative group
 $(\mathbf{Z} / n \mathbf{Z})^{\ast}$, if one exists. Where $n$ is
@@ -3961,6 +3987,7 @@ sage: def enum_primroots(M):
 \caption{Function to calculate all primitive roots for a given number}
 \end{sagecode}
 
+\newpage
 \noindent For example, here is a list of all primitive roots of the prime 541.
 
 \begin{sagecode}
@@ -3983,12 +4010,34 @@ sage: enum_primroots(541)
 \end{sagecode}
 
 
+%########## Find number of primes and primitive roots in given range and time
 \noindent With a little bit of programming, we can find out how long
 it takes to compute all the primitive roots of some number of primes.
 
 \begin{sagecode}
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
+%a##########################
+sage: def primroots_iter_tell_primenumber(start, end):
+....:      r"""
+....:      Compute all primitive roots of all primes between start and end,
+....:      inclusive. This uses a primes iterator.
+....:      """
+....:      nPrimes = 0
+....:      nPrimitiveRoots = 0
+....:      for p in primes(start, end+1):
+....:              nPrimes += 1
+....:          L = enum_primroots(p)
+....:          nPrimitiveRoots += len(L)
+....:      print "Enumerate all %s" % nPrimitiveRoots + " primitive roots of %s primes." % nPrimes
+....:
+sage: time primroots_iter_tell_primenumber(1, 1500)
+Enumerate all 62044 primitive roots of 239 primes.
+CPU times: user 6.46 s, sys: 0.18 s, total: 6.64 s
+Wall time: 7.48 s
+
+%b##########################
+
 sage: def primroots_iter(start, end):
 ....:     r"""
 ....:     Compute all primitive roots of all primes between start and end,
@@ -4005,12 +4054,52 @@ Wall time: 2.21 s
 \end{sagecode}
 
 
+
+
+
+
+
+%###### Find for all numbers if possible, switch between primes and numbers to select
 \noindent And we can count how many primes for which to enumerate all
 their primitive roots.
 
+%a##########################
 \begin{sagecode}
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
+sage: def primroots_counter(start, end, bPrimesOnly=True):
+	r"""
+	Compute all primitive roots of all primes between start and end,
+	inclusive. This actually performs primality tests, so it allows us
+	to count the number of primes from start to end, inclusive.
+	"""
+	nCheckedNumb = 0
+	nPrimitiveRoots = 0
+	for n in xrange(start, end+1):
+		if bPrimesOnly:
+			if is_prime(n):
+				nCheckedNumb += 1
+				L = enum_primroots(n)
+				nPrimitiveRoots += len(L)
+		else:
+			nCheckedNumb += 1
+			L = enum_primroots(n)
+			nPrimitiveRoots += len(L)
+	if bPrimesOnly:
+		print "Enumerate all %s" % nPrimitiveRoots + " primitive roots of %s primes." % nCheckedNumb
+	else:
+		print "Enumerate all %s" % nPrimitiveRoots + " primitive roots of %s numbers." % nCheckedNumb
+
+sage: %time primroots_counter(1, 500)
+
+sage: %time primroots_counter(1, 500, False)
+
+Problem z.B. beim Wert 8.  Abfangen per try - except, wenn keine primitive root mod m ex. !
+
+
+
+%b##########################
+
 sage: def primroots_primetest(start, end):
 ....:     r"""
 ....:     Compute all primitive roots of all primes between start and end,
@@ -4032,6 +4121,7 @@ Wall time: 2.39 s
 \caption{Another function to calculate all primitive roots for some given primes}
 \end{sagecode}
 
+\newpage
 Using our custom-defined function \verb!enum_primroots!, we can find
 all primitive roots of a prime integer $p$. From this list of primitive
 roots, we can determine the smallest and largest primitive root for
@@ -4070,9 +4160,12 @@ within the above interval.
 \caption{The largest primitive roots of all primes between 1 and 100,000.}
 \label{fig:primitive_roots_largest}
 \end{figure}
-\pagebreak
 
-
+% To enforce that the next chapter starts at the beginning of a new page after
+% the freely placed graphics, it is necessary to have TWO newpages and in between
+% something to be printed (here invisible blanks).
+\newpage
+$ $
 
 
 % ---------------------------------------------------------------------------
