@@ -6,7 +6,7 @@ all: $(RC)
 	#perl ./rcmenu.pl -d -l ENGLISH $(RC) >cryptool-menu-detail-en.html
 
 $(RC):
-	svn cat svn+ssh://file.sec.informatik.tu-darmstadt.de/home/subversion/cryptool/cryptool/trunk/CrypTool/CrypTool.rc > $(RC)
+	svn cat https://www.cryptool.org/svn/CrypTool/trunk/CrypTool/CrypTool.rc > $(RC)
 
 ps:
 	for f in *.pdf; do pdf2ps $$f; done

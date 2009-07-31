@@ -293,7 +293,7 @@ The 1st fundamental theorem only appears to be obvious. We can construct numerou
 numbers\footnote{These sets are formed especially from the set of natural numbers. An example of this can be found in this \hyperlink{uniqueness}{script} on 
 page~\pageref{thm-pz-euklid} % should be \pageref{remFundTheoOfArithm}, but
 % hyperref seems to be buggy
-at the end of chapter \ref{primesinmath}.
+at the end of chapter~\ref{primesinmath}.
 }
 for which numbers in the 
 set {\em cannot} be expressed 
@@ -306,7 +306,7 @@ on which the operation is defined.
 For more details on prime numbers (e.g. how ``Fermat's Little Theorem'' can
 be used to test extremely large numbers to determine whether they are prime),
 please refer to the article on \hyperlink{Kapitel_2}{prime numbers, 
-chapter \ref{Label_Kapitel_2}} in this script.
+chapter~\ref{Label_Kapitel_2}} in this script.
 
 
 
@@ -322,7 +322,7 @@ chapter \ref{Label_Kapitel_2}} in this script.
     NT can be called in CrypTool\index{CrypTool} via the menu path
     {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
     \textbackslash{} Learning Tool for Number Theory}.
-    See appendix \ref{s:appendix-Learn-NT}.
+    See appendix~\ref{s:appendix-Learn-NT}.
 }
 \index{Modulus} \index{Divisibility} 
 
@@ -431,12 +431,12 @@ The above equivalence does not apply to the sum $(a + b)$!
 
 \begin{example}{:}\\
 $11 \equiv 2$ (mod $3$), therefore $11 - 2 = 9 \equiv 0$ (mod $3$); but $11 + 2 = 13$ is not divisible by $3$.
-The statement in theorem \ref{thm-zth-div} does not even apply to sums in one direction.
+The statement in theorem~\ref{thm-zth-div} does not even apply to sums in one direction.
 It is correct for sums only if the remainder is 0 and only in the following direction:
 If a divisor divides both summands with no remainder, it also divides the sum with no remainder.
 \end{example}
 
-We can apply the above equivalence in theorem \ref{thm-zth-div} if we need a quick and easy method of determining whether 
+We can apply the above equivalence in theorem~\ref{thm-zth-div} if we need a quick and easy method of determining whether 
 large numbers are divisible by a certain number.
 
 \begin{example}{:}
@@ -474,7 +474,7 @@ division\footnote{%
 When dividing modulo $m$\index{Division modulo $n$} we can one use
 co-prime\index{Number!co-prime} numbers because because other numbers
 have the same property as zero. See footnote
-\ref{ftn-mod6} in chapter \ref{addmult}.
+\ref{ftn-mod6} in chapter~\ref{addmult}.
 } is not a fraction but rather a whole number between $0$ and $m-1$.
 
 The known laws apply:
@@ -577,8 +577,8 @@ ${\rm ~(mod~ } 5)$ and
 \item the multiplication tables\footnote{\label{ftn-mod6}Comment on division modulo $6$:\index{Division modulo $n$}\\
 Due to the special role of zero as the identity for addition, division by zero is not permitted:\\
 For all $a$ it is $a*0=0,$ because $a*0=a*(0+0)=a*0+a*0.$ Obviously $0$ has no inverse regarding the
-multiplication, because if there would be one, it must be $ 0= 0*0^{-1} =1.$ Also see footnote \ref{ftn-zth-divmodn}.}
-for mod $5$ and mod $6$.
+multiplication, because if there would be one, it must be $ 0= 0*0^{-1} =1.$ Also see footnote~\ref{ftn-zth-divmodn}.} (table~\ref{addmod5})
+for mod $5$ (table~\ref{mulmod5}) and mod $6$ (table~\ref{mulmod6}).
 \end{itemize}
 
 % --------------------------------------------------------------------------
@@ -590,15 +590,17 @@ Therefore:  $3 + 4 \equiv 2 {\rm ~(mod~ } 5)$.
 \begin{table}[ht]
 \begin{center}
 \begin{tabular}{r|ccccc}
-Addition table modulo 5: \quad + &  0 & 1 & 2 & 3 & 4  \\
++ &  0 & 1 & 2 & 3 & 4  \\
 \hline
 0 &  0 & 1 & 2 & 3 & 4 \\  
 1 & 1 &  2 & 3 & 4 & 0 \\
 2 & 2 & 3 & 4 & 0 & 1 \\
 3 & 3 & 4 & 0 & 1 & 2 \\
-4 & 4 & 0 & 1 & 2 & 3 \\[-5ex] % remove some extra space 
+4 & 4 & 0 & 1 & 2 & 3
 \end{tabular} 
 \end{center} 
+\caption{Addition table modulo 5}
+\label{addmod5}
 \end{table}
 
 % --------------------------------------------------------------------------
@@ -612,14 +614,16 @@ Multiplication is defined on the set $\mathbb{Z}$  excluding $0$.
 \begin{table}[ht]
 \begin{center}
 \begin{tabular}{r|cccc}
-Multiplication table modulo 5: \quad * & 1& 2 & 3 & 4  \\
+* & 1& 2 & 3 & 4  \\
 \hline 
 1 & 1 &    2    &    3    & 4 \\
 2 & 2 & {\bf 4} & {\bf 1} & 3 \\ 
-3 & 3 & {\bf 1} & {\bf 4} & 2  \\
-4 & 4 &    3    &    2    & 1 
+3 & 3 & {\bf 1} & {\bf 4} & 2 \\
+4 & 4 &    3    &    2    & 1
 \end{tabular}
-\end{center} 
+\end{center}
+\caption{Multiplication table modulo 5}
+\label{mulmod5}
 \end{table}
 
 
@@ -681,21 +685,23 @@ no common prime factors.
 Since $m=5$ is prime, the numbers $1$ to $4$ are relatively prime to $5$ and {\bf each} of these numbers has a 
 multiplicative inverse in mod $5$.
 
-A counterexample shows the multiplication table for mod $6$ (since the modulus $m=6$ is not prime, not all elements from 
-$\mathbb{Z}_6\setminus \{0\}$ are relatively prime to $6$):
+Table~\ref{mulmod6} shows as a counterexample the multiplication table for mod $6$ (since the modulus $m=6$ is not prime, not all elements from 
+$\mathbb{Z}_6\setminus \{0\}$ are relatively prime to $6$).
 
 \begin{table}[ht]
 \begin{center}
 \begin{tabular}{r|ccccc}
-Multiplication table modulo $6$: \quad* &  1 & 2 & 3 & 4 & 5  \\
+* &  1 & 2 & 3 & 4 & 5  \\
 \hline 
 1 &  1 & 2 & 3 & 4 & 5 \\  
 2 &  2 & {\bf 4} & {\bf 0} & {\bf 2} & 4 \\
 3 &  3 & {\bf 0} & {\bf 3} & {\bf 0} & 3 \\
 4 &  4 & {\bf 2} & {\bf 0} & {\bf 4} & 2 \\
-5 &  5 & 4 & 3 & 2 & 1 \\
+5 &  5 & 4 & 3 & 2 & 1
 \end{tabular}  
 \end{center} 
+\caption{Multiplication table modulo $6$}
+\label{mulmod6}
 \end{table}
 
 
@@ -726,8 +732,8 @@ also that the set of possible values has been exhausted.
 \begin{theorem}\label{thm-zth-exhperm}
 For $a,i\in \{1, \cdots, m-1 \}$ with ${\rm~gcd} (a,m)=1),$ then the product $a*i {\rm ~mod ~} m $ takes for a 
 certain number $a$ all values from $\{1, \cdots ,m-1 \} $ (exhaustive permutation \index{Permutation} of the length $m-1$)\footnote{See
-also theorem \ref{thm-zth-ordp} in \hyperlink{Chapter_ElementaryNT_9}
-{chapter \ref{MultOrdPrimitveRoot}, Multiplicative order and primitive roots}.}.
+also theorem~\ref{thm-zth-ordp} in \hyperlink{Chapter_ElementaryNT_9}
+{chapter~\ref{MultOrdPrimitveRoot}, Multiplicative order and primitive roots}.}.
 \end{theorem}
 \vskip +10 pt
 The following three examples\footnote{%
@@ -735,7 +741,7 @@ See \hyperlink{AppArith1}{Appendix E of this chapter} for the source
 code to compute the tables using Sage.}
 illustrate the properties of multiplicative inverses.
 
-In the multiplication table mod $17$, the following was calculated for $i = 1, 2, \cdots, 18$:
+In the multiplication table mod $17$ (table~\ref{mulmod17}), the following was calculated for $i = 1, 2, \cdots, 18$:
 \begin{itemize}
    \item[] $(5*i)/17 = a$ remainder $r$ and high-lighted $5*i \equiv 1$ (mod $17$),
    \item[] $(6*i)/17 = a$ remainder $r$ and high-lighted $6*i \equiv 1$ (mod $17$).
@@ -743,7 +749,7 @@ In the multiplication table mod $17$, the following was calculated for $i = 1, 2
 We need to {\bf find} the $i$ for which the product remainder $a*i$ modulo $17$
 with $a=5$ or $a=6$ has the value $1$. 
 
-\subsection*{Table 1: Multiplication table modulo $17$ (for $a=5$ and $a=6$)}\label{SrcArith1a}
+\begin{table}[h]
 \begin{center}
 \begin{tabular}{|l||@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}||@{\:}c@{\:}|@{\:}c@{\:}|}
 \hline 
@@ -758,15 +764,15 @@ remainder                & 6 & 12  & {\bf 1}  & 7 & 13  & 2  & 8 & 14  & 3  & 9 
 \hline
 \end{tabular}
 \end{center} 
+\caption{Multiplication table modulo $17$ (for $a=5$ and $a=6$)}\label{SrcArith1a}\label{mulmod17}
+\end{table}
 Between $i=1, \cdots, m$, all values between $0, \cdots, m-1$ occur for the remainders, because both $5$ and $6$ are 
 also relatively prime\index{Relatively prime} to the modulus $m=17$.
 \enlargethispage{0.5cm}
 
-\noindent {\bf The multiplicative inverse of $5$ (mod $17$) is $7$, while the inverse of $6$ (mod $17$) is $3$.}
+{\bf The multiplicative inverse of $5$ (mod $17$) is $7$, while the inverse of $6$ (mod $17$) is $3$.}
 
-\vskip +20 pt
-
-\subsection*{Table 2: Multiplication table modulo $13$ (for $a=5$ and $a=6$)}\label{SrcArith1b}
+\begin{table}[h]
 \begin{center}                                                                          
 \begin{tabular}{|l||@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}||@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|}
 \hline 
@@ -781,17 +787,17 @@ remainder                 & 6  & 12  & 5  & 11  & 4  & 10  & 3  & 9  & 2  & 8  &
 \hline 
 \end{tabular}
 \end{center} 
+\caption{Multiplication table modulo $13$ (for $a=5$ and $a=6$)}\label{SrcArith1b}\label{mulmod13}
+\end{table}
 
 Between $i=1, \cdots, m$, all values between $0, \cdots, m-1$ occur for the remainders, because both $5$ and 
 $6$ are relatively prime to the modulus $m=13$.
 
-\noindent {\bf The multiplicative inverse of $5$ (mod $13$) is $8$, while the inverse of $6$ (mod $13$) is $11$.}
+{\bf The multiplicative inverse of $5$ (mod $13$) is $8$, while the inverse of $6$ (mod $13$) is $11$.}
 
-\vskip +20 pt
+The following table~\ref{mulmod12} contains an example, where the modulus $m$ and the number $a=6$ are {\em not} relatively prime.
 
-The following table contains an example, where the modulus $m$ and the number $a=6$ are {\em not} relatively prime.
-
-\subsection*{Table 3: Multiplication table modulo $12$ (for $a=5$ and $a=6$)}
+\begin{table}[h]
 \begin{center}                                                                          
 \begin{tabular}{|l||@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}||@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|}
 \hline 
@@ -806,11 +812,14 @@ remainder                 & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6 
 \hline 
 \end{tabular}
 \end{center} 
+\caption{Multiplication table modulo $12$ (for $a=5$ and $a=6$)}
+\label{mulmod12}
+\end{table}
 We have calculated $(5 * i)$ (mod $12$)  and  $(6*i)$ (mod $12$).
 Between $i=1, \cdots, m$, not all values between $0, \cdots, m-1$ occur and $6$ does not have an inverse mod $12$, 
 because $6$ and the modulus $m=12$ are not co-prime\index{Number!co-prime}.
 
-\noindent {\bf The multiplicative inverse of $5$ (mod $12$) is $5$. The number $6$ has no inverse (mod $12$).}
+{\bf The multiplicative inverse of $5$ (mod $12$) is $5$. The number $6$ has no inverse (mod $12$).}
 
 
 
@@ -885,7 +894,7 @@ $$
 \vskip +10pt
 \hypertarget{hohpot}{}
 \subsection{Fast calculation of high powers} \label{hohpot}\index{Power}
-RSA encryption and decryption\footnote{See chapter \ref{rsabeweis} (Proof of the
+RSA encryption and decryption\footnote{See chapter~\ref{rsabeweis} (Proof of the
 RSA procedure with Euler-Fermat) \index{RSA} and chapter~\ref{rsaconcrete} (The
 RSA procedure with actual numbers).} entails calculating high powers modulo
 $m$.  For example, the calculation ($100^5) {\rm ~(mod~} 3)$ exceeds the 32-bit
@@ -975,7 +984,7 @@ The situation is similar if
 $b$ is the unknown variable and we know the values of $a$ and $c$: \\
 If we know the Euler function \index{Euler!(phi) function} of $m, J(m)$, then we can easily\footnote{See \hyperlink{NumberTheory_Appendix_A}{Appendix A of this chapter}:
 the greatest common divisor (gcd) of whole numbers.}\index{Gcd} calculate $d$ with $c*d \equiv 1 {\rm ~(mod~} J(m))$ and 
-use theorem \ref{thm-zth-pot} to obtain:
+use theorem~\ref{thm-zth-pot} to obtain:
 $$
    a^d \equiv (b^c)^d \equiv b^{c*d} \equiv b^{c*d~(mod~J(m))} \equiv b^1 \equiv b {\rm ~(mod~} m)
 $$
@@ -983,11 +992,11 @@ the {\em $c$-th root} $b$ of $a$. \par
 
 If $J(m)$ cannot be determined\footnote{According to the first fundamental
 theorem of number theory\index{Number theory!fundamental theorem} and
-theorem \ref{thm-zth-phinum}, we can determine $J(m)$ by reducing $m$ to
+theorem~\ref{thm-zth-phinum}, we can determine $J(m)$ by reducing $m$ to
 prime factors\index{Prime factor!decomposition}.
 }, it is difficult to calculate the $c$-th root. This forms the basis for the
 security assumption used by the RSA encryption system (see chapter
-\ref{rsabeweis} or chapter \ref{rsaverfahren}).
+\ref{rsabeweis} or chapter~\ref{rsaverfahren}).
 
 \end{itemize}
 The time required for inverting addition and multiplication, on the other hand, 
@@ -995,7 +1004,7 @@ is simply proportional to $\log m$ or $(\log m)^2$. Powers (for a number $x$
 calculate $x^a$ with $a$ fixed) and exponents (for a number $x$ 
 calculate $a^x$ with $a$ fixed) are therefore typical one way functions
 \index{One way function}
-(compare chapters \ref{OneWayFunktion1} and \ref{OneWayFunktion2}).
+(compare chapters~\ref{OneWayFunktion1} and \ref{OneWayFunktion2}).
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1145,7 +1154,7 @@ not rational, perhaps even {\bf irrational and thereby closer to reality}.}}
 \label{patternsandstructures}
 As mathematicians investigate the structure $a *x \equiv b$ mod $m$
 (see \hyperlink{Chapter_ElementaryNT_5_2}
-{chapter \ref{Label_Chapter_ElementaryNT_5_2}}), so they are interested in
+{chapter~\ref{Label_Chapter_ElementaryNT_5_2}}), so they are interested in
 the structure $ x^{a} \equiv b$ mod $m.$
 
 Again here they are interested in the case, if $ b=1$ (value of the 
@@ -1179,7 +1188,7 @@ $$J(p*q) = (p - 1) * (q - 1) \quad  {\rm or} \quad  J(p * q) = J(p) * J(q).$$
 
 \begin{theorem}\label{thm-zth-phimultprime}\label{J_of_p1..pk}
 If $n = p_1 * p_2 * \cdots * p_k$ where $p_1$ to $p_k$ are distinct prime numbers (i.e. no factor occurs more than once), 
-then the following is true (as a generalization of theorem \ref{thm-zth-phipq}):
+then the following is true (as a generalization of theorem~\ref{thm-zth-phipq}):
 $$J(n) = (p_1 - 1)*(p_2 - 1)* \cdots *(p_k - 1).$$
 \end{theorem}
 
@@ -1198,9 +1207,9 @@ $$
 
 \begin{example}{:}
 \begin{itemize}
-\item  $n=70=2*5*7 \Longrightarrow $ using theorem \ref{J_of_p1..pk}: $ J(n)= 1\cdot 4 \cdot 6 =24.$
-\item  $n=9=3^2 \Longrightarrow$ using theorem \ref{J_of_n}: $ J(n)= 3^1\cdot 2 =6,$ because  $\mathbb{Z}_9^* =\{ 1,2,4,5,7,8\}.$
-\item $n = 2,701,125 = 3^2 * 5^3 * 7^4 \Longrightarrow $ using theorem \ref{J_of_n}: 
+\item  $n=70=2*5*7 \Longrightarrow $ using theorem~\ref{J_of_p1..pk}: $ J(n)= 1\cdot 4 \cdot 6 =24.$
+\item  $n=9=3^2 \Longrightarrow$ using theorem~\ref{J_of_n}: $ J(n)= 3^1\cdot 2 =6,$ because  $\mathbb{Z}_9^* =\{ 1,2,4,5,7,8\}.$
+\item $n = 2,701,125 = 3^2 * 5^3 * 7^4 \Longrightarrow $ using theorem~\ref{J_of_n}: 
 $$J(n) = [3^1 * 2] * [5^2 * 4] * [7^3 * 6] = 1,234,800.$$
 \end{itemize}
 \end{example}
@@ -1211,7 +1220,7 @@ $$J(n) = [3^1 * 2] * [5^2 * 4] * [7^3 * 6] = 1,234,800.$$
 \label{Label_KleinerSatzFermat-chap3}
 In order to prove the RSA procedure, we need Fermat's theorem and its 
 generalisation (Euler-Fermat theorem) -- 
-\hyperlink{KleinerSatzFermat-chap2}{please see chapter \ref{primality_tests}}.
+\hyperlink{KleinerSatzFermat-chap2}{please see chapter~\ref{primality_tests}}.
 
 \hypertarget{KleinerSatzFermat-chap3}{}
 \index{Fermat!little theorem}
@@ -1282,7 +1291,7 @@ By cleverly breaking down the exponent, we can calculate this power relatively e
 % --------------------------------------------------------------------------
 \subsection{Fixpoints\index{Fixpoint} modulo 26}
 
-According to theorem \ref{thm-zth-pot}, the arithmetic operations of modular expressions are performed in the exponents modulo $J(n)$ 
+According to theorem~\ref{thm-zth-pot}, the arithmetic operations of modular expressions are performed in the exponents modulo $J(n)$ 
 rather than modulo $n$\footnote{For the following example, we will adopt the usual practice for the RSA procedure 
 of using ``$n$'' rather than ``$m$'' to denote the modulus.}.
 
@@ -1320,7 +1329,7 @@ If only $n$ and $J(n)$ are known, then it is:
 $pq=n$ and $p+q= n-J(n)+1.$ So you get $p$ and $q$ by solving the equation
 $$ x^2 + (J(n)-n-1)x +n= 0.
 $$} (please compare requisition 3 in \hyperlink{Chapter_ElementaryNT_10_1}
-{section \ref{Label_Chapter_ElementaryNT_10_1}}).
+{section~\ref{Label_Chapter_ElementaryNT_10_1}}).
 
 
 
@@ -1338,14 +1347,14 @@ $$} (please compare requisition 3 in \hyperlink{Chapter_ElementaryNT_10_1}
     NT can be called in CrypTool\index{CrypTool} via the menu path
     {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
     \textbackslash{} Learning Tool for Number Theory}.
-    See appendix \ref{s:appendix-Learn-NT}.
+    See appendix~\ref{s:appendix-Learn-NT}.
 }
 \label{MultOrdPrimitveRoot}
 
 The multiplicative order and the primitive root are two useful constructs (concepts) in elementary number theory.
 
 Mathematicians often ask, in which conditions the repeated application of an operation results in the neutral
-element (compare \hyperlink{patternsandstructures}{Patterns and Structures}, chapter \ref{patternsandstructures})\index{Structure}.
+element (compare \hyperlink{patternsandstructures}{Patterns and Structures}, chapter~\ref{patternsandstructures})\index{Structure}.
 
 For the $i$-times successive modular multiplication of a number $a$ with $i=1,\cdots, m-1$ the product is the neutral element
 of the multiplication if and only if $a$ and $m$ are relatively prime. 
@@ -1366,14 +1375,14 @@ $10$ and we notice that:
 \end{enumerate}
 
 \begin{example}{ 1:}\\
-The following table\footnote{%
+The following table~\ref{expmod11}\footnote{%
 See \hyperlink{AppArith3a1}{Appendix E of this chapter} for the source
 code to generate the table using Sage.} 
 shows the values $a^i$ mod $11$ for the exponents $i = 1, 2, \cdots, 10$ and for the bases 
-$a =  1, 2, \cdots, 10$ as well as the resulting value $ord_{11}(a)$ for each $a$:
+$a =  1, 2, \cdots, 10$ as well as the resulting value $ord_{11}(a)$ for each $a$/
 \end{example}
 
-\subsection*{Table 4: Values of $a^i {\rm ~mod~} 11,  1 \leq a,i<11$ and according order of $a$ mod $m$:}\label{SrcArith3a}
+\begin{table}[h]
 \begin{center}
 \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
@@ -1402,14 +1411,17 @@ a=10         & 10  & {\bf 1}   & 10  & 1   & 10    & 1   & 10  & 1   & 10  & 1  
 \hline
 \end{tabular}
 \end{center}
+\caption{Values of $a^i {\rm ~mod~} 11,  1 \leq a,i<11$ and according order of $a$ mod $m$}
+\label{SrcArith3a}\label{expmod11}
+\end{table}
 
-The table shows, for example, that the order of $3$ modulo $11$ has the value $5$.
+Table~\ref{expmod11} shows, for example, that the order of $3$ modulo $11$ has the value $5$.
 
 \begin{definition}\label{def-zth-primitiveroot}
 If $a$ and $m$ are co-prime\index{Number!co-prime} and if $ord_m(a) = J(m)$
 (i.e. a has maximum order), then we say that $a$ is a {\bf primitive root} of $m$.
 \end{definition}
-A number $a$ is not a primitive root for every modulo $m$. In the above table, only $a = 2, 6, 7$ and $8$ 
+A number $a$ is not a primitive root for every modulo $m$. In the table~\ref{expmod11}, only $a = 2, 6, 7$ and $8$ 
 is a primitive root with respect to mod $11$ ($J(11) = 10$).
 
 Using the primitive roots, we can clearly establish the conditions for which powers modulo $m$ have a unique inverse and the calculation in the exponents is manageable.
@@ -1418,13 +1430,13 @@ The following two tables show the multiplicative orders and primitive roots
 modulo $45$ and modulo $46$.
 
 \begin{example}{ 2:}\\
-The following table\footnote{%
+The following table~\ref{expmod45}\footnote{%
 See \hyperlink{AppArith3b}{Appendix E of this chapter} for the source
 code to generate the table using Sage.} shows the values $a^i$ mod $45$ for the exponents $i = 1, 2, \cdots, 12$ and for the bases 
-$a =  1, 2, \cdots, 12$ as well as the resulting value $ord_{45}(a)$ for each $a$:
+$a =  1, 2, \cdots, 12$ as well as the resulting value $ord_{45}(a)$ for each $a$.
 \end{example}
 
-\subsection*{Table 5: Values of $a^i{\rm ~mod~}45, 1\leq a,i<13$:}\label{SrcArith3b}
+\begin{table}[h]
 \begin{center}
 \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
@@ -1457,11 +1469,11 @@ $a =  1, 2, \cdots, 12$ as well as the resulting value $ord_{45}(a)$ for each $a
 \hline
 \end{tabular}
 \end{center}
+\caption{Values of $a^i{\rm ~mod~}45, 1\leq a,i<13$}
+\label{SrcArith3b}\label{expmod45}
+\end{table}
 
-\vskip +10 pt
-
-
-$J(45)$ is calculated using theorem \ref{thm-zth-phinum}: $J(45) = J(3^2*5) = 3^1*2 * 4 = 24$.
+$J(45)$ is calculated using theorem~\ref{thm-zth-phinum}: $J(45) = J(3^2*5) = 3^1*2 * 4 = 24$.
 
 Since $45$ is not a prime, there is no ``multiplicative order'' for all values of $a$ (for all numbers that are not 
 relatively prime to $45: 3, 5, 6, 9, 10, 12, \cdots,$ because $45 = 3^2*5$).
@@ -1474,18 +1486,14 @@ The table 'values of $a^{i}$ mod $45$' shows that the number $7$ is not a primit
 \end{example}
 
 \begin{example}{ 4:}\\
-The following table\footnote{%
+The following table~\ref{modexp46}\footnote{%
 See \hyperlink{AppArith3c}{Appendix E of this chapter} for the source
 code to generate the table using Sage.} answers the question as to
 whether the number $7$ is a primitive root of $46$. 
 The requirement/condition $gcd(7,46)=1$ is fulfilled.
 \end{example}
 
-
-%\newpage
-\pagebreak
-\subsection*{Table 6: Values of $a^i{\rm ~mod~}46, 1\leq a,i<23$:}
-\label{SrcArith3c}
+\begin{table}[h]
 {\textmd \small
 \begin{center}  
 \begin{tabular}{|p{16 pt}||@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|c|}
@@ -1542,19 +1550,22 @@ $a \setminus i$   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 &
 \end{tabular}
 \end{center}
 }
+\caption{Values of $a^i{\rm ~mod~}46, 1\leq a,i<23$}
+\label{SrcArith3c}\label{modexp46}
+\end{table}
 
 
-$J(46)$ is calculated using theorem \ref{thm-zth-phipq}: $J(46) = J(2*23) = 1*22 = 22$.
+$J(46)$ is calculated using theorem~\ref{thm-zth-phipq}: $J(46) = J(2*23) = 1*22 = 22$.
 The number $7$ is a primitive root of $46$,  because $ord_{46}(7) = 2 = J(46)$.
 
 \begin{theorem}\label{thm-zth-ordp}\footnote{%
     For prime moduli $p$ all $a$ with $0 < a < p$ are of order $J(p) = p - 1$.
-    Compare table 5 for an example. In this case $a^i (\mbox{mod }n)$ goes
+    Compare table~\ref{modexp45} for an example. In this case $a^i (\mbox{mod }n)$ goes
     through all the values $1,\dots,p-1$. Exhausting all possible values of
     the set is an important cryptographic proposition (compare theorem
     \ref{thm-zth-exhperm}). This determines a permutation\index{Permutation}
     $\pi(p-1)$.}$^,$\footnote{%
-    Table 6 demonstrates that for composite moduli $n$ not all $a$ are of
+    Table~\ref{modexp46} demonstrates that for composite moduli $n$ not all $a$ are of
     maximal order $J(n)$. In this example only $5,7,11,15,17,19\mbox{ and }21$
     are of order 22.
   } Given a modulus $n$ and a number $a$, relative prime to $n$ the
@@ -1585,7 +1596,7 @@ In literature\index{Literature} and in movies\index{Movies} not only
 classic but also modern cryptographic methods have been used 
 %(\hyperlink{appendix-movies}
 %{see appendix A3: Movies and Literature with Relation to Cryptography}).
-(see appendix \ref{s:appendix-movies}).
+(see appendix~\ref{s:appendix-movies}).
 % hier die items nicht einrücken ! xxxxxxxxxxxxxxx
 % \begin{list}{\textbullet}{\leftmargin10pt}
 %   \item the movie ``House of Cards'', 1992
@@ -1652,7 +1663,7 @@ Steps 1 to 3 constitute key generation, steps 4 and 5 are the encryption, and st
 Compaq introduced the so-called multi-prime method with high marketing 
 effort in 2000.
 $n$ was the product of two big and one relative small prime: $n=o*p*q.$ 
-With theorem \ref{J_of_p1..pk} we get:
+With theorem~\ref{J_of_p1..pk} we get:
 $J(n)= (o-1)*(p-1)*(q-1). $ This method did not assert itself yet.\\
 One reason probably is, that Compaq claimed a patent \index{Patent} on it. 
 Generally there is less understanding in Europe and with the Open Source
@@ -1663,7 +1674,7 @@ the patent for the general case was almost expired.}$^,$\footnote{If the
 two primes $p$ and $q$ are equal then $ (m^{e})^{d} \equiv m $ mod $n$ is
 not true for all $ m<n$ (although $ e*d \equiv 1$ mod $J(n)$ is fulfilled). 
 \begin{example}{:}\\
-If $ n=5^2$ then according to theorem \ref{thm-zth-phinum} it 
+If $ n=5^2$ then according to theorem~\ref{thm-zth-phinum} it 
 is $J(n)=5*4=20, ~ e=3, ~ d=7, ~e*d=21\equiv 1$ mod $J(n).$
 \end{example}
 But it is $ (5^3)^7\equiv 0 $ mod $ 25$. } $p$ and $q$ and calculate 
@@ -1753,7 +1764,7 @@ We therefore need to show that:   $$M^{e * d} \equiv M  {\rm ~(mod~} n).$$
 \noindent {{\bf Step 1}:
 
 In the first step we show that: $M^{e * d} \equiv M{\rm ~(mod~}p)$.
-This results from the requirements and from Euler-Fermat (theorem \ref{thm-zth-fermateuler}).
+This results from the requirements and from Euler-Fermat (theorem~\ref{thm-zth-fermateuler}).
 Since $n=p*q$ and $J(p*q)=(p-1)*(q-1)$ and since $e$ and $d$ are selected in such a way that $e*d \equiv 1 {\rm ~(mod~}J(n))$, 
 there is a whole number $k$ such that: $e*d = 1 + k*(p-1)*(q-1)$.
 \begin{eqnarray*}
@@ -1763,7 +1774,7 @@ M^{e * d}  & \equiv & M^{1+k*J(n)} \equiv M * M^{k*J(n)} \equiv M * M^{k*(p-1)*(
            & \equiv & M * (1)^{k*(q-1)} {\rm~(mod~}p) \nonumber \\
        & \equiv & M {\rm ~(mod~}p) \nonumber
 \end{eqnarray*}
-The requirement for using the simplified Euler-Fermat theorem (theorem \ref{thm-zth-fermat1}) was that $M$ and $p$ are relatively prime.
+The requirement for using the simplified Euler-Fermat theorem (theorem~\ref{thm-zth-fermat1}) was that $M$ and $p$ are relatively prime.
 
 Since this is not true in general, we need to consider the case when $M$ and $p$ are not relatively prime. Since $p$ is a 
 prime number, this implies that $p$ is a factor of $M$. But this means:
@@ -1793,7 +1804,7 @@ $$
 
 
 \begin{remark}{ 1:}\\
-We can also condense the three steps if we use the theorem \ref{thm-zth-fermateuler}
+We can also condense the three steps if we use the theorem~\ref{thm-zth-fermateuler}
 (Euler-Fermat) - i.e. not the simplified theorem where $n = p$ and 
 which corresponds to Fermat's Little Theorem:
 $$
@@ -1819,7 +1830,7 @@ $$
 \section[Considerations regarding the security of the RSA algorithm]
 {Considerations regarding the security of the RSA algorithm\footnotemark}
     \footnotetext{Major
-    parts of chapters \ref{complexity} and \ref{chptSecurityParam} follow
+    parts of chapters~\ref{complexity} and \ref{chptSecurityParam} follow
     the article ``Vorz\"uge und Grenzen des RSA-Verfahrens'' written by
     F.~Bourseau, D.~Fox and C.~Thiel \cite{Bourseau2002}.}
     \label{SecurityRSA}
@@ -1917,7 +1928,7 @@ Please refer to: {\em Handbook of Applied Cryptography} \cite{Menezes2001}.
     NT can be called in CrypTool\index{CrypTool} via the menu path
     {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
     \textbackslash{} Learning Tool for Number Theory}.
-    See appendix \ref{s:appendix-Learn-NT}.
+    See appendix~\ref{s:appendix-Learn-NT}.
 }
 \nopagebreak
 The complexity is basically determined by the length $l$ of the module $n$.
@@ -1957,7 +1968,7 @@ This made evident that a module length of 512 bit no longer prevents from
 attackers. 
 
 And also past 1999 further factorization progress was made up to now 
-(see RSA-200 in chapter \ref{RSA-200}).
+(see RSA-200 in chapter~\ref{RSA-200}).
 
 
 
@@ -2028,7 +2039,7 @@ factorization increases by 20 bit on average. So his forecast was below the
 more optimistic estimations of GISA and NIST.
 
 This forecast by Dirk Fox\index{Fox, Dirk} from the year 2001 seems to prove true
-by the factorization record of RSA-200 (see chapter \ref{RSA-200}). His estimation for the year 2005,
+by the factorization record of RSA-200 (see chapter~\ref{RSA-200}). His estimation for the year 2005,
 to achieve a bit length of 660 bit, was almost a precision landing  (compare 
 figure~\ref{secorvo-factorization-forecast}). \\
 If the forecast withstand in the future then the factorization of an RSA modulus
@@ -2112,7 +2123,7 @@ The 'C-numbers' originate from the Cunningham project:
      {\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/}}
                                                                }
 with factorization algorithms for composed numbers are
-listed in the following table:
+listed in the table~\ref{factorizationrecords}.
 
 \begin{table}[h]
 \begin{center}
@@ -2131,6 +2142,7 @@ listed in the following table:
 \hline
 \end{tabular}
 \caption{The current factoring records (as of July 2009)}    % Eyecatcher_neue-Mersenne 
+\label{factorizationrecords}
 \end{center}
 \end{table} 
 \footnotetext{%
@@ -2170,7 +2182,7 @@ following web pages:
 
 On August 22, 1999 researchers from the Netherlands found the solution of this
 RSA challenge. They factorized a 155-digit number into its both 78-digit primes
-(see chapter \ref{chptSecurityParam}). 
+(see chapter~\ref{chptSecurityParam}). 
 
 This 512 bit RSA-155 meant to reach a kind of {\em magic} border.
 
@@ -2493,7 +2505,7 @@ Links:
 As you notice the factorized compound numbers built of 2 prime factors are
 much smaller than the especially structured numbers, for which primality 
 tests\index{Primality testing} are able to decide whether these numbers are prime 
-or not (see chapters \ref{search_for_very_big_primes}, \ref{primality_tests}
+or not (see chapters~\ref{search_for_very_big_primes},~\ref{primality_tests}
 and \ref{spezialzahlentypen}). 
 
 % be_2005_UPDATEN_if-new-mersenne-prime-appears % Eyecatcher_neue-Mersenne
@@ -2929,7 +2941,7 @@ i  & $11^i \bmod 347$ & \\
 
 Further information concerning \hyperlink{AppArith3a2}{primitive roots\index{Primitive root}}
 can be found in appendix E of this chapter. %\ref{primitive-roots-with-sage}. xxxxxprro
-% appendix E eigentlichnicht gut, aber \ref{primitive-roots-with-sage}. liefert 4.13.5!  xxxxxprro
+% appendix E eigentlichnicht gut, aber~\ref{primitive-roots-with-sage}. liefert 4.13.5!  xxxxxprro
 
 } is extremely difficult to solve.
 \end{remark}
@@ -2969,7 +2981,7 @@ directly using a single number as message\footnote{Using CrypTool\index{CrypTool
 \item[{\bf 1.}] Let the selected prime numbers be $p=5$ and $q=11$. \\
 Thus, $n=55$ and $J(n)=(p-1)*(q-1)=40$.
 \item[{\bf 2.}] $e = 7$ (should\footnote{%
-                See footnote \ref{foot:Selection-of-e} on page
+                See footnote~\ref{foot:Selection-of-e} on page
                 \pageref{foot:Selection-of-e}.}
                 lie between $11$ and $39$ and must be relatively prime
                 to $40$).
@@ -2993,13 +3005,13 @@ We will now apply the RSA procedure to a text, first using the upper case alphab
 \subsection[RSA with slightly larger primes and an upper-case message]{RSA with slightly larger primes and a text of upper case letters}
 \label{rsaex2}
 
-We have the text ``ATTACK AT DAWN'' and the characters are coded in the following simple manner\footnote{Using
+We have the text ``ATTACK AT DAWN'' and the characters are coded according to table~\ref{alphacode}.\footnote{Using
 CrypTool\index{CrypTool} you can solve this with the menu 
 {\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} RSA Demonstration}.
-This is also described in the tutorial/scenario in CrypTool's online help [Options, specify alphabet, number system, block length\index{Block length} 2 and decimal representation].}:
+This is also described in the tutorial/scenario in CrypTool's online help [Options, specify alphabet, number system, block length\index{Block length} 2 and decimal representation].}
 
-\hypertarget{Grossbuchstaben-Alphabet}{}    
-{\bf Table 7: capital letters alphabet\index{Capital letters alphabet}}\\
+\begin{table}[h]
+\begin{center}
 \begin{tabular}{|c|l||c|l|}
 \hline
 Character & Numerical value & Character & Numerical value \\
@@ -3021,13 +3033,17 @@ L       & 12   & Y    & 25 \\
 &              & Z    & 26 \\
 \hline
 \end{tabular}
-
+\end{center}
+\hypertarget{Grossbuchstaben-Alphabet}{}    
+\caption{Capital letters alphabet}\index{Capital letters alphabet}
+\label{alphacode}
+\end{table}
 \vskip +20 pt
 
 \noindent {\bf Key generation (steps 1 to 3)}:\\
 {\bf 1.} $p=47, q=79$ $( n= 3713; ~J(n) = (p-1)*(q-1)=3588).$ \\
 {\bf 2.} $e = 37$ (should\footnote{%
-                See footnote \ref{foot:Selection-of-e} on page
+                See footnote~\ref{foot:Selection-of-e} on page
                 \pageref{foot:Selection-of-e}.}
                 lie between $79$ and $3587$ and must be relatively prime
                 to $3588$). \\
@@ -3099,7 +3115,7 @@ Using CrypTool\index{CrypTool} you can solve this with the
 Factorization of a Number}.}. \\
 {\bf 2.} $e=65,537$ \\
 \strut\quad\ (should\footnote{%
-                See footnote \ref{foot:Selection-of-e} on page
+                See footnote~\ref{foot:Selection-of-e} on page
                 \pageref{foot:Selection-of-e}.}
                 lie between $509$ and $255,015$ and must\footnote{%
        $e$ cannot, therefore, be $2, 127$ or $251$
@@ -3242,11 +3258,11 @@ CrypTool\index{CrypTool} and in the presentation on the website.
 If anyone sends us a well prepared exact method of solving the problem,
 we would be pleased to include it in the documentation.}:
 
-Two samples of RSA cipher text are presented in Tables 4.1 and 4.2. 
+Two samples of RSA cipher text are presented in Tables~\ref{stinson1}\footnote{The numbers of this table can be worked with via Copy and Paste.} and \ref{stinson2}\footnote{The numbers of this table are in the online-help ``Example illustrating the RSA demonstration'' of CrypTool\index{CrypTool}.}. 
 Your task is to decrypt them. The public parameters of the system are 
 
-\noindent $n = 18,923$ and $e = 1261$ (for Table 4.1) and \\
-\noindent $n = 31,313$ and $e = 4913$ (for Table 4.2). 
+\noindent $n = 18,923$ and $e = 1261$ (for Table~\ref{stinson1}) and \\
+\noindent $n = 31,313$ and $e = 4913$ (for Table~\ref{stinson2}). 
 
 This can be accomplished as follows. First, factor $n$ (which is easy
 because it is so small). Then compute the exponent $d$ from $J(n)$, and,
@@ -3269,10 +3285,9 @@ You will have to invert this process as the final step in your program.
 The first plaintext was taken from ``The Diary of Samuel Marchbanks'', by Robertson Davies, 1947, and the second was 
 taken from ``Lake Wobegon Days'', by Garrison Keillor, 1985.
 
-% \newpage  be_05.07.07 raus, da sonst vorherige Seite fast leer.
-\vspace{12pt}
-TABLE 4.1\footnote{The numbers of this table can be worked with via Copy and Paste.}: RSA cipher text
 
+\begin{table}[h]
+\begin{center}
 {\tt 
 \begin{tabular}{llllllll}
 12423 & 11524  & 7243  & 7459 & 14303  & 6127 & 10964 & 16399 \\
@@ -3305,10 +3320,13 @@ TABLE 4.1\footnote{The numbers of this table can be worked with via Copy and Pas
 18628 & 14326  & 9175  & 9061   & 650 & 18110  & 8720 & 15404 \\
  2951   & 722 & 15334   & 841 & 15610  & 2443 & 11056  & 2186 
 \end{tabular} } % tt
+\end{center}
+\caption{RSA cipher text A}
+\label{stinson1}
+\end{table}
 
-\newpage
-TABLE 4.2\footnote{The numbers of this table are in the online-help ``Example illustrating the RSA demonstration'' of CrypTool\index{CrypTool}.}: RSA cipher text
-
+\begin{table}[h]
+\begin{center}
 {\tt 
 \begin{tabular}{llllllll}
  6340  & 8309 & 14010  & 8936 & 27358 & 25023 & 16481 & 25809 \\
@@ -3330,6 +3348,10 @@ TABLE 4.2\footnote{The numbers of this table are in the online-help ``Example il
  6000 & 31280 & 29413  & 2066   & 369 & 23204  & 8425  & 7792 \\
 25973  & 4477 & 30989                               
 \end{tabular} } % tt
+\end{center}
+\caption{RSA cipher text B}
+\label{stinson2}
+\end{table}
 
 
 % --------------------------------------------------------------------------
@@ -3417,7 +3439,7 @@ b) how Euklid's enhanced algorithm finds the multiplicative inverse
 NT can be called in CrypTool\index{CrypTool} via the menu path
 {\bf Indiv. Procedures \textbackslash{} Number Theory Interactive
 \textbackslash{} Learning Tool for Number Theory}.
-See appendix \ref{s:appendix-Learn-NT}.
+See appendix~\ref{s:appendix-Learn-NT}.
 }
 \label{l:NumberTheory_Appendix_GCD}
 % \addcontentsline{toc}{section}{Appendix A: gcd of whole numbers and the two
@@ -3691,7 +3713,7 @@ chapter~\ref{Chapter_ElementaryNT} (``\nameref{Chapter_ElementaryNT}'').
 \subsection{Multiplication table modulo $m$}
 \label{l:AppArith1}{}
 
-The multiplication tables (from page \pageref{SrcArith1a})
+The multiplication table~\ref{mulmod17} (from page \pageref{SrcArith1a})
 for $a \times i \pmod{m}$, where
 $m = 17$, $a=5$ and $a=6$, and $i$ ranges over all integers from $0$ to $16$
 can be computed using Sage as follows:
@@ -3711,7 +3733,7 @@ sage: [mod(b * i, m).lift() for i in xrange(m)]
 \noindent The function \verb!mod()! returns an object that represents
 integers modulo $m$, in our case $m = 17$. We use the method
 \verb!lift()! to convert that object to an integer representation.
-The other multiplication table examples modulo $13$ and modulo $12$ on page
+The other multiplication table examples modulo $13$ (table~\ref{mulmod13}) and modulo $12$ (table~\ref{mulmod12}) on page
 \pageref{SrcArith1b} can similarly be computed by replacing {\tt m = 17}
 with {\tt m = 13} and {\tt m = 12} respectively.
 
@@ -3776,7 +3798,7 @@ sage: for a in xrange(1, m):
 \hypertarget{AppArith3b}{}
 \label{l:AppArith3b}{}
 
-The table on page~\pageref{SrcArith3b} gives examples for the order modulo
+Table~\ref{expmod45} on page~\pageref{SrcArith3b} gives examples for the order modulo
 45 $\text{ord}_{45}(a)$ and the Euler number $J(45)$. The following
 Sage code constructs a table similar to that on page~\pageref{SrcArith3b}.
 
@@ -3826,7 +3848,7 @@ the object \verb!lst!.
 \label{l:AppArith3c}{}
 
 The third example on page~\pageref{SrcArith3c} displays exponentiation
-$a^i \pmod{46}$ as well as the order $\text{ord}_{46}(a)$. Sage can
+$a^i \pmod{46}$ as well as the order $\text{ord}_{46}(a)$ (table~\ref{expmod46}). Sage can
 create that table as follows:
 
 \begin{sagecode}
@@ -4057,7 +4079,7 @@ within the above interval.
 \newpage
 \hypertarget{NumberTheory_Sage_RSA sample}{}
 \subsection{RSA examples with Sage}
-\label{l:NumberTheory_Sage_RSA sample}}{}
+\label{l:NumberTheory_Sage_RSA sample}{}
 
 \noindent Below is Sage source code for the RSA examples in
 section~\ref{rsaconcrete} (``\nameref{rsaconcrete}''). 
@@ -4150,30 +4172,30 @@ sage: [power_mod(a, e, m) for a in A]
 \begin{center}
 \begin{tabular}{|l|l|l|}\hline
  & Short description ~~ & Page \\ \hline
-Definition \ref{def-zth-prime} & prime numbers &  \pageref{def-zth-prime} \\
-Definition \ref{def-zth-composite} & composite numbers & \pageref{def-zth-composite}  \\ \hline
-Theorem \ref{thm-zth-cnum} & factors of composite numbers~~~~~~~ & \pageref{thm-zth-cnum}\\
-Theorem \ref{thm-zth-mthm} &  1. fundamental theorem of number theory &  \pageref{thm-zth-mthm} \\  \hline
-Definition \ref{def-zth-divisibility} & divisibility & \pageref{def-zth-divisibility} \\
-Definition \ref{def-zth-remainder} & remainder class $r$ modulo $m$ & \pageref{def-zth-remainder} \\
-Definition \ref{def-zth-congruence} & congruent & \pageref{def-zth-congruence} \\ \hline
-Theorem \ref{thm-zth-div} & congruence with difference  & \pageref{thm-zth-div} \\
-Theorem \ref{thm-zth-multinv} & multiplicative inverse & \pageref{thm-zth-multinv}  \\
-Theorem \ref{thm-zth-exhperm} & exhaustive permutation & \pageref{thm-zth-exhperm} \\
-Theorem \ref{thm-zth-pot} & power mod $m$ & \pageref{thm-zth-pot} \\ \hline
-Definition \ref{def-zth-zn} & $\mathbb{Z}_n$  & \pageref{def-zth-zn}\\
-Definition \ref{def-zth-znmult} &   $\mathbb{Z}_n^*$ & \pageref{def-zth-znmult} \\ \hline
-Theorem \ref{thm-zth-znmult} & multiplicative inverse in $\mathbb{Z}_n^*$& \pageref{thm-zth-znmult} \\ \hline
-Definition \ref{def-zth-phiofn} & Euler function $J(n)$ & \pageref{def-zth-phiofn} \\
-Theorem \ref{thm-zth-phiprime} & $J(p)$ &  \pageref{thm-zth-phiprime}\\
-Theorem \ref{thm-zth-phipq} & $J(p*q)$ &  \pageref{thm-zth-phipq}\\
-Theorem \ref{thm-zth-phimultprime} & $J(p_1 * \cdots *p_k)$ & \pageref{thm-zth-phimultprime} \\
-Theorem \ref{thm-zth-phinum} & $J(p_1^{e_1} * \cdots *p_k^{e_k})$ & \pageref{thm-zth-phinum} \\
-Theorem \ref{thm-zth-fermat1} & little Fermat  &  \pageref{thm-zth-fermat1}\\
-Theorem \ref{thm-zth-fermateuler} & Euler-Fermat theorem & \pageref{thm-zth-fermateuler} \\ \hline
-Definition \ref{def-zth-ordn} & multiplicative order $ {\rm ord}_{m} (a)$ & \pageref{def-zth-ordn} \\
-Definition \ref{def-zth-primitiveroot} & primitive root of $m$ &  \pageref{def-zth-primitiveroot}\\
-Theorem \ref{thm-zth-ordp} & exhausting of all possible values & \pageref{thm-zth-ordp} \\ \hline
+Definition~\ref{def-zth-prime} & prime numbers &  \pageref{def-zth-prime} \\
+Definition~\ref{def-zth-composite} & composite numbers & \pageref{def-zth-composite}  \\ \hline
+Theorem~\ref{thm-zth-cnum} & factors of composite numbers~~~~~~~ & \pageref{thm-zth-cnum}\\
+Theorem~\ref{thm-zth-mthm} &  1. fundamental theorem of number theory &  \pageref{thm-zth-mthm} \\  \hline
+Definition~\ref{def-zth-divisibility} & divisibility & \pageref{def-zth-divisibility} \\
+Definition~\ref{def-zth-remainder} & remainder class $r$ modulo $m$ & \pageref{def-zth-remainder} \\
+Definition~\ref{def-zth-congruence} & congruent & \pageref{def-zth-congruence} \\ \hline
+Theorem~\ref{thm-zth-div} & congruence with difference  & \pageref{thm-zth-div} \\
+Theorem~\ref{thm-zth-multinv} & multiplicative inverse & \pageref{thm-zth-multinv}  \\
+Theorem~\ref{thm-zth-exhperm} & exhaustive permutation & \pageref{thm-zth-exhperm} \\
+Theorem~\ref{thm-zth-pot} & power mod $m$ & \pageref{thm-zth-pot} \\ \hline
+Definition~\ref{def-zth-zn} & $\mathbb{Z}_n$  & \pageref{def-zth-zn}\\
+Definition~\ref{def-zth-znmult} &   $\mathbb{Z}_n^*$ & \pageref{def-zth-znmult} \\ \hline
+Theorem~\ref{thm-zth-znmult} & multiplicative inverse in $\mathbb{Z}_n^*$& \pageref{thm-zth-znmult} \\ \hline
+Definition~\ref{def-zth-phiofn} & Euler function $J(n)$ & \pageref{def-zth-phiofn} \\
+Theorem~\ref{thm-zth-phiprime} & $J(p)$ &  \pageref{thm-zth-phiprime}\\
+Theorem~\ref{thm-zth-phipq} & $J(p*q)$ &  \pageref{thm-zth-phipq}\\
+Theorem~\ref{thm-zth-phimultprime} & $J(p_1 * \cdots *p_k)$ & \pageref{thm-zth-phimultprime} \\
+Theorem~\ref{thm-zth-phinum} & $J(p_1^{e_1} * \cdots *p_k^{e_k})$ & \pageref{thm-zth-phinum} \\
+Theorem~\ref{thm-zth-fermat1} & little Fermat  &  \pageref{thm-zth-fermat1}\\
+Theorem~\ref{thm-zth-fermateuler} & Euler-Fermat theorem & \pageref{thm-zth-fermateuler} \\ \hline
+Definition~\ref{def-zth-ordn} & multiplicative order $ {\rm ord}_{m} (a)$ & \pageref{def-zth-ordn} \\
+Definition~\ref{def-zth-primitiveroot} & primitive root of $m$ &  \pageref{def-zth-primitiveroot}\\
+Theorem~\ref{thm-zth-ordp} & exhausting of all possible values & \pageref{thm-zth-ordp} \\ \hline
 \end{tabular}
 \end{center}
 \vskip +6 pt

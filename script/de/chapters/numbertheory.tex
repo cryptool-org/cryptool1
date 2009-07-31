@@ -326,7 +326,7 @@ Operation definiert wird.
 Weitere Details zu den Primzahlen (z.B. wie der \glqq Kleine Satz von 
 Fermat'' zum Testen von sehr großen Zahlen auf ihre Primzahleigenschaft
 benutzt werden kann) finden sich in diesem Skript in dem Artikel über 
-\hyperlink{Kapitel_2}{Primzahlen, Kapitel \ref{Label_Kapitel_2}}.
+\hyperlink{Kapitel_2}{Primzahlen, Kapitel~\ref{Label_Kapitel_2}}.
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -341,7 +341,7 @@ benutzt werden kann) finden sich in diesem Skript in dem Artikel über
     ZT können Sie in CrypTool\index{CrypTool} über das Menü
     {\bf Einzelverfahren \textbackslash{} Zahlentheorie
     interaktiv \textbackslash{} Lernprogramm für Zahlentheorie} aufrufen.
-    Siehe Anhang \ref{s:appendix-Learn-NT}.
+    Siehe Anhang~\ref{s:appendix-Learn-NT}.
 }
 \index{Modulus} \index{Teilbarkeit}
 Werden ganze Zahlen addiert, subtrahiert oder multipliziert, ist das
@@ -446,13 +446,13 @@ Für die Summe $(a + b)$ gilt die obige Äquivalenz nicht!
 $11 \equiv 2$ (mod $3$), also ist $11 - 2 = 9 \equiv 0$ (mod $3$); aber $11 + 2 = 13$ ist nicht durch $3$ teilbar.
 \end{example}
 
-Die Aussage von Satz \ref{thm-zth-div} gilt für Summen nicht einmal in eine
+Die Aussage von Satz~\ref{thm-zth-div} gilt für Summen nicht einmal in eine
 Richtung. Richtig ist sie bei Summen nur für den Rest $0$ und nur in der
 folgenden Richtung: Teilt ein Teiler beide Summanden ohne Rest, teilt er
 auch die Summe ohne Rest.
 
 
-Anwenden kann man die obige Äquivalenz von Satz \ref{thm-zth-div}, wenn man schnell und
+Anwenden kann man die obige Äquivalenz von Satz~\ref{thm-zth-div}, wenn man schnell und
 geschickt für große Zahlen entscheiden will, ob sie durch eine bestimmte
 Zahl teilbar sind.
 
@@ -497,7 +497,7 @@ Multiplikation modulo $m$. Das Ergebnis einer Division\footnote{%
 Die Division modulo $m$\index{Division modulo $n$}
 ist nur für Zahlen, die teilerfremd\index{Zahlen!teilerfremd (co-prime)}
 zu $m$ sind, definiert, da andere Zahlen die gleiche Eigenschaft wie Null haben.
-Vergleiche Fußsnote \ref{ftn-mod6} in Kapitel \ref{addmult}.
+Vergleiche Fußsnote~\ref{ftn-mod6} in Kapitel~\ref{addmult}.
 } ist kein Bruch, sondern eine ganze Zahl zwischen $0$ und $m-1$.
 
 \noindent Es gelten die bekannten Gesetze:
@@ -598,7 +598,7 @@ Im folgenden werden
 Bemerkung zur Subtraktion modulo 5: \\
       $2 - 4 = -2 \equiv 3{\rm ~mod~}5.$\\
       Es gilt modulo $5$ also nicht, dass $-2 = 2$ (siehe auch \hyperlink{NumberTheory_Appendix_C}{Anhang C zu diesem Kapitel}). 
-      } für ${\rm mod~ } 5$ und
+      } für ${\rm mod~ } 5$ (Tabelle~\ref{addmod5}) und
 \item die Multiplikationstabellen\footnote{\label{ftn-mod6}%
 Bemerkung zur Division modulo 6:\index{Division modulo $n$}
 
@@ -607,20 +607,20 @@ der besonderen Rolle der $0$ als Identität bei der Addition:\\
 Für alle $a$ gilt $a*0=0, $ denn $a*0 = a*(0+0) =a*0 + a*0.$ Es ist
 offensichtlich, dass $0$ keine Inverse bzgl. der Multiplikation besitzt,
 denn sonst müsste gelten: $0 = 0 * 0^{-1} = 1.$ Vergleiche Fußnote
-\ref{ftn-res-divmodn}.  } für mod $5$ und für mod $6$
+\ref{ftn-res-divmodn}.  } für mod $5$ (Tabelle~\ref{mulmod5}) und für mod $6$ (Tabelle~\ref{mulmod6})
 \end{itemize}
 aufgestellt.
 
 % --------------------------------------------------------------------------
-\subsection*{Beispiel Additionstabelle:}
+\begin{example}{ Additionstabelle:}\\
 Das Ergebnis der Addition von $3$ und $4 {\rm ~(mod~ } 5)$ wird folgendermaßen bestimmt:
 berechne $3 + 4 = 7$ und ziehe solange die $5$ vom Ergebnis ab, bis sich ein
-Ergebnis kleiner als der Modul ergibt: $7 - 5 = 2$. Also ist: $3 + 4 \equiv 2 {\rm ~(mod~ } 5)$.
+Ergebnis kleiner als der Modul ergibt: $7 - 5 = 2$. Also ist: $3 + 4 \equiv 2 {\rm ~(mod~ } 5)$. 
 
-\begin{table}[h]
+\begin{table}[!h]
 \begin{center}
 \begin{tabular}{r|ccccc}
-Additionstabelle modulo 5: \quad + &  0 & 1 & 2 & 3 & 4  \\
++ &  0 & 1 & 2 & 3 & 4  \\
 \hline
 0 &  0 & 1 & 2 & 3 & 4 \\  
 1 & 1 &  2 & 3 & 4 & 0 \\
@@ -629,21 +629,22 @@ Additionstabelle modulo 5: \quad + &  0 & 1 & 2 & 3 & 4  \\
 4 & 4 & 0 & 1 & 2 & 3 
 \end{tabular} 
 \end{center} 
+\caption{Additionstabelle modulo 5}
+\label{addmod5}
 \end{table}
-
+\end{example}
 % --------------------------------------------------------------------------
-\subsection*{Beispiel Multiplikationstabelle:}
+\begin{example}{ Multiplikationstabelle:}
 Das Ergebnis der Multiplikation $4 * 4 {\rm ~(mod~ } 5)$ wird folgendermaßen berechnet: berechne $ 4*4=16$ und
 ziehe solange die $5$ ab, bis sich ein Ergebnis kleiner als der Modul ergibt:
 $$16 - 5 = 11;~ 11 - 5 = 6;~6- 5 = 1.$$
-Direkt ergibt es sich auch aus der Tabelle: $4 * 4 \equiv 1 {\rm ~(mod~} 5)$, weil $16 : 5 = 3$ Rest $1$.
+Direkt ergibt es sich auch aus Tabelle~\ref{mulmod5}: $4 * 4 \equiv 1 {\rm ~(mod~} 5)$, weil $16 : 5 = 3$ Rest $1$.
 Die Multiplikation wird auf der Menge $\mathbb{Z}$ ohne $0$ definiert.
 
-        
 \begin{table}[h]
 \begin{center}
 \begin{tabular}{r|cccc}
-Multiplikationstabelle modulo 5: \quad * & 1& 2 & 3 & 4  \\
+* & 1& 2 & 3 & 4  \\
 \hline 
 1 & 1 &    2    &    3    & 4 \\
 2 & 2 & {\bf 4} & {\bf 1} & 3 \\ 
@@ -651,8 +652,10 @@ Multiplikationstabelle modulo 5: \quad * & 1& 2 & 3 & 4  \\
 4 & 4 &    3    &    2    & 1 
 \end{tabular}
 \end{center} 
+\caption{Multiplikationstabelle modulo 5}
+\label{mulmod5}
 \end{table}
-
+\end{example}
 
 % --------------------------------------------------------------------------
 %\newpage
@@ -728,15 +731,17 @@ $\mathbb{Z}_6\setminus \{0\}$ zu $6$ teilerfremd):
 \begin{table}[h]
 \begin{center}
 \begin{tabular}{r|ccccc}
-Multiplikationstabelle modulo $6$: \quad* &  1 & 2 & 3 & 4 & 5  \\
+* &  1 & 2 & 3 & 4 & 5  \\
 \hline 
 1 &  1 & 2 & 3 & 4 & 5 \\  
 2 &  2 & {\bf 4} & {\bf 0} & {\bf 2} & 4 \\
 3 &  3 & {\bf 0} & {\bf 3} & {\bf 0} & 3 \\
 4 &  4 & {\bf 2} & {\bf 0} & {\bf 4} & 2 \\
 5 &  5 & 4 & 3 & 2 & 1 \\
-\end{tabular}  
-\end{center} 
+\end{tabular} 
+\end{center}
+\caption{Multiplikationstabelle modulo $6$}
+\label{mulmod6}
 \end{table}
 
 
@@ -786,8 +791,8 @@ Sei $a,i\in \{1, \cdots , m-1\}$ mit ${\rm~ggT} (a,m)=1, $ dann nimmt für
 eine bestimmte Zahl $a$ das Produkt $a*i {\rm ~mod~} m$  alle Werte aus
 $ \{1, \cdots ,m-1\}$ an (erschöpfende Permutation\index{Permutation} der
 Länge $m-1$)\footnote{%
-Vergleiche auch Satz \ref{thm-zth-ordp} in \hyperlink{Chapter_ElementaryNT_9}
-{Kapitel \ref{MultOrdPrimitveRoot}, Multiplikative Ordnung und Primitivwurzel\index{Primitivwurzel}}.
+Vergleiche auch Satz~\ref{thm-zth-ordp} in \hyperlink{Chapter_ElementaryNT_9}
+{Kapitel~\ref{MultOrdPrimitveRoot}, Multiplikative Ordnung und Primitivwurzel\index{Primitivwurzel}}.
 }.
 \end{satz}
 
@@ -798,7 +803,7 @@ In \hyperlink{AppArith1}{Anhang E zu diesem Kapitel} finden Sie den Quellcode zu
 mehr die vollständigen Multiplikationstabellen angegeben, sondern nur die Zeilen
 für die Faktoren $5$ und $6$).
 
-In der Multiplikationstabelle mod $17$ wurde für $i = 1, 2, \cdots, 18$ berechnet:
+In der Multiplikationstabelle mod $17$ (Tabelle~\ref{mulmod17}) wurde für $i = 1, 2, \cdots, 18$ berechnet:
 \begin{itemize}
    \item[] $(5*i)/17 = a$ Rest $r$ und hervorgehoben $5*i \equiv 1$ (mod $17$),
    \item[] $(6*i)/17 = a$ Rest $r$ und hervorgehoben $6*i \equiv 1$ (mod $17$).
@@ -806,9 +811,7 @@ In der Multiplikationstabelle mod $17$ wurde für $i = 1, 2, \cdots, 18$ berechne
 {\bf Gesucht} ist das $i$, für das der Produktrest $ a*i$ modulo $17$ mit $a=5$ bzw. $a=6$
 den Wert $1$ hat. 
 
-{
 \begin{table}[h] \label{SrcArith1a}
-\subsection*{Tabelle 1: Multiplikationstabelle modulo $17$ (für $a=5$ und $a=6$)}
 \begin{center}
 \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c||c|c|}
 \hline 
@@ -823,54 +826,48 @@ Rest                & 6 & 12  & {\bf 1}  & 7 & 13  & 2  & 8 & 14  & 3  & 9 & 15 
 \hline
 \end{tabular}
 \end{center} 
+\caption{Multiplikationstabelle modulo $17$ (für $a=5$ und $a=6$)}
+\label{mulmod17}
 \end{table}
-}
-\vskip - 12 pt
+
 Da sowohl $5$ als auch $6$ jeweils teilerfremd\index{Zahlen!teilerfremd (co-prime)}
 zum Modul $m=17$ sind, kommen zwischen $i=1, \cdots, m$ für die Reste alle Werte
 zwischen $0, \cdots, m-1$ vor (vollständige $m$-Permutation\index{Permutation}).
 % \enlargethispage{0.5cm}
 
-{
-    \noindent {\bf Die multiplikative Inverse von $5$ (mod $17$) ist $7$, die Inverse von $6$ (mod $17$) ist $3$.}
+{\bf Die multiplikative Inverse von $5$ (mod $17$) ist $7$, die Inverse von $6$ (mod $17$) ist $3$.}
 
-    \vskip +20 pt
+\begin{table}[h] \label{SrcArith1b}
+\begin{center}                                                                          
+\begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c||c|c|c|c|c|c|}
+\hline 
+i                    & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16  & 17  & 18 \\
+\hline 
+\hline 
+$5*i$                 & 5 & 10 & 15 & 20 & 25 & 30 & 35 & 40 & 45 & 50 & 55 & 60 & 65 & 70 & 75 & 80  & 85  & 90 \\
+Rest                 & 5 & 10  & 2  & 7  & 12  & 4 & 9  & {\bf 1}  & 6  & 11 & 3  & 8  & 0 & 5  & 10  & 2   & 7   & 12 \\
+\hline 
+$6*i$                  & 6 & 12 & 18 & 24 & 30 & 36 & 42 & 48 & 54 & 60 & 66 & 72 & 78 & 84 & 90 & 96 & 102 & 108 \\
+Rest                 & 6  & 12  & 5  & 11  & 4  & 10  & 3  & 9  & 2  & 8  & {\bf 1}  & 7  & 0  & 6  & 12  & 5   & 11   & 4 \\
+\hline 
+\end{tabular}
+\end{center} 
+\caption{Multiplikationstabelle modulo $13$ (für $a=5$ und $a=6$)}
+\label{mulmod13}
+\end{table}
 
-    \begin{table}[h] \label{SrcArith1b}
-    \subsection*{Tabelle 2: Multiplikationstabelle modulo $13$ (für $a=5$ und $a=6$)}
-    \begin{center}                                                                          
-    \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c||c|c|c|c|c|c|}
-    \hline 
-    i                    & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16  & 17  & 18 \\
-    \hline 
-    \hline 
-    $5*i$                 & 5 & 10 & 15 & 20 & 25 & 30 & 35 & 40 & 45 & 50 & 55 & 60 & 65 & 70 & 75 & 80  & 85  & 90 \\
-    Rest                 & 5 & 10  & 2  & 7  & 12  & 4 & 9  & {\bf 1}  & 6  & 11 & 3  & 8  & 0 & 5  & 10  & 2   & 7   & 12 \\
-    \hline 
-    $6*i$                  & 6 & 12 & 18 & 24 & 30 & 36 & 42 & 48 & 54 & 60 & 66 & 72 & 78 & 84 & 90 & 96 & 102 & 108 \\
-    Rest                 & 6  & 12  & 5  & 11  & 4  & 10  & 3  & 9  & 2  & 8  & {\bf 1}  & 7  & 0  & 6  & 12  & 5   & 11   & 4 \\
-    \hline 
-    \end{tabular}
-    \end{center} 
-    \end{table}
-}   
-
-\vskip -12 pt
 Da sowohl $5$ als auch $6$ auch zum Modul $m=13$ jeweils
 teilerfremd\index{Zahlen!teilerfremd (co-prime)} sind, kommen
 zwischen $i=1, \cdots, m$ für die Reste alle Werte zwischen
 $0, \cdots, m-1$ vor.
 
 
-\noindent {\bf Die multiplikative Inverse von $5$ (mod $13$) ist $8$, die Inverse von $6$ (mod $13$) ist $11$.}
-\vskip +15 pt
-\pagebreak
-Die folgende Tabelle enthält ein Beispiel dafür, wo der Modul $m$ und die Zahl $(a=6)$
+{\bf Die multiplikative Inverse von $5$ (mod $13$) ist $8$, die Inverse von $6$ (mod $13$) ist $11$.}
+
+Tabelle~\ref{mulmod12} enthält ein Beispiel dafür, wo der Modul $m$ und die Zahl $(a=6)$
 {\em nicht} teilerfremd sind.
-\vskip +15 pt
 
 \begin{table}[h]
-\subsection*{Tabelle 3: Multiplikationstabelle modulo $12$ (für $a=5$ und $a=6$)}
 \begin{center}                                                                          
 \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c||c|c|c|c|c|c|c|}
 \hline 
@@ -885,16 +882,17 @@ Rest                 & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0  & 6  & 0 
 \hline 
 \end{tabular}
 \end{center} 
+\caption{Multiplikationstabelle modulo $12$ (für $a=5$ und $a=6$)}
+\label{mulmod12}
 \end{table}
 
-\vskip -12 pt
 Berechnet wurde $(5 * i)$ (mod $12$) und $(6*i)$ (mod $12$).
 Da $6$ und der Modul $m=12$ nicht teilerfremd\index{Zahlen!teilerfremd (co-prime)}
 sind, kommen zwischen $i=1, \cdots, m$ nicht alle Werte zwischen
 $0, \cdots, m-1$ vor und $6$ hat mod $12$ auch keine Inverse!
 \index{Inverse!additive} \index{Inverse!multiplikative}
 
-\noindent {\bf Die multiplikative Inverse von $5$ (mod $12$) ist $5$. Die Zahl $6$ hat keine Inverse (mod $12$). }
+{\bf Die multiplikative Inverse von $5$ (mod $12$) ist $5$. Die Zahl $6$ hat keine Inverse (mod $12$). }
 
 
 
@@ -973,8 +971,8 @@ $$
 \subsection{Schnelles Berechnen hoher Potenzen} 
 \label{hohpot} \index{Potenz}
 Bei RSA-Ver- und Entschlüsselungen\footnote{%
-Siehe Kapitel \ref{rsabeweis} (Beweis des RSA-Verfahrens mit Euler-Fermat) und 
-Kapitel \ref{rsakonkret} (Das RSA-Verfahren mit konkreten Zahlen).
+Siehe Kapitel~\ref{rsabeweis} (Beweis des RSA-Verfahrens mit Euler-Fermat) und 
+Kapitel~\ref{rsakonkret} (Das RSA-Verfahren mit konkreten Zahlen).
 } müssen hohe Potenzen modulo $m$ berechnet werden. Schon die Berechnung $(100^5)
 {\rm ~mod~}3$ sprengt den $32$ Bit langen \index{Long-Integer}
 Long-Integer-Zahlenbereich, sofern man zur Berechnung von $a^n$ getreu der
@@ -1067,7 +1065,7 @@ Konstanten $C > 1$.
 Wenn die Eulerfunktion \index{Eulersche Phi-Funktion} $J(m)$ bekannt ist,
 findet man leicht\footnote{%
 Siehe \hyperlink{NumberTheory_Appendix_A}{Anhang A zu diesem Kapitel}: der größte gemeinsame Teiler (ggT) von ganzen Zahlen.
-} $d$ mit $c*d \equiv 1 {\rm ~(mod~} J(m))$ und erhält mit Satz \ref{thm-zth-pot} 
+} $d$ mit $c*d \equiv 1 {\rm ~(mod~} J(m))$ und erhält mit Satz~\ref{thm-zth-pot} 
 $$
    a^d \equiv (b^c)^d \equiv b^{c*d} \equiv b^{c*d~(mod~J(m))} \equiv b^1 \equiv b {\rm ~(mod~} m)
 $$
@@ -1075,12 +1073,12 @@ die {\em $c$-te Wurzel} $b$ von $a$. \par
 
 Für den Fall, dass $J(m)$ in der Praxis nicht bestimmt werden 
 kann\footnote{%
-Nach dem ersten Hauptsatz der Zahlentheorie und Satz \ref{thm-zth-phinum}
+Nach dem ersten Hauptsatz der Zahlentheorie und Satz~\ref{thm-zth-phinum}
 kann man $J(m)$ mit Hilfe der Primfaktorzerlegung\index{Primfaktor!Zerlegung}
 von $m$ bestimmen.
 }, ist die Berechnung der $c$-ten Wurzel schwierig. Hierauf beruhen die
-Sicherheitsannahmen für das RSA-Kryptosystem (siehe Kapitel \ref{rsabeweis}
-oder Kapitel \ref{rsaverfahren}).
+Sicherheitsannahmen für das RSA-Kryptosystem (siehe Kapitel~\ref{rsabeweis}
+oder Kapitel~\ref{rsaverfahren}).
 
 \end{itemize}
 Dagegen ist der Aufwand für die Umkehrung von Addition und Multiplikation
@@ -1088,10 +1086,10 @@ nur proportional zu $\log m$ beziehungsweise $(\log m)^2$.
 Potenzieren (zu einer Zahl $x$ berechne $x^a$ mit festem $a$) und Exponentiation
 (zu einer Zahl $x$ berechne $a^x$ mit festem $a$) sind also typische
 Einwegfunktionen\index{Einwegfunktion}
-(vergleiche Kapitel \ref{OneWayFunktion1} und \ref{OneWayFunktion2}).
+(vergleiche Kapitel~\ref{OneWayFunktion1} und~\ref{OneWayFunktion2}).
 %(siehe Übersicht über Einwegfunktionen im \hyperlink{OneWayFunktion1}{Skript}
-%[[Absatz/Kapitel \ref{OneWayFunktion1}]] oder in diesem
-%\hyperlink{OneWayFunktion2}{Artikel} [[Absatz/Kapitel \ref{OneWayFunktion2}]] ).
+%[[Absatz/Kapitel~\ref{OneWayFunktion1}]] oder in diesem
+%\hyperlink{OneWayFunktion2}{Artikel} [[Absatz/Kapitel~\ref{OneWayFunktion2}]] ).
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1213,7 +1211,7 @@ $a = 3$ modulo $10$ mit $\mathbb{Z}_n^* = \{ 1, 3, 7, 9 \}$ gilt $a^{-1} = 7$:
 7 & \equiv & 3 * 9{\rm ~(mod~}10). \nonumber 
 \end{eqnarray*}
 Die eindeutige Invertierung (Umkehrbarkeit)\index{Umkehrbarkeit} ist eine
-notwendige Bedingung für die Kryptographie (siehe Kapitel \ref{rsabeweis}: 
+notwendige Bedingung für die Kryptographie (siehe Kapitel~\ref{rsabeweis}: 
 \hyperlink{RSABeweis}{Beweis des RSA-Verfahrens mit Euler-Fermat}).
 
 
@@ -1244,7 +1242,7 @@ unrational, ja sogar {\bf irrational und damit wirklichkeitsnäher} sind.}}
 \label{patternsandstructures}
 So wie Mathematiker die Struktur $a*x \equiv b {\rm ~mod~}m $ untersuchen 
 (s. \hyperlink{Chapter_ElementaryNT_5_2}
-{Kapitel \ref{Label_Chapter_ElementaryNT_5_2}}),
+{Kapitel~\ref{Label_Chapter_ElementaryNT_5_2}}),
 so interessiert sie auch die Struktur $ x^{a}\equiv b {\rm ~mod~}m$. 
 
 Auch hierbei ist insbesondere der Fall interessant, wenn $b=1$ ist 
@@ -1283,7 +1281,7 @@ $$J(p*q) = (p - 1) * (q - 1) \quad {\rm oder} \quad J(p * q) = J(p) * J(q).$$
 
 \begin{satz}\label{thm-zth-phimultprime} \label{J_of_p1..pk}
 Ist $n = p_1 * p_2 * \cdots * p_k$, wobei $p_1$ bis $p_k$ verschiedene Primzahlen
-sind (d.h. $p_i \not= p_j$ für $i \not= j$), dann gilt (als Verallgemeinerung von Satz \ref{J_of_pq}):
+sind (d.h. $p_i \not= p_j$ für $i \not= j$), dann gilt (als Verallgemeinerung von Satz~\ref{J_of_pq}):
 $$J(n) = (p_1 - 1)*(p_2 - 1)* \cdots *(p_k - 1).$$
 \end{satz} 
  
@@ -1301,9 +1299,9 @@ Verallgemeinert gilt für jede Primzahl $p$ und jedes $n$ aus $\mathbb{N}$:
 
 \begin{example}{:}
 \begin{itemize}
-\item  $n=70=2*5*7 \Longrightarrow $ nach Satz \ref{J_of_p1..pk}: $ J(n)= 1\cdot 4 \cdot 6 =24.$ 
-\item  $n=9=3^2 \Longrightarrow$ nach Satz \ref{J_of_n}: $ J(n)= 3^1\cdot 2 =6,$ weil  $\mathbb{Z}_9^* =\{ 1,2,4,5,7,8\}.$
-\item $n = 2.701.125 = 3^2 * 5^3 * 7^4$ $\Longrightarrow$ nach Satz \ref{J_of_n}: 
+\item  $n=70=2*5*7 \Longrightarrow $ nach Satz~\ref{J_of_p1..pk}: $ J(n)= 1\cdot 4 \cdot 6 =24.$ 
+\item  $n=9=3^2 \Longrightarrow$ nach Satz~\ref{J_of_n}: $ J(n)= 3^1\cdot 2 =6,$ weil  $\mathbb{Z}_9^* =\{ 1,2,4,5,7,8\}.$
+\item $n = 2.701.125 = 3^2 * 5^3 * 7^4$ $\Longrightarrow$ nach Satz~\ref{J_of_n}: 
 $J(n) = [3^1 * 2] * [5^2 * 4] * [7^3 * 6] = 1.234.800.$
 \end{itemize}
 \end{example}
@@ -1313,7 +1311,7 @@ $J(n) = [3^1 * 2] * [5^2 * 4] * [7^3 * 6] = 1.234.800.$
 \label{Label_KleinerSatzFermat-chap3}
 Für den Beweis des RSA-Verfahrens brauchen wir den Satz von Fermat und 
 dessen Verallgemeinerung (Satz von Euler-Fermat) -- 
-\hyperlink{KleinerSatzFermat-chap2}{vergleiche Kapitel \ref{primality_tests}}.
+\hyperlink{KleinerSatzFermat-chap2}{vergleiche Kapitel~\ref{primality_tests}}.
 
 \hypertarget{KleinerSatzFermat-chap3}{}
 \index{Fermat!kleiner Satz}
@@ -1397,7 +1395,7 @@ Durch geschicktes Zerlegen des Exponenten kann man diese Potenz relativ einfach 
 % --------------------------------------------------------------------------
 \subsection{Fixpunkte\index{Fixpunkt} modulo 26}
 
-Laut Satz \ref{thm-zth-pot} werden die arithmetischen Operationen von modularen Ausdrücken in den Exponenten modulo $J(n)$ 
+Laut Satz~\ref{thm-zth-pot} werden die arithmetischen Operationen von modularen Ausdrücken in den Exponenten modulo $J(n)$ 
 und nicht modulo $n$ durchgeführt\footnote{%
 Für das folgende Beispiel wird der Modul wie beim RSA-Verfahren üblich mit 
 \glqq $n$'' statt mit \glqq $m$'' bezeichnet.
@@ -1442,7 +1440,7 @@ Sind nur
 $n$ und $J(n)$ bekannt, so gilt $pq=n$ und $p+q= n +1 -J(n).$  Man erhält somit die Faktoren $p$ und $q$ von $n$, indem man die folgende quadratische Gleichung löst:
 $$ x^2 +(J(n)-n-1)x +n=0 $$
 } (vergleiche Forderung 3 in \hyperlink{Chapter_ElementaryNT_10_1}
-{Kapitel \ref{Label_Chapter_ElementaryNT_10_1}}).
+{Kapitel~\ref{Label_Chapter_ElementaryNT_10_1}}).
 
 
 
@@ -1460,7 +1458,7 @@ $$ x^2 +(J(n)-n-1)x +n=0 $$
     ZT können Sie in CrypTool\index{CrypTool} über das Menü
     {\bf Einzelverfahren \textbackslash{} Zahlentheorie 
     interaktiv \textbackslash{} Lernprogramm für Zahlentheorie} aufrufen.
-    Siehe Anhang \ref{s:appendix-Learn-NT}.
+    Siehe Anhang~\ref{s:appendix-Learn-NT}.
 }
 \label{MultOrdPrimitveRoot}
 
@@ -1470,7 +1468,7 @@ Zahlentheorie.
 
 Mathematiker stellen sich die Frage, unter welchen Bedingungen ergibt
 die wiederholte Anwendung einer Operation das neutrale Element
-(vergleiche \hyperlink{patternsandstructures}{Muster und Strukturen}, Kapitel \ref{patternsandstructures}\index{Struktur}).
+(vergleiche \hyperlink{patternsandstructures}{Muster und Strukturen}, Kapitel~\ref{patternsandstructures}\index{Struktur}).
 
 Für die $i$-fach aufeinander folgende modulare Multiplikation einer
 Zahl $a$ mit \mbox{$i=1, \cdots, m-1$} ergibt sich als Produkt das neutrale
@@ -1484,7 +1482,7 @@ teilerfremd sind) ist die kleinste ganze Zahl $i$, für die gilt:
  $a^i \equiv 1 {\rm ~(mod~} m)$. 
 \end{definition}
 
-Die folgende Tabelle zeigt, dass in einer multiplikativen Gruppe (hier
+Die folgende Tabelle~\ref{expmod11} zeigt, dass in einer multiplikativen Gruppe (hier
 $\mathbb{Z}_{11}^*$) nicht notwendig alle Zahlen die gleiche Ordnung
 haben: Die Ordnungen sind $1, 2, 5$ und $10$. Dabei bemerkt man:
 \begin{enumerate}
@@ -1495,15 +1493,14 @@ haben: Die Ordnungen sind $1, 2, 5$ und $10$. Dabei bemerkt man:
 \end{enumerate}
 
 \begin{example}{ 1:}\\
-Die folgende Tabelle\footnote{%
+Die folgende Tabelle~\ref{expmod11}\footnote{%
 In \hyperlink{AppArith3a1}{Anhang E zu diesem Kapitel} finden Sie den Quelltext
 zur Bestimmung der Tabelle mit Sage.
 } zeigt die Werte $a^i{\rm ~mod~}11$ für die Exponenten $i = 1, 2, \cdots, 10$ und für 
 die Basen $a = 1, 2, \cdots, 10$ sowie den sich für jedes a daraus ergebenden Wert $ord_{11}(a)$:
 \end{example}
 
-{
-\subsection*{Tabelle 4: Werte von $a^i{\rm ~mod~}11, 1\leq a,i<11$ und zugehörige Ordnung von $a$ modulo $m.$}
+\begin{table}[h]
 \begin{center} \label{SrcArith3a}
 \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
@@ -1532,8 +1529,11 @@ a=10         & 10  & {\bf 1}   & 10  & 1   & 10    & 1   & 10  & 1   & 10  & 1  
 \hline
 \end{tabular}
 \end{center}
-}
-Aus der Tabelle kann man ersehen, dass z.B. die Ordnung von $3$ modulo
+\caption{Werte von $a^i{\rm ~mod~}11, 1\leq a,i<11$ und zugehörige Ordnung von $a$ modulo $m$}
+\label{expmod11}
+\end{table}
+
+Aus der Tabelle~\ref{expmod11} kann man ersehen, dass z.B. die Ordnung von $3$ modulo
 $11$ den Wert $5$ hat.
 
 \begin{definition}\label{def-zth-primitiveroot}
@@ -1543,7 +1543,7 @@ $a$ eine {\bf Primitivwurzel} \index{Primitivwurzel} von $m$.
 \end{definition}
 
 Nicht zu jedem Modul $m$ gibt es  eine Zahl $a,$ die eine Primitivwurzel\index{Primitivwurzel}
-ist. In der obigen Tabelle ist nur $a = 2, 6, 7$ und $8$ bezüglich mod
+ist. In der obigen Tabelle~\ref{expmod11} ist nur $a = 2, 6, 7$ und $8$ bezüglich mod
 $11$ eine Primitivwurzel\index{Primitivwurzel} ($J(11) = 10$).
 
 Mit Hilfe der Primitivwurzel\index{Primitivwurzel} kann man die Bedingungen klar herausarbeiten,
@@ -1554,7 +1554,7 @@ Die folgenden beiden Tabellen zeigen multiplikative Ordnung und
 Primitivwurzel\index{Primitivwurzel} modulo $45$ und modulo $46$.
 
 \begin{example}{ 2:}\\
-Die folgende Tabelle\footnote{%
+Die folgende Tabelle~\ref{expmod45}\footnote{%
 In \hyperlink{AppArith3b}{Anhang E zu diesem Kapitel} finden Sie den Quelltext
 zur Berechnung der Tabelle mit Sage.
 }
@@ -1563,8 +1563,7 @@ und für die Basen $a = 1, 2, \cdots, 12$ sowie den sich für jedes $a$ daraus
 ergebenden Wert $ord_{45}(a)$.
 \end{example}
 
-{ % \small
-\subsection*{Tabelle 5: Werte von $a^i{\rm ~mod~}45, 1\leq a,i<13$:}
+\begin{table}[h]
 \begin{center} \label{SrcArith3b}
 %\begin{table}[h]
 \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
@@ -1599,11 +1598,13 @@ ergebenden Wert $ord_{45}(a)$.
 \end{tabular}
 %\end{table}
 \end{center}
-} % \small
+\caption{Werte von $a^i{\rm ~mod~}45, 1\leq a,i<13$}
+\label{expmod45}
+\end{table}
 
 \vskip +10 pt
 
-$J(45)$ berechnet sich nach Satz \ref{J_of_n}: $J(45) = J(3^2*5) = [3^1*2] * [1*4] = 24$.
+$J(45)$ berechnet sich nach Satz~\ref{J_of_n}: $J(45) = J(3^2*5) = [3^1*2] * [1*4] = 24$.
 
 \vskip +20 pt
 
@@ -1616,22 +1617,21 @@ $3, 5, 6, 9, 10, 12, \cdots,$ da $45 = 3^2*5$).\vskip +1em
 Hat $7$ eine Primitivwurzel\index{Primitivwurzel} modulo $45$?
 
 \noindent Die Voraussetzung/Bedingung ggT$(7,45)=1$ ist erfüllt.
-Aus der Tabelle (Werte von $a^{i}$ mod $45$) kann man ersehen, dass die
+Aus der Tabelle~\ref{expmod45} kann man ersehen, dass die
 Zahl $7$ keine Primitivwurzel\index{Primitivwurzel} von $45$ ist,
 denn $ord_{45}(7) = 12 \not= 24 = J(45)$.\vskip + 1em
 \end{example}
 
 \newpage
 \begin{example}{ 4:}\\
-Die folgende Tabelle\footnote{%
+Die folgende Tabelle~\ref{expmod46}\footnote{%
 In \hyperlink{AppArith3c}{Anhang E zu diesem Kapitel} finden Sie den
 Quelltext zur Berechnung der Tabelle mit Sage.
 } beantwortet die Frage, ob die Zahl $7$ eine Primitivwurzel\index{Primitivwurzel} von $46$ ist.
 Die Voraussetzung/Bedingung ggT$(7,46)=1$ ist erfüllt.
 \end{example}
                                                                     
-\vspace{-10pt}  % Rein, damit Kap. 4.10 oben auf der ff. Seite beginnt.
-\subsection*{Tabelle 6: Werte von $a^i{\rm ~mod~}46, 1\leq a,i<23$:}
+\begin{table}[h]
 \label{SrcArith3c}
 {\textmd \small 
 \begin{center}
@@ -1691,20 +1691,23 @@ $a \setminus i$   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 &
 \end{tabular}
 \end{center}
 }
+\caption{Werte von $a^i{\rm ~mod~}46, 1\leq a,i<23$}
+\label{expmod46}
+\end{table}
 
 \vskip +10 pt
-$J(46)$ berechnet sich nach Satz \ref{J_of_pq}: $J(46) = J(2*23) = 1*22 = 22$.
+$J(46)$ berechnet sich nach Satz~\ref{J_of_pq}: $J(46) = J(2*23) = 1*22 = 22$.
 Die Zahl $7$ ist eine Primitivwurzel\index{Primitivwurzel} von $46$, denn $ord_{46}(7) = 22 = J(46)$.
 
 \begin{satz}\label{thm-zth-ordp}\footnote{%
     Für Primmoduli $p$ haben alle $a$ mit $0 < a < p$ die Ordnung $J(p) = p
-    - 1$.  Vergleiche dazu Tabelle~5. In diesem Fall nimmt $a^i (\mbox{mod
+    - 1$.  Vergleiche dazu Tabelle~\ref{expmod45}. In diesem Fall nimmt $a^i (\mbox{mod
     }n)$ alle Werte $1,\dots,p-1$ an. Dieses Ausschöpfen des
     Wertebereiches\index{Wertebereich} ist eine wichtige kryptographische
-    Eigenschaft (vergleiche Satz \ref{thm-zth-exhperm}). Hiermit wird eine
+    Eigenschaft (vergleiche Satz~\ref{thm-zth-exhperm}). Hiermit wird eine
     Permutation\index{Permutation} $\pi(p-1)$ festgelegt.
 }${}^,$\footnote{%
-Tabelle~6 zeigt, dass bei zusammengesetzten Moduli $n$ nicht alle $a$ die
+Tabelle~\ref{expmod46} zeigt, dass bei zusammengesetzten Moduli $n$ nicht alle $a$ die
 maximale Ordnung $J(n)$ haben. In diesem Beispiel haben nur $5,7,11,15,17,19
 \mbox{ und } 21$
 die Ordnung 22.
@@ -1740,7 +1743,7 @@ In Literatur\index{Literatur} und in Filmen\index{Filme} sind sowohl
 klassische als auch moderne Kryptographie-Verfahren verarbeitet worden 
 %(\hyperlink{appendix-movies}{siehe Anhang A3: Filme und Literatur mit Bezug 
 %zur Kryptographie}).
-(siehe Anhang \ref{s:appendix-movies}).
+(siehe Anhang~\ref{s:appendix-movies}).
 % hier die items NICHT einrücken!
 % \begin{list}{\textbullet}{\leftmargin10pt}
 %   \item dem Film "`Das Kartenhaus"', 1992
@@ -1822,7 +1825,7 @@ Schritt 4 und 5 sind die Verschlüsselung, 6 und 7 die Entschlüsselung:
 \item[{\bf 1.}] Wähle zufällig $2$ verschiedene Primzahlen\footnote{%
 Compaq hatte in 2000 mit hohem Marketingaufwand das sogenannte Multiprime-Verfahren eingeführt.
 $n$ war dabei das Produkt von zwei großen und einer relativ dazu kleinen Primzahl:
-$n=o*p*q.$ Nach Satz \ref{J_of_p1..pk} ist dann $ J(n)= (o-1)*(p-1)*(q-1).$ Das
+$n=o*p*q.$ Nach Satz~\ref{J_of_p1..pk} ist dann $ J(n)= (o-1)*(p-1)*(q-1).$ Das
 Verfahren hat sich bisher nicht durchgesetzt.\\
 Mit ein Grund dafür dürfte sein, dass Compaq ein Patent\index{Patent} 
 dafür angemeldet hat. Generell gibt es in Europa und in der Open Source 
@@ -1833,7 +1836,7 @@ obwohl das Patent für den allgemeinen Fall schon fast abgelaufen war.
 }$^,$\footnote{%
 Für Primzahlen $p$ und $q$ mit $p=q$, und $e,d$ mit $ed\equiv 1 \mod J(n)$
 gilt i.a. nicht $ (m^{e})^d \equiv m \mod n \text{ für alle } m <n.$
-Sei z.B. $n=5^2$, berechnet sich $J(n)$ nach Satz \ref{thm-zth-phinum}:
+Sei z.B. $n=5^2$, berechnet sich $J(n)$ nach Satz~\ref{thm-zth-phinum}:
 $~J(n)=5*4=20,~e=3,~d=7,~ed\equiv 21\equiv 1\mod~J(n).$ Dann gilt $ (5^3)^7 \equiv 0 \mod 25.$
 } $p$ und $q$ und berechne $n = p*q$\footnote{%
 Das BSI \index{BSI} (Bundesamt für Sicherheit in der Informationstechnik) empfiehlt, die Primfaktoren $p$ 
@@ -1927,7 +1930,7 @@ Zu zeigen ist also:   $M^{e * d}  = M$  (mod $n$):
 
 Im ersten Schritt zeigen wir: 
 $$M^{e * d} \equiv M{\rm ~(mod~}p).$$
-Dies ergibt sich aus den Voraussetzungen und dem Satz von Euler-Fermat (Satz \ref{thm-zth-fermateuler}).
+Dies ergibt sich aus den Voraussetzungen und dem Satz von Euler-Fermat (Satz~\ref{thm-zth-fermateuler}).
 Da $n=p*q$ und $J(p*q)=(p-1)*(q-1)$ und da $e$ und $d$ so gewählt sind, dass $e*d \equiv 1 {\rm ~(mod~}J(n))$,
 gibt es eine ganze Zahl $k$, so dass gilt: $e*d = 1 + k*(p-1)*(q-1)$.
 \begin{eqnarray*}
@@ -1938,7 +1941,7 @@ M^{e * d}  & \equiv & M^{1+k*J(n)} \equiv M * M^{k*J(n)} \equiv M * M^{k*(p-1)*(
        & \equiv & M {\rm ~(mod~}p). \nonumber
 \end{eqnarray*}
 Die Voraussetzung für die Anwendung des vereinfachten Satzes von Euler-Fermat 
-(Kleiner-Fermat Satz \ref{thm-zth-fermat1}) war, dass $M$ und $p$
+(Kleiner-Fermat Satz~\ref{thm-zth-fermat1}) war, dass $M$ und $p$
 teilerfremd\index{Zahlen!teilerfremd (co-prime)} sind.
 
 Da das im allgemeinen nicht gilt, müssen wir noch betrachten, was ist, wenn
@@ -1971,7 +1974,7 @@ $$
 
 
 \begin{remark}{ 1:}\\
-Man kann die 3 Schritte auch kürzer zusammenfassen, wenn man Satz \ref{thm-zth-fermateuler} 
+Man kann die 3 Schritte auch kürzer zusammenfassen, wenn man Satz~\ref{thm-zth-fermateuler} 
 (Euler-Fermat) benutzt (also nicht den vereinfachten Satz, wo $n = p$ gilt):
 $$
 (M^e)^d \equiv M^{e*d} \equiv M^{(p-1)(q-1)*k + 1} \equiv 
@@ -2000,7 +2003,7 @@ $$
 \section[Zur Sicherheit des RSA-Verfahrens]
 {Zur Sicherheit des RSA-Verfahrens\footnotemark}
     \footnotetext{%
-    Große Teile der Kapitel \ref{complexity} und \ref{chptSecurityParam}
+    Große Teile der Kapitel~\ref{complexity} und~\ref{chptSecurityParam}
     sind angelehnt an den Artikel \glqq Vorzüge und Grenzen des
     RSA-Verfahrens\grqq von F. Bourseau, D. Fox und C. Thiel 
     \cite{Bourseau2002}.}
@@ -2072,7 +2075,7 @@ asymptotisch nicht so stark wie $e^l$ oder $2^l$, sondern echt schwächer,
 z.~B. wie $e^{\sqrt{l}}$). Diese Einordnung entspricht dem heutigen Kenntnisstand, sie bedeutet 
 jedoch nicht, dass das Faktorisierungsproblem möglicherweise nicht auch
 mit (asymptotisch) 
-polynominellem\index{Polynom} Aufwand gelöst werden kann (s. \ref{RSABernstein}).
+polynominellem\index{Polynom} Aufwand gelöst werden kann (s.~\ref{RSABernstein}).
 
 $O(l)$ gibt die Zahl der durchschnittlich erforderlichen Prozessor-Operationen abhängig von der Bitlänge $l$ der zu 
 faktorisierenden Zahl $n$ an. Für den besten allgemeinen Faktorisierungsalgorithmus ist die Konstante 
@@ -2106,7 +2109,7 @@ Siehe: {\em Handbook of Applied Cryptography} \cite{Menezes2001}.
     ZT können Sie in CrypTool\index{CrypTool} über das Menü
     {\bf Einzelverfahren \textbackslash{} Zahlentheorie 
     interaktiv \textbackslash{} Lernprogramm für Zahlentheorie} aufrufen.
-    Siehe Anhang \ref{s:appendix-Learn-NT}.
+    Siehe Anhang~\ref{s:appendix-Learn-NT}.
 }
 \mbox{}
 
@@ -2151,7 +2154,7 @@ Damit wurde klar, dass eine Modullänge von $512$ Bit keinen Schutz mehr
 vor Angreifern darstellt. 
 
 Und auch nach 1999 gab es weitere Fortschritte bei der Faktorisierung 
-(siehe RSA-200 in Kapitel \ref{RSA-200}).
+(siehe RSA-200 in Kapitel~\ref{RSA-200}).
 
 
 
@@ -2226,7 +2229,7 @@ in Kapitel ~\ref{ECAlternative}).
 \noindent
 
 Diese Prognose von Dirk Fox\index{Fox, Dirk} aus dem Jahr 2001 scheint sich
-anhand des neuesten Faktorisierungsrekordes von RSA-200 (siehe Kapitel \ref{RSA-200})
+anhand des neuesten Faktorisierungsrekordes von RSA-200 (siehe Kapitel~\ref{RSA-200})
 zu bestätigen: Seine Schätzung für das Jahr 2005 mit 660 Bit hat die Bitlänge
 von RSA-200 nahezu auf den Punkt getroffen (vergleiche
 Abbildung~\ref{secorvo-factorisation-forecast}). \\
@@ -2327,7 +2330,7 @@ Die "`C-Zahlen"' stammen aus dem Cunningham-Projekt:
      {\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/}}
                                                                } 
 mit Faktorisierungsverfahren für zusammengesetzte Zahlen
-sind in der folgenden Tabelle aufgeführt:
+sind in der folgenden Tabelle~\ref{factorizationrecords} aufgeführt:
 
 \begin{table}[h]
 \begin{center}
@@ -2346,6 +2349,7 @@ sind in der folgenden Tabelle aufgeführt:
 \hline
 \end{tabular}
 \caption{Die derzeitigen Faktorisierungsrekorde (Stand Juli 2009)}    % Eyecatcher_neue-Mersenne
+\label{factorizationrecords}
 \end{center}
 \end{table}
 \footnotetext{%
@@ -2386,7 +2390,7 @@ den ff. Webseiten dargestellt:
 
 Am 22. August 1999 fanden niederländische Forscher die Lösung dieser 
 RSA-Challenge. Sie zerlegten eine $155$-stellige Zahl in ihre beiden $78$-stelligen
-Primfaktoren (vergleiche Kapitel \ref{chptSecurityParam}).
+Primfaktoren (vergleiche Kapitel~\ref{chptSecurityParam}).
 Mit der $512$ Bit-Zahl RSA-155 war eine {\em magische} Grenze erreicht.
 
 
@@ -2760,7 +2764,7 @@ Wie man sieht, sind die größten (aus 2 Primfaktoren) zusammengesetzten
 Zahlen, die man faktorisieren kann, deutlich kleiner als die Zahlen mit
 einer speziellen Struktur, für die Primzahltests\index{Primzahltest} in
 der Lage sind, Aussagen über ihre Primalität zu treffen (siehe Kapitel 
-\ref{search_for_very_big_primes}, \ref{primality_tests} und
+\ref{search_for_very_big_primes},~\ref{primality_tests} und
 \ref{spezialzahlentypen}).
 
 
@@ -3266,7 +3270,7 @@ lösen.
   \item[\bf 1.] Die gewählten Primzahlen seien $p=5$ und $q=11$. \\
                 Also ist $n=55$ und $J(n) = (p-1)*(q-1)=40$.
   \item[\bf 2.] $e = 7$ (sollte\footnote{%
-                Siehe Fußnote \ref{foot:Selection-of-e} auf Seite
+                Siehe Fußnote~\ref{foot:Selection-of-e} auf Seite
                 \pageref{foot:Selection-of-e}.}
                 zwischen $11$ und $39$ liegen und muss
                 teilerfremd\index{Zahlen!teilerfremd (co-prime)}
@@ -3290,15 +3294,15 @@ ASCII-Zeichensatz als Bausteine für die Nachrichten.
 
 % --------------------------------------------------------------------------
 \subsection{RSA mit etwas größeren Primzahlen und einem Text aus Großbuchstaben}\label{rsaex2}
-Gegeben ist der Text \glqq ATTACK AT DAWN'' und die Zeichen werden auf folgende
-einfache Weise \index{Blocklänge} codiert\footnote{%
+Gegeben ist der Text \glqq ATTACK AT DAWN'' und die Zeichen werden gemäß 
+Tabelle~\ref{alphacode}\index{Blocklänge} codiert\footnote{%
 Mit CrypTool\index{CrypTool} können Sie dies per Menü 
 {\bf Einzelverfahren \textbackslash{} RSA-Kryptosystem \textbackslash{} RSA-Demo} lösen. Dies ist auch im Tutorial/Szenario der Online-Hilfe 
 zu CrypTool beschrieben [Optionen, Alphabet vorgeben, Basissystem, Blocklänge 2 und Dezimaldarstellung].
-}:
-\vskip +5 pt
-\hypertarget{Grossbuchstaben-Alphabet}{}
-{\bf Tabelle 7: Großbuchstabenalphabet}\index{Großbuchstabenalphabet}\\[1ex]
+}.
+
+\begin{table}[h]
+\begin{center}
 \begin{tabular}{|c|l||c|l|}
 \hline
 Zeichen & Zahlenwert & Zeichen & Zahlenwert \\
@@ -3319,15 +3323,18 @@ K       & 11   & X    & 24 \\
 L       & 12   & Y    & 25 \\
 &              & Z    & 26 \\
 \hline
-\end{tabular}  
-
-\vskip +20 pt
+\end{tabular} 
+\end{center}
+\hypertarget{Grossbuchstaben-Alphabet}{}
+\caption{Großbuchstabenalphabet}\index{Großbuchstabenalphabet}
+\label{alphacode}
+\end{table}
 
 \noindent {\bf Schlüsselerzeugung (Schritt 1 bis 3):} \\
 %\vskip 5 pt
 {\bf 1.} $p=47, q=79$ $( n= 3713;~ J(n) = (p-1)*(q-1)=3588).$ \\
 {\bf 2.} $e=37$ (sollte\footnote{%
-                Siehe Fußnote \ref{foot:Selection-of-e} auf Seite
+                Siehe Fußnote~\ref{foot:Selection-of-e} auf Seite
                 \pageref{foot:Selection-of-e}.}
                 zwischen 79 und 3587 liegen und muss
                 teilerfremd\index{Zahlen!teilerfremd (co-prime)}
@@ -3415,7 +3422,7 @@ Mit CrypTool\index{CrypTool} können Sie dies per Menü
 {\bf Einzelverfahren \textbackslash{} RSA-Kryptosystem \textbackslash{} Faktorisieren einer Zahl} lösen.
 }. \\
 {\bf 2.} $e=65.537$ (sollte\footnote{%
-                Siehe Fußnote \ref{foot:Selection-of-e} auf Seite
+                Siehe Fußnote~\ref{foot:Selection-of-e} auf Seite
                 \pageref{foot:Selection-of-e}.}
                 zwischen $509$ und $255.015$ liegen u. muss\footnote{%
       $e$ darf also nicht $2, 127$ oder $251$ sein
@@ -3575,11 +3582,16 @@ schickt, nehmen wir ihn gerne in die Dokumentation auf.
 
 \noindent Hier die Aufgabe im Originaltext:
 
-Two samples of RSA ciphertext are presented in Tables 4.1 and 4.2. Your task
+Two samples of RSA ciphertext are presented in Tables~\ref{stinson1}\footnote{%
+Die Zahlen dieser Tabelle können Sie mit Copy und Paste weiter bearbeiten.
+} and \ref{stinson2}\footnote{%
+Die Zahlen dieser Tabelle befinden sich auch in der Online-Hilfe \glqq 
+Szenario für die RSA-Demonstration\grqq~ der CrypTool-Auslieferung\index{CrypTool}.
+}. Your task
 is to decrypt them. The public parameters of the system are 
 
-\noindent $n = 18.923$ and $e = 1261$ (for Table 4.1) and \\
-\noindent $n = 31.313$ and $e = 4913$ (for Table 4.2).
+\noindent $n = 18.923$ and $e = 1261$ (for Table~\ref{stinson1}) and \\
+\noindent $n = 31.313$ and $e = 4913$ (for Table~\ref{stinson2}).
 
 This can be accomplished as follows. First, factor $n$ (which is easy
 because it is so small). Then compute the exponent $d$ from $J(n)$, and,
@@ -3603,12 +3615,7 @@ The first plaintext was taken from ''The Diary of Samuel Marchbanks'', by
 Robertson Davies, 1947, and the second was taken from ''Lake Wobegon Days'',
 by Garrison Keillor, 1985.
 
-% \newpage  be_24.5.03 raus, da sonst vorherige Seite fast leer.
-\vspace{12pt}
-TABLE 4.1\footnote{%
-Die Zahlen dieser Tabelle können Sie mit Copy und Paste weiter bearbeiten.
-}: RSA-Ciphertext
-
+\begin{table}[he]
 {\tt 
 \begin{tabular}{llllllll}
 12423 & 11524  & 7243  & 7459 & 14303  & 6127 & 10964 & 16399 \\
@@ -3641,13 +3648,11 @@ Die Zahlen dieser Tabelle können Sie mit Copy und Paste weiter bearbeiten.
 18628 & 14326  & 9175  & 9061   & 650 & 18110  & 8720 & 15404 \\
  2951   & 722 & 15334   & 841 & 15610  & 2443 & 11056  & 2186 
 \end{tabular} } % tt
+\caption{RSA-Geheimtext A}
+\label{stinson1}
+\end{table}
 
-\newpage
-TABLE 4.2\footnote{%
-Die Zahlen dieser Tabelle befinden sich auch in der Online-Hilfe \glqq 
-Szenario für die RSA-Demonstration\grqq~ der CrypTool-Auslieferung\index{CrypTool}.
-}: RSA-Ciphertext
-
+\begin{table}[he]
 {\tt 
 \begin{tabular}{llllllll}
  6340  & 8309 & 14010  & 8936 & 27358 & 25023 & 16481 & 25809 \\
@@ -3669,6 +3674,9 @@ Szenario für die RSA-Demonstration\grqq~ der CrypTool-Auslieferung\index{CrypToo
  6000 & 31280 & 29413  & 2066   & 369 & 23204  & 8425  & 7792 \\
 25973  & 4477 & 30989                               
 \end{tabular} } % tt
+\caption{RSA-Geheimtext B}
+\label{stinson2}
+\end{table}
 
 
 % --------------------------------------------------------------------------
@@ -3724,7 +3732,7 @@ Geheimtext:
 
 \begin{remark}{:}\\
 Die ursprüngliche Nachricht bestand aus einem Satz mit 31 Zeichen (codiert
-mit dem Großbuchstabenalphabet\index{Großbuchstabenalphabet} aus Abschnitt \ref{rsaex2}).
+mit dem Großbuchstabenalphabet\index{Großbuchstabenalphabet} aus Abschnitt~\ref{rsaex2}).
 ann wurden je 16 Dezimalziffern zu
 einer Zahl zusammengefasst (die letzte Zahl wurde mit Nullen aufgefüllt).
 Diese Zahlen wurden mit $e$ potenziert.
@@ -4099,7 +4107,7 @@ b) wie Euklids erweiterter Algorithmus das multiplikative Inverse findet (Lern-K
 ZT können Sie in CrypTool\index{CrypTool} über das Menü
 {\bf Einzelverfahren \textbackslash{} Zahlentheorie interaktiv \textbackslash{}
 Lernprogramm für Zahlentheorie} aufrufen.
-    Siehe Anhang \ref{s:appendix-Learn-NT}.
+    Siehe Anhang~\ref{s:appendix-Learn-NT}.
 }}
 %\hypertarget{NumberTheory_Appendix_A}{}
 \label{NumberTheory_Appendix_A}
@@ -4369,7 +4377,7 @@ also $EA$.
 Die Binärzahl $z = 1000100101110101$ wird in die Dezimaldarstellung durch
 die folgenden Rechnungen umgewandelt: 
 
-$1000100101110101 = 1001$ (mod $1010)  \Longrightarrow a_0 = 9$, ~ ~ $1000100101110101 / 1010 = 110110111110$ \\
+\noindent $1000100101110101 = 1001$ (mod $1010)  \Longrightarrow a_0 = 9$, $1000100101110101 / 1010 = 110110111110$ \\
 $110110111110 = 1000$ (mod $1010) \Longrightarrow a_1 = 8$, $110110111110 / 1010 = 101011111$ \\
 $101011111 = 1$ (mod $1010) \Longrightarrow a_2 = 1$, $10101111 / 1010 = 100011$ \\
 $100011 =  101$ (mod $1010) \Longrightarrow a_3 = 5$, $100011 / 1010 = 1$ \\
@@ -4395,11 +4403,8 @@ ranges over all integers from $0$ to $16$.
 
 \hypertarget{AppArith1}{}
 \subsection*{Multiplikationstabellen modulo $m$}
-Die auf Seite \pageref{SrcArith1a} aufgeführten Multiplikationstabellen modulo $m = 17$
-für $a=5$ und $a=6$ werden mit Mathematica durch die folgenden Befehle bestimmt: 
-TODO
-The multiplication tables modulo $m = 17$ for $a=5$ and $a=6$ on page
-\pageref{SrcArith1a} can be computed using Sage as follows:
+Die auf Seite \pageref{SrcArith1a} aufgeführte Multiplikationstabelle modulo $m = 17$
+für $a=5$ und $a=6$ (Tabelle~\ref{mulmod17}}) wird mit Sage durch die folgenden Befehle bestimmt: 
 
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
@@ -4425,7 +4430,7 @@ Komponenten entweder mit der \texttt{component}- oder mit der \texttt{lift}-Funk
 
 TODO
 Die weiteren Beispiele der Multiplikationstabelle modulo $13$ und modulo $12$ auf Seite 
-\pageref{SrcArith1b} bestimmen Sie, indem Sie im Quelltext jeweils {\tt m=17} durch den 
+\pageref{SrcArith1b} (Tabelle~\ref{mulmod13}) bestimmen Sie, indem Sie im Quelltext jeweils {\tt m=17} durch den 
 entsprechenden Zahlenwert ({\tt m=13} bzw. {\tt m=12}) ersetzen.
 
 
@@ -4489,7 +4494,7 @@ m=11; matrix(10,10, x,y, (x^y)%m )
 
 \vskip +12 pt \hypertarget{AppArith3b}{}
 Im Beispiel auf Seite \pageref{SrcArith3b} wird die Ordnung $ord_{45}(a)$ 
-sowie die Eulersche Zahl $J(45)$ ausgegeben.
+sowie die Eulersche Zahl $J(45)$ ausgegeben (Tabelle~\ref{expmod45}).
 Mit Mathematica bestimmen Sie diese Tabelle durch die folgende Programmschleife (innerhalb von
 Print kann man keine Do-Schleife verwenden und jedes Print gibt am Ende ein Newline aus). 
 \begin{verbatim}
@@ -4883,30 +4888,30 @@ sage: [power_mod(a, e, m) for a in A]
 \begin{center}
 \begin{tabular}{|l|l|l|}\hline
  & Kurzbeschreibung~~ & Seite \\ \hline
-Definition \ref{def-zth-prime} & Primzahlen &  \pageref{def-zth-prime} \\
-Definition \ref{def-zth-composite} & Zusammengesetzte Zahlen & \pageref{def-zth-composite}  \\ \hline
-Satz \ref{thm-zth-cnum} & Teiler von zusammengesetzten Zahlen~~~~~~~ & \pageref{thm-zth-cnum}\\
-Satz \ref{thm-zth-mthm} &  Erster Hauptsatz der elementaren Zahlentheorie&  \pageref{thm-zth-mthm} \\  \hline
-Definition \ref{def-zth-divisibility} & Teilbarkeit &  \pageref{def-zth-divisibility} \\
-Definition \ref{def-zth-remainder} & Restklasse $r$ modulo $m$ &  \pageref{def-zth-remainder} \\
-Definition \ref{def-zth-congruence} & restgleich oder kongruent & \pageref{def-zth-congruence}  \\ \hline
-Satz \ref{thm-zth-div} & Kongruenz mittels Differenz  &  \pageref{thm-zth-div} \\
-Satz \ref{thm-zth-multinv} & Multiplikative Inverse (Existenz) & \pageref{thm-zth-multinv}   \\
-Satz \ref{thm-zth-exhperm} & Erschöpfende Permutation &  \pageref{thm-zth-exhperm} \\
-Satz \ref{thm-zth-pot} & Gestaffelte Exponentiation mod $m$ & \pageref{thm-zth-pot}  \\ \hline
-Definition \ref{def-zth-zn} & $\mathbb{Z}_n$  & \pageref{def-zth-zn} \\
-Definition \ref{def-zth-znmult} &   $\mathbb{Z}_n^*$ & \pageref{def-zth-znmult}  \\ \hline
-Satz \ref{thm-zth-znmult} & Multiplikative Inverse in $\mathbb{Z}_n^*$& \pageref{thm-zth-znmult}  \\ \hline
-Definition \ref{def-zth-phiofn} & Euler-Funktion $J(n)$ & \pageref{def-zth-phiofn}  \\
-Satz \ref{thm-zth-phiprime} & $J(p)$ &  \pageref{thm-zth-phiprime} \\
-Satz \ref{thm-zth-phipq} & $J(p*q)$ &  \pageref{thm-zth-phipq} \\
-Satz \ref{thm-zth-phimultprime} & $J(p_1 * \cdots *p_k)$ & \pageref{thm-zth-phimultprime}  \\
-Satz \ref{thm-zth-phinum} & $J(p_1^{e_1} * \cdots *p_k^{e_k})$ & \pageref{thm-zth-phinum}  \\
-Satz \ref{thm-zth-fermat1} & Kleiner Satz von Fermat  &  \pageref{thm-zth-fermat1} \\
-Satz \ref{thm-zth-fermateuler} & Satz von Euler-Fermat & \pageref{thm-zth-fermateuler}  \\ \hline
-Definition \ref{def-zth-ordn} & Multiplikative Ordnung $ {\rm ord}_{m} (a)$ &  \pageref{def-zth-ordn} \\
-Definition \ref{def-zth-primitiveroot} & Primitivwurzel von $m$ &  \pageref{def-zth-primitiveroot} \\
-Satz \ref{thm-zth-ordp} & Ausschöpfung des Wertebereiches & \pageref{thm-zth-ordp}  \\ \hline
+Definition~\ref{def-zth-prime} & Primzahlen &  \pageref{def-zth-prime} \\
+Definition~\ref{def-zth-composite} & Zusammengesetzte Zahlen & \pageref{def-zth-composite}  \\ \hline
+Satz~\ref{thm-zth-cnum} & Teiler von zusammengesetzten Zahlen~~~~~~~ & \pageref{thm-zth-cnum}\\
+Satz~\ref{thm-zth-mthm} &  Erster Hauptsatz der elementaren Zahlentheorie&  \pageref{thm-zth-mthm} \\  \hline
+Definition~\ref{def-zth-divisibility} & Teilbarkeit &  \pageref{def-zth-divisibility} \\
+Definition~\ref{def-zth-remainder} & Restklasse $r$ modulo $m$ &  \pageref{def-zth-remainder} \\
+Definition~\ref{def-zth-congruence} & restgleich oder kongruent & \pageref{def-zth-congruence}  \\ \hline
+Satz~\ref{thm-zth-div} & Kongruenz mittels Differenz  &  \pageref{thm-zth-div} \\
+Satz~\ref{thm-zth-multinv} & Multiplikative Inverse (Existenz) & \pageref{thm-zth-multinv}   \\
+Satz~\ref{thm-zth-exhperm} & Erschöpfende Permutation &  \pageref{thm-zth-exhperm} \\
+Satz~\ref{thm-zth-pot} & Gestaffelte Exponentiation mod $m$ & \pageref{thm-zth-pot}  \\ \hline
+Definition~\ref{def-zth-zn} & $\mathbb{Z}_n$  & \pageref{def-zth-zn} \\
+Definition~\ref{def-zth-znmult} &   $\mathbb{Z}_n^*$ & \pageref{def-zth-znmult}  \\ \hline
+Satz~\ref{thm-zth-znmult} & Multiplikative Inverse in $\mathbb{Z}_n^*$& \pageref{thm-zth-znmult}  \\ \hline
+Definition~\ref{def-zth-phiofn} & Euler-Funktion $J(n)$ & \pageref{def-zth-phiofn}  \\
+Satz~\ref{thm-zth-phiprime} & $J(p)$ &  \pageref{thm-zth-phiprime} \\
+Satz~\ref{thm-zth-phipq} & $J(p*q)$ &  \pageref{thm-zth-phipq} \\
+Satz~\ref{thm-zth-phimultprime} & $J(p_1 * \cdots *p_k)$ & \pageref{thm-zth-phimultprime}  \\
+Satz~\ref{thm-zth-phinum} & $J(p_1^{e_1} * \cdots *p_k^{e_k})$ & \pageref{thm-zth-phinum}  \\
+Satz~\ref{thm-zth-fermat1} & Kleiner Satz von Fermat  &  \pageref{thm-zth-fermat1} \\
+Satz~\ref{thm-zth-fermateuler} & Satz von Euler-Fermat & \pageref{thm-zth-fermateuler}  \\ \hline
+Definition~\ref{def-zth-ordn} & Multiplikative Ordnung $ {\rm ord}_{m} (a)$ &  \pageref{def-zth-ordn} \\
+Definition~\ref{def-zth-primitiveroot} & Primitivwurzel von $m$ &  \pageref{def-zth-primitiveroot} \\
+Satz~\ref{thm-zth-ordp} & Ausschöpfung des Wertebereiches & \pageref{thm-zth-ordp}  \\ \hline
 \end{tabular}
 \end{center}
 \vskip +6 pt
