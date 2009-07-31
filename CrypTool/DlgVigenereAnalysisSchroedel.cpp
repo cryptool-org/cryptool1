@@ -93,7 +93,7 @@ void CDlgVigenereAnalysisSchroedel::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_CIPHERTEXT, ciphertext);
 	DDX_Text(pDX, IDC_EDIT_PLAINTEXT, plaintext);
 	DDX_Text(pDX, IDC_EDIT_KEY, key);
-	DDX_Control(pDX, IDC_LIST_STATUS, listBoxStatus);
+	DDX_Text(pDX, IDC_EDIT_STATUS, status);
 }
 
 
@@ -107,6 +107,10 @@ END_MESSAGE_MAP()
 void CDlgVigenereAnalysisSchroedel::OnBnClickedOk()
 {
 	UpdateData(true);
+
+	// tell the user that this may take some time
+	LoadString(AfxGetInstanceHandle(), IDS_VIGENERE_ANALYSIS_SCHROEDEL_INFO, pc_str, STR_LAENGE_STRING_TABLE);
+	MessageBox(pc_str, "CrypTool", MB_OK);
 
 	// TODO theAnalysis->startzeit = Date + Time;
 	
@@ -140,6 +144,10 @@ void CDlgVigenereAnalysisSchroedel::OnBnClickedOk()
 	}
 
 	UpdateData(false);
+
+	// open result file and close the dialog
+	CAppDocument *NewDoc = theApp.OpenDocumentFileNoMRU(CString(Pfad) + CString("result.txt"));
+	OnOK();
 }
 
 /*
@@ -261,8 +269,11 @@ void VigenereAnalysisSchroedel::setStatus(CString str) {
 		to figure out a way to transform this into the C++ (dialog) world.
 	*/
 
-	// flomar, 07/30/2009: the following is terribly slow, so for now we don't have status messages
-	// this->theDialog->listBoxStatus.AddString(str);
+	// avoid too many GUI update cycles
+	if(this->theDialog->status != str) {
+		this->theDialog->status = str;
+		this->theDialog->UpdateData(false);
+	}
 }
 
 void VigenereAnalysisSchroedel::output(CString str) {

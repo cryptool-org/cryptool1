@@ -109,10 +109,10 @@ public:
 	CString key;
 	CString autorunFileName;
 
+	CString status;
+
 public:
 	afx_msg void OnBnClickedOk();
-
-	CListBox listBoxStatus;
 };
 
 #endif
