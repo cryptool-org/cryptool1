@@ -6,12 +6,14 @@
 \setlength{\fboxsep}{1.75mm}
 \setlength{\footnotesep}{6pt}
 \usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black,bookmarksnumbered=true]{hyperref}
+
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amsthm}
 \usepackage{fancyvrb}
 \usepackage{makeidx}
 \usepackage[pdftex]{graphicx}
+\usepackage{pdfpages}   % SR_2009: added new cover
 
 \usepackage[flushmargin]{footmisc}
 \usepackage{fullpage}
@@ -44,7 +46,8 @@
 \newenvironment{example}[1]{\noindent\textbf{Example#1}}{}
 \newenvironment{remark}[1]{\noindent\textbf{Comment#1}}{}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Define title %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title{ % Keine Leerzeilen, sonst Meldung: "Paragraph ended before \title was complete."
 	{\Huge The CrypTool Script: \\
 	 \vspace{5pt}
@@ -68,6 +71,8 @@ Frankfurt am Main, Germany\\*[1ex]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
+
+\includepdf[page=1]{figures/coverv1_en.pdf}    % SR_2009: added new cover
 
 \frontmatter
 

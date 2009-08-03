@@ -6,12 +6,14 @@
 % \usepackage[dvips]{graphics}
 % \usepackage{graphicx}
 
-\usepackage[pdftex]{graphicx}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amsthm}
 \usepackage{fancyvrb}
 \usepackage{makeidx}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfpages}   % SR_2009: added new cover
+
 % \usepackage{flafter} Versuch von Hrn. Koy, zu erzwingen, dass 
 %     Grafiken/Verschiebbare Objekte (floats) immer an der Stelle eingefügt
 %     werden, wo sie aufgerufen werden. Tat nicht.
@@ -83,6 +85,8 @@ Frankfurt am Main\\*[1ex]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
+
+\includepdf[page=1]{figures/coverv1_de.pdf}    % SR_2009: added new cover
 
 \frontmatter
 

@@ -3968,7 +3968,7 @@ $\mathbf{Z} / p \mathbf{Z}$. The following function can do this.
 \begin{sagecode}
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
-sage: def enum_primroots(M):
+sage: def enum_PrimitiveRoots_of_an_Integer(M):
 ....:     r"""
 ....:     Return all the primitive roots of M.
 ....:     """
@@ -3983,6 +3983,33 @@ sage: def enum_primroots(M):
 ....:             L.append(testGen.lift())
 ....:     # removing duplicates
 ....:     return Set(L)
+
+###aa
+Alternativ-Code: In Def. abfangen, wenn die Fkt. primitive_root nicht berechenbar. Tut noch nicht.
+sage: def enum_PrimitiveRoots_of_an_Integer(M):
+	r"""
+	Return all the primitive roots of M.
+	"""
+	try:
+		g = primitive_root(M)
+		print "Das ist %s" % M
+	except:
+		# raise ArithmeticError, "primitive_root() failed for %s." % M
+		raise ArithmeticError, "primitive_root() failed."
+	targetOrder = euler_phi(M)
+	L = []
+	# Stepping through all odd integers from 1 up to M, not including
+	# M. So this loop only considers values of i where 1 <= i < M.
+	for i in xrange(1, M, 2):
+		testGen = Mod(g^i, M)
+		if testGen.multiplicative_order() == targetOrder:
+			L.append(testGen.lift())
+	# removing duplicates
+	return Set(L)
+
+
+###zz
+
 \end{Verbatim}
 \caption{Function to calculate all primitive roots for a given number}
 \end{sagecode}
@@ -3993,7 +4020,7 @@ sage: def enum_primroots(M):
 \begin{sagecode}
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
-sage: enum_primroots(541)
+sage: L=enum_PrimitiveRoots_of_an_Integer(541)
 {2, 517, 10, 523, 13, 14, 527, 528, 18, 531, 24, 539, 30, 37, 40, 51,
 54, 55, 59, 62, 65, 67, 68, 72, 73, 77, 83, 86, 87, 91, 94, 96, 98,
 99, 107, 113, 114, 116, 117, 126, 127, 128, 131, 132, 138, 150, 152,
@@ -4005,20 +4032,24 @@ sage: enum_primroots(541)
 409, 410, 413, 414, 415, 424, 425, 427, 428, 434, 442, 443, 445,
 447, 450, 454, 455, 458, 464, 468, 469, 473, 474, 476, 479, 482,
 486, 487, 490, 501, 504, 511}
+sage: L
+sage: len(L)
+144
 \end{Verbatim}
 \caption{Table with all primitive roots for a given prime}
 \end{sagecode}
 
 
 %########## Find number of primes and primitive roots in given range and time
-\noindent With a little bit of programming, we can find out how long
-it takes to compute all the primitive roots of some number of primes.
+\noindent With a little bit of programming, we can count how many primes are in a given range
+and enumerate all their primitive roots.
+
+With time command we can find out how long this takes.
 
 \begin{sagecode}
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
-%a##########################
-sage: def primroots_iter_tell_primenumber(start, end):
+sage: def enum_PrimitiveRoots_of_a_Range_of_Primes(start, end):
 ....:      r"""
 ....:      Compute all primitive roots of all primes between start and end,
 ....:      inclusive. This uses a primes iterator.
@@ -4027,7 +4058,7 @@ sage: def primroots_iter_tell_primenumber(start, end):
 ....:      nPrimitiveRoots = 0
 ....:      for p in primes(start, end+1):
 ....:              nPrimes += 1
-....:          L = enum_primroots(p)
+....:          L = enum_PrimitiveRoots_of_an_Integer(p)
 ....:          nPrimitiveRoots += len(L)
 ....:      print "Enumerate all %s" % nPrimitiveRoots + " primitive roots of %s primes." % nPrimes
 ....:
@@ -4035,20 +4066,6 @@ sage: time primroots_iter_tell_primenumber(1, 1500)
 Enumerate all 62044 primitive roots of 239 primes.
 CPU times: user 6.46 s, sys: 0.18 s, total: 6.64 s
 Wall time: 7.48 s
-
-%b##########################
-
-sage: def primroots_iter(start, end):
-....:     r"""
-....:     Compute all primitive roots of all primes between start and end,
-....:     inclusive. This uses a primes iterator.
-....:     """
-....:     for p in primes(start, end+1):
-....:         enum_primroots(p)
-....:         
-sage: %time primroots_iter(1, 1500)
-CPU times: user 2.04 s, sys: 0.17 s, total: 2.21 s
-Wall time: 2.21 s
 \end{Verbatim}
 \caption{Function to calculate all primitive roots for some given primes}
 \end{sagecode}
@@ -4067,7 +4084,7 @@ their primitive roots.
 \begin{sagecode}
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
-sage: def primroots_counter(start, end, bPrimesOnly=True):
+sage: def enum_PrimitiveRoots_of_a_Range_of_Integers(start, end, bPrimesOnly=True):
 	r"""
 	Compute all primitive roots of all primes between start and end,
 	inclusive. This actually performs primality tests, so it allows us
@@ -4079,11 +4096,11 @@ sage: def primroots_counter(start, end, bPrimesOnly=True):
 		if bPrimesOnly:
 			if is_prime(n):
 				nCheckedNumb += 1
-				L = enum_primroots(n)
+				L = enum_PrimitiveRoots_of_an_Integer(n)
 				nPrimitiveRoots += len(L)
 		else:
 			nCheckedNumb += 1
-			L = enum_primroots(n)
+			L = enum_PrimitiveRoots_of_an_Integer(n)
 			nPrimitiveRoots += len(L)
 	if bPrimesOnly:
 		print "Enumerate all %s" % nPrimitiveRoots + " primitive roots of %s primes." % nCheckedNumb
