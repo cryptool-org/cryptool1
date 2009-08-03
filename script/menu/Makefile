@@ -11,4 +11,4 @@ $(RC):
 ps:
 	for f in *.pdf; do pdf2ps $$f; done
 clean:
-	-rm -f cryptool-menu-*.html
+	-rm -f $(RC) cryptool-menu-*.html
