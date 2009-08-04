@@ -280,8 +280,8 @@ $i,  p_i = q_i$.
 \end{theorem}
 
 In other words: Each natural number other than $1$ can be written as a product of prime numbers in precisely 
-one way, if we ignore the order of the factors. The factors are therefore unique (the ``expression as a product 
-of factors'' is unique)!
+one way, if we ignore the order of the factors. The factors are therefore unique
+(the ``expression as a product of factors'' is unique)!
 
 For example, $60 = 2*2*3*5 = 2^2*3*5$. And this --- other than changing the order of the factors --- is the only 
 way in which the number $60$ can be factorized\index{Prime factor}.
@@ -367,7 +367,8 @@ What do the numbers $5, 12, 19, 26, \cdots$ have in common for division by $7$? 
 For division by $7$, only the following remainders are possible:
 $$r = 0, 1, 2, \cdots, 6.$$
 
-The numbers that result in the same remainder $r$ when divided by $7$ are combined to form the ``remainder 
+The numbers that result in the same remainder $r$ when divided by $7$ are combined to form
+the ``remainder 
 class $r$ modulo $7$''. Two numbers $a$ and $b$ ~\mbox{belonging} to the same remainder class modulo $7$ are said to 
 be ``congruent modulo 7''. Or in general:
 
@@ -2439,7 +2440,7 @@ $p7 = 5080711$ was already known.\footnote{%
 This one can also be found using CrypTool\index{CrypTool}  via menu 
 {\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} 
 Factorization of a Number} --- with the algorithms of Brent, Williams or
-Lenstra, which are ``relativ'' good to separate small factors. \\
+Lenstra, which are ``relatively'' good to separate small factors. \\
 CrypTool can factorize in a reasonable time numbers no longer than 250 bit.
 }
 
@@ -3711,7 +3712,7 @@ chapter~\ref{Chapter_ElementaryNT} (``\nameref{Chapter_ElementaryNT}'').
 
 % ---------------------------------------------------------------------------
 \hypertarget{AppArith1}{}
-\subsection{Multiplication table modulo $m$}
+\subsection{Multiplication table modulo m}     % $ removed at $m$
 \label{l:AppArith1}{}
 
 The multiplication table~\ref{mulmod17} (from page \pageref{SrcArith1a})
@@ -3960,58 +3961,73 @@ sage: for p in primes(1, 50):
 \caption{Calculating one primitive root for some primes}
 \end{sagecode}
 
-If $p$ is prime, then $\mathbf{Z} / p \mathbf{Z}$ has at least one
-primitive root. Sometimes we want to compute all the primitive roots
+\noindent If $p$ is prime, then $\mathbf{Z} / p \mathbf{Z}$ has at least one
+primitive root.
+
+\newpage
+Sometimes we want to compute all the primitive roots
 of $\mathbf{Z} / p \mathbf{Z}$, not just any primitive root of
-$\mathbf{Z} / p \mathbf{Z}$. The following function can do this.
+$\mathbf{Z} / p \mathbf{Z}$.
+The following function can do this%
+\footnote{This code was developed in a Sage script file and
+executed non-interactively. That is why you don't see "sage:" and "....:"
+at the beginning of the lines like in the Sage samples before.}.
 
 \begin{sagecode}
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
-sage: def enum_PrimitiveRoots_of_an_Integer(M):
-....:     r"""
-....:     Return all the primitive roots of M.
-....:     """
-....:     g = primitive_root(M)
-....:     targetOrder = euler_phi(M)
-....:     L = []
-....:     # Stepping through all odd integers from 1 up to M, not including
-....:     # M. So this loop only considers values of i where 1 <= i < M.
-....:     for i in xrange(1, M, 2):
-....:         testGen = Mod(g^i, M)
-....:         if testGen.multiplicative_order() == targetOrder:
-....:             L.append(testGen.lift())
-....:     # removing duplicates
-....:     return Set(L)
+def enum_PrimitiveRoots_of_an_Integer(M):
+    r"""
+    Return all the primitive roots of the integer M (if possible).
+    """
+    try:
+        g = primitive_root(M)
+    except:
+        return None
+    targetOrder = euler_phi(M)
+    L=[]
+    # Stepping through all odd integers from 1 up to M, not including
+    # M. So this loop only considers values of i where 1 <= i < M.
+    for i in xrange(1,M,2):
+            testGen = Mod(g^i,M)
+            if testGen.multiplicative_order() == targetOrder:
+                L.append(testGen.lift())
+    # removing duplicates
+    return Set(L)
 
-###aa
-Alternativ-Code: In Def. abfangen, wenn die Fkt. primitive_root nicht berechenbar. Tut noch nicht.
-sage: def enum_PrimitiveRoots_of_an_Integer(M):
-	r"""
-	Return all the primitive roots of M.
-	"""
-	try:
-		g = primitive_root(M)
-		print "Das ist %s" % M
-	except:
-		# raise ArithmeticError, "primitive_root() failed for %s." % M
-		raise ArithmeticError, "primitive_root() failed."
-	targetOrder = euler_phi(M)
-	L = []
-	# Stepping through all odd integers from 1 up to M, not including
-	# M. So this loop only considers values of i where 1 <= i < M.
-	for i in xrange(1, M, 2):
-		testGen = Mod(g^i, M)
-		if testGen.multiplicative_order() == targetOrder:
-			L.append(testGen.lift())
-	# removing duplicates
-	return Set(L)
+# AA_Start -- Testcases for enum_PrimitiveRoots_of_an_Integer(M)
+print "AA_Start -- Testcases for enum_PrimitiveRoots_of_an_Integer(M)"
+M=10; print "1-----------Testcase: M = %s" % M
+LL = enum_PrimitiveRoots_of_an_Integer(M)
+if LL==None:
+    print M
+else:
+    print LL
+M=8; print "2-----------Testcase: M = %s" % M
+# M=8 hat keine primitive root mod m. Checke, ob per try - except abgefangen.
+LL = enum_PrimitiveRoots_of_an_Integer(M)
+if LL==None:
+    print M
+else:
+    print LL
+M=17; print "3-----------Testcase: M = %s" % M
+LL = enum_PrimitiveRoots_of_an_Integer(M)
+if LL==None:
+    print M
+else:
+    print LL
+# AA_End -- Testcases
 
-
-###zz
-
+OUTPUT:
+AA_Start -- Testcases for enum_PrimitiveRoots_of_an_Integer(M)
+1-----------Testcase: M = 10
+{3, 7}
+2-----------Testcase: M = 8
+8
+3-----------Testcase: M = 17
+{3, 5, 6, 7, 10, 11, 12, 14}
 \end{Verbatim}
-\caption{Function to calculate all primitive roots for a given number}
+\caption{Function ``enum\_PrimitiveRoots\_of\_an\_Integer'' to calculate all primitive roots for a given number}
 \end{sagecode}
 
 \newpage
@@ -4040,57 +4056,26 @@ sage: len(L)
 \end{sagecode}
 
 
-%########## Find number of primes and primitive roots in given range and time
-\noindent With a little bit of programming, we can count how many primes are in a given range
-and enumerate all their primitive roots.
 
-With time command we can find out how long this takes.
+\newpage
+\noindent With a little bit of programming, we can count how many primitive roots
+are in a given range of integers. We can check this for all numbers or only for the
+primes within this range
 
 \begin{sagecode}
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
-sage: def enum_PrimitiveRoots_of_a_Range_of_Primes(start, end):
-....:      r"""
-....:      Compute all primitive roots of all primes between start and end,
-....:      inclusive. This uses a primes iterator.
-....:      """
-....:      nPrimes = 0
-....:      nPrimitiveRoots = 0
-....:      for p in primes(start, end+1):
-....:              nPrimes += 1
-....:          L = enum_PrimitiveRoots_of_an_Integer(p)
-....:          nPrimitiveRoots += len(L)
-....:      print "Enumerate all %s" % nPrimitiveRoots + " primitive roots of %s primes." % nPrimes
-....:
-sage: time primroots_iter_tell_primenumber(1, 1500)
-Enumerate all 62044 primitive roots of 239 primes.
-CPU times: user 6.46 s, sys: 0.18 s, total: 6.64 s
-Wall time: 7.48 s
-\end{Verbatim}
-\caption{Function to calculate all primitive roots for some given primes}
-\end{sagecode}
-
-
-
-
-
-
-
-%###### Find for all numbers if possible, switch between primes and numbers to select
-\noindent And we can count how many primes for which to enumerate all
-their primitive roots.
-
-%a##########################
-\begin{sagecode}
-\begin{Verbatim}%
-[fontsize=\footnotesize,fontshape=tt]
-sage: def enum_PrimitiveRoots_of_a_Range_of_Integers(start, end, bPrimesOnly=True):
+def count_PrimitiveRoots_of_an_IntegerRange(start, end, bPrimesOnly=True):
 	r"""
-	Compute all primitive roots of all primes between start and end,
-	inclusive. This actually performs primality tests, so it allows us
-	to count the number of primes from start to end, inclusive.
+	Compute all primitive roots of all numbers between start and end,
+	inclusive, and count them.
+	If the flag bPrimesOnly is True, it performs primality tests, so it
+	allows us to count the number of primes from start to end, inclusive.
+        If the flag bPrimesOnly is false, it additionally counts these even
+	numbers which have no primitive root.
 	"""
 	nCheckedNumb = 0
+	nCheckedNumb_WithoutPrimitivRoots = 0
 	nPrimitiveRoots = 0
 	for n in xrange(start, end+1):
 		if bPrimesOnly:
@@ -4101,49 +4086,232 @@ sage: def enum_PrimitiveRoots_of_a_Range_of_Integers(start, end, bPrimesOnly=Tru
 		else:
 			nCheckedNumb += 1
 			L = enum_PrimitiveRoots_of_an_Integer(n)
-			nPrimitiveRoots += len(L)
+			if L==None:
+				nCheckedNumb_WithoutPrimitivRoots += 1
+			else:
+				nPrimitiveRoots += len(L)
+
 	if bPrimesOnly:
-		print "Enumerate all %s" % nPrimitiveRoots + " primitive roots of %s primes." % nCheckedNumb
+		print "Found all %s" % nPrimitiveRoots + \
+		      " primitive roots of %s primes." % nCheckedNumb
 	else:
-		print "Enumerate all %s" % nPrimitiveRoots + " primitive roots of %s numbers." % nCheckedNumb
-
-sage: %time primroots_counter(1, 500)
-
-sage: %time primroots_counter(1, 500, False)
-
-Problem z.B. beim Wert 8.  Abfangen per try - except, wenn keine primitive root mod m ex. !
-
-
-
-%b##########################
-
-sage: def primroots_primetest(start, end):
-....:     r"""
-....:     Compute all primitive roots of all primes between start and end,
-....:     inclusive. This actually performs primality tests, so it allows us
-....:     to count the number of primes from start to end, inclusive.
-....:     """
-....:     nPrimes = 0
-....:     for n in xrange(start, end+1):
-....:         if is_prime(n):
-....:             nPrimes += 1
-....:             enum_primroots(n)
-....:     print "Enumerate all primitive roots of %s primes." % nPrimes
-....:     
-sage: %time primroots_primetest(1, 1500)
-Enumerate all primitive roots of 239 primes.
-CPU times: user 2.35 s, sys: 0.03 s, total: 2.38 s
-Wall time: 2.39 s
+		if nCheckedNumb_WithoutPrimitivRoots == 0:
+			print "Found all %s " % nPrimitiveRoots + \
+			      "primitive roots of %s numbers." % nCheckedNumb
+		else:
+			print "Found all %s " % nPrimitiveRoots + \
+			      "primitive roots of %s numbers." % \
+			          (nCheckedNumb - nCheckedNumb_WithoutPrimitivRoots)
+			print "(Total of numbers checked: %s, " % nCheckedNumb + \
+			      "Amount of numbers without primitive roots: %s)" % \
+			          nCheckedNumb_WithoutPrimitivRoots
 \end{Verbatim}
-\caption{Another function to calculate all primitive roots for some given primes}
+\caption{Function ``count\_PrimitiveRoots\_of\_an\_IntegerRange'' to calculate all primitive roots for a given range of integers}
 \end{sagecode}
 
+
 \newpage
-Using our custom-defined function \verb!enum_primroots!, we can find
-all primitive roots of a prime integer $p$. From this list of primitive
-roots, we can determine the smallest and largest primitive root for
-$\mathbf{Z} / p \mathbf{Z}$, as well as count the number of primitive
-roots of $\mathbf{Z} / p \mathbf{Z}$.
+\noindent Using the Sage command \verb!time!, we can also find out how long it takes on
+our computer.
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+# BB_Start -- Testcases for count_PrimitiveRoots_of_an_IntegerRange(start, end, bPrimesOnly=True)
+print "\n\nBB_Start -- Testcases for count_PrimitiveRoots_of_an_IntegerRange(start, end, bPrimesOnly=True)"
+
+print "\n1-----------Testcase: (1, 500)"
+time count_PrimitiveRoots_of_an_IntegerRange(1, 500)
+
+print "\n2-----------Testcase: (5, 6, False)"
+time count_PrimitiveRoots_of_an_IntegerRange(5, 6, False)
+
+print "\n3-----------Testcase: (1, 500, False)"
+time count_PrimitiveRoots_of_an_IntegerRange(1, 500, False)
+# BB_End -- Testcases
+
+OUTPUT:
+BB_Start -- Testcases for count_PrimitiveRoots_of_an_IntegerRange(start, end, bPrimesOnly=True)
+
+1-----------Testcase: (1, 500)
+Found all 8070 primitive roots of 95 primes.
+Time: CPU 0.94 s, Wall: 0.97 s
+
+2-----------Testcase: (5, 6, False)
+Found all 3 primitive roots of 2 numbers.
+Time: CPU 0.00 s, Wall: 0.00 s
+
+3-----------Testcase: (1, 500, False)
+Found all 11010 primitive roots of 170 numbers.
+(Total of numbers checked: 500, Amount of numbers without primitive roots: 330)
+Time: CPU 1.52 s, Wall: 1.59 s
+\end{Verbatim}
+\caption{Testcases and output of function ``count\_PrimitiveRoots\_of\_an\_IntegerRange''}
+\end{sagecode}
+
+
+
+
+\newpage
+\newpage
+\noindent Using our custom-defined function \verb!enum_PrimitiveRoots_of_an_Integer!,
+we can find all primitive roots of one prime integer $p$.
+
+The following function counts how many primes are in a given range
+and enumerate all their primitive roots.
+
+From this list of primitive roots, we can determine the smallest and largest
+primitive root for $\mathbf{Z} / p \mathbf{Z}$, as well as count the number
+of primitive roots of $\mathbf{Z} / p \mathbf{Z}$.
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+def count_PrimitiveRoots_of_a_PrimesRange(start, end):
+      r"""
+      Compute all primitive roots of all primes between start and end,
+      inclusive. This uses a primes iterator.
+      """
+      nPrimes = 0
+      nPrimitiveRoots = 0
+      for p in primes(start, end+1):
+          L = enum_PrimitiveRoots_of_an_Integer(p)
+	  print p, len(L)
+          nPrimes += 1
+          nPrimitiveRoots += len(L)
+      print "Found all %s" % nPrimitiveRoots + " primitive roots of %s primes." % nPrimes
+
+# CC_Start -- Testcases for count_PrimitiveRoots_of_a_PrimesRange(start, end)
+print "\n\nBB_Start -- Testcases for count_PrimitiveRoots_of_a_PrimesRange(start, end)"
+print "-----------Testcase: (1, 1500)"
+time count_PrimitiveRoots_of_a_PrimesRange(1, 1500)
+# CC_End -- Testcases
+
+OUTPUT:
+CC_Start -- Testcases for count_PrimitiveRoots_of_a_PrimesRange(start, end)
+-----------Testcase: (1, 1500)
+2 1
+3 1
+5 2
+7 2
+11 4
+13 4
+17 8
+19 6
+23 10
+29 12
+31 8
+37 12
+...
+1483 432
+1487 742
+1489 480
+1493 744
+1499 636
+Found all 62044 primitive roots of 239 primes.
+Time: CPU 7.55 s, Wall: 7.85 s
+\end{Verbatim}
+\caption{Function to calculate all primitive roots for a given range of primes}
+\end{sagecode}
+
+
+
+\newpage
+\newpage
+\noindent A slightly modified version of our custom-defined function
+\verb!count_PrimitiveRoots_of_a_PrimesRange!, is used to generate
+a database of all primitive roots of all primes between 1 and 100,000.
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+start = 1
+end = 10^5
+fileName = "/scratch/mvngu/primroots.dat"
+file = open(fileName, "w")
+for p in primes(start, end+1):
+    L = enum_PrimitiveRoots_of_an_Integer(p)
+    print p, len(L)
+    # Output to a file. The format is:
+    # (1) the prime number p under consideration
+    # (2) the number of primitive roots of Z/pZ
+    # (3) all the primitive roots of Z/pZ
+    file.write(str(p) + " " + str(len(L)) + " " + str(L) + "\n")
+    file.flush()
+file.close()
+\end{Verbatim}
+\caption{Code to generate the database with all primitive roots for all primes between 1 and 100,000}
+\end{sagecode}
+
+It took about one day on the machine sage.math to generate the
+file ``primroots.dat'' (done in July 2009 by Minh Van Nguyen).
+
+This code and the function \verb!enum_PrimitiveRoots_of_an_Integer!
+was put in a Sage script file and executed non-interactively.
+
+The file ``primroots.dat'' is a database of all primitive roots of all primes
+between 1 and 100,000 inclusive. It is a very large file (about 1 GB
+uncompressed, and 285 MB compressed with bzip2). You can find the file
+at
+   \href{http://sage.math.washington.edu/home/mvngu/doc/primitive-roots/primroots.dat.bz2}
+   {\url{http://sage.math.washington.edu/home/mvngu/doc/primitive-roots/primroots.dat.bz2}}.
+
+
+
+\newpage
+\newpage
+\noindent This database file was used then to create three graphics using the following code.
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: # open a database file on primitive roots from 1 to 100,000
+sage: file = open("/scratch/mvngu/primroots.dat", "r")
+sage: plist = []    # list of all primes from 1 to 100,000
+sage: nlist = []    # number of primitive roots modulo prime p
+sage: minlist = []  # smallest primitive root modulo prime p
+sage: maxlist = []  # largest primitive root modulo prime p
+sage: for line in file:
+....:     # get a line from the database file and tokenize it for processing
+....:     line = line.strip().split(" ", 2)
+....:     # extract the prime number p in question
+....:     plist.append(Integer(line[0]))
+....:     # extract the number of primitive roots modulo p
+....:     nlist.append(Integer(line[1]))
+....:     # extract the list of all primitive roots modulo p
+....:     line = line[-1]
+....:     line = line.replace("{", "")
+....:     line = line.replace("}", "")
+....:     line = line.split(", ")
+....:     # sort the list in non-decreasing order
+....:     line = [Integer(s) for s in line]
+....:     line.sort()
+....:     # get the smallest primitive root modulo p
+....:     minlist.append(line[0])
+....:     # get the largest primitive root modulo p
+....:     maxlist.append(line[-1])
+....:
+sage: file.close()  # close the database file
+sage: # plot of number of primitive roots modulo p
+sage: nplot = point2d(zip(plist, nlist), pointsize=1)
+sage: nplot.axes_labels(["x", "y"])
+sage: nplot
+sage: # plot of smallest primitive root modulo prime p
+sage: minplot = point2d(zip(plist, minlist), pointsize=1)
+sage: minplot.axes_labels(["x", "y"])
+sage: minplot
+sage: # plot of largest primitive root modulo prime p
+sage: maxplot = point2d(zip(plist, maxlist), pointsize=1)
+sage: maxplot.axes_labels(["x", "y"])
+sage: maxplot
+\end{Verbatim}
+\caption{Code to generate the the graphics about the primitive roots}
+\end{sagecode}
+
+
+
+
+\newpage
 Figure~\ref{fig:primitive_roots_all} graphs the number of primitive
 roots for each prime between 1 and 100,000. The $x$-axis represents
 primes between 1 and 100,000, while the $y$-axis counts the number of
@@ -4156,11 +4324,15 @@ primitive roots for each prime within that interval.
 \label{fig:primitive_roots_all}
 \end{figure}
 
+\vskip +50 pt
 Figure~\ref{fig:primitive_roots_smallest} graphs the smallest
 primitive roots of all primes between 1 and 100,000. The $x$-axis
 represents primes between 1 and 100,000. The $y$-axis represents the
 smallest primitive root of each prime within that
-interval. Figure~\ref{fig:primitive_roots_largest} shows a
+interval.
+
+\vskip +25 pt
+Figure~\ref{fig:primitive_roots_largest} shows a
 corresponding graph for the largest primitive root of each prime
 within the above interval.
 
@@ -4181,8 +4353,9 @@ within the above interval.
 % To enforce that the next chapter starts at the beginning of a new page after
 % the freely placed graphics, it is necessary to have TWO newpages and in between
 % something to be printed (here invisible blanks).
-\newpage
-$ $
+% \newpage
+% $ $
+
 
 
 % ---------------------------------------------------------------------------
@@ -4628,17 +4801,22 @@ Theorem~\ref{thm-zth-ordp} & exhausting of all possible values & \pageref{thm-zt
 I would like to take this opportunity to thank 
 \begin{itemize}
 
-  \item {Mr.\ Henrik Koy for making many very useful suggestions, 
-         for the very constructive proof-reading this article and
+  \item {Henrik Koy for making many very useful suggestions, 
+         for the very constructive proof-reading of this article and
          for helping with TeX. \\
 	 Mr.\ Koy designed and developed in his leisure time the 
-	 functions and the complex dialog box of the RSA cryptosystem, 
+	 functions and the complex dialog box of the RSA cryptosystem within CrypTool, 
 	 which enables you to execute the RSA samples of this article.}
 
-  \item {J\"org Cornelius Schneider for his TeX support und for the many 
-         cases where he helped when facing programming or design problems.}
+  \item {J\"org Cornelius Schneider for his enthusiastic TeX support and for the
+         many cases where he helped when facing programming or design problems.}
   
-  \item {Dr. Georg Illies for pointing me to Pari-GP \index{Pari-GP}.}
+  \item {Dr.\ Georg Illies for pointing me to Pari-GP\index{Pari-GP}.}
+  
+  \item {Lars Fischer for his help with fast Pari-GP\index{Pari-GP} code for primitive roots.}
+  
+  \item {Minh Van Nguyen from Australia for his always fast and exhaustive
+         help with the Sage\index{Sage} code samples in this chapter.}
 
 \end{itemize}
 
