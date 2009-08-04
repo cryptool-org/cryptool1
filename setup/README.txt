@@ -15,5 +15,8 @@ for one language only:
 	createsetupexe1lang.bat de
 
 NOTE:
-After every last minute update of the readme a build is required to update the 
-readme in the online help.
+1. After every last minute update of the readme a build is required to update the 
+   readme in the online help.
+2. Make sure to update files in setup/template* including 
+   script-*.pdf and 
+   CrypToolPresentation-*.pdf
