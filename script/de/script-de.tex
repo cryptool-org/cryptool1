@@ -20,7 +20,6 @@
 
 %\usepackage{myThanks}
 %\usepackage{thumbpdf}
-\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black,bookmarksnumbered=true]{hyperref}
 %\usepackage[T1]{fontenc}
 %\usepackage{times}
 %\usepackage{pslatex}
@@ -33,6 +32,11 @@
 % Literaturverzeichnis kapitelweise
 \usepackage[labelstoglobalaux]{bibunits} % ohne labelstoglobalaux scheint man thebibilograpy und bibtex nicht mischen zu können
 \usepackage{float}
+\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black,bookmarksnumbered=true,pdfpagelabels,hypertexnames=false]{hyperref}
+%To reduce the number of hyperlink related 'pdfTeX warning's we use options 
+%pdfpagelabels and hypertexnames=false and place hyperref after float.
+%Option debug helps finding problems.
+
 \floatstyle{ruled}
 \newfloat{sagecode}{!h}{loc}[chapter]
 \floatname{sagecode}{Sage-Beispiel}
