@@ -313,11 +313,9 @@ $ \pi $  of $ 1, \dots, n $  exists with $ a_{\pi (j)} > \sum_{i=1}^{j-1}
 a_{\pi(i)} $. If, in addition, $ \pi $ is the identity, i.e. $ \pi(i)=i $ for $ 
 i=1,2,\dots,n, $ then the sequence $ a_1, \dots , a_n $ is said to be 
 super-increasing.
-The following algorithm solves the knapsack problem with a super-increasing 
-sequence in the timeframe of $ O(n). $
-\begin{center}
-
-\fbox{\parbox{12cm}{        
+Crypto procedure~\ref{knapsackalgo} solves the knapsack problem with a super-increasing 
+sequence in the time of $ O(n). $
+\begin{cryptoprocedure}
 \begin{tabbing}
 \hspace*{0.5cm} \= \hspace*{0.5cm} \= \hspace*{0.5cm} \= \kill
 \>{\bf for} $ i=n $ {\bf to} 1 {\bf do} \\
@@ -331,13 +329,10 @@ sequence in the timeframe of $ O(n). $
 \>{\bf else} \\
 \>\> No solution exists.
 \end{tabbing}
-}}
-\end{center}
-%\vskip +10 pt
-{\bf Algorithm 1.} Solving knapsack problems with super-increasing weights
+\caption{Solving knapsack problems with super-increasing weights}
+\label{knapsackalgo}
+\end{cryptoprocedure}
 
-
-\vskip +40 pt
 %--------------------------------------------------------------------
 \subsection{Merkle-Hellman knapsack encryption}
 %--------------------------------------------------------------------
@@ -348,12 +343,10 @@ In 1978, Merkle and Hellman
 encryption procedure that is based on ``defamiliarizing'' the easy 0-1 
 knapsack problem with a super-increasing sequence into a congruent one with a 
 super-increasing sequence. It is a block ciphering that ciphers an $n$-bit 
-plaintext each time it runs.
+plaintext each time it runs, see crypto procedure~\ref{merklehellmanproc} for the details.
 \index{Knapsack!Merkle-Hellman}
-More precisely:
 
-\begin{center}
-\fbox{\parbox{12cm}{        
+\begin{cryptoprocedure}
 Let $ (a_1, \dots, a_n) $ be super-increasing. Let $ m $ and $ w $ be two
 co-prime\index{Number!co-prime}
 numbers with $ m > \sum_{i=1}^{n} a_i $ and $ 1\leq w \leq m-1. $ Select 
@@ -378,13 +371,9 @@ G^{(j)} & \equiv & \bar{w} g^{(j)} = \sum_{i=1}^n x_i^{(j)} b_{\pi (i)} \bar{w}
 \end{eqnarray*}
 by solving the easier 0-1 knapsack problems $ K(a_1,\dots,a_n;G^{(j)}) $ with 
 super-increasing sequence $ a_1, \dots,a_n $.
-}}
-\end{center}
-%\vskip +10 pt
-{\bf Merkle-Hellman procedure} (based on knapsack problems).
-\vskip +20 pt
-
-
+\caption{Merkle-Hellman procedure (based on knapsack problems)}
+\label{merklehellmanproc}
+\end{cryptoprocedure}
 
 In 1982, \index{Shamir, Adi} Shamir \cite{Shamir1982} specified an algorithm for 
 breaking the system in polynomial \index{Polynomial} time without solving the general knapsack 
@@ -438,9 +427,8 @@ As early as 1978, R. \index{Rivest, Ronald} Rivest, \index{Shamir, Adi}
 A. Shamir, \index{Adleman, Leonard} L. Adleman \cite{RSA1978} introduced 
 the most important asymmetric cryptography procedure to date.  \par
 
-\begin{center}
-\fbox{\parbox{12cm}{        
-\underline{Key generation:} \vskip + 5pt
+\begin{cryptoprocedure}
+\textbf{Key generation:} \vskip + 5pt
 
 Let $ p $ and $ q $ be two different prime numbers and $ N = pq$. Let 
 $ e $ be any prime number relative to $ \phi (N) $ \index{Prime number!relative prime}, i.e. $ \ggt (e,\phi (N))=1. $\index{Gcd}
@@ -452,46 +440,52 @@ whereby $ \phi $ is the {\bf Euler phi Function}.
 The output text is divided into blocks and encrypted, whereby each block has a 
 binary value $ x^{(j)} \leq N $. \vskip + 5 pt
 
-\underline{Public key:}
+\textbf{Public key:}
 \[ N,e. \]
-\underline{Private key:}
+\textbf{Private key:}
 \[ d. \]
-\underline{Encryption:}
+\textbf{Encryption:}
 \[ y= e_{T} (x) = x^{e} \mod N.\]
-\underline{Decryption:}
+\textbf{Decryption:}
 \[ d_{T} (y) = y^d \mod N. \]
-}} % \fbox
-
-\end{center}
-
-%\vskip +10 pt
-{\bf RSA procedure} (based on the factorization problem).
-\vskip +20 pt
+\caption{RSA (based on the factorization problem)}
+\label{rsaproc}
 \index{Factorization!factorization problem}
 \index{Euler!(phi) function}
+\end{cryptoprocedure}
+
 \begin{remark}{:}\\
 The Euler phi function is defined as: $ \phi (N)$ is the number of natural 
 numbers that do not have a common factor with $ N $ {} $ x \leq N. $
 Two natural numbers $ a $ and $ b $ are co-prime\index{Number!co-prime} if 
 $ \ggt (a,b)=1. $ 
+
+For the Euler phi function it holds that: 
+\[
+\phi (1)=1, \phi(2)=1,
+\phi(3)=2, \phi (4)=2, \phi(6)=2, \phi (10)= 4, \phi (15)=8.
+\]
+For example, $ \phi (24)=8, $ because
+\[
+|\{ x <24 : \ggt (x,24) =1 \}| =|\{1,5,7,11,13,17,19,23\}|.
+\]
+If  $ p $ is a prime number, then $ \phi (p)= p-1. $ \\
+If we know the various prime factors $ p_1, \dots , p_k $ of $ N, $ then 
+\[
+\phi(N) = N \cdot (1-\frac{1}{p_1}) \,
+\cdots \, (1-\frac{1}{p_k}).\footnote{Further formulas for the Euler phi
+function are in the article ``Introduction to Elementary Number Theory with
+Examples'', chapter~\ref{patternsandstructures}.} %or \ref{L-Euler-Function}
+\]
+Table~\ref{phi15} gives the values up to $15$. 
+In the case of $ N=pq $, 
+\[
+\phi (N)= pq(1-1/p)(1-1/q) = p(1-1/p)q(1-1/q)=(p-
+1)(q-1).
+\]
 \end{remark}
 
-For the Euler phi function: $ \phi (1)=1, \phi(2)=1,
-\phi(3)=2, \phi (4)=2, \phi(6)=2, \phi (10)= 4, \phi (15)=8. $  For example, $ 
-\phi (24)=8, $ because
-$|\{ x <24 : \ggt (x,24) =1 \}| =|\{1,5,7,11,13,17,19,23\}|. $
-
-If  $ p $ is a prime number, then $ \phi (p)= p-1. $
-
-If we know the various prime factors $ p_1, \dots , p_k $ of $ N, $ then $ \phi 
-(N) = N \cdot (1-\frac{1}{p_1}) \,
-\cdots \, (1-\frac{1}{p_k}) $\footnote{Further formulas for the Euler phi
-function are in the article ``Introduction to Elementary Number Theory with
-Examples'', chapter~\ref{patternsandstructures}.}. %or \ref{L-Euler-Function}
-
-In the case of $ N=pq $, $ \phi (N)= pq(1-1/p)(1-1/q) = p(1-1/p)q(1-1/q)=(p-
-1)(q-1). $
-\\ \vskip +5 pt
+\begin{table}[ht]
 \begin{center}
 \begin{tabular}{|l|l|l|}\hline
 $n$ & $\phi (n) $ & The natural numbers that are co-prime\index{Number!co-prime}
@@ -509,7 +503,10 @@ to $ n $ and less than $ n. $ \\ \hline
 15 &  8 & 1, 2, 4, 7, 8, 11, 13, 14 \\ \hline
 \end{tabular}
 \end{center}
-\vskip +5 pt
+\caption{Euler phi function}
+\label{phi15}
+\end{table}
+
 The function $ e_T $  is a one way function whose trapdoor information is the 
 decomposition into primes of $ N $.
 
@@ -518,8 +515,9 @@ sufficiently quickly for extremely large values (e.g. for several hundred
 decimal places). The quickest algorithms known today
 \cite{4Stinson1995}\index{Stinson 1995} 
 factorize a compound whole number $ N $ in a time period proportional to $ L(N)= 
-e^{\sqrt{\ln (N) \ln (\ln (N))}}. $ 
-\vskip +5 pt
+e^{\sqrt{\ln (N) \ln (\ln (N))}}. $ Some example values can be found in 
+table~\ref{lnvalues}.
+\begin{table}[ht]
 \begin{center}
 \begin{tabular}{|l||l|l|l|l|l|l|}\hline
 $N$ & $ 10^{50} $ & $ 10^{100} $ & $ 10^{150} $ & $ 10^{200} $ & $ 10^{250} $ & 
@@ -529,7 +527,9 @@ $L(N)$ & $ 1.42 \cdot 10^{10} $ &  $ 2.34  \cdot 10^{15} $ &  $ 3.26 \cdot
 10^{29} $ \\ \hline
 \end{tabular}
 \end{center}
-\vskip +5 pt
+\caption{$L(N)$ value table}
+\label{lnvalues}
+\end{table}
 
 To this date, it has not been proved that the problem of breaking RSA is 
 equivalent to the factorization problem. Nevertheless, it is clear that
@@ -555,28 +555,25 @@ How easy it is to guess the future wrong is shown by the
 %--------------------------------------------------------------------
 \subsection{Rabin public key procedure (1979)}
 
-In this case it has been shown that the procedure \index{Rabin, Michael O.} 
-\index{Rabin!public key procedure} is equivalent to breaking the factorization problem. 
+The Rabin\index{Rabin, Michael O.} public key procedure\index{Rabin!public key procedure}
+(crypto procedure~\ref{rabinproc}) has been shown to be equivalent to breaking 
+the factorization problem. 
 Unfortunately, this procedure is susceptible to chosen-cipher text attacks.
 \index{Attack!chosen-cipher text}
-\begin{center}
-\fbox{\parbox{12cm}{        
+\begin{cryptoprocedure}
 Let $ p $ and $ q $ be two different prime numbers with $ p,q\equiv 3 \mod 4 $ 
 and $ n = pq.$ Let $ 0\leq B \leq n-1.$ \\
-\underline{Public key:}
+\textbf{Public key:}
 \[ e=(n,B). \]
-\underline{Private key:}
+\textbf{Private key:}
 \[ d=(p,q). \]
-\underline{Encryption:}
+\textbf{Encryption:}
 \[ y= e_{T} (x) = x(x+B) \mod n.\]
-\underline{Decryption:}
+\textbf{Decryption:}
 \[ d_{T} (y) = \sqrt{y + B^2/4} -B/2 \mod n. \]
-}}
-\end{center}
-
-%\vskip +10 pt
-{\bf Rabin procedure} (based on the factorization problem).
-\vskip +20 pt
+\caption{Rabin procedure (based on the factorization problem)}
+\label{rabinproc}
+\end{cryptoprocedure}
 
 Caution:
 Because $ p,q \equiv 3 \mod 4 $  the encryption is easy to calculate (if the key 
@@ -630,9 +627,9 @@ $ \Z_p^\ast$) is understood to be as follows:
 y=g^k \mod p {\rm .}\]
 It is much more difficult to calculate the discrete logarithm than to evaluate 
 the discrete exponential function (see chapter \ref{MultOrdPrimitveRoot}).
-There are several procedures for calculating the discrete logarithm 
-\cite{4Stinson1995}\index{Stinson 1995}:
-\vskip + 5pt
+Table~\ref{dlogprocs} lists several procedures for calculating the discrete logarithm 
+and their complexity \cite{4Stinson1995}\index{Stinson 1995}.
+\begin{table}[ht]
 \begin{center}
 \begin{tabular}{|l|l|}\hline
 Name                 &        Complexity \\ \hline \hline
@@ -643,9 +640,11 @@ Index-Calculus &             $ O(e^{(1+o(1)) \sqrt{\ln (p) \ln (\ln (p))}}) $ \\
 \hline
 \end{tabular}
 \end{center}
-\vskip +5 pt
+\caption{Procedures for calculating the discrete logarithm over $\Z_p^\ast$}
+\label{dlogprocs}
 \index{Silver} \index{Pohlig, S. C.} \index{Hellman, Martin}
 \index{Baby-step-giant-step}
+\end{table}
 
 The current record\index{Logarithm problem!record} (as of April 2007) for calculating discrete logarithms was
 established in February 2007 by the group Kleinjung, Franke and Bahr at
@@ -707,10 +706,9 @@ organisationally. \\
 What is revolutionary about modern cryptography is, amongst other things, that 
 you no longer need secret channels: You can agree secret keys using non-secret, 
 i.e. public channels. \\
-One protocol that solves this problem is that of Diffie and Hellman. \\
-
-\begin{center}
-\fbox{\parbox{12cm}{        
+One protocol that solves this problem is that of Diffie and Hellman (crypto 
+procedure~\ref{diffiehellmanproc}).
+\begin{cryptoprocedure}
 Two subscribers $ A $ and $ B $ want to agree on a joint secret key. \par
 Let $ p $ be a prime number and $ g $ a natural number. These two numbers do not 
 need to be secret. \\
@@ -722,13 +720,9 @@ get $ \beta^{a} \mod p $ and $ \alpha^b \mod p. $\\
 Thus
 \[ \beta^{a} \equiv (g^b)^{a} \equiv g^{ba} \equiv g^{ab} \equiv (g^{a})^b 
 \equiv \alpha^b \mod p \]
-}}
-\end{center}
-
-%\vskip +10 pt
-{\bf Diffie-Hellman key agreement.}
-\vskip +20 pt
-
+\caption{Diffie-Hellman key agreement}
+\label{diffiehellmanproc}
+\end{cryptoprocedure}
 
 The safety of the {\bf Diffie-Hellman protocol} is closely connected to 
 calculating the discrete logarithm mod $p$\index{Logarithm}. It is even thought that these 
@@ -739,32 +733,29 @@ problems are equivalent.
 \index{ElGamal!public key}
 By varying the Diffie-Hellman key agreement protocol \index{Diffie-Hellman} 
 \index{Encryption!ElGamal public key} slightly, you can obtain an 
-asymmetric encryption algorithm. This observation was made by Taher ElGamal.
-\begin{center}
-\fbox{\parbox{12cm}{        
+asymmetric encryption algorithm, crypto procedure~\ref{elgamalproc}. 
+This observation was made by Taher ElGamal.
+\begin{cryptoprocedure}
 Let $ p $ be a prime number such that the discrete logarithm in $ \Z_p $ is 
 difficult to compute. Let $ \alpha \in \Z_p^\ast $ be a primitive element. Let $a \in \N$ and $ 
 \beta = \alpha^{a}  \mod p. $\\
-\underline{Public key:}
+\textbf{Public key:}
 \[ p,\alpha,\beta. \]
-\underline{Private key:}
+\textbf{Private key:}
 \[a. \]
 Let $ k \in \Z_{p-1} $ be a random number and $ x \in \Z_p^{\ast} $ the 
 plaintext. \\
-\underline{Encryption:}
+\textbf{Encryption:}
 \[ e_T(x,k)=(y_1,y_2), \]
 where
 \[ y_1=\alpha^k \mod p\]
 and
 \[ y_2 = x\beta^k \mod p.\]
-\underline{Decryption:}
+\textbf{Decryption:}
 \[ d_T(y_1,y_2)= y_2 (y_1^{a})^{-1} \mod p \]
-}}
-\end{center}
-
-%\vskip +10 pt
-{\bf ElGamal procedure} (based on the factorization problem).
-\vskip +20 pt
+\caption{ElGamal (based on the factorization problem)}
+\label{elgamalproc}
+\end{cryptoprocedure}
 
 
 
@@ -860,37 +851,30 @@ complexity \index{Complexity} of the logarithm problem is approximately
 Therefore, if the logarithm problem is to be made difficult, the order of the 
 group used $ G $ should have a large prime factor. In particular, if the 
 discrete exponential function in the group $ \Z_p^{\ast} $ is to be a one way 
-function, then $ p -1 $ must be a large prime factor.
-
-
-
-
-\begin{center}
-\fbox{\parbox{12cm}{        
+function, then $ p -1 $ must be a large prime factor. In this case a
+generatlized ElGamal procedure can be defined (crypto
+procedure~\ref{genelgamalproc}).
+\begin{cryptoprocedure}
 Let $ G $ be a finite group with operation $  \circ, $ and let $ \alpha \in G, $ 
 so that the discrete logarithm in $ H =\{ \alpha^{i}: i \geq 0 \} $ is 
 difficult, Let $ a $ with $   0 \leq a \leq |H| -1 $ and let $ \beta = 
 \alpha^{a}. $\\
-\underline{Public key:}
+\textbf{Public key:}
 \[ \alpha,\beta. \]
-\underline{Private key:}
+\textbf{Private key:}
 \[a. \]
 Let $ k \in \Z_{|H|} $ be a random number and $ x \in G $ be a plaintext. \\
-\underline{Encryption:}
+\textbf{Encryption:}
 \[ e_T(x,k)=(y_1,y_2), \]
 where
 \[ y_1=\alpha^k \]
 and
 \[ y_2 = x\circ \beta^k .\]
-\underline{Decryption:}
+\textbf{Decryption:}
 \[ d_T(y_1,y_2)= y_2\circ (y_1^{a})^{-1}  \]
-}}
-\end{center}
-
-
-%\vskip +10 pt
-{\bf Generalized ElGamal procedure} (based on the factorization problem).
-\vskip +20 pt
+\caption{Generalized ElGamal (based on the factorization problem)}
+\label{genelgamalproc}
+\end{cryptoprocedure}
 
 \hyperlink{ellcurve}{Elliptic curves} {} provide useful groups for public key 
 encryption procedures.

@@ -210,11 +210,8 @@ Allerdings ist die Lösung für spezielle $ a_1, \dots, a_n $   recht einfach zu f
 diese Zahlen aufgezählt werden. Beispielsweise ist eine Permutation $\pi$ von $(1,2,3)$ gleich $(3,1,2),$ also $\pi(1) = 3$, $\pi(2) =1$ 
 und $\pi(3) = 2$.} 
 $ \pi $  von $ 1, \dots, n $  mit $ a_{\pi (j)} > \sum_{i=1}^{j-1} a_{\pi(i)} $  existiert. Ist zusätzlich $ \pi $ die Identität, d.h. $ \pi(i)=i $ für $ i=1,2,\dots,n, $ so heißt die Folge $ a_1, \dots , a_n $ superwachsend.
-Der folgende Algorithmus löst das Knapsackproblem mit superwachsender Folge im Zeitraum von $ O(n). $
-%\newpage
-\begin{center}
-
-\fbox{\parbox{12cm}{        
+Das Verfahren \ref{knapsackalgo} löst das Knapsackproblem mit superwachsender Folge im Zeitraum von $ O(n). $
+\begin{cryptoprocedure}
 \begin{tabbing}
 \hspace*{0.5cm} \= \hspace*{0.5cm} \= \hspace*{0.5cm} \= \kill
 \>{\bf for} $ i=n $ {\bf to} 1 {\bf do} \\
@@ -228,25 +225,19 @@ Der folgende Algorithmus löst das Knapsackproblem mit superwachsender Folge im Z
 \>{\bf else} \\
 \>\> Es gibt keine Lösung.
 \end{tabbing}
-}}
-\end{center}
-%\vskip +10 pt
-{\bf Algorithmus 1.} Lösen von Knapsackproblemen mit superwachsenden Gewichten
-\vskip +20 pt
-
+\caption{Lösen von Knapsackproblemen mit superwachsenden Gewichten}
+\label{knapsackalgo}
+\end{cryptoprocedure}
 
 
 %--------------------------------------------------------------------
 \subsection{Merkle-Hellman Knapsack-Verschlüsselung}
 \index{Hellman, Martin} \index{Merkle, Ralph} 
 
-1978 gaben Merkle und Hellman \cite{Merkle1978} \index{Verschlüsselung!Merkle-Hellman} ein Public-Key-Verschlüsselungs-Verfahren an, das darauf beruht, das leichte 0-1-Knapsackproblem mit einer superwachsenden Folge in ein kongruentes mit einer nicht superwachsenden Folge zu \glqq verfremden\grqq. Es ist eine Blockchiffrierung, die bei jedem Durchgang einen $n$ Bit langen Klartext chiffriert.
+1978 gaben Merkle und Hellman \cite{Merkle1978} \index{Verschlüsselung!Merkle-Hellman} ein Public-Key-Verschlüsselungs-Verfahren an, das darauf beruht, das leichte 0-1-Knapsackproblem mit einer superwachsenden Folge in ein kongruentes mit einer nicht superwachsenden Folge zu \glqq verfremden\grqq. Es ist eine Blockchiffrierung, die bei jedem Durchgang einen $n$ Bit langen Klartext chiffriert, siehe Krypto-Verfahren \ref{merklehellmanproc}.
 \index{Knapsack!Merkle-Hellman}
-Genauer:
-\newpage
 
-\begin{center}
-\fbox{\parbox{12cm}{        
+\begin{cryptoprocedure}
 Es sei $ (a_1, \dots, a_n) $ superwachsend. Seien $ m $ und $ w $ zwei
 teilerfremde\index{Zahlen!teilerfremd (co-prime)} Zahlen mit $ m >
 \sum_{i=1}^{n} a_i $ und $ 1\leq w \leq m-1. $
@@ -267,11 +258,9 @@ G^{(j)} & \equiv & \bar{w} g^{(j)} = \sum_{i=1}^n x_i^{(j)} b_{\pi (i)} \bar{w} 
 & = & \sum_{i=1}^n x_{\mu (i)}^{(j)} a_{\pi (\mu (i))} = \sum _{i=1}^n x_{\mu (i)}^{(j)} a_i \mod m, 
 \end{eqnarray*}
 indem er die leichten 0-1-Knapsackprobleme $ K(a_1,\dots,a_n;G^{(j)}) $ mit superwachsender Folge $ a_1, \dots,a_n $ löst.
-}}
-\end{center}
-%\vskip +10 pt
-{\bf Merkle-Hellman Verfahren} (auf Knapsackproblemen basierend).
-\vskip +20 pt
+\caption{Merkle-Hellman (auf Knapsackproblemen basierend)}
+\label{merklehellmanproc}
+\end{cryptoprocedure}
 
 
 
@@ -310,13 +299,13 @@ mit dem RSA-Verfahren sammeln: per Menü {\bf Einzelverfahren
 Bereits 1978 stellten R. \index{Rivest, Ronald} Rivest,
 \index{Shamir, Adi} A. Shamir,  \index{Adleman, Leonard} L. Adleman
 \cite{RSA1978} das bis heute wichtigste 
-asymmetrische Kryptographie-Verfahren vor.  \par
+asymmetrische Kryptographie-Verfahren vor (Krypto-Verfahren~\ref{rsaproc}).
 
 \index{Faktorisierung!Faktorisierungsproblem}
 \index{Eulersche Phi-Funktion}
-\begin{center}
-\fbox{\parbox{12cm}{        
-\underline{Schlüsselgenerierung:} \vskip + 5pt
+\begin{cryptoprocedure}
+\textbf{Schlüsselgenerierung:}
+
 Seien $p$ und $q$ zwei verschiedene Primzahlen und $N=pq.$ Sei $e$ eine frei wählbare, zu $ \phi (N) $ \index{Primzahl!relative} relative Primzahl, d.h. $ \ggt (e,\phi (N))=1. $ Mit dem Euklidschen Algorithmus berechnet man die natürliche Zahl  $ d < \phi (N), $ so dass gilt
 
 \[ ed \equiv 1 \mod \phi (N). \]
@@ -324,42 +313,45 @@ Dabei ist $ \phi $ die {\bf Eulersche Phi-Funktion}.
 
 Der Ausgangstext wird in Blöcke zerlegt und verschlüsselt, wobei jeder Block einen binären Wert $ x^{(j)} \leq N $ hat. \vskip + 5 pt
 
-\underline{Öffentlicher Schlüssel:}
+\textbf{Öffentlicher Schlüssel:}
 \[ N,e. \]
-\underline{Privater Schlüssel:}
+\textbf{Privater Schlüssel:}
 \[ d. \]
-\underline{Verschlüsselung:}
+\textbf{Verschlüsselung:}
 \[ y= e_{T} (x) = x^{e} \mod N.\]
-\underline{Entschlüsselung:}
+\textbf{Entschlüsselung:}
 \[ d_{T} (y) = y^d \mod N \]
-}}
-\end{center}
-
-%\vskip +10 pt
-{\bf RSA-Verfahren} (auf dem Faktorisierungsproblem basierend).
-\vskip +20 pt
+\caption{RSA-Verfahren (auf dem Faktorisierungsproblem basierend)}
+\label{rsaproc}
+\end{cryptoprocedure}
 
 \begin{remark}{:}\\
 Die Eulersche Phi-Funktion ist definiert duch:
 $ \phi (N)$ ist die Anzahl der zu $ N $ {} teilerfremden natürlichen
 Zahlen $ x \leq N. $ Zwei natürliche Zahlen $ a $ und $ b $ sind
 teilerfremd\index{Zahlen!teilerfremd (co-prime)}, falls $ \ggt (a,b)=1. $
-\end{remark}
 
-Für die Eulersche Phi-Funktion gilt: $ \phi (1)=1,~\phi(2)=1,
-~\phi(3)=2, ~\phi (4)=2, ~\phi(6)=2, ~\phi (10)= 4, ~\phi (15)=8. $
-
+Für die Eulersche Phi-Funktion gilt: 
+\[ \phi (1)=1,~\phi(2)=1,
+~\phi(3)=2, ~\phi (4)=2, ~\phi(6)=2, ~\phi (10)= 4, ~\phi (15)=8.
+\]
 Zum Beispiel ist $ \phi (24)=8, $ weil 
-$|\{ x <24 : \ggt (x,24) =1 \}| =|\{1,5,7,11,13,17,19,23\}|. $
-
-Ist  $ p $ eine Primzahl, so gilt $ \phi (p)= p-1. $
-
-Kennt man die verschiedenen Primfaktoren  $ p_1, \dots , p_k $ von $ N, $ so ist $ \phi (N) = N \cdot (1-\frac{1}{p_1}) \,
-\cdots \, (1-\frac{1}{p_k}) $\footnote{%
-Weitere Formeln zur Eulerschen Phi-Funktionfinden sich in \ref{L-Euler-Function}.}.
-
-Im Spezialfall $ N=pq $ ist $ \phi (N)= pq(1-1/p)(1-1/q) = p(1-1/p)q(1-1/q)=(p-1)(q-1).$
-\\ \vskip +5 pt
+\[
+|\{ x <24 : \ggt (x,24) =1 \}| =|\{1,5,7,11,13,17,19,23\}|.
+\]
+Ist  $ p $ eine Primzahl, so gilt $ \phi (p)= p-1. $\\
+Kennt man die verschiedenen Primfaktoren  $ p_1, \dots , p_k $ von $ N, $ so ist 
+\[
+\phi (N) = N \cdot (1-\frac{1}{p_1}) \,
+\cdots \, (1-\frac{1}{p_k}).\footnote{%
+Weitere Formeln zur Eulerschen Phi-Funktionfinden sich in \ref{L-Euler-Function}.}
+\]
+Tabelle~\ref{phi15} zeigt die Werte bis $15$. Im Spezialfall $ N=pq $ gilt
+\[
+\phi (N)= pq(1-1/p)(1-1/q) = p(1-1/p)q(1-1/q)=(p-1)(q-1).
+\]
+\end{remark}
+\begin{table}[ht]
 \begin{center}
 \begin{tabular}{|l|l|l|}\hline
 $n$ & $\phi (n) $ & Die zu $ n $ teilerfremden\index{Zahlen!teilerfremd
@@ -377,21 +369,26 @@ $n$ & $\phi (n) $ & Die zu $ n $ teilerfremden\index{Zahlen!teilerfremd
 15 &  8 & 1, 2, 4, 7, 8, 11, 13, 14 \\ \hline
 \end{tabular}
 \end{center}
-\vskip +5 pt 
+\caption{Eulersche Phi-Funktion}
+\label{phi15}
+\end{table}
+
 Die Funktion $ e_T $  ist eine Einwegfunktion, deren Falltür-Information die Primfaktorzerlegung von $ N $ ist.
 
 Zur Zeit ist kein Algorithmus bekannt, der das Produkt zweier Primzahlen bei sehr großen Werten geeignet schnell
 zerlegen kann (z.B. bei mehreren hundert Dezimalstellen). Die heute schnellsten bekannten Algorithmen \cite{Stinson1995} zerlegen eine 
 zusammengesetzte ganze Zahl $ N $ in einem Zeitraum proportional zu  
-$ L(N)= e^{\sqrt{\ln (N) \ln (\ln (N))}}. $ 
-\vskip +5 pt
+$ L(N)= e^{\sqrt{\ln (N) \ln (\ln (N))}}. $ Einige Beispielwerte finden sich in Tabelle~\ref{lnvalues}.
+\begin{table}[ht]
 \begin{center}
 \begin{tabular}{|l||l|l|l|l|l|l|}\hline
 $N$ & $ 10^{50} $ & $ 10^{100} $ & $ 10^{150} $ & $ 10^{200} $ & $ 10^{250} $ & $ 10^{300} $ \\ \hline
 $L(N)$ & $ 1,42 \cdot 10^{10} $ &  $ 2,34  \cdot 10^{15} $ &  $ 3,26 \cdot 10^{19} $ &  $ 1,20 \cdot 10^{23} $ &  $ 1,86 \cdot 10^{26} $ &  $ 1,53 \cdot 10^{29} $ \\ \hline
 \end{tabular}
 \end{center}
-\vskip +5 pt 
+\caption{Wertetabelle $L(N)$}
+\label{lnvalues}
+\end{table}
 
 Bewiesen ist bis heute nicht, dass das Problem, RSA zu brechen äquivalent zum
 Faktorisierungsproblem \index{Faktorisierung!Faktorisierungsproblem} ist. Es ist
@@ -418,27 +415,23 @@ Durchbrüche''.}
 \subsection{Rabin-Public-Key-Verfahren (1979)}
 
 Für \index{Rabin, Michael O.} \index{Rabin!Public-Key-Verfahren} 
-dieses Verfahren konnte gezeigt werden, dass es äquivalent zum Brechen
+dieses Verfahren (\ref{rabinproc}) konnte gezeigt werden, dass es äquivalent zum Brechen
 des Faktorisierungsproblems ist. Leider ist dieses Verfahren anfällig
 gegen Chosen-Ciphertext-Angriffe.
 \index{Angriff!Chosen-Ciphertext}
-\begin{center}
-\fbox{\parbox{12cm}{        
+\begin{cryptoprocedure}
 Seien $ p $ und $ q $ zwei verschiedene Primzahlen mit $ p,q\equiv 3 \mod 4 $ und $ n = pq.$ Sei $ 0\leq B \leq n-1.$ \\
-\underline{Öffentlicher Schlüssel:}
+\textbf{Öffentlicher Schlüssel:}
 \[ e=(n,B). \]
-\underline{Privater Schlüssel:}
+\textbf{Privater Schlüssel:}
 \[ d=(p,q). \]
-\underline{Verschlüsselung:}
+\textbf{Verschlüsselung:}
 \[ y= e_{T} (x) = x(x+B) \mod n.\]
-\underline{Entschlüsselung:}
+\textbf{Entschlüsselung:}
 \[ d_{T} (y) = \sqrt{y + B^2/4} -B/2 \mod n. \]
-}}
-\end{center}
-
-%\vskip +10 pt
-{\bf Rabin-Verfahren} (auf dem Faktorisierungsproblem basierend).
-\vskip +20 pt
+\caption{Rabin (auf dem Faktorisierungsproblem basierend)}
+\label{rabinproc}
+\end{cryptoprocedure}
 
 Vorsicht:
 Wegen $ p,q \equiv 3 \mod 4 $  ist die Verschlüsselung (mit Kenntnis des Schlüssels) leicht  zu berechnen. Dies ist nicht der Fall für $ p \equiv 1 \mod 4. $ Außerdem ist die Verschlüsselungsfunktion nicht injektiv: Es gibt genau vier verschiedene Quellcodes, die $ e_T(x) $  als Urbild besitzen $ x,-x-B,\omega (x+B/2)-B/2, -\omega(x+B/2)-B/2, $ dabei ist  $ \omega $  eine der vier Einheitswurzeln. Es muss also eine  Redundanz der Quellcodes geben, damit die Entschlüsselung trotzdem eindeutig bleibt!
@@ -478,8 +471,8 @@ Die Umkehrfunktion wird diskrete Logarithmusfunktion $ \log_g $ genannt; es gilt
 \index{Exponentialfunktion!diskrete} Unter dem Problem des diskreten Logarithmus (in $ \Z_p^\ast$) versteht man das folgende:
 \[ \text{Gegeben } p,g \text{~(ein Erzeuger der Gruppe } \Z_p^* \text{) und } y, \text{ bestimme } k \text{ so, dass } y=g^k \mod p \text{ gilt.}\]
 Die Berechnung des diskreten Logarithmus ist viel schwieriger als die Auswertung der diskreten Exponentialfunktion (siehe Kapitel \ref{MultOrdPrimitveRoot}).
-Es gibt viele Verfahren zur Berechung des diskreten Logarithmus \cite{Stinson1995}:
-\vskip + 5pt
+Tabelle~\ref{dlogprocs} listet verschiedene Verfahren zur Berechung des diskreten Logarithmus \cite{Stinson1995} und ihre Komplexität.
+\begin{table}[ht]
 \begin{center}
 \begin{tabular}{|l|l|}\hline
 Name                 &        Komplexität \\ \hline \hline
@@ -489,9 +482,11 @@ Silver-Pohlig-Hellman &    polynomial in $ q, $ dem größten \\
 Index-Calculus &             $ O(e^{(1+o(1)) \sqrt{\ln (p) \ln (\ln (p))}}) $ \\ \hline
 \end{tabular}
 \end{center}
-\vskip +5 pt
 \index{Silver} \index{Pohlig, S. C.} \index{Hellman, Martin}
 \index{Babystep-Giantstep}
+\caption{Verfahren zur Berechnung des diskreten Logarithmus in $ \Z_p^\ast$}
+\label{dlogprocs}
+\end{table}
 
 Der aktuelle Rekord\index{Logarithmusproblem!Rekord} (Stand April 2007) für die Berechnung des diskreten
 Logarithmus wurde im Februar 2007 von der Gruppe Kleinjung, Franke und Bahr an
@@ -545,23 +540,17 @@ per Menü {\bf Einzelverfahren \textbackslash{} Protokolle \textbackslash{} Diffi
 
 Die Mechanismen und Algorithmen der klassischen Kryptographie greifen erst dann, wenn die Teilnehmer bereits den geheimen Schlüssel ausgetauscht haben. Im Rahmen der klassischen Kryptographie  führt kein Weg daran vorbei, dass Geheimnisse kryptographisch ungesichert ausgetauscht werden müssen. Die Sicherheit der Übertragung muss hier durch nicht-kryptographische Methoden erreicht werden. Man sagt dazu, dass man zum Austausch der Geheimnisse einen geheimen Kanal braucht; dieser kann physikalisch oder organisatorisch realisiert sein. \\
 Das Revolutionäre der modernen Kryptographie ist unter anderem, dass man keine geheimen Kanäle mehr braucht: Man kann geheime Schlüssel über nicht-geheime, also öffentliche Kanäle vereinbaren. \\
-Ein Protokoll, das dieses Problem löst, ist das von Diffie und Hellman.\\ %\enlargethispage{+20pt}
+Ein Protokoll, das dieses Problem löst, ist das von Diffie und Hellman (Krypto-Verfahren~\ref{diffiehellmanproc}).
 
-%\newpage
-\begin{center}
-\fbox{\parbox{12cm}{   
+\begin{cryptoprocedure}
 Zwei Teilnehmer $ A $ und $ B $ wollen einen gemeinsamen geheimen Schlüssel vereinbaren. \par    
 Sei $ p $ eine Primzahl und $ g $ eine natürliche Zahl. Diese beide Zahlen müssen nicht geheim sein. \\
 Zunächst wählen sich die beiden Teilnehmer je eine geheime Zahl $ a $ bzw. $ b. $ Daraus bilden sie die Werte $ \alpha = g^{a}\mod p $ und $ \beta = g^b \mod p. $ Dann werden die Zahlen $ \alpha $ und $ \beta $ ausgetauscht. Schließlich potenziert jeder den erhaltenen Wert mit seiner geheimen Zahl und erhält $ \beta^{a} \mod p $ bzw. $ \alpha^b \mod p. $\\
 Damit gilt
 \[ \beta^{a} \equiv (g^b)^{a} \equiv g^{ba} \equiv g^{ab} \equiv (g^{a})^b \equiv \alpha^b \mod p \]
-}}
-\end{center}
-
-%\vskip +10 pt
-{\bf Diffie-Hellman-Schlüsselvereinbarung}.
-\vskip +20 pt
-
+\caption{Diffie-Hellman-Schlüsselvereinbarung}
+\label{diffiehellmanproc}
+\end{cryptoprocedure}
 
 Die Sicherheit des {\bf Diffie-Hellman-Protokolls} hängt eng mit der Berechnung der diskreten Logarithmus modulo $p$ zusammen. Es wird sogar vermutet, dass diese Probleme äquivalent sind.
 
@@ -573,30 +562,26 @@ Die Sicherheit des {\bf Diffie-Hellman-Protokolls} hängt eng mit der Berechnung 
 Indem man das Diffie-Hellman Schlüsselvereinbarungsprotokoll 
 \index{Diffie-Hellman} \index{Verschlüsselung!ElGamal-Public-Key} 
 leicht variiert, kann man einen asymmetrischen Verschlüsselungsalgorithmus
-erhalten. Diese Beobachtung geht auf Taher ElGamal zurück.
-\begin{center}
-\fbox{\parbox{12cm}{        
+erhalten (Krypto-Verfahren~\ref{elgamalproc}). Diese Beobachtung geht auf Taher ElGamal zurück.
+\begin{cryptoprocedure}
 Sei $p$ eine Primzahl, so dass der diskrete Logarithmus in $\Z_p$ schwierig zu berechnen ist. 
 Sei $ \alpha \in \Z_p^\ast $ ein primitives Element. Sei $a \in \N$ eine natürliche Zahl und $ \beta = \alpha^{a}  \mod p. $\\
-\underline{Öffentlicher Schlüssel:}
+\textbf{Öffentlicher Schlüssel:}
 \[ p,\alpha,\beta. \]
-\underline{Privater Schlüssel:}
+\textbf{Privater Schlüssel:}
 \[a. \]
 Sei $ k \in \Z_{p-1} $ eine zufällige Zahl und $ x \in \Z_p^{\ast} $ der Klartext. \\
-\underline{Verschlüsselung:}
+\textbf{Verschlüsselung:}
 \[ e_T(x,k)=(y_1,y_2), \]
 wobei
 \[ y_1=\alpha^k \mod p,\]
 und
 \[ y_2 = x\beta^k \mod p.\]
-\underline{Entschlüsselung:}
+\textbf{Entschlüsselung:}
 \[ d_T(y_1,y_2)= y_2 (y_1^{a})^{-1} \mod p. \]
-}}
-\end{center}
-
-%\vskip +10 pt
-{\bf ElGamal Verfahren} (auf dem diskreten Logarithmusproblem basierend).
-\vskip +20 pt
+\caption{ElGamal (auf dem diskreten Logarithmusproblem basierend)}
+\label{elgamalproc}
+\end{cryptoprocedure}
 
 
 %--------------------------------------------------------------------
@@ -646,7 +631,7 @@ Zur Berechnung dieser Listen braucht man $ 2n $ Gruppenoperationen.
 \end{satz}
 
 \begin{Beweis}{}
-  Zuerst bilde man die zwei Listen \\
+Zuerst bilde man die zwei Listen \\
 Giantstep-Liste: $ \{1,g^n,g^{2n}, \ldots, g^{n \cdot n}\}, $\\
 Babystep-Liste: $ \{ hg^{-1} , hg^{-2} , \ldots , hg^{-n} \}. $ \par
 Falls $ g^{jn} = hg^{-i}, $ also $ h = g^{i+jn}, $ so ist das Problem gelöst. Falls die Listen disjunkt sind, so ist $ h $ nicht als $ g^{i + jn}, i, j\leq n,$ darstellbar. Da dadurch alle Potenzen von $ g $ erfasst werden, hat das Logarithmusproblem keine Lösung.
@@ -663,32 +648,25 @@ Sei $ G $ eine endliche abelsche Gruppe mit $ |G|= p_1^{a_1} p_2^{a_2} \cdot \ld
 
 Enthält $ |G| $ eine \glqq dominanten\grqq {} Primteiler $ p ,$ so ist die Komplexität \index{Komplexität} des Logarithmenproblem ungefähr
 \[ O(\sqrt{p}). \]
-Wenn also das Logarithmusproblem schwer sein soll, so muss die Ordnung der verwendeten Gruppe $ G $ einen großen Primteiler haben. Insbesondere gilt, wenn die diskrete Exponentialfunktion in der Gruppe $ \Z_p^{\ast} $ eine Einwegfunktion sein soll, so muss $ p -1 $ einen großen Primteiler haben.
-
-
-\begin{center}
-\fbox{\parbox{12cm}{    
+Wenn also das Logarithmusproblem schwer sein soll, so muss die Ordnung der verwendeten Gruppe $ G $ einen großen Primteiler haben. Insbesondere gilt, wenn die diskrete Exponentialfunktion in der Gruppe $ \Z_p^{\ast} $ eine Einwegfunktion sein soll, so muss $ p -1 $ einen großen Primteiler haben. In diesem Fall kann man ein verallgemeinertes ElGamal-Verfahren definieren (Krypto-Verfahren~\ref{genelgamalproc}).
+\begin{cryptoprocedure}
 Sei $ G $ eine endliche Gruppe  mit Operation $  \circ, $ und sei $ \alpha \in G, $ so dass der diskrete Logarithmus in $ H =\{ \alpha^{i}: i \geq 0 \} $ schwer ist. Sei $ a $ mit $   0 \leq a \leq |H| -1 $ und sei $ \beta = \alpha^{a}. $\\
-\underline{Öffentlicher Schlüssel:}
+\textbf{Öffentlicher Schlüssel:}
 \[ \alpha,\beta. \]
-\underline{Privater Schlüssel:}
+\textbf{Privater Schlüssel:}
 \[a. \]
 Sei $ k \in \Z_{|H|} $ eine zufällige Zahl und $ x \in G $ ein Klartext. \\
-\underline{Verschlüsselung:}
+\textbf{Verschlüsselung:}
 \[ e_T(x,k)=(y_1,y_2), \]
 wobei
 \[ y_1=\alpha^k, \]
 und
 \[ y_2 = x\circ \beta^k .\]
-\underline{Entschlüsselung:}
+\textbf{Entschlüsselung:}
 \[ d_T(y_1,y_2)= y_2\circ (y_1^{a})^{-1}.  \]
-}}
-\end{center}
-
-
-%\vskip +10 pt
-{\bf Verallgemeinertes ElGamal Verfahren} (auf dem diskreten Logarithmusproblem basierend).
-\vskip +20 pt
+\caption{Verallgemeinertes ElGamal Verfahren (auf dem diskreten Logarithmusproblem basierend)}
+\label{genelgamalproc}
+\end{cryptoprocedure}
 
 \hyperlink{ellcurve}{Elliptische Kurven}{} liefern nützliche Gruppen für Public-Key-Verschlüsselungsverfahren.
 

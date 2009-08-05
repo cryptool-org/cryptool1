@@ -3,7 +3,7 @@ PDF=script-$(LANG).pdf
 DVI=script-$(LANG).dvi
 TEX=script-$(LANG).tex
 IDX=script-$(LANG).idx
-TMP=*.aux *.idx *.ilg *.ind *.log *.out *.toc *.bbl *.blg *.lof *.lot auto
+TMP=*.aux *.idx *.ilg *.ind *.log *.out *.toc *.bbl *.blg *.lof *.lot *.loc *.lop auto
 all: pdf
 
 pdf: $(PDF)

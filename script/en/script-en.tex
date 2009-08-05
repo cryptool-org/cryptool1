@@ -23,7 +23,7 @@
 \defaultbibliography{references}
 \defaultbibliographystyle{abbrv}
 \usepackage{float}
-\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black,bookmarksnumbered=true,pdfpagelabels,hypertexnames=false]{hyperref}
+\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black,bookmarksnumbered=true,pdfpagelabels,hypertexnames=false,debug]{hyperref}
 %To reduce the number of hyperlink related 'pdfTeX warning's we use options 
 %pdfpagelabels and hypertexnames=false and place hyperref after float.
 %Option debug helps finding problems.
@@ -31,6 +31,8 @@
 \floatstyle{ruled}
 \newfloat{sagecode}{!h}{loc}[chapter]
 \floatname{sagecode}{Sage sample}
+\newfloat{cryptoprocedure}{!h}{lop}[chapter]
+\floatname{cryptoprocedure}{Crypto Procedure}
 
 
 \makeindex
@@ -44,9 +46,7 @@
 %\newcommand{\hyperlink}[2]{#2}
 %\newcommand{\hypertarget}[2]{#2}
 \newtheorem{theorem}{Theorem}[section]
-\newenvironment{Proof}[1]
-  {\textbf{Proof #1} \\}
-  {\hfill$\Box$ \\}
+\newenvironment{Proof}[1]{\noindent\textbf{Proof #1} \\}{\hfill$\Box$\par}
 \newenvironment{example}[1]{\noindent\textbf{Example#1}}{}
 \newenvironment{remark}[1]{\noindent\textbf{Comment#1}}{}
 
@@ -187,20 +187,28 @@ The specific license for this document is the GNU Free Documentation Licence
 \begingroup
 % remove extra vertical space from \listoffigure and \listoftables so that 
 % it look similar to \listof{sagecode}
-\setlength{\parskip}{0pt}
-\clearpage
-\listoffigures
+%\setlength{\parskip}{0pt}
+\renewcommand*{\addvspace}[1]{}
+
+\clearpage\phantomsection
 \addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
 
-\clearpage
-\listoftables
+\clearpage\phantomsection
 \addcontentsline{toc}{chapter}{\listtablename}
+\listoftables
 
-\clearpage
-\listof{sagecode}{List of Sage Code Examples}
+\clearpage\phantomsection
 \addcontentsline{toc}{chapter}{List of Sage Code Examples}
+\listof{sagecode}{List of Sage Code Examples}
+
+\clearpage\phantomsection
+\addcontentsline{toc}{chapter}{List of Crypto Procedures}
+\listof{cryptoprocedure}{List of Crypto Procedures}
 \endgroup
 
+\clearpage\phantomsection
+\addcontentsline{toc}{chapter}{Index}
 \printindex
 
 \end{document}

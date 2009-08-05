@@ -40,6 +40,8 @@
 \floatstyle{ruled}
 \newfloat{sagecode}{!h}{loc}[chapter]
 \floatname{sagecode}{Sage-Beispiel}
+\newfloat{cryptoprocedure}{!h}{lop}[chapter]
+\floatname{cryptoprocedure}{Krypto-Verfahren}
 
 
 \makeindex
@@ -53,9 +55,7 @@
 % \hoffset-0.7in
 \newtheorem{definition}{Definition}[section]
 \newtheorem{satz}{Satz}[section]
-\newenvironment{Beweis}[1]
-  {\textbf{Beweis #1} \\}
-  {\hfill$\Box$ \\}
+\newenvironment{Beweis}[1]{\noindent\textbf{Beweis #1} \\}{\hfill$\Box$\par}
 \newenvironment{example}[1]{\noindent\textbf{Beispiel#1}}{}
 \newenvironment{remark}[1]{\noindent\textbf{Bemerkung#1}}{}
 
@@ -173,7 +173,6 @@ Dieses Dokument unterliegt der GNU-Lizenz für freie Dokumentation
 \input{chapters/crypto2020.tex}
 \bibliographyunit
 
-%\appendix \addcontentsline{toc}{section}{Appendix} %be_2005 raus
 \begin{appendix}
   \newpage
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -202,21 +201,25 @@ Dieses Dokument unterliegt der GNU-Lizenz für freie Dokumentation
 % remove extra vertical space from \listoffigure and \listoftables so that 
 % it look similar to \listof{sagecode}
 \setlength{\parskip}{0pt}
-\clearpage
-\listoffigures
+\clearpage\phantomsection
 \addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
 
-\clearpage
-\listoftables
+\clearpage\phantomsection
 \addcontentsline{toc}{chapter}{\listtablename}
+\listoftables
 
-\clearpage
-\listof{sagecode}{Verzeichnis der Sage-Programmbeispiele}
+\clearpage\phantomsection
 \addcontentsline{toc}{chapter}{Sage-Programmbeispiele}
+\listof{sagecode}{Verzeichnis der Sage-Programmbeispiele}
+
+\clearpage\phantomsection
+\addcontentsline{toc}{chapter}{Krypto-Verfahren}
+\listof{cryptoprocedure}{Verzeichnis der Krypto-Verfahren}
 \endgroup
 
-%\addcontentsline{toc}{section}{Index} %moved to style.ist
-
+\clearpage\phantomsection
+\addcontentsline{toc}{chapter}{Index}
 \printindex
 
 \end{document}
