@@ -33,7 +33,7 @@ much shorter key lengths. If we assume that the computing power increases
 by Moore's law (i.~e.\ it doubles every 18 months)\footnote{empirical
 knowledge by Gordon Moore, co-founder of Intel, 1965}, then the evolution of
 the key lengths for secure communication will be as figure~\ref{RSAKeylength}
-\cite{Lenstra1999} (source: Arjen Lenstra and Eric Verheul:
+\cite{ec:Lenstra1999} (source: Arjen Lenstra and Eric Verheul:
 \href{http://cryptosavvy.com/table.htm}
 {\texttt{http://cryptosavvy.com/table.htm}}).
 
@@ -361,7 +361,7 @@ with $b\ne 0$\footnote{The form (\ref{ellp}) is called the standard form of the 
 \end{itemize}
 This conditions on the parameters $a,b$ ensure that the elliptic equation can be used in the context of cryptography\footnote{Formally we call such curves non singular.}.
 
-Let $|E|$ denote the number of elements of an elliptic curve $E$ given an underlying field $GF(k)$ (for practical reasons either $k=p$ with $p$ prim or $k=2^n$). Then Hasse's theorem\cite{Silverman1986} yields $| \, |E| - k-1\,| \le 2\cdot \sqrt{k}$. This Inequality is equivalent to $k+1 - 2\sqrt{k} < |E| < k+1+2\sqrt{k}$. In particular, this means that the number of elements of an elliptic curve is approximately $k$ (for large $k$). 
+Let $|E|$ denote the number of elements of an elliptic curve $E$ given an underlying field $GF(k)$ (for practical reasons either $k=p$ with $p$ prim or $k=2^n$). Then Hasse's theorem\cite{ec:Silverman1986} yields $| \, |E| - k-1\,| \le 2\cdot \sqrt{k}$. This Inequality is equivalent to $k+1 - 2\sqrt{k} < |E| < k+1+2\sqrt{k}$. In particular, this means that the number of elements of an elliptic curve is approximately $k$ (for large $k$). 
 
 % -----------------------------------------------------------------------------
 \section{Operating on the elliptic curve}
@@ -514,7 +514,7 @@ in 1999 he was awarded for his ``outstanding contributions in mathematics'':
 }
 algorithms based on elliptic curves%
 \footnote{In 1987 H.W. Lenstra published
-a factorization algorithm, based on elliptic curves (see \cite{Lenstra1987}).
+a factorization algorithm, based on elliptic curves (see \cite{ec:Lenstra1987}).
 The biggest compound number currently 
 factorized\index{Factorization!factoring records} with elliptic curves is 
 the number $ 628^{59}-1, $ which has 55 decimal digits. It was
@@ -611,44 +611,44 @@ Both examples show the typical range of application for elliptic curve cryptogra
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{section}{Bibliography}
 
-    \bibitem[Cassels1991]{Cassels1991} J. W. S. Cassels,
+    \bibitem[Cassels1991]{ec:Cassels1991} J. W. S. Cassels,
 	\index{Cassels 1991} \\
         {\em Lectures on elliptic curves},\\
 	Cambridge University Press, 1991, 143 pages.
-    \bibitem[Koblitz1984]{Koblitz1984}N. Koblitz, 
+    \bibitem[Koblitz1984]{ec:Koblitz1984}N. Koblitz, 
 	\index{Koblitz 1984} \\
         {\em Introduction to elliptic curves and modular forms},\\
 	Graduate Texts in Mathemathics, Springer-Verlag, 1984.
-    \bibitem[Koblitz1998]{Koblitz1998}N. Koblitz,  
+    \bibitem[Koblitz1998]{ec:Koblitz1998}N. Koblitz,  
 	\index{Koblitz 1998}\\
 	{\em Algebraic aspects of Cryptography. With an appendix on 
 	Hyperelleptic curves by Alfred J. Menezes, Yi Hong Wu and Robert 
 	J. Zuccherato}, \\
 	Springer-Verlag, 1998, 206 pages.
-    \bibitem[Menezes1993]{Menezes1993}A. J. Menezes, 
+    \bibitem[Menezes1993]{ec:Menezes1993}A. J. Menezes, 
 	\index{Menezes 1993} \\
         {\em Elliptic curve public key cryptosystems},\\
 	Kluwer Academic Publishers, 1993.
-    \bibitem[Lenstra1987]{Lenstra1987} H.W. Lenstra, 
+    \bibitem[Lenstra1987]{ec:Lenstra1987} H.W. Lenstra, 
         \index{Lenstra 1987} \\
         {\em Factoring integers with elliptic curves}, \\
 	Annals of Mathematics 126, pp. 649-673, 1987.
-    \bibitem[Lenstra1999]{Lenstra1999} Arjen K. Lenstra, Eric R. Verheul
+    \bibitem[Lenstra1999]{ec:Lenstra1999} Arjen K. Lenstra, Eric R. Verheul
         \index{Lenstra/Verheul 1999} \\
         {\em Selecting Cryptographic Key Sizes (1999)},\\
 	Journal of Cryptology: the journal of the International 
 	Association for Cryptologic Research \\
 	\href{http://www.cryptosavvy.com/cryptosizes.pdf}
 	{\texttt{http://www.cryptosavvy.com/cryptosizes.pdf}}
-    \bibitem[Silverman1986]{Silverman1986} J. Silverman, 
+    \bibitem[Silverman1986]{ec:Silverman1986} J. Silverman, 
         \index{Silverman 1986}\\
         {\em The Arithmetic of Elliptic Curves},\\
 	Springer-Verlag, 1986.
-    \bibitem[Silverman1992]{Silverman1992}J. Silverman,
+    \bibitem[Silverman1992]{ec:Silverman1992}J. Silverman,
 	\index{Silverman 1992} \\
         {\em The arithmetic of elliptc curves},\\
 	Graduate Texts in Mathemathics, Springer-Verlag, 1992.
-    \bibitem[SilvermanTate1992]{SilvermanTate1992}J. Silverman, J. Tate,
+    \bibitem[SilvermanTate1992]{ec:SilvermanTate1992}J. Silverman, J. Tate,
 	\index{Siverman/Tate 1992} \\
         {\em Rational points on elliptic curves},\\
 	Springer-Verlag, 1992.

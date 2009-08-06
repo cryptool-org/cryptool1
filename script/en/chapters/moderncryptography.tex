@@ -238,7 +238,7 @@ perpetrator is faced with problems from \textbf{NP}.
 
 Unfortunately, we do not yet know whether one way functions actually exist. 
 However, we can prove that one way functions exist if and only if $ \textbf{P} 
-\neq \textbf{NP} $ \cite[S.63]{Balcazar1988}.\\
+\neq \textbf{NP} $ \cite[S.63]{mc:Balcazar1988}.\\
 
 \vskip +3pt
 Mathematicians have again and again claimed to have proven the equivalence, e.g.
@@ -251,7 +251,7 @@ but so far the claims have always turned out to be false.
 A number of algorithms have been suggested for public key procedures\index{Cryptography!public key}. In many 
 cases - although they at first appeared promising - it was discovered that they 
 could be solved polynomially\index{Polynomial}. The most famous failed applicant is the knapsack 
-with trapdoor, suggested by Ralph Merkle \cite{Merkle1978}.
+with trapdoor, suggested by Ralph Merkle \cite{mc:Merkle1978}.
 
 %\newpage
 \vskip +20 pt
@@ -339,7 +339,7 @@ sequence in the time of $ O(n). $
 \index{Hellman, Martin} \index{Merkle, Ralph} 
 
 In 1978, Merkle and Hellman 
-\cite{Merkle1978} \index{Encryption!Merkle-Hellman} specified a public key 
+\cite{mc:Merkle1978} \index{Encryption!Merkle-Hellman} specified a public key 
 encryption procedure that is based on ``defamiliarizing'' the easy 0-1 
 knapsack problem with a super-increasing sequence into a congruent one with a 
 super-increasing sequence. It is a block ciphering that ciphers an $n$-bit 
@@ -375,12 +375,12 @@ super-increasing sequence $ a_1, \dots,a_n $.
 \label{merklehellmanproc}
 \end{cryptoprocedure}
 
-In 1982, \index{Shamir, Adi} Shamir \cite{Shamir1982} specified an algorithm for 
+In 1982, \index{Shamir, Adi} Shamir \cite{mc:Shamir1982} specified an algorithm for 
 breaking the system in polynomial \index{Polynomial} time without solving the general knapsack 
-problem. Len \index{Adleman, Leonard} Adleman \cite{Adleman1982} and Jeff 
-Lagarias \index{Lagarias, Jeff} \cite{Lagarias1983} specified an algorithm for 
+problem. Len \index{Adleman, Leonard} Adleman \cite{mc:Adleman1982} and Jeff 
+Lagarias \index{Lagarias, Jeff} \cite{mc:Lagarias1983} specified an algorithm for 
 breaking the twice iterated Merkle-Hellman knapsack encryption procedure in 
-polynomial time. Ernst Brickell \index{Brickell, Ernst} \cite{Brickell1985} then 
+polynomial time. Ernst Brickell \index{Brickell, Ernst} \cite{mc:Brickell1985} then 
 specified an algorithm for breaking multiply iterated Merkle-Hellman knapsack 
 encryption procedures in polynomial time. This made this procedure unsuitable as 
 an encryption procedure. It therefore delivers a one way function whose trapdoor 
@@ -424,7 +424,7 @@ RSA Cryptosystem \textbackslash{} RSA Demonstration}.
 \index{RSA} \label{rsaverfahren}
 
 As early as 1978, R. \index{Rivest, Ronald} Rivest, \index{Shamir, Adi} 
-A. Shamir, \index{Adleman, Leonard} L. Adleman \cite{RSA1978} introduced 
+A. Shamir, \index{Adleman, Leonard} L. Adleman \cite{mc:RSA1978} introduced 
 the most important asymmetric cryptography procedure to date.  \par
 
 \begin{cryptoprocedure}
@@ -513,7 +513,7 @@ decomposition into primes of $ N $.
 At the moment, no algorithm is known that can factorize two prime numbers 
 sufficiently quickly for extremely large values (e.g. for several hundred 
 decimal places). The quickest algorithms known today
-\cite{4Stinson1995}\index{Stinson 1995} 
+\cite{mc:4Stinson1995}\index{Stinson 1995} 
 factorize a compound whole number $ N $ in a time period proportional to $ L(N)= 
 e^{\sqrt{\ln (N) \ln (\ln (N))}}. $ Some example values can be found in 
 table~\ref{lnvalues}.
@@ -628,7 +628,7 @@ y=g^k \mod p {\rm .}\]
 It is much more difficult to calculate the discrete logarithm than to evaluate 
 the discrete exponential function (see chapter \ref{MultOrdPrimitveRoot}).
 Table~\ref{dlogprocs} lists several procedures for calculating the discrete logarithm 
-and their complexity \cite{4Stinson1995}\index{Stinson 1995}.
+and their complexity \cite{mc:4Stinson1995}\index{Stinson 1995}.
 \begin{table}[ht]
 \begin{center}
 \begin{tabular}{|l|l|}\hline
@@ -834,7 +834,7 @@ bits in length, then you only need around 2000 multiplications to calculate $
 g^k $ but around $ 2^{500} \approx 10^{150} $ operations to calculate the 
 discrete logarithm using the baby-step-giant-step algorithm. \\
 In addition to the baby-step-giant-step algorithm, there are also numerous other 
-procedures for calculating the discrete logarithm \cite{4Stinson1995}\index{Stinson 1995}.
+procedures for calculating the discrete logarithm \cite{mc:4Stinson1995}\index{Stinson 1995}.
 
 \paragraph{The theorem from Silver-Pohlig-Hellman}
 In finite Abelian groups, the discrete logarithm problem can be reduced to 
@@ -885,50 +885,50 @@ encryption procedures.
 \begin{thebibliography}{99}
 \addcontentsline{toc}{section}{Bibliography}
 
-   \bibitem[Adleman1982]{Adleman1982} \index{Adleman 1982}
+   \bibitem[Adleman1982]{mc:Adleman1982} \index{Adleman 1982}
        Adleman L.: \\ 
        \emph{On breaking the iterated Merkle-Hellman public key 
              Cryptosystem.} \\ 
        Advances in Cryptology, Proceedings of Crypto 82, 
        Plenum Press 1983, 303-308.
 
-   \bibitem[Balcazar1988]{Balcazar1988} \index{Balcazar 1988} 
+   \bibitem[Balcazar1988]{mc:Balcazar1988} \index{Balcazar 1988} 
        Balcazar J.L., Daaz J., Gabarr J.: \\ 
        \emph{Structural Complexity I.} \\ 
        Springer Verlag, pp 63.
            
-    \bibitem[Brickell1985]{Brickell1985} \index{Brickell 1985}
+    \bibitem[Brickell1985]{mc:Brickell1985} \index{Brickell 1985}
        Brickell E.F.: \\
        \emph{Breaking Iterated Knapsacks.}  \\
        Advances in Cryptology: Proc. CRYPTO'84, 
        Lecture Notes in Computer Science, vol. 196, 
        Springer-Verlag, New York, 1985, pp. 342-358.
 
-    \bibitem[Lagarias1983]{Lagarias1983} \index{Lagarias 1983} 
+    \bibitem[Lagarias1983]{mc:Lagarias1983} \index{Lagarias 1983} 
        Lagarias J.C.: \\
        \emph{Knapsack public key Cryptosystems and diophantine
              Approximation.} \\
        Advances in Cryptology, Proseedings of Crypto 83, Plenum Press.
 
-    \bibitem[Merkle1978]{Merkle1978} \index{Merkle 1978} 
+    \bibitem[Merkle1978]{mc:Merkle1978} \index{Merkle 1978} 
        Merkle R. and Hellman M.: \\
        \emph{Hiding information and signatures in trapdoor knapsacks.} \\
        IEEE Trans. Information Theory, IT-24, 1978.
 
-    \bibitem[RSA1978]{RSA1978} \index{RSA 1978}
+    \bibitem[RSA1978]{mc:RSA1978} \index{RSA 1978}
        Rivest R.L., Shamir A. and Adleman L.: \\
        \emph{A Method for Obtaining Digital Signatures and 
              Public Key Cryptosystems.} \\
        Commun. ACM, vol 21, April 1978, pp. 120-126.
 
-    \bibitem[Shamir1982]{Shamir1982} \index{Shamir 1982}
+    \bibitem[Shamir1982]{mc:Shamir1982} \index{Shamir 1982}
        Shamir A.: \\
        \emph{A polynomial time algorithm for breaking the basic 
              Merkle-Hellman Cryptosystem.} \\
        Symposium on Foundations of Computer Science (1982), 145-152.
            
 %already defined in elementaryNumberTheory.tex
-    \bibitem[Stinson1995]{4Stinson1995} \index{Stinson 1995}
+    \bibitem[Stinson1995]{mc:4Stinson1995} \index{Stinson 1995}
        Stinson D.R.: \\
        \emph{Cryptography.} \\
        CRC Press, Boca Raton, London, Tokyo, 1995.

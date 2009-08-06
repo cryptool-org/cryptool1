@@ -46,7 +46,7 @@ praktisch nicht durchführbar sind und diese Verfahren als (praktisch)
 sicher angesehen werden können.\par \vskip + 3pt
 
 Einen sehr guten Überblick zu den Verfahren bietet das Buch von Bruce
-Schneier \cite{Schneier1996cm}. Grundsätz"-lich unterscheidet man zwischen
+Schneier \cite{cm:Schneier1996}. Grundsätz"-lich unterscheidet man zwischen
 symmetrischen und asymmetrischen Verfahren zur Verschlüsse"-lung.
 
 % --------------------------------------------------------------------------
@@ -71,7 +71,7 @@ Empfänger, um diese zu entschlüsseln.\par \vskip + 3pt
 Alle klassischen Verfahren sind von diesem Typ. Beispiele dazu finden Sie im
 Programm CrypTool, im Kapitel  \ref{Kapitel_PaperandPencil} 
 (Papier- und Bleistift-Verschlüsselungsverfahren) in diesem Skript oder 
-in \cite{Nichols1996}. 
+in \cite{cm:Nichols1996}. 
 Im folgenden wollen wir jedoch nur die moderneren Verfahren betrachten.
 
 Vorteile von symmetrischen Algorithmen sind die hohe
@@ -123,8 +123,8 @@ Sie in der CrypTool-Online-Hilfe\index{CrypTool}%
 Im Anschluss finden Sie einige Informationen, die das AES-Verfahren in
 letzter Zeit in Zweifel zogen -- unserer Ansicht nach aber (noch)
 unbegründet. Die folgenden Informationen beruhen auf den unten
-angegebenen Originalarbeiten und auf \cite{Wobst-iX2002} und
-\cite{Lucks-DuD2002}.
+angegebenen Originalarbeiten und auf \cite{cm:Wobst-iX2002} und
+\cite{cm:Lucks-DuD2002}.
 
 Der AES bietet mit einer Mindestschlüssellänge von 128 Bit gegen
 Brute-Force-Angriffe auch auf längere Sicht genügend Sicherheit -- es sei
@@ -148,7 +148,7 @@ Geheimdienst) gilt ein Aufwand von $2^{75}$ bis $2^{90}$
 Verschlüsselungsoperationen.
 
 Eine neue Vorgehensweise wurde in der Arbeit von Ferguson, Schroeppel
-und Whiting im Jahre 2001 \cite{Ferguson2001} beschrieben: sie stellten
+und Whiting im Jahre 2001 \cite{cm:Ferguson2001} beschrieben: sie stellten
 AES als geschlossene Formel (in der Form einer Art Kettenbruch) dar,
 was aufgrund seiner "`relativ"' übersichtlichen Struktur gelang. Da
 diese Formel aus rund 1 Billiarde Summanden besteht, taugt sie zunächst
@@ -162,7 +162,7 @@ ist relativ dünn besetzt (``sparse''), d.h. von den insgesamt etwa
 1.280.000 möglichen quadratischen Termen tauchen nur relativ wenige
 überhaupt im Gleichungssystem auf.
 
-Die Mathematiker Courois und Pieprzyk \cite{Courtois2002} veröffentlichten 
+Die Mathematiker Courois und Pieprzyk \cite{cm:Courtois2002} veröffentlichten 
 2002 eine Arbeit, die in der Krypto-Szene stark diskutiert wird: Sie 
 entwickelten das auf der Eurocrypt 2000 von Shamir et al. vorgestellte 
 XL-Verfahren (eXtended Linearization) weiter zum XSL-Verfahren 
@@ -202,7 +202,7 @@ Verfahrens mit verschiedenen Schlüsseln wie bei Triple-DES bezeichnet.
 nicht mehr exponentiell mit der Rundenzahl.
 
 Aktuell wird sehr intensiv auf diesem Gebiet geforscht: z.B. stellten
-Murphy und Robshaw auf der Crypto 2002 ein Papier vor \cite{Robshaw2002a},
+Murphy und Robshaw auf der Crypto 2002 ein Papier vor \cite{cm:Robshaw2002a},
 das die Kryptoanalyse drastisch verbessern könnte: der Aufwand für
 128-Bit-Schlüssel wurde auf $2^{100}$ geschätzt, indem sie AES als
 Spezialfall eines Algorithmus BES (Big Encryption System) darstellten,
@@ -228,11 +228,11 @@ Reichweite realisierbarer Rechenpower.
 \begin{sloppypar}
 Die Diskussion ist z.Zt. sehr kontrovers: Don Coppersmith (einer der DES-Erfinder) 
 z.B. bezweifelt die generelle Durchführbarkeit des Angriffs: XLS liefere für 
-AES gar keine Lösung \cite{Coppersmith2002}. Dann würde auch die Optimierung von 
-Murphy und Robshaw \cite{Robshaw2002b} nicht greifen.
+AES gar keine Lösung \cite{cm:Coppersmith2002}. Dann würde auch die Optimierung von 
+Murphy und Robshaw \cite{cm:Robshaw2002b} nicht greifen.
 \end{sloppypar}
 
-2009 veröffentlichten Biryukov und Khovratovich \cite{Biryukov2009} einen
+2009 veröffentlichten Biryukov und Khovratovich \cite{cm:Biryukov2009} einen
 weiteren theoretischen Angriff auf AES, der sich anderer Techniken bedient, als
 die oben vorgestellten. Sie verwenden Methoden aus der Kryptoanalyse von
 Hashfunktionen (lokale Kollisionen und das Boomerang-Verfahren) und
@@ -346,7 +346,7 @@ im Internet.\par \vskip + 3pt
 Möchte Alice\index{Alice}%
 \footnote{%
   Zur Beschreibung kryptographischer Protokolle werden den Teilnehmern
-  oft Namen gegeben (vergleiche \cite[S. 23]{Schneier1996cm}). 
+  oft Namen gegeben (vergleiche \cite[S. 23]{cm:Schneier1996}). 
   Alice und Bob\index{Bob} führen alle allgemeinen 2-Personen-Protokolle durch,
   wobei Alice dies initiiert und Bob antwortet.
   Die Angreifer werden als Eve (eavesdropper = passiver Lauscher) und
@@ -466,7 +466,7 @@ einzelnen symmetrischen und asymmetrischen Verschlüsselungsverfahren.
 
 % --------------------------------------------------------------------------
 %xxxxxxxxxxx
-%\bibitem[x]{x}  \index{x}
+%\bibitem[x]{cm:x}  \index{x}
 %        x, \\
 %        {\em x}, 
 %       x x.
@@ -475,20 +475,20 @@ einzelnen symmetrischen und asymmetrischen Verschlüsselungsverfahren.
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{section}{Literaturverzeichnis}
 
-\bibitem[Biryukov2009]{Biryukov2009} \index{Biryukov 2009}
+\bibitem[Biryukov2009]{cm:Biryukov2009} \index{Biryukov 2009}
 	Alex Biryukov, Dmitry Khovratovich, \\
 	{\em Related-key Cryptanalysis of the Full AES-192 and AES-256}, \\
 	2009 \\
 	\url{http://eprint.iacr.org/2009/317}
 
-\bibitem[Coppersmith2002]{Coppersmith2002}  \index{Coppersmith 2002}
+\bibitem[Coppersmith2002]{cm:Coppersmith2002}  \index{Coppersmith 2002}
        Don Coppersmith, \\
        {\em Re: Impact of Courtois and Pieprzyk results}, \\ 
        19.09.2002, in den \glqq AES Discussion Groups\grqq~ unter \\
        \href{http://aes.nist.gov/aes/}
        {\texttt{http://aes.nist.gov/aes/}}
 
-\bibitem[Courtois2002]{Courtois2002}  \index{Courtois 2002}
+\bibitem[Courtois2002]{cm:Courtois2002}  \index{Courtois 2002}
        Nicolas Courtois, Josef Pieprzyk, \\
        {\em Cryptanalysis of Block Ciphers with Overdefined Systems
             of Equations}, \\
@@ -499,19 +499,19 @@ einzelnen symmetrischen und asymmetrischen Verschlüsselungsverfahren.
        \href{http://eprint.iacr.org/2002/044}
        {\texttt{http://eprint.iacr.org/2002/044}}
 
-\bibitem[Ferguson2001]{Ferguson2001}  \index{Ferguson 2001}
+\bibitem[Ferguson2001]{cm:Ferguson2001}  \index{Ferguson 2001}
        Niels Ferguson, Richard Schroeppel, Doug Whiting, \\
        {\em A simple algebraic representation of Rijndael}, 
        Draft 1. Mai 2001, \\
        \href{http://www.xs4all.nl/~vorpal/pubs/rdalgeq.html}
        {\texttt{http://www.xs4all.nl/\~{}vorpal/pubs/rdalgeq.html}}
 
-\bibitem[Lucks-DuD2002]{Lucks-DuD2002}  \index{Lucks 2002}
+\bibitem[Lucks-DuD2002]{cm:Lucks-DuD2002}  \index{Lucks 2002}
        Stefan Lucks, Rüdiger Weis, \\
        {\em Neue Ergebnisse zur Sicherheit des Verschlüsselungsstandards AES}, 
        in DuD 12/2002.
 
-\bibitem[Nichols1996]{Nichols1996} \index{Nichols 1996} 
+\bibitem[Nichols1996]{cm:Nichols1996} \index{Nichols 1996} 
        Randall K. Nichols, \\
        {\em Classical Cryptography Course, Volume 1 and 2}, \\
        Aegean Park Press 1996; \\
@@ -519,21 +519,21 @@ einzelnen symmetrischen und asymmetrischen Verschlüsselungsverfahren.
        \href{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}
        {\texttt{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}}
 
-\bibitem[Robshaw2002a]{Robshaw2002a}  \index{Robshaw 2002}
+\bibitem[Robshaw2002a]{cm:Robshaw2002a}  \index{Robshaw 2002}
        S.P. Murphy, M.J.B. Robshaw, \\
        {\em Essential Algebraic Structure within the AES}, 
        5. Juni 2002, auf der Crypto 2002,  \\
        \href{http://www.isg.rhul.ac.uk/~mrobshaw/rijndael/rijndael.html}
        {\texttt{http://www.isg.rhul.ac.uk/\~{}mrobshaw/rijndael/rijndael.html}}
 
-\bibitem[Robshaw2002b]{Robshaw2002b}  \index{Robshaw 2002}
+\bibitem[Robshaw2002b]{cm:Robshaw2002b}  \index{Robshaw 2002}
        S.P. Murphy, M.J.B. Robshaw, \\
        {\em Comments on the Security of the AES and the XSL Technique}, 
        26. September 2002, \\
        \href{http://www.isg.rhul.ac.uk/~mrobshaw/rijndael/rijndael.html}
        {\texttt{http://www.isg.rhul.ac.uk/\~{}mrobshaw/rijndael/rijndael.html}}
 
-\bibitem[Schmeh2009]{Schmeh2009}  \index{Schmeh 2009}
+\bibitem[Schmeh2009]{cm:Schmeh2009}  \index{Schmeh 2009}
        Klaus Schmeh, \\
        {\em Kryptografie -- Verfahren, Protokolle, Infrastrukturen},\\ 
        dpunkt.verlag, 4. aktualisierte und erweiterte Auflage 2009. \\
@@ -541,24 +541,24 @@ einzelnen symmetrischen und asymmetrischen Verschlüsselungsverfahren.
        Geht auch auf praktische Probleme, wie Standardisierung oder 
        real existierende Software, ein.
 
-\bibitem[Schneier1996]{Schneier1996cm} \index{Schneier 1996} 
+\bibitem[Schneier1996]{cm:Schneier1996} \index{Schneier 1996} 
        Bruce Schneier, \\
        {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C}, \\
        Wiley 1994, 2nd edition 1996.
 
-\bibitem[Stamp2007]{Stamp2007} \index{Stamp 2007} 
+\bibitem[Stamp2007]{cm:Stamp2007} \index{Stamp 2007} 
        Mark Stamp, Richard M. Low, \\
        {\em Applied Cryptanalysis: Breaking Ciphers in the Real World}, \\
        Wiley-IEEE Press 2007, \\
        \href{http://cs.sjsu.edu/faculty/stamp/crypto/}
        {\texttt{http://cs.sjsu.edu/faculty/stamp/crypto/}}
 
-\bibitem[Swenson2008]{Swenson2008} \index{Swenson 2008} 
+\bibitem[Swenson2008]{cm:Swenson2008} \index{Swenson 2008} 
        Christopher Swenson, \\
        {\em Modern Cryptanalysis: Techniques for Advanced Code Breaking}, \\
        Wiley 2008.
 
-\bibitem[Wobst-iX2002]{Wobst-iX2002}  \index{Wobst 2002}
+\bibitem[Wobst-iX2002]{cm:Wobst-iX2002}  \index{Wobst 2002}
        Reinhard Wobst, \\
        {\em Angekratzt - Kryptoanalyse von AES schreitet voran}, 
        in iX 12/2002, \\

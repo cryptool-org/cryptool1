@@ -157,7 +157,7 @@ Die Klasse \textbf{P} ist in der Klasse \textbf{NP} enthalten. Ein berühmtes off
 
 Viele kryptographische Protokolle sind so gemacht, dass die \glqq guten\grqq {} Teilnehmer nur Probleme aus \textbf{P} lösen müssen, während sich ein Angreifer vor Probleme aus \textbf{NP} gestellt sieht.
 
-Man weiß leider bis heute nicht, ob es Einwegfunktionen überhaupt gibt. Man kann aber zeigen, dass Einwegfunktionen genau dann existieren, wenn $ \textbf{P} \neq \textbf{NP} $ gilt \cite[S.63]{Balcazar1988}.
+Man weiß leider bis heute nicht, ob es Einwegfunktionen überhaupt gibt. Man kann aber zeigen, dass Einwegfunktionen genau dann existieren, wenn $ \textbf{P} \neq \textbf{NP} $ gilt \cite[S.63]{mc:Balcazar1988}.
 \vskip +5pt
 
 Es gab immer wieder die Aussage, jemand habe die Äquivalenz bewiesen, z.B.
@@ -166,7 +166,7 @@ Es gab immer wieder die Aussage, jemand habe die Äquivalenz bewiesen, z.B.
 
 aber bisher erwiesen sich diese Aussagen stets als falsch.
 
-Es wurden eine Reihe von Algorithmen für Public-Key-Verfahren vorgeschlagen. Einige davon erwiesen sich, obwohl sie zunächst vielversprechend erschienen, als polynomial \index{Polynom} lösbar. Der berühmteste durchgefallene Bewerber ist der von Ralph Merkle \cite{Merkle1978} vorgeschlagen Knapsack mit Falltür.
+Es wurden eine Reihe von Algorithmen für Public-Key-Verfahren vorgeschlagen. Einige davon erwiesen sich, obwohl sie zunächst vielversprechend erschienen, als polynomial \index{Polynom} lösbar. Der berühmteste durchgefallene Bewerber ist der von Ralph Merkle \cite{mc:Merkle1978} vorgeschlagen Knapsack mit Falltür.
 
 
 %\newpage
@@ -234,7 +234,7 @@ Das Verfahren \ref{knapsackalgo} löst das Knapsackproblem mit superwachsender Fo
 \subsection{Merkle-Hellman Knapsack-Verschlüsselung}
 \index{Hellman, Martin} \index{Merkle, Ralph} 
 
-1978 gaben Merkle und Hellman \cite{Merkle1978} \index{Verschlüsselung!Merkle-Hellman} ein Public-Key-Verschlüsselungs-Verfahren an, das darauf beruht, das leichte 0-1-Knapsackproblem mit einer superwachsenden Folge in ein kongruentes mit einer nicht superwachsenden Folge zu \glqq verfremden\grqq. Es ist eine Blockchiffrierung, die bei jedem Durchgang einen $n$ Bit langen Klartext chiffriert, siehe Krypto-Verfahren \ref{merklehellmanproc}.
+1978 gaben Merkle und Hellman \cite{mc:Merkle1978} \index{Verschlüsselung!Merkle-Hellman} ein Public-Key-Verschlüsselungs-Verfahren an, das darauf beruht, das leichte 0-1-Knapsackproblem mit einer superwachsenden Folge in ein kongruentes mit einer nicht superwachsenden Folge zu \glqq verfremden\grqq. Es ist eine Blockchiffrierung, die bei jedem Durchgang einen $n$ Bit langen Klartext chiffriert, siehe Krypto-Verfahren \ref{merklehellmanproc}.
 \index{Knapsack!Merkle-Hellman}
 
 \begin{cryptoprocedure}
@@ -264,14 +264,14 @@ indem er die leichten 0-1-Knapsackprobleme $ K(a_1,\dots,a_n;G^{(j)}) $ mit supe
 
 
 
-1982 gab \index{Shamir, Adi} Shamir \cite{Shamir1982} einen Algorithmus zum
+1982 gab \index{Shamir, Adi} Shamir \cite{mc:Shamir1982} einen Algorithmus zum
 Brechen des Systems in polynomialer \index{Polynom} Zeit an, ohne das allgemeine
 Knapsackproblem zu lösen. Len \index{Adleman, Leonard} Adleman
-\cite{Adleman1982} und Jeff Lagarias \index{Lagarias, Jeff}
-\cite{Lagarias1983} gaben einen Algorithmus zum Brechen des 2-fachen
+\cite{mc:Adleman1982} und Jeff Lagarias \index{Lagarias, Jeff}
+\cite{mc:Lagarias1983} gaben einen Algorithmus zum Brechen des 2-fachen
 iterierten Merkle-Hellman Knapsack-Verschlüsselungsver"-fah"-rens in
 polynomialer Zeit an. Ernst Brickell \index{Brickell, Ernst}
-\cite{Brickell1985} gab schließlich einen Algorithmus zum Brechen des
+\cite{mc:Brickell1985} gab schließlich einen Algorithmus zum Brechen des
 mehrfachen iterierten Merkle-Hellman Knapsack-Verschlüsselungs"-ver"-fah"-ren in
 polynomialer Zeit an. Damit war dieses Verfahren als
 Verschlüsse"-lungs"-ver"-fah"-ren ungeeignet. Dieses Verfahren liefert also eine
@@ -298,7 +298,7 @@ mit dem RSA-Verfahren sammeln: per Menü {\bf Einzelverfahren
 
 Bereits 1978 stellten R. \index{Rivest, Ronald} Rivest,
 \index{Shamir, Adi} A. Shamir,  \index{Adleman, Leonard} L. Adleman
-\cite{RSA1978} das bis heute wichtigste 
+\cite{mc:RSA1978} das bis heute wichtigste 
 asymmetrische Kryptographie-Verfahren vor (Krypto-Verfahren~\ref{rsaproc}).
 
 \index{Faktorisierung!Faktorisierungsproblem}
@@ -321,7 +321,7 @@ Der Ausgangstext wird in Blöcke zerlegt und verschlüsselt, wobei jeder Block ein
 \[ y= e_{T} (x) = x^{e} \mod N.\]
 \textbf{Entschlüsselung:}
 \[ d_{T} (y) = y^d \mod N \]
-\caption{RSA-Verfahren (auf dem Faktorisierungsproblem basierend)}
+\caption{RSA (auf dem Faktorisierungsproblem basierend)}
 \label{rsaproc}
 \end{cryptoprocedure}
 
@@ -376,7 +376,7 @@ $n$ & $\phi (n) $ & Die zu $ n $ teilerfremden\index{Zahlen!teilerfremd
 Die Funktion $ e_T $  ist eine Einwegfunktion, deren Falltür-Information die Primfaktorzerlegung von $ N $ ist.
 
 Zur Zeit ist kein Algorithmus bekannt, der das Produkt zweier Primzahlen bei sehr großen Werten geeignet schnell
-zerlegen kann (z.B. bei mehreren hundert Dezimalstellen). Die heute schnellsten bekannten Algorithmen \cite{Stinson1995} zerlegen eine 
+zerlegen kann (z.B. bei mehreren hundert Dezimalstellen). Die heute schnellsten bekannten Algorithmen \cite{mc:Stinson1995} zerlegen eine 
 zusammengesetzte ganze Zahl $ N $ in einem Zeitraum proportional zu  
 $ L(N)= e^{\sqrt{\ln (N) \ln (\ln (N))}}. $ Einige Beispielwerte finden sich in Tabelle~\ref{lnvalues}.
 \begin{table}[ht]
@@ -471,7 +471,7 @@ Die Umkehrfunktion wird diskrete Logarithmusfunktion $ \log_g $ genannt; es gilt
 \index{Exponentialfunktion!diskrete} Unter dem Problem des diskreten Logarithmus (in $ \Z_p^\ast$) versteht man das folgende:
 \[ \text{Gegeben } p,g \text{~(ein Erzeuger der Gruppe } \Z_p^* \text{) und } y, \text{ bestimme } k \text{ so, dass } y=g^k \mod p \text{ gilt.}\]
 Die Berechnung des diskreten Logarithmus ist viel schwieriger als die Auswertung der diskreten Exponentialfunktion (siehe Kapitel \ref{MultOrdPrimitveRoot}).
-Tabelle~\ref{dlogprocs} listet verschiedene Verfahren zur Berechung des diskreten Logarithmus \cite{Stinson1995} und ihre Komplexität.
+Tabelle~\ref{dlogprocs} listet verschiedene Verfahren zur Berechung des diskreten Logarithmus \cite{mc:Stinson1995} und ihre Komplexität.
 \begin{table}[ht]
 \begin{center}
 \begin{tabular}{|l|l|}\hline
@@ -638,7 +638,7 @@ Falls $ g^{jn} = hg^{-i}, $ also $ h = g^{i+jn}, $ so ist das Problem gelöst. Fa
 \end{Beweis}
 
 Man kann sich mit Hilfe des Babystep-Giantstep-Algorithmus klar machen, dass die Berechnung des diskreten Logarithmus' sehr viel schwieriger ist als die Berechnung der diskreten Exponentialfunktion. Wenn die auftretenden Zahlen etwa 1000 Bit Länge haben, so benötigt man zur Berechnung von $ g^k $ nur etwa 2000 Multiplikationen, zur Berechnung des diskreten Logarithmus' mit dem Babystep-Giantstep-Algorithmus aber etwa $ 2^{500} \approx 10^{150} $ Operationen. \\
-Neben dem Babystep-Giantstep-Algorithmus gibt es noch zahlreiche andere Verfahren zur Berechnung des diskreten Logarithmus' \cite{Stinson1995}.
+Neben dem Babystep-Giantstep-Algorithmus gibt es noch zahlreiche andere Verfahren zur Berechnung des diskreten Logarithmus' \cite{mc:Stinson1995}.
 
 \paragraph{Der Satz von Silver-Pohlig-Hellman}
 In endlichen abelschen Gruppen lässt sich das  diskrete Logarithmusproblem in Gruppen kleinerer Ordnung reduzieren.
@@ -664,7 +664,7 @@ und
 \[ y_2 = x\circ \beta^k .\]
 \textbf{Entschlüsselung:}
 \[ d_T(y_1,y_2)= y_2\circ (y_1^{a})^{-1}.  \]
-\caption{Verallgemeinertes ElGamal Verfahren (auf dem diskreten Logarithmusproblem basierend)}
+\caption{Verallgemeinertes ElGamal (auf dem diskreten Logarithmusproblem basierend)}
 \label{genelgamalproc}
 \end{cryptoprocedure}
 
@@ -677,20 +677,20 @@ und
 \addcontentsline{toc}{section}{Literaturverzeichnis}
 \begin{thebibliography}{99}
 
-   \bibitem[Adleman1982]{Adleman1982} \index{Adleman 1982}
+   \bibitem[Adleman1982]{mc:Adleman1982} \index{Adleman 1982}
        Adleman L.: \\ 
        \emph{On breaking the iterated Merkle-Hellman public key 
              Cryptosystem.} \\ 
        Advances in Cryptologie, Proceedings of Crypto 82, 
        Plenum Press 1983, 303-308.
 
-   \bibitem[Balcazar1988]{Balcazar1988} \index{Balcazar 1988} 
+   \bibitem[Balcazar1988]{mc:Balcazar1988} \index{Balcazar 1988} 
 %       Balcazar J.L., Daaz J., Gabarr\'{} J.: \\ 
        Balcazar J.L., Daaz J., Gabarr J.: \\ 
        \emph{Structural Complexity I.} \\ 
        Springer Verlag, pp 63.
            
-    \bibitem[Brickell1985]{Brickell1985} \index{Brickell 1985}
+    \bibitem[Brickell1985]{mc:Brickell1985} \index{Brickell 1985}
        Brickell E.F.: \\
        \emph{Breaking Iterated Knapsacks.}  \\
 %       Advances in Cryptology: Proc. CRYPTO\'84, 
@@ -698,30 +698,30 @@ und
        Lecture Notes in Computer Science, vol. 196, 
        Springer Verlag, New York, 1985, pp. 342-358.
 
-    \bibitem[Lagarias1983]{Lagarias1983} \index{Lagarias 1983} 
+    \bibitem[Lagarias1983]{mc:Lagarias1983} \index{Lagarias 1983} 
        Lagarias J.C.: \\
        \emph{Knapsack public key Cryptosystems and diophantine
              Approximation.} \\
        Advances in Cryptology, Proseedings of Crypto 83, Plenum Press.
 
-    \bibitem[Merkle1978]{Merkle1978} \index{Merkle 1978} 
+    \bibitem[Merkle1978]{mc:Merkle1978} \index{Merkle 1978} 
        Merkle R. and Hellman M.: \\
        \emph{Hiding information and signatures in trapdoor knapsacks.} \\
        IEEE Trans. Information Theory, IT-24, 1978.
 
-    \bibitem[RSA1978]{RSA1978} \index{RSA 1978}
+    \bibitem[RSA1978]{mc:RSA1978} \index{RSA 1978}
        Rivest R.L., Shamir A. and Adleman L.: \\
        \emph{A Method for Obtaining Digital Signatures and 
              Public Key Cryptosystems.} \\
        Commun. ACM, vol 21, April 1978, pp. 120-126.
 
-    \bibitem[Shamir1982]{Shamir1982} \index{Shamir 1982}
+    \bibitem[Shamir1982]{mc:Shamir1982} \index{Shamir 1982}
        Shamir A.: \\
        \emph{A polynomial time algorithm for breaking the basic 
              Merkle-Hellman Cryptosystem.} \\
        Symposium on Foundations of Computer Science (1982), 145-152.
            
-    \bibitem[Stinson1995]{Stinson1995} \index{Stinson 1995}
+    \bibitem[Stinson1995]{mc:Stinson1995} \index{Stinson 1995}
        Stinson D.R.: \\
        \emph{Cryptography.} \\
        CRC Press, Boca Raton, London, Tokyo, 1995.

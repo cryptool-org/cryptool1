@@ -34,7 +34,7 @@ theory. Here, the word ``elementary'' means that questions raised in number theo
 of natural and whole numbers.
 
 Further mathematical disciplines currently used in cryptography include
-(see \cite[p. 2]{Bauer1995}, \cite[p. 3]{Bauer2000}) :
+(see \cite[p. 2]{nt:Bauer1995}, \cite[p. 3]{nt:Bauer2000}) :
 \begin{itemize}
     \item Group theory\index{Group}
     \item Combination theory
@@ -52,7 +52,7 @@ by Carl Friedrich Gauss\footnote{%
 \index{Gauss, Carl Friedrich} as a special mathematical discipline. Its 
 elementary features include the greatest common divisor\footnote{This 
 article deals with the gcd (greatest common 
-divisor)\index{Gcd} in \hyperlink{NumberTheory_Appendix_A}{Appendix A of this chapter}.}
+divisor)\index{Gcd} in \hyperlink{NumberTheory_Appendix_GCD}{Appendix A of this chapter}.}
 (gcd), congruence (remainder classes), factorization, the Euler-Fermat theorem
 and primitive roots. However, the most important 
 aspect is prime numbers and their multiplicative operation.
@@ -72,7 +72,7 @@ The sequence of Fibonacci numbers $(a_i)_{i \in \mathbb{N}}$ is defined
 by the ``recursive'' rule $a_1 := a_2 := 1$ and for all numbers  $n=1,2,3,\cdots$ 
 we define $a_{n+2} := a_{n+1}+a_n$.  
 This historical sequence can be found in many interesting forms in nature 
-(for example, see \cite[p. 290 ff]{Graham1994}\index{Graham 1994} or the 
+(for example, see \cite[p. 290 ff]{nt:Graham1994}\index{Graham 1994} or the 
 website of \hyperlink{knott}{Ron Knott}\index{Knott, Ron}, which is devoted 
 to Fibonacci\index{Fibonacci} numbers). A lot is known about the Fibonacci 
 sequence and it is used today as an important tool in mathematics.}, for 
@@ -84,7 +84,7 @@ in great demand on the job market.
 
 Applications in (computer) security now use cryptography because this mathematical discipline is simply better 
 and easier to prove than all other ''creative'' substitution procedures that have been developed over the course of 
-time and better than all sophisticated physical methods such as those used to print bank notes \cite[p. 4]{Beutelspacher1996}.
+time and better than all sophisticated physical methods such as those used to print bank notes \cite[p. 4]{nt:Beutelspacher1996}.
 
 This article explains the basics of elementary number theory in a way that you can easily understand. It provides 
 numerous examples and very rarely goes into any proofs (these can be found in mathematical textbooks).
@@ -148,7 +148,7 @@ large) theorem\footnote{One of the things we learn in mathematics at school
    for $a,b,c \in \mathbb{N}$ and whole-number exponents $n > 2$.
    Unfortunately, the letter in which Fermat made the claim did not have
    enough space for him to prove it. The theorem was not proven until over
-   300 years later \cite[p. 433-551]{Wiles1994}\index{Wiles, Andrew}. }.
+   300 years later \cite[p. 433-551]{nt:Wiles1994}\index{Wiles, Andrew}. }.
 
 Up until the mid 20th century, number theory was considered to be the purest area of mathematics, an area that 
 had no practical use in the real world. This changed with the development of computers and digital 
@@ -724,9 +724,9 @@ are exactly $J(6) = (2-1)*(3-1) = 1 * 2 = 2$ numbers that have a multiplicative 
 
 Although it may seem difficult to calculate the table of multiplicative inverses for large moduli (this only applies 
 to the areas of the table shaded dark grey), we can use Fermat's Little Theorem\index{Fermat!little theorem}
-to create a simple algorithm for this \cite[p. 80]{Pfleeger1997}. Quicker algorithms are described, for instance, in 
-\cite{Knuth1998}\footnote{Using Euclid's extended theorem\index{Euclidean algorithm!extended}  (extended gcd), we can calculate the 
-multiplicative inverse and determine whether numbers have an inverse (see \hyperlink{NumberTheory_Appendix_A}{appendix A of this chapter}). Alternatively, we can also use the primitive roots.}.
+to create a simple algorithm for this \cite[p. 80]{nt:Pfleeger1997}. Quicker algorithms are described, for instance, in 
+\cite{nt:Knuth1998}\footnote{Using Euclid's extended theorem\index{Euclidean algorithm!extended}  (extended gcd), we can calculate the 
+multiplicative inverse and determine whether numbers have an inverse (see \hyperlink{NumberTheory_Appendix_GCD}{appendix A of this chapter}). Alternatively, we can also use the primitive roots.}.
 
 Cryptographically not only the unique nature of the inverse is important, but
 also that the set of possible values has been exhausted.
@@ -983,7 +983,7 @@ knowledge is proportional to ${\rm exp}\left( C*( \log m [\log \log m]^2)^{1/3}\
 
 The situation is similar if 
 $b$ is the unknown variable and we know the values of $a$ and $c$: \\
-If we know the Euler function \index{Euler!(phi) function} of $m, J(m)$, then we can easily\footnote{See \hyperlink{NumberTheory_Appendix_A}{Appendix A of this chapter}:
+If we know the Euler function \index{Euler!(phi) function} of $m, J(m)$, then we can easily\footnote{See \hyperlink{NumberTheory_Appendix_GCD}{Appendix A of this chapter}:
 the greatest common divisor (gcd) of whole numbers.}\index{Gcd} calculate $d$ with $c*d \equiv 1 {\rm ~(mod~} J(m))$ and 
 use theorem~\ref{thm-zth-pot} to obtain:
 $$
@@ -1562,7 +1562,7 @@ The number $7$ is a primitive root of $46$,  because $ord_{46}(7) = 2 = J(46)$.
 
 \begin{theorem}\label{thm-zth-ordp}\footnote{%
     For prime moduli $p$ all $a$ with $0 < a < p$ are of order $J(p) = p - 1$.
-    Compare table~\ref{modexp45} for an example. In this case $a^i (\mbox{mod }n)$ goes
+    Compare table~\ref{expmod45} for an example. In this case $a^i (\mbox{mod }n)$ goes
     through all the values $1,\dots,p-1$. Exhausting all possible values of
     the set is an important cryptographic proposition (compare theorem
     \ref{thm-zth-exhperm}). This determines a permutation\index{Permutation}
@@ -1656,8 +1656,8 @@ discovered later by Rivest, Shamir and Adleman.
 \hypertarget{RSA}{}
 \subsection{How the RSA procedure works}
 \label{RSA}
-The individual steps for implementing the \index{RSA} RSA procedure can be described as follows (see \cite[p. 213 ff]{Eckert2003}\index{Eckert 2003} and 
-\cite[p. 338 ff]{Sedgewick1990}\index{Sedgewick 1990}). 
+The individual steps for implementing the \index{RSA} RSA procedure can be described as follows (see \cite[p. 213 ff]{nt:Eckert2003}\index{Eckert 2003} and 
+\cite[p. 338 ff]{nt:Sedgewick1990}\index{Sedgewick 1990}). 
 Steps 1 to 3 constitute key generation, steps 4 and 5 are the encryption, and steps 
 6 and 7 are the decryption:
 \begin{itemize}
@@ -1685,7 +1685,7 @@ recommends, to choose the prime factors $p$ and $q$ almost the same,
 but not too close:
 $$ 0.5 < |\log_2 (p) - \log_2 (q) | <30. $$
 They recommend to generate the primes independently and check that the 
-restriction is fulfilled (see \cite{GISA2002}).
+restriction is fulfilled (see \cite{nt:GISA2002}).
 }.\\
 The value $n$ is called the RSA modulus\footnote{
 In CrypTool\index{CrypTool} the RSA modulo is denoted with a capital ``$N$'' .}.
@@ -1761,7 +1761,7 @@ This means that the deciphering algorithm above works correctly.
 
 We therefore need to show that:   $$M^{e * d} \equiv M  {\rm ~(mod~} n).$$
 
-\noindent We will show this in 3 steps (see \cite[p. 131ff]{Beutelspacher1996}).
+\noindent We will show this in 3 steps (see \cite[p. 131ff]{nt:Beutelspacher1996}).
 
 \noindent {\bf Step 1}:
 
@@ -1834,7 +1834,7 @@ $$
     \footnotetext{Major
     parts of chapters~\ref{complexity} and \ref{chptSecurityParam} follow
     the article ``Vorz\"uge und Grenzen des RSA-Verfahrens'' written by
-    F.~Bourseau, D.~Fox and C.~Thiel \cite{Bourseau2002}.}
+    F.~Bourseau, D.~Fox and C.~Thiel \cite{nt:Bourseau2002}.}
     \label{SecurityRSA}
 
 There have always been discussions about the suitability of the RSA
@@ -1883,11 +1883,11 @@ Please refer to:
 \begin{itemize}{}
   \item A. Lenstra, H. Lenstra:  
           {\em The development of the Number Field Sieve} 
-          \cite{Lenstra1993}.
+          \cite{nt:Lenstra1993}.
   \item   Robert D. Silverman:  
           {\em A Cost-Based Security Analysis of Symmetric and Asymmetric
           Key Lengths} 
-          \cite{Silverman2000}.
+          \cite{nt:Silverman2000}.
 \end{itemize}
 
 
@@ -1908,7 +1908,7 @@ factorization of $n$, is still not proven.  Most number theorists consider
 the ``RSA problem'' and the factorization problem equivalent in terms of
 time complexity.
 
-Please refer to: {\em Handbook of Applied Cryptography} \cite{Menezes2001}.
+Please refer to: {\em Handbook of Applied Cryptography} \cite{nt:Menezes2001}.
 
 
 
@@ -1946,7 +1946,7 @@ current algorithms for factorization:
       \begin{list}{}{\setlength{\topsep}{-7 pt}}
         \item[] C. Pomerance:  
                 {\em The quadratic sieve factoring algorithm} 
-                \cite{Pomerance1984}.
+                \cite{nt:Pomerance1984}.
       \end{list}
       \vskip +12pt
 
@@ -1961,7 +1961,7 @@ current algorithms for factorization:
       \begin{list}{}{\setlength{\topsep}{-7 pt}}
         \item[] J.P. Buhler, H.W. Lenstra, C. Pomerance:  
                 {\em Factoring integers with the number field sieve} 
-                \cite{Buhler1993}.
+                \cite{nt:Buhler1993}.
       \end{list}
       \vskip +12pt
 \end{itemize}
@@ -1992,7 +1992,7 @@ Theses attacks can be structured into the following four categories:
 \end{itemize}
 
 A good overview about the current status of publications concerning these attacks
-can be found in the diploma thesis of Matthias Schneider \cite{SchneiderM2004}.
+can be found in the diploma thesis of Matthias Schneider \cite{nt:SchneiderM2004}.
 
 
 
@@ -2023,10 +2023,10 @@ limiting factor.
 
 
 An estimation of the evolution of secure key lengths was done by 
-Lenstra/Verheul\cite{Lenstra1999} (compare figure~\ref{RSAKeylength}
+Lenstra/Verheul\cite{nt:Lenstra1999} (compare figure~\ref{RSAKeylength}
 in chapter ~\ref{ECAlternative}).
 
-Within the article \cite{Bourseau2002} Dirk Fox\footnote{%
+Within the article \cite{nt:Bourseau2002} Dirk Fox\footnote{%
 His company Secorvo Ltd also delivered a statement on the recommendation for key
 length selection published by the GISA\index{GISA} (German Information
 Security Agency). Chapter 2.3.1 of this statement contains a competent
@@ -2552,7 +2552,7 @@ quantum leap in factorization, the RSA algorithm might be compromised.
 
 In his paper ``Circuits for integer factorization: a proposal'' 
 (\href{http://cr.yp.to/djb.html}{\texttt{http://cr.yp.to/djb.html}}),
-published November 2001, D.~J.\ Bernstein \cite{Bernstein2001} 
+published November 2001, D.~J.\ Bernstein \cite{nt:Bernstein2001} 
 addresses the problem of
 factorizing large integers. Therefore, his results are of relevance from a
 RSA point of view.  As a main result Bernstein claims that the
@@ -2606,7 +2606,7 @@ could lead to a significant improvement (in the sense of the asymptotic
 result). 
 
 Arjen Lenstra, Adi Shamir et. al. analyzed the paper of Bernstein
-\cite{Lenstra2002}.  In summary they expect a factorization improvement on
+\cite{nt:Lenstra2002}.  In summary they expect a factorization improvement on
 how much longer the bit length of the keys could be with a factor of 1.17
 (instead of factor 3 as proposed by Bernstein).
 
@@ -2627,7 +2627,7 @@ standpoint, the security of RSA relies exclusively on the hardness of the
 relation collection step of the number field sieve.''
 
 \href{http://www.rsasecurity.com/}{RSA Security's} analysis of the Bernstein
-paper \cite{RSA Security 2002} from April, 8 2002 also -- as expected --
+paper \cite{nt:RSA Security 2002} from April, 8 2002 also -- as expected --
 concludes, that RSA is still not compromised.
 
 This is still an ongoing discussion.
@@ -2655,7 +2655,7 @@ Links:
 \vskip +20pt
 \paragraph{The TWIRL device} \label{TWIRLDevice} \index{TWIRL device}\mbox{}
 
-In January 2003 Adi Shamir and Eran Tromer from the Weizmann Institute of Science published a preliminary draft called {\em ``Factoring Large Numbers with the TWIRL Device''} raising concerns about the security of key sizes till 1024 bits \cite{Shamir2003}. 
+In January 2003 Adi Shamir and Eran Tromer from the Weizmann Institute of Science published a preliminary draft called {\em ``Factoring Large Numbers with the TWIRL Device''} raising concerns about the security of key sizes till 1024 bits \cite{nt:Shamir2003}. 
 
 Their abstract summarizes their results very well: ``The security of the RSA
 cryptosystem depends on the difficulty in factoring large integers. The best
@@ -2674,9 +2674,9 @@ results about the difficulty of the NFS matrix step ... this raises some
 concerns about the security of these key sizes.''
 
 A detailed explanation from these two authors also can be found in the
-RSA Laboratories CryptoBytes \cite{Shamir2003a}.
+RSA Laboratories CryptoBytes \cite{nt:Shamir2003a}.
 
-The 3-page article in the DuD issue of June 2003 \cite{Weis2003} contains
+The 3-page article in the DuD issue of June 2003 \cite{nt:Weis2003} contains
 a very good explanation, how the attack using the Generalized Number Field
 Sieve (GNFS) \index{General Number Field Sieve (GNFS)} works and which 
 progress is made, to factorize numbers.
@@ -2702,7 +2702,7 @@ So recommendations like the ones from the GISA (German Information Security Agen
 \paragraph{``Primes in P'': Primality testing is polynomial} \label{PrimesinP} 
 \index{Primality testing}\mbox{}
 
-In August 2002 the three Indian researchers M. Agrawal, N. Kayal and N. Saxena published the paper {\em ``PRIMES in P''} about a new primality testing algorithm called AKS\index{AKS} \cite{Agrawal2002}. 
+In August 2002 the three Indian researchers M. Agrawal, N. Kayal and N. Saxena published the paper {\em ``PRIMES in P''} about a new primality testing algorithm called AKS\index{AKS} \cite{nt:Agrawal2002}. 
 They discovered a polynomial\index{Polynomial} time deterministic algorithm for determining if a number is prime or not.
 
 The importance of this discovery is that it provides number theorists with new insights and opportunities for further research. Lots of people over centuries have been looking for a polynomial time test for primality, and this result is a major theoretic breakthrough. It shows that new results can be generated from already known facts.
@@ -2805,7 +2805,7 @@ menu {\bf Indiv. Procedures \textbackslash{} Protocols
 
 Alice and Bob\footnote{Bob\index{Bob} and Alice\index{Alice} are the default
 names used for the two authorized participants in a protocol (see
-\cite[p. 23]{Schneier1996nt}).
+\cite[p. 23]{nt:Schneier1996nt}).
 } use a one way function to obtain a key $S$, the session key, for subsequent
 correspondence. This is then a secret that is only known to the two of them.
 Alice selects a random number $a$ and keeps it secret. She applies a one way
@@ -3050,7 +3050,7 @@ L       & 12   & Y    & 25 \\
                 lie between $79$ and $3587$ and must be relatively prime
                 to $3588$). \\
 {\bf 3.} $d=97$ (since $e*d=1{\rm ~mod~}J(n); 37*97 \equiv 3589 \equiv 1{\rm ~(mod~}3588) \;$)\footnote{How
-to compute $d = 97$ using the {\em extended} gcd algorithm is shown in \hyperlink{NumberTheory_Appendix_A}{appendix A of this chapter}}. \\
+to compute $d = 97$ using the {\em extended} gcd algorithm is shown in \hyperlink{NumberTheory_Appendix_GCD}{appendix A of this chapter}}. \\
 
 \noindent {\bf 4. Encryption}:\\
 {\tt
@@ -3097,7 +3097,7 @@ In real life, the ASCII alphabet is used to code the individual characters of th
 \noindent The idea for this task\footnote{Using CrypTool\index{CrypTool} you can 
 solve this via the menu path
 {\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} RSA Demonstration}.} 
-is taken from the example in \cite[p. 271]{Eckert2003}\index{Eckert 2003}.
+is taken from the example in \cite[p. 271]{nt:Eckert2003}\index{Eckert 2003}.
 
 \noindent Coded in decimal notation, the text ``RSA works!'' is as follows: \\
 {\tt
@@ -3247,7 +3247,7 @@ Cipher text:\\
 % --------------------------------------------------------------------------
 \subsection{A small RSA cipher challenge (1)} \index{RSA!cipher challenge}
 
-The task is taken from \cite[Exercise 4.6]{Stinson1995}\index{Stinson 1995}:
+The task is taken from \cite[Exercise 4.6]{nt:Stinson1995}\index{Stinson 1995}:
 The pure solution has been published by Prof. Stinson at 
 \href{http://www.cacr.math.uwaterloo.ca/~dstinson/solns.html}{\texttt{http://www.cacr.math.uwaterloo.ca/\~{}dstinson/solns.html}}.\footnote{or
 \href{http://bibd.unl/~stinson/solns.html}{\texttt{http://bibd.unl/\~{}stinson/solns.html}}.}
@@ -3360,7 +3360,7 @@ taken from ``Lake Wobegon Days'', by Garrison Keillor, 1985.
 \subsection{A small RSA cipher challenge (2)} \index{RSA!cipher challenge}
 
 The following task is a corrected version from the book written by Prof. Yan 
-\cite[Example 3.3.7, p. 318]{Yan2000}\index{Yan 2000}.
+\cite[Example 3.3.7, p. 318]{nt:Yan2000}\index{Yan 2000}.
 However, it is not the result that is important here but rather the individual steps of the solution, that is, 
 the explanation of the cryptanalysis\index{Cryptanalysis}\footnote{The method of solving the problem is outlined in the scenario of 
 the online help to CrypTool\index{CrypTool} and in the CrypTool presentation. If anyone sends us a well prepared exact 
@@ -3443,7 +3443,7 @@ NT can be called in CrypTool\index{CrypTool} via the menu path
 \textbackslash{} Learning Tool for Number Theory}.
 See appendix~\ref{s:appendix-Learn-NT}.
 }
-\label{l:NumberTheory_Appendix_GCD}
+\label{NumberTheory_Appendix_GCD}
 % \addcontentsline{toc}{section}{Appendix A: gcd of whole numbers and the two
 %  algorithms of Euclid}\index{Euclidean algorithm!extended}\index{Gcd}
 \index{Euclidean algorithm!extended} \index{Gcd}
@@ -4496,7 +4496,7 @@ Theorem~\ref{thm-zth-ordp} & exhausting of all possible values & \pageref{thm-zt
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{section}{Bibliography}
 
-\bibitem[Agrawal2002]{Agrawal2002}  \index{Agrawal 2002} 
+\bibitem[Agrawal2002]{nt:Agrawal2002}  \index{Agrawal 2002} 
     M. Agrawal, N. Kayal, N. Saxena, \\
     {\em PRIMES in P}, August 2002, revised paper: \\
        \href{http://www.cse.iitk.ac.in/~manindra/algebra/primality_v6.pdf}
@@ -4505,63 +4505,63 @@ Theorem~\ref{thm-zth-ordp} & exhausting of all possible values & \pageref{thm-zt
        \href{http://fatphil.org/maths/AKS/}
     {\texttt{http://fatphil.org/maths/AKS/}}
 
-\bibitem[Bartholome1996]{3Bartholome1996}  \index{Bartholome 1996} 
+\bibitem[Bartholome1996]{nt:3Bartholome1996}  \index{Bartholome 1996} 
     A. Bartholome, J. Rung, H. Kern, \\
     {\em Zahlentheorie f\"ur Einsteiger}, Vieweg 1995, 2nd edition 1996.
 
-\bibitem[Bauer1995]{Bauer1995} \index{Bauer 1995}
+\bibitem[Bauer1995]{nt:Bauer1995} \index{Bauer 1995}
     Friedrich L. Bauer, \\
     {\em Entzifferte Geheimnisse}, Springer, 1995.
 
-\bibitem[Bauer2000]{Bauer2000} \index{Bauer 2000}
+\bibitem[Bauer2000]{nt:Bauer2000} \index{Bauer 2000}
     Friedrich L. Bauer, \\
     {\em Decrypted Secrets}, Springer 1997, 2nd edition 2000.
 
-\bibitem[Bernstein2001]{Bernstein2001} \index{Bernstein 2001}
+\bibitem[Bernstein2001]{nt:Bernstein2001} \index{Bernstein 2001}
     D.~J. Bernstein, \\
     {\em Circuits for integer factorization: a proposal},\\ 
     \href{http://cr.yp.to/papers/nfscircuit.ps}
     {\texttt{http://cr.yp.to/papers/nfscircuit.ps}} \\
     \href{http://cr.yp.to/djb.html}{\texttt{http://cr.yp.to/djb.html}}
 
-\bibitem[Beutelspacher1996]{Beutelspacher1996} \index{Beutelspacher 1996}
+\bibitem[Beutelspacher1996]{nt:Beutelspacher1996} \index{Beutelspacher 1996}
     Albrecht Beutelspacher, \\
     {\em Kryptologie}, Vieweg 1987, 5th edition 1996.
 
-\bibitem[Bourseau2002]{Bourseau2002} \index{Bourseau 2002} \index{Fox 2002}
+\bibitem[Bourseau2002]{nt:Bourseau2002} \index{Bourseau 2002} \index{Fox 2002}
     F. Bourseau, D. Fox, C. Thiel, \\
     {\em Vorz\"uge und Grenzen des RSA-Verfahrens},\\
     In: Datenschutz und Datensicherheit (DuD) 26/2002, pp~84-89 (see www.dud.de),
     \href{http://http://www.secorvo.de/publikationen/rsa-grenzen-fox-2002.pdf}
          {\texttt{http://www.secorvo.de/publikationen/rsa-grenzen-fox-2002.pdf}}
 
-\bibitem[Brands2002]{Brands2002} \index{Brands 2002}
+\bibitem[Brands2002]{nt:Brands2002} \index{Brands 2002}
     Gilbert Brands, \\
     {\em Verschl\"usselungsalgorithmen -- Angewandte Zahlentheorie 
     rund um Sicherheitsprotokolle}, Vieweg, 2002.
 
-\bibitem[Buchmann2004]{Buchmann2004} \index{Buchmann 2004}
+\bibitem[Buchmann2004]{nt:Buchmann2004} \index{Buchmann 2004}
     Johannes Buchmann, \\
     {\em Introduction to Cryptography}, Springer, 2nd edition, 2004.
 
-\bibitem[Buhler1993]{Buhler1993} \index{Buhler 1993} 
+\bibitem[Buhler1993]{nt:Buhler1993} \index{Buhler 1993} 
     J.P. Buhler, H.W. Lenstra, C. Pomerance, \\
     {\em Factoring integers with the number field sieve}, \\
     In: A.K. Lenstra, H.W. Lenstra (Hrsg.): The Development of the 
     Number Field Sieve, Lecture Notes in Mathematics, Vol.~1554, 
     Springer, Heidelberg 1993, pp~50$-$94.
 
-\bibitem[Eckert2003]{Eckert2003} \index{Eckert 2003}
+\bibitem[Eckert2003]{nt:Eckert2003} \index{Eckert 2003}
     Claudia Eckert, \\
     {\em IT-Sicherheit: Konzepte-Verfahren-Protokolle}, 
     Oldenbourg 2001, 2nd edition 2003.
 
-\bibitem[Ertel2001]{Ertel2001} \index{Ertel 2001} 
+\bibitem[Ertel2001]{nt:Ertel2001} \index{Ertel 2001} 
     Wolfgang Ertel, \\
     {\em Angewandte Kryptographie}, 
     Fachbuchverlag Leipzig FV 2001.
 
-\bibitem[GISA2002]{GISA2002} \index{GISA 2002}
+\bibitem[GISA2002]{nt:GISA2002} \index{GISA 2002}
     GISA (German Information Security Agency), \\
     {\em Recommendation for key length selection}, Bonn, Sep. 2002, \\
     \href{http://www.bsi.bund.de/esig/basics/techbas/krypto/bund02v7.pdf}
@@ -4573,127 +4573,135 @@ Theorem~\ref{thm-zth-ordp} & exhausting of all possible values & \pageref{thm-zt
     \href{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf}
     {\texttt{stellungnahme-algorithmenempfehlung-020307.pdf}}
 
-\bibitem[Graham1994]{Graham1994} \index{Graham 1994}
+\bibitem[Graham1994]{nt:Graham1994} \index{Graham 1994}
     Graham, Knuth, Patashnik, \\
     {\em Concrete Mathemathics, a Foundation of Computer Science}, \\
     Addison Wesley 1989, 6th printing 1994.
 
-\bibitem[Kippenhahn1997]{Kippenhahn1997} \index{Kippenhahn 1997}
+\bibitem[Kippenhahn1997]{nt:Kippenhahn1997} \index{Kippenhahn 1997}
     Rudolph Kippenhahn, \\
     {\em Verschl\"usselte Botschaften -- Geheimschrift, Enigma und Chipkarte}, 
     Rowohlt, 1997.
 
-\bibitem[Kippenhahn1999]{Kippenhahn1999} \index{Kippenhahn 1999}
+\bibitem[Kippenhahn1999]{nt:Kippenhahn1999} \index{Kippenhahn 1999}
     Rudolph Kippenhahn, \\
     {\em Code Breaking -- A History and Exploration}, 
     Constable, 1999.
 
-\bibitem[Knuth1998]{Knuth1998} \index{Knuth 1998}
+\bibitem[Knuth1998]{nt:Knuth1998} \index{Knuth 1998}
     Donald E. Knuth, \\
     {\em The Art of Computer Programming, vol 2: Seminumerical Algorithms}, \\
     Addison-Wesley, 2nd edition 1998.
     % wann war erste Edition ?
 
-\bibitem[Lenstra1993]{Lenstra1993} \index{Lenstra 1993}
+\bibitem[Lenstra1993]{nt:Lenstra1993} \index{Lenstra 1993}
      A. Lenstra, H. Lenstra: \\ 
      {\em The development of the Number Field Sieve}, \\
      Lecture Notes in Mathematics 1554, Springer, New York 1993
 
-\bibitem[Lenstra2002]{Lenstra2002} \index{Lenstra 2002}
+\bibitem[Lenstra1999]{nt:Lenstra1999} Arjen K. Lenstra, Eric R. Verheul
+     \index{Lenstra/Verheul 1999} \\
+     {\em Selecting Cryptographic Key Sizes (1999)},\\
+     Journal of Cryptology: the journal of the International 
+     Association for Cryptologic Research \\
+     \href{http://www.cryptosavvy.com/cryptosizes.pdf}
+     {\texttt{http://www.cryptosavvy.com/cryptosizes.pdf}}
+
+\bibitem[Lenstra2002]{nt:Lenstra2002} \index{Lenstra 2002}
     Arjen K. Lenstra, Adi Shamir, Jim Tomlinson, Eran Tromer,\\
     {\em Analysis of Bernstein's Factorization Circuit},\\
     \href{http://www.cryptosavvy.com/mesh.pdf}
     {\texttt{http://www.cryptosavvy.com/mesh.pdf}}
 
-\bibitem[Menezes2001]{Menezes2001} \index{Menezes 2001}
+\bibitem[Menezes2001]{nt:Menezes2001} \index{Menezes 2001}
     Alfred J. Menezes, Paul C. van Oorschot, Scott A. Vanstone \\
     {\em Handbook of Applied Cryptography}, 
     CRC Press 1997, 5th printing 2001.
 
-\bibitem[Pfleeger1997]{Pfleeger1997} \index{Pfleeger 1997}
+\bibitem[Pfleeger1997]{nt:Pfleeger1997} \index{Pfleeger 1997}
     Charles P. Pfleeger, \\
     {\em Security in Computing}, Prentice-Hall, 2nd edition 1997.
     % im Buch stand nicht, wann die 1. Edition rauskam.
 
-\bibitem[Pomerance1984]{Pomerance1984} \index{Pomerance 1984} 
+\bibitem[Pomerance1984]{nt:Pomerance1984} \index{Pomerance 1984} 
     C. Pomerance, \\
     {\em The quadratic sieve factoring algorithm}, \\
     In: G.R. Blakley, D. Chaum (Hrsg.): Proceedings of Crypto '84, 
     LNCS 196, Springer Berlin 1995, pp~169-182.
 
-\bibitem[RSA Security 2002]{RSA Security 2002} \index{RSA Security 2002} 
+\bibitem[RSA Security 2002]{nt:RSA Security 2002} \index{RSA Security 2002} 
     RSA Security, \\
     {\em Has the RSA algorithm been compromised as a result 
     of Bernstein's Paper?}, \\
     April 8th, 2002, \\
     \href{http://www.rsasecurity.com/}{\tt http://www.rsasecurity.com/}
     
-\bibitem[SchneiderM2004]{SchneiderM2004} \index{SchneiderM 2004} 
+\bibitem[SchneiderM2004]{nt:SchneiderM2004} \index{SchneiderM 2004} 
     Matthias Schneider, \\
     {\em Analyse der Sicherheit des RSA-Algorithmus. \\
      M\"ogliche Angriffe, deren Einfluss auf sichere Implementierungen und \"okonomische Konsequenzen}, \\
     Diploma thesis at the University of Siegen, Germany, 2004.
 
-\bibitem[Schneier1996]{Schneier1996nt} \index{Schneier 1996} 
+\bibitem[Schneier1996]{nt:Schneier1996nt} \index{Schneier 1996} 
     Bruce Schneier, \\
     {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C}, \\
     Wiley and Sons, 2nd edition 1996.
 
-\bibitem[Schwenk2002]{Schwenk2002}\index{Schwenk 2002}
+\bibitem[Schwenk2002]{nt:Schwenk2002}\index{Schwenk 2002}
     J\"org Schwenk, \\
     {\em Sicherheit und Kryptographie im Internet}, 
     Vieweg 2002.
 
-\bibitem[Sedgewick1990]{Sedgewick1990} \index{Sedgewick 1990}
+\bibitem[Sedgewick1990]{nt:Sedgewick1990} \index{Sedgewick 1990}
     Robert Sedgewick,\\
     {\em Algorithms in C}, Addison-Wesley, 1990.
 
-\bibitem[Shamir2003]{Shamir2003} \index{Shamir 2003} \index{TWIRL device} 
+\bibitem[Shamir2003]{nt:Shamir2003} \index{Shamir 2003} \index{TWIRL device} 
     Adi Shamir, Eran Tromer, \\
     {\em Factoring Large Numbers with the TWIRL Device}, 
     Januar 2003, \\
     \href{http://www.wisdom.weizmann.ac.il/~tromer/}
     {\texttt{http://www.wisdom.weizmann.ac.il/\~{}tromer/}}.
 
-\bibitem[Shamir2003a]{Shamir2003a} \index{Shamir 2003a} \index{TWIRL device} 
+\bibitem[Shamir2003a]{nt:Shamir2003a} \index{Shamir 2003a} \index{TWIRL device} 
     Adi Shamir, Eran Tromer, \\
     {\em On the Cost of Factoring RSA-1024}, 
     RSA Laboratories CryptoBytes Volume 6, No. 2, Summer 2003, p. 11-20 \\
     \href{http://www.rsasecurity.com/rsalabs/cryptobytes/CryptoBytes_August_2003.pdf}
     {\texttt{http://www.rsasecurity.com/rsalabs/cryptobytes/CryptoBytes\_August\_2003.pdf}}
 
-\bibitem[Silverman2000]{Silverman2000} \index{Silverman 2000}
+\bibitem[Silverman2000]{nt:Silverman2000} \index{Silverman 2000}
      Robert D. Silverman: \\ 
      {\em A Cost-Based Security Analysis of Symmetric and Asymmetric 
           Key Lengths} \\
      In: RSA Laboratories Bulletin, No. 13, April 2000, p. 1-22
 
-\bibitem[Stinson1995]{Stinson1995} \index{Stinson 1995}
+\bibitem[Stinson1995]{nt:Stinson1995} \index{Stinson 1995}
     Douglas R. Stinson,\\
     {\em Cryptography - Theory and Practice}, CRC Press, 1995.
 
-\bibitem[Weis2003]{Weis2003} \index{Weis 2003} \index{Lucks 2003} \index{Bogk 2003}
+\bibitem[Weis2003]{nt:Weis2003} \index{Weis 2003} \index{Lucks 2003} \index{Bogk 2003}
     R\"udiger Weis, Stefan Lucks, Andreas Bogk, \\
     {\em Sicherheit von 1024 bit RSA-Schl\"usseln gef\"ahrdet},\\
     In: Datenschutz und Datensicherheit (DuD) 6/2003, pp~360-362 (see www.dud.de)\\
     The article explains details about the TWIRL device\index{TWIRL device}.
 
-\bibitem[Welschenbach2001]{Welschenbach2001} \index{Welschenbach 2001}
+\bibitem[Welschenbach2001]{nt:Welschenbach2001} \index{Welschenbach 2001}
     Welschenbach, Michael, \\
     {\em Kryptographie in C und C++}, Springer 2001.
     
-\bibitem[Wiles1994]{Wiles1994} \index{Wiles, Andrew}
+\bibitem[Wiles1994]{nt:Wiles1994} \index{Wiles, Andrew}
     Wiles, Andrew, \\
     {\em Modular elliptic curves and Fermat's Last Theorem}, 
     \index{Fermat!last theorem} \\
     In: Annals of Mathematics 141 (1995).
 
-\bibitem[Wolfenstetter1998]{Wolfenstetter1998} \index{Wolfenstetter 1998}
+\bibitem[Wolfenstetter1998]{nt:Wolfenstetter1998} \index{Wolfenstetter 1998}
     Albrecht Beutelspacher, J\"org Schwenk, Klaus-Dieter Wolfenstetter, \\
     {\em Moderne Verfahren in der Kryptographie}, 
     Vieweg 1995, 2nd edition 1998.
 
-\bibitem[Yan2000]{Yan2000} \index{Yan 2000} 
+\bibitem[Yan2000]{nt:Yan2000} \index{Yan 2000} 
     Song Y. Yan, \\
     {\em Number Theory for Computing}, Springer, 2000.
 \end{thebibliography}

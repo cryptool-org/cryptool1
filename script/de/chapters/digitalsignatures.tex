@@ -167,10 +167,10 @@ Schwächen in ihrer Struktur gezeigt hatten
 (zum Beispiel \index{SHA-1} SHA-1\footnote{%
   SHA-1 \index{SHA-1} ist eine in den Standards FIPS 180-1 (durch die
   US-Behörde NIST), ANSI X9.30 Part 2 und
-  \cite{FIPS186} spezifizierte 160-Bit Hashfunktion.\\
+  \cite{ds:FIPS186} spezifizierte 160-Bit Hashfunktion.\\
   SHA bedeutet ``Secure Hash Algorithm'' und wird häufig benutzt, z.B. 
   mit DSA, RSA oder ECDSA.\\
-  Der aktuelle Standard \cite{FIPS180-3} definiert vier sichere Hashverfahren
+  Der aktuelle Standard \cite{ds:FIPS180-3} definiert vier sichere Hashverfahren
   -- SHA-1, SHA-256, SHA-384 und SHA-512.
   Für diese Hashalgorithmen sind in der Testsuite FIPS 140-2 auch
   Validierungstests definiert.
@@ -216,8 +216,8 @@ führte.
 
 Die zunächst veröffentlichten Resultate reduzierten den erwarteten Aufwand für
 die Suche nach einer SHA-1 Kollision von $2^{80}$ (brute force) auf $2^{69}$
-\cite{Wang2005}.  In der Folge wurden Verfahren angekündigt, die den Aufwand
-weiter auf $2^{63}$ \cite{Wang2005b} und $2^{52}$ \cite{McDonald2009} reduzieren
+\cite{ds:Wang2005}.  In der Folge wurden Verfahren angekündigt, die den Aufwand
+weiter auf $2^{63}$ \cite{ds:Wang2005b} und $2^{52}$ \cite{ds:McDonald2009} reduzieren
 sollen.  Damit wäre der Kollisionsangriff in den Bereich des praktisch möglichen
 gerückt, denn ähnliche Aufwände wurde in der Vergangenheit schon realisiert (s.\
 \ref{Brute-force-gegen-Symmetr}).
@@ -234,7 +234,7 @@ Das U.S. National Institute of Standards and Technology (NIST)\index{NIST} hat
 schon vor Bekanntwerden der neuen Ergebnisse angekündigt, SHA-1 in den
 näch"-sten Jahren auslaufen zu lassen. Es ist daher zu empfehlen, für neue
 Produkte zur Erstellung von Sig"-naturen SHA-1 nicht mehr zu verwenden. Die
-SHA-2 Familie \cite{FIPS180-3} bietet stärkere Verfahren.  Um den neuen
+SHA-2 Familie \cite{ds:FIPS180-3} bietet stärkere Verfahren.  Um den neuen
 Erkenntnissen in der Kryptoanalyse von Hashfunktionen Rechnung zu tragen, hat
 das NIST 2008 einen Wettbewerb gestartet, in dem eine neue Hashfunktion
 ``SHA-3'' ausgewählt werden soll.\footnote{%
@@ -330,7 +330,7 @@ Nachricht ausführt, sondern auf einem kryptographischen Hashwert davon. Um
 verschiedene Attacken auf das Sig"-naturverfahren (und seine Kombination mit
 Verschlüsselung) auszuschließen, ist es nötig, den Hashwert vor der
 Exponentiation auf spezielle Weise zu formatieren, wie in PKCS\#1 (Public
-Key Cryptography Standard \#1 \cite{PKCS1})\index{PKCS\#1} beschrieben. 
+Key Cryptography Standard \#1 \cite{ds:PKCS1})\index{PKCS\#1} beschrieben. 
 Der Tatsache, dass
 dieser Standard nach mehreren Jahren Einsatz revidiert werden musste, kann
 als Beispiel dafür dienen, wie schwer es ist, kryptographische Details
@@ -347,15 +347,14 @@ richtig zu definieren.
 Im August 1991 hat das U.S. National Institute of Standards and Technology
 (NIST)\index{NIST} einen digitalen Signaturalgorithmus (DSA, Digital Signature
 Algorithm) vorgestellt, der später zum U.S. Federal Information Processing
-Standard (FIPS 186 \cite{FIPS186}) wurde.
+Standard (FIPS 186 \cite{ds:FIPS186}) wurde.
 
 Der Algorithmus ist eine Variante des ElGamal-Verfahrens. Seine Sicherheit
 beruht auf dem Diskreten Logarithmus
 Problem\index{Logarithmusproblem!diskret}. Die Bestandteile des privaten
 und öffentlichen DSA-Schlüssels, sowie die Verfahren zur Signatur und
-Verifikation sind im Folgenden zusammengefasst.
-
-
+Verifikation sind in Krypto-Verfahren~\ref{dsasigproc} zusammengefasst.
+\begin{cryptoprocedure}
 \paragraph{Öffentlicher Schlüssel}\strut\\
 \begin{tabular}{l@{ }l}
 $p$ & prim \\
@@ -402,12 +401,15 @@ $v$ & $= (g^{u_1}y^{u_2}) \mbox{ mod } p)  \mbox{ mod } q$\\
 
 \begin{remark}{:} Wenn $v = r$, dann ist die Signatur gültig.
 \end{remark}
+\caption{DSA-Signatur}
+\label{dsasigproc}
+\end{cryptoprocedure}
 
 Obwohl DSA unabhängig von einem Verschlüsselungsverfahren so spezifiziert
 wurde, dass es aus Länder exportiert werden kann, die den Export von
 kryptographischer Hard- und Software einschränken (wie die USA zum
 Zeitpunkt der Spezifikation), wurde festgestellt
-\cite[S.~490]{5Schneier1996ds}, dass die Operationen des DSA dazu geeignet
+\cite[S.~490]{ds:Schneier1996}, dass die Operationen des DSA dazu geeignet
 sind, nach RSA bzw. ElGamal zu verschlüsseln.
 
 
@@ -472,7 +474,7 @@ verbreitete Zertifizierungsmethode ist der X.509-Standard.
 \vskip + 15pt
 \subsection{X.509-Zertifikat}
 \index{X.509}
-Jeder Teilnehmer, der sich per X.509-Zertifikat \cite{X.509}
+Jeder Teilnehmer, der sich per X.509-Zertifikat \cite{ds:X.509}
 die Zugehörigkeit seines öffentlichen Schlüssels zu seiner realen Person
 bestätigen lassen möchte, wendet sich an eine sogenannte
 \index{Certification Authority (CA)} Certification Authority (CA)\footnote{%
@@ -512,63 +514,63 @@ gesichert übermittelt werden.
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{section}{Literaturverzeichnis}
 
-\bibitem[FIPS180-3]{FIPS180-3} U.S. Department of Commerce/N.I.S.T. ,
+\bibitem[FIPS180-3]{ds:FIPS180-3} U.S. Department of Commerce/N.I.S.T. ,
     \index{FIPS180-3} \\
     {\em Secure Hash Standard (SHS)}, \\
     October 2008.\\
     (FIPS 180-3 supersedes FIPS 180-2.)
 
-\bibitem[FIPS186]{FIPS186} U.S. Department of Commerce/N.I.S.T. ,
+\bibitem[FIPS186]{ds:FIPS186} U.S. Department of Commerce/N.I.S.T. ,
     \index{FIPS186} \\
     {\em Entity authentication using public key cryptography}, \\
     Februar 18, 1997.\\
     Nicht mehr gültig.
 
-\bibitem[FIPS186-2]{FIPS186-2} U.S. Department of Commerce/N.I.S.T. ,
+\bibitem[FIPS186-2]{ds:FIPS186-2} U.S. Department of Commerce/N.I.S.T. ,
     \index{FIPS186-2} \\
     {\em Digital Signature Standard (DSS)}, \\
     Januar 27, 2000. Change Note: Oktober 5, 2001.\\
   \href{http://csrc.nist.gov/publications/fips/fips186-2/fips186-2-change1.pdf}
    {\tt http://csrc.nist.gov/publications/fips/fips186-2/fips186-2-change1.pdf}
 
-\bibitem[McDonald2009]{McDonald2009} Cameron McDonald, Philip Hawkes, Josef Pieprzyk, 
+\bibitem[McDonald2009]{ds:McDonald2009} Cameron McDonald, Philip Hawkes, Josef Pieprzyk, 
     \index{McDonald 2009} \\
     {\em Differential Path for SHA-1 with complexity $O(2^{52})$}, \\
     \url{http://eprint.iacr.org/2009/259}
 
-\bibitem[PKCS1]{PKCS1} RSA Laboratories,  
+\bibitem[PKCS1]{ds:PKCS1} RSA Laboratories,  
     \index{PKCS\#1} \index{RSA Laboratories} \\
     {\em PKCS \#1 v2.1 Draft 3: RSA Cryptography Standard}, \\
     April 19, 2002.
 
-\bibitem[Schneier1996]{5Schneier1996ds} \index{Schneier 1996} 
+\bibitem[Schneier1996]{ds:Schneier1996} \index{Schneier 1996} 
     Bruce Schneier, \\
     {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C}, \\
     Wiley, 2nd edition, 1996.
 
-\bibitem[Wang2005]{Wang2005} Xiaoyun Wang, Yiqun Yin, Hongbo Yu, 
+\bibitem[Wang2005]{ds:Wang2005} Xiaoyun Wang, Yiqun Yin, Hongbo Yu, 
     \index{Wang 2005} \\
     {\em Finding Collisions in the Full SHA-1}, \\
     Advances in Cryptology-Crypto 2005, LNCS 3621: 17-36, 2005.
 
-\bibitem[Wang2005b]{Wang2005b}  Xiaoyun Wang, Andrew Yao and Frances Yao, 
+\bibitem[Wang2005b]{ds:Wang2005b}  Xiaoyun Wang, Andrew Yao and Frances Yao, 
     \index{Wang 2005} \\
     {\em New Collision Search for SHA-1}, \\
     Crypto 2005 Rump Session \\
     \url{http://www.iacr.org/conferences/crypto2005/rumpSchedule.html}
 
-\bibitem[Wobst2005]{Wobst2005} \index{Wobst 2005} 
+\bibitem[Wobst2005]{ds:Wobst2005} \index{Wobst 2005} 
     Reinhard Wobst, \\
     {\em New Attacks Against Hash Functions}, \\
     Information Security Bulletin, April 2005.
 
-\bibitem[X.509]{X.509} ITU-T,
+\bibitem[X.509]{ds:X.509} ITU-T,
     \index{X.509} \\
     {\em ITU-T Recommendation X.509 (1997 E): Information Technology -- 
     Open Systems Interconnection -- The Directory: Authentication Framework},\\
     Juni 1997.
 
-\bibitem[X.509v3]{X.509v3} ITU-T, 
+\bibitem[X.509v3]{ds:X.509v3} ITU-T, 
     \index{X.509} \index{ITU-T} \index{ISO/IEC 9594-8} \\
     {\em X.509 (1993) Amendment 1: Certificate Extensions, The Directory
     Authentication Framework},\\ 
