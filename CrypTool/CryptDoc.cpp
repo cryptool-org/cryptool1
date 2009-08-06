@@ -35,6 +35,8 @@
 #include "DlgShowKeyHill5x5.h"
 #include "DlgShowKeyHill10x10.h"
 
+#include "DlgVigenereAnalysisSchroedel.h"
+
 #include "Cryptography.h"
 #include "AutomaticAnalysis.h"
 #include "SecudeCryptography.h"
@@ -177,6 +179,7 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CAppDocument)
 	ON_COMMAND(ID_CRYPT_DES_DESCBC, OnCryptDesDescbc)
 	ON_COMMAND(ID_CAESAR_AUTO, OnCaesarAuto)
 	ON_COMMAND(ID_VIGENERE_AUTO, OnVigenereAuto)
+	ON_COMMAND(ID_ANALYSIS_VIGENERE_SCHROEDEL, OnVigenereAnalysisSchroedel)
 	ON_COMMAND(ID_HILL_AUTO, OnHillPlain)
 	ON_COMMAND(ID_ADD_AUTO, OnAddAuto)
 	ON_COMMAND(ID_XOR_AUTO, OnXorAuto)
@@ -827,6 +830,12 @@ void CCryptDoc::OnVigenereAuto()
 	para->flags = CRYPT_DO_WAIT_CURSOR | CRYPT_DISPLAY_BG | CRYPT_DO_PROGRESS | CRYPT_FREE_MEM;
 	theApp.OpenBGFlag = 1;
     AfxBeginThread( VigenereAuto, ((void *) para) );
+}
+
+void CCryptDoc::OnVigenereAnalysisSchroedel()
+{
+	CDlgVigenereAnalysisSchroedel dlg;
+	dlg.DoModal();
 }
 
 void CCryptDoc::OnHillPlain() 

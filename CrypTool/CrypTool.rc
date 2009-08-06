@@ -15447,7 +15447,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO, GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
-                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
+                MENUITEM "V&igenère (Schrödel)...",     ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
                 MENUITEM SEPARATOR
@@ -15464,7 +15464,6 @@ BEGIN
                 MENUITEM "&Substitution...",            ID_ANALYZE_SUBST, GRAYED
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE, GRAYED
                 MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
-                MENUITEM "&Vigenère (Schrödel)...",     ID_ANALYSIS_VIGENERE_SCHROEDEL
             END
         END
         POPUP "Symmetrische Verschlüsselung (&modern)"
@@ -15794,7 +15793,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "V&igenère (Schrödel)...",     ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
@@ -15811,7 +15810,6 @@ BEGIN
                 MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
                 MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
-                MENUITEM "&Vigenère (Schrödel)...",     ID_ANALYSIS_VIGENERE_SCHROEDEL
             END
         END
         POPUP "Symmetrische Verschlüsselung (&modern)"
@@ -16141,7 +16139,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "V&igenère (Schrödel)...",     ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
@@ -16158,7 +16156,6 @@ BEGIN
                 MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
                 MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
-                MENUITEM "&Vigenère (Schrödel)...",     ID_ANALYSIS_VIGENERE_SCHROEDEL
             END
         END
         POPUP "Symmetrische Verschlüsselung (&modern)"
@@ -16488,7 +16485,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "V&igenère (Schrödel)...",     ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
@@ -16505,7 +16502,6 @@ BEGIN
                 MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
                 MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
-                MENUITEM "&Vigenère (Schrödel)...",     ID_ANALYSIS_VIGENERE_SCHROEDEL
             END
         END
         POPUP "Symmetrische Verschlüsselung (&modern)"
@@ -16862,7 +16858,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO, GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
-                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
+                MENUITEM "V&igenère (Schrödel)...",     ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
                 MENUITEM SEPARATOR
@@ -16879,7 +16875,6 @@ BEGIN
                 MENUITEM "&Substitution...",            ID_ANALYZE_SUBST, GRAYED
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE, GRAYED
                 MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
-                MENUITEM "&Vigenère (Schrödel)...",     ID_ANALYSIS_VIGENERE_SCHROEDEL
             END
         END
         POPUP "Symmetrische Verschlüsselung (&modern)"
@@ -21397,7 +21392,7 @@ BEGIN
     ID_AES_RIJNDAEL_FLOWVISUALISATION 
                             "Zeigt den Rijndael-Algorithmus in einer Flussvisualisierung"
     ID_ANALYSIS_VIGENERE_SCHROEDEL 
-                            "Manuelle Analyse einer Verschlüsselung durch Vigenère."
+                            "Automatische Analyse einer Vigenère-Verschlüsselung (Schrödel)"
 END
 
 STRINGTABLE 
@@ -26119,7 +26114,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO, GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
-                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
+                MENUITEM "V&igenère (Schrödel)...",     ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
                 MENUITEM SEPARATOR
@@ -26136,7 +26131,6 @@ BEGIN
                 MENUITEM "&Substitution...",            ID_ANALYZE_SUBST, GRAYED
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE, GRAYED
                 MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
-                MENUITEM "&Vigenère (Schrödel)...",     ID_ANALYSIS_VIGENERE_SCHROEDEL
             END
         END
         POPUP "Symmetric Encryption (modern)"
@@ -26466,7 +26460,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "V&igenère (Schrödel)...",     ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
@@ -26483,7 +26477,6 @@ BEGIN
                 MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
                 MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
-                MENUITEM "&Vigenère (Schrödel)...",     ID_ANALYSIS_VIGENERE_SCHROEDEL
             END
         END
         POPUP "Symmetric Encryption (modern)"
@@ -26813,7 +26806,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
-                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
+                MENUITEM "V&igenère (Schrödel)...",     ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
                 MENUITEM SEPARATOR
@@ -26830,7 +26823,6 @@ BEGIN
                 MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE, GRAYED
                 MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
-                MENUITEM "&Vigenère (Schrödel)...",     ID_ANALYSIS_VIGENERE_SCHROEDEL
             END
         END
         POPUP "Symmetric Encryption (modern)"
@@ -27160,7 +27152,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "V&igenère (Schrödel)...",     ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
@@ -27177,7 +27169,6 @@ BEGIN
                 MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
                 MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
-                MENUITEM "&Vigenère (Schrödel)...",     ID_ANALYSIS_VIGENERE_SCHROEDEL
             END
         END
         POPUP "Symmetric Encryption (modern)"
@@ -27534,7 +27525,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO, GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
-                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
+                MENUITEM "V&igenère (Schrödel)...",     ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
                 MENUITEM SEPARATOR
@@ -27551,7 +27542,6 @@ BEGIN
                 MENUITEM "&Substitution...",            ID_ANALYZE_SUBST, GRAYED
                 MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE, GRAYED
                 MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
-                MENUITEM "&Vigenère (Schrödel)...",     ID_ANALYSIS_VIGENERE_SCHROEDEL
             END
         END
         POPUP "Symmetric Encryption (modern)"
@@ -32198,7 +32188,7 @@ BEGIN
     ID_AES_RIJNDAEL_FLOWVISUALISATION 
                             "Shows the Rijndael algorithm in a flow visualization"
     ID_ANALYSIS_VIGENERE_SCHROEDEL 
-                            "Manual analysis of the Vigenère algorithm."
+                            "Automatic analysis of a document encrypted with the Vigenère algorithm (Schrödel)"
 END
 
 STRINGTABLE 

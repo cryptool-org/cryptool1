@@ -200,7 +200,6 @@ public:
 	afx_msg void OnIndividualPINEncryption();
 	afx_msg void OnProtokolSMIME();
 	afx_msg void OnAesRijndaelFlowvisualisation();
-	afx_msg void OnVigenereAnalysisSchroedel();
 	afx_msg void OnKnownAnalysisSinglePermutation();
 	afx_msg void OnHillAuto();
 };

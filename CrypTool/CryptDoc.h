@@ -104,6 +104,7 @@ protected:
 	afx_msg void OnCryptDesDescbc();
 	afx_msg void OnCaesarAuto();
 	afx_msg void OnVigenereAuto();
+	afx_msg void OnVigenereAnalysisSchroedel();
 	afx_msg void OnHillPlain();
 	afx_msg void OnAddAuto();
 	afx_msg void OnXorAuto();
