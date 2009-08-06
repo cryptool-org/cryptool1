@@ -317,8 +317,9 @@ subsequently adopted as a U.S. Federal Information Processing Standard (FIPS 186
 
 The algorithm is a variant of the ElGamal scheme. Its security is based on
 the Discrete Logarithm Problem\index{Logarithm problem!discrete}. The DSA public and private key and its
-procedures for signature and verification are summarised below.
+procedures for signature and verification are summarised in crypto procedure~\ref{dsasigproc}.
 
+\begin{cryptoprocedure}
 \paragraph{Public Key}\strut\\
 \begin{tabular}{l@{ }l}
 $p$ & prime \\
@@ -360,6 +361,9 @@ $v$ & $= (g^{u_1}y^{u_2}) \mbox{ mod } p)  \mbox{ mod } q$\\
 \end{tabular}
 
 \emph{Remark:} If $v = r$, then the signature is verified.
+\caption{DSA signature}
+\label{dsasigproc}
+\end{cryptoprocedure}
 
 While DSA was specifically designed, so that it can be exported from
 countries regulating export of encryption soft and hardware (like the U.S.\ 
