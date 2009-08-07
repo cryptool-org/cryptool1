@@ -26,20 +26,13 @@
 #pragma once
 #endif
 
-// forward declaration
-class CDlgVigenereAnalysisSchroedel;
-
 // 06/24/2009, flomar: Vigenere analysis class
 // (originally written by Schroedel in Pascal, ported to C++ by flomar)
-class VigenereAnalysisSchroedel {
-
-private:
-	// this is ugly, but it's the simplest way to connect GUI and model (sort of)
-	CDlgVigenereAnalysisSchroedel *theDialog;
+class VigenereAnalysisSchroedel : public CProgressModel {
 
 public:
-	// constructor initializing the dialog object
-	VigenereAnalysisSchroedel(CDlgVigenereAnalysisSchroedel *dlg);
+	// constructor
+	VigenereAnalysisSchroedel(const CString _ciphertextFileName, const CString _title);
 	// destructor
 	~VigenereAnalysisSchroedel();
 
@@ -80,39 +73,23 @@ public:
 
 	// file handle for result file
 	std::ofstream fileResult;
-};
-
-// CDlgVigenereAnalysisSchroedel dialog
-
-class CDlgVigenereAnalysisSchroedel : public CDialog
-{
-	DECLARE_DYNAMIC(CDlgVigenereAnalysisSchroedel)
-
-public:
-	CDlgVigenereAnalysisSchroedel(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CDlgVigenereAnalysisSchroedel();
-
-// Dialog Data
-	enum { IDD = IDD_VIGENERE_ANALYSIS_SCHROEDEL };
-
-protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL OnInitDialog();
-
-	DECLARE_MESSAGE_MAP()
-
-	VigenereAnalysisSchroedel *theAnalysis;
 
 public:
 	CString ciphertext;
-	CString plaintext;
-	CString key;
-	CString autorunFileName;
+	CString ciphertextFileName;
+	CString title;
 
-	CString status;
+	bool abort;
 
-public:
-	afx_msg void OnBnClickedOk();
+	double progress;
+	virtual double getProgress() { return progress; };
+
+	void readCiphertext();
+
+
 };
+
+// the actual analysis function (to be run in a separate thread)
+UINT singleThreadVigenereAnalysisSchroedel(PVOID argument);
 
 #endif

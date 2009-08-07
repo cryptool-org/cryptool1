@@ -74,6 +74,7 @@
 
 extern char *CaPseDatei, *CaPseVerzeichnis, *Pfad, *PseVerzeichnis;
 
+extern UINT singleThreadVigenereAnalysisSchroedel(PVOID argument);
 
 /////////////////////////////////////////////////////////////////////////////
 // CCryptDoc
@@ -834,8 +835,20 @@ void CCryptDoc::OnVigenereAuto()
 
 void CCryptDoc::OnVigenereAnalysisSchroedel()
 {
-	CDlgVigenereAnalysisSchroedel dlg;
-	dlg.DoModal();
+	UpdateContent();
+
+	VigenereAnalysisSchroedel *theAnalysis = new VigenereAnalysisSchroedel(ContentName, GetTitle());
+	CWinThread *thread = AfxBeginThread(singleThreadVigenereAnalysisSchroedel, (PVOID)(theAnalysis));
+
+	theApp.fs.setModelTitleFormat(theAnalysis, "Schroedel", "");
+	
+	if(theApp.fs.DoModal() == IDCANCEL) {
+		theAnalysis->abort = true;
+	}
+	else {
+		// open result file and close the dialog
+		CAppDocument *NewDoc = theApp.OpenDocumentFileNoMRU(CString(Pfad) + CString("result.txt"));
+	}
 }
 
 void CCryptDoc::OnHillPlain() 
