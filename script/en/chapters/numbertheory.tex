@@ -290,9 +290,10 @@ If you allow numbers other than primes as factors, there are several ways of fac
 uniqueness} is lost:
 $$60 = 1*60 = 2*30 = 4*15 = 5*12 = 6*10 = 2*3*10 = 2*5*6 = 3*4*5 = \cdots$$
 The 1st fundamental theorem only appears to be obvious. We can construct numerous other sets of 
-numbers\footnote{These sets are formed especially from the set of natural numbers. An example of this can be found in this \hyperlink{uniqueness}{script} on 
-page~\pageref{thm-pz-euklid} % should be \pageref{remFundTheoOfArithm}, but
-% hyperref seems to be buggy
+numbers\footnote{These sets are formed especially from the set of natural numbers. An example of
+this can be found in this \hyperlink{uniqueness}{script} on 
+page~\pageref{thm-pz-euklid} % TODO: should be \pageref{remFundTheoOfArithm}, but
+                             % hyperref seems to be buggy
 at the end of chapter~\ref{primesinmath}.
 }
 for which numbers in the 
@@ -1634,7 +1635,8 @@ The 1st requirement is a general condition for all cryptographic encryption algo
 
 The 2nd requirement can easily be met because there is a ``very'' large number
 of prime numbers\footnote{%
-According to the \textbf{\hyperlink{thm-pz-pi-x}{prime number theorem}} (chapter~\ref{thm-pz-pi-x}, p.~\pageref{thm-pz-pi-x}) of 
+According to the \textbf{\hyperlink{thm-pz-pi-x}{prime number theorem}}
+(chapter~\ref{thm-pz-pi-x}, p.~\pageref{thm-pz-pi-x}) of 
 Legendre\index{Legendre, Adrien-Marie} and Gauss \index{Gauss, Carl Friedrich} 
 there are approximately $n/\ln(n)$ 
 prime numbers\index{Prime number!number of} up to the number $n$. 
@@ -4052,7 +4054,7 @@ sage: L
 sage: len(L)
 144
 \end{Verbatim}
-\caption{Table with all primitive roots for a given prime}
+\caption{Table with all primitive roots for the given prime 541}
 \end{sagecode}
 
 
@@ -4118,7 +4120,7 @@ our computer.
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
 # BB_Start -- Testcases for count_PrimitiveRoots_of_an_IntegerRange(start, end, bPrimesOnly=True)
-print "\n\nBB_Start -- Testcases for count_PrimitiveRoots_of_an_IntegerRange(start, end, bPrimesOnly=True)"
+print "\n\nBB_Start -- Testcases for count_PrimitiveRoots_of_an_IntegerRange(start, end, True)"
 
 print "\n1-----------Testcase: (1, 500)"
 time count_PrimitiveRoots_of_an_IntegerRange(1, 500)
@@ -4146,7 +4148,7 @@ Found all 11010 primitive roots of 170 numbers.
 (Total of numbers checked: 500, Amount of numbers without primitive roots: 330)
 Time: CPU 1.52 s, Wall: 1.59 s
 \end{Verbatim}
-\caption{Testcases and output of function ``count\_PrimitiveRoots\_of\_an\_IntegerRange''}
+\caption{Function ``count\_PrimitiveRoots\_of\_an\_IntegerRange'': testcases and output}
 \end{sagecode}
 
 
@@ -4211,14 +4213,14 @@ CC_Start -- Testcases for count_PrimitiveRoots_of_a_PrimesRange(start, end)
 Found all 62044 primitive roots of 239 primes.
 Time: CPU 7.55 s, Wall: 7.85 s
 \end{Verbatim}
-\caption{Function to calculate all primitive roots for a given range of primes}
+\caption{Function ``count\_PrimitiveRoots\_of\_a\_PrimesRange'' to calculate all primitive roots for a given range of primes}
 \end{sagecode}
 
 
 
 \newpage
 \newpage
-\noindent A slightly modified version of our custom-defined function
+\noindent A slightly modified version of our function
 \verb!count_PrimitiveRoots_of_a_PrimesRange!, is used to generate
 a database of all primitive roots of all primes between 1 and 100,000.
 
@@ -4369,7 +4371,7 @@ section~\ref{rsaconcrete} (``\nameref{rsaconcrete}'').
 
 \vskip +10 pt 
 \hypertarget{AppArith4a}{%
-\noindent \textbf{Example on page~\pageref{SrcArith4a}.}} \\
+\noindent \textbf{Example on page~\pageref{SrcArith4a}:}} \\
 The RSA exponentiation $M^{37} \pmod{3713}$ on message $M = 120$ can be
 calculated in Sage as follows:
 
@@ -4382,7 +4384,7 @@ sage: power_mod(120, 37, 3713)
 
 \vskip +10 pt 
 \hypertarget{AppArith4b}{%
-\noindent {\bf Example on page~\pageref{SrcArith4b}.}} \\
+\noindent {\bf Example on page~\pageref{SrcArith4b}:}} \\
 The factorization of $J(256027) = 255016 = 2^3 * 127 * 251$ can be
 calculated using Sage as follows:
 
@@ -4398,7 +4400,7 @@ sage: factor(255016)
 
 \vskip +10 pt 
 \hypertarget{AppArith4c}{%
-\noindent {\bf Example on page~\pageref{SrcArith4c}.}} \\
+\noindent {\bf Example on page~\pageref{SrcArith4c}:}} \\
 Sage can do RSA encryption as follows:
 
 \begin{sagecode}
@@ -4415,7 +4417,7 @@ sage: [power_mod(a, e, m) for a in A]
 
 \vskip +10 pt 
 \hypertarget{AppArith4d}{%
-\noindent {\bf Example on page~\pageref{SrcArith4d}.}} \\
+\noindent {\bf Example on page~\pageref{SrcArith4d}:}} \\
 RSA encryption using Sage:
 
 \begin{Verbatim}%
@@ -4429,7 +4431,7 @@ sage: [power_mod(a, e, m) for a in A]
 
 \vskip +10 pt 
 \hypertarget{AppArith4e}{%
-\noindent {\bf Example on page~\pageref{SrcArith4e}.}} \\
+\noindent {\bf Example on page~\pageref{SrcArith4e}:}} \\
 RSA encryption using Sage:
 
 \begin{Verbatim}%
@@ -4714,28 +4716,28 @@ Theorem~\ref{thm-zth-ordp} & exhausting of all possible values & \pageref{thm-zt
 
 \begin{enumerate}
    \item \hypertarget{knott}{}  \index{Knott, Ron}
-          Ron Knott's Fibonacci \index{Fibonacci} page, \\
-          Here, everything revolves around Fibonacci numbers.\\
-          \href{http://www.mcs.surrey.ac.uk/personal/R.Knott/Fibonacci/fib.html}
-          {\texttt{http://www.mcs.surrey.ac.uk/personal/R.Knott/Fibonacci/fib.html}}
+         Ron Knott's Fibonacci \index{Fibonacci} page, \\
+         Here, everything revolves around Fibonacci numbers.\\
+         \href{http://www.mcs.surrey.ac.uk/personal/R.Knott/Fibonacci/fib.html}
+         {\texttt{http://www.mcs.surrey.ac.uk/personal/R.Knott/Fibonacci/fib.html}}
           
    \item CrypTool, \index{CrypTool} \\
-          E-Learning freeware to illustrate cryptography and cryptanalysis\\
-          \href{http://www.cryptool.de}{\texttt{http://www.cryptool.de}},\\
-          \href{http://www.cryptool.org}{\texttt{http://www.cryptool.org}},\\ 
-          \href{http://www.cryptool.com}{\texttt{http://www.cryptool.com}}
+         E-Learning freeware to illustrate cryptography and cryptanalysis\\
+         \href{http://www.cryptool.de}{\texttt{http://www.cryptool.de}},\\
+         \href{http://www.cryptool.org}{\texttt{http://www.cryptool.org}},\\ 
+         \href{http://www.cryptool.com}{\texttt{http://www.cryptool.com}}
           
    \item Mathematica, \index{Mathematica} \\
-          Commercial mathematics package \\
-          \href{http://www.wolfram.com}{\texttt{http://www.wolfram.com }}
+         Commercial mathematics package \\
+         \href{http://www.wolfram.com}{\texttt{http://www.wolfram.com }}
           
-   \item  LiDIA, \index{LiDIA} \\
-          Extensive library containing number-theory functions and the LC interpreter \\
-          \href{http://www.informatik.tu-darmstadt.de/TI/LiDIA}
-          {\texttt{http://www.informatik.tu-darmstadt.de/TI/LiDIA}}
+   \item LiDIA, \index{LiDIA} \\
+         Extensive library containing number-theory functions and the LC interpreter \\
+         \href{http://www.informatik.tu-darmstadt.de/TI/LiDIA}
+         {\texttt{http://www.informatik.tu-darmstadt.de/TI/LiDIA}}
           
    \item BC, \index{BC} \\
-          Interpreter with number-theory functions \\
+         Interpreter with number-theory functions \\
          \href{http://www.gnu.org/software/bc/bc.html}
          {\texttt{http://www.gnu.org/software/bc/bc.html}}
           
@@ -4748,8 +4750,7 @@ Theorem~\ref{thm-zth-ordp} & exhausting of all possible values & \pageref{thm-zt
          Resources for PARI/GP at Karim Belabas's website:\\
          \href{http://www.math.u-bordeaux.fr/~belabas/pari/}
               {\texttt{http://www.math.u-bordeaux.fr/\~{}belabas/pari/}}
-
-              
+           
    \item \index{Munchenbach@M\"unchenbach, Carsten}
          Only after I had completed this article, did I come across the
          website of Mr.\ M\"unchenbach, which interactively and didactically
@@ -4760,18 +4761,17 @@ Theorem~\ref{thm-zth-ordp} & exhausting of all possible values & \pageref{thm-zt
          \href{http://www.hydrargyrum.de/kryptographie}
          {\texttt{http://www.hydrargyrum.de/kryptographie}}
                       
-    \item Web site of Mr.~Wagner, who is responsible for the development
-	  of the curriculum of computer science in one of the German federal 
-          states (L\"ander). Here you can get hold of a collection of texts
-	  and (Java-)\discretionary{}{}{}programs (available only in German):\\
-          \href{http://www.saar.de/~awa/kryptolo.htm}
-          {\texttt{http://www.saar.de/\~{}awa/kryptolo.htm}}
+   \item Web site of Mr.~Wagner, who is responsible for the development
+	 of the curriculum of computer science in one of the German federal 
+         states (L\"ander). Here you can get hold of a collection of texts
+	 and (Java-)\discretionary{}{}{}programs (available only in German):\\
+         \href{http://www.saar.de/~awa/kryptolo.htm}
+         {\texttt{http://www.saar.de/\~{}awa/kryptolo.htm}}
           
-    \item GISA, \index{GISA} \\
-          German Information Security Agency \\
-          \href{http://www.bsi.bund.de}{\texttt{http://www.bsi.bund.de}}
-         
-	 
+   \item GISA, \index{GISA} \\
+         German Information Security Agency \\
+         \href{http://www.bsi.bund.de}{\texttt{http://www.bsi.bund.de}}
+
    \item Factorization records and challenges\index{Factorization!factoring records},\\
          \href{http://www.crypto-world.com/}
            {\texttt{http://www.crypto-world.com/}} \\
@@ -4790,12 +4790,20 @@ Theorem~\ref{thm-zth-ordp} & exhausting of all possible values & \pageref{thm-zt
            {\texttt{http://www.loria.fr/\~{}zimmerma/records/rsa160}} \\
  
          \href{http://www.rsa.com/rsalabs/node.asp?id=2092}
-           {\texttt{http://www.rsa.com/rsalabs/node.asp?id=2092}}
-         
+           {\texttt{http://www.rsa.com/rsalabs/node.asp?id=2092}}\\
 	 
    \item The Cunningham Project, \index{Cunningham project}\\ 
          \href{http://www.cerias.purdue.edu/homes/ssw/cun/}
          {\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/}}
+
+   \item Sage, \index{Sage} \\
+         Excellent, open source computer algebra system with Python as script language,
+	 used to build the code samples in this chapter.
+	 See also chapter~\ref{s:appendix-using-sage}.\\
+         \href{http://www.sagemath.org/}
+              {\texttt{http://www.sagemath.org/}}\\
+         \href{http://en.wikipedia.org/wiki/Sage_%28mathematics_software%29}
+              {\texttt{http://en.wikipedia.org/wiki/Sage\_\%28mathematics\_software\%29}}\\
 
 
 \end{enumerate}
@@ -4810,8 +4818,8 @@ I would like to take this opportunity to thank
 \begin{itemize}
 
   \item {Henrik Koy for making many very useful suggestions, 
-         for the very constructive proof-reading of this article and
-         for helping with TeX. \\
+         for the very constructive proof-reading of the first version of
+	 this article, and for helping with TeX. \\
 	 Mr.\ Koy designed and developed in his leisure time the 
 	 functions and the complex dialog box of the RSA cryptosystem within CrypTool, 
 	 which enables you to execute the RSA samples of this article.}
@@ -4823,7 +4831,7 @@ I would like to take this opportunity to thank
   
   \item {Lars Fischer for his help with fast Pari-GP\index{Pari-GP} code for primitive roots.}
   
-  \item {Minh Van Nguyen from Australia for his always fast and exhaustive
+  \item {Minh Van Nguyen from Australia for his always fast, professional and exhaustive
          help with the Sage\index{Sage} code samples in this chapter.}
 
 \end{itemize}
