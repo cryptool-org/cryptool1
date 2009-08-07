@@ -247,7 +247,7 @@ Die {\it Ordnung der Gruppe} ist die Anzahl der Elemente in der Menge $G$. Ist d
 % -----------------------------------------------------------------------------
 \subsection{Körper}
 
-In praktischen Anwendungen betrachtet man häufig Mengen, auf denen nicht nur eine \mbox{(Gruppen-)}
+In praktischen Anwendungen betrachtet man häufig Mengen, auf denen nicht nur eine (Grup"-pen"~)
 Verknüpfung, sondern zwei Verknüpfungen definiert sind. Diese nennt man oft Addition und Multiplikation. Die mathematisch interessantesten Mengen dieser Art sind sogenannte Körper, wie z.B. die Menge der reellen Zahlen.
 
 Unter einem Körper versteht man in der Mathematik eine Menge $K$ mit den zwei Verknüpfungen Addition und Multiplikation (mit $+$ und $\cdot$ bezeichnet), so dass die folgenden Bedingungen erfüllt sind:
@@ -329,7 +329,7 @@ Eine besondere Rolle spielen die Körper $GF(p)$, deren Ordnung eine Primzahl ist
 % -----------------------------------------------------------------------------
 \section{Elliptische Kurven in der Kryptographie} \label{ECC-Crypto}
 
-In der Kryptographie betrachten wir Elliptische Kurven. Solche Kurven ergeben sich als Lösungen einer Gleichung der Form\footnote{Die hier verwendete Kurve erhält man als Nullstellen des {\it Polynoms}\index{Polynom} $F$ vom Grad drei in drei Variablen. Dabei bezeichnet man allgemein Ausdrücke der Form
+In der Kryptographie betrachten wir Elliptische Kurven. Solche Kurven ergeben sich als Lösung"-en einer Gleichung der Form\footnote{Die hier verwendete Kurve erhält man als Nullstellen des {\it Polynoms}\index{Polynom} $F$ vom Grad drei in drei Variablen. Dabei bezeichnet man allgemein Ausdrücke der Form
 $P=\sum_{i_1,\dots,i_n\in\N_0} a_{i_1\dots i_n} x_1^{i_1}\dots x_n^{i_n}$ mit Koeffizienten $a_{i_1\dots i_n}\in K$ als Polynome in $n$ Variablen $x_1,\dots,x_n$ über dem Körper $K$, wenn ${\rm grad\,} P:=\max\{i_1+\dots +i_n: a_{i_1\dots i_n}\ne 0\}$ einen endlichen Wert hat, die Summe also nur aus endlich vielen Summanden (Monomen) besteht. Die Summe der Exponenten der Variablen jedes einzelnen Summanden ist maximal $3$, bei mindestens einem Summanden kommt $3$ als Exponentwert einer Variablen auch wirklich vor.}
 \begin{equation}
  F(x_1,x_2,x_3)=-x_1^3+x_2^2x_3+a_1x_1x_2x_3-a_2x_1^2x_3+a_3x_2x_3^2-a_4x_1x_3^2-a_6x_3^3=0.
@@ -459,7 +459,7 @@ Ebene dargestellt werden.
 
 
 % -----------------------------------------------------------------------------
-\section{Sicherheit der Elliptischen-Kurven-Kryptographie: Das ECDLP}
+\section[Sicherheit der Elliptischen-Kurven-Kryptographie: Das ECDLP]{\sloppy Sicherheit der Elliptischen-Kurven-Kryptographie: Das ECDLP}
 
 Wie bereits in Abschnitt \ref{ECC-Crypto} erwähnt, betrachten wir in der Kryptographie Elliptische Kurven über diskreten\footnote{Diskret im Gegensatz zu kontinuierlich.} Körpern $GF(2^n)$ oder $GF(p)$ (für große Primzahlen $p$). Dies bedeutet, dass alle Parameter, die zur Beschreibung der Elliptischen Kurve notwendig sind, aus diesem zugrunde liegenden Körper stammen. Ist nun $E$ eine Elliptische Kurve über einem solchen Körper und $P$ ein Punkt auf der Kurve $E$, so kann man für jede natürliche Zahl $m$
 $$ mP := \underbrace{P+P+\dots+P}_{\hbox{$m$ mal}}

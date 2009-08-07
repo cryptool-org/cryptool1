@@ -2,6 +2,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[a4paper,11pt,oneside]{book}
+\overfullrule=5pt % uncomment to mark overfull boxes
 \setlength{\fboxrule}{.5mm}
 \setlength{\fboxsep}{1.75mm}
 \setlength{\footnotesep}{6pt}
@@ -16,14 +17,14 @@
 
 \usepackage[flushmargin]{footmisc}
 \usepackage{fullpage}
-\usepackage{url}
+\usepackage[hyphens]{url} % options "hyphens" enables linebreaks in \url{}
 % Literaturverzeichnis kapitelweise
 \usepackage[labelstoglobalaux]{bibunits} % ohne labelstoglobalaux scheint man thebibilograpy und bibtex nicht mischen zu können
 %\bibliographyunit[\section] % bibunits für das ganze Dokument aktivieren
 \defaultbibliography{references}
 \defaultbibliographystyle{abbrv}
 \usepackage{float}
-\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black,bookmarksnumbered=true,pdfpagelabels,hypertexnames=false,debug]{hyperref}
+\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black,bookmarksnumbered=true,pdfpagelabels,hypertexnames=false]{hyperref}
 %To reduce the number of hyperlink related 'pdfTeX warning's we use options 
 %pdfpagelabels and hypertexnames=false and place hyperref after float.
 %Option debug helps finding problems.

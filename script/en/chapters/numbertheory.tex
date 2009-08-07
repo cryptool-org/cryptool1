@@ -737,13 +737,12 @@ certain number $a$ all values from $\{1, \cdots ,m-1 \} $ (exhaustive permutatio
 also theorem~\ref{thm-zth-ordp} in \hyperlink{Chapter_ElementaryNT_9}
 {chapter~\ref{MultOrdPrimitveRoot}, Multiplicative order and primitive roots}.}.
 \end{theorem}
-\vskip +10 pt
-The following three examples\footnote{%
-See \hyperlink{AppArith1}{Appendix E of this chapter} for the source
+\noindent The following three examples\footnote{%
+\noindent See \hyperlink{AppArith1}{Appendix E of this chapter} for the source
 code to compute the tables using Sage.}
 illustrate the properties of multiplicative inverses.
 
-In the multiplication table mod $17$ (table~\ref{mulmod17}), the following was calculated for $i = 1, 2, \cdots, 18$:
+Multiplication table mod $17$ (table~\ref{mulmod17}) shows for $i = 1, 2, \cdots, 18$ the following:
 \begin{itemize}
    \item[] $(5*i)/17 = a$ remainder $r$ and high-lighted $5*i \equiv 1$ (mod $17$),
    \item[] $(6*i)/17 = a$ remainder $r$ and high-lighted $6*i \equiv 1$ (mod $17$).
@@ -2025,7 +2024,7 @@ limiting factor.
 
 
 An estimation of the evolution of secure key lengths was done by 
-Lenstra/Verheul\cite{nt:Lenstra1999} (compare figure~\ref{RSAKeylength}
+Lenstra/Verheul in 1999 \cite{nt:Lenstra1999} (compare figure~\ref{RSAKeylength}
 in chapter ~\ref{ECAlternative}).
 
 Within the article \cite{nt:Bourseau2002} Dirk Fox\footnote{%
@@ -2052,7 +2051,7 @@ of 1024 bit can be expected in 15 years.
 \begin{figure}[!hb]
 \begin{center}
 \frame{
-\includegraphics[scale=0.65, clip, viewport=-20 0 680 520]{figures/PrognoseRSAFaktorisierungSecorvo.pdf}
+\includegraphics[scale=0.64, clip, viewport=-20 0 680 520]{figures/PrognoseRSAFaktorisierungSecorvo.pdf}
 }
 \caption{Forecast about future factorization records compared with current results
 (from Secorvo)}
@@ -2131,18 +2130,18 @@ listed in the table~\ref{factorizationrecords}.
 
 \begin{table}[h]
 \begin{center}
-\begin{tabular}{|c|ccccc|}
+\begin{tabular}{|c|cccc|}
 \hline
-	& {\bf Decimal digits} & {\bf Binary digits} & & {\bf Factored on} & {\bf Factored by} \\
+	& {\bf Decimal digits} & {\bf Binary digits} & {\bf Factored on} & {\bf Factored by} \\
 \hline
-	C307 & 		307 & 1017 & & May, 2007 & Jens Franke et al. \\
-	RSA-200 & 	200 & 663 & & May, 2005 & Jens Franke et al. \\
-	RSA640\footnotemark & 	193 & 600 & & November, 2005 & Jens Franke et al. \\
-	C176 & 		176 & 583 & & May, 2005 & Kazumaro Aoki et al. \\
-	RSA576 & 	174 & 576 & & December, 2003 & Jens Franke et al. \\
-	RSA-160 & 	160 & 530 & & April, 2003 & Jens Franke et al. \\
-	C158 & 		158 & 523 & & January, 2002 & Jens Franke et al. \\
-	RSA-155	&	155 & 512 & & August, 1999 & Herman te Riele et al. \\
+	C307 & 		307 & 1017 & May, 2007 & Jens Franke et al. \\
+	RSA-200 & 	200 & 663 & May, 2005 & Jens Franke et al. \\
+	RSA640\footnotemark & 	193 & 600 & November, 2005 & Jens Franke et al. \\
+	C176 & 		176 & 583 & May, 2005 & Kazumaro Aoki et al. \\
+	RSA576 & 	174 & 576 & December, 2003 & Jens Franke et al. \\
+	RSA-160 & 	160 & 530 & April, 2003 & Jens Franke et al. \\
+	C158 & 		158 & 523 & January, 2002 & Jens Franke et al. \\
+	RSA-155	&	155 & 512 & August, 1999 & Herman te Riele et al. \\
 \hline
 \end{tabular}
 \caption{The current factoring records (as of July 2009)}    % Eyecatcher_neue-Mersenne 
@@ -2257,7 +2256,7 @@ $$
 $$
 So now all 8 prime factors of $2^{953} - 1$ have been found.
 
-\begin{minipage}{\textwidth}
+\noindent\begin{minipage}{\textwidth}
 \vspace{3ex}
 Links:
 \vspace{-10pt}
@@ -2479,7 +2478,7 @@ p227 = 207581819464423827645704813703594695162939708007395209881208\\
 $$
 So now the number $2^{1039}-1$ is completely factorized in its 3 prime factors.
 
-\begin{minipage}{\textwidth}
+\noindent\begin{minipage}{\textwidth}
 \vspace{3ex}
 Links:
 \vspace{-10pt}
@@ -2639,7 +2638,7 @@ far there exist implementations of his theoretical onsets and how much
 financing there was for his research project.
 
 \vskip +12pt
-\begin{minipage}{\textwidth}
+\noindent\begin{minipage}{\textwidth}
 Links:
 \vspace{-10pt}
 \begin{itemize}
@@ -3688,8 +3687,7 @@ and therefore we have $EA$.
 \vskip +10 pt
 \begin{example}{ 2 (binary$\rightarrow$decimal):}\\
 The binary number $z = 1000100101110101$ is transformed into the decimal
-representation via the following steps:
-
+representation via the following steps:\\
 $1000100101110101 = 1001$ (mod $1010)  \Longrightarrow a_0 = 9$, ~ ~ $1000100101110101 / 1010 = 110110111110$ \\
 $110110111110 = 1000$ (mod $1010) \Longrightarrow a_1 = 8$, $110110111110 / 1010 = 101011111$ \\
 $101011111 = 1$ (mod $1010) \Longrightarrow a_2 = 1$, $10101111 / 1010 = 100011$ \\
@@ -4213,7 +4211,7 @@ CC_Start -- Testcases for count_PrimitiveRoots_of_a_PrimesRange(start, end)
 Found all 62044 primitive roots of 239 primes.
 Time: CPU 7.55 s, Wall: 7.85 s
 \end{Verbatim}
-\caption{Function ``count\_PrimitiveRoots\_of\_a\_PrimesRange'' to calculate all primitive roots for a given range of primes}
+\caption{Function ``count\_PrimitiveRoots\_of\_a\_PrimesRange'' to calculate primitive roots for a given range of primes}
 \end{sagecode}
 
 
@@ -4669,8 +4667,7 @@ Theorem~\ref{thm-zth-ordp} & exhausting of all possible values & \pageref{thm-zt
     Adi Shamir, Eran Tromer, \\
     {\em On the Cost of Factoring RSA-1024}, 
     RSA Laboratories CryptoBytes Volume 6, No. 2, Summer 2003, p. 11-20 \\
-    \href{http://www.rsasecurity.com/rsalabs/cryptobytes/CryptoBytes_August_2003.pdf}
-    {\texttt{http://www.rsasecurity.com/rsalabs/cryptobytes/CryptoBytes\_August\_2003.pdf}}
+    \url{http://www.rsasecurity.com/rsalabs/cryptobytes/CryptoBytes_August_2003.pdf}
 
 \bibitem[Silverman2000]{nt:Silverman2000} \index{Silverman 2000}
      Robert D. Silverman: \\ 

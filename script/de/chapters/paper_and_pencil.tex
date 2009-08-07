@@ -202,7 +202,7 @@ Die meisten der folgenden Verfahren können in CrypTool\index{CrypTool}
 mit dem Menüpunkt {\bf Ver-/Entschlüsseln \textbackslash{} 
 Symmetrisch (klassisch) \textbackslash{} Permutation} abgebildet werden.}
 
-\begin{itemize}
+\begin{itemize}\sloppy
 
 \item {\bf Einfache Spaltentransposition} \cite{pp:Savard1999}: Zunächst wird
    ein Schlüsselwort bestimmt, das über die Spalten eines Gitters geschrieben
@@ -434,7 +434,7 @@ ordnen jedem Klartextzeichen ein Geheimtextzeichen fest zu, d.h. diese
 Zuordnung ist während des ganzen Verschlüsselungsprozesses dieselbe.
 \label{monoalphabeticSubstitutionCiphers}
 
-\begin{itemize}
+\begin{itemize}\sloppy
 
 \item {\bf Allgemeine monoalphabetische Substitution / Zufällige
    Buchstabenzuordnung\footnotemark}
@@ -754,7 +754,7 @@ Geheimtextzeichen zugeordnet.
    \textbackslash{} Symmetrisch (klassisch) \textbackslash{} Homophone}
    aufrufen.}
    \cite{pp:Singh2001}: 
-   Um die typische Häufig"-keitsvertei"-lung der Buchstaben einer natürlichen
+   Um die typische Häu"-fig"-keitsvertei"-lung der Buchstaben einer natürlichen
    Sprache zu verschleiern, werden einem Klartextbuchstaben mehrere 
    Geheimtextzeichen fest zugeordnet. Die Anzahl der zugeordneten Zeichen
    richtet sich gewöhnlich nach der Häufigkeit des zu verschlüsselnden
@@ -1506,7 +1506,7 @@ Grafik aufgeführten Bezeichnungen und Abläufe:
 \begin{itemize}
   \item Die Verschlüsselung besteht aus den Schritten codieren und verschlüsseln.
   \item Beim Codieren werden in dem gegebenen Klartext P die Zeichen auf
-        Groß-/Kleinschreibung angepasst (je nach gegebenem Alphabet), und alle
+        Groß-/Kleinschrei"-bung angepasst (je nach gegebenem Alphabet), und alle
 	Nichtalphabetzeichen werden entfernt.
   \item Durch die Verschlüsselung wird das Chiffrat C erzeugt.
   \item Die Entschlüsselung besteht ebenfalls aus den zwei Schritten entschlüsseln und decodieren.
@@ -1517,7 +1517,7 @@ Grafik aufgeführten Bezeichnungen und Abläufe:
 \begin{figure}[h]
 \begin{center}
 \includegraphics[scale=0.5]{figures/encryption-decryption-de}
-\caption{Namenskonventionen in den Sage-Programmbeispielen zu Verschlüsselungsverfahren} 
+\caption{Namenskonventionen in den Sage-Programmbeispielen zu Verschlüsselungsver\-fah\-ren} 
 \label{XXX}
 \end{center}
 \end{figure}
@@ -1644,14 +1644,16 @@ sage: T(keyInv)
 \end{sagecode}
 
 \newpage
+\begin{sloppypar}
 Im dritten Beispiel der Transpositions-Chiffren wird eine beliebige Permutation
 als Schlüssel für die Ver- und Entschlüsselun gewählt, um die Zeichen in jedem Block
-zu verwürfeln (Blocklänge = Anzahl Spalten in der einfachen Spaltentransposition).
+zu verwürfeln (Blocklän"-ge = Anzahl Spalten in der einfachen Spaltentransposition).
 Ist die Blocklänge $n$, dann ist der Schlüssel eine Permutation über $n$ Zeichen.
 Das folgende Beispiel nutzt die Methode \verb!random_key()! der Klasse
 \verb!TranspositionCryptosystem!.  Jeder Aufruf von \verb!random_key()! erzeugt
 einen anderen Schlüssel. Deshalb werden bei Ihrem Aufruf voraussichtlich andere
 Ergebnisse (Schlüssel und Geheimtext) auftreten.
+\end{sloppypar}
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -1916,9 +1918,11 @@ True
 
 
 \newpage
+\begin{sloppypar}
 Das zweite Beispiel einer monoalphabetischen Substitution mit Symbolen benutzt
 ein größeres Alphabet für den Klartext-/Geheimtext-Zeichenraum als das erste Beispiel.
 Hier wird nun das hexadezimale Zahlensystem als Substitutions-Alphabet verwendet.
+\end{sloppypar}
 
 \begin{sagecode}
 \begin{Verbatim}%

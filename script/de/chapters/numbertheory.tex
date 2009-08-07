@@ -813,7 +813,7 @@ den Wert $1$ hat.
 
 \begin{table}[h] \label{SrcArith1a}
 \begin{center}
-\begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c||c|c|}
+\begin{tabular}{|l@{\:}||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c||c|c|}
 \hline 
 i                   & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16  & 17 & 18 \\
 \hline
@@ -839,7 +839,7 @@ zwischen $0, \cdots, m-1$ vor (vollständige $m$-Permutation\index{Permutation}).
 
 \begin{table}[h] \label{SrcArith1b}
 \begin{center}                                                                          
-\begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c||c|c|c|c|c|c|}
+\begin{tabular}{|l@{\:}||c|c|c|c|c|c|c|c|c|c|c|c||c|c|c|c|c|c|}
 \hline 
 i                    & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16  & 17  & 18 \\
 \hline 
@@ -869,7 +869,7 @@ Tabelle~\ref{mulmod12} enthält ein Beispiel dafür, wo der Modul $m$ und die Zahl
 
 \begin{table}[h]
 \begin{center}                                                                          
-\begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c||c|c|c|c|c|c|c|}
+\begin{tabular}{|l@{\:}||c|c|c|c|c|c|c|c|c|c|c||c|c|c|c|c|c|c|}
 \hline 
 i                    & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16  & 17  & 18 \\
 \hline 
@@ -1057,8 +1057,11 @@ aufwendig wie das Durchprobieren aller $m$ denkbaren Werte für $c$ -- bei
 einem typischen $m$ in der Größenordnung von $10^{180}$ für
 $600$-stellige Binärzahlen ein hoffnungsloses Unterfangen. Genauer ist für
 geeignet große Zahlen $m$ der Aufwand nach heutigem Wissensstand proportional
-zu ${\rm exp}\left( C*( \log m [\log \log m]^2)^{1/3}\right)$ mit einer
-Konstanten $C > 1$.
+zu 
+\[
+{\rm exp}\left( C*( \log m [\log \log m]^2)^{1/3}\right)
+\]
+mit einer Konstanten $C > 1$.
 \item[\bf b)] {\bf Wurzel-Berechnung (Bestimmen von $b$):}  
 
 Ähnliches gilt, wenn $b$ die Unbekannte ist und die Zahlen $a$ und $c$ bekannt sind. \\
@@ -1234,7 +1237,7 @@ unrational, ja sogar {\bf irrational und damit wirklichkeitsnäher} sind.}}
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \hypertarget{Chapter_ElementaryNT_8}{}
-\section{Euler-Funktion, kleiner Satz von Fermat und Satz von Euler-Fermat}
+\section{Euler-Funktion, kleiner Satz von Fermat und Satz von Eu"-ler-Fermat}
 
 % --------------------------------------------------------------------------
 \hypertarget{patternsandstructures}{}
@@ -1471,7 +1474,7 @@ die wiederholte Anwendung einer Operation das neutrale Element
 (vergleiche \hyperlink{patternsandstructures}{Muster und Strukturen}, Kapitel~\ref{patternsandstructures}\index{Struktur}).
 
 Für die $i$-fach aufeinander folgende modulare Multiplikation einer
-Zahl $a$ mit \mbox{$i=1, \cdots, m-1$} ergibt sich als Produkt das neutrale
+Zahl $a$ für \mbox{$i=1, \dots, m-1$} ergibt sich als Produkt das neutrale
 Element der Multiplikation nur dann, wenn $a$ und $m$
 teilerfremd\index{Zahlen!teilerfremd (co-prime)} sind. 
 
@@ -1787,7 +1790,7 @@ Damit dieses System mit jeder Nachricht $M$ funktioniert, müssen folgende 4
 \end{itemize}
 
 Die 1. Forderung ist eine generelle Bedingung für alle kryptographischen
-Verschlüsselungsalgo"-rith"-men.
+Verschlüsselungsal"-go"-rith"-men.
 
 Die 2. Forderung kann leicht sichergestellt werden, weil es \glqq sehr'' viele \index{Primzahl!Anzahl}
 Primzahlen gibt\footnote{%
@@ -1819,7 +1822,7 @@ Verfahren, das alle vier Bedingungen erfüllte.
 Man kann die Einzelschritte zur Durchführung \index{RSA} des RSA-Verfahren
 folgendermaßen beschreiben (s. \cite[S. 213 ff]{nt:Eckert2003} \index{Eckert 2003} und 
 \cite[S. 338 ff]{nt:Sedgewick1990}). \index{Sedgewick 1990}
-Schritt 1 bis 3 sind die Schlüsselerzeugung, 
+Schritt 1 bis 3 sind die Schlüsselerzeu"-gung, 
 Schritt 4 und 5 sind die Verschlüsselung, 6 und 7 die Entschlüsselung:
 \begin{itemize}
 \item[{\bf 1.}] Wähle zufällig $2$ verschiedene Primzahlen\footnote{%
@@ -2209,7 +2212,7 @@ der verfügbare Hauptspeicher ebenso wie die Rechengeschwindigkeit exponentiell
 gewachsen ist, dürfte hierdurch kein zusätzlicher Engpass entstehen.
 
 
-Lenstra/Verheul \cite{nt:Lenstra1999} trafen eine Abschätzung für die Entwicklung sicherer Schlüssellän"-gen (vergleiche Abbildung~\ref{RSAKeylength}
+Lenstra/Verheul \cite{nt:Lenstra1999} trafen eine Abschätzung für die Entwicklung sicherer Schlüs"-sel"-län"-gen (vergleiche Abbildung~\ref{RSAKeylength}
 in Kapitel ~\ref{ECAlternative}).
 
 
@@ -2238,7 +2241,7 @@ Abbildung~\ref{secorvo-factorisation-forecast}). \\
 \begin{center}
 \frame{
 %\includegraphics[scale=0.70, clip, viewport=50 20 700 430]{figures/PrognoseRSAFaktorisierungSecorvo.pdf}
-\includegraphics[scale=0.65, clip, viewport=-20 0 680 520]{figures/PrognoseRSAFaktorisierungSecorvo.pdf}
+\includegraphics[scale=0.64, clip, viewport=-20 0 680 520]{figures/PrognoseRSAFaktorisierungSecorvo.pdf}
 % Parameter von includegraphics: scale, x, y, dx, dy
 % dx, dy spezifiziert die Ausdehnung, die man dem Bildes spendiert.
 %      Ist dy zu klein, wird das Bild oben abgeschnitten
@@ -2334,18 +2337,18 @@ sind in der folgenden Tabelle~\ref{factorizationrecords} aufgeführt:
 
 \begin{table}[h]
 \begin{center}
-\begin{tabular}{|c|ccccc|}
+\begin{tabular}{|c|cccc|}
 \hline
-   & {\bf Dezimalstellen} & {\bf Binärstellen} & & {\bf Faktorisiert am} & {\bf Faktorisiert von} \\
+   & {\bf Dezimalstellen} & {\bf Binärstellen} & {\bf Faktorisiert am} & {\bf Faktorisiert von} \\
 \hline
-	C307 & 		307 & 1017 & & Mai, 2007 & Jens Franke et al. \\
-	RSA-200 & 	200 & 663 & & Mai, 2005 & Jens Franke et al. \\
-	RSA640\footnotemark & 	193 & 600 & & November, 2005 & Jens Franke et al. \\
-	C176 & 		176 & 583 & & Mai, 2005 & Kazumaro Aoki et al. \\
-	RSA576 & 	174 & 576 & & Dezember, 2003 & Jens Franke et al. \\
-	RSA-160 & 	160 & 530 & & April, 2003 & Jens Franke et al. \\
-	C158 & 		158 & 523 & & Januar, 2002 & Jens Franke et al. \\
-	RSA-155	&	155 & 512 & & August, 1999 & Herman te Riele et al. \\
+	C307 & 		307 & 1017 &  Mai, 2007 & Jens Franke et al. \\
+	RSA-200 & 	200 & 663 & Mai, 2005 & Jens Franke et al. \\
+	RSA640\footnotemark & 	193 & 600 & November, 2005 & Jens Franke et al. \\
+	C176 & 		176 & 583 & Mai, 2005 & Kazumaro Aoki et al. \\
+	RSA576 & 	174 & 576 & Dezember, 2003 & Jens Franke et al. \\
+	RSA-160 & 	160 & 530 & April, 2003 & Jens Franke et al. \\
+	C158 & 		158 & 523 & Januar, 2002 & Jens Franke et al. \\
+	RSA-155	&	155 & 512 & August, 1999 & Herman te Riele et al. \\
 \hline
 \end{tabular}
 \caption{Die derzeitigen Faktorisierungsrekorde (Stand Juli 2009)}    % Eyecatcher_neue-Mersenne
@@ -2469,17 +2472,14 @@ $$
 $$
 Damit wurde die Zahl $2^{953}+1$ vollständig in ihre 8 Primfaktoren zerlegt.
 
-\begin{minipage}{\textwidth}
+\noindent\begin{minipage}{\textwidth}
 \vspace{3ex}
 Verweise:
 \vspace{-10pt}
 \begin{itemize}
-\item[]   \href{http://www.loria.fr/\~{}zimmerma/records/gnfs158}
-       {\texttt{http://www.loria.fr/\~{}zimmerma/records/gnfs158}} \\
-          \href{http://www.crypto-world.com/FactorRecords.html}
-       {\texttt{http://www.crypto-world.com/FactorRecords.html}} \\
-          \href{http://www.crypto-world.com/announcements/c158.txt}
-       {\texttt{http://www.crypto-world.com/announcements/c158.txt}}
+\item[]   \url{http://www.loria.fr/~zimmerma/records/gnfs158}\\
+          \url{http://www.crypto-world.com/FactorRecords.html}\\
+          \url{http://www.crypto-world.com/announcements/c158.txt}
 \end{itemize}
 \end{minipage}
 \vspace{24pt}
@@ -2732,21 +2732,15 @@ p227 = 207581819464423827645704813703594695162939708007395209881208\\
 $$
 Damit wurde die Zahl $2^{1039}-1$ vollständig in ihre 3 Primfaktoren zerlegt.
 
-\begin{minipage}{\textwidth}
+\noindent\begin{minipage}{\textwidth}
 \vspace{3ex}
 Verweise:
 \vspace{-10pt}
 \begin{itemize}
-\item[]   \href{http://www.loria.fr/~zimmerma/records/21039-}
-       {\texttt{http://www.loria.fr/\~{}zimmerma/records/21039-}} \\
-          \href{http://www.crypto-world.com/announcements/m1039.txt}
-       {\texttt{http://www.crypto-world.com/announcements/m1039.txt}} \\
-          \href{http://www.crypto-world.com/FactorAnnouncements.html}
-       {\texttt{http://www.crypto-world.com/FactorAnnouncements.html}} \\
-          \href{http://www1.uni-bonn.de/pressDB/jsp/pressemitteilungsdetails.jsp?detailjahr=2007&detail=160}
-       {\texttt{http://www1.uni-bonn.de/pressDB/jsp/pressemitteilungsdetails.jsp?}} \\
-          \href{http://www1.uni-bonn.de/pressDB/jsp/pressemitteilungsdetails.jsp?detailjahr=2007&detail=160}
-       {\texttt{\quad \quad \quad detailjahr=2007\&detail=160}}
+\item[]   \url{http://www.loria.fr/~zimmerma/records/21039-}\\
+          \url{http://www.crypto-world.com/announcements/m1039.txt}\\
+          \url{http://www.crypto-world.com/FactorAnnouncements.html}\\
+          \url{http://www1.uni-bonn.de/pressDB/jsp/pressemitteilungsdetails.jsp?detailjahr=2007&detail=160}
 \end{itemize}
 \end{minipage}
 
@@ -2906,7 +2900,7 @@ darüber bekannt, inwieweit die im Bernstein-Papier vorgeschlagenen
 theoretischen Ansätze realisiert wurden oder wieweit die Finanzierung
 seines Forschungsprojektes ist.
 
-\begin{minipage}{\textwidth}
+\noindent\begin{minipage}{\textwidth}
 \vspace{3ex}
 Verweise:
 \vspace{-10pt}
@@ -3006,7 +3000,7 @@ unsere Entscheidungen ..., die zeigen, wer wir wirklich sind.}}
 und die Kammer des Schreckens'', Carlsen, (c) 1998,
 letztes Kapitel \glqq Dobbys Belohnung'', S. 343, Dumbledore.}
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Anwendungen der asymmetrischen Kryptographie mit Zahlenbeispielen}
+\section{Anwendungen asymmetrischer Kryptographie mit Zahlenbeispielen}
 
 In der modernen Kryptographie \index{Kryptographie!moderne} werden die Ergebnisse
 der modularen Arithmetik extensiv angewandt. Hier werden exemplarisch einige
@@ -3488,7 +3482,7 @@ Chiffrat: \\
 
 
 % --------------------------------------------------------------------------
-\subsection*{Variante 2: Jeweils zwei ASCII-Zeichen werden als Block ver- und entschlüsselt.} 
+\subsection*{Variante 2:\\ Jeweils zwei ASCII-Zeichen werden als Block ver- und entschlüsselt.} 
 
 Bei der Variante 2 wird die Blockbildung in zwei verschiedenen Untervarianten 4./5. und 4'./5'. dargestellt.
 
@@ -3927,8 +3921,7 @@ des Padding sehr wichtig ist für interoperable Algorithmen.
     Adi Shamir, Eran Tromer, \\
     {\em On the Cost of Factoring RSA-1024}, 
     RSA Laboratories CryptoBytes Volume 6, No. 2, Summer 2003, S. 11-20 \\
-    \href{http://www.rsasecurity.com/rsalabs/cryptobytes/CryptoBytes_August_2003.pdf}
-    {\texttt{http://www.rsasecurity.com/rsalabs/cryptobytes/CryptoBytes\_August\_2003.pdf}}
+    \url{http://www.rsasecurity.com/rsalabs/cryptobytes/CryptoBytes_August_2003.pdf}
   
 \bibitem[Silverman2000]{nt:Silverman2000} \index{Silverman 2000}
      Robert D. Silverman: \\ 
@@ -4148,10 +4141,10 @@ beschreiben:
 INPUT: a,b != 0
 1. if ( a < b ) then  x = a; a = b; b = x; // Vertausche a und b (a > b)
 2. a = a - int(a/b) * b        // a wird kleiner b, der ggT(a, b) 
-                               // bleibt unveraendert 
-3. if ( a != 0 ) then goto 1.  // nach jedem Schritt faellt a, und 
+                               // bleibt unverändert 
+3. if ( a != 0 ) then goto 1.  // nach jedem Schritt fällt a, und 
                                // der Algorithmus endet, wenn a == 0.
-OUTPUT "ggT(a,b) = " b         // b ist der ggT vom urspruenglichen a und b
+OUTPUT "ggT(a,b) = " b         // b ist der ggT vom ursprünglichen a und b
 \end{verbatim}
 \item Aus dem ggT lassen sich aber noch weitere Zusammenhänge bestimmen:
 Dazu betrachtet man für $a$ und $b$ das Gleichungssystem:

@@ -109,7 +109,7 @@ Ein alltägliches Beispiel für eine Einwegfunktion ist ein Telefonbuch: die auszu
 Einwegfunktionen spielen in der Kryptographie eine entscheidende Rolle. Fast alle kryptographischen Begriffe kann man durch Verwendung des Begriffs Einwegfunktion umformulieren. Als Beispiel betrachten wir die Public-Key-Verschlüsselung \index{Verschlüsselung!Public-Key} (asymmetrische Kryptographie):\par
 
 Jedem Teilnehmer $ T $ des Systems wird ein privater \index{Schlüssel!privat}
-\index{Schlüssel!öffentlich} Schlüssel $d_T$~\mbox{und} ein sogenannter öffentlicher Schlüssel $ e_T $   zugeordnet. Dabei muss die folgende Eigenschaft (Public-Key-Eigenschaft) gelten:\\
+\index{Schlüssel!öffentlich} Schlüssel $d_T$~\mbox{und} ein sogenannter öffentlicher Schlüssel $ e_T $   zugeordnet. Dabei muss die folgende Eigenschaft (Public-Key-Eigen"-schaft) gelten:\\
 Für einen Gegner, der den öffentlichen Schlüssel $ e_T $  kennt, ist es praktisch unmöglich, den privaten Schlüssel  $ d_T $ zu bestimmen.\par
 
 Zur Konstruktion nützlicher Public-Key-Verfahren sucht man also eine Einwegfunktion, die in einer Richtung \glqq einfach\grqq {} zu berechnen, die in der anderen Richtung jedoch \glqq schwer\grqq {} (praktisch unmöglich) zu berechnen ist, solange eine bestimmte zusätzliche Information \index{Einwegfunktion!mit Falltür} (Falltür) nicht zur Verfügung steht. Mit der zusätzlichen Information kann die Umkehrung effizient gelöst werden. Solche Funktionen nennt man {\bf Einwegfunktionen mit Falltür} (trapdoor one-way function). Im obigen Fall ist $ d_T $ die Falltür-In"-for"-ma"-tion. \par
@@ -185,7 +185,7 @@ Derartige Fragen sind sogenannte {\bf NP}-vollständige Probleme (nicht \index{La
 Ein Spezialfall des Knapsackproblems ist:\\
 Gegeben sind die natürlichen Zahlen $ a_1, \dots, a_n $   und $ g .$
 Gesucht sind  $ x_1, \dots, x_n \in \{ 0,1\} $  mit $ g = \sum_{i=1}^{n}x_i a_i $  (wo also $ g_i = a_i = w_i $ gewählt ist).
-Dieses Problem heißt auch  {\bf 0-1-Knapsackproblem} und wird mit $ K(a_1, \dots, a_n;g) $  bezeichnet.\\
+Dieses Problem heißt auch  {\bf 0-1-Knapsackprob"-lem} und wird mit $ K(a_1, \dots, a_n;g) $  bezeichnet.\\
 
 Zwei 0-1-Knapsackprobleme  $ K(a_1, \dots, a_n;g) $   und
 $ K(a'_1, \dots, a'_n;g') $  heißen kongruent, falls es zwei
@@ -434,7 +434,7 @@ Seien $ p $ und $ q $ zwei verschiedene Primzahlen mit $ p,q\equiv 3 \mod 4 $ un
 \end{cryptoprocedure}
 
 Vorsicht:
-Wegen $ p,q \equiv 3 \mod 4 $  ist die Verschlüsselung (mit Kenntnis des Schlüssels) leicht  zu berechnen. Dies ist nicht der Fall für $ p \equiv 1 \mod 4. $ Außerdem ist die Verschlüsselungsfunktion nicht injektiv: Es gibt genau vier verschiedene Quellcodes, die $ e_T(x) $  als Urbild besitzen $ x,-x-B,\omega (x+B/2)-B/2, -\omega(x+B/2)-B/2, $ dabei ist  $ \omega $  eine der vier Einheitswurzeln. Es muss also eine  Redundanz der Quellcodes geben, damit die Entschlüsselung trotzdem eindeutig bleibt!
+Wegen $ p,q \equiv 3 \mod 4 $  ist die Verschlüsselung (mit Kenntnis des Schlüssels) leicht  zu berechnen. Dies ist nicht der Fall für $ p \equiv 1 \mod 4. $ Außerdem ist die Verschlüsselungsfunkti"-on nicht injektiv: Es gibt genau vier verschiedene Quellcodes, die $ e_T(x) $  als Urbild besitzen $ x,-x-B,\omega (x+B/2)-B/2, -\omega(x+B/2)-B/2, $ dabei ist  $ \omega $  eine der vier Einheitswurzeln. Es muss also eine  Redundanz der Quellcodes geben, damit die Entschlüsselung trotzdem eindeutig bleibt!
 
 Hintertür-Information ist die Primfaktorzerlegung von $ n = pq. $ 
 
@@ -444,7 +444,7 @@ Hintertür-Information ist die Primfaktorzerlegung von $ n = pq. $
 %--------------------------------------------------------------------
 \hypertarget{HT-Discrete-Logarithm-as-Basis}{}
 \section[Der diskrete Logarithmus als Basis für Public-Key-Verfahren]
-           {Der diskrete Logarithmus als Basis für Public-Key-Verfahren\footnotemark}
+           {Der diskrete Logarithmus als Basis für Public-Key-Verfah"-ren\footnotemark}
 \footnotetext{%
     \index{ZT, Lernprogramm Zahlentheorie}%
     \index{Lernprogramm ZT}%
