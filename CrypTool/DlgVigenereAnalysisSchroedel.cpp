@@ -587,7 +587,7 @@ End;
 }
 
 void VigenereAnalysisSchroedel::solveTrigram() {
-	
+
 	CString s;
 	CString key, text, cipher;
 	CString cKey, cText;
@@ -606,7 +606,16 @@ void VigenereAnalysisSchroedel::solveTrigram() {
 		solvers[i][3] = "";
 	}
 
-	for(int i=0; i<cPairs; i++) {
+	/* 
+		ATTENTION: In order to display the analysis progress, we assume that 
+		up until this point, 30% of the analysis is finished; furthermore we 
+		assume that AFTER the following loop, 90% of the analysis is finished; 
+		therefore, the loop covers 60% of the overall analysis,	the progress 
+		is gradually increased with each loop (see loopProgress)
+	*/
+	const double loopProgress = (double)(0.60) / (double)(cPairs); 
+
+	for(int i=0; i<cPairs; i++, progress += loopProgress) {
 		key = pairs[i][0];
 		text = pairs[i][1];
 		cipher = ciphertext;
@@ -752,7 +761,6 @@ void VigenereAnalysisSchroedel::solveTrigram() {
 	}
 
 	// TODO: see original delphi code
-
 }
 
 void VigenereAnalysisSchroedel::readDict() {
@@ -1059,14 +1067,16 @@ UINT singleThreadVigenereAnalysisSchroedel(PVOID argument) {
 		theAnalysis->output(" ");
 
 		theAnalysis->firstChar();
-		theAnalysis->progress = 0.30;
+		theAnalysis->progress = 0.25;
 
 		theAnalysis->secondChar();
-		theAnalysis->progress = 0.40;
+		theAnalysis->progress = 0.30;
 
+		// see definition of solveTrigram for progress increase (this is a bit weird)
 		theAnalysis->solveTrigram();
-		theAnalysis->progress = 1.0;
 	}
+
+	theAnalysis->progress = 1.0;
 
 	// end thread properly
 	theApp.fs.cancel();
