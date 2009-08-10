@@ -557,10 +557,10 @@ Die Sicherheit des {\bf Diffie-Hellman-Protokolls} hängt eng mit der Berechnung 
 
 %--------------------------------------------------------------------
 \subsection{ElGamal-Public-Key-Verschlüsselungsverfahren in $ \Z_p^\ast$}
-
 \index{ElGamal!Public-Key}
-Indem man das Diffie-Hellman Schlüsselvereinbarungsprotokoll 
-\index{Diffie-Hellman} \index{Verschlüsselung!ElGamal-Public-Key} 
+\index{Verschlüsselung!ElGamal-Public-Key} 
+
+Indem man das Diffie-Hellman Schlüsselvereinbarungsprotokoll\index{Diffie-Hellman} 
 leicht variiert, kann man einen asymmetrischen Verschlüsselungsalgorithmus
 erhalten (Krypto-Verfahren~\ref{elgamalproc}). Diese Beobachtung geht auf Taher ElGamal zurück.
 \begin{cryptoprocedure}
@@ -595,16 +595,16 @@ Sei $ G $ eine Gruppe mit der Operation $ \circ $ und $ g \in G. $ Die (diskrete
 Dabei definiert man
  \[ \ g^{k}:=\underbrace{g \circ \ldots \circ g}_{k \text{ mal}}.\]
 Die Exponentialfunktion ist leicht zu berechnen:
-% \begin{lemma}
-\vskip +20 pt \noindent
-{\bf Lemma.}\par
+
+\vskip +10 pt \noindent
+{\bf Lemma}\par
 \nopagebreak[4]
 {\em
-  Die Potenz $ g^k $ kann in höchstens $ 2 \log_2 k $ Gruppenoperationen berechnet werden.
+\noindent Die Potenz $ g^k $ kann in höchstens $ 2 \log_2 k $ Gruppenoperationen
+berechnet werden.
 }
-% \end{lemma}
-\vskip +10 pt
 
+\vskip +10 pt
 \begin{Beweis}{}
 Sei $ k=2^n + k_{n-1} 2^{n-1} + \cdots + k_1 2 + k_0 $ die Binärdarstellung von $k. $ Dann ist $ n \leq \log_2 (k), $  denn $ 2^n \leq k < 2^{n+1}. $ $ k $ kann in der Form $ k=2k' + k_0 $ mit $ k'= 2^{n-1} + k_{n-1} 2^{n-2} + \cdots + k_1 $ geschrieben werden. Es folgt 
 \[ g^k = g^{2k'+k_0}= (g^{k'})^2 g^{k_0} .\]
@@ -612,8 +612,7 @@ Man erhält also $ g^k $ aus $ g^{k'} $ indem man einmal quadriert und eventuell 
 \end{Beweis}
 
 \vskip +10 pt
-{\bf Problem \index{Logarithmusproblem!diskret} des diskreten Logarithmus'}
-%\vskip +10 pt
+\noindent {\bf Problem \index{Logarithmusproblem!diskret} des diskreten Logarithmus'}
 \begin{center}
 \fbox{\parbox{12cm}{ 
 Sei $ G $ eine endliche Gruppe mit der Operation $ \circ. $ Sei $ \alpha \in G $ und $ \beta \in H=\{ \alpha^{i}: i\geq 0\}. $ \\
@@ -646,9 +645,10 @@ In endlichen abelschen Gruppen lässt sich das  diskrete Logarithmusproblem in Gr
 Sei $ G $ eine endliche abelsche Gruppe mit $ |G|= p_1^{a_1} p_2^{a_2} \cdot \ldots \cdot p_s^{a_s}. $ Dann lässt sich das diskrete Logarithmusproblem in $ G $ auf das Lösen von Logarithmenproblemen in Gruppen der Ordnung $ p_1, \ldots , p_s $ zurückführen.
 \end{satz}
 
-Enthält $ |G| $ eine \glqq dominanten\grqq {} Primteiler $ p ,$ so ist die Komplexität \index{Komplexität} des Logarithmenproblem ungefähr
+\noindent Enthält $ |G| $ eine \glqq dominanten\grqq {} Primteiler $ p ,$ so ist die Komplexität \index{Komplexität} des Logarithmenproblem ungefähr
 \[ O(\sqrt{p}). \]
-Wenn also das Logarithmusproblem schwer sein soll, so muss die Ordnung der verwendeten Gruppe $ G $ einen großen Primteiler haben. Insbesondere gilt, wenn die diskrete Exponentialfunktion in der Gruppe $ \Z_p^{\ast} $ eine Einwegfunktion sein soll, so muss $ p -1 $ einen großen Primteiler haben. In diesem Fall kann man ein verallgemeinertes ElGamal-Verfahren definieren (Krypto-Verfahren~\ref{genelgamalproc}).
+
+\noindent Wenn also das Logarithmusproblem schwer sein soll, so muss die Ordnung der verwendeten Gruppe $ G $ einen großen Primteiler haben. Insbesondere gilt, wenn die diskrete Exponentialfunktion in der Gruppe $ \Z_p^{\ast} $ eine Einwegfunktion sein soll, so muss $ p -1 $ einen großen Primteiler haben. In diesem Fall kann man ein verallgemeinertes ElGamal-Verfahren definieren (Krypto-Verfahren~\ref{genelgamalproc}).
 \begin{cryptoprocedure}
 Sei $ G $ eine endliche Gruppe  mit Operation $  \circ, $ und sei $ \alpha \in G, $ so dass der diskrete Logarithmus in $ H =\{ \alpha^{i}: i \geq 0 \} $ schwer ist. Sei $ a $ mit $   0 \leq a \leq |H| -1 $ und sei $ \beta = \alpha^{a}. $\\
 \textbf{Öffentlicher Schlüssel:}
@@ -668,14 +668,14 @@ und
 \label{genelgamalproc}
 \end{cryptoprocedure}
 
-\hyperlink{ellcurve}{Elliptische Kurven}{} liefern nützliche Gruppen für Public-Key-Verschlüsselungsverfahren.
+\noindent \hyperlink{ellcurve}{Elliptische Kurven}{} liefern nützliche Gruppen für Public-Key-Verschlüsselungsverfahren.
 
 
 
 %--------------------------------------------------------------------
 \newpage
-\addcontentsline{toc}{section}{Literaturverzeichnis}
 \begin{thebibliography}{99}
+\addcontentsline{toc}{section}{Literaturverzeichnis}
 
    \bibitem[Adleman1982]{mc:Adleman1982} \index{Adleman 1982}
        Adleman L.: \\ 
@@ -730,7 +730,9 @@ und
 
 
 %--------------------------------------------------------------------
+\newpage
 \chapter*{Web-Links}
+% \section*{Web-Links}
 \addcontentsline{toc}{section}{Web-Links}
 \begin{enumerate}
    \item \href{http://www.geocities.com/st\_busygin/clipat.html}

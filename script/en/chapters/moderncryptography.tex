@@ -731,10 +731,11 @@ problems are equivalent.
 %--------------------------------------------------------------------
 \subsection{ElGamal public key encryption procedure in $ \Z_p^\ast$}
 \index{ElGamal!public key}
-By varying the Diffie-Hellman key agreement protocol \index{Diffie-Hellman} 
-\index{Encryption!ElGamal public key} slightly, you can obtain an 
-asymmetric encryption algorithm, crypto procedure~\ref{elgamalproc}. 
-This observation was made by Taher ElGamal.
+\index{Encryption!ElGamal public key}
+
+By varying the Diffie-Hellman key agreement protocol\index{Diffie-Hellman} 
+slightly, you can obtain an asymmetric encryption algorithm, crypto
+procedure~\ref{elgamalproc}. This observation was made by Taher ElGamal.
 \begin{cryptoprocedure}
 Let $ p $ be a prime number such that the discrete logarithm in $ \Z_p $ is 
 difficult to compute. Let $ \alpha \in \Z_p^\ast $ be a primitive element. Let $a \in \N$ and $ 
@@ -753,7 +754,7 @@ and
 \[ y_2 = x\beta^k \mod p.\]
 \textbf{Decryption:}
 \[ d_T(y_1,y_2)= y_2 (y_1^{a})^{-1} \mod p \]
-\caption{ElGamal (based on the factorization problem)}
+\caption{ElGamal (based on the discrete logarithm problem)}
 \label{elgamalproc}
 \end{cryptoprocedure}
 
@@ -773,15 +774,15 @@ Let $ G $ be a group with the operation $ \circ $ and $ g \in G. $ The
 where
  \[ \ g^{k}:=\underbrace{g \circ \ldots \circ g}_{k {\rm ~times}}.\]
 The exponential function is easy to calculate:
-\vskip +20 pt \noindent
-{\bf Lemma.}
 
+\vskip +10 pt \noindent
+{\bf Lemma.}
 {\em
-  The power $ g^k $ can be calculated in at most $ 2 \log_2 k $ group 
+\noindent The power $ g^k $ can be calculated in at most $ 2 \log_2 k $ group 
 operations.
 }
-\vskip +10 pt
 
+\vskip +10 pt
 \begin{Proof}{}
 Let $ k=2^n + k_{n-1} 2^{n-1} + \cdots + k_1 2 + k_0 $ be the binary 
 representation of $k. $ Then $ n \leq \log_2 (k), $  because $ 2^n \leq k < 
@@ -793,7 +794,7 @@ $ g $. The claim is thus proved by induction to $ n. $
 \end{Proof}
 
 \vskip +10 pt
-{\bf Problem of the discrete logarithm}\index{Logarithm problem!discrete}
+\noindent {\bf Problem of the discrete logarithm}\index{Logarithm problem!discrete}
 \vskip +10 pt
 \begin{center}
 \fbox{\parbox{12cm}{        
@@ -845,10 +846,11 @@ Let $ G $ be a finite Abelian group with $ |G|= p_1^{a_1} p_2^{a_2} \cdot \ldots
 solving logarithm problems in groups of the order $ p_1, \ldots , p_s $.
 \end{theorem}
 
-If $ |G| $ contains a ``dominant'' prime factor $ p ,$ then the 
+\noindent If $ |G| $ contains a ``dominant'' prime factor $ p ,$ then the 
 complexity \index{Complexity} of the logarithm problem is approximately
 \[ O(\sqrt{p}). \]
-Therefore, if the logarithm problem is to be made difficult, the order of the 
+
+\noindent Therefore, if the logarithm problem is to be made difficult, the order of the 
 group used $ G $ should have a large prime factor. In particular, if the 
 discrete exponential function in the group $ \Z_p^{\ast} $ is to be a one way 
 function, then $ p -1 $ must be a large prime factor. In this case a
@@ -876,7 +878,7 @@ and
 \label{genelgamalproc}
 \end{cryptoprocedure}
 
-\hyperlink{ellcurve}{Elliptic curves} {} provide useful groups for public key 
+\noindent \hyperlink{ellcurve}{Elliptic curves} {} provide useful groups for public key 
 encryption procedures.
 
 
@@ -937,7 +939,10 @@ encryption procedures.
 
 
 %--------------------------------------------------------------------
-\section*{Web links}
+\newpage
+\chapter*{Web links}
+% \section*{Web links}   %%% TODO: einheitlich section oder chapter für Web-Links
+                         %%% TODO: einheitlich addcontentsline NACH WebLinks und NACH Bibliography
 \addcontentsline{toc}{section}{Web links}
 \begin{enumerate}
    \item \href{http://www.geocities.com/st_busygin/clipat.html}
