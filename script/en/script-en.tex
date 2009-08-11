@@ -24,9 +24,9 @@
 \defaultbibliography{references}
 \defaultbibliographystyle{abbrv}
 \usepackage{float}
-\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black,bookmarksnumbered=true,pdfpagelabels,hypertexnames=false]{hyperref}
+\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black,bookmarksnumbered=true,pdfpagelabels,plainpages=false,hyperfootnotes=false]{hyperref}
 %To reduce the number of hyperlink related 'pdfTeX warning's we use options 
-%pdfpagelabels and hypertexnames=false and place hyperref after float.
+%pdfpagelabels, plainpages=false and, hyperfootnotes=false and place hyperref after float.
 %Option debug helps finding problems.
 
 \floatstyle{ruled}
@@ -111,7 +111,6 @@ Frankfurt am Main, Germany\\*[1ex]
 
 % Vergleichbar zur Nutzung von Texten aus der Wikipedia (=GNU Free Documentation Licence, GFDL)
 % \vspace{200pt}
-% \newpage
 \begin{quote}
 This is a free document, so the content of the document can
 be copied and distributed, also for commercial purposes --- as long as
@@ -136,7 +135,6 @@ Source cover photograph: \url{www.photocase.com}, Andre Guenther
 
 
 
-\newpage
 \input{chapters/aboutcryptool.tex}
 
 \newpage
