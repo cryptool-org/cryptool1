@@ -95,7 +95,12 @@ void CDlgAuthors::readAuthors()
 	// create a handle for authors file
 	std::ifstream fileAuthors;
 	fileAuthors.open(authorsFileName);
-	if(!fileAuthors) return;
+	if(!fileAuthors) {
+		// display error message and return
+		LoadString(AfxGetInstanceHandle(), IDS_AUTHORS_FILE_MISSING, pc_str, STR_LAENGE_STRING_TABLE);
+		MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
+		return;
+	}
 
 	// two lists of authors (due to the two differenct sections in the authors file)
 	std::list<CString> listAuthors[2];

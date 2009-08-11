@@ -10698,6 +10698,8 @@ STRINGTABLE
 BEGIN
     IDS_STRING_SMIME_DEMO_PROGRAM_COMPLETE_CALL 
                             "-cp "".;./lib/*"" main.Programm"
+    IDS_AUTHORS_FILE_MISSING 
+                            "The file ""authors.txt"" could not be found. Please make sure that the file is located in the CrypTool main folder."
 END
 
 #endif    // Polish resources
@@ -15447,7 +15449,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO, GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
-                MENUITEM "V&igenère (Schrödel)",     ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère (Schrödel)",        ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
@@ -15794,7 +15796,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "V&igenère (Schrödel)",     ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère (Schrödel)",        ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
@@ -16141,7 +16143,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "V&igenère (Schrödel)",     ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère (Schrödel)",        ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
@@ -16488,7 +16490,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "V&igenère (Schrödel)",     ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère (Schrödel)",        ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
@@ -16862,7 +16864,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO, GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
-                MENUITEM "V&igenère (Schrödel)",     ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère (Schrödel)",        ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
@@ -21407,6 +21409,8 @@ BEGIN
                             "-cp "".;./lib/*"" main.Programm"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_INFO 
                             "Sobald die Analyse beendet ist, wird das Ergebnis in einem neuen Dokument angezeigt."
+    IDS_AUTHORS_FILE_MISSING 
+                            "Die Datei ""authors.txt"" wurde nicht gefunden. Bitte stellen Sie sicher, dass sich die Datei im CrypTool-Hauptverzeichnis befindet."
 END
 
 #endif    // German (Germany) resources
@@ -26119,7 +26123,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO, GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
-                MENUITEM "V&igenère (Schrödel)",     ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère (Schrödel)",        ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
@@ -26466,7 +26470,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "V&igenère (Schrödel)",     ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère (Schrödel)",        ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
@@ -26813,7 +26817,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
-                MENUITEM "V&igenère (Schrödel)",     ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère (Schrödel)",        ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
@@ -27160,7 +27164,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "V&igenère (Schrödel)",     ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère (Schrödel)",        ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
@@ -27534,7 +27538,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO, GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
-                MENUITEM "V&igenère (Schrödel)",     ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère (Schrödel)",        ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
@@ -32208,6 +32212,8 @@ BEGIN
                             "-cp "".;./lib/*"" main.Programm"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_INFO 
                             "As soon as the analysis is finished, the result is display in a new document."
+    IDS_AUTHORS_FILE_MISSING 
+                            "The file ""authors.txt"" could not be found. Please make sure that the file is located in the CrypTool main folder."
 END
 
 #endif    // English (U.K.) resources
