@@ -427,8 +427,8 @@ Um die Vorteile von symmetrischen und asymmetrischen Techniken gemeinsam
 nutzen zu können, werden (zur Verschlüsselung) in der Praxis meist 
 Hybridverfahren \index{Verschlüsselung!hybrid} verwendet.\par \vskip + 3pt
 
-Hier werden die Daten mittels symmetrischer Verfahren
-verschlüsselt: der Schlüssel ist ein vom Absender zufällig\footnote{%
+Hier werden die Mengen-Daten mittels symmetrischer Verfahren
+verschlüsselt: Der Schlüssel ist ein vom Absender zufällig\footnote{%
   Die Erzeugung zufälliger Zahlen ist ein wichtiger Bestandteil 
   kryptographisch sicherer Verfahren. Mit CrypTool\index{CrypTool} 
   können Sie über das Menü {\bf Einzelverfahren \textbackslash{}
@@ -441,16 +441,20 @@ verschlüsselt: der Schlüssel ist ein vom Absender zufällig\footnote{%
   \index{SECUDE IT Security GmbH} wird eine "`echte"'
   Zufallsquelle einbezogen. 
 }\index{Zufall}
-generierter Sitzungsschlüssel (session key)\index{Session Key}, der
-nur für diese Nachricht verwendet wird. Anschließend wird dieser
-Sitzungsschlüssel mit Hilfe des asymmetrischen Verfahrens
-verschlüsselt und zusammen mit der Nachricht an den Empfänger
-übertragen. Der Empfänger kann den Sitzungsschlüssel mit Hilfe
-seines geheimen Schlüssels bestimmen und mit diesem dann die
-Nachricht entschlüsseln. Auf diese Weise nutzt man das bequeme
-Schlüsselmanagement \index{Schlüsselmanagement} asymmetrischer
-Verfahren und kann trotzdem große Datenmengen schnell und effektiv mit
-symmetrischen Verfahren verschlüsseln.
+generierter geheimer Sitzungsschlüssel (session key)\index{Session Key},
+der nur für diese Nachricht verwendet wird.
+
+Anschließend wird dieser Sitzungsschlüssel mit Hilfe des asymmetrischen
+Verfahrens verschlüsselt und zusammen mit der Nachricht an den Empfänger
+übertragen.
+
+Der Empfänger kann den Sitzungsschlüssel mit Hilfe seines geheimen
+Schlüssels bestimmen und mit diesem dann die Nachricht entschlüsseln.
+
+Auf diese Weise profitiert man von dem bequemen Schlüsselmanagement\index{Schlüsselmanagement}
+asymmetrischer Verfahren (mit öffentlichem und privatem Schlüssel), und
+man profitiert von der Schnelligkeit symmetrischer Verfahren, um große
+Datenmengen zu verschlüsseln (mit den geheimen Schlüsseln).
 
 
 % --------------------------------------------------------------------------
@@ -460,6 +464,10 @@ Neben den anderen Kapiteln in diesem Skript, der umfangreichen Fachliteratur
 und vielen Stellen im Internet enthält auch die Online-Hilfe von 
 CrypTool\index{CrypTool} sehr viele weitere Informationen zu den 
 einzelnen symmetrischen und asymmetrischen Verschlüsselungsverfahren.
+
+
+
+
 
 
 % --------------------------------------------------------------------------
