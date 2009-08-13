@@ -617,7 +617,7 @@ Das Ergebnis der Addition von $3$ und $4 {\rm ~(mod~ } 5)$ wird folgendermaßen b
 berechne $3 + 4 = 7$ und ziehe solange die $5$ vom Ergebnis ab, bis sich ein
 Ergebnis kleiner als der Modul ergibt: $7 - 5 = 2$. Also ist: $3 + 4 \equiv 2 {\rm ~(mod~ } 5)$. 
 
-\begin{table}[!h]
+\begin{table}[!ht]
 \begin{center}
 \begin{tabular}{r|ccccc}
 + &  0 & 1 & 2 & 3 & 4  \\
@@ -641,7 +641,7 @@ $$16 - 5 = 11;~ 11 - 5 = 6;~6- 5 = 1.$$
 Direkt ergibt es sich auch aus Tabelle~\ref{mulmod5}: $4 * 4 \equiv 1 {\rm ~(mod~} 5)$, weil $16 : 5 = 3$ Rest $1$.
 Die Multiplikation wird auf der Menge $\mathbb{Z}$ ohne $0$ definiert.
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}
 \begin{tabular}{r|cccc}
 * & 1& 2 & 3 & 4  \\
@@ -728,7 +728,7 @@ Ein Gegenbeispiel zeigt die Multiplikationstabelle für mod $6$
 (da der Modul $m = 6$ nicht prim ist, sind nicht alle Elemente aus
 $\mathbb{Z}_6\setminus \{0\}$ zu $6$ teilerfremd):
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}
 \begin{tabular}{r|ccccc}
 * &  1 & 2 & 3 & 4 & 5  \\
@@ -811,7 +811,7 @@ In der Multiplikationstabelle mod $17$ (Tabelle~\ref{mulmod17}) wurde für $i = 1
 {\bf Gesucht} ist das $i$, für das der Produktrest $ a*i$ modulo $17$ mit $a=5$ bzw. $a=6$
 den Wert $1$ hat. 
 
-\begin{table}[h] \label{SrcArith1a}
+\begin{table}[ht] \label{SrcArith1a}
 \begin{center}
 \begin{tabular}{|l@{\:}||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c||c|c|}
 \hline 
@@ -837,7 +837,7 @@ zwischen $0, \cdots, m-1$ vor (vollständige $m$-Permutation\index{Permutation}).
 
 {\bf Die multiplikative Inverse von $5$ (mod $17$) ist $7$, die Inverse von $6$ (mod $17$) ist $3$.}
 
-\begin{table}[h] \label{SrcArith1b}
+\begin{table}[ht] \label{SrcArith1b}
 \begin{center}                                                                          
 \begin{tabular}{|l@{\:}||c|c|c|c|c|c|c|c|c|c|c|c||c|c|c|c|c|c|}
 \hline 
@@ -867,7 +867,7 @@ $0, \cdots, m-1$ vor.
 Tabelle~\ref{mulmod12} enthält ein Beispiel dafür, wo der Modul $m$ und die Zahl $(a=6)$
 {\em nicht} teilerfremd sind.
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}                                                                          
 \begin{tabular}{|l@{\:}||c|c|c|c|c|c|c|c|c|c|c||c|c|c|c|c|c|c|}
 \hline 
@@ -1096,7 +1096,7 @@ Einwegfunktionen\index{Einwegfunktion}
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Gruppen und modulare Arithmetik über $ \mathbb{Z}_n\; $ und $ \mathbb{Z}^*_n $}
+\section{Gruppen und modulare Arithmetik über \texorpdfstring{$ \mathbb{Z}_n\; $ und $ \mathbb{Z}^*_n $}{Zn und Zn*}}
 \index{Gruppen}
 In der Zahlentheorie und in der Kryptographie spielen mathematische 
 \glqq {\em Gruppen}'' eine entscheidende Rolle. Von Gruppen spricht man nur, wenn für
@@ -1503,7 +1503,7 @@ zur Bestimmung der Tabelle mit Sage.
 die Basen $a = 1, 2, \cdots, 10$ sowie den sich für jedes a daraus ergebenden Wert $ord_{11}(a)$:
 \end{example}
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center} \label{SrcArith3a}
 \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
@@ -1566,9 +1566,8 @@ und für die Basen $a = 1, 2, \cdots, 12$ sowie den sich für jedes $a$ daraus
 ergebenden Wert $ord_{45}(a)$.
 \end{example}
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center} \label{SrcArith3b}
-%\begin{table}[h]
 \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
  $a\setminus i$ & 1            & 2            & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12     & $ord_{45}(a)$       & $J(45)$ \\
@@ -1599,7 +1598,6 @@ ergebenden Wert $ord_{45}(a)$.
 12           & 12              & 9  & 18  & 36  & 27   & 9  & 18  & 36  & 27    & 9   & 18   & 36  & ---            & 24 \\
 \hline
 \end{tabular}
-%\end{table}
 \end{center}
 \caption{Werte von $a^i{\rm ~mod~}45, 1\leq a,i<13$}
 \label{expmod45}
@@ -1634,7 +1632,7 @@ Quelltext zur Berechnung der Tabelle mit Sage.
 Die Voraussetzung/Bedingung ggT$(7,46)=1$ ist erfüllt.
 \end{example}
                                                                     
-\begin{table}[h]
+\begin{table}[ht]
 \label{SrcArith3c}
 {\textmd \small 
 \begin{center}
@@ -2237,7 +2235,7 @@ zu bestätigen: Seine Schätzung für das Jahr 2005 mit 660 Bit hat die Bitlänge
 von RSA-200 nahezu auf den Punkt getroffen (vergleiche
 Abbildung~\ref{secorvo-factorisation-forecast}). \\
 
-\begin{figure}[h] %[!hb]
+\begin{figure}[ht] %[!hb]
 \begin{center}
 \frame{
 %\includegraphics[scale=0.70, clip, viewport=50 20 700 430]{figures/PrognoseRSAFaktorisierungSecorvo.pdf}
@@ -2335,7 +2333,7 @@ Die "`C-Zahlen"' stammen aus dem Cunningham-Projekt:
 mit Faktorisierungsverfahren für zusammengesetzte Zahlen
 sind in der folgenden Tabelle~\ref{factorizationrecords} aufgeführt:
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}
 \begin{tabular}{|c|cccc|}
 \hline
@@ -3295,7 +3293,7 @@ Mit CrypTool\index{CrypTool} können Sie dies per Menü
 zu CrypTool beschrieben [Optionen, Alphabet vorgeben, Basissystem, Blocklänge 2 und Dezimaldarstellung].
 }.
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}
 \begin{tabular}{|c|l||c|l|}
 \hline
@@ -3609,7 +3607,7 @@ The first plaintext was taken from ''The Diary of Samuel Marchbanks'', by
 Robertson Davies, 1947, and the second was taken from ''Lake Wobegon Days'',
 by Garrison Keillor, 1985.
 
-\begin{table}[he]
+\begin{table}[ht]
 {\tt 
 \begin{tabular}{llllllll}
 12423 & 11524  & 7243  & 7459 & 14303  & 6127 & 10964 & 16399 \\
@@ -3646,7 +3644,7 @@ by Garrison Keillor, 1985.
 \label{stinson1}
 \end{table}
 
-\begin{table}[he]
+\begin{table}[ht]
 {\tt 
 \begin{tabular}{llllllll}
  6340  & 8309 & 14010  & 8936 & 27358 & 25023 & 16481 & 25809 \\
@@ -4259,7 +4257,7 @@ angehängt (die Zeile wird durch das Objekt \verb!lst! repräsentiert).
 \hypertarget{AppArith3c}{}
 \label{l:AppArith3c}{}
 
-Die Tabelle~\ref{modexp46} auf Seite~\pageref{SrcArith3c} enthält Beispiele
+Die Tabelle~\ref{expmod46} auf Seite~\pageref{SrcArith3c} enthält Beispiele
 für die Exponentiationen $a^i$ mod $46$ sowie die Ordnungen $ord_{46}(a)$ 
 
 Der folgende Sage-Code erzeugt eine analoge Tabelle.

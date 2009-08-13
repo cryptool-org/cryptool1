@@ -750,7 +750,7 @@ Multiplication table mod $17$ (table~\ref{mulmod17}) shows for $i = 1, 2, \cdots
 We need to {\bf find} the $i$ for which the product remainder $a*i$ modulo $17$
 with $a=5$ or $a=6$ has the value $1$. 
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}
 \begin{tabular}{|l||@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}||@{\:}c@{\:}|@{\:}c@{\:}|}
 \hline 
@@ -773,7 +773,7 @@ also relatively prime\index{Relatively prime} to the modulus $m=17$.
 
 {\bf The multiplicative inverse of $5$ (mod $17$) is $7$, while the inverse of $6$ (mod $17$) is $3$.}
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}                                                                          
 \begin{tabular}{|l||@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}||@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|}
 \hline 
@@ -798,7 +798,7 @@ $6$ are relatively prime to the modulus $m=13$.
 
 The following table~\ref{mulmod12} contains an example, where the modulus $m$ and the number $a=6$ are {\em not} relatively prime.
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}                                                                          
 \begin{tabular}{|l||@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}||@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|@{\:}c@{\:}|}
 \hline 
@@ -1009,7 +1009,8 @@ calculate $a^x$ with $a$ fixed) are therefore typical one way functions
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Groups and modular arithmetic in $\mathbb{Z}_n$ and $\mathbb{Z}_n^*$}
+\section{Groups and modular arithmetic in \texorpdfstring{$\mathbb{Z}_n$ and $\mathbb{Z}_n^*$}
+                                                         {Zn and Zn*}}
 \index{Group}
 Mathematical ``{\em groups}'' play a decisive role in number theory and cryptography. We only talk of groups if, for a 
 defined set and a defined relation (an operation such as addition or multiplication), the following properties are fulfilled:
@@ -1383,7 +1384,7 @@ shows the values $a^i$ mod $11$ for the exponents $i = 1, 2, \cdots, 10$ and for
 $a =  1, 2, \cdots, 10$ as well as the resulting value $ord_{11}(a)$ for each $a$/
 \end{example}
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}
 \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
@@ -1438,7 +1439,7 @@ code to generate the table using Sage.} shows the values $a^i$ mod $45$ for the 
 $a =  1, 2, \cdots, 12$ as well as the resulting value $ord_{45}(a)$ for each $a$.
 \end{example}
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}
 \begin{tabular}{|l||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
@@ -1495,7 +1496,7 @@ whether the number $7$ is a primitive root of $46$.
 The requirement/condition $gcd(7,46)=1$ is fulfilled.
 \end{example}
 
-\begin{table}[h]
+\begin{table}[ht]
 {\textmd \small
 \begin{center}  
 \begin{tabular}{|p{16 pt}||@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|@{\:}r@{\:}|c|}
@@ -2128,7 +2129,7 @@ The 'C-numbers' originate from the Cunningham project:
 with factorization algorithms for composed numbers are
 listed in the table~\ref{factorizationrecords}.
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}
 \begin{tabular}{|c|cccc|}
 \hline
@@ -3013,7 +3014,7 @@ CrypTool\index{CrypTool} you can solve this with the menu
 {\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} RSA Demonstration}.
 This is also described in the tutorial/scenario in CrypTool's online help [Options, specify alphabet, number system, block length\index{Block length} 2 and decimal representation].}
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}
 \begin{tabular}{|c|l||c|l|}
 \hline
@@ -3289,7 +3290,7 @@ The first plaintext was taken from ``The Diary of Samuel Marchbanks'', by Robert
 taken from ``Lake Wobegon Days'', by Garrison Keillor, 1985.
 
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}
 {\tt 
 \begin{tabular}{llllllll}
@@ -3328,7 +3329,7 @@ taken from ``Lake Wobegon Days'', by Garrison Keillor, 1985.
 \label{stinson1}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}
 {\tt 
 \begin{tabular}{llllllll}
