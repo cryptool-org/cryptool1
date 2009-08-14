@@ -3751,6 +3751,7 @@ therefore $z = 35189$.
 
 
 
+
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
 \hypertarget{NumberTheory_Appendix_E}{}
@@ -4215,7 +4216,6 @@ Time: CPU 1.52 s, Wall: 1.59 s
 
 
 \newpage
-\newpage
 \noindent Using our custom-defined function \verb!enum_PrimitiveRoots_of_an_Integer!,
 we can find all primitive roots of one prime integer $p$.
 
@@ -4279,7 +4279,6 @@ Time: CPU 7.55 s, Wall: 7.85 s
 
 
 \newpage
-\newpage
 \noindent A slightly modified version of our function
 \verb!count_PrimitiveRoots_of_a_PrimesRange!, is used to generate
 a database of all primitive roots of all primes between 1 and 100,000.
@@ -4320,7 +4319,6 @@ at
 
 
 
-\newpage
 \newpage
 \noindent This database file ``primroots.dat'' was used then to create three graphics using the following code.
 
@@ -4412,11 +4410,6 @@ within the above interval.
 \label{fig:primitive_roots_largest}
 \end{figure}
 
-% To enforce that the next chapter starts at the beginning of a new page after
-% the freely placed graphics, it is necessary to have TWO newpages and in between
-% something to be printed (here invisible blanks).
-% \newpage
-% $ $
 
 
 
@@ -4445,6 +4438,7 @@ sage: power_mod(120, 37, 3713)
 \vskip +10 pt 
 \hypertarget{AppArith4b}{%
 \noindent {\bf Example on page~\pageref{SrcArith4b}:}} \\
+
 The factorization of $J(256027) = 255016 = 2^3 * 127 * 251$ can be
 calculated using Sage as follows:
 
@@ -4504,13 +4498,14 @@ sage: [power_mod(a, e, m) for a in A]
 
 
 
+
 % ---------------------------------------------------------------------------
 \newpage
 \hypertarget{NumberTheory_Sage_Number-of-RSA-keys}{}
 \subsection{How many RSA keys exist within a given modulo range?}
 \label{l:NumberTheory_Sage_Number-of-RSA-keys}{}
 
-The RSA encryption procedure was described in chapter \ref{RSA} (``\nameref{RSA}'').
+The RSA encryption procedure was described in section \ref{RSA} (``\nameref{RSA}'').
 Steps 1 to 3 constitute key generation, steps 4 and 5 are the encryption:
 \begin{itemize}
   \item[{\bf 1.}] Select two distinct random prime numbers $p$ and $q$
@@ -4538,23 +4533,40 @@ Steps 1 to 3 constitute key generation, steps 4 and 5 are the encryption:
 \end{itemize}
 
 The default way to crack a given RSA ciphertext $C$ would be to use the public key
-and to try to factorize $n$. Then you can go through the steps 2 and 3 and calculate
-the private key $e$, which is normally used to decrypt a ciphertext.
+of the recipient and to try to factorize $n$. Then you can go through the steps 2 and 3
+and calculate the private key $e$, which is normally used to decrypt a ciphertext.
 
 According to the ``prime number theorem''
-(described in chapter \ref{thm-pz-pi-x} ``\nameref{thm-pz-pi-x}'')
+(described in section \ref{thm-pz-pi-x} ``\nameref{thm-pz-pi-x}'')
 the number of prime numbers $PI(x)$ is asymptotic to  $x / ln(x)$.
-So in a given range $[x,y]$ there are about $ (y / ln(y)) - (x / ln(x))$
-primes. If you have a given $n$ then there are about $n / ln(n)$ different possible
-values for the prime $p$ (not considering the more specific requirements for selecting
-appropriate values for $p$ as described above).
+%% So in a given range $[x,y]$ there are about $ (y / ln(y)) - (x / ln(x))$ primes.
+If you have a given $n$ then there are about $n / ln(n)$ different possible
+values for the prime $p$. %% (not considering the more specific requirements for selecting
+%% appropriate values for $p$ as described above).
 
-\noindent If you would not use factorization but ask the question like in classic encryption:
-How many possible private keys $(n, d)$ are there for a given $n$ (this means only a part
-of the public key $(n, e)$ is known).
+\noindent If you don't want to use factorization but ask the question like in classic
+encryption, you may want to find out:
+How many possible private keys $(n, d)$ are there for a given key size range
+$n \in \{a, b\}$? %% (this means, only a part of each public key $(n, e)$ is known).
 
-\noindent Below is Sage source code~\ref{nt_sagesample_Count_RSA_Keys} which can answer
-this question concretely (if the modulus is not too big). 
+\noindent Sage source code~\ref{nt_sagesample_Count_RSA_Keys} below defining the
+function \verb#count_Number_of_RSA_Keys# can answer this question concretely
+(if the modulus is not too big).\footnote{%
+a) Calling \verb#sage: count_Number_of_RSA_Keys(100, 1000)# means to consider the interval
+$[100, 1000]$ for $n$. $n$ is defined by the two primes $p, q: n = p*q$.
+So the primes can have the maximal value $500$ because $2 * 500 =1000$.\\
+The number of possible combinations of primes is $comb = 258$.\\
+The number of primes in the given range is $143$.\\
+The number of private keys is $34,816$.
+
+\noindent b) Calling \verb#sage: count_Number_of_RSA_Keys(100, 100, True)# has the following output:\\
+   - Number of private keys for modulus in a given range: 0\\
+   - Number of primes in a given range: 0\\
+   The reason for that is, that now we only consider $n=100$, and $100$ is not
+   semi-prime\index{Prime number!semi-prime}\index{Prime number!half prime},
+   this means $100$ is not the product of only two primes.
+}
+
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -4568,8 +4580,8 @@ def count_Number_of_RSA_Keys(start, end, Verbose=False):
       b = end
       s = 0
       comb = 0
-      for p in prime_range(1, b/2+1):  # b or b/2+1
-          for q in prime_range(p + 1, b/2+1):  # b or b/2+1
+      for p in prime_range(1, b/2+1):
+          for q in prime_range(p + 1, b/2+1):
               if a <= p * q and p * q <= b:
                   comb = comb +1
                   s = s + (euler_phi(euler_phi(p * q))-1)
@@ -4616,13 +4628,15 @@ Number of private keys for modulus in a given range: 3260044 (comb=2312),
 Number of primes in a given range: 1061
 Time: CPU 0.63 s, Wall: 0.66 s
 \end{Verbatim}
-\caption{How many RSA keys are there knowing the public key?}
+\caption{How many RSA keys are there knowing the range of the public key n?}
 \label{nt_sagesample_Count_RSA_Keys}
 \end{sagecode}
 
 \noindent As there are many more private keys $(n, d)$ within a
 bigger range of values for $n$, even brute-force factoring
 is much more efficient as brute-force trying all the keys.
+
+
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -4070,6 +4070,7 @@ Damit ergibt sich $z = 35189$.
 
 
 
+
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
 \hypertarget{NumberTheory_Appendix_E}{}
@@ -4089,7 +4090,7 @@ berechnen können.
 \label{l:AppArith1}{}
 
 The Multiplikationstabelle~\ref{mulmod17} (von Seite \pageref{SrcArith1a})
-for $a \times i \pmod{m}$, mit $m = 17$, $a=5$ and $a=6$, und $i$ von $0$ bis $16$
+für $a \times i \pmod{m}$, mit $m = 17$, $a=5$ and $a=6$, und $i$ von $0$ bis $16$
 kann mit folgenden Sage-Befehlen berechnet werden:
 
 \begin{sagecode}
@@ -4110,11 +4111,6 @@ Aus dem {\tt Mod}-Objekt kann man die einzelnen Komponenten entweder mit der
 \texttt{component}- oder mit der \texttt{lift}-Funktion zurückgewinnen.
 Wir nutzen hier die Methode \verb!lift()!, um das Objekt in eine Zahl umzuwandeln und
 auszugeben.
-
-The other multiplication table examples modulo $13$ (table~\ref{mulmod13})
-and modulo $12$ (table~\ref{mulmod12}) on page \pageref{SrcArith1b}
-can similarly be computed by replacing {\tt m = 17}
-with {\tt m = 13} and {\tt m = 12} respectively.
 
 Die weiteren Beispiele der Multiplikationstabelle modulo $13$ (table~\ref{mulmod13})
 und modulo $12$ (table~\ref{mulmod12}) auf Seite \pageref{SrcArith1b}
@@ -4543,8 +4539,7 @@ Time: CPU 1.52 s, Wall: 1.59 s
 
 
 
-\newpage
-\newpage
+\clearpage
 \noindent Mit unserer selbst erstellten Funktion \verb!enum_PrimitiveRoots_of_an_Integer!
 kann man alle Primitivwurzeln einer Primzahl $p$ finden.
 
@@ -4609,7 +4604,6 @@ Time: CPU 7.55 s, Wall: 7.85 s
 
 
 \newpage
-\newpage
 \noindent Eine leicht geänderte Fassung unserer Funktion
 \verb!count_PrimitiveRoots_of_a_PrimesRange! wird nun benutzt, um eine
 Liste (Datenbank) aller Primitivwurzeln für alle Primzahlen zwischen 1 und 100.000
@@ -4652,7 +4646,6 @@ Die Datei kann abgerufen werden unterYou can find the file
 
 
 
-\newpage
 \newpage
 \noindent Diese Datei ``primroots.dat'' wurde dann benutzt, um mit dem folgenden Code
 drei Grafiken zu erstellen.
@@ -4744,10 +4737,11 @@ mit der größten Primitivwurzel zu jeder Primzahl im obigen Intervall.
 \end{figure}
 
 % To enforce that the next chapter starts at the beginning of a new page after
-% the freely placed graphics, it is necessary to have TWO newpages and in between
+% the freely placed graphics, it was necessary to have TWO newpages and in between
 % something to be printed (here invisible blanks).
 % \newpage
 % $ $
+% I guess \clearpage is preferable.
 
 
 
@@ -4837,9 +4831,150 @@ sage: [power_mod(a, e, m) for a in A]
 
 
 
+% ---------------------------------------------------------------------------
+\newpage
+\hypertarget{NumberTheory_Sage_Number-of-RSA-keys}{}
+\subsection{Wie viele RSA-Schlüssel gibt es innerhalb eines Modulo-Bereiches?}
+\label{l:NumberTheory_Sage_Number-of-RSA-keys}{}
+
+Die RSA-Verschlüsselung wurde beschrieben in Abschnitt \ref{RSA} (``\nameref{RSA}'').
+Schritt 1 bis 3 definieren die Schlüsselerzeugung, Schritt 4 und 5 stellen die
+eigentliche Verschlüsselung dar:
+\begin{itemize}
+  \item[{\bf 1.}] Wähle zwei unterschiedliche Primzahlen $p$ and $q$
+                  und berechne $n = p*q$.\\
+                  Der Wert $n$ wird RSA-Modul genannt.
+
+  \item[{\bf 2.}] Wähle eine zufälliges $e \in \{2, \cdots, n-1\}$ so dass gilt: \\
+                  $e$ ist relativ prim zu $J(n) = (p-1)*(q-1)$. \\
+                  Danach kann man $p$ und $q$ \glqq wegwerfen\grqq.
+
+  \item[{\bf 3.}] Wähle $d \in \{1, \cdots, n-1\}$ mit $e*d \equiv 1  
+                  {\rm ~(mod~} J(n))$, d.h. $d$ ist die multiplikative Inverse
+                  von $e$ modulo $J(n)$. Danach kann man $J(n)$ \glqq wegwerfen\grqq.
+    \begin{itemize}
+      \item[] $\rightarrow (n, e)$ ist der öffentliche Schlüssel $P$.
+      \item[] $\rightarrow (n, d)$ ist der private Schlüssel $S$ (nur $d$ muss man geheim halten).
+    \end{itemize}
+
+  \item[{\bf 4.}] Zur Verschlüsselung wird die Nachricht als (binäre) Ziffernfolge
+                  geschrieben. Diese Nachricht wird dann so in gleich lange Teilfolgen
+		  aufgeteilt, dass jeder Teil der Zahl kleiner als $n$ ist.
+
+  \item[{\bf 5.}] Vorgang der Verschlüsselung auf dem Klartext (bzw. auf Teilen davon)
+                  $M \in \{1, \cdots, n-1\}$:
+                  $$C = E ( (n, e); M ) := M^e {\rm ~(mod~} n).$$
+\end{itemize}
+
+Standardmäßig versucht man, einen mit RSA verschlüsselten Geheimtext $C$ dadurch zu knacken,
+dass man den öffentlichen Schlüssel des Empfängers betrachtet und versucht, $n$ zu
+faktorisieren. Hat man das erreicht, geht man wieder durch die Schritte 2 und 3 und
+berechnet deb privaten Schlüssel $e$, den man entschlüsseln des Geheimtextes braucht.
+
+Gemäß dem \glqq Primzahlsatz\grqq (beschrieben in Abschnitt \ref{thm-pz-pi-x}
+\glqq \nameref{thm-pz-pi-x}\grqq) bewegt sich die Anzahl der Primzahlen
+$PI(x)$ asymptotisch gegen  $x / ln(x)$.
+Für ein gegebenes $n$ gibt es also ca. $n / ln(n)$ mögliche Werte für die
+Primzahl $p$.
+
+\noindent Will man nicht faktorisieren, sondern stellt sich eine Frage ähnlich
+wie bei den klassischen Verschlüsselungsverfahren, sondern kann man herausfinden wollen:
+Wie viele verschiedene private Schlüssel $(n, d)$ gibt es für einen bestimmten
+Bereich der Schlüsselgröße $n \in \{a, b\}$?
+
+\noindent Das Sage-Besipielprogramm~\ref{nt_sagesample_Count_RSA_Keys} unten definiert
+die Funktion \verb#count_Number_of_RSA_Keys#, die diese Frage konkret beantworten kann
+(wenn der Modulus nicht zu groß ist).\footnote{%
+a) Der Aufruf \verb#sage: count_Number_of_RSA_Keys(100, 1000)# bedeutet, dass man
+das Intervall $[100, 1000]$ für $n$ betrachtet.
+$n$ war definiert durch die beiden Primzahlen $p, q: n = p*q$.
+Daher kann eine Primzahl höchstens dern Wert $500$ annehmen, weil $2 * 500 =1000$.\\
+Die Anzahl möglicher Primzahl-Kombinationen beträgt: $comb = 258$.\\
+Die Anzahl der Primzahlen im gegebenen Bereich beträgt: $143$.\\
+Die Anzahl der privaten Schlüssel beträgt: $34.816$.
+
+\noindent b) Der Aufruf \verb#sage: count_Number_of_RSA_Keys(100, 100, True)#
+hat die folgende Ausgabe:\\
+   - Number of private keys for modulus in a given range: 0\\
+   - Number of primes in a given range: 0\\
+   Der Grund dafür ist, dass wir damit nur $n=100$ betrachten, und $100$ ist nicht
+   semi-prim\index{Primzahl!semi-prim}\index{Primzahl!Halbprimzahl},
+   d.h. $100$ ist nicht das Produkt von genau zwei Primzahlen.
+}
+
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+def count_Number_of_RSA_Keys(start, end, Verbose=False):
+      r"""
+      How many private RSA keys (n,d) exist, if only modulus N is given, and start <= N <= end?
+        (prime_range(u,o) delivers all primes >=u und < o).
+      """
+      a = start
+      b = end
+      s = 0
+      comb = 0
+      for p in prime_range(1, b/2+1):
+          for q in prime_range(p + 1, b/2+1):
+              if a <= p * q and p * q <= b:
+                  comb = comb +1
+                  s = s + (euler_phi(euler_phi(p * q))-1)
+                  if Verbose:
+                      print "p=%s, " % p + "q=%s, " % q + "s=%s" % s
+      print "Number of private keys for modulus in a given range: %s" % s + " (comb=%s), " % comb
+
+      # Just for comparison: How many primes are in this range?
+      s = 0
+      for p in prime_range(a, b+1):
+          if Verbose:
+              print "a=%s, " % a + "b=%s, " % b + "p=%s" % p
+          s = s + 1
+      print "Number of primes in a given range: %s" % s
+
+print "\n\nDD_Start -- Testcases for count_Number_of_RSA_Keys(start, end)"
+print "\n-----------Testcase: (100, 1000) [Should deliver 34.816]"
+time count_Number_of_RSA_Keys(100, 1000)
+print "\n-----------Testcase: (100, 107, True) [Should deliver 23]"
+time count_Number_of_RSA_Keys(100, 107, True)
+u = 10^3; o = 10^4;
+print "\n-----------Testcase: (%s, " % u + "%s) [Should deliver 3.260.044]" % o
+time count_Number_of_RSA_Keys(u, o)
+
+OUTPUT:
+DD_Start -- Testcases for count_Number_of_RSA_Keys(start, end)
+
+-----------Testcase: (100, 1000) [Should deliver 34.816]
+Number of private keys for modulus in a given range: 34816 (comb=258),
+Number of primes in a given range: 143
+Time: CPU 0.03 s, Wall: 0.04 s
+
+-----------Testcase: (100, 107, True) [Should deliver 23]
+p=2, q=53, s=23
+Number of private keys for modulus in a given range: 23 (comb=1),
+a=100, b=107, p=101
+a=100, b=107, p=103
+a=100, b=107, p=107
+Number of primes in a given range: 3
+Time: CPU 0.00 s, Wall: 0.00 s
+
+-----------Testcase: (1000, 10000) [Should deliver 3.260.044]
+Number of private keys for modulus in a given range: 3260044 (comb=2312),
+Number of primes in a given range: 1061
+Time: CPU 0.63 s, Wall: 0.66 s
+\end{Verbatim}
+\caption{Wie viele RSA-Schlüssel gibt es, wenn man den Bereich für die Schlüsselgröße n kennt?}
+\label{nt_sagesample_Count_RSA_Keys}
+\end{sagecode}
+
+\noindent Weil es mehr private Schlüssel $(n, d)$ innerhalb eines größeren
+Bereiches von Werten für $n$ gibt, ist sogar das Brute-force-Faktorisieren
+viel effizienter als alle möglichen Schlüssel durchzuprobieren.
+
+
+
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-% \vskip +12pt
 \newpage
 \hypertarget{NumberTheory_Appendix_F}{}  %\hypertarget{AppendixListAndDef}{}
 \section{Anhang: Liste der in diesem Kapitel formulierten Definitionen und Sätze}
