@@ -4555,7 +4555,6 @@ of the public key $(n, e)$ is known).
 
 \noindent Below is Sage source code~\ref{nt_sagesample_Count_RSA_Keys} which can answer
 this question concretely (if the modulus is not too big). 
-                           % TODO: Warum wird er nach Kap. 4.19 erst eingefügt?
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -4586,20 +4585,14 @@ def count_Number_of_RSA_Keys(start, end, Verbose=False):
           s = s + 1
       print "Number of primes in a given range: %s" % s
 
-
-# DD_Start -- Testcases for count_Number_of_RSA_Keys(start, end)
 print "\n\nDD_Start -- Testcases for count_Number_of_RSA_Keys(start, end)"
-
 print "\n-----------Testcase: (100, 1000) [Should deliver 34.816]"
 time count_Number_of_RSA_Keys(100, 1000)
-
 print "\n-----------Testcase: (100, 107, True) [Should deliver 23]"
 time count_Number_of_RSA_Keys(100, 107, True)
-
 u = 10^3; o = 10^4;
 print "\n-----------Testcase: (%s, " % u + "%s) [Should deliver 3.260.044]" % o
 time count_Number_of_RSA_Keys(u, o)
-# DD_End -- Testcases
 
 OUTPUT:
 DD_Start -- Testcases for count_Number_of_RSA_Keys(start, end)
@@ -4631,19 +4624,9 @@ Time: CPU 0.63 s, Wall: 0.66 s
 bigger range of values for $n$, even brute-force factoring
 is much more efficient as brute-force trying all the keys.
 
-% TODO Joerg
-% Warum ist das so?
-% sage: count_Number_of_RSA_Keys(100, 100, True)
-% Number of private keys for modulus in a given range: 0
-% Number of primes in a given range: 0
-
-
-
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\pagebreak
 \newpage
-\pagebreak
 \hypertarget{NumberTheory_Appendix_F}{}  %\hypertarget{AppendixListAndDef}{}
 \section{Appendix: List of the definitions and theorems formulated in this chapter}
 \label{l:NumberTheory_Appendix_F}{}  %\label{l:AppendixListAndDef}{}
