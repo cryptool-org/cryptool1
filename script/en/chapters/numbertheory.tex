@@ -1717,36 +1717,45 @@ In CrypTool\index{CrypTool} the RSA modulo is denoted with a capital ``$N$'' .}.
                 $10\cdots 0\cdots 01$ (this number is prime and therefore
                 relatively prime to many other numbers).
                 }
+
 \item[{\bf 3.}] Select $d \in \{1, \cdots, n-1\}$ with $e*d \equiv 1  
                 {\rm ~(mod~} J(n))$, i.e. $d$ is the multiplicative inverse
                 of $e$ modulo $J(n)$\footnote{For reasons of security, 
-                $d$ should not be too small.}$^,$\footnote{We start by determining either $d$ or $e$ depending 
+                $d$ should not be too small.}$^,$\footnote{We start by
+		determining either $d$ or $e$ depending 
                 on the implementation.}. We can then ``throw away'' $J(n)$.
-\begin{itemize}
-    \item[] $\rightarrow (n, e)$ is the public key $P$.
-        \item[] $\rightarrow (n, d)$ is the secret key $S$ (only $d$ must be kept secret).
-\end{itemize}
-\item[{\bf 4.}] For encryption, the message represented as a (binary) number is divided into parts such that each part of 
-                the number is less than $n$.
+    \begin{itemize}
+        \item[] $\rightarrow (n, e)$ is the public key $P$.
+        \item[] $\rightarrow (n, d)$ is the private key $S$ (only $d$ must be kept secret).
+    \end{itemize}
+
+\item[{\bf 4.}] For encryption, the message represented as a (binary) number is divided
+                into parts such that each part of the number is less than $n$.
+
 \item[{\bf 5.}] Encryption of the plaintext (or the parts of it) $M \in \{1, \cdots, n-1\}$:
                 $$C = E ( (n, e); M ) := M^e {\rm ~(mod~} n).$$
-\item[{\bf 6.}] For decryption, the cipher text represented as a binary number is divided into parts such that each part 
-                of the number is less than $n$.
+
+\item[{\bf 6.}] For decryption, the cipher text represented as a binary number is divided
+                into parts such that each part of the number is less than $n$.
+
 \item[{\bf 7.}] Decryption of the cipher text (or the parts of it) $C \in \{1, \cdots, n-1\}$:
                 $$M = D ( (n, d); C ) := C^d {\rm ~(mod~} n).$$
 \end{itemize}
-The numbers $d, e$ and $n$ are usually extremely large (e.~g.\ $d$ and $e$ $300$ bits, $n$ $600$ bits).
+
+The numbers $d, e$ and $n$ are usually extremely large (e.~g.\ $d$ and
+$e$ $300$ bits, $n$ $600$ bits).\\
 
 \begin{remark}{:}\\
-The security of the RSA algorithm depends as with all public key methods on the difficulty to calculate the private
-key $d$ from the public key $(n,e)$.
+The security of the RSA algorithm depends as with all public key methods
+on the difficulty to calculate the private key $d$ from the public key $(n,e)$.
 \end{remark}
 
 \noindent Concretely for the RSA method does this mean:
 \vskip - 1em
 \begin{enumerate}
-\item it is hard to calculate $J(n)$ for big compounds $n$ and
-\item it is hard to calculate the prime factors of big compounds $n$ (Factorization!factorization problem).
+  \item It is hard to calculate $J(n)$ for big compounds $n$ and
+  \item It is hard to calculate the prime factors of big compounds $n$
+        \index{Factorization!factorization problem}.
 \end{enumerate}
 \vskip +1em
 
@@ -4495,11 +4504,146 @@ sage: [power_mod(a, e, m) for a in A]
 
 
 
+% ---------------------------------------------------------------------------
+\newpage
+\hypertarget{NumberTheory_Sage_Number-of-RSA-keys}{}
+\subsection{How many RSA keys exist within a given modulo range?}
+\label{l:NumberTheory_Sage_Number-of-RSA-keys}{}
+
+The RSA encryption procedure was described in chapter \ref{RSA} (``\nameref{RSA}'').
+Steps 1 to 3 constitute key generation, steps 4 and 5 are the encryption:
+\begin{itemize}
+  \item[{\bf 1.}] Select two distinct random prime numbers $p$ and $q$
+                  and calculate $n = p*q$.\\
+                  The value $n$ is called the RSA modulus.
+
+  \item[{\bf 2.}] Select an arbitrary $e \in \{2, \cdots, n-1\}$ such that: \\
+                  $e$ is relatively prime to $J(n) = (p-1)*(q-1)$. \\
+                  We can then ``throw away'' $p$ and $q$.
+
+  \item[{\bf 3.}] Select $d \in \{1, \cdots, n-1\}$ with $e*d \equiv 1  
+                  {\rm ~(mod~} J(n))$, i.e. $d$ is the multiplicative inverse
+                  of $e$ modulo $J(n)$. We can then ``throw away'' $J(n)$.
+    \begin{itemize}
+        \item[] $\rightarrow (n, e)$ is the public key $P$.
+        \item[] $\rightarrow (n, d)$ is the private key $S$ (only $d$ must be kept secret).
+    \end{itemize}
+
+  \item[{\bf 4.}] For encryption, the message represented as a (binary) number
+                  is divided into parts such that each part of 
+                  the number is less than $n$.
+
+  \item[{\bf 5.}] Encryption of the plaintext (or the parts of it) $M \in \{1, \cdots, n-1\}$:
+                  $$C = E ( (n, e); M ) := M^e {\rm ~(mod~} n).$$
+\end{itemize}
+
+The default way to crack a given RSA ciphertext $C$ would be to use the public key
+and to try to factorize $n$. Then you can go through the steps 2 and 3 and calculate
+the private key $e$, which is normally used to decrypt a ciphertext.
+
+According to the ``prime number theorem''
+(described in chapter \ref{thm-pz-pi-x} ``\nameref{thm-pz-pi-x}'')
+the number of prime numbers $PI(x)$ is asymptotic to  $x / ln(x)$.
+So in a given range $[x,y]$ there are about $ (y / ln(y)) - (x / ln(x))$
+primes. If you have a given $n$ then there are about $n / ln(n)$ different possible
+values for the prime $p$ (not considering the more specific requirements for selecting
+appropriate values for $p$ as described above).
+
+\noindent If you would not use factorization but ask the question like in classic encryption:
+How many possible private keys $(n, d)$ are there for a given $n$ (this means only a part
+of the public key $(n, e)$ is known).
+
+\noindent Below is Sage source code~\ref{nt_sagesample_Count_RSA_Keys} which can answer
+this question concretely (if the modulus is not too big).   % TODO: Kann ich auf diesen Sourcecode verweisen? 
+                           % TODO: Warum wird er nach Kap. 4.19 erst eingefügt?
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+def count_Number_of_RSA_Keys(start, end, Verbose=False):
+      r"""
+      How many private RSA keys (n,d) exist, if only modulus N is given, and start <= N <= end?
+        (prime_range(u,o) delivers all primes >=u und < o).
+      """
+      a = start
+      b = end
+      s = 0
+      comb = 0
+      for p in prime_range(1, b/2+1):  # b or b/2+1
+          for q in prime_range(p + 1, b/2+1):  # b or b/2+1
+              if a <= p * q and p * q <= b:
+                  comb = comb +1
+                  s = s + (euler_phi(euler_phi(p * q))-1)
+                  if Verbose:
+                      print "p=%s, " % p + "q=%s, " % q + "s=%s" % s
+      print "Number of private keys for modulus in a given range: %s" % s + " (comb=%s), " % comb
+
+      # Just for comparison: How many primes are in this range?
+      s = 0
+      for p in prime_range(a, b+1):
+          if Verbose:
+              print "a=%s, " % a + "b=%s, " % b + "p=%s" % p
+          s = s + 1
+      print "Number of primes in a given range: %s" % s
+
+
+# DD_Start -- Testcases for count_Number_of_RSA_Keys(start, end)
+print "\n\nDD_Start -- Testcases for count_Number_of_RSA_Keys(start, end)"
+
+print "\n-----------Testcase: (100, 1000) [Should deliver 34.816]"
+time count_Number_of_RSA_Keys(100, 1000)
+
+print "\n-----------Testcase: (100, 107, True) [Should deliver 23]"
+time count_Number_of_RSA_Keys(100, 107, True)
+
+u = 10^3; o = 10^4;
+print "\n-----------Testcase: (%s, " % u + "%s) [Should deliver 3.260.044]" % o
+time count_Number_of_RSA_Keys(u, o)
+# DD_End -- Testcases
+
+OUTPUT:
+DD_Start -- Testcases for count_Number_of_RSA_Keys(start, end)
+
+-----------Testcase: (100, 1000) [Should deliver 34.816]
+Number of private keys for modulus in a given range: 34816 (comb=258),
+Number of primes in a given range: 143
+Time: CPU 0.03 s, Wall: 0.04 s
+
+-----------Testcase: (100, 107, True) [Should deliver 23]
+p=2, q=53, s=23
+Number of private keys for modulus in a given range: 23 (comb=1),
+a=100, b=107, p=101
+a=100, b=107, p=103
+a=100, b=107, p=107
+Number of primes in a given range: 3
+Time: CPU 0.00 s, Wall: 0.00 s
+
+-----------Testcase: (1000, 10000) [Should deliver 3.260.044]
+Number of private keys for modulus in a given range: 3260044 (comb=2312),
+Number of primes in a given range: 1061
+Time: CPU 0.63 s, Wall: 0.66 s
+\end{Verbatim}
+\caption{How many RSA keys are there knowing the public key?}
+\label{nt_sagesample_Count_RSA_Keys}
+\end{sagecode}
+
+\noindent As there are many more private keys $(n, d)$ within a
+bigger range of values for $n$, even brute-force factoring
+is much more efficient as brute-force trying all the keys.
+
+% TODO Joerg
+% Warum ist das so?
+% sage: count_Number_of_RSA_Keys(100, 100, True)
+% Number of private keys for modulus in a given range: 0
+% Number of primes in a given range: 0
+
+
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-% \vskip +12pt
+\pagebreak
 \newpage
+\pagebreak
 \hypertarget{NumberTheory_Appendix_F}{}  %\hypertarget{AppendixListAndDef}{}
 \section{Appendix: List of the definitions and theorems formulated in this chapter}
 \label{l:NumberTheory_Appendix_F}{}  %\label{l:AppendixListAndDef}{}
