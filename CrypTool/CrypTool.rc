@@ -10700,6 +10700,12 @@ BEGIN
                             "-cp "".;./lib/*"" main.Programm"
     IDS_AUTHORS_FILE_MISSING 
                             "The file ""authors.txt"" could not be found. Please make sure that the file is located in the CrypTool main folder."
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DICTIONARY_FILENAME 
+                            "VigenereAnalysisSchroedelDictionary.txt"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DIGRAMS_FILENAME 
+                            "VigenereAnalysisSchroedelDigrams.txt"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_TRIGRAMS_FILENAME 
+                            "VigenereAnalysisSchroedelTrigrams.txt"
 END
 
 #endif    // Polish resources
@@ -21411,6 +21417,12 @@ BEGIN
                             "Sobald die Analyse beendet ist, wird das Ergebnis in einem neuen Dokument angezeigt."
     IDS_AUTHORS_FILE_MISSING 
                             "Die Datei ""authors.txt"" wurde nicht gefunden. Bitte stellen Sie sicher, dass sich die Datei im CrypTool-Hauptverzeichnis befindet."
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DICTIONARY_FILENAME 
+                            "VigenereAnalysisSchroedelDictionary.txt"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DIGRAMS_FILENAME 
+                            "VigenereAnalysisSchroedelDigrams.txt"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_TRIGRAMS_FILENAME 
+                            "VigenereAnalysisSchroedelTrigrams.txt"
 END
 
 #endif    // German (Germany) resources
@@ -32214,6 +32226,12 @@ BEGIN
                             "As soon as the analysis is finished, the result is display in a new document."
     IDS_AUTHORS_FILE_MISSING 
                             "The file ""authors.txt"" could not be found. Please make sure that the file is located in the CrypTool main folder."
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DICTIONARY_FILENAME 
+                            "VigenereAnalysisSchroedelDictionary.txt"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DIGRAMS_FILENAME 
+                            "VigenereAnalysisSchroedelDigrams.txt"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_TRIGRAMS_FILENAME 
+                            "VigenereAnalysisSchroedelTrigrams.txt"
 END
 
 #endif    // English (U.K.) resources

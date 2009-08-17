@@ -110,8 +110,8 @@ void VigenereAnalysisSchroedel::readTriDigrams() {
 	// create a handle for the input file
 	std::ifstream fileInputDigrams;
 	CString pathToDigrams;
-	pathToDigrams = Pfad;
-	pathToDigrams += "digramsAtBeginningOfWords.txt";
+	pathToDigrams.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DIGRAMS_FILENAME);
+	pathToDigrams = CString(Pfad) + pathToDigrams;
 	fileInputDigrams.open(pathToDigrams);
 	if(!fileInputDigrams) return;
 
@@ -136,8 +136,8 @@ void VigenereAnalysisSchroedel::readTriDigrams() {
 	// create a handle for the input file
 	std::ifstream fileInputTrigrams;
 	CString pathToTrigrams;
-	pathToTrigrams = Pfad;
-	pathToTrigrams += "trigramsAtBeginningOfWords.txt";
+	pathToTrigrams.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_TRIGRAMS_FILENAME);
+	pathToTrigrams = CString(Pfad) + pathToTrigrams;
 	fileInputTrigrams.open(pathToTrigrams);
 	if(!fileInputTrigrams) return;
 
@@ -772,8 +772,8 @@ void VigenereAnalysisSchroedel::readDict() {
 	// create a handle for the input file
 	std::ifstream fileInput;
 	CString pathToDictionary;
-	pathToDictionary = Pfad;
-	pathToDictionary += "dict.txt";
+	pathToDictionary.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DICTIONARY_FILENAME);
+	pathToDictionary = CString(Pfad) + pathToDictionary;
 	fileInput.open(pathToDictionary);
 	if(!fileInput) return;
 
