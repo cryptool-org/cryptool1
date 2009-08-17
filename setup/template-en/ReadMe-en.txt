@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.30 Beta 04 for Win32, July 2009   xx-xxxx
+    CrypTool, Version 1.4.30 Beta 04 for Win32, August 2009   xx-xxxx
     (c) Contributors
         including
         Deutsche Bank AG, Frankfurt/Main,
@@ -794,11 +794,13 @@ b) Changes within the user documentation / on the websites:
 - Online help: well enhanced (e.g. modi and padding variants used for block
                ciphers now are described explicitly).
 
-- CrypTool Script: Update to status quo,
-                   inclusion of Sage sample code,
-                   minor bug-fixes,
-                   menu tree within appendix A.1 adapted to the new version
-                   of CrypTool.
+- CrypTool Script: Extensive revision:
+                   - update to status quo,
+                   - inclusion of many Sage code samples,
+                   - minor bug-fixes,
+                   - menu tree within appendix A.1 adapted to the new version
+                     of CrypTool,
+                   - new cover.
 
 - Updated and enhanced presentation (112 pages now).
 
@@ -1111,6 +1113,19 @@ program (setup).
 
 - Hash values of external files, which are not loaded into the internal
   editor, can be calculated for files of any size. 
+
+- SMIME FlashVideo-Bug
+  > Error description:
+    Flashvideos of the type ".flv" are opened with the CrypTool
+    player for flash animations after CrypTool was started and
+    a flash animation (like  S/MIME or Rijndael) was opened.
+  > Solution:
+    Manual definition of the correct player. Therefore right-click
+    on a ".flv" file and choose "Open with ...". Now select the
+    desired player using the shown list and set the checkbox at
+    the bottom ("Always use the selected program to open this kind
+    of file"). Afterwards click "OK" and from now on ".flv" files
+    will be opened with the correct player.
 
 - The self-contained program AES-Tool can create self-extracting
   programs. So you can encrypt any file with the AES algorithm.
@@ -1689,7 +1704,7 @@ Version   Date		Size of Windows Setup  Needed Size  Released
 1.4.10    July 2007	26.7 MB	     27.5 MB	47 MB        DB
 1.4.20    July 2008	36.1 MB	     37.1 MB	73 MB        DB
 1.4.21    July 2008	36.1 MB	     37.1 MB	73 MB        DB
-1.4.30    July 2009	41.6 MB	     42,5 MB	77 MB        DB   xxxxxx
+1.4.30    Sep. 2009	41.6 MB	     42,5 MB	77 MB        DB   xxxxxx
 
 Remarks about the versions:
 1.3.02   Many new functions compared to 1.3.00.
@@ -1710,7 +1725,7 @@ Remarks about the versions:
 1.4.21   Patch containing also MSVCR71.dll. This DLL is used by the current
          OpenSSL library, but not available by default on blank Windows systems.
 1.4.30-Beta03  Mar. 2009  First public beta of version 1.4.30.
-1.4.30-Beta04  July 2009  Second public beta of version 1.4.30.
+1.4.30-Beta04  Aug. 2009  Second public beta of version 1.4.30.
 1.4.30   Many bug fixes and enhanced functionality compared to 1.4.21.
 
 
@@ -2464,16 +2479,16 @@ A.2.1.4. User interface / Visualizations
   the clipboard via button, or the mouse could drag the field content
   directly into the entry field in the CrypTool dialog box.
 
-- An interface for calling the CAS system SAGE would be interesting
+- An interface for calling the CAS system Sage would be interesting
   (http://www.sagemath.org/).
 
 - Visualize generally the according mathematical basics, e.g.:
   - using a text book
-  - using SAGE notebooks like the ones for ECC introduction at:
+  - using Sage notebooks like the ones for ECC introduction at:
     https://sage.mathematik.uni-siegen.de:8000/home/pub/45/
     This cover page contains no calculations, but the links to the
     remaining parts; in order to execute the calculations within the
-    remaining parts you have to make copies as SAGE user.
+    remaining parts you have to make copies as Sage user.
   - like PascGalois Software (http://www.pascgalois.org/software.html)
   - see http://www.martindalecenter.com/Calculators2_6_NZ.html
   - http://world.std.com/~reinhold/BigNumCalc.html
@@ -2647,7 +2662,7 @@ Features already implemented and integrated in the current beta versions
 
 Features planned for the release version of the successor projects:
 - CT2  Virtual Credit Card Numbers (VCC) and check sums
-- CT2  Bleichenbacher attack
+- CT2  Bleichenbacher attack, enhancements by Kuehn
 - CT2  NIST Random number test suite
 - CT2  GNFS
 - CT2  Extend the alphabets of the classic ciphers to 256 characters
@@ -2661,6 +2676,7 @@ Features planned for the release version of the successor projects:
 - JCT  Entropy investigations
 - JCT  Analysis of transposition ciphers using the ACO algorithm
 - JCT  Visualization of zero-knowledge proofs
+- JCT  Visualization of Quantum Key Agreement, BB84 protocol
 - JCT  Commandline functionality
 - JCT  Powerful action history and cascading possibility
 - JCT  Usage as a demonstrator for XML signatures

@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.30 Beta 04 für Win32, Juli 2009  xx-xxxx
+    CrypTool, Version 1.4.30 Beta 04 für Win32, August 2009  xx-xxxx
     (c) Contributors
         Dazu gehören z.B.
         Deutsche Bank AG, Frankfurt am Main,
@@ -813,10 +813,12 @@ b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
 - Online-Hilfe: deutlich erweitert (z.B. sind nun bei allen Blockchiffren
                 explizit die benutzten Modi und Padding-Varianten erläutert).
 
-- CrypTool- Skript: Update auf aktuellen Stand,
-                    Aufnahme von Sage-Programmbeispielen,
-                    Behebung kleinerer Fehler,
-                    Menübaum in Anhang A.1 an neue CrypTool-Version angepasst.
+- CrypTool- Skript: Umfangreiche Überarbeitung:
+                    - Update auf aktuellen Stand,
+                    - Aufnahme von vielen Sage-Programmbeispielen,
+                    - Behebung kleinerer Fehler,
+                    - Menübaum in Anhang A.1 an neue CrypTool-Version angepasst,
+                    - Neues Covers.
 
 - Aktualisierte und auf 112 Seiten erweiterte Präsentation.
 
@@ -1140,7 +1142,21 @@ Installationsprogramm (Setup).
   der Analyse -- auf die Maximal-Länge gekürzt.
 
 - Hashwerte können von Dateien beliebiger Größe berechnet werden,
-  sofern die Dateien nicht geladen werden. 
+  sofern die Dateien nicht geladen werden.
+
+- SMIME FlashVideo-Bug
+  > Fehlerbeschreibung:
+    Flashvideos mit der Endung ".flv" werden nach öffnen einer
+    CrypTool-Flash-Animation (z.B. S/MIME oder Rijndael) nicht mehr
+    mit dem Standardplayer, sondern mit dem CrypTool-Player für
+    Flashanimationen geöffnet.
+  > Lösung:
+    Explizites Setzen des zuständigen Players. Dazu Rechtsklicken
+    auf die Datei und "Öffnen mit ..." auswählen. Jetzt den
+    gewünschten Player markieren und das Häkchen unter der
+    Programmliste setzen ("Dateityp immer mit dem ausgewählten
+    Programm öffnen"). Danach mit "OK" bestätigen und die Datei
+    wird ab jetzt immer verbindlich mit dem eingestellten Player geöffnet.
 
 - Mit dem AES-Tool können nur Dateien bis 4 GB Größe verschlüsselt
   und als selbstextrahierende Archive abgespeichert werden.
@@ -1743,7 +1759,7 @@ Version   Datum         Größe des Windows-Setups  Plattenplatz  Freigabe
 1.4.10    Juli 2007      27,5 MB     26,7 MB         47 MB        DB
 1.4.20    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
-1.4.30    Juli 2009      42,5 MB     41,6 MB         79 MB        DB   xxxxxxxx
+1.4.30    Sep. 2009      42,5 MB     41,6 MB         79 MB        DB   xxxxxxxx
 
 Bemerkungen zu den Versionen:
 1.3.02   Viele neue Funktionen gegenüber 1.3.00.
@@ -1765,7 +1781,7 @@ Bemerkungen zu den Versionen:
          neuen aktuellen OpenSSL-Bibliothek benutzt wird und nicht auf
          frischen Windows-Umgebungen (ohne Office) enthalten ist.
 1.4.30-Beta03  März 2009  Erste öffentliche Beta von Version 1.4.30.
-1.4.30-Beta04  Juli 2009  Zweite öffentliche Beta von Version 1.4.30.
+1.4.30-Beta04  Aug. 2009  Zweite öffentliche Beta von Version 1.4.30.
 1.4.30   Viele Bugfixes und erweiterter Funktionsumfang i.Vgl. zu 1.4.21.
 
 
@@ -2540,16 +2556,16 @@ A.2.1.4. User-Interface / Visualisierungen
   können oder per Maus in die Eingabefelder der CrypTool-Dialogboxen
   ziehen können.
 
-- Weiterhin wäre eine Anbindung an das CAS-System SAGE wünschenswert
+- Weiterhin wäre eine Anbindung an das CAS-System Sage wünschenswert
   (http://www.sagemath.org/).
 
 - Generelle Visualisierung der entsprechenden mathematischen Grundlagen:
   - z.B. anhand eines Lehrbuchs
-  - z.B. wie mit den SAGE-Notebooks zu ECC:
+  - z.B. wie mit den Sage-Notebooks zu ECC:
     https://sage.mathematik.uni-siegen.de:8000/home/pub/45/
     Dieses Deckblatt enthält keine Berechnungen, sondern nur die Links
     zu den übrigen Teilen; zum Ausführen der folgenden Teile
-    muss man sich selbst Kopien als SAGE-User anlegen.
+    muss man sich selbst Kopien als Sage-User anlegen.
   - z.B. wie die PascGalois Software (Group Calculator)
     (http://www.pascgalois.org/software.html)
   - z.B. http://www.martindalecenter.com/Calculators2_6_NZ.html
@@ -2731,7 +2747,7 @@ Funktionen, die schon in den jetzigen Betaversionen
 
 Funktionen, die für die Release-Versionen der Nachfolger-Projekte geplant sind:
 - CT2  Virtuelle Kreditkartennummern (VCC) und Prüfziffern
-- CT2  Bleichenbacher Angriff
+- CT2  Bleichenbacher Angriff, Erweiterungen von Kühn
 - CT2  NIST Zufalls-Testsuite
 - CT2  GNFS
 - CT2  Alphabete auch für die klassischen Verfahren ausdehnen auf 256 Zeichen
@@ -2745,6 +2761,7 @@ Funktionen, die für die Release-Versionen der Nachfolger-Projekte geplant sind:
 - JCT  Entropie-Untersuchungen
 - JCT  Analyse von Transpositionschiffren mit dem ACO-Algorithmus
 - JCT  Visualisierung von Zero-Knowledge-Beweisen
+- JCT  Visualisierung eines Quantum-Schlüsselaustausch-protokolls (BB84)
 - JCT  Commandline-Funktionalität
 - JCT  Mächtige Action-History und Kaskadierungs-Unterstützung
 - JCT  Demonstrator für XML-Signaturen
