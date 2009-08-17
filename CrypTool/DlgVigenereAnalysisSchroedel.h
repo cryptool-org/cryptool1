@@ -20,6 +20,7 @@
 
 #ifndef _DLGVIGENEREANALYSISSCHROEDEL_
 #define _DLGVIGENEREANALYSISSCHROEDEL_
+
 #include "afxwin.h"
 
 #if _MSC_VER > 1000
@@ -60,11 +61,14 @@ public:
 	// various functions
 	void setStatus(CString str);
 	void output(CString str);
-	void readTriDigrams();
-	void firstChar();
-	void secondChar();
-	void solveTrigram();
-	void readDict();
+	
+	int readCiphertext();
+	int readDict();
+	int readTriDigrams();
+	int firstChar();
+	int secondChar();
+	int solveTrigram();
+	
 	void outputSave(CString a1, CString a2, CString a3, CString a4, CString a5, CString a6, CString a7);
 	CString encryptText(CString text, CString key);
 	CString decryptText(CString text, CString key);
@@ -79,13 +83,11 @@ public:
 	CString ciphertextFileName;
 	CString title;
 
+	// this flag is set from the outside to abort the analysis
 	bool abort;
 
 	double progress;
 	virtual double getProgress() { return progress; };
-
-	void readCiphertext();
-
 
 };
 

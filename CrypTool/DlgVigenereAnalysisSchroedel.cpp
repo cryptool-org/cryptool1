@@ -55,6 +55,8 @@ VigenereAnalysisSchroedel::VigenereAnalysisSchroedel(const CString _ciphertextFi
 	ciphertextFileName = _ciphertextFileName;
 	title = _title;
 
+	abort = false;
+
 	time_t seconds;
 	time(&seconds);
 	srand((unsigned int)seconds);
@@ -64,6 +66,27 @@ VigenereAnalysisSchroedel::VigenereAnalysisSchroedel(const CString _ciphertextFi
 	memset(cTrigram, 0, 4*26*26*26);
 	memset(score, 0, 4*26*26*26*2);
 	memset(_score, 0, 4*26*26*26*2);
+
+	// fill Vigenere array
+	CString s;
+	CString t;
+	s = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  s = s + s;
+	for(int i=0; i<26; i++) {
+		t = s;
+		t.Delete(0, i+1);
+		vigenere[i] = t.Left(26);
+	}
+
+	maxRating = 0;
+	solveCount = 0;
+
+	for(int i=0; i<17575; i++) {
+		pairs[i][0] = "";
+		pairs[i][1] = "";
+		score[i][0] = 0;
+		score[i][1] = 0;
+	}
 
 	// open result file
 	CString pathToFileResult;
@@ -100,8 +123,11 @@ void VigenereAnalysisSchroedel::output(CString str) {
 	fileResult.write("\r\n", 2);
 }
 
-void VigenereAnalysisSchroedel::readTriDigrams() {
+int VigenereAnalysisSchroedel::readTriDigrams() {
 	
+	// watch out for user cancellation
+	if(abort) return -1;
+
 	CString s;
 
 	maxDi = 0;
@@ -113,7 +139,7 @@ void VigenereAnalysisSchroedel::readTriDigrams() {
 	pathToDigrams.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DIGRAMS_FILENAME);
 	pathToDigrams = CString(Pfad) + pathToDigrams;
 	fileInputDigrams.open(pathToDigrams);
-	if(!fileInputDigrams) return;
+	if(!fileInputDigrams) return -1;
 
 	for(int i=0; i<26; i++) {
 		for(int o=0; o<26; o++) {
@@ -139,8 +165,8 @@ void VigenereAnalysisSchroedel::readTriDigrams() {
 	pathToTrigrams.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_TRIGRAMS_FILENAME);
 	pathToTrigrams = CString(Pfad) + pathToTrigrams;
 	fileInputTrigrams.open(pathToTrigrams);
-	if(!fileInputTrigrams) return;
-
+	if(!fileInputTrigrams) return -1;
+	
 	for(int i=0; i<26; i++) {
 		for(int o=0; o<26; o++) {
 			for(int l=0; l<26; l++) {
@@ -158,10 +184,17 @@ void VigenereAnalysisSchroedel::readTriDigrams() {
 	fileInputTrigrams.close();
 
 	setStatus("Digrams and Trigrams loaded.");
+
+	progress = 0.10;
+
+	return 0;
 }
 
-void VigenereAnalysisSchroedel::firstChar() {
+int VigenereAnalysisSchroedel::firstChar() {
 	
+	// watch out for user cancellation
+	if(abort) return -1;
+
 	char actChar;
 	char fText, fKey;
 	CString s;
@@ -264,9 +297,16 @@ void VigenereAnalysisSchroedel::firstChar() {
 	output(" ");
 	output("###############");
 	output(" ");
+
+	progress = 0.12;
+
+	return 0;
 }
 
-void VigenereAnalysisSchroedel::secondChar() {
+int VigenereAnalysisSchroedel::secondChar() {
+
+	// watch out for user cancellation
+	if(abort) return -1;
 
 	char actChar, lText, lKey, fText, fKey;
 	int i,o,l,n,m;
@@ -584,9 +624,16 @@ End;
 
 
 		*/
+
+	progress = 0.15;
+
+	return 0;
 }
 
-void VigenereAnalysisSchroedel::solveTrigram() {
+int VigenereAnalysisSchroedel::solveTrigram() {
+
+	// watch out for user cancellation
+	if(abort) return -1;
 
 	CString s;
 	CString key, text, cipher;
@@ -608,14 +655,18 @@ void VigenereAnalysisSchroedel::solveTrigram() {
 
 	/* 
 		ATTENTION: In order to display the analysis progress, we assume that 
-		up until this point, 30% of the analysis is finished; furthermore we 
+		up until this point, 15% of the analysis is finished; furthermore we 
 		assume that AFTER the following loop, 90% of the analysis is finished; 
-		therefore, the loop covers 60% of the overall analysis,	the progress 
+		therefore, the loop covers 75% of the overall analysis,	the progress 
 		is gradually increased with each loop (see loopProgress)
 	*/
-	const double loopProgress = (double)(0.60) / (double)(cPairs); 
+	const double loopProgress = (double)(0.75) / (double)(cPairs); 
 
 	for(int i=0; i<cPairs; i++, progress += loopProgress) {
+		
+		// watch out for user cancellation
+		if(abort) return -1;
+		
 		key = pairs[i][0];
 		text = pairs[i][1];
 		cipher = ciphertext;
@@ -626,6 +677,10 @@ void VigenereAnalysisSchroedel::solveTrigram() {
     setStatus("Reading dictionary");
 
 		for(xDict=0; xDict<dictCount; xDict++) {
+
+			// watch out for user cancellation
+			if(abort) return -1;
+
 			s = dict[xDict];
 			
 			if(s.Find(key) == 0) {
@@ -644,11 +699,13 @@ void VigenereAnalysisSchroedel::solveTrigram() {
 			}
 		}
 
-
-
 		if(cKey.GetLength() > 0 && cText.GetLength() > 0) {
 			for(int o=0; o<cKey.GetLength(); o++) {
 				for(int l=0; l<cText.GetLength(); l++) {
+					
+					// watch out for user cancellation
+					if(abort) return -1;
+					
 					CString cTextStr; cTextStr.AppendChar(cText[l]);
 					CString cKeyStr; cKeyStr.AppendChar(cKey[o]);
 					CString cCipherStr; cCipherStr.AppendChar(cipher[3]);
@@ -656,11 +713,18 @@ void VigenereAnalysisSchroedel::solveTrigram() {
 						rKey = "";
 						rText = "";
 						for(xDict=0; xDict<dictCount; xDict++) {
+
+							// watch out for user cancellation
+							if(abort) return -1;
+
 							if(dict[xDict].GetLength() <= ciphertext.GetLength()) {
 								if(dict[xDict].Find(key + cKey[o]) == 0 || dict[xDict].Find(text + cText[l]) == 0) {
 									theRate = rateString(decryptText(ciphertext, dict[xDict]), dict[xDict]);
 									if(theRate >= decryptText(ciphertext, dict[xDict]).GetLength() * 0.01) {
 										
+										// watch out for user cancellation
+										if(abort) return -1;
+
 										CString strTheRate; strTheRate.Format("%d", theRate);
 										CString strTheSubRate; strTheSubRate = "0";
 
@@ -726,6 +790,10 @@ void VigenereAnalysisSchroedel::solveTrigram() {
 		CString strCipher; strCipher = ciphertext;
 		CString strRating; strRating.Format("%d", maxRating);
 		for(int i=0; i<x; i++) {
+
+			// watch out for user cancellation
+			if(abort) return -1;
+
 			if(solveRating < atoi(solvers[i][2].GetBuffer())) {
 				solveRating = atoi(solvers[i][2].GetBuffer());
 				solveKey = solvers[i][0];
@@ -761,9 +829,14 @@ void VigenereAnalysisSchroedel::solveTrigram() {
 	}
 
 	// TODO: see original delphi code
+
+	return 0;
 }
 
-void VigenereAnalysisSchroedel::readDict() {
+int VigenereAnalysisSchroedel::readDict() {
+
+	// watch out for user cancellation
+	if(abort) return -1;
 
 	setStatus("Reading dictionary");
 
@@ -775,7 +848,7 @@ void VigenereAnalysisSchroedel::readDict() {
 	pathToDictionary.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DICTIONARY_FILENAME);
 	pathToDictionary = CString(Pfad) + pathToDictionary;
 	fileInput.open(pathToDictionary);
-	if(!fileInput) return;
+	if(!fileInput) return -1;
 
 	dictCount = 0;
 
@@ -802,9 +875,15 @@ void VigenereAnalysisSchroedel::readDict() {
 	// close input file
 	fileInput.close();
 
+	progress = 0.05;
+
+	return 0;
 }
 
-void VigenereAnalysisSchroedel::readCiphertext() {
+int VigenereAnalysisSchroedel::readCiphertext() {
+
+	// watch out for user cancellation
+	if(abort) return -1;
 
 	setStatus("Reading ciphertext");
 
@@ -813,7 +892,7 @@ void VigenereAnalysisSchroedel::readCiphertext() {
 	// create a handle for the input file
 	std::ifstream fileInput;
 	fileInput.open(ciphertextFileName);
-	if(!fileInput) return;
+	if(!fileInput) return -1;
 
 	dictCount = 0;
 
@@ -822,13 +901,23 @@ void VigenereAnalysisSchroedel::readCiphertext() {
 		getline(fileInput, s2);
 		s = s2.c_str();
 		s.Trim();
-		s.MakeUpper();
 		ciphertext.Append(s);
 	}
 
 	// close input file
 	fileInput.close();
 
+	ciphertext.MakeUpper();
+
+	output("Cipher to break: " + ciphertext);
+	output(" ");
+
+	// if necessary, indicate that the ciphertext is shorter than three characters
+	if(ciphertext.GetLength() < 3) return -1;
+
+	progress = 0.01;
+
+	return 0;
 }
 
 void VigenereAnalysisSchroedel::outputSave(CString a1, CString a2, CString a3, CString a4, CString a5, CString a6, CString a7) {
@@ -912,9 +1001,10 @@ CString VigenereAnalysisSchroedel::decryptText(CString text, CString key) {
 
 int VigenereAnalysisSchroedel::rateString(CString str, CString key) {
 
-	CString s, lowords, tmp, start;
+	CString s, tmp, start;
 
-	int o, z;
+	int o = 0;
+	int z = 0;
 
 	int check[1000];
 	CString words[1000];
@@ -931,11 +1021,10 @@ int VigenereAnalysisSchroedel::rateString(CString str, CString key) {
 		check[i] = 0;
 	}
 
-	for(int i=0, o=0; i<dictCount; i++) {
+	for(int i=0; i<dictCount; i++) {
 		s = dict[i];
 		if(str.Find(s) > -1) {
 			words[o++] = s;
-			lowords = lowords + (char)(13) + s;
 		}
 	}
 
@@ -1024,58 +1113,26 @@ UINT singleThreadVigenereAnalysisSchroedel(PVOID argument) {
 	VigenereAnalysisSchroedel *theAnalysis = (VigenereAnalysisSchroedel*)(argument);
 
 	// return if we don't have a valid analysis object
-	if(!theAnalysis) return 0;
-	
-	theAnalysis->abort = false;
-
-	// TODO: read file
-	theAnalysis->readCiphertext();
-	theAnalysis->progress = 0.05;
-
-	// fill Vigenere array
-	CString s;
-	CString t;
-	s = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  s = s + s;
-	for(int i=0; i<26; i++) {
-		t = s;
-		t.Delete(0, i+1);
-		theAnalysis->vigenere[i] = t.Left(26);
-	}
-	theAnalysis->progress = 0.10;
-
-	theAnalysis->readDict();
-	theAnalysis->progress = 0.20;
-
-	theAnalysis->maxRating = 0;
-	theAnalysis->solveCount = 0;
-
-	if(theAnalysis->ciphertext.GetLength() >= 3) {
-		// Memo1.Clear
-		theAnalysis->ciphertext = theAnalysis->ciphertext.MakeUpper();
-		theAnalysis->readTriDigrams();
-
-		theAnalysis->setStatus("Initializing");
-		for(int i=0; i<17575; i++) {
-			theAnalysis->pairs[i][0] = "";
-			theAnalysis->pairs[i][1] = "";
-			theAnalysis->score[i][0] = 0;
-			theAnalysis->score[i][1] = 0;
-		}
-
-		theAnalysis->output("Cipher to break: " + theAnalysis->ciphertext);
-		theAnalysis->output(" ");
-
-		theAnalysis->firstChar();
-		theAnalysis->progress = 0.25;
-
-		theAnalysis->secondChar();
-		theAnalysis->progress = 0.30;
-
-		// see definition of solveTrigram for progress increase (this is a bit weird)
-		theAnalysis->solveTrigram();
+	if(!theAnalysis) {
+		theApp.fs.cancel();
+		AfxEndThread(0);
+		return 0;
 	}
 
+	if(	theAnalysis->readCiphertext() < 0 ||					// read ciphertext
+			theAnalysis->readDict() < 0 ||								// read dictionary
+			theAnalysis->readTriDigrams() < 0 ||					// read digrams and trigrams file
+			theAnalysis->firstChar() < 0 ||								// create pairs for first character
+			theAnalysis->secondChar() < 0 ||							// create pairs for second and third character
+			theAnalysis->solveTrigram() < 0)							// solve trigrams
+	{
+		// abort analysis and end thread properly
+		theApp.fs.cancel();
+		AfxEndThread(0);
+		return 0;
+	}
+		
+	// at this point the solveTrigram function was successful, so we're done
 	theAnalysis->progress = 1.0;
 
 	// end thread properly

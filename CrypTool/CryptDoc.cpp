@@ -838,15 +838,17 @@ void CCryptDoc::OnVigenereAnalysisSchroedel()
 	UpdateContent();
 
 	VigenereAnalysisSchroedel *theAnalysis = new VigenereAnalysisSchroedel(ContentName, GetTitle());
-	CWinThread *thread = AfxBeginThread(singleThreadVigenereAnalysisSchroedel, (PVOID)(theAnalysis));
+	AfxBeginThread(singleThreadVigenereAnalysisSchroedel, (PVOID)(theAnalysis));
 
 	theApp.fs.setModelTitleFormat(theAnalysis, "Schroedel", "");
 	
+	// abort the analysis if the user cancels the progress bar
 	if(theApp.fs.DoModal() == IDCANCEL) {
 		theAnalysis->abort = true;
 	}
-	else {
-		// open result file and close the dialog
+
+	// open result file if the analysis was NOT aborted
+	if(theAnalysis->progress == 1.0) {
 		CAppDocument *NewDoc = theApp.OpenDocumentFileNoMRU(CString(Pfad) + CString("result.txt"));
 	}
 }
