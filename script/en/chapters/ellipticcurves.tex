@@ -8,7 +8,8 @@
 \chapter{Elliptic Curves}
 \label{Chapter_EllipticCurves}
 \index{Elliptic curves}
-(Filipovics B. / B\"uger M. / Esslinger B. / Oyono R., April 2000, Updates: Dec. 2001, June 2002, Mar. 2003)
+(Filipovics B. / B\"uger M. / Esslinger B. / Oyono R., April 2000,
+Updates: Dec. 2001, June 2002, Mar. 2003, August 2009)
 
 \section{Elliptic curve cryptography -- a high-performance substitute for RSA?}
 \index{Performance}
@@ -554,13 +555,21 @@ are therefore highly suitable for parallelization.
 
 
 % -----------------------------------------------------------------------------
-\section{Implementing elliptic curves}
+\section{Implementing elliptic curves for educational purposes, patent aspects}
 
-CrypTool\index{CrypTool} also offers elliptic curves for the digital signature function%
+
+% -----------------------------------------------------------------------------
+\subsection{CrypTool}
+
+CrypTool\index{CrypTool} offers elliptic curves for the digital signature function%
 \footnote{%
 The dialog box, which appears in CrypTool\index{CrypTool} after clicking the menu
 {\bf Digital Signatures/PKI \textbackslash{} Sign Message},
 offers the EC methods ECSP-DSA and ECSP-NR.
+} and for ECC-AES hybrid encryption%
+\footnote{%
+Within CrypTool\index{CrypTool} you can find this technique using the menu
+path {\bf Crypt \textbackslash{} Hybrid}.
 }.
 
 It implements the basic algorithms for group operations, for generating elliptic
@@ -574,12 +583,85 @@ http://grouper.ieee.org/groups/1363}}.
 
 The procedure implements the cryptographic primitives for generating and
 verifying signatures for the variations of Nyberg-Rueppel signatures and
-\index{DSA} DSA signatures based on elliptic curves (in accordance with draft
-no. 8 of the IEEE P1363 work group). This was done in collaboration with the
-Secude GmbH --- using the above library and the Secude SDK.
-\index{SECUDE IT Security}
+\index{DSA} DSA signatures based on elliptic curves.
 
-In case one uses the field $GF(2^n)$ is used instead of the prime field $GF(p)$, one has to make substantial changes in the implementation. The advantage of $GF(2^n)$ lies in the fact that calculations in $GF(2^n)$ can be implemented very efficiently using the binary representation. In particular, divisions are much easier to process compared to $GF(p)$ (this is particularly important in the signature scheme mentioned above where a division is needed for processing a signature as well as for the verification).
+
+% -----------------------------------------------------------------------------
+\subsection{Sage}
+\label{ec:Sage_Massierer}
+\index{Sage}
+\index{Sage!Code examples}
+
+In Sage elliptic curves are described at
+
+\url{http://www.sagemath.org/doc/constructions/elliptic_curves.html}%
+\footnote{%
+Sage samples can be found at:\\
+- the Published Worksheets at \url{http://www.sagenb.org/pub/} like\\
+- Elliptic Curve\\
+  \url{http://www.sagenb.org/home/pub/606/} \\
+- Elliptic Curve El Gamal\\
+  \url{http://www.sagenb.org/home/pub/104/} \\
+- or at the "Elliptic Curve Cryptography (ECC) Tutorial"\\
+  \url{http://www.williamstein.org/simuw06/notes/notes/node12.html}
+}.
+
+
+There is an exhaustive ECC tutorial by Maike Massierer,
+called \hyperlink{ec:Web-Link:Sage_Massierer}{ECC script}.
+This interactive introduction to Elliptic Curve Cryptography is build up as
+a Sage notebook%
+\footnote{%
+If you run your own Sage environment, you have to compile (e.g. with Sage 4.1)
+the package kash3-2008-07-31.spkg, because the ECC notebook of Mrs. Massierer
+needs it.
+}.
+
+This notebook\footnote{%
+Starting the notebook in a browser: Enter "notebook()" at the Sage commandline.\\
+- In your browser you normally first have to login.\\
+- If you click in the above right corner at "Published", you will see our 8 worksheets.\\
+You should then generate you own local (under Linux in your home area) copy by clicking
+a worksheet (then click "Edit a copy" in the left upper corner).\\
+- Sometimes it's necessary at the beginning to click in the left upper corner
+"Action -> Evaluate all".\\
+- Sometimes the window contains many (blue) error messages. This normally can be
+solved by clicking the small "\%hide" string: Then you get the code behind the
+graphics. Simply generate the graphics again with Shift-Enter.
+},\footnote{%
+  Since 2008 this tutorial can be found at
+    \url{http://sage.mathematik.uni-siegen.de:8000/home/pub/45/}.\\
+  - To logon in Siegen you have to allow port 8000 and Cookies.\\
+  - The fonts from jsMAah are used. They should be installed into your browser for a better layout.
+    After installing these fonts you can see the jsMath symbol at the lower border
+    of your browser. If you click this symbol you can find the download page for the TTIF fonts.
+    We are sorry, that this has to be done at every PC where his notebook runs in a browser.
+}
+consists of 8 chapters (title page plus 7 chapters)
+% "Titelseite" mit Inhaltsverzeichnis plus 7 Kapitel
+and aims to let even beginners understand what elliptic curves are:
+
+\begin{enumerate}
+%   \setcounter{enumii}{\value{0}}
+   \setcounter{enumii}{0}
+
+   \item ECC Notebook (title page and contents)
+   \item Introduction and Overview
+   \item Motivation for the use of Elliptic Curves in Cryptography
+   \item Elliptic Curves in Cryptography
+   \item Cryptographic Protocols in ECC
+   \item Domain Parameter Generation for ECC Systems
+   \item Conclusion and Further Topics
+   \item References
+
+\end{enumerate}
+
+
+
+% -----------------------------------------------------------------------------
+\subsection{Patent aspects}
+
+If the field $GF(2^n)$ is used instead of the prime field $GF(p)$, one has to make substantial changes in the implementation. The advantage of $GF(2^n)$ lies in the fact that calculations in $GF(2^n)$ can be implemented very efficiently using the binary representation. In particular, divisions are much easier to process compared to $GF(p)$ (this is particularly important in the signature scheme mentioned above where a division is needed for processing a signature as well as for the verification).
 
 In order to achieve maximal gain in efficiency, one may choose a field that allows special basis like polynomial basis (useful for software implementations) or normal basis (best for hardware implementations). For special $n$ (like, for example, $n=163,179,181$) one may even combine both advantages. However, they are still non-standard.
 
@@ -627,10 +709,6 @@ Both examples show the typical range of application for elliptic curve cryptogra
 	Hyperelleptic curves by Alfred J. Menezes, Yi Hong Wu and Robert 
 	J. Zuccherato}, \\
 	Springer-Verlag, 1998, 206 pages.
-    \bibitem[Menezes1993]{ec:Menezes1993}A. J. Menezes, 
-	\index{Menezes 1993} \\
-        {\em Elliptic curve public key cryptosystems},\\
-	Kluwer Academic Publishers, 1993.
     \bibitem[Lenstra1987]{ec:Lenstra1987} H.W. Lenstra, 
         \index{Lenstra 1987} \\
         {\em Factoring integers with elliptic curves}, \\
@@ -642,6 +720,10 @@ Both examples show the typical range of application for elliptic curve cryptogra
 	Association for Cryptologic Research \\
 	\href{http://www.cryptosavvy.com/cryptosizes.pdf}
 	{\texttt{http://www.cryptosavvy.com/cryptosizes.pdf}}
+    \bibitem[Menezes1993]{ec:Menezes1993}A. J. Menezes, 
+	\index{Menezes 1993} \\
+        {\em Elliptic curve public key cryptosystems},\\
+	Kluwer Academic Publishers, 1993.
     \bibitem[Silverman1986]{ec:Silverman1986} J. Silverman, 
         \index{Silverman 1986}\\
         {\em The Arithmetic of Elliptic Curves},\\
@@ -657,16 +739,20 @@ Both examples show the typical range of application for elliptic curve cryptogra
 
 \end{thebibliography}
 
+
+
 %--------------------------------------------------------------------
-%\newpage
-\section*{Web links}
+\chapter*{Web links}
 \addcontentsline{toc}{section}{Web links}
 
 \begin{enumerate}
    \item Interactive introduction to elliptic curves and elliptic curve cryptography
          with Sage\index{Sage} by Maike Massierer and the CrypTool team,\\
          \href{http://sage.mathematik.uni-siegen.de:8000/home/pub/45/}
-      {\texttt{http://sage.mathematik.uni-siegen.de:8000/home/pub/45/}}
+      {\texttt{http://sage.mathematik.uni-siegen.de:8000/home/pub/45/}} \\
+          ECC Tutorial as Sage Notebook \\
+         Version 1.01, October 2008
+       \hypertarget{ec:Web-Link:Sage_Massierer}{} 
 
    \item Certicom Online Tutorial, \index{Certicom},\\
          \href{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}

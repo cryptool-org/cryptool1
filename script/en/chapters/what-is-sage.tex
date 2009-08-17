@@ -49,7 +49,7 @@ material\footnote{%
 
 \noindent With respect to studying cryptography, Sage modules can be used
 to complement a first course in cryptography\footnote{%
-- See the module sources in the directory \url{SAGE_ROOT/devel/sage-main/sage/crypto}.\\
+- Module sources in the directory \url{SAGE_ROOT/devel/sage-main/sage/crypto}.\\
 - Overview, what crypto currently is in Sage:\\
 ~ ~ \url{http://www.sagemath.org/doc/reference/sage/crypto/}\\
 - Discussions about the teaching related aspect of development crypto in Sage:\\
@@ -74,15 +74,17 @@ The default interface to Sage is command line based, as shown in
 Figure~\ref{fig:sage_cmd_interfaces}. However, there is a
 graphical user interface to the software as well in the form of the
 Sage notebook (see Figure~\ref{fig:sage_gui_interfaces}). We can even
-use Sage online at
+use Sage online at different servers, e.g.
 \begin{center}
 \url{http://www.sagenb.org}
+\url{http://sage.mathematik.uni-siegen.de:8000}
 \end{center}
-without having to install Sage locally. Sage runs under many
-Linux distributions, Mac OS X, and Windows. For the Windows platform,
-a complete distribution of Sage currently only runs as a VMware
-image. However, a full native port of Sage to Windows is currently in
-progress.
+without having to install Sage locally.
+
+Sage runs under many Linux distributions, Mac OS X, and Windows.
+For the Windows platform, a complete distribution of Sage currently
+only runs as a VMware image. However, a full native port of Sage
+to Windows is currently in progress.
 
 \begin{figure}[!htpb]
 \centering
@@ -99,8 +101,8 @@ progress.
 \end{figure}
 
 \footnotetext{%
-Enter notebook() at the Sage prompt, and then start your favorite browser
-(Iceweasel, Firefox, IE, ...) e.g. with the URL \url{http://localhost:8000}.
+To start the Sage gui: Enter notebook() at the Sage prompt, and then your favorite
+browser (Iceweasel, Firefox, IE, ...) is started e.g. with the URL \url{http://localhost:8000}.
 }
 
 
@@ -204,8 +206,8 @@ function to obtain further information on that command, or append the
 question mark ``?'' to the command name.  For example,
 the command \texttt{help(SubstitutionCryptosystem)} provides
 documentation on the built-in class
-\texttt{SubstitutionCryptosystem}. We can also obtain documentation on
-this class as follows:
+\texttt{SubstitutionCryptosystem}. We can get documentation on
+this class with the question mark as follows:
 %
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
@@ -250,6 +252,7 @@ Docstring:
             True
 \end{Verbatim}
 %
+\vspace{30pt}
 For further assistance on specific problems, we can also
 search the archive of the \texttt{sage-support} mailing list at
 %
@@ -300,7 +303,7 @@ The examples are from the blog of Prof. Alasdair McAndrew, Victoria University,\
     sage: mod(r,p)^pl
       1000000000000000
 
-# * Finite Fields:
+# * Finite Fields (\url{http://en.wikipedia.org/wiki/Finite_field}):
     sage: F.<x>=GF(2)[]
     sage: G.<a>=GF(2^4,name='a',modulus=x^4+x+1)
     sage: a^2/(a^2+1)
@@ -312,7 +315,7 @@ The examples are from the blog of Prof. Alasdair McAndrew, Victoria University,\
     sage: (a^3+1)^13
       a^2
 \end{Verbatim}
-\caption{Some small general samples from different areas in mathematics}
+\caption{Some small general samples in Sage from different areas in mathematics}
 \end{sagecode}
 
 
@@ -337,17 +340,19 @@ on the command line as in the above example\footnote{%
 
   \noindent This script usually uses the above convention for presenting Sage code,
   if the code doesn't come from a Sage script. When people copy and paste the Sage code
-  from the script, they should leave out "sage:" and "..."from the script (nevertheless
+  from the this script, in order to enter it a the commandline, 
+  they should leave out "sage:" and "..."from the script (nevertheless
   in most cases the command prompt can deal with this prefixes correctly).}.
 
 But if you develop your own functions, modify them and call them, then it is much easier
 to do the development in your own editor, save it to a script file and execute the functions
-non-iteractively on the commandline manually or even from within the script file.
-Both is done in the examples in
+non-interactively on the commandline manually.
+Both ways to develop code is done in the examples in
 chapter \ref{PaP_Sage_samples} (``\nameref{PaP_Sage_samples}'') and in
 chapter \ref{NumberTheory_Appendix_E} (``\nameref{NumberTheory_Appendix_E}'').
 
-\noindent To program and test Sage code there are two useful commands: load() and attach()\footnote{%
+\noindent To program and test Sage code using an editor there are two useful commands:
+load() and attach()\footnote{%
 See Sage tutorial about Programming, chapter ``Loading and Attaching SAGE files'',\\
 \url{http://www.sagemath.org/doc/tutorial/programming.html\#loading-and-attaching-sage-files}.}.\\
 Suppose you have a function definition like this:
@@ -360,15 +365,16 @@ Suppose you have a function definition like this:
        ...
        return (L)
 \end{Verbatim}
-\noindent which has been saved to the file \texttt{primroots.sage}.\footnote{%
-Note: don't use white spaces in your file name.}
+\noindent which has been saved to the file \texttt{primroots.sage}.
 
-\noindent To load this function into Sage, use load() as follows:
+\noindent To load this function into Sage (and do a syntax check at once), use load() as follows:
 
 \texttt{sage: load primroots.sage}
 
 \noindent and you can then proceed to use on the command line anything that is
 defined in that Sage script\footnote{%
+Notes:
+Don't use white spaces in your file name.\\
 Its recommended that your Sage script has the file extension
 ``.sage'', instead of ``.py''. With a Sage script whose file name ends in
 ``.sage'', when you load it into Sage then the default Sage environment
@@ -381,19 +387,21 @@ writes it to another file called ``primroots.py'' (note the ``.py''
 extension), adds all necessary variables to "primroots.py" as well as
 writing any import statements to that file. That way, your Sage script
 is executed as if you had typed the definitions in your script to the
-Sage command line.}.
+Sage command line. A diffeence may be, that output needs a print statement.}.
 
-Sometimes we also want to edit a Sage script and reload the
+Normally we also want to edit an own Sage script and reload the
 content of the changed script into Sage again. In that case, you can
 use the command attach(). Going back to our example of the above
 function definition, say now you attach it to a Sage session as
-follows:
+follows (you also can apply atach() directly after laoding the script,
+even before having changed the script):
 
 \texttt{sage: attach primroots.sage}
 
 Now edit the Sage script in a text editor, but don't exit Sage.
 After you saved it within your text editor, the changed function
-definition is reloaded into the running Sage session. This reloading is
+definition is reloaded into the running Sage session after the
+next typing of Enter (and a syntax check is done at once). This reloading is
 done automatically for you, provided that all changes to your script
 have been saved. You can think of the command attach() as a way of
 telling Sage to watch for all changes to a file, and reloading the
@@ -413,8 +421,12 @@ Here is a picture of Sage code in the editor GVIM with activated code highlighti
 
 
 \vspace{30pt}
+To get the version of your Sage environment:
+\\texttt{version()}
+
+
 To move quickly to the Sage code examples in this script, either look in the
-index at \verb#Sage -> Code examples# or have a look at the
-``\nameref{sc:List-of-Sage-Code-Examples}''. 
+index at \verb#Sage -> Code examples#, or have a look at the appendix
+``\nameref{sc:List-of-Sage-Code-Examples}''.
 
 

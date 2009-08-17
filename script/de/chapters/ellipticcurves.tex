@@ -8,7 +8,7 @@
 \label{Chapter_EllipticCurves}
 \index{Elliptische Kurven}
 (Filipovics B. / Büger M. / Esslinger B. / Oyono R., April 2000,
- Updates: Dez. 2001, Juni 2002, März 2003)
+ Updates: Dez. 2001, Juni 2002, März 2003, August 2009)
 
 % -----------------------------------------------------------------------------
 \section{Elliptische Kurven -- ein effizienter Ersatz für RSA?}
@@ -616,27 +616,113 @@ Daher eignen sich diese Verfahren auch sehr gut für eine Parallelisierung.
 
 
 % -----------------------------------------------------------------------------
-\section{Implementierung Elliptischer Kurven}
+\section{Implementierung Elliptischer Kurven zu Lehrzwecken, Patentaspekte}
 
-CrypTool kann digitale Signaturen auch mit Hilfe von Elliptischen Kurven erzeugen%
+% -----------------------------------------------------------------------------
+\subsection{CrypTool}
+
+CrypTool enthält Elliptische Kurven, um digitale Signaturen zu erzeugen%
 \footnote{%
 Die Dialogbox, die in CrypTool\index{CrypTool} nach dem Menü 
 {\bf Digitale Signaturen/PKI \textbackslash{} Dokument signieren} erscheint,
 bietet die EC-Verfahren ECSP-DSA und ECSP-NR an.
+} und um die ECC-AES-Hybridverschlüsselung durchzuführen%
+\footnote{%
+In CrypTool\index{CrypTool} finden Sie dieses Verfahren über das Menü
+{\bf Ver-/Entschlüsseln \textbackslash{} Hybrid}.
 }.
 
-Implementiert sind die Basisalgorithmen für Gruppenoperationen, für das Erzeugen von Elliptischen
-Kurven und für das Ein- und Auslesen von Parametern für Elliptische Kurven über endlichen
-Körpern $GF(p)$ mit $p$ ($p$ prim) Elementen. Die Implementierung erfolgte in ANSI C und richtete sich
-nach dem Entwurf Nr.8 der Arbeitsgruppe IEEE P1363 {\em Standard Specifications for Public Key Cryptography}
+Implementiert sind die Basisalgorithmen für Gruppenoperationen, für das
+Erzeugen von Elliptischen Kurven und für das Ein- und Auslesen von
+Parametern für Elliptische Kurven über endlichen Körpern $GF(p)$
+mit $p$ ($p$ prim) Elementen. Die Implementierung erfolgte in
+ANSI C und richtete sich nach dem Entwurf Nr. 8 der Arbeitsgruppe
+IEEE P1363 {\em Standard Specifications for Public Key Cryptography}
 
 {\href{http://grouper.ieee.org/groups/1363}{\texttt{http://grouper.ieee.org/groups/1363}}}.
 
-Implementiert sind die kryptographischen Primitive zur Signaturerzeugung und Signaturverifikation für
-die auf Elliptischen Kurven basierenden Varianten von Nyberg-Rueppel-Signaturen und \index{DSA} DSA-Signaturen
-(nach Entwurf Nr.8 der Arbeitsgruppe IEEE P1363). Dies erfolgte in Zusammenarbeit mit der Secude
-GmbH --- und unter Benutzung des Secude SDK.
-\index{SECUDE IT Security GmbH}
+Implementiert sind die kryptographischen Primitive zur Signaturerzeugung
+und Signaturverifikation für die auf Elliptischen Kurven basierenden
+Varianten von Nyberg-Rueppel-Signaturen und \index{DSA} DSA-Signaturen.
+
+
+% -----------------------------------------------------------------------------
+\subsection{Sage}
+\label{ec:Sage_Massierer}
+\index{Sage}
+\index{Sage!Programmbeispiele}
+
+In Sage werden Elliptische Kurven beschrieben unter
+
+\url{http://www.sagemath.org/doc/constructions/elliptic_curves.html}%
+\footnote{%
+Sage-Beispiele dazu finden sich z.B. unter:\\
+- den "Published Worksheets" auf \url{http://www.sagenb.org/pub/} mit\\
+- Elliptic Curve\\
+  \url{http://www.sagenb.org/home/pub/606/} \\
+- Elliptic Curve El Gamal\\
+  \url{http://www.sagenb.org/home/pub/104/} \\
+- oder im \glqq Elliptic Curve Cryptography (ECC) Tutorial\grqq\\
+  \url{http://www.williamstein.org/simuw06/notes/notes/node12.html}
+}.
+
+
+Ein sehr ausführliches ECC-Tutorial, genannt \hyperlink{ec:Web-Link:Sage_Massierer}{ECC-Skript},
+gibt es von Maike Massierer.
+Diese interaktive Einführung in die Elliptische-Kurven-Kryptographie (ECC)
+ist als Sage-Notebook aufgebaut%
+\footnote{%
+Wenn Sie Ihre eigene Sage-Ungebung selbst erstellten, müssen Sie (z.B. mit Sage 4.1)
+das Package "kash3-2008-07-31.spkg" compilieren, weil es vom ECC-Notebook von Frau
+Massierer benötigt wird.
+}.
+
+Dieses Notebook\footnote{%
+Starten des Notebook in einem Browser: Enter "notebook()" auf der Sage Kommandozeile.
+- In your browser you normally first have to login.\\
+- Klickt man auf "Published" in der oberen rechten Ecke, seiht man die 8 Worksheets.\\
+Sie sollten danach ihre eigenen lokalen (under Linux im HOME-Verzeichnis) Kopien
+erstellen [Klick auf "Edit a copy" in der linken oberen Ecke).\\
+- Manchmal ist es nötig, dass man zu Beginn in der linken oberen Ecke
+  \glqq Action -> Evaluate all\grqq klickt.\\
+- Manchmal enthält das Fenster viele (blaue) Fehlermeldungen. Das kann man normalerweise
+  schnell lösen, indem man den kleinen \glqq \%hide\grqq-String anklickt: Danach sieht
+  man den Code hinter der Grafik. Mit Shift-Enter kann man die Grafik neu erzeugen.
+},\footnote{%
+  Seit 2008 steht diess Tutorial auf
+    \url{http://sage.mathematik.uni-siegen.de:8000/home/pub/45/}.\\
+  - Um sich in Siegen einzuloggen, muss man den Port 8000 und Cookies erlauben.\\
+  %  -> Zum Ansehen: (siehe Massierers Mail vom 05.09.2008 12:52)
+  - Benutzt werden auch die Fonts jsMath. Deshalb sollten diese für eine bessere
+    Darstellung in ihrem Browser installiert sein.
+    Nach der Installation dieser Fonts hat man das jsMath-Symbol am unteren Rand
+    des Browsers. Klickt masn dieses Symbol an, erhält man die Download-page dieser
+    TTIF-Fonts.
+    Leider muss die Installation der Fonts an jedem PC erfolgen.
+}
+besteht aus 8 Kapiteln (\glqq Titelseite\grqq~mit Inhaltsverzeichnis plus 7 Kapitel)
+und zielt darauf ab, dass selbst ein Einsteiger versteht, was Elliptische Kurven
+sind:
+
+\begin{enumerate}
+%   \setcounter{enumii}{\value{0}}
+   \setcounter{enumii}{0}    % TODO: Joerg: Wie setzt man den Zähler initial auf 0?
+
+   \item ECC Notebook (title page and contents)
+   \item Introduction and Overview
+   \item Motivation for the use of Elliptic Curves in Cryptography
+   \item Elliptic Curves in Cryptography
+   \item Cryptographic Protocols in ECC
+   \item Domain Parameter Generation for ECC Systems
+   \item Conclusion and Further Topics
+   \item References
+
+\end{enumerate}
+
+
+
+% -----------------------------------------------------------------------------
+\subsection{Patentaspekte}
 
 Wenn man statt des Primkörpers $GF(p)$ einen Körper der Form $GF(2^n)$ zugrunde legt, ergeben sich wesentliche Unterschiede in der Implementierung. Der Vorteil einer Implementierung unter Verwendung von $GF(2^n)$ liegt darin, dass Rechnungen aufgrund der binären Darstellung effizienter durchgeführt werden können. Dies betrifft insbesondere die Division, die in $GF(p)$ vergleichsweise aufwändig ist (was z.B. bei dem oben beschriebenen Signaturverfahren sowohl die Erstellung der Signatur als auch ihre spätere Verifikation betrifft, da beide eine Divisionsoperation enthalten).
 
@@ -664,6 +750,8 @@ In Österreich gibt es eine Massenanwendung auf Basis von ECC: Die Bankkarte mit 
 Beide Beispiele zeigen gut die typischen Einsatzgebiete Elliptischer Kurven: Als Hochsicherheitslösungen und bei Implementierungen auf Smartcards, bei denen der Schlüssellänge (Speicherplatz) eine entscheidende Bedeutung zukommt.
 
 
+
+%--------------------------------------------------------------------
 \newpage
 \begin{thebibliography}{99999}
 \addcontentsline{toc}{section}{Literaturverzeichnis}
@@ -681,10 +769,6 @@ Beide Beispiele zeigen gut die typischen Einsatzgebiete Elliptischer Kurven: Als
 	Hyperelleptic curves by Alfred J. Menezes, Yi Hong Wu and Robert 
 	J. Zuccherato}, \\
 	Springer-Verlag, 1998, 206 Seiten.
-    \bibitem[Menezes1993]{ec:Menezes1993}A. J. Menezes, 
-	\index{Menezes 1993} \\ 
-	{\em Elliptic curve public key cryptosystems}, \\
-	Kluwer Academic Publishers, 1993.
     \bibitem[Lenstra1987]{ec:Lenstra1987} H.W. Lenstra, 
         \index{Lenstra 1987} \\
         {\em Factoring integers with elliptic curves}, \\
@@ -696,6 +780,10 @@ Beide Beispiele zeigen gut die typischen Einsatzgebiete Elliptischer Kurven: Als
 	Association for Cryptologic Research \\
 	\href{http://www.cryptosavvy.com/cryptosizes.pdf}
 	{\texttt{http://www.cryptosavvy.com/cryptosizes.pdf}}
+    \bibitem[Menezes1993]{ec:Menezes1993}A. J. Menezes, 
+	\index{Menezes 1993} \\ 
+	{\em Elliptic curve public key cryptosystems}, \\
+	Kluwer Academic Publishers, 1993.
     \bibitem[Silverman1986]{ec:Silverman1986} J. Silverman,
 	\index{Silverman 1986} \\
 	{\em The Arithmetic of Elliptic Curves},\\
@@ -711,25 +799,22 @@ Beide Beispiele zeigen gut die typischen Einsatzgebiete Elliptischer Kurven: Als
 \end{thebibliography}
 
 
-% \chapter*{Bücher über Elliptische Kurven (Auswahl)}\addcontentsline{toc}{section}{Bücher über Elliptische Kurven (Auswahl)}
-% \begin{itemize}
-%    \item[]\hskip -25 pt [{\sc Cas}] J. W. S. Cassels, {\em Lectures on elliptic curves}, Cambridge University Press, 1991, 143 Seiten.
-%    \item[]\hskip -25 pt  [{\sc Kob}] N. Koblitz, {\em Introduction to elliptic curves and modular forms}, Graduate Texts in Mathemathics, Springer-Verlag, 1984.
-%    \item[]\hskip -25 pt  [{\sc Kob}] N. Koblitz, {\em Algebraic aspects of Cryptography. With an appendix on Hyperelleptic curves by Alfred J. Menezes, Yi Hong Wu and Robert J. Zuccherato}, Springer, 1998, 206 Seiten.
-%    \item[]\hskip -25 pt  [{\sc Men}] A. J, Menezes, {\em Elliptic curve public key cryptosystems}, Kluwer Academic Publishers, 1993.
-%    \item[]\hskip -25 pt  [{\sc Sil}] J. Silverman, {\em The arithmetic of elliptc curves}, Graduate Texts in Mathemathics, Springer-Verlag, 1992.
-%    \item[]\hskip -25 pt  [{\sc ST}] J. Silverman, J. Tate, {\em Rational points on elliptic curves}, Springer-Verlag, 1992.
-% \end{itemize}
 
-
-\chapter*{Web-Links}\addcontentsline{toc}{section}{Web-Links}
+%--------------------------------------------------------------------
+\chapter*{Web-Links}
+\addcontentsline{toc}{section}{Web-Links}
 
 \begin{enumerate}
    \item Umfassende interaktive Einführung in elliptische Kurven und
          Elliptische-Kurven-Krypto"-graphie (ECC) mit Sage\index{Sage}
          von Maike Massierer und dem CrypTool-Team (alles in Englisch),\\
          \href{http://sage.mathematik.uni-siegen.de:8000/home/pub/45/}
-      {\texttt{http://sage.mathematik.uni-siegen.de:8000/home/pub/45/}}
+      {\texttt{http://sage.mathematik.uni-siegen.de:8000/home/pub/45/}} \\
+          ECC Tutorial als Sage Notebook \\
+         Version 1.01, Oktober 2008 \\
+          % --> seit April 2009 ohne HTTPS auf Siegener Server (mit SAGE 3.4)
+       % \label{ec:Web-Link:Sage_Massierer}
+       \hypertarget{ec:Web-Link:Sage_Massierer}{} 
 
   \item Online-Tutorial über Elliptische Kurven der Firma Certicom\index{Certicom},\\
         \url{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}

@@ -1872,7 +1872,9 @@ two points.
 
 
 % --------------------------------------------------------------------------
-\subsection{Complexity}\label{complexity}\index{Complexity}
+\subsection{Complexity}
+\label{complexity}
+\index{Complexity}
 
 Successful decryption or forgery of a signature --- without knowing the
 private key --- requires calculating the $e$-th root mod $n$.  The private
@@ -2800,6 +2802,7 @@ us much about the function as a whole (in contrast to addition and multiplicatio
 
 
 % --------------------------------------------------------------------------
+\vskip +10 pt
 \subsection{The Diffie-Hellman key exchange protocol}
 \index{Diffie, Whitfield} 
 \index{Hellman, Martin} 
@@ -2836,12 +2839,12 @@ determine $a, b$ or $S$.
 
 \vskip +10 pt
 \input{figures/DH-en.latex}
-\vskip +10 pt
+\vskip +20 pt
 
-
-{\bf Procedure:}
-
-\noindent Alice and Bob want to negotiate a secret session key $S$ via a channel that may be intercepted. 
+\noindent {\bf Procedure:}\par  %\par bewirkt Zeilenumbruch
+\nopagebreak
+\noindent Alice and Bob want to negotiate a secret session key $S$ via
+a channel that may be intercepted. 
 \begin{itemize}
 \item[{\bf 1.}] They select a prime number $p$ and a random number $g$ and exchange this information openly.
 \item[{\bf 2.}] Alice now selects $a$, a random number less than $p$ and keeps it secret.

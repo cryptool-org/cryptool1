@@ -14,8 +14,6 @@ Einen Eindruck von der Größe von Sage erhält man, wenn man es selbst compiliert:
 Die heruntergeladenen Sourcen von Sage 4.1 brauchten zur Compilierung auf einem
 durchschnittlichen Linux-PC rund 5 h (inklusive aller Bibliotheken).
 Danach nahm es 1,8 GB Plattenplatz ein.
-% TODO JOERG
-% Ich habe noch kash3-2008-07-31.spkg nachinstalliert, dieses Paket wird für Frau Massierers ECC Notebooks benötigt.
 }
 und liefert den Zugang zu deren Funktionalität über ein gemeinsames, auf der
 Programmiersprache Python basierendes Interface\footnote{%
@@ -48,71 +46,72 @@ das \glqq Dokumentationsprojekt\grqq und das \glqq Lehrmaterial\grqq\footnote{%
   {\centering \url{http://wiki.sagemath.org/DocumentationProject}},\\
 - \glqq Lehrmaterial\grqq: {\centering \url{http://wiki.sagemath.org/Teaching_with_SAGE}}.
 }.
-xxxxxxxxxxxxxxxxx
-\noindent With respect to studying cryptography, Sage modules can be used
-to complement a first course in cryptography\footnote{%
-- See the module sources in the directory \url{SAGE_ROOT/devel/sage-main/sage/crypto}.\\
-- Overview, what crypto currently is in Sage:\\
+
+\noindent Auch beim Studium der Kryptologie können fertige Sage-Module genutzt
+werden\footnote{%
+- Sourcen der Module im Verzeichnis \url{SAGE_ROOT/devel/sage-main/sage/crypto}.\\
+- Überblick, welche Kryptography momentan in Sage enthalten ist:\\
 ~ ~ \url{http://www.sagemath.org/doc/reference/sage/crypto/}\\
-- Discussions about the teaching related aspect of development crypto in Sage:\\
+- Diskussionen über Lernaspekte beim Entwickeln weiterer Krypto-Module in Sage:\\
 ~ ~ \url{http://groups.google.com/group/sage-devel/browse_thread/thread/c5572c4d8d42d081}
 }.
 
-\noindent Especially David Kohel's notes at\\
+\noindent Ein fertiger Kryptographie-Kurs von David Kohel, der Sage nutzt,
+findet sich unter\\
 {\centering \url{http://www.sagemath.org/library/crypto.pdf} }
-or the same eventually newer at\\
-{\centering \url{http://sage.math.washington.edu/home/wdj/teaching/kohel-crypto.pdf} }\\
-can be used to teach such a course that incorporates Sage.
+bzw. derselbe Kurs in einer eventuell neueren Fassung\\
+{\centering \url{http://sage.math.washington.edu/home/wdj/teaching/kohel-crypto.pdf} }.
 
 
 % ---------------------------------------------------------------------------
-\section*{Sage user interfaces}
-Sage is available free of charge and can be downloaded from the
-following website:
+\section*{Sage-Benutzerschnittstellen}
+Sage ist kostenlos und kann von folgender Webseite herunter geladen werden:
 \begin{center}
   \url{http://www.sagemath.org} \\
 \end{center}
-The default interface to Sage is command line based, as shown in
-Figure~\ref{fig:sage_cmd_interfaces}. However, there is a
-graphical user interface to the software as well in the form of the
-Sage notebook (see Figure~\ref{fig:sage_gui_interfaces}). We can even
-use Sage online at
+Standardmäßig nutzt man die Sage-Kommandozeile als Interface, wie im folgenden
+Bild~\ref{fig:sage_cmd_interfaces} zu sehen ist.
+Es gibt jedoch auch ein grafisches Benutzerinterface für diese Software
+in Form der Sage-Notebook (siehe Bild~\ref{fig:sage_gui_interfaces}).
+Und schließlich kann man Sage auch online auf verschiedenen Servern nutzen, z.B.
 \begin{center}
 \url{http://www.sagenb.org}
+\url{http://sage.mathematik.uni-siegen.de:8000}
 \end{center}
-without having to install Sage locally. Sage runs under many
-Linux distributions, Mac OS X, and Windows. For the Windows platform,
-a complete distribution of Sage currently only runs as a VMware
-image. However, a full native port of Sage to Windows is currently in
-progress.
+ohne Sage lokal zu installieren.
+
+Sage läuft unter mehreren Betriebssystemen wie Linux, Mac OS X und Windows.
+Auf der Windows-Plattform läuft die komplette Sage-Distribution momentan
+nur als a VMware-Image. Allerdings wird gerade an einem vollen, native Port
+von Sage auf Windows gearbeitet.
 
 \begin{figure}[!htpb]
 \centering
 \includegraphics[scale=0.6]{figures/sage-cmd}
-\caption{Sage command line interface}
+\caption{Sage-Kommandozeilen-Interface}
 \label{fig:sage_cmd_interfaces}
 \end{figure}
 
 \begin{figure}[!htpb]
 \centering
 \includegraphics[scale=0.4]{figures/sage-gui}
-\caption[Sage notebook interface]{Sage notebook interface\footnotemark}
+\caption[Sage-Notebook-Interface]{Sage-Notebook-Interface\footnotemark}
 \label{fig:sage_gui_interfaces}
 \end{figure}
 
 \footnotetext{%
-Enter notebook() at the Sage prompt, and then start your favorite browser
-(Iceweasel, Firefox, IE, ...) e.g. with the URL \url{http://localhost:8000}.
+Um das grafische Interface von Sage zu starten, muss man auf der Sage Kommandozeile
+\verb#notebook()# eingeben. Danach startet der eingestellte Browser (Iceweasel,
+Firefox, IE, ...) z.B. mit der URL \url{http://localhost:8000}.
 }
 
 
 
 % ---------------------------------------------------------------------------
 \newpage
-\section*{Getting help with using Sage}
+\section*{Hilfe beim Benutzen von Sage}
 
-Upon loading Sage from the command line, we are presented with
-something similar to the following:
+Wenn man Sage auf der Kommandozeile startet, erhält etwas wie die folgenden Zeilen:
 %
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
@@ -143,56 +142,55 @@ of what it does; to list the modules whose summaries contain a given word
 such as "spam", type "modules spam".
 \end{Verbatim}
 %
-Plenty of help is provided in the form of the official Sage
-documentation that is distributed with every release of Sage~(see
-Figure~\ref{fig:sage_standard_doc}).
+Viele weitere Hilfen gibt es als offizielle Sage Dokumentation, die mit jedem
+Release von Sage verteilt wird~(siehe Bild~\ref{fig:sage_standard_doc}).
 %
 \begin{figure}[!htpb]
 \centering
 \includegraphics[scale=0.4]{figures/sage-online-doc}
-\caption{The Sage standard documentation}
+\caption{Die Standard-Dokumentation von Sage}
 \label{fig:sage_standard_doc}
 \end{figure}
 %
-The official Sage standard documentation includes the following documents:
+Zur offiziellen Sage-Standard-Dokumentation gehören folgende Dokumente:
 
 \begin{itemize}
-\item Tutorial --- This tutorial is designed to help Sage beginners
-  become familiar with Sage. It covers many features that beginners
-  should be familiar with, and takes one to three hours to go through.
+\item Tutorial --- Das Tutorial ist für Sage-Einsteiger.
+  Es ist dafür gedacht, sich in ein bis drei Stunden mit den
+  wichtigsten Funktionen vertraut zu machen.
 
-\item Constructions --- This document is in the style of a Sage
-  ``cookbook''. It is a collection of answers to questions about
-  constructing various objects in Sage.
+\item Constructions --- Dieses Dokument ist im Stil eines \glqq Kochbuchs\grqq
+  mit einer Sammlung von Antworten auf Fragen zur Konstruktion von Sage-Objekten.
 
-\item Developers' Guide --- This guide is for developers who want to
-  contribute to the development of Sage. Among other issues, it covers
-  coding style and conventions, modifying the core Sage libraries,
-  modifying the Sage standard documentation, and code review and
-  distribution.
+\item Developers' Guide --- Dieser Führer ist für Entwickler, die selbst Sage
+  mit weiter entwickeln wollen. Enthalten sind darin z.B. Hinweise zum
+  Stil und zu Konventionen beim Programmieren, zr Modifikation von Sage
+  Kern-Bibliotheken oder von Sage Standard-Dokumentation, und zum Code-Review
+  und zur Software-Verteilung.
 
-\item Reference Manual --- This manual provides complete documentation
-  on the major features of Sage. The description of a class is
-  accompanied by numerous code samples. All code samples in the
-  reference manual are tested before each Sage release.
+\item Reference Manual --- Dieses Handbuch enthält die komplette Dokumentation
+  aller wichtigen Sage-Funktionen. Zu jeder Klassen-Beschreibung gibt es
+  mehrere Code-Beispiele. Alle Code-Beispiele im Referenz-Handbuch werden
+  bei jedem neuen Sage-Release getestet.
 
-\item Installation Guide --- This guide explains how to install Sage
-  under various platforms.
+\item Installation Guide --- Dieser Führer erklärt, wie man Sage auf
+  verschiedenen Plattformen installiert.
 
-\item A Tour of Sage --- This is a tour of Sage that showcases various
-  features of Sage that are useful for beginners.
+\item A Tour of Sage --- Diese Tour durch Sage zeigt exemplarisch verschiedene
+  Funktionen, die für Einsteiger sinnvoll sind.
 
-\item Numerical Sage --- This document introduces tools available
-  under Sage that are useful for numerical computation.
+\item Numerical Sage --- Dieses Dokument führt Werkzeuge ein, die in Sage verfügbar
+  sind für numerische Mathematik.
 
 \item Three Lectures about Explicit Methods in Number Theory Using
-  Sage --- This document is about using Sage to perform computations
-  in advanced number theory.
+  Sage --- Drei Vorlesungen über Methoden der Zahlentheorie, die explizit
+  Sage nutzen. Dieses Dokument zeigt wie man mit Sage Berechnungen in
+  fortgeschrittener Zahelntheorie durchführt.
 \end{itemize}
 
-\noindent From within a Sage session, we can obtain a list of commands matching
-some pattern.  To do so, we type the first few characters and then
-press the ``Tab'' key:
+\noindent Von der Sage-Kommandozeile erhält man eine Liste aller verfügbaren Kommandos
+(Funktionsnamen etc.), die ein bestimmtes Muster haben, wenn man die ersten Zeichen tippt,
+und dann \glqq Tab\grqq-Taste drückt:
 %
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
@@ -201,13 +199,12 @@ Subsets                   Subwords                  SuzukiGroup
 SubstitutionCryptosystem  SupersingularModule
 \end{Verbatim}
 %
-If we know the exact name of a command, we can use the \texttt{help}
-function to obtain further information on that command, or append the
-question mark ``?'' to the command name.  For example,
-the command \texttt{help(SubstitutionCryptosystem)} provides
-documentation on the built-in class
-\texttt{SubstitutionCryptosystem}. We can also obtain documentation on
-this class as follows:
+Wenn man den genauen eines Kommandos kennt, kann man die \texttt{help}-Funktion
+nutzen oder das Fragezeichen \glqq ?\grqq anfügen, um weitere Informationen zu
+diesem Kommando zu erhalten.  Zum Beispiel liefert das Kommando
+\texttt{help(SubstitutionCryptosystem)} die Dokumentation zur der eingebauten
+Klasse \texttt{SubstitutionCryptosystem}. Mit dem Fragezeichen erhalten wir die
+Dokumentation zu dieser Klasse auf folgende Weise:
 %
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
@@ -252,8 +249,9 @@ Docstring:
             True
 \end{Verbatim}
 %
-For further assistance on specific problems, we can also
-search the archive of the \texttt{sage-support} mailing list at
+\vspace{30pt}
+Weitere Unterstützung für spezifische Probleme gibt es in den Archiven der
+\texttt{sage-support} Mailing-Liste unter
 %
 \begin{center}
   \url{http://groups.google.com/group/sage-support}
@@ -264,23 +262,24 @@ search the archive of the \texttt{sage-support} mailing list at
 
 % ---------------------------------------------------------------------------
 \newpage
-\section*{Some examples using the built-in mathematical functions in Sage}
+\section*{Beispiele für in Sage eingebaute mathematische Funktionen}
 
-Here are a few little examples\footnote{%
-The examples are from the blog of Prof. Alasdair McAndrew, Victoria University,\\
+Hier sind ein paar kleine Beispiele\footnote{%
+Diese Beispiele stammen aus dem Blog von Prof. Alasdair McAndrew, Victoria University,\\
 \url{http://amca01.wordpress.com/2008/12/19/sage-an-open-source-mathematics-software-system}}
-(all in console mode, for ease) to see what you can do with Sage:
+(alle für das Kommandozeilen-Interface -- zur einfacheren Nutzung), um zu sehen.
+was man mit Sage machen kann:
 
 \begin{sagecode}
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
-# * Calculus:
+# * Analysis (Infinitesimalrechnung):
     sage: x=var('x')
     sage: p=diff(exp(x^2),x,10)*exp(-x^2)
     sage: p.simplify_exp()
      1024 x^10 + 23040 x^8 + 161280 x^6 + 403200 x^4 + 302400 x^2 + 30240
 
-# * Linear Algebra:
+# * Lineare Algebra:
     sage: M=matrix([[1,2,3],[4,5,6],[7,8,10]])
     sage: c=random_matrix(ZZ,3,1);c
      [ 7 ]
@@ -292,7 +291,7 @@ The examples are from the blog of Prof. Alasdair McAndrew, Victoria University,\
      [-2 ]
      [-2 ]
 
-# * Number theory:
+# * Zahlentheorie:
     sage: p=next_prime(randint(2^49,2^50));p
       1022095718672689
     sage: r=primitive_root(p);r
@@ -302,7 +301,7 @@ The examples are from the blog of Prof. Alasdair McAndrew, Victoria University,\
     sage: mod(r,p)^pl
       1000000000000000
 
-# * Finite Fields:
+# * Endliche Körper (\url{http://de.wikipedia.org/wiki/Endlicher_K%C3%B6rper}):
     sage: F.<x>=GF(2)[]
     sage: G.<a>=GF(2^4,name='a',modulus=x^4+x+1)
     sage: a^2/(a^2+1)
@@ -314,7 +313,7 @@ The examples are from the blog of Prof. Alasdair McAndrew, Victoria University,\
     sage: (a^3+1)^13
       a^2
 \end{Verbatim}
-\caption{Some small general samples from different areas in mathematics}
+\caption{Einige kleine Beispiele in Sage aus verschiedenen Gebieten der Mathematik}
 \end{sagecode}
 
 
@@ -324,11 +323,12 @@ The examples are from the blog of Prof. Alasdair McAndrew, Victoria University,\
 
 % ---------------------------------------------------------------------------
 \newpage
-\section*{Writing code samples with Sage}
+\section*{Programmieren mit Sage}
 
-At the beginning using a CAS (computer algebra system) you type in the single commands
-on the command line as in the above example\footnote{%
-  The standard way for presenting Sage code starts the lines with ``sage:'' and ``...''.
+Wenn man ein CAS (Computer-Algebra-System) nutzt, schreibt man zu Beginn einzelne
+Befehle in der Kommandozeile wie im obigen Beispiel\footnote{%
+  Standardmäßig wird Sage-Code auch so präsentiert: Dabei beginnen die Zeilen
+  mit  \glqq sage:\grqq und \glqq ...\grq.
   \begin{Verbatim}%
   [fontsize=\footnotesize,fontshape=tt]
   sage: m = 11
@@ -337,22 +337,26 @@ on the command line as in the above example\footnote{%
   ....:
   \end{Verbatim}
 
-  \noindent This script usually uses the above convention for presenting Sage code,
-  if the code doesn't come from a Sage script. When people copy and paste the Sage code
-  from the script, they should leave out "sage:" and "..."from the script (nevertheless
-  in most cases the command prompt can deal with this prefixes correctly).}.
+  \noindent Auch dieses Skript benutzt normalerweise die obige Konvention, um
+  Sage-Code zu präsentieren, solange der Code nicht aus einer Sage-Skriptdatei kommt.
+  Wenn man den Sage-Code aus diesem Skript kopiert und per Paste auf der Sage-Kommandozeile
+  wieder einfügt, sollte man \glqq sage:\grqq und \glqq ...\grq weglassen
+  (obwohl das Kommandozeilen-Interface in den meisten Fällen mit diesen Präfixen
+  korrekt umgehen kann).}.
 
-But if you develop your own functions, modify them and call them, then it is much easier
-to do the development in your own editor, save it to a script file and execute the functions
-non-iteractively on the commandline manually or even from within the script file.
-Both is done in the examples in
-chapter \ref{PaP_Sage_samples} (``\nameref{PaP_Sage_samples}'') and in
-chapter \ref{NumberTheory_Appendix_E} (``\nameref{NumberTheory_Appendix_E}'').
+Wenn man eigene Funktionen entwickelt, sie ändert und aufruft, dann ist es viel einfacher,
+die Entwicklung in einem eigenen Editor vorzunehmen, den Code als Sage-Skriptdatei zu
+speichern und die Funktionen nicht-interaktiv auf der Kommandozeile auszuführen.
+Beide Arten, Code zu entwickeln, wurde in den Beispielen in
+Kapitel \ref{PaP_Sage_samples} (\glqq \nameref{PaP_Sage_samples}\grqq) and in
+Kapitel \ref{NumberTheory_Appendix_E} (\glqq\nameref{NumberTheory_Appendix_E}\grqq) angewandt.
 
-\noindent To program and test Sage code there are two useful commands: load() and attach()\footnote{%
-See Sage tutorial about Programming, chapter ``Loading and Attaching SAGE files'',\\
+\noindent Um Sage-Code in einem eigenen Editor zu entwickeln und zu testen, gibt es zwei
+nützliche Bedfehle: load() und attach()\footnote{%
+Vergleiche das Sage-Tutorial über Programmierung, Kapitel
+\glqq Loading and Attaching SAGE files\grqq,\\
 \url{http://www.sagemath.org/doc/tutorial/programming.html\#loading-and-attaching-sage-files}.}.\\
-Suppose you have a function definition like this:
+Angenommen Sie haben die folgende Funktions-Definition:
 \begin{Verbatim}%
    [fontsize=\footnotesize,fontshape=tt]
    def function(var1):
@@ -362,61 +366,64 @@ Suppose you have a function definition like this:
        ...
        return (L)
 \end{Verbatim}
-\noindent which has been saved to the file \texttt{primroots.sage}.\footnote{%
-Note: don't use white spaces in your file name.}
+\noindent die in der Datei \texttt{primroots.sage} gespeichert wurde.
 
-\noindent To load this function into Sage, use load() as follows:
+\noindent Um diese Funktion zu laden (und syntaktisch gleich zu testen),
+wird der Befehl load() benutzt:
 
 \texttt{sage: load primroots.sage}
 
-\noindent and you can then proceed to use on the command line anything that is
-defined in that Sage script\footnote{%
-Its recommended that your Sage script has the file extension
-``.sage'', instead of ``.py''. With a Sage script whose file name ends in
-``.sage'', when you load it into Sage then the default Sage environment
-is also loaded to make sure that it works as if you have defined your
-function from the Sage command line. This also applies if you run the
-script from a bash shell using ~~ \texttt{\$ sage primroots.sage}.
+\noindent Danach kann man auf der Kommandzeile alles benutzen, was im
+Sage-Skript definiert wurde\footnote{%
+Anmerkungen:\\
+- Bitte keine Leerzeichen oder White Spaces im Dateinamen.\\
+- Es empfiehlt sich, der Sage-Skriptdatei die Datei-Extension
+\glqq .sage\grqq statt \glqq .py\grqq zu geben.
+Hat ein Sage-Skript die Dateinamensendung \glqq .sage\grqq, dann wird
+beim Laden der Datei in Sage auch gleich die normale Sage-Umgebung mit geladen,
+um die Syntax zu prüfen. Genauso funktioniert es, wenn man ein Sage-Skript direkt
+von einem Bash-Shell aufruft mit ~~ \texttt{\$ sage primroots.sage}.
 
-If you run your script as above, then Sage first parses your script,
-writes it to another file called ``primroots.py'' (note the ``.py''
-extension), adds all necessary variables to "primroots.py" as well as
-writing any import statements to that file. That way, your Sage script
-is executed as if you had typed the definitions in your script to the
-Sage command line.}.
+Beim Laden des obigen Sage-Skripts wird es von Sage zuerst geparst, und dann
+in eine andere Datei namens \glqq primroots.py\grqq kopiert. Sage ergänzt
+dann alle notwendigen Variablen in "primroots.py" und alle Import-Statements.
+Somit wird das Sage-Skript genauso ausgeführt, als hätte man die Befehle einzeln
+auf der Kommandozeile eingetippt. Ein Unterschied mag sein, dass Ausgaben explit
+mit \glqq print\grqq erfolgen müssen.}.
 
-Sometimes we also want to edit a Sage script and reload the
-content of the changed script into Sage again. In that case, you can
-use the command attach(). Going back to our example of the above
-function definition, say now you attach it to a Sage session as
-follows:
+Normalerweise editiert man ein eigenes Sage-Skript wieder und möchte den
+Inhalt des geänderten Skripts wieder in Sage laden. Dafür kann man den Befehl
+attach() nutzen. In usnere, obigen Beispiel sieht das auf der Sage-Kommandozeile
+folgendermaßen aus (man kann auch direkt nach dem load() das attach() aufrufen, und
+nicht erst, wenn man das Skript ändert):
 
 \texttt{sage: attach primroots.sage}
 
-Now edit the Sage script in a text editor, but don't exit Sage.
-After you saved it within your text editor, the changed function
-definition is reloaded into the running Sage session. This reloading is
-done automatically for you, provided that all changes to your script
-have been saved. You can think of the command attach() as a way of
-telling Sage to watch for all changes to a file, and reloading the
-file again once Sage notices that there have been changes. With this
-command, you don't have to copy and paste between your text editor and
-the Sage command line interface.
+Nun kann man das Sage-Skript ändern und die geänderte Funktionsdefinition
+wird -- solange man die Sage-Session nicht beendet -- beim nächsten Enter
+in Sage geladen (und syntaktisch gleich zu testen). Diese Neuladen passiert
+vollkommen automatisch. Der Befehl attach() lässt Sage also permanent die
+genannte Datei auf Änderungen überwachen. Damit spart man sich das Kopieren
+und Pasten zwischen dem eigenen Texteditor und dem Sage-Kommandozeilen-Interface.
 
-Here is a picture of Sage code in the editor GVIM with activated code highlighting
-~(see Figure~\ref{fig:sage-highlighted-code-in-editor}).
+Hier ist ein Bild, das Sage-Code im Editor GVIM zeigt -- mit aktiviertem Syntax-
+Highlighting ~(see Figure~\ref{fig:sage-highlighted-code-in-editor}).
 %
 \begin{figure}[!htpb]
 \centering
 \includegraphics[scale=0.7]{figures/sage-highlighted-code-in-editor}
-\caption{Sage sample shown in an editor with code highlighting}
+\caption{Sage-Beispiel in einem Editor mit aktiviertem Code-Highlighting}
 \label{fig:sage-highlighted-code-in-editor}
 \end{figure}
 
 
 \vspace{30pt}
-To move quickly to the Sage code examples in this script, either look in the
-index at \verb#Sage -> Code examples# or have a look at the
-``\nameref{sc:List-of-Sage-Code-Examples}''. 
+Eine Versionsabfrage der aktuellen Sage-Umgebung kann man durchführen mit:
+\\texttt{version()}
+
+
+Um sich schnell die Sage-Programmbeispiele in diesem Skript anzusehen, können Sie
+im Index nach \verb#Sage -> Programmbeispiele# schauen,
+oder sich im Anhang das \glqq \nameref{sc:List-of-Sage-Code-Examples}\grqq ~ansehen.
 
 

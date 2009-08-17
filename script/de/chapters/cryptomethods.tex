@@ -397,8 +397,7 @@ RSA-Demo} in vielen Variationen nachvollzogen werden. Die
 aktuellen Forschungsergebnisse im Umfeld von RSA werden in Kapitel
 \ref{SecurityRSA} beschrieben.
 }%
-,
-der nach seinen Entwicklern Ronald \index{Rivest, Ronald} Rivest, 
+, der nach seinen Entwicklern Ronald \index{Rivest, Ronald} Rivest, 
 Adi \index{Shamir, Adi} Shamir und Leonard \index{Adleman, Leonard} Adleman
 benannt wurde. Der RSA-Algorith"-mus wurde 1978 veröffentlicht. 
 Das Konzept der asymmetrischen Verschlüsselung wurde erstmals
@@ -412,8 +411,7 @@ Signature Algorithm).
 
 
 % --------------------------------------------------------------------------
-\section[Hybridverfahren]
-{Hybridverfahren\footnotemark} 
+\section[Hybridverfahren]{Hybridverfahren\footnotemark} 
 \footnotetext{%
 In CrypTool\index{CrypTool} finden Sie dieses Verfahren über das Menü
 {\bf Ver-/Entschlüsseln \textbackslash{} Hybrid}:
@@ -421,7 +419,9 @@ Dabei können Sie die einzelnen Schritte und ihre Abhängigkeiten mit konkreten
 Zahlen nachvollziehen. Die Variante mit RSA als asymmetrischem Verfahren
 ist graphisch visualisiert; die Variante mit ECC nutzt die Standard-Dialoge.
 In beiden Fällen wird AES als symmetrisches Verfahren eingesetzt.
-}\index{Hybridverfahren}
+}
+\label{CM_Hybrid-procedures}
+\index{Hybridverfahren}
 
 Um die Vorteile von symmetrischen und asymmetrischen Techniken gemeinsam 
 nutzen zu können, werden (zur Verschlüsselung) in der Praxis meist 
@@ -457,6 +457,72 @@ man profitiert von der Schnelligkeit symmetrischer Verfahren, um große
 Datenmengen zu verschlüsseln (mit den geheimen Schlüsseln).
 
 
+
+% --------------------------------------------------------------------------
+\newpage
+% \vskip +40 pt
+\begin{center}
+\fbox{\parbox{15cm}{
+    \emph{IETF\footnotemark:} \\
+    Ein altes Sprichwort, angeblich geprägt von der US National Security Agency (NSA), sagt:\\
+    "Angriffe werden immer besser, niemals schlechter"\\
+    "Attacks always get better; they never get worse."
+}}
+\end{center}
+\addtocounter{footnote}{0}\footnotetext{%
+  \url{http://tools.ietf.org/html/rfc4270}\index{IETF}\index{NSA}
+  }
+\section{Chiffren und Kryptoanalyse für Lehrzwecke} \index{Cryptanalysis}
+
+Verglichen mit den auf Mathematik beruhenden Public-Key-Verschlüsselungsverfahren
+wie RSA, ist die Struktur von AES und den meisten anderen modernen symmetrischen
+Verschlüsselungsverfahren sehr komplex und kann nicht so einfach wie RSA
+erklärt werden.
+
+Deshalb wurden zu Lehrzwecken einige vereinfachte Varianten moderner symmetrischer
+Verfahren wie DES, IDEA oder AES entwickelt, um Einsteigern die Möglichkeit zu geben,
+Ver- und Entschlüsselung von Hand zu lernen und ein besseres Verständnis zu
+gewinnen, wie die Algorithmen im Detail funktionieren.
+Diese vereinfachten Varianten helfen auch, die entsprechenden Kryptoanalyse-Methoden
+zu verstehen und anzuwenden.
+
+Eine dieser Varianten ist z.B. S-AES (Simplified-AES) von Prof. Ed Schaefer und
+seinen Studenten \cite{cm:Musa-etal2003}%
+\footnote{
+    Siehe auch die Artikel
+    ``Devising a Better Way to Teach and Learn the Advanced Encryption Standard''\\
+    unter den Universitäts-News bei\\
+    \url{http://math.scu.edu/~eschaefe/getfile.pdf} \\
+    \url{http://www.scu.edu/cas/research/cryptography.cfm}
+}. Eine andere Variante ist Mini-AES \cite{cm:Phan2002}
+(siehe das Kapitel~\ref{CM_Sage_Mini-AES} ``\nameref{CM_Sage_Mini-AES}''):
+\begin{itemize}
+
+\item Edward F. Schaefer: {\em A Simplified Data Encryption Standard Algorithm} 
+      \cite{cm:Schaefer1996}.
+
+\item Raphael Chung-Wei Phan: {\em Mini Advanced Encryption Standard (Mini-AES):
+                                   A Testbed for Cryptanalysis Students} 
+      \cite{cm:Phan2002}.
+
+\item Raphael Chung-Wei Phan: {\em Impossible differential cryptanalysis of Mini-AES} 
+      \cite{cm:Phan2003}.
+
+\item Mohammad A. Musa, Edward F. Schaefer, Stephen Wedig:
+      {\em A simplified AES algorithm and its linear and differential cryptanalyses} 
+      \cite{cm:Musa-etal2003}.
+
+\item Nick Hoffman: {\em A SIMPLIFIED IDEA ALGORITHM} 
+      \cite{cm:Hoffman2006}.
+
+\item S. Davod. Mansoori, H. Khaleghei Bizaki: 
+      {\em On the vulnerability of Simplified AES Algorithm Against Linear Cryptanalysis} 
+      \cite{cm:Mansoori-etal2007}.
+
+\end{itemize}
+
+
+
 % --------------------------------------------------------------------------
 \section{Weitere Details}
 
@@ -465,6 +531,94 @@ und vielen Stellen im Internet enthält auch die Online-Hilfe von
 CrypTool\index{CrypTool} sehr viele weitere Informationen zu den 
 einzelnen symmetrischen und asymmetrischen Verschlüsselungsverfahren.
 
+
+
+
+% ---------------------------------------------------------------------------
+% ---------------------------------------------------------------------------
+\newpage
+\hypertarget{CM_Appendix_SageCode}{}
+\section{Anhang: Beispiele mit Sage}
+\label{CM_Sage_samples}
+\index{Sage!Programmbeispiele}
+
+\noindent Der folgende Abschnitt enthält Sage Source-Code, der sich auf den Inhalt des
+Kapitels~\ref{Label_Kapitel_1} (\glqq \nameref{Label_Kapitel_1}\grqq) bezieht.
+
+% ---------------------------------------------------------------------------
+\subsection{Mini-AES}
+\label{CM_Sage_Mini-AES}
+\index{AES!Mini-AES}
+
+Das Sage-Modul \texttt{crypto/block\_cipher/miniaes.py} enthält den Mini-AES, damit
+Studenten die Funktionsweise moderner Blockchiffren untersuchen können.
+
+Mini-AES, ursprünglich vorgestellt von \cite{cm:Phan2002}, ist eine vereinfachte
+Variante des Advanced Encryption Standard (AES) für Ausbildungszwecke.
+
+Wie man Mini-AES benutzt ist ausführlich in der folgenden Sage Reference Page beschrieben:\\
+\url{http://www.sagemath.org/doc/reference/sage/crypto/block_cipher/miniaes.html}.
+
+Das folgende Sage Code-Beispiel von den Release-Notes von Sage 4.1%
+\footnote{
+Siehe \url{http://mvngu.wordpress.com/2009/07/12/sage-4-1-released/}
+}
+ruft diese Implementierung des Mini-AES auf.
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+# We can encrypt a plaintext using Mini-AES as follows:
+sage: from sage.crypto.block_cipher.miniaes import MiniAES
+sage: maes = MiniAES()
+sage: K = FiniteField(16, "x")
+sage: MS = MatrixSpace(K, 2, 2)
+sage: P = MS([K("x^3 + x"), K("x^2 + 1"), K("x^2 + x"), K("x^3 + x^2")]); P
+
+[  x^3 + x   x^2 + 1]
+[  x^2 + x x^3 + x^2]
+sage: key = MS([K("x^3 + x^2"), K("x^3 + x"), K("x^3 + x^2 + x"), K("x^2 + x + 1")]); key
+
+[    x^3 + x^2       x^3 + x]
+[x^3 + x^2 + x   x^2 + x + 1]
+sage: C = maes.encrypt(P, key); C
+
+[            x       x^2 + x]
+[x^3 + x^2 + x       x^3 + x]
+
+# Here is the decryption process:
+sage: plaintxt = maes.decrypt(C, key)
+sage: plaintxt == P
+True
+
+# We can also work directly with binary strings:
+sage: from sage.crypto.block_cipher.miniaes import MiniAES
+sage: maes = MiniAES()
+sage: bin = BinaryStrings()
+sage: key = bin.encoding("KE"); key
+0100101101000101
+sage: P = bin.encoding("Encrypt this secret message!")
+sage: C = maes(P, key, algorithm="encrypt")
+sage: plaintxt = maes(C, key, algorithm="decrypt")
+sage: plaintxt == P
+True
+
+# Or work with integers n such that 0 <= n <= 15:
+sage: from sage.crypto.block_cipher.miniaes import MiniAES
+sage: maes = MiniAES()
+sage: P = [n for n in xrange(16)]; P
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+sage: key = [2, 3, 11, 0]; key
+[2, 3, 11, 0]
+sage: P = maes.integer_to_binary(P)
+sage: key = maes.integer_to_binary(key)
+sage: C = maes(P, key, algorithm="encrypt")
+sage: plaintxt = maes(C, key, algorithm="decrypt")
+sage: plaintxt == P
+True
+\end{Verbatim}
+\caption{Ver- und Entschlüsselung mit dem Mini-AES}
+\end{sagecode}
 
 
 
@@ -512,10 +666,33 @@ einzelnen symmetrischen und asymmetrischen Verschlüsselungsverfahren.
        \href{http://www.xs4all.nl/~vorpal/pubs/rdalgeq.html}
        {\texttt{http://www.xs4all.nl/\~{}vorpal/pubs/rdalgeq.html}}
 
+\bibitem[Hoffman2006]{cm:Hoffman2006} \index{Hoffman 2006} 
+       Nick Hoffman, \\
+	2006 \\
+       {\em A SIMPLIFIED IDEA ALGORITHM},\\
+       \url{http://www.nku.edu/~christensen/simplified%20IDEA%20algorithm.pdf}
+
 \bibitem[Lucks-DuD2002]{cm:Lucks-DuD2002}  \index{Lucks 2002}
        Stefan Lucks, Rüdiger Weis, \\
        {\em Neue Ergebnisse zur Sicherheit des Verschlüsselungsstandards AES}, 
        in DuD 12/2002.
+
+\bibitem[Mansoori-etal2007]{cm:Mansoori-etal2007} \index{Mansoori, Bizaki 2007} 
+       S. Davod. Mansoori, H. Khaleghei Bizaki, \\
+       {\em On the vulnerability of Simplified AES Algorithm Against Linear Cryptanalysis}, \\
+       In: IJCSNS International Journal of Computer Science and Network Security, Vol.7 No.7,
+           Juli 2007, Seite~257-263. \\
+       Siehe auch:\\
+       \url{http://paper.ijcsns.org/07_book/200707/20070735.pdf}
+
+\bibitem[Musa-etal2003]{cm:Musa-etal2003} \index{Musa, Schaefer, Wedig 2003} 
+       Mohammad A. Musa, Edward F. Schaefer, Stephen Wedig, \\
+       {\em A simplified AES algorithm and its linear and differential cryptanalyses}, \\
+       In: Cryptologia 17 (2), April 2003, Seite~148-177.\\
+       Siehe auch:\\
+       \url{http://findarticles.com/p/articles/mi_qa3926/is_200304/ai_n9181658}\\
+       \url{http://www.rose-hulman.edu/~holden/Preprints/s-aes.pdf}\\
+       \url{http://math.scu.edu/~eschaefe/}   Ed Schaefer's Homepage
 
 \bibitem[Nichols1996]{cm:Nichols1996} \index{Nichols 1996} 
        Randall K. Nichols, \\
@@ -524,6 +701,18 @@ einzelnen symmetrischen und asymmetrischen Verschlüsselungsverfahren.
        oder in 12 Lektionen online unter \\
        \href{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}
        {\texttt{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}}
+
+\bibitem[Phan2002]{cm:Phan2002} \index{Phan 2002} 
+       Raphael Chung-Wei Phan, \\
+       {\em Mini Advanced Encryption Standard (Mini-AES): A Testbed for
+            Cryptanalysis Students}, \\
+       In: Cryptologia 26 (4), 2002, Seite~283-306.
+
+\bibitem[Phan2003]{cm:Phan2003} \index{Phan 2003} 
+       Raphael Chung-Wei Phan, \\
+       {\em Impossible differential cryptanalysis of Mini-AES}, \\
+       In: Cryptologia, Oct 2003\\
+       \url{http://findarticles.com/p/articles/mi_qa3926/is_200310/ai_n9311721/}
 
 \bibitem[Robshaw2002a]{cm:Robshaw2002a}  \index{Robshaw 2002}
        S.P. Murphy, M.J.B. Robshaw, \\
@@ -539,6 +728,11 @@ einzelnen symmetrischen und asymmetrischen Verschlüsselungsverfahren.
        \href{http://www.isg.rhul.ac.uk/~mrobshaw/rijndael/rijndael.html}
        {\texttt{http://www.isg.rhul.ac.uk/\~{}mrobshaw/rijndael/rijndael.html}}
 
+\bibitem[Schaefer1996]{cm:Schaefer1996} \index{Schaefer 1996} 
+       Edward F. Schaefer, \\
+       {\em A Simplified Data Encryption Standard Algorithm}, \\
+       In: Cryptologia 20 (1), 1996, Seite~77-84
+
 \bibitem[Schmeh2009]{cm:Schmeh2009}  \index{Schmeh 2009}
        Klaus Schmeh, \\
        {\em Kryptografie -- Verfahren, Protokolle, Infrastrukturen},\\ 
@@ -551,6 +745,12 @@ einzelnen symmetrischen und asymmetrischen Verschlüsselungsverfahren.
        Bruce Schneier, \\
        {\em Applied Cryptography, Protocols, Algorithms, and Source Code in C}, \\
        Wiley 1994, 2nd edition 1996.
+
+\bibitem[Stallings2006]{cm:Stallings2006} \index{Stallings 2006} 
+       William Stallings, \\
+       {\em Cryptography and Network Security}, \\
+       Prentice Hall 2006,\\
+       \url{http://williamstallings.com/}
 
 \bibitem[Stamp2007]{cm:Stamp2007} \index{Stamp 2007} 
        Mark Stamp, Richard M. Low, \\

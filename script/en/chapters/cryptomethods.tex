@@ -25,7 +25,6 @@ Let me do it, and I will be good at it.}}
 
 This chapter introduces the topic in a more descriptive way without using too much mathematics.
 
-
 The purpose of encryption \index{Encryption} is to change data in such a way
 that only an authorized recipient is able to reconstruct the plaintext. This
 allows us to transmit data without worrying about it getting into unauthorized
@@ -48,6 +47,7 @@ considered (practically) secure.\par \vskip + 3pt
 The book of Bruce Schneier \cite{cm:Schneier1996cm} offers a very good overview of
 the different algorithms. We basically distinguish between symmetric and
 asymmetric encryption procedures.
+
 
 % --------------------------------------------------------------------------
 \section[Symmetric encryption]
@@ -196,6 +196,7 @@ Based on those assumptions, the effort to find a AES-256 key is reduced to
 $2^{119}$ time and $2^{77}$ memory. In the case of AES-192 the attack is even less
 practical, for AES-128 the authors do not provide an attack.
 
+
 % --------------------------------------------------------------------------
 \subsection{Current status of brute-force attacks on symmetric algorithms (RC5)}
 \index{Attack!brute-force}
@@ -230,7 +231,6 @@ An overview of current distributed computing projects can be found here:\\
 This makes clear, that symmetric algorithms (even if they have no cryptographic weakness) using keys of size 64 bit are no more appropriate to keep sensible data private.
 
 Similar cipher challenges are there for asymmetric algorithms (please see chapter \ref{NoteFactorization}).
-
 
 
 
@@ -297,8 +297,7 @@ RSA Demonstration}).
 The topical research results concerning RSA are described 
 in chapter \ref{SecurityRSA}.
 }%
-,
-named after its developers Ronald \index{Rivest, Ronald} Rivest, Adi
+, named after its developers Ronald \index{Rivest, Ronald} Rivest, Adi
 \index{Shamir, Adi} Shamir and Leonard \index{Adleman, Leonard} Adleman. The RSA algorithm
 was published in 1978. The concept of asymmetric encryption was first
 introduced by Whitfield Diffie \index{Diffie, Whitfield}  and Martin
@@ -311,8 +310,7 @@ Algorithm).
 
 % --------------------------------------------------------------------------
 % \newpage
-\section[Hybrid procedures]
-{Hybrid procedures\footnotemark}
+\section[Hybrid procedures]{Hybrid procedures\footnotemark}
 \footnotetext{%
 Within CrypTool\index{CrypTool} you can find this technique using the menu
 path {\bf Crypt \textbackslash{} Hybrid}: 
@@ -320,7 +318,9 @@ There you can follow the single steps and its dependencies with concrete
 numbers. The variant with RSA as the asymmetric algorithm is graphically
 visualized; the variant with ECC uses the standard dialogs. In both cases
 AES is used as the symmetric algorithm.
-}\index{Hybrid procedure}
+}
+\label{CM_Hybrid-procedures}
+\index{Hybrid procedure}
 
 In order to benefit from the advantages of symmetric and asymmetric
 techniques together, hybrid procedures \index{Encryption!hybrid} are
@@ -354,10 +354,6 @@ efficiency of symmetric procedures to encrypt large quantities of data
 
 
 
-
-
-
-
 % --------------------------------------------------------------------------
 \newpage
 % \vskip +40 pt
@@ -381,7 +377,8 @@ So some simplified variants of modern symmetric ciphers like DES, IDEA or AES
 were developed for educational purposes in order to allow beginners to perform
 encryption and decryption by hand and gain a better understanding of how the
 algorithms work in detail.
-These also help to understand and apply the according cryptanalysis methods.
+These simplified variants also help to understand and apply the according
+cryptanalysis methods.
 
 One of these variants is e.g. S-AES (Simplified-AES) by Prof. Ed Schaefer
 and his students \cite{cm:Musa-etal2003}%
@@ -431,8 +428,6 @@ CrypTool\index{CrypTool} also offers very many details about the
 symmetric and asymmetric encryption methods.
 
 
-
-
 	
 
 % ---------------------------------------------------------------------------
@@ -442,7 +437,6 @@ symmetric and asymmetric encryption methods.
 \section{Appendix: Examples using Sage}
 \label{CM_Sage_samples}
 \index{Sage!Code examples}
-\index{Sage}
 
 \noindent Below is Sage source code related to contents of the
 chapter~\ref{Label_Kapitel_1} (``\nameref{Label_Kapitel_1}''). 
@@ -451,6 +445,7 @@ chapter~\ref{Label_Kapitel_1} (``\nameref{Label_Kapitel_1}'').
 % ---------------------------------------------------------------------------
 \subsection{Mini-AES}
 \label{CM_Sage_Mini-AES}
+\index{AES!Mini-AES}
 
 The Sage module \texttt{crypto/block\_cipher/miniaes.py} supports Mini-AES to allow
 students to explore the working of a modern block cipher.
@@ -461,9 +456,11 @@ Encryption Standard (AES) to be used for cryptography education.
 How to use Mini-AES is exhaustively described at the Sage reference page\\
 \url{http://www.sagemath.org/doc/reference/sage/crypto/block_cipher/miniaes.html}.
 
-The following Sage code from the release note of Sage 4.1 calls the implementation
-of the Mini Advanced Encryption Standard.\\
-See \url{http://mvngu.wordpress.com/2009/07/12/sage-4-1-released/}.
+The following Sage code from the release note of Sage 4.1%
+\footnote{
+See \url{http://mvngu.wordpress.com/2009/07/12/sage-4-1-released/}
+}
+calls the implementation of the Mini-AES.
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -524,9 +521,6 @@ True
 
 
 
-
-
-
 % --------------------------------------------------------------------------
 \newpage
 \begin{thebibliography}{99999}
@@ -576,7 +570,7 @@ True
 \bibitem[Mansoori-etal2007]{cm:Mansoori-etal2007} \index{Mansoori, Bizaki 2007} 
        S. Davod. Mansoori, H. Khaleghei Bizaki, \\
        {\em On the vulnerability of Simplified AES Algorithm Against Linear Cryptanalysis}, \\
-       In: IJCSNS International Journal of Computer Science and Network Security, VOL.7 No.7,
+       In: IJCSNS International Journal of Computer Science and Network Security, Vol.7 No.7,
            July 2007, pp~257-263 \\
        See also:\\
        \url{http://paper.ijcsns.org/07_book/200707/20070735.pdf}
@@ -635,6 +629,7 @@ True
        John Wiley \& Sons Ltd., Chichester 2003. \\
        An up-to-date, easy to read book, which also considers practical
        problems such as standardisation or real existing software.
+       In German the 4th edition was published in 2009.
 
 \bibitem[Schneier1996]{cm:Schneier1996cm} \index{Schneier 1996} 
        Bruce Schneier, \\
