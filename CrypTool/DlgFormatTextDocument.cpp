@@ -124,6 +124,7 @@ BEGIN_MESSAGE_MAP(CDlgFormatTextDocument, CDialog)
 	ON_BN_CLICKED(IDC_CHECK_CONVERT_TO_UPPERCASE, OnBnClickedCheckConvertToUppercase)
 	ON_BN_CLICKED(IDC_CHECK_CONVERT_TO_LOWERCASE, OnBnClickedCheckConvertToLowercase)
 	ON_BN_CLICKED(IDC_CHECK_DIVIDE_IN_BLOCKS, OnBnClickedCheckDivideInBlocks)
+	ON_BN_CLICKED(ID_TEXTOPTIONS, &CDlgFormatTextDocument::OnBnClickedTextoptions)
 END_MESSAGE_MAP()
 
 void CDlgFormatTextDocument::OnBnClickedOk()
@@ -162,4 +163,10 @@ void CDlgFormatTextDocument::OnBnClickedCheckDivideInBlocks()
 	if(divideInBlocks) GetDlgItem(IDC_EDIT_BLOCK_SIZE)->EnableWindow(TRUE);
 	else GetDlgItem(IDC_EDIT_BLOCK_SIZE)->EnableWindow(FALSE);
 	UpdateData(false);
+}
+
+void CDlgFormatTextDocument::OnBnClickedTextoptions()
+{
+	// allow the user to change the CrypTool alphabet
+	theApp.TextOptions.DoModal();
 }

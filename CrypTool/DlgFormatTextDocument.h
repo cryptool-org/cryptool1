@@ -52,6 +52,7 @@ public:
 	afx_msg void OnBnClickedCheckConvertToUppercase();
 	afx_msg void OnBnClickedCheckConvertToLowercase();
 	afx_msg void OnBnClickedCheckDivideInBlocks();
+	afx_msg void OnBnClickedTextoptions();
 };
 
 #endif

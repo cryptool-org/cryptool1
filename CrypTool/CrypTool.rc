@@ -15098,6 +15098,7 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,68,117,10
     EDITTEXT        IDC_EDIT_BLOCK_SIZE,138,67,20,14,ES_AUTOHSCROLL | WS_DISABLED
     DEFPUSHBUTTON   "OK",IDOK,7,97,50,14
+    DEFPUSHBUTTON   "Textoptionen",ID_TEXTOPTIONS,75,97,50,14
 END
 
 IDD_SIMPLE_TRANSPOSITIONS DIALOGEX 0, 0, 285, 185
@@ -16149,8 +16150,8 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "V&igenère (Schrödel)",        ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
-                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
+                MENUITEM "V&igenère (Schrödel)",        ID_ANALYSIS_VIGENERE_SCHROEDEL
+                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
@@ -18902,6 +18903,7 @@ BEGIN
                             "Verschlüsseln mit einfachen Transpositionen (Skytale, Gartenzaun)"
     ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION 
                             "Klartext-Angriff auf eine einfache Spaltentransposition"
+    ID_PROTOKOL_SMIME       "Visualisierung des S/MIME-Protokolls"
 END
 
 STRINGTABLE 
@@ -25778,6 +25780,7 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,68,88,10
     EDITTEXT        IDC_EDIT_BLOCK_SIZE,109,67,20,14,ES_AUTOHSCROLL | WS_DISABLED
     DEFPUSHBUTTON   "OK",IDOK,7,97,50,14
+    DEFPUSHBUTTON   "Text options",ID_TEXTOPTIONS,75,97,50,14
 END
 
 IDD_SIMPLE_TRANSPOSITIONS DIALOGEX 0, 0, 285, 185
@@ -29772,6 +29775,7 @@ BEGIN
                             "Encryption using simple transpositions (Scytale, Rail Fence)"
     ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION 
                             "Known-plaintext attack against a document encrypted with the single column transposition algorithm"
+    ID_PROTOKOL_SMIME       "Visualizes the S/MIME protocol"
 END
 
 STRINGTABLE 

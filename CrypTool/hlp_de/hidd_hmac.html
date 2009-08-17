@@ -36,7 +36,7 @@
 
 <P>Der für die Erstellung des HMAC benötigte geheime Schlüssel kann über das Eingabefeld festgelegt werden. Zusätzlich kann eine von fünf Formen der Verknüpfung (HMAC-Variante) von Datei und Schlüssel gewählt werden. Die Variable m bezeichnet dabei die Nachricht, k den Schlüssel und H die Hashfunktion.</P>
 
-<P>Die erste HMAC-Variante bezeichnet man als "Secret Prefix Method", die zweite als "Secret Suffix Method". Die dritte und die vierte Verknüpfung bezeichnet man als "Envelope Method" mit einem beziehungsweise zwei Schlüsseln. Nur Variante fünf ist in einem Standard (RFC 2104, FIPS PUB 198) spezifiziert. Dieser HMAC berechnet sich wie folgt: H ( k XOR opad, H(k XOR ipad, m) ) mit ipad = 64 Bytes je 0x36, opad = 64 Bytes je 0x5C. Falls der Schlüssel k länger als die Blocklänge der Hash-Funktion ist, wird k durch H(k) ersetzt. [Siehe Menezes; van Oorschot; Vanstone: <a href="literatur.html">Handbook of Applied Cryptography</a>]</P>
+<P>Die erste HMAC-Variante bezeichnet man als "Secret Prefix Method", die zweite als "Secret Suffix Method". Die dritte und die vierte Verknüpfung bezeichnet man als "Envelope Method" mit einem beziehungsweise zwei Schlüsseln. Nur Variante fünf ist in einem Standard (RFC 2104, FIPS PUB 198) spezifiziert. Dieser HMAC berechnet sich wie folgt: H ( k XOR opad, H(k XOR ipad, m) ) mit ipad = 64 Bytes je 0x36, opad = 64 Bytes je 0x5C. Falls der Schlüssel k länger als die Blocklänge der Hash-Funktion ist, wird k durch H(k) ersetzt. [Siehe Menezes, van Oorschot, Vanstone: <a href="literatur.html">Handbook of Applied Cryptography</a>]</P>
 
 <P>
 Alle hier benutzte Hash-Funktionen sind mit Hilfe von <A HREF="cryptolibraries.html">OpenSSL</A> implementiert. 
