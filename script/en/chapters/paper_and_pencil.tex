@@ -22,7 +22,7 @@
 \chapter{Paper and Pencil Encryption Methods}
 \label{Kapitel_PaperandPencil}
 (Christine St\"otzel, April 2004; Updates: B.+C. Esslinger, June 2005; Updates Minh Van Nguyen and B. Esslinger, July 2009)
-\index{Paper- and pencil methods}
+\index{Paper and pencil methods}
 
 \begin{center}
 \fbox{\parbox{15cm}{%
@@ -47,7 +47,7 @@ embraced by this term. These methods were and still are especially popular with
 secret services, as a writing pad and a pencil -- in contrast to electronic
 aids -- are totally unsuspicious.
 
-The first paper- and pencil methods already arose about 3000 years ago, but new
+The first paper and pencil methods already arose about 3000 years ago, but new
 procedures were developed during the past century, too. All paper and pencil 
 methods are a matter of symmetric methods\index{Encryption!symmetric}. 
 Even the earliest encryption algorithms use the basic principles such as 
@@ -1269,7 +1269,7 @@ previous mentioned methods.
 
 \item {\bf Card games} \cite{pp:Savard1999}: The key is created by means of a
    pack of cards and rules that are agreed upon in advance. All methods
-   mentioned in this paragraph are designed as paper- and pencil methods,
+   mentioned in this paragraph are designed as paper and pencil methods,
    i.e. they are applicable without electronic aid. A pack of cards is
    unsuspicious to outsiders, shuffling the deck provides a certain amount
    of coincidence, cards can be transformed into numbers easily and a
@@ -1352,7 +1352,7 @@ previous mentioned methods.
    \end{itemize}
 
 \item {\bf VIC cipher} \cite{pp:Savard1999}: This is a highly complicated but
-   relatively secure paper- and pencil method. It has been developed and
+   relatively secure paper and pencil method. It has been developed and
    applied by Soviet spies. Amongst other things, the user had to create
    ten pseudo-random numbers out of a date, the first words of a sentence
    and any five-digit number. A straddling checkerboard is part of the
@@ -1375,8 +1375,8 @@ previous mentioned methods.
 
 In the following section some classic ciphers are implemented using the open source computer
 algebra system Sage. The code was tested with Sage version 4.1.
-All ciphers are explained in the ``\nameref{Kapitel_PaperandPencil}'' chapter
-(chap. no. \ref{Kapitel_PaperandPencil}).
+All ciphers are explained in chapter~\ref{Kapitel_PaperandPencil}
+(``\nameref{Kapitel_PaperandPencil}'').
 
 \noindent A first introduction to the CAS Sage can be found in the appendix \ref{s:appendix-using-sage}.
 
@@ -1389,11 +1389,15 @@ easier to understand, we used the structure and the naming conventions
 shown in the graphics below:
 \begin{itemize}
   \item Encryption consists of the two steps encoding and enciphering.
-  \item Encoding adapts the letters in the given plaintext P to the case defined in the
-        given alphabet, and all non-alphabet characters are filtered out.
-  \item Enciphering creates the ciphertext C.
+  \begin{itemize}
+    \item Encoding adapts the letters in the given plaintext P to the case defined in the
+          given alphabet, and all non-alphabet characters are filtered out.
+    \item Enciphering creates the ciphertext C.
+  \end{itemize}
   \item Decryption also consists of two steps: deciphering and decoding.
-  \item Decoding is only necessary if the symbols in the alphabet are no ASCII characters.
+  \begin{itemize}
+    \item Decoding is only necessary if the symbols in the alphabet are no ASCII characters.
+  \end{itemize}
 \end{itemize}
 
 \begin{figure}[ht]

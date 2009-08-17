@@ -154,8 +154,8 @@ der sogenannte letzte (oder große) Satz von Fermat\footnote{Thema der
    c die Länge der Hypothenuse ist.
    Fermats berühmte Behauptung war, dass für $a,b,c \in \mathbb{N}$ und
    für ganzzahlige Exponenten $n > 2$ immer die Ungleichheit
-   $a^n + b^n \not= c^n$ gilt.  Leider fand \index{Fermat!letzter
-   Satz} Fermat auf dem Brief, wo er die Behauptung aufstellte, nicht genügend
+   $a^n + b^n \not= c^n$ gilt.  Leider fand \index{Fermat!letzter Satz}
+   Fermat auf dem Brief, wo er die Behauptung aufstellte, nicht genügend
    Platz, um den Satz zu beweisen. Der Satz konnte erst über 300 Jahre später
    bewiesen werden \cite[S. 433-551]{nt:Wiles1994}. \index{Wiles, Andrew}
 }.
@@ -2595,7 +2595,7 @@ Die Berechnungen erfolgten zwischen Dezember 2002 und April 2003.
 \vskip +20pt
 \hypertarget{RSA-200-chap3}{}
 \paragraph{RSA-200} \label{RSA-200} \index{RSA-200}\mbox{}
-%\hypertarget{RSA-200-chap3}{}
+\nopagebreak
 
 Am 9. Mai 2005 meldete die Forschergruppe von Prof. Jens Franke der Universität Bonn\footnote{%
    \href{http://www.loria.fr/~zimmerma/records/rsa200}
@@ -3767,7 +3767,8 @@ Lernprogramm für Zahlentheorie} aufrufen.
 Siehe Anhang~\ref{s:appendix-Learn-NT}.
 }
 \label{NumberTheory_Appendix_GCD}
-\index{Euclidean algorithm!extended} \index{ggT}
+\index{Euklidscher Algorithmus!erweiterter}
+\index{ggT}
 
 %%%\item
 Der größte gemeinsame Teiler zweier natürlicher Zahlen $a$ und $b$ ist eine wichtige Größe,
@@ -4847,21 +4848,22 @@ eigentliche Verschlüsselung dar:
                   und berechne $n = p*q$.\\
                   Der Wert $n$ wird RSA-Modul genannt.
 
-  \item[{\bf 2.}] Wähle eine zufälliges $e \in \{2, \cdots, n-1\}$ so dass gilt: \\
+  \item[{\bf 2.}] Wähle ein zufälliges $e \in \{2, \cdots, n-1\}$, so dass gilt: \\
                   $e$ ist relativ prim zu $J(n) = (p-1)*(q-1)$. \\
                   Danach kann man $p$ und $q$ \glqq wegwerfen\grqq.
 
   \item[{\bf 3.}] Wähle $d \in \{1, \cdots, n-1\}$ mit $e*d \equiv 1  
-                  {\rm ~(mod~} J(n))$, d.h. $d$ ist die multiplikative Inverse
-                  von $e$ modulo $J(n)$. Danach kann man $J(n)$ \glqq wegwerfen\grqq.
+                  {\rm ~(mod~} J(n))$,\\
+		  d.h. $d$ ist die multiplikative Inverse von $e$ modulo $J(n)$.
+		  Dann kann man $J(n)$ \glqq wegwerfen\grqq.
     \begin{itemize}
       \item[] $\rightarrow (n, e)$ ist der öffentliche Schlüssel $P$.
       \item[] $\rightarrow (n, d)$ ist der private Schlüssel $S$ (nur $d$ muss man geheim halten).
     \end{itemize}
 
   \item[{\bf 4.}] Zur Verschlüsselung wird die Nachricht als (binäre) Ziffernfolge
-                  geschrieben. Diese Nachricht wird dann so in gleich lange Teilfolgen
-		  aufgeteilt, dass jeder Teil der Zahl kleiner als $n$ ist.
+                  geschrieben. Diese Ziffernfolge wird dann so in gleich lange Teilfolgen
+		  aufgeteilt, dass jede Teilfolge eine Zahl kleiner als $n$ darstellt.
 
   \item[{\bf 5.}] Vorgang der Verschlüsselung auf dem Klartext (bzw. auf Teilen davon)
                   $M \in \{1, \cdots, n-1\}$:
@@ -4871,7 +4873,7 @@ eigentliche Verschlüsselung dar:
 Standardmäßig versucht man, einen mit RSA verschlüsselten Geheimtext $C$ dadurch zu knacken,
 dass man den öffentlichen Schlüssel des Empfängers betrachtet und versucht, $n$ zu
 faktorisieren. Hat man das erreicht, geht man wieder durch die Schritte 2 und 3 und
-berechnet deb privaten Schlüssel $e$, den man entschlüsseln des Geheimtextes braucht.
+erzeugt den privaten Schlüssel $e$, den man zum Entschlüsseln des Geheimtextes braucht.
 
 Gemäß dem \glqq Primzahlsatz\grqq (beschrieben in Abschnitt \ref{thm-pz-pi-x}
 \glqq \nameref{thm-pz-pi-x}\grqq) bewegt sich die Anzahl der Primzahlen
@@ -4880,17 +4882,17 @@ Für ein gegebenes $n$ gibt es also ca. $n / ln(n)$ mögliche Werte für die
 Primzahl $p$.
 
 \noindent Will man nicht faktorisieren, sondern stellt sich eine Frage ähnlich
-wie bei den klassischen Verschlüsselungsverfahren, sondern kann man herausfinden wollen:
+wie bei den klassischen Verschlüsselungsverfahren, kann man herausfinden wollen:
 Wie viele verschiedene private Schlüssel $(n, d)$ gibt es für einen bestimmten
-Bereich der Schlüsselgröße $n \in \{a, b\}$?
+Bereich der Schlüsselgröße $n \in [a, b]$?
 
-\noindent Das Sage-Besipielprogramm~\ref{nt_sagesample_Count_RSA_Keys} unten definiert
+\noindent Das Sage-Beispielprogramm~\ref{nt_sagesample_Count_RSA_Keys} unten definiert
 die Funktion \verb#count_Number_of_RSA_Keys#, die diese Frage konkret beantworten kann
 (wenn der Modulus nicht zu groß ist).\footnote{%
 a) Der Aufruf \verb#sage: count_Number_of_RSA_Keys(100, 1000)# bedeutet, dass man
 das Intervall $[100, 1000]$ für $n$ betrachtet.
 $n$ war definiert durch die beiden Primzahlen $p, q: n = p*q$.
-Daher kann eine Primzahl höchstens dern Wert $500$ annehmen, weil $2 * 500 =1000$.\\
+Daher kann eine Primzahl höchstens den Wert $500$ annehmen, weil $2 * 500 =1000$.\\
 Die Anzahl möglicher Primzahl-Kombinationen beträgt: $comb = 258$.\\
 Die Anzahl der Primzahlen im gegebenen Bereich beträgt: $143$.\\
 Die Anzahl der privaten Schlüssel beträgt: $34.816$.
@@ -4970,8 +4972,8 @@ Time: CPU 0.63 s, Wall: 0.66 s
 \end{sagecode}
 
 \noindent Weil es mehr private Schlüssel $(n, d)$ innerhalb eines größeren
-Bereiches von Werten für $n$ gibt, ist sogar das Brute-force-Faktorisieren
-viel effizienter als alle möglichen Schlüssel durchzuprobieren.
+Bereiches von Werten für $n$ gibt, ist das Brute-force-Faktorisieren
+viel effizienter als das Durchprobieren aller möglichen Schlüssel.
 
 
 

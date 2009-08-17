@@ -13,7 +13,7 @@
 Updates: Feb. 2003, Juni 2005, Juli 2009)
 
 \vspace{12pt}
-Ziel der digitalen Signatur ist es, folgende zwei Punkte zu gewährleisten:
+\noindent Ziel der digitalen Signatur ist es, folgende zwei Punkte zu gewährleisten:
 \begin{itemize}
  \item Benutzerauthentizität:\index{Authentizität!Benutzer-}  \\
       Es kann überprüft werden, ob eine Nachricht tatsächlich
@@ -57,11 +57,10 @@ passt und sich bei der Überprüfung als unkorrekt erweist.
 Das Dokument wird samt Signatur an den Empfänger verschickt. Dieser kann
 mit Hilfe des öffentlichen Schlüssels des Absenders, des Dokuments und
 der Signatur feststellen, ob die Signatur korrekt ist.
-Da eine Signatur circa so lange ist wie der unmittelbar zu signierende 
-Datenstrom, hat das gerade beschriebene Verfahren in der Praxis jedoch einen
-entscheidenden Nachteil: Die Signatur ist ungefähr genauso lang wie das
+Das gerade beschriebene Verfahren hätte in der Praxis jedoch einen
+entscheidenden Nachteil: Die Signatur wäre ungefähr genauso lang wie das
 eigentliche Dokument. Um den Datenverkehr nicht unnötig anwachsen zu
-lassen und aus Performance-Gründen\index{Performance} wendet -- man vor
+lassen und aus Performance-Gründen\index{Performance} wendet man -- vor
 dem Signieren -- auf das Dokument eine kryptographische 
 Hashfunktion\footnote{%
 Hashfunktionen\index{Hashfunktion} sind in CrypTool\index{CrypTool}
@@ -86,7 +85,8 @@ haben Sie die Möglichkeit
 
 
 
-%\newpage
+% --------------------------------------------------------------------------
+\vskip + 45pt
 \begin{center}
 \fbox{\parbox{15cm}{{\em Stanislaw Lem\index{Lem, Stanislaw}\footnotemark:}\newline 
 Wir können alles aus dieser Welt machen, nur nicht eine Welt, in der die
@@ -131,13 +131,13 @@ Kryptographisch sichere Hashfunktionen erfüllen folgende Anforderungen
 (Reihenfolge so, dass die Anforderungen ansteigen):
 \begin{itemize}
  \item Standhaftigkeit gegen 1st-Pre-Image-Attacks:
-      \index{Pre-Image-Attack!1st}  \\
+      \index{Pre-Image-Attack!1st} \index{Angriff!Pre-Image-Attack!1st}  \\
       Es sollte praktisch unmöglich sein, zu einer gegebenen Zahl eine
       Nachricht zu finden, die genau diese Zahl als Hashwert hat. \\
       Gegeben (fix): Hashwert H', \\
       Gesucht: Nachricht m, so dass gilt: H(m) = H'.
  \item Standhaftigkeit gegen 2nd-Pre-Image-Attacks:
-      \index{Pre-Image-Attack!2nd}  \\
+      \index{Pre-Image-Attack!2nd} \index{Angriff!Pre-Image-Attack!2nd}  \\
       Es sollte praktisch unmöglich sein, zu einer gegebenen Nachricht
       eine zweite Nachricht zu finden, die genau denselben Hashwert hat. \\
       Gegeben (fix): Nachricht m1 [und damit der Hashwert H1 = H(m1)], \\
@@ -430,7 +430,8 @@ einzelnen kryptographischen Bausteine nicht geknackt werden können.
 % --------------------------------------------------------------------------
 \vskip + 15pt
 \subsection{Die Impersonalisierungsattacke} 
-\index{Impersonalisierungsattacke} \label{Impersonalisierungsattacke}
+\label{Impersonalisierungsattacke}
+\index{Impersonalisierungsattacke} \index{Angriff!Impersonalisierungsattacke} 
 
 Angenommen Charlie hat zwei Schlüsselpaare (PK1, SK1) und (PK2, SK2). 
 Hierbei bezeichnet SK den geheimen Schlüssel (secret key) und PK den

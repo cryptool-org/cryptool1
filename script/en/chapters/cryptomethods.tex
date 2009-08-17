@@ -59,6 +59,7 @@ asymmetric encryption procedures.
     IDEA, RC2, RC4, DES (ECB), DES (CBC), Triple-DES (ECB), Triple-DES (CBC),
     MARS (AES candidate), RC6 (AES candidate), Serpent (AES candidate), 
     Twofish (AES candidate), Rijndael (official AES algorithm).
+    \index{AES}
   }
 \nopagebreak
 For {\em symmetric} encryption \index{Encryption!symmetric} sender and
@@ -94,9 +95,9 @@ procedure can now only be considered to be conditionally secure. Symmetric
 alternatives to the DES procedure include the IDEA \index{IDEA} or Triple DES
 algorithms.\par \vskip + 3pt
 
-Up-to-the-minute procedure is the symmetric AES standard. The associated
+Up-to-the-minute procedure is the symmetric AES standard\index{AES}. The associated
 Rijndael algorithm was declared winner of the AES award on October 2nd, 2000
-and thus succeeds the DES procedure.
+and thus succeeds the DES procedure.\index{AES}
 
 More details about the AES algorithms and the AES candidates of the last round
 can be found within the online help of CrypTool\index{CrypTool}%
@@ -110,7 +111,9 @@ can be found within the online help of CrypTool\index{CrypTool}%
 
 % --------------------------------------------------------------------------
 \subsection{New results about cryptanalysis of AES}
-\index{Cryptanalysis} \label{NeueAES-Analyse}
+\label{NeueAES-Analyse}
+\index{Cryptanalysis}
+\index{AES}
 
 Below you will find some results, which have recently called into question the security of the AES algorithm -- from our point of view these doubts practically still remain unfounded
 % = do not bring disrepute upon AES
@@ -317,7 +320,7 @@ path {\bf Crypt \textbackslash{} Hybrid}:
 There you can follow the single steps and its dependencies with concrete
 numbers. The variant with RSA as the asymmetric algorithm is graphically
 visualized; the variant with ECC uses the standard dialogs. In both cases
-AES is used as the symmetric algorithm.
+AES is used as the symmetric algorithm.\index{AES}
 }
 \label{CM_Hybrid-procedures}
 \index{Hybrid procedure}
@@ -371,7 +374,7 @@ efficiency of symmetric procedures to encrypt large quantities of data
 
 Compared to public-key ciphers based on mathematics like RSA, the structure of AES,
 and most other modern symmetric ciphers, is very complex and cannot be explained
-as easily as RSA.
+as easily as RSA.\index{AES}
 
 So some simplified variants of modern symmetric ciphers like DES, IDEA or AES
 were developed for educational purposes in order to allow beginners to perform
@@ -453,7 +456,7 @@ students to explore the working of a modern block cipher.
 Mini-AES, originally described at \cite{cm:Phan2002}, is a simplified variant of the Advanced
 Encryption Standard (AES) to be used for cryptography education.
 
-How to use Mini-AES is exhaustively described at the Sage reference page\\
+How to use Mini-AES is exhaustively described at the Sage reference page:\\
 \url{http://www.sagemath.org/doc/reference/sage/crypto/block_cipher/miniaes.html}.
 
 The following Sage code from the release note of Sage 4.1%

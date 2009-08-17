@@ -2355,7 +2355,6 @@ The calculations took place between December 2002 and April 2003.
 \vskip +20pt
 \hypertarget{RSA-200-chap3}{}
 \paragraph{RSA-200} \label{RSA-200} \index{RSA-200}\mbox{}
-%\hypertarget{RSA-200-chap3}{}
 
 On May 9, 2005 the research group of Prof. Jens Franke at the German
 University of Bonn\footnote{%
@@ -4520,8 +4519,9 @@ Steps 1 to 3 constitute key generation, steps 4 and 5 are the encryption:
                   We can then ``throw away'' $p$ and $q$.
 
   \item[{\bf 3.}] Select $d \in \{1, \cdots, n-1\}$ with $e*d \equiv 1  
-                  {\rm ~(mod~} J(n))$, i.e. $d$ is the multiplicative inverse
-                  of $e$ modulo $J(n)$. We can then ``throw away'' $J(n)$.
+                  {\rm ~(mod~} J(n))$,\\
+		  i.e. $d$ is the multiplicative inverse of $e$ modulo $J(n)$.
+		  We can then ``throw away'' $J(n)$.
     \begin{itemize}
         \item[] $\rightarrow (n, e)$ is the public key $P$.
         \item[] $\rightarrow (n, d)$ is the private key $S$ (only $d$ must be kept secret).
@@ -4529,7 +4529,7 @@ Steps 1 to 3 constitute key generation, steps 4 and 5 are the encryption:
 
   \item[{\bf 4.}] For encryption, the message represented as a (binary) number
                   is divided into parts such that each part of 
-                  the number is less than $n$.
+                  the number represents a number less than $n$.
 
   \item[{\bf 5.}] Encryption of the plaintext (or the parts of it) $M \in \{1, \cdots, n-1\}$:
                   $$C = E ( (n, e); M ) := M^e {\rm ~(mod~} n).$$
@@ -4537,7 +4537,7 @@ Steps 1 to 3 constitute key generation, steps 4 and 5 are the encryption:
 
 The default way to crack a given RSA ciphertext $C$ would be to use the public key
 of the recipient and to try to factorize $n$. Then you can go through the steps 2 and 3
-and calculate the private key $e$, which is normally used to decrypt a ciphertext.
+and generate the private key $e$, which is normally used to decrypt a ciphertext.
 
 According to the ``prime number theorem''
 (described in section \ref{thm-pz-pi-x} ``\nameref{thm-pz-pi-x}'')
@@ -4550,7 +4550,7 @@ values for the prime $p$. %% (not considering the more specific requirements for
 \noindent If you don't want to use factorization but ask the question like in classic
 encryption, you may want to find out:
 How many possible private keys $(n, d)$ are there for a given key size range
-$n \in \{a, b\}$? %% (this means, only a part of each public key $(n, e)$ is known).
+$n \in [a, b]$? %% (this means, only a part of each public key $(n, e)$ is known).
 
 \noindent Sage source code~\ref{nt_sagesample_Count_RSA_Keys} below defining the
 function \verb#count_Number_of_RSA_Keys# can answer this question concretely

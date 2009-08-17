@@ -58,6 +58,7 @@ symmetrischen und asymmetrischen Verfahren zur Verschlüsse"-lung.
      IDEA, RC2, RC4, DES (ECB), DES (CBC), Triple-DES (ECB), Triple-DES (CBC),
      MARS (AES-Kandidat), RC6 (AES-Kandidat), Serpent (AES-Kandidat), 
      Twofish (AES-Kandidat), Rijndael (offizielles AES-Verfahren).
+     \index{AES}
      }
 \nopagebreak
 Bei der {\em symmetrischen} Verschlüsselung 
@@ -101,7 +102,7 @@ noch bedingt sicher anzusehen ist. Symmetrische Alternativen zum DES sind
 zum Beispiel die Algorithmen IDEA \index{IDEA} oder Triple-DES.
 \par \vskip + 3pt
 
-Hohe Aktualität besitzt das symmetrische AES-Verfahren: \index{AES} 
+Hohe Aktualität besitzt das symmetrische AES-Verfahren:\index{AES} 
 Der dazu gehörende Rijndael-Algo"-rithmus wurde am 2. Oktober 2000 zum
 Gewinner der AES-Ausschreibung erklärt und ist damit Nachfolger
 des DES-Verfahrens.
@@ -117,7 +118,9 @@ Sie in der CrypTool-Online-Hilfe\index{CrypTool}%
 
 % --------------------------------------------------------------------------
 \subsection{Neue Ergebnisse zur Kryptoanalyse von AES}
-\index{Kryptoanalyse} \label{NeueAES-Analyse}
+\label{NeueAES-Analyse}
+\index{Kryptoanalyse}
+\index{AES}
 
 Im Anschluss finden Sie einige Informationen, die das AES-Verfahren in
 letzter Zeit in Zweifel zogen -- unserer Ansicht nach aber (noch)
@@ -180,7 +183,7 @@ Bedingungen an; es ist nicht bekannt, welche Bedingungen hinreichend sind.
 Neu an diesem Angriff war erstens, dass dieser Angriff nicht auf Statistik,
 sondern auf Algebra beruhte. Dadurch erscheinen Angriffe möglich, die nur
 geringe Mengen von Geheimtext brauchen. Zweitens steigt damit die Sicherheit
-eines Produktalgorithmus\index{Produktalgorithmus}%
+eines Produktalgorithmus\index{Produktalgorithmus}\index{Verschlüsselung!Produktalgorithmus}%
 \footnote{%
 Ein Geheimtext kann selbst wieder Eingabe für eine Chiffrierung sein. Eine
 Mehrfachverschlüsselung (cascade cipher)\index{Verschlüsselung!Mehrfachverschlüsselung}\index{Mehrfachverschlüsselung}
@@ -418,7 +421,7 @@ In CrypTool\index{CrypTool} finden Sie dieses Verfahren über das Menü
 Dabei können Sie die einzelnen Schritte und ihre Abhängigkeiten mit konkreten
 Zahlen nachvollziehen. Die Variante mit RSA als asymmetrischem Verfahren
 ist graphisch visualisiert; die Variante mit ECC nutzt die Standard-Dialoge.
-In beiden Fällen wird AES als symmetrisches Verfahren eingesetzt.
+In beiden Fällen wird AES als symmetrisches Verfahren eingesetzt.\index{AES}
 }
 \label{CM_Hybrid-procedures}
 \index{Hybridverfahren}
@@ -472,12 +475,12 @@ Datenmengen zu verschlüsseln (mit den geheimen Schlüsseln).
 \addtocounter{footnote}{0}\footnotetext{%
   \url{http://tools.ietf.org/html/rfc4270}\index{IETF}\index{NSA}
   }
-\section{Chiffren und Kryptoanalyse für Lehrzwecke} \index{Cryptanalysis}
+\section{Chiffren und Kryptoanalyse für Lehrzwecke} \index{Kryptoanalyse}
 
 Verglichen mit den auf Mathematik beruhenden Public-Key-Verschlüsselungsverfahren
 wie RSA, ist die Struktur von AES und den meisten anderen modernen symmetrischen
 Verschlüsselungsverfahren sehr komplex und kann nicht so einfach wie RSA
-erklärt werden.
+erklärt werden.\index{AES}
 
 Deshalb wurden zu Lehrzwecken einige vereinfachte Varianten moderner symmetrischer
 Verfahren wie DES, IDEA oder AES entwickelt, um Einsteigern die Möglichkeit zu geben,
@@ -556,7 +559,7 @@ Studenten die Funktionsweise moderner Blockchiffren untersuchen können.
 Mini-AES, ursprünglich vorgestellt von \cite{cm:Phan2002}, ist eine vereinfachte
 Variante des Advanced Encryption Standard (AES) für Ausbildungszwecke.
 
-Wie man Mini-AES benutzt ist ausführlich in der folgenden Sage Reference Page beschrieben:\\
+Wie man Mini-AES benutzt, ist ausführlich in der Sage Reference-Page beschrieben:\\
 \url{http://www.sagemath.org/doc/reference/sage/crypto/block_cipher/miniaes.html}.
 
 Das folgende Sage Code-Beispiel von den Release-Notes von Sage 4.1%
