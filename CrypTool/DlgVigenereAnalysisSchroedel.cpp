@@ -87,40 +87,23 @@ VigenereAnalysisSchroedel::VigenereAnalysisSchroedel(const CString _ciphertextFi
 		score[i][0] = 0;
 		score[i][1] = 0;
 	}
-
-	// open result file
-	CString pathToFileResult;
-	pathToFileResult = Pfad;
-	pathToFileResult += "result.txt";
-	fileResult.open(pathToFileResult, ios_base::trunc);
-	if(!fileResult) return;
 }
 
 VigenereAnalysisSchroedel::~VigenereAnalysisSchroedel() {
 	
-	// close the result file
-	fileResult.close();
 }
 
 void VigenereAnalysisSchroedel::setStatus(CString str) {
-	/*
-		flomar, 06/25/2009
-		This is a logging-dummy: in the original Pascal version this function 
-		informs the user about all sorts of status messages via the GUI; we have 
-		to figure out a way to transform this into the C++ (dialog) world.
-	*/
+	
+	// TODO
+
 }
 
 void VigenereAnalysisSchroedel::output(CString str) {
-	/*
-		flomar, 06/25/2009
-		This is a logging-dummy: in the original Pascal version this function 
-		informs the user about all sorts of status messages via the GUI; we have 
-		to figure out a way to transform this into the C++ (dialog) world.
-	*/
+	
+	result.Append(str);
+	result.Append("\r\n");
 
-	fileResult.write(str.GetBuffer(), str.GetLength());
-	fileResult.write("\r\n", 2);
 }
 
 int VigenereAnalysisSchroedel::readTriDigrams() {
@@ -1103,6 +1086,24 @@ CString VigenereAnalysisSchroedel::fillLeft(CString was, int wie) {
 	return was;
 }
 
+void VigenereAnalysisSchroedel::writeResultFile() {
+
+	// open result file
+	std::ofstream fileResult;
+	CString pathToFileResult;
+	pathToFileResult = Pfad;
+	pathToFileResult += "result.txt";
+	fileResult.open(pathToFileResult, ios_base::trunc);
+	if(!fileResult) return; // TODO error message
+
+	fileResult.write(result.GetBuffer(), result.GetLength());
+	fileResult.write("\r\n", 2);
+
+	// close result file
+	fileResult.close();
+
+}
+
 /****************************************
 		END VIGENERE ANALYSIS SCHROEDEL
 		****************************************/
@@ -1127,15 +1128,17 @@ UINT singleThreadVigenereAnalysisSchroedel(PVOID argument) {
 			theAnalysis->solveTrigram() < 0)							// solve trigrams
 	{
 		// abort analysis and end thread properly
+		theAnalysis->writeResultFile();
 		theApp.fs.cancel();
 		AfxEndThread(0);
 		return 0;
 	}
 		
 	// at this point the solveTrigram function was successful, so we're done
-	theAnalysis->progress = 1.0;
+	theAnalysis->progress = 1.0;	
 
 	// end thread properly
+	theAnalysis->writeResultFile();
 	theApp.fs.cancel();
 	delete theAnalysis;
 	AfxEndThread(0);

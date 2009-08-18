@@ -75,8 +75,10 @@ public:
 	int rateString(CString str, CString key);
 	CString fillLeft(CString was, int wie);
 
-	// file handle for result file
-	std::ofstream fileResult;
+	// this string holds the analysis results (see result file)
+	CString result;
+	// function to write the write the result file
+	void writeResultFile();
 
 public:
 	CString ciphertext;

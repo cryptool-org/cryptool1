@@ -840,7 +840,9 @@ void CCryptDoc::OnVigenereAnalysisSchroedel()
 	VigenereAnalysisSchroedel *theAnalysis = new VigenereAnalysisSchroedel(ContentName, GetTitle());
 	AfxBeginThread(singleThreadVigenereAnalysisSchroedel, (PVOID)(theAnalysis));
 
-	theApp.fs.setModelTitleFormat(theAnalysis, "Schroedel", "");
+	// set progress bar title
+	LoadString(AfxGetInstanceHandle(), IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_PROGRESS_BAR_TITLE, pc_str, STR_LAENGE_STRING_TABLE);
+	theApp.fs.setModelTitleFormat(theAnalysis, pc_str, "");
 	
 	// abort the analysis if the user cancels the progress bar
 	if(theApp.fs.DoModal() == IDCANCEL) {
