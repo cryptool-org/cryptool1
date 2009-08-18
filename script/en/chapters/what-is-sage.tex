@@ -10,14 +10,14 @@ This script includes numerous code samples using Sage. Sage is an open
 source computer algebra system (CAS) that supports teaching, study and
 research in mathematics.  It combines many high-quality open
 source packages\footnote{%
-Getting an impression, how big Sage is: After downloading the source of Sage 4.1,
-it took around 5 h on an average Linux PC to compile the whole system including
-all libraries, and it occupied 1.8 GB disk space then.
+To get an impression of how big Sage is: After downloading the source of Sage 4.1,
+it took around 5 hours on an average Linux PC to compile the whole system including
+all libraries. The compiled version occupied 1.8 GB disk space.
 }
 and provides access to their functionalities via a
 common interface, namely, a Python\footnote{%
 There is also an easy interface to the C language, called Cython, which can be used
-to speed up own functions in Sage very much.\\
+to substantially speed up functions in Sage.\\
 See \url{http://openwetware.org/wiki/Open_writing_projects/Sage_and_cython_a_brief_introduction}.
 } based programming language.
 
@@ -32,7 +32,7 @@ aspects of mathematics.
 (last update 2009).}.
   
 \noindent The official Sage online documentation\footnote{%
-  The according official PDF documents can be downloaded at\\
+  The corresponding official PDF documents can be downloaded at\\
   \url{http://www.sagemath.org/help.html}
 } is available at: \url{http://www.sagemath.org/doc}.
 
@@ -267,7 +267,7 @@ search the archive of the \texttt{sage-support} mailing list at
 \section*{Some examples using the built-in mathematical functions in Sage}
 
 Here are a few little examples\footnote{%
-The examples are from the blog of Prof. Alasdair McAndrew, Victoria University,\\
+The examples are from the blog of Dr. Alasdair McAndrew, Victoria University,\\
 \url{http://amca01.wordpress.com/2008/12/19/sage-an-open-source-mathematics-software-system}}
 (all in console mode, for ease) to see what you can do with Sage:
 
@@ -339,19 +339,19 @@ on the command line as in the above example\footnote{%
 
   \noindent This script usually uses the above convention for presenting Sage code,
   if the code doesn't come from a Sage script. When people copy and paste the Sage code
-  from this script, in order to enter it at the commandline, 
+  from this script, in order to enter it at the command line, 
   they should leave out ``sage:'' and ``...' from the script (nevertheless
   in most cases the command prompt can deal with these prefixes correctly).}.
 
 But if you develop your own functions, modify them and call them, then it is much easier
 to do the development in your own editor, save it to a script file and execute the functions
-non-interactively on the commandline manually.
+non-interactively on the command line manually.
 Both ways to develop code is done in the examples in
 chapter \ref{PaP_Sage_samples} (``\nameref{PaP_Sage_samples}'') and in
 chapter \ref{NumberTheory_Appendix_E} (``\nameref{NumberTheory_Appendix_E}'').
 
 \noindent To program and test Sage code using an editor there are two useful commands:
-load() and attach()\footnote{%
+\verb!load()! and \verb!attach()!\footnote{%
 See Sage tutorial about Programming, chapter ``Loading and Attaching SAGE files'',\\
 \url{http://www.sagemath.org/doc/tutorial/programming.html\#loading-and-attaching-sage-files}.}.\\
 Suppose you have a function definition like this:
@@ -366,7 +366,7 @@ Suppose you have a function definition like this:
 \end{Verbatim}
 \noindent which has been saved to the file \texttt{primroots.sage}.
 
-\noindent To load this function into Sage (and do a syntax check at once), use load() as follows:
+\noindent To load this function into Sage (and do a syntax check at once), use \verb!load()! as follows:
 
 \texttt{sage: load primroots.sage}
 
@@ -386,12 +386,12 @@ writes it to another file called ``primroots.py'' (note the ``.py''
 extension), adds all necessary variables to "primroots.py" as well as
 writing any import statements to that file. That way, your Sage script
 is executed as if you had typed the definitions in your script to the
-Sage command line. A difference may be, that output needs a print statement.}.
+Sage command line. A difference may be that output needs a print statement.}.
 
-Normally we also want to edit an own Sage script and reload the
+Normally we also want to edit our own Sage script and reload the
 content of the changed script into Sage again. In that case, you can
-use the command attach(). This looks in our Sage session as
-follows (you also can apply atach() directly after laoding the script,
+use the command \verb!attach()!. This looks in our Sage session as
+follows (you also can apply \verb!attach()! directly after loading the script,
 even before having changed the script):
 
 \texttt{sage: attach primroots.sage}
@@ -401,7 +401,7 @@ After you saved it within your text editor, the changed function
 definition is reloaded into the running Sage session after the
 next typing of Enter (and a syntax check is done at once). This reloading is
 done automatically for you, provided that all changes to your script
-have been saved. You can think of the command attach() as a way of
+have been saved. You can think of the command \verb!attach()! as a way of
 telling Sage to watch for all changes to a file, and reloading the
 file again once Sage notices that there have been changes. With this
 command, you don't have to copy and paste between your text editor and

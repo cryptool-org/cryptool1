@@ -37,7 +37,7 @@ cipher which human ingenuity cannot resolve.}}
 The following chapter provides a broad overview of paper and pencil 
 methods\footnote{%
 The footnotes to this chapter describe how the methods can be
-performd using CrypTool CrypTool 1.
+performed using CrypTool CrypTool 1.
 Additionally the last sub chapter (\ref{PaP_Sage_samples})
 contains example code using the computer algebra system Sage\index{Sage}.
                  }
@@ -1396,7 +1396,7 @@ shown in the graphics below:
   \end{itemize}
   \item Decryption also consists of two steps: deciphering and decoding.
   \begin{itemize}
-    \item Decoding is only necessary if the symbols in the alphabet are no ASCII characters.
+    \item Decoding is only necessary if the symbols in the alphabet are not ASCII characters.
   \end{itemize}
 \end{itemize}
 
@@ -1414,7 +1414,7 @@ shown in the graphics below:
 \newpage
 \subsection{Transposition ciphers}
 
-Tranposition ciphers are implemented in the Sage class
+Transposition ciphers are implemented in the Sage class
 \begin{center}
 \verb!sage.crypto.classical.TranspositionCryptosystem!
 \end{center}
@@ -1466,7 +1466,7 @@ sage: E
 sage: D
 (1,13,11,9,7,5,3)(2,14,12,10,8,6,4)
 \end{Verbatim}
-\caption{Simple Transposition by shifting (key and inverse key explicitely given)}
+\caption{Simple Transposition by shifting (key and inverse key explicitly given)}
 \end{sagecode}
 
 \newpage
@@ -1573,7 +1573,7 @@ True
 
 \newpage
 The fourth example of transposition ciphers additionally shows the key space of a simple
-column transpositon.
+column transposition.
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -1694,7 +1694,7 @@ SHIFTTHEALPHABETTHREEPOSITIONSTOTHERIGHT
 sage: msg == DC
 True
 \end{Verbatim}
-\caption{Caesar (substitution by shifting the alphabet; key explicitely given, step-by-step approach)}
+\caption{Caesar (substitution by shifting the alphabet; key explicitly given, step-by-step approach)}
 \end{sagecode}
 
 
@@ -1832,7 +1832,7 @@ sage: # - AlphabeticStrings() and HexadecimalStrings() don't have according meth
 sage: # - So we used Python:
 sage: #   - repr(DC) converts the StringMonoidElement DC to a string
 sage: #     still containing hex symbols;
-sage: #   - binascii.a2b_hex converts this hex string to an ascii string.
+sage: #   - binascii.a2b_hex converts this hex string to an ASCII string.
 sage: import binascii
 sage: DDC = binascii.a2b_hex(repr(DC)); DDC
 'Working with a larger alphabet.'
