@@ -10707,7 +10707,7 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_TRIGRAMS_FILENAME 
                             "VigenereAnalysisSchroedelTrigrams.txt"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_PROGRESS_BAR_TITLE 
-                            "Vigenere analysis according to Schroedel"
+                            "Vigenère analysis according to Schroedel"
 END
 
 #endif    // Polish resources
@@ -25903,7 +25903,7 @@ BEGIN
         MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
         MENUITEM "Save &as...",                 ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "&Document Properties...",     ID_FILEPROPERTIES
+        MENUITEM "&Document Properties...",     ID_FILEPROPERTIES, GRAYED
         MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
         MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -25913,20 +25913,20 @@ BEGIN
     END
     POPUP "&Edit"
     BEGIN
-        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
-        MENUITEM "&Redo\tCtrl+Y",               ID_EDIT_REDO
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO, GRAYED
+        MENUITEM "&Redo\tCtrl+Y",               ID_EDIT_REDO, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
-        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
-        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
-        MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT, GRAYED
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY, GRAYED
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE, GRAYED
+        MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&Find/Replace...\tStrg+F",    ID_EDIT_FIND
-        MENUITEM "Find &Next\tF3",              ID_EDIT_FIND_NEXT
+        MENUITEM "&Find/Replace...\tStrg+F",    ID_EDIT_FIND, GRAYED
+        MENUITEM "Find &Next\tF3",              ID_EDIT_FIND_NEXT, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECT_ALL
+        MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECT_ALL, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Show &Key...",                ID_SHOW_KEY
+        MENUITEM "Show &Key...",                ID_SHOW_KEY, GRAYED
         MENUITEM "&Parent Window",              ID_GOTO_VATER
     END
     POPUP "&View"
@@ -25934,83 +25934,83 @@ BEGIN
         MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
         MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
-        MENUITEM "Show &as Text",               ID_TOTXT
-        MENUITEM "Show as &HexDump ",           ID_TOHEX
+        MENUITEM "Show &as Text",               ID_TOTXT, GRAYED
+        MENUITEM "Show as &HexDump ",           ID_TOHEX, GRAYED
         MENUITEM SEPARATOR
         MENUITEM "&Bar Chart",                  ID_PLOTBAR
         MENUITEM SEPARATOR
-        MENUITEM "Al&phabet",                   ID_VIEW_ALPHABET
-        MENUITEM "&End of Line",                ID_VIEW_ENDOFLINE
-        MENUITEM "Line W&rap",                  ID_VIEW_LINEWRAP
-        MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE
+        MENUITEM "Al&phabet",                   ID_VIEW_ALPHABET, GRAYED
+        MENUITEM "&End of Line",                ID_VIEW_ENDOFLINE, GRAYED
+        MENUITEM "Line W&rap",                  ID_VIEW_LINEWRAP, GRAYED
+        MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Font"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
         END
         MENUITEM "&Format Text Document...",    ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
-        MENUITEM "Show B&ox (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
+        MENUITEM "Show B&ox (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX, GRAYED
     END
     POPUP "&Crypt/Decrypt"
     BEGIN
         POPUP "Symmetric (&classic)"
         BEGIN
-            MENUITEM "Caesar / &Rot-13...",         ID_ROT13CAESAR_ASC
-            MENUITEM "&Vigenère...",                ID_VIGENERE_ASC
-            MENUITEM "&Hill...",                    ID_HILL
-            MENUITEM "&Substitution / Atbash...",   ID_CryptMono
-            MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN
-            MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX
-            MENUITEM "Byte A&ddition...",           ID_ADD_BIN
-            MENUITEM "&XOR...",                     ID_XOR_BIN
-            MENUITEM "V&ernam...",                  ID_VERNAM_BIN
-            MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
-            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
-            MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
+            MENUITEM "Caesar / &Rot-13...",         ID_ROT13CAESAR_ASC, GRAYED
+            MENUITEM "&Vigenère...",                ID_VIGENERE_ASC, GRAYED
+            MENUITEM "&Hill...",                    ID_HILL, GRAYED
+            MENUITEM "&Substitution / Atbash...",   ID_CryptMono, GRAYED
+            MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN, GRAYED
+            MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX, GRAYED
+            MENUITEM "Byte A&ddition...",           ID_ADD_BIN, GRAYED
+            MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
+            MENUITEM "V&ernam...",                  ID_VERNAM_BIN, GRAYED
+            MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
+            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC, GRAYED
+            MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
             MENUITEM "Scytale / Rail Fence...",     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetric (&modern)"
         BEGIN
-            MENUITEM "&IDEA...",                    ID_CRYPT_IDEA
-            MENUITEM "RC&2...",                     ID_CRYPT_RC2
-            MENUITEM "RC&4...",                     ID_CRYPT_RC4
-            MENUITEM "&DES (ECB)...",               ID_CRYPT_DES_DESECB
-            MENUITEM "D&ES (CBC)...",               ID_CRYPT_DES_DESCBC
-            MENUITEM "&Triple DES (ECB)...",        ID_CRYPT_3DES_ECB
-            MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC
-            MENUITEM "Rijndael (&AES)...\tShift + Strg + R", ID_CRYPT_AES_RIJNDAEL
+            MENUITEM "&IDEA...",                    ID_CRYPT_IDEA, GRAYED
+            MENUITEM "RC&2...",                     ID_CRYPT_RC2, GRAYED
+            MENUITEM "RC&4...",                     ID_CRYPT_RC4, GRAYED
+            MENUITEM "&DES (ECB)...",               ID_CRYPT_DES_DESECB, GRAYED
+            MENUITEM "D&ES (CBC)...",               ID_CRYPT_DES_DESCBC, GRAYED
+            MENUITEM "&Triple DES (ECB)...",        ID_CRYPT_3DES_ECB, GRAYED
+            MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC, GRAYED
+            MENUITEM "Rijndael (&AES)...\tShift + Strg + R", ID_CRYPT_AES_RIJNDAEL, GRAYED
             MENUITEM SEPARATOR
             POPUP "&Further Algorithms"
             BEGIN
-                MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
-                MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
-                MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
-                MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
+                MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS, GRAYED
+                MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6, GRAYED
+                MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT, GRAYED
+                MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH, GRAYED
                 MENUITEM SEPARATOR
-                MENUITEM "DES&X...",                    ID_CRYPT_DESX
-                MENUITEM "&DESL...",                    ID_CRYPT_DESL
-                MENUITEM "DESX&L...",                   ID_CRYPT_DESXL
+                MENUITEM "DES&X...",                    ID_CRYPT_DESX, GRAYED
+                MENUITEM "&DESL...",                    ID_CRYPT_DESL, GRAYED
+                MENUITEM "DESX&L...",                   ID_CRYPT_DESXL, GRAYED
             END
             MENUITEM SEPARATOR
             MENUITEM "&AES (self extracting)...",   ID_AES_SELFEXTRACT
         END
         POPUP "&Asymmetric"
         BEGIN
-            MENUITEM "RSA &Encryption...",          ID_CRYPT_RsaEnc
-            MENUITEM "RSA &Decryption...",          ID_CRYPT_RsaDec
+            MENUITEM "RSA &Encryption...",          ID_CRYPT_RsaEnc, GRAYED
+            MENUITEM "RSA &Decryption...",          ID_CRYPT_RsaDec, GRAYED
             MENUITEM "RSA &Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
         END
         POPUP "&Hybrid"
         BEGIN
             MENUITEM "RSA-AES &Encryption...",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
-            MENUITEM "RSA-AES &Decryption...",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
+            MENUITEM "RSA-AES &Decryption...",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG, GRAYED
             MENUITEM "ECC-AES E&ncryption...",      ID_HYBRID_ECCENC
-            MENUITEM "ECC-AES De&cryption...",      ID_HYBRID_ECCDEC
+            MENUITEM "ECC-AES De&cryption...",      ID_HYBRID_ECCDEC, GRAYED
         END
     END
     POPUP "Digital Signatures/&PKI"
@@ -26020,28 +26020,28 @@ BEGIN
             MENUITEM "&Generate/Import Keys...",    ID_CRYPT_KeyGen
             MENUITEM "&Display/Export Keys...",     ID_SHOW_ALL_EC_KEYS
         END
-        MENUITEM "&Sign Document...",           ID_CRYPT_SIGN
-        MENUITEM "&Verify Signature...",        ID_CRYPT_VERIFY
-        MENUITEM "&Extract Signature",          ID_CRYPT_EXTRACT
+        MENUITEM "&Sign Document...",           ID_CRYPT_SIGN, GRAYED
+        MENUITEM "&Verify Signature...",        ID_CRYPT_VERIFY, GRAYED
+        MENUITEM "&Extract Signature",          ID_CRYPT_EXTRACT, GRAYED
         MENUITEM "&Signature Demonstration (Signature Generation)...", ID_EINZELVERFAHREN_SIGN_DOC
     END
     POPUP "&Indiv. Procedures"
     BEGIN
         POPUP "&Hash"
         BEGIN
-            MENUITEM "MD&2",                        ID_CRYPT_HASH_MD2
-            MENUITEM "MD&4",                        ID_CRYPT_HASH_MD4
-            MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5
-            MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
-            MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
-            MENUITEM "SHA-&256",                    ID_CRYPT_HASH_SHA256
-            MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512
-            MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
+            MENUITEM "MD&2",                        ID_CRYPT_HASH_MD2, GRAYED
+            MENUITEM "MD&4",                        ID_CRYPT_HASH_MD4, GRAYED
+            MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5, GRAYED
+            MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA, GRAYED
+            MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1, GRAYED
+            MENUITEM "SHA-&256",                    ID_CRYPT_HASH_SHA256, GRAYED
+            MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512, GRAYED
+            MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160, GRAYED
             MENUITEM SEPARATOR
             MENUITEM "Hash Value of a File...",     ID_HASH_OFAFILE
-            MENUITEM "Hash &Demonstration...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
+            MENUITEM "Hash &Demonstration...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, GRAYED
             MENUITEM "&Key Generation from Password (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
-            MENUITEM "&Generation of HMACs...",     ID_GENERATE_MACS
+            MENUITEM "&Generation of HMACs...",     ID_GENERATE_MACS, GRAYED
         END
         POPUP "&RSA Cryptosystem"
         BEGIN
@@ -26092,21 +26092,21 @@ BEGIN
             BEGIN
                 POPUP "&Base64 Encode/Decode"
                 BEGIN
-                    MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64
-                    MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
+                    MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64, GRAYED
+                    MENUITEM "Base64 &Decode",              ID_DECODE_BASE64, GRAYED
                 END
                 POPUP "&UU Encode/Decode"
                 BEGIN
-                    MENUITEM "UU &Encode",                  ID_ENCODE_UU
-                    MENUITEM "UU &Decode",                  ID_DECODE_UU
+                    MENUITEM "UU &Encode",                  ID_ENCODE_UU, GRAYED
+                    MENUITEM "UU &Decode",                  ID_DECODE_UU, GRAYED
                 END
-                MENUITEM "Decode ASN.&1 Code of a Document", ID_EINZELVERFAHREN_ASN1DECODIEREN
+                MENUITEM "Decode ASN.&1 Code of a Document", ID_EINZELVERFAHREN_ASN1DECODIEREN, GRAYED
             END
             MENUITEM SEPARATOR
             POPUP "&Compress"
             BEGIN
-                MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
-                MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
+                MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP, GRAYED
+                MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
             END
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Password Quality Meter...",  ID_PASSWORDQUALITYMETER
@@ -26128,60 +26128,60 @@ BEGIN
     BEGIN
         POPUP "&Tools for Analysis"
         BEGIN
-            MENUITEM "&Entropy",                    ID_ENTROPY
-            MENUITEM "&Floating Frequency",         ID_FLOATING
-            MENUITEM "&Histogram",                  ID_HISTOGRAM
-            MENUITEM "&N-Gram...",                  ID_ANALYSE_NGRAM
-            MENUITEM "&Autocorrelation",            ID_AUTO
-            MENUITEM "&Periodicity",                ID_ANALYSE_PERIOD
+            MENUITEM "&Entropy",                    ID_ENTROPY, GRAYED
+            MENUITEM "&Floating Frequency",         ID_FLOATING, GRAYED
+            MENUITEM "&Histogram",                  ID_HISTOGRAM, GRAYED
+            MENUITEM "&N-Gram...",                  ID_ANALYSE_NGRAM, GRAYED
+            MENUITEM "&Autocorrelation",            ID_AUTO, GRAYED
+            MENUITEM "&Periodicity",                ID_ANALYSE_PERIOD, GRAYED
         END
         MENUITEM SEPARATOR
         POPUP "Symmetric Encryption (classic)"
         BEGIN
             POPUP "&Ciphertext-Only"
             BEGIN
-                MENUITEM "&Caesar",                     ID_CAESAR_AUTO
-                MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "V&igenère (Schroedel)",       ID_ANALYSIS_VIGENERE_SCHROEDEL
-                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
-                MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
-                MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "&Caesar",                     ID_CAESAR_AUTO, GRAYED
+                MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
+                MENUITEM "V&igenère (Schroedel)",       ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
+                MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
+                MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
                 MENUITEM SEPARATOR
-                MENUITEM "Byte A&ddition",              ID_ADD_AUTO
-                MENUITEM "&XOR",                        ID_XOR_AUTO
+                MENUITEM "Byte A&ddition",              ID_ADD_AUTO, GRAYED
+                MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
             END
             POPUP "Known &Plaintext"
             BEGIN
-                MENUITEM "H&ill...",                    ID_HILL_AUTO
+                MENUITEM "H&ill...",                    ID_HILL_AUTO, GRAYED
                 MENUITEM "Single &Column Transposition...", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "&Manual Analysis"
             BEGIN
-                MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
-                MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
-                MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "&Substitution...",            ID_ANALYZE_SUBST, GRAYED
+                MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE, GRAYED
+                MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
             END
         END
         POPUP "Symmetric Encryption (modern)"
         BEGIN
-            MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA
-            MENUITEM "RC&2...",                     ID_ANALYSE_RC2
-            MENUITEM "RC&4...",                     ID_ANALYSE_RC4
-            MENUITEM "&DES (ECB)...",               ID_ANALYSE_DESECB
-            MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
-            MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
-            MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
-            MENUITEM "Rijndael (&AES)...",          ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA, GRAYED
+            MENUITEM "RC&2...",                     ID_ANALYSE_RC2, GRAYED
+            MENUITEM "RC&4...",                     ID_ANALYSE_RC4, GRAYED
+            MENUITEM "&DES (ECB)...",               ID_ANALYSE_DESECB, GRAYED
+            MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC, GRAYED
+            MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB, GRAYED
+            MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC, GRAYED
+            MENUITEM "Rijndael (&AES)...",          ID_ANALYSE_AES_RIJNDAEL, GRAYED
             POPUP "&Further Algorithms"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
-                MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
-                MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
-                MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
+                MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6, GRAYED
+                MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT, GRAYED
+                MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH, GRAYED
                 MENUITEM SEPARATOR
-                MENUITEM "DES&X...",                    ID_ANALYSE_DESX
-                MENUITEM "&DESL...",                    ID_ANALYSE_DESL
-                MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL
+                MENUITEM "DES&X...",                    ID_ANALYSE_DESX, GRAYED
+                MENUITEM "&DESL...",                    ID_ANALYSE_DESL, GRAYED
+                MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL, GRAYED
             END
         END
         POPUP "&Asymmetric Encryption"
@@ -26201,15 +26201,15 @@ BEGIN
         END
         POPUP "&Analyse Randomness"
         BEGIN
-            MENUITEM "&Frequency Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
-            MENUITEM "&Poker Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
-            MENUITEM "&Runs Test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
-            MENUITEM "&Serial Test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
+            MENUITEM "&Frequency Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, GRAYED
+            MENUITEM "&Poker Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
+            MENUITEM "&Runs Test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
+            MENUITEM "&Serial Test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
             MENUITEM SEPARATOR
-            MENUITEM "F&IPS PUB-140-1 Test Battery", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
+            MENUITEM "F&IPS PUB-140-1 Test Battery", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
             MENUITEM SEPARATOR
-            MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
-            MENUITEM "&3D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "&Vitany",                     ID_ANALYSE_VITANY, GRAYED
+            MENUITEM "&3D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION, GRAYED
         END
     END
     POPUP "&Options"
@@ -26282,26 +26282,26 @@ BEGIN
         MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
         MENUITEM "Show &as Text",               ID_TOTXT
-        MENUITEM "Show as &HexDump ",           ID_TOHEX
+        MENUITEM "Show as &HexDump ",           ID_TOHEX, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&Bar Chart",                  ID_PLOTBAR
+        MENUITEM "&Bar Chart",                  ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Al&phabet",                   ID_VIEW_ALPHABET
-        MENUITEM "&End of Line",                ID_VIEW_ENDOFLINE
-        MENUITEM "Line W&rap",                  ID_VIEW_LINEWRAP
-        MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE
+        MENUITEM "Al&phabet",                   ID_VIEW_ALPHABET, GRAYED
+        MENUITEM "&End of Line",                ID_VIEW_ENDOFLINE, GRAYED
+        MENUITEM "Line W&rap",                  ID_VIEW_LINEWRAP, GRAYED
+        MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Font"
         BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
         END
         MENUITEM "&Format Text Document...",    ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
-        MENUITEM "Show B&ox (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
+        MENUITEM "Show B&ox (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX, GRAYED
     END
     POPUP "&Crypt/Decrypt"
     BEGIN
@@ -26489,8 +26489,8 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "V&igenère (Schroedel)",       ID_ANALYSIS_VIGENERE_SCHROEDEL
-                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "V&igenère (Schroedel)",       ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
@@ -26593,12 +26593,12 @@ BEGIN
     BEGIN
         MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
         MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
-        MENUITEM "&Close\tCtrl+F4",             ID_FILE_CLOSE
-        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
-        MENUITEM "Save &as...",                 ID_FILE_SAVE_AS
+        MENUITEM "&Close\tCtrl+F4",             ID_FILE_CLOSE, GRAYED
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE, GRAYED
+        MENUITEM "Save &as...",                 ID_FILE_SAVE_AS, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&Document Properties...",     ID_FILEPROPERTIES
-        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "&Document Properties...",     ID_FILEPROPERTIES, GRAYED
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT, GRAYED
         MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
         MENUITEM "Recent Files",                ID_FILE_MRU_FILE1
@@ -26610,85 +26610,85 @@ BEGIN
         MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
         MENUITEM "&Redo\tCtrl+Y",               ID_EDIT_REDO
         MENUITEM SEPARATOR
-        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
-        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
-        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
-        MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT, GRAYED
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY, GRAYED
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE, GRAYED
+        MENUITEM "&Delete\tDel",                ID_EDIT_CLEAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&Find/Replace...\tStrg+F",    ID_EDIT_FIND
-        MENUITEM "Find &Next\tF3",              ID_EDIT_FIND_NEXT
+        MENUITEM "&Find/Replace...\tStrg+F",    ID_EDIT_FIND, GRAYED
+        MENUITEM "Find &Next\tF3",              ID_EDIT_FIND_NEXT, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECT_ALL
+        MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECT_ALL, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Show &Key...",                ID_SHOW_KEY
-        MENUITEM "&Parent Window",              ID_GOTO_VATER
+        MENUITEM "Show &Key...",                ID_SHOW_KEY, GRAYED
+        MENUITEM "&Parent Window",              ID_GOTO_VATER, GRAYED
     END
     POPUP "&View"
     BEGIN
         MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
         MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
-        MENUITEM "Show &as Text",               ID_TOTXT
-        MENUITEM "Show as &HexDump ",           ID_TOHEX
+        MENUITEM "Show &as Text",               ID_TOTXT, GRAYED
+        MENUITEM "Show as &HexDump ",           ID_TOHEX, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "&Bar Chart",                  ID_PLOTBAR
+        MENUITEM "&Bar Chart",                  ID_PLOTBAR, GRAYED
         MENUITEM SEPARATOR
-        MENUITEM "Al&phabet",                   ID_VIEW_ALPHABET
-        MENUITEM "&End of Line",                ID_VIEW_ENDOFLINE
-        MENUITEM "Line W&rap",                  ID_VIEW_LINEWRAP
-        MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE
+        MENUITEM "Al&phabet",                   ID_VIEW_ALPHABET, GRAYED
+        MENUITEM "&End of Line",                ID_VIEW_ENDOFLINE, GRAYED
+        MENUITEM "Line W&rap",                  ID_VIEW_LINEWRAP, GRAYED
+        MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Font"
         BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
         END
         MENUITEM "&Format Text Document...",    ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
-        MENUITEM "Show B&ox (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
+        MENUITEM "Show B&ox (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX, GRAYED
     END
     POPUP "&Crypt/Decrypt"
     BEGIN
         POPUP "Symmetric (&classic)"
         BEGIN
             MENUITEM "Caesar / &Rot-13...",         ID_ROT13CAESAR_ASC
-            MENUITEM "&Vigenère...",                ID_VIGENERE_ASC
-            MENUITEM "&Hill...",                    ID_HILL
-            MENUITEM "&Substitution / Atbash...",   ID_CryptMono
-            MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN
-            MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX
-            MENUITEM "Byte A&ddition...",           ID_ADD_BIN
-            MENUITEM "&XOR...",                     ID_XOR_BIN
-            MENUITEM "V&ernam...",                  ID_VERNAM_BIN
-            MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
-            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
-            MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
+            MENUITEM "&Vigenère...",                ID_VIGENERE_ASC, GRAYED
+            MENUITEM "&Hill...",                    ID_HILL, GRAYED
+            MENUITEM "&Substitution / Atbash...",   ID_CryptMono, GRAYED
+            MENUITEM "&Playfair...",                ID_PLAYFAIR_BIN, GRAYED
+            MENUITEM "&ADFGVX...",                  ID_ENCRYPT_ADFGVX, GRAYED
+            MENUITEM "Byte A&ddition...",           ID_ADD_BIN, GRAYED
+            MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
+            MENUITEM "V&ernam...",                  ID_VERNAM_BIN, GRAYED
+            MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
+            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC, GRAYED
+            MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
             MENUITEM "Scytale / Rail Fence...",     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symmetric (&modern)"
         BEGIN
             MENUITEM "&IDEA...",                    ID_CRYPT_IDEA
-            MENUITEM "RC&2...",                     ID_CRYPT_RC2
-            MENUITEM "RC&4...",                     ID_CRYPT_RC4
-            MENUITEM "&DES (ECB)...",               ID_CRYPT_DES_DESECB
-            MENUITEM "D&ES (CBC)...",               ID_CRYPT_DES_DESCBC
-            MENUITEM "&Triple DES (ECB)...",        ID_CRYPT_3DES_ECB
-            MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC
-            MENUITEM "Rijndael (&AES)...\tShift + Strg + R", ID_CRYPT_AES_RIJNDAEL
+            MENUITEM "RC&2...",                     ID_CRYPT_RC2, GRAYED
+            MENUITEM "RC&4...",                     ID_CRYPT_RC4, GRAYED
+            MENUITEM "&DES (ECB)...",               ID_CRYPT_DES_DESECB, GRAYED
+            MENUITEM "D&ES (CBC)...",               ID_CRYPT_DES_DESCBC, GRAYED
+            MENUITEM "&Triple DES (ECB)...",        ID_CRYPT_3DES_ECB, GRAYED
+            MENUITEM "T&riple DES (CBC)...",        ID_CRYPT_3DES_CBC, GRAYED
+            MENUITEM "Rijndael (&AES)...\tShift + Strg + R", ID_CRYPT_AES_RIJNDAEL, GRAYED
             MENUITEM SEPARATOR
             POPUP "&Further Algorithms"
             BEGIN
                 MENUITEM "&MARS...",                    ID_CRYPT_AES_MARS
-                MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6
-                MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT
-                MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH
+                MENUITEM "RC&6...",                     ID_CRYPT_AES_RC6, GRAYED
+                MENUITEM "&Serpent...",                 ID_CRYPT_AES_SERPENT, GRAYED
+                MENUITEM "T&wofish...",                 ID_CRYPT_AES_TWOFISH, GRAYED
                 MENUITEM SEPARATOR
-                MENUITEM "DES&X...",                    ID_CRYPT_DESX
-                MENUITEM "&DESL...",                    ID_CRYPT_DESL
-                MENUITEM "DESX&L...",                   ID_CRYPT_DESXL
+                MENUITEM "DES&X...",                    ID_CRYPT_DESX, GRAYED
+                MENUITEM "&DESL...",                    ID_CRYPT_DESL, GRAYED
+                MENUITEM "DESX&L...",                   ID_CRYPT_DESXL, GRAYED
             END
             MENUITEM SEPARATOR
             MENUITEM "&AES (self extracting)...",   ID_AES_SELFEXTRACT
@@ -26696,15 +26696,15 @@ BEGIN
         POPUP "&Asymmetric"
         BEGIN
             MENUITEM "RSA &Encryption...",          ID_CRYPT_RsaEnc
-            MENUITEM "RSA &Decryption...",          ID_CRYPT_RsaDec
+            MENUITEM "RSA &Decryption...",          ID_CRYPT_RsaDec, GRAYED
             MENUITEM "RSA &Demonstration...",       ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
         END
         POPUP "&Hybrid"
         BEGIN
             MENUITEM "RSA-AES &Encryption...",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
-            MENUITEM "RSA-AES &Decryption...",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
+            MENUITEM "RSA-AES &Decryption...",      ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG, GRAYED
             MENUITEM "ECC-AES E&ncryption...",      ID_HYBRID_ECCENC
-            MENUITEM "ECC-AES De&cryption...",      ID_HYBRID_ECCDEC
+            MENUITEM "ECC-AES De&cryption...",      ID_HYBRID_ECCDEC, GRAYED
         END
     END
     POPUP "Digital Signatures/&PKI"
@@ -26714,9 +26714,9 @@ BEGIN
             MENUITEM "&Generate/Import Keys...",    ID_CRYPT_KeyGen
             MENUITEM "&Display/Export Keys...",     ID_SHOW_ALL_EC_KEYS
         END
-        MENUITEM "&Sign Document...",           ID_CRYPT_SIGN
-        MENUITEM "&Verify Signature...",        ID_CRYPT_VERIFY
-        MENUITEM "&Extract Signature",          ID_CRYPT_EXTRACT
+        MENUITEM "&Sign Document...",           ID_CRYPT_SIGN, GRAYED
+        MENUITEM "&Verify Signature...",        ID_CRYPT_VERIFY, GRAYED
+        MENUITEM "&Extract Signature",          ID_CRYPT_EXTRACT, GRAYED
         MENUITEM "&Signature Demonstration (Signature Generation)...", ID_EINZELVERFAHREN_SIGN_DOC
     END
     POPUP "&Indiv. Procedures"
@@ -26724,18 +26724,18 @@ BEGIN
         POPUP "&Hash"
         BEGIN
             MENUITEM "MD&2",                        ID_CRYPT_HASH_MD2
-            MENUITEM "MD&4",                        ID_CRYPT_HASH_MD4
-            MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5
-            MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
-            MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
-            MENUITEM "SHA-&256",                    ID_CRYPT_HASH_SHA256
-            MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512
-            MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
+            MENUITEM "MD&4",                        ID_CRYPT_HASH_MD4, GRAYED
+            MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5, GRAYED
+            MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA, GRAYED
+            MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1, GRAYED
+            MENUITEM "SHA-&256",                    ID_CRYPT_HASH_SHA256, GRAYED
+            MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512, GRAYED
+            MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160, GRAYED
             MENUITEM SEPARATOR
             MENUITEM "Hash Value of a File...",     ID_HASH_OFAFILE
-            MENUITEM "Hash &Demonstration...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
+            MENUITEM "Hash &Demonstration...",      ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, GRAYED
             MENUITEM "&Key Generation from Password (PKCS #5)...", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
-            MENUITEM "&Generation of HMACs...",     ID_GENERATE_MACS
+            MENUITEM "&Generation of HMACs...",     ID_GENERATE_MACS, GRAYED
         END
         POPUP "&RSA Cryptosystem"
         BEGIN
@@ -26787,20 +26787,20 @@ BEGIN
                 POPUP "&Base64 Encode/Decode"
                 BEGIN
                     MENUITEM "Base64 &Encode",              ID_ENCODE_BASE64
-                    MENUITEM "Base64 &Decode",              ID_DECODE_BASE64
+                    MENUITEM "Base64 &Decode",              ID_DECODE_BASE64, GRAYED
                 END
                 POPUP "&UU Encode/Decode"
                 BEGIN
                     MENUITEM "UU &Encode",                  ID_ENCODE_UU
-                    MENUITEM "UU &Decode",                  ID_DECODE_UU
+                    MENUITEM "UU &Decode",                  ID_DECODE_UU, GRAYED
                 END
-                MENUITEM "Decode ASN.&1 Code of a Document", ID_EINZELVERFAHREN_ASN1DECODIEREN
+                MENUITEM "Decode ASN.&1 Code of a Document", ID_EINZELVERFAHREN_ASN1DECODIEREN, GRAYED
             END
             MENUITEM SEPARATOR
             POPUP "&Compress"
             BEGIN
                 MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
-                MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
+                MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
             END
             MENUITEM "Generate Random &Numbers...", ID_ZUFALL_GENERATOREN
             MENUITEM "&Password Quality Meter...",  ID_PASSWORDQUALITYMETER
@@ -26823,11 +26823,11 @@ BEGIN
         POPUP "&Tools for Analysis"
         BEGIN
             MENUITEM "&Entropy",                    ID_ENTROPY
-            MENUITEM "&Floating Frequency",         ID_FLOATING
-            MENUITEM "&Histogram",                  ID_HISTOGRAM
-            MENUITEM "&N-Gram...",                  ID_ANALYSE_NGRAM
-            MENUITEM "&Autocorrelation",            ID_AUTO
-            MENUITEM "&Periodicity",                ID_ANALYSE_PERIOD
+            MENUITEM "&Floating Frequency",         ID_FLOATING, GRAYED
+            MENUITEM "&Histogram",                  ID_HISTOGRAM, GRAYED
+            MENUITEM "&N-Gram...",                  ID_ANALYSE_NGRAM, GRAYED
+            MENUITEM "&Autocorrelation",            ID_AUTO, GRAYED
+            MENUITEM "&Periodicity",                ID_ANALYSE_PERIOD, GRAYED
         END
         MENUITEM SEPARATOR
         POPUP "Symmetric Encryption (classic)"
@@ -26835,14 +26835,14 @@ BEGIN
             POPUP "&Ciphertext-Only"
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
-                MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "V&igenère (Schroedel)",       ID_ANALYSIS_VIGENERE_SCHROEDEL
-                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
-                MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
-                MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
+                MENUITEM "V&igenère (Schroedel)",       ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
+                MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
+                MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
                 MENUITEM SEPARATOR
-                MENUITEM "Byte A&ddition",              ID_ADD_AUTO
-                MENUITEM "&XOR",                        ID_XOR_AUTO
+                MENUITEM "Byte A&ddition",              ID_ADD_AUTO, GRAYED
+                MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
             END
             POPUP "Known &Plaintext"
             BEGIN
@@ -26852,30 +26852,30 @@ BEGIN
             POPUP "&Manual Analysis"
             BEGIN
                 MENUITEM "&Substitution...",            ID_ANALYZE_SUBST
-                MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE
-                MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
+                MENUITEM "&Playfair...",                ID_PLAYFAIR_ANALYSE, GRAYED
+                MENUITEM "Soli&taire...",               ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
             END
         END
         POPUP "Symmetric Encryption (modern)"
         BEGIN
             MENUITEM "&IDEA...",                    ID_ANALYSE_IDEA
-            MENUITEM "RC&2...",                     ID_ANALYSE_RC2
-            MENUITEM "RC&4...",                     ID_ANALYSE_RC4
-            MENUITEM "&DES (ECB)...",               ID_ANALYSE_DESECB
-            MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC
-            MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB
-            MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC
-            MENUITEM "Rijndael (&AES)...",          ID_ANALYSE_AES_RIJNDAEL
+            MENUITEM "RC&2...",                     ID_ANALYSE_RC2, GRAYED
+            MENUITEM "RC&4...",                     ID_ANALYSE_RC4, GRAYED
+            MENUITEM "&DES (ECB)...",               ID_ANALYSE_DESECB, GRAYED
+            MENUITEM "D&ES (CBC)...",               ID_ANALYSE_DESCBC, GRAYED
+            MENUITEM "&Triple DES (ECB)...",        ID_ANALYSE_TRIPLEDESECB, GRAYED
+            MENUITEM "T&riple DES (CBC)...",        ID_ANALYSE_TRIPLEDESCBC, GRAYED
+            MENUITEM "Rijndael (&AES)...",          ID_ANALYSE_AES_RIJNDAEL, GRAYED
             POPUP "&Further Algorithms"
             BEGIN
                 MENUITEM "&MARS...",                    ID_ANALYSE_AES_MARS
-                MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6
-                MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT
-                MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH
+                MENUITEM "RC&6...",                     ID_ANALYSE_AES_RC6, GRAYED
+                MENUITEM "&Serpent...",                 ID_ANALYSE_AES_SERPENT, GRAYED
+                MENUITEM "&Twofish...",                 ID_ANALYSE_AES_TWOFISH, GRAYED
                 MENUITEM SEPARATOR
-                MENUITEM "DES&X...",                    ID_ANALYSE_DESX
-                MENUITEM "&DESL...",                    ID_ANALYSE_DESL
-                MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL
+                MENUITEM "DES&X...",                    ID_ANALYSE_DESX, GRAYED
+                MENUITEM "&DESL...",                    ID_ANALYSE_DESL, GRAYED
+                MENUITEM "DESX&L...",                   ID_ANALYSE_DESXL, GRAYED
             END
         END
         POPUP "&Asymmetric Encryption"
@@ -26896,14 +26896,14 @@ BEGIN
         POPUP "&Analyse Randomness"
         BEGIN
             MENUITEM "&Frequency Test",             ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
-            MENUITEM "&Poker Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST
-            MENUITEM "&Runs Test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS
-            MENUITEM "&Serial Test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
+            MENUITEM "&Poker Test",                 ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
+            MENUITEM "&Runs Test",                  ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
+            MENUITEM "&Serial Test",                ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
             MENUITEM SEPARATOR
-            MENUITEM "F&IPS PUB-140-1 Test Battery", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
+            MENUITEM "F&IPS PUB-140-1 Test Battery", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
             MENUITEM SEPARATOR
-            MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
-            MENUITEM "&3D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
+            MENUITEM "&Vitany",                     ID_ANALYSE_VITANY, GRAYED
+            MENUITEM "&3D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION, GRAYED
         END
     END
     POPUP "&Options"
@@ -26916,9 +26916,9 @@ BEGIN
     POPUP "&Window"
     BEGIN
         MENUITEM "&Cascade",                    ID_WINDOW_CASCADE
-        MENUITEM "&Tile",                       ID_WINDOW_TILE_HORZ
-        MENUITEM "&Arrange Icons",              ID_WINDOW_ARRANGE
-        MENUITEM "&Close All",                  ID_WINDOW_CLOSE_ALL
+        MENUITEM "&Tile",                       ID_WINDOW_TILE_HORZ, GRAYED
+        MENUITEM "&Arrange Icons",              ID_WINDOW_ARRANGE, GRAYED
+        MENUITEM "&Close All",                  ID_WINDOW_CLOSE_ALL, GRAYED
     END
     POPUP "&Help"
     BEGIN
@@ -27183,8 +27183,8 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "V&igenère (Schroedel)",       ID_ANALYSIS_VIGENERE_SCHROEDEL
-                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "V&igenère (Schroedel)",       ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
