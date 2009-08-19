@@ -57,6 +57,8 @@ VigenereAnalysisSchroedel::VigenereAnalysisSchroedel(const CString _ciphertextFi
 
 	abort = false;
 
+	debug = false;
+
 	time_t seconds;
 	time(&seconds);
 	srand((unsigned int)seconds);
@@ -93,16 +95,15 @@ VigenereAnalysisSchroedel::~VigenereAnalysisSchroedel() {
 	
 }
 
-void VigenereAnalysisSchroedel::setStatus(CString str) {
+void VigenereAnalysisSchroedel::setStatus(CString str, const bool _debug) {
 	
 	// TODO
 
 }
 
-void VigenereAnalysisSchroedel::output(CString str) {
+void VigenereAnalysisSchroedel::output(CString str, const bool _debug) {
 	
-	result.Append(str);
-	result.Append("\r\n");
+	if(_debug) result.Append(CString(str) + CString("\n"));
 
 }
 
@@ -743,8 +744,14 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 										if(maxRating < theRate) maxRating = theRate;
 
 										if(theRate >= 10) {
-											output("-------> Key (Rate " + strTheRate + "): " + dict[xDict] + " = " + decryptText(ciphertext, dict[xDict]));
-											output("### POSSIBLE SOLVER ###");
+											output("Possible key:", true);
+											output(dict[xDict], true);
+											output("Cleartext:", true);
+											output(decryptText(ciphertext, dict[xDict]), true);
+											output(" ", true);
+											output(" ", true);
+											//output("-------> Key (Rate " + strTheRate + "): " + dict[xDict] + " = " + decryptText(ciphertext, dict[xDict]), true);
+											//output("### POSSIBLE SOLVER ###");
 										}
 									}
 								}
@@ -892,8 +899,9 @@ int VigenereAnalysisSchroedel::readCiphertext() {
 
 	ciphertext.MakeUpper();
 
-	output("Cipher to break: " + ciphertext);
-	output(" ");
+	output("Ciphertext:", true);
+	output(ciphertext, true);
+	output(" ", true);
 
 	// if necessary, indicate that the ciphertext is shorter than three characters
 	if(ciphertext.GetLength() < 3) return -1;

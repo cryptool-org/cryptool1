@@ -46,7 +46,8 @@ public:
 	unsigned int score[26*26*26][2];
 	CString _pairs[26*26*26][2];
 	unsigned int _score[26*26*26][2];
-	int remain, maxDi, maxTri, maxProzent, xDict, xlDict, cPairs;
+	int remain, maxDi, maxTri, xDict, xlDict, cPairs;
+	unsigned int maxProzent;
 	CString vigenere[30];
 	CString solvers[1000][4];  
 	CString dict[100000];
@@ -59,8 +60,8 @@ public:
 
 public:
 	// various functions
-	void setStatus(CString str);
-	void output(CString str);
+	void setStatus(CString str, const bool _debug = false);
+	void output(CString str, const bool _debug = false);
 	
 	int readCiphertext();
 	int readDict();
@@ -87,6 +88,9 @@ public:
 
 	// this flag is set from the outside to abort the analysis
 	bool abort;
+
+	// this flag indicates we're in debug mode (thus, much more detailed output)
+	bool debug;
 
 	double progress;
 	virtual double getProgress() { return progress; };
