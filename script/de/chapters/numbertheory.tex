@@ -330,8 +330,10 @@ benutzt werden kann) finden sich in diesem Skript in dem Artikel über
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\newpage
 \section[Teilbarkeit, Modulus und Restklassen]
            {Teilbarkeit, Modulus und Restklassen\footnotemark}
+%\nopagebreak  % Keines der vier nopagebreak brachte etwas -> hart newpage davor.
 \footnotetext{%
     \index{ZT, Lernprogramm Zahlentheorie}%
     \index{Lernprogramm ZT}%
@@ -343,10 +345,12 @@ benutzt werden kann) finden sich in diesem Skript in dem Artikel über
     interaktiv \textbackslash{} Lernprogramm für Zahlentheorie} aufrufen.
     Siehe Anhang~\ref{s:appendix-Learn-NT}.
 }
+%\nopagebreak
 \index{Modulus} \index{Teilbarkeit}
+%\nopagebreak
 Werden ganze Zahlen addiert, subtrahiert oder multipliziert, ist das
 Ergebnis stets wieder eine ganze Zahl.
-
+%\nopagebreak
 Die Division zweier ganzer Zahlen ergibt nicht immer eine ganze Zahl. Wenn
 man z.B. $158$ durch $10$ teilt, ist das Ergebnis die Dezimalzahl $15,8$.
 Dies ist keine ganze Zahl!
@@ -792,18 +796,21 @@ eine bestimmte Zahl $a$ das Produkt $a*i {\rm ~mod~} m$  alle Werte aus
 $ \{1, \cdots ,m-1\}$ an (erschöpfende Permutation\index{Permutation} der
 Länge $m-1$)\footnote{%
 Vergleiche auch Satz~\ref{thm-zth-ordp} in \hyperlink{Chapter_ElementaryNT_9}
-{Kapitel~\ref{MultOrdPrimitveRoot}, Multiplikative Ordnung und Primitivwurzel\index{Primitivwurzel}}.
+{Kapitel~\ref{MultOrdPrimitveRoot}, Multiplikative Ordnung und
+Primitivwurzel\index{Primitivwurzel}}.
 }.
 \end{satz}
 
 
 Die folgenden drei Beispiele\footnote{%
-In \hyperlink{AppArith1}{Anhang E zu diesem Kapitel} finden Sie den Quellcode zur Berechnung der Tabellen mit Sage.\index{Sage}
+In \hyperlink{AppArith1}{Anhang zu diesem Kapitel} finden Sie den Quellcode
+zur Berechnung der Tabellen mit Sage.\index{Sage}
 } veranschaulichen Eigenschaften der multiplikativen Inversen (hier sind nicht
 mehr die vollständigen Multiplikationstabellen angegeben, sondern nur die Zeilen
 für die Faktoren $5$ und $6$).
 
-In der Multiplikationstabelle mod $17$ (Tabelle~\ref{mulmod17}) wurde für $i = 1, 2, \cdots, 18$ berechnet:
+In der Multiplikationstabelle mod $17$ (Tabelle~\ref{mulmod17}) wurde
+für $i = 1, 2, \cdots, 18$ berechnet:
 \begin{itemize}
    \item[] $(5*i)/17 = a$ Rest $r$ und hervorgehoben $5*i \equiv 1$ (mod $17$),
    \item[] $(6*i)/17 = a$ Rest $r$ und hervorgehoben $6*i \equiv 1$ (mod $17$).
@@ -835,7 +842,8 @@ zum Modul $m=17$ sind, kommen zwischen $i=1, \cdots, m$ für die Reste alle Werte
 zwischen $0, \cdots, m-1$ vor (vollständige $m$-Permutation\index{Permutation}).
 % \enlargethispage{0.5cm}
 
-{\bf Die multiplikative Inverse von $5$ (mod $17$) ist $7$, die Inverse von $6$ (mod $17$) ist $3$.}
+\noindent {\bf Die multiplikative Inverse von $5$ (mod $17$)
+ist $7$, die Inverse von $6$ (mod $17$) ist $3$.}
 
 \begin{table}[ht] \label{SrcArith1b}
 \begin{center}                                                                          
@@ -862,7 +870,8 @@ zwischen $i=1, \cdots, m$ für die Reste alle Werte zwischen
 $0, \cdots, m-1$ vor.
 
 
-{\bf Die multiplikative Inverse von $5$ (mod $13$) ist $8$, die Inverse von $6$ (mod $13$) ist $11$.}
+\noindent {\bf Die multiplikative Inverse von $5$ (mod $13$)
+ist $8$, die Inverse von $6$ (mod $13$) ist $11$.}
 
 Tabelle~\ref{mulmod12} enthält ein Beispiel dafür, wo der Modul $m$ und die Zahl $(a=6)$
 {\em nicht} teilerfremd sind.
@@ -892,7 +901,8 @@ sind, kommen zwischen $i=1, \cdots, m$ nicht alle Werte zwischen
 $0, \cdots, m-1$ vor und $6$ hat mod $12$ auch keine Inverse!
 \index{Inverse!additive} \index{Inverse!multiplikative}
 
-{\bf Die multiplikative Inverse von $5$ (mod $12$) ist $5$. Die Zahl $6$ hat keine Inverse (mod $12$). }
+\noindent {\bf Die multiplikative Inverse von $5$ (mod $12$)
+ist $5$. Die Zahl $6$ hat keine Inverse (mod $12$). }
 
 
 
@@ -1220,11 +1230,8 @@ notwendige Bedingung für die Kryptographie (siehe Kapitel~\ref{rsabeweis}:
 
 
 
-
-
-%\newpage
+% --------------------------------------------------------------------------
 \pagebreak
-
 \begin{center}
 \fbox{\parbox{15cm}{{\em \index{Berne, Eric} Eric Berne\footnotemark:}\newline
 Die mathematische Spielanalyse postuliert Spieler, die rational reagieren.
@@ -1300,14 +1307,19 @@ Verallgemeinert gilt für jede Primzahl $p$ und jedes $n$ aus $\mathbb{N}$:
 \end{itemize}      
 \end{satz}
 
+
+\pagebreak  % Oder \newpage oder \vskip +12pt 
 \begin{example}{:}
+% \nopagebreak dazwischen nützte nichts --> vskip !!
 \begin{itemize}
+% \nopagebreak Nützte nichts !!
 \item  $n=70=2*5*7 \Longrightarrow $ nach Satz~\ref{J_of_p1..pk}: $ J(n)= 1\cdot 4 \cdot 6 =24.$ 
 \item  $n=9=3^2 \Longrightarrow$ nach Satz~\ref{J_of_n}: $ J(n)= 3^1\cdot 2 =6,$ weil  $\mathbb{Z}_9^* =\{ 1,2,4,5,7,8\}.$
 \item $n = 2.701.125 = 3^2 * 5^3 * 7^4$ $\Longrightarrow$ nach Satz~\ref{J_of_n}: 
 $J(n) = [3^1 * 2] * [5^2 * 4] * [7^3 * 6] = 1.234.800.$
 \end{itemize}
 \end{example}
+
 
 % --------------------------------------------------------------------------
 \subsection{Der Satz von Euler-Fermat}\index{Euler, Leonhard}\index{RSA}
@@ -1497,7 +1509,7 @@ haben: Die Ordnungen sind $1, 2, 5$ und $10$. Dabei bemerkt man:
 
 \begin{example}{ 1:}\\
 Die folgende Tabelle~\ref{expmod11}\footnote{%
-In \hyperlink{AppArith3a1}{Anhang E zu diesem Kapitel} finden Sie den Quelltext
+In \hyperlink{AppArith3a1}{Anhang zu diesem Kapitel} finden Sie den Quelltext
 zur Bestimmung der Tabelle mit Sage.
 } zeigt die Werte $a^i{\rm ~mod~}11$ für die Exponenten $i = 1, 2, \cdots, 10$ und für 
 die Basen $a = 1, 2, \cdots, 10$ sowie den sich für jedes a daraus ergebenden Wert $ord_{11}(a)$:
@@ -1558,7 +1570,7 @@ Primitivwurzel\index{Primitivwurzel} modulo $45$ und modulo $46$.
 
 \begin{example}{ 2:}\\
 Die folgende Tabelle~\ref{expmod45}\footnote{%
-In \hyperlink{AppArith3b}{Anhang E zu diesem Kapitel} finden Sie den Quelltext
+In \hyperlink{AppArith3b}{Anhang zu diesem Kapitel} finden Sie den Quelltext
 zur Berechnung der Tabelle mit Sage.
 }
 zeigt die Werte $a^i{\rm ~mod~}45$ für die Exponenten $i = 1, 2, \cdots, 12$
@@ -1617,19 +1629,23 @@ $3, 5, 6, 9, 10, 12, \cdots,$ da $45 = 3^2*5$).\vskip +1em
 \begin{example}{ 3:}\\
 Hat $7$ eine Primitivwurzel\index{Primitivwurzel} modulo $45$?
 
-\noindent Die Voraussetzung/Bedingung ggT$(7,45)=1$ ist erfüllt.
+\noindent Die notwendige, aber nicht hinreichende Voraussetzung/Bedingung
+ggT$(7,45)=1$ ist erfüllt.
 Aus der Tabelle~\ref{expmod45} kann man ersehen, dass die
-Zahl $7$ keine Primitivwurzel\index{Primitivwurzel} von $45$ ist,
+Zahl $a=7$ keine Primitivwurzel\index{Primitivwurzel} von $45$ ist,
 denn $ord_{45}(7) = 12 \not= 24 = J(45)$.\vskip + 1em
 \end{example}
 
 \newpage
 \begin{example}{ 4:}\\
 Die folgende Tabelle~\ref{expmod46}\footnote{%
-In \hyperlink{AppArith3c}{Anhang E zu diesem Kapitel} finden Sie den
+In \hyperlink{AppArith3c}{Anhang zu diesem Kapitel} finden Sie den
 Quelltext zur Berechnung der Tabelle mit Sage.
-} beantwortet die Frage, ob die Zahl $7$ eine Primitivwurzel\index{Primitivwurzel} von $46$ ist.
-Die Voraussetzung/Bedingung ggT$(7,46)=1$ ist erfüllt.
+} beantwortet die Frage, ob die Zahl $a=7$ eine Primitivwurzel\index{Primitivwurzel} von $46$ ist.
+Die notwendige, aber nicht hinreichende Voraussetzung/Bedingung ggT$(7,46)=1$ ist erfüllt.\\
+$J(46)$ berechnet sich nach Satz~\ref{J_of_pq}: $J(46) = J(2*23) = 1*22 = 22$.
+Die Zahl $7$ ist eine Primitivwurzel\index{Primitivwurzel} von $46$,
+denn $ord_{46}(7) = 22 = J(46)$.
 \end{example}
                                                                     
 \begin{table}[ht]
@@ -1696,10 +1712,8 @@ $a \setminus i$   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 &
 \label{expmod46}
 \end{table}
 
-\vskip +10 pt
-$J(46)$ berechnet sich nach Satz~\ref{J_of_pq}: $J(46) = J(2*23) = 1*22 = 22$.
-Die Zahl $7$ ist eine Primitivwurzel\index{Primitivwurzel} von $46$, denn $ord_{46}(7) = 22 = J(46)$.
 
+\vskip +10 pt
 \begin{satz}\label{thm-zth-ordp}\footnote{%
     Für Primmoduli $p$ haben alle $a$ mit $0 < a < p$ die Ordnung $J(p) = p
     - 1$.  Vergleiche dazu Tabelle~\ref{expmod45}. In diesem Fall nimmt $a^i (\mbox{mod
@@ -3195,8 +3209,7 @@ i  & $11^i \bmod 347$ & \\
 \vskip +6 pt
 
 Weitere Details zu \hyperlink{AppArith3a2}{Primitivwurzeln\index{Primitivwurzel}}
-finden Sie im Anhang E.  %\ref{primitive-roots-with-sage}. xxxxxxxxxxxxprro
-
+finden Sie im Anhang zu diesem Kapitel.  %\ref{primitive-roots-with-sage}. xxxxxxxxxxxxprro
 }.
 \end{remark}
 
@@ -3331,7 +3344,7 @@ die Blocklänge 2 beträgt.\\
 \label{SrcArith4a}
 %Verschlüsselung aller 7 Teile jeweils per: $C \equiv M^{37}{\rm ~(mod~}$3713)\footnote{%
 \noindent Verschlüsselung aller 7 Teile jeweils per: $C \equiv M^{37}{\rm ~(mod~3713)}$\footnote{%
-In \hyperlink{AppArith4a}{Anhang E zu diesem Kapitel} finden Sie den 
+In \hyperlink{AppArith4a}{Anhang zu diesem Kapitel} finden Sie den 
 Beispiel-Quelltext zur RSA-Verschlüsselung mit Sage. \\
 Mit CrypTool\index{CrypTool} können Sie dies per Menü
 {\bf Einzelverfahren \textbackslash{} RSA-Kryptosystem \textbackslash{} RSA-Demo} lösen. 
@@ -3387,7 +3400,7 @@ ist angeregt durch das Beispiel aus \cite[S. 271]{nt:Eckert2003}.
 \vskip +10pt
 \noindent {\bf Schlüsselerzeugung (Schritt 1 bis 3):} \\\label{SrcArith4b}%
 {\bf 1.} $p=509,~q=503 \quad (n= 256.027; \; ~J(n)=(p-1)*(q-1)=255.016=2^3*127*251)$\footnote{%
-In \hyperlink{AppArith4b}{Anhang E zu diesem Kapitel} finden Sie den Quelltext zur Faktorisierung 
+In \hyperlink{AppArith4b}{Anhang zu diesem Kapitel} finden Sie den Quelltext zur Faktorisierung 
 von $J(n)$ mit Sage. \\
 Mit CrypTool\index{CrypTool} können Sie dies per Menü
 {\bf Einzelverfahren \textbackslash{} RSA-Kryptosystem \textbackslash{} Faktorisieren einer Zahl} lösen.
@@ -3436,7 +3449,7 @@ erhalten (genauso wie wenn man oben in der Dezimalschreibweise alle Zahlen
 
 \label{SrcArith4c}
 \noindent Verschlüsselung pro Zeichen per: $C \equiv M^{65.537}{\rm ~(mod~}256.027)$\footnote{%
-In \hyperlink{AppArith4c}{Anhang E zu diesem Kapitel} finden Sie den Quelltext zur RSA-Exponentiation mit Sage.
+In \hyperlink{AppArith4c}{Anhang zu diesem Kapitel} finden Sie den Quelltext zur RSA-Exponentiation mit Sage.
 }:
 
 {\tt
@@ -3493,7 +3506,7 @@ mit den folgenden Optionen lösen: alle $256$ Zeichen, b-adisch, Blocklänge 2, de
 
 \label{SrcArith4d}
 \noindent Verschlüsselung pro Block per: $C \equiv M^{65.537}{\rm ~(mod~}256027)$\footnote{%
-In \hyperlink{AppArith4d}{Anhang E zu diesem Kapitel} finden Sie den Quelltext zur RSA-Exponentiation mit Sage.
+In \hyperlink{AppArith4d}{Anhang zu diesem Kapitel} finden Sie den Quelltext zur RSA-Exponentiation mit Sage.
 }: \\
 {\tt 158721 137346 37358 240130 112898}
 
@@ -3516,7 +3529,7 @@ da die ASCII-Blöcke in Zahlen kleiner oder gleich $255.255$ kodiert werden.
 
 \label{SrcArith4e}
 \noindent Verschlüsselung pro Block per: $C \equiv M^{65537}{\rm ~(mod~}256.027)$\footnote{%
-In \hyperlink{AppArith4e}{Anhang E zu diesem Kapitel} finden Sie den Quelltext zur RSA-Exponentiation mit Sage.
+In \hyperlink{AppArith4e}{Anhang zu diesem Kapitel} finden Sie den Quelltext zur RSA-Exponentiation mit Sage.
 }: \\ 
 {\tt 198967 051405 254571 115318 014251}
 
@@ -4128,7 +4141,7 @@ sage: [power_mod(a, e, m) for e in exp]
 
 Die Ordnung $ord_m(a)$ einer Zahl $a$ in der multiplikativen Gruppe $Z_m^*$ ist
 die kleinste natürliche Zahl $i \ge 1$ für die gilt $a^i \equiv 1$ mod $m$
-(siehe Kapitel ``\nameref{MultOrdPrimitveRoot}'').
+(siehe Kapitel~\ref{MultOrdPrimitveRoot}, \glqq \nameref{MultOrdPrimitveRoot}\grqq).
 
 Um die Tabelle~\ref{expmod11} auf Seite~\pageref{SrcArith3a} zu berechnen,
 können wir alle Potenzen $a^i \pmod{11}$ wie folgt ausgeben:
@@ -4284,7 +4297,8 @@ sage: for a in xrange(1, 24):
 \subsection{Primitivwurzeln}
 \label{primitive-roots-with-sage}\index{Primitivwurzel}
 
-Das Berechnen von Primitivwurzeln (siehe Kapitel ``\nameref{MultOrdPrimitveRoot}'')
+Das Berechnen von Primitivwurzeln
+(siehe Kapitel~\ref{MultOrdPrimitveRoot}, \glqq \nameref{MultOrdPrimitveRoot}\grqq)
 geht in Sage sehr einfach: Sei \verb!n! eine natürliche Zahl, dann kann mit dem Befehl
 \verb!primitive_root(n)! eine Primitivwurzel der multiplikativen Gruppe
 $(\mathbf{Z} / n \mathbf{Z})^{\ast}$ berechnet werden, sofern eine existiert.
@@ -4400,7 +4414,7 @@ AA_Start -- Testcases for enum_PrimitiveRoots_of_an_Integer(M)
 \begin{sagecode}
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
-sage: L=enum_PrimitiveRoots_of_an_Integer(541)
+sage: L=enum_PrimitiveRoots_of_an_Integer(541); L
 {2, 517, 10, 523, 13, 14, 527, 528, 18, 531, 24, 539, 30, 37, 40, 51,
 54, 55, 59, 62, 65, 67, 68, 72, 73, 77, 83, 86, 87, 91, 94, 96, 98,
 99, 107, 113, 114, 116, 117, 126, 127, 128, 131, 132, 138, 150, 152,
@@ -4412,7 +4426,6 @@ sage: L=enum_PrimitiveRoots_of_an_Integer(541)
 409, 410, 413, 414, 415, 424, 425, 427, 428, 434, 442, 443, 445,
 447, 450, 454, 455, 458, 464, 468, 469, 473, 474, 476, 479, 482,
 486, 487, 490, 501, 504, 511}
-sage: L
 sage: len(L)
 144
 \end{Verbatim}
@@ -4959,7 +4972,6 @@ viel effizienter als das Durchprobieren aller möglichen Schlüssel.
 \section{Anhang: Liste der in diesem Kapitel formulierten Definitionen und Sätze}
 \label{l:NumberTheory_Appendix_F}{}  %\label{l:AppendixListAndDef}{}
 
-% \vskip +8 pt
 \begin{center}
 \begin{tabular}{|l|l|l|}\hline
  & Kurzbeschreibung~~ & Seite \\ \hline
@@ -4991,6 +5003,7 @@ Satz~\ref{thm-zth-ordp} & Ausschöpfung des Wertebereiches & \pageref{thm-zth-ord
 \end{tabular}
 \end{center}
 \vskip +6 pt
+
 
 
 

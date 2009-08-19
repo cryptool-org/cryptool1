@@ -1113,26 +1113,27 @@ e_8 = e_1 \cdot e_2 \cdots e_7 + 1 &    = 29,881\cdot 67,003 \cdot 9,119,521
 \end{array} 
 $$
 
-$e_9, \cdots, e_{17}$ are also composite, which means that this formula is not
+\noindent Also $e_9, \cdots, e_{17}$ are composite, which means that this formula is not
 particularly useful. 
 
-Remark: However, what is special about these numbers is that any pair of 
+\begin{remark}{:}\\
+However, what is special about these numbers is that any pair of 
 them does not have a common factor other than $1$\footnote{%
 This can easily be shown via the following {\em greatest common divisor} ($gcd$) rule $gcd(a,b) = gcd(b-\lfloor b/a \rfloor,a)$ (see page \pageref{NumberTheory_Appendix_GCD}):
 We have for $i<j$: \\
 $gcd(e_i,e_j) \le gcd(e_1 \cdots e_i \cdots e_{j-1}, e_j) = gcd(e_j - e_1 \cdots e_i \cdots e_{j-1}, e_1 \cdots e_i \cdots e_{j-1}) 
 = gcd(1, e_1 \cdots e_i \cdots e_{j-1}) = 1$.
-}. Therefore they are \index{Prime number!relative prime}\index{Relatively prime} {\em relatively prime}.
+}. Therefore they are \index{Prime number!relative prime}\index{Relatively prime}
+{\em relatively prime}.
+\end{remark}
 
 
 % --------------------------------------------------------------------------
-% \pagebreak %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vskip +10 pt
 \subsection{\texorpdfstring{$f(n) = n^2 + n + 41$}{f(n) = n\^{}2 + n + 41}}
 \label{L-Polynomfunktion01-41}
    This sequence starts off very {\em promisingly},  
    but is far from being a proof.
-
 $$
  \begin{array}{lll}
 f(0) = 41 & & \mapsto {\rm ~prime} \\
@@ -1165,8 +1166,6 @@ It is easy to see that $f(41)$ cannot be a prime number:
 
 
 % --------------------------------------------------------------------------
-\pagebreak %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   be_2005
-% \vskip +10 pt
 \subsection{\texorpdfstring{$f(n) = n^2 - 79 \cdot n + 1,601$}{f(n) = n\^{}2 - 79 ... n + 1,601}}
 \label{L-Polynomfunktion02-1601}   \label{SrcPrimArith1}
    This function\footnote{%
@@ -1183,6 +1182,7 @@ in chapter~\ref{L-Polynomfunktion01-41})\footnote{%
    $f(n) = n^2 - 9 \cdot n + 61$.\\
    Among the first 1000 sequence elements more than 50\% are prime
    (See \hyperlink{Primes_Appendix_A}{Appendix A of this chapter}).}.
+
 $$
 \begin{array}{|ll||ll|}
 \hline
@@ -1220,7 +1220,7 @@ $$
 
 
 % --------------------------------------------------------------------------
-\vskip +10 pt
+\vskip +20 pt
 \subsection[Polynomial functions 
     \texorpdfstring{$f(x) = a_n x^n + a_{n-1}x^{n-1} + \cdots + a_1 x^1 + a_0$}
                    {f(x) = a\_n x\^{}n + a\_n-1 x\^{}n-1 + ... + a\_1 x\^{}1 + a\_0}]
@@ -1251,7 +1251,7 @@ $=  1, 2, 5, 14, 42, 132, 429, 1430,
 4862, 16796, 58786, 208012, 742900, 2674440, 9694845, ... $
 are named.
     }
-\begin{sloppypar}
+\nopagebreak
 Catalan \index{Catalan Eugene}  \index{Number!Catalan}
 conjectured that $ C_4 \;$ is a prime:
 $$
@@ -1263,6 +1263,7 @@ C_3 = 2^{C_2} - 1, \\
 C_4 = 2^{C_3} - 1, \cdots \\
 \end{array}
 $$
+\begin{sloppypar}
 (see \url{http://www.utm.edu/research/primes/mersenne.shtml} under Conjectures and
 Unsolved Problems).
 \end{sloppypar}
@@ -2005,11 +2006,10 @@ at an early stage.
 \end{remark}
 
 
-\vskip +12pt Web links:\\
-{\href{http://www.math.Princeton.EDU/~arbooker/nthprime.html}
-      {http://www.math.Princeton.EDU/\~{}arbooker/nthprime.html}.} \\
-{\href{http://www.utm.edu/research/primes/notes/by_year.html}
-      {\tt http://www.utm.edu/research/primes/notes/by\_year.html}.}
+\vskip +12pt
+\noindent \textbf{Web links:}\\
+\url{http://www.math.Princeton.EDU/~arbooker/nthprime.html} \\
+\url{http://www.utm.edu/research/primes/notes/by_year.html}.
 
 
 

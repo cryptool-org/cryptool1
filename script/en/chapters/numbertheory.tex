@@ -368,14 +368,14 @@ What do the numbers $5, 12, 19, 26, \cdots$ have in common for division by $7$? 
 For division by $7$, only the following remainders are possible:
 $$r = 0, 1, 2, \cdots, 6.$$
 
-The numbers that result in the same remainder $r$ when divided by $7$ are combined to form
-the ``remainder 
-class $r$ modulo $7$''. Two numbers $a$ and $b$ ~\mbox{belonging} to the same remainder class modulo $7$ are said to 
+The numbers that result in the same remainder $r$ when divided by $7$ are combined
+to form the ``remainder class $r$ modulo $7$''. Two numbers $a$ and
+$b$ ~\mbox{belonging} to the same remainder class modulo $7$ are said to 
 be ``congruent modulo 7''. Or in general:
 
 \begin{definition}\label{def-zth-remainder} \index{Remainder class}
-The {\bf remainder class r modulo m} is the set of all whole numbers a that have the same remainder $r$ when 
-divided by $m$.
+The {\bf remainder class r modulo m} is the set of all whole numbers a that
+have the same remainder $r$ when divided by $m$.
 \end{definition}
 
 \newpage
@@ -432,18 +432,21 @@ The above equivalence does not apply to the sum $(a + b)$!
 \end{remark}
 
 \begin{example}{:}\\
-$11 \equiv 2$ (mod $3$), therefore $11 - 2 = 9 \equiv 0$ (mod $3$); but $11 + 2 = 13$ is not divisible by $3$.
+$11 \equiv 2$ (mod $3$), therefore $11 - 2 = 9 \equiv 0$ (mod $3$);
+but $11 + 2 = 13$ is not divisible by $3$.
 The statement in theorem~\ref{thm-zth-div} does not even apply to sums in one direction.
 It is correct for sums only if the remainder is 0 and only in the following direction:
 If a divisor divides both summands with no remainder, it also divides the sum with no remainder.
 \end{example}
 
-We can apply the above equivalence in theorem~\ref{thm-zth-div} if we need a quick and easy method of determining whether 
+We can apply the above equivalence in theorem~\ref{thm-zth-div} if we need a
+quick and easy method of determining whether 
 large numbers are divisible by a certain number.
 
 \begin{example}{:}
 Is $69,993$ divisible by $7$? \\
-The number can be written in the form of a difference in which it is clear that each operand is divisible by $7$: 
+The number can be written in the form of a difference in which it is clear that
+each operand is divisible by $7$: 
 $69,993 = 70,000 - 7$. Therefore, the difference is also divisible by $7$.
 \end{example}
 
@@ -738,7 +741,7 @@ also theorem~\ref{thm-zth-ordp} in \hyperlink{Chapter_ElementaryNT_9}
 {chapter~\ref{MultOrdPrimitveRoot}, Multiplicative order and primitive roots}.}.
 \end{theorem}
 \noindent The following three examples\footnote{%
-\noindent See \hyperlink{AppArith1}{Appendix E of this chapter} for the source
+\noindent See \hyperlink{AppArith1}{Appendix of this chapter} for the source
 code to compute the tables using Sage.}
 illustrate the properties of multiplicative inverses.
 
@@ -771,7 +774,8 @@ Between $i=1, \cdots, m$, all values between $0, \cdots, m-1$ occur for the rema
 also relatively prime\index{Relatively prime} to the modulus $m=17$.
 \enlargethispage{0.5cm}
 
-{\bf The multiplicative inverse of $5$ (mod $17$) is $7$, while the inverse of $6$ (mod $17$) is $3$.}
+\noindent {\bf The multiplicative inverse of $5$ (mod $17$) is $7$,
+while the inverse of $6$ (mod $17$) is $3$.}
 
 \begin{table}[ht]
 \begin{center}                                                                          
@@ -794,7 +798,8 @@ remainder                 & 6  & 12  & 5  & 11  & 4  & 10  & 3  & 9  & 2  & 8  &
 Between $i=1, \cdots, m$, all values between $0, \cdots, m-1$ occur for the remainders, because both $5$ and 
 $6$ are relatively prime to the modulus $m=13$.
 
-{\bf The multiplicative inverse of $5$ (mod $13$) is $8$, while the inverse of $6$ (mod $13$) is $11$.}
+\noindent {\bf The multiplicative inverse of $5$ (mod $13$) is $8$,
+while the inverse of $6$ (mod $13$) is $11$.}
 
 The following table~\ref{mulmod12} contains an example, where the modulus $m$ and the number $a=6$ are {\em not} relatively prime.
 
@@ -820,7 +825,8 @@ We have calculated $(5 * i)$ (mod $12$)  and  $(6*i)$ (mod $12$).
 Between $i=1, \cdots, m$, not all values between $0, \cdots, m-1$ occur and $6$ does not have an inverse mod $12$, 
 because $6$ and the modulus $m=12$ are not co-prime\index{Number!co-prime}.
 
-{\bf The multiplicative inverse of $5$ (mod $12$) is $5$. The number $6$ has no inverse (mod $12$).}
+\noindent {\bf The multiplicative inverse of $5$ (mod $12$) is $5$.
+The number $6$ has no inverse (mod $12$).}
 
 
 
@@ -933,7 +939,7 @@ and the squares (mod $103$) can be calculated beforehand
 87^{32} & \equiv & 55^2 \equiv 38 {\rm ~(mod~}103).
 \end{eqnarray*}
 We have\footnote{%
-See \hyperlink{AppArith2}{Appendix E of this chapter} for source code
+See \hyperlink{AppArith2}{Appendix of this chapter} for source code
 implementing the square and multiply method in Sage, which can be used
 to reproduce the calculations above.}:
 \label{SrcArith2}
@@ -1123,12 +1129,8 @@ cryptography (see section~\ref{rsabeweis}).
 
 
 
-
-
-
-%\newpage
+% --------------------------------------------------------------------------
 \pagebreak
-
 \begin{center}
 \fbox{\parbox{15cm}{{\em Eric Berne\footnotemark:\index{Berne, Eric}}\newline
 Mathematical game theory postulates players who respond rationally.
@@ -1189,7 +1191,8 @@ $$J(p*q) = (p - 1) * (q - 1) \quad  {\rm or} \quad  J(p * q) = J(p) * J(q).$$
 \noindent This case is important for the RSA procedure.
 
 \begin{theorem}\label{thm-zth-phimultprime}\label{J_of_p1..pk}
-If $n = p_1 * p_2 * \cdots * p_k$ where $p_1$ to $p_k$ are distinct prime numbers (i.e. no factor occurs more than once), 
+If $n = p_1 * p_2 * \cdots * p_k$ where $p_1$ to $p_k$ are distinct prime numbers
+(i.e. no factor occurs more than once), 
 then the following is true (as a generalization of theorem~\ref{thm-zth-phipq}):
 $$J(n) = (p_1 - 1)*(p_2 - 1)* \cdots *(p_k - 1).$$
 \end{theorem}
@@ -1207,8 +1210,12 @@ $$
 \end{enumerate}
 \end{theorem}
 
+
+\pagebreak  % Oder \newpage oder \vskip +40pt 
 \begin{example}{:}
+% \nopagebreak dazwischen nützte nichts --> vskip !!
 \begin{itemize}
+%\nopagebreak Nützte nichts !!
 \item  $n=70=2*5*7 \Longrightarrow $ using theorem~\ref{J_of_p1..pk}: $ J(n)= 1\cdot 4 \cdot 6 =24.$
 \item  $n=9=3^2 \Longrightarrow$ using theorem~\ref{J_of_n}: $ J(n)= 3^1\cdot 2 =6,$ because  $\mathbb{Z}_9^* =\{ 1,2,4,5,7,8\}.$
 \item $n = 2,701,125 = 3^2 * 5^3 * 7^4 \Longrightarrow $ using theorem~\ref{J_of_n}: 
@@ -1378,7 +1385,7 @@ $10$ and we notice that:
 
 \begin{example}{ 1:}\\
 The following table~\ref{expmod11}\footnote{%
-See \hyperlink{AppArith3a1}{Appendix E of this chapter} for the source
+See \hyperlink{AppArith3a1}{Appendix of this chapter} for the source
 code to generate the table using Sage.} 
 shows the values $a^i$ mod $11$ for the exponents $i = 1, 2, \cdots, 10$ and for the bases 
 $a =  1, 2, \cdots, 10$ as well as the resulting value $ord_{11}(a)$ for each $a$/
@@ -1434,7 +1441,7 @@ modulo $45$ and modulo $46$.
 
 \begin{example}{ 2:}\\
 The following table~\ref{expmod45}\footnote{%
-See \hyperlink{AppArith3b}{Appendix E of this chapter} for the source
+See \hyperlink{AppArith3b}{Appendix of this chapter} for the source
 code to generate the table using Sage.} shows the values $a^i$ mod $45$ for the exponents $i = 1, 2, \cdots, 12$ and for the bases 
 $a =  1, 2, \cdots, 12$ as well as the resulting value $ord_{45}(a)$ for each $a$.
 \end{example}
@@ -1484,16 +1491,18 @@ relatively prime to $45: 3, 5, 6, 9, 10, 12, \cdots,$ because $45 = 3^2*5$).
 \begin{example}{ 3:}\\
 Is $7$ a primitive root modulo $45$?
 
-\noindent The requirement/condition $gcd(7,45)=1$ is fulfilled.
-The table 'values of $a^{i}$ mod $45$' shows that the number $7$ is not a primitive root of $45$, because $ord_{45}(7) = 12 \not= 24 = J(45)$.
+\noindent The necessary, but not sufficient requirement/condition $gcd(7,45)=1$ is fulfilled.
+Table~\ref{expmod45} shows that the number $a=7$ is not a primitive root of $45$, because $ord_{45}(7) = 12 \not= 24 = J(45)$.
 \end{example}
 
 \begin{example}{ 4:}\\
 The following table~\ref{modexp46}\footnote{%
-See \hyperlink{AppArith3c}{Appendix E of this chapter} for the source
+See \hyperlink{AppArith3c}{Appendix of this chapter} for the source
 code to generate the table using Sage.} answers the question as to
-whether the number $7$ is a primitive root of $46$. 
-The requirement/condition $gcd(7,46)=1$ is fulfilled.
+whether the number $a=7$ is a primitive root of $46$. 
+The  necessary, but not sufficient requirement/condition $gcd(7,46)=1$ is fulfilled.\\
+$J(46)$ is calculated using theorem~\ref{thm-zth-phipq}: $J(46) = J(2*23) = 1*22 = 22$.
+The number $7$ is a primitive root of $46$,  because $ord_{46}(7) = 2 = J(46)$.
 \end{example}
 
 \begin{table}[ht]
@@ -1554,13 +1563,12 @@ $a \setminus i$   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 &
 \end{center}
 }
 \caption{Values of $a^i{\rm ~mod~}46, 1\leq a,i<23$}
-\label{SrcArith3c}\label{modexp46}
+\label{SrcArith3c}
+\label{modexp46}
 \end{table}
 
 
-$J(46)$ is calculated using theorem~\ref{thm-zth-phipq}: $J(46) = J(2*23) = 1*22 = 22$.
-The number $7$ is a primitive root of $46$,  because $ord_{46}(7) = 2 = J(46)$.
-
+\vskip +10 pt
 \begin{theorem}\label{thm-zth-ordp}\footnote{%
     For prime moduli $p$ all $a$ with $0 < a < p$ are of order $J(p) = p - 1$.
     Compare table~\ref{expmod45} for an example. In this case $a^i (\mbox{mod }n)$ goes
@@ -2955,9 +2963,8 @@ i  & $11^i \bmod 347$ & \\
 \vskip +6 pt
 
 Further information concerning \hyperlink{AppArith3a2}{primitive roots\index{Primitive root}}
-can be found in appendix E of this chapter. %\ref{primitive-roots-with-sage}. xxxxxprro
-% appendix E eigentlichnicht gut, aber~\ref{primitive-roots-with-sage}. liefert 4.13.5!  xxxxxprro
-
+can be found in the appendix of this chapter. %\ref{primitive-roots-with-sage}. xxxxxprro
+% appendix E eigentlich nicht gut, aber~\ref{primitive-roots-with-sage}. liefert 4.13.5!  xxxxxprro
 } is extremely difficult to solve.
 \end{remark}
 
@@ -3079,7 +3086,7 @@ to compute $d = 97$ using the {\em extended} gcd algorithm is shown in appendix~
 
 \label{SrcArith4a}
 \noindent All 7 parts are encrypted using: $C \equiv M^{37}{\rm ~(mod~}3713)$\footnote{%
-See \hyperlink{AppArith4a}{Appendix E of this chapter} for source code
+See \hyperlink{AppArith4a}{Appendix of this chapter} for source code
 to do RSA encryption using Sage. \\
 You can also encrypt the message with CrypTool\index{CrypTool} via the menu path 
 {\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} RSA Demonstration}.}: \\
@@ -3123,7 +3130,7 @@ is taken from the example in \cite[p. 271]{nt:Eckert2003}\index{Eckert 2003}.
 \par
 \noindent {\bf Key generation (steps 1 to 3)}: \label{SrcArith4b} \\
 {\bf 1.} $p=503,~q=509 \quad (n= 256,027; \; J(n)=(p-1)(q-1)=255,016=2^3*127*251)$\footnote{%
-See \hyperlink{AppArith4b}{Appendix E of this chapter} for the source
+See \hyperlink{AppArith4b}{Appendix of this chapter} for the source
 code to factorize the number $J(n)$ using Sage.
 Using CrypTool\index{CrypTool} you can solve this with the 
 {\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} 
@@ -3165,7 +3172,7 @@ digits in decimal notation above and were then to obtain the sequence
 
 \label{SrcArith4c}
 \noindent Each character is encrypted using: $C = M^{65,537} {\rm ~(mod~} 256,027)$\footnote{%
-See \hyperlink{AppArith4c}{Appendix E of this chapter} for the source
+See \hyperlink{AppArith4c}{Appendix of this chapter} for the source
 code for RSA exponentiation using Sage.
 }: \\
 {\tt
@@ -3219,7 +3226,7 @@ with the following options: all 256 ASCII characters, b-adic, block length\index
 
 \label{SrcArith4d}
 \noindent Each block is encrypted using: $C \equiv M^{65,537}{\rm ~(mod~}256,027)$\footnote{%
-See \hyperlink{AppArith4d}{Appendix E of this chapter} for the source
+See \hyperlink{AppArith4d}{Appendix of this chapter} for the source
 code for RSA exponentiation using Sage.
 }: \\
 {\tt 158721 137346 37358 240130 112898}
@@ -3244,7 +3251,7 @@ the number $255,255$.  }
 
 \label{SrcArith4e}
 \noindent Each block is encrypted using: $C \equiv M^{65,537}{\rm ~(mod~}256,027)$\footnote{%
-See \hyperlink{AppArith4e}{Appendix E of this chapter} for the source
+See \hyperlink{AppArith4e}{Appendix of this chapter} for the source
 code for RSA exponentiation using Sage.
 }: \\
 {\tt 198967 051405 254571 115318 014251}
@@ -3831,8 +3838,8 @@ sage: [power_mod(a, e, m) for e in exp]
 
 The order $\text{ord}_m(a)$ of a number $a$ in the multiplicative
 group $\mathbf{Z}_m^{\ast}$ is the smallest number $i \geq 1$ such that
-$a^i \equiv 1 \pmod{m}$ holds (see chapter ``\nameref{MultOrdPrimitveRoot}'').
-
+$a^i \equiv 1 \pmod{m}$ holds
+(see chapter~\ref{MultOrdPrimitveRoot}, ``\nameref{MultOrdPrimitveRoot}'').
 To create table~\ref{expmod11} on page~\pageref{SrcArith3a} we can print
 all exponentiation $a^i \pmod{11}$ as follows:
 
@@ -3984,7 +3991,8 @@ sage: for a in xrange(1, 24):
 \subsection{Primitive roots}
 \label{primitive-roots-with-sage}\index{Primitive root}
 
-Computing a primitive root (see chapter ``\nameref{MultOrdPrimitveRoot}'')
+Computing a primitive root (see chapter~\ref{MultOrdPrimitveRoot},
+``\nameref{MultOrdPrimitveRoot}'')
 in Sage is very straightforward. If \verb!n! is an integer, the command
 \verb!primitive_root(n)! computes a primitive root of the multiplicative group
 $(\mathbf{Z} / n \mathbf{Z})^{\ast}$, if one exists.
@@ -4274,7 +4282,7 @@ CC_Start -- Testcases for count_PrimitiveRoots_of_a_PrimesRange(start, end)
 Found all 62044 primitive roots of 239 primes.
 Time: CPU 7.55 s, Wall: 7.85 s
 \end{Verbatim}
-\caption{Function ``count\_PrimitiveRoots\_of\_a\_PrimesRange'' to calculate primitive roots for a given range of primes}
+\caption{Function ``count\_PrimitiveRoots\_of\_a\_PrimesRange'' to calculate all primitive roots for a given range of primes}
 \end{sagecode}
 
 
@@ -4647,7 +4655,6 @@ is much more efficient as brute-force trying all the keys.
 \section{Appendix: List of the definitions and theorems formulated in this chapter}
 \label{l:NumberTheory_Appendix_F}{}  %\label{l:AppendixListAndDef}{}
 
-% \vskip +8 pt
 \begin{center}
 \begin{tabular}{|l|l|l|}\hline
  & Short description ~~ & Page \\ \hline

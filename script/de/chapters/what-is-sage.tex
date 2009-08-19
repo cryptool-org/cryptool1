@@ -265,7 +265,7 @@ Weitere Unterstützung für spezifische Probleme gibt es in den Archiven der
 \section*{Beispiele für in Sage eingebaute mathematische Funktionen}
 
 Hier sind ein paar kleine Beispiele\footnote{%
-Diese Beispiele stammen aus dem Blog von Prof. Alasdair McAndrew, Victoria University,\\
+Diese Beispiele stammen aus dem Blog von Dr. Alasdair McAndrew, Victoria University,\\
 \url{http://amca01.wordpress.com/2008/12/19/sage-an-open-source-mathematics-software-system}}
 (alle für das Kommandozeilen-Interface -- zur einfacheren Nutzung), um zu sehen,
 was man mit Sage machen kann:
@@ -349,9 +349,9 @@ Kapitel \ref{PaP_Sage_samples} (\glqq \nameref{PaP_Sage_samples}\grqq) und in
 Kapitel \ref{NumberTheory_Appendix_E} (\glqq\nameref{NumberTheory_Appendix_E}\grqq) angewandt.
 
 \noindent Um Sage-Code in einem eigenen Editor zu entwickeln und zu testen, gibt es zwei
-nützliche Befehle: load() und attach()\footnote{%
+nützliche Befehle: \verb!load()! und \verb!attach()!\footnote{%
 Vergleiche das Sage-Tutorial über Programmierung, Kapitel
-\glqq Loading and Attaching SAGE files\grqq,\\
+\glqq Loading and Attaching Sage files\grqq,\\
 \url{http://www.sagemath.org/doc/tutorial/programming.html\#loading-and-attaching-sage-files}.}.\\
 Angenommen Sie haben die folgende Funktions-Definition:
 \begin{Verbatim}%
@@ -366,7 +366,7 @@ Angenommen Sie haben die folgende Funktions-Definition:
 \noindent die in der Datei \texttt{primroots.sage} gespeichert wurde.
 
 \noindent Um diese Funktion zu laden (und syntaktisch gleich zu testen),
-wird der Befehl load() benutzt:
+wird der Befehl \verb!load()! benutzt:
 
 \texttt{sage: load primroots.sage}
 
@@ -390,8 +390,8 @@ mit \glqq print\grqq~erfolgen müssen.}.
 
 Normalerweise editiert man ein eigenes Sage-Skript wieder und möchte dann den
 Inhalt des geänderten Skripts wieder in Sage laden. Dafür kann man den Befehl
-attach() nutzen. In unserem obigen Beispiel sieht das auf der Sage-Kommandozeile
-folgendermaßen aus (man kann auch direkt nach dem load() das attach() aufrufen, und
+\verb!attach()! nutzen. In unserem obigen Beispiel sieht das auf der Sage-Kommandozeile
+folgendermaßen aus (man kann auch direkt nach dem \verb!load()! das \verb!attach()! aufrufen, und
 nicht erst, wenn man das Skript ändert):
 
 \texttt{sage: attach primroots.sage}
