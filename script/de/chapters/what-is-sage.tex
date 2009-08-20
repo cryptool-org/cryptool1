@@ -49,11 +49,17 @@ das \glqq Dokumentationsprojekt\grqq und das \glqq Lehrmaterial\grqq\footnote{%
 
 \noindent Auch beim Studium der Kryptologie können fertige Sage-Module genutzt
 werden\footnote{%
-- Sourcen der Module im Verzeichnis \url{SAGE_ROOT/devel/sage-main/sage/crypto}.\\
-- Überblick, welche Kryptographie momentan in Sage enthalten ist:\\
-~ ~ \url{http://www.sagemath.org/doc/reference/sage/crypto/}\\
-- Diskussionen über Lernaspekte beim Entwickeln weiterer Krypto-Module in Sage:\\
-~ ~ \url{http://groups.google.com/group/sage-devel/browse_thread/thread/c5572c4d8d42d081}
+- Sourcen der Module im Verzeichnis \url{SAGE_ROOT/devel/sage-main/sage/crypto}.
+
+\noindent\hangindent=6pt\makebox[6pt][l]{-}Überblick,
+   welche Kryptographie momentan in Sage enthalten ist:\\
+   \url{http://www.sagemath.org/doc/reference/sage/crypto/}
+
+\noindent\hangindent=6pt\makebox[6pt][l]{-}Diskussionen
+   über Lernaspekte beim Entwickeln weiterer Krypto-Module in Sage:\\
+   \url{http://groups.google.com/group/sage-devel/browse_thread/thread/c5572c4d8d42d081}
+   % Leerzeile am Ende nötig, sonst hat die zweite Zeile KEINEN hängenden Einzug?! (TODO)
+
 }.
 
 \noindent Ein fertiger Kryptographie-Kurs von David Kohel, der Sage nutzt,
@@ -372,21 +378,28 @@ wird der Befehl \verb!load()! benutzt:
 
 \noindent Danach kann man auf der Kommandzeile alles benutzen, was im
 Sage-Skript definiert wurde\footnote{%
-Anmerkungen:\\
-- Bitte keine Leerzeichen oder White Spaces im Dateinamen.\\
-- Es empfiehlt sich, der Sage-Skriptdatei die Datei-Extension
+Anmerkungen:
+
+\noindent\hangindent=6pt\makebox[6pt][l]{-}Bitte keine Leerzeichen
+oder White Spaces im Dateinamen.
+
+\noindent\hangindent=6pt\makebox[6pt][l]{-}Es empfiehlt sich,
+der Sage-Skriptdatei die Datei-Extension
 \glqq .sage\grqq~statt \glqq .py\grqq~zu geben.
 Hat ein Sage-Skript die Dateinamens-Endung \glqq .sage\grqq, dann wird
 beim Laden der Datei in Sage auch gleich die normale Sage-Umgebung mit geladen,
 um die Syntax zu prüfen. Genauso funktioniert es, wenn man ein Sage-Skript direkt
 von einer Bash-Shell aufruft mit~~\texttt{\$ sage primroots.sage}.
 
-Beim Laden des obigen Sage-Skripts wird es von Sage zuerst geparst, und dann
+\noindent\hangindent=6pt\makebox[6pt][l]{-}Beim Laden des obigen
+Sage-Skripts wird es von Sage zuerst geparst, und dann
 in eine andere Datei namens \glqq primroots.py\grqq~kopiert. Sage ergänzt
 dann alle notwendigen Variablen in \glqq primroots.py\grqq~und alle Import-Statements.
 Somit wird das Sage-Skript genauso ausgeführt, als hätte man die Befehle einzeln
 auf der Kommandozeile eingetippt. Ein Unterschied mag sein, dass Ausgaben explizit
-mit \glqq print\grqq~erfolgen müssen.}.
+mit \glqq print\grqq~erfolgen müssen.
+
+}.
 
 Normalerweise editiert man ein eigenes Sage-Skript wieder und möchte dann den
 Inhalt des geänderten Skripts wieder in Sage laden. Dafür kann man den Befehl
@@ -404,7 +417,7 @@ genannte Datei auf Änderungen überwachen. Damit spart man sich das Kopieren
 und Pasten zwischen dem eigenen Texteditor und dem Sage-Kommandozeilen-Interface.
 
 Hier ist ein Bild, das Sage-Code im Editor GVIM zeigt -- mit aktiviertem
-Syntax-Highlighting ~(siehe Bild~\ref{fig:sage-highlighted-code-in-editor}).
+Syntax-Highlighting (siehe Bild~\ref{fig:sage-highlighted-code-in-editor}).
 %
 \begin{figure}[!htpb]
 \centering
@@ -415,12 +428,14 @@ Syntax-Highlighting ~(siehe Bild~\ref{fig:sage-highlighted-code-in-editor}).
 
 
 \vspace{30pt}
-\noindent Eine Versionsabfrage der aktuellen Sage-Umgebung kann man durchführen mit:
-\texttt{version()}
-
-
-\noindent Um sich schnell die Sage-Programmbeispiele in diesem Skript anzusehen, können Sie\\
-- im Index nach \verb#Sage -> Programmbeispiele# schauen, oder\\
-- sich im Anhang das \glqq \nameref{sc:List-of-Sage-Code-Examples}\grqq~ansehen.
+\noindent Weitere Hinweise:
+\begin{itemize}
+  \item Abfrage der Version Ihrer Sage-Umgebung mit: \texttt{version()}
+  \item Um sich schnell die Sage-Programmbeispiele in diesem Skript anzusehen, können Sie
+  \begin{itemize}
+    \item im Index nach \verb#Sage -> Programmbeispiele# schauen, oder 
+    \item sich im Anhang das \glqq \nameref{sc:List-of-Sage-Code-Examples}\grqq~ansehen.
+  \end{itemize}
+\end{itemize}
 
 

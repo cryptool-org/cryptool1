@@ -53,7 +53,7 @@ mit Zahlen betont) wurde von Carl Friedrich Gauss\footnote{%
 als besondere mathematische Disziplin begründet. Zu ihren elementaren
 Gegenständen gehören: größter gemeinsamer Teiler\footnote{%
 Auf ggT\index{ggT}, englisch gcd (greatest common divisor), geht dieser
-Artikel in Anhang~\ref{NumberTheory_Appendix_GCD} ein.
+Artikel in Anhang~\ref{nt:NumberTheory_Appendix_GCD} ein.
 } (ggT), Kongruenzen (Restklassen), Faktorisierung, Satz von Euler-Fermat und
 primitive Wurzeln. Kernbegriff sind jedoch die Primzahlen und ihre
 multiplikative Verknüpfung.
@@ -497,11 +497,12 @@ Aus Sätzen der Algebra folgt, dass wesentliche Teile der üblichen
 Rechenregeln beim Übergang zum modularen Rechnen über der Grundmenge $\mathbb{Z}$
 erhalten bleiben: Die Addition ist nach wie vor kommutativ. Gleiches gilt für die
 Multiplikation modulo $m$. Das Ergebnis einer Division\footnote{%
-\label{ftn-res-divmodn}
 Die Division modulo $m$\index{Division modulo $n$}
 ist nur für Zahlen, die teilerfremd\index{Zahlen!teilerfremd (co-prime)}
 zu $m$ sind, definiert, da andere Zahlen die gleiche Eigenschaft wie Null haben.
 Vergleiche Fußsnote~\ref{ftn-mod6} in Kapitel~\ref{addmult}.
+\label{ftn-res-divmodn}
+\label{ftn-zth-divmodn}
 } ist kein Bruch, sondern eine ganze Zahl zwischen $0$ und $m-1$.
 
 \noindent Es gelten die bekannten Gesetze:
@@ -532,8 +533,10 @@ Assoziativgesetz und Kommutativgesetz gelten sowohl für die Addition als auch fü
     Für jedes $a$ ($a \not\equiv 0 {\rm ~(mod~ } p$) ) und $p$ prim gibt es eine ganze Zahl $a^{-1}$, so dass gilt: \\
     $(a * a^{-1}) {\rm ~(mod~ } p) \equiv 1 {\rm ~(mod~}p)$ \quad (multiplikative Inverse). \index{Inverse!multiplikative}
 \item[\bf 7.] \index{Abgeschlossenheit} {\bf Abgeschlossenheit:}\footnote{%
-\label{ftn-closed}Diese Eigenschaft wird innerhalb einer Menge immer bezüglich einer Operation definiert. 
-Siehe \hyperlink{NumberTheory_Appendix_B}{Anhang B zu diesem Kapitel}.
+\label{ftn-closed}Diese Eigenschaft wird innerhalb einer Menge immer bezüglich
+     einer Operation definiert.
+     Siehe Kapitel~\ref{nt:NumberTheory_Appendix_B} ``\nameref{nt:NumberTheory_Appendix_B}''.
+     %%% Siehe \hyperlink{nt:NumberTheory_Appendix_B}{Anhang B zu diesem Kapitel}.
 } \\
 $a, b \in G  \Longrightarrow  ( a + b ) \in G.$ \\
 $a, b \in G  \Longrightarrow  ( a * b ) \in G.$
@@ -599,10 +602,12 @@ etwa $2*4 \equiv 8 \equiv 3 {\rm ~(mod~ } 5)$, da $3$ der Rest ist, wenn man $8$
 Im folgenden werden 
 \begin{itemize}
 \item die Additionstabelle\footnote{%
-Bemerkung zur Subtraktion modulo 5: \\
+      Bemerkung zur Subtraktion modulo 5: \\
       $2 - 4 = -2 \equiv 3{\rm ~mod~}5.$\\
-      Es gilt modulo $5$ also nicht, dass $-2 = 2$ (siehe auch \hyperlink{NumberTheory_Appendix_C}{Anhang C zu diesem Kapitel}). 
-      } für ${\rm mod~ } 5$ (Tabelle~\ref{addmod5}) und
+      Es gilt modulo $5$ also nicht, dass $-2 = 2$
+      (siehe Kapitel~\ref{nt:NumberTheory_Appendix_C} ``\nameref{nt:NumberTheory_Appendix_C}'').
+      }
+für ${\rm mod~ } 5$ (Tabelle~\ref{addmod5}) und
 \item die Multiplikationstabellen\footnote{\label{ftn-mod6}%
 Bemerkung zur Division modulo 6:\index{Division modulo $n$}
 
@@ -781,7 +786,7 @@ werden z.B. in \cite{nt:Knuth1998} \index{Euklidscher Algorithmus!erweiterter}
 beschrieben\footnote{%
 Mit dem erweiterten Satz von Euklid \index{ggT}(erweiterter ggT) kann man die
 multiplikative Inverse berechnen und die Invertierbarkeit bestimmen
-(siehe Anhang~\ref{NumberTheory_GCD}).
+(siehe Anhang~\ref{nt:NumberTheory_Appendix_GCD}).
 Alternativ kann auch die Primitivwurzel\index{Primitivwurzel} genutzt werden. 
 }.
 
@@ -803,9 +808,10 @@ Primitivwurzel\index{Primitivwurzel}}.
 
 
 Die folgenden drei Beispiele\footnote{%
-In \hyperlink{AppArith1}{Anhang zu diesem Kapitel} finden Sie den Quellcode
-zur Berechnung der Tabellen mit Sage.\index{Sage}
-} veranschaulichen Eigenschaften der multiplikativen Inversen (hier sind nicht
+  In Kapitel~\ref{nt:AppArith1} ``\nameref{nt:AppArith1}''
+  finden Sie den Quellcode zur Berechnung der Tabellen mit Sage.\index{Sage}
+}
+veranschaulichen Eigenschaften der multiplikativen Inversen (hier sind nicht
 mehr die vollständigen Multiplikationstabellen angegeben, sondern nur die Zeilen
 für die Faktoren $5$ und $6$).
 
@@ -1020,9 +1026,11 @@ die Quadrate (mod $103$) vorab berechnet werden können
 87^{32} & \equiv & 55^2 \equiv 38 {\rm ~(mod~}103),
 \end{eqnarray*}
 gilt\footnote{%
-In \hyperlink{AppArith2}{Appendix D} finden Sie den Beispielcode
-zum Nachrechnen der Square-and-Multiply Methode mit Sage.
-}: \label{SrcArith2}
+  In Kapitel~\ref{nt:AppArith2} ``\nameref{nt:AppArith2}''
+  finden Sie den Beispielcode
+  zum Nachrechnen der Square-and-Multiply Methode mit Sage.
+}:
+\label{SrcArith2}
 \begin{eqnarray*}
 87^{43} & \equiv & 87^{32+8+2+1}{\rm ~(mod~}103) \nonumber \\
         & \equiv & 87^{32} * 87^8 * 87^2 * 87 {\rm ~(mod~}103) \nonumber \\ 
@@ -1077,8 +1085,9 @@ mit einer Konstanten $C > 1$.
 Ähnliches gilt, wenn $b$ die Unbekannte ist und die Zahlen $a$ und $c$ bekannt sind. \\
 Wenn die Eulerfunktion \index{Eulersche Phi-Funktion} $J(m)$ bekannt ist,
 findet man leicht\footnote{%
-Siehe Anhang~\ref{NumberTheory_Appendix_GCD}: der größte gemeinsame Teiler (ggT) von ganzen Zahlen.
-} $d$ mit $c*d \equiv 1 {\rm ~(mod~} J(m))$ und erhält mit Satz~\ref{thm-zth-pot} 
+  Siehe Kapitel~\ref{nt:NumberTheory_Appendix_GCD} ``\nameref{nt:NumberTheory_Appendix_GCD}''.
+}\index{ggT}
+$d$ mit $c*d \equiv 1 {\rm ~(mod~} J(m))$ und erhält mit Satz~\ref{thm-zth-pot} 
 $$
    a^d \equiv (b^c)^d \equiv b^{c*d} \equiv b^{c*d~(mod~J(m))} \equiv b^1 \equiv b {\rm ~(mod~} m)
 $$
@@ -1509,8 +1518,8 @@ haben: Die Ordnungen sind $1, 2, 5$ und $10$. Dabei bemerkt man:
 
 \begin{example}{ 1:}\\
 Die folgende Tabelle~\ref{expmod11}\footnote{%
-In \hyperlink{AppArith3a1}{Anhang zu diesem Kapitel} finden Sie den Quelltext
-zur Bestimmung der Tabelle mit Sage.
+  In Kapitel~\ref{nt:AppArith3a1} ``\nameref{nt:AppArith3a1}''
+  finden Sie den Quelltext zur Bestimmung der Tabelle mit Sage.
 } zeigt die Werte $a^i{\rm ~mod~}11$ für die Exponenten $i = 1, 2, \cdots, 10$ und für 
 die Basen $a = 1, 2, \cdots, 10$ sowie den sich für jedes a daraus ergebenden Wert $ord_{11}(a)$:
 \end{example}
@@ -1570,8 +1579,8 @@ Primitivwurzel\index{Primitivwurzel} modulo $45$ und modulo $46$.
 
 \begin{example}{ 2:}\\
 Die folgende Tabelle~\ref{expmod45}\footnote{%
-In \hyperlink{AppArith3b}{Anhang zu diesem Kapitel} finden Sie den Quelltext
-zur Berechnung der Tabelle mit Sage.
+  In Kapitel~\ref{nt:AppArith3b} ``\nameref{nt:AppArith3b}''
+  finden Sie den Quelltext zur Berechnung der Tabelle mit Sage.
 }
 zeigt die Werte $a^i{\rm ~mod~}45$ für die Exponenten $i = 1, 2, \cdots, 12$
 und für die Basen $a = 1, 2, \cdots, 12$ sowie den sich für jedes $a$ daraus
@@ -1639,8 +1648,8 @@ denn $ord_{45}(7) = 12 \not= 24 = J(45)$.\vskip + 1em
 \newpage
 \begin{example}{ 4:}\\
 Die folgende Tabelle~\ref{expmod46}\footnote{%
-In \hyperlink{AppArith3c}{Anhang zu diesem Kapitel} finden Sie den
-Quelltext zur Berechnung der Tabelle mit Sage.
+  In Kapitel~\ref{nt:AppArith3c} ``\nameref{nt:AppArith3c}''
+  finden Sie den Quelltext zur Berechnung der Tabelle mit Sage.
 } beantwortet die Frage, ob die Zahl $a=7$ eine Primitivwurzel\index{Primitivwurzel} von $46$ ist.
 Die notwendige, aber nicht hinreichende Voraussetzung/Bedingung ggT$(7,46)=1$ ist erfüllt.\\
 $J(46)$ berechnet sich nach Satz~\ref{J_of_pq}: $J(46) = J(2*23) = 1*22 = 22$.
@@ -3159,7 +3168,7 @@ der die Gleichung $11^x \equiv 49 {\rm ~(mod~}347)$ löst, folgendermaßen bestimm
 \texttt{discrete\_log(mod(49, 347), mod(11, 347))}. Als Ergebnis erhält man $67$.\\
 Solche zahlentheoretischen Aufgaben können auch mit anderen Tools wie PariGP\index{Pari-GP},
 LiDIA\index{LiDIA}, BC\index{BC} oder Mathematica\index{Mathematica}
-(siehe Anhang Web-Links) gelöst werden:\\
+(siehe Anhang Web-Links am Ende dieses Kapitel) gelöst werden:\\
 können solche zahlentheoretischen Aufgaben gelöst werden.
 - Pari-GP: \texttt{znlog(Mod(49,347),Mod(11,347))}.\\
 - LiDIA:   \texttt{dl(11,49,347)}.\\
@@ -3208,8 +3217,8 @@ i  & $11^i \bmod 347$ & \\
 \end{tabular}
 \vskip +6 pt
 
-Weitere Details zu \hyperlink{AppArith3a2}{Primitivwurzeln\index{Primitivwurzel}}
-finden Sie im Anhang zu diesem Kapitel.  %\ref{primitive-roots-with-sage}. xxxxxxxxxxxxprro
+\noindent Weitere Details finden Sie
+in Kapitel~\ref{nt:AppArith3a2} ``\nameref{nt:AppArith3a2}''.
 }.
 \end{remark}
 
@@ -3325,7 +3334,8 @@ L       & 12   & Y    & 25 \\
                 zu $3588$ sein). \\
 {\bf 3.} $d=97$ (denn $e*d=1{\rm ~mod~}J(n); 37*97 \equiv 3589 
 \equiv 1{\rm ~(mod~}3588) \;$)\footnote{%
-Wie man $d = 97$ mit Hilfe des erweiterten ggT berechnet, wird in Anhang~\ref{NumberTheory_Appendix_GCD} gezeigt.
+  Wie man $d = 97$ mit Hilfe des erweiterten ggT berechnet, wird in
+  Anhang~\ref{nt:NumberTheory_Appendix_GCD} gezeigt.
 }.
 
 \noindent {\bf 4. Verschlüsselung:} \\ 
@@ -3344,10 +3354,10 @@ die Blocklänge 2 beträgt.\\
 \label{SrcArith4a}
 %Verschlüsselung aller 7 Teile jeweils per: $C \equiv M^{37}{\rm ~(mod~}$3713)\footnote{%
 \noindent Verschlüsselung aller 7 Teile jeweils per: $C \equiv M^{37}{\rm ~(mod~3713)}$\footnote{%
-In \hyperlink{AppArith4a}{Anhang zu diesem Kapitel} finden Sie den 
-Beispiel-Quelltext zur RSA-Verschlüsselung mit Sage. \\
-Mit CrypTool\index{CrypTool} können Sie dies per Menü
-{\bf Einzelverfahren \textbackslash{} RSA-Kryptosystem \textbackslash{} RSA-Demo} lösen. 
+  In Kapitel~\ref{nt:AppArith4a} ``\nameref{nt:AppArith4a}''
+  finden Sie den Beispiel-Quelltext zur RSA-Verschlüsselung mit Sage. \\
+  Mit CrypTool\index{CrypTool} können Sie dies per Menü
+  {\bf Einzelverfahren \textbackslash{} RSA-Kryptosystem \textbackslash{} RSA-Demo} lösen. 
 }: \\
 {\tt 1404 2932 3536 0001 3284 2280 2235}
 
@@ -3400,21 +3410,21 @@ ist angeregt durch das Beispiel aus \cite[S. 271]{nt:Eckert2003}.
 \vskip +10pt
 \noindent {\bf Schlüsselerzeugung (Schritt 1 bis 3):} \\\label{SrcArith4b}%
 {\bf 1.} $p=509,~q=503 \quad (n= 256.027; \; ~J(n)=(p-1)*(q-1)=255.016=2^3*127*251)$\footnote{%
-In \hyperlink{AppArith4b}{Anhang zu diesem Kapitel} finden Sie den Quelltext zur Faktorisierung 
-von $J(n)$ mit Sage. \\
+  In Kapitel~\ref{nt:AppArith4b} ``\nameref{nt:AppArith4b}''
+  finden Sie den Quelltext zur Faktorisierung von $J(n)$ mit Sage. \\
 Mit CrypTool\index{CrypTool} können Sie dies per Menü
 {\bf Einzelverfahren \textbackslash{} RSA-Kryptosystem \textbackslash{} Faktorisieren einer Zahl} lösen.
 }. \\
 {\bf 2.} $e=65.537$ (sollte\footnote{%
                 Siehe Fußnote~\ref{foot:Selection-of-e} auf Seite
                 \pageref{foot:Selection-of-e}.}
-                zwischen $509$ und $255.015$ liegen u. muss\footnote{%
-      $e$ darf also nicht $2, 127$ oder $251$ sein
-      ($65537 = 2^{16}+1$) ($255,016 = 2^{3}*127*251$).\\
-      Real wird $J(n)$ nicht faktorisiert, sondern für das gewählte $e$ wird
-      mit dem Euklidschen Algorithmus sichergestellt, dass ggT$(e,J(n))=1$.
-                } teilerfremd\index{Zahlen!teilerfremd (co-prime)}
-         zu $255.016$ sein).\\
+      zwischen $509$ und $255.015$ liegen u. muss\footnote{%
+                $e$ darf also nicht $2, 127$ oder $251$ sein
+                ($65537 = 2^{16}+1$) ($255,016 = 2^{3}*127*251$).\\
+                Real wird $J(n)$ nicht faktorisiert, sondern für das gewählte $e$ wird
+                mit dem Euklidschen Algorithmus sichergestellt, dass ggT$(e,J(n))=1$.
+                }
+      teilerfremd\index{Zahlen!teilerfremd (co-prime)} zu $255.016$ sein).\\
 {\bf 3.} $d=231.953$ \\
 \strut\quad\ (denn $e \equiv d^{-1}{\rm ~mod~}J(n);$
 \mbox{}\quad $65.537*231.953 \equiv 15.201.503.761 \equiv 1
@@ -3449,7 +3459,8 @@ erhalten (genauso wie wenn man oben in der Dezimalschreibweise alle Zahlen
 
 \label{SrcArith4c}
 \noindent Verschlüsselung pro Zeichen per: $C \equiv M^{65.537}{\rm ~(mod~}256.027)$\footnote{%
-In \hyperlink{AppArith4c}{Anhang zu diesem Kapitel} finden Sie den Quelltext zur RSA-Exponentiation mit Sage.
+  In Kapitel~\ref{nt:AppArith4c} ``\nameref{nt:AppArith4c}''
+  finden Sie den Quelltext zur RSA-Exponentiation mit Sage.
 }:
 
 {\tt
@@ -3506,7 +3517,8 @@ mit den folgenden Optionen lösen: alle $256$ Zeichen, b-adisch, Blocklänge 2, de
 
 \label{SrcArith4d}
 \noindent Verschlüsselung pro Block per: $C \equiv M^{65.537}{\rm ~(mod~}256027)$\footnote{%
-In \hyperlink{AppArith4d}{Anhang zu diesem Kapitel} finden Sie den Quelltext zur RSA-Exponentiation mit Sage.
+  In Kapitel~\ref{nt:AppArith4d} ``\nameref{nt:AppArith4d}''
+  finden Sie den Quelltext zur RSA-Exponentiation mit Sage.
 }: \\
 {\tt 158721 137346 37358 240130 112898}
 
@@ -3529,7 +3541,9 @@ da die ASCII-Blöcke in Zahlen kleiner oder gleich $255.255$ kodiert werden.
 
 \label{SrcArith4e}
 \noindent Verschlüsselung pro Block per: $C \equiv M^{65537}{\rm ~(mod~}256.027)$\footnote{%
-In \hyperlink{AppArith4e}{Anhang zu diesem Kapitel} finden Sie den Quelltext zur RSA-Exponentiation mit Sage.
+  In Kapitel~\ref{nt:AppArith4e} ``\nameref{nt:AppArith4e}''
+  %%xIn \hyperlink{nt:AppArith4e}{Anhang zu diesem Kapitel}
+  finden Sie den Quelltext zur RSA-Exponentiation mit Sage.
 }: \\ 
 {\tt 198967 051405 254571 115318 014251}
 
@@ -3567,10 +3581,10 @@ schickt, nehmen wir ihn gerne in die Dokumentation auf.
 Two samples of RSA ciphertext are presented in Tables~\ref{stinson1}\footnote{%
 Die Zahlen dieser Tabelle können Sie mit Copy und Paste weiter bearbeiten.
 } and \ref{stinson2}\footnote{%
-Die Zahlen dieser Tabelle befinden sich auch in der Online-Hilfe \glqq 
-Szenario für die RSA-Demonstration\grqq~ der CrypTool-Auslieferung\index{CrypTool}.
-}. Your task
-is to decrypt them. The public parameters of the system are 
+Die Zahlen dieser Tabelle befinden sich auch in der Online-Hilfe
+\glqq Szenario für die RSA-Demonstration\grqq der CrypTool-Auslieferung\index{CrypTool}.
+}.
+Your task is to decrypt them. The public parameters of the system are 
 
 \noindent $n = 18.923$ and $e = 1261$ (for Table~\ref{stinson1}) and \\
 \noindent $n = 31.313$ and $e = 4913$ (for Table~\ref{stinson2}).
@@ -3738,7 +3752,7 @@ des Padding sehr wichtig ist für interoperable Algorithmen.
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
-\hypertarget{NumberTheory_Appendix_GCD}{}
+\hypertarget{nt:NumberTheory_Appendix_GCD}{}
 \section[Anhang: Der ggT und die beiden Algorithmen von Euklid]
         {Anhang: Der größte gemeinsame Teiler (ggT) von ganzen Zahlen und die beiden
 	 Algorithmen von Euklid\footnotemark}
@@ -3754,7 +3768,7 @@ ZT können Sie in CrypTool\index{CrypTool} über das Menü
 Lernprogramm für Zahlentheorie} aufrufen.
 Siehe Anhang~\ref{s:appendix-Learn-NT}.
 }
-\label{NumberTheory_Appendix_GCD}
+\label{nt:NumberTheory_Appendix_GCD}
 \index{Euklidscher Algorithmus!erweiterter}
 \index{ggT}
 
@@ -3815,7 +3829,7 @@ zusammen. Wendet man den ggT-Algorithmus auf diese Matrix an, so erhält man den
 {\tt OUTPUT:} ``ggT$(a,b) = a*x +b*y$: '', ``ggT$(a,b) =$ '' $b$, 
               ``$x = $'' $x_{2,1}$, ``$y = $'' $x_{2,2}$
 
-Da dieser Algorithmus nur lineare Transformationen durchführt, gelten immer die Gleichungen
+\noindent Da dieser Algorithmus nur lineare Transformationen durchführt, gelten immer die Gleichungen
 \begin{eqnarray*}
  a & = & x_{1,1}*a + x_{1,2}*b \nonumber \\
  b & = & x_{2,1}*a + x_{2,2}*b, \nonumber
@@ -3873,9 +3887,9 @@ ggT($37,3588$) = 1, $x = -1$, $y=97$.
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
-\hypertarget{NumberTheory_Appendix_B}{}
+\hypertarget{nt:NumberTheory_Appendix_B}{}
 \section{Anhang: Abschlussbildung}
-\label{l:NumberTheory_Appendix_B}{}
+\label{nt:NumberTheory_Appendix_B}{}
 
 Die Eigenschaft der Abgeschlossenheit\index{Abgeschlossenheit} innerhalb einer Menge
 wird immer bezüglich einer Operation definiert.
@@ -3904,9 +3918,9 @@ G_3 & = & G_2 {\rm ~~--- man~sagt:~} G_2
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \vskip +60pt
-\hypertarget{NumberTheory_Appendix_C}{}
+\hypertarget{nt:NumberTheory_Appendix_C}{}
 \section{Anhang: Bemerkungen zur modulo Subtraktion}
-\label{l:NumberTheory_Appendix_C}{}
+\label{nt:NumberTheory_Appendix_C}{}
 
 Beispielweise gilt für die Subtraktion modulo 5: $2 - 4 = -2 \equiv 3{\rm ~mod~}2$.\\
 Es gilt also nicht, dass: $-2 = 2 mod 5$ !
@@ -4076,9 +4090,9 @@ berechnen können.
 
 
 % ---------------------------------------------------------------------------
-\hypertarget{AppArith1}{}
+\hypertarget{nt:AppArith1}{}
 \subsection{Multiplikationstabellen modulo m} 
-\label{l:AppArith1}{}
+\label{nt:AppArith1}{}
 
 The Multiplikationstabelle~\ref{mulmod17} (von Seite \pageref{SrcArith1a})
 für $a \times i \pmod{m}$, mit $m = 17$, $a=5$ and $a=6$, und $i$ von $0$ bis $16$
@@ -4111,9 +4125,9 @@ kann man auf dieselbe Weise bestimmen, wenn man im Quelltext jeweils
 
 % ---------------------------------------------------------------------------
 \vskip +25 pt
-\hypertarget{AppArith2}{}
+\hypertarget{nt:AppArith2}{}
 \subsection{Schnelles Berechnen hoher Potenzen}
-\label{l:AppArith2}{}
+\label{nt:AppArith2}{}
 
 Das schnelle Potenzieren modulo $m$ kann mit der Sage-Funktion \verb!power_mod()!
 durchgeführt werden. Das Ergebnis dieser Funktion ist eine natürliche Zahl.
@@ -4135,9 +4149,9 @@ sage: [power_mod(a, e, m) for e in exp]
 
 % ---------------------------------------------------------------------------
 \newpage
-\hypertarget{AppArith3a1}{}
+\hypertarget{nt:AppArith3a1}{}
 \subsection{Multiplikative Ordnung}
-\label{l:AppArith3a1}{}
+\label{nt:AppArith3a1}{}
 
 Die Ordnung $ord_m(a)$ einer Zahl $a$ in der multiplikativen Gruppe $Z_m^*$ ist
 die kleinste natürliche Zahl $i \ge 1$ für die gilt $a^i \equiv 1$ mod $m$
@@ -4188,9 +4202,8 @@ sage: for a in xrange(1, m):
 
 
 \newpage
-\hypertarget{AppArith3b}{}
-\label{l:AppArith3b}{}
-
+\hypertarget{nt:AppArith3b}{}
+\label{nt:AppArith3b}{}
 Die Tabelle~\ref{expmod45} auf Seite~\pageref{SrcArith3b} enthält Beispiele
 für die Ordnung von a modulo 45 ($ord_{45}(a)$) und den Wert der Eulerfunktion
 von 45 ($J(45)$).
@@ -4241,9 +4254,8 @@ angehängt (die Zeile wird durch das Objekt \verb!lst! repräsentiert).
 
 
 \newpage
-\hypertarget{AppArith3c}{}
-\label{l:AppArith3c}{}
-
+\hypertarget{nt:AppArith3c}{}
+\label{nt:AppArith3c}{}
 Die Tabelle~\ref{expmod46} auf Seite~\pageref{SrcArith3c} enthält Beispiele
 für die Exponentiationen $a^i$ mod $46$ sowie die Ordnungen $ord_{46}(a)$ 
 
@@ -4293,9 +4305,11 @@ sage: for a in xrange(1, 24):
 
 % ---------------------------------------------------------------------------
 \newpage
-\hypertarget{AppArith3a2}{}
+\hypertarget{nt:AppArith3a2}{}
 \subsection{Primitivwurzeln}
-\label{primitive-roots-with-sage}\index{Primitivwurzel}
+\label{nt:AppArith3a2}
+\label{primitive-roots-with-sage}
+\index{Primitivwurzel}
 
 Das Berechnen von Primitivwurzeln
 (siehe Kapitel~\ref{MultOrdPrimitveRoot}, \glqq \nameref{MultOrdPrimitveRoot}\grqq)
@@ -4345,8 +4359,8 @@ Will man \texttt{alle} Primitivwurzeln von $\mathbf{Z} / p \mathbf{Z}$ berechnen
 und nicht nur irgend eine einzige von $\mathbf{Z} / p \mathbf{Z}$,
 dann kann man das mit der folgenden Funktion durchführen%
 \footnote{Der folgende Code wurde als Sage-Skriptdatei erstellt und nicht-interaktiv
-ausgeführt. Deshalb gibt es in der Ausgabe keine Zeilen, die mit "sage:" oder "....:"
-anfangen wie in den Sage-Programmbeispielen bisher.}.
+ausgeführt. Deshalb gibt es in der Ausgabe keine Zeilen, die mit \glqq sage:\grqq~oder
+\glqq ....:\grqq~anfangen wie in den Sage-Programmbeispielen bisher.}.
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -4745,8 +4759,9 @@ mit der größten Primitivwurzel zu jeder Primzahl im obigen Intervall.
 im Kapitel~\ref{rsaconcrete} (``\nameref{rsaconcrete}'') angegeben. 
 
 \vskip +10 pt 
-\hypertarget{AppArith4a}{%
-\noindent \textbf{Beispiel auf Seite~\pageref{SrcArith4a}:}} \\
+\hypertarget{nt:AppArith4a}{%
+\noindent \textbf{Beispiel auf Seite~\pageref{SrcArith4a}:}}
+\label{nt:AppArith4a}\\
 Die RSA-Exponentiation $M^{37} \pmod{3713}$ für die Nachricht $M = 120$ kann
 mit Sage folgendermaßen ausgeführt werden:
 
@@ -4758,9 +4773,9 @@ sage: power_mod(120, 37, 3713)
 
 
 \vskip +10 pt 
-\hypertarget{AppArith4b}{%
-\noindent {\bf Beispiel auf Seite~\pageref{SrcArith4b}:}} \\
-
+\hypertarget{nt:AppArith4b}{%
+\noindent {\bf Beispiel auf Seite~\pageref{SrcArith4b}:}}
+\label{nt:AppArith4b}\\
 Die Faktorisierung von $J(256.027) = 255.016 = 2^3 * 127 * 251$ kann mit Sage
 folgendermaßen durchgeführt werden:
 
@@ -4775,8 +4790,9 @@ sage: factor(255016)
 
 
 \vskip +10 pt 
-\hypertarget{AppArith4c}{%
-\noindent {\bf Beispiel auf Seite~\pageref{SrcArith4c}:}} \\
+\hypertarget{nt:AppArith4c}{%
+\noindent {\bf Beispiel auf Seite~\pageref{SrcArith4c}:}}
+\label{nt:AppArith4c}\\
 RSA-Verschlüsselung mit Sage:
 
 \begin{sagecode}
@@ -4792,8 +4808,9 @@ sage: [power_mod(a, e, m) for a in A]
 
 
 \vskip +10 pt 
-\hypertarget{AppArith4d}{%
-\noindent {\bf Beispiel auf Seite~\pageref{SrcArith4d}:}} \\
+\hypertarget{nt:AppArith4d}{%
+\noindent {\bf Beispiel auf Seite~\pageref{SrcArith4d}:}}
+\label{nt:AppArith4d}\\
 RSA-Verschlüsselung mit Sage:
 
 \begin{Verbatim}%
@@ -4806,8 +4823,9 @@ sage: [power_mod(a, e, m) for a in A]
 
 
 \vskip +10 pt 
-\hypertarget{AppArith4e}{%
-\noindent {\bf Beispiel auf Seite~\pageref{SrcArith4e}:}} \\
+\hypertarget{nt:AppArith4e}{%
+\noindent {\bf Beispiel auf Seite~\pageref{SrcArith4e}:}}
+\label{nt:AppArith4e}\\
 RSA-Verschlüsselung mit Sage:
 
 \begin{Verbatim}%

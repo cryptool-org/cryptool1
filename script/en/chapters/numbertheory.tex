@@ -52,7 +52,7 @@ by Carl Friedrich Gauss\footnote{%
 \index{Gauss, Carl Friedrich} as a special mathematical discipline. Its 
 elementary features include the greatest common divisor\footnote{This 
 article deals with the gcd (greatest common 
-divisor)\index{Gcd} in appendix~\ref{NumberTheory_Appendix_GCD}.}
+divisor)\index{gcd} in appendix~\ref{nt:NumberTheory_Appendix_GCD}.}
 (gcd), congruence (remainder classes), factorization, the Euler-Fermat theorem
 and primitive roots. However, the most important 
 aspect is prime numbers and their multiplicative operation.
@@ -475,11 +475,12 @@ calculation rules are kept when we proceed to modular calculations over
 a basic set $\mathbb{Z}$.  For example, addition remains commutative. 
 The same goes for multiplication modulo $m$. The result of a
 division\footnote{%
-\label{ftn-zth-divmodn}
 When dividing modulo $m$\index{Division modulo $n$} we can one use
 co-prime\index{Number!co-prime} numbers because because other numbers
 have the same property as zero. See footnote
 \ref{ftn-mod6} in chapter~\ref{addmult}.
+\label{ftn-res-divmodn}
+\label{ftn-zth-divmodn}
 } is not a fraction but rather a whole number between $0$ and $m-1$.
 
 The known laws apply:
@@ -512,8 +513,10 @@ The associative law and the commutative law apply to both addition and multiplic
 such that: \\
     $(a * a^{-1}) {\rm ~(mod~ } p) \equiv 1 {\rm ~(mod~}p)$ \quad (multiplicative inverse). 
 \index{Inverse!multiplicative}
-\item[\bf 7.] \index{Closeness} {\bf Closeness}\footnote{\label{ftn-zth-closed}The property of closeness is always defined in relation to an operation in a set. See 
-\hyperlink{NumberTheory_Appendix_B}{Appendix B of this chapter}.}:   \\
+\item[\bf 7.] \index{Closeness} {\bf Closeness}\footnote{\label{ftn-zth-closed}The
+   property of closeness is always defined in relation to an operation in a set.
+   See chapter~\ref{nt:NumberTheory_Appendix_B} ``\nameref{nt:NumberTheory_Appendix_B}''.}: \\
+      %%% \hyperlink{nt:NumberTheory_Appendix_B}{Appendix B of this chapter}.}:   \\
      $a, b \in G  \Longrightarrow  ( a + b ) \in G.$ \\
     $a, b \in G  \Longrightarrow  ( a * b ) \in G.$
 \item[\bf 8.] \index{Transitivity} {\bf Transitivity}:
@@ -576,8 +579,10 @@ The following shows
 
 \begin{itemize}
 \item the addition table\footnote{Comment on subtraction modulo 5: \\
-$2 - 4 = -2 \equiv 3{\rm ~mod~}5.$\\
-It is therefore not true modulo $5$ that $-2 = 2$ (see also \hyperlink{NumberTheory_Appendix_C}{Appendix C of this chapter}). }
+   $2 - 4 = -2 \equiv 3{\rm ~mod~}5.$\\
+   It is therefore not true modulo $5$ that $-2 = 2$
+   (see chapter~\ref{nt:NumberTheory_Appendix_C} ``\nameref{nt:NumberTheory_Appendix_C}'').
+   }
 ${\rm ~(mod~ } 5)$ and
 \item the multiplication tables\footnote{\label{ftn-mod6}Comment on division modulo $6$:\index{Division modulo $n$}\\
 Due to the special role of zero as the identity for addition, division by zero is not permitted:\\
@@ -684,7 +689,8 @@ $j=1, \cdots , n$ with $ i \neq j $: $ \mbox{gcd} (a_i, a_j) =1. $
 \begin{example}{:}\\
 $2,3,6 $ are relatively prime, because $ \mbox{gcd} (2,3,6)=1.$
 \end{example}
-They are not in pairs relatively prime, because $ \mbox{gcd} (2,6)=2>1.$}\index{Gcd}, in other words if $a$ and $m$ have 
+They are not in pairs relatively prime, because
+$ \mbox{gcd} (2,6)=2>1.$}\index{gcd}, in other words if $a$ and $m$ have 
 no common prime factors.
 \end{theorem}
 Since $m=5$ is prime, the numbers $1$ to $4$ are relatively prime to $5$ and {\bf each} of these numbers has a 
@@ -726,11 +732,16 @@ that is all numbers from $1$ to $4$.
 Since $6$ is not a prime number, we write it as a product of its factors: $6 = 2 * 3$. In mod $6$, therefore, there 
 are exactly $J(6) = (2-1)*(3-1) = 1 * 2 = 2$ numbers that have a multiplicative inverse, that is $1$ and $5$.
 
-Although it may seem difficult to calculate the table of multiplicative inverses for large moduli (this only applies 
-to the areas of the table shaded dark grey), we can use Fermat's Little Theorem\index{Fermat!little theorem}
-to create a simple algorithm for this \cite[p. 80]{nt:Pfleeger1997}. Quicker algorithms are described, for instance, in 
-\cite{nt:Knuth1998}\footnote{Using Euclid's extended theorem\index{Euclidean algorithm!extended}  (extended gcd), we can calculate the 
-multiplicative inverse and determine whether numbers have an inverse (see appendix~\ref{NumberTheory_Appendix_GCD}). Alternatively, we can also use the primitive roots.}.
+Although it may seem difficult to calculate the table of multiplicative inverses
+for large moduli (this only applies to the areas of the table shaded dark grey),
+we can use Fermat's Little Theorem\index{Fermat!little theorem}
+to create a simple algorithm for this \cite[p. 80]{nt:Pfleeger1997}.
+Quicker algorithms are described, for instance, in 
+\cite{nt:Knuth1998}\footnote{Using Euclid's extended
+theorem\index{Euclidean algorithm!extended} (extended gcd),
+we can calculate the multiplicative inverse and determine whether numbers
+have an inverse (see appendix~\ref{nt:NumberTheory_Appendix_GCD}).
+Alternatively, we can also use the primitive roots.}.
 
 Cryptographically not only the unique nature of the inverse is important, but
 also that the set of possible values has been exhausted.
@@ -741,8 +752,8 @@ also theorem~\ref{thm-zth-ordp} in \hyperlink{Chapter_ElementaryNT_9}
 {chapter~\ref{MultOrdPrimitveRoot}, Multiplicative order and primitive roots}.}.
 \end{theorem}
 \noindent The following three examples\footnote{%
-\noindent See \hyperlink{AppArith1}{Appendix of this chapter} for the source
-code to compute the tables using Sage.}
+  See chapter~\ref{nt:AppArith1} ``\nameref{nt:AppArith1}''
+  for the source code to compute the tables using Sage.}
 illustrate the properties of multiplicative inverses.
 
 Multiplication table mod $17$ (table~\ref{mulmod17}) shows for $i = 1, 2, \cdots, 18$ the following:
@@ -939,9 +950,10 @@ and the squares (mod $103$) can be calculated beforehand
 87^{32} & \equiv & 55^2 \equiv 38 {\rm ~(mod~}103).
 \end{eqnarray*}
 We have\footnote{%
-See \hyperlink{AppArith2}{Appendix of this chapter} for source code
-implementing the square and multiply method in Sage, which can be used
-to reproduce the calculations above.}:
+  See chapter~\ref{nt:AppArith2} ``\nameref{nt:AppArith2}''
+  for source code implementing the square and multiply method in Sage,
+  which can be used to reproduce the calculations above.
+}:
 \label{SrcArith2}
 \begin{eqnarray*}
 87^{43} & \equiv & 87^{32+8+2+1}{\rm ~(mod~}103) \nonumber \\
@@ -989,8 +1001,11 @@ knowledge is proportional to ${\rm exp}\left( C*( \log m [\log \log m]^2)^{1/3}\
 
 The situation is similar if 
 $b$ is the unknown variable and we know the values of $a$ and $c$: \\
-If we know the Euler function \index{Euler!(phi) function} of $m, J(m)$, then we can easily\footnote{See appendix~\ref{NumberTheory_Appendix_GCD}:
-the greatest common divisor (gcd) of whole numbers.}\index{Gcd} calculate $d$ with $c*d \equiv 1 {\rm ~(mod~} J(m))$ and 
+If we know the Euler function \index{Euler!(phi) function} of $m, J(m)$,
+then we can easily\footnote{%
+  See chapter~\ref{nt:NumberTheory_Appendix_GCD} ``\nameref{nt:NumberTheory_Appendix_GCD}''.
+}\index{gcd}
+calculate $d$ with $c*d \equiv 1 {\rm ~(mod~} J(m))$ and 
 use theorem~\ref{thm-zth-pot} to obtain:
 $$
    a^d \equiv (b^c)^d \equiv b^{c*d} \equiv b^{c*d~(mod~J(m))} \equiv b^1 \equiv b {\rm ~(mod~} m)
@@ -1385,8 +1400,8 @@ $10$ and we notice that:
 
 \begin{example}{ 1:}\\
 The following table~\ref{expmod11}\footnote{%
-See \hyperlink{AppArith3a1}{Appendix of this chapter} for the source
-code to generate the table using Sage.} 
+  See chapter~\ref{nt:AppArith3a1} ``\nameref{nt:AppArith3a1}''
+  for the source code to generate the table using Sage.} 
 shows the values $a^i$ mod $11$ for the exponents $i = 1, 2, \cdots, 10$ and for the bases 
 $a =  1, 2, \cdots, 10$ as well as the resulting value $ord_{11}(a)$ for each $a$/
 \end{example}
@@ -1441,8 +1456,9 @@ modulo $45$ and modulo $46$.
 
 \begin{example}{ 2:}\\
 The following table~\ref{expmod45}\footnote{%
-See \hyperlink{AppArith3b}{Appendix of this chapter} for the source
-code to generate the table using Sage.} shows the values $a^i$ mod $45$ for the exponents $i = 1, 2, \cdots, 12$ and for the bases 
+  See chapter~\ref{nt:AppArith3b} ``\nameref{nt:AppArith3b}''
+  for the source code to generate the table using Sage.
+} shows the values $a^i$ mod $45$ for the exponents $i = 1, 2, \cdots, 12$ and for the bases 
 $a =  1, 2, \cdots, 12$ as well as the resulting value $ord_{45}(a)$ for each $a$.
 \end{example}
 
@@ -1497,8 +1513,9 @@ Table~\ref{expmod45} shows that the number $a=7$ is not a primitive root of $45$
 
 \begin{example}{ 4:}\\
 The following table~\ref{modexp46}\footnote{%
-See \hyperlink{AppArith3c}{Appendix of this chapter} for the source
-code to generate the table using Sage.} answers the question as to
+  See chapter~\ref{nt:AppArith3c} ``\nameref{nt:AppArith3c}''
+  for the source code to generate the table using Sage.
+} answers the question as to
 whether the number $a=7$ is a primitive root of $46$. 
 The  necessary, but not sufficient requirement/condition $gcd(7,46)=1$ is fulfilled.\\
 $J(46)$ is calculated using theorem~\ref{thm-zth-phipq}: $J(46) = J(2*23) = 1*22 = 22$.
@@ -1605,8 +1622,6 @@ is commonly known as the ``RSA''.
 }$^,$\footnote{%
 In literature\index{Literature} and in movies\index{Movies} not only 
 classic but also modern cryptographic methods have been used 
-%(\hyperlink{appendix-movies}
-%{see appendix A3: Movies and Literature with Relation to Cryptography}).
 (see appendix~\ref{s:appendix-movies}).
 % hier die items nicht einrücken ! xxxxxxxxxxxxxxx
 % \begin{list}{\textbullet}{\leftmargin10pt}
@@ -2962,10 +2977,10 @@ i  & $11^i \bmod 347$ & \\
 \end{tabular}
 \vskip +6 pt
 
-Further information concerning \hyperlink{AppArith3a2}{primitive roots\index{Primitive root}}
-can be found in the appendix of this chapter. %\ref{primitive-roots-with-sage}. xxxxxprro
-% appendix E eigentlich nicht gut, aber~\ref{primitive-roots-with-sage}. liefert 4.13.5!  xxxxxprro
-} is extremely difficult to solve.
+\noindent Further information can be found in
+chapter~\ref{nt:AppArith3a2} ``\nameref{nt:AppArith3a2}''.
+}
+is extremely difficult to solve.
 \end{remark}
 
 \noindent To get the discrete logarithms, here we need to calculate:\\
@@ -3069,8 +3084,10 @@ L       & 12   & Y    & 25 \\
                 \pageref{foot:Selection-of-e}.}
                 lie between $79$ and $3587$ and must be relatively prime
                 to $3588$). \\
-{\bf 3.} $d=97$ (since $e*d=1{\rm ~mod~}J(n); 37*97 \equiv 3589 \equiv 1{\rm ~(mod~}3588) \;$)\footnote{How
-to compute $d = 97$ using the {\em extended} gcd algorithm is shown in appendix~\ref{NumberTheory_Appendix_GCD}}. \\
+{\bf 3.} $d=97$ (since $e*d=1{\rm ~mod~}J(n); 37*97 \equiv 3589
+                        \equiv 1{\rm ~(mod~}3588) \;$)\footnote{%
+ How to compute $d = 97$ using the {\em extended} gcd algorithm is shown
+ in appendix~\ref{nt:NumberTheory_Appendix_GCD}}. \\
 
 \noindent {\bf 4. Encryption}:\\
 {\tt
@@ -3086,10 +3103,11 @@ to compute $d = 97$ using the {\em extended} gcd algorithm is shown in appendix~
 
 \label{SrcArith4a}
 \noindent All 7 parts are encrypted using: $C \equiv M^{37}{\rm ~(mod~}3713)$\footnote{%
-See \hyperlink{AppArith4a}{Appendix of this chapter} for source code
-to do RSA encryption using Sage. \\
-You can also encrypt the message with CrypTool\index{CrypTool} via the menu path 
-{\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} RSA Demonstration}.}: \\
+  See chapter~\ref{nt:AppArith4a} ``\nameref{nt:AppArith4a}''
+  for source code to do RSA encryption using Sage. \\
+  You can also encrypt the message with CrypTool\index{CrypTool} via the menu path 
+  {\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} RSA Demonstration}.
+}: \\
 {\tt 1404 2932 3536 0001 3284 2280 2235}
 
 \noindent {\bf 5. Decryption}: \\
@@ -3106,13 +3124,15 @@ Cipher text: {\tt 1404 2932 3536 0001 3284 2280 2235 }
 to derive the secret values from the public 
 parameters $n=3713$ and $e=37$ by revealing that $3713 = 47 * 79$.
 
-\noindent If $n$ is a $768$-bit number, there is, according to present knowledge, little chance of this.
+\noindent If $n$ is a $768$-bit number, there is, according to present knowledge,
+little chance of this.
 
 
 % --------------------------------------------------------------------------
 \subsection{RSA with even larger primes and a text made up of ASCII characters}
 
-In real life, the ASCII alphabet is used to code the individual characters of the message as $8$-bit numbers.
+In real life, the ASCII alphabet is used to code the individual characters
+of the message as $8$-bit numbers.
 
 \noindent The idea for this task\footnote{Using CrypTool\index{CrypTool} you can 
 solve this via the menu path
@@ -3128,13 +3148,15 @@ is taken from the example in \cite[p. 271]{nt:Eckert2003}\index{Eckert 2003}.
 
 \noindent We will work through the example in 2 variants. The steps 1 to 3 are common for both.
 \par
-\noindent {\bf Key generation (steps 1 to 3)}: \label{SrcArith4b} \\
+\noindent {\bf Key generation (steps 1 to 3)}:
+\label{SrcArith4b} \\
 {\bf 1.} $p=503,~q=509 \quad (n= 256,027; \; J(n)=(p-1)(q-1)=255,016=2^3*127*251)$\footnote{%
-See \hyperlink{AppArith4b}{Appendix of this chapter} for the source
-code to factorize the number $J(n)$ using Sage.
-Using CrypTool\index{CrypTool} you can solve this with the 
-{\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} 
-Factorization of a Number}.}. \\
+  See chapter~\ref{nt:AppArith4b} ``\nameref{nt:AppArith4b}''
+  for the source code to factorize the number $J(n)$ using Sage.
+  Using CrypTool\index{CrypTool} you can solve this with the 
+  {\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} 
+  Factorization of a Number}.
+}. \\
 {\bf 2.} $e=65,537$ \\
 \strut\quad\ (should\footnote{%
                 See footnote~\ref{foot:Selection-of-e} on page
@@ -3172,8 +3194,8 @@ digits in decimal notation above and were then to obtain the sequence
 
 \label{SrcArith4c}
 \noindent Each character is encrypted using: $C = M^{65,537} {\rm ~(mod~} 256,027)$\footnote{%
-See \hyperlink{AppArith4c}{Appendix of this chapter} for the source
-code for RSA exponentiation using Sage.
+  See chapter~\ref{nt:AppArith4c} ``\nameref{nt:AppArith4c}''
+  for the source code for RSA exponentiation using Sage.
 }: \\
 {\tt
 \begin{tabular}{lllll}
@@ -3222,12 +3244,13 @@ single character& binary representation  && decimal representation\\
 {\tt 21075 16672 30575 29291 29473}\footnote{Using CrypTool\index{CrypTool} 
 you can solve this with the menu
 {\bf Indiv. Procedures \textbackslash{} RSA Cryptosystem \textbackslash{} RSA Demonstration} 
-with the following options: all 256 ASCII characters, b-adic, block length\index{Block length} 2 and decimal representation.}
+with the following options: all 256 ASCII characters, b-adic,
+block length\index{Block length} 2 and decimal representation.}
 
 \label{SrcArith4d}
 \noindent Each block is encrypted using: $C \equiv M^{65,537}{\rm ~(mod~}256,027)$\footnote{%
-See \hyperlink{AppArith4d}{Appendix of this chapter} for the source
-code for RSA exponentiation using Sage.
+  See chapter~\ref{nt:AppArith4d} ``\nameref{nt:AppArith4d}''
+  for the source code for RSA exponentiation using Sage.
 }: \\
 {\tt 158721 137346 37358 240130 112898}
 
@@ -3251,8 +3274,8 @@ the number $255,255$.  }
 
 \label{SrcArith4e}
 \noindent Each block is encrypted using: $C \equiv M^{65,537}{\rm ~(mod~}256,027)$\footnote{%
-See \hyperlink{AppArith4e}{Appendix of this chapter} for the source
-code for RSA exponentiation using Sage.
+  See chapter~\ref{nt:AppArith4e} ``\nameref{nt:AppArith4e}''
+  for the source code for RSA exponentiation using Sage.
 }: \\
 {\tt 198967 051405 254571 115318 014251}
 
@@ -3448,7 +3471,7 @@ during implementation and standardization for interoperable algorithms.
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
-\hypertarget{NumberTheory_Appendix_GCD}{}
+\hypertarget{nt:NumberTheory_Appendix_GCD}{}
 \section[Appendix: gcd and the two algorithms of Euclid]
         {Appendix: The greatest common divisor (gcd) of whole numbers
          and the two algorithms of Euclid\footnotemark}
@@ -3464,10 +3487,11 @@ NT can be called in CrypTool\index{CrypTool} via the menu path
 \textbackslash{} Learning Tool for Number Theory}.
 See appendix~\ref{s:appendix-Learn-NT}.
 }
-\label{NumberTheory_Appendix_GCD}
+\label{nt:NumberTheory_Appendix_GCD}
 % \addcontentsline{toc}{section}{Appendix A: gcd of whole numbers and the two
-%  algorithms of Euclid}\index{Euclidean algorithm!extended}\index{Gcd}
-\index{Euclidean algorithm!extended} \index{Gcd}
+%  algorithms of Euclid}\index{Euclidean algorithm!extended}
+\index{Euclidean algorithm!extended}
+\index{gcd}
 
 %%%\begin{enumerate}
 %%%\item
@@ -3527,7 +3551,7 @@ If we apply the above gcd algorithm to this matrix, we obtain the
 {\tt OUTPUT:} ``gcd$(a,b) = a*x +b*y$: '', ``gcd$(a,b) =$ '' $b$,
               ``$x = $'' $x_{2,1}$, ``$y = $'' $x_{2,2}$
 
-Since this algorithm only performs linear transformations, the same equations always apply
+\noindent Since this algorithm only performs linear transformations, the same equations always apply
 \begin{eqnarray*}
  a & = & x_{1,1}*a + x_{1,2}*b \nonumber \\
  b & = & x_{2,1}*a + x_{2,2}*b, \nonumber
@@ -3584,9 +3608,9 @@ gcd($37,3588$) = 1, $x = -1$, $y=97$.
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \newpage
-\hypertarget{NumberTheory_Appendix_B}{}
+\hypertarget{nt:NumberTheory_Appendix_B}{}
 \section{Appendix: Forming closed sets}
-\label{l:NumberTheory_Appendix_B}{}
+\label{nt:NumberTheory_Appendix_B}{}
 
 The property of closeness\index{Closeness} within a set is always defined in
 relation to an operation.
@@ -3614,9 +3638,9 @@ G_3 & = & G_2 {\rm ~~--- we~say:~} G_2 {\rm~is~closed~for~addition~~(mod~}8). \n
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \vskip +60pt
-\hypertarget{NumberTheory_Appendix_C}{}
+\hypertarget{nt:NumberTheory_Appendix_C}{}
 \section{Appendix: Comments on modulo subtraction}
-\label{l:NumberTheory_Appendix_C}{}
+\label{nt:NumberTheory_Appendix_C}{}
 
 Comment on subtraction modulo 5: $2 - 4 = -2 \equiv 3{\rm ~mod~}2$.\\
 It is therefore not true that $-2 = 2 mod 5$ !
@@ -3774,9 +3798,9 @@ chapter~\ref{Chapter_ElementaryNT} (``\nameref{Chapter_ElementaryNT}'').
 
 
 % ---------------------------------------------------------------------------
-\hypertarget{AppArith1}{}
+\hypertarget{nt:AppArith1}{}
 \subsection{Multiplication table modulo m}     % $ removed at $m$
-\label{l:AppArith1}{}
+\label{nt:AppArith1}{}
 
 The multiplication table~\ref{mulmod17} (from page \pageref{SrcArith1a})
 for $a \times i \pmod{m}$, where
@@ -3809,9 +3833,9 @@ with {\tt m = 13} and {\tt m = 12} respectively.
 
 % ---------------------------------------------------------------------------
 \vskip +25 pt
-\hypertarget{AppArith2}{}
+\hypertarget{nt:AppArith2}{}
 \subsection{Fast exponentiation}
-\label{l:AppArith2}{}
+\label{nt:AppArith2}{}
 
 The fast exponentiation modulo $m$ can be computed using the Sage
 function \verb!power_mod()!. The result of this function is an
@@ -3832,9 +3856,9 @@ sage: [power_mod(a, e, m) for e in exp]
 
 % ---------------------------------------------------------------------------
 \newpage
-\hypertarget{AppArith3a1}{}
+\hypertarget{nt:AppArith3a1}{}
 \subsection{Multiplicative order}
-\label{l:AppArith3a1}{}
+\label{nt:AppArith3a1}{}
 
 The order $\text{ord}_m(a)$ of a number $a$ in the multiplicative
 group $\mathbf{Z}_m^{\ast}$ is the smallest number $i \geq 1$ such that
@@ -3885,9 +3909,8 @@ sage: for a in xrange(1, m):
 
 
 \newpage
-\hypertarget{AppArith3b}{}
-\label{l:AppArith3b}{}
-
+\hypertarget{nt:AppArith3b}{}
+\label{nt:AppArith3b}{}
 Table~\ref{expmod45} on page~\pageref{SrcArith3b} gives examples for the order modulo
 45 $\text{ord}_{45}(a)$ and the Euler number $J(45)$.
 
@@ -3935,9 +3958,8 @@ the row as represented by the object \verb!lst!.
 
 
 \newpage
-\hypertarget{AppArith3c}{}
-\label{l:AppArith3c}{}
-
+\hypertarget{nt:AppArith3c}{}
+\label{nt:AppArith3c}{}
 Table~\ref{modexp46} on page~\pageref{SrcArith3c} displays exponentiation
 $a^i \pmod{46}$ as well as the order $\text{ord}_{46}(a)$.
 
@@ -3987,9 +4009,11 @@ sage: for a in xrange(1, 24):
 
 % ---------------------------------------------------------------------------
 \newpage
-\hypertarget{AppArith3a2}{}
+\hypertarget{nt:AppArith3a2}{}
 \subsection{Primitive roots}
-\label{primitive-roots-with-sage}\index{Primitive root}
+\label{nt:AppArith3a2}
+\label{primitive-roots-with-sage}
+\index{Primitive root}
 
 Computing a primitive root (see chapter~\ref{MultOrdPrimitveRoot},
 ``\nameref{MultOrdPrimitveRoot}'')
@@ -4432,8 +4456,9 @@ within the above interval.
 section~\ref{rsaconcrete} (``\nameref{rsaconcrete}''). 
 
 \vskip +10 pt 
-\hypertarget{AppArith4a}{%
-\noindent \textbf{Example on page~\pageref{SrcArith4a}:}} \\
+\hypertarget{nt:AppArith4a}{%
+\noindent \textbf{Example on page~\pageref{SrcArith4a}:}}
+\label{nt:AppArith4a}\\
 The RSA exponentiation $M^{37} \pmod{3713}$ on message $M = 120$ can be
 calculated in Sage as follows:
 
@@ -4445,9 +4470,9 @@ sage: power_mod(120, 37, 3713)
 
 
 \vskip +10 pt 
-\hypertarget{AppArith4b}{%
-\noindent {\bf Example on page~\pageref{SrcArith4b}:}} \\
-
+\hypertarget{nt:AppArith4b}{%
+\noindent {\bf Example on page~\pageref{SrcArith4b}:}}
+\label{nt:AppArith4b}\\
 The factorization of $J(256027) = 255016 = 2^3 * 127 * 251$ can be
 calculated using Sage as follows:
 
@@ -4462,8 +4487,9 @@ sage: factor(255016)
 
 
 \vskip +10 pt 
-\hypertarget{AppArith4c}{%
-\noindent {\bf Example on page~\pageref{SrcArith4c}:}} \\
+\hypertarget{nt:AppArith4c}{%
+\noindent {\bf Example on page~\pageref{SrcArith4c}:}}
+\label{nt:AppArith4c}\\
 Sage can do RSA encryption as follows:
 
 \begin{sagecode}
@@ -4479,8 +4505,9 @@ sage: [power_mod(a, e, m) for a in A]
 
 
 \vskip +10 pt 
-\hypertarget{AppArith4d}{%
-\noindent {\bf Example on page~\pageref{SrcArith4d}:}} \\
+\hypertarget{nt:AppArith4d}{%
+\noindent {\bf Example on page~\pageref{SrcArith4d}:}}
+\label{nt:AppArith4d}\\
 RSA encryption using Sage:
 
 \begin{Verbatim}%
@@ -4493,8 +4520,9 @@ sage: [power_mod(a, e, m) for a in A]
 
 
 \vskip +10 pt 
-\hypertarget{AppArith4e}{%
-\noindent {\bf Example on page~\pageref{SrcArith4e}:}} \\
+\hypertarget{nt:AppArith4e}{%
+\noindent {\bf Example on page~\pageref{SrcArith4e}:}}
+\label{nt:AppArith4e}\\
 RSA encryption using Sage:
 
 \begin{Verbatim}%
