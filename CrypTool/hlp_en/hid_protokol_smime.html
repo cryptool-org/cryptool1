@@ -16,7 +16,83 @@
 
 <h3>Secure E-Mail with S/MIME (Menu <A href="menu_related_methods.html">Individual Procedures</A> \ <a href="menu_individualprocedures_protocols.html">Protocols</a>)</h3>
 
-<P>TODO</P>
+<P>This visualization shows how to sign and encrypt an e-mail according to the S/MIME standard.</P>
+
+<P>You can change data and control parameters in the control center.</P>
+
+<P>In the Flash animation you can see an e-mail travelling from sender to receiver and you can learn about 
+the structure of the message.</P>
+
+<P>The concepts of PKI, certificates, hash algorithms, encryption and digital signatures are explained, 
+because these concepts are used in e-mails according to the S/MIME protocol.</P>
+
+<P>The comprehendible visualization with modern animation software is a good tool to achieve user awareness, 
+because secure e-mail is an important component for preserving privacy, defending man-in-the-middle attacks and 
+against Phishing.</P>
+
+<P><IMG SRC="images/smime_control_center.jpg" ALT="smime_control_center.jpg" BORDER=0></P>
+
+<P><IMG SRC="images/smime_animation.jpg" ALT="smime_control_center.jpg" BORDER=0></P>
+
+<P><IMG SRC="images/smime_flow_chart.jpg" ALT="smime_control_center.jpg" BORDER=0></P>
+
+<P>The foundation of text-based e-mail traffic was already established in 1982 by two standards:<br/>
+a) The standard [RFC822] specifies the structure of an e-mail.<br/>
+b) The standard [RFC821] specifies the Simple Mail Transport Protocol (SMTP), that is used for 
+transmitting e-mails from sender to receiver with a protocol based on ASCII characters.</P>
+
+<P>Because e-mails are passed on between different networks that are possibly communicating with different 
+protocols, gateways are used as nodes to connect these networks. An e-mail gateway triggers the temporary 
+storage of an e-mail and its delivery to the target.</P>
+
+<P>E-mails often contain attachments exceeding pure text, for example various attachments in binary format. 
+Therefore the standards mentioned above were expanded by the MIME standard (Multipurpose Internet Mail 
+Extensions) specified in [RFC2045 to 2049].</P>
+
+<P>S/MIME (Secure Multipurpose Internet Mail Extensions) is an expansion of MIME, adding the possibility of 
+digital signatures and encryption. S/MIME is based on the format of the Cryptographic Message Syntax (CMS) 
+specified in the Public Key Cryptography Standards (PKCS #7). S/MIME can be used for encrypted e-mails as 
+well as encrypted communication via http. The following table shows some of the algorithms used in S/MIME v3.1:</P>
+
+<TABLE class="pad10">
+<TR><TD><B>Algorithm</B></TD><TD><B>S/MIME v3.1<br>mandatory/optional</B></TD></TR>
+<TR><TD>Hash algorithms</TD><TD>SHA-1/MD5</TD></TR>
+<TR><TD>Signature algorithms</TD><TD>DSA/RSA</TD></TR>
+<TR><TD>Public key encryption</TD><TD>RSA/Diffie-Hellman (RFC2631)</TD></TR>
+<TR><TD>Symmetric algorithms</TD><TD>3DES/AES</TD></TR>
+</TABLE>
+
+<P><B><U>Literature</U></B>:</P>
+
+<P>[1] Wikipedia, article on S/MIME: http://en.wikipedia.org/wiki/S/MIME</P>
+
+<P><B>Remark 1</B>:</P>
+
+<B>The control center is written in Java SWT and requires at least Java 1.5. The Bouncy Castle (BC) 
+Cryptographic Library is used for cryptographical routines, and it also serves as additional Security 
+Provider in Java.</B>
+
+<P>In order to use keys of arbitrary length, the "unrestricted policy files" need to be installed before 
+using BC. You can obtain these files from http://java.sun.com or http://java.sun.com/javase/downloads/index.jsp, 
+respectively. To install these files, rename the old JAR files local_policy.jar and US_export_policy.jar in 
+C:\program files\Java\jre6\lib\security and use the new ones instead. Remember to restart the control center.</P>
+
+<P>If the Java Cryptography Extension (JCE) "Unlimited Strength Jurisdiction Policy" is not installed, 
+you get the following message:</P>
+
+<P><IMG SRC="images/jce_not_installed.jpg" ALT="jce_not_installed.jpg" BORDER=0></P>
+
+<P><B>Remark 2</B>:</P>
+
+<P>In the Flash animation the Windows pixel font Bavaria Extended is used to display all dynamic content. 
+If this font is not installed, you can still read the text but the marks will be off. The font can be 
+used freely for non-commercial purposes. Source: 
+http://pixelfonts.style-force.net/download/bavaria-extended/</P>
+
+<P>Installation of fonts under Windows requires the following steps:<br/>
+1) Extract font in temporary directory (not directly into the Windows font directory).<br/>
+2) Copy the extracted TTF file from the temporary directory into "C:\Windows\Fonts" by drag and drop.<br/>
+3) Delete the temporary directory.</P>
 
 </BODY>
 </HTML>

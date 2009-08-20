@@ -16,7 +16,92 @@
 
 <h3>Sichere E-Mail mit S/MIME (Menü <a href="menu_related_methods.html">Einzelverfahren</a> \ <a href="menu_individualprocedures_protocols.html">Protokolle</a>)</h3>
 
-<P>TODO</P>	
+<P>Die Visualisierung einer sicheren E-Mail zeigt, wie nach dem S/MIME-Standard eine Mail signiert und 
+verschlüsselt wird.</P>
+
+<P>Sie können im Control-Center die Daten und Steuerungsparameter selbst eingeben.</P>
+
+<P>Danach starten Sie die Flash-Animation: Diese zeigt den Weg der E-Mail von der Absenderin zum Empfänger, 
+und wie die Nachricht aufgebaut ist.</P>
+
+<P>Dabei werden die Konzepte PKI, Zertifikate, Hashverfahren, Verschlüsselung und Signierung erläutert: 
+Diese Konzepte kommen bei E-Mails anhand des S/MIME-Protokoll zum Einsatz.</P>
+
+<P>Die Visualisierung in verständlicher Form mit moderner Animationssoftware ist eine gute Maßnahme zur 
+Awarenessbildung (Sensibilisierung der Menschen), da sichere E-Mail eine wichtige Komponente zur Erhaltung 
+der Privatspäre, zur Abwehr gegen Man-in-the-Middle-Angriffe und gegen Phishing ist.</P>
+
+<P><IMG SRC="images/smime_control_center.jpg" ALT="smime_control_center.jpg" BORDER=0></P>
+
+<P><IMG SRC="images/smime_animation.jpg" ALT="smime_control_center.jpg" BORDER=0></P>
+
+<P><IMG SRC="images/smime_flow_chart.jpg" ALT="smime_control_center.jpg" BORDER=0></P>
+
+<P>Die Grundlage zum Text-basierten E-Mail-Verkehr wurde bereits im Jahre 1982 durch zwei Standards geschaffen:<br/>
+a) Der in [RFC822] formulierte Standard beschreibt den Aufbau einer E-Mail.<br/>
+b) Übertragen werden E-Mails auf dem Weg von Sender zu Empfänger mit einem auf ASCII-Zeichen basierenden 
+Protokoll, dem Simple Mail Transport Protocol (SMTP), das im Standard [RFC821] definiert ist.</P>
+
+<P>Da E-Mails während des Transports durch verschiedene Netzwerke weitergereicht werden, die möglicherweise 
+über verschiedene Protokolle kommunizieren, werden Gateways (Protokollumsetzer) als Zwischenknoten eingesetzt. 
+Ein E-Mail-Gateway veranlasst, dass E-Mails zwischengespeichert und in Richtung Ziel weiterbefördert werden.</P>
+
+<P>E-Mails enthalten mittlerweile oftmals über den reinen Text hinaus diverse Anhänge in Form von Binärdaten. 
+Deshalb wurden diese Standards durch den MIME-Standard (Multipurpose Internet Mail Extensions) erweitert, 
+der in [RFC2045 bis 2049] beschrieben ist.</P>
+
+<P>S/MIME (Secure Multipurpose Internet Mail Extensions) ist ein Protokoll, welches in einer nochmaligen 
+Erweiterung die MIME-Datentypen um die Möglichkeit des Signierens und Verschlüsselns ergänzt. Dabei baut es 
+auf den Formatvorgaben der Cryptographic Message Syntax (CMS) auf, die in den Public Key Cryptography 
+Standards (PKCS #7) spezifiziert sind. S/MIME kann sowohl für verschlüsselte E-Mails als auch für 
+verschlüsselte Kommunikation wie http verwendet werden. Folgende Tabelle zeigt einige in S/MIME v3.1 
+verwendete Algorithmen:</P>
+
+<TABLE class="pad10">
+<TR><TD><B>Algorithmus</B></TD><TD><B>S/MIME v3.1<br>vorgeschrieben/optional</B></TD></TR>
+<TR><TD>Hashverfahren</TD><TD>SHA-1/MD5</TD></TR>
+<TR><TD>Signaturverfahren</TD><TD>DSA/RSA</TD></TR>
+<TR><TD>Public-Key-Verschlüsselung</TD><TD>RSA/Diffie-Hellman (RFC2631)</TD></TR>
+<TR><TD>Symmetrische Verfahren</TD><TD>3DES/AES</TD></TR>
+</TABLE>
+
+<P><B><U>Literatur</U></B>:</P>
+
+<P>[1] Diplomarbeit von Michael Linden und Thorsten Krüger im Fachbereich Wirtschaftsinformatik 
+der Universität Siegen, 2007: "Dynamische Visualisierung von E-Mailverschlüsselung mittels moderner 
+Animationssoftware zur Awarenessbildung".</P>
+
+<P>[2] Wikipedia, Artikel zu S/MIME: http://de.wikipedia.org/wiki/S/MIME</P>
+
+<P><B>Bemerkung 1</B>:</P>
+
+<P>Das Control-Center ist in Java mit SWT geschrieben und erfordert mindestens Java 1.5. Zur Umsetzung der 
+kryptographischen Routinen wird die Bouncy Castle (BC) Cryptography Library eingesetzt. Dabei fungiert die BC 
+Cryptography Library in Java als zusätzlicher Security Provider.</P>
+
+<P>Um bei der Verschlüsselung Schlüssel beliebiger Länge verwenden zu können, müssen vor Einsatz der BC die 
+"unrestricted policy files" installiert werden. Man erhält diese z.B. von http://java.sun.com oder genauer 
+http://java.sun.com/javase/downloads/index.jsp. Zur Installation sind in C:\program files\Java\jre6\lib\security 
+die beiden alten JAR-Dateien umzubenennen und die neuen einzuspielen: local_policy.jar, US_export_policy.jar. 
+Damit es funktioniert, muss man das Control-Center schließen und neu starten. </P>
+
+<P>Ist die Java Cryptography Extension (JCE) "Unlimited Strength Jurisdiction Policy" nicht installiert, 
+kommt folgende Meldung:</P>
+
+<P><IMG SRC="images/jce_not_installed.jpg" ALT="jce_not_installed.jpg" BORDER=0></P>
+
+<P><B>Bemerkung 2</B>:</P>
+
+<P>In der Flashanimation wird der Windows-Pixelfont Bavaria Extended zum Darstellen aller dynamische Inhalte 
+verwendet. Wenn er nicht installiert ist, kann man den Text zwar lesen, aber die Markierungen sind nicht 
+korrekt platziert. Die Schriftart ist für nicht-kommerzielle Zwecke frei verwendbar. Quelle: 
+http://pixelfonts.style-force.net/download/bavaria-extended/</P>
+
+<P>Installieren von Fonts unter Windows erfordert folgende Schritte:<br/>
+1) Schriftart in temporäres Verzeichnis entpacken (nicht direkt in das Windows-Fonts-Verzeichnis).<br/>
+2) Die extrahierte TTF-Datei mit der Schriftart mittels Drag&Drop vom temporären Verzeichnis nach 
+"C:\Windows\Fonts" kopieren.<br/>
+3) Temporäres Verzeichnis löschen.</P>
 
 </BODY>
 </HTML>
