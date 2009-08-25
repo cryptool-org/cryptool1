@@ -195,8 +195,8 @@ double Correlation<TYPE,mode>::GetCorrelation(int n /*=0*/) const
 			if (cor!=NOTCALCULATED) return cor;
 		} 
 	} // store
-
 	// no, so compute!
+	cor=0.0;
 	int i=0,l=m_N;
 	IFMODE(cyclic) {
 		l=max(m_NX,m_NY);
