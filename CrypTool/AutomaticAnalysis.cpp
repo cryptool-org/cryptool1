@@ -247,7 +247,7 @@ UINT VigenereAuto(PVOID p)
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
 		SHOW_HOUR_GLASS
 	
-	av = (int) c.GetAverage(1); // 1: disregard autocorrelation with shift 1
+	av = (int) c.GetAverage(1); // 1: disregard autocorrelation with shift 0
 	mx = (int) c.GetMax(1);
 	s = (av + mx) / 2;
 	for(periode=1;periode<c.GetSize();periode++) if(c[periode]>s) break;
@@ -462,7 +462,7 @@ UINT XorAuto(PVOID p)
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
 		SHOW_HOUR_GLASS
 	
-	av = (int) c.GetAverage(1); // 1: disregard autocorrelation with shift 1
+	av = (int) c.GetAverage(1); // 1: disregard autocorrelation with shift 0
 	mx = (int) c.GetMax(1);
 	s = (av + mx) / 2;
 	for(periode=1;periode<c.GetSize()/*200*/;periode++) if(c[periode]>s) break;
@@ -618,7 +618,7 @@ UINT AddAuto(PVOID p)
 	if(par->flags & CRYPT_DO_WAIT_CURSOR)
 		SHOW_HOUR_GLASS
 	
-	av = (int) c.GetAverage(1); // 1: disregard autocorrelation with shift 1 
+	av = (int) c.GetAverage(1); // 1: disregard autocorrelation with shift 0 
 	mx = (int) c.GetMax(1);
 	s = (av + mx) / 2;
 	// ~~~~~~~~~ Henrik Koy 20. Nov 2000 
