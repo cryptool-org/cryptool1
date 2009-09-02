@@ -21434,6 +21434,8 @@ BEGIN
                             "Möglicher Schlüssel:"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_FOUND_CLEARTEXT_TAG 
                             "Gefundener Klartext:"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_NO_POSSIBLE_RESULTS_FOUND 
+                            "Die Analyse war nicht erfolgreich."
 END
 
 #endif    // German (Germany) resources
@@ -32251,6 +32253,8 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_POSSIBLE_KEY_TAG "Possible key:"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_FOUND_CLEARTEXT_TAG 
                             "Found cleartext:"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_NO_POSSIBLE_RESULTS_FOUND 
+                            "The analysis was not successful."
 END
 
 #endif    // English (U.K.) resources

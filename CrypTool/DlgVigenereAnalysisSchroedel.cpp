@@ -744,19 +744,13 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 										if(maxRating < theRate) maxRating = theRate;
 
 										if(theRate >= 10) {
-											CString possibleKeyTag;
-											possibleKeyTag.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_POSSIBLE_KEY_TAG);
-											output(possibleKeyTag, true);
-											output(dict[xDict], true);
-											output("", true);
-											CString foundCleartextTag;
-											foundCleartextTag.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_FOUND_CLEARTEXT_TAG);
-											output(foundCleartextTag, true);
-											output(decryptText(ciphertext, dict[xDict]), true);
-											output("", true);
-											output("", true);
-											//output("-------> Key (Rate " + strTheRate + "): " + dict[xDict] + " = " + decryptText(ciphertext, dict[xDict]), true);
-											//output("### POSSIBLE SOLVER ###");
+											CString possibleResultKey = dict[xDict];
+											CString possibleResultCleartext = decryptText(ciphertext, dict[xDict]);
+											// at this point we have a possible result, store it in the list for possible results
+											VigenereAnalysisSchroedelPossibleResult possibleResult;
+											possibleResult.key = possibleResultKey;
+											possibleResult.cleartext = possibleResultCleartext;
+											possibleResults.push_back(possibleResult);
 										}
 									}
 								}
@@ -824,6 +818,33 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 	}
 
 	// TODO: see original delphi code
+
+	// display all possible results for the user
+	if(possibleResults.size() == 0) {
+		// display an info message if there was no possible result
+		CString infoMessage;
+		infoMessage.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_NO_POSSIBLE_RESULTS_FOUND);
+		MessageBox(NULL, infoMessage, "CrypTool", MB_ICONINFORMATION);
+	}
+	else {
+		// display all possible results
+		int possibleResultIndex = 1;
+		for(std::list<VigenereAnalysisSchroedelPossibleResult>::iterator iter=possibleResults.begin(); iter!=possibleResults.end(); iter++) {
+			CString stringPossibleResultIndex;
+			stringPossibleResultIndex.Format("%d", possibleResultIndex++);
+			CString possibleKeyTag;
+			possibleKeyTag.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_POSSIBLE_KEY_TAG);
+			output(stringPossibleResultIndex + ". " + possibleKeyTag, true);
+			output((*iter).key, true);
+			output("", true);
+			CString foundCleartextTag;
+			foundCleartextTag.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_FOUND_CLEARTEXT_TAG);
+			output(foundCleartextTag, true);
+			output((*iter).cleartext, true);
+			output("", true);
+			output("", true);
+		}
+	}
 
 	return 0;
 }
