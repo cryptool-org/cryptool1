@@ -188,7 +188,7 @@ int VigenereAnalysisSchroedel::firstChar() {
 	actChar = ciphertext[0];
 	output("First character of cipher: " + actChar);
   output("============================");
-  output(" ");
+  output("");
   output("Possible pairs:");
 
 	s = "";
@@ -217,7 +217,7 @@ int VigenereAnalysisSchroedel::firstChar() {
 	output(s);
 	CString sStr; sStr.Format("%d", o);
 	output("Count: " + sStr);
-	output(" ");
+	output("");
 
 	remain = cPairs;
 	output("Remove dups:");
@@ -245,7 +245,7 @@ int VigenereAnalysisSchroedel::firstChar() {
 	output("Count: " + iStr);
 	CString remainStr; remainStr.Format("%d", remain);
 	output("Remain: " + remainStr);
-	output(" ");
+	output("");
 
 	setStatus("Deleting dups from internal list...");
 	o = 0;
@@ -278,9 +278,9 @@ int VigenereAnalysisSchroedel::firstChar() {
 		score[i][1] = _score[i][1];
 	}
 
-	output(" ");
+	output("");
 	output("###############");
-	output(" ");
+	output("");
 
 	progress = 0.12;
 
@@ -744,12 +744,17 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 										if(maxRating < theRate) maxRating = theRate;
 
 										if(theRate >= 10) {
-											output("Possible key:", true);
+											CString possibleKeyTag;
+											possibleKeyTag.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_POSSIBLE_KEY_TAG);
+											output(possibleKeyTag, true);
 											output(dict[xDict], true);
-											output("Cleartext:", true);
+											output("", true);
+											CString foundCleartextTag;
+											foundCleartextTag.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_FOUND_CLEARTEXT_TAG);
+											output(foundCleartextTag, true);
 											output(decryptText(ciphertext, dict[xDict]), true);
-											output(" ", true);
-											output(" ", true);
+											output("", true);
+											output("", true);
 											//output("-------> Key (Rate " + strTheRate + "): " + dict[xDict] + " = " + decryptText(ciphertext, dict[xDict]), true);
 											//output("### POSSIBLE SOLVER ###");
 										}
@@ -770,9 +775,9 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 
 	// TODO: endezeit = Date + Time
 	if(!found) {
-		output(" ");
+		output("");
 		output("Checking all possible solutions with dictionary for heighest rating:");
-		output(" ");
+		output("");
 		output("############################################");
 		output("HIGHEST RATING");
 		output("############################################");
@@ -799,7 +804,7 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 			text = pairs[i][1];
 
 			if(solveKey.Find(key) == 0 || solveText.Find(key) == 0) {
-				output(" ");
+				output("");
 				CString iStr; iStr.Format("%d", i);
 				output("Position after sorting was: " + iStr);
 			}
@@ -815,7 +820,7 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 				solveKey = solvers[i][1];
 			}
 		}
-    output(" ");
+    output("");
 	}
 
 	// TODO: see original delphi code
@@ -899,9 +904,11 @@ int VigenereAnalysisSchroedel::readCiphertext() {
 
 	ciphertext.MakeUpper();
 
-	output("Ciphertext:", true);
+	CString ciphertextTag;
+	ciphertextTag.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_CIPHERTEXT_TAG);
+	output(ciphertextTag, true);
 	output(ciphertext, true);
-	output(" ", true);
+	output("", true);
 
 	// if necessary, indicate that the ciphertext is shorter than three characters
 	if(ciphertext.GetLength() < 3) return -1;
