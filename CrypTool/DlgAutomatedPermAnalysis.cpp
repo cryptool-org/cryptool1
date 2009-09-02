@@ -217,6 +217,8 @@ BOOL CDlgAutomatedPermAnalysis::OnInitDialog()
 
 void CDlgAutomatedPermAnalysis::OpenFile(const char *fileName) 
 {
+	UpdateData(true);
+
 	ScinMSG(SCI_CLEARALL);
 	ScinMSG(EM_EMPTYUNDOBUFFER);
 	ScinMSG(SCI_SETSAVEPOINT);
@@ -248,6 +250,8 @@ void CDlgAutomatedPermAnalysis::OpenFile(const char *fileName)
 	ScinMSG(EM_EMPTYUNDOBUFFER);
 	ScinMSG(SCI_SETSAVEPOINT);
 	ScinMSG(SCI_GOTOPOS, 0);
+
+	UpdateData(false);
 }
 
 void CDlgAutomatedPermAnalysis::SaveFile() 
