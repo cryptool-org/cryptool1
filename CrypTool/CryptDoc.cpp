@@ -851,7 +851,7 @@ void CCryptDoc::OnVigenereAnalysisSchroedel()
 
 	// open result file if the analysis was NOT aborted
 	if(theAnalysis->progress == 1.0) {
-		CAppDocument *NewDoc = theApp.OpenDocumentFileNoMRU(CString(Pfad) + CString("result.txt"));
+		CAppDocument *NewDoc = theApp.OpenDocumentFileNoMRU(theAnalysis->resultFileName);
 	}
 }
 

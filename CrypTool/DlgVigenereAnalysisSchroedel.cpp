@@ -24,6 +24,7 @@
 #include "stdafx.h"
 #include "CryptoolApp.h"
 #include "DlgVigenereAnalysisSchroedel.h"
+#include "FileTools.h"
 
 #include <iostream>
 #include <fstream>
@@ -554,8 +555,6 @@ int VigenereAnalysisSchroedel::secondChar() {
 		aktPos = 0;
 
 		for(int o=0; o<cPairs; o++) {
-			// *** TODO *** CHECK THIS SECTION!!!! (THINK ABOUT THE "n+1" THINGY)
-			//if(pairs[o][0].MakeUpper() == plaintext.Left(n+1).MakeUpper()) aktPos = o;
 			if(pairs[o][0].MakeUpper() == ciphertext.Left(n+1).MakeUpper()) aktPos = o;
 			CString oStr; oStr.Format("%d", o);
 			s = s + oStr + ". " + pairs[o][0] + "-" + pairs[o][1] + " ";
@@ -746,11 +745,8 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 										if(theRate >= 10) {
 											CString possibleResultKey = dict[xDict];
 											CString possibleResultCleartext = decryptText(ciphertext, dict[xDict]);
-											// at this point we have a possible result, store it in the list for possible results
-											VigenereAnalysisSchroedelPossibleResult possibleResult;
-											possibleResult.key = possibleResultKey;
-											possibleResult.cleartext = possibleResultCleartext;
-											possibleResults.push_back(possibleResult);
+											// at this point we have a possible result, store it in the map for possible results
+											mapPossibleResults[possibleResultKey] = possibleResultCleartext;
 										}
 									}
 								}
@@ -804,8 +800,6 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 			}
 		}
 
-		// TODO		output( 'TIME: ' + formatDateTime( 'nn:ss', endezeit - startzeit ));
-
 		for(int i=0; i<x; i++) {
 			if(solvers[i][0] == ciphertext) {
 				solveKey = solvers[i][0];
@@ -819,28 +813,75 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 
 	// TODO: see original delphi code
 
-	// display all possible results for the user
-	if(possibleResults.size() == 0) {
+	// this is the official end of the analysis
+	time(&timeAnalysisEnd);
+
+	time_t timeNeededForAnalysisInSeconds = timeAnalysisEnd - timeAnalysisStart;
+
+	// dump a header (describing the analysis)
+	CString analysisHeaderTag;
+	analysisHeaderTag.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_HEADER_TAG);
+	output(analysisHeaderTag, true);
+
+	// dump the time needed for analysis
+	CString analysisTimeNeededTag;
+	analysisTimeNeededTag.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_TIME_NEEDED_TAG);
+	CString analysisTimeNeeded;
+	analysisTimeNeeded.Format("%s %d", analysisTimeNeededTag, timeNeededForAnalysisInSeconds);
+	output(analysisTimeNeeded, true);
+
+	// dump the length of the analyzed ciphertext
+	CString ciphertextLengthTag;
+	ciphertextLengthTag.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_CIPHERTEXT_LENGTH_TAG);
+	CString ciphertextLength;
+	ciphertextLength.Format("%s %d", ciphertextLengthTag, ciphertext.GetLength());
+	output(ciphertextLength, true);
+
+	// dump the ciphertext (only once at the beginning of the result text)
+	CString ciphertextTag;
+	ciphertextTag.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_CIPHERTEXT_TAG);
+	output(ciphertextTag, true);
+	output(ciphertext, true);
+
+	output("", true);
+
+	// display all possible results for the user (pairs of key and corresponding cleartext)
+	if(mapPossibleResults.size() == 0) {
 		// display an info message if there was no possible result
 		CString infoMessage;
 		infoMessage.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_NO_POSSIBLE_RESULTS_FOUND);
 		MessageBox(NULL, infoMessage, "CrypTool", MB_ICONINFORMATION);
+		return -1;
+	}
+	else if(mapPossibleResults.size() == 1) {
+		// display the one possible result
+		CString possibleKeyTag;
+		possibleKeyTag.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_POSSIBLE_KEY_TAG);
+		output(possibleKeyTag, true);
+		output((*mapPossibleResults.begin()).first, true);
+		output("", true);
+		CString foundCleartextTag;
+		foundCleartextTag.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_FOUND_CLEARTEXT_TAG);
+		output(foundCleartextTag, true);
+		output((*mapPossibleResults.begin()).second, true);
+		output("", true);
+		output("", true);
 	}
 	else {
-		// display all possible results
+		// display all possible results with a numbered list
 		int possibleResultIndex = 1;
-		for(std::list<VigenereAnalysisSchroedelPossibleResult>::iterator iter=possibleResults.begin(); iter!=possibleResults.end(); iter++) {
+		for(std::map<CString, CString>::iterator iter=mapPossibleResults.begin(); iter!=mapPossibleResults.end(); iter++) {
 			CString stringPossibleResultIndex;
 			stringPossibleResultIndex.Format("%d", possibleResultIndex++);
 			CString possibleKeyTag;
 			possibleKeyTag.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_POSSIBLE_KEY_TAG);
 			output(stringPossibleResultIndex + ". " + possibleKeyTag, true);
-			output((*iter).key, true);
+			output((*iter).first, true);
 			output("", true);
 			CString foundCleartextTag;
 			foundCleartextTag.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_FOUND_CLEARTEXT_TAG);
 			output(foundCleartextTag, true);
-			output((*iter).cleartext, true);
+			output((*iter).second, true);
 			output("", true);
 			output("", true);
 		}
@@ -898,6 +939,9 @@ int VigenereAnalysisSchroedel::readDict() {
 
 int VigenereAnalysisSchroedel::readCiphertext() {
 
+	// this is the official start of the analysis
+	time(&timeAnalysisStart);
+
 	// watch out for user cancellation
 	if(abort) return -1;
 
@@ -923,13 +967,9 @@ int VigenereAnalysisSchroedel::readCiphertext() {
 	// close input file
 	fileInput.close();
 
+	// remove all blanks prior to analysis
+	ciphertext.Remove(' ');
 	ciphertext.MakeUpper();
-
-	CString ciphertextTag;
-	ciphertextTag.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_CIPHERTEXT_TAG);
-	output(ciphertextTag, true);
-	output(ciphertext, true);
-	output("", true);
 
 	// if necessary, indicate that the ciphertext is shorter than three characters
 	if(ciphertext.GetLength() < 3) return -1;
@@ -1123,13 +1163,13 @@ CString VigenereAnalysisSchroedel::fillLeft(CString was, int wie) {
 }
 
 void VigenereAnalysisSchroedel::writeResultFile() {
-
+	
 	// open result file
 	std::ofstream fileResult;
-	CString pathToFileResult;
-	pathToFileResult = Pfad;
-	pathToFileResult += "result.txt";
-	fileResult.open(pathToFileResult, ios_base::trunc);
+	char pathToFileResult[CRYPTOOL_PATH_LENGTH];
+	GetTmpName(pathToFileResult, "cry", ".txt");
+	resultFileName = pathToFileResult;
+	fileResult.open(resultFileName, ios_base::trunc);
 	if(!fileResult) return; // TODO error message
 
 	fileResult.write(result.GetBuffer(), result.GetLength());

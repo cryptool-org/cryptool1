@@ -22,16 +22,11 @@
 #define _DLGVIGENEREANALYSISSCHROEDEL_
 
 #include "afxwin.h"
-#include <list>
+#include <map>
 
 #if _MSC_VER > 1000
 #pragma once
 #endif
-
-struct VigenereAnalysisSchroedelPossibleResult {
-	CString key;
-	CString cleartext;
-};
 
 // 06/24/2009, flomar: Vigenere analysis class
 // (originally written by Schroedel in Pascal, ported to C++ by flomar)
@@ -82,11 +77,17 @@ public:
 	int rateString(CString str, CString key);
 	CString fillLeft(CString was, int wie);
 
-	// this list contains all possible results (key and respective cleartext)
-	std::list<VigenereAnalysisSchroedelPossibleResult> possibleResults;
+	// this is used for timing purposes
+	time_t timeAnalysisStart;
+	time_t timeAnalysisEnd;
+
+	// this map contains all possible results (key and respective cleartext)
+	std::map<CString, CString> mapPossibleResults;
 
 	// this string holds the analysis results (see result file)
 	CString result;
+	// the name of the result file
+	CString resultFileName;
 	// function to write the write the result file
 	void writeResultFile();
 
