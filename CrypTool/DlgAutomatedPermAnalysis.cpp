@@ -168,6 +168,14 @@ BOOL CDlgAutomatedPermAnalysis::OnInitDialog()
 	hWndEditCipher = CreateWindowEx(WS_EX_CLIENTEDGE, "Scintilla", "", 
 		WS_CHILD | WS_VISIBLE | WS_TABSTOP | WS_CLIPCHILDREN, 21, 86, 438, 260, *this, NULL, NULL, NULL);
 
+	// avoid Scintilla margins to the left of the text window (make them disappear)
+	FromHandle(hWndEditPlain)->SendMessage(SCI_SETMARGINWIDTHN, 0, 0);
+	FromHandle(hWndEditPlain)->SendMessage(SCI_SETMARGINWIDTHN, 1, 0);
+	FromHandle(hWndEditPlain)->SendMessage(SCI_SETMARGINWIDTHN, 2, 0);
+	FromHandle(hWndEditCipher)->SendMessage(SCI_SETMARGINWIDTHN, 0, 0);
+	FromHandle(hWndEditCipher)->SendMessage(SCI_SETMARGINWIDTHN, 1, 0);
+	FromHandle(hWndEditCipher)->SendMessage(SCI_SETMARGINWIDTHN, 2, 0);
+
 	::ShowWindow(hWndEditCipher, SW_HIDE);
 
 
