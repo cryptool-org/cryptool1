@@ -4,6 +4,7 @@
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <TITLE>Sichere E-Mail mit S/MIME</TITLE>
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+<script language="JScript" src="helper.js"></script>
 </HEAD>
 	
 <!-- multiple keywords for CrypTool HTML help index -->
@@ -19,15 +20,18 @@
 <P>Die Visualisierung einer sicheren E-Mail zeigt, wie nach dem S/MIME-Standard eine Mail signiert und 
 verschlüsselt wird.</P>
 
-<P>Sie können im Control-Center die Daten und Steuerungsparameter selbst eingeben.</P>
+<P>Diese Visualisierung wird mit zwei Fenstern dargeboten:</P>
 
-<P>Danach starten Sie die Flash-Animation: Diese zeigt den Weg der E-Mail von der Absenderin zum Empfänger, 
-und wie die Nachricht aufgebaut ist.</P>
+<UL>
+<LI>Im Control-Center-Fenster können Sie die Daten und Steuerungsparameter selbst eingeben.</LI>
+<LI>Danach starten Sie das Fenster mit der Flash-Animation: Diese zeigt den Weg der E-Mail von der 
+Absenderin zum Empfänger, und wie die Nachricht aufgebaut ist.</LI>
+</UL>
 
 <P>Dabei werden die Konzepte PKI, Zertifikate, Hashverfahren, Verschlüsselung und Signierung erläutert: 
 Diese Konzepte kommen bei E-Mails anhand des S/MIME-Protokoll zum Einsatz.</P>
 
-<P>Die Visualisierung in verständlicher Form mit moderner Animationssoftware ist eine gute Maßnahme zur 
+<P>Die Visualisierung in verständlicher Form mit moderner Animationssoftware ist eine sinnvolle Maßnahme zur 
 Awarenessbildung (Sensibilisierung der Menschen), da sichere E-Mail eine wichtige Komponente zur Erhaltung 
 der Privatspäre, zur Abwehr gegen Man-in-the-Middle-Angriffe und gegen Phishing ist.</P>
 
@@ -35,7 +39,7 @@ der Privatspäre, zur Abwehr gegen Man-in-the-Middle-Angriffe und gegen Phishing 
 
 <P><IMG SRC="images/smime_animation.jpg" ALT="smime_control_center.jpg" BORDER=0 width="800px"></P>
 
-<P><IMG SRC="images/smime_flow_chart.jpg" ALT="smime_control_center.jpg" BORDER=0 width="800px"></P>
+<!-- <P><IMG SRC="images/smime_flow_chart.jpg" ALT="smime_control_center.jpg" BORDER=0 width="800px"></P> -->
 
 <P>Die Grundlage zum Text-basierten E-Mail-Verkehr wurde bereits im Jahre 1982 durch zwei Standards geschaffen:<br/>
 a) Der in [RFC822] formulierte Standard beschreibt den Aufbau einer E-Mail.<br/>
@@ -58,11 +62,11 @@ verschlüsselte Kommunikation wie http verwendet werden. Folgende Tabelle zeigt e
 verwendete Algorithmen:</P>
 
 <TABLE class="pad10">
-<TR><TD><B>Algorithmus</B></TD><TD><B>S/MIME v3.1<br>vorgeschrieben/optional</B></TD></TR>
-<TR><TD>Hashverfahren</TD><TD>SHA-1/MD5</TD></TR>
-<TR><TD>Signaturverfahren</TD><TD>DSA/RSA</TD></TR>
-<TR><TD>Public-Key-Verschlüsselung</TD><TD>RSA/Diffie-Hellman (RFC2631)</TD></TR>
-<TR><TD>Symmetrische Verfahren</TD><TD>3DES/AES</TD></TR>
+<TR><TD><B>Algorithmus</B></TD><TD><B>S/MIME v3.1<br>vorgeschrieben, optional</B></TD></TR>
+<TR><TD>Hashverfahren</TD><TD>SHA-1, MD5</TD></TR>
+<TR><TD>Signaturverfahren</TD><TD>DSA, RSA</TD></TR>
+<TR><TD>Public-Key-Verschlüsselung</TD><TD>RSA, Diffie-Hellman (RFC2631)</TD></TR>
+<TR><TD>Symmetrische Verfahren</TD><TD>3DES, AES</TD></TR>
 </TABLE>
 
 <P><B><U>Literatur</U></B>:</P>
@@ -80,8 +84,9 @@ kryptographischen Routinen wird die Bouncy Castle (BC) Cryptography Library eing
 Cryptography Library in Java als zusätzlicher Security Provider.</P>
 
 <P>Um bei der Verschlüsselung Schlüssel beliebiger Länge verwenden zu können, müssen vor Einsatz der BC die 
-"unrestricted policy files" installiert werden. Man erhält diese z.B. von http://java.sun.com oder genauer 
-http://java.sun.com/javase/downloads/index.jsp. Zur Installation sind in C:\program files\Java\jre6\lib\security 
+"unrestricted policy files" installiert werden. Man erhält diese z.B. von 
+<a href="http://java.sun.com" target="_blank">http://java.sun.com</a> oder genauer 
+<a href="http://java.sun.com/javase/downloads/index.jsp" target="_blank">http://java.sun.com/javase/downloads/index.jsp</a>. Zur Installation sind in C:\program files\Java\jre6\lib\security 
 die beiden alten JAR-Dateien umzubenennen und die neuen einzuspielen: local_policy.jar, US_export_policy.jar. 
 Damit es funktioniert, muss man das Control-Center schließen und neu starten. </P>
 
@@ -92,12 +97,12 @@ kommt folgende Meldung:</P>
 
 <P><B>Bemerkung 2</B>:</P>
 
-<P>In der Flashanimation wird der Windows-Pixelfont Bavaria Extended zum Darstellen aller dynamische Inhalte 
+<P>In der Flashanimation wird der Windows-Pixelfont Bavaria Extended zum Darstellen aller dynamischen Inhalte 
 verwendet. Wenn er nicht installiert ist, kann man den Text zwar lesen, aber die Markierungen sind nicht 
-korrekt platziert. Die Schriftart ist für nicht-kommerzielle Zwecke frei verwendbar. Quelle: 
+korrekt platziert. Die Schriftart ist für nicht-kommerzielle Zwecke frei verwendbar. Quelle:<br> 
 http://pixelfonts.style-force.net/download/bavaria-extended/</P>
 
-<P>Installieren von Fonts unter Windows erfordert folgende Schritte:<br/>
+<P>Das Installieren von Fonts unter Windows erfordert folgende Schritte:<br/>
 1) Schriftart in temporäres Verzeichnis entpacken (nicht direkt in das Windows-Fonts-Verzeichnis).<br/>
 2) Die extrahierte TTF-Datei mit der Schriftart mittels Drag&Drop vom temporären Verzeichnis nach 
 "C:\Windows\Fonts" kopieren.<br/>
