@@ -18699,7 +18699,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    ID_FILE_NEW             "Erzeugt ein neues Dokument\nNeu"
+    ID_FILE_NEW             "Erstellt ein neues Dokument\nNeu"
     ID_FILE_OPEN            "Öffnet ein bestehendes Dokument\nÖffnen"
     ID_FILE_CLOSE           "Schließt das aktive Dokument\nSchließen"
     ID_FILE_SAVE            "Speichert das aktive Dokument\nSpeichern"
@@ -18809,19 +18809,19 @@ BEGIN
     ID_EDIT_CLEAR           "Löscht die Auswahl"
     ID_EDIT_COPY            "Kopiert die Auswahl in die Zwischenablage\nKopieren"
     ID_EDIT_CUT             "Schneidet die Auswahl (markierte Zeichen) aus und überträgt sie in die Zwischenablage\nAusschneiden"
-    ID_EDIT_FIND            "Sucht den angegebenen Text im aktiven Dokument"
+    ID_EDIT_FIND            "Durchsucht das aktive Dokument nach einem Suchbegriff und ersetzt diesen bei Bedarf"
     ID_EDIT_PASTE           "Fügt den Inhalt der Zwischenablage an der Einfügemarke ein\nEinfügen"
     57640                   "Weitersuchen"
     ID_EDIT_REPLACE         "Der angegebene Text wird durch einen anderen Text ersetzt"
-    ID_EDIT_SELECT_ALL      "Der ganze Text im aktiven Dokument wird markiert (ausgewählt)"
+    ID_EDIT_SELECT_ALL      "Markiert den gesamten Inhalt des aktiven Dokuments"
     ID_EDIT_UNDO            "Macht die letzte Änderung rückgängig"
-    ID_EDIT_REDO            "Stellt die zuletzt Änderung gemachte Aktion wieder her"
+    ID_EDIT_REDO            "Stellt die zuletzt rückgängig gemachte Änderung wieder her"
 END
 
 STRINGTABLE 
 BEGIN
-    ID_VIEW_TOOLBAR         "Ein- oder Ausblenden der Symbolleiste"
-    ID_VIEW_STATUS_BAR      "Ein- oder Ausblenden der Statusleiste"
+    ID_VIEW_TOOLBAR         "Blendet die Symbolleiste ein oder aus"
+    ID_VIEW_STATUS_BAR      "Blendet die Statusleiste ein oder aus"
 END
 
 STRINGTABLE 
@@ -18929,7 +18929,7 @@ BEGIN
     IDS_STRING_FLOATING_FREQ "Gleitende Häufigkeit"
     IDS_STRING_FLOATING_FREQ_FINISHED "Gleitende Häufigkeit erledigt: %d%%"
     ID_FLOATING             "Gleitende Häufigkeit des Dokumentes berechnen"
-    ID_SHOW_KEY             "Zeigt den Schlüssel an, der von CrypTool für die Verschlüsselung dieses Dokuments benutzt wurde\nSchlüssel anzeigen"
+    ID_SHOW_KEY             "Zeigt den Schlüssel an, der von CrypTool für die Verschlüsselung des aktiven Dokuments benutzt wurde\nSchlüssel anzeigen"
     ID_GOTO_VATER           "Wechselt zum übergeordneten Fenster\nÜbergeordnetes Fenster"
     IDS_STRING_ASSURE_DEL_ASYM_KEY 
                             "Sind Sie sicher das die zu dem Schlüsselbezeichner\n'%1'\ngehörenden Schlüsseldateien GELÖSCHT werden sollen?\n\nDrücken Sie OK um den Vorgang fortzusetzen."
@@ -18959,7 +18959,7 @@ BEGIN
     ID_ANALYSE_AES_RIJNDAEL "Automatische Brute-Force-Analyse einer Rijndael(AES)-Verschlüsselung"
     ID_ANALYSE_AES_SERPENT  "Automatische Brute-Force-Analyse einer Serpent-Verschlüsselung"
     ID_ANALYSE_AES_TWOFISH  "Automatische Brute-Force-Analyse einer Twofish-Verschlüsselung"
-    ID_PLOTBAR              "Zeigt die Grafik im aktiven Fenster als Balkendiagramm an"
+    ID_PLOTBAR              "Zeigt die Grafik im aktiven Dokument als Balkendiagramm an"
     ID_VERNAM_BIN           "Vernam-Verschlüsselung"
     ID_CRYPT_RC4            "Ver-/Entschlüsseln mit RC4"
     ID_CRYPT_3DES_ECB       "Ver-/Entschlüsseln mit Triple-DES (ECB Modus)"
@@ -19313,8 +19313,8 @@ END
 
 STRINGTABLE 
 BEGIN
-    ID_TOTXT                "Zeigt aktives Fenster als ASCII-Text an"
-    ID_TOHEX                "Zeigt aktives Fenster als Hex Dump an"
+    ID_TOTXT                "Zeigt das aktive Dokument als Text an"
+    ID_TOHEX                "Zeigt das aktive Dokument als HexDump an"
     ID_PLAYFAIR_ANALYSE     "Manuelle Analyse der Playfair-Verschlüsselung"
     IDS_STRING_VITANY_ANALYSE "Vitany-Analyse"
     ID_ANALYSE_VITANY       "Führt die Vitany-Analyse durch, um die statistische Unabhängigkeit der Daten im aktiven Dokument zu bewerten"
@@ -20438,7 +20438,7 @@ BEGIN
     ID_RSA_FACTORHINT       "Angriff auf RSA mit Gitterreduktionsverfahren, sofern ein Teil eines der beiden Primfaktoren von N bekannt ist"
     ID_RSA_STEREOTYPED      "Angriff auf RSA mit Gitterreduktionsverfahren, sofern ein Teil des Klartextes einer Nachricht bekannt und e klein ist"
     ID_RSA_BLOEMERMAY       "Angriff auf RSA mit Gitterreduktionsverfahren, sofern d im Verhältnis zu N zu klein gewählt ist"
-    ID_FILEPROPERTIES       "Zeigt die Eigenschaften das aktuellen Dokuments an."
+    ID_FILEPROPERTIES       "Zeigt die Eigenschaften des aktiven Dokuments an"
     ID_ENCRYPT_ADFGVX       "ADFGVX-Verschlüsselung"
     ID_GENERATE_MACS        "Erzeugt verschiedene Keyed-Hash Message Authentication Codes (HMACs)"
     ID_MASS_PATTERN_SEARCH  "Sucht vorgegebene Muster in einem Dokument"
@@ -20958,28 +20958,28 @@ BEGIN
     IDS_TITLE_DLG_RSADECRYPTION 
                             "Auswahl eines Schlüssels zur RSA-Entschlüsselung von <%s>"
     ID_POPUP_OPENGL_SHOW_BOX 
-                            "Anzeige von Würfelkanten in der OpenGL-Visualisierung"
-    ID_VIEW_ENDOFLINE       "Ein- oder Ausschalten besonderer Zeichen anstelle von Zeilenenden"
-    ID_VIEW_LINEWRAP        "Ein- oder Ausschalten besonderer Zeichen anstelle von Zeilenumbrüchen"
-    ID_VIEW_WHITESPACE      "Ein- oder Ausschalten besonderer Zeichen anstelle von Leerzeichen"
+                            "Schaltet die Anzeige der Würfelkanten in der OpenGL-Visualisierung ein oder aus"
+    ID_VIEW_ENDOFLINE       "Schaltet die Anzeige von Leerzeichen als besondere Zeichen ein oder aus"
+    ID_VIEW_LINEWRAP        "Schaltet die Anzeige von Zeilenumbrüchen als besondere Zeichen ein oder aus"
+    ID_VIEW_WHITESPACE      "Schaltet die Anzeige von Leerzeichen als besondere Zeichen ein oder aus"
     IDS_CONTROL_COPY        "Kopieren"
     IDS_CONTROL_PASTE       "Einfügen"
     ID_ZEICHENFORMAT_COURIER10 
-                            "Darstellung der Zeichen in Courier 10 Punkte-Schrift (feste Zeichenlänge)"
+                            "Legt für das aktive Dokument die Schriftart Courier 10 fest"
     ID_ZEICHENFORMAT_COURIER12 
-                            "Darstellung der Zeichen in Courier 12 Punkte-Schrift (feste Zeichenlänge)"
+                            "Legt für das aktive Dokument die Schriftart Courier 12 fest"
     ID_ZEICHENFORMAT_ARIAL10 
-                            "Darstellung der Zeichen in Arial 10 Punkte-Schrift"
+                            "Legt für das aktive Dokument die Schriftart Arial 10 fest"
 END
 
 STRINGTABLE 
 BEGIN
     ID_ZEICHENFORMAT_ARIAL12 
-                            "Darstellung der Zeichen in Arial 12 Punkte-Schrift"
+                            "Legt für das aktive Dokument die Schriftart Arial 12 fest"
     ID_ZEICHENFORMAT_ARIAL08 
-                            "Darstellung der Zeichen in Arial 8 Punkte-Schrift"
+                            "Legt für das aktive Dokument die Schriftart Arial 8 fest"
     ID_ZEICHENFORMAT_COURIER08 
-                            "Darstellung der Zeichen in Courier 8 Punkte-Schrift (feste Zeichenlänge)"
+                            "Legt für das aktive Dokument die Schriftart Courier 8 fest"
     ID_DECODE_BASE64        "Decodieren des aktiven Dokuments mittels Base64"
     ID_ENCODE_BASE64        "Codieren des aktiven Dokuments mittels Base64"
     IDS_CONTROL_CUT         "Ausschneiden"
@@ -21063,7 +21063,7 @@ BEGIN
     ID_HYBRID_ECCDEC        "Entschlüsselt eine mit dem ECC-Algorithmus verschlüsselte Datei"
     ID_INDIV_POINTADDITIONONELLIPTICCURVES 
                             "Veranschaulicht die Punktaddition auf einer Elliptischen Kurve"
-    ID_VIEW_ALPHABET        "Nicht-Alphabet-Zeichen ausgrauen"
+    ID_VIEW_ALPHABET        "Graut nicht-Alphabet-Zeichen im aktiven Dokument aus"
 END
 
 STRINGTABLE 
@@ -21075,6 +21075,7 @@ BEGIN
     ID_FLASH_ENIGMADEMO     "Visualisiert die Enigma-Maschine mittels Flash"
     ID_FLASH_RIJNDAEL_INSPECTOR 
                             "Zeigt die AES-Zwischenergebnisse nach jedem Schritt in jeder Runde für frei wählbare Daten an"
+    ID_EDIT_FIND_NEXT       "Setzt die Suche nach einem bestehenden Suchbegriff fort"
 END
 
 STRINGTABLE 
