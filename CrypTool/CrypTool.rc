@@ -32283,7 +32283,7 @@ STRINGTABLE
 BEGIN
     IDS_AES_FLOWVISUALIZATION_JAVA_FILE "AES_Flussvisualisierung.jar"
     IDS_STRING_SMIME_DEMO_PROGRAM_COMPLETE_CALL 
-                            "-cp "".;./lib/*"" main.Programm"
+                            "-cp "".;./lib/*"" main.Programm EN"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_INFO 
                             "As soon as the analysis is finished, the result is display in a new document."
     IDS_AUTHORS_FILE_MISSING 
