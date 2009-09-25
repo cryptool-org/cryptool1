@@ -110,9 +110,13 @@ BEGIN_MESSAGE_MAP(CScintillaView, CCrypToolView)
 	ON_COMMAND(ID_ZEICHENFORMAT_ARIAL08, OnViewFontArial08)
 	ON_COMMAND(ID_ZEICHENFORMAT_ARIAL10, OnViewFontArial10)
 	ON_COMMAND(ID_ZEICHENFORMAT_ARIAL12, OnViewFontArial12)
+	ON_COMMAND(ID_ZEICHENFORMAT_ARIAL14, OnViewFontArial14)
+	ON_COMMAND(ID_ZEICHENFORMAT_ARIAL16, OnViewFontArial16)
 	ON_COMMAND(ID_ZEICHENFORMAT_COURIER08, OnViewFontCourier08)
 	ON_COMMAND(ID_ZEICHENFORMAT_COURIER10, OnViewFontCourier10)
 	ON_COMMAND(ID_ZEICHENFORMAT_COURIER12, OnViewFontCourier12)
+	ON_COMMAND(ID_ZEICHENFORMAT_COURIER14, OnViewFontCourier14)
+	ON_COMMAND(ID_ZEICHENFORMAT_COURIER16, OnViewFontCourier16)
 	ON_COMMAND(ID_EDIT_FIND, OnEditFind)
 	//}}AFX_MSG_MAP
 	// Standard-Druckbefehle
@@ -124,9 +128,13 @@ BEGIN_MESSAGE_MAP(CScintillaView, CCrypToolView)
 	ON_UPDATE_COMMAND_UI(ID_ZEICHENFORMAT_ARIAL08, OnUpdateZeichenformatArial08)
 	ON_UPDATE_COMMAND_UI(ID_ZEICHENFORMAT_ARIAL10, OnUpdateZeichenformatArial10)
 	ON_UPDATE_COMMAND_UI(ID_ZEICHENFORMAT_ARIAL12, OnUpdateZeichenformatArial12)
+	ON_UPDATE_COMMAND_UI(ID_ZEICHENFORMAT_ARIAL14, OnUpdateZeichenformatArial14)
+	ON_UPDATE_COMMAND_UI(ID_ZEICHENFORMAT_ARIAL16, OnUpdateZeichenformatArial16)
 	ON_UPDATE_COMMAND_UI(ID_ZEICHENFORMAT_COURIER08, OnUpdateZeichenformatCourier08)
 	ON_UPDATE_COMMAND_UI(ID_ZEICHENFORMAT_COURIER10, OnUpdateZeichenformatCourier10)
 	ON_UPDATE_COMMAND_UI(ID_ZEICHENFORMAT_COURIER12, OnUpdateZeichenformatCourier12)
+	ON_UPDATE_COMMAND_UI(ID_ZEICHENFORMAT_COURIER14, OnUpdateZeichenformatCourier14)
+	ON_UPDATE_COMMAND_UI(ID_ZEICHENFORMAT_COURIER16, OnUpdateZeichenformatCourier16)
 	ON_COMMAND(ID_VIEW_ALPHABET, OnViewAlphabet)
 	ON_UPDATE_COMMAND_UI(ID_VIEW_ALPHABET, OnUpdateViewAlphabet)
 END_MESSAGE_MAP()
@@ -920,6 +928,16 @@ void CScintillaView::OnViewFontArial12()
 	setTextFont(12, "Arial");
 }
 
+void CScintillaView::OnViewFontArial14()
+{
+	setTextFont(14, "Arial");
+}
+
+void CScintillaView::OnViewFontArial16()
+{
+	setTextFont(16, "Arial");
+}
+
 void CScintillaView::OnViewFontCourier08()
 {
 	setTextFont(8, "Courier");
@@ -933,6 +951,16 @@ void CScintillaView::OnViewFontCourier10()
 void CScintillaView::OnViewFontCourier12()
 {
 	setTextFont(12, "Courier");
+}
+
+void CScintillaView::OnViewFontCourier14()
+{
+	setTextFont(14, "Courier");
+}
+
+void CScintillaView::OnViewFontCourier16()
+{
+	setTextFont(16, "Courier");
 }
 
 void CScintillaView::OnTohex()
@@ -998,6 +1026,22 @@ void CScintillaView::OnUpdateZeichenformatArial12(CCmdUI *pCmdUI)
 		pCmdUI->SetCheck(0);
 }
 
+void CScintillaView::OnUpdateZeichenformatArial14(CCmdUI *pCmdUI)
+{
+	if (checkFontStyle(14, "Arial"))
+		pCmdUI->SetCheck(1);
+	else 
+		pCmdUI->SetCheck(0);
+}
+
+void CScintillaView::OnUpdateZeichenformatArial16(CCmdUI *pCmdUI)
+{
+	if (checkFontStyle(16, "Arial"))
+		pCmdUI->SetCheck(1);
+	else 
+		pCmdUI->SetCheck(0);
+}
+
 void CScintillaView::OnUpdateZeichenformatCourier08(CCmdUI *pCmdUI)
 {
 	if (checkFontStyle(8, "Courier"))
@@ -1018,6 +1062,22 @@ void CScintillaView::OnUpdateZeichenformatCourier10(CCmdUI *pCmdUI)
 void CScintillaView::OnUpdateZeichenformatCourier12(CCmdUI *pCmdUI)
 {
 	if (checkFontStyle(12, "Courier"))
+		pCmdUI->SetCheck(1);
+	else 
+		pCmdUI->SetCheck(0);
+}
+
+void CScintillaView::OnUpdateZeichenformatCourier14(CCmdUI *pCmdUI)
+{
+	if (checkFontStyle(14, "Courier"))
+		pCmdUI->SetCheck(1);
+	else 
+		pCmdUI->SetCheck(0);
+}
+
+void CScintillaView::OnUpdateZeichenformatCourier16(CCmdUI *pCmdUI)
+{
+	if (checkFontStyle(16, "Courier"))
 		pCmdUI->SetCheck(1);
 	else 
 		pCmdUI->SetCheck(0);

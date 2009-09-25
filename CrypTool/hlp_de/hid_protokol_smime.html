@@ -20,7 +20,7 @@
 <P>Die Visualisierung einer sicheren E-Mail zeigt, wie nach dem S/MIME-Standard eine Mail signiert und 
 verschlüsselt wird.</P>
 
-<P>Diese Visualisierung wird mit zwei Fenstern dargeboten:</P>
+<P>Diese Visualisierung nutzt zwei Fenster:</P>
 
 <UL>
 <LI>Im Control-Center-Fenster können Sie die Daten und Steuerungsparameter selbst eingeben.</LI>
@@ -33,7 +33,7 @@ Diese Konzepte kommen bei E-Mails anhand des S/MIME-Protokoll zum Einsatz.</P>
 
 <P>Die Visualisierung in verständlicher Form mit moderner Animationssoftware ist eine sinnvolle Maßnahme zur 
 Awarenessbildung (Sensibilisierung der Menschen), da sichere E-Mail eine wichtige Komponente zur Erhaltung 
-der Privatspäre, zur Abwehr gegen Man-in-the-Middle-Angriffe und gegen Phishing ist.</P>
+der Privatsphäre, zur Abwehr gegen Man-in-the-Middle-Angriffe und gegen Phishing ist.</P>
 
 <P><IMG SRC="images/smime_control_center.jpg" ALT="smime_control_center.jpg" BORDER=0 width="800px"></P>
 
@@ -41,24 +41,27 @@ der Privatspäre, zur Abwehr gegen Man-in-the-Middle-Angriffe und gegen Phishing 
 
 <!-- <P><IMG SRC="images/smime_flow_chart.jpg" ALT="smime_control_center.jpg" BORDER=0 width="800px"></P> -->
 
-<P>Die Grundlage zum Text-basierten E-Mail-Verkehr wurde bereits im Jahre 1982 durch zwei Standards geschaffen:<br/>
-a) Der in [RFC822] formulierte Standard beschreibt den Aufbau einer E-Mail.<br/>
-b) Übertragen werden E-Mails auf dem Weg von Sender zu Empfänger mit einem auf ASCII-Zeichen basierenden 
-Protokoll, dem Simple Mail Transport Protocol (SMTP), das im Standard [RFC821] definiert ist.</P>
+<P>Die Grundlage zum Text-basierten E-Mail-Verkehr wurde bereits im Jahre 1982 durch zwei Standards geschaffen:</P>
+
+<UL>
+<LI>a) Der in [RFC822] formulierte Standard beschreibt den Aufbau einer E-Mail.</LI>
+<LI>b) Übertragen werden E-Mails auf dem Weg von Sender zu Empfänger mit einem auf ASCII-Zeichen basierenden 
+Protokoll, dem Simple Mail Transport Protocol (SMTP), das im Standard [RFC821] definiert ist.</LI>
+</UL>
 
 <P>Da E-Mails während des Transports durch verschiedene Netzwerke weitergereicht werden, die möglicherweise 
 über verschiedene Protokolle kommunizieren, werden Gateways (Protokollumsetzer) als Zwischenknoten eingesetzt. 
 Ein E-Mail-Gateway veranlasst, dass E-Mails zwischengespeichert und in Richtung Ziel weiterbefördert werden.</P>
 
 <P>E-Mails enthalten mittlerweile oftmals über den reinen Text hinaus diverse Anhänge in Form von Binärdaten. 
-Deshalb wurden diese Standards durch den MIME-Standard (Multipurpose Internet Mail Extensions) erweitert, 
-der in [RFC2045 bis 2049] beschrieben ist.</P>
+Deshalb wurden die beiden obigen Standards durch den MIME-Standard (Multipurpose Internet Mail Extensions) 
+erweitert, der in [RFC2045 bis 2049] beschrieben ist.</P>
 
 <P>S/MIME (Secure Multipurpose Internet Mail Extensions) ist ein Protokoll, welches in einer nochmaligen 
 Erweiterung die MIME-Datentypen um die Möglichkeit des Signierens und Verschlüsselns ergänzt. Dabei baut es 
 auf den Formatvorgaben der Cryptographic Message Syntax (CMS) auf, die in den Public Key Cryptography 
 Standards (PKCS #7) spezifiziert sind. S/MIME kann sowohl für verschlüsselte E-Mails als auch für 
-verschlüsselte Kommunikation wie http verwendet werden. Folgende Tabelle zeigt einige in S/MIME v3.1 
+verschlüsselte Kommunikation wie http verwendet werden. Die folgende Tabelle zeigt einige in S/MIME v3.1 
 verwendete Algorithmen:</P>
 
 <TABLE class="pad10">
@@ -77,18 +80,26 @@ Animationssoftware zur Awarenessbildung".</P>
 
 <P>[2] Wikipedia, Artikel zu S/MIME: http://de.wikipedia.org/wiki/S/MIME</P>
 
+<P>[3] RFC822 - STANDARD FOR THE FORMAT OF ARPA INTERNET TEXT MESSAGES: 
+http://www.faqs.org/rfcs/rfc822.html</P>
+
+<P>[4] RFC821 - Simple Mail Transfer Protocol: http://www.faqs.org/rfcs/rfc821.html</P>
+
+<P>[5] RFC2631 - Diffie-Hellman Key Agreement Method: http://www.faqs.org/rfcs/rfc2631.html</P>
+
 <P><B>Bemerkung 1</B>:</P>
 
 <P>Das Control-Center ist in Java mit SWT geschrieben und erfordert mindestens Java 1.5. Zur Umsetzung der 
 kryptographischen Routinen wird die Bouncy Castle (BC) Cryptography Library eingesetzt. Dabei fungiert die BC 
-Cryptography Library in Java als zusätzlicher Security Provider.</P>
+Cryptography Library als zusätzlicher Security Provider für Java.</P>
 
 <P>Um bei der Verschlüsselung Schlüssel beliebiger Länge verwenden zu können, müssen vor Einsatz der BC die 
 "unrestricted policy files" installiert werden. Man erhält diese z.B. von 
 <a href="http://java.sun.com" target="_blank">http://java.sun.com</a> oder genauer 
 <a href="http://java.sun.com/javase/downloads/index.jsp" target="_blank">http://java.sun.com/javase/downloads/index.jsp</a>. Zur Installation sind in C:\program files\Java\jre6\lib\security 
-die beiden alten JAR-Dateien umzubenennen und die neuen einzuspielen: local_policy.jar, US_export_policy.jar. 
-Damit es funktioniert, muss man das Control-Center schließen und neu starten. </P>
+die beiden alten JAR-Dateien umzubenennen und die neuen einzuspielen: local_policy.jar, US_export_policy.jar.</P>
+
+<P>Damit es funktioniert, muss man das Control-Center schließen und neu starten.</P>
 
 <P>Ist die Java Cryptography Extension (JCE) "Unlimited Strength Jurisdiction Policy" nicht installiert, 
 kommt folgende Meldung:</P>
@@ -98,15 +109,18 @@ kommt folgende Meldung:</P>
 <P><B>Bemerkung 2</B>:</P>
 
 <P>In der Flashanimation wird der Windows-Pixelfont Bavaria Extended zum Darstellen aller dynamischen Inhalte 
-verwendet. Wenn er nicht installiert ist, kann man den Text zwar lesen, aber die Markierungen sind nicht 
-korrekt platziert. Die Schriftart ist für nicht-kommerzielle Zwecke frei verwendbar. Quelle:<br> 
+verwendet. Wenn er nicht installiert ist, kann man den Text zwar lesen, aber die Hintergrund-Markierungen sind 
+nicht korrekt platziert. Die Schriftart ist für nicht-kommerzielle Zwecke frei verwendbar.<br>Quelle: 
 http://pixelfonts.style-force.net/download/bavaria-extended/</P>
 
-<P>Das Installieren von Fonts unter Windows erfordert folgende Schritte:<br/>
-1) Schriftart in temporäres Verzeichnis entpacken (nicht direkt in das Windows-Fonts-Verzeichnis).<br/>
-2) Die extrahierte TTF-Datei mit der Schriftart mittels Drag&Drop vom temporären Verzeichnis nach 
-"C:\Windows\Fonts" kopieren.<br/>
-3) Temporäres Verzeichnis löschen.</P>
+<P>Das Installieren von Fonts unter Windows erfordert folgende Schritte:</P>
+
+<UL>
+<LI>1) Schriftart in temporäres Verzeichnis entpacken (nicht direkt in das Windows-Fonts-Verzeichnis).</LI>
+<LI>2) Die extrahierte TTF-Datei mit der Schriftart mittels Drag&Drop vom temporären Verzeichnis nach 
+"C:\Windows\Fonts" kopieren.</LI>
+<LI>3) Temporäres Verzeichnis löschen.</LI>
+</UL>
 
 </BODY>
 </HTML>

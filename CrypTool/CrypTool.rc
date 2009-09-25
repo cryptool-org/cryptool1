@@ -15264,9 +15264,13 @@ BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14, GRAYED
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16, GRAYED
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14, GRAYED
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16, GRAYED
         END
         MENUITEM "&Textdokument formatieren...", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -15608,12 +15612,16 @@ BEGIN
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE, GRAYED
         POPUP "S&chriftart"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14, GRAYED
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16, GRAYED
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14, GRAYED
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16, GRAYED
         END
         MENUITEM "&Textdokument formatieren...", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -15955,12 +15963,16 @@ BEGIN
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE
         POPUP "S&chriftart"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14, GRAYED
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16, GRAYED
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14, GRAYED
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16, GRAYED
         END
         MENUITEM "&Textdokument formatieren...", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -16302,12 +16314,16 @@ BEGIN
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE
         POPUP "S&chriftart"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14, GRAYED
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16, GRAYED
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14, GRAYED
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16, GRAYED
         END
         MENUITEM "&Textdokument formatieren...", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -16679,9 +16695,13 @@ BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14, GRAYED
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16, GRAYED
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14, GRAYED
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16, GRAYED
         END
         MENUITEM "&Textdokument formatieren...", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -25962,9 +25982,13 @@ BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14, GRAYED
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16, GRAYED
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14, GRAYED
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16, GRAYED
         END
         MENUITEM "&Format Text Document...",    ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -26306,12 +26330,16 @@ BEGIN
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Font"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14, GRAYED
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16, GRAYED
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14, GRAYED
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16, GRAYED
         END
         MENUITEM "&Format Text Document...",    ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -26653,12 +26681,16 @@ BEGIN
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Font"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14, GRAYED
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16, GRAYED
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14, GRAYED
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16, GRAYED
         END
         MENUITEM "&Format Text Document...",    ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -27000,12 +27032,16 @@ BEGIN
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE
         POPUP "&Font"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14, GRAYED
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16, GRAYED
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14, GRAYED
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16, GRAYED
         END
         MENUITEM "&Format Text Document...",    ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -27377,9 +27413,13 @@ BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14, GRAYED
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16, GRAYED
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14, GRAYED
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16, GRAYED
         END
         MENUITEM "&Format Text Document...",    ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR

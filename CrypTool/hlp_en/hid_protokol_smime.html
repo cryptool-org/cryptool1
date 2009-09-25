@@ -19,7 +19,7 @@
 
 <P>This visualization shows how to sign and encrypt an e-mail according to the S/MIME standard.</P>
 
-<P>This visualization is presented with two windows:</P>
+<P>This visualization uses two windows:</P>
 
 <UL>
 <LI>In the control center window you can change data and control parameters.</LI>
@@ -30,7 +30,7 @@ from sender to receiver and you can learn about the structure of the message.</L
 <P>The concepts of PKI, certificates, hash algorithms, encryption and digital signatures are explained, 
 because these concepts are used in e-mails according to the S/MIME protocol.</P>
 
-<P>The comprehendible visualization with modern animation software is an appropriate way to achieve user 
+<P>The comprehensible visualization with modern animation software is an appropriate way to achieve user 
 awareness, because secure e-mail is an important component for preserving privacy and for defending 
 man-in-the-middle attacks and phishing.</P>
 
@@ -40,10 +40,12 @@ man-in-the-middle attacks and phishing.</P>
 
 <!-- <P><IMG SRC="images/smime_flow_chart.jpg" ALT="smime_control_center.jpg" BORDER=0 width="800px"></P> -->
 
-<P>The foundation of text-based e-mail traffic was already established in 1982 by two standards:<br/>
-a) The standard [RFC822] specifies the structure of an e-mail.<br/>
-b) The standard [RFC821] specifies the Simple Mail Transport Protocol (SMTP), that is used for 
-transmitting e-mails from sender to receiver with a protocol based on ASCII characters.</P>
+<P>The foundation of text-based e-mail traffic was already established in 1982 by two standards:</P>
+<UL>
+<LI>a) The standard [RFC822] specifies the structure of an e-mail.</LI>
+<LI>b) The standard [RFC821] specifies the Simple Mail Transport Protocol (SMTP), that is used for 
+transmitting e-mails from sender to receiver with a protocol based on ASCII characters.</LI>
+</UL>
 
 <P>Because e-mails are passed on between different networks that are possibly communicating with different 
 protocols, gateways are used as nodes to connect these networks. An e-mail gateway triggers the temporary 
@@ -53,8 +55,8 @@ storage of an e-mail and its delivery to the target.</P>
 format. Therefore the standards mentioned above were expanded by the MIME standard (Multipurpose Internet Mail 
 Extensions) specified in [RFC2045 to 2049].</P>
 
-<P>S/MIME (Secure Multipurpose Internet Mail Extensions) is an expansion of MIME, adding the possibility of 
-digital signatures and encryption. S/MIME is based on the format of the Cryptographic Message Syntax (CMS) 
+<P>S/MIME (Secure Multipurpose Internet Mail Extensions) is a further expansion of MIME, adding the possibility 
+of digital signatures and encryption. S/MIME is based on the format of the Cryptographic Message Syntax (CMS) 
 specified in the Public Key Cryptography Standards (PKCS #7). S/MIME can be used for encrypted e-mails as 
 well as encrypted communication via http. The following table shows some of the algorithms used in S/MIME v3.1:</P>
 
@@ -70,17 +72,26 @@ well as encrypted communication via http. The following table shows some of the 
 
 <P>[1] Wikipedia, article on S/MIME: http://en.wikipedia.org/wiki/S/MIME</P>
 
+<P>[2] RFC822 - STANDARD FOR THE FORMAT OF ARPA INTERNET TEXT MESSAGES: 
+http://www.faqs.org/rfcs/rfc822.html</P>
+
+<P>[3] RFC821 - Simple Mail Transfer Protocol: http://www.faqs.org/rfcs/rfc821.html</P>
+
+<P>[4] RFC2631 - Diffie-Hellman Key Agreement Method: http://www.faqs.org/rfcs/rfc2631.html</P>
+
 <P><B>Remark 1</B>:</P>
 
 <P>The control center is written in Java SWT and requires at least Java 1.5. The Bouncy Castle (BC) 
 Cryptographic Library is used for cryptographic routines, and it also serves as additional Security 
-Provider in Java.</P>
+Provider for Java.</P>
 
 <P>In order to use keys of arbitrary length, the "unrestricted policy files" need to be installed before 
 using BC. You can obtain these files from <a href="http://java.sun.com" target="_blank">http://java.sun.com</a> 
 or <a href="http://java.sun.com/javase/downloads/index.jsp" target="_blank">http://java.sun.com/javase/downloads/index.jsp</a> 
 respectively. To install these files, rename the old JAR files local_policy.jar and US_export_policy.jar in 
-C:\program files\Java\jre6\lib\security and use the new ones instead. Remember to restart the control center.</P>
+C:\program files\Java\jre6\lib\security and use the new ones instead.</P>
+
+<P>Remember to restart the control center.</P>
 
 <P>If the Java Cryptography Extension (JCE) "Unlimited Strength Jurisdiction Policy" is not installed, 
 you get the following message:</P>
@@ -91,13 +102,16 @@ you get the following message:</P>
 
 <P>In the Flash animation the Windows pixel font Bavaria Extended is used to display all dynamic content. 
 If this font is not installed, you can still read the text but the marks will be off. The font can be 
-used freely for non-commercial purposes. Source:<br> 
+used freely for non-commercial purposes.<br>Source: 
 http://pixelfonts.style-force.net/download/bavaria-extended/</P>
 
-<P>Installation of fonts under Windows requires the following steps:<br/>
-1) Extract font in temporary directory (not directly into the Windows font directory).<br/>
-2) Copy the extracted TTF file from the temporary directory into "C:\Windows\Fonts" by drag and drop.<br/>
-3) Delete the temporary directory.</P>
+<P>Installation of fonts under Windows requires the following steps:</P>
+
+<UL>
+<LI>1) Extract font in temporary directory (not directly into the Windows font directory).</LI>
+<LI>2) Copy the extracted TTF file from the temporary directory into "C:\Windows\Fonts" by drag and drop.</LI>
+<LI>3) Delete the temporary directory.</LI>
+</UL>
 
 </BODY>
 </HTML>
