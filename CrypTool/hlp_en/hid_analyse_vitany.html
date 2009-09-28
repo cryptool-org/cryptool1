@@ -2,25 +2,27 @@
 <HTML>
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<TITLE>Vitany analysis</TITLE>
+<TITLE>Vitányi analysis</TITLE>
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+<script language="JScript" src="helper.js"></script>
 </HEAD>
 
 <!-- multiple keywords for CrypTool HTML help index -->
 <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
-	<PARAM NAME="Keyword" VALUE="Vitany analysis">
+	<PARAM NAME="Keyword" VALUE="Vitányi analysis">
 	<PARAM NAME="Keyword" VALUE="Analysis">
 </OBJECT>
 
 <BODY>
 
-<h3>Performing a Vitany analysis of a document (Menu <A href="menu_analyze.html">Analysis</A> \ Analyse Randomness)</h3>
+<h3>Performing a Vitányi analysis of a document (Menu <A href="menu_analyze.html">Analysis</A> \ Analyse Randomness)</h3>
 
-<P>Vitany analysis is based on a publication by Paul Vitany, Ming Li and Tao Jiang (Kolmogorov Complexity and a Triangle Problem of the Heilbronn Type, http://www.cwi.nl/~paulv/papers/jlms.ps).</P>
+<P>The Vitányi analysis is based on a publication by Paul Vitányi, Ming Li and Tao Jiang 
+("<a class="filelink" onclick="parser('http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=B430C0A8624076088B41D2AB76A5980E?doi=10.1.1.40.444&rep=rep1&type=pdf')">Kolmogorov Complexity and a Triangle Problem of the Heilbronn Type</a>").</P>
 
 <P>Here the characters of the current document are interpreted as the co-ordinates of points in a unit square. These are randomly linked to triangles whose surface area is then considered. For <!--ZZZPOPUP--><A href="gleichm.html">uniformly</A> distributed, <!--ZZZPOPUP--><A href="unabh.html">independent</A> (i.e. also cryptographically interesting) sets of points, the expected value for the smallest triangle is roughly proportional to the number of points to the third power.</P>
 
-<P>The Vitany analysis is only executable for binary file input.</P>
+<P>The Vitányi analysis is only executable for binary file input.</P>
 
 <P>The diagram shows the proportionality constant as a function of the number of points. It is standardised to the mean (mean = 1.0). The mean and the standard variation are also output.</P>
 
@@ -36,7 +38,7 @@
 
 <P><B>Example</B>:</P>
 
-<P>Via the linear congruence generator (LCG parameter: a = 23, b = 0, Modul N = 100001) there were 12.500 "random" characters generated. The Vitany analysis outputs the following diagram:</P>
+<P>Via the linear congruence generator (LCG parameter: a = 23, b = 0, Modul N = 100001) there were 12.500 "random" characters generated. The Vitányi analysis outputs the following diagram:</P>
 
 <P><IMG SRC="images/vitanyexample.gif" ALT="vitanyexample.gif" BORDER=0></P>
 

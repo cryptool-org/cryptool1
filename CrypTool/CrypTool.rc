@@ -15528,7 +15528,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Testbatterie", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
             MENUITEM SEPARATOR
-            MENUITEM "&Vitany",                     ID_ANALYSE_VITANY, GRAYED
+            MENUITEM "&Vitányi",                     ID_ANALYSE_VITANY, GRAYED
             MENUITEM "&3D-Visualisierung...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION, GRAYED
         END
     END
@@ -15879,7 +15879,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Testbatterie", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
             MENUITEM SEPARATOR
-            MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
+            MENUITEM "&Vitányi",                     ID_ANALYSE_VITANY
             MENUITEM "&3D-Visualisierung...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
         END
     END
@@ -16230,7 +16230,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Testbatterie", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
             MENUITEM SEPARATOR
-            MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
+            MENUITEM "&Vitányi",                     ID_ANALYSE_VITANY
             MENUITEM "&3D-Visualisierung...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
         END
     END
@@ -16581,7 +16581,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Testbatterie", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
             MENUITEM SEPARATOR
-            MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
+            MENUITEM "&Vitányi",                     ID_ANALYSE_VITANY
             MENUITEM "&3D-Visualisierung...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION
         END
     END
@@ -16959,7 +16959,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Testbatterie", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
             MENUITEM SEPARATOR
-            MENUITEM "&Vitany",                     ID_ANALYSE_VITANY, GRAYED
+            MENUITEM "&Vitányi",                     ID_ANALYSE_VITANY, GRAYED
             MENUITEM "&3D-Visualisierung...",       ID_ANALYSIS_RANDOM_3D_VISUALIZATION, GRAYED
         END
     END
@@ -18737,13 +18737,13 @@ STRINGTABLE
 BEGIN
     IDS_PLAYFAIR            "Playfair"
     IDS_REL_MATCH           "Relative Übereinstimmung [%]"
-    IDS_STRING_DIAGRAM_VITANY "Vitany-Diagramm von <%s>"
+    IDS_STRING_DIAGRAM_VITANY "Vitányi-Diagramm von <%s>"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_STRING_ANALYZE_VITANY "Vitany-Analyse"
-    IDS_STRING_END_ANALYZE_VITANY "Vitany-Analyse %d%% beendet"
+    IDS_STRING_ANALYZE_VITANY "Vitányi-Analyse"
+    IDS_STRING_END_ANALYZE_VITANY "Vitányi-Analyse %d%% beendet"
     IDS_STRING_REQUEST_FOR_PIN 
                             "Um die öffentlichen und geheimen Parameter von '%s' einzusehen geben Sie bitte den entsprechenden PIN-Code ein."
     IDS_STRING_SHOW_ALL_PARAM "Alle Parameter anzeigen"
@@ -19336,8 +19336,8 @@ BEGIN
     ID_TOTXT                "Zeigt das aktive Dokument als Text an"
     ID_TOHEX                "Zeigt das aktive Dokument als HexDump an"
     ID_PLAYFAIR_ANALYSE     "Manuelle Analyse der Playfair-Verschlüsselung"
-    IDS_STRING_VITANY_ANALYSE "Vitany-Analyse"
-    ID_ANALYSE_VITANY       "Führt die Vitany-Analyse durch, um die statistische Unabhängigkeit der Daten im aktiven Dokument zu bewerten"
+    IDS_STRING_VITANY_ANALYSE "Vitányi-Analyse"
+    ID_ANALYSE_VITANY       "Führt die Vitányi-Analyse durch, um die statistische Unabhängigkeit der Daten im aktiven Dokument zu bewerten"
     IDS_STRING_KEY_GENERATION_DATE "Schlüssel erstellt am:"
     IDS_STRING_MSG_FILENAME_TO_LONG 
                             "Der vom Programm erzeugte Dateiname\n%s\nist ZU LANG. Sie müssen einen kürzeren Namen, Vornamen oder Schlüsselbezeichner wählen."
@@ -20340,7 +20340,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_VITANY_ERR_FILESIZE "Für die Vitany-Analyse muss die Eingabedatei mindestens 500 Bytes lang sein!"
+    IDS_VITANY_ERR_FILESIZE "Für die Vitányi-Analyse muss die Eingabedatei mindestens 500 Bytes lang sein!"
     IDS_UU_DECODE_MISSING_NL_AFTER_END 
                             "Im Abschluss-Block fehlt ein Newline nach dem Schlüsselwort ""end"". Die Dekodierung ist möglicherweise fehlerhaft."
     IDS_UU_DECODE_MISSING_NL_BEFORE_END 
@@ -26246,7 +26246,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Test Battery", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
             MENUITEM SEPARATOR
-            MENUITEM "&Vitany",                     ID_ANALYSE_VITANY, GRAYED
+            MENUITEM "&Vitányi",                     ID_ANALYSE_VITANY, GRAYED
             MENUITEM "&3D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION, GRAYED
         END
     END
@@ -26597,7 +26597,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Test Battery", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
             MENUITEM SEPARATOR
-            MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
+            MENUITEM "&Vitányi",                     ID_ANALYSE_VITANY
             MENUITEM "&3D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
         END
     END
@@ -26948,7 +26948,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Test Battery", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
             MENUITEM SEPARATOR
-            MENUITEM "&Vitany",                     ID_ANALYSE_VITANY, GRAYED
+            MENUITEM "&Vitányi",                     ID_ANALYSE_VITANY, GRAYED
             MENUITEM "&3D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION, GRAYED
         END
     END
@@ -27299,7 +27299,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Test Battery", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
             MENUITEM SEPARATOR
-            MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
+            MENUITEM "&Vitányi",                     ID_ANALYSE_VITANY
             MENUITEM "&3D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION
         END
     END
@@ -27677,7 +27677,7 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "F&IPS PUB-140-1 Test Battery", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
             MENUITEM SEPARATOR
-            MENUITEM "&Vitany",                     ID_ANALYSE_VITANY, GRAYED
+            MENUITEM "&Vitányi",                     ID_ANALYSE_VITANY, GRAYED
             MENUITEM "&3D Visualization...",        ID_ANALYSIS_RANDOM_3D_VISUALIZATION, GRAYED
         END
     END
@@ -29646,13 +29646,13 @@ STRINGTABLE
 BEGIN
     IDS_PLAYFAIR            "Playfair"
     IDS_REL_MATCH           "Relative agreement [%]"
-    IDS_STRING_DIAGRAM_VITANY "Vitany Diagram of <%s>"
+    IDS_STRING_DIAGRAM_VITANY "Vitányi Diagram of <%s>"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_STRING_ANALYZE_VITANY "Vitany Analysis"
-    IDS_STRING_END_ANALYZE_VITANY "Vitany analysis %d%% complete"
+    IDS_STRING_ANALYZE_VITANY "Vitányi Analysis"
+    IDS_STRING_END_ANALYZE_VITANY "Vitányi analysis %d%% complete"
     IDS_STRING_REQUEST_FOR_PIN 
                             "You want to see the public and private parameters of '%s'. Enter the appropriate PIN code to continue."
     IDS_STRING_SHOW_ALL_PARAM "Show all parameters"
@@ -30231,7 +30231,7 @@ BEGIN
     ID_TOTXT                "Shows current window as text"
     ID_TOHEX                "Shows current window as hexdump"
     ID_PLAYFAIR_ANALYSE     "Manual analysis of a document encrypted with the Playfair algorithm"
-    IDS_STRING_VITANY_ANALYSE "Vitany Analyse"
+    IDS_STRING_VITANY_ANALYSE "Vitányi Analyse"
     ID_ANALYSE_VITANY       "Checks the statistic independence of the active document"
     IDS_STRING_KEY_GENERATION_DATE "Date key created:"
     IDS_STRING_MSG_FILENAME_TO_LONG 
@@ -31166,7 +31166,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_VITANY_ERR_FILESIZE "For Vitany analysis, the input file size must exceed 500 bytes!"
+    IDS_VITANY_ERR_FILESIZE "For Vitányi analysis, the input file size must exceed 500 bytes!"
     IDS_UU_DECODE_MISSING_NL_AFTER_END 
                             "An newline is missing after the ""end"" statement. Decoding could be faulty"
     IDS_UU_DECODE_MISSING_NL_BEFORE_END 

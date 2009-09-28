@@ -1,24 +1,25 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
 <HEAD>
-<TITLE>Vitany-Analyse</TITLE>
+<TITLE>Vitányi-Analyse</TITLE>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+<script language="JScript" src="helper.js"></script>
+
 </HEAD>
 
 <!-- multiple keywords for CrypTool HTML help index -->
 <OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
-	<PARAM NAME="Keyword" VALUE="Vitany-Analyseverfahren">
+	<PARAM NAME="Keyword" VALUE="Vitányi-Analyseverfahren">
 	<PARAM NAME="Keyword" VALUE="Analyse">
 </OBJECT>
 
 <BODY>
 
-<h3>Vitany-Analyse des Dokuments berechnen (Menü <A href="menu_analyze.html">Analyse</A> \ Zufallsanalyse)</h3>
+<h3>Vitányi-Analyse des Dokuments berechnen (Menü <A href="menu_analyze.html">Analyse</A> \ Zufallsanalyse)</h3>
 
-		<P>Die Vitany-Analyse beruht auf einer Veröffentlichung von Paul Vitany, Ming Li 
-			und Tao Jiang (Kolmorov Complexity and a Triangle Problem of the Heilbronn 
-			Type, http://www.cwi.nl/~paulv/papers/jlms.ps).</P>
+		<P>Die Vitányi-Analyse beruht auf einer Veröffentlichung von Paul Vitányi, Ming Li 
+			und Tao Jiang ("<a class="filelink" onclick="parser('http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=B430C0A8624076088B41D2AB76A5980E?doi=10.1.1.40.444&rep=rep1&type=pdf')">Kolmogorov Complexity and a Triangle Problem of the Heilbronn Type</a>").</P>
 		<P>Dabei interpretiert man die Zeichen des aktuellen Dokuments als Koordinaten von 
 			Punkten in einem Einheitsquadrat. Diese verbindet man zufällig zu Dreiecken und 
 			betrachtet deren Flächeninhalt. Nun gilt für <!--ZZZPOPUP--><A href="gleichmaessig_verteilt.html">gleichmäßig</A>
@@ -26,7 +27,7 @@
 			kryptographisch interessante) Punktemengen, dass der Erwartungswert des 
 			kleinsten Dreiecks ungefähr proportional zu der Anzahl der Punkte in der 
 			dritten Potenz ist.</P>
-		<P>Die Vitany-Analyse kann nur für Binärdateien ausgeführt werden.</P>
+		<P>Die Vitányi-Analyse kann nur für Binärdateien ausgeführt werden.</P>
 		<P>Das Diagramm zeigt die Proportionalitätskonstante in Abhängigkeit von der Anzahl 
 			der Punkte. Sie ist auf den Mittelwert normiert (Mittelwert = 1.0). Weiterhin 
 			wird der Mittelwert und die normierte Variation ausgegeben.</P>
@@ -39,7 +40,7 @@
 		</UL>
 		<P><B>Beispiel</B>:</P>
 		<P>Mit Hilfe des Linearen Kongruenzgenerator (LCG-Parameter: a = 23, b = 0, Modul N 
-			= 100001) wurden 12.500 "zufällige" Zeichen erzeugt. Die Vitany-Analyse 
+			= 100001) wurden 12.500 "zufällige" Zeichen erzeugt. Die Vitányi-Analyse 
 			bestimmt das folgende Diagramm:</P>
 		<P><IMG SRC="images/vitanyexample.gif" ALT="vitanyexample.gif" BORDER="0"></P>
 	</BODY>
