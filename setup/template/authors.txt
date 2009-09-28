@@ -1,8 +1,9 @@
 #
 # authors.txt
 #
-# This file contains a list of the most important people 
-# helping to create CrypTool from the very beginning.
+# This file contains a list of the most important people
+# in the sections “Implementation” and “Review”
+# helping to create CrypTool v1 from the very beginning.
 #
 # CrypTool reads this file, extracts the authors, sorts them 
 # by name and displays them in the author's dialog.
@@ -12,6 +13,11 @@
 # Note that there are two different sections:
 #   a) IMPLEMENTATION, DOCUMENTATION, TRANSLATION
 #   b) REVIEW, FEEDBACK
+# 
+# -------------------------------------------------------
+# ATTENTION: Don't forget to update the "authorsFileHash" 
+# variable in "DlgAuthors.cpp" after altering this file!
+# -------------------------------------------------------
 #
 
 #
