@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3,2 Final//EN">
 <HTML>
 <HEAD>
-<TITLE>Automatic Analysis of a Simple Column Transposition</TITLE>
+<TITLE>Automatic Analysis of a Single Column Transposition</TITLE>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
 <link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
 </HEAD>
@@ -9,27 +9,27 @@
 <!-- multiple keywords for CrypTool HTML help index -->
 <OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
 	<PARAM NAME="Keyword" VALUE="Analysis">
-	<PARAM NAME="Keyword" VALUE="column transposition">
+	<PARAM NAME="Keyword" VALUE="Column transposition">
 	<PARAM NAME="Keyword" VALUE="Permutation encryption algorithm">
 </OBJECT>
 
 <BODY>
 
-<h3>Simple Column Transposition (Menu Analysis \ Symmetric Encryption (classic) \ Known Plaintext) </h3>
+<h3>Single Column Transposition (Menu Analysis \ Symmetric Encryption (classic) \ Known Plaintext) </h3>
 
 		<p>A known-plaintext attack is available for the <!--ZZZPOPUP--><A href="hid_permutation_asc.html">Permutation encryption algorithm</A>.
 		<br> This means that it is necessary to enter not only the text encrypted by the permutation encryption algorithm but also the according
 		plaintext.
 		CrypTool then works out the key used to encrypt the plaintext. </p>
 		<p>For the automatic analysis both the plaintext and the encrypted text are required. Therefore you have to upload both texts using 
-		<!--ZZZPOPUP--><A href="hidd_automated_perm_analysis.html">Dialog Analysis of a Simple Column Transposition (Known Plaintext)</A>. 
+		<!--ZZZPOPUP--><A href="hidd_automated_perm_analysis.html">Dialog Analysis of a Single Column Transposition (Known Plaintext)</A>. 
 		Corresponding texts have always the same length.</p>
 		<p>The analysis operates as follows: The plaintext as well as the ciphertext will be read into a table. Depending on the parameters
 	        (variant) the respective table has n columns or n rows (n = length of permutation). CrypTool compares the columns of both tables and determines the transposition of the columns. 
 		This permutation is the key that was used for permutation encryption (together with the parameters of the method).</p>
 		<p>CrypTool runs through an automatic analysis when the user does not specify the key length and parameters for computing the key. 
 		Several keys could be found with it. However, only the first key which is found will be displayed 
-		in <!--ZZZPOPUP--><A href="hidd_automated_perm_analysis_output.html">Dialog Simple Column Transposition Key</A>. The cryptanalysis program assumes, that all rows are filled completely.
+		in <!--ZZZPOPUP--><A href="hidd_automated_perm_analysis_output.html">Dialog Single Column Transposition Key</A>. The cryptanalysis program assumes, that all rows are filled completely.
 		So if a user limits the key size, only such keys can be considered, where the texts have a length of an integer multiple of the keys.
 		<p><u>Exemplary computation of the permutation key:</u></p>
 		<TABLE cols="2" width="0*" class="pad10">
@@ -41,7 +41,7 @@
 				<TD>The ciphertext is:</TD>
 				<TD>IEAJFBKGCLHD.</TD>
 		</TABLE><br>
-		The following exemplary analysis of a simple column transposition expects the following parameters:<br>
+		The following exemplary analysis of a single column transposition expects the following parameters:<br>
 		<br>
 		<TABLE cols="2" width="0*" class="pad10">
 			<TR VALIGN="top">
@@ -127,7 +127,7 @@
 		<p><u>Remarks:</u></p>
 		<p>1) The known-plaintext attack requires both the plaintext and the encrypted text. 
 		The encrypted text can be generated in CrypTool via the menu De-/Encrypt \ Symmetric (classic) \ <A href="hid_permutation_asc.html">Permutation/Transposition</a>. 
-		The automatic analysis of a simple column transposition computes the key used to encrypt the plaintext. 
+		The automatic analysis of a single column transposition computes the key used to encrypt the plaintext. 
 		<p>2) The maximum length of both texts is limited to 2 Gigabyte. 
 		This comes from the range of values of a 32-bit integer. 
 		This data type was used to declare the file size (= text length) and it also determines the limit of the file size. 
