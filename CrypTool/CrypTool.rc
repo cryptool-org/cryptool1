@@ -15444,7 +15444,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO, GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
-                MENUITEM "V&igenère (Schrödel)",        ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère (Analyse nach Schrödel)",        ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
@@ -15795,7 +15795,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "V&igenère (Schrödel)",        ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère (Analyse nach Schrödel)",        ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
@@ -16146,7 +16146,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "V&igenère (Schrödel)",        ID_ANALYSIS_VIGENERE_SCHROEDEL
+                MENUITEM "V&igenère (Analyse nach Schrödel)",        ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
@@ -16497,7 +16497,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "V&igenère (Schrödel)",        ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère (Analyse nach Schrödel)",        ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
@@ -16875,7 +16875,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO, GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
-                MENUITEM "V&igenère (Schrödel)",        ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère (Analyse nach Schrödel)",        ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
@@ -26136,7 +26136,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO, GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
-                MENUITEM "V&igenère (Schroedel)",       ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère (Analysis according to Schroedel)",       ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
@@ -26487,7 +26487,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "V&igenère (Schroedel)",       ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère (Analysis according to Schroedel)",       ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
@@ -26838,7 +26838,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
-                MENUITEM "V&igenère (Schroedel)",       ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère (Analysis according to Schroedel)",       ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
@@ -27189,7 +27189,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "V&igenère (Schroedel)",       ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère (Analysis according to Schroedel)",       ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
@@ -27567,7 +27567,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO, GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
-                MENUITEM "V&igenère (Schroedel)",       ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère (Analysis according to Schroedel)",       ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
