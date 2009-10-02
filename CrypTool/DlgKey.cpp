@@ -26,6 +26,7 @@
 #include "CrypToolApp.h"
 #include "DlgKey.h"
 #include "Cryptography.h"
+#include "CrypToolTools.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -120,7 +121,9 @@ void CDlgKey::OnUpdateEdit1()
 	m_text_ctl.GetSel(sels, sele);
 	res.Empty();
 
-	if(theApp.TextOptions.getIgnoreCase()) m_text.MakeUpper();
+	// at this point we want to supply some support for the user: implicitly convert 
+	// lowercase letters to uppercase (if this makes sense with the given alphabet)
+	m_text = adaptKeyToAlphabet(m_text);
 
 	for(k=i=0;i<m_text.GetLength();i++) {
 		c = m_text[i];
@@ -170,11 +173,13 @@ void CDlgKey::OnTextOptions()
 	// check whether key contains non-alphabet characters now
 	if(!IsKeyInAlphabet(m_text, theApp.TextOptions.getAlphabet()))
 	{
+		const CString text = m_text;
+
 		// remove those characters from the key one by one
-		for(int i=0; i<m_text.GetLength(); i++)
+		for(int i=0; i<text.GetLength(); i++)
 		{
-			if(theApp.TextOptions.getAlphabet().Find(m_text.GetAt(i)) == -1)
-				m_text.Remove(m_text.GetAt(i));
+			if(theApp.TextOptions.getAlphabet().Find(text.GetAt(i)) == -1)
+				m_text.Remove(text.GetAt(i));
 		}
 	}
 

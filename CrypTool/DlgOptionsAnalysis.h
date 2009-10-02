@@ -45,6 +45,10 @@ public:
 	BOOL	m_VKorr;
 	BOOL	m_VBase;
 	long	m_BFEntropyWindow;
+	BOOL  m_VigenereAnalysisSchroedelExtensiveLogging;
+	CString m_VigenereAnalysisSchroedelDictionaryFile;
+	CString m_VigenereAnalysisSchroedelDigramsFile;
+	CString m_VigenereAnalysisSchroedelTrigramsFile;
 	//}}AFX_DATA
 
 
@@ -57,6 +61,22 @@ public:
 
 // Implementierung
 protected:
+	virtual BOOL OnInitDialog();
+
+	afx_msg void OnOK();
+
+	CEdit controlEditDictionaryFile;
+	CEdit controlEditDigramsFile;
+	CEdit controlEditTrigramsFile;
+
+	afx_msg void OnButtonSearchDictionaryFile();
+	afx_msg void OnButtonSearchDigramsFile();
+	afx_msg void OnButtonSearchTrigramsFile();
+
+	CString chooseFileThroughDialog(const CString title, const CString defaultFile);
+
+	void readSettingsVigenereAnalysisSchroedel();
+	void writeSettingsVigenereAnalysisSchroedel();
 
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgOptionsAnalysis)

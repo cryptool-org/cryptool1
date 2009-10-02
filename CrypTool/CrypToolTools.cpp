@@ -328,3 +328,26 @@ void ShellExecuteJava(CString _javaProgram, CString _javaProgramCompleteCall) {
 		return;
 	}	
 }
+
+// this function implicitly converts all lowercase letters in the key 
+// to their uppercase equivalents if these are part of the alphabet 
+// while the actual lowercase letters are not. 
+CString adaptKeyToAlphabet(const CString _key) {
+	
+	CString key = _key;
+	CString alphabet = "abcdefghijklmnopqrstuvwxyzäöü"; 
+
+	for(int i=0; i<key.GetLength(); i++) {
+		char characterLowercase = key[i];
+		char characterUppercase = characterLowercase - (char)(32);
+		// convert character to uppercase...
+		// *IF* the character fits [a-z] or [ä-ü] AND
+		// *IF* the character is NOT part of the CrypTool alphabet AND
+		// *IF* the uppercase equivalent of the character IS part of the CrypTool alphabet
+		if(alphabet.Find(characterLowercase) != -1 && theApp.TextOptions.getAlphabet().Find(characterLowercase) == -1 && theApp.TextOptions.getAlphabet().Find(characterUppercase) != -1) {
+			key.SetAt(i, characterUppercase);
+		}	
+	}
+
+	return key;
+}

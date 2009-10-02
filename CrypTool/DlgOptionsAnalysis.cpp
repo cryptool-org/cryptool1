@@ -25,6 +25,9 @@
 #include "stdafx.h"
 #include "CrypToolApp.h"
 #include "DlgOptionsAnalysis.h"
+#include "CrypToolTools.h"
+
+extern char *Pfad;
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -49,6 +52,10 @@ CDlgOptionsAnalysis::CDlgOptionsAnalysis(CWnd* pParent /*=NULL*/)
 	m_VKorr = TRUE;
 	m_VBase = FALSE;
 	m_BFEntropyWindow = 128;
+	m_VigenereAnalysisSchroedelExtensiveLogging = FALSE;
+	m_VigenereAnalysisSchroedelDictionaryFile = "";
+	m_VigenereAnalysisSchroedelDigramsFile = "";
+	m_VigenereAnalysisSchroedelTrigramsFile = "";
 	//}}AFX_DATA_INIT
 	i_alphabetOptions = 0;
 }
@@ -76,6 +83,13 @@ void CDlgOptionsAnalysis::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_CHECK8, m_VKorr);
 	DDX_Check(pDX, IDC_CHECK4, m_VBase);
 	DDX_Text(pDX, IDC_EDIT_ENTROPY_WINDOW, m_BFEntropyWindow);
+	DDX_Check(pDX, IDC_CHECK_EXTENSIVE_LOGGING, m_VigenereAnalysisSchroedelExtensiveLogging);
+	DDX_Control(pDX, IDC_EDIT_DICTIONARY_FILE, controlEditDictionaryFile);
+	DDX_Control(pDX, IDC_EDIT_DIGRAMS_FILE, controlEditDigramsFile);
+	DDX_Control(pDX, IDC_EDIT_TRIGRAMS_FILE, controlEditTrigramsFile);
+	DDX_Text(pDX, IDC_EDIT_DICTIONARY_FILE, m_VigenereAnalysisSchroedelDictionaryFile);
+	DDX_Text(pDX, IDC_EDIT_DIGRAMS_FILE, m_VigenereAnalysisSchroedelDigramsFile);
+	DDX_Text(pDX, IDC_EDIT_TRIGRAMS_FILE, m_VigenereAnalysisSchroedelTrigramsFile);
 	//}}AFX_DATA_MAP
 	//DDV_MinMaxLong(pDX, m_BFEntropyWindow, 32, 4096); // see remark above
 	DDX_Radio(pDX, IDC_RADIO1, i_alphabetOptions);
@@ -84,6 +98,171 @@ void CDlgOptionsAnalysis::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CDlgOptionsAnalysis, CDialog)
 	//{{AFX_MSG_MAP(CDlgOptionsAnalysis)
+	ON_BN_CLICKED(IDC_BUTTON_SEARCH_DICTIONARY_FILE, OnButtonSearchDictionaryFile)
+	ON_BN_CLICKED(IDC_BUTTON_SEARCH_DIGRAMS_FILE, OnButtonSearchDigramsFile)
+	ON_BN_CLICKED(IDC_BUTTON_SEARCH_TRIGRAMS_FILE, OnButtonSearchTrigramsFile)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
+
+BOOL CDlgOptionsAnalysis::OnInitDialog() 
+{
+	CDialog::OnInitDialog();
+
+	// try to read settings for Vigenere analysis by Schroedel from registry
+	readSettingsVigenereAnalysisSchroedel();
+
+	return TRUE;
+}
+
+void CDlgOptionsAnalysis::OnOK()
+{
+	CDialog::OnOK();
+
+	// try to write settings for Vigenere analysis by Schroedel to registry
+	writeSettingsVigenereAnalysisSchroedel();
+}
+
+void CDlgOptionsAnalysis::OnButtonSearchDictionaryFile()
+{
+	UpdateData(true);
+
+	LoadString(AfxGetInstanceHandle(),IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DICTIONARY_FILE,pc_str,STR_LAENGE_STRING_TABLE);
+	
+	CString title = pc_str;
+	CString chosenFile = chooseFileThroughDialog(title, m_VigenereAnalysisSchroedelDictionaryFile);
+
+	if(chosenFile.GetLength() == 0) return;
+	// at this point we should have the full path to the desired file
+	m_VigenereAnalysisSchroedelDictionaryFile = chosenFile;
+
+	UpdateData(false);
+}
+
+void CDlgOptionsAnalysis::OnButtonSearchDigramsFile()
+{
+	UpdateData(true);
+
+	LoadString(AfxGetInstanceHandle(),IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DIGRAMS_FILE,pc_str,STR_LAENGE_STRING_TABLE);
+	
+	CString title = pc_str;
+	CString chosenFile = chooseFileThroughDialog(title, m_VigenereAnalysisSchroedelDigramsFile);
+
+	if(chosenFile.GetLength() == 0) return;
+	// at this point we should have the full path to the desired file
+	m_VigenereAnalysisSchroedelDigramsFile = chosenFile;
+
+	UpdateData(false);
+}
+
+void CDlgOptionsAnalysis::OnButtonSearchTrigramsFile()
+{
+	UpdateData(true);
+
+	LoadString(AfxGetInstanceHandle(),IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_TRIGRAMS_FILE,pc_str,STR_LAENGE_STRING_TABLE);
+	
+	CString title = pc_str;
+	CString chosenFile = chooseFileThroughDialog(title, m_VigenereAnalysisSchroedelTrigramsFile);
+
+	if(chosenFile.GetLength() == 0) return;
+	// at this point we should have the full path to the desired file
+	m_VigenereAnalysisSchroedelTrigramsFile = chosenFile;
+
+	UpdateData(false);
+}
+
+CString CDlgOptionsAnalysis::chooseFileThroughDialog(const CString title, const CString defaultFile)
+{
+	CString chosenFile = "";
+
+	OPENFILENAME ofn;
+	char fname[257], ftitle[128];
+	const char* s_FileFilter = "text files (*.txt)\0*.txt\0all files\0*.*;*\0\0";
+
+	memset(&ofn,0,sizeof(ofn));
+	ofn.lStructSize = sizeof(ofn);
+	ofn.lpstrTitle = title;
+	ofn.Flags = OFN_FILEMUSTEXIST | OFN_HIDEREADONLY | OFN_PATHMUSTEXIST;
+	ofn.lpstrFile = fname;
+	sprintf(fname, "*.txt");
+	ofn.nMaxFile = sizeof(fname)-1;
+	ofn.lpstrFileTitle = ftitle;
+	ofn.lpstrFilter = s_FileFilter;
+
+	// set initial directory to be the directory in which the last file [the default file] was found
+	if(defaultFile.GetLength() != 0) {
+		// delete everything after the last backslash ('\')
+		int index = defaultFile.ReverseFind('\\');
+		if(index != -1) {
+			CString directory = defaultFile;
+			directory.Delete(index, directory.GetLength() - index);
+			ofn.lpstrInitialDir = directory;
+		}
+	}
+
+	ftitle[0] = 0;
+	ofn.nMaxFileTitle = sizeof(ftitle)-1;
+
+	if(!GetOpenFileName(&ofn)) return chosenFile;
+	if(fname[0]==0) return chosenFile;
+	chosenFile=fname;
+	
+	return chosenFile;
+}
+
+void CDlgOptionsAnalysis::readSettingsVigenereAnalysisSchroedel()
+{
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "VigenereAnalysisSchroedel" ) == ERROR_SUCCESS )
+	{
+		UpdateData(true);
+
+		unsigned long u_extensiveLogging = 0;
+		CT_READ_REGISTRY_DEFAULT(u_extensiveLogging, "ExtensiveLogging", 0);
+
+		const unsigned long maxBufferSize = 4096;
+		unsigned long bufferSize = maxBufferSize - 1;
+
+		char c_dictionaryFile[maxBufferSize];
+		CString pathToDefaultDictionaryFile;
+		pathToDefaultDictionaryFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DICTIONARY_FILENAME);
+		pathToDefaultDictionaryFile = CString(Pfad) + pathToDefaultDictionaryFile;
+		const char *c_dictionaryFileDefault = (const char*)(LPCTSTR)(pathToDefaultDictionaryFile);
+		CT_READ_REGISTRY_DEFAULT(c_dictionaryFile, "DictionaryFile", c_dictionaryFileDefault, bufferSize);
+
+		char c_digramsFile[maxBufferSize];
+		CString pathToDefaultDigramsFile;
+		pathToDefaultDigramsFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DIGRAMS_FILENAME);
+		pathToDefaultDigramsFile = CString(Pfad) + pathToDefaultDigramsFile;
+		const char *c_digramsFileDefault = (const char*)(LPCTSTR)(pathToDefaultDigramsFile);
+		CT_READ_REGISTRY_DEFAULT(c_digramsFile, "DigramsFile", c_digramsFileDefault, bufferSize);
+
+		char c_trigramsFile[maxBufferSize];
+		CString pathToDefaultTrigramsFile;
+		pathToDefaultTrigramsFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_TRIGRAMS_FILENAME);
+		pathToDefaultTrigramsFile = CString(Pfad) + pathToDefaultTrigramsFile;
+		const char *c_trigramsFileDefault = (const char*)(LPCTSTR)(pathToDefaultTrigramsFile);
+		CT_READ_REGISTRY_DEFAULT(c_trigramsFile, "TrigramsFile", c_trigramsFileDefault, bufferSize);
+
+		m_VigenereAnalysisSchroedelExtensiveLogging = (BOOL)u_extensiveLogging;
+		m_VigenereAnalysisSchroedelDictionaryFile = (CString)c_dictionaryFile;
+		m_VigenereAnalysisSchroedelDigramsFile = (CString)c_digramsFile;
+		m_VigenereAnalysisSchroedelTrigramsFile = (CString)c_trigramsFile;
+
+		UpdateData(false);
+	}
+}
+
+void CDlgOptionsAnalysis::writeSettingsVigenereAnalysisSchroedel()
+{
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "VigenereAnalysisSchroedel" ) == ERROR_SUCCESS )
+	{
+		UpdateData(true);
+	
+		CT_WRITE_REGISTRY((unsigned long)m_VigenereAnalysisSchroedelExtensiveLogging, "ExtensiveLogging");
+		CT_WRITE_REGISTRY(m_VigenereAnalysisSchroedelDictionaryFile, "DictionaryFile");
+		CT_WRITE_REGISTRY(m_VigenereAnalysisSchroedelDigramsFile, "DigramsFile");
+		CT_WRITE_REGISTRY(m_VigenereAnalysisSchroedelTrigramsFile, "TrigramsFile");
+
+		UpdateData(false);
+	}
+}

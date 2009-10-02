@@ -53,6 +53,9 @@ CString extractValueFromStringByKey(CString _key, CString _string);
 // see implementation
 void ShellExecuteJava(CString _javaProgram, CString _javaProgramCompleteCall);
 
+// see implementation
+CString adaptKeyToAlphabet(const CString _key);
+
 #endif
 
 

@@ -10856,32 +10856,44 @@ BEGIN
     PUSHBUTTON      "&Textoptionen",IDC_BUTTON_TEXTOPTIONS,225,419,60,19
 END
 
-IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 298
+IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 340
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Analyseoptionen"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "&Übernehmen",IDOK,13,271,65,18
-    PUSHBUTTON      "Abbrechen",IDCANCEL,228,271,66,18
-    CONTROL         "Ermittelter Schlüssel",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,50,76,10
-    CONTROL         "Korrelation",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,75,48,10
-    CONTROL         "Histogramme",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,100,57,10
-    CONTROL         "Ermittelter Schlüssel",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,50,76,10
-    CONTROL         "Ermittelte Schlüssellänge",IDC_CHECK7,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,75,91,10
-    CONTROL         "Autokorrelation",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,100,61,10
-    CONTROL         "Analysen der Basischiffren ausgeben",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,125,132,10
-    GROUPBOX        "Caesar",IDC_STATIC,20,33,120,109
-    GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,147,33,140,109
-    GROUPBOX        "Optionen für Brute-Force Angriffe gegen moderne symmetrische Algorithmen",IDC_STATIC,13,160,281,105
-    LTEXT           "Anzahl Bytes für den Entropietest:",IDC_STATIC,29,193,109,8
-    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,139,190,30,14,ES_AUTOHSCROLL | ES_NUMBER
-    GROUPBOX        "Umfang der Ausgabe bei der automatischen Analyse",IDC_STATIC,13,15,281,132
-    LTEXT           "Zeichensatz für den zu erwartenden Klartext",IDC_STATIC,29,210,210,8
-    CONTROL         "Alle 256 Zeichen",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,221,245,10
-    CONTROL         "Druckbare Zeichen (ASCII 32 - 256)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,29,232,245,10
+    DEFPUSHBUTTON   "&Übernehmen",IDOK,7,317,65,16
+    PUSHBUTTON      "Abbrechen",IDCANCEL,234,317,65,16
+    CONTROL         "Ermittelter Schlüssel",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,40,76,10
+    CONTROL         "Korrelation",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,55,48,10
+    CONTROL         "Histogramme",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,70,57,10
+    CONTROL         "Ermittelter Schlüssel",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,40,76,10
+    CONTROL         "Ermittelte Schlüssellänge",IDC_CHECK7,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,55,91,10
+    CONTROL         "Autokorrelation",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,70,61,10
+    CONTROL         "Analysen der Basischiffren ausgeben",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,85,132,10
+    GROUPBOX        "Caesar",IDC_STATIC,15,20,120,80
+    GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,145,20,146,80
+    GROUPBOX        "Optionen für Brute-Force Angriffe gegen moderne symmetrische Algorithmen",IDC_STATIC,7,218,292,92
+    LTEXT           "Anzahl Bytes für den Entropietest:",IDC_STATIC,27,245,109,8
+    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,150,243,30,14,ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "Umfang der Ausgabe bei der automatischen Analyse",IDC_STATIC,7,7,292,102
+    LTEXT           "Zeichensatz für den zu erwartenden Klartext",IDC_STATIC,27,262,210,8
+    CONTROL         "Alle 256 Zeichen",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,27,273,245,10
+    CONTROL         "Druckbare Zeichen (ASCII 32 - 256)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,27,284,245,10
     CONTROL         "Zeichensatz, wie in Menü: Optionen \\ Textoptionen definiert",IDC_RADIO3,
-                    "Button",BS_AUTORADIOBUTTON,29,242,245,11
-    LTEXT           "Siehe Menü: Analyse \\ Symmetrische Verschlüsselung (modern)",IDC_STATIC,20,170,258,8
+                    "Button",BS_AUTORADIOBUTTON,27,294,245,11
+    LTEXT           "Siehe Menü: Analyse \\ Symmetrische Verschlüsselung (modern)",IDC_STATIC,14,228,258,8
+    GROUPBOX        "Optionen für die Vigenère-Analyse nach Schrödel",IDC_STATIC,7,117,292,92
+    PUSHBUTTON      "&Suchen...",IDC_BUTTON_SEARCH_DICTIONARY_FILE,236,153,55,14
+    EDITTEXT        IDC_EDIT_DICTIONARY_FILE,85,153,140,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_DIGRAMS_FILE,85,170,140,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_TRIGRAMS_FILE,85,187,140,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
+    PUSHBUTTON      "&Suchen...",IDC_BUTTON_SEARCH_DIGRAMS_FILE,236,170,55,14
+    PUSHBUTTON      "&Suchen...",IDC_BUTTON_SEARCH_TRIGRAMS_FILE,236,187,55,14
+    LTEXT           "Wörterbuch:",IDC_STATIC,25,154,40,8
+    LTEXT           "Digramm-Datei:",IDC_STATIC,25,171,49,8
+    LTEXT           "Trigramm-Datei:",IDC_STATIC,25,188,50,8
+    CONTROL         "Ausführliche Protokollierung",IDC_CHECK_EXTENSIVE_LOGGING,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,133,103,10
 END
 
 IDD_HILL_ANALYSIS DIALOGEX 0, 0, 302, 361
@@ -15186,6 +15198,7 @@ BEGIN
     LTEXT           "Schlüssel",IDC_STATIC,17,122,158,8,WS_DISABLED
 END
 
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // Menu
@@ -15444,7 +15457,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO, GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
-                MENUITEM "V&igenère (Analyse nach Schrödel)",        ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère (Analyse nach Schrödel)", ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
@@ -15795,7 +15808,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "V&igenère (Analyse nach Schrödel)",        ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère (Analyse nach Schrödel)", ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
@@ -16146,7 +16159,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "V&igenère (Analyse nach Schrödel)",        ID_ANALYSIS_VIGENERE_SCHROEDEL
+                MENUITEM "V&igenère (Analyse nach Schrödel)", ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
@@ -16497,7 +16510,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "V&igenère (Analyse nach Schrödel)",        ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère (Analyse nach Schrödel)", ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
@@ -16875,7 +16888,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO, GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
-                MENUITEM "V&igenère (Analyse nach Schrödel)",        ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère (Analyse nach Schrödel)", ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
@@ -17950,15 +17963,12 @@ BEGIN
 
     IDD_OPTIONS_ANALYSIS, DIALOG
     BEGIN
-        VERTGUIDE, 13
-        VERTGUIDE, 20
-        VERTGUIDE, 29
-        VERTGUIDE, 147
-        VERTGUIDE, 274
-        VERTGUIDE, 287
-        VERTGUIDE, 294
-        BOTTOMMARGIN, 271
-        HORZGUIDE, 289
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 299
+        VERTGUIDE, 15
+        VERTGUIDE, 291
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 333
     END
 
     IDD_HILL_ANALYSIS, DIALOG
@@ -18642,7 +18652,6 @@ BEGIN
         HORZGUIDE, 198
         HORZGUIDE, 219
     END
-
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -21439,6 +21448,16 @@ BEGIN
                             "Die Datei authors.txt wurde seit der Installation von CrypTool verändert."
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DICTIONARY_FILE 
+                            "Wörterbuch-Datei auswählen"
+    IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DIGRAMS_FILE 
+                            "Digramm-Datei auswählen"
+    IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_TRIGRAMS_FILE 
+                            "Trigramm-Datei auswählen"
+END
+
 #endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -21640,33 +21659,44 @@ BEGIN
     PUSHBUTTON      "&Text options",IDC_BUTTON_TEXTOPTIONS,225,352,60,19
 END
 
-IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 306
+IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 340
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Analysis Options"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "&Apply",IDOK,13,278,65,18
-    PUSHBUTTON      "&Cancel",IDCANCEL,227,278,66,18
-    CONTROL         "Derived key",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,55,76,10
-    CONTROL         "Correlation",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,77,48,10
-    CONTROL         "Histograms",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,101,57,10
-    CONTROL         "Derived key",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,55,76,10
-    CONTROL         "Derived key length",IDC_CHECK7,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,77,91,10
-    CONTROL         "Autocorrelation",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,100,61,10
-    CONTROL         "Show base ciphers analysis",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,156,122,120,10
-    GROUPBOX        "Caesar",IDC_STATIC,20,35,118,105
-    GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,150,35,136,105
-    GROUPBOX        "Output options for automatic analysis",IDC_STATIC,13,16,280,132
-    GROUPBOX        "Options for brute-force attacks against modern symmetric algorithms",IDC_STATIC,13,160,280,109
-    LTEXT           "Number of bytes for the entropy test:",IDC_STATIC,28,191,118,8
-    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,150,188,30,14,ES_AUTOHSCROLL | ES_NUMBER
-    LTEXT           "Alphabet for the expected cleartext:",IDC_STATIC,29,212,118,8
-    CONTROL         "All 256 characters",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,224,245,10
+    DEFPUSHBUTTON   "&Apply",IDOK,7,317,65,16
+    PUSHBUTTON      "&Cancel",IDCANCEL,234,317,65,16
+    CONTROL         "Derived key",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,40,76,10
+    CONTROL         "Correlation",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,55,48,10
+    CONTROL         "Histograms",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,70,57,10
+    CONTROL         "Derived key",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,40,76,10
+    CONTROL         "Derived key length",IDC_CHECK7,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,55,91,10
+    CONTROL         "Autocorrelation",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,70,61,10
+    CONTROL         "Show base ciphers analysis",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,156,85,120,10
+    GROUPBOX        "Caesar",IDC_STATIC,15,20,120,80
+    GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,145,20,146,80
+    GROUPBOX        "Output options for automatic analysis",IDC_STATIC,7,7,292,102
+    GROUPBOX        "Options for brute-force attacks against modern symmetric algorithms",IDC_STATIC,7,218,292,92
+    LTEXT           "Number of bytes for the entropy test:",IDC_STATIC,27,245,118,8
+    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,150,243,30,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Alphabet for the expected cleartext:",IDC_STATIC,27,262,118,8
+    CONTROL         "All 256 characters",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,27,273,245,10
     CONTROL         "Printable characters (ascii 32 - 256)",IDC_RADIO2,
-                    "Button",BS_AUTORADIOBUTTON,29,235,245,10
+                    "Button",BS_AUTORADIOBUTTON,27,284,245,10
     CONTROL         "Charcters as defined in menu: Options \\ Textoptions",IDC_RADIO3,
-                    "Button",BS_AUTORADIOBUTTON,29,245,245,11
-    LTEXT           "See menu: Analysis \\ Symmetric Encryption (modern)",IDC_STATIC,19,170,258,8
+                    "Button",BS_AUTORADIOBUTTON,27,294,245,11
+    LTEXT           "See menu: Analysis \\ Symmetric Encryption (modern)",IDC_STATIC,14,228,258,8
+    GROUPBOX        "Options for the Vigenère analysis according to Schroedel",IDC_STATIC,7,117,292,92
+    PUSHBUTTON      "&Search...",IDC_BUTTON_SEARCH_DICTIONARY_FILE,236,153,55,14
+    EDITTEXT        IDC_EDIT_DICTIONARY_FILE,85,153,140,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_DIGRAMS_FILE,85,170,140,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_TRIGRAMS_FILE,85,187,140,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
+    PUSHBUTTON      "&Search...",IDC_BUTTON_SEARCH_DIGRAMS_FILE,236,170,55,14
+    PUSHBUTTON      "&Search...",IDC_BUTTON_SEARCH_TRIGRAMS_FILE,236,187,55,14
+    LTEXT           "Dictionary:",IDC_STATIC,25,154,34,8
+    LTEXT           "Digram file:",IDC_STATIC,25,171,36,8
+    LTEXT           "Trigram file:",IDC_STATIC,25,188,37,8
+    CONTROL         "Extensive logging",IDC_CHECK_EXTENSIVE_LOGGING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,133,71,10
 END
 
 IDD_HILL_ANALYSIS DIALOGEX 0, 0, 302, 361
@@ -25878,6 +25908,7 @@ BEGIN
     LTEXT           "Schlüssel",IDC_STATIC,17,122,158,8,WS_DISABLED
 END
 
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // Menu
@@ -26136,7 +26167,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO, GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
-                MENUITEM "V&igenère (Analysis according to Schroedel)",       ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère (Analysis according to Schroedel)", ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
@@ -26487,7 +26518,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "V&igenère (Analysis according to Schroedel)",       ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère (Analysis according to Schroedel)", ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
@@ -26838,7 +26869,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
-                MENUITEM "V&igenère (Analysis according to Schroedel)",       ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère (Analysis according to Schroedel)", ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
@@ -27189,7 +27220,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "V&igenère (Analysis according to Schroedel)",       ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère (Analysis according to Schroedel)", ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
@@ -27567,7 +27598,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO, GRAYED
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO, GRAYED
-                MENUITEM "V&igenère (Analysis according to Schroedel)",       ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
+                MENUITEM "V&igenère (Analysis according to Schroedel)", ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
                 MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
@@ -28643,15 +28674,12 @@ BEGIN
 
     IDD_OPTIONS_ANALYSIS, DIALOG
     BEGIN
-        LEFTMARGIN, 13
-        RIGHTMARGIN, 293
-        VERTGUIDE, 20
-        VERTGUIDE, 150
-        VERTGUIDE, 286
-        BOTTOMMARGIN, 296
-        HORZGUIDE, 87
-        HORZGUIDE, 110
-        HORZGUIDE, 201
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 299
+        VERTGUIDE, 15
+        VERTGUIDE, 291
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 333
     END
 
     IDD_HILL_ANALYSIS, DIALOG
@@ -29525,7 +29553,6 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 234
     END
-
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -32256,6 +32283,14 @@ BEGIN
                             "Length of analyzed ciphertext:"
     IDS_AUTHORS_FILE_CORRUPTED 
                             "The file authors.txt was changed after CrypTool was installed."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DICTIONARY_FILE 
+                            "Choose dictionary file"
+    IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DIGRAMS_FILE "Choose digram file"
+    IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_TRIGRAMS_FILE "Choose trigram file"
 END
 
 #endif    // English (U.K.) resources
