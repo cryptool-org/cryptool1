@@ -61,7 +61,6 @@ public:
 
 public:
 	// various functions
-	void setStatus(CString str, const bool _debug = false);
 	void output(CString str, const bool _debug = false);
 	
 	int readCiphertext();
@@ -101,6 +100,11 @@ public:
 
 	// this flag indicates we're in debug mode (thus, much more detailed output)
 	bool debug;
+	CString pathToDictionary;
+	CString pathToDigrams;
+	CString pathToTrigrams;
+
+	void readSettingsFromRegistry();
 
 	double progress;
 	virtual double getProgress() { return progress; };

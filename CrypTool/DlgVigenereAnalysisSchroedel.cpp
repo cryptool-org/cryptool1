@@ -24,6 +24,7 @@
 #include "stdafx.h"
 #include "CryptoolApp.h"
 #include "DlgVigenereAnalysisSchroedel.h"
+#include "CrypToolTools.h"
 #include "FileTools.h"
 
 #include <iostream>
@@ -57,8 +58,15 @@ VigenereAnalysisSchroedel::VigenereAnalysisSchroedel(const CString _ciphertextFi
 	title = _title;
 
 	abort = false;
-
 	debug = false;
+
+	// create result file name
+	char pathToFileResult[CRYPTOOL_PATH_LENGTH];
+	GetTmpName(pathToFileResult, "cry", ".txt");
+	resultFileName = pathToFileResult;
+
+	// read analysis settings from registry
+	readSettingsFromRegistry();
 
 	time_t seconds;
 	time(&seconds);
@@ -96,15 +104,9 @@ VigenereAnalysisSchroedel::~VigenereAnalysisSchroedel() {
 	
 }
 
-void VigenereAnalysisSchroedel::setStatus(CString str, const bool _debug) {
-	
-	// TODO
-
-}
-
 void VigenereAnalysisSchroedel::output(CString str, const bool _debug) {
 	
-	if(_debug) result.Append(CString(str) + CString("\n"));
+	if(_debug || debug) result.Append(CString(str) + CString("\n"));
 
 }
 
@@ -116,13 +118,10 @@ int VigenereAnalysisSchroedel::readTriDigrams() {
 	CString s;
 
 	maxDi = 0;
-	setStatus("Loading Digrams...");
+	output("Loading Digrams...");
 
 	// create a handle for the input file
 	std::ifstream fileInputDigrams;
-	CString pathToDigrams;
-	pathToDigrams.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DIGRAMS_FILENAME);
-	pathToDigrams = CString(Pfad) + pathToDigrams;
 	fileInputDigrams.open(pathToDigrams);
 	if(!fileInputDigrams) return -1;
 
@@ -142,13 +141,10 @@ int VigenereAnalysisSchroedel::readTriDigrams() {
 
 
 	maxTri = 0;
-	setStatus("Loading Trigrams...");
+	output("Loading Trigrams...");
 
 	// create a handle for the input file
 	std::ifstream fileInputTrigrams;
-	CString pathToTrigrams;
-	pathToTrigrams.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_TRIGRAMS_FILENAME);
-	pathToTrigrams = CString(Pfad) + pathToTrigrams;
 	fileInputTrigrams.open(pathToTrigrams);
 	if(!fileInputTrigrams) return -1;
 	
@@ -168,7 +164,7 @@ int VigenereAnalysisSchroedel::readTriDigrams() {
 	// close input file
 	fileInputTrigrams.close();
 
-	setStatus("Digrams and Trigrams loaded.");
+	output("Digrams and Trigrams loaded.");
 
 	progress = 0.10;
 
@@ -185,9 +181,12 @@ int VigenereAnalysisSchroedel::firstChar() {
 	CString s;
 	int i, o;
 
-	setStatus("Create all pairs for the first cipher");
+	output("Create all pairs for the first cipher");
 	actChar = ciphertext[0];
-	output("First character of cipher: " + actChar);
+	CString fff; fff = "First character of cipher: "; fff.AppendChar(actChar);
+	//output("First character of cipher: " + actChar);
+	output(fff);
+
   output("============================");
   output("");
   output("Possible pairs:");
@@ -248,7 +247,7 @@ int VigenereAnalysisSchroedel::firstChar() {
 	output("Remain: " + remainStr);
 	output("");
 
-	setStatus("Deleting dups from internal list...");
+	output("Deleting dups from internal list...");
 	o = 0;
 	for(int l=0; l<cPairs; l++) {
 		if(score[l][1] != -1) {
@@ -294,7 +293,7 @@ int VigenereAnalysisSchroedel::secondChar() {
 	if(abort) return -1;
 
 	char actChar, lText, lKey, fText, fKey;
-	int i,o,l,n,m;
+	int i,o,l;
 	CString s, sText, sKey;
 	int tDigramFactor, kDigramFactor;
 
@@ -418,7 +417,7 @@ int VigenereAnalysisSchroedel::secondChar() {
 			CString remainStr; remainStr.Format("%d", remain);
 			output("Remain: " + remainStr);
 
-			setStatus("Deleting dups from internal list...");
+			output("Deleting dups from internal list...");
 
 			o = 0;
 			for(int l=0; l<cPairs;l++) {
@@ -450,7 +449,7 @@ int VigenereAnalysisSchroedel::secondChar() {
 			if(n == 1) Remain2 = cPairs;
 		}
 
-		setStatus("Sorting");
+		output("Sorting");
 		for(int i=0; i<cPairs; i++) {
 			for(int o=0; o<cPairs-1; o++) {
 				if(score[o][0] * score[o][1] < score[o+1][0] * score[o+1][1]) {
@@ -489,7 +488,7 @@ int VigenereAnalysisSchroedel::secondChar() {
 			maxProzent = 10;
 		}
 
-		setStatus("Discard underperformer");
+		output("Discard underperformer");
 		for(int l=0; l<cPairs; l++) {
 			// sort out
 			if(score[l][0] >= maxProzent && score[l][1] >= maxProzent) {
@@ -519,7 +518,7 @@ int VigenereAnalysisSchroedel::secondChar() {
 
 		if(n == 1) Remain2 = cPairs;
 
-		setStatus("Sorting");
+		output("Sorting");
 
 		for(int i=0; i<cPairs; i++) {
 			for(int o=0; o<cPairs-1; o++) {
@@ -657,7 +656,7 @@ int VigenereAnalysisSchroedel::solveTrigram() {
     // Try first key
     cKey = "";
     cText = "";
-    setStatus("Reading dictionary");
+    output("Reading dictionary");
 
 		for(xDict=0; xDict<dictCount; xDict++) {
 
@@ -895,15 +894,12 @@ int VigenereAnalysisSchroedel::readDict() {
 	// watch out for user cancellation
 	if(abort) return -1;
 
-	setStatus("Reading dictionary");
+	output("Reading dictionary");
 
 	CString s;
 
 	// create a handle for the input file
 	std::ifstream fileInput;
-	CString pathToDictionary;
-	pathToDictionary.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DICTIONARY_FILENAME);
-	pathToDictionary = CString(Pfad) + pathToDictionary;
 	fileInput.open(pathToDictionary);
 	if(!fileInput) return -1;
 
@@ -945,7 +941,7 @@ int VigenereAnalysisSchroedel::readCiphertext() {
 	// watch out for user cancellation
 	if(abort) return -1;
 
-	setStatus("Reading ciphertext");
+	output("Reading ciphertext");
 
 	CString s;
 
@@ -1166,9 +1162,6 @@ void VigenereAnalysisSchroedel::writeResultFile() {
 	
 	// open result file
 	std::ofstream fileResult;
-	char pathToFileResult[CRYPTOOL_PATH_LENGTH];
-	GetTmpName(pathToFileResult, "cry", ".txt");
-	resultFileName = pathToFileResult;
 	fileResult.open(resultFileName, ios_base::trunc);
 	if(!fileResult) return; // TODO error message
 
@@ -1177,7 +1170,45 @@ void VigenereAnalysisSchroedel::writeResultFile() {
 
 	// close result file
 	fileResult.close();
+}
 
+void VigenereAnalysisSchroedel::readSettingsFromRegistry() {
+	
+	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "VigenereAnalysisSchroedel" ) == ERROR_SUCCESS )
+	{
+		unsigned long u_extensiveLogging = 0;
+		CT_READ_REGISTRY_DEFAULT(u_extensiveLogging, "ExtensiveLogging", 0);
+
+		const unsigned long maxBufferSize = 4096;
+		unsigned long bufferSize = maxBufferSize - 1;
+
+		char c_dictionaryFile[maxBufferSize];
+		CString pathToDefaultDictionaryFile;
+		pathToDefaultDictionaryFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DICTIONARY_FILENAME);
+		pathToDefaultDictionaryFile = CString(Pfad) + pathToDefaultDictionaryFile;
+		const char *c_dictionaryFileDefault = (const char*)(LPCTSTR)(pathToDefaultDictionaryFile);
+		CT_READ_REGISTRY_DEFAULT(c_dictionaryFile, "DictionaryFile", c_dictionaryFileDefault, bufferSize);
+
+		char c_digramsFile[maxBufferSize];
+		CString pathToDefaultDigramsFile;
+		pathToDefaultDigramsFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DIGRAMS_FILENAME);
+		pathToDefaultDigramsFile = CString(Pfad) + pathToDefaultDigramsFile;
+		const char *c_digramsFileDefault = (const char*)(LPCTSTR)(pathToDefaultDigramsFile);
+		CT_READ_REGISTRY_DEFAULT(c_digramsFile, "DigramsFile", c_digramsFileDefault, bufferSize);
+
+		char c_trigramsFile[maxBufferSize];
+		CString pathToDefaultTrigramsFile;
+		pathToDefaultTrigramsFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_TRIGRAMS_FILENAME);
+		pathToDefaultTrigramsFile = CString(Pfad) + pathToDefaultTrigramsFile;
+		const char *c_trigramsFileDefault = (const char*)(LPCTSTR)(pathToDefaultTrigramsFile);
+		CT_READ_REGISTRY_DEFAULT(c_trigramsFile, "TrigramsFile", c_trigramsFileDefault, bufferSize);
+
+		// apply settings from registry
+		debug = (BOOL)u_extensiveLogging;
+		pathToDictionary = (CString)c_dictionaryFile;
+		pathToDigrams = (CString)c_digramsFile;
+		pathToTrigrams = (CString)c_trigramsFile;
+	}
 }
 
 /****************************************

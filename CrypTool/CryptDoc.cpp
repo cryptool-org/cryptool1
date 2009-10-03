@@ -838,6 +838,10 @@ void CCryptDoc::OnVigenereAnalysisSchroedel()
 	UpdateContent();
 
 	VigenereAnalysisSchroedel *theAnalysis = new VigenereAnalysisSchroedel(ContentName, GetTitle());
+	
+	// save result file name (because analysis object will be destroyed before we may need this variable)
+	CString resultFileName = theAnalysis->resultFileName;
+
 	AfxBeginThread(singleThreadVigenereAnalysisSchroedel, (PVOID)(theAnalysis));
 
 	// set progress bar title
@@ -851,7 +855,7 @@ void CCryptDoc::OnVigenereAnalysisSchroedel()
 
 	// open result file if the analysis was NOT aborted
 	if(theAnalysis->progress == 1.0) {
-		CAppDocument *NewDoc = theApp.OpenDocumentFileNoMRU(theAnalysis->resultFileName);
+		CAppDocument *NewDoc = theApp.OpenDocumentFileNoMRU(resultFileName);
 	}
 }
 
