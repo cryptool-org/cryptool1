@@ -118,7 +118,9 @@ int VigenereAnalysisSchroedel::readTriDigrams() {
 	CString s;
 
 	maxDi = 0;
-	output("Loading Digrams...");
+
+	outputString.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_DIGRAMS);
+	output(outputString);
 
 	// create a handle for the input file
 	std::ifstream fileInputDigrams;
@@ -141,7 +143,9 @@ int VigenereAnalysisSchroedel::readTriDigrams() {
 
 
 	maxTri = 0;
-	output("Loading Trigrams...");
+
+	outputString.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_TRIGRAMS);
+	output(outputString);
 
 	// create a handle for the input file
 	std::ifstream fileInputTrigrams;
@@ -164,8 +168,6 @@ int VigenereAnalysisSchroedel::readTriDigrams() {
 	// close input file
 	fileInputTrigrams.close();
 
-	output("Digrams and Trigrams loaded.");
-
 	progress = 0.10;
 
 	return 0;
@@ -181,15 +183,13 @@ int VigenereAnalysisSchroedel::firstChar() {
 	CString s;
 	int i, o;
 
-	output("Create all pairs for the first cipher");
 	actChar = ciphertext[0];
-	CString fff; fff = "First character of cipher: "; fff.AppendChar(actChar);
-	//output("First character of cipher: " + actChar);
-	output(fff);
+	
+	output("");
 
-  output("============================");
-  output("");
-  output("Possible pairs:");
+	outputString.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_TAG_1ST_CHARACTER_OF_CIPHER);
+	outputString.AppendChar(actChar);
+	output(outputString);
 
 	s = "";
 	o = 0;
@@ -214,13 +214,14 @@ int VigenereAnalysisSchroedel::firstChar() {
 		cPairs = o;
 	}
 
+	// output possible pairs
+	formatString.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_TAG_POSSIBLE_PAIRS);
+	outputString.Format(formatString, o);
+	output(outputString);
 	output(s);
-	CString sStr; sStr.Format("%d", o);
-	output("Count: " + sStr);
-	output("");
 
 	remain = cPairs;
-	output("Remove dups:");
+
 	for(int l=0; l<cPairs-1; l++) {
 		for(o=l+1; o<cPairs; o++) {
 			if(pairs[l][0] == pairs[o][1]) {
@@ -240,14 +241,19 @@ int VigenereAnalysisSchroedel::firstChar() {
 			s = s + pairs[o][0] + "-" + pairs[o][1] + " ";
 		}
 	}
-	output(s);
-	CString iStr; iStr.Format("%d", i);
-	output("Count: " + iStr);
-	CString remainStr; remainStr.Format("%d", remain);
-	output("Remain: " + remainStr);
-	output("");
 
-	output("Deleting dups from internal list...");
+	// output removed duplicates
+	formatString.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_TAG_REMOVE_DUPLICATES);
+	outputString.Format(formatString, i);
+	output(outputString);
+	output(s);
+
+	// output remaining count (number of pairs that were not removed)
+	formatString.Format("%d", remain);
+	outputString.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_TAG_REMAINING);
+	outputString.Append(formatString);
+	output(outputString);
+
 	o = 0;
 	for(int l=0; l<cPairs; l++) {
 		if(score[l][1] != -1) {
@@ -278,10 +284,6 @@ int VigenereAnalysisSchroedel::firstChar() {
 		score[i][1] = _score[i][1];
 	}
 
-	output("");
-	output("###############");
-	output("");
-
 	progress = 0.12;
 
 	return 0;
@@ -304,11 +306,16 @@ int VigenereAnalysisSchroedel::secondChar() {
 
 	for(int n=1; n<3; n++) {
 		actChar = ciphertext[n];
-		CString nStr; nStr.Format("%d", n+1);
-		output(nStr + ". character of cipher: " + actChar);
-		output("================");
-		output("Possible pairs:");
-		
+
+		output("");
+
+		if(n == 1) outputString.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_TAG_2ND_CHARACTER_OF_CIPHER);
+		if(n == 2) outputString.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_TAG_3RD_CHARACTER_OF_CIPHER);
+		outputString.AppendChar(actChar);
+		output(outputString);
+
+		CString temp;
+
 		i=0;
 		for(l=0; l<cPairs; l++) {
 			s = "";
@@ -382,16 +389,23 @@ int VigenereAnalysisSchroedel::secondChar() {
 				s = s + sText + fText + "-" + sKey + fKey + " ";
 			}
 
-			output(s);
+			temp.Append(s);
+			//temp.Append("\r\n");
+
+			// rrrrrrrrr output(s);
 		}
 
-		CString iStr; iStr.Format("%d", i);
-		output("Count: " + iStr);
     cPairs = i;
+
+		// output possible pairs
+		formatString.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_TAG_POSSIBLE_PAIRS);
+		outputString.Format(formatString, i);
+		output(outputString);
+	output(temp);
 
 		if(n == 1) {
 			remain = cPairs;
-			output("Remove dups:");
+
 			for(l=0; l<cPairs-1; l++) {
 				for(o=l+1; o<cPairs; o++) {
 					if(pairs[l][0] == pairs[o][1]) {
@@ -411,13 +425,18 @@ int VigenereAnalysisSchroedel::secondChar() {
 					s = s + pairs[o][0] + "-" + pairs[o][1] + " ";
 				}
 			}
-			output(s);
-			CString iStr; iStr.Format("%d", i);
-			output("Count: " + iStr);
-			CString remainStr; remainStr.Format("%d", remain);
-			output("Remain: " + remainStr);
 
-			output("Deleting dups from internal list...");
+			// output removed duplicates
+			formatString.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_TAG_REMOVE_DUPLICATES);
+			outputString.Format(formatString, i);
+			output(outputString);
+			output(s);
+
+			// output remaining count (number of pairs that were not removed)
+			formatString.Format("%d", remain);
+			outputString.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_TAG_REMAINING);
+			outputString.Append(formatString);
+			output(outputString);
 
 			o = 0;
 			for(int l=0; l<cPairs;l++) {
@@ -449,7 +468,7 @@ int VigenereAnalysisSchroedel::secondChar() {
 			if(n == 1) Remain2 = cPairs;
 		}
 
-		output("Sorting");
+		// sorting
 		for(int i=0; i<cPairs; i++) {
 			for(int o=0; o<cPairs-1; o++) {
 				if(score[o][0] * score[o][1] < score[o+1][0] * score[o+1][1]) {
@@ -469,7 +488,11 @@ int VigenereAnalysisSchroedel::secondChar() {
 			}
 		}
 
-		output("Sorted list by score - all remaining");
+		output("");
+
+		outputString.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_TAG_SORTED_LIST_ALL_REMAINING);
+		output(outputString);
+
 		s = "";
 		for(int i=0; i<cPairs; i++) {
 			CString score1Str; score1Str.Format("%d", score[i][0]);
@@ -488,7 +511,7 @@ int VigenereAnalysisSchroedel::secondChar() {
 			maxProzent = 10;
 		}
 
-		output("Discard underperformer");
+		// discard underperformer
 		for(int l=0; l<cPairs; l++) {
 			// sort out
 			if(score[l][0] >= maxProzent && score[l][1] >= maxProzent) {
@@ -518,8 +541,7 @@ int VigenereAnalysisSchroedel::secondChar() {
 
 		if(n == 1) Remain2 = cPairs;
 
-		output("Sorting");
-
+		// sorting
 		for(int i=0; i<cPairs; i++) {
 			for(int o=0; o<cPairs-1; o++) {
 				if(score[o][0] * score[o][1] < score[o+1][0] * score[o+1][1]) {
@@ -539,7 +561,11 @@ int VigenereAnalysisSchroedel::secondChar() {
 			}
 		}
 
-		output("Sorted list by score - after discarding");
+		output("");
+
+		outputString.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_TAG_SORTED_LIST_AFTER_DISCARDING);
+		output(outputString);
+		
 		s = "";
 
 		for(int i=0; i<cPairs; i++) {
@@ -549,13 +575,17 @@ int VigenereAnalysisSchroedel::secondChar() {
 			output(s);
 		}
 
-		output("Scorers in leading digram/trigram statistic - sorted");
+		output("");
+		
+		outputString.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_TAG_SORTED_LEADERS);
+		output(outputString);
+
 		s = "";
 		aktPos = 0;
 
 		for(int o=0; o<cPairs; o++) {
 			if(pairs[o][0].MakeUpper() == ciphertext.Left(n+1).MakeUpper()) aktPos = o;
-			CString oStr; oStr.Format("%d", o);
+			CString oStr; oStr.Format("%d", o+1);
 			s = s + oStr + ". " + pairs[o][0] + "-" + pairs[o][1] + " ";
 		}
 
@@ -563,49 +593,17 @@ int VigenereAnalysisSchroedel::secondChar() {
 		if(n == 2) Pos3 = aktPos;
 
 		output(s);
+
 		CString cPairsStr; cPairsStr.Format("%d", cPairs);
-		output("Remain: " + cPairsStr);
+
+		outputString.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_TAG_REMAINING);
+		outputString.Append(cPairsStr);
+		output(outputString);
+
 		Remain3 = cPairs;
-
-		// print current position
-		/*if(!plaintext.IsEmpty()) {
-			CString aktPosStr; aktPosStr.Format("%d", aktPos);
-			output("Current position in ranking: " + aktPosStr);
-		}*/
-
-		output("########################");
 	}
 
-		/* TODO ********** OUTPUT ***************
-
-
-  outPut( Form1.cipher.Text );
-  outPut( AnsiUpperCase( Form1.plainText.Text ));
-  output( AnsiUpperCase( Form1.cipherKey.Text ));
-  output( 'Length : ' + IntToStr( Length( form1.cipher.Text )));
-  output( 'Digram : ' + inttoStr( pos2 ) + '/' + inttoStr( remain2 ));
-  output( 'Trigram: ' + inttoStr( pos3 ) + '/' + inttoStr( remain3 ));
-
-  outputSave( Form1.cipher.Text,
-              AnsiUpperCase( Form1.plainText.Text ),
-              AnsiUpperCase( Form1.cipherKey.Text ),
-              inttoStr( pos2 ),
-              inttoStr( remain2 ),
-              inttoStr( pos3 ),
-              inttoStr( remain3 ));
-
-  form1.listbox1.Items.Add( inttoStr( pos2 ) +'/' +
-              inttoStr( remain2 ) + ' -- ' +
-              inttoStr( pos3 ) + '/' +
-              inttoStr( remain3 ));
-
-  form1.ListBox1.Selected[ form1.ListBox1.Items.Count -1 ] := TRUE;
-
-
-End;
-
-
-		*/
+	output("");  
 
 	progress = 0.15;
 
@@ -656,7 +654,6 @@ int VigenereAnalysisSchroedel::solveTrigram() {
     // Try first key
     cKey = "";
     cText = "";
-    output("Reading dictionary");
 
 		for(xDict=0; xDict<dictCount; xDict++) {
 
@@ -765,11 +762,10 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 	// TODO: endezeit = Date + Time
 	if(!found) {
 		output("");
-		output("Checking all possible solutions with dictionary for heighest rating:");
-		output("");
-		output("############################################");
-		output("HIGHEST RATING");
-		output("############################################");
+
+		outputString.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_TAG_CHECKING_FOR_RATINGS);
+		output(outputString);
+
 		CString strLength; strLength.Format("%d", ciphertext.GetLength());
 		CString strCipher; strCipher = ciphertext;
 		CString strRating; strRating.Format("%d", maxRating);
@@ -784,7 +780,8 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 				solveText = solvers[i][1];
 			}
 			if(maxRating == atoi(solvers[i][2])) {
-				output(solvers[i][3] + " " + solvers[i][0] + " / " + solvers[i][1]);
+				//output(solvers[i][3] + " " + solvers[i][0] + " / " + solvers[i][1]);
+				output(solvers[i][0] + " / " + solvers[i][1]);
 			}
 		}
 
@@ -792,11 +789,12 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 			key = pairs[i][0];
 			text = pairs[i][1];
 
-			if(solveKey.Find(key) == 0 || solveText.Find(key) == 0) {
+			// TODO: does this snippet even matter?
+			/*if(solveKey.Find(key) == 0 || solveText.Find(key) == 0) {
 				output("");
 				CString iStr; iStr.Format("%d", i);
 				output("Position after sorting was: " + iStr);
-			}
+			}*/
 		}
 
 		for(int i=0; i<x; i++) {
@@ -825,16 +823,26 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 	// dump the time needed for analysis
 	CString analysisTimeNeededTag;
 	analysisTimeNeededTag.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_TIME_NEEDED_TAG);
+	CString unitSeconds;
+	unitSeconds.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_SECONDS);
 	CString analysisTimeNeeded;
-	analysisTimeNeeded.Format("%s %d", analysisTimeNeededTag, timeNeededForAnalysisInSeconds);
+	analysisTimeNeeded.Append(analysisTimeNeededTag);
+	CString analysisTime;
+	analysisTime.Format("%d", timeNeededForAnalysisInSeconds);
+	analysisTimeNeeded.Append(analysisTime);
+	analysisTimeNeeded.Append(unitSeconds);
 	output(analysisTimeNeeded, true);
 
 	// dump the length of the analyzed ciphertext
 	CString ciphertextLengthTag;
 	ciphertextLengthTag.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_CIPHERTEXT_LENGTH_TAG);
+	CString unitCharacters;
+	unitCharacters.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS);
 	CString ciphertextLength;
-	ciphertextLength.Format("%s %d", ciphertextLengthTag, ciphertext.GetLength());
+	ciphertextLength.Format("%s %d %s", ciphertextLengthTag, ciphertext.GetLength(), unitCharacters);
 	output(ciphertextLength, true);
+
+	output("", true);
 
 	// dump the ciphertext (only once at the beginning of the result text)
 	CString ciphertextTag;
@@ -864,7 +872,7 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 		output(foundCleartextTag, true);
 		output((*mapPossibleResults.begin()).second, true);
 		output("", true);
-		output("", true);
+		//output("", true);
 	}
 	else {
 		// display all possible results with a numbered list
@@ -882,7 +890,7 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 			output(foundCleartextTag, true);
 			output((*iter).second, true);
 			output("", true);
-			output("", true);
+			//output("", true);
 		}
 	}
 
@@ -894,7 +902,8 @@ int VigenereAnalysisSchroedel::readDict() {
 	// watch out for user cancellation
 	if(abort) return -1;
 
-	output("Reading dictionary");
+	outputString.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_DICTIONARY);
+	output(outputString);
 
 	CString s;
 
@@ -941,7 +950,8 @@ int VigenereAnalysisSchroedel::readCiphertext() {
 	// watch out for user cancellation
 	if(abort) return -1;
 
-	output("Reading ciphertext");
+	outputString.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_CIPHERTEXT);
+	output(outputString);
 
 	CString s;
 
@@ -1166,7 +1176,7 @@ void VigenereAnalysisSchroedel::writeResultFile() {
 	if(!fileResult) return; // TODO error message
 
 	fileResult.write(result.GetBuffer(), result.GetLength());
-	fileResult.write("\r\n", 2);
+	//fileResult.write("\r\n", 2);
 
 	// close result file
 	fileResult.close();

@@ -90,6 +90,10 @@ public:
 	// function to write the write the result file
 	void writeResultFile();
 
+	// aux variables
+	CString outputString;
+	CString formatString;
+
 public:
 	CString ciphertext;
 	CString ciphertextFileName;

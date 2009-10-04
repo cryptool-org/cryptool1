@@ -21441,7 +21441,7 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_HEADER_TAG 
                             "CrypTool: Ciphertext-Only-Analyse nach Schrödel gegen die Vigenère-Verschlüsselung"
     IDS_STRING_VIGENERE_ANALYSIS_TIME_NEEDED_TAG 
-                            "Benötigte Zeit für die Durchführung der Analyse:"
+                            "Benötigte Zeit für die Durchführung der Analyse: "
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_CIPHERTEXT_LENGTH_TAG 
                             "Länge des analysierten Geheimtexts:"
     IDS_AUTHORS_FILE_CORRUPTED 
@@ -21456,6 +21456,39 @@ BEGIN
                             "Digramm-Datei auswählen"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_TRIGRAMS_FILE 
                             "Trigramm-Datei auswählen"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_DIGRAMS "Lade Digramme..."
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_TRIGRAMS "Lade Trigramme..."
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_REMOVE_DUPLICATES 
+                            "%d entfernte Duplikate:"
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_1ST_CHARACTER_OF_CIPHER 
+                            "1. Zeichen des Ciphertexts: "
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_2ND_CHARACTER_OF_CIPHER 
+                            "2. Zeichen des Ciphertexts: "
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_3RD_CHARACTER_OF_CIPHER 
+                            "3. Zeichen des Ciphertexts: "
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_CIPHERTEXT "Lade Ciphertext..."
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_DICTIONARY "Lade Wörterbuch..."
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_POSSIBLE_PAIRS "%d mögliche Paare:"
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_COUNT "Anzahl: "
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_REMAINING "Verbleibende Paare: "
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_SORTED_LIST_ALL_REMAINING 
+                            "Sortierte Liste aller Paare:"
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_SORTED_LIST_AFTER_DISCARDING 
+                            "Sortierte Liste aller verbliebenen Paare:"
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_SORTED_LEADERS 
+                            "Sortierte Liste der besten Paare:"
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_CHECKING_FOR_RATINGS 
+                            "Mögliche Lösungen mit dem Wörterbuch abgleichen:"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_SECONDS " Sekunden"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "Zeichen"
 END
 
 #endif    // German (Germany) resources
@@ -32291,6 +32324,41 @@ BEGIN
                             "Choose dictionary file"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DIGRAMS_FILE "Choose digram file"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_TRIGRAMS_FILE "Choose trigram file"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_DIGRAMS "Loading digrams..."
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_TRIGRAMS "Loading trigrams..."
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_REMOVE_DUPLICATES 
+                            "%d removed duplicates:"
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_1ST_CHARACTER_OF_CIPHER 
+                            "1st character of the ciphertext: "
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_2ND_CHARACTER_OF_CIPHER 
+                            "2nd character of the ciphertext: "
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_3RD_CHARACTER_OF_CIPHER 
+                            "3rd character of the ciphertext: "
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_CIPHERTEXT 
+                            "Loading ciphertext..."
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_DICTIONARY 
+                            "Loading dictionary..."
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_POSSIBLE_PAIRS "%d possible pairs: "
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_COUNT "Count:"
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_REMAINING "Remaining pairs: "
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_SORTED_LIST_ALL_REMAINING 
+                            "Sorted list of all pairs:"
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_SORTED_LIST_AFTER_DISCARDING 
+                            "Sorted list of all remaining pairs:"
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_SORTED_LEADERS 
+                            "Sorted list of the best pairs:"
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_CHECKING_FOR_RATINGS 
+                            "Checking dictionary for possible solutions:"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_SECONDS " seconds"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "characters"
 END
 
 #endif    // English (U.K.) resources
