@@ -73,6 +73,8 @@ protected:
 	afx_msg void OnButtonSearchDigramsFile();
 	afx_msg void OnButtonSearchTrigramsFile();
 
+	afx_msg void OnBnClickedButtonRestoreStandard();
+
 	CString chooseFileThroughDialog(const CString title, const CString defaultFile);
 
 	void readSettingsVigenereAnalysisSchroedel();

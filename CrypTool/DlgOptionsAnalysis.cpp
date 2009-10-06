@@ -101,6 +101,7 @@ BEGIN_MESSAGE_MAP(CDlgOptionsAnalysis, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_SEARCH_DICTIONARY_FILE, OnButtonSearchDictionaryFile)
 	ON_BN_CLICKED(IDC_BUTTON_SEARCH_DIGRAMS_FILE, OnButtonSearchDigramsFile)
 	ON_BN_CLICKED(IDC_BUTTON_SEARCH_TRIGRAMS_FILE, OnButtonSearchTrigramsFile)
+	ON_BN_CLICKED(IDC_BUTTON_RESTORE_STANDARD, OnBnClickedButtonRestoreStandard)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -265,4 +266,36 @@ void CDlgOptionsAnalysis::writeSettingsVigenereAnalysisSchroedel()
 
 		UpdateData(false);
 	}
+}
+void CDlgOptionsAnalysis::OnBnClickedButtonRestoreStandard()
+{
+	// Caesar and Vigenere related settings
+	m_CKey = true;
+	m_CKorr = true;
+	m_CHist = true;
+	m_VKey = true;
+	m_VLen = true;
+	m_VKorr = true;
+	m_VBase = false;
+	m_BFEntropyWindow = 128;
+	i_alphabetOptions = 0;
+
+	// settings for new Vigenere (Schroedel) analysis
+	m_VigenereAnalysisSchroedelExtensiveLogging = false;
+	// get settings from resource file
+	CString pathToDefaultDictionaryFile;
+	pathToDefaultDictionaryFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DICTIONARY_FILENAME);
+	pathToDefaultDictionaryFile = CString(Pfad) + pathToDefaultDictionaryFile;
+	CString pathToDefaultDigramsFile;
+	pathToDefaultDigramsFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DIGRAMS_FILENAME);
+	pathToDefaultDigramsFile = CString(Pfad) + pathToDefaultDigramsFile;
+	CString pathToDefaultTrigramsFile;
+	pathToDefaultTrigramsFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_TRIGRAMS_FILENAME);
+	pathToDefaultTrigramsFile = CString(Pfad) + pathToDefaultTrigramsFile;
+	// apply settings
+	m_VigenereAnalysisSchroedelDictionaryFile = pathToDefaultDictionaryFile;
+	m_VigenereAnalysisSchroedelDigramsFile = pathToDefaultDigramsFile;
+	m_VigenereAnalysisSchroedelTrigramsFile = pathToDefaultTrigramsFile;
+
+	UpdateData(false);
 }

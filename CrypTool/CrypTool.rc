@@ -10894,6 +10894,7 @@ BEGIN
     LTEXT           "Trigramm-Datei:",IDC_STATIC,25,188,50,8
     CONTROL         "Ausführliche Protokollierung",IDC_CHECK_EXTENSIVE_LOGGING,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,133,103,10
+    PUSHBUTTON      "Standard &wiederherstellen",IDC_BUTTON_RESTORE_STANDARD,105,316,99,17
 END
 
 IDD_HILL_ANALYSIS DIALOGEX 0, 0, 302, 361
@@ -21730,6 +21731,7 @@ BEGIN
     LTEXT           "Digram file:",IDC_STATIC,25,171,36,8
     LTEXT           "Trigram file:",IDC_STATIC,25,188,37,8
     CONTROL         "Extensive logging",IDC_CHECK_EXTENSIVE_LOGGING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,133,71,10
+    PUSHBUTTON      "&Restore standard",IDC_BUTTON_RESTORE_STANDARD,105,316,99,17
 END
 
 IDD_HILL_ANALYSIS DIALOGEX 0, 0, 302, 361
