@@ -1,10 +1,11 @@
 ==================================================================
-    CrypTool, Version 1.4.30 Beta 04 for Win32, August 2009   xx-xxxx
+    CrypTool, Version 1.4.30 Beta 05 for Win32, October 2009
     (c) Contributors
         including
         Deutsche Bank AG, Frankfurt/Main,
         the Universities of Siegen, Darmstadt, Bochum and Duisburg-Essen.
         1998-2009
+        Freeware and Open Source according to Apache Licence 2.0
     www.cryptool.org
     Bernhard Esslinger
     $Id$
@@ -802,10 +803,11 @@ b) Changes within the user documentation / on the websites:
                      of CrypTool,
                    - new cover.
 
-- Updated and enhanced presentation (112 pages now).
+- Updated and enhanced presentation (more than 110 pages now).
 
 - From the CrypTool website links are set to the sites of the successor
-  versions JCT1 and CT2, which already offer their current beta for download.
+  versions JCT1 and CT2, which already offer their current and stable
+  betas for download.
 
 - The additional website CrypTool-Online went live (www.cryptool-online.org).
 
@@ -838,37 +840,42 @@ c) New functionality / Usability:
      - The log window now is amodal, resizable and the content is more
        well-arranged.
      - The version number now is 1.1 and it is shown in the title.
-   - Fix for DESX/DESXL: Now the effective bit length is displayed in encryption
-     and brute force dialogs.
-   - Fix for DESX/DESXL brute force analysis, which skipped keys when searching
-     in the last 128 bit of the key (brute-force analysis ignores correctly the
-     parity bit of the DES key for performance reasons; this can be done so only
-     for the DES key part of the whole key).
+   - Fix for DESX/DESXL: Now the effective bit length is displayed in
+     encryption and brute force dialogs.
+   - Fix for DESX/DESXL brute force analysis, which skipped keys when
+     searching in the last 128 bit of the key (brute-force analysis ignores
+     correctly the parity bit of the DES key for performance reasons;
+     this can be done so only for the DES key part of the whole key).
    - The result of the attack on the hash value of the electronic signature
      previously showed a wrong number of steps (always ca. 4.x*10^18).
-   - Fixed a crash which happened when first defining within the text options as
-     alphabet the capital letters plus the small umlauts, and then calling
+   - Fixed a crash which happened when first defining within the text options
+     as alphabet the capital letters plus the small umlauts, and then calling
      the Caesar cipher.
-   - Fixed a bug when entering hex strings from the clipboard (now its inserted
-     only at the marked places).
+   - Fixed a bug when entering hex strings from the clipboard (now its
+     inserted only at the marked places).
    - Switching between text and hex view does not loose the font selected for
      the text view of a document.
-   - Conflicts with the certificate serial number: So far serial number have been
-     generated consecutively, and the serial number was not checked when a cert
-     was imported into the key store.
+   - Conflicts with the certificate serial numbers: So far serial number have
+     been generated consecutively, and the serial number was not checked when
+     a cert was imported into the key store.
      This could involve using the wrong certificate when validating a message.
      Both are fixed: The serial numbers are no generated randomly and if a new
      certificate is to be imported, first it is checked whether its number is
      already generated. If so its rejected.
+   - The ciphertext-only analysis of XOR ciphertexts calculated a wrong
+     key length despite the shown autocorrelation was correct.
+     Now the correct key length is shown and used.
 
 - For all DES based methods now the dialogs show both the effectively used
   key length and the key length which the user has to enter.
 
 - Many small improvements in the masks (user interface), e.g. elapsed-time
-  dialog for the AKS test; text in about box can be marked and copied; time and
-  number of found factors are shown at one in the factorization dialog.
+  dialog for the AKS test; text in about box can be marked and copied; time
+  and number of found factors are shown at one in the factorization dialog;
+  menu XOR in analysis of ciphertext-only changed to XOR / Vernam.xxxxx
 
-- External PDFs on the internet now can be opened directly within the online help.
+- External PDFs on the internet now can be opened directly within the online
+  help.
 
 - All available 8 hash methods offered in the dialogs for:
   - Key generation from password (according to PKSC #5),
@@ -880,7 +887,8 @@ c) New functionality / Usability:
   according online help contains the corresponding references.
   Variant 5 of the HMAC sample constructions now exactly follows RFC 2104.
   Details:
-  CrypTool contains five HMAC variants (H = hash function, k = key, m = message):
+  CrypTool contains five HMAC variants
+  (H = hash function, k = key, m = message):
   1.  H ( k, m )
   2.  H ( m, k )
   3.  H ( k, m, k )
@@ -914,8 +922,11 @@ c) New functionality / Usability:
   Now all primes within a given range can be generated (generation of
   prime sets).
 
-- The checkbox "Special characters" within the dialog "Text Options" now offers
-  some more characters by default.
+- Diffie-Hellman now created the primes und the generator according
+  to standards.  xxxxxxxxx
+
+- The checkbox "Special characters" within the dialog "Text Options" now
+  offers some more characters by default.
 
 - All specific options are now within the dialogs of the according methods.
   So we could get rid of the menu item "Further Options".
@@ -923,16 +934,16 @@ c) New functionality / Usability:
 - A visualization for secure e-mail was added: The user can enter dynamically
   data which is signed or encrypted using the S/MIME protocol.
 
-- Another visualization for the AES algorithm was added: flow_visualization
-  showing how the bits are changed round-by-round.
+- Another visualization for the AES algorithm was added: flow visualization
+  showing how the bits are changed round-by-round (compiled with Java 1.5).
 
 - For the simple column transposition now a known-plaintext analysis
   is added to calculate the transposition key.
   This known-plaintext analysis is now better integrated together with the
-  previous known-plaintext analysis for the Hill cipher.
+  previous known-plaintext analysis for the Hill cipher. xxxxxx
 
-- Further Vigenère analysis (according to Schroedel, for very short cryptograms).
-  xxxxxxxx
+- Further Vigenère analysis (according to Schroedel, very effective for very
+  short cryptograms).
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
@@ -1704,7 +1715,7 @@ Version   Date		Size of Windows Setup  Needed Size  Released
 1.4.10    July 2007	26.7 MB	     27.5 MB	47 MB        DB
 1.4.20    July 2008	36.1 MB	     37.1 MB	73 MB        DB
 1.4.21    July 2008	36.1 MB	     37.1 MB	73 MB        DB
-1.4.30    Sep. 2009	41.6 MB	     42,5 MB	77 MB        DB   xxxxxx
+1.4.30    Oct. 2009	44,1 MB      45,1 MB	80 MB        DB   xxxxxx
 
 Remarks about the versions:
 1.3.02   Many new functions compared to 1.3.00.
@@ -1725,7 +1736,7 @@ Remarks about the versions:
 1.4.21   Patch containing also MSVCR71.dll. This DLL is used by the current
          OpenSSL library, but not available by default on blank Windows systems.
 1.4.30-Beta03  Mar. 2009  First public beta of version 1.4.30.
-1.4.30-Beta04  Aug. 2009  Second public beta of version 1.4.30.
+1.4.30-Beta04  Sep. 2009  Second public beta of version 1.4.30.
 1.4.30   Many bug fixes and enhanced functionality compared to 1.4.21.
 
 

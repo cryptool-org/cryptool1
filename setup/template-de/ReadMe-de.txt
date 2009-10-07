@@ -1,10 +1,11 @@
 ==================================================================
-    CrypTool, Version 1.4.30 Beta 04 für Win32, August 2009  xx-xxxx
+    CrypTool, Version 1.4.30 Beta 05 für Win32, Oktober 2009
     (c) Contributors
         Dazu gehören z.B.
         Deutsche Bank AG, Frankfurt am Main,
         die Universitäten Siegen, Darmstadt, Bochum und Duisburg-Essen.
         1998-2009
+        Freie Software und Open Source gemäß der Apache Lizenz 2.0
     www.cryptool.de
     Bernhard Esslinger
     $Id$
@@ -813,17 +814,18 @@ b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
 - Online-Hilfe: deutlich erweitert (z.B. sind nun bei allen Blockchiffren
                 explizit die benutzten Modi und Padding-Varianten erläutert).
 
-- CrypTool- Skript: Umfangreiche Überarbeitung:
-                    - Update auf aktuellen Stand,
-                    - Aufnahme von vielen Sage-Programmbeispielen,
-                    - Behebung kleinerer Fehler,
-                    - Menübaum in Anhang A.1 an neue CrypTool-Version angepasst,
-                    - Neues Covers.
+- CrypTool-Skript: Umfangreiche Überarbeitung:
+                   - Update auf aktuellen Stand,
+                   - Aufnahme von vielen Sage-Programmbeispielen,
+                   - Behebung kleinerer Fehler,
+                   - Menübaum in Anhang A.1 an neue CrypTool-Version angepasst,
+                   - Neues Deckblatt.
 
-- Aktualisierte und auf 112 Seiten erweiterte Präsentation.
+- Aktualisierte und auf über 110 Seiten erweiterte Präsentation.
 
 - Von der CT-Webseite wird auf die Websites der Nachfolger-Versionen JCT1
-  und CT2 verwiesen, die schon die jeweils aktuelle Beta zum Download anbieten.
+  und CT2 verwiesen, die schon die jeweils aktuelle, stabile Beta zum Download
+  anbieten.
 
 - Die zusätzliche Webseite CrypTool-Online ging live (www.cryptool-online.org).
 
@@ -864,28 +866,34 @@ c) Neue Funktionalität / Bedienung:
      diese geht aber nur beim DES-Key-Teil des Gesamtschlüssels).
    - Beim Angriff auf den Hashwert einer elektronischen Signatur wurde bisher
      die benötigte Schrittzahl falsch ausgegeben (immer ca. 4,x*10^18).
-   - Absturz gefixt, der auftrat, wenn man in den Textoptionen als Alphabet die
-     Großbuchstaben plus die kleinen Umlaute definierte und dann die
+   - Absturz gefixt, der auftrat, wenn man in den Textoptionen als Alphabet
+     die Großbuchstaben plus die kleinen Umlaute definierte und dann die
      Caesar-Verschlüsselung aufrief.
    - Nun kann man in Feldern für Hexeingaben auch Hexfolgen aus dem Clipboard
      korrekt eingeben (wenn markiert, wird nur da eingefügt).
    - Der in der Textanzeige eingestellte Font wird beibehalten, auch wenn man
      zwischendurch in die Hex-Ansicht wechselt.
-   - Konflikte mit den Zertifikats-Seriennummer: Bisher wurden die Seriennummern
-     fortlaufend vergeben und beim Importieren eines Zertifikats in den
-     Schlüsselspeicher wurde nicht geprüft, ob diese Nummer schon vergeben ist.
-     Dies konnte dazu führen, dass beim Validieren das falsche Zertifikat benutzt
-     wurde.
+   - Konflikte mit den Zertifikats-Seriennummern: Bisher wurden die
+     Seriennummern fortlaufend vergeben und beim Importieren eines Zertifikats
+     in den Schlüsselspeicher wurde nicht geprüft, ob diese Nummer schon
+     vergeben ist. Dies konnte dazu führen, dass beim Validieren das falsche
+     Zertifikat benutzt wurde.
      Beides ist behoben: Die Nummern werden zufällig erzeugt und beim Import
      weiterer Zertifikate werden die mit Nummern, die schon erzeugt wurden,
      abgelehnt.
+   - Die Ciphertext-only-Analyse von XOR-Chiffraten ermittelte eine falsche
+     Schlüssellänge, obwohl die angezeigte Autokorrelation korrekt war.
+     Nun wird die richtige Schlüssellänge angezeigt und benutzt.
+
 
 - Bei allen DES-basierten Verfahren wird nun sowohl die effektiv genutzte als
   auch die einzugebende Schlüssellänge angezeigt.
 
 - Viele kleine Verbesserungen in den Masken, z.B. Elapsed-Time-Anzeige beim
-  AKS-Test; der Text in der Aboutbox kann markiert und kopiert werden; sofortige
-  Anzeige der Zeit und der Anzahl der bisherigen Faktoren bei der Faktorisierung.
+  AKS-Test; der Text in der Aboutbox kann markiert und kopiert werden;
+  sofortige Anzeige der Zeit und der Anzahl der bisherigen Faktoren bei
+  der Faktorisierung; im Menu zur Analyse von Ciphertext-Only-Verfahren
+  steht nun XOR / Vernam statt nur XOR. xxxxxxx
 
 - Auch externe PDFs können nun direkt aus der Onlinehilfe aufgerufen werden.
 
@@ -936,6 +944,9 @@ c) Neue Funktionalität / Bedienung:
   Nun kann man damit auch alle Primzahlen innerhalb eines vorgegebenen
   Bereiches ausgeben (Primzahlmenge generieren).
 
+- Bei Diffie-Hellman werden die Primzahlen und der Generator nun
+  gemäß Standard erzeugt.  xxxxxxxxxx
+
 - Die Checkbox "Sonderzeichen" in der Dialogbox "Textoptionen" bietet nun
   standardmäßig mehr Sonderzeichen an.
 
@@ -946,15 +957,17 @@ c) Neue Funktionalität / Bedienung:
   kann Daten eingeben, die signiert oder verschlüsselt werden mit Hilfe des
   S/MIME-Protokolls.
 
-- Eine weitere Visualisierung des AES-Algorithmus kam hinzu: Flussvisualisierung
-  zur Veranschaulichung der Veränderung der Bits nach jeder Runde.
+- Eine weitere Visualisierung des AES-Algorithmus kam hinzu: die
+  Flussvisualisierung veranschaulicht die Veränderung der Bits
+  in jeder Runde (compliliert mit Java 1.5).
 
 - Für die einfache Spaltentransposition ist eine Known-Plaintext-Analyse
   zum Finden des Transpositionsschlüssels neu hinzugekommen.
   Diese Known-Plaintext-Analyse wurde zusammen mit der bisherigen
-  Known-Plaintext-Analyse für Hill besser integriert.
+  Known-Plaintext-Analyse für Hill besser integriert.  xxxxxxxx
 
-- Weitere Vigenère-Analyse (nach Schrödel, für sehr kurze Chiffrate). xxxxxxxx
+- Weitere Vigenère-Analyse (nach Schrödel, sehr effizient für sehr kurze
+  Chiffrate).
 xxxxxxxxxxxxxxxxxxxxx
 
 
@@ -1759,7 +1772,7 @@ Version   Datum         Größe des Windows-Setups  Plattenplatz  Freigabe
 1.4.10    Juli 2007      27,5 MB     26,7 MB         47 MB        DB
 1.4.20    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
-1.4.30    Sep. 2009      42,5 MB     41,6 MB         79 MB        DB   xxxxxxxx
+1.4.30    Okt. 2009      45,1 MB     44,1 MB         82 MB        DB   xxxxxxxx
 
 Bemerkungen zu den Versionen:
 1.3.02   Viele neue Funktionen gegenüber 1.3.00.
@@ -1781,7 +1794,7 @@ Bemerkungen zu den Versionen:
          neuen aktuellen OpenSSL-Bibliothek benutzt wird und nicht auf
          frischen Windows-Umgebungen (ohne Office) enthalten ist.
 1.4.30-Beta03  März 2009  Erste öffentliche Beta von Version 1.4.30.
-1.4.30-Beta04  Aug. 2009  Zweite öffentliche Beta von Version 1.4.30.
+1.4.30-Beta04  Sep. 2009  Zweite öffentliche Beta von Version 1.4.30.
 1.4.30   Viele Bugfixes und erweiterter Funktionsumfang i.Vgl. zu 1.4.21.
 
 
@@ -2761,7 +2774,7 @@ Funktionen, die für die Release-Versionen der Nachfolger-Projekte geplant sind:
 - JCT  Entropie-Untersuchungen
 - JCT  Analyse von Transpositionschiffren mit dem ACO-Algorithmus
 - JCT  Visualisierung von Zero-Knowledge-Beweisen
-- JCT  Visualisierung eines Quantum-Schlüsselaustausch-protokolls (BB84)
+- JCT  Visualisierung eines Quantum-Schlüsselaustausch-Protokolls (BB84)
 - JCT  Commandline-Funktionalität
 - JCT  Mächtige Action-History und Kaskadierungs-Unterstützung
 - JCT  Demonstrator für XML-Signaturen
