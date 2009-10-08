@@ -45,7 +45,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 // this is a static hash value (used for integrity of the authors.txt file)
-static const CString authorsFileHash = "AB 72 69 8A 36 79 90 FF 85 D4 72 1C 50 CA 5D BC 6E B5 A9 35 EC 9C 91 06 EB 57 C6 17 C1 21 39 73 4E 4A 5B 3E 62 DB 52 DE 1B 22 EB B6 36 63 54 09 D3 1C 13 AC 2A 65 68 AB 3E F5 B9 9D EC 70 98 4F";
+static const CString authorsFileHash = "8A F2 21 16 1E 06 EC 04 74 0E 5A 96 AA B1 B4 8F 4E EE 52 43 A9 D8 3E EC 00 29 D9 F7 C8 76 22 B9 BE 1D 01 F1 E9 2D 3D 4C 3D 3E BB DB F1 3B 0F 64 36 05 9B 55 CA C4 C8 D4 0E 97 53 5B 6A 64 34 45";
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgAuthors 
@@ -63,13 +63,14 @@ void CDlgAuthors::DoDataExchange(CDataExchange* pDX)
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgAuthors)
 	// HINWEIS: Der Klassen-Assistent fügt hier DDX- und DDV-Aufrufe ein
-	DDX_Text(pDX, IDC_EDIT_AUTHORS_1, authorsImplementationDocumentationTranslation);
-	DDX_Text(pDX, IDC_EDIT_AUTHORS_2, authorsReviewFeedback);
+	DDX_Control(pDX, IDC_TEXT_SCROLLER_1, textScrollerImplementationDocumentationTranslation);
+	DDX_Control(pDX, IDC_TEXT_SCROLLER_2, textScrollerReviewFeedback);
 	//}}AFX_DATA_MAP
 }
 
 BEGIN_MESSAGE_MAP(CDlgAuthors, CDialog)
 //{{AFX_MSG_MAP(CDlgAuthors)
+ON_WM_LBUTTONDBLCLK()
 //}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -83,6 +84,10 @@ BOOL CDlgAuthors::OnInitDialog()
 
 	// read authors from authors.txt
 	readAuthors();
+
+	// initialize text scrollers
+	textScrollerImplementationDocumentationTranslation.initialize(20);
+	textScrollerReviewFeedback.initialize(20);
 
 	UpdateData(false);
 	
@@ -126,8 +131,8 @@ void CDlgAuthors::readAuthors()
 	if(authorsFileHash != messageDigestString) {
 		// don't display any authors if strings don't match
 		LoadString(AfxGetInstanceHandle(), IDS_AUTHORS_FILE_CORRUPTED, pc_str, STR_LAENGE_STRING_TABLE);
-		authorsImplementationDocumentationTranslation = pc_str;
-		authorsReviewFeedback = pc_str;
+		MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
+		return;
 	}
 	// at this point the hash value seems fine, read authors and proceed...
 	else {
@@ -217,35 +222,27 @@ void CDlgAuthors::readAuthors()
 				else {
 					authorName = (*iter);
 				}
-				// if this is not the first author in the list, prepend a comma (append it to the existing string)
-				if(iter != listAuthors[listNo].begin()) {
-					if(listNo == 0) {
-						authorsImplementationDocumentationTranslation.Append(", ");
-					}
-					if(listNo == 1) {
-						authorsReviewFeedback.Append(", ");
-					}
-				}
+
 				// add the authors to the lists
 				if(listNo == 0) {
-					// quick and dirty: because the Windows controls don't support automatic line breaks,
-					// we will manually override this behavior
-					if(authorsImplementationDocumentationTranslation.GetLength() - authorsImplementationDocumentationTranslation.ReverseFind('\n') > maxCharsPerLine)
-						authorsImplementationDocumentationTranslation.Append("\r\n");
-					authorsImplementationDocumentationTranslation.Append(authorName);
+					textScrollerImplementationDocumentationTranslation.addLine(authorName);
 				}
 				if(listNo == 1) {
-					// quick and dirty: because the Windows controls don't support automatic line breaks,
-					// we will manually override this behavior
-					if(authorsReviewFeedback.GetLength() - authorsReviewFeedback.ReverseFind('\n') > maxCharsPerLine)
-						authorsReviewFeedback.Append("\n");
-					authorsReviewFeedback.Append(authorName);
+					textScrollerReviewFeedback.addLine(authorName);
 				}
 			}
 		}
 
 		// append "..." to indicate there were additional authors that didn't want to be listed
-		this->authorsImplementationDocumentationTranslation.Append(" ...");
-		this->authorsReviewFeedback.Append(" ...");
+		textScrollerImplementationDocumentationTranslation.addLine("...");
+		textScrollerReviewFeedback.addLine("...");
 	}
 }
+
+void CDlgAuthors::OnLButtonDblClk(UINT nFlags, CPoint point) 
+{
+	CDialog::OnLButtonDblClk(nFlags, point);
+	// pause the text scrollers
+	textScrollerImplementationDocumentationTranslation.pause();
+	textScrollerReviewFeedback.pause();
+} 

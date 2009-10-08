@@ -58,7 +58,6 @@ public:
 	CString strVersionGMP;
 	//}}AFX_DATA
 	
-	
 	// Überschreibungen
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
 	//{{AFX_VIRTUAL(CDlgAbout)
@@ -71,14 +70,19 @@ protected:
 	
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgAbout)
-	afx_msg void OnLButtonDblClk(UINT nFlags, CPoint point);
+	afx_msg void OnPaint();
 	virtual BOOL OnInitDialog();
+	afx_msg void OnBnClickedContributors();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 
 private:
 	// Funktion zur Ermittlung der verschiedenen Bibliotheksversionen
 	void determineLibraryVersions();
+
+	// used for dialog header
+	CString stringCrypToolVersion;
+	CFont font;
 };
 
 //{{AFX_INSERT_LOCATION}}

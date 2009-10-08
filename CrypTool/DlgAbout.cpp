@@ -74,41 +74,54 @@ void CDlgAbout::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDlgAbout)
-	DDX_Text(pDX, IDC_EDIT_SECUDE1, strVersionSecude1);
-	// DDX_Text(pDX, IDC_EDIT_SECUDE2, strVersionSecude2);
-	DDX_Text(pDX, IDC_EDIT_MIRACL, strVersionMiracl);
-	DDX_Text(pDX, IDC_EDIT_OPENSSL, strVersionOpenSSL);
-	DDX_Text(pDX, IDC_EDIT_NTL, strVersionNTL);
-	DDX_Text(pDX, IDC_EDIT_SCINTILLA, strVersionScintilla);
-	DDX_Text(pDX, IDC_EDIT_CRYPTOVISION, strVersionCryptovision);
-	DDX_Text(pDX, IDC_EDIT_GMP, strVersionGMP);
 	//}}AFX_DATA_MAP
 }
 
 
 BEGIN_MESSAGE_MAP(CDlgAbout, CDialog)
-//{{AFX_MSG_MAP(CDlgAbout)
-ON_WM_LBUTTONDBLCLK()
+	//{{AFX_MSG_MAP(CDlgAbout)
+	ON_WM_PAINT()
+	ON_BN_CLICKED(ID_CONTRIBUTORS, OnBnClickedContributors)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // Behandlungsroutinen für Nachrichten CDlgAbout 
 
-
-void CDlgAbout::OnLButtonDblClk(UINT nFlags, CPoint point) 
+void CDlgAbout::OnBnClickedContributors()
 {
-	// TODO: Code für die Behandlungsroutine für Nachrichten hier einfügen und/oder Standard aufrufen
-	CDialog::OnLButtonDblClk(nFlags, point);
-	
+	// open authors dialog
 	CDlgAuthors klasse;
 	klasse.DoModal();
-	
-} 
+}
+
+void CDlgAbout::OnPaint()
+{
+	CDialog::OnPaint();
+
+	// display CrypTool version
+	CDC *pDC = GetDC();
+	CRect rect;
+	GetClientRect(rect);
+	// just use a portion of the rect for the heading
+	rect.top = 10;
+	rect.bottom = 50;
+	// fill background with Windows system color (grey)
+	pDC->FillSolidRect(rect, GetSysColor(COLOR_3DFACE));
+	// display text
+	pDC->SelectObject(&font);
+	pDC->DrawText(stringCrypToolVersion, stringCrypToolVersion.GetLength(), rect, DT_CENTER|DT_VCENTER);
+}
 
 BOOL CDlgAbout::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
+
+	// get CrypTool version for dialog heading
+	LoadString(AfxGetInstanceHandle(),IDR_MAINFRAME,pc_str,STR_LAENGE_STRING_TABLE);
+	stringCrypToolVersion = pc_str;
+	// create font
+	font.CreateFontA(34, 0, 0, 0, FW_BOLD, FALSE, FALSE, FALSE, 0, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY, DEFAULT_PITCH | FF_ROMAN, "Arial");
 
 	// hole Bibliotheksinformationen
 	determineLibraryVersions();
@@ -120,22 +133,23 @@ BOOL CDlgAbout::OnInitDialog()
 	CWnd *windowContactInformation = GetDlgItem(IDC_EDIT_CONTACT_INFORMATION);
 
 	if(windowReleaseInformation) {
-		CString stringReleaseInformation;
-		// get CrypTool version
-		LoadString(AfxGetInstanceHandle(),IDR_MAINFRAME,pc_str,STR_LAENGE_STRING_TABLE);
-		stringReleaseInformation.Append(pc_str);
-		stringReleaseInformation.Append("\r\n\r\n");
 		// get build information
 		CString buildDate;
 		buildDate.Format("%d-%02d-%02d",YEAR, MONTH + 1, DAY);
-		CString version;
-		version.Format("MSC %d.%02d",_MSC_VER/100,_MSC_VER%100);
-		CString StrBuildInfo;
-		StrBuildInfo.Format(IDS_BUILD_INFO, buildDate, version);
-		stringReleaseInformation.Append(StrBuildInfo);
+		CString buildVersion;
+		buildVersion.Format("MSC %d.%02d",_MSC_VER/100,_MSC_VER%100);
+		// construct release information
+		CString stringReleaseInformation;
+		stringReleaseInformation.Format(IDS_CRYPTOOL_RELEASE_INFORMATION, stringCrypToolVersion, buildDate, buildVersion);
+		stringReleaseInformation.Append(strVersionSecude1); stringReleaseInformation.Append(", ");
+		stringReleaseInformation.Append(strVersionMiracl); stringReleaseInformation.Append(", ");
+		stringReleaseInformation.Append(strVersionOpenSSL); stringReleaseInformation.Append(", ");
+		stringReleaseInformation.Append(strVersionNTL); stringReleaseInformation.Append(", ");
+		stringReleaseInformation.Append(strVersionScintilla); stringReleaseInformation.Append(", ");
+		stringReleaseInformation.Append(strVersionCryptovision); stringReleaseInformation.Append(", ");
+		stringReleaseInformation.Append(strVersionGMP); stringReleaseInformation.Append(".");
 		// display information
 		windowReleaseInformation->SetWindowText(stringReleaseInformation);
-
 	}
 	if(windowContactInformation) {
 		CString stringContactInformation;
@@ -145,7 +159,6 @@ BOOL CDlgAbout::OnInitDialog()
 		// display information
 		windowContactInformation->SetWindowText(stringContactInformation);
 	} 
-
 
 	// Anzeige aktualisieren
 	UpdateData(false);
@@ -217,4 +230,3 @@ void CDlgAbout::determineLibraryVersions()
 	this->strVersionCryptovision = "1.3.0";
 	this->strVersionCryptovision.Insert(0, "cv cryptovision (tm) cv act library ");
 }
-

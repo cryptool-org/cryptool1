@@ -11290,23 +11290,23 @@ BEGIN
     EDITTEXT        IDC_EDIT3,8,6,176,14,ES_CENTER | ES_READONLY | NOT WS_BORDER
 END
 
-IDD_AUTHORS DIALOGEX 0, 0, 300, 320
+IDD_AUTHORS DIALOGEX 0, 0, 370, 275
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Über CrypTool: Mitwirkende"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,120,293,60,20
-    CTEXT           "Personen, die zu CrypTool beitrugen",IDC_STATIC,7,7,286,11,SS_CENTERIMAGE | WS_BORDER
-    CTEXT           "Bernhard Esslinger",IDC_STATIC,20,33,260,8
-    CTEXT           "Peer Wichmann (bis Version 1.2)\nJoerg Cornelius Schneider (ab Version 1.3)",IDC_STATIC,20,59,260,16
-    CTEXT           "Henrik Koy",IDC_STATIC,20,94,260,8,NOT WS_GROUP
-    GROUPBOX        " Idee, Sponsoring, Challenges, QA, Leitung",IDC_STATIC,7,23,286,22,BS_CENTER
-    GROUPBOX        " Planung, Betreuung und Architektur",IDC_STATIC,7,49,286,30,BS_CENTER
-    GROUPBOX        " Kümmerer Version 1.3 und 1.4",IDC_STATIC,7,83,286,22,BS_CENTER
-    GROUPBOX        " Entwicklung, Dokumentation, Übersetzung ",IDC_STATIC,7,109,286,120,BS_CENTER
-    GROUPBOX        " Review und Feedback",IDC_STATIC,7,234,286,50,BS_CENTER
-    EDITTEXT        IDC_EDIT_AUTHORS_1,15,121,270,100,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN
-    EDITTEXT        IDC_EDIT_AUTHORS_2,15,246,270,30,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN
+    DEFPUSHBUTTON   "OK",IDOK,155,250,60,18
+    CTEXT           "Personen, die zu CrypTool beitrugen",IDC_STATIC,7,7,356,15,SS_CENTERIMAGE | WS_BORDER
+    CTEXT           "Bernhard Esslinger",IDC_STATIC,20,38,330,8
+    CTEXT           "Peer Wichmann (bis Version 1.2)\nJoerg Cornelius Schneider (ab Version 1.3)",IDC_STATIC,20,64,330,16
+    CTEXT           "Henrik Koy",IDC_STATIC,20,99,330,8,NOT WS_GROUP
+    GROUPBOX        " Idee, Sponsoring, Challenges, QA, Leitung",IDC_STATIC,7,28,356,22,BS_CENTER
+    GROUPBOX        " Planung, Betreuung und Architektur",IDC_STATIC,7,54,356,30,BS_CENTER
+    GROUPBOX        " Kümmerer Version 1.3 und 1.4",IDC_STATIC,7,88,356,22,BS_CENTER
+    GROUPBOX        " Entwicklung, Dokumentation, Übersetzung ",IDC_STATIC,7,115,175,125,BS_CENTER
+    GROUPBOX        " Review und Feedback",IDC_STATIC,188,115,175,125,BS_CENTER
+    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_1,20,125,150,105
+    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_2,200,125,150,105
 END
 
 IDD_SHOW_PUBLICKEY_EC DIALOG  0, 0, 399, 287
@@ -13771,30 +13771,24 @@ BEGIN
     LTEXT           "für Dokumente:",IDC_STATIC,13,106,89,9,0,WS_EX_RIGHT
 END
 
-IDD_ABOUT DIALOGEX 34, 22, 242, 445
+IDD_ABOUT DIALOGEX 34, 22, 370, 275
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Über CrypTool"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,76,419,90,19,WS_GROUP
-    CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,44,50,105,37,WS_EX_TRANSPARENT
-    CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,40,82,143,37,WS_EX_TRANSPARENT
-    CTEXT           "haben es die Universitäten Siegen und Darmstadt\nund viele freiwillige Entwickler in einem Open-Source-Projekt entwickelt.",IDC_STATIC,9,130,223,24
-    CTEXT           "CrypTool nutzt folgende Bibliotheken:",IDC_STATIC,0,219,241,8
-    CTEXT           "Kontakt:",IDC_STATIC,0,315,241,10
-    CTEXT           "Copyright (C) 1998-2009\nDeutsche Bank AG und Mitwirkende\nFrankfurt am Main, Deutschland",IDC_STATIC,0,380,242,24
-    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,46,228,79
-    CTEXT           "CrypTool ist ein kostenloses und umfangreiches Lernprogramm\nzu klassischer und moderner Kryptographie/Kryptoanalyse.\n\nGemeinsam mit den Sponsoren",IDC_STATIC,1,12,241,33
-    CTEXT           "MIRACL",IDC_EDIT_MIRACL,1,255,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "SECUDE1",IDC_EDIT_SECUDE1,1,231,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "OPENSSL",IDC_EDIT_OPENSSL,1,266,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "NTL",IDC_EDIT_NTL,1,276,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "SCINTILLA",IDC_EDIT_SCINTILLA,1,286,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "GMP",IDC_EDIT_GMP,0,296,241,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "CrypTool wird weltweit zur Lehre an Schulen und Hochschulen, und zur Ausbildung und Mitarbeiter-Awareness in Firmen und Behörden eingesetzt.",IDC_STATIC,3,193,236,19,WS_TABSTOP
-    CTEXT           "CRYPTOVISION",IDC_EDIT_CRYPTOVISION,0,243,241,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,7,326,228,44,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,7,159,228,28,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    DEFPUSHBUTTON   "OK",IDOK,7,250,60,18,WS_GROUP
+    CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,44,74,105,37,WS_EX_TRANSPARENT
+    CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,198,73,143,37,WS_EX_TRANSPARENT
+    CTEXT           "haben es die Universitäten Siegen und Darmstadt\nund viele freiwillige Entwickler in einem Open-Source-Projekt entwickelt.",IDC_STATIC,20,119,330,16
+    CTEXT           "Copyright (C) 1998-2009 Deutsche Bank AG und Mitwirkende",IDC_STATIC,7,235,356,8
+    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,71,356,44
+    CTEXT           "CrypTool ist ein kostenloses und umfangreiches Lernprogramm\nzu klassischer und moderner Kryptographie/Kryptoanalyse.\n\nGemeinsam mit den Sponsoren",IDC_STATIC,20,35,330,32
+    CTEXT           "CrypTool wird weltweit zur Lehre an Schulen und Hochschulen, und zur Ausbildung und Mitarbeiter-Awareness in Firmen und Behörden eingesetzt.",IDC_STATIC,20,140,330,16,WS_TABSTOP
+    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,213,178,145,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,11,178,185,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Release-Informationen",IDC_STATIC,7,164,195,64
+    GROUPBOX        "Kontakt-Informationen",IDC_STATIC,208,164,155,64
+    PUSHBUTTON      "Mitwirkende",ID_CONTRIBUTORS,303,250,60,18,WS_GROUP
 END
 
 IDD_HMAC DIALOGEX 0, 0, 325, 505
@@ -18007,11 +18001,11 @@ BEGIN
     IDD_AUTHORS, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 293
+        RIGHTMARGIN, 363
         VERTGUIDE, 20
-        VERTGUIDE, 280
+        VERTGUIDE, 350
         TOPMARGIN, 7
-        BOTTOMMARGIN, 313
+        BOTTOMMARGIN, 268
     END
 
     IDD_CAESAR_ANALYSIS, DIALOG
@@ -18347,9 +18341,12 @@ BEGIN
 
     IDD_ABOUT, DIALOG
     BEGIN
-        VERTGUIDE, 7
-        VERTGUIDE, 235
-        BOTTOMMARGIN, 438
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 363
+        VERTGUIDE, 20
+        VERTGUIDE, 350
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 268
     END
 
     IDD_HMAC, DIALOG
@@ -21451,6 +21448,7 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_CRYPTOOL_RELEASE_INFORMATION "%s (%s, %s), kompiliert mit "
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DICTIONARY_FILE 
                             "Wörterbuch-Datei auswählen"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DIGRAMS_FILE 
@@ -21900,30 +21898,24 @@ BEGIN
     EDITTEXT        IDC_EDIT2,10,180,35,12,ES_READONLY | WS_DISABLED | NOT WS_BORDER
 END
 
-IDD_ABOUT DIALOGEX 34, 22, 242, 445
+IDD_ABOUT DIALOGEX 34, 22, 370, 275
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About CrypTool"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,76,419,90,19,WS_GROUP
-    CTEXT           "the universities Siegen and Darmstadt developed it within an\nopen source project thanks to the help of many voluntary developers.",IDC_STATIC,0,130,242,17
-    CTEXT           "CrypTool uses the following libraries:",IDC_STATIC,1,219,241,8
-    CTEXT           "Contact:",IDC_STATIC,0,315,241,10
-    CTEXT           "Copyright (C) 1998-2009\nDeutsche Bank AG and Contributors\nFrankfurt am Main, Germany",IDC_STATIC,0,380,242,24
-    CTEXT           "CrypTool is a free and comprehensive e-learning program about\nclassic and contemporary cryptography and cryptanalysis.\n\nIn a joint effort with the sponsors",IDC_STATIC,1,10,241,32
-    CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,41,48,105,37,WS_EX_TRANSPARENT
-    CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,40,80,143,37,WS_EX_TRANSPARENT
-    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,46,228,79
-    CTEXT           "MIRACL",IDC_EDIT_MIRACL,1,257,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "SECUDE1",IDC_EDIT_SECUDE1,1,234,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "OPENSSL",IDC_EDIT_OPENSSL,1,268,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "NTL",IDC_EDIT_NTL,1,278,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "SCINTILLA",IDC_EDIT_SCINTILLA,1,288,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "GMP",IDC_EDIT_GMP,0,298,241,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "CrypTool is used world wide for education in schools and universities, and for education and employee awareness in companies and government organizations.",IDC_STATIC,3,185,236,24
-    CTEXT           "CRYPTOVISION",IDC_EDIT_CRYPTOVISION,0,246,241,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,7,151,228,28,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,7,326,228,44,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    DEFPUSHBUTTON   "OK",IDOK,7,250,60,18,WS_GROUP
+    CTEXT           "the universities Siegen and Darmstadt developed it within an\nopen source project thanks to the help of many voluntary developers.",IDC_STATIC,20,119,330,16
+    CTEXT           "Copyright (C) 1998-2009 Deutsche Bank AG and Contributors",IDC_STATIC,7,235,356,8
+    CTEXT           "CrypTool is a free and comprehensive e-learning program about\nclassic and contemporary cryptography and cryptanalysis.\n\nIn a joint effort with the sponsors",IDC_STATIC,20,35,330,32
+    CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,44,74,105,37,WS_EX_TRANSPARENT
+    CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,198,73,143,37,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,71,356,44
+    CTEXT           "CrypTool is used world wide for education in schools and universities, and for education and employee awareness in companies and government organizations.",IDC_STATIC,20,140,330,16
+    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,213,178,145,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Release information",IDC_STATIC,7,164,195,64
+    GROUPBOX        "Contact information",IDC_STATIC,208,164,155,64
+    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,11,178,185,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Contributors",ID_CONTRIBUTORS,303,250,60,18,WS_GROUP
 END
 
 IDD_SHOW_PROGRESS DIALOG  0, 0, 187, 105
@@ -22127,23 +22119,23 @@ BEGIN
     EDITTEXT        IDC_EDIT3,8,6,176,14,ES_CENTER | ES_READONLY | NOT WS_BORDER
 END
 
-IDD_AUTHORS DIALOGEX 0, 0, 300, 320
+IDD_AUTHORS DIALOGEX 0, 0, 370, 275
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About CrypTool: Contributors"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,120,293,60,20
-    CTEXT           "Persons Contributing to CrypTool",IDC_STATIC,7,7,286,11,SS_CENTERIMAGE | WS_BORDER
-    CTEXT           "Bernhard Esslinger",IDC_STATIC,20,33,260,8
-    CTEXT           "Henrik Koy",IDC_STATIC,20,94,260,8,NOT WS_GROUP
-    CTEXT           "Peer Wichmann (till release 1.2)\nJoerg Cornelius Schneider (from release 1.3)",IDC_STATIC,20,59,260,16
-    GROUPBOX        " Idea, Sponsoring, Challenges, QA, Lead ",IDC_STATIC,7,23,286,22,BS_CENTER
-    GROUPBOX        " Design, Support and Architecture",IDC_STATIC,7,49,286,30,BS_CENTER
-    GROUPBOX        " Main person taking overall care for version 1.3 and 1.4",IDC_STATIC,7,83,286,22,BS_CENTER
-    GROUPBOX        " Implementation, Documentation, Translation ",IDC_STATIC,7,109,286,120,BS_CENTER
-    GROUPBOX        " Review and Feedback",IDC_STATIC,7,234,286,50,BS_CENTER
-    EDITTEXT        IDC_EDIT_AUTHORS_1,15,121,270,100,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN
-    EDITTEXT        IDC_EDIT_AUTHORS_2,15,246,270,30,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN
+    DEFPUSHBUTTON   "OK",IDOK,155,250,60,18
+    CTEXT           "Persons Contributing to CrypTool",IDC_STATIC,7,7,356,15,SS_CENTERIMAGE | WS_BORDER
+    CTEXT           "Bernhard Esslinger",IDC_STATIC,20,38,330,8
+    CTEXT           "Henrik Koy",IDC_STATIC,20,99,330,8,NOT WS_GROUP
+    CTEXT           "Peer Wichmann (till release 1.2)\nJoerg Cornelius Schneider (from release 1.3)",IDC_STATIC,20,64,330,16
+    GROUPBOX        " Idea, Sponsoring, Challenges, QA, Lead ",IDC_STATIC,7,28,356,22,BS_CENTER
+    GROUPBOX        " Design, Support and Architecture",IDC_STATIC,7,54,356,30,BS_CENTER
+    GROUPBOX        " Main person taking overall care for version 1.3 and 1.4",IDC_STATIC,7,88,356,22,BS_CENTER
+    GROUPBOX        " Implementation, Documentation, Translation ",IDC_STATIC,7,115,175,129,BS_CENTER
+    GROUPBOX        " Review and Feedback",IDC_STATIC,188,115,175,129,BS_CENTER
+    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_1,20,125,150,105
+    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_2,200,125,150,105
 END
 
 IDD_SHOW_PUBLICKEY_EC DIALOG  0, 0, 399, 287
@@ -28741,10 +28733,12 @@ BEGIN
 
     IDD_ABOUT, DIALOG
     BEGIN
+        RIGHTMARGIN, 363
         VERTGUIDE, 7
-        VERTGUIDE, 235
-        TOPMARGIN, 1
-        BOTTOMMARGIN, 438
+        VERTGUIDE, 20
+        VERTGUIDE, 350
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 268
     END
 
     IDD_SHOW_PROGRESS, DIALOG
@@ -28778,11 +28772,11 @@ BEGIN
     IDD_AUTHORS, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 293
+        RIGHTMARGIN, 363
         VERTGUIDE, 20
-        VERTGUIDE, 280
+        VERTGUIDE, 350
         TOPMARGIN, 7
-        BOTTOMMARGIN, 313
+        BOTTOMMARGIN, 268
     END
 
     IDD_CAESAR_ANALYSIS, DIALOG
@@ -32322,6 +32316,7 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_CRYPTOOL_RELEASE_INFORMATION "%s (%s, %s), compiled with "
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DICTIONARY_FILE 
                             "Choose dictionary file"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DIGRAMS_FILE "Choose digram file"

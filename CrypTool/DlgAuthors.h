@@ -27,6 +27,8 @@
 // Autoren.h : Header-Datei
 //
 
+#include "TextScroller.h"
+
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgAuthors 
 
@@ -56,15 +58,18 @@ protected:
 	
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgAuthors)
+	afx_msg void OnLButtonDblClk(UINT nFlags, CPoint point);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 
 protected:
 	// this function reads all authors from "authors.txt"
 	void readAuthors();
-	// these two strings hold all the authors for each category
-	CString authorsImplementationDocumentationTranslation;
-	CString authorsReviewFeedback;
+
+	// this text scroller holds all authors for implementation, documentation and translation
+	CTextScroller textScrollerImplementationDocumentationTranslation;
+	// this text scroller holds all authors for review and feedback
+	CTextScroller textScrollerReviewFeedback;
 };
 
 //{{AFX_INSERT_LOCATION}}
