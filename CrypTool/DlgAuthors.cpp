@@ -107,7 +107,12 @@ void CDlgAuthors::readAuthors()
 	char messageDigest[64+1];
 	memset(messageDigest, 0, 64+1);
 	FILE *in = fopen((char*)(LPCTSTR)authorsFileName,"rb");
-	ASSERT(in);
+	if(!in) {
+		// warn user if authors.txt is missing
+		LoadString(AfxGetInstanceHandle(), IDS_AUTHORS_FILE_MISSING, pc_str, STR_LAENGE_STRING_TABLE);
+		MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);
+		return;
+	}
 	long m_pos = 0;
 	fseek(in,0,SEEK_END);
 	long m_size = ftell(in);
