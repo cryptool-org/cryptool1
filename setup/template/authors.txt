@@ -13,11 +13,6 @@
 # Note that there are two different sections:
 #   a) IMPLEMENTATION, DOCUMENTATION, TRANSLATION
 #   b) REVIEW, FEEDBACK
-# 
-# -------------------------------------------------------
-# ATTENTION: Don't forget to update the "authorsFileHash" 
-# variable in "DlgAuthors.cpp" after altering this file!
-# -------------------------------------------------------
 #
 
 #

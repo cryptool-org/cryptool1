@@ -44,8 +44,8 @@ extern char *Pfad;
 static char THIS_FILE[] = __FILE__;
 #endif
 
-// this is a static hash value (used for integrity of the authors.txt file)
-static const CString authorsFileHash = "8A F2 21 16 1E 06 EC 04 74 0E 5A 96 AA B1 B4 8F 4E EE 52 43 A9 D8 3E EC 00 29 D9 F7 C8 76 22 B9 BE 1D 01 F1 E9 2D 3D 4C 3D 3E BB DB F1 3B 0F 64 36 05 9B 55 CA C4 C8 D4 0E 97 53 5B 6A 64 34 45";
+// this is a static sha-1 hash value (used for integrity of the authors.txt file)
+static const CString authorsFileHash = "fe1299ea260a427a65052f92599df25fdd3ce719";
 
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgAuthors 
@@ -103,9 +103,9 @@ void CDlgAuthors::readAuthors()
 	// build path to the "authors.txt" file
 	const CString authorsFileName = Pfad + CString("authors.txt");
 
-	// check the hash value of the authors file (SHA-512)
-	char messageDigest[64+1];
-	memset(messageDigest, 0, 64+1);
+	// check the hash value of the authors file (SHA-1)
+	char messageDigest[20+1];
+	memset(messageDigest, 0, 20+1);
 	FILE *in = fopen((char*)(LPCTSTR)authorsFileName,"rb");
 	if(!in) {
 		// warn user if authors.txt is missing
@@ -123,14 +123,17 @@ void CDlgAuthors::readAuthors()
 	memset(buffer, 0, m_size+1);
 	n = fread(buffer, 1, m_size, in);
 
-	// create hashing operations object (index 7 = SHA-512)
-	HashingOperations hashingOperations(7);
+	// create hashing operations object (index 4 = SHA-1)
+	HashingOperations hashingOperations(4);
 	hashingOperations.DoHash(buffer, n, messageDigest);
 	
 	delete buffer;
 
 	CString messageDigestString;
-	dataToHexDump(messageDigest, 64, messageDigestString);
+	dataToHexDump(messageDigest, 20, messageDigestString);
+
+	messageDigestString.Remove(' ');
+	messageDigestString.MakeLower();
 
 	// compare message digest string to built-in string
 	if(authorsFileHash != messageDigestString) {
