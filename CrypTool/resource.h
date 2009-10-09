@@ -5,7 +5,6 @@
 #define IDS_FINDANDREPLACE_HEXNOTIMPLEMENTED 1
 #define IDS_FINDANDREPLACE_TEXTNOTFOUND 2
 #define ID_EXTRACT_SIGNATURE_VERIFY     2
-#define ID_CONTRIBUTORS                 2
 #define IDCANCEL2                       3
 #define IDS_FINDANDREPLACE_TEXTOCCURANCESREPLACED 3
 #define IDOK2                           3
@@ -1759,6 +1758,7 @@
 #define IDC_CHECK_EXTENSIVE_LOGGING     2054
 #define IDC_TEXT_SCROLLER_1             2055
 #define IDC_TEXT_SCROLLER_2             2056
+#define ID_CONTRIBUTORS                 2057
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -3233,7 +3233,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        881
 #define _APS_NEXT_COMMAND_VALUE         33384
-#define _APS_NEXT_CONTROL_VALUE         2059
+#define _APS_NEXT_CONTROL_VALUE         2058
 #define _APS_NEXT_SYMED_VALUE           109
 #endif
 #endif

@@ -13776,7 +13776,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "‹ber CrypTool"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,250,60,18,WS_GROUP
+    DEFPUSHBUTTON   "Schlieﬂen",IDOK,303,250,60,18,WS_GROUP
     CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,44,74,105,37,WS_EX_TRANSPARENT
     CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,198,73,143,37,WS_EX_TRANSPARENT
     CTEXT           "haben es die Universit‰ten Siegen und Darmstadt\nund viele freiwillige Entwickler in einem Open-Source-Projekt entwickelt.",IDC_STATIC,20,119,330,16
@@ -13788,7 +13788,7 @@ BEGIN
     EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,11,178,185,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
     GROUPBOX        "Release-Informationen",IDC_STATIC,7,164,195,64
     GROUPBOX        "Kontakt-Informationen",IDC_STATIC,208,164,155,64
-    PUSHBUTTON      "Mitwirkende",ID_CONTRIBUTORS,303,250,60,18,WS_GROUP
+    PUSHBUTTON      "Mitwirkende",ID_CONTRIBUTORS,7,250,60,18,WS_GROUP
 END
 
 IDD_HMAC DIALOGEX 0, 0, 325, 505
@@ -21903,7 +21903,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About CrypTool"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,250,60,18,WS_GROUP
+    DEFPUSHBUTTON   "Close",IDOK,303,250,60,18,WS_GROUP
     CTEXT           "the universities Siegen and Darmstadt developed it within an\nopen source project thanks to the help of many voluntary developers.",IDC_STATIC,20,119,330,16
     CTEXT           "Copyright (C) 1998-2009 Deutsche Bank AG and Contributors",IDC_STATIC,7,235,356,8
     CTEXT           "CrypTool is a free and comprehensive e-learning program about\nclassic and contemporary cryptography and cryptanalysis.\n\nIn a joint effort with the sponsors",IDC_STATIC,20,35,330,32
@@ -21915,7 +21915,7 @@ BEGIN
     GROUPBOX        "Release information",IDC_STATIC,7,164,195,64
     GROUPBOX        "Contact information",IDC_STATIC,208,164,155,64
     EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,11,178,185,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "Contributors",ID_CONTRIBUTORS,303,250,60,18,WS_GROUP
+    PUSHBUTTON      "Contributors",ID_CONTRIBUTORS,7,250,60,18,WS_GROUP
 END
 
 IDD_SHOW_PROGRESS DIALOG  0, 0, 187, 105

@@ -71,7 +71,7 @@ protected:
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgAbout)
 	afx_msg void OnPaint();
-	virtual BOOL OnInitDialog();
+	afx_msg BOOL OnInitDialog();
 	afx_msg void OnBnClickedContributors();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
