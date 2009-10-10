@@ -65,6 +65,7 @@ Bartosz Sawicki
 Denis Döll
 Pawel Polewski
 Alexander Klink
+Matthias Walthart
 
 #
 # [REVIEW FEEDBACK]
@@ -81,3 +82,5 @@ Tom Riegel
 Wolfgang Patzewitz
 Gary Tagg
 Dirk Fox
+Marc Rennhard
+Helmut Witten
