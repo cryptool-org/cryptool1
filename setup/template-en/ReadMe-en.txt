@@ -87,9 +87,12 @@ available at the following internet addresses (without registration):
                 http://www.CrypTool.es
                 http://www.CrypTool.pl
 
-Since mid 2007 more than 3000 CrypTool-1 packages are downloaded per
+Since mid 2008 more than 4000 CrypTool-1 packages are downloaded per
 month -- with a growing trend (more than 1/3 of the current downloads
 request the English version).
+Number of downloads of the current betas of the successor versions:
+               JCT: ca.  400 / month
+               CT2: ca.  400 / month
 
 The aim of CrypTool is to explain cryptographic mechanisms and to
 demonstrate the use and the limitations of individual mechanisms.
@@ -243,12 +246,12 @@ c) The animation program ANIMAL (see http://www.algoanim.info/Animal2):
    a script language or a Java API.
    Further examples can be found within the ANIMAL repository: 
    http://www.algoanim.info/Animal2/?q=node/284
-   To run it JRE 1.5 is required (see chapter 3.2).
+   To run it JRE 1.6 is required (see chapter 3.2).
 
 d) As well as ANIMAL the following programs are stand-alone Java applications
-   (JAR files).
+   (JAR files). To run them JRE 1.5 is required (see chapter 3.2).
    - ECC demonstration v 1.1
-     To run it also JRE 1.5 is required (see chapter 3.2).
+   - AES flow visualization
    - The Control Center of the S/MIME demonstration (according to given
      parameters it creates an XML file, which is used to control the called
      Flash animation).
@@ -478,10 +481,10 @@ The general properties and functions of CrypTool are:
   - Animations
      - with ANIMAL: for the ciphers Caesar, Vigenère, Nihilist and DES,
      - with Flash:  for AES, Enigma and S/MIME,
-     - with Java/SWT: Addition of points on an elliptic curve (either on
-                      a discrete or on a real curve),
-                      flow visualization of AES,
-                      control center of the S/MIME demonstration.
+     - with Java/SWT: - Addition of points on an elliptic curve
+                        (either on a discrete or on a real curve),
+                      - flow visualization of AES,
+                      - control center of the S/MIME demonstration.
 
 - Demonstration for different ways of authentication in the net
   (Visualization of challenge response methods):
@@ -603,37 +606,37 @@ The general properties and functions of CrypTool are:
        --username anonymous --password anonymous
 
 To get an impression of the size of the project here is a statistics created
-in June 2009 using the files for the English, German and Polish version.
+in October 2009 using the files for the English, German and Polish version.
 
-    FILE SUMMARY xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    FILE SUMMARY
     ------------
               5 .rc files
              38 .c files
-            318 .cpp files
-            376 .h files
+            321 .cpp files
+            379 .h files
              36 .java files
-             10 .pl files
-           1615 .html files
+             11 .pl files
+           1625 .html files
              18 .txt files
-             35 .tex files
+             39 .tex files
 
   
     LINES OF CODE (LoC) SUMMARY
     ---------------------------
-         35,110 MFC resource code (rc)
-        232,622 C/C++ source code (c cpp h)
-          9,256 Java source code (java)
-          1,654 Perl code (pl)
-         89,683 HTML code (html hpp)
+         35,388 MFC resource code (rc)
+        236,332 C/C++ source code (c cpp h)
+          9,781 Java source code (java)
+          1,720 Perl code (pl)
+         90,500 HTML code (html hpp)
           4,118 Text files (txt)
-         26,738 LaTeX code (tex)
-        399,181 TOTAL
+         32,762 LaTeX code (tex)
+        410,601 TOTAL
 
-    TOTAL: 399,181 lines of code (plus of 4.4 % from 382,244 with v1.4.21)
+    TOTAL: 410,601 lines of code (plus of 7.4 % from 382,244 with v1.4.21)
     - Here only code written within the CrypTool project or explicitly
       dedicated to the CrypTool project is counted. Any sources used
       within the CrypTool project coming from other open source projects
-      like OpenSSL, NTL, Scintilla, ... are not listed here.
+      like OpenSSL, NTL, Scintilla, ... are not counted here.
       Also any automatically created files are not counted.
 
    Snapshot about the number of files and the number of lines of code
@@ -786,7 +789,7 @@ a) Developer-relevant changes (more technically oriented):
   - Scintilla 1.7.7
   - cv act library v. 1.4.6 (supporting Vista too)
   - OpenSSL 0.9.8k
-  - GMP ? xxxxx
+  - GMP 4.1
   - Animal 2.3.21.
 
 
@@ -871,8 +874,8 @@ c) New functionality / Usability:
 
 - Many small improvements in the masks (user interface), e.g. elapsed-time
   dialog for the AKS test; text in about box can be marked and copied; time
-  and number of found factors are shown at one in the factorization dialog;
-  menu XOR in analysis of ciphertext-only changed to XOR / Vernam.xxxxx
+  and number of found factors are shown at once in the factorization dialog;
+  menu "XOR" in analysis of ciphertext-only changed to "XOR / Vernam". xxxxx
 
 - External PDFs on the internet now can be opened directly within the online
   help.
@@ -934,7 +937,7 @@ c) New functionality / Usability:
 - A visualization for secure e-mail was added: The user can enter dynamically
   data which is signed or encrypted using the S/MIME protocol.
 
-- Another visualization for the AES algorithm was added: flow visualization
+- Another visualization for the AES algorithm was added: flow visualization,
   showing how the bits are changed round-by-round (compiled with Java 1.5).
 
 - For the simple column transposition now a known-plaintext analysis
@@ -993,8 +996,8 @@ as "well" as in productive applications.
 CrypTool requires a Win32 environment.
 CrypTool 1.4.30 is supported to run under Windows XP and Windows Vista.
 
-Some functions (ANIMAL, ECC demonstration) require an installed Java Runtime
-Environment JRE (version >=1.5).
+Some functions [ANIMAL, ECC demonstration -- see chapter 1.2, part (3)]
+require an installed Java Runtime Environment JRE (version >=1.5).
 
 The computer equipment should have at least a 300 MHz CPU, 256 MByte RAM,
 and 100 MByte free space on the hard drive (low requirements).
@@ -2270,7 +2273,7 @@ A.2.1.1. Functionality: Algorithms / Methods
        - Visualization of SSL.
        - Blind signatures.
        - Electronic voting.
-       - Tripartite key exchange.
+       - Tripartite key exchange (planned for Java-CrypTool).
        - Kleptography (http://www.cryptovirology.com/).
 
 - Offer fast selection between different encryption methods using a
@@ -2655,7 +2658,7 @@ The new versions are (see chapter A.2.2.1):
 
 
 Features already implemented and integrated in the current beta versions
-                 (CT2 Beta-2.0.3465 and JCT1 Milestone 4a):
+                 (CT2 Beta 2 v2.0.3554  and  JCT1 Milestone 5):
 - CT2  Visual programming (composition of protocols and workflows)
 - CT2  Prime number visualizations
 - CT2  WEP encryption and analysis of WEP encrypted messages
@@ -2692,9 +2695,13 @@ Features planned for the release version of the successor projects:
 - JCT  Powerful action history and cascading possibility
 - JCT  Usage as a demonstrator for XML signatures
 
-Also compare the roadmap at the website https://www.cryptool.org/content/view/21/46/lang,english.
-Further details:
+Also compare the roadmap at the website
+     https://www.cryptool.org/content/view/21/46/lang,english.
+Further details concerning open tasks:
 - for CT2: https://www.cryptool.org/trac/CrypTool2
+           https://www.cryptool.org/trac/CrypTool2/wiki/StudentTasksProposals
+           http://www.cryptool2.vs.uni-due.de/index.php?page=22&lm=2
 - for JCT: http://jcryptool.wiki.sourceforge.net/ReleasePlan
+           http://jcryptool.wiki.sourceforge.net/CurrentDevelopment
 
 ################################################################
