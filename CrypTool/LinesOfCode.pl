@@ -130,22 +130,22 @@ sub dumpResult() {
     # how many files of each file type were found?
     print "\nFILE SUMMARY\n";
     print "------------\n";
+    my $fileTotal = 0;
     foreach my $extension ( @fileTypeCountKeys ) {
+	$fileTotal += $fileTypeCount{$extension};
         printf "%7d %s\n", $fileTypeCount{$extension}, ".$extension files"
 		if $fileTypeCount{$extension};
     }
+    printf "%7d TOTAL\n", $fileTotal;
 
     # how many lines of code were found?
     print "\nLINES OF CODE SUMMARY\n";
     print "---------------------\n";
 
-    foreach my $key ( @fileTypesKeys ) {
-        printf "%7d %s\n", $filesLOC{$key}, "$key ($fileTypes{$key})";
-    }
-     
     my $locTotal = 0;
-    foreach my $key ( keys %filesLOC ) {
+    foreach my $key ( @fileTypesKeys ) {
         $locTotal += $filesLOC{$key};
+        printf "%7d %s\n", $filesLOC{$key}, "$key ($fileTypes{$key})";
     }
     printf "%7d %s\n\n", $locTotal, "TOTAL";
 }
