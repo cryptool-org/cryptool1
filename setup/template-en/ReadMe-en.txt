@@ -87,8 +87,8 @@ available at the following internet addresses (without registration):
                 http://www.CrypTool.es
                 http://www.CrypTool.pl
 
-Since mid 2008 more than 4000 CrypTool-1 packages are downloaded per
-month -- with a growing trend (more than 1/3 of the current downloads
+Since mid 2008 more than 4000 CrypTool v1 packages are downloaded per
+month -- with a growing trend (more than 1/2 of the current downloads
 request the English version).
 Number of downloads of the current betas of the successor versions:
                JCT: ca.  400 / month
@@ -619,6 +619,7 @@ in October 2009 using the files for the English, German and Polish version.
            1625 .html files
              18 .txt files
              39 .tex files
+           2472 TOTAL
 
   
     LINES OF CODE (LoC) SUMMARY

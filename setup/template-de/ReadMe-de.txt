@@ -90,8 +90,8 @@ finden Sie unter den Internet-Adressen (keine Registrierung nötig):
                 http://www.CrypTool.org
                 http://www.CrypTool.pl
 
-Seit Mitte 2008 werden über 4000 CrypTool1-Pakete pro Monat herunter
-geladen -- mit wachsender Tendenz (davon entfallen etwas über 1/3
+Seit Mitte 2008 werden über 4000 CrypTool v1-Pakete pro Monat herunter
+geladen -- mit wachsender Tendenz (davon entfallen etwas über 1/2
 auf die englische Version).
 Anzahl Downloads der aktuellen Betas der Nachfolger-Versionen:
                JCT: ca.  400 / Mt.
@@ -634,7 +634,7 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
            1625 .html files
              18 .txt files
              39 .tex files
-
+           2472 TOTAL
   
     LINES OF CODE (LoC) SUMMARY
     ---------------------------
