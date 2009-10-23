@@ -180,4 +180,4 @@ HID_CRYPT_DESXL = hid_crypt_desxl.html
 HID_ANALYSE_DESL = hid_analyse_desl.html
 HID_ANALYSE_DESX = hid_analyse_desx.html
 HID_ANALYSE_DESXL = hid_analyse_desxl.html
-
+HIDD_KEY_HEX_FIXED_LEN = hidd_key.html
