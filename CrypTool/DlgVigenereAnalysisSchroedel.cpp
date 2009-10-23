@@ -125,7 +125,14 @@ int VigenereAnalysisSchroedel::readTriDigrams() {
 	// create a handle for the input file
 	std::ifstream fileInputDigrams;
 	fileInputDigrams.open(pathToDigrams);
-	if(!fileInputDigrams) return -1;
+	if(!fileInputDigrams) {
+		// display an info message that the file could not be opened
+		CString infoMessage;
+		infoMessage.LoadStringA(IDS_STRING_FILE_COULD_NOT_BE_OPENED);
+		infoMessage.Format(infoMessage, pathToDigrams);
+		MessageBox(NULL, infoMessage, "CrypTool", MB_ICONINFORMATION);
+		return -1;
+	}
 
 	for(int i=0; i<26; i++) {
 		for(int o=0; o<26; o++) {
@@ -150,7 +157,14 @@ int VigenereAnalysisSchroedel::readTriDigrams() {
 	// create a handle for the input file
 	std::ifstream fileInputTrigrams;
 	fileInputTrigrams.open(pathToTrigrams);
-	if(!fileInputTrigrams) return -1;
+	if(!fileInputTrigrams) {
+		// display an info message that the file could not be opened
+		CString infoMessage;
+		infoMessage.LoadStringA(IDS_STRING_FILE_COULD_NOT_BE_OPENED);
+		infoMessage.Format(infoMessage, pathToTrigrams);
+		MessageBox(NULL, infoMessage, "CrypTool", MB_ICONINFORMATION);
+		return -1;
+	}
 	
 	for(int i=0; i<26; i++) {
 		for(int o=0; o<26; o++) {
@@ -274,8 +288,6 @@ int VigenereAnalysisSchroedel::firstChar() {
 		score[i][0] = 0;
 		score[i][1] = 0;
 	}
-
-	// TODO cPairs = 0;
 
 	for(int i=0; i<cPairs; i++) {
 		pairs[i][0] = _pairs[i][0];
@@ -759,7 +771,6 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 		}
 	}
 
-	// TODO: endezeit = Date + Time
 	if(!found) {
 		output("");
 
@@ -788,13 +799,6 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 		for(int i=0; i<cPairs; i++) {
 			key = pairs[i][0];
 			text = pairs[i][1];
-
-			// TODO: does this snippet even matter?
-			/*if(solveKey.Find(key) == 0 || solveText.Find(key) == 0) {
-				output("");
-				CString iStr; iStr.Format("%d", i);
-				output("Position after sorting was: " + iStr);
-			}*/
 		}
 
 		for(int i=0; i<x; i++) {
@@ -807,8 +811,6 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 		}
     output("");
 	}
-
-	// TODO: see original delphi code
 
 	// this is the official end of the analysis
 	time(&timeAnalysisEnd);
@@ -910,7 +912,14 @@ int VigenereAnalysisSchroedel::readDict() {
 	// create a handle for the input file
 	std::ifstream fileInput;
 	fileInput.open(pathToDictionary);
-	if(!fileInput) return -1;
+	if(!fileInput) {
+		// display an info message that the file could not be opened
+		CString infoMessage;
+		infoMessage.LoadStringA(IDS_STRING_FILE_COULD_NOT_BE_OPENED);
+		infoMessage.Format(infoMessage, pathToDictionary);
+		MessageBox(NULL, infoMessage, "CrypTool", MB_ICONINFORMATION);
+		return -1;
+	}
 
 	dictCount = 0;
 
@@ -958,7 +967,14 @@ int VigenereAnalysisSchroedel::readCiphertext() {
 	// create a handle for the input file
 	std::ifstream fileInput;
 	fileInput.open(ciphertextFileName);
-	if(!fileInput) return -1;
+	if(!fileInput) {
+		// display an info message that the file could not be opened
+		CString infoMessage;
+		infoMessage.LoadStringA(IDS_STRING_FILE_COULD_NOT_BE_OPENED);
+		infoMessage.Format(infoMessage, ciphertextFileName);
+		MessageBox(NULL, infoMessage, "CrypTool", MB_ICONINFORMATION);
+		return -1;
+	}
 
 	dictCount = 0;
 
@@ -983,34 +999,6 @@ int VigenereAnalysisSchroedel::readCiphertext() {
 	progress = 0.01;
 
 	return 0;
-}
-
-void VigenereAnalysisSchroedel::outputSave(CString a1, CString a2, CString a3, CString a4, CString a5, CString a6, CString a7) {
-
-	// create a handle for the output file
-	std::ofstream fileOutput;
-	fileOutput.open("statistics.txt", ios_base::app);
-	if(!fileOutput) return;
-
-	fileOutput << a1 << std::endl;
-	fileOutput << a2 << std::endl;
-	fileOutput << a3 << std::endl;
-	fileOutput << a4 << "/" << a5 << std::endl;
-	fileOutput << a6 << "/" << a7 << std::endl;
-
-	// close output file
-	fileOutput.close();
-
-
-	// create a handle for the output file
-	fileOutput.open("statistics.csv", ios_base::app);
-	if(!fileOutput) return;
-
-	fileOutput << a1 << ";" << a2 << ";" << a3 << ";" << a5 << ";" << a6 << ";" << a7 << std::endl;
-	
-	// close output file
-	fileOutput.close();
-
 }
 
 CString VigenereAnalysisSchroedel::encryptText(CString text, CString key) {
@@ -1051,7 +1039,6 @@ CString VigenereAnalysisSchroedel::decryptText(CString text, CString key) {
 
 	for(int i=0; i<text.GetLength(); i++) {
 		for(int o=0; o<26; o++) {
-			// FLOMAR TODO CHANGE **********
 			if(key[i] == vigenere[o][0]) {
 				// make sure we don't run into segmentation faults when the find process was not successful
 				if(vigenere[o].Find(text[i]) != -1) {
@@ -1141,7 +1128,6 @@ int VigenereAnalysisSchroedel::rateString(CString str, CString key) {
 	
 	}
 
-	// TODO flomar: this statement seems to cause problems for the debugger (WTF?)
 	if(o > maxRating) {
 		solveRating = 0;
 		solveText = "";
@@ -1149,7 +1135,6 @@ int VigenereAnalysisSchroedel::rateString(CString str, CString key) {
 		solveCount = 0;
 	}
 
-	// TODO flomar: this statement seems to cause problems for the debugger (WTF?)
 	if(o >= maxRating) {
 		solveCount++;
 		maxRating = o;
@@ -1173,10 +1158,16 @@ void VigenereAnalysisSchroedel::writeResultFile() {
 	// open result file
 	std::ofstream fileResult;
 	fileResult.open(resultFileName, ios_base::trunc);
-	if(!fileResult) return; // TODO error message
+	if(!fileResult) {
+		// display an info message that the file could not be opened
+		CString infoMessage;
+		infoMessage.LoadStringA(IDS_STRING_FILE_COULD_NOT_BE_OPENED);
+		infoMessage.Format(infoMessage, resultFileName);
+		MessageBox(NULL, infoMessage, "CrypTool", MB_ICONINFORMATION);
+		return;
+	}
 
 	fileResult.write(result.GetBuffer(), result.GetLength());
-	//fileResult.write("\r\n", 2);
 
 	// close result file
 	fileResult.close();
@@ -1218,6 +1209,16 @@ void VigenereAnalysisSchroedel::readSettingsFromRegistry() {
 		pathToDictionary = (CString)c_dictionaryFile;
 		pathToDigrams = (CString)c_digramsFile;
 		pathToTrigrams = (CString)c_trigramsFile;
+	}
+	// we need some default values if there is no previous registry entry
+	else {
+		debug = false;
+		pathToDefaultDictionaryFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DICTIONARY_FILENAME);
+		pathToDefaultDictionaryFile = CString(Pfad) + pathToDefaultDictionaryFile;
+		pathToDefaultDigramsFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DIGRAMS_FILENAME);
+		pathToDefaultDigramsFile = CString(Pfad) + pathToDefaultDigramsFile;
+		pathToDefaultTrigramsFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_TRIGRAMS_FILENAME);
+		pathToDefaultTrigramsFile = CString(Pfad) + pathToDefaultTrigramsFile;
 	}
 }
 

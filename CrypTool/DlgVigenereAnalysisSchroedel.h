@@ -70,7 +70,6 @@ public:
 	int secondChar();
 	int solveTrigram();
 	
-	void outputSave(CString a1, CString a2, CString a3, CString a4, CString a5, CString a6, CString a7);
 	CString encryptText(CString text, CString key);
 	CString decryptText(CString text, CString key);
 	int rateString(CString str, CString key);
