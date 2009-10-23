@@ -17,7 +17,7 @@
 
 <h3>Secure E-Mail with S/MIME (Menu <A href="menu_related_methods.html">Individual Procedures</A> \ <a href="menu_individualprocedures_protocols.html">Protocols</a>)</h3>
 
-<P>The visualization of a secure e-mail shows how to sign and encrypt an e-mail according to the S/MIME 
+<P>This visualization of a secure e-mail shows how to sign and encrypt an e-mail according to the S/MIME 
 standard.</P>
 
 <P>This visualization uses two windows appearing one after another:</P>
@@ -30,7 +30,7 @@ This animation shows an e-mail travelling from sender to receiver, and you can l
 of the message.</LI>
 </UL>
 
-<P>Alle data structures and visualizations are executed dynamically based on the given data.</P>
+<P>All data structures and visualizations are executed dynamically based on the given data.</P>
 
 <P>Restriction: The message text is truncated to a length of 50 characters to make sure it does not 
 exceed the display area within the Flash animation.</P>
@@ -50,8 +50,8 @@ man-in-the-middle attacks and phishing.</P>
 
 <P>The foundation of text-based e-mail traffic was already established in 1982 by two standards:</P>
 <UL>
-<LI>a) The standard [RFC822] specifies the structure of an e-mail.</LI>
-<LI>b) The standard [RFC821] specifies the Simple Mail Transport Protocol (SMTP), that is used for 
+<LI>The standard [RFC822] specifies the structure of an e-mail.</LI>
+<LI>The standard [RFC821] specifies the Simple Mail Transport Protocol (SMTP), that is used for 
 transmitting e-mails from sender to receiver with a protocol based on ASCII characters.</LI>
 </UL>
 
@@ -90,7 +90,7 @@ http://www.faqs.org/rfcs/rfc822.html</P>
 <P><B>Remark 1</B>:</P>
 
 <P>The control center is written in Java SWT and requires at least Java 1.5. The Bouncy Castle (BC) 
-Cryptographic Library is used for cryptographic routines, and it also serves as additional Security 
+Cryptographic Library is used for cryptographic routines, it also serves as additional Security 
 Provider for Java.</P>
 
 <P>In order to use keys of arbitrary length, the "unrestricted policy files" need to be installed before 
@@ -109,17 +109,17 @@ you get the following message:</P>
 <P><B>Remark 2</B>:</P>
 
 <P>In the Flash animation the Windows pixel font Bavaria Extended is used to display all dynamic content. 
-If this font is not installed, you can still read the text but the marks will be off. The font can be 
-used freely for non-commercial purposes.<br>Source: 
+If this font is not installed, you can still read the text but the highlighted areas will not always be 
+at the right place. This font can be used freely for non-commercial purposes.<br>Source: 
 http://pixelfonts.style-force.net/download/bavaria-extended/</P>
 
 <P>Installation of fonts under Windows requires the following steps:</P>
 
-<UL>
-<LI>1) Extract font in temporary directory (not directly into the Windows font directory).</LI>
-<LI>2) Copy the extracted TTF file from the temporary directory into "C:\Windows\Fonts" by drag and drop.</LI>
-<LI>3) Delete the temporary directory.</LI>
-</UL>
+<OL>
+<LI>Extract font in temporary directory (not directly into the Windows font directory).</LI>
+<LI>Copy the extracted TTF file from the temporary directory into "C:\Windows\Fonts" by drag and drop.</LI>
+<LI>Delete the temporary directory.</LI>
+</OL>
 
 </BODY>
 </HTML>

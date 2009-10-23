@@ -1175,6 +1175,20 @@ void VigenereAnalysisSchroedel::writeResultFile() {
 
 void VigenereAnalysisSchroedel::readSettingsFromRegistry() {
 	
+	CString pathToDefaultDictionaryFile;
+	CString pathToDefaultDigramsFile;
+	CString pathToDefaultTrigramsFile;
+
+	// we need some default values if there is no previous registry entry
+	debug = false;
+	pathToDefaultDictionaryFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DICTIONARY_FILENAME);
+	pathToDefaultDictionaryFile = CString(Pfad) + pathToDefaultDictionaryFile;
+	pathToDefaultDigramsFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DIGRAMS_FILENAME);
+	pathToDefaultDigramsFile = CString(Pfad) + pathToDefaultDigramsFile;
+	pathToDefaultTrigramsFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_TRIGRAMS_FILENAME);
+	pathToDefaultTrigramsFile = CString(Pfad) + pathToDefaultTrigramsFile;
+
+	// now try to read settings from the registry
 	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "VigenereAnalysisSchroedel" ) == ERROR_SUCCESS )
 	{
 		unsigned long u_extensiveLogging = 0;
@@ -1184,21 +1198,18 @@ void VigenereAnalysisSchroedel::readSettingsFromRegistry() {
 		unsigned long bufferSize = maxBufferSize - 1;
 
 		char c_dictionaryFile[maxBufferSize];
-		CString pathToDefaultDictionaryFile;
 		pathToDefaultDictionaryFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DICTIONARY_FILENAME);
 		pathToDefaultDictionaryFile = CString(Pfad) + pathToDefaultDictionaryFile;
 		const char *c_dictionaryFileDefault = (const char*)(LPCTSTR)(pathToDefaultDictionaryFile);
 		CT_READ_REGISTRY_DEFAULT(c_dictionaryFile, "DictionaryFile", c_dictionaryFileDefault, bufferSize);
 
 		char c_digramsFile[maxBufferSize];
-		CString pathToDefaultDigramsFile;
 		pathToDefaultDigramsFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DIGRAMS_FILENAME);
 		pathToDefaultDigramsFile = CString(Pfad) + pathToDefaultDigramsFile;
 		const char *c_digramsFileDefault = (const char*)(LPCTSTR)(pathToDefaultDigramsFile);
 		CT_READ_REGISTRY_DEFAULT(c_digramsFile, "DigramsFile", c_digramsFileDefault, bufferSize);
 
 		char c_trigramsFile[maxBufferSize];
-		CString pathToDefaultTrigramsFile;
 		pathToDefaultTrigramsFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_TRIGRAMS_FILENAME);
 		pathToDefaultTrigramsFile = CString(Pfad) + pathToDefaultTrigramsFile;
 		const char *c_trigramsFileDefault = (const char*)(LPCTSTR)(pathToDefaultTrigramsFile);
@@ -1209,16 +1220,6 @@ void VigenereAnalysisSchroedel::readSettingsFromRegistry() {
 		pathToDictionary = (CString)c_dictionaryFile;
 		pathToDigrams = (CString)c_digramsFile;
 		pathToTrigrams = (CString)c_trigramsFile;
-	}
-	// we need some default values if there is no previous registry entry
-	else {
-		debug = false;
-		pathToDefaultDictionaryFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DICTIONARY_FILENAME);
-		pathToDefaultDictionaryFile = CString(Pfad) + pathToDefaultDictionaryFile;
-		pathToDefaultDigramsFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DIGRAMS_FILENAME);
-		pathToDefaultDigramsFile = CString(Pfad) + pathToDefaultDigramsFile;
-		pathToDefaultTrigramsFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_TRIGRAMS_FILENAME);
-		pathToDefaultTrigramsFile = CString(Pfad) + pathToDefaultTrigramsFile;
 	}
 }
 
