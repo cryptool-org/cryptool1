@@ -426,6 +426,7 @@
 #define IDD_DlgAutomatedPermAnalysis_OUTPUT 877
 #define IDD_AUTOMATED_PERM_ANALYSIS_OUTPUT 877
 #define IDD_VIGENERE_ANALYSIS_SCHROEDEL 880
+#define IDD_GENERATE_SAVE_PRIME         881
 #define IDS_CRYPT_DESX                  1000
 #define IDC_BTN_KLARTEXT                1000
 #define IDS_CRYPT_DESL                  1001
@@ -1760,6 +1761,8 @@
 #define IDC_TEXT_SCROLLER_1             2055
 #define IDC_TEXT_SCROLLER_2             2056
 #define ID_CONTRIBUTORS                 2057
+#define IDC_EDIT_BITLENGTH              2058
+#define IDC_EDITPRIME                   2062
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -1847,7 +1850,6 @@
 #define IDS_LIB_MIRACLE                 11175
 #define IDS_LIB_NTL                     11176
 #define IDS_OPENSSL                     11177
-#define IDD_KEY_HEX_FIXED_LEN           33385
 #define IDD_ROT13_CAESAR1               30726
 #define IDD_SIDECHANNELTTACKVISUALIZATION_HE_PREPARATIONS 30726
 #define IDD_SIDECHANNELATTACKVISUALIZATION_HE_PREPARATIONS 30728
@@ -2171,6 +2173,7 @@
 #define ID_ZEICHENFORMAT_ARIAL16        33381
 #define ID_ZEICHENFORMAT_COURIER14      33382
 #define ID_ZEICHENFORMAT_COURIER16      33383
+#define IDD_KEY_HEX_FIXED_LEN           33385
 #define ID_ANALYSE_PERIOD               36500
 #define IDS_STRING_PA_TITLE             36501
 #define IDS_STRING_PA_HEADER            36502
@@ -3227,14 +3230,21 @@
 #define IDS_SMIMEDEMO_PARAM             62032
 #define IDS_AES_FLOWVISUALIZATION_PARAM 62033
 #define IDS_ERR_AES_FLOWVISUALIZATION   62034
+#define IDS_PA_KEYFOUND                 62035
+#define ID_PA_ERROR_DIFFERNT_DOCUMENT_SIZES 62036
+#define ID_PA_ERROR_DIFFERNT_HISTOGRAMS 62037
+#define ID_PA_KEYFOUND                  62038
+#define IDS_BL_ATLEAST2                 62039
+#define IDS_BL_TOOLARGE                 62040
+#define IDS_STRING117                   62041
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        881
+#define _APS_NEXT_RESOURCE_VALUE        883
 #define _APS_NEXT_COMMAND_VALUE         33386
-#define _APS_NEXT_CONTROL_VALUE         2058
+#define _APS_NEXT_CONTROL_VALUE         2064
 #define _APS_NEXT_SYMED_VALUE           109
 #endif
 #endif

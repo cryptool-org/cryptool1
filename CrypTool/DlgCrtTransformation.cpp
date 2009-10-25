@@ -27,7 +27,6 @@
 #include "big.h"
 #include "crt.h"
 #include "IntegerArithmetic.h"
-#include "DlgGeneratePrime.h"
 #include "DialogeMessage.h"
 
 // CDlgCrtTransformation-Dialogfeld

@@ -8,11 +8,12 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -10692,6 +10693,14 @@ BEGIN
     IDS_AES_FLOWVISUALIZATION_PARAM "-jar AES_Flussvisualisierung.jar EN"
     IDS_ERR_AES_FLOWVISUALIZATION 
                             "Die AES Flussvisualisierung kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob die Datei AES_Flussvisualisierung.jar im CrypTool-Heimatverzeichnis installiert wurde\n(""%s"")."
+    IDS_PA_KEYFOUND         "Ein Permutationsschlüssel wurde bestimmt."
+    ID_PA_ERROR_DIFFERNT_DOCUMENT_SIZES 
+                            "Die Dokumentgrößen stimmen nicht überein."
+    ID_PA_ERROR_DIFFERNT_HISTOGRAMS 
+                            "Die Histogramme der Dokumente stimmen nicht überein."
+    ID_PA_KEYFOUND          "FIXME --- GEFUNDEN"
+    IDS_BL_ATLEAST2         "FIXME "
+    IDS_BL_TOOLARGE         "FIXME"
 END
 
 STRINGTABLE 
@@ -10710,12 +10719,12 @@ BEGIN
                             "Vigenère analysis according to Schroedel"
 END
 
-#endif    // Polish resources
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -13023,27 +13032,24 @@ BEGIN
     LTEXT           "PIN:",IDC_STATIC,69,35,15,14,SS_CENTERIMAGE
 END
 
-IDD_DIFFIEHELLMAN_PUBLICPARAMETERS DIALOGEX 0, 0, 393, 240
+IDD_DIFFIEHELLMAN_PUBLICPARAMETERS DIALOGEX 0, 0, 393, 187
 STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Öffentliche Parameter setzen"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_PRIME,75,59,200,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_GENERATOR,75,152,200,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_GENERATOR,75,123,200,14,ES_AUTOHSCROLL
     PUSHBUTTON      "&Primzahl erzeugen...",IDC_GENERATE_PRIME,277,59,100,14
-    PUSHBUTTON      "&Generator erzeugen",IDC_GENERATE_GENERATOR,278,152,100,14
-    DEFPUSHBUTTON   "Parameter über&nehmen",IDOK,15,208,100,20
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,278,208,100,20
-    LTEXT           "Als Generator (g) bezeichnet man eine natürliche Zahl, die nach Möglichkeit nicht Null oder Eins und kein Vielfaches des Primzahlmoduls (p) sein sollte.",IDC_STATIC,15,129,362,16
-    LTEXT           "Generator:",IDC_STATIC,25,152,50,14,SS_CENTERIMAGE
+    PUSHBUTTON      "&Generator erzeugen",IDC_GENERATE_GENERATOR,278,123,100,14
+    DEFPUSHBUTTON   "Parameter über&nehmen",IDOK,15,156,100,20
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,278,156,100,20
+    LTEXT           "Als Generator (g) bezeichnet man eine natürliche Zahl, die nach Möglichkeit nicht Null oder Eins und kein Vielfaches des Primzahlmoduls (p) sein sollte.",IDC_STATIC,15,101,362,16
+    LTEXT           "Generator:",IDC_STATIC,25,123,50,14,SS_CENTERIMAGE
     LTEXT           "Beide Parameter - sowohl der Generator (g) als auch der Primzahlmodul (p) - dürfen öffentlich bekannt sein.",IDC_STATIC,15,7,363,8
     LTEXT           "Der Primzahlmodul (p) sollte eine Primzahl sein. Für die spätere Wahl des Generators g ist es notwendig, dass die Faktorisierung von Phi(p) bekannt ist.",IDC_STATIC,15,34,362,16
     LTEXT           "Primzahlmodul:",IDC_STATIC,25,59,50,14,SS_CENTERIMAGE
-    GROUPBOX        "Primzahlmodul",IDC_STATIC,10,22,373,89
-    GROUPBOX        "Generator",IDC_STATIC,10,117,373,82
-    PUSHBUTTON      "Prüfe g",IDC_BUTTON1,75,175,99,14
-    PUSHBUTTON      "Prüfe p",IDC_BUTTON2,75,85,97,15
-    PUSHBUTTON      "Optionen",IDC_BUTTON3,278,85,99,15
+    GROUPBOX        "Primzahlmodul",IDC_STATIC,10,22,373,60
+    GROUPBOX        "Generator",IDC_STATIC,10,88,373,58
 END
 
 IDD_DIFFIEHELLMAN_SETSECRETS DIALOG  0, 0, 200, 101
@@ -13331,27 +13337,21 @@ BEGIN
     LTEXT           "Durch Drücken des Schlüsselsymbols erhalten Sie Details zum Verfahren mit den von Ihnen gewählten Zahlen.",IDC_STATIC,14,78,232,16
 END
 
-IDD_GENERATEPRIME DIALOGEX 0, 0, 321, 191
+IDD_GENERATEPRIME DIALOGEX 0, 0, 321, 146
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Primzahl generieren"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Primzahl &generieren",IDC_BUTTON_GENERATE,7,164,101,20
-    PUSHBUTTON      "&Primzahl übernehmen",IDC_BUTTON_ACCEPT,135,164,95,20
-    EDITTEXT        IDC_EDIT1,59,95,245,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,59,114,245,12,ES_AUTOHSCROLL
-    CONTROL         "&Miller-Rabin-Test",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,15,54,69,10
-    CONTROL         "&Solovay-Strassen-Test",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,105,54,87,10
-    CONTROL         "&Fermat-Test",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,220,54,53,10
-    PUSHBUTTON      "&Abbrechen",IDC_ENDDIALOG,254,164,59,20
-    GROUPBOX        "",IDC_STATIC,7,0,307,32
-    LTEXT           "Primzahlen spielen in der modernen Kryptographie eine wichtige Rolle. Hier erzeugen Sie sich zwei zufällige Primzahlen p und q aus dem Wertebereich [Untergrenze, ..., Obergrenze].",IDC_STATIC,15,9,289,17
-    GROUPBOX        "Algorithmen zur Generierung",IDC_STATIC,7,39,307,32
-    GROUPBOX        "Primzahl p",IDC_STATIC,7,75,307,80
-    LTEXT           "Untergrenze",IDC_STATIC,17,97,40,9
-    LTEXT           "Obergrenze",IDC_STATIC,18,116,38,8
-    LTEXT           "Ergebnis",IDC_STATIC,18,137,37,10
-    EDITTEXT        IDC_EDIT5,59,135,245,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    DEFPUSHBUTTON   "Primzahl &generieren",IDC_BUTTON_GENERATE,7,116,101,20
+    PUSHBUTTON      "&Primzahl übernehmen",IDC_BUTTON_ACCEPT,135,116,95,20
+    PUSHBUTTON      "&Abbrechen",IDC_ENDDIALOG,254,116,59,20
+    GROUPBOX        "",IDC_STATIC,7,0,307,49
+    LTEXT           "Für die Diffie-Hellman-Schlüsselparameter gelten besondere Anforderungen für die Primzahl p.....",IDC_STATIC,15,11,289,34
+    EDITTEXT        IDC_EDIT_BITLENGTH,59,68,35,12,ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "Primzahl erzeugen",IDC_STATIC,7,54,307,51
+    LTEXT           "Bitlänge",IDC_STATIC,15,70,42,9
+    LTEXT           "Ergebnis",IDC_STATIC,15,87,40,10
+    EDITTEXT        IDC_EDITPRIME,59,85,245,14,ES_AUTOHSCROLL | ES_READONLY
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE DIALOGEX 0, 0, 650, 385
@@ -15147,23 +15147,23 @@ BEGIN
     CONTROL         "Spaltenweise",IDC_CHECK15,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,283,54,10
     EDITTEXT        IDC_EDIT_RANGE_FROM,250,265,42,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_RANGE_TO,250,281,42,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "Datei laden",IDC_BUTTON1,252,218,54,14
+    PUSHBUTTON      "Aus Datei laden",IDC_BUTTON1,246,218,60,14
     PUSHBUTTON      "Schließen",IDCANCEL,248,335,65,17
     GROUPBOX        "Einlesen",IDC_GB_EINLESEN,14,254,67,43
     GROUPBOX        "Permutieren",IDC_GB_PERMUTIEREN,87,254,66,43
     GROUPBOX        "Auslesen",IDC_GB_AUSLESEN,157,254,66,43
     GROUPBOX        "Welche Varianten des Permutationsverfahrens sollen analysiert werden?",IDC_GB_VERFAHREN,7,241,306,63
-    LTEXT           "Diese Permutationsanalyse ist eine Known-Plaintext-Analyse, mit deren Hilfe Sie aus dem Klartext und dem Geheimtext den Permutationsschlüssel berechnen können.",IDC_LBL_INFOTEXT,7,8,306,15,0,WS_EX_TRANSPARENT
+    LTEXT           "Dies ist eine Known-Plaintext-Analyse einer Permutations-Chiffre. Mit dieser Analyse können Sie aus dem Klartext und dem Geheimtext den Permutationsschl?ssel berechnen.",IDC_LBL_INFOTEXT,7,8,306,15,0,WS_EX_TRANSPARENT
     GROUPBOX        "Permutationsgröße",IDC_GB_AUSLESEN2,230,254,76,43
     LTEXT           "von",IDC_STATIC,234,268,14,9
     LTEXT           "bis",IDC_STATIC,234,284,14,9
     GROUPBOX        "Optionen",IDC_STATIC,7,304,306,26
-    CONTROL         "Binäre Daten",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,129,315,54,10
-    CONTROL         "Text",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,189,315,59,10
-    LTEXT           "Betrachte Eingabedokument als:",IDC_STATIC,17,315,110,10
+    CONTROL         "Binäre Daten",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,150,315,54,10
+    CONTROL         "Text",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,210,315,59,10
+    LTEXT           "Betrachte beide Eingabedokument als:",IDC_STATIC,17,315,125,10
     PUSHBUTTON      "Textoptionen...",IDC_BUTTON2,100,335,59,17
-    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,30,306,208
-    PUSHBUTTON      "Aktive Datei laden",IDC_BUTTON70,165,218,73,14
+    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,29,306,208
+    PUSHBUTTON      "Aktives Dokument laden",IDC_BUTTON70,152,218,86,14
 END
 
 IDD_AUTOMATED_PERM_ANALYSIS_OUTPUT DIALOGEX 0, 0, 242, 241
@@ -15191,6 +15191,22 @@ BEGIN
     PUSHBUTTON      "Schlüssel kopieren",IDC_BUTTON1,7,219,69,15
     LTEXT           "Schlüssel",IDC_STATIC,17,20,107,8
     LTEXT           "Schlüssel",IDC_STATIC,17,122,158,8,WS_DISABLED
+END
+
+IDD_GENERATE_SAVE_PRIME DIALOGEX 0, 0, 379, 147
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Sichere Primzahl Erzeugen"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Primzahl übernehmen",IDOK,113,118,87,22
+    PUSHBUTTON      "Abbrechen",IDCANCEL,322,118,50,22
+    PUSHBUTTON      "Primzahl generieren",IDC_BUTTON1,7,118,87,22
+    LTEXT           "Für die Diffie-Hellman-Schlüss",IDC_STATIC,7,7,365,30
+    GROUPBOX        "Primzahl erzeugen",IDC_STATIC,7,48,365,62
+    EDITTEXT        IDC_EDIT1,50,66,34,12,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT2,50,88,315,12,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Bitlänge",IDC_STATIC,14,67,29,8
+    LTEXT           "Primzahl",IDC_STATIC,14,90,29,8
 END
 
 
@@ -18132,8 +18148,8 @@ BEGIN
         VERTGUIDE, 278
         VERTGUIDE, 377
         VERTGUIDE, 383
+        BOTTOMMARGIN, 176
         HORZGUIDE, 100
-        HORZGUIDE, 228
     END
 
     IDD_STATISTICS_SIGNATURE_ATTACK, DIALOG
@@ -18168,10 +18184,11 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 314
         VERTGUIDE, 15
+        VERTGUIDE, 59
+        VERTGUIDE, 94
         VERTGUIDE, 304
         TOPMARGIN, 7
-        BOTTOMMARGIN, 184
-        HORZGUIDE, 64
+        BOTTOMMARGIN, 136
     END
 
     IDD_SIDECHANNELATTACKVISUALIZATION_HE, DIALOG
@@ -18649,6 +18666,18 @@ BEGIN
         HORZGUIDE, 181
         HORZGUIDE, 198
         HORZGUIDE, 219
+    END
+
+    IDD_GENERATE_SAVE_PRIME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 372
+        VERTGUIDE, 14
+        VERTGUIDE, 50
+        VERTGUIDE, 84
+        VERTGUIDE, 365
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 140
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -21402,6 +21431,14 @@ BEGIN
     IDS_AES_FLOWVISUALIZATION_PARAM "-jar AES_Flussvisualisierung.jar DE"
     IDS_ERR_AES_FLOWVISUALIZATION 
                             "Die AES Flussvisualisierung kann nicht geöffnet werden.\n\nBitte überprüfen Sie, ob die Datei AES_Flussvisualisierung.jar im CrypTool-Heimatverzeichnis installiert wurde\n(""%s"")."
+    IDS_PA_KEYFOUND         "Ein Permutationsschlüssel wurde bestimmt."
+    ID_PA_ERROR_DIFFERNT_DOCUMENT_SIZES 
+                            "Die Dokumentgrößen stimmen nicht überein."
+    ID_PA_ERROR_DIFFERNT_HISTOGRAMS 
+                            "Die Histogramme der Dokumente stimmen nicht überein."
+    ID_PA_KEYFOUND          "FIXME --- GEFUNDEN"
+    IDS_BL_ATLEAST2         "FIXME "
+    IDS_BL_TOOLARGE         "FIXME"
 END
 
 STRINGTABLE 
@@ -21492,12 +21529,12 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "Zeichen"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -25897,7 +25934,7 @@ BEGIN
     GROUPBOX        "Permute",IDC_GB_PERMUTIEREN,87,254,66,43
     GROUPBOX        "Output",IDC_GB_AUSLESEN,157,254,66,43
     GROUPBOX        "Which permutation variant should be analyzed? ",IDC_GB_VERFAHREN,7,241,306,63
-    LTEXT           "This Permutation analysis is a Known-Plaintext-Analysis. On the input plaintext and ciphertext it computes a valid permutation key.",IDC_LBL_INFOTEXT,7,8,306,18,0,WS_EX_TRANSPARENT
+    LTEXT           "This is a known-plaintext analysis of a permutation cipher. Given as input a pair of plaintext and ciphertext belonging together, this analysis computes a valid permutation key.",IDC_LBL_INFOTEXT,7,8,306,18,0,WS_EX_TRANSPARENT
     GROUPBOX        "Permutation size",IDC_GB_AUSLESEN2,228,254,76,43
     LTEXT           "from",IDC_STATIC,234,268,14,9
     LTEXT           "to",IDC_STATIC,234,284,14,9
@@ -32273,6 +32310,14 @@ BEGIN
     IDS_AES_FLOWVISUALIZATION_PARAM "-jar AES_Flussvisualisierung.jar EN"
     IDS_ERR_AES_FLOWVISUALIZATION 
                             "The AES flow visualization cannot be opened! Please check if the file AES_Flussvisualisierung.jar was installed in the CrypTool home folder\n(""%s"")."
+    IDS_PA_KEYFOUND         "Ein Permutationsschlüssel wurde bestimmt."
+    ID_PA_ERROR_DIFFERNT_DOCUMENT_SIZES 
+                            "Die Dokumentgrößen stimmen nicht überein."
+    ID_PA_ERROR_DIFFERNT_HISTOGRAMS 
+                            "Die Histogramme der Dokumente stimmen nicht überein."
+    ID_PA_KEYFOUND          "FIXME --- GEFUNDEN"
+    IDS_BL_ATLEAST2         "FIXME "
+    IDS_BL_TOOLARGE         "FIXME"
 END
 
 STRINGTABLE 
@@ -32361,7 +32406,7 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "characters"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

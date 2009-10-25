@@ -28,6 +28,7 @@
 #include <list>
 
 
+
 // DlgDiffieHellmanPublicParameters.h : Header-Datei
 //
 
@@ -49,8 +50,6 @@ class CDlgDiffieHellmanPublicParameters : public CDialog
 // Konstruktion
 	std::list<factor> factorlistPhiOfP;
 
-	int PrimeParameterGenerationRFC2631(int bitlengthP, int bitlengthQ);
-
 public:
 	CDlgDiffieHellmanPublicParameters(CWnd* pParent = NULL);				// Standardkonstruktor
 	CDlgDiffieHellmanPublicParameters(std::string,std::string,CWnd* pParent = NULL);	// Zusatzkonstruktor
@@ -64,6 +63,9 @@ public:
 	CString	m_Prime;
 	//}}AFX_DATA
 
+	BOOL b_isSavePrime;
+	int  b_errType;
+	int checkGenerator();
 
 // Überschreibungen
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
@@ -82,6 +84,8 @@ protected:
 	afx_msg void OnGenerateGenerator();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnEnChangePrime();
 };
 
 //{{AFX_INSERT_LOCATION}}

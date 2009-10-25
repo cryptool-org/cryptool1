@@ -342,6 +342,7 @@ void CDlgAutomatedPermAnalysis::OnBnClickedCompute()
 
 	if ( analysis.iterate_key_param() )
 	{
+		Message(ID_PA_KEYFOUND, MB_ICONINFORMATION);
 		CDlgPermKey dlg;
 		dlg.setPermKey1(analysis.getKeyList(), m_DataType);
 		dlg.DoModal();

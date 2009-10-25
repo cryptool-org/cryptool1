@@ -8,6 +8,7 @@
 #include "DlgTextOptions.h"
 #include "DlgShowKeyHill5x5.h"
 #include "DlgShowKeyHill10x10.h"
+#include "assert.h"
 
 
 CHillAnalysis::CHillAnalysis(void) 
@@ -27,6 +28,16 @@ CHillAnalysis::~CHillAnalysis(void)
 
 int CHillAnalysis::init(const char *fn_Plain, const char *fn_Cipher, int dim_From, int dim_To, int alphabet_Offset, int mul_Direction)
 {
+	delete []fn_cipher; fn_cipher = new char[strlen(fn_Cipher)+1]; 
+	if ( fn_cipher ) strcpy(fn_cipher, fn_Cipher); else return -1;
+	delete []fn_plain;  fn_plain  = new char[strlen(fn_Plain)+1];  
+	if ( fn_plain ) strcpy(fn_plain, fn_Plain); else return -1;
+	assert( dim_From > 0 );
+	dim_from = dim_From; 
+	assert ( dim_To >= dim_From && dim_From <= 10 );
+	dim_to   = dim_To;
+	alphabet_offset = alphabet_Offset;
+	mul_direction = mul_Direction;
 	return 0;
 }
 
@@ -66,6 +77,28 @@ int CHillAnalysis::analyze()
 	CSquareMatrixModN *mat;
 	int hill_rc_dims[HILL_MAX_DIM_GROSS];
 	int hill_rc = hillklasse.angriff(dim_from, dim_to, &mat, hill_rc_dims);
+
+	if ( alphabet_offset )
+	{
+		int i, j;
+		for (i=0; i<mat->get_dim(); i++)
+			for (j=0; j<mat->get_dim(); j++)
+				mat->operator ()(i, j) = (mat->operator ()(i,j) +1) % mat->get_mod();
+	}
+
+	if ( !mul_direction )
+	{ // transpose
+		long t;
+		int i, j;
+		for (i=0; i<mat->get_dim(); i++)
+			for (j=0; j<i; j++)
+			{
+				t = mat->operator ()(i, j);
+				mat->operator ()(i, j) = mat->operator ()(j,i);
+				mat->operator ()(j,i) = t;
+			}
+	}
+
 
 	// Rueckgabewerte siehe hill.h
 	switch ( hill_rc ) {

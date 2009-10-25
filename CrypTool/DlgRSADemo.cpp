@@ -1574,6 +1574,7 @@ void CDlgRSADemo::OnButtonEncrypt()
 		}
 		else
 		{	
+#if 0
 			if ( 1 == CheckInversion() )
 			{
 				HeadingEncryption( ENCRYPT_NUMBERS );
@@ -1584,6 +1585,7 @@ void CDlgRSADemo::OnButtonEncrypt()
 				Message(IDS_RSA_HEXNOTINVERTIBLE, MB_ICONEXCLAMATION);
 			}
 			else
+#endif
 			{
 				int NumberStreamFlag;
 				if ( !DlgOptions->m_RSAVariant )
@@ -1612,6 +1614,7 @@ void CDlgRSADemo::OnButtonEncrypt()
 
 void CDlgRSADemo::DecryptNumbers()
 {
+#if 0
 	int ret = CheckInversion();
 
 	if ( ret == -1 )
@@ -1619,7 +1622,8 @@ void CDlgRSADemo::DecryptNumbers()
 		Message(IDS_RSA_HEXNOTINVERTIBLE, MB_ICONEXCLAMATION);
 		return;
 	}
-	
+#endif
+
 	CString tmpStr = m_edit_RSA_input;
 	if (DlgOptions->m_RSAVariant)
 	{
@@ -1665,6 +1669,7 @@ void CDlgRSADemo::OnButtonDecrypt()
 	UpdateData(TRUE);
 	if ( 0 == m_EncryptTextOrNumbers && !DlgOptions->m_RSAVariant && !DlgOptions->m_TextOptions && IsHexDump( m_edit_RSA_input ) )
 	{
+		HeadingDecryption( DECRYPT_TEXT );
 		Segmentation( MODE_HEX_DUMP );
 		RSA->Decrypt( m_edit_RSA_step_2, m_edit_RSA_step_3, GetBase() );
 	}
@@ -1696,6 +1701,7 @@ void CDlgRSADemo::OnButtonDecrypt()
 		}
 		else
 		{
+#if 0
 			if ( 1 == CheckInversion() )
 			{
 				HeadingEncryption( ENCRYPT_NUMBERS );
@@ -1706,6 +1712,7 @@ void CDlgRSADemo::OnButtonDecrypt()
 				Message(IDS_RSA_HEXNOTINVERTIBLE, MB_ICONEXCLAMATION);
 			}
 			else
+#endif
 			{
 				int NumberStreamFlag;
 				if ( !DlgOptions->m_RSAVariant )

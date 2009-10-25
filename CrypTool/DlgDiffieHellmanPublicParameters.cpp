@@ -21,14 +21,19 @@
 // DlgDiffieHellmanPublicParameters.cpp: Implementierungsdatei
 //
 
+#include "ZZ_helpers.h"
+#include "NTL/ZZ.h"
+
 #include "stdafx.h"
 #include "CryptoolApp.h"
 #include "DlgDiffieHellmanPublicParameters.h"
-
-#include "DlgGeneratePrime.h"
-#include "IntegerArithmetic.h"
+#include "DlgGenerateSavePrime.h"
 #include <math.h>
 
+
+
+
+using namespace NTL;
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -36,12 +41,17 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
+
+
+
 /////////////////////////////////////////////////////////////////////////////
 // Dialogfeld CDlgDiffieHellmanPublicParameters 
 
 
 CDlgDiffieHellmanPublicParameters::CDlgDiffieHellmanPublicParameters(CWnd* pParent /*=NULL*/)
-	: CDialog(CDlgDiffieHellmanPublicParameters::IDD, pParent)
+	: CDialog(CDlgDiffieHellmanPublicParameters::IDD, pParent),
+	b_isSavePrime(FALSE),
+	b_errType(0)
 {
 	//{{AFX_DATA_INIT(CDlgDiffieHellmanPublicParameters)
 	m_Generator = _T("");
@@ -50,7 +60,9 @@ CDlgDiffieHellmanPublicParameters::CDlgDiffieHellmanPublicParameters(CWnd* pPare
 }
 
 CDlgDiffieHellmanPublicParameters::CDlgDiffieHellmanPublicParameters(std::string p,std::string g,CWnd* pParent /*=NULL*/)
-	: CDialog(CDlgDiffieHellmanPublicParameters::IDD, pParent)
+	: CDialog(CDlgDiffieHellmanPublicParameters::IDD, pParent),
+	b_isSavePrime(FALSE),
+	b_errType(0)
 {
 	//{{AFX_DATA_INIT(CDlgDiffieHellmanPublicParameters)
 	m_Generator = g.c_str();
@@ -75,6 +87,7 @@ BEGIN_MESSAGE_MAP(CDlgDiffieHellmanPublicParameters, CDialog)
 	ON_BN_CLICKED(IDC_GENERATE_PRIME, OnGeneratePrime)
 	ON_BN_CLICKED(IDC_GENERATE_GENERATOR, OnGenerateGenerator)
 	//}}AFX_MSG_MAP
+	ON_EN_CHANGE(IDC_PRIME, &CDlgDiffieHellmanPublicParameters::OnEnChangePrime)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -85,65 +98,17 @@ void CDlgDiffieHellmanPublicParameters::OnOK()
 	UpdateData(true);
 	
 	// Keine "leeren" Eingabefelder zulassen
-	if( this->m_Prime.IsEmpty() || this->m_Generator.IsEmpty())
-	{
-		LoadString(AfxGetInstanceHandle(), IDS_DH_PP_NO_USER_INPUT, pc_str, STR_LAENGE_STRING_TABLE);
-		MessageBox(pc_str, "CrypTool", MB_ICONSTOP);
-		m_PrimeControl.SetFocus();
-		return;
-	}
-	
-	// Überprüfungen für Primzahl (p)
-	if( !IsDecimalNumber(m_Prime))
-	{
-		LoadString(AfxGetInstanceHandle(), IDS_DH_PP_NON_DECIMAL_VALUE, pc_str, STR_LAENGE_STRING_TABLE);
-		MessageBox(pc_str, "CrypTool", MB_ICONSTOP);
-		m_PrimeControl.SetFocus();
-		return;
-	}
-	
-	// Überprüfung für Generator (g)
-	if( !IsDecimalNumber(m_Generator))
-	{
-		LoadString(AfxGetInstanceHandle(), IDS_DH_PP_NON_DECIMAL_VALUE, pc_str, STR_LAENGE_STRING_TABLE);
-		MessageBox(pc_str, "CrypTool", MB_ICONSTOP);
-		m_GeneratorControl.SetFocus();
-		return;
-	}
 
-	Big g = (char*)(LPCTSTR)m_Generator;
-	Big p = (char*)(LPCTSTR)m_Prime;
-
-	// Überprüfungen für Primzahl (p)
-	if (p == Big(0)) 
+	int res;
+	if ( res = checkGenerator() )
 	{
-		LoadString(AfxGetInstanceHandle(), IDS_DH_PP_PRIME_ZERO, pc_str, STR_LAENGE_STRING_TABLE);
+		LoadString(AfxGetInstanceHandle(), res, pc_str, STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str,"CrypTool",MB_ICONERROR | MB_OK);
-		m_PrimeControl.SetFocus();
-		return;
-	}
-	if( !prime(p) )
-	{
-		LoadString(AfxGetInstanceHandle(), IDS_DH_PP_PRIME_INVALID, pc_str, STR_LAENGE_STRING_TABLE);
-		if( MessageBox(pc_str,"CrypTool",MB_ICONINFORMATION | MB_OKCANCEL) == IDCANCEL )
-		{
-			m_PrimeControl.SetFocus();
-			return;
-		}
-	}
-
-	// FIXME
-	// if ( p-1 = p_1^e_1 * ... * p_l^e_l, p_i prime ) check g^p_i != 1 for (i= 1, ..., l)
-	// Überprüfung für Generator (g)
-	if( g < 0 ||  (g%p)==0 || g==1 || g==(p-1))
-	{
-		LoadString(AfxGetInstanceHandle(), IDS_DH_PP_GENERATOR_INVALID, pc_str, STR_LAENGE_STRING_TABLE);
-		if( MessageBox(pc_str,"CrypTool",MB_ICONINFORMATION | MB_OKCANCEL) == IDCANCEL )
-		{
+		if ( res == IDS_DH_PP_GENERATOR_INVALID ) 
 			m_GeneratorControl.SetFocus();
-			return;
-		}
-		
+		else
+			m_PrimeControl.SetFocus();
+		return;
 	}
 
 	UpdateData(false);
@@ -156,20 +121,98 @@ void CDlgDiffieHellmanPublicParameters::OnOK()
 // Eingabefeld für den Primzahl-Modul angezeigt.
 void CDlgDiffieHellmanPublicParameters::OnGeneratePrime() 
 {
-	UpdateData(true);
-	CDlgGeneratePrime dlg;
-	dlg.m_edit1 = _T("2^255+2^254");
-	dlg.m_edit2 = _T("2^256");
-	if(!(dlg.DoModal() == IDCANCEL)) m_Prime = dlg.m_edit5;
+	CDlgGenerateSavePrime dlg;
+	if ( !(dlg.DoModal() == IDCANCEL) )
+	{
+		UpdateData(true);
+		m_Prime = dlg.m_Prime;
+		if ( m_Prime.GetLength() ) 
+		{
+			b_isSavePrime = TRUE;
+			ZZ P, G;
 
+			conv( P, (char*)(LPCTSTR)m_Prime);
+			if ( m_Generator.GetLength() )
+			{
+				conv(G, (char*)(LPCTSTR)m_Generator);
+				if ( G>=P ) 
+					m_Generator.Empty();
+			}
+		}
+		else
+		{
+			m_Prime = _T("");
+			m_Generator = _T("");
+		}
+		UpdateData(false);
+	}
 	// Falls zuvor bereits ein Generator eingegeben wurde und dieser GROESSER oder gleich dem
-	// gewählten Primzahlmodul ist, so wird der Generator gelöscht
-	Big P = (char*)(LPCTSTR)m_Prime;
-	Big G = (char*)(LPCTSTR)m_Generator;
-	if(G>=P) m_Generator.Empty();
-			
-	UpdateData(false);
+	// gewählten Primzahlmodul ist, so wird der Generator gelöscht		
 }
+
+
+int CDlgDiffieHellmanPublicParameters::checkGenerator()
+{
+	b_errType = 0;
+	if( m_Prime.IsEmpty() || m_Generator.IsEmpty())
+	{
+		b_errType = 1;
+		return IDS_DH_PP_NO_USER_INPUT;
+	}
+	if ( !IsDecimalNumber(m_Prime) )
+	{
+		b_errType = 1;
+		return IDS_DH_PP_NON_DECIMAL_VALUE;
+	}
+	if ( !IsDecimalNumber(m_Generator) || m_Generator.IsEmpty() )
+	{
+		b_errType = 2;
+		return IDS_DH_PP_NON_DECIMAL_VALUE; 
+	}
+
+	ZZ G, P, Q, r;
+	conv(P, (char*)(LPCTSTR)m_Prime);
+	conv(G, (char*)(LPCTSTR)m_Generator);
+
+	if ( ProbPrime(P, 40) )
+	{
+		Q = P >> 1;
+		unsigned long f = 0;
+
+		if ( ProbPrime(Q, 40) )
+		{
+			// if P is a save prime we just have to check G^2 != 1 mod P and G^Q != 1 mop P
+			SqrMod(r, G, P);
+			f |= ( r == 1 );
+			PowerMod(r, G, Q, P);
+			f |= ( r == 1 );
+			if ( f )
+			{
+				b_errType = 2;
+				return IDS_DH_PP_GENERATOR_INVALID;
+			}
+			else
+				return 0;
+		}
+		else
+		{
+			r = P; r--;
+			if ( G == r ) return IDS_DH_PP_GENERATOR_INVALID;
+			r = G % P;
+			if( (G < 0) || (r == 0) || (G==1) )
+			{
+				b_errType = 2;
+				return IDS_DH_PP_GENERATOR_INVALID;
+			}
+			else
+				return 0;
+		}
+	}
+	return IDS_DH_PP_PRIME_INVALID;
+}
+
+
+
 
 // Diese Funktion wird aufgerufen, sobald der Benutzer den Generator nicht selbst bestimmen will,
 // sondern einen gültigen Wert vom Programm erzeugen lassen will. Der entsprechende Wert wird dann
@@ -194,28 +237,36 @@ void CDlgDiffieHellmanPublicParameters::OnGenerateGenerator()
 		return;
 	}
 	
-	Big P = (char*)(LPCTSTR)m_Prime;
-	Big G;
+	ZZ P, G, S; 
+	conv(P, (char*)(LPCTSTR)m_Prime);
 
-	irand((unsigned)time(NULL));
-	bigrand(P.getbig(), G.getbig());
-	char *s = new char[512];
-	s << G;
-	this->m_Generator = s;
-	delete s;
+    S =  (unsigned long)time(NULL); // FIXME weak seed
+	SetSeed(S);
+
+	if ( b_isSavePrime )
+	{
+		SHOW_HOUR_GLASS
+		int counter = 0;
+		do {
+			RandomBnd(G, P);
+			m_Generator = toString(G, 10, 0);
+		} while ( counter++ < 4096 && checkGenerator() );
+		HIDE_HOUR_GLASS
+		if ( counter >= 4096 )
+		{
+			// FIXME 
+		}
+	}
+	else
+	{
+		RandomBnd(G, P);
+		m_Generator = toString(G, 10, 0);
+	}
 	UpdateData(false);
 }
 
-#if 0
-int DlgDiffieHellmanPublicParameters::PrimeParameterGenerationRFC2631(int bitlengthP, int bitlengthQ)
+
+void CDlgDiffieHellmanPublicParameters::OnEnChangePrime()
 {
-	int m_dash, L_dash, N_dash;
-	m_dash = (int)ceil(bitlengthP/160.0);
-	L_dash = (int)ceil(bitlengthQ/160.0);
-	N_dash = (int)ceil(bitlengthQ/1024.0);
-
-	
-
-
+	b_isSavePrime = FALSE;
 }
-#endif 

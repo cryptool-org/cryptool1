@@ -246,9 +246,9 @@ int automated_permanalysis::setFilenames( const char *fn_plain, const char *fn_c
 	if ( !error )
 	{
 		if (ptCipher.getSize() != ptPlain.getSize() ) 
-			return 1; // different file sizes
+			return ID_PA_ERROR_DIFFERNT_DOCUMENT_SIZES; // different file sizes
 		if ( cmpHistogram(ptPlain.data, ptCipher.data, ptCipher.getSize()) )
-			return 2; // different histograms
+			return ID_PA_ERROR_DIFFERNT_HISTOGRAMS; // different histograms
 	}
 	return error;  
 }

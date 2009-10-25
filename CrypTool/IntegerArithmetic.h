@@ -172,6 +172,17 @@ public:
 	void SetP( Big &Number );
 };
 
+#if 0
+class GenerateSavePrime
+{
+	Big p; Big q;
+public:
+	BOOL generateSavePrime		 ( CString &l_limit_p, CString &l_limit_q, CString &u_limit_p, CString &u_limit_q );
+	BOOL generateSavePrimeFIPS186( CString &l_limit_p, CString &l_limit_q, CString &u_limit_p, CString &u_limit_q );
+	BOOL GetP( Big &Num );
+	BOOL GetQ( Big &Num );
+};
+#endif
 
 //////////////////////////////////////////////////////////////////////////////////
 
