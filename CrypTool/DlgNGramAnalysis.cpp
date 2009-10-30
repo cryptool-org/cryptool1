@@ -118,6 +118,9 @@ BOOL CDlgNGramAnaylsis::OnInitDialog()
 	LoadString(AfxGetInstanceHandle(),IDS_NGRAM_TITLE,pc_str,STR_LAENGE_STRING_TABLE);
 	sprintf(line, pc_str, Title);
 	SetWindowText(CString(line));
+
+	OnEvalNGram();
+
 	return(TRUE);
 }
 
@@ -319,6 +322,10 @@ void CDlgNGramAnaylsis::OnEvalNGram()
 		m_ShowCntNGramCtrl.SetFocus();
 		m_ShowCntNGramCtrl.SetSel(0,-1);
 	}
+
+	// limit the number of most common n-grams according to what is displayed in the list box
+	if(m_ShowCntNGram > m_ListView.GetItemCount()) m_ShowCntNGram = m_ListView.GetItemCount();
+
 	UpdateData(FALSE);
 	HIDE_HOUR_GLASS
 }
