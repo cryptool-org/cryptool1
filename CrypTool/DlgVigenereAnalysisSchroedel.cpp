@@ -129,7 +129,7 @@ int VigenereAnalysisSchroedel::readTriDigrams() {
 		// display an info message that the file could not be opened
 		CString infoMessage;
 		infoMessage.LoadStringA(IDS_STRING_FILE_COULD_NOT_BE_OPENED);
-		infoMessage.Format(infoMessage, pathToDigrams);
+		infoMessage.Append(pathToDigrams);
 		MessageBox(NULL, infoMessage, "CrypTool", MB_ICONINFORMATION);
 		return -1;
 	}
@@ -161,7 +161,7 @@ int VigenereAnalysisSchroedel::readTriDigrams() {
 		// display an info message that the file could not be opened
 		CString infoMessage;
 		infoMessage.LoadStringA(IDS_STRING_FILE_COULD_NOT_BE_OPENED);
-		infoMessage.Format(infoMessage, pathToTrigrams);
+		infoMessage.Append(pathToTrigrams);
 		MessageBox(NULL, infoMessage, "CrypTool", MB_ICONINFORMATION);
 		return -1;
 	}
@@ -916,7 +916,7 @@ int VigenereAnalysisSchroedel::readDict() {
 		// display an info message that the file could not be opened
 		CString infoMessage;
 		infoMessage.LoadStringA(IDS_STRING_FILE_COULD_NOT_BE_OPENED);
-		infoMessage.Format(infoMessage, pathToDictionary);
+		infoMessage.Append(pathToDictionary);
 		MessageBox(NULL, infoMessage, "CrypTool", MB_ICONINFORMATION);
 		return -1;
 	}
@@ -971,7 +971,7 @@ int VigenereAnalysisSchroedel::readCiphertext() {
 		// display an info message that the file could not be opened
 		CString infoMessage;
 		infoMessage.LoadStringA(IDS_STRING_FILE_COULD_NOT_BE_OPENED);
-		infoMessage.Format(infoMessage, ciphertextFileName);
+		infoMessage.Append(ciphertextFileName);
 		MessageBox(NULL, infoMessage, "CrypTool", MB_ICONINFORMATION);
 		return -1;
 	}
@@ -1162,7 +1162,7 @@ void VigenereAnalysisSchroedel::writeResultFile() {
 		// display an info message that the file could not be opened
 		CString infoMessage;
 		infoMessage.LoadStringA(IDS_STRING_FILE_COULD_NOT_BE_OPENED);
-		infoMessage.Format(infoMessage, resultFileName);
+		infoMessage.Append(resultFileName);
 		MessageBox(NULL, infoMessage, "CrypTool", MB_ICONINFORMATION);
 		return;
 	}

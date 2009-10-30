@@ -221,27 +221,33 @@ void CDlgOptionsAnalysis::readSettingsVigenereAnalysisSchroedel()
 		CT_READ_REGISTRY_DEFAULT(u_extensiveLogging, "ExtensiveLogging", 0);
 
 		const unsigned long maxBufferSize = 4096;
-		unsigned long bufferSize = maxBufferSize - 1;
+		unsigned long bufferSize;
 
 		char c_dictionaryFile[maxBufferSize];
+		memset(c_dictionaryFile, 0, maxBufferSize);
 		CString pathToDefaultDictionaryFile;
 		pathToDefaultDictionaryFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DICTIONARY_FILENAME);
 		pathToDefaultDictionaryFile = CString(Pfad) + pathToDefaultDictionaryFile;
 		const char *c_dictionaryFileDefault = (const char*)(LPCTSTR)(pathToDefaultDictionaryFile);
+		bufferSize = maxBufferSize - 1;
 		CT_READ_REGISTRY_DEFAULT(c_dictionaryFile, "DictionaryFile", c_dictionaryFileDefault, bufferSize);
 
 		char c_digramsFile[maxBufferSize];
+		memset(c_digramsFile, 0, maxBufferSize);
 		CString pathToDefaultDigramsFile;
 		pathToDefaultDigramsFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DIGRAMS_FILENAME);
 		pathToDefaultDigramsFile = CString(Pfad) + pathToDefaultDigramsFile;
 		const char *c_digramsFileDefault = (const char*)(LPCTSTR)(pathToDefaultDigramsFile);
+		bufferSize = maxBufferSize - 1;
 		CT_READ_REGISTRY_DEFAULT(c_digramsFile, "DigramsFile", c_digramsFileDefault, bufferSize);
 
 		char c_trigramsFile[maxBufferSize];
+		memset(c_trigramsFile, 0, maxBufferSize);
 		CString pathToDefaultTrigramsFile;
 		pathToDefaultTrigramsFile.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_TRIGRAMS_FILENAME);
 		pathToDefaultTrigramsFile = CString(Pfad) + pathToDefaultTrigramsFile;
 		const char *c_trigramsFileDefault = (const char*)(LPCTSTR)(pathToDefaultTrigramsFile);
+		bufferSize = maxBufferSize - 1;
 		CT_READ_REGISTRY_DEFAULT(c_trigramsFile, "TrigramsFile", c_trigramsFileDefault, bufferSize);
 
 		m_VigenereAnalysisSchroedelExtensiveLogging = (BOOL)u_extensiveLogging;

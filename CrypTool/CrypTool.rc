@@ -21486,7 +21486,7 @@ STRINGTABLE
 BEGIN
     IDS_CRYPTOOL_RELEASE_INFORMATION "%s (%s, %s), kompiliert mit "
     IDS_STRING_FILE_COULD_NOT_BE_OPENED 
-                            "Die Datei %s konnte nicht geöffnet werden."
+                            "Die folgende Datei konnte nicht geöffnet werden:\n"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DICTIONARY_FILE 
                             "Wörterbuch-Datei auswählen"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DIGRAMS_FILE 
@@ -32363,7 +32363,8 @@ END
 STRINGTABLE 
 BEGIN
     IDS_CRYPTOOL_RELEASE_INFORMATION "%s (%s, %s), compiled with "
-    IDS_STRING_FILE_COULD_NOT_BE_OPENED "The file %s could not be opened."
+    IDS_STRING_FILE_COULD_NOT_BE_OPENED 
+                            "The following file could not be opened:\n"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DICTIONARY_FILE 
                             "Choose dictionary file"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DIGRAMS_FILE "Choose digram file"
