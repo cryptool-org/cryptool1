@@ -32,6 +32,7 @@
 
 #include "s_ecFp.h"
 #include "AsymmetricEncryption.h"
+#include "afxwin.h"
 
 #define EC_KEYFILE_IDSTRING "EC"
 #define RSA_KEYFILE_IDSTRING "RSA"
@@ -138,6 +139,9 @@ protected:
 	void CreateAsymKeys(); // Create asymmetric keypair
 	CString GetItemText(HWND hWnd, int nItem, int nSubItem) const;
 
+public:
+	afx_msg void OnBnClickedButton1();
+	CButton m_ctrlShowKeyPair;
 };
 
 //{{AFX_INSERT_LOCATION}}

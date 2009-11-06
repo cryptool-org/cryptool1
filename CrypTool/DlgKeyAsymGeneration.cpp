@@ -140,6 +140,7 @@ void CDlgKeyAsymGeneration::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT5, m_user_keyinfo);
 	DDX_Text(pDX, IDC_STATIC_PARAM_DESCRIPTION, m_ec_dom_par_description);
 	//}}AFX_DATA_MAP
+	DDX_Control(pDX, IDC_BUTTON1, m_ctrlShowKeyPair);
 }
 
 //	DDX_Control(pDX, IDC_RADIO3, m_ec_radio);
@@ -157,6 +158,7 @@ BEGIN_MESSAGE_MAP(CDlgKeyAsymGeneration, CDialog)
 	ON_NOTIFY(NM_CLICK, IDC_LIST1, OnClickList)
 	ON_EN_KILLFOCUS(IDC_EDIT_LV, OnKillfocusEditLv)
 	//}}AFX_MSG_MAP
+	ON_BN_CLICKED(IDC_BUTTON1, &CDlgKeyAsymGeneration::OnBnClickedButton1)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -1522,4 +1524,9 @@ void CDlgKeyAsymGeneration::OnKillfocusEditLv()
 void CDlgKeyAsymGeneration::showRSAKeysOnly()
 {
 	this->m_showRSAKeysOnly = true;
+}
+
+void CDlgKeyAsymGeneration::OnBnClickedButton1()
+{
+	// TODO: Add your control notification handler code here
 }
