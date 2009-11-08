@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -347,7 +347,6 @@ BEGIN
     CONTROL         "&Ósemkowo",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,283,61,12
     CONTROL         "&Dziesiêtnie",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,98,283,61,12
     CONTROL         "&Hex",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,170,283,61,12
-    CONTROL         "Wyœwietl wygenerowane pary kluczy",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,265,284,144,10
     PUSHBUTTON      "Importuj PKCS#12",IDC_BUTTON_P12IMPORT,132,310,86,19
     PUSHBUTTON      "&Zamknij",IDCANCEL,337,310,72,19
     GROUPBOX        "Algorytm",IDC_STATIC,10,4,205,145
@@ -4433,6 +4432,22 @@ BEGIN
     LTEXT           "Klucz",IDC_STATIC,17,122,158,8,WS_DISABLED
 END
 
+IDD_GENERATE_SAVE_PRIME DIALOGEX 0, 0, 379, 147
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Sichere Primzahl Erzeugen"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Primzahl übernehmen",IDOK,113,118,87,22
+    PUSHBUTTON      "Abbrechen",IDCANCEL,322,118,50,22
+    PUSHBUTTON      "Primzahl generieren",IDC_BUTTON1,7,118,87,22
+    LTEXT           "Für die Diffie-Hellman-Schlüss",IDC_STATIC,7,7,365,30
+    GROUPBOX        "Primzahl erzeugen",IDC_STATIC,7,48,365,62
+    EDITTEXT        IDC_EDIT1,50,66,34,12,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT2,50,88,315,12,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Bitlänge",IDC_STATIC,14,67,29,8
+    LTEXT           "Primzahl",IDC_STATIC,14,90,29,8
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -8022,6 +8037,18 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 234
     END
+
+    IDD_GENERATE_SAVE_PRIME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 372
+        VERTGUIDE, 14
+        VERTGUIDE, 50
+        VERTGUIDE, 84
+        VERTGUIDE, 365
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 140
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -10699,9 +10726,10 @@ BEGIN
                             "Die Dokumentgrößen stimmen nicht überein."
     ID_PA_ERROR_DIFFERNT_HISTOGRAMS 
                             "Die Histogramme der Dokumente stimmen nicht überein."
-    ID_PA_KEYFOUND          "FIXME --- GEFUNDEN"
-    IDS_BL_ATLEAST2         "FIXME "
-    IDS_BL_TOOLARGE         "FIXME"
+    ID_PA_KEYFOUND          "At least one permutation key was found. The shortest one will be displayed."
+    IDS_BL_ATLEAST2         "Please select a bitlength between 2 and 16384."
+    IDS_BL_TOOLARGE         "Please select a bitlength between 2 and 16384."
+    IDS_DH_NO_SAVE_PRIME    "Keine sichere Primzahl!"
 END
 
 STRINGTABLE 
@@ -10720,12 +10748,12 @@ BEGIN
                             "Vigenère analysis according to Schroedel"
 END
 
-#endif    // Polish resources
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -11020,8 +11048,6 @@ BEGIN
     COMBOBOX        IDC_COMBO3,141,112,63,76,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_EDITLABELS | WS_BORDER | WS_TABSTOP,10,169,400,100
     PUSHBUTTON      "PKCS #12-&Import",IDC_BUTTON_P12IMPORT,137,312,76,19
-    CONTROL         "Anzeigen des erzeugten Schlüsselpaares",IDC_CHECK1,
-                    "Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,266,286,144,10
     PUSHBUTTON      "&Schließen",IDCANCEL,338,312,72,19
     GROUPBOX        "Verfahren",IDC_STATIC,10,6,205,143
     LTEXT           "Bitlänge des RSA-Moduls:",IDC_KEYASYM_TEXTRSA,33,40,108,8
@@ -20791,7 +20817,7 @@ BEGIN
     IDS_CRT_ASTRONOMY_PLANETALL 
                             "Die Umlaufzeiten von %s (%s) und %s (%s) sind nicht teilerfremd.\r\n"
     IDS_CRT_ASTRONOMY_PLANETALL2 
-                            "\r\nTeilerfremde Moduln sind eine Voraussetzung für die Anwendung des Chinesischen Restsatzes. \r\n\r\nDeshalb wird die Lösung mit einem Brute-Force-Verfahren gesucht.\r\n"
+                            "\r\nDie Moduln sind nicht Teilerfremd.\r\n\r\nDeshalb ist die Anwendbarkeit des Chinesischen Restsatzes nicht garantiert. \r\n\r\nEine Lösung wird jetzt gesucht.\r\n"
 END
 
 STRINGTABLE 
@@ -21444,9 +21470,10 @@ BEGIN
                             "Die Dokumentgrößen stimmen nicht überein."
     ID_PA_ERROR_DIFFERNT_HISTOGRAMS 
                             "Die Histogramme der Dokumente stimmen nicht überein."
-    ID_PA_KEYFOUND          "FIXME --- GEFUNDEN"
-    IDS_BL_ATLEAST2         "FIXME "
-    IDS_BL_TOOLARGE         "FIXME"
+    ID_PA_KEYFOUND          "Es wurde mindestens ein Permutationsschlüssel gefunden.\nDer kürzeste Schlüssel wird angezeigt."
+    IDS_BL_ATLEAST2         "Bitte wählen Sie als Bitlänge eine Zahl zwischen 2 und 16384."
+    IDS_BL_TOOLARGE         "Bitte wählen Sie als Bitlänge eine Zahl zwischen 2 und 16384."
+    IDS_DH_NO_SAVE_PRIME    "Keine sichere Primzahl!"
 END
 
 STRINGTABLE 
@@ -21537,12 +21564,12 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "Zeichen"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -21890,7 +21917,6 @@ BEGIN
     CONTROL         "&Octal",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | WS_GROUP,26,283,61,12
     CONTROL         "&Decimal",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,98,283,61,12
     CONTROL         "&Hexadecimal",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,170,283,61,12
-    CONTROL         "Display generated key pair",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,265,284,144,10
     PUSHBUTTON      "PKCS #12 &Import",IDC_BUTTON_P12IMPORT,123,310,86,19
     PUSHBUTTON      "&Close",IDCANCEL,337,310,72,19
     GROUPBOX        "Algorithm",IDC_STATIC,10,4,205,145
@@ -25983,6 +26009,22 @@ BEGIN
     LTEXT           "Schlüssel",IDC_STATIC,17,122,158,8,WS_DISABLED
 END
 
+IDD_GENERATE_SAVE_PRIME DIALOGEX 0, 0, 379, 147
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Sichere Primzahl Erzeugen"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Primzahl übernehmen",IDOK,113,118,87,22
+    PUSHBUTTON      "Abbrechen",IDCANCEL,322,118,50,22
+    PUSHBUTTON      "Primzahl generieren",IDC_BUTTON1,7,118,87,22
+    LTEXT           "Für die Diffie-Hellman-Schlüss",IDC_STATIC,7,7,365,30
+    GROUPBOX        "Primzahl erzeugen",IDC_STATIC,7,48,365,62
+    EDITTEXT        IDC_EDIT1,50,66,34,12,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT2,50,88,315,12,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Bitlänge",IDC_STATIC,14,67,29,8
+    LTEXT           "Primzahl",IDC_STATIC,14,90,29,8
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -29630,6 +29672,18 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 234
     END
+
+    IDD_GENERATE_SAVE_PRIME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 372
+        VERTGUIDE, 14
+        VERTGUIDE, 50
+        VERTGUIDE, 84
+        VERTGUIDE, 365
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 140
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -31683,7 +31737,7 @@ BEGIN
     IDS_CRT_ASTRONOMY_PLANETALL 
                             "The periods of %s (%s) and %s (%s) are not coprime.\r\n"
     IDS_CRT_ASTRONOMY_PLANETALL2 
-                            "\r\nCoprime modules are a pre-condition to apply the Chinese remainder theorem. \r\n\r\nBecause of this, the brute-force method is searching for a solution .\r\n"
+                            "\r\nThe modules are a non coprime. \r\n\r\nBecause of this is a solution is not guarantied.\r\nThe algorithm now tries to find a solution."
 END
 
 STRINGTABLE 
@@ -32324,9 +32378,10 @@ BEGIN
                             "Die Dokumentgrößen stimmen nicht überein."
     ID_PA_ERROR_DIFFERNT_HISTOGRAMS 
                             "Die Histogramme der Dokumente stimmen nicht überein."
-    ID_PA_KEYFOUND          "FIXME --- GEFUNDEN"
-    IDS_BL_ATLEAST2         "FIXME "
-    IDS_BL_TOOLARGE         "FIXME"
+    ID_PA_KEYFOUND          "At least one permutation key was found. The shortest one will be displayed."
+    IDS_BL_ATLEAST2         "Please select a bitlength between 2 and 16384."
+    IDS_BL_TOOLARGE         "Please select a bitlength between 2 and 16384."
+    IDS_DH_NO_SAVE_PRIME    "Keine sichere Primzahl!"
 END
 
 STRINGTABLE 
@@ -32416,7 +32471,7 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "characters"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

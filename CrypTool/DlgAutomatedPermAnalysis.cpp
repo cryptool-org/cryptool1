@@ -194,7 +194,7 @@ BOOL CDlgAutomatedPermAnalysis::OnInitDialog()
 		CT_READ_REGISTRY_DEFAULT(ul_outColbyCol,  "outColbyCol",  1);
 		CT_READ_REGISTRY_DEFAULT(numStr, "EditRangeFrom", "1", l); m_editRangeFrom = numStr;
 		CT_READ_REGISTRY_DEFAULT(numStr,   "EditRangeTo", "", l);  m_editRangeTo   = numStr;
-		CT_READ_REGISTRY_DEFAULT(l, "DataType", 0); m_DataType = l;
+		CT_READ_REGISTRY_DEFAULT(l, "DataType", 0); m_DataType = 0;
 
 		m_chk_inRowbyRow   = ul_inRowbyRow;   m_chk_inColbyCol   = ul_inColbyCol;
 		m_chk_outRowbyRow  = ul_outRowbyRow;  m_chk_outColbyCol  = ul_outColbyCol;

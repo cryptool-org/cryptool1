@@ -588,10 +588,8 @@ BOOL CCrypToolApp::InitInstance()
 	}
 	//Ende der Initialiserung der globalen Variablen
 
-	SetRegistryKey("HKEY_CURRENT_USER\\Software\\CrypTool\\Most Recently Used Files"); // No .Ini File#
+	SetRegistryKey(""); // No .Ini File#
 	/* Einstellen der Länge der MRU-Liste */
-	LoadStdProfileSettings(10);
-    MRU_Flag = TRUE;
 
 	AddDocTemplate(new CCryptDocTemplate(IDR_TEXTTYPE,
 		RUNTIME_CLASS(CScintillaDoc), RUNTIME_CLASS(CMDIChildWnd),
@@ -786,6 +784,9 @@ BOOL CCrypToolApp::InitInstance()
 			OpenDocumentFileNoMRU(filename, "", SCHLUESSEL_LINEAR);
 		}
 	}
+
+	LoadStdProfileSettings(10);
+    MRU_Flag = TRUE;
 
 	// Enable RichEdit Windows...
 	AfxEnableControlContainer();

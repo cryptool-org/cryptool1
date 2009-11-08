@@ -56,7 +56,6 @@ public:
 	CButton	m_pub_param_button;
 	//}}AFX_DATA
 
-
 // Überschreibungen
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen
 	//{{AFX_VIRTUAL(CDlgKeyAsym)
@@ -105,6 +104,10 @@ protected:
 	afx_msg void OnCheckEcKey();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+
+public:
+	void setKeyID(CString &userKeyId) { UserKeyId = userKeyId; }
+
 };
 
 //{{AFX_INSERT_LOCATION}}

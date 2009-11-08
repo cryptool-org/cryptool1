@@ -160,6 +160,12 @@ void CDlgDiffieHellmanVisualization::OnSetPublicParameters()
 	std::string g = (char*)(LPCTSTR)dlg2->m_Generator;
 	std::string p = (char*)(LPCTSTR)dlg2->m_Prime;
 
+	if (!dlg2->b_isSavePrime)
+	{
+		LoadString(AfxGetInstanceHandle(), IDS_DH_NO_SAVE_PRIME, pc_str, STR_LAENGE_STRING_TABLE);
+		MessageBox(pc_str, "CrypTool", MB_ICONINFORMATION);		
+	}
+
 	// Speicher freigeben
 	delete dlg2;
 

@@ -234,6 +234,7 @@ AfxMessageBox(ausgabe, MB_ICONINFORMATION | MB_OK);}
 return prim;
 }
 
+#if 0
 //** Funktion berechnet den Wert x nach der sukzessiven Methode **/
 Big CDlgCrtAstronomy::suczessive(int anzahl,Big a[],Big m[]){
 	Big neua[9];
@@ -256,6 +257,28 @@ Big CDlgCrtAstronomy::suczessive(int anzahl,Big a[],Big m[]){
 		}
 	return a[anzahl-1]; // Rückgabe der Lösung x
 }
+#endif
+
+#if 1
+//** Funktion berechnet den Wert x nach der sukzessiven Methode **/
+Big CDlgCrtAstronomy::suczessive(int anzahl,Big a[],Big m[])
+{
+	for (int i=1;i<anzahl;i++) 
+	{
+		Big ggt=gcd(m[i-1],m[i]);
+		Big kgv=abs(m[i-1]*m[i])/ggt;
+		if ( 0 == ( (a[i]-a[i-1]) % ggt ) )
+		{
+			a[i] = a[i-1]+m[i-1]*(((a[i]-a[i-1])/ggt)*inverse(m[i-1]/ggt,m[i]/ggt)%(m[i]/ggt));
+			m[i] = kgv;
+		}
+		else
+			return -1;
+	}
+	return a[anzahl-1]; // Rückgabe der Lösung x
+}
+#endif
+
 
 //** Funktion berechnet den Wert x nach dem Chinesischen Restssatz **/
 Big CDlgCrtAstronomy::ChinRest (int anzahl,Big a[],Big m[]) {
@@ -300,10 +323,12 @@ int CDlgCrtAstronomy::werteauslesen(Big a[],Big m[]) {
 	}
 	int anzahl=0;//Anzahl der Gleichungen ist 0
 	for (i=0;i<9;i++) {
-		if ((str_m[i]!="")&&(str_a[i]!="")){
+		if ((str_m[i]!="")&&(str_a[i]!=""))
+		{
 			CStringToBig(str_m[i],m[anzahl],10);
 			CStringToBig(str_a[i],a[anzahl],10);
-			anzahl ++;}
+			anzahl ++;
+		}
 	}
 	return anzahl;
 }
@@ -350,13 +375,13 @@ void CDlgCrtAstronomy::testdata(void)
 
 //** Tausender Markierung "." einfügen ! **/
 CString CDlgCrtAstronomy::tausender (CString text)
-  {
-    for (int i = text.GetLength()-3; i > 0; i -= 3)
-    {
-      text.Insert(i, ".");
-    }
-    return text;
-  }
+{
+	char strPT[128];
+	LoadString(AfxGetInstanceHandle(),IDS_STRING_PT,strPT,128);
+	for (int i = text.GetLength()-3; i > 0; i -= 3)
+		text.Insert(i, strPT);
+	return text;
+}
 
   //** Hauptfunktion: Button Solve wurde gedrückt! **/
 void CDlgCrtAstronomy::OnBnClickedCrtAstronomyButtonsolve()
@@ -372,44 +397,45 @@ void CDlgCrtAstronomy::OnBnClickedCrtAstronomyButtonsolve()
 	// Gleichungen aus dem Dialog auslesen und abspeichern
 	anzahl=werteauslesen(a,m);
 	
-	if (anzahl!=-1) {
-	// testen, ob die Moduln paarweise teilerfremd sind
-	bool prim=testeteilerfremd();
+	if (anzahl!=-1) 
+	{
+		// testen, ob die Moduln paarweise teilerfremd sind
+		bool prim=testeteilerfremd();
 
-	if (prim) {// TRUE: Moduln sind paarweise teilerfremd 
-		//->Loesung nach dem Chinesischen Restsatz möglich
-
-		// X und M bestimmen
-		if (anzahl >1) x = ChinRest (anzahl,a,m);
-		if (anzahl ==1) x=a[0]%m[0];
-		BigToCString(x,m_x);m_x=tausender(m_x);	
-	
-		for (int i=0; i<anzahl;i++) M=M*m[i];
-		BigToCString(M,m_M);m_M=tausender(m_M);
-	}
-
-	else {
-		
-		x=suczessive(anzahl,a,m);
-		if (x!=-1) // Loesung nach der sukzessiven Methode möglich
-		{BigToCString(x,m_x);m_x=tausender(m_x);	
-		
-		for (int i=0; i<anzahl;i++) M=M*m[i];
-		BigToCString(M,m_M);m_M=tausender(m_M);
-		
+		if (prim) 
+		{// TRUE: Moduln sind paarweise teilerfremd 
+			//->Loesung nach dem Chinesischen Restsatz möglich
+			// X und M bestimmen
+			if (anzahl >1) 
+				x = ChinRest (anzahl,a,m);
+			if (anzahl ==1) 
+				x=a[0]%m[0];
+			BigToCString(x,m_x); m_x=tausender(m_x);	
+			for (int i=0; i<anzahl;i++) 
+				M=M*m[i];
+			BigToCString(M,m_M); m_M=tausender(m_M);
 		}
-        else // Es gibt keine Lösung
-		{CString ausgabe="";
-		ausgabe.LoadString(IDS_CRT_ASTRONOMY_BRUTEFORCE);
-		AfxMessageBox(ausgabe, MB_ICONINFORMATION | MB_OK);
-		m_x.LoadString(IDS_CRT_ASTRONOMY_NOSOLUTION);
-
+		else 
+		{	
+			x=suczessive(anzahl,a,m);
+			if (x!=-1) // Loesung nach der sukzessiven Methode möglich
+			{
+				BigToCString(x,m_x); m_x=tausender(m_x);	
+				M = m[anzahl-1];
+				BigToCString(M,m_M); m_M=tausender(m_M);
+			}
+			else // Es gibt keine Lösung
+			{
+				CString ausgabe="";
+				ausgabe.LoadString(IDS_CRT_ASTRONOMY_BRUTEFORCE);
+				AfxMessageBox(ausgabe, MB_ICONINFORMATION | MB_OK);
+				m_x.LoadString(IDS_CRT_ASTRONOMY_NOSOLUTION);
+			}
 		}
 	}
-	}
 	
-UpdateData(false);
-HIDE_HOUR_GLASS			// deaktiviert die Sanduhr
+	UpdateData(false);
+	HIDE_HOUR_GLASS			// deaktiviert die Sanduhr
 }
 
 //** alle Werte löschen **/

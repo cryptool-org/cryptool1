@@ -161,6 +161,12 @@ BOOL CDlgKeyAsym::OnInitDialog()
 	m_show_cert_button.EnableWindow(FALSE); // Button ausblenden
 	m_export_cert_button.EnableWindow(FALSE); // Button ausblenden
 
+	if ( UserKeyId.GetLength() )
+	{
+		int row = FindRow( UserKeyId );
+		UpdateRowSel(row);
+	}
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }

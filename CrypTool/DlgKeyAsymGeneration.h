@@ -64,7 +64,6 @@ public:
 	CStatic	m_RSATextInfo;
 	CListCtrl	m_dom_param_listview;
 	CEdit	m_ctrl5;
-	CButton	m_ShowKeypairButton;
 	CButton	m_hexadecimal_radio;
 	CButton	m_decimal_radio;
 	CButton	m_octal_radio;
@@ -87,7 +86,6 @@ public:
 	CString	m_ec_dom_par_str;
 	int		m_verfahren;
 	int		m_zahlensystem;
-	BOOL	m_ShowKeypair;
 	CString	m_user_keyinfo;
 	CString	m_ec_dom_par_description;
 	//}}AFX_DATA
@@ -101,7 +99,7 @@ private:
 
 	int base;
 	CString curveID;
-
+	CString UserKeyId;
 
 // Überschreibungen
 	// Vom Klassen-Assistenten generierte virtuelle Funktionsüberschreibungen

@@ -3237,6 +3237,7 @@
 #define IDS_BL_ATLEAST2                 62039
 #define IDS_BL_TOOLARGE                 62040
 #define IDS_STRING117                   62041
+#define IDS_DH_NO_SAVE_PRIME            62041
 
 // Next default values for new objects
 // 

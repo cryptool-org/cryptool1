@@ -45,6 +45,7 @@
 #include "DlgShowParameterKeyEC.h"
 #include "DlgShowKeyParameter.h"
 #include "DlgChangePIN.h"
+#include "DlgKeyAsym.h"
 #include "SecudeTools.h"
 
 #include "DialogeMessage.h"
@@ -64,7 +65,8 @@ extern char *CaPseDatei, *CaPseVerzeichnis, *Pfad, *PseVerzeichnis; // aus CrypT
 
 
 CDlgKeyAsymGeneration::CDlgKeyAsymGeneration(CWnd* pParent /*=NULL*/)
-	: CDialog(CDlgKeyAsymGeneration::IDD, pParent)
+	: CDialog(CDlgKeyAsymGeneration::IDD, pParent),
+	UserKeyId(_T(""))
 {
 	//{{AFX_DATA_INIT(CDlgKeyAsymGeneration)
 	m_edit1 = _T("");
@@ -76,7 +78,6 @@ CDlgKeyAsymGeneration::CDlgKeyAsymGeneration(CWnd* pParent /*=NULL*/)
 	m_ec_dom_par_str = _T("");
 	m_verfahren = -1;
 	m_zahlensystem = -1;
-	m_ShowKeypair = FALSE;
 	m_user_keyinfo = _T("");
 	m_ec_dom_par_description = _T("");
 	//}}AFX_DATA_INIT
@@ -113,7 +114,6 @@ void CDlgKeyAsymGeneration::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_KEYASYM_TEXTRSA, m_RSATextInfo);
 	DDX_Control(pDX, IDC_LIST1, m_dom_param_listview);
 	DDX_Control(pDX, IDC_EDIT5, m_ctrl5);
-	DDX_Control(pDX, IDC_CHECK1, m_ShowKeypairButton);
 	DDX_Control(pDX, IDC_RADIO6, m_hexadecimal_radio);
 	DDX_Control(pDX, IDC_RADIO5, m_decimal_radio);
 	DDX_Control(pDX, IDC_RADIO4, m_octal_radio);
@@ -136,7 +136,6 @@ void CDlgKeyAsymGeneration::DoDataExchange(CDataExchange* pDX)
 	DDX_CBString(pDX, IDC_COMBO3, m_ec_dom_par_str);
 	DDX_Radio(pDX, IDC_RADIO1, m_verfahren);
 	DDX_Radio(pDX, IDC_RADIO4, m_zahlensystem);
-	DDX_Check(pDX, IDC_CHECK1, m_ShowKeypair);
 	DDX_Text(pDX, IDC_EDIT5, m_user_keyinfo);
 	DDX_Text(pDX, IDC_STATIC_PARAM_DESCRIPTION, m_ec_dom_par_description);
 	//}}AFX_DATA_MAP
@@ -369,9 +368,8 @@ BOOL CDlgKeyAsymGeneration::OnInitDialog()
 	m_octal_radio.EnableWindow(FALSE); // and so on ...
 	m_decimal_radio.EnableWindow(FALSE);
 	m_hexadecimal_radio.EnableWindow(FALSE);
-	m_ShowKeypairButton.EnableWindow(TRUE);
 
-	m_ShowKeypairButton.SetCheck(1); // Check the button
+	m_ctrlShowKeyPair.EnableWindow(FALSE);
 
 	UpdateData(TRUE);
 
@@ -555,7 +553,6 @@ void CDlgKeyAsymGeneration::OnRSARadio()
 	m_octal_radio.EnableWindow(FALSE);
 	m_decimal_radio.EnableWindow(FALSE);
 	m_hexadecimal_radio.EnableWindow(FALSE);
-	m_ShowKeypairButton.EnableWindow(TRUE);
 	UpdateEcListBox(curveParameter, &ecParamString, curveID, FALSE);
 }
 
@@ -584,7 +581,6 @@ void CDlgKeyAsymGeneration::OnDSARadio()
 	m_octal_radio.EnableWindow(FALSE);
 	m_decimal_radio.EnableWindow(FALSE);
 	m_hexadecimal_radio.EnableWindow(FALSE);
-	m_ShowKeypairButton.EnableWindow(FALSE);
 	UpdateEcListBox(curveParameter, &ecParamString, curveID, FALSE);
 }
 
@@ -613,7 +609,6 @@ void CDlgKeyAsymGeneration::OnECRadio()
 	m_octal_radio.EnableWindow(TRUE);
 	m_decimal_radio.EnableWindow(TRUE);
 	m_hexadecimal_radio.EnableWindow(TRUE);
-	m_ShowKeypairButton.EnableWindow(TRUE);
 	UpdateEcListBox(curveParameter, &ecParamString, curveID);
 }
 
@@ -693,7 +688,6 @@ void CDlgKeyAsymGeneration::CreateAsymKeys()
 	bool use_secude_api;
 	CString verfahren;
 	CString keyBits;
-	CString UserKeyId;
 	CString time_of_creat;
 	int error;
 
@@ -731,49 +725,27 @@ void CDlgKeyAsymGeneration::CreateAsymKeys()
 	if (m_verfahren == 2)
 	{
 		// Generate Elliptic Curve key pair
-		
 		use_secude_api = FALSE;
 
-		// generate keys
-		if (m_ShowKeypair == TRUE)
-		{
-			// User wants to see the generated keypair
-			start = clock();
-			CDlgShowParameterKeyEC ShowEcKeys(curveParameter, &ecParamString, curveID);
-			if(ShowEcKeys.DoModal()==IDCANCEL) return; // Cancel Button pushed
-			else
-			{
-				// key pair was generated in ShowEcKeys()
-				// ecParamString und curveParameter sind entsprechend initialisiert
-				finish = clock();
-				duration = (double)(finish - start) / CLOCKS_PER_SEC; // Dauer der Schlüssel Erzeugung
-			}
-		}
-		else
-		{
-			// User didn't want to see the generated keypair; there is no keypair generated yet
-			SHOW_HOUR_GLASS
-			start = clock();
-			error = GenEcKeyPair(curveParameter); // create key pairs
-			finish = clock();
-			duration = (double)(finish - start) / CLOCKS_PER_SEC; // Dauer der Schlüssel Erzeugung
-			if (error)
-			{
-				// error while creating key pair
-				Message(IDS_STRING_ERR_EC_GEN_EC_KEY_PAIR, MB_ICONSTOP);
-				return;
-			}
-			error = EcDomParamAcToString(&ecParamString, curveParameter, 16);
-			if (error)
-			{
-				// error while converting curveParameter to Strings
-				Message(IDS_STRING_ERR_EC_ON_CONVERT_PARAM, MB_ICONSTOP);
-				return;
-			}
-			HIDE_HOUR_GLASS
-		}
-		
 		SHOW_HOUR_GLASS
+		start = clock();
+		error = GenEcKeyPair(curveParameter); // create key pairs
+		finish = clock();
+		duration = (double)(finish - start) / CLOCKS_PER_SEC; // Dauer der Schlüssel Erzeugung
+		if (error)
+		{
+			// error while creating key pair
+			Message(IDS_STRING_ERR_EC_GEN_EC_KEY_PAIR, MB_ICONSTOP);
+			return;
+		}
+		error = EcDomParamAcToString(&ecParamString, curveParameter, 16);
+		if (error)
+		{
+			// error while converting curveParameter to Strings
+			Message(IDS_STRING_ERR_EC_ON_CONVERT_PARAM, MB_ICONSTOP);
+			return;
+		}
+
 		// Datum und Zeitpunkt der Schlüsselerzeugung
 		char buffer[20];
 		time_t aclock;
@@ -883,59 +855,6 @@ void CDlgKeyAsymGeneration::CreateAsymKeys()
 			delete string4;
 			HIDE_HOUR_GLASS
 			return;
-		}
-		else                         // Secude Api ???
-		{
-			int mlen,elen,i;
-			unsigned char *buf;
-			KeyBits *ki;
-			L_NUMBER temp[MAXLGTH];
-
-			ki=theApp.SecudeLib.d_KeyBits(&(keyinfo.key->subjectkey));
-			if (ki&&m_ShowKeypair == TRUE)
-			{
-				class CDlgShowKeyParameter showparam;
-				int maxoctets = ki->part1.noctets > ki->part2.noctets ? ki->part1.noctets : ki->part2.noctets;
-				int hexreplen = sizeof("0x") + maxoctets * 2;
-				char *hexrep = new char[hexreplen];
-				if (hexrep == 0) {
-					remove(string3);
-					delete string2;
-					delete string4;
-					HIDE_HOUR_GLASS
-					return;
-				}
-				mlen=ki->part1.noctets;
-				buf=(unsigned char *)ki->part1.octets;
-				sprintf(hexrep,"0x");
-				for (i=0;i<mlen;i++)
-					sprintf(hexrep+2+(2*i),"%02X",buf[i]);
-				string_to_ln(hexrep,temp);
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_MODUL,pc_str,STR_LAENGE_STRING_TABLE);
-				showparam.addentry(pc_str,temp);
-				elen=ki->part2.noctets;
-				buf=(unsigned char *)ki->part2.octets;
-				sprintf(hexrep,"0x");
-				for (i=0;i<elen;i++)
-					sprintf(hexrep+2+(2*i),"%02X",buf[i]);
-				string_to_ln(hexrep,temp);
-				delete[] hexrep;
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_EXPONENT,pc_str,STR_LAENGE_STRING_TABLE);
-				showparam.addentry(pc_str,temp);
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_DSA_SHOW_PUBLIC_PARAMETER,pc_str,STR_LAENGE_STRING_TABLE);
-				sprintf(pc_str1,pc_str,UserKeyId);
-				showparam.settitel(pc_str1);
-				if (showparam.DoModal()!=IDOK)
-				{
-					remove(string3);
-					// Freigeben von dynamisch angelegtem Speicher
-					delete string2;
-					delete string4;
-					HIDE_HOUR_GLASS
-					return;
-				}
-
-			}
 		}
 		HIDE_HOUR_GLASS
 
@@ -1149,7 +1068,9 @@ void CDlgKeyAsymGeneration::CreateAsymKeys()
 
 	// Eine Sekunde Verzögerung eingebaut, damit time_of_creat: Time in seconds since UTC 1/1/70
 	// für verschiedene Schlüssel immer verschieden ist (Wahrung der EINDEUTIGKEIT von UserKeyId)
+	SHOW_HOUR_GLASS
 	Sleep(1000); // wait a second
+	HIDE_HOUR_GLASS
 
 	// user-information: key pair succesfully created.
 	LoadString(AfxGetInstanceHandle(),IDS_STRING_ASYMKEY_MSG_STORE_KEYPAIR,pc_str,STR_LAENGE_STRING_TABLE);
@@ -1160,6 +1081,9 @@ void CDlgKeyAsymGeneration::CreateAsymKeys()
 	double_fmt( duration, strDuration, 3 );
 	sprintf(temp, pc_str, strDuration);
 	AfxMessageBox (((CString)pc_str1)+((CString)"\n\n")+temp,MB_ICONINFORMATION);
+
+	if ( UserKeyId.GetLength() )
+		m_ctrlShowKeyPair.EnableWindow();
 }
 
 
@@ -1528,5 +1452,7 @@ void CDlgKeyAsymGeneration::showRSAKeysOnly()
 
 void CDlgKeyAsymGeneration::OnBnClickedButton1()
 {
-	// TODO: Add your control notification handler code here
+	CDlgKeyAsym dlgShowKeys;
+	dlgShowKeys.setKeyID(UserKeyId);
+	dlgShowKeys.DoModal();
 }

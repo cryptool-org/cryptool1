@@ -287,7 +287,7 @@ int automated_permanalysis::iterate_key_param()
 	int permSize;
 	int it_perm, it_cipher, it_plain;
 
-	for(permSize=psLowerLimit; permSize<=psUpperLimit; permSize++)
+	for(permSize=psUpperLimit; permSize>=psLowerLimit; permSize--)
 		for ( it_perm = row_dir; it_perm <= col_dir; it_perm++ ) if (check(it_perm, rangePerm))
 			for (it_cipher = row_dir; it_cipher <= col_dir; it_cipher++ ) if (check(it_cipher, rangeCipher ))
 				for (it_plain = row_dir; it_plain <= col_dir; it_plain++) if (check(it_plain, rangePlain))
