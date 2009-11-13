@@ -17,15 +17,15 @@
 
 <h3>DESXL (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Symmetrisch (modern) \ Weitere Algorithmen)</h3>
 
-<P>Die <A href="des_info.html">DES</A>-Variante DESXL wurde ebenso wie <A href="hid_crypt_desl.html">DESL</A> am <A href="http://www.crypto.rub.de">Lehrstuhl für Kommunikationssicherheit</A> an der Ruhr-Universität Bochum entwickelt. Es handelt sich bei DESXL um die <A href="hid_crypt_desx.html">DESX</A>-Version von <A href="hid_crypt_desl.html">DESL</A>, d.h. der Klartext x wird mit einem Pre-Whitening Schlüssel K<span style="vertical-align:text-bottom;font-size:0.6em">1</span> XOR-verknüpft, im Anschluss mit DESL unter dem Schlüssel K<span style="vertical-align:text-bottom;font-size:0.6em">DESL</span> verschlüsselt und abschließend mit dem Post-Whitening Schlüssel K<span style="vertical-align:text-bottom;font-size:0.6em">2</span> XOR-verknüpft.</P>
+<P>Die <A href="des_info.html">DES</A>-Variante DESXL wurde ebenso wie <A href="hid_crypt_desl.html">DESL</A> am <A href="http://www.crypto.rub.de" target="_blank">Lehrstuhl für Kommunikationssicherheit</A> an der Ruhr-Universität Bochum entwickelt. Es handelt sich bei DESXL um die <A href="hid_crypt_desx.html">DESX</A>-Version von <A href="hid_crypt_desl.html">DESL</A>, d.h. der Klartext x wird mit einem Pre-Whitening Schlüssel K<span style="vertical-align:text-bottom;font-size:0.6em">1</span> XOR-verknüpft, im Anschluss mit DESL unter dem Schlüssel K<span style="vertical-align:text-bottom;font-size:0.6em">DESL</span> verschlüsselt und abschließend mit dem Post-Whitening Schlüssel K<span style="vertical-align:text-bottom;font-size:0.6em">2</span> XOR-verknüpft.</P>
 
 <P>DESXL(x) = K<span style="vertical-align:text-bottom;font-size:0.6em">2</span> + DESL<span style="vertical-align:text-bottom;font-size:0.6em">K</span><span style="vertical-align:text-bottom;font-size:0.5em">DESL</span>(x + K<span style="vertical-align:text-bottom;font-size:0.6em">1</span>)</P>
 
 <P>Mögliche Einsatzgebiete von DESXL sind RFID-Tags sowie sämtliche ressourcenbeschränkte Geräte.</P>
 
-<P>Das europäische Forschungsprojekt UbiSec&amp;Sens (www.ist-ubisecsens.org), bei dem der Bochumer Lehrstuhl einer von acht Partnern ist, strebt eine Toolbox von Sicherheitskomponenten für Wireless Sensor Networks (WSNs) an. WSNs bestehen aus vielen (mehrere Dutzend bis mehrere Zehntausend) stark rechenbeschränkter Mini-Computer. DESXL wird eine Basis-Komponente der Sicherheitstoolbox werden.</p>
+<P>Das europäische Forschungsprojekt UbiSec&amp;Sens (<a href="www.ist-ubisecsens.org" target="_blank">www.ist-ubisecsens.org</a>) bei dem der Bochumer Lehrstuhl einer von acht Partnern ist, strebt eine Toolbox von Sicherheitskomponenten für Wireless Sensor Networks (WSNs) an. WSNs bestehen aus vielen (mehrere Dutzend bis mehrere Zehntausend) stark rechenbeschränkter Mini-Computer. DESXL wird eine Basis-Komponente der Sicherheitstoolbox werden.</p>
 
-<P>Für weitere Informationen siehe auch: <A href="http://www.crypto.rub.de/publications.html">http://www.crypto.rub.de/publications.html</A></P>
+<P>Für weitere Informationen siehe auch: <A href="http://www.crypto.rub.de/publications.html" target="_blank">http://www.crypto.rub.de/publications.html</A></P>
 
 <P>CrypTool verwendet DESXL im <A href="cbcmodus.html">CBC-Modus</A> mit Null-Initialisierungsvektor und <a href="padding.html#0100">01-00-Padding</a>.</P>
 
