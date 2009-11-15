@@ -444,6 +444,12 @@ remains unchanged during the whole process of encryption.
 
 	Ciphertext:	WKUHH SRVLWLRQV WR WKH ULJKW\\
 
+\item {\bf Affine cipher}: This is a generalization of the shift
+   cipher. A plaintext character is first substituted for another
+   character and then the result is encrypted using the shift
+   cipher. The affine cipher is so named because its encryption and
+   decryption functions are affine or linear functions.
+
 \item {\bf Substitution with symbols} \cite{pp:Singh2001}, for instance the 
    so-called ``freemason cipher'': Each letter is replaced with a symbol.
 
@@ -1824,6 +1830,46 @@ True
 \end{Verbatim}
 \caption{Constructing the Caesar cipher using the shift cipher.}
 \end{sagecode}
+
+
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Affine cipher}
+
+The affine cipher is implemented in the Sage class
+\begin{center}
+\verb!sage.crypto.classical.AffineCryptosystem!
+\end{center}
+In the following example, we construct an affine cipher with key
+$(3, 13)$ and use this key to encrypt a plaintext. The plaintext is
+then decrypted and the result is compared to the original plaintext.
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: # create an affine cipher
+sage: affineCipher = AffineCryptosystem(AlphabeticStrings()); affineCipher
+Affine cryptosystem on Free alphabetic string monoid on A-Z
+sage: plaintext = affineCipher.encoding("The affine cryptosystem.")
+sage: plaintext
+THEAFFINECRYPTOSYSTEM
+sage: 
+sage: # encrypt the plaintext using the key (3, 13)
+sage: a, b = (3, 13)
+sage: ciphertext = affineCipher.enciphering(a, b, plaintext)
+sage: ciphertext
+SIZNCCLAZTMHGSDPHPSZX
+sage: 
+sage: # decrypt the ciphertext and make sure that it is equivalent to the original plaintext
+sage: P = affineCipher.deciphering(a, b, ciphertext)
+sage: P
+THEAFFINECRYPTOSYSTEM
+sage: P == plaintext
+True
+\end{Verbatim}
+\caption{An affine cipher with key $(3, 13)$.}
+\end{sagecode}
+
 
 % ---------------------------------------------------------------------------
 \newpage
