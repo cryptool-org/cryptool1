@@ -1752,6 +1752,78 @@ True
 \end{sagecode}
 
 
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Shift cipher}
+
+The shift cipher can be thought of as a generalization of the Caesar
+cipher. While the Caesar cipher restricts us to shift exactly three
+positions along an alphabet, the shift cipher allows us to shift any
+number of positions along the alphabet. The shift cipher is
+implemented in the Sage class
+\begin{center}
+\verb!sage.crypto.classical.ShiftCryptosystem!
+\end{center}
+In the following example, we construct a shift cipher over the capital
+letters of the English alphabet. We then encrypt a plaintext by
+shifting it 12 positions along the alphabet. Finally, we decrypt the
+ciphertext and make sure that it is indeed the original plaintext.
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: shiftcipher = ShiftCryptosystem(AlphabeticStrings()); shiftcipher
+Shift cryptosystem on Free alphabetic string monoid on A-Z
+sage: plaintext = shiftcipher.encoding("Shift me any number of positions.")
+sage: plaintext
+SHIFTMEANYNUMBEROFPOSITIONS
+sage: key = 12  # shift by 12 positions
+sage: 
+sage: # shift the plaintext by 12 positions to get the ciphertext
+sage: ciphertext = shiftcipher.enciphering(key, plaintext)
+sage: ciphertext
+ETURFYQMZKZGYNQDARBAEUFUAZE
+sage: 
+sage: # decrypt the ciphertext and ensure that it is the original plaintext
+sage: P = shiftcipher.deciphering(key, ciphertext); P
+SHIFTMEANYNUMBEROFPOSITIONS
+sage: P == plaintext
+True
+\end{Verbatim}
+\caption{A shift cipher over the upper-case letters of the English alphabet.}
+\end{sagecode}
+
+The Caesar cipher is simply a shift cipher whose shifting key is 3. In
+the next example, we use the shift cipher to create a Caesar cipher
+over the capital letters of the English alphabet. We then encrypt a
+plaintext using the Caesar cipher, and then proceed to decrypt the
+resulting ciphertext. Finally, we ensure that the decrypted result is
+the same as our original plaintext.
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: # create a Caesar cipher
+sage: caesarcipher = ShiftCryptosystem(AlphabeticStrings())
+sage: plaintext = caesarcipher.encoding("Shift the alphabet by three positions to the right.")
+sage: plaintext
+SHIFTTHEALPHABETBYTHREEPOSITIONSTOTHERIGHT
+sage: 
+sage: # shift the plaintext by 3 positions
+sage: key = 3
+sage: ciphertext = caesarcipher.enciphering(key, plaintext)
+sage: ciphertext
+VKLIWWKHDOSKDEHWEBWKUHHSRVLWLRQVWRWKHULJKW
+sage: 
+sage: # decrypt the ciphertext and ensure that it is the original plaintext
+sage: P = caesarcipher.deciphering(key, ciphertext)
+sage: P
+SHIFTTHEALPHABETBYTHREEPOSITIONSTOTHERIGHT
+sage: P == plaintext
+True
+\end{Verbatim}
+\caption{Constructing the Caesar cipher using the shift cipher.}
+\end{sagecode}
 
 % ---------------------------------------------------------------------------
 \newpage
