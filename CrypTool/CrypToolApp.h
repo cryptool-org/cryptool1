@@ -173,7 +173,7 @@ public:
 	BOOL MRU_Flag;
 	CWnd *m_MainWnd;
 	virtual void AddToRecentFileList(LPCTSTR lpszPathName);
-	
+
 	// WinHelp set public to get access from Challenge Response Demo
 	#if !defined(_MSC_VER) || _MSC_VER <= 1200  
 	// HTML Help for VC++ 6.0
@@ -216,6 +216,7 @@ class CMainFrame : public CMDIFrameWnd
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
+
 
 /////////////////////////////////////////////////////////////////////////////
 extern CCrypToolApp NEAR theApp;

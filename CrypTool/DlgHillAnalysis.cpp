@@ -383,10 +383,15 @@ void CDlgHillAnaylsis::OnBnClickedSearchKey()
 	ha.init(fn_plaintext, fn_ciphertext, von, bis, m_ofs, m_multDir);
 
 	UpdateData(FALSE);
-
 	SHOW_HOUR_GLASS
-		ha.analyze();
+	CString err_str = _T(""); 
+	int err_code = ha.analyze(err_str);
 	HIDE_HOUR_GLASS
+
+	if ( err_code )
+	{
+		AfxMessageBox(err_str.GetBuffer(0), MB_ICONSTOP);		
+	}
 }
 
 void CDlgHillAnaylsis::OnBnClickedCancel()

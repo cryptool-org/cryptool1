@@ -106,7 +106,7 @@ char *initializing_file="EC-Param.ini"; // This is the filename of the file, whi
 char *initializing_file_2="TEST-Param.ini";
 
 // Globale Variablen fuer wichtige Pfade und Dateien
-char *Pfad; // Verzeichnis in dem CrypTool zur Laufzeit liegt
+char *Pfad = 0; // Verzeichnis in dem CrypTool zur Laufzeit liegt
 char *PseVerzeichnis; // PSE-Verzeichnis von CrypTool =Pfad+"/PSE";
 char *CaPseVerzeichnis; // =Pfad+"/PSE/PSECA";
 char *CaPseDatei; // =Pfad+"/PSE/PSECA/pseca";
@@ -368,7 +368,6 @@ int copy_keystore_path( const char *path_from, const char *path_to )
 }
 
 
-
 BOOL CCrypToolApp::InitInstance()
 {
 //	_tsetlocale(LC_ALL, _T(""));
@@ -461,6 +460,7 @@ BOOL CCrypToolApp::InitInstance()
 
 	
 	Pfad=help1;
+	TextOptions.SetDefaultOptions();
 
 // Old Path Settings for KeyStore
 	CString PseV, CaPseD, CaPseV;
@@ -990,7 +990,7 @@ int CCrypToolApp::ExitInstance()
 {
 	if(CaPseDatei) free(CaPseDatei);
 	if(CaPseVerzeichnis) free(CaPseVerzeichnis);
-	if(Pfad) free(Pfad);
+	if(Pfad) free((char*)Pfad);
 	if(PseVerzeichnis) free(PseVerzeichnis);
 	if(m_Selfextract_EXE) free(m_Selfextract_EXE);
 	if(m_NumberShark_Selfextract_EXE) free(m_NumberShark_Selfextract_EXE);

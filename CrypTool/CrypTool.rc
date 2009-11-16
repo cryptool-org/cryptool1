@@ -10960,19 +10960,19 @@ BEGIN
     CONTROL         "1",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,182,292,19,8
 END
 
-IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 299, 233
+IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 299, 254
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hill-Schlüsselmatrix"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    PUSHBUTTON      "Schlüssel &kopieren",IDC_BUTTON1,9,206,68,19
-    DEFPUSHBUTTON   "&Schließen",IDOK,217,206,68,19
+    PUSHBUTTON      "Schlüssel &kopieren",IDC_BUTTON1,9,224,68,19
+    DEFPUSHBUTTON   "&Schließen",IDOK,217,224,68,19
     CONTROL         "&Hill-Schlüsselmatrix (Verschlüsseln)",IDC_RADIO1,
-                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,88,5,132,8
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,29,183,132,8
     CONTROL         "&Inverse Hill-Schlüsselmatrix (Entschlüsseln)",IDC_RADIO2,
-                    "Button",BS_AUTORADIOBUTTON,88,19,156,8
+                    "Button",BS_AUTORADIOBUTTON,29,197,156,8
     EDITTEXT        IDC_EDIT1,12,7,19,15,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_VISIBLE
-    GROUPBOX        "Hill-Schlüsselmatrix",IDC_STATIC,9,38,280,162
+    GROUPBOX        "Hill-Schlüsselmatrix",IDC_STATIC,9,50,280,161
     EDITTEXT        IDC_EDIT11,38,73,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT12,58,73,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT13,78,73,16,12,ES_CENTER | ES_READONLY
@@ -11025,6 +11025,11 @@ BEGIN
     EDITTEXT        IDC_EDIT65,224,153,16,12,ES_CENTER | ES_READONLY
     EDITTEXT        IDC_EDIT66,244,153,16,12,ES_CENTER | ES_READONLY
     GROUPBOX        "Zahlenwerte",IDC_STATIC,154,61,116,115
+    GROUPBOX        "Multiplikationsart",IDC_STATIC,10,6,133,41
+    CONTROL         "(Vektorreihe) * (Matrix)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,19,85,10
+    CONTROL         "(Matrix) * (Vektorspalte)",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,29,32,89,10
+    GROUPBOX        "Wert des ersten Alphabetzeichens",IDC_STATIC,154,7,134,40
+    EDITTEXT        IDC_EDIT2,165,23,50,14,ES_AUTOHSCROLL
 END
 
 IDD_KEYASYM_GENERATION DIALOGEX 0, 0, 420, 338
@@ -18026,6 +18031,7 @@ BEGIN
     IDD_SHOW_KEY_HILL5x5, DIALOG
     BEGIN
         RIGHTMARGIN, 296
+        HORZGUIDE, 243
     END
 
     IDD_KEYASYM_GENERATION, DIALOG
@@ -21413,11 +21419,11 @@ BEGIN
     IDS_PA_COULDNOTOPEN_PLAINFILE 
                             "Die Klartextdatei konnte nicht geöffnet werden."
     IDS_PA_COULDNOTOPEN_CIPHERFILE 
-                            "Die Chiffretextdatei konnte nicht geöffnet werden."
+                            "Die Geheimtextdatei konnte nicht geöffnet werden."
     IDS_PA_FILESIZES_DIFFERENT 
                             "Klartext und Chiffretextdatei haben unterschiedliche Größen."
     IDS_PA_EMPTYFILE        "Beide Dateien (Klartext und Chiffretextdatei) sind leer. "
-    IDS_PA_LIMITRANGE_ERROR "Die untere Grenze der Permutationsschlüssel ist größer als die obere Grenze."
+    IDS_PA_LIMITRANGE_ERROR "Bitte überprüfe die Eingabe des Suchraums für die Permutationsgröße:\r\nDie untere Grenze (von) muss kleiner oder gleich die der oberen Grenze (bis) sein."
     IDS_PA_DIRECTION_ERROR  "Sollte nie auftreten."
     ID_PA_NOKEYFOUND        "Es wurde kein Permutationsschlüssel gefunden."
     IDS_PLAINTEXT           "Klartext"
@@ -32325,7 +32331,7 @@ BEGIN
     IDS_PA_FILESIZES_DIFFERENT 
                             "The lower limit of the key search range is bigger than the upper limit."
     IDS_PA_EMPTYFILE        "Both files (plaintext and ciphertext) are empty."
-    IDS_PA_LIMITRANGE_ERROR "The lower bound of the permutation key is bigger than the upper bound."
+    IDS_PA_LIMITRANGE_ERROR "Please check the input of the permutation key size search space. The lower bound (from) must be less or equal than the upper bound (to)."
     IDS_PA_DIRECTION_ERROR  "Should never occur."
     ID_PA_NOKEYFOUND        "No single transposition key was found."
     IDS_PLAINTEXT           "Plaintext"

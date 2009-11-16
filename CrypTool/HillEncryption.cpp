@@ -923,7 +923,7 @@ void CHillEncryption::OutputHillmatrix(CString &MatOut)
 // von der Methode zurueckgeliefert; es wird vorher ueberprueft,
 // ob sich der gesamte Text damit ver- / entschluesseln laesst.
 // Die Matrix mat muﬂ im rufenden Programm wieder freigegeben werden !!!
-int CHillEncryption::angriff(int min, int max, CSquareMatrixModN** mat, int rc_angriff_dims[HILL_MAX_DIM_GROSS])
+int CHillEncryption::angriff(int min, int max, CSquareMatrixModN* &mat, int rc_angriff_dims[HILL_MAX_DIM_GROSS])
 {
 	BOOL gefunden = FALSE;
 	int rc_angriff = HILL_NICHT_OK_NICHT_GEFUNDEN; // Werte: siehe hill.h
@@ -1074,7 +1074,7 @@ int CHillEncryption::angriff(int min, int max, CSquareMatrixModN** mat, int rc_a
 				rc_angriff = HILL_OK_LAENGE_UNTERSCHIEDLICH;
 			}
 
-			*mat = ergebnismat;
+			mat = ergebnismat;
 			dim = testdim;
 		}
 		else

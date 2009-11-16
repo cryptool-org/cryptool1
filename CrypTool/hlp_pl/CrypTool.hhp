@@ -526,6 +526,7 @@ hid_zeichenformat_courier12.html
 gplgnu.html
 hidd_password_guidelines.html
 hid_aes_rijndael_flowvisualisation.html
+hidd_generate_save_prime.html
 
 [ALIAS]
 #include CrypTool_Alias.h

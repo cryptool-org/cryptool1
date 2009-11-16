@@ -1,5 +1,5 @@
 #pragma once
-
+#include "stdafx.h"
 
 class CHillAnalysis
 {
@@ -12,5 +12,5 @@ public:
 	~CHillAnalysis(void);
 
 	int init(const char *fn_Plain, const char *fn_Cipher, int dim_From, int dim_To, int alphabet_Offset, int mul_Direction);
-	int analyze();
+	int analyze(CString &err_str);
 };

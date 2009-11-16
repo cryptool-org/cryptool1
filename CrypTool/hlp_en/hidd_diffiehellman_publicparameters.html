@@ -13,6 +13,7 @@
 
 <BODY>
 
+
 <h3>Dialog Diffie-Hellman-Key Exchange: Set Public Parameters</h3>
 
 <P>This dialog window appears after clicking the <B>Set public parameters</B> button from within the <a href="hidd_diffiehellmanvisualization.html">Diffie-Hellman Demonstration</a>.</P>
@@ -23,23 +24,20 @@
 
 <P>Please insert the prime module p first because the verification of the generator g directly depends on the prime module.</P>
 
-<P>You need to bear in mind that the use of a prime module which is <U>not prime</U> could possibly weaken the security of the proceeding. Thus, push the button <B>Generate Prime</B> if you want CrypTool to generate a valid prime.</P>
+<P>You need to bear in mind that the use of a selv selected prime module, especially if it's <U>not prime</U> could weaken the security of the proceeding. Thus, push the button <B>Generate Prime</B> if you want CrypTool to generate a <a href="hidd_generate_save_prime.html">safe prime.</P>
 
 <P>Furthermore, please notice that the bit length of the prime module is an essential aspect concerning the security of the proceeding. However, for demonstration purposes insecure values are certainly acceptable.</P>
 
-<P>You can also let CrypTool create a generator if you push the button <B>Create Generator</B>. If you rather would choose a generator for yourself, please bear in mind that the following values</P>
+<P>You can also let CrypTool create a generator (also called primitve root) if you push the button <B>Create Generator</B>. If you rather would choose a number g for yourself, please bear in mind that cannot guarantee the generator property. Please do not select for g one of the following numbers</P>
 
 <UL>
-	<LI>zero</LI>
-
-	<LI>one</LI>
-
-	<LI>prime module – 1</LI>
-
-	<LI>multiple of the prime module</LI>
+	<LI>zero,</LI>
+	<LI>one,</LI>
+	<LI>prime module – 1,</LI>
+	<LI>multiple of the prime module.</LI>
 </UL>
 
-<P>can also restrict the security of the proceeding.</P>
+<P>They also restrict the security of the proceeding.</P>
 
 <P>The button <B>Accept parameters</B> closes the dialog and leads you to the next step of the protocol.<B> </B></P>
 

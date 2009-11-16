@@ -29,13 +29,12 @@
 // we will need this below
 char *defaultSpecialCharacters = ".,:;!?()-+*/[]{}@_><#~=\\\"&%$§";
 
-CDlgTextOptions::CDlgTextOptions(CWnd* pParent)
-	: CDialog(CDlgTextOptions::IDD, pParent)
+// Verzeichnis, in dem CT gerade läuft (siehe CrypToolApp.cpp)
+extern char *Pfad; // Dangerous, do not write on Pfad
+
+
+void CDlgTextOptions::SetDefaultOptions()
 {
-	LoadString(NULL,IDS_STRING_STANDARD_REF_TEXT,pc_str,STR_LAENGE_STRING_TABLE);
-	char buffer[CRYPTOOL_PATH_LENGTH];
-	int n = SearchPath(NULL, pc_str, NULL, CRYPTOOL_PATH_LENGTH - 1, buffer, NULL);
-	//{{AFX_DATA_INIT(CDlgTextOptions)
 	keepCharactersNotPresentInAlphabetUnchanged = TRUE;
 	alphabet = _T("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 	distinguishUpperLowerCase = FALSE;
@@ -48,18 +47,23 @@ CDlgTextOptions::CDlgTextOptions(CWnd* pParent)
 	umlauts = FALSE;
 	separator = _T("X");
 	separateLetters = TRUE;
-	if(n>0) {
-		referenceFile=buffer;	
-		int pos = referenceFile.ReverseFind('\\');
-		title= referenceFile.Mid(pos+1);
-	}
-	else
-		referenceFile=_T("");
-
-	//}}AFX_DATA_INIT
 
 	keepUpperLowerCaseInformation = TRUE;
 	ignoreCase = 1;
+
+	LoadString(NULL,IDS_STRING_STANDARD_REF_TEXT,pc_str,STR_LAENGE_STRING_TABLE);
+	referenceFile = (!Pfad) ? _T("") : Pfad;
+	referenceFile += _T("\\");
+	referenceFile.Append(pc_str);
+	int pos = referenceFile.ReverseFind('\\');
+	title= referenceFile.Mid(pos+1);
+}
+
+
+CDlgTextOptions::CDlgTextOptions(CWnd* pParent)
+	: CDialog(CDlgTextOptions::IDD, pParent)
+{
+	SetDefaultOptions();
 }
 
 
@@ -197,11 +201,9 @@ void CDlgTextOptions::OnUpdateEditAlphabet()
 
 void CDlgTextOptions::OnButtonRestoreStandard() 
 {
-	alphabet = _T("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-	distinguishUpperLowerCase = FALSE;
-	keepUpperLowerCaseInformation = TRUE;
-	keepCharactersNotPresentInAlphabetUnchanged = TRUE;
-	separator = "X";
+	UpdateData(TRUE);
+	SetDefaultOptions();
+	UpdateData(FALSE);
 	updateCheckState();
 	updateAlphabetHeading();
 }

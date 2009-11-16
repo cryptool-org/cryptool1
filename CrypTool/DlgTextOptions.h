@@ -28,6 +28,7 @@ class CDlgTextOptions : public CDialog
 public:
 	// construction
 	CDlgTextOptions(CWnd *pParent = NULL);
+	void         SetDefaultOptions();
 
 protected:
 	// initialization

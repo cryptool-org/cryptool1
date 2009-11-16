@@ -197,7 +197,7 @@ public:
 	// worden ist. Trat jedes Ergebnis mindestens ein Mal auf, so ist der 
 	// Rueckgabewert HILL_UNDEF.
 	// Der vierte Parameter ist ein Integer Feld der Länge HILL_MAX_DIM_GROSS !!!
-	int angriff(int,int,CSquareMatrixModN**,int*);
+	int angriff(int,int,CSquareMatrixModN*&,int*);
 
 	void OutputHillmatrix(CString &MatOut);
 };
