@@ -44,6 +44,7 @@ static char THIS_FILE[] = __FILE__;
 
 CDlgShowKeyHill5x5::CDlgShowKeyHill5x5(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgShowKeyHill5x5::IDD, pParent)
+	, i_multDirection(0)
 {
 	//{{AFX_DATA_INIT(CDlgShowKeyHill5x5)
 	m_Feld11 = _T("");
@@ -268,6 +269,8 @@ void CDlgShowKeyHill5x5::DoDataExchange(CDataExchange* pDX)
 
 	DDX_Radio(pDX, IDC_RADIO1, m_decrypt);
 	//}}AFX_DATA_MAP
+	DDX_Control(pDX, IDC_EDIT2, m_ctrlAlphabetOffset);
+	DDX_Radio(pDX, IDC_RADIO8, i_multDirection);
 }
 
 

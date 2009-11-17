@@ -67,8 +67,6 @@ private:
 	long laenge_plain,   // Laenge der Felder plaintext und ciphertext
         laenge_cipher;
 
-	unsigned long firstPosNull;  //if firstPosNull==1 - >A=0 else A=1
-	
 	// Felder fuer den Angriff (Funktion SucheSchluessel)
 	// Diese Felder haben alle die Laenge modul; der Speicher wird im Konstruktor 
 	// angefordert und im Destruktor wieder freigegeben.
@@ -141,9 +139,10 @@ public:
 	~CHillEncryption();
 	
 	// Abbildung [erlaubte Zeichen] <-> [0..modul-1]
-	int my_char_to_int (char) const;
-	char my_int_to_char (int) const;
-	
+	int				my_char_to_int (char) const;
+	char			my_int_to_char (int) const;
+	unsigned long	firstPosNull;  //if firstPosNull==1 - >A=0 else A=1
+
 	// Darf dieses Zeichen benutzt werden ?
 	BOOL ist_erlaubtes_zeichen (char) const;
 	

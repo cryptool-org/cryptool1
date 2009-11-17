@@ -25,6 +25,7 @@
 #define AFX_HILLSCHLUESSELAUSGABE_H__2270633D_8B55_11D2_8D35_00C04F795E36__INCLUDED_
 
 #include "HillEncryption.h"
+#include "afxwin.h"
 
 // HillSchluesselAusgabe.h : Header-Datei
 //
@@ -182,6 +183,9 @@ protected:
 	afx_msg void OnKopieren();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+public:
+	CEdit m_ctrlAlphabetOffset;
+	int i_multDirection;
 };
 
 //{{AFX_INSERT_LOCATION}}
