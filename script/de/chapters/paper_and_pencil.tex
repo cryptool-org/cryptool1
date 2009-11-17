@@ -8,7 +8,7 @@
 
 \chapter{Papier- und Bleistift-Verschlüsselungsverfahren}
 \label{Kapitel_PaperandPencil}
-(Christine Stötzel, April 2004; Updates B.+C. Esslinger, Juni 2005; Updates Minh Van Nguyen und B. Esslinger, Juli 2009)
+(Christine Stötzel, April 2004; Updates B.+C. Esslinger, Juni 2005; Updates Minh Van Nguyen und B. Esslinger, November 2009)
 \index{Papier- und Bleistiftverfahren}
 
 \begin{center}
@@ -469,6 +469,12 @@ Zuordnung ist während des ganzen Verschlüsselungsprozesses dieselbe.
    Klartext:\\ 	\texttt{bei der caesarchiffre wird um drei stellen verschoben}
 
    Geheimtext:\\ \texttt{EHL GHU FDHVDUFKLIIUH ZLUG XP GUHL VWHOOHQ YHUVFKREHQ}\\
+
+\item {\bf Affine Chiffre}: Dies ist eine Verallgemeinerung der
+   Verschiebechiffre. Jeder Klartext-Buchstabe wird erst durch einen anderen
+   ersetzt und das Ergebnis wird dann mit der Verschiebechiffre verschlüsselt.
+   Die Bezeichnung "`affine Chiffre"' kommt daher, dass man die
+   Ver- und Entschlüsselungs-Funktion affine bzw. lineare Funktionen sind.
 
 \item {\bf Substitution mit Symbolen, z.B. Freimaurerchiffre}  
    \cite{pp:Singh2001}: Ein Buchstabe wird durch ein Symbol ersetzt.
@@ -1490,7 +1496,7 @@ als sicherer erwiesen als Verfahren, die nur auf einem der Prinzipien Transposit
 \index{Sage}
 
 Im Folgenden werden einige der klassischen Verfahren mit dem Open-Source Computer-Algebra-System
-Sage implementiert. Der Code ist lauffähig und getestet mit Sage Version 4.1.
+Sage implementiert. Der Code ist lauffähig und getestet mit Sage Version 4.2.
 Alle Verfahren sind im Kapitel~\ref{Kapitel_PaperandPencil}
 (\glqq \nameref{Kapitel_PaperandPencil}\grqq) erklärt.
 
@@ -1644,7 +1650,7 @@ sage: T(key).key()
 sage: T(keyInv)
 (1,13,11,9,7,5,3)(2,14,12,10,8,6,4)
 \end{Verbatim}
-\caption{Einfache Transposition durch Shiften (die Schlüssel werden mit "range" konstruiert)}
+\caption{Einfache Transposition durch Shiften (die Schlüssel werden mit "`range"' konstruiert)}
 \end{sagecode}
 
 \newpage
@@ -1689,7 +1695,7 @@ sage: # Test correctness of decryption
 sage: msg == DC
 True
 \end{Verbatim}
-\caption{Einfache Spalten-Transposition mit zufällig erzeugtem (Permutations-)Schlüssel}
+\caption{Einfache Spalten-Transposition mit zufällig erzeugtem (Permutations-) Schlüssel}
 \end{sagecode}
 
 
@@ -1870,6 +1876,187 @@ sage: msg == DC
 True
 \end{Verbatim}
 \caption{Caesar (Substitution durch Shiften des Alphabets; Substitutions-Schlüssel werden berechnet)}
+\end{sagecode}
+
+
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Verschiebe-Chiffre}
+
+Die Verschiebe-Chiffre kann man sich auch als Verallgemeinerung der ursprünglichen
+Caesar-Chiffre denken: Caesar shiftete das Alphabet immer genau um 3 Positionen.
+Die Shift-Chiffre kann um eine beliebige Anzahl Positonen entlang des
+Alphabets shiften. Shiften ist eine spezielle Form der Substitution.
+
+In den obigen Beispielen wurde das SubstitutionCryptosystem angewandt, und
+Caesar wurde als Sonderfall der Substitution implementiert. Andererseits
+kann man Caesar auch Spezialfall der Shift-Chiffre betrachten.
+
+Die Shift-Chiffre  ist direkt implementiert in der Sage-Klasse
+\begin{center}
+\verb!sage.crypto.classical.ShiftCryptosystem!
+\end{center}
+
+Im folgenden Beispiel konstruieren wir eine Shift-Chiffre über den Großbuchstaben
+des lateinischen Alphabets. Dann verschlüsseln wir den Klartext P durch Shiften
+um 12 Positionen. Schließlich entschlüsseln wir wieder das Chiffrat C und überprüfen,
+dass das Egebnis (DC) identisch mit dem ursprünglichen Klartext ist.
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: shiftcipher = ShiftCryptosystem(AlphabeticStrings()); shiftcipher
+Shift cryptosystem on Free alphabetic string monoid on A-Z
+sage: P = shiftcipher.encoding("Shift me any number of positions."); P
+SHIFTMEANYNUMBEROFPOSITIONS
+sage: key = 12  # shift can be any integer number
+sage: # shift the plaintext by 12 positions to get the ciphertext
+sage: C = shiftcipher.enciphering(key, P); C
+ETURFYQMZKZGYNQDARBAEUFUAZE
+sage: 
+sage: # decrypt the ciphertext and ensure that it is the original plaintext
+sage: DC = shiftcipher.deciphering(key, C); DC
+SHIFTMEANYNUMBEROFPOSITIONS
+sage: DC == P
+True
+\end{Verbatim}
+\caption{Verschiebe-Chiffre (über dem Großbuchstabenalphabet)}
+\label{paper_pencil:shift_cipher:Sage_example}
+\end{sagecode}
+
+Die ursprüngliche Caesar-Chiffre ist einfach eine Shift-Chiffre,
+wo der Schlüssel genau 3 ist. Im nächsten Beispiel nutzen wir die
+Shift-Chiffre, um die Caesar-Chiffre über den Großbuchstaben
+des lateinischen Alphabets zu bauen. % Dann verschlüsseln wir den
+% Klartext P mit der Caesar-Chiffre. Schließlich entschlüsseln wir
+% wieder das Chiffrat C und überprüfen, dass das Egebnis (DC)
+% identisch mit dem ursprünglichen Klartext ist.
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: caesarcipher = ShiftCryptosystem(AlphabeticStrings())
+sage: P = caesarcipher.encoding("Shift the alphabet by three positions to the right."); P
+SHIFTTHEALPHABETBYTHREEPOSITIONSTOTHERIGHT
+sage: 
+sage: key = 3  # shift the plaintext by exactly 3 positions
+sage: C = caesarcipher.enciphering(key, P); C
+VKLIWWKHDOSKDEHWEBWKUHHSRVLWLRQVWRWKHULJKW
+sage: 
+sage: # decrypt the ciphertext and ensure that it is the original plaintext
+sage: DC = caesarcipher.deciphering(key, C); DC
+SHIFTTHEALPHABETBYTHREEPOSITIONSTOTHERIGHT
+sage: DC == P
+True
+\end{Verbatim}
+\caption{Caesar-Verschlüsselung mit der Verschiebe-Chiffre}
+\label{paper_pencil:shift_cipher:Sage_example_Caesar_cipher}
+\end{sagecode}
+
+
+% ---------------------------------------------------------------------------
+\newpage
+\subsection{Affine Chiffren}
+
+Die affine Chiffre ist implementiert in the Sage-Klasse
+\begin{center}
+\verb!sage.crypto.classical.AffineCryptosystem!
+\end{center}
+
+Im folgenden Beispiel konstruieren wir eine affine Chiffre mit dem
+Schlüssel $(3, 13)$ und benutzen sie, um einen gegebenen Klartext P
+zu verschlüsseln. Der Klartext wird dann wieder entschlüsselt und das
+Ergebnis DC mit dem ursprünglichen Klartext verglichen.
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: # create an affine cipher
+sage: affineCipher = AffineCryptosystem(AlphabeticStrings()); affineCipher
+Affine cryptosystem on Free alphabetic string monoid on A-Z
+sage: P = affineCipher.encoding("The affine cryptosystem.")
+sage: P
+THEAFFINECRYPTOSYSTEM
+sage: 
+sage: # encrypt the plaintext using the key (3, 13)
+sage: a, b = (3, 13)
+sage: C = affineCipher.enciphering(a, b, P)
+sage: C
+SIZNCCLAZTMHGSDPHPSZX
+sage: 
+sage: # decrypt the ciphertext and make sure that it is equivalent to the original plaintext
+sage: DC = affineCipher.deciphering(a, b, C)
+sage: DC
+THEAFFINECRYPTOSYSTEM
+sage: DC == P
+True
+\end{Verbatim}
+\caption{Affine Chiffre mit dem Schlüssel $(3, 13)$}
+\end{sagecode}
+
+
+Man kann  die Shift-Chiffre auch als Sonderfall der affinen Chiffre sehen.
+Dazu muss man den Schllüssel der affinen Chiffre auf die folgende Form
+$(1, b)$ einschränken, wobei $b$ jede ganze, nicht-negative Zahl sein kann.
+Das Sage-Beispiel~\ref{paper_pencil:shift_cipher:Sage_example} auf
+Seite~\pageref{paper_pencil:shift_cipher:Sage_example} kann man
+wie folgt darstellen:
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: # construct a shift cipher
+sage: shiftcipher = AffineCryptosystem(AlphabeticStrings()); shiftcipher
+Affine cryptosystem on Free alphabetic string monoid on A-Z
+sage: P = shiftcipher.encoding("Shift me any number of positions.")
+sage: P
+SHIFTMEANYNUMBEROFPOSITIONS
+sage: 
+sage: # shift the plaintext by 12 positions to get the ciphertext
+sage: a, b = (1, 12)
+sage: C = shiftcipher.enciphering(a, b, P)
+sage: C
+ETURFYQMZKZGYNQDARBAEUFUAZE
+sage: 
+sage: # decrypt the ciphertext and ensure that it is the original plaintext
+sage: DC = shiftcipher.deciphering(a, b, C); P
+SHIFTMEANYNUMBEROFPOSITIONS
+sage: DC == P
+True
+\end{Verbatim}
+\caption{Verschiebe-Chiffre (als Sonderfall der affinen Chiffre)}
+\end{sagecode}
+
+
+Man kann mit der affinen Chiffre auch eine Caesar-Chiffre bauen. Dazu muss
+der Ver-/Entschlüsselungsschlüssel den Wert $(1, 3)$ haben.
+Das Sage-Beispiel~\ref{paper_pencil:shift_cipher:Sage_example_Caesar_cipher}
+auf Seite~\pageref{paper_pencil:shift_cipher:Sage_example_Caesar_cipher}
+kann mit der affinen Chiffre folgendermaßen dargestellt werden.
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+sage: # create a Caesar cipher
+sage: caesarcipher = AffineCryptosystem(AlphabeticStrings())
+sage: P = caesarcipher.encoding("Shift the alphabet by three positions to the right.")
+sage: P
+SHIFTTHEALPHABETBYTHREEPOSITIONSTOTHERIGHT
+sage: 
+sage: # shift the plaintext by 3 positions
+sage: a, b = (1, 3)
+sage: C = caesarcipher.enciphering(a, b, P)
+sage: C
+VKLIWWKHDOSKDEHWEBWKUHHSRVLWLRQVWRWKHULJKW
+sage: 
+sage: # decrypt the ciphertext and ensure that it is the original plaintext
+sage: DC = caesarcipher.deciphering(a, b, C)
+sage: DC
+SHIFTTHEALPHABETBYTHREEPOSITIONSTOTHERIGHT
+sage: DC == P
+True
+\end{Verbatim}
+\caption{Caesar-Chiffre (als Sonderfall der affinen Chiffre)}
 \end{sagecode}
 
 

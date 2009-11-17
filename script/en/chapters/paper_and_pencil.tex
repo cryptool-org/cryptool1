@@ -12,7 +12,7 @@
 % First Editor: Christine Stötzel, April 2004
 % Update and corrections: B. Esslinger, June 2005
 % Update and corrections: B. Esslinger, June 2005
-% Update B. Esslinger and Minh Van Nguyen, July 2009 
+% Update B. Esslinger and Minh Van Nguyen, November 2009 
 %------------------------------------------------------------------------------
 
 % ``primenet''
@@ -21,7 +21,7 @@
 
 \chapter{Paper and Pencil Encryption Methods}
 \label{Kapitel_PaperandPencil}
-(Christine St\"otzel, April 2004; Updates: B.+C. Esslinger, June 2005; Updates Minh Van Nguyen and B. Esslinger, July 2009)
+(Christine St\"otzel, April 2004; Updates: B.+C. Esslinger, June 2005; Updates Minh Van Nguyen and B. Esslinger, November 2009)
 \index{Paper and pencil methods}
 
 \begin{center}
@@ -1380,7 +1380,7 @@ previous mentioned methods.
 \index{Sage}
 
 In the following section some classic ciphers are implemented using the open source computer
-algebra system Sage. The code was tested with Sage version 4.1.
+algebra system Sage. The code was tested with Sage version 4.2.
 All ciphers are explained in chapter~\ref{Kapitel_PaperandPencil}
 (``\nameref{Kapitel_PaperandPencil}'').
 
@@ -1665,8 +1665,7 @@ True
 \newpage
 \subsection{Caesar cipher}
 
-The following example uses Sage to construct a Caesar
-cipher.
+The following example uses Sage to construct a Caesar cipher.
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -1705,7 +1704,8 @@ True
 
 
 \newpage
-\noindent The second Caesar sample does the same, but the code is more sophisticated/automated/var\-i\-a\-ble.
+\noindent The second Caesar sample does the same, but the code is more
+sophisticated/automated/fle\-xi\-ble.
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -1762,74 +1762,76 @@ True
 \newpage
 \subsection{Shift cipher}
 
-The shift cipher can be thought of as a generalization of the Caesar
+The shift cipher can also be thought of as a generalization of the Caesar
 cipher. While the Caesar cipher restricts us to shift exactly three
 positions along an alphabet, the shift cipher allows us to shift any
-number of positions along the alphabet. The shift cipher is
-implemented in the Sage class
+number of positions along the alphabet.
+
+In the above samples we applied the SubstitutionCryptosystem and build
+Caesar as a special kind of substitution. In contrast here
+Caesar can be build as a special kind of the shift cipher.
+
+The shift cipher is implemented directly in the Sage class
 \begin{center}
 \verb!sage.crypto.classical.ShiftCryptosystem!
 \end{center}
+
 In the following example, we construct a shift cipher over the capital
-letters of the English alphabet. We then encrypt a plaintext by
+letters of the English alphabet. We then encrypt a plaintext P by
 shifting it 12 positions along the alphabet. Finally, we decrypt the
-ciphertext and make sure that it is indeed the original plaintext.
+ciphertext C and make sure that the result (DC) is indeed the original
+plaintext. Shifting is a special way of substitution.
 
 \begin{sagecode}
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
 sage: shiftcipher = ShiftCryptosystem(AlphabeticStrings()); shiftcipher
 Shift cryptosystem on Free alphabetic string monoid on A-Z
-sage: plaintext = shiftcipher.encoding("Shift me any number of positions.")
-sage: plaintext
+sage: P = shiftcipher.encoding("Shift me any number of positions."); P
 SHIFTMEANYNUMBEROFPOSITIONS
-sage: key = 12  # shift by 12 positions
+sage: key = 12  # shift can be any integer number
 sage: 
 sage: # shift the plaintext by 12 positions to get the ciphertext
-sage: ciphertext = shiftcipher.enciphering(key, plaintext)
-sage: ciphertext
+sage: C = shiftcipher.enciphering(key, P); C
 ETURFYQMZKZGYNQDARBAEUFUAZE
 sage: 
 sage: # decrypt the ciphertext and ensure that it is the original plaintext
-sage: P = shiftcipher.deciphering(key, ciphertext); P
+sage: DC = shiftcipher.deciphering(key, C); DC
 SHIFTMEANYNUMBEROFPOSITIONS
-sage: P == plaintext
+sage: DC == P
 True
 \end{Verbatim}
-\caption{A shift cipher over the upper-case letters of the English alphabet.}
+\caption{A shift cipher over the upper-case letters of the English alphabet}
 \label{paper_pencil:shift_cipher:Sage_example}
 \end{sagecode}
 
 The Caesar cipher is simply a shift cipher whose shifting key is 3. In
 the next example, we use the shift cipher to create a Caesar cipher
-over the capital letters of the English alphabet. We then encrypt a
-plaintext using the Caesar cipher, and then proceed to decrypt the
-resulting ciphertext. Finally, we ensure that the decrypted result is
-the same as our original plaintext.
+over the capital letters of the English alphabet. % We then encrypt a
+% plaintext P using the Caesar cipher, and then proceed to decrypt the
+% resulting ciphertext C. Finally, we ensure that the decrypted result is
+% the same as our original plaintext.
 
 \begin{sagecode}
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
 sage: # create a Caesar cipher
 sage: caesarcipher = ShiftCryptosystem(AlphabeticStrings())
-sage: plaintext = caesarcipher.encoding("Shift the alphabet by three positions to the right.")
-sage: plaintext
+sage: P = caesarcipher.encoding("Shift the alphabet by three positions to the right."); P
 SHIFTTHEALPHABETBYTHREEPOSITIONSTOTHERIGHT
 sage: 
-sage: # shift the plaintext by 3 positions
-sage: key = 3
-sage: ciphertext = caesarcipher.enciphering(key, plaintext)
-sage: ciphertext
+sage: key = 3  # shift the plaintext by exactly 3 positions
+sage: 
+sage: C = caesarcipher.enciphering(key, P); C
 VKLIWWKHDOSKDEHWEBWKUHHSRVLWLRQVWRWKHULJKW
 sage: 
 sage: # decrypt the ciphertext and ensure that it is the original plaintext
-sage: P = caesarcipher.deciphering(key, ciphertext)
-sage: P
+sage: DC = caesarcipher.deciphering(key, C); DC
 SHIFTTHEALPHABETBYTHREEPOSITIONSTOTHERIGHT
-sage: P == plaintext
+sage: DC == P
 True
 \end{Verbatim}
-\caption{Constructing the Caesar cipher using the shift cipher.}
+\caption{Constructing the Caesar cipher using the shift cipher}
 \label{paper_pencil:shift_cipher:Sage_example_Caesar_cipher}
 \end{sagecode}
 
@@ -1842,9 +1844,10 @@ The affine cipher is implemented in the Sage class
 \begin{center}
 \verb!sage.crypto.classical.AffineCryptosystem!
 \end{center}
+
 In the following example, we construct an affine cipher with key
-$(3, 13)$ and use this key to encrypt a plaintext. The plaintext is
-then decrypted and the result is compared to the original plaintext.
+$(3, 13)$ and use this key to encrypt a given plaintext P. The plaintext
+is then decrypted and the result DC is compared to the original plaintext.
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -1852,60 +1855,62 @@ then decrypted and the result is compared to the original plaintext.
 sage: # create an affine cipher
 sage: affineCipher = AffineCryptosystem(AlphabeticStrings()); affineCipher
 Affine cryptosystem on Free alphabetic string monoid on A-Z
-sage: plaintext = affineCipher.encoding("The affine cryptosystem.")
-sage: plaintext
+sage: P = affineCipher.encoding("The affine cryptosystem.")
+sage: P
 THEAFFINECRYPTOSYSTEM
 sage: 
 sage: # encrypt the plaintext using the key (3, 13)
 sage: a, b = (3, 13)
-sage: ciphertext = affineCipher.enciphering(a, b, plaintext)
-sage: ciphertext
+sage: C = affineCipher.enciphering(a, b, P)
+sage: C
 SIZNCCLAZTMHGSDPHPSZX
 sage: 
 sage: # decrypt the ciphertext and make sure that it is equivalent to the original plaintext
-sage: P = affineCipher.deciphering(a, b, ciphertext)
-sage: P
+sage: DC = affineCipher.deciphering(a, b, C)
+sage: DC
 THEAFFINECRYPTOSYSTEM
-sage: P == plaintext
+sage: DC == P
 True
 \end{Verbatim}
-\caption{An affine cipher with key $(3, 13)$.}
+\caption{An affine cipher with key $(3, 13)$}
 \end{sagecode}
+
 
 We can also construct a shift cipher using the affine cipher. To do
 so, we need to restrict keys of the affine cipher be of the form 
 $(1, b)$ where $b$ is any non-negative integer. For instance, we can
-work through example~\ref{paper_pencil:shift_cipher:Sage_example} on
+work through Sage example~\ref{paper_pencil:shift_cipher:Sage_example} on
 page~\pageref{paper_pencil:shift_cipher:Sage_example} as follows:
 
 \begin{sagecode}
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
-sage: # construct an affine cipher
+sage: # construct a shift cipher
 sage: shiftcipher = AffineCryptosystem(AlphabeticStrings()); shiftcipher
 Affine cryptosystem on Free alphabetic string monoid on A-Z
-sage: plaintext = shiftcipher.encoding("Shift me any number of positions.")
-sage: plaintext
+sage: P = shiftcipher.encoding("Shift me any number of positions.")
+sage: P
 SHIFTMEANYNUMBEROFPOSITIONS
 sage: 
 sage: # shift the plaintext by 12 positions to get the ciphertext
 sage: a, b = (1, 12)
-sage: ciphertext = shiftcipher.enciphering(a, b, plaintext)
-sage: ciphertext
+sage: C = shiftcipher.enciphering(a, b, P)
+sage: C
 ETURFYQMZKZGYNQDARBAEUFUAZE
 sage: 
 sage: # decrypt the ciphertext and ensure that it is the original plaintext
-sage: P = shiftcipher.deciphering(a, b, ciphertext); P
+sage: DC = shiftcipher.deciphering(a, b, C); P
 SHIFTMEANYNUMBEROFPOSITIONS
-sage: P == plaintext
+sage: DC == P
 True
 \end{Verbatim}
-\caption{Constructing a shift cipher using the affine cipher.}
+\caption{Constructing a shift cipher using the affine cipher}
 \end{sagecode}
+
 
 We can also use the affine cipher to create the Caesar cipher. To do
 so, the encryption/decryption key must be $(1, 3)$. In the next
-example, we work through
+example, we work through Sage
 example~\ref{paper_pencil:shift_cipher:Sage_example_Caesar_cipher} on
 page~\pageref{paper_pencil:shift_cipher:Sage_example_Caesar_cipher}
 using the affine cipher.
@@ -1915,25 +1920,27 @@ using the affine cipher.
 [fontsize=\footnotesize,fontshape=tt]
 sage: # create a Caesar cipher
 sage: caesarcipher = AffineCryptosystem(AlphabeticStrings())
-sage: plaintext = caesarcipher.encoding("Shift the alphabet by three positions to the right.")
-sage: plaintext
+sage: P = caesarcipher.encoding("Shift the alphabet by three positions to the right.")
+sage: P
 SHIFTTHEALPHABETBYTHREEPOSITIONSTOTHERIGHT
 sage: 
 sage: # shift the plaintext by 3 positions
 sage: a, b = (1, 3)
-sage: ciphertext = caesarcipher.enciphering(a, b, plaintext)
-sage: ciphertext
+sage: C = caesarcipher.enciphering(a, b, P)
+sage: C
 VKLIWWKHDOSKDEHWEBWKUHHSRVLWLRQVWRWKHULJKW
 sage: 
 sage: # decrypt the ciphertext and ensure that it is the original plaintext
-sage: P = caesarcipher.deciphering(a, b, ciphertext)
-sage: P
+sage: DC = caesarcipher.deciphering(a, b, C)
+sage: DC
 SHIFTTHEALPHABETBYTHREEPOSITIONSTOTHERIGHT
-sage: P == plaintext
+sage: DC == P
 True
 \end{Verbatim}
-\caption{Constructing the Caesar cipher using the affine cipher.}
+\caption{Constructing the Caesar cipher using the affine cipher}
 \end{sagecode}
+
+
 
 % ---------------------------------------------------------------------------
 \newpage
