@@ -30,6 +30,8 @@
 #include "DlgShowKeyHill10x10.h"
 #include "KeyRepository.h"
 #include "HillEncryption.h"
+#include "Cryptography.h"
+#include "assert.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -43,6 +45,8 @@ static char THIS_FILE[] = __FILE__;
 
 CDlgShowKeyHill10x10::CDlgShowKeyHill10x10(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgShowKeyHill10x10::IDD, pParent)
+	, i_multDirection(0)
+	, m_alphabetOffset(0)
 {
 	//{{AFX_DATA_INIT(CDlgShowKeyHill10x10)
 	m_Feld11 = _T("");
@@ -865,8 +869,8 @@ void CDlgShowKeyHill10x10::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT199, m_ControlAlphFeld199);
 	DDX_Control(pDX, IDC_EDIT200, m_ControlAlphFeld200);
 	DDX_Control(pDX, IDC_EDIT1012, m_ControlAlphFeld1012);
-
-	DDX_Radio(pDX, IDC_RADIO1, m_decrypt);
+	DDX_Radio  (pDX, IDC_RADIO1,   m_decrypt);
+	DDX_Text   (pDX, IDC_EDIT2,    m_alphabetOffset);
 	//}}AFX_DATA_MAP
 }
 
@@ -1219,6 +1223,8 @@ void CDlgShowKeyHill10x10::MatrixAnzeigen(CSquareMatrixModN& mat, int dim, CHill
 			(*m_pFelder[i][j]) = cs;
 		}
 	}
+	i_multDirection  = (iHillMultiplicationType) ? 0 : 1;
+	m_alphabetOffset = (hillklasse.firstPosNull) ? 0 : 1;
 }
 
 
@@ -1280,6 +1286,14 @@ void CDlgShowKeyHill10x10::OnKopieren()
 		}
 		if ( i+1 < HILL_MAX_DIM_GROSS ) cs += '\n';
 	}
+	cs += HILLSTR_ALPHABETOFFSET;
+	cs += ' ';
+	cs += char('0' + m_alphabetOffset);
+	cs += ' ';
+	cs += HILLSTR_MULTVARIANT;
+	cs += ' ';
+	cs += char('0' + i_multDirection);
+
     LoadString(AfxGetInstanceHandle(),IDS_CRYPT_HILL,pc_str,STR_LAENGE_STRING_TABLE);
 	CopyKey(pc_str, cs); 
 	m_FeldUnsichtbar.SetWindowText(cs);
@@ -1292,8 +1306,15 @@ void CDlgShowKeyHill10x10::OnKopieren()
 
 void CDlgShowKeyHill10x10::SchluesselAnzeigen(CString Key)
 {
-	int iLaenge = Key.GetLength(),
-		iDimension = 1;
+	int pos = Key.Find(HILLSTR_ALPHABETOFFSET);
+	int iLaenge = pos, iDimension = 1;
+	pos += strlen(HILLSTR_ALPHABETOFFSET) +1;
+	assert(pos > 0);
+	m_alphabetOffset = (Key.GetAt(pos) == '0') ? 0 : 1;
+	pos = Key.Find(HILLSTR_MULTVARIANT);
+	assert(pos > 0);
+	pos += strlen(HILLSTR_MULTVARIANT) +1;
+	i_multDirection = (Key.GetAt(pos) == '0') ? 0 : 1;
 
 	// Format: Zeilenweise Apspeicherung des Schluessel, jeweils durch ein Leerzeichen getrennt
 	// iLaenge muss gleich i^2+(i-1) sein, 1 <= i <= HILL_MAX_DIM

@@ -159,6 +159,8 @@ public:
 
 	CButton	m_InvertKnopf;
 	int		m_decrypt;
+	int		m_alphabetOffset;
+	int		i_multDirection;
 	//}}AFX_DATA
 
 	int		decrypt_vorher;
@@ -184,8 +186,6 @@ protected:
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 public:
-	CEdit m_ctrlAlphabetOffset;
-	int i_multDirection;
 };
 
 //{{AFX_INSERT_LOCATION}}

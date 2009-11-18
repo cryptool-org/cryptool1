@@ -25,6 +25,7 @@
 #define AFX_HILLSCHLUESSELAUSGABEGROSS_H__EB1BC793_A3CB_11D3_877D_00C04F795E36__INCLUDED_
 
 #include "HillEncryption.h"
+#include "afxwin.h"
 
 // HillSchluesselAusgabeGross.h : Header-Datei
 //
@@ -460,6 +461,9 @@ public:
 
 	CButton	m_InvertKnopf;
 	int		m_decrypt;
+
+	int i_multDirection;
+	int m_alphabetOffset;
 	//}}AFX_DATA
 
 	int		decrypt_vorher;
@@ -484,6 +488,8 @@ protected:
 	afx_msg void OnKopieren();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+public:
+
 };
 
 //{{AFX_INSERT_LOCATION}}

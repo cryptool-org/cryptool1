@@ -2928,9 +2928,10 @@ void CDlgKeyHill10x10::OnPasteKey()
  		int i=0, // Zeile des naechsten Eintrages in die Schluesselmatrix
  			j=-1, // Spalte des naechsten Eintrages in die Schluesselmatrix 
  			l=0, // Laufvariable fuer den Text aus der Zwischenablage
- 			laenge = cs.GetLength(); // Laenge des Textes der Zwischenablage
+ 			laenge; // Laenge des Textes der Zwischenablage
 		int keyDim = 0;
-		
+		laenge = cs.Find(HILLSTR_ALPHABETOFFSET);
+
  		while (l < laenge)
  		{
  			hilf = cs[l];
@@ -2976,6 +2977,18 @@ void CDlgKeyHill10x10::OnPasteKey()
 		ASSERT ((0 <= keyDim) && (keyDim <= HILL_MAX_DIM_GROSS));
 		dim = keyDim;
 		iHillSchluesselDim = dim;
+
+		UpdateData(FALSE);
+		laenge += strlen(HILLSTR_ALPHABETOFFSET) +1;
+		if (cs.GetAt(laenge) == '0') 
+			CheckRadioButton(IDC_RADIO8,IDC_RADIO9,IDC_RADIO8);
+		else
+			CheckRadioButton(IDC_RADIO8,IDC_RADIO9,IDC_RADIO9);
+		laenge = cs.Find(HILLSTR_MULTVARIANT);
+		ASSERT(laenge > 0);
+		laenge += strlen(HILLSTR_MULTVARIANT) +1;
+		iHillMultiplicationType = (cs.GetAt(laenge) == '0') ? 1 : 0;
+		UpdateData();
 
 		switch (iHillSchluesselDim)
 		{

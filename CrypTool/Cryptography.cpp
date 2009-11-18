@@ -801,9 +801,6 @@ void Hill(const char *infile, const char *OldTitle)
 	str[str_laenge] = '\0';
 	free(csEingabeDatei);
 
-#define HILLSTR_ALPHABETOFFSET "ALPHABET_OFFSET:"
-#define HILLSTR_MULTVARIANT    "MULTIPLICATION_VARIANT:"
-
 	// Variable zur Ausgabe des Schlüssels in der Titelleiste
 	char schluessel[(HILL_MAX_DIM_GROSS+1)*HILL_MAX_DIM_GROSS+1 
 		+ sizeof(HILLSTR_ALPHABETOFFSET) + sizeof(HILLSTR_MULTVARIANT) + 8];
@@ -882,10 +879,10 @@ void Hill(const char *infile, const char *OldTitle)
 	{
 		char strInfo[4];
 		strcat(schluessel, HILLSTR_ALPHABETOFFSET);
-		sprintf(strInfo, " %1d ", hillklasse->firstPosNull);
+		sprintf(strInfo, " %i ", (hillklasse->firstPosNull) ? 0 : 1);
 		strcat(schluessel, strInfo);
 		strcat(schluessel, HILLSTR_MULTVARIANT);
-		sprintf(strInfo, " %1d", iHillMultiplicationType );
+		sprintf(strInfo, " %i", (iHillMultiplicationType) ? 0 : 1 );
 		strcat(schluessel, strInfo);
 	}
 

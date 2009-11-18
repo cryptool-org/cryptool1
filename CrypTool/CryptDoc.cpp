@@ -1799,7 +1799,9 @@ void CCryptDoc::OnShowKey()
 			// Hill Verfahren: 
 			// Format des Schluessels: Zeilenweise, durch jeweils ein Leerzeichen getrennt
 			// HILL_MAX_DIM=5: 5x5 hat also 25+4=29 Zeichen
-			if (Key.GetLength() <= HILL_MAX_DIM*HILL_MAX_DIM+(HILL_MAX_DIM-1))
+			int p_keyend = Key.Find(HILLSTR_ALPHABETOFFSET);
+			ASSERT(p_keyend > 0);
+			if (p_keyend <= HILL_MAX_DIM*HILL_MAX_DIM+(HILL_MAX_DIM-1))
 			{
 				CDlgShowKeyHill5x5 AusgabeFenster;
 				AusgabeFenster.SchluesselAnzeigen(Key);				
