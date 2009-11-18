@@ -7,7 +7,7 @@
 \hypertarget{Kapitel_2}{}
 \chapter{Primzahlen}
 \label{Label_Kapitel_2}  %Die Kapitelnr. von \label wird per per \ref geholt.
-(Bernhard Esslinger, Mai 1999; Updates: Nov. 2000, Dez. 2001, Juni 2003, Mai 2005, März 2006, Juni 2007, Juli 2009)
+(Bernhard Esslinger, Mai 1999; Updates: Nov. 2000, Dez. 2001, Juni 2003, Mai 2005, März 2006, Juni 2007, November 2009)
 
 \begin{center}
 \fbox{\parbox{15cm}{
@@ -1551,17 +1551,18 @@ Primzahlen oder die Zerlegung in Primfaktoren vieler zusammengesetzter
 Zahlen enthalten.
 
 
-
-% --------------------------------------------------------------------------
-\pagebreak
-\section{Anmerkungen zu Primzahlen}
-
 \paragraph{Weitere interessante Themen rund um Primzahlen} \mbox{}\\
 In diesem Kapitel \ref{Label_Kapitel_2} wurden weitere, eher zahlentheoretische 
 Themen wie Teilbarkeitsregeln, Modulo-Rechnung, modulare Inverse, modulare Potenzen
 und Wurzeln, chinesischer Restesatz, Eulersche Phi-Funktion und perfekte Zahlen
 nicht betrachtet. Auf einige dieser Themen geht das \hyperlink{Chapter_ElementaryNT}
 {{\bf nächste Kapitel}} (Kapitel \ref{Chapter_ElementaryNT}) ein.
+
+
+
+% --------------------------------------------------------------------------
+\pagebreak
+\section{Anmerkungen zu Primzahlen}
 
 Die folgenden Anmerkungen listen einzelne interessante Sätze, Vermutungen und 
 Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
@@ -1788,7 +1789,7 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
      Möglicherweise hat Goldbach also Recht, und trotzdem wird nie ein 
      Beweis gefunden werden. Das wiederum lässt sich aber vermutlich auch
      nicht beweisen.
-     },   % footnote
+     },   % end_footnote
      aber allgemein noch nicht bewiesen\footnote{%
      Der englische Verlag {\em Faber} und die amerikanische
      Verlagsgesellschaft {\em Bloomsbury} publizierten 2000 das 1992 erstmals
@@ -1816,12 +1817,12 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
      Gerade diese Vermutung legt nahe, dass wir auch heute noch nicht in 
      aller Tiefe den Zusammenhang zwischen der Addition und der Multiplikation
      der natürlichen Zahlen verstanden haben.
-     }.   % footnote
+     }.   % end_footnote
     
 \item Bernhard Riemann\footnote{%
         Bernhard Riemann\index{Riemann, Bernhard}, deutscher Mathematiker,
         17.9.1826$-$20.7.1866. }
-    stellte eine bisher unbewiesene, aber auch nicht widerlegte (?) Formel
+    stellte eine bisher unbewiesene, aber auch nicht widerlegte Formel
     für die Verteilung von Primzahlen auf, die die Abschätzung 
     weiter verbessern würde.
 \end{itemize}
@@ -1829,21 +1830,66 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
 
 % --------------------------------------------------------------------------
 \vskip +10 pt
-\subsection{Offene Fragestellungen}
+\subsection{Offene Fragen zu Primzahlzwillingen}
+
 Primzahlzwillinge sind Primzahlen, die den Abstand 2 voneinander haben, 
-zum Beispiel 5 und 7 oder 101 und 103. 
-Primzahldrillinge gibt es dagegen nur eines: 3, 5, 7.  Bei allen anderen 
+zum Beispiel 5 und 7, oder 101 und 103,
+oder $1.693.965 \cdot 2^{66.443} \pm 1.$. 
+
+\noindent Das größte bis heute bekannte Primzahlzwillingspaar mit $100.355$
+Dezimalstellen\footnote{\url{http://primes.utm.edu}, Oktober 2009}
+ist: \[65.516.468.355\cdot 2^{333.333} \pm 1\]
+
+\noindent Bemerkung: Primzahldrillinge gibt es dagegen nur eines: 3, 5, 7.  Bei allen anderen 
 Dreierpacks aufeinanderfolgender ungerader Zahlen ist immer eine durch 3 
 teilbar und somit keine Primzahl.
+
+\noindent Offen ist:
 \begin{itemize}
-
-\item Offen ist die Anzahl der Primzahlzwillinge: unendlich viele oder eine
-      begrenzte Anzahl?
-      Das bis heute bekannte größte Primzahlzwillingspaar ist
-      $1.693.965 \cdot 2^{66.443} \pm 1.$
-
+\item Gibt es unendlich viele oder eine begrenzte Anzahl von Primzahlzwillingen?
+      
 \item Gibt es eine Formel für die Anzahl der Primzahlzwillinge pro Intervall?
+\end{itemize}
 
+Einen großen Schritt zur Klärung der ersten Frage machten möglicherweise
+Dan Goldston, J\'{a}nos Pintz und Cem Yildirim im Jahre 2003\footnote{%
+    D. A. Goldston: \glqq Gaps Between Primes\grqq \\
+    \url{http://www.math.sjsu.edu/~goldston/OberwolfachAbstract.pdf}\\ 
+    Siehe auch: 
+    \begin{itemize}	
+       \item D. A. Goldstone: \glqq Are There Infinitely Many Twin Primes?\grqq \\
+            \url{http://www.math.sjsu.edu/~goldston/twinprimes.pdf}
+       \item K. Soundararajan: \glqq Small Gaps Between Prime Numbers:
+             The Work Of Goldston-Pintz-Yildirim\grqq \\
+             \url{http://www.ams.org/bull/2007-44-01/S0273-0979-06-01142-6/S0273-0979-06-01142-6.pdf}
+    \end{itemize}
+                                              }. 
+Die drei Mathematiker beschäftigten sich mit der Verteilung von Primzahlen.
+Sie konnten beweisen, dass  \[ \liminf_{n\to\infty}{\frac{p_{n+1}-p_n}{\log{p_n}}}=0,\]
+wobei $p_{n}$ die $n$-te Primzahl bezeichnet. \\
+Dies bedeutet, dass der kleinste Häufungspunkt ($\liminf$) der Folge
+$\frac{p_{n+1}-p_n}{\log{p_n}}$ gleich Null ist.\\
+Ein Punkt heißt Häufungspunkt einer Folge, wenn in jeder noch so kleinen
+Umgebung um diesen Punkt unendlich viele Folgeglieder liegen. \\
+$\log{p_n}$ ist in etwa der erwartete Abstand zwischen der Primzahl $p_n$
+und der darauf folgenden Primzahl $p_{n+1}$.\\
+Der obige Term besagt also, dass es unendlich viele aufeinander folgende
+Primzahlen gibt, deren Abstand im Verhältnis zum erwarteten durchschnittlichen
+Abstand beliebig nah an Null bzw. beliebig klein ist.
+
+Außerdem konnte gezeigt werden, dass für unendlich viele Primzahlen
+gilt\footnote{ c't 2003, Heft 8, Seite 54}: \[p_{n+1}-p_n < (\log{p_n})^{8/9}\]
+
+Diese Aussagen könnten Grundlage sein um zu beweisen, dass es unendlich
+viele Primzahlzwillinge gibt.
+
+
+
+% --------------------------------------------------------------------------
+\vskip +10 pt
+\subsection{Weitere offene Fragestellungen}
+
+\begin{itemize}
 \item \hypertarget{link-Primzahlfunktion-base-a-Offen}{}
     Der Beweis \hyperlink{link-Primzahlfunktion-base-a-Proof}{oben} zu der
     Funktion  $f: \: N \rightarrow Z$ mit $n \mapsto a^{3^n}$

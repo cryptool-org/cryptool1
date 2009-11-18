@@ -9,7 +9,7 @@
 \hypertarget{Kapitel_2}{}
 \chapter{Prime Numbers}
 \label{Label_Kapitel_2}
-(Bernhard Esslinger, May 1999; Updates Nov. 2000, Dec. 2001, June 2003, May 2005, March 2006, June 2007, July 2009)
+(Bernhard Esslinger, May 1999; Updates Nov. 2000, Dec. 2001, June 2003, May 2005, March 2006, June 2007, November 2009)
 
 \begin{center}
 \fbox{\parbox{15cm}{
@@ -1481,11 +1481,6 @@ You also have access to large databases that contain either a large
 number of primes or the factorization of numerous composite numbers.
 
 
-
-% --------------------------------------------------------------------------
-\pagebreak
-\section{Notes about primes}
-
 \paragraph{Further interesting topics regarding prime numbers}
 \mbox{}\\
 This chapter \ref{Label_Kapitel_2} didn't consider other number theory topics
@@ -1495,8 +1490,15 @@ perfect numbers.
 Some of these topics are considered in the \hyperlink{Chapter_ElementaryNT} 
 {{\bf next chapter}} (chapter \ref{Chapter_ElementaryNT}).
 
+
+
+% --------------------------------------------------------------------------
+\pagebreak
+\section{Notes about primes}
+
 The following notes list some interesting theorems, conjectures and open
 questions about primes, but also some quaint things and overviews.
+
 
 % --------------------------------------------------------------------------
 \vskip +10 pt
@@ -1743,22 +1745,65 @@ questions about primes, but also some quaint things and overviews.
 
 % --------------------------------------------------------------------------
 \vskip +10 pt
-\subsection{Open questions}
+\subsection{Open questions about twin primes}
+
 Twin primes are prime numbers whose difference is 2. 
-Examples include 5 and 7 or 101 and 103. 
-Triplet primes, however, only occur once: 3, 5, 7.  
+Examples include 5 and 7, or 101 and 103,
+or $1,693,965 \cdot 2^{66,443} \pm 1.$. 
+
+\noindent The biggest known twin pair nowadays is \[65,516,468,355\cdot 2^{333,333} \pm 1\]
+with $100,355$ decimal digits.\footnote{\url{http://primes.utm.edu}, October 2009}
+
+\noindent Remark: Triplet primes, however, only occur once: 3, 5, 7.  
 For all other sets of three consecutive uneven numbers, one of them is 
 always divisible by 3 and thus not a prime.
 
+\noindent Open questions are:
 \begin{itemize}
+\item The number of twin primes: infinitely many or a limited number?
 
-\item The number of twin primes is an open question: infinite or limited
-    number? The largest twin primes known today are 
-    $1,693,965 \cdot 2^{66,443} \pm 1.$
+\item Does a formula exist for calculating the number of twin primes per interval?
+\end{itemize}
 
-\item Does a formula exist for calculating the number of twin primes per
-    interval?
+A big step towards the solution of this problem was made by Dan Goldston,
+J\'{a}nos Pintz and Cem Yildirim in 2003\footnote{%
+    D. A. Goldston: ``Gaps Between Primes''\\
+    \url{http://www.math.sjsu.edu/~goldston/OberwolfachAbstract.pdf}\\ 
+    See also: 
+    \begin{itemize}
+       \item D. A. Goldstone: "'Are There Infinitely Many Twin Primes?"\\
+            \url{http://www.math.sjsu.edu/~goldston/twinprimes.pdf}
+       \item K. Soundararajan: "'Small Gaps Between Prime Numbers:
+            The Work Of Goldston-Pintz-Yildirim"\\
+	    \url{http://www.ams.org/bull/2007-44-01/S0273-0979-06-01142-6/S0273-0979-06-01142-6.pdf}
+    \end{itemize}
+                                               }. 
+The three mathematicians were investigating the distribution of prime numbers.
+They could proof, that \[ \liminf_{n\to\infty}{\frac{p_{n+1}-p_n}{\log{p_n}}}=0,\]
+where $p_{n}$ denotes the $n$-th prime number. \\
+This means that the smallest limit point ($\liminf$) of the sequence
+$\frac{p_{n+1}-p_n}{\log{p_n}}$ equals zero.\\
+A point is called limit point of a sequence, if there lie in any arbitrarily small
+neighbourhood of that point infinitely many elements of the sequence.\\
+$\log{p_n}$ is about the average distance between the prime $p_n$ and the next prime
+$p_{n+1}$.\\
+Hence, the term above implies, that there are infinitely many consecutive
+primes with a gap between them which is arbitrarily small compared to the expected
+average gap.
 
+
+Moreover, it was proofed, that \[p_{n+1}-p_n < (\log{p_n})^{8/9}\] holds true
+for infinitely many primes\footnote{ c't magazine 2003, no. 8, page 54}.
+
+Those results could be the basis for the proof, that infinitely many twin primes exist.
+
+
+
+% --------------------------------------------------------------------------
+\vskip +10 pt
+\subsection{Further open questions}
+
+\begin{itemize}
 \item \hypertarget{link-Primzahlfunktion-base-a-Offen}{}
     The \hyperlink{link-Primzahlfunktion-base-a-Proof}{above} proof of the
     function $f: \: N \rightarrow Z$ with $n \mapsto a^{3^n}$  
