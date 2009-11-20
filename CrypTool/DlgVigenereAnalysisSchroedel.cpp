@@ -652,7 +652,9 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 		therefore, the loop covers 75% of the overall analysis,	the progress 
 		is gradually increased with each loop (see loopProgress)
 	*/
-	const double loopProgress = (double)(0.75) / (double)(cPairs); 
+	const double loopProgress = (double)(0.75) / (double)(cPairs);
+
+	CString decryptedText;
 
 	for(int i=0; i<cPairs; i++, progress += loopProgress) {
 		
@@ -710,8 +712,9 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 
 							if(dict[xDict].GetLength() <= ciphertext.GetLength()) {
 								if(dict[xDict].Find(key + cKey[o]) == 0 || dict[xDict].Find(text + cText[l]) == 0) {
-									theRate = rateString(decryptText(ciphertext, dict[xDict]), dict[xDict]);
-									if(theRate >= decryptText(ciphertext, dict[xDict]).GetLength() * 0.01) {
+									decryptedText = decryptText(ciphertext, dict[xDict]);
+									theRate = rateString(decryptedText, dict[xDict]);
+									if(theRate >= decryptedText.GetLength() * 0.01) {
 										
 										// watch out for user cancellation
 										if(abort) return -1;
@@ -750,6 +753,7 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 										
 										if(maxRating < theRate) maxRating = theRate;
 
+										// TODO: make this threshold configurable through the CrypTool GUI
 										if(theRate >= 10) {
 											CString possibleResultKey = dict[xDict];
 											CString possibleResultCleartext = decryptText(ciphertext, dict[xDict]);
