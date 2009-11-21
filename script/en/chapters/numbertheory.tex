@@ -1644,7 +1644,7 @@ would look up some one's phone number in the phone book. Furthermore, each recip
 to decrypt the message and that is not known to anyone else. If the sender wishes to send a message $M$, he encrypts it using 
 the public key $P$ of the recipient before sending it:
 
-The cipher text $C$ is determined as $C = E (P; M)$, where $E$ (encryption) is the encryption rule.
+The ciphertext $C$ is determined as $C = E (P; M)$, where $E$ (encryption) is the encryption rule.
 The recipient uses his private key $S$ to decrypt the message with the decryption rule $D: M = D (S; C)$.
 
 In order to ensure that this system works for every message $M$, the following four {\bf requirements} must be met:
@@ -1758,10 +1758,10 @@ In CrypTool\index{CrypTool} the RSA modulo is denoted with a capital ``$N$'' .}.
 \item[{\bf 5.}] Encryption of the plaintext (or the parts of it) $M \in \{1, \cdots, n-1\}$:
                 $$C = E ( (n, e); M ) := M^e {\rm ~(mod~} n).$$
 
-\item[{\bf 6.}] For decryption, the cipher text represented as a binary number is divided
+\item[{\bf 6.}] For decryption, the ciphertext represented as a binary number is divided
                 into parts such that each part of the number is less than $n$.
 
-\item[{\bf 7.}] Decryption of the cipher text (or the parts of it) $C \in \{1, \cdots, n-1\}$:
+\item[{\bf 7.}] Decryption of the ciphertext (or the parts of it) $C \in \{1, \cdots, n-1\}$:
                 $$M = D ( (n, d); C ) := C^d {\rm ~(mod~} n).$$
 \end{itemize}
 
@@ -2789,12 +2789,12 @@ Authority RSA modulus.} numbers.
 Enciphering a text entails applying a function (mathematical operation) to a character string (number) to generate a 
 different number. Deciphering entails reversing this function, in other words using the distorted image that the function 
 has created from the plaintext in order to restore the original image. For example, the sender could take the plaintext 
-$M$ of a confidential message and add a secret number, the key $S$, to obtain the cipher text $C$:
+$M$ of a confidential message and add a secret number, the key $S$, to obtain the ciphertext $C$:
 $$C = M + S.$$
 The recipient can reconstruct the plaintext by reversing this operation, in other words by subtracting $S$:
 $$M = C - S.$$
 Adding $S$ reliably makes the plaintext impossible to read. However, this encryption is rather weak, because all an 
-interceptor needs to do to calculate the key is obtain a plaintext and the associated cipher text
+interceptor needs to do to calculate the key is obtain a plaintext and the associated ciphertext
 $$S = C - M,$$
 and can then read any subsequent messages encrypted using $S$. \\
 The essential reason for this is that subtraction is just as simple an operation as addition. 
@@ -2805,7 +2805,7 @@ The essential reason for this is that subtraction is just as simple an operation
 \subsection{One way functions}\index{One way function}
 \label{OneWayFunktion2}%
 If the key is to be impossible to determine even with knowledge of both the 
-plaintext and the cipher text, we need a function that is, on the one hand, 
+plaintext and the ciphertext, we need a function that is, on the one hand, 
 relatively easy to calculate -- we don't want to have problems encrypting 
 messages. On the other hand, the inverse function should exist (otherwise 
 information would be lost during encryption), but should be de facto 
@@ -3029,7 +3029,7 @@ Thus, $n=55$ and $J(n)=(p-1)*(q-1)=40$.
     \end{itemize}
 \item[{\bf 4.}] Let the message be the number $M = 2$ (so no division into blocks is required).
 \item[{\bf 5.}] Encryption: $C \equiv 2^7 \equiv 18 {\rm ~(mod~}55).$
-\item[{\bf 6.}] The cipher text is simply the number $C = 18$ (we therefore do not need to divide it into blocks).
+\item[{\bf 6.}] The ciphertext is simply the number $C = 18$ (we therefore do not need to divide it into blocks).
 \item[{\bf 7.}] Decryption: 
         $M \equiv 18^{23} \equiv 18^{(1+2+4+16)} \equiv 18*49*36*26 \equiv 2 {\rm ~(mod~}55).$
 \end{itemize}
@@ -3111,7 +3111,7 @@ L       & 12   & Y    & 25 \\
 {\tt 1404 2932 3536 0001 3284 2280 2235}
 
 \noindent {\bf 5. Decryption}: \\
-Cipher text: {\tt 1404 2932 3536 0001 3284 2280 2235 }
+Ciphertext: {\tt 1404 2932 3536 0001 3284 2280 2235 }
 
 \noindent This $28$-digit number is divided into $4$-digit parts.
 
@@ -3204,7 +3204,7 @@ digits in decimal notation above and were then to obtain the sequence
 \end{tabular} }
 
 \noindent {\bf 5. Decryption}:\\
-Cipher text: 
+Ciphertext: 
 
 {\tt
 \begin{tabular}{lllll}
@@ -3255,7 +3255,7 @@ block length\index{Block length} 2 and decimal representation.}
 {\tt 158721 137346 37358 240130 112898}
 
 \noindent {\bf 5. Decryption:} \\
-Cipher text:\\
+Ciphertext:\\
 {\tt 158721 137346 37358 240130 112898}
 
 \noindent Each block is decrypted using: $M \equiv C^{231,953}{\rm ~(mod~}256,027)$: \\
@@ -3280,7 +3280,7 @@ the number $255,255$.  }
 {\tt 198967 051405 254571 115318 014251}
 
 \noindent {\bf 5'. Decryption:} \\
-Cipher text:\\
+Ciphertext:\\
  {\tt 198967 051405 254571 115318 014251}
 
 \noindent Each block is decrypted using: $M \equiv C^{2473}{\rm ~(mod~}67,519)$: \\
@@ -3303,7 +3303,7 @@ CrypTool\index{CrypTool} and in the presentation on the website.
 If anyone sends us a well prepared exact method of solving the problem,
 we would be pleased to include it in the documentation.}:
 
-Two samples of RSA cipher text are presented in Tables~\ref{stinson1}\footnote{The numbers of this table can be worked with via Copy and Paste.} and \ref{stinson2}\footnote{The numbers of this table are in the online-help ``Example illustrating the RSA demonstration'' of CrypTool\index{CrypTool}.}. 
+Two samples of RSA ciphertext are presented in Tables~\ref{stinson1}\footnote{The numbers of this table can be worked with via Copy and Paste.} and \ref{stinson2}\footnote{The numbers of this table are in the online-help ``Example illustrating the RSA demonstration'' of CrypTool\index{CrypTool}.}. 
 Your task is to decrypt them. The public parameters of the system are 
 
 \noindent $n = 18,923$ and $e = 1261$ (for Table~\ref{stinson1}) and \\
@@ -3311,7 +3311,7 @@ Your task is to decrypt them. The public parameters of the system are
 
 This can be accomplished as follows. First, factor $n$ (which is easy
 because it is so small). Then compute the exponent $d$ from $J(n)$, and,
-finally, decrypt the cipher text. Use the square-and-multiply
+finally, decrypt the ciphertext. Use the square-and-multiply
 \index{Square and multiply} algorithm to exponentiate modulo $n$. 
 
 In order to translate the plaintext back into ordinary English text, you
@@ -3366,7 +3366,7 @@ taken from ``Lake Wobegon Days'', by Garrison Keillor, 1985.
  2951   & 722 & 15334   & 841 & 15610  & 2443 & 11056  & 2186 
 \end{tabular} } % tt
 \end{center}
-\caption{RSA cipher text A}
+\caption{RSA ciphertext A}
 \label{stinson1}
 \end{table}
 
@@ -3394,7 +3394,7 @@ taken from ``Lake Wobegon Days'', by Garrison Keillor, 1985.
 25973  & 4477 & 30989                               
 \end{tabular} } % tt
 \end{center}
-\caption{RSA cipher text B}
+\caption{RSA ciphertext B}
 \label{stinson2}
 \end{table}
 
@@ -3404,17 +3404,20 @@ taken from ``Lake Wobegon Days'', by Garrison Keillor, 1985.
 
 The following task is a corrected version from the book written by Prof. Yan 
 \cite[Example 3.3.7, p. 318]{nt:Yan2000}\index{Yan 2000}.
-However, it is not the result that is important here but rather the individual steps of the solution, that is, 
-the explanation of the cryptanalysis\index{Cryptanalysis}\footnote{The method of solving the problem is outlined in the scenario of 
-the online help to CrypTool\index{CrypTool} and in the CrypTool presentation. If anyone sends us a well prepared exact 
-method of solving the problem, we would be pleased to include it in the documentation.}.
+However, it is not the result that is important here but rather the
+individual steps of the solution, that is, the explanation of the
+cryptanalysis\index{Cryptanalysis}\footnote{The method of solving the
+problem is outlined in the scenario of the online help to
+CrypTool\index{CrypTool} and in the CrypTool presentation.
+If anyone sends us a well prepared exact method of solving the problem,
+we would be pleased to include it in the documentation.}.
 
-There are three tasks with completely different degrees of difficulty here. In
-each case we know the cipher text 
+There are three tasks with completely different degrees of difficulty here.
+In each case we know the ciphertext 
 and the public key $(e,n)$:
 \begin{itemize}
 \item[{\bf (a)}] Known plaintext: \index{Attack!known plaintext} find the secret key $d$ using the additionally known original message.
-\item[{\bf (b)}] Cipher text only: \index{Attack!cipher text only} find $d$ and the plaintext.
+\item[{\bf (b)}] Ciphertext-only: \index{Attack!ciphertext-only} find $d$ and the plaintext.
 \item[{\bf (c)}] Calculate the RSA modulus, in other words factorization (with no knowledge of the message). \index{Factorization!factorization problem}
 \end{itemize}
 

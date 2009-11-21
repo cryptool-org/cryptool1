@@ -1496,7 +1496,7 @@ als sicherer erwiesen als Verfahren, die nur auf einem der Prinzipien Transposit
 \index{Sage}
 
 Im Folgenden werden einige der klassischen Verfahren mit dem Open-Source Computer-Algebra-System
-Sage implementiert. Der Code ist lauffähig und getestet mit Sage Version 4.2.
+(CAS) \verb!Sage! implementiert. Der Code ist lauffähig und getestet mit Sage Version 4.2.
 Alle Verfahren sind im Kapitel~\ref{Kapitel_PaperandPencil}
 (\glqq \nameref{Kapitel_PaperandPencil}\grqq) erklärt.
 
@@ -1888,7 +1888,7 @@ Caesar-Chiffre denken: Caesar shiftete das Alphabet immer genau um 3 Positionen.
 Die Shift-Chiffre kann um eine beliebige Anzahl Positonen entlang des
 Alphabets shiften. Shiften ist eine spezielle Form der Substitution.
 
-In den obigen Beispielen wurde das SubstitutionCryptosystem angewandt, und
+In den obigen Beispielen wurde das \verb!SubstitutionCryptosystem! angewandt, und
 Caesar wurde als Sonderfall der Substitution implementiert. Andererseits
 kann man Caesar auch Spezialfall der Shift-Chiffre betrachten.
 
@@ -2068,9 +2068,9 @@ True
 Im folgenden Sage-Programmbeispiel sind die Alphabetzeichen aus dem Binärsystem.
 Eine monoalphabetische Substitution über einem Binäralphabet bietet nur wenig
 Sicherheit: Weil das Klartext-/Geheintext-Alphabet nur aus den 2 Elementen 
-0 and 1 besteht, gibt es nur zwei mögliche Schlüssel: (0 1) and (1 0).
-Anmerkung: In jedem Schlüssel einer Substitutions-Chiffre müssen alle
-Alphabetzeihen genau einmal auftreten.
+0 and 1 besteht, gibt es nur zwei mögliche Schlüssel: (0 1) and (1 0). \\
+Anmerkung: Im Schlüssel einer allgemeinen Substitutions-Chiffre müssen
+alle Alphabetzeichen genau einmal auftreten.
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -2106,6 +2106,8 @@ True
 \caption{Monoalphabetische Substitution über dem Binär-Alphabet}
 \end{sagecode}
 
+Anmerkung: Im Moment hat \verb!S! kein Attribut \verb!key!, und ich fand
+keine Möglichkeit, den Binärstring \verb!DC! wieder in ASCII zurück zu verwandeln.
 
 
 \newpage
@@ -2167,7 +2169,7 @@ Die Vigen{\`e}re-Verschlüsselung ist in der folgenden Sage-Klasse implementiert
 
 \noindent Als Klartext-/Geheimtext-Zeichenraum kann man die lateinischen
 Großbuchstaben, das Binär"-system, das Oktalsystem oder Hexadezimalsystem wählen.
-Hier ist ein Beispiel, das mit der Klasse \verb!AlphabeticStrings! die Großbucgstaben
+Hier ist ein Beispiel, das mit der Klasse \verb!AlphabeticStrings! die Großbuchstaben
 nutzt.
 
 \begin{sagecode}
@@ -2312,8 +2314,7 @@ HILLORMATRIXCIPHERUSESMATRIXOPERATIONS
    American Cryptogram Association, \\
    {\em Length and Standards for all ACA Ciphers}, \\
    2002.\\
-   \href{http://www.cryptogram.org/cdb/aca.info/aca.and.you/chap08.html#}
-   {\texttt{http://www.cryptogram.org/cdb/aca.info/aca.and.you/chap08.html\#}}
+   \url{http://www.cryptogram.org/cdb/aca.info/aca.and.you/chap08.html#}
 
 \bibitem[Bauer1995]{pp:Bauer1995} \index{Bauer 1995}
    Friedrich L. Bauer, \\
@@ -2327,22 +2328,19 @@ HILLORMATRIXCIPHERUSESMATRIXOPERATIONS
    Paul Crowley, \\
    {\em Mirdek: A card cipher inspired by "`Solitaire"'}, \\
    2000.\\
-   \href{http://www.ciphergoth.org/crypto/mirdek/}
-   {\texttt{http://www.ciphergoth.org/crypto/mirdek/}}
+   \url{http://www.ciphergoth.org/crypto/mirdek/}
 
 \bibitem[DA1999]{pp:DA1999} \index{DA 1999}
    Data encryption page des ThinkQuest Team 27158 für ThinkQuest 1999 \\
    (Kein Update seit 1999, keine Suchmöglichkeit), \\
    1999.\\
-   \href{http://library.thinkquest.org/27158/}
-   {\texttt{http://library.thinkquest.org/27158/}}
+   \url{http://library.thinkquest.org/27158/}
 
 \bibitem[Goebel2003]{pp:Goebel2003} \index{Goebel 2003}
    Greg Goebel, \\
    {\em Codes, Ciphers and Codebreaking}, \\
    2003.\\
-   \href{http://www.vectorsite.net/ttcode.htm}
-   {\texttt{http://www.vectorsite.net/ttcode.htm}}
+   \url{http://www.vectorsite.net/ttcode.htm}
 
 \bibitem[Hill1929]{pp:Hill1929} \index{Hill 1929}
    Lester S. Hill,\\
@@ -2359,16 +2357,14 @@ HILLORMATRIXCIPHERUSESMATRIXOPERATIONS
     {\em Classical Cryptography Course, Volume 1 and 2}, \\
     Aegean Park Press 1996; \\
     oder in 12 Lektionen online unter \\
-    \href{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}
-    {\texttt{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}}
+    \url{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}
 
 \bibitem[Savard1999]{pp:Savard1999} \index{Savard 1999}
 	John J. G. Savard, \\
 	{\em A Cryptographic Compendium}, \\
 	1999.\\
-	\href{http://www.hypermaths.org/quadibloc/crypto/jscrypt.htm}
-	{\texttt{http://www.hypermaths.org/quadibloc/crypto/jscrypt.htm}}
-% manchmal schlecht zu erreichen, auch wenn man von seiner Homepage
+	\url{http://www.quadibloc.com/crypto/jscrypt.htm}
+% Seine alte Homepage:
 % http://www.hypermaths.org/quadibloc/main.htm    aus startet.
 % http://www.hypermaths.org/quadibloc/crypto/jscrypt.htm
 	
@@ -2391,8 +2387,7 @@ HILLORMATRIXCIPHERUSESMATRIXOPERATIONS
 	Bruce Schneier, \\
 	{\em The Solitaire Encryption Algorithm}, \\
 	version 1.2, 1999.\\
-	\href{http://www.schneier.com/solitaire.html}
-	{\texttt{http://www.schneier.com/solitaire.html}}
+	\url{http://www.schneier.com/solitaire.html}
 
 \bibitem[Singh2001]{pp:Singh2001} \index{Singh 2001}
 	Simon Singh, \\
@@ -2404,9 +2399,7 @@ HILLORMATRIXCIPHERUSESMATRIXOPERATIONS
 	ThinkQuest Team 27158, \\
 	{\em Data Encryption}, \\
 	1999.\\
-	\href{http://library.thinkquest.org/27158/}
-	{\texttt{http://library.thinkquest.org/27158/} }
-
+	\url{http://library.thinkquest.org/27158/}
 	
 %xxxxxxxxxxx
 %\bibitem[x]{pp:x}  \index{x}
@@ -2414,7 +2407,6 @@ HILLORMATRIXCIPHERUSESMATRIXOPERATIONS
 %        {\em x}, 
 %       x x.
 %xxxxxxxxxxx
-
 % ddddddddddddddddddddddddddddddddddddddddx
 
 \end{thebibliography}

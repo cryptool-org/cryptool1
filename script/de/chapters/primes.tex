@@ -1185,10 +1185,13 @@ keine brauchbare Primzahlformel ist.
 \begin{remark}{:}\\
 Das Besondere an diesen Zahlen ist, dass sie jeweils paarweise
 keinen gemeinsamen Teiler außer $1$ haben\footnote{%
-Dies kann leicht mit Hilfe der {\em größte gemeinsame Teiler} ($ggT$)-Rechenregel $ggT(a,b) = ggT(b-\lfloor b/a\rfloor,a)$ (siehe Seite \pageref{NumberTheory_Appendix_A})  %KORR_NumberTheory_Appendix_A mk56
-gezeigt werden: Es gilt für $i<j$: \\
+Dies kann leicht gezeigt werden mit Hilfe der Rechenregel für den
+{\em größten gemeinsamen Teiler ggT} \\
+mit $ggT(a,b) = ggT(b-\lfloor b/a\rfloor \cdot a, a)$.\\ 
+Es gilt für $i<j$: \\
 $ggT(e_i,e_j) \le ggT(e_1 \cdots e_i \cdots e_{j-1}, e_j) = ggT(e_j - e_1 \cdots e_i \cdots e_{j-1}, e_1 \cdots e_i \cdots e_{j-1}) 
-= ggT(1, e_1 \cdots e_i \cdots e_{j-1}) = 1$.
+= ggT(1, e_1 \cdots e_i \cdots e_{j-1}) = 1$.\\
+Siehe Seite \pageref{nt:NumberTheory_Appendix_GCD}.  %KORR_NumberTheory_Appendix_A mk56_ok_now
 }, sie sind also%
 \index{Primzahl!relative}\index{relativ prim} {\em relativ zueinander prim}.
 \end{remark}
@@ -1762,21 +1765,17 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
      Jede gerade natür"-liche Zahl größer $2$ lässt sich als die Summe
      zweier Primzahlen darstellen.
      Mit Computern ist die \textbf{Goldbachsche Vermutung} für alle geraden Zahlen
-     bis $4*10^{14}$ verifiziert\footnote{%
+     bis $15*10^{17}$ (Stand Juli 2009) verifiziert\footnote{%
      Dass die Goldbachsche Vermutung wahr ist, d.h. für alle geraden 
      natürlichen Zahlen größer als $2$ gilt, wird heute allgemein nicht 
      mehr angezweifelt. Der Mathematiker Jörg Richstein\index{Richstein 1999}
      vom Institut für Informatik der Universität Gießen hat 1999 die geraden
-     Zahlen bis 400 Billionen untersucht und kein Gegenbeispiel gefunden.
-     Inzwischen wurden noch umfangreichere Überprüngen vorgenommem:
-     (siehe 
-     \href{http://www.mscs.dal.ca/\~{}joerg/res/g-de.html}
-      {\tt http://www.mscs.dal.ca/\~{}joerg/res/g-de.html},\\
-     \href{http://de.wikipedia.org/wiki/Goldbachsche\_Vermutung}
-      {\tt http://de.wikipedia.org/wiki/Goldbachsche\_Vermutung},\\
-     \href{http://primes.utm.edu/glossary/page.php/GoldbachConjecture.html}
-      {\tt http://primes.utm.edu/glossary/page.php/GoldbachConjecture.html}
-     ).\\
+     Zahlen bis 400 Billionen ($4*10^{14}$) untersucht (\cite{pr:Richstein1999})
+     und kein Gegenbeispiel gefunden.\\
+     Inzwischen wurden noch umfangreichere Überprüngen bis vorgenommem: Siehe\\ 
+     \url{http://www.ieeta.pt/~tos/goldbach.html},\\
+     \url{http://de.wikipedia.org/wiki/Goldbachsche\_Vermutung},\\
+     \url{http://primes.utm.edu/glossary/page.php/GoldbachConjecture.html}.\\
 % http://www.mscs.dal.ca/\~{}joerg/res/g-en.html
      Trotzdem ist das kein allgemeiner Beweis.\\ 
      Dass die Goldbach'sche Vermutung trotz aller Anstrengungen bis heute 
@@ -1801,9 +1800,7 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
      Um die Verkaufszahlen zu fördern, schrieben die beiden Verlage einen 
      Preis von 1 Million USD aus, wenn jemand die Vermutung beweist -- 
      veröffentlicht in einer angesehenen mathematischen Fachzeitschrift 
-     bis Ende 2004 (siehe 
-     \href{http://www.mscs.dal.ca/~dilcher/Goldbach/index.html}
-          {\tt http://www.mscs.dal.ca/\~{}dilcher/Goldbach/index.html}).\\
+     bis Ende 2004.\\
      Erstaunlicherweise durften nur englische und amerikanische Mathematiker
      daran teilnehmen.\\
      Die Aussage, die der Goldbach-Vermutung bisher am nächsten kommt, wurde
@@ -2420,15 +2417,13 @@ Percentage of primes: 58.3416583417
     Scott Aaronson, \\
     {\em The Prime Facts: From Euclid to AKS}, \\
     % veraltete Seite: http://www.cs.berkeley.edu/~aaronson/prime.ps
-    \href{http://www.scottaaronson.com/writings/prime.pdf}
- {\texttt{http://www.scottaaronson.com/writings/prime.pdf}}. \\
+    \url{http://www.scottaaronson.com/writings/prime.pdf} \\
     Dieses schöne Paper wurde mir erst nach Vollendung dieses Artikels
     bekannt: Es bietet ebenfalls einen einfachen, didaktisch 
     gut aufbereiteten und trotzdem nicht oberflächlichen Einstieg 
     in dieses Thema (ist nur in Englisch verfügbar).
 
-
-%already defined in elementaryNumberTheory.inc -> 2 davor
+% already defined in elementaryNumberTheory.inc -> 2 davor
 \bibitem[Bartholome1996]{pr:2Bartholome1996}  \index{Bartholome 1996}
     A. Bartholom\'e, J. Rung, H. Kern, \\
     {\em Zahlentheorie für Einsteiger}, Vieweg 1995, 2. Auflage 1996.
@@ -2472,8 +2467,7 @@ Percentage of primes: 58.3416583417
     Rolf Oppliger \\
     {\em Contemporary Cryptography},
     Artech House, 2005, \\
-    \href{http://www.esecurity.ch/Books/cryptography.html}
- {\texttt{http://www.esecurity.ch/Books/cryptography.html}}.
+    \url{http://www.esecurity.ch/Books/cryptography.html}.
 
 \bibitem[Padberg1996]{pr:Padberg1996} \index{Padberg 1996}
     F. Padberg, \\
@@ -2515,7 +2509,7 @@ Percentage of primes: 58.3416583417
     Victor Shoup \\
     {\em A Computational Introduction to Number Theory and Algebra},
     Cambridge University Press, 2005, \\
-    \href{http://shoup.net/ntb/}{\texttt{http://shoup.net/ntb/}}.
+    \url{http://shoup.net/ntb/}.
 
 \bibitem[Tietze1973]{pr:Tietze1973} \index{Tietze 1973}
     H. Tietze, \\
@@ -2533,71 +2527,60 @@ Percentage of primes: 58.3416583417
    \item GIMPS (Great Internet Mersenne-Prime Search) 
       \index{Mersenne!Mersenne-Primzahl} \\
          www.mersenne.org ist die Homepage des GIMPS-Projekts, \index{GIMPS} \\
-      \href{http://www.mersenne.org/prime.htm}
-       {\tt http://www.mersenne.org/prime.htm }
+      \url{http://www.mersenne.org/prime.htm}
 
 \item Die Proth Search Page mit dem Windows-Programm von Yves Gallot \\
-      \href{http://www.utm.edu/research/primes/programs/gallot/index.html}
-       {\tt http://www.utm.edu/research/primes/programs/gallot/index.html}
+      \url{http://www.utm.edu/research/primes/programs/gallot/index.html}
 
 \item Verallgemeinerte Fermat-Primzahlen-Suche \\
-      \href{http://primes.utm.edu/top20/page.php?id=12}
-       {\tt http://primes.utm.edu/top20/page.php?id=12}
+      \url{http://primes.utm.edu/top20/page.php?id=12}
 
 \item Verteilte Suche nach Teilern von Fermatzahlen \\
-      \href{http://www.fermatsearch.org/}{\tt http://www.fermatsearch.org/}
+      \url{http://www.fermatsearch.org/}
 
 \item An der Universität von Tennessee findet man umfangreiche 
       Forschungsergebnisse über Primzahlen. \\
-      \href{http://www.utm.edu/}{\tt http://www.utm.edu/ }
+      \url{http://www.utm.edu/}
 
 \item Den besten Überblick zu Primzahlen (weil sehr aktuell und vollständig)
       bieten m.E.  ~\glqq The Prime Pages\grqq~ von Professor Chris Caldwell.
       \index{Caldwell, Chris} \\
-      \href{http://www.utm.edu/research/primes}
-       {\tt http://www.utm.edu/research/primes }
+      \url{http://www.utm.edu/research/primes}
 
 \item Beschreibungen u.a. zu Primzahltests \\
-      \href{http://www.utm.edu/research/primes/mersenne.shtml}
-           {\texttt{http://www.utm.edu/research/primes/mersenne.shtml}} \\
-      \href{http://www.utm.edu/research/primes/prove/index.html}
-           {\texttt{http://www.utm.edu/research/primes/prove/index.html}} 
+      \url{http://www.utm.edu/research/primes/mersenne.shtml} \\
+      \url{http://www.utm.edu/research/primes/prove/index.html}
 
 \item Ausgabe der $n$-ten Primzahl \\
-      \href{http://www.utm.edu/research/primes/notes/by_year.html}
-      {\tt http://www.utm.edu/research/primes/notes/by\_year.html }
+      \url{http://www.utm.edu/research/primes/notes/by_year.html}
 
 \item Der Supercomputerhersteller SGI Cray Research beschäftigte nicht
       nur hervorragende Mathematiker, sondern benutzte die Primzahltests
       auch als Benchmarks für seine Maschinen. \\
-      \href{http://www.isthe.com/chongo/tech/math/prime/prime_press.html}
-       {\tt http://www.isthe.com/chongo/tech/math/prime/prime\_press.html }
+      \url{http://www.isthe.com/chongo/tech/math/prime/prime_press.html}
 
 \item Das Cunningham-Projekt, \index{Cunningham-Projekt}\\ 
-      \href{http://www.cerias.purdue.edu/homes/ssw/cun/}
-      {\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/}}
+      \url{http://www.cerias.purdue.edu/homes/ssw/cun/}
 
-\item \href{http://www.eff.org/coop-awards/prime-release1.html}
-       {\tt http://www.eff.org/coop-awards/prime-release1.html }
+\item \url{http://www.eff.org/awards/coop}
 
+% \item \url{http://www.informatik.tu-darmstadt.de/TI/LiDIA/}
 
-\item \href{http://www.informatik.tu-darmstadt.de/TI/LiDIA/}
-              {\tt http://www.informatik.tu-darmstadt.de/TI/LiDIA/ }
+\item \url{http://www.math.Princeton.EDU/~arbooker/nthprime.html}
 
+\item \url{http://www.cerias.purdue.edu/homes/ssw/cun}
 
-\item \href{http://www.math.Princeton.EDU/~arbooker/nthprime.html}{\tt
-http://www.math.Princeton.EDU/\~{}arbooker/nthprime.html }
+\item Goldbach conjecture verification project von Tomás Oliveira e Silva,
+      \index{Goldbach-Projekt}\\ 
+      \url{http://www.ieeta.pt/~tos/goldbach.html}
 
-\item \href{http://www.cerias.purdue.edu/homes/ssw/cun}{\tt
-http://www.cerias.purdue.edu/homes/ssw/cun }
+\item \url{http://www.mathematik.ch/mathematiker/goedel.html}
 
-\item \href{http://www.informatik.uni-giessen.de/staff/richstein/de/Goldbach.html}{\tt http://www.informatik.uni-giessen.de/staff/richstein/de/Goldbach.html}
+% Info: http://www.mathematik.ch/mathematiker/Goldbachsche_Vermutung.php
+% tot: \item \url{http://www.informatik.uni-giessen.de/staff/richstein/de/Goldbach.html}
+% tot  \item \url{http://www.mscs.dal.ca/~dilcher/golbach/index.html}
+% tot        \url{http://www.mscs.dal.ca/~joerg/res/g-en.html}
 
-\item \href{http://www.mathematik.ch/mathematiker/goedel.html}
-       {\tt http://www.mathematik.ch/mathematiker/goedel.html}
-
-\item \href{http://www.mscs.dal.ca/~dilcher/golbach/index.html}
-       {\tt http://www.mscs.dal.ca/\~{}dilcher/goldbach/index.html}
 
 \end{enumerate}
 

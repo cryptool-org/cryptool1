@@ -1119,10 +1119,12 @@ particularly useful.
 \begin{remark}{:}\\
 However, what is special about these numbers is that any pair of 
 them does not have a common factor other than $1$\footnote{%
-This can easily be shown via the following {\em greatest common divisor} ($gcd$) rule $gcd(a,b) = gcd(b-\lfloor b/a \rfloor,a)$ (see page \pageref{NumberTheory_Appendix_GCD}):
+This can easily be shown via the following rule for the {\em greatest common divisor gcd}\\
+with $gcd(a,b) = gcd(b-\lfloor b/a \rfloor \cdot a, a)$.\\
 We have for $i<j$: \\
 $gcd(e_i,e_j) \le gcd(e_1 \cdots e_i \cdots e_{j-1}, e_j) = gcd(e_j - e_1 \cdots e_i \cdots e_{j-1}, e_1 \cdots e_i \cdots e_{j-1}) 
-= gcd(1, e_1 \cdots e_i \cdots e_{j-1}) = 1$.
+= gcd(1, e_1 \cdots e_i \cdots e_{j-1}) = 1$.\\
+See page \pageref{nt:NumberTheory_Appendix_GCD}.
 }. Therefore they are \index{Prime number!relative prime}\index{Relatively prime}
 {\em relatively prime}.
 \end{remark}
@@ -1690,15 +1692,12 @@ questions about primes, but also some quaint things and overviews.
      i.~e.\ valid for all even natural numbers greater than $2$.
      In 1999, mathematician J\"org Richstein\index{Richstein 1999}
      from the computer sciences institute at the University of Giessen,
-     studied even numbers up to 400 billion and found no contradictory example
-     (see
-     \href{http://www.mscs.dal.ca/\~{}joerg/res/g-en.html}
-      {\tt http://www.mscs.dal.ca/\~{}joerg/res/g-en.html},\\
-     \href{http://en.wikipedia.org/wiki/Goldbach's\_conjecture}
-      {\tt http://en.wikipedia.org/wiki/Goldbach's\_conjecture},\\
-     \href{http://primes.utm.edu/glossary/page.php/GoldbachConjecture.html}
-      {\tt http://primes.utm.edu/glossary/page.php/GoldbachConjecture.html}
-     ).\\      
+     studied even numbers up to 400 billion ($4*10^{14}$) and found no
+     contradictory example (\cite{pr:Richstein1999}).\\
+     In the meantime further progress was made: see\\
+     \url{http://www.ieeta.pt/~tos/goldbach.html},\\
+     \url{http://en.wikipedia.org/wiki/Goldbach's\_conjecture},\\
+     \url{http://primes.utm.edu/glossary/page.php/GoldbachConjecture.html}.\\      
      Nevertheless, this does not provide us with general proof.\\
      The fact is that despite all efforts, Goldbach's conjecture has to 
      date not been proven. This leads one to believe that since the pioneer
@@ -1710,7 +1709,8 @@ questions about primes, but also some quaint things and overviews.
      will never be found. Conversely, that will presumably also remain 
      unproven.}
      the Goldbach conjecture for all even numbers up to
-     $4*10^{14}$ but no general proof has yet been found\footnote{%
+     $15*10^{17}$ (as at July 2009) but no general proof has yet been
+     found\footnote{%
      The English publisher {\em Faber} and the American publisher 
      {\em Bloomsbury} issued in 2000 the 1992 published book 
      ``Uncle Petros and Goldbach's Conjecture'' by Apostolos Doxiadis.
@@ -2323,15 +2323,13 @@ Percentage of primes: 58.3416583417
 \bibitem[Aaronson2003]{pr:Aaronson2003} \index{Aaronson 2003}
     Scott Aaronson, \\
     {\em The Prime Facts: From Euclid to AKS}, \\
-    \href{http://www.scottaaronson.com/writings/prime.pdf}
- {\texttt{http://www.scottaaronson.com/writings/prime.pdf}}. \\
+    \url{http://www.scottaaronson.com/writings/prime.pdf} \\
     After I had completed this article, I did come across the 
     fine paper by Scott Aaronson, which also offers
     a didactically very well-done introduction to this topic. It is 
     humorous and easy to read but at the same time precise and erudite.
 
-
-%already defined in elementaryNumberTheory.inc -> 2 davor
+% already defined in elementaryNumberTheory.inc -> 2 davor
 \bibitem[Bartholome1996]{pr:2Bartholome1996}  \index{Bartholome 1996}
     A. Bartholom\'e, J. Rung, H. Kern, \\     
     {\em Zahlentheorie f\"ur Einsteiger}, Vieweg 1995, 2nd edition 1996.
@@ -2375,8 +2373,7 @@ Percentage of primes: 58.3416583417
     Rolf Oppliger \\
     {\em Contemporary Cryptography},
     Artech House, 2005, \\
-    \href{http://www.esecurity.ch/Books/cryptography.html}
- {\texttt{http://www.esecurity.ch/Books/cryptography.html}}.
+    \url{http://www.esecurity.ch/Books/cryptography.html}.
 
 \bibitem[Padberg1996]{pr:Padberg1996} \index{Padberg 1996}     
    F. Padberg, \\
@@ -2417,7 +2414,7 @@ Percentage of primes: 58.3416583417
     Victor Shoup \\
     {\em A Computational Introduction to Number Theory and Algebra},\\
     Cambridge University Press, 2005, \\
-    \href{http://shoup.net/ntb/}{\texttt{http://shoup.net/ntb/}}.
+    \url{http://shoup.net/ntb/}.
 
 \bibitem[Tietze1973]{pr:Tietze1973} \index{Tietze 1973}     
     H. Tietze, \\
@@ -2435,66 +2432,55 @@ Percentage of primes: 58.3416583417
 \item GIMPS (Great Internet Mersenne-Prime Search) 
       \index{Mersenne!prime number}  \index{GIMPS} \\
       www.mersenne.org is the home page of the GIMPS project, \\
-      \href{http://www.mersenne.org/prime.htm}
-       {\tt http://www.mersenne.org/prime.htm }
+      \url{http://www.mersenne.org/prime.htm}
 
 \item The Proth Search Page with the Windows program by Yves Gallot \\
-      \href{http://www.utm.edu/research/primes/programs/gallot/index.html}
-       {\tt http://www.utm.edu/research/primes/programs/gallot/index.html}
+      \url{http://www.utm.edu/research/primes/programs/gallot/index.html}
 
 \item Generalized Fermat Prime Search \\
-      \href{http://primes.utm.edu/top20/page.php?id=12}
-       {\tt http://primes.utm.edu/top20/page.php?id=12}
+      \url{http://primes.utm.edu/top20/page.php?id=12}
 
 \item Distributed Search for Fermat Number Divisors \\
-      \href{http://www.fermatsearch.org/}{\tt http://www.fermatsearch.org/}
+      \url{http://www.fermatsearch.org/}
 
 \item At the University of Tennessee you will find extensive research
       results about prime numbers. \\
-      \href{http://www.utm.edu/}{\tt http://www.utm.edu/ }
+      \url{http://www.utm.edu/}
 
 \item The best overview about prime numbers is offered from my point of view 
       by ~``The Prime Pages'' from professor Chris Caldwell.
       \index{Caldwell Chris} \\
-      \href{http://www.utm.edu/research/primes}
-       {\tt http://www.utm.edu/research/primes }
+      \url{http://www.utm.edu/research/primes}
 
 \item Descriptions e.g. about prime number tests \\
-      \href{http://www.utm.edu/research/primes/mersenne.shtml}
-           {\texttt{http://www.utm.edu/research/primes/mersenne.shtml}} \\
-      \href{http://www.utm.edu/research/primes/prove/index.html}
-           {\texttt{http://www.utm.edu/research/primes/prove/index.html}} 
+      \url{http://www.utm.edu/research/primes/mersenne.shtml} \\
+      \url{http://www.utm.edu/research/primes/prove/index.html}
 
 \item Showing the $n$-th prime number \\
-      \href{http://www.utm.edu/research/primes/notes/by_year.html}
-           {\tt http://www.utm.edu/research/primes/notes/by\_year.html }
+      \url{http://www.utm.edu/research/primes/notes/by_year.html}
 
 \item The supercomputer manufacturer SGI Cray Research not only 
       employed brilliant mathematicians but also used the prime 
       number tests as benchmarks for its machines. \\
-      \href{http://www.isthe.com/chongo/tech/math/prime/prime_press.html}
-       {\tt http://www.isthe.com/chongo/tech/math/prime/prime\_press.html }
+      \url{http://www.isthe.com/chongo/tech/math/prime/prime_press.html}
 	 
 \item The Cunningham Project, \index{Cunningham project}\\ 
-      \href{http://www.cerias.purdue.edu/homes/ssw/cun/}
-      {\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/}}
+      \url{http://www.cerias.purdue.edu/homes/ssw/cun/}
 
-\item \href{http://www.eff.org/coop-awards/prime-release1.html}{\tt
-http://www.eff.org/coop-awards/prime-release1.html }
+\item \url{http://www.eff.org/awards/coop}
 
-%   \item \href{http://www.informatik.tu-darmstadt.de/TI/LiDIA/}{\tt http://www.informatik.tu-darmstadt.de/TI/LiDIA/ }
+% \item \url{http://www.informatik.tu-darmstadt.de/TI/LiDIA/}
 
-\item \href{http://www.math.Princeton.EDU/~arbooker/nthprime.html}{\tt
-http://www.math.Princeton.EDU/\~{}arbooker/nthprime.html }
+\item \url{http://www.math.Princeton.EDU/~arbooker/nthprime.html}
+% {\tt http://www.math.Princeton.EDU/\~{}arbooker/nthprime.html }
 
-\item \href{http://www.cerias.purdue.edu/homes/ssw/cun}{\tt
-http://www.cerias.purdue.edu/homes/ssw/cun }
+\item \url{http://www.cerias.purdue.edu/homes/ssw/cun}
 
-\item \href{http://www.informatik.uni-giessen.de/staff/richstein/de/Goldbach.html}{\tt http://www.informatik.uni-giessen.de/staff/richstein/de/Goldbach.html}
+\item Goldbach conjecture verification project von Tomás Oliveira e Silva,
+      \index{Goldbach project}\\ 
+      \url{http://www.ieeta.pt/~tos/goldbach.html}
 
-\item \href{http://www.mathematik.ch/mathematiker/goedel.html}{\tt http://www.mathematik.ch/mathematiker/goedel.html}
-
-\item \href{http://www.mscs.dal.ca/~dilcher/golbach/index.html}{\tt http://www.mscs.dal.ca/\~{}dilcher/goldbach/index.html}
+\item \url{http://www.mathematik.ch/mathematiker/goedel.html}
 
 \end{enumerate}
 

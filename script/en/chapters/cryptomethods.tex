@@ -3,7 +3,7 @@
 %                V E R S C H L U E S S E L U N G S V E R F A H R E N
 %
 % Schreibregelung / Syntax rules English:
-%         - Capitel header with all nouns/verbs-words capitalized,
+%         - Chapter header with all nouns/verbs-words capitalized.
 %         - All other headers in the normal lower/upper case manner
 %           like sentences, but without dot at the end.
 %
@@ -13,7 +13,7 @@
 \chapter{Encryption Procedures}
 \label{Label_Kapitel_1}
 (Bernhard Esslinger, Joerg-Cornelius Schneider, May 1999; Updates Dec. 2001, Feb. 2003,
-June 2005, July 2007, August 2009)
+June 2005, July 2007, November 2009)
 
 \begin{center}
 \fbox{\parbox{15cm}{%
@@ -153,12 +153,13 @@ this attack is that until now nobody has worked out, under what conditions it is
 successful: the authors specify in their paper necessary conditions, but it is
 not known, which conditions are sufficient.  There are two very new aspects of
 this attack: firstly this attack is not based on statistics but on algebra. So
-attacks seem to be possible, where only very small amounts of cipher text are
+attacks seem to be possible, where only very small amounts of ciphertext are
 available. Secondly the security of a product algorithm\index{Cascade cipher}%
 \footnote{%
-A cipher text can be used as input for another encryption algorithm. 
+A ciphertext can be used as input for another encryption algorithm. 
 A cascade cipher is build up as a composition of different encryption 
-transformations. The overall cipher is called product algorithm or cascade cipher (sometimes depending whether the used keys are statistically dependent or not).\\
+transformations. The overall cipher is called product algorithm or cascade cipher
+(sometimes depending whether the used keys are statistically dependent or not).\\
 Cascading does not always improve the security.\\
 This process is also used {\em within} modern algorithms:
 They usually combine simple and, considered at its own, cryptologically
@@ -208,7 +209,7 @@ practical, for AES-128 the authors do not provide an attack.
 
 The current status of brute-force attacks on symmetric encryption algorithms can be explained with the block cipher RC5.
 
-Brute-force (exhaustive search, trial-and-error) means to completely examine all keys of the key space: so no special analysis methods have to be used. Instead, the cipher text is decrypted with all possible keys and for each resulting text it is checked, whether this is a meaningful clear text. A key length of 64 bit means at most $2^{64}$ = 18,446,744,073,709,551,616 or about 18 trillion (GB) / 18 quintillion (US)  keys to check\index{CrypTool}%
+Brute-force (exhaustive search, trial-and-error) means to completely examine all keys of the key space: so no special analysis methods have to be used. Instead, the ciphertext is decrypted with all possible keys and for each resulting text it is checked, whether this is a meaningful clear text. A key length of 64 bit means at most $2^{64}$ = 18,446,744,073,709,551,616 or about 18 trillion (GB) / 18 quintillion (US)  keys to check\index{CrypTool}%
 \footnote{%
     With CrypTool\index{CrypTool} you can also try brute-force attacks
     of modern symmetric algorithms (using the menu path
@@ -220,7 +221,7 @@ Brute-force (exhaustive search, trial-and-error) means to completely examine all
 }.
 
 Companies like RSA Security provide so-called cipher challenges in order to quantify the security offered by well-known symmetric ciphers as DES, Triple-DES or RC5\footnote{\href{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}{\tt http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}\\
-In May 2007 RSA announced that they will not confirm the correctness of the not yet solved RC5-72 challenge.}. They offer prizes for those who manage to decipher cipher texts, encrypted with different algorithms and different key lengths, and to unveil the symmetric key (under controlled conditions). So theoretical estimates can be confirmed.
+In May 2007 RSA announced that they will not confirm the correctness of the not yet solved RC5-72 challenge.}. They offer prizes for those who manage to decipher ciphertexts, encrypted with different algorithms and different key lengths, and to unveil the symmetric key (under controlled conditions). So theoretical estimates can be confirmed.
 
 It is well-known, that the ``old'' standard algorithm DES with a fixed key length of 56 bit is no more secure: this was demonstrated already in January 1999 by the Electronic Frontier Foundation (EFF). With their specialized computer Deep Crack they cracked a DES encrypted message within less than a day\footnote{\href{http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}{\tt http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}}.
 
@@ -263,7 +264,7 @@ If Alice\index{Alice}%
       Mallory (malicious active attacker).
   } wants to communicate with Bob, then she finds Bob's public key 
 in the directory and uses it to encrypt her message to him. She then sends
-this cipher text to Bob, who is then able to decrypt it again using his 
+this ciphertext to Bob, who is then able to decrypt it again using his 
 secret key. As only Bob knows his secret key, only he can decrypt 
 messages addressed to him.
 Even Alice who sends the message cannot restore plaintext from the (encrypted)
@@ -444,6 +445,8 @@ symmetric and asymmetric encryption methods.
 \noindent Below is Sage source code related to contents of the
 chapter~\ref{Label_Kapitel_1} (``\nameref{Label_Kapitel_1}''). 
 
+Further details concerning cryptosystems within Sage (e.g. S-DES) can be
+found e.g. in the thesis of Minh Van Nguyen \cite{cm:Nguyen2009}.
 
 % ---------------------------------------------------------------------------
 \subsection{Mini-AES}
@@ -539,8 +542,7 @@ True
         Don Coppersmith, \\
         {\em Re: Impact of Courtois and Pieprzyk results}, \\
         2002-09-19, ``AES Discussion Groups''~ at \\
-        \href{http://aes.nist.gov/aes/}
-        {\texttt{http://aes.nist.gov/aes/}}
+        \url{http://aes.nist.gov/aes/}
 
 \bibitem[Courtois2002]{cm:Courtois2002}  \index{Courtois 2002}
         Nicolas Courtois, Josef Pieprzyk, \\
@@ -549,15 +551,13 @@ True
         received 10 Apr 2002, last revised 9 Nov 2002.\\
         A different version, so called compact version of the first XSL attack,
         was published at Asiacrypt Dec 2002. \\
-        \href{http://eprint.iacr.org/2002/044}
-        {\texttt{http://eprint.iacr.org/2002/044}}
+        \url{http://eprint.iacr.org/2002/044}
 
 \bibitem[Ferguson2001]{cm:Ferguson2001}  \index{Ferguson 2001}
        Niels Ferguson, Richard Schroeppel, Doug Whiting, \\
        {\em A simple algebraic representation of Rijndael}, 
        Draft 2001/05/1, \\
-       \href{http://www.xs4all.nl/~vorpal/pubs/rdalgeq.html}
-       {\texttt{http://www.xs4all.nl/\~{}vorpal/pubs/rdalgeq.html}}
+       \url{http://www.xs4all.nl/~vorpal/pubs/rdalgeq.html}
 
 \bibitem[Hoffman2006]{cm:Hoffman2006} \index{Hoffman 2006} 
        Nick Hoffman, \\
@@ -587,13 +587,19 @@ True
        \url{http://www.rose-hulman.edu/~holden/Preprints/s-aes.pdf}\\
        \url{http://math.scu.edu/~eschaefe/}   Ed Schaefer's Homepage
 
+\bibitem[Nguyen2009]{cm:Nguyen2009} \index{Nguyen 2009} 
+       Minh Van Nguyen, \\
+       {\em Exploring Cryptography Using the Sage Computer Algebra System}, \\
+       Victoria University, 2009, \\
+       See Sage publications page
+       \url{http://www.sagemath.org/library-publications.html}
+
 \bibitem[Nichols1996]{cm:Nichols1996} \index{Nichols 1996} 
        Randall K. Nichols, \\
        {\em Classical Cryptography Course, Volume 1 and 2}, \\
        Aegean Park Press 1996;
        or in 12 lessons online at \\
-       \href{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}
-       {\texttt{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}}
+       \url{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}
 
 \bibitem[Phan2002]{cm:Phan2002} \index{Phan 2002} 
        Raphael Chung-Wei Phan, \\
@@ -611,15 +617,13 @@ True
        S.P. Murphy, M.J.B. Robshaw, \\
        {\em Essential Algebraic Structure within the AES}, \\
        June 5, 2002, Crypto 2002,  \\
-       \href{http://www.isg.rhul.ac.uk/\~{}mrobshaw/rijndael/rijndael.html}
-       {\texttt{http://www.isg.rhul.ac.uk/~mrobshaw/rijndael/rijndael.html}}
+       \url{http://www.isg.rhul.ac.uk/\~{}mrobshaw/rijndael/rijndael.html}
 
 \bibitem[Robshaw2002b]{cm:Robshaw2002b}  \index{Robshaw 2002}
        S.P. Murphy, M.J.B. Robshaw, \\
        {\em Comments on the Security of the AES and the XSL Technique}, \\
        September 26, 2002, \\
-       \href{http://www.isg.rhul.ac.uk/\~{}mrobshaw/rijndael/rijndael.html}
-       {\texttt{http://www.isg.rhul.ac.uk/~mrobshaw/rijndael/rijndael.html}}
+       \url{http://www.isg.rhul.ac.uk/\~{}mrobshaw/rijndael/rijndael.html}
 
 \bibitem[Schaefer1996]{cm:Schaefer1996} \index{Schaefer 1996} 
        Edward F. Schaefer, \\
@@ -649,8 +653,7 @@ True
        Mark Stamp, Richard M. Low, \\
        {\em Applied Cryptanalysis: Breaking Ciphers in the Real World}, \\
        Wiley-IEEE Press 2007, \\
-       \href{http://cs.sjsu.edu/faculty/stamp/crypto/}
-       {\texttt{http://cs.sjsu.edu/faculty/stamp/crypto/}}
+       \url{http://cs.sjsu.edu/faculty/stamp/crypto/}
 
 \bibitem[Swenson2008]{cm:Swenson2008} \index{Swenson 2008} 
        Christopher Swenson, \\
@@ -675,29 +678,23 @@ True
 \begin{enumerate}
 
 \item AES or Rijndael cryptosystem \\
-        \href{http://www.cryptosystem.net/aes}
-         {\tt http://www.cryptosystem.net/aes} \\
-	\href{http://www.minrank.org/aes/}
-         {\tt http://www.minrank.org/aes/}
+        \url{http://www.cryptosystem.net/aes} \\
+	\url{http://www.minrank.org/aes/}
 
   \item AES discussion groups at NIST \\
-	\href{http://aes.nist.gov/aes}{\tt http://aes.nist.gov/aes}
+	\url{http://aes.nist.gov/aes}
 
   \item distributed.net: ``RC5-64 has been solved'' \\
-        \href{http://distributed.net/pressroom/news-20020926.html}
-         {\tt http://distributed.net/pressroom/news-20020926.html}
+        \url{http://distributed.net/pressroom/news-20020926.html}
 
   \item RSA: ``The RSA Secret Key Challenge'' \\
-      \href{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}
-       {\tt http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}
+      \url{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}
 
   \item RSA: ``DES Challenge'' \\
-        \href{http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}
-         {\tt http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}
+        \url{http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}
 
   \item Further links can be found at the CrypTool homepage \\
-        \href{http://www.cryptool.org}
-         {\tt http://www.cryptool.org}
+        \url{http://www.cryptool.org}
 	       
 \end{enumerate}
 

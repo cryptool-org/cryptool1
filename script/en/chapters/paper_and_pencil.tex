@@ -1380,7 +1380,7 @@ previous mentioned methods.
 \index{Sage}
 
 In the following section some classic ciphers are implemented using the open source computer
-algebra system Sage. The code was tested with Sage version 4.2.
+algebra system (CAS) \verb!Sage!. The code was tested with Sage version 4.2.
 All ciphers are explained in chapter~\ref{Kapitel_PaperandPencil}
 (``\nameref{Kapitel_PaperandPencil}'').
 
@@ -1767,8 +1767,8 @@ cipher. While the Caesar cipher restricts us to shift exactly three
 positions along an alphabet, the shift cipher allows us to shift any
 number of positions along the alphabet.
 
-In the above samples we applied the SubstitutionCryptosystem and build
-Caesar as a special kind of substitution. In contrast here
+In the above samples we applied the \verb!SubstitutionCryptosystem!
+and build Caesar as a special kind of substitution. In contrast here
 Caesar can be build as a special kind of the shift cipher.
 
 The shift cipher is implemented directly in the Sage class
@@ -1949,8 +1949,9 @@ True
 In the following Sage example the symbols are from the binary number
 system. A monoalphabetic substitution cipher with a binary alphabet has very little
 security: Because the plaintext/ciphertext alphabet has only the two elements
-0 and 1, there are only two keys possible: (0 1) and (1 0). Remark: In each key of a
-substitution cipher all symbols of the alphabet have to appear once.
+0 and 1, there are only two keys possible: (0 1) and (1 0). \\
+Remark: The key of a general substitution cipher contains all symbols
+of the alphabet exactly once.
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -1985,6 +1986,9 @@ True
 \end{Verbatim}
 \caption{Monoalphabetic substitution with a binary alphabet}
 \end{sagecode}
+
+Remark: Currently \verb!S! has no attribute \verb!key!, and I found no way
+to transform the binary sequence \verb!DC! back to ASCII.
 
 
 
@@ -2190,8 +2194,7 @@ HILLORMATRIXCIPHERUSESMATRIXOPERATIONS
    American Cryptogram Association, \\
    {\em Length and Standards for all ACA Ciphers}, \\
    2002.\\
-   \href{http://www.cryptogram.org/cdb/aca.info/aca.and.you/chap08.html#}
-   {\texttt{http://www.cryptogram.org/cdb/aca.info/aca.and.you/chap08.html\#}}
+   \url{http://www.cryptogram.org/cdb/aca.info/aca.and.you/chap08.html#}
 
 \bibitem[Bauer1995]{pp:Bauer1995} \index{Bauer 1995}
     Friedrich L. Bauer, \\
@@ -2205,22 +2208,19 @@ HILLORMATRIXCIPHERUSESMATRIXOPERATIONS
    Paul Crowley, \\
    {\em Mirdek: A card cipher inspired by ``Solitaire''}, \\
    2000.\\
-   \href{http://www.ciphergoth.org/crypto/mirdek/}
-   {\texttt{http://www.ciphergoth.org/crypto/mirdek/}}
+   \url{http://www.ciphergoth.org/crypto/mirdek/}
 
 \bibitem[DA1999]{pp:DA1999} \index{DA 1999}
    Data encryption page of the ThinkQuest Team 27158 for ThinkQuest 1999 \\
    (no update since 1999, no search possibility), \\
    1999.\\
-   \href{http://library.thinkquest.org/27158/}
-   {\texttt{http://library.thinkquest.org/27158/}}
+   \url{http://library.thinkquest.org/27158/}
 
 \bibitem[Goebel2003]{pp:Goebel2003} \index{Goebel 2003}
    Greg Goebel, \\
    {\em Codes, Ciphers and Codebreaking}, \\
    2003.\\
-   \href{http://www.vectorsite.net/ttcode.htm}
-   {\texttt{http://www.vectorsite.net/ttcode.htm}}
+   \url{http://www.vectorsite.net/ttcode.htm}
 
 \bibitem[Hill1929]{pp:Hill1929} \index{Hill 1929}
    Lester S. Hill,\\
@@ -2237,16 +2237,14 @@ HILLORMATRIXCIPHERUSESMATRIXOPERATIONS
     {\em Classical Cryptography Course, Volume 1 and 2}, \\
     Aegean Park Press 1996;
     or in 12 lessons online at \\
-    \href{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}
-    {\texttt{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}}
+    \url{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}
 
 \bibitem[Savard1999]{pp:Savard1999} \index{Savard 1999}
 	John J. G. Savard, \\
 	{\em A Cryptographic Compendium}, \\
 	1999.\\
-	\href{http://www.hypermaths.org/quadibloc/crypto/jscrypt.htm}
-	{\texttt{http://www.hypermaths.org/quadibloc/crypto/jscrypt.htm}}
-	
+	\url{http://www.quadibloc.com/crypto/jscrypt.htm}
+
 \bibitem[Schmeh2004]{pp:Schmeh2004}  \index{Schmeh 2004}
         Klaus Schmeh, \\
         {\em Die Welt der geheimen Zeichen. Die faszinierende Geschichte
@@ -2266,8 +2264,7 @@ HILLORMATRIXCIPHERUSESMATRIXOPERATIONS
 	Bruce Schneier, \\
 	{\em The Solitaire Encryption Algorithm}, \\
 	version 1.2, 1999.\\
-	\href{http://www.schneier.com/solitaire.html}
-	{\texttt{http://www.schneier.com/solitaire.html}}
+	\url{http://www.schneier.com/solitaire.html}
 
 \bibitem[Singh2001]{pp:Singh2001} \index{Singh 2001}
 	Simon Singh, \\
@@ -2279,8 +2276,7 @@ HILLORMATRIXCIPHERUSESMATRIXOPERATIONS
 	ThinkQuest Team 27158, \\
 	{\em Data Encryption}, \\
 	1999.\\
-	\href{http://library.thinkquest.org/27158/}
-	{\texttt{http://library.thinkquest.org/27158/} }
+	\url{http://library.thinkquest.org/27158/}
 
 \end{thebibliography}
 
