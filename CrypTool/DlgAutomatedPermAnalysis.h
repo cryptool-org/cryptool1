@@ -101,6 +101,7 @@ public:
 	afx_msg void OnBnClickedLoadActiveDocument();
 	CButton m_ctrl_LoadActiveDocument;
 	afx_msg void OnBnClickedClose();
+	CButton m_ctrlTextOptions;
 };
 
 

@@ -15245,18 +15245,19 @@ END
 
 IDD_GENERATE_SAVE_PRIME DIALOGEX 0, 0, 379, 147
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Sichere Primzahl Erzeugen"
+CAPTION "Sichere Primzahl erzeugen"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Primzahl übernehmen",IDOK,113,118,87,22
     PUSHBUTTON      "Abbrechen",IDCANCEL,322,118,50,22
-    PUSHBUTTON      "Primzahl generieren",IDC_BUTTON1,7,118,87,22
-    LTEXT           "Für die Diffie-Hellman-Schlüss",IDC_STATIC,7,7,365,30
-    GROUPBOX        "Primzahl erzeugen",IDC_STATIC,7,48,365,62
+    PUSHBUTTON      "Primzahl erzeugen",IDC_BUTTON1,7,118,87,22
+    LTEXT           "Dieser Dialog erzeugt sichere Primzahlen. Dazu werden so lange Primzahlen q gesucht, bis die Zahl p = 2q+1 ebenfalls eine Primzahl ist. Bitte beachte, das die Bestimmung sicherer Primzahlen in der Regel sehr viel länger",IDC_STATIC,7,3,358,18
+    GROUPBOX        "Sichere Primzahl",IDC_STATIC,7,48,365,62
     EDITTEXT        IDC_EDIT1,50,66,34,12,ES_AUTOHSCROLL | ES_NUMBER
     EDITTEXT        IDC_EDIT2,50,88,315,12,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Bitlänge",IDC_STATIC,14,67,29,8
     LTEXT           "Primzahl",IDC_STATIC,14,90,29,8
+    LTEXT           "dauert, wie die Bestimmung von Primzahlen ohne diese Eigenschaft.\nSichere Primzahlen spielen eine wichtige Rolle für kryptographische Verfahren, die auf das Diskrete Logarithmus Problem - wie das Diffie-Hellman-Verfahren - basieren.",IDC_STATIC,7,19,358,24
 END
 
 
@@ -26053,18 +26054,18 @@ END
 
 IDD_GENERATE_SAVE_PRIME DIALOGEX 0, 0, 379, 147
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Sichere Primzahl Erzeugen"
+CAPTION "Generate a safe prime"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Primzahl übernehmen",IDOK,113,118,87,22
-    PUSHBUTTON      "Abbrechen",IDCANCEL,322,118,50,22
-    PUSHBUTTON      "Primzahl generieren",IDC_BUTTON1,7,118,87,22
-    LTEXT           "Für die Diffie-Hellman-Schlüss",IDC_STATIC,7,7,365,30
-    GROUPBOX        "Primzahl erzeugen",IDC_STATIC,7,48,365,62
+    DEFPUSHBUTTON   "Take primzahl",IDOK,113,118,87,22
+    PUSHBUTTON      "Cancel",IDCANCEL,322,118,50,22
+    PUSHBUTTON      "Generate prime",IDC_BUTTON1,7,118,87,22
+    LTEXT           "This dialog generates a safe prime number p. Primes q are selected until p = 2q+1 is also a prime. Please note the time to generate a safe prime is in general significantly longer compared to generate a prime without this property.\nSafe primes are important for discrete log based cryptosystems - like the Diffie-Hellman protocol.",IDC_STATIC,7,3,358,39
+    GROUPBOX        "Generate a prime",IDC_STATIC,7,48,365,62
     EDITTEXT        IDC_EDIT1,50,66,34,12,ES_AUTOHSCROLL | ES_NUMBER
     EDITTEXT        IDC_EDIT2,50,88,315,12,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "Bitlänge",IDC_STATIC,14,67,29,8
-    LTEXT           "Primzahl",IDC_STATIC,14,90,29,8
+    LTEXT           "Bit length",IDC_STATIC,14,67,29,8
+    LTEXT           "Prime",IDC_STATIC,14,90,29,8
 END
 
 

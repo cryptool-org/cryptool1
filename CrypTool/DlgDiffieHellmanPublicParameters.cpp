@@ -99,6 +99,14 @@ void CDlgDiffieHellmanPublicParameters::OnOK()
 	
 	// Keine "leeren" Eingabefelder zulassen
 
+	if ( !b_isSavePrime )
+	{ 
+		ZZ Q, P; 
+		conv(P, (char*)(LPCTSTR)m_Prime);
+		Q = P/2;
+		b_isSavePrime = ProbPrime(Q);
+	}
+
 	int res;
 	if ( res = checkGenerator() )
 	{
@@ -242,6 +250,13 @@ void CDlgDiffieHellmanPublicParameters::OnGenerateGenerator()
 
     S =  (unsigned long)time(NULL); // FIXME weak seed
 	SetSeed(S);
+
+	if ( !b_isSavePrime )
+	{ 
+		ZZ Q;
+		Q = P/2;
+		b_isSavePrime = ProbPrime(Q);
+	}
 
 	if ( b_isSavePrime )
 	{

@@ -882,7 +882,7 @@ void Hill(const char *infile, const char *OldTitle)
 		sprintf(strInfo, " %i ", (hillklasse->firstPosNull) ? 0 : 1);
 		strcat(schluessel, strInfo);
 		strcat(schluessel, HILLSTR_MULTVARIANT);
-		sprintf(strInfo, " %i", (iHillMultiplicationType) ? 0 : 1 );
+		sprintf(strInfo, " %i ", (iHillMultiplicationType) ? 0 : 1 );
 		strcat(schluessel, strInfo);
 	}
 

@@ -108,6 +108,7 @@ void CDlgAutomatedPermAnalysis::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_RANGE_TO, m_editRangeTo);
 	DDX_Control(pDX, IDC_TAB1, m_TC_textspace);
 	DDX_Control(pDX, IDC_BUTTON70, m_ctrl_LoadActiveDocument);
+	DDX_Control(pDX, IDC_BUTTON2, m_ctrlTextOptions);
 }
 
 
@@ -120,8 +121,8 @@ BEGIN_MESSAGE_MAP(CDlgAutomatedPermAnalysis, CDialog)
 	ON_BN_CLICKED(IDC_CHECK14, &CDlgAutomatedPermAnalysis::OnBnClickedPermColByCol)
 	ON_BN_CLICKED(IDC_CHECK12, &CDlgAutomatedPermAnalysis::OnBnClickedOutRowByRow)
 	ON_BN_CLICKED(IDC_CHECK15, &CDlgAutomatedPermAnalysis::OnBnClickedOutColByCol)
-	ON_BN_CLICKED(IDC_RADIO9, &CDlgAutomatedPermAnalysis::OnBnClickedRadioText)
-	ON_BN_CLICKED(IDC_RADIO14, &CDlgAutomatedPermAnalysis::OnBnClickedRadioBinary)
+	ON_BN_CLICKED(IDC_RADIO9, &CDlgAutomatedPermAnalysis::OnBnClickedRadioBinary)
+	ON_BN_CLICKED(IDC_RADIO14, &CDlgAutomatedPermAnalysis::OnBnClickedRadioText)
 	ON_BN_CLICKED(IDC_BUTTON2, &CDlgAutomatedPermAnalysis::OnBnClickedTextOptions)
 	ON_NOTIFY(TCN_SELCHANGE, IDC_TAB1, &CDlgAutomatedPermAnalysis::OnTcnSelchangeTabEditor)
 	ON_BN_CLICKED(IDC_BUTTON70, &CDlgAutomatedPermAnalysis::OnBnClickedLoadActiveDocument)
@@ -203,6 +204,8 @@ BOOL CDlgAutomatedPermAnalysis::OnInitDialog()
 	}
 
 	UpdateData(FALSE);
+
+	m_ctrlTextOptions.EnableWindow((BOOL)m_DataType);
 
 	DWORD dwExStyle= m_TC_textspace.GetExtendedStyle();
 	m_TC_textspace.SetExtendedStyle(dwExStyle | TCS_EX_FLATSEPARATORS);
@@ -433,12 +436,14 @@ void CDlgAutomatedPermAnalysis::OnBnClickedRadioText()
 {
 	UpdateData();
 	setViewOptions();
+	m_ctrlTextOptions.EnableWindow();
 }
 
 void CDlgAutomatedPermAnalysis::OnBnClickedRadioBinary()
 {
 	UpdateData();
 	setViewOptions();
+	m_ctrlTextOptions.EnableWindow(FALSE);
 }
 
 void CDlgAutomatedPermAnalysis::OnBnClickedTextOptions()

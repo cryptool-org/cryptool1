@@ -547,6 +547,7 @@ void CDlgShowKeyHill5x5::OnKopieren()
 	cs += HILLSTR_MULTVARIANT;
 	cs += ' ';
 	cs += char('0' + i_multDirection);
+	cs += " \0";
 
     LoadString(AfxGetInstanceHandle(),IDS_CRYPT_HILL,pc_str,STR_LAENGE_STRING_TABLE);
 	CopyKey(pc_str, cs); 
