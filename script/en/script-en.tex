@@ -24,6 +24,7 @@
 \defaultbibliography{references}
 \defaultbibliographystyle{abbrv}
 \usepackage{float}
+\usepackage{shorttoc}
 \usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black,bookmarksnumbered=true,pdfpagelabels,plainpages=false,hyperfootnotes=false]{hyperref}
 %To reduce the number of hyperlink related 'pdfTeX warning's we use options 
 %pdfpagelabels, plainpages=false and, hyperfootnotes=false and place hyperref after float.
@@ -142,6 +143,9 @@ Version control software: Subversion
 \input{chapters/aboutcryptool.tex}
 
 \newpage
+\pdfbookmark[0]{Contents Overview}{ShortContents}
+\shorttoc{Contents Overview}{0}
+\clearpage\phantomsection
 \pdfbookmark[0]{\contentsname}{Contents}
 \tableofcontents 
 
