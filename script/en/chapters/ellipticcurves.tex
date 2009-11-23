@@ -9,7 +9,7 @@
 \label{Chapter_EllipticCurves}
 \index{Elliptic curves}
 (Filipovics B. / B\"uger M. / Esslinger B. / Oyono R., April 2000,
-Updates: Dec. 2001, June 2002, Mar. 2003, August 2009)
+Updates: Dec. 2001, June 2002, Mar. 2003, November 2009)
 
 \section{Elliptic curve cryptography -- a high-performance substitute for RSA?}
 \index{Performance}
@@ -556,7 +556,13 @@ are therefore highly suitable for parallelization.
 
 
 % -----------------------------------------------------------------------------
-\section{Implementing elliptic curves for educational purposes, pat\-ent aspects}
+\newpage
+% \section{Implementing elliptic curves for educational purposes, pat\-ent aspects}
+\section{Implementing elliptic curves for educational purposes}
+
+There are not many free programms offering ECC under a graphical user interface.
+The following subsections explain which according functionality is available in
+CrypTool and in Sage.
 
 
 % -----------------------------------------------------------------------------
@@ -571,6 +577,7 @@ offers the EC methods ECSP-DSA and ECSP-NR.
 \footnote{%
 Within CrypTool\index{CrypTool} you can find this technique using the menu
 path {\bf Crypt \textbackslash{} Hybrid}.
+
 }.
 
 It implements the basic algorithms for group operations, for generating elliptic
@@ -579,8 +586,7 @@ fields with $p$ elements ($p$ prime). The algorithms have been implemented in
 ANSI C and comply with draft no. 8 of the IEEE P1363 work group {\em Standard
 Specifications for Public Key Cryptography}
 
-{\href{http://grouper.ieee.org/groups/1363}{\tt
-http://grouper.ieee.org/groups/1363}}.
+{\url{http://grouper.ieee.org/groups/1363}}.
 
 The procedure implements the cryptographic primitives for generating and
 verifying signatures for the variations of Nyberg-Rueppel signatures and
@@ -597,47 +603,68 @@ In Sage elliptic curves are described at
 
 \url{http://www.sagemath.org/doc/constructions/elliptic_curves.html}%
 \footnote{%
-Sage samples can be found at:\\
-- the Published Worksheets at \url{http://www.sagenb.org/pub/} like\\
-- Elliptic Curve: \url{http://www.sagenb.org/home/pub/606/} \\
-- Elliptic Curve El Gamal: \url{http://www.sagenb.org/home/pub/104/} \\
-- or at the "Elliptic Curve Cryptography (ECC) Tutorial"\\
+According Sage samples can be found at the "Published Worksheets" at
+\url{http://www.sagenb.org/pub/}\\
+- about Elliptic Curve: \url{http://www.sagenb.org/home/pub/606/} \\
+- about Elliptic Curve El Gamal: \url{http://www.sagenb.org/home/pub/104/}, or at
+
+  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
+  thw "Elliptic Curve Cryptography (ECC) Tutorial"\\
   \url{http://www.williamstein.org/simuw06/notes/notes/node12.html}
+
 }.
 
+\noindent There is an exhaustive, interactive ECC tutorial by Maike Massierer,
+called \hyperlink{ec:Web-Link:Sage_Massierer}{ECC notebook}.
+This interactive introduction to Elliptic Curve Cryptography is built up as
+a Sage notebook.
 
-There is an exhaustive ECC tutorial by Maike Massierer,
-called \hyperlink{ec:Web-Link:Sage_Massierer}{ECC script}.
-This interactive introduction to Elliptic Curve Cryptography is build up as
-a Sage notebook%
+Sage notebooks are running after a logon within a browser%
 \footnote{%
-If you run your own Sage environment, you have to compile
-the package ``kash3-2008-07-31.spkg'' (e.g. with Sage 4.1),
-because the ECC notebook of Mrs. Massierer needs it.
+If you installed Sage on your own (Unix) server, you first have to enter at the
+command line the command \verb#notebook()#.
+},\footnote{%
+The ECC notebook of Mrs. Massierer needs the KASH3 library: Therefore e.g. with Sage 4.1
+the package ``kash3-2008-07-31.spkg'' has to be compiled.
 }.
 
-This notebook\footnote{%
-Starting the Sage notebook in a browser: Enter ``notebook()'' at the Sage command line.\\
-- In your browser you normally first have to login.\\
-- If you click in the above right corner at ``Published'', you will see our 8 worksheets.\\
-You should then generate your own local copy (under Linux in your home area) by clicking
-a worksheet (then click ``Edit a copy'' in the left upper corner).\\
-- Sometimes it's necessary at the beginning to click in the left upper corner
-  \verb#Action -> Evaluate all#.\\
-- Sometimes the window contains many (blue) error messages. This normally can be
-solved by clicking the ``\%hide'' string: Then you get the code behind the
-graphics. Simply generate the graphics again with Shift-Enter.
+The notebook of Massierer\footnote{%
+If you log on at another public server like
+\url{http://sage.mathematik.uni-siegen.de:8000/home/pub/45/} or
+\url{http://www.sagenb.org/}, and if there the according worksheets are installed
+as "Published Worksheets", you can proceed as follows:\\
+- Start the Sage notebook in a browser.
+
+  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
+  Click in the above right corner at ``Published'', then you will see the 8 worksheets.
+
+  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
+  Sometimes it's necessary at the beginning to click in the left upper corner
+  \verb#Action -> Evaluate all#.
+
+  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
+  Sometimes the window contains many (blue) error messages. This normally can be
+  solved by clicking the ``\%hide'' string: Then you get the code behind the
+  graphics. Simply generate the graphics again with Shift-Enter.
+
+  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
+  This tutorial uses the fonts from jsMath. They should be installed into your
+  browser for a better layout.
+  See \url{http://www.math.union.edu/~dpvc/jsMath/}
+  and \url{http://pubpages.unh.edu/~jsh3/jsMath/}.\\
+  After installing these fonts you can see the jsMath symbol at the lower border
+  of your browser. If you click this symbol you can find the download page for the TIFF fonts.
+  We are sorry, that this has to be done at every PC where his notebook runs in a browser.
+
+  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
+  If you want to change one of the worksheets you should generate
+  your own local copy (under Linux in your home area) by clicking
+  ``Edit a copy'' in the left upper corner.
+
 },\footnote{%
   Since 2008 this tutorial can be found at
     \url{http://sage.mathematik.uni-siegen.de:8000/home/pub/45/}.\\
-  - To logon in Siegen you have to allow port 8000 and Cookies.\\
-  - This tutorial uses the fonts from jsMath. They should be installed into your browser
-    for a better layout.
-    See \url{http://www.math.union.edu/~dpvc/jsMath/}
-    and \url{http://pubpages.unh.edu/~jsh3/jsMath/}.\\
-    After installing these fonts you can see the jsMath symbol at the lower border
-    of your browser. If you click this symbol you can find the download page for the TIFF fonts.
-    We are sorry, that this has to be done at every PC where his notebook runs in a browser.
+  To logon in Siegen you have to allow port 8000 and Cookies.\\
 }
 consists of 8 chapters (title page plus 7 chapters)
 % "Titelseite" mit Inhaltsverzeichnis plus 7 Kapitel
@@ -659,7 +686,8 @@ and aims to let even beginners understand what elliptic curves are:
 
 
 % -----------------------------------------------------------------------------
-\subsection{Patent aspects}
+\newpage
+\section{Patent aspects}
 
 If the field $GF(2^n)$ is used instead of the prime field $GF(p)$, one has to make substantial changes in the implementation. The advantage of $GF(2^n)$ lies in the fact that calculations in $GF(2^n)$ can be implemented very efficiently using the binary representation. In particular, divisions are much easier to process compared to $GF(p)$ (this is particularly important in the signature scheme mentioned above where a division is needed for processing a signature as well as for the verification).
 
