@@ -445,6 +445,8 @@ BOOL CDlgShowKeyHill5x5::OnInitDialog()
 			m_pControlAlphFelder[i][j]->SetWindowText(getAlphCode(str));
 		}
 	}
+
+	UpdateData();
 	
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben

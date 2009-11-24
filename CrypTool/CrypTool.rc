@@ -9,6 +9,7 @@
 //
 #include "resource.h"
 #include "afxres.h"
+
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
@@ -2633,29 +2634,6 @@ BEGIN
     LTEXT           "Mo¿esz szczegó³owo zobaczyæ, jak protokó³ dzia³a³ z liczbami, które wprowadzi³eœ.",IDC_STATIC,14,78,232,16
 END
 
-IDD_GENERATEPRIME DIALOGEX 0, 0, 321, 194
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Generowanie liczb pierwszych"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
-BEGIN
-    DEFPUSHBUTTON   "&Stwórz liczbê",IDC_BUTTON_GENERATE,7,166,101,20
-    PUSHBUTTON      "&ZatwierdŸ liczbê",IDC_BUTTON_ACCEPT,129,166,83,20
-    EDITTEXT        IDC_EDIT1,63,97,240,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,63,116,240,12,ES_AUTOHSCROLL
-    CONTROL         "Test Millera-Rabina",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,16,54,69,10
-    CONTROL         "Test Solovaya-Strassa",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,104,54,87,10
-    CONTROL         "Test Fermata",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,208,54,53,10
-    PUSHBUTTON      "&Anuluj",IDC_ENDDIALOG,242,166,72,20
-    EDITTEXT        IDC_EDIT5,63,137,240,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
-    GROUPBOX        "",IDC_STATIC,7,0,307,32
-    LTEXT           "Liczby pierwsze odgrywaj¹ wa¿n¹ rolê w nowoczesnej kryptografii. Stwórz dwie liczby pierwsze p i q w granicach zakresu [granica dolna granica górna].",IDC_STATIC,16,9,289,17
-    GROUPBOX        "Algorytmy generowania liczb pierwszych",IDC_STATIC,7,39,307,33
-    LTEXT           "min:",IDC_STATIC,17,99,40,9
-    LTEXT           "max:",IDC_STATIC,18,118,44,8
-    LTEXT           "rezultat",IDC_STATIC,18,139,37,10
-    GROUPBOX        "Liczba pierwsza p",IDC_STATIC,7,77,307,80
-END
-
 IDD_CHALLENGERESPONSE_DIALOG DIALOGEX 0, 0, 518, 342
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Demo Wyzwanie-OdpowiedŸ"
@@ -4541,7 +4519,7 @@ BEGIN
             MENUITEM "&XOR",                        ID_XOR_BIN, GRAYED
             MENUITEM "V&ernam",                     ID_VERNAM_BIN, GRAYED
             MENUITEM "H&omofony",                   ID_HOMOPHONE_ASC, GRAYED
-            MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION_ASC, GRAYED
+            MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION, GRAYED
             MENUITEM "Soli&taire",                  ID_SYMCLASSIC_SOLITAIRE, GRAYED
         END
         POPUP "Symetryczne"
@@ -4886,7 +4864,7 @@ BEGIN
             MENUITEM "&XOR",                        ID_XOR_BIN
             MENUITEM "V&ernam",                     ID_VERNAM_BIN
             MENUITEM "H&omofony",                   ID_HOMOPHONE_ASC
-            MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION_HEX
+            MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION
             MENUITEM "Soli&taire",                  ID_SYMCLASSIC_SOLITAIRE
         END
         POPUP "Symetryczne"
@@ -5231,7 +5209,7 @@ BEGIN
             MENUITEM "&XOR",                        ID_XOR_BIN, GRAYED
             MENUITEM "V&ernam",                     ID_VERNAM_BIN, GRAYED
             MENUITEM "H&omofony",                   ID_HOMOPHONE_ASC, GRAYED
-            MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION_ASC, GRAYED
+            MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION, GRAYED
             MENUITEM "Soli&taire",                  ID_SYMCLASSIC_SOLITAIRE, GRAYED
         END
         POPUP "Symetryczne"
@@ -5576,7 +5554,7 @@ BEGIN
             MENUITEM "&XOR",                        ID_XOR_BIN
             MENUITEM "V&ernam",                     ID_VERNAM_BIN
             MENUITEM "H&omofony",                   ID_HOMOPHONE_ASC
-            MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION_ASC
+            MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION
             MENUITEM "Soli&taire",                  ID_SYMCLASSIC_SOLITAIRE
         END
         POPUP "Symetryczne"
@@ -5948,7 +5926,7 @@ BEGIN
             MENUITEM "&XOR",                        ID_XOR_BIN, GRAYED
             MENUITEM "V&ernam",                     ID_VERNAM_BIN, GRAYED
             MENUITEM "H&omofony",                   ID_HOMOPHONE_ASC, GRAYED
-            MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION_ASC, GRAYED
+            MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION, GRAYED
             MENUITEM "Soli&taire",                  ID_SYMCLASSIC_SOLITAIRE, GRAYED
         END
         POPUP "Symetryczne"
@@ -7597,17 +7575,6 @@ BEGIN
         BOTTOMMARGIN, 138
     END
 
-    IDD_GENERATEPRIME, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 314
-        VERTGUIDE, 16
-        VERTGUIDE, 303
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 187
-        HORZGUIDE, 64
-    END
-
     IDD_CHALLENGERESPONSE_DIALOG, DIALOG
     BEGIN
         LEFTMARGIN, 7
@@ -9225,7 +9192,7 @@ END
 STRINGTABLE 
 BEGIN
     ID_ZUFALL_GENERATOREN   "Tworzy dane pseudolosowe przy u¿yciu ró¿nych generatorów liczb losowych."
-    ID_PERMUTATION_ASC      "Szyfrowanie przy u¿yciu pojedynczej lub podwójnej pormutacji (pojedyncza lub podwójna transpozycja kolumn)"
+    ID_PERMUTATION      "Szyfrowanie przy u¿yciu pojedynczej lub podwójnej pormutacji (pojedyncza lub podwójna transpozycja kolumn)"
     ID_ANALYSE_ZUFALLSTESTS_AUTOKORRELATION 
                             "Sprawdza jakoœæ losowoœci aktywnego dokumentu testem Autokorelacji."
     ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST 
@@ -13387,23 +13354,6 @@ BEGIN
     LTEXT           "Durch Drücken des Schlüsselsymbols erhalten Sie Details zum Verfahren mit den von Ihnen gewählten Zahlen.",IDC_STATIC,14,78,232,16
 END
 
-IDD_GENERATEPRIME DIALOGEX 0, 0, 321, 146
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Primzahl generieren"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
-BEGIN
-    DEFPUSHBUTTON   "Primzahl &generieren",IDC_BUTTON_GENERATE,7,116,101,20
-    PUSHBUTTON      "&Primzahl übernehmen",IDC_BUTTON_ACCEPT,135,116,95,20
-    PUSHBUTTON      "&Abbrechen",IDC_ENDDIALOG,254,116,59,20
-    GROUPBOX        "",IDC_STATIC,7,0,307,49
-    LTEXT           "Für die Diffie-Hellman-Schlüsselparameter gelten besondere Anforderungen für die Primzahl p.....",IDC_STATIC,15,11,289,34
-    EDITTEXT        IDC_EDIT_BITLENGTH,59,68,35,12,ES_AUTOHSCROLL | ES_NUMBER
-    GROUPBOX        "Primzahl erzeugen",IDC_STATIC,7,54,307,51
-    LTEXT           "Bitlänge",IDC_STATIC,15,70,42,9
-    LTEXT           "Ergebnis",IDC_STATIC,15,87,40,10
-    EDITTEXT        IDC_EDITPRIME,59,85,245,14,ES_AUTOHSCROLL | ES_READONLY
-END
-
 IDD_SIDECHANNELATTACKVISUALIZATION_HE DIALOGEX 0, 0, 650, 385
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION 
@@ -15251,13 +15201,13 @@ BEGIN
     DEFPUSHBUTTON   "Primzahl übernehmen",IDOK,113,118,87,22
     PUSHBUTTON      "Abbrechen",IDCANCEL,322,118,50,22
     PUSHBUTTON      "Primzahl erzeugen",IDC_BUTTON1,7,118,87,22
-    LTEXT           "Dieser Dialog erzeugt sichere Primzahlen. Dazu werden so lange Primzahlen q gesucht, bis die Zahl p = 2q+1 ebenfalls eine Primzahl ist. Bitte beachte, das die Bestimmung sicherer Primzahlen in der Regel sehr viel länger",IDC_STATIC,7,3,358,18
+    LTEXT           "Dieser Dialog erzeugt ""sichere Primzahlen"". Dazu werden so lange Primzahlen q gesucht, bis die Zahl p = 2q+1 ebenfalls eine Primzahl ist. Bitte beachte, das die Bestimmung sicherer Primzahlen in der Regel sehr viel länger",IDC_STATIC,14,3,351,18
     GROUPBOX        "Sichere Primzahl",IDC_STATIC,7,48,365,62
     EDITTEXT        IDC_EDIT1,50,66,34,12,ES_AUTOHSCROLL | ES_NUMBER
     EDITTEXT        IDC_EDIT2,50,88,315,12,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Bitlänge",IDC_STATIC,14,67,29,8
     LTEXT           "Primzahl",IDC_STATIC,14,90,29,8
-    LTEXT           "dauert, wie die Bestimmung von Primzahlen ohne diese Eigenschaft.\nSichere Primzahlen spielen eine wichtige Rolle für kryptographische Verfahren, die auf das Diskrete Logarithmus Problem - wie das Diffie-Hellman-Verfahren - basieren.",IDC_STATIC,7,19,358,24
+    LTEXT           "dauert als die Bestimmung von Primzahlen ohne diese Eigenschaft.\nSichere Primzahlen spielen eine wichtige Rolle für kryptographische Verfahren (z.B. dem Diffie-Hellman- Verfahren), die auf dem Diskreten-Logarithmus-Problem basieren.",IDC_STATIC,14,19,351,24
 END
 
 
@@ -15347,7 +15297,7 @@ BEGIN
             MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN, GRAYED
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
-            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC, GRAYED
+            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION, GRAYED
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
             MENUITEM "Skytale / Gartenzaun...",     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
@@ -15698,7 +15648,7 @@ BEGIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
-            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_HEX
+            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
             MENUITEM "Skytale / Gartenzaun...",     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
@@ -16049,7 +15999,7 @@ BEGIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
-            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
+            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
             MENUITEM "Skytale / Gartenzaun...",     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
@@ -16400,7 +16350,7 @@ BEGIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
-            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
+            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
             MENUITEM "Skytale / Gartenzaun...",     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
@@ -16778,7 +16728,7 @@ BEGIN
             MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN, GRAYED
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
-            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC, GRAYED
+            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION, GRAYED
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
             MENUITEM "Skytale / Gartenzaun...",     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
@@ -18243,18 +18193,6 @@ BEGIN
         RIGHTMARGIN, 253
         TOPMARGIN, 7
         BOTTOMMARGIN, 138
-    END
-
-    IDD_GENERATEPRIME, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 314
-        VERTGUIDE, 15
-        VERTGUIDE, 59
-        VERTGUIDE, 94
-        VERTGUIDE, 304
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 136
     END
 
     IDD_SIDECHANNELATTACKVISUALIZATION_HE, DIALOG
@@ -19972,7 +19910,7 @@ END
 STRINGTABLE 
 BEGIN
     ID_ZUFALL_GENERATOREN   "Erzeugt mit unterschiedlichen Zufallsgeneratoren pseudo-zufällige Daten "
-    ID_PERMUTATION_ASC      "Verschlüsseln mit ein- oder zweifacher Permutation (Transposition, Doppelwürfel)"
+    ID_PERMUTATION      "Verschlüsseln mit ein- oder zweifacher Permutation (Transposition, Doppelwürfel)"
     ID_ANALYSE_ZUFALLSTESTS_AUTOKORRELATION 
                             "Autokorrelation Test des Dokumentes durchführen"
     ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST 
@@ -24234,29 +24172,6 @@ BEGIN
     LTEXT           "You can get the details how this protocol worked with the numbers you chose by hitting the key symbol.",IDC_STATIC,14,78,232,16
 END
 
-IDD_GENERATEPRIME DIALOGEX 0, 0, 321, 194
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Prime Number Generation"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
-BEGIN
-    DEFPUSHBUTTON   "&Generate prime number",IDC_BUTTON_GENERATE,7,166,101,20
-    PUSHBUTTON      "&Apply prime",IDC_BUTTON_ACCEPT,129,166,83,20
-    EDITTEXT        IDC_EDIT1,63,97,240,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,63,116,240,12,ES_AUTOHSCROLL
-    CONTROL         "&Miller-Rabin Test",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,16,54,69,10
-    CONTROL         "&Solovay-Strassen Test",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,104,54,87,10
-    CONTROL         "&Fermat Test",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,208,54,53,10
-    PUSHBUTTON      "&Cancel",IDC_ENDDIALOG,242,166,72,20
-    EDITTEXT        IDC_EDIT5,63,137,240,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
-    GROUPBOX        "",IDC_STATIC,7,0,307,32
-    LTEXT           "Prime numbers play an important role in modern cryptography. Generate two random prime numbers p and q within the value range [lower limit ... upper limit].",IDC_STATIC,16,9,289,17
-    GROUPBOX        "Algorithms for prime number generation",IDC_STATIC,7,39,307,33
-    LTEXT           "Lower limit",IDC_STATIC,17,99,40,9
-    LTEXT           "Upper limit",IDC_STATIC,18,118,44,8
-    LTEXT           "Result",IDC_STATIC,18,139,37,10
-    GROUPBOX        "Prime number p",IDC_STATIC,7,77,307,80
-END
-
 IDD_CHALLENGERESPONSE_DIALOG DIALOGEX 0, 0, 518, 342
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Challenge-Response Demonstration"
@@ -26060,12 +25975,13 @@ BEGIN
     DEFPUSHBUTTON   "Take primzahl",IDOK,113,118,87,22
     PUSHBUTTON      "Cancel",IDCANCEL,322,118,50,22
     PUSHBUTTON      "Generate prime",IDC_BUTTON1,7,118,87,22
-    LTEXT           "This dialog generates a safe prime number p. Primes q are selected until p = 2q+1 is also a prime. Please note the time to generate a safe prime is in general significantly longer compared to generate a prime without this property.\nSafe primes are important for discrete log based cryptosystems - like the Diffie-Hellman protocol.",IDC_STATIC,7,3,358,39
+    LTEXT           "This dialog generates a safe prime number p. Primes q are selected until p = 2q+1 is also a prime. Please note the time to generate a safe prime is in general significantly longer compared to generate a prime without this property.",IDC_STATIC,14,6,351,25
     GROUPBOX        "Generate a prime",IDC_STATIC,7,48,365,62
     EDITTEXT        IDC_EDIT1,50,66,34,12,ES_AUTOHSCROLL | ES_NUMBER
     EDITTEXT        IDC_EDIT2,50,88,315,12,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Bit length",IDC_STATIC,14,67,29,8
     LTEXT           "Prime",IDC_STATIC,14,90,29,8
+    LTEXT           "Safe primes are important for discrete-log based cryptosystems like the Diffie-Hellman method.",IDC_STATIC,14,31,351,13
 END
 
 
@@ -26155,7 +26071,7 @@ BEGIN
             MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN, GRAYED
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
-            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC, GRAYED
+            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION, GRAYED
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
             MENUITEM "Scytale / Rail Fence...",     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
@@ -26506,7 +26422,7 @@ BEGIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
-            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_HEX
+            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
             MENUITEM "Scytale / Rail Fence...",     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
@@ -26857,7 +26773,7 @@ BEGIN
             MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN, GRAYED
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
-            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC, GRAYED
+            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION, GRAYED
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
             MENUITEM "Scytale / Rail Fence...",     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
@@ -27208,7 +27124,7 @@ BEGIN
             MENUITEM "&XOR...",                     ID_XOR_BIN
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC
-            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC
+            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE
             MENUITEM "Scytale / Rail Fence...",     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
@@ -27586,7 +27502,7 @@ BEGIN
             MENUITEM "&XOR...",                     ID_XOR_BIN, GRAYED
             MENUITEM "V&ernam...",                  ID_VERNAM_BIN, GRAYED
             MENUITEM "H&omophone...",               ID_HOMOPHONE_ASC, GRAYED
-            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION_ASC, GRAYED
+            MENUITEM "Per&mutation / Transposition...", ID_PERMUTATION, GRAYED
             MENUITEM "Soli&taire...",               ID_SYMCLASSIC_SOLITAIRE, GRAYED
             MENUITEM "Scytale / Rail Fence...",     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
@@ -29251,17 +29167,6 @@ BEGIN
         BOTTOMMARGIN, 138
     END
 
-    IDD_GENERATEPRIME, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 314
-        VERTGUIDE, 16
-        VERTGUIDE, 303
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 187
-        HORZGUIDE, 64
-    END
-
     IDD_CHALLENGERESPONSE_DIALOG, DIALOG
     BEGIN
         LEFTMARGIN, 7
@@ -30918,7 +30823,7 @@ END
 STRINGTABLE 
 BEGIN
     ID_ZUFALL_GENERATOREN   "Creates pseudorandom data with different random number generators"
-    ID_PERMUTATION_ASC      "Encryption using a single permutation or two concatenated permutations (single or double column transposition)"
+    ID_PERMUTATION      "Encryption using a single permutation or two concatenated permutations (single or double column transposition)"
     ID_ANALYSE_ZUFALLSTESTS_AUTOKORRELATION 
                             "Checks the random quality of the active document with the Autocorrelation test"
     ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST 
@@ -32015,6 +31920,7 @@ BEGIN
     ID_FLASH_ENIGMADEMO     "Visualizes the Enigma machine using Flash"
     ID_FLASH_RIJNDAEL_INSPECTOR 
                             "Shows the AES intermediate results after each step in each round for arbitrary data"
+    ID_EDIT_FIND_NEXT       "Continue search on the current search word"
 END
 
 STRINGTABLE 

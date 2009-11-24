@@ -143,7 +143,7 @@ protected:
 	afx_msg void OnHomophone();
     afx_msg void OnAnalyseNGram();
 	afx_msg void OnAnalyseNGramBin();
-    afx_msg void OnPermutationAsc();
+    afx_msg void OnPermutation();
 	afx_msg void OnAesSelfextract();
 	afx_msg void OnUpdateAesSelfextract(CCmdUI* pCmdUI);
 	afx_msg void OnAnalyseZufallstestsFrequencytest();
@@ -193,7 +193,6 @@ public:
 	afx_msg void OnEditRepeat();
 	afx_msg void OnUpdateEditRepeat(CCmdUI *pCmdUI);
 	afx_msg void OnKnownAnalysisSinglePermutation();
-	afx_msg void OnPermutationHex();
 };
 
 

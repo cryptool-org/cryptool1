@@ -871,6 +871,7 @@ void CDlgShowKeyHill10x10::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT1012, m_ControlAlphFeld1012);
 	DDX_Radio  (pDX, IDC_RADIO1,   m_decrypt);
 	DDX_Text   (pDX, IDC_EDIT2,    m_alphabetOffset);
+	DDX_Radio  (pDX, IDC_RADIO25,   i_multDirection);
 	//}}AFX_DATA_MAP
 }
 
@@ -1196,6 +1197,9 @@ BOOL CDlgShowKeyHill10x10::OnInitDialog()
 			m_pControlAlphFelder[i][j]->SetWindowText(getAlphCode(str));
 		}
 	}
+
+	UpdateData();
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
