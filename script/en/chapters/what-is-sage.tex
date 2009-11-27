@@ -38,10 +38,8 @@ aspects of mathematics.
 
 
 %% \centering statt \begin{center} ... \end{center}, da dies zusätzlich vertical space erzeugt.
-\noindent In the meantime there are lots of PDF or HTML documents about using Sage,
-so we name only a few of them: A good starting point is the ``Library''
-from the Sage main page, the ``Documentation Project'' and the teaching
-material\footnote{%
+\noindent In the meantime there are lots of PDF and HTML documents about using Sage,
+so we name only a few of them as a good starting point\footnote{%
 - ``Library'': {\centering \url{http://www.sagemath.org/library/index.html}},\\
 - ``Documentation Project'': {\centering \url{http://wiki.sagemath.org/DocumentationProject}},\\
 - ``Teaching'': {\centering \url{http://wiki.sagemath.org/Teaching_with_SAGE}}.
@@ -80,12 +78,18 @@ The default interface to Sage is command line based, as shown in
 figure~\ref{fig:sage_cmd_interfaces}. However, there is a
 graphical user interface to the software as well in the form of the
 Sage notebook (see figure~\ref{fig:sage_gui_interfaces}). We can even
-use Sage online at different servers, e.g.
+use Sage notebooks\footnote{%
+Further details about Sage notebooks can be found at 
+chapter~\ref{ec:Sage_Massierer} 
+(``\nameref{ec:Implementing-for-Education}''
+$\Rightarrow$ ``\nameref{ec:Sage_Massierer}'')
+                      }
+online at different servers, without having to install Sage locally, e.g:
 \begin{center}
 \url{http://www.sagenb.org} or\\
 \url{http://sage.mathematik.uni-siegen.de:8000}
 \end{center}
-without having to install Sage locally.
+.
 
 Sage runs under many Linux distributions, Mac OS X, and Windows.
 For the Windows platform, a complete distribution of Sage currently
@@ -107,7 +111,7 @@ to Windows is currently in progress.
 \end{figure}
 
 \footnotetext{%
-To start the Sage gui: Enter notebook() at the Sage prompt, and then your favorite
+To start the Sage gui locally: Enter notebook() at the Sage prompt, and then your favorite
 browser (Iceweasel, Firefox, IE, ...) is started e.g. with the URL \url{http://localhost:8000}.
 }
 
@@ -372,11 +376,12 @@ Suppose you have a function definition like this:
 \end{Verbatim}
 \noindent which has been saved to the file \texttt{primroots.sage}.
 
-\noindent To load this function into Sage (and do a syntax check at once), use \verb!load()! as follows:
+\noindent To load this function into Sage (and do a syntax check at once),
+use \verb!load()! as follows:
 
 \texttt{sage: load primroots.sage}
 
-\noindent and you can then proceed to use on the command line anything that is
+\noindent and you can then proceed to use on the command line any variable or function
 defined in that Sage script\footnote{%
 Notes:
 
@@ -396,15 +401,16 @@ writes it to another file called ``primroots.py'' (note the ``.py''
 extension), adds all necessary variables to "primroots.py" as well as
 writing any import statements to that file. That way, your Sage script
 is executed as if you had typed the definitions in your script to the
-Sage command line. A difference may be that output needs a print statement.
+Sage command line. An important difference isthat all output needs a
+\verb!print! statement.
 
 }.
 
 Normally we also want to edit our own Sage script and reload the
 content of the changed script into Sage again. In that case, you can
-use the command \verb!attach()!. This looks in our Sage session as
-follows (you also can apply \verb!attach()! directly after loading the script,
-even before having changed the script):
+use the command \verb!attach()! (you also can apply \verb!attach()!
+directly after loading the script, even before having changed the script;
+and you can even omit \verb!load()!, as this is contained in \verb!attach()!):
 
 \texttt{sage: attach primroots.sage}
 
@@ -429,8 +435,19 @@ Here is a picture of Sage code in the editor GVIM with activated code highlighti
 \label{fig:sage-highlighted-code-in-editor}
 \end{figure}
 
+\vspace{20pt}
+If you prefer to see the output of an attached file as if you would have
+typed in the commands on the commandline directly (not only what is shown
+via \verb!print!) then you could use the command \verb!iload()!:
+Each line is loaded one at a time. To load the next line, you have to
+press the \verb!Enter! key. You have to repeatedly press the \verb!Enter! key
+until all lines of the Sage script are loaded into the Sage session.
 
-\vspace{30pt}
+\texttt{sage: iload primroots.sage}
+
+
+% \vspace{30pt}
+\newpage
 \noindent Some more hints:
 \begin{itemize}
   \item To get the version of your Sage environment: \texttt{version()}
@@ -438,6 +455,14 @@ Here is a picture of Sage code in the editor GVIM with activated code highlighti
     \begin{itemize}
       \item either look in the index at \verb#Sage -> Code examples#,
       \item or have a look at the appendix ``\nameref{sc:List-of-Sage-Code-Examples}''.
-  \end{itemize}
+    \end{itemize}
+  \item The source code of the Sage samples in this script is delivered as
+        Sage program files within the CrypTool setup program.
+        After installing CrypTool you find them within the subdirectory \verb#sage#
+        within the CrypTool directory:\\
+        - SAGE-Samples-in-Chap01.sage \\
+        - SAGE-Samples-in-Chap02.sage \\
+        - SAGE-Samples-in-Chap03.sage \\
+        - SAGE-Samples-in-Chap04.sage
 \end{itemize}
 

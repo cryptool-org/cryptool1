@@ -69,8 +69,8 @@ benutzt diesen Schlüssel, um die Nachricht zu verschlüsseln und der
 Empfänger, um diese zu entschlüsseln.\par \vskip + 3pt
 
 Alle klassischen Verfahren sind von diesem Typ. Beispiele dazu finden Sie im
-Programm CrypTool, im Kapitel  \ref{Kapitel_PaperandPencil} 
-(Papier- und Bleistift-Verschlüsselungsverfahren) in diesem Skript oder 
+Programm CrypTool, im Kapitel~\ref{Kapitel_PaperandPencil}
+(\glqq \nameref{Kapitel_PaperandPencil}\grqq ) in diesem Skript oder 
 in \cite{cm:Nichols1996}. 
 Im folgenden wollen wir jedoch nur die moderneren Verfahren betrachten.
 
@@ -214,13 +214,11 @@ realisierbar ist. Bei 256 Bit Schlüssellänge schätzen die Autoren
 den Aufwand für den XSL-Angriff auf $2^{200}$ Operationen.
 
 Weitere Details dazu stehen unter:
-% nur \href rückt nicht ein, deshalb \item dazu !
+% nur \href oder \url rückt nicht ein, deshalb \item dazu !
 \vspace{-10pt}
 \begin{itemize}
-  \item[] \href{http://www.cryptosystem.net/aes}
-               {\texttt{http://www.cryptosystem.net/aes}} \\
-          \href{http://www.minrank.org/aes/}
-               {\texttt{http://www.minrank.org/aes/}}
+  \item[] \url{http://www.cryptosystem.net/aes} \\
+          \url{http://www.minrank.org/aes/} 
 \end{itemize}
 
 Für 256-AES wäre der Angriff ebenfalls viel besser als
@@ -282,9 +280,9 @@ unbekannt kennzeichnen.
 Um zu zeigen, welche Sicherheit bekannte symmetrische Verfahren wie
 DES, Triple-DES oder RC5 haben, veranstaltet z.B. RSA Security
 sogenannte Cipher-Challenges\footnote{%
-\href{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}
-{\tt http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}\\
-Im Mai 2007 meldete RSA, dass sie die Korrektheit der bis dahin nicht gelösten RC5-72 Challenge nicht bestätigen werden.}.
+ \url{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}\\
+ Im Mai 2007 meldete RSA, dass sie die Korrektheit der bis dahin nicht
+ gelösten RC5-72 Challenge nicht bestätigen werden.}.
 Unter kontrollierten Bedingungen werden Preise ausgelobt, um Ciphertexte
 (verschlüsselt mit verschiedenen Verfahren und verschiedenen
 Schlüssellängen) zu entschlüsseln und den symmetrischen Schlüssel
@@ -294,8 +292,8 @@ Dass das "`alte"' Standard-Verfahren DES mit der fixen Schlüssellänge
 von 56 Bit nicht mehr sicher ist, wurde schon im Januar 1999 von der
 Electronic Frontier Foundation (EFF) demonstriert, als sie mit Deep Crack
 eine DES-verschlüsselte Nachricht in weniger als einem Tag knackten\footnote{%
-\href{http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}
-{\tt http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}}.
+ \url{http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}
+}.
 
 Der aktuelle Rekord für starke symmetrische Verfahren liegt bei 64 Bit
 langen Schlüsseln. Dazu wurde das Verfahren RC5 benutzt, eine
@@ -303,13 +301,14 @@ Blockchiffre mit variabler Schlüssellänge.
 
 Die RC5-64 Challenge wurde im September 2002 nach 5 Jahren vom
 distributed.net-Team gelöst\footnote{%
-\href{http://distributed.net/pressroom/news-20020926.html}
-{\tt http://distributed.net/pressroom/news-20020926.html}}.
+ \url{http://distributed.net/pressroom/news-20020926.html}
+}.
 Insgesamt arbeiteten 331.252 Personen gemeinsam über das Internet
 zusammen.\footnote{%
 Eine Übersicht über die aktuellen Projekte zum verteilten Rechnen finden Sie unter:\\
-\href{http://distributedcomputing.info/}{\tt http://distributedcomputing.info/}
-} Getestet wurden rund 15 Trillionen Schlüssel, bis der
+\url{http://distributedcomputing.info/}
+}
+Getestet wurden rund 15 Trillionen Schlüssel, bis der
 richtige Schlüssel gefunden wurde.
 
 Damit ist gezeigt, dass symmetrische Verfahren (auch wenn sie keinerlei
@@ -317,8 +316,15 @@ kryptographische Schwä"-chen haben) mit 64 Bit langen Schlüsseln
 keine geeigneten Verfahren mehr sind, um sensible Daten länger geheim
 zu halten.
 
-Ähnliche Cipher-Challenges gibt es auch für asymmetrische Verfahren
-(siehe Kapitel \ref{NoteFactorisation}).
+Cipher-Challenges gibt es auch für asymmetrische Verfahren
+(siehe Kapitel \ref{NoteFactorisation})\footnote{%
+  Ein weites Spektrum einfacher und komplexer Krypto-Aufgaben bietet
+  der Wettbewerb \glqq Mystery Twister C3\grqq.
+  \index{Challenge}
+  \index{Cipher-Challenge}
+  \index{Krypto-Wettbewerb}
+  }
+.
 
 
 

@@ -8,7 +8,7 @@
 
 Dieses Skript enthält zahlreiche mit Sage erstellte Programmbeispiele. Sage ist
 ein Open-Source Computer-Algebra-System (CAS), das für Lehre, Studium und Forschung
-in Mathematik eingesetzt wird.
+eingesetzt wird.
 Sage kombiniert viele hochwertige Open-Source-Packete\footnote{%
 Einen Eindruck von der Größe von Sage erhält man, wenn man es selbst compiliert:
 Die heruntergeladenen Sourcen von Sage 4.1 brauchten zur Compilierung auf einem
@@ -38,9 +38,8 @@ Bereich der algorithmischen Aspekte der Mathematik zu betreiben.
 } ist verfügbar unter: \url{http://www.sagemath.org/doc}.
 
 
-\noindent Es gibt inzwischen viele PDF- oder HTML-Dokumente über Sage:
-Ein guter Startpunkt ist die \glqq Bibliothek\grqq von der Sage-Hauptseite,
-das \glqq Dokumentationsprojekt\grqq und das \glqq Lehrmaterial\grqq\footnote{%
+\noindent Es gibt inzwischen viele PDF- und HTML-Dokumente über Sage, so dass wir als
+guten Startpunkt nur einige wenige nennen\footnote{%
 - \glqq Bibliothek\grqq: {\centering \url{http://www.sagemath.org/library/index.html}},\\
 - \glqq Dokumentationsprojekt\grqq:
   {\centering \url{http://wiki.sagemath.org/DocumentationProject}},\\
@@ -79,12 +78,18 @@ Standardmäßig nutzt man die Sage-Kommandozeile als Interface, wie im folgenden
 Bild~\ref{fig:sage_cmd_interfaces} zu sehen ist.
 Es gibt jedoch auch ein grafisches Benutzerinterface für diese Software
 in Form des Sage-Notebooks (siehe Bild~\ref{fig:sage_gui_interfaces}).
-Und schließlich kann man Sage auch online auf verschiedenen Servern nutzen, z.B.
+Und schließlich kann man Sage-Notebooks\footnote{%
+Weitere Details zu Sage-Notebooks finden Sie in
+Kapitel~\ref{ec:Sage_Massierer} 
+(\glqq \nameref{ec:Implementing-for-Education}\grqq
+  $\Rightarrow$ \glqq \nameref{ec:Sage_Massierer}\grqq )
+                      }
+auch online auf verschiedenen Servern nutzen, ohne Sage lokal zu installieren, z.B.:
 \begin{center}
 \url{http://www.sagenb.org} oder \\
 \url{http://sage.mathematik.uni-siegen.de:8000}
 \end{center}
-ohne Sage lokal zu installieren.
+.
 
 Sage läuft unter den Betriebssystemen Linux, Mac OS X und Windows.
 Auf der Windows-Plattform läuft die komplette Sage-Distribution momentan
@@ -106,7 +111,7 @@ von Sage auf Windows gearbeitet.
 \end{figure}
 
 \footnotetext{%
-Um das grafische Interface von Sage zu starten, muss man auf der Sage Kommandozeile
+Um das grafische Sage-Interface lokal zu starten, muss man auf der Sage Kommandozeile
 \verb#notebook()# eingeben. Danach startet der eingestellte Browser (Iceweasel,
 Firefox, IE, ...) z.B. mit der URL \url{http://localhost:8000}.
 }
@@ -376,8 +381,8 @@ wird der Befehl \verb!load()! benutzt:
 
 \texttt{sage: load primroots.sage}
 
-\noindent Danach kann man auf der Kommandzeile alles benutzen, was im
-Sage-Skript definiert wurde\footnote{%
+\noindent Danach kann man auf der Kommandozeile alle Variablen und Funktionen
+nutzen, die im Sage-Skript definiert wurden\footnote{%
 Anmerkungen:
 
 \noindent\hangindent=6pt\makebox[6pt][l]{-}Bitte keine Leerzeichen
@@ -396,16 +401,16 @@ Sage-Skripts wird es von Sage zuerst geparst, und dann
 in eine andere Datei namens \glqq primroots.py\grqq~kopiert. Sage ergänzt
 dann alle notwendigen Variablen in \glqq primroots.py\grqq~und alle Import-Statements.
 Somit wird das Sage-Skript genauso ausgeführt, als hätte man die Befehle einzeln
-auf der Kommandozeile eingetippt. Ein Unterschied mag sein, dass Ausgaben explizit
-mit \glqq print\grqq~erfolgen müssen.
+auf der Kommandozeile eingetippt. Ein bedeutender Unterschied ist,
+dass alle Ausgaben ein \verb!print!~benötigen.
 
 }.
 
 Normalerweise editiert man ein eigenes Sage-Skript wieder und möchte dann den
 Inhalt des geänderten Skripts wieder in Sage laden. Dafür kann man den Befehl
-\verb!attach()! nutzen. In unserem obigen Beispiel sieht das auf der Sage-Kommandozeile
-folgendermaßen aus (man kann auch direkt nach dem \verb!load()! das \verb!attach()! aufrufen, und
-nicht erst, wenn man das Skript ändert):
+\verb!attach()! nutzen (man kann auch direkt nach dem \verb!load()! 
+das \verb!attach()! aufrufen, und nicht erst, wenn man das Skript ändert;
+man kann \verb!load()! sogar weglassen, da dies in \verb!attach()! enthalten ist):
 
 \texttt{sage: attach primroots.sage}
 
@@ -426,16 +431,36 @@ Syntax-Highlighting (siehe Bild~\ref{fig:sage-highlighted-code-in-editor}).
 \label{fig:sage-highlighted-code-in-editor}
 \end{figure}
 
+\vspace{20pt}
+Falls man die Ausgabe einer attachten Datei so angezeigt haben möchte,
+wie wenn man die Einzelbefehle direkt auf der Kommandozeile eingibt
+(also nicht nur das, was per \verb!print! ausgegeben wird),
+kann man den Befehl \verb!iload()! verwenden:
+Jede Zeile wird dann einzeln geladen. Um die nächste Zeile zu laden,
+muss man die \verb!Enter!-Taste drücken. Das muss man so lange wiederholen,
+bis alle Zeilen des Sage-Skripts in die Sage-Session geladen sind.
 
-\vspace{30pt}
+\texttt{sage: iload primroots.sage}
+
+
+% \vspace{30pt}
+\newpage
 \noindent Weitere Hinweise:
 \begin{itemize}
   \item Abfrage der Version Ihrer Sage-Umgebung mit: \texttt{version()}
   \item Um sich schnell die Sage-Programmbeispiele in diesem Skript anzusehen, können Sie
-  \begin{itemize}
-    \item im Index nach \verb#Sage -> Programmbeispiele# schauen, oder 
-    \item sich im Anhang das \glqq \nameref{sc:List-of-Sage-Code-Examples}\grqq~ansehen.
-  \end{itemize}
+    \begin{itemize}
+      \item im Index nach \verb#Sage -> Programmbeispiele# schauen, oder 
+      \item sich im Anhang das \glqq \nameref{sc:List-of-Sage-Code-Examples}\grqq~ansehen.
+    \end{itemize}
+  \item Der Quellcode der Sage-Beispiele in diesem Script wird in Form von
+        Sage-Programmdateien mit dem CrypTool-Setup-Programm ausgeliefert.
+        Nach der Installation finden Sie diese im Unterverzeichnis \verb#sage# innerhalb des
+        CrypTool-Verzeichnisses:\\
+        - SAGE-Samples-in-Chap01.sage \\
+        - SAGE-Samples-in-Chap02.sage \\
+        - SAGE-Samples-in-Chap03.sage \\
+        - SAGE-Samples-in-Chap04.sage
 \end{itemize}
 
 

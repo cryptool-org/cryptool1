@@ -2106,7 +2106,7 @@ of 1024 bit can be expected in 15 years.
 }}
 \end{center}
 \addtocounter{footnote}{0}\footnotetext{%
-  Hermann Hesse, German/Swiss writer and Nobel Prize winner, July 2, 1877 $-$ August 9, 1962.}
+  Hermann Hesse, German/Swiss writer and Nobel Prize winner, July 2, 1877 $-$ August 9, 1962.\\}
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 \subsection{Status regarding factorization of concrete large numbers}
@@ -2118,12 +2118,9 @@ methods can be found on the following web pages:
 \vspace{-10pt}
 \begin{itemize}
 \item[]
-     \href{http://www.crypto-world.com}
-  {\texttt{http://www.crypto-world.com}} \\
-     \href{http://www.tutorgig.com/ed/RSA\_number}
-  {\texttt{http://www.tutorgig.com/ed/RSA\_number}}  ~~ The RSA Factoring Challenge \\
-     \href{http://en.wikipedia.org/wiki/Integer_factorization_records}
-  {\texttt{http://en.wikipedia.org/wiki/Integer\_factorization\_records}}
+     \url{http://www.crypto-world.com} \\
+     \url{http://www.tutorgig.com/ed/RSA\_number}  ~~ The RSA Factoring Challenge \\
+     \url{http://en.wikipedia.org/wiki/Integer_factorization_records}
 \end{itemize}
 %\footnote{%
 %This site was not quite up-to-date end of May 2005: RSA-200 was missing.}
@@ -2138,28 +2135,26 @@ The 'RSA numbers' are certain large semiprime numbers (i.e., numbers with
 exactly two prime factors)\index{Number!semi prime}. 
 They were generated and published by the 
 company RSA Security and they form the basis of the RSA Factoring 
-Challenge, in which factorizations for these numbers are sought.
-See \href{http://www.rsa.com/rsalabs/node.asp?id=2092}
- {\texttt{http://www.rsa.com/rsalabs/node.asp?id=2092}}.
+Challenge, in which factorizations for these numbers are sought.\\
+See \url{http://www.rsa.com/rsalabs/node.asp?id=2092}.
 
+RSA Labs offers its challenges since the beginning of the 1990th.
 The first RSA Factoring Challenge labeled the numbers, from RSA-100 
 to RSA-500, according to their number of decimal digits; the second 
 RSA Factoring Challenge labeled the numbers according to their number 
-of binary digits. Within the second challenge cash prizes have been 
+of binary digits. Within the second challenge cash prizes were 
 offered for successful factorizations of RSA576 to RSA2048 (RSA576, 
-RSA640 etc. using 64 bit steps upwards).
-An exception to this is RSA617, which was created prior to the 
-change in the numbering scheme.
+RSA640 etc. using 64 bit steps upwards --- An exception to this is
+RSA617, which was created prior to the change in the numbering scheme).\\
+But the RSA challenges ended ahead of time in 2007, RSA Inc. retracted
+the prize.
+  \index{Challenge}
+  \index{Cipher challenge}
+  \index{Crypto challenge}
 
-The researchers around Professor Jens Franke (from the University 
-of Bonn, the GISA and the CWI) do not aim on getting cash prizes 
-but in extending the research limits. So statements about the 
-necessary length of a secure RSA modulus are more well-founded.
-
-The 'C-numbers' originate from the Cunningham project:
-\href{http://www.cerias.purdue.edu/homes/ssw/cun/}
-     {\texttt{http://www.cerias.purdue.edu/homes/ssw/cun/}}
-                                                               }
+The 'C numbers' originate from the Cunningham project:
+\url{http://www.cerias.purdue.edu/homes/ssw/cun/}.
+                          }
 with factorization algorithms for composed numbers are
 listed in the table~\ref{factorizationrecords}.
 
@@ -2186,12 +2181,15 @@ listed in the table~\ref{factorizationrecords}.
 \footnotetext{%
 A research group of the GISA solved this challenge which was awarded with
 20,000 US dollar using the GNFS method. The researchers needed about five
-months to divide this number into its both 320 bit long prime factors.\\
-RSA Labs offers its challenges since the beginning of the 1990th.
-The next bigger challenge awarded with 30,000 US dollars is RSA-704.\\
-See:
-\href{http://www.heise.de/newsticker/meldung/print/65957}
-{\texttt{http://www.heise.de/newsticker/meldung/print/65957}}
+months to divide this number into its both 320 bit long prime factors.
+
+The researchers around Professor Jens Franke (from the University 
+of Bonn, the GISA and the CWI) do not aim on getting cash prizes 
+but in extending the research limits. So statements about the 
+necessary length of a secure RSA modulus are more well-founded.
+
+The next bigger challenge is RSA-704.
+See \url{http://www.heise.de/newsticker/meldung/print/65957}.
 }
 
 %be_2005: Erzwingen, dass die Abb. noch in diesem Kapitel !
@@ -4669,7 +4667,7 @@ Number of private keys for modulus in a given range: 3260044 (comb=2312),
 Number of primes in a given range: 1061
 Time: CPU 0.63 s, Wall: 0.66 s
 \end{Verbatim}
-\caption{How many RSA keys are there knowing the range of the public key n?}
+\caption{How many RSA keys are there if you know a range for the public keys n?}
 \label{nt_sagesample_Count_RSA_Keys}
 \end{sagecode}
 

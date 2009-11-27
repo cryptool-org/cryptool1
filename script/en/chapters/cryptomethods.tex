@@ -69,8 +69,9 @@ key to encrypt the message and the recipient uses it to decrypt it.
 \par \vskip + 3pt
 
 All classical methods are of this type. Examples can be found within the 
-program CrypTool, in chapter  \ref{Kapitel_PaperandPencil} 
-(Paper and Pencil Encryption Methods) of this script or in \cite{cm:Nichols1996}. 
+program CrypTool, in chapter~\ref{Kapitel_PaperandPencil}
+(``\nameref{Kapitel_PaperandPencil}'')
+of this script or in \cite{cm:Nichols1996}. 
 Now we want to consider more modern mechanisms.
 
 The advantages of symmetric algorithms are the high speed with which data can be
@@ -83,7 +84,8 @@ everyone else spontaneously at any time in a network of $ n $ subscribers, each
 subscriber must have previously exchanged a key with each of the other $n - 1$
 subscribers. A total of $n(n - 1)/2$ keys must therefore be exchanged.\par \vskip + 3pt
 
-The most well-known symmetric encryption procedure is the \index{DES} DES-algorithm. The DES-algorithm has been developed by IBM in collaboration with the
+The most well-known symmetric encryption procedure is the \index{DES} DES-algorithm.
+The DES-algorithm has been developed by IBM in collaboration with the
 National Security Agency \index{NSA} (NSA), and was published as a standard in
 1975. Despite the fact that the procedure is relatively old, no effective attack
 on it has yet been detected. The most effective way of attacking consists of
@@ -175,10 +177,8 @@ Currently there is a large amount of research in this area: for example Murphy a
 More details can be found at:
 \vspace{-10pt}
 \begin{itemize}
-  \item[] \href{http://www.cryptosystem.net/aes}
-               {\texttt{http://www.cryptosystem.net/aes}}\\
-          \href{http://www.minrank.org/aes/}
-               {\texttt{http://www.minrank.org/aes/}}
+  \item[] \url{http://www.cryptosystem.net/aes} \\
+          \url{http://www.minrank.org/aes/} 
 \end{itemize}
 
 So for 256-AES the attack is much more effective than brute-force\index{Attack!brute-force} but still far more away from any computing power which could be accessible in the short-to-long term. 
@@ -220,21 +220,46 @@ Brute-force (exhaustive search, trial-and-error) means to completely examine all
     mark not more than 20 bit of the key as unknown.
 }.
 
-Companies like RSA Security provide so-called cipher challenges in order to quantify the security offered by well-known symmetric ciphers as DES, Triple-DES or RC5\footnote{\href{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}{\tt http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}\\
-In May 2007 RSA announced that they will not confirm the correctness of the not yet solved RC5-72 challenge.}. They offer prizes for those who manage to decipher ciphertexts, encrypted with different algorithms and different key lengths, and to unveil the symmetric key (under controlled conditions). So theoretical estimates can be confirmed.
+Companies like RSA Security provide so-called cipher challenges in order to quantify the security offered by well-known symmetric ciphers as DES, Triple-DES or RC5\footnote{%
+ \url{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}\\
+ In May 2007 RSA announced that they will not confirm the correctness of
+ the not yet solved RC5-72 challenge.}.
+They offer prizes for those who manage to decipher ciphertexts, encrypted with different algorithms and different key lengths, and to unveil the symmetric key (under controlled conditions). So theoretical estimates can be confirmed.
 
-It is well-known, that the ``old'' standard algorithm DES with a fixed key length of 56 bit is no more secure: this was demonstrated already in January 1999 by the Electronic Frontier Foundation (EFF). With their specialized computer Deep Crack they cracked a DES encrypted message within less than a day\footnote{\href{http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}{\tt http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}}.
+It is well-known, that the ``old'' standard algorithm DES with a fixed key length
+of 56 bit is no more secure: This was demonstrated already in January 1999 by the
+Electronic Frontier Foundation (EFF). With their specialized computer Deep Crack
+they cracked a DES encrypted message within less than a day\footnote{%
+ \url{http://www.rsasecurity.com/rsalabs/challenges/des3/index.html}
+}.
 
-The current record for strong symmetric algorithms unveiled a key 64 bit long. The algorithm used was RC5, a block cipher with variable key size. 
+The current record for strong symmetric algorithms unveiled a key 64 bit long.
+The algorithm used was RC5, a block cipher with variable key size. 
 
-The RC5-64 challenge has been solved by the distributed.net team after 5 years\footnote{\href{http://distributed.net/pressroom/news-20020926.html}{\tt http://distributed.net/pressroom/news-20020926.html}}.  In total 331,252 individuals co-operated over the internet to find the key\footnote{%
+The RC5-64 challenge has been solved by the distributed.net team after 5
+years\footnote{%
+ \url{http://distributed.net/pressroom/news-20020926.html}
+}.
+In total 331,252 individuals co-operated over the internet to find the key\footnote{%
 An overview of current distributed computing projects can be found here:\\
-\href{http://distributedcomputing.info/}{\tt http://distributedcomputing.info/}
-}. More than 15 trillion (GB) / 15 quintillion (US)  keys were checked, until they found the right key.
+\url{http://distributedcomputing.info/}
+}.
+More than 15 trillion (GB) / 15 quintillion (US)  keys were checked, until they
+found the right key.
 
-This makes clear, that symmetric algorithms (even if they have no cryptographic weakness) using keys of size 64 bit are no more appropriate to keep sensible data private.
+This makes clear, that symmetric algorithms (even if they have no
+cryptographic weakness) using keys of size 64 bit are no more appropriate
+to keep sensible data private.
 
-Similar cipher challenges are there for asymmetric algorithms (please see chapter \ref{NoteFactorization}).
+There are also cipher challenges for asymmetric algorithms (please
+see chapter \ref{NoteFactorization})\footnote{%
+  A wide spectrum of simple and complex crypto riddles are included
+  in the ``Mystery Twister C3''~challenge.
+  \index{Challenge}
+  \index{Cipher challenge}
+  \index{Crypto challenge}
+  }
+.
 
 
 

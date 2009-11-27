@@ -1496,16 +1496,17 @@ als sicherer erwiesen als Verfahren, die nur auf einem der Prinzipien Transposit
 \index{Sage}
 
 Im Folgenden werden einige der klassischen Verfahren mit dem Open-Source Computer-Algebra-System
-(CAS) \verb!Sage! implementiert. Der Code ist lauffähig und getestet mit Sage Version 4.2.
+\verb!Sage!\footnote{%
+     Eine erste Einführung in das CAS Sage finden Sie im Anhang \ref{s:appendix-using-sage}.
+                                          }
+implementiert. Der Code ist lauffähig und getestet mit Sage Version 4.2.
 Alle Verfahren sind im Kapitel~\ref{Kapitel_PaperandPencil}
 (\glqq \nameref{Kapitel_PaperandPencil}\grqq) erklärt.
 
-\noindent Eine erste Einführung in das CAS Sage finden Sie im Anhang \ref{s:appendix-using-sage}.
-
 \noindent Um die Beispielprogramme\footnote{%
-     Weitere Programmbeispiele in Sage finden sich z.B. unter:\\
-     \href{http://www.sagemath.org/doc/constructions/linear_codes.html\#classical-ciphers}{\tt
-           http://www.sagemath.org/doc/constructions/linear\_codes.html\#classical-ciphers}
+     Weitere Programmbeispiele in Sage zu klassischen Kryptoverfahren finden sich z.B.:\\
+     - unter \url{http://www.sagemath.org/doc/constructions/linear_codes.html\#classical-ciphers}\\
+     - in der Diplomarbeit von Minh Van Nguyen \cite{pp:Nguyen2009}
                                           }
 leichter lesbar zu machen, hielten wir uns an die in der folgenden
 Grafik aufgeführten Bezeichnungen und Abläufe:
@@ -1771,7 +1772,7 @@ SUBSTITUTETHISWITHSOMETHINGELSEBETTER
 sage: C   = S.enciphering(key, msg); C
 WVNWGJGVGHGXJWCJGXWYQHGXJOUHTWHNHGGHS
 sage:
-sage: #### We now decrypt the ciphertext to recover our plaintext.
+sage: # We now decrypt the ciphertext to recover our plaintext.
 sage:
 sage: DC  = S.deciphering(key, C); DC
 SUBSTITUTETHISWITHSOMETHINGELSEBETTER
@@ -1809,8 +1810,7 @@ DEFGHIJKLMNOPQRSTUVWXYZABC
 sage: C       = encrypt(msg); C
 VKLIWWKHDOSKDEHWWKUHHSRVLWLRQVWRWKHULJKW
 sage:
-sage: #### Next, we recover the plaintext.
-sage:
+sage: # Next, we recover the plaintext.
 sage: # decrypt message
 sage: keyInv = A([23, 24, 25, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, \
 ....:             14, 15, 16, 17, 18, 19, 20, 21, 22])
@@ -1856,8 +1856,7 @@ SHIFTTHEALPHABETTHREEPOSITIONSTOTHERIGHT
 sage: C       = S.enciphering(key, msg); C
 VKLIWWKHDOSKDEHWWKUHHSRVLWLRQVWRWKHULJKW
 sage:
-sage: #### Next, we recover the plaintext.
-sage:
+sage: # Next, we recover the plaintext.
 sage: # decrypt message
 sage: # keyInv = A([23, 24, 25, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, \
 sage: #             14, 15, 16, 17, 18, 19, 20, 21, 22])
@@ -1875,7 +1874,7 @@ sage:
 sage: msg == DC
 True
 \end{Verbatim}
-\caption{Caesar (Substitution durch Shiften des Alphabets; Substitutions-Schlüssel werden berechnet)}
+\caption{Caesar (Substitution durch Shiften des Alphabets; Substitutions-Schlüssel wird berechnet)}
 \end{sagecode}
 
 
@@ -1905,6 +1904,7 @@ dass das Egebnis (DC) identisch mit dem ursprünglichen Klartext ist.
 \begin{sagecode}
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
+sage: # construct Shift cipher directly
 sage: shiftcipher = ShiftCryptosystem(AlphabeticStrings()); shiftcipher
 Shift cryptosystem on Free alphabetic string monoid on A-Z
 sage: P = shiftcipher.encoding("Shift me any number of positions."); P
@@ -2076,18 +2076,18 @@ alle Alphabetzeichen genau einmal auftreten.
 \begin{Verbatim}%
 [fontsize=\footnotesize,fontshape=tt]
 sage: # the plaintext/ciphertext alphabet
-sage: A = BinaryStrings()
-sage: # substitution cipher over the alphabet A; no keylen argument possible
-sage: S = SubstitutionCryptosystem(A); S
+sage: B = BinaryStrings()
+sage: # substitution cipher over the alphabet B; no keylen argument possible
+sage: S = SubstitutionCryptosystem(B); S
 Substitution cryptosystem on Free binary string monoid
-sage: # to have a substitute for each symbol, key has always the length of the alphabet
+sage: # To get a substitute for each symbol, key has always the length of the alphabet
 sage: key = S.random_key(); key
 10
 sage: len(key)
 2
 sage: P = "Working with binary numbers."
 sage: # encryption
-sage: msg = A.encoding(P); msg
+sage: msg = B.encoding(P); msg
 01010111011011110111001001101011011010010110111001100111001000000111011101101\
 00101110100011010000010000001100010011010010110111001100001011100100111100100\
 1000000110111001110101011011010110001001100101011100100111001100101110
@@ -2142,10 +2142,7 @@ True
 sage:
 sage: # Conversion hex back to ASCII:
 sage: # - AlphabeticStrings() and HexadecimalStrings() don't have according methods.
-sage: # - So we used Python:
-sage: #   - repr(DC) converts the StringMonoidElement DC to a string
-sage: #     still containing hex symbols;
-sage: #   - binascii.a2b_hex converts this hex string to an ascii string.
+sage: # - So we used Python directly.
 sage: import binascii
 sage: DDC = binascii.a2b_hex(repr(DC)); DDC
 'Working with a larger alphabet.'
@@ -2181,7 +2178,7 @@ sage: A = AlphabeticStrings()
 sage: V = VigenereCryptosystem(A, keylen); V
 Vigenere cryptosystem on Free alphabetic string monoid on A-Z of period 14
 sage:
-sage: # alternative: given key: key = A('ABCDEFGHIJKLMN'); key
+sage: # alternative could be a given key: key = A('ABCDEFGHIJKLMN'); key
 sage: key = V.random_key(); key
 WSSSEEGVVAARUD
 sage: len(key)
@@ -2358,6 +2355,13 @@ HILLORMATRIXCIPHERUSESMATRIXOPERATIONS
     Aegean Park Press 1996; \\
     oder in 12 Lektionen online unter \\
     \url{http://www.fortunecity.com/skyscraper/coding/379/lesson1.htm}
+
+\bibitem[Nguyen2009]{pp:Nguyen2009} \index{Nguyen 2009} 
+       Minh Van Nguyen, \\
+       {\em Exploring Cryptography Using the Sage Computer Algebra System}, \\
+       Victoria University, 2009, \\
+       Siehe Sage publications page
+       \url{http://www.sagemath.org/library-publications.html}
 
 \bibitem[Savard1999]{pp:Savard1999} \index{Savard 1999}
 	John J. G. Savard, \\

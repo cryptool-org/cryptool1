@@ -559,6 +559,7 @@ are therefore highly suitable for parallelization.
 \newpage
 % \section{Implementing elliptic curves for educational purposes, pat\-ent aspects}
 \section{Implementing elliptic curves for educational purposes}
+\label{ec:Implementing-for-Education}
 
 There are not many free programms offering ECC under a graphical user interface.
 The following subsections explain which according functionality is available in
@@ -614,8 +615,8 @@ According Sage samples can be found at the "Published Worksheets" at
 
 }.
 
-\noindent There is an exhaustive, interactive ECC tutorial by Maike Massierer,
-called \hyperlink{ec:Web-Link:Sage_Massierer}{ECC notebook}.
+\noindent Additionally there is an exhaustive, interactive
+\hyperlink{ec:Web-Link:Sage_Massierer}{ECC tutorial} by Maike Massierer.
 This interactive introduction to Elliptic Curve Cryptography is built up as
 a Sage notebook.
 
@@ -630,43 +631,71 @@ the package ``kash3-2008-07-31.spkg'' has to be installed (command \verb#sage -i
 
 The ECC notebook\index{Elliptic curves!ECC notebook}\index{Massierer, Maike} of
 Massierer\footnote{%
-If you log on at another public server like
-\url{http://sage.mathematik.uni-siegen.de:8000/home/pub/45/} or
-\url{http://www.sagenb.org/}, and if there the according worksheets are installed
-as "Published Worksheets", you can proceed as follows:\\
-- Start the Sage notebook in a browser.
+Instructions to use an interactive Sage noebook:\\
 
   \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-  Click in the above right corner on ``Published'', then you will see the 8 worksheets.
+  Public Sage servers like \url{http://sage.mathematik.uni-siegen.de:8000} or
+  \url{http://www.sagenb.org/} often offer running samples as "Published Worksheets",
+  which you can run and download without login on. These worksheets are listed
+  if you click on ``Published'' in the above right corner.
 
   \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-  Sometimes it's necessary at the beginning to click in the left upper corner on
-  \verb#Action -> Evaluate all#.
+  Worksheets using the  \verb#interact# command currently need some additional
+  todos for a user to work correctly: sign-in, make a copy and execute all
+  commands again.\\
+  This works as follows (described for the sagenb server and for the ECC tutorial):\\
+ 
+  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
+  Sign-up for a Sage notebook account at \url{http://sagenb.org/register}
+  and sign in at \url{http://sagenb.org/}.
 
   \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-  Sometimes the window contains many (blue) error messages. This normally can be
-  solved by clicking the ``\%hide'' string: Then you get the code behind the
-  graphics. Simply generate the graphics again with Shift-Enter.
+  Open the worksheet \url{http://sagenb.org/home/pub/1126/}.
+  This contains the table of contents of the interactive ECC notebook.
+  From here you can navigate via a click to the different chapters of the document.
 
   \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-  This tutorial uses the fonts from jsMath. They should be installed into your
-  browser for a better layout.
+  In the very top left corner, click \verb#Edit a copy# in order to create
+  your own copy of the worksheet.
+
+  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
+  Sometimes it's necessary at the beginning to re-evaluate the worksheet.
+  Click in the left upper corner on \verb#Action -> Evaluate all#.
+
+  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
+  Some of the applications still do not always work after opening a worksheet.
+  Instead of nice output, they show lots of (blue) error messages.
+  This normally can be solved quickly by clicking the gray  ``\%hide'' string:
+  Then you get the code behind the graphics. Simply generate the graphics
+  again with Shift-Enter.\\
+  Even after doing this, the graphics code does not always disappear. Instead,
+  it sometimes turns gray. Should this happen, click on the gray text,
+  then click somewhere outside of the text box. The code will then
+  disappear and leave you with a nice layout of the worksheet.
+
+  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
+  Some of the ECC tutorial's content uses a special math fonts that are
+  not installed by default with most browsers. When you notice that
+  formulas are not displayed correctly or even get an error message
+  about missing fonts from your browser, you need to install the jsMath
+  fonts for a better layout.\\
   See \url{http://www.math.union.edu/~dpvc/jsMath/}
   and \url{http://pubpages.unh.edu/~jsh3/jsMath/}.\\
   After installing these fonts you can see the jsMath symbol at the lower border
   of your browser. If you click this symbol you can find the download page for
-  the TIFF fonts. We are sorry, that this installation has to be done at every
-  PC where this notebook runs in a browser.
+  the TIFF fonts. This fonts installation has to be done at every PC.
 
   \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-  If you want to change one of the worksheets you should generate
-  your own local copy (under Linux in your home area) by clicking
-  ``Edit a copy'' in the left upper corner.
+  According to the Sage-support newsgroup there is work underway
+  to create a system for using @interact completely outside of the
+  Sage notebook (JS code within a static html pages).
 
 }${}^,$\footnote{%
   Since 2008 this ECC notebook can be found at
-    \url{http://sage.mathematik.uni-siegen.de:8000/home/pub/45/}.\\
+    \url{http://sage.mathematik.uni-siegen.de:8000/home/pub/45/} (\verb!#45 to #52!).
   To logon in Siegen you have to allow port 8000 and Cookies.\\
+  Since 2009 an updated version of this ECC notebook can be found at
+    \url{http://sagenb.org/home/pub/1126/} (\verb!#1126 to #1133!).
 }
 consists of 8 parts (title page plus 7 chapters)
 % "Titelseite" mit Inhaltsverzeichnis plus 7 Kapitel

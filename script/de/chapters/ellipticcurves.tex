@@ -619,9 +619,11 @@ Daher eignen sich diese Verfahren auch sehr gut für eine Parallelisierung.
 % -----------------------------------------------------------------------------
 \newpage
 \section{Implementierung Elliptischer Kurven zu Lehrzwecken}
+\label{ec:Implementing-for-Education}
 
 Es gibt relativ wenig freie Programme mit graphischer Oberfläche, die ECC implementieren.
 Im Folgenden wird aufgezeigt, welche Funktionalität dazu in CrypTool und in Sage vorhanden ist.
+
 
 % -----------------------------------------------------------------------------
 \subsection{CrypTool}
@@ -674,9 +676,8 @@ Sage-Beispiele dazu finden sich z.B. unter den \glqq Published Worksheets\grqq~a
 
 }.
 
-\noindent Ein ausführliches, interaktives ECC-Tutorial, genannt
-\hyperlink{ec:Web-Link:Sage_Massierer}{ECC-Notebook},
-gibt es von Maike Massierer.
+\noindent Zusätzlich gibt es ein ausführliches, interaktives
+\hyperlink{ec:Web-Link:Sage_Massierer}{ECC-Tutorial} von Maike Massierer.
 Diese Einführung in die Elliptische-Kurven-Kryptographie (ECC)
 ist als Sage-Notebook aufgebaut.
 
@@ -691,45 +692,76 @@ das Package \glqq kash3-2008-07-31.spkg\grqq~installiert worden sein (Befehl \ve
 
 Das ECC-Notebook\index{Elliptische Kurven!ECC-Notebook}\index{Massierer, Maike} von
 Massierer\footnote{%
-Loggt man sich auf einem fremden, öffentlichen Server wie
-\url{http://sage.mathematik.uni-siegen.de:8000/home/pub/45/} oder
-\url{http://www.sagenb.org/} ein, und liegen dort die Worksheets als
-\glqq Published Worksheets\grqq~schon vor, kann man folgendermaßen vorgehen:\\
-- Starten des Sage-Notebooks in einem Browser.
+Anleitung zur Benutzung eines interaktiven Sage-Notebooks:\\
 
   \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-  Klickt man auf \glqq Published\grqq~in der oberen rechten Ecke, sieht man die 8 Worksheets.
+  Öffentliche Sage-Server wie
+  \url{http://sage.mathematik.uni-siegen.de:8000} oder
+  \url{http://www.sagenb.org/} bieten oft Worksheets als
+  \glqq Published Worksheets\grqq~ an, die man ohne Log-in
+  ausführen kann. Diese Worksheets werden aufgelistet, wenn man
+  auf \glqq Published\grqq~in der oberen rechten Ecke klickt.
 
   \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-  Manchmal ist es nötig, dass man zu Beginn in der linken oberen Ecke
-  \verb#Action -> Evaluate all# klickt.
+  Worksheets, die den  \verb#Interact#-Befehl nutzen, erfordern z.Zt.
+  einige weitere Schritte vom Benutzer: Einloggen, Kopie erstellen,
+  alle Kommandos nochmal ausführen.\\
+  Das Vorgehen ist im Folgenden beschrieben (am Beispiel des sagenb-Servers
+  und für das ECC-Tutorial):\\
 
   \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-  Manchmal enthält das Fenster viele (blaue) Fehlermeldungen. Das kann man normalerweise
-  schnell lösen, indem man den \glqq \%hide\grqq-String anklickt: Danach sieht
-  man den Code hinter der Grafik. Mit Shift-Enter kann man die Grafik neu erzeugen.
+  Anlegen eines Accounts für ein Sage-Notebook unter \url{http://sagenb.org/register}
+  und Einloggen unter \url{http://sagenb.org/}.
 
   \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-  Dieses ECC-Tutorial benutzt die Fonts jsMath. Für eine bessere Darstellung sollten
-  diese in Ihrem Browser installiert sein.
+  Öffnen des Worksheets \url{http://sagenb.org/home/pub/1126/}.
+  Dieses enthält das Inhaltsverzeichnis des interaktiven ECC-Notebook.
+  Von hier aus kann man per Klick zu den anderen Kapiteln des Dokuments navigieren.
+
+  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
+  Klicken Sie auf \verb#Edit a copy#~in der linken oberen Ecke,
+  um eine eigene Kopie des Worksheets zu erstellen.
+
+  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
+  Manchmal ist es nötig, dass man das Worksheet nach dem Start nochmal neu ausführt.
+  Klicken Sie dazu in der linken oberen Ecke \verb#Action -> Evaluate all#.
+
+  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
+  Manche Befehle funktionieren manchmal trotzdem nicht nach dem Öffnen eines Worksheet.
+  Statt eines ansprechende Layouts kommen viele (blaue) Fehlermeldungen.
+  Das kann man normalerweise schnell lösen, indem man den grauen
+  \glqq \%hide\grqq-String anklickt: Danach sieht man den Code hinter der Grafik.
+  Mit Shift-Enter kann man die Grafik neu erzeugen.\\
+  Selbst dann verschwindet der Grafik-Code nicht immer, sondern wird grau.
+  Dann hilft meist ein Klick auf den grauen Text, und danach ein Klick außerhalb
+  der Text-Box. Danach verschwindet der Code und man sieht das grafische Layout des
+  Worksheet.
+
+  \noindent\hangindent=6pt\makebox[6pt][l]{-}%
+  Teile des ECC-Tutorial benutzen einen speziellen Mathematik-Font, der standardmäßig
+  bei den meisten Browser nicht mitinstalliert wird. Wenn Sie bemerken, dass Formeln
+  nicht korrekt dargestellt sind oder Ihr Browser meldent, dass Fonts fehlen,
+  installieren Sie bitte die Fonts jsMath für eine bessere Darstellung.\\
   Siehe \url{http://www.math.union.edu/~dpvc/jsMath/}
   und   \url{http://pubpages.unh.edu/~jsh3/jsMath/}.\\
   Nach der Installation dieser Fonts hat man das jsMath-Symbol am unteren Rand
   des Browsers. Klickt man dieses Symbol an, erhält man die Download-Seite dieser
-  TIFF-Fonts.
-  Leider muss die Installation der Fonts an jedem PC einzeln erfolgen.
+  TIFF-Fonts. Diese Font-Installation muss an jedem PC einzeln erfolgen.
 
   \noindent\hangindent=6pt\makebox[6pt][l]{-}%
-  Wenn Sie ein Worksheet ändern wollen, sollten Sie Ihre eigene lokale Kopie
-  (unter Linux im HOME-Verzeichnis) erstellen (Klick auf \glqq Edit a copy\grqq~in
-  der linken oberen Ecke).
+  Gemäß der Sage-Support-Newsgroup wird daran gearbeitet, ein System zu erstellen,
+  dass @interact komplett außerhalb des Sage-Notebooks benutzt werden kann
+  (JS-Code innerhalb von statischen HTML-Seiten).
    % Leerzeile am Ende nötig (Erkennen Absatz-Ende, sonst hat die 2. Zeile KEINEN hängenden Einzug?! (TODO)
 
 }${}^,$\footnote{%
   Seit 2008 steht dieses ECC-Notebook auf
-    \url{http://sage.mathematik.uni-siegen.de:8000/home/pub/45/}.\\
-  Um sich in Siegen einzuloggen, muss man den Port 8000 und Cookies erlauben.
-  %  -> Zum Ansehen: (siehe Massierers Mail vom 05.09.2008 12:52)
+    \url{http://sage.mathematik.uni-siegen.de:8000/home/pub/45/} (\verb!#45 bis #52!).
+  Um sich in Siegen einzuloggen, muss man den Port 8000 und Cookies erlauben.\\
+  %  -> Zum Ansehen: (siehe Massierers Mail vom 05.09.2008 12:52).
+  Seit 2009 gibt es eine aktualisierte Version dieses ECC-Notebook auf
+    \url{http://sagenb.org/home/pub/1126/} (\verb!#1126 bis #1133!).
+
 }
 besteht aus 8 Teilen (\glqq Titelseite\grqq~mit Inhaltsverzeichnis plus 7 Kapitel)
 und zielt darauf ab, dass selbst ein Einsteiger versteht, was Elliptische Kurven
