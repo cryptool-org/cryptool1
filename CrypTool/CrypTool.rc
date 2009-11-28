@@ -9,7 +9,6 @@
 //
 #include "resource.h"
 #include "afxres.h"
-
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
@@ -9192,7 +9191,7 @@ END
 STRINGTABLE 
 BEGIN
     ID_ZUFALL_GENERATOREN   "Tworzy dane pseudolosowe przy u¿yciu ró¿nych generatorów liczb losowych."
-    ID_PERMUTATION      "Szyfrowanie przy u¿yciu pojedynczej lub podwójnej pormutacji (pojedyncza lub podwójna transpozycja kolumn)"
+    ID_PERMUTATION          "Szyfrowanie przy u¿yciu pojedynczej lub podwójnej pormutacji (pojedyncza lub podwójna transpozycja kolumn)"
     ID_ANALYSE_ZUFALLSTESTS_AUTOKORRELATION 
                             "Sprawdza jakoœæ losowoœci aktywnego dokumentu testem Autokorelacji."
     ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST 
@@ -15201,7 +15200,7 @@ BEGIN
     DEFPUSHBUTTON   "Primzahl übernehmen",IDOK,113,118,87,22
     PUSHBUTTON      "Abbrechen",IDCANCEL,322,118,50,22
     PUSHBUTTON      "Primzahl erzeugen",IDC_BUTTON1,7,118,87,22
-    LTEXT           "Dieser Dialog erzeugt ""sichere Primzahlen"". Dazu werden so lange Primzahlen q gesucht, bis die Zahl p = 2q+1 ebenfalls eine Primzahl ist. Bitte beachte, das die Bestimmung sicherer Primzahlen in der Regel sehr viel länger",IDC_STATIC,14,3,351,18
+    LTEXT           "Dieser Dialog erzeugt ""sichere Primzahlen"". Dazu werden so lange Primzahlen q gesucht, bis die Zahl p = 2q+1 ebenfalls eine Primzahl ist. Bitte beachten Sie, das die Bestimmung sicherer Primzahlen in der Regel sehr viel länger",IDC_STATIC,14,3,351,18
     GROUPBOX        "Sichere Primzahl",IDC_STATIC,7,48,365,62
     EDITTEXT        IDC_EDIT1,50,66,34,12,ES_AUTOHSCROLL | ES_NUMBER
     EDITTEXT        IDC_EDIT2,50,88,315,12,ES_AUTOHSCROLL | ES_READONLY
@@ -19910,7 +19909,7 @@ END
 STRINGTABLE 
 BEGIN
     ID_ZUFALL_GENERATOREN   "Erzeugt mit unterschiedlichen Zufallsgeneratoren pseudo-zufällige Daten "
-    ID_PERMUTATION      "Verschlüsseln mit ein- oder zweifacher Permutation (Transposition, Doppelwürfel)"
+    ID_PERMUTATION          "Verschlüsseln mit ein- oder zweifacher Permutation (Transposition, Doppelwürfel)"
     ID_ANALYSE_ZUFALLSTESTS_AUTOKORRELATION 
                             "Autokorrelation Test des Dokumentes durchführen"
     ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST 
@@ -21387,7 +21386,7 @@ BEGIN
     IDS_PA_FILESIZES_DIFFERENT 
                             "Klartext und Chiffretextdatei haben unterschiedliche Größen."
     IDS_PA_EMPTYFILE        "Beide Dateien (Klartext und Chiffretextdatei) sind leer. "
-    IDS_PA_LIMITRANGE_ERROR "Bitte überprüfe die Eingabe des Suchraums für die Permutationsgröße:\r\nDie untere Grenze (von) muss kleiner oder gleich die der oberen Grenze (bis) sein."
+    IDS_PA_LIMITRANGE_ERROR "Bitte überprüfen Sie die Eingabe des Suchraums für die Permutationsgröße:\r\nDie untere Grenze (von) muss kleiner oder gleich die der oberen Grenze (bis) sein."
     IDS_PA_DIRECTION_ERROR  "Sollte nie auftreten."
     ID_PA_NOKEYFOUND        "Es wurde kein Permutationsschlüssel gefunden."
     IDS_PLAINTEXT           "Klartext"
@@ -30823,7 +30822,7 @@ END
 STRINGTABLE 
 BEGIN
     ID_ZUFALL_GENERATOREN   "Creates pseudorandom data with different random number generators"
-    ID_PERMUTATION      "Encryption using a single permutation or two concatenated permutations (single or double column transposition)"
+    ID_PERMUTATION          "Encryption using a single permutation or two concatenated permutations (single or double column transposition)"
     ID_ANALYSE_ZUFALLSTESTS_AUTOKORRELATION 
                             "Checks the random quality of the active document with the Autocorrelation test"
     ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST 
