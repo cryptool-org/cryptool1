@@ -22,7 +22,12 @@ my @subdirectories = (
     'Rijndael-Animation',
     'smimedemo',
     'script',
-    'setup/template(-..)?',
+    'setup/template$', # no subdirs
+    'setup/template/cryptochallenges',
+    'setup/template/examples',
+    'setup/template/sage',
+    'setup/template-..$', # no subdirs
+    'setup/template-../examples',
 );
 
 my $verbose;
