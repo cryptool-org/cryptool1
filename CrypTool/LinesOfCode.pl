@@ -22,6 +22,7 @@ my @subdirectories = (
     "Rijndael-Animation",
     "smimedemo",
     "script",
+    "setup",
 );
 
 my $verbose;
@@ -47,6 +48,7 @@ my @fileTypes = (
     "HTML code" => "html hpp",
     "Text files" => "txt",
     "LaTeX code" => "tex",
+    "Sage code" => "sage",
 );
 my %fileTypes = @fileTypes; 
 my @fileTypesKeys = @fileTypes[grep { $_ % 2 == 0 } (0 .. $#fileTypes)];
