@@ -104,7 +104,7 @@ and thus succeeds the DES procedure.\index{AES}
 More details about the AES algorithms and the AES candidates of the last round
 can be found within the online help of CrypTool\index{CrypTool}%
 \footnote{%
-      CrypTool online help\index{CrypTool}: the index head-word {\bf AES}
+      CrypTool online help\index{CrypTool}: The index head-word {\bf AES}
       leads to the 3 help pages: {\bf AES candidates}, 
       {\bf The AES winner Rijndael} and 
       {\bf The Rijndael encryption algorithm}.
@@ -156,11 +156,16 @@ successful: the authors specify in their paper necessary conditions, but it is
 not known, which conditions are sufficient.  There are two very new aspects of
 this attack: firstly this attack is not based on statistics but on algebra. So
 attacks seem to be possible, where only very small amounts of ciphertext are
-available. Secondly the security of a product algorithm\index{Cascade cipher}%
+available. Secondly the security of a product algorithm%
+\index{Product algorithm}\index{Encryption!Product algorithm}%
+\index{Cascade cipher}\index{Encryption!Cascade cipher}%
 \footnote{%
 A ciphertext can be used as input for another encryption algorithm. 
-A cascade cipher is build up as a composition of different encryption 
-transformations. The overall cipher is called product algorithm or cascade cipher
+A cascade cipher%
+\index{Product algorithm}\index{Encryption!Product algorithm}%
+\index{Cascade cipher}\index{Encryption!Cascade cipher}%
+is build up as a composition of different encryption transformations.
+The overall cipher is called product algorithm or cascade cipher
 (sometimes depending whether the used keys are statistically dependent or not).\\
 Cascading does not always improve the security.\\
 This process is also used {\em within} modern algorithms:
@@ -220,7 +225,11 @@ Brute-force (exhaustive search, trial-and-error) means to completely examine all
     mark not more than 20 bit of the key as unknown.
 }.
 
-Companies like RSA Security provide so-called cipher challenges in order to quantify the security offered by well-known symmetric ciphers as DES, Triple-DES or RC5\footnote{%
+Companies like RSA Security provide so-called cipher challenges in order
+to quantify the security offered by well-known symmetric ciphers as DES,
+Triple-DES or RC5%
+\index{DES}\index{RC5}\index{Triple-DES}%
+\footnote{%
  \url{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}\\
  In May 2007 RSA announced that they will not confirm the correctness of
  the not yet solved RC5-72 challenge.}.
@@ -412,14 +421,15 @@ cryptanalysis methods.
 One of these variants is e.g. S-AES (Simplified-AES) by Prof. Ed Schaefer
 and his students \cite{cm:Musa-etal2003}%
 \footnote{
-    See the articles
-    ``Devising a Better Way to Teach and Learn the Advanced Encryption Standard''\\
+    See the two articles with the same title
+    ``Devising a Better Way to Teach and Learn the Advanced Encryption Standard''
     at the university's news at\\
-    \url{http://math.scu.edu/~eschaefe/getfile.pdf} \\
-    \url{http://www.scu.edu/cas/research/cryptography.cfm}
+    - \url{http://math.scu.edu/~eschaefe/getfile.pdf} \\
+    - \url{http://www.scu.edu/cas/research/cryptography.cfm}
 }.
 Another one is Mini-AES \cite{cm:Phan2002}
-(see chapter~\ref{CM_Sage_Mini-AES} ``\nameref{CM_Sage_Mini-AES}''):
+(see chapter~\ref{CM_Sage_Mini-AES} ``\nameref{CM_Sage_Mini-AES}'')%
+\index{DES}\index{DES!SDES}\index{IDEA}:
 \begin{itemize}
 
 \item Edward F. Schaefer: {\em A Simplified Data Encryption Standard Algorithm} 
@@ -492,6 +502,8 @@ The following Sage code from the release tour of Sage 4.1%
 See \url{http://mvngu.wordpress.com/2009/07/12/sage-4-1-released/}
 }
 calls the implementation of the Mini-AES.
+
+Further example code for Mini-AES can be found in \cite[chap. 6.5 and appendix D]{cm:Nguyen2009}.
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -616,7 +628,7 @@ True
        Minh Van Nguyen, \\
        {\em Exploring Cryptography Using the Sage Computer Algebra System}, \\
        Victoria University, 2009, \\
-       See Sage publications page
+       See Sage publications
        \url{http://www.sagemath.org/library-publications.html}
 
 \bibitem[Nichols1996]{cm:Nichols1996} \index{Nichols 1996} 

@@ -12,16 +12,39 @@ Dieser Anhang enthält auf der folgenden Seite den kompletten Menübaum der
 CrypTool\index{CrypTool}-Version 1.4.30\footnote{%
   Parallel zu CrypTool 1.x\index{CrypTool 1.x} werden im CrypTool-Projekt
   momentan auch die Zukunftsversionen CrypTool 2\index{CrypTool 2.0} und
-  JCrypTool\index{JCrypTool 1.0} entwickelt.\\
-  Diese Zukunftsversionen sind zur Zeit (August 2009) noch Betaversionen;
+  JCrypTool\index{JCrypTool 1.0} entwickelt:\\
+  - Webseite CT2: \url{http://www.cryptool2.vs.uni-due.de} \\
+  - Webseite JCT: \url{http://jcryptool.sourceforge.net} \\
+  Diese Zukunftsversionen sind zur Zeit (Dezember 2009) noch Betaversionen;
   sie sind aber schon stabil genug, um von Endbenutzern genutzt werden
   zu können. Wenn es hier Releaseversionen gibt, werden im Skript die
   entsprechenden Menüpfade und Menübäume ergänzt.
 }.
 
-Welche Menüeinträge gerade aktiv (also nicht ausgegraut) sind, wird durch
-den Typ des aktiven Dokumentenfenster bestimmt.
+\noindent Das Haupt-Menü enthält die Service-Funktionen in den Menüs
+\begin{itemize}
+   \item Datei
+   \item Bearbeiten
+   \item Ansicht
+   \item Optionen
+   \item Fenster
+   \item Hilfe
+\end{itemize}
+und die eigentlichen Krypto-Funktionen in den Menüs
+\begin{itemize}
+   \item Ver-/Entschlüsseln
+   \item Digitale Signaturen/PKI
+   \item Einzelverfahren
+   \item Analyse.
+\end{itemize}
 
+Unter \verb#Einzelverfahren# finden sich auch die Visualisierungen von Einzelalgorithmen
+und von Protokollen. Manche Verfahren sind sowohl als schnelle Durchführung
+(meist unter dem Menü \verb#Ver-/Entschlüsseln#) als auch als
+Schritt-für-Schritt-Visualisierung implementiert.
+
+Welche Menüeinträge gerade aktiv (also nicht ausgegraut) sind, wird durch
+den Typ des aktiven Dokumentfensters bestimmt:
 So ist z.~B. die Brute-Force-Analyse\index{Angriff!Brute-Force} für DES 
 nur verfügbar, wenn das aktive Fenster in Hexadezi"-mal-Darstellung 
 geöffnet ist, während der Menüeintrag "`Zufallsdaten erzeugen\dots"'

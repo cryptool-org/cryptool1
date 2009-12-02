@@ -397,8 +397,10 @@ $$
 \end{enumerate}
 In particular, we obtain $-P=(x,-y)$ for $P=(x,y)\in E$.
 
-(Note that $-(-P)=(x,x+(x+y))=(x,2x+y)=(x,y)$, since the underlying field has characteristic $2$.)\footnote{An animation of the addition of points on elliptic curves can be found on the Certicom\index{Certicom}-Homepage \\
-\href{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}{\texttt{http://www.certicom.com/resources/ecc\_tutorial/ecc\_tutorial.html}}}
+(Note that $-(-P)=(x,x+(x+y))=(x,2x+y)=(x,y)$, since the underlying field
+has characteristic $2$.)\footnote{An animation of the addition of points
+on elliptic curves can be found on the Certicom\index{Certicom} homepage \\
+\url{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}}
 
 One can verify that $+$ defines a group operation on the set $E\cap\{\cal O\}$.
 In particular this means that the sum of two points is again a point on the
@@ -687,7 +689,7 @@ Instructions to use an interactive Sage noebook:\\
 
   \noindent\hangindent=6pt\makebox[6pt][l]{-}%
   According to the Sage-support newsgroup there is work underway
-  to create a system for using @interact completely outside of the
+  to create a system for using \verb#@interact# completely outside of the
   Sage notebook (JS code within a static html pages).
 
 }${}^,$\footnote{%
@@ -719,6 +721,7 @@ and aims to let even beginners understand what elliptic curves are:
 % -----------------------------------------------------------------------------
 \newpage
 \section{Patent aspects}
+\index{Patent}
 
 If the field $GF(2^n)$ is used instead of the prime field $GF(p)$, one has to make substantial changes in the implementation. The advantage of $GF(2^n)$ lies in the fact that calculations in $GF(2^n)$ can be implemented very efficiently using the binary representation. In particular, divisions are much easier to process compared to $GF(p)$ (this is particularly important in the signature scheme mentioned above where a division is needed for processing a signature as well as for the verification).
 
@@ -813,31 +816,28 @@ Both examples show the typical range of application for elliptic curve cryptogra
 \addcontentsline{toc}{section}{Web links}
 
 \begin{enumerate}
+
         \hypertarget{ec:Web-Link:Sage_Massierer}{} 
    \item Interactive introduction to elliptic curves and elliptic curve cryptography
         with Sage\index{Sage} by Maike Massierer and the CrypTool team,\\
-        \href{http://sage.mathematik.uni-siegen.de:8000/home/pub/45/}
-        {\texttt{http://sage.mathematik.uni-siegen.de:8000/home/pub/45/}} \\
+        \url{http://sagenb.org/home/pub/1126/} (\verb!#1126 to #1133!) \\
         ECC Tutorial as Sage Notebook \\
-        Version 1.01, October 2008
-   \item Certicom Online Tutorial, \index{Certicom},\\
-        \href{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}
-        {\texttt{http://www.certicom.com/resources/ecc\_tutorial/ecc\_tutorial.html}}
+        Version 1.2, November 2009
+
+   \item Certicom Online Tutorial\index{Certicom},\\
+        \url{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}      
 		
    \item Working group IEEE P1363, \\
-        \href{http://grouper.ieee.org/groups/1363}
-        {\texttt{http://grouper.ieee.org/groups/1363}}
+        \url{http://grouper.ieee.org/groups/1363}
 
    \item \hypertarget{Lenstra2}{}
         An informative web page about factorization with elliptic curves, \\
-        \href{http://www.loria.fr/~zimmerma/records/ecmnet.html}
-	{\texttt{http://www.loria.fr/\~{}zimmerma/records/ecmnet.html}} \\
+        \url{http://www.loria.fr/~zimmerma/records/ecmnet.html}\\
         It contains literature related to the topic factorization with 
 	elliptic curves as well as links to other web page. 
 
    \item Key length comparison by Arjen Lenstra and Eric Verheul,\\
-        \href{http://cryptosavvy.com/table.htm}
-        {\texttt{http://cryptosavvy.com/table.htm}}
+        \url{http://cryptosavvy.com/table.htm}
 
 \end{enumerate}
 

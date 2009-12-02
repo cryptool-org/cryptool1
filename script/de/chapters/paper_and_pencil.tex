@@ -422,6 +422,8 @@ Symmetrisch (klassisch) \textbackslash{} Permutation} abgebildet werden.}
 
 
 %------------------------------------------------------------------------------
+% \newpage
+\clearpage 
 \section{Substitutionsverfahren}
 \label{PaP_substitution_ciphers}
 \index{Substitution}
@@ -559,7 +561,6 @@ Zuordnung ist während des ganzen Verschlüsselungsprozesses dieselbe.
    48 44 65 78 53~~~99 48 66 86 74~~~56\\
 
 
-\newpage % Damit die Tables immer direkt nach dem zugehörigen Item. 
 \item {\bf Codierung} \cite{pp:Singh2001}: Im Laufe der Geschichte wurden immer
    wieder Codebücher verwendet. In diesen Büchern wird jedem möglichen 
    {\bf Wort} eines Klartextes ein Codewort, ein Symbol oder eine Zahl
@@ -1118,6 +1119,7 @@ ist die Zuordnung Klartext-/Geheimtextzeichen nicht fest, sondern variabel
 \section{Kombination aus Substitution und Transposition}
 \label{PaP_combined_ciphers}
 \index{Kaskaden}
+\index{Verschlüsselung!Mehrfachverschlüsselung}\index{Mehrfachverschlüsselung}
 
 In der Geschichte der Kryptographie sind häufig Kombinationen der oben 
 angeführten Verfahrensklassen anzutreffen. Diese haben sich - im Durchschnitt - 
@@ -1924,10 +1926,10 @@ True
 \label{paper_pencil:shift_cipher:Sage_example}
 \end{sagecode}
 
-Die ursprüngliche Caesar-Chiffre ist einfach eine Shift-Chiffre,
-wo der Schlüssel genau 3 ist. Im nächsten Beispiel nutzen wir die
-Shift-Chiffre, um die Caesar-Chiffre über den Großbuchstaben
-des lateinischen Alphabets zu bauen. % Dann verschlüsseln wir den
+Die ursprüngliche Caesar-Chiffre ist eine Shift-Chiffre mit
+festem Schlüssel 3. Im nächsten Beispiel wird die Caesar-Chiffre
+über den Großbuchstaben des lateinischen Alphabets gebaut.
+% Dann verschlüsseln wir den
 % Klartext P mit der Caesar-Chiffre. Schließlich entschlüsseln wir
 % wieder das Chiffrat C und überprüfen, dass das Egebnis (DC)
 % identisch mit dem ursprünglichen Klartext ist.
@@ -2360,7 +2362,7 @@ HILLORMATRIXCIPHERUSESMATRIXOPERATIONS
        Minh Van Nguyen, \\
        {\em Exploring Cryptography Using the Sage Computer Algebra System}, \\
        Victoria University, 2009, \\
-       Siehe Sage publications page
+       Siehe Sage publications
        \url{http://www.sagemath.org/library-publications.html}
 
 \bibitem[Savard1999]{pp:Savard1999} \index{Savard 1999}

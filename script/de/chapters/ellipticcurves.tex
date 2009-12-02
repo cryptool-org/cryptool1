@@ -430,7 +430,7 @@ $$
 \end{enumerate}
 Hieraus folgt insbesondere für $P=(x,y)\in E$, dass gilt $-P=(x,x+y)$. (Beachte: $-(-P)=(x,x+(x+y))=(x,2x+y)=(x,y)$, da der zugrunde liegende Körper Charakteristik $2$ hat.)\footnote{Eine Animation der Punktaddition auf Elliptischen Kurven 
 findet man auf der Certicom-Seite\index{Certicom} unter \\
-\href{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}{\texttt{http://www.certicom.com/resources/ecc\_tutorial/ecc\_tutorial.html}}}
+\url{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}}
 
 Man kann nachrechnen, dass die Menge $E\cap\{\cal O\}$ mit der so definierten
 Addition eine Gruppe bildet. Dies bedeutet insbesondere, dass die Summe zweier
@@ -740,7 +740,7 @@ Anleitung zur Benutzung eines interaktiven Sage-Notebooks:\\
   \noindent\hangindent=6pt\makebox[6pt][l]{-}%
   Teile des ECC-Tutorial benutzen einen speziellen Mathematik-Font, der standardmäßig
   bei den meisten Browser nicht mitinstalliert wird. Wenn Sie bemerken, dass Formeln
-  nicht korrekt dargestellt sind oder Ihr Browser meldent, dass Fonts fehlen,
+  nicht korrekt dargestellt sind oder Ihr Browser meldet, dass Fonts fehlen,
   installieren Sie bitte die Fonts jsMath für eine bessere Darstellung.\\
   Siehe \url{http://www.math.union.edu/~dpvc/jsMath/}
   und   \url{http://pubpages.unh.edu/~jsh3/jsMath/}.\\
@@ -750,7 +750,7 @@ Anleitung zur Benutzung eines interaktiven Sage-Notebooks:\\
 
   \noindent\hangindent=6pt\makebox[6pt][l]{-}%
   Gemäß der Sage-Support-Newsgroup wird daran gearbeitet, ein System zu erstellen,
-  dass @interact komplett außerhalb des Sage-Notebooks benutzt werden kann
+  dass \verb#@interact# komplett außerhalb des Sage-Notebooks benutzt werden kann
   (JS-Code innerhalb von statischen HTML-Seiten).
    % Leerzeile am Ende nötig (Erkennen Absatz-Ende, sonst hat die 2. Zeile KEINEN hängenden Einzug?! (TODO)
 
@@ -785,6 +785,7 @@ sind (es ist nur auf Englisch vorhanden):
 % -----------------------------------------------------------------------------
 \newpage
 \section{Patentaspekte}
+\index{Patent}
 
 Wenn man statt des Primkörpers $GF(p)$ einen Körper der Form $GF(2^n)$ zugrunde legt, ergeben sich wesentliche Unterschiede in der Implementierung. Der Vorteil einer Implementierung unter Verwendung von $GF(2^n)$ liegt darin, dass Rechnungen aufgrund der binären Darstellung effizienter durchgeführt werden können. Dies betrifft insbesondere die Division, die in $GF(p)$ vergleichsweise aufwändig ist (was z.B. bei dem oben beschriebenen Signaturverfahren sowohl die Erstellung der Signatur als auch ihre spätere Verifikation betrifft, da beide eine Divisionsoperation enthalten).
 
@@ -878,34 +879,32 @@ der Schlüssellänge (Speicherplatz) eine entscheidende Bedeutung zukommt.
 \addcontentsline{toc}{section}{Web-Links}
 
 \begin{enumerate}
+
         % \label{ec:Web-Link:Sage_Massierer}
         \hypertarget{ec:Web-Link:Sage_Massierer}{} 
    \item Umfassende interaktive Einführung in elliptische Kurven und
         Elliptische-Kurven-Krypto"-graphie (ECC) mit Sage\index{Sage}
         von Maike Massierer und dem CrypTool-Team (alles in Englisch),\\
-        \href{http://sage.mathematik.uni-siegen.de:8000/home/pub/45/}
-      {\texttt{http://sage.mathematik.uni-siegen.de:8000/home/pub/45/}} \\
+        \url{http://sagenb.org/home/pub/1126/} (\verb!#1126 bis #1133!) \\
         ECC-Tutorial als Sage Notebook \\
-        Version 1.01, Oktober 2008
+        Version 1.2, November 2009
         % --> seit April 2009 ohne HTTPS auf Siegener Server (mit SAGE 3.4)
 
   \item Online-Tutorial über Elliptische Kurven der Firma Certicom\index{Certicom},\\
         \url{http://www.certicom.com/resources/ecc_tutorial/ecc_tutorial.html}
 
   \item Arbeitsgruppe IEEE P1363, \\
-        \href{http://grouper.ieee.org/groups/1363}
-     {\texttt{http://grouper.ieee.org/groups/1363}}
+        \url{http://grouper.ieee.org/groups/1363}
 
   \item \hypertarget{Lenstra2} Eine informative Seite zum Faktorisieren mit
         Elliptischen Kurven, \\
-        \href{http://www.loria.fr/~zimmerma/records/ecmnet.html}
-     {\texttt{http://www.loria.fr/\~{}zimmerma/records/ecmnet.html}} \\
+        \url{http://www.loria.fr/~zimmerma/records/ecmnet.html}\\
         Dort findet man Literatur zum Thema Faktorisieren mit Elliptischen
 	Kurven sowie Links zu anderen ECC-Seiten.
 
   \item Schlüssellängen-Vergleich von Arjen Lenstra und Eric Verheul,\\
-        \href{http://cryptosavvy.com/table.htm}
-	{\texttt{http://cryptosavvy.com/table.htm}}
+        \url{http://cryptosavvy.com/table.htm}
+
 \end{enumerate}
 
 % Local Variables:

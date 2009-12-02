@@ -431,7 +431,9 @@ the most important asymmetric cryptography procedure to date.  \par
 \textbf{Key generation:} \vskip + 5pt
 
 Let $ p $ and $ q $ be two different prime numbers and $ N = pq$. Let 
-$ e $ be any prime number relative to $ \phi (N) $ \index{Prime number!relative prime}, i.e. $ \ggt (e,\phi (N))=1. $\index{Gcd}
+$ e $ be any prime number relative to $ \phi (N) $
+\index{Prime number!relative prime}\index{Relative prime},
+i.e. $ \ggt (e,\phi (N))=1. $\index{gcd}
 Using the Euclidean algorithm, 
 we calculate the natural number  $ d < \phi (N), $ such that
 \[ ed \equiv 1 \mod \phi (N). \]
@@ -540,7 +542,7 @@ decimal places are currently safe. They estimates that the current computer
 technology indicates that a number with $100$ decimal places could be
 factorized in approximately two weeks at justifiable costs, and using an 
 expensive configuration (e.g. of around 10 million US dollars), a number with 
-$150$ decimal places could be factorized in about a year, and a $200-$digit
+$150$ decimal places could be factorized in about a year, and a $200$-digit
 number should remain impossible to factorize for a long time to come, unless
 there is a mathematical breakthrough. However, you can never be sure that
 there won't be a mathematical breakthrough tomorrow.\\
@@ -607,9 +609,9 @@ Backdoor information is the decomposition into prime numbers of $ n = pq. $
     See appendix \ref{s:appendix-Learn-NT}.
 }
 \label{L-Discrete-Logarithm-as-Basis}
-Discrete logarithms \index{Discrete logarithm} form the basis for a large
+\index{Discrete logarithm}\index{Logarithm problem!discrete}
+Discrete logarithms form the basis for a large
 number of algorithms for public-key procedures.
-\index{Logarithm problem!discrete}
 
 %--------------------------------------------------------------------
 \subsection{The discrete logarithm in \texorpdfstring{$ \Z_p $}{Zp}}

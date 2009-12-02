@@ -110,7 +110,7 @@ des DES-Verfahrens.
 Näheres zum AES-Algorithmus und den AES-Kandidaten der letzten Runde finden
 Sie in der CrypTool-Online-Hilfe\index{CrypTool}%
 \footnote{%
-      CrypTool-Online-Hilfe\index{CrypTool}: das Stichwort {\bf AES} im Index
+      CrypTool-Online-Hilfe\index{CrypTool}: Das Stichwort {\bf AES} im Index
       führt auf die 3 Hilfeseiten: {\bf AES-Kandidaten}, 
       {\bf Der AES-Gewinner Rijndael} und {\bf Der AES-Algorithmus Rijndael}.
   }.
@@ -183,10 +183,13 @@ Bedingungen an; es ist nicht bekannt, welche Bedingungen hinreichend sind.
 Neu an diesem Angriff war erstens, dass dieser Angriff nicht auf Statistik,
 sondern auf Algebra beruhte. Dadurch erscheinen Angriffe möglich, die nur
 geringe Mengen von Geheimtext brauchen. Zweitens steigt damit die Sicherheit
-eines Produktalgorithmus\index{Produktalgorithmus}\index{Verschlüsselung!Produktalgorithmus}%
+eines Produktalgorithmus%
+\index{Produktalgorithmus}\index{Verschlüsselung!Produktalgorithmus}%
 \footnote{%
 Ein Geheimtext kann selbst wieder Eingabe für eine Chiffrierung sein. Eine
-Mehrfachverschlüsselung (cascade cipher)\index{Verschlüsselung!Mehrfachverschlüsselung}\index{Mehrfachverschlüsselung}
+Mehrfachverschlüsselung (cascade cipher)
+\index{Verschlüsselung!Mehrfachverschlüsselung}\index{Mehrfachverschlüsselung}
+\index{Kaskaden}
 entsteht aus einer Komposition von mehreren Verschlüsselungstransformationen.
 Die Gesamtchiffrierung wird Produktalgorithmus oder Kaskadenalgorithmus
 genannt (manchmal ist die Namensgebung abhängig davon, ob die verwendeten
@@ -278,7 +281,8 @@ unbekannt kennzeichnen.
 \end{sloppypar}
 
 Um zu zeigen, welche Sicherheit bekannte symmetrische Verfahren wie
-DES, Triple-DES oder RC5 haben, veranstaltet z.B. RSA Security
+DES, Triple-DES oder RC5\index{DES}\index{RC5}\index{Triple-DES}
+haben, veranstaltet z.B. RSA Security
 sogenannte Cipher-Challenges\footnote{%
  \url{http://www.rsasecurity.com/rsalabs/challenges/secretkey/index.html}\\
  Im Mai 2007 meldete RSA, dass sie die Korrektheit der bis dahin nicht
@@ -474,8 +478,8 @@ Datenmengen zu verschlüsseln (mit den geheimen Schlüsseln).
 \fbox{\parbox{15cm}{
     \emph{IETF\footnotemark:} \\
     Ein altes Sprichwort, angeblich geprägt von der US National Security Agency (NSA), sagt:\\
-    "Angriffe werden immer besser, niemals schlechter"\\
-    "Attacks always get better; they never get worse."
+    ``Angriffe werden immer besser, niemals schlechter.''\\
+    ``Attacks always get better; they never get worse.''
 }}
 \end{center}
 \addtocounter{footnote}{0}\footnotetext{%
@@ -498,13 +502,14 @@ zu verstehen und anzuwenden.
 Eine dieser Varianten ist z.B. S-AES (Simplified-AES) von Prof. Ed Schaefer und
 seinen Studenten \cite{cm:Musa-etal2003}%
 \footnote{
-    Siehe auch die Artikel
-    ``Devising a Better Way to Teach and Learn the Advanced Encryption Standard''\\
+    Siehe auch die beiden namensgleichen Artikel
+    ``Devising a Better Way to Teach and Learn the Advanced Encryption Standard''
     unter den Universitäts-News bei\\
-    \url{http://math.scu.edu/~eschaefe/getfile.pdf} \\
-    \url{http://www.scu.edu/cas/research/cryptography.cfm}
+    - \url{http://math.scu.edu/~eschaefe/getfile.pdf} \\
+    - \url{http://www.scu.edu/cas/research/cryptography.cfm}
 }. Eine andere Variante ist Mini-AES \cite{cm:Phan2002}
-(siehe das Kapitel~\ref{CM_Sage_Mini-AES} ``\nameref{CM_Sage_Mini-AES}''):
+(siehe das Kapitel~\ref{CM_Sage_Mini-AES} ``\nameref{CM_Sage_Mini-AES}'')%
+\index{DES}\index{DES!SDES}\index{IDEA}:
 \begin{itemize}
 
 \item Edward F. Schaefer: {\em A Simplified Data Encryption Standard Algorithm} 
@@ -576,6 +581,9 @@ Das folgende Sage Code-Beispiel von den Release-Notes von Sage 4.1%
 Siehe \url{http://mvngu.wordpress.com/2009/07/12/sage-4-1-released/}
 }
 ruft diese Implementierung des Mini-AES auf.
+
+Weiterer Beispiel-Code zum Mini-AES findet sich in
+\cite[Kap. 6.5 und Anhang D]{cm:Nguyen2009}.
 
 \begin{sagecode}
 \begin{Verbatim}%
@@ -707,7 +715,7 @@ True
        Minh Van Nguyen, \\
        {\em Exploring Cryptography Using the Sage Computer Algebra System}, \\
        Victoria University, 2009, \\
-       Siehe Sage publications page
+       Siehe Sage publications
        \url{http://www.sagemath.org/library-publications.html}
 
 \bibitem[Nichols1996]{cm:Nichols1996} \index{Nichols 1996} 

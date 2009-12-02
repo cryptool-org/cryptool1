@@ -347,9 +347,7 @@ under the menu {\bf Crypt/Decrypt \textbackslash{} Symmetric (classic)
    is written on the left of the first column.
    Afterwards, each column is moved (wrap-around) so that it begins with the
    letter, which is in the same line as the key letter of the first 
-   keyword within the second keyword.\\
-   Ciphertext is read out line by line.
-
+   keyword within the second keyword. Ciphertext is read out line by line.
    See table \ref{Cadenus-table-reference}.
 		
    Plaintext: cadenus is a form of columnar transposition using a keyword
@@ -442,7 +440,7 @@ remains unchanged during the whole process of encryption.
 
 	Plaintext:	three positions to the right
 
-	Ciphertext:	WKUHH SRVLWLRQV WR WKH ULJKW\\
+	Ciphertext:	WKUHH SRVLWLRQV WR WKH ULJKW
 
 \item {\bf Affine cipher}: This is a generalization of the shift
    cipher. A plaintext character is first substituted for another
@@ -524,7 +522,6 @@ remains unchanged during the whole process of encryption.
    Ciphertext: 58 53 85 88 54~~~96 78 72 85 56~~~63 65 47 44 65~~~49 46 68 47 55~~~69 56 53\\
 
 
-\newpage % Damit die Tables immer direkt nach dem zugehörigen Item. 
 \item {\bf Coding} \cite{pp:Singh2001}: In the course of time, codebooks were
    used again and again. A codebook assigns a codeword, a symbol or a number
    to every possible {\bf word} of a message. Only if both parties hold
@@ -643,7 +640,6 @@ remains unchanged during the whole process of encryption.
    Ciphertext: 04271 03773 33257 09343 29181 34185 4\\
 
 
-\newpage % Damit die Tables immer direkt nach dem zugehörigen Item. 
    \begin{itemize}
       \item {\bf Ch\'e Guevara Cipher}:
       A special variant is the cipher used by Ch\'e Guevara (with an additional 
@@ -1025,8 +1021,8 @@ Concerning polyalphabetic substitution\index{Substitution!polyalphabetic}, the a
 %------------------------------------------------------------------------------
 \section{Combining substitution and transposition}
 \label{PaP_combined_ciphers}
-\index{Cascades}
-
+\index{Product algorithm}\index{Encryption!Product algorithm}%
+\index{Cascade cipher}\index{Encryption!Cascade cipher}%
 
 In the history of cryptography one often comes across combinations of the 
 previous mentioned methods.
@@ -1821,7 +1817,6 @@ sage: P = caesarcipher.encoding("Shift the alphabet by three positions to the ri
 SHIFTTHEALPHABETBYTHREEPOSITIONSTOTHERIGHT
 sage: 
 sage: key = 3  # shift the plaintext by exactly 3 positions
-sage: 
 sage: C = caesarcipher.enciphering(key, P); C
 VKLIWWKHDOSKDEHWEBWKUHHSRVLWLRQVWRWKHULJKW
 sage: 
@@ -2240,7 +2235,7 @@ HILLORMATRIXCIPHERUSESMATRIXOPERATIONS
        Minh Van Nguyen, \\
        {\em Exploring Cryptography Using the Sage Computer Algebra System}, \\
        Victoria University, 2009, \\
-       See Sage publications page
+       See Sage publications
        \url{http://www.sagemath.org/library-publications.html}
 
 \bibitem[Savard1999]{pp:Savard1999} \index{Savard 1999}

@@ -189,7 +189,7 @@ Dieses Problem heißt auch  {\bf 0-1-Knapsackprob"-lem} und wird mit $ K(a_1, \do
 
 Zwei 0-1-Knapsackprobleme  $ K(a_1, \dots, a_n;g) $   und
 $ K(a'_1, \dots, a'_n;g') $  heißen kongruent, falls es zwei
-teilerfremde\index{Zahlen!teilerfremd (co-prime)} Zahlen $ w $ und $ m $
+teilerfremde\index{Zahlen!teilerfremde (co-prime)} Zahlen $ w $ und $ m $
 gibt, so dass
 \begin{enumerate}
     \item $ m > \max \{ \sum_{i=1}^n a_i , \sum_{i=1}^n a'_i \}, $
@@ -239,7 +239,7 @@ Das Verfahren \ref{knapsackalgo} löst das Knapsackproblem mit superwachsender Fo
 
 \begin{cryptoprocedure}
 Es sei $ (a_1, \dots, a_n) $ superwachsend. Seien $ m $ und $ w $ zwei
-teilerfremde\index{Zahlen!teilerfremd (co-prime)} Zahlen mit $ m >
+teilerfremde\index{Zahlen!teilerfremde (co-prime)} Zahlen mit $ m >
 \sum_{i=1}^{n} a_i $ und $ 1\leq w \leq m-1. $
 Wähle $\bar{w} $ mit $ w \bar{w} \equiv 1 \mod m $ die modulare Inverse
 von $ w $ und setze $ b_i:= wa_i \mod m, $ $ 0\leq b_i < m $ für $ i=1,
@@ -329,7 +329,7 @@ Der Ausgangstext wird in Blöcke zerlegt und verschlüsselt, wobei jeder Block ein
 Die Eulersche Phi-Funktion ist definiert duch:
 $ \phi (N)$ ist die Anzahl der zu $ N $ {} teilerfremden natürlichen
 Zahlen $ x \leq N. $ Zwei natürliche Zahlen $ a $ und $ b $ sind
-teilerfremd\index{Zahlen!teilerfremd (co-prime)}, falls $ \ggt (a,b)=1. $
+teilerfremd\index{Zahlen!teilerfremde (co-prime)}, falls $ \ggt (a,b)=1. $
 
 Für die Eulersche Phi-Funktion gilt: 
 \[ \phi (1)=1,~\phi(2)=1,
@@ -354,7 +354,7 @@ Tabelle~\ref{phi15} zeigt die Werte bis $15$. Im Spezialfall $ N=pq $ gilt
 \begin{table}[ht]
 \begin{center}
 \begin{tabular}{|l|l|l|}\hline
-$n$ & $\phi (n) $ & Die zu $ n $ teilerfremden\index{Zahlen!teilerfremd
+$n$ & $\phi (n) $ & Die zu $ n $ teilerfremden\index{Zahlen!teilerfremde
 (co-prime)} natürlichen Zahlen kleiner $ n. $ \\ \hline
 1 & 1 & 1  \\
 2 & 1 & 1 \\
@@ -400,7 +400,7 @@ dass mit der aktuellen Computertechnik eine Zahl mit $100$
 Dezimalstellen bei vertretbaren Kosten in etwa zwei Wochen zerlegt werden
 könnte, dass mit einer teuren Konfiguration (z.B. im Bereich von 10 Millionen
 US-Dollar) eine Zahl mit $150$ Dezimalstellen in etwa einem Jahr zerlegt
-werden könnte und dass eine $200-$stellige Zahl noch für eine sehr lange Zeit
+werden könnte und dass eine $200$-stellige Zahl noch für eine sehr lange Zeit
 unzerlegbar bleiben dürfte, falls es zu keinem mathematischen Durchbruch kommt.
 Dass es aber nicht doch schon morgen zu einem mathematischen Durchbruch kommt,
 kann man nie ausschließen.\\
@@ -458,7 +458,10 @@ Hintertür-Information ist die Primfaktorzerlegung von $ n = pq. $
     Siehe Anhang \ref{s:appendix-Learn-NT}.
 }
 \label{L-Discrete-Logarithm-as-Basis}
-Diskrete Logarithmen\index{Logarithmusproblem!diskret} sind die Grundlage für eine große Anzahl von Algorithmen von Public-Key-Verfahren.
+\index{DL-Problem}\index{Logarithmusproblem!diskret}
+\index{Diskreter Logarithmus}
+Diskrete Logarithmen sind die Grundlage für eine große Anzahl von
+Algorithmen von Public-Key-Verfahren.
 
 %--------------------------------------------------------------------
 \subsection{Der diskrete Logarithmus in \texorpdfstring{$ \Z_p^* $}{Zp*}}
