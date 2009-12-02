@@ -8,21 +8,21 @@ use Pod::Usage;
 
 # Directories to be included in source code search: (below "trunk")
 my @subdirectories = (
-    "aes",
-    "AES_flow_visualisation",
-    "aestool",
-    "ChallengeResponse",
-    "CrypTool",
-    "dialoguesisters",
-    "eccdemo",
-    "libanalyse",
-    "libec",
-    "libVolRen",
-    "NumberShark",
-    "Rijndael-Animation",
-    "smimedemo",
-    "script",
-    "setup",
+    'aes',
+    'AES_flow_visualisation',
+    'aestool',
+    'ChallengeResponse',
+    'CrypTool',
+    'dialoguesisters',
+    'eccdemo',
+    'libanalyse',
+    'libec',
+    'libVolRen',
+    'NumberShark',
+    'Rijndael-Animation',
+    'smimedemo',
+    'script',
+    'setup/template(-..)?',
 );
 
 my $verbose;
@@ -66,8 +66,9 @@ my @fileTypeCountKeys = ( map { split(/ /) } @fileTypes{ @fileTypesKeys });
 
 #######################################
 #######################################
+chdir $directory or die "cannot chdir to $directory";
 # find the desired files...
-find( \&findFiles, $directory );
+find( \&findFiles, '.' );
 # count lines of code for each file...
 countLOC( );
 # dump results...
@@ -87,8 +88,10 @@ sub findFiles() {
                 if ( not defined $fileLOC{$File::Find::name} ) {
 		    # see whether we are in a valid sub directory
 		    foreach my $subdirectory ( @subdirectories ) {
-			if ( $File::Find::dir =~ m/$subdirectory/ ) {
+			if ( $File::Find::dir =~ m/^\.\/$subdirectory(\/|$)/ ) {
 			    # file found; store it for later processing
+			    die "file $File::Find::name counted more than once!" 
+				if defined $fileLOC{$File::Find::name};
 	                    $fileLOC{$File::Find::name} = 0;
                             $fileTypeCount{$extension}++;
 			}
