@@ -753,8 +753,15 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 										
 										if(maxRating < theRate) maxRating = theRate;
 
-										// TODO: make this threshold configurable through the CrypTool GUI
-										if(theRate >= 10) {
+										// ATTENTION: the "analysisThreshold" variable can be configured via the 
+										// CrypTool analysis options dialog. The higher the the threshold, the more 
+										// possible solutions will be found (this was introduced due to problems with 
+										// German texts). See Schroedel's paper for details, although a variable 
+										// threshold was not part of his code.
+										//
+										// TODO: make sure the user cannot use unreasonable values to mess up anything
+										//
+										if(theRate >= analysisThreshold) {
 											CString possibleResultKey = dict[xDict];
 											CString possibleResultCleartext = decryptText(ciphertext, dict[xDict]);
 											// at this point we have a possible result, store it in the map for possible results
@@ -1178,7 +1185,7 @@ void VigenereAnalysisSchroedel::writeResultFile() {
 }
 
 void VigenereAnalysisSchroedel::readSettingsFromRegistry() {
-	
+
 	CString pathToDefaultDictionaryFile;
 	CString pathToDefaultDigramsFile;
 	CString pathToDefaultTrigramsFile;
@@ -1195,6 +1202,9 @@ void VigenereAnalysisSchroedel::readSettingsFromRegistry() {
 	// now try to read settings from the registry
 	if(CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS, "VigenereAnalysisSchroedel" ) == ERROR_SUCCESS )
 	{
+		unsigned long u_analysisThreshold = 0;
+		CT_READ_REGISTRY_DEFAULT(u_analysisThreshold, "AnalysisThreshold", 10);
+
 		unsigned long u_extensiveLogging = 0;
 		CT_READ_REGISTRY_DEFAULT(u_extensiveLogging, "ExtensiveLogging", 0);
 
@@ -1220,6 +1230,7 @@ void VigenereAnalysisSchroedel::readSettingsFromRegistry() {
 		CT_READ_REGISTRY_DEFAULT(c_trigramsFile, "TrigramsFile", c_trigramsFileDefault, bufferSize);
 
 		// apply settings from registry
+		analysisThreshold = u_analysisThreshold;
 		debug = (BOOL)u_extensiveLogging;
 		pathToDictionary = (CString)c_dictionaryFile;
 		pathToDigrams = (CString)c_digramsFile;

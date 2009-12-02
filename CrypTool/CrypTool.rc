@@ -8,12 +8,11 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polnisch resources
+// Polish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -10725,12 +10724,12 @@ BEGIN
                             "Vigenère analysis according to Schroedel"
 END
 
-#endif    // Polnisch resources
+#endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -10871,13 +10870,13 @@ BEGIN
     PUSHBUTTON      "&Textoptionen",IDC_BUTTON_TEXTOPTIONS,225,419,60,19
 END
 
-IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 340
+IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 355
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Analyseoptionen"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "&Übernehmen",IDOK,7,317,65,16
-    PUSHBUTTON      "Abbrechen",IDCANCEL,234,317,65,16
+    DEFPUSHBUTTON   "&Übernehmen",IDOK,7,332,65,16
+    PUSHBUTTON      "Abbrechen",IDCANCEL,234,332,65,16
     CONTROL         "Ermittelter Schlüssel",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,40,76,10
     CONTROL         "Korrelation",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,55,48,10
     CONTROL         "Histogramme",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,70,57,10
@@ -10887,17 +10886,17 @@ BEGIN
     CONTROL         "Analysen der Basischiffren ausgeben",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,85,132,10
     GROUPBOX        "Caesar",IDC_STATIC,15,20,120,80
     GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,145,20,146,80
-    GROUPBOX        "Optionen für Brute-Force Angriffe gegen moderne symmetrische Algorithmen",IDC_STATIC,7,218,292,92
-    LTEXT           "Anzahl Bytes für den Entropietest:",IDC_STATIC,27,245,109,8
-    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,150,243,30,14,ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "Optionen für Brute-Force Angriffe gegen moderne symmetrische Algorithmen",IDC_STATIC,7,232,292,92
+    LTEXT           "Anzahl Bytes für den Entropietest:",IDC_STATIC,27,259,109,8
+    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,150,257,30,14,ES_AUTOHSCROLL | ES_NUMBER
     GROUPBOX        "Umfang der Ausgabe bei der automatischen Analyse",IDC_STATIC,7,7,292,102
-    LTEXT           "Zeichensatz für den zu erwartenden Klartext",IDC_STATIC,27,262,210,8
-    CONTROL         "Alle 256 Zeichen",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,27,273,245,10
-    CONTROL         "Druckbare Zeichen (ASCII 32 - 256)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,27,284,245,10
+    LTEXT           "Zeichensatz für den zu erwartenden Klartext",IDC_STATIC,27,276,210,8
+    CONTROL         "Alle 256 Zeichen",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,27,287,245,10
+    CONTROL         "Druckbare Zeichen (ASCII 32 - 256)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,27,298,245,10
     CONTROL         "Zeichensatz, wie in Menü: Optionen \\ Textoptionen definiert",IDC_RADIO3,
-                    "Button",BS_AUTORADIOBUTTON,27,294,245,11
-    LTEXT           "Siehe Menü: Analyse \\ Symmetrische Verschlüsselung (modern)",IDC_STATIC,14,228,258,8
-    GROUPBOX        "Optionen für die Vigenère-Analyse nach Schrödel",IDC_STATIC,7,117,292,92
+                    "Button",BS_AUTORADIOBUTTON,27,308,245,11
+    LTEXT           "Siehe Menü: Analyse \\ Symmetrische Verschlüsselung (modern)",IDC_STATIC,14,242,258,8
+    GROUPBOX        "Optionen für die Vigenère-Analyse nach Schrödel",IDC_STATIC,7,117,292,106
     PUSHBUTTON      "&Suchen...",IDC_BUTTON_SEARCH_DICTIONARY_FILE,236,153,55,14
     EDITTEXT        IDC_EDIT_DICTIONARY_FILE,85,153,140,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
     EDITTEXT        IDC_EDIT_DIGRAMS_FILE,85,170,140,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
@@ -10909,7 +10908,9 @@ BEGIN
     LTEXT           "Trigramm-Datei:",IDC_STATIC,25,188,50,8
     CONTROL         "Ausführliche Protokollierung",IDC_CHECK_EXTENSIVE_LOGGING,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,133,103,10
-    PUSHBUTTON      "Standard &wiederherstellen",IDC_BUTTON_RESTORE_STANDARD,105,316,99,17
+    PUSHBUTTON      "Standard &wiederherstellen",IDC_BUTTON_RESTORE_STANDARD,105,331,99,17
+    EDITTEXT        IDC_EDIT_ANALYSIS_THRESHOLD,86,204,25,14,ES_AUTOHSCROLL | ES_NUMBER | NOT WS_BORDER,WS_EX_STATICEDGE
+    LTEXT           "Grenzwert:",IDC_STATIC,25,205,35,8
 END
 
 IDD_HILL_ANALYSIS DIALOGEX 0, 0, 302, 361
@@ -17979,7 +17980,7 @@ BEGIN
         VERTGUIDE, 15
         VERTGUIDE, 291
         TOPMARGIN, 7
-        BOTTOMMARGIN, 333
+        BOTTOMMARGIN, 348
     END
 
     IDD_HILL_ANALYSIS, DIALOG
@@ -21533,12 +21534,12 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "Zeichen"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -21734,13 +21735,13 @@ BEGIN
     PUSHBUTTON      "&Text options",IDC_BUTTON_TEXTOPTIONS,225,352,60,19
 END
 
-IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 340
+IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 355
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Analysis Options"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "&Apply",IDOK,7,317,65,16
-    PUSHBUTTON      "&Cancel",IDCANCEL,234,317,65,16
+    DEFPUSHBUTTON   "&Apply",IDOK,7,332,65,16
+    PUSHBUTTON      "&Cancel",IDCANCEL,234,332,65,16
     CONTROL         "Derived key",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,40,76,10
     CONTROL         "Correlation",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,55,48,10
     CONTROL         "Histograms",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,70,57,10
@@ -21751,17 +21752,17 @@ BEGIN
     GROUPBOX        "Caesar",IDC_STATIC,15,20,120,80
     GROUPBOX        "Vigenère, XOR, Addition",IDC_STATIC,145,20,146,80
     GROUPBOX        "Output options for automatic analysis",IDC_STATIC,7,7,292,102
-    GROUPBOX        "Options for brute-force attacks against modern symmetric algorithms",IDC_STATIC,7,218,292,92
-    LTEXT           "Number of bytes for the entropy test:",IDC_STATIC,27,245,118,8
-    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,150,243,30,14,ES_AUTOHSCROLL | ES_NUMBER
-    LTEXT           "Alphabet for the expected cleartext:",IDC_STATIC,27,262,118,8
-    CONTROL         "All 256 characters",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,27,273,245,10
+    GROUPBOX        "Options for brute-force attacks against modern symmetric algorithms",IDC_STATIC,7,232,292,92
+    LTEXT           "Number of bytes for the entropy test:",IDC_STATIC,27,259,118,8
+    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,150,257,30,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Alphabet for the expected cleartext:",IDC_STATIC,27,276,118,8
+    CONTROL         "All 256 characters",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,27,287,245,10
     CONTROL         "Printable characters (ascii 32 - 256)",IDC_RADIO2,
-                    "Button",BS_AUTORADIOBUTTON,27,284,245,10
+                    "Button",BS_AUTORADIOBUTTON,27,298,245,10
     CONTROL         "Charcters as defined in menu: Options \\ Textoptions",IDC_RADIO3,
-                    "Button",BS_AUTORADIOBUTTON,27,294,245,11
-    LTEXT           "See menu: Analysis \\ Symmetric Encryption (modern)",IDC_STATIC,14,228,258,8
-    GROUPBOX        "Options for the Vigenère analysis according to Schroedel",IDC_STATIC,7,117,292,92
+                    "Button",BS_AUTORADIOBUTTON,27,308,245,11
+    LTEXT           "See menu: Analysis \\ Symmetric Encryption (modern)",IDC_STATIC,14,242,258,8
+    GROUPBOX        "Options for the Vigenère analysis according to Schroedel",IDC_STATIC,7,117,292,106
     PUSHBUTTON      "&Search...",IDC_BUTTON_SEARCH_DICTIONARY_FILE,236,153,55,14
     EDITTEXT        IDC_EDIT_DICTIONARY_FILE,85,153,140,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
     EDITTEXT        IDC_EDIT_DIGRAMS_FILE,85,170,140,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
@@ -21772,7 +21773,9 @@ BEGIN
     LTEXT           "Digram file:",IDC_STATIC,25,171,36,8
     LTEXT           "Trigram file:",IDC_STATIC,25,188,37,8
     CONTROL         "Extensive logging",IDC_CHECK_EXTENSIVE_LOGGING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,133,71,10
-    PUSHBUTTON      "&Restore standard",IDC_BUTTON_RESTORE_STANDARD,105,316,99,17
+    PUSHBUTTON      "&Restore standard",IDC_BUTTON_RESTORE_STANDARD,105,331,99,17
+    EDITTEXT        IDC_EDIT_ANALYSIS_THRESHOLD,86,204,25,14,ES_CENTER | ES_AUTOHSCROLL | NOT WS_BORDER,WS_EX_STATICEDGE
+    LTEXT           "Threshold:",IDC_STATIC,25,205,34,8
 END
 
 IDD_HILL_ANALYSIS DIALOGEX 0, 0, 302, 361
@@ -28754,7 +28757,7 @@ BEGIN
         VERTGUIDE, 15
         VERTGUIDE, 291
         TOPMARGIN, 7
-        BOTTOMMARGIN, 333
+        BOTTOMMARGIN, 348
     END
 
     IDD_HILL_ANALYSIS, DIALOG
@@ -32419,7 +32422,7 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "characters"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

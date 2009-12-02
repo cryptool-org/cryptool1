@@ -45,6 +45,7 @@ public:
 	BOOL	m_VKorr;
 	BOOL	m_VBase;
 	long	m_BFEntropyWindow;
+	unsigned long m_VigenereAnalysisSchroedelAnalysisThreshold;
 	BOOL  m_VigenereAnalysisSchroedelExtensiveLogging;
 	CString m_VigenereAnalysisSchroedelDictionaryFile;
 	CString m_VigenereAnalysisSchroedelDigramsFile;

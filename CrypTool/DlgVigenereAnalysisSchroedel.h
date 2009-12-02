@@ -75,6 +75,9 @@ public:
 	int rateString(CString str, CString key);
 	CString fillLeft(CString was, int wie);
 
+	// this treshold is used to determine if a result might be considered correct
+	int analysisThreshold;
+
 	// this is used for timing purposes
 	time_t timeAnalysisStart;
 	time_t timeAnalysisEnd;
