@@ -754,7 +754,7 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 										if(maxRating < theRate) maxRating = theRate;
 
 										// ATTENTION: the "analysisThreshold" variable can be configured via the 
-										// CrypTool analysis options dialog. The higher the the threshold, the more 
+										// CrypTool analysis options dialog. The LOWER the the threshold, the MORE 
 										// possible solutions will be found (this was introduced due to problems with 
 										// German texts). See Schroedel's paper for details, although a variable 
 										// threshold was not part of his code.
