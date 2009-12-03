@@ -22,11 +22,13 @@
 #define _DLGVIGENEREANALYSISSCHROEDEL_
 
 #include "afxwin.h"
-#include <map>
+#include <list>
 
 #if _MSC_VER > 1000
 #pragma once
 #endif
+
+#define MAX_NUMBER_OF_DICT_WORDS 500000
 
 // 06/24/2009, flomar: Vigenere analysis class
 // (originally written by Schroedel in Pascal, ported to C++ by flomar)
@@ -51,7 +53,7 @@ public:
 	unsigned int maxProzent;
 	CString vigenere[30];
 	CString solvers[1000][4];  
-	CString dict[100000];
+	CString dict[MAX_NUMBER_OF_DICT_WORDS];
 	int solveCount, maxRating, dictCount;
 	int solveRating;
 	CString solveText, solveKey;
@@ -82,8 +84,15 @@ public:
 	time_t timeAnalysisStart;
 	time_t timeAnalysisEnd;
 
-	// this map contains all possible results (key and respective cleartext)
-	std::map<CString, CString> mapPossibleResults;
+	// this struct contains a possible result (key, cleartext, rating)
+	struct PossibleResult {
+		CString key;
+		CString cleartext;
+		int rating;
+	};
+
+	// this list contains all possible results
+	std::list<PossibleResult> listPossibleResults;
 
 	// this string holds the analysis results (see result file)
 	CString result;

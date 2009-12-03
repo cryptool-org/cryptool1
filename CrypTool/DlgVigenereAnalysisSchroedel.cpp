@@ -402,9 +402,6 @@ int VigenereAnalysisSchroedel::secondChar() {
 			}
 
 			temp.Append(s);
-			//temp.Append("\r\n");
-
-			// rrrrrrrrr output(s);
 		}
 
     cPairs = i;
@@ -413,7 +410,7 @@ int VigenereAnalysisSchroedel::secondChar() {
 		formatString.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_TAG_POSSIBLE_PAIRS);
 		outputString.Format(formatString, i);
 		output(outputString);
-	output(temp);
+		output(temp);
 
 		if(n == 1) {
 			remain = cPairs;
@@ -744,7 +741,7 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 										outputStr += ")";
 
 										output(outputStr);
-										
+
 										solvers[x][0] = dict[xDict];
 										solvers[x][1] = decryptText(ciphertext, dict[xDict]);
 										solvers[x][2] = strTheRate;
@@ -762,10 +759,21 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 										// TODO: make sure the user cannot use unreasonable values to mess up anything
 										//
 										if(theRate >= analysisThreshold) {
-											CString possibleResultKey = dict[xDict];
-											CString possibleResultCleartext = decryptText(ciphertext, dict[xDict]);
-											// at this point we have a possible result, store it in the map for possible results
-											mapPossibleResults[possibleResultKey] = possibleResultCleartext;
+											PossibleResult possibleResult;
+											possibleResult.key = dict[xDict];
+											possibleResult.cleartext = decryptText(ciphertext, dict[xDict]);
+											possibleResult.rating = theRate;
+											// at this point we have a possible result, store it in the list for possible results
+											listPossibleResults.push_back(possibleResult);
+											// suggest the possible result to the user (including the first 50 characters of 
+											// the corresponing cleartext) and abort the analysis if the user decides to
+											CString formatString;
+											formatString.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SUGGEST_RESULT);
+											CString suggestion;
+											suggestion.Format(formatString, possibleResult.key, possibleResult.cleartext.Left(50));
+											if(AfxMessageBox(suggestion, MB_YESNO) == IDYES) {
+												found = true;
+											}
 										}
 									}
 								}
@@ -865,45 +873,45 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 
 	output("", true);
 
+	// TODO: sort list after scoring
+
 	// display all possible results for the user (pairs of key and corresponding cleartext)
-	if(mapPossibleResults.size() == 0) {
+	if(listPossibleResults.size() == 0) {
 		// display an info message if there was no possible result
 		CString infoMessage;
 		infoMessage.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_NO_POSSIBLE_RESULTS_FOUND);
 		MessageBox(NULL, infoMessage, "CrypTool", MB_ICONINFORMATION);
 		return -1;
 	}
-	else if(mapPossibleResults.size() == 1) {
+	else if(listPossibleResults.size() == 1) {
 		// display the one possible result
 		CString possibleKeyTag;
 		possibleKeyTag.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_POSSIBLE_KEY_TAG);
 		output(possibleKeyTag, true);
-		output((*mapPossibleResults.begin()).first, true);
+		output((*listPossibleResults.begin()).key, true);
 		output("", true);
 		CString foundCleartextTag;
 		foundCleartextTag.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_FOUND_CLEARTEXT_TAG);
 		output(foundCleartextTag, true);
-		output((*mapPossibleResults.begin()).second, true);
+		output((*listPossibleResults.begin()).cleartext, true);
 		output("", true);
-		//output("", true);
 	}
 	else {
 		// display all possible results with a numbered list
 		int possibleResultIndex = 1;
-		for(std::map<CString, CString>::iterator iter=mapPossibleResults.begin(); iter!=mapPossibleResults.end(); iter++) {
+		for(std::list<PossibleResult>::iterator iter=listPossibleResults.begin(); iter!=listPossibleResults.end(); iter++) {
 			CString stringPossibleResultIndex;
 			stringPossibleResultIndex.Format("%d", possibleResultIndex++);
 			CString possibleKeyTag;
 			possibleKeyTag.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_POSSIBLE_KEY_TAG);
 			output(stringPossibleResultIndex + ". " + possibleKeyTag, true);
-			output((*iter).first, true);
+			output((*iter).key, true);
 			output("", true);
 			CString foundCleartextTag;
 			foundCleartextTag.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_FOUND_CLEARTEXT_TAG);
 			output(foundCleartextTag, true);
-			output((*iter).second, true);
+			output((*iter).cleartext, true);
 			output("", true);
-			//output("", true);
 		}
 	}
 
@@ -934,7 +942,7 @@ int VigenereAnalysisSchroedel::readDict() {
 
 	dictCount = 0;
 
-	while(!fileInput.eof()) {
+	while(!fileInput.eof() && dictCount<MAX_NUMBER_OF_DICT_WORDS) {
 		std::string s2;
 		getline(fileInput, s2);
 		s = s2.c_str();
