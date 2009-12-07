@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.30 Beta 05 für Win32, Oktober 2009
+    CrypTool, Version 1.4.30 Beta 05 für Win32, Dezember 2009
     (c) Contributors
         Dazu gehören z.B.
         Deutsche Bank AG, Frankfurt am Main,
@@ -549,9 +549,12 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
 - Zu jedem Fenster kann ein Dialog angezeigt werden, der alle
   wesentlichen Eigenschaften dieses Dokuments anzeigt.
 
-- In allen Fenstern, wo die Optionen für Text und Alphabete eine Rolle
-  spielen, kann man direkt per Button-Klick zum Textoptionen-Dialog
-  springen.
+- In allen klassischen Algorithmen, wo die Optionen für Texte eine Rolle
+  spielen, wird nun das im Dialog "Textoptionen" eingestellte Alphabet
+  benutzt. Um die Bedienung zu vereinfachen, kann man diesen Dialog direkt
+  von den entsprechenden Schlüsseleingabe-Masken mit einem Klick auf den
+  zusätzlichen Button "Textoptionen" aufrufen (z.B. in den Schlüsseleingabe-
+  Masken für Caesar, monoalphabetische Substitution, Vigenère, Skytale).
 
 - CrypTool kann man ohne Administratorrechte installieren und ausführen.
   Verschiedene Benutzer können am gleichen PC jeweils verschiedene
@@ -619,40 +622,43 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
   svn checkout https://file.sec-tud.de/svn/CrypTool/trunk
       --username anonymous --password anonymous
 
-- Einen Eindruck von der Größe des Projekts liefert die folgende, im
-  Oktober 2009 erstellte Statistik (anhand der Dateien für die deutsche,
+- Einen Eindruck von der Größe des CT1-Projekts liefert die folgende, im
+  November 2009 erstellte Statistik (anhand der Dateien für die deutsche,
   englische und polnische Version):
 
-    FILE SUMMARY
+    FILE SUMMARY (Anzahl der Dateien anhand ihrer Dateinamenserweiterung)
     ------------
-              5 .rc files
-             38 .c files
-            321 .cpp files
-            379 .h files
-             36 .java files
-             11 .pl files
-           1625 .html files
-             18 .txt files
-             39 .tex files
-           2472 TOTAL
+              4 .rc
+             36 .c
+            313 .cpp
+            368 .h
+             36 .java
+             12 .pl
+           1630 .html
+             47 .txt
+             39 .tex
+              4 .sage
+           2489 TOTAL
   
     LINES OF CODE (LoC) SUMMARY
     ---------------------------
-         35.388 MFC resource code (rc)
-        236.332 C/C++ source code (c cpp h)
+         35.452 MFC resource code (rc)
+        236.537 C/C++ source code (c cpp h)
           9.781 Java source code (java)
-          1.720 Perl code (pl)
-         90.500 HTML code (html hpp)
-          4.118 Text files (txt)
-         32.762 LaTeX code (tex)
-        410.601 TOTAL
+          1.888 Perl code (pl)
+         90.753 HTML code (html hpp)
+         10.078 Text files (txt)
+         33.539 LaTeX code (tex)
+            825 Sage code (sage)
+        418.853 TOTAL
 
-    TOTAL: 410.601 Code-Zeilen (plus von 7,4 % gegenüber 382.244 bei v1.4.21)
+    TOTAL: 418.853 Code-Zeilen (plus von 9,6 % gegenüber 382.244 bei v1.4.21)
     - In den TOTAL-Wert gehen nur Sourcen ein, die innerhalb des
       CrypTool-Projektes entwickelt wurden oder dem CT-Projekt gewidmet wurden.
       Die Sourcen anderer Open-Source-Projekte, die innerhalb von CrypTool
       benutzt werden (wie OpenSSL, NTL, Scintilla) werden nicht gezählt.
       Ebensowenig werden automatisch erzeugte Dateien gezählt.
+
 
    Snapshot zur Anzahl von Dateien und zur Anzahl der Source-Code-Zeilen
 
@@ -895,7 +901,7 @@ c) Neue Funktionalität / Bedienung:
   AKS-Test; der Text in der Aboutbox kann markiert und kopiert werden;
   sofortige Anzeige der Zeit und der Anzahl der bisherigen Faktoren bei
   der Faktorisierung; im Menu zur Analyse von Ciphertext-Only-Verfahren
-  steht nun "XOR / Vernam" statt nur "XOR". xxxxxxx
+  steht nun "XOR / Vernam" statt nur "XOR".
 
 - Auch externe PDFs können nun direkt aus der Onlinehilfe aufgerufen werden.
 
@@ -947,7 +953,7 @@ c) Neue Funktionalität / Bedienung:
   Bereiches ausgeben (Primzahlmenge generieren).
 
 - Bei Diffie-Hellman werden die Primzahlen und der Generator nun
-  gemäß Standard erzeugt.  xxxxxxxxxx
+  gemäß Standards für sichere Generatoren erzeugt.
 
 - Die Checkbox "Sonderzeichen" in der Dialogbox "Textoptionen" bietet nun
   standardmäßig mehr Sonderzeichen an.
@@ -966,10 +972,11 @@ c) Neue Funktionalität / Bedienung:
 - Für die einfache Spaltentransposition ist eine Known-Plaintext-Analyse
   zum Finden des Transpositionsschlüssels neu hinzugekommen.
   Diese Known-Plaintext-Analyse wurde zusammen mit der bisherigen
-  Known-Plaintext-Analyse für Hill besser integriert.  xxxxxxxx
+  Known-Plaintext-Analyse für Hill besser integriert.
 
-- Weitere Vigenère-Analyse (nach Schrödel, sehr effizient für sehr kurze
-  Chiffrate).
+- Weitere Ciphertext-Only-Analyse für Vigenère (nach Schrödel): Diese ist
+  effizient für sehr kurze Chiffrate, sofern das Passwort aus einem
+  Wörterbuch stammt.
 xxxxxxxxxxxxxxxxxxxxx
 
 
@@ -1774,7 +1781,7 @@ Version   Datum         Größe des Windows-Setups  Plattenplatz  Freigabe
 1.4.10    Juli 2007      27,5 MB     26,7 MB         47 MB        DB
 1.4.20    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
-1.4.30    Okt. 2009      45,1 MB     44,1 MB         82 MB        DB   xxxxxxxx
+1.4.30    Dez. 2009      46,3 MB     45,3 MB         83 MB        DB   xxxxxxxx
 
 Bemerkungen zu den Versionen:
 1.3.02   Viele neue Funktionen gegenüber 1.3.00.
@@ -1797,6 +1804,7 @@ Bemerkungen zu den Versionen:
          frischen Windows-Umgebungen (ohne Office) enthalten ist.
 1.4.30-Beta03  März 2009  Erste öffentliche Beta von Version 1.4.30.
 1.4.30-Beta04  Sep. 2009  Zweite öffentliche Beta von Version 1.4.30.
+1.4.30-Beta05  Dez. 2009  Dritte öffentliche Beta von Version 1.4.30.
 1.4.30   Viele Bugfixes und erweiterter Funktionsumfang i.Vgl. zu 1.4.21.
 
 
@@ -2665,9 +2673,9 @@ a) Generelle Wunschliste anhand des Benutzerfeedbacks.
    - Moderne Pure-Plugin-Architektur.
    - Moderneres Layout, weniger Dialogboxen-Wechsel.
    - Absolute Standardkonformität in der Bedienung.
-   - Mehr Benutzerinteraktion, Actionhistorie.
+   - Mehr Benutzerinteraktion, Action-Historie.
    - Alle Sprachen in einem Programm, einem Setup.
-   - Dynamischer Wechsel den Sprachen.
+   - Dynamischer Wechsel zwischen den Sprachen.
    - Dynamischer Wechsel zwischen Kryptoprovidern.
    - Teil-Updates aus dem Internet.
    - Mehr Funktionen als Thread implementieren (parallel, alle abbrechbar).
@@ -2683,15 +2691,15 @@ b) Java-CrypTool (JCrypTool, JCT):
    - Plattform-unabhängig.
    - Nutzt strikt die Standards von Eclipse 3.5.
    - Nutzung von SWT (und Jigloo) für die GUI.
-   - Verfügbar sind eine Secude-Lib, Bouncy-Castle und FlexiProvider.
+   - Bouncy-Castle und FlexiProvider werden als krypto-Provider benutzt.
    - Meilenstein 1 (August 2007) war für Entwickler und zeigte, dass die
      neuen Architektur-Konzepte umsetzbar sind.
      Milestone 2 (August 2008), 3 (Dezember 2008), 4 und 4a (Februar 2009)
      können auch schon von Endbenutzern sinnvoll verwendet werden.
-   - Meilenstein 5 ist geplant für August 2009.
+   - Meilenstein 6 wurde im November 2009 veröffentlicht.
    - Weitere Entwickler, Architekten und Designer sind in diesem Projekt
      herzlich willkommen.
-   - Für Einsteiger und zusätzlich mit Expertenmodus.
+   - Für Einsteiger, aber auch für Experten.
    - Enge Zusammenarbeit mit dem Lehrstuhl Prof. Buchmann, TU Darmstadt.
    - Die Update-Webseite für JCT liegt bei der Uni Duisburg-Essen.
    - Nutzung von SourceForge mit Subversion zur Sourcecode-Verwaltung:
@@ -2699,7 +2707,7 @@ b) Java-CrypTool (JCrypTool, JCT):
 
 c) CrypTool 2.0 (CT 2)
    - Komplett neu designtes CrypTool in C# mit dem .NET-Framework.
-   - Nutzt strikt die Standards von Microsoft (.NET, Aussehen wie Office 2007).
+   - Nutzt strikt die Standards von Microsoft .NET (Aussehen wie Office 2007).
    - Nutzung von Windows Presentation Foundation (WPF) zur Gestaltung
      von multimedialen Oberflächen (GUI).
    - Das gesamte Projekt lässt sich mit der kostenlosen VS2008-Express-
@@ -2711,11 +2719,13 @@ c) CrypTool 2.0 (CT 2)
      regelmäßig veröffentlicht.
      Mit der Releaseversion von CT2 wird die Weiter-Entwicklung von CrypTool 1.x
      eingestellt.
+   - Hoher Lerneffekt bei Einsteigern durch visuelle Programmierung.
+     Drei Modi/Detail-Level: Einsteiger, Könner, Experte.
    - Weitere Entwickler und graphisch anspruchsvolle Designer sind
      in diesem neuen Projekt sehr herzlich willkommen.
-   - Hoher Lerneffekt bei Einsteigern durch visuelle Programmierung.
    - Enge Zusammenarbeit mit dem Lehrstuhl Prof. Weis in Duisburg-Essen.
-   - Nutzung von Subversion zur Source-Code-Verwaltung.
+   - Nutzung von Subversion zur Source-Code-Verwaltung, gehostet von der
+     Universität Duisburg-Essen: http://www.cryptool2.vs.uni-due.de.
 
 - Bemerkung: Portierung nach Linux
    Eine Portierung von CrypTool 1.4.x nach Linux mit Hilfe von GCC 4.x und
@@ -2743,13 +2753,14 @@ Die neuen Versionen (siehe Kapitel A.2.2.1) sind:
 
 
 Funktionen, die schon in den jetzigen Betaversionen
-            (CT2 Beta 2 v2.0.3554  and  JCT1 Milestone 5)
+            (CT2 Beta 2 v2.0.3594  and  JCT1 Milestone 6)
             implementiert und integriert sind:
 - CT2  Visuelle Programmierung (Komposition von Protokollen und Workflows)
 - CT2  Primzahlen-Visualisierungen
 - CT2  WEP-Verschlüsselung und WEP-Analyse
 - CT2  Smartcard-Plugin (sendet Kommandos an eine Chipkarte
                          mittels der PC/SC-Schnittstelle in Windows)
+- CT2  Massenmustersuche
 
 - JCT  Adaptive Navigationsleiste, wahlweise als Baum oder Palette,
        mit Filter
@@ -2758,6 +2769,10 @@ Funktionen, die schon in den jetzigen Betaversionen
 - JCT  Einstellbarkeit aller Detail-Parameter moderner Algorithmen
        in der FlexiProvider-Perspektive
 - JCT  Dragon-Verschlüsselung & LFSR
+- JCT  Multi-partite Schlüsselvereinbarung
+- JCT  Analyse von Transpositionschiffren mit dem ACO-Algorithmus
+- JCT  Visualisierung von Zero-Knowledge-Beweisen
+- JCT  Mächtige Action-History und Kaskadierungs-Unterstützung
 
 
 Funktionen, die für die Release-Versionen der Nachfolger-Projekte geplant sind:
@@ -2766,19 +2781,14 @@ Funktionen, die für die Release-Versionen der Nachfolger-Projekte geplant sind:
 - CT2  NIST Zufalls-Testsuite
 - CT2  GNFS
 - CT2  Alphabete auch für die klassischen Verfahren ausdehnen auf 256 Zeichen
-- CT2  Massenmustersuche
 - CT2  SOA-Security (SOAP-Nachrichten nach WS-Security zwischen den Beteiligten)
 - CT2  Framework zum Bau und zur Analyse von LFSR-Stromchiffren
 - CT2  Cube Attack gegen symmetrische Chiffren (I. Dinur und A. Shamir)
 
-- JCT  Multi-partite Schlüsselvereinbarung
 - JCT  PGP-S/MIME Interoperabilität
 - JCT  Entropie-Untersuchungen
-- JCT  Analyse von Transpositionschiffren mit dem ACO-Algorithmus
-- JCT  Visualisierung von Zero-Knowledge-Beweisen
 - JCT  Visualisierung eines Quantum-Schlüsselaustausch-Protokolls (BB84)
 - JCT  Commandline-Funktionalität
-- JCT  Mächtige Action-History und Kaskadierungs-Unterstützung
 - JCT  Demonstrator für XML-Signaturen
 
 Vergleiche auch die Roadmap auf der Webseite
@@ -2789,4 +2799,5 @@ Weitere Details zur Weiterentwicklung und Infos zu offenen Tasks:
            http://www.cryptool2.vs.uni-due.de/index.php?page=22&lm=2
 - für JCT: http://jcryptool.wiki.sourceforge.net/ReleasePlan
            http://jcryptool.wiki.sourceforge.net/CurrentDevelopment
+
 ################################################################
