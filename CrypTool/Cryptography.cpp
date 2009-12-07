@@ -77,6 +77,7 @@ using namespace std;
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <map>
 
 #define MAX_LAENGE_STRTEXT 16000
 
@@ -1665,134 +1666,152 @@ int AnalyseMonoManual(const char *infile, const char *OldTitle)
 
 
 /* Funktion zur monoalphabetischen Ver- und Entschlüsselung			*/
-void Mono(const char *infile, const char *OldTitle){
+void Mono(const char *infile, const char *OldTitle) {
 
-	// Überprüfung, ob Eingabedatei mindestens ein Zeichen enthält. 
-	CFile datei(infile, CFile::modeRead);
-	bool laenge_groesser_0 = FALSE;
-	char c;
-	while(datei.Read(&c,1) && ! laenge_groesser_0)
-	{
-		if ( (('a' <= c) && (c <= 'z')) || (('A' <= c) && (c <= 'Z')) )
-		{
-			laenge_groesser_0 = TRUE;
-		}
+	// get the currently configured alphabet
+	CString alphabet = theApp.TextOptions.getAlphabet();
+
+	// make sure the infile contains at least one character of the current alphabet
+	CFile inputFile(infile, CFile::modeRead);
+	const int inputFileLength = inputFile.GetLength();
+
+	bool containsAlphabetCharacter = false;
+
+	char *buffer = new char[inputFileLength + 1];
+	memset(buffer, 0, inputFileLength + 1);
+	inputFile.Read(buffer, inputFileLength);
+	for(int i=0; i<inputFileLength && !containsAlphabetCharacter; i++) {
+		if(alphabet.Find(buffer[i]) != -1)
+			containsAlphabetCharacter = true;
 	}
-	datei.Close();
-	if (! laenge_groesser_0)
-	{
-		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 1);
+	inputFile.Close();
+
+	// dump an error message and return if the file doesn't contain at least one alphabet character
+	if(!containsAlphabetCharacter) {
+		CString message; message.LoadString(IDS_STRING_ERR_INPUT_TEXT_LENGTH);
+		AfxMessageBox(message, MB_ICONINFORMATION);
 		return;
 	}
 
-// Encryption
+	// return if the user cancelled the dialog
 	CDlgMonSubst dlgMono;
-	if ( IDOK == dlgMono.DoModal() )
-	{
-		char outfile[1024], title[1024];
-		CAppDocument *NewDoc;
-		char outfile2[1024];
-		GetTmpName(outfile2,"cry",".txt");
-		FILE *stream, *stream2;
+	if(dlgMono.DoModal() != IDOK) {
+		return;
+	}
 
-		// Umlaute und Zeilenumbrueche umwandeln		
-		int ch;
-		if( (stream = fopen( infile, "rt" )) == NULL )
-			exit( 0 );
-		if( (stream2 = fopen( outfile2, "wt" )) == NULL )
-			exit( 0 );
+	// in order to convert some special characters in "buffer", we create 
+	// a second buffer called "convertedBuffer" and store the new contents 
+	// in there; since we replace ONE special character with TWO new characters 
+	// max, it should be sufficient if we simply double the buffer size
+	char *convertedBuffer = new char[inputFileLength * 2 + 1];
+	memset(convertedBuffer, 0, inputFileLength * 2 + 1);
 
-		while ( feof( stream ) == 0 ){
-			ch = fgetc( stream );
-			switch(ch) {
+	// now copy from "buffer" to "convertedBuffer" and convert if necessary
+	int offset = 0;
+	for(int i=0; i<inputFileLength; i++) {
+		char character = buffer[i];
+		switch(character) {
 			case (-1):
 				break;
-			case ('\n'):					// Zeilenumbruch
-				fwrite (" \n", 1, 2, stream2);
-				break;
 			case (252):
-				fwrite ("ue", 1, 2, stream2);
+				memcpy(convertedBuffer + offset, "ue", 2);
+				offset += 2;
 				break;
 			case (220):
-				fwrite ("Ue", 1, 2, stream2);
+				memcpy(convertedBuffer + offset, "Ue", 2);
+				offset += 2;
 				break;
 			case (246):
-				fwrite ("oe", 1, 2, stream2);
+				memcpy(convertedBuffer + offset, "oe", 2);
+				offset += 2;
 				break;
 			case (214):
-				fwrite ("Oe", 1, 2, stream2);
+				memcpy(convertedBuffer + offset, "Oe", 2);
+				offset += 2;
 				break;
 			case (228):
-				fwrite ("ae", 1, 2, stream2);
+				memcpy(convertedBuffer + offset, "ae", 2);
+				offset += 2;
 				break;
 			case (196):
-				fwrite ("Ae", 1, 2, stream2);
+				memcpy(convertedBuffer + offset, "Ae", 2);
+				offset += 2;
 				break;
 			case ('ß'):
-				fwrite ("ss", 1, 2, stream2);
+				memcpy(convertedBuffer + offset, "ss", 2);
+				offset += 2;
 				break;
 			default:
-				fputc (ch, stream2);
+				// by default simply copy one character from "buffer" to "convertedBuffer"
+				memcpy(convertedBuffer + offset, buffer + i, 1);
+				offset += 1;
 				break;
-			}
-		}
-		fclose (stream);
-		fclose (stream2);
-
-
-	
-		{  // CRYPT
-			SymbolArray text(AlphaConv);
-			//text.Read(infile);
-			text.Read(outfile2);
-			GetTmpName(outfile,"cry",".txt");
- 			int Laenge=text.GetSize();
-			
-			int i;
-			if (!dlgMono.m_cryptDirection){  // Decryption
-				
-				//Berechne die inverse Permutation
-				char keyinvers[26];
-				for (i=0; i<26; i++){
-					keyinvers[dlgMono.key[i]-65]=i;}
-				
-				//Entschlüsselung (=Verschlüsselung mit der inversen Permutation)
-				for (i=0 ; i<Laenge; i++){
-					if (text[i]!=26){
-						text[i]=(keyinvers[text[i]]);}}
-			}
-			else{   // ENCRYPTION
-				for (i=0 ; i<Laenge; i++){
-					if (text[i]!=26){
-						text[i]=(dlgMono.key[text[i]]-65);}
-				}
-			}
-
-			//Ausgabe des permutierten Textes
-			text.Write(outfile);
-		}
-
-		Reformat(outfile2,outfile, TRUE);
-		NewDoc = theApp.OpenDocumentFileNoMRU(outfile,dlgMono.key);
-		remove(outfile);	
-		remove (outfile2);
-		if(NewDoc) 
-		{
-			if(!dlgMono.m_cryptDirection)
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-			else
-				LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-			// LoadString(AfxGetInstanceHandle(),IDS_STRING_SUBSTITUTION,pc_str,STR_LAENGE_STRING_TABLE);
-			// Der eingegebene Schluessel ist zur Ausgabe in der Titelzeile nicht geeignet,
-			// da bei der Analyse nur die Permutation gefunden werden kann, 
-			// nicht jedoch das Schlüsselwort. 
-			// Wegen der Konsistenz wird hier nur die Permutation ausgegeben 
-			MakeNewName3(title,sizeof(title),pc_str1, dlgMono.typeOfEncryption ,OldTitle,dlgMono.key);
-			NewDoc->SetTitle(title);
 		}
 	}
 
+	// we can free the old buffer here
+	delete buffer;
 
+	// get the complete key (see declaration of getKey() for details)
+	CString key = dlgMono.getKey();
+	const int keyLength = key.GetLength();
+
+	// decryption
+	if(!dlgMono.m_cryptDirection) {
+		// go through all characters of the text
+		for(int i=0; i<offset; i++) {
+			// don't change anything if the character is NOT part of the alphabet
+			if(alphabet.Find(convertedBuffer[i]) == -1) {
+				continue;
+			}
+			// otherwise apply the desired change
+			else {
+				convertedBuffer[i] = alphabet[key.Find(convertedBuffer[i])];
+			}
+		}
+	}
+	// encryption
+	else {
+		// go through all characters of the text	
+		for(int i=0; i<offset; i++) {
+			// don't change anything if the character is NOT part of the alphabet
+			if(alphabet.Find(convertedBuffer[i]) == -1) {
+				continue;
+			}
+			// otherwise apply the desired change
+			else {
+				convertedBuffer[i] = key[alphabet.Find(convertedBuffer[i])];
+			}
+		}
+	}
+
+	int checkconvertedbuffer = 1;
+
+	// write the converted buffer to a file
+	char outfile[CRYPTOOL_PATH_LENGTH];
+	GetTmpName(outfile, "cry", ".txt");
+	CFile outputFile(outfile, CFile::modeCreate | CFile::modeWrite);
+	outputFile.Write(convertedBuffer, offset);
+	delete convertedBuffer;
+	outputFile.Close();
+
+	CDocument *NewDoc = theApp.OpenDocumentFileNoMRU(outfile,dlgMono.getKey());
+	if(NewDoc) 
+	{
+		// oh my god...
+		char title[4096];
+		if(!dlgMono.m_cryptDirection)
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
+		else
+			LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
+		// LoadString(AfxGetInstanceHandle(),IDS_STRING_SUBSTITUTION,pc_str,STR_LAENGE_STRING_TABLE);
+		// Der eingegebene Schluessel ist zur Ausgabe in der Titelzeile nicht geeignet,
+		// da bei der Analyse nur die Permutation gefunden werden kann, 
+		// nicht jedoch das Schlüsselwort. 
+		// Wegen der Konsistenz wird hier nur die Permutation ausgegeben 
+		MakeNewName3(title,sizeof(title),pc_str1, dlgMono.typeOfEncryption ,OldTitle,dlgMono.getKey());
+		NewDoc->SetTitle(title);
+	}
 }
 
 UINT AnaSubst(PVOID p) {

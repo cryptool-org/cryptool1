@@ -42,7 +42,6 @@ CDlgMonSubst::CDlgMonSubst(CWnd* pParent /*=NULL*/)
 {
 	//{{AFX_DATA_INIT(CDlgMonSubst)
 	//}}AFX_DATA_INIT
-	f_FillAscendingOrder = TRUE;
 }
 
 CDlgMonSubst::~CDlgMonSubst()
@@ -58,21 +57,25 @@ void CDlgMonSubst::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_TO, m_CtrlTo);
 	DDX_Control(pDX, IDC_FROM, m_CtrlFrom);
 	DDX_Control(pDX, IDC_KEY, m_CtrlKey);
-	DDX_Control(pDX, IDC_RADIO1, m_RadioChooseKeyVariant);
+	DDX_Text(pDX, IDC_TO, m_stringTo);
+	DDX_Text(pDX, IDC_FROM, m_stringFrom);
+	DDX_Text(pDX, IDC_KEY, m_stringKey);
+	DDX_Radio(pDX, IDC_RADIO1, m_RadioChooseKeyVariant);
 	//}}AFX_DATA_MAP
 }
 
 
 BEGIN_MESSAGE_MAP(CDlgMonSubst, CDialog)
 	//{{AFX_MSG_MAP(CDlgMonSubst)
-	ON_EN_CHANGE(IDC_KEY, OnChangeKey)
+	ON_EN_CHANGE(IDC_KEY, ComputeSubstKeyMapping)
 	ON_BN_CLICKED(IDC_PASTE_KEY, OnPasteKey)
 	ON_BN_CLICKED(ID_ENCRYPT, OnEncrypt)
 	ON_BN_CLICKED(ID_DECRYPT, OnDecrypt)	
 	ON_BN_CLICKED(IDC_RADIO1, OnBnClickedRadioSubstFillAscendingOrder)
-	ON_BN_CLICKED(IDC_RADIO2, OnBnClickedRadioAddBash)
-	ON_BN_CLICKED(IDC_RADIO3, OnBnClickedRadioSubstFillDescendingOrder)
+	ON_BN_CLICKED(IDC_RADIO2, OnBnClickedRadioSubstFillDescendingOrder)
+	ON_BN_CLICKED(IDC_RADIO3, OnBnClickedRadioAddBash)
 	//}}AFX_MSG_MAP
+	ON_BN_CLICKED(IDC_BUTTON_TEXTOPTIONS, &CDlgMonSubst::OnBnClickedButtonTextoptions)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -87,8 +90,7 @@ BOOL CDlgMonSubst::OnInitDialog()
 	typeOfEncryption = pc_str;
 	VERIFY(m_Paste.AutoLoad(IDC_PASTE_KEY,this));
 
-	CheckRadioButton(IDC_RADIO1, IDC_RADIO3, IDC_RADIO1); UpdateData();
-	OnBnClickedRadioSubstFillAscendingOrder();
+	CheckRadioButton(IDC_RADIO1, IDC_RADIO3, IDC_RADIO1);
 
 	VERIFY(m_font.CreatePointFont(100,"Courier New"));
 	m_CtrlFrom.SetFont(&m_font);
@@ -97,83 +99,93 @@ BOOL CDlgMonSubst::OnInitDialog()
 	m_CtrlFrom.SetWindowText("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 	m_CtrlTo.SetWindowText  ("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 	m_CtrlKey.SetWindowText ("");
+
+	UpdateData(false);
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX-Eigenschaftenseiten sollten FALSE zurückgeben
 }
 
-
-void CDlgMonSubst::OnChangeKey() 
-{
-	static int BUSY = 0;  // FIXME
-	if (BUSY) return;
-	BUSY++;
-	CString s_Key;
-	int cStart, cEnd;
-	m_CtrlKey.GetSel(cStart, cEnd);
-	m_CtrlKey.GetWindowText(s_Key);
-	s_Key.MakeUpper();
-	for (int i=0 ;i<s_Key.GetLength(); i++)
-		if ( (s_Key[i]<'A') || (s_Key[i]>'Z') )
-		{
-			if (i<cStart) cStart--;
-			if (i<cEnd)   cEnd--;
-			s_Key.Delete(i--);
-		}
-	m_CtrlKey.SetWindowText(s_Key); // FIXME: Without the BUSY-Flag SetWindowText MAY call recursively OnChangeKey (as obtained by B.E.)
-	m_CtrlKey.SetSel(cStart, cEnd);
-
-	ComputeSubstKeyMapping();
-	BUSY--;
-}
-
 void CDlgMonSubst::ComputeSubstKeyMapping()
 {
+	UpdateData(true);
 
-/*  Herleitung des (eigentlichen) Schlüssels aus dem eingegebenen Schlüsselwort:
-	Doppelte Buchstaben im Schlüsselwort werden nicht berücksichtigt.
-	Ansonsten wird das a auf den ersten Buchstaben des Schlüsselwortes abgebildet,
-	das b auf den zweiten,...
-	Danach werden alle Buchstaben, die nicht im Schlüsselwort vorkommen in
-	umgekehrter Reihenfolge den restlichen Buchstaben des Alphabetes zugeordnet.	*/
+	// alright, we have three different variants from here on:
+	//  (A) variable key, ascending padding, dependent on text options
+	//  (B) variable key, descending padding, dependent on text options
+	//  (C) fixed key (atbash)
 
-//	char key[26+1];
-	key[26] = '\0';
+	// some init stuff (get the key, get the alphabet)
+	CString key = m_stringKey;
+	CString newKey;
+	CString alphabet = theApp.TextOptions.getAlphabet();
+	CString mappedKey;
 
-	bool schonda[26];//Ist der i-te Buchstabe bereits im Schlüsselwort aufgetreten??
+	// variants (A) and (B) are similar in that they both work with a variable alphabet
+	if(m_RadioChooseKeyVariant == 0 || m_RadioChooseKeyVariant == 1) {
 
-	int i;
-	for (i=0; i<=25; i++){
-		key[i]=' ';
-		schonda[i]=FALSE;}
-	
-	CString s_Key;
-	m_CtrlKey.GetWindowText(s_Key);
-
-	int lang=s_Key.GetLength();
-	int Nummer=0;
-	for (int j=0; j<=(lang-1); j++){
-		if ((s_Key[j]>='A')&&(s_Key[j]<='Z')){
-			if (schonda[s_Key[j]-65]==FALSE){
-				key[Nummer]=s_Key[j];
-				Nummer++;
-				schonda[s_Key[j]-65]=TRUE;
+		// first, remove all characters from the key that are not part of the alphabet;
+		// however, check if the upper/lower case equivalent is part of the key (see 
+		// implementation in DlgRot13Caesar.cpp, the idea there is somewhat similar)
+		for(int i=0; i<key.GetLength(); i++) {
+			if(alphabet.Find(key[i]) == -1) {
+				CString tempKey = key;
+				char keyUpper = tempKey.MakeUpper()[i];
+				char keyLower = tempKey.MakeLower()[i];
+				// is only the upper case equivalent part of the alphabet?
+				if(alphabet.Find(keyUpper) != -1 && newKey.Find(keyUpper) == -1)
+					newKey.AppendChar(keyUpper);
+				// is only the lower case equivalent part of the alphabet?
+				if(alphabet.Find(keyLower) != -1 && newKey.Find(keyLower) == -1)
+					newKey.AppendChar(keyLower);
+			}
+			else {
+				if(newKey.Find(key[i]) == -1)
+					newKey.AppendChar(key[i]);
 			}
 		}
+
+		// now create the key mapping
+		// (first the actual key, then the remaining characters in a specific order)
+		mappedKey = newKey;
+		// ASCENDING order
+		if(m_RadioChooseKeyVariant == 0) {
+			for(int i=0; i<alphabet.GetLength(); i++) {
+				if(mappedKey.Find(alphabet[i]) == -1)
+					mappedKey.AppendChar(alphabet[i]);
+			}
+		}
+		// DESCENDING order
+		if(m_RadioChooseKeyVariant == 1) {
+			for(int i=alphabet.GetLength()-1; i>=0; i--) {
+				if(mappedKey.Find(alphabet[i]) == -1)
+					mappedKey.AppendChar(alphabet[i]);
+			}
+		}
+		// user may change the key here
+		m_CtrlKey.SetReadOnly(0);
+	}
+
+	// variant (C) uses a fixed key
+	else {
+		for (char ch='Z'; ch>='A'; ch--) {
+			newKey.AppendChar(ch);
+		}
+		mappedKey = newKey;
+		// user may NOT change the key here
+		m_CtrlKey.SetReadOnly(1);	
 	}
 	
-	//Die verbleibenden Schlüsselbuchstaben vergeben
-	if (f_FillAscendingOrder)
-	{
-		for (i=0; i<=25; i++) 
-			if (schonda[i]==FALSE) key[Nummer++]=i+65;
-	}
-	else
-	{
-		for (i=25; i>=0; i--) 
-			if (schonda[i]==FALSE) key[Nummer++]=i+65;
-	}
-	m_CtrlTo.SetWindowText(key);
+	
+	// at this point we should have it already...
+	m_stringFrom = alphabet;
+	m_stringTo = mappedKey;
+	m_stringKey = newKey;
+	
+	UpdateData(false);
 
+	// set the cursor to the end of the input (the actual key)
+	m_CtrlKey.SetSel(m_stringKey.GetLength(), m_stringKey.GetLength());
 }
 
 
@@ -188,7 +200,6 @@ void CDlgMonSubst::OnEncrypt()
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
 	m_cryptDirection = 1;
-	m_CtrlTo.GetWindowText(key, 27); key[26] = 0;
 	OnOK();
 }
 
@@ -196,7 +207,6 @@ void CDlgMonSubst::OnDecrypt()
 {
 	// TODO: Code für die Behandlungsroutine der Steuerelement-Benachrichtigung hier einfügen
 	m_cryptDirection = 0;
-	m_CtrlTo.GetWindowText(key, 27); key[26] = 0;
 	OnOK();
 }
 
@@ -210,7 +220,8 @@ int CDlgMonSubst::CheckPasteKeyVariant(int SID, CString &keyStr)
 
 void CDlgMonSubst::OnBnClickedRadioSubstFillAscendingOrder()
 {
-	// TODO: Add your control notification handler code here
+	UpdateData(true);
+
 	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_SUBSTITUTION,pc_str,STR_LAENGE_STRING_TABLE);
 	typeOfEncryption = pc_str;
 
@@ -219,14 +230,15 @@ void CDlgMonSubst::OnBnClickedRadioSubstFillAscendingOrder()
 		m_Paste.EnableWindow(TRUE);
 	else
 		m_Paste.EnableWindow(FALSE);
-	f_FillAscendingOrder = TRUE;
+
 	m_CtrlKey.SetReadOnly(0);
 	ComputeSubstKeyMapping();
 }
 
 void CDlgMonSubst::OnBnClickedRadioSubstFillDescendingOrder()
 {
-	// TODO: Add your control notification handler code here
+	UpdateData(true);
+
 	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_SUBSTITUTION,pc_str,STR_LAENGE_STRING_TABLE);
 	typeOfEncryption = pc_str;
 
@@ -236,7 +248,6 @@ void CDlgMonSubst::OnBnClickedRadioSubstFillDescendingOrder()
 	else
 		m_Paste.EnableWindow(FALSE);
 
-	f_FillAscendingOrder = FALSE;
 	m_CtrlKey.SetReadOnly(0);
 	ComputeSubstKeyMapping();
 }
@@ -244,15 +255,47 @@ void CDlgMonSubst::OnBnClickedRadioSubstFillDescendingOrder()
 
 void CDlgMonSubst::OnBnClickedRadioAddBash()
 {
-	// TODO: Add your control notification handler code here
+	UpdateData(true);
+
 	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_ATBASH,pc_str,STR_LAENGE_STRING_TABLE);
 	typeOfEncryption = pc_str;
 	m_Paste.EnableWindow(FALSE); // Note: PasteKey makes here no sense 
 
-	CString tmpStr = "";
-	for (char ch='Z'; ch>='A'; ch--)
-		tmpStr += ch;
-	m_CtrlKey.SetWindowText(tmpStr);
-	m_CtrlKey.SetReadOnly();
+	// we're using a fixed alphabet and a fixed key
+	CString alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	
+	// assign the fixed values
+	m_stringFrom = alphabet;
+	m_stringTo = alphabet.MakeReverse();
+	m_stringKey = m_stringTo;
+
+	m_CtrlKey.SetReadOnly(1);
+
+	UpdateData(false);
 }
 
+
+void CDlgMonSubst::OnBnClickedButtonTextoptions()
+{
+	UpdateData(true);
+
+	CString oldAlphabet;
+
+	// save the old alphabet for usage later on
+	oldAlphabet = theApp.TextOptions.getAlphabet();
+
+	// return if the user cancels the text options dialog
+	if(theApp.TextOptions.DoModal() != IDOK)
+		return;
+
+	// get the new alphabet
+	CString alphabet = theApp.TextOptions.getAlphabet();
+
+	// now, in case the alphabet didn't change we can return right away
+	if(oldAlphabet == alphabet)
+		return;
+
+	ComputeSubstKeyMapping();
+
+	UpdateData(false);
+}

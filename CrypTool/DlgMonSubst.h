@@ -37,14 +37,14 @@ class CDlgMonSubst : public CDialog
 	CBitmapButton m_Paste;
 	CFont m_font;
 
-	BOOL f_FillAscendingOrder;
-
-
 public:
 	CDlgMonSubst(CWnd* pParent = NULL);   // Standardkonstruktor
 	~CDlgMonSubst();
 	int   m_cryptDirection;
-	char key[27];
+
+	// this returns the key (well, rather the complete mapping than just "the key")
+	CString getKey() { return m_stringTo; };
+	
 	CString typeOfEncryption;
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgMonSubst)
@@ -52,7 +52,10 @@ public:
 	CEdit	m_CtrlTo;
 	CEdit	m_CtrlFrom;
 	CEdit	m_CtrlKey;
-	CButton m_RadioChooseKeyVariant;
+	CString m_stringTo;
+	CString m_stringFrom;
+	CString m_stringKey;
+	int m_RadioChooseKeyVariant;
 	//}}AFX_DATA
 
 
@@ -68,20 +71,19 @@ protected:
 
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgMonSubst)
-	afx_msg void OnChangeKey();
 	virtual BOOL OnInitDialog();
 	afx_msg void OnPasteKey();
 	afx_msg void OnEncrypt();
 	afx_msg void OnDecrypt();
-	//}}AFX_MSG
-	DECLARE_MESSAGE_MAP()
-private:
-	void ComputeSubstKeyMapping();
-	int  CheckPasteKeyVariant(int SID, CString &keyStr);
-public:
+	afx_msg void ComputeSubstKeyMapping();
 	afx_msg void OnBnClickedRadioSubstFillAscendingOrder();
 	afx_msg void OnBnClickedRadioAddBash();
 	afx_msg void OnBnClickedRadioSubstFillDescendingOrder();
+	afx_msg void OnBnClickedButtonTextoptions();
+	//}}AFX_MSG
+	DECLARE_MESSAGE_MAP()
+	
+	int  CheckPasteKeyVariant(int SID, CString &keyStr);
 };
 
 //{{AFX_INSERT_LOCATION}}

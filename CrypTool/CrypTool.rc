@@ -14476,10 +14476,10 @@ CAPTION "Schlüsseleingabe: Monoalphabetische Substitution / Atbash"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_KEY,66,88,189,14,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&Verschlüsseln",ID_ENCRYPT,14,201,58,23
-    PUSHBUTTON      "&Entschlüsseln",ID_DECRYPT,87,201,57,23
+    DEFPUSHBUTTON   "&Verschlüsseln",ID_ENCRYPT,14,205,58,19
+    PUSHBUTTON      "&Entschlüsseln",ID_DECRYPT,87,205,57,19
     CONTROL         "Paste",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,271,88,22,20
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,245,201,57,23
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,245,205,57,19
     EDITTEXT        IDC_FROM,48,148,245,14,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_TO,48,169,245,14,ES_AUTOHSCROLL | ES_READONLY
     GROUPBOX        "Variante auswählen",IDC_STATIC,14,9,288,56
@@ -14489,12 +14489,13 @@ BEGIN
     LTEXT           "Das Alphabet (26 Zeichen) wird abgebildet",IDC_TEXT1,21,133,135,8
     LTEXT           "von:",IDC_TEXT2,21,150,15,8
     CONTROL         "Schlüsseleingabe: Restliche Zeichen aufsteigend füllen",IDC_RADIO1,
-                    "Button",BS_AUTORADIOBUTTON,21,25,190,10
-    CONTROL         "Schlüsseleingabe: Restliche Zeichen absteigend füllen",IDC_RADIO3,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,21,25,190,10
+    CONTROL         "Schlüsseleingabe: Restliche Zeichen absteigend füllen",IDC_RADIO2,
                     "Button",BS_AUTORADIOBUTTON,21,38,188,10
-    CONTROL         "Atbash (die Verschlüsselung nutzt einen fixen Schlüssel)",IDC_RADIO2,
+    CONTROL         "Atbash (die Verschlüsselung nutzt einen fixen Schlüssel)",IDC_RADIO3,
                     "Button",BS_AUTORADIOBUTTON,21,51,225,10
     GROUPBOX        "Schlüsseleingabe",IDC_STATIC,14,73,288,40
+    PUSHBUTTON      "&Textoptionen",IDC_BUTTON_TEXTOPTIONS,167,205,55,19
 END
 
 IDD_VISUALIZE_PHASE_SPACE DIALOG  0, 0, 388, 273
@@ -25245,10 +25246,10 @@ CAPTION "Key Entry: Monoalphabetic Substitution / Atbash"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     EDITTEXT        IDC_KEY,66,91,189,14,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "Encrypt",ID_ENCRYPT,14,202,58,22
-    PUSHBUTTON      "Decrypt",ID_DECRYPT,79,202,57,22
+    DEFPUSHBUTTON   "Encrypt",ID_ENCRYPT,14,205,58,19
+    PUSHBUTTON      "Decrypt",ID_DECRYPT,79,205,57,19
     CONTROL         "Paste",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,271,91,22,20
-    PUSHBUTTON      "Cancel",IDCANCEL,245,202,57,22
+    PUSHBUTTON      "Cancel",IDCANCEL,245,205,57,19
     EDITTEXT        IDC_FROM,48,149,245,14,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_TO,48,170,245,14,ES_AUTOHSCROLL | ES_READONLY
     GROUPBOX        "Key Input",IDC_STATIC,14,76,288,37
@@ -25259,11 +25260,12 @@ BEGIN
     LTEXT           "to:",IDC_TEXT3,21,172,9,8
     GROUPBOX        "Choose variant of the monoalphabetic substitution",IDC_STATIC,14,9,288,60
     CONTROL         "Key entry: Remaining characters are filled in ascending order",IDC_RADIO1,
-                    "Button",BS_AUTORADIOBUTTON,21,25,206,10
-    CONTROL         "Key entry: Remaining characters are filled in descending order",IDC_RADIO3,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,21,25,206,10
+    CONTROL         "Key entry: Remaining characters are filled in descending order",IDC_RADIO2,
                     "Button",BS_AUTORADIOBUTTON,21,38,210,10
-    CONTROL         "Atbash (the encryption is using a fixed key)",IDC_RADIO2,
+    CONTROL         "Atbash (the encryption is using a fixed key)",IDC_RADIO3,
                     "Button",BS_AUTORADIOBUTTON,21,51,229,10
+    PUSHBUTTON      "&Text options",IDC_BUTTON_TEXTOPTIONS,165,205,55,19
 END
 
 IDD_VISUALIZE_PHASE_SPACE DIALOGEX 0, 0, 388, 273
