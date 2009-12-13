@@ -21,6 +21,7 @@
 #include "stdafx.h"
 #include "CrypToolApp.h"
 #include "AppDocument.h"
+#include "Windows.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -98,7 +99,6 @@ void CAppDocument::Serialize(CArchive& ar)
 void CAppDocument::OnUpdateGotoVater(CCmdUI* pCmdUI) 
 {
 	// TODO: Code für die Befehlsbehandlungsroutine zum Aktualisieren der Benutzeroberfläche hier einfügen
-	
 	if(IsWindow(hWndVaterFenster))
 	{
         pCmdUI->Enable(TRUE);

@@ -26,6 +26,8 @@
 #include "automated_permanalysis.h"
 #include "DlgPermKey.h"
 #include "DialogeMessage.h"
+#include "KeyRepository.h"
+#include "DlgKeyPermutation.h"
 
 #include "CrypToolView.h"
 #include "ScintillaWnd.h"
@@ -35,6 +37,7 @@
 #include "FileTools.h"
 #include "CrypToolTools.h"
 #include "DlgTextOptions.h"
+
 
 #define BLOCK_SIZE 1024
 
@@ -107,13 +110,12 @@ void CDlgAutomatedPermAnalysis::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_RANGE_FROM, m_editRangeFrom);
 	DDX_Text(pDX, IDC_EDIT_RANGE_TO, m_editRangeTo);
 	DDX_Control(pDX, IDC_TAB1, m_TC_textspace);
-	DDX_Control(pDX, IDC_BUTTON70, m_ctrl_LoadActiveDocument);
 	DDX_Control(pDX, IDC_BUTTON2, m_ctrlTextOptions);
+	DDX_Control(pDX, IDC_FILE_SELECT, m_ctrlFileSelect);
 }
 
 
 BEGIN_MESSAGE_MAP(CDlgAutomatedPermAnalysis, CDialog)
-	ON_BN_CLICKED(IDC_BUTTON1, &CDlgAutomatedPermAnalysis::OnBnClickedLoadFile)
 	ON_BN_CLICKED(ID_BTN_BERECHNEN, &CDlgAutomatedPermAnalysis::OnBnClickedCompute)
 	ON_BN_CLICKED(IDC_CHECK4, &CDlgAutomatedPermAnalysis::OnBnClickedinRowByRow)
 	ON_BN_CLICKED(IDC_CHECK13, &CDlgAutomatedPermAnalysis::OnBnClickedinColByCol)
@@ -127,6 +129,7 @@ BEGIN_MESSAGE_MAP(CDlgAutomatedPermAnalysis, CDialog)
 	ON_NOTIFY(TCN_SELCHANGE, IDC_TAB1, &CDlgAutomatedPermAnalysis::OnTcnSelchangeTabEditor)
 	ON_BN_CLICKED(IDC_BUTTON70, &CDlgAutomatedPermAnalysis::OnBnClickedLoadActiveDocument)
 	ON_BN_CLICKED(IDCANCEL, &CDlgAutomatedPermAnalysis::OnBnClickedClose)
+	ON_CBN_SELENDOK(IDC_FILE_SELECT, &CDlgAutomatedPermAnalysis::OnCbnSelendokFileSelect)
 END_MESSAGE_MAP()
 
 
@@ -221,10 +224,33 @@ BOOL CDlgAutomatedPermAnalysis::OnInitDialog()
 
 	UpdateData(TRUE);
 
-	if ( !fn_activeDocument ) m_ctrl_LoadActiveDocument.EnableWindow(FALSE);
+	CString str;
+	str.LoadString(IDS_SELECT_DOCUMENT);
+	m_ctrlFileSelect.AddString(str);
+
+	m_sel_tab1 = m_sel_tab2 = 0;
+	deque<void*>::iterator it = theApp.m_fileList.begin();
+	while ( it != theApp.m_fileList.end() )
+	{
+		CCryptDoc *pDoc = (CCryptDoc*)*it;
+		str = pDoc->GetTitle();
+		if ( fn_activeDocument && theApp.active == it )
+		{
+			CString tmpStr;
+			tmpStr.LoadString(IDS_ACTIVE);
+			str.Insert(0, tmpStr);
+		}
+		m_ctrlFileSelect.AddString(str);
+		it++;
+	}
+	m_ctrlFileSelect.SetCurSel(m_sel_tab1);
+
+	str.LoadString(IDS_OPEN_FILE);
+	m_ctrlFileSelect.AddString(str);
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 }
+
 
 void CDlgAutomatedPermAnalysis::OpenFile(const char *fileName) 
 {
@@ -300,14 +326,45 @@ void CDlgAutomatedPermAnalysis::SaveFile()
 	}
 }
 
-
-void CDlgAutomatedPermAnalysis::OnBnClickedLoadFile()
+////////////////////////////////////////////////////////////////////////
+void str_permutation( permkey *pk, CString &str )
 {
-	CFileDialog dlg(TRUE, NULL, NULL);
-	if ( IDOK == dlg.DoModal() )
+	int i;
+	char num[20];
+	str = _T("");
+	for (i=1; i<pk->permSize; i++)
 	{
-		OpenFile(dlg.GetPathName().GetBuffer());
+		_itoa(pk->permKey[i], num, 10);
+		str += num;
+		str += _T(", ");
 	}
+	_itoa(pk->permKey[i], num, 10);
+	str += num;
+}
+
+#define PARAM_TOKEN "PARAMETER: "
+
+
+bool copy_perm_key::copy_key(long ndx)
+{
+	permkey *p = p_key;
+	while ( ndx && p ) 
+	{
+		p = p->next;
+		ndx--;
+	}
+	if ( !p )
+		return false;
+
+	CString str, strKey;
+	str_permutation(p, str);
+	
+	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_PERMUTATION,pc_str,STR_LAENGE_STRING_TABLE);
+	strKey.Format("%s %s%s%i,%i,%i,%i,%i,%i", 
+		str, PARAM_TOKEN, (m_dataType) ? TEXT_TOKEN : BINARY_TOKEN, p->dirPlain, p->dirPerm, p->dirCipher, 0, 0, 0);
+	CopyKey ( pc_str, strKey );
+
+	return true;
 }
 
 void CDlgAutomatedPermAnalysis::OnBnClickedCompute()
@@ -345,10 +402,43 @@ void CDlgAutomatedPermAnalysis::OnBnClickedCompute()
 
 	if ( analysis.iterate_key_param() )
 	{
+		CDlgKeyList dlgKeyList;
+		dlgKeyList.m_keyList.append_hl( IDS_HEADERTEXT_KEY, 200 );
+		dlgKeyList.m_keyList.append_hl( IDS_HEADERTEXT_READIN, 90 );
+		dlgKeyList.m_keyList.append_hl( IDS_HEADERTEXT_PERMUTATION, 90 );
+		dlgKeyList.m_keyList.append_hl( IDS_HEADERTEXT_READOUT, 90 );
+
+		key_list.p_key      = (permkey *)analysis.getKeyList();
+		key_list.m_dataType = m_DataType;
+
+		permkey *p_key = key_list.p_key;
+		while ( p_key )
+		{
+			key_list_row key;
+			CString str;
+			str_permutation( p_key, str );
+			key.push_back( str );
+			str.LoadStringA( (p_key->dirPlain  == col_dir) ? IDS_IOP_COL : IDS_IOP_ROW );
+			key.push_back( str );
+			str.LoadStringA( (p_key->dirPerm   == col_dir) ? IDS_IOP_COL : IDS_IOP_ROW );
+			key.push_back( str );
+			str.LoadStringA( (p_key->dirCipher == col_dir) ? IDS_IOP_COL : IDS_IOP_ROW );
+			key.push_back( str );
+
+			dlgKeyList.m_keyList.append_key( key );
+			p_key = p_key->next;
+		}
+
+		dlgKeyList.m_strHeader.LoadString( IDS_HEADER_PERMKEYLIST );
+		dlgKeyList.set_copy_key_class( &key_list );
+		dlgKeyList.DoModal();
+
+#if 0
 		Message(ID_PA_KEYFOUND, MB_ICONINFORMATION);
 		CDlgPermKey dlg;
 		dlg.setPermKey1(analysis.getKeyList(), m_DataType);
 		dlg.DoModal();
+#endif
 	}
 	else
 	{
@@ -462,10 +552,16 @@ void CDlgAutomatedPermAnalysis::OnTcnSelchangeTabEditor(NMHDR *pNMHDR, LRESULT *
 		case 0:
 			::ShowWindow(hWndEditCipher, SW_HIDE);
 			::ShowWindow(hWndEditPlain,  SW_SHOW);
+			m_ctrlFileSelect.SetCurSel(m_sel_tab1);
+			if ( m_sel_tab1 )
+				::SetFocus(hWndEditPlain);
 			break;
 		case 1:
 			::ShowWindow(hWndEditCipher, SW_SHOW);
 			::ShowWindow(hWndEditPlain,  SW_HIDE);
+			m_ctrlFileSelect.SetCurSel(m_sel_tab2);
+			if ( m_sel_tab2 )
+				::SetFocus(hWndEditCipher);
 			break;
 		default: assert( 0 );
 	};
@@ -501,4 +597,44 @@ void CDlgAutomatedPermAnalysis::OnBnClickedClose()
 
 	UpdateData(FALSE);
 	OnCancel();
+}
+
+void CDlgAutomatedPermAnalysis::OnCbnSelendokFileSelect()
+{
+	long sel = m_ctrlFileSelect.GetCurSel();
+	switch (m_edTab) { 
+		case 0: m_sel_tab1 = sel; break;
+		case 1: m_sel_tab2 = sel; break;
+		default: break;
+	}
+
+	if ( !sel )
+	{
+		UpdateData(false);
+		ScinMSG(SCI_CLEARALL);
+		ScinMSG(EM_EMPTYUNDOBUFFER);
+		ScinMSG(SCI_SETSAVEPOINT);
+		ScinMSG(SCI_CANCEL);
+		ScinMSG(SCI_SETUNDOCOLLECTION, 0);
+		UpdateData(true);
+		return;
+	}
+	if ( sel == m_ctrlFileSelect.GetCount() -1 )
+	{
+		CFileDialog dlg(TRUE, NULL, NULL);
+		if ( IDOK == dlg.DoModal() )
+			OpenFile(dlg.GetPathName().GetBuffer());
+		return;
+	}
+
+	deque<void*>::iterator it = theApp.m_fileList.begin();
+	long i;
+	for (i=1; i != sel && it != theApp.m_fileList.end(); i++) 
+		it++;
+	
+	assert(i==sel);
+
+	CCryptDoc *pDoc = (CCryptDoc*)*it;
+	pDoc->UpdateContent();
+	OpenFile(pDoc->ContentName);
 }

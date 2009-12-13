@@ -27,14 +27,25 @@
 #include "afxwin.h"
 #include "resource.h"
 #include "automated_permanalysis.h"
+#include "DlgKeyList.h"
 #include "afxcmn.h"
 #include "assert.h"
+
+class copy_perm_key : public base_copy_key {
+
+public:
+	long m_dataType;
+	permkey *p_key;
+	bool copy_key(long ndx);
+};
 
 // CDlgAutomatedPermAnalysis dialog
 
 class CDlgAutomatedPermAnalysis : public CDialog
 {
 	DECLARE_DYNAMIC(CDlgAutomatedPermAnalysis)
+	long m_sel_tab1, m_sel_tab2;
+	copy_perm_key key_list;
 
 private:
 	HWND hWndEditPlain;
@@ -85,7 +96,6 @@ public:
 	CString m_editRangeFrom;
 	CString m_editRangeTo;
 
-	afx_msg void OnBnClickedLoadFile();
 	afx_msg void OnBnClickedCompute();
 	afx_msg void OnBnClickedinRowByRow();
 	afx_msg void OnBnClickedinColByCol();
@@ -99,9 +109,11 @@ public:
 	CTabCtrl m_TC_textspace;
 	afx_msg void OnTcnSelchangeTabEditor(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnBnClickedLoadActiveDocument();
-	CButton m_ctrl_LoadActiveDocument;
 	afx_msg void OnBnClickedClose();
 	CButton m_ctrlTextOptions;
+
+	CComboBox m_ctrlFileSelect;
+	afx_msg void OnCbnSelendokFileSelect();
 };
 
 

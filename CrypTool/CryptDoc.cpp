@@ -106,18 +106,7 @@ BOOL CCryptDoc::OnNewDocument()
 		return FALSE;
 	}
 	fclose(f);
-/*  PRESENTATION_NAME
-    GetTmpName(PresentationName,"cry",".txt");
-	f = fopen(PresentationName,"wb");
-	if (!f)
-	{
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_ERR_COULD_NOT_OPEN_TMP_FILE,pc_str,STR_LAENGE_STRING_TABLE);
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_NOTE,pc_str1,STR_LAENGE_STRING_TABLE);
-		theApp.m_MainWnd->MessageBox(pc_str,pc_str1,MB_OK | MB_ICONWARNING);
-		return FALSE;
-	}
-	fclose(f);
-*/
+
 	return TRUE;
 }
 
@@ -332,6 +321,21 @@ void CCryptDoc::OnCloseDocument()
 	CAppDocument::OnCloseDocument();
     // PRESENTATION_NAME remove(name1);
     remove(name2);
+
+// Remove Elements From List
+	bool found = false;
+	deque<void*>::iterator it = theApp.m_fileList.begin();
+	while ( it != theApp.m_fileList.end() )
+	{
+		if ( this == (CCryptDoc*)*it )
+		{
+			found = true;
+			break;
+		}
+		it++;
+	}
+	if ( found )
+		theApp.m_fileList.erase(it);
 }
 
 BOOL CCryptDoc::OnOpenDocument(LPCTSTR lpszPathName) 
@@ -369,6 +373,10 @@ BOOL CCryptDoc::OnOpenDocument(LPCTSTR lpszPathName)
     }
 
 	SetPathName(lpszPathName);
+
+
+// 	theApp.m_fileList.push_back( fileItem( CString(lpszPathName), m_strTitle) );
+
 	return TRUE;
 }
 
@@ -1947,6 +1955,7 @@ void CCryptDoc::OnKnownAnalysisSinglePermutation()
 {
 	CDlgAutomatedPermAnalysis dlg;
 	UpdateContent();
+
 	if ( dlg.setSourceFilename(ContentName) )
 	{
 		Message( IDS_PA_EMPTYREFFILE, MB_ICONSTOP );

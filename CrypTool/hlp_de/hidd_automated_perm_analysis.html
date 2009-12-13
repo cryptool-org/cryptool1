@@ -17,18 +17,30 @@
 <BODY>
 <h3>Dialog Analyse einer einstufigen Spaltentransposition (Known-Plaintext)</h3>
 
-<P>Sie erreichen diesen Dialog über den Menüeintrag <a href="menu_analyze.html">Analyse</a> \ <a href="menu_analysis_symmetricclassic.html">Symmetrische Verschlüsselung (klassisch)</a> \ <a href="menu_analysis_symmetricclassic_knownplaintext.html">Known-Plaintext</a> \ <a href="hid_known_analysis_single_permutation.html">Einstufige Spaltentransposition</a>.</P>
+<P>Sie erreichen diesen Dialog über den Menüeintrag 
+<a href="menu_analyze.html">Analyse</a> \ 
+<a href="menu_analysis_symmetricclassic.html">Symmetrische Verschlüsselung (klassisch)</a> \ 
+<a href="menu_analysis_symmetricclassic_knownplaintext.html">Known-Plaintext</a> \ 
+<a href="hid_known_analysis_single_permutation.html">Einstufige Spaltentransposition</a>.</P>
 
-<P>In den Dialog müssen die benötigten Daten zur automatische Analyse (<!--ZZZPOPUP--><A href="knownplaintextangriff.html">Known-Plaintext-Angriff</A>) für das <A href="hid_permutation_asc.html">Permutation-Verschlüsselungsverfahren</A> eingegeben werden.</P>
-
-<P>In diesen Dialog müssen Sie den <!--ZZZPOPUP--><A href="klartext.html">Klartext</A> und den <!--ZZZPOPUP--><A href="verschluesselung.html">verschlüsselten</A> Text auswählen.</P>
-
-<P>Bei der Analyse der Spaltentransposition wird der Text normalerweise in eine Tabelle der Breite n (= Länge der Permutation) zeilenweise eingetragen. Das Chiffrat wird nun spaltenweise in der von der Permutation vorgegebenen Reihenfolge ausgelesen. In CrypTool besteht neben der klassischen Variante die Möglichkeit, 
-den Klartext wahlweise spalten- oder zeilenweise ein- oder auszulesen. Des Weiteren besteht die Möglichkeit zu bestimmen, ob die eigentliche Permutation spaltenweise oder zeilenweise ausgeführt wird. Standard ist hier spaltenweise, in der Literatur wird jedoch gelegentlich eine zeilenweise Notation eingesetzt. Werden bei allen 3 Optionen (Einlesen, Permutation und Auslesen) die Werte zwischen zeilenweise und spaltenweise getauscht, so führt dies zum gleichen Ergebnis.</p>
-<p>Außerdem haben Sie die Möglichkeit, die Länge des zu suchenden <!--ZZZPOPUP--><A href="schluessel.html">Schlüssels</A> einzuschränken. Entweder Sie geben ein Intervall oder genau eine feste Schlüssellänge an. Sofern Sie die Länge des Schlüssels kennen, können Sie das Programm anweisen, die Analyse nur für diese <!--ZZZPOPUP--><A href="schluessellaenge.html">Schlüssellänge</A> zu versuchen. Bei großen Dokumenten führt dies zu einer Zeitersparnis. Beachten Sie dabei aber,
-dass zum Beispiel ein Schlüssel der Länge 3 nicht gefunden wird, wenn Sie die Länge auf 1 bis 2 einschränken.</p>
+<P>Die automatische Analyse (<!--ZZZPOPUP--><A href="knownplaintextangriff.html">Known-Plaintext-Angriff</A>) für das 
+<A href="hid_permutation_asc.html">Permutation-Verschlüsselungsverfahren</A> benötigt folgende Daten:</P>
+<OL>
+<LI><p><!--ZZZPOPUP--><A href="klartext.html">Klartext</A> und <!--ZZZPOPUP--><A href="chiffretext.html">Geheimtext</A> können entweder Textdateien oder Binärdateien sein.</p></LI>
+<LI><p>Richtung für das Einlesen, für die Permutationd-Tabelle und das Auslesen: Bei der Analyse der Spaltentransposition wird der Text normalerweise in eine Tabelle der Breite n (= Länge der Permutation) 
+zeilenweise eingetragen. Das Chiffrat wird nun spaltenweise in der von der Permutation vorgegebenen Reihenfolge ausgelesen. In CrypTool besteht neben der klassischen Variante die Möglichkeit, 
+den Klartext wahlweise spalten- oder zeilenweise ein- oder auszulesen. Des Weiteren besteht die Möglichkeit zu bestimmen, ob die eigentliche Permutation spaltenweise oder zeilenweise ausgeführt wird. 
+Standard ist hier spaltenweise, in der Literatur wird jedoch gelegentlich eine zeilenweise Notation eingesetzt. Werden bei allen 3 Optionen (Einlesen, Permutation und Auslesen) die Werte zwischen 
+zeilenweise und spaltenweise getauscht, so führt dies zum gleichen Ergebnis.</p></LI>
+<LI><p>Länge des Schlüssels. Sie haben die Möglichkeit, die Länge des zu suchenden <!--ZZZPOPUP--><A href="schluessel.html">Schlüssels</A> einzuschränken. Entweder Sie geben ein Intervall oder genau eine 
+feste Schlüssellänge an. Sofern Sie die Länge des Schlüssels kennen, können Sie das Programm anweisen, die Analyse nur für diese <!--ZZZPOPUP--><A href="schluessellaenge.html">Schlüssellänge</A> zu versuchen. 
+Bei großen Dokumenten führt dies zu einer Zeitersparnis. Beachten Sie dabei aber, dass zum Beispiel ein Schlüssel der Länge 3 nicht gefunden wird, wenn Sie die Länge auf 1 bis 2 einschränken. Geben Sie
+keine Werte ein, so werden alle Schlüssellängen von 1 bis zur Dateilänge durchsucht.</p>
 <p>Durch Betätigen des Knopfes <b>Schlüssel berechnen</b> wird die Analyse gestartet; die Analyse wird nicht gestartet, wenn Sie den Dialog mit dem <b>Abbrechen</b>-Knopf beenden.</p>
 
 <p>Sofern der Schlüssel ermittelt werden konnte, wird er im <A href="hidd_automated_perm_analysis_output.html">Dialog Schlüsselausgabe: Spaltentransposition (einstufig)</A> ausgegeben, ansonsten erfolgt eine Meldung, dass der Schlüssel nicht gefunden werden konnte.</p>
+</LI>
+</OL>
+
 </BODY>
 </HTML>

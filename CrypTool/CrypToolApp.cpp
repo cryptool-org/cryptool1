@@ -892,6 +892,8 @@ CAppDocument * CCrypToolApp::OpenDocumentFileNoMRU(const char *name, CString Key
 	doc->fontSize = fontSize;
 	doc->fontFace = fontFace;
 
+
+
     MRU_Flag = oldflag;
     return doc;
 }

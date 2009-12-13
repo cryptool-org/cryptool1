@@ -171,6 +171,24 @@ void CCrypToolView::OnSetFocus(CWnd* pOldWnd)
 
 	// Fokus für neue Scintilla-Komponente explizit setzen
 	GetTopWindow()->SetFocus();
+	CCryptDoc *pDoc = (CCryptDoc*)GetDocument();
+	
+	bool found = false;
+	deque<void*>::iterator it = theApp.m_fileList.begin();
+	while ( it != theApp.m_fileList.end() )
+	{
+		if ( pDoc == (CCryptDoc*)*it )
+		{
+			theApp.active = it;
+			found = true;
+			break;
+		}
+		it++;
+	}
+	if ( !found )
+		theApp.m_fileList.push_back((void*)pDoc);
+	
+	int i = 0;
 }
 
 /*

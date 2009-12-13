@@ -427,6 +427,7 @@
 #define IDD_AUTOMATED_PERM_ANALYSIS_OUTPUT 877
 #define IDD_VIGENERE_ANALYSIS_SCHROEDEL 880
 #define IDD_GENERATE_SAVE_PRIME         881
+#define IDD_KEYS_LIST                   883
 #define IDS_CRYPT_DESX                  1000
 #define IDC_BTN_KLARTEXT                1000
 #define IDS_CRYPT_DESL                  1001
@@ -1766,6 +1767,9 @@
 #define ID_CONTRIBUTORS                 2057
 #define IDC_EDIT_BITLENGTH              2058
 #define IDC_EDITPRIME                   2062
+#define IDC_FILE_SELECT                 2064
+#define IDC_BUTTON_COPY_KEY             2066
+#define IDC_KEY_LIST                    2067
 #define IDC_START_RADIO                 11008
 #define IDC_EINFUEHRUNG_RADIO           11009
 #define IDC_PASSWORT_RADIO              11010
@@ -1862,6 +1866,7 @@
 #define IDD_SELECTCOPYENCODING1         30732
 #define IDD_SELECTPASTEDECODING         30732
 #define IDD_SELECTPASTEDECODING1        30733
+#define IDD_KEYS_LIST1                  30733
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
 #define ID_HILL                         33002
@@ -3240,14 +3245,25 @@
 #define IDS_BL_TOOLARGE                 62040
 #define IDS_STRING117                   62041
 #define IDS_DH_NO_SAVE_PRIME            62041
+#define IDS_SELECT_PLAINTEXT            62042
+#define IDS_SELECT_CIPHERTEXT           62043
+#define IDS_OPEN_FILE                   62044
+#define IDS_SELECT_DOCUMENT             62045
+#define IDS_HEADERTEXT_KEY              62046
+#define IDS_HEADERTEXT_READIN           62047
+#define IDS_HEADERTEXT_PERMUTATION      62048
+#define IDS_HEADERTEXT_READOUT          62049
+#define IDS_HEADER_PERMKEYLIST          62050
+#define IDS_NOKEYSELECTED               62051
+#define IDS_ACTIVE                      62052
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        883
+#define _APS_NEXT_RESOURCE_VALUE        884
 #define _APS_NEXT_COMMAND_VALUE         33386
-#define _APS_NEXT_CONTROL_VALUE         2064
+#define _APS_NEXT_CONTROL_VALUE         2068
 #define _APS_NEXT_SYMED_VALUE           109
 #endif
 #endif

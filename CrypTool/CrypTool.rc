@@ -8,11 +8,12 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -4373,7 +4374,6 @@ BEGIN
     CONTROL         "Kolumnami",IDC_CHECK15,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,283,54,10
     EDITTEXT        IDC_EDIT_RANGE_FROM,250,265,42,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_RANGE_TO,250,281,42,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "Szukaj plik",IDC_BUTTON1,250,218,54,14
     PUSHBUTTON      "&Anuluj",IDCANCEL,248,338,65,17
     GROUPBOX        "Wczytaæ",IDC_GB_EINLESEN,15,254,67,43
     GROUPBOX        "Permutacja",IDC_GB_PERMUTIEREN,87,254,66,43
@@ -4388,8 +4388,8 @@ BEGIN
     CONTROL         "Tekst",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,199,315,33,10
     LTEXT           "Uwarzaæ dokument wejœciowy jako:",IDC_STATIC,17,315,115,9
     PUSHBUTTON      "Opcje tekstu",IDC_BUTTON2,95,338,59,17
-    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,32,306,206
-    PUSHBUTTON      "Zaladuj aktywny dokument",IDC_BUTTON70,140,218,98,14
+    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,30,306,206
+    COMBOBOX        IDC_FILE_SELECT,14,218,292,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
 END
 
 IDD_AUTOMATED_PERM_ANALYSIS_OUTPUT DIALOGEX 0, 0, 242, 241
@@ -4433,6 +4433,17 @@ BEGIN
     EDITTEXT        IDC_EDIT2,50,88,315,12,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Bitlänge",IDC_STATIC,14,67,29,8
     LTEXT           "Primzahl",IDC_STATIC,14,90,29,8
+END
+
+IDD_KEYS_LIST DIALOGEX 0, 0, 365, 221
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Zamknij",IDCANCEL,280,195,78,19
+    EDITTEXT        IDC_HEADER,7,7,351,25,ES_MULTILINE | ES_AUTOHSCROLL | WS_DISABLED
+    PUSHBUTTON      "Kopiuj klucz",IDC_BUTTON_COPY_KEY,176,195,82,19
+    CONTROL         "",IDC_KEY_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,39,351,149
 END
 
 
@@ -8025,6 +8036,15 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 140
     END
+
+    IDD_KEYS_LIST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 358
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 214
+        HORZGUIDE, 195
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -10705,7 +10725,13 @@ BEGIN
     ID_PA_KEYFOUND          "At least one permutation key was found. The shortest one will be displayed."
     IDS_BL_ATLEAST2         "Please select a bitlength between 2 and 16384."
     IDS_BL_TOOLARGE         "Please select a bitlength between 2 and 16384."
-    IDS_DH_NO_SAVE_PRIME    "Keine sichere Primzahl!"
+    IDS_DH_NO_SAVE_PRIME    "[i18n] Keine sichere Primzahl!"
+    IDS_SELECT_PLAINTEXT    "[i18n] Bitte wählen Sie ein Klartext Dokument."
+    IDS_SELECT_CIPHERTEXT   "[i18n] Bitte wählen Sie ein Geheimtext Dokument."
+    IDS_OPEN_FILE           "Szukaj plik..."
+    IDS_SELECT_DOCUMENT     "[i18n] Bitte wählen Sie ein Dokument."
+    IDS_HEADERTEXT_KEY      "[i18n] Schlüssel"
+    IDS_HEADERTEXT_READIN   "[i18n] Einlesen"
 END
 
 STRINGTABLE 
@@ -10724,12 +10750,21 @@ BEGIN
                             "Vigenère analysis according to Schroedel"
 END
 
-#endif    // Polish resources
+STRINGTABLE 
+BEGIN
+    IDS_HEADERTEXT_PERMUTATION "[i18n] Permutation"
+    IDS_HEADERTEXT_READOUT  "[i18n] Auslesen"
+    IDS_HEADER_PERMKEYLIST  "[i18n] Es wurde mindestens ein Permutationsschlüssel gefunden. Die Schlüssel werden in der Liste angezeigt.\nSie können die Aktuelle Auswahl in den Schlüsselspeicher kopieren."
+    IDS_NOKEYSELECTED       "[i18n] Bitte wählen Sie einen Schlüssel aus der Liste"
+    IDS_ACTIVE              "[i18n] (Aktywny) "
+END
+
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -15139,7 +15174,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "Analyse einer einstufigen Spaltentransposition (Known-Plaintext)"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&Schlüssel suchen",ID_BTN_BERECHNEN,7,335,75,17
+    COMBOBOX        IDC_FILE_SELECT,14,218,292,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     CONTROL         "Zeilenweise",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,267,53,10
     CONTROL         "Spaltenweise",IDC_CHECK13,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,283,54,10
     CONTROL         "Zeilenweise",IDC_CHECK11,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,93,267,53,10
@@ -15148,23 +15183,22 @@ BEGIN
     CONTROL         "Spaltenweise",IDC_CHECK15,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,283,54,10
     EDITTEXT        IDC_EDIT_RANGE_FROM,250,265,42,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_RANGE_TO,250,281,42,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "Aus Datei laden",IDC_BUTTON1,246,218,60,14
+    DEFPUSHBUTTON   "&Schlüssel suchen",ID_BTN_BERECHNEN,7,335,75,17
     PUSHBUTTON      "Schließen",IDCANCEL,248,335,65,17
+    CONTROL         "Binäre Daten",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,150,315,54,10
+    CONTROL         "Text",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,210,315,59,10
+    PUSHBUTTON      "Textoptionen...",IDC_BUTTON2,88,335,59,17
+    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,7,306,209
     GROUPBOX        "Einlesen",IDC_GB_EINLESEN,14,254,67,43
     GROUPBOX        "Permutieren",IDC_GB_PERMUTIEREN,87,254,66,43
     GROUPBOX        "Auslesen",IDC_GB_AUSLESEN,157,254,66,43
     GROUPBOX        "Welche Varianten des Permutationsverfahrens sollen analysiert werden?",IDC_GB_VERFAHREN,7,241,306,63
-    LTEXT           "Dies ist eine Known-Plaintext-Analyse einer Permutations-Chiffre. Mit dieser Analyse können Sie aus dem Klartext und dem Geheimtext den Permutationsschl?ssel berechnen.",IDC_LBL_INFOTEXT,7,8,306,15,0,WS_EX_TRANSPARENT
+    LTEXT           "Dies ist eine Known-Plaintext-Analyse einer Permutations-Chiffre. Mit dieser Analyse können Sie aus dem Klartext und dem Geheimtext den Permutationsschlüssel berechnen.",IDC_LBL_INFOTEXT,7,8,306,15,0,WS_EX_TRANSPARENT
     GROUPBOX        "Permutationsgröße",IDC_GB_AUSLESEN2,230,254,76,43
     LTEXT           "von",IDC_STATIC,234,268,14,9
     LTEXT           "bis",IDC_STATIC,234,284,14,9
     GROUPBOX        "Optionen",IDC_STATIC,7,304,306,26
-    CONTROL         "Binäre Daten",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,150,315,54,10
-    CONTROL         "Text",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,210,315,59,10
-    LTEXT           "Betrachte beide Eingabedokument als:",IDC_STATIC,17,315,125,10
-    PUSHBUTTON      "Textoptionen...",IDC_BUTTON2,100,335,59,17
-    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,29,306,208
-    PUSHBUTTON      "Aktives Dokument laden",IDC_BUTTON70,152,218,86,14
+    LTEXT           "Betrachte beide Eingabedokumente als:",IDC_STATIC,17,315,128,10
 END
 
 IDD_AUTOMATED_PERM_ANALYSIS_OUTPUT DIALOGEX 0, 0, 242, 241
@@ -15209,6 +15243,17 @@ BEGIN
     LTEXT           "Bitlänge",IDC_STATIC,14,67,29,8
     LTEXT           "Primzahl",IDC_STATIC,14,90,29,8
     LTEXT           "dauert als die Bestimmung von Primzahlen ohne diese Eigenschaft.\nSichere Primzahlen spielen eine wichtige Rolle für kryptographische Verfahren (z.B. dem Diffie-Hellman- Verfahren), die auf dem Diskreten-Logarithmus-Problem basieren.",IDC_STATIC,14,19,351,24
+END
+
+IDD_KEYS_LIST DIALOGEX 0, 0, 365, 221
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Schließen",IDCANCEL,280,195,78,19
+    EDITTEXT        IDC_HEADER,7,7,351,25,ES_MULTILINE | ES_AUTOHSCROLL | WS_DISABLED
+    PUSHBUTTON      "Schlüssel kopieren",IDC_BUTTON_COPY_KEY,176,195,82,19
+    CONTROL         "",IDC_KEY_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,39,351,149
 END
 
 
@@ -16311,10 +16356,10 @@ BEGIN
         MENUITEM "&Symbolleiste",               ID_VIEW_TOOLBAR
         MENUITEM "St&atusleiste",               ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
-        MENUITEM "Als &Text anzeigen",          ID_TOTXT, GRAYED
+        MENUITEM "Als &Text anzeigen",          ID_TOTXT
         MENUITEM "Als &HexDump anzeigen",       ID_TOHEX
         MENUITEM SEPARATOR
-        MENUITEM "&Balkendiagramm",             ID_PLOTBAR, GRAYED
+        MENUITEM "&Balkendiagramm",             ID_PLOTBAR
         MENUITEM SEPARATOR
         MENUITEM "Al&phabet",                   ID_VIEW_ALPHABET
         MENUITEM "Zeilen&ende",                 ID_VIEW_ENDOFLINE
@@ -16322,20 +16367,20 @@ BEGIN
         MENUITEM "&Leerzeichen",                ID_VIEW_WHITESPACE
         POPUP "S&chriftart"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
-            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14, GRAYED
-            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16, GRAYED
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
-            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14, GRAYED
-            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16, GRAYED
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
         END
         MENUITEM "&Textdokument formatieren...", ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
-        MENUITEM "B&ox (Würfelkanten zeigen)",  ID_POPUP_OPENGL_SHOW_BOX, GRAYED
+        MENUITEM "B&ox (Würfelkanten zeigen)",  ID_POPUP_OPENGL_SHOW_BOX
     END
     POPUP "&Ver-/Entschlüsseln"
     BEGIN
@@ -16523,8 +16568,8 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "V&igenère (Analyse nach Schrödel)", ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
-                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
+                MENUITEM "V&igenère (Analyse nach Schrödel)", ID_ANALYSIS_VIGENERE_SCHROEDEL
+                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
@@ -18683,6 +18728,15 @@ BEGIN
         VERTGUIDE, 365
         TOPMARGIN, 7
         BOTTOMMARGIN, 140
+    END
+
+    IDD_KEYS_LIST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 358
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 214
+        HORZGUIDE, 195
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -21445,6 +21499,12 @@ BEGIN
     IDS_BL_ATLEAST2         "Bitte wählen Sie als Bitlänge eine Zahl zwischen 2 und 16384."
     IDS_BL_TOOLARGE         "Bitte wählen Sie als Bitlänge eine Zahl zwischen 2 und 16384."
     IDS_DH_NO_SAVE_PRIME    "Keine sichere Primzahl!"
+    IDS_SELECT_PLAINTEXT    "Bitte wählen Sie ein Klartext Dokument."
+    IDS_SELECT_CIPHERTEXT   "Bitte wählen Sie ein Geheimtext Dokument."
+    IDS_OPEN_FILE           "Aus Datei Laden..."
+    IDS_SELECT_DOCUMENT     "Bitte wählen Sie ein Dokument."
+    IDS_HEADERTEXT_KEY      "Schlüssel"
+    IDS_HEADERTEXT_READIN   "Einlesen"
 END
 
 STRINGTABLE 
@@ -21537,12 +21597,21 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "Zeichen"
 END
 
-#endif    // German (Germany) resources
+STRINGTABLE 
+BEGIN
+    IDS_HEADERTEXT_PERMUTATION "Permutation"
+    IDS_HEADERTEXT_READOUT  "Auslesen"
+    IDS_HEADER_PERMKEYLIST  "Es wurde mindestens ein Permutationsschlüssel gefunden. Die Schlüssel werden in der Liste angezeigt.\nSie können die Aktuelle Auswahl in den Schlüsselspeicher kopieren."
+    IDS_NOKEYSELECTED       "Bitte wählen Sie einen Schlüssel aus der Liste"
+    IDS_ACTIVE              "(Aktiv) "
+END
+
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -25927,7 +25996,6 @@ BEGIN
     CONTROL         "Col by col",IDC_CHECK15,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,283,54,10
     EDITTEXT        IDC_EDIT_RANGE_FROM,250,265,42,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_RANGE_TO,250,281,42,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "&Open document",IDC_BUTTON1,252,218,54,14
     PUSHBUTTON      "Close",IDCANCEL,248,338,65,17
     GROUPBOX        "Input",IDC_GB_EINLESEN,15,254,67,43
     GROUPBOX        "Permute",IDC_GB_PERMUTIEREN,87,254,66,43
@@ -25942,8 +26010,8 @@ BEGIN
     CONTROL         "text",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,182,315,59,10
     LTEXT           "Consider input document as",IDC_STATIC,17,315,110,10
     PUSHBUTTON      "Text options...",IDC_BUTTON2,101,338,59,17
-    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,31,306,205
-    PUSHBUTTON      "Load active document",IDC_BUTTON70,157,218,81,14
+    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,32,306,205
+    COMBOBOX        IDC_FILE_SELECT,14,218,292,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
 END
 
 IDD_AUTOMATED_PERM_ANALYSIS_OUTPUT DIALOGEX 0, 0, 242, 241
@@ -25988,6 +26056,17 @@ BEGIN
     LTEXT           "Bit length",IDC_STATIC,14,67,29,8
     LTEXT           "Prime",IDC_STATIC,14,90,29,8
     LTEXT           "Safe primes are important for discrete-log based cryptosystems like the Diffie-Hellman method.",IDC_STATIC,14,31,351,13
+END
+
+IDD_KEYS_LIST DIALOGEX 0, 0, 365, 221
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Close",IDCANCEL,280,195,78,19
+    EDITTEXT        IDC_HEADER,7,7,351,25,ES_MULTILINE | ES_AUTOHSCROLL | WS_DISABLED
+    PUSHBUTTON      "Copy key",IDC_BUTTON_COPY_KEY,176,195,82,19
+    CONTROL         "",IDC_KEY_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,39,351,149
 END
 
 
@@ -29638,6 +29717,15 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 140
     END
+
+    IDD_KEYS_LIST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 358
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 214
+        HORZGUIDE, 195
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -32336,7 +32424,13 @@ BEGIN
     ID_PA_KEYFOUND          "At least one permutation key was found. The shortest one will be displayed."
     IDS_BL_ATLEAST2         "Please select a bitlength between 2 and 16384."
     IDS_BL_TOOLARGE         "Please select a bitlength between 2 and 16384."
-    IDS_DH_NO_SAVE_PRIME    "Keine sichere Primzahl!"
+    IDS_DH_NO_SAVE_PRIME    "[i18n] Keine sichere Primzahl!"
+    IDS_SELECT_PLAINTEXT    "[i18n] Bitte wählen Sie ein Klartext Dokument."
+    IDS_SELECT_CIPHERTEXT   "[i18n] Bitte wählen Sie ein Geheimtext Dokument."
+    IDS_OPEN_FILE           "Open document ..."
+    IDS_SELECT_DOCUMENT     "[i18n] Bitte wählen Sie ein Dokument."
+    IDS_HEADERTEXT_KEY      "[i18n] Schlüssel"
+    IDS_HEADERTEXT_READIN   "[i18n] Einlesen"
 END
 
 STRINGTABLE 
@@ -32428,7 +32522,16 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "characters"
 END
 
-#endif    // English (U.K.) resources
+STRINGTABLE 
+BEGIN
+    IDS_HEADERTEXT_PERMUTATION "[i18n] Permutation"
+    IDS_HEADERTEXT_READOUT  "[i18n] Auslesen"
+    IDS_HEADER_PERMKEYLIST  "[i18n] Es wurde mindestens ein Permutationsschlüssel gefunden. Die Schlüssel werden in der Liste angezeigt.\nSie können die Aktuelle Auswahl in den Schlüsselspeicher kopieren."
+    IDS_NOKEYSELECTED       "[i18n] Bitte wählen Sie einen Schlüssel aus der Liste"
+    IDS_ACTIVE              "[i18n] (Active) "
+END
+
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

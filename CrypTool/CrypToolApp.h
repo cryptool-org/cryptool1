@@ -54,6 +54,7 @@
 #include "DlgFindAndReplace.h"
 #include <atlbase.h>   // Registry
 
+
 #include "HillEncryption.h"
 
 // globale Variablen fuer Zugriff auf Stringtable
@@ -85,6 +86,7 @@ extern HWND hWndAktivesFenster;
 
 #define CRYPTOOL_PATH_LENGTH				1024
 
+//////////////////////////////////////////////////////////////////
 class CCrypToolApp : public CWinApp
 {
 	BOOL InitInstance();
@@ -96,6 +98,7 @@ class CCrypToolApp : public CWinApp
 	};
 	deque<menuitem> m_menuItemStack; // updated by PrecessMessageFilter,
 									 // used by WinHelp to create unique IDs for menu items with sub menus
+
 	virtual void updateMenuItemStack(HMENU hmenu,INT index); // utility for updating m_menuItemStack
 
 	// virtual void WinHelp( DWORD dwData, UINT nCmd = HELP_CONTEXT ) set public to get access from Challenge Response Demo
@@ -147,7 +150,11 @@ class CCrypToolApp : public CWinApp
 	afx_msg void OnIndividualProceduresSecretsharing();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+
 public:
+	deque<void*> m_fileList;
+	deque<void*>::iterator active;
+
 	char *m_Selfextract_EXE;
 	char *m_NumberShark_Selfextract_EXE;
 	int m_HexFormat;
