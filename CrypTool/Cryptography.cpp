@@ -1671,7 +1671,10 @@ void Mono(const char *infile, const char *OldTitle) {
 	// get the currently configured alphabet
 	CString alphabet = theApp.TextOptions.getAlphabet();
 
-	// make sure the infile contains at least one character of the current alphabet
+	// this might be helpful later on (used as workaround)
+	CString lowerAlphabet = alphabet; lowerAlphabet.MakeLower();
+	CString upperAlphabet = alphabet; upperAlphabet.MakeUpper();
+
 	CFile inputFile(infile, CFile::modeRead);
 	const int inputFileLength = inputFile.GetLength();
 
@@ -1681,15 +1684,25 @@ void Mono(const char *infile, const char *OldTitle) {
 	memset(buffer, 0, inputFileLength + 1);
 	inputFile.Read(buffer, inputFileLength);
 	for(int i=0; i<inputFileLength && !containsAlphabetCharacter; i++) {
-		if(alphabet.Find(buffer[i]) != -1)
-			containsAlphabetCharacter = true;
+		// we're a bit more tolerant when the "getDistinguishUpperLowerCase" function returns false
+		if(!theApp.TextOptions.getDistinguishUpperLowerCase()) {
+			if(lowerAlphabet.Find(buffer[i]) != -1 || upperAlphabet.Find(buffer[i]) != -1)
+				containsAlphabetCharacter = true;
+		}
+		// however, we're being exact when this function returns true
+		else {
+			if(alphabet.Find(buffer[i]) != -1)
+				containsAlphabetCharacter = true;
+		}
 	}
 	inputFile.Close();
 
 	// dump an error message and return if the file doesn't contain at least one alphabet character
 	if(!containsAlphabetCharacter) {
-		CString message; message.LoadString(IDS_STRING_ERR_INPUT_TEXT_LENGTH);
-		AfxMessageBox(message, MB_ICONINFORMATION);
+		CString message;
+		message.LoadString(IDS_STRING_ERR_INPUT_TEXT_LENGTH);
+		message.Format(message, 1);
+		AfxMessageBox(message, MB_ICONEXCLAMATION);
 		return;
 	}
 

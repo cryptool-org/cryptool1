@@ -8,12 +8,11 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polnisch resources
+// Polish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -10759,12 +10758,12 @@ BEGIN
     IDS_ACTIVE              "[i18n] (Aktywny) "
 END
 
-#endif    // Polnisch resources
+#endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -14347,7 +14346,7 @@ BEGIN
     CONTROL         "Verfahren 1 basierend auf der Häufigkeitsanalyse der Digramme im Text",IDC_ALG_DIGRAM,
                     "Button",BS_AUTORADIOBUTTON,18,19,256,17
     CONTROL         "Verfahren 2 basierend auf der Erkennung der häufigsten Wörter einer Sprache",IDC_ALG_WORD,
-                    "Button",BS_AUTORADIOBUTTON,18,103,256,15
+                    "Button",BS_AUTORADIOBUTTON,18,103,264,15
     LTEXT           "Die Analyse basiert auf einer Liste mit den häufigsten Wörtern der jeweiligen Sprache. Die Wörter des Ciphertextes werden (ihrem Muster nach) mit den Wörtern in der Liste verglichen.",IDC_STATIC,30,118,265,28
     GROUPBOX        "Bitte wählen Sie zwischen folgenden Algorithmen aus:",IDC_STATIC,7,5,304,210,WS_GROUP
     LTEXT           "Der Algorithmus analysiert die Häufigkeit einzelner Digramme im verschlüsselten Text und versucht, anhand einer Standardverteilung den Schlüssel zu erraten.",IDC_STATIC,30,35,251,21
@@ -21606,12 +21605,12 @@ BEGIN
     IDS_ACTIVE              "(Aktiv) "
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -30238,7 +30237,7 @@ BEGIN
     IDS_STRING_MSG_FILENAME_SIGNED_MESSAGE 
                             "The signed message is in this file:        "
     IDS_STRING_ERR_INPUT_TEXT_LENGTH 
-                            "The input must contain at least %d character(s) from the current alphabet."
+                            "The input must contain at least %d (not necessarily different) character(s) from the current alphabet."
     IDS_STRING_ERR_EC_ON_CONVERT_PARAM 
                             "Error. The domain parameters of the elliptic curve cannot be converted to strings!"
     IDS_STRING_ERR_NO_ZIP_FILE "No ZIP file (""Magic number"" error)."
@@ -32531,7 +32530,7 @@ BEGIN
     IDS_ACTIVE              "[i18n] (Active) "
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
