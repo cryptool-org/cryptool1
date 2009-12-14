@@ -313,13 +313,10 @@ void CCryptDoc::Serialize(CArchive& ar)
 
 void CCryptDoc::OnCloseDocument() 
 {
-    char // PRESENTATION_NAME name1[128], 
-		 name2[128];
+    char name2[128];
 
-    // PRESENTATION_NAME strncpy(name1,PresentationName,sizeof(name1));
     strncpy(name2,ContentName,sizeof(name2));
 	CAppDocument::OnCloseDocument();
-    // PRESENTATION_NAME remove(name1);
     remove(name2);
 
 // Remove Elements From List

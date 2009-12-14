@@ -53,6 +53,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	CString   m_strHeader;
+	CString   m_strDlgTitle;
 	CEdit     m_ctrlHeader;
 	CListCtrl m_ctrlKeyList;
 	CButton   m_ctrl_copy_key;

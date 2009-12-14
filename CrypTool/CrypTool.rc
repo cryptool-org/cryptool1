@@ -8,11 +8,12 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -4440,7 +4441,7 @@ CAPTION "Dialog"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     PUSHBUTTON      "Zamknij",IDCANCEL,280,195,78,19
-    EDITTEXT        IDC_HEADER,7,7,351,25,ES_MULTILINE | ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_HEADER,7,7,351,25,ES_MULTILINE | ES_READONLY | NOT WS_BORDER
     PUSHBUTTON      "Kopiuj klucz",IDC_BUTTON_COPY_KEY,176,195,82,19
     CONTROL         "",IDC_KEY_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,39,351,149
 END
@@ -10727,8 +10728,8 @@ BEGIN
     IDS_DH_NO_SAVE_PRIME    "[i18n] Keine sichere Primzahl!"
     IDS_SELECT_PLAINTEXT    "[i18n] Bitte wählen Sie ein Klartext Dokument."
     IDS_SELECT_CIPHERTEXT   "[i18n] Bitte wählen Sie ein Geheimtext Dokument."
-    IDS_OPEN_FILE           "Szukaj plik..."
-    IDS_SELECT_DOCUMENT     "[i18n] Bitte wählen Sie ein Dokument."
+    IDS_OPEN_FILE           "[Szukaj plik...]"
+    IDS_SELECT_DOCUMENT     "[i18n] [Bitte wählen Sie ein Dokument.]"
     IDS_HEADERTEXT_KEY      "[i18n] Schlüssel"
     IDS_HEADERTEXT_READIN   "[i18n] Einlesen"
 END
@@ -10756,14 +10757,18 @@ BEGIN
     IDS_HEADER_PERMKEYLIST  "[i18n] Es wurde mindestens ein Permutationsschlüssel gefunden. Die Schlüssel werden in der Liste angezeigt.\nSie können die Aktuelle Auswahl in den Schlüsselspeicher kopieren."
     IDS_NOKEYSELECTED       "[i18n] Bitte wählen Sie einen Schlüssel aus der Liste"
     IDS_ACTIVE              "[i18n] (Aktywny) "
+    IDS_PERMKEY_COPIED_AND_TIPPS 
+                            "[i18n] Der von Ihnen gewählt Schlüssel wurde in den Schlüsselspeicher geladen. Sie können diesen Schlüssel bei der Permutationsverschlüsselung benutzen (siehe Menü: Ver-/Entschlüsseln Symmetrish (klassisch) Permutation / Transposition).\n\nDazu klicken Sie im Dialog für die Permutationsverschlüsselung auf das Schlüsselsymbol. "
+    IDS_DIALOGHEADER_PERMKEY_LIST 
+                            "[i18n] Liste der gefundenen Permutationsschlüssel"
 END
 
-#endif    // Polish resources
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -15174,12 +15179,12 @@ CAPTION "Analyse einer einstufigen Spaltentransposition (Known-Plaintext)"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     COMBOBOX        IDC_FILE_SELECT,14,218,292,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    CONTROL         "Zeilenweise",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,267,53,10
-    CONTROL         "Spaltenweise",IDC_CHECK13,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,283,54,10
-    CONTROL         "Zeilenweise",IDC_CHECK11,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,93,267,53,10
-    CONTROL         "Spaltenweise",IDC_CHECK14,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,93,283,54,10
-    CONTROL         "Zeilenweise",IDC_CHECK12,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,267,53,10
-    CONTROL         "Spaltenweise",IDC_CHECK15,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,283,54,10
+    CONTROL         "zeilenweise",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,267,52,10
+    CONTROL         "spaltenweise",IDC_CHECK13,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,283,54,10
+    CONTROL         "zeilenweise",IDC_CHECK11,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,93,267,52,10
+    CONTROL         "spaltenweise",IDC_CHECK14,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,93,283,54,10
+    CONTROL         "zeilenweise",IDC_CHECK12,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,267,52,10
+    CONTROL         "spaltenweise",IDC_CHECK15,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,163,283,54,10
     EDITTEXT        IDC_EDIT_RANGE_FROM,250,265,42,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_RANGE_TO,250,281,42,12,ES_AUTOHSCROLL
     DEFPUSHBUTTON   "&Schlüssel suchen",ID_BTN_BERECHNEN,7,335,75,17
@@ -15187,7 +15192,7 @@ BEGIN
     CONTROL         "Binäre Daten",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | WS_GROUP,150,315,54,10
     CONTROL         "Text",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON,210,315,59,10
     PUSHBUTTON      "Textoptionen...",IDC_BUTTON2,88,335,59,17
-    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,7,306,209
+    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,28,306,209
     GROUPBOX        "Einlesen",IDC_GB_EINLESEN,14,254,67,43
     GROUPBOX        "Permutieren",IDC_GB_PERMUTIEREN,87,254,66,43
     GROUPBOX        "Auslesen",IDC_GB_AUSLESEN,157,254,66,43
@@ -15250,7 +15255,7 @@ CAPTION "Dialog"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     PUSHBUTTON      "Schließen",IDCANCEL,280,195,78,19
-    EDITTEXT        IDC_HEADER,7,7,351,25,ES_MULTILINE | ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_HEADER,7,7,351,25,ES_MULTILINE | ES_READONLY | NOT WS_BORDER
     PUSHBUTTON      "Schlüssel kopieren",IDC_BUTTON_COPY_KEY,176,195,82,19
     CONTROL         "",IDC_KEY_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,39,351,149
 END
@@ -21493,15 +21498,15 @@ BEGIN
     ID_PA_ERROR_DIFFERNT_DOCUMENT_SIZES 
                             "Die Dokumentgrößen stimmen nicht überein."
     ID_PA_ERROR_DIFFERNT_HISTOGRAMS 
-                            "Die Histogramme der Dokumente stimmen nicht überein."
+                            "Die Histogramme (Häfigkeitsverteilung der gültigen Alphabetzeichen) der Dokumente stimmen nicht überein.\n\nD.h. der Geheimtext ist nicht das Ergebnis einer Permutations-Verschlüsselung des Klartextes."
     ID_PA_KEYFOUND          "Es wurde mindestens ein Permutationsschlüssel gefunden.\nDer kürzeste Schlüssel wird angezeigt."
     IDS_BL_ATLEAST2         "Bitte wählen Sie als Bitlänge eine Zahl zwischen 2 und 16384."
     IDS_BL_TOOLARGE         "Bitte wählen Sie als Bitlänge eine Zahl zwischen 2 und 16384."
     IDS_DH_NO_SAVE_PRIME    "Keine sichere Primzahl!"
     IDS_SELECT_PLAINTEXT    "Bitte wählen Sie ein Klartext Dokument."
     IDS_SELECT_CIPHERTEXT   "Bitte wählen Sie ein Geheimtext Dokument."
-    IDS_OPEN_FILE           "Aus Datei Laden..."
-    IDS_SELECT_DOCUMENT     "Bitte wählen Sie ein Dokument."
+    IDS_OPEN_FILE           "[Aus Datei laden...]"
+    IDS_SELECT_DOCUMENT     "[Bitte wählen Sie ein Dokument.]"
     IDS_HEADERTEXT_KEY      "Schlüssel"
     IDS_HEADERTEXT_READIN   "Einlesen"
 END
@@ -21605,14 +21610,17 @@ BEGIN
     IDS_HEADER_PERMKEYLIST  "Es wurde mindestens ein Permutationsschlüssel gefunden. Die Schlüssel werden in der Liste angezeigt.\nSie können die Aktuelle Auswahl in den Schlüsselspeicher kopieren."
     IDS_NOKEYSELECTED       "Bitte wählen Sie einen Schlüssel aus der Liste"
     IDS_ACTIVE              "(Aktiv) "
+    IDS_PERMKEY_COPIED_AND_TIPPS 
+                            "Der von Ihnen gewählte Schlüssel wurde in den Schlüsselspeicher geladen. Sie können diesen Schlüssel bei der Permutationsverschlüsselung nutzen (siehe Menü: Ver-/Entschlüsseln Symmetrish (klassisch) Permutation / Transposition).\n\nDazu klicken Sie im Dialog für die Permutationsverschlüsselung auf das Schlüsselsymbol. "
+    IDS_DIALOGHEADER_PERMKEY_LIST "Liste der gefundenen Permutationsschlüssel"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -26065,7 +26073,7 @@ CAPTION "Dialog"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     PUSHBUTTON      "Close",IDCANCEL,280,195,78,19
-    EDITTEXT        IDC_HEADER,7,7,351,25,ES_MULTILINE | ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_HEADER,7,7,351,25,ES_MULTILINE | ES_READONLY | NOT WS_BORDER
     PUSHBUTTON      "Copy key",IDC_BUTTON_COPY_KEY,176,195,82,19
     CONTROL         "",IDC_KEY_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,39,351,149
 END
@@ -32428,8 +32436,8 @@ BEGIN
     IDS_DH_NO_SAVE_PRIME    "[i18n] Keine sichere Primzahl!"
     IDS_SELECT_PLAINTEXT    "[i18n] Bitte wählen Sie ein Klartext Dokument."
     IDS_SELECT_CIPHERTEXT   "[i18n] Bitte wählen Sie ein Geheimtext Dokument."
-    IDS_OPEN_FILE           "Open document ..."
-    IDS_SELECT_DOCUMENT     "[i18n] Bitte wählen Sie ein Dokument."
+    IDS_OPEN_FILE           "[Open document ...]"
+    IDS_SELECT_DOCUMENT     "[i18n] [Bitte wählen Sie ein Dokument.]"
     IDS_HEADERTEXT_KEY      "[i18n] Schlüssel"
     IDS_HEADERTEXT_READIN   "[i18n] Einlesen"
 END
@@ -32532,9 +32540,13 @@ BEGIN
     IDS_HEADER_PERMKEYLIST  "[i18n] Es wurde mindestens ein Permutationsschlüssel gefunden. Die Schlüssel werden in der Liste angezeigt.\nSie können die Aktuelle Auswahl in den Schlüsselspeicher kopieren."
     IDS_NOKEYSELECTED       "[i18n] Bitte wählen Sie einen Schlüssel aus der Liste"
     IDS_ACTIVE              "[i18n] (Active) "
+    IDS_PERMKEY_COPIED_AND_TIPPS 
+                            "[i18n] Der von Ihnen gewählt Schlüssel wurde in den Schlüsselspeicher geladen. Sie können diesen Schlüssel bei der Permutationsverschlüsselung benutzen (siehe Menü: Ver-/Entschlüsseln Symmetrish (klassisch) Permutation / Transposition).\n\nDazu klicken Sie im Dialog für die Permutationsverschlüsselung auf das Schlüsselsymbol. "
+    IDS_DIALOGHEADER_PERMKEY_LIST 
+                            "[i18n] Liste der gefundenen Permutationsschlüssel"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

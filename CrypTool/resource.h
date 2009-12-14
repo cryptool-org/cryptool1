@@ -3257,6 +3257,8 @@
 #define IDS_HEADER_PERMKEYLIST          62050
 #define IDS_NOKEYSELECTED               62051
 #define IDS_ACTIVE                      62052
+#define IDS_PERMKEY_COPIED_AND_TIPPS    62053
+#define IDS_DIALOGHEADER_PERMKEY_LIST   62054
 
 // Next default values for new objects
 // 

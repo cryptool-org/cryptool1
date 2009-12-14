@@ -388,8 +388,21 @@ void CDlgAutomatedPermAnalysis::OnBnClickedCompute()
 	int lowerLimit, upperLimit;
 	int inDir = col_dir, permDir = col_dir, outDir = col_dir;
 
+	UpdateData();
 	lowerLimit = atoi((char*)m_editRangeFrom.GetBuffer());
+	if ( !lowerLimit )
+	{
+		lowerLimit = 1;
+		m_editRangeFrom.Format(_T("%d"), lowerLimit);
+	}
 	upperLimit = atoi((char*)m_editRangeTo.GetBuffer());
+	if ( !upperLimit )
+	{
+		upperLimit = analysis.get_size();
+		m_editRangeTo.Format(_T("%d"), upperLimit);
+	}
+	UpdateData(FALSE);
+
 	if (m_chk_inRowbyRow)   inDir   = (m_chk_inColbyCol)   ? both_dir : row_dir;
 	if (m_chk_permRowbyRow) permDir = (m_chk_permColbyCol) ? both_dir : row_dir;
 	if (m_chk_outRowbyRow)  outDir  = (m_chk_outColbyCol)  ? both_dir : row_dir;
@@ -430,6 +443,7 @@ void CDlgAutomatedPermAnalysis::OnBnClickedCompute()
 		}
 
 		dlgKeyList.m_strHeader.LoadString( IDS_HEADER_PERMKEYLIST );
+		dlgKeyList.m_strDlgTitle.LoadString( IDS_DIALOGHEADER_PERMKEY_LIST );
 		dlgKeyList.set_copy_key_class( &key_list );
 		dlgKeyList.DoModal();
 

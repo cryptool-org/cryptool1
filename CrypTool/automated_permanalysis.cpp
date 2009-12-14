@@ -262,7 +262,7 @@ int automated_permanalysis::setAnalyseParam(int ps_lowerLimit, int ps_upperLimit
 		return IDS_PA_LIMITRANGE_ERROR;
 	
 	if (range_plain < 0 || range_plain > 2 || range_perm < 0 || range_perm > 2 || range_cipher < 0 || range_cipher > 2)
-		return IDS_PA_DIRECTION_ERROR; //ERROR Muss hier ein ERROR geworfen werden wenn wir eh nur die 3 zur auswahl haben und 2 der default ist und wir nicht unter 0 kommen???
+		return IDS_PA_DIRECTION_ERROR; // FIXME: Muss hier ein ERROR geworfen werden wenn wir eh nur die 3 zur auswahl haben und 2 der default ist und wir nicht unter 0 kommen???
 
 	if (ps_upperLimit == -1)
 		psUpperLimit = size;

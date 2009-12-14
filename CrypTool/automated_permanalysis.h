@@ -112,5 +112,6 @@ public:
 	int setAnalyseParam( int ps_lowerLimit, int ps_upperLimit,
 						 int range_plain, int range_perm, int range_cipher); 
 	const permkey *getKeyList() { return keyList; }
-	int iterate_key_param();
+	int            iterate_key_param();
+	int            get_size() { return size; }
 };

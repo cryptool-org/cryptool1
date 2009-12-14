@@ -26,6 +26,7 @@ BOOL CDlgKeyList::OnInitDialog()
 
 	UpdateData(FALSE);
 	m_ctrlHeader.SetWindowText( m_strHeader );
+	SetWindowText(m_strDlgTitle);
 
 	m_ctrlKeyList.SetExtendedStyle( LVS_EX_FULLROWSELECT );
 	long index = 0, row = 0; 
@@ -80,8 +81,11 @@ void CDlgKeyList::OnBnClickedButtonCopyKey()
 {
 	POSITION pos = m_ctrlKeyList.GetFirstSelectedItemPosition();
 	if ( pos )
+	{
 		c_key_ptr->copy_key((long)pos-1);
+		Message(IDS_PERMKEY_COPIED_AND_TIPPS, MB_ICONINFORMATION);
+		OnOK();
+	}
 	else
 		Message(IDS_NOKEYSELECTED, MB_ICONINFORMATION);
-
 }
