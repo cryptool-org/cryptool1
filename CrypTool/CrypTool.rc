@@ -21559,6 +21559,8 @@ BEGIN
                             "Digramm-Datei auswählen"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_TRIGRAMS_FILE 
                             "Trigramm-Datei auswählen"
+    IDS_STRING_VIGENERE_ANALYSIS_DIGRAM_FACTOR_STRING 
+                            "AM AN AS AT BE BY DO GO HE IF IN IS IT ME MY NO OF OK ON SO TO UP US"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SUGGEST_RESULT 
                             "Die Analyse hat ""%s"" als möglichen Schlüssel ermittelt.\n\nAus diesem Schlüssel resultiert folgender Klartext: ""%s"".\n\nWollen Sie die Analyse abbrechen?"
 END
@@ -32482,6 +32484,8 @@ BEGIN
                             "Choose dictionary file"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DIGRAMS_FILE "Choose digram file"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_TRIGRAMS_FILE "Choose trigram file"
+    IDS_STRING_VIGENERE_ANALYSIS_DIGRAM_FACTOR_STRING 
+                            "AM AN AS AT BE BY DO GO HE IF IN IS IT ME MY NO OF OK ON SO TO UP US"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SUGGEST_RESULT 
                             "The analysis considers ""%s"" as possible key.\n\nThe resulting cleartext reads: ""%s"".\n\nDo you want to abort the analysis?"
 END

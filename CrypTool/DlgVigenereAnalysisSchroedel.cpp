@@ -316,6 +316,12 @@ int VigenereAnalysisSchroedel::secondChar() {
 	Remain2 = 0;
 	Remain3 = 0;
 
+	// the following string contains a few selected digrams for improving the effect of 
+	// the digram factor (see below); originally, these were hard-coded for English only; 
+	// we now use a language-dependent resource strings instead
+	CString digramFactorString;
+	digramFactorString.LoadString(IDS_STRING_VIGENERE_ANALYSIS_DIGRAM_FACTOR_STRING);
+
 	for(int n=1; n<3; n++) {
 		actChar = ciphertext[n];
 
@@ -349,15 +355,13 @@ int VigenereAnalysisSchroedel::secondChar() {
 						if(tDigramFactor == 0) {
 							if(sText == 'A') tDigramFactor = 20;
 							if(sText == 'I') tDigramFactor = 20;
-							CString temp = "AM AN AS AT BE BY DO GO HE IF IN IS IT ME MY NO OF OK ON SO TO UP US";
-							if(temp.Find(sText + fText) != -1) tDigramFactor = 100;
+							if(digramFactorString.Find(sText + fText) != -1) tDigramFactor = 100;
 						}
 
 						if(kDigramFactor == 0) {
 							if(sKey == 'A') kDigramFactor = 20;
 							if(sKey == 'I') kDigramFactor = 20;
-							CString temp = "AM AN AS AT BE BY DO GO HE IF IN IS IT ME MY NO OF OK ON SO TO UP US";
-							if(temp.Find(sKey + fKey) != -1) kDigramFactor = 100;
+							if(digramFactorString.Find(sKey + fKey) != -1) kDigramFactor = 100;
 						}
 					}
 
@@ -367,25 +371,20 @@ int VigenereAnalysisSchroedel::secondChar() {
 			
 						if(tDigramFactor == 0) {
 							if(sText[0] == 'A') {
-								CString temp = "AM AN AS AT BE BY DO GO HE IF IN IS IT ME MY NO OF OK ON SO TO UP US";
-								if(temp.Find(sText[1] + fText) != -1) tDigramFactor = 100;
+								if(digramFactorString.Find(sText[1] + fText) != -1) tDigramFactor = 100;
 							}
 							if(sText[0] == 'I') {
-								CString temp = "AM AN AS AT BE BY DO GO HE IF IN IS IT ME MY NO OF OK ON SO TO UP US";
-								if(temp.Find(sText[1] + fText) != -1) tDigramFactor = 100;
+								if(digramFactorString.Find(sText[1] + fText) != -1) tDigramFactor = 100;
 							}
-							CString temp = "AM AN AS AT BE BY DO GO HE IF IN IS IT ME MY NO OF OK ON SO TO UP US";
-							if(temp.Find(sKey[1] + fKey) != -1) kDigramFactor = 100;
+							if(digramFactorString.Find(sKey[1] + fKey) != -1) kDigramFactor = 100;
 						}
 
 						if(kDigramFactor == 0) {
 							if(sKey[0] == 'A') {
-								CString temp = "AM AN AS AT BE BY DO GO HE IF IN IS IT ME MY NO OF OK ON SO TO UP US";
-								if(temp.Find(sKey[1] + fKey) != -1) kDigramFactor = 100;
+								if(digramFactorString.Find(sKey[1] + fKey) != -1) kDigramFactor = 100;
 							}
 							if(sKey[0] == 'I') {
-								CString temp = "AM AN AS AT BE BY DO GO HE IF IN IS IT ME MY NO OF OK ON SO TO UP US";
-								if(temp.Find(sKey[1] + fKey) != -1) kDigramFactor = 100;
+								if(digramFactorString.Find(sKey[1] + fKey) != -1) kDigramFactor = 100;
 							}
 						}	
 					}
