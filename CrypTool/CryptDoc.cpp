@@ -229,7 +229,6 @@ BEGIN_MESSAGE_MAP(CCryptDoc, CAppDocument)
 	ON_COMMAND(ID_ENCRYPT_ADFGVX, OnEncryptAdfgvx)
 	ON_COMMAND(ID_ANALYSE_SYMMCLASSIC_ADFGVX, OnAnalyseSymmclassicAdfgvx)
 	ON_COMMAND(ID_CIPHERTEXT_ONLY_SUBSTITUTION, OnCiphertextOnlySubstitution)
-	ON_COMMAND(ID_ROT13CAESAR_ASC, OnRot13caesarAsc)
 	ON_COMMAND(ID_SHOW_KEY, OnShowKey)
 	ON_COMMAND(ID_GOTO_VATER, OnGotoVater)
 	ON_COMMAND(ID_ANALYSIS_RANDOM_3D_VISUALIZATION, OnAnalysisRandom3dVisualization)
@@ -1710,45 +1709,32 @@ void CCryptDoc::OnCiphertextOnlySubstitution()
 
 void CCryptDoc::OnRot13caesarAsc() 
 {
-	CDlgRot13Caesar Dlg;
-	SymbolArray text(AppConv);
-
 	UpdateContent();
-    if (!Rot13CaesarAsc(text, ContentName))
+	CDlgRot13Caesar Dlg;
+	if ( Dlg.DoModal() != IDOK)
 	{
 		return;
 	}
-
-	if (Dlg.DoModal()!=IDOK)
-	{
-		return;
-	}
-	Rot13CaesarAscFinish(text, ContentName, Dlg.GetTheKey().GetBuffer(), Dlg.GetModeDecryption(), GetTitle(), Dlg.GetTypeEncryption(), Dlg.IsKeyOffsetZero());	
+	SymbolArray text(AppConv);
+	if ( 0 <= Rot13CaesarAscStart( text, ContentName ) ) // (0 <= ..) --> empty Ciphertext possible
+		Rot13CaesarAscFinish(text, ContentName, Dlg.GetTheKey().GetBuffer(), Dlg.GetModeDecryption(), GetTitle(), Dlg.GetTypeEncryption(), Dlg.IsKeyOffsetZero());	
+	else
+		Message(IDS_STRING_ERR_INPUT_TEXT_LENGTH, MB_ICONEXCLAMATION, 1);
 }
 
 
 void CCryptDoc::OnAnalysisRandom3dVisualization() 
 {
-#if 0
     UpdateContent();
-	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
-	CDlgVisualizePhaseSpace dialog;
-	strcpy(dialog.Filename, ContentName);
-	dialog.DoModal();
-#endif
-
-    UpdateContent();
-
-	CFile f;
 
 	char name[1024], title[1024];
+	CFile f;
+
 	GetTmpName(name,"cry",".ogl");
 	f.Open(name, CFile::modeCreate | CFile::modeWrite );
 	f.Write("OPENGL\n", 7);
 	f.Write(ContentName, strlen(ContentName));
 	f.Close();
-
-	
 
 	LoadString(AfxGetInstanceHandle(), IDS_TITLE_3D_VISUALISATION, pc_str, STR_LAENGE_STRING_TABLE);
 	sprintf(title, pc_str, GetTitle());

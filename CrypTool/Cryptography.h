@@ -100,7 +100,7 @@ void SymmetricEncryption(int AlgId, cryptProvider provider,
 						 int fixed_keylength = 0);
 UINT SymmetricBruteForce(PVOID p);
 
-BOOL Rot13CaesarAsc(SymbolArray & text, const char *infile);
+long Rot13CaesarAscStart(SymbolArray & text, const char *infile);
 void Rot13CaesarAscFinish(SymbolArray & text, const char * infile, char * sKey, BOOL bDecrypt, const char *OldTitle, UINT type, bool keyOffsetZero);
 
 // Rail Fence encryption (part of the simple transpositions dialog)

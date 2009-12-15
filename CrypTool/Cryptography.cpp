@@ -247,16 +247,18 @@ void VigenereAsc(const char *infile, const char *OldTitle)
 {
     char outfile[1024];
     CDlgKey KeyDialog(MAX_VIGENERE);
-	SymbolArray text(AppConv);
-
-// == load INPUT
-	if ( !CheckAlphabet() ) return;
-	LoadText( infile, text );
-	if ( !CheckTextSize( text ) ) return;
-	SetDialogTitle( KeyDialog, IDS_STRING_KEY_INPUT_VIGENERE );
-
 // == KeyDialog
 	if(KeyDialog.Display()!=IDOK) return;
+
+
+	SymbolArray text(AppConv);
+// == load INPUT
+	if ( !CheckAlphabet() ) 
+		return;
+	LoadText( infile, text );
+	if ( !CheckTextSize( text ) ) 
+		return;
+	SetDialogTitle( KeyDialog, IDS_STRING_KEY_INPUT_VIGENERE );
 
 // == Encryption / Decryption
 	SHOW_HOUR_GLASS
@@ -3069,126 +3071,6 @@ void HomophoneAsc(const char *infile, const char *OldTitle)
 	HIDE_HOUR_GLASS
 } // end Hompohone Asc
 
-// ======================================================================================
-
-
-#if 0
-void HomophoneHex(const char *infile, const char *OldTitle)
-{
-	CWaitCursor WCursor;
-
-	if ( !CheckAlphabet() ) return;
-    SymbolArray text(IdConv);
-	text.Read(infile);
-	if ( !CheckTextSize( text ) ) return;
-
-	WCursor.Restore();	
-	unsigned char inbuffer[buffsize];
-
-	CDlgKeyHomophone DH;
-	for (int i=0; ; i++ ) {
-		DH.c_SourceFile[i] = infile[i];
-		if (infile[i] == 0) break;
-	}
-
-	ifstream in(infile, ios::binary | ios::in );	
-	in.read((char *)inbuffer,buffsize);
-
-	CAppDocument *NewDoc;
-
-	if(IDOK!=DH.DoModal()) 
-	{
-		theApp.TextOptions.getAlphabet() = DH.m_AlphabetBackup;
-		in.close();
-		return;
-	}
-	theApp.TextOptions.getAlphabet() = DH.m_AlphabetBackup;
-
-// Routine zur Homophonen Verschlüsselung
-	char outbuffer[4096];
-	long outbuffsize;
-	char outfile[1024],title[1024];
-	int value;
-	GetTmpName(outfile,"cry",".hex");
-	ofstream out(outfile, ios::binary | ios::out );
-
-	unsigned char	* p_value = (unsigned char*)&value;
-    char		      residuum = 0;
-	unsigned char     offsetResiduum = 0;
-	int               bitLength = DH.HB.LogKeySize( 2 );
-
-	if(true==DH.Get_crypt())			// Verschlüsselung
-	{
-
-
-		while(in.gcount())
-		{
-			outbuffsize=0;
-			for(int i=0;i<in.gcount();i++)
-			{
-				value=DH.HB.Encrypt((unsigned char)inbuffer[i]);
-				if(value>=0)
-				{
-					outbuffer[outbuffsize]=value;
-					outbuffsize++;				
-				}
-			}
-			out.write(outbuffer,outbuffsize);
-			in.read((char *)inbuffer,buffsize);
-		}
-	}
-	else								// Entschlüsselung
-	{
-		DH.HB.Make_dec_table();
-
-		while(in.gcount())
-		{
-			outbuffsize=0;
-			for (int i=0;i<in.gcount();)
-			{
-				value = 0;
-				unsigned char offsetResiduumPrev = offsetResiduum;
-				for ( int j=0; offsetResiduum < bitLength; )
-				{
-					p_value[j] = inbuffer[i];
-					i++; j++; offsetResiduum += 8;
-				}
-				value = (value << offsetResiduumPrev) + residuum;
-				int val = value % (1 << bitLength);
-				outbuffer[outbuffsize]=DH.HB.Decrypt( val );
-				outbuffsize++;
-				offsetResiduum -= bitLength;
-				residuum = value >> bitLength;
-			}
-			out.write(outbuffer,outbuffsize);
-			in.read((char *)inbuffer,buffsize);
-		}
-	}
-	in.close();
- 	out.close();
-
-	NewDoc = theApp.OpenDocumentFileNoMRU(outfile,DH.HB.GetKeyStr());
-	remove(outfile);
-	if(NewDoc) 
-	{
-		if(true==DH.Get_crypt())
-		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_ENCRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-		}
-		else
-		{
-			LoadString(AfxGetInstanceHandle(),IDS_STRING_DECRYPTION_OF_USING_KEY,pc_str1,STR_LAENGE_STRING_TABLE);
-		}
-		LoadString(AfxGetInstanceHandle(),IDS_STRING_HOMOPHONE,pc_str,STR_LAENGE_STRING_TABLE);
-		MakeNewName3(title,sizeof(title),pc_str1,pc_str,OldTitle,"");
-		NewDoc->SetTitle(title);
-	}
-
-	HIDE_HOUR_GLASS
-} // end Hompohone Hex
-#endif
-
-
 // =====================================================================================
 // NGram Analyse:
 // 
@@ -3659,19 +3541,10 @@ void CreateMac(const char *infile, const char *OldTitle)
 	delete TextFile;
 }
 
-BOOL Rot13CaesarAsc(SymbolArray & text, const char *infile)
+long Rot13CaesarAscStart(SymbolArray & text, const char *infile)
 {
-// == load INPUT
-	if ( !CheckAlphabet() ) 
-	{
-		return FALSE;
-	}
-	LoadText( infile, text );
-	if ( !CheckTextSize( text ) )
-	{
-		return FALSE;
-	}
-	return TRUE;
+	LoadText(infile, text);
+	return text.GetSize();
 }
 
 void Rot13CaesarAscFinish(SymbolArray & text, const char * infile, char * sKey, BOOL bDecrypt, const char *OldTitle, UINT type, bool keyOffsetZero)
