@@ -25,8 +25,8 @@
 			>
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; LANG=pl OUTDIR=..\..\$(ConfigurationName)"
-				ReBuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; /a LANG=pl OUTDIR=..\..\$(ConfigurationName)"
+				BuildCommandLine="rem nmake /f &quot;hlp_pl.mak&quot; LANG=pl OUTDIR=..\..\$(ConfigurationName)&#x0D;&#x0A;echo copying ENGLISH help file to POLISH target directory&#x0D;&#x0A;copy ..\hlp_en\CrypTool-en.chm ..\..\$(ConfigurationName)\CrypTool-pl.chm"
+				ReBuildCommandLine="rem nmake /f &quot;hlp_pl.mak&quot; /a LANG=pl OUTDIR=..\..\$(ConfigurationName)&#x0D;&#x0A;echo copying ENGLISH help file to POLISH target directory&#x0D;&#x0A;copy ..\hlp_en\CrypTool-en.chm ..\..\$(ConfigurationName)\CrypTool-pl.chm"
 				CleanCommandLine=""
 				Output="CrypTool-pl.chm"
 				PreprocessorDefinitions=""
@@ -46,8 +46,8 @@
 			>
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; LANG=pl OUTDIR=..\..\$(ConfigurationName)"
-				ReBuildCommandLine="nmake /f &quot;hlp_pl.mak&quot; /a LANG=pl OUTDIR=..\..\$(ConfigurationName)"
+				BuildCommandLine="rem nmake /f &quot;hlp_pl.mak&quot; LANG=pl OUTDIR=..\..\$(ConfigurationName)&#x0D;&#x0A;echo copying ENGLISH help file to POLISH target directory&#x0D;&#x0A;copy ..\hlp_en\CrypTool-en.chm ..\..\$(ConfigurationName)\CrypTool-pl.chm"
+				ReBuildCommandLine="rem nmake /f &quot;hlp_pl.mak&quot; /a LANG=pl OUTDIR=..\..\$(ConfigurationName)&#x0D;&#x0A;echo copying ENGLISH help file to POLISH target directory&#x0D;&#x0A;copy ..\hlp_en\CrypTool-en.chm ..\..\$(ConfigurationName)\CrypTool-pl.chm"
 				CleanCommandLine=""
 				Output="CrypTool-pl.chm"
 				PreprocessorDefinitions=""

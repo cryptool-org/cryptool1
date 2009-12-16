@@ -230,6 +230,8 @@ g) When developing new code, try to separate different functionalities: so pleas
   supported, and you can get detailed output information if the "$debug" switch is set. For more 
   information, take a look at the documented source file "CheckHelp.pl"
   
+- The POLISH CrypTool online help has been changed during the release of CrypTool 1.4.30. //TODO 
+  
 
 
 
