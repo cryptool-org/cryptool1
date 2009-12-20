@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -246,9 +246,7 @@ BEGIN
     COMBOBOX        IDC_DIM_VON,139,306,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     CTEXT           "do",IDC_STATIC,169,310,8,8
     COMBOBOX        IDC_DIM_BIS,181,306,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,9,26,284,233
-    PUSHBUTTON      "Szukaj plik",IDC_BUTTON_OPENFILE,232,237,50,14
-    PUSHBUTTON      "Zaladuj aktywny dokument",IDC_BUTTON2,121,237,104,14
+    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,9,26,284,232
     LTEXT           "Ta analiza Hilla jest analiz¹ Known-Plaintext, która z tekstu oryginalnego i z tekstu tajnego oblicza klucz Hilla.",IDC_LBL_INFOTEXT,9,5,284,17,0,WS_EX_TRANSPARENT
     GROUPBOX        "Jakie odmiany szyfrowania Hilla maja zostac analizowane",IDC_STATIC,9,263,284,63
     PUSHBUTTON      "&Opcje tekstu",IDC_BUTTON1,154,333,71,19
@@ -258,6 +256,7 @@ BEGIN
     LTEXT           "Wartoœæ pierwszego znaku alfabetu",IDC_STATIC,20,293,119,8
     CONTROL         "0",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,152,293,18,8
     CONTROL         "1",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,182,293,19,8
+    COMBOBOX        IDC_FILE_SELECT,15,239,272,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
 END
 
 IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 302, 252
@@ -1586,7 +1585,7 @@ CAPTION "Wprowadzenie klucza: zamiana homofoniczna"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Szyfruj",IDOK,14,388,84,18
-    PUSHBUTTON      "&Deszyfruj",IDC_BUTTON1,147,388,79,18
+    PUSHBUTTON      "&Deszyfruj",IDC_BUTTON1,108,388,79,18
     EDITTEXT        IDC_EDIT1,67,15,25,12,ES_AUTOHSCROLL
     PUSHBUTTON      "&Odœwie¿",IDC_BUTTON3,109,15,53,12
     CONTROL         "&Hex",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | WS_GROUP,25,280,56,8
@@ -1618,6 +1617,7 @@ BEGIN
     CONTROL         "Tekst",IDC_RADIO_TEXT_INPUT,"Button",BS_AUTORADIOBUTTON | WS_GROUP,192,32,30,8
     CONTROL         "Dane binarne",IDC_RADIO_BINARY_INPUT,"Button",BS_AUTORADIOBUTTON,224,32,57,8
     LTEXT           "Tekst wejœciowy jako:",IDC_STATIC,192,18,100,11
+    PUSHBUTTON      "&Opcje tekstu",IDC_BUTTON_TEXTOPTIONS,222,388,72,18
 END
 
 IDD_EC_GENERATION DIALOGEX 0, 0, 404, 353
@@ -10708,7 +10708,7 @@ BEGIN
     IDS_CRYPT_SIMPLETRANSPOSITION "Prosta transpozycja"
     IDS_STRING_ASYMKEY_ERR_CERT_SERIAL_EXISTS 
                             "Import certyfikatu siê nie uda³ poniewa¿ istnieje ju¿ certyfikat z tym samym numerem seryjnym."
-    IDS_STRING_SMIME_DEMO_PROGRAM "main\\Programm.class"
+    IDS_STRING_SMIME_DEMO_PROGRAM "smimedemo\\main\\Programm.class"
 END
 
 STRINGTABLE 
@@ -10735,7 +10735,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_SMIME_DEMO_PROGRAM_COMPLETE_CALL 
-                            "-cp "".;./lib/*"" main.Programm"
+                            "-cp ""./smimedemo/;./smimedemo/lib/*"" main.Programm EN"
     IDS_AUTHORS_FILE_MISSING 
                             "Nie mozna znalezc plik ""authors.txt"". Upewnij sie, ze plik znajduje sie w glównym folderze CrypTool."
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DICTIONARY_FILENAME 
@@ -10758,14 +10758,18 @@ BEGIN
     IDS_PERMKEY_COPIED_AND_TIPPS 
                             "Klucz wybrany zostanie zaladowany do keystore. Mozesz uzyc tego klucza, przy permutacji (patrz menu: Szyfrowanie - Historyczne - Permutacja / Transposicja).\n\nAby to zrobic, kliknij w oknie Permutacji na ikone klucza. "
     IDS_DIALOGHEADER_PERMKEY_LIST "Lista odnalezionych kluczy permutacji"
+    IDS_INFO_TEXT_ENCRYPTION 
+                            "You chose the option to do the encryption in text mode.\nThis means that characters, which don't belong to the alphabet, are not encrypted (according to the Text option settings these characters are taken away or be kept)."
+    IDS_INFO_BYNARY_ENCRYPTION 
+                            "You chose the option to do the encryption in binary mode. This means that all characters are encrypted and the chosen text alphabet doesn't matter."
 END
 
-#endif    // Polish resources
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -10960,18 +10964,17 @@ BEGIN
     COMBOBOX        IDC_DIM_BIS,182,305,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Durchsuchen der Dimensionen von",IDC_STATIC,20,309,115,8
     CTEXT           "bis",IDC_STATIC,163,309,18,8
-    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,9,26,284,233
-    PUSHBUTTON      "Datei öffnen",IDC_BUTTON_OPENFILE,232,237,50,14
-    PUSHBUTTON      "Aktive Datei laden",IDC_BUTTON2,154,237,71,14
+    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,9,25,284,234
     LTEXT           "Diese Hill-Analyse ist eine Known-Plaintext-Analyse, mit deren Hilfe Sie aus dem Klartext und dem Geheimtext den Hill-Schlüssel berechnen können.",IDC_LBL_INFOTEXT,9,5,284,17,0,WS_EX_TRANSPARENT
     GROUPBOX        "Welche Varianten der Hill-Verschlüsselung sollen analysiert werden",IDC_STATIC,9,263,284,63
     PUSHBUTTON      "Textoptionen",IDC_BUTTON1,91,335,71,18
     LTEXT           "Multiplikationsart",IDC_STATIC,20,276,53,8
     CONTROL         "(Vektorreihe) x (Matrix)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,86,276,87,8
-    CONTROL         "(Matrix) x (Vektorreihe)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,182,276,87,8
+    CONTROL         "(Matrix) x (Vektorspalte)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,182,276,87,8
     LTEXT           "Wert des ersten Alphabetzeichens:",IDC_STATIC,20,292,119,8
     CONTROL         "0",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,152,292,18,8
     CONTROL         "1",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,182,292,19,8
+    COMBOBOX        IDC_FILE_SELECT,15,239,272,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
 END
 
 IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 299, 254
@@ -12308,7 +12311,7 @@ CAPTION "Schlüsseleingabe: Homophone Substitution"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Verschlüsseln",IDOK,14,373,84,18
-    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,147,373,79,18
+    PUSHBUTTON      "&Entschlüsseln",IDC_BUTTON1,108,373,79,18
     EDITTEXT        IDC_EDIT1,67,15,25,12,ES_AUTOHSCROLL
     PUSHBUTTON      "A&ktualisieren",IDC_BUTTON3,109,15,53,12
     CONTROL         "&Hexadezimal",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | WS_GROUP,23,275,56,8
@@ -12340,6 +12343,7 @@ BEGIN
     CONTROL         "Text",IDC_RADIO_TEXT_INPUT,"Button",BS_AUTORADIOBUTTON | WS_GROUP,192,32,30,8
     CONTROL         "Binäre Daten",IDC_RADIO_BINARY_INPUT,"Button",BS_AUTORADIOBUTTON,224,32,57,8
     LTEXT           "Betrachte Eingabe-\nDokument als:",IDC_STATIC,192,14,100,15
+    PUSHBUTTON      "Textoptionen",IDC_BUTTON_TEXTOPTIONS,221,373,72,18
 END
 
 IDD_EC_GENERATION DIALOG  0, 0, 404, 353
@@ -18127,6 +18131,7 @@ BEGIN
         HORZGUIDE, 40
         HORZGUIDE, 283
         HORZGUIDE, 368
+        HORZGUIDE, 373
         HORZGUIDE, 391
     END
 
@@ -21482,7 +21487,7 @@ BEGIN
                             "Das Java-Programm wurde nicht gefunden! (Kompletter Pfad: ""%s"")"
     IDS_STRING_JAVA_PROGRAM_EXECUTION_FAILED 
                             "Das Java-Programm konnte nicht ausgeführt werden. Bitte kontaktieren Sie das Entwickler-Team."
-    IDS_STRING_SMIME_DEMO_PROGRAM "main\\Programm.class"
+    IDS_STRING_SMIME_DEMO_PROGRAM "smimedemo\\main\\Programm.class"
 END
 
 STRINGTABLE 
@@ -21495,13 +21500,13 @@ BEGIN
     ID_PA_ERROR_DIFFERNT_DOCUMENT_SIZES 
                             "Die Dokumentgrößen stimmen nicht überein."
     ID_PA_ERROR_DIFFERNT_HISTOGRAMS 
-                            "Die Histogramme (Häfigkeitsverteilung der gültigen Alphabetzeichen) der Dokumente stimmen nicht überein.\n\nD.h. der Geheimtext ist nicht das Ergebnis einer Permutations-Verschlüsselung des Klartextes."
+                            "Die Histogramme (Häfigkeitsverteilung der gültigen Alphabetzeichen) der Dokumente stimmen nicht überein.\n\nD.h. der Geheimtext kann nicht das Ergebnis einer Permutations-Verschlüsselung des Klartextes sein."
     ID_PA_KEYFOUND          "Es wurde mindestens ein Permutationsschlüssel gefunden.\nDer kürzeste Schlüssel wird angezeigt."
     IDS_BL_ATLEAST2         "Bitte wählen Sie als Bitlänge eine Zahl zwischen 2 und 16384."
     IDS_BL_TOOLARGE         "Bitte wählen Sie als Bitlänge eine Zahl zwischen 2 und 16384."
     IDS_DH_NO_SAVE_PRIME    "Keine sichere Primzahl!"
-    IDS_SELECT_PLAINTEXT    "Bitte wählen Sie ein Klartext Dokument."
-    IDS_SELECT_CIPHERTEXT   "Bitte wählen Sie ein Geheimtext Dokument."
+    IDS_SELECT_PLAINTEXT    "Bitte wählen Sie ein Klartext-Dokument."
+    IDS_SELECT_CIPHERTEXT   "Bitte wählen Sie ein Geheimtext-Dokument."
     IDS_OPEN_FILE           "[Aus Datei laden...]"
     IDS_SELECT_DOCUMENT     "[Bitte wählen Sie ein Dokument.]"
     IDS_HEADERTEXT_KEY      "Schlüssel"
@@ -21520,7 +21525,7 @@ STRINGTABLE
 BEGIN
     IDS_AES_FLOWVISUALIZATION_JAVA_FILE "AES_Flussvisualisierung.jar"
     IDS_STRING_SMIME_DEMO_PROGRAM_COMPLETE_CALL 
-                            "-cp "".;./lib/*"" main.Programm"
+                            "-cp ""./smimedemo/;./smimedemo/lib/*"" main.Programm"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_INFO 
                             "Sobald die Analyse beendet ist, wird das Ergebnis in einem neuen Dokument angezeigt."
     IDS_AUTHORS_FILE_MISSING 
@@ -21604,20 +21609,24 @@ STRINGTABLE
 BEGIN
     IDS_HEADERTEXT_PERMUTATION "Permutation"
     IDS_HEADERTEXT_READOUT  "Auslesen"
-    IDS_HEADER_PERMKEYLIST  "Es wurde mindestens ein Permutationsschlüssel gefunden. Die Schlüssel werden in der Liste angezeigt.\nSie können die Aktuelle Auswahl in den Schlüsselspeicher kopieren."
-    IDS_NOKEYSELECTED       "Bitte wählen Sie einen Schlüssel aus der Liste"
+    IDS_HEADER_PERMKEYLIST  "Es wurde mindestens ein Permutationsschlüssel gefunden. Die Schlüssel werden in der Liste angezeigt.\nSie können die aktuelle Auswahl in den Schlüsselspeicher kopieren."
+    IDS_NOKEYSELECTED       "Bitte wählen Sie einen Schlüssel aus der Liste."
     IDS_ACTIVE              "(Aktiv) "
     IDS_PERMKEY_COPIED_AND_TIPPS 
-                            "Der von Ihnen gewählte Schlüssel wurde in den Schlüsselspeicher geladen. Sie können diesen Schlüssel bei der Permutationsverschlüsselung nutzen (siehe Menü: Ver-/Entschlüsseln Symmetrish (klassisch) Permutation / Transposition).\n\nDazu klicken Sie im Dialog für die Permutationsverschlüsselung auf das Schlüsselsymbol. "
+                            "Der von Ihnen gewählte Schlüssel wurde in den Schlüsselspeicher geladen. Sie können diesen Schlüssel bei der Permutationsverschlüsselung nutzen (siehe Menü: Ver-/Entschlüsseln \\ Symmetrish (klassisch) \\ Permutation / Transposition).\n\nDazu klicken Sie im Dialog für die Permutationsverschlüsselung auf das Schlüsselsymbol. "
     IDS_DIALOGHEADER_PERMKEY_LIST "Liste der gefundenen Permutationsschlüssel"
+    IDS_INFO_TEXT_ENCRYPTION 
+                            "Die Verschlüsselung erfolgt im Text-Modus.\nD.h. Zeichen, die nicht zum gewählten Alphabet gehören, werden nicht verschlüsselt (abhängig von den Textoptionen werden diese Zeichen entfernt oder beibehalten)."
+    IDS_INFO_BYNARY_ENCRYPTION 
+                            "Die Verschlüsselung erfolgt im Binär-Modus. Alle Zeichen unabhängig vom eingestellten Text-Alphabet werden verschlüsselt."
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -21867,18 +21876,17 @@ BEGIN
     COMBOBOX        IDC_DIM_VON,139,306,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     CTEXT           "to",IDC_STATIC,169,310,9,8
     COMBOBOX        IDC_DIM_BIS,182,306,27,104,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,9,26,284,233
-    PUSHBUTTON      "Datei öffnen",IDC_BUTTON_OPENFILE,232,237,50,14
-    PUSHBUTTON      "Aktive Datei laden",IDC_BUTTON2,154,237,71,14
-    LTEXT           "Diese Hill-Analyse ist eine Known-Plaintext-Analyse, mit deren Hilfe Sie aus dem Klartext und dem Geheimtext den Hill-Schlüssel berechnen können.",IDC_LBL_INFOTEXT,9,5,284,17,0,WS_EX_TRANSPARENT
-    GROUPBOX        "Welche Varianten der Hill-Verschlüsselung sollen analysiert werden",IDC_STATIC,9,263,284,63
-    PUSHBUTTON      "Textoptionen",IDC_BUTTON1,154,335,71,18
-    LTEXT           "Multiplikationsart",IDC_STATIC,16,276,57,8
-    CONTROL         "(Vektorreihe) x (Matrix)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,86,276,87,8
-    CONTROL         "(Matrix) x (Vektorreihe)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,182,276,87,8
-    LTEXT           "Wert des ersten Alphabetzeichens:",IDC_STATIC,16,293,123,8
+    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,9,26,284,231
+    LTEXT           "This Hill analysis is a Known Plaintext analysis. On the inputs plaintext and ciphertext it computes the Hill key.",IDC_LBL_INFOTEXT,9,5,284,17,0,WS_EX_TRANSPARENT
+    GROUPBOX        "Hill encryption variants ",IDC_STATIC,9,263,284,63
+    PUSHBUTTON      "Text options",IDC_BUTTON1,154,335,71,18
+    LTEXT           "Multiplication variant",IDC_STATIC,16,276,66,8
+    CONTROL         "(row vector) * (matrix)",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,86,276,87,8
+    CONTROL         "(matrix) * (column vector)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,182,276,99,8
+    LTEXT           "Order of first character ot the alphabet:",IDC_STATIC,16,293,123,8
     CONTROL         "0",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,152,293,18,8
     CONTROL         "1",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,182,293,19,8
+    COMBOBOX        IDC_FILE_SELECT,15,239,272,79,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
 END
 
 IDD_SHOW_KEY_HILL5x5 DIALOGEX 0, 0, 302, 252
@@ -23202,7 +23210,7 @@ CAPTION "Key Entry: Homophonic Substitution"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Encrypt",IDOK,14,388,84,18
-    PUSHBUTTON      "&Decrypt",IDC_BUTTON1,147,388,79,18
+    PUSHBUTTON      "&Decrypt",IDC_BUTTON1,108,388,79,18
     EDITTEXT        IDC_EDIT1,67,15,25,12,ES_AUTOHSCROLL
     PUSHBUTTON      "&Update",IDC_BUTTON3,109,15,53,12
     CONTROL         "&Hexadecimal",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | WS_GROUP,25,280,56,8
@@ -23234,6 +23242,7 @@ BEGIN
     CONTROL         "Text",IDC_RADIO_TEXT_INPUT,"Button",BS_AUTORADIOBUTTON | WS_GROUP,192,32,30,8
     CONTROL         "Binary data",IDC_RADIO_BINARY_INPUT,"Button",BS_AUTORADIOBUTTON,224,32,57,8
     LTEXT           "Consider input document as",IDC_STATIC,192,18,100,11
+    PUSHBUTTON      "Text options",IDC_BUTTON_TEXTOPTIONS,221,388,72,18
 END
 
 IDD_EC_GENERATION DIALOGEX 0, 0, 404, 353
@@ -32413,7 +32422,7 @@ BEGIN
                             "The Java program was not found! (Full path: ""%s"")"
     IDS_STRING_JAVA_PROGRAM_EXECUTION_FAILED 
                             "The Java program could not be executed. Please contact the development team."
-    IDS_STRING_SMIME_DEMO_PROGRAM "main\\Programm.class"
+    IDS_STRING_SMIME_DEMO_PROGRAM "smimedemo\\main\\Programm.class"
 END
 
 STRINGTABLE 
@@ -32430,13 +32439,13 @@ BEGIN
     ID_PA_KEYFOUND          "At least one permutation key was found. The shortest one will be displayed."
     IDS_BL_ATLEAST2         "Please select a bitlength between 2 and 16384."
     IDS_BL_TOOLARGE         "Please select a bitlength between 2 and 16384."
-    IDS_DH_NO_SAVE_PRIME    "[i18n] Keine sichere Primzahl!"
-    IDS_SELECT_PLAINTEXT    "[i18n] Bitte wählen Sie ein Klartext Dokument."
-    IDS_SELECT_CIPHERTEXT   "[i18n] Bitte wählen Sie ein Geheimtext Dokument."
+    IDS_DH_NO_SAVE_PRIME    "No save prime number!"
+    IDS_SELECT_PLAINTEXT    "Please select a plaintext document."
+    IDS_SELECT_CIPHERTEXT   "Please select a ciphertext document."
     IDS_OPEN_FILE           "[Open document ...]"
-    IDS_SELECT_DOCUMENT     "[i18n] [Bitte wählen Sie ein Dokument.]"
-    IDS_HEADERTEXT_KEY      "[i18n] Schlüssel"
-    IDS_HEADERTEXT_READIN   "[i18n] Einlesen"
+    IDS_SELECT_DOCUMENT     "[Please select a document.]"
+    IDS_HEADERTEXT_KEY      "Key"
+    IDS_HEADERTEXT_READIN   "Read in"
 END
 
 STRINGTABLE 
@@ -32451,7 +32460,7 @@ STRINGTABLE
 BEGIN
     IDS_AES_FLOWVISUALIZATION_JAVA_FILE "AES_Flussvisualisierung.jar"
     IDS_STRING_SMIME_DEMO_PROGRAM_COMPLETE_CALL 
-                            "-cp "".;./lib/*"" main.Programm EN"
+                            "-cp ""./smimedemo/;./smimedemo/lib/*"" main.Programm EN"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_INFO 
                             "As soon as the analysis is finished, the result is display in a new document."
     IDS_AUTHORS_FILE_MISSING 
@@ -32532,18 +32541,21 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_HEADERTEXT_PERMUTATION "[i18n] Permutation"
-    IDS_HEADERTEXT_READOUT  "[i18n] Auslesen"
-    IDS_HEADER_PERMKEYLIST  "[i18n] Es wurde mindestens ein Permutationsschlüssel gefunden. Die Schlüssel werden in der Liste angezeigt.\nSie können die Aktuelle Auswahl in den Schlüsselspeicher kopieren."
-    IDS_NOKEYSELECTED       "[i18n] Bitte wählen Sie einen Schlüssel aus der Liste"
-    IDS_ACTIVE              "[i18n] (Active) "
+    IDS_HEADERTEXT_PERMUTATION "Permutation"
+    IDS_HEADERTEXT_READOUT  "Write out"
+    IDS_HEADER_PERMKEYLIST  "At least one permutation key was found. These keys are now displayed in the list below.\nYou may copy your actual selection key into the key storage."
+    IDS_NOKEYSELECTED       "Please select a key from the list"
+    IDS_ACTIVE              "(Active) "
     IDS_PERMKEY_COPIED_AND_TIPPS 
-                            "[i18n] Der von Ihnen gewählt Schlüssel wurde in den Schlüsselspeicher geladen. Sie können diesen Schlüssel bei der Permutationsverschlüsselung benutzen (siehe Menü: Ver-/Entschlüsseln Symmetrish (klassisch) Permutation / Transposition).\n\nDazu klicken Sie im Dialog für die Permutationsverschlüsselung auf das Schlüsselsymbol. "
-    IDS_DIALOGHEADER_PERMKEY_LIST 
-                            "[i18n] Liste der gefundenen Permutationsschlüssel"
+                            "The selected key has been copied to the key storage. You may use this permutaion key for document encryption or ciphertext decryption (See menu: Crypt-/Decrypt \\ Symmetric (classic) \\ Permutation / Transposition).\n\nUsing the Permutation encryption dialoge you may click on the key symbol to paste the strored key."
+    IDS_DIALOGHEADER_PERMKEY_LIST "List of recovered permutation keys."
+    IDS_INFO_TEXT_ENCRYPTION 
+                            "You chose the option to do the encryption in text mode.\nThis means that characters, which don't belong to the alphabet, are not encrypted (according to the Text option settings these characters are taken away or be kept)."
+    IDS_INFO_BYNARY_ENCRYPTION 
+                            "You chose the option to do the encryption in binary mode. This means that all characters are encrypted and the chosen text alphabet doesn't matter."
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

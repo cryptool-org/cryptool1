@@ -136,13 +136,16 @@ bool CKeyParameterHomophone::Checksum()
 	return(false);
 }
 
-void CKeyParameterHomophone::Analyse(const char *f_toAnalyse, int _keyType)
+bool CKeyParameterHomophone::Analyse(const char *f_toAnalyse, int _keyType)
 {
 	char buffer[buffsize];
 	int i,value;
 
 	ifstream f(f_toAnalyse, ios::binary | ios::in );
 	f.read(buffer,buffsize);
+
+	if ( !f.is_open() )
+		return false;
 
 	Init(_keyType);
 
@@ -163,9 +166,10 @@ void CKeyParameterHomophone::Analyse(const char *f_toAnalyse, int _keyType)
 	Correct_count_table();
 	Make_freq_table();
 	assert(true==Checksum());
+	return true;
 }
 
-void CKeyParameterHomophone::Analyse(int _keyType)
+bool CKeyParameterHomophone::Analyse(int _keyType)
 
 // erstellt für die Referenzdatei das Histogramm
 
@@ -186,7 +190,7 @@ void CKeyParameterHomophone::Analyse(int _keyType)
 		{
 			LoadString(AfxGetInstanceHandle(),IDS_STATISTICAL_REFERENCE_FILE_STILL_MISSING, pc_str, STR_LAENGE_STRING_TABLE);
 			AfxMessageBox(pc_str, MB_ICONINFORMATION);
-			return;
+			return false;
 		}
 	}
 
@@ -194,6 +198,9 @@ void CKeyParameterHomophone::Analyse(int _keyType)
 
 	ifstream f(theApp.TextOptions.getReferenceFile(), ios::binary | ios::in );
 	f.read(buffer,buffsize);
+
+	if ( !f.is_open() )
+		return false;
 
 	while(f.gcount())
 	{
@@ -213,4 +220,5 @@ void CKeyParameterHomophone::Analyse(int _keyType)
 	Make_freq_table();
 	assert(true==Checksum());
 
+	return true;
 }

@@ -3259,6 +3259,8 @@
 #define IDS_ACTIVE                      62052
 #define IDS_PERMKEY_COPIED_AND_TIPPS    62053
 #define IDS_DIALOGHEADER_PERMKEY_LIST   62054
+#define IDS_INFO_TEXT_ENCRYPTION        62055
+#define IDS_INFO_BYNARY_ENCRYPTION      62056
 
 // Next default values for new objects
 // 

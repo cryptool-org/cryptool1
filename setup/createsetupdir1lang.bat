@@ -26,21 +26,21 @@ rem echo Copying ..\script\%lang%\script-%lang%.pdf  ...
 rem copy ..\script\%lang%\script-%lang%.pdf setup-%lang%
 echo Copying ..\dialoguesisters\%lang%\*.pdf setup-%lang%  ...
 copy ..\dialoguesisters\%lang%\*.pdf setup-%lang%
-echo Copying ..\smimedemo\*.* setup-%lang% ...
+echo Copying ..\smimedemo\*.* setup-%lang%\smimedemo ...
 REM FIXME: SMIMEDEMO selective copying ...
-xcopy /q ..\smimedemo\*.* setup-%lang%
-xcopy /s/q/i ..\smimedemo\font          setup-%lang%\font
-xcopy /s/q/i ..\smimedemo\images        setup-%lang%\images
-xcopy /s/q/i ..\smimedemo\krypto        setup-%lang%\krypto
-xcopy /s/q/i ..\smimedemo\lib           setup-%lang%\lib
-xcopy /s/q/i ..\smimedemo\mail          setup-%lang%\mail
-xcopy /s/q/i ..\smimedemo\main          setup-%lang%\main
-xcopy /s/q/i ..\smimedemo\texte         setup-%lang%\texte
-xcopy /s/q/i ..\smimedemo\userinterface setup-%lang%\userinterface
-xcopy /s/q/i ..\smimedemo\utils         setup-%lang%\utils
+xcopy /s/q/i ..\smimedemo\font          setup-%lang%\smimedemo\font
+xcopy /s/q/i ..\smimedemo\images        setup-%lang%\smimedemo\images
+xcopy /s/q/i ..\smimedemo\krypto        setup-%lang%\smimedemo\krypto
+xcopy /s/q/i ..\smimedemo\lib           setup-%lang%\smimedemo\lib
+xcopy /s/q/i ..\smimedemo\mail          setup-%lang%\smimedemo\mail
+xcopy /s/q/i ..\smimedemo\main          setup-%lang%\smimedemo\main
+xcopy /s/q/i ..\smimedemo\texte         setup-%lang%\smimedemo\texte
+xcopy /s/q/i ..\smimedemo\userinterface setup-%lang%\smimedemo\userinterface
+xcopy /s/q/i ..\smimedemo\utils         setup-%lang%\smimedemo\utils
+xcopy /q ..\smimedemo\*.* setup-%lang%\smimedemo
 echo Copying ..\AES_flow_visualisation\*.* setup-%lang%
 xcopy /q ..\AES_flow_visualisation\AES_Flussvisualisierung.jar setup-%lang%
-xcopy /q ..\AES_flow_visualisation\rijndael-poster-de.pdf setup-%lang%
+xcopy /q ..\AES_flow_visualisation\rijndael-poster-de.pdf setu p-%lang%
 
 cd setup-%lang%
 

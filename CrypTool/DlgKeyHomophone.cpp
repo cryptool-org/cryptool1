@@ -80,6 +80,7 @@ void CDlgKeyHomophone::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_CHECK2, m_ctrlEncodeUmlauts);
 	DDX_Control(pDX, IDC_CHECK1, m_ctrlEncryptFormatCharacters);
 	//}}AFX_DATA_MAP
+	DDX_Control(pDX, IDC_BUTTON_TEXTOPTIONS, m_ctrlTextOptions);
 }
 
 BEGIN_MESSAGE_MAP(CDlgKeyHomophone, CDialog)
@@ -98,6 +99,7 @@ BEGIN_MESSAGE_MAP(CDlgKeyHomophone, CDialog)
   //}}AFX_MSG_MAP
   ON_BN_CLICKED(IDC_RADIO_TEXT_INPUT, OnBnClickedRadioTextInput)
   ON_BN_CLICKED(IDC_RADIO_BINARY_INPUT, OnBnClickedRadioBinaryInput)
+  ON_BN_CLICKED(IDC_BUTTON_TEXTOPTIONS, &CDlgKeyHomophone::OnBnClickedButtonTextoptions)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -270,9 +272,11 @@ BOOL CDlgKeyHomophone::OnInitDialog()
 	{
 		m_ctrlEncodeUmlauts.EnableWindow();
 		m_ctrlEncryptFormatCharacters.EnableWindow();
+		m_ctrlTextOptions.EnableWindow();
 	}
 	else
 	{
+		m_ctrlTextOptions.EnableWindow(FALSE);
 		m_ctrlEncodeUmlauts.EnableWindow(FALSE);
 		m_ctrlEncryptFormatCharacters.EnableWindow(FALSE);
 	}
@@ -299,12 +303,16 @@ void CDlgKeyHomophone::Init_ListBox()
 	if (!m_InputType)
 	{
 		m_listview.DeleteAllItems(); 
-		TA.Analyse( );
+		if ( !TA.Analyse() )
+		{
+			// Message( IDS_STATISTICAL_REFERENCE_FILE_MISSING, MB_ICONINFORMATION );
+			TA.Analyse(c_SourceFile);
+		}
 	}
 	else
 	{
 		m_listview.DeleteAllItems(); 
-		TA.Analyse(	c_SourceFile, HOM_ENC_BIN );
+		TA.Analyse(c_SourceFile, HOM_ENC_BIN);
 	}
 
 	for(i=0;i<range;i++)
@@ -689,16 +697,27 @@ void CDlgKeyHomophone::OnSelectEncryptFormatCharacters()
 
 void CDlgKeyHomophone::OnBnClickedRadioTextInput()
 {
-	if (m_InputType) InputTypeIsChanged = TRUE;
+	if (m_InputType) 
+		InputTypeIsChanged = TRUE;
 	OnActualizeNoOfHomophones();
 	m_ctrlEncodeUmlauts.EnableWindow();
 	m_ctrlEncryptFormatCharacters.EnableWindow();
+	m_ctrlTextOptions.EnableWindow();
 }
 
 void CDlgKeyHomophone::OnBnClickedRadioBinaryInput()
 {
-	if (!m_InputType) InputTypeIsChanged = TRUE;
+	if (!m_InputType) 
+		InputTypeIsChanged = TRUE;
 	OnActualizeNoOfHomophones();
 	m_ctrlEncodeUmlauts.EnableWindow(FALSE);
 	m_ctrlEncryptFormatCharacters.EnableWindow(FALSE);
+	m_ctrlTextOptions.EnableWindow(FALSE); 
+}
+
+void CDlgKeyHomophone::OnBnClickedButtonTextoptions()
+{
+	theApp.TextOptions.DoModal();
+	InputTypeIsChanged = TRUE;
+	OnActualizeNoOfHomophones();
 }

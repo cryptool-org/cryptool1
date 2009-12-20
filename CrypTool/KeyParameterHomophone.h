@@ -37,10 +37,10 @@
 class CKeyParameterHomophone  
 {
 public:
-	void Analyse( const char * f_toAnalyse, int _keyType = HOM_ENC_TXT );
+	bool Analyse(int _keyType = HOM_ENC_TXT);
+	bool Analyse( const char * f_toAnalyse, int _keyType = HOM_ENC_TXT );
 	double freq[range];
 	long count[range];
-	void Analyse(int _keyType = HOM_ENC_TXT);
 	CKeyParameterHomophone();
 	virtual ~CKeyParameterHomophone();
 

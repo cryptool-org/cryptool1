@@ -110,6 +110,9 @@ private:
 	CBitmapButton m_Paste;
 	void Init_ListBox();
 	BOOL InputTypeIsChanged;
+public:
+	afx_msg void OnBnClickedButtonTextoptions();
+	CButton m_ctrlTextOptions;
 };
 
 //{{AFX_INSERT_LOCATION}}

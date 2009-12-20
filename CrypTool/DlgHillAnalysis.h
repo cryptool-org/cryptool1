@@ -36,6 +36,7 @@ class CDlgHillAnaylsis : public CDialog
 	HWND hWndEditPlain;
 	HWND hWndEditCipher;
 	int  m_edTab;
+	long m_sel_tab1, m_sel_tab2;
 
 	LRESULT ScinMSG(UINT Msg, WPARAM wParam=0, LPARAM lParam=0) {
 		assert(m_edTab < 2 );
@@ -76,9 +77,6 @@ protected:
 public:
 	CComboBox	m_DimensionVon;
 	CComboBox	m_DimensionBis;
-	afx_msg void OnBnClickedButtonLoadActiveDocument();
-	CButton m_ctrl_loadActiveDocument;
-	afx_msg void OnBnClickedButtonOpenfile();
 	CTabCtrl m_TC_textspace;
 	afx_msg void OnTcnSelchangeTab1(NMHDR *pNMHDR, LRESULT *pResult);
 	int setSourceFilename(const char *filename) 
@@ -88,6 +86,8 @@ public:
 	int m_multDir;
 	int m_ofs;
 	afx_msg void OnBnClickedTextOptions();
+	afx_msg void OnCbnSelendokFileSelect();
+	CComboBox m_ctrlFileSelect;
 };
 
 

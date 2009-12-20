@@ -155,6 +155,10 @@ void CDlgKeyPermutation::OnDecrypt()
 
 	if ( !(chk_showPermutations.GetCheck() && IDOK != ShowPermutations()) )
 	{
+		if ( m_DataType )
+			Message( IDS_INFO_TEXT_ENCRYPTION, MB_ICONINFORMATION );
+		else
+			Message( IDS_INFO_BYNARY_ENCRYPTION, MB_ICONINFORMATION );
 		strKeyParam();
 		writeRegistry();
 		OnOK();
@@ -187,6 +191,10 @@ void CDlgKeyPermutation::OnEncrypt()
 
 	if ( !(chk_showPermutations.GetCheck() && IDOK != ShowPermutations()) )
 	{
+		if ( m_DataType )
+			Message( IDS_INFO_TEXT_ENCRYPTION, MB_ICONINFORMATION );
+		else
+			Message( IDS_INFO_BYNARY_ENCRYPTION, MB_ICONINFORMATION );
 		strKeyParam();
 		writeRegistry();
 		OnOK();

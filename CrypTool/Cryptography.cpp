@@ -248,8 +248,8 @@ void VigenereAsc(const char *infile, const char *OldTitle)
     char outfile[1024];
     CDlgKey KeyDialog(MAX_VIGENERE);
 // == KeyDialog
-	if(KeyDialog.Display()!=IDOK) return;
-
+	if(KeyDialog.Display()!=IDOK) 
+		return;
 
 	SymbolArray text(AppConv);
 // == load INPUT
@@ -1685,22 +1685,10 @@ void Mono(const char *infile, const char *OldTitle) {
 	char *buffer = new char[inputFileLength + 1];
 	memset(buffer, 0, inputFileLength + 1);
 	inputFile.Read(buffer, inputFileLength);
-	for(int i=0; i<inputFileLength && !containsAlphabetCharacter; i++) {
-		// we're a bit more tolerant when the "getDistinguishUpperLowerCase" function returns false
-		if(!theApp.TextOptions.getDistinguishUpperLowerCase()) {
-			if(lowerAlphabet.Find(buffer[i]) != -1 || upperAlphabet.Find(buffer[i]) != -1)
-				containsAlphabetCharacter = true;
-		}
-		// however, we're being exact when this function returns true
-		else {
-			if(alphabet.Find(buffer[i]) != -1)
-				containsAlphabetCharacter = true;
-		}
-	}
 	inputFile.Close();
 
 	// dump an error message and return if the file doesn't contain at least one alphabet character
-	if(!containsAlphabetCharacter) {
+	if(!inputFileLength) {
 		CString message;
 		message.LoadString(IDS_STRING_ERR_INPUT_TEXT_LENGTH);
 		message.Format(message, 1);
