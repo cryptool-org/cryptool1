@@ -151,8 +151,15 @@ Version control software: Subversion
 
 \newpage
 \normalsize
+
 %\parindent 0cm
-\parskip 4pt
+
+% \parskip 4pt
+% Setting the default for the vertical distance before a paragraph as distinguished variable
+\newcounter{mycounterDefaultParskip}
+\setcounter{mycounterDefaultParskip}{4}
+\parskip \value{mycounterDefaultParskip} pt 
+
 
 \input{chapters/introduction.tex}
 
