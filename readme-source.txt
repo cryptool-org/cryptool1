@@ -1,4 +1,4 @@
-CrypTool 1.4.00  (March 2008)
+CrypTool 1.4.30  (December 2009)
 ~~~~~~~~~~~~~~~
 
 
@@ -27,16 +27,13 @@ CrypTool\source\ ...	Directory tree with the source code for building CrypTool.
 2. Tools you need
    ~~~~~~~~~~~~~~
 For building CrypTool completely you need:
-- A Microsoft C++ Compiler:
-    - VS.net 2003
-    - Visual Studion C++ 6.0 is NOT supported any longer (and will not work)
-    - VS 2005 does not work without significant changes (will be supported in future)
+- Microsoft C++ Compiler:
+    - Visual Studio 2008.
+    - Older compilers like Visual Studio 2005 are no longer supported and will not work 
+      with the current solution and project files (*.sln, *.proj).
+    - The free Visual C++ 2008 Express Edition cannot be used, because it lacks MFC support.
 - Perl (>= Version 5.00)
-
-Remark:
-The free version of the Visual C++ Toolkit 2003 (http://msdn.microsoft.com/visualc/vctoolkit2003/)
-cannot be used as compiler for CrypTool because it is not complete enough to do so! (status: 11/2004)
-
+- NullSoft NSIS for building the installer http://nsis.sourceforge.net/
 
 
 3. The programs (CrypTool.exe and AES-Tool.exe)
@@ -70,8 +67,13 @@ CrypTool\source\CrypTool\CrypTool\hlp_[de|en]
 Building the online help takes some time, but you can prevent that
 by adding a file called "makehelp.no" to the help directories. 
 
+4. The installer
+   ~~~~~~~~~~~~~
+How to build the CrypTool installer (SetupCrypTool*.exe) is described in 
+	setup\README.txt
 
-4. Adding your own developments to CrypTool
+
+5. Adding your own developments to CrypTool
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Everyone is encouraged to enhance the possibilities CrypTool has.
@@ -205,7 +207,7 @@ g) When developing new code, try to separate different functionalities: so pleas
    according to the MVC-principle (model-view-controller).
 
 
-5. Additional hints
+6. Additional hints
    ~~~~~~~~~~~~~~~~
 
 - We want to encourage you, to first have a look at the different methods implemented in
@@ -229,8 +231,6 @@ g) When developing new code, try to separate different functionalities: so pleas
   ENGLISH hlp_de" from the CrypTool root directory ("trunk/CrypTool"). There are more languages 
   supported, and you can get detailed output information if the "$debug" switch is set. For more 
   information, take a look at the documented source file "CheckHelp.pl"
-  
-- The POLISH CrypTool online help has been changed during the release of CrypTool 1.4.30. //TODO 
   
 
 
