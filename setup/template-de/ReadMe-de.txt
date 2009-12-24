@@ -549,12 +549,19 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
 - Zu jedem Fenster kann ein Dialog angezeigt werden, der alle
   wesentlichen Eigenschaften dieses Dokuments anzeigt.
 
-- In allen klassischen Algorithmen, wo die Optionen für Texte eine Rolle
-  spielen, wird nun das im Dialog "Textoptionen" eingestellte Alphabet
-  benutzt. Um die Bedienung zu vereinfachen, kann man diesen Dialog direkt
-  von den entsprechenden Schlüsseleingabe-Masken mit einem Klick auf den
-  zusätzlichen Button "Textoptionen" aufrufen (z.B. in den Schlüsseleingabe-
-  Masken für Caesar, monoalphabetische Substitution, Vigenère, Skytale).
+- In allen klassischen Algorithmen, wo die Alphabete der zu bearbeitenden
+  Texte eine Rolle spielen, wird nun das im zentralen Dialog "Textoptionen"
+  eingestellte Alphabet benutzt.
+  Damit ließ sich eine verbesserte Bedienbarkeit umsetzen:
+  Um sofort bei der Schlüsseleingabe sichtbar zu machen, welche Verfahren
+  darauf reagieren, enthält jede passende Schlüsseleingabe-Maske einen
+  zusätzlichen Button "Textoptionen", der direkt zum Dialog "Textoptionen"
+  führt (man muss also nicht mehr erst an der Stelle, wo man die Textoptionen
+  am ehesten braucht, den Schlüsseleingabe-Dialog wieder schließen und
+  über das Hauptmenü zu den Textoptionen gehen).
+  Dieser Aufruf mit einem Klick auf den Button "Textoptionen" ist implementiert
+  in den Schlüsseleingabe-Masken für Caesar, monoalphabetische Substitution,
+  Vigenère, Skytale, Permutation und Homophone.
 
 - CrypTool kann man ohne Administratorrechte installieren und ausführen.
   Verschiedene Benutzer können am gleichen PC jeweils verschiedene
@@ -823,11 +830,12 @@ b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
                 explizit die benutzten Modi und Padding-Varianten erläutert).
 
 - CrypTool-Skript: Umfangreiche Überarbeitung:
-                   - Update auf aktuellen Stand,
-                   - Aufnahme von vielen Sage-Programmbeispielen,
-                   - Behebung kleinerer Fehler,
-                   - Menübaum in Anhang A.1 an neue CrypTool-Version angepasst,
-                   - Neues Deckblatt.
+                  - Erweiterungen und Update auf aktuellen Stand,
+                  - Aufnahme von vielen we-Programmbeispielen,
+                    Auslieferung des Sage-Codes als Datei,
+                  - Behebung kleinerer Fehler,
+                  - Menübaum in Anhang A.1 an neue CrypTool-Version angepasst,
+                  - Neues Deckblatt.
 
 - Aktualisierte und auf über 110 Seiten erweiterte Präsentation.
 
@@ -936,6 +944,8 @@ c) Neue Funktionalität / Bedienung:
 - Die klassischen Transpositions-Chiffren Skytale und Gartenzaun hinzugefügt
   (angeboten innerhalb eines Dialogs) incl. Schlüssel anzeigen und
   Schlüssel einfügen per Ikone.
+
+- Die Masken der Solitaire-Verschlüsselung verbessert. +++++++
 
 - Die Permutationsverschlüsselung kann nun auch auf Hexdateien angewandt
   werden.
@@ -1417,29 +1427,29 @@ b) Will der Benutzer in Mehrbenutzersystemen wie Windows XP aus CrypTool
 5. Liste der Dateien in der Auslieferung
    -------------------------------------
 CrypTool wird als komprimiertes, selbstextrahierendes Archiv in
-drei verschiedenen Sprachversionen verteilt:
+vier verschiedenen Sprachversionen verteilt: Deutsch, Englisch,
+Polnisch und Spanisch.
 
-SetupCrypTool_1_4_30_en.exe    Englische Sprachversion.
-SetupCrypTool_1_4_30_de.exe    Deutsche Sprachversion.
-Die mit der Polnischen und Spanischen Version zusätzlich ausgelieferten
-Dateien sind hier noch nicht berücksichtigt.
-
-Diese selbstextrahierenden Archive enthalten die folgenden Dateien:
+Das selbstextrahierende Archiv in deutscher Sprache
+           SetupCrypTool_1_4_30_de.exe
+enthält folgende Dateien:
 
 ReadMe-de.txt .... Diese Kurzanleitung (deutsch).
-ReadMe-en.txt .... Diese Kurzanleitung (englisch).
 
-md5sum.txt ....... MD5-Hashwerte aller Dateien innerhalb des CrypTool-Paketes
+md5sum.txt ....... MD5-Hashwerte aller Dateien innerhalb des CrypTool-Paketes.
 sha1sum.txt ...... SHA-1-Hashwerte aller dieser Dateien.
+authors.txt ...... Informationen zu den Autoren von CrypTool-1.
 
-CrypTool.exe ..... Das E-Learning-Programm (deutsch + englisch).
+CrypTool.exe ..... Das E-Learning-Programm.
 aestool.exe ...... Ein Programm, das Dateien in sich selbst-entpackende
-                   Programme verschlüsselt (D + E). Zur Entschlüsselung
-                   müssen Sie das korrekte Passwort eingeben.
-CrypTool-de.chm .. HTML-Hilfe-Archiv für die CrypTool-Onlinehilfe in
-                   deutsch.
-CrypTool-en.chm .. Die englische Version von "CrypTool-de.chm".
+                   Programme verschlüsselt. Zur Entschlüsselung müssen
+                   Sie das korrekte Passwort eingeben.
 
+CrypTool-de.chm .. HTML-Hilfe-Archiv für die CrypTool-Onlinehilfe
+                   (in deutsch).
+rijndael-poster-a4.pdf ... Darstellung der Abläufe beim AES-Algorithmus.
+
+msvcr71.dll ...... Nötig für CrypTool.exe.
 EC-Param.ini ..... Initialisierungsdatei für auf Elliptischen
                    Kurven basierende Public-Key-Verfahren.
 TEST-Param.ini ... Initialisierungsdatei für die Zufallstests.
@@ -1449,60 +1459,48 @@ ticket ........... Lizenz für die Secude-Bibliothek.
 libxml2.dll ...... Wird benötigt von der secude.dll.
 secidea.dll ...... Wird benötigt von der secude.dll für die 
                    IDEA-Verschlüsselung.
-srndmskb.dll ..... Wird benötigt von der secude.dll für den
-                   Entropie-Sammler zur Initialisierung des
-                   Secude-Zufallsgenerators.
+srndmskb.dll ..... Wird von der secude.dll für den Entropie-Sammler zur
+                   Initialisierung des Secude-Zufallsgenerators benötigt.
 db.dll ........... Wird benötigt von der secude.dll.
 secude.xml ....... Wird benötigt von der secude.dll.
 libeay32.dll...... Bibliothek aus OpenSSL.
-SciLexer.dll ..... Bibliothek mit den Routinen für den
-                   Scintilla-Texteditor.
+SciLexer.dll ..... Bibliothek des Scintilla-Texteditor.
 cracklib_Win32.dll .. Unterstützt die PQM-Tests.
 
 Rijndael-Animation.exe .. Animation (Flash) des AES-Algorithmus.
 Rijndael-Inspector.exe .. Animation (Flash) zu den Änderungen des
                           Datenblocks innerhalb des AES-Algorithmus.
+AES_Flussvisualisierung.jar .. Visualisierung der Datenänderung bei AES.
+
 Enigma_de.exe .... Animation (Flash) der 3-Rotor Enigma-Maschine.
-Enigma_en.exe .... Die englische Version von "Enigma_de.exe".
 Enigma-Help_de.html .. HTML-Onlinehilfe für  "Enigma_de.exe" (deutsch).
-Enigma-Help_en.html .. Die englische Version von "Enigma-Help_de.html".
 enigma_screenshot1.png .. Screenshot für die Enigma-Hilfedatei.
 
 eccdemo.jar ...... Demo (Java) zur Punktaddition auf Elliptischen Kurven.
 
 ZT.exe ........... Lernprogramm (Authorware) zur Zahlentheorie.
-NT.exe ........... Die englische Version von "ZT.exe".
 TextZahlWandler.exe ...... Hilfsprogramm zu "ZT.exe".
-TextNumberConverter.exe .. Die englische Version von "TextZahlWandler.exe".
 ToolBarWrapper.dll .. Notwendig für das Authorware-Programm ZT.exe
 
 Zahlenhai.exe .... Das Programm zum Lernspiel "Der Zahlenhai".
-NumberShark.exe .. Die englische Version von "Zahlenhai.exe".
-NumberShark_de.chm HTML-Hilfe-Archiv für die Zahlenhai-Onlinehilfe (deutsch).
-NumberShark_en.chm Die englische Version von "NumberShark_de.chm".
+NumberShark_de.chm HTML-Hilfe-Archiv für die Zahlenhai-Onlinehilfe.
 GameData.txt ..... Die ersten High-Scores für das Zahlenhai-Spiel.
 
 script-de.pdf .... Ein Skript (deutsch) über Kryptographie, Primzahlen,
                    elementare Zahlentheorie und die Mathematik hinter
                    einigen Algorithmen.
-script-en.pdf .... Die englische Fassung von script-de.pdf.
 
-CrypToolPresentation_1_4_30_de.pdf .. Folien-Präsentation (deutsch)
-CrypToolPresentation_1_4_30_en.pdf .. Folien-Präsentation (englisch)
+CrypToolPresentation-de.pdf .. Folien-Präsentation (deutsch)
 
 DialogSchwestern.pdf .. Fantasy-Geschichte von Dr. Elsner, in der
                         eine Variante des RSA-Kryptosystems
                         beschrieben wird.
-DialogueSisters.pdf ... Englische Fassung von DialogSchwestern.pdf.
-rijndael-poster-a4.pdf ... Darstellung der Abläufe beim AES-Algorithmus.
 ChinLab-de.pdf ... Geschichte von Dr. Elsner über zahlentheoretische
                    Probleme, die Marco Polo vom Großen Khan gestellt
                    werden.
-ChinLab-en.pdf ... Englische Fassung von ChinLab-de.pdf.
 
 Uninstall.exe .... Teil des NSIS-Installers.
 license-de.rtf ... Benutzt vom Installationsprogramm. 
-license-en.rtf ... Englische Fassung von license-de.rtf. 
 
 
 examples\ ........ Dieses Verzeichnis enthält unterschiedliche
@@ -1516,33 +1514,33 @@ examples\ ........ Dieses Verzeichnis enthält unterschiedliche
 examples\CrypTool-de.txt
         \CrypTool-en.txt
         \CrypTool.bmp
+        \Startbeispiel-de.txt
+        \Startingexample-en.txt
+        \Startingexample-pl.txt
+
         \Playfair-enc-de.txt
         \probetext-de.txt
         \psion-enc.hex
         \vernam.txt
-        \Startbeispiel-de.txt
-        \Startingexample-en.txt
+
         \Original.txt ..... "Harmlose" Beispieldatei für die 
                             Hashkollision-Demo
-        \original.txt ..... Englische Fassung von Original.txt
         \Faelschung.txt ... "Gefährliche" Beispieldatei für die
                             Hashkollision-Demo
-        \fake.txt ......... Englische Fassung von Faelschung.txt
-        \letterFromAliceToBob-DECRYPTED-de.txt .. Beispieldateien
-        \letterFromAliceToBob-DECRYPTED-en.txt .. für die Demo
-        \letterFromAliceToBob-ENCRYPTED-de.hex .. des Seitenkanal-
-        \letterFromAliceToBob-ENCRYPTED-en.hex .. angriffs
-        \state2.hex ....... unverschlüsselte Beispieldaten aus ...
-        \state2-enc.hex ... verschlüsselte Beispieldaten aus ...
-                            "Rijndael-Animation.exe",
-                            verarbeitet mit "CrypTool.exe". 
 
+        \letterFromAliceToBob-DECRYPTED-de.txt .. Beispieldateien für die
+        \letterFromAliceToBob-ENCRYPTED-de.hex .. Demo des Seitenkanal-
+                                  angriffs auf die Hybridverschlüsselung.
+
+        \state2.hex ....... Unverschlüsselte Beispieldaten von ...
+        \state2-enc.hex ... Verschlüsselte Beispieldaten von ...
+                            "Rijndael-Animation.exe" (per "CrypTool.exe"). 
 
 
 cryptochallenges\ ... Dieses Verzeichnis enthält Dateien mit Chiffraten.
                       Die meisten sind historischer Natur, einige davon
                       sind ungelöst.
-                      Zwei Herausforderungen sind auch dabei: die
+                      Zwei spezielle Herausforderungen sind auch dabei: die
                       Doppelwürfel-Chiffre und die HarryPotter-Chiffre.
 
 cryptochallenges\Schmeh01-Dorabella-enc.txt
@@ -1560,10 +1558,9 @@ cryptochallenges\Schmeh01-Dorabella-enc.txt
                  Schmeh08-MathiasSandorf-enc.txt
 
 
-
 reference\ ....... Dieses Verzeichnis enthält Textdateien in den
                    Sprachen Deutsch, Englisch, Französisch,
-                   Spanisch und Latein. Diese Dateien werden
+                   Spanisch, Polnisch und Latein. Diese Dateien werden
                    standardmäßig als Referenz für die Analyse von
                    Chiffretexten herangezogen.
                    Diese Dateien sind schreibgeschützt.
@@ -1572,18 +1569,35 @@ reference\deutsch.txt  // Auszug aus dem dt. Umsatzsteuergesetz
          \english.txt  // Auszug aus der Agenda 21[UN-Dokument]
          \genesis-de.txt  // Buch Genesis in den Sprachen
          \genesis-en.txt  // deutsch, englisch, französisch,
-         \genesis-es.txt  // spanisch und lateinisch.
+         \genesis-es.txt  // spanisch, polnisch und lateinisch.
          \genesis-fr.txt  // Die 2-Buchstabencodes entsprechen
-         \genesis-la.txt  // den ISO 639 Language Codes.
+         \genesis-pl.txt  // den ISO 639 Language Codes.
+         \genesis-la.txt
+         \hallo-welt.txt   xxxxxxxxx
+         \hello-world.txt  xxxxxxxxx
 
 
-words\ ........... In diesem Verzeichnis liegen die Dateien, mit
-                   denen die Tests auf Passwortmuster gemacht werden.
+words\ ........... In diesem Verzeichnis liegen die Dateien, mit denen
+                   die Tests auf Passwortmuster durchgeführt werden, und
+                   die Tests für die Vigenère-Analyse (nach Schrödel).
 
 words\cracklib-words
       cracklib_dict.hwm
       cracklib_dict.pwd
       cracklib_dict.pwi
+      VigenereAnalysisSchroedelDictionary.txt      Sprachabhängig
+      VigenereAnalysisSchroedelDigrams.txt    
+      VigenereAnalysisSchroedelTrigrams.txt
+
+
+sage\ ........... Dieses Verzeichnis enthält die Beispiel-Berechnungen
+                  aus dem CT-Skript script-de.pdf, die mit dem Computer-
+                  Algebra-System SAGE ausgeführt wurden.
+
+sage\SAGE-Samples-in-Chap01.sage
+     SAGE-Samples-in-Chap02.sage
+     SAGE-Samples-in-Chap03.sage
+     SAGE-Samples-in-Chap04.sage
 
 
 pse\ ............. In diesem Verzeichnis und in seinem
@@ -1594,14 +1608,14 @@ pse\[SideChannelAttack][Bob][RSA-512][1152179494][PIN=1234].pse
     [HybridEncryption][Bob][EC-prime239v1][1178702474][PIN=1234]
     [HybridEncryption][Bob][EC-prime239v1][1178702474][PIN=1234].pse
 
-pse\pseca\calog    Diese Dateien sind für die Verwaltung der
-         \capse    Schlüsseldatenbank notwendig.
+pse\pseca\calog        Diese Dateien sind für die Verwaltung der
+         \capse.cse    Schlüsseldatenbank notwendig.
          \CA_exts
          \cert.dir
          \cert.pag
-         \CRL_exts
          \crls.dir
          \crls.pag
+         \CRL_exts
          \user.dir
          \user.pag
 
@@ -1609,16 +1623,12 @@ pse\pseca\calog    Diese Dateien sind für die Verwaltung der
 animal\ .......... Dieses Verzeichnis enthält die Dateien, die für
                    das Animationsprogramm ANIMAL nötig sind.
 
-animal\Animal-2.3.14.jar
+animal\Animal-2.3.21.jar
       \animal.bat
       \animal.properties
       \AnimalResources
       \AnimalResources.de
       \AnimalResources.de_DE
-      \AnimalResources.en
-      \AnimalResources.en_US
-      \AnimalResources.es
-      \AnimalResources.es_SP
       \animList.txt
       \anmTypes.dat
       \default.properties
@@ -1641,13 +1651,9 @@ animal\anims ..... Dieses Verzeichnis enthält AML-Dateien.
                    abgelegt.
 
 animal\anims\caesar_de.aml
-            \caesar_en.aml
             \des_de.aml
-            \des_en.aml
             \nihilist_de.aml
-            \nihilist_en.aml
             \vigenere_de.aml
-            \vigenere_en.aml
 
 
 Bc\ .............. In diesem Verzeichnis und darunter liegt das Utility
@@ -1691,8 +1697,8 @@ Bc\contrib\Authors
           \News
           \README
 
-\Bc\manifest\bc-1.06-bin.mft
-            \bc-1.06-bin.ver
+Bc\manifest\bc-1.06-bin.mft
+           \bc-1.06-bin.ver
 
 
 xtras\ ............ Gehört zu Authorware, mit dem "ZT.exe" erstellt wurde.
@@ -1701,6 +1707,77 @@ xtras\BMPVIEW.X32
      \MIX32.X32
      \VIEWSVC.X32
 
+
+
+smimedemo\ ............ Gehört zur Flash/Java-Animation einer
+                        S/MIME-E-Mail. 
+
+smimedemo\anim.swf
+         \lock2.gif
+         \smime.ini
+         \SMIME_Animation.exe   [erzeugt temporär params.xml]
+         \start-de.bat
+         \swt-awt-win32-3235.dll
+         \swt-gdip-win32-3235.dll
+         \swt-wgl-win32-3235.dll
+         \swt-win32-3235.dll
+
+smimedemo\font\Mathematica7.ttf
+              \Mathematica7b.ttf
+              \Mathematica7m.ttf
+              \Mathematica7mb.ttf
+
+smimedemo\images\encrypt.png
+                \sign.png
+
+smimedemo\krypto\CertInfoDialog.class
+                \KeyStoreUtils.class
+                \KryptoService.class
+
+smimedemo\lib\bcmail-jdk16-141.jar
+             \bcprov-jdk16-141.jar
+             \commons-codec-1.3.jar
+             \mail.jar
+             \swt.jar
+
+smimedemo\mail\Mail.class
+              \MailService.class
+              \SignedDataProcessor.class
+              \SignedMultiPart.class
+
+smimedemo\main\Config.class
+              \Programm.class
+              \Resetable.class
+
+smimedemo\texte\ITexte.class
+               \TranslationText.class
+
+smimedemo\userinterface\AliasDialog$1.class
+                       \AliasDialog.class
+                       \GUI$1.class
+                       \GUI$10.class
+                       \GUI$11.class
+                       \GUI$12.class
+                       \GUI$13.class
+                       \GUI$14.class
+                       \GUI$15.class
+                       \GUI$2.class
+                       \GUI$3.class
+                       \GUI$4.class
+                       \GUI$5.class
+                       \GUI$6.class
+                       \GUI$7.class
+                       \GUI$8.class
+                       \GUI$9.class
+                       \GUI.class
+                       \MyInputDialogData.class
+                       \PasswordDialog$1.class
+                       \PasswordDialog.class
+
+smimedemo\utils\Tools.class
+               \Utils$FixedRand.class
+               \Utils.class
+               \Version.class
 
 
 
@@ -1715,7 +1792,8 @@ cry*.* ........... CrypTool schreibt temporäre Dateien mit dem
                   ogl -> OpenGL-Graphics-Ansicht
                   org -> Kopie der Originaldatei nach dem Laden
                   tmp -> Temporäre Datei für Zwischenberechnungen
-xxxxxxxxxxxx
+
+
 
 
 5.1. Überprüfen der Integrität der heruntergeladenen Dateien
@@ -1781,7 +1859,7 @@ Version   Datum         Größe des Windows-Setups  Plattenplatz  Freigabe
 1.4.10    Juli 2007      27,5 MB     26,7 MB         47 MB        DB
 1.4.20    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
-1.4.30    Dez. 2009      46,3 MB     45,3 MB         83 MB        DB   xxxxxxxx
+1.4.30    Dez. 2009      46,3 MB     45,3 MB         83 MB        DB   xxxxxxx
 
 Bemerkungen zu den Versionen:
 1.3.02   Viele neue Funktionen gegenüber 1.3.00.
@@ -2579,23 +2657,24 @@ A.2.1.4. User-Interface / Visualisierungen
   können oder per Maus in die Eingabefelder der CrypTool-Dialogboxen
   ziehen können.
 
-- Weiterhin wäre eine Anbindung an das CAS-System Sage wünschenswert
-  (http://www.sagemath.org/).
+- Weiterhin wäre eine interaktive Anbindung an das CAS-System Sage
+  wünschenswert (http://www.sagemath.org/).
 
-- Generelle Visualisierung der entsprechenden mathematischen Grundlagen:
-  - z.B. anhand eines Lehrbuchs
-  - z.B. wie mit den Sage-Notebooks zu ECC:
-    https://sage.mathematik.uni-siegen.de:8000/home/pub/45/
+- Generelle Visualisierung der entsprechenden mathematischen Grundlagen, z.B.:
+  - anhand eines Lehrbuchs
+  - wie mit den Sage-Notebooks zu ECC von Maike Massierer:
+      - http://sagenb.org/home/pub/1126/
+      - https://sage.mathematik.uni-siegen.de:8000/home/pub/45/
     Dieses Deckblatt enthält keine Berechnungen, sondern nur die Links
     zu den übrigen Teilen; zum Ausführen der folgenden Teile
     muss man sich selbst Kopien als Sage-User anlegen.
-  - z.B. wie die PascGalois Software (Group Calculator)
-    (http://www.pascgalois.org/software.html)
-  - z.B. http://www.martindalecenter.com/Calculators2_6_NZ.html
-  - z.B. http://world.std.com/~reinhold/BigNumCalc.html
-  - z.B. http://mathforum.org/library/resource_types/calculators/?keyid=28652723&start_at=301&num_to_see=50
-  - z.B. http://www.hbmeyer.de/pythagen.htm
-  - z.B. http://www.filebuzz.com/files/calculator_number_prime/1.html
+  - wie die PascGalois Software (Group Calculator)
+      (http://www.pascgalois.org/software.html)
+  - http://www.martindalecenter.com/Calculators2_6_NZ.html
+  - http://world.std.com/~reinhold/BigNumCalc.html
+  - http://mathforum.org/library/resource_types/calculators/?keyid=28652723&start_at=301&num_to_see=50
+  - http://www.hbmeyer.de/pythagen.htm
+  - http://www.filebuzz.com/files/calculator_number_prime/1.html
 
 - Für den Benutzer konfigurierbar einstellbar machen, ob neue Fenster
   wie bisher innerhalb des Hauptfensters erscheinen oder als "freie"

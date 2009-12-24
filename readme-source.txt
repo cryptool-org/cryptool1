@@ -9,7 +9,7 @@ Content:
 ========
 A) How to build CrypTool from the current C++ sources?
 
-B) What do deliver back, if one makes enhancements to CrypTool?
+B) What to deliver back, if one makes enhancements to CrypTool?
 
 
 
@@ -21,19 +21,19 @@ A) Readme for developers who want to build CrypTool from the current C++ sources
    ~~~~~~~~~~~~~~
 readme-source.txt 	This readme
 CrypTool\source\ ...	Directory tree with the source code for building CrypTool.
-			File can be downloaded via Internet.
+			Files can be downloaded from subversion repository via Internet.
 
 
 2. Tools you need
    ~~~~~~~~~~~~~~
 For building CrypTool completely you need:
-- Microsoft C++ Compiler:
+a) Microsoft C++ Compiler:
     - Visual Studio 2008.
     - Older compilers like Visual Studio 2005 are no longer supported and will not work 
       with the current solution and project files (*.sln, *.proj).
-    - The free Visual C++ 2008 Express Edition cannot be used, because it lacks MFC support.
-- Perl (>= Version 5.00)
-- NullSoft NSIS for building the installer http://nsis.sourceforge.net/
+    - The *free* Visual C++ 2008 Express Edition cannot be used, because it lacks MFC support.
+b) Perl (>= Version 5.00)
+c) NullSoft NSIS for building the setup/installer (see http://nsis.sourceforge.net/).
 
 
 3. The programs (CrypTool.exe and AES-Tool.exe)
@@ -42,7 +42,7 @@ Remark:
 The following paragraphs always tell the German and English names of the menu items.
 
 The project files, which can be opened with MS-Visual C, are located at
-- VS.net 2003:     CrypTool\CrypTool.sln 
+- VS.net 2008:     CrypTool\CrypTool.sln 
 To open the project file please double click it or 
 with MS-VC choose Datei[File] -> Arbeitsbereich öffnen[open project/solution].
 
@@ -63,24 +63,25 @@ the following configurations are defined:
 
 Online help:
 Files of the online help can be found at
-CrypTool\source\CrypTool\CrypTool\hlp_[de|en]
+CrypTool\source\CrypTool\CrypTool\hlp_[de|en].
 Building the online help takes some time, but you can prevent that
 by adding a file called "makehelp.no" to the help directories. 
+
 
 4. The installer
    ~~~~~~~~~~~~~
 How to build the CrypTool installer (SetupCrypTool*.exe) is described in 
-	setup\README.txt
+setup\README.txt
 
 
 5. Adding your own developments to CrypTool
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Everyone is encouraged to enhance the possibilities CrypTool has.
-Please contact the mailing list or see the CrypTool homepage (www.cryptool.org),
-how to move your enhancements into the sources of the major release CVS.
+Everyone is encouraged to enhance the possibilities CrypTool already has.
+Please contact the CrypTool team or see the CrypTool homepage (www.cryptool.org),
+how to move your enhancements into the sources of the major release Subversion.
 
-4.1 Expanding the online help
+5.1 Expanding the online help
    ~~~~~~~~~~~~~~~~~~~~~~~~~~
 When you extend CrypTool you also will have to expand the online help. 
 There are four cases that can appear:
@@ -112,7 +113,7 @@ b) Adding new source code, which gets no ID but an Alink, like menus, or sub-
    - New menu:
      When creating a new menu (e.g. "Test"), a new help topic will be needed.
      So create a new html file (e.g. menu_test.html) and add that file to the 
-     HTML Help project, like described at 4.1a. 
+     HTML Help project, like described at 5.1a. 
      For creating a new Alink please edit CrypToolPopupMenuIDs.txt: like described
      there, add the new "pmenuid" in your new html file at the ALink-object.
      More information for editing the Alink-object can be found in the template
@@ -127,7 +128,7 @@ b) Adding new source code, which gets no ID but an Alink, like menus, or sub-
      More information for editing the Alink-object can be found in the template.
 
 
-4.2 Further things to consider to make a new development fit into CrypTool
+5.2 Further things to consider to make a new development fit into CrypTool
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 These claims guarantee a high level of quality and a consistent user interface.
 
@@ -210,14 +211,14 @@ g) When developing new code, try to separate different functionalities: so pleas
 6. Additional hints
    ~~~~~~~~~~~~~~~~
 
-- We want to encourage you, to first have a look at the different methods implemented in
-  CrypTool (running it) and then look into the source code, look for according examples
-  and re-use them.
+- We want to encourage you, to first have a look at the different features implemented in
+  the CrypTool program (run it), and then look into the source code, look for according examples
+  and re-use the existing methods.
 
-- If you come to a problem do not hesitate to paste a mail to the CrypTool mailings list
+- If you come to a problem do not hesitate to paste a mail to the CrypTool team
   (see www.cryptool.org).
 
-- There is a presentation about how to compile CrypTool and how to add own
+- There is an old presentation about how to compile CrypTool and how to add own
   methods (CrypTool-MFC-Kurs-VC7.ppt in the same directory as this file). 
   The most important recommendations are:
   - First develop your program as a pure console application to make your functionality clear.
@@ -225,7 +226,7 @@ g) When developing new code, try to separate different functionalities: so pleas
   Acting in this way means to have 2 separated steps: this helps to clearly divide up the
   crypto functionality and the application/presentation layer.
   
-- Among others, there is the perl script "CheckHelp.pl" (located in "trunk/CrypTool") supporting 
+- Among others, there is the Perl script "CheckHelp.pl" (located in "trunk/CrypTool") supporting 
   developers in maintaining the CrypTool online help. It is very useful because it runs various 
   consistency checks regarding the online help. A simple way to run this script is "perl CheckHelp.pl 
   ENGLISH hlp_de" from the CrypTool root directory ("trunk/CrypTool"). There are more languages 
@@ -264,9 +265,9 @@ E1. Information about your project
 E2. Implementation details
    ~~~~~~~~~~~~~~~~~~~~~~~
 E2.1. Resources
-    - Which menues are used to get to your project
+    - Which menus are used to get to your project
     - Do you work on HEX or ASCII
-    - Name of the MENÜ-IDs
+    - Name of the menu IDs
     - Name of the dialog IDDs
     - New bitmaps used?
     - ...
@@ -324,7 +325,7 @@ G1. Informationen zu Ihrem Projekt
   - Datum der Erstellung, 
   - Kontaktdaten, 
   - Version, 
-  - beteiligte Personen, 
+  - Beteiligte Personen, 
   - Zweck des Projektes
   - ... 
 
@@ -334,8 +335,8 @@ G2. Implementierungsdetails
 G2.1. Ressourcen
     - Über welches Menü erfolgt der Einstieg?
     - Arbeiten Sie mit HEX oder ASCII?
-    - Name der MENÜ-IDs
-    - Name der Dialog IDDs
+    - Name der Menü-IDs
+    - Name der Dialog-IDDs
     - neue Bitmaps
     - ...
 

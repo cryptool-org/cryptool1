@@ -536,17 +536,24 @@ The general properties and functions of CrypTool are:
 - For each window you now can call a dialog which shows all relevant
   properties of the document.
 
-- In all classic algorithms where the options for text documents play
-  a role, now always the alphabet specified in the dialog "Text Options"
-  is used. To ease its usage you can directly call this dialog from the
-  according key entry dialogs via a click on the additional button
-  "Text options" (e.g. within the key entry dialogs for Caesar,
-  monoalphabetic substitution, Vigenère, Scytale).
+- In all classic algorithms where the alphabets of the text documents play
+  a role, now the alphabet handled in the common dialog "Text Options"
+  is used.
+  So an improved usability could be implemented:
+  When entering a key, you now can see at once which method is adapted,
+  because each according key-entry dialog contains the additional button
+  "Text options", which directly leads to the dialog "Text Options"
+  (Users found, that the most needed place to use text options was within
+  the key-entry dialog. So from here it's no more necessary to first close
+  the key-entry dialog again and then call the text options via the main menu).
+  This call via a click at the button "Text options" is implemented within
+  the key-entry dialogs for Caesar, monoalphabetic substitution, Vigenère,
+  Scytale, permutation and homophones.
 
 - CrypTool can be installed and used without having administrator access
   rights.
   Different users at the same PC can have different settings.
-  See chapter 3.2 and 4.4 for details.
+  See chapters 3.2 and 4.4 for details.
 
 - The same menu structure is permanently visible: Items which cannot
   be clicked for special document types are dynamically made gray.
@@ -806,8 +813,9 @@ b) Changes within the user documentation / on the websites:
                ciphers now are described explicitly).
 
 - CrypTool Script: Extensive revision:
-                   - update to status quo,
+                   - extensions and update to status quo,
                    - inclusion of many Sage code samples,
+                     delivery of the Sage code as files,
                    - minor bug-fixes,
                    - menu tree within appendix A.1 adapted to the new version
                      of CrypTool,
@@ -917,6 +925,8 @@ c) New functionality / Usability:
 
 - Added the classic transposition ciphers scytale and rail fence (combined
   in one dialog) including the view and insertion of the key via icon.
+
+- The layout of the Solitaire dialogs was improved. +++++
 
 - The permutation cipher now also can be applied to hex files.
 
@@ -1372,34 +1382,33 @@ b) If the user wants to create (or change) files from within CrypTool in
 5. List of delivered files
    -----------------------
 The package is distributed as a compressed, self extracting archive
-in three different language versions:
+in four different language versions: English, German, Polish, Spanish.
 
-SetupCrypTool_1_4_30_en.exe   English language support only.
-SetupCrypTool_1_4_30_de.exe   German language support only.
-The files, additionally delivered additionally with the Polish and Spanish
-version are not yet considered here.
-
-The self-extracting archives contain the following files:
+The self-extracting archive in English language
+           SetupCrypTool_1_4_30_en.exe
+contains the following files:
 
 ReadMe-en.txt .... This brief instruction (English).
-ReadMe-de.txt .... This brief instruction (German).
 
 md5sum.txt ....... MD5 hash values of all files within the CrypTool package.
 sha1sum.txt ...... SHA-1 hash values of all these files.
+authors.txt ...... Information about the authors of CrypTool-1.
 
-CrypTool.exe ..... The executable e-learning program (English and German).
-aestool.exe ...... A program (D + E) which encrypts files into
-                   self-extracting programs. To decrypt the files,
-                   the correct password must be entered.
+CrypTool.exe ..... The executable e-learning program.
+aestool.exe ...... A program which encrypts files into self-extracting
+                   programs. To decrypt the files, the correct password
+                   must be entered.
+
 CrypTool-en.chm .. HTML help archive containing the CrypTool online help
-                   system in English.
-CrypTool-de.chm .. The German version of "CrypTool-en.chm".
+                   system (in English).
+rijndael-poster-a4.pdf ... Procedures of the AES algorithm (German)
 
+msvcr71.dll ...... Necessary for CrypTool.exe.
 EC-Param.ini ..... Initialization file for public-key procedures
                    based on elliptic curves.
 TEST-Param.ini ... Initialization file for random number tests.
 secude.dll ....... Library of cryptographic functions provided by
-                   Secude IT Security GmbH.
+                   Secude IT Security Ltd.
 ticket ........... License for the Secude library.
 libxml2.dll ...... Is used by the secude.dll.
 secidea.dll ...... Is used by the secude.dll for IDEA encryption.
@@ -1408,53 +1417,42 @@ srndmskb.dll ..... Used by secude.dll for collecting entropy when
 db.dll ........... Is used by the secude.dll.
 secude.xml ....... Is used by the secude.dll.
 libeay32.dll ..... Library from OpenSSL.
-SciLexer.dll ..... Library with the routines for the Scintilla text
-                   editor.
+SciLexer.dll ..... Library of the Scintilla text editor.
 cracklib_Win32.dll .. Supports PQM tests.
 
 Rijndael-Animation.exe .. Animation (Flash) of the AES algorithm.
 Rijndael-Inspector.exe .. Animation (Flash) of the changes within the
                           data block when processing the AES algorithm.
+AES_Flussvisualisierung.jar .. Visualization of data changes in AES.
+
 Enigma_en.exe .... Animation (Flash) of the 3-rotor Enigma machine.
-Enigma_de.exe .... The German version of "Enigma_en.exe".
 Enigma-Help_en.html .. HTML online help of "Enigma_en.exe" (English).
-Enigma-Help_de.html .. The German version of "Enigma-Help_en.html".
 enigma_screenshot1.png .. Screenshot used by the Enigma help file.
 
 eccdemo.jar ...... Demonstration (Java) of adding points on elliptic curves.
 
 NT.exe ........... Educational program (Authorware) of number theory.
-ZT.exe ........... The German version of "NT.exe".
 TextNumberConverter.exe .. Auxiliary program of "NT.exe".
-TextZahlWandler.exe ...... The German version of "TextNumberConverter.exe".
 ToolBarWrapper.dll .. Necessary for the Authorware program NT.exe
 
-NumberShark.exe .. The executable program of the educational game "NumberShark".
-Zahlenhai.exe .... The German version of "NumberShark.exe".
-NumberShark_en.chm HTML help archive for tne NumberShark online help (English).
-NumberShark_de.chm The German version of "NumberShark_en.chm".
+NumberShark.exe .. The educational game "NumberShark".
+NumberShark_en.chm HTML help archive for the NumberShark online help.
 GameData.txt ..... First high-scores for the NumberShark game.
 
-script-en.pdf .... A script on cryptography, prime numbers,
+script-en.pdf .... A manual on cryptography, prime numbers,
                    elementary number theory and the mathematics
                    behind certain algorithms.
-script-de.pdf .... The German version of script-en.pdf.
 
-CrypToolPresentation_1_4_30_en.pdf .. Slides presentation
-CrypToolPresentation_1_4_30_de.pdf .. German version of presentation.
+CrypToolPresentation-en.pdf .. Slides presentation
 
 DialogueSisters.pdf ... Fantasy story by Dr. Elsner describing a
                         variant of the RSA cryptosystem.
-DialogSchwestern.pdf .. German version of DialogueSisters.pdf.
-rijndael-poster-a4.pdf ... Procedures of the AES algorithm (German)
 ChinLab-en.pdf ... Story by Dr. Elsner about basic number theory
                    problems assigned to Marco Polo by the Great
                    Khan.
-ChinLab-de.pdf ... German version of ChinLab-en.pdf.
 
 Uninstall.exe .... Part of the NSIS installer.
 license-en.rtf ... Used from the installer.
-license-de.rtf ... German version of license-en.rtf. 
 
 
 examples\ ........ This directory contains various sample files
@@ -1468,26 +1466,27 @@ examples\ ........ This directory contains various sample files
 examples\CrypTool-en.txt
         \CrypTool-de.txt
         \CrypTool.bmp
+        \Startingexample-en.txt
+        \Startbeispiel-de.txt
+        \Startingexample-pl.txt
+
         \Playfair-enc-de.txt
         \probetext-de.txt
         \psion-enc.hex
         \vernam.txt
-        \Startingexample-en.txt
-        \Startbeispiel-de.txt
+
         \original.txt ..... "Harmless" sample for the hash collision
                             demonstration.
-        \Original.txt ..... German version of original.txt
         \fake.txt ......... "Dangerous" sample for the hash collision
                             demonstration.
-        \Faelschung.txt ... German version of fake.txt
-        \letterFromAliceToBob-DECRYPTED-en.txt .. Sample files for the
-        \letterFromAliceToBob-DECRYPTED-de.txt .. demonstration of the
-        \letterFromAliceToBob-ENCRYPTED-en.hex .. side-channel attack on
-        \letterFromAliceToBob-ENCRYPTED-de.hex .. hybrid encryption.
-        \state2.hex ....... un-encrypted sample data of ...
-        \state2-enc.hex ... encrypted sample data of "Rijndael-Animation.exe",
-                            used and created with "CrypTool.exe". 
 
+        \letterFromAliceToBob-DECRYPTED-en.txt .. Sample files for the
+        \letterFromAliceToBob-ENCRYPTED-en.hex .. demonstration of the 
+                              side-channel attack on hybrid encryption.
+
+        \state2.hex ....... Un-encrypted sample data of ...
+        \state2-enc.hex ... Encrypted sample data of "Rijndael-Animation.exe",
+                            used and created with "CrypTool.exe". 
 
 
 cryptochallenges\ ... This directory contains files with ciphertext.
@@ -1512,10 +1511,9 @@ cryptochallenges\Schmeh01-Dorabella-enc.txt
                  Schmeh08-MathiasSandorf-enc.txt
 
 
-
 reference\ ...... This directory contains text files in the
-                  languages German, English, French, Spanish and
-                  Latin. These files are routinely used as
+                  languages German, English, French, Spanish, Polish
+                  and Latin. These files are routinely used as
                   references for the analysis of encrypted
                   texts. These files are write-protected.
 
@@ -1523,18 +1521,35 @@ reference\deutsch.txt   // Extract from the German value-added tax law
          \english.txt   // Extract from Agenda 21 [UN document]
          \genesis-de.txt  // Book of Genesis in the
          \genesis-en.txt  // languages German, English
-         \genesis-es.txt  // French, Spanish and Latin.
+         \genesis-es.txt  // French, Spanish, Polish and Latin.
          \genesis-fr.txt  // The 2-letter codes are according
-         \genesis-la.txt  // to the ISO 639 language codes.
+         \genesis-pl.txt  // to the ISO 639 language codes.
+         \genesis-la.txt
+         \hallo-welt.txt   xxxxxxxxx
+         \hello-world.txt  xxxxxxxxx
 
 
-words\ ........... This directory contains the files used to
-                   perform the tests recognizing password patterns.
+words\ ........... This directory contains the files used to perform
+                   the tests recognizing password patterns, and
+                   the tests for the Vigenère analyses (according Schroedel).
 
 words\cracklib-words
       cracklib_dict.hwm
       cracklib_dict.pwd
       cracklib_dict.pwi
+      VigenereAnalysisSchroedelDictionary.txt      Language-dependant
+      VigenereAnalysisSchroedelDigrams.txt    
+      VigenereAnalysisSchroedelTrigrams.txt
+
+
+sage\ ........... This directory contains the source code of the example
+                  calculations in the manual script-en.pdf using the
+                  computer algebra system SAGE.
+
+sage\SAGE-Samples-in-Chap01.sage
+     SAGE-Samples-in-Chap02.sage
+     SAGE-Samples-in-Chap03.sage
+     SAGE-Samples-in-Chap04.sage
 
 
 pse\ ............. This directory and its subdirectory pseca\ are
@@ -1545,14 +1560,14 @@ pse\[SideChannelAttack][Bob][RSA-512][1152179494][PIN=1234].pse
     [HybridEncryption][Bob][EC-prime239v1][1178702474][PIN=1234]
     [HybridEncryption][Bob][EC-prime239v1][1178702474][PIN=1234].pse
 
-pse\pseca\calog    These files are necessary for the administration of
-         \capse    the key database.
+pse\pseca\calog        These files are necessary for the administration
+         \capse.cse    of the key database.
          \CA_exts  
          \cert.dir
          \cert.pag
-         \CRL_exts
          \crls.dir
          \crls.pag
+         \CRL_exts
          \user.dir
          \user.pag
 
@@ -1560,12 +1575,10 @@ pse\pseca\calog    These files are necessary for the administration of
 animal\ .......... This directory contains files, necessary for the
                    animation program ANIMAL.
 
-animal\Animal-2.3.14.jar
+animal\Animal-2.3.21.jar
       \animal.bat
       \animal.properties
       \AnimalResources
-      \AnimalResources.de
-      \AnimalResources.de_DE
       \AnimalResources.en
       \AnimalResources.en_US
       \AnimalResources.es
@@ -1590,13 +1603,9 @@ animal\anims ..... This directory contains AML files.
                    Each AML file contains the description of an
                    animation for an encryption method.
 
-animal\anims\caesar_de.aml
-            \caesar_en.aml
-            \des_de.aml
+animal\anims\caesar_en.aml
             \des_en.aml
-            \nihilist_de.aml
             \nihilist_en.aml
-            \vigenere_de.aml
             \vigenere_en.aml
 
 
@@ -1641,9 +1650,8 @@ Bc\contrib\Authors
           \News
           \README
 
-\Bc\manifest\bc-1.06-bin.mft
-            \bc-1.06-bin.ve1.4.30-Beta04  Sep. 2009  Zweite öffentliche Beta von Version 1.4.30.
-r
+Bc\manifest\bc-1.06-bin.mft
+           \bc-1.06-bin.ver
 
 
 xtras\ ............ Files needed by Authorware, used to build "NT.exe"
@@ -1651,6 +1659,79 @@ xtras\ ............ Files needed by Authorware, used to build "NT.exe"
 xtras\BMPVIEW.X32
      \MIX32.X32
      \VIEWSVC.X32
+
+
+
+smimedemo\ ............ Gehört zur Flash/Java-Animation einer
+                        S/MIME-E-Mail. 
+
+smimedemo\anim.swf
+         \lock2.gif
+         \smime.ini
+         \SMIME_Animation.exe   [creates temporarily params.xml]
+         \start-en.bat
+         \swt-awt-win32-3235.dll
+         \swt-gdip-win32-3235.dll
+         \swt-wgl-win32-3235.dll
+         \swt-win32-3235.dll
+
+smimedemo\font\Mathematica7.ttf
+              \Mathematica7b.ttf
+              \Mathematica7m.ttf
+              \Mathematica7mb.ttf
+
+smimedemo\images\encrypt.png
+                \sign.png
+
+smimedemo\krypto\CertInfoDialog.class
+                \KeyStoreUtils.class
+                \KryptoService.class
+
+smimedemo\lib\bcmail-jdk16-141.jar
+             \bcprov-jdk16-141.jar
+             \commons-codec-1.3.jar
+             \mail.jar
+             \swt.jar
+
+smimedemo\mail\Mail.class
+              \MailService.class
+              \SignedDataProcessor.class
+              \SignedMultiPart.class
+
+smimedemo\main\Config.class
+              \Programm.class
+              \Resetable.class
+
+smimedemo\texte\ITexte.class
+               \TranslationText.class
+
+smimedemo\userinterface\AliasDialog$1.class
+                       \AliasDialog.class
+                       \GUI$1.class
+                       \GUI$10.class
+                       \GUI$11.class
+                       \GUI$12.class
+                       \GUI$13.class
+                       \GUI$14.class
+                       \GUI$15.class
+                       \GUI$2.class
+                       \GUI$3.class
+                       \GUI$4.class
+                       \GUI$5.class
+                       \GUI$6.class
+                       \GUI$7.class
+                       \GUI$8.class
+                       \GUI$9.class
+                       \GUI.class
+                       \MyInputDialogData.class
+                       \PasswordDialog$1.class
+                       \PasswordDialog.class
+
+smimedemo\utils\Tools.class
+               \Utils$FixedRand.class
+               \Utils.class
+               \Version.class
+
 
 
 While CrypTool is running, the following files are generated and
@@ -1664,7 +1745,7 @@ cry*.* ........... CrypTool writes temporary files to the \temp
                   ogl -> OpenGL graphics view
                   org -> copy of an original file after file open
                   tmp -> temporary file for intermediate results
-xxxxxxxxxxxx
+
 
 
 
@@ -2503,18 +2584,20 @@ A.2.1.4. User interface / Visualizations
   the clipboard via button, or the mouse could drag the field content
   directly into the entry field in the CrypTool dialog box.
 
-- An interface for calling the CAS system Sage would be interesting
-  (http://www.sagemath.org/).
+- An interactive interface for calling the CAS system Sage would be
+  interesting (http://www.sagemath.org/).
 
 - Visualize generally the according mathematical basics, e.g.:
   - using a text book
-  - using Sage notebooks like the ones for ECC introduction at:
-    https://sage.mathematik.uni-siegen.de:8000/home/pub/45/
+  - using Sage notebooks like the ones for ECC introduction by
+    von Maike Massierer at:
+      - http://sagenb.org/home/pub/1126/ at:
+      - https://sage.mathematik.uni-siegen.de:8000/home/pub/45/
     This cover page contains no calculations, but the links to the
     remaining parts; in order to execute the calculations within the
     remaining parts you have to make copies as Sage user.
   - like PascGalois Software (http://www.pascgalois.org/software.html)
-  - see http://www.martindalecenter.com/Calculators2_6_NZ.html
+  - see also http://www.martindalecenter.com/Calculators2_6_NZ.html
   - http://world.std.com/~reinhold/BigNumCalc.html
   - http://mathforum.org/library/resource_types/calculators/?keyid=28652723&start_at=301&num_to_see=50
   - http://www.hbmeyer.de/pythagen.htm
