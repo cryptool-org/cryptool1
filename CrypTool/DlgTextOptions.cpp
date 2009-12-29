@@ -245,6 +245,15 @@ void CDlgTextOptions::OnCheckDistinguishUpperLowerCase()
 {
 	int i, r;
 	UpdateData(TRUE);
+
+	// if both check boxes are selected, print an information message
+	if(keepUpperLowerCaseInformation && distinguishUpperLowerCase) {
+		Message(IDS_TEXTOPTIONS_KEEP_UPPERCASE_LOWERCASE, MB_ICONINFORMATION);
+		this->distinguishUpperLowerCase = true;
+		this->keepUpperLowerCaseInformation = false;
+		UpdateData(false);
+	}
+
 	if(!distinguishUpperLowerCase) {
 		alphabet.MakeUpper();
 		for(i=0;i<alphabet.GetLength();i++) {
@@ -573,11 +582,14 @@ void CDlgTextOptions::OnCheckKeepUpperLowerCaseInformation()
 {
 	UpdateData(TRUE);	
 
-	if (keepUpperLowerCaseInformation && distinguishUpperLowerCase) {
-		Message(IDS_TEXTOPTIONS_KEEP_UPPERCASE_LOWERCASE, MB_ICONSTOP);
-		keepUpperLowerCaseInformation = FALSE;
-		UpdateData(FALSE);
+	// if both check boxes are selected, print an information message
+	if(keepUpperLowerCaseInformation && distinguishUpperLowerCase) {
+		Message(IDS_TEXTOPTIONS_KEEP_UPPERCASE_LOWERCASE, MB_ICONINFORMATION);
+		this->distinguishUpperLowerCase = false;
+		this->keepUpperLowerCaseInformation = true;
+		UpdateData(false);
 	}
+
 	updateAlphabetHeading();
 }
 

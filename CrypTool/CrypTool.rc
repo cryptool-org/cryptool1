@@ -8,12 +8,11 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polnisch resources
+// Polish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -10764,12 +10763,12 @@ BEGIN
                             "You chose the option to do the encryption in binary mode. This means that all characters are encrypted and the chosen text alphabet doesn't matter."
 END
 
-#endif    // Polnisch resources
+#endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -19696,7 +19695,7 @@ BEGIN
     IDS_HEADING_EMPTY_ECDOMAINPARAMETER 
                             "Hier werden die Domain-Parameter der spezifizierten Elliptischen Kurve angezeigt."
     IDS_TEXTOPTIONS_KEEP_UPPERCASE_LOWERCASE 
-                            "Wenn Sie diese Option wählen, müssen Sie die untere Einstellung\n[+] ""Groß-/Kleinschreibung beachten"" deaktivieren!"
+                            "In der Gruppe ""Groß-/Kleinschreibung in Klar- und Geheimtext"" können nicht beide Optionen auf einmal gewählt werden."
     IDS_SECUDE_COULD_NOT_BE_LOADED 
                             "Secude-Bibliothek konnte nicht geladen werden!\nMit CrypTool wird ""Secude.dll"" ausgeliefert.\nBitte überprüfen Sie, ob sich diese Datei im CrypTool-Verzeichnis befindet."
     IDS_NGRAM_TITLE         "N-Gramm-Liste von %s"
@@ -21621,12 +21620,12 @@ BEGIN
                             "Die Verschlüsselung erfolgt im Binär-Modus. Alle Zeichen unabhängig vom eingestellten Text-Alphabet werden verschlüsselt."
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -30672,7 +30671,7 @@ BEGIN
     IDS_HEADING_EMPTY_ECDOMAINPARAMETER 
                             "The domain parameter of the selectet elliptic curve will be schown below."
     IDS_TEXTOPTIONS_KEEP_UPPERCASE_LOWERCASE 
-                            "To choose this option, you must first deactivate the option below\n[+] ""Distinguish between uppercase and lowercase""!"
+                            "You cannot select more than one option in the group ""Upper/lower case in cleartext and ciphertext""."
     IDS_SECUDE_COULD_NOT_BE_LOADED 
                             "The Secude library could not be loaded !\n""Secude.dll"" is deliverd with the CrypTool package.\nPlease check whether this file is available in your CrypTool directory."
     IDS_NGRAM_TITLE         "N-Gram List of %s"
@@ -32555,7 +32554,7 @@ BEGIN
                             "You chose the option to do the encryption in binary mode. This means that all characters are encrypted and the chosen text alphabet doesn't matter."
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

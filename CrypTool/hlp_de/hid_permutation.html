@@ -1,0 +1,377 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Permutations-Verschlüsselungsverfahren</TITLE>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
+</HEAD>
+
+<!-- multiple keywords for CrypTool HTML help index -->
+<OBJECT type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
+	<PARAM NAME="Keyword" VALUE="Symmetrisch">
+	<PARAM NAME="Keyword" VALUE="Verschlüsselung">
+	<PARAM NAME="Keyword" VALUE="Permutations-Verschlüsselungsverfahren">
+	<PARAM NAME="Keyword" VALUE="Doppelwürfel">
+</OBJECT>
+
+<BODY>
+
+<h3>Permutation / Transposition (Menü <A href="menu_crypt.html">Ver-/Entschlüsseln</A> \ Symmetrisch (klassisch))</h3>
+
+		<P>Eine <!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselung</A> durch 
+			Permutation verschlüsselt den Text, indem sie die Reihenfolge der einzelnen 
+			Zeichen ändert (Transpositionschiffre). Einzelheiten zur Eingabe des 
+			Permutationsschlüssels erfahren Sie im Dialog <A href="hidd_key_permutation.html">Permutationsschlüsseleingabe</A>.</P>
+		<P>Berichtet wird das erste Mal von einer Verschlüsselung durch Permutation, als 
+			500 v.Chr. die <A href="hid_encryption_simple_transpositions.html">Skytale von Sparta</A> benutzt wurde.</P>
+		<P>Bei der Permutationsverschlüsselung wird der Text normalerweise in eine Tabelle 
+			der Breite n (= Länge der Permutation) zeilenweise eingetragen. Das Chiffrat 
+			wird nun spaltenweise in der von der Permutation vorgegebenen Reihenfolge 
+			ausgelesen. In CrypTool besteht neben der klassischen Variante die Möglichkeit, 
+			den Klartext wahlweise spalten- oder zeilenweise ein- oder auszulesen. Des 
+			weiteren besteht die Möglichkeit zu bestimmen, ob die eigentliche Permutation 
+			spaltenweise oder zeilenweise ausgeführt wird. Standard ist hier spaltenweise, 
+			in der Literatur wird jedoch gelegentlich eine zeilenweise Notation eingesetzt. 
+			Werden bei allen 3 Optionen (Einlesen, Permutation und Auslesen) die Werte 
+			zwischen zeilenweise und spaltenweise getauscht, so führt dies zum gleichen 
+			Ergebnis.</P>
+		<P>Wie bei den anderen klassischen Verschlüsselungsverfahren werden auch hier 
+			üblicherweise Leerzeichen, Satzzeichen und Groß/Kleinschreibung bei der 
+			Verschlüsselung ignoriert (dieses Standardverhalten kann in CrypTool geändert 
+			werden - siehe unten). Aus Sicherheitsgründen sollte die Länge des Klartextes 
+			kein Vielfaches der Länge der Permutation sein. Bei echten Anwendungen wurde im 
+			Zweifelsfall mit Füllzeichen aufgefüllt, um diese Einschränkung zu beachten.</P>
+		<P>Eine einzelne Permutation an sich ist nicht als kryptographisch sicher 
+			anzusehen. Die Verkettung von zwei hintereinander ausgeführten Permutationen 
+			gilt jedoch als kryptographisch sicher, falls die Permutationen 
+			unterschiedliche Längen haben und beide Längen hinreichend lang sind. So wurde 
+			diese als <b>Doppelwürfel</b> bezeichnete Chiffre vom Geheimdienst der ehemaligen 
+			DDR in den Zeiten des kalten Krieges für die Kommunikation mit ihren Agenten 
+			eingesetzt.</P>
+		<P><B>Beispiel:</B>
+		</P>
+		<P>Im folgenden wird der Klartext mit einer Permutation der Länge 4, gegeben durch 
+			die Folge (2, 4, 1, 3) verschlüsselt. Zur besseren Lesbarkeit wurden 
+			Leerzeichen und Groß/Kleinschreibung beibehalten (bevor Sie das Beispiel so 
+			nachvollziehen können, müssen Sie über das Menü<B> Optionen </B>die Dialogbox <A href="hidd_text_options.html">
+				<B>Textoptionen</B></A> aufrufen. Darin ist <B>Groß- / Kleinschreibung beachten</B>
+			einzustellen und unter <B>Alphabetoptionen</B> sind die Großbuchstaben, die 
+			Kleinbuchstaben und das Leerzeichen anzukreuzen).</P>
+		<P>Der Klartext:</P>
+		<div class="indent">
+			<P>"Dies ist ein kurzes Beispiel einer Permutation"</P>
+		</div>
+		<P>wird zeilenweise in die Tabelle(" " steht für ein Leerzeichen) eingetragen:</P>
+		<div class="indent">
+			<TABLE cols="4" width="0*" class="pad10">
+				<TR VALIGN="top">
+					<TD>
+						<PRE><B><CODE>2,</CODE></B></PRE>
+					</TD>
+					<TD>
+						<PRE><B><CODE>4,</CODE></B></PRE>
+					</TD>
+					<TD>
+						<PRE><B><CODE>1,</CODE></B></PRE>
+					</TD>
+					<TD><B><CODE>3 </CODE></B>(Permutations-Schlüssel)</TD>
+				</TR>
+				<TR VALIGN="top">
+					<TD>
+						<PRE><CODE>D</CODE></PRE>
+					</TD>
+					<TD>
+						<PRE><CODE>i</CODE></PRE>
+					</TD>
+					<TD>
+						<PRE><CODE>e</CODE></PRE>
+					</TD>
+					<TD>
+						<PRE><CODE>s</CODE></PRE>
+					</TD>
+				</TR>
+				<TR VALIGN="top">
+					<TD>" "</TD>
+					<TD>
+						<PRE><CODE>i</CODE></PRE>
+					</TD>
+					<TD>
+						<PRE><CODE>s</CODE></PRE>
+					</TD>
+					<TD>
+						<PRE><CODE>t</CODE></PRE>
+					</TD>
+				</TR>
+				<TR VALIGN="top">
+					<TD>" "</TD>
+					<TD>
+						<PRE><CODE>e</CODE></PRE>
+					</TD>
+					<TD>
+						<PRE><CODE>i</CODE></PRE>
+					</TD>
+					<TD>
+						<PRE><CODE>n</CODE></PRE>
+					</TD>
+				</TR>
+				<TR VALIGN="top">
+					<TD>" "</TD>
+					<TD>
+						<PRE><CODE>k</CODE></PRE>
+					</TD>
+					<TD>
+						<PRE><CODE>u</CODE></PRE>
+					</TD>
+					<TD>
+						<PRE><CODE>r</CODE></PRE>
+					</TD>
+				</TR>
+				<TR VALIGN="top">
+					<TD>
+						<PRE><CODE>z</CODE></PRE>
+					</TD>
+					<TD>
+						<PRE><CODE>e</CODE></PRE>
+					</TD>
+					<TD>
+						<PRE><CODE>s</CODE></PRE>
+					</TD>
+					<TD>" "</TD>
+				</TR>
+				<TR VALIGN="top">
+					<TD>
+						<PRE><CODE>B</CODE></PRE>
+					</TD>
+					<TD>
+						<PRE><CODE>e</CODE></PRE>
+					</TD>
+					<TD>
+						<PRE><CODE>i</CODE></PRE>
+					</TD>
+					<TD>
+						<PRE><CODE>s</CODE></PRE>
+					</TD>
+				</TR>
+				<TR VALIGN="top">
+					<TD>
+						<PRE><CODE>p</CODE></PRE>
+					</TD>
+					<TD>
+						<PRE><CODE>i</CODE></PRE>
+					</TD>
+					<TD>
+						<PRE><CODE>e</CODE></PRE>
+					</TD>
+					<TD>
+						<PRE><CODE>l</CODE></PRE>
+					</TD>
+				</TR>
+				<TR VALIGN="top">
+					<TD>" "</TD>
+					<TD>
+						<PRE><CODE>e</CODE></PRE>
+					</TD>
+					<TD>
+						<PRE><CODE>i</CODE></PRE>
+					</TD>
+					<TD>
+						<PRE><CODE>n</CODE></PRE>
+					</TD>
+				</TR>
+				<TR VALIGN="top">
+					<TD>
+						<PRE><CODE>e</CODE></PRE>
+					</TD>
+					<TD>
+						<PRE><CODE>r</CODE></PRE>
+					</TD>
+					<TD>" "</TD>
+					<TD>
+						<PRE><CODE>P</CODE></PRE>
+					</TD>
+				</TR>
+				<TR VALIGN="top">
+					<TD>
+						<PRE><CODE>e</CODE></PRE>
+					</TD>
+					<TD>
+						<PRE><CODE>r</CODE></PRE>
+					</TD>
+					<TD>
+						<PRE><CODE>m</CODE></PRE>
+					</TD>
+					<TD>
+						<PRE><CODE>u</CODE></PRE>
+					</TD>
+				</TR>
+				<TR VALIGN="top">
+					<TD>
+						<PRE><CODE>t</CODE></PRE>
+					</TD>
+					<TD>
+						<PRE><CODE>a</CODE></PRE>
+					</TD>
+					<TD>
+						<PRE><CODE>t</CODE></PRE>
+					</TD>
+					<TD>
+						<PRE><CODE>i</CODE></PRE>
+					</TD>
+				</TR>
+				<TR VALIGN="top">
+					<TD>
+						<PRE><CODE>o</CODE></PRE>
+					</TD>
+					<TD>
+						<PRE><CODE>n</CODE></PRE>
+					</TD>
+					<TD>&nbsp;</TD>
+					<TD>&nbsp;</TD>
+				</TR>
+			</TABLE>
+			<BR>
+		</div>
+		<P>Und dies führt zu folgendem Chiffrat:</P>
+		<div class="indent">
+			<P>"<CODE>esiusiei mtD zBp eetostnr slnPuiiiekeeierran</CODE>"</P>
+		</div>
+		<P>Anhand der Tabelle erkennt man, dass der Chiffretext die Verknüpfung der Spalten 
+			in der Reihenfolge 3, 1, 4, 2 (bestimmt durch den Permutationsschlüssel) ist.</P>
+		<P>Manchmal wird die Permutation (2, 4, 1, 3) in der Literatur anders 
+			interpretiert:</P>
+		<P>Statt sie wie in der CrypTool-Implementierung als neue Indizes über die 
+			Spaltenköpfe zu schreiben und dann die Spalte zuerst zu lesen, über der nun 
+			eine "1" steht (3. Spalte von links), wird zuerst die Spalte gelesen, deren 
+			Index gleich dem 1. Element der Permutation ist (2. Spalte von links).</P>
+		<P>Angewandt auf obiges Beispiel führt die 2. Interpretation zu folgendem Chiffrat:</P>
+		<div class="indent">
+			<P>"<CODE>iiekeeierranstnr slnPuiD...zBp eetoesiusiei mt</CODE>"</P>
+			<P><IMG SRC="images/dlgpermutation.gif" ALT="dlgpermutation.gif" BORDER="0"></P>
+		</div>
+		<P>Die 1. Interpretation kann leicht in die 2. verwandelt werden, indem man die 
+			Inverse der Permutation bildet: (2, 4, 1, 3) ergibt invertiert (3, 1, 4, 2). 
+			Dies kann man unter <B>Optionen</B> einstellen.</P>
+		<div class="indent">
+			<P><IMG SRC="images/dlginversepermutation.gif" ALT="dlginversepermutation.gif" BORDER="0"></P>
+		</div>
+		<P>Es gibt außer der identischen Permutation (1, 2, ..., n-1, n) auch andere 
+			Permutationen, die identisch mit ihrer Inversen sind, z.B. (2, 4, 1, 3, 5).</P>
+		<P>In CrypTool wird die verwendete Permutation entweder aus dem eingegebenen 
+			Schlüsselwort abgeleitet oder direkt durch Zahlenwerte angegeben. Die 
+			Permutation erhält dabei die Länge des Schlüsselwortes. Der Dialog <A href="hidd_key_permutation.html">
+				Permutationsschlüsseleingabe</A> ermöglicht die gleichzeitige Eingabe von 
+			maximal zwei Permutationen. Wird das Eingabefeld für die zweite Permutation 
+			nicht ausgefüllt, so wird nur eine Permutation ausgeführt.</P>
+		<P><B>Methode zur Erzeugung der Permutation aus dem Schlüsselwort</B></P>
+		<P>Anhand des Schlüsselwortes "Schluessel" wird beschrieben, wie in CrypTool aus 
+			einem Schlüsselwort eine Permutation gebildet wird.</P>
+		<OL>
+			<LI>
+				Längenbestimmung der Permutation: Das Schlüsselwort enthält 10 Zeichen aus dem 
+				Bereich "a" bis "z": Länge der Permutation = 10.<BR>
+				<BR>
+			<LI>
+				Umsetzung der Zeichen in Zahlen: Die Umsetzung erfolgt als "a=1", "b=2", ..., 
+				"z=26". Daher ist "Schluessel = 19, 3, 8, 12, 21, 5, 19, 19, 5, 12".<BR>
+				<BR>
+			<LI>
+				Die Zahlen werden nun auf den jeweils noch zu vergebenden Bereich abgebildet.<BR>
+				<BR>
+		<OL type="a">
+			<LI>
+				Für die erste Zahl (19) stehen 10 Möglichkeiten bereit: 19 – 10 = 9.<BR>
+				<BR>
+			<LI>
+				Für die zweite Zahl (3) stehen nur noch 9 Möglichkeiten zur Wahl: 3.<BR>
+				<BR>
+			<LI>
+				Für die dritte Zahl (8) stehen nur noch 8 Möglichkeiten zur Wahl: 8.<BR>
+				<BR>
+			<LI>
+				Für die vierte Zahl (12) steht nur noch 7 Möglichkeit zur Wahl: 12 – 7 = 5.<BR>
+				<BR>
+				<P>...</P>
+				<P>...</P>
+				<div style="MARGIN-LEFT: -40px"><OL start="10" type="a">
+						<LI>
+							Für die letzte Zahl (12) steht nur noch 1 Möglichkeit zur Verfügung: 1.<BR>
+							<BR>
+						</LI>
+					</OL>
+				</div>
+			</LI>
+		</OL>
+		<LI>
+			Das Schlüsselwort wird daher auf die Zahlenfolge 9, 3, 8, 5, 3, 5, 3, 1, 1, 1 
+			abgebildet.<BR>
+			<BR>
+		<LI>
+			Ausgehend von der identischen Permutation 
+			(1,&nbsp;2,&nbsp;3,&nbsp;4,&nbsp;5,&nbsp;6,&nbsp;7,&nbsp;8,&nbsp;9,&nbsp;10) 
+			wird nun die
+			<P></P>
+			<P>Schlüsselpermutation gebildet:<BR>
+				<BR>
+				<OL type="a">
+					<LI>
+						Die Schlüsselzahl 9 wird abgebildet auf den 9. Wert der Permutation 
+						(1,&nbsp;2,&nbsp;3,&nbsp;4,&nbsp;5,&nbsp;6,&nbsp;7,&nbsp;8,&nbsp;9,&nbsp;10): 
+						9. Dieser Wert wird aus der Liste (1, 2, 3, 4, 5, 6, 7, 8, 9, 10) gestrichen, 
+						was (1,&nbsp;2,&nbsp;3,&nbsp;4,&nbsp;5,&nbsp;6,&nbsp;7,&nbsp;8,&nbsp;10) 
+						ergibt.<BR>
+						<BR>
+					<LI>
+						Die Schlüsselzahl 3 wird abgebildet auf den 3. Wert der Permutation 
+						(1,&nbsp;2,&nbsp;3,&nbsp;4,&nbsp;5,&nbsp;6,&nbsp;7,&nbsp;8,&nbsp;10): 3. Dieser 
+						Wert wird aus der Liste 
+						(1,&nbsp;2,&nbsp;3,&nbsp;4,&nbsp;5,&nbsp;6,&nbsp;7,&nbsp;8,&nbsp;10) 
+						gestrichen, was (1,&nbsp;2,&nbsp;4,&nbsp;5,&nbsp;6,&nbsp;7,&nbsp;8,&nbsp;10) 
+						ergibt.<BR>
+						<BR>
+					<LI>
+						Die Schlüsselzahl 8 wird abgebildet auf den 8. Wert der Permutation 
+						(1,&nbsp;2,&nbsp;4,&nbsp;5,&nbsp;6,&nbsp;7,&nbsp;8,&nbsp;10): 10. Dieser Wert 
+						wird aus der Liste (1,&nbsp;2,&nbsp;4,&nbsp;5,&nbsp;6,&nbsp;7,&nbsp;8,&nbsp;10) 
+						gestrichen, was (1,&nbsp;2,&nbsp;4,&nbsp;5,&nbsp;6,&nbsp;7,&nbsp;8) ergibt.<BR>
+						<BR>
+						<P>...</P>
+						<P>...</P>
+						<div style="MARGIN-LEFT: -40px"><OL start="10" type="a">
+								<LI>
+									Der letzte Schlüsselwert wird auf den letzten verfügbaren Wert abgebildet: 7.<BR>
+									<BR>
+								</LI>
+							</OL>
+						</div>
+					</LI>
+				</OL>
+		<LI>
+			Die aus dem Schlüsselwort "SCHLUESSEL" resultierende Permutation ist daher:
+			<P></P>
+			<P>(9,&nbsp;3,&nbsp;10,&nbsp;6,&nbsp;4,&nbsp;8,&nbsp;5,&nbsp;1,&nbsp;2,&nbsp;7). 
+				Die Spalten der Tabelle werden daher in dieser Reihenfolge ausgelesen.</P>
+		</LI>
+		</OL>
+		<P><B>Direkte numerische Spezifikation der Permutation</B></P>
+		<P>Die Permutation kann auch direkt numerisch und mit Kommas getrennt angegeben 
+			werden anstatt durch Eingabe eines Schlüsselwortes. Eine Verifikation der 
+			Permutation auf syntaktische Korrektheit erfolgt erst bei einem Versuch einer 
+			Ver- bzw. Entschlüsselung. Die Permutation muss vollständig angegeben werden. 
+			Es dürfen keine Werte ausgelassen oder doppelt verwendet werden. Die oben 
+			erzeugte Permutation 
+			(9,&nbsp;3,&nbsp;10,&nbsp;6,&nbsp;4,&nbsp;8,&nbsp;5,&nbsp;1,&nbsp;2,&nbsp;7) 
+			wird daher als<CODE> 9,3,10,6,4,8,5,1,2,7</CODE> eingegeben.</P>
+		<P>Einstellmöglichkeiten:</P>
+		<P>Sie haben folgende Einstellmöglichkeiten <U>pro</U> Permutation:</P>
+		<UL>
+			<LI>
+			Ein-/Auslesen der Daten zeilen- oder spaltenweise.
+			<LI>
+				Vertauschen der Spalten oder Zeilen anhand der eingegebenen Permutation.</LI>
+		</UL>
+		<P>Auf <U>beide</U> Permutationen wirkt die Einstellmöglichkeit, als Permutation 
+			die Inverse der angegebenen Permutation zu nehmen.</P>
+		<P>Der historische Standard entspricht einem zeilenweisen Einlesen und einem 
+			spaltenweisen Auslesen der Daten.</P>
+	</BODY>
+</HTML>
