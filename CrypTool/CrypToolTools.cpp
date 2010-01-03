@@ -299,7 +299,7 @@ CString extractValueFromStringByKey(CString _key, CString _string) {
 // determines if the desired program exists (thus we need parameter 1); 
 // if the program exists, this function tries to execute the program 
 // within a shell window
-void ShellExecuteJava(CString _javaProgram, CString _javaProgramCompleteCall) {
+void ShellExecuteJava(CString &_javaProgram, CString &_javaProgramCompleteCall, CString &_path) {
 
 	CString javaProgram = _javaProgram;
 	CString javaProgramCompleteCall = _javaProgramCompleteCall;
@@ -312,7 +312,7 @@ void ShellExecuteJava(CString _javaProgram, CString _javaProgramCompleteCall) {
 		return;
 	}
 	// check if Java program is there
-	javaProgram.Insert(0, Pfad);
+	javaProgram.Insert(0, _path);
 	struct stat javaProgramFileInformation;
 	if(stat(javaProgram.GetBuffer(), &javaProgramFileInformation) != 0) {
 		CString message;
@@ -321,7 +321,7 @@ void ShellExecuteJava(CString _javaProgram, CString _javaProgramCompleteCall) {
 		return;
 	}
 	// try to execute the Java progam
-	if(reinterpret_cast<int>(ShellExecute(NULL, NULL, "java", javaProgramCompleteCall, Pfad, SW_HIDE)) <= 32) {
+	if(reinterpret_cast<int>(ShellExecute(NULL, NULL, "java", javaProgramCompleteCall, _path, SW_HIDE)) <= 32) {
 		CString message;
 		message.LoadStringA(IDS_STRING_JAVA_PROGRAM_EXECUTION_FAILED);
 		AfxMessageBox(message, MB_ICONSTOP);

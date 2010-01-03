@@ -8,11 +8,12 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -3024,43 +3025,32 @@ BEGIN
     LTEXT           "Aby rozpocz¹æ atak, kliknij ""Start""",IDC_STATIC,15,83,178,9
 END
 
-IDD_HMAC DIALOGEX 0, 0, 325, 505
+IDD_HMAC DIALOGEX 0, 0, 532, 474
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Kod autentykacji wiadomoœci"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    EDITTEXT        IDC_EDIT_KEY,7,285,311,12,ES_AUTOHSCROLL | ES_WANTRETURN
-    CONTROL         "MD2",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,19,156,31,8
-    CONTROL         "MD4",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,19,170,31,8
-    CONTROL         "MD5",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,19,184,31,8
-    CONTROL         "SHA",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,19,198,31,8
-    CONTROL         "SHA-1",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,19,212,37,8
-    CONTROL         "SHA-256",IDC_RADIO12,"Button",BS_AUTORADIOBUTTON,19,226,65,8
-    CONTROL         "SHA-512",IDC_RADIO13,"Button",BS_AUTORADIOBUTTON,19,240,65,8
-    CONTROL         "RIPEMD-160",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,19,254,58,8
-    CONTROL         "Na pocz¹tku wiadomoœci: H(k, m)",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | WS_GROUP,133,156,177,8
-    CONTROL         "Na koñcu wiadomoœci: H(m, k)",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,133,170,177,8
-    CONTROL         "Na pocz¹tku i na koñcu: H(k, m, k)",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON,133,184,177,8
-    CONTROL         "Ró¿ne klucze: H(k, m, k')",IDC_RADIO11,"Button",BS_AUTORADIOBUTTON,133,198,177,8
-    CONTROL         "Podwójny hasz: H(k, H(k, m)) (RFC 2104)",IDC_RADIO10,
-                    "Button",BS_AUTORADIOBUTTON,133,212,177,8
-    EDITTEXT        IDC_EDIT_KEY2,7,314,311,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_SHOW_MAC,7,437,311,32,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_SHOW_TEXT,7,343,311,32,ES_MULTILINE | ES_READONLY
-    PUSHBUTTON      "Zamknij",IDCANCEL,7,478,90,20
-    LTEXT           "WprowadŸ klucz (k)",IDC_STATIC,7,273,58,8
-    LTEXT           "WprowadŸ drugi klucz (k'):",IDC_STATIC,7,303,70,8
-    LTEXT           "MAC wygenerowany z wiadomoœci i klucza",IDC_STATIC,7,426,125,8
-    LTEXT           "Dane wejœciowe do funkcji haszuj¹cej",IDC_STATIC,7,331,311,8
-    GROUPBOX        "Wybierz funkcjê haszuj¹c¹:",IDC_STATIC,7,143,102,126
-    GROUPBOX        "Ró¿nica (pozycja klucza)",IDC_STATIC,123,143,195,126
-    LTEXT           "Za pomoc¹ MAC odbiorca wiadomoœci jest w stanie zweryfikowaæ integralnoœæ i autentycznoœæ orygina³u (nadawcy). W ten sposób obie strony mog¹ u¿yæ klucza dzielonego (klucza symetrycznego).",IDC_STATIC,15,20,295,16
-    LTEXT           "Aby stworzyæ MAC, u¿ywana jest kryptograficzna funkcja haszuj¹ca do kombinacji wiadomoœci m i klucza k. Zgodnie z poni¿szym wyborem, mog¹ zostaæ u¿yte dwa ró¿ne klucze k i k'. ",IDC_STATIC,15,40,295,24
-    GROUPBOX        "Opis",IDC_STATIC,7,7,311,70
-    EDITTEXT        IDC_EDIT_ORIGINAL_MESSAGE,15,93,295,42,ES_AUTOHSCROLL
-    GROUPBOX        "Wiadomoœæ",IDC_STATIC,7,80,311,60
-    LTEXT           "Wartoœæ hasz tylko dla wiadomoœci m:",IDC_STATIC,7,379,111,8
-    EDITTEXT        IDC_SHOW_HASH,7,390,311,32,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_KEY,99,248,417,12,ES_AUTOHSCROLL | ES_WANTRETURN
+    EDITTEXT        IDC_EDIT_KEY2,99,265,417,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_SHOW_MAC,7,410,518,25,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_SHOW_TEXT,7,346,518,49,ES_MULTILINE | ES_READONLY
+    PUSHBUTTON      "Zamknij",IDCANCEL,7,447,90,20
+    LTEXT           "WprowadŸ klucz (k)",IDC_STATIC,15,249,58,8
+    LTEXT           "WprowadŸ drugi klucz (k'):",IDC_STATIC,15,267,70,8
+    LTEXT           "MAC wygenerowany z wiadomoœci i klucza",IDC_STATIC,7,400,125,8
+    LTEXT           "Dane wejœciowe do funkcji haszuj¹cej",IDC_STATIC,7,336,518,8
+    LTEXT           "Za pomoc¹ MAC odbiorca wiadomoœci jest w stanie zweryfikowaæ integralnoœæ i autentycznoœæ orygina³u (nadawcy). W ten sposób obie strony mog¹ u¿yæ klucza dzielonego (klucza symetrycznego).",IDC_STATIC,15,20,501,17
+    LTEXT           "Aby stworzyæ MAC, u¿ywana jest kryptograficzna funkcja haszuj¹ca do kombinacji wiadomoœci m i klucza k. Zgodnie z poni¿szym wyborem, mog¹ zostaæ u¿yte dwa ró¿ne klucze k i k'. ",IDC_STATIC,15,37,501,16
+    GROUPBOX        "Opis",IDC_STATIC,7,7,518,50
+    EDITTEXT        IDC_EDIT_ORIGINAL_MESSAGE,15,78,501,118,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | WS_VSCROLL
+    GROUPBOX        "Wiadomoœæ",IDC_STATIC,7,64,518,140
+    LTEXT           "[i18n] Inner hash value:",IDC_STATIC,7,292,111,8
+    EDITTEXT        IDC_SHOW_HASH,7,303,518,25,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,83,222,159,101,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_SELECT_HMAC_ALGORITHM,325,222,191,101,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "funkcjê haszuj¹c¹:",IDC_STATIC,15,223,61,9
+    LTEXT           "[i18n]MAC-Variante:",IDC_STATIC,258,225,63,9
+    GROUPBOX        "[i18n] HMAC parameter and key",IDC_STATIC,7,208,518,76
 END
 
 IDD_ADFGVX DIALOGEX 0, 0, 265, 466
@@ -7747,18 +7737,14 @@ BEGIN
     IDD_HMAC, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 318
+        RIGHTMARGIN, 525
         VERTGUIDE, 15
-        VERTGUIDE, 133
+        VERTGUIDE, 99
         VERTGUIDE, 310
+        VERTGUIDE, 516
         TOPMARGIN, 7
-        BOTTOMMARGIN, 498
+        BOTTOMMARGIN, 467
         HORZGUIDE, 20
-        HORZGUIDE, 164
-        HORZGUIDE, 178
-        HORZGUIDE, 192
-        HORZGUIDE, 206
-        HORZGUIDE, 220
     END
 
     IDD_ADFGVX, DIALOG
@@ -8221,6 +8207,17 @@ BEGIN
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nPliki HEX\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nPliki ASCII\n"
     IDR_PLOTTYPE            "\nUnnamed\n\nPLOT file (*.plt)\n.plt\n\nPlot File Type\nPLOT\nPlot Files"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_HMAC_ALGORITHM_HKM  "Na pocz¹tku wiadomoœci: H(k, m)"
+    IDS_HMAC_ALGORITHM_HMK  "Na koñcu wiadomoœci: H(m, k)"
+    IDS_HMAC_ALGORITHM_HKMK "Na pocz¹tku i na koñcu: H(k, m, k)"
+    IDS_HMAC_ALGORITHM_HK1MK2 "Ró¿ne klucze: H(k, m, k')"
+    IDS_HMAC_ALGORITHM_RFC2104 "Podwójny hasz: H(k, H(k, m)) (RFC 2104)"
+    IDS_HASHDEMO_SELALGORITHM "[i18n] Bitte wählen Sie das Hashverfahren"
+    IDS_HMAC_SELALGORITHM   "[i18n] Bitte wählen Sie die HMAC-Variante"
 END
 
 STRINGTABLE 
@@ -10345,6 +10342,18 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_HEADERTEXT_PERMUTATION "Permutacja"
+    IDS_HEADERTEXT_READOUT  "Wyczytac"
+    IDS_HEADER_PERMKEYLIST  "Stwierdzono co najmniej jeden klucz permutacji. Klucze sa wyswietlane na liscie.\nMozesz skopiowac biezace zaznaczenie w keystore."
+    IDS_NOKEYSELECTED       "Wybierz klucz z listy"
+    IDS_ACTIVE              "Aktywny"
+    IDS_PERMKEY_COPIED_AND_TIPPS 
+                            "Klucz wybrany zostanie zaladowany do keystore. Mozesz uzyc tego klucza, przy permutacji (patrz menu: Szyfrowanie - Historyczne - Permutacja / Transposicja).\n\nAby to zrobic, kliknij w oknie Permutacji na ikone klucza. "
+    IDS_DIALOGHEADER_PERMKEY_LIST "Lista odnalezionych kluczy permutacji"
+    IDS_INFO_TEXT_ENCRYPTION 
+                            "You chose the option to do the encryption in text mode.\nThis means that characters, which don't belong to the alphabet, are not encrypted (according to the Text option settings these characters are taken away or be kept)."
+    IDS_INFO_BYNARY_ENCRYPTION 
+                            "You chose the option to do the encryption in binary mode. This means that all characters are encrypted and the chosen text alphabet doesn't matter."
     IDS_FINDANDREPLACE_HEXNOTIMPLEMENTED 
                             "Opcja jeszcze nie zaimplementowana w systemie HEX!"
     IDS_FINDANDREPLACE_TEXTNOTFOUND "Po¿¹dany tekst nie zosta³ znaleziony!"
@@ -10354,9 +10363,13 @@ BEGIN
     IDS_HASHDEMO_STRING_MD4 "MD4 (128 bit)"
     IDS_HASHDEMO_STRING_MD5 "MD5 (128 bit)"
     IDS_HASHDEMO_STRING_SHA "SHA (160 bit)"
+END
+
+STRINGTABLE 
+BEGIN
     IDS_HASHDEMO_STRING_SHA1 "SHA-1 (160 bit)"
     IDS_HASHDEMO_STRING_RIPEMD160 "RIPEMD-160 (160 bit)"
-    IDS_NUMBERSHARK_EXE     "Number Shark.exe"
+    IDS_NUMBERSHARK_EXE     "NumberShark.exe"
     IDS_STRING_ADFGVX_STRINGLENGTH 
                             "Wprowadzony ci¹g nie zawiera wszystkich liter\n'A - Z' i liczb '0 - 9'"
     IDS_STRING_ADFGVX_STRINGINVALID 
@@ -10365,6 +10378,13 @@ BEGIN
                             "Ci¹g wejœciowy zawiera zbêdne znaki\nWszystkie litery 'A-Z' oraz liczby '0-9'\nmusz¹ zostaæ zawarte dok³adnie jeden raz"
     IDS_STRING_MSG_UUENC_OF "Kodowanie UU  <%s>"
     IDS_SCINTILLA_DEFAULT_PRINT_HEADER "%1 - Wydrukowane na %2"
+    IDS_SCINTILLA_DEFAULT_PRINT_FOOTER "Strona %1"
+    IDS_CR_CLIENT           "Klient."
+    IDS_CR_ROUTER           "Router %d"
+    IDS_CR_SERVER           "Server %d"
+    IDS_CR_ATTACKER         "Atakujacy"
+    IDS_CR_PASSWORD         "sekret"
+    IDS_STRING_TEST_POKER   "Test pokerowy"
 END
 
 STRINGTABLE 
@@ -10449,13 +10469,6 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_SCINTILLA_DEFAULT_PRINT_FOOTER "Strona %1"
-    IDS_CR_CLIENT           "Klient."
-    IDS_CR_ROUTER           "Router %d"
-    IDS_CR_SERVER           "Server %d"
-    IDS_CR_ATTACKER         "Atakujacy"
-    IDS_CR_PASSWORD         "sekret"
-    IDS_STRING_TEST_POKER   "Test pokerowy"
     IDS_STRING_HILL_DETAILS "Detale Hilla"
     IDS_STRING_TEST_FREQ    "Test czêstotliwoœci"
     IDS_STRING_TEST_SERIAL  "Test dwubitowy"
@@ -10467,6 +10480,7 @@ BEGIN
     IDS_ROT13_CAESAR_TOO_LARGE_KEY 
                             "Ci¹g wejœciowy jest wiêkszy ni¿ d³ugoœæ alfabetu. \n Ustawiæ wartoœæ automatycznie na 1?"
     IDS_PQM_PASSWORD_IS_COMPLIANT "- Tak\r\n"
+    IDS_PQM_PASSWORD_COMPLIANT "Zgodny z wytycznymi dla has³a:\r\n"
 END
 
 STRINGTABLE 
@@ -10481,13 +10495,8 @@ BEGIN
     IDS_CLIPBOARD_HEXCOPY   "Zaznaczone dane mog¹ zostaæ umieszczone w schowku niezmienione (domyœlnie) lub zakodowane heksadecymalnie.\n Kodowanie heksadecymalne jest wymagane na przyk³ad jeœli zamierzasz wyeksportowaæ ""niedrukowalne"" znaki do innych aplikacji.\n\nCzy u¿yæ kodowania heksadecymalnego?"
     IDS_CLIPBOARD_HEXPASTE  "Schowek zawiera tylko znaki heksadecymalne. Mog¹ zostaæ umieszczone jako zdekodowane (domyœlnie) lub bez zmian.\n\n Dekodowaæ dane heksadecymalne?"
     IDS_STRING_MEMBER2      "uczestnik"
-    IDS_PQM_PASSWORD_RECONSTRUCTION 
-                            "\r\nRekonstrukcja ze s³ów, sekwencji i wzorców:"
-    IDS_PQM_PASSWORD_RECONSTRUCTION_FOUND "\r\n Znalezione:"
     IDS_SCINTILLA_LEXER_ERROR 
                             "Widok alfabetu nie móg³ zostaæ aktywowany. Prawdopodobnie zosta³a za³adowana inna wersja SCILEXER.DLL\n ni¿ ta, dostarczona z CrypToolem."
-    IDS_PQM_CRYPTOOLALPHABETINACTIVE 
-                            "Deaktywowa³eœ alfabet CrypToola. Proszê pamiêtaæ, ¿e wyœwietlona \n jakoœæ has³a przy tej konfiguracji mo¿e przekroczyæ efektywn¹ jakoœæ has³a."
     IDS_STATISTICAL_REFERENCE_FILE_MISSING 
                             "Plik referencyjny dla zastosowañ statystycznych nie zosta³ odnaleziony.\n Proszê okreœliæ nazwê pliku w oknie opcji tektu."
     IDS_STATISTICAL_REFERENCE_FILE_STILL_MISSING 
@@ -10495,8 +10504,35 @@ BEGIN
     IDS_RIJNDAEL_INSPECTOR_EXEC_STR "Rijndael-Inspector.exe"
     IDS_ERROR_OPEN_FLASHAESDEMO 
                             "Demo algorytmu AES nie mog³o zostaæ otwarte.\n Proszê sprawdziæ, czy jest poprawnie zainstalowane w katalogu programu CrypTool.\\m(""%s"")."
+END
+
+STRINGTABLE 
+BEGIN
     IDS_ERROR_OPEN_RIJNDAELINSPECTOR 
                             "Inspektor Rijndael nie móg³ zostaæ otwarty.\n Proszê siê upewniæ, czy jest poprawnie zainstalowany w katalogu CrypTool'a\n(""%s"")."
+    IDS_PQM_CRYPTOOLALPHABETINACTIVE 
+                            "Deaktywowa³eœ alfabet CrypToola. Proszê pamiêtaæ, ¿e wyœwietlona \n jakoœæ has³a przy tej konfiguracji mo¿e przekroczyæ efektywn¹ jakoœæ has³a."
+    IDS_PQM_PASSWORD_RECONSTRUCTION_FOUND "\r\n Znalezione:"
+    IDS_PQM_PASSWORD_RECONSTRUCTION 
+                            "\r\nRekonstrukcja ze s³ów, sekwencji i wzorców:"
+    IDS_PQM_PASSWORD_RECONSTRUCTION_PATTERNS "\nWzorce:"
+    IDS_PQM_PASSWORD_RECONSTRUCTION_SEQUENCES "\r\nSekwencje:"
+    IDS_PQM_PASSWORD_RECONSTRUCTION_KEYBOARDSEQUENCES 
+                            "\r\nSekwencje klawiatury:"
+    IDS_PQM_CRACKLIB_DICTIONARY_PATH "words\\cracklib_dict"
+    IDS_PQM_NO_CRACKLIB_DICTIONARY 
+                            "Nie mo¿na otworzyæ s³ownika cracklib: \n%s \r\n Proszê sprawdziæ, czy podany plik istnieje: \n%s.hwm\n%s.pwd\n%s.pwi"
+    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT 
+                            "- Nie (has³o jest za krótkie)\r\n"
+    IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS "\r\n S³owa ze s³ownika:"
+    IDS_SECRETSHARINGSHAMIR_LOG_HEADING 
+                            "Plik log dla demonstracji dzielenia tajemnic Shamira"
+    IDS_CAESAR_ANALYSIS_REMARK 
+                            "Ze wzglêdu na przesuniêcie klucza u¿ytego podczas szyfrowania, mo¿liwe s¹ dwa klucze: Dla przesuniêcia 1 klucz wynosi '%s', a dla przesuniêcia 0 - '%s'"
+    IDS_STRING_INVALID_VERNAM_KEY 
+                            "Wybrana d³ugoœæ klucza Vernama wynosi 0.\n Proszê sprawdziæ plik klucza."
+    IDS_STRING_SHORT_VERNAM_KEY 
+                            "Klucz Vernama jest krótszy ni¿ tekst do zaszyfrowania."
 END
 
 STRINGTABLE 
@@ -10580,43 +10616,12 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_PQM_PASSWORD_RECONSTRUCTION_PATTERNS "\nWzorce:"
-    IDS_PQM_PASSWORD_RECONSTRUCTION_SEQUENCES "\r\nSekwencje:"
-    IDS_PQM_PASSWORD_RECONSTRUCTION_KEYBOARDSEQUENCES 
-                            "\r\nSekwencje klawiatury:"
-    IDS_PQM_CRACKLIB_DICTIONARY_PATH "words\\cracklib_dict"
-    IDS_PQM_NO_CRACKLIB_DICTIONARY 
-                            "Nie mo¿na otworzyæ s³ownika cracklib: \n%s \r\n Proszê sprawdziæ, czy podany plik istnieje: \n%s.hwm\n%s.pwd\n%s.pwi"
-    IDS_PQM_PASSWORD_COMPLIANT "Zgodny z wytycznymi dla has³a:\r\n"
-    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT 
-                            "- Nie (has³o jest za krótkie)\r\n"
-    IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS "\r\n S³owa ze s³ownika:"
-    IDS_SECRETSHARINGSHAMIR_LOG_HEADING 
-                            "Plik log dla demonstracji dzielenia tajemnic Shamira"
-    IDS_CAESAR_ANALYSIS_REMARK 
-                            "Ze wzglêdu na przesuniêcie klucza u¿ytego podczas szyfrowania, mo¿liwe s¹ dwa klucze: Dla przesuniêcia 1 klucz wynosi '%s', a dla przesuniêcia 0 - '%s'"
-    IDS_STRING_INVALID_VERNAM_KEY 
-                            "Wybrana d³ugoœæ klucza Vernama wynosi 0.\n Proszê sprawdziæ plik klucza."
-    IDS_STRING_SHORT_VERNAM_KEY 
-                            "Klucz Vernama jest krótszy ni¿ tekst do zaszyfrowania."
     IDS_PATH_PRESENTATION   "%sCrypToolPresentation-en.pdf"
     IDS_ERROR_OPENING_PRESENTATION 
                             "Prezentacja nie mog³a zostaæ otwarta!\n\n Proszê sprawdziæ, czy plik ""CrypToolPresentation-en.pdf"" znajduje siê w tym samym folderze, co plik ""CrypTool.exe""."
     IDS_PQM_ENTROPY_NOT_ALL_INPUT_PARAMETERS_SET 
                             "Upewnij siê, ¿e poda³eœ oczekiwan¹ wartoœæ entropii i d³ugoœæ alfabetu."
     IDS_CANT_UNDO           "Nie mo¿na cofn¹æ ostatniej zmiany tekstu. \n\nUwolnij trochê pamiêci i spróbuj ponownie."
-END
-
-STRINGTABLE 
-BEGIN
-    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_DIGITS 
-                            "- Nie (has³o zawiera zbyt ma³o cyfr)\r\n"
-    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_SPECIAL_CHARACTERS 
-                            "- Nie (has³o zawiera zbyt ma³o znaków specjalnych)\r\n"
-END
-
-STRINGTABLE 
-BEGIN
     IDS_CANT_REDO           "Nie mo¿na cofn¹æ ostatniego undo.\n\nUwolnij trochê pamiêci i spróbuj ponownie."
     IDS_CANT_SAVE_UNDO      "Nie mo¿na zapisaæ informacji aby móc póŸniej cofn¹æ ostatnie zmiany tekstu."
     IDS_FIND_AND_REPLACE_NULL_BYTE_IN_FIND_STRING 
@@ -10635,6 +10640,18 @@ BEGIN
     IDS_BIT_FMT             "%d bit%s"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION 
                             "W podanym zakresie wartoœci [%s, %s] %d znaleziono liczby pierwsze."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_DIGITS 
+                            "- Nie (has³o zawiera zbyt ma³o cyfr)\r\n"
+    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_SPECIAL_CHARACTERS 
+                            "- Nie (has³o zawiera zbyt ma³o znaków specjalnych)\r\n"
+END
+
+STRINGTABLE 
+BEGIN
     IDS_BIT_EFFECTIVE_FMT   " (%d bit effective)"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_TITLE 
                             "Tworzenie zbioru liczb pierwszych"
@@ -10643,6 +10660,19 @@ BEGIN
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION_CANCELLED 
                             "Proces zosta³ odwo³any. W podanym zakresie wartoœci  [%s, %s], %d znaleziono jeszcze liczby pierwsze."
     IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_SCYTALE "Liczba krawêdzi:"
+    IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_RAIL_FENCE "Liczba wierszy:"
+    IDS_SIMPLE_TRANSPOSITION_KEY_INVALID 
+                            "Klucz jest nieprawid³owy. Musi byæ wiêkszy ni¿ 1, a mniejszy od d³ugoœci tekstu wejœciowego.\n\n Znaki, które nie s¹ zawarte w alfabecie CrypTool zostan¹ usuniête przed szyfrowaniem / deszyfrowaniem. Jeœli nie chcesz, ¿eby tekst wejœciowy zosta³ zmieniony, nale¿y u¿yæ przycisku 'Opcje tekstu' i zmieniæ alfabet CrypTool."
+    IDS_STRING_RAIL_FENCE_ENCRYPTION_OF "Zaszyfrowanie p³otu <%s>, key <%s>"
+    IDS_STRING_RAIL_FENCE_DECRYPTION_OF "Deszyfrowanie p³otu <%s>, key <%s>"
+    IDS_STRING_SCYTALE_ENCRYPTION_OF "Zaszyfrowanie scytali <%s>, klucz <%s>"
+    IDS_STRING_SCYTALE_DECRYPTION_OF "Deszyfrowanie scrytali <%s>, klucz <%s>"
+    IDS_FACTORS_FOUND       "Znaleziono %d czynników w %s"
+    IDS_SIMPLE_TRANSPOSITION_OFFSET_INVALID 
+                            "Offset jest nieprawid³owy. Nie mo¿e byæ mniejszy ni¿ 0."
+    IDS_STRING_FACTORIZATION_BRUTE_FORCE_LIMIT 
+                            "Czynnik ten nie moze byc faktoryzowany za pomoca brute-force. Tutaj brute-force jest realizowany w celu znalezienia tylko czynnikow mniejszych niz %d."
+    IDS_CRYPT_SIMPLETRANSPOSITION "Prosta transpozycja"
 END
 
 STRINGTABLE 
@@ -10692,22 +10722,21 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_RAIL_FENCE "Liczba wierszy:"
-    IDS_SIMPLE_TRANSPOSITION_KEY_INVALID 
-                            "Klucz jest nieprawid³owy. Musi byæ wiêkszy ni¿ 1, a mniejszy od d³ugoœci tekstu wejœciowego.\n\n Znaki, które nie s¹ zawarte w alfabecie CrypTool zostan¹ usuniête przed szyfrowaniem / deszyfrowaniem. Jeœli nie chcesz, ¿eby tekst wejœciowy zosta³ zmieniony, nale¿y u¿yæ przycisku 'Opcje tekstu' i zmieniæ alfabet CrypTool."
-    IDS_STRING_RAIL_FENCE_ENCRYPTION_OF "Zaszyfrowanie p³otu <%s>, key <%s>"
-    IDS_STRING_RAIL_FENCE_DECRYPTION_OF "Deszyfrowanie p³otu <%s>, key <%s>"
-    IDS_STRING_SCYTALE_ENCRYPTION_OF "Zaszyfrowanie scytali <%s>, klucz <%s>"
-    IDS_STRING_SCYTALE_DECRYPTION_OF "Deszyfrowanie scrytali <%s>, klucz <%s>"
-    IDS_FACTORS_FOUND       "Znaleziono %d czynników w %s"
-    IDS_SIMPLE_TRANSPOSITION_OFFSET_INVALID 
-                            "Offset jest nieprawid³owy. Nie mo¿e byæ mniejszy ni¿ 0."
-    IDS_STRING_FACTORIZATION_BRUTE_FORCE_LIMIT 
-                            "Czynnik ten nie moze byc faktoryzowany za pomoca brute-force. Tutaj brute-force jest realizowany w celu znalezienia tylko czynnikow mniejszych niz %d."
-    IDS_CRYPT_SIMPLETRANSPOSITION "Prosta transpozycja"
     IDS_STRING_ASYMKEY_ERR_CERT_SERIAL_EXISTS 
                             "Import certyfikatu siê nie uda³ poniewa¿ istnieje ju¿ certyfikat z tym samym numerem seryjnym."
-    IDS_STRING_SMIME_DEMO_PROGRAM "smimedemo\\main\\Programm.class"
+    IDS_STRING_SMIME_DEMO_PROGRAM "main\\Programm.class"
+    IDS_STRING_SMIME_DEMO_PROGRAM_COMPLETE_CALL 
+                            "-cp "".;./lib/*"" main.Programm EN"
+    IDS_AUTHORS_FILE_MISSING 
+                            "Nie mozna znalezc plik ""authors.txt"". Upewnij sie, ze plik znajduje sie w glównym folderze CrypTool."
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DICTIONARY_FILENAME 
+                            "VigenereAnalysisSchroedelDictionary.txt"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DIGRAMS_FILENAME 
+                            "VigenereAnalysisSchroedelDigrams.txt"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_TRIGRAMS_FILENAME 
+                            "VigenereAnalysisSchroedelTrigrams.txt"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_PROGRESS_BAR_TITLE 
+                            "Vigenère analysis according to Schroedel"
 END
 
 STRINGTABLE 
@@ -10733,42 +10762,17 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_STRING_SMIME_DEMO_PROGRAM_COMPLETE_CALL 
-                            "-cp ""./smimedemo/;./smimedemo/lib/*"" main.Programm EN"
-    IDS_AUTHORS_FILE_MISSING 
-                            "Nie mozna znalezc plik ""authors.txt"". Upewnij sie, ze plik znajduje sie w glównym folderze CrypTool."
-    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DICTIONARY_FILENAME 
-                            "VigenereAnalysisSchroedelDictionary.txt"
-    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DIGRAMS_FILENAME 
-                            "VigenereAnalysisSchroedelDigrams.txt"
-    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_TRIGRAMS_FILENAME 
-                            "VigenereAnalysisSchroedelTrigrams.txt"
-    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_PROGRESS_BAR_TITLE 
-                            "Vigenère analysis according to Schroedel"
+    IDS_HASHDEMO_STRING_SHA_256 "SHA-256 (256 bits)"
+    IDS_HASHDEMO_STRING_SHA_384 "SHA-384 (384 bits)"
+    IDS_HASHDEMO_STRING_SHA_512 "SHA-512 (512 bits)"
 END
 
-STRINGTABLE 
-BEGIN
-    IDS_HEADERTEXT_PERMUTATION "Permutacja"
-    IDS_HEADERTEXT_READOUT  "Wyczytac"
-    IDS_HEADER_PERMKEYLIST  "Stwierdzono co najmniej jeden klucz permutacji. Klucze sa wyswietlane na liscie.\nMozesz skopiowac biezace zaznaczenie w keystore."
-    IDS_NOKEYSELECTED       "Wybierz klucz z listy"
-    IDS_ACTIVE              "Aktywny"
-    IDS_PERMKEY_COPIED_AND_TIPPS 
-                            "Klucz wybrany zostanie zaladowany do keystore. Mozesz uzyc tego klucza, przy permutacji (patrz menu: Szyfrowanie - Historyczne - Permutacja / Transposicja).\n\nAby to zrobic, kliknij w oknie Permutacji na ikone klucza. "
-    IDS_DIALOGHEADER_PERMKEY_LIST "Lista odnalezionych kluczy permutacji"
-    IDS_INFO_TEXT_ENCRYPTION 
-                            "You chose the option to do the encryption in text mode.\nThis means that characters, which don't belong to the alphabet, are not encrypted (according to the Text option settings these characters are taken away or be kept)."
-    IDS_INFO_BYNARY_ENCRYPTION 
-                            "You chose the option to do the encryption in binary mode. This means that all characters are encrypted and the chosen text alphabet doesn't matter."
-END
-
-#endif    // Polish resources
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -13830,46 +13834,32 @@ BEGIN
     PUSHBUTTON      "Mitwirkende",ID_CONTRIBUTORS,7,250,60,18,WS_GROUP
 END
 
-IDD_HMAC DIALOGEX 0, 0, 325, 505
+IDD_HMAC DIALOGEX 0, 0, 532, 473
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Keyed-Hash Message Authentication Code (HMAC)"
+CAPTION "Keyed-Hash Messaga Authentication Code (HMAC)"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    EDITTEXT        IDC_EDIT_KEY,7,285,310,12,ES_AUTOHSCROLL | ES_WANTRETURN
-    CONTROL         "MD2",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,19,156,31,8
-    CONTROL         "MD4",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,19,170,31,8
-    CONTROL         "MD5",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,19,183,31,8
-    CONTROL         "SHA",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,19,198,31,8
-    CONTROL         "SHA-1",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,19,212,37,8
-    CONTROL         "SHA-256",IDC_RADIO12,"Button",BS_AUTORADIOBUTTON,19,226,65,8
-    CONTROL         "SHA-512",IDC_RADIO13,"Button",BS_AUTORADIOBUTTON,19,240,65,8
-    CONTROL         "RIPEMD-160",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,19,254,58,8
-    CONTROL         "H(k, m): Schlüssel vor der Nachricht",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | WS_GROUP,132,156,178,8
-    CONTROL         "H(m, k): Schlüssel hinter der Nachricht",IDC_RADIO8,
-                    "Button",BS_AUTORADIOBUTTON,132,170,178,8
-    CONTROL         "H(k, m, k): Schlüssel vor und hinter der Nachricht",IDC_RADIO9,
-                    "Button",BS_AUTORADIOBUTTON,132,183,178,8
-    CONTROL         "H(k, m, k'): zwei verschiedene Schlüssel",IDC_RADIO11,
-                    "Button",BS_AUTORADIOBUTTON,132,197,150,8
-    CONTROL         "H(k, H(k, m)): doppeltes Hashing (RFC 2104)",IDC_RADIO10,
-                    "Button",BS_AUTORADIOBUTTON,132,212,177,8
-    EDITTEXT        IDC_EDIT_KEY2,7,314,310,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_SHOW_MAC,7,437,311,32,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_SHOW_TEXT,7,343,311,32,ES_MULTILINE | ES_READONLY
-    PUSHBUTTON      "Schließen",IDCANCEL,7,478,90,20
-    LTEXT           "Geben Sie den Schlüssel (k) ein:",IDC_STATIC,7,273,104,8
-    LTEXT           "Geben Sie den zweiten Schlüssel (k') ein:",IDC_STATIC,7,303,131,8
-    LTEXT           "Erzeugter HMAC:",IDC_STATIC,7,426,56,8
-    GROUPBOX        "Hashfunktion wählen",IDC_STATIC,7,143,102,126
-    GROUPBOX        "HMAC-Variante (Position der Schlüssel; Verschachtelung)",IDC_STATIC,123,143,195,126
-    LTEXT           "Mit Hilfe eines HMACs kann der Empfänger einer Nachricht auf ihre Integrität und Authentizität des Senders überprüfen. Hierzu verwenden beide Parteien ein gemeinsames Geheimnis (symmetrischer Schlüssel). ",IDC_STATIC,15,20,295,24
-    LTEXT           "Um den HMAC einer Nachricht zu erzeugen, wird eine kryptographische Hashfunktion auf eine Verknüpfung aus der Nachricht m und dem geheimen Schlüssel k angewendet. Je nach HMAC-Variante können auch zwei geheime Schlüssel k und k' verwendet werden. ",IDC_STATIC,15,48,295,24
-    EDITTEXT        IDC_EDIT_ORIGINAL_MESSAGE,15,93,295,42,ES_AUTOHSCROLL
-    GROUPBOX        "Beschreibung",IDC_STATIC,7,7,310,70
-    GROUPBOX        "Nachricht",IDC_STATIC,7,80,311,60
-    LTEXT           "Eingabe für äußere Hashfunktion (abhängig von der oben gewählten HMAC-Variante):",IDC_STATIC,7,331,310,8
-    LTEXT           "Hashwert der Nachricht m:",IDC_STATIC,7,379,85,8
-    EDITTEXT        IDC_SHOW_HASH,7,390,311,32,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_KEY,149,247,368,12,ES_AUTOHSCROLL | ES_WANTRETURN
+    EDITTEXT        IDC_EDIT_KEY2,149,266,368,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_SHOW_MAC,7,410,518,25,ES_MULTILINE | ES_READONLY
+    EDITTEXT        IDC_SHOW_TEXT,7,346,518,49,ES_MULTILINE | ES_READONLY
+    PUSHBUTTON      "Schließen",IDCANCEL,7,446,90,20
+    LTEXT           "Geben Sie den Schlüssel (k) ein:",IDC_STATIC,15,249,109,8
+    LTEXT           "Geben Sie den zweiten Schlüssel (k') ein:",IDC_STATIC,15,268,132,8
+    LTEXT           "Erzeugter HMAC:",IDC_STATIC,7,399,56,8
+    LTEXT           "Mit Hilfe eines HMACs kann der Empfänger einer Nachricht auf ihre Integrität und Authentizität des Senders überprüfen. Hierzu verwenden beide Parteien ein gemeinsames Geheimnis (symmetrischer Schlüssel). ",IDC_STATIC,15,18,510,17
+    LTEXT           "Um den HMAC einer Nachricht zu erzeugen, wird eine kryptographische Hashfunktion auf eine Verknüpfung aus der Nachricht m und dem geheimen Schlüssel k angewendet. Je nach HMAC-Variante können auch zwei geheime Schlüssel k und k' verwendet werden. ",IDC_STATIC,15,35,503,17
+    EDITTEXT        IDC_EDIT_ORIGINAL_MESSAGE,14,76,503,120,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | WS_VSCROLL
+    GROUPBOX        "Beschreibung",IDC_STATIC,7,7,518,50
+    GROUPBOX        "Nachricht",IDC_STATIC,7,62,518,143
+    LTEXT           "Eingabe für äußere Hashfunktion (abhängig von der oben gewählten HMAC-Variante):",IDC_STATIC,7,333,310,8
+    COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,65,221,175,101,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_SELECT_HMAC_ALGORITHM,315,221,202,101,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Innerer Hashwert",IDC_STATIC,7,292,55,8
+    EDITTEXT        IDC_SHOW_HASH,7,303,518,25,ES_MULTILINE | ES_READONLY
+    LTEXT           "Hashfunktion:",IDC_STATIC,15,223,44,9
+    LTEXT           "MAC-Variante:",IDC_STATIC,258,224,54,9
+    GROUPBOX        "HMAC-Parameter und Schlüssel",IDC_STATIC,7,208,518,78
 END
 
 IDD_ADFGVX DIALOGEX 0, 0, 265, 466
@@ -18424,18 +18414,14 @@ BEGIN
     IDD_HMAC, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 318
+        RIGHTMARGIN, 525
         VERTGUIDE, 15
         VERTGUIDE, 132
-        VERTGUIDE, 310
+        VERTGUIDE, 328
+        VERTGUIDE, 517
         TOPMARGIN, 7
-        BOTTOMMARGIN, 498
+        BOTTOMMARGIN, 466
         HORZGUIDE, 20
-        HORZGUIDE, 164
-        HORZGUIDE, 178
-        HORZGUIDE, 191
-        HORZGUIDE, 205
-        HORZGUIDE, 220
     END
 
     IDD_ADFGVX, DIALOG
@@ -18947,6 +18933,17 @@ BEGIN
     IDR_HEXTYPE             "\nUnbenannt\n\nBinäre Datei (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnbenannt\n\nASCII-Datei (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
     IDR_PLOTTYPE            "\nUnbenannt\n\nPlot Datei (*.plt)\n.plt\n\nPlot File Type\nPLOTT\nPlot Files\n"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_HMAC_ALGORITHM_HKM  "H(k, m): Schlüssel vor der Nachricht"
+    IDS_HMAC_ALGORITHM_HMK  "H(m, k): Schlüssel nach der Nachricht"
+    IDS_HMAC_ALGORITHM_HKMK "H(k, m, k): Schlüssel vor und hinter der Nachricht"
+    IDS_HMAC_ALGORITHM_HK1MK2 "H(k, m, k'): Zwei verschiedene Schlüssel"
+    IDS_HMAC_ALGORITHM_RFC2104 "H(k, H(k, m)): doppeltes Hashing (RFC 2104)"
+    IDS_HASHDEMO_SELALGORITHM "Bitte wählen Sie das Hashverfahren"
+    IDS_HMAC_SELALGORITHM   "Bitte wählen Sie die HMAC-Variante"
 END
 
 STRINGTABLE 
@@ -19988,7 +19985,7 @@ END
 STRINGTABLE 
 BEGIN
     ID_AES_SELFEXTRACT      "Ruft das eigenständige Programm AES-Tool auf, das die Verschlüsselung einer beliebigen Datei in ein selbstextrahierendes Archiv ermöglicht"
-    ID_HASH_OFAFILE         "Bestimmt den Hashwert (Auswahl aus den Hashverfahren MD2, MD4, MD5, SHA, SHA-1, RIPEMD-160) der selektierten Datei"
+    ID_HASH_OFAFILE         "Bestimmt den Hashwert (Auswahl aus verschiedenen Hashverfahren MDx, SHA-x, RIPEMD-x) der selektierten Datei"
     ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO 
                             "Demonstriert die ""Fingerabruck""-Eigenschaft von kryptographischen Hashfunktionen"
     ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG 
@@ -21088,6 +21085,18 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_HEADERTEXT_PERMUTATION "Permutation"
+    IDS_HEADERTEXT_READOUT  "Auslesen"
+    IDS_HEADER_PERMKEYLIST  "Es wurde mindestens ein Permutationsschlüssel gefunden. Die Schlüssel werden in der Liste angezeigt.\nSie können die aktuelle Auswahl in den Schlüsselspeicher kopieren."
+    IDS_NOKEYSELECTED       "Bitte wählen Sie einen Schlüssel aus der Liste."
+    IDS_ACTIVE              "(Aktiv) "
+    IDS_PERMKEY_COPIED_AND_TIPPS 
+                            "Der von Ihnen gewählte Schlüssel wurde in den Schlüsselspeicher geladen. Sie können diesen Schlüssel bei der Permutationsverschlüsselung nutzen (siehe Menü: Ver-/Entschlüsseln \\ Symmetrish (klassisch) \\ Permutation / Transposition).\n\nDazu klicken Sie im Dialog für die Permutationsverschlüsselung auf das Schlüsselsymbol. "
+    IDS_DIALOGHEADER_PERMKEY_LIST "Liste der gefundenen Permutationsschlüssel"
+    IDS_INFO_TEXT_ENCRYPTION 
+                            "Die Verschlüsselung erfolgt im Text-Modus.\nD.h. Zeichen, die nicht zum gewählten Alphabet gehören, werden nicht verschlüsselt (abhängig von den Textoptionen werden diese Zeichen entfernt oder beibehalten)."
+    IDS_INFO_BYNARY_ENCRYPTION 
+                            "Die Verschlüsselung erfolgt im Binär-Modus. Alle Zeichen unabhängig vom eingestellten Text-Alphabet werden verschlüsselt."
     IDS_FINDANDREPLACE_HEXNOTIMPLEMENTED 
                             "TODO: Funktionalität für HEX-Modus noch nicht implementiert!"
     IDS_FINDANDREPLACE_TEXTNOTFOUND 
@@ -21098,6 +21107,10 @@ BEGIN
     IDS_HASHDEMO_STRING_MD4 "MD4 (128 Bit)"
     IDS_HASHDEMO_STRING_MD5 "MD5 (128 Bit)"
     IDS_HASHDEMO_STRING_SHA "SHA (160 Bit)"
+END
+
+STRINGTABLE 
+BEGIN
     IDS_HASHDEMO_STRING_SHA1 "SHA-1 (160 Bit)"
     IDS_HASHDEMO_STRING_RIPEMD160 "RIPEMD-160 (160 Bit)"
     IDS_NUMBERSHARK_EXE     "Zahlenhai.exe"
@@ -21109,6 +21122,13 @@ BEGIN
                             "Die Eingabe enthält doppelte Zeichen.\nAlle Buchstaben 'A' bis 'Z' und Ziffern '0' bis '9'\nmüssen genau einmal enthalten sein."
     IDS_STRING_MSG_UUENC_OF "UU-Codierung von <%s>"
     IDS_SCINTILLA_DEFAULT_PRINT_HEADER "%1 - gedruckt am %2"
+    IDS_SCINTILLA_DEFAULT_PRINT_FOOTER "Seite %1"
+    IDS_CR_CLIENT           "   Client"
+    IDS_CR_ROUTER           "Router %d"
+    IDS_CR_SERVER           "Server %d"
+    IDS_CR_ATTACKER         "Angreifer"
+    IDS_CR_PASSWORD         "geheim"
+    IDS_STRING_TEST_POKER   "Poker-Test"
 END
 
 STRINGTABLE 
@@ -21199,7 +21219,7 @@ BEGIN
     IDS_RSA_BM_CHECKN       "Bitte überprüfe den Wert des RSA-Moduls N"
     IDS_RSA_BM_CHECKE       "Bitte überprüfe den Wert des öffentlichen Exponenten e"
     IDS_RSA_BM_CHECKD       "Bitte überprüfe den Wert der Schätzung des geheimen Exponenten d"
-    IDS_HILL_DUMP           "Hill-Ver-/Entschlüsselung:\n\nDiese Detailbeschreibung der Hill-Verschlüsselung hat folgende Teile: \n 1. Alphabet-Codierung in Zahlen\n 2. Verschlüsselungsparameter und Eigenschaften\n 3. Hill-Verschlüsselung\n 4. Hill-Entschlüsselung\n \nDiese Log-Datei zeigt alle Ver-/Entschlüsselungs-Berechnungen mit der gegenwärtigen Hill Schlüssel-Matrix und den ersten Zeichen der gewählten Nachricht.\n\n\n1. Alphabet-Codierung in Zahlen:\n\nDas aktuell im Menü ""Optionen / Textoptionen"" gewählte Alphabet und dessen Codierung in Zahlen lautet:\n \n%ALPHABET_MAPPING%\n \nDas aktuelle Alphabet besteht aus %ALPHABET_SIZE% Zeichen. Der erste Alphabetbuchstabe hat den Zahlenwert %ALPHABET_CODING_OFFSET%.\n\n\n2. Verschlüsselungsparameter und Eigenschaften:\n\nDie Ver- und Entschlüsselung ist unten beispielhaft durchgerechnet für die %HILL_DIMENSION% ersten Buchstaben aus dem Klartext, die zum Alphabet gehören. \nHier die Notwendigen Parameter Informationen für die ausgewählte Hill-Verschlüsselung: \n  o Zur Ver- bzw. Entschlüsselung wird die Hillmatrix mit einem %HILL_MULTIPLICATION_TYPE% multipliziert. \n  o Die gewählte Hill-Matrix hat die Dimension %HILL_DIMENSION%x%HILL_DIMENSION%. \n  o Der Klartext besteht aus %HILL_PLAINTEXT_SIZE% Buchstaben. Davon sind %HILL_NON_ALPHABET_CHARS% Nichtalphabetzeichen (Nichtalphabetzeichen werden ignoriert). Wenn das Alphabet nur Großbuchstaben enthält, werden die entsprechenden Kleinbuchstaben aber ebenfalls verschlüsselt; nicht umgekehrt.  Die Ver- und Entschlüsselung ist unten beispielhaft durchgerechnet für die %HILL_DIMENSION% ersten Buchstaben aus dem Klartext, die zum Alphabet gehören.\n \n\n3. Hill-Verschlüsselung:\n\nDie gewählte Hill-Matrix zum Verschlüsseln ist:\n \n%HILL_ENCRYPTION_TEXTMATRIX%\n \nDiese Matrix codiert in Zahlen:\n \n%HILL_ENCRYPTION_INTMATRIX%\n \nVerschlüsselung des Klartextes: ""%PLAINTEXT%"": \nKlartext(engl. Plaintext)-Vektor P codiert in Zahlen: \n%HILL_PLAINTEXT_VECTOR%\n \nBerechnung der Hill-Chiffrierung durch das %HILL_VECTOR_MATRIX_MULTTYPE% (der Vektor P[n] ist ein %HILL_VECTORTYPE%): \n%HILL_ENCRYPTION%\n \nDer Hill-Chiffretext lautet: ""%CIPHERTEXT%"". \n\n\n4. Hill-Entschlüsselung:\n\nDie inverse Hill-Matrix zum Entschlüsseln ist: \n%HILL_DECRYPTION_TEXTMATRIX%\n \nDiese Matrix codiert in Zahlen: \n%HILL_DECRYPTION_INTMATRIX%\n \nEntschlüsselung des Chiffretextes: ""%CIPHERTEXT%"": \nChiffretext-Vektor C codiert in Zahlen: \n%HILL_CIPHERTEXT_VECTOR%\n \nBerechnung der Hill-Dechiffrierung durch das %HILL_VECTOR_MATRIX_MULTTYPE% (der Vektor C[n] ist ein %HILL_VECTORTYPE%): \n%HILL_DECRYPTION%\n \nDer Hill-Klartext lautet: ""%PLAINTEXT%"". \n\n\n"
+    IDS_HILL_DUMP           "Hill-Ver-/Entschlüsselung:\n\nDiese Detailbeschreibung der Hill-Verschlüsselung hat folgende Teile: \n 1. Alphabet-Codierung in Zahlen\n 2. Verschlüsselungsparameter und Eigenschaften\n 3. Hill-Verschlüsselung\n 4. Hill-Entschlüsselung\n \nDiese Log-Datei zeigt alle Ver-/Entschlüsselungs-Berechnungen mit der gegenwärtigen Hill Schlüssel-Matrix und den ersten Zeichen der gewählten Nachricht.\n\n\n1. Alphabet-Codierung in Zahlen:\n\nDas aktuell im Menü ""Optionen / Textoptionen"" gewählte Alphabet und dessen Codierung in Zahlen lautet:\n \n%ALPHABET_MAPPING%\n \nDas aktuelle Alphabet besteht aus %ALPHABET_SIZE% Zeichen. Der erste Alphabetbuchstabe hat den Zahlenwert %ALPHABET_CODING_OFFSET%.\n\n\n2. Verschlüsselungsparameter und Eigenschaften:\n\nDie Ver- und Entschlüsselung ist unten beispielhaft durchgerechnet für die %HILL_DIMENSION% ersten Buchstaben aus dem Klartext, die zum Alphabet gehören.\n\nHier die Parameter der ausgewählten Hill-Verschlüsselung:\n  o Zur Ver- bzw. Entschlüsselung wird die Hill-Matrix mit einem %HILL_MULTIPLICATION_TYPE% multipliziert.\n  o Die gewählte Hill-Matrix hat die Dimension %HILL_DIMENSION%x%HILL_DIMENSION%.\n  o Der Klartext besteht aus %HILL_PLAINTEXT_SIZE% Buchstaben. Davon sind %HILL_NON_ALPHABET_CHARS% Nichtalphabetzeichen (Nichtalphabetzeichen werden ignoriert). Wenn das Alphabet nur Großbuchstaben enthält, werden die entsprechenden Kleinbuchstaben aber ebenfalls verschlüsselt; nicht umgekehrt.  Die Ver- und Entschlüsselung ist unten beispielhaft durchgerechnet für die %HILL_DIMENSION% ersten Buchstaben aus dem Klartext, die zum Alphabet gehören.\n \n\n3. Hill-Verschlüsselung:\n\nDie gewählte Hill-Matrix zum Verschlüsseln ist:\n \n%HILL_ENCRYPTION_TEXTMATRIX%\n \nDiese Matrix codiert in Zahlen:\n \n%HILL_ENCRYPTION_INTMATRIX%\n \nVerschlüsselung des Klartextes: ""%PLAINTEXT%"": \nKlartext(engl. Plaintext)-Vektor P codiert in Zahlen: %HILL_PLAINTEXT_VECTOR%\n \nBerechnung der Hill-Chiffrierung durch das %HILL_VECTOR_MATRIX_MULTTYPE% (der Vektor P[n] ist ein %HILL_VECTORTYPE%): \n%HILL_ENCRYPTION%\n \nDer Hill-Chiffretext lautet: ""%CIPHERTEXT%"". \n\n\n4. Hill-Entschlüsselung:\n\nDie inverse Hill-Matrix zum Entschlüsseln ist: \n%HILL_DECRYPTION_TEXTMATRIX%\n \nDiese Matrix codiert in Zahlen: \n%HILL_DECRYPTION_INTMATRIX%\n \nEntschlüsselung des Chiffretextes: ""%CIPHERTEXT%"": \nChiffretext-Vektor C codiert in Zahlen: \n%HILL_CIPHERTEXT_VECTOR%\n \nBerechnung der Hill-Dechiffrierung durch das %HILL_VECTOR_MATRIX_MULTTYPE% (der Vektor C[n] ist ein %HILL_VECTORTYPE%): \n%HILL_DECRYPTION%\n \nDer Hill-Klartext lautet: ""%PLAINTEXT%"". \n\n\n"
     IDS_HILL_MULTIPLICATION_TYPE_LEFT "Zeilenvektor von links"
     IDS_HILL_MULTIPLICATION_TYPE_RIGHT "Spaltenvektor von rechts"
     IDS_HILL_VECTORTYPE_ROW "Zeilenvektor"
@@ -21228,13 +21248,6 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_SCINTILLA_DEFAULT_PRINT_FOOTER "Seite %1"
-    IDS_CR_CLIENT           "   Client"
-    IDS_CR_ROUTER           "Router %d"
-    IDS_CR_SERVER           "Server %d"
-    IDS_CR_ATTACKER         "Angreifer"
-    IDS_CR_PASSWORD         "geheim"
-    IDS_STRING_TEST_POKER   "Poker-Test"
     IDS_STRING_HILL_DETAILS "Details zur Hill"
     IDS_STRING_TEST_FREQ    "Frequency-Test"
     IDS_STRING_TEST_SERIAL  "Serial-Test"
@@ -21245,6 +21258,7 @@ BEGIN
     IDS_ROT13_CAESAR_TOO_LARGE_KEY 
                             "Die Eingabe ist größer als das Alphabet.\nSoll der Wert automatisch auf 1 gesetzt werden?"
     IDS_PQM_PASSWORD_IS_COMPLIANT "- Ja\r\n"
+    IDS_PQM_PASSWORD_COMPLIANT "Passwort-Richtlinie erfüllt:\r\n"
 END
 
 STRINGTABLE 
@@ -21258,13 +21272,8 @@ BEGIN
     IDS_CLIPBOARD_HEXCOPY   "Die markierten Daten können unverändert (Standard) oder hexadezimal codiert in die Zwischenablage übernommen werden.\nEine hexadezimale Codierung ist z.B. erforderlich, wenn Sie nicht-druckbare Daten in andere Anwendungen exportieren wollen.\n\nHexadezimale Codierung verwenden?"
     IDS_CLIPBOARD_HEXPASTE  "Die Zwischenablage enthält ausschließlich Hexadezimal-Zeichen.\nDiese können entweder decodiert (Standard) oder unverändert eingefügt werden.\n\nSollen die hexadezimalen Daten decodiert werden?"
     IDS_STRING_MEMBER2      "Teilnehmer"
-    IDS_PQM_PASSWORD_RECONSTRUCTION 
-                            "\r\nRekonstruktion aus Wörtern, Folgen und Mustern:"
-    IDS_PQM_PASSWORD_RECONSTRUCTION_FOUND "\r\nGefunden: "
     IDS_SCINTILLA_LEXER_ERROR 
                             "Die Alphabet-Ansicht kann nicht aktiviert werden, wahrscheinlich wurde nicht\ndie mit CrypTool gelieferte SCILEXER.DLL geladen, sondern eine andere."
-    IDS_PQM_CRYPTOOLALPHABETINACTIVE 
-                            "Sie haben die Berücksichtigung des CrypTool-Alphabets deaktiviert. Bitte beachten Sie, dass die von CrypTool\nangezeigte Passwortqualität in dieser Konfiguration die tatsächliche Passwortqualität übersteigen kann."
     IDS_STATISTICAL_REFERENCE_FILE_MISSING 
                             "Die Referenzdatei für statistische Anwendungen wurde nicht gefunden.\nBitte geben Sie diese über den Dialog Textoptionen an."
     IDS_STATISTICAL_REFERENCE_FILE_STILL_MISSING 
@@ -21272,8 +21281,35 @@ BEGIN
     IDS_RIJNDAEL_INSPECTOR_EXEC_STR "Rijndael-Inspector.exe"
     IDS_ERROR_OPEN_FLASHAESDEMO 
                             "Die AES-Demo kann nicht geöffnet werden.\nBitte überprüfen Sie, ob die AES-Demo im CrypTool-Heimatverzeichnis installiert wurde\n(""%s"")."
+END
+
+STRINGTABLE 
+BEGIN
     IDS_ERROR_OPEN_RIJNDAELINSPECTOR 
                             "Der Rijndael-Inspector kann nicht geöffnet werden.\nBitte überprüfen Sie, ob der Rijndael-Inspector im CrypTool-Heimatverzeichnis installiert wurde\n(""%s"")."
+    IDS_PQM_CRYPTOOLALPHABETINACTIVE 
+                            "Sie haben die Berücksichtigung des CrypTool-Alphabets deaktiviert. Bitte beachten Sie, dass die von CrypTool\nangezeigte Passwortqualität in dieser Konfiguration die tatsächliche Passwortqualität übersteigen kann."
+    IDS_PQM_PASSWORD_RECONSTRUCTION_FOUND "\r\nGefunden: "
+    IDS_PQM_PASSWORD_RECONSTRUCTION 
+                            "\r\nRekonstruktion aus Wörtern, Folgen und Mustern:"
+    IDS_PQM_PASSWORD_RECONSTRUCTION_PATTERNS "\r\nMuster: "
+    IDS_PQM_PASSWORD_RECONSTRUCTION_SEQUENCES "\r\nFolgen: "
+    IDS_PQM_PASSWORD_RECONSTRUCTION_KEYBOARDSEQUENCES "\r\nTastatur-Folgen: "
+    IDS_PQM_CRACKLIB_DICTIONARY_PATH "words\\cracklib_dict"
+    IDS_PQM_NO_CRACKLIB_DICTIONARY 
+                            "Das Öffnen des cracklib-Wörterbuchs an folgender Stelle schlug fehl:\r\n%s\r\nBitte stellen Sie sicher, dass die folgenden Dateien vorhanden sind:\r\n%s.hwm\r\n%s.pwd\r\n%s.pwi"
+    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT 
+                            "- Nein (Passwort ist zu kurz)\r\n"
+    IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS 
+                            "\r\nWörterbuch-Einträge: "
+    IDS_SECRETSHARINGSHAMIR_LOG_HEADING 
+                            "Protokolldatei für das Secret-Sharing-Verfahren nach Shamir"
+    IDS_CAESAR_ANALYSIS_REMARK 
+                            "Durch das bei der Verschlüsselung eingestellte Key-Offset existieren zwei mögliche Schlüssel: Für ein Key-Offset von 1 gilt der Schlüssel '%s', für ein Key-Offset von 0 gilt der Schlüssel '%s'."
+    IDS_STRING_INVALID_VERNAM_KEY 
+                            "Der gewählte Vernam-Schlüssel hat die Länge 0.\nBitte überprüfen Sie die Schlüsseldatei."
+    IDS_STRING_SHORT_VERNAM_KEY 
+                            "Der Vernam-Schlüssel ist kürzer als der zu verschlüsselnde Text."
 END
 
 STRINGTABLE 
@@ -21346,43 +21382,12 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_PQM_PASSWORD_RECONSTRUCTION_PATTERNS "\r\nMuster: "
-    IDS_PQM_PASSWORD_RECONSTRUCTION_SEQUENCES "\r\nFolgen: "
-    IDS_PQM_PASSWORD_RECONSTRUCTION_KEYBOARDSEQUENCES "\r\nTastatur-Folgen: "
-    IDS_PQM_CRACKLIB_DICTIONARY_PATH "words\\cracklib_dict"
-    IDS_PQM_NO_CRACKLIB_DICTIONARY 
-                            "Das Öffnen des cracklib-Wörterbuchs an folgender Stelle schlug fehl:\r\n%s\r\nBitte stellen Sie sicher, dass die folgenden Dateien vorhanden sind:\r\n%s.hwm\r\n%s.pwd\r\n%s.pwi"
-    IDS_PQM_PASSWORD_COMPLIANT "Passwort-Richtlinie erfüllt:\r\n"
-    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT 
-                            "- Nein (Passwort ist zu kurz)\r\n"
-    IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS 
-                            "\r\nWörterbuch-Einträge: "
-    IDS_SECRETSHARINGSHAMIR_LOG_HEADING 
-                            "Protokolldatei für das Secret-Sharing-Verfahren nach Shamir"
-    IDS_CAESAR_ANALYSIS_REMARK 
-                            "Durch das bei der Verschlüsselung eingestellte Key-Offset existieren zwei mögliche Schlüssel: Für ein Key-Offset von 1 gilt der Schlüssel '%s', für ein Key-Offset von 0 gilt der Schlüssel '%s'."
-    IDS_STRING_INVALID_VERNAM_KEY 
-                            "Der gewählte Vernam-Schlüssel hat die Länge 0.\nBitte überprüfen Sie die Schlüsseldatei."
-    IDS_STRING_SHORT_VERNAM_KEY 
-                            "Der Vernam-Schlüssel ist kürzer als der zu verschlüsselnde Text."
     IDS_PATH_PRESENTATION   "%sCrypToolPresentation-de.pdf"
     IDS_ERROR_OPENING_PRESENTATION 
                             "Die Präsentation konnte nicht geöffnet werden!\n\nBitte überprüfen Sie:\n- ob sich die Datei ""CrypToolPresentation-de.pdf"" im gleichen Pfad wie das Programm ""CrypTool.exe"" befindet und\n- ob Sie den Acrobat Reader installiert haben (www.adobe.com)."
     IDS_PQM_ENTROPY_NOT_ALL_INPUT_PARAMETERS_SET 
                             "Bitte stellen Sie sicher, dass Sie\n- die gewünschte Passwort-Entropie und\n- das gewünschte Passwort-Alphabet\nangegeben haben."
     IDS_CANT_UNDO           "Die letzte Änderung konnte nicht rückgängig gemacht werden.\n\nGeben Sie Speicher frei und versuchen Sie es erneut."
-END
-
-STRINGTABLE 
-BEGIN
-    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_DIGITS 
-                            "- Nein (Passwort enthält zu wenig Ziffern)\r\n"
-    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_SPECIAL_CHARACTERS 
-                            "- Nein (Passwort enthält zu wenig Sonderzeichen)\r\n"
-END
-
-STRINGTABLE 
-BEGIN
     IDS_CANT_REDO           "Die zuletzt rückgängig gemachte Änderung konnte nicht wiederhergestellt werden.\n\nGeben Sie Speicher frei und versuchen Sie es erneut."
     IDS_CANT_SAVE_UNDO      "Konnt keine Informationen speichern, um die Textänderung später rückgängig machen zu können."
     IDS_FIND_AND_REPLACE_NULL_BYTE_IN_FIND_STRING 
@@ -21401,6 +21406,18 @@ BEGIN
     IDS_BIT_FMT             "%d Bit%s"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION 
                             "Im ausgewählten Wertebereich [%s, %s] wurden %d Primzahlen gefunden."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_DIGITS 
+                            "- Nein (Passwort enthält zu wenig Ziffern)\r\n"
+    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_SPECIAL_CHARACTERS 
+                            "- Nein (Passwort enthält zu wenig Sonderzeichen)\r\n"
+END
+
+STRINGTABLE 
+BEGIN
     IDS_BIT_EFFECTIVE_FMT   " (%d Bit effektiv)"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_TITLE 
                             "Generation einer Menge von Primzahlen"
@@ -21409,6 +21426,23 @@ BEGIN
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION_CANCELLED 
                             "Der Vorgang wurde abgebrochen. Im ausgewählten Wertebereich [%s, %s] wurden bisher %d Primzahlen gefunden."
     IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_SCYTALE "Anzahl der Kanten:"
+    IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_RAIL_FENCE "Anzahl der Zeilen:"
+    IDS_SIMPLE_TRANSPOSITION_KEY_INVALID 
+                            "Der Schlüssel ist ungültig. Er muss größer als 1 und kleiner als die Länge des Eingabetexts sein.\n\nVor der Ver-/Entschlüsselung werden alle Zeichen aus dem Eingabetext entfernt, die nicht zum eingestellten CrypTool-Alphabet gehören. Wenn Sie den Eingabetext nicht verändern möchten, passen Sie bitte über den Button ""Textoptionen"" das CrypTool-Alphabet an, um fortzufahren."
+    IDS_STRING_RAIL_FENCE_ENCRYPTION_OF 
+                            "Gartenzaun-Verschlüsselung (Einfache Transposition) von <%s>, Schlüssel <%s>"
+    IDS_STRING_RAIL_FENCE_DECRYPTION_OF 
+                            "Gartenzaun-Entschlüsselung (Einfache Transposition) von <%s>, Schlüssel <%s>"
+    IDS_STRING_SCYTALE_ENCRYPTION_OF 
+                            "Skytale-Verschlüsselung (Einfache Transposition) von <%s>, Schlüssel <%s>"
+    IDS_STRING_SCYTALE_DECRYPTION_OF 
+                            "Skytale-Entschlüsselung (Einfache Transposition) von <%s>, Schlüssel <%s>"
+    IDS_FACTORS_FOUND       "%d Faktoren gefunden in %s"
+    IDS_SIMPLE_TRANSPOSITION_OFFSET_INVALID 
+                            "Das eingestellte Offset ist ungültig. Es darf nicht kleiner als 0 sein."
+    IDS_STRING_FACTORIZATION_BRUTE_FORCE_LIMIT 
+                            "Diese Zahl konnte mit dem Brute-Force-Verfahren nicht zerlegt werden. Das Brute-Force-Verfahren ist hier so implementiert, dass es nur Faktoren kleiner %d findet."
+    IDS_CRYPT_SIMPLETRANSPOSITION "Einfache Transposition"
 END
 
 STRINGTABLE 
@@ -21459,23 +21493,6 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_RAIL_FENCE "Anzahl der Zeilen:"
-    IDS_SIMPLE_TRANSPOSITION_KEY_INVALID 
-                            "Der Schlüssel ist ungültig. Er muss größer als 1 und kleiner als die Länge des Eingabetexts sein.\n\nVor der Ver-/Entschlüsselung werden alle Zeichen aus dem Eingabetext entfernt, die nicht zum eingestellten CrypTool-Alphabet gehören. Wenn Sie den Eingabetext nicht verändern möchten, passen Sie bitte über den Button ""Textoptionen"" das CrypTool-Alphabet an, um fortzufahren."
-    IDS_STRING_RAIL_FENCE_ENCRYPTION_OF 
-                            "Gartenzaun-Verschlüsselung (Einfache Transposition) von <%s>, Schlüssel <%s>"
-    IDS_STRING_RAIL_FENCE_DECRYPTION_OF 
-                            "Gartenzaun-Entschlüsselung (Einfache Transposition) von <%s>, Schlüssel <%s>"
-    IDS_STRING_SCYTALE_ENCRYPTION_OF 
-                            "Skytale-Verschlüsselung (Einfache Transposition) von <%s>, Schlüssel <%s>"
-    IDS_STRING_SCYTALE_DECRYPTION_OF 
-                            "Skytale-Entschlüsselung (Einfache Transposition) von <%s>, Schlüssel <%s>"
-    IDS_FACTORS_FOUND       "%d Faktoren gefunden in %s"
-    IDS_SIMPLE_TRANSPOSITION_OFFSET_INVALID 
-                            "Das eingestellte Offset ist ungültig. Es darf nicht kleiner als 0 sein."
-    IDS_STRING_FACTORIZATION_BRUTE_FORCE_LIMIT 
-                            "Diese Zahl konnte mit dem Brute-Force-Verfahren nicht zerlegt werden. Das Brute-Force-Verfahren ist hier so implementiert, dass es nur Faktoren kleiner %d findet."
-    IDS_CRYPT_SIMPLETRANSPOSITION "Einfache Transposition"
     IDS_STRING_ASYMKEY_ERR_CERT_SERIAL_EXISTS 
                             "Das Zertfikat kann nicht importiert werden, da bereits eines mit der gleichen Seriennummber vorhanden ist."
     IDS_STRING_ADFGVX_PASSWORD_EMPTY_REPEAT_INPUT_PROCESS 
@@ -21486,7 +21503,25 @@ BEGIN
                             "Das Java-Programm wurde nicht gefunden! (Kompletter Pfad: ""%s"")"
     IDS_STRING_JAVA_PROGRAM_EXECUTION_FAILED 
                             "Das Java-Programm konnte nicht ausgeführt werden. Bitte kontaktieren Sie das Entwickler-Team."
-    IDS_STRING_SMIME_DEMO_PROGRAM "smimedemo\\main\\Programm.class"
+    IDS_STRING_SMIME_DEMO_PROGRAM "main\\Programm.class"
+    IDS_AES_FLOWVISUALIZATION_JAVA_FILE "AES_Flussvisualisierung.jar"
+    IDS_STRING_SMIME_DEMO_PROGRAM_COMPLETE_CALL 
+                            "-cp "".;./lib/*"" main.Programm"
+    IDS_VIGENERE_ANALYSIS_SCHROEDEL_INFO 
+                            "Sobald die Analyse beendet ist, wird das Ergebnis in einem neuen Dokument angezeigt."
+    IDS_AUTHORS_FILE_MISSING 
+                            "Die Datei ""authors.txt"" wurde nicht gefunden. Bitte stellen Sie sicher, dass sich die Datei im CrypTool-Hauptverzeichnis befindet."
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DICTIONARY_FILENAME 
+                            "VigenereAnalysisSchroedelDictionary.txt"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DIGRAMS_FILENAME 
+                            "VigenereAnalysisSchroedelDigrams.txt"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_TRIGRAMS_FILENAME 
+                            "VigenereAnalysisSchroedelTrigrams.txt"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_PROGRESS_BAR_TITLE 
+                            "Vigenère-Analyse nach Schrödel"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_CIPHERTEXT_TAG "Geheimtext:"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_POSSIBLE_KEY_TAG 
+                            "Möglicher Schlüssel:"
 END
 
 STRINGTABLE 
@@ -21522,24 +21557,6 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_AES_FLOWVISUALIZATION_JAVA_FILE "AES_Flussvisualisierung.jar"
-    IDS_STRING_SMIME_DEMO_PROGRAM_COMPLETE_CALL 
-                            "-cp ""./smimedemo/;./smimedemo/lib/*"" main.Programm"
-    IDS_VIGENERE_ANALYSIS_SCHROEDEL_INFO 
-                            "Sobald die Analyse beendet ist, wird das Ergebnis in einem neuen Dokument angezeigt."
-    IDS_AUTHORS_FILE_MISSING 
-                            "Die Datei ""authors.txt"" wurde nicht gefunden. Bitte stellen Sie sicher, dass sich die Datei im CrypTool-Hauptverzeichnis befindet."
-    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DICTIONARY_FILENAME 
-                            "VigenereAnalysisSchroedelDictionary.txt"
-    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DIGRAMS_FILENAME 
-                            "VigenereAnalysisSchroedelDigrams.txt"
-    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_TRIGRAMS_FILENAME 
-                            "VigenereAnalysisSchroedelTrigrams.txt"
-    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_PROGRESS_BAR_TITLE 
-                            "Vigenère-Analyse nach Schrödel"
-    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_CIPHERTEXT_TAG "Geheimtext:"
-    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_POSSIBLE_KEY_TAG 
-                            "Möglicher Schlüssel:"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_FOUND_CLEARTEXT_TAG 
                             "Gefundener Klartext:"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_NO_POSSIBLE_RESULTS_FOUND 
@@ -21552,10 +21569,6 @@ BEGIN
                             "Länge des analysierten Geheimtexts:"
     IDS_AUTHORS_FILE_CORRUPTED 
                             "Die Datei authors.txt wurde seit der Installation von CrypTool verändert."
-END
-
-STRINGTABLE 
-BEGIN
     IDS_CRYPTOOL_RELEASE_INFORMATION "%s (%s, %s), kompiliert mit "
     IDS_STRING_FILE_COULD_NOT_BE_OPENED 
                             "Die folgende Datei konnte nicht geöffnet werden:\n"
@@ -21569,6 +21582,9 @@ BEGIN
                             "AM AN AS AT BE BY DO GO HE IF IN IS IT ME MY NO OF OK ON SO TO UP US"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SUGGEST_RESULT 
                             "Die Analyse hat ""%s"" als möglichen Schlüssel ermittelt.\n\nAus diesem Schlüssel resultiert folgender Klartext: ""%s"".\n\nWollen Sie die Analyse abbrechen?"
+    IDS_HASHDEMO_STRING_SHA_256 "SHA-256 (256 bits)"
+    IDS_HASHDEMO_STRING_SHA_384 "SHA-384 (384 bits)"
+    IDS_HASHDEMO_STRING_SHA_512 "SHA-512 (512 bits)"
 END
 
 STRINGTABLE 
@@ -21604,28 +21620,12 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "Zeichen"
 END
 
-STRINGTABLE 
-BEGIN
-    IDS_HEADERTEXT_PERMUTATION "Permutation"
-    IDS_HEADERTEXT_READOUT  "Auslesen"
-    IDS_HEADER_PERMKEYLIST  "Es wurde mindestens ein Permutationsschlüssel gefunden. Die Schlüssel werden in der Liste angezeigt.\nSie können die aktuelle Auswahl in den Schlüsselspeicher kopieren."
-    IDS_NOKEYSELECTED       "Bitte wählen Sie einen Schlüssel aus der Liste."
-    IDS_ACTIVE              "(Aktiv) "
-    IDS_PERMKEY_COPIED_AND_TIPPS 
-                            "Der von Ihnen gewählte Schlüssel wurde in den Schlüsselspeicher geladen. Sie können diesen Schlüssel bei der Permutationsverschlüsselung nutzen (siehe Menü: Ver-/Entschlüsseln \\ Symmetrish (klassisch) \\ Permutation / Transposition).\n\nDazu klicken Sie im Dialog für die Permutationsverschlüsselung auf das Schlüsselsymbol. "
-    IDS_DIALOGHEADER_PERMKEY_LIST "Liste der gefundenen Permutationsschlüssel"
-    IDS_INFO_TEXT_ENCRYPTION 
-                            "Die Verschlüsselung erfolgt im Text-Modus.\nD.h. Zeichen, die nicht zum gewählten Alphabet gehören, werden nicht verschlüsselt (abhängig von den Textoptionen werden diese Zeichen entfernt oder beibehalten)."
-    IDS_INFO_BYNARY_ENCRYPTION 
-                            "Die Verschlüsselung erfolgt im Binär-Modus. Alle Zeichen unabhängig vom eingestellten Text-Alphabet werden verschlüsselt."
-END
-
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -24654,44 +24654,32 @@ BEGIN
     LTEXT           "To perform the attack click ""Start"".",IDC_STATIC,15,83,178,9
 END
 
-IDD_HMAC DIALOGEX 0, 0, 325, 505
+IDD_HMAC DIALOGEX 0, 0, 532, 481
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Keyed-Hash Message Authentication Code (HMAC)"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    EDITTEXT        IDC_EDIT_KEY,7,285,311,12,ES_AUTOHSCROLL | ES_WANTRETURN
-    CONTROL         "MD2",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,19,156,31,8
-    CONTROL         "MD4",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,19,170,31,8
-    CONTROL         "MD5",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,19,184,31,8
-    CONTROL         "SHA",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,19,198,31,8
-    CONTROL         "SHA-1",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,19,212,37,8
-    CONTROL         "SHA-256",IDC_RADIO12,"Button",BS_AUTORADIOBUTTON,19,226,65,8
-    CONTROL         "SHA-512",IDC_RADIO13,"Button",BS_AUTORADIOBUTTON,19,240,65,8
-    CONTROL         "RIPEMD-160",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,19,254,58,8
-    CONTROL         "H(k, m): key in front of message",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | WS_GROUP,133,156,177,8
-    CONTROL         "H(m, k): key at the back of message",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON,133,170,177,8
-    CONTROL         "H(k, m, k): key in front and at the back",IDC_RADIO9,
-                    "Button",BS_AUTORADIOBUTTON,133,184,177,8
-    CONTROL         "H(k, m, k'): different keys",IDC_RADIO11,"Button",BS_AUTORADIOBUTTON,133,198,94,8
-    CONTROL         "H(k, H(k, m)): double hashing (RFC 2104)",IDC_RADIO10,
-                    "Button",BS_AUTORADIOBUTTON,133,212,177,8
-    EDITTEXT        IDC_EDIT_KEY2,7,314,311,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_SHOW_MAC,7,437,311,32,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_SHOW_TEXT,7,343,311,32,ES_MULTILINE | ES_READONLY
-    PUSHBUTTON      "Close",IDCANCEL,7,478,90,20
-    LTEXT           "Enter your key (k):",IDC_STATIC,7,273,58,8
-    LTEXT           "Enter second key (k'):",IDC_STATIC,7,303,70,8
-    LTEXT           "HMAC generated from message and key:",IDC_STATIC,7,426,130,8
-    LTEXT           "Input for outer hash function (depends on the HMAC variant chosen above):",IDC_STATIC,7,331,311,8
-    GROUPBOX        "Choose hash function",IDC_STATIC,7,143,102,126
-    GROUPBOX        "HMAC variant (position of the keys; nesting)",IDC_STATIC,123,143,195,126
-    LTEXT           "By means of a HMAC the recipient of a message is able to verify its integrity and the authenticity of its sender. Therefore both parties use a shared secret (symmetric key).",IDC_STATIC,15,20,295,16
-    LTEXT           "To create a HMAC, a cryptographic hash function is applied to a combination of the message m and the secret key k. According to the variation chosen below, two different keys k and k' can be used.",IDC_STATIC,15,40,295,24
-    GROUPBOX        "Description",IDC_STATIC,7,7,311,70
-    EDITTEXT        IDC_EDIT_ORIGINAL_MESSAGE,15,93,295,42,ES_AUTOHSCROLL
-    GROUPBOX        "Message",IDC_STATIC,7,80,311,60
-    LTEXT           "Hash value of the message m only:",IDC_STATIC,7,379,111,8
-    EDITTEXT        IDC_SHOW_HASH,7,390,311,32,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_KEY,132,244,384,12,ES_AUTOHSCROLL | ES_WANTRETURN
+    EDITTEXT        IDC_EDIT_KEY2,132,265,384,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_SHOW_MAC,7,411,518,32,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_SHOW_TEXT,7,346,518,49,ES_MULTILINE | ES_READONLY
+    PUSHBUTTON      "Close",IDCANCEL,7,454,90,20
+    LTEXT           "Enter your key (k):",IDC_STATIC,15,245,103,8
+    LTEXT           "Enter second key (k'):",IDC_STATIC,15,266,72,8
+    LTEXT           "HMAC generated from message and key:",IDC_STATIC,7,400,130,8
+    LTEXT           "Input for outer hash function (depends on the HMAC variant chosen above):",IDC_STATIC,7,335,518,8
+    LTEXT           "By means of a HMAC the recipient of a message is able to verify its integrity and the authenticity of its sender. Therefore both parties use a shared secret (symmetric key).",IDC_STATIC,15,20,501,16
+    LTEXT           "To create a HMAC, a cryptographic hash function is applied to a combination of the message m and the secret key k. According to the variation chosen below, two different keys k and k' can be used.",IDC_STATIC,15,38,501,17
+    GROUPBOX        "Description",IDC_STATIC,7,7,518,52
+    EDITTEXT        IDC_EDIT_ORIGINAL_MESSAGE,15,79,501,120,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | WS_VSCROLL
+    GROUPBOX        "Message",IDC_STATIC,7,66,518,140
+    LTEXT           "Inner hash value:",IDC_STATIC,7,292,56,8
+    EDITTEXT        IDC_SHOW_HASH,7,303,518,25,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,65,221,175,101,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_SELECT_HMAC_ALGORITHM,315,221,202,101,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Hash function:",IDC_STATIC,15,223,47,9
+    LTEXT           "MAC variant:",IDC_STATIC,267,224,44,9
+    GROUPBOX        "HMAC parameter and key",IDC_STATIC,7,209,518,76
 END
 
 IDD_ADFGVX DIALOGEX 0, 0, 265, 466
@@ -29430,18 +29418,15 @@ BEGIN
     IDD_HMAC, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 318
+        RIGHTMARGIN, 525
         VERTGUIDE, 15
-        VERTGUIDE, 133
+        VERTGUIDE, 132
         VERTGUIDE, 310
+        VERTGUIDE, 516
         TOPMARGIN, 7
-        BOTTOMMARGIN, 498
+        BOTTOMMARGIN, 474
         HORZGUIDE, 20
-        HORZGUIDE, 160
-        HORZGUIDE, 178
-        HORZGUIDE, 192
         HORZGUIDE, 206
-        HORZGUIDE, 220
     END
 
     IDD_ADFGVX, DIALOG
@@ -29943,6 +29928,17 @@ BEGIN
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
     IDR_PLOTTYPE            "\nUnnamed\n\nPLOT file (*.plt)\n.plt\n\nPlot File Type\nPLOT\nPlot Files\n"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_HMAC_ALGORITHM_HKM  "H(k, m): key in front of message"
+    IDS_HMAC_ALGORITHM_HMK  "H(m, k): key at the back of message"
+    IDS_HMAC_ALGORITHM_HKMK "H(k, m, k): key in front and at the back"
+    IDS_HMAC_ALGORITHM_HK1MK2 "H(k, m, k'): differnt keys"
+    IDS_HMAC_ALGORITHM_RFC2104 "H(k, H(k, m)): double hashing (RFC 2104)"
+    IDS_HASHDEMO_SELALGORITHM "Please choose a hash function"
+    IDS_HMAC_SELALGORITHM   "Please choose a HMAC variant"
 END
 
 STRINGTABLE 
@@ -30949,7 +30945,7 @@ END
 STRINGTABLE 
 BEGIN
     ID_AES_SELFEXTRACT      "Calls the standalone program AES-Tool which offers to generate a self extracting encrypted file from any file"
-    ID_HASH_OFAFILE         "Computes the hash value (choice of MD2, MD4, MD5, SHA, SHA-1 or RIPEMD-160) of the selected file"
+    ID_HASH_OFAFILE         "Computes the hash value (choice of various hash algorithms MDx, SHA-x, RIPEMD-x) of the selected file"
     ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO 
                             "Demonstrates the ""finger print"" property of cryptographic hash functions"
     ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG 
@@ -32053,6 +32049,18 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_HEADERTEXT_PERMUTATION "Permutation"
+    IDS_HEADERTEXT_READOUT  "Write out"
+    IDS_HEADER_PERMKEYLIST  "At least one permutation key was found. These keys are now displayed in the list below.\nYou may copy your actual selection key into the key storage."
+    IDS_NOKEYSELECTED       "Please select a key from the list"
+    IDS_ACTIVE              "(Active) "
+    IDS_PERMKEY_COPIED_AND_TIPPS 
+                            "The selected key has been copied to the key storage. You may use this permutaion key for document encryption or ciphertext decryption (See menu: Crypt-/Decrypt \\ Symmetric (classic) \\ Permutation / Transposition).\n\nUsing the Permutation encryption dialoge you may click on the key symbol to paste the strored key."
+    IDS_DIALOGHEADER_PERMKEY_LIST "List of recovered permutation keys."
+    IDS_INFO_TEXT_ENCRYPTION 
+                            "You chose the option to do the encryption in text mode.\nThis means that characters, which don't belong to the alphabet, are not encrypted (according to the Text option settings these characters are taken away or be kept)."
+    IDS_INFO_BYNARY_ENCRYPTION 
+                            "You chose the option to do the encryption in binary mode. This means that all characters are encrypted and the chosen text alphabet doesn't matter."
     IDS_FINDANDREPLACE_HEXNOTIMPLEMENTED 
                             "TODO: Functionality not yet implemented for HEX mode!"
     IDS_FINDANDREPLACE_TEXTNOTFOUND "The desired text was not found!"
@@ -32062,9 +32070,13 @@ BEGIN
     IDS_HASHDEMO_STRING_MD4 "MD4 (128 bits)"
     IDS_HASHDEMO_STRING_MD5 "MD5 (128 bits)"
     IDS_HASHDEMO_STRING_SHA "SHA (160 bits)"
+END
+
+STRINGTABLE 
+BEGIN
     IDS_HASHDEMO_STRING_SHA1 "SHA-1 (160 bits)"
     IDS_HASHDEMO_STRING_RIPEMD160 "RIPEMD-160 (160 bits)"
-    IDS_NUMBERSHARK_EXE     "Number Shark.exe"
+    IDS_NUMBERSHARK_EXE     "NumberShark.exe"
     IDS_STRING_ADFGVX_STRINGLENGTH 
                             "The input does not contain all the letters\n'A' to 'Z' and all ciphers '0' to '9'."
     IDS_STRING_ADFGVX_STRINGINVALID 
@@ -32073,6 +32085,13 @@ BEGIN
                             "The input contains redundant characters.\nAll letters 'A' to 'Z' and ciphers '0' to '9'\nmust be included exactly once."
     IDS_STRING_MSG_UUENC_OF "UU Encoding of <%s>"
     IDS_SCINTILLA_DEFAULT_PRINT_HEADER "%1 - Printed on %2"
+    IDS_SCINTILLA_DEFAULT_PRINT_FOOTER "Page %1"
+    IDS_CR_CLIENT           "   Client"
+    IDS_CR_ROUTER           "Router %d"
+    IDS_CR_SERVER           "Server %d"
+    IDS_CR_ATTACKER         "Attacker"
+    IDS_CR_PASSWORD         "secret"
+    IDS_STRING_TEST_POKER   "Poker test"
 END
 
 STRINGTABLE 
@@ -32120,7 +32139,7 @@ BEGIN
     IDS_RSA_BM_CHECKN       "Please check the value of the RSA modulus N"
     IDS_RSA_BM_CHECKE       "Please check the value of the public exponent e"
     IDS_RSA_BM_CHECKD       "Please check the estimated value of the secret exponent d"
-    IDS_HILL_DUMP           "Hill En-/Decryption:\n\nThis detailed description of the Hill encryption / decryption consists of the following parts: \n 1. Encoding the alphabet characters to numbers\n 2. Encryption parameters end properties\n 3. Hill encryption\n 4. Hill decryption\n \nThis logfile text shows all calculations done with the current Hill key matrix and the beginning characters of the used message.\n\n\n1. Encoding the Alphabet Characters to Numbers\n\nThe actually selected alphabet and it's encoding to numbers as of Menu ""Options / Textoptions"" is:\n \n%ALPHABET_MAPPING%\n \nThe actual alphabet consists of %ALPHABET_SIZE% characters. The first alphabet character is encoded to the number %ALPHABET_CODING_OFFSET%.\n\n\n2. Encryption Parameters and Properties\n\nThis example describes the Hill encryption of the %HILL_DIMENSION% first characters of the input plaintext. Only characters from the current alphabet are encrypted. \nHere are the required parameter information for the selected Hill encryption: \n  o For the Hill encryption and decryption the Hill matrix is multiplied by a %HILL_MULTIPLICATION_TYPE%. \n  o The selected Hill matrix is of dimension %HILL_DIMENSION%x%HILL_DIMENSION%. \n  o The plaintext consists of %HILL_PLAINTEXT_SIZE% characters. Thereof are %HILL_NON_ALPHABET_CHARS% non-alphabet characters (non-alphabet characters are ignored.) In case the selected alphabet consists ony capital characters non capital characters are encrypted too but this is not true for the other direction.  Below the Hill encryption and decryption is demonstrated on the example of the %HILL_DIMENSION% first alphabet characters from the given plaintext.\n \n\n3. Hill Encryption\n\nSelected Hill matrix for encryption:\n \n%HILL_ENCRYPTION_TEXTMATRIX%\n \nThis matrix encoded to numbers:\n \n%HILL_ENCRYPTION_INTMATRIX%\n \nEncryption of the plaintext: ""%PLAINTEXT%"": \nThis plaintext vector P is below encoded to numbers: \n%HILL_PLAINTEXT_VECTOR%\n \nComputation of the Hill encryption by the %HILL_VECTOR_MATRIX_MULTTYPE% (the vector P[n] is a %HILL_VECTORTYPE%): \n%HILL_ENCRYPTION%\n \nThe Hill ciphertext is: ""%CIPHERTEXT%"". \n\n\n4. Hill decryption\n\nThe inverted Hill matrix for decryption: \n%HILL_DECRYPTION_TEXTMATRIX%\n \nThis matrix encoded to numbers: \n%HILL_DECRYPTION_INTMATRIX%\n \nDecryption of the ciphertext: ""%CIPHERTEXT%"": \nCiphertext vector C decoded to numbers: \n%HILL_CIPHERTEXT_VECTOR%\n \nComputation of the Hill decryption by the %HILL_VECTOR_MATRIX_MULTTYPE% (the vector C[n] is a %HILL_VECTORTYPE%): \n%HILL_DECRYPTION%\n \nThe Hill plaintext is: ""%PLAINTEXT%"". \n\n\n"
+    IDS_HILL_DUMP           "Hill En-/Decryption:\n\nThis detailed description of the Hill encryption / decryption consists of the following parts: \n 1. Encoding the alphabet characters to numbers\n 2. Encryption parameters end properties\n 3. Hill encryption\n 4. Hill decryption\n \nThis logfile text shows all calculations done with the current Hill key matrix and the beginning characters of the used message.\n\n\n1. Encoding the Alphabet Characters to Numbers\n\nThe actually selected alphabet and it's encoding to numbers as of Menu ""Options / Textoptions"" is:\n \n%ALPHABET_MAPPING%\n \nThe actual alphabet consists of %ALPHABET_SIZE% characters. The first alphabet character is encoded to the number %ALPHABET_CODING_OFFSET%.\n\n\n2. Encryption Parameters and Properties\n\nThis example describes the Hill encryption of the %HILL_DIMENSION% first characters of the input plaintext. Only characters from the current alphabet are encrypted.\n \nHere are the required parameter information for the selected Hill encryption: \n  o For the Hill encryption and decryption the Hill matrix is multiplied by a %HILL_MULTIPLICATION_TYPE%. \n  o The selected Hill matrix is of dimension %HILL_DIMENSION%x%HILL_DIMENSION%. \n  o The plaintext consists of %HILL_PLAINTEXT_SIZE% characters. Thereof are %HILL_NON_ALPHABET_CHARS% non-alphabet characters (non-alphabet characters are ignored.) In case the selected alphabet consists ony capital characters non capital characters are encrypted too but this is not true for the other direction.  Below the Hill encryption and decryption is demonstrated on the example of the %HILL_DIMENSION% first alphabet characters from the given plaintext.\n \n\n3. Hill Encryption\n\nSelected Hill matrix for encryption:\n \n%HILL_ENCRYPTION_TEXTMATRIX%\n \nThis matrix encoded to numbers:\n \n%HILL_ENCRYPTION_INTMATRIX%\n \nEncryption of the plaintext: ""%PLAINTEXT%"": \nThis plaintext vector P is below encoded to numbers: %HILL_PLAINTEXT_VECTOR%\n \nComputation of the Hill encryption by the %HILL_VECTOR_MATRIX_MULTTYPE% (the vector P[n] is a %HILL_VECTORTYPE%): \n%HILL_ENCRYPTION%\n \nThe Hill ciphertext is: ""%CIPHERTEXT%"". \n\n\n4. Hill decryption\n\nThe inverted Hill matrix for decryption: \n%HILL_DECRYPTION_TEXTMATRIX%\n \nThis matrix encoded to numbers: \n%HILL_DECRYPTION_INTMATRIX%\n \nDecryption of the ciphertext: ""%CIPHERTEXT%"": \nCiphertext vector C decoded to numbers: \n%HILL_CIPHERTEXT_VECTOR%\n \nComputation of the Hill decryption by the %HILL_VECTOR_MATRIX_MULTTYPE% (the vector C[n] is a %HILL_VECTORTYPE%): \n%HILL_DECRYPTION%\n \nThe Hill plaintext is: ""%PLAINTEXT%"". \n\n\n"
     IDS_HILL_MULTIPLICATION_TYPE_LEFT "row vector from left"
     IDS_HILL_MULTIPLICATION_TYPE_RIGHT "column vector from right"
     IDS_HILL_VECTORTYPE_ROW "row vector"
@@ -32154,13 +32173,6 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_SCINTILLA_DEFAULT_PRINT_FOOTER "Page %1"
-    IDS_CR_CLIENT           "   Client"
-    IDS_CR_ROUTER           "Router %d"
-    IDS_CR_SERVER           "Server %d"
-    IDS_CR_ATTACKER         "Attacker"
-    IDS_CR_PASSWORD         "secret"
-    IDS_STRING_TEST_POKER   "Poker test"
     IDS_STRING_HILL_DETAILS "Details of Hill"
     IDS_STRING_TEST_FREQ    "Frequency test"
     IDS_STRING_TEST_SERIAL  "Serial test"
@@ -32171,6 +32183,7 @@ BEGIN
     IDS_ROT13_CAESAR_TOO_LARGE_KEY 
                             "The input is larger than the alphabet length.\nSet the value automaticly to 1?"
     IDS_PQM_PASSWORD_IS_COMPLIANT "- Yes\r\n"
+    IDS_PQM_PASSWORD_COMPLIANT "Compliant with password guidelines:\r\n"
 END
 
 STRINGTABLE 
@@ -32184,13 +32197,8 @@ BEGIN
     IDS_CLIPBOARD_HEXCOPY   "The marked data can be put into the clipboard unchanged (default) or in hexadecimal encoding.\nHexadecimal encoding is required e.g. if you want to export non-printable data to other applications.\n\nUse hexadecimal encoding?"
     IDS_CLIPBOARD_HEXPASTE  "The clipboard contains hexadecimal characters only. They can be inserted decoded (default) or unchanged.\n\nDecode hexadecimal data?"
     IDS_STRING_MEMBER2      "participant"
-    IDS_PQM_PASSWORD_RECONSTRUCTION 
-                            "\r\nReconstruction from words, sequences and patterns:"
-    IDS_PQM_PASSWORD_RECONSTRUCTION_FOUND "\r\nFound: "
     IDS_SCINTILLA_LEXER_ERROR 
                             "The alphabet view could not be activated, probably not the version of SCILEXER.DLL\nwhich comes with CrypTool was loaded, but a different one."
-    IDS_PQM_CRYPTOOLALPHABETINACTIVE 
-                            "You have deactivated the consideration of the CrypTool alphabet. Please note that the displayed\npassword quality can possibly exceed the effective password quality in this configuration."
     IDS_STATISTICAL_REFERENCE_FILE_MISSING 
                             "The reference file for statistical applications could not be found.\nPlease specify the file name in the text options dialog."
     IDS_STATISTICAL_REFERENCE_FILE_STILL_MISSING 
@@ -32198,8 +32206,35 @@ BEGIN
     IDS_RIJNDAEL_INSPECTOR_EXEC_STR "Rijndael-Inspector.exe"
     IDS_ERROR_OPEN_FLASHAESDEMO 
                             "The AES demo cannot be opened.\nPlease make sure whether it was installed correctly in the CrypTool program directory\n(""%s"")."
+END
+
+STRINGTABLE 
+BEGIN
     IDS_ERROR_OPEN_RIJNDAELINSPECTOR 
                             "The Rindael Inspector cannot be opened.\nPlease make sure whether it was installed correctly in the CrypTool program directory\n(""%s"")."
+    IDS_PQM_CRYPTOOLALPHABETINACTIVE 
+                            "You have deactivated the consideration of the CrypTool alphabet. Please note that the displayed\npassword quality can possibly exceed the effective password quality in this configuration."
+    IDS_PQM_PASSWORD_RECONSTRUCTION_FOUND "\r\nFound: "
+    IDS_PQM_PASSWORD_RECONSTRUCTION 
+                            "\r\nReconstruction from words, sequences and patterns:"
+    IDS_PQM_PASSWORD_RECONSTRUCTION_PATTERNS "\r\nPatterns: "
+    IDS_PQM_PASSWORD_RECONSTRUCTION_SEQUENCES "\r\nSequences: "
+    IDS_PQM_PASSWORD_RECONSTRUCTION_KEYBOARDSEQUENCES 
+                            "\r\nKeyboard sequences: "
+    IDS_PQM_CRACKLIB_DICTIONARY_PATH "words\\cracklib_dict"
+    IDS_PQM_NO_CRACKLIB_DICTIONARY 
+                            "Could not open the cracklib dictionary:\n%s\r\nPlease make sure the following files exist:\r\n%s.hwm\r\n%s.pwd\r\n%s.pwi"
+    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT 
+                            "- No (Password is too short)\r\n"
+    IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS "\r\nDictionary words: "
+    IDS_SECRETSHARINGSHAMIR_LOG_HEADING 
+                            "Log file for Shamir's Secret-Sharing Scheme"
+    IDS_CAESAR_ANALYSIS_REMARK 
+                            "Because of the key offset which was used during encryption, there are two keys possible: For a key offset of 1 the key is '%s', for a key offset of 0 the key is '%s'."
+    IDS_STRING_INVALID_VERNAM_KEY 
+                            "The chosen Vernam key is of length 0.\nPlease check the key file."
+    IDS_STRING_SHORT_VERNAM_KEY 
+                            "The vernam key is shorter than the text that is to be encrypted."
 END
 
 STRINGTABLE 
@@ -32283,43 +32318,12 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_PQM_PASSWORD_RECONSTRUCTION_PATTERNS "\r\nPatterns: "
-    IDS_PQM_PASSWORD_RECONSTRUCTION_SEQUENCES "\r\nSequences: "
-    IDS_PQM_PASSWORD_RECONSTRUCTION_KEYBOARDSEQUENCES 
-                            "\r\nKeyboard sequences: "
-    IDS_PQM_CRACKLIB_DICTIONARY_PATH "words\\cracklib_dict"
-    IDS_PQM_NO_CRACKLIB_DICTIONARY 
-                            "Could not open the cracklib dictionary:\n%s\r\nPlease make sure the following files exist:\r\n%s.hwm\r\n%s.pwd\r\n%s.pwi"
-    IDS_PQM_PASSWORD_COMPLIANT "Compliant with password guidelines:\r\n"
-    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_SHORT 
-                            "- No (Password is too short)\r\n"
-    IDS_PQM_PASSWORD_RECONSTRUCTION_DICTIONARYWORDS "\r\nDictionary words: "
-    IDS_SECRETSHARINGSHAMIR_LOG_HEADING 
-                            "Log file for Shamir's Secret-Sharing Scheme"
-    IDS_CAESAR_ANALYSIS_REMARK 
-                            "Because of the key offset which was used during encryption, there are two keys possible: For a key offset of 1 the key is '%s', for a key offset of 0 the key is '%s'."
-    IDS_STRING_INVALID_VERNAM_KEY 
-                            "The chosen Vernam key is of length 0.\nPlease check the key file."
-    IDS_STRING_SHORT_VERNAM_KEY 
-                            "The vernam key is shorter than the text that is to be encrypted."
     IDS_PATH_PRESENTATION   "%sCrypToolPresentation-en.pdf"
     IDS_ERROR_OPENING_PRESENTATION 
                             "The presentation could not be opened!\n\nPlease check\n- if the file ""CrypToolPresentation-en.pdf"" is in the same directory as ""CrypTool.exe"" and\n- if the Acrobat reader is installed (www.adobe.com)."
     IDS_PQM_ENTROPY_NOT_ALL_INPUT_PARAMETERS_SET 
                             "Please make sure you have specified\n- the desired password entropy and\n- the desired password alphabet."
     IDS_CANT_UNDO           "Cannot undo last text change.\n\nFree some memory and try again."
-END
-
-STRINGTABLE 
-BEGIN
-    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_DIGITS 
-                            "- No (Password contains too few digits)\r\n"
-    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_SPECIAL_CHARACTERS 
-                            "- No (Password contains too few special characters)\r\n"
-END
-
-STRINGTABLE 
-BEGIN
     IDS_CANT_REDO           "Cannot revert last undo.\n\nFree some memory and try again."
     IDS_CANT_SAVE_UNDO      "Could not save information to later undo the last text change."
     IDS_FIND_AND_REPLACE_NULL_BYTE_IN_FIND_STRING 
@@ -32338,6 +32342,18 @@ BEGIN
     IDS_BIT_FMT             "%d bit%s"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION 
                             "In the given value range [%s, %s], %d prime numbers were found."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_DIGITS 
+                            "- No (Password contains too few digits)\r\n"
+    IDS_PQM_PASSWORD_NOT_COMPLIANT_TOO_FEW_SPECIAL_CHARACTERS 
+                            "- No (Password contains too few special characters)\r\n"
+END
+
+STRINGTABLE 
+BEGIN
     IDS_BIT_EFFECTIVE_FMT   " (%d bit effective)"
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_TITLE 
                             "Generating a set of prime numbers"
@@ -32346,6 +32362,23 @@ BEGIN
     IDS_STRING_MULTIPLE_PRIME_NUMBERS_GENERATION_NOTIFICATION_CANCELLED 
                             "The process was cancelled. In the given value range [%s, %s], %d prime numbers were found yet."
     IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_SCYTALE "Number of edges:"
+    IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_RAIL_FENCE "Number of rows:"
+    IDS_SIMPLE_TRANSPOSITION_KEY_INVALID 
+                            "The key is invalid. It must be greater than 1 and smaller than the length of the input text.\n\nCharacters that are not part of the CrypTool-Alphabet are deleted before encryption/decryption. If you don't want to change the input text, please use the button ""Text options"" to alter the CrypTool alphabet in order to proceed."
+    IDS_STRING_RAIL_FENCE_ENCRYPTION_OF 
+                            "Rail Fence encryption (Simple Transposition) of <%s>, key <%s>"
+    IDS_STRING_RAIL_FENCE_DECRYPTION_OF 
+                            "Rail Fence decryption (Simple Transposition) of <%s>, key <%s>"
+    IDS_STRING_SCYTALE_ENCRYPTION_OF 
+                            "Scytale encryption (Simple Transposition) of <%s>, key <%s>"
+    IDS_STRING_SCYTALE_DECRYPTION_OF 
+                            "Scytale decryption (Simple Transposition) of <%s>, key <%s>"
+    IDS_FACTORS_FOUND       "Found %d factors in %s"
+    IDS_SIMPLE_TRANSPOSITION_OFFSET_INVALID 
+                            "The offset is invalid. It must not be smaller than 0."
+    IDS_STRING_FACTORIZATION_BRUTE_FORCE_LIMIT 
+                            "This number could not be factorized using brute-force. Here, brute-force is implemented in a way to find only factors smaller than %d."
+    IDS_CRYPT_SIMPLETRANSPOSITION "Simple Transposition"
 END
 
 STRINGTABLE 
@@ -32394,23 +32427,6 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_RAIL_FENCE "Number of rows:"
-    IDS_SIMPLE_TRANSPOSITION_KEY_INVALID 
-                            "The key is invalid. It must be greater than 1 and smaller than the length of the input text.\n\nCharacters that are not part of the CrypTool-Alphabet are deleted before encryption/decryption. If you don't want to change the input text, please use the button ""Text options"" to alter the CrypTool alphabet in order to proceed."
-    IDS_STRING_RAIL_FENCE_ENCRYPTION_OF 
-                            "Rail Fence encryption (Simple Transposition) of <%s>, key <%s>"
-    IDS_STRING_RAIL_FENCE_DECRYPTION_OF 
-                            "Rail Fence decryption (Simple Transposition) of <%s>, key <%s>"
-    IDS_STRING_SCYTALE_ENCRYPTION_OF 
-                            "Scytale encryption (Simple Transposition) of <%s>, key <%s>"
-    IDS_STRING_SCYTALE_DECRYPTION_OF 
-                            "Scytale decryption (Simple Transposition) of <%s>, key <%s>"
-    IDS_FACTORS_FOUND       "Found %d factors in %s"
-    IDS_SIMPLE_TRANSPOSITION_OFFSET_INVALID 
-                            "The offset is invalid. It must not be smaller than 0."
-    IDS_STRING_FACTORIZATION_BRUTE_FORCE_LIMIT 
-                            "This number could not be factorized using brute-force. Here, brute-force is implemented in a way to find only factors smaller than %d."
-    IDS_CRYPT_SIMPLETRANSPOSITION "Simple Transposition"
     IDS_STRING_ASYMKEY_ERR_CERT_SERIAL_EXISTS 
                             "The certificate cannot be imported, because a certificate with the same serial number already exists."
     IDS_STRING_ADFGVX_PASSWORD_EMPTY_REPEAT_INPUT_PROCESS 
@@ -32421,7 +32437,24 @@ BEGIN
                             "The Java program was not found! (Full path: ""%s"")"
     IDS_STRING_JAVA_PROGRAM_EXECUTION_FAILED 
                             "The Java program could not be executed. Please contact the development team."
-    IDS_STRING_SMIME_DEMO_PROGRAM "smimedemo\\main\\Programm.class"
+    IDS_STRING_SMIME_DEMO_PROGRAM "main\\Programm.class"
+    IDS_AES_FLOWVISUALIZATION_JAVA_FILE "AES_Flussvisualisierung.jar"
+    IDS_STRING_SMIME_DEMO_PROGRAM_COMPLETE_CALL 
+                            "-cp "".;./lib/*"" main.Programm EN"
+    IDS_VIGENERE_ANALYSIS_SCHROEDEL_INFO 
+                            "As soon as the analysis is finished, the result is display in a new document."
+    IDS_AUTHORS_FILE_MISSING 
+                            "The file ""authors.txt"" could not be found. Please make sure that the file is located in the CrypTool main folder."
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DICTIONARY_FILENAME 
+                            "VigenereAnalysisSchroedelDictionary.txt"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DIGRAMS_FILENAME 
+                            "VigenereAnalysisSchroedelDigrams.txt"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_TRIGRAMS_FILENAME 
+                            "VigenereAnalysisSchroedelTrigrams.txt"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_PROGRESS_BAR_TITLE 
+                            "Vigenère analysis according to Schroedel"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_CIPHERTEXT_TAG "Ciphertext:"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_POSSIBLE_KEY_TAG "Possible key:"
 END
 
 STRINGTABLE 
@@ -32457,23 +32490,6 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_AES_FLOWVISUALIZATION_JAVA_FILE "AES_Flussvisualisierung.jar"
-    IDS_STRING_SMIME_DEMO_PROGRAM_COMPLETE_CALL 
-                            "-cp ""./smimedemo/;./smimedemo/lib/*"" main.Programm EN"
-    IDS_VIGENERE_ANALYSIS_SCHROEDEL_INFO 
-                            "As soon as the analysis is finished, the result is display in a new document."
-    IDS_AUTHORS_FILE_MISSING 
-                            "The file ""authors.txt"" could not be found. Please make sure that the file is located in the CrypTool main folder."
-    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DICTIONARY_FILENAME 
-                            "VigenereAnalysisSchroedelDictionary.txt"
-    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DIGRAMS_FILENAME 
-                            "VigenereAnalysisSchroedelDigrams.txt"
-    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_TRIGRAMS_FILENAME 
-                            "VigenereAnalysisSchroedelTrigrams.txt"
-    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_PROGRESS_BAR_TITLE 
-                            "Vigenère analysis according to Schroedel"
-    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_CIPHERTEXT_TAG "Ciphertext:"
-    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_POSSIBLE_KEY_TAG "Possible key:"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_FOUND_CLEARTEXT_TAG 
                             "Found cleartext:"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_NO_POSSIBLE_RESULTS_FOUND 
@@ -32486,10 +32502,6 @@ BEGIN
                             "Length of analyzed ciphertext:"
     IDS_AUTHORS_FILE_CORRUPTED 
                             "The file authors.txt was changed after CrypTool was installed."
-END
-
-STRINGTABLE 
-BEGIN
     IDS_CRYPTOOL_RELEASE_INFORMATION "%s (%s, %s), compiled with "
     IDS_STRING_FILE_COULD_NOT_BE_OPENED 
                             "The following file could not be opened:\n"
@@ -32501,6 +32513,9 @@ BEGIN
                             "AM AN AS AT BE BY DO GO HE IF IN IS IT ME MY NO OF OK ON SO TO UP US"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SUGGEST_RESULT 
                             "The analysis considers ""%s"" as possible key.\n\nThe resulting cleartext reads: ""%s"".\n\nDo you want to abort the analysis?"
+    IDS_HASHDEMO_STRING_SHA_256 "SHA-256 (256 bits)"
+    IDS_HASHDEMO_STRING_SHA_384 "SHA-384 (384 bits)"
+    IDS_HASHDEMO_STRING_SHA_512 "SHA-512 (512 bits)"
 END
 
 STRINGTABLE 
@@ -32538,23 +32553,7 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "characters"
 END
 
-STRINGTABLE 
-BEGIN
-    IDS_HEADERTEXT_PERMUTATION "Permutation"
-    IDS_HEADERTEXT_READOUT  "Write out"
-    IDS_HEADER_PERMKEYLIST  "At least one permutation key was found. These keys are now displayed in the list below.\nYou may copy your actual selection key into the key storage."
-    IDS_NOKEYSELECTED       "Please select a key from the list"
-    IDS_ACTIVE              "(Active) "
-    IDS_PERMKEY_COPIED_AND_TIPPS 
-                            "The selected key has been copied to the key storage. You may use this permutaion key for document encryption or ciphertext decryption (See menu: Crypt-/Decrypt \\ Symmetric (classic) \\ Permutation / Transposition).\n\nUsing the Permutation encryption dialoge you may click on the key symbol to paste the strored key."
-    IDS_DIALOGHEADER_PERMKEY_LIST "List of recovered permutation keys."
-    IDS_INFO_TEXT_ENCRYPTION 
-                            "You chose the option to do the encryption in text mode.\nThis means that characters, which don't belong to the alphabet, are not encrypted (according to the Text option settings these characters are taken away or be kept)."
-    IDS_INFO_BYNARY_ENCRYPTION 
-                            "You chose the option to do the encryption in binary mode. This means that all characters are encrypted and the chosen text alphabet doesn't matter."
-END
-
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

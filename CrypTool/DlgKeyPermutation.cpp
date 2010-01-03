@@ -203,11 +203,12 @@ void CDlgKeyPermutation::OnEncrypt()
 
 int CDlgKeyPermutation::MakePerm( CString *Pin, int p[], int pinv[])
 {
-	int i, j, k, id[MAX_PERM_LENGTH], plen;
+	int i, j, plen;
 
 	if(Pin->GetLength() == 0) return 0;
 	if(isdigit((*Pin)[0])) return MakePermInt( Pin, p, pinv);
 	Pin->MakeUpper();
+
 	for(i=0;i<Pin->GetLength();) {
 		if(strchr("ABCDEFGHIJKLMNOPQRSTUVWXYZ", Pin->GetAt(i)))
 			i++;
@@ -220,13 +221,17 @@ int CDlgKeyPermutation::MakePerm( CString *Pin, int p[], int pinv[])
 	}
 	plen = Pin->GetLength();
 	if(plen == 0) return 0;
-	for(i=0;i<plen;i++) id[i]=i;
-	for(i=0;i<plen;i++) {
-		j = (Pin->GetAt(i)-'A') % (plen-i);
-		p[i] = id[j];
-		for(k=j; k<(plen-i); k++) id[k] = id[k+1];
-	}
-	for(i=0; i<plen; i++) pinv[p[i]]=i;
+
+	// Analog ADFGVX
+	for (i=0; i<plen; i++) p[i] = 0;
+	for (i=0; i<plen; i++)
+		for (j=i+1; j<plen; j++)
+			if ( Pin->GetAt(i) > Pin->GetAt(j) )
+				p[i]++;
+			else
+				p[j]++;
+	for(i=0; i<plen; i++) 
+		pinv[p[i]]=i;
 
 	return plen;
 }

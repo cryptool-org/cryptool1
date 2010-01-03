@@ -47,11 +47,11 @@ CDlgHMAC::CDlgHMAC(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgHMAC::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CDlgHMAC)
-	m_alg = 0;
-	m_position = 0;
+	m_alg = -1;
+	m_position = -1;
 	m_key = _T("");
 	m_secondkey = _T("");
-	m_str_mac = _T("");
+	m_str_outer_input = _T("");
 	//}}AFX_DATA_INIT
 }
 
@@ -64,37 +64,27 @@ void CDlgHMAC::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT_KEY, m_ctrl_key);
 	DDX_Control(pDX, IDC_SHOW_MAC, m_mac);
 	DDX_Control(pDX, IDC_SHOW_TEXT, m_text);
-	DDX_Radio(pDX, IDC_RADIO1, m_alg);
-	DDX_Radio(pDX, IDC_RADIO7, m_position);
 	DDX_Text(pDX, IDC_EDIT_KEY, m_key);
 	DDX_Text(pDX, IDC_EDIT_KEY2, m_secondkey);
 	DDX_Text(pDX, IDC_SHOW_MAC, m_str_mac);
+	DDX_Text(pDX, IDC_SHOW_TEXT, m_str_outer_input);
 	DDX_Text(pDX, IDC_EDIT_ORIGINAL_MESSAGE, m_originalMessage);
-	DDX_Text(pDX, IDC_SHOW_HASH, m_outerHash);
+	DDX_Text(pDX, IDC_SHOW_HASH, m_innerHash);
+	DDX_Control(pDX, IDC_COMBO_SELECT_HASH_FUNCTION, m_comboCtrlSelectHashFunction);
+	DDX_Control(pDX, IDC_COMBO_SELECT_HMAC_ALGORITHM, m_comboCtrlSelectHMACFunction);
 	//}}AFX_DATA_MAP
 }
 
 
 BEGIN_MESSAGE_MAP(CDlgHMAC, CDialog)
 	//{{AFX_MSG_MAP(CDlgHMAC)
-	ON_BN_CLICKED(IDC_RADIO11, OnBUTTONSecondKey)
 	ON_EN_CHANGE(IDC_SHOW_TEXT, OnEditText)
 	ON_EN_CHANGE(IDC_EDIT_KEY, OnEditKey)
 	ON_EN_CHANGE(IDC_EDIT_ORIGINAL_MESSAGE, OnEditOriginalMessage)
-	ON_BN_CLICKED(IDC_RADIO7, OnBUTTONFront)
-	ON_BN_CLICKED(IDC_RADIO8, OnBUTTONBack)
-	ON_BN_CLICKED(IDC_RADIO9, OnBUTTONBoth)
-	ON_BN_CLICKED(IDC_RADIO10, OnBUTTONDouble)
 	ON_EN_CHANGE(IDC_EDIT_KEY2, OnEditSecondKey)
-	ON_BN_CLICKED(IDC_RADIO1, OnBUTTONHashFunction)
-	ON_BN_CLICKED(IDC_RADIO2, OnBUTTONHashFunction)
-	ON_BN_CLICKED(IDC_RADIO3, OnBUTTONHashFunction)
-	ON_BN_CLICKED(IDC_RADIO4, OnBUTTONHashFunction)
-	ON_BN_CLICKED(IDC_RADIO5, OnBUTTONHashFunction)
-	ON_BN_CLICKED(IDC_RADIO12, OnBUTTONHashFunction)
-	ON_BN_CLICKED(IDC_RADIO13, OnBUTTONHashFunction)
-	ON_BN_CLICKED(IDC_RADIO6, OnBUTTONHashFunction)
 	//}}AFX_MSG_MAP
+	ON_CBN_SELENDOK(IDC_COMBO_SELECT_HASH_FUNCTION, &CDlgHMAC::OnCbnSelendokComboSelectHashFunction)
+	ON_CBN_SELENDOK(IDC_COMBO_SELECT_HMAC_ALGORITHM, &CDlgHMAC::OnCbnSelendokComboSelectHmacAlgorithm)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -103,7 +93,42 @@ END_MESSAGE_MAP()
 BOOL CDlgHMAC::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
-	
+	LOGFONT lf={8,0,0,0,FW_NORMAL,false,false,false,DEFAULT_CHARSET,OUT_CHARACTER_PRECIS,CLIP_CHARACTER_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH|FF_DONTCARE,"Courier"};
+	//Struktur lf wird deklariert und initialisiert
+	m_font.CreateFontIndirect(&lf);
+	CWnd* pStatic1=GetDlgItem(IDC_EDIT_KEY);
+	CWnd* pStatic2=GetDlgItem(IDC_EDIT_KEY2);
+	CWnd* pStatic =GetDlgItem(IDC_SHOW_TEXT);
+	CWnd* pStatic3=GetDlgItem(IDC_SHOW_MAC);
+	CWnd* pStatic4=GetDlgItem(IDC_SHOW_HASH);
+
+	pStatic->SetFont(&m_font,false);
+	pStatic1->SetFont(&m_font,false);
+	pStatic2->SetFont(&m_font,false);
+	pStatic3->SetFont(&m_font,false);
+	pStatic4->SetFont(&m_font,false);
+
+	CString str;
+	str.LoadStringA(IDS_HASHDEMO_SELALGORITHM);		m_comboCtrlSelectHashFunction.AddString(str);
+	str.LoadStringA(IDS_HASHDEMO_STRING_MD2);		m_comboCtrlSelectHashFunction.AddString(str);
+	str.LoadStringA(IDS_HASHDEMO_STRING_MD4);		m_comboCtrlSelectHashFunction.AddString(str);
+	str.LoadStringA(IDS_HASHDEMO_STRING_MD5);		m_comboCtrlSelectHashFunction.AddString(str);
+	str.LoadStringA(IDS_HASHDEMO_STRING_SHA);		m_comboCtrlSelectHashFunction.AddString(str);
+	str.LoadStringA(IDS_HASHDEMO_STRING_SHA1);		m_comboCtrlSelectHashFunction.AddString(str);
+	str.LoadStringA(IDS_HASHDEMO_STRING_SHA_256);	m_comboCtrlSelectHashFunction.AddString(str);
+	str.LoadStringA(IDS_HASHDEMO_STRING_SHA_512);	m_comboCtrlSelectHashFunction.AddString(str);
+	str.LoadStringA(IDS_HASHDEMO_STRING_RIPEMD160);	m_comboCtrlSelectHashFunction.AddString(str);
+	m_comboCtrlSelectHashFunction.SetCurSel(0);
+
+	str.LoadStringA(IDS_HMAC_SELALGORITHM);			m_comboCtrlSelectHMACFunction.AddString(str);
+	str.LoadStringA(IDS_HMAC_ALGORITHM_HKM);		m_comboCtrlSelectHMACFunction.AddString(str);
+	str.LoadStringA(IDS_HMAC_ALGORITHM_HMK);		m_comboCtrlSelectHMACFunction.AddString(str);
+	str.LoadStringA(IDS_HMAC_ALGORITHM_HKMK);		m_comboCtrlSelectHMACFunction.AddString(str);
+	str.LoadStringA(IDS_HMAC_ALGORITHM_HK1MK2);		m_comboCtrlSelectHMACFunction.AddString(str);
+	str.LoadStringA(IDS_HMAC_ALGORITHM_RFC2104);	m_comboCtrlSelectHMACFunction.AddString(str);
+	m_comboCtrlSelectHMACFunction.SetCurSel(0);
+
+
 	UpdateData(true);
 	m_text.SetWindowText(strText);
 	m_originalMessage = strText;
@@ -141,15 +166,6 @@ void CDlgHMAC::SetMac(CString input)
 	int  digest_length;
 	hash(input, digest, digest_length);
 	m_str_mac = hex_dump( digest, digest_length );
-	SetOuterHash();
-}
-
-void CDlgHMAC::SetOuterHash()
-{
-	char digest[64];
-	int  digest_length;
-	hash(m_originalMessage, digest, digest_length);
-	m_outerHash = hex_dump( digest, digest_length );
 }
 
 CString CDlgHMAC::hex_dump( const char *data, int len )
@@ -204,77 +220,7 @@ void CDlgHMAC::OnEditOriginalMessage()
 		calculateMACAndUpdateGUI();
 }
 
-void CDlgHMAC::OnBUTTONFront() 
-{
-	UpdateData(true);
-	m_ctrl_secondkey.EnableWindow(FALSE);
-	UpdateData(false);
-
-	calculateMACAndUpdateGUI();
-
-	// if there is no key selected, set focus to first key
-	if(m_key.GetLength() == 0 && m_secondkey.GetLength() == 0)
-		this->GetDlgItem(IDC_EDIT_KEY)->SetFocus();
-	// if there is the first key selected, set focus to second key
-	if(m_key.GetLength() > 0)
-		this->GetDlgItem(IDC_EDIT_KEY2)->SetFocus();
-}
-
-void CDlgHMAC::OnBUTTONBack() 
-{
-	UpdateData(true);
-	m_ctrl_secondkey.EnableWindow(FALSE);
-	UpdateData(false);
-
-	calculateMACAndUpdateGUI();
-
-	// if there is no key selected, set focus to first key
-	if(m_key.GetLength() == 0 && m_secondkey.GetLength() == 0)
-		this->GetDlgItem(IDC_EDIT_KEY)->SetFocus();
-	// if there is the first key selected, set focus to second key
-	if(m_key.GetLength() > 0)
-		this->GetDlgItem(IDC_EDIT_KEY2)->SetFocus();
-}
-
-void CDlgHMAC::OnBUTTONBoth() 
-{
-	UpdateData(true);
-	m_ctrl_secondkey.EnableWindow(FALSE);
-	UpdateData(false);
-
-	calculateMACAndUpdateGUI();
-
-	// if there is no key selected, set focus to first key
-	if(m_key.GetLength() == 0 && m_secondkey.GetLength() == 0)
-		this->GetDlgItem(IDC_EDIT_KEY)->SetFocus();
-	// if there is the first key selected, set focus to second key
-	if(m_key.GetLength() > 0)
-		this->GetDlgItem(IDC_EDIT_KEY2)->SetFocus();
-}
-
-void CDlgHMAC::OnBUTTONDouble() 
-{
-	UpdateData(true);
-	m_ctrl_secondkey.EnableWindow(FALSE);
-	UpdateData(false);
-
-	calculateMACAndUpdateGUI();
-
-	// if there is no key selected, set focus to first key
-	if(m_key.GetLength() == 0 && m_secondkey.GetLength() == 0)
-		this->GetDlgItem(IDC_EDIT_KEY)->SetFocus();
-	// if there is the first key selected, set focus to second key
-	if(m_key.GetLength() > 0)
-		this->GetDlgItem(IDC_EDIT_KEY2)->SetFocus();
-}
-
 void CDlgHMAC::OnEditSecondKey() 
-{
-	UpdateData(true);
-	calculateMACAndUpdateGUI();
-}
-
-void CDlgHMAC::OnBUTTONHashFunction() 
 {
 	UpdateData(true);
 	calculateMACAndUpdateGUI();
@@ -290,23 +236,32 @@ void CDlgHMAC::keyEmpty(int IDS)
 void CDlgHMAC::calculateMACAndUpdateGUI()
 {
 	UpdateData(true);
-	CString tempRes;
+
+	m_str_mac = _T("");
+	m_innerHash = _T("");
+	m_str_outer_input = _T("");
+
+	if ( m_alg < 0 || m_position < 0 )
+	{
+		UpdateData(false);
+		return;
+	}
 
 	switch (m_position)
 	{
 		case 0: if (m_key == "") keyEmpty(IDS_STRING_MAC_NoKey);
-				strText = m_key + m_originalMessage;
+				m_str_outer_input = m_key + m_originalMessage;
 				break;//Schlüssel vorne
 		case 1:	if (m_key == "") keyEmpty(IDS_STRING_MAC_NoKey);
-				strText = m_originalMessage + m_key;
+				m_str_outer_input = m_originalMessage + m_key;
 				break;//Schlüssel hinten
 		case 2:	if (m_key == "") keyEmpty(IDS_STRING_MAC_NoKey);
-				strText = m_key + m_originalMessage + m_key;
+				m_str_outer_input = m_key + m_originalMessage + m_key;
 				break;//Schlüssel vorne und hinten
 		case 3: if ((m_key == "") && (m_secondkey == ""))		keyEmpty(IDS_STRING_MAC_NoKey);
 				else if ((m_key == "") && (m_secondkey != ""))  keyEmpty(IDS_STRING_MAC_OnlyOneKey);
 				else if ((m_key != "") && (m_secondkey == ""))  keyEmpty(IDS_STRING_MAC_OnlyOneKey);
-				strText = m_key + m_originalMessage + m_secondkey;
+				m_str_outer_input = m_key + m_originalMessage + m_secondkey;
 				break;//zwei Schlüssel
 		case 4: 
 				{ 
@@ -342,8 +297,8 @@ void CDlgHMAC::calculateMACAndUpdateGUI()
 					hashOp.chunkHashUpdate(m_originalMessage.GetBuffer(), m_originalMessage.GetLength());
 					hashOp.chunkHashFinal(digest);
 					digest_length = hashSize[m_alg];
-					tempRes = hex_dump((char*)k_opad, 64) + hex_dump( digest, digest_length );
-					m_text.SetWindowText(tempRes);
+					m_innerHash = hex_dump( digest, digest_length );
+					m_str_outer_input = hex_dump((char*)k_opad, 64) + hex_dump( digest, digest_length );
 
 					// outer hashing
 					hashOp.chunkHashInit();
@@ -357,8 +312,40 @@ void CDlgHMAC::calculateMACAndUpdateGUI()
 	}
 	if ( m_position != 4 )
 	{
-		SetMac(strText);
-		m_text.SetWindowText(strText);
+		SetMac(m_str_outer_input);
 	}
 	UpdateData(false);	
+}
+void CDlgHMAC::OnCbnSelendokComboSelectHashFunction()
+{
+	UpdateData();
+	m_alg = m_comboCtrlSelectHashFunction.GetCurSel() -1;
+	calculateMACAndUpdateGUI();
+}
+
+void CDlgHMAC::OnCbnSelendokComboSelectHmacAlgorithm()
+{
+	UpdateData();
+	m_position = m_comboCtrlSelectHMACFunction.GetCurSel() -1;
+
+	switch ( m_position ) {
+		case -1:
+		case  0: // H(m, k)
+		case  1: // H(k, m)
+		case  2: // H(k,m,k)
+		case  4: // H(k,H(m,k))
+			m_ctrl_secondkey.EnableWindow(FALSE);
+			if(m_key.GetLength() == 0)
+				this->GetDlgItem(IDC_EDIT_KEY)->SetFocus();
+			break;
+		case 3: // H(k,m,k')
+			m_ctrl_secondkey.EnableWindow(TRUE);
+			if(m_key.GetLength() == 0)
+				this->GetDlgItem(IDC_EDIT_KEY)->SetFocus();
+			else if ( m_secondkey.GetLength() == 0)
+				this->GetDlgItem(IDC_EDIT_KEY2)->SetFocus();
+			break;
+	}			
+	UpdateData(false);
+	calculateMACAndUpdateGUI();
 }

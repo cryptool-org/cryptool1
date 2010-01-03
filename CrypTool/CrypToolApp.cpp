@@ -1505,11 +1505,12 @@ void CCrypToolApp::OnIndivPointadditiononellipticcurves()
 {
 	CString javaProgram;
 	CString javaProgramCompleteCall;
+	CString javaExecPath = Pfad; 
 
 	javaProgram.LoadStringA(IDS_ECCDemo_EXECUTABLE);
 	javaProgramCompleteCall.LoadStringA(IDS_ECCDemo_FILE);
 
-	ShellExecuteJava(javaProgram, javaProgramCompleteCall);
+	ShellExecuteJava(javaProgram, javaProgramCompleteCall, javaExecPath);
 }
 
 void CCrypToolApp::OnFlashAesdemo()
@@ -1576,22 +1577,24 @@ void CCrypToolApp::OnProtokolSMIME()
 {
 	CString javaProgram;
 	CString javaProgramCompleteCall;
+	CString javaExecPath = CString(Pfad) + CString(_T("\\smimedemo\\")); 
 
 	javaProgram.LoadStringA(IDS_STRING_SMIME_DEMO_PROGRAM);
 	javaProgramCompleteCall.LoadStringA(IDS_STRING_SMIME_DEMO_PROGRAM_COMPLETE_CALL);
 
-	ShellExecuteJava(javaProgram, javaProgramCompleteCall);
+	ShellExecuteJava(javaProgram, javaProgramCompleteCall, javaExecPath);
 }
 
 void CCrypToolApp::OnAesRijndaelFlowvisualisation()
 {
 	CString javaProgram;
 	CString javaProgramCompleteCall;
+	CString javaExecPath = Pfad; 
 
 	javaProgram.LoadStringA(IDS_AES_FLOWVISUALIZATION_JAVA_FILE);
 	javaProgramCompleteCall.LoadStringA(IDS_AES_FLOWVISUALIZATION_PARAM);
 
-	ShellExecuteJava(javaProgram, javaProgramCompleteCall);
+	ShellExecuteJava(javaProgram, javaProgramCompleteCall, javaExecPath);
 }
 
 void CCrypToolApp::OnKnownAnalysisSinglePermutation()

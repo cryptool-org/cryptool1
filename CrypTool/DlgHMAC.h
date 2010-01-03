@@ -40,7 +40,6 @@ class CDlgHMAC : public CDialog
 
 public:
 	void SetMac(CString input);
-	void SetOuterHash();
 	CString CalculateMac(CString tmpStr);
 	CString strText;
 
@@ -55,11 +54,17 @@ public:
 	CEdit	m_text;
 	int		m_alg;
 	int		m_position;
+	CComboBox	m_comboCtrlSelectHashFunction;
+	CComboBox	m_comboCtrlSelectHMACFunction;
+
+
 	CString	m_key;
 	CString	m_secondkey;
 	CString	m_str_mac;
 	CString m_originalMessage;
-	CString m_outerHash;
+	CString m_innerHash;
+	CString m_str_outer_input;
+	CFont   m_font;
 	//}}AFX_DATA
 
 // Überschreibungen
@@ -79,12 +84,7 @@ protected:
 	afx_msg void OnEditText();
 	afx_msg void OnEditKey();
 	afx_msg void OnEditOriginalMessage();
-	afx_msg void OnBUTTONFront();
-	afx_msg void OnBUTTONBack();
-	afx_msg void OnBUTTONBoth();
-	afx_msg void OnBUTTONDouble();
 	afx_msg void OnEditSecondKey();
-	afx_msg void OnBUTTONHashFunction();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 
@@ -92,6 +92,9 @@ protected:
 	// control is ivoked that changes a variable, use this function to both re-calculate the MAC and 
 	// update the user interface accordingly
 	void calculateMACAndUpdateGUI();
+public:
+	afx_msg void OnCbnSelendokComboSelectHashFunction();
+	afx_msg void OnCbnSelendokComboSelectHmacAlgorithm();
 };
 
 //{{AFX_INSERT_LOCATION}}

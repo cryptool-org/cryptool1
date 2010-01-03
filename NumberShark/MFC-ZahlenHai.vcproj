@@ -70,7 +70,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="htmlhelp.lib"
-				OutputFile="../$(ConfigurationName)/Number Shark.exe"
+				OutputFile="../$(ConfigurationName)/NumberShark.exe"
 				LinkIncremental="2"
 				GenerateDebugInformation="true"
 				SubSystem="2"
@@ -237,7 +237,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="htmlhelp.lib"
-				OutputFile="../$(ConfigurationName)/Number Shark.exe"
+				OutputFile="../$(ConfigurationName)/NumberShark.exe"
 				LinkIncremental="1"
 				IgnoreAllDefaultLibraries="false"
 				GenerateDebugInformation="true"
@@ -409,7 +409,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="htmlhelp.lib"
-				OutputFile="..\$(ConfigurationName)\Number Shark.exe"
+				OutputFile="..\$(ConfigurationName)\NumberShark.exe"
 				LinkIncremental="2"
 				GenerateDebugInformation="true"
 				SubSystem="2"
@@ -493,7 +493,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="htmlhelp.lib"
-				OutputFile="../$(ConfigurationName)/Number Shark.exe"
+				OutputFile="../$(ConfigurationName)/NumberShark.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="&quot;C:\program files\html help workshop\lib&quot;"
 				GenerateDebugInformation="true"
@@ -810,11 +810,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\res\Zahlenhai.ico"
+				RelativePath=".\Bilder\Zahlenhai.ico"
 				>
 			</File>
 			<File
-				RelativePath=".\Bilder\Zahlenhai.ico"
+				RelativePath=".\res\Zahlenhai.ico"
 				>
 			</File>
 		</Filter>
