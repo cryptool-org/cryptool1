@@ -3048,8 +3048,8 @@ BEGIN
     COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,83,222,159,101,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_COMBO_SELECT_HMAC_ALGORITHM,325,222,191,101,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "funkcjê haszuj¹c¹:",IDC_STATIC,15,223,61,9
-    LTEXT           "[i18n]MAC-Variante:",IDC_STATIC,258,225,63,9
-    GROUPBOX        "[i18n] HMAC parameter and key",IDC_STATIC,7,208,518,76
+    LTEXT           "Wariant-MAC",IDC_STATIC,258,225,63,9
+    GROUPBOX        "Parametry i klucz HMAC",IDC_STATIC,7,208,518,76
 END
 
 IDD_ADFGVX DIALOGEX 0, 0, 265, 466
@@ -8215,8 +8215,8 @@ BEGIN
     IDS_HMAC_ALGORITHM_HKMK "Na pocz¹tku i na koñcu: H(k, m, k)"
     IDS_HMAC_ALGORITHM_HK1MK2 "Ró¿ne klucze: H(k, m, k')"
     IDS_HMAC_ALGORITHM_RFC2104 "Podwójny hasz: H(k, H(k, m)) (RFC 2104)"
-    IDS_HASHDEMO_SELALGORITHM "[i18n] Bitte wählen Sie das Hashverfahren"
-    IDS_HMAC_SELALGORITHM   "[i18n] Bitte wählen Sie die HMAC-Variante"
+    IDS_HASHDEMO_SELALGORITHM "Prosze wybrac metode hasz"
+    IDS_HMAC_SELALGORITHM   "Prosze wybrac wariant HMAC"
 END
 
 STRINGTABLE 
@@ -9180,7 +9180,7 @@ BEGIN
     IDS_HASH_DEMO_TITLE_MD2 "Demonstracja funkcji hasz: MD2"
     IDS_HASH_DEMO_TITLE_MD5 "Demonstracja funkcji hasz: MD5 hasz"
     IDS_HASH_DEMO_TITLE_SHA1 
-                            "Demonstracja funkcji hasz: hasz Demonstration: SHA-1 Hasz"
+                            "Demonstracja funkcji hasz: hasz Demonstration: SHA-1 hasz"
     IDS_ENTROPY_TITLE       "Entropia <%s>"
     IDS_HASH_DEMO_SEQUENCE  "Najd³u¿sza identyczna sekwencja bitów: odstêp: %d, d³ugoœæ: %d."
     IDS_PERMUTATION_ENCRYPT "Zaszyfruj tekst wprowadzon¹ permutacj¹"
