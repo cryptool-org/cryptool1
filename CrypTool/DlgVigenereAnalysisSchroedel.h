@@ -30,6 +30,16 @@
 
 #define MAX_NUMBER_OF_DICT_WORDS 500000
 
+// forward declaration
+class CDlgVigenereAnalysisSchroedel;
+
+// this struct contains a possible result (key, cleartext, rating)
+struct PossibleResult {
+	CString key;
+	CString cleartext;
+	int rating;
+};
+
 // 06/24/2009, flomar: Vigenere analysis class
 // (originally written by Schroedel in Pascal, ported to C++ by flomar)
 class VigenereAnalysisSchroedel : public CProgressModel {
@@ -39,6 +49,9 @@ public:
 	VigenereAnalysisSchroedel(const CString _ciphertextFileName, const CString _title);
 	// destructor
 	~VigenereAnalysisSchroedel();
+
+	// introduce the dialog object to the analysis
+	void setDialog(CDlgVigenereAnalysisSchroedel *_theDialog);
 
 public:
 	// internal variables
@@ -84,13 +97,6 @@ public:
 	time_t timeAnalysisStart;
 	time_t timeAnalysisEnd;
 
-	// this struct contains a possible result (key, cleartext, rating)
-	struct PossibleResult {
-		CString key;
-		CString cleartext;
-		int rating;
-	};
-
 	// this list contains all possible results
 	std::list<PossibleResult> listPossibleResults;
 
@@ -124,9 +130,47 @@ public:
 	double progress;
 	virtual double getProgress() { return progress; };
 
+private:
+	// the dialog object
+	CDlgVigenereAnalysisSchroedel *theDialog;
 };
 
 // the actual analysis function (to be run in a separate thread)
 UINT singleThreadVigenereAnalysisSchroedel(PVOID argument);
+
+// TODO
+class CDlgVigenereAnalysisSchroedel : public CDialog
+{
+	DECLARE_DYNAMIC(CDlgVigenereAnalysisSchroedel)
+
+public:
+	CDlgVigenereAnalysisSchroedel(VigenereAnalysisSchroedel *_theAnalysis, CWnd* pParent = NULL);   // Standardkonstruktor
+	virtual ~CDlgVigenereAnalysisSchroedel();
+
+	// add a possible result (done "from the outside" by the analysis object)
+	void addPossibleResult(const PossibleResult &_possibleResult);
+
+// Dialogfelddaten
+	enum { IDD = IDD_VIGENERE_ANALYSIS_SCHROEDEL };
+
+protected:
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV-Unterstützung
+	virtual BOOL OnInitDialog();
+
+	DECLARE_MESSAGE_MAP()
+
+private:
+	// the analysis object
+	VigenereAnalysisSchroedel *theAnalysis;
+	// the list box for all possible results
+	CListCtrl controlListPossibleResults;
+	// the start analysis button was pressed
+	afx_msg void OnBnClickedStartAnalysis();
+	// show the analysis results
+	afx_msg void OnBnClickedShowAnalysisResults();
+	// the file holding the analysis results
+	CString resultFileName;
+};
+
 
 #endif

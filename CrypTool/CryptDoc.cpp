@@ -839,27 +839,14 @@ void CCryptDoc::OnVigenereAuto()
 void CCryptDoc::OnVigenereAnalysisSchroedel()
 {
 	UpdateContent();
-
+	// create the analysis object
 	VigenereAnalysisSchroedel *theAnalysis = new VigenereAnalysisSchroedel(ContentName, GetTitle());
-	
-	// save result file name (because analysis object will be destroyed before we may need this variable)
-	CString resultFileName = theAnalysis->resultFileName;
-
-	AfxBeginThread(singleThreadVigenereAnalysisSchroedel, (PVOID)(theAnalysis));
-
-	// set progress bar title
-	LoadString(AfxGetInstanceHandle(), IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_PROGRESS_BAR_TITLE, pc_str, STR_LAENGE_STRING_TABLE);
-	theApp.fs.setModelTitleFormat(theAnalysis, pc_str, "");
-	
-	// abort the analysis if the user cancels the progress bar
-	if(theApp.fs.DoModal() == IDCANCEL) {
-		theAnalysis->abort = true;
-	}
-
-	// open result file if the analysis was NOT aborted
-	if(theAnalysis->progress == 1.0) {
-		CAppDocument *NewDoc = theApp.OpenDocumentFileNoMRU(resultFileName);
-	}
+	// create the analysis dialog and initialize it with the analysis object
+	CDlgVigenereAnalysisSchroedel dlg(theAnalysis);
+	// introduce the dialog to the analysis object
+	theAnalysis->setDialog(&dlg);
+	// show the analysis dialog
+	dlg.DoModal();
 }
 
 void CCryptDoc::OnHillPlain() 

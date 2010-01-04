@@ -8,12 +8,11 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polnisch resources
+// Polish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -10767,12 +10766,12 @@ BEGIN
     IDS_HASHDEMO_STRING_SHA_512 "SHA-512 (512 bits)"
 END
 
-#endif    // Polnisch resources
+#endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -10797,6 +10796,18 @@ BEGIN
     PUSHBUTTON      "&Abbrechen",IDCANCEL,235,61,55,19
     LTEXT           "Static",IDC_STATIC_TEXT,10,7,229,17
     PUSHBUTTON      "&Textoptionen",IDC_BUTTON_TEXTOPTIONS,140,61,55,19
+END
+
+IDD_VIGENERE_ANALYSIS_SCHROEDEL DIALOGEX 0, 0, 330, 170
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Vigenère (Analyse nach Schrödel)"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "Analyse starten",IDC_BUTTON_START_ANALYSIS,7,145,80,18
+    CONTROL         "",IDC_LIST_POSSIBLE_RESULTS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,35,316,100
+    LTEXT           "Sobald Sie die Analyse starten, werden mögliche Lösungen in die nachstehende Liste eingetragen. Detaillierte Informationen können Sie sich anzeigen lassen, sobald die Analyse vollständig beendet wurde.",IDC_STATIC,7,7,316,24
+    PUSHBUTTON      "Schließen",IDCANCEL,243,145,80,18
+    PUSHBUTTON      "Analyseergebnisse anzeigen",IDC_BUTTON_SHOW_ANALYSIS_RESULTS,112,145,106,18
 END
 
 IDD_DIALOG_PLOT_PARAM DIALOG  0, 0, 159, 118
@@ -18006,6 +18017,14 @@ BEGIN
         HORZGUIDE, 80
     END
 
+    IDD_VIGENERE_ANALYSIS_SCHROEDEL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 323
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 163
+    END
+
     IDD_KEY_HILL5X5, DIALOG
     BEGIN
         RIGHTMARGIN, 357
@@ -18933,6 +18952,8 @@ BEGIN
     IDR_HEXTYPE             "\nUnbenannt\n\nBinäre Datei (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnbenannt\n\nASCII-Datei (*.asc)\n.asc\n\nASCII File Type\nASCII\nAscii Files\n"
     IDR_PLOTTYPE            "\nUnbenannt\n\nPlot Datei (*.plt)\n.plt\n\nPlot File Type\nPLOTT\nPlot Files\n"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERKEY "Schlüssel:"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERCLEARTEXT "Klartext:"
 END
 
 STRINGTABLE 
@@ -21620,12 +21641,12 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "Zeichen"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -26071,6 +26092,18 @@ BEGIN
     CONTROL         "",IDC_KEY_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,39,351,149
 END
 
+IDD_VIGENERE_ANALYSIS_SCHROEDEL DIALOGEX 0, 0, 330, 170
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Vigenère (Analysis according to Schroedel)"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "Start analysis",IDC_BUTTON_START_ANALYSIS,7,145,80,18
+    CONTROL         "",IDC_LIST_POSSIBLE_RESULTS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,35,316,100
+    LTEXT           "As soon as you start the analysis, possible results are written into the list below. Detailed information can be obtained after the analysis is complete.",IDC_STATIC,7,7,316,24
+    PUSHBUTTON      "Close",IDCANCEL,243,145,80,18
+    PUSHBUTTON      "Show analysis results",IDC_BUTTON_SHOW_ANALYSIS_RESULTS,112,145,106,18
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -26470,30 +26503,30 @@ BEGIN
         MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
         MENUITEM "Show &as Text",               ID_TOTXT
-        MENUITEM "Show as &HexDump ",           ID_TOHEX, GRAYED
+        MENUITEM "Show as &HexDump ",           ID_TOHEX
         MENUITEM SEPARATOR
-        MENUITEM "&Bar Chart",                  ID_PLOTBAR, GRAYED
+        MENUITEM "&Bar Chart",                  ID_PLOTBAR
         MENUITEM SEPARATOR
-        MENUITEM "Al&phabet",                   ID_VIEW_ALPHABET, GRAYED
-        MENUITEM "&End of Line",                ID_VIEW_ENDOFLINE, GRAYED
-        MENUITEM "Line W&rap",                  ID_VIEW_LINEWRAP, GRAYED
-        MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE, GRAYED
+        MENUITEM "Al&phabet",                   ID_VIEW_ALPHABET
+        MENUITEM "&End of Line",                ID_VIEW_ENDOFLINE
+        MENUITEM "Line W&rap",                  ID_VIEW_LINEWRAP
+        MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE
         POPUP "&Font"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
-            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14, GRAYED
-            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16, GRAYED
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
-            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14, GRAYED
-            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16, GRAYED
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
         END
         MENUITEM "&Format Text Document...",    ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
-        MENUITEM "Show B&ox (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX, GRAYED
+        MENUITEM "Show B&ox (cube's borderlines)", ID_POPUP_OPENGL_SHOW_BOX
     END
     POPUP "&Crypt/Decrypt"
     BEGIN
@@ -26681,8 +26714,8 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "V&igenère (Analysis according to Schroedel)", ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
-                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
+                MENUITEM "V&igenère (Analysis according to Schroedel)", ID_ANALYSIS_VIGENERE_SCHROEDEL
+                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
@@ -29725,6 +29758,14 @@ BEGIN
         BOTTOMMARGIN, 214
         HORZGUIDE, 195
     END
+
+    IDD_VIGENERE_ANALYSIS_SCHROEDEL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 323
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 163
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -29928,6 +29969,8 @@ BEGIN
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nHex Files\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nASCII Files\n"
     IDR_PLOTTYPE            "\nUnnamed\n\nPLOT file (*.plt)\n.plt\n\nPlot File Type\nPLOT\nPlot Files\n"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERKEY "Key:"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERCLEARTEXT "Cleartext:"
 END
 
 STRINGTABLE 
@@ -32553,7 +32596,7 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "characters"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

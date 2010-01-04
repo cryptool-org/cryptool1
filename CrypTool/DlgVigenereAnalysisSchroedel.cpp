@@ -98,10 +98,16 @@ VigenereAnalysisSchroedel::VigenereAnalysisSchroedel(const CString _ciphertextFi
 		score[i][0] = 0;
 		score[i][1] = 0;
 	}
+
+	theDialog = 0;
 }
 
 VigenereAnalysisSchroedel::~VigenereAnalysisSchroedel() {
 	
+}
+
+void VigenereAnalysisSchroedel::setDialog(CDlgVigenereAnalysisSchroedel *_theDialog) {
+	theDialog = _theDialog;
 }
 
 void VigenereAnalysisSchroedel::output(CString str, const bool _debug) {
@@ -764,6 +770,9 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 											possibleResult.rating = theRate;
 											// at this point we have a possible result, store it in the list for possible results
 											listPossibleResults.push_back(possibleResult);
+											// also, pass it thorugh to the analysis dialog
+											theDialog->addPossibleResult(possibleResult);
+#if 0
 											// suggest the possible result to the user (including the first 50 characters of 
 											// the corresponing cleartext) and abort the analysis if the user decides to
 											CString formatString;
@@ -773,6 +782,7 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 											if(AfxMessageBox(suggestion, MB_YESNO) == IDYES) {
 												found = true;
 											}
+#endif
 										}
 									}
 								}
@@ -1284,4 +1294,89 @@ UINT singleThreadVigenereAnalysisSchroedel(PVOID argument) {
 	delete theAnalysis;
 	AfxEndThread(0);
 	return 0;
+}
+
+
+
+IMPLEMENT_DYNAMIC(CDlgVigenereAnalysisSchroedel, CDialog)
+
+CDlgVigenereAnalysisSchroedel::CDlgVigenereAnalysisSchroedel(VigenereAnalysisSchroedel *_theAnalysis, CWnd* pParent) : 
+	CDialog(CDlgVigenereAnalysisSchroedel::IDD, pParent),
+	theAnalysis(_theAnalysis) {
+
+}
+
+CDlgVigenereAnalysisSchroedel::~CDlgVigenereAnalysisSchroedel()
+{
+
+}
+
+void CDlgVigenereAnalysisSchroedel::DoDataExchange(CDataExchange* pDX)
+{
+	CDialog::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_LIST_POSSIBLE_RESULTS, controlListPossibleResults);
+}
+
+BEGIN_MESSAGE_MAP(CDlgVigenereAnalysisSchroedel, CDialog)
+	ON_BN_CLICKED(IDC_BUTTON_START_ANALYSIS, OnBnClickedStartAnalysis)
+	ON_BN_CLICKED(IDC_BUTTON_SHOW_ANALYSIS_RESULTS, OnBnClickedShowAnalysisResults)
+END_MESSAGE_MAP()
+
+BOOL CDlgVigenereAnalysisSchroedel::OnInitDialog()
+{
+	CDialog::OnInitDialog();
+
+	// clear the list
+	controlListPossibleResults.DeleteAllItems();
+	// add column headers
+	CString columnHeaderKey; columnHeaderKey.LoadString(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERKEY);
+	CString columnHeaderCleartext; columnHeaderCleartext.LoadString(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERCLEARTEXT);
+	controlListPossibleResults.InsertColumn( 0, columnHeaderKey, LVCFMT_LEFT, 225);
+	controlListPossibleResults.InsertColumn( 1, columnHeaderCleartext, LVCFMT_LEFT, 225);
+	// disable the "show results" button
+	GetDlgItem(IDC_BUTTON_SHOW_ANALYSIS_RESULTS)->EnableWindow(false);
+
+	return FALSE;
+}
+
+void CDlgVigenereAnalysisSchroedel::addPossibleResult(const PossibleResult &_possibleResult)
+{
+	controlListPossibleResults.InsertItem(0, "ITEM");
+	controlListPossibleResults.SetItemText(0, 0, _possibleResult.key);
+	controlListPossibleResults.SetItemText(0, 1, _possibleResult.cleartext);
+}
+
+void CDlgVigenereAnalysisSchroedel::OnBnClickedStartAnalysis()
+{
+	// clear the list
+	controlListPossibleResults.DeleteAllItems();
+
+	// disable the "show results" button
+	GetDlgItem(IDC_BUTTON_SHOW_ANALYSIS_RESULTS)->EnableWindow(false);
+
+	// save result file name (because analysis object will be destroyed before we may need this variable)
+	resultFileName = theAnalysis->resultFileName;
+
+	AfxBeginThread(singleThreadVigenereAnalysisSchroedel, (PVOID)(theAnalysis));
+
+	// set progress bar title
+	LoadString(AfxGetInstanceHandle(), IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_PROGRESS_BAR_TITLE, pc_str, STR_LAENGE_STRING_TABLE);
+	theApp.fs.setModelTitleFormat(theAnalysis, pc_str, "");
+	
+	// abort the analysis if the user cancels the progress bar
+	if(theApp.fs.DoModal() == IDCANCEL) {
+		theAnalysis->abort = true;
+	}
+
+	// enable the "show results" button only if analysis was successful
+	if(theAnalysis->progress == 1.0) {
+		GetDlgItem(IDC_BUTTON_SHOW_ANALYSIS_RESULTS)->EnableWindow(true);
+	}
+}
+
+void CDlgVigenereAnalysisSchroedel::OnBnClickedShowAnalysisResults()
+{
+	// open the result file
+	CAppDocument *NewDoc = theApp.OpenDocumentFileNoMRU(resultFileName);
+	OnCancel();
 }
