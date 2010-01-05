@@ -18,20 +18,47 @@
 
 <P>Sie erreichen diesen Dialog über den Menüeintrag <a href="menu_options.html">Optionen</a> \ <a href="HID_OPTTEXT.html">Textoptionen</a>.</P>
 
-<P>In diesem Dialog kann unter <B>Alphabetoptionen</B> angegeben werden, welches Alphabet bei den klassischen <!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselungsverfahren</A> <A href="hid_rot13caesar_asc.html">Caesar</A>, <A href="hid_vigenere_asc.html">Vigenère</A>, <A href="hid_hill.html">Hill</A> und <A href="hid_cryptmono.html">monoalphabetische Substitution</A> eingesetzt wird und wie mit nicht im Alphabet vorhandenen Zeichen umgegangen werden soll. Als Voreinstellung sind die Buchstaben "A" bis "Z" ohne Berücksichtigung von Groß- und Kleinschreibung vorgesehen. Die einzelnen Zeichen oder Zeichengruppen (Großbuchstaben, Kleinbuchstaben, Ziffern, Sonderzeichen, Leerzeichen) können entweder gruppenweise durch Ankreuzen der entsprechenden Checkboxes oder einzeln im Textfeld angegeben und gelöscht werden. Wird ein anderes Alphabet ausgewählt, so verhalten sich die klassischen <!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselungsverfahren</A> entsprechend dem nun erweiterten oder eingeschränkten Alphabet und es wird eine entsprechende erweiterte Umsetzung durchgeführt.</P>
+<P>In diesem Dialog kann unter <B>Alphabetoptionen</B> angegeben werden, welches Alphabet bei den klassischen 
+<!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselungsverfahren</A> <A href="hid_rot13caesar_asc.html">Caesar</A>, <A href="hid_vigenere_asc.html">Vigenère</A>, 
+<A href="hid_hill.html">Hill</A> und <A href="hid_cryptmono.html">monoalphabetische Substitution</A> eingesetzt wird und wie mit nicht im Alphabet vorhandenen 
+Zeichen umgegangen werden soll. Als Voreinstellung sind die Buchstaben "A" bis "Z" ohne Berücksichtigung von Groß- und Kleinschreibung vorgesehen. Die einzelnen 
+Zeichen oder Zeichengruppen (Großbuchstaben, Kleinbuchstaben, Ziffern, Sonderzeichen, Leerzeichen) können entweder gruppenweise durch Ankreuzen der entsprechenden 
+Checkboxes oder einzeln im Textfeld angegeben und gelöscht werden. Wird ein anderes Alphabet ausgewählt, so verhalten sich die klassischen 
+<!--ZZZPOPUP--><A href="verschluesselung.html">Verschlüsselungsverfahren</A> entsprechend dem nun erweiterten oder eingeschränkten Alphabet und 
+es wird eine entsprechende erweiterte Umsetzung durchgeführt.</P>
 
-<P>Die Reaktion auf nicht im Alphabet enthaltene Zeichen kann über die Checkbox unter <B>Formatierungsoptionen</B> eingestellt werden. Oft stellt sich nämlich die Frage, ob Sonderzeichen (insbesondere das Leerzeichen und Zeilenumbrüche als Zwischenraum zwischen zwei Wörtern) bei der <!--ZZZPOPUP--><A href="verschluesselung.html">Ver-</A> oder <!--ZZZPOPUP--><A href="entschluesselung.html">Entschlüsselung</A> beibehalten werden sollen (dann befindet sich ein Häkchen in der Checkbox) oder nicht (kein Häkchen). Durch Anklicken mit der Maus kann man das Häkchen entfernen bzw. wiederherstellen.</P>
+<P>Die Reaktion auf nicht im Alphabet enthaltene Zeichen kann über die Checkbox unter <B>Formatierungsoptionen</B> eingestellt werden. Oft stellt sich nämlich die Frage, 
+ob Sonderzeichen (insbesondere das Leerzeichen und Zeilenumbrüche als Zwischenraum zwischen zwei Wörtern) bei der <!--ZZZPOPUP--><A href="verschluesselung.html">Ver-</A> 
+oder <!--ZZZPOPUP--><A href="entschluesselung.html">Entschlüsselung</A> beibehalten werden sollen (dann befindet sich ein Häkchen in der Checkbox) oder nicht (kein Häkchen). 
+Durch Anklicken mit der Maus kann man das Häkchen entfernen bzw. wiederherstellen.</P>
 
-<P>Die Beibehaltung der Textformatierung ist vom kryptographischen Standpunkt aus nicht sinnvoll. Für Demonstrationszwecke ist es jedoch angenehm, da die Lesbarkeit und Verifikation eines rekonstruierten <!--ZZZPOPUP--><A href="klartext.html">Klartextes</A> vereinfacht wird.</P>
+<P><STRONG>Beispiel.</STRONG> Der Klartext 'GEHEIME NACHRICHT Nr 123.' soll Caesar verschlüsselt werden, wobei nur Großbuchstaben gültige Zeichen sind und die Textformatierung
+beibehalten werden soll.</P>
+<OL>
+	<LI>Nichtalphabetzeichen entfernen:</BR>
+   	    'GEHEIME NACHRICHT Nr 123.' ----> 'GEHEIMENACHRICHTN' </LI>
+   	<LI>Caesar-Verschlüsseln (Schlüssel 'B'):</BR>
+	    'GEHEIMENACHRICHTN' 	----> 'HFIFJNFOBDISJDIUO'</LI>
+	<LI>Alphabetzeichen im Klartext durch Geheimtextzeichen ersetzen:</BR>
+	    'HFIFJNFOBDISJDIUO'    ----> 'HFIFJNF OBDISJDIU Or123.' </LI>
+</OL>
+
+<P>Die Beibehaltung der Textformatierung ist vom kryptographischen Standpunkt aus nicht sinnvoll. Für Demonstrationszwecke ist es jedoch angenehm, da die Lesbarkeit und 
+Verifikation eines rekonstruierten <!--ZZZPOPUP--><A href="klartext.html">Klartextes</A> vereinfacht wird.</P>
 
 <P>Normalerweise werden bei den oben genannten klassischen Verschlüsselungsverfahren alle Zeichen außer den Buchstaben A-Z ignoriert (Kleinbuchstaben werden in Großbuchstaben umgewandelt).</P>
 
-<P>Zur Verschlüsselung werden bei den klassischen Verschlüsselungsverfahren alle Kleinbuchstaben in Großbuchstaben umgewandelt. Über die Checkbox <B>Groß-/Kleinschreibung beachten</B> ist es möglich, die Groß-/Kleinschreibung des Dokuments zu erhalten, sofern keine Kleinbuchstaben zur Verschlüsselung zugelassen sind.</P>
+<P>Zur Verschlüsselung werden bei den klassischen Verschlüsselungsverfahren alle Kleinbuchstaben in Großbuchstaben umgewandelt. 
+Über die Checkbox <B>Groß-/Kleinschreibung beachten</B> ist es möglich, die Groß-/Kleinschreibung des Dokuments zu erhalten, 
+sofern keine Kleinbuchstaben zur Verschlüsselung zugelassen sind.</P>
 
-<P>Die für statistische Analysen benötigte <B>Referenzdatei</B> wird mit dem Button <B>Suchen</B> ausgewählt. Voreingestellte Referenz ist die Datei<CODE> deutsch.txt</CODE>. Für die Analyse von als nicht deutschsprachig vermuteten Chiffretexten bietet CrypTool verschiedene Dateien mit Referenztexten zur Auswahl an. Die Referenzdatei wird bei der Analyse der folgenden Verschlüsselungsverfahren verwendet: <a href="hid_rot13caesar_asc.html">Caesar/Rot-13</a>, <a href="hid_vigenere_asc.html">Vigenère</a>, <a href="hid_cryptmono.html">Monoalphabetische Substitution/Atbash</a> und <a href="hid_homophone_asc.html">Homophone Substituion</a>.</P>
+<P>Die für statistische Analysen benötigte <B>Referenzdatei</B> wird mit dem Button <B>Suchen</B> ausgewählt. Voreingestellte Referenz ist die Datei<CODE> deutsch.txt</CODE>. 
+Für die Analyse von als nicht deutschsprachig vermuteten Chiffretexten bietet CrypTool verschiedene Dateien mit Referenztexten zur Auswahl an. Die Referenzdatei wird bei der 
+Analyse der folgenden Verschlüsselungsverfahren verwendet: <a href="hid_rot13caesar_asc.html">Caesar/Rot-13</a>, <a href="hid_vigenere_asc.html">Vigenère</a>, <a href="hid_cryptmono.html">
+Monoalphabetische Substitution/Atbash</a> und <a href="hid_homophone_asc.html">Homophone Substituion</a>.</P>
 
-<P>Unter <B>Playfair</B> hat man die Möglichkeit, zwei Einstellungen für die <A href="hid_playfair_bin.html">Playfair-Verschlüsselung</A> vorzunehmen: Zum einen kann man sich dazu entscheiden, Doppelbuchstaben beim Verschlüsseln durch ein Trennzeichen aufzulösen, zum anderen festlegen, welches Zeichen als Trennzeichen benutzt werden soll.</P>
-
+<P>Unter <B>Playfair</B> hat man die Möglichkeit, zwei Einstellungen für die <A href="hid_playfair_bin.html">Playfair-Verschlüsselung</A> vorzunehmen: Zum einen kann man 
+sich dazu entscheiden, Doppelbuchstaben beim Verschlüsseln durch ein Trennzeichen aufzulösen, zum anderen festlegen, welches Zeichen als Trennzeichen benutzt werden soll.</P>
 
 </BODY>
 </HTML>

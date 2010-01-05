@@ -262,96 +262,27 @@
 				Permutationsschlüsseleingabe</A> ermöglicht die gleichzeitige Eingabe von 
 			maximal zwei Permutationen. Wird das Eingabefeld für die zweite Permutation 
 			nicht ausgefüllt, so wird nur eine Permutation ausgeführt.</P>
-		<P><B>Methode zur Erzeugung der Permutation aus dem Schlüsselwort</B></P>
-		<P>Anhand des Schlüsselwortes "Schluessel" wird beschrieben, wie in CrypTool aus 
-			einem Schlüsselwort eine Permutation gebildet wird.</P>
-		<OL>
-			<LI>
-				Längenbestimmung der Permutation: Das Schlüsselwort enthält 10 Zeichen aus dem 
-				Bereich "a" bis "z": Länge der Permutation = 10.<BR>
-				<BR>
-			<LI>
-				Umsetzung der Zeichen in Zahlen: Die Umsetzung erfolgt als "a=1", "b=2", ..., 
-				"z=26". Daher ist "Schluessel = 19, 3, 8, 12, 21, 5, 19, 19, 5, 12".<BR>
-				<BR>
-			<LI>
-				Die Zahlen werden nun auf den jeweils noch zu vergebenden Bereich abgebildet.<BR>
-				<BR>
-		<OL type="a">
-			<LI>
-				Für die erste Zahl (19) stehen 10 Möglichkeiten bereit: 19 – 10 = 9.<BR>
-				<BR>
-			<LI>
-				Für die zweite Zahl (3) stehen nur noch 9 Möglichkeiten zur Wahl: 3.<BR>
-				<BR>
-			<LI>
-				Für die dritte Zahl (8) stehen nur noch 8 Möglichkeiten zur Wahl: 8.<BR>
-				<BR>
-			<LI>
-				Für die vierte Zahl (12) steht nur noch 7 Möglichkeit zur Wahl: 12 – 7 = 5.<BR>
-				<BR>
-				<P>...</P>
-				<P>...</P>
-				<div style="MARGIN-LEFT: -40px"><OL start="10" type="a">
-						<LI>
-							Für die letzte Zahl (12) steht nur noch 1 Möglichkeit zur Verfügung: 1.<BR>
-							<BR>
-						</LI>
-					</OL>
-				</div>
-			</LI>
-		</OL>
-		<LI>
-			Das Schlüsselwort wird daher auf die Zahlenfolge 9, 3, 8, 5, 3, 5, 3, 1, 1, 1 
-			abgebildet.<BR>
-			<BR>
-		<LI>
-			Ausgehend von der identischen Permutation 
-			(1,&nbsp;2,&nbsp;3,&nbsp;4,&nbsp;5,&nbsp;6,&nbsp;7,&nbsp;8,&nbsp;9,&nbsp;10) 
-			wird nun die
-			<P></P>
-			<P>Schlüsselpermutation gebildet:<BR>
-				<BR>
-				<OL type="a">
-					<LI>
-						Die Schlüsselzahl 9 wird abgebildet auf den 9. Wert der Permutation 
-						(1,&nbsp;2,&nbsp;3,&nbsp;4,&nbsp;5,&nbsp;6,&nbsp;7,&nbsp;8,&nbsp;9,&nbsp;10): 
-						9. Dieser Wert wird aus der Liste (1, 2, 3, 4, 5, 6, 7, 8, 9, 10) gestrichen, 
-						was (1,&nbsp;2,&nbsp;3,&nbsp;4,&nbsp;5,&nbsp;6,&nbsp;7,&nbsp;8,&nbsp;10) 
-						ergibt.<BR>
-						<BR>
-					<LI>
-						Die Schlüsselzahl 3 wird abgebildet auf den 3. Wert der Permutation 
-						(1,&nbsp;2,&nbsp;3,&nbsp;4,&nbsp;5,&nbsp;6,&nbsp;7,&nbsp;8,&nbsp;10): 3. Dieser 
-						Wert wird aus der Liste 
-						(1,&nbsp;2,&nbsp;3,&nbsp;4,&nbsp;5,&nbsp;6,&nbsp;7,&nbsp;8,&nbsp;10) 
-						gestrichen, was (1,&nbsp;2,&nbsp;4,&nbsp;5,&nbsp;6,&nbsp;7,&nbsp;8,&nbsp;10) 
-						ergibt.<BR>
-						<BR>
-					<LI>
-						Die Schlüsselzahl 8 wird abgebildet auf den 8. Wert der Permutation 
-						(1,&nbsp;2,&nbsp;4,&nbsp;5,&nbsp;6,&nbsp;7,&nbsp;8,&nbsp;10): 10. Dieser Wert 
-						wird aus der Liste (1,&nbsp;2,&nbsp;4,&nbsp;5,&nbsp;6,&nbsp;7,&nbsp;8,&nbsp;10) 
-						gestrichen, was (1,&nbsp;2,&nbsp;4,&nbsp;5,&nbsp;6,&nbsp;7,&nbsp;8) ergibt.<BR>
-						<BR>
-						<P>...</P>
-						<P>...</P>
-						<div style="MARGIN-LEFT: -40px"><OL start="10" type="a">
-								<LI>
-									Der letzte Schlüsselwert wird auf den letzten verfügbaren Wert abgebildet: 7.<BR>
-									<BR>
-								</LI>
-							</OL>
-						</div>
-					</LI>
-				</OL>
-		<LI>
-			Die aus dem Schlüsselwort "SCHLUESSEL" resultierende Permutation ist daher:
-			<P></P>
-			<P>(9,&nbsp;3,&nbsp;10,&nbsp;6,&nbsp;4,&nbsp;8,&nbsp;5,&nbsp;1,&nbsp;2,&nbsp;7). 
-				Die Spalten der Tabelle werden daher in dieser Reihenfolge ausgelesen.</P>
-		</LI>
-		</OL>
+
+
+<P><B>Methode zur Erzeugung der Permutation aus dem Schlüsselwort</B></P>
+<P>Wenn man ein Schlüsselwort W bestehend aus den Buchstaben w[1], ..., w[n] aus dem Zeichenvorrat 'A', .., 'Z' in den Dialog eingibt,
+dann wird daraus eine Permutation wie folgt bestimmt.</P>	
+<OL>
+	<LI> Die Buchstaben haben die Ordnung A < B < ... < Z. </LI>
+	<LI> POS(w[i]) ist die Stelle, wo das i-te Zeichen nach einer "stabilen Sortierung" der Buchstaben stehen würde also </BR></BR>
+	     POS(w[i]) := |{ j : w[i] > w[j] oder w[i] = w[j] und i > j }| +1 </BR></BR>
+		 In anderen Worten: POS(w[i]) ist die Anzahl der Buchstaben aus dem Passwort die kleiner als der Buchstabe w[i] sind, plus die Anzahl der 
+		 zu w[i] gleichen Buchstaben aus dem Passwort, die aber im Passwort vor dem Buchstaben w[i] stehen plus 1. Die zweite Bedingung ist die 
+		 sogenannte Stabilitätsanforderung.</LI>
+	<LI> Die erzeugte Permutation ist dann ( POS(w[1]), POS(w[2]), ..., POW(w[n]) ).</LI>
+</OL>	
+
+<P>
+Beispiel. Das Schlüsselwort 'SCHLUESSEL' hat die Länge 10 und die Buchstaben C < E < H < L < S < U. Daraus bestimmt sich die Permutation 
+(POS(S) = 7, POS(C) = 1, POS(H) = 4, POS(L) = 5, POS(U) = 10, POS(E) = 2, POS(S) = 8, POS(S) = 9, POS(E) = 3, POS(L) = 6) also (7,1,4,5,10,2,8,9,3,6).
+</P>
+
+
 		<P><B>Direkte numerische Spezifikation der Permutation</B></P>
 		<P>Die Permutation kann auch direkt numerisch und mit Kommas getrennt angegeben 
 			werden anstatt durch Eingabe eines Schlüsselwortes. Eine Verifikation der 

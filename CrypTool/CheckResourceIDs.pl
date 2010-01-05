@@ -229,7 +229,7 @@ foreach (sort keys %rcmenu) {
 }
 
 my @languages = sort keys %id;
-@languages = (qw(ENGLISH GERMAN)); # FIXME
+# @languages = (qw(ENGLISH GERMAN POLISH)); # FIXME
 my %idall = map { %$_ } values %id; # keys %ids: union of ids for all languages; values %ids: line number of one of the ids (any)
 # check IDs between languages
 foreach (sort keys %idall) {

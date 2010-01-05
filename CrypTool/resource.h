@@ -1740,6 +1740,7 @@
 #define IDD_SELECTPASTEDECODING         30732
 #define IDD_SELECTPASTEDECODING1        30733
 #define IDD_KEYS_LIST1                  30733
+#define IDD_VIGENERE_ANALYSIS_SCHROEDEL1 30733
 #define ID_CAESAR_ASC                   33000
 #define ID_VIGENERE_ASC                 33001
 #define ID_HILL                         33002

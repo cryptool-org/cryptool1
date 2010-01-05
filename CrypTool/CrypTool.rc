@@ -8,11 +8,12 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polish resources
+// Polnisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -2265,7 +2266,7 @@ BEGIN
     PUSHBUTTON      "Poka¿ &certyfikat",IDC_SHOW_CERTIFICATE,233,227,72,18
 END
 
-IDD_HASH_DEMO DIALOGEX 0, 0, 328, 401
+IDD_HASH_DEMO DIALOGEX 0, 0, 328, 406
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Demonstracja funkcji haszuj¹cej"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
@@ -2282,7 +2283,7 @@ BEGIN
     LTEXT           "Wartoœæ hasz dla aktualnego pliku",IDC_STATIC,16,264,89,8
     EDITTEXT        IDC_EDIT_AKTHASH,16,274,294,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Ró¿nica pomiêdzy wartoœæiami hasz plików: oryginalnego i aktualnego",IDC_STATIC,16,296,252,8
-    PUSHBUTTON      "Wyjœcie",IDCANCEL,251,378,59,14
+    PUSHBUTTON      "Wyjœcie",IDCANCEL,220,379,90,18
     CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",TCS_RAGGEDRIGHT | TCS_FOCUSONBUTTONDOWN | TCS_MULTISELECT | WS_BORDER | WS_TABSTOP,16,308,294,64
     COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,23,67,88,61,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Wybierz funkcjê haszuj¹c¹ i potem zmieñ kopiê oryginalnego pliku (pole ""Aktualny dokument"") Poni¿ej mo¿esz zobaczyæ, jak wiele bitów wartoœci hasz zmieni³o siê po tym, jak dokona³eœ zmian w kopi.",IDC_STATIC,31,12,294,24
@@ -3033,7 +3034,7 @@ BEGIN
     EDITTEXT        IDC_EDIT_KEY2,99,265,417,12,ES_AUTOHSCROLL | WS_DISABLED
     EDITTEXT        IDC_SHOW_MAC,7,410,518,25,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_SHOW_TEXT,7,346,518,49,ES_MULTILINE | ES_READONLY
-    PUSHBUTTON      "Zamknij",IDCANCEL,7,447,90,20
+    PUSHBUTTON      "Zamknij",IDCANCEL,435,447,90,20
     LTEXT           "WprowadŸ klucz (k)",IDC_STATIC,15,249,58,8
     LTEXT           "WprowadŸ drugi klucz (k'):",IDC_STATIC,15,267,70,8
     LTEXT           "MAC wygenerowany z wiadomoœci i klucza",IDC_STATIC,7,400,125,8
@@ -3043,11 +3044,11 @@ BEGIN
     GROUPBOX        "Opis",IDC_STATIC,7,7,518,50
     EDITTEXT        IDC_EDIT_ORIGINAL_MESSAGE,15,78,501,118,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | WS_VSCROLL
     GROUPBOX        "Wiadomoœæ",IDC_STATIC,7,64,518,140
-    LTEXT           "[i18n] Inner hash value:",IDC_STATIC,7,292,111,8
+    LTEXT           "[i18n] Inner hash value",IDC_STATIC,7,292,111,8
     EDITTEXT        IDC_SHOW_HASH,7,303,518,25,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
     COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,83,222,159,101,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_COMBO_SELECT_HMAC_ALGORITHM,325,222,191,101,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    LTEXT           "funkcjê haszuj¹c¹:",IDC_STATIC,15,223,61,9
+    LTEXT           "funkcjê haszuj¹c¹",IDC_STATIC,15,223,61,9
     LTEXT           "Wariant-MAC",IDC_STATIC,258,225,63,9
     GROUPBOX        "Parametry i klucz HMAC",IDC_STATIC,7,208,518,76
 END
@@ -4434,6 +4435,18 @@ BEGIN
     CONTROL         "",IDC_KEY_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,39,351,149
 END
 
+IDD_VIGENERE_ANALYSIS_SCHROEDEL DIALOGEX 0, 0, 330, 170
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Vigenere (Analysis according to Schroedel)"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "Start analysis",IDC_BUTTON_START_ANALYSIS,7,145,80,18
+    CONTROL         "",IDC_LIST_POSSIBLE_RESULTS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,35,316,100
+    LTEXT           "As soon as you start the analysis, possible results are written into the list below. Detailed information can be obtained after the analysis is complete.",IDC_STATIC,7,7,316,24
+    PUSHBUTTON      "Close",IDCANCEL,243,145,80,18
+    PUSHBUTTON      "Show analysis results",IDC_BUTTON_SHOW_ANALYSIS_RESULTS,112,145,106,18
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -4450,7 +4463,7 @@ BEGIN
         MENUITEM "&Zapisz \t Ctrl + S",         ID_FILE_SAVE
         MENUITEM "Zapisz &jako",                ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "&W³aœciwoœci dokumentu",      ID_FILEPROPERTIES, GRAYED
+        MENUITEM "&W³aœciwoœci dokumentu",      ID_FILEPROPERTIES
         MENUITEM "&Drukuj \t Ctrl + P",         ID_FILE_PRINT
         MENUITEM "Ustawienia drukowania",       ID_FILE_PRINT_SETUP
         MENUITEM SEPARATOR
@@ -4460,20 +4473,20 @@ BEGIN
     END
     POPUP "&Edycja"
     BEGIN
-        MENUITEM "&Cofnij \t Ctrl + Z",         ID_EDIT_UNDO, GRAYED
-        MENUITEM "&Powtórz \t Ctrl + Y",        ID_EDIT_REDO, GRAYED
+        MENUITEM "&Cofnij \t Ctrl + Z",         ID_EDIT_UNDO
+        MENUITEM "&Powtórz \t Ctrl + Y",        ID_EDIT_REDO
         MENUITEM SEPARATOR
-        MENUITEM "Wy&tnij \t Ctrl + X",         ID_EDIT_CUT, GRAYED
-        MENUITEM "&Kopiuj \t Ctrl + C",         ID_EDIT_COPY, GRAYED
-        MENUITEM "&Wklej \t Ctrl + V",          ID_EDIT_PASTE, GRAYED
-        MENUITEM "&Usuñ \t Del",                ID_EDIT_CLEAR, GRAYED
+        MENUITEM "Wy&tnij \t Ctrl + X",         ID_EDIT_CUT
+        MENUITEM "&Kopiuj \t Ctrl + C",         ID_EDIT_COPY
+        MENUITEM "&Wklej \t Ctrl + V",          ID_EDIT_PASTE
+        MENUITEM "&Usuñ \t Del",                ID_EDIT_CLEAR
         MENUITEM SEPARATOR
-        MENUITEM "&ZnajdŸ / Zamieñ",            ID_EDIT_FIND, GRAYED
-        MENUITEM "ZnajdŸ &nastêpny \t F3",      ID_EDIT_FIND_NEXT, GRAYED
+        MENUITEM "&ZnajdŸ / Zamieñ",            ID_EDIT_FIND
+        MENUITEM "ZnajdŸ &nastêpny \t F3",      ID_EDIT_FIND_NEXT
         MENUITEM SEPARATOR
-        MENUITEM "Zaznacz &wszystko \t Ctrl + A", ID_EDIT_SELECT_ALL, GRAYED
+        MENUITEM "Zaznacz &wszystko \t Ctrl + A", ID_EDIT_SELECT_ALL
         MENUITEM SEPARATOR
-        MENUITEM "Poka¿ &klucz",                ID_SHOW_KEY, GRAYED
+        MENUITEM "Poka¿ &klucz",                ID_SHOW_KEY
         MENUITEM "Okno &g³ówne",                ID_GOTO_VATER
     END
     POPUP "&Widok"
@@ -4481,81 +4494,81 @@ BEGIN
         MENUITEM "Pasek &narzêdzi",             ID_VIEW_TOOLBAR
         MENUITEM "&Pasek stanu",                ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
-        MENUITEM "Jako &tekst",                 ID_TOTXT, GRAYED
-        MENUITEM "Heksadecymalnie",             ID_TOHEX, GRAYED
+        MENUITEM "Jako &tekst",                 ID_TOTXT
+        MENUITEM "Heksadecymalnie",             ID_TOHEX
         MENUITEM SEPARATOR
         MENUITEM "&Wykres s³upkowy",            ID_PLOTBAR
         MENUITEM SEPARATOR
-        MENUITEM "Alfabet",                     ID_VIEW_ALPHABET, GRAYED
-        MENUITEM "&Koniec linii",               ID_VIEW_ENDOFLINE, GRAYED
-        MENUITEM "&Zawijanie linii",            ID_VIEW_LINEWRAP, GRAYED
-        MENUITEM "Bia³e znaki",                 ID_VIEW_WHITESPACE, GRAYED
+        MENUITEM "Alfabet",                     ID_VIEW_ALPHABET
+        MENUITEM "&Koniec linii",               ID_VIEW_ENDOFLINE
+        MENUITEM "&Zawijanie linii",            ID_VIEW_LINEWRAP
+        MENUITEM "Bia³e znaki",                 ID_VIEW_WHITESPACE
         POPUP "&Czcionka"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
         END
         MENUITEM SEPARATOR
-        MENUITEM "Krawêdzie szeœcianów (wizualizacja OpenGL)", ID_POPUP_OPENGL_SHOW_BOX, GRAYED
+        MENUITEM "Krawêdzie szeœcianów (wizualizacja OpenGL)", ID_POPUP_OPENGL_SHOW_BOX
     END
     POPUP "&Szyfrowanie"
     BEGIN
         POPUP "Historyczne"
         BEGIN
-            MENUITEM "Cezar / &Rot-13",             ID_ROT13CAESAR_ASC, GRAYED
-            MENUITEM "&Vigenere",                   ID_VIGENERE_ASC, GRAYED
-            MENUITEM "&Hill",                       ID_HILL, GRAYED
-            MENUITEM "&Zamiana / Atbash",           ID_CryptMono, GRAYED
-            MENUITEM "&Playfair",                   ID_PLAYFAIR_BIN, GRAYED
-            MENUITEM "&ADFGVX",                     ID_ENCRYPT_ADFGVX, GRAYED
-            MENUITEM "Dodawanie bitów",             ID_ADD_BIN, GRAYED
-            MENUITEM "&XOR",                        ID_XOR_BIN, GRAYED
-            MENUITEM "V&ernam",                     ID_VERNAM_BIN, GRAYED
-            MENUITEM "H&omofony",                   ID_HOMOPHONE_ASC, GRAYED
-            MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION, GRAYED
-            MENUITEM "Soli&taire",                  ID_SYMCLASSIC_SOLITAIRE, GRAYED
+            MENUITEM "Cezar / &Rot-13",             ID_ROT13CAESAR_ASC
+            MENUITEM "&Vigenere",                   ID_VIGENERE_ASC
+            MENUITEM "&Hill",                       ID_HILL
+            MENUITEM "&Zamiana / Atbash",           ID_CryptMono
+            MENUITEM "&Playfair",                   ID_PLAYFAIR_BIN
+            MENUITEM "&ADFGVX",                     ID_ENCRYPT_ADFGVX
+            MENUITEM "Dodawanie bitów",             ID_ADD_BIN
+            MENUITEM "&XOR",                        ID_XOR_BIN
+            MENUITEM "V&ernam",                     ID_VERNAM_BIN
+            MENUITEM "H&omofony",                   ID_HOMOPHONE_ASC
+            MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION
+            MENUITEM "Soli&taire",                  ID_SYMCLASSIC_SOLITAIRE
         END
         POPUP "Symetryczne"
         BEGIN
-            MENUITEM "&IDEA",                       ID_CRYPT_IDEA, GRAYED
-            MENUITEM "RC&2",                        ID_CRYPT_RC2, GRAYED
-            MENUITEM "RC&4",                        ID_CRYPT_RC4, GRAYED
-            MENUITEM "DES z ECB",                   ID_CRYPT_DES_DESECB, GRAYED
-            MENUITEM "DES z CBC",                   ID_CRYPT_DES_DESCBC, GRAYED
-            MENUITEM "3DES z ECB",                  ID_CRYPT_3DES_ECB, GRAYED
-            MENUITEM "3DES z CBC",                  ID_CRYPT_3DES_CBC, GRAYED
-            MENUITEM "&Rijndael (AES)\tShift + Ctrl + R", ID_CRYPT_AES_RIJNDAEL, GRAYED
+            MENUITEM "&IDEA",                       ID_CRYPT_IDEA
+            MENUITEM "RC&2",                        ID_CRYPT_RC2
+            MENUITEM "RC&4",                        ID_CRYPT_RC4
+            MENUITEM "DES z ECB",                   ID_CRYPT_DES_DESECB
+            MENUITEM "DES z CBC",                   ID_CRYPT_DES_DESCBC
+            MENUITEM "3DES z ECB",                  ID_CRYPT_3DES_ECB
+            MENUITEM "3DES z CBC",                  ID_CRYPT_3DES_CBC
+            MENUITEM "&Rijndael (AES)\tShift + Ctrl + R", ID_CRYPT_AES_RIJNDAEL
             MENUITEM SEPARATOR
             POPUP "&Wiêcej algorytmów"
             BEGIN
-                MENUITEM "&MARS",                       ID_CRYPT_AES_MARS, GRAYED
-                MENUITEM "RC&6",                        ID_CRYPT_AES_RC6, GRAYED
-                MENUITEM "&Serpent",                    ID_CRYPT_AES_SERPENT, GRAYED
-                MENUITEM "T&wofish",                    ID_CRYPT_AES_TWOFISH, GRAYED
+                MENUITEM "&MARS",                       ID_CRYPT_AES_MARS
+                MENUITEM "RC&6",                        ID_CRYPT_AES_RC6
+                MENUITEM "&Serpent",                    ID_CRYPT_AES_SERPENT
+                MENUITEM "T&wofish",                    ID_CRYPT_AES_TWOFISH
                 MENUITEM SEPARATOR
-                MENUITEM "DES&X",                       ID_CRYPT_DESX, GRAYED
-                MENUITEM "&DESL",                       ID_CRYPT_DESL, GRAYED
-                MENUITEM "DESX&L",                      ID_CRYPT_DESXL, GRAYED
+                MENUITEM "DES&X",                       ID_CRYPT_DESX
+                MENUITEM "&DESL",                       ID_CRYPT_DESL
+                MENUITEM "DESX&L",                      ID_CRYPT_DESXL
             END
             MENUITEM SEPARATOR
             MENUITEM "AES (samorozpakowuj¹cy)",     ID_AES_SELFEXTRACT
         END
         POPUP "&Asymetryczne"
         BEGIN
-            MENUITEM "Szyfrowanie RSA",             ID_CRYPT_RsaEnc, GRAYED
-            MENUITEM "Deszyfrowanie RSA",           ID_CRYPT_RsaDec, GRAYED
+            MENUITEM "Szyfrowanie RSA",             ID_CRYPT_RsaEnc
+            MENUITEM "Deszyfrowanie RSA",           ID_CRYPT_RsaDec
             MENUITEM "Demonstracja RSA",            ID_EINZELVERFAHREN_TUTORIAL_RSAALGORITHMUS
         END
         POPUP "&Hybrydowe"
         BEGIN
             MENUITEM "Szyfrowanie RSA-AES",         ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDVERSCHLSSELUNG
-            MENUITEM "Deszyfrowanie RSA-AES",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG, GRAYED
+            MENUITEM "Deszyfrowanie RSA-AES",       ID_VERENTSCHLSSELN_HYBRIDVERFAHREN_HYBRIDENTSCHLSSELUNG
             MENUITEM "Szyfrowanie ECC-AES",         ID_HYBRID_ECCENC
-            MENUITEM "Deszyfrowanie ECC-AES",       ID_HYBRID_ECCDEC, GRAYED
+            MENUITEM "Deszyfrowanie ECC-AES",       ID_HYBRID_ECCDEC
         END
     END
     POPUP "Podpis cyfrowy"
@@ -4565,28 +4578,28 @@ BEGIN
             MENUITEM "Generowanie/Import klucza",   ID_CRYPT_KeyGen
             MENUITEM "Wyœwietlenie/Eksport klucza", ID_SHOW_ALL_EC_KEYS
         END
-        MENUITEM "&Podpisz dokument",           ID_CRYPT_SIGN, GRAYED
-        MENUITEM "&Zweryfikuj podpis",          ID_CRYPT_VERIFY, GRAYED
-        MENUITEM "&Wyodrêbnij podpis",          ID_CRYPT_EXTRACT, GRAYED
+        MENUITEM "&Podpisz dokument",           ID_CRYPT_SIGN
+        MENUITEM "&Zweryfikuj podpis",          ID_CRYPT_VERIFY
+        MENUITEM "&Wyodrêbnij podpis",          ID_CRYPT_EXTRACT
         MENUITEM "&Demonstracja podpisu",       ID_EINZELVERFAHREN_SIGN_DOC
     END
     POPUP "&Algorytmy"
     BEGIN
         POPUP "&Hasz"
         BEGIN
-            MENUITEM "MD&2",                        ID_CRYPT_HASH_MD2, GRAYED
-            MENUITEM "MD&4",                        ID_CRYPT_HASH_MD4, GRAYED
-            MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5, GRAYED
-            MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA, GRAYED
-            MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1, GRAYED
-            MENUITEM "SHA-&256",                    ID_CRYPT_HASH_SHA256, GRAYED
-            MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512, GRAYED
-            MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160, GRAYED
+            MENUITEM "MD&2",                        ID_CRYPT_HASH_MD2
+            MENUITEM "MD&4",                        ID_CRYPT_HASH_MD4
+            MENUITEM "MD&5",                        ID_CRYPT_HASH_MD5
+            MENUITEM "&SHA",                        ID_CRYPT_HASH_SHA
+            MENUITEM "SHA-&1",                      ID_CRYPT_HASH_SHA1
+            MENUITEM "SHA-&256",                    ID_CRYPT_HASH_SHA256
+            MENUITEM "SHA-&512",                    ID_CRYPT_HASH_SHA512
+            MENUITEM "&RIPEMD-160",                 ID_CRYPT_HASH_RIPEMD160
             MENUITEM SEPARATOR
             MENUITEM "Wartoœæ hasz dla pliku",      ID_HASH_OFAFILE
-            MENUITEM "Demonstracja funkcji haszuj¹cej", ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO, GRAYED
+            MENUITEM "Demonstracja funkcji haszuj¹cej", ID_EINZELVERFAHREN_HASHWERTE_HASHDEMO
             MENUITEM "Generowanie klucza z has³a (PKCS #5)", ID_EINZELVERFAHREN_SCHLUESSELGENERIEREN
-            MENUITEM "&Generowanie HMAC",           ID_GENERATE_MACS, GRAYED
+            MENUITEM "&Generowanie HMAC",           ID_GENERATE_MACS
         END
         POPUP "Kryptosystem RSA"
         BEGIN
@@ -4637,21 +4650,21 @@ BEGIN
             BEGIN
                 POPUP "Kodowanie/dekodowanie Base64"
                 BEGIN
-                    MENUITEM "&Kodowanie Base64",           ID_ENCODE_BASE64, GRAYED
-                    MENUITEM "&Dekodowanie Base64",         ID_DECODE_BASE64, GRAYED
+                    MENUITEM "&Kodowanie Base64",           ID_ENCODE_BASE64
+                    MENUITEM "&Dekodowanie Base64",         ID_DECODE_BASE64
                 END
                 POPUP "Kodowanie/dekodowanie UU"
                 BEGIN
-                    MENUITEM "Kodowanie UU",                ID_ENCODE_UU, GRAYED
-                    MENUITEM "Dekodowanie UU",              ID_DECODE_UU, GRAYED
+                    MENUITEM "Kodowanie UU",                ID_ENCODE_UU
+                    MENUITEM "Dekodowanie UU",              ID_DECODE_UU
                 END
-                MENUITEM "Dekoduj kod ASN.1 dokumentu", ID_EINZELVERFAHREN_ASN1DECODIEREN, GRAYED
+                MENUITEM "Dekoduj kod ASN.1 dokumentu", ID_EINZELVERFAHREN_ASN1DECODIEREN
             END
             MENUITEM SEPARATOR
             POPUP "&Kompresja"
             BEGIN
-                MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP, GRAYED
-                MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP, GRAYED
+                MENUITEM "&Zip \tShift + Strg + Z",     ID_ZIP
+                MENUITEM "&UnZip \tShift + Strg + U",   ID_UNZIP
             END
             MENUITEM "Tworzenie liczb losowych",    ID_ZUFALL_GENERATOREN
             MENUITEM "&Miernik jakoœci has³a",      ID_PASSWORDQUALITYMETER
@@ -4674,59 +4687,60 @@ BEGIN
     BEGIN
         POPUP "&Narzêdzia analizy"
         BEGIN
-            MENUITEM "&Entropia",                   ID_ENTROPY, GRAYED
-            MENUITEM "&Floating Frequency",         ID_FLOATING, GRAYED
-            MENUITEM "&Histogram",                  ID_HISTOGRAM, GRAYED
-            MENUITEM "&N-Gram",                     ID_ANALYSE_NGRAM, GRAYED
-            MENUITEM "&Autokorelacja",              ID_AUTO, GRAYED
-            MENUITEM "&Cyklicznoœæ",                ID_ANALYSE_PERIOD, GRAYED
+            MENUITEM "&Entropia",                   ID_ENTROPY
+            MENUITEM "&Floating Frequency",         ID_FLOATING
+            MENUITEM "&Histogram",                  ID_HISTOGRAM
+            MENUITEM "&N-Gram",                     ID_ANALYSE_NGRAM
+            MENUITEM "&Autokorelacja",              ID_AUTO
+            MENUITEM "&Cyklicznoœæ",                ID_ANALYSE_PERIOD
         END
         MENUITEM SEPARATOR
         POPUP "Algorytmy historyczne"
         BEGIN
             POPUP "&Tylko szyfr"
             BEGIN
-                MENUITEM "&Cezar",                      ID_CAESAR_AUTO, GRAYED
-                MENUITEM "&Vigenere",                   ID_VIGENERE_AUTO, GRAYED
-                MENUITEM "&ADFGVX",                     ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
-                MENUITEM "&Zamiana",                    ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
-                MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
+                MENUITEM "&Cezar",                      ID_CAESAR_AUTO
+                MENUITEM "&Vigenere",                   ID_VIGENERE_AUTO
+                MENUITEM "[i18n] V&igenere (Analysis according to Schroedel)", ID_ANALYSIS_VIGENERE_SCHROEDEL
+                MENUITEM "&ADFGVX",                     ID_ANALYSE_SYMMCLASSIC_ADFGVX
+                MENUITEM "&Zamiana",                    ID_CIPHERTEXT_ONLY_SUBSTITUTION
+                MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
-                MENUITEM "Dodawanie",                   ID_ADD_AUTO, GRAYED
-                MENUITEM "&XOR",                        ID_XOR_AUTO, GRAYED
+                MENUITEM "Dodawanie",                   ID_ADD_AUTO
+                MENUITEM "&XOR",                        ID_XOR_AUTO
             END
             POPUP "Tekst jawny"
             BEGIN
-                MENUITEM "H&ill",                       ID_HILL_AUTO, GRAYED
+                MENUITEM "H&ill",                       ID_HILL_AUTO
                 MENUITEM "&Transpozycja pojedynczej kolumny", ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION
             END
             POPUP "Analiza &manualna"
             BEGIN
-                MENUITEM "&Zamiana",                    ID_ANALYZE_SUBST, GRAYED
-                MENUITEM "&Playfair",                   ID_PLAYFAIR_ANALYSE, GRAYED
-                MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
+                MENUITEM "&Zamiana",                    ID_ANALYZE_SUBST
+                MENUITEM "&Playfair",                   ID_PLAYFAIR_ANALYSE
+                MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
             END
         END
         POPUP "Algorytmy &symetryczne"
         BEGIN
-            MENUITEM "&IDEA",                       ID_ANALYSE_IDEA, GRAYED
-            MENUITEM "RC&2",                        ID_ANALYSE_RC2, GRAYED
-            MENUITEM "RC&4",                        ID_ANALYSE_RC4, GRAYED
-            MENUITEM "DES z ECB",                   ID_ANALYSE_DESECB, GRAYED
-            MENUITEM "DES z CBC",                   ID_ANALYSE_DESCBC, GRAYED
-            MENUITEM "3DES z ECB",                  ID_ANALYSE_TRIPLEDESECB, GRAYED
-            MENUITEM "3DES z CBC",                  ID_ANALYSE_TRIPLEDESCBC, GRAYED
-            MENUITEM "&Rijndael (AES)",             ID_ANALYSE_AES_RIJNDAEL, GRAYED
+            MENUITEM "&IDEA",                       ID_ANALYSE_IDEA
+            MENUITEM "RC&2",                        ID_ANALYSE_RC2
+            MENUITEM "RC&4",                        ID_ANALYSE_RC4
+            MENUITEM "DES z ECB",                   ID_ANALYSE_DESECB
+            MENUITEM "DES z CBC",                   ID_ANALYSE_DESCBC
+            MENUITEM "3DES z ECB",                  ID_ANALYSE_TRIPLEDESECB
+            MENUITEM "3DES z CBC",                  ID_ANALYSE_TRIPLEDESCBC
+            MENUITEM "&Rijndael (AES)",             ID_ANALYSE_AES_RIJNDAEL
             POPUP "&Wiêcej algorytmów"
             BEGIN
                 MENUITEM "&MARS",                       ID_ANALYSE_AES_MARS
-                MENUITEM "RC&6",                        ID_ANALYSE_AES_RC6, GRAYED
-                MENUITEM "&Serpent",                    ID_ANALYSE_AES_SERPENT, GRAYED
-                MENUITEM "&Twofish",                    ID_ANALYSE_AES_TWOFISH, GRAYED
+                MENUITEM "RC&6",                        ID_ANALYSE_AES_RC6
+                MENUITEM "&Serpent",                    ID_ANALYSE_AES_SERPENT
+                MENUITEM "&Twofish",                    ID_ANALYSE_AES_TWOFISH
                 MENUITEM SEPARATOR
-                MENUITEM "DES&X",                       ID_ANALYSE_DESX, GRAYED
-                MENUITEM "&DESL",                       ID_ANALYSE_DESL, GRAYED
-                MENUITEM "DESX&L",                      ID_ANALYSE_DESXL, GRAYED
+                MENUITEM "DES&X",                       ID_ANALYSE_DESX
+                MENUITEM "&DESL",                       ID_ANALYSE_DESL
+                MENUITEM "DESX&L",                      ID_ANALYSE_DESXL
             END
         END
         POPUP "&Algorytmy asymetryczne"
@@ -4746,15 +4760,15 @@ BEGIN
         END
         POPUP "&Analiza losowoœci"
         BEGIN
-            MENUITEM "Test &czêstotliwoœci",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST, GRAYED
-            MENUITEM "Test &pokerowy",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST, GRAYED
-            MENUITEM "Test &serii",                 ID_ANALYSE_ZUFALLSTESTS_RUNS, GRAYED
-            MENUITEM "Test &dwubitowy",             ID_ANALYSE_ZUFALLSTESTS_SERIALTEST, GRAYED
+            MENUITEM "Test &czêstotliwoœci",        ID_ANALYSE_ZUFALLSTESTS_FREQUENCYTEST
+            MENUITEM "Test &pokerowy",              ID_ANALYSE_ZUFALLSTESTS_POKERTEST
+            MENUITEM "Test &serii",                 ID_ANALYSE_ZUFALLSTESTS_RUNS
+            MENUITEM "Test &dwubitowy",             ID_ANALYSE_ZUFALLSTESTS_SERIALTEST
             MENUITEM SEPARATOR
-            MENUITEM "Seria testów F&IPS PUB-140-1", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401, GRAYED
+            MENUITEM "Seria testów F&IPS PUB-140-1", ID_ANALYSE_ZUFALLSTESTS_FIPSPUB1401
             MENUITEM SEPARATOR
-            MENUITEM "&Vitany",                     ID_ANALYSE_VITANY, GRAYED
-            MENUITEM "Wizualizacja 3D",             ID_ANALYSIS_RANDOM_3D_VISUALIZATION, GRAYED
+            MENUITEM "&Vitany",                     ID_ANALYSE_VITANY
+            MENUITEM "Wizualizacja 3D",             ID_ANALYSIS_RANDOM_3D_VISUALIZATION
         END
     END
     POPUP "&Opcje"
@@ -5033,6 +5047,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Cezar",                      ID_CAESAR_AUTO
                 MENUITEM "&Vigenere",                   ID_VIGENERE_AUTO
+                MENUITEM "[i18n] V&igenere (Analysis according to Schroedel)", ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&ADFGVX",                     ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 MENUITEM "&Zamiana",                    ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
@@ -5378,6 +5393,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Cezar",                      ID_CAESAR_AUTO
                 MENUITEM "&Vigenere",                   ID_VIGENERE_AUTO, GRAYED
+                MENUITEM "[i18n] V&igenere (Analysis according to Schroedel)", ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&ADFGVX",                     ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Zamiana",                    ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
@@ -5516,10 +5532,10 @@ BEGIN
         MENUITEM "Pasek &narzêdzi",             ID_VIEW_TOOLBAR
         MENUITEM "&Pasek stanu",                ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
-        MENUITEM "Jako &tekst",                 ID_TOTXT, GRAYED
+        MENUITEM "Jako &tekst",                 ID_TOTXT
         MENUITEM "Heksadecymalnie",             ID_TOHEX
         MENUITEM SEPARATOR
-        MENUITEM "&Wykres s³upkowy",            ID_PLOTBAR, GRAYED
+        MENUITEM "&Wykres s³upkowy",            ID_PLOTBAR
         MENUITEM SEPARATOR
         MENUITEM "Alfabet",                     ID_VIEW_ALPHABET
         MENUITEM "&Koniec linii",               ID_VIEW_ENDOFLINE
@@ -5535,7 +5551,7 @@ BEGIN
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
         END
         MENUITEM SEPARATOR
-        MENUITEM "Krawêdzie szeœcianów (wizualizacja OpenGL)", ID_POPUP_OPENGL_SHOW_BOX, GRAYED
+        MENUITEM "Krawêdzie szeœcianów (wizualizacja OpenGL)", ID_POPUP_OPENGL_SHOW_BOX
     END
     POPUP "&Szyfrowanie"
     BEGIN
@@ -5723,6 +5739,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Cezar",                      ID_CAESAR_AUTO
                 MENUITEM "&Vigenere",                   ID_VIGENERE_AUTO
+                MENUITEM "[i18n] V&igenere (Analysis according to Schroedel)", ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&ADFGVX",                     ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 MENUITEM "&Zamiana",                    ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
@@ -6095,6 +6112,7 @@ BEGIN
             BEGIN
                 MENUITEM "&Cezar",                      ID_CAESAR_AUTO, GRAYED
                 MENUITEM "&Vigenere",                   ID_VIGENERE_AUTO, GRAYED
+                MENUITEM "[i18n] V&igenere (Analysis according to Schroedel)", ID_ANALYSIS_VIGENERE_SCHROEDEL
                 MENUITEM "&ADFGVX",                     ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
                 MENUITEM "&Zamiana",                    ID_CIPHERTEXT_ONLY_SUBSTITUTION, GRAYED
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE, GRAYED
@@ -7497,7 +7515,7 @@ BEGIN
     BEGIN
         VERTGUIDE, 16
         VERTGUIDE, 310
-        BOTTOMMARGIN, 366
+        BOTTOMMARGIN, 397
         HORZGUIDE, 53
     END
 
@@ -8028,6 +8046,14 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 214
         HORZGUIDE, 195
+    END
+
+    IDD_VIGENERE_ANALYSIS_SCHROEDEL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 323
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 163
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -10766,12 +10792,93 @@ BEGIN
     IDS_HASHDEMO_STRING_SHA_512 "SHA-512 (512 bits)"
 END
 
-#endif    // Polish resources
+STRINGTABLE
+BEGIN
+    IDS_AES_FLOWVISUALIZATION_JAVA_FILE "AES_Flussvisualisierung.jar"
+    IDS_STRING_JAVA_JRE_NOT_INSTALLED 
+                            "Es wurde keine Java-Installation gefunden. Bitte installieren Sie eine aktuelle Java-Laufzeitumgebung (JRE)."
+    IDS_STRING_JAVA_PROGRAM_NOT_FOUND 
+                            "Das Java-Programm wurde nicht gefunden! (Kompletter Pfad: ""%s"")"
+    IDS_STRING_JAVA_PROGRAM_EXECUTION_FAILED 
+                            "Das Java-Programm konnte nicht ausgeführt werden. Bitte kontaktieren Sie das Entwickler-Team."
+    IDS_AUTHORS_FILE_CORRUPTED 
+                            "Die Datei authors.txt wurde seit der Installation von CrypTool verändert."
+    IDS_CRYPTOOL_RELEASE_INFORMATION "%s (%s, %s), kompiliert mit "
+    IDS_STRING_ADFGVX_PASSWORD_EMPTY_REPEAT_INPUT_PROCESS 
+                            "Das Passwort enthält keine gültigen Zeichen. Bitte wiederholen Sie die Eingabe."
+    IDS_STRING_FILE_COULD_NOT_BE_OPENED 
+                            "Die folgende Datei konnte nicht geöffnet werden:\n"
+    IDS_STRING_VIGENERE_ANALYSIS_DIGRAM_FACTOR_STRING 
+                            "AM AN AS AT BE BY DO GO HE IF IN IS IT ME MY NO OF OK ON SO TO UP US"
+    IDS_STRING_VIGENERE_ANALYSIS_HEADER_TAG 
+                            "CrypTool: Ciphertext-Only-Analyse nach Schrödel gegen die Vigenère-Verschlüsselung"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_CIPHERTEXT_LENGTH_TAG 
+                            "Länge des analysierten Geheimtexts:"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_CIPHERTEXT_TAG "Geheimtext:"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERCLEARTEXT "Klartext:"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERKEY "Schlüssel:"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_FOUND_CLEARTEXT_TAG 
+                            "Gefundener Klartext:"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_NO_POSSIBLE_RESULTS_FOUND 
+                            "Die Analyse war nicht erfolgreich."
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_POSSIBLE_KEY_TAG 
+                            "Möglicher Schlüssel:"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SUGGEST_RESULT 
+                            "Die Analyse hat ""%s"" als möglichen Schlüssel ermittelt.\n\nAus diesem Schlüssel resultiert folgender Klartext: ""%s"".\n\nWollen Sie die Analyse abbrechen?"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "Zeichen"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_SECONDS " Sekunden"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_1ST_CHARACTER_OF_CIPHER 
+                            "1. Zeichen des Ciphertexts: "
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_2ND_CHARACTER_OF_CIPHER 
+                            "2. Zeichen des Ciphertexts: "
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_3RD_CHARACTER_OF_CIPHER 
+                            "3. Zeichen des Ciphertexts: "
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_CHECKING_FOR_RATINGS 
+                            "Mögliche Lösungen mit dem Wörterbuch abgleichen:"
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_COUNT "Anzahl: "
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_REMAINING "Verbleibende Paare: "
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_SORTED_LIST_ALL_REMAINING 
+                            "Sortierte Liste aller Paare:"
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_SORTED_LIST_AFTER_DISCARDING 
+                            "Sortierte Liste aller verbliebenen Paare:"
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_SORTED_LEADERS 
+                            "Sortierte Liste der besten Paare:"
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_CIPHERTEXT "Lade Ciphertext..."
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_DICTIONARY "Lade Wörterbuch..."
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_DIGRAMS "Lade Digramme..."
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_TRIGRAMS "Lade Trigramme..."
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_POSSIBLE_PAIRS "%d mögliche Paare:"
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_REMOVE_DUPLICATES 
+                            "%d entfernte Duplikate:"
+    IDS_STRING_VIGENERE_ANALYSIS_TIME_NEEDED_TAG 
+                            "Benötigte Zeit für die Durchführung der Analyse: "
+    IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DICTIONARY_FILE 
+                            "Wörterbuch-Datei auswählen"
+    IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DIGRAMS_FILE 
+                            "Digramm-Datei auswählen"
+    IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_TRIGRAMS_FILE 
+                            "Trigramm-Datei auswählen"
+    IDS_VIGENERE_ANALYSIS_SCHROEDEL_INFO 
+                            "Sobald die Analyse beendet ist, wird das Ergebnis in einem neuen Dokument angezeigt."
+    ID_AES_RIJNDAEL_FLOWVISUALISATION 
+                            "Zeigt den Rijndael-Algorithmus in einer Flussvisualisierung"
+    ID_ANALYSIS_VIGENERE_SCHROEDEL 
+                            "Automatische Analyse einer Vigenère-Verschlüsselung (Schrödel)"
+    ID_EDIT_FIND_NEXT       "Setzt die Suche nach einem bestehenden Suchbegriff fort"
+    ID_PROTOKOL_SMIME       "Visualisierung des S/MIME-Protokolls"
+END
+
+
+#endif    // Polnisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Germany) resources
+// Deutsch (Deutschland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -13028,7 +13135,7 @@ BEGIN
     EDITTEXT        IDC_EDIT_ORIGHASH,16,247,294,14,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_EDIT_AKTHASH,16,280,294,14,ES_AUTOHSCROLL | ES_READONLY
     CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",TCS_RAGGEDRIGHT | TCS_FOCUSONBUTTONDOWN | TCS_MULTISELECT | WS_BORDER | WS_TABSTOP,16,314,294,64
-    PUSHBUTTON      "Dialog &beenden",IDCANCEL,251,384,59,14
+    PUSHBUTTON      "&Schließen",IDCANCEL,240,388,70,18
     GROUPBOX        "Auswahl der Hashfunktion",IDC_STATIC,16,57,118,41
     GROUPBOX        "Darstellung der Hashwerte",IDC_STATIC,145,57,164,41
     LTEXT           "Aktuelles Dokument (diese Kopie der Originaldatei können Sie hier ändern)",IDC_STATIC,16,103,294,8,NOT WS_GROUP
@@ -13847,29 +13954,29 @@ END
 
 IDD_HMAC DIALOGEX 0, 0, 532, 473
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Keyed-Hash Messaga Authentication Code (HMAC)"
+CAPTION "Keyed-Hash Message Authentication Code (HMAC)"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT_KEY,149,247,368,12,ES_AUTOHSCROLL | ES_WANTRETURN
     EDITTEXT        IDC_EDIT_KEY2,149,266,368,12,ES_AUTOHSCROLL | WS_DISABLED
     EDITTEXT        IDC_SHOW_MAC,7,410,518,25,ES_MULTILINE | ES_READONLY
     EDITTEXT        IDC_SHOW_TEXT,7,346,518,49,ES_MULTILINE | ES_READONLY
-    PUSHBUTTON      "Schließen",IDCANCEL,7,446,90,20
-    LTEXT           "Geben Sie den Schlüssel (k) ein:",IDC_STATIC,15,249,109,8
-    LTEXT           "Geben Sie den zweiten Schlüssel (k') ein:",IDC_STATIC,15,268,132,8
-    LTEXT           "Erzeugter HMAC:",IDC_STATIC,7,399,56,8
-    LTEXT           "Mit Hilfe eines HMACs kann der Empfänger einer Nachricht auf ihre Integrität und Authentizität des Senders überprüfen. Hierzu verwenden beide Parteien ein gemeinsames Geheimnis (symmetrischer Schlüssel). ",IDC_STATIC,15,18,510,17
+    PUSHBUTTON      "Schließen",IDCANCEL,435,446,90,20
+    LTEXT           "Geben Sie den Schlüssel (k) ein",IDC_STATIC,15,249,109,8
+    LTEXT           "Geben Sie den zweiten Schlüssel (k') ein",IDC_STATIC,15,268,132,8
+    LTEXT           "Erzeugter HMAC",IDC_STATIC,7,400,54,8
+    LTEXT           "Mit Hilfe eines HMACs kann der Empfänger eine Nachricht auf Integrität und auf Authentizität des Senders überprüfen. Hierzu verwenden beide Parteien ein gemeinsames Geheimnis (symmetrischer Schlüssel). ",IDC_STATIC,15,18,510,17
     LTEXT           "Um den HMAC einer Nachricht zu erzeugen, wird eine kryptographische Hashfunktion auf eine Verknüpfung aus der Nachricht m und dem geheimen Schlüssel k angewendet. Je nach HMAC-Variante können auch zwei geheime Schlüssel k und k' verwendet werden. ",IDC_STATIC,15,35,503,17
     EDITTEXT        IDC_EDIT_ORIGINAL_MESSAGE,14,76,503,120,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | WS_VSCROLL
     GROUPBOX        "Beschreibung",IDC_STATIC,7,7,518,50
     GROUPBOX        "Nachricht",IDC_STATIC,7,62,518,143
-    LTEXT           "Eingabe für äußere Hashfunktion (abhängig von der oben gewählten HMAC-Variante):",IDC_STATIC,7,333,310,8
+    LTEXT           "Eingabe für äußere Hashfunktion (abhängig von der oben gewählten HMAC-Variante)",IDC_STATIC,7,336,310,8
     COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,65,221,175,101,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_COMBO_SELECT_HMAC_ALGORITHM,315,221,202,101,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Innerer Hashwert",IDC_STATIC,7,292,55,8
     EDITTEXT        IDC_SHOW_HASH,7,303,518,25,ES_MULTILINE | ES_READONLY
-    LTEXT           "Hashfunktion:",IDC_STATIC,15,223,44,9
-    LTEXT           "MAC-Variante:",IDC_STATIC,258,224,54,9
+    LTEXT           "Hashfunktion",IDC_STATIC,15,223,44,9
+    LTEXT           "MAC-Variante",IDC_STATIC,258,224,54,9
     GROUPBOX        "HMAC-Parameter und Schlüssel",IDC_STATIC,7,208,518,78
 END
 
@@ -18204,7 +18311,7 @@ BEGIN
     BEGIN
         VERTGUIDE, 16
         VERTGUIDE, 310
-        BOTTOMMARGIN, 369
+        BOTTOMMARGIN, 406
     END
 
     IDD_STARTOPTIONS, DIALOG
@@ -21641,12 +21748,12 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "Zeichen"
 END
 
-#endif    // German (Germany) resources
+#endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// Englisch (GB) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -23911,7 +24018,7 @@ BEGIN
     PUSHBUTTON      "&Show certificate",IDC_SHOW_CERTIFICATE,233,227,72,18
 END
 
-IDD_HASH_DEMO DIALOGEX 0, 0, 328, 401
+IDD_HASH_DEMO DIALOGEX 0, 0, 328, 403
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Hash Demonstration"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
@@ -23928,7 +24035,7 @@ BEGIN
     LTEXT           "Hash value of the actual file",IDC_STATIC,16,264,89,8
     EDITTEXT        IDC_EDIT_AKTHASH,16,274,294,14,ES_AUTOHSCROLL | ES_READONLY
     LTEXT           "Difference between the hash values of the original and of the actual file",IDC_STATIC,16,296,252,8
-    PUSHBUTTON      "E&xit",IDCANCEL,251,378,59,14
+    PUSHBUTTON      "&Close",IDCANCEL,227,379,83,16
     CONTROL         "",IDC_RICHEDIT_HASHDIFF,"RICHEDIT",TCS_RAGGEDRIGHT | TCS_FOCUSONBUTTONDOWN | TCS_MULTISELECT | WS_BORDER | WS_TABSTOP,16,308,294,64
     COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,23,67,88,61,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Choose a hash function and then change the copy of the original file (see field ""Actual document"").\nBelow you can see how many bits of the hash value change when you edit.",IDC_STATIC,31,12,294,24
@@ -24684,22 +24791,22 @@ BEGIN
     EDITTEXT        IDC_EDIT_KEY2,132,265,384,12,ES_AUTOHSCROLL | WS_DISABLED
     EDITTEXT        IDC_SHOW_MAC,7,411,518,32,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_SHOW_TEXT,7,346,518,49,ES_MULTILINE | ES_READONLY
-    PUSHBUTTON      "Close",IDCANCEL,7,454,90,20
-    LTEXT           "Enter your key (k):",IDC_STATIC,15,245,103,8
-    LTEXT           "Enter second key (k'):",IDC_STATIC,15,266,72,8
-    LTEXT           "HMAC generated from message and key:",IDC_STATIC,7,400,130,8
-    LTEXT           "Input for outer hash function (depends on the HMAC variant chosen above):",IDC_STATIC,7,335,518,8
+    PUSHBUTTON      "Close",IDCANCEL,435,454,90,20
+    LTEXT           "Enter your key (k)",IDC_STATIC,15,245,103,8
+    LTEXT           "Enter second key (k')",IDC_STATIC,15,266,72,8
+    LTEXT           "HMAC generated from message and key",IDC_STATIC,7,400,128,8
+    LTEXT           "Input for outer hash function (depends on the HMAC variant chosen above)",IDC_STATIC,7,335,518,8
     LTEXT           "By means of a HMAC the recipient of a message is able to verify its integrity and the authenticity of its sender. Therefore both parties use a shared secret (symmetric key).",IDC_STATIC,15,20,501,16
     LTEXT           "To create a HMAC, a cryptographic hash function is applied to a combination of the message m and the secret key k. According to the variation chosen below, two different keys k and k' can be used.",IDC_STATIC,15,38,501,17
     GROUPBOX        "Description",IDC_STATIC,7,7,518,52
     EDITTEXT        IDC_EDIT_ORIGINAL_MESSAGE,15,79,501,120,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | WS_VSCROLL
     GROUPBOX        "Message",IDC_STATIC,7,66,518,140
-    LTEXT           "Inner hash value:",IDC_STATIC,7,292,56,8
+    LTEXT           "Inner hash value:",IDC_STATIC,7,291,56,9
     EDITTEXT        IDC_SHOW_HASH,7,303,518,25,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
     COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,65,221,175,101,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_COMBO_SELECT_HMAC_ALGORITHM,315,221,202,101,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Hash function:",IDC_STATIC,15,223,47,9
-    LTEXT           "MAC variant:",IDC_STATIC,267,224,44,9
+    LTEXT           "Hash function",IDC_STATIC,15,223,47,9
+    LTEXT           "MAC variant",IDC_STATIC,267,224,44,9
     GROUPBOX        "HMAC parameter and key",IDC_STATIC,7,209,518,76
 END
 
@@ -27215,16 +27322,16 @@ BEGIN
         MENUITEM "&Whitespace",                 ID_VIEW_WHITESPACE
         POPUP "&Font"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
-            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14, GRAYED
-            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16, GRAYED
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
-            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14, GRAYED
-            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16, GRAYED
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
         END
         MENUITEM "&Format Text Document...",    ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
@@ -27416,8 +27523,8 @@ BEGIN
             BEGIN
                 MENUITEM "&Caesar",                     ID_CAESAR_AUTO
                 MENUITEM "&Vigenère",                   ID_VIGENERE_AUTO
-                MENUITEM "V&igenère (Analysis according to Schroedel)", ID_ANALYSIS_VIGENERE_SCHROEDEL, GRAYED
-                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX, GRAYED
+                MENUITEM "V&igenère (Analysis according to Schroedel)", ID_ANALYSIS_VIGENERE_SCHROEDEL
+                MENUITEM "&ADFGVX...",                  ID_ANALYSE_SYMMCLASSIC_ADFGVX
                 MENUITEM "&Substitution",               ID_CIPHERTEXT_ONLY_SUBSTITUTION
                 MENUITEM "Soli&taire",                  ID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE
                 MENUITEM SEPARATOR
@@ -29212,7 +29319,7 @@ BEGIN
     BEGIN
         VERTGUIDE, 16
         VERTGUIDE, 310
-        BOTTOMMARGIN, 366
+        BOTTOMMARGIN, 395
         HORZGUIDE, 53
     END
 
@@ -32098,10 +32205,10 @@ BEGIN
     IDS_NOKEYSELECTED       "Please select a key from the list"
     IDS_ACTIVE              "(Active) "
     IDS_PERMKEY_COPIED_AND_TIPPS 
-                            "The selected key has been copied to the key storage. You may use this permutaion key for document encryption or ciphertext decryption (See menu: Crypt-/Decrypt \\ Symmetric (classic) \\ Permutation / Transposition).\n\nUsing the Permutation encryption dialoge you may click on the key symbol to paste the strored key."
+                            "The selected key has been copied to the key storage. You may use this permutaion key for document encryption or ciphertext decryption (See menu: Crypt/Decrypt \\ Symmetric (classic) \\ Permutation / Transposition).\n\nUsing the Permutation encryption dialog you may click on the key symbol to paste the stored key."
     IDS_DIALOGHEADER_PERMKEY_LIST "List of recovered permutation keys."
     IDS_INFO_TEXT_ENCRYPTION 
-                            "You chose the option to do the encryption in text mode.\nThis means that characters, which don't belong to the alphabet, are not encrypted (according to the Text option settings these characters are taken away or be kept)."
+                            "You chose the option to do the encryption in text mode.\nThis means that characters, which don't belong to the alphabet, are not encrypted (according to the Text option settings these characters are either taken away or are kept unchanged)."
     IDS_INFO_BYNARY_ENCRYPTION 
                             "You chose the option to do the encryption in binary mode. This means that all characters are encrypted and the chosen text alphabet doesn't matter."
     IDS_FINDANDREPLACE_HEXNOTIMPLEMENTED 
@@ -32256,7 +32363,7 @@ BEGIN
     IDS_ERROR_OPEN_RIJNDAELINSPECTOR 
                             "The Rindael Inspector cannot be opened.\nPlease make sure whether it was installed correctly in the CrypTool program directory\n(""%s"")."
     IDS_PQM_CRYPTOOLALPHABETINACTIVE 
-                            "You have deactivated the consideration of the CrypTool alphabet. Please note that the displayed\npassword quality can possibly exceed the effective password quality in this configuration."
+                            "You deactivated the consideration of the CrypTool alphabet. Please note that then the displayed\npassword quality can possibly exceed the effective password quality in this configuration."
     IDS_PQM_PASSWORD_RECONSTRUCTION_FOUND "\r\nFound: "
     IDS_PQM_PASSWORD_RECONSTRUCTION 
                             "\r\nReconstruction from words, sequences and patterns:"
@@ -32277,7 +32384,7 @@ BEGIN
     IDS_STRING_INVALID_VERNAM_KEY 
                             "The chosen Vernam key is of length 0.\nPlease check the key file."
     IDS_STRING_SHORT_VERNAM_KEY 
-                            "The vernam key is shorter than the text that is to be encrypted."
+                            "The Vernam key is shorter than the text that is to be encrypted."
 END
 
 STRINGTABLE 
@@ -32407,7 +32514,7 @@ BEGIN
     IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_SCYTALE "Number of edges:"
     IDS_SIMPLE_TRANSPOSITION_KEY_DESCRIPTION_RAIL_FENCE "Number of rows:"
     IDS_SIMPLE_TRANSPOSITION_KEY_INVALID 
-                            "The key is invalid. It must be greater than 1 and smaller than the length of the input text.\n\nCharacters that are not part of the CrypTool-Alphabet are deleted before encryption/decryption. If you don't want to change the input text, please use the button ""Text options"" to alter the CrypTool alphabet in order to proceed."
+                            "The key is invalid. It must be greater than 1 and smaller than the length of the input text.\n\nCharacters that are not part of the CrypTool alphabet are deleted before encryption/decryption. If you don't want to change the input text, please use the button ""Text options"" to alter the CrypTool alphabet in order to proceed."
     IDS_STRING_RAIL_FENCE_ENCRYPTION_OF 
                             "Rail Fence encryption (Simple Transposition) of <%s>, key <%s>"
     IDS_STRING_RAIL_FENCE_DECRYPTION_OF 
@@ -32485,7 +32592,7 @@ BEGIN
     IDS_STRING_SMIME_DEMO_PROGRAM_COMPLETE_CALL 
                             "-cp "".;./lib/*"" main.Programm EN"
     IDS_VIGENERE_ANALYSIS_SCHROEDEL_INFO 
-                            "As soon as the analysis is finished, the result is display in a new document."
+                            "As soon as the analysis is finished, the result is displayed in a new document."
     IDS_AUTHORS_FILE_MISSING 
                             "The file ""authors.txt"" could not be found. Please make sure that the file is located in the CrypTool main folder."
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DICTIONARY_FILENAME 
@@ -32596,7 +32703,7 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "characters"
 END
 
-#endif    // English (U.K.) resources
+#endif    // Englisch (GB) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
