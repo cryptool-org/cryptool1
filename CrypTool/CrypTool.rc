@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polnisch resources
+// Polish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -76,7 +76,7 @@ BEGIN
     EDITTEXT        IDC_FINALALICE,170,257,100,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     EDITTEXT        IDC_FINALBOB,405,257,100,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     CONTROL         544,IDC_STATIC,"Static",SS_BITMAP,70,276,58,42
-    CONTROL         "Pokazuj okienka inf.",IDC_CHECK_DISABLEHELP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,411,327,94,10
+    CONTROL         "Pokazuj okienka inf.",IDC_CHECK_DISABLEHELP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,403,327,94,10
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,226,8,5
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,176,8,5
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,126,8,5
@@ -101,6 +101,8 @@ BEGIN
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,67,8,5
     CONTROL         550,IDC_STATIC,"Static",SS_BITMAP,70,71,8,5
     CONTROL         "",IDC_ANIMGIF,"Static",SS_GRAYRECT,281,159,20,20
+    CONTROL         "Pokazuj okienko wsteptne",IDC_CHECK_DISABLEINTRODUCTION,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,403,315,110,10
 END
 
 IDD_DIALOG_PLOT_PARAM DIALOG  0, 0, 159, 118
@@ -207,32 +209,47 @@ BEGIN
     PUSHBUTTON      "&Opcje tekstu",IDC_BUTTON_TEXTOPTIONS,225,352,60,19
 END
 
-IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 306
+IDD_OPTIONS_ANALYSIS DIALOGEX 0, 0, 306, 354
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Opcje analizy"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "&ZatwierdŸ",IDOK,13,278,65,18
-    PUSHBUTTON      "&Anuluj",IDCANCEL,227,278,66,18
-    CONTROL         "Klucz poœredni",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,55,76,10
-    CONTROL         "Korelacja",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,77,48,10
-    CONTROL         "Histogramy",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,101,57,10
-    CONTROL         "Klucz poœredni",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,55,76,10
-    CONTROL         "D³ugoœæ klucz poœredniego",IDC_CHECK7,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,77,91,10
-    CONTROL         "Autokorelacja",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,100,61,10
-    CONTROL         "Poka¿ podstawow¹ analizê szyfru",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,156,122,120,10
-    GROUPBOX        "Cezar",IDC_STATIC,20,35,118,105
-    GROUPBOX        "Vigenere, XOR, Dodawanie",IDC_STATIC,150,35,136,105
-    GROUPBOX        "Opcje wyjœciowe dla analizy automatycznej",IDC_STATIC,13,16,280,132
-    GROUPBOX        "Opcje dla ataku brute-force",IDC_STATIC,13,160,280,109
-    LTEXT           "Liczba bajtów dla testu entropii:",IDC_STATIC,28,191,118,8
-    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,150,188,30,14,ES_AUTOHSCROLL | ES_NUMBER
-    LTEXT           "Opcje alfabetu:",IDC_STATIC,29,212,118,8
-    CONTROL         "Wszystkie 256 znaków",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,224,245,10
-    CONTROL         "Znaki drukowalne (ASCII 32 - 256)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,29,235,245,10
+    DEFPUSHBUTTON   "&ZatwierdŸ",IDOK,13,326,65,18
+    PUSHBUTTON      "&Anuluj",IDCANCEL,233,326,66,18
+    CONTROL         "Klucz poœredni",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,31,76,10
+    CONTROL         "Korelacja",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,44,48,10
+    CONTROL         "Histogramy",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,57,57,10
+    CONTROL         "Klucz poœredni",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,158,31,76,10
+    CONTROL         "D³ugoœæ klucz poœredniego",IDC_CHECK7,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,158,44,91,10
+    CONTROL         "Autokorelacja",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,158,57,61,10
+    CONTROL         "Poka¿ podstawow¹ analizê szyfru",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,159,71,120,10
+    GROUPBOX        "Cezar",IDC_STATIC,20,18,121,67
+    GROUPBOX        "Vigenere, XOR, Dodawanie",IDC_STATIC,150,18,141,67
+    GROUPBOX        "Opcje wyjœciowe dla analizy automatycznej",IDC_STATIC,13,5,286,88
+    GROUPBOX        "Opcje dla ataku brute-force",IDC_STATIC,13,209,286,109
+    LTEXT           "Liczba bajtów dla testu entropii:",IDC_STATIC,28,240,118,8
+    EDITTEXT        IDC_EDIT_ENTROPY_WINDOW,150,237,30,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Opcje alfabetu:",IDC_STATIC,29,261,118,8
+    CONTROL         "Wszystkie 256 znaków",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,273,245,10
+    CONTROL         "Znaki drukowalne (ASCII 32 - 256)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,29,284,245,10
     CONTROL         "Znaki zdefiniowane w menu: Opcje \\ Opcje Tekstu",IDC_RADIO3,
-                    "Button",BS_AUTORADIOBUTTON,29,245,245,11
-    LTEXT           "Zobacz menu: Kryptoanaliza \\ Algorytmy Symetryczne",IDC_STATIC,19,170,258,8
+                    "Button",BS_AUTORADIOBUTTON,29,294,245,11
+    LTEXT           "Zobacz menu: Kryptoanaliza \\ Algorytmy Symetryczne",IDC_STATIC,19,219,258,8
+    GROUPBOX        "Opcje analizy Vigenere Schrödela",IDC_STATIC,7,101,292,106
+    PUSHBUTTON      "&Szukaj...",IDC_BUTTON_SEARCH_DICTIONARY_FILE,236,134,55,14
+    EDITTEXT        IDC_EDIT_DICTIONARY_FILE,85,134,140,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_DIGRAMS_FILE,85,151,140,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_TRIGRAMS_FILE,85,168,140,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
+    PUSHBUTTON      "&Szukaj...",IDC_BUTTON_SEARCH_DIGRAMS_FILE,236,151,55,14
+    PUSHBUTTON      "&Szukaj...",IDC_BUTTON_SEARCH_TRIGRAMS_FILE,236,168,55,14
+    LTEXT           "S³ownik:",IDC_STATIC,25,135,29,8
+    LTEXT           "Plik Digramm:",IDC_STATIC,25,152,44,8
+    LTEXT           "Plik Trigramm:",IDC_STATIC,25,169,45,8
+    CONTROL         "Protokó³ szczegó³owy ",IDC_CHECK_EXTENSIVE_LOGGING,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,117,89,10
+    EDITTEXT        IDC_EDIT_ANALYSIS_THRESHOLD,86,185,25,14,ES_AUTOHSCROLL | ES_NUMBER | NOT WS_BORDER,WS_EX_STATICEDGE
+    LTEXT           "Limit:",IDC_STATIC,25,186,17,8
+    PUSHBUTTON      "Przywróæ &domyœlne",IDC_BUTTON_RESTORE_STANDARD,101,326,99,18
 END
 
 IDD_HILL_ANALYSIS DIALOGEX 0, 0, 302, 361
@@ -406,32 +423,24 @@ BEGIN
     EDITTEXT        IDC_EDIT2,10,180,35,12,ES_READONLY | WS_DISABLED | NOT WS_BORDER
 END
 
-IDD_ABOUT DIALOGEX 34, 22, 242, 443
+IDD_ABOUT DIALOGEX 34, 22, 373, 278
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "O CrypToolu"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,70,415,90,19,WS_GROUP
-    CTEXT           "CrypTool powsta³ dziêki wspó³pracy uniwersytetów w Siegen i Darmstadt. Wersja polskojêzyczna wykonana zosta³a na Wydziale Elektrycznym Politechniki Warszawskiej.",IDC_STATIC,0,125,242,17
-    CTEXT           "CrypTool u¿ywa nastêpuj¹cych bibliotek:",IDC_STATIC,1,220,241,8
-    CTEXT           "Kontakt:",IDC_STATIC,0,322,241,10
-    LTEXT           "",IDC_STATIC,67,330,145,40
-    CTEXT           "Strona domowa projektu: www.cryptool.org",IDC_STATIC,0,389,242,17
-    CTEXT           "",IDC_STATIC,1,10,241,32
-    CTEXT           "CRYPTOOL RELEASE INFO",IDC_ABOUTBOX_CRYPTOOL,1,157,241,11
-    CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,41,48,105,37,WS_EX_TRANSPARENT
-    CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,40,80,143,37,WS_EX_TRANSPARENT
-    CONTROL         520,IDC_STATIC,"Static",SS_WHITERECT,10,44,222,79
-    LTEXT           "",IDC_STATIC,67,374,175,8
-    CTEXT           "MIRACL",IDC_EDIT_MIRACL,1,257,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "SECUDE1",IDC_EDIT_SECUDE1,1,234,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "OPENSSL",IDC_EDIT_OPENSSL,1,268,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "NTL",IDC_EDIT_NTL,1,278,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "SCINTILLA",IDC_EDIT_SCINTILLA,1,288,240,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "GMP",IDC_EDIT_GMP,0,298,241,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "BUILD INFO",IDC_EDIT_BUILD_INFO,0,168,241,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
-    CTEXT           "sawickib@iem.pw.edu.pl",IDC_STATIC,3,188,236,24
-    CTEXT           "CRYPTOVISION",IDC_EDIT_CRYPTOVISION,0,246,241,8,SS_CENTERIMAGE,WS_EX_TRANSPARENT
+    DEFPUSHBUTTON   "Wyjœcie",IDOK,303,250,60,18,WS_GROUP
+    CONTROL         520,IDC_STATIC,"Static",SS_BITMAP,44,74,105,37,WS_EX_TRANSPARENT
+    CONTROL         523,IDC_STATIC,"Static",SS_BITMAP,198,73,143,37,WS_EX_TRANSPARENT
+    CTEXT           "rozwinêto z Uniwersytetem Siegen i Darmstadt, jak i za pomoc¹ wielu ochotników projekt open-source.",IDC_STATIC,20,119,330,16
+    CTEXT           "Copyright (C) 1998-2010 Deutsche Bank AG i wspó³pracowników\nprzy Open Source  na podstawie Apache-Lizenz 2.0",IDC_STATIC,7,233,356,16
+    CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,7,71,356,44
+    CTEXT           "CrypTool jest darmowym i kompleksowym programem edukacyjnym\nklasycznej i wspó³czesnej kryptografii / kryptoanalizy.\n\nWraz ze sponsorami",IDC_STATIC,20,35,330,32
+    CTEXT           "CrypTool jest stosowane na ca³ym œwiecie do nauczania w szko³ach i na uniwersytetach oraz do szkolenia i podnoszenie œwiadomoœci pracowników firm i agencji rz¹dowych.",IDC_STATIC,20,140,330,16,WS_TABSTOP
+    EDITTEXT        IDC_EDIT_CONTACT_INFORMATION,213,178,145,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_RELEASE_INFORMATION,11,178,185,45,ES_CENTER | ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Informacje opublikowania",IDC_STATIC,7,164,195,64
+    GROUPBOX        "Informacje kontaktowe",IDC_STATIC,208,164,155,64
+    PUSHBUTTON      "Wspó³wykonawcy",ID_CONTRIBUTORS,7,250,66,18,WS_GROUP
 END
 
 IDD_SHOW_PROGRESS DIALOG  0, 0, 187, 105
@@ -635,27 +644,23 @@ BEGIN
     EDITTEXT        IDC_EDIT3,8,6,176,14,ES_CENTER | ES_READONLY | NOT WS_BORDER
 END
 
-IDD_AUTHORS DIALOGEX 0, 0, 291, 334
+IDD_AUTHORS DIALOGEX 0, 0, 370, 275
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "O CrypToolu:"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,118,307,50,18
-    CTEXT           "Osoby rozwijaj¹ce CrypToola:",IDC_STATIC,7,6,277,11,SS_CENTERIMAGE | WS_BORDER
-    CTEXT           "Bernhard Esslinger",IDC_STATIC,14,33,270,8
-    CTEXT           "Henrik Koy",IDC_STATIC,14,94,270,8,NOT WS_GROUP
-    CTEXT           "Peer Wichmann\nJoerg Cornelius Schneider",IDC_STATIC,14,59,270,17
-    GROUPBOX        "Pomys³, Sponsorzy, Wyzwania, Kierownictwo:",IDC_STATIC,7,23,277,23,BS_CENTER
-    GROUPBOX        "Projekt, wsparcie i architektura:",IDC_STATIC,7,49,277,31,BS_CENTER
-    GROUPBOX        "G³ówna osoba zajmuj¹ca siê wersjami 1.3 i 1.4",IDC_STATIC,7,83,277,24,BS_CENTER
-    GROUPBOX        "Implementacja, Dokumentacja, T³umaczenie:",IDC_STATIC,7,110,277,131,BS_CENTER
-    GROUPBOX        "Recenzje i wsparcie:",IDC_STATIC,7,246,277,54,BS_CENTER
-    LTEXT           "Ariane Büger\nKarsten Schaar\nSibylle Müller",IDC_STATIC,18,260,84,34
-    LTEXT           "Matthias Büger\nWolfgang Scondo\nGerhard Kramarz",IDC_STATIC,102,260,84,35
-    LTEXT           "Wolfgang Patzewitz\nGary Tagg\nand many others.",IDC_STATIC,186,260,85,35
-    LTEXT           "Martin Bartosch\nLars Dülfer\nThomas Gauweiler\nJan Hofmann\nGrzegorz Kokosiñski\nMatthias Kraft\nMatej Matejicek\nRoger Oyono\nMark Santiago\nChristian Tobias\nThilo Zieschang\nChristof Rezk Salama",IDC_STATIC,18,122,84,113
-    LTEXT           "Jan Blumenstein\nKlaus Esslinger\nPeter Gruber\nJens Liebehenschel\nJakub Kurlenda\nMichael Linden\nChristian Mletzko\nMarkus Ruhs\nBartosz Sawicki\nMatthias Schneider\nMyriam Zeuner-Guerrier\nHendrik Lennarz\nSebastian Przybylski",IDC_STATIC,102,122,84,115
-    LTEXT           "Arkadiusz Burdach\nRichard Christensen\nBartol Filipovic\nJörg Hambamer\nDennis Laupichler\nFlorian Marchal\nLowell Montgomery\nDaniel Saffran\nChristine Stötzel\nThomas Thiele\nAndre Beunink\nElmar Kubitz",IDC_STATIC,186,122,85,107
+    CTEXT           "Osoby rozwijaj¹ce CrypToola:",IDC_STATIC,7,6,353,11,SS_CENTERIMAGE | WS_BORDER
+    CTEXT           "Bernhard Esslinger",IDC_STATIC,7,33,353,8
+    CTEXT           "Henrik Koy",IDC_STATIC,7,94,353,8,NOT WS_GROUP
+    CTEXT           "Peer Wichmann\nJoerg Cornelius Schneider",IDC_STATIC,7,59,353,17
+    GROUPBOX        "Pomys³, Sponsorzy, Wyzwania, Kierownictwo:",IDC_STATIC,7,23,353,23,BS_CENTER
+    GROUPBOX        "Projekt, wsparcie i architektura:",IDC_STATIC,7,49,353,31,BS_CENTER
+    GROUPBOX        "G³ówna osoba zajmuj¹ca siê wersjami 1.3 i 1.4",IDC_STATIC,7,83,353,24,BS_CENTER
+    DEFPUSHBUTTON   "OK",IDOK,155,250,60,18
+    GROUPBOX        "Implementacja, Dokumentacja, Tlumaczenie",IDC_STATIC,7,115,175,125,BS_CENTER
+    GROUPBOX        "Recenzje i wsparcie",IDC_STATIC,188,115,175,125,BS_CENTER
+    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_1,20,125,150,105
+    CTEXT           "CTextScroller",IDC_TEXT_SCROLLER_2,200,125,150,105
 END
 
 IDD_SHOW_PUBLICKEY_EC DIALOG  0, 0, 399, 287
@@ -1297,12 +1302,12 @@ BEGIN
     EDITTEXT        IDC_EDIT4,5,275,205,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
 END
 
-IDD_EXTRACT_SIGNATURE DIALOG  0, 0, 387, 335
+IDD_EXTRACT_SIGNATURE DIALOGEX 0, 0, 387, 341
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Wyci¹gniêty podpis"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "&Zamknij",IDOK,159,313,70,17
+    DEFPUSHBUTTON   "&Zamknij",IDOK,308,319,70,17
     EDITTEXT        IDC_EDIT4,10,64,368,86,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
     CONTROL         "Hex-Dump",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | BS_LEFTTEXT | WS_GROUP,242,176,123,11
     CONTROL         "&Oct",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,54,177,33,8
@@ -1321,6 +1326,7 @@ BEGIN
     EDITTEXT        IDC_EDIT7,10,304,125,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
     EDITTEXT        IDC_EDIT6,10,214,368,87,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
     LTEXT           "Numery:",IDC_STATIC,16,177,36,8
+    DEFPUSHBUTTON   "&Weryfikowaæ",ID_EXTRACT_SIGNATURE_VERIFY,10,319,80,17
 END
 
 IDD_VERIFY_ECSIGNATURE_STEPBYSTEP DIALOG  0, 0, 392, 330
@@ -1497,38 +1503,45 @@ BEGIN
     EDITTEXT        IDC_TITEL,15,6,285,16,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
 END
 
-IDD_PRIMES_GENERATOR_DEMO DIALOGEX 0, 0, 326, 231
+IDD_PRIMES_GENERATOR_DEMO DIALOGEX 0, 0, 326, 287
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Generowanie liczb pierwszych"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Generuj liczby pierwsze",IDC_BUTTON_GENERATE,10,202,100,20
-    PUSHBUTTON      "&ZatwierdŸ",IDC_BUTTON_ACCEPT,130,202,95,20
-    EDITTEXT        IDC_EDIT1,63,126,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,63,145,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT3,224,126,81,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT4,224,145,81,12,ES_AUTOHSCROLL
-    CONTROL         "&Test Millera-Rabin ",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,23,54,69,10
-    CONTROL         "&Test Solovay'a - Strassen ",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,23,69,87,10
-    CONTROL         "&Test Fermata",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,23,84,53,10
-    CONTROL         "zakresy niezale¿ne",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | WS_GROUP,184,54,121,10
-    CONTROL         "wspólny zakres",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,184,76,118,10
-    PUSHBUTTON      "&Anuluj",IDC_ENDDIALOG,254,202,59,20
-    EDITTEXT        IDC_EDIT5,63,166,81,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
-    EDITTEXT        IDC_EDIT6,224,166,81,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    DEFPUSHBUTTON   "Generuj liczby pierwsze",IDC_BUTTON_GENERATE,10,257,100,20
+    PUSHBUTTON      "&ZatwierdŸ",IDC_BUTTON_ACCEPT,130,257,95,20
+    EDITTEXT        IDC_EDIT1,63,181,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,63,200,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,224,181,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,224,200,81,12,ES_AUTOHSCROLL
+    CONTROL         "&Test Millera-Rabin ",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,23,109,69,10
+    CONTROL         "&Test Solovay'a - Strassen ",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,23,124,87,10
+    CONTROL         "&Test Fermata",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,23,139,53,10
+    CONTROL         "zakresy niezale¿ne",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | WS_GROUP,184,109,121,10
+    CONTROL         "wspólny zakres",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,184,131,118,10
+    PUSHBUTTON      "&Anuluj",IDC_ENDDIALOG,254,257,59,20
+    EDITTEXT        IDC_EDIT5,63,221,81,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT6,224,221,81,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
     GROUPBOX        "",IDC_STATIC,11,0,303,32
     LTEXT           "Liczby pierwsze odgrywaj¹ wa¿n¹ rolê we wspó³czesnej kryptografii. Generowanie dwóch losowych liczb pierwszych p i q z zakresu wartoœci [min max]",IDC_STATIC,19,9,289,17
-    GROUPBOX        "Algorytmy generowania liczb pierwszych",IDC_STATIC,11,39,142,61
-    GROUPBOX        "Zakres wartoœci dwóch liczb pierwszych",IDC_STATIC,172,39,142,61
-    LTEXT           "min",IDC_STATIC,17,128,40,9
-    LTEXT           "max:",IDC_STATIC,18,147,44,8
-    LTEXT           "rezultat",IDC_STATIC,18,168,37,10
-    LTEXT           "of each other",IDC_STATIC,196,64,53,8
-    GROUPBOX        "Liczba pierwsza p",IDC_STATIC,11,106,142,80
-    GROUPBOX        "Liczba pierwsza q",IDC_STATIC,172,106,142,80
-    LTEXT           "min",IDC_STATIC,178,128,40,9
-    LTEXT           "max:",IDC_STATIC,178,147,44,8
-    LTEXT           "rezultat",IDC_STATIC,179,168,35,10
+    GROUPBOX        "Algorytmy generowania liczb pierwszych",IDC_STATIC,11,94,142,61
+    GROUPBOX        "Zakres wartoœci dwóch liczb pierwszych",IDC_STATIC,172,94,142,61
+    LTEXT           "min",IDC_STATIC,17,183,40,9
+    LTEXT           "max:",IDC_STATIC,18,202,44,8
+    LTEXT           "rezultat",IDC_STATIC,18,223,37,10
+    LTEXT           "of each other",IDC_STATIC,196,119,53,8
+    GROUPBOX        "Liczba pierwsza p",IDC_STATIC,11,161,142,80
+    GROUPBOX        "Liczba pierwsza q",IDC_STATIC,172,161,142,80
+    LTEXT           "min",IDC_STATIC,178,183,40,9
+    LTEXT           "max:",IDC_STATIC,178,202,44,8
+    LTEXT           "rezultat",IDC_STATIC,179,223,35,10
+    GROUPBOX        "Iloœæ liczb pierwszych, które maj¹ byæ generowane",IDC_STATIC,11,36,302,55
+    CONTROL         "Generowane dwóch liczb losowych (z zakresu wartoœci)",IDC_RADIO6,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,23,49,280,9
+    CONTROL         "Generowanie liczb pierwszych w przedziale wartoœci okreœlonej dla p",IDC_RADIO7,
+                    "Button",BS_AUTORADIOBUTTON,23,62,281,8
+    EDITTEXT        IDC_EDIT_SEPARATOR,181,73,16,12,ES_CENTER | ES_AUTOHSCROLL | WS_DISABLED
+    LTEXT           "Separator do wyœwietlania liczb pierwszych:",IDC_STATIC,34,75,138,8
 END
 
 IDD_RSA_DEMO DIALOGEX 0, 0, 391, 399
@@ -2721,18 +2734,20 @@ BEGIN
     LTEXT           "Log aktywnoœci:",IDC_STATIC,80,7,34,8
 END
 
-IDD_SIDECHANNELATTACKVISUALIZATION_HE_BOB DIALOG  0, 0, 375, 260
+IDD_SIDECHANNELATTACKVISUALIZATION_HE_BOB DIALOGEX 0, 0, 375, 260
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Aktualny status Boba"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,149,239,50,14
-    CONTROL         "List1",IDC_LIST_RECEIVEDSESSIONKEYS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,7,120,361,100
+    CONTROL         "List1",IDC_LIST_RECEIVEDSESSIONKEYS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,7,134,361,100
     CONTROL         762,IDC_BOB,"Static",SS_BITMAP | WS_BORDER,7,7,68,63
-    LTEXT           "Otrzymane klucze sesji i rezultaty deszyfrowania",IDC_STATIC,7,105,146,8
+    LTEXT           "Otrzymane klucze sesji i rezultaty deszyfrowania",IDC_STATIC,7,119,146,8
     LISTBOX         IDC_LIST_TASKS,80,18,288,52,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Dziennik aktywnoœci:",IDC_STATIC,80,7,34,8
-    LTEXT           "Bob nie mo¿e zdecydowaæ, czy wiadomoœæ, któr¹ otrzyma³ pochodzi³a od Alicji, czy od Trudy.",IDC_STATIC,7,79,361,8
+    LTEXT           "Bob nie mo¿e zdecydowaæ, czy wiadomoœæ, któr¹ otrzyma³ pochodzi³a od Alicji, czy od Trudy. Jednak z uwag¹ na pewne s³owa kluczowe, Bob mo¿e zdecydowaæ, czy wiadomoœæ zosta³a wys³ana przez Alice. Nale¿y podaæ s³owa kluczowego poni¿ej:",IDC_STATIC,7,76,361,24
+    LTEXT           "S³owo kluczowe:",IDC_STATIC,7,105,56,8
+    EDITTEXT        IDC_EDIT_KEYWORD,64,103,50,12,ES_AUTOHSCROLL
 END
 
 IDD_SIDECHANNELATTACKVISUALIZATION_HE_FINISHED DIALOG  0, 0, 215, 98
@@ -3044,7 +3059,7 @@ BEGIN
     GROUPBOX        "Opis",IDC_STATIC,7,7,518,50
     EDITTEXT        IDC_EDIT_ORIGINAL_MESSAGE,15,78,501,118,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | WS_VSCROLL
     GROUPBOX        "Wiadomoœæ",IDC_STATIC,7,64,518,140
-    LTEXT           "[i18n] Inner hash value",IDC_STATIC,7,292,111,8
+    LTEXT           "Wewnêtrzn¹ wartoœæ haszu",IDC_STATIC,7,292,111,8
     EDITTEXT        IDC_SHOW_HASH,7,303,518,25,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
     COMBOBOX        IDC_COMBO_SELECT_HASH_FUNCTION,83,222,159,101,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_COMBO_SELECT_HMAC_ALGORITHM,325,222,191,101,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
@@ -3706,6 +3721,7 @@ BEGIN
                     "Button",BS_AUTORADIOBUTTON,21,38,210,10
     CONTROL         "Atbash (szyfrowanie u¿ywa ustalonych kluczy) ",IDC_RADIO2,
                     "Button",BS_AUTORADIOBUTTON,21,51,229,10
+    PUSHBUTTON      "Opcje &tekstu",IDC_BUTTON_TEXTOPTIONS,167,202,55,22
 END
 
 IDD_VISUALIZE_PHASE_SPACE DIALOGEX 0, 0, 388, 273
@@ -4074,7 +4090,7 @@ CAPTION "Sprawdzenie pierwszoœci liczby"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     EDITTEXT        IDC_PRIMETEST_EDIT_NUMBER,79,189,262,14,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "SprawdŸ liczbê",IDC_PRIMETEST_BUTTON_TEST,7,241,116,20
+    DEFPUSHBUTTON   "SprawdŸ liczbê",IDC_PRIMETEST_BUTTON_TEST,7,241,96,20
     CONTROL         "Test &Millera-Rabina",IDC_PRIMETEST_RADIO_MILLERRABIN,
                     "Button",BS_AUTORADIOBUTTON | WS_GROUP,17,84,71,10
     CONTROL         "Test &Fermata",IDC_PRIMETEST_RADIO_FERMAT,"Button",BS_AUTORADIOBUTTON,17,98,56,10
@@ -4084,7 +4100,7 @@ BEGIN
                     "Button",BS_AUTORADIOBUTTON,17,126,171,10
     PUSHBUTTON      "&Podaj liczbê z pliku",IDC_PRIMETEST_BUTTON_LOADNUMBER,235,162,106,20
     EDITTEXT        IDC_PRIMETEST_EDIT_RESULT,79,209,262,14,ES_AUTOHSCROLL | ES_READONLY
-    PUSHBUTTON      "&Anuluj",IDC_PRIMETEST_BUTTON_CANCEL,235,241,117,20
+    PUSHBUTTON      "&Anuluj",IDC_PRIMETEST_BUTTON_CANCEL,250,241,102,20
     GROUPBOX        "",IDC_PRIMETEST_GROUPBOX_TEXT,7,4,345,62
     GROUPBOX        "Algorytmy testu pierwszoœci:",IDC_PRIMETEST_GROUPBOX_ALGO,7,72,345,73
     LTEXT           "Istniej¹ rozmaite sposoby na sprawdzenie, czy badana liczba jest liczb¹ pierwsz¹.",IDC_PRIMETEST_LABEL_TEXT1,17,12,324,17
@@ -4095,6 +4111,7 @@ BEGIN
     LTEXT           "Poza powy¿szymi istniej¹ równie¿ metody deterministyczne: dostarczony rezultat jest w 100% poprawny (z matematycznego punktu widzenia).",IDC_PRIMETEST_LABEL_TEXT3,17,44,324,19
     CONTROL         250,IDC_STATIC_PRIM_RES,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,15,13
     CONTROL         251,IDC_STATIC_PRIM_RES2,"Static",SS_BITMAP | NOT WS_VISIBLE,57,209,15,13
+    PUSHBUTTON      "&Rozk³ad na czynniki pierwsze",IDC_BUTTON_JUMP_TO_FACTORIZATION,112,241,112,20,WS_DISABLED
 END
 
 IDD_ADFGVX_STRINGBOX DIALOGEX 0, 0, 179, 44
@@ -4324,6 +4341,7 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,68,88,10
     EDITTEXT        IDC_EDIT_BLOCK_SIZE,109,67,20,14,ES_AUTOHSCROLL | WS_DISABLED
     DEFPUSHBUTTON   "OK",IDOK,7,97,50,14
+    DEFPUSHBUTTON   "Opcje tekstu",ID_TEXTOPTIONS,75,97,50,14
 END
 
 IDD_SIMPLE_TRANSPOSITIONS DIALOGEX 0, 0, 285, 180
@@ -4508,10 +4526,15 @@ BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
         END
+        MENUITEM "&Sformatowaæ dokument",       ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
         MENUITEM "Krawêdzie szeœcianów (wizualizacja OpenGL)", ID_POPUP_OPENGL_SHOW_BOX
     END
@@ -4531,6 +4554,7 @@ BEGIN
             MENUITEM "H&omofony",                   ID_HOMOPHONE_ASC
             MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION
             MENUITEM "Soli&taire",                  ID_SYMCLASSIC_SOLITAIRE
+            MENUITEM "Scytale / P³ot ogrodowy...",  ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symetryczne"
         BEGIN
@@ -4669,7 +4693,6 @@ BEGIN
             MENUITEM "Tworzenie liczb losowych",    ID_ZUFALL_GENERATOREN
             MENUITEM "&Miernik jakoœci has³a",      ID_PASSWORDQUALITYMETER
             MENUITEM "&Entropia has³a...",          ID_PASSWORDENTROPY
-            MENUITEM "&Formatowanie dokumentu tekstowego...", ID_FORMAT_TEXT_DOCUMENT
         END
         MENUITEM SEPARATOR
         POPUP "Gry &edukacyjne"
@@ -4852,12 +4875,17 @@ BEGIN
         POPUP "&Czcionka"
         BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
         END
+        MENUITEM "&Sformatowaæ dokument",       ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
         MENUITEM "Krawêdzie szeœcianów (wizualizacja OpenGL)", ID_POPUP_OPENGL_SHOW_BOX, GRAYED
     END
@@ -4877,6 +4905,7 @@ BEGIN
             MENUITEM "H&omofony",                   ID_HOMOPHONE_ASC
             MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION
             MENUITEM "Soli&taire",                  ID_SYMCLASSIC_SOLITAIRE
+            MENUITEM "Scytale / P³ot ogrodowy...",  ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symetryczne"
         BEGIN
@@ -5015,7 +5044,6 @@ BEGIN
             MENUITEM "Tworzenie liczb losowych",    ID_ZUFALL_GENERATOREN
             MENUITEM "&Miernik jakoœci has³a",      ID_PASSWORDQUALITYMETER
             MENUITEM "&Entropia has³a...",          ID_PASSWORDENTROPY
-            MENUITEM "&Formatowanie dokumentu tekstowego...", ID_FORMAT_TEXT_DOCUMENT
         END
         MENUITEM SEPARATOR
         POPUP "Gry &edukacyjne"
@@ -5198,12 +5226,17 @@ BEGIN
         POPUP "&Czcionka"
         BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
         END
+        MENUITEM "&Sformatowaæ dokument",       ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
         MENUITEM "Krawêdzie szeœcianów (wizualizacja OpenGL)", ID_POPUP_OPENGL_SHOW_BOX, GRAYED
     END
@@ -5223,6 +5256,7 @@ BEGIN
             MENUITEM "H&omofony",                   ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION, GRAYED
             MENUITEM "Soli&taire",                  ID_SYMCLASSIC_SOLITAIRE, GRAYED
+            MENUITEM "Scytale / P³ot ogrodowy...",  ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symetryczne"
         BEGIN
@@ -5361,7 +5395,6 @@ BEGIN
             MENUITEM "Tworzenie liczb losowych",    ID_ZUFALL_GENERATOREN
             MENUITEM "&Miernik jakoœci has³a",      ID_PASSWORDQUALITYMETER
             MENUITEM "&Entropia has³a...",          ID_PASSWORDENTROPY
-            MENUITEM "&Formatowanie dokumentu tekstowego...", ID_FORMAT_TEXT_DOCUMENT
         END
         MENUITEM SEPARATOR
         POPUP "Gry &edukacyjne"
@@ -5546,10 +5579,15 @@ BEGIN
             MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
             MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
             MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
             MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
             MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
             MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
         END
+        MENUITEM "&Sformatowaæ dokument",       ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
         MENUITEM "Krawêdzie szeœcianów (wizualizacja OpenGL)", ID_POPUP_OPENGL_SHOW_BOX
     END
@@ -5569,6 +5607,7 @@ BEGIN
             MENUITEM "H&omofony",                   ID_HOMOPHONE_ASC
             MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION
             MENUITEM "Soli&taire",                  ID_SYMCLASSIC_SOLITAIRE
+            MENUITEM "Scytale / P³ot ogrodowy...",  ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symetryczne"
         BEGIN
@@ -5707,7 +5746,6 @@ BEGIN
             MENUITEM "Tworzenie liczb losowych",    ID_ZUFALL_GENERATOREN
             MENUITEM "&Miernik jakoœci has³a",      ID_PASSWORDQUALITYMETER
             MENUITEM "&Entropia has³a...",          ID_PASSWORDENTROPY
-            MENUITEM "&Formatowanie dokumentu tekstowego...", ID_FORMAT_TEXT_DOCUMENT
         END
         MENUITEM SEPARATOR
         POPUP "Gry &edukacyjne"
@@ -5916,13 +5954,18 @@ BEGIN
         MENUITEM "Bia³e znaki",                 ID_VIEW_WHITESPACE, GRAYED
         POPUP "&Czcionka"
         BEGIN
-            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08, GRAYED
-            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10, GRAYED
-            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12, GRAYED
-            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08, GRAYED
-            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10, GRAYED
-            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12, GRAYED
+            MENUITEM "Arial 8",                     ID_ZEICHENFORMAT_ARIAL08
+            MENUITEM "Arial 10",                    ID_ZEICHENFORMAT_ARIAL10
+            MENUITEM "Arial 12",                    ID_ZEICHENFORMAT_ARIAL12
+            MENUITEM "Arial 14",                    ID_ZEICHENFORMAT_ARIAL14
+            MENUITEM "Arial 16",                    ID_ZEICHENFORMAT_ARIAL16
+            MENUITEM "Courier 8",                   ID_ZEICHENFORMAT_COURIER08
+            MENUITEM "Courier 10",                  ID_ZEICHENFORMAT_COURIER10
+            MENUITEM "Courier 12",                  ID_ZEICHENFORMAT_COURIER12
+            MENUITEM "Courier 14",                  ID_ZEICHENFORMAT_COURIER14
+            MENUITEM "Courier 16",                  ID_ZEICHENFORMAT_COURIER16
         END
+        MENUITEM "&Sformatowaæ dokument",       ID_FORMAT_TEXT_DOCUMENT
         MENUITEM SEPARATOR
         MENUITEM "Krawêdzie szeœcianów (wizualizacja OpenGL)", ID_POPUP_OPENGL_SHOW_BOX
     END
@@ -5942,6 +5985,7 @@ BEGIN
             MENUITEM "H&omofony",                   ID_HOMOPHONE_ASC, GRAYED
             MENUITEM "Permutacja / Transpozycja",   ID_PERMUTATION, GRAYED
             MENUITEM "Soli&taire",                  ID_SYMCLASSIC_SOLITAIRE, GRAYED
+            MENUITEM "Scytale / P³ot ogrodowy...",  ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS
         END
         POPUP "Symetryczne"
         BEGIN
@@ -6080,7 +6124,6 @@ BEGIN
             MENUITEM "Tworzenie liczb losowych",    ID_ZUFALL_GENERATOREN
             MENUITEM "&Miernik jakoœci has³a",      ID_PASSWORDQUALITYMETER
             MENUITEM "&Entropia has³a...",          ID_PASSWORDENTROPY
-            MENUITEM "&Formatowanie dokumentu tekstowego...", ID_FORMAT_TEXT_DOCUMENT
         END
         MENUITEM SEPARATOR
         POPUP "Gry &edukacyjne"
@@ -7189,14 +7232,18 @@ BEGIN
     IDD_OPTIONS_ANALYSIS, DIALOG
     BEGIN
         LEFTMARGIN, 13
-        RIGHTMARGIN, 293
-        VERTGUIDE, 20
+        RIGHTMARGIN, 299
+        VERTGUIDE, 13
         VERTGUIDE, 150
-        VERTGUIDE, 286
-        BOTTOMMARGIN, 296
-        HORZGUIDE, 87
+        VERTGUIDE, 299
+        TOPMARGIN, 5
+        BOTTOMMARGIN, 344
+        HORZGUIDE, 42
+        HORZGUIDE, 105
+        HORZGUIDE, 109
         HORZGUIDE, 110
         HORZGUIDE, 201
+        HORZGUIDE, 326
     END
 
     IDD_HILL_ANALYSIS, DIALOG
@@ -7223,10 +7270,9 @@ BEGIN
 
     IDD_ABOUT, DIALOG
     BEGIN
-        VERTGUIDE, 67
-        VERTGUIDE, 76
+        RIGHTMARGIN, 366
         TOPMARGIN, 1
-        BOTTOMMARGIN, 440
+        BOTTOMMARGIN, 275
     END
 
     IDD_SHOW_PROGRESS, DIALOG
@@ -7259,8 +7305,9 @@ BEGIN
 
     IDD_AUTHORS, DIALOG
     BEGIN
-        BOTTOMMARGIN, 325
-        HORZGUIDE, 307
+        VERTGUIDE, 7
+        VERTGUIDE, 360
+        BOTTOMMARGIN, 266
     END
 
     IDD_CAESAR_ANALYSIS, DIALOG
@@ -7285,6 +7332,14 @@ BEGIN
         BOTTOMMARGIN, 79
     END
 
+    IDD_EXTRACT_SIGNATURE, DIALOG
+    BEGIN
+        VERTGUIDE, 10
+        VERTGUIDE, 378
+        HORZGUIDE, 319
+        HORZGUIDE, 336
+    END
+
     IDD_PLAYFAIR_ANALYSIS, DIALOG
     BEGIN
         RIGHTMARGIN, 432
@@ -7301,6 +7356,11 @@ BEGIN
         RIGHTMARGIN, 267
         TOPMARGIN, 10
         BOTTOMMARGIN, 148
+    END
+
+    IDD_PRIMES_GENERATOR_DEMO, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 231
     END
 
     IDD_RSA_DEMO, DIALOG
@@ -7852,6 +7912,8 @@ BEGIN
     IDD_KEY_MONSUBST, DIALOG
     BEGIN
         VERTGUIDE, 21
+        HORZGUIDE, 202
+        HORZGUIDE, 224
     END
 
     IDD_SOLITAIRE, DIALOG
@@ -8232,6 +8294,9 @@ BEGIN
     IDR_HEXTYPE             "\nUnnamed\n\nBinary file (*.hex)\n.hex\n\nHEX File Type\nHEX\nPliki HEX\n"
     IDR_ASCTYPE             "\nUnnamed\n\nASCII file (*.asc)\n.asc\n\nASCII File Type\nASCII\nPliki ASCII\n"
     IDR_PLOTTYPE            "\nUnnamed\n\nPLOT file (*.plt)\n.plt\n\nPlot File Type\nPLOT\nPlot Files"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERKEY "Klucz:"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERCLEARTEXT 
+                            "Tekst jawny:"
 END
 
 STRINGTABLE 
@@ -8290,9 +8355,10 @@ BEGIN
     ID_CRYPT_HASH_SHA256    "Oblicza wartoœæ hasz SHA-256 aktywnego dokumentu"
     ID_CRYPT_HASH_SHA512    "Oblicza wartoœæ hasz SHA-512 aktywnego dokumentu"
     ID_ENCRYPTION_SIMPLE_TRANSPOSITIONS 
-                            "Encryption using simple transpositions (Scytale, Rail Fence)"
+                            "Szyfrowanie przy u¿yciu prostych transpozycji (Skytale, P³ot ogrodowy)"
     ID_KNOWN_ANALYSIS_SINGLE_PERMUTATION 
                             "Atak pojedynczej transpozycji kolumnowej na tekst oryginalny"
+    ID_PROTOKOL_SMIME       "Wizualizacja protokó³u S/MIME "
 END
 
 STRINGTABLE 
@@ -9156,7 +9222,7 @@ BEGIN
     IDS_DH_KEY_VERIFICATION_NO 
                             "Weryfikacja nie powiod³a siê! Klucze Alicji i Boba nie s¹ identyczne!"
     IDS_DH_PP_SECRET_DANGEROUS 
-                            "The secret number you chose is either zero or otherwise considered critical!\nDlatego, dalsze postêpowania mog¹ nie byæ bezpieczne!"
+                            "Tajny numer który zosta³ wybrany, oceniono za krytyczne!\nDlatego, dalsze postêpowania mo¿e byæ niebezpieczne!"
     IDS_DH_PP_NO_USER_INPUT "Proszê wype³niæ wszystkie pola!"
     IDS_STRING_SIG_ATT_STA_HARMLESS 
                             "%d bajtów zosta³o dodanych do wiadomoœci nieszkodliwej."
@@ -10214,7 +10280,7 @@ BEGIN
     IDS_MONO_SUBST_AUTO_STAT_ANALYSIS_IS_RUNNING 
                             "Analiza statystyczna pliku w toku. Proszê czekaæ"
     IDS_MONO_SUBST_AUTO_FILE_CONTENT_ERROR "B³¹d w pliku statystycznym\n"
-    IDS_MONO_SUBST_AUTO_LANG_DE "NIemiecki"
+    IDS_MONO_SUBST_AUTO_LANG_DE "Niemiecki"
     IDS_MONO_SUBST_AUTO_LANG_EN "Angielski"
 END
 
@@ -10280,7 +10346,7 @@ BEGIN
     IDS_SCA_HYBRIDENCRYPTION_BY_USER 
                             "Czy chcesz teraz osobiœcie dokonaæ szyfrowania hybrydowego?"
     IDS_SIMPLETRANSPOSITION_BAD_KEY 
-                            "The key stored in the clipboard is not part of the actual alphabet\nthus the key is currently not usable!"
+                            "Klucz przechowywany w schowku nie jest czêœci¹ rzeczywistego alfabetu\ntym samym klucz aktualnie nie mo¿e zostaæ wykorzystywany!"
     IDS_SCA_ERROR_CERTINFOEXTRACTION "B³¹d! Plik nie móg³ zostaæ otwarty:\n%s"
 END
 
@@ -10341,6 +10407,7 @@ BEGIN
     ID_FLASH_ENIGMADEMO     "Wizualizacja Flash maszyny Enigma."
     ID_FLASH_RIJNDAEL_INSPECTOR 
                             "Wyœwietla poœrednie wyniki po ka¿dej rundzie dla dowolnych danych."
+    ID_EDIT_FIND_NEXT       "Kontynuuje poszukiwania istniej¹cyego szukanego pojêcia "
 END
 
 STRINGTABLE 
@@ -10376,9 +10443,9 @@ BEGIN
                             "Klucz wybrany zostanie zaladowany do keystore. Mozesz uzyc tego klucza, przy permutacji (patrz menu: Szyfrowanie - Historyczne - Permutacja / Transposicja).\n\nAby to zrobic, kliknij w oknie Permutacji na ikone klucza. "
     IDS_DIALOGHEADER_PERMKEY_LIST "Lista odnalezionych kluczy permutacji"
     IDS_INFO_TEXT_ENCRYPTION 
-                            "You chose the option to do the encryption in text mode.\nThis means that characters, which don't belong to the alphabet, are not encrypted (according to the Text option settings these characters are taken away or be kept)."
+                            "Wybrano opcjê do szyfrowania w trybie tekstowym.\nTo oznacza ¿e znaki które nie nale¿¹ do alfabetu nie s¹ szyfrowane (w zale¿noœci od ustawienia opcji tekstowych te znaki s¹ zabrane lub s¹ przechowywane)."
     IDS_INFO_BYNARY_ENCRYPTION 
-                            "You chose the option to do the encryption in binary mode. This means that all characters are encrypted and the chosen text alphabet doesn't matter."
+                            "Wybrano opcjê do szyfrowania w trybie binarnym. Oznacza to, ¿e wszystkie znaki s¹ kodowane i wybrany alfabet tekstu nie ma znaczenia."
     IDS_FINDANDREPLACE_HEXNOTIMPLEMENTED 
                             "Opcja jeszcze nie zaimplementowana w systemie HEX!"
     IDS_FINDANDREPLACE_TEXTNOTFOUND "Po¿¹dany tekst nie zosta³ znaleziony!"
@@ -10749,9 +10816,20 @@ STRINGTABLE
 BEGIN
     IDS_STRING_ASYMKEY_ERR_CERT_SERIAL_EXISTS 
                             "Import certyfikatu siê nie uda³ poniewa¿ istnieje ju¿ certyfikat z tym samym numerem seryjnym."
+    IDS_STRING_ADFGVX_PASSWORD_EMPTY_REPEAT_INPUT_PROCESS 
+                            "Has³o zawiera niedozwolonych znaków. Proszê wprowadziæ ponownie."
+    IDS_STRING_JAVA_JRE_NOT_INSTALLED 
+                            "Stwierdzono brak instalacji Java. Proszê zainstalowaæ najnowsze Java Runtime Environment (JRE)."
+    IDS_STRING_JAVA_PROGRAM_NOT_FOUND 
+                            "Nie mo¿na znaleŸæ program w Javie! (Pe³na œcie¿ka: ""% s"")"
+    IDS_STRING_JAVA_PROGRAM_EXECUTION_FAILED 
+                            "Program w Javie nie móg³ zostaæ uruchomiony. Prosimy o kontakt z deweloperami."
     IDS_STRING_SMIME_DEMO_PROGRAM "main\\Programm.class"
+    IDS_AES_FLOWVISUALIZATION_JAVA_FILE "AES_Flussvisualisierung.jar"
     IDS_STRING_SMIME_DEMO_PROGRAM_COMPLETE_CALL 
                             "-cp "".;./lib/*"" main.Programm EN"
+    IDS_VIGENERE_ANALYSIS_SCHROEDEL_INFO 
+                            "Po zakoñczeniu analizy, wynik jest wyœwietlany w nowym dokumencie."
     IDS_AUTHORS_FILE_MISSING 
                             "Nie mozna znalezc plik ""authors.txt"". Upewnij sie, ze plik znajduje sie w glównym folderze CrypTool."
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DICTIONARY_FILENAME 
@@ -10761,7 +10839,9 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_TRIGRAMS_FILENAME 
                             "VigenereAnalysisSchroedelTrigrams.txt"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_PROGRESS_BAR_TITLE 
-                            "Vigenère analysis according to Schroedel"
+                            "Analiza Vigenere wed³ug Schroedel"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_CIPHERTEXT_TAG "Tekst szyfrowy:"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_POSSIBLE_KEY_TAG "Mo¿liwy klucz:"
 END
 
 STRINGTABLE 
@@ -10787,98 +10867,82 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_FOUND_CLEARTEXT_TAG 
+                            "Znaleziony tekst jawny:"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_NO_POSSIBLE_RESULTS_FOUND 
+                            "Analiza siê nie powiod³a."
+    IDS_STRING_VIGENERE_ANALYSIS_HEADER_TAG 
+                            "CrypTool: Analiza Ciphertext-Only Schrödela przeciw szyfrowañ Vigenere"
+    IDS_STRING_VIGENERE_ANALYSIS_TIME_NEEDED_TAG 
+                            "Czas wymagany do przeprowadzenia analizy: "
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_CIPHERTEXT_LENGTH_TAG 
+                            "D³ugoœæ analizowanego tekstu szyfrowego:"
+    IDS_AUTHORS_FILE_CORRUPTED 
+                            "Plik authors.txt zosta³ zmodyfikowany od instalacji CrypTool."
+    IDS_CRYPTOOL_RELEASE_INFORMATION "%s (%s, %s), skompilowany z"
+    IDS_STRING_FILE_COULD_NOT_BE_OPENED 
+                            "Nastêpuj¹cy plik nie móg³ zostaæ otwarty:\n"
+    IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DICTIONARY_FILE 
+                            "Wybierz plik s³ownika"
+    IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DIGRAMS_FILE "Wybierz plik Digramm"
+    IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_TRIGRAMS_FILE 
+                            "Wybierz plik Trigramm"
+    IDS_STRING_VIGENERE_ANALYSIS_DIGRAM_FACTOR_STRING 
+                            "AM AN AS AT BE BY DO GO HE IF IN IS IT ME MY NO OF OK ON SO TO UP US"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SUGGEST_RESULT 
+                            "Analiza zidentyfikowana ""% s"" jako potencjalny klucz.\n\nZ tego klucza wynika nastêpuj¹cy tekst jawny: ""%s"".\n\nCzy przerwaæ analizê?"
     IDS_HASHDEMO_STRING_SHA_256 "SHA-256 (256 bits)"
     IDS_HASHDEMO_STRING_SHA_384 "SHA-384 (384 bits)"
     IDS_HASHDEMO_STRING_SHA_512 "SHA-512 (512 bits)"
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
-    IDS_AES_FLOWVISUALIZATION_JAVA_FILE "AES_Flussvisualisierung.jar"
-    IDS_STRING_JAVA_JRE_NOT_INSTALLED 
-                            "Es wurde keine Java-Installation gefunden. Bitte installieren Sie eine aktuelle Java-Laufzeitumgebung (JRE)."
-    IDS_STRING_JAVA_PROGRAM_NOT_FOUND 
-                            "Das Java-Programm wurde nicht gefunden! (Kompletter Pfad: ""%s"")"
-    IDS_STRING_JAVA_PROGRAM_EXECUTION_FAILED 
-                            "Das Java-Programm konnte nicht ausgeführt werden. Bitte kontaktieren Sie das Entwickler-Team."
-    IDS_AUTHORS_FILE_CORRUPTED 
-                            "Die Datei authors.txt wurde seit der Installation von CrypTool verändert."
-    IDS_CRYPTOOL_RELEASE_INFORMATION "%s (%s, %s), kompiliert mit "
-    IDS_STRING_ADFGVX_PASSWORD_EMPTY_REPEAT_INPUT_PROCESS 
-                            "Das Passwort enthält keine gültigen Zeichen. Bitte wiederholen Sie die Eingabe."
-    IDS_STRING_FILE_COULD_NOT_BE_OPENED 
-                            "Die folgende Datei konnte nicht geöffnet werden:\n"
-    IDS_STRING_VIGENERE_ANALYSIS_DIGRAM_FACTOR_STRING 
-                            "AM AN AS AT BE BY DO GO HE IF IN IS IT ME MY NO OF OK ON SO TO UP US"
-    IDS_STRING_VIGENERE_ANALYSIS_HEADER_TAG 
-                            "CrypTool: Ciphertext-Only-Analyse nach Schrödel gegen die Vigenère-Verschlüsselung"
-    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_CIPHERTEXT_LENGTH_TAG 
-                            "Länge des analysierten Geheimtexts:"
-    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_CIPHERTEXT_TAG "Geheimtext:"
-    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERCLEARTEXT "Klartext:"
-    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERKEY "Schlüssel:"
-    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_FOUND_CLEARTEXT_TAG 
-                            "Gefundener Klartext:"
-    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_NO_POSSIBLE_RESULTS_FOUND 
-                            "Die Analyse war nicht erfolgreich."
-    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_POSSIBLE_KEY_TAG 
-                            "Möglicher Schlüssel:"
-    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SUGGEST_RESULT 
-                            "Die Analyse hat ""%s"" als möglichen Schlüssel ermittelt.\n\nAus diesem Schlüssel resultiert folgender Klartext: ""%s"".\n\nWollen Sie die Analyse abbrechen?"
-    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "Zeichen"
-    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_SECONDS " Sekunden"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "Znaki"
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_DIGRAMS "£adowaæ Digramme..."
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_TRIGRAMS "£adowaæ Trigramme..."
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_REMOVE_DUPLICATES "%d usunête duplikaty:"
     IDS_STRING_VIGENERE_ANALYSIS_TAG_1ST_CHARACTER_OF_CIPHER 
-                            "1. Zeichen des Ciphertexts: "
+                            "1. Znak tekstu szyfrowanego: "
     IDS_STRING_VIGENERE_ANALYSIS_TAG_2ND_CHARACTER_OF_CIPHER 
-                            "2. Zeichen des Ciphertexts: "
+                            "2. Znak tekstu szyfrowanego: "
     IDS_STRING_VIGENERE_ANALYSIS_TAG_3RD_CHARACTER_OF_CIPHER 
-                            "3. Zeichen des Ciphertexts: "
-    IDS_STRING_VIGENERE_ANALYSIS_TAG_CHECKING_FOR_RATINGS 
-                            "Mögliche Lösungen mit dem Wörterbuch abgleichen:"
-    IDS_STRING_VIGENERE_ANALYSIS_TAG_COUNT "Anzahl: "
-    IDS_STRING_VIGENERE_ANALYSIS_TAG_REMAINING "Verbleibende Paare: "
+                            "3. Znak tekstu szyfrowanego: "
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_CIPHERTEXT 
+                            "£adowac tekst szyfrowy..."
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_DICTIONARY "£adowañ s³ownik..."
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_POSSIBLE_PAIRS "%d mo¿liwe pary:"
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_COUNT "Liczba: "
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_REMAINING "Pozosta³e pary: "
     IDS_STRING_VIGENERE_ANALYSIS_TAG_SORTED_LIST_ALL_REMAINING 
-                            "Sortierte Liste aller Paare:"
+                            "Sortowana lista wszystkich par:"
     IDS_STRING_VIGENERE_ANALYSIS_TAG_SORTED_LIST_AFTER_DISCARDING 
-                            "Sortierte Liste aller verbliebenen Paare:"
+                            "Sortowana lista pozosta³ych par:"
     IDS_STRING_VIGENERE_ANALYSIS_TAG_SORTED_LEADERS 
-                            "Sortierte Liste der besten Paare:"
-    IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_CIPHERTEXT "Lade Ciphertext..."
-    IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_DICTIONARY "Lade Wörterbuch..."
-    IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_DIGRAMS "Lade Digramme..."
-    IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_TRIGRAMS "Lade Trigramme..."
-    IDS_STRING_VIGENERE_ANALYSIS_TAG_POSSIBLE_PAIRS "%d mögliche Paare:"
-    IDS_STRING_VIGENERE_ANALYSIS_TAG_REMOVE_DUPLICATES 
-                            "%d entfernte Duplikate:"
-    IDS_STRING_VIGENERE_ANALYSIS_TIME_NEEDED_TAG 
-                            "Benötigte Zeit für die Durchführung der Analyse: "
-    IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DICTIONARY_FILE 
-                            "Wörterbuch-Datei auswählen"
-    IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_DIGRAMS_FILE 
-                            "Digramm-Datei auswählen"
-    IDS_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_TRIGRAMS_FILE 
-                            "Trigramm-Datei auswählen"
-    IDS_VIGENERE_ANALYSIS_SCHROEDEL_INFO 
-                            "Sobald die Analyse beendet ist, wird das Ergebnis in einem neuen Dokument angezeigt."
-    ID_AES_RIJNDAEL_FLOWVISUALISATION 
-                            "Zeigt den Rijndael-Algorithmus in einer Flussvisualisierung"
-    ID_ANALYSIS_VIGENERE_SCHROEDEL 
-                            "Automatische Analyse einer Vigenère-Verschlüsselung (Schrödel)"
-    ID_EDIT_FIND_NEXT       "Setzt die Suche nach einem bestehenden Suchbegriff fort"
-    ID_PROTOKOL_SMIME       "Visualisierung des S/MIME-Protokolls"
+                            "Sortowana lista najlepszych par:"
+    IDS_STRING_VIGENERE_ANALYSIS_TAG_CHECKING_FOR_RATINGS 
+                            "Mo¿liwe rozwi¹zania porównaæ z s³ownikiem"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_SECONDS " Sekundy"
 END
 
+STRINGTABLE 
+BEGIN
+    ID_AES_RIJNDAEL_FLOWVISUALISATION 
+                            "Wyœwietla algorytmu Rijndael w wizualizacji przep³ywu"
+    ID_ANALYSIS_VIGENERE_SCHROEDEL 
+                            "Automatyczna analiza szyfrowania Vigenere (Schrödel)"
+END
 
-#endif    // Polnisch resources
+#endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -13642,7 +13706,7 @@ BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,149,239,50,14
     CONTROL         "List1",IDC_LIST_RECEIVEDSESSIONKEYS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,7,132,361,100
     CONTROL         762,IDC_BOB,"Static",SS_BITMAP | WS_BORDER,7,7,68,63
-    LTEXT           "Empfangene Sessionkeys mit Entschlüsselungsergebnissen:",IDC_STATIC,7,117,190,8
+    LTEXT           "Empfangene Sessionkeys mit Entschlüsselungsergebnissen",IDC_STATIC,7,117,188,8
     LISTBOX         IDC_LIST_TASKS,80,18,288,52,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Aktionsprotokoll:",IDC_STATIC,80,7,53,8
     LTEXT           "Eigentlich kann Bob nicht entscheiden, ob die empfangenen Nachrichten von Alice oder Trudy gesendet wurden. Allerdings kann Bob anhand eines bestimmten Schlüsselworts entscheiden, ob eine Nachricht von Alice stammt.",IDC_STATIC,7,79,361,16
@@ -21748,12 +21812,12 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "Zeichen"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -32703,7 +32767,7 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "characters"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
