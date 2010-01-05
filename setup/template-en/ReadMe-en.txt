@@ -7,7 +7,7 @@
         1998-2010
         Freeware and Open Source according to Apache Licence 2.0
     www.cryptool.org
-    Bernhard Esslinger
+    Prof. Bernhard Esslinger
     $Id$
 ==================================================================
 
@@ -20,7 +20,7 @@
  2.1. .... What can you do with CrypTool
  2.2. .... Where do you find the source code
  2.3. .... Where can you get another overview about CrypTool
- 2.4. .... What's new in version 1.4.20
+ 2.4. .... What's new in version 1.4.20 / 1.4.21
  2.5. .... What's new in version 1.4.30
  3. .... Limitations and requirements
  3.1. .... Scope of this Education, training and awareness software
@@ -615,9 +615,8 @@ The general properties and functions of CrypTool are:
      ---------------------------------
 - The sources of the release version (Tag "CrypTool_1_4_30") and the current
   developer sources are available directly from the subversion repository.
-  Everybody has read access to this repository via:
-  svn checkout http://www.cryptool.com/svn/CrypTool/trunk
-       --username anonymous --password anonymous
+  Everybody has read access without a password to this repository via:
+  svn checkout http://www.cryptool.com/svn/CrypTool/trunk --username anonymous
 
 To get an impression of the size of the CT1 project here is a statistics created
 in November 2009 using the files for the English, German and Polish version.
@@ -962,7 +961,7 @@ c) New functionality / Usability:
   classic ciphers: Therefore all adapted methods now have a button to
   directly call the Text Options dialog fom the Key Entry dialog.
 
-  The Text Options dialog is enabled at
+  The Text Options button is enabled at
   - the classic substitution methods (Caesar, Vigenère,
         monoalphabetic substitution) and at 
   - the classic transposition methods (Scytale, transposition part of ADFGVX).
@@ -1154,7 +1153,7 @@ program (setup).
   characterized only with the character LF) are getting longer [LF
   is changed into CR/NL]. So the validation of a signature could fail.
 
-- Text boxes within dialogs are build with two different editor controls.
+- Text boxes within dialogs are built with two different editor controls.
   They handle pressing the enter key at the key board differently:
   a) Scintila: Enter adds CR/NL and moves the cursor to the next line.
   b) Standard MFC editor: Pressing Enter moves the focus away from
@@ -2361,7 +2360,7 @@ A.1.3.2. Bugs and workarounds
 
 A.2. Future features, Roadmap, Successor projects using Java/Eclipse and C#/.NET
      ---------------------------------------------------------------------------
-In general all bigger new developments will go directly to the new successor
+In general all bigger new developments will go directly to the two successor
 projects (see chapter A.2.2).
 
 Within CrypTool 1.x bugs will still be fixed and functions will be added by
@@ -2406,8 +2405,6 @@ A.2.1.1. Functionality: Algorithms / Methods
   algorithms customizable) (see CryptoBench).
 
 - GNFS for factorization (Ted)
-
-- Correct the creation of the DH generator (Gonzalo)(Ko)
 
 - Generation of all hash values using a regular expression as password
   pattern (Hartmann)
@@ -2681,6 +2678,16 @@ A.2.1.4. User interface / Visualizations
 - New magnification function in the display for graphics and/or
   display of co-ordinates of the current mouse pointer position.
 
+- Make all dialogs thread-safe, so the user can cancel long-running
+  transactions, without stopping the whole program via the task manager.
+  This is already implemented in the factorisation dialog.
+  This is especially meaningful for cryptanalysis (it would be necessary
+  for the known-plaintext analysis of the single-column transpostion:
+  If the upper bound of the permutation length is not limited, it takes
+  a felt eternity if the upper bound is >900. Here we limited the length of
+  the permutation to 100 for consistency reasons, because our implementation
+  of the permutation cipher does not allow longer permutation lengths.
+
 - Visualization:
    - Visualization of dependencies and workflows in protocols 
      (not only "simple" algorithms) is a meaningful enhancement.
@@ -2714,7 +2721,7 @@ a) General wish list according to the user feedback.
    - Dynamic change between languages.
    - Dynamic change between crypto providers.
    - Updates of partial functionality via the internet.
-   - Implementation of more functions as threads (parallel, interruptible).
+   - Implementing all functions as threads (parallel, interruptible).
    - Easier handling of cascade using the existing building blocks.
    - Offer a recorder for user interactions.
    - Handle all files as stream to be able to operate very big files.

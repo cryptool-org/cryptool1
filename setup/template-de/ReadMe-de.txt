@@ -7,7 +7,7 @@
         1998-2010
         Freie Software und Open Source gemäß der Apache Lizenz 2.0
     www.cryptool.de
-    Bernhard Esslinger
+    Prof. Bernhard Esslinger
     $Id$
 ==================================================================
 
@@ -20,7 +20,7 @@
  2.1. .... Was können Sie mit CrypTool machen
  2.2. .... Informationen für Entwickler / Wo finden Sie die Sourcen
  2.3. .... Wo finden Sie weitere Überblicke zu CrypTool
- 2.4. .... Neuerungen in Version 1.4.20
+ 2.4. .... Neuerungen in Version 1.4.20 / 1.4.21
  2.5. .... Neuerungen in Version 1.4.30
  3. .... Beschränkungen und Voraussetzungen
  3.1. .... Anwendungsbereich dieser Lern-, Trainings- und Awareness-Software
@@ -630,9 +630,8 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
 
 - Die Release-Sourcen (Tag "CrypTool_1_4_30") und die aktuellen Entwickler-
   Sourcen stehen direkt im Subversion-Repository zur Verfügung.
-  Darauf kann jedermann lesend zugreifen per
-  svn checkout http://www.cryptool.com/svn/CrypTool/trunk
-      --username anonymous --password anonymous
+  Darauf kann jedermann lesend (ohne Angabe eines Passworts) zugreifen per
+  svn checkout http://www.cryptool.com/svn/CrypTool/trunk --username anonymous
 
 - Einen Eindruck von der Größe des CT1-Projekts liefert die folgende, im
   November 2009 erstellte Statistik (anhand der Dateien für die deutsche,
@@ -729,7 +728,7 @@ b) Änderungen in der Benutzer-Dokumentation / Web-Darstellung:
 - Skript: Behebung kleinerer Fehler, Menübaum in Anhang A.1 der neuen
           CrypTool-Version angepasst.
 
-- Aktualisierte und auf 100 Seiten erweiterte Präsentation.
+- Aktualisierte und auf über 100 Seiten erweiterte Präsentation.
 
 - Neue CrypTool-Webseite mit Joomla seit April 2008.
 
@@ -988,14 +987,14 @@ c) Neue Funktionalität / Bedienung:
   - den klassichen Transpositions-Verfahren
         (Skytale, Transpositions-Teil von ADFGVX).
 
-  Er ist noch nicht vorhanden ist bei: xxxxxxxxxxxxxxx
+  Er ist noch nicht vorhanden bei: xxxxxxxxxxxxxxx
   - Substitutions-Teil von ADFGVX
   - Playfair
   - Permutation
   - Solitaire.
 
-  Diese Neuerung kam insbesondere auf viele Anfragen zur Erweiterung des
-  Alphabets für die monoalphabetische Substitution zustande.
+  Diese Neuerung kam zustande aufgrund vieler Anfragen, die insbesondere
+  um Erweiterung des Alphabets für die monoalphabetische Substitution baten.
 
 - Die Art, wie aus einem Schlüsselwort eine Permutation erzeugt wird, ist
   nun bei allen Verfahren (Doppelwürfel, ADFGVX) gleich.
@@ -2429,7 +2428,7 @@ A.1.3.2. Bugs und Workarounds
 
 A.2. Neue Funktionen, Roadmap, Nachfolger-Projekte mit Java/Eclipse und C#/.NET
      --------------------------------------------------------------------------
-Generell sollen alle größeren Neuerungen ab nun in die beiden
+Generell sollen alle größeren Neu-Entwicklungen nun in die beiden
 Nachfolger-Projekte einfließen (siehe A.2.2).
 
 In CrypTool 1.x werden weiterhin Fehler behoben bzw. Funktionen von
@@ -2474,8 +2473,6 @@ A.2.1.1. Funktionalität: Algorithmen / Verfahren
   Steuerparameter der Algorithmen) (analog CryptoBench).
 
 - GNFS zur Faktorisierung (Ted)
-
-- Erzeugung des Generators bei DH korrigieren (Gonzalo)(Ko)
 
 - Erzeugung aller Hashwerte aus regulärem PW-Ausdruck (Hartmann)
 
@@ -2759,6 +2756,16 @@ A.2.1.4. User-Interface / Visualisierungen
   und / oder die Koordinaten anzeigen, an denen sich die Maus
   befindet.
 
+- Alle Dialoge thread-safe machen, damit man Langläufer abbrechen kann,
+  ohne das ganze Programm per Task-Manager zu beenden.
+  Implementiert ist dies schon z.B. im Faktorisierungs-Dialog.
+  Dies ist insbesondere bei der Kryptoanalyse sinnvoll (z.B. wäre es nötig
+  bei der Known-Plaintext-Analyse der einstufigen Spaltentransposition:
+  Bei unbeschränkter Obergrenze der Permutationslänge dauerte es ab 900
+  "ewig". Hier wurde es dann aus Konsistenzgründen auf 100 beschränkt,
+  weil auch die Permutations-Verschlüsselung keine längeren Permutationen
+  zuließ.
+
 - Visualisierung:
    - Generell ist die Visualisierung der Abhängigkeiten und Abläufe
      bei Protokollen (nicht nur bei "einfachen" Algorithmen) eine
@@ -2794,7 +2801,7 @@ a) Generelle Wunschliste anhand des Benutzerfeedbacks.
    - Dynamischer Wechsel zwischen den Sprachen.
    - Dynamischer Wechsel zwischen Kryptoprovidern.
    - Teil-Updates aus dem Internet.
-   - Mehr Funktionen als Thread implementieren (parallel, alle abbrechbar).
+   - Alle Funktionen als Thread implementieren (parallel, alle abbrechbar).
    - Einfacheres Erstellen von Kaskaden zusammengestellt aus den
      existierenden Elementen.
    - Anbieten eines Recorders für Benutzereingaben.
@@ -2876,7 +2883,7 @@ Funktionen, die schon in den jetzigen Betaversionen
 - CT2  Smartcard-Plugin (sendet Kommandos an eine Chipkarte
                          mittels der PC/SC-Schnittstelle in Windows)
 - CT2  Massenmustersuche
-- CT2  Toolbox zum erzeugen und Analysieren von Strom-Chiffren
+- CT2  Toolbox zum Erzeugen und Analysieren von Strom-Chiffren
 - CT2  Cube Attack gegen symmetrische Chiffren (I. Dinur und A. Shamir)
 
 - JCT  Adaptive Navigationsleiste, wahlweise als Baum oder Palette,
