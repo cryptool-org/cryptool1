@@ -1680,14 +1680,16 @@ void Mono(const char *infile, const char *OldTitle) {
 	CFile inputFile(infile, CFile::modeRead);
 	const int inputFileLength = inputFile.GetLength();
 
-	bool containsAlphabetCharacter = false;
-
-	char *buffer = new char[inputFileLength + 1];
-	memset(buffer, 0, inputFileLength + 1);
-	inputFile.Read(buffer, inputFileLength);
+	// we store the original file contents in "sourceBuffer"
+	char *sourceBuffer = new char[inputFileLength + 1];
+	// later on we put the encryption/decryption result into "targetBuffer"
+	char *targetBuffer = new char[inputFileLength + 1];
+	memset(sourceBuffer, 0, inputFileLength + 1);
+	memset(targetBuffer, 0, inputFileLength + 1);
+	inputFile.Read(sourceBuffer, inputFileLength);
 	inputFile.Close();
 
-	// dump an error message and return if the file doesn't contain at least one alphabet character
+	// dump an error message and return if the file doesn't contain at least one character
 	if(!inputFileLength) {
 		CString message;
 		message.LoadString(IDS_STRING_ERR_INPUT_TEXT_LENGTH);
@@ -1702,101 +1704,80 @@ void Mono(const char *infile, const char *OldTitle) {
 		return;
 	}
 
-	// in order to convert some special characters in "buffer", we create 
-	// a second buffer called "convertedBuffer" and store the new contents 
-	// in there; since we replace ONE special character with TWO new characters 
-	// max, it should be sufficient if we simply double the buffer size
-	char *convertedBuffer = new char[inputFileLength * 2 + 1];
-	memset(convertedBuffer, 0, inputFileLength * 2 + 1);
-
-	// now copy from "buffer" to "convertedBuffer" and convert if necessary
-	int offset = 0;
-	for(int i=0; i<inputFileLength; i++) {
-		char character = buffer[i];
-		switch(character) {
-			case (-1):
-				break;
-			case (252):
-				memcpy(convertedBuffer + offset, "ue", 2);
-				offset += 2;
-				break;
-			case (220):
-				memcpy(convertedBuffer + offset, "Ue", 2);
-				offset += 2;
-				break;
-			case (246):
-				memcpy(convertedBuffer + offset, "oe", 2);
-				offset += 2;
-				break;
-			case (214):
-				memcpy(convertedBuffer + offset, "Oe", 2);
-				offset += 2;
-				break;
-			case (228):
-				memcpy(convertedBuffer + offset, "ae", 2);
-				offset += 2;
-				break;
-			case (196):
-				memcpy(convertedBuffer + offset, "Ae", 2);
-				offset += 2;
-				break;
-			case ('ß'):
-				memcpy(convertedBuffer + offset, "ss", 2);
-				offset += 2;
-				break;
-			default:
-				// by default simply copy one character from "buffer" to "convertedBuffer"
-				memcpy(convertedBuffer + offset, buffer + i, 1);
-				offset += 1;
-				break;
-		}
-	}
-
-	// we can free the old buffer here
-	delete buffer;
-
 	// get the complete key (see declaration of getKey() for details)
 	CString key = dlgMono.getKey();
 	const int keyLength = key.GetLength();
 
-	// decryption
+	// we'll need this when writing the target file
+	unsigned int targetBufferLength = 0;
+
+	// in case of a decryption, we simply switch key and alphabet and then process it as if it were an encryption
 	if(!dlgMono.m_cryptDirection) {
-		// go through all characters of the text
-		for(int i=0; i<offset; i++) {
-			// don't change anything if the character is NOT part of the alphabet
-			if(alphabet.Find(convertedBuffer[i]) == -1) {
-				continue;
-			}
-			// otherwise apply the desired change
-			else {
-				convertedBuffer[i] = alphabet[key.Find(convertedBuffer[i])];
-			}
-		}
+		CString temp = key;
+		key = alphabet;
+		alphabet = temp;
 	}
-	// encryption
-	else {
-		// go through all characters of the text	
-		for(int i=0; i<offset; i++) {
-			// don't change anything if the character is NOT part of the alphabet
-			if(alphabet.Find(convertedBuffer[i]) == -1) {
+
+	// go through all characters of the text
+	for(int i=0; i<inputFileLength; i++) {
+		// check if the current character is part of the alphabet
+		if(alphabet.Find(sourceBuffer[i]) != -1) {
+			// apply the encryption
+			targetBuffer[targetBufferLength++] = alphabet[key.Find(sourceBuffer[i])];
+		}
+		else {
+			// if the option below is not set, we discard non-alphabet characters
+			if(!theApp.TextOptions.getKeepCharactersNotPresentInAlphabetUnchanged()) {
 				continue;
 			}
-			// otherwise apply the desired change
 			else {
-				convertedBuffer[i] = key[alphabet.Find(convertedBuffer[i])];
+				// barring case-sensitivity, we might still get a match here... so check that
+				if(!theApp.TextOptions.getDistinguishUpperLowerCase()) {
+					if(lowerAlphabet.Find(sourceBuffer[i]) != -1) {
+						if(theApp.TextOptions.getKeepUpperLowerCaseInformation()) {
+							// interpret the character as upper case, then process it and implicitly convert it back to lower case
+							targetBuffer[targetBufferLength++] = tolower(alphabet[key.Find(toupper(sourceBuffer[i]))]);
+						}	
+						else {
+							// just like above, but we don't convert back
+							targetBuffer[targetBufferLength++] = alphabet[key.Find(toupper(sourceBuffer[i]))];
+						}	
+					}
+					else if(upperAlphabet.Find(sourceBuffer[i]) != -1) {
+						if(theApp.TextOptions.getKeepUpperLowerCaseInformation()) {
+							// interpret the character as lower case, then process it and implicitly convert it back to upper case
+							targetBuffer[targetBufferLength++] = toupper(alphabet[key.Find(tolower(sourceBuffer[i]))]);
+						}	
+						else {
+							// just like above, but we don't convert back
+							targetBuffer[targetBufferLength++] = alphabet[key.Find(tolower(sourceBuffer[i]))];
+						}
+					}
+					else {
+						// at that point we don't touch the character
+						targetBuffer[targetBufferLength++] = sourceBuffer[i];
+					}
+				}
+				else {
+					// at that point we don't touch the character
+					targetBuffer[targetBufferLength++] = sourceBuffer[i];
+				}
 			}
 		}
 	}
 
-	int checkconvertedbuffer = 1;
+	// we can free the source buffer here
+	delete sourceBuffer;
 
-	// write the converted buffer to a file
+	// write the target buffer to a file
 	char outfile[CRYPTOOL_PATH_LENGTH];
 	GetTmpName(outfile, "cry", ".txt");
 	CFile outputFile(outfile, CFile::modeCreate | CFile::modeWrite);
-	outputFile.Write(convertedBuffer, offset);
-	delete convertedBuffer;
+	outputFile.Write(targetBuffer, targetBufferLength);
 	outputFile.Close();
+
+	// now we can free the target buffer
+	delete targetBuffer;
 
 	CDocument *NewDoc = theApp.OpenDocumentFileNoMRU(outfile,dlgMono.getKey());
 	if(NewDoc) 
