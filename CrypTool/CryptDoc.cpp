@@ -839,12 +839,8 @@ void CCryptDoc::OnVigenereAuto()
 void CCryptDoc::OnVigenereAnalysisSchroedel()
 {
 	UpdateContent();
-	// create the analysis object
-	VigenereAnalysisSchroedel *theAnalysis = new VigenereAnalysisSchroedel(ContentName, GetTitle());
-	// create the analysis dialog and initialize it with the analysis object
-	CDlgVigenereAnalysisSchroedel dlg(theAnalysis);
-	// introduce the dialog to the analysis object
-	theAnalysis->setDialog(&dlg);
+	// create the analysis dialog
+	CDlgVigenereAnalysisSchroedel dlg(ContentName, GetTitle());
 	// show the analysis dialog
 	dlg.DoModal();
 }

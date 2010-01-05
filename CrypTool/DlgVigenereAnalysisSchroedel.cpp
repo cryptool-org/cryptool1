@@ -770,8 +770,8 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 											possibleResult.rating = theRate;
 											// at this point we have a possible result, store it in the list for possible results
 											listPossibleResults.push_back(possibleResult);
-											// also, pass it thorugh to the analysis dialog
-											theDialog->addPossibleResult(possibleResult);
+											// also, pass it through to the analysis dialog (if it exists)
+											if(theDialog) theDialog->addPossibleResult(possibleResult);
 #if 0
 											// suggest the possible result to the user (including the first 50 characters of 
 											// the corresponing cleartext) and abort the analysis if the user decides to
@@ -1266,7 +1266,6 @@ UINT singleThreadVigenereAnalysisSchroedel(PVOID argument) {
 
 	// return if we don't have a valid analysis object
 	if(!theAnalysis) {
-		theApp.fs.cancel();
 		AfxEndThread(0);
 		return 0;
 	}
@@ -1280,7 +1279,6 @@ UINT singleThreadVigenereAnalysisSchroedel(PVOID argument) {
 	{
 		// abort analysis and end thread properly
 		theAnalysis->writeResultFile();
-		theApp.fs.cancel();
 		AfxEndThread(0);
 		return 0;
 	}
@@ -1300,9 +1298,11 @@ UINT singleThreadVigenereAnalysisSchroedel(PVOID argument) {
 
 IMPLEMENT_DYNAMIC(CDlgVigenereAnalysisSchroedel, CDialog)
 
-CDlgVigenereAnalysisSchroedel::CDlgVigenereAnalysisSchroedel(VigenereAnalysisSchroedel *_theAnalysis, CWnd* pParent) : 
+CDlgVigenereAnalysisSchroedel::CDlgVigenereAnalysisSchroedel(const CString &_infileName, const CString &_infileTitle, CWnd* pParent) : 
 	CDialog(CDlgVigenereAnalysisSchroedel::IDD, pParent),
-	theAnalysis(_theAnalysis) {
+	theAnalysis(0),
+	infileName(_infileName),
+	infileTitle(_infileTitle) {
 
 }
 
@@ -1315,11 +1315,14 @@ void CDlgVigenereAnalysisSchroedel::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_LIST_POSSIBLE_RESULTS, controlListPossibleResults);
+	DDX_Control(pDX, IDC_PROGRESS_ANALYSIS, controlProgressAnalysis);
 }
 
 BEGIN_MESSAGE_MAP(CDlgVigenereAnalysisSchroedel, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_START_ANALYSIS, OnBnClickedStartAnalysis)
+	ON_BN_CLICKED(IDC_BUTTON_CANCEL_ANALYSIS, OnBnClickedCancelAnalysis)
 	ON_BN_CLICKED(IDC_BUTTON_SHOW_ANALYSIS_RESULTS, OnBnClickedShowAnalysisResults)
+	ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 BOOL CDlgVigenereAnalysisSchroedel::OnInitDialog()
@@ -1333,8 +1336,16 @@ BOOL CDlgVigenereAnalysisSchroedel::OnInitDialog()
 	CString columnHeaderCleartext; columnHeaderCleartext.LoadString(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERCLEARTEXT);
 	controlListPossibleResults.InsertColumn( 0, columnHeaderKey, LVCFMT_LEFT, 225);
 	controlListPossibleResults.InsertColumn( 1, columnHeaderCleartext, LVCFMT_LEFT, 225);
+
+	// enable the "start analysis" button
+	GetDlgItem(IDC_BUTTON_START_ANALYSIS)->EnableWindow(true);
+	// disable the "cancel analysis" button
+	GetDlgItem(IDC_BUTTON_CANCEL_ANALYSIS)->EnableWindow(false);
 	// disable the "show results" button
 	GetDlgItem(IDC_BUTTON_SHOW_ANALYSIS_RESULTS)->EnableWindow(false);
+
+	// set the range for the progress bar
+	controlProgressAnalysis.SetRange(0, 100);
 
 	return FALSE;
 }
@@ -1348,30 +1359,38 @@ void CDlgVigenereAnalysisSchroedel::addPossibleResult(const PossibleResult &_pos
 
 void CDlgVigenereAnalysisSchroedel::OnBnClickedStartAnalysis()
 {
-	// clear the list
-	controlListPossibleResults.DeleteAllItems();
-
-	// disable the "show results" button
-	GetDlgItem(IDC_BUTTON_SHOW_ANALYSIS_RESULTS)->EnableWindow(false);
-
+	// delete the analysis object if necessary
+	if(theAnalysis) delete theAnalysis;
+	// create the analysis object
+	theAnalysis = new VigenereAnalysisSchroedel(infileName, infileTitle);
+	// introduce the dialog to the analysis object
+	theAnalysis->setDialog(this);
 	// save result file name (because analysis object will be destroyed before we may need this variable)
 	resultFileName = theAnalysis->resultFileName;
 
+	// clear the list of possible results
+	controlListPossibleResults.DeleteAllItems();
+
+	// start the actual analysis
 	AfxBeginThread(singleThreadVigenereAnalysisSchroedel, (PVOID)(theAnalysis));
 
-	// set progress bar title
-	LoadString(AfxGetInstanceHandle(), IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_PROGRESS_BAR_TITLE, pc_str, STR_LAENGE_STRING_TABLE);
-	theApp.fs.setModelTitleFormat(theAnalysis, pc_str, "");
-	
-	// abort the analysis if the user cancels the progress bar
-	if(theApp.fs.DoModal() == IDCANCEL) {
-		theAnalysis->abort = true;
-	}
+	// disable the "start analysis" button
+	GetDlgItem(IDC_BUTTON_START_ANALYSIS)->EnableWindow(false);
+	// enable the "cancel analysis" button
+	GetDlgItem(IDC_BUTTON_CANCEL_ANALYSIS)->EnableWindow(true);
+	// disable the "show results" button
+	GetDlgItem(IDC_BUTTON_SHOW_ANALYSIS_RESULTS)->EnableWindow(false);
 
-	// enable the "show results" button only if analysis was successful
-	if(theAnalysis->progress == 1.0) {
-		GetDlgItem(IDC_BUTTON_SHOW_ANALYSIS_RESULTS)->EnableWindow(true);
-	}
+	// call our callback function every 250 ms
+	SetTimer(VIGENERE_ANALYSIS_SCHROEDEL_TIMER_ID, 250, NULL);
+}
+
+void CDlgVigenereAnalysisSchroedel::OnBnClickedCancelAnalysis()
+{
+	// don't do anything if the analysis object is invalid
+	if(!theAnalysis) return;
+	// abort the analysis
+	theAnalysis->abort = true;	
 }
 
 void CDlgVigenereAnalysisSchroedel::OnBnClickedShowAnalysisResults()
@@ -1379,4 +1398,42 @@ void CDlgVigenereAnalysisSchroedel::OnBnClickedShowAnalysisResults()
 	// open the result file
 	CAppDocument *NewDoc = theApp.OpenDocumentFileNoMRU(resultFileName);
 	OnCancel();
+}
+
+void CDlgVigenereAnalysisSchroedel::OnTimer(UINT nIDEvent) 
+{
+	// only process timer events that match our ID
+	if (nIDEvent != VIGENERE_ANALYSIS_SCHROEDEL_TIMER_ID) {
+		CDialog::OnTimer(nIDEvent);
+		return;
+	}
+
+	// update the GUI according to the analysis progress
+	int progress = (int)(theAnalysis->progress * 100);
+
+	// update the progress bar
+	controlProgressAnalysis.SetPos(progress);
+
+	// at this point the analysis was aborted
+	if(theAnalysis->abort) {
+		// enable the "start analysis" button
+		GetDlgItem(IDC_BUTTON_START_ANALYSIS)->EnableWindow(true);
+		// disable the "cancel analysis" button
+		GetDlgItem(IDC_BUTTON_CANCEL_ANALYSIS)->EnableWindow(false);
+		// disable the "show results" button
+		GetDlgItem(IDC_BUTTON_SHOW_ANALYSIS_RESULTS)->EnableWindow(false);
+
+		// kill the timer that was set upon analysis start
+		KillTimer(VIGENERE_ANALYSIS_SCHROEDEL_TIMER_ID);
+	}
+
+	// at this point the analysis is done
+	if(progress >= 100) {
+		// enable the "start analysis" button
+		GetDlgItem(IDC_BUTTON_START_ANALYSIS)->EnableWindow(true);
+		// disable the "cancel analysis" button
+		GetDlgItem(IDC_BUTTON_CANCEL_ANALYSIS)->EnableWindow(false);
+		// enable the "show results" button
+		GetDlgItem(IDC_BUTTON_SHOW_ANALYSIS_RESULTS)->EnableWindow(true);
+	}
 }

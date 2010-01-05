@@ -138,13 +138,16 @@ private:
 // the actual analysis function (to be run in a separate thread)
 UINT singleThreadVigenereAnalysisSchroedel(PVOID argument);
 
+// this is our timer ID for the progress bar callback
+#define VIGENERE_ANALYSIS_SCHROEDEL_TIMER_ID	9999
+
 // TODO
 class CDlgVigenereAnalysisSchroedel : public CDialog
 {
 	DECLARE_DYNAMIC(CDlgVigenereAnalysisSchroedel)
 
 public:
-	CDlgVigenereAnalysisSchroedel(VigenereAnalysisSchroedel *_theAnalysis, CWnd* pParent = NULL);   // Standardkonstruktor
+	CDlgVigenereAnalysisSchroedel(const CString &_infileName, const CString &_infileTitle, CWnd* pParent = NULL);   // Standardkonstruktor
 	virtual ~CDlgVigenereAnalysisSchroedel();
 
 	// add a possible result (done "from the outside" by the analysis object)
@@ -166,10 +169,20 @@ private:
 	CListCtrl controlListPossibleResults;
 	// the start analysis button was pressed
 	afx_msg void OnBnClickedStartAnalysis();
+	// the cancel analysis button was pressed
+	afx_msg void OnBnClickedCancelAnalysis();
 	// show the analysis results
 	afx_msg void OnBnClickedShowAnalysisResults();
 	// the file holding the analysis results
 	CString resultFileName;
+
+	// the control variable for the progress bar
+	CProgressCtrl controlProgressAnalysis;
+	// the timer callback: updates the progress bar
+	afx_msg void OnTimer(UINT nIDEvent);
+
+	CString infileName;
+	CString infileTitle;
 };
 
 
