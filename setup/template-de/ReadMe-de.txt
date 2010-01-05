@@ -1,10 +1,10 @@
 ==================================================================
-    CrypTool, Version 1.4.30 Beta 05 für Win32, Dezember 2009
+    CrypTool, Version 1.4.30 Beta 05 für Win32, Januar 2010
     (c) Contributors
         Dazu gehören z.B.
         Deutsche Bank AG, Frankfurt am Main,
         die Universitäten Siegen, Darmstadt, Bochum und Duisburg-Essen.
-        1998-2009
+        1998-2010
         Freie Software und Open Source gemäß der Apache Lizenz 2.0
     www.cryptool.de
     Bernhard Esslinger
@@ -27,7 +27,7 @@
  3.2. .... Win32-Umgebung, Rechte bei Installation und Betrieb, Java-Runtime
  3.3. .... Interaktive Online-Hilfe unter Windows XP
  3.4. .... Unterstützung verschiedener Sprachen
- 3.5. .... Einschränkungen / Features
+ 3.5. .... Einschränkungen / Features / Hints & Tipps
  3.6. .... Mit älteren CrypTool-Versionen erzeugte Zertifikate und Schlüssel
  4. .... Installation / Deinstallation / Schlüsselnutzung / Betrieb
  4.1. .... Installation
@@ -260,10 +260,11 @@ d) Ebenso wie ANIMAL sind die ff. Programme eigenständige Java-Anwendungen
      Flash-Animation dient).
 
 e) Die Flash-Anwendungen:
-   - "Rijndael-Animation" (visualisiert das Verschlüsselungsverfahren AES),
-   - "Rijndael-Inspektor" (visualisiert die Änderungen der State-Matrix 
-                           nach jedem Schritt in jeder Runde bei AES) und
-   - "Enigma" (visualisiert das 2.-Weltkriegs-Krypto-Gerät Enigma).
+   - Rijndael-Animation (visualisiert das Verschlüsselungsverfahren AES),
+   - Rijndael-Inspektor (visualisiert die Änderungen der State-Matrix 
+                         nach jedem Schritt in jeder Runde bei AES),
+   - S/MIME-Demo und
+   - Enigma (visualisiert das 2.-Weltkriegs-Krypto-Gerät Enigma).
 
 f) Die Authorware-Anwendung "ZT" (Zahlentheorie) führt in die elementare
    Zahlentheorie ein und visualisiert viele der Verfahren und Konzepte,
@@ -307,6 +308,10 @@ b) Krypto-Wettbewerbe:
    Mehr Informationen dazu gibt es in der Onlinehilfe zu CrypTool (unter dem
    Indexeintrag "Krypto-Wettbewerbe") und in dem Buch von Klaus Schmeh.
 
+   Weitere Rätsel und Herausforderungen (Challenges) finden sich auch
+   - auf den Seiten von CrypTool-Online und
+   - auf den Seiten des Krypto-Wettbewerb "Mystery-Twister C3".
+
 
 Alle Einzeldateien, die bei der Installation des CrypTool-Paketes
 auf Ihre Platte kopiert werden, sind in Kapitel 5 (unten in diesem
@@ -316,7 +321,7 @@ Readme) aufgeführt.
 
 1.3. Danke
      -----
-Zu CrypTool haben sehr viele verschiedene Personen (weit über 100)
+Zu CrypTool haben sehr viele verschiedene Personen (über 200)
 beigetragen -- insbesondere auch in ihrer Freizeit.
 Einige sind namentlich in der Dialogbox aufgeführt, die man erhält,
 wenn man in der Dialogbox "Über CrypTool" einen Doppelklick ausführt.
@@ -626,7 +631,7 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
 - Die Release-Sourcen (Tag "CrypTool_1_4_30") und die aktuellen Entwickler-
   Sourcen stehen direkt im Subversion-Repository zur Verfügung.
   Darauf kann jedermann lesend zugreifen per
-  svn checkout https://file.sec-tud.de/svn/CrypTool/trunk
+  svn checkout http://www.cryptool.com/svn/CrypTool/trunk
       --username anonymous --password anonymous
 
 - Einen Eindruck von der Größe des CT1-Projekts liefert die folgende, im
@@ -671,14 +676,14 @@ Die generellen Eigenschaften und Funktionen von CrypTool sind:
 
 
 - Details zum Compilieren, Linken und zur einheitlichen Entwicklung
-  finden sich in den Sourcen in der Datei "readme-source".
+  finden sich in den Sourcen in der Datei "readme-source.txt".
 
 - Die Sourcen wurden mit der Microsoft Entwicklungsumgebung Visual Studio 2008
-  Standard Edition (VC++ v9.0) compiliert, um die aktuelle Version zu
-  unterstützen.
+  Standard Edition (VC++ v9.0) compiliert, um die neueste Microsoft
+  Entwicklungsumgebung zu unterstützen.
   Die Express-Edition von VS2008 reicht nicht aus, weil CT 1.x noch die
   alte MFC-Klassenbibliothek für die GUI nutzt, die die Express-Edition
-  nicht unterstützt.
+  im Gegensatz zur Standard-Edition nicht unterstützt.
   Der Wechsel von VS2003 auf VS2008 war auch deshalb erforderlich, weil nur
   damit manche Bibliotheken so compiliert werden konnten, dass sie sowohl
   unter Vista als auch XP korrekt liefen.
@@ -699,10 +704,10 @@ Eine gute Übersicht, was CrypTool bietet, finden Sie auch
 
 
 
-2.4. Neuerungen in Version 1.4.20
-     ----------------------------
+2.4. Neuerungen in Version 1.4.20 / 1.4.21
+     -------------------------------------
 Dieses Kapitel listet die Erweiterungen und Bugfixes auf, die in
-CrypTool 1.4.20 seit CrypTool 1.4.10 hinzugefügt wurden.
+CrypTool 1.4.20 und 1.4.21 seit CrypTool 1.4.10 hinzugefügt wurden.
 
 a) Entwickler-relevante Änderungen (eher Programm-technisch):
 
@@ -724,7 +729,7 @@ b) Änderungen in der Benutzer-Dokumentation / Web-Darstellung:
 - Skript: Behebung kleinerer Fehler, Menübaum in Anhang A.1 der neuen
           CrypTool-Version angepasst.
 
-- Aktualisierte und auf 106 Seiten erweiterte Präsentation.
+- Aktualisierte und auf 100 Seiten erweiterte Präsentation.
 
 - Neue CrypTool-Webseite mit Joomla seit April 2008.
 
@@ -763,7 +768,7 @@ c) Funktionale Änderungen / Erweiterungen:
      - Redo.
 
 - Die ADFGVX-Chiffre kann nun das durch die Textoptionen definierte
-  variable Alphabet für das Transpositionspasswort nutzen (nicht mehr
+  variable Alphabet für das Transpositions-Passwort nutzen (nicht mehr
   nur die 26 Großbuchstaben).
 
 - Erweiterung der Brute-force-Analyse symmetrischer Verfahren (Henk -- danke
@@ -831,7 +836,7 @@ b) Änderungen in der Benutzer-Dokumentation / auf den Web-Seiten:
 
 - CrypTool-Skript: Umfangreiche Überarbeitung:
                   - Erweiterungen und Update auf aktuellen Stand,
-                  - Aufnahme von vielen we-Programmbeispielen,
+                  - Aufnahme von vielen Sage-Programmbeispielen,
                     Auslieferung des Sage-Codes als Datei,
                   - Behebung kleinerer Fehler,
                   - Menübaum in Anhang A.1 an neue CrypTool-Version angepasst,
@@ -919,6 +924,8 @@ c) Neue Funktionalität / Bedienung:
   - Generieren des Hashwertes einer Datei.
   Die Hash-Demo wird folgen (hier stehen bisher 6 Hashverfahren zur Auswahl).
 
+- Der HMAC-Dialog wurde neu entworfen.
+
 - Im HMAC-Dialog sind die Bezeichnungen der Literatur angepasst und in der 
   Onlinehilfe sind nun die entsprechenden Quellen angegeben.
   Variante 5 der HMAC-Beispiel-Konstruktionen entspricht nun genau dem RFC 2104.
@@ -945,12 +952,12 @@ c) Neue Funktionalität / Bedienung:
   (angeboten innerhalb eines Dialogs) incl. Schlüssel anzeigen und
   Schlüssel einfügen per Ikone.
 
-- Die Masken der Solitaire-Verschlüsselung verbessert. +++++++
+- Die Masken der Solitaire-Verschlüsselung verbessert. xxxxxxxxxxx
 
 - Die Permutationsverschlüsselung kann nun auch auf Hexdateien angewandt
   werden.
 
-- Das Lernprogramm/Lernspiel "Zahlenhai" in der Version 1.1.6 wurde etwas
+- Das Lernprogramm/Lernspiel "Zahlenhai" (in der Version 1.1.6 xxx) wurde etwas
   korrigiert und vor allem wurde die Onlinehilfe erweitert.
 
 - Wenn sich im Dialog Primzahltest ergibt, dass die zu testende Zahl
@@ -971,6 +978,28 @@ c) Neue Funktionalität / Bedienung:
 - Alle spezifischen Optionen befinden sich nun in den Dialogen der zugehörigen
   Methoden. Somit konnten wir den Menüeintrag "Weitere Optionen" entfernen.
 
+- Das in den Textoptionen eingestellte Alphabet wirkt sich nun auf fast alle
+  klassischen Chifren aus: Deshalb haben alle angepassten Verfahren nun einen
+  Button, um aus der Schlüsseleingabe-Maske direkt zu den Textoptionen zu springen.
+
+  Der Textoptionen-Button ist vorhanden bei
+  - den klassischen Substitutions-Verfahren (Caesar, Vigenère,
+        monoalphabetische Substitution) und bei 
+  - den klassichen Transpositions-Verfahren
+        (Skytale, Transpositions-Teil von ADFGVX).
+
+  Er ist noch nicht vorhanden ist bei: xxxxxxxxxxxxxxx
+  - Substitutions-Teil von ADFGVX
+  - Playfair
+  - Permutation
+  - Solitaire.
+
+  Diese Neuerung kam insbesondere auf viele Anfragen zur Erweiterung des
+  Alphabets für die monoalphabetische Substitution zustande.
+
+- Die Art, wie aus einem Schlüsselwort eine Permutation erzeugt wird, ist
+  nun bei allen Verfahren (Doppelwürfel, ADFGVX) gleich.
+
 - Eine Visualisierung der Abläufe bei sicherer E-Mail kam hinzu: Der Benutzer
   kann Daten eingeben, die signiert oder verschlüsselt werden mit Hilfe des
   S/MIME-Protokolls.
@@ -980,9 +1009,11 @@ c) Neue Funktionalität / Bedienung:
   in jeder Runde (compiliert mit Java 1.5).
 
 - Für die einfache Spaltentransposition ist eine Known-Plaintext-Analyse
-  zum Finden des Transpositionsschlüssels neu hinzugekommen.
+  zum Finden des Transpositions-Schlüssels neu hinzugekommen.
   Diese Known-Plaintext-Analyse wurde zusammen mit der bisherigen
   Known-Plaintext-Analyse für Hill besser integriert.
+  Alle gefundenen Schlüssel der Transpositions-Analyse werden in einer
+  Tabelle angezeigt.
 
 - Weitere Ciphertext-Only-Analyse für Vigenère (nach Schrödel): Diese ist
   effizient für sehr kurze Chiffrate, sofern das Passwort aus einem
@@ -1137,8 +1168,8 @@ Für jede unterstützte Sprache gibt es bei CrypTool 1.4.30 ein eigenes
 Installationsprogramm (Setup).
 
 
-3.5. Einschränkungen / Features
-     --------------------------
+3.5. Einschränkungen / Features / Hints & Tipps
+     ------------------------------------------
 - Zur Demonstration des RSA-Kryptosystem und zur Faktorisierung von
   Zahlen greift CrypTool auf die Langzahlarithmetik der Bibliothek
   Miracl von Shamus Software Ltd. zu. Die Bitlänge der Zahlen wurde
@@ -1155,6 +1186,14 @@ Installationsprogramm (Setup).
   dass Dokumente, die aus Unix kommen und deshalb den Zeilenumbruch nur
   mit dem Zeichen LF kennzeichnen, länger werden [LF wird in CR/NL
   umgewandelt]. Eine Signaturprüfung kann dadurch auch schief gehen.
+
+- Textfenster in Dialogen werden mit zwei unterschiedlichen Editor-Controls
+  erstellt. Diese haben ein unterschiedliches Verhalten beim Drücken der
+  Enter-Taste:
+  a) Scintila-Editor: Enter bewirkt das Hinzufügen von CR/NL und der
+                      Cursor steht in der nächsten Zeile.
+  b) Standard MFC-Editor: Mit Enter wird der Texteditor verlassen und
+                          es wird versucht, den OK-Button auszulösen.
 
 - Darstellung von mathematischen Zeichen in der HTML-Hilfe:
   Die Microsoft HTML-Hilfe ruft den eingestellten Microsoft Internet
@@ -1573,8 +1612,6 @@ reference\deutsch.txt  // Auszug aus dem dt. Umsatzsteuergesetz
          \genesis-fr.txt  // Die 2-Buchstabencodes entsprechen
          \genesis-pl.txt  // den ISO 639 Language Codes.
          \genesis-la.txt
-         \hallo-welt.txt   xxxxxxxxx
-         \hello-world.txt  xxxxxxxxx
 
 
 words\ ........... In diesem Verzeichnis liegen die Dateien, mit denen
@@ -1859,7 +1896,7 @@ Version   Datum         Größe des Windows-Setups  Plattenplatz  Freigabe
 1.4.10    Juli 2007      27,5 MB     26,7 MB         47 MB        DB
 1.4.20    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
 1.4.21    Juli 2008      37,1 MB     36,1 MB         74 MB        DB
-1.4.30    Dez. 2009      46,3 MB     45,3 MB         83 MB        DB   xxxxxxx
+1.4.30    Jan. 2010      46,3 MB     45,3 MB         83 MB        DB   xxxxxxx
 
 Bemerkungen zu den Versionen:
 1.3.02   Viele neue Funktionen gegenüber 1.3.00.
@@ -1882,7 +1919,7 @@ Bemerkungen zu den Versionen:
          frischen Windows-Umgebungen (ohne Office) enthalten ist.
 1.4.30-Beta03  März 2009  Erste öffentliche Beta von Version 1.4.30.
 1.4.30-Beta04  Sep. 2009  Zweite öffentliche Beta von Version 1.4.30.
-1.4.30-Beta05  Dez. 2009  Dritte öffentliche Beta von Version 1.4.30.
+1.4.30-Beta05  Jan. 2010  Dritte öffentliche Beta von Version 1.4.30.
 1.4.30   Viele Bugfixes und erweiterter Funktionsumfang i.Vgl. zu 1.4.21.
 
 
@@ -2799,7 +2836,6 @@ c) CrypTool 2.0 (CT 2)
      Mit der Releaseversion von CT2 wird die Weiter-Entwicklung von CrypTool 1.x
      eingestellt.
    - Hoher Lerneffekt bei Einsteigern durch visuelle Programmierung.
-     Drei Modi/Detail-Level: Einsteiger, Könner, Experte.
    - Weitere Entwickler und graphisch anspruchsvolle Designer sind
      in diesem neuen Projekt sehr herzlich willkommen.
    - Enge Zusammenarbeit mit dem Lehrstuhl Prof. Weis in Duisburg-Essen.
@@ -2832,7 +2868,7 @@ Die neuen Versionen (siehe Kapitel A.2.2.1) sind:
 
 
 Funktionen, die schon in den jetzigen Betaversionen
-            (CT2 Beta 2 v2.0.3594  and  JCT1 Milestone 6)
+            (CT2 Beta 2 v2.0.3631  und  JCT1 RC1)
             implementiert und integriert sind:
 - CT2  Visuelle Programmierung (Komposition von Protokollen und Workflows)
 - CT2  Primzahlen-Visualisierungen
@@ -2840,6 +2876,8 @@ Funktionen, die schon in den jetzigen Betaversionen
 - CT2  Smartcard-Plugin (sendet Kommandos an eine Chipkarte
                          mittels der PC/SC-Schnittstelle in Windows)
 - CT2  Massenmustersuche
+- CT2  Toolbox zum erzeugen und Analysieren von Strom-Chiffren
+- CT2  Cube Attack gegen symmetrische Chiffren (I. Dinur und A. Shamir)
 
 - JCT  Adaptive Navigationsleiste, wahlweise als Baum oder Palette,
        mit Filter
@@ -2848,8 +2886,9 @@ Funktionen, die schon in den jetzigen Betaversionen
 - JCT  Einstellbarkeit aller Detail-Parameter moderner Algorithmen
        in der FlexiProvider-Perspektive
 - JCT  Dragon-Verschlüsselung & LFSR
+- JCT  Entropie-Analyse
 - JCT  Multi-partite Schlüsselvereinbarung
-- JCT  Analyse von Transpositionschiffren mit dem ACO-Algorithmus
+- JCT  Analyse von Transpositions-Chiffren mit dem ACO-Algorithmus
 - JCT  Visualisierung von Zero-Knowledge-Beweisen
 - JCT  Mächtige Action-History und Kaskadierungs-Unterstützung
 
@@ -2862,10 +2901,8 @@ Funktionen, die für die Release-Versionen der Nachfolger-Projekte geplant sind:
 - CT2  Alphabete auch für die klassischen Verfahren ausdehnen auf 256 Zeichen
 - CT2  SOA-Security (SOAP-Nachrichten nach WS-Security zwischen den Beteiligten)
 - CT2  Framework zum Bau und zur Analyse von LFSR-Stromchiffren
-- CT2  Cube Attack gegen symmetrische Chiffren (I. Dinur und A. Shamir)
 
 - JCT  PGP-S/MIME Interoperabilität
-- JCT  Entropie-Untersuchungen
 - JCT  Visualisierung eines Quantum-Schlüsselaustausch-Protokolls (BB84)
 - JCT  Commandline-Funktionalität
 - JCT  Demonstrator für XML-Signaturen
