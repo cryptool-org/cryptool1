@@ -54,7 +54,7 @@ CDlgAutomatedPermAnalysis::CDlgAutomatedPermAnalysis(CWnd* pParent /*=NULL*/)
 	, m_chk_permColbyCol(1)
 	, m_chk_outColbyCol(1)
 	, m_editRangeFrom(_T("1"))
-	, m_editRangeTo(_T("1"))
+	, m_editRangeTo(_T("100"))
 	, m_DataType(0)
 	, m_edTab(0)
 	, s_activeDocument(0)
@@ -84,7 +84,7 @@ int CDlgAutomatedPermAnalysis::setSourceFilename(const char *filename, char *&fn
 	else
 		return -1;
 
-	m_editRangeTo.Format("%I64i", sz);
+	m_editRangeTo.Format("%I64i", (sz < MAX_PERM_LENGTH) ? sz : MAX_PERM_LENGTH );
 	return 0;
 }
 
@@ -197,7 +197,7 @@ BOOL CDlgAutomatedPermAnalysis::OnInitDialog()
 		CT_READ_REGISTRY_DEFAULT(ul_permColbyCol, "permColbyCol", 1);
 		CT_READ_REGISTRY_DEFAULT(ul_outColbyCol,  "outColbyCol",  1);
 		CT_READ_REGISTRY_DEFAULT(numStr, "EditRangeFrom", "1", l); m_editRangeFrom = numStr;
-		CT_READ_REGISTRY_DEFAULT(numStr,   "EditRangeTo", "", l);  m_editRangeTo   = numStr;
+		CT_READ_REGISTRY_DEFAULT(numStr,   "EditRangeTo", "100", l);  m_editRangeTo   = numStr;
 		CT_READ_REGISTRY_DEFAULT(l, "DataType", 0); m_DataType = 0;
 
 		m_chk_inRowbyRow   = ul_inRowbyRow;   m_chk_inColbyCol   = ul_inColbyCol;
@@ -399,8 +399,11 @@ void CDlgAutomatedPermAnalysis::OnBnClickedCompute()
 	if ( !upperLimit )
 	{
 		upperLimit = analysis.get_size();
-		m_editRangeTo.Format(_T("%d"), upperLimit);
 	}
+	if ( upperLimit > MAX_PERM_LENGTH )
+		upperLimit == MAX_PERM_LENGTH;
+	m_editRangeTo.Format(_T("%d"), upperLimit);
+
 	UpdateData(FALSE);
 
 	if (m_chk_inRowbyRow)   inDir   = (m_chk_inColbyCol)   ? both_dir : row_dir;
