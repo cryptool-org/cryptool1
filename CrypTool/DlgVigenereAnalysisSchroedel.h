@@ -181,6 +181,7 @@ private:
 	// the timer callback: updates the progress bar
 	afx_msg void OnTimer(UINT nIDEvent);
 
+	// parameters passed to the analysis object
 	CString infileName;
 	CString infileTitle;
 };

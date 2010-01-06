@@ -1331,11 +1331,14 @@ BOOL CDlgVigenereAnalysisSchroedel::OnInitDialog()
 
 	// clear the list
 	controlListPossibleResults.DeleteAllItems();
+	// make sure we select the full row (key AND cleartext), not just a single items 
+	controlListPossibleResults.SetExtendedStyle(controlListPossibleResults.GetExtendedStyle() | LVS_EX_FULLROWSELECT);
 	// add column headers
 	CString columnHeaderKey; columnHeaderKey.LoadString(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERKEY);
 	CString columnHeaderCleartext; columnHeaderCleartext.LoadString(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERCLEARTEXT);
-	controlListPossibleResults.InsertColumn( 0, columnHeaderKey, LVCFMT_LEFT, 225);
-	controlListPossibleResults.InsertColumn( 1, columnHeaderCleartext, LVCFMT_LEFT, 225);
+	controlListPossibleResults.InsertColumn( 0, columnHeaderKey, LVCFMT_LEFT, 200);
+	controlListPossibleResults.InsertColumn( 1, columnHeaderCleartext, LVCFMT_LEFT, 250);
+
 
 	// enable the "start analysis" button
 	GetDlgItem(IDC_BUTTON_START_ANALYSIS)->EnableWindow(true);
@@ -1343,6 +1346,8 @@ BOOL CDlgVigenereAnalysisSchroedel::OnInitDialog()
 	GetDlgItem(IDC_BUTTON_CANCEL_ANALYSIS)->EnableWindow(false);
 	// disable the "show results" button
 	GetDlgItem(IDC_BUTTON_SHOW_ANALYSIS_RESULTS)->EnableWindow(false);
+	// enable the "close" button
+	GetDlgItem(IDCANCEL)->EnableWindow(true);
 
 	// set the range for the progress bar
 	controlProgressAnalysis.SetRange(0, 100);
@@ -1380,6 +1385,8 @@ void CDlgVigenereAnalysisSchroedel::OnBnClickedStartAnalysis()
 	GetDlgItem(IDC_BUTTON_CANCEL_ANALYSIS)->EnableWindow(true);
 	// disable the "show results" button
 	GetDlgItem(IDC_BUTTON_SHOW_ANALYSIS_RESULTS)->EnableWindow(false);
+	// disable the "close" button (stop the analysis first to close the dialog)
+	GetDlgItem(IDCANCEL)->EnableWindow(false);
 
 	// call our callback function every 250 ms
 	SetTimer(VIGENERE_ANALYSIS_SCHROEDEL_TIMER_ID, 250, NULL);
@@ -1422,6 +1429,8 @@ void CDlgVigenereAnalysisSchroedel::OnTimer(UINT nIDEvent)
 		GetDlgItem(IDC_BUTTON_CANCEL_ANALYSIS)->EnableWindow(false);
 		// disable the "show results" button
 		GetDlgItem(IDC_BUTTON_SHOW_ANALYSIS_RESULTS)->EnableWindow(false);
+		// enable the "close" button
+		GetDlgItem(IDCANCEL)->EnableWindow(true);
 
 		// kill the timer that was set upon analysis start
 		KillTimer(VIGENERE_ANALYSIS_SCHROEDEL_TIMER_ID);
@@ -1435,5 +1444,10 @@ void CDlgVigenereAnalysisSchroedel::OnTimer(UINT nIDEvent)
 		GetDlgItem(IDC_BUTTON_CANCEL_ANALYSIS)->EnableWindow(false);
 		// enable the "show results" button
 		GetDlgItem(IDC_BUTTON_SHOW_ANALYSIS_RESULTS)->EnableWindow(true);
+		// enable the "close" button
+		GetDlgItem(IDCANCEL)->EnableWindow(true);
+
+		// kill the timer that was set upon analysis start
+		KillTimer(VIGENERE_ANALYSIS_SCHROEDEL_TIMER_ID);
 	}
 }
