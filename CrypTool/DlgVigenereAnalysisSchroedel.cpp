@@ -52,33 +52,60 @@ const CString cPosVigenere = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWX
 const CString klartext     = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const CString alphabet     = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-VigenereAnalysisSchroedel::VigenereAnalysisSchroedel(const CString _ciphertextFileName, const CString _title) {
-
-	ciphertextFileName = _ciphertextFileName;
-	title = _title;
-
-	abort = false;
-	debug = false;
+VigenereAnalysisSchroedel::VigenereAnalysisSchroedel(CDlgVigenereAnalysisSchroedel *_dialog, const CString _ciphertextFileName, const CString _title) :
+	ciphertextFileName(_ciphertextFileName),
+	title(_title),
+	theDialog(_dialog),
+	canceled(false),
+	done(false),
+	debug(false) {
 
 	// create result file name
 	char pathToFileResult[CRYPTOOL_PATH_LENGTH];
 	GetTmpName(pathToFileResult, "cry", ".txt");
 	resultFileName = pathToFileResult;
+}
+
+VigenereAnalysisSchroedel::~VigenereAnalysisSchroedel() {
+
+}
+
+unsigned int VigenereAnalysisSchroedel::run() {
+	// initialize the analysis
+	initialize();
+
+	if(	readCiphertext() < 0 ||					// read ciphertext
+			readDict() < 0 ||								// read dictionary
+			readTriDigrams() < 0 ||					// read digrams and trigrams file
+			firstChar() < 0 ||							// create pairs for first character
+			secondChar() < 0 ||							// create pairs for second and third character
+			solveTrigram() < 0)							// solve trigrams
+	{
+		return 1;
+	}
+
+	return 0;
+}
+
+void VigenereAnalysisSchroedel::initialize() {
+	// initialize internal variables
+	canceled = false;
+	debug = false;
+	done = false;
+	startzeit = 0;
+	endezeit = 0;
+	memset(cDigram, 0, sizeof(cDigram));
+	memset(cTrigram, 0, sizeof(cTrigram));
+	memset(score, 0, sizeof(score));
+	memset(_score, 0, sizeof(_score));
+	remain = maxDi = maxTri = xDict = dictCount = cPairs = 0;
+	solveCount = solveRating = maxRating = subRate = maxProzent = 0;
+	cipherPos = aktPos = Pos2 = Pos3 = Remain2 = Remain3 = 0;
 
 	// read analysis settings from registry
 	readSettingsFromRegistry();
 
-	time_t seconds;
-	time(&seconds);
-	srand((unsigned int)seconds);
-
-	// some init stuff
-	memset(cDigram, 0, 4*26*26);
-	memset(cTrigram, 0, 4*26*26*26);
-	memset(score, 0, 4*26*26*26*2);
-	memset(_score, 0, 4*26*26*26*2);
-
-	// fill Vigenere array
+	// initialize Vigenere array
 	CString s;
 	CString t;
 	s = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -89,41 +116,40 @@ VigenereAnalysisSchroedel::VigenereAnalysisSchroedel(const CString _ciphertextFi
 		vigenere[i] = t.Left(26);
 	}
 
-	maxRating = 0;
-	solveCount = 0;
-
-	for(int i=0; i<17575; i++) {
+	// initialize strings
+	for(int i=0;i<26*26*26; i++) {
 		pairs[i][0] = "";
 		pairs[i][1] = "";
-		score[i][0] = 0;
-		score[i][1] = 0;
+		_pairs[i][0] = "";
+		_pairs[i][1] = "";
 	}
-
-	theDialog = 0;
-}
-
-VigenereAnalysisSchroedel::~VigenereAnalysisSchroedel() {
-	
-}
-
-void VigenereAnalysisSchroedel::setDialog(CDlgVigenereAnalysisSchroedel *_theDialog) {
-	theDialog = _theDialog;
+	for(int i=0; i<1000; i++) {
+		solvers[i][0] = "";
+		solvers[i][1] = "";
+		solvers[i][2] = "";
+		solvers[i][3] = "";
+	}
+	solveText = "";
+	solveKey = "";
+	result = "";
+	resultDebug = "";
 }
 
 void VigenereAnalysisSchroedel::output(CString str, const bool _debug) {
 	
-	if(_debug || debug) result.Append(CString(str) + CString("\n"));
+	// if at least on flag is set, we append the output to the result log
+	if(_debug || debug) {
+		result.Append(CString(str) + CString("\n"));
+	}
 
+	// either way we append the output to the debug log
+	resultDebug.Append(CString(str) + CString("\n"));
 }
 
 int VigenereAnalysisSchroedel::readTriDigrams() {
 	
 	// watch out for user cancellation
-	if(abort) return -1;
-
-	CString s;
-
-	maxDi = 0;
+	if(canceled) return -1;
 
 	outputString.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_DIGRAMS);
 	output(outputString);
@@ -140,9 +166,12 @@ int VigenereAnalysisSchroedel::readTriDigrams() {
 		return -1;
 	}
 
+	CString s;
+	std::string s2;
+
+	maxDi = 0;
 	for(int i=0; i<26; i++) {
 		for(int o=0; o<26; o++) {
-			std::string s2;
 			getline(fileInputDigrams, s2);
 			s = s2.c_str();
 			s.Delete(0, s.Find(';') + 1);
@@ -153,7 +182,6 @@ int VigenereAnalysisSchroedel::readTriDigrams() {
 
 	// close input file
 	fileInputDigrams.close();
-
 
 	maxTri = 0;
 
@@ -175,7 +203,6 @@ int VigenereAnalysisSchroedel::readTriDigrams() {
 	for(int i=0; i<26; i++) {
 		for(int o=0; o<26; o++) {
 			for(int l=0; l<26; l++) {
-				std::string s2;
 				getline(fileInputTrigrams, s2);
 				s = s2.c_str();
 				s.Delete(0, s.Find(';') + 1);
@@ -196,7 +223,7 @@ int VigenereAnalysisSchroedel::readTriDigrams() {
 int VigenereAnalysisSchroedel::firstChar() {
 	
 	// watch out for user cancellation
-	if(abort) return -1;
+	if(canceled) return -1;
 
 	char actChar;
 	char fText, fKey;
@@ -310,7 +337,7 @@ int VigenereAnalysisSchroedel::firstChar() {
 int VigenereAnalysisSchroedel::secondChar() {
 
 	// watch out for user cancellation
-	if(abort) return -1;
+	if(canceled) return -1;
 
 	char actChar, lText, lKey, fText, fKey;
 	int i,o,l;
@@ -627,7 +654,7 @@ int VigenereAnalysisSchroedel::secondChar() {
 int VigenereAnalysisSchroedel::solveTrigram() {
 
 	// watch out for user cancellation
-	if(abort) return -1;
+	if(canceled) return -1;
 
 	CString s;
 	CString key, text, cipher;
@@ -654,14 +681,14 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 		therefore, the loop covers 75% of the overall analysis,	the progress 
 		is gradually increased with each loop (see loopProgress)
 	*/
-	const double loopProgress = (double)(0.75) / (double)(cPairs);
+	const double loopProgress = (double)(0.75) / (double)(cPairs) / (double)(dictCount);
 
 	CString decryptedText;
 
-	for(int i=0; i<cPairs; i++, progress += loopProgress) {
+	for(int i=0; i<cPairs; i++) {
 		
 		// watch out for user cancellation
-		if(abort) return -1;
+		if(canceled) return -1;
 		
 		key = pairs[i][0];
 		text = pairs[i][1];
@@ -671,10 +698,10 @@ int VigenereAnalysisSchroedel::solveTrigram() {
     cKey = "";
     cText = "";
 
-		for(xDict=0; xDict<dictCount; xDict++) {
+		for(xDict=0; xDict<dictCount; xDict++, progress += loopProgress) {
 
 			// watch out for user cancellation
-			if(abort) return -1;
+			if(canceled) return -1;
 
 			s = dict[xDict];
 			
@@ -699,7 +726,7 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 				for(int l=0; l<cText.GetLength(); l++) {
 					
 					// watch out for user cancellation
-					if(abort) return -1;
+					if(canceled) return -1;
 					
 					CString cTextStr; cTextStr.AppendChar(cText[l]);
 					CString cKeyStr; cKeyStr.AppendChar(cKey[o]);
@@ -710,7 +737,7 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 						for(xDict=0; xDict<dictCount; xDict++) {
 
 							// watch out for user cancellation
-							if(abort) return -1;
+							if(canceled) return -1;
 
 							if(dict[xDict].GetLength() <= ciphertext.GetLength()) {
 								if(dict[xDict].Find(key + cKey[o]) == 0 || dict[xDict].Find(text + cText[l]) == 0) {
@@ -719,7 +746,7 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 									if(theRate >= decryptedText.GetLength() * 0.01) {
 										
 										// watch out for user cancellation
-										if(abort) return -1;
+										if(canceled) return -1;
 
 										CString strTheRate; strTheRate.Format("%d", theRate);
 										CString strTheSubRate; strTheSubRate = "0";
@@ -774,7 +801,7 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 											if(theDialog) theDialog->addPossibleResult(possibleResult);
 #if 0
 											// suggest the possible result to the user (including the first 50 characters of 
-											// the corresponing cleartext) and abort the analysis if the user decides to
+											// the corresponing cleartext) and cancel the analysis if the user decides to
 											CString formatString;
 											formatString.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_SUGGEST_RESULT);
 											CString suggestion;
@@ -811,7 +838,7 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 		for(int i=0; i<x; i++) {
 
 			// watch out for user cancellation
-			if(abort) return -1;
+			if(canceled) return -1;
 
 			if(solveRating < atoi(solvers[i][2].GetBuffer())) {
 				solveRating = atoi(solvers[i][2].GetBuffer());
@@ -842,7 +869,10 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 
 	// this is the official end of the analysis
 	time(&timeAnalysisEnd);
+	progress = 1.0;
+	done = true;
 
+	// compute the time needed for the analysis
 	time_t timeNeededForAnalysisInSeconds = timeAnalysisEnd - timeAnalysisStart;
 
 	// dump a header (describing the analysis)
@@ -884,15 +914,13 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 
 	// TODO: sort list after scoring
 
-	// display all possible results for the user (pairs of key and corresponding cleartext)
 	if(listPossibleResults.size() == 0) {
-		// display an info message if there was no possible result
-		CString infoMessage;
-		infoMessage.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_NO_POSSIBLE_RESULTS_FOUND);
-		MessageBox(NULL, infoMessage, "CrypTool", MB_ICONINFORMATION);
-		return -1;
+		CString message;
+		message.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_NO_POSSIBLE_RESULTS_FOUND);
+		output(message, true);
 	}
-	else if(listPossibleResults.size() == 1) {
+	// display all possible results for the user (pairs of key and corresponding cleartext)
+	if(listPossibleResults.size() == 1) {
 		// display the one possible result
 		CString possibleKeyTag;
 		possibleKeyTag.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_POSSIBLE_KEY_TAG);
@@ -905,7 +933,7 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 		output((*listPossibleResults.begin()).cleartext, true);
 		output("", true);
 	}
-	else {
+	if(listPossibleResults.size() > 1) {
 		// display all possible results with a numbered list
 		int possibleResultIndex = 1;
 		for(std::list<PossibleResult>::iterator iter=listPossibleResults.begin(); iter!=listPossibleResults.end(); iter++) {
@@ -930,12 +958,10 @@ int VigenereAnalysisSchroedel::solveTrigram() {
 int VigenereAnalysisSchroedel::readDict() {
 
 	// watch out for user cancellation
-	if(abort) return -1;
+	if(canceled) return -1;
 
 	outputString.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_DICTIONARY);
 	output(outputString);
-
-	CString s;
 
 	// create a handle for the input file
 	std::ifstream fileInput;
@@ -949,10 +975,12 @@ int VigenereAnalysisSchroedel::readDict() {
 		return -1;
 	}
 
+	CString s;
+	std::string s2;
 	dictCount = 0;
-
 	while(!fileInput.eof() && dictCount<MAX_NUMBER_OF_DICT_WORDS) {
-		std::string s2;
+		// watch out for user cancellation
+		if(canceled) return -1;
 		getline(fileInput, s2);
 		s = s2.c_str();
 		s.Trim();
@@ -985,7 +1013,7 @@ int VigenereAnalysisSchroedel::readCiphertext() {
 	time(&timeAnalysisStart);
 
 	// watch out for user cancellation
-	if(abort) return -1;
+	if(canceled) return -1;
 
 	outputString.LoadStringA(IDS_STRING_VIGENERE_ANALYSIS_TAG_LOADING_CIPHERTEXT);
 	output(outputString);
@@ -1181,7 +1209,7 @@ CString VigenereAnalysisSchroedel::fillLeft(CString was, int wie) {
 	return was;
 }
 
-void VigenereAnalysisSchroedel::writeResultFile() {
+void VigenereAnalysisSchroedel::writeResultFile(const bool _debug) {
 	
 	// open result file
 	std::ofstream fileResult;
@@ -1195,7 +1223,10 @@ void VigenereAnalysisSchroedel::writeResultFile() {
 		return;
 	}
 
-	fileResult.write(result.GetBuffer(), result.GetLength());
+	// write the debug output if desired
+	if(_debug) fileResult.write(resultDebug.GetBuffer(), resultDebug.GetLength());
+	// otherwise, stick to the regular output
+	else fileResult.write(result.GetBuffer(), result.GetLength());
 
 	// close result file
 	fileResult.close();
@@ -1257,41 +1288,21 @@ void VigenereAnalysisSchroedel::readSettingsFromRegistry() {
 
 /****************************************
 		END VIGENERE ANALYSIS SCHROEDEL
-		****************************************/
+ ****************************************/
 
 // the actual analysis function (to be run in a separate thread)
 UINT singleThreadVigenereAnalysisSchroedel(PVOID argument) {
 
+	// get a pointer to the analysis object
 	VigenereAnalysisSchroedel *theAnalysis = (VigenereAnalysisSchroedel*)(argument);
 
 	// return if we don't have a valid analysis object
 	if(!theAnalysis) {
-		AfxEndThread(0);
-		return 0;
+		return 1;
 	}
 
-	if(	theAnalysis->readCiphertext() < 0 ||					// read ciphertext
-			theAnalysis->readDict() < 0 ||								// read dictionary
-			theAnalysis->readTriDigrams() < 0 ||					// read digrams and trigrams file
-			theAnalysis->firstChar() < 0 ||								// create pairs for first character
-			theAnalysis->secondChar() < 0 ||							// create pairs for second and third character
-			theAnalysis->solveTrigram() < 0)							// solve trigrams
-	{
-		// abort analysis and end thread properly
-		theAnalysis->writeResultFile();
-		AfxEndThread(0);
-		return 0;
-	}
-		
-	// at this point the solveTrigram function was successful, so we're done
-	theAnalysis->progress = 1.0;	
-
-	// end thread properly
-	theAnalysis->writeResultFile();
-	theApp.fs.cancel();
-	delete theAnalysis;
-	AfxEndThread(0);
-	return 0;
+	// run the analysis
+	return theAnalysis->run();
 }
 
 
@@ -1308,7 +1319,7 @@ CDlgVigenereAnalysisSchroedel::CDlgVigenereAnalysisSchroedel(const CString &_inf
 
 CDlgVigenereAnalysisSchroedel::~CDlgVigenereAnalysisSchroedel()
 {
-
+	if(theAnalysis) delete theAnalysis;
 }
 
 void CDlgVigenereAnalysisSchroedel::DoDataExchange(CDataExchange* pDX)
@@ -1339,7 +1350,6 @@ BOOL CDlgVigenereAnalysisSchroedel::OnInitDialog()
 	controlListPossibleResults.InsertColumn( 0, columnHeaderKey, LVCFMT_LEFT, 200);
 	controlListPossibleResults.InsertColumn( 1, columnHeaderCleartext, LVCFMT_LEFT, 250);
 
-
 	// enable the "start analysis" button
 	GetDlgItem(IDC_BUTTON_START_ANALYSIS)->EnableWindow(true);
 	// disable the "cancel analysis" button
@@ -1364,20 +1374,11 @@ void CDlgVigenereAnalysisSchroedel::addPossibleResult(const PossibleResult &_pos
 
 void CDlgVigenereAnalysisSchroedel::OnBnClickedStartAnalysis()
 {
-	// delete the analysis object if necessary
-	if(theAnalysis) delete theAnalysis;
-	// create the analysis object
-	theAnalysis = new VigenereAnalysisSchroedel(infileName, infileTitle);
-	// introduce the dialog to the analysis object
-	theAnalysis->setDialog(this);
-	// save result file name (because analysis object will be destroyed before we may need this variable)
-	resultFileName = theAnalysis->resultFileName;
+	// create the analysis object (initializing the dialog as well as name and title of the infile)
+	if(!theAnalysis) theAnalysis = new VigenereAnalysisSchroedel(this, infileName, infileTitle);
 
 	// clear the list of possible results
 	controlListPossibleResults.DeleteAllItems();
-
-	// start the actual analysis
-	AfxBeginThread(singleThreadVigenereAnalysisSchroedel, (PVOID)(theAnalysis));
 
 	// disable the "start analysis" button
 	GetDlgItem(IDC_BUTTON_START_ANALYSIS)->EnableWindow(false);
@@ -1388,6 +1389,9 @@ void CDlgVigenereAnalysisSchroedel::OnBnClickedStartAnalysis()
 	// disable the "close" button (stop the analysis first to close the dialog)
 	GetDlgItem(IDCANCEL)->EnableWindow(false);
 
+	// start the actual analysis
+	AfxBeginThread(singleThreadVigenereAnalysisSchroedel, (PVOID)(theAnalysis));
+
 	// call our callback function every 250 ms
 	SetTimer(VIGENERE_ANALYSIS_SCHROEDEL_TIMER_ID, 250, NULL);
 }
@@ -1396,14 +1400,28 @@ void CDlgVigenereAnalysisSchroedel::OnBnClickedCancelAnalysis()
 {
 	// don't do anything if the analysis object is invalid
 	if(!theAnalysis) return;
-	// abort the analysis
-	theAnalysis->abort = true;	
+	// cancel the analysis
+	theAnalysis->cancel();
 }
 
 void CDlgVigenereAnalysisSchroedel::OnBnClickedShowAnalysisResults()
 {
-	// open the result file
-	CAppDocument *NewDoc = theApp.OpenDocumentFileNoMRU(resultFileName);
+	// return if the analysis object is invalid
+	if(!theAnalysis) return;
+	
+	// decide which log to write: the standard log (result) or the debug log (resultDebug)
+	if(theAnalysis->getResult().IsEmpty()) {
+		// write the debug log if the standard log is empty regardless of any other settings
+		theAnalysis->writeResultFile(true);
+	}
+	else {
+		// write the standard log
+		theAnalysis->writeResultFile(false);
+	}
+		
+	// open the new result file
+	CAppDocument *NewDoc = theApp.OpenDocumentFileNoMRU(theAnalysis->getResultFileName());
+	// close the dialog
 	OnCancel();
 }
 
@@ -1415,39 +1433,26 @@ void CDlgVigenereAnalysisSchroedel::OnTimer(UINT nIDEvent)
 		return;
 	}
 
-	// update the GUI according to the analysis progress
-	int progress = (int)(theAnalysis->progress * 100);
-
 	// update the progress bar
-	controlProgressAnalysis.SetPos(progress);
+	controlProgressAnalysis.SetPos((int)(theAnalysis->getProgress() * 100));
 
-	// at this point the analysis was aborted
-	if(theAnalysis->abort) {
+	// at this point the analysis is either canceled or done
+	if(theAnalysis->isCanceled() || theAnalysis->isDone()) {
+		// kill the timer that was set upon analysis start
+		KillTimer(VIGENERE_ANALYSIS_SCHROEDEL_TIMER_ID);
+
 		// enable the "start analysis" button
 		GetDlgItem(IDC_BUTTON_START_ANALYSIS)->EnableWindow(true);
 		// disable the "cancel analysis" button
 		GetDlgItem(IDC_BUTTON_CANCEL_ANALYSIS)->EnableWindow(false);
 		// disable the "show results" button
-		GetDlgItem(IDC_BUTTON_SHOW_ANALYSIS_RESULTS)->EnableWindow(false);
-		// enable the "close" button
-		GetDlgItem(IDCANCEL)->EnableWindow(true);
-
-		// kill the timer that was set upon analysis start
-		KillTimer(VIGENERE_ANALYSIS_SCHROEDEL_TIMER_ID);
-	}
-
-	// at this point the analysis is done
-	if(progress >= 100) {
-		// enable the "start analysis" button
-		GetDlgItem(IDC_BUTTON_START_ANALYSIS)->EnableWindow(true);
-		// disable the "cancel analysis" button
-		GetDlgItem(IDC_BUTTON_CANCEL_ANALYSIS)->EnableWindow(false);
-		// enable the "show results" button
 		GetDlgItem(IDC_BUTTON_SHOW_ANALYSIS_RESULTS)->EnableWindow(true);
 		// enable the "close" button
 		GetDlgItem(IDCANCEL)->EnableWindow(true);
 
-		// kill the timer that was set upon analysis start
-		KillTimer(VIGENERE_ANALYSIS_SCHROEDEL_TIMER_ID);
+		CString message; 
+		if(theAnalysis->isCanceled()) message.LoadString(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_INCOMPLETE);
+		if(theAnalysis->isDone()) message.LoadString(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_COMPLETE);
+		AfxMessageBox(message, MB_ICONINFORMATION);
 	}
 }

@@ -8,8 +8,7 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -8299,6 +8298,10 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERKEY "Klucz:"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERCLEARTEXT 
                             "Tekst jawny:"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_COMPLETE 
+                            "The analysis is complete."
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_INCOMPLETE 
+                            "The analysis was  not completed."
 END
 
 STRINGTABLE 
@@ -19129,6 +19132,10 @@ BEGIN
     IDR_PLOTTYPE            "\nUnbenannt\n\nPlot Datei (*.plt)\n.plt\n\nPlot File Type\nPLOTT\nPlot Files\n"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERKEY "Schlüssel:"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERCLEARTEXT "Klartext:"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_COMPLETE 
+                            "Die Analyse ist beendet."
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_INCOMPLETE 
+                            "Die Analyse wurde nicht beendet."
 END
 
 STRINGTABLE 
@@ -21756,7 +21763,7 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_FOUND_CLEARTEXT_TAG 
                             "Gefundener Klartext:"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_NO_POSSIBLE_RESULTS_FOUND 
-                            "Die Analyse war nicht erfolgreich."
+                            "Die Analyse war nicht erfolgreich. Es wurden keine möglichen Lösungen gefunden."
     IDS_STRING_VIGENERE_ANALYSIS_HEADER_TAG 
                             "CrypTool: Ciphertext-Only-Analyse nach Schrödel gegen die Vigenère-Verschlüsselung"
     IDS_STRING_VIGENERE_ANALYSIS_TIME_NEEDED_TAG 
@@ -30148,6 +30155,10 @@ BEGIN
     IDR_PLOTTYPE            "\nUnnamed\n\nPLOT file (*.plt)\n.plt\n\nPlot File Type\nPLOT\nPlot Files\n"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERKEY "Key:"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERCLEARTEXT "Cleartext:"
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_COMPLETE 
+                            "The analysis is complete."
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_INCOMPLETE 
+                            "The analysis was  not completed."
 END
 
 STRINGTABLE 
@@ -32713,7 +32724,7 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_FOUND_CLEARTEXT_TAG 
                             "Found cleartext:"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_NO_POSSIBLE_RESULTS_FOUND 
-                            "The analysis was not successful."
+                            "The analysis was not successful. There were no possible results found."
     IDS_STRING_VIGENERE_ANALYSIS_HEADER_TAG 
                             "CrypTool: Ciphertext-only analysis according to Schroedel against Vigenère cipher"
     IDS_STRING_VIGENERE_ANALYSIS_TIME_NEEDED_TAG 

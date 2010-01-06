@@ -42,53 +42,57 @@ struct PossibleResult {
 
 // 06/24/2009, flomar: Vigenere analysis class
 // (originally written by Schroedel in Pascal, ported to C++ by flomar)
-class VigenereAnalysisSchroedel : public CProgressModel {
+class VigenereAnalysisSchroedel {
 
 public:
 	// constructor
-	VigenereAnalysisSchroedel(const CString _ciphertextFileName, const CString _title);
+	VigenereAnalysisSchroedel(CDlgVigenereAnalysisSchroedel *_dialog, const CString _ciphertextFileName, const CString _title);
 	// destructor
 	~VigenereAnalysisSchroedel();
 
-	// introduce the dialog object to the analysis
-	void setDialog(CDlgVigenereAnalysisSchroedel *_theDialog);
+	// this function runs the analysis
+	unsigned int run();
 
-public:
-	// internal variables
-	unsigned int startzeit, endezeit;
-	int cDigram[26][26];
-	int cTrigram[26][26][26];
-	CString pairs[26*26*26][2];
-	unsigned int score[26*26*26][2];
-	CString _pairs[26*26*26][2];
-	unsigned int _score[26*26*26][2];
-	int remain, maxDi, maxTri, xDict, xlDict, cPairs;
-	unsigned int maxProzent;
-	CString vigenere[30];
-	CString solvers[1000][4];  
-	CString dict[MAX_NUMBER_OF_DICT_WORDS];
-	int solveCount, maxRating, dictCount;
-	int solveRating;
-	CString solveText, solveKey;
-	//ui, fg : Textfile;
-  int subRate;
-	int cipherPos, aktPos, Pos2, Pos3, Remain2, Remain3;
+	// returns the progress of the analysis ([0.0-1.0])
+	double getProgress() { return progress; };
+	// returns the file name of the result file
+	CString getResultFileName() const { return resultFileName; };
 
-public:
-	// various functions
-	void output(CString str, const bool _debug = false);
-	
+	// this function cancels the analysis
+	void cancel() { canceled = true; };
+
+	// is the analysis canceled?
+	bool isCanceled() const { return canceled; };
+	// is the analysis done?
+	bool isDone() const { return done; };
+	// is debug output tracked?
+	bool isDebug() const { return debug; };
+
+	// return the result log
+	CString getResult() const { return result; };
+	// return the result log (including debug information)
+	CString getResultDebug() const { return resultDebug; };
+
+	// write the result file (setting the flag overrides the class-wide debug flag)
+	void writeResultFile(const bool _debug = false);
+
+protected:
+	// initialize the analysis (this should be called from within the run() function)
+	void initialize();
+	// read some settings from the registry
+	void readSettingsFromRegistry();
+
+	// some preparational functions
 	int readCiphertext();
 	int readDict();
 	int readTriDigrams();
+	// the actual analysis functions
 	int firstChar();
 	int secondChar();
 	int solveTrigram();
-	
-	CString encryptText(CString text, CString key);
-	CString decryptText(CString text, CString key);
-	int rateString(CString str, CString key);
-	CString fillLeft(CString was, int wie);
+
+	// appends a string to the result file (setting the flag overrides the class-wide debug flag)
+	void output(CString str, const bool _debug = false);
 
 	// this treshold is used to determine if a result might be considered correct
 	int analysisThreshold;
@@ -97,42 +101,65 @@ public:
 	time_t timeAnalysisStart;
 	time_t timeAnalysisEnd;
 
+	// this flag indicates if the analysis was canceled
+	bool canceled;
+	// this flag indicates we're in debug mode (thus, much more detailed output)
+	bool debug;
+	// this flag indicates if the analysis is done
+	bool done;
+
 	// this list contains all possible results
 	std::list<PossibleResult> listPossibleResults;
 
 	// this string holds the analysis results (see result file)
 	CString result;
+	// this string holds the analysis results INCLUDING debug output
+	CString resultDebug;
 	// the name of the result file
 	CString resultFileName;
-	// function to write the write the result file
-	void writeResultFile();
 
-	// aux variables
-	CString outputString;
-	CString formatString;
+	// the progress of the analysis [0.0-1.0]
+	double progress;
 
-public:
+	// the dialog object (the dialog in which the analysis is displayed)
+	CDlgVigenereAnalysisSchroedel *theDialog;
+
 	CString ciphertext;
 	CString ciphertextFileName;
 	CString title;
 
-	// this flag is set from the outside to abort the analysis
-	bool abort;
-
-	// this flag indicates we're in debug mode (thus, much more detailed output)
-	bool debug;
 	CString pathToDictionary;
 	CString pathToDigrams;
 	CString pathToTrigrams;
 
-	void readSettingsFromRegistry();
+	// internal variables
+	unsigned int startzeit, endezeit;
+	int cDigram[26][26];
+	int cTrigram[26][26][26];
+	CString pairs[26*26*26][2];
+	unsigned int score[26*26*26][2];
+	CString _pairs[26*26*26][2];
+	unsigned int _score[26*26*26][2];
+	int remain, maxDi, maxTri, xDict, cPairs;
+	unsigned int maxProzent;
+	CString vigenere[30];
+	CString solvers[1000][4];  
+	CString dict[MAX_NUMBER_OF_DICT_WORDS];
+	int solveCount, maxRating, dictCount;
+	int solveRating;
+	CString solveText, solveKey;
+	int subRate;
+	int cipherPos, aktPos, Pos2, Pos3, Remain2, Remain3;
 
-	double progress;
-	virtual double getProgress() { return progress; };
-
-private:
-	// the dialog object
-	CDlgVigenereAnalysisSchroedel *theDialog;
+	// some helper functions
+	CString encryptText(CString text, CString key);
+	CString decryptText(CString text, CString key);
+	int rateString(CString str, CString key);
+	CString fillLeft(CString was, int wie);
+	
+	// some helper variables
+	CString outputString;
+	CString formatString;
 };
 
 // the actual analysis function (to be run in a separate thread)
