@@ -8,7 +8,8 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -4454,16 +4455,16 @@ END
 
 IDD_VIGENERE_ANALYSIS_SCHROEDEL DIALOGEX 0, 0, 330, 200
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Vigenere (Analysis according to Schroedel)"
+CAPTION "Vigenere (Analiza Schroedela)"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     CONTROL         "",IDC_LIST_POSSIBLE_RESULTS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,35,316,75
-    LTEXT           "As soon as you start the analysis, possible results are written into the list below. Detailed information can be obtained after the analysis is complete.",IDC_STATIC,7,7,316,24
-    PUSHBUTTON      "Start analysis",IDC_BUTTON_START_ANALYSIS,7,135,110,18
-    PUSHBUTTON      "Close",IDCANCEL,243,175,80,18
-    PUSHBUTTON      "Show analysis results",IDC_BUTTON_SHOW_ANALYSIS_RESULTS,7,175,110,18
+    LTEXT           "Po rozpoczêciu analizy mo¿liwe rozwi¹zania s¹ wpisywane w listê poni¿ej. Szczegó³owe informacje mo¿na uzyskaæ po zakoñczeniu analizy.",IDC_STATIC,7,7,316,24
+    PUSHBUTTON      "Start analizy",IDC_BUTTON_START_ANALYSIS,7,135,110,18
+    PUSHBUTTON      "Zamknij",IDCANCEL,243,175,80,18
+    PUSHBUTTON      "Poka¿ wyniki analizy",IDC_BUTTON_SHOW_ANALYSIS_RESULTS,7,175,110,18
     CONTROL         "",IDC_PROGRESS_ANALYSIS,"msctls_progress32",WS_BORDER,7,115,316,14
-    PUSHBUTTON      "Cancel analysis",IDC_BUTTON_CANCEL_ANALYSIS,7,155,110,18
+    PUSHBUTTON      "Anuluj analizê",IDC_BUTTON_CANCEL_ANALYSIS,7,155,110,18
 END
 
 
@@ -10170,7 +10171,7 @@ BEGIN
     IDS_CRT_ASTRONOMY_PLANETALL 
                             "Okresy  %s (%s) i %s (%s) nie s¹ wzglêdnie pierwsze.\n\n"
     IDS_CRT_ASTRONOMY_PLANETALL2 
-                            "\n\nCoprime modules are a pre-condition to apply the Chinese remainder theorem. \n\n\n\nBecause of this, the brute-force method is searching for a solution .\n\n"
+                            "\n\n.Modu³y COPRIM s¹ wstêpnym warunkiem do zastosowania chiñskiego twierdzenia. \n\n\n\nZ tego powodu, metoda brute-force poszukuje rozwi¹zanie .\n\n"
 END
 
 STRINGTABLE 
