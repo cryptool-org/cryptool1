@@ -10838,11 +10838,11 @@ BEGIN
     IDS_AUTHORS_FILE_MISSING 
                             "Nie mozna znalezc plik ""authors.txt"". Upewnij sie, ze plik znajduje sie w glównym folderze CrypTool."
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DICTIONARY_FILENAME 
-                            "VigenereAnalysisSchroedelDictionary.txt"
+                            "words\\VigenereAnalysisSchroedelDictionary.txt"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DIGRAMS_FILENAME 
-                            "VigenereAnalysisSchroedelDigrams.txt"
+                            "words\\VigenereAnalysisSchroedelDigrams.txt"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_TRIGRAMS_FILENAME 
-                            "VigenereAnalysisSchroedelTrigrams.txt"
+                            "words\\VigenereAnalysisSchroedelTrigrams.txt"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_PROGRESS_BAR_TITLE 
                             "Analiza Vigenere wed³ug Schroedel"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_CIPHERTEXT_TAG "Tekst szyfrowy:"
@@ -21715,11 +21715,11 @@ BEGIN
     IDS_AUTHORS_FILE_MISSING 
                             "Die Datei ""authors.txt"" wurde nicht gefunden. Bitte stellen Sie sicher, dass sich die Datei im CrypTool-Hauptverzeichnis befindet."
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DICTIONARY_FILENAME 
-                            "VigenereAnalysisSchroedelDictionary.txt"
+                            "words\\VigenereAnalysisSchroedelDictionary.txt"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DIGRAMS_FILENAME 
-                            "VigenereAnalysisSchroedelDigrams.txt"
+                            "words\\VigenereAnalysisSchroedelDigrams.txt"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_TRIGRAMS_FILENAME 
-                            "VigenereAnalysisSchroedelTrigrams.txt"
+                            "words\\VigenereAnalysisSchroedelTrigrams.txt"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_PROGRESS_BAR_TITLE 
                             "Vigenère-Analyse nach Schrödel"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_CIPHERTEXT_TAG "Geheimtext:"
@@ -32135,8 +32135,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_CRT_SECRETSHARING_REK9 
-                            "M is now rebuilt from the given  identifiers:"
+    IDS_CRT_SECRETSHARING_REK9 "M is now rebuilt from the given identifiers:"
     IDS_CRT_SECRETSHARING_REK10 
                             "Enough passwords have been entered. s' can be calculated now using the chinese remainder theorem:"
     IDS_CRT_SECRETSHARING_REK11 
@@ -32677,11 +32676,11 @@ BEGIN
     IDS_AUTHORS_FILE_MISSING 
                             "The file ""authors.txt"" could not be found. Please make sure that the file is located in the CrypTool main folder."
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DICTIONARY_FILENAME 
-                            "VigenereAnalysisSchroedelDictionary.txt"
+                            "words\\VigenereAnalysisSchroedelDictionary.txt"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_DIGRAMS_FILENAME 
-                            "VigenereAnalysisSchroedelDigrams.txt"
+                            "words\\VigenereAnalysisSchroedelDigrams.txt"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_TRIGRAMS_FILENAME 
-                            "VigenereAnalysisSchroedelTrigrams.txt"
+                            "words\\VigenereAnalysisSchroedelTrigrams.txt"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_PROGRESS_BAR_TITLE 
                             "Vigenère analysis according to Schroedel"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_CIPHERTEXT_TAG "Ciphertext:"
