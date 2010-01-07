@@ -8301,7 +8301,7 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_COMPLETE 
                             "The analysis is complete."
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_INCOMPLETE 
-                            "The analysis was  not completed."
+                            "The analysis was not completed."
 END
 
 STRINGTABLE 
@@ -9060,7 +9060,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_RSA_TUTORIAL_CODING "Wprowadzanie liczb w formacie %d"
-    IDS_STRING_RSA_TUTORIAL_ENCRYPTION "Szyfrowanie:  c[i] = m[i]^e (mod N)"
+    IDS_STRING_RSA_TUTORIAL_ENCRYPTION "Szyfrowanie: c[i] = m[i]^e (mod N)"
     IDS_STRING_RSA_TUTORIAL_DECRYPTION 
                             "Deszyfrowanie do tekstu jawnego  m[i] = c[i]^d (mod N)"
     IDS_STRING_RSATUT_MAXBLOCKLENGTH "(Maksymalna d³ugoœæ bloku %i znaków)"
@@ -9351,7 +9351,7 @@ BEGIN
     IDS_PARAM_HOMOPHONE     "Paramter HOMOPHONE"
     IDS_PARAM_RSA_DEMO      "Parametr RSA-DEMO"
     IDS_STRING_RSA_TUTORIAL_INPUT_NUMBERS 
-                            "WprowadŸ wiadomoœæ w nastêpuj¹cym formacie: liczba(1) # liczba(2) #  # liczba (n) (liczba podstawy %i)"
+                            "WprowadŸ wiadomoœæ w nastêpuj¹cym formacie: liczba(1) # liczba(2) # ... # liczba (n) (liczba podstawy %i)"
     IDS_RSADEMO_OBTAINED_SIGNATURE 
                             "Deszyfrowanie (potêgowanie RSA kluczem publicznym e) daje nastêpuj¹c¹ wartoœæ hasz:"
     IDS_RSADEMO_COMPARE_HASHVALUES 
@@ -9554,7 +9554,7 @@ BEGIN
     IDS_STRING_PLAYFAIR_ERRMSGALLG 
                             "Podczas analizy playfair wyst¹pi³ b³¹d przy konstrukcji grafu.\nPozcycja=%d, litera=%c"
     IDS_STRING_PLAYFAIR_ERRMSG100 
-                            "B³¹d podczas analizy tekstu jawnego!\nPrzynajmniej jedna z list jest przepe³niona : Pozycja=%d, litera=%c.\nProszê poprawiæ ci¹g wejœciowy."
+                            "B³¹d podczas analizy tekstu jawnego!\nPrzynajmniej jedna z list jest przepe³niona: Pozycja=%d, litera=%c.\nProszê poprawiæ ci¹g wejœciowy."
     IDS_STRING_PLAYFAIR_ERRMSG200 
                             "B³¹d podczas analizy tekstu jawnego!\nPrzynajmniej jeden z s¹siadów uznany zosta³ za poprawny: Pozycja=%d, litera=%c.\nProszê poprawiæ."
     IDS_STRING_PLAYFAIR_ERRMSG110 
@@ -9916,7 +9916,7 @@ BEGIN
     IDS_modeText_ChallengeResponseAsymmetrisch 
                             "Wyzwanie-OdpowiedŸ (z szyfrowaniem asymetrycznym): Tym razem procedura Wyzwanie-OdpowiedŸ jest wykonana przy u¿uciu szfrowania asymetrycznego (klucz publiczny) .Ka¿dy uczestnik posiada parê kluczy, sk³adaj¹c¹ siê z klucza publicznego, dostêpnego dla wszystkich i klucza prywatnego. Serwer wysy³a dla autentykacji Wyzwanie (Challenge), który podpisuje je swoim kluczem prywatnym i zwraca wynik do serwera.  Teraz ka¿dy kto zna klucz publiczny klienta (tak¿e serwer), mo¿e sprawdziæ, czy odpowiedŸ (Response) zosta³a podpisana kluczem prywatnym klienta. Mimo to,  atakuj¹cy przy pomocy ""ma³ej sztuczki"", mo¿e przedsawiæ siê serwerowi jako klient."
     IDS_modeText_WechselseitigeAuthentifikation 
-                            "Wzajemna autentykacja: Ten scenariusz jest równie¿ oparty na szyfrowaniu asymetrycznym. Ale tym razem u¿ywane jest ono synchronicznie w dwóch kierunkach. Serwer wysy³a wyzwanie (Challenge) do klienta. które klient popisuje i zwraca (Response)do serwera z w³asnym wyzwaniem. Teraz serwer mo¿e zweryfikowaæ, u¿ywaj¹c klucza publicznego klienta, czy podpisane wyzwanie (odpowiedŸ od klienta), pochodzi od klienta, który posiada odpowiedni klucz prywatny. Aby sprawdziæ klienta, serwer podpisuje jego wyzwanie swoim kluczem prywatnym i zwraca je klientowi. Teraz klient mo¿e sprawdziæ to¿samoœæ serwera za pomoc¹ jego klucza publicznego. Dziêki temu obie strony wiedz¹, z kim siê komunikuj¹ , tworz¹c bezpieczny (zaszyfrowany) kana³, wymieniaj¹c asymetrycznie zaszyfrowany klucz sesji. W ten sposób atak na tym poziomie protoko³u nie jest mo¿liwy. Mo¿esz przetestowaæ wszystkie poprzednie rozwi¹zanie, ale nie bêdziesz w stanie skrackowaæ protoko³u.  Proszê przeprowadziæ ataki na fizyczne i logiczne po³¹czenie do konta.  CrypTool mo¿e przeprowadziæ tylko ataki kryptograficzne. Aby uzyskaæ wiêcej informacji na temat wymienionych ataków, zajrzyj do pomocy on-line."
+                            "Wzajemna autentykacja: Ten scenariusz jest równie¿ oparty na szyfrowaniu asymetrycznym. Ale tym razem u¿ywane jest ono synchronicznie w dwóch kierunkach. Serwer wysy³a wyzwanie (Challenge) do klienta. które klient popisuje i zwraca (Response)do serwera z w³asnym wyzwaniem. Teraz serwer mo¿e zweryfikowaæ, u¿ywaj¹c klucza publicznego klienta, czy podpisane wyzwanie (odpowiedŸ od klienta), pochodzi od klienta, który posiada odpowiedni klucz prywatny. Aby sprawdziæ klienta, serwer podpisuje jego wyzwanie swoim kluczem prywatnym i zwraca je klientowi. Teraz klient mo¿e sprawdziæ to¿samoœæ serwera za pomoc¹ jego klucza publicznego. Dziêki temu obie strony wiedz¹, z kim siê komunikuj¹ , tworz¹c bezpieczny (zaszyfrowany) kana³, wymieniaj¹c asymetrycznie zaszyfrowany klucz sesji. W ten sposób atak na tym poziomie protoko³u nie jest mo¿liwy. Mo¿esz przetestowaæ wszystkie poprzednie rozwi¹zanie, ale nie bêdziesz w stanie skrackowaæ protoko³u. Proszê przeprowadziæ ataki na fizyczne i logiczne po³¹czenie do konta. CrypTool mo¿e przeprowadziæ tylko ataki kryptograficzne. Aby uzyskaæ wiêcej informacji na temat wymienionych ataków, zajrzyj do pomocy on-line."
     IDS_dataCaption_Passwort "Haslo:"
     IDS_dataCaption_Einmalpasswort "Aktualne haslo:"
     IDS_dataCaption_geheimerSchluesselClient "Klucz prywatny (klient):"
@@ -19273,7 +19273,7 @@ BEGIN
     ID_HILL_AUTO            "Klartext-Angriff auf eine Hill-Verschlüsselung"
     ID_CRYPT_KeyGen         "Erzeugen eines Schlüsselpaares für verschiedene asymmetrische Verfahren"
     ID_CRYPT_RsaEnc         "Verschlüsselt Datei mit RSA-Algorithmus"
-    ID_CRYPT_RsaDec         "Entschlüsselt eine mit dem RSA-Algorithmus verschlüsselte  Datei"
+    ID_CRYPT_RsaDec         "Entschlüsselt eine mit dem RSA-Algorithmus verschlüsselte Datei"
     ID_CryptMono            "Verschlüsseln durch monoalphabetische Substitution (Atbash ist ein Sonderfall mit festem Schlüssel)"
     ID_CRYPT_SIGN           "Aktives Dokument signieren"
 END
@@ -19428,7 +19428,7 @@ BEGIN
     IDS_STRING_POSSIBLE_PLAINTEXT_OF 
                             "Substitutionsanalyse von <%s>, Schlüssel: <%s>"
     IDS_STRING_MSG_MAX_INPUT_LENGTH_TXT 
-                            "Geben Sie den Schlüssel ein.\nSchlüssellänge maximal  %d Zeichen !"
+                            "Geben Sie den Schlüssel ein.\nSchlüssellänge maximal %d Zeichen!"
     IDS_STRING_ERR_ZIP      "ZIP-Fehler"
     IDS_STRING_MSG_ZIP_COMPRESSION_OF "ZIP-Kompression von <%s>"
     IDS_STRING_ERR_ZIP_FILE "Das von Ihnen eingegebene Geheimnis S ist 1. Das gewählte Geheimnis sollte größer als 1 sein.\nDas Verfahren ist mit diesem Geheimnis nicht sicher, da der ausgehandelte geheime und gemeinsame Schlüssel erratbar ist!\nVergleichen Sie bitte am Ende der Demoden geheimen und gemeinsamen Schlüssel mit dem öffentlichen Generator g bzw. den öffentlichen Teilschlüsseln."
@@ -19741,7 +19741,7 @@ BEGIN
     IDS_STRING_HYBRID_DEC_MSG6 
                             "\r\nDer Session-Key ist die folgende 128 Bit lange Zahl:\r\nSession-Key: "
     IDS_STRING_HYBRID_DEC_MSG7 
-                            "Wenn Sie auf Entschlüsseln klicken, wird\r\n- die Nachricht mit dem Session-Key entschlüsselt und\r\n- die entschlüsselte Nachricht in einem Fenster ausgegeben und\r\n  dieser Dialog geschlossen.\r\n\r\nKlicken Sie auf Entschlüsseln."
+                            "Wenn Sie auf Entschlüsseln klicken, wird\r\n- die Nachricht mit dem Session-Key entschlüsselt und\r\n- die entschlüsselte Nachricht in einem Fenster ausgegeben und\r\n dieser Dialog geschlossen.\r\n\r\nKlicken Sie auf Entschlüsseln."
 END
 
 STRINGTABLE 
@@ -19793,7 +19793,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING_RANGE_DSA_BITLENGTH 
-                            "Für die Bitlänge L der DSA-Primzahl muss gelten:\n\n%d <  L < %d und L teilbar durch 64.\n\nBitte die Bitlänge nochmal eingeben."
+                            "Für die Bitlänge L der DSA-Primzahl muss gelten:\n\n%d < L < %d und L teilbar durch 64.\n\nBitte die Bitlänge nochmal eingeben."
     IDS_STRING_MODUL        "Modul"
     IDS_STRING_EXPONENT     "Exponent"
     IDS_STRING_DSA_SHOW_PUBLIC_PARAMETER 
@@ -19849,7 +19849,7 @@ BEGIN
     IDS_STRING_KEYINPUT_AES_RIJNDAEL "Schlüsseleingabe: Rijndael (AES)"
     IDS_STRING_KEY_INPUT_CAESAR "Schlüsseleingabe: Caesar"
     IDS_STRING_KEY_INPUT_LENGTH 
-                            "Geben Sie den Schlüssel ein. Der Schlüssel ist genau  %d Zeichen lang!"
+                            "Geben Sie den Schlüssel ein. Der Schlüssel ist genau %d Zeichen lang!"
     IDS_STRING_KEY_INPUT_VIGENERE "Schlüsseleingabe: Vigenère"
     IDS_STRING_COLUMN_FREQUENCY "Häufigkeit"
     IDS_STRING_KEY_INPUT_XOR "Schlüsseleingabe: Byteweises XOR"
@@ -19870,7 +19870,7 @@ BEGIN
                             "Die Datei %s kann nicht gefunden werden!\nDer Test kann deshalb nicht ausgeführt werden!"
     IDS_METHOD_KEY          "%s-Schlüssel"
     IDS_STRING_ERR_ONBLOCKLENGTH 
-                            "Die Blocklänge muss aus dem Zahlenbereich 1, ...,  %i sein !"
+                            "Die Blocklänge muss aus dem Zahlenbereich 1, ..., %i sein!"
     IDS_STRING_RSA_TUT_TEXTSEGMENTATION 
                             "Der Eingabetext wird in Blöcke der Länge %i aufgeteilt (das Symbol '#' dient als Trennzeichen)."
     IDS_STRING_RSA_OUTPUT_TEXTSEGMENTATION 
@@ -19914,9 +19914,9 @@ BEGIN
     IDS_STRING_RSA_TUTORIAL_CODING 
                             "Zahlendarstellung der Eingabe zur Basis %i."
     IDS_STRING_RSA_TUTORIAL_ENCRYPTION 
-                            "Verschlüsselung in den Chiffretext  c[i] = m[i]^e (mod N)."
+                            "Verschlüsselung in den Chiffretext c[i] = m[i]^e (mod N)."
     IDS_STRING_RSA_TUTORIAL_DECRYPTION 
-                            "Entschlüsselung in den Klartext  m[i] = c[i]^d (mod N)"
+                            "Entschlüsselung in den Klartext m[i] = c[i]^d (mod N)"
     IDS_STRING_RSATUT_MAXBLOCKLENGTH "(Maximale Blocklänge %i Zeichen)"
     IDS_STRING_RSATUT_INPUTPLAINTEXT "Eingabetext"
     IDS_STRING_RSATUT_INPUT_PLAINTEXT_CODING 
@@ -20219,7 +20219,7 @@ BEGIN
     IDS_PARAM_HOMOPHONE     "Parameter HOMOPHONE"
     IDS_PARAM_RSA_DEMO      "Parameter RSA-DEMO"
     IDS_STRING_RSA_TUTORIAL_INPUT_NUMBERS 
-                            "Eingabe der Nachricht als Zahlen im Format: Zahl(1) # Zahl(2) # ... # Zahl(n)   (Zahlen zur Basis %i)."
+                            "Eingabe der Nachricht als Zahlen im Format: Zahl(1) # Zahl(2) # ... # Zahl(n) (Zahlen zur Basis %i)."
     IDS_RSADEMO_OBTAINED_SIGNATURE 
                             "Die Entschlüsselung (RSA-Exponentiation mit dem öffentlichen Schlüssel e) bestimmt den %s-Hashwert:"
     IDS_RSADEMO_COMPARE_HASHVALUES 
@@ -20406,7 +20406,7 @@ BEGIN
     IDS_STRING_FMT_DAYS     " %4i Tage, %02.2i:%02.2i:%02.2i Stunden."
     IDS_STRING_FMT_SEC      " %2i,%03.3i Sekunden."
     IDS_STRING_RSADEMO_MODUL_KLEIN_NUM 
-                            "Die RSA-Entschlüsselung von Zahlen in Text kann nicht korrekt sein, da die Anzahl der Zeichen im Alphabet\n(hier %i Buchstaben) größer als der RSA-Modul (hier N = %s) ist.\nBitte ändern Sie  in ""Optionen für Alphabet und Zahlensystem..."" das Alphabet oder wählen Sie größere Primzahlen."
+                            "Die RSA-Entschlüsselung von Zahlen in Text kann nicht korrekt sein, da die Anzahl der Zeichen im Alphabet\n(hier %i Buchstaben) größer als der RSA-Modul (hier N = %s) ist.\nBitte ändern Sie im Dialog ""Optionen für Alphabet und Zahlensystem..."" das Alphabet oder wählen Sie größere Primzahlen."
     IDS_CRYPT_RSADEMO_HEADER_ENTERPRIME "Primzahleingabe"
     IDS_CRYPT_RSADEMO_HEADER_GENERATEPRIMES "Primzahlen generieren..."
     IDS_CRYPT_RSADEMO_HEADER_FACTORISERSAMODUL "Faktorisierungsangriff"
@@ -20419,7 +20419,7 @@ BEGIN
     IDS_STRING_PLAYFAIR_ERRMSGALLG 
                             "Bei der Playfair-Analyse kam es zu einem Fehler in der Erstellung des Graphen.\n Position=%d, Buchstabe=%c"
     IDS_STRING_PLAYFAIR_ERRMSG100 
-                            "Fehler bei der Klartextanalyse !\nEine der Tabellen ist übergelaufen:  Position=%d, Buchstabe=%c.\nBitte korrigieren Sie die Eingabe."
+                            "Fehler bei der Klartextanalyse !\nEine der Tabellen ist übergelaufen: Position=%d, Buchstabe=%c.\nBitte korrigieren Sie die Eingabe."
     IDS_STRING_PLAYFAIR_ERRMSG200 
                             "Fehler bei der Klartextanalyse !\nEiner der Nachbarn war schon sicher: Position=%d, Buchstabe=%c.\nBitte korrigieren Sie die Eingabe."
     IDS_STRING_PLAYFAIR_ERRMSG110 
@@ -20487,7 +20487,7 @@ BEGIN
     IDS_STRING_BIG_NUMBER   "Die Demonstration unterstützt nur positive ganze Zahlen der Bitlänge kleiner 8192. Das sind Zahlen mit höchstens 2467 Dezimalstellen."
     IDS_STRING_BIG_RSA_MODUL 
                             "Die Demonstration unterstützt nur positive ganze Zahlen der Bitlänge kleiner 8192.\nDie Bitlänge des von Ihnen erzeugten RSA-Moduls ist größer als 8192. \nBitte wählen Sie die Primzahlen p und q so, dass der RSA-Modul N=p*q kleiner ist als 2^8192."
-    IDS_STRING_INPUT_FALSE  "In diesem Feld wird eine Zahl oder ein Ausdruck erwartet,\naus dem sich ein Zahlenwert berechnen lässt.\nBitte geben Sie einen gültigen Ausdruck ein!\n\nBeispiele:    123, 2^15+1, (2^17-5)^2."
+    IDS_STRING_INPUT_FALSE  "In diesem Feld wird eine Zahl oder ein Ausdruck erwartet,\naus dem sich ein Zahlenwert berechnen lässt.\nBitte geben Sie einen gültigen Ausdruck ein!\n\nBeispiele: 123, 2^15+1, (2^17-5)^2."
     IDS_STRING_FAKTORISATION_NOT_NULL_OR_ONE 
                             "Bitte geben Sie eine positive ganze Zahl größer 1 ein."
     IDS_STRING_MODUL_NOT_PRIME "Der eingegebene Modul P ist keine Primzahl."
@@ -20508,7 +20508,7 @@ BEGIN
     IDS_KEY_PUBLIC          "Öffentlicher Schlüssel: %s\r\n"
     IDS_KEY_PRIVATE         "Privater Schlüssel:     %s\r\n"
     IDS_NOTIFY_NAME         "Bitte geben Sie Ihren Nachnamen ein."
-    IDS_NOTIFY_PIN          "Bitte geben Sie den PIN-Code  ein."
+    IDS_NOTIFY_PIN          "Bitte geben Sie den PIN-Code ein."
     IDS_NOTIFY_PIN_V        "Bitte bestätigen Sie den PIN-Code."
     IDS_CONTENT_ALG         "Hashverfahren"
     IDS_RSA_SIGNATURE_OF    "RSA-Signatur mit %s von <%s>"
@@ -20865,7 +20865,7 @@ BEGIN
     IDS_modeText_ChallengeResponseAsymmetrisch 
                             "Challenge-Response (mit asymmetrischer Verschlüsselung): Dieses Mal wird das Challenge-Response-Verfahren mit asymmetrischer (public key) Verschlüsselung durchgeführt. Jeder Teilnehmer besitzt ein eigenes Schlüsselpaar: den privaten kennt nur der Teilnehmer, den öffentlichen Schlüssel kennt jeder. Zur Authentifizierung wird wieder eine Challenge vom Server an den Client geschickt, der diese dann mit seinem geheimen Schlüssel signiert und das Ergebnis als Response zurückschickt. Jetzt kann jeder, der im Besitz des öffentlichen Schlüssels des Clients ist, also auch der Server, die Response prüfen: Das bedeutet das die Challenge mit dem privaten Schlüssel des Clients signiert wurde.\r\n\r\nTrotzdem, mit einem kleinen Trick kann sich der Angreifer vielleicht doch noch bei Server 1 als Client authentifizieren."
     IDS_modeText_WechselseitigeAuthentifikation 
-                            "Wechselseitige Authentifikation: Dieses Szenario basiert auch auf dem Challenge-Response-Verfahren mit asymmetrischer Verschlüsselung. Diesmal wird es allerdings gleichzeitig in beide Richtungen angewendet. D.h. der Server schickt eine Challenge an den Client, die dieser signiert und mitsamt einer eigenen Challenge an den Server zurückschickt. Nun kann der Server durch den öffentlichen Schlüssel des Clients prüfen, dass die Response nur vom Client stammen kann, da nur dieser den zur Signatur nötigen privaten Schlüssel besitzt. Um auch seine eigene Identität zu beweisen, signiert der Server die Challenge des Clients mit seinem eigenen privaten Schlüssel und schickt dies als seine Response zurück. Jetzt kann im Gegenzug auch der Client mit Hilfe des öffentlichen Schlüssels des Servers prüfen, dass diese Response nur vom Server stammen kann. Somit können sich beide sicher sein, mit wem sie kommunizieren und darauf aufbauend z.B. einen sicheren (verschlüsselten) Kanal etablieren, indem sie einen Session-Key asymmetrisch verschlüsselt austauschen. Dadurch wird ein Angriff auf Protokollebene unmöglich. Sie können alle vorangegangenen Lösungen ausprobieren, dieses Protokoll ist damit nicht zu knacken. Beachten Sie aber, dass es andere Angriffe geben kann -  gegen die verwendeten kryptografischen Verfahren oder gegen die physikalischen und logischen Verbindungen. Angriffe auf kryptografische Verfahren können mit CrypTool ausprobiert werden, zu Angriffen gegen die physikalischen und logischen Verfahren sei auf die Hilfe verwiesen."
+                            "Wechselseitige Authentifikation: Dieses Szenario basiert auch auf dem Challenge-Response-Verfahren mit asymmetrischer Verschlüsselung. Diesmal wird es allerdings gleichzeitig in beide Richtungen angewendet. D.h. der Server schickt eine Challenge an den Client, die dieser signiert und mitsamt einer eigenen Challenge an den Server zurückschickt. Nun kann der Server durch den öffentlichen Schlüssel des Clients prüfen, dass die Response nur vom Client stammen kann, da nur dieser den zur Signatur nötigen privaten Schlüssel besitzt. Um auch seine eigene Identität zu beweisen, signiert der Server die Challenge des Clients mit seinem eigenen privaten Schlüssel und schickt dies als seine Response zurück. Jetzt kann im Gegenzug auch der Client mit Hilfe des öffentlichen Schlüssels des Servers prüfen, dass diese Response nur vom Server stammen kann. Somit können sich beide sicher sein, mit wem sie kommunizieren und darauf aufbauend z.B. einen sicheren (verschlüsselten) Kanal etablieren, indem sie einen Session-Key asymmetrisch verschlüsselt austauschen. Dadurch wird ein Angriff auf Protokollebene unmöglich. Sie können alle vorangegangenen Lösungen ausprobieren, dieses Protokoll ist damit nicht zu knacken. Beachten Sie aber, dass es andere Angriffe geben kann - gegen die verwendeten kryptografischen Verfahren oder gegen die physikalischen und logischen Verbindungen. Angriffe auf kryptografische Verfahren können mit CrypTool ausprobiert werden, zu Angriffen gegen die physikalischen und logischen Verfahren sei auf die Hilfe verwiesen."
     IDS_dataCaption_Passwort "Passwort: "
     IDS_dataCaption_Einmalpasswort "Aktuelles Passwort:  "
     IDS_dataCaption_geheimerSchluesselClient "Private Key (Client): "
@@ -21164,7 +21164,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_CRT_SECRETSHARING_REK9 
-                            "M wird nun aus den gegebenen  Kennungen rekonstruiert:"
+                            "M wird nun aus den gegebenen Kennungen rekonstruiert:"
     IDS_CRT_SECRETSHARING_REK10 
                             "Es wurden ausreichend viele Passwörter eingegeben. s' wird errechnet:"
     IDS_CRT_SECRETSHARING_REK11 
@@ -21208,7 +21208,7 @@ BEGIN
     IDS_MONO_SUBST_AUTO_STATFILE_OPEN_ERROR 
                             "Ein Fehler ist beim Öffnen der Statistikdatei aufgetreten.\nDer Analysevorgang wird abgebrochen."
     IDS_MONO_SUBST_AUTO_FILE_OPEN_ERROR 
-                            "Der  Analysevorgang wird abgebrochen, da ein Fehler beim Öffnen der folgenden Datei aufgetreten ist:\n "
+                            "Der Analysevorgang wird abgebrochen, da ein Fehler beim Öffnen der folgenden Datei aufgetreten ist:\n "
     IDS_MONO_SUBST_AUTO_LANGREC_FAILED 
                             "Die automatische Spracherkennung ist fehlgeschlagen, \nda der eingegebene Text entweder zu kurz ist oder die charakteristischen Eigenschaften \n(Buchstabenhäufigkeiten) nicht eindeutig einer Sprache zuzuordnen sind. \nBitte wählen Sie die Sprache explizit."
     IDS_MONO_SUBST_AUTO_MANUAL_ANALYSIS_NOT_POSS 
@@ -30158,7 +30158,7 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_COMPLETE 
                             "The analysis is complete."
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_INCOMPLETE 
-                            "The analysis was  not completed."
+                            "The analysis was not completed."
 END
 
 STRINGTABLE 
@@ -30916,9 +30916,9 @@ STRINGTABLE
 BEGIN
     IDS_STRING_RSA_TUTORIAL_CODING "Numbers input in base %i format."
     IDS_STRING_RSA_TUTORIAL_ENCRYPTION 
-                            "Encryption into ciphertext  c[i] = m[i]^e (mod N)"
+                            "Encryption into ciphertext c[i] = m[i]^e (mod N)"
     IDS_STRING_RSA_TUTORIAL_DECRYPTION 
-                            "Decryption into plaintext  m[i] = c[i]^d (mod N)"
+                            "Decryption into plaintext m[i] = c[i]^d (mod N)"
     IDS_STRING_RSATUT_MAXBLOCKLENGTH "(Maximum block length %i characters)"
     IDS_STRING_RSATUT_INPUTPLAINTEXT "Input text"
     IDS_STRING_RSATUT_INPUT_PLAINTEXT_CODING 
@@ -31207,7 +31207,7 @@ BEGIN
     IDS_PARAM_HOMOPHONE     "Parameter HOMOPHONE"
     IDS_PARAM_RSA_DEMO      "Parameter RSA-DEMO"
     IDS_STRING_RSA_TUTORIAL_INPUT_NUMBERS 
-                            "Input of the message in the following format:  number(1) # number(2) # ... # number(n)   (number of basis %i)."
+                            "Input of the message in the following format:  number(1) # number(2) # ... # number(n) (number of basis %i)."
     IDS_RSADEMO_OBTAINED_SIGNATURE 
                             "The decryption (RSA exponentation with the public key e) obtains the following %s hash value:"
     IDS_RSADEMO_COMPARE_HASHVALUES 
@@ -31766,7 +31766,7 @@ BEGIN
     IDS_modeText_WechselseitigeAuthentifikation 
                             "Mutual Authentication: This scenario is based upon asymmetric encryption, too. But this time it is used synchronous in both directions. Viz the server sends a challenge to the client, which the client signs and returns to the server with his own challenge. Now the server can verify by the use of the client´s public key that the signed challenge (response from the client) can only derive from the client, because he is the only one with the according private key. To prove his own identity, the server signs the client´s challenge by the use of his private key and returns this to the client. Now, the client can verify the origin of the server´s response by means of the server´s public key. Thus both can be sure to know to whom they talk and basing on that establish a secure (encrypted) channel by exchanging an asymmetrical encrpyted session key.Thus an attack at the level of protocols gets impossible. You can give all previous solutions a try, but you won´t be able to crack that protocol. But please take attacks to crack the encryption or the physical and logical connections into account. Attacking cryptografical methods can be tried with CrypTool. For more information according attacks to the physical or logical operations please see the online help."
     IDS_dataCaption_Passwort "Password: "
-    IDS_dataCaption_Einmalpasswort "Current password:  "
+    IDS_dataCaption_Einmalpasswort "Current password: "
     IDS_dataCaption_geheimerSchluesselClient "Private Key (Client): "
     IDS_dataCaption_oeffentlicherSchluesselClient "Public Key (Client): "
     IDS_dataCaption_geheimerSchluesselServer1 "Private Key (Server): "
@@ -32136,7 +32136,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_CRT_SECRETSHARING_REK9 
-                            "M is now rebuilt from the given  identifiers: "
+                            "M is now rebuilt from the given  identifiers:"
     IDS_CRT_SECRETSHARING_REK10 
                             "Enough passwords have been entered. s' can be calculated now using the chinese remainder theorem:"
     IDS_CRT_SECRETSHARING_REK11 
