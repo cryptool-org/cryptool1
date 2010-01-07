@@ -12,6 +12,9 @@
 #define IDC_PSE_IMPORT                  8
 #define IDC_COPY                        9
 #define IDC_MANUAL                      10
+#define IDC_BUTTON71                    11
+#define IDC_BUTTON72                    12
+#define IDC_BUTTON73                    13
 #define IDC_EDIT53                      53
 #define IDC_EDIT69                      54
 #define IDC_EDIT88                      55
@@ -3286,6 +3289,7 @@
 #define IDS_HMAC_ALGORITHM_RFC2104      62196
 #define IDS_HASHDEMO_SELALGORITHM       62197
 #define IDS_HMAC_SELALGORITHM           62198
+#define IDS_SOLITAIRE_ZULANG            62199
 
 // Next default values for new objects
 // 
