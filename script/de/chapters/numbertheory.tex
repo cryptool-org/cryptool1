@@ -1920,22 +1920,33 @@ bezeichnet.
 \item[{\bf 7.}] Entschlüsselung des Chiffretextes (bzw. seiner Teilstücke) $C \in \{1, \cdots, n-1\}$:
                 $$M = D ( (n, d); C ) := C^d {\rm ~mod~} n.$$
 \end{itemize}
-Die Zahlen $d, e, n$ sind normalerweise sehr groß (z.B. $d$ und $e$ $300$ Bit, $n$ $600$ Bit).
+Die Zahlen $d, e, n$ sind normalerweise sehr groß (z.B. sind $d$ und $e$ $300$ bit,
+und $n$ $600$ bit lang).
 
+\vskip +10pt
 \begin{remark}{:}\\
 Die Sicherheit des RSA-Verfahrens hängt wie bei allen Public-Key-Verfahren davon ab,
 dass man den privaten Key $d$ nicht aus  dem öffentlichen Key $(n,e)$ berechnen kann.
 \end{remark}
 
-\noindent Beim RSA-Verfahren bedeutet dies, dass
+\noindent Beim RSA-Verfahren bedeutet dies,
 \begin{enumerate}
-  \item $J(n)$ für große zusammengesetzte $n$ schwer zu berechnen ist, und
-  \item  $n$ für große $n$ nur schwer in seine Primfaktoren zerlegt werden kann (Faktorisierungsproblem).
+  \item dass $J(n)$ für große zusammengesetzte $n$ schwer zu berechnen ist, und
+  \item dass $n$ für große $n$ nur schwer in seine Primfaktoren zerlegt werden kann
+        (Faktorisierungsproblem).%
+\footnote{%
+    Für die manchmal geäußerte Sorge, dass es nicht genug Primzahlen gäbe, besteht
+    kein Grund: Dass es immer ausreichend Primzahlen gibt, wenn man die Dimension
+    (Exponenten) des Moduls hochsetzt, wird visualisiert in
+    Kapitel~\ref{primes:_Appendix_Plotting-Primes-Quantity}
+    ``\nameref{primes:_Appendix_Plotting-Primes-Quantity}''.
+}
 \index{Faktorisierung!Faktorisierungsproblem}
 \end{enumerate}
 
 
 % --------------------------------------------------------------------------
+\vskip +10pt
 \hypertarget{RSAproof}{}
 \subsection{Beweis der Forderung 1 (Umkehrbarkeit)}
 \label{RSAproof}

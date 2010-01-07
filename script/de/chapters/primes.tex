@@ -4,9 +4,9 @@
 % /~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 \newpage
-\hypertarget{Kapitel_2}{}
+% \hypertarget{Kapitel_2}{}
 \chapter{Primzahlen}
-\label{Label_Kapitel_2}  %Die Kapitelnr. von \label wird per per \ref geholt.
+\label{Label_Kapitel_Primes}  %Die Kapitelnr. von \label wird per per \ref geholt.
 (Bernhard Esslinger, Mai 1999; Updates: Nov. 2000, Dez. 2001, Juni 2003, Mai 2005, März 2006, Juni 2007, Januar 2010)
 
 \begin{center}
@@ -1219,7 +1219,8 @@ $$
 \label{L-Polynomfunktion02-1601}   \label{SrcPrimArith1}
    Diese Funktion liefert für die Werte $n=0$ bis $n=79$ stets
    Primzahlwerte\footnote{%
-   In \hyperlink{Primes_Appendix_A}{Anhang A zu diesem Kapitel} finden Sie den
+   In Kapitel~\ref{primes:_Appendix_Sage-Samples} ``\nameref{primes:_Appendix_Sage-Samples}''
+   finden Sie den
    Quellcode zur Berechnung der Tabelle mit Sage\index{Sage}.}.
    Leider ergibt $f(80) = 1.681 = 11 \cdot 151$ keine Primzahl. Bis heute
    kennt man keine Funktion, die mehr aufeinanderfolgende Primzahlen annimmt.
@@ -1229,8 +1230,8 @@ $$
    die Funktion aus Kapitel~\ref{L-Polynomfunktion01-41} liefert)\footnote{%
    Ein weiteres quadratisches Polynom, das dieselben Primzahlen liefert, ist: 
    $f(n) = n^2 - 9 \cdot n + 61$.\\ Unter den ersten 1000 Folgengliedern dieser
-   Funktion sind über 50\% prim (vgl. \hyperlink{Primes_Appendix_A}{Anhang A zu diesem
-   Kapitel}).}.
+   Funktion sind über 50\% prim (vgl. Kapitel~\ref{primes:_Appendix_Sage-Samples}
+   ``\nameref{primes:_Appendix_Sage-Samples}'').}.
 
 $$
 \begin{array}{| ll       || ll |}
@@ -1474,7 +1475,13 @@ $PI(x)$ lässt sich leicht per
 bestimmen.
 
 
-Die \textbf{Verteilung} der Primzahlen weist viele
+Die \textbf{Verteilung} der Primzahlen%
+\footnote{%
+    Einige Visualisierungen (Plots) zur Menge von Primzahlen in verschiedenen
+    Zahlendimensionen finden Sie in
+    Kapitel~\ref{primes:_Appendix_Plotting-Primes-Quantity}
+    ``\nameref{primes:_Appendix_Plotting-Primes-Quantity}''.
+} weist viele
 Unregelmäßigkeiten auf, für die bis heute kein \glqq System''
 gefunden wurde: Einerseits liegen viele eng benachbart wie $2$ und
 $3,$ $ 11$ und $13, $ $ 809$ und $811$, andererseits tauchen auch
@@ -1531,7 +1538,7 @@ Zahlen enthalten.
 
 
 \paragraph{Weitere interessante Themen rund um Primzahlen} \mbox{}\\
-In diesem Kapitel \ref{Label_Kapitel_2} wurden weitere, eher zahlentheoretische 
+In diesem Kapitel \ref{Label_Kapitel_Primes} wurden weitere, eher zahlentheoretische 
 Themen wie Teilbarkeitsregeln, Modulo-Rechnung, modulare Inverse, modulare Potenzen
 und Wurzeln, chinesischer Restesatz, Eulersche Phi-Funktion und perfekte Zahlen
 nicht betrachtet. Auf einige dieser Themen geht das \hyperlink{Chapter_ElementaryNT}
@@ -2264,20 +2271,42 @@ for e in E:
 % ---------------------------------------------------------------------------
 % ---------------------------------------------------------------------------
 \newpage
-\hypertarget{Primes_Appendix_A}{}
+\hypertarget{primes:_Appendix_Plotting-Primes-Quantity}{}
+\section{Anhang: Grafische Veranschaulichung zur Anzahl von Primzahlen in hohen Bereichen}
+\label{primes:_Appendix_Plotting-Primes-Quantity}
+\index{Sage!Programmbeispiele}
+\index{Sage}
+
+\noindent xxxxxxxxxxx
+
+% ---------------------------------------------------------------------------
+% \newpage
+\subsection{xxxxxxxxxx}
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+
+
+
+% ---------------------------------------------------------------------------
+% ---------------------------------------------------------------------------
+\newpage
+\hypertarget{primes:_Appendix_Sage-Samples}{}
 \section{Anhang: Beispiele mit Sage}
 % \section*{Appendix A: Beispiele mit Sage}
 % \addcontentsline{toc}{section}{Appendix A: Beispiele mit Sage}
-\label{Primes_Sage_samples}
+\label{primes:_Appendix_Sage-Samples}
 \index{Sage!Programmbeispiele}
 \index{Sage}
 
 \noindent Der folgende Abschnitt enthält Sage Source-Code zu den Inhalten aus
-Kapitel~\ref{Label_Kapitel_2} (\glqq \nameref{Label_Kapitel_2}\grqq).
+Kapitel~\ref{Label_Kapitel_Primes} (\glqq \nameref{Label_Kapitel_Primes}\grqq).
 
 % ---------------------------------------------------------------------------
 % \newpage
 \subsection{Primalitäts-Check der von einer quadratischen Funktion erzeugten Zahlen}
+\index{Sage}
 
 In diesem Anhang finden Sie den Quellcode für Sage, mit dem man
 z.B.\ prüfen kann, ob die von der Funktion $f(n) = n^2 - 9n + 61$ 

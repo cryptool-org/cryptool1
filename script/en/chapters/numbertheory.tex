@@ -1773,6 +1773,7 @@ In CrypTool\index{CrypTool} the RSA modulo is denoted with a capital ``$N$'' .}.
 The numbers $d, e$ and $n$ are usually extremely large (e.~g.\ $d$ and
 $e$ $300$ bits, $n$ $600$ bits).\\
 
+\vskip +10pt
 \begin{remark}{:}\\
 The security of the RSA algorithm depends as with all public key methods
 on the difficulty to calculate the private key $d$ from the public key $(n,e)$.
@@ -1783,12 +1784,21 @@ on the difficulty to calculate the private key $d$ from the public key $(n,e)$.
 \begin{enumerate}
   \item It is hard to calculate $J(n)$ for big compounds $n$ and
   \item It is hard to calculate the prime factors of big compounds $n$
-        \index{Factorization!factorization problem}.
+        (factorization problem).%
+\footnote{%
+    There is no reason for the concern sometimes mentioned that there are
+    not enough primes: Raising the dimension (exponent) of the modul always
+    offers enough primes to consider -- this is visualized in
+    chapter~\ref{primes:_Appendix_Plotting-Primes-Quantity}
+    ``\nameref{primes:_Appendix_Plotting-Primes-Quantity}''.
+}
+\index{Factorization!factorization problem}.
 \end{enumerate}
 \vskip +1em
 
 
 % --------------------------------------------------------------------------
+\vskip +10pt
 \hypertarget{RSAproof}{}
 \subsection{Proof of requirement 1 (invertibility)}
 \label{RSAproof}
