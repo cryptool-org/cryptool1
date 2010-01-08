@@ -1,23 +1,3 @@
-/**************************************************************************
-
-  Copyright [2009] [CrypTool Team]
-
-  This file is part of CrypTool.
-
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-      http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-
-**************************************************************************/
-
 // DlgSolitaire.cpp : Implementierungsdatei
 //
 
@@ -28,6 +8,8 @@
 #include "FileTools.h"
 #include "CrypToolTools.h"
 #include "KeyRepository.h"
+#include "DialogeMessage.h"
+#include "assert.h"
 
 
 // CDlgSolitaire-Dialogfeld
@@ -36,15 +18,17 @@ IMPLEMENT_DYNAMIC(CDlgSolitaire, CDialog)
 
 CDlgSolitaire::CDlgSolitaire(char* infile, CString oldTitle,CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgSolitaire::IDD, pParent)
-	, kartenanzahl(54)
+	, kartenanzahl(51)
 	, InitialDeck(_T(""))
-	, InitialArt(0)
+	, InitialArt(_T("Aufsteigend"))
 	, m_passwort1(_T(""))
 	, endDeck(_T(""))
 	, key_edit(_T(""))
+	, edit_zaehler_value(0)
+	, edit_schl_zeichen(0)
 {
-	
-	myD = new Deck(kartenanzahl);
+	kartenanzahlneu=kartenanzahl+3;
+	myD = new Deck(kartenanzahlneu);
 
 	InitialDeck = myD->getDeck(); 
 	this->infile = infile;
@@ -53,7 +37,6 @@ CDlgSolitaire::CDlgSolitaire(char* infile, CString oldTitle,CWnd* pParent /*=NUL
 
 CDlgSolitaire::~CDlgSolitaire()
 {
-	
 }
 
 void CDlgSolitaire::DoDataExchange(CDataExchange* pDX)
@@ -62,7 +45,7 @@ void CDlgSolitaire::DoDataExchange(CDataExchange* pDX)
 	DDX_CBIndex(pDX, IDC_Kartenanzahl, kartenanzahl);
 
 	DDX_Text(pDX, IDC_EDIT1, InitialDeck);
-	DDX_CBIndex(pDX, IDC_COMBO2, InitialArt);
+	DDX_CBString(pDX, IDC_COMBO2, InitialArt);
 	DDX_Control(pDX, IDC_BUTTON9, vorgabe1);
 	DDX_Control(pDX, IDC_BUTTON10, vorgabe2);
 	DDX_Control(pDX, IDC_BUTTON11, vorgabe3);
@@ -135,6 +118,14 @@ void CDlgSolitaire::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_BUTTON65, m_abschlussspeichern);
 	DDX_Control(pDX, IDC_BUTTON66, verschl);
 	DDX_Control(pDX, IDC_BUTTON68, entschl);
+	DDX_Text(pDX, IDC_EDIT5, edit_zaehler_value);
+	DDX_Control(pDX, IDC_BUTTON69, m_rest_generate);
+	DDX_Control(pDX, IDC_EDIT5, m_edit_rest_generate);
+	DDX_Control(pDX, IDC_BUTTON70, m_anderemischung);
+	DDX_Text(pDX, IDC_EDIT6, edit_schl_zeichen);
+	DDX_Control(pDX, IDC_EDIT6, m_edit_schl);
+	DDX_Control(pDX, IDC_BUTTON72, m_keystream_save_button);
+	DDX_Control(pDX, IDC_COMBO2, m_ctrlComboSelCards);
 }
 
 BOOL CDlgSolitaire::OnInitDialog()
@@ -142,29 +133,31 @@ BOOL CDlgSolitaire::OnInitDialog()
 	CDialog::OnInitDialog();
 	enableVorgabe(false);
 	myD->readPlaintext(infile);
-	if ((myD->plaintext=="")||(myD->plaintext.GetLength()>15000))
+	
+	// Leere Nachricht ist nicht erlaubt
+	if (myD->plaintext=="")
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_1,pc_str,STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str);	
 		this->EndDialog(1);
 	}
-
+	
+	// schneidet die Zeichen nach 65.535 ab.
+	if(myD->plaintext.GetLength()>65535)
+	{
+		myD->plaintext.Delete(65535,myD->plaintext.GetLength()-65535);
+		LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_ZULANG,pc_str,STR_LAENGE_STRING_TABLE);
+		MessageBox(pc_str,"Solitaire Ver-/Entschlüsselung");
+	}
+	
 	CString Title;
 	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_SOLITAIRE,pc_str,STR_LAENGE_STRING_TABLE);
 	Title = pc_str;
 	VERIFY(m_Paste.AutoLoad(IDC_PASTE_KEY,this));
 	if ( IsKeyEmpty( Title ))
-	{
 		m_Paste.EnableWindow(TRUE);
-	}
 	else
-	{
 		m_Paste.EnableWindow(FALSE);
-	}
-
-	CString tmpStr;
-	tmpStr.Format(IDS_TITLE_DLG_SOLITAIRE, oldTitle);
-	this->SetWindowText(tmpStr);
 
 	return TRUE;  // Geben Sie TRUE zurück, außer ein Steuerelement soll den Fokus erhalten
 }
@@ -243,7 +236,10 @@ BEGIN_MESSAGE_MAP(CDlgSolitaire, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON68, OnBnClickedButton68)
 	ON_EN_CHANGE(IDC_EDIT2, OnEnChangeEdit2)
 	ON_BN_CLICKED(IDC_PASTE_KEY, OnPasteKey)
-
+	ON_BN_CLICKED(IDC_BUTTON69, OnBnClickedButton69)
+	ON_BN_CLICKED(IDC_BUTTON71, OnBnClickedButton71)
+	ON_BN_CLICKED(IDC_BUTTON70, OnBnClickedButton70)
+	ON_BN_CLICKED(IDC_BUTTON72, OnBnClickedButton72)
 END_MESSAGE_MAP()
 
 // BEGIN_DHTML_EVENT_MAP(CDlgSolitaire)
@@ -326,26 +322,30 @@ void CDlgSolitaire::initdrei()
 
 void CDlgSolitaire::OnCbnSelchangeKartenanzahl()
 {
-	
 	UpdateData(true);
+	kartenanzahlneu= kartenanzahl+3;
 	m_passwort.EnableWindow(true);
 	m_passwort_button.EnableWindow(true);
 	m_abschlussspeichern.EnableWindow(false);
 	m_inispeichern.EnableWindow(false);
 	zaehler=0;
 	enableVorgabe(false);
+	m_anderemischung.EnableWindow(true);
 	initdrei();
 	verschl.EnableWindow(false);
 	entschl.EnableWindow(false);
+	m_edit_rest_generate.ShowWindow(0);
+	m_edit_schl.ShowWindow(0);
 	endDeck="";
 	key_edit="";
+	/*
 	if (kartenanzahl<3)
 	{
 		 kartenanzahl=3;
 		 if (myD) delete myD; // FIXME
 		 myD = new Deck(kartenanzahl);
 		 InitialDeck = myD->getDeck();	
-		 InitialArt = 0;
+		 InitialArt = "aufsteigend";
 		 if(kartenanzahl<26)
 	{
 		m_passwort.EnableWindow(false);
@@ -354,26 +354,33 @@ void CDlgSolitaire::OnCbnSelchangeKartenanzahl()
 		LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_2,pc_str,STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str);	
 	}
-	else
-	{
+	*/
+	//else
+	//{
 		if (myD) delete myD; // FIXME
-		myD = new Deck(kartenanzahl);
+		myD = new Deck(kartenanzahlneu);
 		//hier wird der Klartext noch einmal gelesen, da ein neues Deck erstellt wurde
 		myD->readPlaintext(infile);
+		
+			// schneidet die Zeichen nach 65.535 ab.
+		if(myD->plaintext.GetLength()>65535)
+		{
+		myD->plaintext.Delete(65535,myD->plaintext.GetLength()-65535);
+		}
+
 		InitialDeck = myD->getDeck();	
-		InitialArt = 0;
-		if(kartenanzahl<26)
+		InitialArt = "aufsteigend";
+		if(kartenanzahlneu<26)
 		{
 			m_passwort.EnableWindow(false);
 			m_passwort_button.EnableWindow(false);
 		}
 		UpdateData(false);
-	}
-	
+	//}
 }
 
 
-void CDlgSolitaire::SetDeckSelectioMethod(int method)
+void CDlgSolitaire::SetDeckSelectioMethod(CString &method)
 {
 	initdrei();
 	endDeck="";
@@ -383,65 +390,82 @@ void CDlgSolitaire::SetDeckSelectioMethod(int method)
 	zaehler=0;
 	m_abschlussspeichern.EnableWindow(false);
 	m_inispeichern.EnableWindow(false);
+	
 	m_passwort.EnableWindow(true);
 	m_passwort_button.EnableWindow(true);
-
-	// aufsteigend sortiertes Deck
-	if (method==0)
+	if(kartenanzahlneu<26)
 	{
+		m_passwort.EnableWindow(false);
+		m_passwort_button.EnableWindow(false);
+	}
+
+	int sel = m_ctrlComboSelCards.GetCurSel();
+	switch ( sel )
+	{
+	case 0: // AUFSTEIGEND
 		myD->aufsteigend();
 		InitialDeck = myD->getDeck();
 		enableVorgabe(false);
-	}
-	// absteigend sortiertes Deck
-	else if (method==1)
-	{
+		m_anderemischung.EnableWindow(true);
+		break;
+	case 1: // ABSTEIGEND
 		myD->absteigend();
 		InitialDeck = myD->getDeck();
 		enableVorgabe(false);
-	}
-	//gemischtes Deck
-	else if(method==2)
-	{
+		m_anderemischung.EnableWindow(true);
+		break;
+	case 2: // GEMISCHT
 		myD->mischen();
 		InitialDeck = myD->getDeck();
 		enableVorgabe(false);
-	}
-	// nach Vorgabe initialisiertes Deck
-	else if (method==3)
-	{
+		m_anderemischung.EnableWindow(true);
+		break;
+	case 3: // NACH VORGABE
 		zaehler=0;
 		vorgabe="";
 		InitialDeck = "";
 		enableVorgabe(true);
+		m_anderemischung.EnableWindow(false);
 		vorgabesetzen();
 		m_manuell_button.EnableWindow(false);
 		m_auto_button.EnableWindow(false);
-	}
-	// Initialdeck aus Datei lesen
-	else if (method==4)
-	{
-		CString file = tempdir(INIDECKFILE);
-		if (!myD->inideckladen(file)) {
-			fehlermelden(IDS_STRING_ERROR,IDS_CT_FILE_OPEN_ERROR,file);
-			return;
-		}
-		kartenanzahl=myD->anzahl;
+		m_passwort.EnableWindow(false);
+		m_passwort_button.EnableWindow(false);
+		break;
+	case 4: // INITIALDECK LADEN
+		myD->inideckladen();
+
+		kartenanzahl=myD->anzahl-3;
+		kartenanzahlneu=kartenanzahl+3;
 		InitialDeck= myD->getDeck();
 		enableVorgabe(false);
-				
-	}
-	// Abschlussdeck aus Datei lesen
-	else if (method==5)
-	{
-		CString file = tempdir(FINALDECKFILE);
-		if (!myD->abschlussdeckladen(file)) {
-			fehlermelden(IDS_STRING_ERROR,IDS_CT_FILE_OPEN_ERROR,file);
-			return;
+		m_anderemischung.EnableWindow(true);
+		m_passwort.EnableWindow(true);
+		m_passwort_button.EnableWindow(true);
+		if(kartenanzahlneu<26)
+		{
+			m_passwort.EnableWindow(false);
+			m_passwort_button.EnableWindow(false);
 		}
-		kartenanzahl=myD->anzahl;
+		break;
+	case 5: // ABSCHLUSSDECK LADEN
+		myD->abschlussdeckladen();
+		kartenanzahl=myD->anzahl-3;
+		kartenanzahlneu=kartenanzahl+3;
 		InitialDeck= myD->getDeck();
-		enableVorgabe(false);				
+		enableVorgabe(false);
+		m_anderemischung.EnableWindow(true);
+		m_passwort.EnableWindow(true);
+		m_passwort_button.EnableWindow(true);
+		if(kartenanzahlneu<26)
+		{
+			m_passwort.EnableWindow(false);
+			m_passwort_button.EnableWindow(false);
+		}
+		break;
+	default:
+		assert(false);
+		break;
 	}
 }
 
@@ -449,6 +473,8 @@ void CDlgSolitaire::OnCbnSelchangeCombo2()
 {
 	UpdateData();
 	SetDeckSelectioMethod(InitialArt);
+	m_edit_rest_generate.ShowWindow(0);
+	m_edit_schl.ShowWindow(0);
 	UpdateData(FALSE);
 }
 
@@ -456,31 +482,31 @@ void CDlgSolitaire::OnCbnSelchangeCombo2()
 /*Auswahl-Buttons 2-3*/
 void CDlgSolitaire::OnBnClickedButton2()
 {
+	m_auto_button.EnableWindow(false);
 	m_manuell_button.EnableWindow(false);
 	myD->deck2tempini();
+	
+	for(int i=0;i<myD->plaintext.GetLength();i++)
+	 {
+		 myD->schritt1();
+		 myD->schritt2();
+		 myD->schritt3();
+		 myD->schritt4();
+		 myD->key[i] = myD->schritt5ohneJokerAusgabe();
+	 }
+	//myD->keyUmrechnen();
+	endDeck = myD->getDeck();
+	key_edit = myD->getKey();
 	m_abschlussspeichern.EnableWindow(true);
 	m_inispeichern.EnableWindow(true);
-	for(int i=0;i<myD->plaintext.GetLength();i++)
-			 {
-			 myD->schritt1();
-			 myD->schritt2();
-			 myD->schritt3();
-			 myD->schritt4();
-			 myD->key[i]=myD->schritt5ohneJokerAusgabe();
-			 }
-			 //myD->keyUmrechnen();
-			 endDeck = myD->getDeck();
-			 key_edit = myD->getKey();
-			 verschl.EnableWindow(true);
-			 entschl.EnableWindow(true);
-			 m_passwort.EnableWindow(false);
-			 m_passwort_button.EnableWindow(false);
-			 
-			
-			 
-			 UpdateData(false);
-
-	
+	verschl.EnableWindow(true);
+	entschl.EnableWindow(true);
+	m_passwort.EnableWindow(false);
+	m_passwort_button.EnableWindow(false);
+	m_edit_rest_generate.ShowWindow(0);
+	m_edit_schl.ShowWindow(0);
+	m_keystream_save_button.EnableWindow(true);	
+	UpdateData(false);
 }
 
 void CDlgSolitaire::OnBnClickedButton3()
@@ -492,12 +518,20 @@ void CDlgSolitaire::OnBnClickedButton3()
 	m_auto_button.EnableWindow(false);
 	m_passwort.EnableWindow(false);
 	m_passwort_button.EnableWindow(false);
+	/*
 	m_schritt1.EnableWindow(true);
 	m_schritt2.EnableWindow(true);
 	m_schritt3.EnableWindow(true);
 	m_schritt4.EnableWindow(true);
 	m_schritt5.EnableWindow(true);
+	*/
 	endDeck= myD->getDeck();
+	edit_zaehler_value = myD->plaintext.GetLength();
+	edit_schl_zeichen = myD->plaintext.GetLength();
+	m_edit_schl.ShowWindow(1);
+	m_schritt1.EnableWindow(true);
+	m_rest_generate.EnableWindow(true);
+	m_edit_rest_generate.ShowWindow(1);
 	UpdateData(false);
 
 }
@@ -511,6 +545,10 @@ void CDlgSolitaire::OnBnClickedButton4()
 	m_manuell_button.EnableWindow(false);
 	myD->schritt1();
 	endDeck = myD->getDeck();
+	m_schritt2.EnableWindow(true);
+	m_schritt1.EnableWindow(false);
+	m_rest_generate.EnableWindow(false);
+	
 	UpdateData(false);
 }
 
@@ -519,6 +557,8 @@ void CDlgSolitaire::OnBnClickedButton5()
 	m_manuell_button.EnableWindow(false);
 	myD->schritt2();
 	endDeck = myD->getDeck();
+	m_schritt3.EnableWindow(true);
+	m_schritt2.EnableWindow(false);
 	UpdateData(false);
 }
 
@@ -527,6 +567,8 @@ void CDlgSolitaire::OnBnClickedButton6()
 	m_manuell_button.EnableWindow(false);
 	myD->schritt3();
 	endDeck = myD->getDeck();
+	m_schritt4.EnableWindow(true);
+	m_schritt3.EnableWindow(false);
 	UpdateData(false);
 }
 
@@ -535,6 +577,8 @@ void CDlgSolitaire::OnBnClickedButton7()
 	m_manuell_button.EnableWindow(false);
 	myD->schritt4();
 	endDeck = myD->getDeck();
+	m_schritt5.EnableWindow(true);
+	m_schritt4.EnableWindow(false);
 	UpdateData(false);
 }
 
@@ -545,6 +589,11 @@ void CDlgSolitaire::OnBnClickedButton8()
 	//myD->keyUmrechnen();
 	key_edit = myD->getKeyChar(zaehler1);
 	zaehler1++;
+	m_schritt1.EnableWindow(true);
+	m_schritt5.EnableWindow(false);
+	m_rest_generate.EnableWindow(true);
+	endDeck = myD->getDeck();
+	edit_zaehler_value--;
 	if (zaehler1==myD->plaintext.GetLength()+1)
 	{
 		verschl.EnableWindow(true);
@@ -555,11 +604,12 @@ void CDlgSolitaire::OnBnClickedButton8()
 		m_schritt4.EnableWindow(false);
 		m_schritt5.EnableWindow(false);
 		m_manuell_button.EnableWindow(false);
+		m_rest_generate.EnableWindow(false);
 		UpdateData(false);
 		LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_3,pc_str,STR_LAENGE_STRING_TABLE);
-		MessageBox(pc_str);			
+		MessageBox(pc_str);	
+		m_keystream_save_button.EnableWindow(true);
 	}
-	endDeck = myD->getDeck();
 	UpdateData(false);
 }
 /*Schritt 1-5 Buttons*/
@@ -567,1425 +617,103 @@ void CDlgSolitaire::OnBnClickedButton8()
 
 
 /*nach Vorgabe-Buttons 9-62*/
-void CDlgSolitaire::OnBnClickedButton9()
+void CDlgSolitaire::DoCard( int k, CButton &button )
 {
-			if(1>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);		
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)1;
-			 vorgabe += "1,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe1.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
+	if ( k > kartenanzahlneu )
+		Message(IDS_SOLITAIRE_MESSAGE_5, MB_ICONSTOP);
+	else
+	{
+		char tmpStr[12];
+		_itoa(k, tmpStr, 10);
+		vorgabe += CString(tmpStr) + ',';
+		myD->deck[zaehler]=(char)k;
+		InitialDeck= myD->getDeckChar(zaehler+1); 
+		UpdateData(false);
+		zaehler++;
 
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-			 
-}
-
-void CDlgSolitaire::OnBnClickedButton10()
-{
-			if(2>kartenanzahl)
-			 {
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);		 				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)2;
-			 
-			 vorgabe += "2,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe2.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				 m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton11()
-{
-	if(3>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);		
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)3;
-			 
-			 vorgabe += "3,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe3.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton12()
-{
-		if(4>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);		
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)4;
-			 
-			 vorgabe += "4,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe4.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton13()
-{
-	if(5>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);		
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)5;
-			 
-			 vorgabe += "5,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe5.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton14()
-{
-	if(6>kartenanzahl)
-			 {
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)6;
-			 
-			 vorgabe += "6,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe6.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton15()
-{
-	if(7>kartenanzahl)
-			 {
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)7;
-			 
-			 vorgabe += "7,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			
-			 vorgabe7.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 } UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton16()
-{
-	if(8>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)8;
-			 
-			 vorgabe += "8,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe8.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton17()
-{
-	if(9>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)9;
-			 
-			 vorgabe += "9,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			
-			 vorgabe9.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 } UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton18()
-{
-	if(10>kartenanzahl)
-			 {
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)10;
-			 
-			 vorgabe += "10,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe10.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton19()
-{
-	if(11>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)11;
-			 
-			 vorgabe += "11,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe11.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton20()
-{
-	if(12>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)12;
-			 
-			 vorgabe += "12,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe12.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton21()
-{
-	if(13>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)13;
-			 
-			 vorgabe += "13,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe13.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton22()
-{
-	if(14>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)14;
-			 
-			 vorgabe += "14,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe14.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton23()
-{
-	if(15>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)15;
-			 
-			 vorgabe += "15,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			
-			 vorgabe15.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 } UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton24()
-{
-	if(16>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)16;
-			 
-			 vorgabe += "16,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe16.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton25()
-{
-	if(17>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)17;
-			 
-			 vorgabe += "17,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe17.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton26()
-{
-	if(18>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)18;
-			 
-			 vorgabe += "18,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe18.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton27()
-{
-	if(19>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)19;
-			 
-			 vorgabe += "19,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe19.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton28()
-{
-	if(20>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)20;
-			 
-			 vorgabe += "20,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe20.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton29()
-{
-	if(21>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)21;
-			 
-			 vorgabe += "21,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe21.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton30()
-{
-	if(22>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)22;
-			 
-			 vorgabe += "22,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe22.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton31()
-{
-	if(23>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)23;
-			 
-			 vorgabe += "23,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe23.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton32()
-{
-	if(24>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)24;
-			 
-			 vorgabe += "24,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe24.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton33()
-{
-	if(25>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)25;
-			 
-			 vorgabe += "25,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe25.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton34()
-{
-	if(26>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)26;
-			 
-			 vorgabe += "26,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe26.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton35()
-{
-	if(27>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)27;
-			 
-			 vorgabe += "27,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe27.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton36()
-{
-	if(28>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)28;
-			 
-			 vorgabe += "28,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe28.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton37()
-{
-	if(29>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)29;
-			 
-			 vorgabe += "29,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe29.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton38()
-{
-	if(30>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)30;
-			 
-			 vorgabe += "30,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe30.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton39()
-{
-	if(31>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)31;
-			 
-			 vorgabe += "31,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe31.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton40()
-{
-	if(32>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)32;
-			 
-			 vorgabe += "32,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe32.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton41()
-{
-	if(33>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)33;
-			 
-			 vorgabe += "33,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe33.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton42()
-{
-	if(34>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)34;
-			 
-			 vorgabe += "34,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe34.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton43()
-{
-	if(35>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)35;
-			 
-			 vorgabe += "35,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe35.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton44()
-{
-	if(36>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)36;
-			 
-			 vorgabe += "36,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe36.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton45()
-{
-	if(37>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)37;
-			 
-			 vorgabe += "37,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe37.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton46()
-{
-	if(38>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)38;
-			 
-			 vorgabe += "38,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe38.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton47()
-{
-	if(39>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)39;
-			 
-			 vorgabe += "39,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe39.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton48()
-{
-	if(40>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)40;
-			 
-			 vorgabe += "40,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe40.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton49()
-{
-	if(41>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)41;
-			 
-			 vorgabe += "41,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe41.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton50()
-{
-	if(42>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)42;
-			 
-			 vorgabe += "42,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe42.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton51()
-{
-	if(43>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)43;
-			 
-			 vorgabe += "43,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe43.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton52()
-{
-	if(44>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)44;
-			 
-			 vorgabe += "44,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe44.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton53()
-{
-	if(45>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)45;
-			 
-			 vorgabe += "45,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe45.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton54()
-{
-	if(46>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)46;
-			 
-			 vorgabe += "46,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe46.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton55()
-{
-	if(47>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)47;
-			 
-			 vorgabe += "47,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe47.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton56()
-{
-	if(48>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)48;
-			 
-			 vorgabe += "48,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 UpdateData(false);
-			 vorgabe48.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }
-			 UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton57()
-{
-	if(49>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)49;
-			 
-			 vorgabe += "49,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 vorgabe49.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }
-			 UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton58()
-{
-	if(50>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)50;
-			 
-			 vorgabe += "50,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 vorgabe50.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }
-			 UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton59()
-{
-	if(51>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)51;
-			 
-			 vorgabe += "51,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe51.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }
-			 UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton60()
-{
-	if(52>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)52;
-			 
-			 vorgabe += "52,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe52.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }
-			 UpdateData(false);
-			 }
+		button.EnableWindow(false);
+		if(zaehler >= kartenanzahlneu)
+		{
+			m_manuell_button.EnableWindow(true);
+			m_auto_button.EnableWindow(true);
+			Message(IDS_SOLITAIRE_MESSAGE_4, MB_ICONINFORMATION);
+			m_anderemischung.EnableWindow(true); 
+			m_reset_button.EnableWindow(false);
+			if(kartenanzahlneu>25)
+			{
+				m_passwort.EnableWindow(true); 
+				m_passwort_button.EnableWindow(true);
+			} 
+		}
+		UpdateData(false);
+	}
 }
 
 
-void CDlgSolitaire::OnBnClickedButton61()
-{
-	if(53>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-				 
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)53;
-			 
-			 vorgabe += "53,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe53.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }
-			 UpdateData(false);
-			 }
-}
-
-void CDlgSolitaire::OnBnClickedButton62()
-{
-	if(54>kartenanzahl)
-			 {
-				 LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_5,pc_str,STR_LAENGE_STRING_TABLE);
-				 MessageBox(pc_str);
-			 }
-			 else{
-			 myD->deck[zaehler]=(char)54;
-			 
-			 vorgabe += "54,";
-			 InitialDeck= myD->getDeckChar(zaehler+1);
-			 zaehler++;
-			 
-			 vorgabe54.EnableWindow(false);
-			 if(zaehler >= kartenanzahl)
-			 {
-				m_manuell_button.EnableWindow(true);
-				m_auto_button.EnableWindow(true);
-				LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_4,pc_str,STR_LAENGE_STRING_TABLE);
-				MessageBox(pc_str);	
-			 }
-			 UpdateData(false);
-			 }
-}
+void CDlgSolitaire::OnBnClickedButton9()  {	DoCard(1,  vorgabe1); }
+void CDlgSolitaire::OnBnClickedButton10() {	DoCard(2,  vorgabe2); }
+void CDlgSolitaire::OnBnClickedButton11() { DoCard(3,  vorgabe3); }
+void CDlgSolitaire::OnBnClickedButton12() {	DoCard(4,  vorgabe4); }
+void CDlgSolitaire::OnBnClickedButton13() {	DoCard(5,  vorgabe5); }
+void CDlgSolitaire::OnBnClickedButton14() {	DoCard(6,  vorgabe6); }
+void CDlgSolitaire::OnBnClickedButton15() { DoCard(7,  vorgabe7); }
+void CDlgSolitaire::OnBnClickedButton16() {	DoCard(8,  vorgabe8); }
+void CDlgSolitaire::OnBnClickedButton17() { DoCard(9,  vorgabe9); }
+void CDlgSolitaire::OnBnClickedButton18() { DoCard(10, vorgabe10); }
+void CDlgSolitaire::OnBnClickedButton19() {	DoCard(11, vorgabe11); }
+void CDlgSolitaire::OnBnClickedButton20() { DoCard(12, vorgabe12); }
+void CDlgSolitaire::OnBnClickedButton21() {	DoCard(13, vorgabe13); }
+void CDlgSolitaire::OnBnClickedButton22() {	DoCard(14, vorgabe14); }
+void CDlgSolitaire::OnBnClickedButton23() { DoCard(15, vorgabe15); }
+void CDlgSolitaire::OnBnClickedButton24() {	DoCard(16, vorgabe16); }
+void CDlgSolitaire::OnBnClickedButton25() {	DoCard(17, vorgabe17); }
+void CDlgSolitaire::OnBnClickedButton26() {	DoCard(18, vorgabe18); }
+void CDlgSolitaire::OnBnClickedButton27() {	DoCard(19, vorgabe19); }
+void CDlgSolitaire::OnBnClickedButton28() { DoCard(20, vorgabe20); }
+void CDlgSolitaire::OnBnClickedButton29() {	DoCard(21, vorgabe21); }
+void CDlgSolitaire::OnBnClickedButton30() {	DoCard(22, vorgabe22); }
+void CDlgSolitaire::OnBnClickedButton31() {	DoCard(23, vorgabe23); }
+void CDlgSolitaire::OnBnClickedButton32() {	DoCard(24, vorgabe24); }
+void CDlgSolitaire::OnBnClickedButton33() {	DoCard(25, vorgabe25); }
+void CDlgSolitaire::OnBnClickedButton34() {	DoCard(26, vorgabe26); }
+void CDlgSolitaire::OnBnClickedButton35() {	DoCard(27, vorgabe27); }
+void CDlgSolitaire::OnBnClickedButton36() {	DoCard(28, vorgabe28); }
+void CDlgSolitaire::OnBnClickedButton37() {	DoCard(29, vorgabe29); }
+void CDlgSolitaire::OnBnClickedButton38() {	DoCard(30, vorgabe30); }
+void CDlgSolitaire::OnBnClickedButton39() { DoCard(31, vorgabe31); }
+void CDlgSolitaire::OnBnClickedButton40() {	DoCard(32, vorgabe32); }
+void CDlgSolitaire::OnBnClickedButton41() {	DoCard(33, vorgabe33); }
+void CDlgSolitaire::OnBnClickedButton42() {	DoCard(34, vorgabe34); }
+void CDlgSolitaire::OnBnClickedButton43() { DoCard(35, vorgabe35); }
+void CDlgSolitaire::OnBnClickedButton44() {	DoCard(36, vorgabe36); }
+void CDlgSolitaire::OnBnClickedButton45() {	DoCard(37, vorgabe37); }
+void CDlgSolitaire::OnBnClickedButton46() {	DoCard(38, vorgabe38); }
+void CDlgSolitaire::OnBnClickedButton47() {	DoCard(39, vorgabe39); }
+void CDlgSolitaire::OnBnClickedButton48() {	DoCard(40, vorgabe40); }
+void CDlgSolitaire::OnBnClickedButton49() {	DoCard(41, vorgabe41); }
+void CDlgSolitaire::OnBnClickedButton50() {	DoCard(42, vorgabe42); }
+void CDlgSolitaire::OnBnClickedButton51() {	DoCard(43, vorgabe43); }
+void CDlgSolitaire::OnBnClickedButton52() {	DoCard(44, vorgabe44); }
+void CDlgSolitaire::OnBnClickedButton53() {	DoCard(45, vorgabe45); }
+void CDlgSolitaire::OnBnClickedButton54() {	DoCard(46, vorgabe46); }
+void CDlgSolitaire::OnBnClickedButton55() {	DoCard(47, vorgabe47); }
+void CDlgSolitaire::OnBnClickedButton56() {	DoCard(48, vorgabe48); }
+void CDlgSolitaire::OnBnClickedButton57() {	DoCard(49, vorgabe49); }
+void CDlgSolitaire::OnBnClickedButton58() {	DoCard(50, vorgabe50); }
+void CDlgSolitaire::OnBnClickedButton59() {	DoCard(51, vorgabe51); }
+void CDlgSolitaire::OnBnClickedButton60() {	DoCard(52, vorgabe52); }
+void CDlgSolitaire::OnBnClickedButton61() {	DoCard(53, vorgabe53); }
+void CDlgSolitaire::OnBnClickedButton62() {	DoCard(54, vorgabe54); }
 
 
 /*nach Vorgabe-Buttons 9-62*/
-
 void CDlgSolitaire::OnBnClickedButton63()
 {
-	
 	zaehler=0;
 	InitialDeck="";
 	endDeck="";
 	vorgabe="";
+	m_anderemischung.EnableWindow(false); 
 	UpdateData(false);
 	vorgabe1.EnableWindow(true);
 	vorgabe2.EnableWindow(true);
@@ -2041,62 +769,62 @@ void CDlgSolitaire::OnBnClickedButton63()
 	vorgabe52.EnableWindow(true);
 	vorgabe53.EnableWindow(true);
 	vorgabe54.EnableWindow(true);
-
+	vorgabesetzen();
 }
 
 void CDlgSolitaire::vorgabesetzen()
 {
-	if (kartenanzahl<54)vorgabe54.EnableWindow(false);
-	if (kartenanzahl<53)vorgabe53.EnableWindow(false);
-	if (kartenanzahl<52)vorgabe52.EnableWindow(false);
-	if (kartenanzahl<51)vorgabe51.EnableWindow(false);
-	if (kartenanzahl<50)vorgabe50.EnableWindow(false);
-	if (kartenanzahl<49)vorgabe49.EnableWindow(false);
-	if (kartenanzahl<48)vorgabe48.EnableWindow(false);
-	if (kartenanzahl<47)vorgabe47.EnableWindow(false);
-	if (kartenanzahl<46)vorgabe46.EnableWindow(false);
-	if (kartenanzahl<45)vorgabe45.EnableWindow(false);
-	if (kartenanzahl<44)vorgabe44.EnableWindow(false);
-	if (kartenanzahl<43)vorgabe43.EnableWindow(false);
-	if (kartenanzahl<42)vorgabe42.EnableWindow(false);
-	if (kartenanzahl<41)vorgabe41.EnableWindow(false);
-	if (kartenanzahl<40)vorgabe40.EnableWindow(false);
-	if (kartenanzahl<39)vorgabe39.EnableWindow(false);
-	if (kartenanzahl<38)vorgabe38.EnableWindow(false);
-	if (kartenanzahl<37)vorgabe37.EnableWindow(false);
-	if (kartenanzahl<36)vorgabe36.EnableWindow(false);
-	if (kartenanzahl<35)vorgabe35.EnableWindow(false);
-	if (kartenanzahl<34)vorgabe34.EnableWindow(false);
-	if (kartenanzahl<33)vorgabe33.EnableWindow(false);
-	if (kartenanzahl<32)vorgabe32.EnableWindow(false);
-	if (kartenanzahl<31)vorgabe31.EnableWindow(false);
-	if (kartenanzahl<30)vorgabe30.EnableWindow(false);
-	if (kartenanzahl<29)vorgabe29.EnableWindow(false);
-	if (kartenanzahl<28)vorgabe28.EnableWindow(false);
-	if (kartenanzahl<27)vorgabe27.EnableWindow(false);
-	if (kartenanzahl<26)vorgabe26.EnableWindow(false);
-	if (kartenanzahl<25)vorgabe25.EnableWindow(false);
-	if (kartenanzahl<24)vorgabe24.EnableWindow(false);
-	if (kartenanzahl<23)vorgabe23.EnableWindow(false);
-	if (kartenanzahl<22)vorgabe22.EnableWindow(false);
-	if (kartenanzahl<21)vorgabe21.EnableWindow(false);
-	if (kartenanzahl<20)vorgabe20.EnableWindow(false);
-	if (kartenanzahl<19)vorgabe19.EnableWindow(false);
-	if (kartenanzahl<18)vorgabe18.EnableWindow(false);
-	if (kartenanzahl<17)vorgabe17.EnableWindow(false);
-	if (kartenanzahl<16)vorgabe16.EnableWindow(false);
-	if (kartenanzahl<15)vorgabe15.EnableWindow(false);
-	if (kartenanzahl<14)vorgabe14.EnableWindow(false);
-	if (kartenanzahl<13)vorgabe13.EnableWindow(false);
-	if (kartenanzahl<12)vorgabe12.EnableWindow(false);
-	if (kartenanzahl<11)vorgabe11.EnableWindow(false);
-	if (kartenanzahl<10)vorgabe10.EnableWindow(false);
-	if (kartenanzahl<9)vorgabe9.EnableWindow(false);
-	if (kartenanzahl<8)vorgabe8.EnableWindow(false);
-	if (kartenanzahl<7)vorgabe7.EnableWindow(false);
-	if (kartenanzahl<6)vorgabe6.EnableWindow(false);
-	if (kartenanzahl<5)vorgabe5.EnableWindow(false);
-	if (kartenanzahl<4)vorgabe4.EnableWindow(false);
+	if (kartenanzahlneu<54)vorgabe54.EnableWindow(false);
+	if (kartenanzahlneu<53)vorgabe53.EnableWindow(false);
+	if (kartenanzahlneu<52)vorgabe52.EnableWindow(false);
+	if (kartenanzahlneu<51)vorgabe51.EnableWindow(false);
+	if (kartenanzahlneu<50)vorgabe50.EnableWindow(false);
+	if (kartenanzahlneu<49)vorgabe49.EnableWindow(false);
+	if (kartenanzahlneu<48)vorgabe48.EnableWindow(false);
+	if (kartenanzahlneu<47)vorgabe47.EnableWindow(false);
+	if (kartenanzahlneu<46)vorgabe46.EnableWindow(false);
+	if (kartenanzahlneu<45)vorgabe45.EnableWindow(false);
+	if (kartenanzahlneu<44)vorgabe44.EnableWindow(false);
+	if (kartenanzahlneu<43)vorgabe43.EnableWindow(false);
+	if (kartenanzahlneu<42)vorgabe42.EnableWindow(false);
+	if (kartenanzahlneu<41)vorgabe41.EnableWindow(false);
+	if (kartenanzahlneu<40)vorgabe40.EnableWindow(false);
+	if (kartenanzahlneu<39)vorgabe39.EnableWindow(false);
+	if (kartenanzahlneu<38)vorgabe38.EnableWindow(false);
+	if (kartenanzahlneu<37)vorgabe37.EnableWindow(false);
+	if (kartenanzahlneu<36)vorgabe36.EnableWindow(false);
+	if (kartenanzahlneu<35)vorgabe35.EnableWindow(false);
+	if (kartenanzahlneu<34)vorgabe34.EnableWindow(false);
+	if (kartenanzahlneu<33)vorgabe33.EnableWindow(false);
+	if (kartenanzahlneu<32)vorgabe32.EnableWindow(false);
+	if (kartenanzahlneu<31)vorgabe31.EnableWindow(false);
+	if (kartenanzahlneu<30)vorgabe30.EnableWindow(false);
+	if (kartenanzahlneu<29)vorgabe29.EnableWindow(false);
+	if (kartenanzahlneu<28)vorgabe28.EnableWindow(false);
+	if (kartenanzahlneu<27)vorgabe27.EnableWindow(false);
+	if (kartenanzahlneu<26)vorgabe26.EnableWindow(false);
+	if (kartenanzahlneu<25)vorgabe25.EnableWindow(false);
+	if (kartenanzahlneu<24)vorgabe24.EnableWindow(false);
+	if (kartenanzahlneu<23)vorgabe23.EnableWindow(false);
+	if (kartenanzahlneu<22)vorgabe22.EnableWindow(false);
+	if (kartenanzahlneu<21)vorgabe21.EnableWindow(false);
+	if (kartenanzahlneu<20)vorgabe20.EnableWindow(false);
+	if (kartenanzahlneu<19)vorgabe19.EnableWindow(false);
+	if (kartenanzahlneu<18)vorgabe18.EnableWindow(false);
+	if (kartenanzahlneu<17)vorgabe17.EnableWindow(false);
+	if (kartenanzahlneu<16)vorgabe16.EnableWindow(false);
+	if (kartenanzahlneu<15)vorgabe15.EnableWindow(false);
+	if (kartenanzahlneu<14)vorgabe14.EnableWindow(false);
+	if (kartenanzahlneu<13)vorgabe13.EnableWindow(false);
+	if (kartenanzahlneu<12)vorgabe12.EnableWindow(false);
+	if (kartenanzahlneu<11)vorgabe11.EnableWindow(false);
+	if (kartenanzahlneu<10)vorgabe10.EnableWindow(false);
+	if (kartenanzahlneu<9)vorgabe9.EnableWindow(false);
+	if (kartenanzahlneu<8)vorgabe8.EnableWindow(false);
+	if (kartenanzahlneu<7)vorgabe7.EnableWindow(false);
+	if (kartenanzahlneu<6)vorgabe6.EnableWindow(false);
+	if (kartenanzahlneu<5)vorgabe5.EnableWindow(false);
+	if (kartenanzahlneu<4)vorgabe4.EnableWindow(false);
 }
 
 void CDlgSolitaire::OnEnChangeEdit4()
@@ -2140,16 +868,12 @@ void CDlgSolitaire::OnBnClickedButton1()
 
 void CDlgSolitaire::OnBnClickedButton64()
 {
-	CString file = tempdir(INIDECKFILE);
-	if (!myD->inideckspeichern(file))
-		fehlermelden(IDS_STRING_ERROR,IDS_CT_FILE_OPEN_ERROR,file);
+	myD->inideckspeichern();
 }
 
 void CDlgSolitaire::OnBnClickedButton65()
 {
-	CString file = tempdir(FINALDECKFILE);
-	if (!myD->abschlussdeckspeichern(file))
-		fehlermelden(IDS_STRING_ERROR,IDS_CT_FILE_OPEN_ERROR,file);
+	myD->abschlussdeckspeichern();
 }
 
 
@@ -2160,17 +884,22 @@ void CDlgSolitaire::OnBnClickedButton67()
 }
 
 
-CString CDlgSolitaire::FormatKey()
+// ENCRYPT
+void CDlgSolitaire::OnBnClickedButton66()
 {
+	char outfile[256];
 	int i;
-	CString sKey;
-	sKey.Format(NUMBER_OF_CARDS "%d;" SORT_METHOD "%d;" MANUAL "X;",myD->anzahl,InitialArt);
-#if 0
+	myD->verschluesseln(myD->plaintext);
+	GetTmpName(outfile,"cry",".txt");	
+	myD->writeCiphertext(outfile);
+	// Version Beunink + Lennarz
+	OpenNewDoc(outfile,myD->getKey(),this->oldTitle,IDS_CRYPT_SOLITAIRE,false,1);
+
+	char tmpStr[12];
+	CString sKey = _T("");
 	sKey +=   CString(NUMBER_OF_CARDS) + CString(_itoa(myD->anzahl, tmpStr, 10)) + CString(";")
 		    + CString(SORT_METHOD)  + InitialArt + CString(";") 
 			+ CString(MANUAL) + CString("X;");   // FIXME
-#endif
-	char tmpStr[12];
 	sKey += CString(INITIAL_DECK);
 	for (i=0; i<myD->anzahl; i++)
 	{
@@ -2185,19 +914,8 @@ CString CDlgSolitaire::FormatKey()
 		sKey += CString(_itoa(myD->deck[i], tmpStr, 10));
 		if (i<myD->anzahl-1) sKey += CString(",");
 	}
-	return sKey;
-}
-// ENCRYPT
-void CDlgSolitaire::OnBnClickedButton66()
-{
-	char outfile[256];
-	myD->verschluesseln(myD->plaintext);
-	GetTmpName(outfile,"cry",".txt");	
-	myD->writeCiphertext(outfile);
-	// OpenNewDoc(outfile,myD->getKey(),this->oldTitle,IDS_CRYPT_SOLITAIRE,false,1);
-
-	CString sKey = FormatKey();
-	OpenNewDoc(outfile,sKey,this->oldTitle,IDS_CRYPT_SOLITAIRE,false,1);
+	// Version Koy
+	//OpenNewDoc(outfile,sKey,this->oldTitle,IDS_CRYPT_SOLITAIRE,false,1);
 
 	this->EndDialog(1);	
 }
@@ -2206,20 +924,41 @@ void CDlgSolitaire::OnBnClickedButton66()
 void CDlgSolitaire::OnBnClickedButton68()
 {
 	char outfile[256];
+	int i;
 
 	myD->keyUmrechnen();
 	myD->entschluesseln(myD->plaintext);
 	GetTmpName(outfile,"cry",".txt");	
 	myD->writeplaintext(outfile);	
 	// OpenNewDoc(outfile,myD->getKey(),this->oldTitle,IDS_CRYPT_SOLITAIRE,true,1);
-	CString sKey = FormatKey();
+	char tmpStr[12];
+	CString sKey = _T("");
+	sKey +=   CString(NUMBER_OF_CARDS) + CString(_itoa(myD->anzahl, tmpStr, 10)) + CString(";")
+		    + CString(SORT_METHOD)  + InitialArt + CString(";") 
+			+ CString(MANUAL) + CString("X;");  // FIXME
+	sKey += CString(INITIAL_DECK);
+	for (i=0; i<myD->anzahl; i++)
+	{
+		sKey += CString(_itoa(myD->tempini[i], tmpStr, 10));
+		if (i<myD->anzahl-1) sKey += CString(",");
+	}
+	sKey += CString(";");
+
+	sKey += CString(MAPPED_DECK);
+	for (i=0; i<myD->anzahl; i++)
+	{
+		sKey += CString(_itoa(myD->deck[i], tmpStr, 10));
+		if (i<myD->anzahl-1) sKey += CString(",");
+	}
 	OpenNewDoc(outfile,sKey,this->oldTitle,IDS_CRYPT_SOLITAIRE,false,1);
 
 	this->EndDialog(1);
 }
 
 void CDlgSolitaire::OnEnChangeEdit2()
-{}
+{
+	
+}
 
 
 void CDlgSolitaire::OnPasteKey()
@@ -2234,10 +973,16 @@ void CDlgSolitaire::OnPasteKey()
 		if (0 == ndx)
 		{
 			buffer.Delete(0, strlen(NUMBER_OF_CARDS));
-			kartenanzahl = atoi(buffer);
+			kartenanzahlneu = atoi(buffer);
 			if (myD) delete myD; // FIXME
-			myD = new Deck(kartenanzahl);
+			myD = new Deck(kartenanzahlneu);
 			myD->readPlaintext(infile); // FIXME Size of Plaintext
+				// schneidet die Zeichen nach 65.535 ab.
+			if(myD->plaintext.GetLength()>65535)
+			{
+				myD->plaintext.Delete(65535,myD->plaintext.GetLength()-65535);
+				
+			}
 		}
 		else
 		{
@@ -2248,7 +993,8 @@ void CDlgSolitaire::OnPasteKey()
 		if (0 <= ndx)
 		{
 			buffer.Delete(0, strlen(SORT_METHOD)+ndx);
-			InitialArt = atoi(buffer);
+			ndx = buffer.Find(";");
+			InitialArt = buffer.Mid(0,ndx);
 			SetDeckSelectioMethod(InitialArt);
 		}
 		else
@@ -2274,11 +1020,11 @@ void CDlgSolitaire::OnPasteKey()
 			buffer.Delete(0, strlen(INITIAL_DECK)+ndx);
 			InitialDeck = _T("");
 			int i;
-			for (i=0; i<kartenanzahl; i++)
+			for (i=0; i<kartenanzahlneu; i++)
 			{
 				myD->tempini[i] = atoi(buffer);
 				ndx = buffer.Find(",");
-				if (i < kartenanzahl -1 && 0 < ndx) {
+				if (i < kartenanzahlneu -1 && 0 < ndx) {
 					InitialDeck += buffer.Mid(0, ndx+1);
 					buffer.Delete(0, ndx+1);
 				}
@@ -2300,11 +1046,11 @@ void CDlgSolitaire::OnPasteKey()
 			buffer.Delete(0, strlen(MAPPED_DECK)+ndx);
 			endDeck = _T("");
 			int i;
-			for (i=0; i<kartenanzahl; i++)
+			for (i=0; i<kartenanzahlneu; i++)
 			{
 				myD->deck[i] = atoi(buffer);
 				ndx = buffer.Find(",");
-				if (i < kartenanzahl -1 && 0 < ndx) {
+				if (i < kartenanzahlneu -1 && 0 < ndx) {
 					endDeck += buffer.Mid(0, ndx+1);
 					buffer.Delete(0, ndx+1);
 				}
@@ -2347,3 +1093,96 @@ void CDlgSolitaire::OnPasteKey()
 	}
 }
 
+
+void CDlgSolitaire::OnBnClickedButton69()
+{
+	int temp = myD->plaintext.GetLength()-edit_zaehler_value;
+	for(int i=0;i<edit_zaehler_value;i++)
+		{
+			myD->schritt1();
+			myD->schritt2();
+			myD->schritt3();
+			myD->schritt4();
+			myD->key[temp]=myD->schritt5ohneJokerAusgabe();
+			temp++;
+		}
+		key_edit = myD->getKey();
+		verschl.EnableWindow(true);
+		entschl.EnableWindow(true);
+		m_passwort.EnableWindow(false);
+		m_passwort_button.EnableWindow(false);
+		m_schritt1.EnableWindow(false);
+		m_rest_generate.EnableWindow(false);
+		edit_zaehler_value=0;
+		m_keystream_save_button.EnableWindow(true);
+		UpdateData(FALSE);
+}
+
+void CDlgSolitaire::OnBnClickedButton71()
+{
+	UpdateData(true);
+	m_passwort.EnableWindow(true);
+	m_passwort_button.EnableWindow(true);
+	m_abschlussspeichern.EnableWindow(false);
+	m_inispeichern.EnableWindow(false);
+	zaehler=0;
+	enableVorgabe(false);
+	initdrei();
+	verschl.EnableWindow(false);
+	entschl.EnableWindow(false);
+	m_edit_rest_generate.ShowWindow(0);
+	m_edit_schl.ShowWindow(0);
+	endDeck="";
+	key_edit="";
+	
+	
+	
+		//gefuddelt
+		kartenanzahl=51;
+		kartenanzahlneu=54;
+		myD = new Deck(kartenanzahlneu);
+		//hier wird der Klartext noch einmal gelesen, da ein neues Deck erstellt wurde
+		myD->readPlaintext(infile);
+			// schneidet die Zeichen nach 65.535 ab.
+		if(myD->plaintext.GetLength()>65535)
+		{
+			myD->plaintext.Delete(65535,myD->plaintext.GetLength()-65535);
+		}
+		InitialDeck = myD->getDeck();	
+		InitialArt = "aufsteigend";
+
+
+	UpdateData(false);
+}
+
+void CDlgSolitaire::OnBnClickedButton70()
+{
+		
+	initdrei();
+	endDeck="";
+	key_edit="";
+	verschl.EnableWindow(false);
+	entschl.EnableWindow(false);
+	zaehler=0;
+	m_abschlussspeichern.EnableWindow(false);
+	m_inispeichern.EnableWindow(false);
+	m_passwort.EnableWindow(true);
+	m_passwort_button.EnableWindow(true);
+	if(kartenanzahlneu<26)
+	{
+		m_passwort.EnableWindow(false);
+		m_passwort_button.EnableWindow(false);
+	}
+	myD->mischen();
+	InitialDeck = myD->getDeck();
+	enableVorgabe(false);
+	m_edit_rest_generate.ShowWindow(0);
+	m_edit_schl.ShowWindow(0);
+	UpdateData(false);
+}
+
+void CDlgSolitaire::OnBnClickedButton72()
+{
+	myD->keyspeichern();
+	
+}

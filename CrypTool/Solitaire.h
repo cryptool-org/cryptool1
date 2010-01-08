@@ -1,25 +1,6 @@
-/**************************************************************************
-
-  Copyright [2009] [CrypTool Team]
-
-  This file is part of CrypTool.
-
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-      http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-
-**************************************************************************/
-
 #pragma once
 #include "stdafx.h"
+#include "limits.h"
 
 
 
@@ -36,10 +17,9 @@
 		int k;
 		int temp;
 		char rueckgabe;
-		char key[15000];
+		char key[USHRT_MAX];
 		int anzahlnullrunden;
-		char joker;
-		
+		char joker;		
 		int laden;
 		int pass[1024];
 		char tempini[54];
@@ -47,7 +27,6 @@
 		CString plaintext;
 		CString ciphertext;
 		
-
 	public:
 		void setkartenanzahl(int anzahlkarten);
 		Deck(int anzahlkarten);
@@ -67,16 +46,7 @@
 		void schritt4();
 		char schritt5();
 		char schritt5ohneJokerAusgabe();
-
 		int  nullrunde();
-		void abschlussdeckladen();
-		void abschlussdeckspeichern();
-		void inideckladen();
-		void inideckspeichern();
-		void keyladen();
-		void keyspeichern();
-
-
 		bool pruefenullrunde();
 		void schritt1revers();
 		bool schritt1reversabfrage();
@@ -94,10 +64,10 @@
 		void schritt4revers();
 		void analysevorne();
 		void analysehinten();
-		bool inideckspeichern(LPCSTR file);
-		bool abschlussdeckspeichern(LPCSTR file);
-		bool inideckladen(LPCSTR file);
-		bool abschlussdeckladen(LPCSTR file);
+		void inideckspeichern();
+		void abschlussdeckspeichern();
+		void inideckladen();
+		void abschlussdeckladen();
 		void passwortinzahlen(CString pw);
 		void pass2deck(int laenge);
 		void schritt5fuerpasswort(int count);
@@ -108,15 +78,6 @@
 		void writeCiphertext(const char* ofile);
 		void writeplaintext(const char* ofile);
 		void entschluesseln(CString ciphertext);
-		bool keyspeichern(LPCSTR file);
-		bool keyladen(LPCSTR file);
-
-
+		void keyspeichern();
+		void keyladen();
 	};
-
-void fehlermelden(UINT titleid,UINT msgid,LPCSTR file);
-CString tempdir(LPCSTR file);
-
-#define INIDECKFILE "SolitaireInideck.txt"
-#define FINALDECKFILE "SolitaireAbschlussdeck.txt"
-#define KEYFILE "SolitaireKey.txt"
