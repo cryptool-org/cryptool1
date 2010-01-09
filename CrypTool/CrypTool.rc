@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polnisch resources
+// Polish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -3748,7 +3748,7 @@ END
 
 IDD_SOLITAIRE DIALOGEX 0, 0, 681, 444
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Generowanie Solitaire key stream"
+CAPTION "Generowanie strumienia kluczy Solitaire"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     COMBOBOX        IDC_Kartenanzahl,31,139,30,204,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
@@ -3763,11 +3763,11 @@ BEGIN
     GROUPBOX        "Podaj has³o (opcjonalnie dla tworzenia talii)",IDC_STATIC,233,126,423,33
     EDITTEXT        IDC_EDIT4,241,138,132,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Inicjalizuj",IDC_BUTTON1,385,138,50,14
-    LTEXT           "Talia pocz¹tkowa",IDC_STATIC,24,298,38,8
-    LTEXT           "Talia koñcowa",IDC_STATIC,24,330,36,8
+    LTEXT           "Talia inicjuj¹ca",IDC_STATIC,24,298,76,8
+    LTEXT           "Talia wyjœciowa",IDC_STATIC,24,330,77,8
     GROUPBOX        "2. Wybierz typ generowania klucza",IDC_STATIC,12,234,656,48
     GROUPBOX        "3a. Kroki manualne",IDC_STATIC,233,240,423,38
-    PUSHBUTTON      "automatyczny",IDC_BUTTON2,50,258,50,14
+    PUSHBUTTON      "automatyczny",IDC_BUTTON2,47,258,53,14
     PUSHBUTTON      "manualny",IDC_BUTTON3,128,258,50,14
     PUSHBUTTON      "Zapisz",IDC_BUTTON64,577,308,35,14,WS_DISABLED
     PUSHBUTTON      "Zapisz",IDC_BUTTON65,577,340,35,14,WS_DISABLED
@@ -3775,17 +3775,17 @@ BEGIN
     PUSHBUTTON      "Anuluj",IDC_BUTTON67,573,420,102,16
     PUSHBUTTON      "Deszyfruj",IDC_BUTTON68,131,420,102,16,WS_DISABLED
     CONTROL         "Wklej",IDC_PASTE_KEY,"Button",BS_OWNERDRAW | WS_TABSTOP,483,421,23,15
-    PUSHBUTTON      "Schritt 1",IDC_BUTTON4,245,258,36,14,WS_DISABLED
-    PUSHBUTTON      "Schritt 2",IDC_BUTTON5,281,258,36,14,WS_DISABLED
-    PUSHBUTTON      "Schritt 4",IDC_BUTTON7,353,258,36,14,WS_DISABLED
-    PUSHBUTTON      "Schritt 5",IDC_BUTTON8,389,258,36,14,WS_DISABLED
-    LTEXT           "Es fehlen noch",IDC_STATIC,434,253,47,12
-    LTEXT           "Schlüsselstromzeichen.",IDC_STATIC,434,265,82,11
-    PUSHBUTTON      "Rest generieren",IDC_BUTTON69,585,258,60,14,WS_DISABLED
+    PUSHBUTTON      "Krok 1",IDC_BUTTON4,245,258,36,14,WS_DISABLED
+    PUSHBUTTON      "Krok 2",IDC_BUTTON5,281,258,36,14,WS_DISABLED
+    PUSHBUTTON      "Krok 4",IDC_BUTTON7,353,258,36,14,WS_DISABLED
+    PUSHBUTTON      "Krok 5",IDC_BUTTON8,389,258,36,14,WS_DISABLED
+    LTEXT           "Brakuje",IDC_STATIC,434,253,47,12
+    LTEXT           "znaku strumienia klucza.",IDC_STATIC,434,265,82,11
+    PUSHBUTTON      "Generowaæ pozosta³e",IDC_BUTTON69,569,258,76,14,WS_DISABLED
     EDITTEXT        IDC_EDIT6,521,253,40,12,ES_CENTER | ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE | NOT WS_BORDER
     PUSHBUTTON      "Zapisz",IDC_BUTTON72,577,379,37,14,WS_DISABLED
     LTEXT           "Strumieñ wyjœciowy",IDC_STATIC,25,360,64,8
-    PUSHBUTTON      "Schritt 3",IDC_BUTTON6,317,258,36,14,WS_DISABLED
+    PUSHBUTTON      "Krok 3",IDC_BUTTON6,317,258,36,14,WS_DISABLED
     PUSHBUTTON      "2",IDC_BUTTON10,258,171,18,14
     PUSHBUTTON      "3",IDC_BUTTON11,276,171,18,14
     PUSHBUTTON      "4",IDC_BUTTON12,294,171,18,14
@@ -3843,21 +3843,21 @@ BEGIN
     PUSHBUTTON      "Reset",IDC_BUTTON63,577,183,59,14
     GROUPBOX        "WprowadŸ taliê pocz¹tkow¹ manualnie",IDC_STATIC,233,162,423,58
     PUSHBUTTON      "Andere Mischung",IDC_BUTTON70,140,198,66,14
-    LTEXT           "Das Initialdeck kann zusätzlich durch ein Passwort\nmodifiziert werden. Was das Passwort bewirkt, können Sie der Onlinehilfe entnehmen.",IDC_STATIC,459,133,179,24
+    LTEXT           "Talia inicjuj¹ca tak¿e mo¿e zostaæ zmodyfikowane przez has³o. Co powoduje has³o, mo¿na sprawdziæ w pomocy online.",IDC_STATIC,459,133,179,24
     GROUPBOX        "Opis",IDC_STATIC,7,2,667,83
-    LTEXT           "Mit diesem Dialog können Sie das Solitaire-Verfahren anwenden. Hierbei werden standardmäßig 54 Karten verwendet.",IDC_STATIC,11,10,590,9
-    LTEXT           "Schritt 2: Sie erzeugen den Schlüsselstrom (dies ist der eigentliche Solitaire-Algorithmus). Dabei wird das Kartendeck verändert.",IDC_STATIC,12,50,625,14
-    LTEXT           "Die Anwendung des Solitaire-Verfahrens erfolgt in 3 Hauptschritten (die ersten beiden sind vorbereitende Schritte; im dritten Schritt wird die Verschlüsselung durchgeführt):",IDC_STATIC,11,26,550,8
-    LTEXT           "Schritt 3: Sie verschlüsseln den gewählten Text (dabei wird dieser zeichenweise mit den Zeichen des Schlüsselstroms XOR-verknüpft).",IDC_STATIC,12,66,593,9
-    LTEXT           "Wenn der gewählte Text schon einen mit Solitaire verschlüsselten Geheimtext darstellt, können Sie auch entschlüsseln.",IDC_STATIC,12,74,591,8
-    LTEXT           "Die verschiedenen Karten werden als Zahlen von 1 bis 54 dargestellt: Welche Karte welcher Zahl entspricht, sehen Sie in der Onlinehilfe (F1) unter ""Solitaire-Beschreibung"".",IDC_STATIC,11,18,549,8
-    LTEXT           "Schritt 1: Sie erzeugen den Schlüssel (das gemischte Kartendeck) entweder selbst oder Sie laden einen Schlüssel (je nachdem, was Sie unten in der Gruppierung „1 b: Kartenreihenfolge festlegen“",IDC_STATIC,11,34,626,8
-    LTEXT           "Das Ergebnis der Schlüsselerzeugung ist das gemischte Kartendeck, das Sie unter dem Namen „Initialdeck“ in der Gruppierung „Ausgabe“ finden.",IDC_STATIC,12,42,521,8
-    LTEXT           " Dessen aktuelle Reihenfolge finden Sie unter dem Namen „Ausgangsdeck“ unten in der Gruppierung „Ausgabe“.",IDC_STATIC,41,58,358,8
+    LTEXT           "W tym oknie mo¿na zastosowaæ metody Solitaire. Do tego s¹ u¿ywane 54 karty.",IDC_STATIC,11,10,590,9
+    LTEXT           "Krok 2: Generowania strumienia klucza (jest to prawdziwy algorytm Solitaire). W którym siê zmienia talie.",IDC_STATIC,12,50,625,8
+    LTEXT           "Stosowanie procedury Solitaire jest przeprowadzone w 3 g³ównych etapach (dwa pierwsze s¹ dzia³ania przygotowawcze, trzeci etap wykonuje szyfrowanie):",IDC_STATIC,11,26,504,8
+    LTEXT           "Krok 3: Szyfrowanie wybranego tekstu (przy tym ka¿dy znak zostaje zwi¹zany z znakiem strumienia XOR).",IDC_STATIC,12,66,593,9
+    LTEXT           "Jeœli zaznaczony tekst ju¿ stanowi tekst szyfrowany zaszyfrowanego przez Solitaire, mo¿na go odszyfrowaæ.",IDC_STATIC,12,74,591,8
+    LTEXT           "Poszczególne karty s¹ reprezentowane jako liczby od 1 do 54: Jaka karta jakiej liczbie odpowiada mo¿na sprawdziæ w pomocy online (F1).",IDC_STATIC,11,18,440,8
+    LTEXT           "Krok 1: Generowanie klucza (talia mieszanych kart), bezpoœrednio lub poprzez pobrany klucz (w zale¿noœci od ustawienia w grupie ""1 b: Wybierz typ klucza inicjuj¹cego""",IDC_STATIC,11,34,626,8
+    LTEXT           "Wynik generowania kluczy jest talia mieszana, któr¹ mo¿na znaleŸæ pod nazw¹ ""Talia inicjuj¹ca"" w ugrupowaniu ""Wyjœcie"".",IDC_STATIC,12,42,521,8
+    LTEXT           "Jej obecny porz¹dek mo¿na znaleŸæ pod nazw¹ ""Talia wyjœciowa"" w dolnej grupie ""Wyjœcie"".",IDC_STATIC,41,58,294,8
     LTEXT           "eingeben.",IDC_STATIC,635,34,32,8
-    GROUPBOX        "Karten mischen und Schlüsselstrom erzeugen",IDC_STATIC,7,87,667,326
-    PUSHBUTTON      "Initialzustand herstellen",IDC_BUTTON71,327,420,88,16
-    GROUPBOX        "1. Initial deck erstellen (= Mischen)  ==  Schlüssel erzeugen",IDC_STATIC,12,104,656,126
+    GROUPBOX        "Mieszanie kart oraz generowanie strumienia klucza",IDC_STATIC,7,87,667,326
+    PUSHBUTTON      "Przywruæ stan inicjuj¹cy",IDC_BUTTON71,327,420,88,16
+    GROUPBOX        "1. Tworzenie tali wstêpnej (= mieszanie) == generowanie klucza",IDC_STATIC,12,104,656,126
     GROUPBOX        "Optional",IDC_STATIC,227,116,436,108
     EDITTEXT        IDC_EDIT5,488,253,29,12,ES_CENTER | ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE | NOT WS_BORDER
 END
@@ -3882,13 +3882,13 @@ BEGIN
     EDITTEXT        IDC_EDIT3,23,355,551,30,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
     PUSHBUTTON      "Stwórz klucz",IDC_BUTTON4,23,336,82,14,WS_DISABLED
     GROUPBOX        "Opis",IDC_STATIC,5,2,593,57
-    LTEXT           "Zur Entschlüsselung braucht der legitime Empfänger den Ciphertext und das Initialdeck. Wir nehmen an, der Angreifer hat ebenfalls den Ciphertext und das (vom Sender",IDC_STATIC,17,12,544,11
-    LTEXT           "Bei dieser Kryptoanalyse wird versucht, aus dem Ausgangsdeck das Initialdeck zu reproduzieren. Dies gelingt aufgrund der Irreversibilität der Schlüsselstromerzeugung",IDC_STATIC,17,28,573,8
-    LTEXT           "Aus dem berechneten Initialdeck kann dann wieder der ursprüngliche Schlüsselstrom berechnet werden.",IDC_STATIC,17,44,333,8
-    LTEXT           "nicht immer eindeutig. Dann werden Sie gebeten, die Entscheidung zu treffen, wo der Joker einzusortieren ist.",IDC_STATIC,17,36,431,10
-    LTEXT           "durch die Verschlüsselung oder vom Empfänger durch die Entschlüsselung erzeugte) Ausgangsdeck.",IDC_STATIC,17,20,320,8
+    LTEXT           "Do deszyfrowania, uzasadniony odbiorca potrzebuje tekst tajny i taliê inicjuj¹c¹. Zak³adamy, ¿e atakuj¹cy ma równie¿ tekst tajny i  (przez nadawcê",IDC_STATIC,17,12,544,11
+    LTEXT           "W tej kryptoanalizie, jest  próbowana reprodukcja talii inicjuj¹cej za pomoc¹ talii wyjœciowej. Ze wzglêdu na nieodwracalnoœæ generowanego klucza",IDC_STATIC,17,28,573,8
+    LTEXT           "Z obliczonej talii inicjuj¹cej mo¿na obliczyæ pocz¹tkowy strumieñ klucza.",IDC_STATIC,17,44,227,8
+    LTEXT           "jest ona nieraz niewyraŸna. Nastêpnie pojawi siê pytanie gdzie wstawiæ Jokera.",IDC_STATIC,17,36,431,10
+    LTEXT           "lub adresata poprzez szyfrowanie generowan¹) taliê wyjœciow¹. ",IDC_STATIC,17,20,208,8
     COMBOBOX        IDC_Kartenanzahl,233,94,30,204,CBS_DROPDOWNLIST | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
-    GROUPBOX        "1. Parameter des gefundenen Decks",IDC_STATIC,11,74,581,96
+    GROUPBOX        "1. Parametry znaleŸionej talii",IDC_STATIC,11,74,581,96
     PUSHBUTTON      "2",IDC_BUTTON10,188,116,18,14,WS_DISABLED
     PUSHBUTTON      "3",IDC_BUTTON11,206,116,18,14,WS_DISABLED
     PUSHBUTTON      "4",IDC_BUTTON12,224,116,18,14,WS_DISABLED
@@ -3944,16 +3944,16 @@ BEGIN
     PUSHBUTTON      "54",IDC_BUTTON62,476,144,18,14,WS_DISABLED
     PUSHBUTTON      "1",IDC_BUTTON9,170,116,18,14,WS_DISABLED
     PUSHBUTTON      "Reset",IDC_BUTTON63,500,130,50,14,WS_DISABLED
-    PUSHBUTTON      "Ausgangsdeck laden",IDC_BUTTON5,39,100,69,14
-    PUSHBUTTON      "Nach Vorgabe",IDC_BUTTON6,38,140,70,14
-    LTEXT           "Kartenanzahl:",IDC_STATIC,173,98,46,8,WS_DISABLED
-    GROUPBOX        "Nach Vorgabe",IDC_STATIC,166,80,403,85,WS_DISABLED
-    GROUPBOX        "Initialdeck bestimmen und Schlüsselstrom erzeugen ",IDC_STATIC,6,63,592,333
-    GROUPBOX        "4. Schlüsselstromerzeugung",IDC_STATIC,11,323,581,67
-    GROUPBOX        "manualn",IDC_STATIC,180,185,101,32
-    GROUPBOX        "Einheitliche Entscheidung",IDC_STATIC,20,184,152,34
-    LTEXT           "Aufgrund der Irreversibilität von Solitaire müssen an bestimmten Stellen der Rückwärtsrechnung\nEntscheidungen des Benutzers getroffen werden, wo der entsprechende Joker einzuordnen ist.  ",IDC_STATIC,288,184,299,33
-    GROUPBOX        "3. Initialdeck erzeugen",IDC_STATIC,11,225,581,95
+    PUSHBUTTON      "Za³adowaæ talie wyjœciow¹",IDC_BUTTON5,39,100,92,14
+    PUSHBUTTON      "Zgodnie z ustaleniem",IDC_BUTTON6,38,140,93,14
+    LTEXT           "Iloœæ kart:",IDC_STATIC,173,98,33,8,WS_DISABLED
+    GROUPBOX        "Ustalenie",IDC_STATIC,166,80,403,85,WS_DISABLED
+    GROUPBOX        "Ustalenie talii inicjuj¹cej i generowanie strumienia klucza",IDC_STATIC,6,63,592,333
+    GROUPBOX        "4. Generowania klucza",IDC_STATIC,11,323,581,67
+    GROUPBOX        "Manualnie",IDC_STATIC,180,185,101,32
+    GROUPBOX        "Jednakowa decyzjia",IDC_STATIC,20,184,152,34
+    LTEXT           "Ze wzglêdu na nieodwracalnoœæ Solitaire w pewnych miejscach obliczeñ wstecznych u¿ytkownik musi podj¹æ decyzje gdzie wstawiæ odpowiedniego Jokera.",IDC_STATIC,288,184,299,33
+    GROUPBOX        "3. Generowanie inicjuj¹cej talii",IDC_STATIC,11,225,581,95
 END
 
 IDD_SET_VISOPT DIALOGEX 0, 0, 230, 149
@@ -10977,12 +10977,12 @@ BEGIN
                             "Automatyczna analiza szyfrowania Vigenere (Schrödel)"
 END
 
-#endif    // Polnisch resources
+#endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -18168,11 +18168,6 @@ BEGIN
 0x3335, "\000" 
     IDC_Kartenanzahl, 0x403, 3, 0
 0x3435, "\000" 
-    1074, 0x403, 13, 0
-0x614e, 0x6863, 0x5620, 0x726f, 0x6167, 0x6562, "\000" 
-    1074, 0x403, 20, 0
-0x6241, 0x6373, 0x6c68, 0x7375, 0x6473, 0x6365, 0x206b, 0x616c, 0x6564, 
-0x006e, 
     0
 END
 
@@ -21888,12 +21883,12 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "Zeichen"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -32877,7 +32872,7 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "characters"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
