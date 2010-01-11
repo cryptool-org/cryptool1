@@ -1,3 +1,23 @@
+/**************************************************************************
+
+  Copyright [2009] [CrypTool Team]
+
+  This file is part of CrypTool.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+**************************************************************************/
+
 // DlgSolitaire.cpp : Implementierungsdatei
 //
 
@@ -10,39 +30,98 @@
 #include "KeyRepository.h"
 #include "DialogeMessage.h"
 #include "assert.h"
+#include <fstream>
 
+using namespace std;
 
 // CDlgSolitaire-Dialogfeld
 
 IMPLEMENT_DYNAMIC(CDlgSolitaire, CDialog)
 
-CDlgSolitaire::CDlgSolitaire(char* infile, CString oldTitle,CWnd* pParent /*=NULL*/)
+CDlgSolitaire::CDlgSolitaire(char* _infile, CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgSolitaire::IDD, pParent)
-	, kartenanzahl(51)
 	, InitialDeck(_T(""))
-	, InitialArt(_T("Aufsteigend"))
+	, InitialArt(_T(""))
 	, m_passwort1(_T(""))
 	, endDeck(_T(""))
 	, key_edit(_T(""))
 	, edit_zaehler_value(0)
 	, edit_schl_zeichen(0)
+	, infile(0)
+	, in_buffer(0)
+	, key_stream(0)
 {
-	kartenanzahlneu=kartenanzahl+3;
-	myD = new Deck(kartenanzahlneu);
-
-	InitialDeck = myD->getDeck(); 
-	this->infile = infile;
-	this->oldTitle = oldTitle;
+	infile = new char[strlen(_infile) +1];
+	strcpy(infile, _infile);
 }
 
 CDlgSolitaire::~CDlgSolitaire()
 {
+	delete []infile;
+	delete []in_buffer;
+	delete []key_stream;
 }
+
+bool CDlgSolitaire::load_infile()
+{
+	ifstream i_file;
+	in_buffer_size = 0;
+	i_file.open( infile, ios::in || ios::binary );
+	if ( i_file.is_open() )
+	{	
+		if ( !in_buffer  ) in_buffer  = new unsigned char[4000];
+		if ( !key_stream ) key_stream = new unsigned char[4000];
+		unsigned char c;
+		while ( !i_file.eof() && in_buffer_size < 4000)
+		{
+			c = i_file.get();
+			switch ( c ) {
+				case 'Ä':
+				case 'ä':
+					in_buffer[in_buffer_size++] = deck.get_char('A');
+					c = 'E';
+					break;
+				case 'Ö':
+				case 'ö':
+					in_buffer[in_buffer_size++] = deck.get_char('O');
+					c = 'E';
+					break;
+				case 'Ü':
+				case 'ü':
+					in_buffer[in_buffer_size++] = deck.get_char('O');
+					c = 'E';
+					break;
+				case 'ß':
+					in_buffer[in_buffer_size++] = deck.get_char('S');
+					c = 'S';
+					break;
+				default:
+					break;
+			}
+			if ( in_buffer_size >= 4000 )
+				break;
+			c = deck.get_char( c );
+			if ( c ) 
+				in_buffer[in_buffer_size++] = c;
+		}
+		key_stream_size = 0;
+	
+		if ( !i_file.eof() )
+		{ // FIXME 
+			LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_ZULANG,pc_str,STR_LAENGE_STRING_TABLE);
+			MessageBox(pc_str,"Solitaire Ver-/Entschlüsselung");
+		}
+		i_file.close();
+		return true;
+	}
+
+	return false;
+}
+
 
 void CDlgSolitaire::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
-	DDX_CBIndex(pDX, IDC_Kartenanzahl, kartenanzahl);
 
 	DDX_Text(pDX, IDC_EDIT1, InitialDeck);
 	DDX_CBString(pDX, IDC_COMBO2, InitialArt);
@@ -126,30 +205,68 @@ void CDlgSolitaire::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT6, m_edit_schl);
 	DDX_Control(pDX, IDC_BUTTON72, m_keystream_save_button);
 	DDX_Control(pDX, IDC_COMBO2, m_ctrlComboSelCards);
+	DDX_Control(pDX, IDC_Kartenanzahl, m_ctrlSelKartenanzahl);
 }
+
+void CDlgSolitaire::init()
+{
+	UpdateData(true);
+	m_anderemischung.EnableWindow(false);
+	m_passwort.EnableWindow(true);
+	m_passwort_button.EnableWindow(true);
+	m_abschlussspeichern.EnableWindow(false);
+	m_inispeichern.EnableWindow(false);
+	verschl.EnableWindow(false);
+	entschl.EnableWindow(false);
+
+	initdrei();
+
+	long cards   = m_ctrlSelKartenanzahl.GetCurSel()+3;
+	long variant = m_ctrlComboSelCards.GetCurSel();
+	switch ( variant ) {
+		case 0:
+		case 1:
+		case 2:
+			deck.initalize(cards, variant, 0);
+			enableVorgabe(false);
+			if ( variant == 2 ) 
+				m_anderemischung.EnableWindow(true);
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+	}
+	deck.get_deck(InitialDeck);
+
+	// FIXME 
+	zaehler=0;
+	m_edit_rest_generate.ShowWindow(0);
+	m_edit_schl.ShowWindow(0);
+	key_stream_size = 0;
+	endDeck="";
+	key_edit="";
+
+	UpdateData(false);
+}
+
+
 
 BOOL CDlgSolitaire::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	enableVorgabe(false);
-	myD->readPlaintext(infile);
-	
-	// Leere Nachricht ist nicht erlaubt
-	if (myD->plaintext=="")
+
+	if (!load_infile())
 	{
 		LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_1,pc_str,STR_LAENGE_STRING_TABLE);
 		MessageBox(pc_str);	
 		this->EndDialog(1);
 	}
-	
-	// schneidet die Zeichen nach 65.535 ab.
-	if(myD->plaintext.GetLength()>65535)
-	{
-		myD->plaintext.Delete(65535,myD->plaintext.GetLength()-65535);
-		LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_ZULANG,pc_str,STR_LAENGE_STRING_TABLE);
-		MessageBox(pc_str,"Solitaire Ver-/Entschlüsselung");
-	}
-	
+	OnBnReInit();
+
 	CString Title;
 	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_SOLITAIRE,pc_str,STR_LAENGE_STRING_TABLE);
 	Title = pc_str;
@@ -165,15 +282,15 @@ BOOL CDlgSolitaire::OnInitDialog()
 BEGIN_MESSAGE_MAP(CDlgSolitaire, CDialog)
 	ON_CBN_SELCHANGE(IDC_Kartenanzahl, OnCbnSelchangeKartenanzahl)
 	ON_CBN_SELCHANGE(IDC_COMBO2, OnCbnSelchangeCombo2)
-	ON_BN_CLICKED(IDC_BUTTON6, OnBnClickedButton6)
 	ON_BN_CLICKED(IDC_BUTTON61, OnBnClickedButton61)
 	ON_BN_CLICKED(IDC_BUTTON9, OnBnClickedButton9)
-	ON_BN_CLICKED(IDC_BUTTON4, OnBnClickedButton4)
-	ON_BN_CLICKED(IDC_BUTTON5, OnBnClickedButton5)
-	ON_BN_CLICKED(IDC_BUTTON7, OnBnClickedButton7)
-	ON_BN_CLICKED(IDC_BUTTON8, OnBnClickedButton8)
-	ON_BN_CLICKED(IDC_BUTTON2, OnBnClickedButton2)
-	ON_BN_CLICKED(IDC_BUTTON3, OnBnClickedButton3)
+	ON_BN_CLICKED(IDC_BUTTON4, OnBnClickedCryptStep1)
+	ON_BN_CLICKED(IDC_BUTTON5, OnBnClickedCryptStep2)
+	ON_BN_CLICKED(IDC_BUTTON6, OnBnClickedCryptStep3)
+	ON_BN_CLICKED(IDC_BUTTON7, OnBnClickedCryptStep4)
+	ON_BN_CLICKED(IDC_BUTTON8, OnBnClickedCryptStep5)
+	ON_BN_CLICKED(IDC_BUTTON2, OnBnClickedDoCrypt)
+	ON_BN_CLICKED(IDC_BUTTON3, OnBnClickedDoCryptSteps)
 	ON_BN_CLICKED(IDC_BUTTON10, OnBnClickedButton10)
 	ON_BN_CLICKED(IDC_BUTTON11, OnBnClickedButton11)
 	ON_BN_CLICKED(IDC_BUTTON12, OnBnClickedButton12)
@@ -226,20 +343,20 @@ BEGIN_MESSAGE_MAP(CDlgSolitaire, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON59, OnBnClickedButton59)
 	ON_BN_CLICKED(IDC_BUTTON60, OnBnClickedButton60)
 	ON_BN_CLICKED(IDC_BUTTON62, OnBnClickedButton62)
-	ON_BN_CLICKED(IDC_BUTTON63, OnBnClickedButton63)
-	ON_EN_CHANGE(IDC_EDIT4, OnEnChangeEdit4)
-	ON_BN_CLICKED(IDC_BUTTON1, OnBnClickedButton1)
-	ON_BN_CLICKED(IDC_BUTTON64, OnBnClickedButton64)
-	ON_BN_CLICKED(IDC_BUTTON65, OnBnClickedButton65)
-	ON_BN_CLICKED(IDC_BUTTON67, OnBnClickedButton67)
-	ON_BN_CLICKED(IDC_BUTTON66, OnBnClickedButton66)
-	ON_BN_CLICKED(IDC_BUTTON68, OnBnClickedButton68)
+	ON_BN_CLICKED(IDC_BUTTON63, OnResetCardSettings)
+	ON_EN_CHANGE(IDC_EDIT4, OnEnChangePassword)
+	ON_BN_CLICKED(IDC_BUTTON1, OnBnClickedModifyDeckByPassword)
+	ON_BN_CLICKED(IDC_BUTTON64, OnBnClickedSaveDeck)
+	ON_BN_CLICKED(IDC_BUTTON65, OnBnClickedSaveFinalDeck)
+	ON_BN_CLICKED(IDC_BUTTON67, OnBnCancel)
+	ON_BN_CLICKED(IDC_BUTTON66, OnEncrypt)
+	ON_BN_CLICKED(IDC_BUTTON68, OnDecrypt)
 	ON_EN_CHANGE(IDC_EDIT2, OnEnChangeEdit2)
 	ON_BN_CLICKED(IDC_PASTE_KEY, OnPasteKey)
-	ON_BN_CLICKED(IDC_BUTTON69, OnBnClickedButton69)
-	ON_BN_CLICKED(IDC_BUTTON71, OnBnClickedButton71)
-	ON_BN_CLICKED(IDC_BUTTON70, OnBnClickedButton70)
-	ON_BN_CLICKED(IDC_BUTTON72, OnBnClickedButton72)
+	ON_BN_CLICKED(IDC_BUTTON69, OnBnFinishCrypt)
+	ON_BN_CLICKED(IDC_BUTTON71, OnBnReInit)
+	ON_BN_CLICKED(IDC_BUTTON70, OnBnNewShuffle)
+	ON_BN_CLICKED(IDC_BUTTON72, OnBnSaveKeyStream)
 END_MESSAGE_MAP()
 
 // BEGIN_DHTML_EVENT_MAP(CDlgSolitaire)
@@ -322,61 +439,8 @@ void CDlgSolitaire::initdrei()
 
 void CDlgSolitaire::OnCbnSelchangeKartenanzahl()
 {
-	UpdateData(true);
-	kartenanzahlneu= kartenanzahl+3;
-	m_passwort.EnableWindow(true);
-	m_passwort_button.EnableWindow(true);
-	m_abschlussspeichern.EnableWindow(false);
-	m_inispeichern.EnableWindow(false);
-	zaehler=0;
-	enableVorgabe(false);
-	m_anderemischung.EnableWindow(true);
-	initdrei();
-	verschl.EnableWindow(false);
-	entschl.EnableWindow(false);
-	m_edit_rest_generate.ShowWindow(0);
-	m_edit_schl.ShowWindow(0);
-	endDeck="";
-	key_edit="";
-	/*
-	if (kartenanzahl<3)
-	{
-		 kartenanzahl=3;
-		 if (myD) delete myD; // FIXME
-		 myD = new Deck(kartenanzahl);
-		 InitialDeck = myD->getDeck();	
-		 InitialArt = "aufsteigend";
-		 if(kartenanzahl<26)
-	{
-		m_passwort.EnableWindow(false);
-		m_passwort_button.EnableWindow(false);
-	}
-		LoadString(AfxGetInstanceHandle(),IDS_SOLITAIRE_MESSAGE_2,pc_str,STR_LAENGE_STRING_TABLE);
-		MessageBox(pc_str);	
-	}
-	*/
-	//else
-	//{
-		if (myD) delete myD; // FIXME
-		myD = new Deck(kartenanzahlneu);
-		//hier wird der Klartext noch einmal gelesen, da ein neues Deck erstellt wurde
-		myD->readPlaintext(infile);
-		
-			// schneidet die Zeichen nach 65.535 ab.
-		if(myD->plaintext.GetLength()>65535)
-		{
-		myD->plaintext.Delete(65535,myD->plaintext.GetLength()-65535);
-		}
-
-		InitialDeck = myD->getDeck();	
-		InitialArt = "aufsteigend";
-		if(kartenanzahlneu<26)
-		{
-			m_passwort.EnableWindow(false);
-			m_passwort_button.EnableWindow(false);
-		}
-		UpdateData(false);
-	//}
+	if ( 3 > m_ctrlComboSelCards.GetCurSel() )
+		init();
 }
 
 
@@ -393,6 +457,8 @@ void CDlgSolitaire::SetDeckSelectioMethod(CString &method)
 	
 	m_passwort.EnableWindow(true);
 	m_passwort_button.EnableWindow(true);
+
+/*
 	if(kartenanzahlneu<26)
 	{
 		m_passwort.EnableWindow(false);
@@ -402,24 +468,6 @@ void CDlgSolitaire::SetDeckSelectioMethod(CString &method)
 	int sel = m_ctrlComboSelCards.GetCurSel();
 	switch ( sel )
 	{
-	case 0: // AUFSTEIGEND
-		myD->aufsteigend();
-		InitialDeck = myD->getDeck();
-		enableVorgabe(false);
-		m_anderemischung.EnableWindow(true);
-		break;
-	case 1: // ABSTEIGEND
-		myD->absteigend();
-		InitialDeck = myD->getDeck();
-		enableVorgabe(false);
-		m_anderemischung.EnableWindow(true);
-		break;
-	case 2: // GEMISCHT
-		myD->mischen();
-		InitialDeck = myD->getDeck();
-		enableVorgabe(false);
-		m_anderemischung.EnableWindow(true);
-		break;
 	case 3: // NACH VORGABE
 		zaehler=0;
 		vorgabe="";
@@ -467,134 +515,111 @@ void CDlgSolitaire::SetDeckSelectioMethod(CString &method)
 		assert(false);
 		break;
 	}
+*/
 }
 
 void CDlgSolitaire::OnCbnSelchangeCombo2()
 {
+	if ( 3 > m_ctrlComboSelCards.GetCurSel() )
+		init();
+#if 0
 	UpdateData();
 	SetDeckSelectioMethod(InitialArt);
 	m_edit_rest_generate.ShowWindow(0);
 	m_edit_schl.ShowWindow(0);
 	UpdateData(FALSE);
+#endif
 }
 
 
 /*Auswahl-Buttons 2-3*/
-void CDlgSolitaire::OnBnClickedButton2()
+void CDlgSolitaire::OnBnClickedDoCrypt()
 {
 	m_auto_button.EnableWindow(false);
 	m_manuell_button.EnableWindow(false);
-	myD->deck2tempini();
-	
-	for(int i=0;i<myD->plaintext.GetLength();i++)
-	 {
-		 myD->schritt1();
-		 myD->schritt2();
-		 myD->schritt3();
-		 myD->schritt4();
-		 myD->key[i] = myD->schritt5ohneJokerAusgabe();
-	 }
-	//myD->keyUmrechnen();
-	endDeck = myD->getDeck();
-	key_edit = myD->getKey();
-	m_abschlussspeichern.EnableWindow(true);
-	m_inispeichern.EnableWindow(true);
-	verschl.EnableWindow(true);
-	entschl.EnableWindow(true);
-	m_passwort.EnableWindow(false);
-	m_passwort_button.EnableWindow(false);
-	m_edit_rest_generate.ShowWindow(0);
-	m_edit_schl.ShowWindow(0);
-	m_keystream_save_button.EnableWindow(true);	
-	UpdateData(false);
+	OnBnFinishCrypt();
 }
 
-void CDlgSolitaire::OnBnClickedButton3()
+void CDlgSolitaire::OnBnClickedDoCryptSteps()
 {
-	myD->deck2tempini();
 	m_abschlussspeichern.EnableWindow(true);
 	m_inispeichern.EnableWindow(true);
-	zaehler1=1;
 	m_auto_button.EnableWindow(false);
 	m_passwort.EnableWindow(false);
 	m_passwort_button.EnableWindow(false);
-	/*
-	m_schritt1.EnableWindow(true);
-	m_schritt2.EnableWindow(true);
-	m_schritt3.EnableWindow(true);
-	m_schritt4.EnableWindow(true);
-	m_schritt5.EnableWindow(true);
-	*/
-	endDeck= myD->getDeck();
-	edit_zaehler_value = myD->plaintext.GetLength();
-	edit_schl_zeichen = myD->plaintext.GetLength();
 	m_edit_schl.ShowWindow(1);
 	m_schritt1.EnableWindow(true);
 	m_rest_generate.EnableWindow(true);
 	m_edit_rest_generate.ShowWindow(1);
+	edit_schl_zeichen = edit_zaehler_value = in_buffer_size;
 	UpdateData(false);
-
 }
 /*Auswahl-Buttons 2-3*/
 
 
 
 /*Schritt 1-5 Buttons*/
-void CDlgSolitaire::OnBnClickedButton4()
+void CDlgSolitaire::OnBnClickedCryptStep1()
 {
+	deck.s1_swap_JA();
+	deck.get_deck(endDeck);
 	m_manuell_button.EnableWindow(false);
-	myD->schritt1();
-	endDeck = myD->getDeck();
 	m_schritt2.EnableWindow(true);
 	m_schritt1.EnableWindow(false);
 	m_rest_generate.EnableWindow(false);
-	
 	UpdateData(false);
 }
 
-void CDlgSolitaire::OnBnClickedButton5()
+void CDlgSolitaire::OnBnClickedCryptStep2()
 {
+	deck.s2_swap_JB();
+	deck.get_deck(endDeck);
 	m_manuell_button.EnableWindow(false);
-	myD->schritt2();
-	endDeck = myD->getDeck();
 	m_schritt3.EnableWindow(true);
 	m_schritt2.EnableWindow(false);
 	UpdateData(false);
 }
 
-void CDlgSolitaire::OnBnClickedButton6()
+void CDlgSolitaire::OnBnClickedCryptStep3()
 {
+	deck.s3_triple_cut();
+	deck.get_deck(endDeck);
 	m_manuell_button.EnableWindow(false);
-	myD->schritt3();
-	endDeck = myD->getDeck();
 	m_schritt4.EnableWindow(true);
 	m_schritt3.EnableWindow(false);
 	UpdateData(false);
 }
 
-void CDlgSolitaire::OnBnClickedButton7()
+void CDlgSolitaire::OnBnClickedCryptStep4()
 {
+	deck.s4_count_cut();
+	deck.get_deck(endDeck);
 	m_manuell_button.EnableWindow(false);
-	myD->schritt4();
-	endDeck = myD->getDeck();
 	m_schritt5.EnableWindow(true);
 	m_schritt4.EnableWindow(false);
 	UpdateData(false);
 }
 
-void CDlgSolitaire::OnBnClickedButton8()
+void CDlgSolitaire::OnBnClickedCryptStep5()
 {
+	unsigned char c = deck.s5_stream_char();
+	if ( c )
+	{
+		if ( key_stream_size )
+			key_edit += ',';
+		char tmpStr[12];
+		_itoa(c, tmpStr, 10);
+		key_edit += CString(tmpStr);
+		key_stream[key_stream_size++] = c;
+		edit_zaehler_value--;
+	}
 	m_manuell_button.EnableWindow(false);
-	myD->key[zaehler1-1]=myD->schritt5ohneJokerAusgabe();
-	//myD->keyUmrechnen();
-	key_edit = myD->getKeyChar(zaehler1);
-	zaehler1++;
 	m_schritt1.EnableWindow(true);
 	m_schritt5.EnableWindow(false);
 	m_rest_generate.EnableWindow(true);
-	endDeck = myD->getDeck();
-	edit_zaehler_value--;
-	if (zaehler1==myD->plaintext.GetLength()+1)
+
+	// FIXME: FINISHED
+	if ( key_stream_size == in_buffer_size )
 	{
 		verschl.EnableWindow(true);
 		entschl.EnableWindow(true);
@@ -619,27 +644,29 @@ void CDlgSolitaire::OnBnClickedButton8()
 /*nach Vorgabe-Buttons 9-62*/
 void CDlgSolitaire::DoCard( int k, CButton &button )
 {
-	if ( k > kartenanzahlneu )
+	long kartenanzahl = m_ctrlSelKartenanzahl.GetCurSel();
+#if 0 // not needed ?
+	if ( k > kartenanzahl )
 		Message(IDS_SOLITAIRE_MESSAGE_5, MB_ICONSTOP);
 	else
+#endif
 	{
 		char tmpStr[12];
 		_itoa(k, tmpStr, 10);
 		vorgabe += CString(tmpStr) + ',';
-		myD->deck[zaehler]=(char)k;
-		InitialDeck= myD->getDeckChar(zaehler+1); 
+
 		UpdateData(false);
 		zaehler++;
 
 		button.EnableWindow(false);
-		if(zaehler >= kartenanzahlneu)
+		if(zaehler >= kartenanzahl)
 		{
 			m_manuell_button.EnableWindow(true);
 			m_auto_button.EnableWindow(true);
 			Message(IDS_SOLITAIRE_MESSAGE_4, MB_ICONINFORMATION);
 			m_anderemischung.EnableWindow(true); 
 			m_reset_button.EnableWindow(false);
-			if(kartenanzahlneu>25)
+			if(kartenanzahl>25)
 			{
 				m_passwort.EnableWindow(true); 
 				m_passwort_button.EnableWindow(true);
@@ -707,7 +734,7 @@ void CDlgSolitaire::OnBnClickedButton62() {	DoCard(54, vorgabe54); }
 
 
 /*nach Vorgabe-Buttons 9-62*/
-void CDlgSolitaire::OnBnClickedButton63()
+void CDlgSolitaire::OnResetCardSettings()
 {
 	zaehler=0;
 	InitialDeck="";
@@ -774,68 +801,69 @@ void CDlgSolitaire::OnBnClickedButton63()
 
 void CDlgSolitaire::vorgabesetzen()
 {
-	if (kartenanzahlneu<54)vorgabe54.EnableWindow(false);
-	if (kartenanzahlneu<53)vorgabe53.EnableWindow(false);
-	if (kartenanzahlneu<52)vorgabe52.EnableWindow(false);
-	if (kartenanzahlneu<51)vorgabe51.EnableWindow(false);
-	if (kartenanzahlneu<50)vorgabe50.EnableWindow(false);
-	if (kartenanzahlneu<49)vorgabe49.EnableWindow(false);
-	if (kartenanzahlneu<48)vorgabe48.EnableWindow(false);
-	if (kartenanzahlneu<47)vorgabe47.EnableWindow(false);
-	if (kartenanzahlneu<46)vorgabe46.EnableWindow(false);
-	if (kartenanzahlneu<45)vorgabe45.EnableWindow(false);
-	if (kartenanzahlneu<44)vorgabe44.EnableWindow(false);
-	if (kartenanzahlneu<43)vorgabe43.EnableWindow(false);
-	if (kartenanzahlneu<42)vorgabe42.EnableWindow(false);
-	if (kartenanzahlneu<41)vorgabe41.EnableWindow(false);
-	if (kartenanzahlneu<40)vorgabe40.EnableWindow(false);
-	if (kartenanzahlneu<39)vorgabe39.EnableWindow(false);
-	if (kartenanzahlneu<38)vorgabe38.EnableWindow(false);
-	if (kartenanzahlneu<37)vorgabe37.EnableWindow(false);
-	if (kartenanzahlneu<36)vorgabe36.EnableWindow(false);
-	if (kartenanzahlneu<35)vorgabe35.EnableWindow(false);
-	if (kartenanzahlneu<34)vorgabe34.EnableWindow(false);
-	if (kartenanzahlneu<33)vorgabe33.EnableWindow(false);
-	if (kartenanzahlneu<32)vorgabe32.EnableWindow(false);
-	if (kartenanzahlneu<31)vorgabe31.EnableWindow(false);
-	if (kartenanzahlneu<30)vorgabe30.EnableWindow(false);
-	if (kartenanzahlneu<29)vorgabe29.EnableWindow(false);
-	if (kartenanzahlneu<28)vorgabe28.EnableWindow(false);
-	if (kartenanzahlneu<27)vorgabe27.EnableWindow(false);
-	if (kartenanzahlneu<26)vorgabe26.EnableWindow(false);
-	if (kartenanzahlneu<25)vorgabe25.EnableWindow(false);
-	if (kartenanzahlneu<24)vorgabe24.EnableWindow(false);
-	if (kartenanzahlneu<23)vorgabe23.EnableWindow(false);
-	if (kartenanzahlneu<22)vorgabe22.EnableWindow(false);
-	if (kartenanzahlneu<21)vorgabe21.EnableWindow(false);
-	if (kartenanzahlneu<20)vorgabe20.EnableWindow(false);
-	if (kartenanzahlneu<19)vorgabe19.EnableWindow(false);
-	if (kartenanzahlneu<18)vorgabe18.EnableWindow(false);
-	if (kartenanzahlneu<17)vorgabe17.EnableWindow(false);
-	if (kartenanzahlneu<16)vorgabe16.EnableWindow(false);
-	if (kartenanzahlneu<15)vorgabe15.EnableWindow(false);
-	if (kartenanzahlneu<14)vorgabe14.EnableWindow(false);
-	if (kartenanzahlneu<13)vorgabe13.EnableWindow(false);
-	if (kartenanzahlneu<12)vorgabe12.EnableWindow(false);
-	if (kartenanzahlneu<11)vorgabe11.EnableWindow(false);
-	if (kartenanzahlneu<10)vorgabe10.EnableWindow(false);
-	if (kartenanzahlneu<9)vorgabe9.EnableWindow(false);
-	if (kartenanzahlneu<8)vorgabe8.EnableWindow(false);
-	if (kartenanzahlneu<7)vorgabe7.EnableWindow(false);
-	if (kartenanzahlneu<6)vorgabe6.EnableWindow(false);
-	if (kartenanzahlneu<5)vorgabe5.EnableWindow(false);
-	if (kartenanzahlneu<4)vorgabe4.EnableWindow(false);
+	long kartenanzahl = m_ctrlSelKartenanzahl.GetCurSel();
+	if (kartenanzahl<54)vorgabe54.EnableWindow(false);
+	if (kartenanzahl<53)vorgabe53.EnableWindow(false);
+	if (kartenanzahl<52)vorgabe52.EnableWindow(false);
+	if (kartenanzahl<51)vorgabe51.EnableWindow(false);
+	if (kartenanzahl<50)vorgabe50.EnableWindow(false);
+	if (kartenanzahl<49)vorgabe49.EnableWindow(false);
+	if (kartenanzahl<48)vorgabe48.EnableWindow(false);
+	if (kartenanzahl<47)vorgabe47.EnableWindow(false);
+	if (kartenanzahl<46)vorgabe46.EnableWindow(false);
+	if (kartenanzahl<45)vorgabe45.EnableWindow(false);
+	if (kartenanzahl<44)vorgabe44.EnableWindow(false);
+	if (kartenanzahl<43)vorgabe43.EnableWindow(false);
+	if (kartenanzahl<42)vorgabe42.EnableWindow(false);
+	if (kartenanzahl<41)vorgabe41.EnableWindow(false);
+	if (kartenanzahl<40)vorgabe40.EnableWindow(false);
+	if (kartenanzahl<39)vorgabe39.EnableWindow(false);
+	if (kartenanzahl<38)vorgabe38.EnableWindow(false);
+	if (kartenanzahl<37)vorgabe37.EnableWindow(false);
+	if (kartenanzahl<36)vorgabe36.EnableWindow(false);
+	if (kartenanzahl<35)vorgabe35.EnableWindow(false);
+	if (kartenanzahl<34)vorgabe34.EnableWindow(false);
+	if (kartenanzahl<33)vorgabe33.EnableWindow(false);
+	if (kartenanzahl<32)vorgabe32.EnableWindow(false);
+	if (kartenanzahl<31)vorgabe31.EnableWindow(false);
+	if (kartenanzahl<30)vorgabe30.EnableWindow(false);
+	if (kartenanzahl<29)vorgabe29.EnableWindow(false);
+	if (kartenanzahl<28)vorgabe28.EnableWindow(false);
+	if (kartenanzahl<27)vorgabe27.EnableWindow(false);
+	if (kartenanzahl<26)vorgabe26.EnableWindow(false);
+	if (kartenanzahl<25)vorgabe25.EnableWindow(false);
+	if (kartenanzahl<24)vorgabe24.EnableWindow(false);
+	if (kartenanzahl<23)vorgabe23.EnableWindow(false);
+	if (kartenanzahl<22)vorgabe22.EnableWindow(false);
+	if (kartenanzahl<21)vorgabe21.EnableWindow(false);
+	if (kartenanzahl<20)vorgabe20.EnableWindow(false);
+	if (kartenanzahl<19)vorgabe19.EnableWindow(false);
+	if (kartenanzahl<18)vorgabe18.EnableWindow(false);
+	if (kartenanzahl<17)vorgabe17.EnableWindow(false);
+	if (kartenanzahl<16)vorgabe16.EnableWindow(false);
+	if (kartenanzahl<15)vorgabe15.EnableWindow(false);
+	if (kartenanzahl<14)vorgabe14.EnableWindow(false);
+	if (kartenanzahl<13)vorgabe13.EnableWindow(false);
+	if (kartenanzahl<12)vorgabe12.EnableWindow(false);
+	if (kartenanzahl<11)vorgabe11.EnableWindow(false);
+	if (kartenanzahl<10)vorgabe10.EnableWindow(false);
+	if (kartenanzahl<9)vorgabe9.EnableWindow(false);
+	if (kartenanzahl<8)vorgabe8.EnableWindow(false);
+	if (kartenanzahl<7)vorgabe7.EnableWindow(false);
+	if (kartenanzahl<6)vorgabe6.EnableWindow(false);
+	if (kartenanzahl<5)vorgabe5.EnableWindow(false);
+	if (kartenanzahl<4)vorgabe4.EnableWindow(false);
 }
 
-void CDlgSolitaire::OnEnChangeEdit4()
+void CDlgSolitaire::OnEnChangePassword()
 {
 	// TODO:  Falls dies ein RICHEDIT-Steuerelement ist, wird das Kontrollelement
 	// diese Benachrichtigung nicht senden, es sei denn, Sie setzen den CDialog::OnInitDialog() außer Kraft.
 	// Funktion und Aufruf CRichEditCtrl().SetEventMask()
 	// mit dem ENM_CHANGE-Flag ORed in der Eingabe.
-
 	// TODO:  Fügen Sie hier Ihren Code für die Kontrollbenachrichtigungsbehandlung ein.
-UpdateData(true);
+
+	UpdateData(true);
 
 	int selStart;
 	int selEnd;
@@ -857,36 +885,35 @@ UpdateData(true);
 	m_passwort.SetSel(selStart, selEnd);
 }
 
-void CDlgSolitaire::OnBnClickedButton1()
+void CDlgSolitaire::OnBnClickedModifyDeckByPassword()
 {
 	UpdateData(true);
-	myD->passwortinzahlen(m_passwort1);
-	myD->pass2deck(m_passwort1.GetLength());
-	InitialDeck = myD->getDeck();
+	// FIXME: MODIFY DECK BY PASSWORD
 	UpdateData(false);
 }
 
-void CDlgSolitaire::OnBnClickedButton64()
+void CDlgSolitaire::OnBnClickedSaveDeck()
 {
-	myD->inideckspeichern();
+	// myD->inideckspeichern();
 }
 
-void CDlgSolitaire::OnBnClickedButton65()
+void CDlgSolitaire::OnBnClickedSaveFinalDeck()
 {
-	myD->abschlussdeckspeichern();
+	// myD->abschlussdeckspeichern();
 }
 
 
 // CANCEL
-void CDlgSolitaire::OnBnClickedButton67()
+void CDlgSolitaire::OnBnCancel()
 {
 	OnCancel();	
 }
 
 
 // ENCRYPT
-void CDlgSolitaire::OnBnClickedButton66()
+void CDlgSolitaire::OnEncrypt()
 {
+#if 0
 	char outfile[256];
 	int i;
 	myD->verschluesseln(myD->plaintext);
@@ -916,13 +943,15 @@ void CDlgSolitaire::OnBnClickedButton66()
 	}
 	// Version Koy
 	//OpenNewDoc(outfile,sKey,this->oldTitle,IDS_CRYPT_SOLITAIRE,false,1);
+#endif
 
 	this->EndDialog(1);	
 }
 
 // DECRYPT
-void CDlgSolitaire::OnBnClickedButton68()
+void CDlgSolitaire::OnDecrypt()
 {
+#if 0
 	char outfile[256];
 	int i;
 
@@ -951,7 +980,7 @@ void CDlgSolitaire::OnBnClickedButton68()
 		if (i<myD->anzahl-1) sKey += CString(",");
 	}
 	OpenNewDoc(outfile,sKey,this->oldTitle,IDS_CRYPT_SOLITAIRE,false,1);
-
+#endif
 	this->EndDialog(1);
 }
 
@@ -963,6 +992,7 @@ void CDlgSolitaire::OnEnChangeEdit2()
 
 void CDlgSolitaire::OnPasteKey()
 {
+#if 0
 	CString buffer;
 	LoadString(AfxGetInstanceHandle(),IDS_CRYPT_SOLITAIRE,pc_str,STR_LAENGE_STRING_TABLE);
 	if(PasteKey(pc_str, buffer))
@@ -973,7 +1003,7 @@ void CDlgSolitaire::OnPasteKey()
 		if (0 == ndx)
 		{
 			buffer.Delete(0, strlen(NUMBER_OF_CARDS));
-			kartenanzahlneu = atoi(buffer);
+			kartenanzahl = atoi(buffer);
 			if (myD) delete myD; // FIXME
 			myD = new Deck(kartenanzahlneu);
 			myD->readPlaintext(infile); // FIXME Size of Plaintext
@@ -1091,98 +1121,54 @@ void CDlgSolitaire::OnPasteKey()
 	{
 		// FIXME: ERROR
 	}
+#endif 
 }
 
 
-void CDlgSolitaire::OnBnClickedButton69()
+void CDlgSolitaire::OnBnFinishCrypt()
 {
-	int temp = myD->plaintext.GetLength()-edit_zaehler_value;
-	for(int i=0;i<edit_zaehler_value;i++)
-		{
-			myD->schritt1();
-			myD->schritt2();
-			myD->schritt3();
-			myD->schritt4();
-			myD->key[temp]=myD->schritt5ohneJokerAusgabe();
-			temp++;
-		}
-		key_edit = myD->getKey();
-		verschl.EnableWindow(true);
-		entschl.EnableWindow(true);
-		m_passwort.EnableWindow(false);
-		m_passwort_button.EnableWindow(false);
-		m_schritt1.EnableWindow(false);
-		m_rest_generate.EnableWindow(false);
-		edit_zaehler_value=0;
-		m_keystream_save_button.EnableWindow(true);
-		UpdateData(FALSE);
-}
-
-void CDlgSolitaire::OnBnClickedButton71()
-{
-	UpdateData(true);
-	m_passwort.EnableWindow(true);
-	m_passwort_button.EnableWindow(true);
-	m_abschlussspeichern.EnableWindow(false);
-	m_inispeichern.EnableWindow(false);
-	zaehler=0;
-	enableVorgabe(false);
-	initdrei();
-	verschl.EnableWindow(false);
-	entschl.EnableWindow(false);
-	m_edit_rest_generate.ShowWindow(0);
-	m_edit_schl.ShowWindow(0);
-	endDeck="";
-	key_edit="";
-	
-	
-	
-		//gefuddelt
-		kartenanzahl=51;
-		kartenanzahlneu=54;
-		myD = new Deck(kartenanzahlneu);
-		//hier wird der Klartext noch einmal gelesen, da ein neues Deck erstellt wurde
-		myD->readPlaintext(infile);
-			// schneidet die Zeichen nach 65.535 ab.
-		if(myD->plaintext.GetLength()>65535)
-		{
-			myD->plaintext.Delete(65535,myD->plaintext.GetLength()-65535);
-		}
-		InitialDeck = myD->getDeck();	
-		InitialArt = "aufsteigend";
-
-
-	UpdateData(false);
-}
-
-void CDlgSolitaire::OnBnClickedButton70()
-{
-		
-	initdrei();
-	endDeck="";
-	key_edit="";
-	verschl.EnableWindow(false);
-	entschl.EnableWindow(false);
-	zaehler=0;
-	m_abschlussspeichern.EnableWindow(false);
-	m_inispeichern.EnableWindow(false);
-	m_passwort.EnableWindow(true);
-	m_passwort_button.EnableWindow(true);
-	if(kartenanzahlneu<26)
+	while ( key_stream_size < in_buffer_size ) 
 	{
-		m_passwort.EnableWindow(false);
-		m_passwort_button.EnableWindow(false);
+		deck.s1_swap_JA();
+		deck.s2_swap_JB();
+		deck.s3_triple_cut();
+		deck.s4_count_cut();
+		unsigned char c = deck.s5_stream_char();
+		if ( c )
+		{
+			if ( key_stream_size )
+				key_edit += ',';
+			char tmpStr[12];
+			_itoa(c, tmpStr, 10);
+			key_edit += CString(tmpStr);
+			key_stream[key_stream_size++] = c;
+		}
 	}
-	myD->mischen();
-	InitialDeck = myD->getDeck();
-	enableVorgabe(false);
-	m_edit_rest_generate.ShowWindow(0);
-	m_edit_schl.ShowWindow(0);
-	UpdateData(false);
+	deck.get_deck(endDeck);
+	edit_zaehler_value = 0;
+	
+	verschl.EnableWindow(true);
+	entschl.EnableWindow(true);
+	m_passwort.EnableWindow(false);
+	m_passwort_button.EnableWindow(false);
+	m_schritt1.EnableWindow(false);
+	m_rest_generate.EnableWindow(false);
+	m_keystream_save_button.EnableWindow(true);
+	UpdateData(FALSE);
 }
 
-void CDlgSolitaire::OnBnClickedButton72()
+void CDlgSolitaire::OnBnReInit()
 {
-	myD->keyspeichern();
-	
+	m_ctrlSelKartenanzahl.SetCurSel(51);
+	m_ctrlComboSelCards.SetCurSel(0);
+	init();
+}
+
+void CDlgSolitaire::OnBnNewShuffle()
+{
+	init();
+}
+
+void CDlgSolitaire::OnBnSaveKeyStream()
+{
 }

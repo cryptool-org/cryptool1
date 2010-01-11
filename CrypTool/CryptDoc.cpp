@@ -1801,7 +1801,7 @@ void CCryptDoc::OnSymclassicSolitaire()
 	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
 	
 	UpdateContent();
-	CDlgSolitaire mySol(ContentName, GetTitle(), NULL);
+	CDlgSolitaire mySol(ContentName, NULL);
 	mySol.DoModal();	
 }
 

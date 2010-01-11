@@ -1,7 +1,389 @@
+/**************************************************************************
+
+  Copyright [2009] [CrypTool Team]
+
+  This file is part of CrypTool.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+**************************************************************************/
+
 #include "Solitaire.h"
 #include "assert.h"
+#include <fstream>
+
+using namespace std;
+
+c_solitaire::c_solitaire () : 
+	inner_state(-1), top(0), joker_A(0), joker_B(0), no_of_cards(0)
+{
+}
+
+void c_solitaire::clear()
+{
+	while ( top )
+	{
+		card *rem = top->dn;
+		if ( top == rem )
+		{
+			delete top;
+			top = 0;
+		}
+		else
+		{
+			top->dn = rem->dn;
+			delete rem;
+		}
+	}
+	joker_A = joker_B = 0;
+	inner_state = 0;
+}
+
+c_solitaire::~c_solitaire()
+{
+	clear();
+}
+
+unsigned char c_solitaire::get_char( char ch )
+{
+	if ( ch >= 'A' && ch <= 'Z' )
+		return (unsigned char)(ch-'A'+1); 
+	if ( ch >= 'a' && ch <= 'z' )
+		return (unsigned char)(ch-'a'+1); 
+	return 0;
+}
 
 
+bool c_solitaire::initalize( long cards, long ID, const unsigned char *cardset )
+{
+	clear();
+	if ( cards < 3 || cards > 54 )
+		return false;
+
+// set cards
+	no_of_cards = cards;
+	card *new_card;
+	for ( long i=1; i<=cards; i++ )
+	{
+		switch ( ID ) {
+			case 0: // aufsteigend sortiert
+			case 2: // gemischt
+				new_card = new card((unsigned char)i);
+				break;
+			case 1: // absteigend sortiert
+				new_card = new card((unsigned char)(cards-i+1));
+				break;
+			case 3: // nach Vorgabe
+				new_card = new card( cardset[i] );
+				break;
+			default:
+				assert(false);
+				break;
+		}
+		if ( !top )
+		{
+			top		= new_card;
+			top->up	= top;
+			top->dn	= top;
+		}
+		else
+		{
+			new_card->dn	= top;
+			new_card->up	= top->up;
+			top->up->dn		= new_card;
+			top->up	        = new_card;
+		}
+	}
+
+	if ( ID == 2 )
+	{ // Mischen
+		int state = 0, r;
+		card *c = top;
+		for ( long i=0; i<1000; i++ )
+		{
+			r = rand() % 2;
+			if ( r ) {
+				if ( !state )
+				{
+					joker_A = c; state++;
+				}
+				else
+				{ // mix
+					joker_B = c; state = 0;
+					unsigned char t = joker_A->ord;
+					joker_A->ord = joker_B->ord;
+					joker_B->ord = t;
+				}
+			}
+			c = c->dn;
+		}
+	}
+
+// find the joker
+	card *c = top;
+	while ( 1 ) {
+		if ( c->ord == cards -1 )
+			joker_A = c;
+		if ( c->ord == cards )
+		{
+			c->ord = (unsigned char)(cards-1);
+			joker_B = c;
+		}
+		c = c->dn;
+		if ( c == top )
+			break;
+	}
+
+	return true;
+}
+
+bool c_solitaire::s1_swap_JA()
+{ // 1. Find the A joker. Move it one card down.
+	if ( inner_state ) 
+		return false;
+
+	unsigned char t = joker_A->ord;
+	joker_A->ord = joker_A->dn->ord;
+	joker_A = joker_A->dn;
+	joker_A->ord = t;
+
+	if ( top == joker_A )
+		top = top->up;
+	if ( joker_B == joker_A )
+		joker_B = joker_A->up;
+	inner_state++;
+	return true;
+}
+
+
+bool c_solitaire::s2_swap_JB()
+{ // 2. Find the B joker. Move it two cards down.
+	if ( 1 != inner_state ) 
+		return false;
+
+	unsigned char t = joker_B->ord;
+	for ( long i=1; i<=2; i++ )
+	{
+		joker_B->ord = joker_B->dn->ord;
+		joker_B = joker_B->dn;
+		if ( top == joker_B )
+			top = top->up;
+		if ( joker_B == joker_A )
+			joker_A = joker_A->up;
+	}
+	joker_B->ord = t;
+
+	inner_state++;
+	return true;
+}
+
+bool c_solitaire::s3_triple_cut()
+{ // 3. Perform a triple cut. That is, swap the cards above the first joker with the cards below the second joker.
+	if ( 2 != inner_state ) 
+		return false;
+
+	card *i_dn, *i_up;
+	i_dn = top;		while ( i_dn != joker_A && i_dn != joker_B ) i_dn = i_dn->dn;
+	i_up = top->up; while ( i_up != joker_A && i_up != joker_B ) i_up = i_up->up;
+
+	if ( i_up->dn == top )
+		top = i_dn;
+	else if ( i_dn == top )
+		top = i_up->dn;
+	else 
+	{
+		card *tb = i_up->dn, *te = top->up;
+		// 1. remove tb ** te from list
+		i_up->dn		= top;
+		top->up			= i_up;
+		// 2. insert tb ** te between i_dn->up and i_dn
+		tb->up			= i_dn->up;
+		te->dn			= i_dn;
+		i_dn->up->dn	= tb;
+		i_dn->up		= te;
+		top = tb;
+	}
+
+	inner_state++;
+	return true;
+}
+
+bool c_solitaire::s4_count_cut(unsigned char c)
+{  // Count down from the top card that number. 
+   // Cut after the card that you counted down to, leaving the bottom card on the bottom.
+	if ( 3 != inner_state ) 
+		return false;
+
+	if ( !c )
+		c = top->up->ord;
+
+	card *t = top, *tb = top->up;
+	while ( c-- > 1 ) t = t->dn;
+	// 1. remove top ** t from list;
+	tb->dn		= t->dn;
+	t->dn->up	= tb;
+	// 2. insert top ** t between tb->up and tb
+	top->up		= tb->up;
+	t->dn		= tb;
+	tb->up->dn	= top;
+	tb->up		= t;
+	top	= tb->dn; // ... leaving the bottom card on the bottom.
+
+	inner_state++;
+	return true;
+}
+
+/*
+ Perform the Solitaire operation, but instead of Step 5, do another count cut based on the first character of the passphrase (19, in this example). 
+ In other words, do step 4 a second time, using 19 as the cut number instead of the last card. Remember to put the top cards just above the bottom 
+ card in the deck, as before.
+ Repeat the five steps of the Solitaire algorithm once for each character of the key. That is, the second time through the Solitaire steps use the 
+ second character of the key, the third time through use the third character, etc. 
+*/
+
+unsigned char c_solitaire::s5_stream_char()
+{
+	if ( 4 != inner_state ) 
+		return 0;
+
+	unsigned char c = top->ord;
+	card *t = top;
+	while ( c-- >= 1 ) t = t->dn;
+	inner_state = 0;
+
+	if ( t == joker_A || t == joker_B )
+		return 0;
+
+	c = t->ord; 
+	return c;
+}
+
+bool c_solitaire::get_deck( CString &str )
+{
+	if ( 0 > inner_state ) 
+		return false;
+	str = _T("");
+	card *t = top;
+	char numStr[12];
+	for ( long i=1; i<=no_of_cards; i++ )
+	{
+		if ( t == joker_A ) 
+			str += 'A';
+		else if ( t == joker_B )
+			str += 'B';
+		else
+		{
+			_itoa( t->ord, numStr, 10 );
+			str += CString(numStr);
+		}
+		if ( i < no_of_cards )
+			str += ',';
+		t = t->dn;
+	}
+
+	return true;
+}
+
+unsigned char c_solitaire::crypt( unsigned char c )
+{
+	unsigned char out = 0;
+	while ( !out )
+	{
+		s1_swap_JA();
+		s2_swap_JB();
+		s3_triple_cut();
+		s4_count_cut();
+		out = s5_stream_char();
+	}
+	if ( out > 26 ) out -= 26;
+	out += c;
+	if ( out > 26 ) out -= 26;
+	return out;
+}
+
+long solitaire( const char *f_in, const char *f_out, long cards, long ID, const unsigned char *cardset, const char *password )
+{
+	long error = 0;
+	fstream fin, fout;
+	fin.open( f_in, ios::in || ios::binary );
+	if ( fin.is_open() )
+	{
+		fout.open( f_out, ios::out || ios::binary );
+		if ( fout.is_open() )
+		{
+			c_solitaire s;
+			s.initalize(cards, ID, cardset);
+			unsigned char c, c2;
+			while ( !fin.eof() )
+			{
+				c = fin.get();
+
+				switch ( c ) {
+					case 'Ä':
+					case 'ä':
+						c  = s.get_char('A');
+						c2 = s.get_char('E');
+						break;
+					case 'Ö':
+					case 'ö':
+						c  = s.get_char('O');
+						c2 = s.get_char('E');
+						break;
+					case 'Ü':
+					case 'ü':
+						c  = s.get_char('O');
+						c2 = s.get_char('E');
+						break;
+					case 'ß':
+						c  = s.get_char('S');
+						c2 = s.get_char('S');
+						break;
+					default:
+						c = s.get_char( c );
+						c2 = 0;
+						break;
+				}
+				if ( c )  fout.put( s.crypt( c ) );
+				if ( c2 ) fout.put( s.crypt( c2 ) );
+			}
+
+			fout.close();
+		}
+		else error = 2; // FIXME 
+		fin.close();
+	}
+	else error = 1; // FIXME 
+	return error;
+}
+
+#if 0
+bool c_solitaire::set_deck( CString &str )
+{
+	unsigned char deck[55];
+	long cards = 0;
+	while ( str.GetLength )
+	{
+		ling p = str.Find(',');
+		CString s = str.Mid(0, p);
+		str.Delete(0, p+1);
+		// FIXME 
+	}
+}
+#endif 
+
+
+
+#if 1
 void Deck::setkartenanzahl(int anzahlkarten)
 {
 	this->anzahl = anzahlkarten;
@@ -1112,4 +1494,4 @@ void Deck::keyladen()
 		key[i]=(char)load[i];
 }
 				
-
+#endif

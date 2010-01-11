@@ -1,3 +1,24 @@
+/**************************************************************************
+
+  Copyright [2009] [CrypTool Team]
+
+  This file is part of CrypTool.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+**************************************************************************/
+
+
 #pragma once
 
 #include "Solitaire.h"
@@ -18,15 +39,16 @@ class CDlgSolitaire : public CDialog
 	DECLARE_DYNAMIC(CDlgSolitaire)
 
 	void SetDeckSelectioMethod(CString &method);
+	bool load_infile();
 public:
-	CDlgSolitaire(char* infile, CString oldTitle,CWnd* pParent = NULL);   // Standardkonstruktor
+	CDlgSolitaire(char* infile, CWnd* pParent = NULL);   // Standardkonstruktor
 	virtual ~CDlgSolitaire();
-	Deck* myD;
+	c_solitaire deck;
 	int zaehler;
 	CString vorgabe;
 	char* infile;
-	CString oldTitle;
-	//char* outfile;
+	unsigned char *in_buffer, *key_stream;	
+	long           in_buffer_size, key_stream_size;
 
 // Dialogfelddaten
 	enum { IDD = IDD_SOLITAIRE, IDH = IDR_HTML_DLGSOLITAIRE };
@@ -35,28 +57,26 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV-Unterstützung
 	virtual BOOL OnInitDialog();
 	void    DoCard( int k, CButton &button );
+	void    init();
 
 	DECLARE_MESSAGE_MAP()
 //	DECLARE_DHTML_EVENT_MAP()
 public:
-	int kartenanzahl;
-	int kartenanzahlneu;
-	int zaehler1;
 	void enableVorgabe(bool art);
 	void initdrei();
 	afx_msg void OnCbnSelchangeKartenanzahl();
 	afx_msg void OnCbnSelchangeCombo2();
 	CString InitialDeck;
 	CString InitialArt;
-	afx_msg void OnBnClickedButton6();
 	afx_msg void OnBnClickedButton61();
 	afx_msg void OnBnClickedButton9();
-	afx_msg void OnBnClickedButton4();
-	afx_msg void OnBnClickedButton5();
-	afx_msg void OnBnClickedButton7();
-	afx_msg void OnBnClickedButton8();
-	afx_msg void OnBnClickedButton2();
-	afx_msg void OnBnClickedButton3();
+	afx_msg void OnBnClickedCryptStep1();
+	afx_msg void OnBnClickedCryptStep2();
+	afx_msg void OnBnClickedCryptStep3();
+	afx_msg void OnBnClickedCryptStep4();
+	afx_msg void OnBnClickedCryptStep5();
+	afx_msg void OnBnClickedDoCrypt();
+	afx_msg void OnBnClickedDoCryptSteps();
 	afx_msg void OnBnClickedButton10();
 	afx_msg void OnBnClickedButton11();
 	afx_msg void OnBnClickedButton12();
@@ -163,11 +183,11 @@ public:
 	CButton vorgabe52;
 	CButton vorgabe53;
 	CButton vorgabe54;
-	afx_msg void OnBnClickedButton63();
-	afx_msg void OnEnChangeEdit4();
+	afx_msg void OnResetCardSettings();
+	afx_msg void OnEnChangePassword();
 	CEdit m_passwort;
 	CString m_passwort1;
-	afx_msg void OnBnClickedButton1();
+	afx_msg void OnBnClickedModifyDeckByPassword();
 	CButton m_passwort_button;
 	CButton m_reset_button;
 	CButton m_auto_button;
@@ -179,14 +199,14 @@ public:
 	CButton m_schritt5;
 	CString endDeck;
 	CString key_edit;
-	afx_msg void OnBnClickedButton64();
-	afx_msg void OnBnClickedButton65();
+	afx_msg void OnBnClickedSaveDeck();
+	afx_msg void OnBnClickedSaveFinalDeck();
 	CButton m_inispeichern;
 	CButton m_abschlussspeichern;
 	void vorgabesetzen();
-	afx_msg void OnBnClickedButton67();
-	afx_msg void OnBnClickedButton66();
-	afx_msg void OnBnClickedButton68();
+	afx_msg void OnBnCancel();
+	afx_msg void OnEncrypt();
+	afx_msg void OnDecrypt();
 	afx_msg void OnEnChangeEdit2();
 	afx_msg void OnPasteKey();
 	CButton verschl;
@@ -195,14 +215,15 @@ public:
 
 	int edit_zaehler_value;
 	CButton m_rest_generate;
-	afx_msg void OnBnClickedButton69();
+	afx_msg void OnBnFinishCrypt();
 	CEdit m_edit_rest_generate;
-	afx_msg void OnBnClickedButton71();
+	afx_msg void OnBnReInit();
 	CButton m_anderemischung;
-	afx_msg void OnBnClickedButton70();
+	afx_msg void OnBnNewShuffle();
 	int edit_schl_zeichen;
 	CEdit m_edit_schl;
-	afx_msg void OnBnClickedButton72();
+	afx_msg void OnBnSaveKeyStream();
 	CButton m_keystream_save_button;
 	CComboBox m_ctrlComboSelCards;
+	CComboBox m_ctrlSelKartenanzahl;
 };
