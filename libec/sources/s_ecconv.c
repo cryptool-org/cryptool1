@@ -213,8 +213,8 @@ int ln_to_string(argument,result,base)
 	rev_res = calloc( SECUDE(lngtouse)(argument)/help + 1, sizeof(char));
 	res = calloc( SECUDE(lngtouse)(argument)/help + 5, sizeof(char));  /*?*/
 	if ( (!rev_res) || (!res) ){
-		if ( (!rev_res) && res ) free(res);
-		if ( rev_res && (!res) ) free(rev_res);
+		if ( res ) free(res);
+		if ( rev_res ) free(rev_res);
 		return (-1); /* Memory allocation error */
 	}
 	/*set the right prefix*/

@@ -66,7 +66,7 @@ std::string DiffieHellmanParty::GetPublicKey()throw(DHError)
 	char *tempkey = new char[MAX_KEY_LENGTH_IN_BYTE];
 	tempkey << PublicKey;
 	strPublicKey = tempkey;
-	delete tempkey;
+	delete[] tempkey;
 	if(strPublicKey.length() > MAX_KEY_LENGTH_IN_BYTE) this->ErrorCode |= E_PUBLIC_KEY_INVALID;
 	// Fehler auswerfen, falls nötig
 	if(this->ErrorCode) throw DHError(this->ErrorCode);
@@ -86,7 +86,7 @@ std::string DiffieHellmanParty::GetSessionKey(std::string k)throw(DHError)
 	char *tempkey = new char[MAX_KEY_LENGTH_IN_BYTE];
 	tempkey << SessionKey;
 	strSessionKey = tempkey;
-	delete tempkey;
+	delete[] tempkey;
 	if(strSessionKey.length() > MAX_KEY_LENGTH_IN_BYTE) this->ErrorCode |= E_SESSION_KEY_INVALID;
 	// Fehler auswerfen, falls nötig
 	if(this->ErrorCode) throw DHError(this->ErrorCode);
@@ -103,7 +103,7 @@ void DiffieHellmanParty::SetSecret()
 	char *tempkey = new char[MAX_KEY_LENGTH_IN_BYTE];
 	tempkey << Secret;
 	strSecret = tempkey;
-	delete tempkey;
+	delete[] tempkey;
 	this->bHasSecret = true;
 }
 

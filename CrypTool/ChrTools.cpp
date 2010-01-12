@@ -385,5 +385,6 @@ int decodeASCII(      char *strOut, int &strOutPtr, const int strOutSize,
 	m_outStr[ptr] = '\0';
 	strcpy( strOut + strOutPtr, m_outStr );
 	strOutPtr += ptr;
+	delete[] m_outStr;
 	return done;
 }

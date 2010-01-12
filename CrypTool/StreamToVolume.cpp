@@ -120,7 +120,7 @@ int StreamToVolume::analyzeFile(char *filename)
 
 	if(!file.Open( filename, CFile::modeRead | CFile::typeBinary))
 	{
-		delete buffer;
+		delete[] buffer;
 		return false;
 	}
 
@@ -131,7 +131,7 @@ int StreamToVolume::analyzeFile(char *filename)
 	}
 	file.Close();
 
-	delete buffer;
+	delete[] buffer;
 	return rc;
 }
 
@@ -254,5 +254,5 @@ unsigned char* StreamToVolume::getVolume()
 StreamToVolume::~StreamToVolume()
 {
 	if (voxelBuffer)
-		delete voxelBuffer;
+		delete[] voxelBuffer;
 }
