@@ -2014,6 +2014,11 @@ Interval & Number & Average number per 1000 \\ \hline
 \end{table}
 \vskip +6 pt
 
+A visualization of the number of primes in higher intervals of powers of $10$
+can be found in chapter \ref{primes:_Appendix_Plotting-Primes-Quantity}
+at page \pageref{primes:_Appendix_Plotting-Primes-Quantity}.
+
+
 
 
 % --------------------------------------------------------------------------
@@ -2179,24 +2184,171 @@ for e in E:
 % ---------------------------------------------------------------------------
 \newpage
 \hypertarget{primes:_Appendix_Plotting-Primes-Quantity}{}
-\section{Appendix: Plotting the number of primes in higher ranges}
+\section[Appendix: Visualization of the quantity of primes in higher ranges]
+        {\sloppy Appendix: Visualization of the quantity of primes in higher ranges}
+        % Wie in Fussnote eckige Klammer davor: Was in Klammern kommt in Contents
+        % links, so dass dort keine Schmierzeichen mehr! 
 \label{primes:_Appendix_Plotting-Primes-Quantity}
 \index{Sage!Code examples}
 \index{Sage}
-
-\noindent xxxxxxxxx. 
-
-% ---------------------------------------------------------------------------
-\subsection{xxxxxxxxxxxx}
-
-xxxxxxxxxxxxxxxxxxxxxx
-
-
-	
-
+\vskip +15pt
 
 % ---------------------------------------------------------------------------
+\subsection*{The distribution of primes}
+Between $1$ and $10$ there are $4$ primes. Between $10^3$ and $10^4$ there are
+already $1,061$ primes. In the interval $[10^9,10^{10}]$ lie
+$404,204,977\approx 4\cdot 10^{8}$ primes and in the interval from
+$10^{19}$ to $10^{20}$ there are $1,986,761,935,284,574,233\approx 1,9\cdot 10^{18}$
+primes\footnote{\url{http://en.wikipedia.org/wiki/Prime\_number\_theorem}}.
+
+Why is the difference between the number of primes in the different intervals
+so big, although the boundaries of the intervals differ only by value 1 of the
+exponent of the power of $10$?
+
+
+\subsubsection*{The prime number theorem}
+The number of primes up to a given number $x$ can approximately be determined by a formula, the so called prime number theorem. $\pi(x)$ denotes the number of primes which are smaller or equal to $x$. Then the formula is
+\[\pi(x)\sim \frac{x}{\ln{x}}.\]
+Note, that this formula only gives an approximation of the number of primes smaller or equal to $x$. It's getting more exact as the number $x$ increases.\\
+In the following we are using the prime number theorem to examine the distribution of primes.
+
+To understand, why the number of primes is growing so rapidly, although the boundaries of the intervals only differ by the exponent $1$, let's have a closer look to both components of the formula:\\
+(1) $x$ and (2) $\ln{x}$.
+
+
+\subsubsection*{The functions $x$ and $10^x$}
+The function $x$ is a straight line. It is shown in figure \ref{x} on page \pageref{x}.\\
+In the next step the function of the boundaries of the intervals are drawn in figure \ref{10hochx} on page \pageref{10hochx}. To get an idea of how the functions look like, the domain of definition was chosen to be from $0$ to $10^{10}$ and from $0$ to $10$, respectively.
+You can see, that with increasing exponent $x$ the numbers grow stronger.
+
+\begin{figure}[!htb]
+	\centering
+	\subfloat[$x$]{\label{x}\includegraphics[height=4cm]{figures/x.png}}
+	\hfill
+	\subfloat[$10^x$]{\label{10hochx}\includegraphics[height=4cm]{figures/10hochx.png}}
+	\caption{Graph of the functions $x$ and $10^x$}
+	\label{xund10hochx}
+        \vskip +25pt 
+\end{figure}
+
+
+\subsubsection*{The function $\ln{x}$}
+In comparison to that we consider the function $\ln{x}$. The left picture of figure \ref{lnxbis} on page \pageref{lnxbis} shows the graph with the domain of definition from $1$ to $100$. On the right picture the domain of definition was chosen between $1$ and $10^{10}$.\\
+One can see that the values of the function $\ln{x}$ grow slowly compared to the growth of the function $x$. This is visualizd by the graph of both functions in one picture shown in figure \ref{xundlnxundxdurchlnx} on page \pageref{xundlnxundxdurchlnx}. In addition to that the graph of the function $\frac{x}{\ln{x}}$ was drawn in the same figure.
+
+\begin{figure}[!htb]
+	\centering
+	\subfloat[ ]{\includegraphics[height=4cm]{figures/lnxbis100.png}}
+	\hfill
+	\subfloat[ ]{\includegraphics[height=4cm]{figures/lnxbis10hoch10.png}}
+	\caption{Graph of the function $\ln{x}$ till $100$ and till $10^{10}$}
+	\label{lnxbis}
+        \vskip +25pt 
+\end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[height=4cm]{figures/xundlnxundxdurchlnx.png}
+	\caption{The functions $x$ (blue), $\ln{x}$ (red)
+                 and $\frac{x}{\ln{x}}$ (green)}
+	\label{xundlnxundxdurchlnx}
+        \vskip +25pt 
+\end{figure}
+
+
+\subsubsection*{The function $\frac{x}{\ln{x}}$}
+The function $\frac{x}{\ln{x}}$ consists of the function $x$ as the numerator and the function $\ln{x}$ in the denominator, which, in comparison to $x$, increases very slowly. Compared to the number $x$ itself, the number of primes less or equal to $x$ is small.But still, $\frac{x}{\ln{x}}$ is an increasing function as you can see in figure \ref{xundlnxundxdurchlnx} on page \pageref{xundlnxundxdurchlnx}.
+
+
+\subsubsection*{The number of primes in the different intervals}
+To see how the number of primes in different intervals $[10^{x-1},10^{x}]$ behave, let's have a look on figure \ref{deltazehnxdurchlnxbis} on page \pageref{deltazehnxdurchlnxbis}. Here $\frac{10^{x}}{\ln{10^{x}}}$ and $\frac{10^{x}}{\ln{10^{x}}}-\frac{10^{x-1}}{\ln{10^{x-1}}}$ are visualized. The left chart shows the values for the exponent $x$ from $1$ to $5$ and the other one shows the values for $x$ from $1$ to $10$.\\
+The blue bars represent the overall number of primes up to $10^x$. The red bars show how many primes lie in the interval $[10^{x-1},10^x]$, respectively. This makes clear, that the number of primes in intervals of higher exponents grows quite fast. 
+
+\begin{figure}[!htb]
+	\centering
+	\subfloat[ ]{\label{deltazehnxdurchlnxbis5}
+                     \includegraphics[height=4cm]{figures/deltazehnxdurchlnxbis5.png}}
+	\hfill
+	\subfloat[ ]{\label{deltazehnxdurchlnxbis10}
+                     \includegraphics[height=4cm]{figures/deltazehnxdurchlnxbis10.png}}
+	\caption{Numbers of primes in the interval $0$ to $10^x$ (blue) and in the intervall
+                 $[10^{x-1},10^x]$ (red) for different exponents $x$.}
+	\label{deltazehnxdurchlnxbis}
+\end{figure}
+
+
+A table containing the number of primes in some dedicated intervals can be found in
+chapter \ref{s:primhfk} at page \pageref{s:primhfk}.
+
+
+
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+
+# Definition of function f(x)=x and plots for the domains from 0 to 10^10 and 0 to 100
+sage: def f(x):return x
+....:
+sage: F=plot(f,(0,10^10))
+sage: F.plot()
+
+sage: F2=plot(f,(1,100))
+sage: F2.plot()
+
+
+# Definition of function g(x)=10^x and plots for the domain from 0 to 10
+sage: def g(x): return 10^x
+....:
+sage: G=plot(g,(0,10))
+sage: G.plot()
+
+
+# Definition of function h(x)=log(x) and plots for the domains from 1 to 100 and 1 to 10^10
+sage: def h(x): return log(x)
+....:
+sage: H=plot(h,(1,100),color="red")
+sage: H.plot()
+
+sage: H2=plot(h,(1,10^10),color="red")
+sage: H2.plot()
+
+
+# Definition of function k(x)=x/log(x) and plots for the domain from 2 to 100
+sage: def k(x): return x/log(x)
+....:
+sage: K=plot(k,(2,100),color="green")
+sage: K.plot()
+
+
+# Plots of the functions f, k and h for the domain of definition up to 100
+sage: F2+K+H
+
+
+# Generation of the data for the bar charts ..........................
+# Determination of the number of primes in the interval [1,10]
+sage: pari(10).primepi()-pari(1).primepi()
+4
+
+# Determination of the number of primes in the interval [10^3,10^4]
+sage: pari(10**4).primepi()-pari(10**3).primepi()
+1061
+
+# Determination of the number of primes in the interval [10^8,10^9]
+sage: pari(10**9).primepi()-pari(10**8).primepi()
+45086079
+
+# (for 10^10: OverflowError: long int too large to convert)
+
+\end{Verbatim}
+\caption{Generation of the graphs of the three functions x, log(x) and x/log(x)}
+\end{sagecode}
+
+
+
 % ---------------------------------------------------------------------------
+% ---------------------------------------------------------------------------
+\clearpage
 \newpage
 \hypertarget{primes:_Appendix_Sage-Samples}{}
 \section{Appendix: Examples using Sage}
@@ -2209,7 +2361,50 @@ xxxxxxxxxxxxxxxxxxxxxx
 \noindent Below is Sage source code related to contents of the
 chapter~\ref{Label_Kapitel_Primes} (``\nameref{Label_Kapitel_Primes}''). 
 
+
 % ---------------------------------------------------------------------------
+% \newpage
+\subsection{Some basic functions about primes using Sage}
+\index{Sage}
+
+This part of the appendix contains Sage code, to perform some simple
+computations about primes%
+\footnote{See the Sage documentation about Elementary number theory
+          \url{http://www.sagemath.org/doc/constructions/number_theory.html}.}.
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+
+# primes (general commands)
+# The set of prime numbers
+sage: P=Primes(); P
+Set of all prime numbers: 2, 3, 5, 7, ...
+
+# Returns the next prime number
+sage: next_prime(5)
+7
+
+# Returns how many primes <=x are there
+sage: pari(10).primepi()
+4
+
+# Returns the first x primes
+sage: primes_first_n(5)
+[2, 3, 5, 7, 11]
+
+# Returns the primes in an interval
+sage: list(primes(1,10))
+[2, 3, 5, 7]
+
+\end{Verbatim}
+\caption{Some basic functions about primes}
+\end{sagecode}
+
+
+
+% ---------------------------------------------------------------------------
+\newpage
 \subsection{Check primality of integers generated by quadratic functions}
 \index{Sage}
 

@@ -2096,6 +2096,11 @@ Intervall & Anzahl & Durchschnittl. Anzahl pro 1000 \\ \hline
 \end{table}
 \vskip +6 pt
 
+Eine Visualisierung der Anzahl von Primzahlen in höheren Intervallen von Zehnerpotenzen
+finden sich in Kapitel \ref{primes:_Appendix_Plotting-Primes-Quantity}
+auf Seite \pageref{primes:_Appendix_Plotting-Primes-Quantity}.
+
+
 
 
 % --------------------------------------------------------------------------
@@ -2272,25 +2277,184 @@ for e in E:
 % ---------------------------------------------------------------------------
 \newpage
 \hypertarget{primes:_Appendix_Plotting-Primes-Quantity}{}
-\section{Anhang: Grafische Veranschaulichung zur Anzahl von Primzahlen in hohen Bereichen}
+\section{Anhang: Visualisierung der Menge der Primzahlen in hohen Bereichen}
 \label{primes:_Appendix_Plotting-Primes-Quantity}
 \index{Sage!Programmbeispiele}
 \index{Sage}
-
-\noindent xxxxxxxxxxx
-
-% ---------------------------------------------------------------------------
-% \newpage
-\subsection{xxxxxxxxxx}
-
-xxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-
-
-
+\vskip +15pt 
 
 % ---------------------------------------------------------------------------
+\subsection*{Zur Verteilung von Primzahlen}
+Zwischen $1$ und $10$ gibt es $4$ Primzahlen. Zwischen $10^3$ und $10^4$ sind
+es schon $1.061$. Im Intervall $[10^9,10^{10}]$ liegen
+$404.204.977\approx 4\cdot 10^{8}$ Primzahlen und in dem Intervall von
+$10^{19}$ bis $10^{20}$ sind es schon $1.986.761.935.284.574.233\approx 1,9\cdot 10^{18}$
+Primzahlen\footnote{\url{http://de.wikipedia.org/wiki/Primzahlsatz}}.
+
+Warum unterscheidet sich die Anzahl der Primzahlen, die in den verschiedenen
+Intervallen liegen so stark, obwohl sich die Intervallgrenzen jeweils nur um
+den Wert 1 im Exponenten der $10$-er Potenz unterscheiden?
+
+
+\subsubsection*{Primzahlsatz}
+Die Anzahl der Primzahlen bis zu einer gegebenen Zahl $x$ kann durch eine Formel, den sogenannten Primzahlsatz, näherungsweise bestimmt werden. $\pi(x)$ bezeichne die Anzahl der Primzahlen kleiner oder gleich der Zahl $x$. Dann lautet die Formel
+\[\pi(x)\sim \frac{x}{\ln{x}}.\]
+Es ist zu beachten, dass diese Formel die Anzahl der Primzahlen kleiner oder gleich $x$ nur
+ungefähr angibt. Sie wird jedoch genauer je größer $x$ wird.
+Im folgenden wollen wir den Primzahlsatz nutzen, um uns die Verteilung der Primzahlen anzusehen.
+
+Um zu verstehen, warum die Anzahl der Primzahlen so schnell wächst, obwohl sich die
+Intervallgrenzen jeweils nur um einen Exponentenwert von 1  unterscheiden, werfen wir einen
+Blick auf beide Komponenten der Formel: (1) $x$ und (2) $\ln{x}$.
+
+
+\subsubsection*{Die Funktionen $x$ und $10^x$}
+Die Funktion $x$ ist eine Gerade. Sie ist in Abbildung \ref{x} auf Seite \pageref{x} zu sehen.\\
+Als nächstes tragen wir die Funktion der Intervallgrenzen in einem Graphen ab, der in
+Abbildung \ref{10hochx} auf Seite \pageref{10hochx} zu finden ist. Um einen Eindruck zu
+bekommen, wie die Funktionen aussehen, wurde der Definitionsbereich von $0$ bis $10^{10}$
+bzw. entprechend von $0$ bis $10$ gewählt.
+Es ist zu sehen, dass mit steigendem Exponenten $x$ die Zahlen immer größer werden.
+ 
+\begin{figure}[!htb]
+	\centering
+	\subfloat[$x$]{\label{x}\includegraphics[height=4cm]{figures/x.png}}
+	\hfill
+	\subfloat[$10^x$]{\label{10hochx}\includegraphics[height=4cm]{figures/10hochx.png}}
+	\caption{Graph der Funktionen $x$ und $10^x$}
+	\label{xund10hochx}
+        \vskip +25pt 
+\end{figure} 
+% \\ nach end{figure} führt zu  LaTeX Error: There's no line here to end.
+% \vskip +30pt  nach end{figure} stellt den Space an den falschen Ort, da die Grafik eigenständig gesetzt wird.
+% \clearpage
+
+
+\subsubsection*{Die Funktion $\ln{x}$}
+Im Vergleich dazu betrachten wir die Funktion $\ln{x}$. 
+Auf dem linken Bild von Abbildung \ref{lnxbis} auf Seite \pageref{lnxbis} wurde der
+Definitionsbereich von $1$ bis $100$ gewählt. Das rechte Bild zeigt die Werte der
+Funktion bis $10^{10}$.\\
+Es ist gut zu erkennen, dass die Werte der Funktion $\ln{x}$ im Vergleich zu $x$
+langsam wachsen. Dies verdeutlicht auch der Graph beider Funktionen in Abbildung
+\ref{xundlnxundxdurchlnx} auf Seite \pageref{xundlnxundxdurchlnx}. Zudem wurde
+in diesen Graphen auch die Funktion $\frac{x}{\ln{x}}$ eingezeichnet.
+
+\begin{figure}[!htb]
+	\centering
+	\subfloat[ ]{\includegraphics[height=4cm]{figures/lnxbis100.png}}
+	\hfill
+	\subfloat[ ]{\includegraphics[height=4cm]{figures/lnxbis10hoch10.png}}
+	\caption{Graph der Funktion $\ln{x}$ bis $100$ und bis $10^{10}$}
+	\label{lnxbis}
+        \vskip +25pt 
+\end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[height=4cm]{figures/xundlnxundxdurchlnx.png}
+	\caption{Die Funktionen $x$ (blau), $\ln{x}$ (rot)
+                 und $\frac{x}{\ln{x}}$ (grün)}
+	\label{xundlnxundxdurchlnx}
+        \vskip +15pt 
+\end{figure} 
+
+
+\subsubsection*{Die Funktion $\frac{x}{\ln{x}}$}
+Die Funktion $\frac{x}{\ln{x}}$ setzt sich also zusammen aus der Funktion $x$ im Zähler und der im Verhältnis dazu sehr langsam wachsenden Funktion $\ln{x}$ im Nenner. Die Anzahl der Primzahlen kleiner oder gleich einer Zahl $x$ ist zwar verhältnismäßig klein im Vergleich zu $x$ selbst. Dennoch ist $\frac{x}{\ln{x}}$ eine wachsende Funktion. Dies wird auch deutlich in Abbildung \ref{xundlnxundxdurchlnx} auf Seite \pageref{xundlnxundxdurchlnx}.
+
+
+\subsubsection*{Die Anzahl der Primzahlen in verschiedenen Intervallen}
+Um zu sehen, wie sich die Anzahl der Primzahl in den Intervallen $[10^{x-1},10^{x}]$ verhalten, werfen wir einen Blick auf Abbildung \ref{deltazehnxdurchlnxbis} auf Seite \pageref{deltazehnxdurchlnxbis}. Hier ist $\frac{10^{x}}{\ln{10^{x}}}$ im Vergleich zu $\frac{10^{x}}{\ln{10^{x}}}-\frac{10^{x-1}}{\ln{10^{x-1}}}$ abgebildet. Zum einen für Werte des Exponenten $x$ von $1$ bis $5$ zum anderen für $x$ von $1$ bis $10$.\\ 
+Die blauen Balken geben an, wieviele Primzahlen es ingesamt bis $10^x$ gibt. Die roten Balken
+zeigen, wieviele Primzahlen jeweils im Intervall $[10^{x-1},10^x]$ liegen. Dies verdeutlicht,
+dass die Anzahl der Primzahlen in Intervallen mit höheren Exponenten immer noch stark steigt. 
+
+\begin{figure}[!htb]
+	\centering
+	\subfloat[ ]{\label{deltazehnxdurchlnxbis5}
+                     \includegraphics[height=4cm]{figures/deltazehnxdurchlnxbis5.png}}
+	\hfill
+	\subfloat[ ]{\label{deltazehnxdurchlnxbis10}
+                     \includegraphics[height=4cm]{figures/deltazehnxdurchlnxbis10.png}}
+	\caption{Anzahl der Primzahlen im Intervall $0$ bis $10^x$ (blau) und im Interall
+                 $[10^{x-1},10^x]$ (rot) (für verschiedene Exponenten $x$).}
+	\label{deltazehnxdurchlnxbis}
+\end{figure} 
+
+
+Eine Tabelle mit den Anzahlen von Primzahlen in einigen ausgewählten Intervallen finden Sie
+in Kapitel \ref{s:primhfk} auf Seite \pageref{s:primhfk}.
+
+
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+
+# Definition der Funktion f(x)=x und Plots für die Definitionsbereiche 0 bis 10^10 und 0 bis 100
+sage: def f(x):return x
+....:
+sage: F=plot(f,(0,10^10))
+sage: F.plot()
+
+sage: F2=plot(f,(1,100))
+sage: F2.plot()
+
+
+# Definition der Funktion g(x)=10^x und Plot für den Definitionsbereich 0 bis 10
+sage: def g(x): return 10^x
+....:
+sage: G=plot(g,(0,10))
+sage: G.plot()
+
+
+# Definition der Funktion h(x)=log(x) und Plots für die Definitionsbereiche 1 bis 100 und 1 bis 10^10
+sage: def h(x): return log(x)
+....:
+sage: H=plot(h,(1,100),color="red")
+sage: H.plot()
+
+sage: H2=plot(h,(1,10^10),color="red")
+sage: H2.plot()
+
+
+# Definition der Funktion k(x)=x/log(x) und Plot für den Definitionsbereich 2 bis 100
+sage: def k(x): return x/log(x)
+....:
+sage: K=plot(k,(2,100),color="green")
+sage: K.plot()
+
+
+# Plot der Funktionen f, k und h für den Definitionsbereich von 1 bzw. 2 bis 100
+sage: F2+K+H
+
+
+# Generieren der Daten für die Balkencharts ..........................
+# Bestimmen der Anzahl der Primzahlen im Intervall [1,10]
+sage: pari(10).primepi()-pari(1).primepi()
+4
+
+# Bestimmen der Anzahl der Primzahlen im Intervall [10^3,10^4]
+sage: pari(10**4).primepi()-pari(10**3).primepi()
+1061
+
+# Bestimmen der Anzahl der Primzahlen im Intervall [10^8,10^9]
+sage: pari(10**9).primepi()-pari(10**8).primepi()
+45086079
+
+# (ab 10^10: OverflowError: long int too large to convert)
+
+\end{Verbatim}
+\caption{Erzeugen der Graphen zu den drei Funktionen x, log(x) und x/log(x)}
+\end{sagecode}
+
+
+
+
 % ---------------------------------------------------------------------------
+% ---------------------------------------------------------------------------
+\clearpage
 \newpage
 \hypertarget{primes:_Appendix_Sage-Samples}{}
 \section{Anhang: Beispiele mit Sage}
@@ -2303,8 +2467,50 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxx
 \noindent Der folgende Abschnitt enthält Sage Source-Code zu den Inhalten aus
 Kapitel~\ref{Label_Kapitel_Primes} (\glqq \nameref{Label_Kapitel_Primes}\grqq).
 
+
 % ---------------------------------------------------------------------------
 % \newpage
+\subsection{Einfache Funktionen zu Primzahlen mit Sage}
+\index{Sage}
+
+In diesem Teil des Anhangs finden Sie den Quellcode für Sage, mit dem man
+einige einfache Berechnungen zu Primzahlen durchführen kann%
+\footnote{Siehe die Sage-Dokumentation über Elementare Zahlentheorie
+          \url{http://www.sagemath.org/doc/constructions/number_theory.html}.}.
+
+\begin{sagecode}
+\begin{Verbatim}%
+[fontsize=\footnotesize,fontshape=tt]
+
+# Primzahlen (allgemeine Befehle)
+# Die Menge der Primzahlen
+sage: P=Primes(); P
+Set of all prime numbers: 2, 3, 5, 7, ...
+
+# Gibt die nächste Primzahl aus
+sage: next_prime(5)
+7
+
+# Gibt die Anzahl der Primzahlen <=x aus
+sage: pari(10).primepi()
+4
+
+# Gibt die ersten x Primzahlen aus
+sage: primes_first_n(5)
+[2, 3, 5, 7, 11]
+
+# Gibt die Primzahlen in einem Interval aus
+sage: list(primes(1,10))
+[2, 3, 5, 7]
+
+\end{Verbatim}
+\caption{Einige einfache Funktionen zu Primzahlen}
+\end{sagecode}
+
+
+
+% ---------------------------------------------------------------------------
+\newpage
 \subsection{Primalitäts-Check der von einer quadratischen Funktion erzeugten Zahlen}
 \index{Sage}
 
