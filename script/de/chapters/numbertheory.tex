@@ -13,7 +13,7 @@
 \chapter{Einführung in die elementare Zahlentheorie mit Beispielen}
 \label{Chapter_ElementaryNT}
 (Bernhard Esslinger, Juli 2001; Updates: Nov. 2001, Juni 2002, Mai 2003,
- Mai 2005, März 2006, Juni 2007, Juli 2009) \\
+ Mai 2005, März 2006, Juni 2007, Juli 2009, Jan. 2010) \\
 
 Diese \glqq Einführung\grqq~ bietet einen Einstieg für mathematisch Interessierte.
 Erforderlich sind nicht mehr Vorkenntnisse als die, die im Grundkurs Mathematik am Gymnasium vermittelt werden.\par
@@ -2033,11 +2033,12 @@ $$
 
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\newpage
 \hypertarget{SecurityRSA}{}
 \section[Zur Sicherheit des RSA-Verfahrens]
 {Zur Sicherheit des RSA-Verfahrens\footnotemark}
     \footnotetext{%
-    Große Teile der Kapitel~\ref{complexity} und~\ref{chptSecurityParam}
+    Große Teile des Kapitels~\ref{SecurityRSA}
     sind angelehnt an den Artikel \glqq Vorzüge und Grenzen des
     RSA-Verfahrens\grqq von F. Bourseau, D. Fox und C. Thiel 
     \cite{nt:Bourseau2002}.}
@@ -2126,7 +2127,7 @@ Siehe: {\em Handbook of Applied Cryptography} \cite{nt:Menezes2001}.
 
 % --------------------------------------------------------------------------
 %\vskip +40pt
-\pagebreak
+% \pagebreak
 \subsection{Sicherheitsparameter aufgrund neuer Algorithmen}
 
 \label{chptSecurityParam}
@@ -2155,10 +2156,7 @@ sich an den Möglichkeiten der aktuellen Faktorisierungsalgorithmen:
 \item 1994 wurde mit einer verteilten Implementierung des 1982 von Pomerance 
       entwickelten Quadratic Sieve-Algorithmus (QS) 
       \index{Quadratic Sieve-Algorithmus (QS)} nach knapp 8 Monaten der 1977
-      veröffentlichte 129-stellige RSA-Modul (428 Bit)
-      faktorisiert.
-      
-%     \noindent  - ist das noetig - im Englischen auch nicht ? 2003-03-02
+      veröffentlichte 129-stellige RSA-Modul (428 bit) faktorisiert.\\
       Siehe:
       \begin{list}{}{\setlength{\topsep}{-7 pt}}
         \item[] C. Pomerance:  
@@ -2170,10 +2168,8 @@ sich an den Möglichkeiten der aktuellen Faktorisierungsalgorithmen:
 \item 1999 wurde mit dem von Buhler, Lenstra und Pomerance entwickelten 
       General Number Field Sieve-Algorithmus (GNFS), der ab ca. 116 
       Dezimalstellen effizienter ist als QS, nach knapp 5 Monaten ein 
-      155-stelliger Modul (512 Bit) faktorisiert.
-\index{General Number Field Sieve (GNFS)}
-
-%      \noindent  - ist das noetig - im Englischen auch nicht ? 2003-03-02
+      155-stelliger Modul (512 bit) faktorisiert.
+      \index{General Number Field Sieve (GNFS)}\\
       Siehe: 
       \begin{list}{}{\setlength{\topsep}{-7 pt}}
         \item[] J.P. Buhler, H.W. Lenstra, C. Pomerance:  
@@ -2182,13 +2178,22 @@ sich an den Möglichkeiten der aktuellen Faktorisierungsalgorithmen:
       \end{list}
       \vskip +12 pt
 
+\item Ende 2009, also rund 10 Jahre später, wurde von Kleinjung etc. 
+      nach rund 2 1/2 Jahren ein 232-stelliger Modul (768 bit) faktorisiert.\\
+      Siehe: 
+      \begin{list}{}{\setlength{\topsep}{-7 pt}}
+        \item[] T. Kleinjung, et. al.:  
+                {\em Factorization of a 768-bit RSA modulus} 
+                \cite{nt:Kleinjung2010}.
+      \end{list}
+      \vskip +12 pt
 \end{itemize}
 
-Damit wurde klar, dass eine Modullänge von $512$ Bit keinen Schutz mehr
-vor Angreifern darstellt. 
+Damit ist auch praktisch klar geworden, dass eine Modullänge von $768$ bit
+keinen Schutz mehr vor Angreifern darstellt. 
 
-Und auch nach 1999 gab es weitere Fortschritte bei der Faktorisierung 
-(siehe RSA-200 in Kapitel~\ref{RSA-200}).
+Details zu den Fortschritten bei der Faktorisierung  seit 1999: 
+siehe Kapitel~\ref{RSA-200}.
 
 
 
@@ -2197,22 +2202,22 @@ Und auch nach 1999 gab es weitere Fortschritte bei der Faktorisierung
 
 Die Modullänge ist aber nicht der einzige Sicherheits-relevante Parameter.
 Neben Implementierungsanforderungen kommt es auch auf die Größen und die
-Größenverhältnisse der Parameter e, d und N an.
+Größenverhältnisse der Parameter e, d und n an.
 
 Entsprechende Angriffe, die auf Gitterbasenreduktion\index{Gitterbasenreduktion} 
 beruhen, stellen für einfache RSA-Imple"-men"-tierungen eine reale Bedrohung 
 dar. Diese Angriffe lassen sich in die folgenden vier Kategorien unterteilen:
 \begin{itemize}
    \item Angriffe auf sehr kleine öffentliche Schlüssel e (z.B. $e = 3$). 
-   \item Angriffe auf relativ kurze geheime Exponenten d (z.B. $d < N ^ {0,5}$).
-   \item Faktorisierung des Moduls N, wenn einer der Faktoren p oder q {\em teilweise} bekannt ist.
+   \item Angriffe auf relativ kurze geheime Exponenten d (z.B. $d < n ^ {0,5}$).
+   \item Faktorisierung des Moduls n, wenn einer der Faktoren p oder q {\em teilweise} bekannt ist.
    \item Angriffe, die voraussetzen, dass ein {\em Teil} des geheimen Schlüssels d bekannt ist.
 \end{itemize}
 
-Eine gute Übersicht über den aktuellen Stand der Veröffentlichungen zu 
-diesen Angriffen findet sich in der Diplomarbeit {\em Analyse der Sicherheit
-des RSA-Algorithmus. Mögliche Angriffe, deren Einfluss auf sichere 
-Implementierungen und ökonomische Konsequenzen} von Matthias Schneider \cite{nt:SchneiderM2004}.
+Eine gute Übersicht zu diesen Angriffen findet sich in der Diplomarbeit
+{\em Analyse der Sicherheit des RSA-Algorithmus. Mögliche Angriffe, deren
+Einfluss auf sichere Implementierungen und ökonomische Konsequenzen}
+von Matthias Schneider \cite{nt:SchneiderM2004}.
 
 
 
@@ -2223,7 +2228,7 @@ Implementierungen und ökonomische Konsequenzen} von Matthias Schneider \cite{nt:
 \subsection{Vorhersagen zur Faktorisierung großer Zahlen}
 \index{Faktorisierung!Prognose}
 
-In den letzten 20 Jahren wurden also erhebliche Fortschritte gemacht. 
+Seit 1980 wurden erhebliche Fortschritte gemacht. 
 Abschätzungen über die zukünftige Entwicklung der Sicherheit 
 unterschiedlicher RSA-Modullängen differieren und hängen von 
 verschiedenen Annahmen ab:
@@ -2262,16 +2267,21 @@ in Kapitel ~\ref{ECAlternative}).
 \noindent
 
 Diese Prognose von Dirk Fox\index{Fox, Dirk} aus dem Jahr 2001 scheint sich
-anhand des neuesten Faktorisierungsrekordes von RSA-200 (siehe Kapitel~\ref{RSA-200})
+anhand der neuesten Faktorisierungsrekorde von RSA-200 und RSA-768 (siehe Kapitel~\ref{RSA-200})
 zu bestätigen: Seine Schätzung für das Jahr 2005 mit 660 Bit hat die Bitlänge
 von RSA-200 nahezu auf den Punkt getroffen (vergleiche
-Abbildung~\ref{secorvo-factorisation-forecast}). \\
+Abbildung~\ref{secorvo-factorisation-forecast}).
+
+Hält die Prognose, dann ist die Faktorisierung eines RSA-Moduls der Länge
+1024 bit im Jahre 2020 zu erwarten.
 
 \begin{figure}[ht] %[!hb]
 \begin{center}
 \frame{
-%\includegraphics[scale=0.70, clip, viewport=50 20 700 430]{figures/PrognoseRSAFaktorisierungSecorvo.pdf}
-\includegraphics[scale=0.64, clip, viewport=-20 0 680 520]{figures/PrognoseRSAFaktorisierungSecorvo.pdf}
+% \includegraphics[scale=0.70, clip, viewport=50 20 700 430]
+% {figures/PrognoseRSAFaktorisierungSecorvo.pdf}
+\includegraphics[scale=0.64, clip, viewport=-20 0 680 520]
+                {figures/PrognoseRSAFaktorisierungSecorvo.png}
 % Parameter von includegraphics: scale, x, y, dx, dy
 % dx, dy spezifiziert die Ausdehnung, die man dem Bildes spendiert.
 %      Ist dy zu klein, wird das Bild oben abgeschnitten
@@ -2280,14 +2290,11 @@ Abbildung~\ref{secorvo-factorisation-forecast}). \\
 %      Teiles des Bildes nicht zu sehen.
 % scale dehnt Rahmenlinie und Bild aus -> Sitenrand wird bei 0.7 z.B. kleiner.
 }
-\caption{Vorhersage über die zukünftigen Faktorisierungsrekorde verglichen
-mit aktuellen Resultaten (Quelle Secorvo)}
+\caption{Vergleich der publizierten Faktorisierungserfolge (blau) mit der
+prognostizierten Entwicklung (rot; Quelle Fox 2001)}
 \label{secorvo-factorisation-forecast}
 \end{center}
 \end{figure}
-
-Hält die Prognose, dann ist die Faktorisierung eines RSA-Moduls der Länge
-1024 Bit in 15 Jahren zu erwarten.
 
 
 
@@ -2323,22 +2330,22 @@ mit unterschiedlichen Methoden finden sich auf den folgenden Webseiten:
      \url{http://www.crypto-world.com} \\
      \url{http://www.tutorgig.com/ed/RSA\_number} ~~ The RSA Factoring Challenge \\
 % footnote{%
-% Diese Seite war Ende Mai 2005 nicht ganz auf dem aktuellen Stand: RSA-200 fehlte.}. \\
-     \url{http://en.wikipedia.org/wiki/Integer_factorization_records} 
+% Diese Seite war Ende Mai 2005 nicht ganz auf dem aktuellen Stand: RSA-200 fehlte.}.
+     \url{http://en.wikipedia.org/wiki/Integer_factorization_records}\\
+     \url{http://en.wikipedia.org/wiki/RSA_Factoring_Challenge}
+
 \end{itemize}
 
-Der aktuelle Rekord (Stand Mai 2005) mit der GNFS-Methode (General Number
+Der aktuelle Rekord (Stand Jan. 2010) mit der GNFS-Methode (General Number
 Field Sieve) \index{General Number Field Sieve (GNFS)} liegt in der Zerlegung
-einer allgemeinen $200$-stelligen Dezimalzahl in ihre beiden Primfaktoren.
+einer allgemeinen $232$-stelligen Dezimalzahl in ihre beiden Primfaktoren.
 
 \vskip +10pt
 Die letzten Rekorde\footnote{%
 Die  "`RSA-Zahlen"' sind große semiprime Zahlen (d.h. Zahlen, die genau aus
 2 Primfaktoren bestehen)\index{Zahlen!semiprime}\index{Primzahl!semiprime}.
-Sie wurden von der Firma
-RSA Security generiert und veröffentlicht, und sie bilden die "`RSA Factoring
-Challenge"': In diesem Wettbewerb werden die Primfaktoren dieser Zahlen
-gesucht.\\
+Sie wurden von der Firma RSA Security generiert und veröffentlicht: Im
+Wettbewerb "`RSA Factoring Challenge"' wurden die Primfaktoren dieser Zahlen gesucht.\\
 Siehe \url{http://www.rsa.com/rsalabs/node.asp?id=2092}.
 
 Die RSA-Laboratorien schreiben ihre Challenges schon seit Anfang der
@@ -2346,9 +2353,9 @@ Die RSA-Laboratorien schreiben ihre Challenges schon seit Anfang der
 RSA-500, gemäß der Anzahl ihrer Dezimalstellen benannt; die zweite
 RSA-Factoring-Challenge benannte die Zahlen anhand der Anzahl ihrer
 Binärstellen. Innerhalb des zweiten Wettbewerbs wurden Geldpreise für die
-erfolgreiche Faktorisierung von RSA576 bis RSA2048 ausgelobt (RSA576, RSA640
-etc. in 64-er Schritten --- Die Zahl RSA617 bildet eine Ausnahme, da sie
-vor der Änderung des Namensschemas erzeugt wurde).\\
+erfolgreiche Faktorisierung von RSA-576 bis RSA-2048 ausgelobt (RSA-576, RSA-640
+etc. in 64-er Schritten --- Die Zahl RSA-617 bildet eine Ausnahme, da sie
+vor der Änderung des Namensschemas erzeugt wurde).
 Leider beendete RSA Inc. die Challenge vorzeitig und zog die Preise zurück.
   \index{Challenge}
   \index{Cipher-Challenge}
@@ -2356,7 +2363,9 @@ Leider beendete RSA Inc. die Challenge vorzeitig und zog die Preise zurück.
 
 Die "`C-Zahlen"' stammen aus dem Cunningham-Projekt:
 \url{http://www.cerias.purdue.edu/homes/ssw/cun/}.
-
+Diese sind Faktoren großer Mersennezahlen, die eine ganz spezielle
+Struktur haben. Dies macht es um Größenordnungen einfacher, sie zu
+faktorisieren, als Moduli gleicher Längen, die man für RSA erstellt.
                                } 
 mit Faktorisierungsverfahren für zusammengesetzte Zahlen
 sind in der folgenden Tabelle~\ref{factorizationrecords} aufgeführt:
@@ -2367,17 +2376,20 @@ sind in der folgenden Tabelle~\ref{factorizationrecords} aufgeführt:
 \hline
    & {\bf Dezimalstellen} & {\bf Binärstellen} & {\bf Faktorisiert am} & {\bf Faktorisiert von} \\
 \hline
-	C307 & 		307 & 1017 &  Mai, 2007 & Jens Franke et al. \\
+	&&&& \\
+	RSA-768 & 	232 & 768 & Dezember, 2010 & Thorsten Kleinjung et al. \\
 	RSA-200 & 	200 & 663 & Mai, 2005 & Jens Franke et al. \\
-	RSA640\footnotemark & 	193 & 600 & November, 2005 & Jens Franke et al. \\
-	C176 & 		176 & 583 & Mai, 2005 & Kazumaro Aoki et al. \\
-	RSA576 & 	174 & 576 & Dezember, 2003 & Jens Franke et al. \\
+	RSA-640\footnotemark & 	193 & 640 & November, 2005 & Jens Franke et al. \\
+	RSA-576 & 	174 & 576 & Dezember, 2003 & Jens Franke et al. \\
 	RSA-160 & 	160 & 530 & April, 2003 & Jens Franke et al. \\
-	C158 & 		158 & 523 & Januar, 2002 & Jens Franke et al. \\
 	RSA-155	&	155 & 512 & August, 1999 & Herman te Riele et al. \\
+	.........\\
+	C307 & 		307 & 1017 &  Mai, 2007 & Jens Franke et al. \\
+	C176 & 		176 & 583 & Mai, 2005 & Kazumaro Aoki et al. \\
+	C158 & 		158 & 523 & Januar, 2002 & Jens Franke et al. \\
 \hline
 \end{tabular}
-\caption{Die derzeitigen Faktorisierungsrekorde (Stand Juli 2009)}    % Eyecatcher_neue-Mersenne
+\caption{Die derzeitigen Faktorisierungsrekorde (Stand Jan. 2010)}    % Eyecatcher_neue-Mersenne
 \label{factorizationrecords}
 \end{center}
 \end{table}
@@ -2392,13 +2404,12 @@ CWI) waren nicht auf die Geldpreise aus, sondern wollten die Grenzen der
 Forschung ausdehnen. Dadurch werden Aussagen über notwendige Minimallängen
 für sichere RSA-Moduli fundierter. 
 
-Die nächst größere Challenge ist RSA-704.
 Siehe \url{http://www.heise.de/newsticker/meldung/print/65957}
 }
 %be_2005: Erzwingen, dass die Abb. noch in diesem Kapitel !
 
 
-Im Folgenden werden diese letzten Rekorde etwas ausführlicher erläutert.
+\noindent Im Folgenden werden diese letzten Rekorde etwas ausführlicher erläutert.
 Die beiden dabei benutzten Methoden GNFS und SNFS werden kurz z.B. auf
 den ff. Webseiten dargestellt:
 \index{General Number Field Sieve (GNFS)}
@@ -2667,6 +2678,54 @@ Für die Zerlegung eines 2048-Bit-Moduls bräuchte man ca. {$8,5 \cdot
 
 
 
+% --------------------------------------------------------------------------
+\vskip +20pt
+\hypertarget{RSA-768-chap3}{}
+\paragraph{RSA-768} \label{RSA-768} \index{RSA-768}\mbox{}
+\nopagebreak
+
+Am 12. Dezember 2009 meldete die Forschergruppe um Prof. Thorsten
+Kleinjung\footnote{%
+   \url{http://eprint.iacr.org/2010/006.pdf} \cite{nt:Kleinjung2010}
+          }, dass sie
+eine $232$-stellige Zahl in ihre beiden Primfaktoren zerlegten 
+(diese haben jeweils 116 Dezimalstellen).
+Sie benutzten dazu die GNFS-Methode (General Number Field Sieve)
+\index{General Number Field Sieve (GNFS)} in einer Art, dass vor dem
+Matrix-Schritt auf mehreren hundert Rechnern "`Oversieving"' betrieben wurde. 
+
+Die zusammengesetzte Zahl "`RSA-768"' lautet (die folgenden drei Zeilen 
+sind eine einzige Zahl):
+$$
+\begin{array}{c}
+123018668453011775513049495838496272077285356959533479219732245215172640050726\\
+365751874520219978646938995647494277406384592519255732630345373154826850791702\\
+6122142913461670429214311602221240479274737794080665351419597459856902143413
+\end{array}
+$$
+Die Faktorisierung von RSA-768 ergab die beiden Primfaktoren (je 384 bit):
+$$
+\begin{array}{c}
+p = 3347807169895689878604416984821269081770479498371376856891\\
+    2431388982883793878002287614711652531743087737814467999489
+\end{array}
+$$
+und
+$$
+\begin{array}{c}
+q = 3674604366679959042824463379962795263227915816434308764267\\
+    6032283815739666511279233373417143396810270092798736308917
+\end{array}
+$$
+
+Die Berechnungen dauerten 2 1/2 Jahre\footnote{%
+Dies war ein "`academic effort"' -- Organisationen mit besserer Ressourcen-Ausstattung
+könnten es deutlich schneller durchführen.}.
+\vspace{24pt}
+
+
+
+
 
 % --------------------------------------------------------------------------
 \vskip +20pt
@@ -2781,8 +2840,8 @@ der Lage sind, Aussagen über ihre Primalität zu treffen (siehe Kapitel
 
 % be_2005_UPDATEN_if-new-mersenne-prime-appears   % Eyecatcher_neue-Mersenne
 Länge in Bit der derzeitigen Weltrekorde:\\
-$$  ~~~~~~~~~[RSA{-}200{-}Zahl] ~~\longleftrightarrow{}~~[43.~bekannte~Mersenne~Primzahl] $$
-$$ 663 ~~ \longleftrightarrow{} ~~ 30.402.457 ~~~~~$$
+$$  ~~~~~~~~~[RSA{-}768{-}Zahl] ~~\longleftrightarrow{}~~[47.~bekannte~Mersenne~Primzahl] $$
+$$ 768 ~~ \longleftrightarrow{} ~~ 43.112.609 ~~~~~$$
 
 
 %be_2005 - erzwungenes Blank und $$ um Pfeilzeichen, sonst setzt er Blanks an 
@@ -5054,7 +5113,7 @@ Satz~\ref{thm-zth-ordp} & Ausschöpfung des Wertebereiches & \pageref{thm-zth-ord
     {\em PRIMES in P}, August 2002, Korrigierte Fassung: \\
        \url{http://www.cse.iitk.ac.in/~manindra/algebra/primality_v6.pdf} \\
     Siehe auch die Seite \glqq The AKS \glqq PRIMES in P'' Algorithm Resource'':
-       \url{http://fatphil.org/maths/AKS/}
+       \url{http://fatphil.org/maths/AKS/}.
 
 \bibitem[Bartholome1996]{nt:Bartholome1996} \index{Bartholome 1996}  
     A. Bartholom\'e, J. Rung, H. Kern, \\
@@ -5072,7 +5131,7 @@ Satz~\ref{thm-zth-ordp} & Ausschöpfung des Wertebereiches & \pageref{thm-zth-ord
     D.~J. Bernstein, \\
     {\em Circuits for integer factorization: a proposal},\\ 
     \url{http://cr.yp.to/papers/nfscircuit.ps} \\
-    \url{http://cr.yp.to/djb.html}
+    \url{http://cr.yp.to/djb.html}.
 
 \bibitem[Beutelspacher1996]{nt:Beutelspacher1996} \index{Beutelspacher 1996}
     Albrecht Beutelspacher, \\
@@ -5082,7 +5141,7 @@ Satz~\ref{thm-zth-ordp} & Ausschöpfung des Wertebereiches & \pageref{thm-zth-ord
     F. Bourseau, D. Fox, C. Thiel, \\
     {\em Vorzüge und Grenzen des RSA-Verfahrens},\\
     In: Datenschutz und Datensicherheit (DuD) 26/2002, S. 84-89 (s. www.dud.de),
-    \url{http://http://www.secorvo.de/publikationen/rsa-grenzen-fox-2002.pdf} 
+    \url{http://www.secorvo.de/publikationen/rsa-grenzen-fox-2002.pdf}.
 
 \bibitem[Brands2002]{nt:Brands2002} \index{Brands 2002}
     Gilbert Brands, \\
@@ -5097,7 +5156,7 @@ Satz~\ref{thm-zth-ordp} & Ausschöpfung des Wertebereiches & \pageref{thm-zth-ord
     I 2, SigV vom 22. November 2001), \\
     \url{http://www.bsi.bund.de/esig/basics/techbas/krypto/bund02v7.pdf} \\
     Eine Stellungnahme zu diesen Empfehlungen: \\
-    \url{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf} 
+    \url{http://www.secorvo.de/publikat/stellungnahme-algorithmenempfehlung-020307.pdf} .
 
 \bibitem[Buchmann2004]{nt:Buchmann2004} \index{Buchmann 2004}
     Johannes Buchmann, \\
@@ -5134,6 +5193,11 @@ Satz~\ref{thm-zth-ordp} & Ausschöpfung des Wertebereiches & \pageref{thm-zth-ord
     Rudolph Kippenhahn, \\
     {\em Code Breaking -- A History and Exploration}, 
     Constable, 1999.
+ 
+\bibitem[Kleinjung2010]{nt:Kleinjung2010} \index{Kleinjung 2010}
+    Thorsten Kleinjung et al.\\
+    {\em Factorization of a 768-bit RSA modulus},\\
+    \url{http://eprint.iacr.org/2010/006.pdf}.
 
 \bibitem[Knuth1998]{nt:Knuth1998} \index{Knuth 1998}
     Donald E. Knuth, \\
@@ -5150,13 +5214,13 @@ Satz~\ref{thm-zth-ordp} & Ausschöpfung des Wertebereiches & \pageref{thm-zth-ord
      \index{Lenstra/Verheul 1999} \\
      {\em Selecting Cryptographic Key Sizes (1999)}, \\
      Journal of Cryptology: the journal of the International 
-     Association for Cryptologic Research \\
-     \url{http://www.cryptosavvy.com/cryptosizes.pdf}
+     Association for Cryptologic Research, \\
+     \url{http://www.cryptosavvy.com/cryptosizes.pdf}.
 
 \bibitem[Lenstra2002]{nt:Lenstra2002} \index{Lenstra 2002}
     Arjen K. Lenstra, Adi Shamir, Jim Tomlinson, Eran Tromer,\\
     {\em Analysis of Bernstein's Factorization Circuit},\\
-    \url{http://www.cryptosavvy.com/mesh.pdf}
+    \url{http://www.cryptosavvy.com/mesh.pdf}.
 
 \bibitem[Menezes2001]{nt:Menezes2001} \index{Menezes 2001}
     Alfred J. Menezes, Paul C. van Oorschot, Scott A. Vanstone \\
@@ -5206,13 +5270,13 @@ Satz~\ref{thm-zth-ordp} & Ausschöpfung des Wertebereiches & \pageref{thm-zth-ord
     Adi Shamir, Eran Tromer, \\
     {\em Factoring Large Numbers with the TWIRL Device}, 
     Januar 2003, \\
-    \url{http://www.wisdom.weizmann.ac.il/~tromer/}
+    \url{http://www.wisdom.weizmann.ac.il/~tromer/}.
 
 \bibitem[Shamir2003a]{nt:Shamir2003a} \index{Shamir 2003a} \index{TWIRL-Device} 
     Adi Shamir, Eran Tromer, \\
     {\em On the Cost of Factoring RSA-1024}, 
-    RSA Laboratories CryptoBytes Volume 6, No. 2, Summer 2003, S. 11-20 \\
-    \url{http://www.rsasecurity.com/rsalabs/cryptobytes/CryptoBytes_August_2003.pdf}
+    RSA Laboratories CryptoBytes Volume 6, No. 2, Summer 2003, S. 11-20, \\
+    \url{http://www.rsasecurity.com/rsalabs/cryptobytes/CryptoBytes_August_2003.pdf}.
   
 \bibitem[Silverman2000]{nt:Silverman2000} \index{Silverman 2000}
      Robert D. Silverman: \\ 
