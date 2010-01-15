@@ -1516,15 +1516,25 @@ questions about primes, but also some quaint things and overviews.
 
   \vskip +6 pt      
   \item \hypertarget{link-Arithmetic-sequence-of-primes}{}
-     There are arithmetic prime sequences\index{Prime sequence!arithmetic}
-     of arbitrary length\footnote{%
+     There are arithmetic prime sequences
+     \index{Prime sequence!arithmetic}
+     \index{Arithmetic progression!Primes in}
+     of arbitrary length.\footnote{%
      Sources: \\
+     - \url{http://users.cybercity.dk/~dsl522332/math/aprecords.htm}
+         ~~~Original source\\
      - \url{http://primes.utm.edu/glossary/page.php?sort=ArithmeticSequence}
-       Original source\\
+         ~~~Original source\\
+     - \url{http://en.wikipedia.org/wiki/Primes_in_arithmetic_progression}\\
+     - \url{http://en.wikipedia.org/wiki/Problems_involving_arithmetic_progressions}\\
+     - \url{http://en.wikipedia.org/wiki/Cunningham_chain}\\
      - German magazine GEO 10 / 2004: ``Experiment mit Folgen''\\    %``xx''
      - \url{http://www.faz.net}
        ``Hardys Vermutung -- Primzahlen ohne Ende'' by Heinrich Hemme (July 06, 2004)
-     }.
+     }$^,$\footnote{%  Doppelfussnote
+     Arithmetic sequences with k primes are called prime arithmetic progressions
+     and therefore their abbreviation is PAP-k or AP-k.
+     }
 
      In 1923 the famous British mathematician Godfrey Harold Hardy\footnote{%
      Godfrey Harold Hardy\index{Hardy, Godfrey Harold}, British mathematician,
@@ -1556,35 +1566,21 @@ questions about primes, but also some quaint things and overviews.
      investigated this question. In 1923 the famous British mathematician 
      Godfrey Harold Hardy and his colleague John Littlewood theorized, that 
      there is no upper limit for the number of elements. But they could not 
-     prove this. In 1939 more progress was achieved. The Dutch mathematician 
+     prove this. In 1939 more progress was achieved: The Dutch mathematician 
      Johannes van der Corput was able to prove that there are infinitely many 
      different arithmetic prime number sequences with exactly three elements. 
      Two examples are 3, 5, 7 and 47, 53, 59.
 
      The longest arithmetic prime number sequence known today contains 
-     23 elements.
-
-     \begin{table}[ht]
-     %\begin{center}
-     \hspace*{1cm}\begin{tabular}{|r|r|r|r|l|}
-     \hline
-     Elements & First element & Distance & When & Discovered by \\ \hline
-     22 &  11,410,337,850,553 &   4,609,098,694,200 & 1993 & Paul A. Pritchard,\\
-        &                     &                     &      & Andrew Moran,\\
-        &                     &                     &      & Anthony Thyssen\\
-        &                     &                     &      &\\
-
-     22 & 376,859,931,192,959 &  18,549,279,769,020 & 2003 & Markus Frind\\
-        &                     &                     &      &\\
-
-     23 &  56,211,383,760,397 &  44,546,738,095,860 & 2004 & Markus Frind,\\
-        &                     &                     &      & Paul Jobling,\\
-        &                     &                     &      & Paul Underwood \\
-     \hline
-     \end{tabular}
-     \caption{The longest arithmetic prime number sequences (as of May 2005)}
-     %\end{center}
-     \end{table}
+     25 elements.
+     The table~\ref{Smallest AP-k with minimal difference}
+     lists the longest currently known arithmetic prime number sequences
+     with minimal difference\footnote{%
+        In the opposite, in \url{http://en.wikipedia.org/wiki/Primes_in_arithmetic_progression}
+        are the "largest known AP-k" listed. Therefore, the last sequence element
+        is a prime as big as possible. However, here are the sequences listed
+        which have the smallest known difference for a given length.
+     }.
 
      As a team, the two young\footnote{%
      Hardy\index{Hardy, Godfrey Harold} wrote in his memoirs in 1940, that
@@ -1607,7 +1603,8 @@ questions about primes, but also some quaint things and overviews.
      These are numbers with a small set of divisors like numbers which are
      the product of two primes - these numbers are called 
      ``half primes''\index{Half prime}\index{Prime number!half prime}
-     \index{Number!semi prime}.
+     \index{Prime number!semi prime}\index{Prime number!bi prime}
+     \index{Number!semi prime}\index{Number!bi prime}.
      Thus they managed to considerably simplify their work because about near
      primes there already existed a lot of useful theorems.  Finally they
      discovered that the results of their theorem were far more reaching than
@@ -1616,7 +1613,7 @@ questions about primes, but also some quaint things and overviews.
      Any one who believes that it is easy to use Green's and Tao's 49 page
      proof to compute arithmetic prime number series of arbitrary length will
      soon become disappointed, because the proof is non-constructive. It is 
-     a so called proof of existence\index{Proof of existence}.
+     a so called proof of existence\index{Proof!of existence}\index{Proof!constructive}.
      This means that these mathematicians have shown ``only'' that these 
      series exist, but not how to find them in practice.
      
@@ -1625,6 +1622,64 @@ questions about primes, but also some quaint things and overviews.
      infinitely many of them. But these sequences lie extremely far beyond 
      the numbers we usually use (``far outside'').
 
+
+     \begin{table}[ht]
+     \begin{center}
+     \hspace*{1cm}\begin{tabular}{|r|r|r|r|l|}
+     \hline
+     Elements & First element & Distance & When   & Discovered by \\
+              &               &          & Digits &               \\ \hline
+
+      3 &                   3 &                   2 &      & \\
+        &                     &                     &    1 & \\
+	&&&& \\
+ 
+      4 &                   5 &                   6 &      & \\
+        &                     &                     &    2 & \\
+	&&&& \\
+
+      5 &                   5 &                   6 &      & \\
+        &                     &                     &    2 & \\
+	&&&& \\
+ 
+      6 &                   7 &                  30 & 1909 & G. Lenaire \\
+        &                     &                     &    3 & \\
+	&&&& \\
+ 
+      7 &                   7 &                 150 & 1909 & G. Lenaire \\
+        &                     &                     &    3 & \\
+  
+....... &                     &                     &      & \\
+	&&&& \\
+
+     21 & 28,112,131,522,731,197,609 &          9,699,690 & 2008 & Jaroslaw Wroblewski\\
+        &                            &              $= 19\#$ &   20 & \\
+	&&&& \\
+ 
+     22 &        166,537,312,120,867 &     96,599,212,710 & 2006 & Markus Frind\\
+        &                            &        = 9,959·19\# &   15 & \\
+	&&&& \\
+
+     23 &        403,185,216,600,637 &  2,124,513,401,010 & 2006 & Markus Frind,\\
+        &                            &        = 9,523·23\# &   15 & \\
+	&&&& \\
+
+     24 &        515,486,946,529,943 & 30,526,020,494,970 & 2008 & Raanan Chermoni,\\
+        &                            &      = 136,831·23\# &   16 & Jaroslaw Wroblewski\\
+	&&&& \\
+ 
+     25 &      6,171,054,912,832,631 & 81,737,658,082,080 & 2008 & Raanan Chermoni,\\
+        &                            &      = 366,384·23\# &   16 & Jaroslaw Wroblewski\\
+  
+
+     \hline
+     \end{tabular}
+     \caption{Arithmetic prime number sequences with minimal difference (as of Jan. 2010)}
+     \label{Smallest AP-k with minimal difference}
+     \end{center}
+     \end{table}
+     \clearpage
+
      If someone wants to discover such sequences he should consider the
      following thought.
      The length of a sequence determines the minimal common distance
@@ -1632,32 +1687,53 @@ questions about primes, but also some quaint things and overviews.
      elements the distance between them has to be 30 or a multiple of 30.
      The number 30 results as the product of all primes smaller than the
      length of the sequence. So its the product of all primes smaller than 6:
-     $ 2 * 3 * 5 = 30 $.  If you look for a sequence with 15 elements, then
-     the common distance is at least $ 2 * 3 * 5 * 7 * 11 * 13 = 30.030 $.
+     $ 6\# = 5\# = 2 * 3 * 5 = 30 $.
+     It is $ 10\# = 7\# = 2 · 3 · 5 · 7 = 210$.
+     If you look for a sequence with 15 elements, then the common
+     distance is at least $ 15\# = 13\# = 2 * 3 * 5 * 7 * 11 * 13 = 30,030 $.
 
      This means that the length of an arithmetic prime sequence can be
      arbitrary big, but the distance between the elements cannot be any
      arbitrary number. E.g.\ there is no arithmetic prime sequence with the
      distance $100$, because 100 cannot be divided by 3.
 
-     If you take the sequences above (with the lengths of 22 and 23) and
-     look at the factors of their distances, you get:
-     $$~4,609,098,694,200 = 2^3 * 3 * 5^2 * 7 * 11 * 13 * 17 * 19 * 23 * 1033$$
-     $$18,549,279,769,020 = 2^2 * 3 * 5 * 7^2 * 11 * 13 * 17 * 19 * 23 * 5939$$
-     $$44,546,738,095,860 = 2^2 * 3 * 5 * 7 * 11 * 13 * 17 * 19 * 23 * 99,839$$ 
+     \begin{table}[ht]
+     \hspace*{1cm}\begin{tabular}{|r|r|}
+     \hline
+      k &                k\# \\ \hline
+      2 &                 2 \\
+      3 &                 6 \\
+      5 &                30 \\
+      7 &               210 \\
+     11 &             2.310 \\
+     13 &            30.030 \\
+     17 &           510.510 \\
+     19 &         9.699.690 \\
+     23 &       223.092.870 \\
+      \hline
+     \end{tabular}
+     \caption{Products of the first primes $<= k$ (called k primorial or $k\#$)}
+     \end{table}
 
-     {\bf Further restriction:} If you look at arithmetic prime sequences, 
+
+     \vskip +10 pt
+     {\bf Further restriction:}\\
+     If you look at arithmetic prime sequences, 
      which fulfill the {\em additional} requirement, that all primes are
-     consecutive, then its getting even more complicated. At the website
+     {\em consecutive}\footnote{%
+     They are also called consecutive prime arithmetic progressions
+     and therefore their abbreviation is CPAP-k or CAP-k.
+     }, then its getting even more complicated. At the website
      of Chris Caldwell\footnote{%
      \url{http://primes.utm.edu/glossary/page.php?sort=ArithmeticSequence}
      } 
-     you can find further hints: the longest known arithmetic prime sequence, 
+     you can find further details: The longest known arithmetic prime sequence, 
      consisting only of directly consecutive primes, has a length of $10$ and
-     the distance is $210 = 2 * 3 * 5 * 7$. \\
-
+     the distance is
+     $$ 10\# = 7\# = 2 * 3 * 5 * 7 = 210 $$ \\
 
 \end{itemize}
+
 
 
 % --------------------------------------------------------------------------

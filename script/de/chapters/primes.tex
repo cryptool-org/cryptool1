@@ -580,7 +580,7 @@ Primzahl überhaupt.
 Die folgende Tabelle enthält diese Mersenne Rekord-Primzahlen\footnote{%
 Eine up-to-date gehaltene Version dieser Tabelle steht im Internet unter
      \url{http://www.mersenne.org/history.htm}.
-}$^,$\footnote{%
+}$^,$\footnote{%  Doppelfussnote
 Bei jedem neuen Rekord, der gemeldet wird, beginnen in den einschlägigen
 Foren die immer gleichen, oft ironischen Diskussionen: Hat diese Forschung
 einen tieferen Sinn? Lassen sich diese Ergebnisse für irgendwas verwenden?\\
@@ -1585,14 +1585,22 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
   \vskip +6 pt      
   \item \hypertarget{link-Arithmetic-sequence-of-primes}{}
      Es gibt arithmetische Primzahlfolgen \index{Primzahlfolge!arithmetische}
-     beliebig großer Länge\footnote{%
+     beliebig großer Länge.\footnote{%
      Quellen: \\
+     - \url{http://users.cybercity.dk/~dsl522332/math/aprecords.htm}
+         ~~~Original-Quelle\\
      - \url{http://primes.utm.edu/glossary/page.php?sort=ArithmeticSequence}
-         Original-Quelle\\
+         ~~~Original-Quelle\\
+     - \url{http://en.wikipedia.org/wiki/Primes_in_arithmetic_progression}\\
+     - \url{http://en.wikipedia.org/wiki/Problems_involving_arithmetic_progressions}\\
+     - \url{http://en.wikipedia.org/wiki/Cunningham_chain}\\
      - GEO 10 / 2004: \glqq Experiment mit Folgen\grqq\\
      - \url{http://www.faz.net}
        \glqq Hardys Vermutung -- Primzahlen ohne Ende\grqq~von Heinrich Hemme (06. Juli 2004)
-     }.
+     }$^,$\footnote{%  Doppelfussnote
+     Arithmetische Folgen mit k Primzahlen werden auch Prime arithmetic progressions
+     genannt und daher PAP-k bzw. AP-k abgekürzt.
+     }
 
      Die 1923 von dem berühmten englischen Mathematiker Godfrey Harold 
      Hardy\footnote{%
@@ -1633,35 +1641,22 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
      berühmte britische Mathematiker Godfrey Harold Hardy und sein Kollege
      John Littlewood, dass es keine Obergrenze für die Zahl der Glieder gebe.
      Doch es gelang ihnen nicht, das zu beweisen. Im Jahr 1939 gab es jedoch
-     einen anderen Fortschritt. Der holländische Mathematiker Johannes van der
+     einen anderen Fortschritt: Der holländische Mathematiker Johannes van der
      Corput konnte nachweisen, dass es unendlich viele arithmetische
      Primzahlfolgen mit genau drei Gliedern gibt. Zwei Beispiele hierfür sind
      3, 5, 7  und  47, 53, 59.
 
-     Die längste Primzahlfolge, die man bisher kennt, hat 23 Glieder.
-
-     \begin{table}[ht]
-     %\begin{center}
-     %TODO: replace hspace value with correct variable (\paritem?)
-     \hspace*{1cm}\begin{tabular}{|r|r|r|r|r|}
-     \hline
-     Elemente &Startelement & Abstand & Wann & Entdecker \\ \hline
-     22 &  11.410.337.850.553 &   4.609.098.694.200 & 1993 & Paul A.\ Pritchard,\\
-        &                     &                     &      & Andrew Moran,\\
-        &                     &                     &      & Anthony Thyssen\\
-        &                     &                     &      &\\
-
-     22 & 376.859.931.192.959 &  18.549.279.769.020 & 2003 & Markus Frind\\
-        &                     &                     &      &\\
-
-     23 &  56.211.383.760.397 &  44.546.738.095.860 & 2004 & Markus Frind,\\
-        &                     &                     &      & Paul Jobling,\\
-        &                     &                     &      & Paul Underwood \\
-     \hline
-     \end{tabular}
-     \caption{Die längsten bekannten arithmetischen Primzahlfolgen (Stand Mai 2005)}
-     %\end{center}
-     \end{table}
+     Die längste Primzahlfolge, die man bisher kennt, hat 25 Glieder.
+     In der Tabelle~\ref{Smallest AP-k with minimal difference}
+     sind die längsten bekannten arithmetischen
+     Primzahlfolgen mit minimaler Distanz\footnote{%
+        Dagegen sind in \url{http://en.wikipedia.org/wiki/Primes_in_arithmetic_progression}
+        die "Largest known AP-k" aufgelistet hat, also dass das letzte
+        Folgenelement eine möglichst große Primzahl ist.
+        Hier sind die Folgen aufgelistet, die die kleinsten bekannten
+        Differenzen haben -- für eine gegebene Folgenlänge.
+     }
+     aufgelistet.
 
      Den beiden jungen\footnote{%
      In seinen Memoiren hat Hardy\index{Hardy, Godfrey Harold} 1940 geschrieben, 
@@ -1693,45 +1688,126 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
      Der Beweis von Green und Tao umfasst immerhin 49 Seiten. Tatsächlich
      beliebig lange arithmetische Primzahlfolgen kann man damit aber nicht
      finden. Der Beweis ist nicht konstruktiv, sondern ein so genannter 
-     Existenzbeweis\index{Existenzbeweis}. 
+     Existenzbeweis\index{Beweis!Existenzbeweis}\index{Beweis!konstruktiv}. 
      Das heißt, die beiden Mathematiker haben \glqq nur\grqq~gezeigt, dass 
      beliebig lange Folgen existieren, aber nicht, wie man sie findet.
 
      Das heißt, in der Menge der natürlichen Primzahlen gibt es zum Beispiel
      eine Folge von einer Milliarde Primzahlen, die alle den gleichen Abstand 
-     haben; und davon gibt es unendlich viele. Dies Folgen liegen aber sehr 
+     haben; und davon gibt es unendlich viele. Diese Folgen liegen aber sehr 
      \glqq weit draußen\grqq.   %\glqq D\grqq~
+
+
+     \begin{table}[ht]
+     \begin{center}
+     %TODO: replace hspace value with correct variable (\paritem?)
+     \hspace*{1cm}\begin{tabular}{|r|r|r|r|r|}
+     \hline
+     Elemente & Startelement & Abstand & Wann   & Entdecker \\
+              &              &         & Digits &           \\ \hline
+
+      3 &                   3 &                   2 &      & \\
+        &                     &                     &    1 & \\
+	&&&& \\
+ 
+      4 &                   5 &                   6 &      & \\
+        &                     &                     &    2 & \\
+	&&&& \\
+
+      5 &                   5 &                   6 &      & \\
+        &                     &                     &    2 & \\
+	&&&& \\
+ 
+      6 &                   7 &                  30 & 1909 & G. Lenaire \\
+        &                     &                     &    3 & \\
+	&&&& \\
+ 
+      7 &                   7 &                 150 & 1909 & G. Lenaire \\
+        &                     &                     &    3 & \\
+  
+....... &                     &                     &      & \\
+	&&&& \\
+
+     21 & 28.112.131.522.731.197.609 &          9.699.690 & 2008 & Jaroslaw Wroblewski\\
+        &                            &              $= 19\#$ &   20 & \\
+	&&&& \\
+ 
+     22 &        166.537.312.120.867 &     96.599.212.710 & 2006 & Markus Frind\\
+        &                            &        = 9.959·19\# &   15 & \\
+	&&&& \\
+
+     23 &        403.185.216.600.637 &  2.124.513.401.010 & 2006 & Markus Frind,\\
+        &                            &        = 9.523·23\# &   15 & \\
+	&&&& \\
+
+     24 &        515.486.946.529.943 & 30.526.020.494.970 & 2008 & Raanan Chermoni,\\
+        &                            &      = 136.831·23\# &   16 & Jaroslaw Wroblewski\\
+	&&&& \\
+ 
+     25 &      6.171.054.912.832.631 & 81.737.658.082.080 & 2008 & Raanan Chermoni,\\
+        &                            &      = 366.384·23\# &   16 & Jaroslaw Wroblewski\\
+  
+     \hline
+     \end{tabular}
+     \caption{Arithmetische Primzahlfolgen mit minimaler Distanz (Stand Jan. 2010)}
+     \label{Smallest AP-k with minimal difference}
+     \end{center}
+     \end{table}
+     \clearpage
 
      Wer solche Folgen entdecken möchte, sollte folgendes berücksichtigen.
      Die Länge der Folge bestimmt den Mindestabstand zwischen den einzelnen
-     Primzahlen. Bei einer Folge mit 6 Gliedern muss der Abstand 30 oder ein
+     Primzahlen. Bei einer Folge mit $k=6$ Gliedern muss der Abstand 30 oder ein
      Vielfaches davon betragen. Die Zahl 30 ergibt sich als das Produkt aller
      Primzahlen, die kleiner als die Folgenlänge, also kleiner als 6, sind:
-     $ 2 * 3 * 5 = 30 $. Sucht man Folgen mit der Länge 15, so muss der 
-     Abstand mindestens $ 2 * 3 * 5 * 7 * 11 * 13 = 30.030 $ betragen.
-
+     $ 6\# = 5\# = 2 * 3 * 5 = 30 $.
+     Es gilt $ 10\# = 7\# = 2 * 3 * 5 * 7 = 210$.
+     Sucht man Folgen mit der Länge 15, so muss der 
+     Abstand mindestens $ 15\# = 13\# = 2 * 3 * 5 * 7 * 11 * 13 = 30.030 $ betragen.
+     
      Daraus ergibt sich, dass die Folgenlänge beliebig groß sein kann, aber
      der Abstand kann nicht nicht jede beliebige Zahl annehmen: es kann keine
      arithmetische Primzahlfolge mit dem Abstand $100$ geben, denn 100 ist
      nicht durch die Zahl 3 teilbar.
 
-     Zerlegt man die Abstände der obigen Folgen (mit den Längen 22 und 23) in 
-     ihre Teiler, ergibt sich:
-     $$~4.609.098.694.200 = 2^3 * 3 * 5^2 * 7 * 11 * 13 * 17 * 19 * 23 * 1033$$
-     $$18.549.279.769.020 = 2^2 * 3 * 5 * 7^2 * 11 * 13 * 17 * 19 * 23 * 5939$$
-     $$44.546.738.095.860 = 2^2 * 3 * 5 * 7 * 11 * 13 * 17 * 19 * 23 * 99.839$$ 
+     \begin{table}[ht]
+     \hspace*{1cm}\begin{tabular}{|r|r|}
+     \hline
+      k &                k\# \\ \hline
+      2 &                 2 \\
+      3 &                 6 \\
+      5 &                30 \\
+      7 &               210 \\
+     11 &             2.310 \\
+     13 &            30.030 \\
+     17 &           510.510 \\
+     19 &         9.699.690 \\
+     23 &       223.092.870 \\
+      \hline
+     \end{tabular}
+     \caption{Produkte der ersten Primzahlen $<= k$ (genannt k Primorial oder $k\#$)}
+     \end{table}
 
-     {\bf Weitere Restriktion:} Sucht man arithmetische Primzahlfolgen, 
-     die die {\em zusätzliche} Bedingung erfüllen, dass alle Primzahlen auch 
-     direkt hintereinander liegen, wird es noch etwas schwieriger. Auf der 
+
+     \vskip +10 pt
+     {\bf Weitere Restriktion an die arithmetische Folge:}\\
+     Sucht man arithmetische Primzahlfolgen, 
+     die die {\em zusätzliche} Bedingung erfüllen, dass alle Primzahlen
+     in der Folge auch {\em direkt hintereinander} liegen (consecutive
+     primes sequence\footnote{%
+     Sie werden auch consecutive prime arithmetic progressions genannt
+     und daher CPAP-k bzw. CAP-k abgekürzt.
+     }), wird es noch etwas schwieriger. Auf der 
      Webseite von Chris Caldwell\footnote{%
      \url{http://primes.utm.edu/glossary/page.php?sort=ArithmeticSequence}
      } 
-     finden Sie einen Hinweis darauf: Die längste bekannte arithmetische
+     finden Sie weitere Informationen: Die längste bekannte arithmetische
      Folge, die nur aus direkt hintereinander liegenden Primzahlen besteht,
-     hat die Länge $10$ und der Abstand beträgt $210 = 2 * 3 * 5 * 7$. \\
+     hat die Länge $10$ und der Abstand beträgt
+     $$ 10\# = 7\# = 2 * 3 * 5 * 7 = 210 $$ \\
 
 \end{itemize}
+
 
 
 % --------------------------------------------------------------------------
@@ -1842,7 +1918,7 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
 
 
 % --------------------------------------------------------------------------
-\vskip +10 pt
+\vskip +20 pt
 \subsection{Offene Fragen zu Primzahlzwillingen}
 
 Primzahlzwillinge sind Primzahlen, die den Abstand 2 voneinander haben, 
