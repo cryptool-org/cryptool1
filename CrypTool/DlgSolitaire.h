@@ -34,21 +34,21 @@
 #define MAPPED_DECK			"MAPPED_DECK: "
 
 
+
 class CDlgSolitaire : public CDialog
 {
 	DECLARE_DYNAMIC(CDlgSolitaire)
-
-	void SetDeckSelectioMethod(CString &method);
 	bool load_infile();
+
 public:
-	CDlgSolitaire(char* infile, CWnd* pParent = NULL);   // Standardkonstruktor
+	CDlgSolitaire(const char* _infile, CWnd* pParent = NULL);   // Standardkonstruktor
 	virtual ~CDlgSolitaire();
-	c_solitaire deck;
-	int zaehler;
-	CString vorgabe;
-	char* infile;
+	c_solitaire		deck;
+	int				sel_card_count;
+	char          *infile;
 	unsigned char *in_buffer, *key_stream;	
 	long           in_buffer_size, key_stream_size;
+	solitaire_action sol_action;
 
 // Dialogfelddaten
 	enum { IDD = IDD_SOLITAIRE, IDH = IDR_HTML_DLGSOLITAIRE };
@@ -57,17 +57,19 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV-Unterstützung
 	virtual BOOL OnInitDialog();
 	void    DoCard( int k, CButton &button );
+	void    ChangeConfiguration();
 	void    init();
+	void    saveDeck( CString &str_deck, const char *def_fname );
 
 	DECLARE_MESSAGE_MAP()
 //	DECLARE_DHTML_EVENT_MAP()
 public:
 	void enableVorgabe(bool art);
 	void initdrei();
+	long get_no_of_cards() { return deck.get_no_of_cards(); }
 	afx_msg void OnCbnSelchangeKartenanzahl();
 	afx_msg void OnCbnSelchangeCombo2();
 	CString InitialDeck;
-	CString InitialArt;
 	afx_msg void OnBnClickedButton61();
 	afx_msg void OnBnClickedButton9();
 	afx_msg void OnBnClickedCryptStep1();
@@ -203,11 +205,9 @@ public:
 	afx_msg void OnBnClickedSaveFinalDeck();
 	CButton m_inispeichern;
 	CButton m_abschlussspeichern;
-	void vorgabesetzen();
 	afx_msg void OnBnCancel();
 	afx_msg void OnEncrypt();
 	afx_msg void OnDecrypt();
-	afx_msg void OnEnChangeEdit2();
 	afx_msg void OnPasteKey();
 	CButton verschl;
 	CButton entschl;

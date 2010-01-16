@@ -64,7 +64,9 @@ unsigned char c_solitaire::get_char( char ch )
 }
 
 
-bool c_solitaire::initalize( long cards, long ID, const unsigned char *cardset )
+//////////////////////////////////////////////////////////
+// Solitaire Initialization
+bool c_solitaire::initialize( long cards, long ID, const unsigned char *cardset )
 {
 	clear();
 	if ( cards < 3 || cards > 54 )
@@ -147,6 +149,121 @@ bool c_solitaire::initalize( long cards, long ID, const unsigned char *cardset )
 	return true;
 }
 
+bool c_solitaire::initialize( long cards, char *pass, const unsigned char *cardset )
+{
+	if ( cards < 26 ) 
+		return false;
+	bool no_error;
+	if ( cardset )
+		no_error = initialize( cards, 3, cardset );
+	else
+		no_error = initialize( cards, 0 );
+	if ( !no_error )
+		return false;
+	
+	return add_passphrase( pass );
+}
+
+bool c_solitaire::set_deck( CString &str )
+{
+	unsigned char check[55], deck[55];
+	long cards = 0, ndx = 0, max = 0;
+	for (long i=1;i<=54;i++) check[i] = 0;
+	while ( str.GetLength() )
+	{
+		long p = str.Find(',');
+		CString s;
+		if ( p > 0 )
+		{
+			s = str.Mid(0, p);
+			str.Delete(0, p+1);
+		}
+		else if ( p == 0 || !str.GetLength())
+			return false;
+		else {
+			s = str;
+			str = _T("");
+		}
+		long d;
+		if ( !s.Find('A') ) d = 53;
+		else if ( !s.Find('B') ) d = 54;
+		else { 
+			d = atoi(s.GetBuffer());
+			if (d > max) max = d;
+		}
+		if ( d < 1 || d > 54 || check[d] || ++ndx > 54 )
+			return false;
+		check[d]  = ndx;
+		deck[ndx] = d;
+	}
+	if ( ndx == max +2 && check[53] && check[54] )
+	{
+		deck[check[53]] = ++max;
+		deck[check[54]] = ++max;
+	}
+	if ( ndx == max )
+	{
+		initialize( ndx, 3, deck );
+		return true;
+	}
+	return false;
+}
+
+bool c_solitaire::get_deck( CString &str )
+{
+	if ( 0 > inner_state ) 
+		return false;
+	str = _T("");
+	card *t = top;
+	char numStr[12];
+	for ( long i=1; i<=no_of_cards; i++ )
+	{
+		if ( t == joker_A ) 
+			str += 'A';
+		else if ( t == joker_B )
+			str += 'B';
+		else
+		{
+			_itoa( t->ord, numStr, 10 );
+			str += CString(numStr);
+		}
+		if ( i < no_of_cards )
+			str += ',';
+		t = t->dn;
+	}
+
+	return true;
+}
+
+bool c_solitaire::add_passphrase( char *pass )
+{
+	if ( no_of_cards < 26 )
+		return false;
+
+	long i;
+	for ( i=0; i<strlen(pass); i++ )
+	{
+		if ( pass[i] >= 'a' && pass[i] <= 'z' ) pass[i] -= ('a' - 'A');
+		if ( pass[i] <  'A' || pass[i] > 'Z' ) 
+			return false;
+	}
+
+	for ( i=0; i<strlen(pass); i++)
+	{
+		set_inner_state(0);
+		s1_swap_JA();
+		s2_swap_JB();
+		s3_triple_cut();
+		s4_count_cut();
+		set_inner_state(3);
+		s4_count_cut( (unsigned char)(pass[i] - 'A' +1) );
+	}
+	return true;
+}
+
+
+/////////////////////////////////////////////////////
+// Solitaire Enrcyption
 bool c_solitaire::s1_swap_JA()
 { // 1. Find the A joker. Move it one card down.
 	if ( inner_state ) 
@@ -218,6 +335,14 @@ bool c_solitaire::s3_triple_cut()
 	return true;
 }
 
+/*
+ NOTE: Password based initial deck setting (step 4 with parameter c)
+ Perform the Solitaire operation, but instead of Step 5, do another count cut based on the first character of the passphrase (19, in this example). 
+ In other words, do step 4 a second time, using 19 as the cut number instead of the last card. Remember to put the top cards just above the bottom 
+ card in the deck, as before.
+ Repeat the five steps of the Solitaire algorithm once for each character of the key. That is, the second time through the Solitaire steps use the 
+ second character of the key, the third time through use the third character, etc. 
+*/
 bool c_solitaire::s4_count_cut(unsigned char c)
 {  // Count down from the top card that number. 
    // Cut after the card that you counted down to, leaving the bottom card on the bottom.
@@ -243,14 +368,6 @@ bool c_solitaire::s4_count_cut(unsigned char c)
 	return true;
 }
 
-/*
- Perform the Solitaire operation, but instead of Step 5, do another count cut based on the first character of the passphrase (19, in this example). 
- In other words, do step 4 a second time, using 19 as the cut number instead of the last card. Remember to put the top cards just above the bottom 
- card in the deck, as before.
- Repeat the five steps of the Solitaire algorithm once for each character of the key. That is, the second time through the Solitaire steps use the 
- second character of the key, the third time through use the third character, etc. 
-*/
-
 unsigned char c_solitaire::s5_stream_char()
 {
 	if ( 4 != inner_state ) 
@@ -268,35 +385,9 @@ unsigned char c_solitaire::s5_stream_char()
 	return c;
 }
 
-bool c_solitaire::get_deck( CString &str )
+unsigned char c_solitaire::crypt_c( solitaire_action encrypt, unsigned char c )
 {
-	if ( 0 > inner_state ) 
-		return false;
-	str = _T("");
-	card *t = top;
-	char numStr[12];
-	for ( long i=1; i<=no_of_cards; i++ )
-	{
-		if ( t == joker_A ) 
-			str += 'A';
-		else if ( t == joker_B )
-			str += 'B';
-		else
-		{
-			_itoa( t->ord, numStr, 10 );
-			str += CString(numStr);
-		}
-		if ( i < no_of_cards )
-			str += ',';
-		t = t->dn;
-	}
-
-	return true;
-}
-
-unsigned char c_solitaire::crypt( unsigned char c )
-{
-	unsigned char out = 0;
+	long out = 0;
 	while ( !out )
 	{
 		s1_swap_JA();
@@ -306,23 +397,33 @@ unsigned char c_solitaire::crypt( unsigned char c )
 		out = s5_stream_char();
 	}
 	if ( out > 26 ) out -= 26;
-	out += c;
-	if ( out > 26 ) out -= 26;
-	return out;
+	if ( encrypt == SOL_ENCRYPT)
+	{
+		out = c + out;
+		if ( out > 26 ) out -= 26;
+	}
+	else if ( encrypt == SOL_DECRYPT )
+	{
+		out = c - out;
+		if ( out < 1 ) out += 26;
+	}
+	else return 0; // FIXME 
+	assert( 0 < out && 26 >= out );
+	return (unsigned char)(out + ('A' -1));
 }
 
-long solitaire( const char *f_in, const char *f_out, long cards, long ID, const unsigned char *cardset, const char *password )
+long c_solitaire::crypt( solitaire_action encrypt, const char *f_in, const char *f_out )
 {
 	long error = 0;
 	fstream fin, fout;
 	fin.open( f_in, ios::in || ios::binary );
 	if ( fin.is_open() )
 	{
-		fout.open( f_out, ios::out || ios::binary );
+		fout.open( f_out, ios::out );
 		if ( fout.is_open() )
 		{
-			c_solitaire s;
-			s.initalize(cards, ID, cardset);
+			long x = 0;
+
 			unsigned char c, c2;
 			while ( !fin.eof() )
 			{
@@ -331,30 +432,37 @@ long solitaire( const char *f_in, const char *f_out, long cards, long ID, const 
 				switch ( c ) {
 					case 'Ä':
 					case 'ä':
-						c  = s.get_char('A');
-						c2 = s.get_char('E');
+						c  = get_char('A');
+						c2 = get_char('E');
 						break;
 					case 'Ö':
 					case 'ö':
-						c  = s.get_char('O');
-						c2 = s.get_char('E');
+						c  = get_char('O');
+						c2 = get_char('E');
 						break;
 					case 'Ü':
 					case 'ü':
-						c  = s.get_char('O');
-						c2 = s.get_char('E');
+						c  = get_char('O');
+						c2 = get_char('E');
 						break;
 					case 'ß':
-						c  = s.get_char('S');
-						c2 = s.get_char('S');
+						c  = get_char('S');
+						c2 = get_char('S');
 						break;
 					default:
-						c = s.get_char( c );
+						c = get_char( c );
 						c2 = 0;
 						break;
 				}
-				if ( c )  fout.put( s.crypt( c ) );
-				if ( c2 ) fout.put( s.crypt( c2 ) );
+				// FIXME 
+				if ( c ) {
+					fout.put( crypt_c( encrypt, c ) );
+					if ( !(++x % 5) ) { if ( x == 70 ) { fout.put('\n');  x = 0; } else fout.put(' '); }   
+				}
+				if ( c2 ) {
+					fout.put( crypt_c( encrypt, c2 ) );
+					if ( !(++x % 5) ) { if ( x == 70 ) { fout.put('\n');  x = 0; } else fout.put(' '); }   
+				}
 			}
 
 			fout.close();
@@ -366,20 +474,31 @@ long solitaire( const char *f_in, const char *f_out, long cards, long ID, const 
 	return error;
 }
 
-#if 0
-bool c_solitaire::set_deck( CString &str )
+long crypt_solitaire( solitaire_action encrypt, const char *f_in, const char *f_out, long cards, long ID, unsigned char *cardset, char *password )
 {
-	unsigned char deck[55];
-	long cards = 0;
-	while ( str.GetLength )
-	{
-		ling p = str.Find(',');
-		CString s = str.Mid(0, p);
-		str.Delete(0, p+1);
-		// FIXME 
-	}
+	long no_error = true;
+	assert ( encrypt != SOL_NOTHING );
+
+	c_solitaire s;
+	if ( password )
+		no_error = s.initialize( cards, password, cardset );
+	else
+		no_error = s.initialize( cards, ID, cardset);
+
+	if ( no_error )
+		return s.crypt( encrypt, f_in, f_out );
+	else no_error = 4; // FIXME
+	return no_error;
 }
-#endif 
+
+long crypt_solitaire( solitaire_action encrypt, const char *f_in, const char *f_out, CString &cardset )
+{
+	c_solitaire s;
+	if ( s.set_deck(cardset) )
+		return s.crypt( encrypt, f_in, f_out );
+	return 4; // FIXME 
+}
+
 
 
 

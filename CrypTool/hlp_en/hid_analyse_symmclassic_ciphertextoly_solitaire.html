@@ -1,27 +1,24 @@
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 <HTML>
 <HEAD>
-<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
-<Title>Solitaire analysis</Title>
-<link rel="stylesheet" type="text/css" href="CrypTool_Help.css">
-<script language="JScript" src="helper.js"></script>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<Title>Solitaire analysis (description)</Title>
 </HEAD>
-
-<!-- multiple keywords for CrypTool HTML help index -->
-<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" VIEWASTEXT>
-	<PARAM NAME="Keyword" VALUE="Card game">
-	<PARAM NAME="Keyword" VALUE="Analysis">
-	<PARAM NAME="Keyword" VALUE="Solitaire encryption algorithm">
-</OBJECT>
-
 <BODY>
 
-<H3>Solitaire (Menu <A href="menu_analyze.html">Analysis</A> \ Symmetric  Encryption (classic) \ Ciphertext-Only)</H3>
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Kartenspiel">
+	<PARAM NAME="Keyword" VALUE="Solitaire Analyse">
+	<PARAM NAME="Keyword" VALUE="Solitaire-Verschlüsselungsverfahren">
+</OBJECT>
 
-<P>The description of the Solitaire analysis dialog is here: <A href="hidd_Solitaire_Analyse.html">Solitaire analysis dialog</A>.<br></P>
+
+<H3><P><A NAME="HID_ANALYSE_SYMMCLASSIC_CIPHERTEXTOLY_SOLITAIRE.html"></A><B>Solitaire analysis (Menu <A href="menu_analyze.html">Analysis</A>/ Symmetric  Encryption (classical))</B></P></H3>
+
+<P>The description of the Solitaire analysis-dialogue is here: <A href="hidd_Solitaire_Analyse.html">Solitaire analysis-dialogue</A><br></P>
 
 <P>
-For the <A href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire cipher</a>, there is kind of an attack (<A href="ciphertextonlyangriff.html">ciphertext-only attack</a>), which makes a automatical or semi-automatical key search. For that it is necessary to know the <a href="kartendeck.html">final deck</a> and the related <A href="chiffretext.html">ciphertext</a>.<br>
+For the <A href="HID_SYMCLASSIC_SOLITAIRE.html">Solitaire cipher</a>, there is kind of an attack (<A href="ciphertextonlyangriff.html">Ciphertext-only-attack</a>), which makes a automatical or semi-automatical key search. For that it is necessary to know the <a href="kartendeck.html">final deck</a> and the related <A href="chiffretext.html">ciphertext</a>.<br>
 Because the algorithm is strong reversible, by reversing the steps of the algorithm the initial deck can be generated and so the symmetric  <a href="schluessel.html">key</a>. With this key the ciphertext can be decrypted. The problem of the analysis is the non-complete reversibility of the algorithm with the effect that not each step can be reversed in an unique manner. If a wrong way is chosen, the further analysis is also wrong.</P>
 
 <p>The analysis has three general steps:<br><br>

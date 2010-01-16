@@ -35,6 +35,8 @@
 class CDlgCertificateGeneration : public CDialog
 {
 // Konstruktion
+	void OnChangeCertData();
+
 public:
 	CDlgCertificateGeneration(CWnd* pParent = NULL);   // Standardkonstruktor
 	BOOL m_PSEIsExtern;
@@ -80,11 +82,14 @@ protected:
 	// Generierte Nachrichtenzuordnungsfunktionen
 	//{{AFX_MSG(CDlgCertificateGeneration)
 	virtual BOOL OnInitDialog();
-	afx_msg void OnChangeEdit();
-	virtual void OnOK();
 	afx_msg void OnPseImport();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnEnChangeEditCertname();
+	afx_msg void OnEnChangeEditCertFirstname();
+	afx_msg void OnEnChangeEditCertKeyId();
+	afx_msg void OnBnClickedOk();
 };
 
 //{{AFX_INSERT_LOCATION}}

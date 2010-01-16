@@ -23,6 +23,8 @@
 #include "stdafx.h"
 #include "limits.h"
 
+enum solitaire_action { SOL_NOTHING, SOL_ENCRYPT, SOL_DECRYPT };
+
 struct card {
 	unsigned char ord;
 	card *dn, *up;
@@ -35,22 +37,31 @@ class c_solitaire {
 	long inner_state;
 	long no_of_cards;
 	void clear();
+
+	unsigned char crypt_c( solitaire_action encrypt, unsigned char c );
+	long		  crypt( solitaire_action encrypt, const char *f_in, const char *f_out );
+
+	friend long crypt_solitaire( solitaire_action encrypt, const char *f_in, const char *f_out, long cards, long ID, unsigned char *cardset, char *password = 0 );
+	friend long crypt_solitaire( solitaire_action encrypt, const char *f_in, const char *f_out, CString &cardset );
+
 public:
 	c_solitaire ();
 	~c_solitaire();
-	bool			initalize( long cards, long ID, const unsigned char *cardset );
+	bool			initialize( long cards, long ID, const unsigned char *cardset );
+	bool			initialize( long cards, char *pass, const unsigned char *cardset = 0 );
+	bool			add_passphrase( char *pass );
 	bool			s1_swap_JA();
 	bool			s2_swap_JB();
 	bool			s3_triple_cut();
 	bool			s4_count_cut(unsigned char c = '\0');
 	unsigned char	s5_stream_char();
 	bool            get_deck( CString &str );
+	bool			set_deck( CString &str );
+	long            get_no_of_cards() { return no_of_cards; }
 	unsigned char   get_char( char ch );
 	long	        get_inner_state() { return inner_state; }
-	unsigned char   crypt( unsigned char c );
+	void            set_inner_state(long state) { inner_state = state; }
 };
-
-long solitaire( const char *f_in, const char *f_out, long cards, long ID, const unsigned char *cardset, const char *password = 0 );
 
 
 #if 1

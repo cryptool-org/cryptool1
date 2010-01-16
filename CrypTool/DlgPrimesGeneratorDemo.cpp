@@ -149,11 +149,11 @@ void CDlgPrimesGeneratorDemo::OnRadio5()
 	UpdateData(true);
 	m_control_edit3.EnableWindow(false);
 	m_control_edit4.EnableWindow(false);
-	m_control_edit6.EnableWindow(false);
+	m_control_edit6.EnableWindow(true);
 	// don't forget to copy from P to Q
 	m_edit3 = m_edit1;
 	m_edit4 = m_edit2;
-	m_edit6 = m_edit5;
+	// m_edit6 = m_edit5;
 	UpdateData(false);
 }
 
@@ -297,7 +297,7 @@ void CDlgPrimesGeneratorDemo::OnButtonGenerate()
 	int PSet,QSet;
 	
 	if(!((0==m_edit1.IsEmpty())&&(0==m_edit2.IsEmpty()) &&
-		   (0==m_edit3.IsEmpty())&&(0==m_edit4.IsEmpty())) )
+		 (0==m_edit3.IsEmpty())&&(0==m_edit4.IsEmpty())) )
 	{
 		Message( IDS_STRING_ENTER_UPPER_LOWER_BOUND, MB_ICONINFORMATION );
 		return;
@@ -478,10 +478,10 @@ void CDlgPrimesGeneratorDemo::OnButtonGenerate()
 			{
 				SHOW_HOUR_GLASS				// aktiviert die Sanduhr (statt des Mauszeigers)
 				if ( !GetRandomPrime( m_edit5, P ) ) Message( IDS_STRING_MSG_LEFT_PRIMES_NOT_FOUND, MB_ICONSTOP );
-				//if ( !GetRandomPrime( m_edit6, Q ) ) Message( IDS_STRING_MSG_RIGHT_PrIMES_NOT_FOUND, MB_ICONSTOP );
+				if ( !GetRandomPrime( m_edit6, Q ) ) Message( IDS_STRING_MSG_RIGHT_PrIMES_NOT_FOUND, MB_ICONSTOP );
 				// flomar, 06/30/2009: we want consistency for primes P and Q in case 
 				// the "both are equal" checkbox (m_radio4) is checked, thus just copy from P to Q
-				m_edit6 = m_edit5;
+				// m_edit6 = m_edit5;
 				HIDE_HOUR_GLASS			// deaktiviert die Sanduhr
 			}
 			else if ( PSet == 3)

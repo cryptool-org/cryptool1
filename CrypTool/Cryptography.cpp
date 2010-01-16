@@ -62,6 +62,8 @@ using namespace std;
 // #include "DlgMac.h"
 #include "DlgHMAC.h"
 #include "DlgMonSubst.h"
+#include "Solitaire.h"
+#include "DlgSolitaire.h"
 
 #include "DialogeMessage.h"
 #include "MakeNewName.h"
@@ -4277,4 +4279,23 @@ int ScytaleEncryption(const char *infile, const char *oldTitle, int key, int off
 	}
 
 	return 1;
+}
+
+void Solitaire(const char *infile, const char *OldTitle)
+{
+	CDlgSolitaire mySol(infile, NULL);
+	if ( IDOK != mySol.DoModal() )
+		return;
+
+	char outfile[1024];
+
+	SHOW_HOUR_GLASS
+	GetTmpName(outfile,"cry",".txt");
+	
+	crypt_solitaire( mySol.sol_action, infile, outfile, CString(mySol.InitialDeck) );
+
+// == Open the new document
+	OpenNewDoc( outfile, mySol.InitialDeck, OldTitle, IDS_CRYPT_SOLITAIRE, ( mySol.sol_action ) ? 0 : 1 );
+
+	HIDE_HOUR_GLASS
 }

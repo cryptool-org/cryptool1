@@ -107,5 +107,7 @@ void Rot13CaesarAscFinish(SymbolArray & text, const char * infile, char * sKey, 
 int RailFenceEncryption(const char *infile, const char *oldTitle, int key, int offset, bool encrypt = true);
 // Scytale encryption (part of the simple transpositions dialog)
 int ScytaleEncryption(const char *infile, const char *oldTitle, int key, int offset, bool encrypt = true);
-	
+void Solitaire(const char *infile, const char *OldTitle);
+
+
 #endif // __CRYPT_H

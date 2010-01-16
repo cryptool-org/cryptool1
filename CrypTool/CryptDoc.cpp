@@ -64,7 +64,6 @@
 #include "MonoSubstCracker.h"
 #include "DlgRot13Caesar.h"
 #include "DlgShowKey.h"
-#include "DlgSolitaire.h"
 #include "DlgSolitaireAnalyse.h"
 #include "ECIESMain.h"
 #include "bruteforceheap.h"
@@ -1799,10 +1798,8 @@ void CCryptDoc::OnShowKey()
 void CCryptDoc::OnSymclassicSolitaire() 
 {
 	// TODO: Code für Befehlsbehandlungsroutine hier einfügen
-	
 	UpdateContent();
-	CDlgSolitaire mySol(ContentName, NULL);
-	mySol.DoModal();	
+	Solitaire( ContentName, GetTitle() );
 }
 
 void CCryptDoc::OnEncryptionSimpleTranspositions()
