@@ -68,7 +68,7 @@ void CDlgCertificateGeneration::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_CERT_DNAME, m_sDName);
 	DDX_Text(pDX, IDC_EDIT_CERT_FIRSTNAME, m_sFirstName);
 	DDX_Text(pDX, IDC_EDIT_CERT_KEY_ID, m_sKeyID);
-	DDX_Text(pDX, IDC_EDIT_CERT_NAME, m_sName);
+	DDX_Text(pDX, IDC_EDIT_CERTNAME, m_sName);
 	DDX_Text(pDX, IDC_EDIT_CERT_USER_ID, m_sUserID);
 	DDX_Text(pDX, IDC_EDIT_RSA_BITLENGTH, m_sBitLength);
 	DDX_Text(pDX, IDC_EDIT_CERT_PIN, m_sPIN);
@@ -81,7 +81,7 @@ void CDlgCertificateGeneration::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CDlgCertificateGeneration, CDialog)
 	//{{AFX_MSG_MAP(CDlgCertificateGeneration)
-	ON_EN_CHANGE(IDC_EDIT_CERT_NAME, OnChangeEdit)
+	ON_EN_CHANGE(IDC_EDIT_CERTNAME, OnChangeEdit)
 	ON_BN_CLICKED(IDC_PSE_IMPORT, OnPseImport)
 	ON_EN_CHANGE(IDC_EDIT_CERT_FIRSTNAME, OnChangeEdit)
 	ON_EN_CHANGE(IDC_EDIT_CERT_KEY_ID, OnChangeEdit)
