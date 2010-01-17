@@ -86,10 +86,8 @@ protected:
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 public:
-	afx_msg void OnEnChangeEditCertname();
-	afx_msg void OnEnChangeEditCertFirstname();
-	afx_msg void OnEnChangeEditCertKeyId();
-	afx_msg void OnBnClickedOk();
+	afx_msg void OnChangeEdit();
+	virtual void OnOK();
 };
 
 //{{AFX_INSERT_LOCATION}}
