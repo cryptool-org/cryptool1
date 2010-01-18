@@ -1573,13 +1573,20 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
      aber auf einfachere Weise als andere vor ihm.
 
       
-  \item \hypertarget{link-Primzahlfunktion-base-a-Proof}{}
+  \item % \hypertarget{link-Primzahlfunktion-base-a-Proof}{}
+        \label{link-Primzahlfunktion-base-a-Proof}
      Es existiert eine reelle Zahl a, so dass die Funktion
-     $f: {\bf N} \rightarrow {\mathbb Z}$ mit $n \mapsto a^{3^n}$
-     für alle $n$ nur Primzahlenwerte annimmt 
-     (siehe \cite[S. 82]{pr:Padberg1996}).
+     $f: {\bf N} \rightarrow {\mathbb Z}$ mit $n \mapsto \lfloor a^{3^n}\rfloor$
+     für alle $n$ nur Primzahlenwerte annimmt\footnote{%
+     Die Gaussklammer \index{Gaussklammer} $\lfloor x \rfloor $ der reellwertigen Zahl $x$
+     ist definiert als: $\lfloor x \rfloor $ ist die größte ganze Zahl kleiner oder gleich $x$.
+     } (siehe \cite[S. 82]{pr:Padberg1996}).
      Leider macht die Bestimmung von $a$ Probleme 
-     (siehe \hyperlink{link-Primzahlfunktion-base-a-Offen}{unten}).
+     (siehe Kapitel \ref{link-Primzahlfunktion-base-a-Offen}).
+
+% \label{zahlentyp_mersenne}
+% \hypertarget{GIMPS-project}{}
+% \hyperlink{GIMPS-project}{GIMPS-Projekt} (Kapitel~\ref{zahlentyp_mersenne}), 
 
 
   \vskip +6 pt      
@@ -1651,9 +1658,9 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
      sind die längsten bekannten arithmetischen
      Primzahlfolgen mit minimaler Distanz\footnote{%
         Dagegen sind in \url{http://en.wikipedia.org/wiki/Primes_in_arithmetic_progression}
-        die "Largest known AP-k" aufgelistet hat, also dass das letzte
-        Folgenelement eine möglichst große Primzahl ist.
-        Hier sind die Folgen aufgelistet, die die kleinsten bekannten
+        die \glqq Largest known AP-k\grqq~aufgelistet. Also ist dort das letzte
+        Folgenelement eine möglichst große Primzahl.
+        Hier jedoch sind die Folgen aufgelistet, die die kleinsten bekannten
         Differenzen haben -- für eine gegebene Folgenlänge.
      }
      aufgelistet.
@@ -1677,8 +1684,10 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
      betrachteten sie Mengen, die neben Primzahlen auch 
      Beinaheprimzahlen\index{Beinaheprimzahl}\index{Primzahl!Beinaheprimzahl} 
      enthielten. Das sind Zahlen, die nur wenige Teiler haben - beispielsweise
-     die Halbprimzahlen\index{Halbprimzahl}\index{Primzahl!Halbprimzahl}
-     \index{Zahlen!semiprime}, die Produkte aus genau zwei Primzahlen sind.
+     die Halbprimzahlen%
+     \index{Halbprimzahl}\index{Primzahl!Halbprimzahl}%
+     \index{Zahlen!semiprime}\index{Zahlen!Halbprimzahl},
+     die Produkte aus genau zwei Primzahlen sind.
      Dadurch konnten die beiden Mathematiker ihre Arbeit wesentlich
      erleichtern, denn über Beinaheprimzahlen gab es schon zahlreiche
      nützliche Theoreme. Schließlich erkannten sie, dass ihr Verfahren viel
@@ -1771,6 +1780,7 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
      nicht durch die Zahl 3 teilbar.
 
      \begin{table}[ht]
+     \begin{center}
      \hspace*{1cm}\begin{tabular}{|r|r|}
      \hline
       k &                k\# \\ \hline
@@ -1786,6 +1796,7 @@ Fragestellungen zu Primzahlen auf, aber auch Kurioses und Übersichten.
       \hline
      \end{tabular}
      \caption{Produkte der ersten Primzahlen $<= k$ (genannt k Primorial oder $k\#$)}
+     \end{center}
      \end{table}
 
 
@@ -1979,9 +1990,10 @@ viele Primzahlzwillinge gibt.
 \subsection{Weitere offene Fragestellungen}
 
 \begin{itemize}
-\item \hypertarget{link-Primzahlfunktion-base-a-Offen}{}
-    Der Beweis \hyperlink{link-Primzahlfunktion-base-a-Proof}{oben} zu der
-    Funktion  $f: \: N \rightarrow Z$ mit $n \mapsto a^{3^n}$
+\item % \hypertarget{link-Primzahlfunktion-base-a-Offen}{}
+      \label{link-Primzahlfunktion-base-a-Offen}
+    Der in Kapitel \ref{link-Primzahlfunktion-base-a-Proof} erwähnte Beweis zu der
+    Funktion  $f: \: N \rightarrow Z$ mit $n \mapsto \lfloor a^{3^n}\rfloor$
     garantiert nur die Existenz einer
     solchen Zahl $a$.  Wie kann diese Zahl $a$ bestimmt werden, und wird sie
     einen Wert haben, so dass die Funktion auch von praktischem Interesse ist?

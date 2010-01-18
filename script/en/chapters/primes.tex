@@ -1506,12 +1506,16 @@ questions about primes, but also some quaint things and overviews.
       proved it in a much simpler manner than those before him.
  
      
-  \item  \hypertarget{link-Primzahlfunktion-base-a-Proof}{}
+  \item % \hypertarget{link-Primzahlfunktion-base-a-Proof}{}
+        \label{link-Primzahlfunktion-base-a-Proof}
       There is a real number a such that the function $f: {\bf N}
-      \rightarrow {\mathbb Z}$ where $n \mapsto a^{3^n}$ 
-      only delivers primes for all $n$ (see \cite[p. 82]{pr:Padberg1996}).
+      \rightarrow {\mathbb Z}$ where $n \mapsto \lfloor a^{3^n}\rfloor$ 
+      only delivers primes\footnote{%
+      The Gauss\index{Gauss bracket} bracket  $\lfloor x \rfloor $ of a real number $x$
+      is defined via: $\lfloor x \rfloor $ is the next integer less or equal $x$.
+      } for all $n$  (see \cite[p. 82]{pr:Padberg1996}).
       Unfortunately, problems arise when we try to determine $a$ 
-      (\hyperlink{link-Primzahlfunktion-base-a-Offen}{see below}).
+      (see chapter \ref{link-Primzahlfunktion-base-a-Offen}).
 
 
   \vskip +6 pt      
@@ -1577,7 +1581,7 @@ questions about primes, but also some quaint things and overviews.
      lists the longest currently known arithmetic prime number sequences
      with minimal difference\footnote{%
         In the opposite, in \url{http://en.wikipedia.org/wiki/Primes_in_arithmetic_progression}
-        are the "largest known AP-k" listed. Therefore, the last sequence element
+        are the "largest known AP-k" listed. Therefore, there the last sequence element
         is a prime as big as possible. However, here are the sequences listed
         which have the smallest known difference for a given length.
      }.
@@ -1602,8 +1606,9 @@ questions about primes, but also some quaint things and overviews.
      ``near primes''\index{Near prime}\index{Prime number!near prime}.
      These are numbers with a small set of divisors like numbers which are
      the product of two primes - these numbers are called 
-     ``half primes''\index{Half prime}\index{Prime number!half prime}
-     \index{Prime number!semi prime}\index{Prime number!bi prime}
+     ``half primes''%
+     \index{Half prime}\index{Prime number!half prime}%
+     \index{Prime number!semi prime}\index{Prime number!bi prime}%
      \index{Number!semi prime}\index{Number!bi prime}.
      Thus they managed to considerably simplify their work because about near
      primes there already existed a lot of useful theorems.  Finally they
@@ -1690,7 +1695,7 @@ questions about primes, but also some quaint things and overviews.
      $ 6\# = 5\# = 2 * 3 * 5 = 30 $.
      It is $ 10\# = 7\# = 2 · 3 · 5 · 7 = 210$.
      If you look for a sequence with 15 elements, then the common
-     distance is at least $ 15\# = 13\# = 2 * 3 * 5 * 7 * 11 * 13 = 30,030 $.
+     distance is at least $15\# = 13\# = 2 * 3 * 5 * 7 * 11 * 13 = 30,030$.
 
      This means that the length of an arithmetic prime sequence can be
      arbitrary big, but the distance between the elements cannot be any
@@ -1698,6 +1703,7 @@ questions about primes, but also some quaint things and overviews.
      distance $100$, because 100 cannot be divided by 3.
 
      \begin{table}[ht]
+     \begin{center}
      \hspace*{1cm}\begin{tabular}{|r|r|}
      \hline
       k &                k\# \\ \hline
@@ -1705,14 +1711,15 @@ questions about primes, but also some quaint things and overviews.
       3 &                 6 \\
       5 &                30 \\
       7 &               210 \\
-     11 &             2.310 \\
-     13 &            30.030 \\
-     17 &           510.510 \\
-     19 &         9.699.690 \\
-     23 &       223.092.870 \\
+     11 &             2,310 \\
+     13 &            30,030 \\
+     17 &           510,510 \\
+     19 &         9,699,690 \\
+     23 &       223,092,870 \\
       \hline
      \end{tabular}
      \caption{Products of the first primes $<= k$ (called k primorial or $k\#$)}
+     \end{center}
      \end{table}
 
 
@@ -1752,7 +1759,7 @@ questions about primes, but also some quaint things and overviews.
      from the computer sciences institute at the University of Giessen,
      studied even numbers up to 400 billion ($4*10^{14}$) and found no
      contradictory example (\cite{pr:Richstein1999}).\\
-     In the meantime further progress was made: see\\
+     In the meantime further progress was made: See\\
      \url{http://www.ieeta.pt/~tos/goldbach.html},\\
      \url{http://en.wikipedia.org/wiki/Goldbach's\_conjecture},\\
      \url{http://primes.utm.edu/glossary/page.php/GoldbachConjecture.html}.\\      
@@ -1896,9 +1903,10 @@ Those results could be the basis for the proof, that infinitely many twin primes
 \subsection{Further open questions}
 
 \begin{itemize}
-\item \hypertarget{link-Primzahlfunktion-base-a-Offen}{}
-    The \hyperlink{link-Primzahlfunktion-base-a-Proof}{above} proof of the
-    function $f: \: N \rightarrow Z$ with $n \mapsto a^{3^n}$  
+\item % \hypertarget{link-Primzahlfunktion-base-a-Offen}{}
+      \label{link-Primzahlfunktion-base-a-Offen}
+    The proof (mentioned above in chapter \ref{link-Primzahlfunktion-base-a-Proof}) of the
+    function $f: \: N \rightarrow Z$ with $n \mapsto \lfloor a^{3^n}\rfloor$  
     only guarantees the existence of such a number $a$.  How can we
     determine this number $a$ and will it have a value, making the 
     function also of some practical interest?
