@@ -63,7 +63,7 @@ void CDlgCertificateGeneration::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT_CERT_PIN, m_CtrlPIN);
 	DDX_Control(pDX, IDC_EDIT_CERT_KEY_ID, m_CtrlKeyID);
 	DDX_Control(pDX, IDC_EDIT_CERT_FIRSTNAME, m_CtrlFirstName);
-	DDX_Control(pDX, IDC_EDIT_CERT_NAME, m_CtrlName);
+	DDX_Control(pDX, IDC_EDIT_CERTNAME, m_CtrlName);
 	DDX_Control(pDX, IDOK, m_CtrlOK);
 	DDX_Text(pDX, IDC_EDIT_CERT_DNAME, m_sDName);
 	DDX_Text(pDX, IDC_EDIT_CERT_FIRSTNAME, m_sFirstName);
@@ -81,10 +81,10 @@ void CDlgCertificateGeneration::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CDlgCertificateGeneration, CDialog)
 	//{{AFX_MSG_MAP(CDlgCertificateGeneration)
-	ON_EN_CHANGE(IDC_EDIT_CERTNAME, OnChangeEdit)
+//	ON_EN_CHANGE(IDC_EDIT_CERTNAME, OnChangeEdit)
 	ON_BN_CLICKED(IDC_PSE_IMPORT, OnPseImport)
-	ON_EN_CHANGE(IDC_EDIT_CERT_FIRSTNAME, OnChangeEdit)
-	ON_EN_CHANGE(IDC_EDIT_CERT_KEY_ID, OnChangeEdit)
+//	ON_EN_CHANGE(IDC_EDIT_CERT_FIRSTNAME, OnChangeEdit)
+//	ON_EN_CHANGE(IDC_EDIT_CERT_KEY_ID, OnChangeEdit)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -123,7 +123,7 @@ BOOL CDlgCertificateGeneration::OnInitDialog()
 	m_CtrlPIN.EnableWindow(m_Cert->IsInitialized());
 	m_CtrlPINv.EnableWindow(m_Cert->IsInitialized());
 	m_CtrlKeyID.EnableWindow(m_Cert->IsInitialized());
-	m_CtrlOK.EnableWindow(FALSE);
+	m_CtrlOK.EnableWindow(TRUE);
 
 	UpdateData(FALSE);
 	
