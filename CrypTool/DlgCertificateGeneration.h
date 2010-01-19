@@ -45,7 +45,7 @@ public:
 protected:
 	CPSEDemo* m_Cert;
 private:
-	long	m_lTime;
+	time_t m_lTime;
 
 // Dialogfelddaten
 	//{{AFX_DATA(CDlgCertificateGeneration)

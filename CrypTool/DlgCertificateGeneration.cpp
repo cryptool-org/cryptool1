@@ -81,10 +81,10 @@ void CDlgCertificateGeneration::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CDlgCertificateGeneration, CDialog)
 	//{{AFX_MSG_MAP(CDlgCertificateGeneration)
-//	ON_EN_CHANGE(IDC_EDIT_CERTNAME, OnChangeEdit)
+	ON_EN_CHANGE(IDC_EDIT_CERTNAME, OnChangeEdit)
 	ON_BN_CLICKED(IDC_PSE_IMPORT, OnPseImport)
-//	ON_EN_CHANGE(IDC_EDIT_CERT_FIRSTNAME, OnChangeEdit)
-//	ON_EN_CHANGE(IDC_EDIT_CERT_KEY_ID, OnChangeEdit)
+	ON_EN_CHANGE(IDC_EDIT_CERT_FIRSTNAME, OnChangeEdit)
+	ON_EN_CHANGE(IDC_EDIT_CERT_KEY_ID, OnChangeEdit)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -101,13 +101,13 @@ BOOL CDlgCertificateGeneration::OnInitDialog()
 	
 	m_Cert->GetName(m_sName, m_sFirstName, m_sKeyID); // Zertifikatsdaten holen
 	m_sPINv = m_sPIN = m_Cert->GetPIN();
-	m_lTime = m_Cert->GetTime();
+	m_lTime = (time_t)m_Cert->GetTime();
 	
 	//if( !(m_sName.IsEmpty()&&m_sFirstName.IsEmpty()&&m_sKeyID.IsEmpty()) ) 
 	if( m_Cert->PSEIsInitialized() )
 	{
-		m_sUserID = m_Cert->CreateUserKeyID(m_sName, m_sFirstName, m_sKeyID, m_lTime);
-		m_sDName = m_Cert->CreateDisName(m_sName, m_sFirstName, m_lTime);
+		m_sUserID = m_Cert->CreateUserKeyID(m_sName, m_sFirstName, m_sKeyID, (long)m_lTime);
+		m_sDName = m_Cert->CreateDisName(m_sName, m_sFirstName, (long)m_lTime);
 	}
 	
 	if(m_Cert->IsInitialized())
@@ -139,21 +139,16 @@ void CDlgCertificateGeneration::InitRSA(CPSEDemo* Cert)
 
 void CDlgCertificateGeneration::OnChangeEdit() 
 {
-	// TODO: Wenn dies ein RICHEDIT-Steuerelement ist, sendet das Steuerelement diese
-
-	// Benachrichtigung nicht, bevor Sie nicht die Funktion CDialog::OnInitDialog()
-
-	// überschreiben und CRichEditCrtl().SetEventMask() aufrufen, wobei
-
-	// eine ODER-Operation mit dem Attribut ENM_CHANGE und der Maske erfolgt.
 	UpdateData(TRUE);
-	time((time_t*)&m_lTime);
 
-	
-	m_sUserID = m_Cert->CreateUserKeyID(m_sName, m_sFirstName, m_sKeyID, m_lTime);
-	m_sDName = m_Cert->CreateDisName(m_sName, m_sFirstName, m_lTime);
-	UpdateData(FALSE);
+	time(&m_lTime);
+
+	m_sUserID = m_Cert->CreateUserKeyID(m_sName, m_sFirstName, m_sKeyID, (long)m_lTime);
+	m_sDName = m_Cert->CreateDisName(m_sName, m_sFirstName, (long)m_lTime);
+
 	if(m_Cert->IsInitialized()) m_CtrlOK.EnableWindow(TRUE);
+
+	UpdateData(FALSE);
 }
 
 void CDlgCertificateGeneration::OnOK() 
@@ -186,7 +181,7 @@ void CDlgCertificateGeneration::OnOK()
 	}
 	m_Cert->SetPIN(m_sPIN);
 	m_Cert->SetName(m_sName, m_sFirstName, m_sKeyID);
-	m_Cert->SetTime(m_lTime);
+	m_Cert->SetTime((long)m_lTime);
 	
 	m_PSEIsExtern = FALSE;
 	CDialog::OnOK();
