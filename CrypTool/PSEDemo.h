@@ -81,13 +81,13 @@ public:
 	BOOL AccessPSE(){ return AccessPSE(m_sPIN, m_sPseName);}
 	BOOL AccessPSE(const CString& sPIN, const CString& sPseName);
 	BOOL AccessPSE_DLG();
-	void SetTime(){time((time_t*)&m_lTime);}
-	void SetTime(const CString& sTime){m_lTime = atol(sTime);}
-	void SetTime(const long lTime){m_lTime = lTime;}
-	long GetTime(){return m_lTime;}
-	CString CreateUserKeyID(const CString& sName, const CString& sFirstName, const CString& sKeyID, const long lTime);
+	void SetTime(){time(&m_lTime);}
+	void SetTime(const CString& sTime){m_lTime = _atoi64(sTime);}
+	void SetTime(const time_t lTime){m_lTime = lTime;}
+	time_t GetTime(){return m_lTime;}
+	CString CreateUserKeyID(const CString& sName, const CString& sFirstName, const CString& sKeyID, const time_t lTime);
 	CString CreateUserKeyID(){return CreateUserKeyID(m_sName, m_sFirstName, m_sKeyId, m_lTime);}
-	CString CreateDisName(const CString& sName, const CString& sFirstName, const long lTime);
+	CString CreateDisName(const CString& sName, const CString& sFirstName, const time_t lTime);
 	CString CreateDisName(){return CreateDisName(m_sName, m_sFirstName, m_lTime);}
 	void getRSAPrivateKey(CString&);
 
@@ -112,7 +112,7 @@ protected:
 	CString m_sHashAlg;
 	AlgId*  m_HashAlgId;
 	DName*  m_DName;
-	long	m_lTime;
+	time_t m_lTime;
 
 private:
 	BOOL EMSA_PKCS1_v1_5_ENCODE( OctetString& EM, const OctetString& H);

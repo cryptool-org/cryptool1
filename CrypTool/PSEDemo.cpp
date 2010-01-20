@@ -430,7 +430,7 @@ BOOL CPSEDemo::SetHashAlg(const CString& sHashAlg)
 	return FALSE;
 }
 
-CString CPSEDemo::CreateUserKeyID(const CString& sName, const CString& sFirstName, const CString& sKeyID, const long lTime)
+CString CPSEDemo::CreateUserKeyID(const CString& sName, const CString& sFirstName, const CString& sKeyID, const time_t lTime)
 {
 	CString sUserKeyId;
 	CString Name = sName;
@@ -446,7 +446,7 @@ CString CPSEDemo::CreateUserKeyID(const CString& sName, const CString& sFirstNam
 	return sUserKeyId;
 }
 
-CString CPSEDemo::CreateDisName(const CString& sName, const CString& sFirstName, const long lTime)
+CString CPSEDemo::CreateDisName(const CString& sName, const CString& sFirstName, const time_t lTime)
 {
 	CString sDisName;
 	CString Name = sName;
@@ -455,7 +455,7 @@ CString CPSEDemo::CreateDisName(const CString& sName, const CString& sFirstName,
 	Name.TrimRight();
 	FirstName.TrimLeft();
 	FirstName.TrimRight();
-	sDisName.Format("CN=%s %s [%i], %s", FirstName, Name, lTime, DN_SUFFIX);
+	sDisName.Format("CN=%s %s [%I64i], %s", FirstName, Name, lTime, DN_SUFFIX);
 	return sDisName;
 }
 

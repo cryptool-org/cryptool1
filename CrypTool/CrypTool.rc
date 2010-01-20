@@ -9693,12 +9693,12 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_CREATE_USER_KEY_ID2 "[%s][%s][%s-%i][%i][%s]"
+    IDS_CREATE_USER_KEY_ID2 "[%s][%s][%s-%i][%I64i][%s]"
     IDS_MSG_HOMOPHONE_ALPHABET_SIZE_ERROR 
                             "B³¹d: Rozmiar nowego alfabetu przekracza liczbê homofonów!\nProsze zwiêkszyæ liczbê homofonów o co najmniej %i znaków."
     IDS_MSG_HOMOPHONE_CHANGE_OF_ALPHABET 
                             "Alfabet homofoniczny zosta³ zmieniony:\n\npoprzedni alfabet: %s\n\nnowy alfabet: %s"
-    IDS_CREATE_USER_KEY_ID1 "[%s][%s][%s-%i][%i]"
+    IDS_CREATE_USER_KEY_ID1 "[%s][%s][%s-%i][%I64i]"
     IDS_PADDING             "Padding string:         %s\n\n"
     IDS_DERCODE             "ID Algorytmu:           %s\n\n"
     IDS_HASHVALUE           "Wartoœæ hasz:             %s\n\n"
@@ -20616,12 +20616,12 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_CREATE_USER_KEY_ID2 "[%s][%s][%s-%i][%i][%s]"
+    IDS_CREATE_USER_KEY_ID2 "[%s][%s][%s-%i][%I64i][%s]"
     IDS_MSG_HOMOPHONE_ALPHABET_SIZE_ERROR 
                             "Fehler: Die neue Alphabet-Größe übertrifft die Gesamtzahl der Homophonen !\nBitte erhöhen Sie die Gesamtzahl der Homophonen auf mindestens %i Zeichen."
     IDS_MSG_HOMOPHONE_CHANGE_OF_ALPHABET 
                             "Das Homophonen-Alphabet wurde geändert:\n\nAltes Alphabet: %s\n\nNeues Alphabet: %s"
-    IDS_CREATE_USER_KEY_ID1 "[%s][%s][%s-%i][%i]"
+    IDS_CREATE_USER_KEY_ID1 "[%s][%s][%s-%i][%I64i]"
     IDS_PADDING             "Padding-String:         %s\r\n"
     IDS_DERCODE             "Algorithmus-ID:         %s\r\n"
     IDS_HASHVALUE           "Hashwert:               %s\r\n"
@@ -31633,12 +31633,12 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_CREATE_USER_KEY_ID2 "[%s][%s][%s-%i][%i][%s]"
+    IDS_CREATE_USER_KEY_ID2 "[%s][%s][%s-%i][%I64i][%s]"
     IDS_MSG_HOMOPHONE_ALPHABET_SIZE_ERROR 
                             "Error: The new alphabet size exceeds the number of homophones!\nPlease raise the number of homophones up to at least %i characters."
     IDS_MSG_HOMOPHONE_CHANGE_OF_ALPHABET 
                             "The Homophonic alphabet has been changed:\n\nold alphabet: %s\n\nnew alphabet: %s"
-    IDS_CREATE_USER_KEY_ID1 "[%s][%s][%s-%i][%i]"
+    IDS_CREATE_USER_KEY_ID1 "[%s][%s][%s-%i][%I64i]"
     IDS_PADDING             "Padding string:         %s\r\n"
     IDS_DERCODE             "Algorithm ID:           %s\r\n"
     IDS_HASHVALUE           "Hash value:             %s\r\n"

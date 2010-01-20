@@ -101,13 +101,13 @@ BOOL CDlgCertificateGeneration::OnInitDialog()
 	
 	m_Cert->GetName(m_sName, m_sFirstName, m_sKeyID); // Zertifikatsdaten holen
 	m_sPINv = m_sPIN = m_Cert->GetPIN();
-	m_lTime = (time_t)m_Cert->GetTime();
+	m_lTime = m_Cert->GetTime();
 	
 	//if( !(m_sName.IsEmpty()&&m_sFirstName.IsEmpty()&&m_sKeyID.IsEmpty()) ) 
 	if( m_Cert->PSEIsInitialized() )
 	{
-		m_sUserID = m_Cert->CreateUserKeyID(m_sName, m_sFirstName, m_sKeyID, (long)m_lTime);
-		m_sDName = m_Cert->CreateDisName(m_sName, m_sFirstName, (long)m_lTime);
+		m_sUserID = m_Cert->CreateUserKeyID(m_sName, m_sFirstName, m_sKeyID, m_lTime);
+		m_sDName = m_Cert->CreateDisName(m_sName, m_sFirstName, m_lTime);
 	}
 	
 	if(m_Cert->IsInitialized())
@@ -143,8 +143,8 @@ void CDlgCertificateGeneration::OnChangeEdit()
 
 	time(&m_lTime);
 
-	m_sUserID = m_Cert->CreateUserKeyID(m_sName, m_sFirstName, m_sKeyID, (long)m_lTime);
-	m_sDName = m_Cert->CreateDisName(m_sName, m_sFirstName, (long)m_lTime);
+	m_sUserID = m_Cert->CreateUserKeyID(m_sName, m_sFirstName, m_sKeyID, m_lTime);
+	m_sDName = m_Cert->CreateDisName(m_sName, m_sFirstName, m_lTime);
 
 	if(m_Cert->IsInitialized()) m_CtrlOK.EnableWindow(TRUE);
 
@@ -181,7 +181,7 @@ void CDlgCertificateGeneration::OnOK()
 	}
 	m_Cert->SetPIN(m_sPIN);
 	m_Cert->SetName(m_sName, m_sFirstName, m_sKeyID);
-	m_Cert->SetTime((long)m_lTime);
+	m_Cert->SetTime(m_lTime);
 	
 	m_PSEIsExtern = FALSE;
 	CDialog::OnOK();
