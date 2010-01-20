@@ -50,7 +50,6 @@ static char THIS_FILE[] = __FILE__;
 const CString cPosAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const CString cPosVigenere = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const CString klartext     = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const CString alphabet     = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 VigenereAnalysisSchroedel::VigenereAnalysisSchroedel(CDlgVigenereAnalysisSchroedel *_dialog, const CString _ciphertextFileName, const CString _title) :
 	ciphertextFileName(_ciphertextFileName),
@@ -975,32 +974,64 @@ int VigenereAnalysisSchroedel::readDict() {
 		return -1;
 	}
 
+	// flomar, 01/19/2009
+	// we expect the dictionary to be formatted in different LANGUAGE sections; a language 
+	// within the dictionary is declared with "[LANGUAGE X]", where "X" is the current 
+	// language; each line following this declaration is interpreted as dictionary word and 
+	// appended to the list "listDictionaryWords[X]"; with this technique the user can limit 
+	// the size of the dictionary and thus speed up the analysis
+
+	// we go with the "DEFAULT" language by default
+	std::string currentLanguage = "DEFAULT";
+
 	CString s;
 	std::string s2;
 	dictCount = 0;
+
 	while(!fileInput.eof() && dictCount<MAX_NUMBER_OF_DICT_WORDS) {
 		// watch out for user cancellation
 		if(canceled) return -1;
+		// get the next word
 		getline(fileInput, s2);
-		s = s2.c_str();
-		s.Trim();
-		s.MakeUpper();
-		if(s.Find('%') == -1) {
-			for(int i=s.GetLength(); i>0; i--) {
-				CString temp = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
-				if(temp.Find(s[i]) == -1) {
-					s.Delete(i);
-					s.Insert(i, ' ');
-				}
-			}
+		// check if we need to change the current language
+		if(s2.find("[LANGUAGE ") != - 1) {
+			int beg = 10;
+			int end = s2.find("]");
+			// isolate the name of the language
+			std::string language = s2.substr(beg, end - beg);
+			// apply the new language
+			currentLanguage = language;
 		}
-		if(!s.IsEmpty()) {
-			dict[dictCount++] = s.Trim();
+		// process the next word
+		else {
+			s = s2.c_str();
+			s.Trim();
+			s.MakeUpper();
+			// ignore those words that don't match the standard alphabet
+			for(int i=0; i<s.GetLength(); i++) {
+				if(cPosAlphabet.Find(s[i]) == -1)
+					continue;
+			}
+			// add this word to the analysis dictionary
+			mapListsDictionaryWords[currentLanguage].push_back(s.GetBuffer());
 		}
 	}
 
 	// close input file
 	fileInput.close();
+
+	// flomar, 01/19/2009
+	// let the user decide which language(s) to use
+	CDlgVigenereAnalysisSchroedelLanguage dlg(mapListsDictionaryWords);
+	dlg.DoModal();
+	// create the dictionary for our analysis
+	std::list<std::string>::iterator iter;
+	for(iter=dlg.listChosenLanguages.begin(); iter!=dlg.listChosenLanguages.end() && dictCount < MAX_NUMBER_OF_DICT_WORDS; iter++) {
+		std::list<std::string>::iterator iterTemp;
+		for(iterTemp=mapListsDictionaryWords[(*iter)].begin(); iterTemp!=mapListsDictionaryWords[(*iter)].end(); iterTemp++) {
+			dict[dictCount++] = (*iterTemp).c_str();
+		}
+	}
 
 	progress = 0.05;
 
@@ -1455,4 +1486,60 @@ void CDlgVigenereAnalysisSchroedel::OnTimer(UINT nIDEvent)
 		if(theAnalysis->isDone()) message.LoadString(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_COMPLETE);
 		AfxMessageBox(message, MB_ICONINFORMATION);
 	}
+}
+
+
+
+IMPLEMENT_DYNAMIC(CDlgVigenereAnalysisSchroedelLanguage, CDialog)
+
+CDlgVigenereAnalysisSchroedelLanguage::CDlgVigenereAnalysisSchroedelLanguage(std::map<std::string, std::list<std::string>> &_mapListsDictionaryWords, CWnd* pParent) : 
+	CDialog(CDlgVigenereAnalysisSchroedelLanguage::IDD, pParent),
+	mapListsDictionaryWords(_mapListsDictionaryWords) {
+
+}
+
+CDlgVigenereAnalysisSchroedelLanguage::~CDlgVigenereAnalysisSchroedelLanguage()
+{
+	
+}
+
+void CDlgVigenereAnalysisSchroedelLanguage::DoDataExchange(CDataExchange* pDX)
+{
+	CDialog::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_LIST_LANGUAGES, controlListLanguages);
+}
+
+BEGIN_MESSAGE_MAP(CDlgVigenereAnalysisSchroedelLanguage, CDialog)
+	ON_BN_CLICKED(IDOK, OnOK)
+END_MESSAGE_MAP()
+
+BOOL CDlgVigenereAnalysisSchroedelLanguage::OnInitDialog()
+{
+	CDialog::OnInitDialog();
+
+	// clear the list
+	controlListLanguages.DeleteAllItems();
+
+	// add all available languages
+	std::map<std::string, std::list<std::string>>::iterator mapIter;
+	for(mapIter=mapListsDictionaryWords.begin(); mapIter!=mapListsDictionaryWords.end(); mapIter++) {
+		controlListLanguages.InsertItem(0, (*mapIter).first.c_str());
+	}
+
+	return FALSE;
+}
+
+void CDlgVigenereAnalysisSchroedelLanguage::OnOK()
+{
+	// don't do anything if no language was selected
+	if(controlListLanguages.GetSelectedCount() == 0)
+		return;
+	// store the selected languages in listChosenLanguages
+	POSITION pos = controlListLanguages.GetFirstSelectedItemPosition();
+	for(int i=0; i<controlListLanguages.GetSelectedCount(); i++) {
+		int index = controlListLanguages.GetNextSelectedItem(pos);
+		listChosenLanguages.push_back(controlListLanguages.GetItemText(index, 0).GetBuffer());
+	}
+	// close the dialog
+	CDialog::OnOK();
 }

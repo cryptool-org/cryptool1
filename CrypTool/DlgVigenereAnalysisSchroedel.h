@@ -23,6 +23,7 @@
 
 #include "afxwin.h"
 #include <list>
+#include <map>
 
 #if _MSC_VER > 1000
 #pragma once
@@ -32,6 +33,7 @@
 
 // forward declaration
 class CDlgVigenereAnalysisSchroedel;
+class CDlgVigenereAnalysisSchroedelLanguage;
 
 // this struct contains a possible result (key, cleartext, rating)
 struct PossibleResult {
@@ -120,6 +122,9 @@ protected:
 
 	// the progress of the analysis [0.0-1.0]
 	double progress;
+
+	// a map of lists of dictionary words for each language
+	std::map<std::string, std::list<std::string>> mapListsDictionaryWords;
 
 	// the dialog object (the dialog in which the analysis is displayed)
 	CDlgVigenereAnalysisSchroedel *theDialog;
@@ -213,5 +218,33 @@ private:
 	CString infileTitle;
 };
 
+// TODO
+class CDlgVigenereAnalysisSchroedelLanguage : public CDialog
+{
+	DECLARE_DYNAMIC(CDlgVigenereAnalysisSchroedelLanguage)
+
+public:
+	CDlgVigenereAnalysisSchroedelLanguage(std::map<std::string, std::list<std::string>> &_mapListsDictionaryWords, CWnd* pParent = NULL);   // Standardkonstruktor
+	virtual ~CDlgVigenereAnalysisSchroedelLanguage();
+
+// Dialogfelddaten
+	enum { IDD = IDD_VIGENERE_ANALYSIS_SCHROEDEL_LANGUAGE };
+
+protected:
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV-Unterstützung
+	virtual BOOL OnInitDialog();
+	virtual void OnOK();
+
+	DECLARE_MESSAGE_MAP()
+
+	// the map of all available languages
+	std::map<std::string, std::list<std::string>> mapListsDictionaryWords;
+	// the list box for all available languages
+	CListCtrl controlListLanguages;
+	
+public:
+	// the list of all chosen languages
+	std::list<std::string> listChosenLanguages;
+};
 
 #endif

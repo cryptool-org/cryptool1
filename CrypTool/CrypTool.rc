@@ -8,12 +8,11 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h"
-/////////////////////////////////////////////////////////////////////////////
+#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polnisch resources
+// Polish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -10981,12 +10980,12 @@ BEGIN
                             "Automatyczna analiza szyfrowania Vigenere (Schrödel)"
 END
 
-#endif    // Polnisch resources
+#endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -11025,6 +11024,16 @@ BEGIN
     PUSHBUTTON      "Analyseergebnisse anzeigen",IDC_BUTTON_SHOW_ANALYSIS_RESULTS,7,175,110,18
     CONTROL         "",IDC_PROGRESS_ANALYSIS,"msctls_progress32",WS_BORDER,7,115,316,14
     PUSHBUTTON      "Analyse abbrechen",IDC_BUTTON_CANCEL_ANALYSIS,7,155,110,18
+END
+
+IDD_VIGENERE_ANALYSIS_SCHROEDEL_LANGUAGE DIALOGEX 0, 0, 205, 150
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Sprachen auswählen"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "Bitte wählen Sie aus, in welchen Sprachen nach Schlüsselworten gesucht werden soll. Wenn Sie die Auswahl reduzieren, kann das die Analyse erheblich beschleunigen.",IDC_STATIC,7,7,191,24
+    PUSHBUTTON      "OK",IDOK,7,125,191,18
+    CONTROL         "",IDC_LIST_LANGUAGES,"SysListView32",LVS_LIST | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,40,191,75
 END
 
 IDD_DIALOG_PLOT_PARAM DIALOG  0, 0, 159, 118
@@ -18259,6 +18268,14 @@ BEGIN
         BOTTOMMARGIN, 193
     END
 
+    IDD_VIGENERE_ANALYSIS_SCHROEDEL_LANGUAGE, DIALOG
+    BEGIN
+        VERTGUIDE, 7
+        VERTGUIDE, 198
+        BOTTOMMARGIN, 143
+        HORZGUIDE, 7
+    END
+
     IDD_KEY_HILL5X5, DIALOG
     BEGIN
         RIGHTMARGIN, 357
@@ -21886,12 +21903,12 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "Zeichen"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -26379,6 +26396,16 @@ BEGIN
     PUSHBUTTON      "Cancel analysis",IDC_BUTTON_CANCEL_ANALYSIS,7,155,110,18
 END
 
+IDD_VIGENERE_ANALYSIS_SCHROEDEL_LANGUAGE DIALOGEX 0, 0, 205, 150
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Choose languages"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "Please choose the languages that should be searched for possible keywords. Reducing the amount of languages can speed up the analysis considerably.",IDC_STATIC,7,7,191,24
+    PUSHBUTTON      "OK",IDOK,7,125,191,18
+    CONTROL         "",IDC_LIST_LANGUAGES,"SysListView32",LVS_LIST | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,40,191,75
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -30040,6 +30067,14 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 193
     END
+
+    IDD_VIGENERE_ANALYSIS_SCHROEDEL_LANGUAGE, DIALOG
+    BEGIN
+        VERTGUIDE, 7
+        VERTGUIDE, 198
+        BOTTOMMARGIN, 143
+        HORZGUIDE, 7
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -32877,7 +32912,7 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_UNIT_CHARACTERS "characters"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
