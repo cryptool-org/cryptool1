@@ -65,6 +65,12 @@ public:
 	CString m_innerHash;
 	CString m_str_outer_input;
 	CFont   m_font;
+
+	// flomar, 01/20/2010
+	bool shownInfoMessageNoKey;
+	bool shownInfoMessageOneKey;
+	bool shownInfoMessageDouble;
+
 	//}}AFX_DATA
 
 // Überschreibungen

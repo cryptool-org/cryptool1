@@ -128,6 +128,10 @@ BOOL CDlgHMAC::OnInitDialog()
 	str.LoadStringA(IDS_HMAC_ALGORITHM_RFC2104);	m_comboCtrlSelectHMACFunction.AddString(str);
 	m_comboCtrlSelectHMACFunction.SetCurSel(0);
 
+	// flomar, 01/20/2010
+	shownInfoMessageNoKey = false;
+	shownInfoMessageOneKey = false;
+	shownInfoMessageDouble = false;
 
 	UpdateData(true);
 	m_text.SetWindowText(strText);
@@ -215,9 +219,7 @@ void CDlgHMAC::OnEditKey()
 void CDlgHMAC::OnEditOriginalMessage()
 {
 	UpdateData(true);
-	// if there is at least one key...
-	if(m_key.GetLength() > 0)
-		calculateMACAndUpdateGUI();
+	calculateMACAndUpdateGUI();
 }
 
 void CDlgHMAC::OnEditSecondKey() 
@@ -228,6 +230,23 @@ void CDlgHMAC::OnEditSecondKey()
 
 void CDlgHMAC::keyEmpty(int IDS)
 {
+	// flomar, 01/20/2010
+	// this is dirty, but I don't want to dig any deeper than necessary before the beta release;
+	// what we're doing here is making sure the info messages for certain events are not displayed 
+	// over and over again, but only once during dialog lifetime
+	if(IDS == IDS_STRING_MAC_NoKey) {
+		if(!shownInfoMessageNoKey) shownInfoMessageNoKey = true;
+		else return;
+	}
+	if(IDS == IDS_STRING_MAC_OnlyOneKey) {
+		if(!shownInfoMessageOneKey) shownInfoMessageOneKey = true;
+		else return;
+	}
+	if(IDS == IDS_STRING_MAC_Double) {
+		if(!shownInfoMessageDouble) shownInfoMessageDouble = true;
+		else return;
+	}
+
 	LoadString(AfxGetInstanceHandle(), IDS, pc_str, 150);
 	AfxMessageBox(pc_str, MB_ICONINFORMATION|MB_OK);
 }
