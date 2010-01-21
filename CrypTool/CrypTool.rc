@@ -4494,6 +4494,16 @@ BEGIN
     PUSHBUTTON      "Anuluj analizê",IDC_BUTTON_CANCEL_ANALYSIS,7,155,110,18
 END
 
+IDD_VIGENERE_ANALYSIS_SCHROEDEL_LANGUAGE DIALOGEX 0, 0, 205, 150
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Choose languages"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "Please choose the languages that should be searched for possible keywords. Reducing the amount of languages can speed up the analysis considerably.",IDC_STATIC,7,7,191,24
+    PUSHBUTTON      "OK",IDOK,7,125,191,18
+    CONTROL         "",IDC_LIST_LANGUAGES,"SysListView32",LVS_LIST | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,40,191,75
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -8151,6 +8161,14 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 193
     END
+
+    IDD_VIGENERE_ANALYSIS_SCHROEDEL_LANGUAGE, DIALOG
+    BEGIN
+        VERTGUIDE, 7
+        VERTGUIDE, 198
+        BOTTOMMARGIN, 143
+        HORZGUIDE, 7
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -8332,9 +8350,11 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERCLEARTEXT 
                             "Tekst jawny:"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_COMPLETE 
-                            "The analysis is complete."
+                            "[i18n] The analysis is complete."
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_INCOMPLETE 
-                            "The analysis was not completed."
+                            "[i18n] The analysis was not completed."
+    IDS_STRING_CERTIFICATE_GENERATION_RSA_PARAMETERS_REQUIRED 
+                            "[i18n] You have to set the RSA parameters before you can create a certificate."
 END
 
 STRINGTABLE 
