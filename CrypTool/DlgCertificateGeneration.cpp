@@ -155,6 +155,11 @@ void CDlgCertificateGeneration::OnOK()
 {
 	UpdateData(TRUE);
 
+	if(m_sModN.IsEmpty() || m_sKeyPublic.IsEmpty())
+	{
+		AfxMessageBox(IDS_STRING_CERTIFICATE_GENERATION_RSA_PARAMETERS_REQUIRED);
+		return;
+	}
 	if(m_sName.IsEmpty())
 	{
 		AfxMessageBox(IDS_NOTIFY_NAME);

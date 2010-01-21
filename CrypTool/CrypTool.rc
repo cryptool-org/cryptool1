@@ -19211,6 +19211,8 @@ BEGIN
                             "Die Analyse ist beendet."
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_INCOMPLETE 
                             "Die Analyse wurde nicht beendet."
+    IDS_STRING_CERTIFICATE_GENERATION_RSA_PARAMETERS_REQUIRED 
+                            "Sie müssen zuerst die RSA-Parameter setzen, bevor Sie ein Zertifikat erzeugen können."
 END
 
 STRINGTABLE 
@@ -30284,6 +30286,8 @@ BEGIN
                             "The analysis is complete."
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_INCOMPLETE 
                             "The analysis was not completed."
+    IDS_STRING_CERTIFICATE_GENERATION_RSA_PARAMETERS_REQUIRED 
+                            "You have to set the RSA parameters before you can create a certificate."
 END
 
 STRINGTABLE 
