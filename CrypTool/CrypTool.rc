@@ -8,7 +8,8 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "resource.h"
-#include "afxres.h" /////////////////////////////////////////////////////////////////////////////
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
@@ -8350,11 +8351,11 @@ BEGIN
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_COLUMNHEADERCLEARTEXT 
                             "Tekst jawny:"
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_COMPLETE 
-                            "[i18n] The analysis is complete."
+                            "Zakoñczono analize."
     IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_INCOMPLETE 
-                            "[i18n] The analysis was not completed."
+                            "Analiza nie zosta³a zakoñczona."
     IDS_STRING_CERTIFICATE_GENERATION_RSA_PARAMETERS_REQUIRED 
-                            "[i18n] You have to set the RSA parameters before you can create a certificate."
+                            "Zanim bêdzie mo¿na utworzyæ certyfikat musisz ustawiæ parametry RSA."
     IDS_STRING_MONOALPHABETIC_SUBSTITUTION_ALPHABET_HEADING 
                             "Alfabet (%d znaków) zostanie zmapowany"
 END
@@ -8368,11 +8369,10 @@ BEGIN
     IDS_HMAC_ALGORITHM_RFC2104 "Podwójny hasz: H(k, H(k, m)) (RFC 2104)"
     IDS_HASHDEMO_SELALGORITHM "Prosze wybrac metode hasz"
     IDS_HMAC_SELALGORITHM   "Prosze wybrac wariant HMAC"
-    IDS_SOLITAIRE_ZULANG    "[i18n] The size of the keystream is limited to 4,000 characters.\nFurther characters are ignored."
-    IDS_SOLITAIRE_COULD_NOT_LOAD_DECK 
-                            "[i18n] Could not load the Solitaire deck."
+    IDS_SOLITAIRE_ZULANG    "Rozmiar keystream jest ograniczona do 4000 znaków.\nDalsze znaki s¹ ignorowane.."
+    IDS_SOLITAIRE_COULD_NOT_LOAD_DECK "Nie mo¿na za³adowaæ talie Solitaire."
     IDS_SOLITAIRE_PASSWORD_NEEDS_26_CARDS 
-                            "[i18n] A password init requires at least 26 cards. The number of cards has been increased to this number."
+                            "Inicja³ has³a wymaga co najmniej 26 kart. Liczba kart wzros³a do tego numeru."
 END
 
 STRINGTABLE 
