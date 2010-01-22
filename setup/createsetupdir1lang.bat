@@ -17,6 +17,7 @@ echo Copying template ...
 xcopy /s/q template\*.* setup-%lang%\
 echo Copying template-%lang% ...
 xcopy /s/q template-%lang%\*.* setup-%lang%\
+if x%lang%==xpl xcopy /s/q template-en\*.* setup-%lang%\
 echo Copying ..\release_%lang%\*.exe ...
 copy ..\release_%lang%\*.exe setup-%lang%
 rem script-%lang%.pdf is now in template-%lang%
@@ -40,7 +41,7 @@ xcopy /s/q/i ..\smimedemo\utils         setup-%lang%\smimedemo\utils
 xcopy /q ..\smimedemo\*.* setup-%lang%\smimedemo
 echo Copying ..\AES_flow_visualisation\*.* setup-%lang%
 xcopy /q ..\AES_flow_visualisation\AES_Flussvisualisierung.jar setup-%lang%
-xcopy /q ..\AES_flow_visualisation\rijndael-poster-de.pdf setu p-%lang%
+xcopy /q ..\AES_flow_visualisation\rijndael-poster-de.pdf setup-%lang%
 
 cd setup-%lang%
 
