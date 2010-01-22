@@ -8359,7 +8359,7 @@ BEGIN
     IDS_STRING_MONOALPHABETIC_SUBSTITUTION_ALPHABET_HEADING 
                             "Alfabet (%d znaków) zostanie zmapowany"
     IDS_STRING_MONOALPHABETIC_SUBSTITUTION_CHARACTERS_REMOVED_DURING_COPYANDPASTE 
-                            "[i18n] Please note that characters not part of the currently configured alphabet were removed while pasting from the clipboard."
+                            "Nale¿y pamiêtaæ, ¿e podczas kopiowania z schowka zosta³y usuniête znaki, które nie s¹ czêœci¹ ustalonego alfabetu."
 END
 
 STRINGTABLE 
