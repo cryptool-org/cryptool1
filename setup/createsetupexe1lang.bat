@@ -3,6 +3,7 @@ set lang=%1
 set nsi=CrypTool-Setup.nsi
 if x%1==xde goto langok
 if x%1==xen goto langok
+if x%1==xpl goto langok
 echo Error: invalid or no argument
 echo Usage: %0 de  or  %0 en
 goto end
