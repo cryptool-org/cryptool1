@@ -182,8 +182,7 @@ void CDlgMonSubst::ComputeSubstKeyMapping()
 		// user may NOT change the key here
 		m_CtrlKey.SetReadOnly(1);	
 	}
-	
-	
+
 	// at this point we should have it already...
 	m_stringFrom = alphabet;
 	m_stringTo = mappedKey;
@@ -198,9 +197,20 @@ void CDlgMonSubst::ComputeSubstKeyMapping()
 
 void CDlgMonSubst::OnPasteKey() 
 {
-	CString m_text;
-	if ( CheckPasteKeyVariant(IDS_CRYPT_SUBSTITUTION, m_text) || CheckPasteKeyVariant(IDS_CRYPT_ATBASH, m_text) )
-		m_CtrlKey.SetWindowText(m_text);
+	CString keyToBePasted;
+	if ( CheckPasteKeyVariant(IDS_CRYPT_SUBSTITUTION, keyToBePasted) || CheckPasteKeyVariant(IDS_CRYPT_ATBASH, keyToBePasted) )
+		m_CtrlKey.SetWindowText(keyToBePasted);
+
+	// flomar, 01/22/2010
+	// when updating the key (see SetWindowText above), invalid characters are automatically 
+	// removed; if that happens, we want to notify the user that the pasted key wasn't fully copied
+	UpdateData(false);
+	if(this->m_stringKey != keyToBePasted) {
+		CString message;
+		message.LoadString(IDS_STRING_MONOALPHABETIC_SUBSTITUTION_CHARACTERS_REMOVED_DURING_COPYANDPASTE);
+		MessageBox(message, "CrypTool", MB_ICONINFORMATION);
+		return;
+	}
 }
 
 void CDlgMonSubst::OnEncrypt() 

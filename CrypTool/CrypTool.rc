@@ -8358,6 +8358,8 @@ BEGIN
                             "Zanim bêdzie mo¿na utworzyæ certyfikat musisz ustawiæ parametry RSA."
     IDS_STRING_MONOALPHABETIC_SUBSTITUTION_ALPHABET_HEADING 
                             "Alfabet (%d znaków) zostanie zmapowany"
+    IDS_STRING_MONOALPHABETIC_SUBSTITUTION_CHARACTERS_REMOVED_DURING_COPYANDPASTE 
+                            "[i18n] Please note that characters not part of the currently configured alphabet were removed while pasting from the clipboard."
 END
 
 STRINGTABLE 
@@ -19237,6 +19239,8 @@ BEGIN
                             "Sie müssen zuerst die RSA-Parameter setzen, bevor Sie ein Zertifikat erzeugen können."
     IDS_STRING_MONOALPHABETIC_SUBSTITUTION_ALPHABET_HEADING 
                             "Das Alphabet (%d Zeichen) wird abgebildet"
+    IDS_STRING_MONOALPHABETIC_SUBSTITUTION_CHARACTERS_REMOVED_DURING_COPYANDPASTE 
+                            "Beachten Sie bitte, dass beim Einfügen aus der Zwischenablage Zeichen entfernt wurden, die nicht Teil des aktuell eingestellten Alphabets sind."
 END
 
 STRINGTABLE 
@@ -30314,6 +30318,8 @@ BEGIN
                             "You have to set the RSA parameters before you can create a certificate."
     IDS_STRING_MONOALPHABETIC_SUBSTITUTION_ALPHABET_HEADING 
                             "The alphabet (%d characters) will be mapped"
+    IDS_STRING_MONOALPHABETIC_SUBSTITUTION_CHARACTERS_REMOVED_DURING_COPYANDPASTE 
+                            "Please note that characters not part of the currently configured alphabet were removed while pasting from the clipboard."
 END
 
 STRINGTABLE 
