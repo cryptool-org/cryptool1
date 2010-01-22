@@ -3710,7 +3710,7 @@ BEGIN
     GROUPBOX        "Wprowadzenie klucza",IDC_STATIC,14,76,288,37
     LTEXT           "Klucz",IDC_STATIC,21,94,36,11
     GROUPBOX        "Informacje o szyfrowaniu przez zamianê",IDC_STATIC,14,120,288,74
-    LTEXT           "Alfabet (26 znaków) zostanie zmapowany:",IDC_TEXT1,21,134,145,8
+    LTEXT           "Alfabet (26 znaków) zostanie zmapowany:",IDC_ALPHABET_HEADING,21,134,145,8
     LTEXT           "z: ",IDC_TEXT2,21,151,16,8
     LTEXT           "na:",IDC_TEXT3,21,172,9,8
     GROUPBOX        "Wybierz wariant zamiany monoalfabetycznej",IDC_STATIC,14,9,288,60
@@ -8355,6 +8355,8 @@ BEGIN
                             "[i18n] The analysis was not completed."
     IDS_STRING_CERTIFICATE_GENERATION_RSA_PARAMETERS_REQUIRED 
                             "[i18n] You have to set the RSA parameters before you can create a certificate."
+    IDS_STRING_MONOALPHABETIC_SUBSTITUTION_ALPHABET_HEADING 
+                            "Alfabet (%d znaków) zostanie zmapowany"
 END
 
 STRINGTABLE 
@@ -14772,7 +14774,7 @@ BEGIN
     LTEXT           "Schlüssel",IDC_STATIC,21,91,36,11
     GROUPBOX        "Informationen zur Verschlüsselung",IDC_STATIC,14,117,288,75
     LTEXT           "auf:",IDC_TEXT3,21,171,13,8
-    LTEXT           "Das Alphabet (26 Zeichen) wird abgebildet",IDC_TEXT1,21,133,135,8
+    LTEXT           "Das Alphabet (26 Zeichen) wird abgebildet",IDC_ALPHABET_HEADING,21,133,135,8
     LTEXT           "von:",IDC_TEXT2,21,150,15,8
     CONTROL         "Schlüsseleingabe: Restliche Zeichen aufsteigend füllen",IDC_RADIO1,
                     "Button",BS_AUTORADIOBUTTON | WS_GROUP,21,25,190,10
@@ -19233,6 +19235,8 @@ BEGIN
                             "Die Analyse wurde nicht beendet."
     IDS_STRING_CERTIFICATE_GENERATION_RSA_PARAMETERS_REQUIRED 
                             "Sie müssen zuerst die RSA-Parameter setzen, bevor Sie ein Zertifikat erzeugen können."
+    IDS_STRING_MONOALPHABETIC_SUBSTITUTION_ALPHABET_HEADING 
+                            "Das Alphabet (%d Zeichen) wird abgebildet"
 END
 
 STRINGTABLE 
@@ -25631,7 +25635,7 @@ BEGIN
     GROUPBOX        "Key Input",IDC_STATIC,14,76,288,37
     LTEXT           "Key",IDC_STATIC,21,94,36,11
     GROUPBOX        "Information on the substitution encryption",IDC_STATIC,14,120,288,74
-    LTEXT           "The alphabet (26  characters) will be mapped ",IDC_TEXT1,21,134,145,8
+    LTEXT           "The alphabet (26  characters) will be mapped ",IDC_ALPHABET_HEADING,21,134,145,8
     LTEXT           "from:",IDC_TEXT2,21,151,16,8
     LTEXT           "to:",IDC_TEXT3,21,172,9,8
     GROUPBOX        "Choose variant of the monoalphabetic substitution",IDC_STATIC,14,9,288,60
@@ -30308,6 +30312,8 @@ BEGIN
                             "The analysis was not completed."
     IDS_STRING_CERTIFICATE_GENERATION_RSA_PARAMETERS_REQUIRED 
                             "You have to set the RSA parameters before you can create a certificate."
+    IDS_STRING_MONOALPHABETIC_SUBSTITUTION_ALPHABET_HEADING 
+                            "The alphabet (%d characters) will be mapped"
 END
 
 STRINGTABLE 

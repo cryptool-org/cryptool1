@@ -1672,13 +1672,6 @@ int AnalyseMonoManual(const char *infile, const char *OldTitle)
 /* Funktion zur monoalphabetischen Ver- und Entschlüsselung			*/
 void Mono(const char *infile, const char *OldTitle) {
 
-	// get the currently configured alphabet
-	CString alphabet = theApp.TextOptions.getAlphabet();
-
-	// this might be helpful later on (used as workaround)
-	CString lowerAlphabet = alphabet; lowerAlphabet.MakeLower();
-	CString upperAlphabet = alphabet; upperAlphabet.MakeUpper();
-
 	CFile inputFile(infile, CFile::modeRead);
 	const int inputFileLength = inputFile.GetLength();
 
@@ -1705,6 +1698,13 @@ void Mono(const char *infile, const char *OldTitle) {
 	if(dlgMono.DoModal() != IDOK) {
 		return;
 	}
+
+	// get the currently configured alphabet
+	CString alphabet = theApp.TextOptions.getAlphabet();
+
+	// this might be helpful later on (used as workaround)
+	CString lowerAlphabet = alphabet; lowerAlphabet.MakeLower();
+	CString upperAlphabet = alphabet; upperAlphabet.MakeUpper();
 
 	// get the complete key (see declaration of getKey() for details)
 	CString key = dlgMono.getKey();

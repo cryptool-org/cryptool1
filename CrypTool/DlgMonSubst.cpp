@@ -100,6 +100,13 @@ BOOL CDlgMonSubst::OnInitDialog()
 	m_CtrlTo.SetWindowText  ("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 	m_CtrlKey.SetWindowText ("");
 
+	// update the alphabet heading (in particular the size of the alphabet)
+	int alphabetSize = theApp.TextOptions.getAlphabet().GetLength();
+	CString alphabetHeading;
+	alphabetHeading.Format(IDS_STRING_MONOALPHABETIC_SUBSTITUTION_ALPHABET_HEADING, alphabetSize);
+	CWnd *window = GetDlgItem(IDC_ALPHABET_HEADING);
+	if(window) window->SetWindowText(alphabetHeading);
+
 	UpdateData(false);
 
 	return TRUE;  // return TRUE unless you set the focus to a control
@@ -295,6 +302,14 @@ void CDlgMonSubst::OnBnClickedButtonTextoptions()
 	if(oldAlphabet == alphabet)
 		return;
 
+	// update the alphabet heading (in particular the size of the alphabet)
+	int alphabetSize = alphabet.GetLength();
+	CString alphabetHeading;
+	alphabetHeading.Format(IDS_STRING_MONOALPHABETIC_SUBSTITUTION_ALPHABET_HEADING, alphabetSize);
+	CWnd *window = GetDlgItem(IDC_ALPHABET_HEADING);
+	if(window) window->SetWindowText(alphabetHeading);
+
+	// compute the new key mapping
 	ComputeSubstKeyMapping();
 
 	UpdateData(false);
