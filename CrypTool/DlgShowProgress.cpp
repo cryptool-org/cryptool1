@@ -210,11 +210,11 @@ CString CDlgShowProgress::duration(double progress) const
 		double error = 0.01 / progress; // assuming 10ms time resolution
 		int s = (int)(rest + 0.5);
 		if (error < 1.0)
-			d.Format("%02d:%02d:%02d",s/3600, (s / 60) % 60, s % 60);
+			d.Format("%02d:%02d:%02d h", s/3600, (s / 60) % 60, s % 60);
 		else if (error < 60.0)
-			d.Format("%02d:%02d",s/3600, (s / 60) % 60);
+			d.Format("%02d:%02d h", s/3600, (s / 60) % 60);
 		else 
-			d.Format("%02d h",s/3600);
+			d.Format("%02d h", s/3600);
 
 	} else if (rest < 3600.0*24.0*365.0) {
 		d.Format("%.1f %s",rest/(3600.0*24.0),m_days);
