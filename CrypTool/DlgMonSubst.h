@@ -77,7 +77,7 @@ protected:
 	afx_msg void OnDecrypt();
 	afx_msg void ComputeSubstKeyMapping();
 	afx_msg void OnBnClickedRadioSubstFillAscendingOrder();
-	afx_msg void OnBnClickedRadioAddBash();
+	afx_msg void OnBnClickedRadioAtbash();
 	afx_msg void OnBnClickedRadioSubstFillDescendingOrder();
 	afx_msg void OnBnClickedButtonTextoptions();
 	//}}AFX_MSG

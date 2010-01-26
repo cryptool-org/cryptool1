@@ -73,7 +73,7 @@ BEGIN_MESSAGE_MAP(CDlgMonSubst, CDialog)
 	ON_BN_CLICKED(ID_DECRYPT, OnDecrypt)	
 	ON_BN_CLICKED(IDC_RADIO1, OnBnClickedRadioSubstFillAscendingOrder)
 	ON_BN_CLICKED(IDC_RADIO2, OnBnClickedRadioSubstFillDescendingOrder)
-	ON_BN_CLICKED(IDC_RADIO3, OnBnClickedRadioAddBash)
+	ON_BN_CLICKED(IDC_RADIO3, OnBnClickedRadioAtbash)
 	//}}AFX_MSG_MAP
 	ON_BN_CLICKED(IDC_BUTTON_TEXTOPTIONS, &CDlgMonSubst::OnBnClickedButtonTextoptions)
 END_MESSAGE_MAP()
@@ -175,9 +175,8 @@ void CDlgMonSubst::ComputeSubstKeyMapping()
 
 	// variant (C) uses a fixed key
 	else {
-		for (char ch='Z'; ch>='A'; ch--) {
-			newKey.AppendChar(ch);
-		}
+		newKey = alphabet;
+		newKey.MakeReverse();
 		mappedKey = newKey;
 		// user may NOT change the key here
 		m_CtrlKey.SetReadOnly(1);	
@@ -270,7 +269,7 @@ void CDlgMonSubst::OnBnClickedRadioSubstFillDescendingOrder()
 }
 
 
-void CDlgMonSubst::OnBnClickedRadioAddBash()
+void CDlgMonSubst::OnBnClickedRadioAtbash()
 {
 	UpdateData(true);
 
@@ -278,9 +277,9 @@ void CDlgMonSubst::OnBnClickedRadioAddBash()
 	typeOfEncryption = pc_str;
 	m_Paste.EnableWindow(FALSE); // Note: PasteKey makes here no sense 
 
-	// we're using a fixed alphabet and a fixed key
-	CString alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	
+	// we're using the currently configured alphabet by default
+	CString alphabet = theApp.TextOptions.getAlphabet();
+
 	// assign the fixed values
 	m_stringFrom = alphabet;
 	m_stringTo = alphabet.MakeReverse();
