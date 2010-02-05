@@ -33,13 +33,20 @@
 
 // forward declaration
 class CDlgVigenereAnalysisSchroedel;
-class CDlgVigenereAnalysisSchroedelLanguage;
+class CDlgVigenereAnalysisSchroedelChooseKeywordLanguages;
+class CDlgVigenereAnalysisSchroedelChooseCiphertextLanguage;
 
 // this struct contains a possible result (key, cleartext, rating)
 struct PossibleResult {
 	CString key;
 	CString cleartext;
 	int rating;
+};
+
+// this struct represents a set of digrams and trigrams
+struct DigramTrigramSet {
+	int digrams[26][26];
+	int trigrams[26][26][26];
 };
 
 // 06/24/2009, flomar: Vigenere analysis class
@@ -125,6 +132,8 @@ protected:
 
 	// a map of lists of dictionary words for each language
 	std::map<std::string, std::list<std::string>> mapListsDictionaryWords;
+	// a map of digrams and trigrams for each language
+	std::map<std::string, DigramTrigramSet> mapDigramsTrigrams;
 
 	// the dialog object (the dialog in which the analysis is displayed)
 	CDlgVigenereAnalysisSchroedel *theDialog;
@@ -219,16 +228,16 @@ private:
 };
 
 // TODO
-class CDlgVigenereAnalysisSchroedelLanguage : public CDialog
+class CDlgVigenereAnalysisSchroedelChooseKeywordLanguages : public CDialog
 {
-	DECLARE_DYNAMIC(CDlgVigenereAnalysisSchroedelLanguage)
+	DECLARE_DYNAMIC(CDlgVigenereAnalysisSchroedelChooseKeywordLanguages)
 
 public:
-	CDlgVigenereAnalysisSchroedelLanguage(std::map<std::string, std::list<std::string>> &_mapListsDictionaryWords, CWnd* pParent = NULL);   // Standardkonstruktor
-	virtual ~CDlgVigenereAnalysisSchroedelLanguage();
+	CDlgVigenereAnalysisSchroedelChooseKeywordLanguages(std::map<std::string, std::list<std::string>> &_mapListsDictionaryWords, CWnd* pParent = NULL);   // Standardkonstruktor
+	virtual ~CDlgVigenereAnalysisSchroedelChooseKeywordLanguages();
 
 // Dialogfelddaten
-	enum { IDD = IDD_VIGENERE_ANALYSIS_SCHROEDEL_LANGUAGE };
+	enum { IDD = IDD_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_KEYWORD_LANGUAGES };
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV-Unterstützung
@@ -239,6 +248,35 @@ protected:
 
 	// the map of all available languages
 	std::map<std::string, std::list<std::string>> mapListsDictionaryWords;
+	// the list box for all available languages
+	CListCtrl controlListLanguages;
+	
+public:
+	// the list of all chosen languages
+	std::list<std::string> listChosenLanguages;
+};
+
+// TODO
+class CDlgVigenereAnalysisSchroedelChooseCiphertextLanguage : public CDialog
+{
+	DECLARE_DYNAMIC(CDlgVigenereAnalysisSchroedelChooseCiphertextLanguage)
+
+public:
+	CDlgVigenereAnalysisSchroedelChooseCiphertextLanguage(std::map<std::string, DigramTrigramSet> &_mapDigramsTrigrams, CWnd* pParent = NULL);   // Standardkonstruktor
+	virtual ~CDlgVigenereAnalysisSchroedelChooseCiphertextLanguage();
+
+// Dialogfelddaten
+	enum { IDD = IDD_VIGENERE_ANALYSIS_SCHROEDEL_CHOOSE_CIPHERTEXT_LANGUAGE };
+
+protected:
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV-Unterstützung
+	virtual BOOL OnInitDialog();
+	virtual void OnOK();
+
+	DECLARE_MESSAGE_MAP()
+
+	// the map of all available languages
+	std::map<std::string, DigramTrigramSet> mapDigramsTrigrams;
 	// the list box for all available languages
 	CListCtrl controlListLanguages;
 	
