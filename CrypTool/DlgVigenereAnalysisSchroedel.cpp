@@ -411,7 +411,10 @@ int VigenereAnalysisSchroedel::secondChar() {
 
 	// the following string contains a few selected digrams for improving the effect of 
 	// the digram factor (see below); originally, these were hard-coded for English only; 
-	// we now use a language-dependent resource strings instead
+	// we now use a language-dependent resource string instead
+	// 
+	// flomar, 02/09/2010
+	// TODO/FIXME: we cannot rely on the MFC language here, this is clearly a bug
 	CString digramFactorString;
 	digramFactorString.LoadString(IDS_STRING_VIGENERE_ANALYSIS_DIGRAM_FACTOR_STRING);
 
@@ -1547,9 +1550,30 @@ void CDlgVigenereAnalysisSchroedel::OnTimer(UINT nIDEvent)
 		// enable the "close" button
 		GetDlgItem(IDCANCEL)->EnableWindow(true);
 
-		CString message; 
-		if(theAnalysis->isCanceled()) message.LoadString(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_INCOMPLETE);
-		if(theAnalysis->isDone()) message.LoadString(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_COMPLETE);
+		// display analysis result to the user (completed: yes/no, if completed: successful or not)
+		CString message;
+		CString temp;
+		// add information about completion status
+		if(theAnalysis->isCanceled()) {
+			// the analysis was not completed
+			temp.LoadString(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_INCOMPLETE);
+			message.Append(temp);
+		}
+		else {
+			if(theAnalysis->isDone()) {
+				// the analysis was completed
+				temp.LoadString(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_COMPLETE);
+				message.Append(temp);
+				// add information in case of completion without any results (which means: no success);
+				// this is provided for user convenience: since the analysis can fail in quite a few 
+				// different scenarios, we want to let the user know what the problem might be
+				if(!theAnalysis->isSuccessful()) {
+					temp.LoadString(IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_NOT_SUCCESSFUL);
+					message.Append(temp);
+				}
+			}
+		}
+		// display message box
 		AfxMessageBox(message, MB_ICONINFORMATION);
 	}
 }

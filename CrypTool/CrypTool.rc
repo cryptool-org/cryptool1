@@ -30030,6 +30030,8 @@ BEGIN
                             "Das Alphabet (%d Zeichen) wird abgebildet"
     IDS_STRING_MONOALPHABETIC_SUBSTITUTION_CHARACTERS_REMOVED_DURING_COPYANDPASTE 
                             "Beachten Sie bitte, dass beim Einfügen aus der Zwischenablage Zeichen entfernt wurden, die nicht Teil des aktuell eingestellten Alphabets sind."
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_NOT_SUCCESSFUL 
+                            "\n\nEs wurden leider keine möglichen Lösungen gefunden.\n\nÜberprüfen Sie, ob Sie die richtige(n) Sprache(n) für Schlüsselwort und Ciphertext ausgewählt haben.\n\nVielleicht sollten Sie auch in Erwägung ziehen, den Grenzwert im Dialog Analyseoptionen zu verkleinern."
 END
 
 STRINGTABLE 
@@ -41111,6 +41113,8 @@ BEGIN
                             "The alphabet (%d characters) will be mapped"
     IDS_STRING_MONOALPHABETIC_SUBSTITUTION_CHARACTERS_REMOVED_DURING_COPYANDPASTE 
                             "Please note that characters not part of the currently configured alphabet were removed while pasting from the clipboard."
+    IDS_STRING_VIGENERE_ANALYSIS_SCHROEDEL_ANALYSIS_NOT_SUCCESSFUL 
+                            "\n\nUnfortunately, there were no possible results found.\n\nMake sure you have chosen the correct language(s) for keyword and ciphertext.\n\nMaybe you should consider decreasing the threshold value in the analysis options dialog."
 END
 
 STRINGTABLE 

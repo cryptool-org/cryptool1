@@ -74,6 +74,8 @@ public:
 	bool isCanceled() const { return canceled; };
 	// is the analysis done?
 	bool isDone() const { return done; };
+	// is the analysis successful? ([a] it is done and [b] there is at least one possible result)
+	bool isSuccessful() const { return done && listPossibleResults.size() > 0; };
 	// is debug output tracked?
 	bool isDebug() const { return debug; };
 
