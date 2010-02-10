@@ -285,6 +285,11 @@ Section "Uninstall"
   
   ${un.WordFind} $INSTDIR "\" "-1*}" $ShortCutName
 
+  ; flomar, 02/10/2010
+  ; To avoid errors, we don't want to delete the old installation 
+  ; directory if it doesn't exist (due to user removal, for example)
+  IfFileExists "$INSTDIR" rmdir rmdirDone
+rmdir:
   ClearErrors
   RMDir /r "$INSTDIR"
   IfErrors 0 rmdirDone
@@ -334,6 +339,14 @@ uninst:
   ExecWait '"$R1.exe" _?=$R2' ; call copy of uninstaller with target directory $R2
 
   IfErrors 0 done
+
+  ; flomar, 02/10/2010
+  ; Something went wrong in case we get here. So, if there is no 
+  ; installation directory, the error was probably caused by the 
+  ; user manually removing the CrypTool installation directory. 
+  ; Therefore we skip any further checks and go right to the 
+  ; installation routine.
+  IfFileExists $INSTDIR 0 install
   Abort ; Abort if uninstall failed
 
 done:
