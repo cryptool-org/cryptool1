@@ -190,7 +190,14 @@ int VigenereAnalysisSchroedel::readTriDigrams() {
 			std::string language = s2.substr(beg, end - beg);
 			// apply the new language
 			currentLanguage = language;
-			
+
+			// read digram factor string for the current language
+			getline(fileInputDigrams, s2);
+			mapDigramsTrigrams[language].digramFactorString = s2.c_str();
+
+			CString a; a.Append("DIGRAMFACTORSTRING: "); a.Append(s2.c_str());
+			AfxMessageBox(a);
+				
 			// read digrams for the current language
 			maxDi = 0;
 			for(int i=0; i<26; i++) {
@@ -269,6 +276,7 @@ int VigenereAnalysisSchroedel::readTriDigrams() {
 	// set the trigrams/digrams for our analysis
 	std::list<std::string>::iterator iter;
 	for(iter=dlg.listChosenLanguages.begin(); iter!=dlg.listChosenLanguages.end(); iter++) {
+		cDigramFactorString = mapDigramsTrigrams[(*iter)].digramFactorString;
 		memset(cDigram, 0, sizeof(cDigram));
 		memset(cTrigram, 0, sizeof(cTrigram));
 		memcpy(cDigram, mapDigramsTrigrams[(*iter)].digrams, sizeof(cDigram));
@@ -409,15 +417,6 @@ int VigenereAnalysisSchroedel::secondChar() {
 	Remain2 = 0;
 	Remain3 = 0;
 
-	// the following string contains a few selected digrams for improving the effect of 
-	// the digram factor (see below); originally, these were hard-coded for English only; 
-	// we now use a language-dependent resource string instead
-	// 
-	// flomar, 02/09/2010
-	// TODO/FIXME: we cannot rely on the MFC language here, this is clearly a bug
-	CString digramFactorString;
-	digramFactorString.LoadString(IDS_STRING_VIGENERE_ANALYSIS_DIGRAM_FACTOR_STRING);
-
 	for(int n=1; n<3; n++) {
 		actChar = ciphertext[n];
 
@@ -451,13 +450,13 @@ int VigenereAnalysisSchroedel::secondChar() {
 						if(tDigramFactor == 0) {
 							if(sText == 'A') tDigramFactor = 20;
 							if(sText == 'I') tDigramFactor = 20;
-							if(digramFactorString.Find(sText + fText) != -1) tDigramFactor = 100;
+							if(cDigramFactorString.Find(sText + fText) != -1) tDigramFactor = 100;
 						}
 
 						if(kDigramFactor == 0) {
 							if(sKey == 'A') kDigramFactor = 20;
 							if(sKey == 'I') kDigramFactor = 20;
-							if(digramFactorString.Find(sKey + fKey) != -1) kDigramFactor = 100;
+							if(cDigramFactorString.Find(sKey + fKey) != -1) kDigramFactor = 100;
 						}
 					}
 
@@ -467,20 +466,20 @@ int VigenereAnalysisSchroedel::secondChar() {
 			
 						if(tDigramFactor == 0) {
 							if(sText[0] == 'A') {
-								if(digramFactorString.Find(sText[1] + fText) != -1) tDigramFactor = 100;
+								if(cDigramFactorString.Find(sText[1] + fText) != -1) tDigramFactor = 100;
 							}
 							if(sText[0] == 'I') {
-								if(digramFactorString.Find(sText[1] + fText) != -1) tDigramFactor = 100;
+								if(cDigramFactorString.Find(sText[1] + fText) != -1) tDigramFactor = 100;
 							}
-							if(digramFactorString.Find(sKey[1] + fKey) != -1) kDigramFactor = 100;
+							if(cDigramFactorString.Find(sKey[1] + fKey) != -1) kDigramFactor = 100;
 						}
 
 						if(kDigramFactor == 0) {
 							if(sKey[0] == 'A') {
-								if(digramFactorString.Find(sKey[1] + fKey) != -1) kDigramFactor = 100;
+								if(cDigramFactorString.Find(sKey[1] + fKey) != -1) kDigramFactor = 100;
 							}
 							if(sKey[0] == 'I') {
-								if(digramFactorString.Find(sKey[1] + fKey) != -1) kDigramFactor = 100;
+								if(cDigramFactorString.Find(sKey[1] + fKey) != -1) kDigramFactor = 100;
 							}
 						}	
 					}

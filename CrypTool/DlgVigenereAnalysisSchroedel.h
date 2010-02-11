@@ -45,6 +45,7 @@ struct PossibleResult {
 
 // this struct represents a set of digrams and trigrams
 struct DigramTrigramSet {
+	CString digramFactorString;
 	int digrams[26][26];
 	int trigrams[26][26][26];
 };
@@ -150,6 +151,7 @@ protected:
 
 	// internal variables
 	unsigned int startzeit, endezeit;
+	CString cDigramFactorString;
 	int cDigram[26][26];
 	int cTrigram[26][26][26];
 	CString pairs[26*26*26][2];
