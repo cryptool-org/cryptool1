@@ -326,7 +326,13 @@ void CAestoolDlg::OnOK()
 	}
 	CString msg;
 	msg.Format(id,text);
-	AfxMessageBox(msg,MB_OK);
+
+	// flomar, 02/11/2010
+	// the default behavior of afx message boxes is misleading in this particular instance: we want 
+	// a simple "notification icon" in case of a successful encryption/decryption, otherwise we go 
+	// with the "warning sign" (which is the default behavior)
+	if(success) AfxMessageBox(msg, MB_OK|MB_ICONINFORMATION);
+	else AfxMessageBox(msg, MB_OK);
 }
 
 
