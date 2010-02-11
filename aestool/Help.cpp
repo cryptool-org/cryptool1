@@ -60,6 +60,18 @@ BEGIN_MESSAGE_MAP(CHelp, CDialog)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
+BOOL CHelp::OnInitDialog()
+{
+	CDialog::OnInitDialog();
+
+	// set the default dialog title (i.e. "Help for AES-Tool 2.5.1")
+	CString title;
+	title.Format(IDS_STRING_AES_TOOL_HELP_PREFIX, CAestoolApp::getAESToolVersionString());
+	SetWindowText(title);
+
+	return true;
+}
+
 #pragma warning( push )
 #pragma warning( disable : 4100)
 BOOL CHelp::OnHelpInfo(HELPINFO* pHelpInfo) 

@@ -53,6 +53,8 @@ public:
 	enum { IDD = IDD_ABOUTBOX };
 	//}}AFX_DATA
 
+	virtual BOOL OnInitDialog();
+
 	// Vom Klassenassistenten generierte Überladungen virtueller Funktionen
 	//{{AFX_VIRTUAL(CAboutDlg)
 	protected:
@@ -85,6 +87,16 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialog)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
+BOOL CAboutDlg::OnInitDialog()
+{
+	CDialog::OnInitDialog();
+
+	// set the AES-Tool version (i.e. "AES-Tool 2.5.1")
+	CWnd *window = GetDlgItem(IDC_AES_TOOL_VERSION);
+	if(window) window->SetWindowText(CAestoolApp::getAESToolVersionString());
+
+	return TRUE;
+}
 /////////////////////////////////////////////////////////////////////////////
 // CAestoolDlg Dialogfeld
 
@@ -143,7 +155,8 @@ BOOL CAestoolDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	//__asm int 3
+	// set the default dialog title (i.e. "AES-Tool 2.5.1")
+	this->SetWindowText(CAestoolApp::getAESToolVersionString());
 
 	// Hinzufügen des Menübefehls "Info..." zum Systemmenü.
 
@@ -364,7 +377,9 @@ void CAestoolDlg::OnChangeSrc()	// wird aufgerufen, wenn der Benutzer die Quelld
 	m_CEditSrc.GetWindowText(name);
 
 	// change app title
-	text.Format(name.IsEmpty() ? IDS_STRING_AESTOOL : IDS_STRING_AESTOOL_FILE,name);
+	text = CAestoolApp::getAESToolVersionString();
+	// if the name is not empty, we append the name in brackets
+	if(!name.IsEmpty()) text.Append(" [" + name + "]");
 	free((void*)theApp.m_pszAppName);
 	theApp.m_pszAppName = strdup(text);
 

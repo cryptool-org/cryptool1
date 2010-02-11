@@ -1,5 +1,5 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Developer Studio generated include file.
+// Microsoft Visual C++ generated include file.
 // Used by aestool.rc
 //
 #define IDM_ABOUTBOX                    0x0010
@@ -21,11 +21,13 @@
 #define IDS_STRING_KEYERROR             111
 #define IDS_STRING_ENCERROR             112
 #define IDS_STRING_VERSION              113
+#define IDS_STRING_AES_TOOL_VERSION     114
 #define IDS_STRING_CORRUPT              115
 #define IDS_STRING_INVALID_KEY          116
 #define IDS_STRING_KEY_TOO_LONG         117
 #define IDS_STRING_AESTOOL              118
 #define IDS_STRING_AESTOOL_FILE         119
+#define IDS_STRING_AES_TOOL_HELP_PREFIX 120
 #define IDR_MAINFRAME                   128
 #define IDD_SPLASH                      129
 #define IDD_HELP                        130
@@ -43,6 +45,7 @@
 #define IDC_BUTTON3                     1013
 #define IDC_RADIO_PSHOW                 1014
 #define IDC_RADIO_PHIDE                 1015
+#define IDC_AES_TOOL_VERSION            1015
 
 // Next default values for new objects
 // 
@@ -50,7 +53,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        131
 #define _APS_NEXT_COMMAND_VALUE         40001
-#define _APS_NEXT_CONTROL_VALUE         1015
+#define _APS_NEXT_CONTROL_VALUE         1016
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

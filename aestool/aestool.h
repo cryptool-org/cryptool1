@@ -52,6 +52,13 @@ public:
 	CString m_CMD_outName;
 	CString m_CMD_inName;
 
+	// this function returns the version string (i.e. "AES-Tool 2.5.1")
+	static CString getAESToolVersionString() {
+		static CString version;
+		version.LoadString(IDS_STRING_AES_TOOL_VERSION);
+		return version;
+	};
+
 // Überladungen
 	// Vom Klassenassistenten generierte Überladungen virtueller Funktionen
 	//{{AFX_VIRTUAL(CAestoolApp)

@@ -193,10 +193,8 @@ int VigenereAnalysisSchroedel::readTriDigrams() {
 
 			// read digram factor string for the current language
 			getline(fileInputDigrams, s2);
+			// TODO
 			mapDigramsTrigrams[language].digramFactorString = s2.c_str();
-
-			CString a; a.Append("DIGRAMFACTORSTRING: "); a.Append(s2.c_str());
-			AfxMessageBox(a);
 				
 			// read digrams for the current language
 			maxDi = 0;
