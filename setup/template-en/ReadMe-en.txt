@@ -1,5 +1,5 @@
 ==================================================================
-    CrypTool, Version 1.4.30 Beta 05 for Win32, January 2010
+    CrypTool, Version 1.4.30 Beta 06 for Win32, February 2010
     (c) Contributors
         including
         Deutsche Bank AG, Frankfurt/Main,
@@ -75,6 +75,8 @@ The Spanish program version has the same functionality [the program itself
 i.e. the GUI (menus, dialogs, ...) and the online help are translated.
 The PDF documentation delivered with the Spanish version is still in English].
 With the Polish version we have a similar case.
+
+Further language versions (Serbian, Russian, Ukrainian, ...) are under progress.
 
 It is required that the user is able to use typical applications
 under Windows.
@@ -619,36 +621,36 @@ The general properties and functions of CrypTool are:
   svn checkout http://www.cryptool.com/svn/CrypTool/trunk --username anonymous
 
 To get an impression of the size of the CT1 project here is a statistics created
-in November 2009 using the files for the English, German and Polish version.
+in January 2010 using the files for the English, German and Polish version.
 
     FILE SUMMARY (number of files according to file extension)
     ------------
-              4 .rc files
-             36 .c files
-            313 .cpp files
-            368 .h files
-             36 .java files
-             12 .pl files
-           1630 .html files
-             47 .txt files
-             39 .tex files
-              4 .sage files
-           2489 TOTAL
+              4 .rc
+             36 .c
+            314 .cpp
+            369 .h
+             36 .java
+             12 .pl
+           1636 .html
+             47 .txt
+             39 .tex
+              4 .sage
+           2497 TOTAL
 
   
     LINES OF CODE (LoC) SUMMARY
     ---------------------------
-         35,452 MFC resource code (rc)
-        236,537 C/C++ source code (c cpp h)
+         46,685 MFC resource code (rc)
+        246,526 C/C++ source code (c cpp h)
           9,781 Java source code (java)
           1,888 Perl code (pl)
-         90,753 HTML code (html hpp)
-         10,078 Text files (txt)
-         33,539 LaTeX code (tex)
-            825 Sage code (sage)
-        418,853 TOTAL
+         90,898 HTML code (html hpp)
+         10,341 Text files (txt)
+         34,463 LaTeX code (tex)
+           825 Sage code (sage)
+        441,407 TOTAL
 
-    TOTAL: 418,853 lines of code (plus of 9.6 % from 382,244 with v1.4.21)
+    TOTAL: 441,407 lines of code (plus of 15.4 % from 382,244 with v1.4.21)
     - Here only code written within the CrypTool project or explicitly
       dedicated to the CrypTool project is counted. Any sources used
       within the CrypTool project coming from other open source projects
@@ -932,7 +934,8 @@ c) New functionality / Usability:
 - Added the classic transposition ciphers scytale and rail fence (combined
   in one dialog) including the view and insertion of the key via icon.
 
-- The layout of the Solitaire dialogs was improved. xxxxxxxxxxxxx
+- Solitaire encryption: Dialogs are improved, message is no longer limited
+  to 64 kB, the key streams created can be stored.
 
 - The permutation cipher now also can be applied to hex files.
 
@@ -1826,7 +1829,7 @@ your computer is untouched.
 6. Brief history of the released main versions of CrypTool
    -------------------------------------------------------
 
-Version   Date		Size of Windows Setup  Needed Size  Released
+Version   Date		Size of Windows Setup  Needed size  Released
 			English      German    ca. on disc  by 
 1.0.01    Oct. 1999	 -            1.3 MB    -            DB
 1.1.01    May  2000	 -            2.3 MB	-            DB
@@ -1841,7 +1844,7 @@ Version   Date		Size of Windows Setup  Needed Size  Released
 1.4.10    July 2007	26.7 MB	     27.5 MB	47 MB        DB
 1.4.20    July 2008	36.1 MB	     37.1 MB	73 MB        DB
 1.4.21    July 2008	36.1 MB	     37.1 MB	73 MB        DB
-1.4.30    Jan. 2010	45,3 MB      46,3 MB	82 MB        DB   xxxxxx
+1.4.30    Feb. 2010	46.1 MB      47.0 MB	85 MB        DB   xxxxxx
 
 Remarks about the versions:
 1.3.02   Many new functions compared to 1.3.00.
@@ -2682,7 +2685,7 @@ A.2.1.4. User interface / Visualizations
   transactions, without stopping the whole program via the task manager.
   This is already implemented in the factorisation dialog.
   This is especially meaningful for cryptanalysis (it would be necessary
-  for the known-plaintext analysis of the single-column transpostion:
+  for the known-plaintext analysis of the single-column transpostion):
   If the upper bound of the permutation length is not limited, it takes
   a felt eternity if the upper bound is >900. Here we limited the length of
   the permutation to 100 for consistency reasons, because our implementation
