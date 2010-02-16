@@ -809,6 +809,7 @@ IMPLEMENT_DYNCREATE(CMainFrame, CMDIFrameWnd)
 BEGIN_MESSAGE_MAP(CMainFrame, CMDIFrameWnd)
 	//{{AFX_MSG_MAP(CMainFrame)
 	ON_WM_CREATE()
+	ON_WM_DESTROY()
 	ON_WM_TIMER()
 	ON_COMMAND(ID_OPTIONS_PLOT, OnOptionsPlot)
 	//}}AFX_MSG_MAP
@@ -850,7 +851,20 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	DockControlBar(&m_ToolBar);
 	// ENDE
 
+	// flomar, 02/16/2010
+	// position the main window where it was when CrypTool was launched the last time
+	theApp.loadMainWindowPositionFromRegistry();
+
 	return CMDIFrameWnd::OnCreate(lpCreateStruct);
+}
+
+void CMainFrame::OnDestroy()
+{
+	// flomar, 02/16/2010
+	// save the the main window position for the next launch
+	theApp.saveMainWindowPositionToRegistry();
+
+	CMDIFrameWnd::OnDestroy();
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -997,6 +1011,7 @@ int CCrypToolApp::ExitInstance()
 	if(m_Selfextract_EXE) free(m_Selfextract_EXE);
 	if(m_NumberShark_Selfextract_EXE) free(m_NumberShark_Selfextract_EXE);
 	if (ScintillaLib) FreeLibrary(ScintillaLib);
+
 	return CWinApp::ExitInstance();
 //	m_pRecentFileList->WriteList();
 }
@@ -1614,5 +1629,75 @@ void CCrypToolApp::OnHillAuto()
 	if (IDOK == dlg.DoModal())
 	{
 		// DO SOMETHING???		
+	}
+}
+
+void CCrypToolApp::loadMainWindowPositionFromRegistry()
+{
+	unsigned long mainWindowPositionX = 0;
+	unsigned long mainWindowPositionY = 0;
+	unsigned long mainWindowWidth = 0;
+	unsigned long mainWindowHeight = 0;
+
+	// try to load the main window position from the previous launch
+	if(ERROR_SUCCESS == CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS_OPTIONS, "StartingOptions")) {
+		CT_READ_REGISTRY_DEFAULT(mainWindowPositionX, "MainWindowPositionX", mainWindowPositionX);
+		CT_READ_REGISTRY_DEFAULT(mainWindowPositionY, "MainWindowPositionY", mainWindowPositionY);
+		CT_READ_REGISTRY_DEFAULT(mainWindowWidth, "MainWindowWidth", mainWindowWidth);
+		CT_READ_REGISTRY_DEFAULT(mainWindowHeight, "MainWindowHeight", mainWindowHeight);
+
+		// now, if ALL values are zero, something went wrong and we return without moving the window
+		if(mainWindowPositionX == 0 && mainWindowPositionY == 0 && mainWindowWidth == 0 && mainWindowHeight == 0)
+			return;
+
+		// we return if the pointer to our main window is invalid
+		if(!m_pMainWnd)
+			return;
+
+		// now align the main window
+		m_pMainWnd->SetWindowPos(0, mainWindowPositionX, mainWindowPositionY, mainWindowWidth, mainWindowHeight, 0);
+
+		// close the registry
+		CT_CLOSE_REGISTRY();
+	}
+	else {
+		// FIXME
+	}
+}
+
+void CCrypToolApp::saveMainWindowPositionToRegistry()
+{
+	unsigned long mainWindowPositionX = 0;
+	unsigned long mainWindowPositionY = 0;
+	unsigned long mainWindowWidth = 0;
+	unsigned long mainWindowHeight = 0;
+
+	// try to save the main window position for the next launch
+	if(ERROR_SUCCESS == CT_OPEN_REGISTRY_SETTINGS(KEY_ALL_ACCESS, IDS_REGISTRY_SETTINGS_OPTIONS, "StartingOptions")) {
+
+		// we return if the pointer to our main window is invalid
+		if(!m_pMainWnd)
+			return;
+
+		// retrieve the main window rect
+		CRect rect;
+		this->m_pMainWnd->GetWindowRect(&rect);
+
+		// calculate window dimensions
+		mainWindowPositionX = rect.left;
+		mainWindowPositionY = rect.top;
+		mainWindowWidth = rect.right - rect.left;
+		mainWindowHeight = rect.bottom - rect.top;
+
+		// store window dimensions in the registry
+		CT_WRITE_REGISTRY(mainWindowPositionX, "MainWindowPositionX");
+		CT_WRITE_REGISTRY(mainWindowPositionY, "MainWindowPositionY");
+		CT_WRITE_REGISTRY(mainWindowWidth, "MainWindowWidth");
+		CT_WRITE_REGISTRY(mainWindowHeight, "MainWindowHeight");
+
+		CT_CLOSE_REGISTRY();
+	}
+	else {
+		// FIXME
 	}
 }

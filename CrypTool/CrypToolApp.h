@@ -152,6 +152,10 @@ class CCrypToolApp : public CWinApp
 	DECLARE_MESSAGE_MAP()
 
 public:
+	// flomar, 02/16/2010
+	void loadMainWindowPositionFromRegistry();
+	void saveMainWindowPositionToRegistry();
+
 	deque<void*> m_fileList;
 	deque<void*>::iterator active;
 
@@ -190,7 +194,7 @@ public:
 	#endif
 
 	CRegKey localRegistry;
-	
+
 private:
 	void callHtmlHelp(UINT uCommand, DWORD dwData);
 	virtual int ExitInstance();
@@ -218,6 +222,7 @@ class CMainFrame : public CMDIFrameWnd
 	CToolBar    m_ToolBar;
 	//{{AFX_MSG(CMainFrame)
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
+	afx_msg void OnDestroy();
 	afx_msg void OnTimer(UINT nIDEvent);
 	afx_msg void OnOptionsPlot();
 	//}}AFX_MSG
