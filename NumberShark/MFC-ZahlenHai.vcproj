@@ -818,11 +818,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\res\Zahlenhai.ico"
+				RelativePath=".\Bilder\Zahlenhai.ico"
 				>
 			</File>
 			<File
-				RelativePath=".\Bilder\Zahlenhai.ico"
+				RelativePath=".\res\Zahlenhai.ico"
 				>
 			</File>
 		</Filter>
@@ -834,10 +834,6 @@
 		<File
 			RelativePath=".\GameSummary.htm"
 			DeploymentContent="true"
-			>
-		</File>
-		<File
-			RelativePath=".\res\MFC-ZahlenHai.manifest"
 			>
 		</File>
 		<File
