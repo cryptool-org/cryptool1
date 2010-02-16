@@ -13635,29 +13635,6 @@ BEGIN
     LTEXT           "Možete videti detalje kako je ovaj protokol radio sa brojevima koje ste odabrali pritiskom na simbol kljuca.",IDC_STATIC,14,78,232,16
 END
 
-IDD_GENERATEPRIME DIALOGEX 0, 0, 321, 194
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Generator Prostih Brojeva"
-FONT 8, "MS Sans Serif", 0, 0, 0x1
-BEGIN
-    DEFPUSHBUTTON   "&Generiši prost broj",IDC_BUTTON_GENERATE,7,166,101,20
-    PUSHBUTTON      "&Primeni prost broj",IDC_BUTTON_ACCEPT,129,166,83,20
-    EDITTEXT        IDC_EDIT1,63,97,240,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,63,116,240,12,ES_AUTOHSCROLL
-    CONTROL         "&Miller-Rabin-ov Test",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,16,54,69,10
-    CONTROL         "&Solovay-Strassen-ov Test",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,104,54,87,10
-    CONTROL         "&Fermat-ov Test",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,208,54,53,10
-    PUSHBUTTON      "&Otkaži",IDC_ENDDIALOG,242,166,72,20
-    EDITTEXT        IDC_EDIT5,63,137,240,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
-    GROUPBOX        "",IDC_STATIC,7,0,307,32
-    LTEXT           "Prosti brojevi igraju važnu ulogu u modernoj kriptografiji. Generišite dva prosta broja p i q u opsegu vrednosti [gornja granica ... donja granica].",IDC_STATIC,16,9,289,17
-    GROUPBOX        "Algoritmi za generisanje prostih brojeva",IDC_STATIC,7,39,307,33
-    LTEXT           "Donja granica",IDC_STATIC,17,99,40,9
-    LTEXT           "Gornja granica",IDC_STATIC,18,118,44,8
-    LTEXT           "Rezultat",IDC_STATIC,18,139,37,10
-    GROUPBOX        "Prost broj p",IDC_STATIC,7,77,307,80
-END
-
 IDD_CHALLENGERESPONSE_DIALOG DIALOGEX 0, 0, 518, 342
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Demonstracija Izazov-Odgovora"
@@ -18614,17 +18591,6 @@ BEGIN
         RIGHTMARGIN, 253
         TOPMARGIN, 7
         BOTTOMMARGIN, 138
-    END
-
-    "IDD_GENERATEPRIME", DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 314
-        VERTGUIDE, 16
-        VERTGUIDE, 303
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 187
-        HORZGUIDE, 64
     END
 
     IDD_CHALLENGERESPONSE_DIALOG, DIALOG
@@ -37150,29 +37116,29 @@ END
 
 IDD_AUTOMATED_PERM_ANALYSIS_OUTPUT DIALOGEX 0, 0, 242, 241
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Schlüsselausgabe: Einstufige Spaltentransposition"
+CAPTION "Key Display: Simple Column Transposition"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Schließen",IDOK,185,219,50,15
-    GROUPBOX        "1. Permutation (einfache Spaltentransposition)",IDC_STATIC,7,7,228,94
-    LTEXT           "Einlesen:",IDC_STATIC,17,53,35,10
-    LTEXT           "Permutieren:",IDC_STATIC,17,70,54,10
-    LTEXT           "Auslesen:",IDC_STATIC,17,86,54,10
+    DEFPUSHBUTTON   "Close",IDOK,185,219,50,15
+    GROUPBOX        "1st Permutation (simple column transposition)",IDC_STATIC,7,7,228,94
+    LTEXT           "Input:",IDC_STATIC,17,53,35,10
+    LTEXT           "Permute:",IDC_STATIC,17,70,54,10
+    LTEXT           "Output:",IDC_STATIC,17,86,54,10
     LTEXT           "",IDC_INDIR,63,52,112,11,WS_BORDER
     LTEXT           "",IDC_permDir1,63,69,112,11,WS_BORDER
     LTEXT           "",IDC_OUTDIR1,63,85,112,11,WS_BORDER
     LTEXT           "",IDC_PERMKEY1,17,30,209,12,WS_BORDER
-    GROUPBOX        "2. Permutation (doppelte Spaltentransposition)",IDC_STATIC,7,108,228,99,WS_DISABLED
-    LTEXT           "Einlesen:",IDC_STATIC,17,153,35,12,WS_DISABLED
-    LTEXT           "Permutieren:",IDC_STATIC,17,171,46,10,WS_DISABLED
-    LTEXT           "Auslesen:",IDC_STATIC,17,188,46,10,WS_DISABLED
+    GROUPBOX        "2nd Permutation (double column transposition)",IDC_STATIC,7,108,228,99,WS_DISABLED
+    LTEXT           "Input:",IDC_STATIC,17,153,35,12,WS_DISABLED
+    LTEXT           "Permute:",IDC_STATIC,17,171,46,10,WS_DISABLED
+    LTEXT           "Output:",IDC_STATIC,17,188,46,10,WS_DISABLED
     LTEXT           "",IDC_INDIR2,63,154,112,11,WS_DISABLED | WS_BORDER
     LTEXT           "",IDC_PERMDIR2,63,170,112,11,WS_DISABLED | WS_BORDER
     LTEXT           "",IDC_OUTDIR2,63,187,112,11,WS_DISABLED | WS_BORDER
     LTEXT           "",IDC_PERMKEY2,17,132,209,12,WS_DISABLED | WS_BORDER
-    PUSHBUTTON      "Schlüssel kopieren",IDC_BUTTON1,7,219,69,15
-    LTEXT           "Schlüssel",IDC_STATIC,17,20,107,8
-    LTEXT           "Schlüssel",IDC_STATIC,17,122,158,8,WS_DISABLED
+    PUSHBUTTON      "Copy key",IDC_BUTTON1,7,219,69,15
+    LTEXT           "Key",IDC_STATIC,17,20,107,8
+    LTEXT           "Key",IDC_STATIC,17,122,158,8,WS_DISABLED
 END
 
 IDD_GENERATE_SAVE_PRIME DIALOGEX 0, 0, 379, 147
@@ -37180,7 +37146,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "Generate a safe prime"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "Take primzahl",IDOK,113,118,87,22
+    DEFPUSHBUTTON   "Accept prime",IDOK,113,118,87,22
     PUSHBUTTON      "Cancel",IDCANCEL,322,118,50,22
     PUSHBUTTON      "Generate prime",IDC_BUTTON1,7,118,87,22
     LTEXT           "This dialog generates a safe prime number p. Primes q are selected until p = 2q+1 is also a prime. Please note the time to generate a safe prime is in general significantly longer compared to generate a prime without this property.",IDC_STATIC,14,6,351,25
