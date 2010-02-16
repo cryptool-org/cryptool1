@@ -38,6 +38,8 @@
 
 #include ".\mfc-zahlenhaidlg.h"
 
+#include "zhl.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -934,23 +936,10 @@ void CMFCZahlenHaiDlg::OnBnClickedButtonStartnew()
 
 //Wenn der Spieler den Knopf "Ende" drückt beendet sich das Programm
 void CMFCZahlenHaiDlg::OnBnClickedButtonEnd()
-{
-    // flomar
-/*
-	char str[1000];
-	memset(str, 0, 1000);
-	itoa(globalPoints, str, 10);
-	CString c = "Punkte: ";
-	c += CString(str);
-	MessageBox(c, "Punkte", MB_ICONINFORMATION);
-	return;
-*/	
+{	
 	writeRegistry();
-
 	OnStopTimer();
-	// ENDE
 	OnCancel();
-
 }
 
 //Wenn der Spieler auf den Knopf "Regeln" drückt erscheint ein extra Fenster welches kurz die Regeln erklärt
@@ -1516,10 +1505,23 @@ void CMFCZahlenHaiDlg::addOn()
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//Multithreading
 	int tempUpperLimit = hai.getUpperLimit();
+
+#if 0
 	AfxBeginThread(maxPointsStatic, (LPVOID)((int)(tempUpperLimit)),THREAD_PRIORITY_BELOW_NORMAL);
 	int r=AfxMessageBox("Soll die Berechnung unterbrochen werden?",MB_OK,MB_ICONQUESTION);
 	if(r==IDOK)
 		endSearch=-1;
+#else
+	// flomar, 02/16/2010
+	// we're using a new approach that speeds up the search (see zhl.{cpp|h} for details) 
+	// start the search thread
+	AfxBeginThread(zhl::maxPointsSearch, (LPVOID)((int)(tempUpperLimit)), THREAD_PRIORITY_BELOW_NORMAL);
+	// we're asking the user if he wants to cancel the search
+	CString question; question.Format(IDS_ASK_FOR_USER_CANCELLATION);
+	if(AfxMessageBox(question, MB_OK|MB_ICONQUESTION) == IDOK) {
+		AfxMessageBox("TODO: cancel search");
+	}
+#endif
 }
 
 //Wenn sich der Fokus über einem der Zahlenbuttons befindet und der Benutzer die Enter Taste drückt, wird dieser Button ausgewählt

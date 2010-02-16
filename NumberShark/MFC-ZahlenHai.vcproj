@@ -228,7 +228,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG,AFX_RESOURCE_DLL,AFX_TARG_ENG"
-				Culture="1031"
+				Culture="2057"
 				AdditionalIncludeDirectories="$(IntDir)"
 			/>
 			<Tool
@@ -645,6 +645,10 @@
 				RelativePath=".\ZahlenHaiOptionen.cpp"
 				>
 			</File>
+			<File
+				RelativePath=".\zhl.cpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Headerdateien"
@@ -731,6 +735,10 @@
 				RelativePath=".\ZahlenHaiOptionen.h"
 				>
 			</File>
+			<File
+				RelativePath=".\zhl.h"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Ressourcendateien"
@@ -810,11 +818,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Bilder\Zahlenhai.ico"
+				RelativePath=".\res\Zahlenhai.ico"
 				>
 			</File>
 			<File
-				RelativePath=".\res\Zahlenhai.ico"
+				RelativePath=".\Bilder\Zahlenhai.ico"
 				>
 			</File>
 		</Filter>

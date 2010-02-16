@@ -89,6 +89,5 @@ public:
 	CString gameIdea;
 	CString disclaimerText;
 	CString infoText;
-	CRichEditCtrl richEditIdea;
 	CStatic accControl;
 };

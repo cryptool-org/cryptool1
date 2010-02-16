@@ -80,7 +80,6 @@ void ZahlenHaiOptionen::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_GAME_IDEA, gameIdea);
 	DDX_Text(pDX, IDC_DISCLAIMER_TEXT, disclaimerText);
 	DDX_Text(pDX, IDC_INFO_TEXT, infoText);
-	DDX_Control(pDX, IDC_GAME_IDEA, richEditIdea);
 	DDX_Control(pDX, IDC_ACCELERATORS, accControl);
 }
 
@@ -131,30 +130,6 @@ BOOL ZahlenHaiOptionen::OnInitDialog()
 	gameIdea.Format(IDS_GAME_IDEA);
 	disclaimerText.Format(IDS_DISCLAIMER_TEXT);
 	infoText.Format(IDS_INFO_TEXT);
-	
-	//Formatierung des Textes im RichEdit Feld
-	CHARFORMAT cf;
-	cf.dwMask = CFM_STRIKEOUT|CFM_BOLD;
-	cf.dwEffects = CFE_BOLD;
-	CString language="";
-	language.LoadString(IDS_SPRACHE);
-	//CString ideaText="";
-	//ideaText.LoadString(IDS_GAME_IDEA);
-	//richEditIdea.SetWindowText(ideaText);
-	/*if(language=="DE")
-	{
-        richEditIdea.SetSel(1,12);
-		richEditIdea.SetWordCharFormat(cf);
-		richEditIdea.SetSel(54,65);
-		richEditIdea.SetWordCharFormat(cf);
-	}
-	else
-	{
-		richEditIdea.SetSel(0,18);
-		richEditIdea.SetWordCharFormat(cf);
-		richEditIdea.SetSel(54,65);
-		richEditIdea.SetWordCharFormat(cf);
-	}*/
 	
 	exitOptions=0;
 	((CEdit*)GetDlgItem(IDC_EDIT_NAME))->SetFocus();

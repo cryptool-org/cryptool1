@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Polnisch resources
+// Polish resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
 #ifdef _WIN32
@@ -27,58 +27,47 @@ LANGUAGE LANG_POLISH, SUBLANG_DEFAULT
 //
 
 IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Informacje o grze NumberShark"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     ICON            128,IDC_STATIC,11,17,20,20
-    LTEXT           "Number Shark Wersja 1.1.5",IDC_STATIC,40,10,119,8,
-                    SS_NOPREFIX
+    LTEXT           "Number Shark Wersja 1.1.5",IDC_STATIC,40,10,119,8,SS_NOPREFIX
     LTEXT           "Copyright (C) 2008",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
 END
 
 IDD_GAME_RULES DIALOGEX 0, 0, 406, 306
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Zasady gry / opis gry"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Do gry",IDOK,178,283,50,14
-    CONTROL         "",IDC_RICHEDIT21,"RichEdit20A",ES_MULTILINE | 
-                    ES_AUTOHSCROLL | ES_READONLY,7,7,392,267,
-                    WS_EX_TRANSPARENT
+    CONTROL         "",IDC_RICHEDIT21,"RichEdit20A",ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY,7,7,392,267,WS_EX_TRANSPARENT
 END
 
 IDD_GAME_SUMMARY DIALOGEX 0, 0, 358, 178
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Dialog"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Powrót do gry",IDOK,145,68,62,14
-    CONTROL         "",IDC_RICHEDIT21,"RichEdit20A",ES_MULTILINE | 
-                    ES_AUTOHSCROLL,7,12,344,51,WS_EX_TRANSPARENT
-    CONTROL         "",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,
-                    11,108,335,31
+    CONTROL         "",IDC_RICHEDIT21,"RichEdit20A",ES_MULTILINE | ES_AUTOHSCROLL,7,12,344,51,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,11,108,335,31
     CONTROL         "",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,12,148,335,10
     GROUPBOX        "Save the result as summary?",IDC_STATIC,7,92,344,79
 END
 
 IDD_DIALOG1 DIALOGEX 0, 0, 282, 274
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Opcje gry"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     PUSHBUTTON      "Do gry",IDOK,117,248,50,14
     CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,5,34,270,208
     EDITTEXT        IDC_EDIT_NAME,75,76,161,13,ES_AUTOHSCROLL
-    PUSHBUTTON      "Start",IDC_BUTTON_MAX,220,130,35,25,BS_MULTILINE | NOT 
-                    WS_VISIBLE
-    CONTROL         "  ",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | 
-                    BS_MULTILINE,226,119,10,8
+    PUSHBUTTON      "Start",IDC_BUTTON_MAX,220,130,35,25,BS_MULTILINE | NOT WS_VISIBLE
+    CONTROL         "  ",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | BS_MULTILINE,226,119,10,8
     CONTROL         "",IDC_CHECK2,"Button",BS_AUTOCHECKBOX,228,166,8,8
     CONTROL         "",IDC_CHECK3,"Button",BS_AUTOCHECKBOX,228,204,8,8
     LTEXT           "",IDC_OPTION_REMEMBER,28,196,186,26
@@ -89,126 +78,76 @@ BEGIN
     GROUPBOX        "",IDC_STATIC4,21,151,233,34
     LTEXT           "",IDC_OPTION_GAME_START,29,161,186,18
     GROUPBOX        "",IDC_STATIC5,21,188,233,38
-    LTEXT           "",IDC_STATIC_MAX_POINTS_TEXT,16,67,244,56,NOT 
-                    WS_VISIBLE
+    LTEXT           "",IDC_STATIC_MAX_POINTS_TEXT,16,67,244,56,NOT WS_VISIBLE
     CTEXT           "",IDC_OPTION_START,5,9,270,21
-    CONTROL         "",IDC_RADIO_MAX1,"Button",BS_AUTORADIOBUTTON | NOT 
-                    WS_VISIBLE | WS_DISABLED,23,129,182,10
-    CONTROL         "",IDC_RADIO_MAX2,"Button",BS_AUTORADIOBUTTON | NOT 
-                    WS_VISIBLE | WS_DISABLED,23,150,183,8
+    CONTROL         "",IDC_RADIO_MAX1,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_DISABLED,23,129,182,10
+    CONTROL         "",IDC_RADIO_MAX2,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_DISABLED,23,150,183,8
     GROUPBOX        "",IDC_STATIC_MAXVALUE,9,57,260,130
     LTEXT           "",IDC_DISCLAIMER_TEXT,14,144,257,35
     LTEXT           "",IDC_INFO_TEXT,14,110,257,31
-    CONTROL         "",IDC_GAME_IDEA,"RichEdit20A",ES_MULTILINE | 
-                    ES_AUTOHSCROLL | ES_READONLY,14,69,257,35,
-                    WS_EX_TRANSPARENT
+    LTEXT           "",IDC_GAME_IDEA,14,69,257,35
     LTEXT           "",IDC_ACCELERATORS,12,69,255,133
 END
 
 IDD_MFCZAHLENHAI_DIALOG DIALOGEX 0, 0, 467, 379
-STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | 
-    WS_CAPTION | WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "Number Shark"
 FONT 8, "Microsoft Sans Serif", 0, 0, 0x1
 BEGIN
-    CONTROL         "",IDC_TAB1,"SysTabControl32",TCS_RAGGEDRIGHT | 
-                    WS_TABSTOP,10,187,372,119
+    CONTROL         "",IDC_TAB1,"SysTabControl32",TCS_RAGGEDRIGHT | WS_TABSTOP,10,187,372,119
     EDITTEXT        IDC_EDIT1,97,333,48,14,ES_AUTOHSCROLL | ES_NUMBER
     PUSHBUTTON      "&OK",IDC_BUTTON_OK,154,333,25,14
-    CONTROL         "1",IDC_BUTTON01,"Button",BS_OWNERDRAW | WS_TABSTOP,16,
-                    207,31,27
-    CONTROL         "2",IDC_BUTTON02,"Button",BS_OWNERDRAW | WS_TABSTOP,53,
-                    207,31,27
-    CONTROL         "3",IDC_BUTTON03,"Button",BS_OWNERDRAW | WS_TABSTOP,89,
-                    207,31,27
-    CONTROL         "4",IDC_BUTTON04,"Button",BS_OWNERDRAW | WS_TABSTOP,125,
-                    207,31,27
-    CONTROL         "5",IDC_BUTTON05,"Button",BS_OWNERDRAW | WS_TABSTOP,161,
-                    207,31,27
-    CONTROL         "6",IDC_BUTTON06,"Button",BS_OWNERDRAW | WS_TABSTOP,197,
-                    207,31,27
-    CONTROL         "7",IDC_BUTTON07,"Button",BS_OWNERDRAW | WS_TABSTOP,233,
-                    207,31,27
-    CONTROL         "8",IDC_BUTTON08,"Button",BS_OWNERDRAW | WS_TABSTOP,269,
-                    207,31,27
-    CONTROL         "9",IDC_BUTTON09,"Button",BS_OWNERDRAW | WS_TABSTOP,306,
-                    207,31,27
-    CONTROL         "10",IDC_BUTTON10,"Button",BS_OWNERDRAW | WS_TABSTOP,344,
-                    207,31,27
-    CONTROL         "11",IDC_BUTTON11,"Button",BS_OWNERDRAW | WS_TABSTOP,16,
-                    240,31,27
-    CONTROL         "12",IDC_BUTTON12,"Button",BS_OWNERDRAW | WS_TABSTOP,53,
-                    240,31,27
-    CONTROL         "13",IDC_BUTTON13,"Button",BS_OWNERDRAW | WS_TABSTOP,89,
-                    240,31,27
-    CONTROL         "14",IDC_BUTTON14,"Button",BS_OWNERDRAW | WS_TABSTOP,125,
-                    240,31,27
-    CONTROL         "15",IDC_BUTTON15,"Button",BS_OWNERDRAW | WS_TABSTOP,161,
-                    240,31,27
-    CONTROL         "16",IDC_BUTTON16,"Button",BS_OWNERDRAW | WS_TABSTOP,197,
-                    240,31,27
-    CONTROL         "17",IDC_BUTTON17,"Button",BS_OWNERDRAW | WS_TABSTOP,233,
-                    240,31,27
-    CONTROL         "18",IDC_BUTTON18,"Button",BS_OWNERDRAW | WS_TABSTOP,269,
-                    240,31,27
-    CONTROL         "19",IDC_BUTTON19,"Button",BS_OWNERDRAW | WS_TABSTOP,306,
-                    240,31,27
-    CONTROL         "20",IDC_BUTTON20,"Button",BS_OWNERDRAW | WS_TABSTOP,344,
-                    240,31,27
-    CONTROL         "21",IDC_BUTTON21,"Button",BS_OWNERDRAW | WS_TABSTOP,16,
-                    272,31,27
-    CONTROL         "22",IDC_BUTTON22,"Button",BS_OWNERDRAW | WS_TABSTOP,53,
-                    272,31,27
-    CONTROL         "23",IDC_BUTTON23,"Button",BS_OWNERDRAW | WS_TABSTOP,89,
-                    272,31,27
-    CONTROL         "24",IDC_BUTTON24,"Button",BS_OWNERDRAW | WS_TABSTOP,125,
-                    272,31,27
-    CONTROL         "25",IDC_BUTTON25,"Button",BS_OWNERDRAW | WS_TABSTOP,161,
-                    272,31,27
-    CONTROL         "26",IDC_BUTTON26,"Button",BS_OWNERDRAW | WS_TABSTOP,197,
-                    272,31,27
-    CONTROL         "27",IDC_BUTTON27,"Button",BS_OWNERDRAW | WS_TABSTOP,233,
-                    272,31,27
-    CONTROL         "28",IDC_BUTTON28,"Button",BS_OWNERDRAW | WS_TABSTOP,269,
-                    272,31,27
-    CONTROL         "29",IDC_BUTTON29,"Button",BS_OWNERDRAW | WS_TABSTOP,306,
-                    272,31,27
-    CONTROL         "30",IDC_BUTTON30,"Button",BS_OWNERDRAW | WS_TABSTOP,344,
-                    272,31,27
-    PUSHBUTTON      "&Zasady gry",ID_BUTTON_RULES,398,16,59,22,BS_VCENTER | 
-                    BS_MULTILINE
+    CONTROL         "1",IDC_BUTTON01,"Button",BS_OWNERDRAW | WS_TABSTOP,16,207,31,27
+    CONTROL         "2",IDC_BUTTON02,"Button",BS_OWNERDRAW | WS_TABSTOP,53,207,31,27
+    CONTROL         "3",IDC_BUTTON03,"Button",BS_OWNERDRAW | WS_TABSTOP,89,207,31,27
+    CONTROL         "4",IDC_BUTTON04,"Button",BS_OWNERDRAW | WS_TABSTOP,125,207,31,27
+    CONTROL         "5",IDC_BUTTON05,"Button",BS_OWNERDRAW | WS_TABSTOP,161,207,31,27
+    CONTROL         "6",IDC_BUTTON06,"Button",BS_OWNERDRAW | WS_TABSTOP,197,207,31,27
+    CONTROL         "7",IDC_BUTTON07,"Button",BS_OWNERDRAW | WS_TABSTOP,233,207,31,27
+    CONTROL         "8",IDC_BUTTON08,"Button",BS_OWNERDRAW | WS_TABSTOP,269,207,31,27
+    CONTROL         "9",IDC_BUTTON09,"Button",BS_OWNERDRAW | WS_TABSTOP,306,207,31,27
+    CONTROL         "10",IDC_BUTTON10,"Button",BS_OWNERDRAW | WS_TABSTOP,344,207,31,27
+    CONTROL         "11",IDC_BUTTON11,"Button",BS_OWNERDRAW | WS_TABSTOP,16,240,31,27
+    CONTROL         "12",IDC_BUTTON12,"Button",BS_OWNERDRAW | WS_TABSTOP,53,240,31,27
+    CONTROL         "13",IDC_BUTTON13,"Button",BS_OWNERDRAW | WS_TABSTOP,89,240,31,27
+    CONTROL         "14",IDC_BUTTON14,"Button",BS_OWNERDRAW | WS_TABSTOP,125,240,31,27
+    CONTROL         "15",IDC_BUTTON15,"Button",BS_OWNERDRAW | WS_TABSTOP,161,240,31,27
+    CONTROL         "16",IDC_BUTTON16,"Button",BS_OWNERDRAW | WS_TABSTOP,197,240,31,27
+    CONTROL         "17",IDC_BUTTON17,"Button",BS_OWNERDRAW | WS_TABSTOP,233,240,31,27
+    CONTROL         "18",IDC_BUTTON18,"Button",BS_OWNERDRAW | WS_TABSTOP,269,240,31,27
+    CONTROL         "19",IDC_BUTTON19,"Button",BS_OWNERDRAW | WS_TABSTOP,306,240,31,27
+    CONTROL         "20",IDC_BUTTON20,"Button",BS_OWNERDRAW | WS_TABSTOP,344,240,31,27
+    CONTROL         "21",IDC_BUTTON21,"Button",BS_OWNERDRAW | WS_TABSTOP,16,272,31,27
+    CONTROL         "22",IDC_BUTTON22,"Button",BS_OWNERDRAW | WS_TABSTOP,53,272,31,27
+    CONTROL         "23",IDC_BUTTON23,"Button",BS_OWNERDRAW | WS_TABSTOP,89,272,31,27
+    CONTROL         "24",IDC_BUTTON24,"Button",BS_OWNERDRAW | WS_TABSTOP,125,272,31,27
+    CONTROL         "25",IDC_BUTTON25,"Button",BS_OWNERDRAW | WS_TABSTOP,161,272,31,27
+    CONTROL         "26",IDC_BUTTON26,"Button",BS_OWNERDRAW | WS_TABSTOP,197,272,31,27
+    CONTROL         "27",IDC_BUTTON27,"Button",BS_OWNERDRAW | WS_TABSTOP,233,272,31,27
+    CONTROL         "28",IDC_BUTTON28,"Button",BS_OWNERDRAW | WS_TABSTOP,269,272,31,27
+    CONTROL         "29",IDC_BUTTON29,"Button",BS_OWNERDRAW | WS_TABSTOP,306,272,31,27
+    CONTROL         "30",IDC_BUTTON30,"Button",BS_OWNERDRAW | WS_TABSTOP,344,272,31,27
+    PUSHBUTTON      "&Zasady gry",ID_BUTTON_RULES,398,16,59,22,BS_VCENTER | BS_MULTILINE
     PUSHBUTTON      "&Pomoc",IDC_BUTTON_HELP,398,46,59,22
-    PUSHBUTTON      "&Nakarm rekina",IDC_BUTTON_REST,398,178,60,22,
-                    BS_MULTILINE | WS_DISABLED
-    PUSHBUTTON      "Wiêcej &opcji",IDC_BUTTON_OPTION,398,205,60,22,
-                    BS_MULTILINE
-    CONTROL         "",IDC_BUTTON_UNDO,"Button",BS_OWNERDRAW | BS_MULTILINE | 
-                    WS_DISABLED | WS_TABSTOP,404,246,19,15,WS_EX_TRANSPARENT
-    CONTROL         "",IDC_BUTTON_REDO,"Button",BS_OWNERDRAW | WS_DISABLED | 
-                    WS_TABSTOP,434,246,19,15,WS_EX_TRANSPARENT
-    PUSHBUTTON      "&Nowa gra",IDC_BUTTON_STARTNEW,398,316,59,22,
-                    BS_MULTILINE
-    PUSHBUTTON      "Wyjœcie",ID_BUTTON_END,398,345,59,22,BS_CENTER | 
-                    BS_MULTILINE
+    PUSHBUTTON      "&Nakarm rekina",IDC_BUTTON_REST,398,178,60,22,BS_MULTILINE | WS_DISABLED
+    PUSHBUTTON      "Wiêcej &opcji",IDC_BUTTON_OPTION,398,205,60,22,BS_MULTILINE
+    CONTROL         "",IDC_BUTTON_UNDO,"Button",BS_OWNERDRAW | BS_MULTILINE | WS_DISABLED | WS_TABSTOP,404,246,19,15,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_BUTTON_REDO,"Button",BS_OWNERDRAW | WS_DISABLED | WS_TABSTOP,434,246,19,15,WS_EX_TRANSPARENT
+    PUSHBUTTON      "&Nowa gra",IDC_BUTTON_STARTNEW,398,316,59,22,BS_MULTILINE
+    PUSHBUTTON      "Wyjœcie",ID_BUTTON_END,398,345,59,22,BS_CENTER | BS_MULTILINE
     LTEXT           "Stos liczb od 1 do:",IDC_STATIC,12,335,86,11
-    GROUPBOX        "Ustawienia dla nowej gry",IDC_STATIC_EINSTELLUNGEN,4,
-                    318,382,54,0,WS_EX_TRANSPARENT
+    GROUPBOX        "Ustawienia dla nowej gry",IDC_STATIC_EINSTELLUNGEN,4,318,382,54,0,WS_EX_TRANSPARENT
     GROUPBOX        "",IDC_STATIC_BLOCK,4,174,382,139
     LTEXT           "",IDC_STATIC_SUM,11,356,371,17,NOT WS_VISIBLE
-    GROUPBOX        "Kurs gry - [""prime"" oznacza liczbê pierwsz¹]",
-                    IDC_STATIC_LISTE,4,6,381,161
-    CONTROL         "",IDC_LIST2,"SysListView32",LVS_REPORT | LVS_SINGLESEL | 
-                    WS_BORDER | WS_TABSTOP,4,21,381,148,WS_EX_TRANSPARENT | 
-                    WS_EX_CLIENTEDGE
+    GROUPBOX        "Kurs gry - [""prime"" oznacza liczbê pierwsz¹]",IDC_STATIC_LISTE,4,6,381,161
+    CONTROL         "",IDC_LIST2,"SysListView32",LVS_REPORT | LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,4,21,381,148,WS_EX_TRANSPARENT | WS_EX_CLIENTEDGE
     LTEXT           "",IDC_LEDTEXT,4,320,381,52,NOT WS_VISIBLE
-    CONTROL         169,IDC_STATIC_HAI_LISTE,"Static",SS_BITMAP | 
-                    SS_REALSIZEIMAGE,4,10,381,160
+    CONTROL         169,IDC_STATIC_HAI_LISTE,"Static",SS_BITMAP | SS_REALSIZEIMAGE,4,10,381,160
     LTEXT           "",IDC_START_INFO,197,328,181,27,NOT WS_VISIBLE
     GROUPBOX        "",IDC_STATIC,392,6,71,366
     PUSHBUTTON      "&Koniec",IDC_BUTTON_FINISH,375,367,10,6,NOT WS_VISIBLE
-    PUSHBUTTON      "Zmieñ &styl",IDC_BUTTON_SWITCH_STYLE,398,72,59,14,NOT 
-                    WS_VISIBLE
+    PUSHBUTTON      "Zmieñ &styl",IDC_BUTTON_SWITCH_STYLE,398,72,59,14,NOT WS_VISIBLE
     CTEXT           "Statisch",IDC_TIMER,398,148,59,14,SS_CENTERIMAGE
     LTEXT           "Czas:",IDC_STATIC,398,129,43,8
     PUSHBUTTON      "&Za³aduj",IDC_BUTTON_LOAD,398,271,59,14,NOT WS_VISIBLE
@@ -360,8 +299,7 @@ IDR_MAINFRAME           ICON                    "Bilder\\NumberShark.ico"
 
 IDR_ACCELERATOR1 ACCELERATORS 
 BEGIN
-    "N",            ID_GIVE_REST,           VIRTKEY, SHIFT, CONTROL, 
-                                                    NOINVERT
+    "N",            ID_GIVE_REST,           VIRTKEY, SHIFT, CONTROL, NOINVERT
 END
 
 
@@ -472,7 +410,7 @@ BEGIN
     IDS_RULES_2             "Podczas gry mo¿esz okreœliæ widocznoœæ muszelek na przyciskach,\n wciskaj¹c SHIFT+ALT+C.\n\n To mo¿e pomóc Tobie lepiej odczytywaæ cyfry na przyciskach i przyspieszy grê.\n\nDodatkow¹ pomoc uzyskasz, wciskaj¹c F1. \n\n Pomoc online zawiera manual, kurs gry oraz informacje o tym, jak powsta³a gra."
     IDS_MAX_POINTS_INFORMATION2 
                             "Dla %s liczb, najwiêkszym osi¹galnym wynikiem jest %s\n\n\n\nMo¿emy pokazaæ Tobie najwiêkszy mo¿liwy wynik, poniewa¿ ta wartoœæ zosta³a ju¿ policzona i jest przechowywana przez program. \n\n\n\n "
-    IDS_DISCLAIMER_TEXT     "Proszê zapoznaæ siê z warunkami licencji i informacjami odnoœnie braku odpowiedzialnoœci za jakiekolwiek zniszczenia wynikaj¹ce z u¿ycia gry Number Shark.\n(C) CrypTool Project 2006"
+    IDS_DISCLAIMER_TEXT     "Proszê zapoznaæ siê z warunkami licencji i informacjami odnoœnie braku odpowiedzialnoœci za jakiekolwiek zniszczenia wynikaj¹ce z u¿ycia gry Number Shark.\n(C) CrypTool Project 2010"
     IDS_MAX_POINTS_HEADLINE2 "Maksymalna iloœæ punktów i optymalna droga."
     IDS_INFO_TEXT           "Number Shark zosta³ stworzony jako dodatek do freeware'owego projektu open source CrypTool: www.cryptool.com"
     IDS_PRIME_INFO          "(pierwsza)"
@@ -554,14 +492,16 @@ BEGIN
     IDS_PLAYER_WINS3        "Gratulacje! Wygra³eœ z Number Sharkiem! \n\n\n\n Jeœli poszukujesz wiêkszych wyzwañ, spróbuj wiêksz¹ liczbê ni¿ %s.\n\n\n\n Osi¹gn¹³eœ wynik %s punktów. Jak do tej pory najwiêcej uda³o nam siê zdobyæ %s punktów przy %s liczbach."
     IDS_NUMBER_ONE          "Tym razem Number Shark wygra³ :-( \r\n\r\n Wynik gry %s do %s. \r\nNie mo¿esz wygraæ z tylko jedn¹ liczb¹ w oknie muszelek.\r\n Œmia³o - spróbuj ponownie! :-) \r\n\r\n"
     IDS_LOAD_FAILED         "Plik ""%s"" nie móg³ zostaæ za³adowany."
+    IDS_ASK_FOR_USER_CANCELLATION 
+                            "[i18n] Do you want to cancel the calculation?"
 END
 
-#endif    // Polnisch resources
+#endif    // Polish resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -575,59 +515,47 @@ LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
 //
 
 IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Info über den Zahlenhai"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     ICON            128,IDC_STATIC,11,17,20,20
-    LTEXT           "ZahlenHai Version 1.1.5",IDC_STATIC,40,10,119,8,
-                    SS_NOPREFIX
+    LTEXT           "ZahlenHai Version 1.1.5",IDC_STATIC,40,10,119,8,SS_NOPREFIX
     LTEXT           "Copyright (C) 2008",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
 END
 
 IDD_GAME_RULES DIALOGEX 0, 0, 535, 306
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Spielregeln / Spielbeschreibung"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Zum Spiel",IDOK,242,283,50,14
-    CONTROL         "",IDC_RICHEDIT21,"RichEdit20A",ES_MULTILINE | 
-                    ES_AUTOHSCROLL | ES_READONLY,7,7,521,267,
-                    WS_EX_TRANSPARENT
+    CONTROL         "",IDC_RICHEDIT21,"RichEdit20A",ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY,7,7,521,267,WS_EX_TRANSPARENT
 END
 
 IDD_GAME_SUMMARY DIALOGEX 0, 0, 358, 178
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Dialog"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Zurück zum Spiel",IDOK,145,68,62,14
-    CONTROL         "",IDC_RICHEDIT21,"RichEdit20A",ES_MULTILINE | 
-                    ES_AUTOHSCROLL,7,12,344,51,WS_EX_TRANSPARENT
-    CONTROL         "",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,
-                    11,108,335,31
+    CONTROL         "",IDC_RICHEDIT21,"RichEdit20A",ES_MULTILINE | ES_AUTOHSCROLL,7,12,344,51,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,11,108,335,31
     CONTROL         "",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,12,148,335,10
-    GROUPBOX        "Ergebnis als Spielzusammenfassung speichern?",
-                    IDC_STATIC,7,92,344,79
+    GROUPBOX        "Ergebnis als Spielzusammenfassung speichern?",IDC_STATIC,7,92,344,79
 END
 
 IDD_DIALOG1 DIALOGEX 0, 0, 282, 274
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Spieloptionen"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     PUSHBUTTON      "Zum Spiel",IDOK,117,248,50,14
     CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,5,34,270,208
     EDITTEXT        IDC_EDIT_NAME,75,76,161,13,ES_AUTOHSCROLL
-    PUSHBUTTON      "Start",IDC_BUTTON_MAX,220,130,35,25,BS_MULTILINE | NOT 
-                    WS_VISIBLE
-    CONTROL         "  ",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | 
-                    BS_MULTILINE,226,119,10,8
+    PUSHBUTTON      "Start",IDC_BUTTON_MAX,220,130,35,25,BS_MULTILINE | NOT WS_VISIBLE
+    CONTROL         "  ",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | BS_MULTILINE,226,119,10,8
     CONTROL         "",IDC_CHECK2,"Button",BS_AUTOCHECKBOX,228,166,8,8
     CONTROL         "",IDC_CHECK3,"Button",BS_AUTOCHECKBOX,228,204,8,8
     LTEXT           "",IDC_OPTION_REMEMBER,28,196,186,26
@@ -638,132 +566,80 @@ BEGIN
     GROUPBOX        "",IDC_STATIC4,21,151,233,34
     LTEXT           "",IDC_OPTION_GAME_START,29,161,186,18
     GROUPBOX        "",IDC_STATIC5,21,188,233,38
-    LTEXT           "",IDC_STATIC_MAX_POINTS_TEXT,16,67,244,56,NOT 
-                    WS_VISIBLE
+    LTEXT           "",IDC_STATIC_MAX_POINTS_TEXT,16,67,244,56,NOT WS_VISIBLE
     CTEXT           "",IDC_OPTION_START,5,9,270,21
-    CONTROL         "",IDC_RADIO_MAX1,"Button",BS_AUTORADIOBUTTON | NOT 
-                    WS_VISIBLE | WS_DISABLED,23,129,182,10
-    CONTROL         "",IDC_RADIO_MAX2,"Button",BS_AUTORADIOBUTTON | NOT 
-                    WS_VISIBLE | WS_DISABLED,23,150,183,8
+    CONTROL         "",IDC_RADIO_MAX1,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_DISABLED,23,129,182,10
+    CONTROL         "",IDC_RADIO_MAX2,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_DISABLED,23,150,183,8
     GROUPBOX        "",IDC_STATIC_MAXVALUE,9,57,260,130
     LTEXT           "",IDC_DISCLAIMER_TEXT,14,144,257,35
     LTEXT           "",IDC_INFO_TEXT,14,110,257,31
-    CONTROL         "",IDC_GAME_IDEA,"RichEdit20A",ES_MULTILINE | 
-                    ES_AUTOHSCROLL | ES_READONLY,14,69,257,35,
-                    WS_EX_TRANSPARENT
+    LTEXT           "",IDC_GAME_IDEA,14,69,257,35
     LTEXT           "",IDC_ACCELERATORS,12,69,255,133
 END
 
 IDD_MFCZAHLENHAI_DIALOG DIALOGEX 0, 0, 467, 379
-STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | 
-    WS_CAPTION | WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "Zahlenhai"
 FONT 8, "Microsoft Sans Serif", 0, 0, 0x1
 BEGIN
-    CONTROL         "",IDC_TAB1,"SysTabControl32",TCS_RAGGEDRIGHT | 
-                    WS_TABSTOP,10,187,372,119
+    CONTROL         "",IDC_TAB1,"SysTabControl32",TCS_RAGGEDRIGHT | WS_TABSTOP,10,187,372,119
     EDITTEXT        IDC_EDIT1,97,333,48,14,ES_AUTOHSCROLL | ES_NUMBER
     PUSHBUTTON      "&OK",IDC_BUTTON_OK,154,333,25,14
-    CONTROL         "1",IDC_BUTTON01,"Button",BS_OWNERDRAW | WS_TABSTOP,16,
-                    207,31,27
-    CONTROL         "2",IDC_BUTTON02,"Button",BS_OWNERDRAW | WS_TABSTOP,53,
-                    207,31,27
-    CONTROL         "3",IDC_BUTTON03,"Button",BS_OWNERDRAW | WS_TABSTOP,89,
-                    207,31,27
-    CONTROL         "4",IDC_BUTTON04,"Button",BS_OWNERDRAW | WS_TABSTOP,125,
-                    207,31,27
-    CONTROL         "5",IDC_BUTTON05,"Button",BS_OWNERDRAW | WS_TABSTOP,161,
-                    207,31,27
-    CONTROL         "6",IDC_BUTTON06,"Button",BS_OWNERDRAW | WS_TABSTOP,197,
-                    207,31,27
-    CONTROL         "7",IDC_BUTTON07,"Button",BS_OWNERDRAW | WS_TABSTOP,233,
-                    207,31,27
-    CONTROL         "8",IDC_BUTTON08,"Button",BS_OWNERDRAW | WS_TABSTOP,269,
-                    207,31,27
-    CONTROL         "9",IDC_BUTTON09,"Button",BS_OWNERDRAW | WS_TABSTOP,306,
-                    207,31,27
-    CONTROL         "10",IDC_BUTTON10,"Button",BS_OWNERDRAW | WS_TABSTOP,344,
-                    207,31,27
-    CONTROL         "11",IDC_BUTTON11,"Button",BS_OWNERDRAW | WS_TABSTOP,16,
-                    240,31,27
-    CONTROL         "12",IDC_BUTTON12,"Button",BS_OWNERDRAW | WS_TABSTOP,53,
-                    240,31,27
-    CONTROL         "13",IDC_BUTTON13,"Button",BS_OWNERDRAW | WS_TABSTOP,89,
-                    240,31,27
-    CONTROL         "14",IDC_BUTTON14,"Button",BS_OWNERDRAW | WS_TABSTOP,125,
-                    240,31,27
-    CONTROL         "15",IDC_BUTTON15,"Button",BS_OWNERDRAW | WS_TABSTOP,161,
-                    240,31,27
-    CONTROL         "16",IDC_BUTTON16,"Button",BS_OWNERDRAW | WS_TABSTOP,197,
-                    240,31,27
-    CONTROL         "17",IDC_BUTTON17,"Button",BS_OWNERDRAW | WS_TABSTOP,233,
-                    240,31,27
-    CONTROL         "18",IDC_BUTTON18,"Button",BS_OWNERDRAW | WS_TABSTOP,269,
-                    240,31,27
-    CONTROL         "19",IDC_BUTTON19,"Button",BS_OWNERDRAW | WS_TABSTOP,306,
-                    240,31,27
-    CONTROL         "20",IDC_BUTTON20,"Button",BS_OWNERDRAW | WS_TABSTOP,344,
-                    240,31,27
-    CONTROL         "21",IDC_BUTTON21,"Button",BS_OWNERDRAW | WS_TABSTOP,16,
-                    272,31,27
-    CONTROL         "22",IDC_BUTTON22,"Button",BS_OWNERDRAW | WS_TABSTOP,53,
-                    272,31,27
-    CONTROL         "23",IDC_BUTTON23,"Button",BS_OWNERDRAW | WS_TABSTOP,89,
-                    272,31,27
-    CONTROL         "24",IDC_BUTTON24,"Button",BS_OWNERDRAW | WS_TABSTOP,125,
-                    272,31,27
-    CONTROL         "25",IDC_BUTTON25,"Button",BS_OWNERDRAW | WS_TABSTOP,161,
-                    272,31,27
-    CONTROL         "26",IDC_BUTTON26,"Button",BS_OWNERDRAW | WS_TABSTOP,197,
-                    272,31,27
-    CONTROL         "27",IDC_BUTTON27,"Button",BS_OWNERDRAW | WS_TABSTOP,233,
-                    272,31,27
-    CONTROL         "28",IDC_BUTTON28,"Button",BS_OWNERDRAW | WS_TABSTOP,269,
-                    272,31,27
-    CONTROL         "29",IDC_BUTTON29,"Button",BS_OWNERDRAW | WS_TABSTOP,306,
-                    272,31,27
-    CONTROL         "30",IDC_BUTTON30,"Button",BS_OWNERDRAW | WS_TABSTOP,344,
-                    272,31,27
-    PUSHBUTTON      "Spiel&regeln",ID_BUTTON_RULES,398,16,59,22,BS_VCENTER | 
-                    BS_MULTILINE
+    CONTROL         "1",IDC_BUTTON01,"Button",BS_OWNERDRAW | WS_TABSTOP,16,207,31,27
+    CONTROL         "2",IDC_BUTTON02,"Button",BS_OWNERDRAW | WS_TABSTOP,53,207,31,27
+    CONTROL         "3",IDC_BUTTON03,"Button",BS_OWNERDRAW | WS_TABSTOP,89,207,31,27
+    CONTROL         "4",IDC_BUTTON04,"Button",BS_OWNERDRAW | WS_TABSTOP,125,207,31,27
+    CONTROL         "5",IDC_BUTTON05,"Button",BS_OWNERDRAW | WS_TABSTOP,161,207,31,27
+    CONTROL         "6",IDC_BUTTON06,"Button",BS_OWNERDRAW | WS_TABSTOP,197,207,31,27
+    CONTROL         "7",IDC_BUTTON07,"Button",BS_OWNERDRAW | WS_TABSTOP,233,207,31,27
+    CONTROL         "8",IDC_BUTTON08,"Button",BS_OWNERDRAW | WS_TABSTOP,269,207,31,27
+    CONTROL         "9",IDC_BUTTON09,"Button",BS_OWNERDRAW | WS_TABSTOP,306,207,31,27
+    CONTROL         "10",IDC_BUTTON10,"Button",BS_OWNERDRAW | WS_TABSTOP,344,207,31,27
+    CONTROL         "11",IDC_BUTTON11,"Button",BS_OWNERDRAW | WS_TABSTOP,16,240,31,27
+    CONTROL         "12",IDC_BUTTON12,"Button",BS_OWNERDRAW | WS_TABSTOP,53,240,31,27
+    CONTROL         "13",IDC_BUTTON13,"Button",BS_OWNERDRAW | WS_TABSTOP,89,240,31,27
+    CONTROL         "14",IDC_BUTTON14,"Button",BS_OWNERDRAW | WS_TABSTOP,125,240,31,27
+    CONTROL         "15",IDC_BUTTON15,"Button",BS_OWNERDRAW | WS_TABSTOP,161,240,31,27
+    CONTROL         "16",IDC_BUTTON16,"Button",BS_OWNERDRAW | WS_TABSTOP,197,240,31,27
+    CONTROL         "17",IDC_BUTTON17,"Button",BS_OWNERDRAW | WS_TABSTOP,233,240,31,27
+    CONTROL         "18",IDC_BUTTON18,"Button",BS_OWNERDRAW | WS_TABSTOP,269,240,31,27
+    CONTROL         "19",IDC_BUTTON19,"Button",BS_OWNERDRAW | WS_TABSTOP,306,240,31,27
+    CONTROL         "20",IDC_BUTTON20,"Button",BS_OWNERDRAW | WS_TABSTOP,344,240,31,27
+    CONTROL         "21",IDC_BUTTON21,"Button",BS_OWNERDRAW | WS_TABSTOP,16,272,31,27
+    CONTROL         "22",IDC_BUTTON22,"Button",BS_OWNERDRAW | WS_TABSTOP,53,272,31,27
+    CONTROL         "23",IDC_BUTTON23,"Button",BS_OWNERDRAW | WS_TABSTOP,89,272,31,27
+    CONTROL         "24",IDC_BUTTON24,"Button",BS_OWNERDRAW | WS_TABSTOP,125,272,31,27
+    CONTROL         "25",IDC_BUTTON25,"Button",BS_OWNERDRAW | WS_TABSTOP,161,272,31,27
+    CONTROL         "26",IDC_BUTTON26,"Button",BS_OWNERDRAW | WS_TABSTOP,197,272,31,27
+    CONTROL         "27",IDC_BUTTON27,"Button",BS_OWNERDRAW | WS_TABSTOP,233,272,31,27
+    CONTROL         "28",IDC_BUTTON28,"Button",BS_OWNERDRAW | WS_TABSTOP,269,272,31,27
+    CONTROL         "29",IDC_BUTTON29,"Button",BS_OWNERDRAW | WS_TABSTOP,306,272,31,27
+    CONTROL         "30",IDC_BUTTON30,"Button",BS_OWNERDRAW | WS_TABSTOP,344,272,31,27
+    PUSHBUTTON      "Spiel&regeln",ID_BUTTON_RULES,398,16,59,22,BS_VCENTER | BS_MULTILINE
     PUSHBUTTON      "&Hilfe",IDC_BUTTON_HELP,398,46,59,22
-    PUSHBUTTON      "H&aifutter",IDC_BUTTON_REST,398,178,60,22,BS_MULTILINE | 
-                    WS_DISABLED
-    PUSHBUTTON      "&Weitere Möglichkeiten",IDC_BUTTON_OPTION,398,205,60,22,
-                    BS_MULTILINE
-    CONTROL         "",IDC_BUTTON_UNDO,"Button",BS_OWNERDRAW | BS_MULTILINE | 
-                    WS_DISABLED | WS_TABSTOP,404,246,19,15,WS_EX_TRANSPARENT
-    CONTROL         "",IDC_BUTTON_REDO,"Button",BS_OWNERDRAW | WS_DISABLED | 
-                    WS_TABSTOP,434,246,19,15,WS_EX_TRANSPARENT
-    PUSHBUTTON      "&Neues Spiel",IDC_BUTTON_STARTNEW,398,316,59,22,
-                    BS_MULTILINE
-    PUSHBUTTON      "&Beenden",ID_BUTTON_END,398,345,59,22,BS_CENTER | 
-                    BS_MULTILINE
+    PUSHBUTTON      "H&aifutter",IDC_BUTTON_REST,398,178,60,22,BS_MULTILINE | WS_DISABLED
+    PUSHBUTTON      "&Weitere Möglichkeiten",IDC_BUTTON_OPTION,398,205,60,22,BS_MULTILINE
+    CONTROL         "",IDC_BUTTON_UNDO,"Button",BS_OWNERDRAW | BS_MULTILINE | WS_DISABLED | WS_TABSTOP,404,246,19,15,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_BUTTON_REDO,"Button",BS_OWNERDRAW | WS_DISABLED | WS_TABSTOP,434,246,19,15,WS_EX_TRANSPARENT
+    PUSHBUTTON      "&Neues Spiel",IDC_BUTTON_STARTNEW,398,316,59,22,BS_MULTILINE
+    PUSHBUTTON      "&Beenden",ID_BUTTON_END,398,345,59,22,BS_CENTER | BS_MULTILINE
     LTEXT           "Zahlenvorrat von 1 bis:",IDC_STATIC,12,335,86,11
-    GROUPBOX        "Einstellungen für ein neues Spiel",
-                    IDC_STATIC_EINSTELLUNGEN,4,318,382,54,0,
-                    WS_EX_TRANSPARENT
+    GROUPBOX        "Einstellungen für ein neues Spiel",IDC_STATIC_EINSTELLUNGEN,4,318,382,54,0,WS_EX_TRANSPARENT
     GROUPBOX        "",IDC_STATIC_BLOCK,4,174,382,139
     LTEXT           "",IDC_STATIC_SUM,11,356,371,17,NOT WS_VISIBLE
-    GROUPBOX        "Spielverlaufstabelle  [ In der Tabelle sind die Primzahlen mit ""(prim)"" markiert ]",
-                    IDC_STATIC_LISTE,4,6,381,161
-    CONTROL         "",IDC_LIST2,"SysListView32",LVS_REPORT | LVS_SINGLESEL | 
-                    WS_BORDER | WS_TABSTOP,4,21,381,148,WS_EX_TRANSPARENT | 
-                    WS_EX_CLIENTEDGE
+    GROUPBOX        "Spielverlaufstabelle  [ In der Tabelle sind die Primzahlen mit ""(prim)"" markiert ]",IDC_STATIC_LISTE,4,6,381,161
+    CONTROL         "",IDC_LIST2,"SysListView32",LVS_REPORT | LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,4,21,381,148,WS_EX_TRANSPARENT | WS_EX_CLIENTEDGE
     LTEXT           "",IDC_LEDTEXT,4,320,381,52,NOT WS_VISIBLE
-    CONTROL         169,IDC_STATIC_HAI_LISTE,"Static",SS_BITMAP | 
-                    SS_REALSIZEIMAGE,4,10,381,160
+    CONTROL         169,IDC_STATIC_HAI_LISTE,"Static",SS_BITMAP | SS_REALSIZEIMAGE,4,10,381,160
     LTEXT           "",IDC_START_INFO,197,328,181,27,NOT WS_VISIBLE
     GROUPBOX        "",IDC_STATIC,392,6,71,366
     PUSHBUTTON      "&Fertig",IDC_BUTTON_FINISH,375,367,10,6,NOT WS_VISIBLE
-    PUSHBUTTON      "&Change style",IDC_BUTTON_SWITCH_STYLE,398,72,59,14,NOT 
-                    WS_VISIBLE
+    PUSHBUTTON      "&Change style",IDC_BUTTON_SWITCH_STYLE,398,72,59,14,NOT WS_VISIBLE
     CTEXT           "Statisch",IDC_TIMER,398,148,59,14,SS_CENTERIMAGE
     LTEXT           "Verstrichene Zeit:",IDC_STATIC,398,129,59,8
     PUSHBUTTON      "&Laden",IDC_BUTTON_LOAD,398,271,59,14,NOT WS_VISIBLE
-    PUSHBUTTON      "&Speichern",IDC_BUTTON_SAVE,398,294,59,14,NOT 
-                    WS_VISIBLE
+    PUSHBUTTON      "&Speichern",IDC_BUTTON_SAVE,398,294,59,14,NOT WS_VISIBLE
 END
 
 
@@ -911,8 +787,7 @@ IDR_MAINFRAME           ICON                    "Bilder\\Zahlenhai.ico"
 
 IDR_ACCELERATOR1 ACCELERATORS 
 BEGIN
-    "N",            ID_GIVE_REST,           VIRTKEY, SHIFT, CONTROL, 
-                                                    NOINVERT
+    "N",            ID_GIVE_REST,           VIRTKEY, SHIFT, CONTROL, NOINVERT
 END
 
 
@@ -987,7 +862,7 @@ BEGIN
     IDS_RULES_2             "Während des Spielens kannst Du mit der Tastenkombination SHIFT+ALT+C die Muscheln auf den Buttons sichtbar und unsichtbar machen.\r\nDadurch kann man die Zahlen auf den Buttons noch besser lesen und das Spiel kann dadurch auch flüssiger dargestellt werden.\r\n\r\nHilfen und weitere Hinweise stehen in der Online-Hilfe. Diese kannst Du an jeder Stelle im Zahlenhai-Spiel mit der F1-Taste öffnen.\r\n\r\nDie Online-Hilfe enthält eine ausführliche Bedienungsanleitung, einen konkreten kommentierten Spielverlauf (Probespiel), Informationen zur Entstehung des Spiels\r\nsowie eine Herausforderung an Euch, mit der Ihr uns helfen könnt, dieses Spiel zu verbessern.\r\n"
     IDS_MAX_POINTS_INFORMATION2 
                             "Bei %s Zahlen ist die maximal erreichbare Punktzahl %s.\r\n\r\nWir konnten Dir hier die maximale Punktzahl sofort anzeigen, da wir diesen Wert schon vorberechnet   \r\nund im Programm abgelegt haben.\r\n\r\nEin optimaler Weg lautet: %s.\r\n"
-    IDS_DISCLAIMER_TEXT     "Bitte beachte die Lizenzbestimmungen und die Informationen zum \r\nHaftungsausschluss für eventuelle Schäden durch das Zahlenhai-Programm.\r\n(C) CrypTool-Projekt 2007"
+    IDS_DISCLAIMER_TEXT     "Bitte beachte die Lizenzbestimmungen und die Informationen zum \r\nHaftungsausschluss für eventuelle Schäden durch das Zahlenhai-Programm.\r\n(C) CrypTool-Projekt 2010"
     IDS_MAX_POINTS_HEADLINE2 "Maximale Punktzahl und ein optimaler Weg"
     IDS_INFO_TEXT           "Das Programm Zahlenhai entstand als Ergänzung zum Freeware- und \r\nOpen-Source-Projekt CrypTool: www.cryptool.de"
     IDS_PRIME_INFO          "(prim)"
@@ -1057,26 +932,27 @@ BEGIN
     IDS_LOGFILE_PLAYER_NUMBERS "\r\nDeine gewählten Zahlen:       "
     IDS_SEPERATOR           ","
     IDS_TAB_HEADER4         "Tastenkombinationen"
-    IDS_ACC_CHANGE          "SHIFT+ALT+C: Verändere das Aussehen der Buttons im Muschelfeld.\r\n\r\n"
+    IDS_ACC_CHANGE          "SHIFT+ALT+C: Verändert das Aussehen der Buttons im Muschelfeld.\r\n\r\n"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_ACC_LOAD            "SHIFT+ALT+L: Laden eines vorhandenen Spiels.\r\n\r\n"
-    IDS_ACC_SAVE            "SHIFT+ALT+S: Speichern des aktuellen Spieles.\r\n\r\n"
+    IDS_ACC_LOAD            "SHIFT+ALT+L: Lädt ein vorhandenes Spiel.\r\n\r\n"
+    IDS_ACC_SAVE            "SHIFT+ALT+S: Speichert das aktuelle Spiel.\r\n\r\n"
     IDS_PLAYER_WINS_OPTIMAL2 
                             "GLÜCKWUNSCH, Du hast gegen den Hai gewonnen!\r\n\r\nMit %s Punkten hast Du sogar mehr Punkte erreicht als wir bisher geschafft haben.\r\nUnser bestes Ergebnis war bisher %s Punkte bei %s Zahlen.\r\n\r\nBitte schicke die Zusammenfassung an esslinger@fb5.uni-siegen.de.\r\n\r\n"
     IDS_PLAYER_WINS3        "Glückwunsch, Du hast gegen den Zahlenhai gewonnen!\r\nWenn Du eine größere Herausforderung suchst, dann nimm eine höhere Zahl als %s.\r\n\r\nDu hast %s Punkte erreicht. Bis jetzt haben wir bei %s Zahlen maximal %s Punkte erreicht.\r\n\r\n"
     IDS_NUMBER_ONE          "Diesmal hat der Zahlenhai gewonnen! :,-(  \r\n\r\nEr hat Dich mit %s Punkt zu %s Punkten geschlagen.\r\nWenn nur die Zahl '1' im Muschelfeld liegt, kann man auch nicht gewinnen.\r\n\r\nLos! Versuch es gleich nochmal!\r\n\r\n"
     IDS_LOAD_FAILED         "Die Datei ""%s"" konnte nicht richtig eingelesen werden."
+    IDS_ASK_FOR_USER_CANCELLATION "Soll die Berechnung unterbrochen werden?"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (GB) resources
+// English (U.K.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
 #ifdef _WIN32
@@ -1090,58 +966,47 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
 //
 
 IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Information about the Number Shark"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     ICON            128,IDC_STATIC,11,17,20,20
-    LTEXT           "Number Shark Version 1.1.5",IDC_STATIC,40,10,119,8,
-                    SS_NOPREFIX
+    LTEXT           "Number Shark Version 1.1.5",IDC_STATIC,40,10,119,8,SS_NOPREFIX
     LTEXT           "Copyright (C) 2008",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
 END
 
 IDD_GAME_RULES DIALOGEX 0, 0, 535, 306
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Game rules  / game description"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Back",IDOK,242,283,50,14
-    CONTROL         "",IDC_RICHEDIT21,"RichEdit20A",ES_MULTILINE | 
-                    ES_AUTOHSCROLL | ES_READONLY,7,7,521,267,
-                    WS_EX_TRANSPARENT
+    CONTROL         "",IDC_RICHEDIT21,"RichEdit20A",ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY,7,7,521,267,WS_EX_TRANSPARENT
 END
 
 IDD_GAME_SUMMARY DIALOGEX 0, 0, 358, 178
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Dialog"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Back to the game",IDOK,145,68,62,14
-    CONTROL         "",IDC_RICHEDIT21,"RichEdit20A",ES_MULTILINE | 
-                    ES_AUTOHSCROLL,7,12,344,51,WS_EX_TRANSPARENT
-    CONTROL         "",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,
-                    11,108,335,31
+    CONTROL         "",IDC_RICHEDIT21,"RichEdit20A",ES_MULTILINE | ES_AUTOHSCROLL,7,12,344,51,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | BS_MULTILINE,11,108,335,31
     CONTROL         "",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,12,148,335,10
     GROUPBOX        "Save the result as summary?",IDC_STATIC,7,92,344,79
 END
 
 IDD_DIALOG1 DIALOGEX 0, 0, 282, 274
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Game options"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     PUSHBUTTON      "To the game",IDOK,117,248,50,14
     CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,5,34,270,208
     EDITTEXT        IDC_EDIT_NAME,75,76,161,13,ES_AUTOHSCROLL
-    PUSHBUTTON      "Start",IDC_BUTTON_MAX,220,130,35,25,BS_MULTILINE | NOT 
-                    WS_VISIBLE
-    CONTROL         "  ",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | 
-                    BS_MULTILINE,226,119,10,8
+    PUSHBUTTON      "Start",IDC_BUTTON_MAX,220,130,35,25,BS_MULTILINE | NOT WS_VISIBLE
+    CONTROL         "  ",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | BS_MULTILINE,226,119,10,8
     CONTROL         "",IDC_CHECK2,"Button",BS_AUTOCHECKBOX,228,166,8,8
     CONTROL         "",IDC_CHECK3,"Button",BS_AUTOCHECKBOX,228,204,8,8
     LTEXT           "",IDC_OPTION_REMEMBER,28,196,186,26
@@ -1152,126 +1017,76 @@ BEGIN
     GROUPBOX        "",IDC_STATIC4,21,151,233,34
     LTEXT           "",IDC_OPTION_GAME_START,29,161,186,18
     GROUPBOX        "",IDC_STATIC5,21,188,233,38
-    LTEXT           "",IDC_STATIC_MAX_POINTS_TEXT,16,67,244,56,NOT 
-                    WS_VISIBLE
+    LTEXT           "",IDC_STATIC_MAX_POINTS_TEXT,16,67,244,56,NOT WS_VISIBLE
     CTEXT           "",IDC_OPTION_START,5,9,270,21
-    CONTROL         "",IDC_RADIO_MAX1,"Button",BS_AUTORADIOBUTTON | NOT 
-                    WS_VISIBLE | WS_DISABLED,23,129,182,10
-    CONTROL         "",IDC_RADIO_MAX2,"Button",BS_AUTORADIOBUTTON | NOT 
-                    WS_VISIBLE | WS_DISABLED,23,150,183,8
+    CONTROL         "",IDC_RADIO_MAX1,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_DISABLED,23,129,182,10
+    CONTROL         "",IDC_RADIO_MAX2,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_DISABLED,23,150,183,8
     GROUPBOX        "",IDC_STATIC_MAXVALUE,9,57,260,130
     LTEXT           "",IDC_DISCLAIMER_TEXT,14,144,257,35
     LTEXT           "",IDC_INFO_TEXT,14,110,257,31
-    CONTROL         "",IDC_GAME_IDEA,"RichEdit20A",ES_MULTILINE | 
-                    ES_AUTOHSCROLL | ES_READONLY,14,69,257,35,
-                    WS_EX_TRANSPARENT
+    LTEXT           "",IDC_GAME_IDEA,14,69,257,35
     LTEXT           "",IDC_ACCELERATORS,12,69,255,133
 END
 
 IDD_MFCZAHLENHAI_DIALOG DIALOGEX 0, 0, 467, 379
-STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | 
-    WS_CAPTION | WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "Number Shark"
 FONT 8, "Microsoft Sans Serif", 0, 0, 0x1
 BEGIN
-    CONTROL         "",IDC_TAB1,"SysTabControl32",TCS_RAGGEDRIGHT | 
-                    WS_TABSTOP,10,187,372,119
+    CONTROL         "",IDC_TAB1,"SysTabControl32",TCS_RAGGEDRIGHT | WS_TABSTOP,10,187,372,119
     EDITTEXT        IDC_EDIT1,97,333,48,14,ES_AUTOHSCROLL | ES_NUMBER
     PUSHBUTTON      "&OK",IDC_BUTTON_OK,154,333,25,14
-    CONTROL         "1",IDC_BUTTON01,"Button",BS_OWNERDRAW | WS_TABSTOP,16,
-                    207,31,27
-    CONTROL         "2",IDC_BUTTON02,"Button",BS_OWNERDRAW | WS_TABSTOP,53,
-                    207,31,27
-    CONTROL         "3",IDC_BUTTON03,"Button",BS_OWNERDRAW | WS_TABSTOP,89,
-                    207,31,27
-    CONTROL         "4",IDC_BUTTON04,"Button",BS_OWNERDRAW | WS_TABSTOP,125,
-                    207,31,27
-    CONTROL         "5",IDC_BUTTON05,"Button",BS_OWNERDRAW | WS_TABSTOP,161,
-                    207,31,27
-    CONTROL         "6",IDC_BUTTON06,"Button",BS_OWNERDRAW | WS_TABSTOP,197,
-                    207,31,27
-    CONTROL         "7",IDC_BUTTON07,"Button",BS_OWNERDRAW | WS_TABSTOP,233,
-                    207,31,27
-    CONTROL         "8",IDC_BUTTON08,"Button",BS_OWNERDRAW | WS_TABSTOP,269,
-                    207,31,27
-    CONTROL         "9",IDC_BUTTON09,"Button",BS_OWNERDRAW | WS_TABSTOP,306,
-                    207,31,27
-    CONTROL         "10",IDC_BUTTON10,"Button",BS_OWNERDRAW | WS_TABSTOP,344,
-                    207,31,27
-    CONTROL         "11",IDC_BUTTON11,"Button",BS_OWNERDRAW | WS_TABSTOP,16,
-                    240,31,27
-    CONTROL         "12",IDC_BUTTON12,"Button",BS_OWNERDRAW | WS_TABSTOP,53,
-                    240,31,27
-    CONTROL         "13",IDC_BUTTON13,"Button",BS_OWNERDRAW | WS_TABSTOP,89,
-                    240,31,27
-    CONTROL         "14",IDC_BUTTON14,"Button",BS_OWNERDRAW | WS_TABSTOP,125,
-                    240,31,27
-    CONTROL         "15",IDC_BUTTON15,"Button",BS_OWNERDRAW | WS_TABSTOP,161,
-                    240,31,27
-    CONTROL         "16",IDC_BUTTON16,"Button",BS_OWNERDRAW | WS_TABSTOP,197,
-                    240,31,27
-    CONTROL         "17",IDC_BUTTON17,"Button",BS_OWNERDRAW | WS_TABSTOP,233,
-                    240,31,27
-    CONTROL         "18",IDC_BUTTON18,"Button",BS_OWNERDRAW | WS_TABSTOP,269,
-                    240,31,27
-    CONTROL         "19",IDC_BUTTON19,"Button",BS_OWNERDRAW | WS_TABSTOP,306,
-                    240,31,27
-    CONTROL         "20",IDC_BUTTON20,"Button",BS_OWNERDRAW | WS_TABSTOP,344,
-                    240,31,27
-    CONTROL         "21",IDC_BUTTON21,"Button",BS_OWNERDRAW | WS_TABSTOP,16,
-                    272,31,27
-    CONTROL         "22",IDC_BUTTON22,"Button",BS_OWNERDRAW | WS_TABSTOP,53,
-                    272,31,27
-    CONTROL         "23",IDC_BUTTON23,"Button",BS_OWNERDRAW | WS_TABSTOP,89,
-                    272,31,27
-    CONTROL         "24",IDC_BUTTON24,"Button",BS_OWNERDRAW | WS_TABSTOP,125,
-                    272,31,27
-    CONTROL         "25",IDC_BUTTON25,"Button",BS_OWNERDRAW | WS_TABSTOP,161,
-                    272,31,27
-    CONTROL         "26",IDC_BUTTON26,"Button",BS_OWNERDRAW | WS_TABSTOP,197,
-                    272,31,27
-    CONTROL         "27",IDC_BUTTON27,"Button",BS_OWNERDRAW | WS_TABSTOP,233,
-                    272,31,27
-    CONTROL         "28",IDC_BUTTON28,"Button",BS_OWNERDRAW | WS_TABSTOP,269,
-                    272,31,27
-    CONTROL         "29",IDC_BUTTON29,"Button",BS_OWNERDRAW | WS_TABSTOP,306,
-                    272,31,27
-    CONTROL         "30",IDC_BUTTON30,"Button",BS_OWNERDRAW | WS_TABSTOP,344,
-                    272,31,27
-    PUSHBUTTON      "&Rules of the game",ID_BUTTON_RULES,398,16,59,22,
-                    BS_VCENTER | BS_MULTILINE
+    CONTROL         "1",IDC_BUTTON01,"Button",BS_OWNERDRAW | WS_TABSTOP,16,207,31,27
+    CONTROL         "2",IDC_BUTTON02,"Button",BS_OWNERDRAW | WS_TABSTOP,53,207,31,27
+    CONTROL         "3",IDC_BUTTON03,"Button",BS_OWNERDRAW | WS_TABSTOP,89,207,31,27
+    CONTROL         "4",IDC_BUTTON04,"Button",BS_OWNERDRAW | WS_TABSTOP,125,207,31,27
+    CONTROL         "5",IDC_BUTTON05,"Button",BS_OWNERDRAW | WS_TABSTOP,161,207,31,27
+    CONTROL         "6",IDC_BUTTON06,"Button",BS_OWNERDRAW | WS_TABSTOP,197,207,31,27
+    CONTROL         "7",IDC_BUTTON07,"Button",BS_OWNERDRAW | WS_TABSTOP,233,207,31,27
+    CONTROL         "8",IDC_BUTTON08,"Button",BS_OWNERDRAW | WS_TABSTOP,269,207,31,27
+    CONTROL         "9",IDC_BUTTON09,"Button",BS_OWNERDRAW | WS_TABSTOP,306,207,31,27
+    CONTROL         "10",IDC_BUTTON10,"Button",BS_OWNERDRAW | WS_TABSTOP,344,207,31,27
+    CONTROL         "11",IDC_BUTTON11,"Button",BS_OWNERDRAW | WS_TABSTOP,16,240,31,27
+    CONTROL         "12",IDC_BUTTON12,"Button",BS_OWNERDRAW | WS_TABSTOP,53,240,31,27
+    CONTROL         "13",IDC_BUTTON13,"Button",BS_OWNERDRAW | WS_TABSTOP,89,240,31,27
+    CONTROL         "14",IDC_BUTTON14,"Button",BS_OWNERDRAW | WS_TABSTOP,125,240,31,27
+    CONTROL         "15",IDC_BUTTON15,"Button",BS_OWNERDRAW | WS_TABSTOP,161,240,31,27
+    CONTROL         "16",IDC_BUTTON16,"Button",BS_OWNERDRAW | WS_TABSTOP,197,240,31,27
+    CONTROL         "17",IDC_BUTTON17,"Button",BS_OWNERDRAW | WS_TABSTOP,233,240,31,27
+    CONTROL         "18",IDC_BUTTON18,"Button",BS_OWNERDRAW | WS_TABSTOP,269,240,31,27
+    CONTROL         "19",IDC_BUTTON19,"Button",BS_OWNERDRAW | WS_TABSTOP,306,240,31,27
+    CONTROL         "20",IDC_BUTTON20,"Button",BS_OWNERDRAW | WS_TABSTOP,344,240,31,27
+    CONTROL         "21",IDC_BUTTON21,"Button",BS_OWNERDRAW | WS_TABSTOP,16,272,31,27
+    CONTROL         "22",IDC_BUTTON22,"Button",BS_OWNERDRAW | WS_TABSTOP,53,272,31,27
+    CONTROL         "23",IDC_BUTTON23,"Button",BS_OWNERDRAW | WS_TABSTOP,89,272,31,27
+    CONTROL         "24",IDC_BUTTON24,"Button",BS_OWNERDRAW | WS_TABSTOP,125,272,31,27
+    CONTROL         "25",IDC_BUTTON25,"Button",BS_OWNERDRAW | WS_TABSTOP,161,272,31,27
+    CONTROL         "26",IDC_BUTTON26,"Button",BS_OWNERDRAW | WS_TABSTOP,197,272,31,27
+    CONTROL         "27",IDC_BUTTON27,"Button",BS_OWNERDRAW | WS_TABSTOP,233,272,31,27
+    CONTROL         "28",IDC_BUTTON28,"Button",BS_OWNERDRAW | WS_TABSTOP,269,272,31,27
+    CONTROL         "29",IDC_BUTTON29,"Button",BS_OWNERDRAW | WS_TABSTOP,306,272,31,27
+    CONTROL         "30",IDC_BUTTON30,"Button",BS_OWNERDRAW | WS_TABSTOP,344,272,31,27
+    PUSHBUTTON      "&Rules of the game",ID_BUTTON_RULES,398,16,59,22,BS_VCENTER | BS_MULTILINE
     PUSHBUTTON      "&Help",IDC_BUTTON_HELP,398,46,59,22
-    PUSHBUTTON      "Sh&ark food",IDC_BUTTON_REST,398,178,60,22,BS_MULTILINE | 
-                    WS_DISABLED
-    PUSHBUTTON      "&More options",IDC_BUTTON_OPTION,398,205,60,22,
-                    BS_MULTILINE
-    CONTROL         "",IDC_BUTTON_UNDO,"Button",BS_OWNERDRAW | BS_MULTILINE | 
-                    WS_DISABLED | WS_TABSTOP,404,246,19,15,WS_EX_TRANSPARENT
-    CONTROL         "",IDC_BUTTON_REDO,"Button",BS_OWNERDRAW | WS_DISABLED | 
-                    WS_TABSTOP,434,246,19,15,WS_EX_TRANSPARENT
-    PUSHBUTTON      "&New game",IDC_BUTTON_STARTNEW,398,316,59,22,
-                    BS_MULTILINE
-    PUSHBUTTON      "E&xit",ID_BUTTON_END,398,345,59,22,BS_CENTER | 
-                    BS_MULTILINE
+    PUSHBUTTON      "Sh&ark food",IDC_BUTTON_REST,398,178,60,22,BS_MULTILINE | WS_DISABLED
+    PUSHBUTTON      "&More options",IDC_BUTTON_OPTION,398,205,60,22,BS_MULTILINE
+    CONTROL         "",IDC_BUTTON_UNDO,"Button",BS_OWNERDRAW | BS_MULTILINE | WS_DISABLED | WS_TABSTOP,404,246,19,15,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_BUTTON_REDO,"Button",BS_OWNERDRAW | WS_DISABLED | WS_TABSTOP,434,246,19,15,WS_EX_TRANSPARENT
+    PUSHBUTTON      "&New game",IDC_BUTTON_STARTNEW,398,316,59,22,BS_MULTILINE
+    PUSHBUTTON      "E&xit",ID_BUTTON_END,398,345,59,22,BS_CENTER | BS_MULTILINE
     LTEXT           "Number stack from 1 to:",IDC_STATIC,12,335,86,11
-    GROUPBOX        "Settings for a new game",IDC_STATIC_EINSTELLUNGEN,4,318,
-                    382,54,0,WS_EX_TRANSPARENT
+    GROUPBOX        "Settings for a new game",IDC_STATIC_EINSTELLUNGEN,4,318,382,54,0,WS_EX_TRANSPARENT
     GROUPBOX        "",IDC_STATIC_BLOCK,4,174,382,139
     LTEXT           "",IDC_STATIC_SUM,11,356,371,17,NOT WS_VISIBLE
-    GROUPBOX        "Course of the game -  [ ""prime"" marks a prime number ]",
-                    IDC_STATIC_LISTE,4,6,381,161
-    CONTROL         "",IDC_LIST2,"SysListView32",LVS_REPORT | LVS_SINGLESEL | 
-                    WS_BORDER | WS_TABSTOP,4,21,381,148,WS_EX_TRANSPARENT | 
-                    WS_EX_CLIENTEDGE
+    GROUPBOX        "Course of the game -  [ ""prime"" marks a prime number ]",IDC_STATIC_LISTE,4,6,381,161
+    CONTROL         "",IDC_LIST2,"SysListView32",LVS_REPORT | LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,4,21,381,148,WS_EX_TRANSPARENT | WS_EX_CLIENTEDGE
     LTEXT           "",IDC_LEDTEXT,4,320,381,52,NOT WS_VISIBLE
-    CONTROL         169,IDC_STATIC_HAI_LISTE,"Static",SS_BITMAP | 
-                    SS_REALSIZEIMAGE,4,10,381,160
+    CONTROL         169,IDC_STATIC_HAI_LISTE,"Static",SS_BITMAP | SS_REALSIZEIMAGE,4,10,381,160
     LTEXT           "",IDC_START_INFO,197,328,181,27,NOT WS_VISIBLE
     GROUPBOX        "",IDC_STATIC,392,6,71,366
     PUSHBUTTON      "&Finish",IDC_BUTTON_FINISH,375,367,10,6,NOT WS_VISIBLE
-    PUSHBUTTON      "&Change style",IDC_BUTTON_SWITCH_STYLE,398,72,59,14,NOT 
-                    WS_VISIBLE
+    PUSHBUTTON      "&Change style",IDC_BUTTON_SWITCH_STYLE,398,72,59,14,NOT WS_VISIBLE
     CTEXT           "Statisch",IDC_TIMER,398,148,59,14,SS_CENTERIMAGE
     LTEXT           "Elapsed time:",IDC_STATIC,398,129,43,8
     PUSHBUTTON      "&Load",IDC_BUTTON_LOAD,398,271,59,14,NOT WS_VISIBLE
@@ -1423,8 +1238,7 @@ IDR_MAINFRAME           ICON                    "Bilder\\NumberShark.ico"
 
 IDR_ACCELERATOR1 ACCELERATORS 
 BEGIN
-    "N",            ID_GIVE_REST,           VIRTKEY, SHIFT, CONTROL, 
-                                                    NOINVERT
+    "N",            ID_GIVE_REST,           VIRTKEY, SHIFT, CONTROL, NOINVERT
 END
 
 
@@ -1499,7 +1313,7 @@ BEGIN
     IDS_RULES_2             "While playing the game you can make the shells on the buttons visible and invisible by pressing SHIFT+ALT+C on your keyboard.\r\nThis can help you to read the numbers on the buttons better and to make the game a bit faster.\r\n\r\nYou can get additional help and information by pressing the F1 button.\r\n\r\nThe online help contains a operation manual, a commented sample game course, some information about how the game was developed,\r\nand a challenge for you, which gives you the chance to help us improve the game.\r\n"
     IDS_MAX_POINTS_INFORMATION2 
                             "For %s numbers, the highest attainable score is %s.\r\n\r\nWe can show you the highest possible score, because this value has already been calculated and is stored in the program.\r\n\r\nOne way to achieve the highest possible score is: %s. \r\n"
-    IDS_DISCLAIMER_TEXT     "Please note the terms of licence and the information regarding non \r\nliability for any damage arising from the use of the Number Shark program.\r\n(C) CrypTool Project 2007"
+    IDS_DISCLAIMER_TEXT     "Please note the terms of licence and the information regarding non \r\nliability for any damage arising from the use of the Number Shark program.\r\n(C) CrypTool Project 2010"
     IDS_MAX_POINTS_HEADLINE2 "Maximum number of points and an optimal way"
     IDS_INFO_TEXT           "The Number Shark program was created as an addition to the freeware\r\nand open source project CrypTool: www.cryptool.com"
     IDS_PRIME_INFO          "(prime)"
@@ -1569,21 +1383,22 @@ BEGIN
     IDS_LOGFILE_PLAYER_NUMBERS "\r\nYour chosen numbers: "
     IDS_SEPERATOR           ","
     IDS_TAB_HEADER4         "Accelerators"
-    IDS_ACC_CHANGE          "SHIFT+ALT+C: Change the style of the buttons in the shell square.\r\n\r\n"
+    IDS_ACC_CHANGE          "SHIFT+ALT+C: Changes the style of the buttons in the shell square.\r\n\r\n"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_ACC_LOAD            "SHIFT+ALT+L: Load an existing game.\r\n\r\n"
-    IDS_ACC_SAVE            "SHIFT+ALT+S: Save the current game.\r\n\r\n"
+    IDS_ACC_LOAD            "SHIFT+ALT+L: Loads an existing game.\r\n\r\n"
+    IDS_ACC_SAVE            "SHIFT+ALT+S: Saves the current game.\r\n\r\n"
     IDS_PLAYER_WINS_OPTIMAL2 
                             "Congratulation, you have won against the Number Shark!\r\n\r\nWith %s points you even achieved a higher score than we did.\r\nOur best score was %s points with %s numbers.\r\nPlease send the summary of the game to esslinger@fb5.uni-siegen.de.\r\n\r\n"
     IDS_PLAYER_WINS3        "Congratulation, you have won against the Number Shark!\r\n\r\n If you are looking for a bigger challenge, then try a higher number than %s. \r\n\r\nYou achieved %s points. Until now the highest score we achieved with %s numbers was %s.\r\n\r\n"
     IDS_NUMBER_ONE          "This time the Number Shark won :,-(   \r\n\r\n It has beaten you with %s to %s points.\r\nYou can't win with only one number in the shell square.\r\n\r\n Go -- Try again!\r\n\r\n"
     IDS_LOAD_FAILED         "The file ""%s"" could not be loaded."
+    IDS_ASK_FOR_USER_CANCELLATION "Do you want to cancel the calculation?"
 END
 
-#endif    // Englisch (GB) resources
+#endif    // English (U.K.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
