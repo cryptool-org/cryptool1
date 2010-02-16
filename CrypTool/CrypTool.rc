@@ -30801,7 +30801,7 @@ BEGIN
                             "Secude-Bibliothek konnte nicht geladen werden!\nMit CrypTool wird ""Secude.dll"" ausgeliefert.\nBitte überprüfen Sie, ob sich diese Datei im CrypTool-Verzeichnis befindet."
     IDS_NGRAM_TITLE         "N-Gramm-Liste von %s"
     IDS_FACTORISATION_LIST_DESCRIPTION 
-                            "Die jeweils nächste zusammengesetzte Zahl wird in zwei Faktoren zerlegt:"
+                            "Der jeweils nächste zusammengesetzte Faktor wird in zwei Faktoren zerlegt:"
     IDS_FACTORISATION_LIST_TOTAL_TIME 
                             "Gesamtzeitdauer der Faktorisierungen: %s"
     IDS_FACTORISATION_LIST_CURRENT_FACTORISATION "Faktorisierung"
@@ -41863,7 +41863,7 @@ BEGIN
                             "The Secude library could not be loaded !\n""Secude.dll"" is deliverd with the CrypTool package.\nPlease check whether this file is available in your CrypTool directory."
     IDS_NGRAM_TITLE         "N-Gram List of %s"
     IDS_FACTORISATION_LIST_DESCRIPTION 
-                            "The respective next composite number will be factorized into two factors:"
+                            "The respective next composite factor will be factorized into two factors:"
     IDS_FACTORISATION_LIST_TOTAL_TIME 
                             "Total time of the single factorizations: %s"
     IDS_FACTORISATION_LIST_CURRENT_FACTORISATION "Factorization"

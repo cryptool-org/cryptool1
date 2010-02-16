@@ -240,10 +240,10 @@ void CDlgFactorisationList::OnCancel()
 	ofstream f_Details(outfile);
 
 	LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_HL_INPUT,pc_str,STR_LAENGE_STRING_TABLE);
-    f_Details << pc_str << m_orignNumber << endl;
+    f_Details << pc_str << m_orignNumber << endl << endl;
 	
 	LoadString(AfxGetInstanceHandle(),IDS_FACTORISATION_LIST_DESCRIPTION,pc_str,STR_LAENGE_STRING_TABLE);
-    f_Details << pc_str << endl << endl << endl;
+    f_Details << pc_str << endl << endl;
 	struct DFItem *Seek = List;	
 	while ( Seek != NULL ) 
 	{
@@ -259,7 +259,7 @@ void CDlgFactorisationList::OnCancel()
 				f_Details << pc_str << Seek->Num << endl;
 				LoadString(AfxGetInstanceHandle(),IDS_STRING_EC_PARAM_BITLENGTH,
 					pc_str,STR_LAENGE_STRING_TABLE);
-				f_Details << pc_str << " = " << Seek->BitlengthF1+Seek->BitlengthF2 << endl;
+				f_Details << pc_str << " = " << int(ceil(BitLength(Seek->Num))) << endl;
 				LoadString(AfxGetInstanceHandle(),IDS_DETFACTORISATION_HLMETHOD,
 					pc_str,STR_LAENGE_STRING_TABLE);
 				f_Details << pc_str << ": " << Seek->Method << ".  ";
