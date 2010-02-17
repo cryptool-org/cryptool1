@@ -1502,26 +1502,32 @@ void CMFCZahlenHaiDlg::addOnInformation()
 //wird für die maxPoints benötigt
 void CMFCZahlenHaiDlg::addOn()
 {
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//Multithreading
+	// store the desired upper limit
 	int tempUpperLimit = hai.getUpperLimit();
 
-#if 0
-	AfxBeginThread(maxPointsStatic, (LPVOID)((int)(tempUpperLimit)),THREAD_PRIORITY_BELOW_NORMAL);
-	int r=AfxMessageBox("Soll die Berechnung unterbrochen werden?",MB_OK,MB_ICONQUESTION);
-	if(r==IDOK)
-		endSearch=-1;
-#else
 	// flomar, 02/16/2010
-	// we're using a new approach that speeds up the search (see zhl.{cpp|h} for details) 
-	// start the search thread
-	AfxBeginThread(zhl::maxPointsSearch, (LPVOID)((int)(tempUpperLimit)), THREAD_PRIORITY_BELOW_NORMAL);
+	// we have two options here to calculate the maximum number of possible points: 
+	// (a) the "old" brute-force algorithm or (b) the "new" back-tracking algorithm
+	CString selectSearchAlgorithm; selectSearchAlgorithm.Format(IDS_SELECT_SEARCH_ALGORITHM);
+
+	int selection = AfxMessageBox(selectSearchAlgorithm, MB_YESNO|MB_ICONQUESTION);
+
+	// we go with the new back-tracking algorithm if the user pressed "YES"
+	if(selection == IDYES) {
+		// we're using a new approach that speeds up the search (see zhl.{cpp|h} for details) 
+		AfxBeginThread(zhl::maxPointsSearch, (LPVOID)((int)(tempUpperLimit)), THREAD_PRIORITY_BELOW_NORMAL);
+	}
+	// we go with the old brute-force algorithm otherwise
+	else {
+		AfxBeginThread(maxPointsStatic, (LPVOID)((int)(tempUpperLimit)),THREAD_PRIORITY_BELOW_NORMAL);
+	}
+
 	// we're asking the user if he wants to cancel the search
 	CString question; question.Format(IDS_ASK_FOR_USER_CANCELLATION);
 	if(AfxMessageBox(question, MB_OK|MB_ICONQUESTION) == IDOK) {
-		AfxMessageBox("TODO: cancel search");
+		// indicate we're done with the search
+		endSearch = -1;
 	}
-#endif
 }
 
 //Wenn sich der Fokus über einem der Zahlenbuttons befindet und der Benutzer die Enter Taste drückt, wird dieser Button ausgewählt

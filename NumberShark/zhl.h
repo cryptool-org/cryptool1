@@ -23,6 +23,10 @@
 #pragma once
 #include "assert.h"
 
+// flomar, 02/17/2010
+// this variable indicates if we're done with the search (and want to cancel it)
+extern int endSearch;
+
 class zhl
 {
 public:

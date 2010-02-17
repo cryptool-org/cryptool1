@@ -151,6 +151,7 @@
 #define IDS_NUMBER_ONE                  212
 #define IDS_LOAD_FAILED                 213
 #define IDS_ASK_FOR_USER_CANCELLATION   214
+#define IDS_SELECT_SEARCH_ALGORITHM     215
 #define IDC_LIST2                       1001
 #define IDC_EDIT1                       1007
 #define IDC_BUTTON1                     1008

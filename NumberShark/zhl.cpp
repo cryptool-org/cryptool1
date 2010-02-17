@@ -224,6 +224,10 @@ void zhl::loesungenSuchen(void)
 
 void zhl::loesungenSuchenRek(unsigned short stufe)
 {
+	// flomar, 02/17/2010
+	// in case endSearch is set, we simply return without doing anything else
+	if(endSearch == -1) return;
+
 	// stufe nur zur Überprüfung der Konsistenz vorhanden!
 	// kann später gelöscht werden
 	assert(stufe == anzahlZahlenGewaehlt);
@@ -589,6 +593,9 @@ unsigned short zhl::maxPrime(unsigned short upperLimit)
 UINT zhl::maxPointsSearch(LPVOID param)
 {
 	int upperLimit = (int)((LPVOID)(param));
+
+	// we want to start a new search
+	endSearch = 0;
 
 	// create the zhl object
 	zhl zhlObject(upperLimit);

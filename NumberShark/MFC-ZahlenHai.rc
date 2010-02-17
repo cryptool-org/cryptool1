@@ -494,6 +494,8 @@ BEGIN
     IDS_LOAD_FAILED         "Plik ""%s"" nie móg³ zostaæ za³adowany."
     IDS_ASK_FOR_USER_CANCELLATION 
                             "[i18n] Do you want to cancel the calculation?"
+    IDS_SELECT_SEARCH_ALGORITHM 
+                            "[i18n] The NumberShark contains two different algorithms to determine the maximum number of points possible: The originally available brute-force algorithm was complemented by a new back-tracking algorithm.\n\nThe new algorithm is considerably faster, but at the moment it does not offer any support to continue the search after the program was closed.\n\no you want to use the new algorithm anyway?"
 END
 
 #endif    // Polish resources
@@ -945,6 +947,8 @@ BEGIN
     IDS_NUMBER_ONE          "Diesmal hat der Zahlenhai gewonnen! :,-(  \r\n\r\nEr hat Dich mit %s Punkt zu %s Punkten geschlagen.\r\nWenn nur die Zahl '1' im Muschelfeld liegt, kann man auch nicht gewinnen.\r\n\r\nLos! Versuch es gleich nochmal!\r\n\r\n"
     IDS_LOAD_FAILED         "Die Datei ""%s"" konnte nicht richtig eingelesen werden."
     IDS_ASK_FOR_USER_CANCELLATION "Soll die Berechnung unterbrochen werden?"
+    IDS_SELECT_SEARCH_ALGORITHM 
+                            "Der Zahlenhai beinhaltet zwei verschiedene Algorithmen für die Suche nach der maximalen Punktzahl: Der ursprünglich verfügbare Brute-Force-Algorithmus wurde um einen Back-Tracking-Algorithmus ergänzt.\n\nDer neue Algorithmus ist bedeutend schneller, aber er bietet im Moment noch keine Möglichkeit, den Fortschritt nach Programmende wieder aufzunehmen.\n\nWollen Sie trotzdem den neuen Algorithmus verwenden?"
 END
 
 #endif    // German (Germany) resources
@@ -1396,6 +1400,8 @@ BEGIN
     IDS_NUMBER_ONE          "This time the Number Shark won :,-(   \r\n\r\n It has beaten you with %s to %s points.\r\nYou can't win with only one number in the shell square.\r\n\r\n Go -- Try again!\r\n\r\n"
     IDS_LOAD_FAILED         "The file ""%s"" could not be loaded."
     IDS_ASK_FOR_USER_CANCELLATION "Do you want to cancel the calculation?"
+    IDS_SELECT_SEARCH_ALGORITHM 
+                            "The NumberShark contains two different algorithms to determine the maximum number of points possible: The originally available brute-force algorithm was complemented by a new back-tracking algorithm.\n\nThe new algorithm is considerably faster, but at the moment it does not offer any support to continue the search after the program was closed.\n\no you want to use the new algorithm anyway?"
 END
 
 #endif    // English (U.K.) resources
