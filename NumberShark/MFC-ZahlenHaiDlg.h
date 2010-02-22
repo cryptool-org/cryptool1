@@ -43,6 +43,17 @@
 #include "ColoredListCtrl.h"
 #include "digistatic.h"
 
+#include <map>
+
+// flomar, 02/22/2010
+// this is used for a much clearer code
+struct GameDataBlock {
+	CString limit;
+	CString score;
+	CString sequence;
+	CString sequenceLength;
+	CString leadingPrime;
+};
 
 #define MAX_ZAHLENHAI_BUTTON 30
 #define MIN_ZAHLENHAI_BUTTON 1
@@ -140,7 +151,12 @@ public:
 	void writeSaveGame();
 	void readSaveGame();
 	void calculationResult(int maxEndPoints, int upperLimit);
-		
+	
+	// flomar, 02/22/2010
+	std::map<int, GameDataBlock> mapProved;
+	std::map<int, GameDataBlock> mapBestKnown;
+	CString readGameDataBlock(CString &data);
+
 	CString sumText;
 	CString startInfo;
 	CString gameIdea;

@@ -152,6 +152,7 @@
 #define IDS_LOAD_FAILED                 213
 #define IDS_ASK_FOR_USER_CANCELLATION   214
 #define IDS_SELECT_SEARCH_ALGORITHM     215
+#define IDS_GAME_DATA_FILE_MISSING      216
 #define IDC_LIST2                       1001
 #define IDC_EDIT1                       1007
 #define IDC_BUTTON1                     1008

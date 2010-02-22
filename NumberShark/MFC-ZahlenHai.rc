@@ -349,7 +349,7 @@ BEGIN
     IDS_ABOUTBOX            "&Informacje o Number Shark"
     IDS_RULES               "Opis gry:\n - Na pocz¹tku gry Number Shark mo¿esz wybraæ rozmiar ""shell square"", czyli iloœci liczb, z którymi chcesz zagraæ.\n\n Rozmiar ""shell square"" - n nazywamy ""liczb¹ wybieralnych liczb"". Pula liczb zaczyna siê o 1 \n i koñczy liczb¹, któr¹ wybra³eœ jako rozmiar ""shell square"" (na pocz¹tek sugerujemy liczbê 20).\n\n Po tym wszystkie liczby z ""shell square"" zostan¹ podane albo Tobie albo komputerowi (""Number Shark"").\n\n Mo¿esz przeczytaæ zasady tego, jak dzielone s¹ liczby  w poni¿szym tekœcie\n\nCel gry:\nTwoim celem jest osi¹gn¹æ wiêkszy wynik ni¿ suma liczb, które zosta³y zjedzone przez Number Sharka.\n\nZasady gry:\n - Pierwszy ruch zawsze nale¿y do Ciebie: zawsze Ty rozpoczynasz pierwsz¹ rundê.\n - W tej rundzie mo¿esz wybraæ ka¿d¹ z n liczb z shell square.\n - Number Shark pobiera ka¿dy dostêpny czynnik rzeczywisty liczby wybranej przez Ciebie, jeœli nie zosta³ \n jeszcze wybrany. (na przyk³ad: 6 jest podzielne przez 1,2,3 i 6. Rzeczywistym czynnikiem jest 1,2 i 3).\n - We wszystkich nastêpnych rundach mo¿esz wybraæ tylko liczby, które nie zosta³y ju¿ przez Ciebie wybrane,\n    lub zosta³y zjedzone przez Number Sharka w poprzednich rundach (np.: tylko niebieskie muszelki)\n -ALE: Number Shark mo¿e nigdy siê nie pomyliæ!\n -Jeœli wybierzesz liczbê, która nie ma ju¿ dostêpnych czynników, wówczas Number Shark po³yka Twoj¹ liczbê,\n a Ty otrzymujesz 0 punktów za bie¿¹c¹ rundê."
     IDS_PLAYER_WINS         "Gratulacje, wygra³eœ z Number Sharkiem!\n\n\n\n Jeœli poszukujesz wiêkszego wyzwania, spróbuj liczbê wiêksz¹ ni¿ %s. \n\n\n\nOsi¹gn¹³eœ %s punktów. Najwiêkszy mo¿liwy wynik z %s liczbami wyniós³by %s."
-    IDS_VERSION_INFO        "Number Shark Wersja 1.0"
+    IDS_VERSION_INFO        "[i18n] Number Shark Wersja 1.0"
     IDS_COMPUTER_WINS       "Tym razem Number Shark wygra³:-( \r\n\r\n Wygra³ z Tob¹ %s do %s. \r\n\r\n Spróbuj jeszcze raz! \r\n\r\n"
     IDS_DRAW                "Remis!?!\r\n\r\n To zdarza siê bardzo rzadko! \r\n\r\n Ty i Number Shark macie po % punktów."
     IDS_MAX_POINTS_NEW      "Aby obliczyæ dla %s liczb najwiêkszy wynik z %s punktów \n\n program potrzebowa³ %s sekund. Musia³ przejœæ przez%s wêz³ów. \n\n Najwiêksza liczba pierwsza to %s. Powinieneœ rozpocz¹æ grê od tej w³aœnie liczby, aby osi¹gn¹æ maksymalny wynik.\n\n\n\n To achieve the highest score, you can choose the numbers in this order: %s Aby osi¹gn¹æ najwiêkszy wynik, mo¿esz wybraæ liczby w tej kolejnoœci: %s.\n\n\n\nProszê wys³aæ swoje nowo obliczone wartoœci na esslinger@fb5.uni-siegen.de, aby zintegrowaæ je z gr¹."
@@ -418,7 +418,7 @@ BEGIN
     IDS_SHARK_AGAINST       "przeciwko"
     IDS_GAME_DATA           "GameData.txt"
     IDS_HELP_FILE           "NumberShark-pl.chm::/NumberShark_Manual.html"
-    IDS_TITLE_VERSION       "- Wersja 1.0"
+    IDS_TITLE_VERSION       "[i18n] - Wersja 1.0"
 END
 
 STRINGTABLE 
@@ -803,7 +803,7 @@ BEGIN
     IDS_ABOUTBOX            "&Info über den Zahlenhai..."
     IDS_RULES               "Beschreibung:\r\n - Im Zahlenhai-Spiel entscheidet man sich zu Beginn für die Größe des Muschelfeldes, also mit wie viel Zahlen man spielen möchte.\r\n    Diese Größe des Muschelfeldes bezeichnen wir mit ""n"" und nennen sie die ""Anzahl der auswählbaren Zahlen"". Der Zahlenvorrat beginnt bei 1\r\n    und geht bis zu der Zahl, die Du als Größe für das Muschelfeld ausgewählt hast (vorgeschlagen ist zu Beginn die Zahl 20).\r\n    Danach werden alle Zahlen aus dem Zahlenvorrat nach den Regeln, die Du weiter unten findest, zwischen Dir und dem Computer (""Zahlenhai"") aufgeteilt.\r\n - Standardmäßig sind beim Start des Spiels 20 Zahlen in dem Muschelfeld eingestellt. Du kannst als Gesamtzahl n jede Zahl von 1 bis 9999 wählen.\r\n\r\nZiel:\r\n - Dein Ziel ist es, dass die Summe Deiner Zahlen größer ist als die Summe aller Zahlen, die der Zahlenhai gefressen hat.\r\n\r\nRegeln:\r\n - Du hast immer den ersten Zug, d.h. Du beginnst die erste Runde.\r\n - In der ersten Runde kannst Du Dir eine beliebige Zahl aus dem Zahlenvorrat auswählen\r\n   (der Zahlenvorrat umfasst n Zahlen und wird im Muschelfeld angezeigt).\r\n - Immer bekommt der Zahlenhai von der ausgewählten Zahl alle echten Teiler, sofern diese noch nicht ausgewählt wurden\r\n   (6 ist zum Beispiel teilbar durch 1,2,3,6. Die echten Teiler sind 1,2,3).\r\n - In allen darauf folgenden Runden kannst Du nur Zahlen wählen, die Du vorher noch nicht gewählt hast und die\r\n    noch nicht vom Zahlenhai gefressen wurden (also nur die blauen Muscheln).\r\n - ABER: Der Zahlenhai darf nie leer ausgehen!\r\n - Wählst Du eine Zahl, deren Teiler alle schon verteilt wurden, so bekommt der Zahlenhai die gewählte Zahl\r\n    und Du erhältst 0 Punkte in dieser Runde.\r\n\r\n"
     IDS_PLAYER_WINS         "Glückwunsch, Du hast gegen den Zahlenhai gewonnen!\r\nWenn Du eine größere Herausforderung suchst, dann nimm eine höhere Zahl als %s.\r\n\r\nDu hast %s Punkte erreicht. Maximal wären bei %s Zahlen %s Punkte möglich gewesen.\r\n\r\n"
-    IDS_VERSION_INFO        "Zahlenhai Version 1.1.5"
+    IDS_VERSION_INFO        "Zahlenhai Version 1.2"
     IDS_COMPUTER_WINS       "Diesmal hat der Zahlenhai gewonnen! :,-(  \r\n\r\nEr hat Dich mit %s Punkten zu %s Punkten geschlagen.\r\n\r\nLos! Versuch es gleich nochmal!\r\n\r\n"
     IDS_DRAW                "Unentschieden!?!\r\n\r\nDas kommt nur sehr selten vor!\r\n\r\nDu und der Zahlenhai haben jeweils %s Punkte.\r\n\r\n"
     IDS_MAX_POINTS_NEW      "Um bei %s Zahlen die maximal mögliche Punktezahl von %s Punkten zu berechnen,\r\nhat das Programm %s Sekunden benötigt und musste dabei %s Knoten durchlaufen.\r\n\r\nDie höchste Primzahl ist %s. Mit dieser Zahl musst Du das Spiel beginnen, um die maximal mögliche Punktzahl \r\nerreichen zu können.\r\n\r\nDie höchste Punktzahl kannst Du unter anderem mit folgender\r\nZugfolge (Weg) erreichen: %s .\r\n\r\nBitte sende Deine neu berechneten Werte an esslinger@fb5.uni-siegen.de , damit wir diese in das Spiel einbinden können."
@@ -872,7 +872,7 @@ BEGIN
     IDS_SHARK_AGAINST       " gegen "
     IDS_GAME_DATA           "GameData.txt"
     IDS_HELP_FILE           "NumberShark-de.chm::/NumberShark.html"
-    IDS_TITLE_VERSION       " - Version 1.1.5"
+    IDS_TITLE_VERSION       " - Version 1.2"
 END
 
 STRINGTABLE 
@@ -949,6 +949,8 @@ BEGIN
     IDS_ASK_FOR_USER_CANCELLATION "Soll die Berechnung unterbrochen werden?"
     IDS_SELECT_SEARCH_ALGORITHM 
                             "Der Zahlenhai beinhaltet zwei verschiedene Algorithmen für die Suche nach der maximalen Punktzahl: Der ursprünglich verfügbare Brute-Force-Algorithmus wurde um einen Back-Tracking-Algorithmus ergänzt.\n\nDer neue Algorithmus ist bedeutend schneller, aber er bietet im Moment noch keine Möglichkeit, den Fortschritt nach Programmende wieder aufzunehmen.\n\nWollen Sie trotzdem den neuen Algorithmus verwenden?"
+    IDS_GAME_DATA_FILE_MISSING 
+                            "Die Datei mit den Spieldaten (%s) konnte nicht gefunden werden. Sie muss im gleichen Verzeichnis liegen wie die Programmdatei des Zahlenhais.\n\nOhne die Spieldaten ist nicht die volle Funktionalität des Zahlenhais verfügbar."
 END
 
 #endif    // German (Germany) resources
@@ -1256,7 +1258,7 @@ BEGIN
     IDS_ABOUTBOX            "&Information about the Number Shark"
     IDS_RULES               "Description:\r\n - At the beginning of the Number Shark game you choose the size of the shell square, this is the amount of numbers you want to play with.\r\n    We name the size of the shell square with ""n"" and call it the ""count of selectable numbers"". The pool of numbers starts with 1\r\n    and ends with the number which you have chosen for the size of the shell square (we suggest the number 20 for the beginning).\r\n    After that all numbers from the shell square will be given to either you or the computer (""Number Shark"").\r\n    You can read the rules of how the numbers are divided below in the text.\r\n - By default, there are 20 numbers in the shell square. As total number you can select every number from 1 to 9999 for n.\r\n\r\nGoal of the game:\r\n - It is your goal to achieve a higher score than the sum of the numbers that were eaten by the Number Shark.\r\n\r\nRules:\r\n - You always have the first turn, i.e. you are starting the first round.\r\n - In this round you can choose any of the n numbers from the shell square.\r - The Number Shark gets every available real factor of the number selected by you, if they have not been chosen yet\r\n    (6 for example is divisible by 1, 2, 3 and 6. The real factors are 1, 2 and 3).\r\n - In all subsequent rounds you can only choose numbers which have not been chosen by you,\r\n    or were eaten by the Number Shark in previous rounds (i.e. only the blue shells).\r\n - BUT: The Number Shark may never miss out!\r\n - If you choose a number which has no more factors, then the Number Shark gets your chosen number and you get 0 points in this round.\r\n\r\n"
     IDS_PLAYER_WINS         "Congratulation, you have won against the Number Shark!\r\n\r\n If you are looking for a bigger challenge, then try a higher number than %s. \r\n\r\nYou achieved %s points. The highest possible score with %s numbers would have been %s.\r\n\r\n"
-    IDS_VERSION_INFO        "Number Shark Version 1.1.5"
+    IDS_VERSION_INFO        "Number Shark Version 1.2"
     IDS_COMPUTER_WINS       "This time the Number Shark won :,-(   \r\n\r\n It has beaten you with %s to %s points.\r\n\r\n Go -- Try again!\r\n\r\n"
     IDS_DRAW                "Draw!?!\r\n\r\nThis happens only very seldom!\r\n\r\nYou and the Number Shark have %s points each.\r\n\r\n"
     IDS_MAX_POINTS_NEW      "To calculate for %s numbers the highest score of %s points\r\nthe program needed %s seconds. It had to pass through %s knots.\r\nThe highest prime number here is %s. You should start the game with this prime to be able to reach the maximum score.\r\n\r\nTo achieve the highest score, you can choose the numbers in this order: %s\r\n\r\nPlease send your new calculated values to esslinger@fb5.uni-siegen.de so that we can itegrate them into the game."
@@ -1325,7 +1327,7 @@ BEGIN
     IDS_SHARK_AGAINST       " against "
     IDS_GAME_DATA           "GameData.txt"
     IDS_HELP_FILE           "NumberShark-en.chm::/NumberShark.html"
-    IDS_TITLE_VERSION       " - Version 1.1.5"
+    IDS_TITLE_VERSION       " - Version 1.2"
 END
 
 STRINGTABLE 
@@ -1402,6 +1404,8 @@ BEGIN
     IDS_ASK_FOR_USER_CANCELLATION "Do you want to cancel the calculation?"
     IDS_SELECT_SEARCH_ALGORITHM 
                             "The NumberShark contains two different algorithms to determine the maximum number of points possible: The originally available brute-force algorithm was complemented by a new back-tracking algorithm.\n\nThe new algorithm is considerably faster, but at the moment it does not offer any support to continue the search after the program was closed.\n\no you want to use the new algorithm anyway?"
+    IDS_GAME_DATA_FILE_MISSING 
+                            "The game data file (%s) was not found. It needs to be placed in the same folder as the NumberShark executable.\n\nWithout the game data file some functions will remain unavailable."
 END
 
 #endif    // English (U.K.) resources

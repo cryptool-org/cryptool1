@@ -82,26 +82,19 @@ listenHeader columnheader[NUM_COLUMNS]={
 	{IDS_REST,LVCFMT_RIGHT,55}
 };
 
-//Array enhält die bereits berechneten maximalen Punktezahlen 
-//Das muss noch weg. Dafür soll die Anzahl der Zelen aus der Spieldaten.txt herausgelesen werden
-int maxPossiblePoints[] = {0,2,3,7,9,15,17,21,30,40,44,50,52,66,81,89,93,111,113,124,144,166};
+// flomar, 22/02/2010
+// these arrays holds the maximum points possible for each upper limit (zero-based index); 
+// the first map holds PROVEN values, while the second map holds BEST-KNOWN values;
+// however, we only default to those hard-wired arrays if we cannot read from "GameData.txt" 
+int maxPossiblePointsProven[] = { 1, 2, 3, 7, 9, 15, 17, 21, 30, 40, 44, 50, 52, 66, 81, 89, 93, 111, 113, 124, 144, 166, 170, 182, 198, 224, 251, 279, 285, 301, 303, 319, 352, 386, 418, 442, 448, 486, 503, 525, 529, 571, 573, 617, 660, 706, 710, 734, 758, 808, 833, 885, 891, 940, 981, 1017, 1040, 1098, 1104, 1137, 1139, 1201, 1264, 1296, 1328, 1394, 1400, 1468, 1499, 1566, 1570, 1642, 1644, 1718, 1793, 1869, 1914, 1991, 1997, 2041, 2105, 2187, 2191, 2263, 2309, 2395, 2436, 2496, 2502, 2552, 2588, 2680, 2715, 2809, 2853, 2901, 2909, 3007, 3106, 3164, 3168, 3270, 3272, 3332, 3434, 3540, 3544, 3652, 3654, 3764, 3813, 3925, 3929, 4043, 4101, 4217, 4334, 4452, 4506, 4593, 4689, 4811, 4860, 4984, 5109, 5191, 5205, 5301, 5348, 5478, 5482, 5572, 5620, 5754, 5844, 5928, 5934, 6072, 6074, 6164, 6219, 6361, 6427, 6523, 6599, 6745, 6892, 7040, 7050, 7137, 7139, 7223, 7376, 7530, 7598, 7688, 7694, 7852 };
+int maxPossiblePointsBestKnown[] = { 7902, 8005, 8071, 8233, 8239, 8403, 8568, 8734, 8738, 8906, 8954, 9124 };
+
 UINT_PTR timer=0;
 int sekunden=0;
 int minuten=0;
 int a=1;
 CString presTimer="";
 CString seperator="";
-
-const int yAchse = 100;
-const int xAchse = 4;
-
-//const int yAchse=sizeof(maxPossiblePoints)/sizeof(int);
-//const int xAchse=4;
-
-CString proofedOptimal[yAchse][xAchse];
-int proofed = 0;
-CString bestKnownOptimal[yAchse][xAchse];
-int bestKnown = 0;
 
 CString optionenSetting="";
 CString toolTipSetting="";
@@ -1014,11 +1007,12 @@ void CMFCZahlenHaiDlg::OnStopTimer()
 //Weiter Spieloptionen
 void CMFCZahlenHaiDlg::OnBnClickedButtonOption()
 {
-	//controlUpperLimit = 0 -> upperLimit <= 22
-	//controlUpperLimit = 1 -> upperLimit > 22
-	//controlUpperLimit = 2 -> nur am Spielstart, keine Option auswählbar
+	// flomar, 02/22/2010
+	//controlUpperLimit = 0 -> upperLimit <= limit up to which we already have hard-coded results
+	//controlUpperLimit = 1 -> upperLimit > limit up to which we already have hard-coded results
+	//controlUpperLimit = 2 -> just for the start of the game: no options can be chosen
 	optionen.calcUpperLimit=hai.getUpperLimit();
-	if(hai.getUpperLimit() <= sizeof(maxPossiblePoints)/sizeof(int))
+	if(hai.getUpperLimit() <= sizeof(maxPossiblePointsProven)/sizeof(int))
 		optionen.controlUpperLimit=0;
 	else
 		optionen.controlUpperLimit=1;
@@ -1345,16 +1339,16 @@ void CMFCZahlenHaiDlg::writeLogFile()
 	int upperLimit=hai.getUpperLimit();
 	//Wenn die maximale Punktezahl für die gewählte Zahl schonmal berechnet wurde, wird das errechnete Ergebnis
 	//auch mit in der Zusammenfassung angegeben
-	if(upperLimit <= sizeof(maxPossiblePoints)/sizeof(int))
+	if(upperLimit <= sizeof(maxPossiblePointsProven)/sizeof(int))
 	{
      	CString logfileMaxPoints;
 		logfileMaxPoints.LoadString(IDS_LOGFILE_MAXPOINTS);
-		if(upperLimit <= proofed)
-            file.WriteString(logfileMaxPoints+ proofedOptimal[upperLimit-1][2]);
+		if(upperLimit <= mapProved.size())
+			file.WriteString(logfileMaxPoints + mapProved[upperLimit].score);
 		else
 		{
-			if(upperLimit <= bestKnown)
-				file.WriteString(logfileMaxPoints+ bestKnownOptimal[upperLimit-1][2]);
+			if(upperLimit <= mapBestKnown.size())
+				file.WriteString(logfileMaxPoints + mapBestKnown[upperLimit].score);
 		}
 	}
 
@@ -1428,14 +1422,14 @@ int CMFCZahlenHaiDlg::winner()
 			m_LedWinner.SetText(ledDraw);
 		}
 	}*/
-	if(upperLimit <= proofed)
-        summary.uebergeben(this->hai, exePathSummary, summaryName,proofed,bestKnown,atoi(proofedOptimal[upperLimit-1][2]));
+	if(upperLimit <= mapProved.size())
+		summary.uebergeben(this->hai, exePathSummary, summaryName, mapProved.size(), mapBestKnown.size(), atoi(mapProved[upperLimit].score));
 	else
 	{
-		if(upperLimit <= bestKnown+proofed)
-			summary.uebergeben(this->hai, exePathSummary, summaryName,proofed,bestKnown,atoi(bestKnownOptimal[upperLimit-proofed-1][2]));
+		if(upperLimit <= mapBestKnown.size())
+			summary.uebergeben(this->hai, exePathSummary, summaryName, mapProved.size(), mapBestKnown.size(), atoi(mapBestKnown[upperLimit].score));
 		else
-			summary.uebergeben(this->hai, exePathSummary, summaryName,proofed,bestKnown,atoi(bestKnownOptimal[upperLimit-proofed-1][2]));
+			summary.uebergeben(this->hai, exePathSummary, summaryName, mapProved.size(), mapBestKnown.size(), atoi(mapBestKnown[upperLimit].score));
 	}
 	summary.DoModal();
 	
@@ -1477,7 +1471,7 @@ void CMFCZahlenHaiDlg::addOnInformation()
 		if(optionen.showMax)
 		{
 			CString answer;
-			answer.Format(IDS_MAX_POINTS_INFORMATION, sepUpperLimit, hai.setSeperator(maxPossiblePoints[upperLimit-1]), sepUpperLimit, hai.setSeperator(maxPrime(upperLimit)));
+			answer.Format(IDS_MAX_POINTS_INFORMATION, sepUpperLimit, hai.setSeperator(maxPossiblePointsProven[upperLimit-1]), sepUpperLimit, hai.setSeperator(maxPrime(upperLimit)));
 			CString fileName;
 			fileName.LoadString(IDS_GAME_DATA);
 			CString directory;
@@ -1488,10 +1482,10 @@ void CMFCZahlenHaiDlg::addOnInformation()
 			//Gibt dem Spieler die Möglichkeit sich den optimalen Weg mit anzeigen zu lassen
 			if(r==IDYES)
 			{
-				if(proofedOptimal[upperLimit-1][2]=="")
+				if(mapProved.find(upperLimit) == mapProved.end())
 					answer.Format(IDS_MAX_POINTS_INFORMATION_NOVALUE, fileName, directory);
 				else
-					answer.Format(IDS_MAX_POINTS_INFORMATION2, sepUpperLimit, hai.setSeperator(atoi(proofedOptimal[upperLimit-1][2])),proofedOptimal[upperLimit-1][1]);
+					answer.Format(IDS_MAX_POINTS_INFORMATION2, sepUpperLimit, hai.setSeperator(atoi(mapProved[upperLimit].score)), mapProved[upperLimit].sequence);
 				MessageBox(answer,headline, MB_ICONINFORMATION | MB_OK);
 			}
 		}
@@ -1875,99 +1869,95 @@ void CMFCZahlenHaiDlg::nextFreeButtonBelow(int buttonID, int maxStepsLeft, int m
 //kommentieren
 void CMFCZahlenHaiDlg::readGameData()
 {
-    CStdioFile GameData;
-	CString Line="";
-	CString Teil="";
-	CString fileName="";
-	fileName.LoadString(IDS_GAME_DATA);
+	// flomar, 02/22/2010
+	// complete re-write of this function along with a new file format for the game data file
 
-	//Versuch die Datei "GameData.txt" zu öffnen
-	BOOL openOk = GameData.Open(fileName,CFile::modeRead);
+	// file handle
+  CStdioFile gameDataFile;
+	// file name
+	CString gameDataFileName;
+	gameDataFileName.LoadString(IDS_GAME_DATA);
 
-	//wenn sich die Datei öffnen lässt(also vorhanden ist)
-	if(openOk)
-	{
-        int Stelle=0;
-		CString proofedZeile="";
-		GameData.ReadString(proofedZeile);
-		proofedZeile.Delete(0,8);
-		proofed = atoi(proofedZeile);
-		GameData.ReadString(Line);
-		for(int i=0; i<proofed; i++)
-	    {
-			int count = 0;
-			GameData.ReadString(Line);
-			while(count<4)
-			{
-				//Wenn die Zeile 1 ("proofed 22") oder die Zeile 26 ("best known") erreicht wird
-				//Bei Zeile 1 soll die Nummer ausgelesen werden und als yAchse-Wert der Elemente
-				//für das proofedOptimal Array verwendet werden
-
-				//Wenn die Zeile best known erreicht wird dann soll jeder folgende Wert in das Array
-				//bestKnownOptimal geschrieben werden
-				Stelle=Line.Find(":",Stelle);
-				if(Stelle > -1)
-				{
-					proofedOptimal[i][count]=Line.Left(Stelle);
-				}
-				else
-				{
-					Stelle=Line.Find("|",0);
-					proofedOptimal[i][count]=Line.Left(Stelle);
-					count = 4;
-				}
-				count++;
-				Line.Delete(0,Stelle+1);
-				Stelle = 0;
+	// try to open the game data file
+	if(gameDataFile.Open(gameDataFileName, CFile::modeRead)) {
+		// we have two differenct sections ("proved" and "best known")
+		CString section;
+		// we read one line at a time
+		CString line;
+		// we go through all lines in the game data file
+		while(gameDataFile.ReadString(line)) {
+			// remove leading/trailing whitespaces
+			line.Trim();
+			// ignore empty lines and those starting with # (for comments)
+			if(line.Find("#") == 0 || line.GetLength() == 0) continue;
+			
+			// check if we need to change the section
+			if(line.Find("proved") == 0) {
+				section = "proved";
+				continue;
 			}
-		}
-		
-		GameData.ReadString(Line);
-		
-		CString bestKnownZeile="";
-		GameData.ReadString(bestKnownZeile);
-		bestKnownZeile.Delete(0,11);
-		bestKnown = atoi(bestKnownZeile);
-		GameData.ReadString(Line);
-		bestKnown = bestKnown-proofed;
-
-		for(int i=0; i<bestKnown; i++)
-	    {
-			int count = 0;
-			GameData.ReadString(Line);
-			while(count<4)
-			{
-				//Wenn die Zeile 1 ("proofed 22") oder die Zeile 26 ("best known") erreicht wird
-				//Bei Zeile 1 soll die Nummer ausgelesen werden und als yAchse-Wert der Elemente
-				//für das proofedOptimal Array verwendet werden
-
-				//Wenn die Zeile best known erreicht wird dann soll jeder folgende Wert in das Array
-				//bestKnownOptimal geschrieben werden
-				Stelle=Line.Find(":",Stelle);
-				if(Stelle > -1)
-				{
-					bestKnownOptimal[i][count]=Line.Left(Stelle);
-				}
-				else
-				{
-					Stelle=Line.Find("|",0);
-					bestKnownOptimal[i][count]=Line.Left(Stelle);
-					count = 4;
-				}
-				count++;
-				Line.Delete(0,Stelle+1);
-				Stelle = 0;
+			if(line.Find("best known") == 0) {
+				section = "best known";
+				continue;
 			}
-		}
 
-		GameData.Close();
+			// create a game data block
+			GameDataBlock gameDataBlock;
+			// extract the necessary information
+			gameDataBlock.limit = readGameDataBlock(line);
+			gameDataBlock.score = readGameDataBlock(line);
+			gameDataBlock.sequence = readGameDataBlock(line);
+			gameDataBlock.sequenceLength = readGameDataBlock(line);
+			gameDataBlock.leadingPrime = readGameDataBlock(line);
+
+			if(section == "proved") mapProved[atoi(gameDataBlock.limit)] = gameDataBlock;
+			if(section == "best known") mapBestKnown[atoi(gameDataBlock.limit)] = gameDataBlock;
+		}
 	}
-	else
-	{
-		proofed = sizeof(maxPossiblePoints)/sizeof(int);
-		bestKnown = 33;
+	// dump a warning message
+	else {
+		CString missingFileName; missingFileName.Format(IDS_GAME_DATA);
+		CString message; message.Format(IDS_GAME_DATA_FILE_MISSING, missingFileName);
+		CString title; title.Format(IDS_NUMBER_SHARK);
+		MessageBox(message, title, MB_ICONWARNING);
+		return;
 	}
-	
+
+	// close file handle
+	gameDataFile.Close();
+}
+
+CString CMFCZahlenHaiDlg::readGameDataBlock(CString &data)
+{
+	// flomar, 02/22/2010
+	// this function takes the first block of data from the variable passed in, 
+	// cuts it off (note: variable is a reference!) and returns it; the data 
+	// parameter passed in is supposed to consist of "blocks of data" separated 
+	// by colons (see "GameData.txt for details)
+
+	// we will store the data block in this variable
+	CString dataBlock;
+
+	// find the first colon
+	int index = data.Find(":");
+
+	// ignore everything past this first colon (including the colon itself)
+	if(index != -1) {
+		// extract data block
+		dataBlock = data.Left(index);
+		// cut off data block from reference variable
+		data.Delete(0, index + 1);
+	}
+	// if there is no colon, we might be at the end of the data block
+	else {
+		// extract data block
+		dataBlock = data;
+		// delete reference variable
+		data.Empty();
+	}
+
+	// return the extracted data block
+	return dataBlock;
 }
 void CMFCZahlenHaiDlg::WinHelp(DWORD dwData, UINT nCmd)
 {
